@@ -1423,5 +1423,6 @@
     setTimeout(() => idle(refreshIPA), 15000);
     if (isIOS()) setTimeout(() => App.installNudge && App.installNudge(), 25000);
   };
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else setTimeout(boot, 0);
+  // Script nạp kiểu defer: chờ DOMContentLoaded (lúc mọi script đã chạy xong) rồi mới khởi động app
+  if (document.readyState === 'loading' || !window.__lkReady) document.addEventListener('DOMContentLoaded', boot, { once: true }); else setTimeout(boot, 0);
 })();

@@ -2,6 +2,7 @@
  * Ngôn ngữ: lựa chọn đã lưu → ngôn ngữ trình duyệt → mặc định English. Chỉ nạp file của ngôn ngữ đang dùng.
  * Nội dung học (nghĩa từ, giải thích) theo "ngôn ngữ người học" (learnLang) – mặc định theo giao diện. */
 (function (g) {
+  if (g.document) g.document.addEventListener('DOMContentLoaded', () => { g.__lkReady = 1; });
   const LANGS = {
     en: ['English', 'English'], vi: ['Vietnamese', 'Tiếng Việt'], es: ['Spanish', 'Español'], pt: ['Portuguese', 'Português'], fr: ['French', 'Français'],
     de: ['German', 'Deutsch'], id: ['Indonesian', 'Bahasa Indonesia'], th: ['Thai', 'ไทย'], zh: ['Chinese (Simplified)', '简体中文'], ja: ['Japanese', '日本語'],
@@ -49,8 +50,8 @@
     if (RTL.has(lang)) document.documentElement.dir = 'rtl';
     // Nạp đồng bộ đúng 1 file ngôn ngữ trước khi các module khác chạy (giao diện không bị nhảy chữ)
     if (lang !== 'vi' && document.readyState === 'loading' && document.currentScript) {
-      document.write(`<script src="js/i18n/en.js"><\/script>`);
-      if (lang !== 'en') document.write(`<script src="js/i18n/${lang}.js"><\/script>`);
+      document.write(`<script src="js/i18n/en.js" defer><\/script>`);
+      if (lang !== 'en') document.write(`<script src="js/i18n/${lang}.js" defer><\/script>`);
     }
     // Tiêu đề & mô tả trang theo ngôn ngữ (Google đọc được tiêu đề do JS đặt) – khóa dịch nằm trong từ điển giao diện
     const TITLE = 'Lexkite – Học từ vựng IELTS & TOEIC miễn phí: flashcard FSRS, từ điển, thi thử';
