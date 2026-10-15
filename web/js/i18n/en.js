@@ -2460,6 +2460,10 @@
   'Chủ đề ngẫu nhiên': 'Random topic',
   '{n} chủ đề': '{n} topics',
   'Mẹo thi, từ vựng theo chủ đề, phương pháp học': 'Exam tips, topic vocabulary, study methods',
+  'Chào bạn, mình là Kit! Vài câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.': 'Hi, I’m Kit! A few quick questions and I’ll build a plan just for you.',
+  'Điểm TOEIC mục tiêu?': 'Your target TOEIC score?',
+  'Band TOEFL mục tiêu?': 'Your target TOEFL band?',
+  'Trình độ bạn muốn đạt?': 'What level do you want to reach?',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* Thống nhất thuật ngữ khi nhiều nhóm dùng chung 1 khóa */
