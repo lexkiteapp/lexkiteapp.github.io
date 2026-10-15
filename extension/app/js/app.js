@@ -487,15 +487,17 @@
     return `<a class="card hover topic-card" href="#/topic/${tp.id}" style="color:var(--text)">
       <div class="row between nowrap"><span class="em">${tp.emoji}</span>${ring(pct, `${n}/${tp.words.length}`, pct === 100 ? 'var(--good)' : '')}</div>
       <h3>${esc(tp.name)}</h3>
-      <div class="muted small" style="min-height:2.6em">${esc(tp.desc)}</div>
-      <div class="row"><span class="chip">${t('{n} từ', { n: tp.words.length })}</span>${lv ? `<span class="chip">${esc(lv)}</span>` : ''}</div>
+      <div class="muted small clamp2">${esc(tp.desc)}</div>
+      <div class="tiny muted topic-meta">${t('{n} từ', { n: tp.words.length })}${lv ? ' · ' + esc(lv) : ''}</div>
     </a>`;
   }
   App.topicCard = topicCard;
 
   // ================= THƯ VIỆN =================
   routes.library = function (arg, query) {
-    const tab = query.get('g') || 'all';
+    // Mặc định mở đúng nhóm theo kỳ thi; người đang học dở → "Đang học"
+    const ex = App.exam ? App.exam() : 'ielts';
+    const tab = query.get('g') || (Object.keys(state.cards).length >= 10 ? 'mine' : ({ toeic: 'toeic', toefl: 'exam', general: 'core' })[ex] || 'topics');
     const total = Object.keys(INDEX).length;
     view.innerHTML = `
       <div class="page-head"><div><h1>${t('Thư viện từ vựng')}</h1><p class="muted">${t('{n} từ & cụm từ trong {k} bộ – phiên âm Anh–Anh, cấp độ CEFR, collocation và câu ví dụ IELTS.', { n: total.toLocaleString(I18N.lang()), k: TOPICS.length })}</p></div>
@@ -516,12 +518,16 @@
         const mineHtml = gr.id === 'mine' ? personalCollections() : '';
         if (!ts.length) return gr.id === 'mine' ? (mineHtml || `<div class="card empty"><div class="em">📌</div>${t('Bạn chưa lưu từ nào. Tra từ, đọc bài hoặc dùng add-on khi xem YouTube để bắt đầu.')}</div>`) : '';
         if (mineHtml) return mineHtml + `<div class="section-title"><h2>📚 ${t('Bộ từ IELTS đang học')}</h2></div><div class="grid auto">${ts.map(topicCard).join('')}</div>`;
-        return `<div class="section-title" style="margin-top:${g === 'all' ? '1.6rem' : '0'}"><h2>${gr.emoji} ${esc(gr.name)}</h2><span class="muted small">${esc(gr.desc)}</span></div>
-          <div class="grid auto">${ts.map(topicCard).join('')}</div>`;
+        // Tab "Tất cả": mỗi nhóm chỉ 6 bộ đầu + nút xem hết → không bị ngợp
+        const cut = g === 'all' && !q && ts.length > 6;
+        return `<div class="section-title" style="margin-top:${g === 'all' ? '1.6rem' : '0'}"><h2>${gr.emoji} ${esc(gr.name)}</h2>${cut ? `<a href="#/library?g=${gr.id}" data-go-g="${gr.id}">${t('Xem cả {n} bộ', { n: ts.length })} →</a>` : `<span class="muted small">${esc(gr.desc)}</span>`}</div>
+          <div class="grid auto">${(cut ? ts.slice(0, 6) : ts).map(topicCard).join('')}</div>`;
       }).join('') || `<div class="card empty"><div class="em">🔍</div>${t('Không tìm thấy bộ từ phù hợp.')}</div>`;
     };
     $$('#libTabs button').forEach(b => b.onclick = () => { $$('#libTabs button').forEach(x => x.classList.toggle('on', x === b)); history.replaceState(null, '', `#/library?g=${b.dataset.g}`); draw(); });
     $('#libQ').oninput = draw;
+    $('#libBody').onclick = e => { const a = e.target.closest('[data-go-g]'); if (!a) return; e.preventDefault(); const b = $(`#libTabs [data-g="${a.dataset.goG}"]`); if (b) { b.click(); b.scrollIntoView({ inline: 'center', block: 'nearest' }); window.scrollTo(0, 0); } };
+    if (!$('#libTabs .on')) { const b = $('#libTabs [data-g="topics"]') || $('#libTabs button'); b.classList.add('on'); }
     draw();
   };
 

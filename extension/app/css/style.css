@@ -1110,3 +1110,5 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
 .g-row b { font-weight: 600; }
 .g-test { color: var(--primary); }
 @media (max-width: 640px) { .g-prog { width: 56px; } .g-chap > summary small { display: none; } }
+.clamp2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.6em; }
+.topic-meta { font-weight: 700; margin-top: auto; }
