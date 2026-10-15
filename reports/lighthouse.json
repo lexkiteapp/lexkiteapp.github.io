@@ -1,32 +1,27 @@
 {
  "home": {
   "url": "https://lexkite.com/#/welcome",
-  "at": "2026-10-15T05:43:52.125Z",
+  "at": "2026-10-15T05:48:58.279Z",
   "scores": {
-   "performance": 56,
+   "performance": 76,
    "accessibility": 96,
    "best-practices": 100,
    "seo": 100
   },
   "metrics": {
-   "first-contentful-paint": "2.8 s",
-   "largest-contentful-paint": "4.9 s",
-   "total-blocking-time": "910 ms",
-   "cumulative-layout-shift": "0",
-   "speed-index": "3.0 s"
+   "first-contentful-paint": "1.8 s",
+   "largest-contentful-paint": "6.7 s",
+   "total-blocking-time": "0 ms",
+   "cumulative-layout-shift": "0.001",
+   "speed-index": "1.8 s"
   },
   "fails": [
-   "First Contentful Paint – 2.8 s",
-   "Largest Contentful Paint – 4.9 s",
-   "Total Blocking Time – 910 ms",
-   "Max Potential First Input Delay – 800 ms",
-   "Time to Interactive – 7.3 s",
-   "Minimize main-thread work – 5.2 s",
-   "Reduce JavaScript execution time – 1.7 s",
+   "Largest Contentful Paint – 6.7 s",
+   "Time to Interactive – 6.7 s",
    "Background and foreground colors do not have a sufficient contrast ratio.",
    "Elements with visible text labels do not have matching accessible names.",
    "Serve static assets with an efficient cache policy – 4 resources found",
-   "Reduce unused CSS – Potential savings of 18 KiB",
+   "Reduce unused CSS – Potential savings of 17 KiB",
    "Reduce unused JavaScript – Potential savings of 52 KiB",
    "Remove duplicate modules in JavaScript bundles – Potential savings of 2 KiB",
    "Avoid serving legacy JavaScript to modern browsers – Potential savings of 9 KiB",
@@ -35,7 +30,7 @@
  },
  "vi/blog/": {
   "url": "https://lexkite.com/vi/blog/",
-  "at": "2026-10-15T05:44:45.930Z",
+  "at": "2026-10-15T05:49:34.140Z",
   "scores": {
    "performance": 100,
    "accessibility": 95,
@@ -44,7 +39,7 @@
   },
   "metrics": {
    "first-contentful-paint": "0.8 s",
-   "largest-contentful-paint": "0.8 s",
+   "largest-contentful-paint": "0.9 s",
    "total-blocking-time": "0 ms",
    "cumulative-layout-shift": "0",
    "speed-index": "0.8 s"
