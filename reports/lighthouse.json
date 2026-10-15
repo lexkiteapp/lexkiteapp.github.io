@@ -1,37 +1,42 @@
 {
  "home": {
   "url": "https://lexkite.com/#/welcome",
-  "at": "2026-10-15T07:14:53.147Z",
+  "at": "2026-10-15T12:34:36.740Z",
   "scores": {
-   "performance": 79,
+   "performance": 47,
    "accessibility": 96,
    "best-practices": 100,
    "seo": 100
   },
   "metrics": {
-   "first-contentful-paint": "1.7 s",
+   "first-contentful-paint": "2.1 s",
    "largest-contentful-paint": "5.5 s",
-   "total-blocking-time": "0 ms",
+   "total-blocking-time": "3,090 ms",
    "cumulative-layout-shift": "0",
-   "speed-index": "1.7 s"
+   "speed-index": "3.3 s"
   },
   "fails": [
+   "First Contentful Paint – 2.1 s",
    "Largest Contentful Paint – 5.5 s",
-   "Time to Interactive – 5.5 s",
+   "Total Blocking Time – 3,090 ms",
+   "Max Potential First Input Delay – 1,430 ms",
+   "Time to Interactive – 7.5 s",
+   "Minimize main-thread work – 8.8 s",
+   "Reduce JavaScript execution time – 2.9 s",
    "Background and foreground colors do not have a sufficient contrast ratio.",
    "Elements with visible text labels do not have matching accessible names.",
    "Serve static assets with an efficient cache policy – 4 resources found",
-   "Reduce unused CSS – Potential savings of 18 KiB",
-   "Reduce unused JavaScript – Potential savings of 53 KiB",
+   "Reduce unused CSS – Potential savings of 19 KiB",
+   "Reduce unused JavaScript – Potential savings of 56 KiB",
    "Remove duplicate modules in JavaScript bundles – Potential savings of 2 KiB",
    "Avoid serving legacy JavaScript to modern browsers – Potential savings of 9 KiB",
    "Avoid `document.write()`"
   ],
-  "lcp": ""
+  "lcp": "largest-contentful-paint=\"5.5 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
  },
  "vi/blog/": {
   "url": "https://lexkite.com/vi/blog/",
-  "at": "2026-10-15T07:15:28.768Z",
+  "at": "2026-10-15T12:35:33.009Z",
   "scores": {
    "performance": 100,
    "accessibility": 95,
@@ -50,6 +55,6 @@
    "Serve static assets with an efficient cache policy – 2 resources found",
    "Page is blocked from indexing"
   ],
-  "lcp": ""
+  "lcp": "largest-contentful-paint=\"0.8 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
  }
 }
