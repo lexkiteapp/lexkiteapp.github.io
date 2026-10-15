@@ -6,7 +6,7 @@
   try { const { uiLang } = await chrome.storage.local.get('uiLang'); if (pickLang(uiLang)) UI_LANG = pickLang(uiLang); localStorage.setItem('vb.uiLang', UI_LANG); } catch (e) { /* bỏ qua */ }
   if (UI_LANG !== 'vi' && UI_LANG !== 'en') try { XD = ((await chrome.runtime.sendMessage({ type: 'uiDict', lang: UI_LANG })) || {}).dict || {}; } catch (e) { /* bỏ qua */ } // trang ứng dụng trong add-on dùng cùng ngôn ngữ
   const EN = {
-    'thẻ cần học hôm nay': 'cards due today', 'Ôn ngay →': 'Review now →', 'Mục tiêu': 'Goal', 'Tra nhanh một từ…': 'Quick word lookup…',
+    'thẻ cần học hôm nay': 'cards due today', 'Ôn ngay →': 'Review now →', 'Mục tiêu': 'Goal', 'Thẻ từ vựng ở tab mới': 'Vocabulary card on new tab', 'Tra nhanh một từ…': 'Quick word lookup…',
     '⚙️ Cài đặt tra từ': '⚙️ Lookup settings', 'Khi bôi đen chữ': 'When text is selected', 'Hiện nút 🌐 để dịch': 'Show 🌐 button to translate',
     'Tự dịch ngay': 'Translate instantly', 'Tắt': 'Off', 'Bấm đúp để tra từ': 'Double-click to look up words',
     'Đánh dấu từ đã học trên trang': 'Highlight learned words on pages', 'Mở ứng dụng ↗': 'Open app ↗',
@@ -80,6 +80,7 @@
   $('#markK').checked = settings.markKnown !== false;
   $('#markK').onchange = async e => { settings.markKnown = e.target.checked; await Store.set('settings', settings); };
   $('#dbl').onchange = async e => { settings.dblclickOn = e.target.checked; await Store.set('settings', settings); };
+  if ($('#ntOn')) { $('#ntOn').checked = settings.newtabOn !== false; $('#ntOn').onchange = async e => { settings.newtabOn = e.target.checked; await Store.set('settings', settings); }; }
 
   // Cùng cách chọn giọng với bảng tra trên trang (content.js): giọng tự nhiên tốt nhất, không dùng bản ghi âm chất lượng không đều
   const bestVoice = acc => {

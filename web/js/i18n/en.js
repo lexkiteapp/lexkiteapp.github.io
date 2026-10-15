@@ -2105,6 +2105,15 @@
   "Chấp nhận bắt đầu lại": "Start over",
   "Chưa xem hết video – chuỗi chưa được khôi phục": "Video not finished – streak not restored",
   "Chuỗi ngày học đã được giải cứu thành công!": "Your study streak has been saved!",
+  "✓ Đã nhớ": "✓ Got it",
+  "🔁 Cần ôn lại": "🔁 Review again",
+  "Thời điểm vàng": "Golden moment",
+  "Từ mới lưu": "Recently saved",
+  "Từ hôm nay": "Word of the moment",
+  "Tìm trên web…": "Search the web…",
+  "Mở Lexkite": "Open Lexkite",
+  "Tắt thẻ ở tab mới": "Turn off new-tab card",
+  "Thẻ từ vựng ở tab mới": "Vocabulary card on new tab",
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* English UI strings – toefl.js (TOEFL iBT practice, 2026 format) */

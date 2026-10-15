@@ -44,7 +44,7 @@ async function wikiIPA(w) {
 }
 for (const x of LIST) {
   if (n >= MAX) break;
-  const k = x.word.toLowerCase(); if (cache[k]) continue;
+  const k = x.word.toLowerCase(); if (cache[k] && cache[k].v === 2) continue;
   const fd = dictDown ? null : await get(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(k)}`);
   if (fd === undefined && ++dictFails >= 3) { dictDown = true; console.warn('Free Dictionary API lỗi – chuyển sang Wiktionary cho phần còn lại'); } else if (fd) dictFails = 0;
   if (fd === undefined && dictDown && ++fails > 15) { console.warn('dừng ở', k, '– nguồn từ điển lỗi liên tiếp, lần sau chạy tiếp'); break; }
@@ -66,11 +66,16 @@ for (const x of LIST) {
     const s = tt && Array.isArray(tt.data) ? tt.data.map(d => d.text).filter(s => s.split(' ').length >= 6 && s.length < 140).sort((a, b) => Math.abs(a.length - 75) - Math.abs(b.length - 75))[0] : '';
     if (s) e.ex = s;
   }
+  // Nghĩa: bản dịch thông dụng (dt=t) là nghĩa chính – dữ liệu từ điển (dt=bd) của từ hiếm thường cổ/lệch, chỉ dùng bổ sung khi từ phổ biến (≥ 3 nghĩa)
   const gt = await get(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=vi&dt=t&dt=bd&q=${encodeURIComponent(k)}`);
   const bd = gt && Array.isArray(gt[1]) ? gt[1] : [];
-  const hit = bd.find(d => d[0] === e.pos) || bd[0];
-  e.vi = hit && hit[1] ? hit[1].slice(0, 2).join(', ') : (gt && gt[0] ? gt[0].map(z => z[0]).join('') : '');
-  if (!e.pos && hit) e.pos = hit[0];
+  if (bd.length && e.pos && !bd.some(d => d[0] === e.pos)) e.pos = bd[0][0]; // từ loại trong danh sách gốc sai (vd. portrayal ghi adj) → theo từ điển
+  const plain = gt && gt[0] ? gt[0].map(z => z[0]).join('').trim() : '';
+  const hit = bd.find(d => d[0] === e.pos);
+  const extra = hit && hit[1] && hit[1].length >= 3 ? hit[1].find(x => x && x.toLowerCase() !== plain.toLowerCase() && !plain.toLowerCase().includes(x.toLowerCase())) : '';
+  e.vi = plain && plain.toLowerCase() !== k ? [plain, extra].filter(Boolean).join(', ') : (hit && hit[1] ? hit[1].slice(0, 2).join(', ') : '');
+  if (!e.pos && bd[0]) e.pos = bd[0][0];
+  e.v = 2;
   e.syn = [...new Set(e.syn)].filter(s => !/\s/.test(s)).slice(0, 3);
   cache[k] = e;
   await sleep(500);
@@ -78,13 +83,18 @@ for (const x of LIST) {
 fs.writeFileSync(cp, JSON.stringify(cache, null, 1));
 
 // 4) Kiểm tra chất lượng & xuất file
+// Sửa lỗi chính tả hay gặp trong dữ liệu từ điển (bảng VI_TYPO dùng chung với vi-lint & app) – dữ liệu Google có lỗi như "giửa", "dể"
+const TYPO = JSON.parse(rd('web/js/dictionary.js').match(/const VI_TYPO = (\{[^}]*\})/)[1]);
+const fixVi = v => String(v).normalize('NFC').replace(/[\p{L}]+/gu, w => { const r = TYPO[w.toLowerCase()]; return r ? (w[0] === w[0].toUpperCase() ? r[0].toUpperCase() + r.slice(1) : r) : w; });
+const OLDTONE = /(?<![\p{L}q])(?:[bcdđghklmnprstvx]|ch|kh|ng|nh|ph|th|tr)?(oà|oá|oả|oã|oạ|oè|oé|oẻ|oẽ|oẹ|uỳ|uý|uỷ|uỹ|uỵ)(?!\p{L})/iu;
+for (const k in cache) if (cache[k] && cache[k].vi) cache[k].vi = fixVi(cache[k].vi);
 const VI = /[ăâđêôơưàáạảãèéẹẻẽìíịỉĩòóọỏõùúụủũỳýỵỷỹ]/i;
 const good = [], bad = [];
 LIST.forEach((x, i) => {
   const e = cache[x.word.toLowerCase()]; if (!e) return;
-  const why = !e.ipa ? 'thiếu phiên âm' : !e.vi || e.vi.toLowerCase() === x.word.toLowerCase() ? 'thiếu nghĩa' : !VI.test(e.vi) && e.vi.split(' ').length < 2 ? 'nghĩa không phải tiếng Việt' : !e.def ? 'thiếu định nghĩa' : !SHORT[e.pos] ? 'từ loại lạ' : '';
+  const why = !e.ipa ? 'thiếu phiên âm' : !e.vi || e.vi.toLowerCase() === x.word.toLowerCase() ? 'thiếu nghĩa' : !VI.test(e.vi) && e.vi.split(' ').length < 2 ? 'nghĩa không phải tiếng Việt' : !e.def ? 'thiếu định nghĩa' : OLDTONE.test(e.vi) ? 'kiểu bỏ dấu cũ' : !SHORT[e.pos] ? 'từ loại lạ' : '';
   if (why) { bad.push(x.word + ' – ' + why); return; }
-  const ipa = e.ipa.startsWith('/') ? e.ipa : '/' + e.ipa.replace(/^\[|\]$/g, '') + '/';
+  const ipa = ('/' + e.ipa.replace(/^[\/\[]|[\/\]]$/g, '') + '/').replace(/ɹ/g, 'r').replace(/ɫ/g, 'l').replace(/\.(?=\S)/g, '').replace(/ɛ/g, 'e').replace(/ɝ/g, 'ɜː').replace(/ɚ/g, 'ə');
   good.push([x.word, ipa, SHORT[e.pos], e.vi, e.def.replace(/\s+/g, ' ').trim(), e.ex, '', e.syn.join('|'), L.level(i), '']);
 });
 const q = s => "'" + String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'") + "'";

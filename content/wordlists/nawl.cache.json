@@ -1,1 +1,4314 @@
-{}
+{
+ "amongst": {
+  "ipa": "/əˈmʌŋst/",
+  "pos": "preposition",
+  "def": "in or through a group",
+  "ex": "Algerians should stop fighting amongst themselves.",
+  "syn": [],
+  "vi": "giửa đám đông, giửa hai vật"
+ },
+ "backward": {
+  "ipa": "/ˈbæk.wə(ɹ)d/",
+  "pos": "adverb",
+  "def": "toward what is behind you",
+  "ex": "",
+  "syn": [],
+  "vi": "lui lại, nhìn lại phía sau"
+ },
+ "bodily": {
+  "ipa": "/ˈbɒdɪli/",
+  "pos": "adverb",
+  "def": "physically, as when lifting someone",
+  "ex": "When we are asleep, bodily functions slow down and body temperature falls.",
+  "syn": [],
+  "vi": "thuộc về thân thể"
+ },
+ "collective": {
+  "ipa": "/kəˈlɛktɪv/",
+  "pos": "adjective",
+  "def": "formed by working together as a group",
+  "ex": "",
+  "syn": [],
+  "vi": "công cộng, của chung"
+ },
+ "computation": {
+  "ipa": "/ˌkɒmpjʊˈteɪʃn̩/",
+  "pos": "noun",
+  "def": "the act of calculating; method of computing",
+  "ex": "",
+  "syn": [],
+  "vi": "tính toán"
+ },
+ "continuity": {
+  "ipa": "/ˌkɒn.tɪˈnjuː.ɪ.ti/",
+  "pos": "noun",
+  "def": "continued existence; fact of not stopping",
+  "ex": "",
+  "syn": [],
+  "vi": "chuyện phim, liên tiếp"
+ },
+ "freely": {
+  "ipa": "/ˈfɹiːli/",
+  "pos": "adverb",
+  "def": "(living, existing) without being controlled",
+  "ex": "",
+  "syn": [],
+  "vi": "khỏi trả tiền"
+ },
+ "generalize": {
+  "ipa": "/ˈd͡ʒɛn.(ə.)ɹə.laɪz/",
+  "pos": "verb",
+  "def": "To apply a particular idea to a large group",
+  "ex": "",
+  "syn": [],
+  "vi": "công chúng, đa số"
+ },
+ "goodness": {
+  "ipa": "/ˈɡʊdnəs/",
+  "pos": "noun",
+  "def": "nourishment; good food value",
+  "ex": "",
+  "syn": [],
+  "vi": "bản chất tốt, lòng tốt"
+ },
+ "historically": {
+  "ipa": "/hɪˈstɒɹɪkli/",
+  "pos": "adverb",
+  "def": "throughout history",
+  "ex": "",
+  "syn": [],
+  "vi": "về mặt lịch sử"
+ },
+ "importantly": {
+  "ipa": "/ɪmˈpɔː.tənt.li/",
+  "pos": "adverb",
+  "def": "in an important way;",
+  "ex": "",
+  "syn": [],
+  "vi": "quan trọng"
+ },
+ "interestingly": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "you'll find this surprising; in an interesting way",
+  "ex": "",
+  "syn": [],
+  "vi": "thú vị"
+ },
+ "marker": {
+  "ipa": "/ˈmɑː(ɹ)kə(ɹ)/",
+  "pos": "noun",
+  "def": "something that is easy to recognize or identify",
+  "ex": "Can permanent marker stains be removed?",
+  "syn": [],
+  "vi": "người chấm điểm, người đánh dấu"
+ },
+ "nationalism": {
+  "ipa": "/ˈnæʃənəlɪz(ə)m/",
+  "pos": "noun",
+  "def": "The spirit of love of your country, e.g. leading to war",
+  "ex": "",
+  "syn": [],
+  "vi": "dân tộc chủ nghĩa, quốc gia chủ nghĩa"
+ },
+ "nicely": {
+  "ipa": "/ˈnaɪs.li/",
+  "pos": "adverb",
+  "def": "in a pleasing way; in a polite way",
+  "ex": "",
+  "syn": [],
+  "vi": "dể thương, tốt đẹp"
+ },
+ "outer": {
+  "ipa": "/ˈaʊtə/",
+  "pos": "adjective",
+  "def": "on or around something",
+  "ex": "Being in outer space atrophies your muscles.",
+  "syn": [],
+  "vi": "cú đánh đo ván, ở ngoài"
+ },
+ "painful": {
+  "ipa": "/ˈpeɪn.fl̩/",
+  "pos": "adjective",
+  "def": "causing or feeling physical pain or hurt",
+  "ex": "",
+  "syn": [],
+  "vi": "khó chịu, làm đau đớn"
+ },
+ "pardon": {
+  "ipa": "/ˈpɑːdn̩/",
+  "pos": "verb",
+  "def": "to excuse",
+  "ex": "",
+  "syn": [],
+  "vi": "ân xá, tha tội"
+ },
+ "parental": {
+  "ipa": "/pəˈɹɛn.təl/",
+  "pos": "adjective",
+  "def": "concerning, or provided by, a parent",
+  "ex": "",
+  "syn": [],
+  "vi": "của cha mẹ, thuộc về ba má"
+ },
+ "photographic": {
+  "ipa": "/ˌfəʊtəˈɡɹæfɪk/",
+  "pos": "adjective",
+  "def": "concerning the art of making images with cameras",
+  "ex": "",
+  "syn": [],
+  "vi": "thuật chụp hình"
+ },
+ "problematic": {
+  "ipa": "/ˌpɹɒb.ləˈmæt.ɪk/",
+  "pos": "adjective",
+  "def": "being difficult to deal with or fix",
+  "ex": "",
+  "syn": [],
+  "vi": "khả nghi, mơ hồ"
+ },
+ "realism": {
+  "ipa": "/ˈɹi.əlɪzəm/",
+  "pos": "noun",
+  "def": "accepting things as they are, not as you want",
+  "ex": "He stood agape for a moment in front of the painting, surprised at its realism.",
+  "syn": [],
+  "vi": "thực tại luận"
+ },
+ "ruler": {
+  "ipa": "/ˈɹuːlə/",
+  "pos": "noun",
+  "def": "someone who has control over a country or area",
+  "ex": "",
+  "syn": [],
+  "vi": "cái thước đo, cây thước"
+ },
+ "sexuality": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "characterized and distinguished by sex",
+  "ex": "",
+  "syn": [],
+  "vi": "tình dục, tính đực và cái"
+ },
+ "subset": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "a small set which is part of a larger set",
+  "ex": "In American English, stoats are a subset of weasels, while in British English, they aren't.",
+  "syn": [],
+  "vi": "tập hợp con"
+ },
+ "systematic": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "done in a thorough, logical or planned way",
+  "ex": "Human rights violations, misogyny and exclusion are widespread and systematic.",
+  "syn": [],
+  "vi": "có phương pháp"
+ },
+ "terribly": {
+  "ipa": "/ˈtɛɹ.ɪ.bli/",
+  "pos": "adverb",
+  "def": "to an extreme degree; badly; very",
+  "ex": "",
+  "syn": [],
+  "vi": "khủng khiếp"
+ },
+ "thickness": {
+  "ipa": "/ˈθɪknəs/",
+  "pos": "noun",
+  "def": "the distance between the opposite edges of a thing",
+  "ex": "",
+  "syn": [],
+  "vi": "bề dầy, tình trạng đặc"
+ },
+ "underneath": {
+  "ipa": "/ˌʌndəˈniːθ/",
+  "pos": "adverb",
+  "def": "below or beneath something; under",
+  "ex": "",
+  "syn": [],
+  "vi": "bên dưới, mặt dưới"
+ },
+ "whichever": {
+  "ipa": "/wɪt͡ʃˈɛvɚ/",
+  "pos": "pronoun",
+  "def": "whatever one",
+  "ex": "",
+  "syn": [],
+  "vi": "bất cứ, bất kỳ cái gì"
+ },
+ "adaptive": {
+  "ipa": "/əˈdæp.tɪv/",
+  "pos": "adjective",
+  "def": "able to adjust to new conditions",
+  "ex": "",
+  "syn": [],
+  "vi": "thích nghi"
+ },
+ "bang": {
+  "ipa": "/ˈbæŋ/",
+  "pos": "verb",
+  "def": "to strike something loudly or forcefully",
+  "ex": "",
+  "syn": [],
+  "vi": "báng, đánh mạnh"
+ },
+ "bat": {
+  "ipa": "/bæt/",
+  "pos": "noun",
+  "def": "object used for hitting a ball in various games",
+  "ex": "",
+  "syn": [],
+  "vi": "bàn, cái vồ nhỏ"
+ },
+ "blank": {
+  "ipa": "/blænk/",
+  "pos": "adjective",
+  "def": "being empty; not filled out; with no writing on it",
+  "ex": "",
+  "syn": [],
+  "vi": "chổ trống, trắng"
+ },
+ "bleed": {
+  "ipa": "/ˈbliːd/",
+  "pos": "verb",
+  "def": "to lose blood because of an injury",
+  "ex": "",
+  "syn": [],
+  "vi": "chảy máu, chích máu"
+ },
+ "broadly": {
+  "ipa": "/ˈbɹɔːdli/",
+  "pos": "adverb",
+  "def": "in a general (not detailed) manner",
+  "ex": "",
+  "syn": [],
+  "vi": "mở rộng"
+ },
+ "bucket": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "open container with a handle used to carry liquids",
+  "ex": "",
+  "syn": [],
+  "vi": "bít tông của ống bơm, gàu múc nước"
+ },
+ "characterization": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "the way someone or something is described",
+  "ex": "Jazz is characterized by improvisation on chord progressions.",
+  "syn": [],
+  "vi": "sự biểu thị đặc tính"
+ },
+ "cheat": {
+  "ipa": "/ˈt͡ʃiːt/",
+  "pos": "verb",
+  "def": "To act in dishonest manner to gain an advantage",
+  "ex": "",
+  "syn": [],
+  "vi": "ăn gian, cờ bạc gian lận"
+ },
+ "cheers": {
+  "ipa": "/t͡ʃɪəz/",
+  "pos": "noun",
+  "def": "a toast used when raising your glass to drink",
+  "ex": "",
+  "syn": [],
+  "vi": "cao lương mỹ vị"
+ },
+ "clever": {
+  "ipa": "/ˈklɛv.ə/",
+  "pos": "adjective",
+  "def": "Showing intelligence; quick to understand or learn",
+  "ex": "",
+  "syn": [],
+  "vi": "thông minh, khéo léo"
+ },
+ "commentary": {
+  "ipa": "/ˈkɒm.ən.t(ə.)ɹi/",
+  "pos": "noun",
+  "def": "explanation or discussion of a written work/event",
+  "ex": "People sometimes narrate their actions to themselves as a running commentary.",
+  "syn": [],
+  "vi": "sự chú thích, sự phê bình"
+ },
+ "comparable": {
+  "ipa": "/ˈkɒmpəɹəbəl/",
+  "pos": "adjective",
+  "def": "being similar in some way",
+  "ex": "",
+  "syn": [],
+  "vi": "có thể so sánh, so sánh được"
+ },
+ "conditional": {
+  "ipa": "/kənˈdɪʃ.ə.nəl/",
+  "pos": "adjective",
+  "def": "depending (on)",
+  "ex": "",
+  "syn": [],
+  "vi": "điều kiện cách, tùy theo điều kiện"
+ },
+ "connector": {
+  "ipa": "/kəˈnɛktɚ/",
+  "pos": "noun",
+  "def": "a device that joins things together",
+  "ex": "The connector road was backed up because of an accident and it took an hour to get home.",
+  "syn": [],
+  "vi": "đầu nối"
+ },
+ "conscious": {
+  "ipa": "/ˈkɒn.ʃəs/",
+  "pos": "adjective",
+  "def": "aware of what is going on around you; not knocked out",
+  "ex": "",
+  "syn": [],
+  "vi": "biết rỏ, cãm thấy"
+ },
+ "consciousness": {
+  "ipa": "/ˈkɒnʃəsnəs/",
+  "pos": "noun",
+  "def": "being awake",
+  "ex": "",
+  "syn": [],
+  "vi": "dự cãm, sự biết"
+ },
+ "cure": {
+  "ipa": "/kjɔː/",
+  "pos": "noun",
+  "def": "a medicine or treatment that makes an ill person become healthy",
+  "ex": "",
+  "syn": [],
+  "vi": "cách trị bịnh, chửa bịnh"
+ },
+ "detection": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "the act of discovering something or solving a crime",
+  "ex": "",
+  "syn": [],
+  "vi": "khám phá, nhận thấy"
+ },
+ "directive": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "formal an order from an authority",
+  "ex": "",
+  "syn": [],
+  "vi": "chỉ huy, chi phối"
+ },
+ "disturbance": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "a noise or something that stops you from continuing what you were doing",
+  "ex": "",
+  "syn": [],
+  "vi": "băn khoăn, cuộc lộn xộn"
+ },
+ "enormously": {
+  "ipa": "/ɪˈnɔː.məs.li/",
+  "pos": "adverb",
+  "def": "extremely, by a large amount",
+  "ex": "",
+  "syn": [],
+  "vi": "to lớn"
+ },
+ "equality": {
+  "ipa": "/ɪˈkwɒl.ɪ.ti/",
+  "pos": "noun",
+  "def": "the idea that all people have the same rights",
+  "ex": "",
+  "syn": [],
+  "vi": "sự bằng nhau"
+ },
+ "flip": {
+  "ipa": "/flɪp/",
+  "pos": "noun",
+  "def": "to rotate or turn something over",
+  "ex": "",
+  "syn": [],
+  "vi": "cái búng tay"
+ },
+ "ghost": {
+  "ipa": "/ɡəʊst/",
+  "pos": "noun",
+  "def": "spirit of a dead person, appearing to the living",
+  "ex": "",
+  "syn": [],
+  "vi": "ma, hồn người chết"
+ },
+ "incredible": {
+  "ipa": "/ɪŋˈkɹɛdɪbəl/",
+  "pos": "adjective",
+  "def": "very hard to believe",
+  "ex": "",
+  "syn": [],
+  "vi": "khó tin, không thể tin được"
+ },
+ "incredibly": {
+  "ipa": "/ɪŋˈkɹɛdɪbli/",
+  "pos": "adverb",
+  "def": "extremely, hard to believe",
+  "ex": "",
+  "syn": [],
+  "vi": "vô cùng"
+ },
+ "industrialization": {
+  "ipa": "/ɪnˌdʌstɹɪəlaɪˈzeɪʃən/",
+  "pos": "noun",
+  "def": "process of creating and developing many businesses",
+  "ex": "",
+  "syn": [],
+  "vi": "sự kỷ nghệ hóa"
+ },
+ "industrialize": {
+  "ipa": "/ɪnˈdʌstɹiəlaɪz/",
+  "pos": "verb",
+  "def": "To make into something at an industrial level",
+  "ex": "",
+  "syn": [],
+  "vi": "công nghiệp hóa, kỷ nghệ hóa"
+ },
+ "instability": {
+  "ipa": "/ɪnstəˈbɪlɪti/",
+  "pos": "noun",
+  "def": "not stable; changeable",
+  "ex": "Post-independence, Albania faced political turmoil and instability.",
+  "syn": [],
+  "vi": "sự bất định, sự bất ổn"
+ },
+ "intensity": {
+  "ipa": "/ɪnˈtɛnsɪti/",
+  "pos": "noun",
+  "def": "great energy, strength, or concentration",
+  "ex": "",
+  "syn": [],
+  "vi": "cường độ, quyền lực"
+ },
+ "intensive": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "needing great effort for a short period of time",
+  "ex": "",
+  "syn": [],
+  "vi": "kịch liệt, mạnh thêm"
+ },
+ "interviewer": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "a person who asks questions to obtain information",
+  "ex": "",
+  "syn": [],
+  "vi": "người phỏng vấn"
+ },
+ "likelihood": {
+  "ipa": "/ˈlaɪklihʊd/",
+  "pos": "noun",
+  "def": "the chance that something might happen",
+  "ex": "What's the likelihood of you being sacked?",
+  "syn": [],
+  "vi": "sự có lẻ đúng"
+ },
+ "lump": {
+  "ipa": "/lʌmp/",
+  "pos": "noun",
+  "def": "a small hard part of something smooth, soft, or continuous",
+  "ex": "They have lumps on their foreheads.",
+  "syn": [],
+  "vi": "cái bướu, cục bướu"
+ },
+ "mathematical": {
+  "ipa": "/ˌmæθ(.ə)ˈmæt.ɪ.kəl/",
+  "pos": "adjective",
+  "def": "concerning numbers and equations",
+  "ex": "",
+  "syn": [],
+  "vi": "thuộc về toán học"
+ },
+ "minus": {
+  "ipa": "/ˈmaɪ.nəs/",
+  "pos": "preposition",
+  "def": "(prep) being less than zero in number",
+  "ex": "",
+  "syn": [],
+  "vi": "dấu trừ"
+ },
+ "monkey": {
+  "ipa": "/ˈmʌŋki/",
+  "pos": "noun",
+  "def": "an animal related to humans, which lives in trees",
+  "ex": "",
+  "syn": [],
+  "vi": "bắt chước, con khỉ"
+ },
+ "nasty": {
+  "ipa": "/ˈnɑː.sti/",
+  "pos": "adjective",
+  "def": "very bad, unpleasant, or offensive",
+  "ex": "",
+  "syn": [],
+  "vi": "bẩn thỉu, lời khó nghe"
+ },
+ "nest": {
+  "ipa": "/nɛst/",
+  "pos": "noun",
+  "def": "the home of a bird or spider",
+  "ex": "",
+  "syn": [],
+  "vi": "bộ đồ vật, chổ ẩn núp"
+ },
+ "observer": {
+  "ipa": "/əbˈzɜːvə/",
+  "pos": "noun",
+  "def": "someone whose job it is to watch or notice things",
+  "ex": "",
+  "syn": [],
+  "vi": "người dọ thám, người giữ theo"
+ },
+ "periodic": {
+  "ipa": "/ˌpɪɹiˈɒdɪk/",
+  "pos": "adjective",
+  "def": "happening regularly, but not frequently",
+  "ex": "",
+  "syn": [],
+  "vi": "chu kỳ, định kỳ"
+ },
+ "physically": {
+  "ipa": "/ˈfɪz.ɪ.kli/",
+  "pos": "adverb",
+  "def": "in a manner related to the body",
+  "ex": "",
+  "syn": [],
+  "vi": "về thể chất"
+ },
+ "politically": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "in connection with government matters",
+  "ex": "",
+  "syn": [],
+  "vi": "chánh sách"
+ },
+ "positively": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "definitely or certainly",
+  "ex": "",
+  "syn": [],
+  "vi": "chắc chắn, xác thực"
+ },
+ "progression": {
+  "ipa": "/pɹəˈɡɹɛʃn̩/",
+  "pos": "noun",
+  "def": "process of developing over time",
+  "ex": "",
+  "syn": [],
+  "vi": "cấp số, sự phát triển"
+ },
+ "progressive": {
+  "ipa": "/pɹəˈɡɹɛsɪv/",
+  "pos": "adjective",
+  "def": "believing in modern ideas about social change",
+  "ex": "",
+  "syn": [],
+  "vi": "cấp tiến, lủy tiến"
+ },
+ "pronounce": {
+  "ipa": "/pɹəˈnaʊns/",
+  "pos": "verb",
+  "def": "to make the sound of a word or letter with your voice",
+  "ex": "",
+  "syn": [],
+  "vi": "đọc, phát âm"
+ },
+ "punch": {
+  "ipa": "/pʌnt͡ʃ/",
+  "pos": "verb",
+  "def": "to make a quick hit with a closed hand",
+  "ex": "",
+  "syn": [],
+  "vi": "đục, giùi"
+ },
+ "punish": {
+  "ipa": "/ˈpʌnɪʃ/",
+  "pos": "verb",
+  "def": "to make someone suffer for bad behavior",
+  "ex": "",
+  "syn": [],
+  "vi": "hành hạ, phạt"
+ },
+ "punishment": {
+  "ipa": "/ˈpʌnɪʃmənt/",
+  "pos": "noun",
+  "def": "the act of punishing someone",
+  "ex": "",
+  "syn": [],
+  "vi": "sự phạt, trừng trị"
+ },
+ "purely": {
+  "ipa": "/ˈpjʊəli/",
+  "pos": "adverb",
+  "def": "for no other reason; only and completely",
+  "ex": "",
+  "syn": [],
+  "vi": "trong, nguyên chất"
+ },
+ "reactive": {
+  "ipa": "/ɹiːˈæktɪv/",
+  "pos": "adjective",
+  "def": "easily reacting to; responsive",
+  "ex": "Mary's realisation that she was gay plunged her into a reactive depression.",
+  "syn": [],
+  "vi": "phản động, phản ứng"
+ },
+ "reactor": {
+  "ipa": "/ɹiːˈæktə/",
+  "pos": "noun",
+  "def": "device to control nuclear energy as a power source",
+  "ex": "China can build its nuclear reactors without the help of foreign companies.",
+  "syn": [],
+  "vi": "người phản động, phản ứng hóa học"
+ },
+ "resistant": {
+  "ipa": "/ɹəˈzɪstənt/",
+  "pos": "adjective",
+  "def": "not affected by something",
+  "ex": "",
+  "syn": [],
+  "vi": "chịu đựng được, chống lại"
+ },
+ "ridiculous": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "something that deserves laughter, is foolish or funny",
+  "ex": "",
+  "syn": [],
+  "vi": "đáng cười, làm trò cười"
+ },
+ "rope": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "a thick string made by twisting many fibers together",
+  "ex": "",
+  "syn": [],
+  "vi": "dây, thừng"
+ },
+ "rub": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "to move something back and forth along a surface",
+  "ex": "",
+  "syn": [],
+  "vi": "thoa, cạ vào"
+ },
+ "selective": {
+  "ipa": "/səˈlɛktɪv/",
+  "pos": "adjective",
+  "def": "choosing through thoughtful comparison",
+  "ex": "",
+  "syn": [],
+  "vi": "chọn lựa, lọc luồng sóng"
+ },
+ "separation": {
+  "ipa": "/ˌsɛp.əˈɹeɪ.ʃən/",
+  "pos": "noun",
+  "def": "a line that seperates; a point of parting; a gap",
+  "ex": "",
+  "syn": [],
+  "vi": "khoảng cách, sự biệt sản"
+ },
+ "slavery": {
+  "ipa": "/ˈsleɪvəɹi/",
+  "pos": "noun",
+  "def": "(n,) the state of being a slave",
+  "ex": "",
+  "syn": [],
+  "vi": "tình trạng của kẻ nô lệ, thân phận"
+ },
+ "snake": {
+  "ipa": "/sneɪk/",
+  "pos": "noun",
+  "def": "an animal with with a long thin body and no arms or legs",
+  "ex": "",
+  "syn": [],
+  "vi": "rắn"
+ },
+ "socially": {
+  "ipa": "/ˈsoʊʃəli/",
+  "pos": "adverb",
+  "def": "being with other people",
+  "ex": "",
+  "syn": [],
+  "vi": "cộng đồng xã hội, ở thành đoàn thể"
+ },
+ "stabilize": {
+  "ipa": "/ˈsteɪ.bəˌlaɪz/",
+  "pos": "verb",
+  "def": "to make something stable or consistent, with no major changes",
+  "ex": "",
+  "syn": [],
+  "vi": "làm cho vững, ổn định"
+ },
+ "standardize": {
+  "ipa": "/ˈstæn.də.daɪz/",
+  "pos": "verb",
+  "def": "to change something in order to make everything the same or make everything agree",
+  "ex": "",
+  "syn": [],
+  "vi": "làm đúng tiêu chuẩn, tiêu chuẩn hóa"
+ },
+ "sword": {
+  "ipa": "/sɔːd/",
+  "pos": "noun",
+  "def": "a long metal weapon with a sharp point and edge",
+  "ex": "",
+  "syn": [],
+  "vi": "gươm, chiến tranh"
+ },
+ "tense": {
+  "ipa": "/tɛns/",
+  "pos": "adjective",
+  "def": "stretched tight and stiff",
+  "ex": "",
+  "syn": [],
+  "vi": "căng, khẩn trương"
+ },
+ "tricky": {
+  "ipa": "/ˈtɹɪk.i/",
+  "pos": "adjective",
+  "def": "difficult to do or deal with; something that needs skill",
+  "ex": "",
+  "syn": [],
+  "vi": "khôn lanh, khó cầm"
+ },
+ "unstable": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "likely to move from its position or fall",
+  "ex": "",
+  "syn": [],
+  "vi": "không bền, không bền vửng"
+ },
+ "variability": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "(statistics) degree scores depart from the mean",
+  "ex": "",
+  "syn": [],
+  "vi": "sự biến thiên"
+ },
+ "variance": {
+  "ipa": "/ˈvɛə.ɹi.əns/",
+  "pos": "noun",
+  "def": "(statistics) amount of difference in distributions",
+  "ex": "A random variable is definitely a constant if the variance is zero.",
+  "syn": [],
+  "vi": "lý thuyết không đi đôi, mối bất hòa"
+ },
+ "variant": {
+  "ipa": "/ˈvɛəɹi.ənt/",
+  "pos": "noun",
+  "def": "thing that differs from something of the same kind",
+  "ex": "There is a new coronavirus variant.",
+  "syn": [],
+  "vi": "biến thể, hay biến đổi"
+ },
+ "wisdom": {
+  "ipa": "/ˈwɪzdəm/",
+  "pos": "noun",
+  "def": "knowledge gained from experience in life",
+  "ex": "",
+  "syn": [],
+  "vi": "tánh khôn ngoan"
+ },
+ "absorption": {
+  "ipa": "/əbˈzɔːp.ʃn̩/",
+  "pos": "noun",
+  "def": "process of being absorbed (e.g. liquid, attention)",
+  "ex": "Food absorption happens in the small intestine.",
+  "syn": [],
+  "vi": "chú ý, sự chăm chú"
+ },
+ "accelerate": {
+  "ipa": "/əkˈsɛl.əˌɹeɪt/",
+  "pos": "verb",
+  "def": "to increase the speed or rate of something",
+  "ex": "",
+  "syn": [],
+  "vi": "chóng thêm"
+ },
+ "acceleration": {
+  "ipa": "/əkˌsɛl.əˈɹeɪ.ʃən/",
+  "pos": "noun",
+  "def": "increase in the speed or rate of something",
+  "ex": "",
+  "syn": [],
+  "vi": "làm mau thêm"
+ },
+ "accumulation": {
+  "ipa": "/əˌkjuːm.jəˈleɪ.ʃən/",
+  "pos": "noun",
+  "def": "The act of getting or becoming bigger or more over time",
+  "ex": "",
+  "syn": [],
+  "vi": "chất đóng lại, tăng thêm tiền vốn"
+ },
+ "acid": {
+  "ipa": "/ˈæsɪd/",
+  "pos": "noun",
+  "def": "sour substance that reacts with metals e.g. lemon",
+  "ex": "",
+  "syn": [],
+  "vi": "chua, gay gắt"
+ },
+ "acidic": {
+  "ipa": "/əˈsɪd.ɪk/",
+  "pos": "adjective",
+  "def": "containing acid",
+  "ex": "",
+  "syn": [],
+  "vi": "có tính axit"
+ },
+ "adolescent": {
+  "ipa": "/ˌæd.əˈlɛs.ənt/",
+  "pos": "noun",
+  "def": "Teenager developing into an adult",
+  "ex": "Adolescence comes with many physical changes.",
+  "syn": [],
+  "vi": "thanh niên, tuổi dậy thì"
+ },
+ "affirm": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "to state, strengthen or support a belief you have",
+  "ex": "",
+  "syn": [],
+  "vi": "chứng thật, quả quyết"
+ },
+ "alien": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "person or creature from a planet other than Earth",
+  "ex": "",
+  "syn": [],
+  "vi": "khác với, không phải của mình"
+ },
+ "alliance": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "A group of people or organizations being joined or associated",
+  "ex": "",
+  "syn": [],
+  "vi": "đồng minh, quan hệ bà con"
+ },
+ "allocation": {
+  "ipa": "/ˌæl.əˈkeɪ.ʃən/",
+  "pos": "noun",
+  "def": "The distribution of items set apart according to a plan or purpose",
+  "ex": "Capitalism efficiently allocates resources according to our needs and wants.",
+  "syn": [],
+  "vi": "sự cấp cho, sự chỉ định"
+ },
+ "approximation": {
+  "ipa": "/əˌpɹɒk.sɪˈmeɪ.ʃən/",
+  "pos": "noun",
+  "def": "something that is similar, but not an exact copy",
+  "ex": "",
+  "syn": [],
+  "vi": "sự đến gần, sự lại gần"
+ },
+ "archaeology": {
+  "ipa": "/ˌɑː.kiˈɒl.ə.d͡ʒi/",
+  "pos": "noun",
+  "def": "the study of ancient societies by looking at old tools, bones and buildings",
+  "ex": "",
+  "syn": [],
+  "vi": "cổ tích học, khảo cổ học"
+ },
+ "atomic": {
+  "ipa": "/əˈtɒm.ɪk/",
+  "pos": "adjective",
+  "def": "concerning atoms",
+  "ex": "",
+  "syn": [],
+  "vi": "nguyên tử"
+ },
+ "bacterial": {
+  "ipa": "/bækˈtɪəɹiəl/",
+  "pos": "adjective",
+  "def": "concerning or caused by bacteria",
+  "ex": "He noticed that this drug seemed to inhibit bacterial growth.",
+  "syn": [],
+  "vi": "vi khuẩn"
+ },
+ "behavioral": {
+  "ipa": "/bɪˈheɪvjəɹəl/",
+  "pos": "adjective",
+  "def": "concerning the way people act",
+  "ex": "",
+  "syn": [],
+  "vi": "hành vi"
+ },
+ "cattle": {
+  "ipa": "/ˈkætəl/",
+  "pos": "noun",
+  "def": "cows or bulls on a farm",
+  "ex": "",
+  "syn": [],
+  "vi": "gia súc, người khó tánh"
+ },
+ "civilization": {
+  "ipa": "/ˌsɪv.ɪ.laɪˈzeɪ.ʃən/",
+  "pos": "noun",
+  "def": "a highly developed society",
+  "ex": "",
+  "syn": [],
+  "vi": "nền văn minh, những nước văn minh"
+ },
+ "communicative": {
+  "ipa": "/kəˈmjuː.nɪ.kə.tɪv/",
+  "pos": "adjective",
+  "def": "talkative; cooperative in giving information",
+  "ex": "",
+  "syn": [],
+  "vi": "truyền nhiểm"
+ },
+ "communist": {
+  "ipa": "/ˈkɒm.jʊ.nɪst/",
+  "pos": "adjective",
+  "def": "believer in communism",
+  "ex": "",
+  "syn": [],
+  "vi": "cộng sản, người theo cộng sản"
+ },
+ "competent": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "fully qualified or capable of doing",
+  "ex": "",
+  "syn": [],
+  "vi": "có tài năng, đủ sức"
+ },
+ "conception": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "an idea or notion; the first stage in pregnancy",
+  "ex": "",
+  "syn": [],
+  "vi": "có mang, khái niệm"
+ },
+ "conceptual": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "characterized by concepts or the forming of concepts",
+  "ex": "The Econ exam was pretty easy, mostly conceptual stuff, supply and demand, and all that.",
+  "syn": [],
+  "vi": "khái niệm luận"
+ },
+ "conduction": {
+  "ipa": "/kənˈdʌkʃən/",
+  "pos": "noun",
+  "def": "the transmission of heat, electricity or sound",
+  "ex": "",
+  "syn": [],
+  "vi": "sự dẫn, sự truyền"
+ },
+ "conserve": {
+  "ipa": "/ˈkɒnsɜː(ɹ)v/",
+  "pos": "verb",
+  "def": "to keep safe",
+  "ex": "",
+  "syn": [],
+  "vi": "bảo tồn, giữ gìn"
+ },
+ "continent": {
+  "ipa": "/ˈkɒntɪnənt/",
+  "pos": "noun",
+  "def": "one of the very large areas of land on Earth that are usually divided into several countries",
+  "ex": "",
+  "syn": [],
+  "vi": "đại lục, đại lục âu châu"
+ },
+ "contradictory": {
+  "ipa": "/ˌkɒntɹəˈdɪkt(ə)ɹi/",
+  "pos": "adjective",
+  "def": "containing information, statements, or beliefs that do not agree with one another",
+  "ex": "This will almost certainly have contradictory consequences and effects.",
+  "syn": [],
+  "vi": "mâu thuẩn, trái ngược"
+ },
+ "coordination": {
+  "ipa": "/kəʊˌɔːdɪˈneɪʃən/",
+  "pos": "noun",
+  "def": "organizing people or things to make them work together effectively",
+  "ex": "",
+  "syn": [],
+  "vi": "chỉnh đốn, phối trí"
+ },
+ "correlate": {
+  "ipa": "/ˈkɒɹəleɪt/",
+  "pos": "verb",
+  "def": "to show the relationship between two items or events.",
+  "ex": "How are rights and duties correlative?",
+  "syn": [],
+  "vi": "tương quan, liên quan"
+ },
+ "critically": {
+  "ipa": "/ˈkɹɪt.ɪ.kə.li/",
+  "pos": "adverb",
+  "def": "in a way that is serious or dangerous; vitally",
+  "ex": "",
+  "syn": [],
+  "vi": "critically"
+ },
+ "crystal": {
+  "ipa": "/ˈkɹɪstəl/",
+  "pos": "noun",
+  "def": "a solid formed by the solidification of a chemical",
+  "ex": "",
+  "syn": [],
+  "vi": "pha lê, đồ bằng thủy tinh"
+ },
+ "cyclic": {
+  "ipa": "/ˈsaɪ.klɪk/",
+  "pos": "adjective",
+  "def": "a series of regular and repeated actions",
+  "ex": "To memorize Thai letters, you should review them cyclically.",
+  "syn": [],
+  "vi": "tuần hoàn"
+ },
+ "damp": {
+  "ipa": "/ˈdæmp/",
+  "pos": "adjective",
+  "def": "a little wet",
+  "ex": "",
+  "syn": [],
+  "vi": "ẩm, ẩm thấp"
+ },
+ "deliberately": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "in a careful, considered manner",
+  "ex": "",
+  "syn": [],
+  "vi": "cân hắn, đắn đo"
+ },
+ "demonstrator": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "person who shows how something works e.g. product",
+  "ex": "",
+  "syn": [],
+  "vi": "người đi biểu tình, người giảng giải"
+ },
+ "dense": {
+  "ipa": "/ˈdɛns/",
+  "pos": "adjective",
+  "def": "very thick and difficult to see/get through",
+  "ex": "",
+  "syn": [],
+  "vi": "ngu si, dầy đặc"
+ },
+ "depict": {
+  "ipa": "/dɪˈpɪkt/",
+  "pos": "verb",
+  "def": "to describe someone or something",
+  "ex": "Japan really is the way Miyazaki depicts it.",
+  "syn": [],
+  "vi": "miêu tả, tả"
+ },
+ "derivative": {
+  "ipa": "/dɪˈɹɪvətɪv/",
+  "pos": "adjective",
+  "def": "something that has developed or been obtained from something else",
+  "ex": "Differential equations are equations involving derivatives.",
+  "syn": [],
+  "vi": "chuyển hóa vật, chữ chuyển hóa"
+ },
+ "dictate": {
+  "ipa": "/(ˌ)dɪkˈteɪt/",
+  "pos": "verb",
+  "def": "to speak while another person (or computer) writes the words down",
+  "ex": "",
+  "syn": [],
+  "vi": "bắt buộc, bắt theo"
+ },
+ "dimensional": {
+  "ipa": "/daɪˈmɛn.ʃə.nəl/",
+  "pos": "adjective",
+  "def": "having parts that extent in a number of directions",
+  "ex": "The novel follows a trans-dimensional traveler who visits parallel worlds.",
+  "syn": [],
+  "vi": "không gian"
+ },
+ "disability": {
+  "ipa": "/dɪsəˈbɪlɪti/",
+  "pos": "noun",
+  "def": "a condition that limits a person's ability to do something",
+  "ex": "",
+  "syn": [],
+  "vi": "bất lực, bất tài"
+ },
+ "discourse": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "talk, conversation",
+  "ex": "Accountability is often lacking in political discourse.",
+  "syn": [],
+  "vi": "bài diển văn, bài luận"
+ },
+ "dominant": {
+  "ipa": "/ˈdɒmɪnənt/",
+  "pos": "adjective",
+  "def": "strongest",
+  "ex": "",
+  "syn": [],
+  "vi": "chủ yếu, có ưu thế"
+ },
+ "domination": {
+  "ipa": "/ˌdɒməˈneɪʃən/",
+  "pos": "noun",
+  "def": "authority; rule; control",
+  "ex": "",
+  "syn": [],
+  "vi": "ảnh hưởng, quyền thống trị"
+ },
+ "drain": {
+  "ipa": "/dɹeɪn/",
+  "pos": "noun",
+  "def": "a pipe that removes water, or other liquids",
+  "ex": "",
+  "syn": [],
+  "vi": "mương, cống"
+ },
+ "drift": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "to move slowly",
+  "ex": "",
+  "syn": [],
+  "vi": "chổ cạn đi qua được, khuynh hướng"
+ },
+ "elaborate": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "to be made or done with great care or with much detail",
+  "ex": "",
+  "syn": [],
+  "vi": "hoàn toàn, hoàn thành"
+ },
+ "elevation": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "the height of a place",
+  "ex": "",
+  "syn": [],
+  "vi": "chỗ đất cao, cử dương thánh thể"
+ },
+ "elimination": {
+  "ipa": "/ɪlɪmɪˈneɪʃ(ə)n/",
+  "pos": "noun",
+  "def": "the act or process of removing or being removed",
+  "ex": "",
+  "syn": [],
+  "vi": "sự loại ra"
+ },
+ "elite": {
+  "ipa": "/ɪˈliːt/",
+  "pos": "noun",
+  "def": "important people of high status",
+  "ex": "Grassroots movements will crush the elite.",
+  "syn": [],
+  "vi": "ưu tú"
+ },
+ "emit": {
+  "ipa": "/iˈmɪt/",
+  "pos": "verb",
+  "def": "formal to release or send out (a gas, etc)",
+  "ex": "Harvestmen emit a foul odor when threatened.",
+  "syn": [],
+  "vi": "xông lên, bắn tia sáng"
+ },
+ "essentially": {
+  "ipa": "/ɪˈsɛnʃəli/",
+  "pos": "adverb",
+  "def": "basically, primarily",
+  "ex": "",
+  "syn": [],
+  "vi": "cần thiết, chủ yếu"
+ },
+ "estimation": {
+  "ipa": "/ˌɛs.tɪˈmeɪ.ʃən/",
+  "pos": "noun",
+  "def": "judgment; opinion; guess at the value of",
+  "ex": "",
+  "syn": [],
+  "vi": "sự định giá, sự kính mến"
+ },
+ "evolutionary": {
+  "ipa": "/ˌiː.vəˈl(j)uː.ʃən.ɹi/",
+  "pos": "adjective",
+  "def": "concerning evolution",
+  "ex": "Butterfly wings are a very good model for studying evolutionary mechanisms.",
+  "syn": [],
+  "vi": "thuộc về phát triển"
+ },
+ "execute": {
+  "ipa": "/ˈɛksɪˌkjuːt/",
+  "pos": "verb",
+  "def": "To kill someone, usually as an official punishment",
+  "ex": "",
+  "syn": [],
+  "vi": "hành hình, hoàn thành"
+ },
+ "execution": {
+  "ipa": "/ˌɛk.sɪˈkjuː.ʃən/",
+  "pos": "noun",
+  "def": "killing a person as a (usually legal) punishment",
+  "ex": "",
+  "syn": [],
+  "vi": "chấp hành, chơi một bản nhạc"
+ },
+ "explicitly": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "clearly; specifically",
+  "ex": "I would like to explicitly emphasize this.",
+  "syn": [],
+  "vi": "rõ ràng"
+ },
+ "fertility": {
+  "ipa": "/fə(ɹ)ˈtɪlɪti/",
+  "pos": "noun",
+  "def": "the state of a female being able to produce young",
+  "ex": "",
+  "syn": [],
+  "vi": "sanh sản"
+ },
+ "fiber": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "a thin, threadlike part of an animal hair or plant tissue; an artificial thread; body cells that form muscles and nerves; a food substance",
+  "ex": "Please cut perpendicular to the fibers.",
+  "syn": [],
+  "vi": "người khoác lác, người nói sạo"
+ },
+ "flesh": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "the soft parts of the body",
+  "ex": "",
+  "syn": [],
+  "vi": "thịt, thịt của trái cây"
+ },
+ "formulation": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "the development of a plan, system, or proposal",
+  "ex": "Was it Leibniz or Newton who first formulated the theory of calculus?",
+  "syn": [],
+  "vi": "bày tỏ, ý kiến"
+ },
+ "founds": {
+  "ipa": "/faʊndz/",
+  "pos": "verb",
+  "def": "to be based on, started or created by",
+  "ex": "",
+  "syn": [],
+  "vi": "căn cứ vào, dựa trên"
+ },
+ "fundamentally": {
+  "ipa": "/ˌfʌndəˈmɛntəli/",
+  "pos": "adverb",
+  "def": "in a basic and important way",
+  "ex": "",
+  "syn": [],
+  "vi": "nguyên tắc, thuộc về căn bản"
+ },
+ "genetically": {
+  "ipa": "/d͡ʒəˈneɾɪkli/",
+  "pos": "adverb",
+  "def": "caused or controlled, or by genes",
+  "ex": "",
+  "syn": [],
+  "vi": "về mặt di truyền"
+ },
+ "genetics": {
+  "ipa": "/dʒəˈnɛt.ɪks/",
+  "pos": "noun",
+  "def": "the scientific study of genes, how a living things develop between generations",
+  "ex": "",
+  "syn": [],
+  "vi": "di truyền học"
+ },
+ "globalization": {
+  "ipa": "/ˌɡləʊ.bə.laɪˈzeɪ.ʃən/",
+  "pos": "noun",
+  "def": "international spread of something, e.g. company",
+  "ex": "",
+  "syn": [],
+  "vi": "toàn cầu hóa"
+ },
+ "grasp": {
+  "ipa": "/ɡɹɑːsp/",
+  "pos": "verb",
+  "def": "to grip something firmly with the hands",
+  "ex": "",
+  "syn": [],
+  "vi": "cằm lấy, chiếm lấy"
+ },
+ "gross": {
+  "ipa": "/ɡɹəʊs/",
+  "pos": "adjective",
+  "def": "total amount; extreme or unreasonable",
+  "ex": "",
+  "syn": [],
+  "vi": "béo tốt, chuyện tục tỉu"
+ },
+ "hip": {
+  "ipa": "/hɪp/",
+  "pos": "noun",
+  "def": "the upper part of the leg",
+  "ex": "",
+  "syn": [],
+  "vi": "hông, bờ nóc nhà"
+ },
+ "immune": {
+  "ipa": "/ɪˈmjuːn/",
+  "pos": "adjective",
+  "def": "not affected by something, such as a disease",
+  "ex": "",
+  "syn": [],
+  "vi": "miển dịch, sự miểm thuế"
+ },
+ "independently": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "in a manner being free from the control of another",
+  "ex": "",
+  "syn": [],
+  "vi": "độc lập"
+ },
+ "inevitably": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "happening with complete certainty",
+  "ex": "",
+  "syn": [],
+  "vi": "tất yếu"
+ },
+ "infect": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "to give someone a disease",
+  "ex": "",
+  "syn": [],
+  "vi": "làm hư"
+ },
+ "infectious": {
+  "ipa": "/ɪnˈfɛk.ʃəs/",
+  "pos": "adjective",
+  "def": "capable of causing infection, by the spreading of a bacteria or virus to others",
+  "ex": "",
+  "syn": [],
+  "vi": "nhiểm độc, truyền nhiểm"
+ },
+ "initiation": {
+  "ipa": "/ɪˌnɪʃ.iˈeɪ.ʃən/",
+  "pos": "noun",
+  "def": "a formal entry into an organization, position or office",
+  "ex": "",
+  "syn": [],
+  "vi": "khởi sự, lể thụ pháp"
+ },
+ "inject": {
+  "ipa": "/ɪnˈd͡ʒɛkt/",
+  "pos": "verb",
+  "def": "to put medicine into someone with a syringe",
+  "ex": "",
+  "syn": [],
+  "vi": "bơm thuốc, chích"
+ },
+ "invasion": {
+  "ipa": "/ɪnˈveɪʒən/",
+  "pos": "noun",
+  "def": "an entry into a place for the purpose of taking control",
+  "ex": "",
+  "syn": [],
+  "vi": "bịnh mới bắt đầu, sự lấn vào"
+ },
+ "justification": {
+  "ipa": "/ˌd͡ʒʌstɪfɪˈkeɪʃən/",
+  "pos": "noun",
+  "def": "a reason or fact that explains why something happens or exists",
+  "ex": "There's no justification for treating someone poorly.",
+  "syn": [],
+  "vi": "lý lẽ bào chữa, sự bào chữa"
+ },
+ "legend": {
+  "ipa": "/ˈlɛd͡ʒ.ənd/",
+  "pos": "noun",
+  "def": "old story generally believed, although not proven",
+  "ex": "",
+  "syn": [],
+  "vi": "thánh truyện"
+ },
+ "legitimate": {
+  "ipa": "/lɪˈd͡ʒɪt.ɪ.mət/",
+  "pos": "adjective",
+  "def": "being reasonable and sound",
+  "ex": "",
+  "syn": [],
+  "vi": "chánh đáng, chánh thống"
+ },
+ "liable": {
+  "ipa": "/ˈlaɪ̯əbəl/",
+  "pos": "adjective",
+  "def": "legally responsible for something",
+  "ex": "Beliefs are not liable to verification.",
+  "syn": [],
+  "vi": "chịu trách nhiệm, có lẻ"
+ },
+ "magnetic": {
+  "ipa": "/mæɡˈnɛtɪk/",
+  "pos": "adjective",
+  "def": "having the properties of a magnet, being able to attract.",
+  "ex": "",
+  "syn": [],
+  "vi": "có từ tính, thuộc về từ tính động vật"
+ },
+ "manipulation": {
+  "ipa": "/məˌnɪp.juˈleɪ.ʃən/",
+  "pos": "noun",
+  "def": "the act of controlling something or someone",
+  "ex": "",
+  "syn": [],
+  "vi": "sự chuyển dụng, sự điều khiển"
+ },
+ "missile": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "a weapon, usually thrown, shot or launched",
+  "ex": "",
+  "syn": [],
+  "vi": "đạn bắn ra, hỏa tiển bắn ra"
+ },
+ "mobility": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "the ability to move",
+  "ex": "",
+  "syn": [],
+  "vi": "dân hèn, tính hay biến đổi"
+ },
+ "molecular": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "about or caused by molecules",
+  "ex": "Benedito's research involves studying the molecular mechanisms of disease.",
+  "syn": [],
+  "vi": "thuộc về phân tử"
+ },
+ "morality": {
+  "ipa": "/məˈɹælɪti/",
+  "pos": "noun",
+  "def": "beliefs or ideas about what is right and wrong",
+  "ex": "",
+  "syn": [],
+  "vi": "đạo đức, luân lý"
+ },
+ "mortality": {
+  "ipa": "/mɔɹˈtælɪti/",
+  "pos": "noun",
+  "def": "the quality or state of being human and being able to die",
+  "ex": "",
+  "syn": [],
+  "vi": "loài người, số tử vong"
+ },
+ "myth": {
+  "ipa": "/mɪθ/",
+  "pos": "noun",
+  "def": "a popular belief that is false or unsupported by fact",
+  "ex": "The myth of sanctuary is over.",
+  "syn": [],
+  "vi": "chuyện thần thoại"
+ },
+ "naked": {
+  "ipa": "/ˈneɪkɪd/",
+  "pos": "adjective",
+  "def": "not wearing any clothes; without covering",
+  "ex": "",
+  "syn": [],
+  "vi": "đồng trống, khoả thân"
+ },
+ "objection": {
+  "ipa": "/əbˈd͡ʒɛkʃən/",
+  "pos": "noun",
+  "def": "reason for not supporting or agreeing with a plan",
+  "ex": "",
+  "syn": [],
+  "vi": "chống, mối ngăn trở"
+ },
+ "oral": {
+  "ipa": "/ˈɔː.ɹəl/",
+  "pos": "adjective",
+  "def": "by mouth",
+  "ex": "",
+  "syn": [],
+  "vi": "bằng lời nói, miệng"
+ },
+ "organ": {
+  "ipa": "/ˈɔːɡən/",
+  "pos": "noun",
+  "def": "large wind instrument similar to a piano",
+  "ex": "",
+  "syn": [],
+  "vi": "cơ quan, đại phong cầm"
+ },
+ "philosopher": {
+  "ipa": "/fɪˈlɒs.ə.fə(ɹ)/",
+  "pos": "noun",
+  "def": "a person who studies ideas about things such as the meaning of life and truth",
+  "ex": "",
+  "syn": [],
+  "vi": "nhà triết học"
+ },
+ "philosophical": {
+  "ipa": "/ˌfɪl.əˈsɒf.ɪ.kl̩/",
+  "pos": "adjective",
+  "def": "concerning philosophy",
+  "ex": "",
+  "syn": [],
+  "vi": "trầm tỉnh"
+ },
+ "powder": {
+  "ipa": "/ˈpaʊ.də(ɹ)/",
+  "pos": "noun",
+  "def": "a dry substance made up of very small pieces",
+  "ex": "",
+  "syn": [],
+  "vi": "bụi, phấn"
+ },
+ "profound": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "showing a lot of deep knowledge or thought",
+  "ex": "",
+  "syn": [],
+  "vi": "sâu, uyên thâm"
+ },
+ "psychiatric": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "concerning or used in psychiatry",
+  "ex": "Sami was given a psychiatric evaluation.",
+  "syn": [],
+  "vi": "thuộc về tâm thần"
+ },
+ "psychologist": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "an expert who studies the mind and behavior",
+  "ex": "",
+  "syn": [],
+  "vi": "nhà tâm lý học"
+ },
+ "quantitative": {
+  "ipa": "/ˈkwɒntɪtətɪv/",
+  "pos": "adjective",
+  "def": "the describing or measuring of quantity.",
+  "ex": "Latin poetry used quantitative verse during the life of the language.",
+  "syn": [],
+  "vi": "phân lượng"
+ },
+ "randomize": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "to arrange in a random order",
+  "ex": "",
+  "syn": [],
+  "vi": "chọn ngẫu nhiên"
+ },
+ "randomly": {
+  "ipa": "/ˈɹændm̩li/",
+  "pos": "adverb",
+  "def": "with no pattern or clear purpose; by chance",
+  "ex": "",
+  "syn": [],
+  "vi": "ngẫu nhiên"
+ },
+ "rationality": {
+  "ipa": "/ˌraʃəˈnalɪti/",
+  "pos": "noun",
+  "def": "being able to think clearly",
+  "ex": "",
+  "syn": [],
+  "vi": "sự có lý, sự đúng lý"
+ },
+ "reconstruct": {
+  "ipa": "/ˌɹiːkənˈstɹʌkt/",
+  "pos": "verb",
+  "def": "to rebuild something after it has been destroyed",
+  "ex": "He started reconstructing the sequence of events.",
+  "syn": [],
+  "vi": "kiến thiết lại, làm lại"
+ },
+ "rejection": {
+  "ipa": "/ɹɪˈd͡ʒɛkʃən/",
+  "pos": "noun",
+  "def": "the act of refusing to consider or believe something",
+  "ex": "",
+  "syn": [],
+  "vi": "đồ cặn, sự bác bỏ"
+ },
+ "render": {
+  "ipa": "/ˈɹɛn.də/",
+  "pos": "verb",
+  "def": "to cause someone or something to behave in a particular way, or to enter into a particular condition",
+  "ex": "You have rendered us invaluable service.",
+  "syn": [],
+  "vi": "báo cáo, biện giải"
+ },
+ "reproduction": {
+  "ipa": "/ˌɹiːpɹəˈdʌkʃən/",
+  "pos": "noun",
+  "def": "the process that produces the next generation",
+  "ex": "Understanding sperm production is important for reproductive health.",
+  "syn": [],
+  "vi": "sự chép lại, sự mô phỏng"
+ },
+ "republic": {
+  "ipa": "/ɹɪˈpʌb.lɪk/",
+  "pos": "noun",
+  "def": "a country governed by elected representatives",
+  "ex": "",
+  "syn": [],
+  "vi": "đoàn thể, nước cộng hòa"
+ },
+ "revolutionary": {
+  "ipa": "/ˌɹɛvəˈluːʃənɹi/",
+  "pos": "adjective",
+  "def": "a significant change in something",
+  "ex": "",
+  "syn": [],
+  "vi": "khởi nghĩa, thuộc về cách mạng"
+ },
+ "rhythm": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "a pattern of sound and beats in music",
+  "ex": "",
+  "syn": [],
+  "vi": "âm tiết, nhịp"
+ },
+ "scatter": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "to make things separate and go in different directions",
+  "ex": "",
+  "syn": [],
+  "vi": "tiêu tan, chạy tán loạn"
+ },
+ "sensible": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "having the ability to judge something reasonably",
+  "ex": "",
+  "syn": [],
+  "vi": "cãm giác được, có tri giác"
+ },
+ "sensitivity": {
+  "ipa": "/ˌsɛn.sɪˈtɪv.ɪ.ti/",
+  "pos": "noun",
+  "def": "being sensitive; in physiology: the ability of an organism or part of an organism to react to stimuli; in electronics: the ability of a radio device to react to incoming signals",
+  "ex": "",
+  "syn": [],
+  "vi": "dể cãm"
+ },
+ "simultaneously": {
+  "ipa": "/ˌsɪmlˈteɪnɪəsli/",
+  "pos": "adverb",
+  "def": "at the same time as",
+  "ex": "Gustavo can do several things simultaneously.",
+  "syn": [],
+  "vi": "đồng thời"
+ },
+ "sin": {
+  "ipa": "/ˈsɪn/",
+  "pos": "noun",
+  "def": "a bad act; to do something bad",
+  "ex": "",
+  "syn": [],
+  "vi": "tội, tội ác"
+ },
+ "sophisticate": {
+  "ipa": "/səˈfɪstɪkeɪt/",
+  "pos": "verb",
+  "def": "to make more complex or refined",
+  "ex": "",
+  "syn": [],
+  "vi": "giả mạo, làm giả"
+ },
+ "statistical": {
+  "ipa": "/stəˈtɪs.tɪ.kəl/",
+  "pos": "adjective",
+  "def": "about statistics",
+  "ex": "",
+  "syn": [],
+  "vi": "thống kê"
+ },
+ "statistically": {
+  "ipa": "/stəˈtɪs.tɪ.kə.li/",
+  "pos": "adverb",
+  "def": "with respect to statistics",
+  "ex": "",
+  "syn": [],
+  "vi": "về mặt thống kê"
+ },
+ "substitution": {
+  "ipa": "/ˌsʌb.stɪˈtʃuː.ʃən/",
+  "pos": "noun",
+  "def": "a person or thing acting or serving in place of another; to put (a person or thing) in the place of another.",
+  "ex": "",
+  "syn": [],
+  "vi": "sự thay thể, sự thay vật khác"
+ },
+ "subtle": {
+  "ipa": "/ˈsʌtl̩/",
+  "pos": "adjective",
+  "def": "difficult to notice, understand, or see",
+  "ex": "",
+  "syn": [],
+  "vi": "để thoái thác, khôn khéo"
+ },
+ "sufficiently": {
+  "ipa": "/səˈfɪʃəntli/",
+  "pos": "adverb",
+  "def": "to a degree great enough to do something",
+  "ex": "",
+  "syn": [],
+  "vi": "đủ"
+ },
+ "suicide": {
+  "ipa": "/ˈs(j)uːɪˌsaɪd/",
+  "pos": "noun",
+  "def": "the act of purposely killing yourself because you no longer wish to live",
+  "ex": "",
+  "syn": [],
+  "vi": "người tự tử"
+ },
+ "swell": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "to become larger than normal, often because of injury",
+  "ex": "",
+  "syn": [],
+  "vi": "sưng lên, làm phồng lên"
+ },
+ "symbolic": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "representing a larger quality",
+  "ex": "",
+  "syn": [],
+  "vi": "tượng trưng"
+ },
+ "technically": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "in an exact and particular manner",
+  "ex": "",
+  "syn": [],
+  "vi": "về mặt kỹ thuật"
+ },
+ "theorist": {
+  "ipa": "/ˈθɪəɹɪst/",
+  "pos": "noun",
+  "def": "a person who forms new ideas",
+  "ex": "Tinfoil hats were invented by the CIA to discredit conspiracy theorists.",
+  "syn": [],
+  "vi": "lý thuyết gia"
+ },
+ "transformation": {
+  "ipa": "/ˌtɹæns.fə(ɹ)ˈmeɪ.ʃən/",
+  "pos": "noun",
+  "def": "a complete change in shape or form of something",
+  "ex": "",
+  "syn": [],
+  "vi": "chùm tóc giả, sự biến chất"
+ },
+ "treaty": {
+  "ipa": "/ˈtɹiːti/",
+  "pos": "noun",
+  "def": "an agreement between nations",
+  "ex": "",
+  "syn": [],
+  "vi": "điều ước, hiệp ước"
+ },
+ "tribe": {
+  "ipa": "/tɹaɪb/",
+  "pos": "noun",
+  "def": "a racial group united by language, religion and customs",
+  "ex": "He visited a tribe of Eskimos.",
+  "syn": [],
+  "vi": "bộ lạc, bộ tộc"
+ },
+ "unity": {
+  "ipa": "/ˈjuːnɪti/",
+  "pos": "noun",
+  "def": "being in full agreement; being joined together",
+  "ex": "",
+  "syn": [],
+  "vi": "đồng ý, hòa thuận"
+ },
+ "vague": {
+  "ipa": "/veɪɡ/",
+  "pos": "adjective",
+  "def": "not clearly stated",
+  "ex": "",
+  "syn": [],
+  "vi": "không rỏ ràng, không rỏ rệt"
+ },
+ "virtue": {
+  "ipa": "/ˈvɜːt͡ʃuː/",
+  "pos": "noun",
+  "def": "a good quality",
+  "ex": "",
+  "syn": [],
+  "vi": "đức, đức hạnh"
+ },
+ "weave": {
+  "ipa": "/wiːv/",
+  "pos": "verb",
+  "def": "to make something by crossing threads over and under each other",
+  "ex": "",
+  "syn": [],
+  "vi": "đan lại với nhau, kết lại với nhau"
+ },
+ "adverse": {
+  "ipa": "/ˈæd.və(ɹ)s/",
+  "pos": "adjective",
+  "def": "negative or harmful",
+  "ex": "",
+  "syn": [],
+  "vi": "bất lợi, bất tiện"
+ },
+ "aluminum": {
+  "ipa": "/əˈluː.mɪ.nəm/",
+  "pos": "noun",
+  "def": "very light silvery-white metal used to make cans",
+  "ex": "Corundum is a form of aluminum oxide.",
+  "syn": [],
+  "vi": "nhôm, chất nhôm"
+ },
+ "anthropology": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "the study of human origins and the development of society",
+  "ex": "Algerians are anthropologically similar to Italians.",
+  "syn": [],
+  "vi": "nhân chủng học"
+ },
+ "arrow": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "a symbol to give direction; a long piece of wood shot from a bow",
+  "ex": "",
+  "syn": [],
+  "vi": "chóp nhọn, mũi tên"
+ },
+ "audio": {
+  "ipa": "/ˈɔːdi.əʊ/",
+  "pos": "adjective",
+  "def": "concerning sound",
+  "ex": "Please add audio to this sentence.",
+  "syn": [],
+  "vi": "âm thanh"
+ },
+ "autonomy": {
+  "ipa": "/ɔːˈtɒn.ə.mi/",
+  "pos": "noun",
+  "def": "the power to make independent decisions",
+  "ex": "Western Sahara wants independence from Morocco, not autonomy.",
+  "syn": [],
+  "vi": "quyền tự trị, sự tự trị"
+ },
+ "barrel": {
+  "ipa": "/ˈbæɹ(ə)l/",
+  "pos": "noun",
+  "def": "a round container with curved sides and flat ends",
+  "ex": "",
+  "syn": [],
+  "vi": "thân, cuống"
+ },
+ "basin": {
+  "ipa": "/ˈbeɪsɪn/",
+  "pos": "noun",
+  "def": "a sink; a place in a bathroom to wash your face",
+  "ex": "Yanni needs to replace this basin mixer.",
+  "syn": [],
+  "vi": "bồn rữa mặt, chậu lớn"
+ },
+ "biologist": {
+  "ipa": "/baɪˈɒləd͡ʒɪst/",
+  "pos": "noun",
+  "def": "a scientist who studies living things",
+  "ex": "",
+  "syn": [],
+  "vi": "sinh vật học"
+ },
+ "bizarre": {
+  "ipa": "/bɪˈzɑː(ɹ)/",
+  "pos": "adjective",
+  "def": "odd or strange",
+  "ex": "",
+  "syn": [],
+  "vi": "kỳ dị, kỳ quái"
+ },
+ "bubble": {
+  "ipa": "/ˈbʌbəl/",
+  "pos": "noun",
+  "def": "a small ball of air inside of a liquid",
+  "ex": "",
+  "syn": [],
+  "vi": "bọt nước, chổ phồng lên"
+ },
+ "bullet": {
+  "ipa": "/ˈbʊlɪt/",
+  "pos": "noun",
+  "def": "metal object fired from a gun",
+  "ex": "",
+  "syn": [],
+  "vi": "đạn"
+ },
+ "bundle": {
+  "ipa": "/ˈbʌn.dl̩/",
+  "pos": "noun",
+  "def": "a group of things that are tied together",
+  "ex": "Load the bundle onto the donkey.",
+  "syn": [],
+  "vi": "bó lại, gói lại"
+ },
+ "calcium": {
+  "ipa": "/ˈkælsi.əm/",
+  "pos": "noun",
+  "def": "a substance important for human and animal health, particularly for making bones and teeth",
+  "ex": "Calcium is an essential mineral for the human body.",
+  "syn": [],
+  "vi": "hóa chất cal ci"
+ },
+ "capitalism": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "economic system based on private ownership of money",
+  "ex": "",
+  "syn": [],
+  "vi": "chủ nghĩa tư bản"
+ },
+ "capitalist": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "one believing in private ownership of money",
+  "ex": "",
+  "syn": [],
+  "vi": "nhà tư bản"
+ },
+ "censor": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "to remove parts of a book, film or letter for moral, religious, or political reasons",
+  "ex": "",
+  "syn": [],
+  "vi": "người kiểm duyệt, pháp quan"
+ },
+ "chunk": {
+  "ipa": "/t͡ʃʌŋk/",
+  "pos": "noun",
+  "def": "a large bit of something; thick lump",
+  "ex": "Break down your tasks into smaller, manageable chunks.",
+  "syn": [],
+  "vi": "một khúc gỗ, một lát phó mát"
+ },
+ "classification": {
+  "ipa": "/ˌklæsɪfɪˈkeɪʃən/",
+  "pos": "noun",
+  "def": "putting similar items into groups or sets",
+  "ex": "The first biologists worked hard towards the classification of living things.",
+  "syn": [],
+  "vi": "phân chia theo hạng, sắp đặt theo loại"
+ },
+ "clay": {
+  "ipa": "/kleɪ/",
+  "pos": "noun",
+  "def": "heavy, sticky earth used to make pottery",
+  "ex": "He sculpts abstract figures from clay.",
+  "syn": [],
+  "vi": "đất sét, đất thó"
+ },
+ "clone": {
+  "ipa": "/kləʊn/",
+  "pos": "verb",
+  "def": "to make an exact copy of a living thing",
+  "ex": "",
+  "syn": [],
+  "vi": "dòng vô tính"
+ },
+ "comparative": {
+  "ipa": "/kəmˈpæɹətɪv/",
+  "pos": "adjective",
+  "def": "expressing a difference in degree",
+  "ex": "",
+  "syn": [],
+  "vi": "chỉ sự so sánh, dùng để so sánh"
+ },
+ "competence": {
+  "ipa": "/ˈkɒm.pə.təns/",
+  "pos": "noun",
+  "def": "ability to do something in a fully satisfactory way",
+  "ex": "",
+  "syn": [],
+  "vi": "chức quyền, chức vụ"
+ },
+ "credibility": {
+  "ipa": "/kɹɛd.əˈbɪ.ɫɪ.ti/",
+  "pos": "noun",
+  "def": "quality of being believable or deserving of trust",
+  "ex": "",
+  "syn": [],
+  "vi": "đáng tin, tin được"
+ },
+ "critique": {
+  "ipa": "/kɹɪˈtiːk/",
+  "pos": "noun",
+  "def": "a review of the quality of a work",
+  "ex": "Critique of Pure Reason is German philosopher Immanuel Kant's chief literary work.",
+  "syn": [],
+  "vi": "bài phê bình, nghệ thuật phê bình"
+ },
+ "crude": {
+  "ipa": "/kɹuːd/",
+  "pos": "adjective",
+  "def": "basic or made without skill, such as a crude drawing",
+  "ex": "Western Sahara has crude oil deposits.",
+  "syn": [],
+  "vi": "bịnh chưa phát triển, đồ ăn không tiêu"
+ },
+ "decay": {
+  "ipa": "/dɪˈkeɪ/",
+  "pos": "verb",
+  "def": "to be slowly broken down by natural processes",
+  "ex": "",
+  "syn": [],
+  "vi": "tiêu tan, đồi phế"
+ },
+ "deficiency": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "without something that is necessary",
+  "ex": "AIDS means \"Acquired Immune Deficiency Syndrome\".",
+  "syn": [],
+  "vi": "khuyết điểm, sự thiếu"
+ },
+ "diameter": {
+  "ipa": "/daɪˈæmɪtə(ɹ)/",
+  "pos": "noun",
+  "def": "the distance across the center of an object",
+  "ex": "Atherosclerosis reduces the inner diameter of arteries.",
+  "syn": [],
+  "vi": "đường kính, số bội giác"
+ },
+ "diary": {
+  "ipa": "/ˈdaɪ.(ə.)ɹi/",
+  "pos": "noun",
+  "def": "blank book in which you write what you did each day",
+  "ex": "",
+  "syn": [],
+  "vi": "sổ nhựt ký"
+ },
+ "dictionary": {
+  "ipa": "/ˈdɪkʃən.ɹi/",
+  "pos": "noun",
+  "def": "a book with the spellings and meanings of many words",
+  "ex": "",
+  "syn": [],
+  "vi": "tự điển"
+ },
+ "dilemma": {
+  "ipa": "/daɪˈlɛmə/",
+  "pos": "noun",
+  "def": "a position in which a person must make difficult choices",
+  "ex": "",
+  "syn": [],
+  "vi": "lưởng lự, tình trạng khó xử"
+ },
+ "dioxide": {
+  "ipa": "/daɪˈɒksaɪd/",
+  "pos": "noun",
+  "def": "an oxide containing two oxides per molecule",
+  "ex": "Forests are massive sponges of carbon dioxide.",
+  "syn": [],
+  "vi": "tên chất hóa học"
+ },
+ "disadvantage": {
+  "ipa": "/ˌdɪsədˈvɑːntɪdʒ/",
+  "pos": "noun",
+  "def": "a negative point; a downside; difficulty",
+  "ex": "",
+  "syn": [],
+  "vi": "điều kiện bất lợi, mối thiệt hại"
+ },
+ "displacement": {
+  "ipa": "/dɪsˈpleɪsmɪnt/",
+  "pos": "noun",
+  "def": "the act of taking the place of something or someone else",
+  "ex": "Many Palestinians are internally displaced in their own country.",
+  "syn": [],
+  "vi": "cho ra rìa, đổi chổ"
+ },
+ "dissolve": {
+  "ipa": "/dɪˈzɒlv/",
+  "pos": "verb",
+  "def": "to melt into a liquid so that a substance mixes with the liquid itself",
+  "ex": "",
+  "syn": [],
+  "vi": "chạy tán loạn, giải tán"
+ },
+ "ecological": {
+  "ipa": "/ˌiːkəˈlɒd͡ʒɪkl̩/",
+  "pos": "adjective",
+  "def": "concerning the environment, plants, or animals",
+  "ex": "Algiers should reduce its ecological footprint.",
+  "syn": [],
+  "vi": "sinh thái học"
+ },
+ "electron": {
+  "ipa": "/ɪˈlɛk.tɹɒn/",
+  "pos": "noun",
+  "def": "a negatively charged particle",
+  "ex": "",
+  "syn": [],
+  "vi": "điện tử"
+ },
+ "elementary": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "basic, simple, or essential",
+  "ex": "The electron is an elementary particle.",
+  "syn": [],
+  "vi": "tiểu học, thuộc về đơn giản"
+ },
+ "emperor": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "man who rules an empire",
+  "ex": "",
+  "syn": [],
+  "vi": "hoàng đế, hoàng thượng"
+ },
+ "essence": {
+  "ipa": "/ˈɛsəns/",
+  "pos": "noun",
+  "def": "the most important part or quality of something",
+  "ex": "The essence of romanticism is uncertainty.",
+  "syn": [],
+  "vi": "bản chất, dầu thơm nguyên chất"
+ },
+ "fluid": {
+  "ipa": "/ˈfluːɪd/",
+  "pos": "adjective",
+  "def": "a material that can easily flow. e.g. water",
+  "ex": "",
+  "syn": [],
+  "vi": "chỉ chất lõng, dể dàng"
+ },
+ "fossil": {
+  "ipa": "/ˈfɒsl̩/",
+  "pos": "noun",
+  "def": "a plant or animal that has become rock after many thousands of years",
+  "ex": "",
+  "syn": [],
+  "vi": "vật hóa thạch"
+ },
+ "fraction": {
+  "ipa": "/ˈfɹæk.ʃən/",
+  "pos": "noun",
+  "def": "a part of a whole",
+  "ex": "Convert the following common fractions to decimals.",
+  "syn": [],
+  "vi": "miếng nhỏ, phần"
+ },
+ "fringe": {
+  "ipa": "/fɹɪnd͡ʒ/",
+  "pos": "noun",
+  "def": "the edge of something; such as the decorative edge on a piece of clothing",
+  "ex": "The Romans patrolled the fringes of the Sahara Desert.",
+  "syn": [],
+  "vi": "đường viền, hớt ngắn xỏa xuống trán"
+ },
+ "fusion": {
+  "ipa": "/ˈfjuː.ʒən/",
+  "pos": "noun",
+  "def": "when different styles, ideas or designs combine to form something new; in physics: when atoms combine to produce nuclear energy",
+  "ex": "The physicist was aware of the potential danger of nuclear fusion.",
+  "syn": [],
+  "vi": "hợp nhứt, sự làm cho chảy"
+ },
+ "gauge": {
+  "ipa": "/ˈɡeɪd͡ʒ/",
+  "pos": "noun",
+  "def": "a tool used to measure things",
+  "ex": "How should we gauge the threat?",
+  "syn": [],
+  "vi": "cái mấp của thợ mộc, giác kế"
+ },
+ "goat": {
+  "ipa": "/ɡəʊt/",
+  "pos": "noun",
+  "def": "small animal with beard and horns",
+  "ex": "",
+  "syn": [],
+  "vi": "con dê"
+ },
+ "gut": {
+  "ipa": "/ɡʌt/",
+  "pos": "noun",
+  "def": "the parts inside: a human body, animal body or a machine",
+  "ex": "",
+  "syn": [],
+  "vi": "can đảm, ruột"
+ },
+ "horizon": {
+  "ipa": "/həˈɹaɪ.zən/",
+  "pos": "noun",
+  "def": "the line where the earth or sea meets the sky",
+  "ex": "",
+  "syn": [],
+  "vi": "chân trời, khinh nghiệm"
+ },
+ "horizontal": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "flat or level",
+  "ex": "The exponential function has a horizontal asymptote.",
+  "syn": [],
+  "vi": "nằm ngang, thuộc về chân trời"
+ },
+ "hydrogen": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "the lightest of all chemical elements, has no smell or color",
+  "ex": "\"Which element has the symbol H?\" \"Hydrogen.\"",
+  "syn": [],
+  "vi": "khinh khí"
+ },
+ "illusion": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "an image that seems real, but is not real",
+  "ex": "",
+  "syn": [],
+  "vi": "ảo ảnh, ảo giác"
+ },
+ "impulse": {
+  "ipa": "/ˈɪmpʌls/",
+  "pos": "noun",
+  "def": "a sudden desire to do something that is not planned",
+  "ex": "",
+  "syn": [],
+  "vi": "động lực đẩy tới, sự cãm động"
+ },
+ "inclusion": {
+  "ipa": "/ɪnˈkluːʒən/",
+  "pos": "noun",
+  "def": "act of including; person/thing that is included",
+  "ex": "The company promotes diversity and inclusion.",
+  "syn": [],
+  "vi": "bao gồm, bao hàm"
+ },
+ "indifference": {
+  "ipa": "/ɪnˈdɪf.ɹəns/",
+  "pos": "noun",
+  "def": "a lack of enthusiasm or interest in things; seeming not to care",
+  "ex": "",
+  "syn": [],
+  "vi": "hờ hửng, không thiên vị"
+ },
+ "infinite": {
+  "ipa": "/ˈɪnfɪnɪt/",
+  "pos": "adjective",
+  "def": "without an end",
+  "ex": "",
+  "syn": [],
+  "vi": "bất định cách, không bờ bến"
+ },
+ "inhibition": {
+  "ipa": "/ɪnhɪˈbɪʃən/",
+  "pos": "noun",
+  "def": "the process whereby nerves can retard or prevent the functioning of an organ; the act of blocking or holding back",
+  "ex": "The music will help you lose your inhibitions.",
+  "syn": [],
+  "vi": "cản trở, giãm ý lực"
+ },
+ "insect": {
+  "ipa": "/ˈɪn.sɛkt/",
+  "pos": "noun",
+  "def": "a small animal with 6 legs, such as a bee or ant",
+  "ex": "",
+  "syn": [],
+  "vi": "côn trùng, loài bọ"
+ },
+ "invade": {
+  "ipa": "/ɪnˈveɪd/",
+  "pos": "verb",
+  "def": "to enter a place with an aim of taking control of it",
+  "ex": "",
+  "syn": [],
+  "vi": "làm hại, làm tổn thương"
+ },
+ "leaf": {
+  "ipa": "/liːf/",
+  "pos": "noun",
+  "def": "the green part of a tree or plant",
+  "ex": "",
+  "syn": [],
+  "vi": "cánh cửa, cánh hoa"
+ },
+ "lever": {
+  "ipa": "/ˈliː.və/",
+  "pos": "noun",
+  "def": "a handle that one pulls to operate a machine",
+  "ex": "The handbrake lever was just behind the gearstick.",
+  "syn": [],
+  "vi": "cây xà beng, đòn bẩy"
+ },
+ "limb": {
+  "ipa": "/lɪm/",
+  "pos": "noun",
+  "def": "leg, arm or wing",
+  "ex": "Snakes are descended from four-limbed ancestors.",
+  "syn": [],
+  "vi": "chân tay, cành cây"
+ },
+ "linear": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "made of lines",
+  "ex": "This system of linear equations has infinitely many solutions.",
+  "syn": [],
+  "vi": "nét dài, thuộc về đường dài"
+ },
+ "linguistics": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "the study of human languages",
+  "ex": "",
+  "syn": [],
+  "vi": "ngôn ngữ học, ngữ học"
+ },
+ "liver": {
+  "ipa": "/ˈlɪvə/",
+  "pos": "noun",
+  "def": "a large organ in the body that helps to absorb food and clean the blood",
+  "ex": "",
+  "syn": [],
+  "vi": "gan, người có thứ tự"
+ },
+ "lung": {
+  "ipa": "/ˈlʌŋ/",
+  "pos": "noun",
+  "def": "an organ used to breathe",
+  "ex": "",
+  "syn": [],
+  "vi": "bịnh đau phổi, phổi"
+ },
+ "marble": {
+  "ipa": "/ˈmɑː.bəl/",
+  "pos": "noun",
+  "def": "a kind of stone; metamorphosed limestone",
+  "ex": "",
+  "syn": [],
+  "vi": "đồ chạm"
+ },
+ "matrix": {
+  "ipa": "/ˈmeɪ.tɹɪks/",
+  "pos": "noun",
+  "def": "a substance, situation, or environment in which something has its origin - in math: an arrangement of numbers in rows and columns",
+  "ex": "Matrix, Inception and Interstellar are my favorite movies.",
+  "syn": [],
+  "vi": "đá bọc ở ngoài hột ngọc, đá bọc ở ngoài quặng"
+ },
+ "metaphor": {
+  "ipa": "/ˈmɛt.ə.fə/",
+  "pos": "noun",
+  "def": "a figure of speech based on analogy",
+  "ex": "",
+  "syn": [],
+  "vi": "phép ẩn ý"
+ },
+ "momentum": {
+  "ipa": "/ˌmə(ʊ)ˈmɛntəm/",
+  "pos": "noun",
+  "def": "speed or force that is gained when something moves",
+  "ex": "Their relationship really started gaining momentum.",
+  "syn": [],
+  "vi": "sức xung kích"
+ },
+ "monetary": {
+  "ipa": "/ˈmʌnɪtəɹi/",
+  "pos": "adjective",
+  "def": "concerning money, often referring to a country's economic system",
+  "ex": "I value personal satisfaction over monetary rewards.",
+  "syn": [],
+  "vi": "chỉ về tiền tệ, nói về tiền tệ"
+ },
+ "monopoly": {
+  "ipa": "/məˈnɒpəli/",
+  "pos": "adverb",
+  "def": "complete control of the market for a service or product",
+  "ex": "Ziri and Rima were playing Monopoly.",
+  "syn": [],
+  "vi": "độc quyền"
+ },
+ "multiply": {
+  "ipa": "/ˈmʌltɪplaɪ/",
+  "pos": "verb",
+  "def": "to increase greatly in number",
+  "ex": "",
+  "syn": [],
+  "vi": "làm bội lên, làm cho sanh sản"
+ },
+ "noble": {
+  "ipa": "/ˈnəʊbəl/",
+  "pos": "adjective",
+  "def": "having personal qualities that people admire",
+  "ex": "",
+  "syn": [],
+  "vi": "nguy nga, đá quí"
+ },
+ "nonlinear": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "not in a line",
+  "ex": "In general, little is known about nonlinear second order differential equations.",
+  "syn": [],
+  "vi": "phi tuyến"
+ },
+ "obscure": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "not famous, unknown by most people; not easy to understand",
+  "ex": "Mark writes his academic papers obscurely.",
+  "syn": [],
+  "vi": "ẩn, bí mật"
+ },
+ "optical": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "concerning vision or helping people see",
+  "ex": "Lenses with two distinct optical powers are also called \"bifocals\".",
+  "syn": [],
+  "vi": "thuộc về mắt, về thị giác"
+ },
+ "oxygen": {
+  "ipa": "/ˈɒksɪd͡ʒən/",
+  "pos": "noun",
+  "def": "a gas in the air that has no smell or taste, and that all animals need to breathe",
+  "ex": "",
+  "syn": [],
+  "vi": "ôxy, dưỡng khí ox xy"
+ },
+ "paradox": {
+  "ipa": "/ˈpæɹ.əˌdɒks/",
+  "pos": "noun",
+  "def": "a saying that seems contrary to popular belief, but which may be true",
+  "ex": "Many paradoxes are paradoxical only because they sound strange.",
+  "syn": [],
+  "vi": "tình trạng trái nhau"
+ },
+ "particle": {
+  "ipa": "/ˈpɑːtɪkl̩/",
+  "pos": "noun",
+  "def": "a very small piece of something",
+  "ex": "Sami was working on a particle accelerator.",
+  "syn": [],
+  "vi": "phần nhỏ, tiểu bộ phận"
+ },
+ "plural": {
+  "ipa": "/ˈplʊəɹəl/",
+  "pos": "adjective",
+  "def": "refers to more than one person or thing",
+  "ex": "Pluralism is the only way forward.",
+  "syn": [],
+  "vi": "chỉ số nhiều, thuộc về số nhiều"
+ },
+ "polar": {
+  "ipa": "/ˈpəʊ.lə/",
+  "pos": "adjective",
+  "def": "concerning the areas near the North or South poles",
+  "ex": "",
+  "syn": [],
+  "vi": "gần địa cực, thuộc về gần cực"
+ },
+ "portray": {
+  "ipa": "/pɔːˈtɹeɪ̯/",
+  "pos": "verb",
+  "def": "to represent something or someone in a particular way, often for artistic purposes",
+  "ex": "How are the Palestinians portrayed in your country?",
+  "syn": [],
+  "vi": "làm cho giống, miêu tả bằng hình vẻ"
+ },
+ "portrayal": {
+  "ipa": "/ˌpɔɹˈtɹeɪ.əl/",
+  "pos": "adjective",
+  "def": "the way that something or someone is represented in a book, film, picture or other context",
+  "ex": "How are the Palestinians portrayed in your country?",
+  "syn": [],
+  "vi": "sự làm cho giống hình vẽ, sự miêu tả bằng hình vẽ"
+ },
+ "predominantly": {
+  "ipa": "/pɹɪˈdɒmɪnəntli/",
+  "pos": "adverb",
+  "def": "in a way that is larger, greater or has more power than others",
+  "ex": "California is a predominantly blue state.",
+  "syn": [],
+  "vi": "chủ yếu"
+ },
+ "prejudice": {
+  "ipa": "/ˈpɹɛd͡ʒədɪs/",
+  "pos": "noun",
+  "def": "an unreasonable hatred for a group of people, usually a race or a religion",
+  "ex": "",
+  "syn": [],
+  "vi": "mối hại, sự bất lợi"
+ },
+ "primitive": {
+  "ipa": "/ˈpɹɪmɪtɪv/",
+  "pos": "adjective",
+  "def": "being of an early time period in the past",
+  "ex": "Viracocha created a primitive generation of stone giants.",
+  "syn": [],
+  "vi": "xưa, ban sơ"
+ },
+ "proposition": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "an idea; a suggestion",
+  "ex": "",
+  "syn": [],
+  "vi": "công việc, điều dự định"
+ },
+ "realm": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "the area ruled by a king or queen",
+  "ex": "This is beyond the realm of possibility.",
+  "syn": [],
+  "vi": "địa hạt, vương quốc"
+ },
+ "residual": {
+  "ipa": "/ɹɪˈzɪd͡ʒ.ʊəl/",
+  "pos": "adjective",
+  "def": "concerning the last little bit, after the rest has gone or ended",
+  "ex": "Maintain good ventilation while cooking to minimize greasy residue.",
+  "syn": [],
+  "vi": "dư, còn lại"
+ },
+ "residue": {
+  "ipa": "/ˈɹɛzɪdjuː/",
+  "pos": "noun",
+  "def": "left over after part or most is taken away",
+  "ex": "Maintain good ventilation while cooking to minimize greasy residue.",
+  "syn": [],
+  "vi": "chất cặn, đồ thừa"
+ },
+ "rhetoric": {
+  "ipa": "/ˈɹɛtəɹɪk/",
+  "pos": "noun",
+  "def": "the study of public speaking or writing techniques",
+  "ex": "",
+  "syn": [],
+  "vi": "tu từ học, thuật hùng biện"
+ },
+ "rotate": {
+  "ipa": "/ɹəʊˈteɪt/",
+  "pos": "verb",
+  "def": "to move or turn around a central point",
+  "ex": "The hourglass rotates itself using gravity.",
+  "syn": [],
+  "vi": "quay, luân phiên nhau"
+ },
+ "rotation": {
+  "ipa": "/ɹoʊˈteɪʃən/",
+  "pos": "noun",
+  "def": "movement in a circle around a central point",
+  "ex": "The hourglass rotates itself using gravity.",
+  "syn": [],
+  "vi": "sự hồi chuyển, sự thay phiên"
+ },
+ "sensation": {
+  "ipa": "/sɛnˈseɪʃən/",
+  "pos": "noun",
+  "def": "a feeling that is experienced by the body, usually through the sense of touch",
+  "ex": "",
+  "syn": [],
+  "vi": "mối cãm động, mối cãm kích"
+ },
+ "shallow": {
+  "ipa": "/ˈʃæləʊ/",
+  "pos": "adjective",
+  "def": "not deep; a small distance between the lowest and highest point",
+  "ex": "",
+  "syn": [],
+  "vi": "không sâu"
+ },
+ "skip": {
+  "ipa": "/skɪp/",
+  "pos": "verb",
+  "def": "to not do; to jump",
+  "ex": "",
+  "syn": [],
+  "vi": "quên, nhảy"
+ },
+ "sodium": {
+  "ipa": "/ˈsəʊ.di.əm/",
+  "pos": "noun",
+  "def": "a soft, white chemical element",
+  "ex": "Sodium reacts vigorously and exothermically with water.",
+  "syn": [],
+  "vi": "chất hóa học"
+ },
+ "span": {
+  "ipa": "/spæn/",
+  "pos": "verb",
+  "def": "the amount of time something lasts",
+  "ex": "People nowadays have short attention spans.",
+  "syn": [],
+  "vi": "bắt ngựa lên xe, bắt qua sông"
+ },
+ "spatial": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "about space",
+  "ex": "It is used under the condition with spatial gradient field of 72 T/m (value extrapolated) and less.",
+  "syn": [],
+  "vi": "thuộc về không gian"
+ },
+ "spectrum": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "the wavelengths of colors from red to violet",
+  "ex": "Tom is probably on the spectrum.",
+  "syn": [],
+  "vi": "quang phổ"
+ },
+ "spontaneous": {
+  "ipa": "/spɒnˈteɪ.ni.əs/",
+  "pos": "adjective",
+  "def": "something that happens on its own, seemingly without cause",
+  "ex": "",
+  "syn": [],
+  "vi": "tự nhiên, tự phát"
+ },
+ "stance": {
+  "ipa": "/stæns/",
+  "pos": "noun",
+  "def": "a position or opinion that is stated to the public",
+  "ex": "Perhaps he may yet reconsider his stance.",
+  "syn": [],
+  "vi": "thế đứng đánh banh, thế đứng đánh gôn"
+ },
+ "stereotype": {
+  "ipa": "/ˈstɛ.ɹi.əˌtaɪp/",
+  "pos": "noun",
+  "def": "an idea or belief about what someone or something is like, often unfair or untrue",
+  "ex": "",
+  "syn": [],
+  "vi": "bản in đúc"
+ },
+ "strand": {
+  "ipa": "/ˈstɹænd/",
+  "pos": "noun",
+  "def": "something that is plaited or twisted as a rope-like length",
+  "ex": "",
+  "syn": [],
+  "vi": "bím tóc, bờ biển"
+ },
+ "subjective": {
+  "ipa": "/səbˈd͡ʒɛktɪv/",
+  "pos": "adjective",
+  "def": "the use of personal feelings and opinions, rather than facts",
+  "ex": "",
+  "syn": [],
+  "vi": "chủ quan, thuộc về chủ đề"
+ },
+ "surplus": {
+  "ipa": "/ˈsɜːpləs/",
+  "pos": "adjective",
+  "def": "extra; more than is needed",
+  "ex": "Thanks to exports, the trade surplus is maintained.",
+  "syn": [],
+  "vi": "số dư, số thừa"
+ },
+ "syndrome": {
+  "ipa": "/ˈsɪndɹəʊm/",
+  "pos": "noun",
+  "def": "a group of signs and symptoms that accompany a disease",
+  "ex": "I suffer from carpal tunnel syndrome.",
+  "syn": [],
+  "vi": "bịnh bắt đầu phát, triệu chứng của bịnh"
+ },
+ "synthesis": {
+  "ipa": "/ˈsɪnθəsɪs/",
+  "pos": "noun",
+  "def": "building something complex from simple parts",
+  "ex": "The artist is a synthesis of the theoretical person and the practical one.",
+  "syn": [],
+  "vi": "sự tổ hợp"
+ },
+ "thread": {
+  "ipa": "/ˈθɹɛd/",
+  "pos": "noun",
+  "def": "a long, very thin, soft material used to join or make cloth",
+  "ex": "Please thread this needle for me.",
+  "syn": [],
+  "vi": "chỉ, dây nhỏ"
+ },
+ "thumb": {
+  "ipa": "/ˈθʌm/",
+  "pos": "noun",
+  "def": "the short, thick finger on the side of your hand",
+  "ex": "",
+  "syn": [],
+  "vi": "ngón tay cái"
+ },
+ "toxic": {
+  "ipa": "/ˈtɒk.sɪk/",
+  "pos": "adjective",
+  "def": "poisonous; harmful",
+  "ex": "",
+  "syn": [],
+  "vi": "độc"
+ },
+ "transcription": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "something written",
+  "ex": "The transcript is examined to understand the structure of the changes.",
+  "syn": [],
+  "vi": "sự cải tác, sự chép lại"
+ },
+ "transplant": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "a medical operation in which a new organ is placed inside a patient's body",
+  "ex": "",
+  "syn": [],
+  "vi": "cây bứng trồng nơi khác"
+ },
+ "trauma": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "a very severe or upsetting experience",
+  "ex": "You can recover from your trauma.",
+  "syn": [],
+  "vi": "dấu bị thương, vết thương"
+ },
+ "triangle": {
+  "ipa": "/ˈtɹaɪəŋɡəl/",
+  "pos": "noun",
+  "def": "a closed shape with three straight sides",
+  "ex": "",
+  "syn": [],
+  "vi": "hình ba góc"
+ },
+ "tutor": {
+  "ipa": "/ˈtjuːtəː/",
+  "pos": "noun",
+  "def": "a teacher",
+  "ex": "",
+  "syn": [],
+  "vi": "người giám hộ, người thủ hộ"
+ },
+ "upward": {
+  "ipa": "/ˈʌpwəd/",
+  "pos": "adverb",
+  "def": "moving toward a higher point or position",
+  "ex": "",
+  "syn": [],
+  "vi": "ở trên cao, từ dưới lên trên"
+ },
+ "utilize": {
+  "ipa": "/ˈjuː.tɪ.laɪz/",
+  "pos": "verb",
+  "def": "to use something practically for a particular purpose",
+  "ex": "Pietro decided to utilize the opportunity.",
+  "syn": [],
+  "vi": "dùng việc gì, làm việc gì"
+ },
+ "utterance": {
+  "ipa": "/ˈʌtəɹəns/",
+  "pos": "noun",
+  "def": "something that is said",
+  "ex": "",
+  "syn": [],
+  "vi": "phát biểu ý kiến, sự bày tỏ"
+ },
+ "vein": {
+  "ipa": "/veɪn/",
+  "pos": "noun",
+  "def": "one of the little tubes that return blood from the body to the heart",
+  "ex": "Evil runs deep in my veins.",
+  "syn": [],
+  "vi": "khoáng mạch, mạch máu đen"
+ },
+ "vertical": {
+  "ipa": "/ˈvɜː.tɪ.kəl/",
+  "pos": "adjective",
+  "def": "a line going up/down; not horizontal",
+  "ex": "Vertical farms could reduce water usage.",
+  "syn": [],
+  "vi": "đứng thẳng"
+ },
+ "abdominal": {
+  "ipa": "/æbˈdɒm.ə.nl̩/",
+  "pos": "adjective",
+  "def": "Concerned with the abdomen or stomach",
+  "ex": "Diverticulitis can cause severe abdominal pain.",
+  "syn": [],
+  "vi": "thuộc về bụng dưới"
+ },
+ "altitude": {
+  "ipa": "/ˈælt.ɪˌtjuːd/",
+  "pos": "noun",
+  "def": "the height of something above sea level",
+  "ex": "Inexperienced climbers often suffer with altitude sickness.",
+  "syn": [],
+  "vi": "bề cao, địa vị cao"
+ },
+ "applause": {
+  "ipa": "/əˈplɔːz/",
+  "pos": "noun",
+  "def": "the sound made by clapping a performance or speech",
+  "ex": "",
+  "syn": [],
+  "vi": "tiếng vỗ tay"
+ },
+ "bracket": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "a 90 degree piece of metal used to support a wall shelf",
+  "ex": "Only one competitor can emerge from the crucible of losers' bracket.",
+  "syn": [],
+  "vi": "dấu ngoặc, vật để chống đở"
+ },
+ "coefficient": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "a number multiplied by a variable in an algebraic expression.",
+  "ex": "The quadratic coefficient in this term is questionable.",
+  "syn": [],
+  "vi": "hệ số bằng số"
+ },
+ "composite": {
+  "ipa": "/ˈkɒmpəzɪt/",
+  "pos": "adjective",
+  "def": "made of more than one different part",
+  "ex": "I desire to learn Kabyle composition.",
+  "syn": [],
+  "vi": "hỗn hợp, hợp chất"
+ },
+ "cone": {
+  "ipa": "/ˈkəʊn/",
+  "pos": "noun",
+  "def": "a 3D shape with a circular base; a part of the eye",
+  "ex": "Cones and pyramids are geometric shapes.",
+  "syn": [],
+  "vi": "hình nón, trái cây hình chóp"
+ },
+ "converge": {
+  "ipa": "/kənˈvɜːd͡ʒ/",
+  "pos": "verb",
+  "def": "to come together",
+  "ex": "Without loss of generality, we can say that the sequence converges to zero.",
+  "syn": [],
+  "vi": "cùng đưa đến, làm hội tụ"
+ },
+ "convergence": {
+  "ipa": "/kənˈvɜːd͡ʒəns/",
+  "pos": "noun",
+  "def": "coming together",
+  "ex": "Without loss of generality, we can say that the sequence converges to zero.",
+  "syn": [],
+  "vi": "đồng qui, sự tập trung"
+ },
+ "cue": {
+  "ipa": "/kjuː/",
+  "pos": "noun",
+  "def": "a word or action during a stage play to tell an actor to speak",
+  "ex": "Tom has difficulty reading social cues.",
+  "syn": [],
+  "vi": "cây cơ bida, căn dặn"
+ },
+ "cylinder": {
+  "ipa": "/ˈsɪlɪndə(ɹ)/",
+  "pos": "noun",
+  "def": "a shape or object with flat, circular ends and long, straight sides",
+  "ex": "In the tumbler, the cylinder form is tapered.",
+  "syn": [],
+  "vi": "hình trụ, ống xy lanh"
+ },
+ "degrade": {
+  "ipa": "/dɪˈɡɹeɪd/",
+  "pos": "verb",
+  "def": "to treat someone without respect; to reduce in amount or strength",
+  "ex": "Strip searches are degrading and dehumanizing.",
+  "syn": [],
+  "vi": "giảm bớt, giảm giá trị"
+ },
+ "deviation": {
+  "ipa": "/ˌdiː.viˈeɪʃən/",
+  "pos": "noun",
+  "def": "not standard or normal; in statistics: the difference between one of a set of values and some fixed value, usually the mean of the set.",
+  "ex": "Next, try to confirm the deviation with an oscilloscope.",
+  "syn": [],
+  "vi": "đi lệch, đổi chiều"
+ },
+ "differential": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "difference; diversity",
+  "ex": "Differential equations are equations involving derivatives.",
+  "syn": [],
+  "vi": "vi phân, đặc biệt"
+ },
+ "diffusion": {
+  "ipa": "/dɪˈfjuː.ʒən/",
+  "pos": "noun",
+  "def": "the movement of light in many directions",
+  "ex": "Diffusion is passive because it doesn't require an external source of energy.",
+  "syn": [],
+  "vi": "lôi thôi, dài giòng"
+ },
+ "dilute": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "to mix; to reduce in strength, concentration, quality or purity",
+  "ex": "Without water, pharmaceutical preparations and dilutions can't be made.",
+  "syn": [],
+  "vi": "chế thêm nước vào, làm giãm bớt"
+ },
+ "dominance": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "the state of being more powerful, successful, or important than others",
+  "ex": "",
+  "syn": [],
+  "vi": "có thế lực, quyền thế"
+ },
+ "dye": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "a liquid that colors hair or cloth",
+  "ex": "",
+  "syn": [],
+  "vi": "đồ nhuộm, màu nhuộm"
+ },
+ "ecology": {
+  "ipa": "/ɪˈkɒl.ə.d͡ʒi/",
+  "pos": "noun",
+  "def": "the study of plants, animals, people, and their environments",
+  "ex": "Algiers should reduce its ecological footprint.",
+  "syn": [],
+  "vi": "sinh thái học"
+ },
+ "elastic": {
+  "ipa": "/ɪˈlɑːstɪk/",
+  "pos": "adjective",
+  "def": "able to return to original shape or size after stretching",
+  "ex": "This material stops being elastic under extreme cold.",
+  "syn": [],
+  "vi": "co lại, có tính thun lại"
+ },
+ "elasticity": {
+  "ipa": "/ɪ.læsˈtɪs.ɪ.ti/",
+  "pos": "noun",
+  "def": "the ability to stretch easily and then quickly return to the original shape",
+  "ex": "This material stops being elastic under extreme cold.",
+  "syn": [],
+  "vi": "sự mềm dẻo, tánh mềm mỏng"
+ },
+ "equilibrium": {
+  "ipa": "/ɛkwɪˈlɪbɹɪəm/",
+  "pos": "noun",
+  "def": "a state of balance",
+  "ex": "She does yoga every day to maintain her mental and physical equilibrium.",
+  "syn": [],
+  "vi": "bình quân, thế cân bằng"
+ },
+ "fungus": {
+  "ipa": "/ˈfʌŋ.ɡəs/",
+  "pos": "noun",
+  "def": "a group of plants that grow on dead materials and have no flowers, e.g. mushrooms",
+  "ex": "Ant colonies have underground fungus gardens.",
+  "syn": [],
+  "vi": "bướu xùi, lớn lên như thổi"
+ },
+ "hawk": {
+  "ipa": "/ˈhɔːk/",
+  "pos": "noun",
+  "def": "a large bird that gets its food by killing smaller birds and animals",
+  "ex": "",
+  "syn": [],
+  "vi": "chim ưng, chim ó"
+ },
+ "incumbent": {
+  "ipa": "/ɪnˈkʌmb(ə)nt/",
+  "pos": "noun",
+  "def": "a person who holds a particular office or position",
+  "ex": "His speeches resemble the straight-to-the-point style of his incumbent.",
+  "syn": [],
+  "vi": "sự ân hưởng lộc thánh, sự hưởng lợi ở giáo hội"
+ },
+ "inferior": {
+  "ipa": "/ɪnˈfɪə.ɹi.ə/",
+  "pos": "adjective",
+  "def": "not as good as something else",
+  "ex": "They're suffering from an inferiority complex.",
+  "syn": [],
+  "vi": "cấp dưới, hạ cấp"
+ },
+ "ion": {
+  "ipa": "/ˈaɪən/",
+  "pos": "noun",
+  "def": "a charged atom",
+  "ex": "Lithium ion batteries are used in almost all electric vehicles.",
+  "syn": [],
+  "vi": "ion"
+ },
+ "kidney": {
+  "ipa": "/ˈkɪdni/",
+  "pos": "noun",
+  "def": "an organ in the body that cleans the blood",
+  "ex": "",
+  "syn": [],
+  "vi": "hai người cùng một cánh, hai người cùng một phường"
+ },
+ "lateral": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "on the side; moving sideways",
+  "ex": "Dr. Hawking was diagnosed with amyotrophic lateral sclerosis while at Oxford.",
+  "syn": [],
+  "vi": "ở bên"
+ },
+ "maternal": {
+  "ipa": "/məˈtɜːnəl/",
+  "pos": "adjective",
+  "def": "having to do with being a mother",
+  "ex": "",
+  "syn": [],
+  "vi": "bên ngoại, thuộc về mẹ"
+ },
+ "membrane": {
+  "ipa": "/ˈmɛm.bɹeɪn/",
+  "pos": "noun",
+  "def": "a thin covering of tissue.",
+  "ex": "The substance can irritate or corrode the skin, eyes, or mucous membranes.",
+  "syn": [],
+  "vi": "da mỏng, mạc"
+ },
+ "multinational": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "involving many countries",
+  "ex": "Global multinational corporations are engaged in environmental violence.",
+  "syn": [],
+  "vi": "có nhiều quốc gia"
+ },
+ "niche": {
+  "ipa": "/niːʃ/",
+  "pos": "noun",
+  "def": "a small area; a specialised business, job or activity",
+  "ex": "He's adept at jumping into profitable niches.",
+  "syn": [],
+  "vi": "chỗ xây thủng vào tường, núp trong góc"
+ },
+ "nitrogen": {
+  "ipa": "/ˈnaɪ.tɹə.d͡ʒən/",
+  "pos": "noun",
+  "def": "a colorless chemical element without a smell that forms most of the earth's atmosphere",
+  "ex": "This color is typical for nitrogen dioxide fumes.",
+  "syn": [],
+  "vi": "đạm tố, hóa ni tơ"
+ },
+ "node": {
+  "ipa": "/nəʊd/",
+  "pos": "noun",
+  "def": "an intersection or junction point in a network; a part on a plant where a new leaf grows",
+  "ex": "Swollen lymph nodes are usually found near the site of an infection, tumour, or inflammation.",
+  "syn": [],
+  "vi": "cục bướu cứng, cục u trên rể cây"
+ },
+ "nominal": {
+  "ipa": "/ˈnɒm.ɪ.nl̩/",
+  "pos": "adjective",
+  "def": "in name or thought but not reality",
+  "ex": "",
+  "syn": [],
+  "vi": "hư danh, hữu danh vô thực"
+ },
+ "nucleus": {
+  "ipa": "/ˈnjuː.kli.əs/",
+  "pos": "noun",
+  "def": "control center of a cell",
+  "ex": "The cytoplasm consists of proteins, the nucleus of nucleic acids.",
+  "syn": [],
+  "vi": "trung tâm, hạch của tế bào"
+ },
+ "numerical": {
+  "ipa": "/n(j)uːˈmɛɹ.ɪ.kəl/",
+  "pos": "adjective",
+  "def": "includes numbers",
+  "ex": "",
+  "syn": [],
+  "vi": "bằng số, thuộc về số"
+ },
+ "optimal": {
+  "ipa": "/ˈɒptɪməl/",
+  "pos": "adjective",
+  "def": "best",
+  "ex": "",
+  "syn": [],
+  "vi": "tối ưu"
+ },
+ "par": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "the usual amount",
+  "ex": "Milan is the fashion capital par excellence.",
+  "syn": [],
+  "vi": "bài ngắn, sự bằng nhau"
+ },
+ "pest": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "an unwanted insect or small animal that eats plants or food supplies",
+  "ex": "",
+  "syn": [],
+  "vi": "bịnh dịch, cây cối"
+ },
+ "plantation": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "a large area of plants, usually in a hot climate",
+  "ex": "Small children work as slaves on the chocolate plantation.",
+  "syn": [],
+  "vi": "đám cây, sở trồng tỉa"
+ },
+ "pragmatic": {
+  "ipa": "/pɹæɡˈmætɪk/",
+  "pos": "adjective",
+  "def": "dealing with problems in a reasonable, practical manner",
+  "ex": "If you think pragmatically, you will achieve what you desire.",
+  "syn": [],
+  "vi": "căn cứ vào sự thật, thuộc về định lý"
+ },
+ "precipitation": {
+  "ipa": "/pɹɪˌsɪpɪˈteɪʃn̩/",
+  "pos": "noun",
+  "def": "rain, snow or hail",
+  "ex": "High temperature extremes and heavy precipitation events are increasing.",
+  "syn": [],
+  "vi": "sự hấp tấp, sự hối hả"
+ },
+ "quantum": {
+  "ipa": "/ˈkwɒntəm/",
+  "pos": "noun",
+  "def": "the smallest unit or amount of energy",
+  "ex": "Quantum mechanics is a challenging field.",
+  "syn": [],
+  "vi": "ngạch, ngạch số"
+ },
+ "radar": {
+  "ipa": "/ˈɹeɪdɑː/",
+  "pos": "noun",
+  "def": "a device that sends out radio waves for finding out the position of another object",
+  "ex": "",
+  "syn": [],
+  "vi": "máy ra đa, một hệ thống"
+ },
+ "replication": {
+  "ipa": "/ɹɛplɪˈkeɪʃən/",
+  "pos": "noun",
+  "def": "the act of making copies",
+  "ex": "Many companies are trying to replicate TikTok's success.",
+  "syn": [],
+  "vi": "bản mô phỏng, câu đáp lại"
+ },
+ "reservoir": {
+  "ipa": "/ˈɹɛz.ə.vwɑː/",
+  "pos": "noun",
+  "def": "a lake, usually artificial, where water is collected and stored for the use of a community or industry",
+  "ex": "Algerian cities need massive water reservoirs.",
+  "syn": [],
+  "vi": "bồn chứa chôn dưới đất, chổ chứa nước"
+ },
+ "scripture": {
+  "ipa": "/ˈskɹɪptʃə/",
+  "pos": "noun",
+  "def": "the holy books of a particular religion",
+  "ex": "The evangelical community holds firm beliefs in the authority of Scripture.",
+  "syn": [],
+  "vi": "bài thánh kinh, bài thánh thư"
+ },
+ "semantic": {
+  "ipa": "/sɪˈmæntɪk/",
+  "pos": "adjective",
+  "def": "the different meanings of words",
+  "ex": "Grammar is divided into phonology, morphology, syntax, and semantics.",
+  "syn": [],
+  "vi": "thuộc về ý nghĩa học"
+ },
+ "singular": {
+  "ipa": "/ˈsɪŋ.ɡjə.lɚ/",
+  "pos": "adjective",
+  "def": "one",
+  "ex": "The genitive singular of \"rosa\" is \"rosae\".",
+  "syn": [],
+  "vi": "đặc biệt, hiếm có"
+ },
+ "slab": {
+  "ipa": "/slæb/",
+  "pos": "noun",
+  "def": "a thick, flat slice of something",
+  "ex": "A slab of concrete underlies nearly every permanent structure on Earth.",
+  "syn": [],
+  "vi": "phiến mõng có hình vuông, tấm ván bìa của cây"
+ },
+ "slash": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "to cut violently",
+  "ex": "",
+  "syn": [],
+  "vi": "khía nhọn ở bộ phận cây, vết rạch thịt"
+ },
+ "sniff": {
+  "ipa": "/snɪf/",
+  "pos": "verb",
+  "def": "to smell by short intakes of air.",
+  "ex": "Mary sniffs – now she starts crying.",
+  "syn": [],
+  "vi": "bị nghẹt mũi, hít vào mũi"
+ },
+ "socialize": {
+  "ipa": "/ˈsoʊʃəlaɪz/",
+  "pos": "verb",
+  "def": "to teach people to behave in a way which is acceptable in their culture; to spend time with people",
+  "ex": "",
+  "syn": [],
+  "vi": "họp thành đoàn thể, xã hội hóa"
+ },
+ "static": {
+  "ipa": "/ˈstæt.ɪk/",
+  "pos": "adjective",
+  "def": "being unchangeable or unmovable",
+  "ex": "The static electricity started to make our hair stand on end.",
+  "syn": [],
+  "vi": "như có điện, tỉnh điện"
+ },
+ "surgical": {
+  "ipa": "/ˈsɜːd͡ʒɪkəl/",
+  "pos": "adjective",
+  "def": "concerning surgery",
+  "ex": "Without water, surgical procedures and infection control become challenging.",
+  "syn": [],
+  "vi": "thuộc về giải phẩu, thuộc về mổ xẻ"
+ },
+ "swap": {
+  "ipa": "/ˈswɒp/",
+  "pos": "verb",
+  "def": "to trade or exchange",
+  "ex": "",
+  "syn": [],
+  "vi": "đổi, đổi chác"
+ },
+ "synthetic": {
+  "ipa": "/sɪnˈθɛtɪk/",
+  "pos": "adjective",
+  "def": "not natural; made from artificial materials",
+  "ex": "This synthetic voice sounds very robotic.",
+  "syn": [],
+  "vi": "thuộc về họp lại"
+ },
+ "temporal": {
+  "ipa": "/ˈtɛm.pə.ɹəl/",
+  "pos": "adjective",
+  "def": "concerning time",
+  "ex": "It took Tom a while to understand the rules of temporal sequence in indirect speech.",
+  "syn": [],
+  "vi": "thuộc về màng tang, thuộc về thời gian"
+ },
+ "thermal": {
+  "ipa": "/ˈθɜːməl/",
+  "pos": "adjective",
+  "def": "with reference to some source of heat",
+  "ex": "Air provides considerable thermal insulation when trapped in a chamber.",
+  "syn": [],
+  "vi": "thuộc về nóng, thuộc về nhiệt"
+ },
+ "tract": {
+  "ipa": "/tɹækt/",
+  "pos": "noun",
+  "def": "a large stretch of land",
+  "ex": "The doctor prescribed me Ciprofloxacin for my urinary tract infection.",
+  "syn": [],
+  "vi": "khoảng rộng, truyền đơn"
+ },
+ "trivial": {
+  "ipa": "/ˈtɹɪv.i.əl/",
+  "pos": "adjective",
+  "def": "unimportant",
+  "ex": "",
+  "syn": [],
+  "vi": "không đáng kể, không quan trọng"
+ },
+ "turbulent": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "moving violently and unevenly",
+  "ex": "We are currently experiencing some turbulence.",
+  "syn": [],
+  "vi": "hổn loạn, huyên náo"
+ },
+ "unintelligible": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "that cannot be understood",
+  "ex": "Rodrigo is unintelligible in Berber pronunciation.",
+  "syn": [],
+  "vi": "khó hiểu"
+ },
+ "urine": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "yellow liquid waste from the body",
+  "ex": "",
+  "syn": [],
+  "vi": "nước tiểu"
+ },
+ "vegetation": {
+  "ipa": "/ˌvɛd͡ʒəˈteɪʃən/",
+  "pos": "noun",
+  "def": "plants",
+  "ex": "",
+  "syn": [],
+  "vi": "chứng vưu thủng, sự sanh trưởng của cây cối"
+ },
+ "wheat": {
+  "ipa": "/ˈwiːt/",
+  "pos": "noun",
+  "def": "a kind of grain that is used to make flour for bread",
+  "ex": "",
+  "syn": [],
+  "vi": "hột lúa mì"
+ },
+ "antiquity": {
+  "ipa": "/ænˈtɪk.wɪ.ti/",
+  "pos": "noun",
+  "def": "an ancient period; something made a long time ago",
+  "ex": "",
+  "syn": [],
+  "vi": "cổ vật, đời xưa"
+ },
+ "chess": {
+  "ipa": "/t͡ʃɛs/",
+  "pos": "noun",
+  "def": "a game of strategy, for two players",
+  "ex": "",
+  "syn": [],
+  "vi": "chơi cờ, cờ"
+ },
+ "contour": {
+  "ipa": "/ˈkɒntɔː/",
+  "pos": "noun",
+  "def": "the shape of the outside edge of something",
+  "ex": "Included in this number is everything from body contouring to full gender reassignment.",
+  "syn": [],
+  "vi": "đường châu vi, đường viền quanh"
+ },
+ "coronary": {
+  "ipa": "/ˈkɒɹən(ə)ɹi/",
+  "pos": "adjective",
+  "def": "concerning the heart",
+  "ex": "Years back, I had a coronary vasospasm that could have led to a heart attack.",
+  "syn": [],
+  "vi": "động mạch hình vành, hình vành"
+ },
+ "corpus": {
+  "ipa": "/ˈkɔːpəs/",
+  "pos": "noun",
+  "def": "a body; in linguistics: a body of words",
+  "ex": "I regularly contribute to the Berber corpus.",
+  "syn": [],
+  "vi": "chứng cớ phạm tội, tập sao lục"
+ },
+ "deceive": {
+  "ipa": "/dɪˈsiːv/",
+  "pos": "verb",
+  "def": "to make someone believe something that is not true",
+  "ex": "",
+  "syn": [],
+  "vi": "đi ngoại tình, lừa phỉnh"
+ },
+ "deflection": {
+  "ipa": "/dɪˈflɛkʃən/",
+  "pos": "noun",
+  "def": "the action of making something move in a different direction",
+  "ex": "Deflect any question related to your personal life.",
+  "syn": [],
+  "vi": "đi sai đường, sự cong"
+ },
+ "encode": {
+  "ipa": "/ɪnˈkəʊd/",
+  "pos": "verb",
+  "def": "to change a message or information into code",
+  "ex": "All conversation involves the encoding and decoding of information.",
+  "syn": [],
+  "vi": "mã hóa"
+ },
+ "facet": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "a part of something",
+  "ex": "The film depicted a hidden facet of Berber life in the beginning of 1900s.",
+  "syn": [],
+  "vi": "đường viền nhỏ, mặt nhỏ"
+ },
+ "fin": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "the flat, thin body parts of a fish that sticks out and helps guide it through water",
+  "ex": "Shark fin soup is commonly served at Chinese weddings and banquets.",
+  "syn": [],
+  "vi": "tay, vảy cá"
+ },
+ "flux": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "a state of flow and change",
+  "ex": "The Angara-V pulsed power facility used polystyrene to homogenize x-ray flux.",
+  "syn": [],
+  "vi": "tuôn ra, nước triều lên"
+ },
+ "hepatitis": {
+  "ipa": "/ˌhɛpəˈtaɪ̯tɪs/",
+  "pos": "noun",
+  "def": "a disease of the liver that causes inflammation, yellow skin and a fever",
+  "ex": "He said some of the first signs of Hepatitis B are vomiting, fever, and constipation.",
+  "syn": [],
+  "vi": "gan viêm, bịnh sưng gan"
+ },
+ "invert": {
+  "ipa": "/ɪnˈvɜːt/",
+  "pos": "verb",
+  "def": "to turn something upside down",
+  "ex": "The flag of the town of Vila Velha looks like an inverted Philippine flag.",
+  "syn": [],
+  "vi": "đảo ngược, làm đảo lộn"
+ },
+ "locus": {
+  "ipa": "/ˈləʊkəs/",
+  "pos": "noun",
+  "def": "a place or location; in genetics: the location of a gene on a chromosome",
+  "ex": "If you think you have control over your own life, you have an internal locus of control.",
+  "syn": [],
+  "vi": "chổ, quỹ tích"
+ },
+ "mercury": {
+  "ipa": "/ˈmɜːkjʊ.ɹi/",
+  "pos": "noun",
+  "def": "a heavy, silver-white metal that is used in thermometers to measure temperature; a planet",
+  "ex": "",
+  "syn": [],
+  "vi": "thủy ngân, cây hỏa diệm thái"
+ },
+ "mole": {
+  "ipa": "/məʊl/",
+  "pos": "noun",
+  "def": "a small animal with dark fur that lives under the ground; a unit for measuring molecules",
+  "ex": "The mole was digging through dirt.",
+  "syn": [],
+  "vi": "chuột chủi, mụt ruồi"
+ },
+ "neuron": {
+  "ipa": "/ˈnjʊəɹɒn/",
+  "pos": "noun",
+  "def": "a nerve cell; the basic building block of the nervous system.",
+  "ex": "Efferent neurons travel away from the brain to effect their target organs.",
+  "syn": [],
+  "vi": "thần kinh tế bào"
+ },
+ "notation": {
+  "ipa": "/noʊˈteɪʃən/",
+  "pos": "noun",
+  "def": "a set of written signs or shapes that are used in music or mathematics",
+  "ex": "I think that in the West, the first musical notation was invented by monks.",
+  "syn": [],
+  "vi": "hóa học ký hiệu, ký hiệu"
+ },
+ "novice": {
+  "ipa": "/ˈnɒvɪs/",
+  "pos": "noun",
+  "def": "a person with little or no experience in a particular activity, skill, or subject",
+  "ex": "A novice kayaker should learn basic techniques before venturing downstream.",
+  "syn": [],
+  "vi": "chú tiểu, người mới tu"
+ },
+ "onwards": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "forward",
+  "ex": "From this point onward outdoor footwear is prohibited.",
+  "syn": [],
+  "vi": "xa hơn, ở phía trước"
+ },
+ "oscillation": {
+  "ipa": "/ˌɒ.sɪˈleɪ.ʃən/",
+  "pos": "noun",
+  "def": "movement, from side to side at a steady speed; a frequent change in size, strength, or direction between two limits",
+  "ex": "Life is unpredictable, problematic, oscillating between ups and downs.",
+  "syn": [],
+  "vi": "sự dao động, sự lung lay"
+ },
+ "partition": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "a wall, screen, or piece of glass used to separate one area from another",
+  "ex": "There were Jews in Arab countries before the partition of Palestine.",
+  "syn": [],
+  "vi": "liên hợp nhạc phổ, sự chia ra di sản"
+ },
+ "physiological": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "concerning how the body functions",
+  "ex": "My attitude to the comma is physiological; the more breath I have, the fewer commas I use.",
+  "syn": [],
+  "vi": "thuộc về sinh lý"
+ },
+ "quiz": {
+  "ipa": "/kwɪz/",
+  "pos": "noun",
+  "def": "a game in which players answer questions on a specific topic",
+  "ex": "",
+  "syn": [],
+  "vi": "câu hỏi khó, dể tức cười"
+ },
+ "radius": {
+  "ipa": "/ˈɹeɪ.di.əs/",
+  "pos": "noun",
+  "def": "a given area or a range around a certain point; a line from the center of a circle to its edge",
+  "ex": "How do you calculate the radius from the circumference?",
+  "syn": [],
+  "vi": "xương cánh tay"
+ },
+ "receptor": {
+  "ipa": "/ɹɪˈsɛp.tə/",
+  "pos": "noun",
+  "def": "a device that receives information; in physiology: a nerve ending that changes stimuli into impulses",
+  "ex": "Dinosaurs had cannabinoid receptors, but there was no cannabis plant yet.",
+  "syn": [],
+  "vi": "thụ thể"
+ },
+ "repertoire": {
+  "ipa": "/ˈɹɛp.ə.twɑː/",
+  "pos": "noun",
+  "def": "a collection of skills or accomplishments.",
+  "ex": "It's important for every musician to ensure there is variety in their repertoire.",
+  "syn": [],
+  "vi": "bản ghi các tuồng hát, bản ghi tên bản nhạc"
+ },
+ "scroll": {
+  "ipa": "/skɹəʊl/",
+  "pos": "noun",
+  "def": "a long rolled piece of paper with writing on it; to move up and down a computer screen",
+  "ex": "",
+  "syn": [],
+  "vi": "cuộn giấy"
+ },
+ "secrete": {
+  "ipa": "/sɪˈkɹiːt/",
+  "pos": "verb",
+  "def": "to produce a liquid",
+  "ex": "",
+  "syn": [],
+  "vi": "giấu kín, phân tiết"
+ },
+ "sensory": {
+  "ipa": "/ˈsɛn.sə.ɹi/",
+  "pos": "adjective",
+  "def": "referring to the five senses (hearing, sight, smell, taste and touch)",
+  "ex": "It is hard, perhaps even impossible, to define normal sensory perception.",
+  "syn": [],
+  "vi": "giác quan"
+ },
+ "solvent": {
+  "ipa": "/ˈsɒlvənt/",
+  "pos": "noun",
+  "def": "something that dissolves or can melt another substance",
+  "ex": "Anhydrous solvents are essential for many sensitive organic reactions.",
+  "syn": [],
+  "vi": "hòa tan, làm tan"
+ },
+ "sperm": {
+  "ipa": "/spɜːm/",
+  "pos": "noun",
+  "def": "male sex cell",
+  "ex": "Studying sperm helps scientists understand fertility.",
+  "syn": [],
+  "vi": "tinh dịch"
+ },
+ "syllable": {
+  "ipa": "/ˈsɪl.ə.bəl/",
+  "pos": "noun",
+  "def": "a unit of speech",
+  "ex": "Each sentence has its syllables' number.",
+  "syn": [],
+  "vi": "vần"
+ },
+ "terminology": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "specific words and expressions used in a particular field",
+  "ex": "Legal terminology is usually incomprehensible to non-specialists.",
+  "syn": [],
+  "vi": "danh từ học"
+ },
+ "vector": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "a quantity that has both size and direction.",
+  "ex": "A vector quantity has two characteristics, a magnitude and a direction.",
+  "syn": [],
+  "vi": "côn trùng, toán véc tơ"
+ },
+ "yeast": {
+  "ipa": "/jiːst/",
+  "pos": "noun",
+  "def": "a single-celled fungi used to make bread and beer",
+  "ex": "Yeast causes the grapes to ferment.",
+  "syn": [],
+  "vi": "men, men rượu bia"
+ },
+ "amino": {
+  "ipa": "/əˈmiːnəʊ/",
+  "pos": "noun",
+  "def": "a substance that combines to form the structure of proteins",
+  "ex": "Proteins are chains of amino acids that are folded like origami paper.",
+  "syn": [],
+  "vi": "amino"
+ },
+ "confound": {
+  "ipa": "/kənˈfaʊnd/",
+  "pos": "verb",
+  "def": "to confuse and greatly surprise someone, so that they are unable to explain a situation",
+  "ex": "When in doubt tell the truth. It will confound your enemies and astound your friends.",
+  "syn": [],
+  "vi": "chưởi rủa, làm đảo lộn"
+ },
+ "dissection": {
+  "ipa": "/dɪˈsɛkʃən/",
+  "pos": "noun",
+  "def": "the act or process of cutting something",
+  "ex": "",
+  "syn": [],
+  "vi": "cắt ra từng khúc, chặt ra từng miếng"
+ },
+ "entrant": {
+  "ipa": "/ˈɛntɹənt/",
+  "pos": "noun",
+  "def": "a person who enters a contest",
+  "ex": "Each entrant was given a detailed course description manual and map.",
+  "syn": [],
+  "vi": "người đi vào, người mới vào nghề"
+ },
+ "fetal": {
+  "ipa": "/ˈfitl̩/",
+  "pos": "adjective",
+  "def": "concerning a fetus, an unborn baby",
+  "ex": "The normal fetal heart rate usually varies between 120 and 160 beats per minute.",
+  "syn": [],
+  "vi": "thuộc về bào thai, thuộc về thai nhi"
+ },
+ "gradient": {
+  "ipa": "/ˈɡɹeɪdiənt/",
+  "pos": "noun",
+  "def": "a measure of how steep something is",
+  "ex": "Making gradients with oil pastels is fun because they're so easy to blend.",
+  "syn": [],
+  "vi": "đoạn đường dài dài, đường dốc"
+ },
+ "grammatical": {
+  "ipa": "/ɡɹəˈmæt.ɪ.kəl/",
+  "pos": "adjective",
+  "def": "concerning grammatical rules",
+  "ex": "",
+  "syn": [],
+  "vi": "thuộc về văn phạm"
+ },
+ "infinity": {
+  "ipa": "/ɪnˈfɪnɪti/",
+  "pos": "noun",
+  "def": "with out end; limitless",
+  "ex": "The ocean stretches beyond sight, a reminder of infinity.",
+  "syn": [],
+  "vi": "vô cực"
+ },
+ "longitudinal": {
+  "ipa": "/ˌlɒŋ.ɡɪˈtjuː.dɪ.nəl/",
+  "pos": "adjective",
+  "def": "going from the top to the bottom of something",
+  "ex": "A longitudinal wave is one that vibrates in the direction of propagation.",
+  "syn": [],
+  "vi": "theo chiều dài, theo chiều dọc"
+ },
+ "marrow": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "a soft, fatty tissue inside bones",
+  "ex": "He needs a bone marrow transplant.",
+  "syn": [],
+  "vi": "phần cốt yếu, phần tinh túy"
+ },
+ "millimeter": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "1/1000th of a meter",
+  "ex": "These windshield chips are probably less than a millimeter wide.",
+  "syn": [],
+  "vi": "một phần ngàn của thước"
+ },
+ "morphological": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "the study of form and structure",
+  "ex": "The botanist carefully recorded the morphological characteristics of the trees.",
+  "syn": [],
+  "vi": "hình thái học"
+ },
+ "morphology": {
+  "ipa": "/mɔːˈfɒl.ə.d͡ʒi/",
+  "pos": "noun",
+  "def": "the study of the forms and structures of plants, animals and words",
+  "ex": "The botanist carefully recorded the morphological characteristics of the trees.",
+  "syn": [],
+  "vi": "ngôn ngữ hình thái học"
+ },
+ "neural": {
+  "ipa": "/ˈnjʊəɹəl/",
+  "pos": "adjective",
+  "def": "about the nerves or nervous system",
+  "ex": "The most advanced voice recognition techniques are based on neural networks.",
+  "syn": [],
+  "vi": "thuốc trị bịnh thần kinh, thuộc về thần kinh"
+ },
+ "null": {
+  "ipa": "/nʌl/",
+  "pos": "adjective",
+  "def": "having no impact",
+  "ex": "Nine packages of sanctions and the effect is less than null.",
+  "syn": [],
+  "vi": "không có hiệu lực nữa, vô công hiệu"
+ },
+ "optimum": {
+  "ipa": "/ˈɒptɪməm/",
+  "pos": "adjective",
+  "def": "the best or most desirable",
+  "ex": "Finding the optimum for a numerical function can be an important challenge.",
+  "syn": [],
+  "vi": "tối ưu"
+ },
+ "phenomenal": {
+  "ipa": "/fɪˈnɒmɪnəl/",
+  "pos": "adjective",
+  "def": "unusual, remarkable",
+  "ex": "",
+  "syn": [],
+  "vi": "thuộc về hiện tượng"
+ },
+ "phosphate": {
+  "ipa": "/ˈfɒsfeɪt/",
+  "pos": "noun",
+  "def": "a salt or compound used to help grown plants",
+  "ex": "Alveolar bone has a high mineral content, mainly calcium and phosphate.",
+  "syn": [],
+  "vi": "chất hóa học"
+ },
+ "potassium": {
+  "ipa": "/pəˈtæsiəm/",
+  "pos": "noun",
+  "def": "a common, soft, silvery white metal that is usually used for farming or industrial purposes",
+  "ex": "Berries are rich in minerals such as potassium.",
+  "syn": [],
+  "vi": "kim loại láng và trắng"
+ },
+ "primer": {
+  "ipa": "/ˈpɹaɪ.mə/",
+  "pos": "noun",
+  "def": "a book that covers the basics of a subject; a kind of paint",
+  "ex": "This book's a good primer on the subject, but it doesn't go into much depth.",
+  "syn": [],
+  "vi": "ngòi súng đại bác, sách dạy trẻ con"
+ },
+ "proton": {
+  "ipa": "/ˈpɹəʊ.tɒn/",
+  "pos": "noun",
+  "def": "a very small part of an atom that has a positive electrical charge",
+  "ex": "Making protons collide is what the Large Hadron Collider does.",
+  "syn": [],
+  "vi": "về vật lý"
+ },
+ "soluble": {
+  "ipa": "/ˈsɒljʊbəl/",
+  "pos": "adjective",
+  "def": "can be mixed with a liquid, e.g. salt is soluble in water",
+  "ex": "There are four fat-soluble vitamins and nine water-soluble ones.",
+  "syn": [],
+  "vi": "có thể tan được, hòa tan được"
+ },
+ "substrate": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "a substance which a catalyst or enzyme has an effect on",
+  "ex": "Ziri bought some substrate for his tortoise's enclosure.",
+  "syn": [],
+  "vi": "chất nền"
+ },
+ "trajectory": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "the path followed by an object moving through space",
+  "ex": "Does Algeria need to reshape its geopolitical trajectory?",
+  "syn": [],
+  "vi": "quỹ đạo"
+ },
+ "vowel": {
+  "ipa": "/ˈvaʊ.əl/",
+  "pos": "noun",
+  "def": "a speech sound; a, e , i, o, u and sometimes y",
+  "ex": "The medial vowel changed over time.",
+  "syn": [],
+  "vi": "mẫu âm"
+ },
+ "algebra": {
+  "ipa": "/ˈæl.dʒɪ.bɹə/",
+  "pos": "noun",
+  "def": "mathematics using letters and symbols in place of some numbers",
+  "ex": "Are you bad at Boolean algebra?",
+  "syn": [],
+  "vi": "đại số học"
+ },
+ "amplitude": {
+  "ipa": "/ˈæm.plɪ.tud/",
+  "pos": "noun",
+  "def": "the breadth, width or largeness of something",
+  "ex": "The mean value of the frequency decreases with increasing amplitude.",
+  "syn": [],
+  "vi": "bề rộng, độ lớn"
+ },
+ "chloride": {
+  "ipa": "/ˈklɔːˌɹaɪd/",
+  "pos": "noun",
+  "def": "a chemical compound that is a mixture of chlorine and something else",
+  "ex": "In culinary, can you substitute sodium bromide for sodium chloride?",
+  "syn": [],
+  "vi": "lục hóa vật"
+ },
+ "circa": {
+  "ipa": "/ˈsɜː.kə/",
+  "pos": "noun",
+  "def": "an approximate time period",
+  "ex": "Welp, that there is a genuine piss bottle circa 1987. Southerly's is asking $1.7 million.",
+  "syn": [],
+  "vi": "khoảng"
+ },
+ "consonant": {
+  "ipa": "/ˈkɒn.sə.nənt/",
+  "pos": "adjective",
+  "def": "a speech sound; any letter in the alphabet that is not a vowel.",
+  "ex": "Retroflex consonants are fun to say.",
+  "syn": [],
+  "vi": "êm dịu"
+ },
+ "cortex": {
+  "ipa": "/ˈkɔːtɛks/",
+  "pos": "noun",
+  "def": "the outer part of an organ or structure",
+  "ex": "Sensory information has to travel through the thalamus before arriving at the somatosensory cortex.",
+  "syn": [],
+  "vi": "vỏ cây"
+ },
+ "inversion": {
+  "ipa": "/ɪnˈvɜː.ʃən/",
+  "pos": "noun",
+  "def": "a change in position of things so they become the opposite",
+  "ex": "The length of a marriage is inversely proportional to the cost of the wedding.",
+  "syn": [],
+  "vi": "đảo ngược"
+ },
+ "lexical": {
+  "ipa": "/ˈlɛksɪkəl/",
+  "pos": "adjective",
+  "def": "about words",
+  "ex": "I read the thesis \"A Lexical-Functional Analysis of Swahili Relative Clauses.\"",
+  "syn": [],
+  "vi": "từ nguyên học, thuộc về từ ngữ"
+ },
+ "multi": {
+  "ipa": "",
+  "pos": "prefix",
+  "def": "a prefix meaning 'more than one'",
+  "ex": "",
+  "syn": [],
+  "vi": "có nghĩa là nhiều"
+ },
+ "phonological": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "concerning sound",
+  "ex": "Maltese has a unique phonology with a wide range of consonants and vowels.",
+  "syn": [],
+  "vi": "âm vị học"
+ },
+ "sneeze": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "to loudly blow air out of your nose or mouth in a sudden uncontrolled way",
+  "ex": "",
+  "syn": [],
+  "vi": "nhảy mũi"
+ },
+ "syntactic": {
+  "ipa": "/sɪnˈtæktɪk/",
+  "pos": "adjective",
+  "def": "grammatical",
+  "ex": "The basis for any language is its grammar and set of syntactic rules.",
+  "syn": [],
+  "vi": "thuộc về cú pháp"
+ },
+ "theorem": {
+  "ipa": "/ˈθiː.ə.ɹəm/",
+  "pos": "noun",
+  "def": "a statement that can be proved",
+  "ex": "The Residue Theorem can also be used to elegantly calculate real integrals.",
+  "syn": [],
+  "vi": "định lý"
+ },
+ "aerosol": {
+  "ipa": "/ˈɛə.ɹəˌsɒl/",
+  "pos": "noun",
+  "def": "a container that sprays liquid under pressure",
+  "ex": "The ozone and aerosol-measuring instrument is set for a March 2016 launch to the International Space Station.",
+  "syn": [],
+  "vi": "bình xịt"
+ },
+ "axiom": {
+  "ipa": "/ˈak.sɪ.əm/",
+  "pos": "noun",
+  "def": "a statement that is accepted as true",
+  "ex": "It has long been an axiom of mine that the little things are infinitely the most important.",
+  "syn": [],
+  "vi": "định lý"
+ },
+ "calculus": {
+  "ipa": "/ˈkæl.kjʊ.ləs/",
+  "pos": "noun",
+  "def": "a type of mathematics used for calculating such things as the slopes of curves",
+  "ex": "I regret not taking multivariable calculus.",
+  "syn": [],
+  "vi": "bịnh thạch lâm, kết sạn"
+ },
+ "capillary": {
+  "ipa": "/kəˈpɪl.ə.ɹi/",
+  "pos": "noun",
+  "def": "very small blood vessels",
+  "ex": "Arteries, veins, and capillaries are the three main types of blood vessel.",
+  "syn": [],
+  "vi": "thuộc về tóc"
+ },
+ "comma": {
+  "ipa": "/ˈkɒmə/",
+  "pos": "noun",
+  "def": "mark showing a pause or list in a sentence",
+  "ex": "",
+  "syn": [],
+  "vi": "dấu phẩy"
+ },
+ "congruent": {
+  "ipa": "/ˈkɒŋ.ɡɹu.ənt/",
+  "pos": "adjective",
+  "def": "having the same shape and size",
+  "ex": "Two geometric figures are congruent if they have the same shape and size.",
+  "syn": [],
+  "vi": "thích đáng"
+ },
+ "denominator": {
+  "ipa": "/dɪˈnɒmɪneɪtə(ɹ)/",
+  "pos": "noun",
+  "def": "the bottom number in a fraction",
+  "ex": "These two fractions need to be given a common denominator.",
+  "syn": [],
+  "vi": "mẫu số"
+ },
+ "equivalence": {
+  "ipa": "/ɪˈkwɪv.ə.ləns/",
+  "pos": "noun",
+  "def": "when something is equal to something else",
+  "ex": "Find multilingual sentence equivalents at Tatoeba.org.",
+  "syn": [],
+  "vi": "sự bằng nhau, sự tương đương"
+ },
+ "exponential": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "a constant e raised to a power equal to a given expression: e.g. e3x is the exponential of 3x.",
+  "ex": "Most people using the term \"exponentially\" don't know what it actually means.",
+  "syn": [],
+  "vi": "có lủy thừa"
+ },
+ "helix": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "a 3D spiral shape",
+  "ex": "The double helix that encodes our genome is an elegant structure.",
+  "syn": [],
+  "vi": "đường loa tuyến, đường trôn ốc"
+ },
+ "herbicide": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "a poison that kills weeds",
+  "ex": "Why do yields increase with herbicide-resistant varieties?",
+  "syn": [],
+  "vi": "thuốc diệt cỏ"
+ },
+ "semi": {
+  "ipa": "/ˈsɛmi/",
+  "pos": "prefix",
+  "def": "a prefix meaning 'half'",
+  "ex": "",
+  "syn": [],
+  "vi": "nữa"
+ },
+ "splice": {
+  "ipa": "/ˈsplaɪ̯s/",
+  "pos": "noun",
+  "def": "act of connecting two pieces of rope or wire into one",
+  "ex": "Tatoeba has no statute of limitations on adding sentences with comma splices.",
+  "syn": [],
+  "vi": "cách ghép mộng gổ, cách nối dây"
+ },
+ "connotation": {
+  "ipa": "/ˌkɒnəˈteɪʃən/",
+  "pos": "noun",
+  "def": "an association; an implication",
+  "ex": "I was a child who had rats as a pet, so I got over that negative connotation.",
+  "syn": [],
+  "vi": "nghỉa rộng, sự hàm súc"
+ },
+ "descriptor": {
+  "ipa": "/dɪˈskɹɪp.tə/",
+  "pos": "noun",
+  "def": "a label; something that describes",
+  "ex": "The JSON descriptor for this data package contains an error.",
+  "syn": [],
+  "vi": "sự mô tả"
+ },
+ "oxidize": {
+  "ipa": "/ˈɒksɪdaɪz/",
+  "pos": "verb",
+  "def": "to convert (an element) into an oxide; combine with oxygen - to rust",
+  "ex": "Green tea undergoes minimal oxidation, preserving its natural green color.",
+  "syn": [],
+  "vi": "khiến dưỡng hóa, làm rỉ"
+ },
+ "parenthesis": {
+  "ipa": "/pəˈɹɛnθɪsɪs/",
+  "pos": "noun",
+  "def": "one of two symbols ( and ), used in writing",
+  "ex": "You have an unmatched open parenthesis in your first sentence.",
+  "syn": [],
+  "vi": "khoảng cách, lúc nghĩ tạm"
+ },
+ "trans": {
+  "ipa": "/tɹænz/",
+  "pos": "prefix",
+  "def": "a prefix meaning 'across', 'through' or 'changing thoroughly'",
+  "ex": "",
+  "syn": [],
+  "vi": "ở bên kia, sang bên kia"
+ },
+ "volition": {
+  "ipa": "/vəˈlɪʃ(ə)n/",
+  "pos": "noun",
+  "def": "the act of making a conscious choice",
+  "ex": "These are both called \"future volitional\" and include the intent of the subject.",
+  "syn": [],
+  "vi": "tự ý, ý"
+ },
+ "factorial": {
+  "ipa": "/fækˈtɔːɹi.əl/",
+  "pos": "adjective",
+  "def": "concerning factors or factorials",
+  "ex": "",
+  "syn": [],
+  "vi": "số giai thừa"
+ },
+ "solute": {
+  "ipa": "/ˈsɒljuːt/",
+  "pos": "adjective",
+  "def": "a substance that has dissolved in a solvent and become part of the liquid, so that they form a solution",
+  "ex": "",
+  "syn": [],
+  "vi": "tan"
+ },
+ "mid": {
+  "ipa": "/mɪd/",
+  "pos": "adjective",
+  "def": "at (or near) the middle point",
+  "ex": "",
+  "syn": [],
+  "vi": "chính giữa, khoảng giữa"
+ },
+ "artwork": {
+  "ipa": "/ˈɑːtˌwɜːk/",
+  "pos": "noun",
+  "def": "photographs or pictures in a printed publication",
+  "ex": "White lead has been used in artworks since ancient times.",
+  "syn": [],
+  "vi": "tác phẩm nghệ thuật"
+ },
+ "classroom": {
+  "ipa": "/ˈklɑːsɹʊm/",
+  "pos": "noun",
+  "def": "room in a school where lessons take place",
+  "ex": "",
+  "syn": [],
+  "vi": "lớp học, phòng học"
+ },
+ "footnote": {
+  "ipa": "/ˈfʊtˌnəʊt/",
+  "pos": "noun",
+  "def": "extra information at the bottom of a page",
+  "ex": "In footnotes, book titles and journal names are written in italics.",
+  "syn": [],
+  "vi": "ghi chú phần cuối, lời chú ở cuối trang"
+ },
+ "halfway": {
+  "ipa": "/hɑːfˈweɪ/",
+  "pos": "adverb",
+  "def": "a middle point between two extremes",
+  "ex": "",
+  "syn": [],
+  "vi": "nữa đường"
+ },
+ "pathway": {
+  "ipa": "/ˈpɑːθˌweɪ/",
+  "pos": "noun",
+  "def": "a path or way that you can walk",
+  "ex": "He threw the bridle over the fence and strode up the pathway.",
+  "syn": [],
+  "vi": "đường củ rích, đường đi lại luôn"
+ },
+ "uplift": {
+  "ipa": "/ʌpˈlɪft/",
+  "pos": "noun",
+  "def": "to make someone feel happier or more hopeful",
+  "ex": "Work that uplifts others creates change.",
+  "syn": [],
+  "vi": "sự đấp cao lên"
+ },
+ "anti": {
+  "ipa": "/ˈænti/",
+  "pos": "",
+  "def": "a prefix meaning 'against' or 'opposed'",
+  "ex": "",
+  "syn": [],
+  "vi": "chống"
+ },
+ "ex": {
+  "ipa": "/ɛks/",
+  "pos": "",
+  "def": "a prefix meaning out of, from, or not",
+  "ex": "",
+  "syn": [],
+  "vi": "bán tại"
+ },
+ "micro": {
+  "ipa": "/ˈmaɪ.kɹəʊ/",
+  "pos": "noun",
+  "def": "a prefix meaning 'very small', such as microchip",
+  "ex": "A 25-year-old man's recommended dietary allowance of iron is 8 micro-grams.",
+  "syn": [],
+  "vi": "vi mô"
+ },
+ "neo": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "a prefix meaning 'recent' or 'new'",
+  "ex": "Neo successfully dodged all the shots.",
+  "syn": [],
+  "vi": "tân"
+ },
+ "non": {
+  "ipa": "",
+  "pos": "",
+  "def": "a prefix meaning 'not'",
+  "ex": "",
+  "syn": [],
+  "vi": "không"
+ },
+ "pi": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "the ratio of the circumference to the diameter of a circle; approximately equal to 3.14",
+  "ex": "",
+  "syn": [],
+  "vi": "số pi"
+ },
+ "pre": {
+  "ipa": "/ˈpɹi/",
+  "pos": "",
+  "def": "a prefix meaning 'before'",
+  "ex": "",
+  "syn": [],
+  "vi": "trước"
+ },
+ "sub": {
+  "ipa": "/sʌb/",
+  "pos": "verb",
+  "def": "a prefix meaning 'under' or 'instead of'",
+  "ex": "Morocco considers sub-Saharan Africa its backyard.",
+  "syn": [],
+  "vi": "cho mượn trước, thay thế"
+ },
+ "super": {
+  "ipa": "/ˈsuːpə/",
+  "pos": "adjective",
+  "def": "of the highest quality; great; marvelous",
+  "ex": "",
+  "syn": [],
+  "vi": "nguy nga, lộng lẫy"
+ },
+ "descendent": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "hậu duệ"
+ }
+}
