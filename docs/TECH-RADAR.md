@@ -24,8 +24,8 @@ Trạng thái: **Đang dùng** · **Áp dụng ngay** (đã duyệt, chờ làm)
 | PWA + Service Worker (cache có kiểm soát) | offline, cài như app | Đang dùng |
 | View Transitions API | chuyển trang mượt | Đang dùng |
 | `defer`, nạp lười theo route, khung HTML dựng sẵn | tốc độ (LCP) | Đang dùng |
-| **Speculation Rules API (prefetch/prerender)** | mở trang kế tiếp tức thì (blog, trang pháp lý) | **Áp dụng ngay** |
-| **`content-visibility: auto`** | danh sách dài (thư viện từ) cuộn mượt | **Áp dụng ngay** |
+| Speculation Rules API (prefetch/prerender) | mở trang kế tiếp tức thì (blog, trang pháp lý) | Đang dùng |
+| `content-visibility: auto` | danh sách dài (thư viện từ, tính năng) cuộn mượt | Đang dùng |
 | Web Push + Notification Triggers | nhắc ôn đúng "thời điểm vàng" | Thử nghiệm |
 | File System Access / Web Share API | xuất/chia sẻ sổ từ | Thử nghiệm |
 | WebGPU | chạy mô hình AI nhanh trên máy | Thử nghiệm |
@@ -37,7 +37,7 @@ Trạng thái: **Đang dùng** · **Áp dụng ngay** (đã duyệt, chờ làm)
 | Cloudflare D1 | dữ liệu đồng bộ, thống kê, quản trị | Đang dùng |
 | Cloudflare Email Routing + Workers | email tên miền, form liên hệ, cảnh báo | Đang dùng |
 | Cloudflare `/cdn-cgi/trace` | nhận quốc gia để chọn ngôn ngữ, không tốn lượt | Đang dùng |
-| **Cloudflare Turnstile** | chống spam form liên hệ (thay CAPTCHA) | **Áp dụng ngay** |
+| Cloudflare Turnstile | chống spam form liên hệ (thay CAPTCHA) | Đang dùng |
 | Cloudflare Web Analytics | chỉ số tốc độ thật (Core Web Vitals) từ người dùng | Thử nghiệm (bổ sung cho thống kê tự xây) |
 | Firebase Authentication | đăng nhập Google | Đang dùng |
 | GitHub Actions + Pages | pipeline tự động, CDN âm thanh | Đang dùng |
@@ -49,7 +49,7 @@ Trạng thái: **Đang dùng** · **Áp dụng ngay** (đã duyệt, chờ làm)
 | Playwright (Microsoft) | chụp giao diện tự động | Đang dùng |
 | jsdom | kiểm thử khói, crawl, **rà lẫn tiếng 14 ngôn ngữ** | Đang dùng |
 | TypeScript `checkJs` | bắt lỗi kiểu trong JS | Đang dùng (một phần) |
-| **axe-core (Deque)** | kiểm tra trợ năng WCAG 2.2 sâu hơn | **Áp dụng ngay** |
+| axe-core (Deque) | kiểm tra trợ năng WCAG 2.2 tự động 20 màn hình | Đang dùng |
 | IndexNow + Search Console + hreflang + schema.org | SEO đa ngôn ngữ | Đang dùng |
 
 ## Không dùng (và lý do)
