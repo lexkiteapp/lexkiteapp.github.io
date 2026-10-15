@@ -46,10 +46,10 @@ export function checkPosts(posts, { all = posts, root = ROOT } = {}) {
     if (p.publishAt && !(ISO.test(p.publishAt) && !isNaN(Date.parse(p.publishAt)))) E('publishAt', `"${p.publishAt}" không phải ISO 8601 có múi giờ (vd 2026-10-16T08:17:00+07:00)`);
     if (p.factChecked) { if (!DAY.test(p.factChecked) || isNaN(Date.parse(p.factChecked))) E('factChecked', `"${p.factChecked}" phải là ngày YYYY-MM-DD`); }
     else if (!draft) E('factChecked', 'thiếu factChecked (bắt buộc khi không phải draft)');
-    // Điểm chất lượng từ bước chấm (prompts/6-review.md): bắt buộc ≥ 85/100 cho bài mới (bài kiểm chứng trước 16/10/2026 được miễn)
+    // Điểm chất lượng từ bước chấm (prompts/6-review.md): bắt buộc ≥ 90/100 cho bài mới (bài kiểm chứng trước 16/10/2026 được miễn)
     const qs = p.qualityScore === '' || p.qualityScore == null ? null : Number(p.qualityScore);
-    if (qs != null && !(qs >= 85 && qs <= 100)) E('quality', `qualityScore ${p.qualityScore} – cần 85–100 (chấm lại theo prompts/6-review.md)`);
-    else if (qs == null && !draft && !(p.factChecked && p.factChecked <= '2026-10-15')) E('quality', 'thiếu qualityScore (chấm theo prompts/6-review.md, cần ≥ 85)');
+    if (qs != null && !(qs >= 90 && qs <= 100)) E('quality', `qualityScore ${p.qualityScore} – cần 90–100 (chấm lại theo prompts/6-review.md)`);
+    else if (qs == null && !draft && !(p.factChecked && p.factChecked <= '2026-10-15')) E('quality', 'thiếu qualityScore (chấm theo prompts/6-review.md, cần ≥ 90)');
     if (!draft && /TODO-LOCALIZE|<!--\s*(Brief|Viết theo)/.test(p.body || '')) E('todo', 'còn ghi chú nháp (TODO-LOCALIZE / Brief) trong bài');
     if (p.updated && (!DAY.test(p.updated) || isNaN(Date.parse(p.updated)))) E('updated', `"${p.updated}" phải là ngày YYYY-MM-DD`);
     // Từ khóa
@@ -97,7 +97,7 @@ export function checkPosts(posts, { all = posts, root = ROOT } = {}) {
         if (app.length - ctas.filter(h => h.startsWith('/#/')).length < 2) E('links', `cần ≥ 2 liên kết vào app (/#/…) trong câu chữ (không tính nút CTA), đang có ${app.length - ctas.filter(h => h.startsWith('/#/')).length}`);
     const blogOut = new Set(internal.map(h => (h.match(/^\/(?:[a-z]{2}(?:-[a-z]+)?\/)?blog\/([^/#?]+)\//) || [])[1]).filter(x => x && !RESERVED.has(x)));
     if (blogOut.size < 4) E('links', `cần ≥ 4 liên kết tới bài blog khác (khác nhau), đang có ${blogOut.size}`);
-    if (!internal.some(h => /^\/(samples|speaking|tu-vung|ngu-phap|viet-thu)\//.test(h))) W('links', 'nên có ≥ 1 liên kết tới trang tĩnh /tu-vung/, /samples/, /ngu-phap/, /speaking/ hoặc /viet-thu/');
+    if (!internal.some(h => /^\/(?:[a-z]{2}\/)?(samples|speaking|tu-vung|ngu-phap|viet-thu|vocabulary)\//.test(h))) W('links', 'nên có ≥ 1 liên kết tới trang tĩnh /tu-vung/, /samples/, /ngu-phap/, /speaking/ hoặc /viet-thu/');
     for (const h of internal) {
       const m = h.match(/^\/(?:([a-z]{2}(?:-[a-z]+)?)\/)?blog\/([^/#?]+)\/?(?:[#?].*)?$/);
       if (!m || RESERVED.has(m[2])) continue;

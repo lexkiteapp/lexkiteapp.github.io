@@ -156,3 +156,13 @@ node scripts/indexnow.mjs --dry [url…]           # xem payload IndexNow (bỏ 
 Khi gần 15.000 file (bước tiếp, vẫn miễn phí, làm theo thứ tự):
 1. Đưa âm thanh app (3.866 file, 120 MB) ra kho `lexkiteapp.github.io` (đã là CDN phụ) → trả lại ~3.900 chỗ trong 20.000 file.
 2. Tách từng ngôn ngữ blog thành dự án Pages riêng (vd. `lexkite-blog-en`) và gắn đường dẫn `/en/blog/*` bằng Cloudflare Worker route (100.000 lượt/ngày miễn phí) – hoặc khi đó nâng Workers Paid 5 USD/tháng (100.000 file, 10 triệu lượt).
+
+## 13. Tự động hóa (chạy miễn phí trên GitHub Actions)
+| Việc | Khi nào | Tự động |
+|---|---|---|
+| Đăng bài đúng giờ + báo IndexNow | mỗi giờ (`blog-publish.yml`) | ✓ chỉ build khi có bài đến hạn |
+| Xếp lịch bài mới `status: ready` (qua cổng chất lượng), từng ngôn ngữ một nhịp | 06:30 hằng ngày (`blog-daily.yml`) | ✓ tự commit |
+| Nhắc sắp hết bài (< 7 ngày) / bài kiểm chứng > 12 tháng | 06:30 hằng ngày | ✓ issue `blog-health` |
+| Chặn bài kém (SEO, chính tả, trùng, ảnh, điểm < 85) | mỗi build Cloudflare + `pipeline gate` | ✓ build dừng, site giữ bản cũ |
+| Gợi ý liên kết nội bộ | `node scripts/blog-pipeline.mjs links` | gợi ý, người/AI chèn |
+| Viết bài (brief → chấm điểm) | theo mẫu `content/blog/prompts/` | AI làm theo lô; có thể đặt lịch phiên Claude định kỳ |

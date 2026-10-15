@@ -1,4 +1,5 @@
-# 6 – Chấm chất lượng (≥ 85/100 mới được xếp lịch)
+# 6 – Chấm chất lượng độc lập (≥ 90/100 mới được xếp lịch; mục tiêu 95+)
+Người chấm KHÔNG phải người viết (phiên/tác tử khác). Chấm khắt khe: điểm 100 chỉ khi không thể làm tốt hơn top 1 Google.
 Chấm bài {FILE} như biên tập viên khó tính, so với 3 bài top Google cho từ khóa chính. Mỗi mục cho điểm + 1 dòng lý do:
 | Tiêu chí | Điểm |
 |---|---|
@@ -9,4 +10,4 @@ Chấm bài {FILE} như biên tập viên khó tính, so với 3 bài top Google
 | Trình bày dễ quét (H2/H3, danh sách, bảng, ảnh đúng chỗ, đoạn ngắn) | 10 |
 | Liên kết nội bộ & lời mời dùng app tự nhiên, không quảng cáo lộ | 10 |
 | Tin cậy (không bịa, ghi nhãn hiệu, không hứa điểm) | 10 |
-< 85 → sửa các mục yếu rồi chấm lại. Đạt → ghi `qualityScore: NN` và `status: ready` vào front matter.
+< 95 → người chấm tự sửa các mục yếu (giữ đúng sự thật, không làm dài vô ích) rồi chấm lại; tối đa 2 vòng. Bài vẫn < 90 → status: draft + ghi lý do. Đạt → ghi `qualityScore: NN` và `status: ready` vào front matter.
