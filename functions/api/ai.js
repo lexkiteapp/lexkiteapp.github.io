@@ -32,8 +32,9 @@ async function runModel(env, sys, prompt) {
     if (r.ok) { const j = await r.json(); const out = parseJSON((((j.candidates || [])[0] || {}).content || { parts: [] }).parts.map(p => p.text || '').join('')); if (out) return { out, model: 'gemini-2.5-flash' }; }
   }
   if (!env.AI) throw new Error('no-model');
-  const res = await env.AI.run(WAI_MODEL, { messages: [{ role: 'system', content: sys + '\nReply with ONE valid JSON object only, no markdown.' }, { role: 'user', content: prompt }], max_tokens: 2048, temperature: 0.2 });
-  const out = parseJSON(res && (res.response ?? res.result?.response));
+  const res = await env.AI.run(WAI_MODEL, { messages: [{ role: 'system', content: sys + '\nReply with ONE valid JSON object only, no markdown.' }, { role: 'user', content: prompt }], max_tokens: 2048, temperature: 0.2, response_format: { type: 'json_object' } });
+  const raw = res && (res.response ?? res.result?.response);
+  const out = raw && typeof raw === 'object' ? raw : parseJSON(raw); // chế độ JSON có thể trả sẵn object
   if (!out) throw new Error('bad-json');
   return { out, model: 'workers-ai/llama-3.1-8b' };
 }
