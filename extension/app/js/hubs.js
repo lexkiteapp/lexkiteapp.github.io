@@ -74,8 +74,8 @@
       general: () => [['#/reading', '📰', t('Bài đọc theo trình độ'), t('Đọc vừa sức, lưu từ mới kèm câu gốc')]],
     },
     writing: {
-      ielts: () => [['#/task1', '📈', t('Task 1 – Biểu đồ'), t('Mô tả số liệu, có bài mẫu')], ['#/write', '✍️', 'Writing Task 2', t('Viết luận, AI chấm theo 4 tiêu chí')], ['#/ideas', '💡', t('Ngân hàng ý tưởng'), t('Ý tưởng và từ vựng theo chủ đề')], ['#/phrases', '🧩', t('Cụm từ & cấu trúc'), t('Cấu trúc ăn điểm cho bài viết')]],
-      ieltsgt: () => [['#/letters', '✉️', t('Task 1 – Viết thư'), t('Thư trang trọng, bán trang trọng, thân mật')], ['#/write', '✍️', 'Writing Task 2', t('Viết luận, AI chấm theo 4 tiêu chí')], ['#/ideas', '💡', t('Ngân hàng ý tưởng'), t('Ý tưởng và từ vựng theo chủ đề')]],
+      ielts: () => [['#/task1', '📈', t('Task 1 – Biểu đồ'), t('Mô tả số liệu, có bài mẫu')], ['#/write', '✍️', 'Writing Task 2', t('Viết luận, AI chấm theo 4 tiêu chí')], ['#/ideas', '💡', t('Ngân hàng ý tưởng'), t('Ý tưởng và từ vựng theo chủ đề')], ['#/models', '📄', t('Bài mẫu band 8'), t('Có đánh dấu cụm từ hay và từ nối')]],
+      ieltsgt: () => [['#/letters', '✉️', t('Task 1 – Viết thư'), t('Thư trang trọng, bán trang trọng, thân mật')], ['#/write', '✍️', 'Writing Task 2', t('Viết luận, AI chấm theo 4 tiêu chí')], ['#/ideas', '💡', t('Ngân hàng ý tưởng'), t('Ý tưởng và từ vựng theo chủ đề')], ['#/models?t=gt', '📄', t('Thư mẫu band 8'), t('Có đánh dấu cụm từ hay và từ nối')]],
       toefl: () => [TOEFL_T('sentence', '🧱', 'Build a Sentence', t('Sắp xếp từ thành câu')), TOEFL_T('email', '📧', 'Write an Email', t('Viết email theo tình huống')), TOEFL_T('discussion', '💬', 'Write for an Academic Discussion', t('Thảo luận trên lớp học trực tuyến'))],
       general: () => [['#/write', '✍️', t('Luyện viết'), t('Viết đoạn văn, AI sửa lỗi và gợi ý')], ['#/phrases', '🧩', t('Cụm từ & cấu trúc'), t('Cấu trúc hay dùng')]],
     },
@@ -160,7 +160,7 @@
   };
 
   // ---------- Bản đồ điều hướng: trang → [mục chính, mục con] (đánh dấu menu, đường dẫn "Kỹ năng › Nghe") ----------
-  const SKILL_OF = { listening: 'listening', listen: 'listening', dictation: 'listening', reading: 'reading', read: 'reading', rtype: 'reading', cbt: 'reading', 'toeic-r': 'reading', write: 'writing', task1: 'writing', letters: 'writing', ideas: 'writing', model: 'writing', speaking: 'speaking' };
+  const SKILL_OF = { listening: 'listening', listen: 'listening', dictation: 'listening', reading: 'reading', read: 'reading', rtype: 'reading', cbt: 'reading', 'toeic-r': 'reading', write: 'writing', task1: 'writing', letters: 'writing', ideas: 'writing', model: 'writing', models: 'writing', speaking: 'speaking' };
   const TOEFL_SK = { cw: 'reading', daily: 'reading', academic: 'reading', response: 'listening', conversation: 'listening', announcement: 'listening', talk: 'listening', sentence: 'writing', email: 'writing', discussion: 'writing', repeat: 'speaking', interview: 'speaking' };
   App.navOf = (name, arg) => {
     if (!name || name === 'home') return ['home', 'home'];

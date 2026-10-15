@@ -1085,3 +1085,9 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
   .today-card { padding: 1rem; }
   .wotd-sm { grid-template-columns: 64px minmax(0, 1fr); }
 }
+.model-list { display: grid; gap: .55rem; }
+.model-row { display: flex; align-items: center; gap: .9rem; padding: .85rem 1.1rem; color: var(--text); text-decoration: none; }
+.model-row:hover { text-decoration: none; }
+.model-tx { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: .2rem; }
+.model-tx b { font-weight: 600; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.model-tx small { color: var(--muted); }

@@ -462,19 +462,64 @@
   // ---------- Sổ cụm từ & cấu trúc ----------
   const isPhrase = c => /\s/.test(c.word.trim()) || c.pos === 'phrase' || c.topic === 'phrases';
   App.isPhrase = isPhrase;
+  // ================= THƯ VIỆN BÀI MẪU: theo Task, có tên đề, dạng bài, chủ đề, tìm kiếm =================
+  routes.models = function (arg, query) {
+    const M = window.MODELS || [];
+    const TYPE_VI = { line: t('Biểu đồ đường'), bar: t('Biểu đồ cột'), pie: t('Biểu đồ tròn'), table: t('Bảng số liệu'), process: t('Quy trình'), map: t('Bản đồ') };
+    const TONE = { formal: t('Trang trọng'), 'semi-formal': t('Bán trang trọng'), informal: t('Thân mật') };
+    const info = m => {
+      if (m.task === 1) { const d = App.task1 && App.task1.SETS.find(x => x.id === m.ref); return { title: d ? d.title : m.ref, kind: d ? TYPE_VI[d.type] || d.type : 'Task 1', topic: '' }; }
+      if (m.task === 'gt') { const l = (window.GT_LETTERS || []).find(x => x.id === m.ref); return { title: l ? (I18N.lang() === 'vi' ? l.titleVi : t(l.titleVi)) : m.ref, kind: l ? TONE[l.tone] || l.tone : t('Viết thư'), topic: '' }; }
+      const p = (window.WRITE_PROMPTS || []).find(x => x.id === m.ref); return { title: p ? p.text : m.ref, kind: p ? p.type : 'Task 2', topic: p ? p.topic : '' };
+    };
+    const TABS = [['2', 'Task 2'], ['1', t('Task 1 – Biểu đồ')], ['gt', t('Task 1 – Viết thư')]];
+    const ex = App.exam ? App.exam() : 'ielts';
+    let tab = (query && query.get && query.get('t')) || (ex === 'ieltsgt' ? 'gt' : '2');
+    const rows = M.map(m => ({ m, ...info(m) }));
+    const draw = () => {
+      const q = ($('#mq') && $('#mq').value.trim().toLowerCase()) || '';
+      const list = rows.filter(r => String(r.m.task) === tab && (!q || (r.title + ' ' + r.kind + ' ' + r.topic).toLowerCase().includes(q)))
+        .sort((a, b) => a.kind.localeCompare(b.kind) || a.title.localeCompare(b.title));
+      $('#mList').innerHTML = list.length ? list.map(r => `<a class="card hover model-row" href="#/model/${r.m.id}"><span class="model-tx"><b>${esc(r.title)}</b><small>${esc(r.kind)}${r.topic && App.topicOf(r.topic) ? ' · ' + esc(App.topicOf(r.topic).name) : ''} · ${t('{n} từ', { n: r.m.words || '–' })}</small></span><span class="chip ok">Band ${esc(r.m.band)}</span></a>`).join('')
+        : `<div class="card empty-note"><p class="muted" style="margin:0">${t('Không có bài mẫu phù hợp.')}</p></div>`;
+      $$('#mTabs button').forEach(b => b.classList.toggle('on', b.dataset.v === tab));
+    };
+    view.innerHTML = `<div class="page-head"><div><h1>📄 ${t('Bài mẫu band 8')}</h1><p class="muted">${t('Bài mẫu tự biên soạn, có đánh dấu cụm từ hay, từ nối và vai trò từng câu. Bấm vào cụm để lưu vào sổ.')}</p></div></div>
+      <div class="row between" style="gap:.6rem;margin-bottom:.8rem"><div class="tabs seg" id="mTabs">${TABS.map(([v, l]) => `<button type="button" data-v="${v}">${l} <span class="muted small">${rows.filter(r => String(r.m.task) === v).length}</span></button>`).join('')}</div>
+      <input class="input" id="mq" type="search" placeholder="${t('Tìm theo chủ đề, dạng bài…')}" style="max-width:280px"></div>
+      <div class="model-list" id="mList"></div>`;
+    $$('#mTabs button').forEach(b => b.onclick = () => { tab = b.dataset.v; draw(); });
+    $('#mq').oninput = draw;
+    draw();
+  };
+
   routes.phrases = function () {
     const list = Object.values(state.cards).filter(isPhrase).sort((a, b) => b.added - a.added);
     const models = window.MODELS || [];
     view.innerHTML = `
       <div class="page-head"><div><h1>🧩 ${t('Sổ cụm từ & cấu trúc')}</h1><p class="muted">${t('Học theo <b>cụm</b> (chunk) giúp nói và viết tự nhiên hơn học từng từ rời. Lưu cụm từ, cấu trúc câu kèm nghĩa theo cụm, cách dùng và câu ví dụ – ôn đúng thời điểm vàng như từ vựng.')}</p></div>
         <div class="row"><button class="btn primary" id="addP">＋ ${t('Thêm cụm / cấu trúc')}</button>${list.length >= 4 ? `<a class="btn" href="#/practice/learn?src=phrases">🧠 ${t('Học các cụm')}</a>` : ''}</div></div>
-      ${models.length ? `<div class="card"><h3>📄 ${t('Bài mẫu có chú thích cụm từ')}</h3><div class="row" style="margin-top:.5rem">${models.map(m => `<a class="chip" href="#/model/${m.id}">Task ${m.task} · ${esc(m.ref)} · Band ${esc(m.band)}</a>`).join('')}</div></div>` : ''}
+      <a class="card hover hub-card" href="#/models" style="margin-bottom:1rem"><span class="hub-ic" aria-hidden="true">📄</span><span class="hub-tx"><b>${t('Bài mẫu band 8 có đánh dấu cụm từ')}</b><small>${t('Đọc bài mẫu, bấm vào cụm hay để lưu vào sổ này')}</small></span><span class="hub-meta">${models.length ? t('{n} bài', { n: models.length }) : ''} ›</span></a>
       <div class="card" style="margin-top:1rem" id="pList">${list.length ? list.map(c => `<div class="deck-row" style="grid-template-columns:minmax(0,1.2fr) minmax(0,1.6fr) auto">
           <div style="min-width:0"><b>${esc(c.word)}</b><div class="small" style="color:var(--accent);font-weight:700">${esc(I18N.meanLang() === 'en' && c.def ? c.def : c.vi)}</div>${c.note ? `<div class="tiny muted">📐 ${esc(c.note)}</div>` : ''}</div>
           <div class="small muted hide-sm">${c.contexts[0] ? `“${UI.highlight(c.contexts[0].text.slice(0, 140), c.word)}”` : esc(c.ex || '')}</div>
           <div class="row nowrap" style="gap:.3rem"><button class="icon-btn sm" data-speak="${esc(c.word)}">🔊</button>${App.masteryDots(c.srs)}</div></div>`).join('')
-        : `<div class="empty"><div class="em">🧩</div>${t('Chưa có cụm từ nào. Bôi đen một cụm trong bài đọc, bài mẫu hay ví dụ từ điển rồi bấm “🧩 Lưu cụm này”, hoặc thêm thủ công.')}</div>`}</div>`;
+        : `<div class="empty"><div class="em">🧩</div>${t('Chưa có cụm từ nào. Bôi đen một cụm trong bài đọc, bài mẫu hay ví dụ từ điển rồi bấm “🧩 Lưu cụm này”, hoặc thêm thủ công.')}${models.length ? `<div style="margin-top:1rem"><button class="btn primary" id="starter">✨ ${t('Thêm nhanh 20 cụm hay từ bài mẫu')}</button></div>` : ''}</div>`}</div>`;
     App.bindCommon();
     $('#addP').onclick = () => savePhraseDialog({ phrase: '' });
+    // Gói khởi đầu: 20 cụm học thuật hay gặp nhất trong các bài mẫu (kèm câu gốc làm ngữ cảnh) → sổ không bao giờ trống
+    const st = $('#starter'); if (st) st.onclick = async () => {
+      st.disabled = true;
+      const seen = new Map();
+      for (const m of models) for (const x of m.text.matchAll(/\[\[([^|\]]+)\|([^\]]+)\]\]/g)) {
+        const en = x[1].trim(), k = en.toLowerCase(); if (en.split(' ').length < 2 || en.length > 48) continue;
+        const sent = (m.text.replace(/<<[^>]+>>/g, '').replace(/\{\{([^}]+)\}\}/g, '$1').split(/(?<=[.!?])\s+/).find(z => z.includes('[[' + x[1])) || '').replace(/\[\[([^|\]]+)\|[^\]]+\]\]/g, '$1');
+        const e = seen.get(k) || { en, vi: x[2].trim(), n: 0, sent, task: m.task }; e.n++; seen.set(k, e);
+      }
+      const top = [...seen.values()].filter(e => !App.inDeck(e.en)).sort((a, b) => b.n - a.n).slice(0, 20);
+      for (const e of top) await App.addWord({ word: e.en, vi: e.vi, pos: 'phrase', ex: e.sent.trim(), emoji: '🧩', topic: 'phrases' }, e.sent ? { text: e.sent.trim(), title: t('Bài mẫu Task {n}', { n: e.task }) } : null, { silent: true });
+      toast('🧩 ' + t('Đã thêm {n} cụm vào sổ', { n: top.length }));
+      routes.phrases();
+    };
   };
 })();
