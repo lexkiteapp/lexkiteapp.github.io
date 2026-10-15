@@ -116,7 +116,11 @@
       <div class="mk-steps">${M.order.map((k, j) => { const s = SKILLS.find(x => x[0] === k); return `<span class="${j < M.i ? 'done' : j === M.i ? 'on' : ''}">${s[1]} ${s[2]}</span>`; }).join('')}</div>`;
     const bindQuit = () => { $('#mkQuit').onclick = () => { if (confirm(t('Thoát bài thi? Kết quả sẽ không được lưu.'))) { App.cleanup(); App.cleanup = null; location.hash = '#/mock'; } }; };
     const countdown = (secs, el, onEnd) => { let left = secs; const t = setInterval(() => { left--; const e = $(el); if (e) { e.textContent = clock(left); e.classList.toggle('warn', left <= 300); } if (left <= 0) { clearInterval(t); onEnd(); } }, 1000); M.timers.push(t); const e = $(el); if (e) e.textContent = clock(left); return () => left; };
-    const next = () => { clearAll(); M.i++; window.scrollTo({ top: 0 }); if (M.i >= M.order.length) finish(); else SECTION[M.order[M.i]](); };
+    // Lưu tiến độ theo kỹ năng (bài thi ~3 giờ): tải lại trang / app bị tắt vẫn tiếp tục từ kỹ năng đang làm; bài viết lưu nháp liên tục
+    const SK = 'lk.mockRun.' + order.join(',') + '.' + M.lt + '.' + M.rt;
+    const keep = () => { try { localStorage.setItem(SK, JSON.stringify({ i: M.i, bands: M.bands, detail: M.detail, at: Date.now() })); } catch (e) { /* bỏ qua */ } };
+    const dropRun = () => { try { localStorage.removeItem(SK); localStorage.removeItem(SK + '.w'); } catch (e) { /* bỏ qua */ } };
+    const next = () => { clearAll(); M.i++; window.scrollTo({ top: 0 }); if (M.i >= M.order.length) { dropRun(); finish(); } else { keep(); SECTION[M.order[M.i]](); } };
     const intro = (k, html, go) => {
       const s = SKILLS.find(x => x[0] === k);
       view.innerHTML = `${bar(s[2])}<div class="study-wrap"><div class="card celebrate empty"><div class="em">${s[1]}</div><h2>${s[2]}</h2>${html}<button class="btn primary lg" id="mkStart">${t('Bắt đầu {skill}', { skill: s[2] })}</button></div></div>`;
@@ -210,8 +214,10 @@
           <div class="row" style="margin-top:1rem"><button class="btn primary" id="mkSubmit">${t('Nộp bài Writing')}</button></div>`;
         bindQuit();
         const wc = t => (t.match(/[A-Za-z][A-Za-z'’-]*/g) || []).length;
-        $('#t1').oninput = e => { $('#w1').textContent = wc(e.target.value); };
-        $('#t2').oninput = e => { $('#w2').textContent = wc(e.target.value); };
+        const draftKey = SK + '.w', saveDraft = () => { try { localStorage.setItem(draftKey, JSON.stringify([$('#t1').value, $('#t2').value])); } catch (e) { /* bỏ qua */ } };
+        try { const d = JSON.parse(localStorage.getItem(draftKey) || 'null'); if (d) { $('#t1').value = d[0] || ''; $('#t2').value = d[1] || ''; $('#w1').textContent = wc(d[0] || ''); $('#w2').textContent = wc(d[1] || ''); } } catch (e) { /* bỏ qua */ }
+        $('#t1').oninput = e => { $('#w1').textContent = wc(e.target.value); saveDraft(); };
+        $('#t2').oninput = e => { $('#w2').textContent = wc(e.target.value); saveDraft(); };
         $$('#mkTabs button').forEach(b => b.onclick = () => { $$('#mkTabs button').forEach(x => x.classList.toggle('on', x === b)); $$('.mk-write').forEach(w => w.hidden = w.dataset.task !== b.dataset.t); });
         const submit = async () => {
           const a = $('#t1').value.trim(), b = $('#t2').value.trim();
@@ -327,7 +333,14 @@
     }
 
     const SECTION = { listening, reading, writing, speaking };
-    SECTION[M.order[0]]();
+    const saved = (() => { try { const x = JSON.parse(localStorage.getItem(SK) || 'null'); return x && x.i > 0 && x.i < order.length && Date.now() - x.at < 864e5 ? x : null; } catch (e) { return null; } })();
+    if (!saved) { dropRun(); SECTION[M.order[0]](); return; }
+    const s0 = SKILLS.find(x => x[0] === order[saved.i]);
+    view.innerHTML = `${bar(s0[2])}<div class="study-wrap"><div class="card celebrate empty"><div class="em">⏯</div><h2>${t('Bạn có bài thi đang làm dở')}</h2><p class="muted">${t('Đã xong {n}/{m} kỹ năng. Tiếp tục từ {skill}?', { n: saved.i, m: order.length, skill: s0[2] })}</p>
+      <button class="btn primary lg" id="mkCont">${t('Tiếp tục bài thi')} →</button> <button class="btn" id="mkNew">${t('Làm lại từ đầu')}</button></div></div>`;
+    bindQuit();
+    $('#mkCont').onclick = () => { Object.assign(M, { i: saved.i, bands: saved.bands || {}, detail: saved.detail || {} }); SECTION[M.order[M.i]](); };
+    $('#mkNew').onclick = () => { dropRun(); SECTION[M.order[0]](); };
   }
 
   App.mock = { scoreTask2, scoreSpeaking, grammarRange };
