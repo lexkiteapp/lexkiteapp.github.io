@@ -33,7 +33,7 @@ Khóa thiếu → giao diện tự hiện tiếng Anh (en.js nạp trước), kh
 
 ## 4. Luồng chạy
 1. Viết tính năng + `en/*.js` (+ `i18n-fixed.json` cho nhãn ngắn) → `bash scripts/build-i18n.sh`.
-2. Ship → GitHub Action `i18n.yml`: `gen-i18n.mjs` cho từng ngôn ngữ (chỉ dịch khóa mới) → `i18n-fix.mjs` (áp bản dịch tay) → `i18n-qa.mjs` (báo cáo) → commit `i18n: cập nhật bản dịch giao diện tự động`.
+2. Ship (`scripts/i18n-sync.sh` tự dịch ngay khóa mới bằng curl + áp bản dịch tay + i18n-qa) → GitHub Action `i18n.yml`: `gen-i18n.mjs` cho từng ngôn ngữ (chỉ dịch khóa mới) → `i18n-fix.mjs` (áp bản dịch tay) → `i18n-qa.mjs` (báo cáo) → commit `i18n: cập nhật bản dịch giao diện tự động`.
 3. Sau mỗi đợt tính năng lớn: chạy `i18n-qa.mjs --short`, dịch tay thêm nhãn ngắn mới.
 
 ## 5. Mở thêm ngôn ngữ mới
