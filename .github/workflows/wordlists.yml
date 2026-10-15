@@ -10,7 +10,7 @@ on:
     paths: [scripts/gen-wordlist.mjs, 'content/wordlists/*.csv', .github/workflows/wordlists.yml]
 permissions:
   contents: write
-concurrency: { group: wordlists, cancel-in-progress: false }
+concurrency: { group: google-translate, cancel-in-progress: false }  # dùng chung hàng đợi: không gọi Google Translate song song (tránh bị chặn)
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,7 +28,7 @@ jobs:
         run: |
           git config user.name "lexkite-bot"
           git config user.email "lexkite-bot@users.noreply.github.com"
-          git add web/js/lib/nawl.js web/js/lib/bsl.js content/wordlists/*.cache.json
+          git add -A web/js/lib/nawl.js web/js/lib/bsl.js content/wordlists
           git diff --cached --quiet && exit 0
           git commit -m "Kho từ theo kỳ thi: cập nhật tự động"
           for i in 1 2 3 4 5; do git pull --rebase -X theirs origin main && git push && exit 0; sleep $((i * 7)); done

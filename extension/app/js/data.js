@@ -194,6 +194,7 @@
     { id: 'domain', name: t('Từ vựng chuyên ngành'), emoji: '🏢', desc: t('1.500 thuật ngữ thông dụng của 10 ngành: CNTT, kinh doanh, y khoa, kỹ thuật, luật, marketing, môi trường, du lịch, giáo dục, logistics') },
     { id: 'exam', name: t('Từ vựng theo kỳ thi'), emoji: '🎯', desc: t('1.459 từ & cụm hay gặp theo từng kỳ thi: IELTS Listening · Reading · Writing · Speaking, TOEFL iBT, TOEIC Listening & Reading') },
     { id: 'awl', name: 'Academic Word List', emoji: '🎓', desc: t('570 họ từ học thuật (Coxhead) – nền tảng cho Reading & Writing band 7+') },
+    { id: 'office', name: t('Tiếng Anh Công sở & Sự nghiệp'), emoji: '💼', desc: t('Email & Slack, họp và đàm phán, phỏng vấn xin việc, IT & văn phòng – câu mẫu dùng ngay ở chỗ làm') },
     { id: 'nawl', name: 'New Academic Word List', emoji: '🎓', desc: t('Từ học thuật hay gặp trong IELTS Academic & TOEFL, bổ sung cho AWL · NAWL 1.2 © Browne, Culligan & Phillips, CC BY-SA 4.0') },
     { id: 'bsl', name: 'TOEIC – Business (BSL)', emoji: '💼', desc: t('Từ vựng công việc & kinh doanh hay gặp trong TOEIC, bổ sung cho TSL · BSL 1.20 © Browne & Culligan, CC BY-SA 4.0') },
   ];

@@ -2097,6 +2097,14 @@
   'Đăng nhập': 'Sign in',
   'Blog': 'Blog',
   '✓ Đã trong sổ thẻ': '✓ In your deck',
+  "Bạn lỡ quên 1 ngày?": "Missed a day?",
+  "Xem 1 video ngắn để khôi phục chuỗi 🔥 {n} ngày!": "Watch a short video to restore your 🔥 {n}-day streak!",
+  "Dùng khiên miễn phí (1 lần mỗi tháng) để khôi phục chuỗi 🔥 {n} ngày!": "Use your free shield (once a month) to restore your 🔥 {n}-day streak!",
+  "Xem video để cứu chuỗi": "Watch video to save streak",
+  "Dùng khiên cứu chuỗi": "Use streak shield",
+  "Chấp nhận bắt đầu lại": "Start over",
+  "Chưa xem hết video – chuỗi chưa được khôi phục": "Video not finished – streak not restored",
+  "Chuỗi ngày học đã được giải cứu thành công!": "Your study streak has been saved!",
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* English UI strings – toefl.js (TOEFL iBT practice, 2026 format) */
@@ -2559,6 +2567,16 @@
   "Làm lại các câu sai": "Retry the wrong answers",
   "Hiện tất cả câu": "Show all questions",
   "Làm lại: đúng {right}/{total} câu": "Retry: {right}/{total} correct",
+  "Tiếng Anh Công sở & Sự nghiệp": "Workplace & Career English",
+  "Email & Slack, họp và đàm phán, phỏng vấn xin việc, IT & văn phòng – câu mẫu dùng ngay ở chỗ làm": "Email & Slack, meetings and negotiation, job interviews, IT & office – phrases to use at work right away",
+  "Email & tin nhắn công việc": "Work emails & messages",
+  "Mở đầu, xin lỗi phản hồi chậm, dời lịch, báo cáo tiến độ, nhắc việc lịch sự – dùng cho email, Slack, Teams": "Openings, apologising for late replies, rescheduling, progress updates, polite reminders – for email, Slack and Teams",
+  "Họp hành & đàm phán": "Meetings & negotiation",
+  "Nêu quan điểm, đồng ý khéo, phản đối lịch sự, ngắt lời, chốt việc, thương lượng giá và điều khoản": "Giving opinions, agreeing tactfully, disagreeing politely, interrupting, wrapping up, negotiating price and terms",
+  "Phỏng vấn xin việc": "Job interviews",
+  "Giới thiệu bản thân, điểm mạnh – điểm yếu, kể thành tích theo STAR, hỏi lại nhà tuyển dụng, thương lượng lương": "Introducing yourself, strengths and weaknesses, STAR achievement stories, questions for the interviewer, salary negotiation",
+  "IT & văn phòng hằng ngày": "Everyday IT & office",
+  "Họp online, chia sẻ màn hình, tài liệu, lỗi phần mềm, triển khai, hỗ trợ kỹ thuật – tiếng Anh dùng mỗi ngày ở công ty": "Online meetings, screen sharing, documents, software bugs, deployment, tech support – English used every day at work",
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* Thống nhất thuật ngữ khi nhiều nhóm dùng chung 1 khóa */

@@ -64,6 +64,31 @@
       setTimeout(() => toast(`🧊 ${t('Hôm qua bạn lỡ học – đã tự dùng 1 lượt đóng băng, chuỗi 🔥{n} ngày vẫn được giữ!', { n: streak() })}`, 4500), 1200);
     }
   }
+  // 🛟 Cứu chuỗi: lỡ đúng 1 ngày và đã hết lượt đóng băng → Kit hỏi một lần trong ngày.
+  // App (có quảng cáo): xem quảng cáo có thưởng; web: khiên miễn phí 1 lần/tháng. Chuỗi 0–1 ngày không hỏi.
+  async function offerRescue() {
+    const g = state.game, days = activeDays(), d = new Date(), today = todayKey(d); d.setDate(d.getDate() - 1);
+    const y = todayKey(d); d.setDate(d.getDate() - 1);
+    if (days.has(y) || g.rescueAsked === today) return;
+    let prev = 0; while (days.has(todayKey(d))) { prev++; d.setDate(d.getDate() - 1); }
+    if (prev < 2) return;
+    state.game = await Game.mutate(gs => { gs.rescueAsked = today; });
+    const month = today.slice(0, 7), native = !!(window.Capacitor && Capacitor.isNativePlatform && Capacitor.isNativePlatform());
+    const freeLeft = state.game.rescueMonth !== month;
+    if (!native && !freeLeft) return;
+    const box = modal(`<div class="center">${window.Kit ? Kit.svg('sad', 84, true) : '🥺'}
+      <h2 style="margin:.4rem 0">${t('Bạn lỡ quên 1 ngày?')}</h2>
+      <p class="muted">${native ? t('Xem 1 video ngắn để khôi phục chuỗi 🔥 {n} ngày!', { n: prev }) : t('Dùng khiên miễn phí (1 lần mỗi tháng) để khôi phục chuỗi 🔥 {n} ngày!', { n: prev })}</p>
+      <div class="row center" style="gap:.6rem;margin-top:1rem;flex-wrap:wrap"><button class="btn primary" id="rsYes">${native ? '▶ ' + t('Xem video để cứu chuỗi') : '🛟 ' + t('Dùng khiên cứu chuỗi')}</button><button class="btn ghost" id="rsNo">${t('Chấp nhận bắt đầu lại')}</button></div></div>`);
+    $('#rsNo', box).onclick = () => closeModal();
+    $('#rsYes', box).onclick = async () => {
+      const ok = native ? await Ads.rewarded('streak').catch(() => false) : true;
+      if (!ok) { toast(t('Chưa xem hết video – chuỗi chưa được khôi phục')); return; }
+      state.game = await Game.mutate(gs => { gs.frozen = { ...(gs.frozen || {}), [y]: 1 }; if (!native) gs.rescueMonth = month; });
+      closeModal(); Sfx.win(); confetti(140); App.updateChrome && App.updateChrome();
+      toast(`🎉 ${t('Chuỗi ngày học đã được giải cứu thành công!')}`, 4000);
+    };
+  }
   function streak() {
     const days = activeDays();
     let n = 0; const d = new Date();
@@ -180,7 +205,7 @@
   const G = 'js/grammar/', BUNDLES = {
     grammar: [...['tenses', 'verbs', 'sentences', 'foundation', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c'].map(f => G + f + '.js'), 'js/grammar.js'],
     pron: ['js/pron/sounds.js', 'js/pron/skills.js', 'js/pron.js'],
-    words: ['js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js'], // 4 kho từ (~145 KB nén) – không chặn trang đầu, tải khi cần/lúc rảnh
+    words: ['js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lib/office.js'], // 4 kho từ (~145 KB nén) – không chặn trang đầu, tải khi cần/lúc rảnh
     readings: ['js/readings.js', 'js/readings-more.js', 'js/cbt.js', 'js/method.js'], // 30 bài đọc – chỉ tải khi cần (trang chủ tự điền mục "Bài đọc hôm nay")
     listening: ['js/qengine.js', ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => `js/listen/test${n}.js`), 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/listening.js'],
     writing: ['js/write/task2-more.js', 'js/write/task1-more.js', 'js/write/task1-more2.js', 'js/write/ideas.js', 'js/write.js', 'js/task1.js', 'js/models.js', 'js/write/models2.js', 'js/write/models3.js', 'js/write/models4.js', 'js/write/models5.js', 'js/write/gt-letters.js', 'js/letters.js', 'js/ideas.js'],
@@ -1466,7 +1491,7 @@
       chrome.storage.onChanged.addListener(ch => { if (ch.cards) { state.cards = Object.assign(Object.create(null), ch.cards.newValue || {}); updateChrome(); } });
     }
     if (!Store.isExtension && !(window.VBNative && VBNative.is) && 'serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => {});
-    applyFreeze().catch(() => {});
+    App.offerRescue = offerRescue; applyFreeze().then(() => setTimeout(() => offerRescue().catch(() => {}), 1500)).catch(() => {});
     checkReminder(); setInterval(checkReminder, 60 * 1000);
     netState(); setTimeout(showInstallBtn, 1500);
     document.addEventListener('visibilitychange', async () => { if (!document.hidden) { state.cards = await Cards.all(); state.stats = await Stats.get(); state.game = await Game.get(); updateChrome(); } });

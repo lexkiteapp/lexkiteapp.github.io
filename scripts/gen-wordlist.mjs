@@ -12,7 +12,7 @@ const LISTS = {
 };
 const L = LISTS[ID]; if (!L) { console.error('dùng: gen-wordlist.mjs <' + Object.keys(LISTS).join('|') + '>'); process.exit(1); }
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-async function get(url) { for (let i = 0; i < 3; i++) { try { const r = await fetch(url, { headers: { 'User-Agent': 'lexkite-wordlist (support@lexkite.com)' } }); if (r.status === 404) return null; if (r.ok) return await r.json(); if (r.status === 429) await sleep(20000); } catch (e) { /* thử lại */ } await sleep(1500 * (i + 1)); } return undefined; }
+async function get(url) { for (let i = 0; i < 3; i++) { try { const r = await fetch(url, { headers: { 'User-Agent': 'lexkite-wordlist (support@lexkite.com)' } }); if (r.status === 404) return null; if (r.ok) return await r.json(); if (r.text) { const tx = await r.text(); if (/^\s*\{/.test(tx)) { try { return JSON.parse(tx); } catch (e) { return null; } } } /* {…} = không tìm thấy / đối tượng JSON – không phải lỗi mạng */ if (r.status === 429) await sleep(20000); } catch (e) { /* thử lại */ } await sleep(1500 * (i + 1)); } return undefined; }
 
 // 1) Đọc danh sách nguồn
 const csv = rd(L.file).replace(/^﻿/, '').split(/\r?\n/).slice(1).filter(Boolean);
@@ -33,12 +33,22 @@ const cp = new URL(`content/wordlists/${ID}.cache.json`, R);
 const cache = fs.existsSync(cp) ? JSON.parse(fs.readFileSync(cp, 'utf8')) : {};
 const POSN = p => /^(n|noun)/.test(p) ? 'noun' : /^(v|verb)/.test(p) ? 'verb' : /^adj/.test(p) ? 'adjective' : /^adv/.test(p) ? 'adverb' : /^prep/.test(p) ? 'preposition' : /^conj/.test(p) ? 'conjunction' : '';
 const SHORT = { noun: 'n', verb: 'v', adjective: 'adj', adverb: 'adv', preposition: 'prep', conjunction: 'conj' };
-let n = 0;
+let n = 0, fails = 0, dictFails = 0, dictDown = false;
+// Phiên âm dự phòng từ Wiktionary (CC BY-SA) khi Free Dictionary API lỗi/thiếu: ưu tiên giọng RP/UK
+async function wikiIPA(w) {
+  const j = await get(`https://en.wiktionary.org/w/api.php?action=parse&page=${encodeURIComponent(w)}&prop=wikitext&format=json&formatversion=2`);
+  const tx = j && j.parse && j.parse.wikitext || '';
+  const all = [...tx.matchAll(/\{\{IPA\|en\|([^}]*)\}\}/g)].map(m => m[1]);
+  const pick = all.find(a => /RP|UK/.test(a)) || all[0] || '';
+  return (pick.split('|').find(x => /^\/.+\/$/.test(x)) || '');
+}
 for (const x of LIST) {
   if (n >= MAX) break;
   const k = x.word.toLowerCase(); if (cache[k]) continue;
-  const fd = await get(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(k)}`);
-  if (fd === undefined) break; // mạng/giới hạn → lần sau chạy tiếp
+  const fd = dictDown ? null : await get(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(k)}`);
+  if (fd === undefined && ++dictFails >= 3) { dictDown = true; console.warn('Free Dictionary API lỗi – chuyển sang Wiktionary cho phần còn lại'); } else if (fd) dictFails = 0;
+  if (fd === undefined && dictDown && ++fails > 15) { console.warn('dừng ở', k, '– nguồn từ điển lỗi liên tiếp, lần sau chạy tiếp'); break; }
+  if (fd !== undefined) fails = 0;
   n++;
   const e = { ipa: '', pos: POSN(x.pos), def: x.def || '', ex: '', syn: [] };
   for (const en of Array.isArray(fd) ? fd : []) {
@@ -50,6 +60,7 @@ for (const x of LIST) {
       e.syn.push(...(m.synonyms || []));
     }
   }
+  if (!e.ipa) e.ipa = await wikiIPA(k);
   if (!e.ex) {
     const tt = await get(`https://api.tatoeba.org/unstable/sentences?lang=eng&q=${encodeURIComponent(k)}&sort=relevance&limit=10`);
     const s = tt && Array.isArray(tt.data) ? tt.data.map(d => d.text).filter(s => s.split(' ').length >= 6 && s.length < 140).sort((a, b) => Math.abs(a.length - 75) - Math.abs(b.length - 75))[0] : '';

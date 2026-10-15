@@ -10,7 +10,7 @@ on:
     paths: [scripts/gen-word-packs.mjs, .github/workflows/word-packs.yml]
 permissions:
   contents: write
-concurrency: { group: word-packs, cancel-in-progress: false }
+concurrency: { group: google-translate, cancel-in-progress: false }  # dùng chung hàng đợi: không gọi Google Translate song song (tránh bị chặn)
 jobs:
   packs:
     runs-on: ubuntu-latest
@@ -26,7 +26,7 @@ jobs:
         run: |
           git config user.name "lexkite-bot"
           git config user.email "lexkite-bot@users.noreply.github.com"
-          git add web/packs/*.json
+          git add -A web/packs
           git diff --cached --quiet && exit 0
           git commit -m "Gói nghĩa từ vựng: cập nhật tự động"
           for i in 1 2 3 4 5; do git pull --rebase -X theirs origin main && git push && exit 0; sleep $((i * 7)); done

@@ -436,4 +436,12 @@
   'Đăng nhập': 'Sign in',
   'Blog': 'Blog',
   '✓ Đã trong sổ thẻ': '✓ In your deck',
+  "Bạn lỡ quên 1 ngày?": "Missed a day?",
+  "Xem 1 video ngắn để khôi phục chuỗi 🔥 {n} ngày!": "Watch a short video to restore your 🔥 {n}-day streak!",
+  "Dùng khiên miễn phí (1 lần mỗi tháng) để khôi phục chuỗi 🔥 {n} ngày!": "Use your free shield (once a month) to restore your 🔥 {n}-day streak!",
+  "Xem video để cứu chuỗi": "Watch video to save streak",
+  "Dùng khiên cứu chuỗi": "Use streak shield",
+  "Chấp nhận bắt đầu lại": "Start over",
+  "Chưa xem hết video – chuỗi chưa được khôi phục": "Video not finished – streak not restored",
+  "Chuỗi ngày học đã được giải cứu thành công!": "Your study streak has been saved!",
 }); })(typeof self !== 'undefined' ? self : this);

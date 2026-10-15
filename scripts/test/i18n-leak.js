@@ -7,7 +7,7 @@ const fs = require('fs'), path = require('path');
 const WEB = process.argv[2] || 'web';
 const LANGS = (process.argv[3] || 'en,zh,ar').split(',');
 const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
-const ROUTES = ['#/home', '#/vocab', '#/library', '#/review', '#/practice', '#/path', '#/stats', '#/settings', '#/me', '#/skills', '#/tests', '#/phrases', '#/models', '#/grammar', '#/pron', '#/listening', '#/reading', '#/speaking', '#/write', '#/task1', '#/letters', '#/toeic', '#/toefl', '#/contact', '#/placement', '#/dict/sustainable', '#/topic/ngsl1', '#/model/t1-travel', '#/home'];
+const ROUTES = ['#/home', '#/vocab', '#/library', '#/review', '#/practice', '#/path', '#/stats', '#/settings', '#/me', '#/skills', '#/tests', '#/phrases', '#/models', '#/grammar', '#/pron', '#/listening', '#/reading', '#/speaking', '#/write', '#/task1', '#/letters', '#/toeic', '#/toefl', '#/contact', '#/placement', '#/dict/sustainable', '#/topic/ngsl1', '#/topic/office-email', '#/model/t1-travel', '#/home'];
 const html = fs.readFileSync(path.join(WEB, 'index.html'), 'utf8').replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '');
 const scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g)].map(m => m[1]);
 const tick = (ms = 40) => new Promise(r => setTimeout(r, ms));

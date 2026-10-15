@@ -32,10 +32,10 @@ for (const lang of arg === 'all' ? LANGS : [arg]) {
   for (let i = 0; i < miss.length; i += 80) {
     const batch = miss.slice(i, i + 80);
     const j = await get(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${tl(lang)}&dt=t&q=${encodeURIComponent(batch.join('\n'))}`);
-    if (!j) { console.warn(lang, 'dừng lô (mạng/giới hạn)'); break; }
+    if (!j) { console.warn(lang, 'dừng lô (mạng/giới hạn) – lần sau chạy tiếp'); break; }
     const out = j[0].map(x => x[0]).join('').split('\n').map(s => s.trim());
     if (out.length === batch.length) batch.forEach((k, n) => { if (out[n]) pack[k] = [out[n], 0]; });
-    await sleep(600);
+    await sleep(1500); // nhịp chậm: tránh bị Google chặn
   }
   // tinh chỉnh theo từ loại
   let done = 0;
@@ -50,7 +50,7 @@ for (const lang of arg === 'all' ? LANGS : [arg]) {
     const terms = e && Array.isArray(e[1]) ? e[1].slice(0, 2) : null;
     const base = j[0] ? j[0].map(x => x[0]).join('').trim() : '';
     pack[k] = [terms && terms.length ? terms.join(', ') : (pack[k] ? pack[k][0] : base), 1];
-    await sleep(350);
+    await sleep(1200);
   }
   const sorted = Object.fromEntries(Object.keys(pack).sort().map(k => [k, pack[k]]));
   fs.writeFileSync(p, JSON.stringify(sorted));

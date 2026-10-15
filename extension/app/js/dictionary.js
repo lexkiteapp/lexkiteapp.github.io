@@ -203,10 +203,23 @@
 
   // Dịch sang ngôn ngữ bất kỳ (nghĩa cho người học quốc tế: es, ja, ar…) – có bộ nhớ đệm trong phiên
   const trCache = new Map();
+  // Chrome Translator API (dịch TRÊN MÁY – nhanh, offline, không giới hạn lượt). Chỉ dùng khi gói ngôn ngữ đã có sẵn
+  // ('available'), không tự kích hoạt tải mô hình. Không có → trả null để dùng đường dịch cũ.
+  const onDevice = new Map();
+  async function deviceTranslate(text, tl, sl = 'en') {
+    try {
+      const T = g.Translator; if (!T || !T.availability) return null;
+      const key = sl + '>' + tl;
+      if (!onDevice.has(key)) onDevice.set(key, T.availability({ sourceLanguage: sl, targetLanguage: tl }).then(a => (a === 'available' ? T.create({ sourceLanguage: sl, targetLanguage: tl }) : null)).catch(() => null));
+      const tr = await onDevice.get(key); if (!tr) return null;
+      const out = await tr.translate(text); return out && out.trim() ? out.trim() : null;
+    } catch (e) { return null; }
+  }
   async function translateTo(text, tl, sl = 'en') {
     if (!text || !tl || tl === sl) return '';
     if (tl === 'vi' && sl === 'en') return translateVi(text);
     const k = sl + '|' + tl + '|' + text; if (trCache.has(k)) return trCache.get(k);
+    const dv = await deviceTranslate(text, tl, sl); if (dv) { trCache.set(k, dv); return dv; }
     const d = await fetchJSON(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${encodeURIComponent(tl)}&dj=1&dt=t&q=${encodeURIComponent(text)}`);
     const r = (d && (d.sentences || []).map(x => x.trans || '').join('').trim()) || '';
     if (r) trCache.set(k, r);

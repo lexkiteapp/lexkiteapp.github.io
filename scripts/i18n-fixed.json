@@ -14660,5 +14660,50 @@
   "ar": "عرض الكل",
   "ru": "Показать все",
   "tr": "Tümünü göster"
+ },
+ "Dùng khiên cứu chuỗi": {
+  "es": "Usar escudo de racha",
+  "pt": "Usar escudo de sequência",
+  "fr": "Utiliser le bouclier",
+  "de": "Schutzschild nutzen",
+  "id": "Pakai perisai streak",
+  "th": "ใช้โล่รักษาสถิติ",
+  "zh": "使用连胜护盾",
+  "ja": "ストリークシールドを使う",
+  "ko": "연속 보호막 사용",
+  "hi": "स्ट्रीक शील्ड इस्तेमाल करें",
+  "ar": "استخدم درع السلسلة",
+  "ru": "Использовать щит серии",
+  "tr": "Seri kalkanını kullan"
+ },
+ "Chấp nhận bắt đầu lại": {
+  "es": "Empezar de nuevo",
+  "pt": "Recomeçar",
+  "fr": "Recommencer",
+  "de": "Neu anfangen",
+  "id": "Mulai lagi",
+  "th": "เริ่มใหม่",
+  "zh": "重新开始",
+  "ja": "最初からやり直す",
+  "ko": "다시 시작",
+  "hi": "फिर से शुरू करें",
+  "ar": "البدء من جديد",
+  "ru": "Начать заново",
+  "tr": "Baştan başla"
+ },
+ "Bạn lỡ quên 1 ngày?": {
+  "es": "¿Te saltaste un día?",
+  "pt": "Perdeu um dia?",
+  "fr": "Vous avez manqué un jour ?",
+  "de": "Einen Tag verpasst?",
+  "id": "Terlewat sehari?",
+  "th": "พลาดไปหนึ่งวันใช่ไหม",
+  "zh": "错过了一天？",
+  "ja": "1日休んでしまいましたか？",
+  "ko": "하루를 놓쳤나요?",
+  "hi": "एक दिन छूट गया?",
+  "ar": "فاتك يوم؟",
+  "ru": "Пропустили день?",
+  "tr": "Bir günü mü kaçırdın?"
  }
 }

@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
-concurrency:
+concurrency: { group: google-translate, cancel-in-progress: false }  # dùng chung hàng đợi với word-packs, wordlists
   group: i18n
   cancel-in-progress: false
 jobs:

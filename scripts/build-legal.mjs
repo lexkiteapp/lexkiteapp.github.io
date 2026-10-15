@@ -53,14 +53,14 @@ ${translated ? `    <p class="tnote">${translated}</p>\n` : ''}${body.split('\n'
 };
 
 const cachePath = l => new URL(`content/legal/cache/${l}.json`, R);
-let missing = 0;
+let missing = 0, fails = 0, blocked = false;
 for (const lang of Object.keys(LANGS)) {
   const cache = fs.existsSync(cachePath(lang)) ? JSON.parse(fs.readFileSync(cachePath(lang), 'utf8')) : {};
   const used = {};
   const tr = async line => {
     if (keep(line)) return line;
     if (cache[line]) return (used[line] = cache[line]);
-    if (TRANSLATE) { const t = await gtx(line, lang); await sleep(400); if (t) return (used[line] = cache[line] = t); }
+    if (TRANSLATE && !blocked) { const t = await gtx(line, lang); await sleep(1200); if (!t && ++fails > 5) blocked = true; /* bị chặn → dừng, lần sau chạy tiếp */ if (t) return (used[line] = cache[line] = t); }
     missing++; return line; // giữ tiếng Anh
   };
   fs.mkdirSync(new URL(`web/${lang}/`, R), { recursive: true });
