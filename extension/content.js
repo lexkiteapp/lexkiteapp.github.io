@@ -72,7 +72,7 @@
   const CSS = `
     :host { all: initial; }
     .box { position: fixed; z-index: 2147483647; width: 380px; max-width: calc(100vw - 16px); background: #fff; color: #1c1d2b;
-      border: 1px solid #e3e5ef; border-radius: 16px; box-shadow: 0 12px 40px rgba(20,20,50,.22); font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      border: 1px solid #e3e5ef; border-radius: 16px; box-shadow: 0 16px 40px -8px rgba(15,61,62,.2), 0 0 1px rgba(0,0,0,.1); font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       overflow: hidden; animation: pop .14s ease-out; }
     @keyframes pop { from { opacity: 0; transform: translateY(6px) scale(.98); } }
     .head { display: flex; gap: 12px; padding: 14px 14px 10px; }
@@ -91,7 +91,7 @@
     .sk { height: 11px; border-radius: 6px; margin: 7px 0; background: linear-gradient(90deg, #eef0f6 25%, #f8f9fc 50%, #eef0f6 75%); background-size: 200% 100%; animation: sh 1s infinite linear; }
     @keyframes sh { to { background-position: -200% 0; } }
     .vi { color: #0e8f8e; font-weight: 700; font-size: 15px; margin-top: 2px; }
-    .body { padding: 0 14px 12px; max-height: 340px; overflow: auto; }
+    .body { padding: 0 14px 12px; max-height: 340px; overflow: auto; overflow-anchor: none; } /* không tự giữ vị trí cuộn khi nội dung nạp thêm → dòng đầu không bị đẩy khuất */
     .def { margin: 4px 0; }
     .ex { color: #6b6f85; font-style: italic; font-size: 13px; }
     .pg { margin: 8px 0; padding-left: 8px; border-left: 3px solid #e4e6f2; } .pg .chip { margin: 0 6px 0 0; } .pvi { font-weight: 600; }

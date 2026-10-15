@@ -14,10 +14,19 @@ body.popup { width: 360px; padding: 14px; margin: 0; }
 .sync-row a.strong { background: #4f46e5; color: #fff; padding: 4px 8px; border-radius: 8px; }
 .pp-chip { font-size: 12px; padding: 3px 9px; border-radius: 999px; background: rgba(255,255,255,.18); color: #fff; font-weight: 600; }
 .pp-sec { margin: 14px 0 6px; font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
-.pp-word { display: flex; justify-content: space-between; gap: 10px; padding: 7px 10px; border-radius: 10px; text-decoration: none; color: var(--text); }
+.pp-word { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 10px; text-decoration: none; color: var(--text); }
 .pp-word:hover { background: var(--surface); }
 .pp-word span { color: var(--muted); font-size: 13px; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 60%; }
 .pp-set { margin-top: 12px; border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; }
 .pp-set summary { cursor: pointer; font-size: 13px; font-weight: 700; }
 .sync-row span { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 @media (prefers-color-scheme: dark) { .sync-row { background: #1d1e29; color: #e6e7ee; } }
+
+.pp-word .pp-w { flex: 1; min-width: 0; color: var(--text); text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pp-dot { width: 8px; height: 8px; border-radius: 50%; flex: none; background: #b8bcc8; }
+.pp-dot.ok { background: #16a34a; } .pp-dot.due { background: #eab308; } .pp-dot.new { background: #b8bcc8; }
+.pp-say { border: 0; background: var(--surface, #f1f2f8); border-radius: 99px; width: 26px; height: 26px; flex: none; cursor: pointer; font-size: 12px; line-height: 26px; padding: 0; }
+.pp-say:hover { background: #fdece6; }
+/* Ô tra nhanh: viền xám tinh tế, chỉ sáng cam khi đang gõ */
+.popup .search .input { border: 1px solid var(--line, #e2e8f0); transition: border-color .15s, box-shadow .15s; }
+.popup .search .input:focus { outline: none; border: 1.5px solid #E5502F; box-shadow: 0 0 0 3px rgba(229, 80, 47, .15); }

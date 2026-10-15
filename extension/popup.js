@@ -6,7 +6,7 @@
   try { const { uiLang } = await chrome.storage.local.get('uiLang'); if (pickLang(uiLang)) UI_LANG = pickLang(uiLang); localStorage.setItem('vb.uiLang', UI_LANG); } catch (e) { /* bỏ qua */ }
   if (UI_LANG !== 'vi' && UI_LANG !== 'en') try { XD = ((await chrome.runtime.sendMessage({ type: 'uiDict', lang: UI_LANG })) || {}).dict || {}; } catch (e) { /* bỏ qua */ } // trang ứng dụng trong add-on dùng cùng ngôn ngữ
   const EN = {
-    'thẻ cần học hôm nay': 'cards due today', 'Ôn ngay →': 'Review now →', 'Mục tiêu': 'Goal', 'Thẻ từ vựng ở tab mới': 'Vocabulary card on new tab', 'Gạch chân từ học thuật B2–C2': 'Underline B2–C2 academic words', 'Tra nhanh một từ…': 'Quick word lookup…',
+    'thẻ cần học hôm nay': 'cards due today', 'Ôn ngay →': 'Review now →', 'Mục tiêu': 'Goal', 'Thẻ từ vựng ở tab mới': 'Vocabulary card on new tab', 'Gạch chân từ học thuật B2–C2': 'Underline B2–C2 academic words', 'Mới lưu': 'Just saved', 'Đã thuộc': 'Learned', 'Sắp đến hạn ôn': 'Due for review soon', 'Nghe': 'Listen', 'Tra nhanh một từ…': 'Quick word lookup…',
     '⚙️ Cài đặt tra từ': '⚙️ Lookup settings', 'Khi bôi đen chữ': 'When text is selected', 'Hiện nút 🌐 để dịch': 'Show 🌐 button to translate',
     'Tự dịch ngay': 'Translate instantly', 'Tắt': 'Off', 'Bấm đúp để tra từ': 'Double-click to look up words',
     'Đánh dấu từ đã học trên trang': 'Highlight learned words on pages', 'Mở ứng dụng ↗': 'Open app ↗',
@@ -54,8 +54,12 @@
   // Từ vừa lưu gần đây: nhìn lại nhanh, bấm để xem chi tiết
   const recent = Object.values(cards).filter(c => c.added).sort((a, b) => b.added - a.added).slice(0, 5);
   if (recent.length) {
-    $('#recent').innerHTML = `<div class="pp-sec">${tx('🕘 Vừa lưu gần đây')}</div>${recent.map(c => `<a href="#" class="pp-word" data-w="${esc(c.word)}"><b>${esc(c.word)}</b><span>${esc(String(c.vi || '').split(/[,;]/)[0])}</span></a>`).join('')}`;
-    document.querySelectorAll('.pp-word').forEach(a => a.onclick = e => { e.preventDefault(); open('#/dict/' + encodeURIComponent(a.dataset.w)); });
+    // Chấm độ nhớ (FSRS): xanh = đã thuộc (khả năng nhớ ≥ 90%), vàng = sắp/đã đến hạn ôn, xám = mới lưu chưa ôn
+    const dot = c => { const st = c.srs || {}; if (!st.reps && !st.last) return ['new', tx('Mới lưu')]; const r = Core.SRS.retention ? Core.SRS.retention(st) : 0; return r >= 0.9 && st.due > Date.now() + 864e5 ? ['ok', tx('Đã thuộc')] : ['due', tx('Sắp đến hạn ôn')]; };
+    const mean = c => (UI_LANG === 'vi' ? String(c.vi || '') : String(c.def || '')).split(/[,;]/)[0];
+    $('#recent').innerHTML = `<div class="pp-sec">${tx('🕘 Vừa lưu gần đây')}</div>${recent.map(c => { const [d, dl] = dot(c); return `<div class="pp-word" data-w="${esc(c.word)}"><span class="pp-dot ${d}" title="${esc(dl)}" aria-label="${esc(dl)}"></span><button type="button" class="pp-say" data-say="${esc(c.word)}" aria-label="${esc(tx('Nghe'))}: ${esc(c.word)}">🔊</button><a href="#" class="pp-w"><b>${esc(c.word)}</b></a><span>${esc(mean(c))}</span></div>`; }).join('')}`;
+    document.querySelectorAll('.pp-word .pp-w').forEach(a => a.onclick = e => { e.preventDefault(); open('#/dict/' + encodeURIComponent(a.closest('.pp-word').dataset.w)); });
+    document.querySelectorAll('.pp-say').forEach(b => b.onclick = e => { e.preventDefault(); const c = recent.find(x => x.word === b.dataset.say); speak(b.dataset.say, c && (settings.accent === 'en-US' ? c.audioUS : c.audio)); });
   }
   $('#open').onclick = e => { e.preventDefault(); open('#/home'); };
   // Trạng thái đồng bộ tài khoản (liên kết qua web app lexkite.com)
