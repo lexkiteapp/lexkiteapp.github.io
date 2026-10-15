@@ -53,7 +53,7 @@
     const head = `<div class="lq-instr">${gr.title ? `<b>${esc(gr.title)}</b><br>` : ''}<i>${esc(gr.instr)}</i></div>`;
     // TOEIC Part 1 (photo): ảnh + chỉ chữ (A)–(D); 4 câu mô tả chỉ nghe, hiện lại sau khi nộp (mark)
     if (gr.type === 'mcq' && gr.photo) return `<div class="lq-group">${head}${gr.items.map(it => `<div class="lq-item" data-item="${it.n}"><div><span class="qn">${it.n}</span> ${esc(it.q)}</div>
-      <img class="lq-photo" src="${esc(it.img)}" alt="${esc(t('Ảnh câu {n}', { n: it.n }))}" loading="lazy" style="display:block;max-width:100%;height:auto;border-radius:12px;margin:.4rem 0">
+      <img class="lq-photo" src="${esc((/^https?:/.test(location.protocol) ? "" : "https://lexkite.com/") + it.img)}" alt="${esc(t('Ảnh câu {n}', { n: it.n }))}" loading="lazy" style="display:block;max-width:100%;height:auto;border-radius:12px;margin:.4rem 0">
       <div class="lq-opts">${it.options.map((o, k) => `<label><input type="radio" name="q${it.n}" value="${k}"> <b>(${L[k]})</b></label>`).join('')}</div><div class="lq-fb" hidden></div></div>`).join('')}</div>`;
     if (gr.type === 'mcq') return `<div class="lq-group">${head}${gr.items.map(it => `<div class="lq-item" data-item="${it.n}"><div><span class="qn">${it.n}</span> ${esc(it.q)}</div>
       <div class="lq-opts">${it.options.map((o, k) => `<label><input type="radio" name="q${it.n}" value="${k}"> <b>${L[k]}</b>${o === L[k] ? '' : ' ' + esc(o)}</label>`).join('')}</div><div class="lq-fb" hidden></div></div>`).join('')}</div>`;
