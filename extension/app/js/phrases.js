@@ -8,13 +8,14 @@
 
   // ---------- Hiển thị bài mẫu có chú thích ----------
   // [[cụm|nghĩa]]  {{từ nối}}  <<Nhãn vai trò>>
+  const roleT = r => t(String(r).trim()); // Mở bài, Thân bài 1… → bản dịch tay (scripts/i18n-fixed.json)
   function renderAnnotated(text) {
     return text.split(/\n\s*\n/).map(p => {
       let h = esc(p.trim());
       // Vai trò ở đầu đoạn → nhãn phía trên đoạn; giữa đoạn → nhãn nhỏ trong dòng
       let head = '';
-      h = h.replace(/^&lt;&lt;([^&]+?)&gt;&gt;\s*/, (m, r) => { head = `<div class="an-ptag"><span class="an-role">${r}</span></div>`; return ''; });
-      h = h.replace(/&lt;&lt;([^&]+?)&gt;&gt;\s*/g, '<span class="an-role an-inl">$1</span> ')
+      h = h.replace(/^&lt;&lt;([^&]+?)&gt;&gt;\s*/, (m, r) => { head = `<div class="an-ptag"><span class="an-role" translate="no">${esc(roleT(r))}</span></div>`; return ''; });
+      h = h.replace(/&lt;&lt;([^&]+?)&gt;&gt;\s*/g, (m, r) => `<span class="an-role an-inl" translate="no">${esc(roleT(r))}</span> `)
         .replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g, (m, en, vi) => `<span class="an-ch" data-ph="${en}" data-vi="${vi}" tabindex="0"><span class="an-en">${en}</span><span class="an-gl">${vi}</span></span>`)
         .replace(/\{\{([^}]+)\}\}/g, '<span class="an-lk">$1</span>');
       return head + '<p>' + h + '</p>';
@@ -94,8 +95,10 @@
       state.settings.annot2 = $$('[data-an]:checked').map(x => x.dataset.an).join(' '); App.saveSettings();
     });
     $('#annot').addEventListener('click', e => {
-      const ch = e.target.closest('.an-ch'); if (!ch) return;
-      savePhraseDialog({ phrase: ch.dataset.ph, vi: ch.dataset.vi, sentence: sentenceOf(ch), title: t('Bài mẫu Task {n}', { n: m.task }) });
+      if ($('#annot').classList.contains('hl-mode') || String(getSelection()).trim()) return; // đang tô sáng / bôi đen → để thanh công cụ xử lý
+      const ch = e.target.closest('.an-ch, .an-lk'); if (!ch) return;
+      const phrase = ch.dataset.ph || ch.textContent.trim();
+      phrasePop(ch, { phrase, vi: I18N.learnLang() === 'vi' ? ch.dataset.vi || '' : '', sentence: sentenceOf(ch), title: t('Bài mẫu Task {n}', { n: m.task }) });
     });
     $('#saveAll').onclick = async () => {
       const ps = [...m.text.matchAll(/\[\[([^|\]]+)\|([^\]]+)\]\]/g)];
@@ -187,7 +190,7 @@
   function lineExercise(m, box, mode) {
     const sents = sentencesOf(m);
     box.innerHTML = `<div class="card"><p class="small muted">${mode === 'copy' ? t('Mỗi câu chỉ hiện <b>chữ cái đầu</b> của từng từ. Nhớ lại và gõ cả câu – luyện ghi nhớ cấu trúc câu band 8.') : t('Dịch <b>câu tiếng Việt</b> sang tiếng Anh theo cách diễn đạt học thuật, rồi so với bài mẫu.')}</p>
-      <div id="lines">${sents.map((x, i) => `<div class="line" data-i="${i}">${x.role ? `<span class="an-role" style="display:inline-block;background:#16a34a;color:#fff;border-radius:6px;padding:.05rem .5rem;font-size:.75rem;font-weight:700">${esc(x.role)}</span> ` : ''}<span class="lhint">${mode === 'copy' ? esc(hint(x.s)) : `<i class="muted">⏳ ${t('đang dịch…')}</i>`}</span>
+      <div id="lines">${sents.map((x, i) => `<div class="line" data-i="${i}">${x.role ? `<span class="an-role" translate="no" style="display:inline-block;background:#16a34a;color:#fff;border-radius:6px;padding:.05rem .5rem;font-size:.75rem;font-weight:700">${esc(x.role)}</span> ` : ''}<span class="lhint">${mode === 'copy' ? esc(hint(x.s)) : `<i class="muted">⏳ ${t('đang dịch…')}</i>`}</span>
         <textarea class="input lin" rows="2" placeholder="${t('Gõ câu tiếng Anh…')}" spellcheck="false"></textarea><div class="lres small"></div></div>`).join('')}</div>
       <div class="row" style="margin-top:1rem"><button class="btn primary" id="chk">${t('Kiểm tra tất cả')}</button><button class="btn" id="show">${t('Xem bài mẫu')}</button></div></div>`;
     if (mode === 'write') sents.forEach(async (x, i) => { const v = await Dict.translateVi(x.s); const el = box.querySelector(`.line[data-i="${i}"] .lhint`); if (el) el.innerHTML = `🇻🇳 <b>${esc(v || t('(không dịch được)'))}</b>`; });
@@ -273,7 +276,7 @@
   function slotExercise(m, box) {
     const blocks = paras(m.text).map(p => { const role = roleOf(p); return { role, toks: tokens(plain(stripRole(p))) }; });
     let n = 0; const answers = [];
-    const html = blocks.map(b => `<p class="slot-p">${b.role ? `<span class="an-role slot-role">${esc(b.role)}</span> ` : ''}${b.toks.map(t => {
+    const html = blocks.map(b => `<p class="slot-p">${b.role ? `<span class="an-role slot-role" translate="no">${esc(roleT(b.role))}</span> ` : ''}${b.toks.map(t => {
       if (/^[^A-Za-z\d]$/.test(t)) return `<span class="slot-pun">${esc(t)}</span>`;
       const i = answers.push(t) - 1; n++;
       return `<input class="slot" data-i="${i}" size="${Math.max(2, t.length)}" maxlength="${t.length + 4}" autocomplete="off" spellcheck="false" autocapitalize="off">`;
@@ -299,7 +302,7 @@
     const sents = sentencesOf(m);
     const prompt = s => { const ts = tokens(s); return ts.map((t, k) => /^[A-Za-z]/.test(t) ? (t[0] === t[0].toUpperCase() && k > 0 && !/^I$/.test(t) ? t : (t.includes("'") ? t.split(/['’]/).map((x, j) => j ? "'" + x : lemma(x)).join(' / ') : lemma(t))) : t).join(' / '); };
     box.innerHTML = `<div class="card"><p class="small muted">${t('Mỗi câu được cho dưới dạng <b>từ gốc</b> (chưa chia thì, chưa thêm số nhiều/so sánh). Hãy viết lại thành câu hoàn chỉnh, đúng ngữ pháp – luyện “ngữ pháp chủ động” giống khi tự viết bài.')}</p>
-      <ol class="lem-list">${sents.map((x, i) => `<li class="line" data-i="${i}">${x.role ? `<span class="an-role slot-role">${esc(x.role)}</span> ` : ''}<div class="lem-q">${esc(prompt(x.s))}</div><textarea class="input lin" rows="2" placeholder="${t('Viết câu hoàn chỉnh…')}" spellcheck="false"></textarea><div class="lres small"></div></li>`).join('')}</ol>
+      <ol class="lem-list">${sents.map((x, i) => `<li class="line" data-i="${i}">${x.role ? `<span class="an-role slot-role" translate="no">${esc(roleT(x.role))}</span> ` : ''}<div class="lem-q">${esc(prompt(x.s))}</div><textarea class="input lin" rows="2" placeholder="${t('Viết câu hoàn chỉnh…')}" spellcheck="false"></textarea><div class="lres small"></div></li>`).join('')}</ol>
       <div class="row" style="margin-top:1rem"><button class="btn primary" id="chk">${t('Kiểm tra tất cả')}</button><button class="btn" id="show">${t('Xem câu mẫu')}</button></div></div>`;
     $('#chk', box).onclick = () => {
       let r = 0;
@@ -351,6 +354,18 @@
   pop.className = 'sel-pop card'; pop.hidden = true;
   document.body.appendChild(pop);
   let selInfo = null;
+  // Khung nghĩa khi bấm vào cụm từ/từ nối trong bài mẫu: nghĩa + nghe + lưu (điền sẵn) – không mở form trống
+  function phrasePop(el, info) {
+    bar.hidden = true; pop.hidden = false;
+    pop.innerHTML = `<div class="row between nowrap" style="gap:.6rem"><b>${esc(info.phrase)}</b><button class="icon-btn sm" data-x aria-label="${t('Đóng')}">✕</button></div>
+      <div class="vi" style="margin:.35rem 0 .6rem">${info.vi ? esc(info.vi) : `<span class="muted small">⏳ ${t('Đang dịch…')}</span>`}</div>
+      <div class="row" style="gap:.4rem"><button class="btn sm" data-sp>🔊 ${t('Nghe')}</button><button class="btn sm primary" data-save>${App.isPhrase && App.isPhrase(info.phrase) ? t('✓ Đã lưu') : '＋ ' + t('Lưu vào Sổ cụm từ')}</button></div>`;
+    place(pop, el.getBoundingClientRect());
+    $('[data-x]', pop).onclick = () => { pop.hidden = true; };
+    $('[data-sp]', pop).onclick = () => UI.speak(info.phrase, state.settings.accent);
+    $('[data-save]', pop).onclick = () => { pop.hidden = true; savePhraseDialog(info); };
+    if (!info.vi) Dict.translateVi(info.phrase).then(v => { info.vi = v || ''; const d = $('.vi', pop); if (d && !pop.hidden) d.textContent = info.vi || t('Không dịch được – thử lại sau'); }).catch(() => {});
+  }
   const NO_LOOKUP = 'input, textarea, select, .cbt, .mk-read, .mk-write, .mk-qs, .sel-pop, .sel-bar, .pop';
   const place = (el, r, below = 8) => {
     el.style.left = Math.max(8, Math.min(innerWidth - el.offsetWidth - 8, r.left + r.width / 2 - el.offsetWidth / 2)) + 'px';

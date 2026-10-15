@@ -1,0 +1,35 @@
+# Kho từ theo kỳ thi từ danh sách nguồn mở (NAWL → IELTS/TOEFL, BSL → TOEIC): làm giàu dữ liệu + kiểm chất lượng tự động.
+# Chạy dần mỗi đêm cho tới khi đủ; sửa script/CSV là chạy lại. Xem scripts/gen-wordlist.mjs, content/wordlists/README.md.
+name: Kho từ theo kỳ thi
+on:
+  schedule:
+    - cron: '0 21 * * *'   # 04:00 giờ VN
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [scripts/gen-wordlist.mjs, 'content/wordlists/*.csv', .github/workflows/wordlists.yml]
+permissions:
+  contents: write
+concurrency: { group: wordlists, cancel-in-progress: false }
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Làm giàu & kiểm tra
+        run: |
+          node scripts/gen-wordlist.mjs nawl --max 600
+          node scripts/gen-wordlist.mjs bsl --max 600
+          node scripts/vi-lint.mjs | tail -3
+      - name: Lưu kết quả (thử lại tối đa 5 lần)
+        run: |
+          git config user.name "lexkite-bot"
+          git config user.email "lexkite-bot@users.noreply.github.com"
+          git add web/js/lib/nawl.js web/js/lib/bsl.js content/wordlists/*.cache.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Kho từ theo kỳ thi: cập nhật tự động"
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin main && git push && exit 0; sleep $((i * 7)); done
+          exit 1

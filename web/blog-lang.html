@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, follow">
+  <title>Lexkite Blog</title>
+  <link rel="canonical" href="https://lexkite.com/en/blog/">
+  <script>
+  /* /blog → blog đúng ngôn ngữ người dùng (lựa chọn trong app → trình duyệt), ngôn ngữ chưa có bài → tiếng Anh. Không đoán theo IP để giữ chuẩn SEO. */
+  (function () {
+    var S = ['en', 'vi', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'], want = [], s;
+    try { s = localStorage.getItem('vb.uiLang'); } catch (e) { s = null; }
+    if (s) want.push(s);
+    (navigator.languages || [navigator.language]).forEach(function (n) { want.push(String(n || '').toLowerCase().split('-')[0]); });
+    want = want.filter(function (l, i) { return S.indexOf(l) >= 0 && want.indexOf(l) === i; });
+    var rest = location.pathname.replace(/^\/blog\/?/, '');
+    (function next(i) {
+      var l = want[i];
+      if (!l || l === 'en') return location.replace('/en/blog/' + rest);
+      fetch('/' + l + '/blog/rss.xml', { cache: 'no-store' }).then(function (r) { return r.ok ? r.text() : ''; })
+        .then(function (x) { if (x.indexOf('<item') >= 0) location.replace('/' + l + '/blog/' + rest); else next(i + 1); })
+        .catch(function () { next(i + 1); });
+    })(0);
+  })();
+  </script>
+</head>
+<body><p style="font-family:sans-serif;text-align:center;margin-top:20vh"><a href="/en/blog/">Lexkite Blog →</a></p></body>
+</html>

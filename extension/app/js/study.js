@@ -12,7 +12,7 @@
   // Nghĩa hiển thị theo ngôn ngữ người học: tiếng Việt, hoặc định nghĩa tiếng Anh cho người học quốc tế
   const mean = x => (I18N.meanLang() === 'en' && x.def ? x.def : x.vi) || '';
   // Người học quốc tế (giao diện es/ja/ar…): thêm nghĩa bằng tiếng mẹ đẻ dưới định nghĩa tiếng Anh
-  const nativeFill = (el, word) => { const L = I18N.lang(); if (!el || L === 'vi' || L === 'en' || I18N.meanLang() === 'vi') return; Dict.translateTo(word, L).then(r => { if (r && r.toLowerCase() !== word.toLowerCase() && el.isConnected) el.textContent = '🌐 ' + r; }).catch(() => {}); };
+  const nativeFill = (el, word) => { const L = I18N.lang(); if (!el || L === 'vi' || L === 'en' || I18N.meanLang() === 'vi') return; const pk = App.nativeGloss && App.nativeGloss(word); if (pk) { el.textContent = '🌐 ' + pk; return; } (App.loadPack ? App.loadPack() : Promise.resolve()).then(() => App.nativeGloss(word) || Dict.translateTo(word, L)).then(r => { if (r && r.toLowerCase() !== word.toLowerCase() && el.isConnected) el.textContent = '🌐 ' + r; }).catch(() => {}); };
   const norm = w => ({ word: w.word, ipa: w.ipa || '', vi: mean(w), ex: w.ex || '', def: w.def || '', pos: w.pos || '', emoji: w.emoji || '📘', image: w.image || '', audio: w.audio || '', level: w.level || '', topic: w.topic || '' });
   function sourceList() {
     const opts = [['deck', '📒 ' + t('Sổ từ của tôi ({n})', { n: Object.keys(state.cards).length })], ['due', '🔁 ' + t('Thẻ đến hạn hôm nay')], ['forgetting', '⚠️ ' + t('Từ sắp quên (độ nhớ < 85%)')], ['phrases', '🧩 ' + t('Cụm từ & cấu trúc của tôi')], ['weak', '🧩 ' + t('Từ hay quên')], ...[1, 2, 3, 4, 5].map(i => [`level:${i}`, '📶 ' + t('Cấp độ nhớ {n}', { n: i })])];

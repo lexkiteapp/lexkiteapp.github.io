@@ -1,0 +1,33 @@
+# Gói nghĩa từ vựng dịch sẵn 13 ngôn ngữ (web/packs/<lang>.json) – miễn phí trên máy chủ GitHub.
+# Mỗi đêm: dịch từ mới + tinh chỉnh dần theo đúng từ loại (dữ liệu từ điển). Xem scripts/gen-word-packs.mjs.
+name: Gói nghĩa từ vựng đa ngôn ngữ
+on:
+  schedule:
+    - cron: '30 20 * * *'   # 03:30 giờ VN
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [scripts/gen-word-packs.mjs, .github/workflows/word-packs.yml]
+permissions:
+  contents: write
+concurrency: { group: word-packs, cancel-in-progress: false }
+jobs:
+  packs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Dịch & tinh chỉnh
+        run: |
+          for l in $(grep -v '^#' scripts/i18n-langs.txt); do node scripts/gen-word-packs.mjs "$l" --refine 450 || echo "lỗi $l"; done
+      - name: Lưu kết quả (lấy bản mới nhất trước khi đẩy, thử lại tối đa 5 lần)
+        run: |
+          git config user.name "lexkite-bot"
+          git config user.email "lexkite-bot@users.noreply.github.com"
+          git add web/packs/*.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Gói nghĩa từ vựng: cập nhật tự động"
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin main && git push && exit 0; sleep $((i * 7)); done
+          exit 1

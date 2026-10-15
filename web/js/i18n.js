@@ -23,6 +23,17 @@
     return 'en';
   }
   const lang = detect();
+  // Lần đầu vào (chưa chọn ngôn ngữ, không có ?hl): đoán theo quốc gia qua Cloudflare /cdn-cgi/trace (miễn phí, không tốn lượt Functions).
+  // Chỉ chạy 1 lần; khác ngôn ngữ đang hiện → lưu & tải lại. Người dùng đổi lại bất kỳ lúc nào (đầu trang chào mừng / Cài đặt) và lựa chọn đó luôn được ưu tiên.
+  const GEO = { VN: 'vi', JP: 'ja', KR: 'ko', CN: 'zh', TW: 'zh', HK: 'zh', MO: 'zh', TH: 'th', ID: 'id', BR: 'pt', PT: 'pt', AO: 'pt', MZ: 'pt', ES: 'es', MX: 'es', AR: 'es', CO: 'es', CL: 'es', PE: 'es', VE: 'es', EC: 'es', GT: 'es', CU: 'es', BO: 'es', DO: 'es', HN: 'es', PY: 'es', SV: 'es', NI: 'es', CR: 'es', PA: 'es', UY: 'es', FR: 'fr', SN: 'fr', CI: 'fr', CM: 'fr', ML: 'fr', DE: 'de', AT: 'de', RU: 'ru', BY: 'ru', KZ: 'ru', KG: 'ru', TR: 'tr', SA: 'ar', AE: 'ar', EG: 'ar', IQ: 'ar', MA: 'ar', DZ: 'ar', JO: 'ar', KW: 'ar', QA: 'ar', OM: 'ar', LB: 'ar', TN: 'ar', LY: 'ar', YE: 'ar', BH: 'ar', SY: 'ar', SD: 'ar' };
+  if (g.document && g.fetch && /^https?:$/.test(location.protocol) && !read(KEY) && !read('vb.geo') && !/[?&]hl=/.test(location.search) && !(g.navigator && navigator.webdriver)) {
+    fetch('/cdn-cgi/trace').then(r => (r.ok ? r.text() : '')).then(tx => {
+      const c = (tx.match(/\bloc=([A-Z]{2})/) || [])[1] || '';
+      try { localStorage.setItem('vb.geo', c || '-'); } catch (e) { return; }
+      const l = GEO[c];
+      if (l && l !== lang && SUPPORTED.includes(l) && !read(KEY)) set(l);
+    }).catch(() => {});
+  }
   const D = g.I18N_DICT = g.I18N_DICT || {};
   // t(chuỗi gốc, {biến}) – thiếu bản dịch thì dùng tiếng Anh, rồi mới tới chuỗi gốc
   function t(src, vars) {

@@ -96,6 +96,8 @@
     if (t === 'auto') document.documentElement.removeAttribute('data-theme');
     else document.documentElement.setAttribute('data-theme', t);
   }
+  // Đổi ngôn ngữ giao diện từ mọi trang (nút 🌐 đầu trang) – lựa chọn được lưu, ưu tiên hơn tự nhận diện theo quốc gia/trình duyệt
+  if ($('#langBtn')) $('#langBtn').onclick = () => modal(`<h2>🌐 ${t('Ngôn ngữ giao diện')}</h2><div class="lang-grid" data-lang-pick translate="no">${I18N.SUPPORTED.map(l => `<button type="button" class="btn ${I18N.lang() === l ? 'primary' : ''}" data-v="${l}" lang="${l}">${I18N.LANGS[l][1]}</button>`).join('')}</div>`);
   $('#themeBtn').onclick = () => {
     const order = ['auto', 'light', 'dark'];
     state.settings.theme = order[(order.indexOf(state.settings.theme) + 1) % 3];
@@ -183,7 +185,7 @@
     listening: ['js/qengine.js', ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => `js/listen/test${n}.js`), 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/listening.js'],
     writing: ['js/write/task2-more.js', 'js/write/task1-more.js', 'js/write/task1-more2.js', 'js/write/ideas.js', 'js/write.js', 'js/task1.js', 'js/models.js', 'js/write/models2.js', 'js/write/models3.js', 'js/write/models4.js', 'js/write/models5.js', 'js/write/gt-letters.js', 'js/letters.js', 'js/ideas.js'],
     mock: ['js/qengine.js', 'js/readtest/test1.js', 'js/readtest/test2.js', 'js/readtest/test3.js', 'js/readtest/test4.js', 'js/readtest/test5.js', 'js/readtest/test6.js', 'js/readtest/test7.js', 'js/readtest/test8.js', 'js/readtest/test9.js', 'js/readtest/test10.js', 'js/readtest/explain-a.js', 'js/readtest/explain-b.js', 'js/readtest/explain-c.js', 'js/readtest/explain-d.js', 'js/readtest/explain-e.js', 'js/readtest/explain-f.js', 'js/readtest/explain-g.js', 'js/readtest/gt1.js', 'js/readtest/gt2.js', 'js/readtest/explain-gt.js', 'js/mock.js', 'js/rtype.js'],
-    tsl: ['js/lib/tsl-a.js', 'js/lib/tsl-b.js', 'js/lib/domain-a.js', 'js/lib/domain-b.js', 'js/lib/exam-vocab.js', 'js/lib/exam-vocab2.js', 'js/lib/exam-vocab3.js'],
+    tsl: ['js/lib/tsl-a.js', 'js/lib/tsl-b.js', 'js/lib/domain-a.js', 'js/lib/domain-b.js', 'js/lib/exam-vocab.js', 'js/lib/exam-vocab2.js', 'js/lib/exam-vocab3.js', 'js/lib/nawl.js', 'js/lib/bsl.js'],
     speak: ['js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/speak/samples.js', 'js/speak/more2.js', 'js/speak/more3.js', 'js/speak/more.js', 'js/speaking.js'], // Phòng Speaking: chỉ tải khi mở
     toefl: ['js/qengine.js', 'js/toefl/data1.js', 'js/toefl/data2.js', 'js/toefl/data3.js', 'js/toefl.js'],
     toeic: ['js/qengine.js', 'js/toeic/reading1.js', 'js/toeic/reading2.js', 'js/toeic/listening1.js', 'js/toeic/listening2.js', 'js/toeic/reading3.js', 'js/toeic/listening3.js', 'js/toeic/reading4.js', 'js/toeic/listening4.js', 'js/toeic/reading5.js', 'js/toeic/listening5.js', 'js/toeic/reading6.js', 'js/toeic/listening6.js', 'js/toeic/reading7.js', 'js/toeic/listening7.js', 'js/toeic.js'],
@@ -325,6 +327,16 @@
         : android ? t('Cài <b>Google Speech Services</b> (Dịch vụ giọng nói của Google) từ CH Play và tải giọng tiếng Anh chất lượng cao để nghe tự nhiên hơn.')
         : t('Dùng Chrome hoặc Edge mới nhất để có giọng đọc tự nhiên hơn.'));
   };
+  // Gói nghĩa dịch sẵn theo ngôn ngữ giao diện (web/packs/<lang>.json – scripts/gen-word-packs.mjs, GitHub Action hằng đêm):
+  // nghĩa tiếng mẹ đẻ hiện tức thì & offline; từ chưa có trong gói mới dịch lúc chạy.
+  App.packs = {};
+  App.nativeGloss = w => { const p = App.packs[I18N.lang()], e = p && p[String(w || '').toLowerCase()]; return e ? e[0] : ''; };
+  App.loadPack = () => {
+    const L = I18N.lang(); if (L === 'vi' || L === 'en' || App.packs[L]) return Promise.resolve(App.packs[L]);
+    const base = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com';
+    return (App._pack = App._pack || fetch(base + '/packs/' + L + '.json').then(r => (r.ok ? r.json() : {})).then(j => (App.packs[L] = j)).catch(() => ({})));
+  };
+  setTimeout(() => App.loadPack(), 1500);
   // Nội dung bài học viết bằng tiếng Việt → tự dịch sang ngôn ngữ người học khi giao diện không phải tiếng Việt.
   // Dịch theo lô (Google Translate miễn phí), lưu bộ nhớ đệm trên máy → lần sau hiện ngay. Không dịch nghĩa từ (.vi) và dữ liệu người học nhập.
   (function contentTranslate() {

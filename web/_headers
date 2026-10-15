@@ -33,3 +33,7 @@
   Cache-Control: no-cache
   X-Robots-Tag: noindex, nofollow
   X-Frame-Options: DENY
+
+/packs/*
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *

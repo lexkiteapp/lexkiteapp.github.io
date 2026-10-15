@@ -1154,3 +1154,5 @@ body.focus .view { padding-top: 1rem; }
 .lk-banner.warn { background: #9a5d00; } .lk-banner.ok { background: #15803d; }
 .lk-banner a { color: #fff; text-decoration: underline; }
 .lk-banner button { position: absolute; right: .6rem; background: none; border: 0; color: #fff; font-size: 1.3rem; cursor: pointer; line-height: 1; }
+.lang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .5rem; margin-top: .8rem; }
+.lang-grid .btn { justify-content: center; }
