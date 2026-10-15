@@ -4,6 +4,18 @@
   "postsPerPage": 12,
   "defaultLang": "vi",
   "indexNowKey": "24d0ecfb2b8806b6577efab517b6b28d",
-  "blogName": { "vi": "Blog Lexkite", "en": "Lexkite Blog" },
-  "blogDesc": { "vi": "Cách học từ vựng và luyện thi IELTS, TOEIC, TOEFL hiệu quả: phương pháp khoa học, mẹo làm bài, lộ trình tự học – miễn phí cùng Lexkite.", "en": "Evidence-based ways to learn English vocabulary and prepare for IELTS, TOEIC and TOEFL – free with Lexkite." }
+  "blogName": {
+    "vi": "Blog Lexkite",
+    "en": "Lexkite Blog",
+    "id": "Blog Lexkite",
+    "es": "Blog de Lexkite",
+    "ja": "Lexkite ブログ"
+  },
+  "blogDesc": {
+    "vi": "Cách học từ vựng và luyện thi IELTS, TOEIC, TOEFL hiệu quả: phương pháp khoa học, mẹo làm bài, lộ trình tự học – miễn phí cùng Lexkite.",
+    "en": "Evidence-based ways to learn English vocabulary and prepare for IELTS, TOEIC and TOEFL – free with Lexkite.",
+    "id": "Cara belajar kosakata bahasa Inggris dan persiapan IELTS, TOEIC, TOEFL yang efektif – metode berbasis riset, tips ujian, dan rencana belajar gratis bersama Lexkite.",
+    "es": "Cómo aprender vocabulario en inglés y preparar IELTS, TOEIC y TOEFL con métodos probados, consejos de examen y planes de estudio gratuitos con Lexkite.",
+    "ja": "英単語の効率的な覚え方と IELTS・TOEIC・TOEFL の対策を、科学的な学習法・試験のコツ・無料の学習プランとともに紹介します。"
+  }
 }
