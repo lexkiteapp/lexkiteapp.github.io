@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Không tìm thấy trang – Lexkite</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0F3D3E">
+  <link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+  <!-- Trang 404 thật: có file này thì Cloudflare Pages tắt chế độ SPA (đường dẫn lạ trả 404, không còn soft 404). Dùng đường dẫn tuyệt đối vì có thể hiện ở mọi cấp thư mục. -->
+  <style>
+    :root{--ink:#0F3D3E;--coral:#E5502F;--bg:#F4FBF8;--fg:#14292a;--mut:#5d7372;--card:#fff;--line:#dbe9e4}
+    @media(prefers-color-scheme:dark){:root{--bg:#0b2223;--fg:#eaf5f2;--mut:#9fb9b5;--card:#11302f;--line:#1f4646}}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--fg);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:24px 16px}
+    main{max-width:520px;width:100%;text-align:center}
+    .logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--fg);font-weight:800;font-size:22px;letter-spacing:-.5px}
+    .logo img{width:40px;height:40px}
+    .code{font-size:88px;font-weight:800;line-height:1;margin:28px 0 4px;color:var(--coral);letter-spacing:-3px}
+    h1{font-size:24px;margin:0 0 8px}
+    p{margin:0 0 6px;color:var(--mut)}
+    .home{display:inline-block;margin:22px 0 18px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700;padding:12px 22px;border-radius:12px}
+    @media(prefers-color-scheme:dark){.home{background:var(--coral)}}
+    ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+    ul a{display:block;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--fg);text-decoration:none;font-weight:600;font-size:15px}
+    ul a:hover,.home:hover{filter:brightness(1.08)}
+  </style>
+</head>
+<body>
+  <main>
+    <a class="logo" href="/"><img src="/icons/icon.svg" alt="" width="40" height="40">Lexkite</a>
+    <div class="code">404</div>
+    <h1>Không tìm thấy trang này</h1>
+    <p>Đường dẫn có thể đã đổi hoặc không còn tồn tại.</p>
+    <p lang="en">Sorry, this page could not be found.</p>
+    <a class="home" href="/">Về trang chủ Lexkite</a>
+    <ul>
+      <li><a href="/blog/">Blog học tiếng Anh</a></li>
+      <li><a href="/tu-vung/">Từ vựng theo chủ đề</a></li>
+      <li><a href="/samples/">Bài mẫu Writing</a></li>
+    </ul>
+  </main>
+</body>
+</html>

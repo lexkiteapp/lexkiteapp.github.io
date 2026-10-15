@@ -1,15 +1,34 @@
-// SEO đa quốc gia: chèn <link rel="alternate" hreflang> cho mọi ngôn ngữ đang bật (SUPPORTED trong web/js/i18n.js)
-// và sinh sitemap.xml có liên kết thay thế theo ngôn ngữ. Chạy sau khi build vào dist/.
-import fs from 'node:fs';
-const SITE = 'https://lexkite.com/';
-const i18n = fs.readFileSync('web/js/i18n.js', 'utf8');
-const langs = JSON.parse(i18n.match(/const SUPPORTED = (\[[^\]]*\])/)[1].replace(/'/g, '"'));
-const url = l => `${SITE}?hl=${l}`;
-const links = langs.map(l => `  <link rel="alternate" hreflang="${l}" href="${url(l)}">`).join('\n') + `\n  <link rel="alternate" hreflang="x-default" href="${SITE}">`;
-let html = fs.readFileSync('dist/index.html', 'utf8').replace(/\n  <link rel="alternate" hreflang[^\n]*/g, '');
-html = html.replace('</head>', links + '\n</head>');
+// SEO trang chủ (dist/index.html, chỉ sửa bản build – không đụng web/index.html) + sitemap.xml gốc (trang chủ, chính sách).
+// Không dùng hreflang ?hl=xx: các URL đó có canonical là "/" → tín hiệu mâu thuẫn. hreflang chỉ dùng giữa trang tĩnh có bản dịch thật.
+// sitemap.xml ở bước này là <urlset>; build-sitemap-index.mjs (chạy cuối) đổi tên thành sitemap-pages.xml và sinh sitemap index.
+import fs from 'node:fs'; import { execFileSync } from 'node:child_process';
+const SITE = 'https://lexkite.com/', OG = `${SITE}og-default.png`;
+const today = new Date().toISOString().slice(0, 10);
+// Ngày commit cuối của file nguồn (rẻ: 1 lệnh git), không có git thì lấy ngày build
+const gitDate = (...f) => { try { return execFileSync('git', ['log', '-1', '--format=%cs', '--', ...f], { encoding: 'utf8' }).trim() || today; } catch { return today; } };
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+
+let html = fs.readFileSync('dist/index.html', 'utf8')
+  .replace(/\n?[ \t]*<link rel="alternate" hreflang[^>]*>/g, '')
+  .replace(/\n?[ \t]*<meta (?:property|name)="(?:og:image(?::[a-z]+)?|og:url|twitter:[a-z]+)"[^>]*>/g, '')
+  .replace(/\n?[ \t]*<link rel="canonical"[^>]*>/g, '');
+const title = (html.match(/<meta property="og:title" content="([^"]*)"/) || [])[1] || 'Lexkite';
+const alt = 'Lexkite – Học từ vựng IELTS, TOEIC, TOEFL miễn phí';
+const head = [`<link rel="canonical" href="${SITE}">`, `<meta property="og:url" content="${SITE}">`, `<meta property="og:image" content="${OG}">`,
+  '<meta property="og:image:width" content="1200">', '<meta property="og:image:height" content="630">', '<meta property="og:image:type" content="image/png">', `<meta property="og:image:alt" content="${esc(alt)}">`,
+  '<meta name="twitter:card" content="summary_large_image">', `<meta name="twitter:title" content="${title}">`, `<meta name="twitter:image" content="${OG}">`, `<meta name="twitter:image:alt" content="${esc(alt)}">`].map(x => '  ' + x).join('\n');
+html = html.replace(/(\n[ \t]*<meta property="og:type")/, '\n' + head + '$1');
+// JSON-LD WebApplication: chuẩn hoá (miễn phí, có ảnh, nhà phát hành)
+html = html.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/, (m, j) => {
+  let d; try { d = JSON.parse(j); } catch { return m; }
+  if (d['@type'] !== 'WebApplication') return m;
+  Object.assign(d, { url: SITE, image: OG, isAccessibleForFree: true, browserRequirements: 'Requires JavaScript. Works in modern browsers.',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE, logo: `${SITE}icons/icon-512.png` } });
+  return `<script type="application/ld+json">${JSON.stringify(d).replace(/</g, '\\u003c')}</script>`;
+});
+if (!html.includes(`<meta property="og:image" content="${OG}"`)) throw new Error('build-seo: không chèn được thẻ og vào dist/index.html');
 fs.writeFileSync('dist/index.html', html);
-const alt = langs.map(l => `    <xhtml:link rel="alternate" hreflang="${l}" href="${url(l)}"/>`).join('\n') + `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}"/>`;
-const entry = loc => `  <url><loc>${loc}</loc>\n${alt}\n    <changefreq>weekly</changefreq></url>`;
-fs.writeFileSync('dist/sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${[SITE, ...langs.map(url)].map(entry).join('\n')}\n  <url><loc>${SITE}privacy.html</loc><changefreq>yearly</changefreq></url>\n</urlset>\n`);
-console.log(`✓ SEO: hreflang + sitemap cho ${langs.length} ngôn ngữ (${langs.join(', ')})`);
+
+const url = (loc, lm, cf, pr) => `  <url><loc>${loc}</loc><lastmod>${lm}</lastmod><changefreq>${cf}</changefreq><priority>${pr}</priority></url>`;
+fs.writeFileSync('dist/sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${url(SITE, gitDate('web/index.html', 'web/js'), 'weekly', '1.0')}\n${url(SITE + 'privacy', gitDate('web/privacy.html'), 'yearly', '0.3')}\n</urlset>\n`);
+console.log('✓ SEO: trang chủ (canonical, og 1200×630, JSON-LD) + sitemap gốc');

@@ -1,3 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /*?sandbox=
+Disallow: /*?demo=
+Disallow: /*&sandbox=
+Disallow: /*&demo=
+
 Sitemap: https://lexkite.com/sitemap.xml

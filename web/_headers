@@ -1,0 +1,20 @@
+# Cloudflare Pages: header theo đường dẫn. Không đặt Cache-Control cho /* (Pages gộp header trùng tên bằng dấu phẩy);
+# HTML/JS/CSS giữ mặc định của Pages (max-age=0, must-revalidate) vì tên file không có hash.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/sw.js
+  Cache-Control: no-cache
+
+/audio/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/icons/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/screenshots/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/og-default.png
+  Cache-Control: public, max-age=31536000, immutable
