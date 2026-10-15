@@ -1,7 +1,7 @@
 {
  "home": {
   "url": "https://lexkite.com/#/welcome",
-  "at": "2026-10-15T05:48:58.279Z",
+  "at": "2026-10-15T05:52:23.120Z",
   "scores": {
    "performance": 76,
    "accessibility": 96,
@@ -9,15 +9,17 @@
    "seo": 100
   },
   "metrics": {
-   "first-contentful-paint": "1.8 s",
-   "largest-contentful-paint": "6.7 s",
+   "first-contentful-paint": "2.2 s",
+   "largest-contentful-paint": "6.3 s",
    "total-blocking-time": "0 ms",
    "cumulative-layout-shift": "0.001",
-   "speed-index": "1.8 s"
+   "speed-index": "2.2 s"
   },
   "fails": [
-   "Largest Contentful Paint – 6.7 s",
-   "Time to Interactive – 6.7 s",
+   "First Contentful Paint – 2.2 s",
+   "Largest Contentful Paint – 6.3 s",
+   "Time to Interactive – 7.2 s",
+   "Minimize main-thread work – 2.5 s",
    "Background and foreground colors do not have a sufficient contrast ratio.",
    "Elements with visible text labels do not have matching accessible names.",
    "Serve static assets with an efficient cache policy – 4 resources found",
@@ -26,28 +28,30 @@
    "Remove duplicate modules in JavaScript bundles – Potential savings of 2 KiB",
    "Avoid serving legacy JavaScript to modern browsers – Potential savings of 9 KiB",
    "Avoid `document.write()`"
-  ]
+  ],
+  "lcp": ""
  },
  "vi/blog/": {
   "url": "https://lexkite.com/vi/blog/",
-  "at": "2026-10-15T05:49:34.140Z",
+  "at": "2026-10-15T05:53:12.894Z",
   "scores": {
-   "performance": 100,
+   "performance": 99,
    "accessibility": 95,
    "best-practices": 100,
    "seo": 69
   },
   "metrics": {
-   "first-contentful-paint": "0.8 s",
-   "largest-contentful-paint": "0.9 s",
+   "first-contentful-paint": "1.5 s",
+   "largest-contentful-paint": "1.7 s",
    "total-blocking-time": "0 ms",
    "cumulative-layout-shift": "0",
-   "speed-index": "0.8 s"
+   "speed-index": "1.5 s"
   },
   "fails": [
    "Background and foreground colors do not have a sufficient contrast ratio.",
    "Serve static assets with an efficient cache policy – 2 resources found",
    "Page is blocked from indexing"
-  ]
+  ],
+  "lcp": ""
  }
 }
