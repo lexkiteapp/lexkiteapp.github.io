@@ -11,6 +11,6 @@ m['background'] = {'scripts': ['app/js/data.js', 'app/js/core.js', 'app/js/vi-ch
 m['browser_specific_settings'] = {'gecko': {'id': 'lexkite@lexkite.com', 'strict_min_version': '128.0'}}
 json.dump(m, open(p, 'w'), ensure_ascii=False, indent=2)
 PY
-(cd "$OUT" && rm -f "$ROOT/store/vocaband-firefox.zip" && zip -qr "$ROOT/store/vocaband-firefox.zip" . -x '.*')
+(cd "$OUT" && rm -f "$ROOT/store/lexkite-firefox.zip" && zip -qr "$ROOT/store/lexkite-firefox.zip" . -x '.*')
 rm -rf "$OUT"
-echo "✓ Đã tạo store/vocaband-firefox.zip (đăng tại addons.mozilla.org – miễn phí)"
+echo "✓ Đã tạo store/lexkite-firefox.zip (đăng tại addons.mozilla.org – miễn phí)"

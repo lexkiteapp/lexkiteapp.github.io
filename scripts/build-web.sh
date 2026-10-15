@@ -7,7 +7,7 @@ node scripts/build-notes.mjs
 rm -rf dist && cp -R web dist
 rm -rf dist/audio  # âm thanh phục vụ từ CDN riêng lexkiteapp.github.io (workflow pages.yml) → gói Cloudflare nhẹ, trả chỗ cho blog
 # Dùng cache npm riêng (tránh lỗi quyền của ~/.npm)
-export npm_config_cache="${TMPDIR:-/tmp}/vocaband-npm-cache"
+export npm_config_cache="${TMPDIR:-/tmp}/lexkite-npm-cache"
 FILES=$(cd web && find js css sw.js -type f \( -name '*.js' -o -name '*.css' \) | sort)
 before=$(cd web && cat $FILES | wc -c)
 (cd web && npx -y esbuild@0.24.0 $FILES --minify --charset=utf8 --log-level=warning --outdir=../dist --outbase=. --allow-overwrite)
