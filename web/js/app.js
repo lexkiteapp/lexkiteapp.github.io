@@ -1507,7 +1507,7 @@
   function setup() {
     const TARGETS = { ielts: ['5.5', '6.0', '6.5', '7.0', '7.5', '8.0+'], ieltsgt: ['5.5', '6.0', '6.5', '7.0', '7.5', '8.0+'], toeic: ['450', '550', '650', '750', '850', '900+'], toefl: ['3.5', '4.0', '4.5', '5.0', '5.5+'], general: ['A2', 'B1', 'B2', 'C1'] };
     const DEF_T = { ielts: '7.0', ieltsgt: '6.5', toeic: '650', toefl: '4.5', general: 'B1' };
-    const TOPIC_GROUPS = { ielts: ['topics', 'writing'], ieltsgt: ['topics', 'speaking'], toeic: ['toeic'], toefl: ['awl', 'topics'], general: ['core', 'topics'] };
+    const TOPIC_GROUPS = { ielts: ['topics', 'writing'], ieltsgt: ['topics', 'speaking'], toeic: ['toeic', 'bsl'], toefl: ['awl', 'nawl', 'topics'], general: ['core', 'topics'] };
     const EX = App.EXAMS || {};
     const pick = { exam: (App.exam && state.settings.exam) || 'ielts', target: '', pace: 20, topics: new Set() };
     const paces = [[10, '🐢 ' + t('Nhẹ nhàng'), t('5 phút/ngày · 5 từ mới')], [20, '🚶 ' + t('Đều đặn'), t('10–15 phút/ngày · 10 từ mới')], [40, '🚀 ' + t('Tăng tốc'), t('25 phút/ngày · 20 từ mới')]];
@@ -1515,7 +1515,7 @@
     const setExam = async ex => {
       pick.exam = ex; pick.target = DEF_T[ex];
       if (!App.loaded('words')) await App.need('words').catch(() => {});
-      if (ex === 'toeic' && !App.loaded('tsl')) { await App.need('tsl').catch(() => {}); }
+      if ((ex === 'toeic' || ex === 'toefl') && !App.loaded('tsl')) { await App.need('tsl').catch(() => {}); }
       const list = topicsFor(ex); pick.topics = new Set(list.slice(0, 3).map(x => x.id));
       draw();
     };
