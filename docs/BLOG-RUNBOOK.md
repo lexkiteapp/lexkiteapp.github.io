@@ -37,4 +37,4 @@ bash scripts/build-web.sh                                      # build đầy đ
 ```
 
 ## Giới hạn miễn phí cần nhớ
-Cloudflare Pages 20.000 file/deploy (app đang ~4.500, trong đó âm thanh 3.866) · 500 build/tháng · GitHub Pages ~1 GB/kho ảnh · Kế hoạch mở rộng: docs/SEO-PLAN.md §12.
+Cloudflare Pages 20.000 file/deploy (app ~690 file; âm thanh đã ra CDN) · 500 build/tháng · GitHub Pages ~1 GB/kho ảnh · Kế hoạch mở rộng: docs/SEO-PLAN.md §12.
