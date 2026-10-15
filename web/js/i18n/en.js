@@ -2464,6 +2464,8 @@
   'Điểm TOEIC mục tiêu?': 'Your target TOEIC score?',
   'Band TOEFL mục tiêu?': 'Your target TOEFL band?',
   'Trình độ bạn muốn đạt?': 'What level do you want to reach?',
+  'Điểm {exam} từ {a} đến {b}': '{exam} scores range from {a} to {b}',
+  'Đã lập kế hoạch! Kế hoạch hôm nay sẽ theo mục tiêu này.': 'Plan saved! Your daily plan will follow this goal.',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* Thống nhất thuật ngữ khi nhiều nhóm dùng chung 1 khóa */
