@@ -264,6 +264,82 @@ Bettina Krause [9:10 A.M.]: Perfect. I'll send Arkwright a proposal as soon as I
             { n: 164, q: 'What will Ms. Krause most likely do after Mr. Ibarra contacts her?', options: ['Test a projector', 'Call the charity organizers', 'Remove a partition', 'Send a proposal to a client'], a: 3, cue: "I'll send Arkwright a proposal as soon as I hear back from you.",
               explain: '"I\'ll send Arkwright a proposal as soon as I hear back from you" → sau khi nhận phản hồi (kết quả kiểm tra máy chiếu), cô sẽ gửi đề xuất cho khách hàng Arkwright. Người kiểm tra máy chiếu là kỹ thuật viên do Tadeo nhờ.' }
           ] } ] },
+        { title: 'Advertisement', text:
+`FixPoint Device Repair
+Now open at Quintara Shopping Arcade, Unit 14
+
+Cracked screen? Battery that won't last the day? Bring your phone, tablet, or laptop to FixPoint, where our certified technicians repair all major brands.
+
+Most screen and battery repairs are completed in under an hour, so you can drop off your device, finish your shopping, and pick it up on your way out. Not sure what's wrong? Diagnosis is always free, and we will give you a written price quote before any work begins.
+
+Every repair comes with a 12-month warranty on both parts and labor.
+
+Business customers can register for a company account to receive priority service and a single monthly bill for all repairs.
+
+Opening offer: Until August 31, show this advertisement to receive 20 percent off any battery replacement.`,
+          groups: [ { type: 'mcq', instr: 'Questions 165-166 refer to the following advertisement.', items: [
+            { n: 165, q: 'What is indicated about most screen repairs at FixPoint?', options: ['They require an appointment.', 'They are free for business customers.', 'They take less than an hour.', 'They are done by the manufacturer.'], a: 2, cue: 'Most screen and battery repairs are completed in under an hour',
+              explain: 'Quảng cáo viết "Most screen and battery repairs are completed in under an hour" (phần lớn việc sửa màn hình và pin xong trong chưa đầy một giờ) → mất ít hơn một giờ. Không có yêu cầu đặt lịch hẹn; khách doanh nghiệp được ưu tiên và gộp hóa đơn chứ không được sửa miễn phí; việc sửa do kỹ thuật viên của FixPoint thực hiện.' },
+            { n: 166, q: 'What is NOT mentioned as something FixPoint offers?', options: ['A warranty on repairs', 'Free diagnosis of problems', 'Monthly billing for companies', "Pickup of devices from customers' homes"], a: 3, cue: 'Every repair comes with a 12-month warranty on both parts and labor.',
+              explain: 'Quảng cáo có nhắc bảo hành "12-month warranty", chẩn đoán miễn phí "Diagnosis is always free" và "a single monthly bill" cho khách doanh nghiệp. Dịch vụ đến nhà khách lấy thiết bị hoàn toàn không được đề cập → đây là đáp án.' }
+          ] } ] },
+        { title: 'Online chat discussion', text:
+`Astrid Halvorsrud [10:04 A.M.]: Morning, all. The printer just called. The paper we chose for the spring garden catalog is out of stock until May 2. That would push our mailing back almost three weeks.
+Rafiq Chowdhury [10:07 A.M.]: That's too late. Our biggest seed sale starts on April 20, and customers need the catalog before then.
+Lucía Paredes [10:09 A.M.]: Could they use a different paper? The matte stock we used for the autumn edition looked fine.
+Astrid Halvorsrud [10:11 A.M.]: They do have that in stock. It's slightly thinner, but the price is the same.
+Wiebke Engel [10:13 A.M.]: Will the colors in the plant photos still look right on it?
+Lucía Paredes [10:15 A.M.]: I wouldn't worry about that. Our design team adjusted the image files for that paper last autumn, and the proofs were excellent.
+Astrid Halvorsrud [10:17 A.M.]: Good. Then I'll ask the printer to send us a sample page this afternoon so we can check it before approving the change.
+Wiebke Engel [10:18 A.M.]: Please forward it to me as soon as it arrives.`,
+          groups: [ { type: 'mcq', instr: 'Questions 167-169 refer to the following online chat discussion.', items: [
+            { n: 167, q: 'What problem is being discussed?', options: ['A material for a print job is not available.', 'A sale has been canceled.', 'A printer has raised its prices.', 'Some photographs have been lost.'], a: 0, cue: 'The paper we chose for the spring garden catalog is out of stock until May 2.',
+              explain: '"The paper we chose for the spring garden catalog is out of stock until May 2" (loại giấy đã chọn cho catalog hết hàng đến 2/5) → vật liệu cho việc in không có sẵn. Đợt giảm giá vẫn bắt đầu ngày 20/4; giá giấy thay thế "the same" (không đổi); không có ảnh nào bị mất.' },
+            { n: 168, q: 'At 10:15 A.M., what does Ms. Paredes most likely mean when she writes, "I wouldn\'t worry about that"?', options: ['She thinks the delay will be short.', 'She is confident that the photos will print well on the other paper.', 'She believes the price difference is small.', 'She does not think customers will notice the new design.'], a: 1, cue: 'Our design team adjusted the image files for that paper last autumn, and the proofs were excellent.',
+              explain: 'Bà Engel hỏi màu ảnh cây có còn đẹp trên giấy kia không; bà Paredes đáp "I wouldn\'t worry about that" (không cần lo) vì nhóm thiết kế đã chỉnh file cho loại giấy đó và bản in thử "were excellent" → bà tin ảnh sẽ in đẹp. Câu này không nói về thời gian trễ hay chênh lệch giá (giá như nhau).' },
+            { n: 169, q: 'What will Ms. Halvorsrud most likely do next?', options: ['Postpone the seed sale', 'Order paper from another supplier', 'Request a sample from the printer', 'Redesign the catalog cover'], a: 2, cue: "Then I'll ask the printer to send us a sample page this afternoon",
+              explain: 'Bà Halvorsrud viết "I\'ll ask the printer to send us a sample page this afternoon" (sẽ nhờ nhà in gửi một trang mẫu chiều nay) → yêu cầu bản mẫu từ nhà in. Đợt giảm giá không bị hoãn; giấy thay thế vẫn của cùng nhà in; không ai nhắc đến việc thiết kế lại bìa.' }
+          ] } ] },
+        { title: 'E-mail', text:
+`To: Noor Al-Sabti
+From: Pieter Vandermeer, Photo Editor, Coastline Traveler Magazine
+Date: February 11
+Subject: Your submission
+
+Dear Ms. Al-Sabti,
+
+Thank you for sending us your photographs of the fishing villages along the Algarve coast. Our editorial team was impressed by the series, and we would like to feature eight of the images in our June issue, alongside an article about small-town travel in southern Portugal.
+
+Before we can proceed, we will need the original high-resolution files for each image, as the versions you submitted are too small for print. Please also sign the attached license agreement, which outlines our standard fee of $150 per published photo. Payment is issued within 30 days of publication.
+
+Finally, our art director would appreciate a short caption for each photo identifying its location. Please send all materials by February 25 so that we can meet our production deadline.
+
+Best regards,
+Pieter Vandermeer`,
+          groups: [ { type: 'mcq', instr: 'Questions 170-171 refer to the following e-mail.', items: [
+            { n: 170, q: 'Why did Mr. Vandermeer write the e-mail?', options: ['To invite Ms. Al-Sabti to write an article', 'To request payment for a subscription', 'To announce a change in a deadline', 'To accept some photographs for publication'], a: 3, cue: 'we would like to feature eight of the images in our June issue',
+              explain: 'Ông Vandermeer viết "we would like to feature eight of the images in our June issue" (muốn đăng tám tấm ảnh trên số tháng Sáu) → nhận ảnh để đăng. Bài báo về du lịch do người khác viết, bà Al-Sabti chỉ cần gửi chú thích ảnh; tạp chí trả tiền cho bà chứ không đòi phí; hạn 25/2 là hạn mới đưa ra, không phải thay đổi.' },
+            { n: 171, q: 'In the e-mail, the word "issued" in paragraph 2 is closest in meaning to', options: ['announced to the press', 'provided', 'questioned', 'printed'], a: 1, cue: 'Payment is issued within 30 days of publication.',
+              explain: '"Payment is issued within 30 days of publication" nghĩa là tiền được chi trả/gửi cho người nhận trong vòng 30 ngày → "issued" mang nghĩa "provided" (cấp, chi). Các nghĩa "công bố với báo chí" hay "in ấn" (như "issue" của tạp chí) không hợp khi nói về khoản thanh toán; "questioned" hoàn toàn sai nghĩa.' }
+          ] } ] },
+        { title: 'Article', text:
+`PORT ELLERY (July 8) – Brunholt Ferries announced yesterday that it will replace two of its diesel-powered vessels with electric ferries on the route between Port Ellery and Calder Island. The new ships, built by the Norwegian shipyard Askvik Marine, are scheduled to enter service next spring. —[1]—
+
+Each ferry will carry up to 300 passengers and 40 vehicles and will recharge at the dock during the 20-minute stop at each end of the route. According to the company, the change will cut fuel costs by roughly 60 percent and make the crossing noticeably quieter for passengers. —[2]—
+
+To support the project, the Port Ellery Harbor Authority is installing high-capacity charging equipment at both terminals. Construction began in June and is expected to finish by January. —[3]— During that period, some parking spaces near the Port Ellery terminal will be unavailable, and travelers are advised to arrive at least 30 minutes before departure.
+
+"Calder Island depends on this crossing for tourism and deliveries alike," said Brunholt's chief executive, Margarethe Aaland. "These vessels will allow us to keep the same reliable timetable while greatly reducing noise and emissions." —[4]—`,
+          groups: [ { type: 'mcq', instr: 'Questions 172-175 refer to the following article.', items: [
+            { n: 172, q: 'What is the article mainly about?', options: ["A transportation company's plan to introduce new vessels", 'The opening of a new shipyard in Norway', 'A decline in tourism on Calder Island', 'The construction of a new parking garage'], a: 0, cue: 'Brunholt Ferries announced yesterday that it will replace two of its diesel-powered vessels with electric ferries',
+              explain: 'Ý chính: "Brunholt Ferries ... will replace two of its diesel-powered vessels with electric ferries" (hãng phà sẽ thay hai tàu chạy dầu bằng phà điện) → kế hoạch đưa tàu mới vào hoạt động. Xưởng đóng tàu Askvik chỉ là nơi đóng tàu; bài không nói du lịch giảm; bãi đỗ xe chỉ bị hạn chế tạm thời chứ không xây mới.' },
+            { n: 173, q: 'What is indicated about the new ferries?', options: ['They will carry more vehicles than the current ships.', 'They will be built in Port Ellery.', 'They will be charged while they are docked.', 'They will operate on several new routes.'], a: 2, cue: 'will recharge at the dock during the 20-minute stop at each end of the route',
+              explain: 'Bài viết: phà "will recharge at the dock during the 20-minute stop" (sạc điện tại bến trong 20 phút dừng) → được sạc khi cập bến. Tàu do Askvik Marine ở Na Uy đóng; chỉ chạy tuyến Port Ellery – Calder Island hiện có; không có so sánh số xe với tàu cũ.' },
+            { n: 174, q: 'What are travelers advised to do during the construction period?', options: ['Buy tickets online', 'Use a different terminal', 'Travel on weekdays only', 'Arrive earlier than usual'], a: 3, cue: 'travelers are advised to arrive at least 30 minutes before departure',
+              explain: 'Trong thời gian thi công, chỗ đỗ xe bị hạn chế nên "travelers are advised to arrive at least 30 minutes before departure" (nên đến ít nhất 30 phút trước giờ khởi hành) → đến sớm hơn bình thường. Bài không khuyên mua vé online, đổi bến hay chỉ đi ngày thường.' },
+            { n: 175, q: 'In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? "Such savings, the company says, will also help keep fares stable for island residents."', options: ['[1]', '[2]', '[3]', '[4]'], a: 1, cue: 'make the crossing noticeably quieter for passengers.',
+              explain: '"Such savings" (khoản tiết kiệm như vậy) phải đứng ngay sau câu nói về việc tiết kiệm: "the change will cut fuel costs by roughly 60 percent" (giảm khoảng 60% chi phí nhiên liệu) → vị trí [2]. Các vị trí khác nói về lịch đưa tàu vào hoạt động, công trình lắp trạm sạc hoặc lời phát biểu của giám đốc, không có khoản tiết kiệm nào để "Such" thay thế.' }
+          ] } ] },
         { title: 'Table and E-mail', text:
 `Glenmuir Bank – Business Banking Packages
 
@@ -291,19 +367,63 @@ Also, our balance has stayed above $25,000 for most of this year. Does that mean
 
 Regards,
 Henrietta Vos`,
-          groups: [ { type: 'mcq', instr: 'Questions 165-170 refer to the following table and e-mail.', items: [
-            { n: 165, q: 'What is indicated about the business packages?', options: ['They are available only to new customers.', 'They all offer free international transfers.', 'They can be changed only at a branch.', 'They all include online banking.'], a: 3, cue: 'Online banking',
-              explain: 'Cột "Other features" của cả ba gói đều có "Online banking" → mọi gói đều có ngân hàng trực tuyến. Gói Essential không có chuyển tiền quốc tế miễn phí; có thể đổi gói qua chi nhánh HOẶC email; bà Vos là khách hàng cũ vẫn đang dùng gói.' },
-            { n: 166, q: 'Why did Ms. Vos send the e-mail?', options: ['To open a new account', 'To report an error in a transfer', 'To apply for a business loan', 'To request a different package'], a: 3, cue: 'I would like to switch to a package that better suits our needs.',
+          groups: [ { type: 'mcq', instr: 'Questions 176-180 refer to the following table and e-mail.', items: [
+            { n: 176, q: 'Why did Ms. Vos send the e-mail?', options: ['To open a new account', 'To report an error in a transfer', 'To apply for a business loan', 'To request a different package'], a: 3, cue: 'I would like to switch to a package that better suits our needs.',
               explain: '"I would like to switch to a package that better suits our needs" (tôi muốn chuyển sang gói phù hợp hơn) → yêu cầu đổi gói dịch vụ. Bà không báo lỗi giao dịch hay xin vay vốn; công ty đã có tài khoản hai năm.' },
-            { n: 167, q: 'What is suggested about Vos Ceramics?', options: ['It recently moved overseas.', 'It has started selling to international customers.', 'It mainly sells to individual shoppers.', 'It has hired an account manager.'], a: 1, cue: 'Since we began selling our tableware to restaurants overseas',
+            { n: 177, q: 'What is suggested about Vos Ceramics?', options: ['It recently moved overseas.', 'It has started selling to international customers.', 'It mainly sells to individual shoppers.', 'It has hired an account manager.'], a: 1, cue: 'Since we began selling our tableware to restaurants overseas',
               explain: '"Since we began selling our tableware to restaurants overseas" (từ khi bắt đầu bán bộ đồ ăn cho các nhà hàng ở nước ngoài) → công ty đã mở rộng sang khách hàng quốc tế. Khách hàng là nhà hàng chứ không phải người mua lẻ; bà nói rõ không cần người quản lý tài khoản.' },
-            { n: 168, q: 'Which package will Ms. Vos most likely choose?', options: ['Essential', 'Growth', 'Premier', 'She will keep her current package.'], a: 1, cue: 'We are also now processing around 120 transactions each month.',
+            { n: 178, q: 'Which package will Ms. Vos most likely choose?', options: ['Essential', 'Growth', 'Premier', 'She will keep her current package.'], a: 1, cue: 'We are also now processing around 120 transactions each month.',
               explain: 'Kết hợp hai văn bản: công ty cần khoảng 120 giao dịch/tháng (Essential chỉ có 50), cần chuyển tiền quốc tế miễn phí, và không cần người quản lý tài khoản riêng (tính năng chỉ có ở Premier) → gói Growth (150 giao dịch, chuyển tiền quốc tế miễn phí) là phù hợp nhất.' },
-            { n: 169, q: 'In the e-mail, the phrase "adding up" in paragraph 1 is closest in meaning to', options: ['increasing', 'being calculated', 'agreeing', 'joining'], a: 0, cue: 'the fees are really adding up',
+            { n: 179, q: 'In the e-mail, the phrase "adding up" in paragraph 1 is closest in meaning to', options: ['increasing', 'being calculated', 'agreeing', 'joining'], a: 0, cue: 'the fees are really adding up',
               explain: '"the fees are really adding up" = các khoản phí cộng dồn lại thành nhiều ≈ "increasing" (tăng lên). "being calculated" (được tính toán) là nghĩa đen của "add up" nhưng không hợp ngữ cảnh than phiền; "agreeing" (hợp lý, khớp – nghĩa của "add up" trong "it doesn\'t add up") và "joining" sai nghĩa.' },
-            { n: 170, q: 'What is most likely true about Ms. Vos\'s monthly fee?', options: ['It will rise to $45.', 'It has already been refunded.', 'It may not have to be paid.', 'It will be charged twice in August.'], a: 2, cue: 'The monthly fee is waived for any month in which the account\'s average balance is above $20,000.',
+            { n: 180, q: "What is most likely true about Ms. Vos's monthly fee?", options: ['It will rise to $45.', 'It has already been refunded.', 'It may not have to be paid.', 'It will be charged twice in August.'], a: 2, cue: "The monthly fee is waived for any month in which the account's average balance is above $20,000.",
               explain: 'Kết hợp hai văn bản: phí hằng tháng được miễn ("waived") khi số dư trung bình trên $20,000, mà số dư của công ty bà luôn trên $25,000 → có thể không phải trả phí. $45 là phí gói Premier mà bà không cần; không có thông tin hoàn phí hay thu phí hai lần.' }
+          ] } ] },
+        { title: 'Invoice and E-mail', text:
+`Verdigris Interior Plants
+42 Calloway Road, Brenford
+
+INVOICE No. 7716
+Date: October 31
+Client: Ashdown & Pike Solicitors, 9th Floor, Merrion House
+Service period: October
+
+Description | Qty | Unit price | Amount
+Weekly plant care visit (watering, pruning, leaf cleaning) | 4 | $65.00 | $260.00
+Replacement plant – fiddle-leaf fig, large | 1 | $120.00 | $120.00
+Decorative planter – ceramic, white | 2 | $45.00 | $90.00
+TOTAL DUE | | | $470.00
+
+Payment is due within 21 days. Plants replaced under our Healthy Plant Guarantee are not charged to clients on a monthly care plan.
+
+* * *
+
+To: billing@verdigrisplants.com
+From: Harriet Okonjo, Office Manager, Ashdown & Pike Solicitors
+Date: November 4
+Subject: Invoice No. 7716
+
+Hello,
+
+I am writing about the invoice we received for October. Our office has been on your monthly care plan since last March, so the fiddle-leaf fig that your technician replaced on October 14 should not appear on our bill. The original plant had lost most of its leaves despite regular care.
+
+In addition, we ordered only one white ceramic planter, for the reception desk. The second may have been delivered to another client by mistake, as we have not received it.
+
+Could you please send a corrected invoice? I would like to settle the account before our accounts department closes its books on November 20.
+
+Thank you,
+Harriet Okonjo`,
+          groups: [ { type: 'mcq', instr: 'Questions 181-185 refer to the following invoice and e-mail.', items: [
+            { n: 181, q: 'How often does Verdigris Interior Plants most likely send a technician to Ashdown & Pike Solicitors?', options: ['Once a week', 'Twice a week', 'Once a month', 'Every 21 days'], a: 0, cue: 'Weekly plant care visit (watering, pruning, leaf cleaning) | 4',
+              explain: 'Hóa đơn ghi "Weekly plant care visit" với số lượng 4 trong tháng Mười → kỹ thuật viên đến mỗi tuần một lần. "Monthly care plan" là tên gói dịch vụ tính theo tháng, không phải tần suất đến; 21 ngày là hạn thanh toán.' },
+            { n: 182, q: 'Why does Ms. Okonjo believe her firm should not pay for the fiddle-leaf fig?', options: ['The plant was delivered late.', 'The plant was the wrong size.', 'Her firm is on a monthly care plan.', 'Her firm did not order a replacement.'], a: 2, cue: 'Plants replaced under our Healthy Plant Guarantee are not charged to clients on a monthly care plan.',
+              explain: 'Kết hợp hai văn bản: hóa đơn ghi cây thay theo chính sách "Healthy Plant Guarantee" không tính tiền với khách dùng "monthly care plan"; e-mail cho biết văn phòng "has been on your monthly care plan since last March" → vì công ty bà đang dùng gói chăm sóc hằng tháng. Bà không phàn nàn về giao trễ hay sai kích cỡ cây.' },
+            { n: 183, q: 'What amount will most likely appear on the corrected invoice?', options: ['$260.00', '$305.00', '$350.00', '$425.00'], a: 1, cue: 'we ordered only one white ceramic planter',
+              explain: 'Kết hợp hai văn bản: lấy tổng $470.00 trên hóa đơn, bỏ cây thay thế $120.00 (được bảo đảm miễn phí) và bớt một chậu gốm $45.00 (chỉ đặt một chậu theo e-mail) → 470 − 120 − 45 = $305.00. $350.00 chỉ trừ cây; $425.00 chỉ trừ chậu; $260.00 là riêng phí chăm sóc.' },
+            { n: 184, q: 'In the e-mail, the word "settle" in paragraph 3 is closest in meaning to', options: ['calm', 'move', 'decide', 'pay'], a: 3, cue: 'I would like to settle the account before our accounts department closes its books on November 20.',
+              explain: '"settle the account" nghĩa là thanh toán dứt điểm khoản nợ trên hóa đơn → "pay". Nghĩa "làm dịu" (calm), "định cư/chuyển đến" (move) hay "giải quyết, quyết định" (decide) không phù hợp với ngữ cảnh trả tiền hóa đơn.' },
+            { n: 185, q: 'What does Ms. Okonjo suggest about the second planter?', options: ['It may have been sent to a different customer.', 'It was damaged during delivery.', 'It was placed at the reception desk.', 'It is the wrong color.'], a: 0, cue: 'The second may have been delivered to another client by mistake',
+              explain: 'Bà viết "The second may have been delivered to another client by mistake" (chậu thứ hai có thể đã giao nhầm cho khách khác) và văn phòng chưa nhận được. Chậu đặt ở quầy lễ tân là chậu duy nhất bà đặt; không nhắc đến hư hỏng hay sai màu.' }
           ] } ] },
         { title: 'Article, Schedule and Memo', text:
 `Fennick Insurance Staff Newsletter – March Issue
@@ -342,17 +462,118 @@ Please make sure that each box is labeled with your name and new desk number. Pe
 
 Thank you,
 Owen`,
-          groups: [ { type: 'mcq', instr: 'Questions 171-175 refer to the following article, schedule, and memo.', items: [
-            { n: 171, q: 'What is the purpose of the article?', options: ['To announce the opening of a new branch', 'To inform staff about a planned relocation', 'To introduce a new chief operating officer', 'To advertise office space for rent'], a: 1, cue: 'will relocate its head office',
+          groups: [ { type: 'mcq', instr: 'Questions 186-190 refer to the following article, schedule, and memo.', items: [
+            { n: 186, q: 'What is the purpose of the article?', options: ['To announce the opening of a new branch', 'To inform staff about a planned relocation', 'To introduce a new chief operating officer', 'To advertise office space for rent'], a: 1, cue: 'will relocate its head office',
               explain: 'Đoạn 1: Fennick Insurance "will relocate its head office" sang tòa Riverside Exchange, các đoạn sau mô tả cách chuyển → thông báo kế hoạch chuyển văn phòng. Đây là trụ sở chính chuyển đi, không phải mở chi nhánh; bà Lena Brandt chỉ được trích lời.' },
-            { n: 172, q: 'What is mentioned as a feature of the new building?', options: ['A fitness center', 'A child-care center', 'A conference hall for clients', 'An outdoor space at the top of the building'], a: 3, cue: 'a rooftop terrace',
+            { n: 187, q: 'What is mentioned as a feature of the new building?', options: ['A fitness center', 'A child-care center', 'A conference hall for clients', 'An outdoor space at the top of the building'], a: 3, cue: 'a rooftop terrace',
               explain: 'Bài báo nêu tòa nhà mới có "a staff café, and a rooftop terrace with views of the river" → khoảng sân ngoài trời trên mái. Phòng gym, nhà trẻ hay hội trường cho khách đều không được nhắc đến.' },
-            { n: 173, q: 'In the article, the word "assigned" in paragraph 2 is closest in meaning to', options: ['given', 'signed', 'moved', 'described'], a: 0, cue: 'assigned a specific weekend',
+            { n: 188, q: 'In the article, the word "assigned" in paragraph 2 is closest in meaning to', options: ['given', 'signed', 'moved', 'described'], a: 0, cue: 'assigned a specific weekend',
               explain: '"Each department will be assigned a specific weekend" = mỗi phòng ban được phân/giao một cuối tuần cụ thể → "given". "signed" (ký) chỉ giống mặt chữ; "moved" và "described" không hợp nghĩa.' },
-            { n: 174, q: 'What is probably true about the Marketing department?', options: ['It will move on the first weekend.', 'It will work on the eighth floor.', 'It will pack its desks on Thursday, April 9.', 'It will hold a client presentation in the new building.'], a: 2, cue: 'pack a day earlier than other departments',
+            { n: 189, q: 'What is probably true about the Marketing department?', options: ['It will move on the first weekend.', 'It will work on the eighth floor.', 'It will pack its desks on Thursday, April 9.', 'It will hold a client presentation in the new building.'], a: 2, cue: 'pack a day earlier than other departments',
               explain: 'Kết hợp 3 tài liệu: bài báo – nhân viên đóng gói "on the Friday before their move"; lịch – Marketing chuyển ngày 11–12/4 (thứ Sáu trước đó là 10/4); bản ghi nhớ – Marketing "pack a day earlier" → thứ Năm 9/4. Marketing chuyển vào cuối tuần thứ hai, lên tầng 9; buổi thuyết trình diễn ra ở phòng họp hiện tại.' },
-            { n: 175, q: 'What is suggested about the employees who currently work in a separate office?', options: ['They will move during the first weekend in April.', 'They will share a floor with the Sales department.', 'They will pack their desks on a Thursday.', 'They will work on the tenth floor.'], a: 3, cue: 'Claims, Customer Service | 10',
+            { n: 190, q: 'What is suggested about the employees who currently work in a separate office?', options: ['They will move during the first weekend in April.', 'They will share a floor with the Sales department.', 'They will pack their desks on a Thursday.', 'They will work on the tenth floor.'], a: 3, cue: 'Claims, Customer Service | 10',
               explain: 'Bài báo: nhân viên bộ phận bồi thường "currently in a separate office"; lịch: "Claims, Customer Service | 10" → họ sẽ làm việc ở tầng 10. Họ chuyển vào cuối tuần 18–19/4; Sales ở tầng 9; chỉ Marketing phải đóng gói sớm vào thứ Năm.' }
+          ] } ] },
+        { title: 'Web page, Order form and E-mail', text:
+`www.lumentranslate.com/rates
+
+Lumen Translation Services – Rates
+
+Service | Rate | Standard turnaround
+Document translation | $0.12 per word | 5 business days
+Certified translation (legal, immigration) | $0.18 per word | 7 business days
+Website localization | $0.15 per word | 10 business days
+Proofreading of existing translation | $0.05 per word | 3 business days
+
+Need it sooner? Our Express option cuts the standard turnaround time in half for a surcharge of 25 percent of the order total. All orders of more than 10,000 words are assigned a dedicated project manager. Clients who refer a new customer to us receive a 10 percent credit on their next order.
+
+* * *
+
+Lumen Translation Services – Order Form
+
+Client: Tarvik Outdoor Gear
+Contact: Selin Arslan, Marketing Manager
+Date submitted: Monday, April 6
+Service: Website localization
+Languages: English to German; English to Polish
+Word count: 4,800 words per language (9,600 words in total)
+Express service: Yes
+Referred by: Pellworth Cycles
+Comments: Our online store for Central Europe launches on Monday, April 20. Please follow the attached product glossary.
+
+* * *
+
+To: Selin Arslan
+From: Dominik Horvath, Lumen Translation Services
+Date: April 7
+Subject: Your order
+
+Dear Ms. Arslan,
+
+Thank you for your order. I have reviewed your files and glossary, and our German and Polish teams have already begun work. Because of the size of your order, it does not come with a dedicated project manager, but I will be happy to answer any questions you have.
+
+One point to note: several product descriptions give measurements in inches and pounds. Would you like our translators to convert them to metric units for European customers? This would not affect the price.
+
+Thank you also for mentioning Pellworth Cycles, one of our long-standing clients. We will let them know about the credit.
+
+Best regards,
+Dominik Horvath`,
+          groups: [ { type: 'mcq', instr: 'Questions 191-195 refer to the following Web page, order form, and e-mail.', items: [
+            { n: 191, q: 'What is indicated on the Web page about Lumen Translation Services?', options: ['It specializes in legal documents.', 'It offers faster service for an additional charge.', 'It charges the same rate for all services.', 'It translates only into European languages.'], a: 1, cue: 'Our Express option cuts the standard turnaround time in half for a surcharge of 25 percent of the order total.',
+              explain: 'Trang web: "Our Express option cuts the standard turnaround time in half for a surcharge of 25 percent" (dịch vụ Express rút ngắn một nửa thời gian với phụ phí 25%) → làm nhanh hơn nếu trả thêm. Dịch pháp lý chỉ là một trong bốn dịch vụ; giá mỗi dịch vụ khác nhau; không có thông tin giới hạn ngôn ngữ.' },
+            { n: 192, q: 'How much will Tarvik Outdoor Gear most likely be charged for its order?', options: ['$1,152', '$1,440', '$1,620', '$1,800'], a: 3, cue: 'Word count: 4,800 words per language (9,600 words in total)',
+              explain: 'Kết hợp trang web và mẫu đơn: dịch website "$0.15 per word" × 9.600 từ = $1.440; khách chọn "Express service: Yes" nên cộng thêm 25% ($360) → $1.800. $1.440 là giá chưa có phụ phí; $1.152 tính theo giá $0.12; $1.620 chỉ cộng 12,5%. E-mail cũng xác nhận việc chuyển đơn vị đo không làm thay đổi giá.' },
+            { n: 193, q: 'By what date will the translations most likely be completed?', options: ['Thursday, April 9', 'Thursday, April 16', 'Monday, April 13', 'Monday, April 20'], a: 2, cue: 'Website localization | $0.15 per word | 10 business days',
+              explain: 'Kết hợp trang web và mẫu đơn: dịch website thường mất "10 business days", dịch vụ Express giảm một nửa còn 5 ngày làm việc; đơn gửi thứ Hai 6/4 → tính 7, 8, 9, 10 và 13/4 → hoàn thành thứ Hai 13/4. Ngày 20/4 là ngày cửa hàng ra mắt, không phải ngày hoàn thành bản dịch.' },
+            { n: 194, q: 'What is suggested about Pellworth Cycles?', options: ['It will receive a discount on a future order.', 'It sells products in Central Europe.', "It will review Tarvik's translations.", 'It recently became a Lumen client.'], a: 0, cue: 'Clients who refer a new customer to us receive a 10 percent credit on their next order.',
+              explain: 'Kết hợp ba văn bản: trang web nói khách giới thiệu khách mới được "a 10 percent credit on their next order"; mẫu đơn ghi "Referred by: Pellworth Cycles"; e-mail báo sẽ thông báo cho họ "about the credit" → Pellworth sẽ được giảm giá cho đơn sau. Pellworth là "long-standing clients" (khách lâu năm), không phải khách mới.' },
+            { n: 195, q: 'In the e-mail, the word "affect" in paragraph 2 is closest in meaning to', options: ['pretend', 'move emotionally', 'change', 'damage'], a: 2, cue: 'This would not affect the price.',
+              explain: '"This would not affect the price" nghĩa là việc chuyển đơn vị đo không làm giá thay đổi → "affect" = "change". Nghĩa "giả vờ" (pretend) hay "làm xúc động" (move emotionally) không hợp với giá cả; "damage" (gây hại) quá mạnh và sai ngữ cảnh.' }
+          ] } ] },
+        { title: 'Notice, Schedule and E-mail', text:
+`Fenmore Water Authority – Notice of Scheduled Maintenance
+
+As part of our five-year program to replace aging pipes, water service will be interrupted in several districts of Fenmore during May. Each interruption will last from 9:00 A.M. to 4:00 P.M. Residents and businesses in affected areas should store enough water for the day in advance. Tap water may appear cloudy for a few hours after service resumes; this is harmless, and running a cold tap for several minutes will clear it.
+
+Businesses that cannot operate without water, such as restaurants and medical clinics, may request a free temporary water tank by contacting our Customer Service team at least five business days before the work date in their district.
+
+* * *
+
+Pipe Replacement Schedule – May
+
+District | Date
+Harrowgate | Tuesday, May 5
+Old Quay | Thursday, May 7
+Linden Park | Tuesday, May 12
+Westmarch | Thursday, May 14
+Saltmeadow | Tuesday, May 19
+
+* * *
+
+To: customerservice@fenmorewater.org
+From: Emeka Obiora
+Date: April 28
+Subject: Temporary water tank
+
+Hello,
+
+I own the Saffron Lane Bistro on Corbel Street in Linden Park. I would like to request a temporary water tank for the day of the maintenance work in our district. We serve lunch to about 120 customers a day, and closing would be costly for us and for our twelve employees.
+
+Could you tell me where the tank will be placed? Our building has only a narrow side entrance, so a small tank near the kitchen door would be ideal. I can also be reached at 555-0148 if a phone call is easier.
+
+Thank you,
+Emeka Obiora`,
+          groups: [ { type: 'mcq', instr: 'Questions 196-200 refer to the following notice, schedule, and e-mail.', items: [
+            { n: 196, q: 'What is the purpose of the notice?', options: ['To announce an increase in water prices', 'To recruit workers for a construction project', 'To explain how to report a broken pipe', 'To inform customers about planned service interruptions'], a: 3, cue: 'water service will be interrupted in several districts of Fenmore during May',
+              explain: 'Thông báo cho biết "water service will be interrupted in several districts of Fenmore during May" (nguồn nước sẽ bị gián đoạn ở một số quận trong tháng Năm) để thay đường ống → báo trước việc ngừng dịch vụ theo kế hoạch. Không nhắc đến tăng giá, tuyển công nhân hay cách báo ống vỡ.' },
+            { n: 197, q: 'In the notice, the word "store" in paragraph 1 is closest in meaning to', options: ['keep', 'sell', 'shop', 'display'], a: 0, cue: 'should store enough water for the day in advance',
+              explain: '"store enough water for the day in advance" nghĩa là trữ sẵn đủ nước dùng trong ngày → "store" là động từ "keep" (cất giữ, dự trữ). Các nghĩa liên quan đến cửa hàng như "sell", "shop" hay "display" (trưng bày) không phù hợp.' },
+            { n: 198, q: 'When will water service most likely be interrupted at the Saffron Lane Bistro?', options: ['Tuesday, May 5', 'Tuesday, May 12', 'Thursday, May 14', 'Tuesday, May 19'], a: 1, cue: 'I own the Saffron Lane Bistro on Corbel Street in Linden Park.',
+              explain: 'Kết hợp lịch và e-mail: nhà hàng nằm ở "Linden Park", và theo lịch thì Linden Park thay ống vào "Tuesday, May 12" → nước bị cắt ngày thứ Ba 12/5. Các ngày khác dành cho Harrowgate, Westmarch và Saltmeadow.' },
+            { n: 199, q: 'What is suggested about Mr. Obiora?', options: ['He plans to close his restaurant for a day.', 'He recently moved his business to Linden Park.', 'He will not have to pay for a water tank.', 'He has already spoken with a customer service agent.'], a: 2, cue: 'may request a free temporary water tank',
+              explain: 'Kết hợp ba văn bản: thông báo nói nhà hàng có thể xin "a free temporary water tank" nếu liên hệ ít nhất năm ngày làm việc trước ngày thi công; ông Obiora gửi e-mail ngày 28/4, sớm hơn nhiều so với ngày 12/5 của quận Linden Park → ông sẽ không phải trả tiền bồn nước. Ông muốn tránh đóng cửa; chưa nói chuyện với nhân viên (chỉ để lại số điện thoại).' },
+            { n: 200, q: 'What information does Mr. Obiora request?', options: ['The cost of the maintenance work', 'The time the work will begin', 'The size of tanks that are available', 'The location where a tank will be put'], a: 3, cue: 'Could you tell me where the tank will be placed?',
+              explain: 'Ông hỏi "Could you tell me where the tank will be placed?" (bồn nước sẽ được đặt ở đâu) → vị trí đặt bồn. Ông chỉ mong bồn nhỏ đặt gần cửa bếp chứ không hỏi các cỡ bồn; giờ thi công (9:00–16:00) đã có trong thông báo; công trình không tính phí.' }
           ] } ] }
       ] }
   ] });

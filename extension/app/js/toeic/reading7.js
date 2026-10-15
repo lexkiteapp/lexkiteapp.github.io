@@ -259,6 +259,88 @@ Teodor Lisowski [9:12 A.M.]: Consider it done.`,
             { n: 164, q: 'What will Mr. Lisowski most likely do?', options: ['Order more doses', 'Contact a pediatric nurse', 'Register more patients', 'Set up an extra waiting area'], a: 3, cue: 'Teodor, could you set up a second waiting area in the conference room?',
               explain: 'Adaeze nhờ Teodor "set up a second waiting area in the conference room" và anh đáp "Consider it done" (coi như xong) → anh sẽ bố trí thêm khu chờ. Đặt thêm vắc-xin là việc của Liesel; hỏi y tá khoa nhi là việc của Adaeze.' }
           ] } ] },
+        { title: 'Advertisement', text:
+`Crestline Linen Services
+Clean linens, delivered on your schedule
+
+Restaurants, hotels, and spas across the Marlow Valley rely on Crestline Linen Services for spotless tablecloths, napkins, towels, and kitchen uniforms. Our trucks collect your used items and return them freshly washed and pressed within 48 hours.
+
+Why choose Crestline?
+- Flexible pickups up to six days a week
+- Eco-friendly detergents certified by the Green Hospitality Council
+- Free replacement of items that become torn or stained beyond repair
+- No long-term contracts: cancel anytime with 30 days' notice
+
+New customers who sign up before March 31 will receive their first two weeks of service free of charge. To arrange a free on-site consultation, call 555-0148 or visit www.crestlinelinen.com.`,
+          groups: [ { type: 'mcq', instr: 'Questions 165-166 refer to the following advertisement.', items: [
+            { n: 165, q: 'For whom is the advertisement most likely intended?', options: ['Owners of hospitality businesses', 'People who are moving to a new home', 'Clothing store managers', 'Manufacturers of washing machines'], a: 0, cue: 'Restaurants, hotels, and spas across the Marlow Valley rely on Crestline Linen Services',
+              explain: 'Quảng cáo nói "Restaurants, hotels, and spas … rely on Crestline Linen Services" (nhà hàng, khách sạn, spa tin dùng dịch vụ) và nhắc đến khăn trải bàn, đồng phục nhà bếp → đối tượng là chủ doanh nghiệp ngành dịch vụ – khách sạn. Không hướng đến hộ gia đình, cửa hàng quần áo hay nhà sản xuất máy giặt.' },
+            { n: 166, q: "What is NOT mentioned as a benefit of Crestline's service?", options: ['Environmentally friendly cleaning products', 'Free replacement of damaged items', 'Same-day return of laundered items', 'The option to cancel without a long contract'], a: 2, cue: 'return them freshly washed and pressed within 48 hours',
+              explain: 'Đồ được trả lại "within 48 hours" (trong vòng 48 giờ), không phải trong ngày → trả đồ trong ngày KHÔNG được nhắc đến. Chất tẩy thân thiện môi trường ("Eco-friendly detergents"), thay miễn phí đồ hỏng ("Free replacement") và hủy bất cứ lúc nào ("No long-term contracts") đều có trong quảng cáo.' }
+          ] } ] },
+        { title: 'Memo', text:
+`MEMO
+To: All editorial staff
+From: Graciela Mendonça, Office Manager
+Date: Thursday, September 10
+Subject: Printing changes
+
+Over the past year, Halvard Press has spent nearly twice its budget on paper and toner. To address this, the following changes will take effect on Monday, September 21.
+
+First, all printers will be set to print on both sides of the page by default. Staff who need single-sided copies may still change this setting manually.
+
+Second, color printing will be available only on the printer in the design department on the fourth floor. Editors who need color proofs of book covers should send their files to Kwame Asante, who will print them and deliver them by the end of the day.
+
+Finally, each employee will be given a personal code to enter at the printer. This will allow us to monitor usage by department. We are not trying to limit anyone's work; we simply want a clearer picture of where our resources go.
+
+Thank you for your cooperation.`,
+          groups: [ { type: 'mcq', instr: 'Questions 167-168 refer to the following memo.', items: [
+            { n: 167, q: 'What is the purpose of the memo?', options: ['To announce the purchase of new printers', 'To introduce new rules for printing', 'To request suggestions for reducing costs', "To explain a delay in a book's publication"], a: 1, cue: 'the following changes will take effect on Monday, September 21',
+              explain: 'Bản ghi nhớ thông báo "the following changes will take effect on Monday, September 21" rồi liệt kê in hai mặt, giới hạn in màu, mã cá nhân → giới thiệu quy định in ấn mới. Công ty không mua máy in mới, không xin góp ý, cũng không nói về việc chậm xuất bản sách.' },
+            { n: 168, q: 'In the memo, the word "picture" in paragraph 4 is closest in meaning to', options: ['photograph', 'drawing', 'frame', 'understanding'], a: 3, cue: 'we simply want a clearer picture of where our resources go',
+              explain: '"a clearer picture of where our resources go" nghĩa là có cái nhìn rõ hơn về việc tài nguyên được dùng vào đâu → "picture" ở đây là "sự hiểu biết, hình dung" (understanding). Các nghĩa ảnh chụp, bức vẽ, khung tranh là nghĩa đen, không hợp ngữ cảnh.' }
+          ] } ] },
+        { title: 'Online chat discussion', text:
+`Lorenzo Bianchi [10:02 A.M.]: Hi, all. The shipping company just told me our display furniture for the Hamburg Interior Design Fair won't arrive until Thursday morning.
+Solveig Halvorsen [10:04 A.M.]: The fair opens Thursday at 9:00. That's cutting it close.
+Lorenzo Bianchi [10:05 A.M.]: I know. The delivery window is 7:00 to 8:00 A.M., so we'd have about an hour to set everything up.
+Solveig Halvorsen [10:07 A.M.]: Can we rent a few pieces locally just in case?
+Mei Hirose [10:09 A.M.]: I checked with the fair organizers last week. They have a rental service, but the deadline to order was yesterday.
+Lorenzo Bianchi [10:11 A.M.]: Then let's make the most of Wednesday. Mei, could you set up the lighting and the product posters that afternoon?
+Mei Hirose [10:12 A.M.]: Sure. I'll be in Hamburg by noon.
+Solveig Halvorsen [10:14 A.M.]: And I'll ask two people from our Hamburg sales office to come in early on Thursday to help unpack.
+Lorenzo Bianchi [10:15 A.M.]: Perfect. That should do it.`,
+          groups: [ { type: 'mcq', instr: 'Questions 169-171 refer to the following online chat discussion.', items: [
+            { n: 169, q: 'What are the writers mainly discussing?', options: ['Choosing a booth location at a fair', 'Hiring staff for a sales office', 'A delay in the delivery of display furniture', 'Canceling their participation in a fair'], a: 2, cue: "our display furniture for the Hamburg Interior Design Fair won't arrive until Thursday morning",
+              explain: 'Lorenzo báo đồ nội thất trưng bày "won\'t arrive until Thursday morning" (phải đến sáng thứ Năm mới tới), cả nhóm bàn cách xoay xở → chủ đề là việc giao đồ trưng bày bị chậm. Họ không chọn vị trí gian hàng, không tuyển người và không hủy tham gia hội chợ.' },
+            { n: 170, q: 'At 10:04 A.M., what does Ms. Halvorsen most likely mean when she writes, "That\'s cutting it close"?', options: ['She thinks there may not be enough time to prepare.', 'She wants to move the booth closer to the entrance.', 'She believes the fair will be canceled.', 'She wants to use a different shipping company.'], a: 0, cue: "The fair opens Thursday at 9:00. That's cutting it close.",
+              explain: 'Hội chợ mở cửa 9 giờ sáng thứ Năm, cũng là ngày hàng mới đến; "That\'s cutting it close" (sát giờ quá) → cô lo sẽ không đủ thời gian chuẩn bị. Câu này không liên quan đến vị trí gian hàng ("close" không mang nghĩa "gần lối vào"), hủy hội chợ hay đổi hãng vận chuyển.' },
+            { n: 171, q: 'What will Ms. Hirose most likely do on Wednesday?', options: ['Order rental furniture', 'Unpack the display furniture', 'Meet with the fair organizers', 'Set up lighting and posters'], a: 3, cue: 'Mei, could you set up the lighting and the product posters that afternoon?',
+              explain: 'Lorenzo nhờ Mei "set up the lighting and the product posters" vào chiều thứ Tư và cô đồng ý ("Sure") → cô sẽ lắp đèn và treo áp phích. Hạn thuê đồ đã qua; việc mở thùng đồ là của nhân viên văn phòng Hamburg vào sáng thứ Năm.' }
+          ] } ] },
+        { title: 'Article', text:
+`Electric Ferries Coming to Kessick Island Route
+By Farida Benali
+
+PORT ALDER (June 8) – Cobalt Strait Ferries announced on Tuesday that it will replace two of the diesel-powered vessels on its Port Alder–Kessick Island route with battery-electric ferries by next summer. —[1]—
+
+The new ferries, which are being built by Norvik Marine in Bergen, will each carry up to 300 passengers and 40 vehicles. They will be recharged at the Port Alder terminal during the ten-minute stops between crossings. —[2]—
+
+According to the company's operations director, Henrik Engström, the switch will cut fuel costs by around 60 percent. "Electricity is far cheaper than diesel, and electric motors require much less maintenance," he said. —[3]— The company also expects passengers to appreciate the quieter and smoother ride.
+
+Not everyone is pleased, however. Some Kessick Island residents have raised concerns that ticket prices may rise to cover the cost of the new vessels and charging equipment. Mr. Engström said that fares will remain unchanged for at least two years. —[4]—
+
+The crossing currently takes 35 minutes, and the company operates 22 round trips each day.`,
+          groups: [ { type: 'mcq', instr: 'Questions 172-175 refer to the following article.', items: [
+            { n: 172, q: 'What is the article mainly about?', options: ['A new ferry terminal on Kessick Island', "A ferry company's plan to introduce electric vessels", 'A drop in the number of ferry passengers', "A shipbuilder's expansion in Bergen"], a: 1, cue: 'it will replace two of the diesel-powered vessels on its Port Alder–Kessick Island route with battery-electric ferries by next summer',
+              explain: 'Câu mở đầu: Cobalt Strait Ferries "will replace two of the diesel-powered vessels … with battery-electric ferries" (sẽ thay hai tàu chạy dầu bằng phà điện) → kế hoạch đưa tàu điện vào sử dụng. Norvik Marine ở Bergen chỉ là nơi đóng tàu; bài không nói về bến mới hay lượng khách giảm.' },
+            { n: 173, q: 'What is indicated about the new ferries?', options: ['They will be faster than the current ferries.', 'They will carry more vehicles than the current ferries.', 'They are being built in Port Alder.', 'They will be recharged between crossings.'], a: 3, cue: 'They will be recharged at the Port Alder terminal during the ten-minute stops between crossings.',
+              explain: 'Bài viết nêu phà mới "will be recharged … during the ten-minute stops between crossings" (được sạc trong 10 phút nghỉ giữa các chuyến) → sạc điện giữa các chuyến. Tàu được đóng ở Bergen, không phải Port Alder; bài không so sánh tốc độ hay sức chở với phà hiện tại.' },
+            { n: 174, q: 'What concern have some Kessick Island residents raised?', options: ['Ticket prices could increase.', 'The ferries could be too noisy.', 'Fewer trips may be offered.', 'The crossing may take longer.'], a: 0, cue: 'ticket prices may rise to cover the cost of the new vessels and charging equipment',
+              explain: 'Một số cư dân lo rằng "ticket prices may rise" (giá vé có thể tăng) để bù chi phí tàu và thiết bị sạc → lo ngại về giá vé. Phà điện được cho là êm hơn ("quieter"), nên lo ngại tiếng ồn là sai; số chuyến và thời gian đi không bị phàn nàn.' },
+            { n: 175, q: 'In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? "Such quick charging means the ferries will not need to be taken out of service during the day."', options: ['[1]', '[2]', '[3]', '[4]'], a: 1, cue: 'They will be recharged at the Port Alder terminal during the ten-minute stops between crossings.',
+              explain: '"Such quick charging" (việc sạc nhanh như vậy) phải đứng ngay sau câu nói về việc sạc trong "the ten-minute stops between crossings" → vị trí [2]. Các vị trí khác nói về kế hoạch thay tàu, chi phí nhiên liệu và giá vé, không có ý "sạc nhanh" để từ "Such" quy chiếu.' }
+          ] } ] },
         { title: 'Rate table and E-mail', text:
 `Tollgate Couriers
 Domestic Shipping Rates (effective January 1)
@@ -288,19 +370,54 @@ I dropped the package off at your Bayliss Road counter myself, so no pickup fee 
 
 Elowen Tregenza
 Tregenza Print Works`,
-          groups: [ { type: 'mcq', instr: 'Questions 165-170 refer to the following rate table and e-mail.', items: [
-            { n: 165, q: 'According to the rate table, what is true about pickups?', options: ['They are free for business accounts.', 'They must be booked by phone.', 'They are available only on weekdays.', 'They cost an additional fee.'], a: 3, cue: 'Pickups from your location can be scheduled online for a fee of $5.00',
-              explain: 'Dịch vụ đến tận nơi lấy hàng "can be scheduled online for a fee of $5.00" (đặt lịch trực tuyến với phí $5) → mất thêm phí. Đặt lịch trực tuyến chứ không qua điện thoại; tài khoản doanh nghiệp chỉ được giảm 10%, không miễn phí lấy hàng.' },
-            { n: 166, q: 'Which service did Ms. Tregenza most likely use?', options: ['Priority', 'Priority Plus', 'Standard', 'Economy'], a: 1, cue: 'I chose next-day delivery by 10:00 A.M.',
+          groups: [ { type: 'mcq', instr: 'Questions 176-180 refer to the following rate table and e-mail.', items: [
+            { n: 176, q: 'Which service did Ms. Tregenza most likely use?', options: ['Priority', 'Priority Plus', 'Standard', 'Economy'], a: 1, cue: 'I chose next-day delivery by 10:00 A.M.',
               explain: 'Kết hợp hai văn bản: cô chọn "next-day delivery by 10:00 A.M." (giao ngày hôm sau trước 10 giờ sáng), khớp với dịch vụ "Priority Plus" trong bảng giá. "Priority" cũng giao ngày hôm sau nhưng không cam kết trước 10 giờ – bẫy.' },
-            { n: 167, q: 'What problem does Ms. Tregenza describe?', options: ['A package arrived later than promised.', 'A package was sent to the wrong city.', 'Some brochures were damaged.', 'A driver did not pick up a package.'], a: 0, cue: 'the package was not delivered until 3:40 P.M. on March 3',
+            { n: 177, q: 'What problem does Ms. Tregenza describe?', options: ['A package arrived later than promised.', 'A package was sent to the wrong city.', 'Some brochures were damaged.', 'A driver did not pick up a package.'], a: 0, cue: 'the package was not delivered until 3:40 P.M. on March 3',
               explain: 'Gói hàng lẽ ra đến trước 10 giờ sáng nhưng "was not delivered until 3:40 P.M." (mãi 3 giờ 40 chiều mới giao) → giao trễ hơn cam kết. Cô tự mang hàng đến quầy nên không có chuyện tài xế không đến lấy; hàng không bị gửi nhầm hay hư hỏng.' },
-            { n: 168, q: 'What does Ms. Tregenza request?', options: ['A replacement shipment', 'A free pickup', 'A full refund of the shipping charge', 'A meeting with a manager'], a: 2, cue: 'I would like a full refund of the shipping charge.',
+            { n: 178, q: 'What does Ms. Tregenza request?', options: ['A replacement shipment', 'A free pickup', 'A full refund of the shipping charge', 'A meeting with a manager'], a: 2, cue: 'I would like a full refund of the shipping charge.',
               explain: '"I would like a full refund of the shipping charge" → yêu cầu hoàn lại toàn bộ cước phí (ngoài ra cô hỏi thêm về khoản tín dụng cho lần gửi sau). Cô không yêu cầu gửi lại hàng, lấy hàng miễn phí hay gặp quản lý.' },
-            { n: 169, q: 'In the e-mail, the word "opened" in paragraph 1 is closest in meaning to', options: ['unlocked', 'revealed', 'unfolded', 'began'], a: 3, cue: 'a trade show that opened at noon on March 3',
+            { n: 179, q: 'In the e-mail, the word "opened" in paragraph 1 is closest in meaning to', options: ['unlocked', 'revealed', 'unfolded', 'began'], a: 3, cue: 'a trade show that opened at noon on March 3',
               explain: '"a trade show that opened at noon" = hội chợ thương mại khai mạc lúc 12 giờ trưa → "opened" ≈ "began" (bắt đầu). "unlocked" (mở khóa), "revealed" (tiết lộ), "unfolded" (mở ra, trải ra) là các nghĩa khác của "open", không hợp ngữ cảnh sự kiện.' },
-            { n: 170, q: 'How much was Ms. Tregenza most likely charged for the shipment?', options: ['$26.00', '$30.60', '$34.00', '$39.00'], a: 1, cue: 'Business account holders receive a 10 percent discount on all services.',
+            { n: 180, q: 'How much was Ms. Tregenza most likely charged for the shipment?', options: ['$26.00', '$30.60', '$34.00', '$39.00'], a: 1, cue: 'Business account holders receive a 10 percent discount on all services.',
               explain: 'Kết hợp hai văn bản: gói hàng nặng 4 kg (dưới 5 kg, không tính phụ phí) gửi bằng Priority Plus giá $34.00; cô có tài khoản doanh nghiệp nên được giảm 10% → $34.00 − $3.40 = $30.60. Cô tự mang đến quầy nên không mất phí lấy hàng $5. "$34.00" là giá chưa giảm; "$39.00" là giá cộng thêm phí lấy hàng – đều là bẫy.' }
+          ] } ] },
+        { title: 'Web page and Online review', text:
+`www.verbalistranslations.com/services
+
+Verbalis Translation Services – Service Levels
+
+Service | Price | What is included | Delivery
+Standard | $0.10 per word | Translation by one professional translator | Within 5 business days
+Professional | $0.14 per word | Translation plus a full review by a second translator | Within 4 business days
+Premium | $0.20 per word | Translation, review, and formatting to match your original layout | Within 3 business days
+
+Rush delivery (within 24 hours) is available for documents of up to 3,000 words for an additional fee of 30 percent.
+
+All clients receive a free quote within one hour of uploading a document. First-time clients may enter the code WELCOME10 to receive 10 percent off their first order. We currently translate between English and 28 other languages, and we can assign translators who specialize in legal, medical, and technical texts.
+
+* * *
+
+Customer Review – Verbalis Translation Services
+Posted by: Sun-hee Park, Marketing Coordinator, Tavira Outdoor Gear
+Rating: 4 out of 5 stars
+
+Our company needed a 2,500-word product catalog translated from English into Portuguese for a trade fair in Lisbon. Because this was our first time using Verbalis, I applied the discount code, and I chose the service that includes a second translator's review, since accuracy was essential.
+
+The translation itself was excellent. Our colleagues in Lisbon said it read naturally, and the translator handled the technical vocabulary for our tents and climbing equipment very well. The quote arrived within twenty minutes, which was impressive.
+
+My only disappointment was that the formatting did not match our original design, so our designer had to spend an extra day adjusting the layout. In fairness, I later realized that formatting is only included in a more expensive package. Next time, I will read the service descriptions more carefully. I would still recommend Verbalis to other businesses.`,
+          groups: [ { type: 'mcq', instr: 'Questions 181-185 refer to the following Web page and online review.', items: [
+            { n: 181, q: 'What is indicated about Verbalis Translation Services?', options: ['It translates between English and more than 50 languages.', 'It charges extra for technical documents.', 'It offers rush service for documents of any length.', 'It provides price quotes at no cost.'], a: 3, cue: 'All clients receive a free quote within one hour of uploading a document.',
+              explain: 'Trang web viết "All clients receive a free quote" (mọi khách hàng được báo giá miễn phí) → báo giá không mất phí. Công ty dịch 28 ngôn ngữ, không phải hơn 50; dịch gấp chỉ áp dụng cho tài liệu tối đa 3.000 từ; không có phụ phí cho tài liệu kỹ thuật.' },
+            { n: 182, q: 'How much did Ms. Park most likely pay for the translation?', options: ['$225', '$250', '$315', '$350'], a: 2, cue: "I applied the discount code, and I chose the service that includes a second translator's review",
+              explain: 'Kết hợp hai văn bản: bài đánh giá cho biết cô dịch 2.500 từ, chọn gói có người thứ hai rà soát (gói Professional, $0.14/từ theo trang web) và dùng mã giảm 10% cho khách lần đầu → 2.500 × $0.14 = $350, giảm 10% còn $315. $350 là giá chưa giảm; $225 và $250 tính theo gói Standard.' },
+            { n: 183, q: "Which service level would have included the work that Ms. Park's designer had to do?", options: ['Rush delivery', 'Premium', 'Standard', 'Professional'], a: 1, cue: 'Translation, review, and formatting to match your original layout',
+              explain: 'Kết hợp hai văn bản: nhà thiết kế của cô phải mất thêm một ngày chỉnh bố cục vì định dạng không khớp bản gốc; theo trang web, chỉ gói Premium có "formatting to match your original layout" (định dạng giống bố cục gốc). Gói Professional cô đã dùng không gồm định dạng; dịch gấp chỉ rút ngắn thời gian.' },
+            { n: 184, q: 'In the online review, the word "handled" in paragraph 2, line 2, is closest in meaning to', options: ['dealt with', 'touched', 'carried', 'sold'], a: 0, cue: 'the translator handled the technical vocabulary for our tents and climbing equipment very well',
+              explain: '"the translator handled the technical vocabulary … very well" nghĩa là người dịch xử lý thuật ngữ kỹ thuật rất tốt → "handled" = "dealt with" (xử lý). Các nghĩa "chạm vào", "mang vác", "bán" là nghĩa khác của "handle", không hợp với việc dịch từ vựng.' },
+            { n: 185, q: 'What is suggested about Ms. Park?', options: ['She plans to use a different translation agency.', 'She translated part of the catalog herself.', 'She misunderstood what her service level included.', 'She needed the translation within 24 hours.'], a: 2, cue: 'In fairness, I later realized that formatting is only included in a more expensive package.',
+              explain: 'Cô thừa nhận "I later realized that formatting is only included in a more expensive package" (sau đó mới nhận ra định dạng chỉ có ở gói đắt hơn) → cô đã hiểu nhầm gói dịch vụ mình chọn. Cô vẫn giới thiệu Verbalis nên không định đổi công ty; không có chi tiết cô tự dịch hay cần bản dịch trong 24 giờ.' }
           ] } ] },
         { title: 'Web page, E-mail and Form', text:
 `www.coastalretailforum.org/register
@@ -348,17 +465,136 @@ Meals and reception: 3
 Registration process: 5
 
 Comments: The store design workshop was the highlight of the forum for me, and I was glad the organizers were able to move me to the second day without any trouble. The online recordings also helped me catch up on what I missed. My only suggestion is to provide more vegetarian dishes at lunch, as they had run out by the time I reached the buffet on the second day.`,
-          groups: [ { type: 'mcq', instr: 'Questions 171-175 refer to the following web page, e-mail, and form.', items: [
-            { n: 171, q: 'What is indicated about the full pass?', options: ['It includes an evening event.', 'It is available only to groups.', 'It costs $240.', 'It must be purchased by May 1.'], a: 0, cue: 'includes lunch and the June 8 evening reception',
+          groups: [ { type: 'mcq', instr: 'Questions 186-190 refer to the following web page, e-mail, and form.', items: [
+            { n: 186, q: 'What is indicated about the full pass?', options: ['It includes an evening event.', 'It is available only to groups.', 'It costs $240.', 'It must be purchased by May 1.'], a: 0, cue: 'includes lunch and the June 8 evening reception',
               explain: 'Trang web: vé Full pass "includes lunch and the June 8 evening reception" → có sự kiện buổi tối. $240 là giá vé một ngày; mua trước 1/5 chỉ để được giảm $50, không bắt buộc; ưu đãi nhóm là giảm thêm, không giới hạn người mua.' },
-            { n: 172, q: 'Why did Mr. Mehta send the e-mail?', options: ['To cancel his registration', 'To make requests because of a schedule conflict', 'To ask for a refund', 'To propose a workshop topic'], a: 1, cue: 'Could I switch my place to the June 9 session',
+            { n: 187, q: 'Why did Mr. Mehta send the e-mail?', options: ['To cancel his registration', 'To make requests because of a schedule conflict', 'To ask for a refund', 'To propose a workshop topic'], a: 1, cue: 'Could I switch my place to the June 9 session',
               explain: 'Vì có cuộc họp với khách sáng 8/6, ông hỏi xin bản ghi các phiên bị lỡ và "Could I switch my place to the June 9 session?" → đưa ra yêu cầu do trùng lịch. Ông không hủy đăng ký hay đòi hoàn tiền.' },
-            { n: 173, q: 'What is probably true about Mr. Mehta?', options: ['He registered as part of a group.', 'He gave a presentation at the forum.', 'He paid for a one-day pass.', 'He did not see the keynote speech in person.'], a: 3, cue: 'will open the forum at 9:00 A.M. on June 8',
+            { n: 188, q: 'What is probably true about Mr. Mehta?', options: ['He registered as part of a group.', 'He gave a presentation at the forum.', 'He paid for a one-day pass.', 'He did not see the keynote speech in person.'], a: 3, cue: 'will open the forum at 9:00 A.M. on June 8',
               explain: 'Kết hợp 2 tài liệu: trang web – bài phát biểu chính của Ms. Matsuda bắt đầu "at 9:00 A.M. on June 8"; email – ông chỉ đến Halverton khoảng 2 giờ chiều hôm đó → không nghe trực tiếp. Phiếu góp ý ghi "Full pass", không phải vé một ngày; không có thông tin đăng ký theo nhóm hay thuyết trình.' },
-            { n: 174, q: "What is suggested about Mr. Mehta's requests?", options: ['Neither of them could be accommodated.', 'Only the request for recordings was granted.', 'Both of them were granted.', 'They were handled by Ms. Matsuda.'], a: 2, cue: 'move me to the second day without any trouble',
+            { n: 189, q: "What is suggested about Mr. Mehta's requests?", options: ['Neither of them could be accommodated.', 'Only the request for recordings was granted.', 'Both of them were granted.', 'They were handled by Ms. Matsuda.'], a: 2, cue: 'move me to the second day without any trouble',
               explain: 'Email có 2 yêu cầu: xin bản ghi và đổi sang buổi workshop ngày 9/6. Phiếu góp ý: ban tổ chức "move me to the second day without any trouble" và "The online recordings also helped me" → cả hai đều được đáp ứng. Ms. Matsuda là diễn giả, không xử lý đăng ký.' },
-            { n: 175, q: 'In the form, the word "highlight" in the comments is closest in meaning to', options: ['final event', 'main topic', 'brightest light', 'best part'], a: 3, cue: 'the highlight of the forum',
+            { n: 190, q: 'In the form, the word "highlight" in the comments is closest in meaning to', options: ['final event', 'main topic', 'brightest light', 'best part'], a: 3, cue: 'the highlight of the forum',
               explain: '"The store design workshop was the highlight of the forum for me" = phần hay nhất của diễn đàn → "best part". "brightest light" là nghĩa đen sai ngữ cảnh; "final event" và "main topic" không đúng nghĩa.' }
+          ] } ] },
+        { title: 'Itinerary, E-mail and Expense report', text:
+`Travel Itinerary – Prepared by Skyward Corporate Travel
+Traveler: Joaquín Arriaga, Senior Engineer, Halberg Water Systems
+Purpose: Installation inspection, Brackenford Municipal Water Plant
+
+Date | Details
+Monday, November 9 | Flight HW 412 departs Rexford 7:40 A.M., arrives Brackenford 10:15 A.M.
+Monday, November 9 – Wednesday, November 11 | Granby Suites Brackenford (2 nights), $145 per night
+Tuesday, November 10 | Site inspection with plant manager, 9:00 A.M. – 4:00 P.M.
+Wednesday, November 11 | Flight HW 419 departs Brackenford 6:30 P.M., arrives Rexford 9:05 P.M.
+
+Car rental: Ridewell, compact car, pick up and return at Brackenford Airport
+
+* * *
+
+To: Annika Sørensen
+From: Joaquín Arriaga
+Date: November 11
+Subject: Change of plans in Brackenford
+
+Hi Annika,
+
+The inspection at the Brackenford plant went well overall, but during yesterday's testing, one of the filtration pumps we installed in August failed to reach full pressure. The plant manager, Mr. Mwangi, asked me to stay until a replacement part arrives from our supplier. It is expected tomorrow morning, and I should be able to complete the repair and retest the system by early afternoon.
+
+I have therefore extended my hotel stay by one night and moved my return flight to Thursday evening. The airline charged a $60 change fee. I have also kept the rental car for an extra day.
+
+I will submit my expense report as soon as I am back. Please let me know if you need anything else from me before then.
+
+Best regards,
+Joaquín
+
+* * *
+
+Halberg Water Systems – Travel Expense Report
+Employee: Joaquín Arriaga | Department: Field Engineering
+Trip dates: November 9–12 | Approved by: Annika Sørensen
+
+Item | Amount
+Airfare (round-trip) | $386.00
+Flight change fee | $60.00
+Hotel | $435.00
+Car rental (4 days) | $172.00
+Meals | $118.50
+Total | $1,171.50
+
+Note: Receipts are not required for meals under $25. All other expenses must be supported by original receipts.`,
+          groups: [ { type: 'mcq', instr: 'Questions 191-195 refer to the following itinerary, e-mail, and expense report.', items: [
+            { n: 191, q: 'Why did Mr. Arriaga extend his trip?', options: ['The plant manager was unavailable on Tuesday.', 'A pump requires a replacement part.', 'His original return flight was canceled.', "He was asked to train the plant's staff."], a: 1, cue: 'one of the filtration pumps we installed in August failed to reach full pressure',
+              explain: 'Trong e-mail, một máy bơm lọc "failed to reach full pressure" (không đạt đủ áp suất) và quản lý nhà máy nhờ anh ở lại chờ linh kiện thay thế → anh kéo dài chuyến đi để sửa máy bơm. Chuyến bay không bị hủy mà do anh tự đổi; không có việc đào tạo nhân viên.' },
+            { n: 192, q: 'In the e-mail, the word "reach" in paragraph 1, line 2, is closest in meaning to', options: ['contact', 'stretch', 'achieve', 'hand over'], a: 2, cue: 'failed to reach full pressure',
+              explain: '"failed to reach full pressure" nghĩa là không đạt được áp suất tối đa → "reach" = "achieve" (đạt tới). Nghĩa "liên lạc" (reach someone), "vươn ra" hay "đưa cho" không phù hợp khi nói về áp suất của máy bơm.' },
+            { n: 193, q: 'What is indicated about the hotel charge in the expense report?', options: ['It includes a late checkout fee.', 'It was paid by Skyward Corporate Travel.', 'It is for a different hotel than the one in the itinerary.', 'It covers three nights at the rate shown in the itinerary.'], a: 3, cue: 'Hotel | $435.00',
+              explain: 'Kết hợp ba văn bản: lịch trình đặt Granby Suites 2 đêm, giá $145/đêm; e-mail cho biết anh ở thêm một đêm → tổng 3 đêm; báo cáo chi phí ghi khách sạn $435 = 3 × $145. Không có phí trả phòng muộn, không đổi khách sạn, và chi phí do chính anh kê khai.' },
+            { n: 194, q: 'On what date did Mr. Arriaga most likely fly back to Rexford?', options: ['November 12', 'November 11', 'November 13', 'November 10'], a: 0, cue: 'moved my return flight to Thursday evening',
+              explain: 'Kết hợp ba văn bản: lịch trình cho thấy thứ Tư là ngày 11/11, nên thứ Năm là 12/11; e-mail nói anh đổi chuyến về sang "Thursday evening"; báo cáo chi phí ghi "Trip dates: November 9–12" → anh bay về ngày 12/11. Ngày 11/11 là ngày bay về theo kế hoạch ban đầu – bẫy.' },
+            { n: 195, q: 'What is suggested about Ms. Sørensen?', options: ["She is responsible for approving Mr. Arriaga's travel expenses.", 'She works for Skyward Corporate Travel.', 'She met Mr. Mwangi at the Brackenford plant.', "She changed Mr. Arriaga's flight for him."], a: 0, cue: 'Approved by: Annika Sørensen',
+              explain: 'Kết hợp hai văn bản: anh Arriaga gửi e-mail báo cáo thay đổi kế hoạch cho Annika Sørensen, và báo cáo chi phí ghi "Approved by: Annika Sørensen" → bà là người duyệt chi phí công tác của anh. Skyward là công ty du lịch lập lịch trình; chính anh đổi chuyến bay; bà không có mặt ở nhà máy.' }
+          ] } ] },
+        { title: 'Advertisement, Order form and E-mail', text:
+`Threadmark Workwear – Custom Uniforms for Every Team
+
+Give your staff a polished, professional look with Threadmark's durable workwear. All items can be embroidered with your company logo.
+
+Item | Price per piece
+Chef jacket | $32
+Bib apron | $14
+Polo shirt | $21
+Baseball cap | $11
+
+Embroidery: $4 per item (plus a one-time setup fee of $50 for each new logo design)
+Orders of 50 or more garments receive 15 percent off the price of the garments.
+Standard production time is 10 business days. Need it sooner? Express production (5 business days) is available for an additional $75.
+
+* * *
+
+Threadmark Workwear – Order Form
+Customer: Pebblestone Café Group
+Contact: Oluwaseun Balogun, Operations Manager
+Order date: Monday, April 6
+
+Item | Color | Quantity | Unit price | Subtotal
+Bib apron | Forest green | 30 | $14 | $420
+Polo shirt | White | 30 | $21 | $630
+Embroidery | – | 60 | $4 | $240
+Logo setup fee | – | 1 | $50 | $50
+Total | | | | $1,340
+
+Production: Standard
+Ship to: Pebblestone Café Group, 17 Marrow Lane, Marrowfield
+
+* * *
+
+To: orders@threadmarkworkwear.com
+From: Oluwaseun Balogun
+Date: April 8
+Subject: Order for Pebblestone Café Group
+
+Hello,
+
+I placed an order on your Web site on Monday for aprons and polo shirts for the staff of our three cafés. When I reviewed the confirmation, I noticed that the total did not reflect the discount advertised for large orders. Could you please correct the amount before charging our account?
+
+In addition, we are opening a fourth café on April 16, and our new employees will need their uniforms before then. If the order cannot be completed in time with standard production, please upgrade it to express production and add the charge to our invoice.
+
+Finally, please make sure the logo is stitched in white thread on the aprons and in green thread on the polo shirts, as shown in the design file I attached.
+
+Thank you,
+Oluwaseun Balogun`,
+          groups: [ { type: 'mcq', instr: 'Questions 196-200 refer to the following advertisement, order form, and e-mail.', items: [
+            { n: 196, q: 'What is indicated about Threadmark Workwear?', options: ['It offers free shipping on large orders.', 'It sells only chef jackets and aprons.', 'It can complete any order within five days at no extra cost.', 'It charges a one-time fee for each new logo design.'], a: 3, cue: 'plus a one-time setup fee of $50 for each new logo design',
+              explain: 'Quảng cáo ghi "a one-time setup fee of $50 for each new logo design" (phí thiết lập một lần $50 cho mỗi mẫu logo mới) → công ty thu phí một lần cho mỗi logo. Sản xuất nhanh 5 ngày phải trả thêm $75; công ty bán cả áo polo và mũ; không nhắc đến miễn phí vận chuyển.' },
+            { n: 197, q: 'By how much should the total on the order form most likely be reduced?', options: ['$50.00', '$157.50', '$201.00', '$240.00'], a: 1, cue: 'Orders of 50 or more garments receive 15 percent off the price of the garments.',
+              explain: 'Kết hợp ba văn bản: đơn hàng có 60 sản phẩm may mặc (30 tạp dề + 30 áo polo), đủ điều kiện giảm 15% "off the price of the garments" theo quảng cáo, nhưng tổng tiền chưa trừ, như ông Balogun phàn nàn trong e-mail. Giảm 15% của $420 + $630 = $1.050 → $157.50. $201 là 15% của cả tổng $1.340 – sai vì phí thêu và phí logo không được giảm.' },
+            { n: 198, q: "What will Threadmark most likely add to Pebblestone's invoice?", options: ['A second $50 logo setup fee', 'A charge for 60 more embroidered items', 'A $75 fee for express production', 'A delivery fee for the fourth café'], a: 2, cue: 'please upgrade it to express production and add the charge to our invoice',
+              explain: 'Kết hợp ba văn bản: đặt hàng thứ Hai 6/4 với sản xuất tiêu chuẩn 10 ngày làm việc → xong khoảng 20/4, muộn hơn ngày khai trương 16/4. Vì vậy theo yêu cầu trong e-mail, đơn sẽ được nâng lên sản xuất nhanh (5 ngày làm việc, xong khoảng 13/4) với phụ phí $75 ghi trong quảng cáo. Các khoản khác không được yêu cầu.' },
+            { n: 199, q: 'In the e-mail, the word "reflect" in paragraph 1, line 2, is closest in meaning to', options: ['consider', 'copy', 'return', 'show'], a: 3, cue: 'the total did not reflect the discount advertised for large orders',
+              explain: '"the total did not reflect the discount" nghĩa là tổng tiền không thể hiện khoản giảm giá → "reflect" = "show" (thể hiện). Nghĩa "suy ngẫm", "phản chiếu ánh sáng", "sao chép" không phù hợp khi nói về con số trên hóa đơn.' },
+            { n: 200, q: 'What is suggested about Pebblestone Café Group?', options: ['It has ordered from Threadmark many times before.', 'It wants all logos stitched in green thread.', 'It currently operates three cafés.', 'It is moving its main office to Marrowfield.'], a: 2, cue: 'aprons and polo shirts for the staff of our three cafés',
+              explain: 'Ông Balogun đặt đồng phục cho "the staff of our three cafés" và sắp mở quán thứ tư → hiện công ty có ba quán cà phê. Logo màu trắng trên tạp dề và xanh trên áo polo, không phải toàn bộ màu xanh; việc phải trả phí logo mới cho thấy không chắc đã đặt hàng nhiều lần; không có chuyện chuyển văn phòng.' }
           ] } ] }
       ] }
   ] });

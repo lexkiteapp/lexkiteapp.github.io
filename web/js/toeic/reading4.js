@@ -265,6 +265,84 @@ Nadia Farouk [3:32 P.M.]: Perfect. I'll send them the deposit today.`,
             { n: 164, q: 'What will Ms. Farouk most likely do next?', options: ['Cancel the event', 'Call the original venue', 'Make a payment', 'Print new invitations'], a: 2, cue: "I'll send them the deposit today.",
               explain: '"I\'ll send them the deposit today" (hôm nay tôi sẽ gửi tiền đặt cọc) → thực hiện một khoản thanh toán. Sự kiện không bị hủy vì đã có địa điểm mới; khách sẽ được báo qua email nên không cần in thư mời mới.' }
           ] } ] },
+        { title: 'Web page', text:
+`www.quillonphotolab.com/business
+
+Quillon Photo Lab – Services for Businesses
+
+Since 2009, Quillon Photo Lab has helped restaurants, real estate agencies, and online shops present their products at their best. Our studio on Marlowe Road offers three services for business customers.
+
+Product Photography: Bring up to 20 items to our studio, and our photographers will shoot each one on a clean white background. Edited images are delivered within three business days.
+
+On-Site Shoots: We travel to your shop, office, or property anywhere within 40 kilometers of our studio. A travel fee applies to locations beyond that distance.
+
+Large-Format Printing: Posters, banners, and window graphics printed on weather-resistant materials.
+
+First-time business customers receive 15 percent off their first order. To book, call 555-0182 or use the online form below. Please note that the studio is closed on Mondays.`,
+          groups: [ { type: 'mcq', instr: 'Questions 165-166 refer to the following Web page.', items: [
+            { n: 165, q: 'For whom is the Web page most likely intended?', options: ['Amateur photographers', 'Wedding planners', 'Photography students', 'Business owners'], a: 3, cue: 'Quillon Photo Lab has helped restaurants, real estate agencies, and online shops',
+              explain: 'Tiêu đề "Services for Businesses" và câu "has helped restaurants, real estate agencies, and online shops" (đã giúp nhà hàng, công ty bất động sản, cửa hàng trực tuyến) → dành cho chủ doanh nghiệp. Trang web không nhắm tới người chụp ảnh nghiệp dư, người tổ chức đám cưới hay sinh viên nhiếp ảnh.' },
+            { n: 166, q: 'What is indicated about on-site shoots?', options: ['They are available only on Mondays.', 'They include free printing.', 'They may require an additional charge.', 'They must be booked by phone.'], a: 2, cue: 'A travel fee applies to locations beyond that distance.',
+              explain: '"A travel fee applies to locations beyond that distance" → địa điểm xa hơn 40 km phải trả thêm phí đi lại, tức có thể phát sinh chi phí. Studio đóng cửa thứ Hai; in ấn là dịch vụ riêng, không miễn phí; có thể đặt qua điện thoại hoặc biểu mẫu trực tuyến.' }
+          ] } ] },
+        { title: 'Online chat discussion', text:
+`Leocadia Brandao [10:02 A.M.]: Morning, team. Hartwell Interiors just asked if we can deliver their 60 office chairs on Thursday instead of next Monday. Their new branch is opening earlier than planned.
+Tobias Wennerberg [10:05 A.M.]: The chairs are ready in the warehouse, but both of our large trucks are booked on Thursday.
+Leocadia Brandao [10:07 A.M.]: Could we rent a truck for the day?
+Mehmet Aydin [10:09 A.M.]: We could, but rental companies usually need two days' notice, and it's already Tuesday.
+Leocadia Brandao [10:11 A.M.]: Hmm. Is anyone using the warehouse van on Thursday?
+Mehmet Aydin [10:13 A.M.]: Not that I know of. I'll double-check the booking calendar, though.
+Tobias Wennerberg [10:14 A.M.]: The van holds about 20 chairs, so it would take three trips. Their branch is only 15 minutes away, so that's manageable.
+Leocadia Brandao [10:15 A.M.]: Let's go with that, then. I'll tell Hartwell to expect the first load by 9:00 A.M.
+Mehmet Aydin [10:18 A.M.]: Confirmed. The van is free all day. I'll assign two drivers.`,
+          groups: [ { type: 'mcq', instr: 'Questions 167-169 refer to the following online chat discussion.', items: [
+            { n: 167, q: 'What does Hartwell Interiors want to do?', options: ['Order additional chairs', 'Receive a delivery earlier', 'Cancel an order', 'Change a delivery address'], a: 1, cue: 'deliver their 60 office chairs on Thursday instead of next Monday',
+              explain: 'Khách hàng muốn giao 60 ghế "on Thursday instead of next Monday" (vào thứ Năm thay vì thứ Hai tới) vì chi nhánh mới khai trương sớm hơn → nhận hàng sớm hơn. Số lượng ghế, việc hủy đơn hay địa chỉ giao đều không thay đổi.' },
+            { n: 168, q: 'At 10:13 A.M., what does Mr. Aydin most likely mean when he writes, "Not that I know of"?', options: ['He believes the van is available.', 'He does not know where the van is parked.', 'He has not met the client.', 'He is unsure how many chairs were ordered.'], a: 0, cue: 'Not that I know of.',
+              explain: 'Ms. Brandao hỏi có ai dùng xe van vào thứ Năm không; "Not that I know of" (theo tôi biết thì không) → anh cho rằng xe van đang trống, sau đó xác nhận "The van is free all day". Câu này không liên quan đến chỗ đỗ xe, khách hàng hay số lượng ghế.' },
+            { n: 169, q: 'What is suggested about the delivery to Hartwell Interiors?', options: ['It will be made by a rental company.', 'It will begin in the afternoon.', 'It will require several trips.', 'It will be handled by one driver.'], a: 2, cue: 'so it would take three trips',
+              explain: 'Xe van chở khoảng 20 ghế nên "it would take three trips" (cần ba chuyến) để chở 60 ghế. Họ không thuê xe; chuyến đầu đến trước 9 giờ sáng chứ không phải buổi chiều; Mr. Aydin sẽ bố trí hai tài xế, không phải một.' }
+          ] } ] },
+        { title: 'Memo', text:
+`MEMO
+
+To: All Staff, Brannock Legal Group
+From: Oluwaseun Adebayo, Office Manager
+Date: February 9
+Subject: Document shredding
+
+Starting next month, Brannock Legal Group will use a professional shredding service to dispose of confidential papers. Locked gray bins will be placed in the copy room on each floor. Please put any documents containing client information in these bins rather than in regular recycling.
+
+Shredtrail Services will collect the contents of the bins every other Wednesday, beginning March 4. Their staff will shred the papers on-site in a secure truck, and we will receive a certificate confirming the destruction after each visit.
+
+The small desk shredders currently in use will be retired at the end of February. If you have a large volume of files to discard, such as when closing a case, please contact me in advance so that additional bins can be arranged.`,
+          groups: [ { type: 'mcq', instr: 'Questions 170-171 refer to the following memo.', items: [
+            { n: 170, q: 'What is the purpose of the memo?', options: ['To remind staff to recycle more paper', 'To introduce a new office manager', 'To request repairs to some shredders', 'To announce a new way of disposing of documents'], a: 3, cue: 'Starting next month, Brannock Legal Group will use a professional shredding service',
+              explain: 'Bản ghi nhớ thông báo công ty sẽ dùng "a professional shredding service" (dịch vụ hủy tài liệu chuyên nghiệp) cho giấy tờ mật → cách hủy tài liệu mới. Nhân viên được yêu cầu không bỏ tài liệu mật vào thùng tái chế thường; máy hủy để bàn sẽ bị ngừng dùng chứ không đem sửa; không có quản lý mới nào được giới thiệu.' },
+            { n: 171, q: 'In the memo, the word "retired" in paragraph 3, line 1, is closest in meaning to', options: ['stored', 'withdrawn from service', 'returned', 'rested'], a: 1, cue: 'will be retired at the end of February',
+              explain: '"The small desk shredders… will be retired" nghĩa là các máy hủy để bàn sẽ bị loại bỏ, ngừng sử dụng → "withdrawn from service". Nghĩa "nghỉ hưu/nghỉ ngơi" chỉ dùng cho người; máy không được cất đi hay trả lại theo nội dung bản ghi nhớ.' }
+          ] } ] },
+        { title: 'Press release', text:
+`FOR IMMEDIATE RELEASE
+Contact: Ingrid Halvorsen, Communications Director, Kestavik Tea Company
+
+PORT ELLERY (August 18) – Kestavik Tea Company, which has blended and packaged specialty teas in Port Ellery for over thirty years, announced today that it will replace all of its plastic tea bags with plant-based ones by the end of the year. —[1]—
+
+The new bags are made from corn fiber and will break down completely in home compost within three months. Kestavik tested the material for nearly two years before choosing it. —[2]— "Our customers kept asking whether our bags could go in the compost bin," said chief executive Felix Pemberly-Shaw. "We wanted to be able to say yes without changing the taste of our teas."
+
+The switch will also affect the company's packaging. Beginning in October, Kestavik's boxes will be printed with vegetable-based inks, and the plastic wrap around each box will be removed. —[3]— The company estimates that these changes will eliminate about 40 tons of plastic waste each year.
+
+Prices of Kestavik teas will not change. —[4]— The new bags will first appear on the company's best-selling Harbor Breakfast and Mint Garden blends, with the remaining 22 varieties following in November and December.`,
+          groups: [ { type: 'mcq', instr: 'Questions 172-175 refer to the following press release.', items: [
+            { n: 172, q: 'What is the purpose of the press release?', options: ['To introduce a new tea flavor', 'To report an increase in prices', 'To advertise a store opening', 'To announce a change in materials'], a: 3, cue: 'it will replace all of its plastic tea bags with plant-based ones',
+              explain: 'Công ty thông báo "will replace all of its plastic tea bags with plant-based ones" (thay túi trà nhựa bằng túi từ thực vật) → thay đổi vật liệu. Không có hương trà mới hay cửa hàng mới, và "Prices of Kestavik teas will not change" nên không có chuyện tăng giá.' },
+            { n: 173, q: 'What is NOT mentioned as a change the company will make?', options: ['Printing its boxes with a different ink', 'Removing the plastic wrap from its boxes', 'Reducing the size of its boxes', 'Using tea bags made of corn fiber'], a: 2, cue: "Kestavik's boxes will be printed with vegetable-based inks, and the plastic wrap around each box will be removed",
+              explain: 'Thông cáo nêu: túi trà làm từ sợi ngô ("made from corn fiber"), hộp in bằng mực gốc thực vật và bỏ lớp màng nhựa bọc hộp. Việc thu nhỏ kích thước hộp không hề được nhắc đến → đáp án.' },
+            { n: 174, q: 'What is indicated about the Harbor Breakfast blend?', options: ['It will be among the first to use the new bags.', 'It will be discontinued in December.', 'It costs more than other blends.', 'It was created by Mr. Pemberly-Shaw.'], a: 0, cue: "The new bags will first appear on the company's best-selling Harbor Breakfast and Mint Garden blends",
+              explain: '"The new bags will first appear on… Harbor Breakfast and Mint Garden blends" → đây là loại trà đầu tiên dùng túi mới. Tháng 11–12 là lúc 22 loại còn lại chuyển đổi, không phải ngừng bán; giá và người tạo ra loại trà không được nói đến.' },
+            { n: 175, q: 'In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? "During that time, it compared samples from six different suppliers."', options: ['[1]', '[2]', '[3]', '[4]'], a: 1, cue: 'Kestavik tested the material for nearly two years before choosing it.',
+              explain: '"During that time" (trong khoảng thời gian đó) phải chỉ một khoảng thời gian vừa nêu → "tested the material for nearly two years" (thử nghiệm gần hai năm). Đặt ở [2] tạo mạch: thử nghiệm hai năm – trong thời gian đó so sánh mẫu của sáu nhà cung cấp. Các vị trí khác không có khoảng thời gian thử nghiệm nào để câu này liên kết.' }
+          ] } ] },
         { title: 'Advertisement and E-mail', text:
 `Summit Trail Team Adventures
 Team-building programs for companies of every size
@@ -295,19 +373,59 @@ One of our team members recently injured her ankle and will not be able to hike.
 Thank you,
 Hyun-woo Baek
 Customer Support Manager, Larchmont Insurance`,
-          groups: [ { type: 'mcq', instr: 'Questions 165-170 refer to the following advertisement and e-mail.', items: [
-            { n: 165, q: 'What is indicated about Summit Trail Team Adventures?', options: ['It provides transportation for participants.', 'It operates all year.', 'It offers rafting in April.', 'It accepts groups of any size.'], a: 0, cue: 'All packages include transportation from downtown Bellmore and trained guides.',
-              explain: '"All packages include transportation from downtown Bellmore" → có đưa đón người tham gia. Chương trình chỉ chạy từ tháng 4 đến tháng 10 (không quanh năm); chèo thuyền vượt thác chỉ có từ tháng 6 đến tháng 8; nhóm phải có ít nhất 12 người. Lưu ý "companies of every size" nói về quy mô công ty, không phải quy mô nhóm.' },
-            { n: 166, q: 'Why did Mr. Baek write the e-mail?', options: ['To complain about a program', 'To change a reservation', 'To request a refund', 'To ask about booking an event'], a: 3, cue: 'I am organizing a team-building event for the customer support department',
+          groups: [ { type: 'mcq', instr: 'Questions 176-180 refer to the following advertisement and e-mail.', items: [
+            { n: 176, q: 'Why did Mr. Baek write the e-mail?', options: ['To complain about a program', 'To change a reservation', 'To request a refund', 'To ask about booking an event'], a: 3, cue: 'I am organizing a team-building event for the customer support department',
               explain: 'Tiêu đề "Booking inquiry", ông đang tổ chức sự kiện cho 18 người và hỏi về giảm giá, hoạt động thay thế → hỏi về việc đặt chương trình. Chưa có đặt chỗ nào để thay đổi hay hoàn tiền, và ông không phàn nàn.' },
-            { n: 167, q: 'Which package will Mr. Baek most likely choose?', options: ['Trailhead', 'Basecamp', 'Ridgeline', 'Peak'], a: 2, cue: 'We would like a full-day program that includes lunch',
+            { n: 177, q: 'Which package will Mr. Baek most likely choose?', options: ['Trailhead', 'Basecamp', 'Ridgeline', 'Peak'], a: 2, cue: 'We would like a full-day program that includes lunch',
               explain: 'Kết hợp hai văn bản: ông muốn chương trình cả ngày có bữa trưa nhưng không ngủ qua đêm → gói Ridgeline ("Full-day hike, outdoor lunch, and rope course") là phù hợp. Gói Peak có ngủ lại nhà gỗ (overnight cabin stay); Trailhead chỉ hai giờ và Basecamp chỉ nửa ngày.' },
-            { n: 168, q: 'How much will Mr. Baek\'s group most likely pay per person?', options: ['$95.00', '$85.50', '$45.00', '$40.50'], a: 1, cue: 'Bookings made 60 days or more in advance receive a 10 percent discount.',
+            { n: 178, q: "How much will Mr. Baek's group most likely pay per person?", options: ['$95.00', '$85.50', '$45.00', '$40.50'], a: 1, cue: 'Bookings made 60 days or more in advance receive a 10 percent discount.',
               explain: 'Gói Ridgeline giá $95/người; email gửi ngày 3/3 cho sự kiện ngày 16/5 – trước hơn 60 ngày → được giảm 10%: $95 × 0,9 = $85,50. "$95.00" là giá chưa giảm; "$45.00" và "$40.50" là giá gói Basecamp trước và sau giảm.' },
-            { n: 169, q: 'In the e-mail, the word "entitles" in paragraph 2 is closest in meaning to', options: ['allows', 'names', 'requires', 'describes'], a: 0, cue: 'booking this far ahead entitles us to a discount',
+            { n: 179, q: 'In the e-mail, the word "entitles" in paragraph 2 is closest in meaning to', options: ['allows', 'names', 'requires', 'describes'], a: 0, cue: 'booking this far ahead entitles us to a discount',
               explain: '"entitle sb to sth" = cho ai quyền được hưởng cái gì → "booking this far ahead entitles us to a discount" (đặt sớm như vậy cho chúng tôi quyền được giảm giá) ≈ "allows". "names" (đặt tên) là nghĩa khác của "entitle" (đặt tiêu đề) nhưng không hợp ngữ cảnh; "requires" và "describes" sai nghĩa.' },
-            { n: 170, q: 'What does Mr. Baek ask about one of his team members?', options: ['Whether she can bring a family member', 'Whether she can join a different activity', 'Whether she can arrive late', 'Whether she can receive a refund'], a: 1, cue: 'Is there an alternative activity she could take part in at the same location?',
+            { n: 180, q: 'What does Mr. Baek ask about one of his team members?', options: ['Whether she can bring a family member', 'Whether she can join a different activity', 'Whether she can arrive late', 'Whether she can receive a refund'], a: 1, cue: 'Is there an alternative activity she could take part in at the same location?',
               explain: 'Một nhân viên bị đau mắt cá chân, không đi bộ đường dài được; ông hỏi "Is there an alternative activity she could take part in…?" → liệu cô ấy có thể tham gia hoạt động khác không. "family commitments" ở đoạn trước là lý do không ngủ qua đêm, không phải việc đưa người nhà theo.' }
+          ] } ] },
+        { title: 'Brochure and E-mail', text:
+`Thistlecombe Maritime Museum
+Host Your Next Event Among the Ships
+
+The Thistlecombe Maritime Museum offers three spaces for private and corporate events. All bookings include tables, chairs, and a basic sound system. Catering is provided exclusively by our partner, Driftwood Kitchen.
+
+Space | Capacity | Evening rate (6:00–11:00 P.M.)
+Lighthouse Room | 40 guests | $900
+Harbor Gallery | 120 guests | $2,400
+Captain's Deck (outdoor, May–September) | 200 guests | $3,100
+
+Nonprofit organizations receive a 10 percent discount on all spaces. Event guests may tour the museum's main exhibition halls free of charge until 8:00 P.M. A deposit of 25 percent is required to confirm a booking, and the balance is due fourteen days before the event.
+
+* * *
+
+To: events@thistlecombemuseum.org
+From: Priscilla Okafor-Lindqvist <pokafor@varrowfoundation.org>
+Date: March 3
+Subject: Booking inquiry
+
+Hello,
+
+I am planning the annual donor dinner for the Varrow Foundation, a nonprofit organization that funds reading programs in local schools. We expect about 110 guests on Saturday, April 25, and the Harbor Gallery appears to be the right size for us.
+
+Before I submit a deposit, I have two questions. First, our guests would very much like to see the museum's exhibitions. Our dinner is scheduled to begin at 7:30 P.M., so would it be possible to arrange a tour before then? Second, one of our board members has offered to bring a caterer she often works with. Would that be acceptable?
+
+I look forward to hearing from you.
+
+Priscilla Okafor-Lindqvist
+Events Coordinator, Varrow Foundation`,
+          groups: [ { type: 'mcq', instr: 'Questions 181-185 refer to the following brochure and e-mail.', items: [
+            { n: 181, q: "What is indicated about the museum's event spaces?", options: ['They all include a sound system.', 'They can be booked only on weekends.', 'They are all located indoors.', 'They are free for nonprofit groups.'], a: 0, cue: 'All bookings include tables, chairs, and a basic sound system.',
+              explain: '"All bookings include tables, chairs, and a basic sound system" → mọi không gian đều kèm hệ thống âm thanh. Captain\'s Deck ở ngoài trời; tổ chức phi lợi nhuận chỉ được giảm 10%, không miễn phí; không có quy định chỉ đặt vào cuối tuần.' },
+            { n: 182, q: 'How much will the Varrow Foundation most likely be charged for the space it wants?', options: ['$810', '$2,160', '$2,400', '$2,790'], a: 1, cue: 'Nonprofit organizations receive a 10 percent discount on all spaces.',
+              explain: 'Kết hợp hai văn bản: e-mail cho biết Varrow Foundation là tổ chức phi lợi nhuận muốn thuê Harbor Gallery; tờ giới thiệu ghi giá $2,400 và giảm 10% cho tổ chức phi lợi nhuận → $2,400 − $240 = $2,160. $2,400 là giá chưa giảm; $810 là giá Lighthouse Room sau giảm.' },
+            { n: 183, q: 'In the brochure, the word "balance" in the last paragraph is closest in meaning to', options: ['stability', 'equal weight', 'remaining amount', 'bank statement'], a: 2, cue: 'the balance is due fourteen days before the event',
+              explain: 'Sau khi đặt cọc 25%, "the balance is due fourteen days before the event" → "balance" là số tiền còn lại phải trả. Các nghĩa "sự thăng bằng", "cân bằng trọng lượng" hay "sao kê ngân hàng" không phù hợp với ngữ cảnh thanh toán.' },
+            { n: 184, q: "How will the museum most likely respond to Ms. Okafor-Lindqvist's second question?", options: ['Food is not allowed in the Harbor Gallery.', 'The caterer must be booked fourteen days early.', 'Board members may not attend the dinner.', 'Only Driftwood Kitchen may cater events.'], a: 3, cue: 'Catering is provided exclusively by our partner, Driftwood Kitchen.',
+              explain: 'Kết hợp hai văn bản: câu hỏi thứ hai trong e-mail là có được mang đơn vị phục vụ ăn uống riêng không; tờ giới thiệu ghi "Catering is provided exclusively by our partner, Driftwood Kitchen" (chỉ đối tác Driftwood Kitchen cung cấp) → bảo tàng sẽ từ chối. Không có quy định cấm đồ ăn hay cấm thành viên hội đồng tham dự.' },
+            { n: 185, q: 'What is suggested about the tour Ms. Okafor-Lindqvist asks about?', options: ['It can take place at no extra cost.', 'It must be led by a board member.', 'It is available only for groups under 40.', 'It must be scheduled after dinner.'], a: 0, cue: "Event guests may tour the museum's main exhibition halls free of charge until 8:00 P.M.",
+              explain: 'Kết hợp hai văn bản: cô muốn khách tham quan trước 7:30 tối; tờ giới thiệu cho phép khách dự sự kiện tham quan "free of charge until 8:00 P.M." → chuyến tham quan không mất thêm phí. Sau bữa tối (sau 7:30) gần như đã quá 8 giờ nên không phải "sau bữa tối"; không có giới hạn 40 người hay yêu cầu thành viên hội đồng dẫn đoàn.' }
           ] } ] },
         { title: 'Notice, Form and E-mail', text:
 `Ashgrove Community Centre – Room Rentals
@@ -349,17 +467,135 @@ The total for four hours, including your discount, comes to $272.
 
 Best regards,
 Desmond Achebe`,
-          groups: [ { type: 'mcq', instr: 'Questions 171-175 refer to the following notice, form, and e-mail.', items: [
-            { n: 171, q: 'What is indicated about the Willow Studio?', options: ['It has a small stage.', 'It is suitable for exercise classes.', 'It holds more people than the Cedar Hall.', 'It costs $85 per hour.'], a: 1, cue: 'ideal for dance and fitness classes',
+          groups: [ { type: 'mcq', instr: 'Questions 186-190 refer to the following notice, form, and e-mail.', items: [
+            { n: 186, q: 'What is indicated about the Willow Studio?', options: ['It has a small stage.', 'It is suitable for exercise classes.', 'It holds more people than the Cedar Hall.', 'It costs $85 per hour.'], a: 1, cue: 'ideal for dance and fitness classes',
               explain: 'Thông báo: Willow Studio "is ideal for dance and fitness classes" → phù hợp cho lớp tập luyện. Sân khấu nhỏ và giá $85/giờ là của Cedar Hall; Willow chỉ chứa 25 người, ít hơn Cedar Hall (120).' },
-            { n: 172, q: 'What is the main purpose of the e-mail?', options: ['To confirm a reservation and explain some details', 'To decline a request for a room', 'To request payment of a deposit', 'To recommend a local caterer'], a: 0, cue: 'I have reserved it for your club',
+            { n: 187, q: 'What is the main purpose of the e-mail?', options: ['To confirm a reservation and explain some details', 'To decline a request for a room', 'To request payment of a deposit', 'To recommend a local caterer'], a: 0, cue: 'I have reserved it for your club',
               explain: 'Email báo "I have reserved it for your club" rồi giải thích giờ kết thúc, quy định về đồ ăn bên ngoài, máy chiếu và tổng chi phí → xác nhận đặt phòng kèm chi tiết. Yêu cầu không bị từ chối; không có tiền đặt cọc hay giới thiệu nhà cung cấp đồ ăn.' },
-            { n: 173, q: 'What is probably true about the projector that will be used at the dinner?', options: ['It must be rented separately.', 'It belongs to the walking club.', 'It is usually installed in the Willow Studio.', 'It is normally used in a room that seats up to 20 people.'], a: 3, cue: 'The projector normally kept in the Maple Room',
+            { n: 188, q: 'What is probably true about the projector that will be used at the dinner?', options: ['It must be rented separately.', 'It belongs to the walking club.', 'It is usually installed in the Willow Studio.', 'It is normally used in a room that seats up to 20 people.'], a: 3, cue: 'The projector normally kept in the Maple Room',
               explain: 'Email: "The projector normally kept in the Maple Room" sẽ được chuyển lên sân khấu; thông báo: "The Maple Room seats up to 20 people" → máy chiếu thường dùng trong phòng 20 chỗ. Máy chiếu được dùng "at no extra cost" nên không phải thuê riêng; nó thuộc trung tâm, không phải của câu lạc bộ.' },
-            { n: 174, q: 'In the e-mail, the word "cleared" in paragraph 1 is closest in meaning to', options: ['approved', 'explained', 'emptied', 'crossed'], a: 2, cue: 'cleared the hall',
+            { n: 189, q: 'In the e-mail, the word "cleared" in paragraph 1 is closest in meaning to', options: ['approved', 'explained', 'emptied', 'crossed'], a: 2, cue: 'cleared the hall',
               explain: '"Your group will need to have cleared the hall by then" = phải dọn trống/rời khỏi hội trường trước 10 giờ tối → "emptied". "approved" (phê duyệt), "explained" (làm rõ) và "crossed" (vượt qua) là nghĩa khác của "clear", không hợp ngữ cảnh.' },
-            { n: 175, q: 'What is suggested about the rental fee quoted by Mr. Achebe?', options: ['It includes a charge for catering equipment.', "It reflects the club's nonprofit status.", 'It is based on a rate of $30 per hour.', 'It covers four and a half hours.'], a: 1, cue: 'including your discount',
+            { n: 190, q: 'What is suggested about the rental fee quoted by Mr. Achebe?', options: ['It includes a charge for catering equipment.', "It reflects the club's nonprofit status.", 'It is based on a rate of $30 per hour.', 'It covers four and a half hours.'], a: 1, cue: 'including your discount',
               explain: 'Kết hợp 3 tài liệu: Cedar Hall giá $85/giờ × 4 giờ = $340; câu lạc bộ là "registered nonprofit" nên được giảm 20% → $272, đúng như email ghi "including your discount". $30/giờ là giá phòng khác; thời gian đã rút còn 4 giờ (6:00–10:00 tối); nhà cung cấp đồ ăn tự mang dụng cụ.' }
+          ] } ] },
+        { title: 'Job advertisement, E-mail and Schedule', text:
+`Tamsin Gardens Hotel – Now Hiring
+Position: Guest Relations Supervisor (full-time)
+Location: Lakeview Branch
+
+We are seeking an experienced supervisor to lead our front-desk team of twelve. Responsibilities include training new staff, handling guest complaints, and preparing weekly reports for the general manager.
+
+Requirements:
+- At least three years of hotel front-desk experience, including one year in a supervisory role
+- Fluency in English; a second language is an advantage
+- Availability to work some evening and weekend shifts
+
+Applications should be sent to Rutendo Mapfumo in Human Resources by June 12. Shortlisted candidates will be interviewed in person during the week of June 22.
+
+* * *
+
+To: Anselm Grieve, General Manager
+From: Rutendo Mapfumo, Human Resources
+Date: June 16
+Subject: Supervisor candidates
+
+Anselm,
+
+We received 27 applications for the guest relations supervisor position. I have shortlisted four candidates, and their interview times are in the attached schedule. Here is a brief summary of each:
+
+- Valentina Ospina: four years at the front desk of the Corbel Hotel, including eighteen months as a shift leader. Speaks English and Spanish.
+- Kwame Asante-Boateng: five years of front-desk experience; currently an assistant supervisor at a resort in Seaford. Speaks English and French.
+- Lucie Marchand: seven years at hotel front desks, including three as a supervisor. Speaks English only.
+- Dmitri Volkov: three years at a front desk, with no supervisory role yet, although he has helped train new staff. Speaks English and Russian.
+
+Ms. Ospina has asked to be interviewed by video call because she is currently working abroad. Please let me know if you agree, as the advertisement stated that interviews would be held in person.
+
+Rutendo
+
+* * *
+
+Interview Schedule – Guest Relations Supervisor
+Interviewers: Anselm Grieve, Rutendo Mapfumo
+Location: Meeting Room 2, Lakeview Branch (unless noted)
+
+Date | Time | Candidate
+Monday, June 22 | 10:00 A.M. | Kwame Asante-Boateng
+Monday, June 22 | 2:30 P.M. | Dmitri Volkov
+Wednesday, June 24 | 11:00 A.M. | Lucie Marchand
+Thursday, June 25 | 9:00 A.M. | Valentina Ospina (video call – to be confirmed)
+
+Each interview will last about 45 minutes and will include a short role-play in which the candidate responds to a guest complaint.`,
+          groups: [ { type: 'mcq', instr: 'Questions 191-195 refer to the following job advertisement, e-mail, and schedule.', items: [
+            { n: 191, q: 'What is indicated about the advertised position?', options: ['It is a part-time job.', 'It involves supervising twelve employees.', "It is based at the hotel's main branch.", 'It requires a university degree.'], a: 1, cue: 'lead our front-desk team of twelve',
+              explain: '"lead our front-desk team of twelve" (dẫn dắt đội lễ tân 12 người) → giám sát 12 nhân viên. Vị trí là toàn thời gian ("full-time"), làm tại chi nhánh Lakeview chứ không phải chi nhánh chính, và không yêu cầu bằng đại học.' },
+            { n: 192, q: 'Which shortlisted candidate does NOT meet all of the stated requirements?', options: ['Valentina Ospina', 'Kwame Asante-Boateng', 'Lucie Marchand', 'Dmitri Volkov'], a: 3, cue: 'with no supervisory role yet',
+              explain: 'Kết hợp quảng cáo và e-mail: yêu cầu có ít nhất ba năm làm lễ tân, trong đó một năm ở vai trò giám sát. Dmitri Volkov có ba năm lễ tân nhưng "with no supervisory role yet" (chưa từng giữ vai trò giám sát) → chưa đạt. Lucie Marchand chỉ nói tiếng Anh nhưng ngoại ngữ thứ hai chỉ là lợi thế, không bắt buộc.' },
+            { n: 193, q: 'In the e-mail, the word "brief" in paragraph 1, line 3, is closest in meaning to', options: ['short', 'legal', 'urgent', 'informal'], a: 0, cue: 'Here is a brief summary of each',
+              explain: '"a brief summary" là bản tóm tắt ngắn gọn về từng ứng viên → "short". "brief" không mang nghĩa pháp lý, khẩn cấp hay thân mật trong ngữ cảnh này.' },
+            { n: 194, q: "What is suggested about Ms. Ospina's interview?", options: ['It will take place in Meeting Room 2.', 'It is scheduled for the first day of interviews.', 'It may not follow the format stated in the job advertisement.', 'It will be conducted by Ms. Mapfumo alone.'], a: 2, cue: '(video call – to be confirmed)',
+              explain: 'Kết hợp ba văn bản: quảng cáo nói phỏng vấn trực tiếp ("in person"); e-mail cho biết Ms. Ospina xin phỏng vấn qua video; lịch ghi "video call – to be confirmed" → buổi phỏng vấn có thể khác hình thức đã nêu trong quảng cáo. Lịch của cô vào thứ Năm (ngày cuối), không ở Meeting Room 2, và có cả hai người phỏng vấn.' },
+            { n: 195, q: 'When will the candidate who currently works at a resort be interviewed?', options: ['On Monday afternoon', 'On Monday morning', 'On Wednesday morning', 'On Thursday morning'], a: 1, cue: 'Monday, June 22 | 10:00 A.M. | Kwame Asante-Boateng',
+              explain: 'Kết hợp e-mail và lịch phỏng vấn: e-mail cho biết Kwame Asante-Boateng "currently an assistant supervisor at a resort in Seaford"; lịch xếp anh lúc 10:00 sáng thứ Hai, 22/6 → sáng thứ Hai. Chiều thứ Hai là Dmitri Volkov, thứ Tư là Lucie Marchand, thứ Năm là Valentina Ospina.' }
+          ] } ] },
+        { title: 'Price list, E-mail and Invoice', text:
+`Leafward Greenery – Office Plant Rental Price List
+
+Plant | Size | Monthly rental per plant
+Snake plant | Small (up to 60 cm) | $6
+Peace lily | Medium (60–100 cm) | $9
+Fiddle-leaf fig | Large (over 100 cm) | $15
+Kentia palm | Large (over 100 cm) | $18
+
+All rentals include delivery, a decorative pot, and a maintenance visit every two weeks. Plants that become unhealthy are replaced at no cost. Customers who rent 20 or more plants receive a 10 percent discount on their monthly total.
+
+* * *
+
+To: accounts@leafwardgreenery.com
+From: Hyun-woo Jang <hjang@corvidanalytics.com>
+Date: October 6
+Subject: September invoice
+
+Hello,
+
+Our office has rented plants from Leafward Greenery since last spring, and we are very pleased with how they have brightened our workspace. However, I believe there is an error on our September invoice.
+
+In August, we added four Kentia palms for our new reception area, bringing our total to 20 plants. Your representative, Ms. Mbatha, told me at the time that this would make us eligible for your volume discount, but the discount does not appear on the invoice. Could you please issue a corrected invoice?
+
+Also, one of the peace lilies near the kitchen has lost most of its leaves. Could your technician take a look at it during the next scheduled visit?
+
+Thank you,
+Hyun-woo Jang
+Office Manager, Corvid Analytics
+
+* * *
+
+Leafward Greenery – Invoice
+Customer: Corvid Analytics
+Invoice date: September 30
+Billing period: September 1–30
+
+Plant | Quantity | Unit price | Amount
+Snake plant | 8 | $6 | $48
+Peace lily | 6 | $9 | $54
+Fiddle-leaf fig | 2 | $15 | $30
+Kentia palm | 4 | $18 | $72
+
+Subtotal: $204
+Discount: $0
+Total due: $204
+Payment due by October 15`,
+          groups: [ { type: 'mcq', instr: 'Questions 196-200 refer to the following price list, e-mail, and invoice.', items: [
+            { n: 196, q: "What is indicated about Leafward Greenery's service?", options: ['It replaces unhealthy plants at no charge.', 'It charges a fee for delivery.', 'It requires customers to buy their own pots.', 'It sends a technician once a month.'], a: 0, cue: 'Plants that become unhealthy are replaced at no cost.',
+              explain: '"Plants that become unhealthy are replaced at no cost" → cây yếu được thay miễn phí. Giá thuê đã bao gồm giao hàng và chậu trang trí; nhân viên bảo dưỡng đến hai tuần một lần, không phải mỗi tháng một lần.' },
+            { n: 197, q: 'Why did Mr. Jang write the e-mail?', options: ["To cancel his company's rental", 'To ask about a new type of plant', 'To report a problem with a bill', 'To change a payment due date'], a: 2, cue: 'I believe there is an error on our September invoice.',
+              explain: '"I believe there is an error on our September invoice" (tôi nghĩ hóa đơn tháng 9 có sai sót) → báo lỗi trên hóa đơn. Anh khen dịch vụ chứ không hủy hợp đồng; cây cọ Kentia đã được thêm từ tháng 8; hạn thanh toán không được đề cập trong e-mail.' },
+            { n: 198, q: 'What will the corrected total most likely be?', options: ['$183.60', '$186.00', '$194.00', '$204.00'], a: 0, cue: 'Customers who rent 20 or more plants receive a 10 percent discount on their monthly total.',
+              explain: 'Kết hợp ba văn bản: bảng giá giảm 10% cho khách thuê từ 20 cây; e-mail cho biết công ty có 20 cây; hóa đơn ghi tạm tính $204 nhưng "Discount: $0". Tổng đúng = $204 − $20.40 = $183.60. $204.00 là số tiền sai trên hóa đơn hiện tại.' },
+            { n: 199, q: 'In the e-mail, the word "issue" in paragraph 2, line 4, is closest in meaning to', options: ['discuss', 'raise', 'examine', 'send out'], a: 3, cue: 'Could you please issue a corrected invoice?',
+              explain: '"issue a corrected invoice" nghĩa là lập và gửi hóa đơn đã chỉnh sửa → "send out". Nghĩa "thảo luận", "nêu ra (vấn đề)" hay "xem xét" không hợp với tân ngữ "invoice".' },
+            { n: 200, q: 'What is suggested about the plant Mr. Jang mentions near the kitchen?', options: ['It was added in August.', 'It is one of six of its kind in the office.', 'It is the largest plant in the office.', 'It will be removed from the invoice.'], a: 1, cue: 'Peace lily | 6 | $9 | $54',
+              explain: 'Kết hợp e-mail và hóa đơn: cây bị rụng lá là một cây lan ý ("one of the peace lilies"); hóa đơn cho thấy công ty thuê 6 cây lan ý → đây là một trong sáu cây cùng loại. Cây thêm vào tháng 8 là cọ Kentia; lan ý cỡ trung, không phải lớn nhất; không có thông tin sẽ xóa khỏi hóa đơn.' }
           ] } ] }
       ] }
   ] });

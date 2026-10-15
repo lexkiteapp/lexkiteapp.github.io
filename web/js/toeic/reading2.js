@@ -292,6 +292,80 @@ Celeste Moreau [10:11 A.M.]: Good idea. Let's meet in my office at 3:00. I'll se
             { n: 164, q: 'What will Ms. Moreau most likely do next?', options: ['Call the furniture suppliers', 'Book a flight to Madrid', 'Revise the color scheme', 'Schedule a rehearsal'], a: 3, cue: 'I\'ll send everyone a calendar invitation',
               explain: 'Cô đồng ý tập dượt (practice run) chiều thứ Tư và sẽ gửi lời mời lịch → lên lịch buổi tập dượt.' }
           ] } ] },
+        { title: 'Notice', text:
+`Halvorsen Kitchenware – Important Safety Notice
+
+Halvorsen Kitchenware has identified a possible defect in a limited number of its Brio 1.7-liter electric kettles sold between August 1 and October 31. In some units, the switch may fail to turn off automatically after the water boils. No injuries have been reported, but we are asking customers to stop using affected kettles immediately.
+
+To find out whether your kettle is affected, check the serial number printed on the base. Kettles with serial numbers beginning with BK-22 are included in this notice. All other models and serial numbers are safe to use.
+
+Customers with an affected kettle may return it to any Halvorsen retail store for a full refund, even without a receipt. Alternatively, customers may request a free replacement kettle by completing the form at www.halvorsenkitchen.com/brio. Replacements will be shipped at no cost within ten business days.
+
+We apologize for the inconvenience and thank you for your understanding.`,
+          groups: [ { type: 'mcq', instr: 'Questions 165-166 refer to the following notice.', items: [
+            { n: 165, q: 'What is the purpose of the notice?', options: ['To announce the launch of a new kettle model', 'To warn customers about a possible problem with a product', 'To explain how to clean an electric appliance', 'To advertise a seasonal discount on kitchenware'], a: 1, cue: 'the switch may fail to turn off automatically after the water boils',
+              explain: 'Thông báo nói một số ấm đun "may fail to turn off automatically" (có thể không tự ngắt sau khi nước sôi) và đề nghị ngừng sử dụng → cảnh báo lỗi sản phẩm. Không hề giới thiệu mẫu mới, hướng dẫn vệ sinh hay khuyến mãi.' },
+            { n: 166, q: 'What is NOT mentioned as an option for customers with an affected kettle?', options: ['Returning it to a store for a refund', 'Requesting a replacement online', 'Receiving a new kettle by mail at no charge', 'Having it repaired by a technician'], a: 3, cue: 'may return it to any Halvorsen retail store for a full refund',
+              explain: 'Khách có thể "return it to any Halvorsen retail store for a full refund" (trả lại cửa hàng để hoàn tiền) hoặc điền form trực tuyến để nhận ấm thay thế gửi miễn phí. Thông báo KHÔNG nhắc đến việc nhờ kỹ thuật viên sửa chữa.' }
+          ] } ] },
+        { title: 'Letter', text:
+`Dear Ms. Okonkwo,
+
+On behalf of the Brantwood Maritime Museum, I would like to thank you for your generous donation of your grandfather's ship models and navigation instruments. Our curators were delighted to receive such well-preserved items, and they believe the collection will be of great interest to our visitors.
+
+As we discussed by telephone, the items will first be cleaned and photographed by our conservation team. We plan to feature the collection in a new exhibit, "Charting the Coast," which is scheduled to open on March 14. Your family's contribution will be acknowledged on a display panel at the entrance to the exhibit.
+
+We would also be honored if you and your family could attend a private preview of the exhibit on the evening of March 12. A formal invitation will be mailed to you in February.
+
+Sincerely,
+Graham Whitlock
+Director of Collections
+Brantwood Maritime Museum`,
+          groups: [ { type: 'mcq', instr: 'Questions 167-168 refer to the following letter.', items: [
+            { n: 167, q: 'Why did Mr. Whitlock write the letter?', options: ['To express thanks for a gift', 'To request a financial donation', 'To ask for permission to sell some items', 'To announce the closing of an exhibit'], a: 0, cue: 'thank you for your generous donation',
+              explain: '"thank you for your generous donation" = cảm ơn món quà hiến tặng hào phóng (mô hình tàu và dụng cụ hàng hải) → thư cảm ơn. Bảo tàng không xin tiền, không bán hiện vật, và triển lãm sắp mở chứ không đóng cửa.' },
+            { n: 168, q: 'In the letter, the word "feature" in paragraph 2, line 2, is closest in meaning to', options: ['characterize', 'resemble', 'showcase', 'appear'], a: 2, cue: 'We plan to feature the collection in a new exhibit',
+              explain: '"feature the collection in a new exhibit" = trưng bày nổi bật bộ sưu tập trong triển lãm mới → "showcase". "characterize" (mô tả đặc điểm), "resemble" (giống) và "appear" (xuất hiện, nội động từ) không hợp ngữ cảnh.' }
+          ] } ] },
+        { title: 'Online chat discussion', text:
+`Leticia Ferraz [10:02 A.M.]: Quick update: Dunmore Printing just called. Their main press broke down, so the first 2,000 copies of "Market Table" won't be ready until next Friday.
+Arjun Mehta [10:04 A.M.]: That's a problem. The launch event at Pellham Books is this coming Thursday.
+Leticia Ferraz [10:05 A.M.]: I know. They said they could print 300 copies on a smaller press by Tuesday, though.
+Sofia Lindgren [10:07 A.M.]: Pellham only ordered 250 copies for the event, so 300 would cover it. The online orders can wait a few days.
+Arjun Mehta [10:09 A.M.]: Good point. Do we need to tell the customers who preordered online?
+Sofia Lindgren [10:10 A.M.]: Yes. I'd rather they hear it from us than notice the delay on their own.
+Kwame Asante [10:13 A.M.]: I can draft an e-mail to those customers this morning. Should we offer them anything for the inconvenience?
+Leticia Ferraz [10:15 A.M.]: A free shipping code would be a nice gesture. Kwame, please send me the draft before it goes out.
+Kwame Asante [10:16 A.M.]: Sure thing. You'll have it by noon.`,
+          groups: [ { type: 'mcq', instr: 'Questions 169-171 refer to the following online chat discussion.', items: [
+            { n: 169, q: 'What problem are the writers discussing?', options: ['A printing company cannot deliver an order on time.', 'A bookstore has canceled a launch event.', 'An author is unable to attend an event.', 'Some books were printed with errors.'], a: 0, cue: 'Their main press broke down',
+              explain: '"Their main press broke down" (máy in chính bị hỏng) nên 2.000 cuốn sẽ trễ đến thứ Sáu tuần sau → nhà in không giao đúng hạn. Sự kiện ra mắt vẫn diễn ra, không có chuyện tác giả vắng mặt hay sách in lỗi.' },
+            { n: 170, q: 'At 10:09 A.M., what does Mr. Mehta most likely mean when he writes, "Good point"?', options: ['He thinks the event should be moved to a larger venue.', 'He wants Pellham Books to order more copies.', 'He plans to cancel all of the online orders.', 'He agrees that the smaller print run will meet the immediate need.'], a: 3, cue: 'Pellham only ordered 250 copies for the event, so 300 would cover it',
+              explain: 'Ngay trước đó Ms. Lindgren nói Pellham chỉ đặt 250 cuốn nên 300 cuốn "would cover it" (là đủ), đơn online có thể chờ. "Good point" = ý hay đấy → anh đồng ý rằng lô in nhỏ đủ đáp ứng nhu cầu trước mắt. Không ai đề nghị đổi địa điểm, đặt thêm hay hủy đơn.' },
+            { n: 171, q: 'What will Mr. Asante most likely do next?', options: ['Call Dunmore Printing', 'Visit Pellham Books', 'Write a message to customers', 'Update the company Web site'], a: 2, cue: 'I can draft an e-mail to those customers this morning',
+              explain: 'Mr. Asante nói "I can draft an e-mail to those customers this morning" (soạn email gửi khách đặt trước) và hứa gửi bản nháp trước trưa → anh sẽ viết thư cho khách hàng. Các việc khác không được nhắc đến.' }
+          ] } ] },
+        { title: 'Article', text:
+`Rooftop Solar Takes Off at Port Elmsworth Warehouses
+By Ingrid Solberg
+
+PORT ELMSWORTH (February 18) – Logistics firm Tavera Freight has completed the installation of solar panels on the roofs of its three warehouses near the Port Elmsworth harbor. —[1]— The panels, which cover a combined area of about 22,000 square meters, are expected to supply roughly 60 percent of the electricity used at the sites.
+
+"Our warehouses have huge, flat roofs that were doing nothing but collecting rain," said Tavera's facilities manager, Rodrigo Esposito. "Now they are working for us." —[2]— The company estimates that it will recover the cost of the project within seven years through lower energy bills.
+
+The project was partly funded by a regional grant program that supports businesses switching to renewable energy. —[3]— Tavera received about one-third of the project's total cost through the program.
+
+Mr. Esposito said the company is now considering adding battery storage so that power generated during the day can be used for night shifts. —[4]— A decision is expected later this year.`,
+          groups: [ { type: 'mcq', instr: 'Questions 172-175 refer to the following article.', items: [
+            { n: 172, q: 'What is the article mainly about?', options: ['The construction of a new harbor', 'A shortage of warehouse space', 'A rise in electricity prices', "A company's use of renewable energy at its facilities"], a: 3, cue: 'has completed the installation of solar panels on the roofs of its three warehouses',
+              explain: 'Bài viết nói Tavera Freight "has completed the installation of solar panels" trên mái ba nhà kho → công ty dùng năng lượng tái tạo tại cơ sở của mình. Không nói về xây cảng, thiếu kho hay giá điện tăng.' },
+            { n: 173, q: 'What is indicated about the solar panels?', options: ['They were manufactured by Tavera Freight.', "They are expected to meet more than half of the sites' power needs.", 'They took seven years to install.', 'They will be used to charge delivery trucks.'], a: 1, cue: 'supply roughly 60 percent of the electricity used at the sites',
+              explain: '"supply roughly 60 percent of the electricity" = cung cấp khoảng 60% lượng điện → hơn một nửa nhu cầu. "Seven years" là thời gian hoàn vốn, không phải thời gian lắp đặt; bài không nói công ty tự sản xuất tấm pin hay sạc xe tải.' },
+            { n: 174, q: 'What is NOT mentioned about the project?', options: ['How long it will take to recover its cost', 'Where some of its funding came from', 'Which company installed the panels', 'A possible future addition to it'], a: 2, cue: 'recover the cost of the project within seven years',
+              explain: 'Bài có nêu thời gian hoàn vốn ("recover the cost ... within seven years"), nguồn tài trợ (chương trình trợ cấp vùng) và khả năng bổ sung pin lưu trữ. Bài KHÔNG cho biết công ty nào lắp đặt tấm pin.' },
+            { n: 175, q: 'In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? "Such grants are available to companies of any size in the region."', options: ['[1]', '[2]', '[3]', '[4]'], a: 2, cue: 'supports businesses switching to renewable energy.',
+              explain: '"Such grants" (những khoản trợ cấp như vậy) phải đứng sau câu nhắc đến "a regional grant program that supports businesses switching to renewable energy" → vị trí [3]. Các vị trí khác chưa hề nói đến trợ cấp.' }
+          ] } ] },
         { title: 'Web page and E-mail', text:
 `www.brightharborgym.com/classes
 
@@ -320,19 +394,52 @@ Since I work near the gym, I was thinking of trying a lunchtime class taught by 
 
 Regards,
 Tomasz Wilk`,
-          groups: [ { type: 'mcq', instr: 'Questions 165-170 refer to the following Web page and e-mail.', items: [
-            { n: 165, q: 'What is indicated about Aqua Fitness?', options: ['It is held on a weekend.', 'It is taught by Ms. Okoye.', 'It requires advance booking.', 'It takes place in Studio 2.'], a: 0, cue: 'Sat, 9:00 A.M.',
-              explain: 'Aqua Fitness diễn ra thứ Bảy 9h sáng → cuối tuần. Giảng viên là Marisol Ruiz, tổ chức ở hồ bơi.' },
-            { n: 166, q: 'Which class has Mr. Wilk had trouble joining?', options: ['Morning Yoga', 'Indoor Cycling', 'Strength Basics', 'Aqua Fitness'], a: 1, cue: 'the evening class on Tuesdays and Thursdays',
+          groups: [ { type: 'mcq', instr: 'Questions 176-180 refer to the following Web page and e-mail.', items: [
+            { n: 176, q: 'Which class has Mr. Wilk had trouble joining?', options: ['Morning Yoga', 'Indoor Cycling', 'Strength Basics', 'Aqua Fitness'], a: 1, cue: 'the evening class on Tuesdays and Thursdays',
               explain: 'Kết hợp 2 văn bản: lớp buổi tối thứ Ba/thứ Năm là Indoor Cycling (19h, Tue/Thu), lớp giới hạn 20 người nên hay kín chỗ.' },
-            { n: 167, q: 'What class is Mr. Wilk considering trying?', options: ['Morning Yoga', 'Aqua Fitness', 'Indoor Cycling', 'Strength Basics'], a: 3, cue: 'a lunchtime class taught by the same instructor',
+            { n: 177, q: 'What class is Mr. Wilk considering trying?', options: ['Morning Yoga', 'Aqua Fitness', 'Indoor Cycling', 'Strength Basics'], a: 3, cue: 'a lunchtime class taught by the same instructor',
               explain: 'Cùng giảng viên Leon Varga, lớp giờ trưa (12:15) là Strength Basics.' },
-            { n: 168, q: 'What answer will Mr. Wilk most likely receive to his question about reservations?', options: ['Bookings must be made through the app.', 'Reservations are required one week ahead.', 'No reservation is needed for the class.', 'The class is open only to Premium members.'], a: 2, cue: 'All other classes are first come, first served',
+            { n: 178, q: 'What answer will Mr. Wilk most likely receive to his question about reservations?', options: ['Bookings must be made through the app.', 'Reservations are required one week ahead.', 'No reservation is needed for the class.', 'The class is open only to Premium members.'], a: 2, cue: 'All other classes are first come, first served',
               explain: 'Chỉ Indoor Cycling bắt buộc đặt trước; các lớp khác (gồm Strength Basics) "first come, first served" → không cần đặt chỗ.' },
-            { n: 169, q: 'How much does Mr. Wilk currently pay to attend a group class?', options: ['$8', 'Nothing', '$20', '$12'], a: 0, cue: 'Standard members may attend for $8 per class',
+            { n: 179, q: 'How much does Mr. Wilk currently pay to attend a group class?', options: ['$8', 'Nothing', '$20', '$12'], a: 0, cue: 'Standard members may attend for $8 per class',
               explain: 'Ông là hội viên Standard; hội viên Standard trả $8 mỗi lớp.' },
-            { n: 170, q: 'Why is Mr. Wilk interested in changing his membership?', options: ['He is moving closer to the gym.', 'He wants access to the pool.', 'He is unhappy with his instructor.', 'He goes to classes frequently.'], a: 3, cue: 'I am now attending classes several times a week',
+            { n: 180, q: 'Why is Mr. Wilk interested in changing his membership?', options: ['He is moving closer to the gym.', 'He wants access to the pool.', 'He is unhappy with his instructor.', 'He goes to classes frequently.'], a: 3, cue: 'I am now attending classes several times a week',
               explain: 'Ông muốn nâng cấp vì đi học nhiều lần mỗi tuần; gói Premium được học miễn phí.' }
+          ] } ] },
+        { title: 'Memo and Schedule', text:
+`MEMO
+To: All warehouse staff, Oberlin Distribution Center
+From: Natasha Volkova, Safety Coordinator
+Date: June 3
+Subject: Forklift recertification
+
+As required by our insurance provider, every employee who operates a forklift must complete a recertification course this month. Each course consists of a classroom session followed by a practical driving test on the same day.
+
+Please sign up for one session on the schedule below by Friday, June 7. Employees on the night shift should choose an afternoon session so that they do not have to come in early in the morning. Sessions are limited to eight participants, so register early.
+
+Staff who passed the course within the past twelve months are exempt but must submit a copy of their certificate to me. Employees who do not complete recertification by June 30 will be temporarily reassigned to duties that do not involve operating a forklift.
+
+* * *
+
+Forklift Recertification – June Sessions
+Training Room 2, Oberlin Distribution Center
+
+Date | Time | Instructor | Spaces left
+Tuesday, June 11 | 8:00 A.M.–12:00 P.M. | Marcus Bell | 0
+Thursday, June 13 | 1:00 P.M.–5:00 P.M. | Marcus Bell | 3
+Monday, June 17 | 8:00 A.M.–12:00 P.M. | Aiko Tanaka | 5
+Wednesday, June 26 | 1:00 P.M.–5:00 P.M. | Aiko Tanaka | 6`,
+          groups: [ { type: 'mcq', instr: 'Questions 181-185 refer to the following memo and schedule.', items: [
+            { n: 181, q: 'What is the purpose of the memo?', options: ['To announce a required training course', 'To introduce a new safety coordinator', 'To report an accident in the warehouse', 'To explain changes to shift schedules'], a: 0, cue: 'must complete a recertification course this month',
+              explain: 'Memo yêu cầu mọi nhân viên lái xe nâng "must complete a recertification course this month" (phải hoàn thành khóa cấp lại chứng nhận trong tháng) → thông báo khóa đào tạo bắt buộc. Không có tai nạn, nhân sự mới hay thay đổi ca làm.' },
+            { n: 182, q: 'In the memo, the word "exempt" in paragraph 3, line 1, is closest in meaning to', options: ['released', 'excused', 'prepared', 'promoted'], a: 1, cue: 'are exempt but must submit a copy of their certificate',
+              explain: '"are exempt" ở đây = được miễn (không phải học lại khóa) → "excused". "released" (được thả, phát hành), "prepared" (đã chuẩn bị), "promoted" (được thăng chức) không hợp nghĩa.' },
+            { n: 183, q: 'A night-shift employee who has not registered yet wants to take the course with Ms. Tanaka. On which date will he most likely attend?', options: ['June 11', 'June 13', 'June 17', 'June 26'], a: 3, cue: 'Employees on the night shift should choose an afternoon session',
+              explain: 'Kết hợp hai văn bản: memo yêu cầu nhân viên ca đêm "choose an afternoon session" (chọn buổi chiều); theo lịch, buổi chiều do Aiko Tanaka dạy là thứ Tư, 26/6. Ngày 17/6 là buổi sáng; ngày 11 và 13 do Marcus Bell dạy.' },
+            { n: 184, q: 'What is suggested about the June 11 session?', options: ['It will be led by Ms. Volkova.', 'It has been moved to another room.', 'Eight employees have signed up for it.', 'It is intended for night-shift workers.'], a: 2, cue: 'Sessions are limited to eight participants',
+              explain: 'Kết hợp hai văn bản: memo nói mỗi buổi "limited to eight participants" (tối đa 8 người); lịch cho thấy buổi 11/6 còn 0 chỗ → đã có 8 người đăng ký. Buổi này do Marcus Bell dạy, vào buổi sáng và không đổi phòng.' },
+            { n: 185, q: 'According to the memo, what will happen to employees who do not complete recertification by June 30?', options: ['They will be given different tasks for a period of time.', 'They will have to pay for the course themselves.', 'They will lose their insurance coverage.', 'They will be required to take a written exam.'], a: 0, cue: 'will be temporarily reassigned to duties that do not involve operating a forklift',
+              explain: '"temporarily reassigned to duties that do not involve operating a forklift" = tạm thời chuyển sang công việc không lái xe nâng → được giao nhiệm vụ khác một thời gian. Memo không nhắc đến tự trả phí, mất bảo hiểm hay thi viết.' }
           ] } ] },
         { title: 'E-mail, Itinerary and Online review', text:
 `To: Tomas Lindqvist
@@ -368,17 +475,125 @@ Rating: 4 out of 5
 I stayed here for three nights on a business trip. The driver who collected me from the airport was waiting when I landed, which was a relief after a long overnight flight. My room was spacious and quiet, and the desk was large enough to spread out my documents. The location is ideal, as the expo center is a short walk away.
 
 My only complaint concerns breakfast. The restaurant was so crowded on my first morning that I had to wait twenty minutes for a table. Staff told me that a large tour group was staying at the hotel. On my last day, I appreciated being able to keep my room until the afternoon before heading to the airport.`,
-          groups: [ { type: 'mcq', instr: 'Questions 171-175 refer to the following e-mail, itinerary, and online review.', items: [
-            { n: 171, q: 'What is the purpose of the e-mail?', options: ['To confirm a hotel reservation', 'To announce a room upgrade', 'To request payment of a deposit', 'To advertise a loyalty program'], a: 0, cue: 'pleased to confirm your reservation',
+          groups: [ { type: 'mcq', instr: 'Questions 186-190 refer to the following e-mail, itinerary, and online review.', items: [
+            { n: 186, q: 'What is the purpose of the e-mail?', options: ['To confirm a hotel reservation', 'To announce a room upgrade', 'To request payment of a deposit', 'To advertise a loyalty program'], a: 0, cue: 'pleased to confirm your reservation',
               explain: 'Ngay đoạn 1 của email: "We are pleased to confirm your reservation" → xác nhận đặt phòng. Chương trình Blue Anchor chỉ được nhắc như quyền lợi của khách, không phải mục đích chính; không có nâng hạng phòng hay yêu cầu đặt cọc.' },
-            { n: 172, q: 'In the e-mail, the word "arrange" in paragraph 2 is closest in meaning to', options: ['decorate', 'organize', 'adjust', 'sort'], a: 1, cue: 'To arrange one',
+            { n: 187, q: 'In the e-mail, the word "arrange" in paragraph 2 is closest in meaning to', options: ['decorate', 'organize', 'adjust', 'sort'], a: 1, cue: 'To arrange one',
               explain: '"To arrange one" (one = an airport transfer) = sắp xếp/đặt một chuyến đưa đón → "organize". "decorate" (trang trí), "sort" (phân loại), "adjust" (điều chỉnh) không hợp ngữ cảnh đặt dịch vụ.' },
-            { n: 173, q: 'What is probably true about Mr. Lindqvist?', options: ['He sent his flight details to the hotel in advance.', 'He paid for a taxi from the airport.', 'He changed his departure date.', 'He stayed at the hotel for four nights.'], a: 0, cue: 'The driver who collected me from the airport was waiting',
+            { n: 188, q: 'What is probably true about Mr. Lindqvist?', options: ['He sent his flight details to the hotel in advance.', 'He paid for a taxi from the airport.', 'He changed his departure date.', 'He stayed at the hotel for four nights.'], a: 0, cue: 'The driver who collected me from the airport was waiting',
               explain: 'Email: muốn được đưa đón miễn phí thì phải gửi "flight details at least 48 hours before arrival"; bài đánh giá: "The driver who collected me from the airport was waiting" → ông đã gửi thông tin chuyến bay trước. Vì có xe đón nên không phải đi taxi; ông ở đúng ba đêm và rời đi 22/5 như dự kiến.' },
-            { n: 174, q: 'Why did Mr. Lindqvist have to wait for breakfast?', options: ['The restaurant opened late.', 'He arrived before breakfast was served.', 'Many other guests were eating at the same time.', 'His room did not include breakfast.'], a: 2, cue: 'a large tour group was staying at the hotel',
+            { n: 189, q: 'Why did Mr. Lindqvist have to wait for breakfast?', options: ['The restaurant opened late.', 'He arrived before breakfast was served.', 'Many other guests were eating at the same time.', 'His room did not include breakfast.'], a: 2, cue: 'a large tour group was staying at the hotel',
               explain: 'Bài đánh giá: nhà hàng "so crowded" vì "a large tour group was staying at the hotel" → nhiều khách ăn cùng lúc. Email cho biết bữa sáng đã bao gồm trong giá phòng; không có thông tin nhà hàng mở cửa muộn.' },
-            { n: 175, q: "What is suggested about Mr. Lindqvist's last day in Sydney?", options: ['He gave a product demonstration that day.', 'He missed his flight.', 'He met distributors in the morning.', 'He used a benefit available to loyalty program members.'], a: 3, cue: 'keep my room until the afternoon',
+            { n: 190, q: "What is suggested about Mr. Lindqvist's last day in Sydney?", options: ['He gave a product demonstration that day.', 'He missed his flight.', 'He met distributors in the morning.', 'He used a benefit available to loyalty program members.'], a: 3, cue: 'keep my room until the afternoon',
               explain: 'Bài đánh giá: ngày cuối ông được "keep my room until the afternoon"; email cho biết "Late checkout until 2:00 P.M." là quyền lợi dành cho thành viên → ông đã dùng ưu đãi thành viên. Theo lịch trình, buổi giới thiệu sản phẩm là 21/5 và gặp nhà phân phối là 20/5, không phải ngày cuối (22/5).' }
+          ] } ] },
+        { title: 'Price list, Order form and E-mail', text:
+`Leafline Office Plants – Monthly Rental Plans
+
+Plan | Plants included | Maintenance visits | Monthly fee
+Starter | Up to 10 small plants | Once a month | $85
+Standard | Up to 20 small or medium plants | Twice a month | $160
+Premium | Up to 40 plants of any size | Every week | $290
+
+All plans include delivery, decorative pots, and free replacement of any plant that becomes unhealthy. Customers who sign a twelve-month agreement receive one month free. Large floor plants (over 1.5 meters tall) are available only with the Premium plan.
+
+* * *
+
+Leafline Office Plants – Rental Order Form
+
+Company: Castellan Legal Partners
+Contact: Mei-Lin Zhou, Office Manager
+Address: 410 Ridgeway Avenue, Suite 900
+Plan selected: Standard
+Agreement length: 12 months
+Number of plants: 18 (12 small, 6 medium)
+Preferred delivery date: Monday, September 8
+Special requests: Please also include two large palm trees (about 2 meters tall) for our reception area.
+
+* * *
+
+To: Mei-Lin Zhou
+From: Oskar Brandt, Leafline Office Plants
+Date: September 2
+Subject: Your rental order
+
+Dear Ms. Zhou,
+
+Thank you for choosing Leafline. Before we finalize your order, I need to point out one issue. The two plants you requested for your reception area are available only with a higher-level plan. If you would like to keep them, I can switch your order to that plan, which would also cover the other 18 plants you selected. Alternatively, I can recommend some attractive medium-sized plants that would suit the space under your current plan.
+
+Also, please note that our delivery team does not work on Mondays in September because of our seasonal stock deliveries. Would Tuesday, September 9, be acceptable instead?
+
+I look forward to hearing from you.
+
+Oskar Brandt
+Customer Accounts`,
+          groups: [ { type: 'mcq', instr: 'Questions 191-195 refer to the following price list, order form, and e-mail.', items: [
+            { n: 191, q: "Which plan does Mr. Brandt offer to switch Ms. Zhou's order to?", options: ['Starter', 'Standard', 'Premium', 'A custom plan'], a: 2, cue: 'Large floor plants (over 1.5 meters tall) are available only with the Premium plan',
+              explain: 'Kết hợp ba văn bản: phiếu đặt hàng xin thêm hai cây cọ cao khoảng 2 mét; bảng giá ghi cây lớn trên 1,5 mét "available only with the Premium plan"; email nói các cây này chỉ có ở gói cao hơn → gói Premium. Standard là gói cô đang chọn.' },
+            { n: 192, q: 'If Ms. Zhou keeps her current plan, how much will she pay for the first year of the agreement?', options: ['$1,600', '$1,760', '$1,920', '$3,190'], a: 1, cue: 'Customers who sign a twelve-month agreement receive one month free',
+              explain: 'Kết hợp hai văn bản: phiếu đặt hàng chọn gói Standard ($160/tháng) với hợp đồng 12 tháng; bảng giá cho biết hợp đồng 12 tháng được "one month free" → trả 11 tháng × $160 = $1,760. $1,920 là giá đủ 12 tháng; $3,190 là 11 tháng gói Premium.' },
+            { n: 193, q: 'What is suggested about Leafline Office Plants?', options: ['It charges extra for decorative pots.', 'It changes its delivery schedule at certain times of the year.', 'It replaces unhealthy plants for a small fee.', 'It has recently moved to Ridgeway Avenue.'], a: 1, cue: 'does not work on Mondays in September because of our seasonal stock deliveries',
+              explain: 'Email cho biết đội giao hàng "does not work on Mondays in September" vì nhận hàng theo mùa → lịch giao hàng thay đổi vào một số thời điểm trong năm. Chậu trang trí và thay cây yếu đều miễn phí; Ridgeway Avenue là địa chỉ của khách hàng.' },
+            { n: 194, q: 'In the e-mail, the word "suit" in paragraph 1, line 5, is closest in meaning to', options: ['dress', 'request', 'follow', 'fit'], a: 3, cue: 'that would suit the space under your current plan',
+              explain: '"plants that would suit the space" = cây phù hợp với không gian → "fit". Nghĩa "bộ com-lê, mặc đồ" ("dress") hay "request", "follow" không hợp ngữ cảnh.' },
+            { n: 195, q: 'What does Mr. Brandt ask Ms. Zhou to do?', options: ['Approve a different delivery date', 'Pay a deposit in advance', 'Send a floor plan of her office', 'Reduce the number of plants'], a: 0, cue: 'Would Tuesday, September 9, be acceptable instead?',
+              explain: 'Anh hỏi "Would Tuesday, September 9, be acceptable instead?" (thứ Ba 9/9 có được không?) vì không giao vào thứ Hai → đề nghị cô chấp thuận ngày giao khác. Không yêu cầu đặt cọc, gửi sơ đồ hay giảm số cây.' }
+          ] } ] },
+        { title: 'Brochure, E-mail and Receipt', text:
+`Kingfisher River Cruises – Private Group Charters
+
+Planning a company outing, client reception, or team celebration? Charter one of our three riverboats for an unforgettable afternoon or evening on the Varne River.
+
+Boat | Capacity | Rate per hour
+Heron | 30 guests | $220
+Osprey | 60 guests | $380
+Albatross | 120 guests | $600
+
+Minimum charter: 3 hours. Catering can be arranged through our partner, Saltmarsh Kitchen, at $25 per guest. All charters depart from Pier 4 in the Old Town district. Groups booking at least 30 days in advance receive a 10% discount on the boat rental (catering not included).
+
+* * *
+
+To: bookings@kingfishercruises.com
+From: Renata Duarte <rduarte@solisanalytics.com>
+Date: April 28
+Subject: Charter inquiry
+
+Hello,
+
+Solis Analytics would like to charter a boat for our staff summer party on Friday, June 20, from 6:00 P.M. to 9:00 P.M. We expect about 45 employees, and we would like dinner to be provided for everyone. Several of our team members use wheelchairs, so please let me know whether the boat has step-free access.
+
+Also, our office is in Linwood, about 40 minutes from the Old Town. Could the boat pick us up at a location closer to us?
+
+Best regards,
+Renata Duarte
+Human Resources Coordinator
+
+* * *
+
+Kingfisher River Cruises – Payment Receipt
+
+Receipt No.: KR-5817
+Date: May 2
+Customer: Solis Analytics (Renata Duarte)
+Event date: June 20
+
+Boat rental: Osprey, 3 hours ($380 × 3) ........ $1,140
+Advance booking discount (10%) ................. –$114
+Catering, Saltmarsh Kitchen (45 guests × $25) .. $1,125
+Total paid ..................................... $2,151
+
+Note: Departure from Pier 4, Old Town. Boarding begins 30 minutes before departure. Step-free boarding ramp available.`,
+          groups: [ { type: 'mcq', instr: 'Questions 196-200 refer to the following brochure, e-mail, and receipt.', items: [
+            { n: 196, q: 'What is indicated about Kingfisher River Cruises?', options: ['It operates boats on several rivers.', 'It offers discounts on catering.', 'It requires a minimum of 30 guests per charter.', 'It works with another company to provide food.'], a: 3, cue: 'Catering can be arranged through our partner, Saltmarsh Kitchen',
+              explain: 'Tờ quảng cáo ghi "Catering can be arranged through our partner, Saltmarsh Kitchen" → hợp tác với công ty khác để cung cấp đồ ăn. Giảm giá chỉ áp dụng cho tiền thuê thuyền ("catering not included"); mức tối thiểu là 3 giờ, không phải 30 khách.' },
+            { n: 197, q: 'In the e-mail, the word "provided" in paragraph 1, line 2, is closest in meaning to', options: ['supplied', 'allowed', 'predicted', 'returned'], a: 0, cue: 'we would like dinner to be provided for everyone',
+              explain: '"dinner to be provided for everyone" = bữa tối được cung cấp cho mọi người → "supplied". Nghĩa "provided (that)" = với điều kiện, hay "allowed" (cho phép) không hợp; "predicted", "returned" sai nghĩa.' },
+            { n: 198, q: 'Why was the Osprey most likely chosen for the Solis Analytics event?', options: ['It is the least expensive boat.', 'It is the only boat with a step-free ramp.', 'It can hold all of the expected guests.', 'It departs from a pier near Linwood.'], a: 2, cue: 'We expect about 45 employees',
+              explain: 'Kết hợp ba văn bản: email dự kiến khoảng 45 nhân viên; tờ quảng cáo cho biết Heron chỉ chở 30 khách, Osprey chở 60 khách; biên lai ghi thuê Osprey → chọn vì chứa đủ số khách. Heron rẻ hơn nhưng quá nhỏ; mọi chuyến đều khởi hành từ Pier 4 ở Old Town.' },
+            { n: 199, q: "What is suggested about Ms. Duarte's request to be picked up closer to her office?", options: ['It was approved for an additional fee.', 'It could not be accommodated.', 'It was forwarded to Saltmarsh Kitchen.', 'It caused the event date to change.'], a: 1, cue: 'Note: Departure from Pier 4, Old Town.',
+              explain: 'Kết hợp ba văn bản: email xin đón gần Linwood; tờ quảng cáo nói "All charters depart from Pier 4 in the Old Town district"; biên lai vẫn ghi khởi hành từ Pier 4, Old Town và không có phí đón thêm → yêu cầu không được đáp ứng. Ngày sự kiện vẫn là 20/6.' },
+            { n: 200, q: 'At what time can the Solis Analytics guests begin boarding on June 20?', options: ['5:00 P.M.', '5:30 P.M.', '6:00 P.M.', '6:30 P.M.'], a: 1, cue: 'Boarding begins 30 minutes before departure',
+              explain: 'Kết hợp hai văn bản: email cho biết chuyến đi bắt đầu lúc 6:00 P.M.; biên lai ghi "Boarding begins 30 minutes before departure" (bắt đầu lên tàu 30 phút trước giờ khởi hành) → 5:30 P.M. 6:00 P.M. là giờ khởi hành.' }
           ] } ] }
       ] }
   ] });
