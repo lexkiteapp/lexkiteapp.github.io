@@ -12,6 +12,7 @@ concurrency: { group: google-translate, cancel-in-progress: false }  # dùng chu
 jobs:
   translate:
     runs-on: ubuntu-latest
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
