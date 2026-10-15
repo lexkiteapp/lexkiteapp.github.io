@@ -14930,5 +14930,50 @@
   "ar": "أساسيات IELTS 7.0+",
   "ru": "Главное для IELTS 7.0+",
   "tr": "IELTS 7.0+ temel"
+ },
+ "Phản xạ 60 giây": {
+  "es": "Reflejo de 60 segundos",
+  "pt": "Reflexo de 60 segundos",
+  "fr": "Réflexe 60 secondes",
+  "de": "60-Sekunden-Reflex",
+  "id": "Refleks 60 detik",
+  "th": "รีเฟล็กซ์ 60 วินาที",
+  "zh": "60秒反应",
+  "ja": "60秒リフレックス",
+  "ko": "60초 반사 훈련",
+  "hi": "60 सेकंड रिफ्लेक्स",
+  "ar": "رد فعل 60 ثانية",
+  "ru": "Реакция за 60 секунд",
+  "tr": "60 saniyelik refleks"
+ },
+ "Bạn nói": {
+  "es": "Dijiste",
+  "pt": "Você disse",
+  "fr": "Vous avez dit",
+  "de": "Du hast gesagt",
+  "id": "Kamu berkata",
+  "th": "คุณพูดว่า",
+  "zh": "你说的是",
+  "ja": "あなたの発話",
+  "ko": "당신의 말",
+  "hi": "आपने कहा",
+  "ar": "قلت",
+  "ru": "Вы сказали",
+  "tr": "Söylediğin"
+ },
+ "Nghe kỹ…": {
+  "es": "Escucha bien…",
+  "pt": "Ouça com atenção…",
+  "fr": "Écoutez bien…",
+  "de": "Hör genau zu…",
+  "id": "Dengarkan baik-baik…",
+  "th": "ฟังให้ดี…",
+  "zh": "仔细听…",
+  "ja": "よく聞いて…",
+  "ko": "잘 들어 보세요…",
+  "hi": "ध्यान से सुनें…",
+  "ar": "استمع جيدًا…",
+  "ru": "Слушайте внимательно…",
+  "tr": "Dikkatle dinle…"
  }
 }

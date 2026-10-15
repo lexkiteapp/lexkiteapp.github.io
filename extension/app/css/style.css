@@ -1201,3 +1201,11 @@ body.hf-ambient .hf-card { background: #10201f; color: #e6f2ef; border-color: #1
 .g-tabs { margin: 0 0 1rem; flex-wrap: wrap; }
 .g-chal textarea { width: 100%; font: inherit; }
 mark.g-ok { background: rgba(21,128,61,.18); color: var(--good); font-weight: 700; border-radius: 4px; padding: 0 .15rem; }
+.rx-timer { font-size: 2rem; font-weight: 800; min-width: 3.5rem; text-align: center; color: var(--primary); font-variant-numeric: tabular-nums; }
+.rx-stage { min-height: 11rem; text-align: center; display: flex; flex-direction: column; justify-content: center; gap: .5rem; padding: 1.4rem; }
+.rx-sent { font-size: 1.35rem; line-height: 1.7; }
+.rx-w.ok { color: var(--good); font-weight: 700; } .rx-w.no { color: var(--again); text-decoration: underline wavy; }
+.rx-mic { font-weight: 700; color: var(--primary); animation: rxp 1s ease-in-out infinite alternate; }
+@keyframes rxp { from { opacity: .55; } to { opacity: 1; } }
+.rx-yt { width: min(100%, 520px); aspect-ratio: 16/9; border: 0; border-radius: 12px; margin: 0 auto .6rem; }
+@media (prefers-reduced-motion: reduce) { .rx-mic { animation: none; } }
