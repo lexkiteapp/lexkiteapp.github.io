@@ -23,6 +23,10 @@ jobs:
         run: node scripts/i18n-missing.mjs --strict
       - name: Chất lượng bản dịch 13 ngôn ngữ (báo cáo)
         run: node scripts/i18n-qa.mjs
+      - name: Cú pháp script build
+        run: for f in scripts/*.mjs scripts/lib/*.mjs; do node --check "$f" || exit 1; done
+      - name: Blog – cổng chất lượng (SEO on-page, chính tả, trùng lặp, điểm ≥ 90)
+        run: node scripts/blog-pipeline.mjs gate
       - name: Chạy thử app
         run: |
           OUT=$(node scripts/test/smoke.js "$PWD/web" 2>/dev/null | tail -1); echo "$OUT"
