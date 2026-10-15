@@ -1,7 +1,7 @@
 /* Học thích ứng (kiểu Mochi IELTS): kiểm tra đầu vào, kế hoạch hôm nay theo điểm yếu, sổ lỗi sai, tài nguyên miễn phí chính thống. */
 (function () {
   const { $, $$, esc, shuffle, toast, ring } = UI;
-  const { Store, Golden, SRS, todayKey } = Core;
+  const { Store, Golden, SRS, Cards, todayKey } = Core;
   const App = window.App;
   const { state, routes } = App;
   const view = App.view;
@@ -129,40 +129,47 @@
     $('#go').onclick = next;
   };
 
-  // ================= KẾ HOẠCH HÔM NAY (thích ứng) =================
+  // ================= KẾ HOẠCH HÔM NAY (1 kế hoạch duy nhất, theo kỳ thi) =================
+  // Thứ tự ưu tiên: kiểm tra đầu vào → ôn thẻ đến hạn → bài lộ trình kế tiếp → sửa lỗi sai → 1 bài kỹ năng theo kỳ thi (xoay vòng theo ngày).
+  // Không tải gói nặng ở trang chủ: dữ liệu có sẵn thì gợi ý đúng bài, chưa có thì dẫn tới trang danh sách.
   App.todayPlan = async function () {
-    if (App.need) await App.need('grammar', 'pron', 'listening');
     const s = state.settings, g = state.game, d = g.days[todayKey()] || {};
+    const ex = App.exam ? App.exam() : 'ielts', dow = new Date().getDay();
     const tasks = [];
-    const dueNow = Golden.dueNow(state.cards);
-    const doneReviews = (state.stats.days[todayKey()] || 0);
-    if (!s.placement) tasks.push({ em: '🧭', t: t('Làm bài kiểm tra đầu vào (5 phút)'), sub: t('Để Lexkite cá nhân hóa lộ trình cho bạn'), href: '#/placement', done: false });
-    if (dueNow || doneReviews) tasks.push({ em: '🔁', t: dueNow ? t('Ôn {n} thẻ đang đến thời điểm vàng', { n: dueNow }) : t('Ôn tập thẻ đến hạn'), sub: t('Lặp lại ngắt quãng – ưu tiên số 1'), href: '#/review', done: !dueNow && doneReviews > 0 });
+    if (!s.placement) tasks.push({ em: '🧭', t: t('Làm bài kiểm tra đầu vào (5 phút)'), sub: t('Để Lexkite cá nhân hóa lộ trình cho bạn'), href: '#/placement', mins: 5, done: false });
+    const { total } = Cards.dueCount(state.cards, s, state.stats);
+    const gold = Golden.dueNow(state.cards), doneReviews = state.stats.days[todayKey()] || 0;
+    if (total || doneReviews) tasks.push({ em: '🔁', t: total ? t('Ôn {n} thẻ', { n: total }) : t('Ôn tập thẻ đến hạn'), sub: gold ? t('{n} thẻ đang ở thời điểm vàng – sắp quên', { n: gold }) : t('Lặp lại ngắt quãng – ưu tiên số 1'), href: '#/review', mins: Math.max(2, Math.ceil(total / 6)), done: !total && doneReviews > 0 });
     const cur = App.pathCurrent && App.pathCurrent();
-    if (cur) tasks.push({ em: cur.topic.emoji, t: t('Lộ trình: {name}', { name: cur.topic.name }), sub: `${cur.stage.name} · ${t('đã học {pct}%', { pct: Math.round(cur.pct * 100) })}`, href: '#/path', done: false });
-    // Ngữ pháp: bài chưa đạt / bài kế tiếp phù hợp trình độ
-    const G = window.GRAMMAR || [], gd = g.grammarDone || {};
-    const weakG = G.find(l => gd[l.id] != null && gd[l.id] < 80) || G.find(l => gd[l.id] == null && (!s.placement || s.placement.grammar < 70 || l.level !== 'A2'));
-    if (weakG) tasks.push({ em: '📐', t: t('Ngữ pháp: {title}', { title: weakG.title }), sub: gd[weakG.id] != null ? t('Lần trước {pct}% – làm lại cho chắc', { pct: gd[weakG.id] }) : t('Học từng bước + {n} câu luyện tập', { n: weakG.quiz.length }), href: `#/grammar/${weakG.id}`, done: (d.quizzes || 0) > 0 && gd[weakG.id] >= 80 });
-    // Nghe: phần chưa làm / làm chưa tốt (mỗi ngày 1 phần ~8 phút)
-    const LS = window.LISTENING || [], ld = g.listenDone || {};
-    const nextL = LS.find(p => ld[p.id] == null) || LS.find(p => ld[p.id] < 8);
-    if (nextL) tasks.push({ em: '🎧', t: t('Nghe: Test {test} · Part {part}', { test: nextL.test, part: nextL.part }), sub: ld[nextL.id] != null ? t('Lần trước {score}/10 – nghe lại có lời thoại', { score: ld[nextL.id] }) : `${nextL.title} · ${t('10 câu')}`, href: `#/listen/${nextL.id}`, done: false });
-    // Phát âm
-    const PR = window.PRON || [], pd = g.pronDone || {};
-    const nextP = PR.find(p => pd[p.id] == null);
-    if (nextP) tasks.push({ em: '🔤', t: t('Phát âm: {title}', { title: nextP.title }), sub: t('Khẩu hình → nghe phân biệt → nói & chấm điểm'), href: `#/pron/${encodeURIComponent(nextP.id)}`, done: false });
-    // Lỗi sai
+    if (cur) tasks.push({ em: cur.topic.emoji, t: t('Học bài: {name}', { name: cur.topic.name }), sub: `${cur.stage.name} · ${t('đã học {pct}%', { pct: Math.round(cur.pct * 100) })}`, href: '#/path', mins: 8, done: (d.newWords || 0) >= 5 });
     const mistakes = (await Store.get('mistakes', [])).filter(x => !x.fixed).length;
-    if (mistakes) tasks.splice(2, 0, { em: '📕', t: t('Làm lại {n} lỗi sai', { n: mistakes }), sub: t('Tự nhớ lại đáp án – sửa lỗi = tăng điểm nhanh nhất'), href: '#/mistakes?retry=1', done: false }); // ưu tiên cao: ngay sau ôn thẻ
-    // Kỹ năng xoay vòng theo ngày: Đọc → Nói → Viết
-    const dow = new Date().getDay();
-    const essays = await Store.get('essays', []);
-    if (dow % 3 === 0) tasks.push({ em: '📖', t: t('Đọc 1 bài IELTS & lưu từ mới'), sub: t('Ngữ liệu dễ hiểu – học từ trong ngữ cảnh'), href: '#/reading', done: (d.readings || 0) > 0 });
-    else if (dow % 3 === 1) tasks.push({ em: '🗣️', t: t('Luyện Speaking 1 câu hỏi'), sub: t('Ghi âm, nghe lại, xem phân tích từ vựng'), href: '#/speaking', done: (d.spoken || 0) >= 3 });
-    else tasks.push({ em: '✍️', t: t('Viết 1 đoạn Task 2'), sub: essays.length ? t('Dùng lại từ vựng đã học') : t('Thử Phòng viết lần đầu'), href: '#/write', done: essays.some(e => todayKey(new Date(e.at)) === todayKey()) });
-    return tasks.slice(0, 6);
+    if (mistakes) tasks.push({ em: '📕', t: t('Làm lại {n} lỗi sai', { n: mistakes }), sub: t('Tự nhớ lại đáp án – sửa lỗi = tăng điểm nhanh nhất'), href: '#/mistakes?retry=1', mins: Math.min(10, 2 + mistakes), done: false });
+    const sk = await skillTask(ex, dow, d);
+    if (sk) tasks.push(sk);
+    return tasks.slice(0, 5);
   };
+  const TOEFL_ROT = [['response', '🎧', 'Listen and Choose a Response'], ['cw', '🧩', 'Complete the Words'], ['email', '📧', 'Write an Email'], ['repeat', '🔁', 'Listen and Repeat'], ['conversation', '👥', 'Listen to a Conversation'], ['daily', '📱', 'Read in Daily Life'], ['sentence', '🧱', 'Build a Sentence'], ['interview', '🎙️', 'Take an Interview'], ['announcement', '📢', 'Listen to an Announcement'], ['academic', '📚', 'Read an Academic Passage'], ['discussion', '💬', 'Write for an Academic Discussion'], ['talk', '🎓', 'Listen to an Academic Talk']];
+  async function skillTask(ex, dow, d) {
+    const g = state.game;
+    if (ex === 'toefl') { const [k, em, n] = TOEFL_ROT[Math.floor(Date.now() / Core.DAY) % TOEFL_ROT.length]; return { em, t: 'TOEFL · ' + n, sub: t('Bài luyện hôm nay theo đúng dạng đề 2026'), href: '#/toefl-p/' + k, mins: 10, done: false }; }
+    if (ex === 'toeic') return dow % 2 ? { em: '🎧', t: t('TOEIC Listening: 1 Part'), sub: t('Mô tả tranh, hỏi – đáp, hội thoại, bài nói'), href: '#/toeic', mins: 10, done: (d.listens || 0) > 0 } : { em: '📰', t: t('TOEIC Reading: 1 Part'), sub: t('Điền câu, điền đoạn, đọc hiểu'), href: '#/toeic', mins: 12, done: (d.quizzes || 0) > 0 };
+    if (ex === 'general') {
+      const r = dow % 3;
+      if (r === 0) return { em: '📰', t: t('Đọc 1 bài & lưu từ mới'), sub: t('Ngữ liệu vừa sức – học từ trong ngữ cảnh'), href: '#/reading', mins: 12, done: (d.readings || 0) > 0 };
+      if (r === 1) { const PR = window.PRON || [], pd = g.pronDone || {}, p = PR.find(x => pd[x.id] == null); return { em: '🔤', t: p ? t('Phát âm: {title}', { title: p.title }) : t('Luyện phát âm 1 âm'), sub: t('Khẩu hình → nghe phân biệt → nói & chấm điểm'), href: p ? '#/pron/' + encodeURIComponent(p.id) : '#/pron', mins: 8, done: false }; }
+      const G = window.GRAMMAR || [], gd = g.grammarDone || {}, l = G.find(x => gd[x.id] == null);
+      return { em: '📐', t: l ? t('Ngữ pháp: {title}', { title: l.title }) : t('Học 1 bài ngữ pháp'), sub: t('Bài học ngắn kèm bài tập'), href: l ? '#/grammar/' + l.id : '#/grammar', mins: 10, done: false };
+    }
+    // IELTS (Academic / General Training): Nghe → Đọc → Nói → Viết, xoay vòng theo ngày
+    const r = dow % 4;
+    if (r === 0) { const LS = window.LISTENING || [], ld = g.listenDone || {}, p = LS.find(x => ld[x.id] == null) || LS.find(x => ld[x.id] < 8);
+      return { em: '🎧', t: p ? t('Nghe: Test {test} · Part {part}', { test: p.test, part: p.part }) : t('Nghe 1 phần IELTS'), sub: p && ld[p.id] != null ? t('Lần trước {score}/10 – nghe lại có lời thoại', { score: ld[p.id] }) : t('10 câu, có transcript và giải thích'), href: p ? '#/listen/' + p.id : '#/listening', mins: 10, done: (d.listens || 0) > 0 }; }
+    if (r === 1) return { em: '📰', t: t('Đọc 1 bài IELTS & lưu từ mới'), sub: t('Ngữ liệu dễ hiểu – học từ trong ngữ cảnh'), href: '#/reading', mins: 15, done: (d.readings || 0) > 0 };
+    if (r === 2) return { em: '🗣️', t: t('Luyện Speaking 1 câu hỏi'), sub: t('Ghi âm, nghe lại, xem phân tích từ vựng'), href: '#/speaking', mins: 8, done: (d.spoken || 0) >= 3 };
+    const essays = await Store.get('essays', []), wroteToday = essays.some(e => todayKey(new Date(e.at)) === todayKey());
+    return ex === 'ieltsgt' ? { em: '✉️', t: t('Viết 1 lá thư Task 1'), sub: t('Thư trang trọng, bán trang trọng, thân mật'), href: '#/letters', mins: 20, done: wroteToday }
+      : { em: '✍️', t: t('Viết 1 đoạn Task 2'), sub: essays.length ? t('Dùng lại từ vựng đã học') : t('Thử Phòng viết lần đầu'), href: '#/write', mins: 20, done: wroteToday };
+  }
 
   // ================= TÀI NGUYÊN MIỄN PHÍ CHÍNH THỐNG =================
   const RES = [

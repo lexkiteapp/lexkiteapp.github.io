@@ -1061,3 +1061,27 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
   .hub-grid { grid-template-columns: 1fr; gap: .6rem; }
   .hub-card { padding: .85rem .95rem; }
 }
+
+/* ---------- Trang Hôm nay: 4 khối ---------- */
+.today-head { display: flex; align-items: center; gap: .8rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.today-head svg { flex: none; filter: drop-shadow(0 6px 10px rgba(0,0,0,.12)); }
+.today-head .kit-say { font-weight: 800; font-size: 1.15rem; color: var(--text); }
+.goal-chip { flex: none; display: inline-flex; align-items: center; gap: .3rem; padding: .4rem .8rem; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-weight: 700; font-size: .85rem; color: var(--text); }
+.goal-chip:hover { border-color: var(--primary); text-decoration: none; }
+.today-card { padding: 1.3rem; border-color: color-mix(in srgb, var(--primary) 25%, var(--line)); box-shadow: var(--shadow); }
+.today-card .plan-item { background: var(--surface-2); }
+.today-card .plan-item.next { border-color: color-mix(in srgb, var(--primary) 55%, transparent); background: var(--primary-soft); }
+.pi-min { flex: none; font-size: .78rem; font-weight: 700; color: var(--muted); }
+.today-card .skel-l { height: 52px; border-radius: 14px; margin-top: .6rem; }
+.today-done { text-align: center; padding: .5rem 0; }
+.today-done h2 { margin: .4rem 0 .2rem; }
+.quest-line { display: flex; align-items: center; gap: .4rem; margin: .7rem .3rem 1rem; color: var(--muted); font-weight: 600; }
+.quest-line:hover { color: var(--primary); text-decoration: none; }
+.wotd-sm { grid-template-columns: 80px minmax(0, 1fr); gap: 1rem; }
+.stats-top { margin-bottom: 1rem; }
+@media (max-width: 640px) {
+  .today-head .kit-say { font-size: 1.02rem; }
+  .goal-chip { order: 3; }
+  .today-card { padding: 1rem; }
+  .wotd-sm { grid-template-columns: 64px minmax(0, 1fr); }
+}
