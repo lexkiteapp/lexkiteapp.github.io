@@ -32,7 +32,7 @@
   const setLang = l => { if (!l) return; UI_LANG = l; XD = {}; if (l !== 'vi' && l !== 'en') chrome.runtime.sendMessage({ type: 'uiDict', lang: l }).then(r => { if (UI_LANG === l) XD = (r && r.dict) || {}; }).catch(() => {}); };
   try { chrome.storage.local.get('uiLang').then(r => setLang(pickLang(r.uiLang) || UI_LANG)).catch(() => {}); chrome.storage.onChanged.addListener(ch => { if (ch.uiLang) setLang(pickLang(ch.uiLang.newValue)); }); } catch (x) { /* bản cũ */ }
   const ML = () => { if (UI_LANG === 'vi') return 'vi'; if (UI_LANG !== 'en') return UI_LANG === 'zh' ? 'zh-CN' : UI_LANG; const l = (navigator.language || 'en').toLowerCase(); return l.startsWith('vi') ? 'en' : l.startsWith('zh') ? (/tw|hk|hant/.test(l) ? 'zh-TW' : 'zh-CN') : l.split('-')[0]; };
-  const FLAG = l => ({ vi: '🇻🇳', es: '🇪🇸', pt: '🇧🇷', fr: '🇫🇷', de: '🇩🇪', id: '🇮🇩', th: '🇹🇭', 'zh-CN': '🇨🇳', 'zh-TW': '🇹🇼', ja: '🇯🇵', ko: '🇰🇷', hi: '🇮🇳', ar: '🇸🇦', ru: '🇷🇺', tr: '🇹🇷' })[l] || '🌐';
+  const FLAG = l => ({ vi: '🇻🇳', en: '🇬🇧', es: '🇪🇸', pt: '🇧🇷', fr: '🇫🇷', de: '🇩🇪', id: '🇮🇩', th: '🇹🇭', zh: '🇨🇳', 'zh-CN': '🇨🇳', 'zh-TW': '🇹🇼', ja: '🇯🇵', ko: '🇰🇷', hi: '🇮🇳', ar: '🇸🇦', ru: '🇷🇺', tr: '🇹🇷' })[l] || '🌐';
   const EN = {
     'Dịch với Lexkite': 'Translate with Lexkite', 'Nghe câu ví dụ': 'Play example', 'Quay lại từ trước': 'Back to previous word', 'Quay lại': 'Back',
     'Anh–Mỹ': 'US English', 'Nghe giọng Anh–Anh (phím P)': 'British pronunciation (P key)', 'Nghe giọng Anh–Mỹ': 'American pronunciation', 'Nghe chậm': 'Play slowly',
@@ -396,7 +396,7 @@
           ${defs || (e.def ? `<div class="def">${linkify(e.def)}</div>` : '')}
           ${note && UI_LANG === 'vi' ? `<div class="wn-x"><div>💡 ${esc(note.m)}</div><div>⚠️ ${esc(note.e)}</div></div>` : ''}
           ${e.ex && !hasEx ? `<div class="ex">“${linkify(e.ex, e.word)}” <button class="spk mini" data-text="${esc(e.ex)}" title="${tx('Nghe câu ví dụ')}">🔊</button></div>` : ''}
-          ${ctxHtml ? `<div class="ctx"><b>${tx('📌 Ngữ cảnh sẽ lưu')}</b> <button class="spk mini" data-text="${esc(context)}" title="${tx('Nghe cả câu')}">🔊</button><button class="spk mini" data-text="${esc(context)}" data-rate="0.65" title="${tx('Nghe chậm')}">🐢</button><br>${ctxHtml}<div class="ctxvi ex" style="margin-top:4px">${ctxVi ? '🇻🇳 ' + esc(ctxVi) : tx('⏳ Đang dịch câu…')}</div></div>` : ''}
+          ${ctxHtml ? `<div class="ctx"><b>${tx('📌 Ngữ cảnh sẽ lưu')}</b> <button class="spk mini" data-text="${esc(context)}" title="${tx('Nghe cả câu')}">🔊</button><button class="spk mini" data-text="${esc(context)}" data-rate="0.65" title="${tx('Nghe chậm')}">🐢</button><br>${ctxHtml}<div class="ctxvi ex" style="margin-top:4px">${ctxVi ? FLAG(ML()) + ' ' + esc(ctxVi) : tx('⏳ Đang dịch câu…')}</div></div>` : ''}
           ${e.partial ? '<div class="sk" style="width:50%;margin-top:8px"></div>' : ''}
         </div>
         <div class="foot">
@@ -444,7 +444,7 @@
           <div class="vi">${esc(vi || '—')}</div></div></div>
         <div class="body">
           ${multi ? `<div class="def"><b>${tx('Tra từng từ:')}</b> ${word.split(/\s+/).map(x => `<span class="lw chipw" data-w="${esc(x)}">${esc(x)}</span>`).join(' ')}</div>` : `<div class="def">${proper ? tx('Tên riêng (địa danh, người, tổ chức…) – không có trong từ điển phổ thông.') : tx('Chưa có trong từ điển – đã dịch tự động.')}</div>`}
-          ${context ? `<div class="ctx"><b>${tx('📌 Ngữ cảnh')}</b> <button class="spk mini" data-text="${esc(context)}" title="${tx('Nghe cả câu')}">🔊</button><button class="spk mini" data-text="${esc(context)}" data-rate="0.65" title="${tx('Nghe chậm')}">🐢</button><br>${linkify(context, word)}<div class="ctxvi ex" style="margin-top:4px">${ctxVi ? '🇻🇳 ' + esc(ctxVi) : ''}</div></div>` : ''}
+          ${context ? `<div class="ctx"><b>${tx('📌 Ngữ cảnh')}</b> <button class="spk mini" data-text="${esc(context)}" title="${tx('Nghe cả câu')}">🔊</button><button class="spk mini" data-text="${esc(context)}" data-rate="0.65" title="${tx('Nghe chậm')}">🐢</button><br>${linkify(context, word)}<div class="ctxvi ex" style="margin-top:4px">${ctxVi ? FLAG(ML()) + ' ' + esc(ctxVi) : ''}</div></div>` : ''}
         </div>
         <div class="foot"><button class="btn p" id="save">${multi ? tx('+ Lưu cụm từ') : tx('+ Lưu từ')}</button><button class="x" id="close" title="${tx('Đóng (Esc)')}">×</button></div>`);
       b.querySelector('[data-say]').onclick = () => speak(word, '', accent);
@@ -486,7 +486,7 @@
       ev.stopPropagation();
       const w = x.dataset.w.replace(/^'+|'+$/g, '');
       if (!w || !cur || w === cur.word) return;
-      const sentence = (x.closest('.ex, .ctx, .def, .pdef, .pg') || x).textContent.replace(/^📌 (Ngữ cảnh( sẽ lưu)?|Context( to save)?)/, '').replace(/🇻🇳.*$/s, '').replace(/[“”]/g, '').replace(/🔊/g, '').trim();
+      const sentence = (x.closest('.ex, .ctx, .def, .pdef, .pg') || x).textContent.replace(/^📌 (Ngữ cảnh( sẽ lưu)?|Context( to save)?)/, '').replace(/[🇻🇳🇬🇧🇪🇸🇧🇷🇫🇷🇩🇪🇮🇩🇹🇭🇨🇳🇹🇼🇯🇵🇰🇷🇮🇳🇸🇦🇷🇺🇹🇷🌐].*$/su, '').replace(/[“”]/g, '').replace(/🔊/g, '').trim();
       show(w, cur.rect, sentence.split(' ').length >= 3 ? sentence : '', cur.meta, 'nested');
     });
     const back = b.querySelector('.back');
@@ -585,7 +585,7 @@
     b.querySelector('#deep').onclick = async ev => {
       const btn = ev.currentTarget, out = b.querySelector('#aiEx'); btn.disabled = true;
       out.innerHTML = H(`<div class="muted" style="margin-top:8px">${tx('⏳ AI đang phân tích…')}</div>`);
-      let r; try { r = await chrome.runtime.sendMessage({ type: 'explain', text: info.text, sentence }); } catch (e) { r = { error: 'FAILED' }; }
+      let r; try { r = await chrome.runtime.sendMessage({ type: 'explain', text: info.text, sentence, lang: ML() }); } catch (e) { r = { error: 'FAILED' }; }
       btn.disabled = false;
       if (!r || r.error) {
         const msg = tx({ NO_KEY: 'Chưa bật AI. Mở Lexkite → Cài đặt → “Chấm bài bằng AI” để thêm khóa Gemini miễn phí của bạn.', QUOTA: 'Khóa AI tạm hết lượt miễn phí – thử lại sau ít phút.', BAD_KEY: 'Khóa AI không hợp lệ – kiểm tra lại trong Cài đặt.' }[r && r.error] || 'Không phân tích được lúc này.');

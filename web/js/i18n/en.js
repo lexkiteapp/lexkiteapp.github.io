@@ -2651,6 +2651,11 @@
   "Phiên ôn tập ({n} thẻ)": "Review session ({n} cards)",
   "Nghe từ, nghĩa và câu ví dụ liên tục – vừa đi bộ, lái xe hay làm việc nhà. Khóa màn hình vẫn nghe được, điều khiển từ màn hình khóa & tai nghe.": "Hear words, meanings and example sentences non-stop – while walking, driving or doing chores. Keeps playing with the screen locked; control it from the lock screen and headphones.",
   "Khóa màn hình vẫn phát tiếp tục qua tai nghe / loa ngoài. Danh sách: {t}": "Keeps playing through headphones or the speaker with the screen locked. List: {t}",
+  "Vị trí": "Location",
+  "Đoạn {p}": "Paragraph {p}",
+  "Từ khóa ↔ Paraphrase": "Keyword ↔ Paraphrase",
+  "Vì sao": "Why",
+  "Chữa {n} câu Reading sai": "Review {n} wrong Reading answers",
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* Thống nhất thuật ngữ khi nhiều nhóm dùng chung 1 khóa */

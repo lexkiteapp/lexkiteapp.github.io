@@ -1,10 +1,5792 @@
 {
  "non": {
-  "ipa": "",
+  "ipa": "/nɒn/",
   "pos": "adverb",
   "def": "To no extent, in no way.",
   "ex": "I felt none the worse for my recent illness.",
   "syn": [],
-  "vi": "không"
+  "vi": "không",
+  "v": 2,
+  "tries": 1
+ },
+ "maturity": {
+  "ipa": "/məˈtjʊəɹɪti/",
+  "pos": "noun",
+  "def": "The state of being mature, ready or ripe; the prime state of productibility and self expression.",
+  "ex": "",
+  "syn": [],
+  "vi": "trưởng thành, đến kỳ hạn",
+  "v": 2,
+  "tries": 1
+ },
+ "anti": {
+  "ipa": "/ˈænti/",
+  "pos": "adjective",
+  "def": "Opposed to something.",
+  "ex": "",
+  "syn": [],
+  "vi": "chống",
+  "v": 2,
+  "tries": 1
+ },
+ "volatility": {
+  "ipa": "/ˌvɒl.əˈtɪl.ə.ti/",
+  "pos": "noun",
+  "def": "",
+  "ex": "The geopolitical situation is very volatile.",
+  "syn": [],
+  "vi": "sự bay hơi, sự dể bay"
+ },
+ "receivable": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "có biên lai"
+ },
+ "pre": {
+  "ipa": "/ˈpɹi/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "trước"
+ },
+ "creditor": {
+  "ipa": "/ˈkɹɛdɪtə/",
+  "pos": "noun",
+  "def": "",
+  "ex": "The pensions are a problem in Greece's negotiations with its international creditors.",
+  "syn": [],
+  "vi": "người chủ nợ"
+ },
+ "annuity": {
+  "ipa": "/əˈn(j)uɪti/",
+  "pos": "noun",
+  "def": "",
+  "ex": "If it weren't for her annuity, she'd never be able to pay the bills.",
+  "syn": [],
+  "vi": "tiền trả hàng năm"
+ },
+ "disclosure": {
+  "ipa": "/dɪsˈkləʊʒə(ɹ)/",
+  "pos": "noun",
+  "def": "",
+  "ex": "We had to agree to total confidentiality and sign a non-disclosure agreement.",
+  "syn": [],
+  "vi": "để lộ ra, làm cho biết"
+ },
+ "risky": {
+  "ipa": "/ˈɹɪski/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "may rủi"
+ },
+ "leverage": {
+  "ipa": "/ˈlɛv.(ə.)ɹɪd͡ʒ/",
+  "pos": "noun",
+  "def": "",
+  "ex": "This grants Algeria political leverage in the region.",
+  "syn": [],
+  "vi": "làm lợi cho người, sức mạnh của đòn cân"
+ },
+ "coalition": {
+  "ipa": "/kəʊ.əˈlɪʃ.ən/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Germany is preparing for a \"traffic light\" coalition.",
+  "syn": [],
+  "vi": "cuộc liên hiệp, sự đoàn kết"
+ },
+ "beta": {
+  "ipa": "/ˈbiːtə/",
+  "pos": "",
+  "def": "",
+  "ex": "Beta-carotene also helps to keep your skin healthy and young-looking.",
+  "syn": [],
+  "vi": "phiên bản beta"
+ },
+ "lender": {
+  "ipa": "/ˈlɛn.dɚ/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Money lenders are enjoying a profitable period.",
+  "syn": [],
+  "vi": "người cho vay"
+ },
+ "regulator": {
+  "ipa": "/ˈɹɛɡ.jʊ.leɪ.tə/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "người chỉnh đốn, người làm việc có qui tắc"
+ },
+ "par": {
+  "ipa": "/pɑː/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Milan is the fashion capital par excellence.",
+  "syn": [],
+  "vi": "bài ngắn, sự bằng nhau"
+ },
+ "trader": {
+  "ipa": "/ˈtɹeɪdə(ɹ)/",
+  "pos": "noun",
+  "def": "",
+  "ex": "The horse trader showed Miroslav five horses.",
+  "syn": [],
+  "vi": "thương gia, người buôn bán"
+ },
+ "stockmarket": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chợ bán súc vật, thị trường chứng khoán"
+ },
+ "ex": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "bán tại"
+ },
+ "breach": {
+  "ipa": "/ˈbɹiːt͡ʃ/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Has the cybersecurity breach been contained?",
+  "syn": [],
+  "vi": "mối bất hòa, phạm phép"
+ },
+ "issuer": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "người phát hành"
+ },
+ "borrower": {
+  "ipa": "/ˈbɔɹəʊə/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "người vay"
+ },
+ "insurer": {
+  "ipa": "/ɪnˈʃʊ.ɹə/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "người bán bảo hiểm, người bán bảo kê"
+ },
+ "profitability": {
+  "ipa": "/ˌpɹɒf.ɪ.təˈbɪl.ɪ.ti/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "lợi nhuận"
+ },
+ "terrorism": {
+  "ipa": "/ˈtɛɹəɹɪzəm/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chánh sách khũng bố"
+ },
+ "regulatory": {
+  "ipa": "/ˈɹɛɡ.jʊ.lə.t(ɔː.)ɹi/",
+  "pos": "",
+  "def": "",
+  "ex": "The committee recommends devolution of regulatory power to the provinces.",
+  "syn": [],
+  "vi": "quy định"
+ },
+ "coefficient": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "The quadratic coefficient in this term is questionable.",
+  "syn": [],
+  "vi": "hệ số bằng số"
+ },
+ "disclose": {
+  "ipa": "/dɪsˈkləʊz/",
+  "pos": "verb",
+  "def": "",
+  "ex": "Lukas refused to disclose that information.",
+  "syn": [],
+  "vi": "để hở, để lộ ra"
+ },
+ "conversion": {
+  "ipa": "/kənˈvɜːʃ(ə)n/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "đổi tôn giáo, hoán vị"
+ },
+ "taxpayer": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "Our taxpayers deserve to know that.",
+  "syn": [],
+  "vi": "người trả thuế"
+ },
+ "alliance": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "đồng minh, quan hệ bà con"
+ },
+ "debtor": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "The shopkeeper was tired of chasing his debtors so from then on he demanded payment in full.",
+  "syn": [],
+  "vi": "người mắc nợ, người thiếu nợ"
+ },
+ "scandal": {
+  "ipa": "/ˈskændəl/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "lời gièm pha, sự nói xấu"
+ },
+ "payoff": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "Tom said that he would not invest in stocks unless there was a definite payoff.",
+  "syn": [],
+  "vi": "sự cho nghĩ phép, sự đuổi việc"
+ },
+ "publicly": {
+  "ipa": "/ˈpʌb.lɪ.kli/",
+  "pos": "adverb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "công cộng"
+ },
+ "governance": {
+  "ipa": "/ˈɡʌvənəns/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự cai trị"
+ },
+ "marketer": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "nhà tiếp thị"
+ },
+ "rebel": {
+  "ipa": "/ˈɹɛb.əl/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "người làm loạn, người phiến loạn"
+ },
+ "restructure": {
+  "ipa": "/ɹiːˈstɹʌkt͡ʃə(ɹ)/",
+  "pos": "",
+  "def": "",
+  "ex": "Thank to a fundamental restructuring, our surplus has swelled threefold.",
+  "syn": [],
+  "vi": "tái cơ cấu"
+ },
+ "arbitrage": {
+  "ipa": "/ˈɑɹbɪˌtɹɑʒ/",
+  "pos": "noun",
+  "def": "",
+  "ex": "The boardroom grew restive when the CEO discussed complex arbitrage strategies no one fully understood.",
+  "syn": [],
+  "vi": "trao đổi chứng khóan"
+ },
+ "deem": {
+  "ipa": "/diːm/",
+  "pos": "verb",
+  "def": "",
+  "ex": "Boris deemed Melissa unworthy of such a responsibility.",
+  "syn": [],
+  "vi": "tưởng là, xem là"
+ },
+ "allowance": {
+  "ipa": "/əˈlaʊəns/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "khoan dung, cấp số tiền"
+ },
+ "warrant": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "cho phép, giấy phép"
+ },
+ "telecom": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "The house is thousands of metres away from the street telecoms cabinet.",
+  "syn": [],
+  "vi": "viễn thông"
+ },
+ "diversify": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "Algeria focuses on diversifying its exports.",
+  "syn": [],
+  "vi": "làm cho khác nhau"
+ },
+ "multi": {
+  "ipa": "",
+  "pos": "prefix",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "có nghĩa là nhiều"
+ },
+ "technological": {
+  "ipa": "/ˌtɛk.nəˈlɒdʒ.ɪ.kəl/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "công nghệ"
+ },
+ "multinational": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Global multinational corporations are engaged in environmental violence.",
+  "syn": [],
+  "vi": "có nhiều quốc gia"
+ },
+ "shrink": {
+  "ipa": "/ˈʃɹɪŋk/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "co lại, lui lại"
+ },
+ "foreigner": {
+  "ipa": "/ˈfɒɹ.ɪ.nə(ɹ)/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "người nước ngoài, người ngoại quốc"
+ },
+ "taxable": {
+  "ipa": "/ˈtæksəbəl/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "All economic problems would be solved, if they made complacency taxable.",
+  "syn": [],
+  "vi": "có thể đánh thuế"
+ },
+ "inflow": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "Volatile aid and investment inflows have limited growth, and poverty remains high.",
+  "syn": [],
+  "vi": "cửa sông, đám đông người"
+ },
+ "pledge": {
+  "ipa": "/plɛd͡ʒ/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chứng cớ ái tình, đồ cầm"
+ },
+ "modest": {
+  "ipa": "/ˈmɑdəst/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "khiêm nhượng, khiêm tốn"
+ },
+ "convertible": {
+  "ipa": "/kənˈvɜːtəbəl/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chuyển hoán, có thể biến hóa"
+ },
+ "ledger": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "The auditors will have a hard time deciphering this ledger.",
+  "syn": [],
+  "vi": "cây đàn ngang của cái giàn, hồ sơ"
+ },
+ "linear": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "This system of linear equations has infinitely many solutions.",
+  "syn": [],
+  "vi": "nét dài, thuộc về đường dài"
+ },
+ "summit": {
+  "ipa": "/ˈsʌmɪt/",
+  "pos": "noun",
+  "def": "",
+  "ex": "The mountain climbers reached the summit.",
+  "syn": [],
+  "vi": "chóp, đỉnh"
+ },
+ "repay": {
+  "ipa": "/ɹiˈpeɪ/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "đánh lại, hoàn lại"
+ },
+ "presidency": {
+  "ipa": "/ˈpɹɛzɪdənsi/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chức chủ tịch, hội trưởng"
+ },
+ "con": {
+  "ipa": "/kɒn/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "học thuộc lòng"
+ },
+ "predecessor": {
+  "ipa": "/ˈpɹiːdɪsɛsə(ɹ)/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Lojban and its predecessor Loglan are mutually unintelligible.",
+  "syn": [],
+  "vi": "người chiếm trước, tiền nhân"
+ },
+ "deputy": {
+  "ipa": "/ˈdɛpjəti/",
+  "pos": "noun",
+  "def": "",
+  "ex": "He came back with the deputy.",
+  "syn": [],
+  "vi": "đại biểu, người đại diện"
+ },
+ "chancellor": {
+  "ipa": "/ˈtʃɑːnsələ/",
+  "pos": "noun",
+  "def": "",
+  "ex": "In Germany, the federal chancellor is democratically chosen.",
+  "syn": [],
+  "vi": "quan chưởng ấn, tư pháp thượng thơ"
+ },
+ "fluctuation": {
+  "ipa": "/flʌkt͡ʃuːˈeɪʃən/",
+  "pos": "noun",
+  "def": "",
+  "ex": "The fluctuation in prices caused a financial crisis.",
+  "syn": [],
+  "vi": "hay thay đổi, lên xuống giá tiền"
+ },
+ "goodwill": {
+  "ipa": "/ˌɡʊdˈwɪl/",
+  "pos": "noun",
+  "def": "",
+  "ex": "This generosity unites people, fostering goodwill and cooperation.",
+  "syn": [],
+  "vi": "lòng tốt, tình nguyện"
+ },
+ "insider": {
+  "ipa": "/ɪnˈsaɪdɚ/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "người biết mưu gian, người ở trong một tổ chức"
+ },
+ "constitutional": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "đúng với hiến pháp, theo hiến pháp"
+ },
+ "privatization": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "tư nhân hóa"
+ },
+ "missile": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "khí giới để bắn"
+ },
+ "accordance": {
+  "ipa": "/əˈkɔː.dəns/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "tùy theo"
+ },
+ "parliamentary": {
+  "ipa": "/ˌpɑːləˈmɛnt(ə)ɹi/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Spain, Switzerland and Japan are parliamentary monarchies.",
+  "syn": [],
+  "vi": "thuộc về nghị sĩ, thuộc về nghị viên"
+ },
+ "activist": {
+  "ipa": "/ˈæk.tɪ.vɪst/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "nhà hoạt động"
+ },
+ "consultancy": {
+  "ipa": "/kənˈsʌl.tən.si/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "tư vấn"
+ },
+ "charter": {
+  "ipa": "/ˈt͡ʃɑːtə/",
+  "pos": "noun",
+  "def": "",
+  "ex": "They chartered planes to airlift their employees.",
+  "syn": [],
+  "vi": "đặc quyền, hạn định"
+ },
+ "lessee": {
+  "ipa": "/lɛˈsiː/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "người mướn, người thuê"
+ },
+ "bust": {
+  "ipa": "/bʌst/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự nổ"
+ },
+ "rally": {
+  "ipa": "/ˈɹæli/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "nhóm lại, sự lấy lại sức"
+ },
+ "intangible": {
+  "ipa": "/ɪnˈtæn.d͡ʒɪ.bəl/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "\"Silent Night\" was declared an intangible cultural heritage by UNESCO in 2011.",
+  "syn": [],
+  "vi": "bất khả xâm phạm, không thể đụng vào"
+ },
+ "exempt": {
+  "ipa": "/ɪɡˈzɛm(p)t/",
+  "pos": "verb",
+  "def": "",
+  "ex": "Exemptions may apply in some cases.",
+  "syn": [],
+  "vi": "tha, miển thuế"
+ },
+ "weaken": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "làm yếu bớt, làm yếu đuối"
+ },
+ "accrue": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "She had to adjust her schedule to accommodate the compensatory time off she had accrued.",
+  "syn": [],
+  "vi": "do đó, do đó mà ra"
+ },
+ "interim": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "",
+  "ex": "A peace accord in 2006 led to the promulgation of an interim constitution in 2007.",
+  "syn": [],
+  "vi": "đợi, trong khi chờ"
+ },
+ "payout": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "Layla used what was left of her husband's insurance payout to buy a house in Cairo.",
+  "syn": [],
+  "vi": "thanh toán hết nợ"
+ },
+ "suppress": {
+  "ipa": "/səˈpɹɛs/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "bãi bỏ, đàn áp"
+ },
+ "electoral": {
+  "ipa": "/ɪˈlɛk.tə.ɹəl/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "The Bouteflika years were characterized by electoral manipulation.",
+  "syn": [],
+  "vi": "thuộc về tuyển cử"
+ },
+ "ambition": {
+  "ipa": "/æmˈbɪʃ.ən/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "tham lam, dã tâm"
+ },
+ "systematic": {
+  "ipa": "/ˌsɪs.tɪˈmæt.ɪk/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Human rights violations, misogyny and exclusion are widespread and systematic.",
+  "syn": [],
+  "vi": "có phương pháp"
+ },
+ "outsider": {
+  "ipa": "/ˌaʊtˈsaɪdəɹ/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "không chuyên môn, cầu thủ chạy góc"
+ },
+ "prevail": {
+  "ipa": "/pɹɪˈveɪl/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chiếm ưu thế, phát hiện"
+ },
+ "counterpart": {
+  "ipa": "/ˈkaʊntəˌpɑːt/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Our sales team is more efficient than their counterparts in other branches.",
+  "syn": [],
+  "vi": "bản đối chiếu, bản sao"
+ },
+ "repayment": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự trả góp, sự trả hàng tháng"
+ },
+ "offshore": {
+  "ipa": "/ɒfˈʃɔː(ɹ)/",
+  "pos": "adverb",
+  "def": "",
+  "ex": "Sami transferred money from offshore account.",
+  "syn": [],
+  "vi": "ngoài khơi"
+ },
+ "marketplace": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "Diego put his pool table on Facebook Marketplace.",
+  "syn": [],
+  "vi": "nơi nhóm chợ"
+ },
+ "proxy": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "Zelenskyy is using Ukraine to fight a proxy war for Washington.",
+  "syn": [],
+  "vi": "giấy ủy nhiệm, giấy ủy quyền"
+ },
+ "politically": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chánh sách"
+ },
+ "municipal": {
+  "ipa": "/mjuˈnɪsɪpəl/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Each municipality has a different garbage fee.",
+  "syn": [],
+  "vi": "thuộc về đô thị, thuộc về thành phố"
+ },
+ "hostile": {
+  "ipa": "/ˈhɒstaɪl/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "hiềm thù, thù nghịch"
+ },
+ "tonne": {
+  "ipa": "/tʌn/",
+  "pos": "",
+  "def": "",
+  "ex": "The avalanche brought tonnes of snow down to the foot of the mountain.",
+  "syn": [],
+  "vi": "tấn"
+ },
+ "mandate": {
+  "ipa": "/ˈmændeɪ̯t/",
+  "pos": "noun",
+  "def": "",
+  "ex": "For running for a fifth mandate, Bouteflika damaged his own credibility.",
+  "syn": [],
+  "vi": "huấn lịnh, mạng lịnh"
+ },
+ "gamble": {
+  "ipa": "/ˈɡæm.bəl/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "cờ bạc, đổ bác"
+ },
+ "tighten": {
+  "ipa": "/ˈtaɪ.tən/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "căng thẳng, kéo cho thẳng"
+ },
+ "squeeze": {
+  "ipa": "/skwiːz/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "đám đông, sự đè"
+ },
+ "scrap": {
+  "ipa": "/ˈskɹæp/",
+  "pos": "noun",
+  "def": "",
+  "ex": "The entire plan has been scrapped.",
+  "syn": [],
+  "vi": "đồ ăn dư, đồ ăn thừa"
+ },
+ "petrol": {
+  "ipa": "/ˈpɛt.ɹəl/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "dầu hỏa, dầu lửa"
+ },
+ "uncertain": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "bấp bênh, không chắc"
+ },
+ "terror": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự kinh hải, sự khủng khiếp"
+ },
+ "trustee": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "The Board of Trustees voted to divest the organization's overseas holdings.",
+  "syn": [],
+  "vi": "người chịu giao thác, người nhận hàng gởi bán"
+ },
+ "frontier": {
+  "ipa": "/ˈfɹʌntɪə/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Many families went west to make a new life on the frontier.",
+  "syn": [],
+  "vi": "biên giới, ranh giới"
+ },
+ "seize": {
+  "ipa": "/ˈsiːz/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chiếm, cọ xát và dính chặt nhau"
+ },
+ "beneficiary": {
+  "ipa": "/ˌbɛn.ɪˈfɪʃ.əɹ.i/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Yanni removed Skura as a beneficiary of his life insurance policy.",
+  "syn": [],
+  "vi": "hưởng huê lợi, người hưởng quyền lợi"
+ },
+ "capitalism": {
+  "ipa": "/ˈkapɪt(ə)lɪz(ə)m/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chủ nghĩa tư bản"
+ },
+ "capitalization": {
+  "ipa": "/ˌkæpɪtəlaɪˈzeɪʃən/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "cơ hội, lợi dụng"
+ },
+ "diplomat": {
+  "ipa": "/ˈdɪp.lə.mæt/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "nhà ngoại giao"
+ },
+ "intent": {
+  "ipa": "/ɪnˈtɛnt/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "hăng hái, kịch liệt"
+ },
+ "lessor": {
+  "ipa": "/ˈlɛsə/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "người cho thuê"
+ },
+ "affiliate": {
+  "ipa": "/əˈfɪl.i.ət/",
+  "pos": "verb",
+  "def": "",
+  "ex": "The college is affiliated with the university.",
+  "syn": [],
+  "vi": "giao thiệp, kết thân"
+ },
+ "statutory": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "There are no statutory minimum paid vacations or paid public holidays in the United States.",
+  "syn": [],
+  "vi": "do pháp luật định, đúng theo điều lệ"
+ },
+ "exporter": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "công ty xuất cảng, nhà xuất cảng"
+ },
+ "lag": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "lục đục ở sau, người phạm tội"
+ },
+ "volatile": {
+  "ipa": "/ˈvɒl.əˌtaɪl/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "The geopolitical situation is very volatile.",
+  "syn": [],
+  "vi": "bay hơi, chưng phát"
+ },
+ "sack": {
+  "ipa": "/sæk/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "bao, áo choàng của đàn bà"
+ },
+ "obstacle": {
+  "ipa": "/ˈɒbstəkəl/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự ngăn trở"
+ },
+ "coup": {
+  "ipa": "/kuː/",
+  "pos": "noun",
+  "def": "",
+  "ex": "The generals conducted a successful coup.",
+  "syn": [],
+  "vi": "việc làm táo bạo"
+ },
+ "issuance": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "phát hành"
+ },
+ "capitalist": {
+  "ipa": "/ˈkæp.ɪ.tə.lɪst/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "xuất vốn cho người khác"
+ },
+ "capitalize": {
+  "ipa": "/ˈkæpətəˌlaɪz/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "đổi thành vốn, viết hay in bằng chữ hoa"
+ },
+ "differential": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Differential equations are equations involving derivatives.",
+  "syn": [],
+  "vi": "vi phân, đặc biệt"
+ },
+ "amortization": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự trừ lần, trả góp"
+ },
+ "unfair": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "hay thiên vị, không công bình"
+ },
+ "inter": {
+  "ipa": "/ɪnˈtɜː/",
+  "pos": "verb",
+  "def": "",
+  "ex": "Nikola Tesla's remains are interred in the Tesla Museum in Belgrade.",
+  "syn": [],
+  "vi": "chôn, an táng"
+ },
+ "nationalist": {
+  "ipa": "/ˈnæʃ.ə.nə.lɪst/",
+  "pos": "noun",
+  "def": "",
+  "ex": "The revanchist rhetoric is fueling nationalist movements.",
+  "syn": [],
+  "vi": "chủ nghĩa quốc xã, chủ nghĩa xã hội"
+ },
+ "demographic": {
+  "ipa": "/ˌdɛm.əˈɡɹæf.ɪk/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Algeria needs to address its demographic challenges.",
+  "syn": [],
+  "vi": "nhân khẩu học"
+ },
+ "conglomerate": {
+  "ipa": "/kənˈɡlɒm.(ə.)ɹɪt/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Drop by drop, the water can conglomerate into a lake.",
+  "syn": [],
+  "vi": "kết hợp thành khối"
+ },
+ "senator": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "thượng nghị sĩ"
+ },
+ "adoption": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "làm con nuôi, nhận đề nghị"
+ },
+ "sensible": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "cãm giác được, có tri giác"
+ },
+ "headline": {
+  "ipa": "/ˈhɛd.laɪn/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "bảng tin tức tóm tắt, hàng ở đầu trang"
+ },
+ "macroeconomic": {
+  "ipa": "/ˌmækɹəʊˌiːkəˈnɒmɪk/",
+  "pos": "",
+  "def": "",
+  "ex": "Algeria has made incredible progress in terms of macroeconomic stability.",
+  "syn": [],
+  "vi": "kinh tế vĩ mô"
+ },
+ "contingent": {
+  "ipa": "/kənˈtɪn.d͡ʒənt/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "We should be prepared for all contingencies.",
+  "syn": [],
+  "vi": "bất ngờ, không chắc chắn"
+ },
+ "privately": {
+  "ipa": "/ˈpɹaɪvɪtli/",
+  "pos": "adverb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "hẻo lánh, vắng vẻ"
+ },
+ "guerrilla": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "Guerrilla gardening is gardening on another person's land without permission.",
+  "syn": [],
+  "vi": "đánh du kích, toán du kích"
+ },
+ "repurchase": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "France repurchased the island in 1877 and took control the following year.",
+  "syn": [],
+  "vi": "mua lại"
+ },
+ "plunge": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự lao mình xuống nước, sự nhảy"
+ },
+ "intensive": {
+  "ipa": "/ɪnˈtɛnsɪv/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "kịch liệt, mạnh thêm"
+ },
+ "horizontal": {
+  "ipa": "/ˌhɒɹɪˈzɒn.təl/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "The exponential function has a horizontal asymptote.",
+  "syn": [],
+  "vi": "nằm ngang, thuộc về chân trời"
+ },
+ "legally": {
+  "ipa": "/ˈliːɡəli/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "hợp pháp"
+ },
+ "installment": {
+  "ipa": "/ɪnˈstɔːl.mənt/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "người trả nợ góp, sự trả góp"
+ },
+ "revive": {
+  "ipa": "/ɹɪˈvaɪ̯v/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "khêu gợi lại, phấn khởi"
+ },
+ "ballot": {
+  "ipa": "/ˈbælət/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Tom and Mary counted the ballots.",
+  "syn": [],
+  "vi": "lá thăm, phiếu"
+ },
+ "treasury": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "TATOEBA: The All-inclusive Treasury Of Examples Beautifully Arranged.",
+  "syn": [],
+  "vi": "bộ tài chánh, kho bạc"
+ },
+ "intermediary": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "The two presidents exchanged phone numbers so they could talk without intermediaries.",
+  "syn": [],
+  "vi": "đứng trung gian, ở giữa trung gian"
+ },
+ "boast": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "khoe khoan, tánh khoác lác"
+ },
+ "militant": {
+  "ipa": "/ˈmɪlɪtənt/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Hamas militants attacked many Israeli military outposts.",
+  "syn": [],
+  "vi": "chiến đấu, tranh đấu"
+ },
+ "discourage": {
+  "ipa": "/dɪsˈkʌɹɪd͡ʒ/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chán nản, không tán thành"
+ },
+ "fate": {
+  "ipa": "/feɪt/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "số mạng, số phận"
+ },
+ "widen": {
+  "ipa": "/ˈwaɪdn̩/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "làm rộng, mở rộng"
+ },
+ "gang": {
+  "ipa": "/ˈɡæŋ/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "đám, đường nhỏ"
+ },
+ "devise": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "di vật, vật để lại bằng di chúc"
+ },
+ "speculation": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự đầu cơ, sự quan sát"
+ },
+ "incremental": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "Every time you go through the cycle, you increment the counter by one.",
+  "syn": [],
+  "vi": "tăng dần"
+ },
+ "fighter": {
+  "ipa": "/ˈfaɪ.tə(ɹ)/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chiến đấu cơ, chiến sỉ"
+ },
+ "grip": {
+  "ipa": "/ˈɡɹɪp/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "va li, chuôi"
+ },
+ "underwrite": {
+  "ipa": "/ˈʌndəɹaɪt/",
+  "pos": "verb",
+  "def": "",
+  "ex": "Not every company can afford to underwrite such an expensive event.",
+  "syn": [],
+  "vi": "bảo hiểm, bảo kê"
+ },
+ "compel": {
+  "ipa": "/kəmˈpɛl/",
+  "pos": "verb",
+  "def": "",
+  "ex": "No one has compellingly argued otherwise.",
+  "syn": [],
+  "vi": "bắt buộc, cưỡng bách"
+ },
+ "multiplier": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "người làm cho bội lên"
+ },
+ "slowdown": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "Algerian economists are expecting a slight slowdown of the country's GDP.",
+  "syn": [],
+  "vi": "chậm lại, sự bớt tốc lực"
+ },
+ "suspicion": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự nghi ngờ, sự ngờ vực"
+ },
+ "flee": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chuồn, lánh xa"
+ },
+ "tangible": {
+  "ipa": "/ˈtæn.d͡ʒɪ.b(ə)l/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Service economy is a useful labor that does not produce a tangible commodity.",
+  "syn": [],
+  "vi": "có thật, có thể rờ"
+ },
+ "dump": {
+  "ipa": "/dʌmp/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "bù lon làm cầu, chổ bỏ vật phế thải"
+ },
+ "bail": {
+  "ipa": "/beɪl/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "hàng rào, người bảo đảm"
+ },
+ "outflow": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "Engineers monitored the outflow from the dam to prevent flooding downstream.",
+  "syn": [],
+  "vi": "sự chảy ra, sự thố lộ"
+ },
+ "spokesman": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "Tom wasn't sure why he was considered the spokesman for the group.",
+  "syn": [],
+  "vi": "người đại diện, người thay lời cho người khác"
+ },
+ "contingency": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "We should be prepared for all contingencies.",
+  "syn": [],
+  "vi": "tính ngẩu sinh"
+ },
+ "surrender": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự đầu hàng, sự hủy bỏ khế ước"
+ },
+ "judicial": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Maltese is used in legal and judicial proceedings in Malta.",
+  "syn": [],
+  "vi": "thuộc vế tòa án"
+ },
+ "certainty": {
+  "ipa": "/ˈsɜːtn̩ti/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Suspicions are more unpleasant than certainties.",
+  "syn": [],
+  "vi": "chắc chắn, sự tin chắc"
+ },
+ "mainstream": {
+  "ipa": "/ˈmeɪn.stɹiːm/",
+  "pos": "",
+  "def": "",
+  "ex": "The mainstream media is the most prevalent practitioner of scaremongering.",
+  "syn": [],
+  "vi": "chủ đạo"
+ },
+ "rebuild": {
+  "ipa": "/ɹiːˈbɪld/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "xây dựng lại"
+ },
+ "corrupt": {
+  "ipa": "/kəˈɹʌpt/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "hư, đồi bại"
+ },
+ "proposition": {
+  "ipa": "/ˌpɹɑpəˈzɪʃən/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "công việc, điều dự định"
+ },
+ "amid": {
+  "ipa": "/əˈmɪd/",
+  "pos": "preposition",
+  "def": "",
+  "ex": "They reached the castle in safety, amid a thousand joyous acclamations.",
+  "syn": [],
+  "vi": "mũ chùm của thầy tu"
+ },
+ "bold": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "bạo dạng, can đảm"
+ },
+ "handful": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "làm khó chịu, một nắm"
+ },
+ "unchanged": {
+  "ipa": "/ʌnˈt͡ʃeɪnd͡ʒd/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "The temperatures we had throughout the month were relatively unchanged.",
+  "syn": [],
+  "vi": "không đổi"
+ },
+ "queue": {
+  "ipa": "/kjuː/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "đoàn người nối nhau, đoàn xe nối nhau"
+ },
+ "bidder": {
+  "ipa": "/ˈbɪd.ə/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Tom has the heart of a mercenary who sells out his loyalty to the highest bidder.",
+  "syn": [],
+  "vi": "người trả giá cao nhất"
+ },
+ "respective": {
+  "ipa": "/ɹɪˈspɛktɪv/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "riêng của mỗi người"
+ },
+ "odds": {
+  "ipa": "/ɒdz/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "so le, không đều"
+ },
+ "allegation": {
+  "ipa": "/ˌæl.ɪˈɡeɪ.ʃən/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "viện cớ, viện lẻ"
+ },
+ "redemption": {
+  "ipa": "/ɹɪˈdɛmpʃən/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Ben Affleck explores themes of crime and redemption in his second film as director.",
+  "syn": [],
+  "vi": "sự chuộc lại, sự mua lại"
+ },
+ "downward": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Ziri drove that narrow downward road.",
+  "syn": [],
+  "vi": "đi xuống, nhìn xuống"
+ },
+ "depreciate": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "The depreciation of the equipment is calculated over five years.",
+  "syn": [],
+  "vi": "giãm giá trị, gièm pha"
+ },
+ "digit": {
+  "ipa": "/ˈdɪd͡ʒɪt/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "bề ngang ngón tay, ngón chân"
+ },
+ "provoke": {
+  "ipa": "/pɹəˈvəʊk/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chọc giận, khêu gợi"
+ },
+ "inevitably": {
+  "ipa": "/ɪˈnɛvɪtəbli/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "tất yếu"
+ },
+ "info": {
+  "ipa": "/ˈɪnfəʊ/",
+  "pos": "",
+  "def": "",
+  "ex": "Thank you for the extra info.",
+  "syn": [],
+  "vi": "thông tin"
+ },
+ "secular": {
+  "ipa": "/ˈsɛkjʊlə/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "từng thế kỷ, từng trăm năm"
+ },
+ "distress": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "đứt hơi, kiệt sức"
+ },
+ "withhold": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "After pay withholding tax, please send the tax paid receipt in PDF format.",
+  "syn": [],
+  "vi": "giấu sự thật, ngăn cản người nào"
+ },
+ "sterling": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "His supervisor gave him a sterling recommendation.",
+  "syn": [],
+  "vi": "đúng giá, đúng tuổi"
+ },
+ "legacy": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "Work well done leaves a lasting legacy.",
+  "syn": [],
+  "vi": "sự di tặng"
+ },
+ "thrive": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "lớn lên, phát đạt"
+ },
+ "commander": {
+  "ipa": "/kəˈmɑːndə/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "hải quân trung tá, người điều khiển"
+ },
+ "accountability": {
+  "ipa": "/əˌkaʊn.təˈbɪl.ə.ti/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "nhiệm vụ, trách nhiệm"
+ },
+ "incorporation": {
+  "ipa": "/ɪŋˌkɔːpəˈɹeɪʃən/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Incorporate balance exercises for stability and coordination.",
+  "syn": [],
+  "vi": "công ty, đoàn thể"
+ },
+ "bondholder": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "người trái quyền"
+ },
+ "unveil": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "Microsoft recently unveiled two new dual screen devices.",
+  "syn": [],
+  "vi": "cái màng trùm đầu, cất cái nạng"
+ },
+ "diplomatic": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "khôn ngoan, giao thiệp"
+ },
+ "formerly": {
+  "ipa": "/ˈfɔːməli/",
+  "pos": "adverb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "trước kia"
+ },
+ "optimization": {
+  "ipa": "/ˌɑptəmaɪˈzeɪʃən/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "tối ưu hóa"
+ },
+ "spectrum": {
+  "ipa": "/ˈspɛktɹəm/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Tom is probably on the spectrum.",
+  "syn": [],
+  "vi": "quang phổ"
+ },
+ "tuple": {
+  "ipa": "/ˈtʊpəl/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "bộ đồ"
+ },
+ "halt": {
+  "ipa": "/hɒlt/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Traffic was halted for several hours.",
+  "syn": [],
+  "vi": "ga tạm, ga xép"
+ },
+ "shed": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "cái chái để hàng hóa, cái lều"
+ },
+ "median": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "It is important to know the difference between mean and median.",
+  "syn": [],
+  "vi": "đường giữa, ở giữa"
+ },
+ "wholly": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "Couscous is a wholly Berber invention.",
+  "syn": [],
+  "vi": "hoàn toàn"
+ },
+ "commissioner": {
+  "ipa": "/kəˈmɪ.ʃə.nə/",
+  "pos": "noun",
+  "def": "",
+  "ex": "\"Under what circumstances was the body discovered?\" asked the commissioner.",
+  "syn": [],
+  "vi": "nhân viên, đặc ủy viên"
+ },
+ "legislature": {
+  "ipa": "/ˈlɛd͡ʒɪsləˌt͡ʃʊə/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Sweden and New Zealand are examples of nations with unicameral legislatures.",
+  "syn": [],
+  "vi": "cơ quan lập pháp, lập pháp đoàn"
+ },
+ "predictable": {
+  "ipa": "/pɹəˈdɪktəbləl/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "có thể dự đoán được"
+ },
+ "liquidation": {
+  "ipa": "/ˌlɪk.wəˈdeɪ.ʃən/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự thanh toán nợ, sự trả nợ"
+ },
+ "chaos": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "không thứ tự, tình trạng lộn xộn"
+ },
+ "impairment": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự thiệt hại"
+ },
+ "migrant": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "Fifteen hundred migrants stormed the Channel Tunnel.",
+  "syn": [],
+  "vi": "người di cư"
+ },
+ "macroeconomics": {
+  "ipa": "/ˌmæk.ɹoʊˌiː.kəˈnɒ.mɪks/",
+  "pos": "",
+  "def": "",
+  "ex": "Algeria has made incredible progress in terms of macroeconomic stability.",
+  "syn": [],
+  "vi": "kinh tế vĩ mô"
+ },
+ "accrual": {
+  "ipa": "/əˈkɹuːəl/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "tích lũy"
+ },
+ "confront": {
+  "ipa": "/kənˈfɹʌnt/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "đối chất, đối chiếu"
+ },
+ "scrutiny": {
+  "ipa": "/ˈskɹuː.tɪ.ni/",
+  "pos": "noun",
+  "def": "",
+  "ex": "The statement seems to make sense, but under further scrutiny, it falls apart.",
+  "syn": [],
+  "vi": "sự kiểm phiếu, sự xem xét kỷ lưởng"
+ },
+ "exile": {
+  "ipa": "/ˈɛɡˌzaɪl/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "tha hương, người bị đày"
+ },
+ "explicitly": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "I would like to explicitly emphasize this.",
+  "syn": [],
+  "vi": "rõ ràng"
+ },
+ "payback": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "Could Yanni's death be payback for his testimony against Skura's father?",
+  "syn": [],
+  "vi": "hoàn vốn"
+ },
+ "sacrifice": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "hy sinh, bán lổ"
+ },
+ "semi": {
+  "ipa": "/ˈsɛmi/",
+  "pos": "prefix",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "nữa"
+ },
+ "conviction": {
+  "ipa": "/kənˈvɪkʃən/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "lòng tin chắc, sự phán quyết"
+ },
+ "continuously": {
+  "ipa": "/kənˈtɪnjuəsli/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "liên tục"
+ },
+ "tier": {
+  "ipa": "/ˈtaɪ.ə/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Those words are in the second and third tiers of frequency.",
+  "syn": [],
+  "vi": "dãy ghế, hàng ghế"
+ },
+ "inadequate": {
+  "ipa": "/ɪnˈædəkwɪt/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "You constantly make me feel inadequate.",
+  "syn": [],
+  "vi": "ít, không đủ"
+ },
+ "acre": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "Yanni owns about 4000 acres there.",
+  "syn": [],
+  "vi": "mẫu anh"
+ },
+ "reliance": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "Tebboune claims that Algeria will end its reliance on the bad practices of the past.",
+  "syn": [],
+  "vi": "lòng tin, sự tín nhiệm"
+ },
+ "covenant": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "And I will make my covenant between me and thee: and I will multiply thee exceedingly.",
+  "syn": [],
+  "vi": "bản giao kèo, hợp đồng"
+ },
+ "materially": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "thành tựu, thô tục"
+ },
+ "clash": {
+  "ipa": "/ˈklæʃ/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự xung đột, tiếng chạm nhau"
+ },
+ "deter": {
+  "ipa": "/dɪˈtɜː/",
+  "pos": "verb",
+  "def": "",
+  "ex": "His sudden illness deterred us from traveling.",
+  "syn": [],
+  "vi": "làm nghi ngờ, ngăn cản"
+ },
+ "condemn": {
+  "ipa": "/kənˈdɛm/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chỉ trích, hết hy vọng"
+ },
+ "operative": {
+  "ipa": "/ˈɒpəɹətɪv/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "có hiệu lực, công hiệu"
+ },
+ "privatize": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "tư nhân hóa"
+ },
+ "endure": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chịu được, chịu nỗi"
+ },
+ "doctrine": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "Military doctrine sets out the basic principles of military action.",
+  "syn": [],
+  "vi": "đạo giáo, giáo lý"
+ },
+ "triple": {
+  "ipa": "/ˈtɹɪp.əl/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Tom was baptized by triple immersion.",
+  "syn": [],
+  "vi": "ba lần hơn, gấp ba"
+ },
+ "alpha": {
+  "ipa": "/ˈæl.fə/",
+  "pos": "",
+  "def": "",
+  "ex": "Alpha particles carry a positive charge.",
+  "syn": [],
+  "vi": "alpha"
+ },
+ "deflation": {
+  "ipa": "/dɪˈfleɪʃən/",
+  "pos": "noun",
+  "def": "",
+  "ex": "The balloon is almost completely deflated.",
+  "syn": [],
+  "vi": "sự giảm phát, sự xẹp"
+ },
+ "antitrust": {
+  "ipa": "/ˌæntiˈtɹʌst/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "The purpose of antitrust law is to stop the abusive influence of the market by big companies.",
+  "syn": [],
+  "vi": "sự giả dối"
+ },
+ "riot": {
+  "ipa": "/ˈɹaɪ.ət/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự có nhiều, sự dâm đảng"
+ },
+ "align": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "When do Earth and Mars align?",
+  "syn": [],
+  "vi": "dàn trận, kéo thẳng"
+ },
+ "reinvest": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "Chemical companies are waiting until everything dies down before reinvesting.",
+  "syn": [],
+  "vi": "tái đầu tư"
+ },
+ "provincial": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Hangzhou is the provincial capital of Zhejiang Province.",
+  "syn": [],
+  "vi": "thuộc về giáo khu, thuộc về tỉnh"
+ },
+ "fierce": {
+  "ipa": "/fɪəs/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "hung tợn, khó chịu"
+ },
+ "veto": {
+  "ipa": "/ˈviːtəʊ/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Tom's parents vetoed his summer plans.",
+  "syn": [],
+  "vi": "quyền phủ nhận"
+ },
+ "instant": {
+  "ipa": "/ˈɪnstənt/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "cấp bách, gấp"
+ },
+ "ceasefire": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "McKinley demanded an immediate ceasefire in Cuba.",
+  "syn": [],
+  "vi": "chấm dứt chiến tranh, đình chiến"
+ },
+ "handset": {
+  "ipa": "/ˈhæn(d)sɛt/",
+  "pos": "",
+  "def": "",
+  "ex": "The customer gets the best possible price for his old handset.",
+  "syn": [],
+  "vi": "thiết bị cầm tay"
+ },
+ "sentiment": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "tình cãm, ý kiến"
+ },
+ "vest": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "phong cho, ban cho"
+ },
+ "beef": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "bò, bò cái"
+ },
+ "parity": {
+  "ipa": "/ˈpæɹɪti/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Women will never gain parity with men in a field that few women wish to enter.",
+  "syn": [],
+  "vi": "sự bằng nhau, sự ngang nhau"
+ },
+ "centralize": {
+  "ipa": "/ˈsɛntɹəlaɪz/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "qui về một chổ"
+ },
+ "sovereign": {
+  "ipa": "/ˈsɒv.ɹɪn/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Algeria is an independent and sovereign nation.",
+  "syn": [],
+  "vi": "chí cao, tối cao"
+ },
+ "lucrative": {
+  "ipa": "/ˈluː.kɹə.tɪv/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Ancient Berbers developed a lucrative olive oil industry.",
+  "syn": [],
+  "vi": "có lợi, sanh lời"
+ },
+ "variability": {
+  "ipa": "/ˌvɛəɹ.i.əˈbɪl.ə.ti/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự biến thiên"
+ },
+ "strive": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chiến đấu, cố sức"
+ },
+ "bribe": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "của hối lộ, tiền hối lộ"
+ },
+ "militia": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "The government supplied weapons to local militia.",
+  "syn": [],
+  "vi": "lực lượng dân vệ, lực lượng phòng vệ"
+ },
+ "controller": {
+  "ipa": "/kənˈtɹəʊlə/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "người cầm lái, người chỉ huy"
+ },
+ "shield": {
+  "ipa": "/ˈʃiːld/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "cái khiên, vật che chở"
+ },
+ "pact": {
+  "ipa": "/pækt/",
+  "pos": "noun",
+  "def": "",
+  "ex": "We supported a peace pact between the two countries.",
+  "syn": [],
+  "vi": "hiệp định, hiệp ước"
+ },
+ "discretion": {
+  "ipa": "/dɪˈskɹɛʃən/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Discretion is a mark of maturity.",
+  "syn": [],
+  "vi": "sự nhận thức, sự thận trọng"
+ },
+ "supervision": {
+  "ipa": "/ˌs(j)uːpəˈvɪʒən/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự giám đốc, sự giám thị"
+ },
+ "pursuit": {
+  "ipa": "/pəˈsjuːt/",
+  "pos": "noun",
+  "def": "",
+  "ex": "The pursuit of success requires sacrifices.",
+  "syn": [],
+  "vi": "sự đi tìm hạnh phúc, sự đuổi"
+ },
+ "vector": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "A vector quantity has two characteristics, a magnitude and a direction.",
+  "syn": [],
+  "vi": "côn trùng, toán véc tơ"
+ },
+ "endowment": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "Are there teachers endowed with artificial intelligence?",
+  "syn": [],
+  "vi": "quyên trợ, tiền nghĩa quyên"
+ },
+ "governmental": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Do you do double-entry accounting or traditional governmental accounting?",
+  "syn": [],
+  "vi": "thuộc về chánh phủ"
+ },
+ "slash": {
+  "ipa": "/slaʃ/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "khía nhọn ở bộ phận cây, vết rạch thịt"
+ },
+ "restraint": {
+  "ipa": "/ɹɪˈstɹeɪnt/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Institutionally, a major restraint is the copyright problem.",
+  "syn": [],
+  "vi": "sự giam cầm, sự giừ lại"
+ },
+ "torture": {
+  "ipa": "/ˈtɔːt͡ʃə/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "nổi đau khổ, sự tra khảo"
+ },
+ "crunch": {
+  "ipa": "/kɹʌnt͡ʃ/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "lạo xạo, nhai lạo ngạo"
+ },
+ "receiver": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "bình trong phòng thí nghiệm, người giám thu"
+ },
+ "encyclopedia": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "Yanni sold encyclopedias door to door.",
+  "syn": [],
+  "vi": "bách khoa tự điển"
+ },
+ "aversion": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "I developed an aversion toward the word \"awesome\".",
+  "syn": [],
+  "vi": "không ưa, ghét"
+ },
+ "reconcile": {
+  "ipa": "/ˈɹɛkənsaɪl/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "dàn xếp, điều đình"
+ },
+ "indirectly": {
+  "ipa": "/ˌɪn.dɪˈɹɛk(t).li/",
+  "pos": "adverb",
+  "def": "",
+  "ex": "France continues to colonize Africa indirectly.",
+  "syn": [],
+  "vi": "quanh co"
+ },
+ "yuan": {
+  "ipa": "/ˌjuːˈæn/",
+  "pos": "noun",
+  "def": "",
+  "ex": "The Dragon Boat Festival commemorates Qu Yuan.",
+  "syn": [],
+  "vi": "đồng nhân dân tệ"
+ },
+ "liberty": {
+  "ipa": "/ˈlɪbəti/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "quyền đi lại, quyền tự do"
+ },
+ "decent": {
+  "ipa": "/ˈdiː.sənt/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "đoan chính, hợp lệ"
+ },
+ "appetite": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "khao khát, lòng thèm muốn"
+ },
+ "tobacco": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "thuốc lá"
+ },
+ "unpopular": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "trái với quyền lợi của dân"
+ },
+ "quantify": {
+  "ipa": "/ˈkwɒn.tɪˌfaɪ/",
+  "pos": "verb",
+  "def": "",
+  "ex": "I knew it was a problem, but no one had ever quantified it for me like that.",
+  "syn": [],
+  "vi": "hạn định"
+ },
+ "corn": {
+  "ipa": "/ˈkɔːn/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chai chân, bắp"
+ },
+ "skeptical": {
+  "ipa": "/ˈskɛptɪkəl/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "không tin, nghi ngờ"
+ },
+ "legislative": {
+  "ipa": "/ˈlɛd͡ʒ.ɪ.slə.tɪv/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Algeria organized successful legislative elections yesterday.",
+  "syn": [],
+  "vi": "quyền lập pháp, thuộc về lập pháp"
+ },
+ "independently": {
+  "ipa": "/ˌɪndɪˈpɛndəntli/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "độc lập"
+ },
+ "negligence": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "hờ hửng, không chú ý"
+ },
+ "determinant": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "định rỏ, xác định"
+ },
+ "redeem": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "Tom does have one redeeming quality.",
+  "syn": [],
+  "vi": "chuộc lại, chuộc tù nhân"
+ },
+ "tribunal": {
+  "ipa": "/tɹaɪˈbjuːnəl/",
+  "pos": "noun",
+  "def": "",
+  "ex": "International tribunals are essential for prosecuting war criminals.",
+  "syn": [],
+  "vi": "ghế của quan tòa"
+ },
+ "icon": {
+  "ipa": "/ˈaɪ.kɒn/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "hình tượng, tượng ở giáo đường"
+ },
+ "steep": {
+  "ipa": "/stiːp/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "giốc, giốc đứng"
+ },
+ "safeguard": {
+  "ipa": "/ˈseɪfɡɑːd/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Free flow of information is the only safeguard against tyranny.",
+  "syn": [],
+  "vi": "đoàn công voa, đoàn hộ tống"
+ },
+ "loom": {
+  "ipa": "/luːm/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Many good grades will loom on the horizon.",
+  "syn": [],
+  "vi": "bóng mờ hoặc lớn ra, cán chèo"
+ },
+ "uranium": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "NATO bombed Serbia with ammunition containing depleted uranium.",
+  "syn": [],
+  "vi": "chất u ran, chất hóa học"
+ },
+ "deductible": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "Luxury spending is ineligible for tax deductions.",
+  "syn": [],
+  "vi": "được khấu trừ"
+ },
+ "conceptual": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "The Econ exam was pretty easy, mostly conceptual stuff, supply and demand, and all that.",
+  "syn": [],
+  "vi": "khái niệm luận"
+ },
+ "assault": {
+  "ipa": "/əˈsɒlt/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "tội cưởng dâm"
+ },
+ "optimism": {
+  "ipa": "/ˈɒptɪmɪzəm/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "lạc quan chủ nghĩa"
+ },
+ "faction": {
+  "ipa": "/ˈfæk.ʃən/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Factional in-fighting threw a monkey wrench into the deliberations.",
+  "syn": [],
+  "vi": "bè đảng, đảng phái"
+ },
+ "forge": {
+  "ipa": "/fɔːd͡ʒ/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "lò luyện sắt, lò rèn"
+ },
+ "rig": {
+  "ipa": "/ɹɪɡ/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "âm mưu sắp đặt trước, cách ăn mặc"
+ },
+ "abolish": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "bải bỏ, bỏ"
+ },
+ "predetermine": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "I will not allow my path through life to be predetermined.",
+  "syn": [],
+  "vi": "dự định, định trước"
+ },
+ "analytical": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Can we use Scientific calculators on the analytical chemistry test?",
+  "syn": [],
+  "vi": "phân tích"
+ },
+ "congressional": {
+  "ipa": "/kəŋˈɡɹɛ.ʃə.nəl/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "The congressional staffer who leaked classified documents has been arrested.",
+  "syn": [],
+  "vi": "thuộc về quốc hội"
+ },
+ "spy": {
+  "ipa": "/spaɪ/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "dọ thám, thấy"
+ },
+ "fiber": {
+  "ipa": "/ˈfaɪ.bə/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Please cut perpendicular to the fibers.",
+  "syn": [],
+  "vi": "người khoác lác, người nói sạo"
+ },
+ "stall": {
+  "ipa": "/stɔːl/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chuồng bò, ngăn tủ"
+ },
+ "lure": {
+  "ipa": "/lʊə/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Sami lured prostitutes into his car.",
+  "syn": [],
+  "vi": "cạm bẩy, chim giả"
+ },
+ "populist": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "The new political parties are rally lovers and populists, but not at all democratic.",
+  "syn": [],
+  "vi": "đảng viên đảng nhân dân"
+ },
+ "contemplate": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "xem, ngắm"
+ },
+ "raid": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "The club was raided by fundamentalists.",
+  "syn": [],
+  "vi": "cuộc xét hỏi bắt bớ, sự công kích thình lình"
+ },
+ "liquidate": {
+  "ipa": "/ˈlɪkwɪdeɪt/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "thanh toán nợ, thanh toán số nợ của công ty"
+ },
+ "debenture": {
+  "ipa": "/dɪˈbɛntjʊə/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Shareholders expressed concern about the growing number of outstanding debentures.",
+  "syn": [],
+  "vi": "giấy nợ, trái khoán"
+ },
+ "collar": {
+  "ipa": "/ˈkɒlə/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chổ giữa cây, cổ áo"
+ },
+ "outperform": {
+  "ipa": "/ˌaʊt.pɚˈfɔɹm/",
+  "pos": "",
+  "def": "",
+  "ex": "He studied so hard that he outperformed everyone in the final exam",
+  "syn": [],
+  "vi": "vượt trội hơn"
+ },
+ "optimize": {
+  "ipa": "/ˈɒptɪmaɪz/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "tối ưu hóa"
+ },
+ "broadband": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "There are big differences in broadband speed and quality from country to country.",
+  "syn": [],
+  "vi": "băng thông rộng"
+ },
+ "entail": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "His occupation entails a lot of travelling.",
+  "syn": [],
+  "vi": "sự đại thế, thay vào"
+ },
+ "carmaker": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "hãng sản xuất ô tô"
+ },
+ "discretionary": {
+  "ipa": "/dɪˈskɹɛʃən(ə)ɹi/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "tùy ý"
+ },
+ "reconciliation": {
+  "ipa": "/ˌɹɛk(ə)nsɪlɪˈeɪʃ(ə)n/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Tolerance is a bridge that leads to reconciliation.",
+  "syn": [],
+  "vi": "sự giảng hòa, sự hòa giải"
+ },
+ "directive": {
+  "ipa": "/daɪˈɹɛk.tɪv/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chỉ huy, chi phối"
+ },
+ "mutually": {
+  "ipa": "/ˈmjuːtʃʊəli/",
+  "pos": "adverb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "giúp lẫn nhau, hỗ tương"
+ },
+ "subprime": {
+  "ipa": "/ˈsʌb.pɹʌɪm/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "dưới chuẩn"
+ },
+ "refusal": {
+  "ipa": "/ɹɪˈfjuːzl̩/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự từ chối, sự từ khước"
+ },
+ "geographic": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Algeria has geographical advantage over Morocco.",
+  "syn": [],
+  "vi": "thuộc về địa dư"
+ },
+ "consortium": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "He's looking to form consortiums and alliances with the private sector, with the universities.",
+  "syn": [],
+  "vi": "công ty"
+ },
+ "policeman": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "cảnh sát viên"
+ },
+ "amortize": {
+  "ipa": "/əˈmɔːtaɪz/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "trả lần, trừ lần"
+ },
+ "deliberately": {
+  "ipa": "/dɪˈlɪb.(ə.)ɹət.li/",
+  "pos": "adverb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "cân hắn, đắn đo"
+ },
+ "mill": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "He secured employment at the mill.",
+  "syn": [],
+  "vi": "cối xay, cối xay bột"
+ },
+ "loser": {
+  "ipa": "/luːzə(ɹ)/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "bên thua, cú thua"
+ },
+ "builder": {
+  "ipa": "/ˈbɪl.də/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Road builders need to consider environmental consequences.",
+  "syn": [],
+  "vi": "người xây cất, nhà thầu khoán"
+ },
+ "mainland": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "Cornwall is the south-westernmost county of the British mainland.",
+  "syn": [],
+  "vi": "đất liền, lục địa"
+ },
+ "peaceful": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "yên ổn"
+ },
+ "counterparty": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "We can't leave the counterparty any loopholes.",
+  "syn": [],
+  "vi": "đối tác"
+ },
+ "overwhelm": {
+  "ipa": "/ˌəʊ.vəˈ(h)wɛlm/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chôn, áp đảo"
+ },
+ "consistency": {
+  "ipa": "/kənˈsɪs.tən.si/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "tính chắc chắn, trạng thái nhứt trí"
+ },
+ "declaration": {
+  "ipa": "/ˌdɛk.ləˈɹeɪ.ʃən/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "tuyên ngôn, lời tuyên bố"
+ },
+ "retention": {
+  "ipa": "/ɹɪˈtɛnʃən/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Language learning stimulates brain activity and improves memory retention.",
+  "syn": [],
+  "vi": "sự bí tiểu, sự giử lại"
+ },
+ "harsh": {
+  "ipa": "/ˈhɑːʃ/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "thô, chát đắng"
+ },
+ "covariance": {
+  "ipa": "/kəʊˈvɛː.ɹi.əns/",
+  "pos": "",
+  "def": "",
+  "ex": "The influence of covariates on the primary outcome variable was explored using logistic regression.",
+  "syn": [],
+  "vi": "hiệp phương sai"
+ },
+ "jointly": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "cùng, cùng chung"
+ },
+ "exclusion": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "độc đoán"
+ },
+ "bomber": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "My grandfather got seriously injured by a bomber during the war.",
+  "syn": [],
+  "vi": "liệng lựu đạn, người ném bom"
+ },
+ "viewer": {
+  "ipa": "/ˈvjuːə/",
+  "pos": "noun",
+  "def": "",
+  "ex": "The teasers are designed to titillate viewers.",
+  "syn": [],
+  "vi": "người có năng lực thấy, người ngó thấy"
+ },
+ "spur": {
+  "ipa": "/spɜː/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Algeria's economic growth spurred demand in real estate.",
+  "syn": [],
+  "vi": "dao nhọn cột ở cựa gà, móc sắt"
+ },
+ "prospectus": {
+  "ipa": "/pɹəˈspɛktəs/",
+  "pos": "noun",
+  "def": "",
+  "ex": "I picked up a prospectus and some other literature at the open day.",
+  "syn": [],
+  "vi": "giấy quảng cáo, giấy thông cáo"
+ },
+ "buffer": {
+  "ipa": "/ˈbʌfə/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Motorists must leave at least a metre-wide buffer when passing cyclists.",
+  "syn": [],
+  "vi": "bạn gìa, bớt lúc lắc"
+ },
+ "infect": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "làm hư"
+ },
+ "formulate": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "Was it Leibniz or Newton who first formulated the theory of calculus?",
+  "syn": [],
+  "vi": "làm theo thể thức, phát biểu"
+ },
+ "socialist": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "theo chủ nghĩa xã hội, xã hội"
+ },
+ "browser": {
+  "ipa": "/ˈbɹaʊ.zə/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "trình duyệt"
+ },
+ "cyclical": {
+  "ipa": "/ˈsaɪklɪkəl/",
+  "pos": "",
+  "def": "",
+  "ex": "To memorize Thai letters, you should review them cyclically.",
+  "syn": [],
+  "vi": "mang tính chu kỳ"
+ },
+ "exaggerate": {
+  "ipa": "/ɛɡˈzæd͡ʒ.ə.ɹeɪt/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "làm to thêm, nói quá đáng"
+ },
+ "cartel": {
+  "ipa": "/kɑːˈtɛl/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Mexican drug cartels are vying over lucrative drug-trafficking routes to the U.S.",
+  "syn": [],
+  "vi": "qui ước trao đổi tù binh, sự thách đấu gươm"
+ },
+ "triumph": {
+  "ipa": "/ˈtɹaɪ̯ʌmf/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "cuộc khải hoàn, sự đại thắng"
+ },
+ "divert": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "Traffic is being diverted because of flooding.",
+  "syn": [],
+  "vi": "đổi chiều, làm chuyển hướng"
+ },
+ "delegation": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "He looks like the Armenian delegate.",
+  "syn": [],
+  "vi": "phái đoàn, sự ủy nhiệm"
+ },
+ "ordinate": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "The attempts to overturn the ordinance still need to be passed by Congress.",
+  "syn": [],
+  "vi": "điều hành"
+ },
+ "casualty": {
+  "ipa": "/ˈkaʒʊ.əlti/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "người bị thương một tai nạn"
+ },
+ "dot": {
+  "ipa": "/dɒt/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chấm, chấm và gạch"
+ },
+ "distinctive": {
+  "ipa": "/dɪˈstɪŋktɪv/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "đặc biệt, khác biệt"
+ },
+ "inflationary": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "When a currency depreciates, that has an inflationary effect on the economy of the country of the currency.",
+  "syn": [],
+  "vi": "lạm phát, phồng ra"
+ },
+ "tort": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "You're not a baker if you can't bake torts.",
+  "syn": [],
+  "vi": "hành động"
+ },
+ "positively": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chắc chắn, xác thực"
+ },
+ "constituency": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "The legislator talked at length with his constituents about beach erosion.",
+  "syn": [],
+  "vi": "các cử tri, cử tri đoàn"
+ },
+ "explosion": {
+  "ipa": "/ɪkˈspləʊ.ʒən/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự nổ, tiếng nổ"
+ },
+ "liberalization": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự tự do hóa"
+ },
+ "buyout": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "Auctions are annoying, so I bought it instantly with a buyout.",
+  "syn": [],
+  "vi": "mua lại"
+ },
+ "remarkably": {
+  "ipa": "/ɹɪˈmɑːkəbli/",
+  "pos": "adverb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "hiển nhiên"
+ },
+ "spark": {
+  "ipa": "/ˈspɑːk/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "điện tín viên, người vui tánh"
+ },
+ "competitiveness": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "khả năng cạnh tranh"
+ },
+ "copper": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "bằng đồng"
+ },
+ "poison": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chất độc, thuốc độc"
+ },
+ "outright": {
+  "ipa": "/aʊtˈɹaɪt/",
+  "pos": "adverb",
+  "def": "",
+  "ex": "It's always better to ask outright.",
+  "syn": [],
+  "vi": "ngay, hoàn toàn"
+ },
+ "bitter": {
+  "ipa": "/ˈbɪt.ə/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "đắng, đồ ăn có vị đắng"
+ },
+ "hostility": {
+  "ipa": "/hɒsˈtɪlɪti/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "hành động, hành vi"
+ },
+ "enlargement": {
+  "ipa": "/ɪnˈlɑːd͡ʒ.mənt/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "bành trướng, khuếch trương"
+ },
+ "hub": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "Algeria should become a manufacturing hub.",
+  "syn": [],
+  "vi": "công việc ngập đầu, đùm"
+ },
+ "trim": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "ăn mặc chỉnh tề, dọn dẹp có thứ tự"
+ },
+ "lesser": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Compared to surrender, death is the lesser evil.",
+  "syn": [],
+  "vi": "nhỏ, nhỏ hơn"
+ },
+ "denounce": {
+  "ipa": "/diˈnaʊns/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "bài bác, cáo phát"
+ },
+ "protester": {
+  "ipa": "/pɹəˈtɛstəɹ/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "người phản đối"
+ },
+ "echo": {
+  "ipa": "/ˈɛk.əʊ/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "tiếng dội lại, tiếng vang lại"
+ },
+ "haul": {
+  "ipa": "/hɔːl/",
+  "pos": "verb",
+  "def": "",
+  "ex": "They hauled everything in large bags.",
+  "syn": [],
+  "vi": "lôi, chuyên chở vận tải"
+ },
+ "financially": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "tài chính"
+ },
+ "maximization": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "I would no longer call this maximalism, but obsession.",
+  "syn": [],
+  "vi": "tối đa hóa"
+ },
+ "bureaucrat": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "The bureaucrats are militants of paperwork.",
+  "syn": [],
+  "vi": "công chức"
+ },
+ "dissolution": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "Justice without mercy is cruelty; mercy without justice is the mother of dissolution.",
+  "syn": [],
+  "vi": "lâm chung, giải tán"
+ },
+ "distortion": {
+  "ipa": "/dɪsˈtɔːʃən/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "biến thể, làm sai lạc"
+ },
+ "continually": {
+  "ipa": "/kənˈtɪnjuəli/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "liên tục"
+ },
+ "awkward": {
+  "ipa": "/ˈɔːk.wəd/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "khó chịu, không đẹp mắt"
+ },
+ "slack": {
+  "ipa": "/slæk/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "dùn, hửng hờ"
+ },
+ "drift": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chổ cạn đi qua được, khuynh hướng"
+ },
+ "interference": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự can thiệp, sự cản trợ"
+ },
+ "geographical": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Algeria has geographical advantage over Morocco.",
+  "syn": [],
+  "vi": "thuộc về địa lý"
+ },
+ "encompass": {
+  "ipa": "/ɪnˈkʌmpəs/",
+  "pos": "verb",
+  "def": "",
+  "ex": "The Maghreb region encompasses Morocco, Algeria, Tunisia, Mauritania, and Libya.",
+  "syn": [],
+  "vi": "bao quanh, bao gồm"
+ },
+ "proportional": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Algeria is a country of continental proportions.",
+  "syn": [],
+  "vi": "cân đối, tương xứng"
+ },
+ "uncover": {
+  "ipa": "/ʌnˈkʌvə(ɹ)/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "bày tỏ, mở ra"
+ },
+ "petty": {
+  "ipa": "/ˈpɛt.i/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "không quan trọng, không ra gì"
+ },
+ "worsen": {
+  "ipa": "/ˈwɜːsn̩/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "tệ hơn, trở nên xấu hơn"
+ },
+ "reorganization": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "The brain constantly reorganizes itself during the learning of a new language.",
+  "syn": [],
+  "vi": "sự sửa sang lại"
+ },
+ "successive": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "kế tiếp, nối tiếp"
+ },
+ "blend": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "Days can blend into one another.",
+  "syn": [],
+  "vi": "lẫn lộn nhau, pha trộn nhau"
+ },
+ "simplicity": {
+  "ipa": "/sɪmˈplɪsɪti/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "tính bình dị, tính chơn chất"
+ },
+ "deregulation": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "Therefore, they cannot catalyze deregulation without \"external pressure\".",
+  "syn": [],
+  "vi": "bãi bỏ quy định"
+ },
+ "computerize": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "Companies are rapidly trying to computerize their systems.",
+  "syn": [],
+  "vi": "vi tính hóa"
+ },
+ "succession": {
+  "ipa": "/səkˈsɛʃ.ən/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự kế thừa, sự kế vị"
+ },
+ "royalty": {
+  "ipa": "/ˈɹɔɪəlti/",
+  "pos": "noun",
+  "def": "",
+  "ex": "All the royalties went to charity.",
+  "syn": [],
+  "vi": "người trong gia tộc vua, người trong hoàng tộc"
+ },
+ "macro": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "He took a lot of macro photographs of disgusting Canadian bugs.",
+  "syn": [],
+  "vi": "vĩ mô"
+ },
+ "flourish": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "cử chỉ tự phụ, hồi kèn"
+ },
+ "insurgent": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "To fight terrorism, Algeria has mastered anti-insurgency warfare so well.",
+  "syn": [],
+  "vi": ""
+ },
+ "relevance": {
+  "ipa": "/ˈɹɛl.ɪ.vən(t)s/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "setup": {
+  "ipa": "/ˈsɛtʌp/",
+  "pos": "",
+  "def": "",
+  "ex": "I ran setup and then the whole thing crashed.",
+  "syn": [],
+  "vi": ""
+ },
+ "notable": {
+  "ipa": "/ˈnəʊtəbl̩/",
+  "pos": "",
+  "def": "",
+  "ex": "In Algiers, the Martyrs' Memorial is a notable landmark.",
+  "syn": [],
+  "vi": ""
+ },
+ "tranche": {
+  "ipa": "/tɹɑ̃ʃ/",
+  "pos": "",
+  "def": "",
+  "ex": "Today the first tranche of investments in the project account was received.",
+  "syn": [],
+  "vi": ""
+ },
+ "policymaker": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "The policymaker made sure to carefully consider the pros and cons in his work.",
+  "syn": [],
+  "vi": ""
+ },
+ "technically": {
+  "ipa": "/ˈtɛk.nɪˌkəl.i/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "utilization": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "Pietro decided to utilize the opportunity.",
+  "syn": [],
+  "vi": ""
+ },
+ "tumble": {
+  "ipa": "/ˈtʌmbl̩/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "baseline": {
+  "ipa": "/ˈbeɪslaɪn/",
+  "pos": "",
+  "def": "",
+  "ex": "Miss Williams is challenging the call on the left baseline. The ball was called in.",
+  "syn": [],
+  "vi": ""
+ },
+ "template": {
+  "ipa": "/ˈtɛm.plɪt/",
+  "pos": "",
+  "def": "",
+  "ex": "C++0x will admit template functions that take an arbitrary number of arguments.",
+  "syn": [],
+  "vi": ""
+ },
+ "obituary": {
+  "ipa": "/əˈbɪt͡ʃʊ(ə)ɹi/",
+  "pos": "",
+  "def": "",
+  "ex": "Reading the obituary section, for old people, is like taking a victory lap.",
+  "syn": [],
+  "vi": ""
+ },
+ "peso": {
+  "ipa": "/ˈpeɪsəʊ/",
+  "pos": "",
+  "def": "",
+  "ex": "The cost amounted to twelve pesos.",
+  "syn": [],
+  "vi": ""
+ },
+ "denominate": {
+  "ipa": "/dɪˈnɒm.ɪ.neɪt/",
+  "pos": "",
+  "def": "",
+  "ex": "These two fractions need to be given a common denominator.",
+  "syn": [],
+  "vi": ""
+ },
+ "shortfall": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "The government's elevated debt levels have limited its capacity to finance any shortfalls.",
+  "syn": [],
+  "vi": ""
+ },
+ "originate": {
+  "ipa": "/əˈɹɪd͡ʒɪneɪt/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "bureaucratic": {
+  "ipa": "/ˌbjʊəɹəˈkɹætɪk/",
+  "pos": "",
+  "def": "",
+  "ex": "The bureaucrats are militants of paperwork.",
+  "syn": [],
+  "vi": ""
+ },
+ "stochastic": {
+  "ipa": "/stəˈkæstɪk/",
+  "pos": "",
+  "def": "",
+  "ex": "A good knowledge of numerical analysis, stochastic calculus and programming in C++ is important for a job in banking my lecturer said.",
+  "syn": [],
+  "vi": ""
+ },
+ "kidnap": {
+  "ipa": "/ˈkɪdnæp/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "dictator": {
+  "ipa": "/dɪkˈteɪtə/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "dual": {
+  "ipa": "/ˈd͡ʒuː.əl/",
+  "pos": "",
+  "def": "",
+  "ex": "Overtaking is simpler on a dual carriageway.",
+  "syn": [],
+  "vi": ""
+ },
+ "brick": {
+  "ipa": "/ˈbɹɪk/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "internally": {
+  "ipa": "/ɪnˈtɜːnəli/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "refinance": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "tribal": {
+  "ipa": "/ˈtɹaɪbəl/",
+  "pos": "",
+  "def": "",
+  "ex": "Massinissa unified a tribal and mostly nomadic Numidia.",
+  "syn": [],
+  "vi": ""
+ },
+ "empower": {
+  "ipa": "/ɪmˈpaʊ.ə/",
+  "pos": "",
+  "def": "",
+  "ex": "Her strength empowers those around her.",
+  "syn": [],
+  "vi": ""
+ },
+ "oversight": {
+  "ipa": "/ˈəʊvəˌsaɪt/",
+  "pos": "",
+  "def": "",
+  "ex": "There is big oversight in that plan.",
+  "syn": [],
+  "vi": ""
+ },
+ "transparent": {
+  "ipa": "/tɹænsˈpæɹənt/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "predictor": {
+  "ipa": "/pɹɪˈdɪk.tə/",
+  "pos": "",
+  "def": "",
+  "ex": "The biggest predictor of self-reported porn addiction is religiosity.",
+  "syn": [],
+  "vi": ""
+ },
+ "dominance": {
+  "ipa": "/ˈdɒmɪnəns/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "hugely": {
+  "ipa": "/ˈhjuːd͡ʒli/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "wholesaler": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "There's been an increase in wholesale prices.",
+  "syn": [],
+  "vi": ""
+ },
+ "bilateral": {
+  "ipa": "/baɪˈlætəɹəl/",
+  "pos": "",
+  "def": "",
+  "ex": "Algeria and Western Sahara need to sign a bilateral military agreement.",
+  "syn": [],
+  "vi": ""
+ },
+ "cotton": {
+  "ipa": "/ˈkɒt.n̩/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "routinely": {
+  "ipa": "/ɹuːˈtiːnli/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "obscure": {
+  "ipa": "/əbˈskjʊə(ɹ)/",
+  "pos": "",
+  "def": "",
+  "ex": "Mark writes his academic papers obscurely.",
+  "syn": [],
+  "vi": ""
+ },
+ "mobility": {
+  "ipa": "/mə(ʊ)ˈbɪlɪti/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "dilute": {
+  "ipa": "/daɪˈljuːt/",
+  "pos": "",
+  "def": "",
+  "ex": "Without water, pharmaceutical preparations and dilutions can't be made.",
+  "syn": [],
+  "vi": ""
+ },
+ "elaborate": {
+  "ipa": "/ɪˈlæb.ə.ɹeɪt/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "reprint": {
+  "ipa": "/ˈɹiːpɹɪnt/",
+  "pos": "",
+  "def": "",
+  "ex": "The book has been reprinted several times, and is also available online.",
+  "syn": [],
+  "vi": ""
+ },
+ "bull": {
+  "ipa": "/bʊl/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "extremist": {
+  "ipa": "/ɪkˈstɹiːmɪst/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "peg": {
+  "ipa": "/ˈpɛɡ/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "idle": {
+  "ipa": "/ˈaɪd(ə)l/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "annualize": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "Boris went on annual camping trips.",
+  "syn": [],
+  "vi": ""
+ },
+ "turmoil": {
+  "ipa": "/ˈtɜːmɔɪl/",
+  "pos": "",
+  "def": "",
+  "ex": "Morocco is plunged into domestic turmoil.",
+  "syn": [],
+  "vi": ""
+ },
+ "wary": {
+  "ipa": "/ˈwɛə.ɹi/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "credible": {
+  "ipa": "/ˈkɹɛdəbl̩/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "woe": {
+  "ipa": "/wəʊ/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "capita": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "How much sugar does Algeria consume per capita?",
+  "syn": [],
+  "vi": ""
+ },
+ "tolerate": {
+  "ipa": "/ˈtɒl.ə.ɹeɪt/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "casino": {
+  "ipa": "/kəˈsiːnəʊ/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "downside": {
+  "ipa": "/ˈdaʊnˌsaɪd/",
+  "pos": "",
+  "def": "",
+  "ex": "Being handsome also has its downside.",
+  "syn": [],
+  "vi": ""
+ },
+ "steam": {
+  "ipa": "/stiːm/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "hydrogen": {
+  "ipa": "/ˈhaɪdɹəd͡ʒ(ə)n/",
+  "pos": "",
+  "def": "",
+  "ex": "\"Which element has the symbol H?\" \"Hydrogen.\"",
+  "syn": [],
+  "vi": ""
+ },
+ "crush": {
+  "ipa": "/kɹʌʃ/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "thereafter": {
+  "ipa": "/ˌðɛəɹˈɑːf.tə(ɹ)/",
+  "pos": "",
+  "def": "",
+  "ex": "Tom acquired a service turtle. Shortly thereafter, his life was cut short.",
+  "syn": [],
+  "vi": ""
+ },
+ "marketable": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "conjunction": {
+  "ipa": "/kənˈd͡ʒʌŋk.ʃn̩/",
+  "pos": "",
+  "def": "",
+  "ex": "We distinguish between subordinating and coordinating conjunctions.",
+  "syn": [],
+  "vi": ""
+ },
+ "doubtful": {
+  "ipa": "/ˈdaʊtfəl/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "ideological": {
+  "ipa": "/ˌaɪ.diː.əˈlɒd͡ʒ.ɪ.kəl/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "bracket": {
+  "ipa": "/ˈbɹækɪt/",
+  "pos": "",
+  "def": "",
+  "ex": "Only one competitor can emerge from the crucible of losers' bracket.",
+  "syn": [],
+  "vi": ""
+ },
+ "outrage": {
+  "ipa": "/ˈaʊt.ɹeɪd͡ʒ/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "hurdle": {
+  "ipa": "/ˈhɜːdl̩/",
+  "pos": "",
+  "def": "",
+  "ex": "Furries face psychological hurdles in learning Spanish.",
+  "syn": [],
+  "vi": ""
+ },
+ "commentator": {
+  "ipa": "/ˈkɒmənˌteɪtə/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "premier": {
+  "ipa": "/ˈpɹɛm.iː.ə/",
+  "pos": "",
+  "def": "",
+  "ex": "The premier and his cabinet colleagues resigned.",
+  "syn": [],
+  "vi": ""
+ },
+ "insurgency": {
+  "ipa": "/ɪnˈsɜːd͡ʒənsi/",
+  "pos": "",
+  "def": "",
+  "ex": "To fight terrorism, Algeria has mastered anti-insurgency warfare so well.",
+  "syn": [],
+  "vi": ""
+ },
+ "averse": {
+  "ipa": "/əˈvɜː(ɹ)s/",
+  "pos": "",
+  "def": "",
+  "ex": "I developed an aversion toward the word \"awesome\".",
+  "syn": [],
+  "vi": ""
+ },
+ "enlarge": {
+  "ipa": "/ɪnˈlɑːd͡ʒ/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "ethanol": {
+  "ipa": "/ˈɛθ.ə.nɒl/",
+  "pos": "",
+  "def": "",
+  "ex": "This volume of ethanol cannot completely dissolve 0.5 g of the white solid.",
+  "syn": [],
+  "vi": ""
+ },
+ "fairness": {
+  "ipa": "/ˈfɛə.nəs/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "dependency": {
+  "ipa": "/dɪˈpɛndənsi/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "prepayment": {
+  "ipa": "/ˌpɹiːˈpeɪ.mənt/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "externality": {
+  "ipa": "/ɛkstəˈnælɪti/",
+  "pos": "",
+  "def": "",
+  "ex": "Does Algeria need to borrow externally?",
+  "syn": [],
+  "vi": ""
+ },
+ "helicopter": {
+  "ipa": "/ˈhɛl.iˌkɒp.tə(ɹ)/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "perpetual": {
+  "ipa": "/pəˈpɛtʃʊəl/",
+  "pos": "",
+  "def": "",
+  "ex": "Pornography perpetuates harmful stereotypes about women.",
+  "syn": [],
+  "vi": ""
+ },
+ "ration": {
+  "ipa": "/ˈɹeɪʃən/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "mosque": {
+  "ipa": "/mɒsk/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "inability": {
+  "ipa": "/ˌɪnəˈbɪlɪti/",
+  "pos": "",
+  "def": "",
+  "ex": "Our inability to talk has prevented us from addressing important matters.",
+  "syn": [],
+  "vi": ""
+ },
+ "analytic": {
+  "ipa": "/ˌænəˈlɪtɪk/",
+  "pos": "",
+  "def": "",
+  "ex": "Can we use Scientific calculators on the analytical chemistry test?",
+  "syn": [],
+  "vi": ""
+ },
+ "autonomous": {
+  "ipa": "/ɔːˈtɒnəməs/",
+  "pos": "",
+  "def": "",
+  "ex": "Russia and China have many autonomous regions.",
+  "syn": [],
+  "vi": ""
+ },
+ "prone": {
+  "ipa": "/pɹəʊn/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "inefficiency": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "Inefficiency is a form of waste.",
+  "syn": [],
+  "vi": ""
+ },
+ "downgrade": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "Going from Starbucks to instant coffee is a massive downgrade, if you ask me.",
+  "syn": [],
+  "vi": ""
+ },
+ "plead": {
+  "ipa": "/pliːd/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "openly": {
+  "ipa": "/ˈoʊpənli/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "oust": {
+  "ipa": "/aʊst/",
+  "pos": "",
+  "def": "",
+  "ex": "Australia’s first female prime minister Julia Gillard ousted as Labour party leader.",
+  "syn": [],
+  "vi": ""
+ },
+ "underwriter": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "Not every company can afford to underwrite such an expensive event.",
+  "syn": [],
+  "vi": ""
+ },
+ "newcomer": {
+  "ipa": "/ˈnjuːkʌmə/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "prolong": {
+  "ipa": "/pɹəʊˈlɒŋ/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "salvage": {
+  "ipa": "/ˈsælvɪd͡ʒ/",
+  "pos": "",
+  "def": "",
+  "ex": "Sami tried to salvage his marriage.",
+  "syn": [],
+  "vi": ""
+ },
+ "pursuant": {
+  "ipa": "/pəˈsjuː.ənt/",
+  "pos": "",
+  "def": "",
+  "ex": "Pursuant to this law, no one is allowed to kill, except in self-defense.",
+  "syn": [],
+  "vi": ""
+ },
+ "appropriately": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "accusation": {
+  "ipa": "/ˌæk.jʊˈzeɪ.ʃ(ə)n/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "entrepreneurial": {
+  "ipa": "/ˌɒn.tɹə.pɹəˈnɜː.ɹi.əl/",
+  "pos": "",
+  "def": "",
+  "ex": "Dependability is part of our entrepreneurial culture.",
+  "syn": [],
+  "vi": ""
+ },
+ "devaluation": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "The Algerian dinar is devaluing year after year.",
+  "syn": [],
+  "vi": ""
+ },
+ "outlay": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "The union is prepared to outlay their entire strike fund in these negotiations.",
+  "syn": [],
+  "vi": ""
+ },
+ "precious": {
+  "ipa": "/ˈpɹɛʃ.əs/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "regain": {
+  "ipa": "/ɹiːˈɡeɪn/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "restrictive": {
+  "ipa": "/ɹɪˈstɹɪktɪv/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "deed": {
+  "ipa": "/diːd/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "competent": {
+  "ipa": "/ˈkɒmpətənt/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "horror": {
+  "ipa": "/ˈhɒɹə/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "occasional": {
+  "ipa": "/əˈkeɪʒ(ə)nəl/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "asylum": {
+  "ipa": "/əˈsaɪləm/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "isolation": {
+  "ipa": "/ˌaɪsəˈleɪʃən/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "partition": {
+  "ipa": "/pɑːˈtɪ.ʃən/",
+  "pos": "",
+  "def": "",
+  "ex": "There were Jews in Arab countries before the partition of Palestine.",
+  "syn": [],
+  "vi": ""
+ },
+ "hypothetical": {
+  "ipa": "/ˌhaɪpəˈθɛtɪkəl/",
+  "pos": "",
+  "def": "",
+  "ex": "Let's not worry about hypothetical situations.",
+  "syn": [],
+  "vi": ""
+ },
+ "deprive": {
+  "ipa": "/dɪˈpɹaɪv/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "investigator": {
+  "ipa": "/ɪnˈvɛs.tɪˌɡeɪ̯.təː/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "explosive": {
+  "ipa": "/ɛkˈspləʊsɪv/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "tactical": {
+  "ipa": "/ˈtæktɪk(ə)l/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "reap": {
+  "ipa": "/ˈɹiːp/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "boycott": {
+  "ipa": "/ˈbɔɪkɒt/",
+  "pos": "",
+  "def": "",
+  "ex": "Tom decided to boycott the elections.",
+  "syn": [],
+  "vi": ""
+ },
+ "gloomy": {
+  "ipa": "/ˈɡluːmi/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "unpredictable": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "disastrous": {
+  "ipa": "/dɪˈzɑː.stɹəs/",
+  "pos": "",
+  "def": "",
+  "ex": "My first love relationship ended disastrously.",
+  "syn": [],
+  "vi": ""
+ },
+ "dissident": {
+  "ipa": "/ˈdɪsɪdənt/",
+  "pos": "",
+  "def": "",
+  "ex": "\"Dissidents must be tolerated!\" \"Even when they aren't tolerant themselves?\"",
+  "syn": [],
+  "vi": ""
+ },
+ "defensive": {
+  "ipa": "/dɪˈfɛn.sɪv/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "communism": {
+  "ipa": "/ˈkɒmjᵿnɪz(ə)m/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "frustration": {
+  "ipa": "/fɹʌsˈtɹeɪ.ʃən/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "fret": {
+  "ipa": "/fɹɛt/",
+  "pos": "",
+  "def": "",
+  "ex": "Not all string instruments have frets.",
+  "syn": [],
+  "vi": ""
+ },
+ "undervalue": {
+  "ipa": "/ˌʌndə(ɹ)ˈvælju/",
+  "pos": "",
+  "def": "",
+  "ex": "Investors believe they can skillfully buy undervalued assets.",
+  "syn": [],
+  "vi": ""
+ },
+ "diligence": {
+  "ipa": "/ˈdɪlɪd͡ʒəns/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "undoubtedly": {
+  "ipa": "/ʌnˈdaʊtɪdli/",
+  "pos": "",
+  "def": "",
+  "ex": "Esperanto is undoubtedly a functioning language.",
+  "syn": [],
+  "vi": ""
+ },
+ "congressman": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "When the scandal broke, the Congressman's constituents were seething.",
+  "syn": [],
+  "vi": ""
+ },
+ "ratify": {
+  "ipa": "/ˈɹætɪfaɪ/",
+  "pos": "",
+  "def": "",
+  "ex": "The Blessed are beautified, the saints are sanctified and rats are ratified.",
+  "syn": [],
+  "vi": ""
+ },
+ "correspondent": {
+  "ipa": "/ˌkɒɹ.ɪˈspɒn.dənt/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "doom": {
+  "ipa": "/duːm/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "rage": {
+  "ipa": "/ɹeɪd͡ʒ/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "separatist": {
+  "ipa": "/ˈsɛpəɹətɪst/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "deficiency": {
+  "ipa": "/dɪˈfɪʃənsi/",
+  "pos": "",
+  "def": "",
+  "ex": "AIDS means \"Acquired Immune Deficiency Syndrome\".",
+  "syn": [],
+  "vi": ""
+ },
+ "imbalance": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "BDSM dynamics can involve exploring power imbalances in a consensual context.",
+  "syn": [],
+  "vi": ""
+ },
+ "bolster": {
+  "ipa": "/ˈbɒlstə/",
+  "pos": "",
+  "def": "",
+  "ex": "Narcissists may use others to bolster their own self-esteem and self-worth.",
+  "syn": [],
+  "vi": ""
+ },
+ "constructive": {
+  "ipa": "/kənˈstɹʌktɪv/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "laser": {
+  "ipa": "/ˈleɪz.ə(ɹ)/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "smuggle": {
+  "ipa": "/ˈsmʌɡəl/",
+  "pos": "",
+  "def": "",
+  "ex": "Sami smuggled immigrants through the Mediterranean.",
+  "syn": [],
+  "vi": ""
+ },
+ "proclaim": {
+  "ipa": "/pɹəʊˈkleɪm/",
+  "pos": "",
+  "def": "",
+  "ex": "This country recently proclaimed its independence.",
+  "syn": [],
+  "vi": ""
+ },
+ "skeptic": {
+  "ipa": "/ˈskɛp.tɪk/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "bounce": {
+  "ipa": "/baʊns/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "reformer": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "unwilling": {
+  "ipa": "/ʌnˈwɪlɪŋ/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "cheaply": {
+  "ipa": "/ˈt͡ʃiːpli/",
+  "pos": "",
+  "def": "",
+  "ex": "His company did cheaply produced pornography and schlock films.",
+  "syn": [],
+  "vi": ""
+ },
+ "enrich": {
+  "ipa": "/ɪnˈɹɪt͡ʃ/",
+  "pos": "",
+  "def": "",
+  "ex": "Compassion costs nothing but enriches all.",
+  "syn": [],
+  "vi": ""
+ },
+ "prop": {
+  "ipa": "/pɹɒp/",
+  "pos": "",
+  "def": "",
+  "ex": "The ladder is propped against the wall.",
+  "syn": [],
+  "vi": ""
+ },
+ "depositor": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "clout": {
+  "ipa": "/klaʊt/",
+  "pos": "",
+  "def": "",
+  "ex": "Why are you siccing your followers on someone with far less clout than you?",
+  "syn": [],
+  "vi": ""
+ },
+ "collectively": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "conspiracy": {
+  "ipa": "/kənˈspɪɹəsi/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "enhancement": {
+  "ipa": "/ɪnˈhɑːns.mənt/",
+  "pos": "",
+  "def": "",
+  "ex": "Different opinions can enhance our understanding.",
+  "syn": [],
+  "vi": ""
+ },
+ "decentralize": {
+  "ipa": "/diːˈsɛntɹəlaɪz/",
+  "pos": "",
+  "def": "",
+  "ex": "Will a decentralized Algeria be a threat to the territorial integrity of the country?",
+  "syn": [],
+  "vi": ""
+ },
+ "explode": {
+  "ipa": "/ɪkˈspləʊd/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "pensioner": {
+  "ipa": "/ˈpɛnʃənə/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "unauthorize": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "I don't want unauthorized pictures of me on people's social media.",
+  "syn": [],
+  "vi": ""
+ },
+ "pin": {
+  "ipa": "/pɪn/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "prudent": {
+  "ipa": "/ˈpɹuː.dənt/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "census": {
+  "ipa": "/ˈsɛnsəs/",
+  "pos": "",
+  "def": "",
+  "ex": "\"Trasianka\" will be equalized with Belarusian language during the census.",
+  "syn": [],
+  "vi": ""
+ },
+ "vow": {
+  "ipa": "/vaʊ/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "ineffective": {
+  "ipa": "/ˌɪn.ɪˈfɛk.tɪv/",
+  "pos": "",
+  "def": "",
+  "ex": "The countermeasures that were introduced proved completely ineffective.",
+  "syn": [],
+  "vi": ""
+ },
+ "adequately": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "We have adequate seat for everyone.",
+  "syn": [],
+  "vi": ""
+ },
+ "prosper": {
+  "ipa": "/ˈpɹɒspə(ɹ)/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "cooperative": {
+  "ipa": "/kəʊˈɒpəɹətɪv/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "subsection": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "formulation": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "Was it Leibniz or Newton who first formulated the theory of calculus?",
+  "syn": [],
+  "vi": ""
+ },
+ "exert": {
+  "ipa": "/ɪɡˈzɜːt/",
+  "pos": "",
+  "def": "",
+  "ex": "Algeria exerts influence throughout Africa and beyond.",
+  "syn": [],
+  "vi": ""
+ },
+ "expectancy": {
+  "ipa": "/ɪkˈspɛkt(ə)nsi/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "syndicate": {
+  "ipa": "/ˈsɪndɪkət/",
+  "pos": "",
+  "def": "",
+  "ex": "This sweet little old lady turned out to be the head of a crime syndicate.",
+  "syn": [],
+  "vi": ""
+ },
+ "unfavorable": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "The weather is unfavorable for our athletic meet today.",
+  "syn": [],
+  "vi": ""
+ },
+ "proprietorship": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "franc": {
+  "ipa": "/ˈfɹæŋk/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "policyholder": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "The insurer will indemnify the policyholder against loss of or damage to the motor car.",
+  "syn": [],
+  "vi": ""
+ },
+ "supervisory": {
+  "ipa": "/ˌsuːpə(ɹ)ˈvaɪzəɹɪ/",
+  "pos": "",
+  "def": "",
+  "ex": "The police major is the highest rank in the supervisory and enforcement corps.",
+  "syn": [],
+  "vi": ""
+ },
+ "sheer": {
+  "ipa": "/ʃɪə̯/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "realization": {
+  "ipa": "/ˌɹɪə.laɪˈzeɪ.ʃən/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "neo": {
+  "ipa": "/ˈniːəʊ/",
+  "pos": "",
+  "def": "",
+  "ex": "Neo successfully dodged all the shots.",
+  "syn": [],
+  "vi": ""
+ },
+ "reinvestment": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "Chemical companies are waiting until everything dies down before reinvesting.",
+  "syn": [],
+  "vi": ""
+ },
+ "scratch": {
+  "ipa": "/skɹæt͡ʃ/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "dissent": {
+  "ipa": "/dɪˈsɛnt/",
+  "pos": "",
+  "def": "",
+  "ex": "Freedom is always the freedom of the dissenter.",
+  "syn": [],
+  "vi": ""
+ },
+ "pit": {
+  "ipa": "/pɪt/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "intrigue": {
+  "ipa": "/ˈɪntɹiːɡ/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "brave": {
+  "ipa": "/bɹeɪv/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "scatter": {
+  "ipa": "/ˈskætə/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "annum": {
+  "ipa": "/ˈæn.əm/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "mar": {
+  "ipa": "/mɑː(ɹ)/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "reportedly": {
+  "ipa": "/ɹɪˈpɔːtɪdli/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "negotiator": {
+  "ipa": "/nɪˈɡəʊ.ʃi.eɪ.tə/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "offensive": {
+  "ipa": "/əˈfɛnsɪv/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "rape": {
+  "ipa": "/ˈɹeɪ̯p/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "embody": {
+  "ipa": "/ɪmˈbɒdi/",
+  "pos": "",
+  "def": "",
+  "ex": "Sami embodied peacefulness and loving kindness.",
+  "syn": [],
+  "vi": ""
+ },
+ "detection": {
+  "ipa": "/dɪˈtɛk.ʃən/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "intelligent": {
+  "ipa": "/ɪnˈtɛlɪd͡ʒənt/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "slim": {
+  "ipa": "/ˈslɪm/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "synergy": {
+  "ipa": "/ˈsɪnəd͡ʒi/",
+  "pos": "",
+  "def": "",
+  "ex": "Those actors play off each other so well that it makes a kind of synergy.",
+  "syn": [],
+  "vi": ""
+ },
+ "disguise": {
+  "ipa": "/dɪsˈɡaɪz/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "assertion": {
+  "ipa": "/əˈsɜːʃən/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "dictatorship": {
+  "ipa": "/dɪkˈteɪtəʃɪp/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "fraudulent": {
+  "ipa": "/ˈfɹɔːdjʊ.lənt/",
+  "pos": "",
+  "def": "",
+  "ex": "Undoubtedly these fraudulent applications are programmed to trick people.",
+  "syn": [],
+  "vi": ""
+ },
+ "constituent": {
+  "ipa": "/kənˈstɪtjuənt/",
+  "pos": "",
+  "def": "",
+  "ex": "The legislator talked at length with his constituents about beach erosion.",
+  "syn": [],
+  "vi": ""
+ },
+ "fiduciary": {
+  "ipa": "/fɪˈdjuːʃ.i.əɹ.i/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "rebound": {
+  "ipa": "/ɹiˈbaʊnd/",
+  "pos": "",
+  "def": "",
+  "ex": "Alessia missed a sitter but, from the rebound, scored a worldie.",
+  "syn": [],
+  "vi": ""
+ },
+ "scorecard": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "ounce": {
+  "ipa": "/aʊns/",
+  "pos": "",
+  "def": "",
+  "ex": "The baby weighed seven pounds, eight ounces.",
+  "syn": [],
+  "vi": ""
+ },
+ "plague": {
+  "ipa": "/pleɪɡ/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "killer": {
+  "ipa": "/ˈkɪlə/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "grave": {
+  "ipa": "/ɡɹeɪv/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "contributor": {
+  "ipa": "/kənˈtɹɪb.jə.tə/",
+  "pos": "",
+  "def": "",
+  "ex": "Contributors should be civil and respectful.",
+  "syn": [],
+  "vi": ""
+ },
+ "negotiable": {
+  "ipa": "/nɪˈɡəʊʃəbəl/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "reconstruction": {
+  "ipa": "/ˌɹiːkənˈstɹʌkʃən/",
+  "pos": "",
+  "def": "",
+  "ex": "He started reconstructing the sequence of events.",
+  "syn": [],
+  "vi": ""
+ },
+ "restate": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "I heard you restate what I said, but I'm not sure whether you agree with me.",
+  "syn": [],
+  "vi": ""
+ },
+ "rightly": {
+  "ipa": "/ˈɹaɪtli/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "sadly": {
+  "ipa": "/ˈsædli/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "paramilitary": {
+  "ipa": "/ˌpæɹəˈmɪlɪˌtɹi/",
+  "pos": "",
+  "def": "",
+  "ex": "Sami organized his gang in a paramilitary structure with him in command.",
+  "syn": [],
+  "vi": ""
+ },
+ "incorrect": {
+  "ipa": "/ˌɪn.kəˈɹɛkt/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "dismantle": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "duly": {
+  "ipa": "/ˈdʒuːli/",
+  "pos": "",
+  "def": "",
+  "ex": "Candidates must be duly nominated by the electoral commission.",
+  "syn": [],
+  "vi": ""
+ },
+ "reformist": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "Reformist prison systems try and encourage learning the teachings of stoicism because it lowers reoffending rates a lot.",
+  "syn": [],
+  "vi": ""
+ },
+ "imminent": {
+  "ipa": "/ˈɪmɪnənt/",
+  "pos": "",
+  "def": "",
+  "ex": "Rodrigo realized his death was imminent.",
+  "syn": [],
+  "vi": ""
+ },
+ "sympathy": {
+  "ipa": "/ˈsɪm.pə.θi/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "forecaster": {
+  "ipa": "/ˈfɔːkɑːstə/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "conceal": {
+  "ipa": "/kənˈsiːl/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "unrelated": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "clarity": {
+  "ipa": "/ˈklæɹ.ɪ.ti/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "flotation": {
+  "ipa": "/fləʊˈteɪʃən/",
+  "pos": "",
+  "def": "",
+  "ex": "The flotation device kept Tom safely above water.",
+  "syn": [],
+  "vi": ""
+ },
+ "maneuver": {
+  "ipa": "/məˈnuːvə/",
+  "pos": "",
+  "def": "",
+  "ex": "The centipede maneuvered through the dense vegetation.",
+  "syn": [],
+  "vi": ""
+ },
+ "prosperous": {
+  "ipa": "/ˈpɹɒs.p(ə.)ɹəs/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "launder": {
+  "ipa": "/ˈlɔːndə/",
+  "pos": "",
+  "def": "",
+  "ex": "Tomás was convicted for money laundering.",
+  "syn": [],
+  "vi": ""
+ },
+ "specialization": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "globally": {
+  "ipa": "/ˈɡləʊbəli/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "cleric": {
+  "ipa": "/ˈklɛɹɪk/",
+  "pos": "",
+  "def": "",
+  "ex": "Together, a bard, a wizard, a cleric, a barbarian and a monk comprise the party.",
+  "syn": [],
+  "vi": ""
+ },
+ "dash": {
+  "ipa": "/ˈdæʃ/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "rein": {
+  "ipa": "/ɹeɪn/",
+  "pos": "",
+  "def": "",
+  "ex": "He gave the child free rein to manage.",
+  "syn": [],
+  "vi": ""
+ },
+ "dismissal": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "empowerment": {
+  "ipa": "/ɪmˈpaʊ.əɹ.mənt/",
+  "pos": "",
+  "def": "",
+  "ex": "I read a quote about self empowerment or self love every day for inspiration.",
+  "syn": [],
+  "vi": ""
+ },
+ "revival": {
+  "ipa": "/ɹɪˈvaɪ̯vəl/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "nationalize": {
+  "ipa": "/ˈnæʃənəlaɪz/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "swiftly": {
+  "ipa": "/ˈswɪftli/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "void": {
+  "ipa": "/vɔɪd/",
+  "pos": "",
+  "def": "",
+  "ex": "He has an unbridgeable void inside.",
+  "syn": [],
+  "vi": ""
+ },
+ "enforceable": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "dub": {
+  "ipa": "/dʌb/",
+  "pos": "",
+  "def": "",
+  "ex": "These Russian movies are dubbed in English.",
+  "syn": [],
+  "vi": ""
+ },
+ "deliberate": {
+  "ipa": "/dɪˈlɪb.(ə.)ɹət/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "unsecured": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "Tom seized an unsecured bus at night and took it for a joyride until early morning.",
+  "syn": [],
+  "vi": ""
+ },
+ "blast": {
+  "ipa": "/blɑːst/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "alas": {
+  "ipa": "/əˈlæs/",
+  "pos": "",
+  "def": "",
+  "ex": "Alas, they just keep looking for pretexts!",
+  "syn": [],
+  "vi": ""
+ },
+ "impair": {
+  "ipa": "/ɪmˈpɛə/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "testify": {
+  "ipa": "/ˈtɛstɪfaɪ/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "prod": {
+  "ipa": "/pɹɒd/",
+  "pos": "",
+  "def": "",
+  "ex": "Tom occasionally prods me to work out with him, but I'm really not interested.",
+  "syn": [],
+  "vi": ""
+ },
+ "liberalize": {
+  "ipa": "/ˈlɪbəɹəlaɪz/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "bully": {
+  "ipa": "/ˈbʊli/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "persistent": {
+  "ipa": "/pəˈsɪstənt/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "catastrophe": {
+  "ipa": "/kəˈtæstɹəfi/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "endless": {
+  "ipa": "/ˈɛndlɪs/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "revaluation": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "The yen was revalued upward against the U.S. dollar from a rate of 360 yen against the dollar to 308 yen on December 18, 1971.",
+  "syn": [],
+  "vi": ""
+ },
+ "swell": {
+  "ipa": "/swɛl/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "worthy": {
+  "ipa": "/ˈwɜː.ði/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "resale": {
+  "ipa": "/ˈriːseɪl/",
+  "pos": "",
+  "def": "",
+  "ex": "Tom ruined the resale value of his truck when he spilled paint in it.",
+  "syn": [],
+  "vi": ""
+ },
+ "corrective": {
+  "ipa": "/kəˈɹɛktɪv/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "genocide": {
+  "ipa": "/ˈd͡ʒɛnəsaɪd/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "legitimacy": {
+  "ipa": "/ləˈd͡ʒɪtɪməsi/",
+  "pos": "",
+  "def": "",
+  "ex": "Fair trials ensure the legitimacy of holding war criminals accountable.",
+  "syn": [],
+  "vi": ""
+ },
+ "speculator": {
+  "ipa": "/ˈspɛkjʊˌleɪtə/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "inconsistent": {
+  "ipa": "/ˌɪnkənˈsɪstənt/",
+  "pos": "",
+  "def": "",
+  "ex": "Personality tests give me inconsistent results.",
+  "syn": [],
+  "vi": ""
+ },
+ "plainly": {
+  "ipa": "/ˈpleɪnli/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "unexpectedly": {
+  "ipa": "/ʌnɪkˈspɛktɪdli/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "timber": {
+  "ipa": "/ˈtɪmbə/",
+  "pos": "",
+  "def": "",
+  "ex": "Seasoned timber is better for construction and joinery.",
+  "syn": [],
+  "vi": ""
+ },
+ "credential": {
+  "ipa": "/kɹɪˈdɛnʃəl/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "heir": {
+  "ipa": "/ˈɛə̯/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "genuinely": {
+  "ipa": "/ˈd͡ʒɛn.ju.ɪn.li/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "severely": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "grim": {
+  "ipa": "/ɡɹɪm/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "relational": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "brutal": {
+  "ipa": "/ˈbɹuːtəl/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "quasi": {
+  "ipa": "/ˈkweɪzaɪ/",
+  "pos": "",
+  "def": "",
+  "ex": "Putin's passport was found on the quasi drone attack scene.",
+  "syn": [],
+  "vi": ""
+ },
+ "monopolist": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "disposition": {
+  "ipa": "/ˌdɪs.pəˈzɪʃ.ən/",
+  "pos": "",
+  "def": "",
+  "ex": "She usually has a sunny disposition.",
+  "syn": [],
+  "vi": ""
+ },
+ "histogram": {
+  "ipa": "/ˈhɪstəˌɡɹæm/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "biểu đồ"
+ },
+ "misunderstand": {
+  "ipa": "/mɪs.ʌn.də(ɹ)ˈstænd/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự hiểu không rỏ"
+ },
+ "worksheet": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "The reward for finishing your worksheet early is another worksheet.",
+  "syn": [],
+  "vi": "bảng tính"
+ },
+ "intercept": {
+  "ipa": "/ɪntəˈsɛpt/",
+  "pos": "noun",
+  "def": "",
+  "ex": "He intercepted the ball from the opponent.",
+  "syn": [],
+  "vi": "vật ở giữa hai điểm"
+ },
+ "dent": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "hình nỗi, vết mẽ"
+ },
+ "importer": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "người vào ở một nước nào, nhà nhập cảng"
+ },
+ "peacekeeping": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "Peacekeeper is the basic rank of active officers in the French National Police.",
+  "syn": [],
+  "vi": "gìn giữ hòa bình"
+ },
+ "geography": {
+  "ipa": "/dʒiˈɒɡɹəfi/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "địa dư học"
+ },
+ "dismal": {
+  "ipa": "/ˈdɪzməl/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "The flyover provides a dismal view of slum dwellings.",
+  "syn": [],
+  "vi": "buồn rầu, buồn thãm"
+ },
+ "confrontation": {
+  "ipa": "/ˌkɒn.fɹənˈteɪ.ʃən/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự đối chất, sự đối chiếu"
+ },
+ "demise": {
+  "ipa": "/dɪˈmaɪz/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Alienation from nature will one day become humanity's demise.",
+  "syn": [],
+  "vi": "cho thuê, cho mướn"
+ },
+ "reversal": {
+  "ipa": "/ɹɪˈvɜː(ɹ)səl/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự biến chuyển, sự đảo ngược"
+ },
+ "tide": {
+  "ipa": "/taɪd/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "con nước, mùa"
+ },
+ "saver": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "Tom sat in front of his computer just staring at the screen saver.",
+  "syn": [],
+  "vi": "người cứu giúp, người tiết kiệm"
+ },
+ "tick": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chút lát, làm dấu"
+ },
+ "intensify": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "Over the years, his anger has intensified.",
+  "syn": [],
+  "vi": "làm nhiều thêm"
+ },
+ "aviation": {
+  "ipa": "/ˌeɪ̯.viːˈeɪ̯.ʃən/",
+  "pos": "noun",
+  "def": "",
+  "ex": "The aviation expert analyzed the statistics in detail.",
+  "syn": [],
+  "vi": "thuật hàng không"
+ },
+ "defy": {
+  "ipa": "/dɪˈfaɪ/",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "coi rẽ, khinh thường"
+ },
+ "decimal": {
+  "ipa": "/ˈdɛs.ɪ.məl/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "The cavaliers were decimated by the artillery.",
+  "syn": [],
+  "vi": "thập phân"
+ },
+ "realizable": {
+  "ipa": "/ˌɹɪəˈlaɪz.ə.bl̩/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "có thể làm được, có thể thực hiện"
  }
 }

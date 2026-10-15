@@ -189,10 +189,11 @@
     return { ipa: pick('UK'), ipaUS: pick('US'), entries, audioUK: aud.UK, audioUS: aud.US };
   }
 
-  async function myMemory(text) {
-    const d = await fetchJSON(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|vi`);
+  async function myMemory(text, tl = 'vi', sl = 'en') {
+    const d = await fetchJSON(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${encodeURIComponent(sl)}|${encodeURIComponent(tl)}`);
     const t = d && d.responseData && d.responseData.translatedText;
-    return !t || /MYMEMORY WARNING|INVALID/i.test(t) ? '' : fixVi(t);
+    if (!t || /MYMEMORY WARNING|INVALID/i.test(t)) return '';
+    return tl === 'vi' ? fixVi(t) : t.trim();
   }
 
   // Dịch cả câu (dùng cho câu ngữ cảnh)
@@ -208,7 +209,7 @@
   async function translateVi(text) {
     const d = await fetchJSON(`${GTX}&dt=t&q=${encodeURIComponent(text)}`);
     const t = d && fixVi((d.sentences || []).map(s => s.trans || '').join('').trim());
-    return t || (await onDeviceVi(text)) || myMemory(text);
+    return t || (await onDeviceVi(text)) || myMemory(text, 'vi', 'en');
   }
 
   // Dịch sang ngôn ngữ bất kỳ (nghĩa cho người học quốc tế: es, ja, ar…) – có bộ nhớ đệm trong phiên
@@ -231,7 +232,8 @@
     const k = sl + '|' + tl + '|' + text; if (trCache.has(k)) return trCache.get(k);
     const dv = await deviceTranslate(text, tl, sl); if (dv) { trCache.set(k, dv); return dv; }
     const d = await fetchJSON(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${encodeURIComponent(tl)}&dj=1&dt=t&q=${encodeURIComponent(text)}`);
-    const r = (d && (d.sentences || []).map(x => x.trans || '').join('').trim()) || '';
+    let r = (d && (d.sentences || []).map(x => x.trans || '').join('').trim()) || '';
+    if (!r) r = await myMemory(text, tl, sl);
     if (r) trCache.set(k, r);
     return r;
   }
@@ -424,5 +426,5 @@
     }
     return null;
   }
-  g.Dict = { translateTo, ipaGuess, lookup, quick, translateVi, wikiImage, freeImage, sentences, normWord, fixVi, fixDeep };
+  g.Dict = { translateTo, myMemory, ipaGuess, lookup, quick, translateVi, wikiImage, freeImage, sentences, normWord, fixVi, fixDeep };
 })(typeof self !== 'undefined' ? self : this);

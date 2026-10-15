@@ -133,5 +133,7 @@
   // Câu q đã được trả lời chưa (radio/checkbox đã chọn, ô điền/select có giá trị) – dùng cho bảng số câu
   const itemOf = (root, q) => [...root.querySelectorAll('[data-item]')].find(x => x.dataset.item.split(',').includes(String(q)));
   const answered = (root, q) => { const el = itemOf(root, q); return !!el && [...el.querySelectorAll('input, select')].some(i => i.type === 'radio' || i.type === 'checkbox' ? i.checked : i.value.trim()); };
-  g.QE = { itemOf, answered, norm, words, gradeGap, collect, groupHtml, questionsHtml, bind, mark, numsOf, bandOf, overall, code, label };
+  // Lời giải 3 phần chuẩn chữa đề: 📍 đoạn chứa đáp án · 🔁 từ khóa câu hỏi ↔ paraphrase trong bài · 💡 vì sao
+  const explainHtml = e => !e ? '' : `<div class="qx">${e.para ? `<div class="qx-r"><span class="qx-l">📍 ${t('Vị trí')}</span><span>${t('Đoạn {p}', { p: esc(e.para) })}</span></div>` : ''}${(e.keys || []).length ? `<div class="qx-r"><span class="qx-l">🔁 ${t('Từ khóa ↔ Paraphrase')}</span><span>${e.keys.map(k2 => `<i>${esc(k2[0])}</i> ≈ <b>${esc(k2[1])}</b>`).join('<br>')}</span></div>` : ''}${e.why ? `<div class="qx-r"><span class="qx-l">💡 ${t('Vì sao')}</span><span translate="${I18N.learnLang() === 'vi' ? 'no' : 'yes'}">${esc(e.why)}</span></div>` : ''}</div>`;
+  g.QE = { explainHtml, itemOf, answered, norm, words, gradeGap, collect, groupHtml, questionsHtml, bind, mark, numsOf, bandOf, overall, code, label };
 })(typeof self !== 'undefined' ? self : this);

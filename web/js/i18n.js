@@ -54,8 +54,10 @@
   // Ngôn ngữ của NGHĨA TỪ: 'vi' (nghĩa tiếng Việt) hoặc 'en' (định nghĩa tiếng Anh, kiểu từ điển Oxford Learner's).
   // Mặc định: trình duyệt có tiếng Việt → 'vi', còn lại → 'en'. Người học đổi được trong Cài đặt.
   const meanLang = () => { const m = read('vb.meanLang'); if (m === 'vi' || m === 'en') return m; return lang === 'vi' ? 'vi' : 'en'; }; // mặc định theo ngôn ngữ giao diện – không lẫn tiếng (người dùng tự chọn khác trong Cài đặt)
+  const FLAG = { vi: '🇻🇳', en: '🇬🇧', es: '🇪🇸', pt: '🇧🇷', fr: '🇫🇷', de: '🇩🇪', id: '🇮🇩', th: '🇹🇭', zh: '🇨🇳', 'zh-CN': '🇨🇳', 'zh-TW': '🇹🇼', ja: '🇯🇵', ko: '🇰🇷', hi: '🇮🇳', ar: '🇸🇦', ru: '🇷🇺', tr: '🇹🇷' };
+  const flag = l => FLAG[l] || FLAG[String(l || '').split('-')[0]] || '🌐';
   g.t = t;
-  g.I18N = { t, apply, set, lang: () => lang, learnLang, meanLang, setMean: m => { try { localStorage.setItem('vb.meanLang', m); } catch (e) { /* bỏ qua */ } location.reload(); }, LANGS, SUPPORTED, rtl: RTL.has(lang), detect };
+  g.I18N = { t, apply, set, lang: () => lang, learnLang, meanLang, setMean: m => { try { localStorage.setItem('vb.meanLang', m); } catch (e) { /* bỏ qua */ } location.reload(); }, LANGS, SUPPORTED, rtl: RTL.has(lang), detect, FLAG, flag };
   if (g.document) {
     document.documentElement.lang = lang;
     if (RTL.has(lang)) document.documentElement.dir = 'rtl';

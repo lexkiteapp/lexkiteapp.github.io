@@ -859,8 +859,12 @@
       const text = $('#ctx').value.trim();
       if (!text) return '';
       $('#ctxVi').textContent = '⏳ ' + t('Đang dịch…');
-      ctxVi = await Dict.translateVi(text);
-      $('#ctxVi').textContent = ctxVi ? `🇻🇳 ${ctxVi}` : t('Không dịch được câu này.');
+      const ml = (I18N && I18N.meanLang && I18N.meanLang()) || 'vi';
+      const userLang = (I18N && I18N.lang && I18N.lang()) || 'vi';
+      const targetLang = ml === 'vi' ? 'vi' : (userLang !== 'en' ? userLang : 'vi');
+      ctxVi = targetLang === 'vi' ? await Dict.translateVi(text) : await Dict.translateTo(text, targetLang);
+      const flg = (I18N && I18N.flag ? I18N.flag(targetLang) : (targetLang === 'vi' ? '🇻🇳' : '🌐'));
+      $('#ctxVi').textContent = ctxVi ? `${flg} ${ctxVi}` : t('Không dịch được câu này.');
       return ctxVi;
     };
     $('#trCtx').onclick = trCtx;

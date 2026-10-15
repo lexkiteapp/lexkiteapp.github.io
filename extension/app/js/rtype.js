@@ -60,7 +60,7 @@
         const res = QE.collect({ groups: [u.g] }, $('#rq'));
         const mark = n => { const r = res[n]; if (!r || !r.cue) return; const pEl = $$('.mk-pass p').find(x => x.textContent.includes(r.cue)); if (pEl) { pEl.innerHTML = pEl.innerHTML.replace(esc(r.cue), `<mark class="uhl">${esc(r.cue)}</mark>`); pEl.scrollIntoView({ block: 'center', behavior: 'smooth' }); } };
         QE.mark($('#rq'), res, '📍 ' + t('Xem vị trí trong bài'), mark);
-        Object.keys(res).forEach(n => { const e = ex[n]; const el = $(`[data-item~="${n}"] .lq-fb, [data-item="${n}"] .lq-fb`, $('#rq')); if (e && el) el.insertAdjacentHTML('beforeend', `<div class="tiny muted" style="margin-top:.25rem">💡 ${esc(e.why)}${(e.keys || []).length ? `<br>🔁 ${e.keys.map(k2 => `<i>${esc(k2[0])}</i> ≈ <b>${esc(k2[1])}</b>`).join(' · ')}` : ''}</div>`); });
+        Object.keys(res).forEach(n => { const e = ex[n]; const el = $(`[data-item~="${n}"] .lq-fb, [data-item="${n}"] .lq-fb`, $('#rq')); if (e && el) el.insertAdjacentHTML('beforeend', QE.explainHtml(e)); });
         const right = Object.values(res).filter(r => r.ok).length, tot = Object.keys(res).length;
         state.game = await Game.mutate(gs => { gs.rtype = gs.rtype || {}; const s = gs.rtype[kind] || { r: 0, t: 0 }; gs.rtype[kind] = { r: s.r + right, t: s.t + tot }; });
         Object.entries(res).filter(([, r]) => !r.ok).forEach(([n, r]) => App.logMistake && App.logMistake({ kind: 'reading', q: t('{title} – câu {n}: {q}', { title: u.p.title, n, q: r.q || '' }), answer: r.answer, given: r.given || t('(bỏ trống)'), explain: (ex[n] || {}).why || '', ref: '' }));

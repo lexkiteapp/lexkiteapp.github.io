@@ -159,7 +159,7 @@
       </div>
       <div class="row between small" style="margin-bottom:.6rem">
         <span>${isNew ? `<span class="chip lv">✨ ${t('TỪ MỚI')}</span>` : App.masteryDots(c.srs)}</span>
-        <button class="btn sm ghost" id="toggleRev" title="${t('Đổi chiều thẻ')}">${rev ? '🇻🇳 → 🇬🇧' : '🇬🇧 → 🇻🇳'}</button>
+        <button class="btn sm ghost" id="toggleRev" title="${t('Đổi chiều thẻ')}">${rev ? `${(I18N && I18N.flag ? I18N.flag(I18N.lang() !== 'en' ? I18N.lang() : 'vi') : '🇻🇳')} → 🇬🇧` : `🇬🇧 → ${(I18N && I18N.flag ? I18N.flag(I18N.lang() !== 'en' ? I18N.lang() : 'vi') : '🇻🇳')}`}</button>
       </div>
       <div class="flash" id="flash">
         <div class="flash-inner">
@@ -170,7 +170,7 @@
             <div class="vi" style="margin:.3rem 0">${esc(mean(c))}</div><div class="wi-native" data-native></div>
             ${c.def && mean(c) !== c.def ? `<div>${esc(c.def)}</div>` : ''}
             ${c.ex ? `<div class="example-box" style="margin-top:.8rem">${highlight(c.ex, c.word)} <button class="icon-btn sm" data-speak-text="${esc(c.ex)}">🔊</button></div>` : ''}
-            ${c.contexts.length ? `<div style="margin-top:.8rem"><b class="small">📌 ${t('Ngữ cảnh của bạn')}</b>${c.contexts.slice(0, 2).map(x => `<div class="ex small" style="margin-top:.3rem">“${highlight(x.text, c.word)}” <button class="ctx-say sm" data-saysent="${esc(x.text)}" title="${t('Nghe cả câu')}">🔊</button>${ytOf(x.source) ? ` <button class="ctx-say sm" data-ytsrc="${esc(x.source)}" title="${t('Xem lại đoạn gốc')}">▶</button>` : ''}${x.title ? ` <span class="muted">— ${esc(x.title === 'Câu của tôi' ? t('Câu của tôi') : x.title)}</span>` : ''}${x.vi && I18N.meanLang() === 'vi' ? `<div style="font-style:normal">🇻🇳 ${esc(x.vi)}</div>` : ''}</div>`).join('')}</div>` : ''}
+            ${c.contexts.length ? `<div style="margin-top:.8rem"><b class="small">📌 ${t('Ngữ cảnh của bạn')}</b>${c.contexts.slice(0, 2).map(x => `<div class="ex small" style="margin-top:.3rem">“${highlight(x.text, c.word)}” <button class="ctx-say sm" data-saysent="${esc(x.text)}" title="${t('Nghe cả câu')}">🔊</button>${ytOf(x.source) ? ` <button class="ctx-say sm" data-ytsrc="${esc(x.source)}" title="${t('Xem lại đoạn gốc')}">▶</button>` : ''}${x.title ? ` <span class="muted">— ${esc(x.title === 'Câu của tôi' ? t('Câu của tôi') : x.title)}</span>` : ''}${x.vi && (I18N.meanLang() === 'vi' || I18N.lang() !== 'en') ? `<div style="font-style:normal">${(I18N && I18N.flag ? I18N.flag(I18N.lang() !== 'en' ? I18N.lang() : 'vi') : '🇻🇳')} ${esc(x.vi)}</div>` : ''}</div>`).join('')}</div>` : ''}
             ${(c.sentences || []).length ? `<div style="margin-top:.8rem"><b class="small">💬 ${t('Câu song ngữ')}</b>${c.sentences.map(x => `<div class="small" style="margin-top:.3rem">${highlight(x.en, c.word)}${I18N.meanLang() === 'vi' && x.vi ? `<div class="muted">${esc(x.vi)}</div>` : ''}</div>`).join('')}</div>` : ''}
             ${c.col.length ? `<div class="small" style="margin-top:.8rem">🔗 ${c.col.map(esc).join(' · ')}</div>` : ''}
             ${c.syn.length ? `<div class="small" style="margin-top:.3rem">≈ ${c.syn.map(esc).join(', ')}</div>` : ''}
@@ -520,7 +520,11 @@
           <button class="btn primary lg block" id="gotIt" style="margin-top:1rem">${t('Tiếp tục')} ↵</button>
           <div class="center" style="margin-top:.6rem"><button class="linklike" id="known">${t('Mình đã biết từ này')}</button></div>`;
         nativeFill($('[data-native]'), w.word);
-        if (w.ex && I18N.learnLang() === 'vi') Dict.translateVi(w.ex).then(tr => { const e = $('#fiTr'); if (e && tr) e.textContent = '🇻🇳 ' + tr; }).catch(() => {});
+        const ll = I18N.learnLang();
+        if (w.ex && ll !== 'en') {
+          const flg = (I18N && I18N.flag ? I18N.flag(ll) : (ll === 'vi' ? '🇻🇳' : '🌐'));
+          (ll === 'vi' ? Dict.translateVi(w.ex) : Dict.translateTo(w.ex, ll)).then(tr => { const e = $('#fiTr'); if (e && tr) e.textContent = flg + ' ' + tr; }).catch(() => {});
+        }
         $('#sayI').onclick = () => speak(w.word, accent(), w.audio);
         $('#slowI').onclick = () => speak(w.word, accent(), w.audio, true);
         speak(w.word, accent(), w.audio);

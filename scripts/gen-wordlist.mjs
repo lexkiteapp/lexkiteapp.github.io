@@ -17,7 +17,8 @@ async function get(url) { for (let i = 0; i < 3; i++) { try { const r = await fe
 // 1) Đọc danh sách nguồn
 const csv = rd(L.file).replace(/^﻿/, '').split(/\r?\n/).slice(1).filter(Boolean);
 const parseRow = line => { const out = []; let cur = '', q = false; for (const ch of line) { if (ch === '"') q = !q; else if (ch === ',' && !q) { out.push(cur); cur = ''; } else cur += ch; } out.push(cur); return out.map(s => s.trim()); };
-const SRC = csv.map(parseRow).map(c => (ID === 'nawl' ? { word: c[0], def: c[1], pos: c[2] } : { word: c[0], def: '', pos: '' })).filter(x => /^[a-z][a-z' -]*$/i.test(x.word));
+const AFFIX = new Set(['non', 'anti', 'pre', 'co', 're', 'mid', 'vice', 'ex', 'sub', 'semi', 'multi', 'inter', 'post', 'pro', 'un', 'dis', 'mis', 'over', 'under', 'self']); // tiền tố trong danh sách gốc – không phải từ độc lập
+const SRC = csv.map(parseRow).map(c => (ID === 'nawl' ? { word: c[0], def: c[1], pos: c[2] } : { word: c[0], def: '', pos: '' })).filter(x => /^[a-z][a-z' -]*$/i.test(x.word) && !AFFIX.has(x.word.toLowerCase()));
 
 // 2) Bỏ từ đã có trong app
 globalThis.t = s => s;
@@ -44,7 +45,7 @@ async function wikiIPA(w) {
 }
 for (const x of LIST) {
   if (n >= MAX) break;
-  const k = x.word.toLowerCase(); if (cache[k] && cache[k].v === 2) continue;
+  const k = x.word.toLowerCase(); const ce = cache[k]; if (ce && ce.v === 2 && ((ce.ipa && ce.def && ce.vi) || (ce.tries || 0) >= 3)) continue;
   const fd = dictDown ? null : await get(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(k)}`);
   if (fd === undefined && ++dictFails >= 3) { dictDown = true; console.warn('Free Dictionary API lỗi – chuyển sang Wiktionary cho phần còn lại'); } else if (fd) dictFails = 0;
   if (fd === undefined && dictDown && ++fails > 15) { console.warn('dừng ở', k, '– nguồn từ điển lỗi liên tiếp, lần sau chạy tiếp'); break; }
@@ -56,11 +57,18 @@ for (const x of LIST) {
     for (const m of en.meanings || []) {
       if (!e.pos) e.pos = m.partOfSpeech;
       if (m.partOfSpeech !== e.pos) continue;
-      for (const d of m.definitions || []) { if (!e.def) e.def = d.definition; if (!e.ex && d.example && d.example.split(' ').length >= 5 && new RegExp('\\b' + k.slice(0, Math.max(4, k.length - 2)), 'i').test(d.example)) e.ex = d.example; }
+      for (const d of m.definitions || []) { if (!e.def) e.def = d.definition; if (!e.ex && d.example && d.example.split(' ').length >= 5 && new RegExp('\\b' + k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(s|es|ed|d|ing|ly)?\\b', 'i').test(d.example)) e.ex = d.example; }
       e.syn.push(...(m.synonyms || []));
     }
   }
   if (!e.ipa) e.ipa = await wikiIPA(k);
+  if (!e.def) { // Wiktionary REST (CC BY-SA): định nghĩa đúng từ loại nếu có
+    const wd = await get(`https://en.wiktionary.org/api/rest_v1/page/definition/${encodeURIComponent(k)}`);
+    const ens = wd && Array.isArray(wd.en) ? wd.en : [];
+    const pe = ens.find(z => z.partOfSpeech && POSN(z.partOfSpeech.toLowerCase()) === e.pos) || ens[0];
+    const d0 = pe && (pe.definitions || []).map(z => String(z.definition || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()).find(z => z.length > 8 && !/^\(.*\)$/.test(z));
+    if (d0) { e.def = d0.slice(0, 200); if (!e.pos) e.pos = POSN(pe.partOfSpeech.toLowerCase()); }
+  }
   if (!e.ex) {
     const tt = await get(`https://api.tatoeba.org/unstable/sentences?lang=eng&q=${encodeURIComponent(k)}&sort=relevance&limit=10`);
     const s = tt && Array.isArray(tt.data) ? tt.data.map(d => d.text).filter(s => s.split(' ').length >= 6 && s.length < 140).sort((a, b) => Math.abs(a.length - 75) - Math.abs(b.length - 75))[0] : '';
@@ -75,10 +83,11 @@ for (const x of LIST) {
   const extra = hit && hit[1] && hit[1].length >= 3 ? hit[1].find(x => x && x.toLowerCase() !== plain.toLowerCase() && !plain.toLowerCase().includes(x.toLowerCase())) : '';
   e.vi = plain && plain.toLowerCase() !== k ? [plain, extra].filter(Boolean).join(', ') : (hit && hit[1] ? hit[1].slice(0, 2).join(', ') : '');
   if (!e.pos && bd[0]) e.pos = bd[0][0];
-  e.v = 2;
+  e.v = 2; e.tries = ((ce && ce.tries) || 0) + 1;
+  if (ce) { e.ipa = e.ipa || ce.ipa || ''; e.def = e.def || ce.def || ''; e.ex = e.ex || ce.ex || ''; }
   e.syn = [...new Set(e.syn)].filter(s => !/\s/.test(s)).slice(0, 3);
   cache[k] = e;
-  await sleep(500);
+  await sleep(900);
 }
 fs.writeFileSync(cp, JSON.stringify(cache, null, 1));
 
@@ -101,7 +110,7 @@ const q = s => "'" + String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'") + "'"
 let js = `/* ${L.head}. Phiên âm/định nghĩa/ví dụ: Free Dictionary API (Wiktionary, CC BY-SA), Tatoeba (CC BY 2.0 FR); nghĩa tiếng Việt: Lexkite.\n * FILE SINH TỰ ĐỘNG bởi scripts/gen-wordlist.mjs – đừng sửa tay. Row: [word, ipa, pos, vi, def, ex, col, syn, level, emoji] */\n(function (g) {\n  const add = g.IELTS_DATA.add;\n`;
 for (let i = 0; i < good.length; i += 100) {
   const part = good.slice(i, i + 100);
-  js += `  add('${ID}${i / 100 + 1}', '${L.title} ${i + 1}–${i + part.length}', '${L.emoji}', ${q(L.desc)}, [\n${part.map(r => '    [' + r.map(q).join(', ') + '],').join('\n')}\n  ], '${ID}');\n`;
+  js += `  add('${ID}${i / 100 + 1}', '${ID.toUpperCase()} ${i + 1}–${i + part.length}', '${L.emoji}', ${q(L.desc)}, [\n${part.map(r => '    [' + r.map(q).join(', ') + '],').join('\n')}\n  ], '${ID}');\n`;
 }
 js += '})(typeof self !== \'undefined\' ? self : this);\n';
 fs.writeFileSync(new URL(`web/js/lib/${ID}.js`, R), js);

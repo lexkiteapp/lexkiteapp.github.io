@@ -208,7 +208,15 @@
       <div id="lines">${sents.map((x, i) => `<div class="line" data-i="${i}">${x.role ? `<span class="an-role" translate="no" style="display:inline-block;background:#16a34a;color:#fff;border-radius:6px;padding:.05rem .5rem;font-size:.75rem;font-weight:700">${esc(x.role)}</span> ` : ''}<span class="lhint">${mode === 'copy' ? esc(hint(x.s)) : `<i class="muted">⏳ ${t('đang dịch…')}</i>`}</span>
         <textarea class="input lin" rows="2" placeholder="${t('Gõ câu tiếng Anh…')}" spellcheck="false"></textarea><div class="lres small"></div></div>`).join('')}</div>
       <div class="row" style="margin-top:1rem"><button class="btn primary" id="chk">${t('Kiểm tra tất cả')}</button><button class="btn" id="show">${t('Xem bài mẫu')}</button></div></div>`;
-    if (mode === 'write') sents.forEach(async (x, i) => { const v = await Dict.translateVi(x.s); const el = box.querySelector(`.line[data-i="${i}"] .lhint`); if (el) el.innerHTML = `🇻🇳 <b>${esc(v || t('(không dịch được)'))}</b>`; });
+    if (mode === 'write') {
+      const L = (I18N && I18N.lang && I18N.lang()) || 'vi';
+      const flg = (I18N && I18N.flag ? I18N.flag(L) : (L === 'vi' ? '🇻🇳' : '🌐'));
+      sents.forEach(async (x, i) => {
+        const v = L === 'vi' ? await Dict.translateVi(x.s) : await Dict.translateTo(x.s, L);
+        const el = box.querySelector(`.line[data-i="${i}"] .lhint`);
+        if (el) el.innerHTML = `${flg} <b>${esc(v || t('(không dịch được)'))}</b>`;
+      });
+    }
     $('#chk', box).onclick = () => {
       let r = 0;
       $$('.line', box).forEach(l => {

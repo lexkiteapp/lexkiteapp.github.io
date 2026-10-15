@@ -1213,3 +1213,6 @@ mark.g-ok { background: rgba(21,128,61,.18); color: var(--good); font-weight: 70
 .dict-tr { margin-top: .8rem; } .dict-tr summary { cursor: pointer; font-weight: 700; font-size: .9rem; }
 .dict-trl { padding: .35rem 0; border-bottom: 1px dashed var(--line); } .dict-trl.cur { background: var(--surface, rgba(229,80,47,.06)); } .dict-trl.done::before { content: '✓ '; color: var(--good); }
 @media (max-width: 480px) { .btn.lg { padding: .8rem 1rem; } .btn { max-width: 100%; } }
+.qx { margin-top: .4rem; border-left: 3px solid var(--primary); padding: .35rem .6rem; background: var(--surface, rgba(0,0,0,.02)); border-radius: 0 8px 8px 0; font-size: .85rem; display: flex; flex-direction: column; gap: .3rem; }
+.qx-r { display: grid; grid-template-columns: minmax(7.5rem, auto) 1fr; gap: .5rem; } .qx-l { color: var(--muted); font-weight: 600; white-space: nowrap; }
+@media (max-width: 480px) { .qx-r { grid-template-columns: 1fr; gap: .1rem; } }
