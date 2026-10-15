@@ -2471,6 +2471,9 @@
   'Hết 3 lượt chấm AI miễn phí hôm nay. Đăng nhập để có 5 lượt/ngày, hoặc thêm khóa Gemini riêng để chấm không giới hạn. Dưới đây là kết quả chấm nhanh:': "You've used today's 3 free AI gradings. Sign in for 5 a day, or add your own Gemini key for unlimited grading. Here is a quick rule-based result:",
   'Hết lượt chấm AI miễn phí hôm nay – mai có lượt mới, hoặc thêm khóa Gemini riêng để chấm không giới hạn. Dưới đây là kết quả chấm nhanh:': "You've used today's free AI gradings – new ones tomorrow, or add your own Gemini key for unlimited grading. Here is a quick rule-based result:",
   'Còn {n} lượt chấm AI miễn phí hôm nay': '{n} free AI gradings left today',
+  'AI chấm Writing & Speaking miễn phí của Lexkite': "Lexkite's free AI grading for Writing & Speaking",
+  '3 lượt mỗi ngày, đăng nhập được 5 lượt – không cần khóa': '3 a day, 5 when signed in – no key needed',
+  'Không bắt buộc – thêm khóa Gemini miễn phí của riêng bạn để chấm không giới hạn. Khóa chỉ lưu trên máy này.': 'Optional – add your own free Gemini key for unlimited grading. The key stays on this device only.',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* Thống nhất thuật ngữ khi nhiều nhóm dùng chung 1 khóa */
