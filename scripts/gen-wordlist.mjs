@@ -11,6 +11,8 @@ const LISTS = {
   bsl: { file: 'content/wordlists/bsl-1.20.csv', title: 'BSL – Từ vựng kinh doanh', emoji: '💼', desc: 'Business Service List: từ vựng công việc, văn phòng, kinh doanh hay gặp trong TOEIC', head: 'Business Service List 1.20 © Browne & Culligan (newgeneralservicelist.com), CC BY-SA 4.0', level: i => (i < 900 ? 'B1' : 'B2') },
 };
 const L = LISTS[ID]; if (!L) { console.error('dùng: gen-wordlist.mjs <' + Object.keys(LISTS).join('|') + '>'); process.exit(1); }
+// Ví dụ phải chứa đúng từ (hoặc biến thể chia -s/-es/-ed/-d/-ing/-ly) – tránh 'denominator' cho denominate
+const hasWord = (w, s) => !!s && new RegExp('\\b' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(s|es|ed|d|ing|ly)?\\b', 'i').test(s);
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 async function get(url) { for (let i = 0; i < 3; i++) { try { const r = await fetch(url, { headers: { 'User-Agent': 'lexkite-wordlist (support@lexkite.com)' } }); if (r.status === 404) return null; if (r.ok) return await r.json(); if (r.text) { const tx = await r.text(); if (/^\s*\{/.test(tx)) { try { return JSON.parse(tx); } catch (e) { return null; } } } /* {…} = không tìm thấy / đối tượng JSON – không phải lỗi mạng */ if (r.status === 429) await sleep(20000); } catch (e) { /* thử lại */ } await sleep(1500 * (i + 1)); } return undefined; }
 
@@ -72,7 +74,7 @@ for (const x of LIST) {
   }
   if (!e.ex) {
     const tt = await get(`https://api.tatoeba.org/unstable/sentences?lang=eng&q=${encodeURIComponent(k)}&sort=relevance&limit=10`);
-    const s = tt && Array.isArray(tt.data) ? tt.data.map(d => d.text).filter(s => s.split(' ').length >= 6 && s.length < 140).sort((a, b) => Math.abs(a.length - 75) - Math.abs(b.length - 75))[0] : '';
+    const s = tt && Array.isArray(tt.data) ? tt.data.map(d => d.text).filter(s => s.split(' ').length >= 6 && s.length < 140 && hasWord(k, s)).sort((a, b) => Math.abs(a.length - 75) - Math.abs(b.length - 75))[0] : '';
     if (s) e.ex = s;
   }
   // Nghĩa: bản dịch thông dụng (dt=t) là nghĩa chính – dữ liệu từ điển (dt=bd) của từ hiếm thường cổ/lệch, chỉ dùng bổ sung khi từ phổ biến (≥ 3 nghĩa)
@@ -100,14 +102,17 @@ const fixVi = v => String(v).normalize('NFC').replace(/[\p{L}]+/gu, w => { const
 const OLDTONE = /(?<![\p{L}q])(?:[bcdđghklmnprstvx]|ch|kh|ng|nh|ph|th|tr)?(oà|oá|oả|oã|oạ|oè|oé|oẻ|oẽ|oẹ|uỳ|uý|uỷ|uỹ|uỵ)(?!\p{L})/iu;
 for (const k in cache) if (cache[k] && cache[k].vi) cache[k].vi = fixVi(cache[k].vi);
 const VI = /[À-ỹđĐ]/u; // mọi chữ Latin có dấu (gồm dấu kép ố, ắ, ữ…) – nghĩa tiếng Việt hầu như luôn có dấu
+// Sửa tay sau khi duyệt (content/wordlists/<id>.fix.json): { "từ": "nghĩa đúng" } hoặc "-" để loại từ (thuật ngữ lệch ngữ cảnh, nghĩa máy dịch sai)
+const FIX = (() => { try { return JSON.parse(rd(`content/wordlists/${ID}.fix.json`)); } catch (e) { return {}; } })();
 const good = [], bad = [];
 LIST.forEach((x, i) => {
   const e = cache[x.word.toLowerCase()]; if (!e) return;
+  if (FIX[x.word] === '-') { bad.push(x.word + ' – loại khi duyệt tay'); return; }
   const why = !e.ipa ? 'thiếu phiên âm' : !e.vi || e.vi.toLowerCase() === x.word.toLowerCase() ? 'thiếu nghĩa' : !VI.test(e.vi) && e.vi.split(' ').length < 2 ? 'nghĩa không phải tiếng Việt' : !e.def ? 'thiếu định nghĩa' : OLDTONE.test(e.vi) ? 'kiểu bỏ dấu cũ' : !SHORT[e.pos] ? 'từ loại lạ' : '';
   if (why) { bad.push(x.word + ' – ' + why); return; }
   const ipa = ('/' + e.ipa.replace(/^[\/\[]|[\/\]]$/g, '') + '/').replace(/ɹ/g, 'r').replace(/ɫ/g, 'l').replace(/\.(?=\S)/g, '').replace(/ɛ/g, 'e').replace(/ɝ/g, 'ɜː').replace(/ɚ/g, 'ə');
-  const viMain = String(e.vi).split(/,\s*/)[0].trim(); // chỉ giữ nghĩa thông dụng chính – nghĩa phụ từ dữ liệu từ điển hay lệch/lặp
-  good.push([x.word, ipa.replace(/[\u032F\u02D1\u0329\u0306]/g, ''), SHORT[e.pos], viMain, e.def.replace(/\s+/g, ' ').trim(), e.ex, '', e.syn.join('|'), L.level(i), '']);
+  const viMain = FIX[x.word] || String(e.vi).split(/,\s*/)[0].trim(); // chỉ giữ nghĩa thông dụng chính – nghĩa phụ từ dữ liệu từ điển hay lệch/lặp
+  good.push([x.word, ipa.replace(/[\u032F\u02D1\u0329\u0306]/g, ''), SHORT[e.pos], viMain, e.def.replace(/\s+/g, ' ').trim(), hasWord(x.word, e.ex) ? e.ex : '', '', e.syn.join('|'), L.level(i), '']);
 });
 const q = s => "'" + String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'") + "'";
 let js = `/* ${L.head}. Phiên âm/định nghĩa/ví dụ: Free Dictionary API (Wiktionary, CC BY-SA), Tatoeba (CC BY 2.0 FR); nghĩa tiếng Việt: Lexkite.\n * FILE SINH TỰ ĐỘNG bởi scripts/gen-wordlist.mjs – đừng sửa tay. Row: [word, ipa, pos, vi, def, ex, col, syn, level, emoji] */\n(function (g) {\n  const add = g.IELTS_DATA.add;\n`;
