@@ -1,3 +1,12 @@
+# Bảo mật mọi trang (chuẩn A+): chống clickjacking, đoán MIME, rò rỉ referrer; chỉ cho dùng micro của chính site
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(self), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+
 # Cloudflare Pages: mã nguồn luôn kiểm tra bản mới (ETag → 304 nếu không đổi, rất nhẹ); âm thanh/ảnh đặt tên theo nội dung → lưu lâu
 /
   Cache-Control: no-cache
@@ -32,7 +41,6 @@
 /admin*
   Cache-Control: no-cache
   X-Robots-Tag: noindex, nofollow
-  X-Frame-Options: DENY
 
 /packs/*
   Cache-Control: public, max-age=86400

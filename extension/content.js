@@ -37,7 +37,7 @@
     'Dịch với Lexkite': 'Translate with Lexkite', 'Nghe câu ví dụ': 'Play example', 'Quay lại từ trước': 'Back to previous word', 'Quay lại': 'Back',
     'Anh–Mỹ': 'US English', 'Nghe giọng Anh–Anh (phím P)': 'British pronunciation (P key)', 'Nghe giọng Anh–Mỹ': 'American pronunciation', 'Nghe chậm': 'Play slowly',
     '📌 Ngữ cảnh sẽ lưu': '📌 Context to save', '📌 Ngữ cảnh': '📌 Context', 'Nghe cả câu': 'Play sentence', '⏳ Đang dịch câu…': '⏳ Translating sentence…',
-    '✓ Đã lưu vào flashcard': '✓ Saved to flashcards', '+ Thêm ngữ cảnh': '+ Add context', '✓ Đã lưu': '✓ Saved', '✓ Đã trong sổ thẻ': '✓ In your deck', '+ Lưu flashcard': '+ Save flashcard',
+    '✓ Đã lưu vào flashcard': '✓ Saved to flashcards', '+ Thêm ngữ cảnh': '+ Add context', '✓ Đã lưu': '✓ Saved', '✓ Đã trong sổ thẻ': '✓ In your deck', 'Từ học thuật – bấm để tra': 'Academic word – click to look up', '+ Lưu flashcard': '+ Save flashcard',
     'Chi tiết': 'Details', 'Đóng (Esc)': 'Close (Esc)', '⚠️ Thử lưu lại': '⚠️ Retry saving', 'tên riêng': 'proper noun', 'cụm từ': 'phrase', 'từ': 'word',
     '🔊 Nghe': '🔊 Listen', 'Tra từng từ:': 'Look up each word:', 'Tên riêng (địa danh, người, tổ chức…) – không có trong từ điển phổ thông.': 'Proper noun (place, person, organization…) – not in the general dictionary.',
     'Chưa có trong từ điển – đã dịch tự động.': 'Not in the dictionary yet – machine-translated.', '+ Lưu cụm từ': '+ Save phrase', '+ Lưu từ': '+ Save word',
@@ -59,8 +59,8 @@
   const alive = () => { try { return !dead && !!chrome.runtime.id; } catch (e) { return false; } };
   document.addEventListener('ielts-lexi-takeover', () => { dead = true; if (host) host.remove(); });
 
-  let host = null, root = null, enabled = true, selectMode = 'icon', current = null, markOn = true, prefs = {};
-  const applySettings = st => { st = st || {}; prefs = st; enabled = st.dblclickOn !== false; selectMode = st.selectMode || 'icon'; markOn = st.markKnown !== false; };
+  let host = null, root = null, enabled = true, selectMode = 'icon', current = null, markOn = true, acadOn = true, prefs = {};
+  const applySettings = st => { st = st || {}; prefs = st; enabled = st.dblclickOn !== false; selectMode = st.selectMode || 'icon'; markOn = st.markKnown !== false; acadOn = st.markAcademic !== false; };
   chrome.storage.local.get('settings').then(r => applySettings(r.settings));
   chrome.storage.onChanged.addListener(ch => { if (ch.settings) applySettings(ch.settings.newValue); });
 
@@ -649,9 +649,14 @@
   const level5 = s => !s || !s.last ? 0 : s.reps === 0 ? 1 : s.interval <= 3 ? 2 : s.interval <= 10 ? 3 : s.interval <= 30 ? 4 : 5;
   let known = new Map(), knownRe = null, marked = 0, toastShown = false;
   const SKIP = 'SCRIPT,STYLE,NOSCRIPT,TEXTAREA,INPUT,SELECT,OPTION,CODE,PRE,KBD,SAMP,SVG,MATH,VB-MARK,IELTS-LEXI-POPUP,TITLE,HEAD';
+  let ACAD = null; // từ học thuật B2–C2 (academic.json, sinh từ AWL + NAWL + kho Lexkite)
   async function loadKnown() {
     const r = await chrome.storage.local.get('cards');
     known = new Map(Object.values(r.cards || {}).filter(c => c.word && c.word.length > 2 && !/\s/.test(c.word)).map(c => [c.word.toLowerCase(), { vi: c.vi || '', ipa: c.ipa || '', lv: level5(c.srs) }]));
+    if (acadOn) {
+      if (!ACAD) try { ACAD = await (await fetch(chrome.runtime.getURL('academic.json'))).json(); } catch (e) { ACAD = {}; }
+      for (const [w, cefr] of Object.entries(ACAD)) if (!known.has(w)) known.set(w, { acad: cefr });
+    }
     knownRe = known.size ? new RegExp(`\\b(${[...known.keys()].sort((a, b) => b.length - a.length).map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})(s|es|ed|d|ing)?\\b`, 'gi') : null;
   }
   function injectMarkCss() {
@@ -659,7 +664,8 @@
     const st = document.createElement('style'); st.id = 'vb-mark-css';
     st.textContent = `vb-mark{background:linear-gradient(transparent 60%,var(--vbc,rgba(124,58,237,.3)) 60%);border-radius:2px;cursor:help;color:inherit}
       vb-mark[data-l="1"]{--vbc:rgba(239,68,68,.38)}vb-mark[data-l="2"]{--vbc:rgba(245,158,11,.4)}vb-mark[data-l="3"]{--vbc:rgba(234,179,8,.4)}
-      vb-mark[data-l="4"],vb-mark[data-l="5"]{--vbc:rgba(34,197,94,.35)}vb-mark[data-l="0"]{--vbc:rgba(124,58,237,.28)}
+      vb-mark[data-l="4"],vb-mark[data-l="5"]{--vbc:rgba(34,197,94,.35)}vb-mark[data-l="0"]{--vbc:rgba(204,63,28,.22)}
+      vb-mark[data-a]{background:none;border-bottom:2px dotted #E5502F;border-radius:0}
       .ytp-caption-segment .vbw.known{box-shadow:inset 0 -.18em 0 rgba(34,197,94,.9)}`;
     (document.head || document.documentElement).appendChild(st);
   }
@@ -684,15 +690,16 @@
         const k = known.get(m[1].toLowerCase()); if (!k) continue;
         frag.appendChild(document.createTextNode(text.slice(last, m.index)));
         const el = document.createElement('vb-mark');
-        el.textContent = m[0]; el.dataset.w = m[1].toLowerCase(); el.dataset.l = k.lv;
-        el.title = `${k.vi}${k.ipa ? '  ' + k.ipa : ''} · ${tx('Lexkite cấp {lv}', { lv: k.lv || tx('mới') })}`;
+        el.textContent = m[0]; el.dataset.w = m[1].toLowerCase();
+        if (k.acad) { el.dataset.a = k.acad; el.title = `${k.acad} · ${tx('Từ học thuật – bấm để tra')}`; }
+        else { el.dataset.l = k.lv; el.title = `${k.vi}${k.ipa ? '  ' + k.ipa : ''} · ${tx('Lexkite cấp {lv}', { lv: k.lv || tx('mới') })}`; }
         frag.appendChild(el); last = m.index + m[0].length; marked++;
       }
       frag.appendChild(document.createTextNode(text.slice(last)));
       node.parentNode.replaceChild(frag, node);
       if (marked > 800) break;
     }
-    if (marked >= 3 && !toastShown) { toastShown = true; showToast(tx('📒 {n} từ bạn đã học xuất hiện trên trang này', { n: new Set([...document.querySelectorAll('vb-mark')].map(x => x.dataset.w)).size })); }
+    if (document.querySelectorAll('vb-mark[data-l]').length >= 3 && !toastShown) { toastShown = true; showToast(tx('📒 {n} từ bạn đã học xuất hiện trên trang này', { n: new Set([...document.querySelectorAll('vb-mark[data-l]')].map(x => x.dataset.w)).size })); }
   }
   function unmarkAll() { document.querySelectorAll('vb-mark').forEach(el => el.replaceWith(document.createTextNode(el.textContent))); marked = 0; }
   function showToast(msg) {
@@ -725,7 +732,7 @@
   chrome.storage.onChanged.addListener(async ch => {
     if (!alive()) return;
     if (ch.cards) { await loadKnown(); }
-    if (ch.settings) { const on = !(ch.settings.newValue && ch.settings.newValue.markKnown === false); if (!on) unmarkAll(); else if (!document.querySelector('vb-mark')) markIn(document.body); }
+    if (ch.settings) { const nv = ch.settings.newValue || {}, on = nv.markKnown !== false; acadOn = nv.markAcademic !== false; unmarkAll(); await loadKnown(); if (on) markIn(document.body); }
   });
 
   // ---------- YouTube: chạm vào từ trong phụ đề để tra, video tự dừng ----------

@@ -469,4 +469,6 @@
   "Đang thêm…": "Adding…",
   "Đã thêm {n} từ vào lịch ôn": "Added {n} words to your reviews",
   "Bộ từ của {n}": "{n}'s word list",
+  "Từ học thuật – bấm để tra": "Academic word – click to look up",
+  "Gạch chân từ học thuật B2–C2": "Underline B2–C2 academic words",
 }); })(typeof self !== 'undefined' ? self : this);

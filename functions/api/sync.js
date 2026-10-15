@@ -47,6 +47,20 @@ export async function claims(token, now = Date.now() / 1000, getKeys = keys) {
 export const verify = async (...a) => { const c = await claims(...a); return c ? c.sub : null; };
 
 
+// Giới hạn tốc độ ở biên Cloudflare (Cache API – miễn phí, không tốn lượt ghi D1). Trả về số giây phải chờ, 0 = cho phép.
+// Không tuyệt đối toàn cầu (đếm theo từng trung tâm dữ liệu) – đủ chặn spam/script tự động; người dùng thường không chạm tới.
+export async function limit(key, max, windowSec) {
+  try {
+    const c = caches.default, req = new Request('https://rate.lexkite.internal/' + encodeURIComponent(key)), now = Date.now();
+    const hit = await c.match(req); let st = hit ? await hit.json() : null;
+    if (!st || st.reset <= now) st = { n: 0, reset: now + windowSec * 1000 };
+    if (st.n >= max) return Math.ceil((st.reset - now) / 1000);
+    st.n++;
+    await c.put(req, new Response(JSON.stringify(st), { headers: { 'Cache-Control': `max-age=${Math.max(1, Math.ceil((st.reset - now) / 1000))}` } }));
+    return 0;
+  } catch (e) { return 0; } // bộ đếm lỗi → không chặn người dùng
+}
+
 async function setup(db) {
   if (ready) return;
   await db.prepare('CREATE TABLE IF NOT EXISTS users (uid TEXT PRIMARY KEY, email TEXT, name TEXT, created INTEGER NOT NULL, seen INTEGER NOT NULL, plat TEXT, n INTEGER DEFAULT 1) WITHOUT ROWID').run();
@@ -64,6 +78,8 @@ export async function onRequestPost({ request, env }) {
   if (+(request.headers.get('Content-Length') || 0) > MAX_TOTAL) return json(request, 413, { error: 'too-large' });
   let req;
   try { req = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
+  // Mỗi tài khoản: kéo/đẩy mỗi chiều tối đa 1 lần/20 giây (app tự gom 3 phút/lần nên người dùng thường không chạm tới)
+  { const w = await limit(`sync:${uid}:${req.op}`, 1, 20); if (w) return json(request, 429, { error: 'too-fast', wait: w }); }
   try {
     await setup(env.DB);
     if (req.op === 'pull') {

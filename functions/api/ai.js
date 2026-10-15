@@ -4,7 +4,7 @@
  * Mô hình: GEMINI_KEY (biến bí mật trên Cloudflare, nếu có) → Workers AI (miễn phí, có sẵn).
  * Hạn mức/ngày: đã đăng nhập 5 lượt, chưa đăng nhập 3 lượt (theo IP đã băm) + trần chung toàn hệ thống để không vượt gói miễn phí.
  * Kết quả lưu đệm trong D1 theo hash đề + bài → chấm lại cùng bài không tốn lượt. */
-import { verify } from './sync.js';
+import { verify, limit } from './sync.js';
 
 const LIMIT_USER = 5, LIMIT_ANON = 3, GLOBAL_DAY = 400, MAX_PROMPT = 14000;
 const WAI_MODEL = '@cf/meta/llama-3.1-8b-instruct-fast';
@@ -47,6 +47,8 @@ export async function onRequestPost({ request, env }) {
   const prompt = String(body.prompt || ''), sys = String(body.sys || '').slice(0, 4000);
   if (prompt.length < 40 || prompt.length > MAX_PROMPT) return json(request, 400, { error: 'size' });
   const uid = await verify((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')).catch(() => null);
+  // Chống bắn liên tục (kể cả bài đã lưu đệm): mỗi người tối đa 6 yêu cầu/phút
+  { const w = await limit('ai:' + (uid || request.headers.get('CF-Connecting-IP') || '?'), 6, 60); if (w) return json(request, 429, { error: 'too-fast', wait: w }); }
   const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
   const id = uid ? 'u:' + uid : 'ip:' + (await sha('lexkite|' + ip)).slice(0, 24); // không lưu IP gốc
   let cfg = {}; try { cfg = Object.fromEntries(((await env.DB.prepare("SELECT k, v FROM config WHERE k IN ('ai_user', 'ai_anon', 'ai_global')").all()).results || []).filter(r => r.v !== '').map(r => [r.k, +r.v])); } catch (e) { /* chưa có bảng config */ }
@@ -57,7 +59,7 @@ export async function onRequestPost({ request, env }) {
     const hit = await env.DB.prepare('SELECT out FROM ai_cache WHERE h = ?').bind(h).first();
     const used = (await env.DB.prepare('SELECT n FROM ai_quota WHERE id = ? AND day = ?').bind(id, day).first())?.n || 0;
     if (hit) return json(request, 200, { out: JSON.parse(hit.out), left: Math.max(0, limit - used), cached: true });
-    if (used >= limit) return json(request, 429, { error: 'quota', left: 0, signIn: !uid });
+    if (used >= limit) return json(request, 429, { error: 'quota', left: 0, signIn: !uid, message: `Bạn đã dùng hết ${limit} lượt AI miễn phí hôm nay. Hãy quay lại vào ngày mai hoặc dùng khóa cá nhân.` });
     const all = (await env.DB.prepare("SELECT n FROM ai_quota WHERE id = '*' AND day = ?").bind(day).first())?.n || 0;
     if (all >= (cfg.ai_global > 0 ? cfg.ai_global : GLOBAL_DAY)) return json(request, 429, { error: 'busy', left: limit - used });
     const { out, model } = await runModel(env, sys, prompt);

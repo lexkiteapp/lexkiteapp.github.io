@@ -13,9 +13,14 @@
   let fb = null, db = null, timer = null, box = null;
   // Cùng tên miền → gọi thẳng; app/add-on/bản xem trước → gọi về lexkite.com
   const API = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '/api/sync' : 'https://lexkite.com/api/sync';
-  async function api(body) {
+  async function api(body, tries = 0) {
     const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await Sync.user.getIdToken() }, body: JSON.stringify(body) });
-    if (r.status === 429) throw Object.assign(new Error('quota'), { code: 'resource-exhausted' });
+    if (r.status === 429) {
+      const j = await r.json().catch(() => ({}));
+      // Chống spam phía máy chủ: gửi quá nhanh → chờ đúng số giây rồi gửi lại (không tạm dừng đồng bộ, không mất dữ liệu)
+      if (j.error === 'too-fast' && tries < 2) { await new Promise(res => setTimeout(res, Math.min(30, (+j.wait || 5) + 1) * 1000)); return api(body, tries + 1); }
+      throw Object.assign(new Error('quota'), { code: 'resource-exhausted' });
+    }
     if (!r.ok) throw new Error('sync ' + r.status);
     return r.json();
   }
