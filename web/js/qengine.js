@@ -39,7 +39,7 @@
       }
       gr.items.forEach(it => {
         const el = $(`[data-qn="${it.n}"]`, root);
-        if (gr.type === 'mcq') { const v = $(`input[name="q${it.n}"]:checked`, root); const given = v ? +v.value : null; res[it.n] = { ok: given === it.a, given: given == null ? '' : L[given], answer: L[it.a] + '. ' + it.options[it.a], cue: it.cue, q: it.q, type: 'mcq', alts: [String(it.a)] }; }
+        if (gr.type === 'mcq') { const v = $(`input[name="q${it.n}"]:checked`, root); const given = v ? +v.value : null; res[it.n] = { ok: given === it.a, given: given == null ? '' : L[given], answer: L[it.a] + '. ' + it.options[it.a], cue: it.cue, q: it.q, type: 'mcq', alts: [String(it.a)], stm: gr.photo ? it.options : null }; }
         else if (TF[gr.type]) { const v = $(`input[name="q${it.n}"]:checked`, root); const given = v ? v.value : ''; res[it.n] = { ok: given === it.a, given, answer: it.a, cue: it.cue, q: it.text, type: gr.type, alts: [it.a] }; }
         else if (gr.type === 'match') { const v = el ? el.value : ''; const opt = gr.options.find(o => code(o) === it.a); res[it.n] = { ok: v === it.a, given: v, answer: it.a + (opt && label(opt) ? ' – ' + label(opt) : ''), cue: it.cue, q: it.text, type: 'match', alts: [it.a] }; }
         else { const v = el ? el.value.trim() : ''; const r = gradeGap(it, gr.limit, v); res[it.n] = { ok: r.ok, over: r.over, given: v, answer: it.a[0], cue: it.cue, q: it.text, type: 'gap', alts: it.a, limit: gr.limit }; }
@@ -51,6 +51,10 @@
   // ---------- Hiển thị ----------
   function groupHtml(gr, gi) {
     const head = `<div class="lq-instr">${gr.title ? `<b>${esc(gr.title)}</b><br>` : ''}<i>${esc(gr.instr)}</i></div>`;
+    // TOEIC Part 1 (photo): ảnh + chỉ chữ (A)–(D); 4 câu mô tả chỉ nghe, hiện lại sau khi nộp (mark)
+    if (gr.type === 'mcq' && gr.photo) return `<div class="lq-group">${head}${gr.items.map(it => `<div class="lq-item" data-item="${it.n}"><div><span class="qn">${it.n}</span> ${esc(it.q)}</div>
+      <img class="lq-photo" src="${esc(it.img)}" alt="${esc(t('Ảnh câu {n}', { n: it.n }))}" loading="lazy" style="display:block;max-width:100%;height:auto;border-radius:12px;margin:.4rem 0">
+      <div class="lq-opts">${it.options.map((o, k) => `<label><input type="radio" name="q${it.n}" value="${k}"> <b>(${L[k]})</b></label>`).join('')}</div><div class="lq-fb" hidden></div></div>`).join('')}</div>`;
     if (gr.type === 'mcq') return `<div class="lq-group">${head}${gr.items.map(it => `<div class="lq-item" data-item="${it.n}"><div><span class="qn">${it.n}</span> ${esc(it.q)}</div>
       <div class="lq-opts">${it.options.map((o, k) => `<label><input type="radio" name="q${it.n}" value="${k}"> <b>${L[k]}</b>${o === L[k] ? '' : ' ' + esc(o)}</label>`).join('')}</div><div class="lq-fb" hidden></div></div>`).join('')}</div>`;
     if (TF[gr.type]) return `<div class="lq-group">${head}${gr.items.map(it => `<div class="lq-item" data-item="${it.n}"><div><span class="qn">${it.n}</span> ${esc(it.text)}</div>
@@ -79,7 +83,7 @@
       const ok = ns.every(n => res[n].ok), part = ns.some(n => res[n].ok);
       item.classList.add(ok ? 'ok' : part ? 'half' : 'no');
       const fb = $('.lq-fb', item); fb.hidden = false;
-      fb.innerHTML = `${ok ? '✅' : '❌'} ${t('Đáp án: <b>{a}</b>', { a: esc(r.answer) })}${r.over ? ` <span class="tiny">(${t('vượt quá số từ cho phép')})</span>` : ''} ${r.cue && onEvidence ? `<button class="btn sm ghost" data-ev="${ns[0]}">${evLabel}</button>` : ''}`;
+      fb.innerHTML = `${ok ? '✅' : '❌'} ${t('Đáp án: <b>{a}</b>', { a: esc(r.answer) })}${r.over ? ` <span class="tiny">(${t('vượt quá số từ cho phép')})</span>` : ''} ${r.cue && onEvidence ? `<button class="btn sm ghost" data-ev="${ns[0]}">${evLabel}</button>` : ''}${r.stm ? `<div class="small" style="margin-top:.3rem">${r.stm.map((s, k) => `<div>${k === +r.alts[0] ? '✅ <b>' : ''}(${L[k]}) ${esc(s)}${k === +r.alts[0] ? '</b>' : ''}</div>`).join('')}</div>` : ''}`;
       $$('input, select', item).forEach(x => x.disabled = true);
     });
     if (onEvidence) $$('[data-ev]', root).forEach(b => b.onclick = () => onEvidence(+b.dataset.ev));

@@ -3,6 +3,55 @@
   const T = g.TOEIC = g.TOEIC || { reading: [], listening: [] };
   if (!T.listening) T.listening = [];
 
+  /* ---------------- Part 1: Photographs (Q1–6) ---------------- */
+  // Ảnh CC0 (web/img/toeic/CREDITS.md). Phương án KHÔNG xoay (photo: true) vì audio đọc sẵn (A)–(D).
+  const P1 = [
+    { n: 1, img: 'img/toeic/t2-p1-1.jpg', a: 1,
+      s: ['A man is pouring water into a glass.', 'A man is speaking to a group at a table.', 'Some people are leaving a meeting room.', 'A laptop is being put into a bag.'],
+      explain: 'Ảnh: cuộc họp quanh bàn, một người đàn ông vừa nói vừa ra hiệu bằng tay, trước mặt có máy tính xách tay và ly nước; những người khác ngồi nghe. (B) đúng. (A) có ly nước nhưng không ai đang rót. (C) mọi người vẫn ngồi, không rời phòng. (D) máy tính đang mở trên bàn, không bị cất vào túi.' },
+    { n: 2, img: 'img/toeic/t2-p1-2.jpg', a: 3,
+      s: ['Some people are having a meal.', 'A rug is being rolled up.', 'The windows are wide open.', 'Some chairs have been placed around a table.'],
+      explain: 'Ảnh: phòng trống, một chiếc bàn gỗ có mấy chiếc ghế trắng xếp quanh, cửa sổ đóng, dưới sàn có tấm thảm nhỏ. (D) đúng: "have been placed around a table" mô tả trạng thái đồ vật. (A) không có người. (B) có thảm nhưng "is being rolled up" cần người đang cuộn – không có. (C) cửa sổ đang đóng.' },
+    { n: 3, img: 'img/toeic/t2-p1-3.jpg', a: 0,
+      s: ['A man is standing in front of a building.', 'A man is opening an umbrella.', 'A man is climbing some stairs.', 'Some cars are parked along the street.'],
+      explain: 'Ảnh: một người đàn ông mặc vest đứng trên đường, quay lưng về phía máy ảnh, nhìn về tòa nhà có hàng cột. (A) đúng. (B) không có ô (umbrella). (C) không có cầu thang, ông ấy đang đứng yên. (D) trên đường không có xe nào đỗ.' },
+    { n: 4, img: 'img/toeic/t2-p1-4.jpg', a: 2,
+      s: ['A waiter is serving coffee to customers.', 'Some menus are being handed out.', 'Food has been displayed on a counter.', 'A man is writing on a chalkboard.'],
+      explain: 'Ảnh: quầy quán cà phê bày nhiều món ăn, phía sau một nhân viên áo trắng đang làm việc, trên tường có bảng đen ghi thực đơn. (C) đúng: "has been displayed" = đã được bày ra. (A) không thấy khách nào. (B) thực đơn viết trên bảng, không ai phát thực đơn. (D) có bảng đen nhưng người đàn ông không viết lên bảng (bẫy nhắc đồ vật có trong ảnh với hành động sai).' },
+    { n: 5, img: 'img/toeic/t2-p1-5.jpg', a: 1,
+      s: ['The men are drinking from their glasses.', 'Two men are looking at a laptop together.', 'One of the men is putting on his glasses.', "They're carrying a laptop to a meeting room."],
+      explain: 'Ảnh: hai người đàn ông ngồi cạnh nhau, cùng nhìn vào một máy tính xách tay, một người chỉ tay vào màn hình; trên bàn có ly nước. (B) đúng. (A) ly nước để trên bàn, không ai đang uống. (C) bẫy từ nhiều nghĩa "glasses" (ly / kính mắt) – không ai đeo kính. (D) máy tính đặt trên bàn, không ai mang đi.' },
+    { n: 6, img: 'img/toeic/t2-p1-6.jpg', a: 3,
+      s: ['A vendor is weighing some fish.', 'Some shoppers are paying at a counter.', 'A man is hanging a sign above the stall.', 'Some boxes have been stacked inside a shop.'],
+      explain: 'Ảnh: một cửa hàng nhỏ bày đồ ăn có gắn bảng giá, người bán ngồi cạnh quầy, phía sau có nhiều thùng các-tông xếp chồng lên nhau. (D) đúng: "have been stacked" = đã được xếp chồng. (A) người bán đang ngồi, không cân cá. (B) không có khách mua hàng. (C) có biển hiệu treo phía trên nhưng không ai đang treo.' },
+  ];
+  const p1script = [
+    { say: 'Part 1. For each question in this part, you will look at a photograph and hear four short statements. The statements are read only once and are not printed. Choose the statement that best describes the photograph.' }, { pause: 3 },
+  ];
+  P1.forEach(it => {
+    p1script.push({ say: 'Number ' + it.n + '. Look at the photograph for number ' + it.n + '.' }); p1script.push({ pause: 1 });
+    it.s.forEach((txt, i) => p1script.push({ s: 'N', t: '(' + 'ABCD'[i] + ') ' + txt }));
+    p1script.push({ pause: 3 });
+  });
+
+  T.listening.push({
+    id: 'tl2p1', test: 2, part: 1, title: 'Photographs', titleVi: 'Mô tả tranh',
+    speakers: { N: { name: 'Narrator', accent: 'en-US', gender: 'm' } },
+    script: p1script,
+    groups: [
+      { type: 'mcq', photo: true, instr: 'Look at the photograph and choose the statement that best describes it (A, B, C or D).',
+        items: P1.map(it => ({ n: it.n, img: it.img, q: '', options: it.s, a: it.a, cue: it.s[it.a], explain: it.explain })) },
+    ],
+    vocab: [
+      { w: 'pour', vi: 'rót' },
+      { w: 'roll up', vi: 'cuộn lại' },
+      { w: 'display', vi: 'trưng bày' },
+      { w: 'hand out', vi: 'phát (cho nhiều người)' },
+      { w: 'vendor', vi: 'người bán hàng' },
+      { w: 'stack', vi: 'xếp chồng' },
+    ],
+  });
+
   /* ---------------- Part 2: Question–Response (Q7–21) ---------------- */
   const P2 = [
     { n: 7, qs: 'B', rs: 'A', q: 'What time does the hardware store close on Sundays?',

@@ -3,6 +3,55 @@
   const T = g.TOEIC = g.TOEIC || { reading: [], listening: [] };
   if (!T.listening) T.listening = [];
 
+  /* ---------------- Part 1: Photographs (Q1–6) ---------------- */
+  // Ảnh CC0 (web/img/toeic/CREDITS.md). Phương án KHÔNG xoay (photo: true) vì audio đọc sẵn (A)–(D).
+  const P1 = [
+    { n: 1, img: 'img/toeic/t1-p1-1.jpg', a: 2,
+      s: ['The women are shaking hands.', 'One of the women is opening a window.', 'Two people are seated across from each other at a table.', "They're setting the table for lunch."],
+      explain: 'Ảnh: hai người phụ nữ ngồi đối diện nhau bên một chiếc bàn tròn cạnh cửa sổ lớn, đang trò chuyện. (C) đúng: "seated across from each other" = ngồi đối diện nhau. (A) sai hành động: họ không bắt tay. (B) có cửa sổ trong ảnh nhưng không ai đang mở cửa sổ. (D) lặp từ "table" nhưng trên bàn không có gì, không ai đang bày bàn ăn.' },
+    { n: 2, img: 'img/toeic/t1-p1-2.jpg', a: 0,
+      s: ['Some bicycles are lined up in a row.', 'A cyclist is riding along a path.', 'Some tires are being repaired.', 'The bicycles are leaning against a fence.'],
+      explain: 'Ảnh: rất nhiều xe đạp cùng màu, có đánh số, được dựng thẳng hàng sát nhau, không có người. (A) đúng: "lined up in a row" = xếp thành hàng. (B) sai vì không có ai đang đạp xe. (C) dạng bị động tiếp diễn "are being repaired" cần có người đang sửa – trong ảnh không có ai. (D) không có hàng rào (fence) nào trong ảnh.' },
+    { n: 3, img: 'img/toeic/t1-p1-3.jpg', a: 3,
+      s: ['A man is washing some dishes.', 'A cook is taking off his apron.', 'Some customers are waiting in line.', 'Some lamps are hanging from the ceiling.'],
+      explain: 'Ảnh: bếp nhà hàng, một đầu bếp đeo tạp dề đứng quay lưng, phía trên có nhiều đèn treo, kệ có chồng đĩa. (D) đúng: "lamps are hanging from the ceiling" = đèn treo từ trần nhà. (A) có đĩa trong ảnh nhưng không ai đang rửa. (B) đầu bếp vẫn đang mặc tạp dề, không cởi ra (bẫy "taking off" ↔ "wearing"). (C) không thấy khách hàng nào.' },
+    { n: 4, img: 'img/toeic/t1-p1-4.jpg', a: 1,
+      s: ['A woman is picking strawberries in a field.', 'Some fruit has been placed in a wooden box.', 'Some boxes are being loaded onto a truck.', 'Some crates are stacked against a wall.'],
+      explain: 'Ảnh: dâu tây đỏ chất đầy trong thùng gỗ ở quầy chợ. (B) đúng: "has been placed in a wooden box" = đã được đặt trong thùng gỗ (bị động hoàn thành – mô tả trạng thái). (A) không có người, cũng không phải cánh đồng. (C) "are being loaded" cần người đang chất hàng lên xe tải – không có. (D) thùng không xếp chồng sát tường.' },
+    { n: 5, img: 'img/toeic/t1-p1-5.jpg', a: 2,
+      s: ['A man is watering a plant.', 'All of the desks are occupied.', 'A man is working at a laptop computer.', 'A man is closing a door.'],
+      explain: 'Ảnh: văn phòng mở, một người đàn ông đội mũ len ngồi làm việc với máy tính xách tay; các bàn khác trống, góc ảnh có chậu cây. (C) đúng. (A) có cây trong ảnh nhưng không ai tưới. (B) sai vì hầu hết bàn đều trống ("occupied" = có người ngồi). (D) có khung cửa nhưng người đàn ông không đóng cửa.' },
+    { n: 6, img: 'img/toeic/t1-p1-6.jpg', a: 3,
+      s: ['Some people are swimming near the shore.', 'A boat is being pulled onto the beach.', 'Some sailors are raising a sail.', 'Several boats are on the water in the distance.'],
+      explain: 'Ảnh: bãi cát và đá ở phía trước, xa xa có nhiều thuyền buồm neo trên mặt nước, không có người. (D) đúng: "in the distance" = ở đằng xa. (A) không có ai bơi. (B) không ai kéo thuyền lên bờ. (C) không thấy thủy thủ nào; lưu ý bẫy âm "sail" (cánh buồm) – "sale".' },
+  ];
+  const p1script = [
+    { say: 'Part 1. For each question in this part, you will look at a photograph and hear four short statements. The statements are read only once and are not printed. Choose the statement that best describes the photograph.' }, { pause: 3 },
+  ];
+  P1.forEach(it => {
+    p1script.push({ say: 'Number ' + it.n + '. Look at the photograph for number ' + it.n + '.' }); p1script.push({ pause: 1 });
+    it.s.forEach((txt, i) => p1script.push({ s: 'N', t: '(' + 'ABCD'[i] + ') ' + txt }));
+    p1script.push({ pause: 3 });
+  });
+
+  T.listening.push({
+    id: 'tl1p1', test: 1, part: 1, title: 'Photographs', titleVi: 'Mô tả tranh',
+    speakers: { N: { name: 'Narrator', accent: 'en-US', gender: 'm' } },
+    script: p1script,
+    groups: [
+      { type: 'mcq', photo: true, instr: 'Look at the photograph and choose the statement that best describes it (A, B, C or D).',
+        items: P1.map(it => ({ n: it.n, img: it.img, q: '', options: it.s, a: it.a, cue: it.s[it.a], explain: it.explain })) },
+    ],
+    vocab: [
+      { w: 'seated across from', vi: 'ngồi đối diện' },
+      { w: 'line up', vi: 'xếp thành hàng' },
+      { w: 'apron', vi: 'tạp dề' },
+      { w: 'crate', vi: 'thùng (gỗ, nhựa) đựng hàng' },
+      { w: 'occupied', vi: 'có người ngồi, đang được sử dụng' },
+      { w: 'in the distance', vi: 'ở đằng xa' },
+    ],
+  });
+
   /* ---------------- Part 2: Question–Response (Q7–21) ---------------- */
   const P2 = [
     { n: 7, qs: 'A', rs: 'B', q: 'Where should I put these boxes of printer paper?',

@@ -10,9 +10,9 @@
   const R_PART = { 5: t('Hoàn thành câu'), 6: t('Hoàn thành đoạn văn'), 7: t('Đọc hiểu') };
   // Đánh dấu dữ liệu TOEIC để trang Luyện nghe hiển thị đúng tên Part
   T().listening.forEach(p => { p.exam = 'toeic'; });
-  // Xoay vị trí đáp án 4 lựa chọn theo mẫu cố định → A/B/C/D phân bố đều (chấm theo chỉ số nên vẫn đúng)
+  // Xoay vị trí đáp án 4 lựa chọn theo mẫu cố định → A/B/C/D phân bố đều (chấm theo chỉ số nên vẫn đúng). Part 1 (photo) không xoay vì audio đọc sẵn chữ cái
   const PAT = [2, 0, 3, 1, 3, 2, 0, 1, 1, 3, 0, 2];
-  T().listening.forEach(p => p.groups.forEach(g => g.type === 'mcq' && !g._rot && (g._rot = 1) && g.items.forEach(it => {
+  T().listening.forEach(p => p.groups.forEach(g => g.type === 'mcq' && !g.photo && !g._rot && (g._rot = 1) && g.items.forEach(it => {
     if (it.options.length !== 4) return;
     const want = PAT[it.n % PAT.length], r = (it.a - want + 4) % 4; if (!r) return;
     it.options = it.options.slice(r).concat(it.options.slice(0, r)); it.a = want;
@@ -97,7 +97,7 @@
     };
   };
 
-  // ---------- Thi thử: Listening (Part 2–4, nghe 1 lần) → Reading (Part 5–7, bấm giờ) ----------
+  // ---------- Thi thử: Listening (Part 1–4, nghe 1 lần) → Reading (Part 5–7, bấm giờ) ----------
   routes['toeic-test'] = function (n) {
     n = +n || 1;
     const LP = T().listening.filter(p => p.test === n).sort((a, b) => a.part - b.part), RT = T().reading.find(x => x.test === n);

@@ -48,4 +48,15 @@ ok(Object.keys((await call(B, { op: 'pull', have: {} })).j.docs).length === 0, '
 ok((await call(A, { op: 'push', docs: { '../x': { h: 'a', body: '{}' } } })).s === 400, 'chặn khóa lạ');
 ok((await call(A, { op: 'pull' }, 'https://evil.example')).h.get('Access-Control-Allow-Origin') === null, 'CORS chặn trang lạ');
 
+// Lời giải dịch sẵn (QE.exT): đổi chữ cái đáp án theo vị trí đã xoay, dùng bản dịch khi có, giữ bản gốc khi chưa có
+{
+  const fsm = await import('fs'), src = fsm.readFileSync(new URL('../../web/js/qengine.js', import.meta.url), 'utf8');
+  const fnv = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return (h >>> 0).toString(36); };
+  const orig = 'Chọn B vì (C) sai', mv = L => 'ABCD'[('ABCD'.indexOf(L) + 1) % 4];
+  const mk = async (lang, tr) => { const g = { I18N: { learnLang: () => lang }, document: {}, location: { protocol: 'https:' }, fetch: async () => ({ ok: !!tr, json: async () => tr }) }; new Function('self', 'I18N', 'document', 'location', 'fetch', src)(g, g.I18N, g.document, g.location, g.fetch); await new Promise(r => setTimeout(r, 5)); return g.QE; };
+  ok((await mk('vi')).exT(orig, mv) === 'Chọn C vì (D) sai', 'lời giải: đổi chữ cái theo vị trí xoay');
+  ok((await mk('en', { [fnv(orig)]: 'Pick {B} since ({C}) is wrong' })).exT(orig, mv) === 'Pick C since (D) is wrong', 'lời giải: bản dịch + đổi chữ cái');
+  ok((await mk('ja', null)).exT(orig) === orig, 'lời giải: chưa có bản dịch → giữ bản gốc');
+}
+
 console.log(fails ? `✗ unit: ${fails} lỗi` : '✓ unit: FSRS & API đồng bộ – tất cả đạt'); process.exit(fails ? 1 : 0);

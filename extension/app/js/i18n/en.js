@@ -883,6 +883,7 @@
   '{n} từ': '{n} words',
   'Câu {a}–{b}': 'Questions {a}–{b}',
   'Câu {n}': 'Q{n}',
+  'Ảnh câu {n}': 'Photo for question {n}',
   'Bạn đang làm bài thi – rời trang sẽ mất kết quả.': 'You are in the middle of a test – leaving this page will lose your results.',
   'Thoát': 'Exit',
   'Bắt đầu': 'Start',
