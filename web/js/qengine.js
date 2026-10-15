@@ -7,6 +7,14 @@
   const L = 'ABCDEFGH';
   const code = o => String(o).split(' ')[0];
   const label = o => String(o).slice(code(o).length + 1);
+  // Lời giải dịch sẵn theo ngôn ngữ người học (i18n/explain/<lang>.json – scripts/gen-explain.mjs), tải lười khi mở phần thi.
+  // Chưa có bản dịch → giữ bản gốc. mv: hàm đổi chữ cái đáp án khi phương án đã được xoay vị trí (TOEIC).
+  const fnv = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return (h >>> 0).toString(36); };
+  const XL = g.I18N && I18N.learnLang ? I18N.learnLang() : 'vi';
+  let XT = null;
+  if (XL !== 'vi' && g.fetch) fetch((/^https?:/.test(location.protocol) ? '' : 'https://lexkite.com/') + 'i18n/explain/' + XL + '.json').then(r => (r.ok ? r.json() : null)).then(j => { XT = j; }).catch(() => {});
+  const LETRE = /(→\s*|\(|[Đđ]áp án\s+|[Cc]họn\s+|[Pp]hương án\s+)([A-D])\b/g;
+  const exT = (s, mv) => { if (!s) return ''; const x = XT && XT[fnv(s)]; if (x) return x.replace(/\{([A-D])\}/g, (m, l) => (mv ? mv(l) : l)); return mv ? s.replace(LETRE, (m, pre, l) => pre + mv(l)) : s; };
   const TF = { tfng: ['TRUE', 'FALSE', 'NOT GIVEN'], ynng: ['YES', 'NO', 'NOT GIVEN'] };
 
   // ---------- Chấm ----------
@@ -134,6 +142,6 @@
   const itemOf = (root, q) => [...root.querySelectorAll('[data-item]')].find(x => x.dataset.item.split(',').includes(String(q)));
   const answered = (root, q) => { const el = itemOf(root, q); return !!el && [...el.querySelectorAll('input, select')].some(i => i.type === 'radio' || i.type === 'checkbox' ? i.checked : i.value.trim()); };
   // Lời giải 3 phần chuẩn chữa đề: 📍 đoạn chứa đáp án · 🔁 từ khóa câu hỏi ↔ paraphrase trong bài · 💡 vì sao
-  const explainHtml = e => !e ? '' : `<div class="qx">${e.para ? `<div class="qx-r"><span class="qx-l">📍 ${t('Vị trí')}</span><span>${t('Đoạn {p}', { p: esc(e.para) })}</span></div>` : ''}${(e.keys || []).length ? `<div class="qx-r"><span class="qx-l">🔁 ${t('Từ khóa ↔ Paraphrase')}</span><span>${e.keys.map(k2 => `<i>${esc(k2[0])}</i> ≈ <b>${esc(k2[1])}</b>`).join('<br>')}</span></div>` : ''}${e.why ? `<div class="qx-r"><span class="qx-l">💡 ${t('Vì sao')}</span><span translate="${I18N.learnLang() === 'vi' ? 'no' : 'yes'}">${esc(e.why)}</span></div>` : ''}</div>`;
-  g.QE = { explainHtml, itemOf, answered, norm, words, gradeGap, collect, groupHtml, questionsHtml, bind, mark, numsOf, bandOf, overall, code, label };
+  const explainHtml = e => !e ? '' : `<div class="qx">${e.para ? `<div class="qx-r"><span class="qx-l">📍 ${t('Vị trí')}</span><span>${t('Đoạn {p}', { p: esc(e.para) })}</span></div>` : ''}${(e.keys || []).length ? `<div class="qx-r"><span class="qx-l">🔁 ${t('Từ khóa ↔ Paraphrase')}</span><span>${e.keys.map(k2 => `<i>${esc(k2[0])}</i> ≈ <b>${esc(k2[1])}</b>`).join('<br>')}</span></div>` : ''}${e.why ? `<div class="qx-r"><span class="qx-l">💡 ${t('Vì sao')}</span><span translate="${XL === 'vi' || (XT && XT[fnv(e.why)]) ? 'no' : 'yes'}">${esc(exT(e.why))}</span></div>` : ''}</div>`;
+  g.QE = { exT, explainHtml, itemOf, answered, norm, words, gradeGap, collect, groupHtml, questionsHtml, bind, mark, numsOf, bandOf, overall, code, label };
 })(typeof self !== 'undefined' ? self : this);

@@ -45,3 +45,7 @@
 /packs/*
   Cache-Control: public, max-age=86400
   Access-Control-Allow-Origin: *
+
+/i18n/*
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *

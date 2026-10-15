@@ -84,7 +84,7 @@
   };
 
   // ================= TIỆN ÍCH CHUNG =================
-  const explainMark = (root, groups) => groups.forEach(g => g.items.forEach(it => { const el = $(`[data-item="${it.n}"] .lq-fb`, root); if (el && it.explain) el.insertAdjacentHTML('beforeend', `<div class="tiny muted" style="margin-top:.2rem">💡 ${esc(it.explain)}</div>`); }));
+  const explainMark = (root, groups) => groups.forEach(g => g.items.forEach(it => { const el = $(`[data-item="${it.n}"] .lq-fb`, root); if (el && it.explain) el.insertAdjacentHTML('beforeend', `<div class="tiny muted" style="margin-top:.2rem">💡 ${esc(QE.exT(it.explain))}</div>`); }));
   const resultHtml = (right, total, objective = true) => {
     const pct = total ? right / total : 0;
     return `<div class="feedback ${pct >= 0.7 ? 'ok' : 'no'}" style="position:static"><b>${t('{a}/{b} câu đúng', { a: right, b: total })} (${Math.round(pct * 100)}%)</b>${objective ? ` · ${t('band ước tính ≈ {b}', { b: bandEst(pct) })}` : ''} · ${t('câu sai đã vào Sổ lỗi sai')}
@@ -137,7 +137,7 @@
     const ans = [];
     body.innerHTML = `${units.map((u, ui) => {
       let k = 0;
-      const html = esc(u.text).replace(/\{([^|}]*)\|([^}]*)\}/g, (m, pre, miss) => { k++; ans.push({ ui, k, pre, miss, explain: (u.explain || [])[k - 1] || '' });
+      const html = esc(u.text).replace(/\{([^|}]*)\|([^}]*)\}/g, (m, pre, miss) => { k++; ans.push({ ui, k, pre, miss, explain: QE.exT((u.explain || [])[k - 1] || '') });
         return `<span style="white-space:nowrap">${pre}<input class="gap" data-cw="${ans.length - 1}" style="width:${miss.length + 1.6}ch;min-width:0;padding:0 .15rem;margin:0" maxlength="${pre.length + miss.length}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="${esc(t('Ô trống {n}', { n: k }))}"></span>`; });
       return `<div class="card toeic-u" data-u="${ui}"><div><b>${esc(u.title)}</b><div class="lq-instr" style="margin-top:.5rem"><i>${esc(u.instr || '')}</i></div><div style="line-height:2.3;font-size:1.02rem">${html}</div><div data-cwfb></div></div></div>`;
     }).join('')}
@@ -205,7 +205,7 @@
         const root = $(`.toeic-u[data-u="${k}"]`, body), res = QE.collect({ groups: u.groups }, root);
         QE.mark(root, res); explainMark(root, u.groups);
         const tr = $(`[data-tr="${k}"]`, root); if (tr) tr.hidden = false;
-        Object.entries(res).forEach(([n, r]) => { total++; if (r.ok) right++; else log(listening ? 'listening' : 'reading', task, n, r.q, r.answer, r.given, (u.groups.flatMap(g => g.items).find(i => i.n === +n) || {}).explain); });
+        Object.entries(res).forEach(([n, r]) => { total++; if (r.ok) right++; else log(listening ? 'listening' : 'reading', task, n, r.q, r.answer, r.given, QE.exT((u.groups.flatMap(g => g.items).find(i => i.n === +n) || {}).explain)); });
       });
       $('#tSub').disabled = true;
       await finish(task, right, total, listening ? 'listens' : 'readings');
@@ -242,11 +242,11 @@
         const item = $(`[data-bs="${it.n}"]`, body), given = $$('[data-ans] button', item).map(b => b.textContent).join(' ');
         const correct = it.chunks.join(' '), ok = [correct, ...(it.alt || [])].some(x => x.toLowerCase() === given.toLowerCase());
         const sentence = (it.starter ? it.starter + ' ' : '') + (!it.starter || /[.!?]$/.test(it.starter) ? cap(correct) : correct) + (it.end || '.');
-        if (ok) right++; else log('grammar', task, it.n, it.prompt, sentence, given, it.explain);
+        if (ok) right++; else log('grammar', task, it.n, it.prompt, sentence, given, QE.exT(it.explain));
         item.classList.add(ok ? 'ok' : 'no');
         $$('button', item).forEach(b => { b.disabled = true; });
         const fb = $('.lq-fb', item); fb.hidden = false;
-        fb.innerHTML = `${ok ? '✅' : '❌'} ${t('Đáp án: <b>{a}</b>', { a: esc(sentence) })}<div class="tiny muted" style="margin-top:.2rem">💡 ${esc(it.explain)}</div>`;
+        fb.innerHTML = `${ok ? '✅' : '❌'} ${t('Đáp án: <b>{a}</b>', { a: esc(sentence) })}<div class="tiny muted" style="margin-top:.2rem">💡 ${esc(QE.exT(it.explain))}</div>`;
       });
       $('#tSub').disabled = true;
       await finish(task, right, items.length, 'quizzes');

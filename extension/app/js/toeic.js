@@ -18,7 +18,7 @@
     it.options = it.options.slice(r).concat(it.options.slice(0, r)); it.a = want;
     // Đổi chữ cái đáp án nhắc trong lời giải thích theo vị trí mới (→ C, (B), đáp án A…) – tránh giải thích chỉ sai phương án
     const mv = L => 'ABCD'[('ABCD'.indexOf(L) - r + 4) % 4];
-    if (it.explain) it.explain = it.explain.replace(/(→\s*|\(|[Đđ]áp án\s+|[Cc]họn\s+|[Pp]hương án\s+)([A-D])\b/g, (m, pre, L) => pre + mv(L));
+    it._mv = mv; // QE.exT đổi chữ cái lúc hiển thị (cả bản gốc lẫn bản dịch sẵn)
   })));
   // Quy đổi % đúng → điểm thang 5–495 mỗi phần (ước tính tuyến tính có hiệu chỉnh nhẹ; không phải bảng chính thức)
   const scaled = pct => Math.max(5, Math.min(495, Math.round((5 + 490 * Math.pow(pct, 1.08)) / 5) * 5));
@@ -66,7 +66,7 @@
   const countPart = pt => (pt.groups ? [pt] : pt.passages || []).reduce((a, x) => a + (x.groups || []).reduce((b, g) => b + g.items.length, 0), 0);
 
   // Hiện giải thích sau khi nộp
-  const explainMark = (root, groups) => groups.forEach(g => g.items.forEach(it => { const el = $(`[data-item="${it.n}"] .lq-fb`, root); if (el && it.explain) el.insertAdjacentHTML('beforeend', `<div class="tiny muted" style="margin-top:.2rem">💡 ${esc(it.explain)}</div>`); }));
+  const explainMark = (root, groups) => groups.forEach(g => g.items.forEach(it => { const el = $(`[data-item="${it.n}"] .lq-fb`, root); if (el && it.explain) el.insertAdjacentHTML('beforeend', `<div class="tiny muted" style="margin-top:.2rem">💡 ${esc(QE.exT(it.explain, it._mv))}</div>`); }));
   const unitsOf = pt => pt.groups ? [{ title: '', text: '', groups: pt.groups }] : pt.passages;
   const unitHtml = (u, k) => `<div class="card toeic-u" data-u="${k}">${u.text ? `<div class="toeic-pass"><b>${esc(u.title || '')}</b><div style="white-space:pre-wrap;margin-top:.4rem">${esc(u.text)}</div></div>` : ''}<div class="toeic-q">${QE.questionsHtml({ groups: u.groups })}</div></div>`;
 
@@ -116,7 +116,7 @@
       player = App.listening.Player(p, { onEnd: () => { const s = $('#tState'); if (s) s.textContent = '✓ ' + t('Hết phần nghe'); const b = $('#tNext'); if (b) b.disabled = false; } });
       player.play(0);
       setTimeout(() => { const b = $('#tNext'); if (b) b.disabled = false; }, 30000);
-      $('#tNext').onclick = () => { player.stop(); const r = QE.collect(p, $('#lQs')); Object.keys(r).forEach(q => { r[q].part = p.part; r[q].explain = (p.groups.flatMap(g => g.items || []).find(i => i.n === +q) || {}).explain || ''; }); Object.assign(res.L, r); if (k < LP.length - 1) lPart(k + 1); else reading(); window.scrollTo({ top: 0 }); };
+      $('#tNext').onclick = () => { player.stop(); const r = QE.collect(p, $('#lQs')); Object.keys(r).forEach(q => { r[q].part = p.part; { const i0 = p.groups.flatMap(g => g.items || []).find(i => i.n === +q) || {}; r[q].explain = QE.exT(i0.explain, i0._mv); } }); Object.assign(res.L, r); if (k < LP.length - 1) lPart(k + 1); else reading(); window.scrollTo({ top: 0 }); };
     };
     const reading = () => {
       const units = RT.parts.flatMap(pt => unitsOf(pt).map(u => ({ ...u, part: pt.part })));
@@ -132,7 +132,7 @@
       $$('.tx-grid [data-go]').forEach(b => b.onclick = () => { const q = b.dataset.go, el = $(`#tq [data-item="${q}"]`) || $$('#tq [data-item]').find(x => x.dataset.item.split(',').includes(q)); if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); el.classList.add('tx-flash'); setTimeout(() => el.classList.remove('tx-flash'), 1200); } });
       let left = mins * 60; const tick = () => { left--; const c = $('#tClock'); if (c) { c.textContent = `${String(Math.floor(left / 60)).padStart(2, '0')}:${String(left % 60).padStart(2, '0')}`; c.classList.toggle('warn', left < 300); } if (left <= 0) submit(); };
       tick(); timer = setInterval(tick, 1000);
-      const submit = () => { clearInterval(timer); units.forEach((u, k) => { const r = QE.collect({ groups: u.groups }, $(`.toeic-u[data-u="${k}"]`)); Object.values(r).forEach(x => { x.part = u.part; }); Object.keys(r).forEach(q => { r[q].explain = (u.groups.flatMap(g => g.items || []).find(i => i.n === +q) || {}).explain || ''; }); Object.assign(res.R, r); }); finish(); };
+      const submit = () => { clearInterval(timer); units.forEach((u, k) => { const r = QE.collect({ groups: u.groups }, $(`.toeic-u[data-u="${k}"]`)); Object.values(r).forEach(x => { x.part = u.part; }); Object.keys(r).forEach(q => { { const i0 = u.groups.flatMap(g => g.items || []).find(i => i.n === +q) || {}; r[q].explain = QE.exT(i0.explain, i0._mv); } }); Object.assign(res.R, r); }); finish(); };
       $('#tSub').onclick = () => { const miss = nums.filter(q => !answered(q)).length; if (confirm(miss ? t('Còn {n} câu chưa làm. Vẫn nộp bài?', { n: miss }) : t('Nộp bài Reading?'))) submit(); };
     };
     const finish = async () => {
