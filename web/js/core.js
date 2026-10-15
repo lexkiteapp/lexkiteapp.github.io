@@ -15,10 +15,23 @@
   let dbp = null;
   const idb = () => dbp || (dbp = new Promise((res, rej) => {
     if (typeof indexedDB === 'undefined') return rej(new Error('no-idb'));
-    const rq = indexedDB.open('vocaband', 1);
+    const rq = indexedDB.open('lexkite', 1);
     rq.onupgradeneeded = () => rq.result.createObjectStore('kv');
-    rq.onsuccess = () => res(rq.result); rq.onerror = () => rej(rq.error); rq.onblocked = () => rej(new Error('blocked'));
+    rq.onsuccess = () => migrateOldDb(rq.result).then(() => res(rq.result), () => res(rq.result)); rq.onerror = () => rej(rq.error); rq.onblocked = () => rej(new Error('blocked'));
   }));
+  // Chuyển dữ liệu từ CSDL tên cũ "vocaband" (1 lần): chỉ chép khóa còn thiếu, chép xong mới xóa CSDL cũ → không mất tiến độ học
+  async function migrateOldDb(db) {
+    try { if (localStorage.getItem('lk.idbMoved')) return; } catch (e) { return; }
+    if (indexedDB.databases) { const list = await indexedDB.databases().catch(() => null); if (list && !list.some(d => d.name === 'vocaband')) { try { localStorage.setItem('lk.idbMoved', '1'); } catch (e) { /* bỏ qua */ } return; } }
+    const old = await new Promise(r => { const q = indexedDB.open('vocaband', 1); q.onupgradeneeded = () => q.result.createObjectStore('kv'); q.onsuccess = () => r(q.result); q.onerror = () => r(null); });
+    if (!old) return;
+    const rows = await new Promise(r => { const out = []; const tx = old.transaction('kv', 'readonly'), cur = tx.objectStore('kv').openCursor(); cur.onsuccess = () => { const c = cur.result; if (c) { out.push([c.key, c.value]); c.continue(); } }; tx.oncomplete = () => r(out); tx.onerror = () => r(null); });
+    old.close();
+    if (!rows) return; // đọc lỗi → giữ nguyên CSDL cũ, thử lại lần sau
+    if (rows.length) await new Promise((r, j) => { const tx = db.transaction('kv', 'readwrite'), st = tx.objectStore('kv'); for (const [k, v] of rows) { const g = st.get(k); g.onsuccess = () => { if (g.result === undefined) st.put(v, k); }; } tx.oncomplete = r; tx.onerror = () => j(tx.error); });
+    indexedDB.deleteDatabase('vocaband');
+    try { localStorage.setItem('lk.idbMoved', '1'); } catch (e) { /* bỏ qua */ }
+  }
   const idbDo = (mode, fn) => idb().then(db => new Promise((res, rej) => { const tx = db.transaction('kv', mode), r = fn(tx.objectStore('kv')); tx.oncomplete = () => res(r && r.result); tx.onerror = tx.onabort = () => rej(tx.error); }));
   const bigGet = async key => {
     let v = await idbDo('readonly', st => st.get(PREFIX + key));

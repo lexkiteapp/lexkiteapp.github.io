@@ -83,13 +83,13 @@
 
   // ---------- Cầu nối với add-on Chrome (cùng máy) ----------
   let extReady = false;
-  window.addEventListener('message', e => { if (e.source === window && e.data && e.data.vbBridge === 'hello') { extReady = true; extCall('lang', { lang: I18N.lang() }); } }); // add-on dùng cùng ngôn ngữ giao diện với web
+  window.addEventListener('message', e => { if (e.source === window && e.data && e.data.lkBridge === 'hello') { extReady = true; extCall('lang', { lang: I18N.lang() }); } }); // add-on dùng cùng ngôn ngữ giao diện với web
   const extCall = (op, data) => new Promise(res => {
     if (!extReady) return res(null);
     const id = Math.random().toString(36).slice(2);
-    const on = e => { if (e.source === window && e.data && e.data.vbBridge === 'res' && e.data.id === id) { window.removeEventListener('message', on); res(e.data); } };
+    const on = e => { if (e.source === window && e.data && e.data.lkBridge === 'res' && e.data.id === id) { window.removeEventListener('message', on); res(e.data); } };
     window.addEventListener('message', on);
-    window.postMessage({ vbBridge: 'req', op, id, data }, location.origin);
+    window.postMessage({ lkBridge: 'req', op, id, data }, location.origin);
     setTimeout(() => { window.removeEventListener('message', on); res(null); }, 3000);
   });
   // Gộp từ đã lưu bằng add-on vào tài khoản, rồi trả lại bản gộp cho add-on

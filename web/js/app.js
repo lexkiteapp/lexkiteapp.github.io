@@ -1144,7 +1144,7 @@
     const m = { on: s.reminderOn !== false, time: s.reminderTime || '20:00', last: studied ? today : '', title: t('Lexkite – đến giờ học rồi!') + ' 📚',
       body: total ? t('Bạn có {n} thẻ cần ôn hôm nay. Giữ chuỗi 🔥{s} ngày nhé!', { n: total, s: streak() }) : t('Học vài từ mới để giữ chuỗi ngày học nhé') };
     const k = JSON.stringify(m); if (k === metaKey) return; metaKey = k;
-    await (await caches.open('vb-meta')).put('/__meta', new Response(k, { headers: { 'Content-Type': 'application/json' } }));
+    await (await caches.open('lk-meta')).put('/__meta', new Response(k, { headers: { 'Content-Type': 'application/json' } }));
     const reg = await navigator.serviceWorker.getRegistration();
     if (reg && reg.periodicSync && m.on && 'Notification' in window && Notification.permission === 'granted') {
       try { const st = await navigator.permissions.query({ name: 'periodic-background-sync' }); if (st.state === 'granted') await reg.periodicSync.register('vb-daily', { minInterval: 3 * 3600e3 }); } catch (e) { /* không hỗ trợ */ }

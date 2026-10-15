@@ -4,19 +4,19 @@
   if (window.top === window && /^(www\.)?lexkite\.com$|^lexkite\.pages\.dev$|^(vocaband|ielts-lexi-2026)\.web\.app$/.test(location.hostname)) {
     const KEYS = ['cards', 'stats', 'deleted'];
     window.addEventListener('message', async e => {
-      if (e.source !== window || e.origin !== location.origin || !e.data || e.data.vbBridge !== 'req') return;
+      if (e.source !== window || e.origin !== location.origin || !e.data || e.data.lkBridge !== 'req') return;
       try { if (!chrome.runtime.id) return; } catch (x) { return; } // bản add-on cũ đã bị thay thế
       try {
-        if (e.data.op === 'get') { const data = await chrome.storage.local.get(KEYS); window.postMessage({ vbBridge: 'res', id: e.data.id, data }, location.origin); }
-        else if (e.data.op === 'diag') { const { errLog } = await chrome.storage.local.get('errLog'); window.postMessage({ vbBridge: 'res', id: e.data.id, data: { v: chrome.runtime.getManifest().version, errLog: errLog || [] } }, location.origin); }
-        else if (e.data.op === 'lang') { const l = (e.data.data || {}).lang; if (pickLang(l)) await chrome.storage.local.set({ uiLang: pickLang(l) }); window.postMessage({ vbBridge: 'res', id: e.data.id, ok: true }, location.origin); }
-        else if (e.data.op === 'linked') { const d = e.data.data || {}; await chrome.storage.local.set({ linked: { email: String(d.email || '').slice(0, 120), name: String(d.name || '').slice(0, 80), at: Date.now() } }); window.postMessage({ vbBridge: 'res', id: e.data.id, data: { ok: true } }, location.origin); }
-        else if (e.data.op === 'aiKeyGet') { const { aiKey } = await chrome.storage.local.get('aiKey'); window.postMessage({ vbBridge: 'res', id: e.data.id, data: { aiKey: aiKey || '' } }, location.origin); }
-        else if (e.data.op === 'aiKeySet') { const k = String((e.data.data || {}).aiKey || ''); if (!k || /^AIza[\w-]{20,}$/.test(k)) await chrome.storage.local.set({ aiKey: k }); window.postMessage({ vbBridge: 'res', id: e.data.id, data: { ok: true } }, location.origin); }
-        else if (e.data.op === 'set') { const d = e.data.data || {}; const put = {}; KEYS.forEach(k => { if (d[k]) put[k] = d[k]; }); await chrome.storage.local.set(put); window.postMessage({ vbBridge: 'res', id: e.data.id, ok: true }, location.origin); }
-      } catch (err) { window.postMessage({ vbBridge: 'res', id: e.data.id, error: String(err) }, location.origin); }
+        if (e.data.op === 'get') { const data = await chrome.storage.local.get(KEYS); window.postMessage({ lkBridge: 'res', id: e.data.id, data }, location.origin); }
+        else if (e.data.op === 'diag') { const { errLog } = await chrome.storage.local.get('errLog'); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { v: chrome.runtime.getManifest().version, errLog: errLog || [] } }, location.origin); }
+        else if (e.data.op === 'lang') { const l = (e.data.data || {}).lang; if (pickLang(l)) await chrome.storage.local.set({ uiLang: pickLang(l) }); window.postMessage({ lkBridge: 'res', id: e.data.id, ok: true }, location.origin); }
+        else if (e.data.op === 'linked') { const d = e.data.data || {}; await chrome.storage.local.set({ linked: { email: String(d.email || '').slice(0, 120), name: String(d.name || '').slice(0, 80), at: Date.now() } }); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { ok: true } }, location.origin); }
+        else if (e.data.op === 'aiKeyGet') { const { aiKey } = await chrome.storage.local.get('aiKey'); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { aiKey: aiKey || '' } }, location.origin); }
+        else if (e.data.op === 'aiKeySet') { const k = String((e.data.data || {}).aiKey || ''); if (!k || /^AIza[\w-]{20,}$/.test(k)) await chrome.storage.local.set({ aiKey: k }); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { ok: true } }, location.origin); }
+        else if (e.data.op === 'set') { const d = e.data.data || {}; const put = {}; KEYS.forEach(k => { if (d[k]) put[k] = d[k]; }); await chrome.storage.local.set(put); window.postMessage({ lkBridge: 'res', id: e.data.id, ok: true }, location.origin); }
+      } catch (err) { window.postMessage({ lkBridge: 'res', id: e.data.id, error: String(err) }, location.origin); }
     });
-    window.postMessage({ vbBridge: 'hello', version: chrome.runtime.getManifest().version }, location.origin);
+    window.postMessage({ lkBridge: 'hello', version: chrome.runtime.getManifest().version }, location.origin);
   }
   // Bản content script cũ (trước khi add-on được cập nhật/tải lại) tự tắt khi bản mới chạy
   document.dispatchEvent(new CustomEvent('ielts-lexi-takeover'));
