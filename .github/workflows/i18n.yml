@@ -23,12 +23,13 @@ jobs:
         run: |
           for l in $(grep -v '^#' scripts/i18n-langs.txt); do node scripts/gen-i18n.mjs "$l" || echo "lỗi $l"; sleep 2; done
           node scripts/i18n-fix.mjs  # bản dịch tay cho nhãn ngắn dễ bị dịch máy sai nghĩa
+          node scripts/gen-hero.mjs  # khung trang chào mừng dựng sẵn trong index.html theo bản dịch mới
           node scripts/i18n-qa.mjs   # báo cáo chất lượng: đủ khóa, đúng biến, không lẫn tiếng (xem docs/I18N-PIPELINE.md)
       - name: Lưu kết quả vào repo (tự lấy bản mới nhất trước khi đẩy, thử lại tối đa 5 lần)
         run: |
           git config user.name "lexkite-bot"
           git config user.email "lexkite-bot@users.noreply.github.com"
-          git add web/js/i18n/*.js
+          git add web/js/i18n/*.js web/index.html
           git diff --cached --quiet && exit 0
           git commit -m "i18n: cập nhật bản dịch giao diện tự động"
           for i in 1 2 3 4 5; do git pull --rebase -X theirs origin main && git push && exit 0; sleep $((i * 10)); done

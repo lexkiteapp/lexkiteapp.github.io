@@ -1352,6 +1352,7 @@
   async function finishOnboarding(celebrate, to = '#/home') {
     state.settings.onboarded = true;
     await saveSettings();
+    try { localStorage.setItem('lk.onb', '1'); } catch (e) { /* bỏ qua */ }
     document.body.classList.remove('bare');
     location.hash = to;
     if (celebrate === true) { Sfx.win(); confetti(140); toast('🎉 ' + t('Bộ thẻ đã sẵn sàng – bắt đầu bài ôn đầu tiên nhé!'), 3500); }
@@ -1454,6 +1455,8 @@
   const boot = async () => {
     await App.ready;
     const fresh = !state.settings.onboarded && !Object.keys(state.cards).length && !state.game.xp;
+    try { fresh ? localStorage.removeItem('lk.onb') : localStorage.setItem('lk.onb', '1'); } catch (e) { /* bỏ qua */ } // khung dựng sẵn trong index.html chỉ hiện cho người mới
+    if (!fresh) document.body.classList.remove('bare');
     if (fresh && /^(#\/?(home)?)?$/.test(location.hash)) { location.hash = '#/welcome'; App.prefetchAll(); return; }
     route();
     App.prefetchAll();

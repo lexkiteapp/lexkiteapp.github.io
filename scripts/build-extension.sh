@@ -6,6 +6,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 # nên Chrome khởi động lại service worker giữa lúc build cũng không gặp lỗi importScripts.
 mkdir -p "$ROOT/extension/app" "$ROOT/extension/icons"
 rsync -a --delete-after --exclude '.*' --exclude 'admin.js' --exclude 'admin.css' "$ROOT/web/index.html" "$ROOT/web/manifest.webmanifest" "$ROOT/web/css" "$ROOT/web/js" "$ROOT/web/icons" "$ROOT/extension/app/"
+perl -0pi -e 's#<!--hero-->.*?<!--/hero-->##s' "$ROOT/extension/app/index.html"  # add-on MV3 cấm script nội tuyến – bỏ khung dựng sẵn
 rsync -a "$ROOT"/web/icons/icon-{16,32,48,128}.png "$ROOT/web/icons/icon.svg" "$ROOT/extension/icons/"
 echo "✓ Đã build add-on vào $ROOT/extension"
 if [[ "${1:-}" == "--zip" ]]; then

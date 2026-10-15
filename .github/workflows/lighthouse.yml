@@ -1,5 +1,5 @@
 # Đo tốc độ & chất lượng lexkite.com bằng Lighthouse (điện thoại, mạng 4G giả lập) – miễn phí trên máy chủ GitHub.
-# Kết quả tóm tắt lưu vào reports/lighthouse.json để theo dõi theo thời gian (mục tiêu ≥ 95). Lần đo: thêm chi tiết phần tử LCP.
+# Kết quả tóm tắt lưu vào reports/lighthouse.json để theo dõi theo thời gian (mục tiêu ≥ 95). Lần đo: khung trang chào mừng dựng sẵn trong HTML.
 name: Đo tốc độ Lighthouse
 on:
   schedule:

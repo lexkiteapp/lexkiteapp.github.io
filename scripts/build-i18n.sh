@@ -13,3 +13,4 @@ cd "$(dirname "$0")/../web/js/i18n" || exit 1
 }); })(typeof self !== 'undefined' ? self : this);
 X
 } > en.js
+node ../../../scripts/gen-hero.mjs >/dev/null  # khung trang chào mừng dựng sẵn (LCP nhanh)
