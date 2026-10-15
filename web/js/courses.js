@@ -21,8 +21,8 @@
   const topics = re => ((window.IELTS_DATA || {}).TOPICS || []).filter(x => re.test(x.id));
   const TYPE1 = { line: 'Line graph', bar: 'Bar chart', pie: 'Pie chart', table: 'Table', process: 'Process', map: 'Map', mixed: 'Mixed charts' };
   const writingUnits = () => {
-    const ms = window.MODELS || [], t1 = window.TASK1 || [], p2 = window.WRITE_PROMPTS || [], by = {};
-    ms.filter(m => m.task === 1).forEach(m => { const d = t1.find(x => x.id === m.ref), k = (d && d.type) || 'mixed'; (by['1:' + k] = by['1:' + k] || []).push(itemModel(m, d ? d.title || d.q || m.ref : m.ref)); });
+    const ms = window.MODELS || [], t1 = (App.task1 && App.task1.SETS) || [], p2 = window.WRITE_PROMPTS || [], by = {};
+    ms.filter(m => m.task === 1).forEach(m => { const d = t1.find(x => x.id === m.ref), k = (d && d.type) || 'mixed'; (by['1:' + k] = by['1:' + k] || []).push(itemModel(m, d ? String(d.title || m.ref).replace(/^The (line graph|bar chart|pie charts?|table|diagram|maps?|charts?) (shows?|illustrates?|compares?|gives?|presents?) /i, '').replace(/\.$/, '').slice(0, 80) : m.ref)); });
     ms.filter(m => m.task === 2).forEach(m => { const p = p2.find(x => x.id === m.ref), k = (p && p.type) || 'Task 2'; (by['2:' + k] = by['2:' + k] || []).push(itemModel(m, p ? (p.text || '').slice(0, 70) + '…' : m.ref)); });
     return Object.entries(by).map(([k, items]) => ({ t: k.startsWith('1:') ? 'Task 1 · ' + (TYPE1[k.slice(2)] || k.slice(2)) : 'Task 2 · ' + k.slice(2), items }));
   };
