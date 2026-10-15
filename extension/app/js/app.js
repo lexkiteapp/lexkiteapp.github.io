@@ -299,9 +299,9 @@
     if (!RESUME[name] || !arg || arg === 'mix') return;
     const h = view.querySelector('.page-head h1, h1, h2'); const title = h ? h.textContent.replace(/\s+/g, ' ').trim().slice(0, 90) : '';
     if (!title) return;
-    try { localStorage.setItem('vb.lastActivity', JSON.stringify({ em: RESUME[name], title, href: location.hash, at: Date.now() })); } catch (e) { /* bỏ qua */ }
+    try { localStorage.setItem('vb.lastActivity', JSON.stringify({ em: RESUME[name], title, href: location.hash, at: Date.now(), lang: I18N.lang() })); } catch (e) { /* bỏ qua */ }
   }
-  App.lastActivity = () => { try { const a = JSON.parse(localStorage.getItem('vb.lastActivity') || 'null'); return a && Date.now() - a.at < 4 * DAY ? a : null; } catch (e) { return null; } };
+  App.lastActivity = () => { try { const a = JSON.parse(localStorage.getItem('vb.lastActivity') || 'null'); return a && Date.now() - a.at < 4 * DAY && (a.lang || 'vi') === I18N.lang() ? a : null; /* tiêu đề lưu theo ngôn ngữ lúc học → đổi ngôn ngữ thì không hiện chữ cũ */ } catch (e) { return null; } };
   function notFound() {
     view.innerHTML = `<div class="card empty-note" style="max-width:560px;margin:2rem auto;text-align:center"><div style="font-size:2.4rem">🧭</div><h1 style="margin:.3rem 0">${t('Không tìm thấy trang')}</h1><p class="muted">${t('Liên kết có thể đã cũ. Chọn một mục bên dưới để tiếp tục học.')}</p>
       <div class="row center" style="flex-wrap:wrap">${[['home', '🏠', t('Hôm nay')], ['vocab', '📚', t('Từ vựng')], ['skills', '🎯', t('Kỹ năng')], ['tests', '🏁', t('Thi thử')], ['me', '👤', t('Tôi')]].map(([r, ic, l]) => `<a class="btn sm" href="#/${r}">${ic} ${l}</a>`).join('')}</div></div>`;
@@ -329,6 +329,9 @@
   };
   // Gói nghĩa dịch sẵn theo ngôn ngữ giao diện (web/packs/<lang>.json – scripts/gen-word-packs.mjs, GitHub Action hằng đêm):
   // nghĩa tiếng mẹ đẻ hiện tức thì & offline; từ chưa có trong gói mới dịch lúc chạy.
+  // Nghĩa hiển thị DUY NHẤT cho mọi danh sách/thẻ: tiếng Việt chỉ khi người học chọn nghĩa tiếng Việt;
+  // ngôn ngữ khác → nghĩa tiếng mẹ đẻ dịch sẵn (gói) → định nghĩa tiếng Anh. Không bao giờ rơi về tiếng Việt.
+  App.meanOf = x => { if (!x) return ''; if (I18N.meanLang() === 'vi') return x.vi || x.def || ''; return (I18N.lang() !== 'en' && App.nativeGloss && App.nativeGloss(x.word)) || x.def || ''; };
   App.packs = {};
   App.nativeGloss = w => { const p = App.packs[I18N.lang()], e = p && p[String(w || '').toLowerCase()]; return e ? e[0] : ''; };
   App.loadPack = () => {
@@ -353,6 +356,9 @@
         const nodes = [], tw = document.createTreeWalker(view, NodeFilter.SHOW_TEXT); let n;
         while ((n = tw.nextNode())) { const s = n.nodeValue.trim().replace(/\s+/g, ' '); if (s.length > 1 && VI.test(s) && (!n.parentElement.closest(SKIP) || n.parentElement.closest('.wn'))) nodes.push(n); /* ghi chú từ (.wn) luôn được dịch cho người học quốc tế */ }
         const need = [];
+        // Thuộc tính hiển thị (tooltip, nhãn trợ năng, gợi ý ô nhập) cũng phải theo ngôn ngữ người dùng
+        const attrs = []; view.querySelectorAll('[title],[aria-label],[placeholder]').forEach(el => { if (el.closest(SKIP) && !el.matches('input,textarea')) return; ['title', 'aria-label', 'placeholder'].forEach(a => { const v = el.getAttribute(a); if (v && VI.test(v)) attrs.push([el, a, v.trim()]); }); });
+        attrs.forEach(([el, a, v]) => { if (mem[v]) el.setAttribute(a, mem[v]); else if (!need.includes(v)) need.push(v); });
         const put = x => { const s = x.nodeValue.trim().replace(/\s+/g, ' '); if (!mem[s]) return false; const m = x.nodeValue.match(/^\s*/)[0], e = x.nodeValue.match(/\s*$/)[0]; x.nodeValue = m + mem[s] + e; return true; };
         nodes.forEach(x => { if (!put(x)) { const s = x.nodeValue.trim().replace(/\s+/g, ' '); if (!need.includes(s)) need.push(s); } });
         for (let i = 0; i < need.length;) { // lô ≤ 1800 ký tự
@@ -362,7 +368,7 @@
           const out = r[0].map(x => x[0]).join('').split('\n');
           batch.forEach((s, k) => { if (out[k] && out[k].trim()) mem[s] = out[k].trim(); });
         }
-        if (need.length) { save(); nodes.forEach(put); }
+        if (need.length) { save(); nodes.forEach(put); attrs.forEach(([el, a, v]) => { if (mem[v]) el.setAttribute(a, mem[v]); }); }
       } finally { busy = false; }
     }
     new MutationObserver(() => { clearTimeout(timer); timer = setTimeout(pass, 120); }).observe(view, { childList: true, subtree: true, characterData: false });
@@ -446,7 +452,7 @@
         <div>
           <div class="tiny muted" style="font-weight:700;text-transform:uppercase;letter-spacing:.06em">${t('Từ của ngày')}</div>
           <div class="row"><a href="#/dict/${encodeURIComponent(w.word)}" style="font-size:1.3rem;font-weight:800;color:var(--text)">${esc(w.word)}</a>${posChip(w.pos)}${levelChip(w.level)}<span class="ipa small">${esc(w.ipa)}</span><button class="icon-btn sm" data-speak="${esc(w.word)}" aria-label="${t('Nghe')}">🔊</button></div>
-          <div class="vi">${esc(I18N.meanLang() === 'en' && w.def ? w.def : w.vi)}</div>
+          <div class="vi">${esc(App.meanOf(w))}</div>
           <div class="row" style="margin-top:.4rem">${inDeck(w.word) ? `<span class="chip ok">✓ ${t('Đã có trong sổ')}</span>` : `<button class="btn sm" data-add-seed="${esc(w.word)}">+ Flashcard</button>`}</div>
         </div>
       </div>
@@ -629,7 +635,7 @@
           <div style="min-width:0">
             <div class="row"><a class="w" href="#/dict/${encodeURIComponent(w.word)}">${esc(w.word)}</a>${posChip(w.pos)}${levelChip(w.level)}
               ${w.ipa ? `<span class="ipa small">${esc(w.ipa)}</span>` : ''}<button class="icon-btn sm" data-speak="${esc(w.word)}" aria-label="${t('Phát âm')}">🔊</button></div>
-            <div>${I18N.meanLang() === 'en' && w.def ? `<b class="vi" style="font-size:1rem">${esc(w.def)}</b>` : `<b class="vi" style="font-size:1rem">${esc(w.vi)}</b>${w.def ? ` <span class="muted small">— ${esc(w.def)}</span>` : ''}`}</div>
+            <div><b class="vi" style="font-size:1rem">${esc(App.meanOf(w))}</b>${w.def && App.meanOf(w) !== w.def ? ` <span class="muted small">— ${esc(w.def)}</span>` : ''}</div>
             ${w.ex ? `<div class="ex small">“${highlight(w.ex, w.word)}”</div>` : ''}
             ${w.col.length ? `<div class="small" style="margin-top:.2rem">🔗 ${w.col.map(esc).join(' · ')}</div>` : ''}
           </div>
@@ -881,7 +887,7 @@
       $('#deckList').innerHTML = rows.length ? rows.slice(0, 400).map(c => `
         <div class="deck-row">
           <div class="em">${c.image ? `<img src="${esc(c.image)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : esc(c.emoji)}</div>
-          <div style="min-width:0"><a href="#/dict/${encodeURIComponent(c.word)}"><b>${esc(c.word)}</b></a> <span class="ipa small">${esc(c.ipa)}</span><div class="small">${esc(I18N.meanLang() === 'en' && c.def ? c.def : c.vi)}</div></div>
+          <div style="min-width:0"><a href="#/dict/${encodeURIComponent(c.word)}"><b>${esc(c.word)}</b></a> <span class="ipa small">${esc(c.ipa)}</span><div class="small">${esc(App.meanOf(c))}</div></div>
           <div class="small muted hide-sm">${c.contexts[0] ? `📌 “${highlight(c.contexts[0].text.slice(0, 110), c.word)}${c.contexts[0].text.length > 110 ? '…' : ''}”` : esc((c.def || '').slice(0, 110))}</div>
           <div class="hide-sm small muted" style="text-align:right" title="${t('Đến hạn {date}', { date: new Date(c.srs.due).toLocaleDateString(I18N.lang()) })}">${masteryDots(c.srs)}${SRS.retention(c.srs) != null ? `<div class="tiny">🧠 ${Math.round(SRS.retention(c.srs) * 100)}%</div>` : ''}</div>
           <div class="row nowrap" style="gap:.3rem"><button class="icon-btn sm" data-speak="${esc(c.word)}" data-url="${esc(c.audio)}">🔊</button><button class="icon-btn sm" data-edit="${esc(c.word)}" title="${t('Sửa')}">✏️</button></div>

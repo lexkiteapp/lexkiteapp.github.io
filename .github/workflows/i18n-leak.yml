@@ -1,0 +1,23 @@
+# Rà soát LẪN TIẾNG tự động: chạy app ở 14 ngôn ngữ giao diện ≠ tiếng Việt, đi qua mọi trang chính, báo chữ tiếng Việt còn sót.
+# Đỏ = có lỗi → email cảnh báo 8h sáng (workers/mail) + trang Quản trị → Cảnh báo. Xem scripts/test/i18n-leak.js.
+name: Rà soát lẫn tiếng
+on:
+  schedule:
+    - cron: '0 22 * * *'   # 05:00 giờ VN (sau khi các pipeline dịch chạy xong)
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['web/js/**', 'web/index.html', 'scripts/test/i18n-leak.js', '.github/workflows/i18n-leak.yml']
+permissions:
+  contents: read
+jobs:
+  leak:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm ci --no-audit --no-fund
+      - name: 14 ngôn ngữ
+        run: npm run test:leak

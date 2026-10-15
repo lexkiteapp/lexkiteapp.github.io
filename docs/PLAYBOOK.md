@@ -18,7 +18,7 @@ Bí mật (khóa, mật khẩu) **không bao giờ** nằm trong repo (repo côn
 
 ## 2. Quy trình đưa lên (ship) – luôn theo thứ tự
 1. Sửa code + `en/*.js` (chuỗi mới) + `scripts/i18n-fixed.json` (nhãn ≤ 3 từ, đủ 13 ngôn ngữ).
-2. `npm test` phải xanh: vi-lint (chính tả tiếng Việt) → i18n-missing → i18n-qa → unit → smoke → a11y → crawl.
+2. `npm test` phải xanh: vi-lint (chính tả tiếng Việt) → i18n-missing → i18n-qa → unit → smoke → **i18n-leak (en, zh, ar)** → a11y → crawl. Đủ 14 ngôn ngữ: `npm run test:leak`.
 3. **Kiểm thử thật trên trình duyệt** cho tính năng có tương tác (bấm chuột thật, không chỉ đọc code): mở `https://lexkite.com/?sandbox=1#/…` sau khi lên, thao tác đúng như người dùng, đọc lỗi console. Chỉ báo "xong" khi đã thấy chạy đúng.
 4. Ship: `ship2.sh "<mô tả>"` = smoke → vi-lint → i18n-sync (tự bỏ qua nếu Google chặn) → gen-hero → tăng phiên bản SW + add-on → commit → merge main (không rebase) → push → chờ bản live khớp phiên bản.
 5. JS trên bản live **đã được nén** (tên hàm bị đổi) – kiểm tra hành vi, đừng grep tên hàm.
@@ -28,6 +28,7 @@ Bí mật (khóa, mật khẩu) **không bao giờ** nằm trong repo (repo côn
 | Workflow | Khi chạy | Làm gì | Đầu ra |
 |---|---|---|---|
 | `ci.yml` | mỗi push | kiểm thử | – |
+| `i18n-leak.yml` | 05:00 hằng đêm, đổi `web/js` | **rà soát lẫn tiếng**: chạy app ở 14 ngôn ngữ ≠ vi qua mọi trang chính, báo mọi chữ tiếng Việt còn sót (chữ, tooltip, aria-label, placeholder) | đỏ → email cảnh báo |
 | `i18n.yml` | đổi `en.js`, `i18n-fixed.json`, `content/legal/{en,vi}` | dịch khóa mới 13 ngôn ngữ → áp bản dịch tay → **trang pháp lý 15 ngôn ngữ** (`build-legal.mjs`) → khung chào mừng (`gen-hero.mjs`) → i18n-qa | `web/js/i18n/*.js`, `web/<lang>/{privacy,terms}.html`, `web/index.html` |
 | `word-packs.yml` | 03:30 hằng đêm | gói nghĩa từ vựng 13 ngôn ngữ: dịch nhanh + tinh chỉnh 450 từ/đêm theo đúng từ loại | `web/packs/<lang>.json` |
 | `wordlists.yml` | 04:00 hằng đêm, đổi CSV/script | kho từ theo kỳ thi từ danh sách nguồn mở (NAWL, BSL): lọc trùng → phiên âm/định nghĩa/ví dụ → nghĩa Việt đúng từ loại → kiểm chất lượng | `web/js/lib/{nawl,bsl}.js` |
@@ -48,6 +49,9 @@ Quy tắc chung của pipeline: **có bộ đệm** (chỉ xử lý phần mới
 - Khóa = tiếng Việt trong `t()`; tiếng Anh viết tay; 13 ngôn ngữ dịch máy + bản dịch tay cho nhãn ngắn và **nhãn cấu trúc** (Mở bài, Thân bài…).
 - Nội dung không được dịch máy lúc chạy nếu là nhãn cố định → dùng `t()` + `translate="no"`.
 - Không bao giờ hiện tiếng Việt ở giao diện ngôn ngữ khác; thiếu bản dịch → tiếng Anh.
+- Nghĩa từ chỉ qua `App.meanOf(w)` (tiếng Việt khi người học chọn; khác → gói nghĩa dịch sẵn → định nghĩa tiếng Anh). Không render `w.vi` trực tiếp.
+- Dữ liệu lưu sẵn có chữ (vd. thẻ "Tiếp tục") phải lưu kèm `lang` và chỉ hiện khi trùng ngôn ngữ hiện tại.
+- Thêm trang mới → thêm vào `ROUTES` của `scripts/test/i18n-leak.js`.
 - Ngôn ngữ mặc định lần đầu: `?hl=` → lựa chọn đã lưu → quốc gia (Cloudflare `/cdn-cgi/trace`, 1 lần) → trình duyệt → English. Đổi bằng nút 🌐 đầu trang.
 - Trang theo ngôn ngữ dùng thư mục `/<lang>/…` + hreflang + x-default (blog, privacy, terms).
 
@@ -68,3 +72,5 @@ Một nguồn thống nhất cho mọi chỗ (web, add-on, popup): Kokoro (nếu
 - Không ghi file sinh tự động (trang pháp lý, gói nghĩa) từ máy cục bộ khi thiếu bộ đệm → để Action sinh, tránh xung đột khi merge.
 - Gọi hàm phải đúng kiểu tham số (ví dụ `App.isPhrase(card)` nhận thẻ, `App.inDeck(word)` nhận chữ) → luôn bấm thử thật.
 - Script dịch cục bộ phải có thoát nhanh khi bị giới hạn (ship không được treo).
+- Mã một dòng: chú thích chỉ dùng `/* … */`, không dùng `//` (nuốt phần còn lại của dòng).
+- 2.809 từ NGSL từng thiếu định nghĩa tiếng Anh → người học quốc tế bị rơi về tiếng Việt; nay lấy từ bản chính thức NGSL 1.2 with English definitions (`content/wordlists/ngsl-1.2-defs.csv`).

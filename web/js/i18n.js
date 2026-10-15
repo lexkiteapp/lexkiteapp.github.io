@@ -53,7 +53,7 @@
   const learnLang = () => { const l = read('vb.learnLang'); return l && SUPPORTED.includes(l) ? l : lang; };
   // Ngôn ngữ của NGHĨA TỪ: 'vi' (nghĩa tiếng Việt) hoặc 'en' (định nghĩa tiếng Anh, kiểu từ điển Oxford Learner's).
   // Mặc định: trình duyệt có tiếng Việt → 'vi', còn lại → 'en'. Người học đổi được trong Cài đặt.
-  const meanLang = () => { const m = read('vb.meanLang'); if (m === 'vi' || m === 'en') return m; const navs = (g.navigator && (navigator.languages || [navigator.language])) || []; return lang === 'vi' || navs.some(l => /^vi\b/i.test(l || '')) ? 'vi' : 'en'; };
+  const meanLang = () => { const m = read('vb.meanLang'); if (m === 'vi' || m === 'en') return m; return lang === 'vi' ? 'vi' : 'en'; }; // mặc định theo ngôn ngữ giao diện – không lẫn tiếng (người dùng tự chọn khác trong Cài đặt)
   g.t = t;
   g.I18N = { t, apply, set, lang: () => lang, learnLang, meanLang, setMean: m => { try { localStorage.setItem('vb.meanLang', m); } catch (e) { /* bỏ qua */ } location.reload(); }, LANGS, SUPPORTED, rtl: RTL.has(lang), detect };
   if (g.document) {

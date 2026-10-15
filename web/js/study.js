@@ -10,7 +10,7 @@
 
   // ---------- Nguồn từ ----------
   // Nghĩa hiển thị theo ngôn ngữ người học: tiếng Việt, hoặc định nghĩa tiếng Anh cho người học quốc tế
-  const mean = x => (I18N.meanLang() === 'en' && x.def ? x.def : x.vi) || '';
+  const mean = x => App.meanOf(x);
   // Người học quốc tế (giao diện es/ja/ar…): thêm nghĩa bằng tiếng mẹ đẻ dưới định nghĩa tiếng Anh
   const nativeFill = (el, word) => { const L = I18N.lang(); if (!el || L === 'vi' || L === 'en' || I18N.meanLang() === 'vi') return; const pk = App.nativeGloss && App.nativeGloss(word); if (pk) { el.textContent = '🌐 ' + pk; return; } (App.loadPack ? App.loadPack() : Promise.resolve()).then(() => App.nativeGloss(word) || Dict.translateTo(word, L)).then(r => { if (r && r.toLowerCase() !== word.toLowerCase() && el.isConnected) el.textContent = '🌐 ' + r; }).catch(() => {}); };
   const norm = w => ({ word: w.word, ipa: w.ipa || '', vi: mean(w), ex: w.ex || '', def: w.def || '', pos: w.pos || '', emoji: w.emoji || '📘', image: w.image || '', audio: w.audio || '', level: w.level || '', topic: w.topic || '' });
@@ -158,8 +158,8 @@
             <div class="vi" style="margin:.3rem 0">${esc(mean(c))}</div><div class="wi-native" data-native></div>
             ${c.def && mean(c) !== c.def ? `<div>${esc(c.def)}</div>` : ''}
             ${c.ex ? `<div class="example-box" style="margin-top:.8rem">${highlight(c.ex, c.word)} <button class="icon-btn sm" data-speak-text="${esc(c.ex)}">🔊</button></div>` : ''}
-            ${c.contexts.length ? `<div style="margin-top:.8rem"><b class="small">📌 ${t('Ngữ cảnh của bạn')}</b>${c.contexts.slice(0, 2).map(x => `<div class="ex small" style="margin-top:.3rem">“${highlight(x.text, c.word)}” <button class="ctx-say sm" data-saysent="${esc(x.text)}" title="${t('Nghe cả câu')}">🔊</button>${x.title ? ` <span class="muted">— ${esc(x.title === 'Câu của tôi' ? t('Câu của tôi') : x.title)}</span>` : ''}${x.vi ? `<div style="font-style:normal">🇻🇳 ${esc(x.vi)}</div>` : ''}</div>`).join('')}</div>` : ''}
-            ${(c.sentences || []).length ? `<div style="margin-top:.8rem"><b class="small">💬 ${t('Câu song ngữ')}</b>${c.sentences.map(x => `<div class="small" style="margin-top:.3rem">${highlight(x.en, c.word)}<div class="muted">${esc(x.vi)}</div></div>`).join('')}</div>` : ''}
+            ${c.contexts.length ? `<div style="margin-top:.8rem"><b class="small">📌 ${t('Ngữ cảnh của bạn')}</b>${c.contexts.slice(0, 2).map(x => `<div class="ex small" style="margin-top:.3rem">“${highlight(x.text, c.word)}” <button class="ctx-say sm" data-saysent="${esc(x.text)}" title="${t('Nghe cả câu')}">🔊</button>${x.title ? ` <span class="muted">— ${esc(x.title === 'Câu của tôi' ? t('Câu của tôi') : x.title)}</span>` : ''}${x.vi && I18N.meanLang() === 'vi' ? `<div style="font-style:normal">🇻🇳 ${esc(x.vi)}</div>` : ''}</div>`).join('')}</div>` : ''}
+            ${(c.sentences || []).length ? `<div style="margin-top:.8rem"><b class="small">💬 ${t('Câu song ngữ')}</b>${c.sentences.map(x => `<div class="small" style="margin-top:.3rem">${highlight(x.en, c.word)}${I18N.meanLang() === 'vi' && x.vi ? `<div class="muted">${esc(x.vi)}</div>` : ''}</div>`).join('')}</div>` : ''}
             ${c.col.length ? `<div class="small" style="margin-top:.8rem">🔗 ${c.col.map(esc).join(' · ')}</div>` : ''}
             ${c.syn.length ? `<div class="small" style="margin-top:.3rem">≈ ${c.syn.map(esc).join(', ')}</div>` : ''}
             ${c.note ? `<div class="small" style="margin-top:.6rem">📝 ${esc(c.note)}</div>` : ''}
@@ -312,12 +312,12 @@
     let answered = false;
     const finish = (ok, given) => {
       if (answered) return; answered = true;
-      if (!ok && App.logMistake) App.logMistake({ kind: 'vocab', q: q.type.startsWith('mcq-en') || q.type === 'type-vi' || q.type === 'type-spell' ? t('Từ tiếng Anh nghĩa là “{vi}”?', { vi: w.vi }) : q.type === 'type-cloze' && w.ex ? t('Điền từ: {sentence}', { sentence: w.ex.replace(UI.wordRegex(w.word), '___') }) : t('Nghĩa của “{word}”?', { word: w.word }), answer: q.type === 'mcq-vi' ? w.vi : (q.answer || w.word), given: given || '', explain: `${w.word} ${w.ipa || ''} = ${w.vi}`, ref: w.word });
+      if (!ok && App.logMistake) App.logMistake({ kind: 'vocab', q: q.type.startsWith('mcq-en') || q.type === 'type-vi' || q.type === 'type-spell' ? t('Từ tiếng Anh nghĩa là “{vi}”?', { vi: mean(w) }) : q.type === 'type-cloze' && w.ex ? t('Điền từ: {sentence}', { sentence: w.ex.replace(UI.wordRegex(w.word), '___') }) : t('Nghĩa của “{word}”?', { word: w.word }), answer: q.type === 'mcq-vi' ? w.vi : (q.answer || w.word), given: given || '', explain: `${w.word} ${w.ipa || ''} = ${w.vi}`, ref: w.word });
       ok ? Sfx.correct() : Sfx.wrong();
       const fb = $('#fb', box);
       fb.innerHTML = `<div class="sheet ${ok ? 'ok' : 'no'}"><div class="sheet-in">
         <div class="sheet-head">${ok ? ['✅ ' + t('Chính xác!'), '🎉 ' + t('Tuyệt vời!'), '👏 ' + t('Giỏi lắm!')][Math.floor(Math.random() * 3)] : '❌ ' + t('Chưa đúng · Đáp án: {answer}', { answer: esc(q.answer || w.word) })}</div>
-        <div class="sheet-word"><button class="sheet-say" data-sayw aria-label="${t('Nghe')}">🔊</button><div style="min-width:0"><div><b class="sw">${esc(w.word)}</b>${w.pos ? ` <span class="sp">(${esc(w.pos)})</span>` : ''}</div>${w.ipa ? `<div class="sipa">${esc(w.ipa)}</div>` : ''}<div class="svi">${esc(w.vi)}</div></div></div>
+        <div class="sheet-word"><button class="sheet-say" data-sayw aria-label="${t('Nghe')}">🔊</button><div style="min-width:0"><div><b class="sw">${esc(w.word)}</b>${w.pos ? ` <span class="sp">(${esc(w.pos)})</span>` : ''}</div>${w.ipa ? `<div class="sipa">${esc(w.ipa)}</div>` : ''}<div class="svi">${esc(mean(w))}</div></div></div>
         ${w.ex ? `<div class="sheet-ex">${highlight(w.ex, w.word)} <button class="ctx-say sm" data-saysent="${esc(w.ex)}" title="${t('Nghe câu')}">🔊</button><button class="ctx-say sm" data-tr title="${t('Dịch câu')}">🌐</button><div class="sheet-tr" hidden></div></div>` : ''}
         <button class="btn lg block sheet-next" id="nextQ">${t('Tiếp tục')} ↵</button></div></div>`;
       const tr = $('[data-tr]', fb); if (tr) tr.onclick = async () => { const t = $('.sheet-tr', fb); if (!t.hidden) { t.hidden = true; return; } t.hidden = false; t.textContent = '…'; t.textContent = await Dict.translateVi(w.ex); };
@@ -332,7 +332,7 @@
       const opts = shuffle([w, ...distractors(w, q.list, 3, key)]);
       const prompt = q.type === 'mcq-vi'
         ? `${pic(w)}<div class="entry-word" style="margin-top:.6rem">${esc(w.word)}</div><div class="row center"><span class="ipa">${esc(w.ipa)}</span>${posChip(w.pos)}<button class="icon-btn sm" data-sayw>🔊</button></div><div class="muted small" style="margin-top:.6rem">${t('Chọn nghĩa đúng')}</div>`
-        : `<div class="vi" style="font-size:1.5rem">${esc(w.vi)}</div>${posChip(w.pos)}${w.ex ? `<div class="ctx" style="margin:1rem auto 0">“${cloze(w.ex, w.word)}”</div>` : ''}<div class="muted small" style="margin-top:.6rem">${t('Chọn từ tiếng Anh đúng')}</div>`;
+        : `<div class="vi" style="font-size:1.5rem">${esc(mean(w))}</div>${posChip(w.pos)}${w.ex ? `<div class="ctx" style="margin:1rem auto 0">“${cloze(w.ex, w.word)}”</div>` : ''}<div class="muted small" style="margin-top:.6rem">${t('Chọn từ tiếng Anh đúng')}</div>`;
       box.innerHTML = `<div class="card q-card">${prompt.replace('class="pic"', 'class="pic" style="width:110px;margin:0 auto"')}</div>
         <div class="options ${key === 'word' ? 'two' : ''}">${opts.map((o, i) => `<button class="option" data-o="${esc(o.word)}"><span class="kbd">${i + 1}</span>${esc(o[key])}</button>`).join('')}</div><div id="fb"></div>`;
       const sw = $('[data-sayw]', box); if (sw) sw.onclick = () => speak(w.word, accent(), w.audio);
@@ -361,14 +361,14 @@
       // Gợi ý chữ cái kiểu "_ h _ _ _ _ t _ _": hiện ~1/4 số chữ (không lộ chữ đầu với từ dài)
       const ch = [...w.word], letters = ch.map((c, i) => /[a-z]/i.test(c) ? i : -1).filter(i => i >= 0);
       const show = new Set(letters.length <= 3 ? [letters[0]] : letters.filter((_, k) => k % 4 === 1));
-      prompt = `<div class="muted small" style="font-weight:700">${t('Điền từ')}</div><div class="vi" style="font-size:1.6rem;margin:.4rem 0">${esc(w.vi)}${w.pos ? ` <span class="muted" style="font-size:1rem">(${esc(w.pos)})</span>` : ''}</div>
+      prompt = `<div class="muted small" style="font-weight:700">${t('Điền từ')}</div><div class="vi" style="font-size:1.6rem;margin:.4rem 0">${esc(mean(w))}${w.pos ? ` <span class="muted" style="font-size:1rem">(${esc(w.pos)})</span>` : ''}</div>
         <div class="spell-hint">${ch.map((c, i) => c === ' ' ? '<i class="sp"></i>' : /[a-z]/i.test(c) ? `<span>${show.has(i) ? esc(c) : ''}</span>` : `<b>${esc(c)}</b>`).join('')}</div>`;
     } else if (q.type === 'type-listen') {
-      prompt = `<div style="font-size:3rem">🎧</div><div class="row center"><button class="btn primary" id="play">🔊 ${t('Nghe')}</button><button class="btn" id="slow">🐢 ${t('Chậm')}</button></div><div class="muted small" style="margin-top:.8rem">${t('Gõ lại từ bạn nghe được')}${w.vi ? ' · ' + t('gợi ý: {hint}', { hint: esc(w.vi) }) : ''}</div>`;
+      prompt = `<div style="font-size:3rem">🎧</div><div class="row center"><button class="btn primary" id="play">🔊 ${t('Nghe')}</button><button class="btn" id="slow">🐢 ${t('Chậm')}</button></div><div class="muted small" style="margin-top:.8rem">${t('Gõ lại từ bạn nghe được')}${w.vi ? ' · ' + t('gợi ý: {hint}', { hint: esc(mean(w)) }) : ''}</div>`;
     } else if (isCloze) {
-      prompt = `<div style="font-size:1.15rem;line-height:1.8">“${cloze(w.ex, w.word)}”</div><div class="muted" style="margin-top:.8rem">${t('Gợi ý: <b>{hint}</b>', { hint: esc(w.vi) })} ${posChip(w.pos)} · ${t('bắt đầu bằng “{letter}”, {n} ký tự', { letter: esc(target[0]), n: target.length })}</div>`;
+      prompt = `<div style="font-size:1.15rem;line-height:1.8">“${cloze(w.ex, w.word)}”</div><div class="muted" style="margin-top:.8rem">${t('Gợi ý: <b>{hint}</b>', { hint: esc(mean(w)) })} ${posChip(w.pos)} · ${t('bắt đầu bằng “{letter}”, {n} ký tự', { letter: esc(target[0]), n: target.length })}</div>`;
     } else {
-      prompt = `<div class="vi" style="font-size:1.5rem">${esc(w.vi)}</div>${posChip(w.pos)}<div class="muted" style="margin-top:.8rem">${t('Gõ từ tiếng Anh')} · ${t('bắt đầu bằng “{letter}”, {n} ký tự', { letter: esc(w.word[0]), n: w.word.length })}</div>`;
+      prompt = `<div class="vi" style="font-size:1.5rem">${esc(mean(w))}</div>${posChip(w.pos)}<div class="muted" style="margin-top:.8rem">${t('Gõ từ tiếng Anh')} · ${t('bắt đầu bằng “{letter}”, {n} ký tự', { letter: esc(w.word[0]), n: w.word.length })}</div>`;
     }
     box.innerHTML = `<div class="card q-card">${prompt}</div>
       <form id="ansForm" style="margin-top:1rem" autocomplete="off"><div class="search">
@@ -479,8 +479,8 @@
                 <div class="wi-word">${esc(w.word)}</div>
                 <div class="wi-pron"><span class="ipa">${esc(w.ipa || '')}</span>${posChip(w.pos)}${levelChip(w.level)}
                   <button class="fi-btn sm" id="sayI" aria-label="${t('Nghe')}" title="${t('Nghe')}">🔊</button><button class="fi-btn sm" id="slowI" aria-label="${t('Nghe chậm')}" title="${t('Nghe chậm')}">🐢</button></div>
-                <div class="wi-vi vi">${esc(w.vi)}</div><div class="wi-native" data-native></div></div></div>
-            ${w.def && w.def !== w.vi ? `<div class="wi-sec"><span class="wi-lb">📖 ${t('Định nghĩa')}</span><div>${esc(w.def)}</div></div>` : ''}
+                <div class="wi-vi vi">${esc(mean(w))}</div><div class="wi-native" data-native></div></div></div>
+            ${w.def && w.def !== mean(w) ? `<div class="wi-sec"><span class="wi-lb">📖 ${t('Định nghĩa')}</span><div>${esc(w.def)}</div></div>` : ''}
             ${w.ex ? `<div class="wi-sec wi-ex"><span class="wi-lb">💬 ${t('Ví dụ')}</span><div class="fi-ex">${highlight(w.ex, w.word)} <button class="ctx-say" data-saysent="${esc(w.ex)}" title="${t('Nghe cả câu')}">🔊</button><button class="ctx-say" data-saysent="${esc(w.ex)}" data-slow="1" title="${t('Nghe chậm')}">🐢</button></div><div class="fi-tr small muted" data-keep-vi id="fiTr"></div></div>` : ''}
             ${col.length || syn.length ? `<div class="wi-sec wi-chips">${col.length ? `<span class="wi-lb">🔗 ${t('Hay đi với')}</span>${col.map(x => `<span class="chip">${esc(x)}</span>`).join('')}` : ''}${syn.length ? `<span class="wi-lb" style="margin-left:${col.length ? '.6rem' : '0'}">≈ ${t('Đồng nghĩa')}</span>${syn.map(x => `<span class="chip">${esc(x)}</span>`).join('')}` : ''}</div>` : ''}
             ${w.note ? `<div class="wi-sec wi-tip">💡 ${esc(w.note)}</div>` : ''}
@@ -541,7 +541,7 @@
     const list = pool(src).filter(w => w.vi);
     const items = shuffle(list).slice(0, 6);
     if (items.length < 3) return emptySource(src);
-    const tiles = shuffle([...items.map(w => ({ id: w.word, label: w.word, kind: 'en' })), ...items.map(w => ({ id: w.word, label: w.vi, kind: 'vi' }))]);
+    const tiles = shuffle([...items.map(w => ({ id: w.word, label: w.word, kind: 'en' })), ...items.map(w => ({ id: w.word, label: mean(w), kind: 'vi' }))]);
     const t0 = performance.now();
     let sel = null, left = items.length, misses = 0, timer;
     view.innerHTML = `<div class="study-wrap" style="max-width:820px">
@@ -575,7 +575,7 @@
       view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate">
         <div class="em">⚡</div><h2>${time}s</h2>
         <p>${!best || time < best ? '🏅 ' + t('Kỷ lục mới!') : t('Kỷ lục của bạn: {best}s', { best })} · ${t('{n} lần sai', { n: misses })} · +${xp} XP</p>
-        <div class="row center">${items.map(w => `<span class="chip">${esc(w.word)} = ${esc(w.vi)}</span>`).join('')}</div>
+        <div class="row center">${items.map(w => `<span class="chip">${esc(w.word)} = ${esc(mean(w))}</span>`).join('')}</div>
         <div class="row center" style="margin-top:1.2rem"><button class="btn primary" id="again">${t('Chơi lại')}</button><a class="btn" href="#/practice?src=${encodeURIComponent(src)}">${t('Chế độ khác')}</a></div>
       </div></div>`;
       $('#again').onclick = () => runMatch(src);
@@ -599,7 +599,7 @@
           ${pic(w).replace('class="pic"', 'class="pic" style="width:110px;margin:0 auto 1rem"')}
           <div class="entry-word">${esc(w.word)}</div>
           <div class="row center"><span class="ipa" id="ipaW" style="font-size:1.1rem">${esc(w.ipa) || (w.ipaUS ? '' : `<span class="muted small">${t('đang tra phiên âm…')}</span>`)}</span><button class="icon-btn" id="model" title="${t('Nghe mẫu')}">🔊</button><button class="icon-btn" id="modelSlow" title="${t('Nghe chậm')}">🐢</button></div>
-          <div class="vi" id="viW" style="font-size:1rem;margin-top:.3rem">${esc(w.vi || '')}</div>
+          <div class="vi" id="viW" style="font-size:1rem;margin-top:.3rem">${esc(mean(w))}</div>
           <div style="margin:1.6rem 0 .6rem"><button class="mic" id="mic" title="${t('Bấm và nói')}">🎙️</button></div>
           <div class="muted small" id="hint">${SR ? t('Bấm micro rồi đọc to từ trên') : '⚠️ ' + t('Trình duyệt không hỗ trợ nhận dạng giọng nói – hãy dùng Chrome hoặc Edge.')}</div>
           <div id="result" style="margin-top:1rem"></div>
@@ -613,7 +613,7 @@
         if (!d || !d.found || items[i] !== w) return;
         w.ipa = w.ipa || d.ipa || ''; w.ipaUS = w.ipaUS || d.ipaUS || ''; w.vi = w.vi || d.vi || ''; w.audio = w.audio || d.audio || '';
         const ip = $('#ipaW'); if (ip) ip.innerHTML = w.ipaUS && w.ipaUS !== w.ipa ? `🇬🇧 ${esc(w.ipa)} · 🇺🇸 ${esc(w.ipaUS)}` : esc(w.ipa || '');
-        const vi = $('#viW'); if (vi) vi.textContent = w.vi;
+        const vi = $('#viW'); if (vi) vi.textContent = mean(w);
         if (App.inDeck(w.word)) Cards.patch(w.word, c => { if (!c.ipa && w.ipa) c.ipa = w.ipa; if (!c.ipaUS && w.ipaUS) c.ipaUS = w.ipaUS; if (!c.vi && w.vi) c.vi = w.vi; });
       }).catch(() => {}).then(async () => {
         if (w.ipa || items[i] !== w) return;

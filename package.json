@@ -5,9 +5,10 @@
   "type": "commonjs",
   "scripts": {
     "build": "bash scripts/build-web.sh",
-    "test": "node scripts/vi-lint.mjs && node scripts/i18n-missing.mjs --strict && node scripts/i18n-qa.mjs && node scripts/test/unit.mjs && node scripts/test/smoke.js web && ! node scripts/test/a11y.js web 2>/dev/null | grep -q NOLABEL && node scripts/test/crawl.js web",
+    "test": "node scripts/vi-lint.mjs && node scripts/i18n-missing.mjs --strict && node scripts/i18n-qa.mjs && node scripts/test/unit.mjs && node scripts/test/smoke.js web && node scripts/test/i18n-leak.js web en,zh,ar --strict && ! node scripts/test/a11y.js web 2>/dev/null | grep -q NOLABEL && node scripts/test/crawl.js web",
     "test:unit": "node scripts/test/unit.mjs",
-    "test:smoke": "node scripts/test/smoke.js web"
+    "test:smoke": "node scripts/test/smoke.js web",
+    "test:leak": "node scripts/test/i18n-leak.js web en,es,pt,fr,de,id,th,zh,ja,ko,hi,ar,ru,tr --strict"
   },
   "devDependencies": {
     "jsdom": "25.0.1"
