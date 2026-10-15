@@ -308,4 +308,7 @@
   "Nghe kỹ…": "Listen carefully…",
   "Transcript & bản dịch": "Transcript & translation",
   "(chép xong câu này để xem)": "(finish this line to reveal)",
+  "Phiên ôn tập ({n} thẻ)": "Review session ({n} cards)",
+  "Nghe từ, nghĩa và câu ví dụ liên tục – vừa đi bộ, lái xe hay làm việc nhà. Khóa màn hình vẫn nghe được, điều khiển từ màn hình khóa & tai nghe.": "Hear words, meanings and example sentences non-stop – while walking, driving or doing chores. Keeps playing with the screen locked; control it from the lock screen and headphones.",
+  "Khóa màn hình vẫn phát tiếp tục qua tai nghe / loa ngoài. Danh sách: {t}": "Keeps playing through headphones or the speaker with the screen locked. List: {t}",
 }); })(typeof self !== 'undefined' ? self : this);
