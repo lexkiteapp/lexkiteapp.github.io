@@ -24,7 +24,7 @@ Cập nhật 15/10/2026. Không chứa mật khẩu/khóa bí mật. Chi tiết 
 - Build Cloudflare tự chạy `blog-check` → bài lỗi làm build dừng (site giữ bản cũ).
 
 ## Phương pháp viết (6 bước, mẫu ở `content/blog/prompts/`)
-1 brief từ khóa bản địa & đối thủ top 10 → 2 dàn ý → 3 viết (chuyên gia, tự viết 100%) → 4 kiểm chứng (nguồn chính thức) → 5 bản địa hóa (không dịch máy) → 6 chấm 100 điểm, **≥ 85** mới `status: ready`.
+1 brief từ khóa bản địa & đối thủ top 10 → 2 dàn ý → 3 viết (chuyên gia, tự viết 100%) → 4 kiểm chứng (nguồn chính thức) → 5 bản địa hóa (không dịch máy) → 6 chấm 100 điểm, **≥ 90** mới `status: ready`.
 Chuẩn bài: tiêu đề 30–65 ký tự, mô tả 110–160, ≥ 1.200 từ (evergreen 1.800–2.500), từ khóa ở tiêu đề/120 từ đầu/H2, ≥ 4 H2, 1 ảnh bìa + ≥ 2 ảnh thân bài (chú thích riêng từng bài), ≥ 4 link bài khác + ≥ 2 link app + CTA, FAQ, slot YouTube để trống.
 
 ## Lệnh hay dùng

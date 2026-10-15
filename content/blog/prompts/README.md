@@ -8,7 +8,7 @@ Chạy theo thứ tự; mỗi bước có đầu ra rõ ràng. Lệnh máy: `nod
 | 3 | Viết | 3-write.md | bài hoàn chỉnh | `pipeline gate` |
 | 4 | Kiểm chứng | 4-factcheck.md | `factChecked: YYYY-MM-DD` | mọi số liệu có nguồn chính thức |
 | 5 | Bản địa hóa (ngôn ngữ mới) | 5-localize.md | `content/blog/<lang>/<slug>.md` | như bước 3–4 + 6 |
-| 6 | Chấm chất lượng | 6-review.md | `qualityScore: NN` (≥ 85) | blog-check chặn < 85 |
+| 6 | Chấm chất lượng | 6-review.md | `qualityScore: NN` (≥ 90) | blog-check chặn < 85 |
 | 7 | Xếp lịch | – | `publishAt` | `pipeline queue` (gate toàn bộ trước) |
 
 Ảnh: dùng chung ảnh chụp app giao diện TIẾNG ANH (`shots.json` → `media.json`), chỉ viết alt/chú thích theo ngôn ngữ bài. Ảnh mới: thêm id vào shots.json → `node scripts/blog-shots.mjs <id>` → `node scripts/blog-media.mjs --push`.
