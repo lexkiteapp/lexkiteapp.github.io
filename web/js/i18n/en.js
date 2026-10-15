@@ -2132,6 +2132,7 @@
   "Bộ từ của {n}": "{n}'s word list",
   "Từ học thuật – bấm để tra": "Academic word – click to look up",
   "Gạch chân từ học thuật B2–C2": "Underline B2–C2 academic words",
+  "⌨️ A câu trước · S lặp câu · D câu sau": "⌨️ A previous line · S repeat line · D next line",
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* English UI strings – toefl.js (TOEFL iBT practice, 2026 format) */

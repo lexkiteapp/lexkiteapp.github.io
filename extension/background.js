@@ -206,6 +206,12 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
         return reply({ ok: true, card });
       }
       case 'uiDict': return reply({ dict: await uiDict(msg.lang) });
+      case 'ytTracks': { // danh sách phụ đề của video YouTube (đọc player response trong trang – chỉ URL phụ đề, không dữ liệu người dùng)
+        try {
+          const [res] = await chrome.scripting.executeScript({ target: { tabId: sender.tab.id }, world: 'MAIN', func: () => { const pr = (document.querySelector('#movie_player') && document.querySelector('#movie_player').getPlayerResponse && document.querySelector('#movie_player').getPlayerResponse()) || window.ytInitialPlayerResponse; const tr = pr && pr.captions && pr.captions.playerCaptionsTracklistRenderer && pr.captions.playerCaptionsTracklistRenderer.captionTracks; return (tr || []).map(t => ({ u: t.baseUrl, l: t.languageCode, k: t.kind || '' })); } });
+          return reply({ tracks: (res && res.result) || [] });
+        } catch (e) { return reply({ tracks: [] }); }
+      }
       case 'translate': return reply({ vi: !msg.tl || msg.tl === 'vi' ? await Dict.translateVi(msg.text) : msg.tl === 'en' ? '' : await Dict.translateTo(msg.text, msg.tl) });
       case 'notes': { // ghi chú học từ soạn sẵn (nằm trong gói add-on, theo chữ cái đầu)
         const w = String(msg.word || '').toLowerCase(), c = /^[a-z]/.test(w) ? w[0] : '_';

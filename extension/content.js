@@ -37,7 +37,7 @@
     'Dịch với Lexkite': 'Translate with Lexkite', 'Nghe câu ví dụ': 'Play example', 'Quay lại từ trước': 'Back to previous word', 'Quay lại': 'Back',
     'Anh–Mỹ': 'US English', 'Nghe giọng Anh–Anh (phím P)': 'British pronunciation (P key)', 'Nghe giọng Anh–Mỹ': 'American pronunciation', 'Nghe chậm': 'Play slowly',
     '📌 Ngữ cảnh sẽ lưu': '📌 Context to save', '📌 Ngữ cảnh': '📌 Context', 'Nghe cả câu': 'Play sentence', '⏳ Đang dịch câu…': '⏳ Translating sentence…',
-    '✓ Đã lưu vào flashcard': '✓ Saved to flashcards', '+ Thêm ngữ cảnh': '+ Add context', '✓ Đã lưu': '✓ Saved', '✓ Đã trong sổ thẻ': '✓ In your deck', 'Từ học thuật – bấm để tra': 'Academic word – click to look up', '+ Lưu flashcard': '+ Save flashcard',
+    '✓ Đã lưu vào flashcard': '✓ Saved to flashcards', '+ Thêm ngữ cảnh': '+ Add context', '✓ Đã lưu': '✓ Saved', '✓ Đã trong sổ thẻ': '✓ In your deck', '⌨️ A câu trước · S lặp câu · D câu sau': '⌨️ A previous line · S repeat line · D next line', 'Từ học thuật – bấm để tra': 'Academic word – click to look up', '+ Lưu flashcard': '+ Save flashcard',
     'Chi tiết': 'Details', 'Đóng (Esc)': 'Close (Esc)', '⚠️ Thử lưu lại': '⚠️ Retry saving', 'tên riêng': 'proper noun', 'cụm từ': 'phrase', 'từ': 'word',
     '🔊 Nghe': '🔊 Listen', 'Tra từng từ:': 'Look up each word:', 'Tên riêng (địa danh, người, tổ chức…) – không có trong từ điển phổ thông.': 'Proper noun (place, person, organization…) – not in the general dictionary.',
     'Chưa có trong từ điển – đã dịch tự động.': 'Not in the dictionary yet – machine-translated.', '+ Lưu cụm từ': '+ Save phrase', '+ Lưu từ': '+ Save word',
@@ -796,6 +796,34 @@
       onHide = resume;
     }, true);
     document.addEventListener('fullscreenchange', () => { if (root && !box().hidden) hide(); });
+
+    // ⌨️ Phím tắt luyện nghe/chép chính tả: A = câu trước · S = lặp câu hiện tại · D = câu sau (Space giữ nguyên của YouTube)
+    // Mốc thời gian thật từng câu lấy từ phụ đề của chính video (ưu tiên phụ đề tiếng Anh do người làm, rồi phụ đề tự động)
+    let cues = [], cueVid = '', hinted = false;
+    const loadCues = async () => {
+      const id = new URL(location.href).searchParams.get('v'); if (!id || id === cueVid) return; cueVid = id; cues = [];
+      try {
+        const r = await chrome.runtime.sendMessage({ type: 'ytTracks' }), tr = (r && r.tracks) || [];
+        const pick = tr.find(x => /^en/.test(x.l) && x.k !== 'asr') || tr.find(x => /^en/.test(x.l)) || tr.find(x => x.k !== 'asr') || tr[0]; if (!pick) return;
+        const j = await (await fetch(pick.u + (pick.u.includes('?') ? '&' : '?') + 'fmt=json3')).json();
+        const raw = (j.events || []).filter(ev => ev.segs && ev.dDurationMs).map(ev => ({ s: ev.tStartMs / 1000, e: (ev.tStartMs + ev.dDurationMs) / 1000, t: ev.segs.map(x => x.utf8 || '').join('').replace(/\s+/g, ' ').trim() })).filter(c => c.t);
+        cues = raw.filter((c, i) => !i || c.s - raw[i - 1].s > 0.3); // bỏ mốc trùng của phụ đề tự động cuộn dòng
+      } catch (e) { cues = []; }
+    };
+    document.addEventListener('yt-navigate-finish', () => setTimeout(loadCues, 800));
+    setTimeout(loadCues, 1500);
+    document.addEventListener('keydown', e => {
+      if (!alive() || e.ctrlKey || e.metaKey || e.altKey || e.key.length !== 1) return;
+      const k = e.key.toLowerCase(); if (!'asd'.includes(k)) return;
+      const a = document.activeElement; if (a && (a.isContentEditable || /^(input|textarea|select)$/i.test(a.tagName))) return;
+      const v = video(); if (!v || !cues.length) return;
+      const now = v.currentTime; let i = -1; for (let j = 0; j < cues.length; j++) if (cues[j].s <= now + 0.05) i = j; else break;
+      const tgt = k === 'a' ? cues[Math.max(0, i - 1)] : k === 's' ? cues[Math.max(0, i)] : cues[Math.min(cues.length - 1, i + 1)];
+      if (!tgt) return;
+      e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation();
+      v.currentTime = tgt.s + 0.01; if (v.paused) v.play();
+      if (!hinted) { hinted = true; showToast(tx('⌨️ A câu trước · S lặp câu · D câu sau')); }
+    }, true);
   }
   if (/(^|\.)youtube\.com$/.test(location.hostname)) initYouTube();
 
