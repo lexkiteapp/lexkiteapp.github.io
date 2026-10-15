@@ -310,7 +310,7 @@
   'Bài đọc B1→C1 và <b>20 phần nghe</b> nhiều giọng Anh–Mỹ–Úc; chạm từ bất kỳ để tra & lưu kèm câu gốc.': 'B1→C1 reading passages and <b>20 listening parts</b> in British, American and Australian accents; tap any word to look it up and save it with its sentence.',
   'Đã đọc {read}/{readTotal} bài · nghe {listen}/{listenTotal} phần': 'Read {read}/{readTotal} passages · listened to {listen}/{listenTotal} parts',
   'Đọc bài': 'Read',
-  'Luyện nghe': 'Practice listening',
+
   'Chú ý có chủ đích (Noticing)': 'Noticing',
   'Người học chỉ tiếp thu được những gì họ để ý thấy – tô sáng cấu trúc giúp “nhìn ra” ngôn ngữ.': 'Learners only acquire what they notice – highlighting structures helps you “see” the language.',
   'Bài đọc tô sáng <b>từ học thuật AWL, từ nối, collocation</b>; bài mẫu Writing chú thích <b>cụm hay, nghĩa, vai trò từng câu</b>.': 'Reading passages highlight <b>AWL academic words, linking words and collocations</b>; Writing samples annotate <b>useful phrases, meanings and the role of each sentence</b>.',

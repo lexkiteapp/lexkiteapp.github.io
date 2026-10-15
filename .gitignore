@@ -17,3 +17,4 @@ ACCOUNTS.local.md
 # Công cụ & ảnh gốc blog (ảnh phát hành nằm ở repo lexkite-media, không làm phình repo chính)
 .tools/
 .media/
+scripts/test/node_modules/

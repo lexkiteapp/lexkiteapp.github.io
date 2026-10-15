@@ -103,7 +103,7 @@
   'Hủy': 'Cancel',
   'Đang dịch…': 'Translating…',
   'Đã lưu “{p}” – vào Sổ cụm từ để ôn': 'Saved “{p}” – review it in your Phrasebook',
-  'Tra nghĩa': 'Look up',
+  'Tra nghĩa': 'See meaning',
   'Lưu cụm': 'Save phrase',
   'Lưu từ Lexkite': 'Saved from Lexkite',
   'Đang tra “{text}”…': 'Looking up “{text}”…',

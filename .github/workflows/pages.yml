@@ -1,7 +1,10 @@
-name: Deploy web app to GitHub Pages
+# GitHub Pages = CDN âm thanh miễn phí (lexkiteapp.github.io/audio/…): chỉ chứa file mp3 + trang chuyển về lexkite.com.
+# Không đưa bản sao app lên đây (tránh trùng nội dung với lexkite.com); robots chặn lập chỉ mục.
+name: Deploy audio CDN to GitHub Pages
 on:
   push:
     branches: [main]
+    paths: ['web/audio/**', '.github/workflows/pages.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -19,8 +22,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      - name: Gói chỉ âm thanh
+        run: |
+          mkdir -p ghp && cp -R web/audio ghp/audio
+          printf '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=https://lexkite.com/"><link rel="canonical" href="https://lexkite.com/"><title>Lexkite</title>\n' > ghp/index.html
+          cp ghp/index.html ghp/404.html
+          printf 'User-agent: *\nDisallow: /\n' > ghp/robots.txt
+          touch ghp/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: web
+          path: ghp
       - id: deployment
         uses: actions/deploy-pages@v4

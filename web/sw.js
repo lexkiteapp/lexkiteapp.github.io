@@ -1,5 +1,5 @@
 /* Service worker: cache giao diện để dùng offline + mở app khi bấm thông báo. */
-const CACHE = 'lexkite-20261015094521';
+const CACHE = 'lexkite-20261015104417';
 // Chỉ phần lõi (các file trong index.html) – phần nặng tải khi cần từ CDN và được lưu lại lúc dùng
 const SHELL = ['./', 'index.html', 'css/style.css', 'js/heal.js', 'js/native.js', 'js/ads-config.js', 'js/ads.js', 'js/kit.js', 'js/i18n.js', 'js/data.js', 'js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lexis.js', 'js/structures.js', 'js/core.js', 'js/vi-check.js', 'js/dictionary.js', 'js/game.js', 'js/ui.js', 'js/app.js', 'js/study.js', 'js/reading.js', 'js/path.js', 'js/speak/more.js', 'js/speaking.js', 'js/plan.js', 'js/method.js', 'js/goal.js', 'js/hubs.js', 'js/cbt.js', 'js/phrases.js', 'js/ai.js', 'js/assist.js', 'js/firebase-config.js', 'js/sync.js', 'js/i18n/en.js', 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png'];
 
@@ -17,6 +17,11 @@ self.addEventListener('fetch', e => {
   // App/add-on gọi file từ lexkite.com (khác nguồn): lấy mạng trước, lưu lại để dùng khi offline
   if (e.request.method === 'GET' && url.origin !== location.origin && (url.hostname === 'lexkite.pages.dev' || url.hostname === 'lexkite.com')) {
     e.respondWith(fetch(e.request).then(r => { if (r.ok || r.type === 'opaque') { const c = r.clone(); caches.open(CACHE).then(x => x.put(e.request, c)); } return r; }).catch(() => caches.match(e.request)));
+    return;
+  }
+  // Âm thanh trên CDN riêng (tên file theo nội dung, không bao giờ đổi): có sẵn thì phát ngay, nghe được cả khi offline
+  if (e.request.method === 'GET' && url.hostname === 'lexkiteapp.github.io' && /\.mp3$/.test(url.pathname)) {
+    e.respondWith(caches.match(e.request).then(hit => hit || fetch(e.request).then(r => { if (r.ok) { const c = r.clone(); caches.open(CACHE).then(x => x.put(e.request, c)); } return r; })));
     return;
   }
   if (e.request.method !== 'GET' || url.origin !== location.origin) return; // API từ điển luôn đi mạng

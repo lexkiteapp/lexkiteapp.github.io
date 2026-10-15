@@ -234,8 +234,16 @@
   }
 
   let routeSeq = 0;
+  // Nút ✕/Quay lại trong bài luyện: trở về đúng trang người học vừa đứng (lộ trình, bộ từ, kế hoạch…), không phải lúc nào cũng về Trò chơi
+  let backHash = '';
+  App.backHref = () => backHash || '#/practice';
+  let curHash = '';
   async function route() {
     const { name, arg, query } = parseHash();
+    const STUDY = /^#\/(practice\/|review)/;
+    if (STUDY.test(location.hash) && curHash && !STUDY.test(curHash)) backHash = /^#\/welcome/.test(curHash) ? '#/home' : curHash;
+    else if (!STUDY.test(location.hash)) backHash = '';
+    curHash = location.hash;
     const b = [].concat(ROUTE_BUNDLE[name] || []), my = ++routeSeq;
     // Khung chờ (skeleton) chỉ hiện khi tải lâu hơn 150 ms → không nháy màn hình khi tải nhanh
     let skel = null;
@@ -257,14 +265,31 @@
       // Đường dẫn "Kỹ năng › Nghe" ở đầu trang con → luôn biết mình đang ở đâu, 1 chạm quay lại trang trung tâm
       const c = my === routeSeq && App.crumb && App.crumb(name, arg), ph = c && view.querySelector('.page-head');
       if (ph && !ph.querySelector('.crumb')) ph.insertAdjacentHTML('afterbegin', c);
+      if (my === routeSeq) markActivity(name, arg);
     };
     if (document.startViewTransition && !matchMedia('(prefers-reduced-motion: reduce)').matches && !document.hidden) {
-      try { document.startViewTransition(render); return; } catch (e) { /* trình duyệt không hỗ trợ */ }
+      // Hiệu ứng có thể bị trình duyệt hủy (tab chạy nền, chuyển trang dồn dập) → vẫn luôn vẽ trang, không bao giờ để màn hình trắng
+      let drawn = false; const once = () => { if (drawn) return; drawn = true; return render(); };
+      try {
+        const vt = document.startViewTransition(once);
+        vt.updateCallbackDone.catch(once); vt.ready.catch(() => {}); vt.finished.catch(() => {});
+        setTimeout(once, 400);
+        return;
+      } catch (e) { /* trình duyệt không hỗ trợ */ }
     }
     view.style.animation = 'none'; void view.offsetWidth; view.style.animation = '';
     render();
   }
   App.route = route;
+  // Bài đang học dở (nghe, đọc, viết, ngữ pháp, nói, đề thi…) → khối "Tiếp tục" ở trang Hôm nay mở lại bằng 1 chạm
+  const RESUME = { listen: '🎧', read: '📰', write: '✍️', task1: '📈', letters: '✉️', grammar: '📐', speaking: '🗣️', 'toefl-p': '🏛️', 'toeic-r': '💼', 'toeic-test': '💼', 'listen-test': '🎧', model: '📄', pron: '🔤', cbt: '🖥️', ideas: '💡' };
+  function markActivity(name, arg) {
+    if (!RESUME[name] || !arg || arg === 'mix') return;
+    const h = view.querySelector('.page-head h1, h1, h2'); const title = h ? h.textContent.replace(/\s+/g, ' ').trim().slice(0, 90) : '';
+    if (!title) return;
+    try { localStorage.setItem('vb.lastActivity', JSON.stringify({ em: RESUME[name], title, href: location.hash, at: Date.now() })); } catch (e) { /* bỏ qua */ }
+  }
+  App.lastActivity = () => { try { const a = JSON.parse(localStorage.getItem('vb.lastActivity') || 'null'); return a && Date.now() - a.at < 4 * DAY ? a : null; } catch (e) { return null; } };
   function notFound() {
     view.innerHTML = `<div class="card empty-note" style="max-width:560px;margin:2rem auto;text-align:center"><div style="font-size:2.4rem">🧭</div><h1 style="margin:.3rem 0">${t('Không tìm thấy trang')}</h1><p class="muted">${t('Liên kết có thể đã cũ. Chọn một mục bên dưới để tiếp tục học.')}</p>
       <div class="row center" style="flex-wrap:wrap">${[['home', '🏠', t('Hôm nay')], ['vocab', '📚', t('Từ vựng')], ['skills', '🎯', t('Kỹ năng')], ['tests', '🏁', t('Thi thử')], ['me', '👤', t('Tôi')]].map(([r, ic, l]) => `<a class="btn sm" href="#/${r}">${ic} ${l}</a>`).join('')}</div></div>`;
@@ -392,6 +417,7 @@
         ${chip}
       </div>
       <section class="card today-card" id="todayPlan" aria-busy="true"><div class="skel skel-l"></div><div class="skel skel-l"></div><div class="skel skel-l"></div></section>
+      ${(() => { const a = App.lastActivity(); return a ? `<a class="card hover hub-card resume" href="${esc(a.href)}"><span class="hub-ic" aria-hidden="true">${a.em}</span><span class="hub-tx"><small>${t('Tiếp tục bài đang học')}</small><b>${esc(a.title)}</b></span><span class="btn sm">${t('Mở lại')} →</span></a>` : ''; })()}
       <a class="quest-line small" href="#/stats?s=quests">🏅 ${t('Nhiệm vụ hôm nay: {a}/{b}', { a: doneQ.length, b: quests.length })} · ${quests.filter(q => !doneQ.includes(q.id)).map(q => q.icon).join(' ')} <span aria-hidden="true">›</span></a>
       <div class="card wotd wotd-sm">
         ${pic(w)}
@@ -487,15 +513,17 @@
     return `<a class="card hover topic-card" href="#/topic/${tp.id}" style="color:var(--text)">
       <div class="row between nowrap"><span class="em">${tp.emoji}</span>${ring(pct, `${n}/${tp.words.length}`, pct === 100 ? 'var(--good)' : '')}</div>
       <h3>${esc(tp.name)}</h3>
-      <div class="muted small" style="min-height:2.6em">${esc(tp.desc)}</div>
-      <div class="row"><span class="chip">${t('{n} từ', { n: tp.words.length })}</span>${lv ? `<span class="chip">${esc(lv)}</span>` : ''}</div>
+      <div class="muted small clamp2">${esc(tp.desc)}</div>
+      <div class="tiny muted topic-meta">${t('{n} từ', { n: tp.words.length })}${lv ? ' · ' + esc(lv) : ''}</div>
     </a>`;
   }
   App.topicCard = topicCard;
 
   // ================= THƯ VIỆN =================
   routes.library = function (arg, query) {
-    const tab = query.get('g') || 'all';
+    // Mặc định mở đúng nhóm theo kỳ thi; người đang học dở → "Đang học"
+    const ex = App.exam ? App.exam() : 'ielts';
+    const tab = query.get('g') || (Object.keys(state.cards).length >= 10 ? 'mine' : ({ toeic: 'toeic', toefl: 'exam', general: 'core' })[ex] || 'topics');
     const total = Object.keys(INDEX).length;
     view.innerHTML = `
       <div class="page-head"><div><h1>${t('Thư viện từ vựng')}</h1><p class="muted">${t('{n} từ & cụm từ trong {k} bộ – phiên âm Anh–Anh, cấp độ CEFR, collocation và câu ví dụ IELTS.', { n: total.toLocaleString(I18N.lang()), k: TOPICS.length })}</p></div>
@@ -516,12 +544,16 @@
         const mineHtml = gr.id === 'mine' ? personalCollections() : '';
         if (!ts.length) return gr.id === 'mine' ? (mineHtml || `<div class="card empty"><div class="em">📌</div>${t('Bạn chưa lưu từ nào. Tra từ, đọc bài hoặc dùng add-on khi xem YouTube để bắt đầu.')}</div>`) : '';
         if (mineHtml) return mineHtml + `<div class="section-title"><h2>📚 ${t('Bộ từ IELTS đang học')}</h2></div><div class="grid auto">${ts.map(topicCard).join('')}</div>`;
-        return `<div class="section-title" style="margin-top:${g === 'all' ? '1.6rem' : '0'}"><h2>${gr.emoji} ${esc(gr.name)}</h2><span class="muted small">${esc(gr.desc)}</span></div>
-          <div class="grid auto">${ts.map(topicCard).join('')}</div>`;
+        // Tab "Tất cả": mỗi nhóm chỉ 6 bộ đầu + nút xem hết → không bị ngợp
+        const cut = g === 'all' && !q && ts.length > 6;
+        return `<div class="section-title" style="margin-top:${g === 'all' ? '1.6rem' : '0'}"><h2>${gr.emoji} ${esc(gr.name)}</h2>${cut ? `<a href="#/library?g=${gr.id}" data-go-g="${gr.id}">${t('Xem cả {n} bộ', { n: ts.length })} →</a>` : `<span class="muted small">${esc(gr.desc)}</span>`}</div>
+          <div class="grid auto">${(cut ? ts.slice(0, 6) : ts).map(topicCard).join('')}</div>`;
       }).join('') || `<div class="card empty"><div class="em">🔍</div>${t('Không tìm thấy bộ từ phù hợp.')}</div>`;
     };
     $$('#libTabs button').forEach(b => b.onclick = () => { $$('#libTabs button').forEach(x => x.classList.toggle('on', x === b)); history.replaceState(null, '', `#/library?g=${b.dataset.g}`); draw(); });
     $('#libQ').oninput = draw;
+    $('#libBody').onclick = e => { const a = e.target.closest('[data-go-g]'); if (!a) return; e.preventDefault(); const b = $(`#libTabs [data-g="${a.dataset.goG}"]`); if (b) { b.click(); b.scrollIntoView({ inline: 'center', block: 'nearest' }); window.scrollTo(0, 0); } };
+    if (!$('#libTabs .on')) { const b = $('#libTabs [data-g="topics"]') || $('#libTabs button'); b.classList.add('on'); }
     draw();
   };
 
@@ -1198,39 +1230,55 @@
     $('#loginW').onclick = async () => { if (window.Sync && Sync.signIn) { await Sync.signIn(); if (state.user) finishOnboarding(); } else finishOnboarding(); };
   };
 
+  // Thiết lập lần đầu: kỳ thi → mục tiêu theo thang điểm của kỳ thi → cường độ → chủ đề hợp kỳ thi → vào thẳng bài học đầu tiên
   function setup() {
-    const pick = { band: '7.0', pace: 20, topics: new Set(['education', 'environment', 'technology']) };
+    const TARGETS = { ielts: ['5.5', '6.0', '6.5', '7.0', '7.5', '8.0+'], ieltsgt: ['5.5', '6.0', '6.5', '7.0', '7.5', '8.0+'], toeic: ['450', '550', '650', '750', '850', '900+'], toefl: ['3.5', '4.0', '4.5', '5.0', '5.5+'], general: ['A2', 'B1', 'B2', 'C1'] };
+    const DEF_T = { ielts: '7.0', ieltsgt: '6.5', toeic: '650', toefl: '4.5', general: 'B1' };
+    const TOPIC_GROUPS = { ielts: ['topics', 'writing'], ieltsgt: ['topics', 'speaking'], toeic: ['toeic'], toefl: ['awl', 'topics'], general: ['core', 'topics'] };
+    const EX = App.EXAMS || {};
+    const pick = { exam: (App.exam && state.settings.exam) || 'ielts', target: '', pace: 20, topics: new Set() };
     const paces = [[10, '🐢 ' + t('Nhẹ nhàng'), t('5 phút/ngày · 5 từ mới')], [20, '🚶 ' + t('Đều đặn'), t('10–15 phút/ngày · 10 từ mới')], [40, '🚀 ' + t('Tăng tốc'), t('25 phút/ngày · 20 từ mới')]];
-    const topics = TOPICS.filter(t => t.group === 'topics' || t.group === 'writing').slice(0, 15);
+    const topicsFor = ex => TOPICS.filter(x => TOPIC_GROUPS[ex].includes(x.group)).slice(0, 15);
+    const setExam = async ex => {
+      pick.exam = ex; pick.target = DEF_T[ex];
+      if (ex === 'toeic' && !App.loaded('tsl')) { await App.need('tsl').catch(() => {}); }
+      const list = topicsFor(ex); pick.topics = new Set(list.slice(0, 3).map(x => x.id));
+      draw();
+    };
     const draw = () => {
+      const list = topicsFor(pick.exam), words = TOPICS.filter(x => pick.topics.has(x.id)).reduce((a, x) => a + x.words.length, 0);
+      const tLabel = pick.exam === 'toeic' ? t('Điểm TOEIC mục tiêu?') : pick.exam === 'toefl' ? t('Band TOEFL mục tiêu?') : pick.exam === 'general' ? t('Trình độ bạn muốn đạt?') : t('Band mục tiêu của bạn?');
       view.innerHTML = `<div style="max-width:760px;margin:0 auto" class="stack">
         <div class="row between"><span class="brand" style="padding:0"><img class="logo" src="icons/icon.svg" alt=""><span class="wordmark">lex<b>kite</b></span></span><a class="small" href="#/welcome">← ${t('Quay lại')}</a></div>
-        ${window.Kit ? `<div class="kit-greet card" style="background:var(--primary-soft);border:0">${Kit.svg('happy', 58)}<div><div class="kit-say">${t('Chào bạn, mình là Kit! 3 câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.')}</div></div></div>` : ''}
-        <div class="card"><h2>🎯 ${t('Band mục tiêu của bạn?')}</h2><div class="tabs" style="display:inline-flex;margin-top:.4rem" id="bandT">${['5.5', '6.0', '6.5', '7.0', '7.5', '8.0+'].map(b => `<button data-v="${b}" class="${pick.band === b ? 'on' : ''}">${b}</button>`).join('')}</div></div>
-        <div class="card"><h2>⏱ ${t('Bạn muốn học với cường độ nào?')}</h2><div class="grid g3" style="margin-top:.6rem">${paces.map(([v, pt, d]) => `<button class="option ${pick.pace === v ? 'right' : ''}" data-pace="${v}" style="flex-direction:column;align-items:flex-start"><b>${pt}</b><span class="small muted" style="font-weight:500">${d}</span></button>`).join('')}</div></div>
+        ${window.Kit ? `<div class="kit-greet card" style="background:var(--primary-soft);border:0">${Kit.svg('happy', 58)}<div><div class="kit-say">${t('Chào bạn, mình là Kit! Vài câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.')}</div></div></div>` : ''}
+        <div class="card"><h2>🎓 ${t('Bạn đang luyện kỳ thi nào?')}</h2><div class="exam-list">${Object.entries(EX).map(([k, x]) => `<button type="button" class="exam-opt ${k === pick.exam ? 'on' : ''}" data-exam="${k}"><span class="em" aria-hidden="true">${x.ic}</span><span><b>${esc(x.name)}</b></span>${k === pick.exam ? '<span class="tick" aria-hidden="true">✓</span>' : ''}</button>`).join('')}</div></div>
+        <div class="card"><h2>🎯 ${tLabel}</h2><div class="tabs" style="display:inline-flex;margin-top:.4rem" id="bandT">${TARGETS[pick.exam].map(b => `<button data-v="${b}" class="${pick.target === b ? 'on' : ''}">${b}</button>`).join('')}</div></div>
+        <div class="card"><h2>⏱ ${t('Bạn muốn học với cường độ nào?')}</h2><div class="grid g3" style="margin-top:.6rem">${paces.map(([v, pt, d]) => `<button class="option ${pick.pace === v ? 'right' : ''}" data-pace="${v}" style="flex-direction:column;align-items:flex-start;gap:.2rem"><b>${pt}</b><span class="small muted">${d}</span></button>`).join('')}</div></div>
         <div class="card"><h2>📚 ${t('Chọn chủ đề muốn học trước')}</h2><p class="muted small">${t('Chọn 1–5 chủ đề, bạn có thể thêm sau trong Thư viện.')}</p>
-          <div class="row" style="margin-top:.6rem">${topics.map(t => `<button class="chip" data-t="${t.id}" style="border:2px solid ${pick.topics.has(t.id) ? 'var(--primary)' : 'transparent'};cursor:pointer;font-size:.9rem;padding:.4rem .8rem;${pick.topics.has(t.id) ? 'background:var(--primary-soft);color:var(--primary)' : ''}">${t.emoji} ${esc(t.name)}</button>`).join('')}</div></div>
-        <button class="btn primary lg block" id="go" ${pick.topics.size ? '' : 'disabled'}>${pick.topics.size ? t('Bắt đầu học ({n} từ)', { n: TOPICS.filter(x => pick.topics.has(x.id)).reduce((a, x) => a + x.words.length, 0) }) : t('Bắt đầu học')} →</button>
+          <div class="row" style="margin-top:.6rem">${list.map(x => `<button class="chip" data-t="${x.id}" style="border:2px solid ${pick.topics.has(x.id) ? 'var(--primary)' : 'transparent'};cursor:pointer;font-size:.9rem;padding:.4rem .8rem;${pick.topics.has(x.id) ? 'background:var(--primary-soft);color:var(--primary)' : ''}">${x.emoji} ${esc(x.name)}</button>`).join('')}</div></div>
+        <button class="btn primary lg block" id="go" ${pick.topics.size ? '' : 'disabled'}>${pick.topics.size ? t('Bắt đầu học ({n} từ)', { n: words }) : t('Bắt đầu học')} →</button>
       </div>`;
-      $$('#bandT button').forEach(b => b.onclick = () => { pick.band = b.dataset.v; draw(); });
+      $$('[data-exam]').forEach(b => b.onclick = () => { if (b.dataset.exam !== pick.exam) setExam(b.dataset.exam); });
+      $$('#bandT button').forEach(b => b.onclick = () => { pick.target = b.dataset.v; draw(); });
       $$('[data-pace]').forEach(b => b.onclick = () => { pick.pace = +b.dataset.pace; draw(); });
       $$('[data-t]').forEach(b => b.onclick = () => { const id = b.dataset.t; pick.topics.has(id) ? pick.topics.delete(id) : pick.topics.size < 5 && pick.topics.add(id); draw(); });
       $('#go').onclick = async () => {
         $('#go').disabled = true; $('#go').textContent = '⏳ ' + t('Đang chuẩn bị bộ thẻ…');
-        Object.assign(state.settings, { targetBand: pick.band, dailyGoal: pick.pace, dailyNew: pick.pace === 10 ? 5 : pick.pace === 20 ? 10 : 20 });
+        Object.assign(state.settings, { exam: pick.exam, examTarget: pick.target, dailyGoal: pick.pace, dailyNew: pick.pace === 10 ? 5 : pick.pace === 20 ? 10 : 20 });
+        if (/^ielts/.test(pick.exam)) state.settings.targetBand = pick.target;
         await saveSettings();
         for (const id of pick.topics) for (const w of topicOf(id).words) if (!inDeck(w.word)) await addWord(w, null, { silent: true });
-        await finishOnboarding(true);
+        await finishOnboarding(true, '#/review'); // vào thẳng bài học đầu tiên (từ mới của chủ đề vừa chọn)
       };
     };
-    draw();
+    setExam(pick.exam);
   }
 
-  async function finishOnboarding(celebrate) {
+  async function finishOnboarding(celebrate, to = '#/home') {
     state.settings.onboarded = true;
     await saveSettings();
     document.body.classList.remove('bare');
-    location.hash = '#/home';
+    location.hash = to;
     if (celebrate === true) { Sfx.win(); confetti(140); toast('🎉 ' + t('Bộ thẻ đã sẵn sàng – bắt đầu bài ôn đầu tiên nhé!'), 3500); }
   }
 

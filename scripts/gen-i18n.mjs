@@ -6,10 +6,11 @@
 import fs from 'node:fs';
 import vm from 'node:vm';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const lang = process.argv[2];
 if (!/^[a-z]{2}(-[A-Z]{2})?$/.test(lang || '') || lang === 'en' || lang === 'vi') { console.error('Dùng: node scripts/gen-i18n.mjs <mã ngôn ngữ, vd. es>'); process.exit(1); }
-const DIR = path.join(path.dirname(new URL(import.meta.url).pathname), '../web/js/i18n');
+const DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), '../web/js/i18n');
 const load = f => { const ctx = { self: {} }; ctx.self = ctx; vm.createContext(ctx); vm.runInContext(fs.readFileSync(f, 'utf8'), ctx); return ctx.I18N_DICT || {}; };
 const EN = load(path.join(DIR, 'en.js')).en;
 const outFile = path.join(DIR, `${lang}.js`);
@@ -36,7 +37,9 @@ for (let i = 0; i < keys.length;) {
   const batch = []; let len = 0;
   while (i < keys.length && len < 1500) { const v = EN[keys[i]].replace(/\n/g, ' '); batch.push([keys[i], v]); len += v.length + 1; i++; }
   const prot = batch.map(([, v]) => protect(v));
-  const res = await translate(prot.map(p => p.t));
+  let res = await translate(prot.map(p => p.t));
+  // Lô bị lệch dòng (Google gộp/tách câu) → dịch lại từng câu, không bỏ sót cả lô
+  if (!res || res.length !== batch.length) { res = []; for (const p of prot) { const r1 = await translate([p.t]); res.push(r1 ? r1.join(' ') : ''); await new Promise(r => setTimeout(r, 300)); } }
   batch.forEach(([k, v], j) => {
     const tr = res && res[j] ? restore(res[j].trim(), prot[j].keep) : '';
     const cased = tr && /^\p{Lu}/u.test(v) && /^\p{Ll}/u.test(tr) ? tr[0].toLocaleUpperCase(lang) + tr.slice(1) : tr; // viết hoa chữ đầu như bản tiếng Anh

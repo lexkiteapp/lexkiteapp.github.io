@@ -1,0 +1,33 @@
+# Kiểm thử tự động mỗi lần đẩy code (miễn phí cho repo công khai): chính tả tiếng Việt, đủ bản dịch tiếng Anh,
+# chất lượng bản dịch 13 ngôn ngữ, chạy thử app (jsdom) + quét 487 trang nội dung. Lỗi → GitHub báo đỏ ngay.
+name: Kiểm thử tự động
+on:
+  push:
+    branches: [main]
+    paths: ['web/**', 'scripts/**', '.github/workflows/ci.yml']
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Cài jsdom (chỉ cho kiểm thử)
+        run: npm i --no-save --no-audit --no-fund --prefix scripts/test jsdom@25
+      - name: Chính tả tiếng Việt
+        run: node scripts/vi-lint.mjs
+      - name: Đủ bản tiếng Anh
+        run: node scripts/i18n-missing.mjs --strict
+      - name: Chất lượng bản dịch 13 ngôn ngữ (báo cáo)
+        run: node scripts/i18n-qa.mjs
+      - name: Chạy thử app
+        run: |
+          OUT=$(node scripts/test/smoke.js "$PWD/web" 2>/dev/null | tail -1); echo "$OUT"
+          [ "$OUT" = "ERRORS none" ]
+      - name: Quét toàn bộ trang nội dung
+        run: |
+          OUT=$(node scripts/test/crawl.js "$PWD/web" 2>/dev/null | tail -1); echo "$OUT"
+          [ "$OUT" = "ALL OK" ]

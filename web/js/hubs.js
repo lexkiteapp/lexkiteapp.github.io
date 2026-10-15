@@ -162,14 +162,15 @@
   };
 
   // ---------- Blog (trang tĩnh /blog/ – tạo lúc build): chỉ hiện lối vào khi blog đã có trên máy chủ ----------
-  const BLOG = 'https://lexkite.com/blog/';
+  // Blog chia theo ngôn ngữ: /vi/blog/, /en/blog/… – ngôn ngữ giao diện chưa có blog thì ẩn lối vào (không lẫn tiếng)
   const sameSite = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname);
-  App.blogUrl = () => (sameSite ? '/blog/' : BLOG);
+  const BLOG = 'https://lexkite.com/' + I18N.lang() + '/blog/';
+  App.blogUrl = () => (sameSite ? '/' + I18N.lang() + '/blog/' : BLOG);
   App.blogLive = async () => {
-    try { const c = JSON.parse(localStorage.getItem('vb.blog') || 'null'); if (c && Date.now() - c.at < 864e5) return c.on; } catch (e) { /* bỏ qua */ }
+    try { const c = JSON.parse(localStorage.getItem('vb.blog.' + I18N.lang()) || 'null'); if (c && Date.now() - c.at < (c.on ? 864e5 : 3 * 3600e3)) return c.on; /* chưa có bài → kiểm tra lại sau 3 giờ */ } catch (e) { /* bỏ qua */ }
     let on = false;
-    try { const r = await fetch(App.blogUrl() + 'rss.xml', { method: 'HEAD', cache: 'no-store' }); on = r.ok && /xml/.test(r.headers.get('content-type') || ''); } catch (e) { on = false; }
-    try { localStorage.setItem('vb.blog', JSON.stringify({ on, at: Date.now() })); } catch (e) { /* bỏ qua */ }
+    try { const r = await fetch(App.blogUrl() + 'rss.xml', { cache: 'no-store' }); on = r.ok && /xml/.test(r.headers.get('content-type') || '') && (await r.text()).includes('<item'); } catch (e) { on = false; } /* có ít nhất 1 bài đã đăng */
+    try { localStorage.setItem('vb.blog.' + I18N.lang(), JSON.stringify({ on, at: Date.now() })); } catch (e) { /* bỏ qua */ }
     return on;
   };
   // App iOS/Android & add-on: mở blog bằng trình duyệt (blog cần mạng); web: mở cùng tab
