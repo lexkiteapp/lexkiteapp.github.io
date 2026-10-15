@@ -1,29 +1,29 @@
 {
  "home": {
   "url": "https://lexkite.com/#/welcome",
-  "at": "2026-10-15T05:32:46.438Z",
+  "at": "2026-10-15T05:41:24.587Z",
   "scores": {
-   "performance": 61,
-   "accessibility": 94,
+   "performance": 60,
+   "accessibility": 96,
    "best-practices": 100,
    "seo": 100
   },
   "metrics": {
-   "first-contentful-paint": "2.9 s",
-   "largest-contentful-paint": "6.2 s",
-   "total-blocking-time": "430 ms",
-   "cumulative-layout-shift": "0.001",
-   "speed-index": "3.2 s"
+   "first-contentful-paint": "6.2 s",
+   "largest-contentful-paint": "8.7 s",
+   "total-blocking-time": "40 ms",
+   "cumulative-layout-shift": "0",
+   "speed-index": "6.2 s"
   },
   "fails": [
-   "First Contentful Paint – 2.9 s",
-   "Largest Contentful Paint – 6.2 s",
-   "Total Blocking Time – 430 ms",
-   "Max Potential First Input Delay – 410 ms",
-   "Time to Interactive – 8.5 s",
-   "Minimize main-thread work – 3.8 s",
+   "First Contentful Paint – 6.2 s",
+   "Largest Contentful Paint – 8.7 s",
+   "Speed Index – 6.2 s",
+   "Time to Interactive – 9.1 s",
+   "Minimize main-thread work – 4.4 s",
+   "Reduce JavaScript execution time – 1.3 s",
    "Background and foreground colors do not have a sufficient contrast ratio.",
-   "Heading elements are not in a sequentially-descending order",
+   "Elements with visible text labels do not have matching accessible names.",
    "Serve static assets with an efficient cache policy – 4 resources found",
    "Reduce unused CSS – Potential savings of 17 KiB",
    "Reduce unused JavaScript – Potential savings of 52 KiB",
@@ -34,19 +34,19 @@
  },
  "vi/blog/": {
   "url": "https://lexkite.com/vi/blog/",
-  "at": "2026-10-15T05:33:02.396Z",
+  "at": "2026-10-15T05:41:40.825Z",
   "scores": {
-   "performance": 100,
+   "performance": 98,
    "accessibility": 95,
    "best-practices": 100,
    "seo": 69
   },
   "metrics": {
-   "first-contentful-paint": "0.8 s",
-   "largest-contentful-paint": "0.8 s",
+   "first-contentful-paint": "1.5 s",
+   "largest-contentful-paint": "2.2 s",
    "total-blocking-time": "0 ms",
    "cumulative-layout-shift": "0",
-   "speed-index": "0.8 s"
+   "speed-index": "1.5 s"
   },
   "fails": [
    "Background and foreground colors do not have a sufficient contrast ratio.",
