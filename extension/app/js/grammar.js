@@ -50,11 +50,14 @@
     const order = CHAPTERS.flatMap(c => lessonsOf(c).map(x => ({ x, c })));
     const nx = order.find(o => d[o.x.id] != null && d[o.x.id] < 80) || order.find(o => d[o.x.id] == null);
     const nDone = Object.keys(d).filter(k => d[k] >= 80).length;
-    const row = (x, c) => `<a class="g-row" href="#/grammar/${x.id}"><span class="em" aria-hidden="true">${x.emoji}</span><span class="g-tx"><b>${esc(x.title)}</b><small>${esc(x.en)}</small></span>${d[x.id] != null ? `<span class="chip ${d[x.id] >= 80 ? 'ok' : ''}">${d[x.id] >= 80 ? '✓ ' : ''}${d[x.id]}%</span>` : levelChip(x.level)}</a>`;
+    // Không lẫn tiếng: giao diện tiếng Việt → tên Việt + tên Anh; ngôn ngữ khác → tên đã dịch, chưa dịch thì dùng tên tiếng Anh
+    const vi = I18N.lang() === 'vi', TT = x => vi ? x.title : (t(x.title) !== x.title ? t(x.title) : x.en), SUB = x => vi ? x.en : (TT(x) !== x.en ? x.en : '');
+    const SUM = x => vi || t(x.summary) !== x.summary ? t(x.summary) : '';
+    const row = (x, c) => `<a class="g-row" href="#/grammar/${x.id}"><span class="em" aria-hidden="true">${x.emoji}</span><span class="g-tx"><b>${esc(TT(x))}</b>${SUB(x) ? `<small>${esc(SUB(x))}</small>` : ''}</span>${d[x.id] != null ? `<span class="chip ${d[x.id] >= 80 ? 'ok' : ''}">${d[x.id] >= 80 ? '✓ ' : ''}${d[x.id]}%</span>` : levelChip(x.level)}</a>`;
     view.innerHTML = `
       <div class="page-head"><div><h1>📐 ${t('Ngữ pháp')}</h1><p class="muted">${t('{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.', { n: all.length })}</p></div>
         ${ring(all.length ? nDone / all.length * 100 : 0, `${nDone}/${all.length}`, 'var(--good)')}</div>
-      ${nx ? `<a class="card hover hub-hero" href="#/grammar/${nx.x.id}"><span class="hub-ic" aria-hidden="true">${nx.x.emoji}</span><span class="hub-tx"><small>${d[nx.x.id] != null ? t('Làm lại cho chắc · lần trước {pct}%', { pct: d[nx.x.id] }) : t('Bài tiếp theo')} · ${t('Chương {n}', { n: nx.c.n })}</small><b>${esc(nx.x.title)}</b><small>${esc(nx.x.summary)}</small></span><span class="btn primary sm">${t('Học ngay')} →</span></a>` : ''}
+      ${nx ? `<a class="card hover hub-hero" href="#/grammar/${nx.x.id}"><span class="hub-ic" aria-hidden="true">${nx.x.emoji}</span><span class="hub-tx"><small>${d[nx.x.id] != null ? t('Làm lại cho chắc · lần trước {pct}%', { pct: d[nx.x.id] }) : t('Bài tiếp theo')} · ${t('Chương {n}', { n: nx.c.n })}</small><b>${esc(TT(nx.x))}</b>${SUM(nx.x) ? `<small>${esc(SUM(nx.x))}</small>` : ''}</span><span class="btn primary sm">${t('Học ngay')} →</span></a>` : ''}
       <div class="g-chapters">${CHAPTERS.map(c => {
         const ls = lessonsOf(c); if (!ls.length) return '';
         const dn = ls.filter(x => d[x.id] >= 80).length, open = nx && nx.c === c;
