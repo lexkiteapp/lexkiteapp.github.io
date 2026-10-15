@@ -116,7 +116,7 @@ Dịch sau này: tạo `content/blog/en/<slug-en>.md` cùng `translationKey` →
 
 ## 9. Công cụ tìm kiếm
 - [x] IndexNow: khóa công khai `web/<key>.txt`, `scripts/indexnow.mjs` gửi api.indexnow.org (Bing, Yandex, Seznam, Naver…) sau mỗi lần đăng.
-- [ ] Google Search Console (tài khoản vintagezulilyjewelry@gmail.com): thêm thuộc tính miền `lexkite.com` → bản ghi TXT `google-site-verification=…` trong Cloudflare DNS → Xác minh → gửi `https://lexkite.com/sitemap.xml`. Đăng nhập/đồng ý điều khoản: anh bấm.
+- [x] (15/10/2026 – đã xác minh qua Cloudflare, đã gửi sitemap.xml) Google Search Console (tài khoản vintagezulilyjewelry@gmail.com): thêm thuộc tính miền `lexkite.com` → bản ghi TXT `google-site-verification=…` trong Cloudflare DNS → Xác minh → gửi `https://lexkite.com/sitemap.xml`. Đăng nhập/đồng ý điều khoản: anh bấm.
 - [ ] Bing Webmaster Tools: nhập từ GSC (1 chạm) sau khi GSC xong.
 
 ## 10. Hoàn tất
