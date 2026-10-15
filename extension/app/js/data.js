@@ -1,0 +1,212 @@
+/* Bộ từ vựng IELTS theo chủ đề.
+ * Phiên âm IPA giọng Anh–Anh (chuẩn từ điển Oxford), cấp độ CEFR.
+ * Mỗi từ: [word, ipa, pos, nghĩa VI, definition, example, collocations, synonyms, level, emoji]
+ */
+(function (g) {
+  const t = (typeof self !== 'undefined' && self.t) || ((s, v) => (v ? s.replace(/\{(\w+)\}/g, (m, k) => (v[k] != null ? v[k] : m)) : s));
+  const T = (id, name, emoji, desc, rows, group = 'topics') => ({
+    id, name, emoji, desc, group,
+    words: rows.map(r => ({
+      word: r[0], ipa: r[1] || '', pos: r[2] || '', vi: r[3] || '', def: r[4] || '', ex: r[5] || '',
+      col: r[6] ? r[6].split('|') : [], syn: r[7] ? r[7].split('|') : [],
+      level: r[8] || '', emoji: r[9] || '', topic: id
+    }))
+  });
+
+  const TOPICS = [
+    T('education', t('Giáo dục'), '🎓', 'Education – Speaking Part 1–3, Writing Task 2', [
+      ['curriculum', '/kəˈrɪkjələm/', 'n', 'chương trình giảng dạy', 'the subjects included in a course of study at a school or college', 'Many people argue that practical life skills should be added to the school curriculum.', 'national curriculum|broaden the curriculum', 'syllabus|programme', 'B2', '📚'],
+      ['tuition', '/tjuˈɪʃn/', 'n', 'học phí; sự giảng dạy', 'teaching, or the money paid for being taught', 'Rising tuition fees discourage many talented students from going to university.', 'tuition fees|private tuition', 'fees|instruction', 'B2', '💵'],
+      ['literacy', '/ˈlɪtərəsi/', 'n', 'khả năng đọc viết', 'the ability to read and write', 'Adult literacy rates have improved dramatically in developing countries.', 'literacy rate|digital literacy', 'reading ability', 'B2', '📖'],
+      ['vocational', '/vəʊˈkeɪʃənl/', 'adj', '(thuộc) hướng nghiệp, dạy nghề', 'connected with the skills needed for a particular job', 'Vocational training can be a better route into employment than a degree.', 'vocational training|vocational course', 'occupational|practical', 'C1', '🛠️'],
+      ['compulsory', '/kəmˈpʌlsəri/', 'adj', 'bắt buộc', 'that must be done because of a rule or law', 'In my country, education is compulsory until the age of fifteen.', 'compulsory education|compulsory subject', 'mandatory|obligatory', 'B2', '📋'],
+      ['assessment', '/əˈsesmənt/', 'n', 'sự đánh giá, kiểm tra', 'the act of judging how good or bad someone or something is', 'Continuous assessment reduces the pressure of a single final exam.', 'continuous assessment|formal assessment', 'evaluation|appraisal', 'B2', '📝'],
+      ['discipline', '/ˈdɪsəplɪn/', 'n', 'kỷ luật; ngành học', 'the practice of training people to obey rules; a subject of study', 'Strict discipline in classrooms does not always lead to better results.', 'self-discipline|maintain discipline', 'control|field', 'B2', '📏'],
+      ['scholarship', '/ˈskɒləʃɪp/', 'n', 'học bổng', 'an amount of money given to a student to help pay for their education', 'She won a full scholarship to study engineering abroad.', 'win a scholarship|full scholarship', 'grant|bursary', 'B2', '🏅'],
+      ['undergraduate', '/ˌʌndəˈɡrædʒuət/', 'n', 'sinh viên đại học (chưa tốt nghiệp)', 'a university student who has not yet taken a first degree', 'Most undergraduates work part-time to cover their living costs.', 'undergraduate degree|undergraduate course', 'student', 'B2', '🧑‍🎓'],
+      ['rote learning', '/ˌrəʊt ˈlɜːnɪŋ/', 'n', 'học vẹt', 'learning by repeating something until you remember it, without understanding it', 'Rote learning may help students pass exams but rarely develops critical thinking.', 'rely on rote learning', 'memorisation', 'C1', '🦜'],
+      ['extracurricular', '/ˌekstrəkəˈrɪkjələ(r)/', 'adj', 'ngoại khóa', 'not part of the usual course of work at school', 'Extracurricular activities help children develop teamwork and leadership skills.', 'extracurricular activities', 'after-school', 'C1', '⚽'],
+      ['academic', '/ˌækəˈdemɪk/', 'adj', '(thuộc) học thuật', 'connected with education, especially studying in schools and universities', 'Academic success is not the only measure of a good education.', 'academic performance|academic achievement', 'scholarly|educational', 'B1', '🏛️'],
+    ]),
+    T('environment', t('Môi trường'), '🌍', t('Environment – chủ đề Writing Task 2 rất phổ biến'), [
+      ['pollution', '/pəˈluːʃn/', 'n', 'sự ô nhiễm', 'the process of making air, water, soil, etc. dirty', 'Air pollution in big cities is a serious threat to public health.', 'air pollution|reduce pollution', 'contamination', 'B1', '🏭'],
+      ['deforestation', '/diːˌfɒrɪˈsteɪʃn/', 'n', 'nạn phá rừng', 'the act of cutting down or burning the trees in an area', 'Deforestation is destroying the habitats of countless species.', 'large-scale deforestation|halt deforestation', 'logging|clearance', 'C1', '🪓'],
+      ['emission', '/iˈmɪʃn/', 'n', 'sự thải ra, khí thải', 'the production of gases, heat, light, etc.; the gas sent out into the air', 'Governments must cut carbon emissions to slow down climate change.', 'carbon emissions|reduce emissions', 'discharge|release', 'B2', '💨'],
+      ['renewable', '/rɪˈnjuːəbl/', 'adj', 'có thể tái tạo', '(of energy) that is replaced naturally, such as wind or solar power', 'Investing in renewable energy creates jobs and protects the planet.', 'renewable energy|renewable sources', 'sustainable|green', 'B2', '☀️'],
+      ['sustainable', '/səˈsteɪnəbl/', 'adj', 'bền vững', 'involving the use of natural resources without destroying the environment', 'Sustainable farming methods protect the soil for future generations.', 'sustainable development|environmentally sustainable', 'eco-friendly|viable', 'B2', '♻️'],
+      ['biodiversity', '/ˌbaɪəʊdaɪˈvɜːsəti/', 'n', 'đa dạng sinh học', 'the existence of a large number of different kinds of animals and plants', 'Coral reefs are home to an extraordinary level of biodiversity.', 'loss of biodiversity|protect biodiversity', 'variety of species', 'C1', '🦋'],
+      ['conservation', '/ˌkɒnsəˈveɪʃn/', 'n', 'sự bảo tồn', 'the protection of the natural environment', 'Wildlife conservation projects rely heavily on public donations.', 'wildlife conservation|energy conservation', 'preservation|protection', 'B2', '🐼'],
+      ['habitat', '/ˈhæbɪtæt/', 'n', 'môi trường sống', 'the place where a particular type of animal or plant is normally found', 'Urban expansion has led to the destruction of natural habitats.', 'natural habitat|habitat loss', 'environment|home', 'B2', '🌳'],
+      ['contaminate', '/kənˈtæmɪneɪt/', 'v', 'làm ô nhiễm', 'to make something impure or dangerous by adding a harmful substance', 'Chemicals from factories have contaminated the local water supply.', 'contaminate water|heavily contaminated', 'pollute|poison', 'C1', '☣️'],
+      ['drought', '/draʊt/', 'n', 'hạn hán', 'a long period of time when there is little or no rain', 'Severe droughts have destroyed crops across the region.', 'severe drought|prolonged drought', 'dry spell', 'B2', '🏜️'],
+      ['landfill', '/ˈlændfɪl/', 'n', 'bãi chôn rác', 'an area of land where large amounts of waste are buried', 'Most plastic packaging ends up in landfill sites.', 'landfill site|send to landfill', 'dump|tip', 'B2', '🗑️'],
+      ['endangered', '/ɪnˈdeɪndʒəd/', 'adj', 'có nguy cơ tuyệt chủng', '(of animals or plants) at risk of no longer existing', 'Poaching has pushed many endangered species to the edge of extinction.', 'endangered species|critically endangered', 'threatened|at risk', 'B2', '🐯'],
+    ]),
+    T('technology', t('Công nghệ'), '💻', t('Technology – AI, Internet, mạng xã hội'), [
+      ['innovation', '/ˌɪnəˈveɪʃn/', 'n', 'sự đổi mới, cải tiến', 'a new idea, method or product; the introduction of new things', 'Technological innovation has transformed the way we communicate.', 'technological innovation|drive innovation', 'invention|advance', 'B2', '💡'],
+      ['automation', '/ˌɔːtəˈmeɪʃn/', 'n', 'sự tự động hóa', 'the use of machines and computers to do work that people used to do', 'Automation could replace millions of manual jobs in the next decade.', 'factory automation|increased automation', 'mechanisation', 'C1', '🤖'],
+      ['device', '/dɪˈvaɪs/', 'n', 'thiết bị', 'an object designed to do a particular job', 'Children spend hours each day on electronic devices.', 'electronic device|mobile device', 'gadget|appliance', 'B1', '📱'],
+      ['breakthrough', '/ˈbreɪkθruː/', 'n', 'bước đột phá', 'an important new discovery or development', 'Scientists have made a major breakthrough in cancer research.', 'major breakthrough|make a breakthrough', 'discovery|advance', 'B2', '🚀'],
+      ['obsolete', '/ˈɒbsəliːt/', 'adj', 'lỗi thời', 'no longer used because something new has been invented', 'Many traditional skills have become obsolete in the digital age.', 'become obsolete|render obsolete', 'outdated|out of date', 'C1', '📼'],
+      ['artificial', '/ˌɑːtɪˈfɪʃl/', 'adj', 'nhân tạo', 'made or produced to copy something natural', 'Artificial intelligence is already used to diagnose some diseases.', 'artificial intelligence|artificial light', 'man-made|synthetic', 'B2', '🧠'],
+      ['surveillance', '/sɜːˈveɪləns/', 'n', 'sự giám sát', 'the act of carefully watching a person or place, often to prevent crime', 'The spread of CCTV surveillance raises concerns about personal freedom.', 'video surveillance|under surveillance', 'monitoring|observation', 'C1', '📹'],
+      ['cutting-edge', '/ˌkʌtɪŋ ˈedʒ/', 'adj', 'tiên tiến nhất', 'at the newest, most advanced stage of development', 'The hospital uses cutting-edge equipment to treat patients.', 'cutting-edge technology|cutting-edge research', 'state-of-the-art|advanced', 'C1', '⚡'],
+      ['digital', '/ˈdɪdʒɪtl/', 'adj', 'kỹ thuật số', 'using a system of storing information as series of numbers; connected with computers', 'The digital divide prevents poorer families from accessing online learning.', 'digital divide|digital age', 'electronic|online', 'B1', '🔢'],
+      ['privacy', '/ˈprɪvəsi/', 'n', 'sự riêng tư', 'the state of being free from the attention of other people', 'Social media companies are often accused of violating users\' privacy.', 'invasion of privacy|data privacy', 'confidentiality', 'B2', '🔒'],
+      ['addictive', '/əˈdɪktɪv/', 'adj', 'gây nghiện', 'that makes people unable to stop doing or using it', 'Many apps are deliberately designed to be addictive.', 'highly addictive|addictive behaviour', 'compulsive|habit-forming', 'B2', '🎮'],
+      ['user-friendly', '/ˌjuːzə ˈfrendli/', 'adj', 'thân thiện với người dùng', 'easy for people who are not experts to use or understand', 'The new banking app is extremely user-friendly, even for elderly people.', 'user-friendly interface', 'easy to use|intuitive', 'B2', '👌'],
+    ]),
+    T('health', t('Sức khỏe'), '🏥', t('Health – lối sống, y tế, dinh dưỡng'), [
+      ['obesity', '/əʊˈbiːsəti/', 'n', 'bệnh béo phì', 'the condition of being extremely fat in a way that is unhealthy', 'Childhood obesity is linked to fast food and lack of exercise.', 'childhood obesity|obesity rate', 'being overweight', 'B2', '🍔'],
+      ['sedentary', '/ˈsedntri/', 'adj', 'ít vận động', '(of work or a way of life) in which you spend a lot of time sitting down', 'Office workers often lead a sedentary lifestyle.', 'sedentary lifestyle|sedentary job', 'inactive|seated', 'C1', '🛋️'],
+      ['nutrition', '/njuˈtrɪʃn/', 'n', 'dinh dưỡng', 'the process by which living things receive the food necessary for health and growth', 'Good nutrition in early childhood is essential for brain development.', 'proper nutrition|poor nutrition', 'nourishment|diet', 'B2', '🥗'],
+      ['epidemic', '/ˌepɪˈdemɪk/', 'n', 'dịch bệnh', 'a large number of cases of a disease in a community at the same time', 'Experts warn of a global epidemic of diabetes.', 'flu epidemic|a growing epidemic', 'outbreak|plague', 'C1', '🦠'],
+      ['vaccine', '/ˈvæksiːn/', 'n', 'vắc-xin', 'a substance put into the body to protect it from a disease', 'Free vaccines have saved millions of children\'s lives.', 'develop a vaccine|vaccine programme', 'immunisation|jab', 'B2', '💉'],
+      ['well-being', '/ˈwel biːɪŋ/', 'n', 'sự khỏe mạnh, hạnh phúc', 'general health and happiness', 'Regular exercise improves both physical and mental well-being.', 'mental well-being|sense of well-being', 'welfare|health', 'B2', '😊'],
+      ['chronic', '/ˈkrɒnɪk/', 'adj', 'mãn tính', '(of a disease) lasting for a long time and difficult to cure', 'Smoking is a leading cause of chronic lung disease.', 'chronic illness|chronic pain', 'persistent|long-term', 'C1', '⏳'],
+      ['life expectancy', '/ˈlaɪf ɪkspektənsi/', 'n', 'tuổi thọ trung bình', 'the number of years that a person is likely to live', 'Life expectancy has risen steadily thanks to better healthcare.', 'average life expectancy|increase life expectancy', 'lifespan', 'B2', '👵'],
+      ['diet', '/ˈdaɪət/', 'n', 'chế độ ăn', 'the food that you eat and drink regularly', 'A balanced diet should include plenty of fruit and vegetables.', 'balanced diet|healthy diet', 'eating habits', 'B1', '🍎'],
+      ['symptom', '/ˈsɪmptəm/', 'n', 'triệu chứng', 'a change in your body that shows you have an illness', 'Fatigue is a common symptom of stress.', 'common symptom|show symptoms', 'sign|indication', 'B2', '🤒'],
+      ['prevention', '/prɪˈvenʃn/', 'n', 'sự phòng ngừa', 'the act of stopping something bad from happening', 'Prevention is better than cure, so governments should fund health education.', 'disease prevention|crime prevention', 'avoidance|precaution', 'B2', '🛡️'],
+      ['mental', '/ˈmentl/', 'adj', '(thuộc) tinh thần', 'connected with or happening in the mind', 'Social isolation can have a serious impact on mental health.', 'mental health|mental illness', 'psychological', 'B1', '🧘'],
+    ]),
+    T('work', t('Công việc'), '💼', t('Work & Business – việc làm, kinh doanh'), [
+      ['employment', '/ɪmˈplɔɪmənt/', 'n', 'việc làm', 'work, especially when it is done to earn money', 'Graduates are finding it harder to secure full-time employment.', 'full-time employment|employment rate', 'work|occupation', 'B2', '🧑‍💼'],
+      ['recruit', '/rɪˈkruːt/', 'v', 'tuyển dụng', 'to find new people to join a company or organisation', 'Tech companies are struggling to recruit skilled engineers.', 'recruit staff|actively recruit', 'hire|employ', 'B2', '🤝'],
+      ['workforce', '/ˈwɜːkfɔːs/', 'n', 'lực lượng lao động', 'all the people who work for a company or in a country', 'Women now make up nearly half of the workforce.', 'skilled workforce|enter the workforce', 'labour force|staff', 'B2', '👷'],
+      ['productivity', '/ˌprɒdʌkˈtɪvəti/', 'n', 'năng suất', 'the rate at which a worker or company produces goods', 'Flexible working hours can boost employee productivity.', 'increase productivity|labour productivity', 'efficiency|output', 'C1', '📈'],
+      ['entrepreneur', '/ˌɒntrəprəˈnɜː(r)/', 'n', 'doanh nhân khởi nghiệp', 'a person who starts a business, especially one involving risk', 'Young entrepreneurs often struggle to obtain bank loans.', 'successful entrepreneur|young entrepreneur', 'businessperson|founder', 'C1', '🚀'],
+      ['incentive', '/ɪnˈsentɪv/', 'n', 'sự khích lệ, ưu đãi', 'something that encourages you to do something', 'Tax incentives could persuade companies to invest in green energy.', 'financial incentive|provide an incentive', 'motivation|reward', 'C1', '🎁'],
+      ['redundancy', '/rɪˈdʌndənsi/', 'n', 'sự cắt giảm nhân sự', 'the situation when people lose their jobs because they are no longer needed', 'The factory closure led to hundreds of redundancies.', 'face redundancy|redundancy payment', 'dismissal|lay-off', 'C1', '📦'],
+      ['promotion', '/prəˈməʊʃn/', 'n', 'sự thăng chức', 'a move to a more important job in a company', 'Hard work does not always guarantee promotion.', 'get a promotion|promotion prospects', 'advancement|upgrade', 'B1', '⬆️'],
+      ['flexible', '/ˈfleksəbl/', 'adj', 'linh hoạt', 'able to change to suit new conditions', 'Flexible working arrangements help parents balance work and family.', 'flexible hours|flexible working', 'adaptable|adjustable', 'B2', '🤸'],
+      ['colleague', '/ˈkɒliːɡ/', 'n', 'đồng nghiệp', 'a person that you work with', 'Good relationships with colleagues make work more enjoyable.', 'close colleague|former colleague', 'co-worker|associate', 'B1', '👥'],
+      ['commute', '/kəˈmjuːt/', 'v', 'đi làm (quãng đường xa) hằng ngày', 'to travel regularly by bus, train, car, etc. between home and work', 'Many people commute for over an hour each way.', 'commute to work|daily commute', 'travel', 'B2', '🚆'],
+      ['salary', '/ˈsæləri/', 'n', 'lương', 'money that employees receive for doing their job, usually paid monthly', 'Job satisfaction is more important to me than a high salary.', 'high salary|annual salary', 'wage|pay|income', 'B1', '💰'],
+    ]),
+    T('society', t('Xã hội & Gia đình'), '👨‍👩‍👧', t('Society & Family – bất bình đẳng, thế hệ, cộng đồng'), [
+      ['inequality', '/ˌɪnɪˈkwɒləti/', 'n', 'sự bất bình đẳng', 'the unfair difference between groups of people in a society', 'Income inequality has widened in many developed countries.', 'income inequality|social inequality', 'disparity|imbalance', 'C1', '⚖️'],
+      ['poverty', '/ˈpɒvəti/', 'n', 'sự nghèo đói', 'the state of being poor', 'Education is the most effective way to escape poverty.', 'live in poverty|poverty line', 'hardship|deprivation', 'B2', '🏚️'],
+      ['generation gap', '/ˌdʒenəˈreɪʃn ɡæp/', 'n', 'khoảng cách thế hệ', 'a difference in attitudes between young and older people', 'Technology has widened the generation gap in many families.', 'bridge the generation gap', 'age gap', 'B2', '👴'],
+      ['ageing population', '/ˌeɪdʒɪŋ ˌpɒpjuˈleɪʃn/', 'n', 'dân số già hóa', 'a population in which the proportion of older people is increasing', 'An ageing population puts pressure on healthcare and pension systems.', 'cope with an ageing population', 'greying population', 'C1', '🧓'],
+      ['welfare', '/ˈwelfeə(r)/', 'n', 'phúc lợi', 'practical or financial help given by the state to people who need it', 'Some argue that generous welfare benefits discourage people from working.', 'social welfare|welfare system', 'benefits|social security', 'B2', '🤲'],
+      ['diversity', '/daɪˈvɜːsəti/', 'n', 'sự đa dạng', 'a range of many people or things that are very different from each other', 'Cultural diversity enriches city life.', 'cultural diversity|ethnic diversity', 'variety|multiculturalism', 'B2', '🌈'],
+      ['discrimination', '/dɪˌskrɪmɪˈneɪʃn/', 'n', 'sự phân biệt đối xử', 'treating a person or group worse than others because of race, sex, age, etc.', 'Laws against gender discrimination have improved working conditions for women.', 'racial discrimination|age discrimination', 'prejudice|bias', 'C1', '🚫'],
+      ['community', '/kəˈmjuːnəti/', 'n', 'cộng đồng', 'all the people who live in a particular area or share something in common', 'Local libraries play an important role in the community.', 'local community|sense of community', 'society|neighbourhood', 'B1', '🏘️'],
+      ['immigration', '/ˌɪmɪˈɡreɪʃn/', 'n', 'sự nhập cư', 'the process of coming to live permanently in a different country', 'Immigration can help to fill skills shortages in the economy.', 'immigration policy|illegal immigration', 'migration', 'B2', '🛂'],
+      ['upbringing', '/ˈʌpbrɪŋɪŋ/', 'n', 'sự nuôi dạy, giáo dưỡng', 'the way in which a child is cared for and taught how to behave', 'A strict upbringing does not always produce well-behaved adults.', 'strict upbringing|middle-class upbringing', 'parenting|rearing', 'C1', '👶'],
+      ['nuclear family', '/ˌnjuːkliə ˈfæməli/', 'n', 'gia đình hạt nhân (bố mẹ và con)', 'a family that consists of a father, a mother and their children', 'The nuclear family has replaced the extended family in most cities.', 'traditional nuclear family', 'immediate family', 'C1', '🏠'],
+      ['volunteer', '/ˌvɒlənˈtɪə(r)/', 'v', 'tình nguyện', 'to offer to do something without being paid', 'Students should be encouraged to volunteer in their local area.', 'volunteer work|volunteer for', 'offer|help out', 'B2', '🙋'],
+    ]),
+    T('crime', t('Tội phạm & Luật'), '⚖️', t('Crime & Law – hình phạt, giới trẻ phạm tội'), [
+      ['offender', '/əˈfendə(r)/', 'n', 'người phạm tội', 'a person who commits a crime', 'Young offenders need education rather than harsh punishment.', 'young offender|repeat offender', 'criminal|lawbreaker', 'C1', '🦹'],
+      ['deterrent', '/dɪˈterənt/', 'n', 'biện pháp răn đe', 'a thing that makes somebody less likely to do something', 'Long prison sentences act as a deterrent to potential criminals.', 'effective deterrent|act as a deterrent', 'disincentive|discouragement', 'C1', '🚧'],
+      ['rehabilitation', '/ˌriːəˌbɪlɪˈteɪʃn/', 'n', 'sự cải tạo, phục hồi', 'the process of helping somebody return to a normal life after prison or illness', 'Rehabilitation programmes reduce the likelihood of reoffending.', 'rehabilitation programme|drug rehabilitation', 'reform|recovery', 'C1', '🔄'],
+      ['legislation', '/ˌledʒɪsˈleɪʃn/', 'n', 'luật pháp, sự lập pháp', 'a law or a set of laws passed by a parliament', 'New legislation has banned smoking in public places.', 'introduce legislation|environmental legislation', 'law|regulation', 'C1', '📜'],
+      ['penalty', '/ˈpenəlti/', 'n', 'hình phạt, tiền phạt', 'a punishment for breaking a law or rule', 'Heavier penalties for drink-driving have saved many lives.', 'heavy penalty|death penalty', 'punishment|fine', 'B2', '💸'],
+      ['custodial sentence', '/kʌˌstəʊdiəl ˈsentəns/', 'n', 'án tù giam', 'a punishment that involves time in prison', 'Non-violent criminals should not always receive a custodial sentence.', 'receive a custodial sentence', 'prison sentence|jail term', 'C1', '⛓️'],
+      ['juvenile', '/ˈdʒuːvənaɪl/', 'adj', '(thuộc) vị thành niên', 'connected with young people who are not yet adults', 'Juvenile crime is often linked to poverty and poor education.', 'juvenile crime|juvenile delinquency', 'youth|adolescent', 'C1', '🧒'],
+      ['enforce', '/ɪnˈfɔːs/', 'v', 'thi hành, thực thi', 'to make sure that people obey a law or rule', 'The police should enforce speed limits more strictly.', 'enforce the law|strictly enforce', 'impose|apply', 'C1', '👮'],
+      ['crime rate', '/ˈkraɪm reɪt/', 'n', 'tỷ lệ tội phạm', 'the number of crimes in a particular area or time', 'The crime rate fell after more street lights were installed.', 'rising crime rate|reduce the crime rate', 'crime level', 'B2', '📊'],
+      ['prosecute', '/ˈprɒsɪkjuːt/', 'v', 'khởi tố, truy tố', 'to officially charge somebody with a crime in a court of law', 'Companies that dump toxic waste should be prosecuted.', 'be prosecuted for', 'charge|sue', 'C1', '🧑‍⚖️'],
+      ['victim', '/ˈvɪktɪm/', 'n', 'nạn nhân', 'a person who has been attacked, injured or killed as a result of a crime', 'Victims of cybercrime often lose large sums of money.', 'innocent victim|fall victim to', 'casualty|sufferer', 'B1', '🆘'],
+      ['capital punishment', '/ˌkæpɪtl ˈpʌnɪʃmənt/', 'n', 'án tử hình', 'punishment by death', 'Capital punishment remains a highly controversial issue.', 'abolish capital punishment', 'death penalty', 'C1', '⚰️'],
+    ]),
+    T('media', t('Truyền thông & Quảng cáo'), '📺', t('Media & Advertising – tin tức, quảng cáo, mạng xã hội'), [
+      ['advertisement', '/ədˈvɜːtɪsmənt/', 'n', 'quảng cáo', 'a notice, picture or film telling people about a product or service', 'Advertisements for junk food should be banned during children\'s programmes.', 'TV advertisement|place an advertisement', 'commercial|advert', 'B1', '📢'],
+      ['consumer', '/kənˈsjuːmə(r)/', 'n', 'người tiêu dùng', 'a person who buys goods or uses services', 'Consumers are increasingly choosing ethical brands.', 'consumer goods|consumer behaviour', 'buyer|customer', 'B2', '🛒'],
+      ['coverage', '/ˈkʌvərɪdʒ/', 'n', 'sự đưa tin', 'the reporting of news and sport in newspapers, on TV, etc.', 'Media coverage of the disaster was extensive.', 'media coverage|extensive coverage', 'reporting|reportage', 'C1', '🗞️'],
+      ['censorship', '/ˈsensəʃɪp/', 'n', 'sự kiểm duyệt', 'the act of removing parts of books, films, news, etc. considered unacceptable', 'Internet censorship limits freedom of expression.', 'press censorship|strict censorship', 'restriction|suppression', 'C1', '✂️'],
+      ['influence', '/ˈɪnfluəns/', 'n', 'sự ảnh hưởng', 'the effect that somebody or something has on the way a person thinks or behaves', 'Celebrities have a huge influence on teenagers\' choices.', 'have an influence on|strong influence', 'impact|effect', 'B1', '🌟'],
+      ['mislead', '/ˌmɪsˈliːd/', 'v', 'gây hiểu lầm', 'to give somebody the wrong idea or impression', 'Some adverts deliberately mislead consumers about health benefits.', 'deliberately mislead|misleading information', 'deceive|misinform', 'B2', '🎭'],
+      ['broadcast', '/ˈbrɔːdkɑːst/', 'v', 'phát sóng', 'to send out programmes on television or radio', 'The final match was broadcast live to millions of viewers.', 'broadcast live|broadcast news', 'air|transmit', 'B2', '📡'],
+      ['sensationalism', '/senˈseɪʃənəlɪzəm/', 'n', 'lối đưa tin giật gân', 'a way of reporting news that is intended to shock or excite people', 'Tabloid sensationalism has damaged public trust in journalism.', 'media sensationalism', 'exaggeration|hype', 'C1', '😱'],
+      ['publicity', '/pʌbˈlɪsəti/', 'n', 'sự quảng bá, công khai', 'the attention given to somebody or something by newspapers, TV, etc.', 'The scandal attracted a great deal of negative publicity.', 'negative publicity|publicity campaign', 'promotion|exposure', 'B2', '📣'],
+      ['tabloid', '/ˈtæblɔɪd/', 'n', 'báo lá cải', 'a newspaper with small pages, short articles and many pictures of famous people', 'Tabloids often invade the privacy of celebrities.', 'tabloid press|tabloid newspaper', 'gutter press', 'C1', '📰'],
+      ['persuasive', '/pəˈsweɪsɪv/', 'adj', 'có sức thuyết phục', 'able to make somebody do or believe something', 'Advertisers use persuasive language to create demand.', 'persuasive argument|highly persuasive', 'convincing|compelling', 'B2', '🗣️'],
+      ['misinformation', '/ˌmɪsɪnfəˈmeɪʃn/', 'n', 'thông tin sai lệch', 'false information that is given to somebody', 'Misinformation spreads rapidly on social media platforms.', 'spread misinformation|combat misinformation', 'false information|fake news', 'C1', '❌'],
+    ]),
+    T('urban', t('Đô thị & Giao thông'), '🏙️', t('Urbanisation & Transport – nhà ở, kẹt xe, hạ tầng'), [
+      ['urbanisation', '/ˌɜːbənaɪˈzeɪʃn/', 'n', 'sự đô thị hóa', 'the process in which more people move to live in towns and cities', 'Rapid urbanisation has put pressure on housing and transport.', 'rapid urbanisation', 'urban growth', 'C1', '🏗️'],
+      ['congestion', '/kənˈdʒestʃən/', 'n', 'sự tắc nghẽn', 'the state of being crowded and full of traffic', 'A congestion charge has reduced traffic in the city centre.', 'traffic congestion|congestion charge', 'traffic jam|gridlock', 'C1', '🚗'],
+      ['infrastructure', '/ˈɪnfrəstrʌktʃə(r)/', 'n', 'cơ sở hạ tầng', 'the basic systems and services such as transport and power supplies', 'The government must invest more in rural infrastructure.', 'transport infrastructure|invest in infrastructure', 'facilities|framework', 'C1', '🌉'],
+      ['commuter', '/kəˈmjuːtə(r)/', 'n', 'người đi làm xa hằng ngày', 'a person who travels into a city to work each day', 'Trains are packed with commuters during rush hour.', 'daily commuter|commuter belt', 'traveller', 'B2', '🚇'],
+      ['pedestrian', '/pəˈdestriən/', 'n', 'người đi bộ', 'a person walking in the street and not travelling in a vehicle', 'Turning the main street into a pedestrian zone revived local shops.', 'pedestrian zone|pedestrian crossing', 'walker', 'B2', '🚶'],
+      ['residential', '/ˌrezɪˈdenʃl/', 'adj', '(thuộc) khu dân cư', 'suitable for living in; consisting of houses', 'Factories should not be built close to residential areas.', 'residential area|residential district', 'suburban|housing', 'B2', '🏡'],
+      ['overcrowded', '/ˌəʊvəˈkraʊdɪd/', 'adj', 'quá đông đúc', 'with too many people or things in it', 'Overcrowded cities suffer from poor air quality.', 'overcrowded cities|overcrowded housing', 'congested|packed', 'B2', '👨‍👨‍👦‍👦'],
+      ['amenity', '/əˈmiːnəti/', 'n', 'tiện ích', 'a feature that makes a place pleasant, comfortable or easy to live in', 'New housing estates often lack basic amenities such as parks and shops.', 'local amenities|basic amenities', 'facility|service', 'C1', '🏪'],
+      ['suburb', '/ˈsʌbɜːb/', 'n', 'vùng ngoại ô', 'an area where people live that is outside the centre of a city', 'Many families move to the suburbs for more space.', 'leafy suburb|live in the suburbs', 'outskirts', 'B2', '🌇'],
+      ['public transport', '/ˌpʌblɪk ˈtrænspɔːt/', 'n', 'giao thông công cộng', 'the system of buses, trains, etc. provided for people to travel', 'Investing in public transport is the key to reducing air pollution.', 'improve public transport|use public transport', 'mass transit', 'B1', '🚌'],
+      ['housing', '/ˈhaʊzɪŋ/', 'n', 'nhà ở', 'buildings for people to live in', 'The lack of affordable housing forces young people to live with their parents.', 'affordable housing|housing shortage', 'accommodation|homes', 'B2', '🏢'],
+      ['sprawl', '/sprɔːl/', 'n', 'sự lan rộng (đô thị) thiếu quy hoạch', 'a large area covered with buildings that spreads from the city into the countryside', 'Urban sprawl is destroying valuable farmland.', 'urban sprawl|suburban sprawl', 'expansion|spread', 'C1', '🗺️'],
+    ]),
+    T('travel', t('Du lịch'), '✈️', t('Travel & Tourism – Speaking Part 2 hay gặp'), [
+      ['destination', '/ˌdestɪˈneɪʃn/', 'n', 'điểm đến', 'a place to which somebody is going', 'Vietnam has become a popular tourist destination.', 'tourist destination|holiday destination', 'stop|location', 'B1', '📍'],
+      ['itinerary', '/aɪˈtɪnərəri/', 'n', 'lịch trình', 'a plan of a journey, including the route and the places to visit', 'Our itinerary included three days in Hoi An.', 'detailed itinerary|plan an itinerary', 'schedule|route', 'C1', '🗓️'],
+      ['heritage', '/ˈherɪtɪdʒ/', 'n', 'di sản', 'the history, traditions and buildings that a country has had for many years', 'Tourism helps fund the preservation of cultural heritage.', 'cultural heritage|World Heritage Site', 'legacy|tradition', 'B2', '🏯'],
+      ['accommodation', '/əˌkɒməˈdeɪʃn/', 'n', 'chỗ ở', 'a place to live, work or stay in', 'Cheap accommodation is hard to find in the high season.', 'budget accommodation|book accommodation', 'lodging|housing', 'B1', '🛏️'],
+      ['ecotourism', '/ˈiːkəʊtʊərɪzəm/', 'n', 'du lịch sinh thái', 'tourism to places of natural beauty that tries not to damage the environment', 'Ecotourism provides income for local communities while protecting nature.', 'promote ecotourism', 'green tourism', 'C1', '🌿'],
+      ['landmark', '/ˈlændmɑːk/', 'n', 'địa danh nổi tiếng', 'a building or place that is easily recognised', 'The Eiffel Tower is the most famous landmark in Paris.', 'famous landmark|historic landmark', 'monument|sight', 'B2', '🗼'],
+      ['souvenir', '/ˌsuːvəˈnɪə(r)/', 'n', 'quà lưu niệm', 'a thing that you buy to remind you of a place you have visited', 'I always buy a small souvenir from every city I visit.', 'souvenir shop|buy a souvenir', 'memento|keepsake', 'B1', '🎁'],
+      ['exotic', '/ɪɡˈzɒtɪk/', 'adj', 'kỳ lạ, ngoại lai', 'from or in another country, especially a hot one; interesting because unusual', 'Tourists are attracted by exotic food and culture.', 'exotic destination|exotic food', 'foreign|unusual', 'B2', '🌴'],
+      ['hospitality', '/ˌhɒspɪˈtæləti/', 'n', 'lòng hiếu khách; ngành dịch vụ khách sạn', 'friendly and generous behaviour towards guests', 'Visitors are often impressed by the hospitality of local people.', 'warm hospitality|hospitality industry', 'friendliness|welcome', 'B2', '🤗'],
+      ['authentic', '/ɔːˈθentɪk/', 'adj', 'đích thực, nguyên bản', 'known to be real and genuine; not a copy', 'Many travellers look for an authentic local experience.', 'authentic experience|authentic cuisine', 'genuine|real', 'B2', '✅'],
+      ['excursion', '/ɪkˈskɜːʃn/', 'n', 'chuyến tham quan ngắn', 'a short journey made for pleasure, especially one organised for a group', 'We went on a day excursion to Ha Long Bay.', 'day excursion|go on an excursion', 'trip|outing', 'B2', '🚤'],
+      ['globalisation', '/ˌɡləʊbəlaɪˈzeɪʃn/', 'n', 'sự toàn cầu hóa', 'the fact that different cultures and economies are becoming connected worldwide', 'Globalisation has made international travel cheaper and easier.', 'economic globalisation|effects of globalisation', 'internationalisation', 'C1', '🌐'],
+    ]),
+    T('task1', t('Writing Task 1 – Xu hướng'), '📈', t('Từ mô tả biểu đồ: tăng, giảm, dao động, tỉ lệ'), [
+      ['fluctuate', '/ˈflʌktʃueɪt/', 'v', 'dao động', 'to change frequently in size, amount, quality, etc.', 'The price of oil fluctuated between $60 and $80 over the period.', 'fluctuate wildly|fluctuate between', 'vary|go up and down', 'C1', '〰️'],
+      ['plummet', '/ˈplʌmɪt/', 'v', 'giảm mạnh, lao dốc', 'to fall suddenly and quickly from a high level', 'Sales plummeted to just 2,000 units in 2010.', 'plummet dramatically|plummet to', 'plunge|drop sharply', 'C1', '📉'],
+      ['surge', '/sɜːdʒ/', 'n', 'sự tăng vọt', 'a sudden increase in the amount or number of something', 'There was a surge in online shopping during the pandemic.', 'a surge in|sudden surge', 'rise|boom', 'C1', '🚀'],
+      ['plateau', '/ˈplætəʊ/', 'v', 'chững lại, đi ngang', 'to stay at a steady level after a period of growth', 'The number of visitors rose until 2015 and then plateaued.', 'reach a plateau|level off', 'level off|stabilise', 'C1', '➖'],
+      ['proportion', '/prəˈpɔːʃn/', 'n', 'tỉ lệ', 'a part or share of a whole', 'A higher proportion of women than men attended university.', 'a large proportion|in proportion to', 'percentage|share', 'B2', '🥧'],
+      ['gradual', '/ˈɡrædʒuəl/', 'adj', 'từ từ, dần dần', 'happening slowly over a long period of time', 'There was a gradual increase in car ownership.', 'gradual increase|gradual decline', 'steady|slow', 'B2', '🐢'],
+      ['significant', '/sɪɡˈnɪfɪkənt/', 'adj', 'đáng kể', 'large or important enough to have an effect or be noticed', 'There was a significant drop in unemployment in 2019.', 'significant increase|statistically significant', 'considerable|substantial', 'B2', '❗'],
+      ['peak', '/piːk/', 'v', 'đạt đỉnh', 'to reach the highest point or value', 'Energy consumption peaked at 500 units in July.', 'peak at|reach a peak', 'top out|culminate', 'B2', '⛰️'],
+      ['decline', '/dɪˈklaɪn/', 'n', 'sự suy giảm', 'a continuous decrease in the number, value or quality of something', 'The chart shows a steady decline in newspaper sales.', 'steady decline|sharp decline', 'decrease|fall', 'B2', '↘️'],
+      ['approximately', '/əˈprɒksɪmətli/', 'adv', 'xấp xỉ', 'used to show that a number is almost correct but not exact', 'Approximately 40% of households owned a computer.', 'approximately half', 'roughly|around|about', 'B2', '≈'],
+      ['respectively', '/rɪˈspektɪvli/', 'adv', 'lần lượt (theo thứ tự)', 'in the same order as the things you have just mentioned', 'Japan and Korea spent 3% and 4% of GDP respectively.', '', 'in that order', 'C1', '🔢'],
+      ['overtake', '/ˌəʊvəˈteɪk/', 'v', 'vượt qua', 'to become greater in number or more important than something', 'In 2012, online sales overtook in-store sales for the first time.', 'overtake rivals', 'surpass|exceed', 'B2', '🏎️'],
+    ]),
+    T('task2', t('Writing Task 2 – Học thuật'), '📝', t('Từ học thuật & liên từ giúp tăng band Lexical Resource'), [
+      ['consequently', '/ˈkɒnsɪkwəntli/', 'adv', 'do đó, vì vậy', 'as a result', 'Fewer people are having children; consequently, the population is ageing.', '', 'therefore|as a result', 'B2', '➡️'],
+      ['nevertheless', '/ˌnevəðəˈles/', 'adv', 'tuy nhiên, dù vậy', 'despite something that you have just mentioned', 'The plan is expensive. Nevertheless, it is worth the investment.', '', 'however|nonetheless', 'B2', '↩️'],
+      ['substantial', '/səbˈstænʃl/', 'adj', 'đáng kể, lớn', 'large in amount, value or importance', 'A substantial amount of money has been spent on space exploration.', 'substantial amount|substantial evidence', 'considerable|significant', 'B2', '🧱'],
+      ['detrimental', '/ˌdetrɪˈmentl/', 'adj', 'có hại', 'harmful', 'Excessive screen time can be detrimental to children\'s development.', 'detrimental effect|detrimental to', 'harmful|damaging', 'C1', '⚠️'],
+      ['advocate', '/ˈædvəkeɪt/', 'v', 'ủng hộ, chủ trương', 'to support something publicly', 'Many experts advocate a ban on junk food advertising.', 'strongly advocate', 'support|champion', 'C1', '📣'],
+      ['alleviate', '/əˈliːvieɪt/', 'v', 'làm giảm bớt', 'to make something less severe', 'Building more roads will not alleviate traffic congestion.', 'alleviate poverty|alleviate the problem', 'ease|relieve', 'C1', '🩹'],
+      ['inevitable', '/ɪnˈevɪtəbl/', 'adj', 'không thể tránh khỏi', 'that you cannot avoid or prevent', 'Some job losses are an inevitable result of automation.', 'inevitable consequence|almost inevitable', 'unavoidable|certain', 'C1', '🔮'],
+      ['controversial', '/ˌkɒntrəˈvɜːʃl/', 'adj', 'gây tranh cãi', 'causing a lot of public disagreement', 'Animal testing remains a controversial issue.', 'highly controversial|controversial issue', 'debatable|contentious', 'B2', '🔥'],
+      ['mitigate', '/ˈmɪtɪɡeɪt/', 'v', 'giảm nhẹ', 'to make something less harmful or serious', 'Planting trees can help mitigate the effects of climate change.', 'mitigate the effects|mitigate risk', 'reduce|lessen', 'C1', '🌱'],
+      ['prioritise', '/praɪˈɒrətaɪz/', 'v', 'ưu tiên', 'to treat something as being more important than other things', 'Governments should prioritise education over military spending.', 'prioritise tasks', 'put first|rank', 'C1', '🥇'],
+      ['implement', '/ˈɪmplɪment/', 'v', 'thực hiện, triển khai', 'to make something that has been officially decided start to happen', 'The new policy will be implemented next year.', 'implement a policy|fully implement', 'carry out|execute', 'C1', '⚙️'],
+      ['perspective', '/pəˈspektɪv/', 'n', 'quan điểm, góc nhìn', 'a particular attitude towards something; a way of thinking about it', 'From an economic perspective, tourism brings many benefits.', 'from a ... perspective|different perspective', 'viewpoint|standpoint', 'B2', '👓'],
+    ]),
+  ];
+
+  // Nhóm thư viện – các file js/lib/*.js đăng ký thêm bộ từ qua IELTS_DATA.add(...)
+  const GROUPS = [
+    { id: 'core', name: t('Từ vựng cốt lõi (NGSL)'), emoji: '🧱', desc: t('2.809 từ thông dụng nhất theo tần suất – NGSL © Browne, Culligan & Phillips, CC BY-SA 4.0') },
+    { id: 'topics', name: t('IELTS theo chủ đề'), emoji: '🗂️', desc: t('Từ vựng theo các chủ đề hay gặp trong Speaking & Writing') },
+    { id: 'writing', name: 'Writing', emoji: '✍️', desc: t('Từ mô tả biểu đồ, từ nối, collocation học thuật') },
+    { id: 'speaking', name: 'Speaking', emoji: '🗣️', desc: t('Phrasal verb, thành ngữ, cách diễn đạt tự nhiên') },
+    { id: 'toeic', name: 'TOEIC (TSL)', emoji: '💼', desc: t('1.250 từ TOEIC công sở – kinh doanh · TSL 1.2 © Browne & Culligan, CC BY-SA 4.0') },
+    { id: 'domain', name: t('Từ vựng chuyên ngành'), emoji: '🏢', desc: t('1.500 thuật ngữ thông dụng của 10 ngành: CNTT, kinh doanh, y khoa, kỹ thuật, luật, marketing, môi trường, du lịch, giáo dục, logistics') },
+    { id: 'exam', name: t('Từ vựng theo kỳ thi'), emoji: '🎯', desc: t('1.459 từ & cụm hay gặp theo từng kỳ thi: IELTS Listening · Reading · Writing · Speaking, TOEFL iBT, TOEIC Listening & Reading') },
+    { id: 'awl', name: 'Academic Word List', emoji: '🎓', desc: t('570 họ từ học thuật (Coxhead) – nền tảng cho Reading & Writing band 7+') },
+  ];
+
+  const INDEX = Object.create(null); // không kế thừa prototype: tra "constructor", "toString"… không bị nhầm
+  const indexTopic = t => t.words.forEach(w => { const k = w.word.toLowerCase(); if (!INDEX[k]) INDEX[k] = w; });
+  TOPICS.forEach(t => { if (t.id === 'task1' || t.id === 'task2') t.group = 'writing'; indexTopic(t); });
+
+  // add(id, name, emoji, desc, rows, group)
+  function add(id, name, emoji, desc, rows, group) {
+    if (TOPICS.some(t => t.id === id)) return;
+    const tp = T(id, t(name), emoji, t(desc), rows, group);
+    TOPICS.push(tp);
+    indexTopic(tp);
+  }
+
+  g.IELTS_DATA = { TOPICS, INDEX, GROUPS, add };
+})(typeof self !== 'undefined' ? self : this);

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chính sách quyền riêng tư – Lexkite</title>
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .doc { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+    .doc h2 { margin-top: 2rem; }
+    .doc li { margin: .35rem 0; }
+    .doc table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+    .doc td, .doc th { border: 1px solid var(--line); padding: .5rem .6rem; text-align: left; vertical-align: top; }
+  </style>
+</head>
+<body>
+  <main class="doc">
+    <a class="brand" href="./" style="padding:0 0 1.5rem"><img class="logo" src="icons/icon.svg" alt=""><span class="wordmark">Voca<b>band</b></span></a>
+    <h1>Chính sách quyền riêng tư</h1>
+    <p class="muted">Áp dụng cho ứng dụng web Lexkite (vocaband.web.app) và tiện ích Chrome “Lexkite”. Cập nhật: 14/10/2026.</p>
+
+    <h2>1. Tóm tắt</h2>
+    <ul>
+      <li>Lexkite <b>không bán, không chia sẻ</b> dữ liệu của bạn cho bên thứ ba vì mục đích quảng cáo.</li>
+      <li>Dữ liệu học (từ đã lưu, câu ngữ cảnh, tiến độ ôn tập) được lưu <b>trên thiết bị của bạn</b>. Chỉ khi bạn chủ động đăng nhập, dữ liệu mới được đồng bộ vào tài khoản của bạn.</li>
+      <li>Tiện ích <b>không đọc hay thu thập lịch sử duyệt web</b>. Nó chỉ xử lý từ/câu bạn chủ động bấm đúp, bôi đen hoặc chạm vào.</li>
+    </ul>
+
+    <h2>2. Dữ liệu chúng tôi xử lý</h2>
+    <table>
+      <tr><th>Dữ liệu</th><th>Khi nào</th><th>Lưu ở đâu</th></tr>
+      <tr><td>Từ bạn tra hoặc lưu, câu ngữ cảnh chứa từ đó, tiêu đề và địa chỉ trang/video nơi bạn lưu từ</td><td>Chỉ khi bạn bấm đúp/bôi đen/chạm vào từ và chọn lưu</td><td>Bộ nhớ trình duyệt của bạn (chrome.storage / localStorage)</td></tr>
+      <tr><td>Tiến độ học: lịch ôn tập, XP, chuỗi ngày, cài đặt</td><td>Khi bạn học</td><td>Bộ nhớ trình duyệt của bạn</td></tr>
+      <tr><td>Tên, email, ảnh đại diện Google</td><td>Chỉ khi bạn chọn “Đăng nhập với Google” trên web app</td><td>Firebase Authentication (Google)</td></tr>
+      <tr><td>Bản sao dữ liệu học</td><td>Chỉ khi đã đăng nhập, để đồng bộ giữa thiết bị</td><td>Cloud Firestore (Google), chỉ tài khoản của bạn đọc/ghi được</td></tr>
+    </table>
+
+    <h2>3. Dịch vụ bên thứ ba dùng để tra từ</h2>
+    <p>Khi bạn tra một từ hoặc dịch một câu, <b>chỉ từ/câu đó</b> được gửi tới các dịch vụ sau để lấy kết quả. Không kèm danh tính hay lịch sử của bạn:</p>
+    <ul>
+      <li>Google Translate (translate.googleapis.com): nghĩa tiếng Việt, định nghĩa, dịch câu</li>
+      <li>Free Dictionary API (api.dictionaryapi.dev): phiên âm, phát âm</li>
+      <li>Wiktionary (Wikimedia): phiên âm</li>
+      <li>Openverse (api.openverse.org): hình minh họa giấy phép Creative Commons / phạm vi công cộng, luôn kèm ghi nguồn tác giả</li>
+      <li>Tatoeba (api.tatoeba.org): câu ví dụ song ngữ</li>
+      <li>Datamuse (api.datamuse.com): gợi ý từ, từ liên quan</li>
+      <li>MyMemory (api.mymemory.translated.net): dịch dự phòng</li>
+      <li>LanguageTool (api.languagetool.org): <b>chỉ khi bạn bấm “Kiểm tra ngữ pháp”</b> – đoạn văn trong ô soạn thảo được gửi để tìm lỗi ngữ pháp, chính tả</li>
+      <li>Google Gemini (generativelanguage.googleapis.com): <b>chỉ khi bạn bấm “Chấm bằng AI”</b> và tự nhập khóa API của mình – bài viết/bản chữ phần nói được gửi tới Google để chấm. Khóa API chỉ lưu trên trình duyệt của bạn, không đồng bộ lên máy chủ.</li>
+    </ul>
+
+    <h2>4. Quyền của tiện ích Chrome</h2>
+    <ul>
+      <li><b>Truy cập trang web (http/https):</b> để hiện bảng tra khi bạn bấm đúp vào từ, dịch đoạn bạn bôi đen và tra từ trong phụ đề YouTube. Tiện ích không đọc nội dung trang nếu bạn không tương tác.</li>
+      <li><b>storage:</b> lưu từ vựng và tiến độ trên máy bạn.</li>
+      <li><b>alarms, notifications:</b> nhắc học hằng ngày và “thời điểm vàng”.</li>
+      <li><b>contextMenus:</b> mục “Tra từ / Dịch đoạn đã chọn” khi nhấp chuột phải.</li>
+      <li><b>scripting:</b> kích hoạt tính năng tra từ trên các tab đã mở sẵn ngay sau khi cài đặt.</li>
+    </ul>
+
+    <h2>5. Quyền của bạn</h2>
+    <ul>
+      <li>Xuất toàn bộ dữ liệu (Cài đặt → Xuất sao lưu) hoặc xóa toàn bộ dữ liệu trên thiết bị bất kỳ lúc nào.</li>
+      <li>Đăng xuất để dừng đồng bộ. Để xóa dữ liệu trên máy chủ, hãy gửi email từ địa chỉ đã đăng nhập; chúng tôi xóa trong vòng 30 ngày.</li>
+      <li>Gỡ tiện ích sẽ xóa dữ liệu lưu trong tiện ích.</li>
+    </ul>
+
+    <h2>6. Trẻ em</h2>
+    <p>Lexkite dành cho người học từ 13 tuổi trở lên và không cố ý thu thập dữ liệu của trẻ dưới 13 tuổi.</p>
+
+    <h2>7. Liên hệ</h2>
+    <p>Mọi câu hỏi về quyền riêng tư, vui lòng liên hệ: <a href="mailto:braydanamilio@gmail.com">braydanamilio@gmail.com</a>.</p>
+
+    <h2>8. Ghi công dữ liệu mở</h2><ul><li>Bộ từ cốt lõi: <b>NGSL 1.2</b> – New General Service List © Browne, C., Culligan, B. &amp; Phillips, J., giấy phép <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> (newgeneralservicelist.com). Bản dịch tiếng Việt của Lexkite phát hành cùng giấy phép.</li><li>Hình minh họa: ảnh Creative Commons / phạm vi công cộng qua Openverse – tác giả và giấy phép hiển thị tại nút ⓘ trên mỗi ảnh.</li><li>Câu ví dụ song ngữ: Tatoeba (CC BY 2.0 FR).</li></ul>
+    <p class="small muted" style="margin-top:2rem">“IELTS” là nhãn hiệu của British Council, IDP: IELTS Australia và Cambridge University Press &amp; Assessment. Lexkite là sản phẩm độc lập, không liên kết hay được bảo trợ bởi các tổ chức này.</p>
+  </main>
+</body>
+</html>

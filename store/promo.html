@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;700;800&display=swap">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: "Be Vietnam Pro", sans-serif; width: var(--w); height: var(--h); overflow: hidden; color: #fff;
+    background: radial-gradient(circle at 85% 15%, rgba(255,255,255,.18), transparent 35%), linear-gradient(135deg, #6D5DFC 0%, #7C3AED 55%, #C026D3 120%); }
+  .wrap { position: relative; height: 100%; display: flex; align-items: center; gap: calc(var(--h) * .07); padding: 0 calc(var(--h) * .12); }
+  .logo { width: calc(var(--h) * .32); height: calc(var(--h) * .32); filter: drop-shadow(0 10px 25px rgba(0,0,0,.25)); border-radius: 22%; background: #fff2; flex: none; }
+  h1 { font-size: calc(var(--h) * .17); font-weight: 800; letter-spacing: -.03em; line-height: 1; }
+  h1 b { color: #FDE68A; }
+  p { font-size: calc(var(--h) * .068); opacity: .92; margin-top: calc(var(--h) * .04); font-weight: 500; line-height: 1.35; }
+  .chips { display: flex; gap: 10px; margin-top: calc(var(--h) * .05); flex-wrap: wrap; }
+  .chip { background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3); padding: 8px 14px; border-radius: 999px; font-weight: 700; font-size: calc(var(--h) * .036); }
+  .card { margin-left: auto; width: calc(var(--h) * .78); background: #fff; color: #171827; border-radius: 22px; padding: 22px 24px; box-shadow: 0 30px 60px rgba(30,0,60,.35); transform: rotate(-3deg); flex: none; }
+  .card .w { font-size: 34px; font-weight: 800; } .card .ipa { color: #676b84; font-size: 18px; }
+  .card .vi { color: #0ea5a4; font-weight: 800; font-size: 22px; margin-top: 6px; }
+  .card .ex { background: #fff8e6; border-radius: 12px; padding: 10px 12px; margin-top: 12px; font-size: 16px; color: #444; }
+  .card mark { background: #fde68a; border-radius: 4px; padding: 0 3px; font-weight: 700; }
+  .card .btns { display: flex; gap: 8px; margin-top: 14px; } .card .btns span { flex: 1; text-align: center; color: #fff; border-radius: 10px; padding: 8px 0; font-weight: 700; font-size: 14px; }
+  body.small .card, body.small .chips { display: none; }
+  body.small .wrap { flex-direction: column; justify-content: center; gap: 14px; text-align: center; }
+  body.small .logo { width: 92px; height: 92px; }
+  body.small h1 { font-size: 52px; } body.small p { font-size: 19px; margin-top: 8px; }
+</style></head>
+<body>
+<div class="wrap">
+  <img class="logo" src="logo.svg" alt="">
+  <div>
+    <h1>Voca<b>band</b></h1>
+    <p>Tra từ · dịch câu · học qua YouTube<br>Ôn đúng thời điểm vàng – band điểm bứt phá</p>
+    <div class="chips"><span class="chip">🔎 Bấm đúp tra từ</span><span class="chip">▶️ Phụ đề YouTube</span><span class="chip">🧠 Flashcard SRS</span><span class="chip">📚 1.200+ từ IELTS</span></div>
+  </div>
+  <div class="card">
+    <div class="w">resilient <span class="ipa">/rɪˈzɪliənt/</span></div>
+    <div class="vi">kiên cường, có khả năng phục hồi</div>
+    <div class="ex">📌 Coastal cities must become more <mark>resilient</mark> to floods.<br><span style="color:#888">Các thành phố ven biển phải trở nên kiên cường hơn trước lũ lụt.</span></div>
+    <div class="btns"><span style="background:#e5484d">Quên</span><span style="background:#f59e0b">Khó</span><span style="background:#16a34a">Nhớ</span><span style="background:#2563eb">Dễ</span></div>
+  </div>
+</div>
+<script>
+  const q = new URLSearchParams(location.search), w = +(q.get('w') || 1400), h = +(q.get('h') || 560);
+  document.body.style.setProperty('--w', w + 'px'); document.body.style.setProperty('--h', h + 'px');
+  if (w < 600) document.body.classList.add('small');
+</script>
+</body></html>

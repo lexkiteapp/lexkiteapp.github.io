@@ -1,0 +1,251 @@
+<title>Lexkite Brand Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;700;800&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Bố cục: hero sống động (Kit bay) → logo → sản phẩm thật trên điện thoại (màn hình chính, mở app, trang chủ, thông báo) → Kit cảm xúc → màu & chữ → kiểm tra tên */
+:root {
+  --bg: #eef6f4; --panel: #ffffff; --ink: #0f2a2b; --muted: #557070; --line: #d6e4e0; --chip: #e7f1ee;
+  --teal: #0F3D3E; --teal2: #17595a; --coral: #FF6B4A; --coral2: #FF9A5C; --sun: #FFC94A; --sky: #CFE9F2; --paper: #F4FBF8; --mint: #2FBF71;
+  --ok: #1d8a5c; --warn: #b7791f;
+  --display: "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0b1312; --panel: #13201f; --ink: #e8f2ef; --muted: #98b1ac; --line: #22332f; --chip: #1a2a28; --ok: #4cc28d; --warn: #e3a94a; color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #0b1312; --panel: #13201f; --ink: #e8f2ef; --muted: #98b1ac; --line: #22332f; --chip: #1a2a28; --ok: #4cc28d; --warn: #e3a94a; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 var(--body); }
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 18px; padding-block: 28px 72px; display: grid; gap: 28px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.1; }
+h2 { font-size: clamp(1.45rem, 3.4vw, 2rem); font-weight: 800; letter-spacing: -.02em; }
+h3 { font-size: 1rem; font-weight: 700; font-family: var(--body); }
+p { margin: 0; }
+.label { font: 500 .72rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.muted { color: var(--muted); }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 26px; padding: clamp(18px, 4vw, 32px); display: grid; gap: 22px; }
+
+/* HERO: bầu trời, Kit lướt gió kéo theo cánh diều */
+.hero { position: relative; overflow: hidden; border-radius: 30px; color: #fff; padding: clamp(26px, 6vw, 60px); min-height: 360px; display: grid; align-content: end; gap: 12px;
+  background: radial-gradient(120% 90% at 85% 10%, #2a7d7a 0%, #0F3D3E 55%, #0a2c2d 100%); }
+.hero .cloud { position: absolute; border-radius: 999px; background: rgba(255,255,255,.08); filter: blur(1px); }
+.hero { grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 24px; }
+.hero > * { grid-column: 1; }
+.hero .kitfly { grid-column: 2; grid-row: 1 / span 4; width: clamp(150px, 26vw, 240px); position: relative; }
+@media (max-width: 640px) { .hero { grid-template-columns: 1fr; } .hero .kitfly { grid-column: 1; grid-row: auto; justify-self: center; width: 170px; order: -1; } }
+.lockup { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; position: relative; }
+.word { font-family: var(--display); font-weight: 800; font-size: clamp(3rem, 11vw, 5.4rem); letter-spacing: -.045em; line-height: .95; }
+.hero .tag { position: relative; font-size: clamp(1.05rem, 2.6vw, 1.4rem); font-weight: 600; opacity: .95; }
+.hero .sub { position: relative; font-size: .95rem; opacity: .78; max-width: 56ch; }
+
+.logos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+.lt { border-radius: 22px; padding: 26px 20px; display: grid; place-items: center; gap: 10px; min-height: 160px; }
+.lt .wm { display: flex; align-items: center; gap: 10px; font: 800 2.35rem/1 var(--display); letter-spacing: -.04em; }
+.lt .cap { font-size: .78rem; opacity: .7; }
+
+/* Điện thoại mô phỏng */
+.phones { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 20px; justify-items: center; }
+.phone { width: 230px; max-width: 100%; aspect-ratio: 9 / 19; border-radius: 34px; padding: 10px; background: #0b0f10; box-shadow: 0 18px 40px rgba(10, 30, 30, .25); }
+.screen { width: 100%; height: 100%; border-radius: 26px; overflow: hidden; position: relative; display: grid; }
+.phonecap { text-align: center; font-size: .82rem; color: var(--muted); margin-top: 8px; }
+.home { background: linear-gradient(160deg, #8fd3e6, #3f8fb0 60%, #24607e); padding: 34px 14px 14px; grid-template-columns: repeat(4, 1fr); align-content: start; gap: 14px 8px; }
+.app { display: grid; justify-items: center; gap: 4px; font-size: .58rem; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.3); }
+.app i { width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; font-style: normal; }
+.splash { background: radial-gradient(90% 60% at 50% 40%, #1d6d6c, #0F3D3E 70%); place-items: center; color: #fff; }
+.splash .in { display: grid; justify-items: center; gap: 10px; }
+.appui { background: var(--paper); color: var(--teal); padding: 16px 12px; align-content: start; gap: 10px; font-size: .74rem; }
+.appui .top { display: flex; align-items: center; justify-content: space-between; font: 800 .95rem/1 var(--display); }
+.appui .greet { display: flex; align-items: flex-end; gap: 6px; }
+.bubble { background: #fff; border: 1px solid #d6e4e0; border-radius: 14px 14px 14px 4px; padding: 8px 10px; font-weight: 700; line-height: 1.3; }
+.appui .card { background: var(--teal); color: #fff; border-radius: 16px; padding: 12px; display: grid; gap: 2px; }
+.appui .card b { font: 800 1.5rem/1 var(--display); }
+.appui .bar { height: 7px; border-radius: 9px; background: rgba(255,255,255,.2); overflow: hidden; } .appui .bar i { display: block; height: 100%; width: 62%; background: var(--sun); border-radius: 9px; }
+.appui .btn { background: var(--coral); color: #fff; border-radius: 12px; padding: 10px; text-align: center; font-weight: 800; box-shadow: 0 4px 0 #d9502f; }
+.appui .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.appui .mini { background: #fff; border: 1px solid #d6e4e0; border-radius: 12px; padding: 8px; font-weight: 700; }
+.lock { background: linear-gradient(180deg, #2c4f6b, #182c3b); color: #fff; padding: 40px 12px 12px; align-content: start; gap: 10px; text-align: center; }
+.lock .time { font: 300 3rem/1 var(--body); letter-spacing: -.02em; }
+.noti { text-align: left; display: flex; gap: 8px; align-items: center; background: rgba(255,255,255,.18); backdrop-filter: blur(6px); border-radius: 16px; padding: 9px; font-size: .68rem; line-height: 1.3; }
+.noti b { display: block; font-size: .72rem; }
+
+.moods { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 14px; }
+.mood { background: var(--chip); border-radius: 20px; padding: 14px 10px 12px; display: grid; justify-items: center; gap: 4px; text-align: center; }
+.mood b { font-size: .92rem; } .mood span { font-size: .78rem; color: var(--muted); line-height: 1.35; }
+
+.sw { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+.sw div { border-radius: 16px; overflow: hidden; border: 1px solid var(--line); }
+.sw i { display: block; height: 62px; }
+.sw span { display: block; padding: .5rem .65rem; font: 500 .74rem/1.4 var(--mono); color: var(--muted); }
+.sw b { display: block; font: 700 .85rem/1.3 var(--body); color: var(--ink); }
+table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+td, th { text-align: left; padding: .55rem .45rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font: 500 .72rem/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.tbl { overflow-x: auto; } .ok { color: var(--ok); font-weight: 700; } .warn { color: var(--warn); font-weight: 700; }
+
+/* Chuyển động: Kit lượn, vỗ cánh, chớp mắt; logo lướt nhẹ */
+@media (prefers-reduced-motion: no-preference) {
+  .kitfly { animation: fly 6s ease-in-out infinite; }
+  .flap-l { transform-origin: 32px 68px; animation: flapL .9s ease-in-out infinite; }
+  .flap-r { transform-origin: 88px 68px; animation: flapR .9s ease-in-out infinite; }
+  .blink { transform-box: fill-box; transform-origin: center; animation: blink 4.2s infinite; }
+  .bob { animation: bob 2.6s ease-in-out infinite; }
+  .glide { animation: glide 5s ease-in-out infinite; }
+  .string { stroke-dasharray: 4 5; animation: dash 1.2s linear infinite; }
+}
+@keyframes fly { 0%, 100% { transform: translate(0, 0) rotate(-4deg); } 50% { transform: translate(-14px, 10px) rotate(3deg); } }
+@keyframes flapL { 50% { transform: rotate(18deg); } }
+@keyframes flapR { 50% { transform: rotate(-18deg); } }
+@keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+@keyframes bob { 50% { transform: translateY(-4px); } }
+@keyframes glide { 50% { transform: translate(4px, -4px) rotate(-3deg); } }
+@keyframes dash { to { stroke-dashoffset: -18; } }
+</style>
+
+<!-- Biểu tượng chim én – cánh diều: toàn đường cong, chuyển màu san hô → nắng -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gCoral" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFB054"/><stop offset=".55" stop-color="#FF7A4D"/><stop offset="1" stop-color="#F2553B"/></linearGradient>
+    <linearGradient id="gTail" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF7A4D"/><stop offset="1" stop-color="#FFC94A"/></linearGradient>
+    <linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFB054"/><stop offset="1" stop-color="#F2553B"/></linearGradient>
+    <linearGradient id="pg2" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB054"/><stop offset="1" stop-color="#F2553B"/></linearGradient>
+    <!-- Cuốn sách biết bay: 2 trang sách mở = đôi cánh én, đuôi chẻ đôi của én, đầu chim nhỏ -->
+    <symbol id="mark" viewBox="0 0 120 120">
+      <path d="M58 54 C46 40 26 30 4 30 C6 44 9 58 12 70 C30 68 46 72 58 84 Z" fill="url(#pg)"/><path d="M62 54 C74 40 94 30 116 30 C114 44 111 58 108 70 C90 68 74 72 62 84 Z" fill="url(#pg2)"/>
+      <path d="M52 56 C42 47 29 41 14 40 M52 64 C42 56 30 51 16 51 M52 72 C42 66 31 62 18 62 M68 56 C78 47 91 41 106 40 M68 64 C78 56 90 51 104 51 M68 72 C78 66 89 62 102 62" stroke="#FFE7C2" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".9"/>
+      <path d="M54 80 C52 92 46 102 34 113 C49 109 57 101 60 94 C63 101 71 109 86 113 C74 102 68 92 66 80 Z" fill="#FFC94A"/>
+      <circle cx="60" cy="42" r="11" fill="#FFC94A"/><path d="M61 33 l8 -5 l-2 8 Z" fill="#FFC94A"/><circle cx="63.5" cy="40" r="2.3" fill="#0F3D3E"/>
+    </symbol>
+    <symbol id="mark-mono" viewBox="0 0 120 120">
+      <path d="M58 54 C46 40 26 30 4 30 C6 44 9 58 12 70 C30 68 46 72 58 84 Z M62 54 C74 40 94 30 116 30 C114 44 111 58 108 70 C90 68 74 72 62 84 Z M54 80 C52 92 46 102 34 113 C49 109 57 101 60 94 C63 101 71 109 86 113 C74 102 68 92 66 80 Z M60 31 a11 11 0 1 0 0.01 0 Z M61 33 l8 -5 l-2 8 Z" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <section class="hero">
+    <span class="cloud" style="width:180px;height:44px;left:8%;top:18%"></span>
+    <span class="cloud" style="width:120px;height:30px;left:40%;top:8%"></span>
+    <span class="cloud" style="width:220px;height:52px;right:-40px;bottom:22%"></span>
+    <div class="kitfly" id="heroKit"></div>
+    <div class="label" style="color:#bfe6e2;position:relative">Brand kit · v3</div>
+    <div class="lockup"><svg class="glide" width="92" height="92"><use href="#mark"/></svg><div class="word">lexkite</div></div>
+    <p class="tag">Words that lift you higher.</p>
+    <p class="sub">Biểu tượng: “cuốn sách biết bay” – hai trang sách mở thành đôi cánh én, đuôi én chẻ đôi. Ý nghĩa: sách và từ vựng chắp cánh cho người học bay xa. Linh vật Kit là chú én nhỏ – lưng xanh than, trán và cổ đỏ, đuôi chẻ dài – luôn bay cùng người học.</p>
+  </section>
+
+  <section class="panel">
+    <div><div class="label">Logo</div><h2>Mềm mại trên mọi nền</h2></div>
+    <div class="logos">
+      <div class="lt" style="background:#F4FBF8;color:#0F3D3E;border:1px solid var(--line)"><div class="wm"><svg width="54" height="54"><use href="#mark"/></svg>lexkite</div><span class="cap">Nền sáng</span></div>
+      <div class="lt" style="background:#0F3D3E;color:#F4FBF8"><div class="wm"><svg width="54" height="54"><use href="#mark"/></svg>lexkite</div><span class="cap">Nền tối</span></div>
+      <div class="lt" style="background:linear-gradient(135deg,#FF9A5C,#F2553B);color:#fff"><div class="wm"><svg width="54" height="54" style="color:#fff"><use href="#mark-mono"/></svg>lexkite</div><span class="cap">Một màu</span></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div><div class="label">Sản phẩm thật</div><h2>Lexkite trên điện thoại</h2></div>
+    <div class="phones">
+      <div><div class="phone"><div class="screen home" id="homeScreen"></div></div><div class="phonecap">Biểu tượng trên màn hình chính</div></div>
+      <div><div class="phone"><div class="screen splash"><div class="in"><div class="bob" id="splashKit"></div><div style="font:800 1.8rem/1 var(--display);letter-spacing:-.04em">lexkite</div><div style="font-size:.72rem;opacity:.75">Words that lift you higher.</div></div></div></div><div class="phonecap">Màn hình khi mở app</div></div>
+      <div><div class="phone"><div class="screen appui">
+        <div class="top"><span style="display:flex;align-items:center;gap:6px"><svg width="22" height="22"><use href="#mark"/></svg>lexkite</span><span>🔥 12</span></div>
+        <div class="greet"><div id="uiKit"></div><div class="bubble">Chào buổi sáng! Hôm nay mình ôn 24 từ nhé 🪁</div></div>
+        <div class="card"><span style="opacity:.8">Mục tiêu hôm nay</span><b>24 thẻ</b><div class="bar"><i></i></div><span style="opacity:.8">15/24 · còn khoảng 4 phút</span></div>
+        <div class="btn">Bắt đầu ôn tập</div>
+        <div class="row2"><div class="mini">🎧 Listening<br><span style="font-weight:500;opacity:.7">Test 9 · Part 1</span></div><div class="mini">🗣️ Speaking<br><span style="font-weight:500;opacity:.7">Giám khảo AI</span></div></div>
+      </div></div><div class="phonecap">Trang chủ có Kit chào</div></div>
+      <div><div class="phone"><div class="screen lock"><div style="font-size:.75rem;opacity:.8">Thứ Tư, 15 tháng 10</div><div class="time">20:00</div>
+        <div class="noti"><div id="lockKit"></div><div><b>Lexkite · Kit đang đợi bạn</b>24 từ cần ôn – 5 phút là xong, giữ chuỗi 12 ngày nhé!</div></div>
+        <div class="noti"><svg width="30" height="30" style="flex:none;background:#0F3D3E;border-radius:8px;padding:3px"><use href="#mark"/></svg><div><b>Lexkite</b>Bạn vừa lên band 6.5 Listening 🎉</div></div>
+      </div></div><div class="phonecap">Thông báo nhắc học</div></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div><div class="label">Linh vật</div><h2>Kit – chú én học cùng bạn</h2></div>
+    <div class="moods" id="moods"></div>
+  </section>
+
+  <section class="panel">
+    <div><div class="label">Màu & chữ</div><h2>Bảng màu</h2></div>
+    <div class="sw">
+      <div><i style="background:#0F3D3E"></i><span><b>Deep Teal</b>#0F3D3E · nền, chữ</span></div>
+      <div><i style="background:linear-gradient(135deg,#FFB054,#FF7A4D,#F2553B)"></i><span><b>Swallow Coral</b>#FF6B4A · logo, nút</span></div>
+      <div><i style="background:#FFC94A"></i><span><b>Sun</b>#FFC94A · thưởng, chuỗi</span></div>
+      <div><i style="background:#CFE9F2"></i><span><b>Sky</b>#CFE9F2 · nền phụ</span></div>
+      <div><i style="background:#F4FBF8"></i><span><b>Paper</b>#F4FBF8 · nền sáng</span></div>
+      <div><i style="background:#2FBF71"></i><span><b>Correct</b>#2FBF71 · đúng</span></div>
+    </div>
+    <p class="muted"><b style="font-family:var(--display);color:var(--ink)">Bricolage Grotesque</b> cho tiêu đề và logo, <b style="color:var(--ink)">Figtree</b> cho nội dung (đủ tiếng Việt có dấu). Giọng thương hiệu: thân thiện, khích lệ, ngắn gọn, hơi tinh nghịch như Kit.</p>
+  </section>
+
+  <section class="panel">
+    <div><div class="label">Kiểm tra ngày 15/10/2026</div><h2>Lexkite cho thị trường toàn cầu</h2></div>
+    <div class="tbl"><table>
+      <tr><th>Hạng mục</th><th>Kết quả</th></tr>
+      <tr><td>lexkite.com · .app · .io</td><td class="ok">Còn trống – nên đăng ký ngay</td></tr>
+      <tr><td>lexkiteai.com</td><td class="ok">Còn trống</td></tr>
+      <tr><td>lexkite.ai</td><td class="warn">Chưa kiểm tra được từ máy này</td></tr>
+      <tr><td>Phát âm</td><td>LEX-kait · Nhật: レックスカイト · Trung (gợi ý): 乐思凯</td></tr>
+      <tr><td>Nghĩa xấu / app trùng</td><td class="ok">Không thấy (tra sơ bộ web, App Store)</td></tr>
+      <tr><td>Nhãn hiệu chính thức</td><td class="warn">Cần tra WIPO, USPTO, Cục SHTT Việt Nam và nộp đơn nhóm 9 & 41</td></tr>
+    </table></div>
+  </section>
+</div>
+
+<script>
+/* Kit: thân hình hạt đậu, cánh lá, đuôi uốn, mắt to có ánh sáng; cảm xúc đổi mắt/miệng/cánh */
+const kit = (m = 'happy', s = 120, anim = true) => {
+  const NAVY = '#2F62C0', NAVY2 = '#244E9E', RED = '#EF6A4C', CREAM = '#FFF7EA';
+  // Mắt to long lanh trên nền đầu xanh than: tròng trắng + con ngươi + 2 điểm sáng
+  const E = (x, y) => `<g class="${anim ? 'blink' : ''}"><ellipse cx="${x}" cy="${y}" rx="10" ry="11" fill="#fff"/><ellipse cx="${x + 1}" cy="${y + 1.5}" rx="7" ry="8" fill="#0D1B33"/><circle cx="${x + 3.4}" cy="${y - 2.4}" r="2.4" fill="#fff"/><circle cx="${x - 1.4}" cy="${y + 3.8}" r="1.2" fill="#fff" opacity=".85"/></g>`;
+  const arc = (x, y, up) => `<path d="M${x - 7} ${y} q7 ${up ? -9 : 7} 14 0" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>`;
+  const eyes = {
+    happy: E(45, 54) + E(75, 54), think: E(47, 51) + E(77, 51), cheer: E(45, 54) + arc(75, 55, true), win: arc(45, 56, true) + arc(75, 56, true),
+    sad: E(45, 56) + E(75, 56) + '<path d="M35 43 q7 -2 13 3 M85 43 q-7 -2 -13 3" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M84 66 q4 7 0 10 q-4 -3 0 -10 Z" fill="#7cd0ee"/>',
+    sleep: arc(45, 55, false) + arc(75, 55, false),
+  }[m];
+  const beak = m === 'sad' ? '<path d="M56 67 q4 -2.5 8 0" stroke="#0D1B33" stroke-width="3" fill="none" stroke-linecap="round"/>'
+    : m === 'win' || m === 'cheer' ? '<path d="M54.5 63 q5.5 8 11 0 Z" fill="#0D1B33"/><path d="M56 63.5 q4 2 8 0" stroke="#FFD36A" stroke-width="2.4" fill="none" stroke-linecap="round"/>'
+    : '<path d="M55.5 62 q4.5 -2 9 0 q-2.2 4.5 -4.5 5.5 q-2.3 -1 -4.5 -5.5 Z" fill="#0D1B33"/><path d="M56 62.3 q4 -1.2 8 0" stroke="#FFD36A" stroke-width="1.6" fill="none" stroke-linecap="round"/>';
+  const up = m === 'win' || m === 'cheer';
+  // Cánh dài, nhọn hình lưỡi liềm
+  const wingL = up ? `<path d="M30 66 C18 60 8 50 2 38 C14 42 26 50 36 60 Z" fill="${NAVY2}"/>` : `<path d="M30 66 C18 70 8 82 0 100 C14 90 26 84 38 78 Z" fill="${NAVY2}"/>`;
+  const wingR = up ? `<path d="M90 66 C102 60 112 50 118 38 C106 42 94 50 84 60 Z" fill="${NAVY2}"/>` : `<path d="M90 66 C102 70 112 82 120 100 C106 90 94 84 82 78 Z" fill="${NAVY2}"/>`;
+  const extra = {
+    think: '<text x="98" y="28" font-size="22" font-weight="800" fill="#FF6B4A" font-family="Bricolage Grotesque, sans-serif">?</text>',
+    sleep: '<text x="92" y="26" font-size="15" font-weight="800" fill="#7fa8a2" font-family="Figtree, sans-serif">z</text><text x="102" y="16" font-size="11" font-weight="800" fill="#7fa8a2">z</text>',
+    win: '<circle cx="10" cy="30" r="4" fill="#FFC94A"/><circle cx="110" cy="24" r="3.5" fill="#FF6B4A"/><rect x="104" y="44" width="7" height="7" rx="2" fill="#2FBF71" transform="rotate(20 107 47)"/><path d="M14 6 l2 5 l5 1 l-4 3 l1 5 l-4 -3 l-4 3 l1 -5 l-4 -3 l5 -1 Z" fill="#FFC94A"/>',
+  }[m] || '';
+  return `<svg width="${s}" height="${s}" viewBox="0 0 120 120" role="img" aria-label="Kit – chú én">
+    ${extra}
+    <!-- đuôi én: hai dải dài chẻ sâu -->
+    <path d="M55 92 C50 104 40 113 26 119 C40 118 52 111 60 100 C68 111 80 118 94 119 C80 113 70 104 65 92 Z" fill="${NAVY2}"/>
+    <g class="${anim ? 'flap-l' : ''}">${wingL}</g><g class="${anim ? 'flap-r' : ''}">${wingR}</g>
+    <!-- thân -->
+    <path d="M60 22 C82 22 94 40 94 60 C94 82 79 98 60 98 C41 98 26 82 26 60 C26 40 38 22 60 22 Z" fill="${NAVY}"/>
+    <ellipse cx="46" cy="32" rx="9" ry="5" fill="#fff" opacity=".22" transform="rotate(-25 46 32)"/>
+    <!-- bụng trắng kem -->
+    <path d="M60 70 C76 70 86 78 86 86 C84 93 74 98 60 98 C46 98 36 93 34 86 C34 78 44 70 60 70 Z" fill="${CREAM}"/>
+    <!-- trán & cổ đỏ gạch -->
+    <path d="M52 36 C55 33 65 33 68 36 C66 40 54 40 52 36 Z" fill="${RED}"/>
+    <path d="M47 64 C51 60 69 60 73 64 C73 72 67 77 60 77 C53 77 47 72 47 64 Z" fill="${RED}"/>
+    ${eyes}${beak}
+    ${m === 'sleep' ? '' : '<ellipse cx="32" cy="67" rx="7" ry="4.5" fill="#FF8FA3" opacity=".75"/><ellipse cx="88" cy="67" rx="7" ry="4.5" fill="#FF8FA3" opacity=".75"/>'}
+  </svg>`;
+};
+// Hero: Kit bay kéo theo cánh diều (sợi dây động)
+document.getElementById('heroKit').innerHTML = `<svg viewBox="0 0 240 200" width="100%" aria-hidden="true">
+  <path class="string" d="M70 120 C110 150 150 120 190 150" stroke="#CFE9F2" stroke-width="2" fill="none" opacity=".8"/>
+  <g transform="translate(176 128) rotate(18)"><svg width="54" height="54" viewBox="0 0 120 120" x="-27" y="-27"><use href="#mark"/></svg></g>
+  <foreignObject x="0" y="10" width="140" height="140"><div xmlns="http://www.w3.org/1999/xhtml">${kit('happy', 140)}</div></foreignObject></svg>`;
+document.getElementById('splashKit').innerHTML = kit('happy', 96);
+document.getElementById('uiKit').innerHTML = kit('happy', 54);
+document.getElementById('lockKit').innerHTML = kit('sad', 34, false);
+// Màn hình chính với các app khác (khối màu trung tính)
+const apps = [['#34C759', 'Tin nhắn'], ['#0A84FF', 'Mail'], ['#FF9F0A', 'Ảnh'], ['#5E5CE6', 'Lịch'], ['#FF375F', 'Nhạc'], ['#64D2FF', 'Thời tiết'], ['#30D158', 'Bản đồ'], ['#8E8E93', 'Cài đặt']];
+document.getElementById('homeScreen').innerHTML = apps.slice(0, 5).map(([c, n]) => `<div class="app"><i style="background:${c}"></i>${n}</div>`).join('')
+  + `<div class="app"><i style="background:#0F3D3E;box-shadow:0 4px 10px rgba(0,0,0,.25)"><svg width="32" height="32"><use href="#mark"/></svg></i><b>Lexkite</b></div>`
+  + apps.slice(5).map(([c, n]) => `<div class="app"><i style="background:${c}"></i>${n}</div>`).join('');
+const MOODS = [['happy', 'Vui', 'Chào trên trang chủ'], ['win', 'Ăn mừng', 'Lên band, xong đề thi'], ['cheer', 'Cổ vũ', 'Trả lời đúng liên tiếp'], ['think', 'Suy nghĩ', 'Gợi ý, giải thích'], ['sad', 'Buồn', 'Sắp mất chuỗi ngày học'], ['sleep', 'Ngủ', 'Yên lặng ban đêm']];
+document.getElementById('moods').innerHTML = MOODS.map(([k, n, d]) => `<div class="mood">${kit(k, 112)}<b>${n}</b><span>${d}</span></div>`).join('');
+</script>

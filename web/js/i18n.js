@@ -1,0 +1,67 @@
+/* Đa ngôn ngữ giao diện (i18n). Khóa dịch = chuỗi gốc tiếng Việt trong mã (kiểu gettext): t('Ôn tập') → "Review".
+ * Ngôn ngữ: lựa chọn đã lưu → ngôn ngữ trình duyệt → mặc định English. Chỉ nạp file của ngôn ngữ đang dùng.
+ * Nội dung học (nghĩa từ, giải thích) theo "ngôn ngữ người học" (learnLang) – mặc định theo giao diện. */
+(function (g) {
+  const LANGS = {
+    en: ['English', 'English'], vi: ['Vietnamese', 'Tiếng Việt'], es: ['Spanish', 'Español'], pt: ['Portuguese', 'Português'], fr: ['French', 'Français'],
+    de: ['German', 'Deutsch'], id: ['Indonesian', 'Bahasa Indonesia'], th: ['Thai', 'ไทย'], zh: ['Chinese (Simplified)', '简体中文'], ja: ['Japanese', '日本語'],
+    ko: ['Korean', '한국어'], hi: ['Hindi', 'हिन्दी'], ar: ['Arabic', 'العربية'], ru: ['Russian', 'Русский'], tr: ['Turkish', 'Türkçe'],
+  };
+  const RTL = new Set(['ar']);
+  // Ngôn ngữ đã có bản dịch giao diện đầy đủ (file js/i18n/<lang>.js). Ngôn ngữ khác → dùng English cho CẢ giao diện lẫn nội dung,
+  // tránh giao diện một thứ tiếng, nội dung một thứ tiếng. Thêm ngôn ngữ mới: sinh file bằng scripts/gen-i18n.mjs rồi thêm mã vào đây.
+  const SUPPORTED = ['en', 'vi', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
+  const KEY = 'vb.uiLang';
+  const read = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
+  function detect() {
+    // ?hl=xx (liên kết hreflang cho SEO từng quốc gia) – ưu tiên và ghi nhớ
+    try { const hl = new URLSearchParams(g.location && location.search).get('hl'); if (hl && SUPPORTED.includes(hl)) { try { localStorage.setItem(KEY, hl); } catch (e) { /* bỏ qua */ } return hl; } } catch (e) { /* bỏ qua */ }
+    const saved = read(KEY); if (saved && SUPPORTED.includes(saved)) return saved;
+    const navs = (g.navigator && (navigator.languages || [navigator.language])) || [];
+    for (const l of navs) { const b = String(l || '').toLowerCase().split('-')[0]; if (SUPPORTED.includes(b)) return b; }
+    return 'en';
+  }
+  const lang = detect();
+  const D = g.I18N_DICT = g.I18N_DICT || {};
+  // t(chuỗi gốc, {biến}) – thiếu bản dịch thì dùng tiếng Anh, rồi mới tới chuỗi gốc
+  function t(src, vars) {
+    let s = lang === 'vi' ? src : ((D[lang] && D[lang][src]) || (D.en && D.en[src]) || src);
+    if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m));
+    return s;
+  }
+  // Dịch các phần tử tĩnh trong HTML: <span data-i18n>Ôn tập</span>, data-i18n-title, data-i18n-placeholder
+  function apply(root) {
+    if (lang === 'vi' || !g.document) return;
+    (root || document).querySelectorAll('[data-i18n]').forEach(el => { const k = el.getAttribute('data-i18n') || el.textContent.trim(); el.textContent = t(k); });
+    (root || document).querySelectorAll('[data-i18n-title]').forEach(el => { el.title = t(el.getAttribute('data-i18n-title')); });
+    (root || document).querySelectorAll('[data-i18n-placeholder]').forEach(el => { el.placeholder = t(el.getAttribute('data-i18n-placeholder')); });
+  }
+  function set(l) { if (!SUPPORTED.includes(l)) return; try { localStorage.setItem(KEY, l); } catch (e) { /* bỏ qua */ } location.reload(); }
+  // Ngôn ngữ dùng để hiển thị nghĩa/giải thích (người học có thể chọn khác giao diện)
+  const learnLang = () => { const l = read('vb.learnLang'); return l && SUPPORTED.includes(l) ? l : lang; };
+  // Ngôn ngữ của NGHĨA TỪ: 'vi' (nghĩa tiếng Việt) hoặc 'en' (định nghĩa tiếng Anh, kiểu từ điển Oxford Learner's).
+  // Mặc định: trình duyệt có tiếng Việt → 'vi', còn lại → 'en'. Người học đổi được trong Cài đặt.
+  const meanLang = () => { const m = read('vb.meanLang'); if (m === 'vi' || m === 'en') return m; const navs = (g.navigator && (navigator.languages || [navigator.language])) || []; return lang === 'vi' || navs.some(l => /^vi\b/i.test(l || '')) ? 'vi' : 'en'; };
+  g.t = t;
+  g.I18N = { t, apply, set, lang: () => lang, learnLang, meanLang, setMean: m => { try { localStorage.setItem('vb.meanLang', m); } catch (e) { /* bỏ qua */ } location.reload(); }, LANGS, SUPPORTED, rtl: RTL.has(lang), detect };
+  if (g.document) {
+    document.documentElement.lang = lang;
+    if (RTL.has(lang)) document.documentElement.dir = 'rtl';
+    // Nạp đồng bộ đúng 1 file ngôn ngữ trước khi các module khác chạy (giao diện không bị nhảy chữ)
+    if (lang !== 'vi' && document.readyState === 'loading' && document.currentScript) {
+      document.write(`<script src="js/i18n/en.js"><\/script>`);
+      if (lang !== 'en') document.write(`<script src="js/i18n/${lang}.js"><\/script>`);
+    }
+    // Tiêu đề & mô tả trang theo ngôn ngữ (Google đọc được tiêu đề do JS đặt) – khóa dịch nằm trong từ điển giao diện
+    const TITLE = 'Lexkite – Học từ vựng IELTS & TOEIC miễn phí: flashcard FSRS, từ điển, thi thử';
+    const DESC = 'Học từ vựng IELTS, TOEIC & TOEFL miễn phí: flashcard FSRS, từ điển song ngữ có phát âm, luyện 4 kỹ năng và thi thử có giải thích chi tiết.';
+    document.addEventListener('DOMContentLoaded', () => {
+      apply();
+      // Trang ?hl=xx là phiên bản riêng của ngôn ngữ đó (không phải bản trùng của trang gốc)
+      try { if (new URLSearchParams(location.search).get('hl') === lang) { const c = document.querySelector('link[rel="canonical"]'); if (c) c.href = c.href.split('?')[0] + '?hl=' + lang; } } catch (e) { /* bỏ qua */ }
+      if (lang === 'vi') return;
+      document.title = t(TITLE);
+      const m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute('content', t(DESC));
+    });
+  }
+})(typeof self !== 'undefined' ? self : this);

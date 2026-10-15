@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>Lexkite</title>
+  <link rel="stylesheet" href="app/css/style.css">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body class="popup">
+  <div class="row between">
+    <div class="brand"><img class="logo" src="icons/icon.svg" alt=""><span class="wordmark">Voca<b>band</b></span></div>
+    <span class="streak" id="streak">🔥 0</span>
+  </div>
+
+  <div class="card hero-main" style="margin-top:12px">
+    <div class="row between">
+      <div><div class="big-num" id="due">0</div><div class="muted small" data-tx>thẻ cần học hôm nay</div></div>
+      <button class="btn primary" id="review" data-tx>Ôn ngay →</button>
+    </div>
+    <div class="row" style="gap:6px;margin-top:8px" id="dueChips"></div>
+    <div class="row between small" style="margin-top:10px"><span data-tx>Mục tiêu</span><span id="goalTxt">0/20</span></div>
+    <div class="progress"><i id="goalBar" style="width:0"></i></div>
+  </div>
+
+  <div class="sync-row" id="syncRow"></div>
+  <form class="search" id="f" style="margin-top:12px" autocomplete="off">
+    <input class="input" id="q" placeholder="Tra nhanh một từ…" data-tx-ph autofocus>
+  </form>
+  <div id="res"></div>
+  <div id="recent"></div>
+  <details class="pp-set"><summary data-tx>⚙️ Cài đặt tra từ</summary>
+
+  <div class="row between small" style="margin-top:12px">
+    <span data-tx>Khi bôi đen chữ</span>
+    <select class="input" id="selMode" style="width:auto;padding:.3rem .5rem">
+      <option value="icon" data-tx>Hiện nút 🌐 để dịch</option>
+      <option value="auto" data-tx>Tự dịch ngay</option>
+      <option value="off" data-tx>Tắt</option>
+    </select>
+  </div>
+  <div class="row between small" style="margin-top:8px">
+    <label class="row"><input type="checkbox" id="dbl"> <span data-tx>Bấm đúp để tra từ</span></label>
+  </div>
+  <div class="row between small" style="margin-top:8px">
+    <label class="row"><input type="checkbox" id="markK"> <span data-tx>Đánh dấu từ đã học trên trang</span></label>
+    <a href="#" id="open" data-tx>Mở ứng dụng ↗</a>
+  </div>
+  </details>
+  <div class="tiny muted" style="margin-top:10px;line-height:1.5" data-tx-html>💡 Bấm đúp vào từ để tra · bôi đen câu để dịch · trên YouTube: bật phụ đề rồi <b>chạm vào từ</b> trong phụ đề
+  </div>
+  <script src="app/js/data.js"></script>
+  <script src="app/js/core.js"></script>
+  <script src="app/js/dictionary.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "appId": "com.vocaband.app",
+  "appName": "Lexkite",
+  "webDir": "www",
+  "backgroundColor": "#f6f7fb",
+  "android": {
+    "allowMixedContent": false
+  },
+  "ios": {
+    "contentInset": "never"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 600,
+      "backgroundColor": "#5b4cf0",
+      "showSpinner": false
+    },
+    "LocalNotifications": {
+      "iconColor": "#5b4cf0"
+    }
+  }
+}

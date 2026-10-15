@@ -1,0 +1,11 @@
+{
+ "appName": {
+  "message": "Lexkite – Diccionario y tarjetas IELTS"
+ },
+ "appDesc": {
+  "message": "Doble clic en una palabra: significado, IPA y audio nativo. Traduce frases y subtítulos de YouTube. Guarda y repasa con tarjetas."
+ },
+ "openApp": {
+  "message": "Abrir Lexkite"
+ }
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024"><defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFB054"/><stop offset="1" stop-color="#F2553B"/></linearGradient>
+    <linearGradient id="pg2" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB054"/><stop offset="1" stop-color="#F2553B"/></linearGradient>
+    </defs><rect width="1024" height="1024" fill="#0F3D3E"/><svg x="112" y="112" width="800" height="800" viewBox="0 0 120 120">
+      <path d="M58 54 C46 40 26 30 4 30 C6 44 9 58 12 70 C30 68 46 72 58 84 Z" fill="url(#pg)"/><path d="M62 54 C74 40 94 30 116 30 C114 44 111 58 108 70 C90 68 74 72 62 84 Z" fill="url(#pg2)"/>
+      <path d="M52 56 C42 47 29 41 14 40 M52 64 C42 56 30 51 16 51 M52 72 C42 66 31 62 18 62 M68 56 C78 47 91 41 106 40 M68 64 C78 56 90 51 104 51 M68 72 C78 66 89 62 102 62" stroke="#FFE7C2" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".9"/>
+      <path d="M54 80 C52 92 46 102 34 113 C49 109 57 101 60 94 C63 101 71 109 86 113 C74 102 68 92 66 80 Z" fill="#FFC94A"/>
+      <circle cx="60" cy="42" r="11" fill="#FFC94A"/><path d="M61 33 l8 -5 l-2 8 Z" fill="#FFC94A"/><circle cx="63.5" cy="40" r="2.3" fill="#0F3D3E"/>
+    </svg></svg>

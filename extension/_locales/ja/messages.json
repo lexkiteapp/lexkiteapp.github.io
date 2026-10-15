@@ -1,0 +1,11 @@
+{
+ "appName": {
+  "message": "Lexkite – 辞書＆IELTS単語カード"
+ },
+ "appDesc": {
+  "message": "単語をダブルクリックで意味・発音記号・ネイティブ音声を表示。文やYouTube字幕も翻訳。文脈ごと保存し、間隔反復で効率よく復習できます。"
+ },
+ "openApp": {
+  "message": "Lexkite を開く"
+ }
+}

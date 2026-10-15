@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 120 120" role="img" aria-label="Kit – chú én">
+    
+    <!-- đuôi én: hai dải dài chẻ sâu -->
+    <path d="M55 92 C50 104 40 113 26 119 C40 118 52 111 60 100 C68 111 80 118 94 119 C80 113 70 104 65 92 Z" fill="#244E9E"/>
+    <g class=""><path d="M30 66 C18 60 8 50 2 38 C14 42 26 50 36 60 Z" fill="#244E9E"/></g><g class=""><path d="M90 66 C102 60 112 50 118 38 C106 42 94 50 84 60 Z" fill="#244E9E"/></g>
+    <!-- thân -->
+    <path d="M60 22 C82 22 94 40 94 60 C94 82 79 98 60 98 C41 98 26 82 26 60 C26 40 38 22 60 22 Z" fill="#2F62C0"/>
+    <ellipse cx="46" cy="32" rx="9" ry="5" fill="#fff" opacity=".22" transform="rotate(-25 46 32)"/>
+    <!-- bụng trắng kem -->
+    <path d="M60 70 C76 70 86 78 86 86 C84 93 74 98 60 98 C46 98 36 93 34 86 C34 78 44 70 60 70 Z" fill="#FFF7EA"/>
+    <!-- trán & cổ đỏ gạch -->
+    <path d="M52 36 C55 33 65 33 68 36 C66 40 54 40 52 36 Z" fill="#EF6A4C"/>
+    <path d="M47 64 C51 60 69 60 73 64 C73 72 67 77 60 77 C53 77 47 72 47 64 Z" fill="#EF6A4C"/>
+    <g class=""><ellipse cx="45" cy="54" rx="10" ry="11" fill="#fff"/><ellipse cx="46" cy="55.5" rx="7" ry="8" fill="#0D1B33"/><circle cx="48.4" cy="51.6" r="2.4" fill="#fff"/><circle cx="43.6" cy="57.8" r="1.2" fill="#fff" opacity=".85"/></g><path d="M68 55 q7 -9 14 0" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M54.5 63 q5.5 8 11 0 Z" fill="#0D1B33"/><path d="M56 63.5 q4 2 8 0" stroke="#FFD36A" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <ellipse cx="32" cy="67" rx="7" ry="4.5" fill="#FF8FA3" opacity=".75"/><ellipse cx="88" cy="67" rx="7" ry="4.5" fill="#FF8FA3" opacity=".75"/>
+  </svg>

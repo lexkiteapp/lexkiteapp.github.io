@@ -1,0 +1,14 @@
+# Ngôn ngữ giao diện cần sinh bản dịch (mã ISO 639-1), mỗi dòng 1 mã. en & vi là bản gốc, không liệt kê.
+es
+pt
+fr
+de
+id
+th
+zh
+ja
+ko
+hi
+ar
+ru
+tr

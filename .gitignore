@@ -1,0 +1,15 @@
+.DS_Store
+node_modules/
+*.zip
+.firebase/
+firebase-debug.log
+.claude/
+store/.claude/
+qa/
+*.pdf
+
+dist/
+dist-firefox/
+
+# Thông tin tài khoản hệ thống – chỉ lưu trên máy, không đưa lên GitHub (repo công khai)
+ACCOUNTS.local.md
