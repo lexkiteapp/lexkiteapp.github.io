@@ -108,6 +108,7 @@
     return out;
   }
   let speakSeq = 0;
+  const nativeTTS = () => (g.VBNative && g.VBNative.is && g.Capacitor && g.Capacitor.Plugins && g.Capacitor.Plugins.TextToSpeech) || null;
   // opts: { rate, onSentence(i, text), onEnd() }
   // Giọng Kokoro tạo sẵn cho câu đọc đơn (câu hỏi giám khảo, TOEFL…): có file thì phát mp3, không thì giọng máy
   let hqEl = null;
@@ -136,9 +137,29 @@
         return;
       }
     }
-    if (!('speechSynthesis' in g)) return;
+    // App iOS/Android: WebView (nhất là Android) không có giọng đọc của trình duyệt → dùng giọng gốc của hệ điều hành (miễn phí, chạy offline)
+    const NT = nativeTTS();
+    if (NT) {
+      const my = ++speakSeq, parts = splitSentences(text), r = rate || prefs().ttsRate || 0.92;
+      NT.stop().catch(() => {});
+      (async () => {
+        for (let i = 0; i < parts.length; i++) {
+          if (my !== speakSeq) return;
+          if (opts.onSentence) opts.onSentence(i, parts[i]);
+          try { await NT.speak({ text: parts[i], lang: accent, rate: r, pitch: 1, volume: 1, category: 'playback' }); } catch (e) { break; }
+        }
+        if (my === speakSeq && opts.onEnd) opts.onEnd();
+      })();
+      return;
+    }
+    if (!('speechSynthesis' in g)) { // không có giọng máy: từ đơn → thử bản ghi giọng người thật từ từ điển
+      if (!/\s/.test(text.trim()) && g.Dict && g.Dict.quick) g.Dict.quick(text.trim()).then(d => { if (d && d.audio) speak(text, accent, d.audio); }).catch(() => {});
+      if (opts.onEnd) opts.onEnd();
+      return;
+    }
     const my = ++speakSeq;
     speechSynthesis.cancel();
+    if (speechSynthesis.paused) speechSynthesis.resume(); // Chrome đôi khi kẹt ở trạng thái tạm dừng → không đọc nữa
     const voice = pickVoice(accent);
     const base = rate || prefs().ttsRate || 0.92;
     const parts = splitSentences(text);
@@ -153,7 +174,7 @@
       speechSynthesis.speak(u);
     });
   }
-  const stopSpeak = () => { speakSeq++; stopHq(); if ('speechSynthesis' in g) speechSynthesis.cancel(); if (audioEl) audioEl.pause(); };
+  const stopSpeak = () => { speakSeq++; stopHq(); const NT = nativeTTS(); if (NT) NT.stop().catch(() => {}); if ('speechSynthesis' in g) speechSynthesis.cancel(); if (audioEl) audioEl.pause(); };
   // Từ đơn: ưu tiên bản ghi giọng người thật; câu: giọng tổng hợp tốt nhất
   let audioEl = null;
   // Bộ nhớ đệm bản ghi giọng người thật (Cache Storage, tối đa 400 file gần nhất): lần sau phát tức thì, nghe được cả khi offline
