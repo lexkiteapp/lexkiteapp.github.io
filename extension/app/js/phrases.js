@@ -359,7 +359,7 @@
     bar.hidden = true; pop.hidden = false;
     pop.innerHTML = `<div class="row between nowrap" style="gap:.6rem"><b>${esc(info.phrase)}</b><button class="icon-btn sm" data-x aria-label="${t('Đóng')}">✕</button></div>
       <div class="vi" style="margin:.35rem 0 .6rem">${info.vi ? esc(info.vi) : `<span class="muted small">⏳ ${t('Đang dịch…')}</span>`}</div>
-      <div class="row" style="gap:.4rem"><button class="btn sm" data-sp>🔊 ${t('Nghe')}</button><button class="btn sm primary" data-save>${App.isPhrase && App.isPhrase(info.phrase) ? t('✓ Đã lưu') : '＋ ' + t('Lưu vào Sổ cụm từ')}</button></div>`;
+      <div class="row" style="gap:.4rem"><button class="btn sm" data-sp>🔊 ${t('Nghe')}</button><button class="btn sm primary" data-save>${App.inDeck && App.inDeck(info.phrase) ? t('✓ Đã lưu') : '＋ ' + t('Lưu vào Sổ cụm từ')}</button></div>`;
     place(pop, el.getBoundingClientRect());
     $('[data-x]', pop).onclick = () => { pop.hidden = true; };
     $('[data-sp]', pop).onclick = () => UI.speak(info.phrase, state.settings.accent);
