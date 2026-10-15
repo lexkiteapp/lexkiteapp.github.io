@@ -74,6 +74,7 @@
   const masteredCount = () => Object.values(state.cards).filter(c => SRS.mastery(c.srs) === 3).length;
 
   function updateChrome() {
+    if (App.updateExamChip) App.updateExamChip();
     const st = streak();
     $('#streakPill').textContent = `🔥 ${st}${state.game.freezes ? ' 🧊' + state.game.freezes : ''}`;
     $('#xpPill').textContent = `⭐ ${state.game.xp.toLocaleString(I18N.lang())}`;
@@ -240,14 +241,23 @@
     let skel = null;
     if (b.some(x => !App.loaded(x))) skel = setTimeout(() => { view.innerHTML = `<div class="skel-page" aria-busy="true" aria-label="${t('Đang tải…')}"><div class="skel skel-h"></div><div class="skel skel-l"></div><div class="skel-grid">${'<div class="skel skel-card"></div>'.repeat(4)}</div></div>`; }, 150);
     if (b.length) { await App.need(...b); clearTimeout(skel); if (my !== routeSeq) return; }
-    const fn = routes[name] || routes.home;
-    const navKey = name === 'topic' ? 'library' : name === 'practice' && arg === 'speak' ? 'speak' : name === 'read' ? 'reading' : /^(listen|listen-test|dictation)$/.test(name) ? 'listening' : /^toefl/.test(name) ? 'toefl' : /^toeic/.test(name) ? 'toeic' : name === 'ideas' ? 'write' : name;
-    $$('#nav a, #bnav a').forEach(a => a.classList.toggle('active', a.dataset.route === navKey));
+    const fn = routes[name] || (name ? notFound : routes.home);
+    // Đánh dấu mục đang mở: thanh dưới theo 5 mục chính, menu bên theo mục con; nhóm chứa trang hiện tại tự mở
+    const [tab, item] = App.navOf ? App.navOf(name, arg) : [name, name];
+    $$('#bnav a').forEach(a => a.classList.toggle('active', a.dataset.tab === tab));
+    $$('#nav a[data-route]').forEach(a => a.classList.toggle('active', a.dataset.route === item));
+    $$('#nav .nav-group').forEach(gp => { const on = gp.dataset.tab === tab; gp.classList.toggle('current', on); if (on) gp.open = true; });
     UI.stopSpeak(); UI.clearRecs();
     document.onkeydown = null;
     if (App.cleanup) { App.cleanup(); App.cleanup = null; }
     // Chuyển trang mượt (View Transitions – Chrome/Edge/Safari mới); máy cũ: hiệu ứng mờ dần sẵn có
-    const render = () => { fn(arg, query); window.scrollTo(0, 0); };
+    const render = async () => {
+      window.scrollTo(0, 0);
+      await fn(arg, query);
+      // Đường dẫn "Kỹ năng › Nghe" ở đầu trang con → luôn biết mình đang ở đâu, 1 chạm quay lại trang trung tâm
+      const c = my === routeSeq && App.crumb && App.crumb(name, arg), ph = c && view.querySelector('.page-head');
+      if (ph && !ph.querySelector('.crumb')) ph.insertAdjacentHTML('afterbegin', c);
+    };
     if (document.startViewTransition && !matchMedia('(prefers-reduced-motion: reduce)').matches && !document.hidden) {
       try { document.startViewTransition(render); return; } catch (e) { /* trình duyệt không hỗ trợ */ }
     }
@@ -255,6 +265,10 @@
     render();
   }
   App.route = route;
+  function notFound() {
+    view.innerHTML = `<div class="card empty-note" style="max-width:560px;margin:2rem auto;text-align:center"><div style="font-size:2.4rem">🧭</div><h1 style="margin:.3rem 0">${t('Không tìm thấy trang')}</h1><p class="muted">${t('Liên kết có thể đã cũ. Chọn một mục bên dưới để tiếp tục học.')}</p>
+      <div class="row center" style="flex-wrap:wrap">${[['home', '🏠', t('Hôm nay')], ['vocab', '📚', t('Từ vựng')], ['skills', '🎯', t('Kỹ năng')], ['tests', '🏁', t('Thi thử')], ['me', '👤', t('Tôi')]].map(([r, ic, l]) => `<a class="btn sm" href="#/${r}">${ic} ${l}</a>`).join('')}</div></div>`;
+  }
   // Tải trước gói của trang khi người dùng sắp bấm (rê chuột/chạm vào liên kết) → mở trang gần như tức thì
   const prefetchFor = a => { const h = a && a.getAttribute && a.getAttribute('href'); if (!h || !h.startsWith('#/')) return; const n = h.slice(2).split(/[/?]/)[0]; const b = [].concat(ROUTE_BUNDLE[n] || []); if (b.some(x => !App.loaded(x))) App.need(...b).catch(() => {}); };
   ['pointerdown', 'mouseover', 'focusin'].forEach(ev => document.addEventListener(ev, e => prefetchFor(e.target.closest && e.target.closest('a[href^="#/"]')), { passive: true }));
