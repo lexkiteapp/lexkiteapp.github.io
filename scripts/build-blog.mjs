@@ -144,7 +144,7 @@ function render(md, lang, cover) {
 }
 
 // ---------- Khung trang ----------
-const CSS = `:root{--bg:#f5f6fb;--surface:#fff;--text:#171827;--muted:#5d6179;--line:#e2e4ef;--primary:#E5502F;--primary-ink:#fff;--primary-soft:#FFEBE4;--accent:#12807A;--accent-soft:#DDF1EE;--brand:#0F3D3E;--link:#B93A1D;--r:16px;color-scheme:light dark}
+const CSS = `:root{--bg:#f5f6fb;--surface:#fff;--text:#171827;--muted:#4e526b;--line:#e2e4ef;--primary:#E5502F;--primary-ink:#fff;--primary-soft:#FFEBE4;--accent:#0D6964;--accent-soft:#DDF1EE;--brand:#0F3D3E;--link:#B93A1D;--r:16px;color-scheme:light dark}
 @media (prefers-color-scheme:dark){:root{--bg:#0f1017;--surface:#181a24;--text:#eceef7;--muted:#a3a6bd;--line:#2b2e3e;--primary:#FF8466;--primary-ink:#1A0E0B;--primary-soft:#3A221C;--accent-soft:#10302f;--brand:#9fd8cf;--link:#FFA582}}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
 a{color:var(--link);text-underline-offset:2px}a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}

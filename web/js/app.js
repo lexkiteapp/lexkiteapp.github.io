@@ -724,6 +724,7 @@
   routes.contact = function () {
     const API = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '/api/contact' : 'https://lexkite.com/api/contact';
     const t0 = Date.now(), u = state.user || {};
+    let turnstileToken = '';
     view.innerHTML = `
       <div class="page-head"><div><h1>${t('Liên hệ')}</h1><p class="muted">${t('Góp ý, báo lỗi hay hợp tác – chúng tôi thường trả lời trong 1–2 ngày làm việc.')}</p></div></div>
       <form class="card contact-form" id="ctForm" style="max-width:640px" novalidate>
@@ -731,9 +732,33 @@
         <label>${t('Email của bạn')} *<input name="email" type="email" required maxlength="200" autocomplete="email" value="${esc(u.email || '')}"></label>
         <label>${t('Nội dung')} *<textarea name="msg" required minlength="10" maxlength="5000" rows="6"></textarea></label>
         <input name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+        <div id="cfTurnstile" style="margin:.6rem 0"></div>
         <div class="row" style="gap:.8rem;align-items:center"><button class="btn primary" type="submit">${t('Gửi tin nhắn')}</button><span class="small muted" id="ctMsg" role="status"></span></div>
       </form>
       <p class="small muted" style="margin-top:1rem">${t('Hoặc email trực tiếp')}: <a href="mailto:support@lexkite.com">support@lexkite.com</a></p>`;
+    // Cloudflare Turnstile: tải ngầm khi mở form liên hệ (bảo vệ chống bot)
+    const siteKey = window.TURNSTILE_SITE_KEY || '0x4AAAAAAAMmZ7O1jJgQv8iY';
+    if (!window.turnstile && !document.getElementById('cf-turnstile-script')) {
+      const s = document.createElement('script'); s.id = 'cf-turnstile-script';
+      s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+      s.async = true; s.defer = true; document.head.appendChild(s);
+    }
+    const renderTurnstile = () => {
+      if (window.turnstile && $('#cfTurnstile') && !$('#cfTurnstile').hasChildNodes()) {
+        try {
+          window.turnstile.render('#cfTurnstile', {
+            sitekey: siteKey,
+            callback: tok => { turnstileToken = tok; },
+            'error-callback': () => { turnstileToken = ''; },
+            'expired-callback': () => { turnstileToken = ''; },
+            theme: document.documentElement.dataset.theme === 'dark' ? 'dark' : 'auto',
+          });
+        } catch (e) { /* bỏ qua nếu không render được */ }
+      }
+    };
+    if (window.turnstile) renderTurnstile();
+    else { let c = 0; const iv = setInterval(() => { c++; if (window.turnstile) { clearInterval(iv); renderTurnstile(); } else if (c > 15) clearInterval(iv); }, 300); }
+
     const f = $('#ctForm'), out = $('#ctMsg');
     f.onsubmit = async e => {
       e.preventDefault();
@@ -742,7 +767,7 @@
       if (d.msg.trim().length < 10) { out.textContent = t('Nội dung quá ngắn (tối thiểu 10 ký tự).'); f.msg.focus(); return; }
       const btn = f.querySelector('button'); btn.disabled = true; out.textContent = t('Đang gửi…');
       try {
-        const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...d, lang: I18N.lang(), ms: Date.now() - t0 }) });
+        const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...d, token: turnstileToken, lang: I18N.lang(), ms: Date.now() - t0 }) });
         if (r.status === 429) throw new Error('rate');
         if (!r.ok) throw new Error('fail');
         f.innerHTML = `<div class="center" style="padding:1.5rem"><div style="font-size:2.5rem">✉️</div><h3>${t('Đã gửi!')}</h3><p class="muted">${t('Cảm ơn bạn. Chúng tôi sẽ trả lời qua email {email}.', { email: esc(d.email) })}</p></div>`;
@@ -1395,7 +1420,7 @@
           <div class="card w-card" id="wCard" style="padding:0;overflow:hidden;box-shadow:var(--shadow-lg)">
             <div style="background:linear-gradient(135deg,#0F3D3E,#17595A 60%,#1F7A72);padding:1.6rem;color:#fff;text-align:center;position:relative"><div class="kit-cele" id="wKit" style="position:absolute;right:.6rem;top:.5rem">${window.Kit ? Kit.svg('cheer', 64) : ''}</div>
               <div style="font-size:4rem">🌿</div><div style="font-size:2rem;font-weight:800">sustainable</div>
-              <div class="row center" style="opacity:.9;gap:.4rem">/səˈsteɪnəbl/ · adj · B2 <button type="button" class="icon-btn sm" id="wSay" aria-label="${t('Nghe')}: sustainable" style="background:rgba(255,255,255,.18);color:#fff">🔊</button></div></div>
+              <div class="row center" style="opacity:.9;gap:.4rem">/səˈsteɪnəbl/ · adj · B2 <button type="button" class="icon-btn sm" id="wSay" aria-label="${t('Nghe')}: sustainable" style="background:rgba(255,255,255,.18);color:#fff"><span aria-hidden="true">🔊</span></button></div></div>
             <div style="padding:1.2rem 1.4rem">
               <button type="button" id="wFront" class="linkish muted small center" style="display:block;width:100%;background:none;border:0;cursor:pointer;font:inherit">👆 ${t('Chạm để lật')}</button>
               <div id="wBack" hidden><div class="vi">${esc(I18N.meanLang() === 'en' ? 'able to continue without harming the environment' : 'bền vững')}</div>

@@ -5,13 +5,13 @@
   --surface-2: #f0f1f8;
   --surface-3: #e8e9f4;
   --text: #171827;
-  --muted: #676b84;
+  --muted: #4e526b; /* đạt tương phản WCAG AAA > 7:1 với nền sáng */
   --line: #e2e4ef;
   --primary: #CC3F1C; /* đạt tương phản WCAG AA 4.9:1 với chữ trắng */
   --primary-2: #FF7A4D;
   --primary-ink: #ffffff;
   --primary-soft: #FFEBE4;
-  --accent: #12807A;
+  --accent: #0D6964; /* đạt tương phản WCAG AA > 5.5:1 trên accent-soft */
   --accent-soft: #DDF1EE;
   --brand-ink: #0F3D3E;
   --gold: #f5a524;

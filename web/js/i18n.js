@@ -70,13 +70,14 @@
     // Tiêu đề & mô tả trang theo ngôn ngữ (Google đọc được tiêu đề do JS đặt) – khóa dịch nằm trong từ điển giao diện
     const TITLE = 'Lexkite – Học từ vựng IELTS & TOEIC miễn phí: flashcard FSRS, từ điển, thi thử';
     const DESC = 'Học từ vựng IELTS, TOEIC & TOEFL miễn phí: flashcard FSRS, từ điển song ngữ có phát âm, luyện 4 kỹ năng và thi thử có giải thích chi tiết.';
-    document.addEventListener('DOMContentLoaded', () => {
+    const boot = () => {
       apply();
       // Trang ?hl=xx là phiên bản riêng của ngôn ngữ đó (không phải bản trùng của trang gốc)
       try { if (new URLSearchParams(location.search).get('hl') === lang) { const c = document.querySelector('link[rel="canonical"]'); if (c) c.href = c.href.split('?')[0] + '?hl=' + lang; } } catch (e) { /* bỏ qua */ }
       if (lang === 'vi') return;
       document.title = t(TITLE);
       const m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute('content', t(DESC));
-    });
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot(); // i18n.js có thể nạp sau DOMContentLoaded
   }
 })(typeof self !== 'undefined' ? self : this);

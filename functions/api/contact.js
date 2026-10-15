@@ -16,6 +16,17 @@ export async function onRequestPost({ request, env }) {
   const name = String(b.name || '').trim().slice(0, 100), email = String(b.email || '').trim().slice(0, 200), msg = String(b.msg || '').trim().slice(0, 5000), lang = String(b.lang || '').slice(0, 8);
   if (b.hp || Number(b.ms) < 3000) return json(request, 200, { ok: true }); // máy spam: giả vờ thành công
   if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email) || msg.length < 10) return json(request, 400, { error: 'invalid' });
+  // Kiểm tra Turnstile nếu được cấu hình khóa bí mật
+  if (env.TURNSTILE_SECRET_KEY && b.token) {
+    try {
+      const ip = request.headers.get('CF-Connecting-IP') || '';
+      const params = new URLSearchParams({ secret: env.TURNSTILE_SECRET_KEY, response: b.token });
+      if (ip) params.set('remoteip', ip);
+      const vr = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', { method: 'POST', body: params });
+      const vj = await vr.json();
+      if (!vj.success) return json(request, 403, { error: 'turnstile' });
+    } catch (e) { /* bỏ qua lỗi mạng tạm thời tới Cloudflare verify */ }
+  }
   const who = (await sha('lexkite-contact|' + (request.headers.get('CF-Connecting-IP') || ''))).slice(0, 24);
   try {
     if (!ready) { await env.DB.prepare('CREATE TABLE IF NOT EXISTS contact_msgs (id INTEGER PRIMARY KEY AUTOINCREMENT, who TEXT NOT NULL, at INTEGER NOT NULL, name TEXT, email TEXT, msg TEXT, lang TEXT, sent INTEGER DEFAULT 0)').run(); ready = true; }
