@@ -389,5 +389,11 @@
   "ar": "محاولات التحدث (مقيّمة)",
   "ru": "Ответы вслух (с оценкой)",
   "tr": "Konuşma denemesi (puanlı)"
+ },
+ "Mô phỏng một buổi thi IELTS Academic: Listening → Reading → Writing → Speaking, bấm giờ như thật, chấm tự động và quy đổi <b>band Overall</b>. Đề tự biên soạn – điểm mang tính tham khảo.": {
+  "de": "Simuliert einen vollständigen IELTS-Academic-Test: Listening → Reading → Writing → Speaking, mit echter Zeitvorgabe, automatischer Bewertung und Umrechnung in ein <b>Overall Band</b>. Eigene Übungstests – die Ergebnisse sind nur Schätzungen."
+ },
+ "Test {n} · 4 phần · 40 câu. Mỗi phần có 30 giây đọc câu hỏi, sau đó nghe <b>một lần</b>. Đáp án được lưu khi chuyển phần.": {
+  "tr": "Test {n} · 4 bölüm · 40 soru. Her bölümde soruları okumak için 30 saniyeniz var, ardından kaydı <b>bir kez</b> dinlersiniz. Cevaplar bir sonraki bölüme geçtiğinizde kaydedilir."
  }
 }
