@@ -121,7 +121,7 @@
       if (segs.length && segs.every(([k]) => g.LISTEN_AUDIO.has(k))) {
         const my = ++speakSeq; if ('speechSynthesis' in g) speechSynthesis.cancel();
         const pr = Math.min(1.3, Math.max(0.55, (rate || prefs().ttsRate || 0.92) / 0.95));
-        const url = k => 'https://lexkite.pages.dev/audio/l/' + k + '.mp3';
+        const url = k => 'https://lexkite.com/audio/l/' + k + '.mp3';
         const play = i => {
           if (my !== speakSeq) return;
           if (i >= segs.length) { hqEl = null; if (opts.onEnd) opts.onEnd(); return; }

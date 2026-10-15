@@ -70,7 +70,7 @@
   'Miễn phí · chỉ lưu dữ liệu học của bạn · có thể đăng xuất bất cứ lúc nào': 'Free · stores only your study data · sign out anytime',
   'Đã đăng xuất – dữ liệu vẫn còn trên máy này': 'Signed out – your data is still on this device',
   'Tài khoản & đồng bộ': 'Account & sync',
-  'Tiện ích tự đồng bộ với tài khoản Google qua web app: mở <b>vocaband.web.app</b> và đăng nhập một lần – từ lưu bằng tiện ích sẽ tự gộp vào tài khoản (và ngược lại) mỗi khi bạn mở web app. Trên máy khác: cài tiện ích + đăng nhập cùng tài khoản trên web app là có đủ dữ liệu.': 'The extension syncs with your Google account through the web app: open <b>vocaband.web.app</b> and sign in once. Words saved in the extension merge into your account (and vice versa) whenever you open the web app. On another computer, install the extension and sign in to the same account on the web app to get all your data.',
+  'Tiện ích tự đồng bộ với tài khoản Google qua web app: mở <b>lexkite.com</b> và đăng nhập một lần – từ lưu bằng tiện ích sẽ tự gộp vào tài khoản (và ngược lại) mỗi khi bạn mở web app. Trên máy khác: cài tiện ích + đăng nhập cùng tài khoản trên web app là có đủ dữ liệu.': 'The extension syncs with your Google account through the web app: open <b>lexkite.com</b> and sign in once. Words saved in the extension merge into your account (and vice versa) whenever you open the web app. On another computer, install the extension and sign in to the same account on the web app to get all your data.',
   'Mở web app để đăng nhập & đồng bộ': 'Open the web app to sign in & sync',
   'Đăng nhập và đồng bộ có trên bản web {link}.': 'Sign-in and sync are available on the web version at {link}.',
   'Đang đồng bộ…': 'Syncing…',

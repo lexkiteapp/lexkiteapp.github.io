@@ -4,7 +4,7 @@
 
 | Phần | Thư mục | Địa chỉ |
 |---|---|---|
-| Web app (PWA, cài được như app) | `web/` | https://vocaband.web.app |
+| Web app (PWA, cài được như app) | `web/` | https://lexkite.com |
 | Add-on Chrome | `extension/` (bản sao `web/` trong `extension/app`) | Chrome Web Store (xem `store/LISTING.md`) |
 
 ## Tính năng chính

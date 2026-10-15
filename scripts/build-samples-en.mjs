@@ -1,7 +1,7 @@
 // Bản tiếng Anh của các trang tĩnh SEO (cho người học quốc tế): dist/en/{samples,speaking,vocabulary}/…
 // + hreflang vi ↔ en giữa 2 bản. Chạy sau build-samples.mjs.
 import fs from 'node:fs'; import vm from 'node:vm';
-const SITE = 'https://vocaband.web.app/';
+const SITE = 'https://lexkite.com/';
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const load = (files, extra = {}) => { const c = { self: {}, window: {}, t: s => s, localStorage: { getItem() {}, setItem() {} }, ...extra }; c.self = c.window = c; vm.createContext(c); for (const f of files) vm.runInContext(fs.readFileSync(`web/js/${f}.js`, 'utf8'), c); return c; };
 const css = fs.readFileSync('scripts/build-samples.mjs', 'utf8').match(/const css = `([^`]*)`/)[1];

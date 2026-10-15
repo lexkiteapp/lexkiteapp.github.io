@@ -1,7 +1,7 @@
 /* Content script: bấm đúp vào từ (hoặc bôi đen + Alt) để tra nhanh, lưu vào flashcard kèm câu ngữ cảnh. */
 (() => {
   // Cầu nối đồng bộ: trên trang Lexkite (đã đăng nhập Google) web app đọc/ghi dữ liệu add-on để gộp chung theo tài khoản
-  if (window.top === window && /^(vocaband|ielts-lexi-2026)\.web\.app$/.test(location.hostname)) {
+  if (window.top === window && /^(www\.)?lexkite\.com$|^lexkite\.pages\.dev$|^(vocaband|ielts-lexi-2026)\.web\.app$/.test(location.hostname)) {
     const KEYS = ['cards', 'stats', 'deleted'];
     window.addEventListener('message', async e => {
       if (e.source !== window || e.origin !== location.origin || !e.data || e.data.vbBridge !== 'req') return;
@@ -599,7 +599,7 @@
 
   const fromHost = e => host && e.composedPath && e.composedPath().includes(host);
   // Trên chính web app Lexkite: từ đã có bảng tra riêng (.tw) và nút lưu cụm riêng → tiện ích nhường, tránh hiện 2 bảng
-  const OWN_APP = /^(vocaband|ielts-lexi-2026)\.web\.app$|^localhost$/.test(location.hostname);
+  const OWN_APP = /^(www\.)?lexkite\.com$|^lexkite\.pages\.dev$|^(vocaband|ielts-lexi-2026)\.web\.app$|^localhost$/.test(location.hostname);
   const appHandles = (el, sel) => OWN_APP && el && el.closest && !!(el.closest('.tw, .pop, .sel-fab, .sel-bar, .sel-pop, [data-own-lookup]') || (sel && el.closest('#view')));
 
   document.addEventListener('dblclick', e => {
@@ -709,7 +709,7 @@
     clearTimeout(moT); moT = setTimeout(() => markIn(document.body, 250), 1500);
   });
   (async () => {
-    if (window.top !== window || /^(docs|mail)\.google\.com$|(^|\.)(vocaband|ielts-lexi-2026)\.web\.app$|^localhost$/.test(location.hostname)) return;
+    if (window.top !== window || /^(docs|mail)\.google\.com$|(^|\.)lexkite\.com$|^lexkite\.pages\.dev$|(^|\.)(vocaband|ielts-lexi-2026)\.web\.app$|^localhost$/.test(location.hostname)) return;
     await loadKnown(); injectMarkCss();
     const go = () => { markIn(document.body); if (document.body) mo.observe(document.body, { childList: true, subtree: true }); };
     'requestIdleCallback' in window ? requestIdleCallback(go, { timeout: 2500 }) : setTimeout(go, 1200);

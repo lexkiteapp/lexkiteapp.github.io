@@ -58,7 +58,7 @@
     document.querySelectorAll('.pp-word').forEach(a => a.onclick = e => { e.preventDefault(); open('#/dict/' + encodeURIComponent(a.dataset.w)); });
   }
   $('#open').onclick = e => { e.preventDefault(); open('#/home'); };
-  // Trạng thái đồng bộ tài khoản (liên kết qua web app vocaband.web.app)
+  // Trạng thái đồng bộ tài khoản (liên kết qua web app lexkite.com)
   const { linked } = await chrome.storage.local.get('linked');
   const ago = t => { const m = Math.round((Date.now() - t) / 60000); return m < 1 ? tx('vừa xong') : m < 60 ? tx('{n} phút trước', { n: m }) : m < 1440 ? tx('{n} giờ trước', { n: Math.round(m / 60) }) : tx('{n} ngày trước', { n: Math.round(m / 1440) }); };
   $('#syncRow').innerHTML = linked && linked.email
@@ -66,7 +66,7 @@
     : `<span>${tx('⚠️ Chưa đồng bộ tài khoản – dữ liệu chỉ ở máy này')}</span><a href="#" id="syncNow" class="strong">${tx('☁️ Đồng bộ với Google')}</a>`;
   $('#syncNow').onclick = async e => {
     e.preventDefault();
-    if (!linked || !linked.email) { chrome.tabs.create({ url: 'https://vocaband.web.app/#/settings' }); return window.close(); }
+    if (!linked || !linked.email) { chrome.tabs.create({ url: 'https://lexkite.com/#/settings' }); return window.close(); }
     // Đã liên kết: mở Lexkite ở tab nền để gộp dữ liệu với tài khoản, xong tự đóng – không làm phiền
     const a = $('#syncNow'); a.textContent = tx('⏳ Đang đồng bộ…'); a.style.pointerEvents = 'none';
     const r = await chrome.runtime.sendMessage({ type: 'syncNow' }).catch(() => null);

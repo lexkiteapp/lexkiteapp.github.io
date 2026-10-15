@@ -48,7 +48,7 @@
   // ================= TRÌNH PHÁT =================
   // Hàng đợi: mỗi phần tử là 1 dòng thoại / lời dẫn / khoảng lặng; onLine(i) để tô sáng transcript
   // Giọng Kokoro tạo sẵn (js/listen/kvoice.js + audio-index.js): ưu tiên file mp3 chất lượng cao, thiếu file/lỗi mạng → giọng của máy
-  const AUDIO_BASE = 'https://lexkite.pages.dev/'; // file âm thanh lớn → Cloudflare Pages (băng thông không giới hạn)
+  const AUDIO_BASE = 'https://lexkite.com/'; // file âm thanh lớn → Cloudflare Pages (băng thông không giới hạn)
   let audioDown = 0;
   const hqOn = () => state.settings.hqVoice !== false && window.KVoice && window.LISTEN_AUDIO && audioDown < 3;
   function Player(p, opts = {}) {

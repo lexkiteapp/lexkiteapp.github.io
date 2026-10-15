@@ -1,0 +1,32 @@
+{
+  "hosting": [
+    {
+      "site": "vocaband",
+      "public": "dist",
+      "ignore": [
+        "**/.*"
+      ],
+      "redirects": [
+        {
+          "source": "**",
+          "destination": "https://lexkite.com",
+          "type": 301
+        }
+      ]
+    },
+    {
+      "site": "ielts-lexi-2026",
+      "public": "dist",
+      "ignore": [
+        "**/.*"
+      ],
+      "redirects": [
+        {
+          "source": "**",
+          "destination": "https://lexkite.com",
+          "type": 301
+        }
+      ]
+    }
+  ]
+}

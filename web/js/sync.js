@@ -253,7 +253,7 @@
     // Trong app gốc, Google chặn đăng nhập trong WebView → dùng đăng nhập gốc khi đã cấu hình (VBNative.signIn), chưa có thì giải thích rõ
     if (window.VBNative && VBNative.is) {
       if (VBNative.signIn) return VBNative.signIn();
-      return UI.modal(`<h2>☁️ ${t('Đồng bộ tài khoản')}</h2><p>${t('Đăng nhập Google trong app sẽ có ở bản phát hành chính thức. Hiện tại dữ liệu học được lưu an toàn trên máy này; để đồng bộ giữa các thiết bị, hãy đăng nhập trên vocaband.web.app.')}</p>`);
+      return UI.modal(`<h2>☁️ ${t('Đồng bộ tài khoản')}</h2><p>${t('Đăng nhập Google trong app sẽ có ở bản phát hành chính thức. Hiện tại dữ liệu học được lưu an toàn trên máy này; để đồng bộ giữa các thiết bị, hãy đăng nhập trên lexkite.com.')}</p>`);
     }
     try {
       await init();
@@ -289,8 +289,8 @@
   function render() {
     if (!box || !document.body.contains(box)) return;
     if (!supported) {
-      box.innerHTML = Store.isExtension ? `<h2>☁️ ${t('Tài khoản & đồng bộ')}</h2><p class="muted small">${t('Tiện ích tự đồng bộ với tài khoản Google qua web app: mở <b>vocaband.web.app</b> và đăng nhập một lần – từ lưu bằng tiện ích sẽ tự gộp vào tài khoản (và ngược lại) mỗi khi bạn mở web app. Trên máy khác: cài tiện ích + đăng nhập cùng tài khoản trên web app là có đủ dữ liệu.')}</p><a class="btn primary" href="https://vocaband.web.app/#/settings" target="_blank" rel="noopener">☁️ ${t('Mở web app để đăng nhập & đồng bộ')}</a>`
-        : `<h2>☁️ ${t('Tài khoản & đồng bộ')}</h2><p class="muted">${t('Đăng nhập và đồng bộ có trên bản web {link}.', { link: '<a href="https://vocaband.web.app" target="_blank" rel="noopener">vocaband.web.app</a>' })}</p>`;
+      box.innerHTML = Store.isExtension ? `<h2>☁️ ${t('Tài khoản & đồng bộ')}</h2><p class="muted small">${t('Tiện ích tự đồng bộ với tài khoản Google qua web app: mở <b>lexkite.com</b> và đăng nhập một lần – từ lưu bằng tiện ích sẽ tự gộp vào tài khoản (và ngược lại) mỗi khi bạn mở web app. Trên máy khác: cài tiện ích + đăng nhập cùng tài khoản trên web app là có đủ dữ liệu.')}</p><a class="btn primary" href="https://lexkite.com/#/settings" target="_blank" rel="noopener">☁️ ${t('Mở web app để đăng nhập & đồng bộ')}</a>`
+        : `<h2>☁️ ${t('Tài khoản & đồng bộ')}</h2><p class="muted">${t('Đăng nhập và đồng bộ có trên bản web {link}.', { link: '<a href="https://lexkite.com" target="_blank" rel="noopener">lexkite.com</a>' })}</p>`;
       return;
     }
     const u = Sync.user;

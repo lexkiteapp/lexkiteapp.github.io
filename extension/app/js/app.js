@@ -881,11 +881,11 @@
       const ctx = (c.contexts || [])[0];
       const front = `<b>${esc(clean(c.word))}</b>${c.ipa ? `<br><span style="color:#888">${esc(clean(c.ipa))}</span>` : ''}`;
       const back = [c.vi && `<b>${esc(clean(c.vi))}</b>`, c.def && esc(clean(c.def)), (ctx && ctx.text) ? `<i>${esc(clean(ctx.text))}</i>` : c.ex ? `<i>${esc(clean(c.ex))}</i>` : '', ctx && ctx.vi ? esc(clean(ctx.vi)) : ''].filter(Boolean).join('<br>');
-      const tags = ['vocaband', c.topic || '', c.level || ''].filter(Boolean).map(t => String(t).replace(/\s+/g, '_')).join(' ');
+      const tags = ['lexkite', c.topic || '', c.level || ''].filter(Boolean).map(t => String(t).replace(/\s+/g, '_')).join(' ');
       return [front, back, tags].join('\t');
     });
     const head = '#separator:tab\n#html:true\n#notetype:Basic\n#tags column:3\n';
-    download(new Blob([head + rows.join('\n')], { type: 'text/plain;charset=utf-8' }), `vocaband-anki-${todayKey()}.txt`);
+    download(new Blob([head + rows.join('\n')], { type: 'text/plain;charset=utf-8' }), `lexkite-anki-${todayKey()}.txt`);
     toast(t('Đã xuất {n} thẻ – mở Anki → File → Import → chọn file này', { n: rows.length }), 4500);
   }
   // Nhập: file "Notes in Plain Text" của Anki (tab) hoặc CSV 2 cột: mặt trước = từ, mặt sau = nghĩa

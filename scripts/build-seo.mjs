@@ -1,7 +1,7 @@
 // SEO đa quốc gia: chèn <link rel="alternate" hreflang> cho mọi ngôn ngữ đang bật (SUPPORTED trong web/js/i18n.js)
 // và sinh sitemap.xml có liên kết thay thế theo ngôn ngữ. Chạy sau khi build vào dist/.
 import fs from 'node:fs';
-const SITE = 'https://vocaband.web.app/';
+const SITE = 'https://lexkite.com/';
 const i18n = fs.readFileSync('web/js/i18n.js', 'utf8');
 const langs = JSON.parse(i18n.match(/const SUPPORTED = (\[[^\]]*\])/)[1].replace(/'/g, '"'));
 const url = l => `${SITE}?hl=${l}`;

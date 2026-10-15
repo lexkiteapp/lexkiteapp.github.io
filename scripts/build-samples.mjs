@@ -1,7 +1,7 @@
 // Trang tĩnh cho từng bài mẫu Writing Task 2 (SEO): dist/samples/<id>.html + dist/samples/index.html, thêm vào sitemap.
 // Nội dung lấy từ dữ liệu app (đề + bài mẫu tự biên soạn) → không tốn chi phí chạy, Google lập chỉ mục được.
 import fs from 'node:fs'; import vm from 'node:vm';
-const SITE = 'https://vocaband.web.app/';
+const SITE = 'https://lexkite.com/';
 const ctx = { self: {}, window: {} }; ctx.self = ctx.window = ctx; vm.createContext(ctx);
 for (const f of ['write/task2-more', 'models', 'write/models2', 'write/models3', 'write/models4', 'write/models5']) vm.runInContext(fs.readFileSync(`web/js/${f}.js`, 'utf8'), ctx);
 const w = fs.readFileSync('web/js/write.js', 'utf8');
