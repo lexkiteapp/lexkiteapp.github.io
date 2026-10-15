@@ -196,6 +196,9 @@
   function speak(text, accent, url, slow) {
     accent = accent || prefs().accent || 'en-GB';
     const fb = () => tts(text, accent, slow ? 0.55 : undefined);
+    // Một giọng thống nhất: bỏ bản ghi âm tình nguyện viên (Wiktionary/dictionaryapi – mỗi từ một người, nhiều bản rè) khi máy có giọng đọc;
+    // chỉ giữ file âm thanh của Lexkite. tts() tự ưu tiên giọng Kokoro chất lượng cao nếu có, rồi tới giọng máy tốt nhất.
+    if (url && !/lexkite/.test(url) && 'speechSynthesis' in g) url = '';
     if (url) {
       stopSpeak();
       const my = speakSeq;

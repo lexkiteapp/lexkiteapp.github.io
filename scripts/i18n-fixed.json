@@ -14315,5 +14315,20 @@
   "ar": "أو راسلنا مباشرة",
   "ru": "Или напишите нам",
   "tr": "Ya da doğrudan e-posta"
+ },
+ "✓ Đã trong sổ thẻ": {
+  "es": "✓ En tu mazo",
+  "pt": "✓ No seu baralho",
+  "fr": "✓ Dans vos cartes",
+  "de": "✓ In deinen Karten",
+  "id": "✓ Ada di kartu Anda",
+  "th": "✓ อยู่ในชุดการ์ดแล้ว",
+  "zh": "✓ 已在卡组中",
+  "ja": "✓ 単語帳に追加済み",
+  "ko": "✓ 내 카드에 있음",
+  "hi": "✓ आपके कार्ड में है",
+  "ar": "✓ في بطاقاتك",
+  "ru": "✓ В ваших карточках",
+  "tr": "✓ Kartlarınızda"
  }
 }

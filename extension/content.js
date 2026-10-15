@@ -37,7 +37,7 @@
     'Dịch với Lexkite': 'Translate with Lexkite', 'Nghe câu ví dụ': 'Play example', 'Quay lại từ trước': 'Back to previous word', 'Quay lại': 'Back',
     'Anh–Mỹ': 'US English', 'Nghe giọng Anh–Anh (phím P)': 'British pronunciation (P key)', 'Nghe giọng Anh–Mỹ': 'American pronunciation', 'Nghe chậm': 'Play slowly',
     '📌 Ngữ cảnh sẽ lưu': '📌 Context to save', '📌 Ngữ cảnh': '📌 Context', 'Nghe cả câu': 'Play sentence', '⏳ Đang dịch câu…': '⏳ Translating sentence…',
-    '✓ Đã lưu vào flashcard': '✓ Saved to flashcards', '+ Thêm ngữ cảnh': '+ Add context', '✓ Đã lưu': '✓ Saved', '+ Lưu flashcard': '+ Save flashcard',
+    '✓ Đã lưu vào flashcard': '✓ Saved to flashcards', '+ Thêm ngữ cảnh': '+ Add context', '✓ Đã lưu': '✓ Saved', '✓ Đã trong sổ thẻ': '✓ In your deck', '+ Lưu flashcard': '+ Save flashcard',
     'Chi tiết': 'Details', 'Đóng (Esc)': 'Close (Esc)', '⚠️ Thử lưu lại': '⚠️ Retry saving', 'tên riêng': 'proper noun', 'cụm từ': 'phrase', 'từ': 'word',
     '🔊 Nghe': '🔊 Listen', 'Tra từng từ:': 'Look up each word:', 'Tên riêng (địa danh, người, tổ chức…) – không có trong từ điển phổ thông.': 'Proper noun (place, person, organization…) – not in the general dictionary.',
     'Chưa có trong từ điển – đã dịch tự động.': 'Not in the dictionary yet – machine-translated.', '+ Lưu cụm từ': '+ Save phrase', '+ Lưu từ': '+ Save word',
@@ -52,6 +52,8 @@
     '⚙️ Mở Cài đặt': '⚙️ Open Settings', 'Nghĩa trong ngữ cảnh:': 'Meaning in context:', 'Ngữ pháp:': 'Grammar:', 'Cụm hay đi kèm:': 'Common collocations:',
     '✓ Đã chép': '✓ Copied', 'Lexkite cấp {lv}': 'Lexkite level {lv}', 'mới': 'new', '📒 {n} từ bạn đã học xuất hiện trên trang này': '📒 {n} words you have learned appear on this page',
   };
+  // Nghĩa chính: nếu nghĩa tóm tắt quá ngắn/trùng từ gốc thì lấy nghĩa đầu tiên của mục từ
+  const viMain = (e, shown) => { const v = String(e.vi || '').trim(); if (v.length >= 3 && v.toLowerCase() !== String(e.word || '').toLowerCase()) return v; const f = (shown || []).find(x => x.vi && x.vi.length); return f ? f.vi.slice(0, 3).join(', ') : v; };
   const tx = (src, vars) => { let s = UI_LANG === 'vi' ? src : (XD[src] || EN[src] || src); if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)); return s; };
   let dead = false;
   const alive = () => { try { return !dead && !!chrome.runtime.id; } catch (e) { return false; } };
@@ -76,13 +78,15 @@
     .head { display: flex; gap: 12px; padding: 14px 14px 10px; }
     .pic { width: 64px; height: 64px; flex: none; border-radius: 12px; background: #f1f2f8; display: grid; place-items: center; font-size: 32px; overflow: hidden; }
     .pic img { width: 100%; height: 100%; object-fit: cover; }
+    .pic.ltr { background: linear-gradient(135deg, #0F3D3E, #1F7A72); color: #fff; font: 800 30px/1 -apple-system, "Segoe UI", sans-serif; text-transform: lowercase; }
+    .inDeck { background: #e8f5ec; color: #15803d; font-weight: 700; }
     .w { font-size: 20px; font-weight: 800; }
     .chip { display: inline-block; padding: 0 7px; margin-left: 4px; border-radius: 99px; background: #f1f2f8; color: #6b6f85; font-size: 11px; vertical-align: middle; }
-    .lv { background: #eceafe; color: #4f46e5; font-weight: 700; }
+    .lv { background: #fdece6; color: #CC3F1C; font-weight: 700; }
     .ipa { color: #6b6f85; font-family: "Lucida Sans Unicode", "Arial Unicode MS", sans-serif; }
     .spks { display: flex; gap: 6px; margin: 4px 0 2px; flex-wrap: wrap; }
-    .spk { border: 0; background: #eceafe; color: #4f46e5; border-radius: 999px; height: 26px; padding: 0 10px; cursor: pointer; font: 700 12px/26px -apple-system, "Segoe UI", sans-serif; vertical-align: middle; }
-    .spk:hover { background: #4f46e5; color: #fff; }
+    .spk { border: 0; background: #fdece6; color: #CC3F1C; border-radius: 999px; height: 26px; padding: 0 10px; cursor: pointer; font: 700 12px/26px -apple-system, "Segoe UI", sans-serif; vertical-align: middle; }
+    .spk:hover { background: #CC3F1C; color: #fff; }
     .spk.mini { height: 22px; padding: 0 6px; line-height: 22px; font-size: 11px; }
     .sk { height: 11px; border-radius: 6px; margin: 7px 0; background: linear-gradient(90deg, #eef0f6 25%, #f8f9fc 50%, #eef0f6 75%); background-size: 200% 100%; animation: sh 1s infinite linear; }
     @keyframes sh { to { background-position: -200% 0; } }
@@ -91,33 +95,33 @@
     .def { margin: 4px 0; }
     .ex { color: #6b6f85; font-style: italic; font-size: 13px; }
     .pg { margin: 8px 0; padding-left: 8px; border-left: 3px solid #e4e6f2; } .pg .chip { margin: 0 6px 0 0; } .pvi { font-weight: 600; }
-    .pdef { margin: 3px 0 0; font-size: 13.5px; } .wn-x { margin: 8px 0 2px; padding: 7px 9px; border-radius: 10px; background: #f4f2ff; font-size: 12.5px; line-height: 1.5; } .wn-x div + div { margin-top: 3px; } .pex { display: block; color: #6b6f85; font-size: 13px; }
+    .pdef { margin: 3px 0 0; font-size: 13.5px; } .wn-x { margin: 8px 0 2px; padding: 7px 9px; border-radius: 10px; background: #fdf3ee; font-size: 12.5px; line-height: 1.5; } .wn-x div + div { margin-top: 3px; } .pex { display: block; color: #6b6f85; font-size: 13px; }
     .ctx { margin-top: 8px; padding: 8px 10px; background: #fff8e6; border-radius: 10px; font-size: 13px; }
     .ctx b { font-style: normal; }
     mark { background: #fde68a; color: inherit; border-radius: 3px; padding: 0 2px; }
     .foot { display: flex; gap: 8px; padding: 10px 14px; border-top: 1px solid #eef0f6; background: #fafbfe; align-items: center; }
     .btn { border: 1px solid #e3e5ef; background: #fff; border-radius: 10px; padding: 7px 12px; font: 600 13px/1 inherit; font-family: inherit; cursor: pointer; color: #1c1d2b; }
-    .btn.p { background: #4f46e5; border-color: #4f46e5; color: #fff; }
+    .btn.p { background: #CC3F1C; border-color: #CC3F1C; color: #fff; }
     .btn[disabled] { opacity: .6; cursor: default; }
     .lw { cursor: pointer; border-radius: 3px; }
-    .lw:hover { background: #eceafe; color: #4f46e5; }
+    .lw:hover { background: #fdece6; color: #CC3F1C; }
     .lw.hlw { background: #fde68a; font-weight: 700; }
     .lw.chipw { display: inline-block; padding: 1px 8px; margin: 2px; border-radius: 999px; background: #f1f2f8; font-weight: 600; }
     .chipw { display: inline-block; padding: 1px 8px; margin: 2px; border-radius: 999px; background: #f1f2f8; font-weight: 600; font-size: 12px; }
-    .st { margin-top: 10px; padding: 9px 10px; border-radius: 12px; background: #f6f5ff; border: 1px solid #e4e1ff; }
+    .st { margin-top: 10px; padding: 9px 10px; border-radius: 12px; background: #fdf6f2; border: 1px solid #f6d9cd; }
     .st.ai { background: #f0fdf4; border-color: #bbf7d0; }
-    .st-i { padding: 6px 0; border-bottom: 1px dashed #e4e1ff; }
+    .st-i { padding: 6px 0; border-bottom: 1px dashed #f6d9cd; }
     .st-i:last-child { border-bottom: 0; }
-    .st-n { font-weight: 800; color: #4f46e5; }
+    .st-n { font-weight: 800; color: #CC3F1C; }
     .st-m { color: #6b7280; font-style: italic; }
     .st-v { font-size: 12.5px; color: #374151; margin-top: 3px; line-height: 1.5; }
-    .st-l { margin-top: 4px; border: 0; background: none; color: #4f46e5; font-weight: 700; font-size: 12px; cursor: pointer; padding: 0; }
+    .st-l { margin-top: 4px; border: 0; background: none; color: #CC3F1C; font-weight: 700; font-size: 12px; cursor: pointer; padding: 0; }
     .back { border: 0; background: #f1f2f8; border-radius: 8px; width: 26px; height: 26px; margin-right: 6px; cursor: pointer; font-weight: 800; vertical-align: middle; }
-    .back:hover { background: #4f46e5; color: #fff; }
+    .back:hover { background: #CC3F1C; color: #fff; }
     .x { margin-left: auto; border: 0; background: none; font-size: 18px; cursor: pointer; color: #6b6f85; }
     .muted { color: #6b6f85; padding: 18px 14px; }
     .fab { position: fixed; z-index: 2147483647; width: 34px; height: 34px; border-radius: 50%; border: 0; cursor: pointer;
-      background: linear-gradient(135deg, #4f46e5, #0ea5a4); color: #fff; font-size: 16px; display: grid; place-items: center;
+      background: linear-gradient(135deg, #CC3F1C, #0ea5a4); color: #fff; font-size: 16px; display: grid; place-items: center;
       box-shadow: 0 6px 18px rgba(79,70,229,.45); animation: pop .12s ease-out; }
     .fab:hover { transform: scale(1.08); }
     .fab[hidden], .box[hidden], .vbtoast[hidden] { display: none; }
@@ -129,7 +133,7 @@
       .box { background: #1b1c26; color: #ecedf5; border-color: #2e3040; }
       .pg { border-color: #2e3040; } .wn-x { background: #24233a; } .pic, .spk, .chip { background: #242533; } .foot { background: #171821; border-color: #2e3040; }
       .btn { background: #242533; border-color: #2e3040; color: #ecedf5; } .ctx { background: #2b2618; }
-      .vi { color: #2dd4bf; } .lv { background: #2a2850; color: #8b85ff; }
+      .vi { color: #2dd4bf; } .lv { background: #3a2620; color: #ff9b7a; }
     }`;
 
   function ensureHost() {
@@ -306,11 +310,14 @@
       speechSynthesis.cancel();
       if (speechSynthesis.paused) speechSynthesis.resume(); // Chrome đôi khi kẹt ở trạng thái tạm dừng
       // đọc từng câu để giữ ngữ điệu tự nhiên; chờ 1 nhịp sau cancel() để Chrome không bỏ mất lượt đọc
-      setTimeout(() => (String(text).match(/[^.!?;]+[.!?;]*/g) || [text]).forEach(part => {
+      const go = () => setTimeout(() => (String(text).match(/[^.!?;]+[.!?;]*/g) || [text]).forEach(part => {
         const u = new SpeechSynthesisUtterance(part.trim()); u.lang = accent || 'en-GB'; u.rate = rate || prefs.ttsRate || .92;
         const v = bestVoice(u.lang); if (v) u.voice = v;
         speechSynthesis.speak(u);
       }), 30);
+      // Lần đầu danh sách giọng chưa tải → chờ (tối đa 0,6 s) để lần đọc đầu cũng dùng đúng giọng tốt nhất như các lần sau
+      if (speechSynthesis.getVoices().length) go();
+      else { let done = false; const f = () => { if (!done) { done = true; go(); } }; speechSynthesis.addEventListener('voiceschanged', f, { once: true }); setTimeout(f, 600); }
     };
     if (playing) { try { playing.pause(); } catch (e) { /* bỏ qua */ } playing = null; }
     if (window.speechSynthesis) speechSynthesis.cancel();
@@ -348,7 +355,8 @@
     const accent = st.accent || 'en-GB';
     let e = null, saved = false, ctxVi = '', mlW = '', didSave = false, spoke = false, note = null;
 
-    const audioFor = acc => !e ? '' : acc === 'en-US' ? (e.audioUS || e.audio) : (e.audio && !/-us\.mp3$/.test(e.audio) ? e.audio : '');
+    // Một giọng thống nhất cho lúc tự đọc và nút UK/US: dùng giọng máy tốt nhất; bản ghi âm tình nguyện viên (chất lượng không đều) chỉ dùng khi máy không có giọng đọc
+    const audioFor = acc => !e || window.speechSynthesis ? '' : acc === 'en-US' ? (e.audioUS || e.audio) : (e.audio && !/-us\.mp3$/.test(e.audio) ? e.audio : '');
     const sayWord = (acc, rate) => speak(e ? e.word : word, rate ? '' : audioFor(acc), acc, rate);
     const paintCtx = () => { const el = b.querySelector('.ctxvi'); if (el && current === word) el.textContent = ctxVi ? FLAG(ML()) + ' ' + ctxVi : ''; };
 
@@ -367,12 +375,12 @@
       const ctxHtml = context ? linkify(context, word) : '';
       b.innerHTML = H(`
         <div class="head">
-          <div class="pic">${e.image ? `<img src="${esc(e.image)}" alt="" referrerpolicy="no-referrer">` : esc(e.emoji || '📘')}</div>
+          ${e.image ? `<div class="pic"><img src="${esc(e.image)}" alt="" referrerpolicy="no-referrer"></div>` : e.emoji ? `<div class="pic">${esc(e.emoji)}</div>` : `<div class="pic ltr" aria-hidden="true">${esc((e.word || '?').charAt(0))}</div>`}
           <div style="min-width:0">
-            <div>${hist.length ? `<button class="back" title="${tx('Quay lại từ trước')}">←</button>` : ''}<span class="w">${esc(e.word)}</span>${e.pos ? `<span class="chip">${esc(UI_LANG === 'vi' ? e.pos : toEn(e.pos))}</span>` : ''}${e.level ? `<span class="chip lv">${esc(e.level)}</span>` : ''}</div>
+            <div>${hist.length ? `<button class="back" title="${tx('Quay lại từ trước')}">←</button>` : ''}<span class="w">${esc(e.word)}</span>${e.pos ? `<span class="chip">${esc(UI_LANG === 'vi' ? e.pos : toEn(e.pos))}</span>` : ''}${e.level ? `<span class="chip lv" title="CEFR">${esc(e.level)}</span>` : ''}${saved || didSave ? `<span class="chip inDeck">${tx('✓ Đã trong sổ thẻ')}</span>` : ''}</div>
             <div class="ipa">${esc(e.ipa || '')}${e.ipaUS && e.ipaUS !== e.ipa ? ` · <span title="${tx('Anh–Mỹ')}">${esc(e.ipaUS)}</span>` : ''}</div>
             <div class="spks"><button class="spk" data-acc="en-GB" title="${tx('Nghe giọng Anh–Anh (phím P)')}">🔊 UK</button><button class="spk" data-acc="en-US" title="${tx('Nghe giọng Anh–Mỹ')}">🔊 US</button><button class="spk" data-slow title="${tx('Nghe chậm')}">🐢</button></div>
-            <div class="vi">${ML() === 'vi' ? esc(e.vi) : esc(mlW)}</div>
+            <div class="vi">${ML() === 'vi' ? esc(viMain(e, shown)) : esc(mlW)}</div>
           </div>
         </div>
         <div class="body">
@@ -388,7 +396,7 @@
           <button class="x" id="close" title="${tx('Đóng (Esc)')}">×</button>
         </div>`);
       const img = b.querySelector('.pic img');
-      if (img) img.onerror = () => { img.parentElement.textContent = e.emoji || '📘'; };
+      if (img) img.onerror = () => { const p = img.parentElement; if (e.emoji) p.textContent = e.emoji; else { p.className = 'pic ltr'; p.textContent = (e.word || '?').charAt(0); } };
       b.querySelectorAll('.spk[data-acc]').forEach(x => x.onclick = () => sayWord(x.dataset.acc));
       b.querySelector('.spk[data-slow]').onclick = () => sayWord(accent, 0.55);
       b.querySelectorAll('.spk[data-text]').forEach(x => x.onclick = () => speak(x.dataset.text, '', accent, +(x.dataset.rate || 0.95)));
@@ -725,7 +733,7 @@
     const st = document.createElement('style');
     st.textContent = `
       .ytp-caption-segment .vbw { cursor: pointer; border-radius: 4px; transition: background .1s; }
-      .ytp-caption-segment .vbw:hover { background: #7c3aed !important; color: #fff !important; }
+      .ytp-caption-segment .vbw:hover { background: #CC3F1C !important; color: #fff !important; }
       .ytp-caption-window-container .caption-window { pointer-events: auto !important; }`;
     document.documentElement.appendChild(st);
     const video = () => document.querySelector('video.html5-main-video') || document.querySelector('video');

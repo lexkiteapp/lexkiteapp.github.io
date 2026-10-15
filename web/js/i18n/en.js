@@ -2096,6 +2096,7 @@
   'Tính năng': 'Features',
   'Đăng nhập': 'Sign in',
   'Blog': 'Blog',
+  '✓ Đã trong sổ thẻ': '✓ In your deck',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* English UI strings – toefl.js (TOEFL iBT practice, 2026 format) */
