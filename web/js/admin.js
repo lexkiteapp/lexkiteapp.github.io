@@ -79,6 +79,7 @@
           <div class="card kpi"><div class="l">Trang/phiên</div><div class="v">${(+s.pages || 0).toFixed(1)}</div></div>
           <div class="card kpi"><div class="l">Khách quay lại</div><div class="v">${pct(s.ret, s.s)}</div></div>
           <div class="card kpi"><div class="l">Thoát ngay (&lt;15 giây, 1 trang)</div><div class="v">${pct(s.bounce, s.s)}</div></div>
+          <div class="card kpi"><div class="l">LCP thật (tốc độ hiện nội dung)</div><div class="v">${s.lcp ? (s.lcp / 1000).toFixed(2) + ' s' : '–'}</div><div class="s">${s.lcpN ? pct(s.lcpGood, s.lcpN) + ' phiên đạt “Tốt” (≤ 2,5 s)' : 'chưa có dữ liệu'}</div></div>
         </div>
         <div class="card"><h3>Phiên theo ngày</h3>${chart(a.daily, 's')}</div>
         <div class="adm-grid">

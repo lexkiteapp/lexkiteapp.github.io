@@ -1603,8 +1603,9 @@
     const plat = /^chrome-extension:/.test(location.protocol) ? 'ext' : /^capacitor:/.test(location.protocol) || window.Capacitor ? 'app' : matchMedia('(display-mode: standalone)').matches ? 'pwa' : 'web';
     const dev = innerWidth < 768 ? 'mobile' : innerWidth < 1100 ? 'tablet' : 'desktop';
     let pages = 1, dur = 0, since = document.visibilityState === 'visible' ? Date.now() : 0, errs = 0;
+    let lcp = 0; try { new PerformanceObserver(l => { const e = l.getEntries().pop(); if (e) lcp = Math.round(e.startTime); }).observe({ type: 'largest-contentful-paint', buffered: true }); } catch (e) { /* trình duyệt không hỗ trợ */ } // LCP thật của người dùng (Core Web Vitals)
     const send = d => { try { navigator.sendBeacon ? navigator.sendBeacon(BASE + '/api/hit', JSON.stringify(d)) : fetch(BASE + '/api/hit', { method: 'POST', body: JSON.stringify(d), keepalive: true }); } catch (e) { /* bỏ qua */ } };
-    const flush = () => { if (since) { dur += (Date.now() - since) / 1000; since = 0; } send({ t: 's', sid, vid, ret, path, ref: document.referrer, lang: window.I18N ? I18N.lang() : '', dev, plat, dur: Math.round(dur), pages }); };
+    const flush = () => { if (since) { dur += (Date.now() - since) / 1000; since = 0; } send({ t: 's', sid, vid, ret, path, ref: document.referrer, lang: window.I18N ? I18N.lang() : '', dev, plat, dur: Math.round(dur), pages, lcp }); };
     addEventListener('hashchange', () => pages++);
     document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flush(); else since = Date.now(); });
     addEventListener('pagehide', flush);
