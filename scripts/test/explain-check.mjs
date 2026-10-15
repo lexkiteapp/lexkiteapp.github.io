@@ -14,4 +14,10 @@ for (const l of langs) {
   const pct = have / src.size * 100; rows.push(`${l} ${pct.toFixed(1)}%${vi ? ` lẫn-Việt ${vi}` : ''}`);
   if (pct < 98 || vi > 2) bad++;
 }
+// Mọi câu thi phải có lời giải (TOEIC/TOEFL/IELTS Listening: explain trong câu; IELTS Reading: READ_EXPLAIN)
+const noEx = [];
+JSON.stringify([g.TOEIC, g.TOEFL], (k, v) => { if (v && typeof v === 'object' && 'a' in v && 'n' in v && 'options' in v && !v.explain) noEx.push(v.n); return v; });
+for (const p of g.LISTENING || []) for (const gr of p.groups || []) { if (gr.type === 'multi') { if (!gr.explain && !(gr.items || []).length) noEx.push(p.id + ':' + gr.n); } for (const it of gr.items || []) if (!it.explain) noEx.push(p.id + ':' + it.n); }
+for (const t of g.READTESTS || []) for (const p of t.passages || []) for (const gr of p.groups || []) for (const it of gr.items || []) if (!((g.READ_EXPLAIN || {})[t.id] || {})[it.n]) noEx.push(t.id + ':' + it.n);
+if (noEx.length) { bad++; rows.unshift(`thiếu lời giải ${noEx.length} câu (${noEx.slice(0, 5).join(', ')})`); }
 console.log((bad ? '✗' : '✓') + ` explain: ${src.size} lời giải · ` + rows.join(' · ')); process.exit(bad ? 1 : 0);
