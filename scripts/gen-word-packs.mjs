@@ -3,11 +3,15 @@
 //   node scripts/gen-word-packs.mjs <lang|all> [--refine N]
 //   - mặc định: dịch nhanh theo lô mọi từ còn thiếu (1 dòng/từ)
 //   - --refine N: tinh chỉnh N từ chưa tinh chỉnh bằng dữ liệu từ điển (dt=bd) – chọn nghĩa ĐÚNG TỪ LOẠI của mục từ (book v. → đặt chỗ)
+//   - --gloss-only: chỉ áp bảng nghĩa viết tay content/wordlists/*.gloss.json (không cần mạng)
+// Bảng nghĩa *.gloss.json = { lang: { word: nghĩa } } luôn thắng: ghi đè [nghĩa, 1] sau dịch máy/--refine.
 // App đọc gói khi giao diện không phải vi/en (App.nativeGloss) → nghĩa hiện tức thì, offline; thiếu thì mới dịch lúc chạy.
 import fs from 'fs';
 const R = new URL('../', import.meta.url);
 const LANGS = fs.readFileSync(new URL('scripts/i18n-langs.txt', R), 'utf8').split('\n').map(s => s.trim()).filter(s => s && !s.startsWith('#'));
 const arg = process.argv[2] || 'all', ri = process.argv.indexOf('--refine'), REFINE = ri > 0 ? +process.argv[ri + 1] || 300 : 0;
+const GLOSS_ONLY = process.argv.includes('--gloss-only');
+const GLOSS = fs.readdirSync(new URL('content/wordlists/', R)).filter(f => f.endsWith('.gloss.json')).map(f => JSON.parse(fs.readFileSync(new URL('content/wordlists/' + f, R), 'utf8')));
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 // 1) Gom từ (word → pos) từ dữ liệu app
@@ -28,7 +32,7 @@ for (const lang of arg === 'all' ? LANGS : [arg]) {
   const pack = fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : {};
   for (const k of Object.keys(pack)) if (!WORDS.has(k)) delete pack[k]; // từ đã bỏ khỏi app
   // dịch nhanh theo lô
-  const miss = [...WORDS.keys()].filter(k => !pack[k]);
+  const miss = GLOSS_ONLY ? [] : [...WORDS.keys()].filter(k => !pack[k]);
   for (let i = 0; i < miss.length; i += 80) {
     const batch = miss.slice(i, i + 80);
     const j = await get(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${tl(lang)}&dt=t&q=${encodeURIComponent(batch.join('\n'))}`);
@@ -40,7 +44,7 @@ for (const lang of arg === 'all' ? LANGS : [arg]) {
   // tinh chỉnh theo từ loại
   let done = 0;
   for (const [k, pos] of WORDS) {
-    if (done >= REFINE) break;
+    if (done >= REFINE || GLOSS_ONLY) break;
     if (pack[k] && pack[k][1]) continue;
     const j = await get(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${tl(lang)}&dt=t&dt=bd&q=${encodeURIComponent(k)}`);
     if (!j) break;
@@ -52,6 +56,8 @@ for (const lang of arg === 'all' ? LANGS : [arg]) {
     pack[k] = [terms && terms.length ? terms.join(', ') : (pack[k] ? pack[k][0] : base), 1];
     await sleep(1200);
   }
+  // bảng nghĩa viết tay luôn thắng
+  for (const gl of GLOSS) for (const [k, v] of Object.entries(gl[lang] || {})) if (WORDS.has(k) && v) pack[k] = [v, 1];
   const sorted = Object.fromEntries(Object.keys(pack).sort().map(k => [k, pack[k]]));
   fs.writeFileSync(p, JSON.stringify(sorted));
   const ref = Object.values(sorted).filter(x => x[1]).length;

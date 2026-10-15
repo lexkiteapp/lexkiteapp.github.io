@@ -24,7 +24,7 @@ Thứ tự = ưu tiên. Quy trình làm theo [PLAYBOOK.md](PLAYBOOK.md), chuẩn
 12. ✓ (phát lại YouTube trong ôn tập; thiết lập #/welcome/setup đã có kỳ thi + mục tiêu + cường độ phút/ngày + chủ đề) **Gói 1/2 còn lại**: thiết lập 2 bước (mục tiêu + thời gian/ngày); nút phát lại đoạn YouTube trong ôn tập (thẻ có `t=`).
 13. ✓ **Tốc độ**: LCP < 1 s (in-place hydration cho khung dựng sẵn `#lkHero`, không hủy/vẽ lại `h1`; LCP giữ nguyên 0,66 s); Speculation Rules (tải trước blog ngầm lúc rảnh); `content-visibility: auto` cho `.w-feats` và `.w-foot`.
 14. ✓ **Bảo mật & Trợ năng**: **Turnstile** cho form liên hệ (hỗ trợ xác thực phía server và fallback); **axe-core** kiểm thử tự động 20 màn hình đạt 0 vi phạm nghiêm trọng; nâng độ tương phản WCAG AAA (`--muted: #4e526b`, `--accent: #0D6964`).
-15. **Rà dịch câu dài bằng AI** (đã duyệt) cho 13 ngôn ngữ; xem ảnh chụp giao diện tự động (nhánh `screens`).
+15. ✓ bảng thuật ngữ BSL 13 ngôn ngữ (content/wordlists/bsl.gloss.json, luôn thắng dịch máy; --gloss-only). **Rà dịch câu dài bằng AI** (đã duyệt) cho 13 ngôn ngữ; xem ảnh chụp giao diện tự động (nhánh `screens`).
 16. ✓ workflow ios.yml (build simulator không ký, tải App.app) – còn ký & TestFlight khi có Apple Developer. **iOS**: workflow build trên máy macOS của GitHub (simulator) – khi có Apple Developer thì ký & phát hành.
 17. **Kiến trúc** (PLAN §12): tách app.js/study.js theo module, mở rộng kiểm tra kiểu.
 
