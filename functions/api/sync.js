@@ -20,7 +20,7 @@ const json = (req, status, data) => new Response(JSON.stringify(data), { status,
 const b64u = s => Uint8Array.from(atob(s.replace(/-/g, '+').replace(/_/g, '/') + '='.repeat((4 - s.length % 4) % 4)), c => c.charCodeAt(0));
 async function keys(force) {
   if (jwks && !force && Date.now() - jwksAt < 3600e3) return jwks;
-  const r = await fetch(JWKS_URL, { cf: { cacheTtl: 3600, cacheEverything: true } });
+  const r = await fetch(JWKS_URL, /** @type {any} */ ({ cf: { cacheTtl: 3600, cacheEverything: true } })); // cf: tùy chọn bộ đệm riêng của Cloudflare
   if (!r.ok) throw new Error('jwks ' + r.status);
   jwks = (await r.json()).keys || []; jwksAt = Date.now();
   return jwks;

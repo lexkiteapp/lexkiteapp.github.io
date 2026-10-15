@@ -1,0 +1,5 @@
+{
+  "//": "Kiểm tra kiểu (không biên dịch) cho phần lõi dễ gây mất dữ liệu: thuật toán ôn thẻ FSRS & lưu trữ (core.js), API đồng bộ & AI trên máy chủ. Mở rộng dần theo PLAN.md §12.",
+  "compilerOptions": { "allowJs": true, "checkJs": true, "noEmit": true, "target": "es2022", "module": "es2022", "moduleResolution": "bundler", "lib": ["es2022", "dom"], "skipLibCheck": true, "strict": false },
+  "files": ["types/globals.d.ts", "web/js/core.js", "functions/api/sync.js", "functions/api/ai.js"]
+}

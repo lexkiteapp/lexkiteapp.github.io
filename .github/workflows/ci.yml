@@ -17,6 +17,8 @@ jobs:
           node-version: 22
       - name: Cài thư viện kiểm thử (package.json gốc)
         run: npm ci --no-audit --no-fund
+      - name: Kiểm tra kiểu (TypeScript, chế độ JSDoc) cho phần lõi
+        run: npx -y -p typescript@5.6.3 tsc -p tsconfig.check.json
       - name: Test riêng FSRS & API đồng bộ
         run: node scripts/test/unit.mjs
       - name: Chính tả tiếng Việt
