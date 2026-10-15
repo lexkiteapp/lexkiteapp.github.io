@@ -461,6 +461,7 @@
       <div class="grid g3">${suggestTopics.map(topicCard).join('')}</div>
 
       <div id="homeRead">${readHtml(reading)}</div>
+      ${window.Ads ? Ads.slot('home') : ''}
     `;
     if (!reading) App.need('readings').then(() => { const el = document.getElementById('homeRead'), rs = window.READINGS || []; if (el && rs.length) el.innerHTML = readHtml(rs[Math.floor(Date.now() / DAY) % rs.length]); }).catch(() => {});
     bindCommon();

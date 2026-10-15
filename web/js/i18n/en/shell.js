@@ -423,4 +423,5 @@
   'Lexkite – Học từ vựng IELTS & TOEIC miễn phí: flashcard FSRS, từ điển, thi thử': 'Lexkite – Free IELTS & TOEIC vocabulary: FSRS flashcards, dictionary, mock tests',
   'Học từ vựng IELTS, TOEIC & TOEFL miễn phí: flashcard FSRS, từ điển song ngữ có phát âm, luyện 4 kỹ năng và thi thử có giải thích chi tiết.': 'Learn IELTS, TOEIC & TOEFL vocabulary free: FSRS flashcards, a bilingual dictionary with pronunciation, 4-skill practice and mock tests with detailed explanations.',
   'Giọng đọc tự nhiên cho bài nghe & giám khảo (tải âm thanh từ mạng)': 'Natural voices for listening & examiner (streams audio)',
+  'Quảng cáo': 'Advertisement',
 }); })(typeof self !== 'undefined' ? self : this);

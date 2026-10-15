@@ -950,3 +950,8 @@ a, button, label, .option, .card.hover, [role="button"] { touch-action: manipula
 @media (max-width: 560px) {
   .hero-main .row .btn.lg { flex: 1 1 0; min-width: 0; white-space: normal; text-align: center; line-height: 1.25; padding: .75rem .7rem; }
 }
+
+/* Quảng cáo: chừa sẵn chỗ (không làm nhảy trang), tách biệt rõ với nội dung học */
+.ad-slot.on { margin: 1.4rem 0 .4rem; min-height: 110px; padding: .5rem; border: 1px dashed var(--line); border-radius: 14px; background: var(--surface); overflow: hidden; }
+.ad-slot .ad-label { font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0 0 .3rem .2rem; }
+html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom)); }
