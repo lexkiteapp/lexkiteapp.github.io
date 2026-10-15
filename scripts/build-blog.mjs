@@ -269,7 +269,7 @@ ${list[0] ? `<lastBuildDate>${new Date(when(list[0])).toUTCString()}</lastBuildD
 // Sitemap blog: tối đa 10.000 URL/file (sitemap-blog.xml, sitemap-blog-2.xml…) – build-sitemap-index.mjs gom vào sitemap.xml
 for (const f of fs.existsSync(OUT) ? fs.readdirSync(OUT).filter(f => /^sitemap-blog(-\d+)?\.xml$/.test(f)) : []) fs.rmSync(path.join(OUT, f));
 const CH = 10000;
-for (let k = 0; k * CH < Math.max(sm.length, 1); k++) {
+for (let k = 0; k * CH < sm.length; k++) { // chưa có bài → không ghi sitemap rỗng
   const part = sm.slice(k * CH, (k + 1) * CH);
   const x = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">

@@ -23,30 +23,30 @@ scripts/blog-media.mjs         PNG → AVIF/WebP 3 cỡ, ghi media.json, --push 
 
 ## 1. SEO kỹ thuật – rà soát & sửa
 Kết quả rà (15/10/2026, curl lexkite.com):
-- [ ] **Canonical/sitemap trỏ URL `.html`** nhưng Cloudflare Pages chuyển 308 `/x.html → /x` → Google thấy canonical là URL chuyển hướng. Sửa: mọi canonical, sitemap, hreflang, liên kết nội bộ dùng URL không đuôi.
-- [ ] **Soft 404**: đường dẫn không tồn tại trả 200 + trang app (Pages bật chế độ SPA khi thiếu `404.html`). App chỉ dùng hash route → thêm `404.html` thật (noindex) để tắt fallback.
-- [ ] **hreflang `?hl=xx`** trỏ tới URL có canonical là `/` (tín hiệu mâu thuẫn). Sửa: bỏ hreflang theo tham số cho trang app; hreflang chỉ dùng giữa các trang tĩnh có bản dịch thật (bài mẫu vi/en, blog khi có bản dịch).
-- [ ] **Sitemap index**: `sitemap.xml` thành sitemapindex → `sitemap-pages.xml` (app + trang SEO cũ) + `sitemap-blog.xml` (chia 10.000 URL/file), có `lastmod`.
-- [ ] robots.txt: cho phép tất cả, chặn `/?sandbox`, `/*?demo=`, khai báo sitemap index.
-- [ ] Open Graph/Twitter: ảnh chia sẻ 1200×630 (`og-default.png` theo bộ nhận diện), `summary_large_image`, `og:url` đúng, `og:locale`.
-- [ ] JSON-LD: WebApplication (trang chủ), BreadcrumbList + LearningResource (trang SEO cũ), BlogPosting + BreadcrumbList (+ FAQPage chỉ khi bài có mục hỏi đáp hiển thị), Blog/CollectionPage cho trang danh sách.
-- [ ] Thẻ `<html lang>`, viewport, theme-color, favicon trên mọi trang tĩnh.
-- [ ] Core Web Vitals trang tĩnh: không JS chặn hiển thị, CSS nội tuyến < 14 KB, ảnh có width/height (CLS 0), ảnh đầu `fetchpriority=high`, ảnh sau `loading=lazy decoding=async`, font hệ thống (không tải Google Fonts cho blog), video YouTube dạng facade.
-- [ ] `_headers`: cache dài cho ảnh/âm thanh/icon, `X-Content-Type-Options`, `Referrer-Policy`; trang HTML luôn kiểm lại.
+- [x] **Canonical/sitemap trỏ URL `.html`** nhưng Cloudflare Pages chuyển 308 `/x.html → /x` → Google thấy canonical là URL chuyển hướng. Sửa: mọi canonical, sitemap, hreflang, liên kết nội bộ dùng URL không đuôi.
+- [x] **Soft 404**: đường dẫn không tồn tại trả 200 + trang app (Pages bật chế độ SPA khi thiếu `404.html`). App chỉ dùng hash route → thêm `404.html` thật (noindex) để tắt fallback.
+- [x] **hreflang `?hl=xx`** trỏ tới URL có canonical là `/` (tín hiệu mâu thuẫn). Sửa: bỏ hreflang theo tham số cho trang app; hreflang chỉ dùng giữa các trang tĩnh có bản dịch thật (bài mẫu vi/en, blog khi có bản dịch).
+- [x] **Sitemap index**: `sitemap.xml` thành sitemapindex → `sitemap-pages.xml` (app + trang SEO cũ) + `sitemap-blog.xml` (chia 10.000 URL/file), có `lastmod`.
+- [x] robots.txt: cho phép tất cả, chặn `/?sandbox`, `/*?demo=`, khai báo sitemap index.
+- [x] Open Graph/Twitter: ảnh chia sẻ 1200×630 (`og-default.png` theo bộ nhận diện), `summary_large_image`, `og:url` đúng, `og:locale`.
+- [x] JSON-LD: WebApplication (trang chủ), BreadcrumbList + LearningResource (trang SEO cũ), BlogPosting + BreadcrumbList (+ FAQPage chỉ khi bài có mục hỏi đáp hiển thị), Blog/CollectionPage cho trang danh sách.
+- [x] Thẻ `<html lang>`, viewport, theme-color, favicon trên mọi trang tĩnh.
+- [x] Core Web Vitals trang tĩnh: không JS chặn hiển thị, CSS nội tuyến < 14 KB, ảnh có width/height (CLS 0), ảnh đầu `fetchpriority=high`, ảnh sau `loading=lazy decoding=async`, font hệ thống (không tải Google Fonts cho blog), video YouTube dạng facade.
+- [x] `_headers`: cache dài cho ảnh/âm thanh/icon, `X-Content-Type-Options`, `Referrer-Policy`; trang HTML luôn kiểm lại.
 - [ ] Đo Lighthouse trên bản live sau khi phát hành (cha/anh chạy PageSpeed Insights) – mục tiêu ≥ 95 cho /blog/.
 
 ## 2. Blog engine (`scripts/build-blog.mjs`, không phụ thuộc gói ngoài)
-- [ ] Đọc `content/blog/<lang>/*.md`; bỏ `status: draft`; chỉ phát hành bài có `publishAt ≤ now` (biến `BLOG_NOW` để thử, `BLOG_DRAFTS=1` xem trước tất cả).
-- [ ] URL sạch: `/blog/<slug>/` (vi, ngôn ngữ chính); bản dịch sau này: `/<lang>/blog/<slug>/` + hreflang theo `translationKey`.
-- [ ] Trang danh sách `/blog/` + phân trang `/blog/trang/2/`; chuyên mục `/blog/chu-de/<cat>/`; thẻ `/blog/the/<tag>/` (chỉ thẻ có ≥ 2 bài mới được lập chỉ mục, còn lại noindex,follow).
-- [ ] RSS `/blog/rss.xml` (20 bài mới nhất), sitemap blog có lastmod, mục lục (TOC) tự sinh, thời gian đọc, bài liên quan (cùng chuyên mục + thẻ chung), nút gọi hành động vào app (`/#/...`).
-- [ ] Giao diện: màu từ token `web/css/style.css` (--primary #E5502F, --brand-ink #0F3D3E, --accent #12807A…), logo `icons/icon.svg`, chế độ tối theo hệ thống, tương phản AA, có skip-link, focus rõ, `prefers-reduced-motion`.
-- [ ] Markdown tối giản tự viết: tiêu đề, đoạn, danh sách, bảng, trích dẫn, code, liên kết, ảnh, đậm/nghiêng + mã riêng (xem §5).
+- [x] Đọc `content/blog/<lang>/*.md`; bỏ `status: draft`; chỉ phát hành bài có `publishAt ≤ now` (biến `BLOG_NOW` để thử, `BLOG_DRAFTS=1` xem trước tất cả).
+- [x] URL sạch: `/blog/<slug>/` (vi, ngôn ngữ chính); bản dịch sau này: `/<lang>/blog/<slug>/` + hreflang theo `translationKey`.
+- [x] Trang danh sách `/blog/` + phân trang `/blog/trang/2/`; chuyên mục `/blog/chu-de/<cat>/`; thẻ `/blog/the/<tag>/` (chỉ thẻ có ≥ 2 bài mới được lập chỉ mục, còn lại noindex,follow).
+- [x] RSS `/blog/rss.xml` (20 bài mới nhất), sitemap blog có lastmod, mục lục (TOC) tự sinh, thời gian đọc, bài liên quan (cùng chuyên mục + thẻ chung), nút gọi hành động vào app (`/#/...`).
+- [x] Giao diện: màu từ token `web/css/style.css` (--primary #E5502F, --brand-ink #0F3D3E, --accent #12807A…), logo `icons/icon.svg`, chế độ tối theo hệ thống, tương phản AA, có skip-link, focus rõ, `prefers-reduced-motion`.
+- [x] Markdown tối giản tự viết: tiêu đề, đoạn, danh sách, bảng, trích dẫn, code, liên kết, ảnh, đậm/nghiêng + mã riêng (xem §5).
 
 ## 3. Lịch đăng tự động
-- [ ] Mỗi bài có `publishAt` (ISO 8601, múi +07:00). Build chỉ đưa bài đã đến giờ.
-- [ ] `node scripts/blog-schedule.mjs` – bài có `publishAt:` trống (hàng đợi) được xếp 2–3 bài/ngày, giờ ngẫu nhiên 06:00–22:59 (giờ VN), mỗi bài một khung giờ khác nhau, nối tiếp ngày cuối đã xếp. `--dry` xem trước, `--seed` lặp lại được, `--status` in lịch.
-- [ ] `.github/workflows/blog-publish.yml`: cron mỗi giờ (phút 7) – miễn phí với repo công khai. Chạy `blog-due.mjs --since 70` → nếu có bài vừa đến giờ: `curl -X POST $CF_PAGES_DEPLOY_HOOK` (secret GitHub, **không commit**) → chờ build → `indexnow.mjs`. Không có bài → không làm gì (không tốn build).
+- [x] Mỗi bài có `publishAt` (ISO 8601, múi +07:00). Build chỉ đưa bài đã đến giờ.
+- [x] `node scripts/blog-schedule.mjs` – bài có `publishAt:` trống (hàng đợi) được xếp 2–3 bài/ngày, giờ ngẫu nhiên 06:00–22:59 (giờ VN), mỗi bài một khung giờ khác nhau, nối tiếp ngày cuối đã xếp. `--dry` xem trước, `--seed` lặp lại được, `--status` in lịch.
+- [x] `.github/workflows/blog-publish.yml`: cron mỗi giờ (phút 7) – miễn phí với repo công khai. Chạy `blog-due.mjs --since 70` → nếu có bài vừa đến giờ: `curl -X POST $CF_PAGES_DEPLOY_HOOK` (secret GitHub, **không commit**) → chờ build → `indexnow.mjs`. Không có bài → không làm gì (không tốn build).
 - [ ] **Anh/cha làm 1 lần** (cần quyền tài khoản): Cloudflare → Pages `lexkite` → Settings → Builds → Deploy hooks → tạo hook “blog-cron” (nhánh main) → GitHub `lexkiteapp/lexkiteapp.github.io` → Settings → Secrets → Actions → `CF_PAGES_DEPLOY_HOOK` = URL hook.
 - Lưu ý: GitHub tắt cron của repo không có hoạt động 60 ngày – repo đang commit thường xuyên; nếu ngừng, bấm “Enable workflow”.
 
@@ -98,8 +98,8 @@ Dịch sau này: tạo `content/blog/en/<slug-en>.md` cùng `translationKey` →
   - Vì sao: miễn phí, không cần thẻ; repo chính không phình (ảnh không bao giờ vào repo app); đường dẫn có mã băm → bất biến, cache vĩnh viễn; đổi nhà cung cấp chỉ cần sửa `mediaBase` trong `content/blog/config.json`.
   - Không chọn jsDelivr làm gốc: giới hạn kích thước gói GitHub (~50 MB/repo) không đủ cho hàng chục nghìn ảnh; vẫn có thể bật làm lớp đệm cho ảnh đơn lẻ. Không chọn R2: kích hoạt R2 đòi phương thức thanh toán.
   - Dung lượng: ~3 ảnh/bài × 3 cỡ × 2 định dạng ≈ 250–400 KB/bài → ~2.500 bài/GB. Khi repo ảnh gần 900 MB → mở repo shard mới `lexkite-media-2`, ghi `base` theo từng ảnh trong media.json (đã hỗ trợ).
-- [ ] `blog-media.mjs`: PNG → AVIF + WebP ở 480/960/1440 px, `<picture>` + `srcset/sizes`, width/height cố định, lazy trừ ảnh đầu.
-- [ ] Video: `{{youtube: ID | tiêu đề}}` → ảnh thumbnail `i.ytimg.com` + nút play; iframe `youtube-nocookie.com` chỉ tải khi bấm (0 KB JS bên thứ ba lúc tải trang). Không bịa ID – slot trống không hiển thị.
+- [x] `blog-media.mjs`: PNG → AVIF + WebP ở 480/960/1440 px, `<picture>` + `srcset/sizes`, width/height cố định, lazy trừ ảnh đầu.
+- [x] Video: `{{youtube: ID | tiêu đề}}` → ảnh thumbnail `i.ytimg.com` + nút play; iframe `youtube-nocookie.com` chỉ tải khi bấm (0 KB JS bên thứ ba lúc tải trang). Không bịa ID – slot trống không hiển thị.
 - [ ] **Cần anh đồng ý**: tạo repo công khai `lexkiteapp/lexkite-media` + bật Pages, rồi `node scripts/blog-media.mjs --push` (token gh trên máy đang hết hạn → `gh auth login`).
 
 ## 7. Sự thật đã xác minh (dùng chung khi viết; chỉ ghi điều chắc chắn)
@@ -110,19 +110,19 @@ Dịch sau này: tạo `content/blog/en/<slug-en>.md` cùng `translationKey` →
 - Không hứa điểm số, không nói “chính thức”, không dùng logo/đề của IELTS/ETS. Ghi nhãn hiệu thuộc chủ sở hữu.
 
 ## 8. 50 bài đầu (vi) – xem `content/blog/briefs.json`
-- [ ] Brief 50 bài (từ khóa không trùng nhau, 5 chuyên mục)
-- [ ] Viết 50 bài, mỗi bài ≥ 1.200 từ, ≥ 2 ảnh app thật, liên kết vào app & bài liên quan, slot YouTube tùy chọn
-- [ ] 6 bài đăng ngay (publishAt = 15/10/2026), 44 bài xếp lịch 2–3 bài/ngày
+- [x] Brief 50 bài (từ khóa không trùng nhau, 5 chuyên mục)
+- [x] Viết 50 bài, mỗi bài ≥ 1.200 từ, ≥ 2 ảnh app thật, liên kết vào app & bài liên quan, slot YouTube tùy chọn
+- [x] 6 bài đăng ngày ra mắt 16/10/2026, 44 bài xếp lịch 2–3 bài/ngày tới 02/11/2026
 
 ## 9. Công cụ tìm kiếm
-- [ ] IndexNow: khóa công khai `web/<key>.txt`, `scripts/indexnow.mjs` gửi api.indexnow.org (Bing, Yandex, Seznam, Naver…) sau mỗi lần đăng.
+- [x] IndexNow: khóa công khai `web/<key>.txt`, `scripts/indexnow.mjs` gửi api.indexnow.org (Bing, Yandex, Seznam, Naver…) sau mỗi lần đăng.
 - [ ] Google Search Console (tài khoản vintagezulilyjewelry@gmail.com): thêm thuộc tính miền `lexkite.com` → bản ghi TXT `google-site-verification=…` trong Cloudflare DNS → Xác minh → gửi `https://lexkite.com/sitemap.xml`. Đăng nhập/đồng ý điều khoản: anh bấm.
 - [ ] Bing Webmaster Tools: nhập từ GSC (1 chạm) sau khi GSC xong.
 
 ## 10. Hoàn tất
-- [ ] `node scripts/vi-lint.mjs`, `node scripts/i18n-missing.mjs --strict`, `node scripts/blog-check.mjs`, `node scripts/blog-dupes.mjs` đều qua
-- [ ] `bash scripts/build-web.sh` sạch, có blog
-- [ ] Commit trên nhánh, gửi tóm tắt cho phiên cha
+- [x] `node scripts/vi-lint.mjs`, `node scripts/i18n-missing.mjs --strict`, `node scripts/blog-check.mjs`, `node scripts/blog-dupes.mjs` đều qua
+- [x] `bash scripts/build-web.sh` sạch, có blog
+- [x] Commit trên nhánh, gửi tóm tắt cho phiên cha
 
 ## 11. Vận hành blog
 ```bash
