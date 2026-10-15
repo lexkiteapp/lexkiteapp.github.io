@@ -33,8 +33,8 @@
   // Nghĩa đáng ngờ: chứa âm tiết hiếm dễ nhầm dấu (cọng/cộng…) đứng cạnh âm tiết chưa từng đi cùng nó trong từ điển tiếng Việt
   let RARE = null;
   // Bảng kiểm tra chính tả (25 KB) tải lúc rảnh, không chặn trang đầu; chưa có thì tạm bỏ qua bước kiểm tra
-  let viP = null;
-  const loadVi = () => viP || (viP = new Promise(res => { if (!g.document) return res(); const sc = document.createElement('script'); sc.src = 'js/vi-check.js'; sc.onload = sc.onerror = res; document.head.appendChild(sc); }));
+  let viP = null; const viSrc = ((g.document && document.currentScript && document.currentScript.src) || 'js/dictionary.js').replace(/dictionary\.js.*$/, 'vi-check.js'); // cùng thư mục với file này (web: js/, add-on: app/js/)
+  const loadVi = () => viP || (viP = new Promise(res => { if (!g.document) return res(); const sc = document.createElement('script'); sc.src = viSrc; sc.onload = sc.onerror = res; document.head.appendChild(sc); }));
   if (g.document) setTimeout(() => (g.requestIdleCallback || setTimeout)(loadVi), 3000);
   const rare = () => { if (!g.VI_RARE) { loadVi(); return new Map(); } return RARE || (RARE = new Map(String(g.VI_RARE || '').split('|').filter(Boolean).map(x => { const [k, v] = x.split(':'); return [k, new Set((v || '').split(','))]; }))); };
   const suspicious = term => { const ws = term.toLowerCase().split(/\s+/); if (ws.length < 2) return false; return ws.some((w, i) => { const c = rare().get(w); return c && !c.has(ws[i - 1]) && !c.has(ws[i + 1]); }); };
