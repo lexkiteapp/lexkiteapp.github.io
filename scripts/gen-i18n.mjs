@@ -6,10 +6,11 @@
 import fs from 'node:fs';
 import vm from 'node:vm';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const lang = process.argv[2];
 if (!/^[a-z]{2}(-[A-Z]{2})?$/.test(lang || '') || lang === 'en' || lang === 'vi') { console.error('Dùng: node scripts/gen-i18n.mjs <mã ngôn ngữ, vd. es>'); process.exit(1); }
-const DIR = path.join(path.dirname(new URL(import.meta.url).pathname), '../web/js/i18n');
+const DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), '../web/js/i18n');
 const load = f => { const ctx = { self: {} }; ctx.self = ctx; vm.createContext(ctx); vm.runInContext(fs.readFileSync(f, 'utf8'), ctx); return ctx.I18N_DICT || {}; };
 const EN = load(path.join(DIR, 'en.js')).en;
 const outFile = path.join(DIR, `${lang}.js`);
