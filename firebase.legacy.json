@@ -2,7 +2,7 @@
   "hosting": [
     {
       "site": "vocaband",
-      "public": "dist",
+      "public": "legacy-public",
       "ignore": [
         "**/.*"
       ],
@@ -16,7 +16,7 @@
     },
     {
       "site": "ielts-lexi-2026",
-      "public": "dist",
+      "public": "legacy-public",
       "ignore": [
         "**/.*"
       ],
