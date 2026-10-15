@@ -1032,7 +1032,7 @@
     const slide = (label, vid, val, input, hint = '') => `<label class="set-row col"><span class="set-top"><span>${label}</span><b id="${vid}">${val}</b></span>${input}${hint ? `<small>${hint}</small>` : ''}</label>`;
     const seg = (id, items, cur) => `<div class="tabs seg" id="${id}">${items.map(([v, l, attr]) => `<button type="button" data-v="${v}" class="${cur === v ? 'on' : ''}"${attr || ''}>${l}</button>`).join('')}</div>`;
     const sec = (id, title, body) => `<section class="set-sec" id="set-${id}"><h3 class="set-h">${title}</h3><div class="set-list">${body}</div></section>`;
-    const NAV = [['account', '☁️', t('Tài khoản')], ['look', '🎨', t('Giao diện')], ['study', '🎯', t('Học tập')], ['sound', '🔊', t('Âm thanh')], ['remind', '⏰', t('Nhắc học')], ['ai', '🤖', 'AI'], ['data', '💾', t('Dữ liệu')]];
+    const NAV = [['account', '☁️', t('Tài khoản')], ['look', '🎨', t('Giao diện')], ['study', '🎯', t('Mục tiêu học')], ['sound', '🔊', t('Âm thanh')], ['remind', '⏰', t('Nhắc học')], ['ai', '🤖', 'AI'], ['data', '💾', t('Dữ liệu')]];
     view.innerHTML = `
       <div class="set-wrap">
       <div class="page-head"><div><h1>${t('Cài đặt')}</h1><p class="muted">${t('Tài khoản, nhắc học, mục tiêu và giao diện')}</p></div></div>
