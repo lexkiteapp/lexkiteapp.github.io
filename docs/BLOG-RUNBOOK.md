@@ -14,6 +14,9 @@ Cập nhật 15/10/2026. Không chứa mật khẩu/khóa bí mật. Chi tiết 
 | Video | Kênh YouTube Lexkite (chưa có) | Điền ID vào `{{youtube: ID | …}}` trong bài |
 | Lịch viết bài | Claude desktop → Scheduled → "Lexkite: viết lô bài blog hằng tuần" (thứ Hai 9h) | ~15 bài/tuần, hỏi anh trước khi gộp/đẩy |
 
+## Ngôn ngữ đã mở (16/10/2026)
+vi (80 bài), en (24, phủ Ấn Độ/Philippines/Nigeria…), id (2), es (2, trung tính – phủ Mexico/Mỹ Latinh/Tây Ban Nha), ja (2). Mở tiếp: pt (Brazil) → ko → zh → th → ar → tr → fr → de → it/pl. Ngôn ngữ mới: thêm `L.<lang>` trong scripts/build-blog.mjs, blogName/blogDesc trong config.json, trang about trong content/blog/pages/<lang>/, 6 brief.
+
 ## Đường dẫn
 - Bài: `/<lang>/blog/<slug>/` (vi, en…) · danh sách `/<lang>/blog/` · chuyên mục `/vi/blog/chu-de/<cat>/` (`/en/blog/topic/`) · thẻ `/vi/blog/the/<tag>/` (`/en/blog/tag/`) · RSS `/<lang>/blog/rss.xml` · giới thiệu `/vi/blog/gioi-thieu/`, `/en/blog/about/`.
 - `/blog/*` → 301 `/vi/blog/*` (`web/_redirects`). Sitemap index `/sitemap.xml` → `sitemap-pages.xml` + `sitemap-blog-<lang>.xml`.

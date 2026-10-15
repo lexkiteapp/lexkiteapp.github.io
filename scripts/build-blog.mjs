@@ -2,7 +2,7 @@
 // BLOG_DRAFTS=1 xem trước mọi bài). Sinh: bài /blog/<slug>/, danh sách + phân trang, chuyên mục, thẻ, RSS, sitemap-blog.xml.
 // Ảnh: CDN repo lexkite-media (content/blog/config.json → mediaBase); BLOG_MEDIA_LOCAL=1 chép ảnh .media/out vào dist để xem thử.
 import fs from 'node:fs'; import path from 'node:path';
-import { loadPosts, parse, isLive, publishTime, wordCount, config, CATEGORIES, ROOT } from './lib/blog-content.mjs';
+import { loadPosts, parse, FAQ_RE, isLive, publishTime, wordCount, config, CATEGORIES, ROOT } from './lib/blog-content.mjs';
 
 const C = config(), SITE = C.site.replace(/\/$/, ''), DEF = C.defaultLang || 'vi', PER = C.postsPerPage || 12;
 const NOW = process.env.BLOG_NOW ? Date.parse(process.env.BLOG_NOW) : Date.now(), DRAFTS = process.env.BLOG_DRAFTS === '1';
@@ -85,7 +85,7 @@ function render(md, lang, cover) {
     if (ln.startsWith('```')) { flush(); const buf = []; i++; while (i < lines.length && !lines[i].startsWith('```')) buf.push(lines[i++]); i++; out.push(`<pre><code>${esc(buf.join('\n'))}</code></pre>`); continue; }
     if ((m = ln.match(/^(#{2,4})\s+(.+?)\s*#*$/))) {
       flush(); const lv = m[1].length, txt = m[2], id = hid(txt);
-      if (lv === 2) { inFaq = /^(câu hỏi thường gặp|faq|frequently asked)/i.test(txt); q = null; toc.push({ id, txt }); }
+      if (lv === 2) { inFaq = FAQ_RE.test(txt); q = null; toc.push({ id, txt }); }
       if (lv === 3 && inFaq) { q = { q: txt.replace(/[*_`]/g, ''), a: '' }; faq.push(q); }
       out.push(`<h${lv} id="${id}">${inline(txt)}</h${lv}>`); i++; continue;
     }
