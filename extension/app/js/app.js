@@ -234,8 +234,16 @@
   }
 
   let routeSeq = 0;
+  // Nút ✕/Quay lại trong bài luyện: trở về đúng trang người học vừa đứng (lộ trình, bộ từ, kế hoạch…), không phải lúc nào cũng về Trò chơi
+  let backHash = '';
+  App.backHref = () => backHash || '#/practice';
+  let curHash = '';
   async function route() {
     const { name, arg, query } = parseHash();
+    const STUDY = /^#\/(practice\/|review)/;
+    if (STUDY.test(location.hash) && curHash && !STUDY.test(curHash)) backHash = /^#\/welcome/.test(curHash) ? '#/home' : curHash;
+    else if (!STUDY.test(location.hash)) backHash = '';
+    curHash = location.hash;
     const b = [].concat(ROUTE_BUNDLE[name] || []), my = ++routeSeq;
     // Khung chờ (skeleton) chỉ hiện khi tải lâu hơn 150 ms → không nháy màn hình khi tải nhanh
     let skel = null;
