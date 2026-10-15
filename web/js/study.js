@@ -142,6 +142,7 @@
       <div class="study-top">
         <a class="icon-btn" href="${App.backHref().replace(/^#\/practice$/, "#/home")}" title="${t('Thoát')}">✕</a>
         ${session.last ? `<button class="icon-btn" id="undoBtn" title="${t('Hoàn tác lần chấm vừa rồi (Z)')}">↶</button>` : ''}
+        <a class="icon-btn" href="#/handsfree" title="${t('Chế độ Rảnh tay')}" aria-label="${t('Chế độ Rảnh tay')}">🎧</a>
         <div class="progress"><i style="width:${pct}%"></i></div>
         <span class="small muted" style="white-space:nowrap" title="${t('Thẻ đang ở bước học (1–10 phút) sẽ quay lại trong phiên')}">✅ ${session.done} · ${t('<b>{n}</b> thẻ còn lại', { n: new Set(session.queue).size })}</span>
       </div>
@@ -197,6 +198,25 @@
       if (rev || state.settings.autoSpeak) say();
     };
     $('#flash').addEventListener('click', e => { if (!e.target.closest('button, details, textarea, input')) flip(); });
+    // 👆 Vuốt thẻ (cảm ứng & chuột): phải = Nhớ, trái = Quên, lên = nghe lại. Chưa lật → lật cho thấy đáp án 0,7 s rồi mới chấm.
+    if (!typeMode && window.PointerEvent) {
+      const fc = $('#flash'); let x0 = 0, y0 = 0, dx = 0, dy = 0, drag = false, moved = false;
+      const reset = () => { fc.classList.remove('swiping', 'sw-good', 'sw-again'); fc.style.transform = ''; };
+      fc.addEventListener('pointerdown', e => { if (graded || e.target.closest('button, details, textarea, input, a')) return; drag = true; moved = false; x0 = e.clientX; y0 = e.clientY; dx = dy = 0; fc.classList.add('swiping'); try { fc.setPointerCapture(e.pointerId); } catch (err) { /* bỏ qua */ } });
+      fc.addEventListener('pointermove', e => {
+        if (!drag) return; dx = e.clientX - x0; dy = e.clientY - y0; if (Math.abs(dx) > 8 || Math.abs(dy) > 8) moved = true;
+        fc.style.transform = `translate3d(${dx}px, ${Math.min(0, dy) * 0.4}px, 0) rotate(${dx / 18}deg)`;
+        fc.classList.toggle('sw-good', dx > 40); fc.classList.toggle('sw-again', dx < -40);
+      });
+      const end = () => {
+        if (!drag) return; drag = false;
+        const go = g => { fc.classList.remove('swiping'); fc.classList.add('fly'); fc.style.transform = `translate3d(${g ? 120 : -120}vw, 0, 0) rotate(${g ? 25 : -25}deg)`; setTimeout(() => grade(g ? 2 : 0), 220); };
+        if (dx > 80 || dx < -80) { const g = dx > 80; if (!flipped) { reset(); flip(); setTimeout(() => go(g), 700); } else go(g); }
+        else { if (dy < -60 && Math.abs(dx) < 60) say(); reset(); }
+      };
+      fc.addEventListener('pointerup', end); fc.addEventListener('pointercancel', () => { drag = false; reset(); });
+      fc.addEventListener('click', e => { if (moved) { e.stopImmediatePropagation(); moved = false; } }, true); // kéo thì không tính là bấm lật
+    }
     if (typeMode) {
       const inp = $('#typeIn'); setTimeout(() => inp.focus(), 50);
       const norm = x => x.toLowerCase().replace(/[’']/g, "'").replace(/\s+/g, ' ').trim();

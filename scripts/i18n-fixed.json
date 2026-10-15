@@ -14780,5 +14780,35 @@
   "ar": "وضع الهمس",
   "ru": "Режим шёпота",
   "tr": "Fısıltı modu"
+ },
+ "Chế độ Rảnh tay": {
+  "es": "Modo manos libres",
+  "pt": "Modo sem mãos",
+  "fr": "Mode mains libres",
+  "de": "Freihändig-Modus",
+  "id": "Mode tanpa tangan",
+  "th": "โหมดแฮนด์ฟรี",
+  "zh": "免提模式",
+  "ja": "ハンズフリーモード",
+  "ko": "핸즈프리 모드",
+  "hi": "हैंड्स-फ़्री मोड",
+  "ar": "وضع دون استخدام اليدين",
+  "ru": "Режим без рук",
+  "tr": "Eller serbest mod"
+ },
+ "Màn tối": {
+  "es": "Pantalla oscura",
+  "pt": "Tela escura",
+  "fr": "Écran sombre",
+  "de": "Dunkler Bildschirm",
+  "id": "Layar gelap",
+  "th": "หน้าจอมืด",
+  "zh": "暗屏",
+  "ja": "暗い画面",
+  "ko": "어두운 화면",
+  "hi": "डार्क स्क्रीन",
+  "ar": "شاشة داكنة",
+  "ru": "Тёмный экран",
+  "tr": "Karanlık ekran"
  }
 }

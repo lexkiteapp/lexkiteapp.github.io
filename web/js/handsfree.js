@@ -26,12 +26,13 @@
     const opt = Object.assign({ ex: true, mean: true, gap: 900 }, state.settings.hf || {});
     view.innerHTML = `
       <div class="page-head"><div><h1>🎧 ${t('Học rảnh tay')}</h1><p class="muted">${t('Nghe từ, nghĩa và câu ví dụ liên tục – vừa đi bộ, lái xe hay làm việc nhà. Có thể khóa màn hình, điều khiển bằng tai nghe.')}</p></div></div>
+      <div class="hf-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
       <div class="card hf-card" id="hfCard" aria-live="polite"></div>
       <div class="hf-ctl"><button class="icon-btn" id="hfPrev" aria-label="${t('Từ trước')}">⏮</button><button class="btn primary lg" id="hfPlay">▶ ${t('Bắt đầu')}</button><button class="icon-btn" id="hfNext" aria-label="${t('Từ tiếp')}">⏭</button></div>
       <div class="row center small muted" style="gap:1rem;flex-wrap:wrap;margin-top:.8rem">
         <label class="md-sw"><input type="checkbox" id="hfEx" ${opt.ex ? 'checked' : ''}><span></span>${t('Câu ví dụ')}</label>
         <label class="md-sw"><input type="checkbox" id="hfMean" ${opt.mean ? 'checked' : ''}><span></span>${t('Đọc nghĩa (khi mở màn hình)')}</label>
-        <span id="hfPos"></span></div>
+        <button type="button" class="btn sm ghost" id="hfDark">🌙 ${t('Màn tối')}</button><span id="hfPos"></span></div>
       <p class="tiny muted center" style="margin-top:.8rem">🔒 ${t('Khóa màn hình vẫn nghe được với các từ có giọng đọc chất lượng cao (Kokoro). Danh sách: {t}', { t: esc(q.title) })}</p>`;
     if (!words.length) { $('#hfCard').innerHTML = `<p class="muted center">${t('Chưa có từ nào để nghe.')}</p>`; return; }
     let i = 0, playing = false, step = 0, timer = 0;
@@ -52,7 +53,7 @@
       if (!playing) return;
       const w = words[i];
       if (step === 0) { draw(); step = 1; const u = clip(w.word); if (u) { audio.src = u; audio.play().catch(() => advance()); } else if (hidden()) { next(true); } else { await tts(w.word, state.settings.accent || 'en-GB'); advance(); } return; }
-      if (step === 1) { step = 2; if (opt.mean && !hidden() && App.meanOf(w)) { await tts(App.meanOf(w), I18N.meanLang() === 'vi' ? 'vi-VN' : LANG[I18N.lang()] || 'en-GB'); } return advance(); }
+      if (step === 1) { step = 2; if (!hidden()) await new Promise(r => { timer = setTimeout(r, 2500); }); if (!playing) return; /* 2,5 s im lặng để tự nhớ nghĩa */ if (opt.mean && !hidden() && App.meanOf(w)) { await tts(App.meanOf(w), I18N.meanLang() === 'vi' ? 'vi-VN' : LANG[I18N.lang()] || 'en-GB'); } return advance(); }
       if (step === 2) { step = 3; if (opt.ex && w.ex) { const u = clip(w.ex); if (u) { audio.src = u; audio.play().catch(() => advance()); return; } if (!hidden()) { await tts(w.ex, state.settings.accent || 'en-GB'); } } return advance(); }
       next(true);
     }
@@ -61,11 +62,12 @@
     audio.addEventListener('ended', advance);
     audio.addEventListener('error', advance);
     const setPlay = on => {
-      playing = on; $('#hfPlay').textContent = on ? '⏸ ' + t('Tạm dừng') : '▶ ' + t('Tiếp tục');
+      playing = on; document.body.classList.toggle('hf-on', on); $('#hfPlay').textContent = on ? '⏸ ' + t('Tạm dừng') : '▶ ' + t('Tiếp tục');
       if ('mediaSession' in navigator) navigator.mediaSession.playbackState = on ? 'playing' : 'paused';
       if (on) run(); else { clearTimeout(timer); audio.pause(); if ('speechSynthesis' in window) speechSynthesis.cancel(); }
     };
     $('#hfPlay').onclick = () => setPlay(!playing);
+    $('#hfDark').onclick = () => { document.body.classList.toggle('hf-ambient'); };
     $('#hfNext').onclick = () => next(false);
     $('#hfPrev').onclick = prev;
     $('#hfEx').onchange = e => { opt.ex = e.target.checked; state.settings.hf = opt; App.saveSettings(); };
@@ -75,6 +77,6 @@
       set('play', () => setPlay(true)); set('pause', () => setPlay(false)); set('nexttrack', () => next(false)); set('previoustrack', prev);
     }
     draw();
-    App.cleanup = () => { playing = false; clearTimeout(timer); audio.pause(); audio.src = ''; if ('speechSynthesis' in window) speechSynthesis.cancel(); if ('mediaSession' in navigator) { navigator.mediaSession.metadata = null; ['play', 'pause', 'nexttrack', 'previoustrack'].forEach(a => { try { navigator.mediaSession.setActionHandler(a, null); } catch (e) { /* bỏ qua */ } }); } };
+    App.cleanup = () => { document.body.classList.remove('hf-ambient', 'hf-on'); playing = false; clearTimeout(timer); audio.pause(); audio.src = ''; if ('speechSynthesis' in window) speechSynthesis.cancel(); if ('mediaSession' in navigator) { navigator.mediaSession.metadata = null; ['play', 'pause', 'nexttrack', 'previoustrack'].forEach(a => { try { navigator.mediaSession.setActionHandler(a, null); } catch (e) { /* bỏ qua */ } }); } };
   };
 })();

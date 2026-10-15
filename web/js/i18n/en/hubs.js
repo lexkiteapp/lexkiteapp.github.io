@@ -281,4 +281,6 @@
   "Chế độ thì thầm khi luyện nói": "Whisper mode for speaking practice",
   "Hãy đeo tai nghe và nói thì thầm vào micro – không làm phiền người xung quanh.": "Wear headphones and whisper into the mic – no need to disturb people around you.",
   "Thì thầm": "Whisper mode",
+  'Màn tối': 'Dark screen',
+  "Đủ 3 vòng mục tiêu hôm nay! +50 XP": "All 3 daily rings closed! +50 XP",
 }); })(typeof self !== 'undefined' ? self : this);

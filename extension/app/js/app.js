@@ -453,6 +453,27 @@
         <div class="grow"><div class="row"><h3 style="margin:0">${esc(r.title)}</h3>${levelChip(r.level)}</div><div class="muted small">${esc(r.summaryVi)}</div></div>
         <span class="btn sm">${t('Đọc →')}</span></a>` : '';
   // ================= HÔM NAY: 4 khối – chào + mục tiêu · kế hoạch hôm nay (1 nút chính) · từ của ngày · quảng cáo =================
+  // ⭕ 3 vòng mục tiêu ngày (kiểu Activity Rings): ôn FSRS · từ mới · luyện nói. Đủ 3 vòng → pháo hoa + 50 XP (1 lần/ngày)
+  function ringsData() {
+    const k = todayKey(), gd = (state.game && state.game.days && state.game.days[k]) || {}, st = state.settings;
+    const nw = state.stats.newToday && state.stats.newToday.day === k ? state.stats.newToday.n : 0;
+    return [
+      { id: 'rev', v: state.stats.days[k] || 0, max: st.dailyGoal || 20, color: '#1F7A72', label: t('Ôn thẻ'), href: '#/review' },
+      { id: 'new', v: nw, max: st.dailyNew || 10, color: '#CC3F1C', label: t('Từ mới'), href: '#/practice/learn' },
+      { id: 'say', v: gd.spoken || 0, max: 5, color: '#8b6fd6', label: t('Luyện nói'), href: '#/speaking' },
+    ];
+  }
+  function ringsHtml() {
+    const R = ringsData(), C = [44, 34, 24];
+    const svg = `<svg class="rings" viewBox="0 0 100 100" role="img" aria-label="${esc(R.map(r => `${r.label} ${Math.min(r.v, r.max)}/${r.max}`).join(', '))}">${R.map((r, i) => { const L = 2 * Math.PI * C[i], f = Math.min(1, r.v / r.max); return `<circle cx="50" cy="50" r="${C[i]}" class="ring-bg" style="stroke:${r.color}"/><circle cx="50" cy="50" r="${C[i]}" class="ring-fg${f >= 1 ? ' full' : ''}" style="stroke:${r.color};stroke-dasharray:${L};stroke-dashoffset:${L * (1 - f)}"/>`; }).join('')}</svg>`;
+    return `<section class="card rings-card">${svg}<div class="rings-legend">${R.map(r => `<a href="${r.href}"><i style="background:${r.color}"></i><span>${r.label}</span><b>${Math.min(r.v, r.max)}/${r.max}${r.v >= r.max ? ' ✓' : ''}</b></a>`).join('')}</div></section>`;
+  }
+  async function ringsReward() {
+    const k = todayKey(), gd = (state.game.days || {})[k] || {};
+    if (gd.rings || !ringsData().every(r => r.v >= r.max)) return;
+    state.game = await Game.mutate(gs => { gs.days[k] = gs.days[k] || {}; gs.days[k].rings = 1; });
+    App.reward({ xp: 50 }); Sfx.win(); confetti(180); toast(`⭕ ${t('Đủ 3 vòng mục tiêu hôm nay! +50 XP')}`, 4000);
+  }
   routes.home = function () {
     const k = todayKey(), now = new Date(), h = now.getHours();
     const cards = Object.values(state.cards);
@@ -466,12 +487,14 @@
     const late = h >= 19 && !todayReviews && cards.length;
     const seed = allWords(), w = seed[Math.floor(Date.now() / DAY) % seed.length];
     const quests = Game.questsFor(k), doneQ = state.game.questsDone[k] || [];
+    setTimeout(() => ringsReward().catch(() => {}), 800);
     view.innerHTML = `
       <div class="today-head">
         ${window.Kit ? Kit.svg(late ? 'sad' : 'happy', 52) : ''}
         <div class="grow"><div class="muted small">${greet}${name ? ', ' + esc(name) : ''}</div><div class="kit-say" id="kitSay">${late ? t('Học 5 phút với mình để giữ chuỗi nhé!') : t('Đây là kế hoạch của bạn hôm nay')}</div></div>
         ${chip}
       </div>
+      ${ringsHtml()}
       <section class="card today-card" id="todayPlan" aria-busy="true"><div class="skel skel-l"></div><div class="skel skel-l"></div><div class="skel skel-l"></div></section>
       ${(() => { const a = App.lastActivity(); return a ? `<a class="card hover hub-card resume" href="${esc(a.href)}"><span class="hub-ic" aria-hidden="true">${a.em}</span><span class="hub-tx"><small>${t('Tiếp tục bài đang học')}</small><b>${esc(a.title)}</b></span><span class="btn sm">${t('Mở lại')} →</span></a>` : ''; })()}
       <a class="quest-line small" href="#/stats?s=quests">🏅 ${t('Nhiệm vụ hôm nay: {a}/{b}', { a: doneQ.length, b: quests.length })} · ${quests.filter(q => !doneQ.includes(q.id)).map(q => q.icon).join(' ')} <span aria-hidden="true">›</span></a>

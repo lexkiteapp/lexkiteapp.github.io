@@ -1657,7 +1657,7 @@
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Làm lại {n} lỗi sai': 'Retry {n} mistakes', 'Tự nhớ lại đáp án – sửa lỗi = tăng điểm nhanh nhất': 'Recall the answer yourself – fixing mistakes is the fastest way to score higher' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Hoàn tác lần chấm vừa rồi (Z)': 'Undo last grade (Z)', 'Đã hoàn tác – chấm lại thẻ này': 'Undone – grade this card again' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'hoàn tác': 'undo' }); })(typeof self !== 'undefined' ? self : this);
-(function (g) { Object.assign(g.I18N_DICT.en, { 'Mẹo nhớ': 'Mnemonic', 'Lỗi hay gặp': 'Common mistake', 'Cách dùng khi thi': 'Exam usage', 'Họ từ': 'Word family' }); })(typeof self !== 'undefined' ? self : this);
+(function (g) { Object.assign(g.I18N_DICT.en, { 'Mẹo nhớ': 'Mnemonic', 'Lỗi hay gặp': 'Common mistake', 'Cách dùng khi thi': 'Exam usage', 'Họ từ': 'Word family', 'Chế độ Rảnh tay': 'Hands-free mode' }); })(typeof self !== 'undefined' ? self : this);
 
 /* English UI strings – web/js/app.js, web/index.html (app shell) */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
@@ -2590,6 +2590,8 @@
   "Chế độ thì thầm khi luyện nói": "Whisper mode for speaking practice",
   "Hãy đeo tai nghe và nói thì thầm vào micro – không làm phiền người xung quanh.": "Wear headphones and whisper into the mic – no need to disturb people around you.",
   "Thì thầm": "Whisper mode",
+  'Màn tối': 'Dark screen',
+  "Đủ 3 vòng mục tiêu hôm nay! +50 XP": "All 3 daily rings closed! +50 XP",
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* Thống nhất thuật ngữ khi nhiều nhóm dùng chung 1 khóa */
