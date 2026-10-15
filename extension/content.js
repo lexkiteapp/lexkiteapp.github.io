@@ -369,6 +369,15 @@
       const grp = x => byPos[x] || (byPos[x] = groups[groups.push({ pos: x, vi: [], defs: [] }) - 1]);
       (e.senses || []).forEach(x => { grp(toEn(x.pos)).vi = x.terms.slice(0, 4); });
       (e.oxford && e.oxford.length ? e.oxford : e.meanings || []).forEach(m => { const g2 = grp(toEn(m.pos)); if (!g2.defs.length) g2.defs = (m.defs || []).filter(d => d.def).slice(0, 2); });
+      if (e.def) {
+        const p = toEn(e.pos || (groups[0] && groups[0].pos) || 'noun');
+        const g2 = grp(p);
+        const curDef = { def: e.def, ex: e.ex || '' };
+        if (!g2.defs.length || g2.defs[0].def !== e.def) {
+          const rest = g2.defs.filter(d => d.def !== e.def && !e.def.includes(d.def));
+          g2.defs = [curDef, ...rest].slice(0, 2);
+        }
+      }
       const shown = groups.filter(x => x.vi.length || x.defs.length).slice(0, 3);
       const hasEx = shown.some(x => x.defs.some(d => d.ex));
       const defs = shown.map(x => `<div class="pg"><span class="chip">${esc(UI_LANG === 'vi' ? POSV[x.pos] || x.pos : x.pos)}</span>${x.vi.length && ML() === 'vi' ? `<span class="pvi">${esc(x.vi.join(', '))}</span>` : ''}${x.defs.map(d => `<div class="pdef">${linkify(d.def)}${d.ex ? `<span class="pex">“${linkify(d.ex, e.word)}” <button class="spk mini" data-text="${esc(d.ex)}" title="${tx('Nghe câu ví dụ')}">🔊</button></span>` : ''}</div>`).join('')}</div>`).join('');

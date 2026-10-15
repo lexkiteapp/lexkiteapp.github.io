@@ -306,4 +306,6 @@
   "Bạn nói": "You said",
   "Không nghe rõ – thử lại hoặc bỏ qua.": "Couldn't hear clearly – try again or skip.",
   "Nghe kỹ…": "Listen carefully…",
+  "Transcript & bản dịch": "Transcript & translation",
+  "(chép xong câu này để xem)": "(finish this line to reveal)",
 }); })(typeof self !== 'undefined' ? self : this);

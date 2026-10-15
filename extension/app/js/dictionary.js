@@ -47,9 +47,19 @@
     const senses = (d.dict || []).map(x => ({ pos: x.pos, terms: cleanTerms(x.terms || []).slice(0, 6) }));
     const exById = {};
     ((d.examples && d.examples.example) || []).forEach(e => { exById[e.definition_id] = e.text.replace(/<\/?b>/g, ''); });
+    const cleanDef = s => String(s || '').trim().replace(/^[0-9a-z]\.\s+/i, '');
     const defs = (d.definitions || []).map(x => ({
       pos: x.pos,
-      defs: (x.entry || []).slice(0, 4).map(e => ({ def: e.gloss, ex: e.example || exById[e.definition_id] || '' })),
+      defs: (x.entry || []).flatMap(e => {
+        const list = [];
+        if (e.gloss) list.push({ def: cleanDef(e.gloss), ex: e.example || exById[e.definition_id] || '' });
+        if (Array.isArray(e.subentries)) {
+          e.subentries.forEach(sub => {
+            if (sub.gloss) list.push({ def: cleanDef(sub.gloss), ex: sub.example || exById[sub.definition_id] || '' });
+          });
+        }
+        return list;
+      }).filter(d => d.def && d.def.length > 3).slice(0, 4),
     }));
     const syn = [...new Set((d.synsets || []).flatMap(s => (s.entry || []).flatMap(e => e.synonym || [])))].slice(0, 8);
     const base = (d.dict && d.dict[0] && d.dict[0].base_form) || (d.definitions && d.definitions[0] && d.definitions[0].base_form) || '';
@@ -296,6 +306,17 @@
     const anyEx = (gg && gg.defs.flatMap(m => m.defs).find(d => d.ex)) || (fd && fd.meanings.flatMap(m => m.defs).find(d => d.ex));
     const senseVi = gg && gg.senses.length ? gg.senses.map(s => s.terms.slice(0, 3).join(', ')).join('; ') : '';
     const posRaw = ((gg && gg.senses[0] && gg.senses[0].pos) || (gg && gg.defs[0] && gg.defs[0].pos) || (fFirst && fFirst.pos) || '').normalize('NFC').toLowerCase();
+    let oxford = gg ? gg.defs : [];
+    if (local && local.def) {
+      const lp = POS_FULL[String(local.pos).toLowerCase()] || local.pos || 'noun';
+      const curDef = { def: local.def, ex: local.ex || '' };
+      const hit = oxford.find(m => (POS_FULL[String(m.pos).toLowerCase()] || m.pos) === lp);
+      if (hit) {
+        hit.defs = [curDef, ...hit.defs.filter(d => d.def !== local.def && !local.def.includes(d.def))].slice(0, 3);
+      } else {
+        oxford = [{ pos: lp, defs: [curDef] }, ...oxford];
+      }
+    }
     return {
       word,
       found: true,
@@ -315,7 +336,7 @@
       image: (img && img.src) || '',
       imageCredit: img ? { text: img.credit, link: img.link } : null,
       senses: gg ? gg.senses : [],
-      oxford: gg ? gg.defs : [],
+      oxford,
       meanings: fd ? fd.meanings : [],
       sentences: sents || [],
     };

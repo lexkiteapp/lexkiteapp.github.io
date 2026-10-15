@@ -331,9 +331,12 @@
     let k = 0, score = 0, done = 0;
     let mode = (query && query.get('m')) || state.settings.dictMode || 'mid', auto = !!state.settings.dictAuto;
     const cast = castVoices(p);
-    const say = (l, slow) => { speechSynthesis.cancel(); const c = cast[l.s] || cast._narrator; UI.splitSentences(l.t).forEach((t, j, arr) => { const u = new SpeechSynthesisUtterance(t); u.lang = c.lang; if (c.voice) u.voice = c.voice; u.pitch = c.pitch; u.rate = slow ? 0.7 : (state.settings.listenRate || 0.95); if (j === arr.length - 1 && auto) u.onend = () => { if (lines[k] === l && !checked) autoT = setTimeout(() => say(l), 1800); }; speechSynthesis.speak(u); }); };
+    // Giọng Kokoro của đúng nhân vật (như bài thi) – nghe chậm vẫn giữ cao độ; thiếu file → giọng máy
+    const kv = window.KVoice ? KVoice.voices(p) : null; let dEl = null;
+    const sayTTS = (l, slow) => { speechSynthesis.cancel(); const c = cast[l.s] || cast._narrator; UI.splitSentences(l.t).forEach((t, j, arr) => { const u = new SpeechSynthesisUtterance(t); u.lang = c.lang; if (c.voice) u.voice = c.voice; u.pitch = c.pitch; u.rate = slow ? 0.7 : (state.settings.listenRate || 0.95); if (j === arr.length - 1 && auto) u.onend = () => { if (lines[k] === l && !checked) autoT = setTimeout(() => say(l), 1800); }; speechSynthesis.speak(u); }); };
+    const say = (l, slow) => { if (dEl) { dEl.pause(); dEl = null; } const key = kv && hqOn() ? KVoice.lineKey(kv[l.s] || kv._narrator, l.t) : ''; if (key && LISTEN_AUDIO.has(key)) { speechSynthesis.cancel(); dEl = new Audio(AUDIO_BASE + 'audio/l/' + key + '.mp3'); dEl.preservesPitch = true; dEl.playbackRate = slow ? 0.7 : 1; dEl.onerror = () => { dEl = null; sayTTS(l, slow); }; dEl.play().catch(() => sayTTS(l, slow)); } else sayTTS(l, slow); };
     let autoT = null, checked = false;
-    App.cleanup = () => { speechSynthesis.cancel(); clearTimeout(autoT); document.onkeydown = null; };
+    App.cleanup = () => { speechSynthesis.cancel(); if (dEl) dEl.pause(); clearTimeout(autoT); document.onkeydown = null; };
     const toks = s => s.replace(/[’‘]/g, "'").split(/\s+/).filter(Boolean);
     const clean = w => w.toLowerCase().replace(/[^a-z0-9'%]/g, '');
     function diff(target, given) {
@@ -365,11 +368,20 @@
           <div class="row center" style="margin:1rem 0"><button class="btn" id="dPrev" title="${t('Câu trước')} (Shift+←)">‹ ${t('Câu trước')}</button><button class="btn primary lg" id="dPlay" title="${t('Nghe lại')} (\\)">🔊 ${t('Nghe')}</button><button class="btn" id="dSlow">🐢</button><button class="btn" id="dNext" title="${t('Câu sau')} (Shift+→)">${t('Câu sau')} ›</button></div>
           ${body}
           <div id="dFb" style="margin-top:.6rem"></div>
+          <details class="dict-tr" id="dTr"><summary>📜 ${t('Transcript & bản dịch')}</summary><div id="dTrBody" class="small"></div></details>
           <div class="row between" style="margin-top:.6rem"><div class="row"><button class="btn primary" id="dChk">${t('Kiểm tra')}</button><button class="btn ghost" id="dAns">${t('Đáp án')}</button><button class="btn ghost" id="dClr">${t('Xóa hết')}</button></div>
             <label class="md-sw"><input type="checkbox" id="dAuto" ${auto ? 'checked' : ''}><span></span>${t('Tự động phát lại câu')}</label></div>
           <div class="tiny muted" style="margin-top:.6rem">${t('Phím tắt: <kbd>Space</kbd>/<kbd>Tab</kbd> sang ô sau · <kbd>Enter</kbd> kiểm tra / câu tiếp · <kbd>\\</kbd> nghe lại · <kbd>Shift</kbd>+<kbd>←</kbd>/<kbd>→</kbd> đổi câu · <kbd>Backspace</kbd> ở ô trống để về ô trước')}</div></div></div>`;
       const hs = $$('.dict-h');
       $('#dPlay').onclick = () => say(l); $('#dSlow').onclick = () => say(l, true);
+      $('#dTr').ontoggle = async () => {
+        if (!$('#dTr').open || $('#dTrBody').dataset.ok) return; $('#dTrBody').dataset.ok = 1;
+        const L = I18N.learnLang(), body = $('#dTrBody');
+        body.innerHTML = lines.map((x, n) => `<div class="dict-trl ${n < k ? 'done' : n === k ? 'cur' : ''}" data-n="${n}"><span class="tiny muted">${esc((p.speakers[x.s] || {}).name || '')}</span> ${n <= k ? esc(x.t) : '<span class="muted">' + t('(chép xong câu này để xem)') + '</span>'}<div class="muted dict-trv"></div></div>`).join('');
+        if (L === 'en') return;
+        const shown = lines.slice(0, k + 1).map(x => x.t), tr = await Dict.translateTo(shown.join('\n'), L).catch(() => '');
+        String(tr || '').split('\n').forEach((v, n) => { const el = body.querySelector(`[data-n="${n}"] .dict-trv`); if (el) el.textContent = v; });
+      };
       $('#dPrev').onclick = () => { if (k > 0) { k--; draw(); } };
       $('#dNext').onclick = () => { k++; draw(); };
       $('#dMode').onchange = e => { mode = e.target.value; state.settings.dictMode = mode; App.saveSettings(); draw(); };
