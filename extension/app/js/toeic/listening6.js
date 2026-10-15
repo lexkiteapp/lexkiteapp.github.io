@@ -3,6 +3,55 @@
   const T = g.TOEIC = g.TOEIC || { reading: [], listening: [] };
   if (!T.listening) T.listening = [];
 
+  /* ---------------- Part 1: Photographs (Q1–6) ---------------- */
+  // Ảnh CC0/public domain (web/img/toeic/CREDITS.md). Phương án KHÔNG xoay (photo: true) vì audio đọc sẵn (A)–(D).
+  const P1 = [
+    { n: 1, img: 'img/toeic/t6-p1-1.jpg', a: 0,
+      s: ['Some flowers are on display.', 'A florist is wrapping a bouquet.', 'Some flowers are being watered.', 'Some plants are being planted in a garden.'],
+      explain: 'Ảnh: trước một cửa hàng hoa, nhiều xô hoa cúc vàng, tím và hoa tulip được bày bán, có thẻ ghi tên và giá. (A) đúng: "on display" = được trưng bày. (B) không thấy người bán hoa nào đang gói bó hoa. (C) không ai đang tưới hoa. (D) hoa cắm trong xô, không phải đang được trồng trong vườn.' },
+    { n: 2, img: 'img/toeic/t6-p1-2.jpg', a: 2,
+      s: ['A man is repairing a flat tire.', 'Some cars are stopped at a traffic light.', 'A man is carrying a bag on his back.', 'A man is crossing the street on foot.'],
+      explain: 'Ảnh: một người giao đồ ăn đội mũ lưỡi trai, đeo thùng giao hàng màu vàng sau lưng, đang ngồi trên xe đạp điện ở góc phố. (C) đúng: "carrying a bag on his back" = đeo túi sau lưng. (A) không ai đang sửa lốp xe. (B) không thấy hàng xe dừng ở đèn giao thông. (D) anh ấy đang ngồi trên xe, không đi bộ qua đường ("on foot").' },
+    { n: 3, img: 'img/toeic/t6-p1-3.jpg', a: 1,
+      s: ['Some boats are sailing out to sea.', 'Some fishing nets are piled on the ground.', 'Some people are swimming in a river.', 'Some men are hanging nets on a fence.'],
+      explain: 'Ảnh: dưới một mái che, vài người đàn ông đang gỡ và vá lưới đánh cá; lưới trắng và lưới xanh chất thành đống trên mặt đất. (B) đúng: "piled on the ground" = chất đống trên mặt đất. (A) không có con thuyền nào. (C) không ai đang bơi. (D) lưới nằm dưới đất, không ai treo lưới lên hàng rào.' },
+    { n: 4, img: 'img/toeic/t6-p1-4.jpg', a: 3,
+      s: ['A car is being driven out of a garage.', 'A man is lying under a vehicle.', 'Some tires are stacked in a corner.', 'A man is kneeling beside a car.'],
+      explain: 'Ảnh: trong xưởng sửa ô tô, một người mặc áo đỏ đang quỳ cạnh chiếc xe cũ đã tháo cửa để sửa chữa; xung quanh là dụng cụ, dây điện và kệ chứa hộp sơn. (D) đúng: "kneeling beside a car" = quỳ cạnh xe. (A) xe đang được sửa, không ai lái ra khỏi xưởng. (B) bẫy tư thế: anh ấy quỳ, không nằm dưới gầm xe. (C) không thấy lốp xe xếp chồng ở góc.' },
+    { n: 5, img: 'img/toeic/t6-p1-5.jpg', a: 1,
+      s: ['A scientist is examining a sample.', 'Some containers have been arranged in a row.', 'Some plants are being watered in a garden.', 'Some glasses are being washed in a sink.'],
+      explain: 'Ảnh: trong phòng thí nghiệm, một dãy bình thủy tinh chứa cây non được đặt thẳng hàng trên giá kim loại. (B) đúng: "arranged in a row" = xếp thành một hàng. (A) không có nhà khoa học nào trong ảnh. (C) có cây nhưng đặt trong bình thí nghiệm, không phải ở vườn, và không ai tưới. (D) bình thủy tinh đặt trên giá, không ai rửa trong bồn.' },
+    { n: 6, img: 'img/toeic/t6-p1-6.jpg', a: 2,
+      s: ['Some children are climbing a tree.', 'Two people are sitting under a tree.', 'Two people are walking along a path.', 'Some leaves are being raked into a pile.'],
+      explain: 'Ảnh: hai đứa trẻ đi bộ cạnh nhau trên con đường đất xuyên qua khu rừng, hai bên có nhiều cây lớn. (C) đúng: "walking along a path" = đi dọc con đường. (A) không ai đang trèo cây. (B) hai người đang đi, không ngồi. (D) không ai đang cào lá.' },
+  ];
+  const p1script = [
+    { say: 'Part 1. For each question in this part, you will look at a photograph and hear four short statements. The statements are read only once and are not printed. Choose the statement that best describes the photograph.' }, { pause: 3 },
+  ];
+  P1.forEach(it => {
+    p1script.push({ say: 'Number ' + it.n + '. Look at the photograph for number ' + it.n + '.' }); p1script.push({ pause: 1 });
+    it.s.forEach((txt, i) => p1script.push({ s: 'N', t: '(' + 'ABCD'[i] + ') ' + txt }));
+    p1script.push({ pause: 3 });
+  });
+
+  T.listening.push({
+    id: 'tl6p1', test: 6, part: 1, title: 'Photographs', titleVi: 'Mô tả tranh',
+    speakers: { N: { name: 'Narrator', accent: 'en-US', gender: 'm' } },
+    script: p1script,
+    groups: [
+      { type: 'mcq', photo: true, instr: 'Look at the photograph and choose the statement that best describes it (A, B, C or D).',
+        items: P1.map(it => ({ n: it.n, img: it.img, q: '', options: it.s, a: it.a, cue: it.s[it.a], explain: it.explain })) },
+    ],
+    vocab: [
+      { w: 'on display', vi: 'được trưng bày' },
+      { w: 'florist', vi: 'người bán hoa' },
+      { w: 'pile', vi: 'chất đống' },
+      { w: 'kneel', vi: 'quỳ' },
+      { w: 'in a row', vi: 'thành một hàng' },
+      { w: 'walk along', vi: 'đi dọc theo' },
+    ],
+  });
+
   /* ---------------- Part 2: Question–Response (Q7–21) ---------------- */
   const P2 = [
     { n: 7, qs: 'A', rs: 'B', q: 'What time is checkout on Sunday?',

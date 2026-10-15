@@ -3,6 +3,55 @@
   const T = g.TOEIC = g.TOEIC || { reading: [], listening: [] };
   if (!T.listening) T.listening = [];
 
+  /* ---------------- Part 1: Photographs (Q1–6) ---------------- */
+  // Ảnh CC0/public domain (web/img/toeic/CREDITS.md). Phương án KHÔNG xoay (photo: true) vì audio đọc sẵn (A)–(D).
+  const P1 = [
+    { n: 1, img: 'img/toeic/t5-p1-1.jpg', a: 3,
+      s: ['Passengers are waiting in line at a counter.', 'Some luggage is being weighed.', 'Some workers are cleaning the floor.', 'The check-in area is unoccupied.'],
+      explain: 'Ảnh: khu làm thủ tục ở sân bay với dãy quầy check-in và các cột chắn xếp hàng, hoàn toàn không có người. (D) đúng: "unoccupied" = không có người. (A) không có hành khách nào xếp hàng. (B) có băng cân hành lý nhưng không ai đang cân. (C) sàn sạch bóng nhưng không có ai đang lau.' },
+    { n: 2, img: 'img/toeic/t5-p1-2.jpg', a: 1,
+      s: ['A woman is folding some clothes.', 'A woman is seated at a sewing machine.', 'A man is trying on a jacket.', 'Some fabric is being cut with scissors.'],
+      explain: 'Ảnh: trên vỉa hè, một người phụ nữ mặc áo đỏ ngồi bên chiếc máy khâu đặt trên bàn gỗ, trò chuyện với một người đàn ông đội mũ lưỡi trai đứng cạnh. (B) đúng: "seated at a sewing machine" = ngồi bên máy khâu. (A) không ai đang gấp quần áo. (C) người đàn ông đang mặc áo khoác sẵn, không phải đang thử áo. (D) có cây kéo trên bàn nhưng không ai đang cắt vải.' },
+    { n: 3, img: 'img/toeic/t5-p1-3.jpg', a: 2,
+      s: ['Some cars are parked in a row.', 'Some bicycles are being repaired.', 'The parking spaces are empty.', 'Lines are being painted on the pavement.'],
+      explain: 'Ảnh: bãi đỗ xe trước một tòa nhà kính nhiều tầng, các ô đỗ kẻ vạch trắng đều trống; dọc chân tòa nhà có giá để xe đạp. (C) đúng: "the parking spaces are empty" = các chỗ đỗ xe đều trống. (A) không có chiếc ô tô nào. (B) chỉ có giá để xe, không có xe đạp đang được sửa. (D) vạch kẻ đã có sẵn, không ai đang sơn.' },
+    { n: 4, img: 'img/toeic/t5-p1-4.jpg', a: 0,
+      s: ['Some cooking utensils have been laid out on a table.', 'Some vegetables are being chopped on a cutting board.', 'A pan is sitting on a stove.', 'Some knives are hanging on a wall.'],
+      explain: 'Ảnh chụp từ trên xuống: trên mặt bàn gỗ có thớt, chảo gang, cối chày, dao, các chén gia vị và thảo mộc được bày sẵn. (A) đúng: "cooking utensils have been laid out" = dụng cụ nấu ăn đã được bày ra. (B) có thớt nhưng không ai đang thái rau. (C) chảo đặt trên bàn, không phải trên bếp. (D) dao nằm trên bàn, không treo trên tường.' },
+    { n: 5, img: 'img/toeic/t5-p1-5.jpg', a: 3,
+      s: ['A man is taking off his jacket.', 'A man is tying his tie.', 'A man is typing a message.', 'A man is holding a phone to his ear.'],
+      explain: 'Ảnh: một người đàn ông để râu, mặc vest và thắt cà vạt đỏ, đang mỉm cười và áp điện thoại lên tai. (D) đúng: "holding a phone to his ear" = áp điện thoại vào tai (đang nghe gọi). (A) anh ấy vẫn mặc áo vest, không cởi ra. (B) cà vạt đã thắt sẵn, không phải đang thắt. (C) anh ấy đang gọi điện, không nhắn tin.' },
+    { n: 6, img: 'img/toeic/t5-p1-6.jpg', a: 1,
+      s: ['Some boxes are being unloaded from a truck.', 'A truck has been parked next to a building.', 'A driver is getting out of a vehicle.', 'A truck is being washed.'],
+      explain: 'Ảnh: một chiếc xe tải thùng kiểu cũ đỗ sát bến bốc dỡ hàng của một nhà kho, không thấy người. (B) đúng: "has been parked next to a building" = đã được đỗ cạnh tòa nhà. (A) bị động tiếp diễn "are being unloaded" cần có người đang dỡ hàng – không có. (C) không thấy tài xế. (D) không ai đang rửa xe.' },
+  ];
+  const p1script = [
+    { say: 'Part 1. For each question in this part, you will look at a photograph and hear four short statements. The statements are read only once and are not printed. Choose the statement that best describes the photograph.' }, { pause: 3 },
+  ];
+  P1.forEach(it => {
+    p1script.push({ say: 'Number ' + it.n + '. Look at the photograph for number ' + it.n + '.' }); p1script.push({ pause: 1 });
+    it.s.forEach((txt, i) => p1script.push({ s: 'N', t: '(' + 'ABCD'[i] + ') ' + txt }));
+    p1script.push({ pause: 3 });
+  });
+
+  T.listening.push({
+    id: 'tl5p1', test: 5, part: 1, title: 'Photographs', titleVi: 'Mô tả tranh',
+    speakers: { N: { name: 'Narrator', accent: 'en-US', gender: 'm' } },
+    script: p1script,
+    groups: [
+      { type: 'mcq', photo: true, instr: 'Look at the photograph and choose the statement that best describes it (A, B, C or D).',
+        items: P1.map(it => ({ n: it.n, img: it.img, q: '', options: it.s, a: it.a, cue: it.s[it.a], explain: it.explain })) },
+    ],
+    vocab: [
+      { w: 'unoccupied', vi: 'không có người' },
+      { w: 'sewing machine', vi: 'máy khâu' },
+      { w: 'parking space', vi: 'chỗ đỗ xe' },
+      { w: 'utensil', vi: 'dụng cụ (nhà bếp)' },
+      { w: 'lay out', vi: 'bày ra, sắp đặt' },
+      { w: 'loading dock', vi: 'bến bốc dỡ hàng' },
+    ],
+  });
+
   /* ---------------- Part 2: Question–Response (Q7–21) ---------------- */
   const P2 = [
     { n: 7, qs: 'A', rs: 'B', q: 'When does the new parking policy take effect?',

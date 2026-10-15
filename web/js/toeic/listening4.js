@@ -3,6 +3,55 @@
   const T = g.TOEIC = g.TOEIC || { reading: [], listening: [] };
   if (!T.listening) T.listening = [];
 
+  /* ---------------- Part 1: Photographs (Q1–6) ---------------- */
+  // Ảnh CC0/public domain (web/img/toeic/CREDITS.md). Phương án KHÔNG xoay (photo: true) vì audio đọc sẵn (A)–(D).
+  const P1 = [
+    { n: 1, img: 'img/toeic/t4-p1-1.jpg', a: 2,
+      s: ['A man is boarding a train.', 'A man is taking off his backpack.', 'A man is standing on a platform.', 'Some passengers are waiting on a bench.'],
+      explain: 'Ảnh: ga tàu điện ngầm, một người đàn ông đeo ba lô đứng trên sân ga nhìn xuống, đoàn tàu màu đỏ đang tiến vào ở bên trái. (C) đúng: "standing on a platform" = đứng trên sân ga. (A) tàu chưa dừng, anh ấy chưa lên tàu ("boarding"). (B) anh ấy vẫn đang đeo ba lô, không tháo ra. (D) không thấy hành khách nào ngồi trên ghế.' },
+    { n: 2, img: 'img/toeic/t4-p1-2.jpg', a: 0,
+      s: ['A worker is wearing a protective helmet.', 'A worker is putting up a fence.', 'Some metal pipes are being loaded onto a truck.', 'A man is painting a railing.'],
+      explain: 'Ảnh: một công nhân đội mũ bảo hộ, mặc áo phản quang màu cam đang đứng trên cầu thang của giàn giáo bằng ống thép. (A) đúng: "wearing a protective helmet" = đội mũ bảo hộ (trạng thái). (B) không ai đang dựng hàng rào. (C) có ống kim loại (giàn giáo) nhưng không có xe tải và không ai chất hàng. (D) lặp từ "railing" (lan can) nhưng anh ấy không sơn.' },
+    { n: 3, img: 'img/toeic/t4-p1-3.jpg', a: 3,
+      s: ['A man is wrapping a package.', 'Some books are being carried out of a store.', 'A man is writing a price on a sign.', 'A man is looking at a book.'],
+      explain: 'Ảnh: một người đàn ông lớn tuổi đứng sau quầy sách cũ chất thành từng chồng, tay cầm một cuốn sách và nhìn vào đó; phía trước có tấm biển ghi giá. (D) đúng. (A) không ai đang gói hàng. (B) không ai đang mang sách ra khỏi cửa hàng. (C) có biển giá trong ảnh nhưng ông ấy không viết lên đó.' },
+    { n: 4, img: 'img/toeic/t4-p1-4.jpg', a: 1,
+      s: ['A bed is being made.', 'Some lamps have been turned on.', 'Some pillows have been placed on the floor.', 'The curtains are being drawn.'],
+      explain: 'Ảnh: phòng khách sạn với một chiếc giường lớn trải ga trắng, đèn bàn hai bên và đèn cây cạnh ghế bành đều đang sáng, không có người. (B) đúng: "have been turned on" = đã được bật. (A) "is being made" (đang được dọn giường) cần có người làm – trong phòng không có ai. (C) gối nằm trên giường, không phải dưới sàn. (D) không ai đang kéo rèm.' },
+    { n: 5, img: 'img/toeic/t4-p1-5.jpg', a: 2,
+      s: ['Someone is making copies.', 'Some boxes of paper are being delivered.', 'A machine has been placed against a wall.', 'Some notices are being removed from a board.'],
+      explain: 'Ảnh: một máy photocopy lớn đặt sát tường trong văn phòng, khay ra giấy có vài tờ giấy; trên tường có bảng thông báo, không có người. (C) đúng: "placed against a wall" = đặt sát tường. (A) không có ai đang photocopy. (B) có thùng giấy cạnh máy nhưng không ai đang giao. (D) có bảng tin nhưng không ai gỡ thông báo.' },
+    { n: 6, img: 'img/toeic/t4-p1-6.jpg', a: 0,
+      s: ['A man is mowing a lawn.', 'A man is planting some trees.', 'Some people are having a picnic on the grass.', 'A gardener is watering some flowers.'],
+      explain: 'Ảnh: một người đàn ông mặc áo phông trắng đang đẩy máy cắt cỏ trên bãi cỏ rộng, phía xa là hàng cây và một tòa nhà trắng. (A) đúng: "mowing a lawn" = cắt cỏ. (B) có cây trong ảnh nhưng anh ấy không trồng cây. (C) không có ai đi dã ngoại. (D) không có hoa và không ai tưới nước.' },
+  ];
+  const p1script = [
+    { say: 'Part 1. For each question in this part, you will look at a photograph and hear four short statements. The statements are read only once and are not printed. Choose the statement that best describes the photograph.' }, { pause: 3 },
+  ];
+  P1.forEach(it => {
+    p1script.push({ say: 'Number ' + it.n + '. Look at the photograph for number ' + it.n + '.' }); p1script.push({ pause: 1 });
+    it.s.forEach((txt, i) => p1script.push({ s: 'N', t: '(' + 'ABCD'[i] + ') ' + txt }));
+    p1script.push({ pause: 3 });
+  });
+
+  T.listening.push({
+    id: 'tl4p1', test: 4, part: 1, title: 'Photographs', titleVi: 'Mô tả tranh',
+    speakers: { N: { name: 'Narrator', accent: 'en-US', gender: 'm' } },
+    script: p1script,
+    groups: [
+      { type: 'mcq', photo: true, instr: 'Look at the photograph and choose the statement that best describes it (A, B, C or D).',
+        items: P1.map(it => ({ n: it.n, img: it.img, q: '', options: it.s, a: it.a, cue: it.s[it.a], explain: it.explain })) },
+    ],
+    vocab: [
+      { w: 'board', vi: 'lên (tàu, xe, máy bay)' },
+      { w: 'platform', vi: 'sân ga' },
+      { w: 'protective helmet', vi: 'mũ bảo hộ' },
+      { w: 'turn on', vi: 'bật (đèn, máy)' },
+      { w: 'make copies', vi: 'photocopy, sao chụp' },
+      { w: 'mow a lawn', vi: 'cắt cỏ' },
+    ],
+  });
+
   /* ---------------- Part 2: Question–Response (Q7–21) ---------------- */
   const P2 = [
     { n: 7, qs: 'A', rs: 'B', q: 'When will the budget figures for next year be finalized?',

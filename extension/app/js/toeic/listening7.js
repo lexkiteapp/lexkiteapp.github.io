@@ -3,6 +3,55 @@
   const T = g.TOEIC = g.TOEIC || { reading: [], listening: [] };
   if (!T.listening) T.listening = [];
 
+  /* ---------------- Part 1: Photographs (Q1–6) ---------------- */
+  // Ảnh CC0/public domain (web/img/toeic/CREDITS.md). Phương án KHÔNG xoay (photo: true) vì audio đọc sẵn (A)–(D).
+  const P1 = [
+    { n: 1, img: 'img/toeic/t7-p1-1.jpg', a: 2,
+      s: ['A man is washing a cup.', 'A man is grinding some coffee beans.', 'Some milk is being poured into a cup.', 'A customer is paying for a drink.'],
+      explain: 'Ảnh: cận cảnh tay nhân viên pha chế đang rót sữa từ ca inox vào cốc giấy cà phê, tạo hình trên mặt; phía sau là máy pha cà phê. (C) đúng: "is being poured into a cup" = đang được rót vào cốc (bị động tiếp diễn, có người đang làm). (A) có cốc nhưng không ai rửa. (B) không ai đang xay hạt cà phê. (D) không thấy khách hàng nào trả tiền.' },
+    { n: 2, img: 'img/toeic/t7-p1-2.jpg', a: 1,
+      s: ['A boat is being rowed across a canal.', 'Some wooden crates have been loaded onto a boat.', 'Some people are diving into the water.', 'A tent is being taken down.'],
+      explain: 'Ảnh: một chiếc thuyền neo sát bờ kênh được dùng làm sạp bán rau, trên thuyền chất nhiều thùng gỗ, có mái bạt che; khách đứng trên bờ mua hàng. (B) đúng: "have been loaded onto a boat" = đã được chất lên thuyền. (A) thuyền đang neo, không ai chèo. (C) không ai nhảy xuống nước. (D) mái bạt vẫn đang căng, không ai tháo xuống.' },
+    { n: 3, img: 'img/toeic/t7-p1-3.jpg', a: 3,
+      s: ['A vehicle is being towed away.', 'Some workers are sweeping the street with brooms.', 'A taxi is picking up a passenger.', 'A vehicle is equipped with a brush.'],
+      explain: 'Ảnh: một chiếc xe quét đường màu trắng có chổi quét gắn phía trước, đang ở trên con phố lát gạch; phía sau là một chiếc taxi vàng. (D) đúng: "equipped with a brush" = được trang bị chổi quét. (A) không có xe kéo nào. (B) bẫy liên tưởng: việc quét đường do xe làm, không có công nhân cầm chổi. (C) có taxi nhưng không thấy hành khách lên xe.' },
+    { n: 4, img: 'img/toeic/t7-p1-4.jpg', a: 0,
+      s: ['Some medical equipment has been set up in a room.', 'A doctor is examining a patient.', 'A woman is pulling a curtain closed.', 'Some people are sitting in a waiting area.'],
+      explain: 'Ảnh: trong một phòng bệnh viện, một người đàn ông đeo khẩu trang đứng cạnh một người phụ nữ, bên cạnh là các máy móc y tế và một màn hình theo dõi đặt trên xe đẩy. (A) đúng: "medical equipment has been set up" = thiết bị y tế đã được lắp đặt. (B) không thấy bệnh nhân nào đang được khám. (C) có rèm trong ảnh nhưng không ai đang kéo. (D) mọi người đều đứng, không ai ngồi chờ.' },
+    { n: 5, img: 'img/toeic/t7-p1-5.jpg', a: 2,
+      s: ['Some musicians are packing up their instruments.', 'A woman is playing a drum.', 'Some people are seated outdoors.', 'A man is tuning a guitar.'],
+      explain: 'Ảnh: dưới một mái lều ngoài trời, các thành viên ban nhạc mặc áo xanh ngồi trên ghế bên bãi cỏ, cạnh họ là một chiếc trống lớn và kèn đồng; một bà cụ đang mỉm cười nhìn về phía máy ảnh. (C) đúng: "seated outdoors" = ngồi ngoài trời. (A) không ai đang cất nhạc cụ. (B) bà cụ ngồi cạnh trống nhưng không chơi trống. (D) không có cây đàn guitar nào.' },
+    { n: 6, img: 'img/toeic/t7-p1-6.jpg', a: 3,
+      s: ['Some posters are being hung on a wall.', 'A worker is repairing an escalator.', 'Both escalators are crowded with people.', 'Some people are riding an escalator.'],
+      explain: 'Ảnh: đường hầm ga tàu điện ngầm với hai thang cuốn dài song song; thang bên phải có nhiều người đang đi, thang bên trái trống; trên tường có các tấm áp phích quảng cáo. (D) đúng: "riding an escalator" = đi thang cuốn. (A) áp phích đã treo sẵn, không ai đang treo. (B) không thấy công nhân sửa thang. (C) sai vì thang bên trái không có người.' },
+  ];
+  const p1script = [
+    { say: 'Part 1. For each question in this part, you will look at a photograph and hear four short statements. The statements are read only once and are not printed. Choose the statement that best describes the photograph.' }, { pause: 3 },
+  ];
+  P1.forEach(it => {
+    p1script.push({ say: 'Number ' + it.n + '. Look at the photograph for number ' + it.n + '.' }); p1script.push({ pause: 1 });
+    it.s.forEach((txt, i) => p1script.push({ s: 'N', t: '(' + 'ABCD'[i] + ') ' + txt }));
+    p1script.push({ pause: 3 });
+  });
+
+  T.listening.push({
+    id: 'tl7p1', test: 7, part: 1, title: 'Photographs', titleVi: 'Mô tả tranh',
+    speakers: { N: { name: 'Narrator', accent: 'en-US', gender: 'm' } },
+    script: p1script,
+    groups: [
+      { type: 'mcq', photo: true, instr: 'Look at the photograph and choose the statement that best describes it (A, B, C or D).',
+        items: P1.map(it => ({ n: it.n, img: it.img, q: '', options: it.s, a: it.a, cue: it.s[it.a], explain: it.explain })) },
+    ],
+    vocab: [
+      { w: 'pour', vi: 'rót' },
+      { w: 'crate', vi: 'thùng (gỗ) đựng hàng' },
+      { w: 'be equipped with', vi: 'được trang bị' },
+      { w: 'medical equipment', vi: 'thiết bị y tế' },
+      { w: 'seated outdoors', vi: 'ngồi ngoài trời' },
+      { w: 'ride an escalator', vi: 'đi thang cuốn' },
+    ],
+  });
+
   /* ---------------- Part 2: Question–Response (Q7–21) ---------------- */
   const P2 = [
     { n: 7, qs: 'A', rs: 'B', q: 'Where should I leave these returned packages?',

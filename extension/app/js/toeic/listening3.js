@@ -3,6 +3,55 @@
   const T = g.TOEIC = g.TOEIC || { reading: [], listening: [] };
   if (!T.listening) T.listening = [];
 
+  /* ---------------- Part 1: Photographs (Q1–6) ---------------- */
+  // Ảnh CC0/public domain (web/img/toeic/CREDITS.md). Phương án KHÔNG xoay (photo: true) vì audio đọc sẵn (A)–(D).
+  const P1 = [
+    { n: 1, img: 'img/toeic/t3-p1-1.jpg', a: 1,
+      s: ['Some boxes are being unloaded from a truck.', 'A man is operating a forklift.', 'A worker is removing his safety helmet.', 'Some shelves are being assembled.'],
+      explain: 'Ảnh: trong một nhà kho lớn, người đàn ông đội mũ bảo hộ đỏ, mặc áo phản quang đang ngồi lái xe nâng, bên cạnh là chồng thùng hàng bọc nilon; phía sau là các kệ chất đầy thùng carton. (B) đúng: "operating a forklift" = điều khiển xe nâng. (A) không có xe tải nào, cũng không ai đang dỡ hàng. (C) người công nhân vẫn đang đội mũ bảo hộ, không tháo ra (bẫy "removing" ↔ "wearing"). (D) kệ đã có sẵn, không ai đang lắp ráp kệ.' },
+    { n: 2, img: 'img/toeic/t3-p1-2.jpg', a: 3,
+      s: ['A woman is drinking from a cup.', 'A notebook is lying open on the keyboard.', 'A woman is plugging in a computer monitor.', 'Someone is typing on a keyboard.'],
+      explain: 'Ảnh: cận cảnh hai bàn tay (đeo nhẫn, sơn móng) đang gõ trên bàn phím trắng; phía sau là màn hình máy tính, một cuốn sổ và một chiếc cốc đặt trên bàn gỗ. (D) đúng: "typing on a keyboard" = gõ phím. (A) có cốc trong ảnh nhưng không ai đang uống. (B) cuốn sổ đóng và nằm cạnh màn hình, không mở trên bàn phím. (C) không ai đang cắm điện màn hình.' },
+    { n: 3, img: 'img/toeic/t3-p1-3.jpg', a: 0,
+      s: ['Books have been arranged on shelves.', 'A librarian is stacking books on a cart.', 'Some shelves are empty.', 'Some people are reading in an aisle.'],
+      explain: 'Ảnh: các giá sách trong thư viện chất đầy sách xếp dựng đứng, không có người. (A) đúng: "have been arranged on shelves" = đã được xếp lên kệ (bị động hoàn thành mô tả trạng thái). (B) không có thủ thư hay xe đẩy nào. (C) sai vì các kệ đều đầy sách. (D) lối đi giữa các kệ không có ai.' },
+    { n: 4, img: 'img/toeic/t3-p1-4.jpg', a: 2,
+      s: ['Some people are sitting on a bench.', 'Leaves are being swept off a path.', 'Fallen leaves are covering the ground.', 'Some benches are being painted.'],
+      explain: 'Ảnh: một hàng ghế băng bằng sắt đặt dọc lối đi trong công viên, mặt đất phủ đầy lá vàng rụng, không có người. (C) đúng: "fallen leaves are covering the ground" = lá rụng phủ kín mặt đất. (A) ghế trống, không ai ngồi. (B) bị động tiếp diễn "are being swept" cần có người đang quét – trong ảnh không có ai. (D) không ai đang sơn ghế.' },
+    { n: 5, img: 'img/toeic/t3-p1-5.jpg', a: 0,
+      s: ['Some lights are suspended above a counter.', 'The garage doors have been closed.', 'A customer is paying at the register.', 'Some workers are putting on aprons.'],
+      explain: 'Ảnh: bên trong một quán cà phê, vài nhân viên đứng làm việc sau quầy, phía trên có nhiều đèn thả từ trần; các cửa cuốn lớn phía sau đang mở. (A) đúng: "suspended above a counter" = treo phía trên quầy. (B) sai vì cửa cuốn đang được kéo lên (mở). (C) không thấy ai đang trả tiền ở quầy thu ngân. (D) một số nhân viên đã mặc tạp dề sẵn, không ai đang mặc vào (bẫy "putting on" ↔ "wearing").' },
+    { n: 6, img: 'img/toeic/t3-p1-6.jpg', a: 3,
+      s: ['A ship is being loaded with cargo.', 'Some workers are climbing onto a crane.', 'Some containers are being painted.', 'Shipping containers are stacked on top of one another.'],
+      explain: 'Ảnh: bãi container ở cảng, nhiều container xếp chồng lên nhau, một xe cẩu màu vàng đỗ trước chồng container; phía trước có hàng rào lưới, không thấy người. (D) đúng: "stacked on top of one another" = xếp chồng lên nhau. (A) không có con tàu nào trong ảnh. (B) lặp ý "crane" nhưng không ai đang trèo lên. (C) không ai đang sơn container.' },
+  ];
+  const p1script = [
+    { say: 'Part 1. For each question in this part, you will look at a photograph and hear four short statements. The statements are read only once and are not printed. Choose the statement that best describes the photograph.' }, { pause: 3 },
+  ];
+  P1.forEach(it => {
+    p1script.push({ say: 'Number ' + it.n + '. Look at the photograph for number ' + it.n + '.' }); p1script.push({ pause: 1 });
+    it.s.forEach((txt, i) => p1script.push({ s: 'N', t: '(' + 'ABCD'[i] + ') ' + txt }));
+    p1script.push({ pause: 3 });
+  });
+
+  T.listening.push({
+    id: 'tl3p1', test: 3, part: 1, title: 'Photographs', titleVi: 'Mô tả tranh',
+    speakers: { N: { name: 'Narrator', accent: 'en-US', gender: 'm' } },
+    script: p1script,
+    groups: [
+      { type: 'mcq', photo: true, instr: 'Look at the photograph and choose the statement that best describes it (A, B, C or D).',
+        items: P1.map(it => ({ n: it.n, img: it.img, q: '', options: it.s, a: it.a, cue: it.s[it.a], explain: it.explain })) },
+    ],
+    vocab: [
+      { w: 'operate', vi: 'vận hành, điều khiển (máy móc)' },
+      { w: 'forklift', vi: 'xe nâng' },
+      { w: 'arrange', vi: 'sắp xếp' },
+      { w: 'fallen leaves', vi: 'lá rụng' },
+      { w: 'be suspended', vi: 'được treo (lơ lửng)' },
+      { w: 'stack on top of one another', vi: 'xếp chồng lên nhau' },
+    ],
+  });
+
   /* ---------------- Part 2: Question–Response (Q7–21) ---------------- */
   const P2 = [
     { n: 7, qs: 'A', rs: 'B', q: 'When is the new receptionist starting?',
