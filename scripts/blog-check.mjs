@@ -2,16 +2,17 @@
 // Dùng: node scripts/blog-check.mjs [--root content/blog] [file.md …]   (không có file → mọi bài không phải draft)
 // Build gọi: import { checkPosts } from './blog-check.mjs' → { errors: string[], warnings: string[] } (mỗi dòng "file: [luật] thông điệp")
 import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath } from 'node:url';
-import { ROOT, CATEGORIES, plainText, wordCount, readPost, loadPostsAt, briefSlugs, mediaIds } from './lib/blog-content.mjs';
+import { ROOT, CATEGORIES, plainText, wordCount, readPost, loadPostsAt, briefSlugs, mediaIds, FAQ_RE } from './lib/blog-content.mjs';
 
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/, TAG = /^[a-z0-9-]+$/, YT = /^[\w-]{11}$/;
 const ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})$/, DAY = /^\d{4}-\d{2}-\d{2}$/;
-const RESERVED = new Set(['trang', 'chu-de', 'the', 'page', 'topic', 'tag', 'rss.xml', 'gioi-thieu', 'about']); // /blog/<…>/ không phải bài
-const FAQ = /^(câu hỏi thường gặp|faq)\b/i;
+const RESERVED = new Set(['trang', 'chu-de', 'the', 'page', 'topic', 'tag', 'rss.xml', 'gioi-thieu', 'about', 'topik', 'halaman', 'tentang', 'tema', 'etiqueta', 'pagina', 'acerca-de', 'category']); // /blog/<…>/ không phải bài
+const FAQ = FAQ_RE;
 const rel = f => (f && !path.relative(process.cwd(), f).startsWith('..') ? path.relative(process.cwd(), f) : f);
 const len = s => [...String(s ?? '')].length;
 const norm = s => String(s ?? '').normalize('NFC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
-const has = (text, kw) => !!kw && (' ' + norm(text) + ' ').includes(' ' + norm(kw) + ' ');
+const isCJK = s => /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u.test(s);
+const has = (text, kw) => !!kw && (isCJK(kw) ? norm(kw).split(' ').every(w => norm(text).replace(/\s+/g, '').includes(w)) : (' ' + norm(text) + ' ').includes(' ' + norm(kw) + ' ')); // tiếng Nhật/Trung: so khớp bỏ khoảng trắng
 const words = s => s.match(/[\p{L}\p{N}][\p{L}\p{N}'’.-]*/gu) || [];
 // Bỏ khối code để không bắt nhầm tiêu đề/liên kết bên trong (giữ số dòng)
 const noCode = body => body.replace(/```[\s\S]*?```/g, m => m.replace(/[^\n]/g, ''));
@@ -49,13 +50,13 @@ export function checkPosts(posts, { all = posts, root = ROOT } = {}) {
     // Điểm chất lượng từ bước chấm (prompts/6-review.md): bắt buộc ≥ 90/100 cho bài mới (bài kiểm chứng trước 16/10/2026 được miễn)
     const qs = p.qualityScore === '' || p.qualityScore == null ? null : Number(p.qualityScore);
     if (qs != null && !(qs >= 90 && qs <= 100)) E('quality', `qualityScore ${p.qualityScore} – cần 90–100 (chấm lại theo prompts/6-review.md)`);
-    else if (qs == null && !draft && !(p.factChecked && p.factChecked <= '2026-10-15')) E('quality', 'thiếu qualityScore (chấm theo prompts/6-review.md, cần ≥ 90)');
+    else if (qs == null && !draft && !(p.lang === 'vi' && p.factChecked && p.factChecked <= '2026-10-15')) E('quality', 'thiếu qualityScore (chấm theo prompts/6-review.md, cần ≥ 90)');
     if (!draft && /TODO-LOCALIZE|<!--\s*(Brief|Viết theo)/.test(p.body || '')) E('todo', 'còn ghi chú nháp (TODO-LOCALIZE / Brief) trong bài');
     if (p.updated && (!DAY.test(p.updated) || isNaN(Date.parse(p.updated)))) E('updated', `"${p.updated}" phải là ngày YYYY-MM-DD`);
     // Từ khóa
     if (kw) {
       if (!has(p.title, kw)) E('keyword', `từ khóa "${kw}" không có trong tiêu đề`);
-      if (!has(words(plainText(p.body || '')).slice(0, 120).join(' '), kw)) E('keyword', `từ khóa "${kw}" không có trong 120 từ đầu`);
+      if (!has(isCJK(kw) ? plainText(p.body || '').slice(0, 400) : words(plainText(p.body || '')).slice(0, 120).join(' '), kw)) E('keyword', `từ khóa "${kw}" không có trong 120 từ đầu`);
       if (!has(p.description, kw)) W('keyword', 'mô tả không chứa từ khóa');
     }
     // Tiêu đề

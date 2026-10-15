@@ -2068,6 +2068,401 @@
    "type": "evergreen",
    "lang": "en",
    "source": "cach-viet-email-tieng-anh"
+  },
+  {
+   "slug": "cara-belajar-vocabulary-ielts",
+   "keyword": "cara belajar vocabulary ielts",
+   "category": "tu-vung",
+   "tags": [
+    "ielts",
+    "tu-vung",
+    "flashcard"
+   ],
+   "shots": [
+    "library",
+    "review",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/review",
+    "/#/practice/learn"
+   ],
+   "angle": "Quy trình 7 bước học từ IELTS nhớ lâu: chọn từ đúng cấp, học trong ngữ cảnh, ôn ngắt quãng, dùng lại khi viết/nói",
+   "intent": "informational",
+   "lang": "id",
+   "source": "cach-hoc-tu-vung-ielts-hieu-qua"
+  },
+  {
+   "slug": "perbedaan-present-perfect-dan-simple-past",
+   "keyword": "perbedaan present perfect dan simple past",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "thi"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "Phân tích tư duy thời gian của người bản xứ (kết nối hiện tại vs mốc đã đóng), tín hiệu, các cặp câu đối chiếu, lỗi người Việt, bài tập có đáp án",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "id",
+   "source": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don"
+  },
+  {
+   "slug": "tips-listening-ielts",
+   "keyword": "tips listening ielts",
+   "category": "ielts",
+   "tags": [
+    "listening",
+    "ielts"
+   ],
+   "shots": [
+    "listening",
+    "mock"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/mock"
+   ],
+   "angle": "Đọc trước câu hỏi, bẫy đổi ý, chính tả, số; luyện theo phần",
+   "intent": "informational",
+   "lang": "id",
+   "source": "meo-lam-bai-ielts-listening"
+  },
+  {
+   "slug": "struktur-writing-task-2-ielts",
+   "keyword": "struktur writing task 2 ielts",
+   "category": "ielts",
+   "tags": [
+    "writing",
+    "task-2"
+   ],
+   "shots": [
+    "write"
+   ],
+   "routes": [
+    "/#/write",
+    "/samples/"
+   ],
+   "angle": "Dạng đề Task 2, bố cục 4–5 đoạn, phân tích đề, lập dàn ý 5 phút",
+   "intent": "informational",
+   "lang": "id",
+   "source": "cau-truc-ielts-writing-task-2"
+  },
+  {
+   "slug": "metode-spaced-repetition",
+   "keyword": "metode spaced repetition",
+   "category": "phuong-phap",
+   "tags": [
+    "spaced-repetition",
+    "ghi-nho"
+   ],
+   "shots": [
+    "method",
+    "review"
+   ],
+   "routes": [
+    "/#/method",
+    "/#/review"
+   ],
+   "angle": "Spaced repetition là gì, tại sao hiệu quả, lịch ôn mẫu, sai lầm hay gặp",
+   "intent": "informational",
+   "lang": "id",
+   "source": "lap-lai-ngat-quang"
+  },
+  {
+   "slug": "cara-lancar-berbicara-bahasa-inggris",
+   "keyword": "cara lancar berbicara bahasa inggris",
+   "category": "ky-nang",
+   "tags": [
+    "speaking",
+    "giao-tiep"
+   ],
+   "shots": [
+    "practice-speak",
+    "speaking"
+   ],
+   "routes": [
+    "/#/practice/speak",
+    "/#/speaking"
+   ],
+   "angle": "Trôi chảy vs chính xác, kỹ thuật 4/3/2, từ đệm tự nhiên, tự ghi âm & tự sửa, luyện một mình",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "id",
+   "source": "cach-luyen-noi-tieng-anh-troi-chay"
+  },
+  {
+   "slug": "como-aprender-vocabulario-en-ingles",
+   "keyword": "cómo aprender vocabulario en inglés",
+   "category": "tu-vung",
+   "tags": [
+    "ielts",
+    "tu-vung",
+    "flashcard"
+   ],
+   "shots": [
+    "library",
+    "review",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/review",
+    "/#/practice/learn"
+   ],
+   "angle": "Quy trình 7 bước học từ IELTS nhớ lâu: chọn từ đúng cấp, học trong ngữ cảnh, ôn ngắt quãng, dùng lại khi viết/nói",
+   "intent": "informational",
+   "lang": "es",
+   "source": "cach-hoc-tu-vung-ielts-hieu-qua"
+  },
+  {
+   "slug": "falsos-amigos-ingles-espanol",
+   "keyword": "falsos amigos inglés español",
+   "category": "ngu-phap",
+   "tags": [
+    "tu-de-nham",
+    "tu-vung"
+   ],
+   "shots": [
+    "dict",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/dict/",
+    "/#/practice/test"
+   ],
+   "angle": "30 cặp từ dễ nhầm (affect/effect, economic/economical, rise/raise…) có mẹo phân biệt & ví dụ tự đặt",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "es",
+   "source": "cac-cap-tu-de-nham-lan-trong-tieng-anh"
+  },
+  {
+   "slug": "present-perfect-vs-past-simple",
+   "keyword": "present perfect vs past simple",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "thi"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "Phân tích tư duy thời gian của người bản xứ (kết nối hiện tại vs mốc đã đóng), tín hiệu, các cặp câu đối chiếu, lỗi người Việt, bài tập có đáp án",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "es",
+   "source": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don"
+  },
+  {
+   "slug": "pronunciacion-ed-en-ingles",
+   "keyword": "pronunciación de -ed en inglés",
+   "category": "phat-am",
+   "tags": [
+    "phat-am",
+    "am-cuoi"
+   ],
+   "shots": [
+    "pron",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/pron",
+    "/#/practice/speak"
+   ],
+   "angle": "Quy tắc dựa trên âm hữu thanh/vô thanh (không phải chữ cái), lỗi nuốt âm cuối của người Việt, bài luyện",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "es",
+   "source": "cach-phat-am-ed-va-s-es"
+  },
+  {
+   "slug": "consejos-ielts-listening",
+   "keyword": "consejos ielts listening",
+   "category": "ielts",
+   "tags": [
+    "listening",
+    "ielts"
+   ],
+   "shots": [
+    "listening",
+    "mock"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/mock"
+   ],
+   "angle": "Đọc trước câu hỏi, bẫy đổi ý, chính tả, số; luyện theo phần",
+   "intent": "informational",
+   "lang": "es",
+   "source": "meo-lam-bai-ielts-listening"
+  },
+  {
+   "slug": "nuevo-formato-toefl-ibt-2026",
+   "keyword": "nuevo formato toefl 2026",
+   "category": "toefl",
+   "tags": [
+    "toefl",
+    "dinh-dang-moi"
+   ],
+   "shots": [
+    "toefl"
+   ],
+   "routes": [
+    "/#/toefl"
+   ],
+   "angle": "Định dạng TOEFL iBT từ 21/01/2026: ngắn hơn, thích ứng, thang band 1–6; chuẩn bị gì",
+   "intent": "informational",
+   "lang": "es",
+   "source": "toefl-ibt-dinh-dang-moi-2026"
+  },
+  {
+   "slug": "toeic-benkyouhou",
+   "keyword": "toeic 勉強法",
+   "category": "toeic",
+   "tags": [
+    "toeic",
+    "lo-trinh"
+   ],
+   "shots": [
+    "toeic",
+    "goal",
+    "path"
+   ],
+   "routes": [
+    "/#/toeic",
+    "/#/goal"
+   ],
+   "angle": "Lộ trình 450 → 750+, phân bổ từ vựng/ngữ pháp/luyện đề",
+   "intent": "informational",
+   "lang": "ja",
+   "source": "lo-trinh-tu-hoc-toeic"
+  },
+  {
+   "slug": "toeic-part5-kotsu",
+   "keyword": "toeic part5 コツ",
+   "category": "toeic",
+   "tags": [
+    "toeic",
+    "part-5",
+    "ngu-phap"
+   ],
+   "shots": [
+    "toeic",
+    "grammar"
+   ],
+   "routes": [
+    "/#/toeic",
+    "/#/grammar"
+   ],
+   "angle": "Phân loại câu Part 5 (từ loại, thì, giới từ, từ vựng), chiến lược 20 giây/câu",
+   "intent": "informational",
+   "lang": "ja",
+   "source": "toeic-part-5-meo-lam-bai"
+  },
+  {
+   "slug": "eitango-oboekata",
+   "keyword": "英単語 覚え方",
+   "category": "tu-vung",
+   "tags": [
+    "ielts",
+    "tu-vung",
+    "flashcard"
+   ],
+   "shots": [
+    "library",
+    "review",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/review",
+    "/#/practice/learn"
+   ],
+   "angle": "Quy trình 7 bước học từ IELTS nhớ lâu: chọn từ đúng cấp, học trong ngữ cảnh, ôn ngắt quãng, dùng lại khi viết/nói",
+   "intent": "informational",
+   "lang": "ja",
+   "source": "cach-hoc-tu-vung-ielts-hieu-qua"
+  },
+  {
+   "slug": "l-to-r-hatsuon",
+   "keyword": "英語 l と r の発音",
+   "category": "phat-am",
+   "tags": [
+    "phat-am",
+    "ipa"
+   ],
+   "shots": [
+    "pron",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/pron",
+    "/#/practice/speak"
+   ],
+   "angle": "/θ ð/, /ʃ ʒ/, /l r/ cuối, cụm phụ âm, nguyên âm dài–ngắn /iː ɪ/; vị trí lưỡi môi; cặp tối thiểu (minimal pairs)",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "ja",
+   "source": "cac-am-kho-trong-tieng-anh-voi-nguoi-viet"
+  },
+  {
+   "slug": "shadowing-yarikata",
+   "keyword": "シャドーイング やり方",
+   "category": "phuong-phap",
+   "tags": [
+    "shadowing",
+    "speaking",
+    "listening"
+   ],
+   "shots": [
+    "practice-speak",
+    "pron",
+    "listening"
+   ],
+   "routes": [
+    "/#/practice/speak",
+    "/#/listening"
+   ],
+   "angle": "Kỹ thuật shadowing từng bước, chọn tài liệu, kết hợp chấm phát âm",
+   "intent": "informational",
+   "lang": "ja",
+   "source": "shadowing-luyen-noi-tieng-anh"
+  },
+  {
+   "slug": "genzai-kanryou-kakokei-chigai",
+   "keyword": "現在完了 過去形 違い",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "thi"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "Phân tích tư duy thời gian của người bản xứ (kết nối hiện tại vs mốc đã đóng), tín hiệu, các cặp câu đối chiếu, lỗi người Việt, bài tập có đáp án",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "ja",
+   "source": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don"
   }
  ]
 }

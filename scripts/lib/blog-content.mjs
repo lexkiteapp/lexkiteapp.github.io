@@ -52,7 +52,11 @@ export function plainText(body) {
   return body.replace(/```[\s\S]*?```/g, ' ').replace(/\{\{[^}]*\}\}/g, ' ').replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
     .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/^\s*\|?[\s:|-]+\|[\s:|-]*$/gm, ' ').replace(/[#>*_`|~]/g, ' ');
 }
-export const wordCount = body => (plainText(body).match(/[\p{L}\p{N}][\p{L}\p{N}'’.-]*/gu) || []).length;
+// Đếm từ: chữ viết có khoảng trắng đếm theo token; tiếng Nhật/Trung (không có khoảng trắng) quy đổi 2 ký tự ≈ 1 từ
+// Tiêu đề mục hỏi đáp (mọi ngôn ngữ) → FAQPage JSON-LD + kiểm tra
+export const FAQ_RE = /^(câu hỏi thường gặp|faq|frequently asked|pertanyaan yang sering|preguntas frecuentes|perguntas frequentes|よくある質問|자주 묻는 질문|常见问题|คำถามที่พบบ่อย|الأسئلة الشائعة|sıkça sorulan|questions fréquentes|häufig gestellte)/i;
+export const CJK = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/gu;
+export const wordCount = body => { const t = plainText(body), cjk = (t.match(CJK) || []).length; return (t.replace(CJK, ' ').match(/[\p{L}\p{N}][\p{L}\p{N}'’.-]*/gu) || []).length + Math.round(cjk / 2); };
 // Đọc 1 file bài (ngôn ngữ mặc định = tên thư mục cha) – cho công cụ nhận đường dẫn file
 export function readPost(file) {
   const src = fs.readFileSync(file, 'utf8'), { data, body } = parse(src, file);
