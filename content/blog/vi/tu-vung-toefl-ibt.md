@@ -18,7 +18,7 @@ Từ ngày 21/01/2026, TOEFL iBT chuyển sang định dạng mới: bài thi ng
 
 ## Định dạng mới thay đổi cách kiểm tra từ vựng ra sao
 
-Phần Reading của định dạng mới có những dạng câu như **Complete the Words**, **Read in Daily Life** và **Read an Academic Passage**. Mỗi dạng "đụng" đến từ vựng theo một cách:
+Phần Reading của [định dạng TOEFL iBT 2026](/blog/toefl-ibt-dinh-dang-moi-2026/) có những dạng câu như **Complete the Words**, **Read in Daily Life** và **Read an Academic Passage**. Mỗi dạng "đụng" đến từ vựng theo một cách:
 
 | Dạng câu | Bạn làm gì | Từ vựng cần |
 |---|---|---|
@@ -114,10 +114,10 @@ Cuối tuần, làm một bài đọc đầy đủ theo định dạng mới đ�
 ## Câu hỏi thường gặp
 
 ### Cần bao nhiêu từ vựng để thi TOEFL iBT?
-Không có con số chính thức. Một nền tảng hợp lý là nắm chắc nhóm từ thông dụng cốt lõi và phần lớn AWL, sau đó mở rộng theo các lĩnh vực học thuật hay gặp.
+Không có con số chính thức. Một nền tảng hợp lý là nắm chắc nhóm từ thông dụng cốt lõi và phần lớn AWL, sau đó mở rộng theo các lĩnh vực học thuật hay gặp. Các [bộ từ vựng TOEFL và AWL trên Lexkite](/tu-vung/) được chia sẵn theo nhóm để bạn bắt đầu.
 
 ### Từ vựng TOEFL có khác từ vựng IELTS không?
-Phần lớn trùng nhau, đặc biệt là từ học thuật dùng chung. Khác biệt nằm ở cách kiểm tra: định dạng mới của TOEFL có dạng câu yêu cầu viết đúng chính tả phần còn thiếu của từ, nên bạn cần luyện chính tả kỹ hơn.
+Phần lớn trùng nhau, đặc biệt là từ học thuật dùng chung. Vì vậy, [cách học từ vựng IELTS cho nhớ lâu](/blog/cach-hoc-tu-vung-ielts-hieu-qua/) cũng áp dụng tốt cho TOEFL. Khác biệt nằm ở cách kiểm tra: định dạng mới của TOEFL có dạng câu yêu cầu viết đúng chính tả phần còn thiếu của từ, nên bạn cần luyện chính tả kỹ hơn.
 
 ### Thang band 1–6 có ảnh hưởng đến cách học từ vựng không?
 Thang điểm không thay đổi nội dung cần học. Điều thay đổi là bài thi thích ứng theo năng lực, nên từ vựng càng chắc thì bạn càng có cơ hội gặp câu ở mức cao hơn.

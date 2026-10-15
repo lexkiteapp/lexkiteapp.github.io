@@ -73,7 +73,7 @@ Với Listening và Reading, đừng chỉ ghi "sai câu 23". Hãy ghi *lý do*:
 - **Bẫy thông tin:** chọn thông tin bị sửa lại ngay sau đó, hoặc nhầm Not Given với False.
 - **Lỗi kỹ thuật:** sai chính tả, sai số ít/số nhiều, viết quá số từ cho phép.
 
-Sau vài bài, bạn sẽ thấy một hai nhóm lỗi chiếm phần lớn. Ví dụ, nếu một nửa câu sai Reading là do nhầm Not Given, bạn biết chính xác cần luyện gì.
+Sau vài bài, bạn sẽ thấy một hai nhóm lỗi chiếm phần lớn. Ví dụ, nếu một nửa câu sai Reading là do nhầm Not Given, bạn biết chính xác cần luyện gì. Bài [cách xử lý dạng True/False/Not Given](/blog/ielts-reading-true-false-not-given/) là điểm bắt đầu tốt.
 
 ### Bước 2: Làm lại không bấm giờ
 
@@ -81,11 +81,11 @@ Với những câu sai, hãy làm lại mà không nhìn đáp án, không giớ
 
 ### Bước 3: Rút từ vựng ra khỏi đề
 
-Mỗi bài đọc, bài nghe là một mỏ từ vựng theo chủ đề. Hãy rút 10–15 từ hoặc cụm bạn chưa biết, kèm câu gốc, để ôn lại. Ví dụ từ một bài về nông nghiệp đô thị, bạn có thể ghi *rooftop gardens*, *food security*, *reduce transport emissions*.
+Mỗi bài đọc, bài nghe là một mỏ từ vựng theo chủ đề. Hãy rút 10–15 từ hoặc cụm bạn chưa biết, kèm câu gốc, để ôn lại theo [một quy trình học từ có lịch ôn](/blog/cach-hoc-tu-vung-ielts-hieu-qua/). Ví dụ từ một bài về nông nghiệp đô thị, bạn có thể ghi *rooftop gardens*, *food security*, *reduce transport emissions*. Ưu tiên ghi theo cụm như vậy, vì [collocation học thuật](/blog/collocation-ielts/) dùng lại được ngay khi viết.
 
 ### Bước 4: Đọc lại bài Writing với một câu hỏi duy nhất
 
-Đừng sửa mọi thứ cùng lúc. Mỗi lần đọc lại chỉ với một tiêu chí: lần một xem đã trả lời đủ ý đề chưa, lần hai xem từ vựng, lần ba xem ngữ pháp. Ví dụ, nếu đề hỏi *To what extent do you agree?* mà bài của bạn không nêu rõ quan điểm ngay mở bài, đó là lỗi Task Response cần sửa đầu tiên.
+Đừng sửa mọi thứ cùng lúc. Mỗi lần đọc lại chỉ với một tiêu chí: lần một xem đã trả lời đủ ý đề chưa, lần hai xem từ vựng, lần ba xem ngữ pháp. Ví dụ, nếu đề hỏi *To what extent do you agree?* mà bài của bạn không nêu rõ quan điểm ngay mở bài, đó là lỗi Task Response cần sửa đầu tiên. So bài của bạn với [một bài mẫu band 8 cùng dạng đề](/samples/) cũng giúp thấy rõ chỗ còn thiếu.
 
 ### Bước 5: Ghi lại thành sổ lỗi
 

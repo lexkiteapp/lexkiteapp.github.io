@@ -16,7 +16,7 @@ status: ready
 ---
 Hãy tưởng tượng bạn nhận được hai lá thư cùng nội dung "tôi không thể đến dự buổi họp". Một lá bắt đầu bằng *"Dear Sir or Madam"*, lá kia bắt đầu bằng *"Hi Tom!"*. Cả hai đều đúng ngữ pháp, nhưng nếu gửi nhầm người nhận, lá thư trở nên kỳ quặc ngay lập tức. **IELTS General Writing Task 1** kiểm tra chính điều đó: không chỉ bạn viết được tiếng Anh hay không, mà bạn có viết **đúng giọng với đúng người** hay không.
 
-Đây là phần đầu trong bài Writing của hình thức General Training. Bạn có khoảng 20 phút để viết một lá thư ít nhất 150 từ, dựa trên một tình huống và ba gạch đầu dòng gợi ý. Đề nghe đơn giản, nhưng nhiều bài mất điểm vì sai giọng, bỏ sót một gạch đầu dòng, hoặc mở và kết thư không khớp nhau.
+Đây là phần đầu trong bài Writing của hình thức General Training; thí sinh Academic gặp biểu đồ thay cho lá thư, chẳng hạn [dạng line graph Task 1](/blog/ielts-writing-task-1-line-graph/). Bạn có khoảng 20 phút để viết một lá thư ít nhất 150 từ, dựa trên một tình huống và ba gạch đầu dòng gợi ý. Đề nghe đơn giản, nhưng nhiều bài mất điểm vì sai giọng, bỏ sót một gạch đầu dòng, hoặc mở và kết thư không khớp nhau.
 
 ## IELTS General Writing Task 1 có những loại thư nào?
 
@@ -59,7 +59,7 @@ Bố cục chuẩn:
 5. **Đoạn 3:** trả lời gạch đầu dòng thứ ba.
 6. **Câu kết + lời kết + chữ ký.**
 
-Mỗi đoạn không chỉ "đáp" mà nên **mở rộng** bằng một chi tiết cụ thể: thời gian, lý do, hậu quả, đề nghị. Đó là điều tạo nên sự khác biệt giữa bài đủ ý và bài phát triển ý tốt.
+Mỗi đoạn không chỉ "đáp" mà nên **mở rộng** bằng một chi tiết cụ thể: thời gian, lý do, hậu quả, đề nghị. Đó là điều tạo nên sự khác biệt giữa bài đủ ý và bài phát triển ý tốt. Nối các chi tiết trong đoạn bằng [từ nối đúng chức năng](/blog/tu-noi-trong-ielts-writing/) như *as, so, alternatively* giúp thư mạch lạc hơn.
 
 ### Ví dụ thư bán trang trọng (tự viết)
 
@@ -90,7 +90,7 @@ Lá thư khoảng 160 từ, mỗi gạch đầu dòng một đoạn, giọng l�
 - **Bán trang trọng:** *I'm afraid I won't be able to come to the meeting next Tuesday.*
 - **Thân mật:** *Sorry, mate – I can't make it on Saturday!*
 
-Thư thân mật có thể dùng dạng rút gọn (*can't, I'm*), câu ngắn, câu cảm thán. Thư trang trọng nên tránh dạng rút gọn và từ lóng.
+Thư thân mật có thể dùng dạng rút gọn (*can't, I'm*), câu ngắn, câu cảm thán. Thư trang trọng nên tránh dạng rút gọn và từ lóng. Ngược lại, thư trang trọng và bán trang trọng được lợi khi có vài [câu phức với mệnh đề phụ](/blog/ngu-phap-ielts-cau-phuc/), như mệnh đề *as I now have to…* trong thư mẫu ở trên.
 
 ### Phân bổ 20 phút cho một lá thư
 
@@ -108,6 +108,7 @@ Giữ đúng 20 phút rất quan trọng, vì Task 2 cần khoảng 40 phút và
 - **Gạch đầu dòng bị trả lời quá ngắn:** một câu cho mỗi ý thường không đủ.
 - **Viết dưới 150 từ:** hãy đếm nhanh số dòng khi luyện để ước lượng độ dài chữ viết tay của mình.
 - **Dùng câu học thuộc không hợp tình huống:** người chấm nhận ra rất nhanh.
+- **Chép nguyên văn gạch đầu dòng của đề:** hãy diễn đạt lại ý với [năm kỹ thuật paraphrase](/blog/cach-paraphrase-trong-ielts/) thay vì lặp từng chữ.
 
 ## Làm ngay trong Lexkite: luyện từng loại thư
 

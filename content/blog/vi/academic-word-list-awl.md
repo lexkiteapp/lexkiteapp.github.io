@@ -68,7 +68,7 @@ Giả sử hôm nay bạn học *approach, assess, consist, establish, indicate*
 - *The company was* ***established*** *in 1998.*
 - *Recent figures* ***indicate*** *a rise in online learning.*
 
-Chú ý *consist* gần như luôn đi với *of*, còn *establish* rất hay ở dạng bị động. Những chi tiết nhỏ này quyết định bạn dùng từ có tự nhiên không.
+Chú ý *consist* gần như luôn đi với *of*, còn *establish* rất hay ở dạng bị động. Những chi tiết nhỏ này quyết định bạn dùng từ có tự nhiên không. Hai câu đầu về trường lớp cũng cho thấy AWL ghép rất khớp với [từ vựng chủ đề giáo dục](/blog/tu-vung-ielts-chu-de-education/) trong đề IELTS.
 
 ## Phân biệt các dạng trong một họ từ AWL
 
@@ -88,7 +88,7 @@ Mẹo nhỏ: khi ghi một từ AWL vào sổ, hãy viết thêm một dòng "d�
 
 Lexkite có sẵn 10 bộ AWL Sublist 1 đến 10, mỗi từ kèm phiên âm, nghĩa, định nghĩa tiếng Anh, câu ví dụ và collocation:
 
-1. Vào [Thư viện từ vựng](/#/library), tìm các bộ "AWL Sublist" và bắt đầu với Sublist 1. Nếu nền tảng còn yếu, học trước vài bộ Từ cốt lõi NGSL trong cùng thư viện.
+1. Vào [Thư viện từ vựng](/#/library), tìm các bộ "AWL Sublist" và bắt đầu với Sublist 1. Nếu nền tảng còn yếu, học trước vài bộ Từ cốt lõi NGSL trong cùng thư viện. Danh sách đầy đủ từng sublist cũng có trên trang [từ vựng AWL và IELTS theo bộ](/tu-vung/).
 
 ![Thư viện từ vựng Lexkite với các tab Tất cả, NGSL, IELTS theo đề, Writing, Speaking, TOEIC](media:library "Thư viện có các bộ từ chia theo nguồn và cấp độ")
 
@@ -108,7 +108,7 @@ Lexkite có sẵn 10 bộ AWL Sublist 1 đến 10, mỗi từ kèm phiên âm, n
 - **Dùng từ AWL ở mọi chỗ.** Trong Speaking Part 1, nói *I utilise public transport* nghe gượng. Hãy để từ học thuật cho Writing và Speaking Part 3.
 - **Học nghĩa tiếng Việt mà bỏ qua từ loại.** Nhầm *benefit* (n/v) với *beneficial* (adj) là lỗi rất thường gặp trong bài viết.
 - **Chỉ học bằng mắt.** Đọc danh sách nhiều lần cho cảm giác quen, nhưng khi cần viết thì không bật ra được từ nào. Hãy luyện chiều Việt → Anh: nhìn "đánh giá" và tự nhớ ra *assess*, nhìn "thành lập" và nhớ ra *establish*.
-- **Bỏ qua phát âm.** Nhiều từ AWL đổi trọng âm khi đổi dạng: *ANalyse* nhưng *aNAlysis*. Nghe sai trọng âm khiến bạn bỏ lỡ từ trong Listening.
+- **Bỏ qua phát âm.** Nhiều từ AWL đổi trọng âm khi đổi dạng: *ANalyse* nhưng *aNAlysis*. Nghe sai trọng âm khiến bạn bỏ lỡ từ trong Listening; bài [mẹo nghe IELTS Listening không mất điểm oan](/blog/meo-lam-bai-ielts-listening/) có thêm cách bắt từ khóa.
 
 ## Câu hỏi thường gặp
 
@@ -126,4 +126,4 @@ Với 8–12 họ từ mỗi ngày và ôn đều, bạn có thể đi hết dan
 
 ### AWL có còn phù hợp không khi đã ra đời từ năm 2000?
 
-Vẫn hữu ích. Ngôn ngữ học thuật thay đổi chậm, và những từ như *analyse*, *evidence*, *significant* vẫn xuất hiện dày đặc. Bạn có thể bổ sung từ theo chủ đề thi để bao phủ những lĩnh vực mới hơn như công nghệ hay môi trường.
+Vẫn hữu ích. Ngôn ngữ học thuật thay đổi chậm, và những từ như *analyse*, *evidence*, *significant* vẫn xuất hiện dày đặc. Bạn có thể bổ sung từ theo chủ đề thi để bao phủ những lĩnh vực mới hơn như [nhóm từ về công nghệ, AI và dữ liệu](/blog/tu-vung-ielts-chu-de-technology/) hay [từ vựng chủ đề môi trường](/blog/tu-vung-ielts-chu-de-environment/).

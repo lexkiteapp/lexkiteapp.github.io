@@ -71,11 +71,11 @@ Về chất liệu: hội thoại đời thường (đặt chỗ, hỏi đườn
 
 ## Giữ thói quen: 10 phút mỗi ngày tốt hơn 2 giờ cuối tuần
 
-Dictation đòi hỏi tập trung cao nên rất mệt nếu làm lâu. Một lịch đơn giản:
+Dictation đòi hỏi tập trung cao nên rất mệt nếu làm lâu; nó hợp nhất khi là một phần trong [lịch học 15 phút mỗi ngày](/blog/hoc-tieng-anh-15-phut-moi-ngay/). Một lịch đơn giản:
 
 - **Thứ Hai đến thứ Sáu:** 10 phút mỗi ngày, khoảng 5–8 câu.
 - **Thứ Bảy:** nghe lại toàn bộ đoạn đã chép trong tuần, không nhìn chữ. Bạn sẽ ngạc nhiên vì nghe rõ hơn hẳn.
-- **Chủ nhật:** nghỉ, hoặc chỉ ôn lại flashcard các từ mới gặp.
+- **Chủ nhật:** nghỉ, hoặc chỉ ôn lại flashcard các từ mới gặp, hay [đọc một bài báo tiếng Anh ngắn](/blog/doc-bao-tieng-anh-mo-rong-tu-vung/) để gặp lại các từ đó trong văn bản.
 
 Vài cách chống nản:
 
@@ -115,7 +115,7 @@ Có, nếu chọn đúng mức. Người mới nên bắt đầu với dạng đ
 Khoảng 3–4 lần là hợp lý. Nếu vẫn không nghe ra, hãy để trống và đi tiếp, sau đó xem lời thoại. Việc nghe lại một câu quá nhiều lần thường không giúp thêm, chỉ làm bạn mệt và mất động lực.
 
 ### Nên gõ hay viết tay khi chép chính tả?
-Cả hai đều được. Gõ nhanh hơn và dễ so với lời thoại. Viết tay giúp nhớ chính tả tốt hơn và giống điều kiện thi trên giấy. Bạn có thể gõ khi luyện hằng ngày và thỉnh thoảng viết tay để rèn chính tả.
+Cả hai đều được. Gõ nhanh hơn, dễ so với lời thoại và làm được ngay trên [ứng dụng học tiếng Anh miễn phí trên điện thoại](/blog/app-hoc-tieng-anh-tren-dien-thoai/). Viết tay giúp nhớ chính tả tốt hơn và giống điều kiện thi trên giấy. Bạn có thể gõ khi luyện hằng ngày và thỉnh thoảng viết tay để rèn chính tả.
 
 ### Bao lâu thì thấy dictation có hiệu quả?
 Điều này khác nhau ở mỗi người. Thường sau vài tuần luyện đều mỗi ngày, bạn sẽ nhận ra mình nghe rõ hơn các từ nhỏ và âm cuối. Ghi lại tỉ lệ chính xác mỗi buổi là cách tốt nhất để tự thấy tiến bộ.

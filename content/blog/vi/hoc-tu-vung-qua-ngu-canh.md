@@ -27,7 +27,7 @@ Ngữ cảnh còn dạy bạn những điều mà danh sách từ không dạy �
 - **Ngữ pháp đi kèm:** *suggest* đi với *doing* hoặc mệnh đề *that*, không đi với *to do*.
 - **Mức độ trang trọng:** *commence* xuất hiện trong văn bản hành chính, còn hội thoại hằng ngày dùng *start*.
 
-Nói cách khác, ngữ cảnh cho bạn biết không chỉ từ nghĩa là gì mà còn **dùng nó thế nào**. Đây chính là điều tiêu chí Lexical Resource của IELTS hay phần Reading của TOEIC đòi hỏi.
+Nói cách khác, ngữ cảnh cho bạn biết không chỉ từ nghĩa là gì mà còn **dùng nó thế nào**. Đây chính là điều tiêu chí Lexical Resource của IELTS hay [các đoạn đọc đơn, đoạn kép của TOEIC Part 7](/blog/toeic-part-7-doc-hieu/) đòi hỏi.
 
 ## Cách học từ vựng qua ngữ cảnh: 4 bước
 
@@ -56,7 +56,7 @@ Nếu ba câu đều là "không", cứ đọc tiếp. Một bài đọc lưu 5�
 
 ### Bước 3: Lưu cả câu, không lưu từ trơ trọi
 
-Đây là bước nhiều người bỏ qua. Khi lưu, ghi lại:
+Đây là bước nhiều người bỏ qua. Khi lưu vào flashcard hoặc [sổ tay từ vựng](/blog/so-tay-tu-vung-ca-nhan/), ghi lại:
 
 - Từ và phiên âm.
 - **Câu gốc** nơi bạn gặp từ (hoặc một đoạn ngắn).
@@ -71,7 +71,7 @@ Ví dụ thẻ hoàn chỉnh:
 
 ### Bước 4: Ôn bằng cách che từ trong câu
 
-Khi ôn, đừng chỉ nhìn từ rồi nhớ nghĩa. Hãy thử nhìn câu đã che từ, rồi tự điền: *The council decided to ______ the old bridge.* Cách này luyện đúng kỹ năng bạn cần khi viết và nói: nghĩ ra từ phù hợp cho một tình huống.
+Khi ôn, đừng chỉ nhìn từ rồi nhớ nghĩa. Hãy thử nhìn câu đã che từ, rồi tự điền: *The council decided to ______ the old bridge.* Cách này luyện đúng kỹ năng bạn cần khi viết và nói: nghĩ ra từ phù hợp cho một tình huống. Điền từ vào câu cũng là một trong những [trò chơi học từ vựng](/blog/hoc-tu-vung-qua-tro-choi/) hiệu quả nhất.
 
 ## Thu thập ngữ cảnh từ đâu
 
@@ -79,7 +79,7 @@ Khi ôn, đừng chỉ nhìn từ rồi nhớ nghĩa. Hãy thử nhìn câu đã
 
 **Bài nghe.** Podcast, video có phụ đề, bài nghe luyện thi. Nghe lần đầu để hiểu ý, lần hai bật phụ đề và ghi lại cụm hay. Phần nghe đặc biệt tốt cho cụm động từ và cách nói tự nhiên như *figure out, end up, it turns out that…*
 
-**Bài mẫu.** Bài Speaking hay Writing mẫu cho bạn câu chứa collocation học thuật. Đừng chép cả bài, hãy rút ra câu chứa cụm đáng học.
+**Bài mẫu.** Các [bài nói mẫu theo 40 chủ đề Speaking](/speaking/) hay bài Writing mẫu cho bạn câu chứa collocation học thuật. Đừng chép cả bài, hãy rút ra câu chứa cụm đáng học.
 
 **Cuộc sống của bạn.** Biển hiệu, hướng dẫn sử dụng, tin nhắn từ đồng nghiệp nước ngoài. Ngữ cảnh gắn với trải nghiệm thật là loại dễ nhớ nhất.
 

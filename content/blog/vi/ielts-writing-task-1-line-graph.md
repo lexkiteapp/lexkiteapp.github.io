@@ -16,7 +16,7 @@ status: ready
 ---
 Biểu đồ đường trông có vẻ là dạng dễ nhất của Task 1: vài đường kẻ, một trục thời gian, nhìn là thấy lên hay xuống. Nhưng chính sự "dễ" đó lại tạo ra bài viết dở – liệt kê từng con số theo từng năm, đọc như một bảng tính được dịch sang tiếng Anh. Người chấm không muốn bạn chép lại biểu đồ; họ muốn thấy bạn **chọn lọc và so sánh**. Bài hướng dẫn **IELTS Writing Task 1 line graph** này tập trung vào đúng kỹ năng đó: nhìn ra xu hướng chính, viết overview sắc gọn, và dùng từ vựng mô tả thay đổi một cách chính xác.
 
-Nhắc lại khung thời gian: Task 1 yêu cầu ít nhất 150 từ, gợi ý khoảng 20 phút. Đây là phần nhỏ hơn trong bài Writing, nên mục tiêu là viết **đủ, rõ, đúng** – không cần dài.
+Nhắc lại khung thời gian: Task 1 yêu cầu ít nhất 150 từ, gợi ý khoảng 20 phút. Hướng dẫn này dành cho Academic; nếu thi General Training, Task 1 của bạn là [một lá thư trang trọng hoặc thân mật](/blog/ielts-general-writing-task-1-viet-thu/). Đây là phần nhỏ hơn trong bài Writing, nên mục tiêu là viết **đủ, rõ, đúng** – không cần dài.
 
 ## Đọc biểu đồ đường trong 3 phút đầu
 
@@ -63,7 +63,7 @@ Hãy để ý: overview có hai đặc điểm (hai xu hướng ngược chiều
 
 > *E-books, by contrast, started from a very low base of just 5,000 loans. Their popularity grew quickly, reaching 20,000 in 2015 and almost tripling to 55,000 by 2020. Shortly after that, the two lines crossed, and e-book loans finished the period at 70,000, about 20,000 higher than printed books.*
 
-Toàn bài khoảng 170 từ – vừa đủ, mọi câu đều có nhiệm vụ.
+Toàn bài khoảng 170 từ – vừa đủ, mọi câu đều có nhiệm vụ. Để ý các từ nối như *by contrast, while, shortly after that*; cách [dùng từ nối đúng chức năng, không lạm dụng](/blog/tu-noi-trong-ielts-writing/) được phân tích riêng.
 
 ## Từ vựng mô tả xu hướng cho line graph
 
@@ -84,7 +84,7 @@ Toàn bài khoảng 170 từ – vừa đủ, mọi câu đều có nhiệm vụ
 - **Vừa:** steadily, gradually, considerably.
 - **Nhẹ:** slightly, marginally → *a slight dip*.
 
-Đừng lạm dụng *dramatically*. Nếu số liệu chỉ tăng từ 50 lên 55, viết *rose slightly* mới chính xác. Từ mô tả phải **khớp với độ dốc của đường**.
+Đừng lạm dụng *dramatically*. Nếu số liệu chỉ tăng từ 50 lên 55, viết *rose slightly* mới chính xác. Từ mô tả phải **khớp với độ dốc của đường**. Độ chính xác này chính là điều [tiêu chí Lexical Resource chấm điểm từ vựng](/blog/lexical-resource-ielts/) đánh giá.
 
 ### Hai cấu trúc câu luân phiên
 
@@ -135,7 +135,7 @@ Trong [phần Writing Task 1](/#/task1), bạn có thể chọn riêng dạng bi
 
 ![Sổ cụm từ và cấu trúc với nhãn Task và band để ôn lại câu hay](media:phrases "Lưu cụm mô tả xu hướng vào Sổ cụm từ, gắn nhãn Task 1")
 
-Sau khi quen line graph, các dạng khác (cột, bảng) sẽ dễ hơn nhiều vì từ vựng và cách viết overview gần như giống nhau. Còn khi muốn chuyển sang bài luận, hãy xem hướng dẫn [cấu trúc IELTS Writing Task 2](/blog/cau-truc-ielts-writing-task-2/).
+Sau khi quen line graph, các dạng khác (cột, bảng) sẽ dễ hơn nhiều vì từ vựng và cách viết overview gần như giống nhau. Còn khi muốn chuyển sang bài luận, hãy xem hướng dẫn [cấu trúc IELTS Writing Task 2](/blog/cau-truc-ielts-writing-task-2/) và đọc thêm [bài mẫu Task 2 band 8 có chú thích](/samples/).
 
 {{cta: /#/task1 | Luyện viết overview cho một biểu đồ đường}}
 

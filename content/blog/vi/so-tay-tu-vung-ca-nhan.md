@@ -53,9 +53,9 @@ Thêm một ô nhỏ "câu của tôi" ở cuối. Câu bạn tự viết, gắn
 
 Có ba cách sắp xếp phổ biến, mỗi cách hợp với mục tiêu khác nhau:
 
-1. **Theo chủ đề:** môi trường, giáo dục, công nghệ, sức khỏe… Rất hợp với IELTS Writing và Speaking, vì đề thi đến theo chủ đề. Mỗi chủ đề vài trang, để trống chỗ để bổ sung.
+1. **Theo chủ đề:** môi trường, giáo dục, công nghệ, sức khỏe… Rất hợp với IELTS Writing và Speaking, vì đề thi đến theo chủ đề. Mỗi chủ đề vài trang, để trống chỗ để bổ sung. Có thể mượn khung chủ đề từ [các bộ từ vựng IELTS, TOEIC chia nhóm sẵn](/tu-vung/).
 2. **Theo kỹ năng:** một phần cho từ dùng khi viết (từ nối, cụm học thuật), một phần cho từ nói (cụm thân mật, cụm động từ). Hợp nếu bạn đang yếu một kỹ năng cụ thể.
-3. **Theo nguồn:** mỗi bài đọc, mỗi bài nghe một trang. Hợp cho giai đoạn đọc rộng, nhưng khó ôn tổng hợp.
+3. **Theo nguồn:** mỗi bài đọc, mỗi bài nghe một trang. Hợp cho giai đoạn đọc rộng, ví dụ khi bạn [đọc báo tiếng Anh mỗi ngày để lấy từ](/blog/doc-bao-tieng-anh-mo-rong-tu-vung/), nhưng khó ôn tổng hợp.
 
 Một cách kết hợp hiệu quả: ghi nhanh theo nguồn trong lúc học, rồi cuối tuần chuyển những từ đáng giữ sang phần theo chủ đề. Việc chép lại lần hai chính là một lần ôn.
 
@@ -68,7 +68,7 @@ Một cuốn sổ chỉ có giá trị khi được mở lại. Hãy đặt lị
 1. Lướt các từ ghi trong tuần, che cột nghĩa và tự nói nghĩa.
 2. Từ nào nhớ ngay, đánh một dấu tích nhỏ. Từ nào phải nghĩ lâu hoặc sai, khoanh tròn.
 3. Với mỗi từ khoanh tròn, viết thêm một câu mới, khác câu cũ.
-4. Chọn ba từ khoanh tròn để dùng trong tuần tới, khi nhắn tin, viết nhật ký hay luyện nói.
+4. Chọn ba từ khoanh tròn để dùng trong tuần tới, khi nhắn tin, viết nhật ký hay luyện nói. Nếu thấy ôn sổ khô khan, vài [trò chơi từ vựng ngắn](/blog/hoc-tu-vung-qua-tro-choi/) cũng là một lượt ôn có ích.
 
 Sau một tháng, nhìn số dấu tích và số vòng tròn là bạn biết ngay phần nào của sổ đã "sống" và phần nào vẫn nằm im trên giấy.
 

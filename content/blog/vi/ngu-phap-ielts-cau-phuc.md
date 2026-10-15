@@ -62,7 +62,7 @@ Khi đã dùng thuần thục, bạn có thể rút gọn để câu gọn hơn:
 
 ## Loại 2: Mệnh đề trạng ngữ (adverbial clauses)
 
-Mệnh đề trạng ngữ trả lời câu hỏi *khi nào, vì sao, với điều kiện gì, mặc dù gì*. Đây là loại câu phức dễ học nhất và dùng được ở hầu hết các đoạn.
+Mệnh đề trạng ngữ trả lời câu hỏi *khi nào, vì sao, với điều kiện gì, mặc dù gì*. Đây là loại câu phức dễ học nhất và dùng được ở hầu hết các đoạn. Khi [mô tả biểu đồ đường ở Task 1](/blog/ielts-writing-task-1-line-graph/), mệnh đề mở đầu bằng *while* hay *after* giúp so sánh hai xu hướng trong cùng một câu.
 
 | Chức năng | Từ nối | Ví dụ tự đặt |
 |---|---|---|
@@ -89,7 +89,7 @@ Mệnh đề danh từ đóng vai trò như một danh từ: làm chủ ngữ, t
 - **Câu hỏi gián tiếp:** *It is unclear **whether this policy will reduce pollution**.*
 - **Sau danh từ:** *There is growing evidence **that regular exercise improves concentration**.*
 
-Cấu trúc *What + mệnh đề + is…* đặc biệt hữu ích khi bạn muốn nhấn mạnh ý chính ở đầu đoạn. Còn *It is unclear whether…* là cách nói thận trọng rất hợp với văn học thuật.
+Cấu trúc *What + mệnh đề + is…* đặc biệt hữu ích khi bạn muốn nhấn mạnh ý chính ở đầu đoạn. Còn *It is unclear whether…* là cách nói thận trọng rất hợp với văn học thuật. Trong [thư trang trọng của IELTS General](/blog/ielts-general-writing-task-1-viet-thu/), mẫu *I would be grateful if…* cũng là một câu phức rất quen thuộc.
 
 ### Lỗi người Việt hay mắc
 
@@ -98,7 +98,7 @@ Cấu trúc *What + mệnh đề + is…* đặc biệt hữu ích khi bạn mu�
 
 ## Viết câu phức trong IELTS: kết hợp cả ba loại mệnh đề
 
-Hãy thử biến một nhóm câu đơn thành một câu phức hoàn chỉnh. Đây là bài tập bạn có thể tự làm mỗi ngày.
+Hãy thử biến một nhóm câu đơn thành một câu phức hoàn chỉnh. Đây là bài tập bạn có thể tự làm mỗi ngày. Đổi cấu trúc câu theo cách này cũng là một trong những [kỹ thuật paraphrase hay dùng trong IELTS](/blog/cach-paraphrase-trong-ielts/).
 
 **Câu đơn:** *Many people shop online. It is convenient. Local shops are losing customers. This is a problem for town centres.*
 

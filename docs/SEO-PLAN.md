@@ -100,7 +100,7 @@ Dịch sau này: tạo `content/blog/en/<slug-en>.md` cùng `translationKey` →
   - Dung lượng: ~3 ảnh/bài × 3 cỡ × 2 định dạng ≈ 250–400 KB/bài → ~2.500 bài/GB. Khi repo ảnh gần 900 MB → mở repo shard mới `lexkite-media-2`, ghi `base` theo từng ảnh trong media.json (đã hỗ trợ).
 - [x] `blog-media.mjs`: PNG → AVIF + WebP ở 480/960/1440 px, `<picture>` + `srcset/sizes`, width/height cố định, lazy trừ ảnh đầu.
 - [x] Video: `{{youtube: ID | tiêu đề}}` → ảnh thumbnail `i.ytimg.com` + nút play; iframe `youtube-nocookie.com` chỉ tải khi bấm (0 KB JS bên thứ ba lúc tải trang). Không bịa ID – slot trống không hiển thị.
-- [ ] **Cần anh đồng ý**: tạo repo công khai `lexkiteapp/lexkite-media` + bật Pages, rồi `node scripts/blog-media.mjs --push` (token gh trên máy đang hết hạn → `gh auth login`).
+- [x] Repo `lexkiteapp/lexkite-media` đã tạo (15/10/2026, anh đồng ý), bật Pages, đã đẩy 30 ảnh. Ảnh mới: `node scripts/blog-shots.mjs <id>` → `node scripts/blog-media.mjs --push`.
 
 ## 7. Sự thật đã xác minh (dùng chung khi viết; chỉ ghi điều chắc chắn)
 - IELTS: 4 kỹ năng; thang band 0–9 (bước 0,5). Listening ~30 phút, 40 câu, 4 phần. Reading 60 phút, 40 câu, 3 bài (Academic) . Writing 60 phút: Task 1 ≥ 150 từ (~20 phút), Task 2 ≥ 250 từ (~40 phút), Task 2 chiếm tỉ trọng gấp đôi Task 1. Speaking 11–14 phút, 3 phần, Part 2 có 1 phút chuẩn bị, nói 1–2 phút. 4 tiêu chí Writing: Task Achievement/Response, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy. Speaking: Fluency & Coherence, Lexical Resource, Grammatical Range & Accuracy, Pronunciation. Dạng Reading: True/False/Not Given, Yes/No/Not Given, Matching Headings…

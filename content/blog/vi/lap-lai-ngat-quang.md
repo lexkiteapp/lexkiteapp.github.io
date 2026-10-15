@@ -69,9 +69,9 @@ Mỗi thẻ chỉ nên kiểm tra **một** thông tin. Thẻ ghi năm nghĩa c�
 
 Lặp lại ngắt quãng mạnh nhất khi đi cùng vài thói quen học khác:
 
-- **Học xen kẽ (interleaving).** Thay vì ôn 30 thẻ cùng chủ đề môi trường liền nhau, trộn lẫn từ nhiều chủ đề. Não phải phân biệt nhiều hơn, nên nhớ chắc hơn.
-- **Gợi nhớ chủ động ngoài flashcard.** Đi bộ hay đợi xe buýt, thử tự nhớ năm từ học hôm qua và đặt câu trong đầu. Đây cũng là một lần ôn "miễn phí".
-- **Gặp lại từ trong bài đọc, bài nghe.** Mỗi lần bắt gặp từ đã học trong ngữ cảnh thật, trí nhớ được củng cố mà không cần thêm thẻ.
+- **Học xen kẽ (interleaving).** Thay vì ôn 30 thẻ cùng chủ đề môi trường liền nhau, trộn lẫn từ nhiều chủ đề. Các [bộ từ chia theo chủ đề và kỳ thi](/tu-vung/) giúp bạn dễ chọn từ để trộn. Não phải phân biệt nhiều hơn, nên nhớ chắc hơn.
+- **Gợi nhớ chủ động ngoài flashcard.** Đi bộ hay đợi xe buýt, thử tự nhớ năm từ học hôm qua và đặt câu trong đầu. Đây cũng là một lần ôn "miễn phí", đúng tinh thần của [kỹ thuật chủ động gợi nhớ](/blog/active-recall-chu-dong-goi-nho/).
+- **Gặp lại từ trong bài đọc, bài nghe.** Mỗi lần bắt gặp từ đã học trong ngữ cảnh thật, trí nhớ được củng cố mà không cần thêm thẻ. Nghe rồi [chép lại một đoạn ngắn theo kiểu dictation](/blog/chep-chinh-ta-tieng-anh-dictation/) còn buộc bạn nhớ cả âm lẫn cách viết của từ.
 - **Dạy lại cho người khác.** Giải thích cho bạn học cách dùng *curb* khác *reduce* thế nào buộc bạn sắp xếp lại hiểu biết của mình.
 
 Hãy coi flashcard là bộ khung giữ từ không rơi rụng, còn đọc, nghe, nói, viết là nơi từ được "sống".
@@ -117,4 +117,4 @@ Không cần. Hãy quay lại và ôn những thẻ đến hạn, ưu tiên th�
 
 ### Có cần dùng app không, hay sổ giấy là đủ?
 
-Sổ giấy và hộp Leitner hoàn toàn dùng được, nhất là khi bạn học ít từ. Khi số thẻ lên tới hàng trăm, app giúp tiết kiệm nhiều công sức vì tự tính ngày ôn cho từng thẻ.
+Sổ giấy và hộp Leitner hoàn toàn dùng được, nhất là khi bạn học ít từ. Khi số thẻ lên tới hàng trăm, app giúp tiết kiệm nhiều công sức vì tự tính ngày ôn cho từng thẻ. Bài [tiêu chí chọn app học tiếng Anh](/blog/app-hoc-tieng-anh-tren-dien-thoai/) gợi ý những điểm nên kiểm tra trước khi cài.

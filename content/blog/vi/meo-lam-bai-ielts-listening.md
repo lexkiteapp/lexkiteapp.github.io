@@ -49,7 +49,7 @@ Người nói trong IELTS rất hay sửa lại thông tin vừa nói. Ví dụ 
 
 ### 3. Đáp án đúng thường được nói bằng từ khác
 
-Câu hỏi viết *"inexpensive"*, người nói lại nói *"it won't cost you much"*. Với câu chọn đáp án, cả ba phương án thường đều được nhắc tới trong bài nghe – chỉ một phương án khớp đúng nghĩa. Đừng chọn vì "nghe thấy từ đó".
+Câu hỏi viết *"inexpensive"*, người nói lại nói *"it won't cost you much"*. Với câu chọn đáp án, cả ba phương án thường đều được nhắc tới trong bài nghe – chỉ một phương án khớp đúng nghĩa. Đừng chọn vì "nghe thấy từ đó". Nguyên tắc này cũng giúp ích khi bạn phân biệt [False và Not Given ở phần Reading](/blog/ielts-reading-true-false-not-given/).
 
 ### 4. Đánh vần và số: luyện riêng, đừng xem nhẹ
 
@@ -62,7 +62,7 @@ Phần 1 thường có tên người, tên đường được đánh vần. Hãy
 
 ### 5. Chính tả là điểm, không phải chi tiết phụ
 
-Viết sai chính tả thì câu đó không được tính. Những từ hay sai: *accommodation, environment, government, library, February, necessary, Wednesday*. Hãy lập danh sách riêng và chép lại vài lần mỗi tuần.
+Viết sai chính tả thì câu đó không được tính. Những từ hay sai: *accommodation, environment, government, library, February, necessary, Wednesday*. Hãy lập danh sách riêng và chép lại vài lần mỗi tuần. Đưa những từ này vào [quy trình học từ vựng IELTS bảy bước](/blog/cach-hoc-tu-vung-ielts-hieu-qua/) sẽ giúp bạn nhớ cả nghĩa lẫn mặt chữ.
 
 ### 6. Số ít, số nhiều và đuôi -s
 
@@ -78,7 +78,7 @@ Phần 3 có nhiều người nói. Khi câu hỏi là *"What does Maria think a
 
 ### 9. Phần 4: bám theo dàn ý
 
-Bài nói phần 4 thường có cấu trúc rõ: mở đầu, ý 1, ý 2, kết luận. Những cụm như *"Moving on to…"*, *"Another factor is…"*, *"To sum up…"* là cột mốc. Câu hỏi đi theo thứ tự, nên khi nghe cột mốc mới, hãy chuyển mắt xuống nhóm câu hỏi tiếp theo.
+Bài nói phần 4 thường có cấu trúc rõ: mở đầu, ý 1, ý 2, kết luận. Những cụm như *"Moving on to…"*, *"Another factor is…"*, *"To sum up…"* là cột mốc. Câu hỏi đi theo thứ tự, nên khi nghe cột mốc mới, hãy chuyển mắt xuống nhóm câu hỏi tiếp theo. Bài nói phần 4 dùng nhiều từ học thuật, nên vốn từ từ [các bộ từ vựng IELTS và AWL](/tu-vung/) giúp bạn theo kịp nội dung.
 
 ## Luyện theo từng phần thay vì chỉ làm đề
 
@@ -102,7 +102,7 @@ Trong phần [Luyện nghe IELTS](/#/listening), mỗi đề được chia sẵn
 3. Chuyển sang **Chép chính tả** cho phần đó, bắt đầu ở mức dễ.
 4. Khi đã quen, thử nghe với giọng khác (Anh, Mỹ, Úc) vì bài thi thật có nhiều giọng.
 
-Khi đã luyện từng phần được vài tuần, hãy thử một bài thi trọn vẹn để kiểm tra sức bền và khả năng giữ tập trung suốt 4 phần.
+Khi đã luyện từng phần được vài tuần, hãy thử [một bài thi trọn vẹn trong điều kiện như thật](/blog/thi-thu-ielts-online/) để kiểm tra sức bền và khả năng giữ tập trung suốt 4 phần.
 
 ![Trang Thi thử IELTS 4 kỹ năng: chọn Listening, chọn đề và xem lịch sử thi thử](media:mock "Thi thử IELTS: chọn kỹ năng Listening, chọn đề, xem lại lịch sử các lần thi")
 

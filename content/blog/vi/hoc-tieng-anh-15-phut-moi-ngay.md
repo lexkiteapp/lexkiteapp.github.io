@@ -47,9 +47,9 @@ Quy tắc quan trọng nhất: **ôn trước, học mới sau**. Nếu chỉ c�
 
 ### Biến thể theo mục tiêu
 
-- **Ôn IELTS**: phút 10–13 thay bằng đọc một đoạn Reading và làm 3–4 câu hỏi. Cuối tuần thêm một buổi dài viết Task 2.
+- **Ôn IELTS**: phút 10–13 thay bằng đọc một đoạn Reading và làm 3–4 câu hỏi. Cuối tuần thêm một buổi dài viết Task 2. Khung 15 phút này ghép được vào [lộ trình tự học IELTS theo từng giai đoạn](/blog/lo-trinh-tu-hoc-ielts/).
 - **Ôn TOEIC**: phút 10–13 làm 10 câu Part 5, ghi lại cấu trúc ngữ pháp hay sai.
-- **Học giao tiếp**: phút 10–15 nghe một đoạn hội thoại ngắn rồi nhại theo từng câu.
+- **Học giao tiếp**: phút 10–15 nghe một đoạn hội thoại ngắn rồi nhại theo từng câu bằng [phương pháp shadowing](/blog/shadowing-luyen-noi-tieng-anh/).
 
 ### Ví dụ một buổi 15 phút cụ thể
 
@@ -115,7 +115,7 @@ Trên điện thoại, bạn có thể cài Lexkite lên màn hình chính như 
 ## Câu hỏi thường gặp
 
 ### Học tiếng Anh mỗi ngày 15 phút có đủ để thi IELTS không?
-Với phần lớn người học, 15 phút mỗi ngày là mức tối thiểu để giữ nhịp, chưa đủ để chuẩn bị đầy đủ cho một kỳ thi bốn kỹ năng. Hãy dùng 15 phút cho ngày bận và thêm các buổi dài hơn vào cuối tuần cho Writing và đề thi thử.
+Với phần lớn người học, 15 phút mỗi ngày là mức tối thiểu để giữ nhịp, chưa đủ để chuẩn bị đầy đủ cho một kỳ thi bốn kỹ năng. Hãy dùng 15 phút cho ngày bận và thêm các buổi dài hơn vào cuối tuần cho Writing và đề thi thử. Nếu còn phân vân giữa các chứng chỉ, bài [nên thi IELTS, TOEIC hay TOEFL](/blog/nen-thi-ielts-toeic-hay-toefl/) giúp bạn chọn trước khi tăng giờ học.
 
 ### Nên học buổi sáng hay buổi tối?
 Thời điểm tốt nhất là thời điểm bạn giữ được đều đặn. Nhiều người thấy buổi sáng ít bị gián đoạn hơn. Nếu học buổi tối, hãy học trước khi quá mệt, không để đến sát giờ ngủ.

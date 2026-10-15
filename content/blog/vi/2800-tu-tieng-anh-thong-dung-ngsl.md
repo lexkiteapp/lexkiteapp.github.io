@@ -49,7 +49,7 @@ Con số ranh giới chỉ mang tính tương đối. Ý chính là: những t�
 
 ### Mẹo: từ dễ chưa chắc là đã thuộc
 
-Ở nhóm 1 và 2, nhiều từ bạn tưởng đã biết nhưng chỉ biết một nghĩa. *Get* có thể là nhận, trở nên, hiểu, đến nơi. *Still* có thể là vẫn, nhưng cũng là đứng yên. Khi ôn nhóm từ dễ, đừng bỏ qua; hãy kiểm tra xem bạn biết bao nhiêu cách dùng.
+Ở nhóm 1 và 2, nhiều từ bạn tưởng đã biết nhưng chỉ biết một nghĩa. *Get* có thể là nhận, trở nên, hiểu, đến nơi. *Still* có thể là vẫn, nhưng cũng là đứng yên. Khi ôn nhóm từ dễ, đừng bỏ qua; hãy kiểm tra xem bạn biết bao nhiêu cách dùng. Những động từ cốt lõi như *get, take, look* còn ghép với tiểu từ thành các [phrasal verb hay gặp trong giao tiếp](/blog/phrasal-verb-thong-dung/), nên đáng học tiếp ngay sau nhóm này.
 
 ## Lộ trình cho người mất gốc: 4 giai đoạn
 
@@ -59,7 +59,7 @@ Con số ranh giới chỉ mang tính tương đối. Ý chính là: những t�
 
 **Giai đoạn 3 (khoảng 2–3 tháng): đến 2.000 từ.** Đọc tin tức đơn giản, nghe podcast cho người học. Tập viết đoạn văn ngắn dùng từ mới.
 
-**Giai đoạn 4: hoàn thành NGSL rồi chuyển hướng.** Khi đã nắm phần lớn danh sách, chọn danh sách chuyên biệt theo mục tiêu: AWL cho IELTS, TOEFL; TSL cho TOEIC.
+**Giai đoạn 4: hoàn thành NGSL rồi chuyển hướng.** Khi đã nắm phần lớn danh sách, chọn danh sách chuyên biệt theo mục tiêu: AWL cho IELTS, TOEFL; TSL cho TOEIC. Trang [bộ từ vựng theo kỳ thi và chủ đề](/tu-vung/) liệt kê sẵn các danh sách này để bạn chọn bước tiếp theo.
 
 Thời gian trên chỉ là gợi ý cho người học đều đặn khoảng 30 phút mỗi ngày; bạn có thể nhanh hoặc chậm hơn. Nếu chưa biết mình đang ở đâu, hãy làm một bài [kiểm tra trình độ tiếng Anh](/blog/kiem-tra-trinh-do-tieng-anh/) trước.
 
@@ -69,7 +69,7 @@ Thời gian trên chỉ là gợi ý cho người học đều đặn khoảng 3
 
 - **Học kèm cụm, không học từ trơ.** Thay vì *decision = quyết định*, học *make a decision*, *a difficult decision*. Câu mẫu: *It took us a week to make a final decision about the trip.*
 - **Đặt câu về chính bạn.** *I usually have breakfast at seven, but I didn't have time this morning.* Câu gắn với đời sống thật dễ nhớ hơn câu sách.
-- **Luyện nghe song song.** Với mỗi từ, nghe phát âm ít nhất một lần và đọc to.
+- **Luyện nghe song song.** Với mỗi từ, nghe phát âm ít nhất một lần và đọc to. Biết [đọc ký hiệu phiên âm IPA](/blog/cach-doc-phien-am-ipa/) giúp bạn tự phát âm đúng cả khi không có âm thanh.
 - **Ôn theo lịch giãn cách.** Ôn đúng lúc sắp quên hiệu quả hơn ôn dồn. Bài [lặp lại ngắt quãng](/blog/lap-lai-ngat-quang/) giải thích cơ chế.
 - **Đừng sợ từ "dễ".** Học viên trình độ trung cấp vẫn hay dùng sai *since/for*, *bring/take*, *say/tell*, vốn đều nằm trong nhóm cốt lõi.
 

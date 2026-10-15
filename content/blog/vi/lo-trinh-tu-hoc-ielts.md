@@ -16,7 +16,7 @@ status: ready
 ---
 Tự học IELTS giống như leo núi không có hướng dẫn viên. Bạn hoàn toàn có thể lên đỉnh, nhưng nếu không có bản đồ, rất dễ đi vòng, kiệt sức giữa chừng hoặc lạc vào những con đường "mẹo nhanh" không dẫn tới đâu. Một **lộ trình tự học IELTS** rõ ràng giúp bạn biết hôm nay cần làm gì, tuần này cần đạt gì và khi nào nên chuyển sang giai đoạn tiếp theo.
 
-Bài viết chia hành trình từ mất gốc đến band 6.5+ thành bốn giai đoạn. Thời gian ở mỗi giai đoạn chỉ là gợi ý cho người học khoảng 1–1,5 giờ mỗi ngày; tốc độ thật phụ thuộc vào xuất phát điểm và mức độ đều đặn của bạn.
+Bài viết chia hành trình từ mất gốc đến band 6.5+ thành bốn giai đoạn. Thời gian ở mỗi giai đoạn chỉ là gợi ý cho người học khoảng 1–1,5 giờ mỗi ngày; tốc độ thật phụ thuộc vào xuất phát điểm và mức độ đều đặn của bạn. Nếu đích đến của bạn là TOEIC, hãy xem [lộ trình riêng từ 450 lên 750+ điểm TOEIC](/blog/lo-trinh-tu-hoc-toeic/).
 
 ## Trước khi bắt đầu: biết mình đang ở đâu
 
@@ -65,8 +65,8 @@ Ví dụ câu bạn nên viết đúng ở cuối giai đoạn này: *I moved to
 Đây là lúc bắt đầu học "luật chơi" của IELTS.
 
 - **Listening:** làm quen 4 phần, các dạng điền từ, trắc nghiệm, nối thông tin.
-- **Reading:** luyện từng dạng câu như True/False/Not Given, Matching Headings; tập skimming và scanning.
-- **Writing:** học cấu trúc bài Task 2 (mở bài, hai thân bài, kết bài) và cách mô tả biểu đồ Task 1.
+- **Reading:** luyện từng dạng câu như [True/False/Not Given](/blog/ielts-reading-true-false-not-given/), Matching Headings; tập skimming và scanning.
+- **Writing:** học cấu trúc bài Task 2 (mở bài, hai thân bài, kết bài) và cách mô tả biểu đồ Task 1. Đọc vài [bài mẫu Task 2 band 8 có chú thích](/samples/) giúp bạn thấy cấu trúc đó vận hành ra sao.
 - **Speaking:** luyện Part 2 với 1 phút chuẩn bị và nói 1–2 phút; Part 3 với câu trả lời có lý do và ví dụ.
 - **Từ vựng:** chuyển sang học theo chủ đề IELTS và từ học thuật. Danh sách AWL gồm 570 họ từ thường gặp trong văn bản học thuật là nguồn tốt.
 
@@ -76,7 +76,7 @@ Ngữ pháp ở giai đoạn này nên hướng tới câu phức: mệnh đề 
 
 Khi đã nắm dạng đề, phần lớn thời gian dành cho luyện có bấm giờ và sửa lỗi.
 
-- Thi thử đủ bốn kỹ năng định kỳ, mỗi 1–2 tuần.
+- [Thi thử đủ bốn kỹ năng](/blog/thi-thu-ielts-online/) định kỳ, mỗi 1–2 tuần.
 - Ghi lỗi sai vào sổ, ôn sổ lỗi đều đặn.
 - Viết ít nhất hai bài Task 2 mỗi tuần và tự chấm theo bốn tiêu chí.
 - Nâng cấp từ vựng: collocation, paraphrase, cách diễn đạt chính xác hơn.

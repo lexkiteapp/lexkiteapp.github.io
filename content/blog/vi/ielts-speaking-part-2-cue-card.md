@@ -27,6 +27,8 @@ Phần thi Speaking kéo dài 11–14 phút, gồm 3 phần. Part 2 nằm ở gi
 - Bạn nói **1–2 phút**. Giám khảo có thể dừng bạn khi hết giờ.
 - Có thể có một hai câu hỏi ngắn sau đó, rồi chuyển sang Part 3 với các câu hỏi thảo luận liên quan.
 
+Đừng nhầm phần này với [TOEIC Part 2 nghe hỏi–đáp](/blog/toeic-listening-part-2/), một phần thi nghe chọn câu đáp ngắn hoàn toàn khác.
+
 Thẻ đề thường có dạng *"Describe…"* kèm các gợi ý *who / what / when / where* và một dòng cuối *"and explain why / how you felt"*. Dòng cuối này quan trọng nhất: đó là nơi bạn thể hiện suy nghĩ, cảm xúc, và thường là phần giúp bài nói có chiều sâu.
 
 Bài được chấm theo 4 tiêu chí: Fluency & Coherence, Lexical Resource, Grammatical Range & Accuracy, Pronunciation. Part 2 đặc biệt bộc lộ **Fluency & Coherence**: bạn có nói liền mạch, có trình tự rõ hay không.
@@ -72,7 +74,7 @@ Khung này dùng được cho hầu hết thẻ đề về người, nơi chốn
 >
 > *Looking back, it wasn't a big thing to do, but it made me feel genuinely useful. It also made me realise that in a busy city, we often don't even know who lives next door. Since then, I've made a habit of saying hello to her whenever I see her, and she sometimes gives me fruit from her hometown.*
 
-Hãy để ý: câu chuyện rất đời thường, nhưng có chi tiết cụ thể (tầng năm, đầu gối đau, sạc dự phòng), có trình tự rõ, và có phần suy ngẫm ở cuối.
+Hãy để ý: câu chuyện rất đời thường, nhưng có chi tiết cụ thể (tầng năm, đầu gối đau, sạc dự phòng), có trình tự rõ, và có phần suy ngẫm ở cuối. Những cụm như *out of the question* hay *made a habit of* cũng là điểm cộng cho [tiêu chí từ vựng Lexical Resource](/blog/lexical-resource-ielts/) mà không cần từ hiếm.
 
 ## Kéo dài tự nhiên đến 2 phút
 
@@ -102,7 +104,7 @@ Trong [Phòng luyện Speaking](/#/speaking), bạn có thể chọn Part 2 theo
 
 ![Trang Thi thử IELTS 4 kỹ năng với lựa chọn Speaking và lịch sử thi thử](media:mock "Thi thử IELTS: chọn Speaking để luyện cả ba phần liên tiếp")
 
-Khi đã luyện riêng Part 2 được một thời gian, hãy vào [Thi thử IELTS](/#/mock) và chọn Speaking để quen nhịp chuyển từ Part 1 sang Part 2 rồi Part 3. Bạn cũng có thể đọc thêm câu hỏi và gợi ý theo chủ đề tại trang [luyện IELTS Speaking](/speaking/).
+Khi đã luyện riêng Part 2 được một thời gian, hãy vào [Thi thử IELTS](/#/mock) và chọn Speaking để quen nhịp chuyển từ Part 1 sang Part 2 rồi Part 3. Cách tổ chức một buổi thi thử nghiêm túc có trong bài [thi thử IELTS online và học từ lỗi sai](/blog/thi-thu-ielts-online/). Bạn cũng có thể đọc thêm câu hỏi và gợi ý theo chủ đề tại trang [luyện IELTS Speaking](/speaking/).
 
 {{cta: /#/speaking | Chọn một thẻ đề Part 2 và nói thử 2 phút}}
 

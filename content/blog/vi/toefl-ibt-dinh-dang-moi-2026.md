@@ -86,8 +86,8 @@ Mẹo chung: ghi chú từ khóa và chú ý các từ nối như *however*, *so
 ## Nên chuẩn bị TOEFL iBT 2026 thế nào?
 
 1. **Bỏ tài liệu theo định dạng cũ** cho phần cấu trúc đề. Từ vựng và kỹ năng đọc nghe vẫn dùng được, nhưng dạng bài đã khác.
-2. **Củng cố từ vựng học thuật và chính tả.** Complete the Words và Build a Sentence trừng phạt lỗi chính tả, lỗi trật tự từ. Danh sách học thuật như AWL (570 họ từ) là nguồn tốt; xem thêm [từ vựng TOEFL iBT](/blog/tu-vung-toefl-ibt/).
-3. **Luyện văn bản đời thường**, không chỉ văn bản học thuật, cho Read in Daily Life và Listen and Choose a Response.
+2. **Củng cố từ vựng học thuật và chính tả.** Complete the Words và Build a Sentence trừng phạt lỗi chính tả, lỗi trật tự từ. Danh sách học thuật như [AWL (570 họ từ)](/blog/academic-word-list-awl/) là nguồn tốt; xem thêm [từ vựng TOEFL iBT](/blog/tu-vung-toefl-ibt/). Các bộ này cũng có sẵn trên [trang từ vựng theo kỳ thi](/tu-vung/).
+3. **Luyện văn bản đời thường**, không chỉ văn bản học thuật, cho Read in Daily Life và Listen and Choose a Response. Với những văn bản này, [nhóm khoảng 2.800 từ thông dụng nhất](/blog/2800-tu-tieng-anh-thong-dung-ngsl/) quan trọng không kém từ học thuật.
 4. **Luyện viết nhanh có giới hạn thời gian** cho Email và Academic Discussion.
 5. **Luyện nhắc lại câu chính xác** để chuẩn bị cho Listen and Repeat; ghi âm và so sánh với bản gốc.
 

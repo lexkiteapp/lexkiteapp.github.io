@@ -88,6 +88,8 @@ Danh sách dưới đây được chọn vì hay dùng trong Writing Task 2 và 
 
 > *Group projects help students acquire skills that exams cannot measure.*
 
+Muốn có thêm ý tưởng và cụm từ cho đề trường học, xem [bộ từ vựng chủ đề giáo dục](/blog/tu-vung-ielts-chu-de-education/).
+
 **Môi trường**
 21. *reduce emissions* – giảm khí thải
 22. *renewable energy* – năng lượng tái tạo
@@ -98,6 +100,8 @@ Danh sách dưới đây được chọn vì hay dùng trong Writing Task 2 và 
 
 > *Rapid urban expansion poses a threat to natural habitats around the city.*
 
+Nhóm này được mở rộng trong bài [từ vựng IELTS về môi trường kèm câu mẫu](/blog/tu-vung-ielts-chu-de-environment/).
+
 **Công nghệ và truyền thông**
 27. *rapid advances* – tiến bộ nhanh chóng
 28. *a heavy reliance on* – sự phụ thuộc nặng nề vào
@@ -107,6 +111,8 @@ Danh sách dưới đây được chọn vì hay dùng trong Writing Task 2 và 
 32. *data privacy* – quyền riêng tư dữ liệu
 
 > *A heavy reliance on social media makes it easier to spread misinformation.*
+
+Các cụm về AI, mạng xã hội và dữ liệu cá nhân có thêm trong bài [từ vựng chủ đề Technology](/blog/tu-vung-ielts-chu-de-technology/).
 
 **Sức khỏe**
 33. *a sedentary lifestyle* – lối sống ít vận động
@@ -127,7 +133,7 @@ Danh sách dưới đây được chọn vì hay dùng trong Writing Task 2 và 
 ## Cách tra và ghi collocation để dùng được
 
 1. **Tra từ điển có mục collocation**, không chỉ xem nghĩa. Ghi lại hai, ba cụm phổ biến nhất.
-2. **Ghi theo cụm, không ghi từ lẻ.** Thay vì ghi *threat = mối đe dọa*, ghi *pose a threat to sth*.
+2. **Ghi theo cụm, không ghi từ lẻ.** Thay vì ghi *threat = mối đe dọa*, ghi *pose a threat to sth*. Đây cũng là tinh thần của bước 3 trong [quy trình 7 bước học từ vựng IELTS](/blog/cach-hoc-tu-vung-ielts-hieu-qua/).
 3. **Đặt một câu của riêng bạn**, tốt nhất là câu bạn có thể dùng lại trong bài thi.
 4. **Nhóm theo chủ đề**, như danh sách ở trên. Khi gặp đề về môi trường, bạn lấy ra cả một nhóm.
 5. **Kiểm chứng trước khi dùng.** Nếu bạn tự nghĩ ra một tổ hợp mà không chắc, tra lại. Đừng đánh cược trong phòng thi.
@@ -156,7 +162,7 @@ Câu 5 là lỗi rất phổ biến trong Task 1. Hãy nhớ cặp *raise prices
 
 ![Sổ cụm từ và cấu trúc của Lexkite với bài mẫu chỉ rõ cấu trúc và nhãn Task, band](media:phrases "Sổ cụm từ: lưu collocation, gắn nhãn Task và band")
 
-3. Trong thư viện còn có bộ "Collocation band 7+" để bạn học thêm theo flashcard.
+3. Trong thư viện còn có bộ "Collocation band 7+" để bạn học thêm theo flashcard. Để thấy collocation được dùng trong cả bài hoàn chỉnh, đọc các [bài mẫu Task 2 band 8 có chú thích](/samples/).
 
 {{cta: /#/phrases | Bắt đầu sổ collocation của riêng bạn}}
 

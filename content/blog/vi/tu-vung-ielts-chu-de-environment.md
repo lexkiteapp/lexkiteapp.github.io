@@ -25,7 +25,7 @@ Các đề về môi trường thường xoay quanh vài câu hỏi lớn:
 - Phát triển kinh tế có mâu thuẫn với bảo vệ môi trường không.
 - Năng lượng tái tạo, giao thông, đô thị hóa.
 
-Nếu bạn có sẵn vốn từ cho năm nhóm dưới đây, bạn có thể xử lý phần lớn các biến thể của những câu hỏi này.
+Nếu bạn có sẵn vốn từ cho năm nhóm dưới đây, bạn có thể xử lý phần lớn các biến thể của những câu hỏi này. Nhiều đề còn kết hợp môi trường với công nghệ (xe điện, năng lượng sạch), nên hãy học song song [nhóm từ về Technology](/blog/tu-vung-ielts-chu-de-technology/).
 
 ## Từ vựng IELTS chủ đề Environment theo nhóm
 
@@ -94,7 +94,7 @@ Nếu bạn có sẵn vốn từ cho năm nhóm dưới đây, bạn có thể x
 
 ## Collocation môi trường giúp bài viết tự nhiên
 
-Biết từ đơn chưa đủ; collocation mới là thứ khiến câu văn nghe tự nhiên. Một số cụm động từ + danh từ đáng thuộc:
+Biết từ đơn chưa đủ; [các cụm collocation](/blog/collocation-ielts/) mới là thứ khiến câu văn nghe tự nhiên. Một số cụm động từ + danh từ đáng thuộc:
 
 - *tackle / address environmental problems* – giải quyết vấn đề môi trường
 - *reduce / cut emissions* – giảm phát thải
@@ -132,7 +132,7 @@ Một đoạn thân bài mẫu:
 
 > *Admittedly, governments and corporations have the greatest power to cut emissions, since they control energy policy and large-scale production. For instance, a single regulation that phases out coal power can achieve more than millions of people switching off their lights. However, individual choices still matter, because consumer demand shapes what companies produce. When enough people refuse single-use plastics, businesses have a strong incentive to offer biodegradable alternatives.*
 
-Chú ý cách các collocation (*cut emissions*, *phase out*, *single-use plastics*) được đặt vào lập luận, không chèn cho có. Để nối các ý mượt hơn, xem bài [từ nối trong IELTS Writing](/blog/tu-noi-trong-ielts-writing/).
+Chú ý cách các collocation (*cut emissions*, *phase out*, *single-use plastics*) được đặt vào lập luận, không chèn cho có. Muốn xem nhiều đoạn như vậy, hãy đọc [các bài mẫu Task 2 band 8 theo chủ đề](/samples/). Để nối các ý mượt hơn, xem bài [từ nối trong IELTS Writing](/blog/tu-noi-trong-ielts-writing/).
 
 ### Speaking Part 1
 
@@ -148,7 +148,7 @@ Chú ý cách các collocation (*cut emissions*, *phase out*, *single-use plasti
 
 ### Mẹo mở rộng câu trả lời
 
-Khi gặp câu hỏi môi trường ở Speaking, hãy dùng khung ba bước đơn giản: nêu quan điểm, đưa lý do, kèm một ví dụ từ nơi bạn sống. Ví dụ ở Việt Nam rất phong phú: ngập lụt đô thị mùa mưa, khói bụi giờ cao điểm, rác nhựa ở bãi biển sau kỳ nghỉ lễ. Một ví dụ gần gũi vừa giúp bạn nói dài hơn, vừa khiến từ vựng được dùng tự nhiên hơn so với câu trả lời chung chung.
+Khi gặp câu hỏi môi trường ở Speaking, hãy dùng khung ba bước đơn giản: nêu quan điểm, đưa lý do, kèm một ví dụ từ nơi bạn sống. Ví dụ ở Việt Nam rất phong phú: ngập lụt đô thị mùa mưa, khói bụi giờ cao điểm, rác nhựa ở bãi biển sau kỳ nghỉ lễ. Một ví dụ gần gũi vừa giúp bạn nói dài hơn, vừa khiến từ vựng được dùng tự nhiên hơn so với câu trả lời chung chung. Khung này dùng được cả cho [câu hỏi Speaking về trường lớp, giáo dục](/blog/tu-vung-ielts-chu-de-education/), nơi trải nghiệm đi học của chính bạn là nguồn ví dụ dồi dào.
 
 ## Làm ngay trong Lexkite
 

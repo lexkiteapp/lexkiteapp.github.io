@@ -105,14 +105,14 @@ Nguyên tắc: làm Part 5 và 6 nhanh và chắc để dồn thời gian cho Pa
 
 Nếu mới bắt đầu, đừng làm ngay đề đủ 200 câu. Một thứ tự dễ đi:
 
-1. **Từ vựng công sở cốt lõi:** họp hành, nhân sự, mua bán, du lịch công tác, tài chính cơ bản.
+1. **Từ vựng công sở cốt lõi:** họp hành, nhân sự, mua bán, du lịch công tác, tài chính cơ bản. Danh sách TSL có sẵn trong [bộ từ vựng TOEIC](/tu-vung/).
 2. **Part 5:** củng cố ngữ pháp và từ loại, phần này hỗ trợ cả Part 6 và 7.
 3. **Part 1 và 2:** làm quen giọng đọc, tốc độ nói.
 4. **Part 3, 4 và 6:** tăng độ dài văn bản, tập đọc trước câu hỏi.
 5. **Part 7:** luyện tốc độ đọc.
 6. **Đề đủ:** khi đã quen từng phần, làm đề hoàn chỉnh có bấm giờ.
 
-Muốn học từ theo nhóm, bạn có thể xem [từ vựng TOEIC theo chủ đề](/blog/tu-vung-toeic-theo-chu-de/).
+Muốn học từ theo nhóm, bạn có thể xem [từ vựng TOEIC theo chủ đề](/blog/tu-vung-toeic-theo-chu-de/). Nếu cần kế hoạch theo tuần, [lộ trình tự học TOEIC cho người bận rộn](/blog/lo-trinh-tu-hoc-toeic/) chia sẵn từng giai đoạn.
 
 ## Làm ngay trong Lexkite: luyện TOEIC theo đúng cấu trúc
 

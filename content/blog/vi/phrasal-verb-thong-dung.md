@@ -28,7 +28,7 @@ Chúng khó vì ba lý do:
 
 ## Học phrasal verb thông dụng theo tiểu từ
 
-Thay vì học theo động từ (mọi cụm với *get*, rồi mọi cụm với *take*), hãy học theo tiểu từ. Dưới đây là nghĩa phổ biến nhất của năm tiểu từ quan trọng.
+Thay vì học theo động từ (mọi cụm với *get*, rồi mọi cụm với *take*), hãy học theo tiểu từ. Các động từ gốc như *get*, *take*, *look* đều thuộc [nhóm 2.800 từ thông dụng nhất](/blog/2800-tu-tieng-anh-thong-dung-ngsl/), nên bạn đã nắm sẵn một nửa của mỗi cụm. Dưới đây là nghĩa phổ biến nhất của năm tiểu từ quan trọng.
 
 | Tiểu từ | Ý nghĩa thường gặp | Ví dụ |
 |---|---|---|
@@ -93,11 +93,11 @@ Lưu ý ngữ pháp: sau *look forward to* là danh từ hoặc V-ing (*look for
 
 - **Vẽ hình ảnh cho tiểu từ.** Với *out*, hình dung một chiếc hộp trống rỗng (*run out*, *sell out*). Với *up*, hình dung một ly nước được rót đầy đến miệng (*fill up*, *use up*).
 - **Học theo cặp đối lập.** *Turn on / turn off*, *put on / take off*, *speed up / slow down*. Nhớ một cụm sẽ kéo theo cụm kia.
-- **Gắn với một câu chuyện cá nhân.** Viết năm câu kể về một ngày của bạn, mỗi câu dùng một phrasal verb: *I woke up late, put on my jacket, picked up a coffee…*
+- **Gắn với một câu chuyện cá nhân.** Viết năm câu kể về một ngày của bạn, mỗi câu dùng một phrasal verb: *I woke up late, put on my jacket, picked up a coffee…* Những câu này dùng lại rất tốt khi trả lời [câu hỏi về thói quen ở Speaking Part 1](/blog/ielts-speaking-part-1/).
 
 ## Khi nào nên tránh phrasal verb trong Writing
 
-Phrasal verb là "vũ khí" mạnh trong Speaking vì nghe tự nhiên, thân mật. Nhưng trong IELTS Writing Task 2 hay thư trang trọng, nhiều cụm nghe quá suồng sã. Một số cặp thay thế:
+Phrasal verb là "vũ khí" mạnh trong Speaking vì nghe tự nhiên, thân mật. Khi [kể chuyện hai phút với cue card Part 2](/blog/ielts-speaking-part-2-cue-card/), các cụm như *end up* hay *figure out* giúp mạch kể trôi hơn. Nhưng trong IELTS Writing Task 2 hay thư trang trọng, nhiều cụm nghe quá suồng sã. Một số cặp thay thế:
 
 | Phrasal verb (thân mật) | Từ trang trọng hơn |
 |---|---|
@@ -117,7 +117,7 @@ Không có nghĩa là cấm hoàn toàn. Những cụm như *carry out*, *rely o
 ![Thẻ Học thông minh Lexkite giới thiệu cụm come up with với nghĩa, định nghĩa tiếng Anh, ví dụ và mẹo nhớ](media:practice-learn "Học thông minh: mỗi phrasal verb có ví dụ, mẹo nhớ và lỗi hay gặp")
 
 2. Trong Thư viện, chọn bộ "Phrasal verbs thông dụng" để thêm cả nhóm vào flashcard.
-3. Luyện nói với [Luyện phát âm có chấm điểm](/#/practice/speak). Phrasal verb thường có trọng âm rơi vào tiểu từ (*cut DOWN on*, *give UP*), nói đúng sẽ tự nhiên hơn nhiều.
+3. Luyện nói với [Luyện phát âm có chấm điểm](/#/practice/speak). Phrasal verb thường có trọng âm rơi vào tiểu từ (*cut DOWN on*, *give UP*), nói đúng sẽ tự nhiên hơn nhiều. Nếu chưa quen ký hiệu trọng âm trong từ điển, hãy xem [hướng dẫn đọc phiên âm IPA](/blog/cach-doc-phien-am-ipa/).
 
 ![Màn hình Luyện phát âm Lexkite với cụm cut down on và nút micro để chấm điểm](media:practice-speak "Luyện phát âm: nói cụm cut down on và nhận điểm theo giọng nói")
 
@@ -125,7 +125,7 @@ Không có nghĩa là cấm hoàn toàn. Những cụm như *carry out*, *rely o
 
 {{youtube: | Gợi ý video: Nghĩa của tiểu từ up, out, off qua 15 phrasal verb thông dụng}}
 
-Phrasal verb dùng nhiều nhất ở Speaking; xem thêm cách nói tự nhiên ở bài [idiom trong IELTS Speaking](/blog/idiom-ielts-speaking/).
+Phrasal verb dùng nhiều nhất ở Speaking; xem thêm cách nói tự nhiên ở bài [idiom trong IELTS Speaking](/blog/idiom-ielts-speaking/). Các [bài nói mẫu IELTS theo chủ đề](/speaking/) cũng là nguồn tốt để thấy phrasal verb được dùng trong ngữ cảnh.
 
 ## Câu hỏi thường gặp
 

@@ -45,7 +45,7 @@ Trong tâm lý học nhận thức, hiện tượng này thường được gọ
 
 ### Gợi nhớ càng khó, càng nhớ lâu, nhưng có giới hạn
 
-Gợi nhớ một từ sau vài ngày khó hơn gợi nhớ ngay sau khi học, và chính vì khó hơn nên có tác dụng mạnh hơn. Nhưng nếu đợi quá lâu, bạn quên hẳn và phải học lại từ đầu. Điểm tối ưu là gợi nhớ khi từ **sắp bị quên**. Đây là lý do active recall thường đi cùng [lặp lại ngắt quãng](/blog/lap-lai-ngat-quang/): một bên quyết định **cách** ôn, bên kia quyết định **khi nào** ôn.
+Gợi nhớ một từ sau vài ngày khó hơn gợi nhớ ngay sau khi học, và chính vì khó hơn nên có tác dụng mạnh hơn. Nhưng nếu đợi quá lâu, bạn quên hẳn và phải học lại từ đầu, đúng như [đường cong quên lãng Ebbinghaus](/blog/duong-cong-quen-lang-ebbinghaus/) mô tả. Điểm tối ưu là gợi nhớ khi từ **sắp bị quên**. Đây là lý do active recall thường đi cùng [lặp lại ngắt quãng](/blog/lap-lai-ngat-quang/): một bên quyết định **cách** ôn, bên kia quyết định **khi nào** ôn.
 
 ## Áp dụng active recall cho từ vựng tiếng Anh
 
@@ -86,11 +86,11 @@ Không cần thay đổi toàn bộ cách học. Chỉ cần thêm một bước
 - **Sau khi học ngữ pháp**: tự viết ba câu áp dụng quy tắc, rồi mới xem ví dụ trong sách.
 - **Cuối ngày**: liệt kê từ trí nhớ 5 từ mới đã học hôm nay.
 
-Những bước này chỉ tốn vài phút, nhưng biến buổi học từ "tiếp nhận" thành "luyện tập".
+Những bước này chỉ tốn vài phút, nhưng biến buổi học từ "tiếp nhận" thành "luyện tập". Lúc chờ xe hay nghỉ trưa, một [ứng dụng học tiếng Anh trên điện thoại](/blog/app-hoc-tieng-anh-tren-dien-thoai/) là đủ để tự kiểm tra thêm vài thẻ.
 
 ### Kỹ thuật "trang giấy trắng"
 
-Một cách luyện active recall rất mạnh cho các chủ đề từ vựng: lấy một tờ giấy trắng, viết tên chủ đề ở giữa, ví dụ "Environment". Trong 5 phút, viết ra mọi từ và cụm từ bạn nhớ được liên quan đến chủ đề đó, không mở sổ hay app. Bạn có thể viết được "pollution", "renewable energy", "carbon emissions", "deforestation"... Hết giờ, mở tài liệu ra so sánh. Những từ bạn đã học nhưng không viết ra được chính là những từ cần ôn thêm.
+Một cách luyện active recall rất mạnh cho các chủ đề từ vựng: lấy một tờ giấy trắng, viết tên chủ đề ở giữa, ví dụ "Environment". Trong 5 phút, viết ra mọi từ và cụm từ bạn nhớ được liên quan đến chủ đề đó, không mở sổ hay app. Bạn có thể viết được "pollution", "renewable energy", "carbon emissions", "deforestation"... Hết giờ, mở tài liệu ra so sánh, chẳng hạn danh sách trong [các bộ từ vựng theo chủ đề](/tu-vung/). Những từ bạn đã học nhưng không viết ra được chính là những từ cần ôn thêm.
 
 Kỹ thuật này đặc biệt hữu ích trước khi luyện Speaking hoặc Writing theo chủ đề, vì nó mô phỏng đúng tình huống bạn cần tự lấy từ ra khi nói và viết.
 
@@ -129,4 +129,4 @@ Flashcard là công cụ, active recall là cách dùng công cụ đó. Bạn c
 Có. Thay vì đọc lại bảng công thức, hãy tự viết công thức từ trí nhớ, rồi đặt câu ví dụ. Làm bài tập ngữ pháp mà không xem lý thuyết trước cũng là một dạng chủ động gợi nhớ.
 
 ### Mỗi ngày nên tự kiểm tra bao lâu?
-Không cần dài. Khoảng 10–15 phút ôn thẻ đến hạn mỗi ngày, đều đặn, thường hiệu quả hơn một buổi dài vào cuối tuần.
+Không cần dài. Khoảng 10–15 phút ôn thẻ đến hạn mỗi ngày, đều đặn, thường hiệu quả hơn một buổi dài vào cuối tuần. Để giữ nhịp lâu dài, hãy [đặt mục tiêu học theo tiêu chí SMART](/blog/dat-muc-tieu-hoc-tieng-anh/) cho từng tuần.

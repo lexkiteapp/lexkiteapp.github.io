@@ -20,11 +20,11 @@ Giáo dục là đề tài mà gần như ai cũng có sẵn trải nghiệm: b�
 
 Trong các chủ đề quen thuộc của IELTS, giáo dục xuất hiện ở rất nhiều dạng: đề Task 2 bàn về việc có nên miễn học phí đại học, về học online so với học trên lớp, về môn học bắt buộc; Speaking Part 1 hỏi bạn đang học gì, Part 2 yêu cầu kể về một giáo viên đáng nhớ, Part 3 mở rộng sang hệ thống giáo dục của cả quốc gia.
 
-Tiêu chí Lexical Resource đánh giá việc bạn dùng từ đa dạng, chính xác và tự nhiên. Với một chủ đề "dễ" như giáo dục, giám khảo càng dễ nhận ra ai chỉ có vốn từ phổ thông và ai biết dùng từ đúng ngữ cảnh. Vì vậy, chuẩn bị kỹ chủ đề này là khoản đầu tư có lời.
+Tiêu chí Lexical Resource đánh giá việc bạn dùng từ đa dạng, chính xác và tự nhiên. Với một chủ đề "dễ" như giáo dục, giám khảo càng dễ nhận ra ai chỉ có vốn từ phổ thông và ai biết dùng từ đúng ngữ cảnh. Vì vậy, chuẩn bị kỹ chủ đề này là khoản đầu tư có lời. Sau giáo dục, [từ vựng chủ đề môi trường](/blog/tu-vung-ielts-chu-de-environment/) là nhóm nên chuẩn bị tiếp vì cũng xuất hiện rất thường xuyên.
 
 ## Từ vựng IELTS chủ đề Education theo nhóm ý
 
-Thay vì học một danh sách dài vô tận, hãy chia từ theo câu hỏi mà đề thường đặt ra. Mỗi nhóm dưới đây đi kèm cụm từ hay đi cùng (collocation) vì giám khảo chấm cách bạn kết hợp từ chứ không chấm từ đứng riêng.
+Thay vì học một danh sách dài vô tận, hãy chia từ theo câu hỏi mà đề thường đặt ra. Mỗi nhóm dưới đây đi kèm cụm từ hay đi cùng (collocation) vì giám khảo chấm cách bạn kết hợp từ chứ không chấm từ đứng riêng. Nếu chưa quen khái niệm này, xem [hơn 40 collocation học thuật kèm cách tự học](/blog/collocation-ielts/).
 
 ### Nhóm 1: Các cấp học và hệ thống
 
@@ -64,7 +64,7 @@ Câu mẫu: *When a single high-stakes exam decides a student's future, teenager
 - **face-to-face interaction** – tương tác trực tiếp.
 - **self-discipline** – tính tự giác.
 
-Câu mẫu: *Online courses offer flexibility, but they demand a level of self-discipline that many teenagers have not yet developed.*
+Câu mẫu: *Online courses offer flexibility, but they demand a level of self-discipline that many teenagers have not yet developed.* Phần lớn từ ở nhóm này cũng dùng được cho [đề IELTS về công nghệ và mạng xã hội](/blog/tu-vung-ielts-chu-de-technology/).
 
 ### Nhóm 5: Giáo viên và vai trò
 
@@ -113,7 +113,7 @@ Gợi ý ý: người đó dạy môn gì, phong cách dạy khác biệt ra sao
 **Part 3 – "Should students be allowed to choose their own subjects?"**
 *To some extent, yes. Teenagers who study what they are curious about tend to stay motivated. That said, a core set of subjects like maths and literacy should remain compulsory, because students may not yet see why those skills matter.*
 
-Để ý cách câu trả lời Part 3 đưa ra quan điểm, lý do, rồi một sự nhượng bộ ("That said…"). Đây là cấu trúc giúp câu trả lời dài và mạch lạc mà không cần học thuộc.
+Để ý cách câu trả lời Part 3 đưa ra quan điểm, lý do, rồi một sự nhượng bộ ("That said…"). Đây là cấu trúc giúp câu trả lời dài và mạch lạc mà không cần học thuộc. Xem thêm [câu trả lời mẫu cho 40 chủ đề Speaking](/speaking/) để luyện khung này với nhiều đề khác.
 
 {{youtube: | Gợi ý video: 10 collocation chủ đề Education cho IELTS Speaking, có ví dụ trả lời Part 3}}
 

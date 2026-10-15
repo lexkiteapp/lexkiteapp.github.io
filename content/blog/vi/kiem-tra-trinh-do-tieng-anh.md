@@ -60,7 +60,7 @@ Chọn một đoạn video khoảng 3 phút có phụ đề tiếng Anh. Xem l�
 
 Có kết quả rồi, đừng vội vui hay buồn. Hãy hỏi ba câu:
 
-1. **Kỹ năng nào thấp nhất?** Đó thường là nơi bạn tiến bộ nhanh nhất nếu dồn sức.
+1. **Kỹ năng nào thấp nhất?** Đó thường là nơi bạn tiến bộ nhanh nhất nếu dồn sức. Nếu kỹ năng yếu nhất là nghe, [luyện chép chính tả từng câu ngắn](/blog/chep-chinh-ta-tieng-anh-dictation/) vừa nâng tai nghe vừa dễ đo tiến bộ.
 2. **Khoảng cách giữa các kỹ năng là bao nhiêu?** Nếu đọc B2 mà nói A2, bạn đang có vốn từ "bị động" lớn chưa được kích hoạt. Hãy tập nói bằng chính những từ bạn đã hiểu.
 3. **Kết quả có khớp với cảm nhận của bạn không?** Nếu bài kiểm tra cho B1 nhưng bạn thấy rất chật vật khi đọc văn bản B1, có thể bạn đoán đúng nhiều câu. Hãy làm lại sau một tuần.
 
@@ -70,11 +70,11 @@ Một số người học muốn biết mức CEFR tương đương điểm thi.
 
 Biết trình độ mà không thay đổi cách học thì cũng như đo nhiệt độ rồi không uống thuốc. Gợi ý chung theo từng nhóm:
 
-- **A1–A2**: Ưu tiên 1.000–2.000 từ thông dụng nhất, phát âm cơ bản và các thì đơn giản. Nghe đọc tài liệu được biên soạn cho người mới học. Bài viết [2.800 từ tiếng Anh thông dụng NGSL](/blog/2800-tu-tieng-anh-thong-dung-ngsl/) giải thích vì sao nhóm từ cốt lõi quan trọng ở giai đoạn này.
-- **B1**: Mở rộng sang từ vựng theo chủ đề, câu phức, và bắt đầu luyện dạng bài của kỳ thi bạn nhắm tới. Đây là bậc "cao nguyên": nhiều người dừng lại rất lâu vì học dàn trải.
-- **B2 trở lên**: Tập trung vào độ chính xác và độ tự nhiên: collocation, từ vựng học thuật, phản hồi chi tiết cho bài viết và bài nói.
+- **A1–A2**: Ưu tiên 1.000–2.000 từ thông dụng nhất, phát âm cơ bản và các thì đơn giản. Nghe đọc tài liệu được biên soạn cho người mới học. Một [app học tiếng Anh có lộ trình theo bậc](/blog/app-hoc-tieng-anh-tren-dien-thoai/) giúp bạn khỏi phải tự lọc tài liệu ở giai đoạn này. Bài viết [2.800 từ tiếng Anh thông dụng NGSL](/blog/2800-tu-tieng-anh-thong-dung-ngsl/) giải thích vì sao nhóm từ cốt lõi quan trọng ở giai đoạn này.
+- **B1**: Mở rộng sang từ vựng theo chủ đề, câu phức, và bắt đầu luyện dạng bài của kỳ thi bạn nhắm tới. Đây là bậc "cao nguyên": nhiều người dừng lại rất lâu vì học dàn trải. Thói quen [đọc báo tiếng Anh để gom từ mới](/blog/doc-bao-tieng-anh-mo-rong-tu-vung/) mỗi ngày là cách vượt cao nguyên khá bền.
+- **B2 trở lên**: Tập trung vào độ chính xác và độ tự nhiên: collocation, [từ vựng học thuật theo bộ](/tu-vung/), phản hồi chi tiết cho bài viết và bài nói.
 
-Hãy kiểm tra lại sau mỗi 8–12 tuần. Lần kiểm tra thứ hai thường có ích hơn lần đầu, vì nó cho thấy phương pháp của bạn có hiệu quả hay không.
+Từ kết quả này, hãy [đặt mục tiêu học theo SMART](/blog/dat-muc-tieu-hoc-tieng-anh/) cho riêng từng kỹ năng, chẳng hạn nâng nghe từ A2 lên B1 trong một quý. Hãy kiểm tra lại sau mỗi 8–12 tuần. Lần kiểm tra thứ hai thường có ích hơn lần đầu, vì nó cho thấy phương pháp của bạn có hiệu quả hay không.
 
 ## Làm ngay trong Lexkite
 

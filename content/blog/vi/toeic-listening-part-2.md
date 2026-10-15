@@ -109,9 +109,9 @@ Quy tắc kinh nghiệm: **nếu một đáp án lặp lại âm của câu hỏ
 
 **Tuần 2 – Chép chính tả.** Nghe và chép lại cả câu hỏi lẫn đáp án. Việc chép giúp bạn nhận ra những âm bị nuốt, nối âm. Bài [chép chính tả tiếng Anh](/blog/chep-chinh-ta-tieng-anh-dictation/) hướng dẫn cách làm bài tập này hiệu quả.
 
-**Tuần 3 – Làm đề có bấm giờ.** Làm trọn 25 câu như thật, không dừng audio. Sau đó nghe lại những câu sai và phân loại: nhầm từ để hỏi, dính bẫy âm giống, hay không nhận ra câu trả lời gián tiếp.
+**Tuần 3 – Làm đề có bấm giờ.** Làm trọn 25 câu như thật, không dừng audio. Sau đó nghe lại những câu sai và phân loại: nhầm từ để hỏi, dính bẫy âm giống, hay không nhận ra câu trả lời gián tiếp. Nếu cần xếp ba tuần này vào một kế hoạch dài hơn, xem [lộ trình tự học TOEIC cho người bận rộn](/blog/lo-trinh-tu-hoc-toeic/).
 
-Để thấy Part 2 nằm ở đâu trong bức tranh chung, đọc [bài tổng quan 200 câu của đề TOEIC](/blog/cau-truc-de-thi-toeic/).
+Để thấy Part 2 nằm ở đâu trong bức tranh chung, đọc [bài tổng quan 200 câu của đề TOEIC](/blog/cau-truc-de-thi-toeic/). Phần Reading cũng có quy luật riêng: [mẹo phân loại câu hỏi Part 5](/blog/toeic-part-5-meo-lam-bai/) giúp bạn dư thời gian cho [chiến thuật đọc đoạn kép, đoạn ba ở Part 7](/blog/toeic-part-7-doc-hieu/).
 
 ## Làm ngay trong Lexkite – rèn tai cho Part 2
 
@@ -123,7 +123,7 @@ Quy tắc kinh nghiệm: **nếu một đáp án lặp lại âm của câu hỏ
 
 ![Mục Luyện nghe trong Lexkite với 10 đề, giọng Anh–Mỹ–Úc, tốc độ chỉnh được và chế độ Chép chính tả](media:listening "Chế độ Chép chính tả giúp nhận ra âm nối và âm bị nuốt")
 
-4. Lưu những cặp từ dễ nhầm (*contract/contact*, *lunch/launch*) thành flashcard để ôn mỗi ngày.
+4. Lưu những cặp từ dễ nhầm (*contract/contact*, *lunch/launch*) thành flashcard để ôn mỗi ngày. Từ vựng công sở hay xuất hiện trong Part 2 cũng có trong [bộ từ TOEIC trên trang từ vựng](/tu-vung/).
 
 {{cta: /#/toeic | Luyện TOEIC Part 2 ngay}}
 

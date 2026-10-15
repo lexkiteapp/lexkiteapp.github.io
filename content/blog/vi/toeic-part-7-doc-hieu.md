@@ -20,7 +20,7 @@ Bài viết chia Part 7 thành ba loại văn bản, phân tích các dạng câ
 
 ## TOEIC Part 7 gồm những gì?
 
-Part 7 là phần cuối của Reading, sau Part 5 (30 câu) và Part 6 (16 câu). Văn bản là những thứ bạn gặp hằng ngày ở nơi làm việc: email, thông báo nội bộ, quảng cáo, bài báo ngắn, biểu mẫu, hóa đơn, chuỗi tin nhắn.
+Part 7 là phần cuối của Reading, sau Part 5 (30 câu) và Part 6 (16 câu). Nếu chưa hình dung rõ cả đề, xem [tổng quan 7 Part và cách tính điểm TOEIC](/blog/cau-truc-de-thi-toeic/). Văn bản là những thứ bạn gặp hằng ngày ở nơi làm việc: email, thông báo nội bộ, quảng cáo, bài báo ngắn, biểu mẫu, hóa đơn, chuỗi tin nhắn.
 
 | Loại | Cấu trúc | Đặc điểm |
 |---|---|---|
@@ -44,7 +44,7 @@ Văn bản đơn đứng trước, văn bản kép và ba đứng sau. Vì vậy
 
 Đây là dạng phổ biến nhất. Cách làm: xác định từ khóa trong câu hỏi (tên riêng, con số, ngày tháng), quét văn bản tìm từ đó hoặc từ đồng nghĩa, rồi đọc kỹ câu chứa nó.
 
-**Lưu ý:** đáp án đúng thường được diễn đạt lại (paraphrase). Văn bản viết *The store will close at 6 p.m. instead of 9 p.m.*, đáp án có thể là *Its hours will be shortened*.
+**Lưu ý:** đáp án đúng thường được diễn đạt lại (paraphrase). Văn bản viết *The store will close at 6 p.m. instead of 9 p.m.*, đáp án có thể là *Its hours will be shortened*. Khả năng nhận ra cách nói gián tiếp này cũng là chìa khóa của [Part 2 trong phần nghe](/blog/toeic-listening-part-2/).
 
 ### 3. Câu hỏi NOT/TRUE
 
@@ -116,8 +116,8 @@ Muốn có thêm thời gian cho Part 7, cách hiệu quả nhất là làm Part
 
 Chiến thuật chỉ giúp đến một mức. Để thật sự đọc nhanh, bạn cần hai thứ:
 
-1. **Từ vựng công sở đủ rộng.** Khi gặp *invoice*, *reimbursement*, *itinerary*, *warranty* mà phải dừng lại suy nghĩ, tốc độ sẽ chậm hẳn.
-2. **Thói quen đọc mỗi ngày.** Mười lăm phút đọc bài tiếng Anh ngắn mỗi ngày, có tra từ, tốt hơn nhiều so với hai giờ luyện đề cuối tuần.
+1. **Từ vựng công sở đủ rộng.** Khi gặp *invoice*, *reimbursement*, *itinerary*, *warranty* mà phải dừng lại suy nghĩ, tốc độ sẽ chậm hẳn. Các [bộ từ vựng TOEIC chia nhóm](/tu-vung/) là nơi tốt để lấp chỗ trống này.
+2. **Thói quen đọc mỗi ngày.** Mười lăm phút đọc bài tiếng Anh ngắn mỗi ngày, có tra từ, tốt hơn nhiều so với hai giờ luyện đề cuối tuần. Hãy xếp thói quen này vào [kế hoạch tự học TOEIC theo từng chặng](/blog/lo-trinh-tu-hoc-toeic/) để không bị bỏ dở.
 
 ## Làm ngay trong Lexkite: luyện Part 7 và đọc hằng ngày
 

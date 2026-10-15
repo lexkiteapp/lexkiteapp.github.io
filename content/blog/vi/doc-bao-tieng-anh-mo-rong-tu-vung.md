@@ -44,7 +44,7 @@ Nếu bạn ở trình độ A2–B1, đừng bắt đầu bằng bài bình lu�
 
 ### Chọn chủ đề bạn quan tâm thật sự
 
-Đọc về thứ bạn thích, dù là bóng đá, công nghệ hay nấu ăn, giúp bạn đọc được lâu hơn. Bạn cũng đã có sẵn kiến thức nền, nên đoán nghĩa từ mới dễ hơn. Người ôn IELTS có thể ưu tiên các chủ đề hay gặp như môi trường, giáo dục, công nghệ, sức khỏe.
+Đọc về thứ bạn thích, dù là bóng đá, công nghệ hay nấu ăn, giúp bạn đọc được lâu hơn. Bạn cũng đã có sẵn kiến thức nền, nên đoán nghĩa từ mới dễ hơn. Người ôn IELTS có thể ưu tiên các chủ đề hay gặp như môi trường, giáo dục, công nghệ, sức khỏe. Người ôn TOEIC nên đọc thêm email, thông báo, quảng cáo công sở vì đó là chất liệu của [phần đọc hiểu TOEIC Part 7](/blog/toeic-part-7-doc-hieu/); người ôn TOEFL có thể tham khảo [nhóm từ vựng TOEFL iBT nên học](/blog/tu-vung-toefl-ibt/).
 
 ### Đọc theo chuỗi một câu chuyện
 
@@ -55,10 +55,10 @@ Theo dõi một sự kiện trong nhiều ngày (một dự án không gian, m�
 Sai lầm lớn nhất là ghi mọi từ mới. Một bài báo có thể có 15 từ lạ; ghi hết thì bạn sẽ không bao giờ ôn nổi. Hãy lọc theo ba câu hỏi:
 
 1. **Từ này có lặp lại không?** Một từ xuất hiện hai lần trở lên trong bài, hoặc bạn nhớ đã gặp ở bài khác, là ứng viên tốt.
-2. **Mình có cần dùng từ này không?** Từ liên quan đến chủ đề thi hoặc công việc của bạn được ưu tiên. Tên riêng, thuật ngữ quá chuyên ngành thì bỏ qua.
+2. **Mình có cần dùng từ này không?** Từ liên quan đến chủ đề thi hoặc công việc của bạn được ưu tiên; đối chiếu nhanh với [danh sách từ vựng theo kỳ thi](/tu-vung/) sẽ biết từ đó có đáng học không. Tên riêng, thuật ngữ quá chuyên ngành thì bỏ qua.
 3. **Không biết từ này có làm mình hiểu sai ý không?** Nếu không, có thể đọc lướt qua.
 
-Mỗi bài, chỉ chọn khoảng 3–5 từ. Và quan trọng: **ghi cả cụm hoặc cả câu**, không ghi từ đơn lẻ. Ví dụ, thay vì ghi "debris = mảnh vỡ", hãy ghi:
+Mỗi bài, chỉ chọn khoảng 3–5 từ để đưa vào [sổ tay từ vựng cá nhân](/blog/so-tay-tu-vung-ca-nhan/). Và quan trọng: **ghi cả cụm hoặc cả câu**, không ghi từ đơn lẻ. Ví dụ, thay vì ghi "debris = mảnh vỡ", hãy ghi:
 
 > Even a tiny piece of **debris** can damage a satellite at high speed.
 
@@ -74,7 +74,7 @@ Một lịch gợi ý cho người có khoảng 20 phút mỗi ngày:
 
 - **Thứ Hai đến thứ Năm**: mỗi ngày đọc mở rộng 1–2 bài dễ, không dừng lại tra từ trừ khi mất mạch. Cuối bài, chọn 3 từ để lưu.
 - **Thứ Sáu**: đọc kỹ một bài khó hơn, phân tích hai đến ba câu dài, chú ý từ nối và cấu trúc.
-- **Thứ Bảy**: ôn lại toàn bộ từ đã lưu trong tuần bằng flashcard.
+- **Thứ Bảy**: ôn lại toàn bộ từ đã lưu trong tuần bằng flashcard, xen vài lượt [trò chơi từ vựng như ghép thẻ, điền từ](/blog/hoc-tu-vung-qua-tro-choi/) cho đỡ đơn điệu.
 - **Chủ Nhật**: nghỉ hoặc đọc tự do bất kỳ thứ gì bạn thích bằng tiếng Anh.
 
 ### Đọc tiêu đề như một bài tập nhỏ

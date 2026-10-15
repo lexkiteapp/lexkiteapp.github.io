@@ -87,10 +87,10 @@ Khi đã sửa được năm lỗi trên, hãy để ý đến **ngữ điệu**
 Đọc theo một trăm lần mà không biết mình sai ở đâu thì chỉ củng cố thói quen cũ. Phản hồi có thể đến từ:
 
 - **Ghi âm bản thân** rồi so với bản gốc. Đơn giản, miễn phí, nhưng cần tai đủ nhạy.
-- **Công cụ nhận dạng giọng nói** chấm điểm: nếu máy nhận đúng từ bạn nói, nhiều khả năng người nghe cũng hiểu.
+- **Công cụ nhận dạng giọng nói** chấm điểm: nếu máy nhận đúng từ bạn nói, nhiều khả năng người nghe cũng hiểu. Đây cũng là một [tiêu chí đáng xét khi chọn app học tiếng Anh](/blog/app-hoc-tieng-anh-tren-dien-thoai/).
 - **Người nghe thật:** bạn bè, giáo viên, bạn học.
 
-Một vòng luyện hiệu quả: **nghe mẫu → nói → nhận phản hồi → chỉnh → nói lại**. Lặp lại vòng này ngắn nhưng thường xuyên, khoảng 10 phút mỗi ngày, hiệu quả hơn một buổi dài mỗi tuần.
+Một vòng luyện hiệu quả: **nghe mẫu → nói → nhận phản hồi → chỉnh → nói lại**. Lặp lại vòng này ngắn nhưng thường xuyên, khoảng 10 phút mỗi ngày, hiệu quả hơn một buổi dài mỗi tuần. Khi đã quen từng âm, [kỹ thuật nói đuổi theo băng (shadowing)](/blog/shadowing-luyen-noi-tieng-anh/) giúp bạn luyện thêm nhịp và ngữ điệu của cả câu.
 
 ## Làm ngay trong Lexkite: luyện từng âm, rồi từng cụm
 
@@ -115,7 +115,7 @@ Với cụm từ, dùng [Luyện phát âm có chấm điểm](/#/practice/speak
 Có. Người lớn có thể khó đạt giọng như người bản ngữ, nhưng hoàn toàn có thể phát âm rõ ràng, dễ hiểu. Chìa khóa là luyện đúng lỗi của mình, có phản hồi, và đều đặn. Nhiều lỗi như âm cuối hay trọng âm có thể cải thiện rõ trong vài tuần luyện tập.
 
 ### Nên học giọng Anh hay giọng Mỹ?
-Chọn một giọng làm mẫu để luyện cho nhất quán, nhưng đừng quá áp lực. Điều quan trọng là phát âm rõ và đúng trọng âm. Trong các bài thi như IELTS, tiêu chí Pronunciation đánh giá mức độ dễ hiểu và cách dùng các đặc điểm phát âm, không yêu cầu một giọng cụ thể.
+Chọn một giọng làm mẫu để luyện cho nhất quán, nhưng đừng quá áp lực. Điều quan trọng là phát âm rõ và đúng trọng âm. Trong các bài thi như IELTS, tiêu chí Pronunciation đánh giá mức độ dễ hiểu và cách dùng các đặc điểm phát âm, không yêu cầu một giọng cụ thể. Khi luyện, có thể đọc to [các câu trả lời mẫu IELTS Speaking](/speaking/) để tập trọng âm và ngữ điệu trong câu dài.
 
 ### Có cần học bảng IPA trước khi luyện phát âm không?
 Không bắt buộc, nhưng rất nên. IPA giúp bạn đọc đúng một từ mới ngay từ lần đầu tra từ điển, thay vì đoán theo mặt chữ. Bạn không cần thuộc hết một lúc; học dần theo nhóm âm mình hay sai là đủ.

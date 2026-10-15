@@ -86,7 +86,7 @@ Ví dụ: bài đọc viết *"Some researchers believe the method is effective"
 
 ## Lỗi thường gặp và cách sửa
 
-**1. Viết đáp án sai định dạng.** Đề yêu cầu TRUE/FALSE/NOT GIVEN thì không viết YES/NO, và ngược lại. Trên giấy, viết đủ chữ thay vì T/F/NG nếu đề không cho phép viết tắt.
+**1. Viết đáp án sai định dạng.** Đề yêu cầu TRUE/FALSE/NOT GIVEN thì không viết YES/NO, và ngược lại. Trên giấy, viết đủ chữ thay vì T/F/NG nếu đề không cho phép viết tắt. Thói quen kiểm tra định dạng đáp án này cũng cứu điểm ở phần nghe; xem thêm [9 mẹo làm bài IELTS Listening](/blog/meo-lam-bai-ielts-listening/).
 
 **2. Đọc câu phát biểu quá nhanh.** Câu *"The project was **not** completed on time"* chỉ khác bản gốc một chữ "not". Hãy đọc chậm câu hỏi, đọc nhanh bài đọc – không phải ngược lại.
 
@@ -94,7 +94,7 @@ Ví dụ: bài đọc viết *"Some researchers believe the method is effective"
 
 **4. Chọn False vì câu phát biểu "nghe vô lý".** Bài đọc về một thành phố tưởng tượng có thể nói bất cứ điều gì. Bạn chỉ trung thành với văn bản.
 
-**5. Thiếu vốn từ học thuật.** Khi không hiểu *"decline"*, *"surge"*, *"subsidise"*, bạn không thể so mức độ. Vì vậy song song với kỹ thuật, hãy học từ theo ngữ cảnh của bài đọc thay vì chỉ học danh sách rời.
+**5. Thiếu vốn từ học thuật.** Khi không hiểu *"decline"*, *"surge"*, *"subsidise"*, bạn không thể so mức độ. Các từ kiểu này có nhiều trong [bộ Academic Word List và từ vựng IELTS](/tu-vung/). Vì vậy song song với kỹ thuật, hãy học từ theo ngữ cảnh của bài đọc thay vì chỉ học danh sách rời. Người ôn TOEFL cũng cần kỹ năng này ở dạng [Complete the Words](/blog/toefl-complete-the-words/), nơi phải dựa vào ngữ cảnh để điền nốt chữ cái còn thiếu.
 
 ## Làm ngay trong Lexkite: luyện True/False/Not Given có phản hồi
 
@@ -122,7 +122,7 @@ Sau khoảng 10–15 bài, bạn sẽ nhận ra mình hay sai kiểu nào: nhầ
 - **Ngày 1–3:** Mỗi ngày một đoạn văn ngắn, tập trung **chỉ** vào câu hỏi kiểm tra "có mâu thuẫn trực tiếp không?". Chưa cần bấm giờ.
 - **Ngày 4–7:** Thêm bước gạch chân từ mức độ. Đếm xem bao nhiêu câu sai do bỏ sót những từ này.
 - **Ngày 8–11:** Bấm giờ khoảng 1 phút 30 giây cho mỗi câu. Ghi lại câu tốn thời gian nhất và lý do.
-- **Ngày 12–14:** Làm một bài đọc dài trọn vẹn, xen nhiều dạng câu hỏi, để quen việc chuyển dạng giữa chừng.
+- **Ngày 12–14:** Làm một bài đọc dài trọn vẹn, xen nhiều dạng câu hỏi, để quen việc chuyển dạng giữa chừng. Khi đã quen, chuyển sang [đề thi thử IELTS đủ thời gian](/#/mock) trong app.
 
 Điều quan trọng không phải số bài, mà là việc bạn **giải thích được** từng đáp án. Nếu không giải thích được vì sao một câu là Not Given, nghĩa là bạn đoán đúng, chưa phải hiểu đúng.
 
@@ -138,4 +138,4 @@ Thông thường có. Các câu phát biểu đi theo trình tự thông tin tro
 Cách suy luận giống nhau. Khác biệt là Yes/No/Not Given hỏi về quan điểm hoặc nhận định của tác giả, thường gặp ở bài đọc mang tính lập luận; còn True/False/Not Given hỏi về thông tin, dữ kiện được nêu trong bài.
 
 ### Một câu True/False/Not Given nên làm trong bao lâu?
-Với 60 phút cho 40 câu, trung bình mỗi câu khoảng 1,5 phút, chưa tính thời gian đọc lướt. Nếu một câu vượt quá 2 phút, hãy đánh dấu và chuyển tiếp, quay lại khi còn thời gian cuối bài.
+Với 60 phút cho 40 câu, trung bình mỗi câu khoảng 1,5 phút, chưa tính thời gian đọc lướt. Nếu một câu vượt quá 2 phút, hãy đánh dấu và chuyển tiếp, quay lại khi còn thời gian cuối bài. Cách tốt nhất để tập nhịp này là [thi thử IELTS online như thật](/blog/thi-thu-ielts-online/) rồi xem lại từng câu sai.

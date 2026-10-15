@@ -46,7 +46,7 @@ Ví dụ tự viết:
 >
 > **Trả lời tốt:** *Yes, quite a lot, actually. It helps me relax after a long day at work. On Sundays I usually try a new recipe, and last week I made a pretty decent fish curry for the first time.*
 
-Câu trả lời tốt không dùng từ khó nào, nhưng có lý do, có thói quen (*usually*), có quá khứ (*made*), có cụm tự nhiên (*pretty decent*). Đó là tất cả những gì Part 1 cần.
+Câu trả lời tốt không dùng từ khó nào, nhưng có lý do, có thói quen (*usually*), có quá khứ (*made*), có cụm tự nhiên (*pretty decent*). Đó là tất cả những gì Part 1 cần. Một idiom nhẹ cũng có thể góp mặt, miễn là bạn [dùng idiom tự nhiên, không gượng ép](/blog/idiom-ielts-speaking/).
 
 ### Những cách mở rộng khi bí ý
 
@@ -86,7 +86,7 @@ Bạn không cần dùng cả năm cách cho mọi câu. Chỉ một cách là �
 >
 > *Honestly, far more than I'd like to. I check it first thing in the morning, which is a habit I'm trying to break. Recently I've turned off most notifications, and it's made a noticeable difference.*
 
-Để ý cách những câu trả lời trên dùng từ vựng **đời thường nhưng chính xác**: *spacious, appreciate, noticeable difference, a habit I'm trying to break*. Đây là kiểu từ giúp nâng Lexical Resource mà không nghe gượng.
+Để ý cách những câu trả lời trên dùng từ vựng **đời thường nhưng chính xác**: *spacious, appreciate, noticeable difference, a habit I'm trying to break*. Đây là kiểu từ giúp nâng [điểm Lexical Resource](/blog/lexical-resource-ielts/) mà không nghe gượng.
 
 ## Lỗi người Việt hay mắc ở Part 1
 
@@ -124,10 +124,10 @@ Trong [Luyện phát âm](/#/practice/speak), bạn đọc từng cụm từ và
 Thường khoảng 2–3 câu, tương đương 15–25 giây. Đủ để trả lời và mở rộng một chút, nhưng không lấn sang độ dài của Part 2. Nếu giám khảo ngắt lời để chuyển câu, đó thường là điều bình thường vì họ cần giữ thời gian.
 
 ### Có nên chuẩn bị sẵn câu trả lời cho các chủ đề không?
-Nên chuẩn bị **ý và từ vựng** cho các chủ đề phổ biến, nhưng không nên học thuộc nguyên câu. Câu học thuộc dễ nghe gượng và có thể không khớp với cách giám khảo đặt câu hỏi. Hãy luyện nói nhiều lần cho tới khi ý tưởng quen, còn câu chữ thì để tự nhiên.
+Nên chuẩn bị **ý và từ vựng** cho các chủ đề phổ biến, nhưng không nên học thuộc nguyên câu. Câu học thuộc dễ nghe gượng và có thể không khớp với cách giám khảo đặt câu hỏi. Hãy luyện nói nhiều lần cho tới khi ý tưởng quen, còn câu chữ thì để tự nhiên. Trang [40 chủ đề IELTS Speaking có câu trả lời mẫu](/speaking/) là điểm khởi đầu tốt để gom ý.
 
 ### Không hiểu câu hỏi thì có được hỏi lại không?
 Được. Bạn có thể lịch sự hỏi lại bằng *"Sorry, could you repeat the question, please?"*. Ở Part 1, giám khảo có thể nhắc lại câu hỏi nhưng thường không giải thích nghĩa của từ. Hỏi lại một lần không làm bạn mất điểm.
 
 ### Part 1 có ảnh hưởng nhiều đến điểm Speaking không?
-Điểm Speaking được đánh giá trên toàn bộ bài nói, không tách riêng từng phần. Tuy nhiên Part 1 là ấn tượng đầu tiên và là lúc bạn ổn định tâm lý. Trả lời tự nhiên, đủ ý ở Part 1 giúp bạn tự tin hơn khi bước sang Part 2 và Part 3.
+Điểm Speaking được đánh giá trên toàn bộ bài nói, không tách riêng từng phần. Tuy nhiên Part 1 là ấn tượng đầu tiên và là lúc bạn ổn định tâm lý. Trả lời tự nhiên, đủ ý ở Part 1 giúp bạn tự tin hơn khi bước sang Part 2 và Part 3. Nếu đang tự học, hãy đặt việc luyện nói vào một [lộ trình tự học IELTS từ mất gốc](/blog/lo-trinh-tu-hoc-ielts/) để kỹ năng này được luyện đều mỗi tuần.

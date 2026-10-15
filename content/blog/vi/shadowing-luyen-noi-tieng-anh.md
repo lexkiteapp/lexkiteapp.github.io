@@ -44,7 +44,7 @@ Tài liệu sai là lý do số một khiến người học bỏ shadowing sau 
 | Giọng | Một giọng rõ ràng, chất lượng thu âm tốt | Nhiều người nói chồng lên nhau, nhạc nền to |
 | Nội dung | Hội thoại đời thường hoặc chủ đề bạn sẽ nói khi thi | Văn bản đọc kiểu văn viết quá trang trọng |
 
-Với người ôn IELTS, các đoạn hội thoại trong bài nghe Section 1 (đặt phòng, đăng ký khóa học) là tài liệu rất tốt vì câu ngắn, rõ, gần với văn nói. Người học TOEIC có thể dùng các đoạn hội thoại công sở ngắn.
+Với người ôn IELTS, các đoạn hội thoại trong bài nghe Section 1 (đặt phòng, đăng ký khóa học) là tài liệu rất tốt vì câu ngắn, rõ, gần với văn nói. Người học TOEIC có thể dùng các đoạn hội thoại công sở ngắn. Khi đã nhại trơn tru, hãy dùng lại chính những câu đó để trả lời [các câu hỏi ngắn của Speaking Part 1](/blog/ielts-speaking-part-1/).
 
 ### Chọn giọng Anh hay giọng Mỹ?
 
@@ -74,7 +74,7 @@ Khi nghe lại bản gốc, hãy tập trung vào ba hiện tượng mà ngườ
 
 Chỉ cần nắm ba điểm này, bản shadowing của bạn sẽ nghe khác hẳn sau vài tuần.
 
-Lặp lại cùng một đoạn trong 3–5 ngày trước khi chuyển sang đoạn mới. Lặp lại nhiều lần mới tạo được thay đổi thật trong cơ miệng và tai nghe.
+Lặp lại cùng một đoạn trong 3–5 ngày trước khi chuyển sang đoạn mới. Lặp lại nhiều lần mới tạo được thay đổi thật trong cơ miệng và tai nghe. Khi đã nhại tốt các đoạn khoảng một phút, bạn có thể tập giữ nhịp nói liên tục như trong [phần độc thoại hai phút ở Part 2](/blog/ielts-speaking-part-2-cue-card/).
 
 ## Sai lầm thường gặp khi luyện shadowing
 
@@ -113,7 +113,7 @@ Có thể, với tài liệu rất ngắn và chậm, như các câu hội tho�
 Khoảng 10–20 phút mỗi ngày là đủ để thấy thay đổi nếu bạn duy trì đều đặn. Shadowing đòi hỏi tập trung cao, nên buổi quá dài dễ khiến bạn chỉ nhại máy móc.
 
 ### Shadowing có giúp tăng điểm IELTS Speaking không?
-Shadowing hỗ trợ trực tiếp tiêu chí Pronunciation và một phần Fluency & Coherence nhờ cải thiện ngữ điệu và độ trôi chảy. Tuy vậy, bạn vẫn cần luyện phát triển ý và từ vựng cho từng chủ đề để đáp ứng các tiêu chí còn lại.
+Shadowing hỗ trợ trực tiếp tiêu chí Pronunciation và một phần Fluency & Coherence nhờ cải thiện ngữ điệu và độ trôi chảy. Tuy vậy, bạn vẫn cần luyện phát triển ý và từ vựng cho từng chủ đề để đáp ứng các tiêu chí còn lại. Một cách làm là shadowing [các câu trả lời mẫu theo chủ đề Speaking](/speaking/), rồi tự nói lại bằng ý của mình.
 
 ### Có cần hiểu hết nghĩa trước khi shadowing không?
-Nên hiểu gần hết. Khi hiểu nghĩa, bạn bắt chước được cả cảm xúc và chỗ nhấn mạnh hợp lý. Nhại một đoạn không hiểu chỉ là luyện âm thanh, ít giúp bạn dùng được câu đó khi nói thật.
+Nên hiểu gần hết. Khi hiểu nghĩa, bạn bắt chước được cả cảm xúc và chỗ nhấn mạnh hợp lý. Nhại một đoạn không hiểu chỉ là luyện âm thanh, ít giúp bạn dùng được câu đó khi nói thật. Điều này càng đúng với thành ngữ: hãy hiểu sắc thái trước rồi mới nhại, như gợi ý trong bài [dùng idiom tự nhiên khi thi nói](/blog/idiom-ielts-speaking/).

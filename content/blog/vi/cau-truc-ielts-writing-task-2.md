@@ -65,7 +65,7 @@ Ví dụ thân bài 1 (tự viết):
 
 > *The main advantage of an early start is pronunciation. Children who hear a new language before the age of ten often imitate sounds without the self-consciousness that many adults feel. For instance, a seven-year-old repeating a song in English is usually focused on having fun rather than on making mistakes, which allows them to practise far more freely.*
 
-Không có số liệu bịa, không có "nghiên cứu cho thấy" mơ hồ. Ví dụ giả định nhưng hợp lý là đủ.
+Không có số liệu bịa, không có "nghiên cứu cho thấy" mơ hồ. Ví dụ giả định nhưng hợp lý là đủ. Để ý câu thứ hai và thứ ba của đoạn đều là câu phức có mệnh đề phụ; nếu chưa tự tin, xem bài [câu phức và mệnh đề trong IELTS](/blog/ngu-phap-ielts-cau-phuc/).
 
 ### Kết bài: đừng thêm ý mới
 
@@ -105,7 +105,7 @@ Dàn ý mẫu trên nháp có thể ngắn như sau:
 
 1. **Chọn đề theo chủ đề** bạn còn yếu. Thống kê xu hướng dạng đề giúp bạn biết dạng nào đáng luyện trước.
 2. **Tự lập dàn ý 5 phút** trên giấy, *trước khi* mở gợi ý ý tưởng. Sau đó mới mở gợi ý để so: bạn có bỏ sót góc nhìn nào không?
-3. **Xem từ vựng gợi ý** cho chủ đề, chọn 4–5 từ hoặc cụm muốn dùng.
+3. **Xem từ vựng gợi ý** cho chủ đề, chọn 4–5 từ hoặc cụm muốn dùng. Dùng đúng và tự nhiên quan trọng hơn dùng từ hiếm, đúng tinh thần [tiêu chí Lexical Resource về từ vựng](/blog/lexical-resource-ielts/).
 4. **Viết bài theo khung** 4 đoạn trong 35 phút, bấm giờ.
 5. **Đọc bài mẫu band 8 có chú thích**, chú ý cách họ phát triển ý trong thân bài. Ghi lại một hai cấu trúc hay vào sổ.
 
@@ -128,7 +128,7 @@ Ngoài ra, bạn có thể tham khảo thêm các [bài mẫu IELTS Writing](/sa
 Không bắt buộc. Bố cục 4 đoạn được khuyên dùng vì rõ ràng và dễ kiểm soát thời gian. Bạn có thể viết 5 đoạn nếu có ba ý thật sự cần thiết, miễn là mỗi đoạn có một ý chính rõ và được phát triển đầy đủ.
 
 ### Nên làm Task 1 hay Task 2 trước?
-Bạn được tự chọn thứ tự. Nhiều người làm Task 2 trước vì phần này chiếm tỉ trọng điểm lớn hơn, tránh trường hợp hết giờ khi đang viết dở. Quan trọng là giữ đúng khoảng 40 phút cho Task 2 và 20 phút cho Task 1.
+Bạn được tự chọn thứ tự. Nhiều người làm Task 2 trước vì phần này chiếm tỉ trọng điểm lớn hơn, tránh trường hợp hết giờ khi đang viết dở. Quan trọng là giữ đúng khoảng 40 phút cho Task 2 và 20 phút cho Task 1. Task 1 Academic thường là biểu đồ, chẳng hạn [line graph với bố cục 4 đoạn](/blog/ielts-writing-task-1-line-graph/), còn Task 1 General là [viết một lá thư đúng giọng, đủ ý](/blog/ielts-general-writing-task-1-viet-thu/).
 
 ### Ví dụ trong bài có cần số liệu thật không?
 Không cần. Bạn không được kiểm tra kiến thức về số liệu, và việc bịa con số cụ thể có thể làm bài kém thuyết phục. Một ví dụ giả định hợp lý hoặc trải nghiệm phổ biến, được giải thích rõ, là đủ để minh họa ý.

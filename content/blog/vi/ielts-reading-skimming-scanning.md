@@ -49,7 +49,7 @@ Skimming câu đầu: "nuôi ong trong thành phố đang thịnh hành". Thấy
 
 ### Sai lầm khi skimming
 
-- Cố hiểu mọi từ mới. Gặp từ lạ ở giữa đoạn, cứ bỏ qua.
+- Cố hiểu mọi từ mới. Gặp từ lạ ở giữa đoạn, cứ bỏ qua. Riêng thành ngữ quen như *the tip of the iceberg* thì nên nhận ra ngay; nhóm này trùng nhiều với [idiom dùng được trong IELTS Speaking](/blog/idiom-ielts-speaking/).
 - Đọc từng chữ của câu đầu một cách chậm rãi. Mắt nên nhảy theo cụm, không theo chữ.
 - Không ghi chú. Ba phút skimming mà không để lại dấu vết trên giấy thì rất dễ phải đọc lại.
 
@@ -57,7 +57,7 @@ Skimming câu đầu: "nuôi ong trong thành phố đang thịnh hành". Thấy
 
 Scanning hiệu quả khi bạn tìm thứ **dễ nhận ra bằng mắt**: con số, năm, tên người, tên địa danh, từ viết hoa, từ trong ngoặc. Trước khi quét, hãy tự hỏi: "Thứ mình tìm trông như thế nào trên trang giấy?".
 
-Ví dụ, câu hỏi: *"In which year did the first rooftop hive appear in the city?"* → bạn tìm một **con số 4 chữ số**. Mắt chạy dọc trang, chỉ dừng lại khi gặp số. Bạn không cần đọc chữ nào khác.
+Ví dụ, câu hỏi: *"In which year did the first rooftop hive appear in the city?"* → bạn tìm một **con số 4 chữ số**. Mắt chạy dọc trang, chỉ dừng lại khi gặp số. Bạn không cần đọc chữ nào khác. Kỹ năng dò số liệu này cũng có ích khi viết: với [Writing Task 1 dạng line graph](/blog/ielts-writing-task-1-line-graph/), bạn phải quét biểu đồ để chọn mốc năm, điểm cao nhất và thấp nhất.
 
 Khi từ khóa không có hình dạng đặc biệt (ví dụ *"pollution"*), hãy chuẩn bị sẵn **vài từ đồng nghĩa** trước khi quét: *contamination, dirty air, emissions*. Bài đọc IELTS hiếm khi lặp lại y nguyên từ của câu hỏi, nên ai paraphrase nhanh thì quét nhanh. Bạn có thể luyện riêng kỹ năng này qua bài [cách paraphrase trong IELTS](/blog/cach-paraphrase-trong-ielts/).
 
@@ -113,9 +113,9 @@ Một mẹo nhỏ: danh sách từ khóa ở bên phải bài đọc là "bài t
 
 Kỹ thuật giúp bạn tiết kiệm thời gian, nhưng **vốn từ** mới quyết định tốc độ thật. Khi một đoạn có quá nhiều từ lạ, skimming cũng không cứu được. Vài thói quen nên duy trì:
 
-- **Đọc rộng mỗi ngày:** báo, bài khoa học phổ thông, mỗi ngày 1 bài ngắn.
-- **Học từ học thuật theo nhóm:** những từ như *significant, decline, approach, evidence* xuất hiện liên tục trong IELTS Reading.
-- **Ôn lại từ đúng lúc sắp quên:** dùng flashcard có lập lịch thay vì đọc lại danh sách.
+- **Đọc rộng mỗi ngày:** báo, bài khoa học phổ thông, mỗi ngày 1 bài ngắn. Ý tưởng và câu chuyện gặp khi đọc còn là chất liệu để kể trong [Speaking Part 2 với cue card](/blog/ielts-speaking-part-2-cue-card/).
+- **Học từ học thuật theo nhóm:** những từ như *significant, decline, approach, evidence* xuất hiện liên tục trong IELTS Reading; các [bộ từ vựng IELTS và AWL](/tu-vung/) gom sẵn chúng theo nhóm.
+- **Ôn lại từ đúng lúc sắp quên:** dùng [flashcard có lập lịch](/#/review) thay vì đọc lại danh sách.
 - **Đọc lại bài cũ sau một tuần:** bạn sẽ thấy mình đọc nhanh hơn rõ rệt, đó là động lực tốt.
 
 ## Câu hỏi thường gặp

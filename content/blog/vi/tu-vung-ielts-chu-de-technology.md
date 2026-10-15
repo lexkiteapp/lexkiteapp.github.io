@@ -20,6 +20,8 @@ Hãy thử tự hỏi: bạn có thể nói liền hai phút về việc trí tu
 
 Ở Writing Task 2, đề công nghệ thường đi theo vài hướng: lợi ích và tác hại của mạng xã hội với giới trẻ, máy móc có lấy mất việc làm không, có nên hạn chế trẻ em dùng thiết bị điện tử, chính phủ có nên kiểm soát dữ liệu cá nhân. Ở Speaking, Part 1 hỏi bạn dùng điện thoại vào việc gì, Part 2 có thể yêu cầu mô tả một thiết bị hay một ứng dụng hữu ích, Part 3 hỏi về tương lai của công nghệ trong xã hội.
 
+Công nghệ cũng thường đan vào các đề khác, chẳng hạn học online trong [nhóm từ vựng về giáo dục](/blog/tu-vung-ielts-chu-de-education/) hay xe điện trong [nhóm từ về môi trường](/blog/tu-vung-ielts-chu-de-environment/).
+
 Điểm chung là giám khảo muốn thấy bạn dùng từ chính xác thay vì những từ chung chung như "technology is good" hay "use phone too much". Mỗi nhóm dưới đây giúp bạn chuyển từ ý mơ hồ sang câu cụ thể.
 
 ## Từ vựng IELTS chủ đề Technology theo 5 nhóm
@@ -102,7 +104,7 @@ Speaking không cần từ quá học thuật. Mục tiêu là nghe tự nhiên 
 *Honestly, far more than I'd like. I mostly use it for messaging and reading the news, but I've started turning on a screen time limit at night because I noticed I was sleeping badly.*
 
 **Part 2 – Mô tả một ứng dụng bạn thấy hữu ích**
-Gợi ý khung: tên ứng dụng (có thể nói chung loại ứng dụng), bạn biết đến nó thế nào, dùng vào việc gì, vì sao hữu ích. Cụm có thể dùng: *it saves me a lot of time, it's surprisingly user-friendly, I can't imagine going back to…*
+Gợi ý khung: tên ứng dụng (có thể nói chung loại ứng dụng), bạn biết đến nó thế nào, dùng vào việc gì, vì sao hữu ích. Cụm có thể dùng: *it saves me a lot of time, it's surprisingly user-friendly, I can't imagine going back to…* Bạn có thể đối chiếu với [bài nói mẫu theo chủ đề](/speaking/) để xem cách triển khai một cue card tương tự.
 
 **Part 3 – "Will robots replace teachers in the future?"**
 *I doubt they'll replace teachers completely. AI can mark multiple-choice tests or recommend exercises, but teaching also involves motivating students and noticing when someone is struggling emotionally, which machines aren't good at yet.*
@@ -122,7 +124,7 @@ Câu trả lời Part 3 hay thường có ba lớp: quan điểm, phân tích ph
 
 ## Làm ngay trong Lexkite: ôn từ công nghệ bằng trò chơi ghép thẻ
 
-Một danh sách dài dễ đọc lướt rồi quên. Hãy để các từ trên đi qua vài vòng luyện ngắn:
+Một danh sách dài dễ đọc lướt rồi quên. Quy trình đầy đủ để giữ từ lâu có trong bài [học từ vựng IELTS theo bảy bước](/blog/cach-hoc-tu-vung-ielts-hieu-qua/); dưới đây là phiên bản gọn cho chủ đề này. Hãy để các từ trên đi qua vài vòng luyện ngắn:
 
 1. Mở [Thư viện từ vựng](/#/library) và tìm bộ từ phù hợp trong tab IELTS theo đề hoặc Writing. Thêm những từ như *privacy, surveillance, misinformation* vào sổ từ của bạn.
 2. Vào [Ghép thẻ](/#/practice/match), chọn nguồn từ là sổ từ của bạn. Trò chơi yêu cầu ghép từ tiếng Anh với nghĩa tiếng Việt trong lúc đồng hồ đếm giây.

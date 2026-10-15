@@ -33,7 +33,7 @@ Hãy xem một đoạn mẫu do Lexkite tự soạn để minh họa:
 Nói cách khác, Complete the Words đo ba năng lực:
 
 1. **Ngữ pháp trong ngữ cảnh**: chủ ngữ số ít hay số nhiều, thì của động từ, từ nối nào hợp lý.
-2. **Vốn từ vựng chủ động**: không chỉ nhận ra từ khi thấy đủ mặt chữ, mà phải tự sinh ra được từ đó.
+2. **Vốn từ vựng chủ động**: không chỉ nhận ra từ khi thấy đủ mặt chữ, mà phải tự sinh ra được từ đó. Vốn từ chủ động này cũng là nền cho [kỹ năng diễn đạt lại ý (paraphrase)](/blog/cach-paraphrase-trong-ielts/) mà mọi kỳ thi học thuật đều cần.
 3. **Chính tả**: một chữ cái sai là cả từ sai, không có điểm "gần đúng".
 
 ![Trang luyện thi TOEFL iBT trong Lexkite](media:toefl "Trang TOEFL iBT trong Lexkite: bảng cấu trúc đề định dạng mới và các dạng Complete the Words, Read in Daily Life, Read an Academic Passage")
@@ -66,7 +66,7 @@ Chủ ngữ thật là "population" (số ít), nên đáp án là **has**, khô
 
 ### Tín hiệu 4: mạch logic của cả đoạn
 
-Từ nối như "however", "because", "although", "while" thường quyết định ý câu sau. Nếu câu trước nói một loài cây phát triển nhanh, câu sau mở đầu bằng "How____, it needs a lot of water" thì gần như chắc chắn là **However**, vì ý sau đưa ra mặt hạn chế.
+Từ nối như "however", "because", "although", "while" thường quyết định ý câu sau. Nếu câu trước nói một loài cây phát triển nhanh, câu sau mở đầu bằng "How____, it needs a lot of water" thì gần như chắc chắn là **However**, vì ý sau đưa ra mặt hạn chế. Thói quen bám mạch logic này cũng giúp ích khi bạn gặp các dạng suy luận như [True/False/Not Given trong IELTS Reading](/blog/ielts-reading-true-false-not-given/).
 
 ## Những lỗi hay gặp và cách sửa
 
@@ -125,10 +125,10 @@ Muốn nắm chắc vốn từ nền cho cả bài thi, bạn có thể đọc t
 Với dạng này, một từ chỉ được tính là đúng khi bạn điền đúng toàn bộ các chữ cái còn thiếu. Vì vậy, sai một chữ cái cũng làm cả từ sai. Đây là lý do việc luyện chính tả chủ động quan trọng không kém việc học nghĩa.
 
 ### Nên làm từ đầu đến cuối hay nhảy ô?
-Nên đọc lướt cả đoạn một lần để nắm ý, sau đó điền những ô bạn chắc chắn trước. Các ô đã điền tạo thêm ngữ cảnh giúp bạn giải những ô khó. Chỉ đừng dành quá lâu cho một ô duy nhất.
+Nên [đọc lướt (skimming)](/blog/ielts-reading-skimming-scanning/) cả đoạn một lần để nắm ý, sau đó điền những ô bạn chắc chắn trước. Các ô đã điền tạo thêm ngữ cảnh giúp bạn giải những ô khó. Chỉ đừng dành quá lâu cho một ô duy nhất.
 
 ### Người mới học có nên luyện dạng này không?
-Có, nhưng nên bắt đầu sau khi đã nắm từ vựng cốt lõi và ngữ pháp cơ bản như thì, chia động từ, mạo từ. Nếu chưa vững, bạn sẽ chỉ đoán. Hãy củng cố nền tảng trước, rồi dùng dạng này như bài kiểm tra định kỳ.
+Có, nhưng nên bắt đầu sau khi đã nắm [từ vựng cốt lõi](/tu-vung/) và ngữ pháp cơ bản như thì, chia động từ, mạo từ. Nếu chưa vững, bạn sẽ chỉ đoán. Hãy củng cố nền tảng trước, rồi dùng dạng này như bài kiểm tra định kỳ.
 
 ### Dạng này giống bài điền từ (cloze) thông thường không?
 Giống ở chỗ đều kiểm tra ngữ pháp và từ vựng trong ngữ cảnh. Khác ở chỗ bạn được thấy phần đầu của từ và số chữ cái còn thiếu, nên vừa có thêm gợi ý, vừa bị đòi hỏi chính xác tuyệt đối về chính tả.

@@ -19,7 +19,7 @@ status: ready
 ## Paraphrase quan trọng ở đâu trong IELTS
 
 - **Writing:** mở bài của Task 1 và Task 2 thường bắt đầu bằng việc diễn đạt lại đề. Trong thân bài, bạn cũng cần thay đổi cách nói để không lặp lại cùng một từ. Đây là một phần của tiêu chí Lexical Resource.
-- **Reading:** câu hỏi hiếm khi dùng nguyên văn từ trong bài. Dạng True/False/Not Given hay Matching Headings gần như là bài kiểm tra khả năng nhận ra paraphrase. Bài viết *the number of visitors fell*, câu hỏi lại hỏi về *a decline in tourism*.
+- **Reading:** câu hỏi hiếm khi dùng nguyên văn từ trong bài. Dạng True/False/Not Given hay Matching Headings gần như là bài kiểm tra khả năng nhận ra paraphrase. Bài viết *the number of visitors fell*, câu hỏi lại hỏi về *a decline in tourism*. Kỹ năng [skimming và scanning khi đọc](/blog/ielts-reading-skimming-scanning/) giúp bạn tìm nhanh đoạn chứa cặp paraphrase đó.
 - **Listening:** đáp án trong bài nghe thường được nói bằng từ khác với câu hỏi. Nghe chờ đúng từ khóa trong đề rất dễ bị lỡ.
 - **Speaking:** khi quên một từ, paraphrase giúp bạn diễn đạt vòng mà không ngắt mạch nói, điều có lợi cho Fluency.
 
@@ -51,7 +51,7 @@ Kỹ thuật này đặc biệt hữu ích cho Writing Task 1, khi bạn cần m
 
 ### Kỹ thuật 3: Đổi cấu trúc câu
 
-Giữ ý nhưng thay khung câu: đảo vị trí mệnh đề, dùng mệnh đề quan hệ, đổi từ nối.
+Giữ ý nhưng thay khung câu: đảo vị trí mệnh đề, dùng mệnh đề quan hệ, đổi từ nối. Muốn đổi khung câu linh hoạt, bạn cần vững [câu phức và ba loại mệnh đề](/blog/ngu-phap-ielts-cau-phuc/).
 
 - *Although online shopping is convenient, it has hurt small local stores.* → *Online shopping is convenient; however, it has harmed small local stores.*
 - *People who live in cities often feel lonely.* → *Loneliness is common among city dwellers.*
@@ -94,6 +94,8 @@ Với Writing Task 1, câu mở bài thường diễn đạt lại phần mô t�
 Gốc (tự đặt): *The chart shows the number of students who studied abroad from 2010 to 2020.*
 Viết lại: *The bar chart compares how many students went overseas to study over a ten-year period starting in 2010.*
 
+Với IELTS General, Task 1 là một lá thư nên không cần câu mở bài kiểu này; thay vào đó, bạn diễn đạt lại các gạch đầu dòng của đề bằng lời của mình, như hướng dẫn trong bài [viết thư IELTS General Task 1](/blog/ielts-general-writing-task-1-viet-thu/).
+
 ## Những lỗi paraphrase khiến bạn mất điểm
 
 - **Đổi nghĩa mà không biết.** *Many people* → *most people* là sai, vì "nhiều" không phải "phần lớn". *Some* → *all* còn tệ hơn.
@@ -108,7 +110,7 @@ Một cách kiểm tra đơn giản: đọc câu gốc và câu viết lại cho
 
 ## Luyện paraphrase mỗi ngày
 
-1. **Mỗi ngày lấy một câu đề Task 2,** viết lại bằng ít nhất hai cách khác nhau.
+1. **Mỗi ngày lấy một câu đề Task 2,** viết lại bằng ít nhất hai cách khác nhau, rồi so với mở bài trong [60 bài mẫu Task 2 band 8 có chú thích](/samples/).
 2. **Khi học từ mới, ghi kèm đồng nghĩa và họ từ.** Một mục từ có *significant (adj) – significance (n) – significantly (adv)* và đồng nghĩa *considerable, notable* là nguyên liệu paraphrase sẵn có.
 3. **Khi làm Reading, gạch chân cặp paraphrase.** Sau khi chấm bài, tìm câu trong bài tương ứng với mỗi câu hỏi và ghi lại cặp từ được thay. Sau vài tuần, bạn có một kho cặp đồng nghĩa "chuẩn IELTS".
 4. **Trong Speaking, tập nói vòng.** Chọn một từ ngẫu nhiên và giải thích nó mà không dùng chính từ đó.

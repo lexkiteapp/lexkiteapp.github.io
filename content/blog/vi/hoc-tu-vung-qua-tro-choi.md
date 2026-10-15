@@ -50,7 +50,7 @@ Tuy nhiên, thời gian nên dùng **sau khi** bạn đã biết từ. Với t�
 
 ### 3. Chú ý câu sai, không chỉ điểm số
 
-Sau mỗi lượt chơi, nhìn lại những từ bạn sai hoặc chần chừ. Đó mới là "kho báu" của buổi học. Ghi chúng lại, đặt một câu với từng từ, và để chúng quay lại trong lượt chơi kế tiếp. Điểm cao mà không xem lại lỗi thì giống như làm đề thi mà không xem đáp án.
+Sau mỗi lượt chơi, nhìn lại những từ bạn sai hoặc chần chừ. Đó mới là "kho báu" của buổi học. Ghi chúng vào [sổ tay từ vựng riêng](/blog/so-tay-tu-vung-ca-nhan/), đặt một câu với từng từ, và để chúng quay lại trong lượt chơi kế tiếp. Điểm cao mà không xem lại lỗi thì giống như làm đề thi mà không xem đáp án.
 
 ### 4. Ngắn và đều hơn dài và thất thường
 
@@ -86,7 +86,7 @@ Không cần màn hình vẫn chơi được. Vài trò đơn giản để luy�
 
 - **Nói vòng:** một người chọn từ, người kia phải giải thích bằng tiếng Anh mà không nói từ đó. *It's a place where you borrow books for free* → *library*.
 - **Chuỗi collocation:** lần lượt nói các cụm đi với một động từ: *make a decision, make progress, make a mistake…* Ai bí trước thì thua.
-- **Đặt câu 10 giây:** rút một thẻ từ, đặt câu đúng trong 10 giây.
+- **Đặt câu 10 giây:** rút một thẻ từ, đặt câu đúng trong 10 giây. Bộ thẻ có thể lấy từ [các bộ từ vựng theo chủ đề trên Lexkite](/tu-vung/).
 - **Đoán từ qua hậu tố:** một người nói gốc *employ*, người kia nói nhanh *employer, employee, employment, unemployed*.
 
 Những trò này buộc bạn tự nhớ lại và dùng từ ngay, đúng tinh thần của luyện truy xuất.
@@ -95,7 +95,7 @@ Những trò này buộc bạn tự nhớ lại và dùng từ ngay, đúng tinh
 
 Lexkite có sẵn nhiều dạng luyện tập nằm trong một màn hình, nên bạn có thể đi theo thang độ khó ở trên:
 
-1. Mở [Trò chơi & bài tập](/#/practice) và chọn nguồn từ là Sổ từ của tôi, để bạn luyện đúng những từ mình đã lưu.
+1. Mở [Trò chơi & bài tập](/#/practice) và chọn nguồn từ là Sổ từ của tôi, để bạn luyện đúng những từ mình đã lưu. Những từ đó tốt nhất nên đến từ văn bản thật, chẳng hạn khi [đọc báo tiếng Anh mỗi ngày](/blog/doc-bao-tieng-anh-mo-rong-tu-vung/).
 2. Với từ mới, bắt đầu bằng **Học thông minh** để xem nghĩa, ví dụ và mẹo nhớ.
 3. Chuyển sang **Ghép thẻ**: nối từ tiếng Anh với nghĩa tiếng Việt trong lúc đồng hồ đếm giây. Chơi lại để rút ngắn thời gian.
 4. Khi đã quen, nâng độ khó với **Điền từ**, **Nghe & chép** hoặc **Luyện phát âm**. Cuối tuần, làm một **Bài kiểm tra** để tổng kết.
@@ -112,7 +112,7 @@ Lexkite có sẵn nhiều dạng luyện tập nằm trong một màn hình, nê
 ## Câu hỏi thường gặp
 
 ### Học từ vựng qua trò chơi có thay được flashcard không?
-Nên dùng song song. Flashcard theo lịch giãn cách giúp từ không bị quên theo thời gian, còn trò chơi giúp bạn luyện truy xuất theo nhiều kiểu khác nhau và giữ hứng thú.
+Nên dùng song song. Flashcard theo lịch giãn cách giúp từ không bị quên theo thời gian, còn trò chơi giúp bạn luyện truy xuất theo nhiều kiểu khác nhau và giữ hứng thú. Nếu đang ôn IELTS, hãy đặt cả hai vào một [cách học từ vựng IELTS bài bản, có lịch ôn](/blog/cach-hoc-tu-vung-ielts-hieu-qua/).
 
 ### Người lớn đi làm có nên học bằng game?
 Có. Trò chơi ngắn rất hợp với lịch bận rộn vì bạn có thể chơi một lượt trong lúc chờ xe hay nghỉ trưa. Quan trọng là chọn trò có độ khó phù hợp và xem lại lỗi.

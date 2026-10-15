@@ -30,7 +30,7 @@ Ba lỗi này gợi ý luôn lời giải: chọn từ vừa sức, học theo c
 
 ### Bước 1: Xác định nền tảng trước khi học "từ IELTS"
 
-IELTS không chỉ kiểm tra từ học thuật. Phần lớn bài nghe, bài đọc vẫn được xây trên khoảng vài nghìn từ thông dụng nhất. Nếu bạn còn hổng nhóm từ này, hãy lấp nó trước. Một bộ hữu ích là NGSL (New General Service List) với khoảng 2.800 từ cốt lõi. Sau đó mới chuyển sang từ học thuật như Academic Word List và từ theo chủ đề thi.
+IELTS không chỉ kiểm tra từ học thuật. Phần lớn bài nghe, bài đọc vẫn được xây trên khoảng vài nghìn từ thông dụng nhất. Nếu bạn còn hổng nhóm từ này, hãy lấp nó trước. Một bộ hữu ích là NGSL (New General Service List) với khoảng 2.800 từ cốt lõi. Sau đó mới chuyển sang từ học thuật như Academic Word List và từ theo chủ đề thi, ví dụ [nhóm từ về giáo dục](/blog/tu-vung-ielts-chu-de-education/), [cụm từ chủ đề môi trường](/blog/tu-vung-ielts-chu-de-environment/) hay [từ vựng công nghệ, mạng xã hội](/blog/tu-vung-ielts-chu-de-technology/).
 
 Một cách tự kiểm tra nhanh: đọc một đoạn bài báo tiếng Anh khoảng 200 từ. Nếu bạn phải tra hơn 10 từ, nền tảng còn mỏng, nên ưu tiên từ cốt lõi.
 
@@ -66,7 +66,7 @@ Một từ chỉ thực sự thuộc về bạn khi bạn chủ động dùng đ
 
 > *Our city still relies heavily on motorbikes, so reducing emissions will require a more sustainable transport system.*
 
-Nếu không chắc câu mình viết có tự nhiên không, hãy tra lại collocation trong từ điển trước khi ghi vào sổ.
+Nếu không chắc câu mình viết có tự nhiên không, hãy tra lại collocation trong từ điển hoặc đối chiếu danh sách [collocation học thuật cho IELTS](/blog/collocation-ielts/) trước khi ghi vào sổ.
 
 ## Lịch học mẫu 30 phút mỗi ngày
 
@@ -103,7 +103,7 @@ Bảy bước trên có thể làm bằng giấy bút, nhưng phần chọn từ
 
 ## Những sai lầm nên tránh khi tự học từ vựng
 
-- **Học theo danh sách xếp A–Z.** Các từ đứng cạnh nhau theo bảng chữ cái không có liên hệ gì, rất khó nhớ. Học theo chủ đề hoặc theo bài đọc sẽ tốt hơn.
+- **Học theo danh sách xếp A–Z.** Các từ đứng cạnh nhau theo bảng chữ cái không có liên hệ gì, rất khó nhớ. Học theo chủ đề hoặc theo bài đọc sẽ tốt hơn; trang [bộ từ vựng IELTS, TOEIC theo chủ đề](/tu-vung/) gom sẵn các nhóm như vậy.
 - **Nhồi từ "khủng" vào bài viết.** Giám khảo đánh giá việc dùng từ chính xác và tự nhiên, không phải độ hiếm của từ. Một từ quen dùng đúng tốt hơn một từ lạ dùng sai.
 - **Bỏ ôn vài ngày rồi bỏ luôn.** Nếu lỡ nghỉ, hãy quay lại và ôn phần đến hạn trước, đừng cố học bù từ mới.
 - **Chỉ học một chiều Anh → Việt.** Hãy luyện cả chiều Việt → Anh để chuẩn bị cho Writing và Speaking.

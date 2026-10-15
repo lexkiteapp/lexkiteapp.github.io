@@ -68,7 +68,7 @@ Lưu ý: ví dụ trên chỉ minh họa xu hướng của tiêu chí, không ph
 
 ### 1. Học từ theo chủ đề, không theo danh sách ngẫu nhiên
 
-Đề IELTS xoay quanh những nhóm chủ đề quen thuộc: giáo dục, môi trường, công nghệ, sức khỏe, đô thị, công việc. Học theo cụm chủ đề giúp bạn có "kho" sẵn khi gặp đề. Mỗi chủ đề, hãy nhắm 30–50 từ và cụm từ có ví dụ đầy đủ.
+Đề IELTS xoay quanh những nhóm chủ đề quen thuộc: giáo dục, môi trường, công nghệ, sức khỏe, đô thị, công việc. Học theo cụm chủ đề giúp bạn có "kho" sẵn khi gặp đề. Mỗi chủ đề, hãy nhắm 30–50 từ và cụm từ có ví dụ đầy đủ. Các [bộ từ vựng IELTS chia theo chủ đề](/tu-vung/) là điểm khởi đầu tiện lợi.
 
 ### 2. Luôn học kèm collocation và một câu ví dụ
 
@@ -92,7 +92,7 @@ Sau mỗi bài viết, dành năm phút chỉ để soát từ: từ nào lặp 
 
 ## Những lỗi khiến Lexical Resource "đứng yên"
 
-- **Học thuộc idiom để chèn vào Writing.** Thành ngữ như *a piece of cake* hay *once in a blue moon* gần như không bao giờ phù hợp với văn học thuật. Ở Speaking, idiom có thể dùng nếu thật tự nhiên, nhưng đừng ép.
+- **Học thuộc idiom để chèn vào Writing.** Thành ngữ như *a piece of cake* hay *once in a blue moon* gần như không bao giờ phù hợp với văn học thuật. Ở Speaking, idiom có thể dùng nếu thật tự nhiên, nhưng đừng ép (xem [cách chọn thành ngữ hợp ngữ cảnh khi nói](/blog/idiom-ielts-speaking/)).
 - **Lạm dụng từ nối "xịn".** *Furthermore*, *moreover*, *nevertheless* ở đầu mỗi câu khiến bài nặng nề. Từ nối thuộc về Coherence & Cohesion nhiều hơn là Lexical Resource.
 - **Dùng từ chưa chắc chắn.** Một từ sai nghĩa gây hại nhiều hơn lợi ích của mười từ đúng. Nếu không chắc, hãy chọn từ đơn giản mà chính xác.
 - **Sai chính tả từ thông dụng.** *Goverment*, *accomodation*, *responsibilty* là những lỗi nhỏ nhưng lặp lại sẽ kéo điểm xuống.
@@ -106,7 +106,7 @@ Bạn có thể áp dụng các bước trên ngay trong ứng dụng, không c�
 
 1. Mở [Phòng viết IELTS](/#/write) và chọn một đề theo chủ đề bạn muốn luyện.
 2. Đọc phần từ vựng gợi ý trước khi viết. Chọn 5–6 cụm bạn chưa từng dùng và đặt mục tiêu đưa chúng vào bài.
-3. Viết bài theo khung có sẵn, sau đó so với bài mẫu band 8 có chú thích. Chú ý cách bài mẫu chọn từ cụ thể thay vì từ chung chung.
+3. Viết bài theo khung có sẵn (tương tự [dàn bài bốn đoạn cho Task 2](/blog/cau-truc-ielts-writing-task-2/)), sau đó so với bài mẫu band 8 có chú thích. Chú ý cách bài mẫu chọn từ cụ thể thay vì từ chung chung.
 4. Với mỗi từ còn phân vân, tra trong [từ điển Anh–Việt](/#/dict/) để xem collocation, câu ví dụ và từ đồng nghĩa, rồi bấm lưu thành flashcard.
 
 ![Từ điển Anh–Việt trong Lexkite tra từ resilient với phiên âm UK/US, nghĩa, câu ví dụ, collocation và đồng nghĩa](media:dict "Tra 'resilient': xem collocation, đồng nghĩa và lưu thẳng thành flashcard")
@@ -129,4 +129,4 @@ Không. Band 7 cần một số từ ít phổ biến được dùng có ý th�
 Hãy kiểm tra trong từ điển xem từ đó đi với danh từ, giới từ nào và có sắc thái gì. Đọc vài câu ví dụ; nếu ngữ cảnh khác xa câu của bạn, hãy giữ từ gốc hoặc chọn cách diễn đạt khác.
 
 ### Lexical Resource trong Speaking khác gì Writing?
-Speaking chấp nhận văn phong tự nhiên, gần đời thường hơn, và đánh giá thêm khả năng diễn đạt lại khi bạn không nhớ từ. Writing đòi hỏi văn phong trang trọng, chính tả đúng và collocation chặt chẽ hơn.
+Speaking chấp nhận văn phong tự nhiên, gần đời thường hơn, và đánh giá thêm khả năng diễn đạt lại khi bạn không nhớ từ. Writing đòi hỏi văn phong trang trọng, chính tả đúng và collocation chặt chẽ hơn. Riêng [bài viết thư ở IELTS General Task 1](/blog/ielts-general-writing-task-1-viet-thu/) lại cần chọn giọng trang trọng hay thân mật tùy người nhận, nên từ vựng cũng phải đổi theo.

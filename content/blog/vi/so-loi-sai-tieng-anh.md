@@ -52,7 +52,7 @@ Sau khoảng 30–40 lỗi, bạn sẽ thấy chúng không ngẫu nhiên. Phân
 ### Lỗi từ vựng
 
 - Nhầm nghĩa: "economic" (thuộc về kinh tế) và "economical" (tiết kiệm).
-- Sai collocation: "make a research" thay vì **do research** hoặc **conduct research**.
+- Sai collocation: "make a research" thay vì **do research** hoặc **conduct research**. Gặp đúng cụm nhiều lần khi [đọc báo tiếng Anh](/blog/doc-bao-tieng-anh-mo-rong-tu-vung/) là cách sửa loại lỗi này bền nhất.
 - Sai từ loại: "The government should take responsible" thay vì **responsibility**.
 
 ### Lỗi ngữ pháp
@@ -68,7 +68,7 @@ Sau khoảng 30–40 lỗi, bạn sẽ thấy chúng không ngẫu nhiên. Phân
 
 ### Lỗi nghe
 
-- Nghe được nhưng viết sai chính tả.
+- Nghe được nhưng viết sai chính tả. Cách sửa hiệu quả là [chép chính tả lại đúng đoạn audio đó](/blog/chep-chinh-ta-tieng-anh-dictation/).
 - Bỏ lỡ thông tin vì người nói sửa lại ý ("It starts at nine… sorry, at half past nine").
 
 ### Lỗi chiến thuật
@@ -85,7 +85,7 @@ Nhóm lỗi này nên có một cột riêng, vì cách sửa không phải là 
 
 Một kỹ thuật nhỏ giúp tìm ra gốc rễ của lỗi: hỏi "vì sao" liên tiếp. Ví dụ: Vì sao sai câu này? Vì chọn "False". Vì sao chọn "False"? Vì thấy bài nói ngược với câu hỏi. Vì sao nghĩ là ngược? Vì hiểu nhầm "rarely" là "thường xuyên". Đến lần hỏi thứ ba, bạn phát hiện đây thực ra là lỗi từ vựng, không phải lỗi chiến thuật đọc hiểu. Phân loại đúng thì cách sửa mới đúng.
 
-Khi một nhóm chiếm hơn một phần ba tổng số lỗi, đó là nơi bạn nên dồn thời gian tuần tới. Ví dụ, nếu lỗi hòa hợp chủ ngữ – động từ xuất hiện liên tục, một buổi ôn chuyên đề sẽ có giá trị hơn ba đề thi thử.
+Khi một nhóm chiếm hơn một phần ba tổng số lỗi, đó là nơi bạn nên dồn thời gian tuần tới. Ví dụ, nếu lỗi hòa hợp chủ ngữ – động từ xuất hiện liên tục, một buổi ôn [chuyên đề ngữ pháp đó](/ngu-phap/) sẽ có giá trị hơn ba đề thi thử. Bạn có thể biến điều này thành [một mục tiêu học rõ ràng cho tuần tới](/blog/dat-muc-tieu-hoc-tieng-anh/), chẳng hạn giảm một nửa số lỗi hòa hợp sau hai tuần.
 
 ## Ôn lại lỗi sai có chủ đích
 
@@ -126,7 +126,7 @@ Cách dùng hiệu quả:
 ## Câu hỏi thường gặp
 
 ### Nên dùng sổ giấy hay sổ điện tử?
-Cả hai đều được. Sổ giấy giúp nhớ tốt nhờ tự tay viết. Sổ điện tử dễ tìm kiếm và sắp xếp. Nhiều người kết hợp: để app ghi lỗi tự động, rồi tự viết tay những lỗi quan trọng nhất kèm câu tự đặt.
+Cả hai đều được. Sổ giấy giúp nhớ tốt nhờ tự tay viết. Sổ điện tử dễ tìm kiếm và sắp xếp. Nhiều người kết hợp: để một [app học tiếng Anh có sổ lỗi](/blog/app-hoc-tieng-anh-tren-dien-thoai/) ghi lỗi tự động, rồi tự viết tay những lỗi quan trọng nhất kèm câu tự đặt.
 
 ### Mỗi ngày nên ôn bao nhiêu lỗi?
 Khoảng 5–10 lỗi mỗi ngày là vừa, tùy thời gian bạn có. Quan trọng là ôn đều và làm lại thật sự, không chỉ đọc lướt lời giải.
