@@ -1,24 +1,23 @@
 {
  "home": {
   "url": "https://lexkite.com/#/welcome",
-  "at": "2026-10-15T07:02:31.324Z",
+  "at": "2026-10-15T07:14:53.147Z",
   "scores": {
-   "performance": 72,
+   "performance": 79,
    "accessibility": 96,
    "best-practices": 100,
    "seo": 100
   },
   "metrics": {
-   "first-contentful-paint": "3.0 s",
-   "largest-contentful-paint": "6.4 s",
+   "first-contentful-paint": "1.7 s",
+   "largest-contentful-paint": "5.5 s",
    "total-blocking-time": "0 ms",
-   "cumulative-layout-shift": "0.008",
-   "speed-index": "3.0 s"
+   "cumulative-layout-shift": "0",
+   "speed-index": "1.7 s"
   },
   "fails": [
-   "First Contentful Paint – 3.0 s",
-   "Largest Contentful Paint – 6.4 s",
-   "Time to Interactive – 6.4 s",
+   "Largest Contentful Paint – 5.5 s",
+   "Time to Interactive – 5.5 s",
    "Background and foreground colors do not have a sufficient contrast ratio.",
    "Elements with visible text labels do not have matching accessible names.",
    "Serve static assets with an efficient cache policy – 4 resources found",
@@ -32,7 +31,7 @@
  },
  "vi/blog/": {
   "url": "https://lexkite.com/vi/blog/",
-  "at": "2026-10-15T07:02:55.744Z",
+  "at": "2026-10-15T07:15:28.768Z",
   "scores": {
    "performance": 100,
    "accessibility": 95,
@@ -41,7 +40,7 @@
   },
   "metrics": {
    "first-contentful-paint": "0.8 s",
-   "largest-contentful-paint": "1.0 s",
+   "largest-contentful-paint": "0.8 s",
    "total-blocking-time": "0 ms",
    "cumulative-layout-shift": "0",
    "speed-index": "0.8 s"
