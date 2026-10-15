@@ -1,0 +1,4 @@
+# Blog theo thư mục ngôn ngữ: /blog/ cũ → /vi/blog/ (301, giữ đường dẫn con)
+/blog /vi/blog/ 301
+/blog/ /vi/blog/ 301
+/blog/* /vi/blog/:splat 301

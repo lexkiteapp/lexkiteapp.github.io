@@ -1,0 +1,47 @@
+# Tự đăng blog: mỗi giờ (phút 7) kiểm bài vừa đến giờ đăng → gọi deploy hook Cloudflare Pages (build lại site) → báo IndexNow.
+# Không có bài đến hạn → không làm gì (không tốn lượt build). Secret cần: CF_PAGES_DEPLOY_HOOK (xem docs/SEO-PLAN.md "Vận hành blog").
+name: Blog publish
+on:
+  schedule:
+    - cron: '7 * * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Build lại site dù không có bài đến hạn'
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: blog-publish
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Bài đến hạn
+        id: due
+        run: |
+          node scripts/blog-due.mjs --since 70 > due.txt
+          cat due.txt
+          echo "count=$(grep -c '^https://' due.txt || true)" >> "$GITHUB_OUTPUT"
+      - name: Deploy hook Cloudflare Pages
+        if: steps.due.outputs.count != '0' || inputs.force
+        env:
+          CF_PAGES_DEPLOY_HOOK: ${{ secrets.CF_PAGES_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$CF_PAGES_DEPLOY_HOOK" ]; then
+            echo "::error::Thiếu secret CF_PAGES_DEPLOY_HOOK (Cloudflare Pages → Settings → Builds → Deploy hooks; GitHub → Settings → Secrets → Actions)"
+            exit 1
+          fi
+          curl -fsS -X POST "$CF_PAGES_DEPLOY_HOOK" > /dev/null
+          echo "✓ đã gọi deploy hook – chờ Cloudflare build (~5 phút)"
+          sleep 300
+      - name: IndexNow
+        if: steps.due.outputs.count != '0' || inputs.force
+        run: node scripts/indexnow.mjs < due.txt

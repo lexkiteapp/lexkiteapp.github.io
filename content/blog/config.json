@@ -1,0 +1,9 @@
+{
+  "site": "https://lexkite.com",
+  "mediaBase": "https://lexkiteapp.github.io/lexkite-media/",
+  "postsPerPage": 12,
+  "defaultLang": "vi",
+  "indexNowKey": "24d0ecfb2b8806b6577efab517b6b28d",
+  "blogName": { "vi": "Blog Lexkite", "en": "Lexkite Blog" },
+  "blogDesc": { "vi": "Cách học từ vựng và luyện thi IELTS, TOEIC, TOEFL hiệu quả: phương pháp khoa học, mẹo làm bài, lộ trình tự học – miễn phí cùng Lexkite.", "en": "Evidence-based ways to learn English vocabulary and prepare for IELTS, TOEIC and TOEFL – free with Lexkite." }
+}

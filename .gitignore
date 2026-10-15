@@ -13,3 +13,7 @@ dist-firefox/
 
 # Thông tin tài khoản hệ thống – chỉ lưu trên máy, không đưa lên GitHub (repo công khai)
 ACCOUNTS.local.md
+
+# Công cụ & ảnh gốc blog (ảnh phát hành nằm ở repo lexkite-media, không làm phình repo chính)
+.tools/
+.media/

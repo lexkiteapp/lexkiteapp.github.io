@@ -1,11 +1,11 @@
-// Kiểm chính tả tiếng Việt trong nội dung: âm tiết gõ sai dấu thường gặp (bảng VI_TYPO) + kiểu bỏ dấu cũ (hoá → hóa).
+// Kiểm chính tả tiếng Việt trong nội dung (web/js/**/*.js + bài blog content/blog/**/*.md): âm tiết gõ sai dấu thường gặp (bảng VI_TYPO) + kiểu bỏ dấu cũ (hoá → hóa).
 // Dùng: node scripts/vi-lint.mjs → in lỗi, thoát mã 1 nếu có.
 import fs from 'fs'; import path from 'path';
 const ROOT = 'web/js', SKIP = /\/(i18n\/(?!en)|notes\/)|vi-check\.js$|dictionary\.js$/;
 const dict = fs.readFileSync(path.join(ROOT, 'dictionary.js'), 'utf8');
 const TYPO = JSON.parse(dict.match(/const VI_TYPO = (\{[^}]*\})/)[1]);
 const OLD = /(?<![\p{L}q])(?:[bcdđghklmnprstvx]|ch|kh|ng|nh|ph|th|tr)?(oà|oá|oả|oã|oạ|oè|oé|oẻ|oẽ|oẹ|uỳ|uý|uỷ|uỹ|uỵ)(?!\p{L})/giu;
-const files = []; const walk = d => { for (const f of fs.readdirSync(d)) { const p = path.join(d, f); if (fs.statSync(p).isDirectory()) walk(p); else if (p.endsWith('.js') && !SKIP.test(p)) files.push(p); } }; walk(ROOT);
+const files = []; const walk = (d, ext) => { if (!fs.statSync(d, { throwIfNoEntry: false })?.isDirectory()) return; for (const f of fs.readdirSync(d)) { const p = path.join(d, f); if (fs.statSync(p).isDirectory()) walk(p, ext); else if (p.endsWith(ext) && !SKIP.test(p)) files.push(p); } }; walk(ROOT, '.js'); if (fs.existsSync('content/blog')) for (const d of fs.readdirSync('content/blog')) walk(path.join('content/blog', d), '.md'); // chỉ thư mục bài (vi/, en/…), bỏ WRITING-GUIDE.md (có ví dụ sai cố ý)
 let n = 0;
 for (const f of files) {
   const s = fs.readFileSync(f, 'utf8').normalize('NFC');

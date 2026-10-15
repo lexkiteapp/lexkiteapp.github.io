@@ -15,3 +15,16 @@
   Cache-Control: public, max-age=31536000, immutable
 /icons/*
   Cache-Control: public, max-age=604800
+/screenshots/*
+  Cache-Control: public, max-age=604800
+/og-default.png
+  Cache-Control: public, max-age=604800
+# Blog & trang SEO tĩnh: HTML luôn kiểm tra bản mới (bài đăng theo lịch); RSS/sitemap cũng vậy
+/blog/*
+  Cache-Control: no-cache
+/sitemap*.xml
+  Cache-Control: no-cache
+# Bảo mật cơ bản cho mọi trang (chỉ thêm header khác tên, không đụng Cache-Control)
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
