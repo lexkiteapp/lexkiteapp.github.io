@@ -9,7 +9,7 @@ tags: [pwa, dien-thoai]
 keyword: "app học tiếng anh miễn phí"
 cover: m-home
 coverAlt: "Giao diện điện thoại của Lexkite hiển thị trang Hôm nay"
-publishAt: 2026-11-01T18:21:00+07:00
+publishAt: 2026-11-11T16:26:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -33,11 +33,11 @@ Trước khi tải bất kỳ app nào, hãy chấm nó theo sáu câu hỏi sau
 
 ### Phương pháp quan trọng hơn giao diện
 
-Một app đẹp với trò chơi vui mắt nhưng không bao giờ cho bạn gặp lại từ cũ đúng lúc sẽ khiến bạn quên phần lớn những gì đã học. Hãy ưu tiên app có cơ chế ôn tập dựa trên trí nhớ, ví dụ thuật toán lặp lại ngắt quãng như FSRS. Bạn có thể tìm hiểu thêm trong bài [FSRS là gì](/blog/fsrs-la-gi/).
+Một app đẹp với trò chơi vui mắt nhưng không bao giờ cho bạn gặp lại từ cũ đúng lúc sẽ khiến bạn quên phần lớn những gì đã học. Hãy ưu tiên app có cơ chế ôn tập dựa trên trí nhớ, ví dụ thuật toán lặp lại ngắt quãng như FSRS. Bạn có thể tìm hiểu thêm trong bài [FSRS là gì](/vi/blog/fsrs-la-gi/). Nếu đã dùng app lâu mà vẫn chưa giỏi, hãy xem [vì sao học tiếng Anh mãi không giỏi](/vi/blog/vi-sao-hoc-tieng-anh-mai-khong-gioi/).
 
 ### Cẩn thận với "miễn phí nửa vời"
 
-Nhiều app cho học miễn phí vài bài đầu, rồi khóa phần ôn tập hoặc giới hạn số lượt mỗi ngày. Hãy dùng thử ít nhất một tuần, đi qua cả quy trình học từ mới và ôn lại, để chắc rằng phần bạn cần nhất không bị khóa. Một app tốt cũng nên có [bài tự đánh giá trình độ theo CEFR](/blog/kiem-tra-trinh-do-tieng-anh/) ngay từ đầu để gợi ý nội dung vừa sức.
+Nhiều app cho học miễn phí vài bài đầu, rồi khóa phần ôn tập hoặc giới hạn số lượt mỗi ngày. Hãy dùng thử ít nhất một tuần, đi qua cả quy trình học từ mới và ôn lại, để chắc rằng phần bạn cần nhất không bị khóa. Một app tốt cũng nên có [bài tự đánh giá trình độ theo CEFR](/vi/blog/kiem-tra-trinh-do-tieng-anh/) ngay từ đầu để gợi ý nội dung vừa sức.
 
 ## App cài từ cửa hàng hay web app (PWA)?
 
@@ -81,7 +81,7 @@ Khả năng học offline rất hữu ích khi đi tàu xe, lên vùng sóng y�
 
 Điện thoại phù hợp với những việc ngắn và lặp lại; không phù hợp với việc cần tập trung dài. Hãy phân vai rõ ràng:
 
-- **Trên điện thoại**: ôn flashcard, học vài từ mới, trò chơi ghép thẻ, nghe đoạn ngắn, luyện phát âm từng câu, [đọc vài đoạn báo tiếng Anh](/blog/doc-bao-tieng-anh-mo-rong-tu-vung/) để gom từ mới.
+- **Trên điện thoại**: ôn flashcard, học vài từ mới, trò chơi ghép thẻ, nghe đoạn ngắn, luyện phát âm từng câu, [đọc vài đoạn báo tiếng Anh](/vi/blog/doc-bao-tieng-anh-mo-rong-tu-vung/) để gom từ mới.
 - **Trên máy tính**: viết bài luận, làm đề đọc dài, thi thử đủ thời gian.
 
 Một vài mẹo để điện thoại làm trợ thủ thay vì kẻ phá đám:
@@ -89,7 +89,7 @@ Một vài mẹo để điện thoại làm trợ thủ thay vì kẻ phá đám
 1. Đặt app học ở vị trí dễ chạm nhất trên màn hình chính, đẩy app mạng xã hội vào thư mục.
 2. Bật chế độ không làm phiền trong 10–15 phút học.
 3. Dùng tai nghe khi luyện nghe để nghe rõ từng âm cuối.
-4. Gắn việc học với một khoảnh khắc cố định: chờ xe, giờ nghỉ trưa, trước khi ngủ. Bài [học tiếng Anh mỗi ngày 15 phút](/blog/hoc-tieng-anh-15-phut-moi-ngay/) có lịch mẫu cụ thể.
+4. Gắn việc học với một khoảnh khắc cố định: chờ xe, giờ nghỉ trưa, trước khi ngủ. Bài [học tiếng Anh mỗi ngày 15 phút](/vi/blog/hoc-tieng-anh-15-phut-moi-ngay/) có lịch mẫu cụ thể.
 
 ### Tận dụng những khoảng thời gian chết
 
@@ -97,7 +97,7 @@ Một ngày có rất nhiều khoảng 3–5 phút bị bỏ phí: chờ thang m
 
 ### Nhắc học: đừng phụ thuộc hoàn toàn vào thông báo
 
-Thông báo nhắc học là công cụ tốt nhưng không hoàn hảo. Với web app, trình duyệt có thể chỉ gửi nhắc nhở khi trang đang mở. Để chắc chắn, bạn nên thêm một lời nhắc lặp lại hằng ngày vào ứng dụng lịch hoặc báo thức của điện thoại, vào đúng giờ bạn đã chọn để học. Lời nhắc chỉ thật sự có tác dụng khi đi kèm một [mục tiêu học rõ ràng, đo được](/blog/dat-muc-tieu-hoc-tieng-anh/).
+Thông báo nhắc học là công cụ tốt nhưng không hoàn hảo. Với web app, trình duyệt có thể chỉ gửi nhắc nhở khi trang đang mở. Để chắc chắn, bạn nên thêm một lời nhắc lặp lại hằng ngày vào ứng dụng lịch hoặc báo thức của điện thoại, vào đúng giờ bạn đã chọn để học. Lời nhắc chỉ thật sự có tác dụng khi đi kèm một [mục tiêu học rõ ràng, đo được](/vi/blog/dat-muc-tieu-hoc-tieng-anh/).
 
 ## Làm ngay trong Lexkite
 

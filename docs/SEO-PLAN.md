@@ -110,10 +110,10 @@ Dịch sau này: tạo `content/blog/en/<slug-en>.md` cùng `translationKey` →
 - AWL (Coxhead, 2000): 570 họ từ học thuật. NGSL: ~2.800 từ cốt lõi. FSRS: thuật toán lập lịch mã nguồn mở, có trong Anki từ bản 23.10.
 - Không hứa điểm số, không nói “chính thức”, không dùng logo/đề của IELTS/ETS. Ghi nhãn hiệu thuộc chủ sở hữu.
 
-## 8. 50 bài đầu (vi) – xem `content/blog/briefs.json`
+## 8. 80 bài đầu (vi): 50 bài luyện thi/tính năng + 30 bài kiến thức evergreen (1.800–2.500 từ, có bài tự kiểm tra) – xem `content/blog/briefs.json`
 - [x] Brief 50 bài (từ khóa không trùng nhau, 5 chuyên mục)
 - [x] Viết 50 bài, mỗi bài ≥ 1.200 từ, ≥ 2 ảnh app thật, liên kết vào app & bài liên quan, slot YouTube tùy chọn
-- [x] 6 bài đăng ngày ra mắt 16/10/2026, 44 bài xếp lịch 2–3 bài/ngày tới 02/11/2026
+- [x] 6 bài đăng ngày ra mắt 16/10/2026, 74 bài (đan xen evergreen) xếp lịch 2–3 bài/ngày tới 14/11/2026; liên kết nội bộ: mỗi bài ≥ 4 link bài khác, mọi bài ≥ 3 bài trỏ tới
 
 ## 9. Công cụ tìm kiếm
 - [x] IndexNow: khóa công khai `web/<key>.txt`, `scripts/indexnow.mjs` gửi api.indexnow.org (Bing, Yandex, Seznam, Naver…) sau mỗi lần đăng.

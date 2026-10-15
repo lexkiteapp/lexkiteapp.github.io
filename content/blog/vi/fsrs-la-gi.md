@@ -30,7 +30,7 @@ Thay vì chỉ nhớ "thẻ này dễ hay khó", FSRS mô hình hóa trí nhớ 
 
 ### Độ khó (Difficulty)
 
-Độ khó cho biết thẻ này "cứng đầu" đến mức nào với riêng bạn. Từ *cat* có độ khó thấp. Một từ như *ubiquitous* hay cặp dễ nhầm *affect/effect* thường có độ khó cao hơn. Những cặp hay nhầm như vậy nên được ghi thêm vào [sổ lỗi sai tiếng Anh](/blog/so-loi-sai-tieng-anh/) để biết vì sao mình nhầm. Thẻ càng khó thì khoảng cách giữa các lần ôn tăng càng chậm.
+Độ khó cho biết thẻ này "cứng đầu" đến mức nào với riêng bạn. Từ *cat* có độ khó thấp. Một từ như *ubiquitous* hay cặp dễ nhầm *affect/effect* thường có độ khó cao hơn. Những cặp hay nhầm như vậy nên được ghi thêm vào [sổ lỗi sai tiếng Anh](/vi/blog/so-loi-sai-tieng-anh/) để biết vì sao mình nhầm. Thẻ càng khó thì khoảng cách giữa các lần ôn tăng càng chậm.
 
 ### Độ ổn định (Stability)
 
@@ -55,7 +55,7 @@ SM-2 là thuật toán cũ ra đời từ cuối thập niên 1980 trong phần 
 
 Một vấn đề nổi tiếng của SM-2 là "ease hell": bấm "khó" vài lần, hệ số dễ tụt thấp và thẻ bị ôn quá dày suốt thời gian dài dù bạn đã thuộc. FSRS tách độ khó khỏi độ ổn định nên ít gặp hiện tượng này hơn.
 
-Điều quan trọng với người học: cùng một mức nhớ, lịch do FSRS sắp thường cần ít lượt ôn hơn. Bạn tiết kiệm thời gian để dành cho việc đọc, nghe, viết và luyện nói theo [kỹ thuật shadowing](/blog/shadowing-luyen-noi-tieng-anh/).
+Điều quan trọng với người học: cùng một mức nhớ, lịch do FSRS sắp thường cần ít lượt ôn hơn. Bạn tiết kiệm thời gian để dành cho việc đọc, nghe, viết và luyện nói theo [kỹ thuật shadowing](/vi/blog/shadowing-luyen-noi-tieng-anh/).
 
 ## Chọn mục tiêu ghi nhớ 80–95% thế nào cho hợp lý
 
@@ -95,15 +95,15 @@ Lexkite dùng FSRS cho toàn bộ flashcard, nên bạn không phải cài đặ
 
 {{youtube: | Gợi ý video: Giải thích FSRS bằng hình ảnh – độ khó, độ ổn định và khả năng nhớ}}
 
-Muốn hiểu sâu hơn nền tảng khoa học phía sau, bạn có thể đọc thêm bài [đường cong quên lãng Ebbinghaus](/blog/duong-cong-quen-lang-ebbinghaus/).
+Muốn hiểu sâu hơn nền tảng khoa học phía sau, bạn có thể đọc thêm bài [đường cong quên lãng Ebbinghaus](/vi/blog/duong-cong-quen-lang-ebbinghaus/).
 
 ## FSRS phù hợp với ai
 
-FSRS hữu ích nhất cho những ai có lượng thẻ lớn và học đều trong thời gian dài: người luyện IELTS, TOEIC, TOEFL cần vài nghìn từ (nếu chưa chọn được kỳ thi, xem [so sánh IELTS, TOEIC và TOEFL](/blog/nen-thi-ielts-toeic-hay-toefl/)), sinh viên y học thuật ngữ, người học ngoại ngữ thứ hai. Nếu bạn chỉ có vài chục thẻ cho một bài kiểm tra tuần sau, lợi ích của thuật toán không rõ rệt bằng việc tự kiểm tra đều đặn. Nhưng một khi số thẻ vượt quá vài trăm, việc tự tính ngày ôn gần như bất khả thi, và một thuật toán tốt sẽ tiết kiệm cho bạn rất nhiều giờ.
+FSRS hữu ích nhất cho những ai có lượng thẻ lớn và học đều trong thời gian dài: người luyện IELTS, TOEIC, TOEFL cần vài nghìn từ (nếu chưa chọn được kỳ thi, xem [so sánh IELTS, TOEIC và TOEFL](/vi/blog/nen-thi-ielts-toeic-hay-toefl/)), sinh viên y học thuật ngữ, người học ngoại ngữ thứ hai. Nếu bạn chỉ có vài chục thẻ cho một bài kiểm tra tuần sau, lợi ích của thuật toán không rõ rệt bằng việc tự kiểm tra đều đặn. Nhưng một khi số thẻ vượt quá vài trăm, việc tự tính ngày ôn gần như bất khả thi, và một thuật toán tốt sẽ tiết kiệm cho bạn rất nhiều giờ.
 
 ## Những hiểu lầm thường gặp về FSRS
 
-- **"FSRS làm mình nhớ hộ."** Không. Thuật toán chỉ chọn thời điểm ôn. Bạn vẫn phải chủ động gợi nhớ, và chất lượng thẻ (có câu ví dụ, có cụm từ) vẫn quyết định nhiều. Thẻ tốt thường bắt nguồn từ một [sổ tay từ vựng ghi chép có chọn lọc](/blog/so-tay-tu-vung-ca-nhan/).
+- **"FSRS làm mình nhớ hộ."** Không. Thuật toán chỉ chọn thời điểm ôn. Bạn vẫn phải chủ động gợi nhớ, và chất lượng thẻ (có câu ví dụ, có cụm từ) vẫn quyết định nhiều. Thẻ tốt thường bắt nguồn từ một [sổ tay từ vựng ghi chép có chọn lọc](/vi/blog/so-tay-tu-vung-ca-nhan/).
 - **"Bấm Khó cho an toàn."** Bấm Khó khi thực ra nhớ tốt sẽ khiến thẻ quay lại quá sớm, tốn thời gian. Hãy chấm đúng cảm nhận.
 - **"Nghỉ vài ngày là hỏng lịch."** FSRS tính khả năng nhớ thực tế khi bạn quay lại, nên nghỉ ngắn không phá hỏng gì. Chỉ cần ôn dần phần tồn, ưu tiên thẻ đến hạn trước.
 

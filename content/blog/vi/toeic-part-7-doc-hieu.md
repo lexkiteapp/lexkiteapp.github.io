@@ -9,7 +9,7 @@ tags: [toeic, part-7, doc-hieu]
 keyword: "toeic part 7"
 cover: toeic
 coverAlt: "Trang Luyện thi TOEIC trong Lexkite với luyện theo Part, thi thử và từ vựng TOEIC"
-publishAt: 2026-10-29T13:55:00+07:00
+publishAt: 2026-11-05T13:30:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -20,7 +20,7 @@ Bài viết chia Part 7 thành ba loại văn bản, phân tích các dạng câ
 
 ## TOEIC Part 7 gồm những gì?
 
-Part 7 là phần cuối của Reading, sau Part 5 (30 câu) và Part 6 (16 câu). Nếu chưa hình dung rõ cả đề, xem [tổng quan 7 Part và cách tính điểm TOEIC](/blog/cau-truc-de-thi-toeic/). Văn bản là những thứ bạn gặp hằng ngày ở nơi làm việc: email, thông báo nội bộ, quảng cáo, bài báo ngắn, biểu mẫu, hóa đơn, chuỗi tin nhắn.
+Part 7 là phần cuối của Reading, sau Part 5 (30 câu) và Part 6 (16 câu). Nếu chưa hình dung rõ cả đề, xem [tổng quan 7 Part và cách tính điểm TOEIC](/vi/blog/cau-truc-de-thi-toeic/). Văn bản là những thứ bạn gặp hằng ngày ở nơi làm việc: email, thông báo nội bộ, quảng cáo, bài báo ngắn, biểu mẫu, hóa đơn, chuỗi tin nhắn.
 
 | Loại | Cấu trúc | Đặc điểm |
 |---|---|---|
@@ -44,7 +44,7 @@ Văn bản đơn đứng trước, văn bản kép và ba đứng sau. Vì vậy
 
 Đây là dạng phổ biến nhất. Cách làm: xác định từ khóa trong câu hỏi (tên riêng, con số, ngày tháng), quét văn bản tìm từ đó hoặc từ đồng nghĩa, rồi đọc kỹ câu chứa nó.
 
-**Lưu ý:** đáp án đúng thường được diễn đạt lại (paraphrase). Văn bản viết *The store will close at 6 p.m. instead of 9 p.m.*, đáp án có thể là *Its hours will be shortened*. Khả năng nhận ra cách nói gián tiếp này cũng là chìa khóa của [Part 2 trong phần nghe](/blog/toeic-listening-part-2/).
+**Lưu ý:** đáp án đúng thường được diễn đạt lại (paraphrase). Văn bản viết *The store will close at 6 p.m. instead of 9 p.m.*, đáp án có thể là *Its hours will be shortened*. Khả năng nhận ra cách nói gián tiếp này cũng là chìa khóa của [Part 2 trong phần nghe](/vi/blog/toeic-listening-part-2/).
 
 ### 3. Câu hỏi NOT/TRUE
 
@@ -105,19 +105,19 @@ Reading có 75 phút. Nếu hai phần đầu của Reading chỉ tốn chừng 
 **Một số nguyên tắc thực tế:**
 
 - **Đọc câu hỏi trước, văn bản sau.** Biết mình cần tìm gì giúp đọc có mục đích.
-- **Không đọc từng chữ.** Đọc lướt để nắm cấu trúc, đọc kỹ chỉ ở chỗ chứa đáp án. Kỹ năng skimming và scanning dùng được cho cả IELTS lẫn TOEIC, bạn có thể tham khảo bài [skimming và scanning trong IELTS Reading](/blog/ielts-reading-skimming-scanning/).
+- **Không đọc từng chữ.** Đọc lướt để nắm cấu trúc, đọc kỹ chỉ ở chỗ chứa đáp án. Kỹ năng skimming và scanning dùng được cho cả IELTS lẫn TOEIC, bạn có thể tham khảo bài [skimming và scanning trong IELTS Reading](/vi/blog/ielts-reading-skimming-scanning/).
 - **Đặt mốc kiểm tra.** Ví dụ: còn 30 phút thì nên bắt đầu đoạn kép đầu tiên. Nếu chậm hơn, tăng tốc ở các câu chi tiết.
 - **Đừng sa lầy.** Câu NOT hoặc suy luận quá khó thì chọn tạm và đánh dấu. TOEIC không trừ điểm câu sai.
 - **Tô đủ đáp án.** Hai phút cuối, đảm bảo không còn ô trống.
 
-Muốn có thêm thời gian cho Part 7, cách hiệu quả nhất là làm Part 5 nhanh hơn; xem [mẹo làm TOEIC Part 5](/blog/toeic-part-5-meo-lam-bai/).
+Muốn có thêm thời gian cho Part 7, cách hiệu quả nhất là làm Part 5 nhanh hơn; xem [mẹo làm TOEIC Part 5](/vi/blog/toeic-part-5-meo-lam-bai/).
 
 ## Nâng tốc độ đọc từ gốc
 
 Chiến thuật chỉ giúp đến một mức. Để thật sự đọc nhanh, bạn cần hai thứ:
 
 1. **Từ vựng công sở đủ rộng.** Khi gặp *invoice*, *reimbursement*, *itinerary*, *warranty* mà phải dừng lại suy nghĩ, tốc độ sẽ chậm hẳn. Các [bộ từ vựng TOEIC chia nhóm](/tu-vung/) là nơi tốt để lấp chỗ trống này.
-2. **Thói quen đọc mỗi ngày.** Mười lăm phút đọc bài tiếng Anh ngắn mỗi ngày, có tra từ, tốt hơn nhiều so với hai giờ luyện đề cuối tuần. Hãy xếp thói quen này vào [kế hoạch tự học TOEIC theo từng chặng](/blog/lo-trinh-tu-hoc-toeic/) để không bị bỏ dở.
+2. **Thói quen đọc mỗi ngày.** Mười lăm phút đọc bài tiếng Anh ngắn mỗi ngày, có tra từ, tốt hơn nhiều so với hai giờ luyện đề cuối tuần. Hãy xếp thói quen này vào [kế hoạch tự học TOEIC theo từng chặng](/vi/blog/lo-trinh-tu-hoc-toeic/) để không bị bỏ dở.
 
 ## Làm ngay trong Lexkite: luyện Part 7 và đọc hằng ngày
 

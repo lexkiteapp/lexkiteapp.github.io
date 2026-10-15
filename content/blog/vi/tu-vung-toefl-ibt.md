@@ -9,7 +9,7 @@ tags: [toefl, tu-vung]
 keyword: "từ vựng toefl"
 cover: toefl
 coverAlt: "Trang luyện thi TOEFL iBT trong Lexkite với bảng cấu trúc đề định dạng mới và dạng Complete the Words"
-publishAt: 2026-10-22T18:13:00+07:00
+publishAt: 2026-10-26T07:08:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -18,7 +18,7 @@ Từ ngày 21/01/2026, TOEFL iBT chuyển sang định dạng mới: bài thi ng
 
 ## Định dạng mới thay đổi cách kiểm tra từ vựng ra sao
 
-Phần Reading của [định dạng TOEFL iBT 2026](/blog/toefl-ibt-dinh-dang-moi-2026/) có những dạng câu như **Complete the Words**, **Read in Daily Life** và **Read an Academic Passage**. Mỗi dạng "đụng" đến từ vựng theo một cách:
+Phần Reading của [định dạng TOEFL iBT 2026](/vi/blog/toefl-ibt-dinh-dang-moi-2026/) có những dạng câu như **Complete the Words**, **Read in Daily Life** và **Read an Academic Passage**. Mỗi dạng "đụng" đến từ vựng theo một cách:
 
 | Dạng câu | Bạn làm gì | Từ vựng cần |
 |---|---|---|
@@ -36,7 +36,7 @@ Phần Reading của [định dạng TOEFL iBT 2026](/blog/toefl-ibt-dinh-dang-m
 
 ### Tầng 2: Từ học thuật dùng chung
 
-Academic Word List (AWL) của Coxhead (2000) gồm 570 họ từ xuất hiện thường xuyên trong văn bản học thuật thuộc nhiều ngành: *analyse, concept, establish, factor, significant, structure, theory, vary*. Những từ này không thuộc riêng ngành nào, nên dù bài đọc nói về sinh học hay lịch sử, bạn vẫn gặp chúng. Xem danh sách và cách học trong bài [Academic Word List (AWL)](/blog/academic-word-list-awl/).
+Academic Word List (AWL) của Coxhead (2000) gồm 570 họ từ xuất hiện thường xuyên trong văn bản học thuật thuộc nhiều ngành: *analyse, concept, establish, factor, significant, structure, theory, vary*. Những từ này không thuộc riêng ngành nào, nên dù bài đọc nói về sinh học hay lịch sử, bạn vẫn gặp chúng. Xem danh sách và cách học trong bài [Academic Word List (AWL)](/vi/blog/academic-word-list-awl/).
 
 Mẹo học AWL cho TOEFL: học theo **họ từ**. *Vary, variable, variation, various, variety* cùng một gốc; nắm gốc rồi, bạn dễ đoán được phần đuôi khi làm Complete the Words.
 
@@ -77,12 +77,12 @@ Dạng câu này giống một trò ô chữ: một đoạn văn ngắn, nhiều
 
 Cách luyện hiệu quả:
 
-- **Chép chính tả ngắn mỗi ngày.** Nghe một đoạn 3–4 câu và viết lại. Bài [chép chính tả tiếng Anh](/blog/chep-chinh-ta-tieng-anh-dictation/) hướng dẫn chi tiết.
+- **Chép chính tả ngắn mỗi ngày.** Nghe một đoạn 3–4 câu và viết lại. Bài [chép chính tả tiếng Anh](/vi/blog/chep-chinh-ta-tieng-anh-dictation/) hướng dẫn chi tiết.
 - **Che nửa sau của từ khi ôn flashcard.** Nhìn *envir…* và tự viết nốt *environment*.
 - **Lập danh sách từ hay viết sai** của riêng bạn: *accommodate, occurrence, definitely, environment*. Ôn danh sách này thường xuyên.
 - **Học hậu tố:** *-tion, -ment, -ance/-ence, -ous, -ive, -ly*. Biết hậu tố giúp bạn đoán nhanh phần cuối của từ.
 
-Định dạng chi tiết của dạng câu này được phân tích trong bài [TOEFL Complete the Words](/blog/toefl-complete-the-words/).
+Định dạng chi tiết của dạng câu này được phân tích trong bài [TOEFL Complete the Words](/vi/blog/toefl-complete-the-words/).
 
 {{youtube: | Gợi ý video: Làm thử một đoạn Complete the Words TOEFL và phân tích từng ô trống}}
 
@@ -117,7 +117,7 @@ Cuối tuần, làm một bài đọc đầy đủ theo định dạng mới đ�
 Không có con số chính thức. Một nền tảng hợp lý là nắm chắc nhóm từ thông dụng cốt lõi và phần lớn AWL, sau đó mở rộng theo các lĩnh vực học thuật hay gặp. Các [bộ từ vựng TOEFL và AWL trên Lexkite](/tu-vung/) được chia sẵn theo nhóm để bạn bắt đầu.
 
 ### Từ vựng TOEFL có khác từ vựng IELTS không?
-Phần lớn trùng nhau, đặc biệt là từ học thuật dùng chung. Vì vậy, [cách học từ vựng IELTS cho nhớ lâu](/blog/cach-hoc-tu-vung-ielts-hieu-qua/) cũng áp dụng tốt cho TOEFL. Khác biệt nằm ở cách kiểm tra: định dạng mới của TOEFL có dạng câu yêu cầu viết đúng chính tả phần còn thiếu của từ, nên bạn cần luyện chính tả kỹ hơn.
+Phần lớn trùng nhau, đặc biệt là từ học thuật dùng chung. Vì vậy, [cách học từ vựng IELTS cho nhớ lâu](/vi/blog/cach-hoc-tu-vung-ielts-hieu-qua/) cũng áp dụng tốt cho TOEFL. Khác biệt nằm ở cách kiểm tra: định dạng mới của TOEFL có dạng câu yêu cầu viết đúng chính tả phần còn thiếu của từ, nên bạn cần luyện chính tả kỹ hơn.
 
 ### Thang band 1–6 có ảnh hưởng đến cách học từ vựng không?
 Thang điểm không thay đổi nội dung cần học. Điều thay đổi là bài thi thích ứng theo năng lực, nên từ vựng càng chắc thì bạn càng có cơ hội gặp câu ở mức cao hơn.

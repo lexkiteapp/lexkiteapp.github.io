@@ -47,7 +47,7 @@ Bạn nhìn một bức ảnh và nghe bốn câu mô tả, chọn câu đúng n
 
 Bạn nghe một câu hỏi hoặc câu nói, rồi ba câu đáp, chọn câu phù hợp. Không có gì in trên đề, nên tập trung tuyệt đối là bắt buộc. Câu trả lời đúng thường gián tiếp, không trả lời thẳng.
 
-**Cách luyện:** nghe kỹ từ để hỏi ở đầu câu, cảnh giác đáp án lặp lại âm giống câu hỏi. Bài [TOEIC Part 2](/blog/toeic-listening-part-2/) phân tích kỹ các dạng câu này.
+**Cách luyện:** nghe kỹ từ để hỏi ở đầu câu, cảnh giác đáp án lặp lại âm giống câu hỏi. Bài [TOEIC Part 2](/vi/blog/toeic-listening-part-2/) phân tích kỹ các dạng câu này.
 
 ### Part 3 – Hội thoại (39 câu)
 
@@ -69,7 +69,7 @@ Mỗi câu có một chỗ trống, chọn một trong bốn đáp án. Kiểm t
 
 *Ví dụ:* *The new software will be installed ------- all computers by Friday.* (A) at (B) on (C) in (D) to → đáp án (B).
 
-**Cách luyện:** nắm chắc từ loại và các cấu trúc ngữ pháp hay ra. Đọc thêm [TOEIC Part 5: mẹo làm bài](/blog/toeic-part-5-meo-lam-bai/).
+**Cách luyện:** nắm chắc từ loại và các cấu trúc ngữ pháp hay ra. Đọc thêm [TOEIC Part 5: mẹo làm bài](/vi/blog/toeic-part-5-meo-lam-bai/).
 
 ### Part 6 – Hoàn thành đoạn văn (16 câu)
 
@@ -81,7 +81,7 @@ Giống Part 5 nhưng trong đoạn văn như email, thông báo, bản ghi nh�
 
 Phần dài nhất, gồm đoạn đơn (một văn bản), đoạn kép (hai văn bản) và đoạn ba (ba văn bản liên quan). Văn bản là email, quảng cáo, bài báo, tin nhắn, biểu mẫu.
 
-**Cách luyện:** luyện đọc lướt tìm ý và dò thông tin cụ thể; với đoạn kép và đoạn ba, tập nối thông tin giữa các văn bản. Xem thêm [TOEIC Part 7](/blog/toeic-part-7-doc-hieu/).
+**Cách luyện:** luyện đọc lướt tìm ý và dò thông tin cụ thể; với đoạn kép và đoạn ba, tập nối thông tin giữa các văn bản. Xem thêm [TOEIC Part 7](/vi/blog/toeic-part-7-doc-hieu/).
 
 ## Phân bổ thời gian phần Reading
 
@@ -112,7 +112,7 @@ Nếu mới bắt đầu, đừng làm ngay đề đủ 200 câu. Một thứ t�
 5. **Part 7:** luyện tốc độ đọc.
 6. **Đề đủ:** khi đã quen từng phần, làm đề hoàn chỉnh có bấm giờ.
 
-Muốn học từ theo nhóm, bạn có thể xem [từ vựng TOEIC theo chủ đề](/blog/tu-vung-toeic-theo-chu-de/). Nếu cần kế hoạch theo tuần, [lộ trình tự học TOEIC cho người bận rộn](/blog/lo-trinh-tu-hoc-toeic/) chia sẵn từng giai đoạn.
+Muốn học từ theo nhóm, bạn có thể xem [từ vựng TOEIC theo chủ đề](/vi/blog/tu-vung-toeic-theo-chu-de/). Nếu cần kế hoạch theo tuần, [lộ trình tự học TOEIC cho người bận rộn](/vi/blog/lo-trinh-tu-hoc-toeic/) chia sẵn từng giai đoạn.
 
 ## Làm ngay trong Lexkite: luyện TOEIC theo đúng cấu trúc
 

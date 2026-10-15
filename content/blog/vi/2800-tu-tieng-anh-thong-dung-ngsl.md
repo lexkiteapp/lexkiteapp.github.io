@@ -9,7 +9,7 @@ tags: [ngsl, co-ban]
 keyword: "từ tiếng anh thông dụng nhất"
 cover: library
 coverAlt: "Thư viện từ vựng Lexkite với tab Từ vựng cốt lõi NGSL và các bộ từ cốt lõi theo cấp độ A1 đến B2"
-publishAt: 2026-10-23T13:57:00+07:00
+publishAt: 2026-10-26T17:05:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -49,7 +49,7 @@ Con số ranh giới chỉ mang tính tương đối. Ý chính là: những t�
 
 ### Mẹo: từ dễ chưa chắc là đã thuộc
 
-Ở nhóm 1 và 2, nhiều từ bạn tưởng đã biết nhưng chỉ biết một nghĩa. *Get* có thể là nhận, trở nên, hiểu, đến nơi. *Still* có thể là vẫn, nhưng cũng là đứng yên. Khi ôn nhóm từ dễ, đừng bỏ qua; hãy kiểm tra xem bạn biết bao nhiêu cách dùng. Những động từ cốt lõi như *get, take, look* còn ghép với tiểu từ thành các [phrasal verb hay gặp trong giao tiếp](/blog/phrasal-verb-thong-dung/), nên đáng học tiếp ngay sau nhóm này.
+Ở nhóm 1 và 2, nhiều từ bạn tưởng đã biết nhưng chỉ biết một nghĩa. *Get* có thể là nhận, trở nên, hiểu, đến nơi. *Still* có thể là vẫn, nhưng cũng là đứng yên. Khi ôn nhóm từ dễ, đừng bỏ qua; hãy kiểm tra xem bạn biết bao nhiêu cách dùng. Những động từ cốt lõi như *get, take, look* còn ghép với tiểu từ thành các [phrasal verb hay gặp trong giao tiếp](/vi/blog/phrasal-verb-thong-dung/), nên đáng học tiếp ngay sau nhóm này.
 
 ## Lộ trình cho người mất gốc: 4 giai đoạn
 
@@ -61,7 +61,7 @@ Con số ranh giới chỉ mang tính tương đối. Ý chính là: những t�
 
 **Giai đoạn 4: hoàn thành NGSL rồi chuyển hướng.** Khi đã nắm phần lớn danh sách, chọn danh sách chuyên biệt theo mục tiêu: AWL cho IELTS, TOEFL; TSL cho TOEIC. Trang [bộ từ vựng theo kỳ thi và chủ đề](/tu-vung/) liệt kê sẵn các danh sách này để bạn chọn bước tiếp theo.
 
-Thời gian trên chỉ là gợi ý cho người học đều đặn khoảng 30 phút mỗi ngày; bạn có thể nhanh hoặc chậm hơn. Nếu chưa biết mình đang ở đâu, hãy làm một bài [kiểm tra trình độ tiếng Anh](/blog/kiem-tra-trinh-do-tieng-anh/) trước.
+Thời gian trên chỉ là gợi ý cho người học đều đặn khoảng 30 phút mỗi ngày; bạn có thể nhanh hoặc chậm hơn. Nếu chưa biết mình đang ở đâu, hãy làm một bài [kiểm tra trình độ tiếng Anh](/vi/blog/kiem-tra-trinh-do-tieng-anh/) trước.
 
 {{youtube: | Gợi ý video: 50 từ đầu tiên trong danh sách NGSL và cách dùng mỗi từ trong câu}}
 
@@ -69,8 +69,8 @@ Thời gian trên chỉ là gợi ý cho người học đều đặn khoảng 3
 
 - **Học kèm cụm, không học từ trơ.** Thay vì *decision = quyết định*, học *make a decision*, *a difficult decision*. Câu mẫu: *It took us a week to make a final decision about the trip.*
 - **Đặt câu về chính bạn.** *I usually have breakfast at seven, but I didn't have time this morning.* Câu gắn với đời sống thật dễ nhớ hơn câu sách.
-- **Luyện nghe song song.** Với mỗi từ, nghe phát âm ít nhất một lần và đọc to. Biết [đọc ký hiệu phiên âm IPA](/blog/cach-doc-phien-am-ipa/) giúp bạn tự phát âm đúng cả khi không có âm thanh.
-- **Ôn theo lịch giãn cách.** Ôn đúng lúc sắp quên hiệu quả hơn ôn dồn. Bài [lặp lại ngắt quãng](/blog/lap-lai-ngat-quang/) giải thích cơ chế.
+- **Luyện nghe song song.** Với mỗi từ, nghe phát âm ít nhất một lần và đọc to. Biết [đọc ký hiệu phiên âm IPA](/vi/blog/cach-doc-phien-am-ipa/) giúp bạn tự phát âm đúng cả khi không có âm thanh.
+- **Ôn theo lịch giãn cách.** Ôn đúng lúc sắp quên hiệu quả hơn ôn dồn. Bài [lặp lại ngắt quãng](/vi/blog/lap-lai-ngat-quang/) giải thích cơ chế.
 - **Đừng sợ từ "dễ".** Học viên trình độ trung cấp vẫn hay dùng sai *since/for*, *bring/take*, *say/tell*, vốn đều nằm trong nhóm cốt lõi.
 
 ### Mười cặp từ thông dụng hay dùng sai
@@ -120,4 +120,4 @@ Cả hai đều là danh sách từ cốt lõi. NGSL được chọn chủ yếu
 Người mất gốc nên bắt đầu với 10–15 từ mới mỗi ngày, cộng với phần ôn. Nếu số thẻ cần ôn tăng quá nhiều, hãy giảm từ mới trong vài ngày.
 
 ### Học xong NGSL nên học gì tiếp?
-Chọn theo mục tiêu: [Academic Word List](/blog/academic-word-list-awl/) cho IELTS và TOEFL, danh sách TSL cho TOEIC, hoặc từ vựng theo chủ đề nếu bạn cần tiếng Anh cho công việc cụ thể.
+Chọn theo mục tiêu: [Academic Word List](/vi/blog/academic-word-list-awl/) cho IELTS và TOEFL, danh sách TSL cho TOEIC, hoặc từ vựng theo chủ đề nếu bạn cần tiếng Anh cho công việc cụ thể.

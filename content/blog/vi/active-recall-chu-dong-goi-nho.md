@@ -9,7 +9,7 @@ tags: [active-recall, ghi-nho]
 keyword: "active recall"
 cover: practice-test
 coverAlt: "Bài kiểm tra trắc nghiệm trong Lexkite yêu cầu chọn nghĩa đúng của cụm run out of"
-publishAt: 2026-11-01T06:37:00+07:00
+publishAt: 2026-11-11T14:44:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -41,11 +41,11 @@ Trong tâm lý học nhận thức, hiện tượng này thường được gọ
 
 **Lỗi lộ ra sớm.** Khi bạn không nhớ được, bạn biết ngay mình cần ôn từ đó. Đọc lại thì mọi từ đều "trông quen", nên bạn không phân biệt được từ nào thực sự đã nhớ.
 
-**Giống điều kiện sử dụng thật.** Khi nói hoặc viết, không ai đưa sẵn từ cho bạn. Bạn phải tự gợi nhớ. Luyện active recall là luyện đúng thao tác bạn sẽ cần trong phòng thi và trong giao tiếp.
+**Giống điều kiện sử dụng thật.** Khi nói hoặc viết, không ai đưa sẵn từ cho bạn. Bạn phải tự gợi nhớ. Luyện active recall là luyện đúng thao tác bạn sẽ cần trong phòng thi và trong giao tiếp. Nếu muốn có thêm điểm tựa khi gợi nhớ, hãy kết hợp với [cách ghi nhớ từ vựng bằng liên tưởng](/vi/blog/cach-ghi-nho-tu-vung-bang-lien-tuong/).
 
 ### Gợi nhớ càng khó, càng nhớ lâu, nhưng có giới hạn
 
-Gợi nhớ một từ sau vài ngày khó hơn gợi nhớ ngay sau khi học, và chính vì khó hơn nên có tác dụng mạnh hơn. Nhưng nếu đợi quá lâu, bạn quên hẳn và phải học lại từ đầu, đúng như [đường cong quên lãng Ebbinghaus](/blog/duong-cong-quen-lang-ebbinghaus/) mô tả. Điểm tối ưu là gợi nhớ khi từ **sắp bị quên**. Đây là lý do active recall thường đi cùng [lặp lại ngắt quãng](/blog/lap-lai-ngat-quang/): một bên quyết định **cách** ôn, bên kia quyết định **khi nào** ôn.
+Gợi nhớ một từ sau vài ngày khó hơn gợi nhớ ngay sau khi học, và chính vì khó hơn nên có tác dụng mạnh hơn. Nhưng nếu đợi quá lâu, bạn quên hẳn và phải học lại từ đầu, đúng như [đường cong quên lãng Ebbinghaus](/vi/blog/duong-cong-quen-lang-ebbinghaus/) mô tả. Điểm tối ưu là gợi nhớ khi từ **sắp bị quên**. Đây là lý do active recall thường đi cùng [lặp lại ngắt quãng](/vi/blog/lap-lai-ngat-quang/): một bên quyết định **cách** ôn, bên kia quyết định **khi nào** ôn.
 
 ## Áp dụng active recall cho từ vựng tiếng Anh
 
@@ -86,7 +86,7 @@ Không cần thay đổi toàn bộ cách học. Chỉ cần thêm một bước
 - **Sau khi học ngữ pháp**: tự viết ba câu áp dụng quy tắc, rồi mới xem ví dụ trong sách.
 - **Cuối ngày**: liệt kê từ trí nhớ 5 từ mới đã học hôm nay.
 
-Những bước này chỉ tốn vài phút, nhưng biến buổi học từ "tiếp nhận" thành "luyện tập". Lúc chờ xe hay nghỉ trưa, một [ứng dụng học tiếng Anh trên điện thoại](/blog/app-hoc-tieng-anh-tren-dien-thoai/) là đủ để tự kiểm tra thêm vài thẻ.
+Những bước này chỉ tốn vài phút, nhưng biến buổi học từ "tiếp nhận" thành "luyện tập". Lúc chờ xe hay nghỉ trưa, một [ứng dụng học tiếng Anh trên điện thoại](/vi/blog/app-hoc-tieng-anh-tren-dien-thoai/) là đủ để tự kiểm tra thêm vài thẻ.
 
 ### Kỹ thuật "trang giấy trắng"
 
@@ -111,7 +111,7 @@ Lexkite xây dựng việc ôn từ vựng xoay quanh active recall.
 
 ![Phiên ôn flashcard trong Lexkite](media:review "Phiên ôn flashcard: thẻ 'pollution' có emoji minh họa, phiên âm, nút Lật thẻ và thanh tiến độ")
 
-Muốn hiểu thêm về cách thuật toán xếp lịch ôn, hãy đọc bài [FSRS là gì](/blog/fsrs-la-gi/).
+Muốn hiểu thêm về cách thuật toán xếp lịch ôn, hãy đọc bài [FSRS là gì](/vi/blog/fsrs-la-gi/).
 
 {{cta: /#/review | Ôn thẻ đến hạn bằng active recall ngay}}
 
@@ -129,4 +129,4 @@ Flashcard là công cụ, active recall là cách dùng công cụ đó. Bạn c
 Có. Thay vì đọc lại bảng công thức, hãy tự viết công thức từ trí nhớ, rồi đặt câu ví dụ. Làm bài tập ngữ pháp mà không xem lý thuyết trước cũng là một dạng chủ động gợi nhớ.
 
 ### Mỗi ngày nên tự kiểm tra bao lâu?
-Không cần dài. Khoảng 10–15 phút ôn thẻ đến hạn mỗi ngày, đều đặn, thường hiệu quả hơn một buổi dài vào cuối tuần. Để giữ nhịp lâu dài, hãy [đặt mục tiêu học theo tiêu chí SMART](/blog/dat-muc-tieu-hoc-tieng-anh/) cho từng tuần.
+Không cần dài. Khoảng 10–15 phút ôn thẻ đến hạn mỗi ngày, đều đặn, thường hiệu quả hơn một buổi dài vào cuối tuần. Để giữ nhịp lâu dài, hãy [đặt mục tiêu học theo tiêu chí SMART](/vi/blog/dat-muc-tieu-hoc-tieng-anh/) cho từng tuần.

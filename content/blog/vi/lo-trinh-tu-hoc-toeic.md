@@ -9,7 +9,7 @@ tags: [toeic, lo-trinh]
 keyword: "lộ trình tự học toeic"
 cover: toeic
 coverAlt: "Trang Luyện thi TOEIC trong Lexkite với thi thử chấm tự động quy đổi 10–990 và luyện theo Part"
-publishAt: 2026-10-29T17:21:00+07:00
+publishAt: 2026-11-07T15:34:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -44,7 +44,7 @@ Mục tiêu là sửa những lỗ hổng làm bạn mất điểm "oan" ở câ
 - *The package was **delivered** yesterday.* (bị động, quá khứ)
 - *The courier **delivers** packages every morning.* (chủ động, thói quen)
 
-**Nghe (30%).** Part 1 và Part 2. [Luyện nghe từ để hỏi](/blog/toeic-listening-part-2/), học từ vựng mô tả tranh, tập nhận ra câu trả lời gián tiếp.
+**Nghe (30%).** Part 1 và Part 2. [Luyện nghe từ để hỏi](/vi/blog/toeic-listening-part-2/), học từ vựng mô tả tranh, tập nhận ra câu trả lời gián tiếp.
 
 Cuối chặng: làm một đề rút gọn để kiểm tra. Nếu Part 5 đúng khoảng hai phần ba trở lên, bạn sẵn sàng sang chặng 2.
 
@@ -66,10 +66,10 @@ Bây giờ bạn chuyển từ câu đơn lẻ sang văn bản và hội thoại
 
 - **Một đề đủ mỗi tuần**, làm liền mạch 200 câu, bấm giờ như thật.
 - **Phân tích lỗi** sau mỗi đề: sai do từ vựng, ngữ pháp, bẫy nghe hay hết giờ.
-- **Đoạn kép và đoạn ba** của Part 7: luyện [nối thông tin giữa các văn bản](/blog/toeic-part-7-doc-hieu/).
+- **Đoạn kép và đoạn ba** của Part 7: luyện [nối thông tin giữa các văn bản](/vi/blog/toeic-part-7-doc-hieu/).
 - **Từ vựng nâng cao**: từ ít gặp hơn nhưng vẫn quen thuộc trong công sở như *reimbursement*, *compliance*, *tentative*, *preliminary*. Có thể lấy thêm từ ở [các bộ từ vựng theo kỳ thi](/tu-vung/), trong đó có bộ dành cho TOEIC.
 
-Ở mức này, hãy chú ý chiến thuật thời gian Reading: hoàn thành nhanh hai phần điền từ đầu tiên để Part 7 không bị thiếu giờ. Cách nhận diện nhanh từng dạng câu được trình bày trong [bài mẹo Part 5](/blog/toeic-part-5-meo-lam-bai/).
+Ở mức này, hãy chú ý chiến thuật thời gian Reading: hoàn thành nhanh hai phần điền từ đầu tiên để Part 7 không bị thiếu giờ. Cách nhận diện nhanh từng dạng câu được trình bày trong [bài mẹo Part 5](/vi/blog/toeic-part-5-meo-lam-bai/).
 
 ## Lịch học mẫu một tuần (60 phút/ngày)
 
@@ -93,7 +93,7 @@ Nhìn tổng thể, tỉ lệ thay đổi như sau:
 - **Ngữ pháp** giảm mạnh từ 30% xuống khoảng 10%, vì sau chặng 2 bạn đã có nền.
 - **Luyện đề và phân tích lỗi** tăng từ gần như không có lên khoảng 50% ở chặng cuối.
 
-Cần danh sách từ chia nhóm cho chặng 1? Hãy mở [bộ từ TOEIC chia theo chủ đề](/blog/tu-vung-toeic-theo-chu-de/). Còn nếu chưa nắm rõ đề có bao nhiêu phần, hãy đọc [bài giới thiệu 7 Part của đề](/blog/cau-truc-de-thi-toeic/) trước.
+Cần danh sách từ chia nhóm cho chặng 1? Hãy mở [bộ từ TOEIC chia theo chủ đề](/vi/blog/tu-vung-toeic-theo-chu-de/). Còn nếu chưa nắm rõ đề có bao nhiêu phần, hãy đọc [bài giới thiệu 7 Part của đề](/vi/blog/cau-truc-de-thi-toeic/) trước.
 
 ## Làm ngay trong Lexkite: lập kế hoạch và luyện theo chặng
 

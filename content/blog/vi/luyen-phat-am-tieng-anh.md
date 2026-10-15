@@ -9,7 +9,7 @@ tags: [phat-am, ipa, speaking]
 keyword: "luyện phát âm tiếng anh"
 cover: pron
 coverAlt: "Thư viện phát âm IPA trong Lexkite với nguyên âm và phụ âm"
-publishAt: 2026-10-26T17:05:00+07:00
+publishAt: 2026-11-01T19:03:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -60,7 +60,7 @@ Hai âm này không có trong tiếng Việt, nên thường bị thay bằng "t
 
 Trong tiếng Anh, *ship* /ʃɪp/ và *sheep* /ʃiːp/ là hai từ khác nhau. Tương tự: *full – fool*, *live – leave*, *bit – beat*.
 
-**Cách luyện:** luyện theo **cặp âm tối thiểu** (minimal pairs). Đọc to từng cặp, ghi âm, nghe lại xem hai từ có thật sự khác nhau không. Nguyên âm dài không chỉ dài hơn mà còn **căng** hơn; nguyên âm ngắn thì lỏng, gọn. Nếu bạn chưa quen ký hiệu, đọc bài [cách đọc phiên âm IPA](/blog/cach-doc-phien-am-ipa/) trước sẽ dễ hơn nhiều.
+**Cách luyện:** luyện theo **cặp âm tối thiểu** (minimal pairs). Đọc to từng cặp, ghi âm, nghe lại xem hai từ có thật sự khác nhau không. Nguyên âm dài không chỉ dài hơn mà còn **căng** hơn; nguyên âm ngắn thì lỏng, gọn. Nếu bạn chưa quen ký hiệu, đọc bài [cách đọc phiên âm IPA](/vi/blog/cach-doc-phien-am-ipa/) trước sẽ dễ hơn nhiều.
 
 ### 4. Trọng âm từ
 
@@ -76,7 +76,7 @@ Người Việt quen đọc mọi âm tiết rõ như nhau, nên *"photograph"*,
 
 Trong lời nói tự nhiên, phụ âm cuối của từ trước thường nối sang nguyên âm đầu của từ sau: *"pick it up"* → /pɪ.kɪ.tʌp/, *"an apple"* → /ə.næ.pəl/. Người Việt hay đọc tách rời từng từ, nghe rời rạc và chậm.
 
-**Cách luyện:** chọn cụm động từ ngắn và đọc liền như một từ: *turn off, look at, get up, come in*. Khi đã quen, ghép vào câu: *"Turn it off and come in."* Bạn cũng sẽ thấy nghe dễ hơn hẳn – đó là lý do [chép chính tả tiếng Anh](/blog/chep-chinh-ta-tieng-anh-dictation/) và luyện phát âm bổ trợ cho nhau rất tốt.
+**Cách luyện:** chọn cụm động từ ngắn và đọc liền như một từ: *turn off, look at, get up, come in*. Khi đã quen, ghép vào câu: *"Turn it off and come in."* Bạn cũng sẽ thấy nghe dễ hơn hẳn – đó là lý do [chép chính tả tiếng Anh](/vi/blog/chep-chinh-ta-tieng-anh-dictation/) và luyện phát âm bổ trợ cho nhau rất tốt.
 
 ### Thêm một điểm: ngữ điệu câu
 
@@ -87,10 +87,10 @@ Khi đã sửa được năm lỗi trên, hãy để ý đến **ngữ điệu**
 Đọc theo một trăm lần mà không biết mình sai ở đâu thì chỉ củng cố thói quen cũ. Phản hồi có thể đến từ:
 
 - **Ghi âm bản thân** rồi so với bản gốc. Đơn giản, miễn phí, nhưng cần tai đủ nhạy.
-- **Công cụ nhận dạng giọng nói** chấm điểm: nếu máy nhận đúng từ bạn nói, nhiều khả năng người nghe cũng hiểu. Đây cũng là một [tiêu chí đáng xét khi chọn app học tiếng Anh](/blog/app-hoc-tieng-anh-tren-dien-thoai/).
+- **Công cụ nhận dạng giọng nói** chấm điểm: nếu máy nhận đúng từ bạn nói, nhiều khả năng người nghe cũng hiểu. Đây cũng là một [tiêu chí đáng xét khi chọn app học tiếng Anh](/vi/blog/app-hoc-tieng-anh-tren-dien-thoai/).
 - **Người nghe thật:** bạn bè, giáo viên, bạn học.
 
-Một vòng luyện hiệu quả: **nghe mẫu → nói → nhận phản hồi → chỉnh → nói lại**. Lặp lại vòng này ngắn nhưng thường xuyên, khoảng 10 phút mỗi ngày, hiệu quả hơn một buổi dài mỗi tuần. Khi đã quen từng âm, [kỹ thuật nói đuổi theo băng (shadowing)](/blog/shadowing-luyen-noi-tieng-anh/) giúp bạn luyện thêm nhịp và ngữ điệu của cả câu.
+Một vòng luyện hiệu quả: **nghe mẫu → nói → nhận phản hồi → chỉnh → nói lại**. Lặp lại vòng này ngắn nhưng thường xuyên, khoảng 10 phút mỗi ngày, hiệu quả hơn một buổi dài mỗi tuần. Khi đã quen từng âm, [kỹ thuật nói đuổi theo băng (shadowing)](/vi/blog/shadowing-luyen-noi-tieng-anh/) giúp bạn luyện thêm nhịp và ngữ điệu của cả câu.
 
 ## Làm ngay trong Lexkite: luyện từng âm, rồi từng cụm
 
@@ -103,7 +103,7 @@ Một vòng luyện hiệu quả: **nghe mẫu → nói → nhận phản hồi 
 
 ![Màn hình luyện phát âm có chấm điểm với cụm từ cut down on và nút micro](media:practice-speak "Luyện phát âm cụm từ: bấm micro, đọc cụm từ và được chấm theo giọng nói")
 
-Với cụm từ, dùng [Luyện phát âm có chấm điểm](/#/practice/speak): bấm micro, đọc cụm như *"cut down on"* liền một hơi, xem điểm. Cụm này là ví dụ điển hình của nối âm: /kʌt.daʊ.nɒn/ (âm /t/ của cut chỉ đóng nhẹ, không bật hơi). Khi điểm ổn định, hãy dùng chính những cụm đó khi luyện [IELTS Speaking Part 1](/blog/ielts-speaking-part-1/) để phát âm đi vào lời nói thật.
+Với cụm từ, dùng [Luyện phát âm có chấm điểm](/#/practice/speak): bấm micro, đọc cụm như *"cut down on"* liền một hơi, xem điểm. Cụm này là ví dụ điển hình của nối âm: /kʌt.daʊ.nɒn/ (âm /t/ của cut chỉ đóng nhẹ, không bật hơi). Khi điểm ổn định, hãy dùng chính những cụm đó khi luyện [IELTS Speaking Part 1](/vi/blog/ielts-speaking-part-1/) để phát âm đi vào lời nói thật.
 
 {{cta: /#/pron | Chọn một âm khó và luyện có chấm điểm ngay}}
 

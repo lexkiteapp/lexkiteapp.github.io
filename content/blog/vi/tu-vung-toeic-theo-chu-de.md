@@ -9,7 +9,7 @@ tags: [toeic, tu-vung]
 keyword: "từ vựng toeic theo chủ đề"
 cover: toeic
 coverAlt: "Trang luyện thi TOEIC Listening và Reading trong Lexkite với thi thử, luyện theo Part và từ vựng TSL"
-publishAt: 2026-10-22T14:12:00+07:00
+publishAt: 2026-10-25T14:06:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -96,12 +96,12 @@ Câu mẫu: *The east wing of the facility will be closed next week for renovati
 Mỗi Part đòi hỏi bạn dùng từ theo một cách khác, nên cách học cũng nên khác:
 
 - **Part 1 (Tranh, 6 câu):** cần động từ chỉ hành động và danh từ đồ vật: *stack, arrange, lean against, hang, pour*. Học bằng cách nhìn ảnh thật quanh bạn và mô tả bằng câu tiếp diễn hoặc bị động.
-- **Part 2 (Hỏi – đáp, 25 câu):** cần nghe nhanh. Bẫy thường gặp là [đáp án có từ phát âm giống câu hỏi nhưng sai ý](/blog/toeic-listening-part-2/). Luyện nghe cụm hội thoại ngắn hơn là học từ đơn.
+- **Part 2 (Hỏi – đáp, 25 câu):** cần nghe nhanh. Bẫy thường gặp là [đáp án có từ phát âm giống câu hỏi nhưng sai ý](/vi/blog/toeic-listening-part-2/). Luyện nghe cụm hội thoại ngắn hơn là học từ đơn.
 - **Part 3 và 4 (Hội thoại và Bài nói, 39 và 30 câu):** từ chủ đề quan trọng nhất ở đây. Đọc trước câu hỏi, đoán bối cảnh, rồi "kích hoạt" bộ từ tương ứng.
 - **Part 5 (Câu chưa hoàn chỉnh, 30 câu):** nhiều câu hỏi về từ loại và collocation: *meet a deadline*, *place an order*, *comply with regulations*. Học từ kèm cả họ từ (*compete, competition, competitive, competitively*).
 - **Part 6 và 7 (Hoàn thành đoạn và Đọc hiểu, 16 và 54 câu):** cần đọc nhanh email, thông báo, quảng cáo. Tập nhận ra cặp từ đồng nghĩa giữa bài và đáp án.
 
-Muốn hiểu rõ cấu trúc và cách phân bổ thời gian, xem bài [cấu trúc đề thi TOEIC](/blog/cau-truc-de-thi-toeic/).
+Muốn hiểu rõ cấu trúc và cách phân bổ thời gian, xem bài [cấu trúc đề thi TOEIC](/vi/blog/cau-truc-de-thi-toeic/).
 
 {{youtube: | Gợi ý video: 30 từ vựng TOEIC chủ đề văn phòng và tài chính, kèm câu Part 5 tự luyện}}
 
@@ -112,7 +112,7 @@ Muốn hiểu rõ cấu trúc và cách phân bổ thời gian, xem bài [cấu 
 - **Giới từ cố định:** *responsible for, in charge of, on behalf of, in advance, according to*.
 - **Tính từ đuôi -able / -ible:** *available, eligible, reliable, accessible* xuất hiện rất thường xuyên ở Part 5.
 
-Mẹo: mỗi khi sai một câu Part 5, đừng chỉ ghi đáp án đúng. Ghi cả cụm chứa nó, vì đề sau rất có thể hỏi lại đúng collocation đó trong câu khác. Cách nhận diện nhanh bốn nhóm câu hỏi có trong bài [mẹo làm Part 5 trong 20 giây mỗi câu](/blog/toeic-part-5-meo-lam-bai/).
+Mẹo: mỗi khi sai một câu Part 5, đừng chỉ ghi đáp án đúng. Ghi cả cụm chứa nó, vì đề sau rất có thể hỏi lại đúng collocation đó trong câu khác. Cách nhận diện nhanh bốn nhóm câu hỏi có trong bài [mẹo làm Part 5 trong 20 giây mỗi câu](/vi/blog/toeic-part-5-meo-lam-bai/).
 
 ### Một tuần học theo chủ đề mẫu
 
@@ -124,7 +124,7 @@ Mẹo: mỗi khi sai một câu Part 5, đừng chỉ ghi đáp án đúng. Ghi 
 4. **Thứ Sáu:** đọc một chuỗi email Part 7, gạch chân cặp từ đồng nghĩa giữa bài và đáp án.
 5. **Cuối tuần:** ôn lại toàn bộ bằng flashcard và tự viết một email ngắn dùng ít nhất năm từ mới.
 
-Sau sáu tuần, bạn đã đi qua đủ sáu nhóm chủ đề chính, mỗi nhóm được gặp qua cả nghe lẫn đọc. Bạn có thể lồng lịch này vào chặng đầu của [lộ trình ba chặng cho người đi làm](/blog/lo-trinh-tu-hoc-toeic/).
+Sau sáu tuần, bạn đã đi qua đủ sáu nhóm chủ đề chính, mỗi nhóm được gặp qua cả nghe lẫn đọc. Bạn có thể lồng lịch này vào chặng đầu của [lộ trình ba chặng cho người đi làm](/vi/blog/lo-trinh-tu-hoc-toeic/).
 
 ## Làm ngay trong Lexkite: từ TSL và luyện theo Part
 
@@ -149,7 +149,7 @@ Không có con số chính thức. Thực tế, bạn cần nắm chắc nhóm t
 Kết hợp cả hai. Danh sách tần suất cho bạn biết từ nào quan trọng, còn chủ đề giúp bạn nhớ và dùng chúng trong ngữ cảnh. Một cách đơn giản là học từ trong TSL nhưng tự xếp vào các nhóm chủ đề như trong bài. Nếu muốn xem trước danh sách mà chưa mở app, hãy duyệt [trang tổng hợp bộ từ vựng](/tu-vung/).
 
 ### Người mất gốc có nên học từ TOEIC ngay không?
-Nên củng cố nhóm từ thông dụng cơ bản trước, vì đề TOEIC vẫn dùng chúng rất nhiều. Bài [2.800 từ tiếng Anh thông dụng nhất](/blog/2800-tu-tieng-anh-thong-dung-ngsl/) gợi ý lộ trình cho giai đoạn này.
+Nên củng cố nhóm từ thông dụng cơ bản trước, vì đề TOEIC vẫn dùng chúng rất nhiều. Bài [2.800 từ tiếng Anh thông dụng nhất](/vi/blog/2800-tu-tieng-anh-thong-dung-ngsl/) gợi ý lộ trình cho giai đoạn này.
 
 ### Học từ vựng có giúp Listening không?
 Có, nhưng cần học cả cách đọc. Nhiều bạn biết từ khi đọc mà nghe không nhận ra. Khi học, hãy luôn nghe phát âm và nói to từ đó.

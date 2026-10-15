@@ -9,7 +9,7 @@ tags: [ipa, phat-am]
 keyword: "cách đọc phiên âm ipa"
 cover: pron
 coverAlt: "Thư viện phát âm IPA trong Lexkite chia nguyên âm đơn, nguyên âm đôi và phụ âm"
-publishAt: 2026-10-21T18:49:00+07:00
+publishAt: 2026-10-23T17:08:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -57,7 +57,7 @@ Nguyên âm đôi là sự trượt từ âm này sang âm kia trong một nhị
 
 ### Phụ âm
 
-Đa số phụ âm như /p/, /b/, /t/, /d/, /k/, /g/, /m/, /n/, /f/, /v/, /s/, /z/, /h/, /l/, /w/ khá giống cách đọc chữ cái. Những phụ âm cần chú ý hơn:
+Đa số phụ âm như /p/, /b/, /t/, /d/, /k/, /g/, /m/, /n/, /f/, /v/, /s/, /z/, /h/, /l/, /w/ khá giống cách đọc chữ cái. Những phụ âm cần chú ý hơn: Sau khi đọc được phiên âm, hát theo lời bài hát là cách thư giãn để luyện, xem [học tiếng Anh qua bài hát](/vi/blog/hoc-tieng-anh-qua-bai-hat/).
 
 | Ký hiệu | Ví dụ | Ghi chú |
 |---|---|---|
@@ -79,7 +79,7 @@ Nguyên âm đôi là sự trượt từ âm này sang âm kia trong một nhị
 
 **/θ/ và /t/ hoặc /s/.** *Think* bị đọc thành "tink" hoặc "sink". Hãy soi gương để chắc đầu lưỡi thò ra giữa răng.
 
-**Âm cuối bị nuốt.** Tiếng Việt không bật âm cuối như tiếng Anh, nên *rice* và *rise*, *bag* và *back* dễ nghe giống nhau. Hãy để ý âm cuối /s/, /z/, /t/, /d/, /k/ và đặc biệt đuôi -s, -ed. Âm cuối còn nối sang từ sau trong các [cụm động từ thông dụng](/blog/phrasal-verb-thong-dung/) như *pick it up*, nên bật rõ âm cuối cũng giúp bạn nghe ra phrasal verb.
+**Âm cuối bị nuốt.** Tiếng Việt không bật âm cuối như tiếng Anh, nên *rice* và *rise*, *bag* và *back* dễ nghe giống nhau. Hãy để ý âm cuối /s/, /z/, /t/, /d/, /k/ và đặc biệt đuôi -s, -ed. Âm cuối còn nối sang từ sau trong các [cụm động từ thông dụng](/vi/blog/phrasal-verb-thong-dung/) như *pick it up*, nên bật rõ âm cuối cũng giúp bạn nghe ra phrasal verb.
 
 **/ʃ/ và /s/.** *She* và *see*, *shoe* và *sue*. Với /ʃ/, môi chu ra và lưỡi lùi về sau.
 
@@ -112,9 +112,9 @@ Bạn không cần nói giọng nào "chuẩn" hơn. Trong IELTS, tiêu chí Pro
 3. **Học theo nhóm âm.** Mỗi tuần tập trung một cặp âm khó, gom 10 từ chứa cặp đó và đọc to. Nguồn từ có thể lấy từ [các bộ từ vựng theo chủ đề](/tu-vung/).
 4. **Ghi âm giọng mình.** Nghe lại thường phát hiện ra lỗi mà lúc nói không nhận ra.
 
-Nếu đang ôn IELTS, hãy tập đọc IPA ngay trên từ theo chủ đề thi: những từ dài như *environment* /ɪnˈvaɪrənmənt/ hay *technology* /tekˈnɒlədʒi/ rất hay bị đặt sai trọng âm. Các bài [từ vựng chủ đề Environment](/blog/tu-vung-ielts-chu-de-environment/), [từ vựng về công nghệ và AI](/blog/tu-vung-ielts-chu-de-technology/) và [từ vựng IELTS về giáo dục](/blog/tu-vung-ielts-chu-de-education/) là nguồn từ tốt để vừa học nghĩa vừa luyện phiên âm.
+Nếu đang ôn IELTS, hãy tập đọc IPA ngay trên từ theo chủ đề thi: những từ dài như *environment* /ɪnˈvaɪrənmənt/ hay *technology* /tekˈnɒlədʒi/ rất hay bị đặt sai trọng âm. Các bài [từ vựng chủ đề Environment](/vi/blog/tu-vung-ielts-chu-de-environment/), [từ vựng về công nghệ và AI](/vi/blog/tu-vung-ielts-chu-de-technology/) và [từ vựng IELTS về giáo dục](/vi/blog/tu-vung-ielts-chu-de-education/) là nguồn từ tốt để vừa học nghĩa vừa luyện phiên âm.
 
-Muốn đi xa hơn từng âm riêng lẻ, như nối âm, ngữ điệu và nhịp, bạn có thể đọc tiếp bài [luyện phát âm tiếng Anh](/blog/luyen-phat-am-tieng-anh/).
+Muốn đi xa hơn từng âm riêng lẻ, như nối âm, ngữ điệu và nhịp, bạn có thể đọc tiếp bài [luyện phát âm tiếng Anh](/vi/blog/luyen-phat-am-tieng-anh/).
 
 ## Làm ngay trong Lexkite: luyện IPA theo từng âm
 

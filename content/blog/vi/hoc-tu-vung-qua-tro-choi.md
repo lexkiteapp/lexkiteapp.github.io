@@ -9,7 +9,7 @@ tags: [gamification, tu-vung]
 keyword: "học từ vựng qua trò chơi"
 cover: practice
 coverAlt: "Màn hình Trò chơi và bài tập trong Lexkite với Học thông minh, Ghép thẻ, Trắc nghiệm, Điền từ"
-publishAt: 2026-10-21T21:54:00+07:00
+publishAt: 2026-10-24T14:24:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -18,7 +18,7 @@ Có hai kiểu người chơi game từ vựng. Người thứ nhất chơi mộ
 
 ## Vì sao trò chơi giúp nhớ từ (khi được thiết kế đúng)
 
-Cốt lõi của trí nhớ không phải là việc nhìn thông tin nhiều lần, mà là việc **tự lôi thông tin ra** từ đầu óc. Mỗi lần bạn cố nhớ nghĩa của một từ rồi kiểm tra lại, con đường dẫn đến từ đó trong trí nhớ được củng cố. Các nhà tâm lý học gọi đây là luyện truy xuất (retrieval practice) hay hiệu ứng kiểm tra. Bạn có thể tìm hiểu kỹ hơn ở bài [active recall – chủ động gợi nhớ](/blog/active-recall-chu-dong-goi-nho/).
+Cốt lõi của trí nhớ không phải là việc nhìn thông tin nhiều lần, mà là việc **tự lôi thông tin ra** từ đầu óc. Mỗi lần bạn cố nhớ nghĩa của một từ rồi kiểm tra lại, con đường dẫn đến từ đó trong trí nhớ được củng cố. Các nhà tâm lý học gọi đây là luyện truy xuất (retrieval practice) hay hiệu ứng kiểm tra. Bạn có thể tìm hiểu kỹ hơn ở bài [active recall – chủ động gợi nhớ](/vi/blog/active-recall-chu-dong-goi-nho/).
 
 Một trò chơi từ vựng tốt chính là một chuỗi bài kiểm tra ngắn được gói trong hình thức hấp dẫn. Nó mang lại ba thứ mà học thuộc danh sách không có:
 
@@ -50,11 +50,11 @@ Tuy nhiên, thời gian nên dùng **sau khi** bạn đã biết từ. Với t�
 
 ### 3. Chú ý câu sai, không chỉ điểm số
 
-Sau mỗi lượt chơi, nhìn lại những từ bạn sai hoặc chần chừ. Đó mới là "kho báu" của buổi học. Ghi chúng vào [sổ tay từ vựng riêng](/blog/so-tay-tu-vung-ca-nhan/), đặt một câu với từng từ, và để chúng quay lại trong lượt chơi kế tiếp. Điểm cao mà không xem lại lỗi thì giống như làm đề thi mà không xem đáp án.
+Sau mỗi lượt chơi, nhìn lại những từ bạn sai hoặc chần chừ. Đó mới là "kho báu" của buổi học. Ghi chúng vào [sổ tay từ vựng riêng](/vi/blog/so-tay-tu-vung-ca-nhan/), đặt một câu với từng từ, và để chúng quay lại trong lượt chơi kế tiếp. Điểm cao mà không xem lại lỗi thì giống như làm đề thi mà không xem đáp án. Khi ghi nghĩa cho những từ này, hãy thử đọc định nghĩa trong [từ điển Anh–Anh](/vi/blog/cach-dung-tu-dien-anh-anh/) thay vì chỉ chép nghĩa tiếng Việt.
 
 ### 4. Ngắn và đều hơn dài và thất thường
 
-Mười lăm phút mỗi ngày tốt hơn hai tiếng vào cuối tuần. Trí nhớ cần những lần ôn giãn cách để củng cố; chơi dồn một buổi dài khiến bạn nhớ nhanh nhưng quên cũng nhanh. Bài [lặp lại ngắt quãng](/blog/lap-lai-ngat-quang/) giải thích cơ chế này kỹ hơn.
+Mười lăm phút mỗi ngày tốt hơn hai tiếng vào cuối tuần. Trí nhớ cần những lần ôn giãn cách để củng cố; chơi dồn một buổi dài khiến bạn nhớ nhanh nhưng quên cũng nhanh. Bài [lặp lại ngắt quãng](/vi/blog/lap-lai-ngat-quang/) giải thích cơ chế này kỹ hơn.
 
 ## XP, chuỗi ngày, huy hiệu: dùng động lực mà không bị nó điều khiển
 
@@ -95,7 +95,7 @@ Những trò này buộc bạn tự nhớ lại và dùng từ ngay, đúng tinh
 
 Lexkite có sẵn nhiều dạng luyện tập nằm trong một màn hình, nên bạn có thể đi theo thang độ khó ở trên:
 
-1. Mở [Trò chơi & bài tập](/#/practice) và chọn nguồn từ là Sổ từ của tôi, để bạn luyện đúng những từ mình đã lưu. Những từ đó tốt nhất nên đến từ văn bản thật, chẳng hạn khi [đọc báo tiếng Anh mỗi ngày](/blog/doc-bao-tieng-anh-mo-rong-tu-vung/).
+1. Mở [Trò chơi & bài tập](/#/practice) và chọn nguồn từ là Sổ từ của tôi, để bạn luyện đúng những từ mình đã lưu. Những từ đó tốt nhất nên đến từ văn bản thật, chẳng hạn khi [đọc báo tiếng Anh mỗi ngày](/vi/blog/doc-bao-tieng-anh-mo-rong-tu-vung/).
 2. Với từ mới, bắt đầu bằng **Học thông minh** để xem nghĩa, ví dụ và mẹo nhớ.
 3. Chuyển sang **Ghép thẻ**: nối từ tiếng Anh với nghĩa tiếng Việt trong lúc đồng hồ đếm giây. Chơi lại để rút ngắn thời gian.
 4. Khi đã quen, nâng độ khó với **Điền từ**, **Nghe & chép** hoặc **Luyện phát âm**. Cuối tuần, làm một **Bài kiểm tra** để tổng kết.
@@ -112,7 +112,7 @@ Lexkite có sẵn nhiều dạng luyện tập nằm trong một màn hình, nê
 ## Câu hỏi thường gặp
 
 ### Học từ vựng qua trò chơi có thay được flashcard không?
-Nên dùng song song. Flashcard theo lịch giãn cách giúp từ không bị quên theo thời gian, còn trò chơi giúp bạn luyện truy xuất theo nhiều kiểu khác nhau và giữ hứng thú. Nếu đang ôn IELTS, hãy đặt cả hai vào một [cách học từ vựng IELTS bài bản, có lịch ôn](/blog/cach-hoc-tu-vung-ielts-hieu-qua/).
+Nên dùng song song. Flashcard theo lịch giãn cách giúp từ không bị quên theo thời gian, còn trò chơi giúp bạn luyện truy xuất theo nhiều kiểu khác nhau và giữ hứng thú. Nếu đang ôn IELTS, hãy đặt cả hai vào một [cách học từ vựng IELTS bài bản, có lịch ôn](/vi/blog/cach-hoc-tu-vung-ielts-hieu-qua/).
 
 ### Người lớn đi làm có nên học bằng game?
 Có. Trò chơi ngắn rất hợp với lịch bận rộn vì bạn có thể chơi một lượt trong lúc chờ xe hay nghỉ trưa. Quan trọng là chọn trò có độ khó phù hợp và xem lại lỗi.

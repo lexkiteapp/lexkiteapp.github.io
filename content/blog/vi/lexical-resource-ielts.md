@@ -9,7 +9,7 @@ tags: [band-descriptors, writing, speaking]
 keyword: "lexical resource ielts"
 cover: write
 coverAlt: "Phòng viết IELTS Task 2 trong Lexkite với gợi ý ý tưởng, từ vựng gợi ý và bài mẫu band 8"
-publishAt: 2026-10-27T16:33:00+07:00
+publishAt: 2026-11-03T06:23:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -50,7 +50,7 @@ Câu đầu dùng từ "xịn" hơn nhưng sai về logic: không ai có thể x
 
 ### Collocation và cấu tạo từ
 
-Đây là nơi người Việt mất điểm nhiều nhất, vì chúng ta hay dịch từng chữ. "Gây ra vấn đề" thành *make problems* thay vì *cause problems*; "tăng nhanh" thành *increase quickly* thay vì *rise sharply* hoặc *grow rapidly*. Lỗi cấu tạo từ cũng phổ biến: *economic* (thuộc về kinh tế) khác *economical* (tiết kiệm); *historic* (mang tính lịch sử, quan trọng) khác *historical* (thuộc về lịch sử). Bạn có thể đọc thêm bài [collocation trong IELTS](/blog/collocation-ielts/) để có danh sách cụm hay dùng theo chủ đề.
+Đây là nơi người Việt mất điểm nhiều nhất, vì chúng ta hay dịch từng chữ. "Gây ra vấn đề" thành *make problems* thay vì *cause problems*; "tăng nhanh" thành *increase quickly* thay vì *rise sharply* hoặc *grow rapidly*. Lỗi cấu tạo từ cũng phổ biến: *economic* (thuộc về kinh tế) khác *economical* (tiết kiệm); *historic* (mang tính lịch sử, quan trọng) khác *historical* (thuộc về lịch sử). Bạn có thể đọc thêm bài [collocation trong IELTS](/vi/blog/collocation-ielts/) để có danh sách cụm hay dùng theo chủ đề.
 
 ## Sự khác biệt giữa band 6, band 7 và band 8
 
@@ -76,7 +76,7 @@ Lưu ý: ví dụ trên chỉ minh họa xu hướng của tiêu chí, không ph
 
 ### 3. Paraphrase đề bài bằng nhiều cách
 
-Mỗi lần đọc một đề Task 2, hãy thử viết lại câu đề theo ba cách khác nhau. Đây là bài tập rèn phạm vi từ rất hiệu quả. Bài [cách paraphrase trong IELTS](/blog/cach-paraphrase-trong-ielts/) có các kỹ thuật cụ thể như đổi từ loại, đổi cấu trúc câu và dùng từ đồng nghĩa có kiểm soát.
+Mỗi lần đọc một đề Task 2, hãy thử viết lại câu đề theo ba cách khác nhau. Đây là bài tập rèn phạm vi từ rất hiệu quả. Bài [cách paraphrase trong IELTS](/vi/blog/cach-paraphrase-trong-ielts/) có các kỹ thuật cụ thể như đổi từ loại, đổi cấu trúc câu và dùng từ đồng nghĩa có kiểm soát.
 
 ### 4. Tra từ điển để kiểm tra, không chỉ để hiểu
 
@@ -92,7 +92,7 @@ Sau mỗi bài viết, dành năm phút chỉ để soát từ: từ nào lặp 
 
 ## Những lỗi khiến Lexical Resource "đứng yên"
 
-- **Học thuộc idiom để chèn vào Writing.** Thành ngữ như *a piece of cake* hay *once in a blue moon* gần như không bao giờ phù hợp với văn học thuật. Ở Speaking, idiom có thể dùng nếu thật tự nhiên, nhưng đừng ép (xem [cách chọn thành ngữ hợp ngữ cảnh khi nói](/blog/idiom-ielts-speaking/)).
+- **Học thuộc idiom để chèn vào Writing.** Thành ngữ như *a piece of cake* hay *once in a blue moon* gần như không bao giờ phù hợp với văn học thuật. Ở Speaking, idiom có thể dùng nếu thật tự nhiên, nhưng đừng ép (xem [cách chọn thành ngữ hợp ngữ cảnh khi nói](/vi/blog/idiom-ielts-speaking/)).
 - **Lạm dụng từ nối "xịn".** *Furthermore*, *moreover*, *nevertheless* ở đầu mỗi câu khiến bài nặng nề. Từ nối thuộc về Coherence & Cohesion nhiều hơn là Lexical Resource.
 - **Dùng từ chưa chắc chắn.** Một từ sai nghĩa gây hại nhiều hơn lợi ích của mười từ đúng. Nếu không chắc, hãy chọn từ đơn giản mà chính xác.
 - **Sai chính tả từ thông dụng.** *Goverment*, *accomodation*, *responsibilty* là những lỗi nhỏ nhưng lặp lại sẽ kéo điểm xuống.
@@ -106,7 +106,7 @@ Bạn có thể áp dụng các bước trên ngay trong ứng dụng, không c�
 
 1. Mở [Phòng viết IELTS](/#/write) và chọn một đề theo chủ đề bạn muốn luyện.
 2. Đọc phần từ vựng gợi ý trước khi viết. Chọn 5–6 cụm bạn chưa từng dùng và đặt mục tiêu đưa chúng vào bài.
-3. Viết bài theo khung có sẵn (tương tự [dàn bài bốn đoạn cho Task 2](/blog/cau-truc-ielts-writing-task-2/)), sau đó so với bài mẫu band 8 có chú thích. Chú ý cách bài mẫu chọn từ cụ thể thay vì từ chung chung.
+3. Viết bài theo khung có sẵn (tương tự [dàn bài bốn đoạn cho Task 2](/vi/blog/cau-truc-ielts-writing-task-2/)), sau đó so với bài mẫu band 8 có chú thích. Chú ý cách bài mẫu chọn từ cụ thể thay vì từ chung chung.
 4. Với mỗi từ còn phân vân, tra trong [từ điển Anh–Việt](/#/dict/) để xem collocation, câu ví dụ và từ đồng nghĩa, rồi bấm lưu thành flashcard.
 
 ![Từ điển Anh–Việt trong Lexkite tra từ resilient với phiên âm UK/US, nghĩa, câu ví dụ, collocation và đồng nghĩa](media:dict "Tra 'resilient': xem collocation, đồng nghĩa và lưu thẳng thành flashcard")
@@ -129,4 +129,4 @@ Không. Band 7 cần một số từ ít phổ biến được dùng có ý th�
 Hãy kiểm tra trong từ điển xem từ đó đi với danh từ, giới từ nào và có sắc thái gì. Đọc vài câu ví dụ; nếu ngữ cảnh khác xa câu của bạn, hãy giữ từ gốc hoặc chọn cách diễn đạt khác.
 
 ### Lexical Resource trong Speaking khác gì Writing?
-Speaking chấp nhận văn phong tự nhiên, gần đời thường hơn, và đánh giá thêm khả năng diễn đạt lại khi bạn không nhớ từ. Writing đòi hỏi văn phong trang trọng, chính tả đúng và collocation chặt chẽ hơn. Riêng [bài viết thư ở IELTS General Task 1](/blog/ielts-general-writing-task-1-viet-thu/) lại cần chọn giọng trang trọng hay thân mật tùy người nhận, nên từ vựng cũng phải đổi theo.
+Speaking chấp nhận văn phong tự nhiên, gần đời thường hơn, và đánh giá thêm khả năng diễn đạt lại khi bạn không nhớ từ. Writing đòi hỏi văn phong trang trọng, chính tả đúng và collocation chặt chẽ hơn. Riêng [bài viết thư ở IELTS General Task 1](/vi/blog/ielts-general-writing-task-1-viet-thu/) lại cần chọn giọng trang trọng hay thân mật tùy người nhận, nên từ vựng cũng phải đổi theo.

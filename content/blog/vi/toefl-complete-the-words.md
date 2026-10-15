@@ -9,7 +9,7 @@ tags: [toefl, reading]
 keyword: "complete the words toefl"
 cover: toefl
 coverAlt: "Trang luyện thi TOEFL iBT trong Lexkite với bảng cấu trúc đề và dạng Complete the Words"
-publishAt: 2026-10-30T14:37:00+07:00
+publishAt: 2026-11-07T21:05:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -33,12 +33,12 @@ Hãy xem một đoạn mẫu do Lexkite tự soạn để minh họa:
 Nói cách khác, Complete the Words đo ba năng lực:
 
 1. **Ngữ pháp trong ngữ cảnh**: chủ ngữ số ít hay số nhiều, thì của động từ, từ nối nào hợp lý.
-2. **Vốn từ vựng chủ động**: không chỉ nhận ra từ khi thấy đủ mặt chữ, mà phải tự sinh ra được từ đó. Vốn từ chủ động này cũng là nền cho [kỹ năng diễn đạt lại ý (paraphrase)](/blog/cach-paraphrase-trong-ielts/) mà mọi kỳ thi học thuật đều cần.
+2. **Vốn từ vựng chủ động**: không chỉ nhận ra từ khi thấy đủ mặt chữ, mà phải tự sinh ra được từ đó. Vốn từ chủ động này cũng là nền cho [kỹ năng diễn đạt lại ý (paraphrase)](/vi/blog/cach-paraphrase-trong-ielts/) mà mọi kỳ thi học thuật đều cần.
 3. **Chính tả**: một chữ cái sai là cả từ sai, không có điểm "gần đúng".
 
 ![Trang luyện thi TOEFL iBT trong Lexkite](media:toefl "Trang TOEFL iBT trong Lexkite: bảng cấu trúc đề định dạng mới và các dạng Complete the Words, Read in Daily Life, Read an Academic Passage")
 
-Nếu bạn chưa nắm tổng thể định dạng mới, hãy đọc trước bài [TOEFL iBT định dạng mới 2026](/blog/toefl-ibt-dinh-dang-moi-2026/) để biết Complete the Words nằm ở đâu trong toàn bộ bài thi.
+Nếu bạn chưa nắm tổng thể định dạng mới, hãy đọc trước bài [TOEFL iBT định dạng mới 2026](/vi/blog/toefl-ibt-dinh-dang-moi-2026/) để biết Complete the Words nằm ở đâu trong toàn bộ bài thi.
 
 ## Bốn tín hiệu giúp đoán đúng từ bị cắt
 
@@ -66,7 +66,7 @@ Chủ ngữ thật là "population" (số ít), nên đáp án là **has**, khô
 
 ### Tín hiệu 4: mạch logic của cả đoạn
 
-Từ nối như "however", "because", "although", "while" thường quyết định ý câu sau. Nếu câu trước nói một loài cây phát triển nhanh, câu sau mở đầu bằng "How____, it needs a lot of water" thì gần như chắc chắn là **However**, vì ý sau đưa ra mặt hạn chế. Thói quen bám mạch logic này cũng giúp ích khi bạn gặp các dạng suy luận như [True/False/Not Given trong IELTS Reading](/blog/ielts-reading-true-false-not-given/).
+Từ nối như "however", "because", "although", "while" thường quyết định ý câu sau. Nếu câu trước nói một loài cây phát triển nhanh, câu sau mở đầu bằng "How____, it needs a lot of water" thì gần như chắc chắn là **However**, vì ý sau đưa ra mặt hạn chế. Thói quen bám mạch logic này cũng giúp ích khi bạn gặp các dạng suy luận như [True/False/Not Given trong IELTS Reading](/vi/blog/ielts-reading-true-false-not-given/).
 
 ## Những lỗi hay gặp và cách sửa
 
@@ -113,7 +113,7 @@ Quy trình gợi ý cho một buổi 20 phút:
 
 ![Bài kiểm tra trắc nghiệm chọn nghĩa đúng của cụm từ](media:practice-test "Bài kiểm tra trong Lexkite: chọn nghĩa đúng của 'run out of' trong 4 phương án")
 
-Muốn nắm chắc vốn từ nền cho cả bài thi, bạn có thể đọc thêm [từ vựng TOEFL iBT](/blog/tu-vung-toefl-ibt/) để biết nên ưu tiên nhóm từ nào trước.
+Muốn nắm chắc vốn từ nền cho cả bài thi, bạn có thể đọc thêm [từ vựng TOEFL iBT](/vi/blog/tu-vung-toefl-ibt/) để biết nên ưu tiên nhóm từ nào trước.
 
 {{cta: /#/toefl | Làm thử một bài Complete the Words ngay}}
 
@@ -125,7 +125,7 @@ Muốn nắm chắc vốn từ nền cho cả bài thi, bạn có thể đọc t
 Với dạng này, một từ chỉ được tính là đúng khi bạn điền đúng toàn bộ các chữ cái còn thiếu. Vì vậy, sai một chữ cái cũng làm cả từ sai. Đây là lý do việc luyện chính tả chủ động quan trọng không kém việc học nghĩa.
 
 ### Nên làm từ đầu đến cuối hay nhảy ô?
-Nên [đọc lướt (skimming)](/blog/ielts-reading-skimming-scanning/) cả đoạn một lần để nắm ý, sau đó điền những ô bạn chắc chắn trước. Các ô đã điền tạo thêm ngữ cảnh giúp bạn giải những ô khó. Chỉ đừng dành quá lâu cho một ô duy nhất.
+Nên [đọc lướt (skimming)](/vi/blog/ielts-reading-skimming-scanning/) cả đoạn một lần để nắm ý, sau đó điền những ô bạn chắc chắn trước. Các ô đã điền tạo thêm ngữ cảnh giúp bạn giải những ô khó. Chỉ đừng dành quá lâu cho một ô duy nhất.
 
 ### Người mới học có nên luyện dạng này không?
 Có, nhưng nên bắt đầu sau khi đã nắm [từ vựng cốt lõi](/tu-vung/) và ngữ pháp cơ bản như thì, chia động từ, mạo từ. Nếu chưa vững, bạn sẽ chỉ đoán. Hãy củng cố nền tảng trước, rồi dùng dạng này như bài kiểm tra định kỳ.

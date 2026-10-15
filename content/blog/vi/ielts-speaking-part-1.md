@@ -9,7 +9,7 @@ tags: [speaking, part-1]
 keyword: "ielts speaking part 1"
 cover: speaking
 coverAlt: "Phòng luyện Speaking của Lexkite với câu hỏi Part 1 theo chủ đề"
-publishAt: 2026-10-26T07:08:00+07:00
+publishAt: 2026-11-01T18:21:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -46,7 +46,7 @@ Ví dụ tự viết:
 >
 > **Trả lời tốt:** *Yes, quite a lot, actually. It helps me relax after a long day at work. On Sundays I usually try a new recipe, and last week I made a pretty decent fish curry for the first time.*
 
-Câu trả lời tốt không dùng từ khó nào, nhưng có lý do, có thói quen (*usually*), có quá khứ (*made*), có cụm tự nhiên (*pretty decent*). Đó là tất cả những gì Part 1 cần. Một idiom nhẹ cũng có thể góp mặt, miễn là bạn [dùng idiom tự nhiên, không gượng ép](/blog/idiom-ielts-speaking/).
+Câu trả lời tốt không dùng từ khó nào, nhưng có lý do, có thói quen (*usually*), có quá khứ (*made*), có cụm tự nhiên (*pretty decent*). Đó là tất cả những gì Part 1 cần. Một idiom nhẹ cũng có thể góp mặt, miễn là bạn [dùng idiom tự nhiên, không gượng ép](/vi/blog/idiom-ielts-speaking/).
 
 ### Những cách mở rộng khi bí ý
 
@@ -86,7 +86,7 @@ Bạn không cần dùng cả năm cách cho mọi câu. Chỉ một cách là �
 >
 > *Honestly, far more than I'd like to. I check it first thing in the morning, which is a habit I'm trying to break. Recently I've turned off most notifications, and it's made a noticeable difference.*
 
-Để ý cách những câu trả lời trên dùng từ vựng **đời thường nhưng chính xác**: *spacious, appreciate, noticeable difference, a habit I'm trying to break*. Đây là kiểu từ giúp nâng [điểm Lexical Resource](/blog/lexical-resource-ielts/) mà không nghe gượng.
+Để ý cách những câu trả lời trên dùng từ vựng **đời thường nhưng chính xác**: *spacious, appreciate, noticeable difference, a habit I'm trying to break*. Đây là kiểu từ giúp nâng [điểm Lexical Resource](/vi/blog/lexical-resource-ielts/) mà không nghe gượng.
 
 ## Lỗi người Việt hay mắc ở Part 1
 
@@ -94,7 +94,7 @@ Bạn không cần dùng cả năm cách cho mọi câu. Chỉ một cách là �
 - **Trả lời quá dài:** nói liền một phút cho câu *"Do you like rain?"*. Part 1 cần nhịp nhanh; để dành độ dài cho Part 2.
 - **Học thuộc câu trả lời:** giọng đọc đều đều, từ quá "sách vở" so với câu hỏi đơn giản. Giám khảo được huấn luyện để nhận ra điều này.
 - **Lặp lại nguyên câu hỏi:** *"Do I like cooking? Yes, I like cooking."* – vừa tốn thời gian vừa không thêm gì. Hãy trả lời luôn hoặc dùng cụm tự nhiên như *"Yes, quite a lot."*
-- **Bỏ âm cuối:** *"I like cook"* thay vì *"I like cooking"*, *"I work there two year"*. Lỗi phát âm này đồng thời làm sai ngữ pháp trong tai giám khảo. Xem cách sửa trong bài [luyện phát âm tiếng Anh](/blog/luyen-phat-am-tieng-anh/).
+- **Bỏ âm cuối:** *"I like cook"* thay vì *"I like cooking"*, *"I work there two year"*. Lỗi phát âm này đồng thời làm sai ngữ pháp trong tai giám khảo. Xem cách sửa trong bài [luyện phát âm tiếng Anh](/vi/blog/luyen-phat-am-tieng-anh/).
 - **Lạm dụng cụm mở đầu:** câu nào cũng bắt đầu bằng *"Well, to be honest…"*. Một hai lần thì tự nhiên, mười lần thì thành tật.
 
 ## Làm ngay trong Lexkite: luyện Part 1 có phản hồi
@@ -112,7 +112,7 @@ Phát âm rõ là điều kiện để giám khảo hiểu bạn ngay. Nếu b�
 
 ![Màn hình luyện phát âm có chấm điểm với cụm cut down on và nút micro](media:practice-speak "Luyện phát âm có chấm điểm: bấm micro, đọc cụm từ, xem điểm theo giọng nói")
 
-Trong [Luyện phát âm](/#/practice/speak), bạn đọc từng cụm từ vào micro và được chấm theo giọng nói. Dùng nó cho những cụm bạn định dùng trong Part 1 – ví dụ *"cut down on"*, *"get used to"* – để chúng ra miệng tự nhiên khi thi. Khi Part 1 đã ổn, hãy chuyển sang [IELTS Speaking Part 2](/blog/ielts-speaking-part-2-cue-card/), phần đòi hỏi nói dài và có cấu trúc.
+Trong [Luyện phát âm](/#/practice/speak), bạn đọc từng cụm từ vào micro và được chấm theo giọng nói. Dùng nó cho những cụm bạn định dùng trong Part 1 – ví dụ *"cut down on"*, *"get used to"* – để chúng ra miệng tự nhiên khi thi. Khi Part 1 đã ổn, hãy chuyển sang [IELTS Speaking Part 2](/vi/blog/ielts-speaking-part-2-cue-card/), phần đòi hỏi nói dài và có cấu trúc.
 
 {{cta: /#/speaking | Trả lời thử 5 câu hỏi Part 1 và ghi âm lại}}
 
@@ -130,4 +130,4 @@ Nên chuẩn bị **ý và từ vựng** cho các chủ đề phổ biến, như
 Được. Bạn có thể lịch sự hỏi lại bằng *"Sorry, could you repeat the question, please?"*. Ở Part 1, giám khảo có thể nhắc lại câu hỏi nhưng thường không giải thích nghĩa của từ. Hỏi lại một lần không làm bạn mất điểm.
 
 ### Part 1 có ảnh hưởng nhiều đến điểm Speaking không?
-Điểm Speaking được đánh giá trên toàn bộ bài nói, không tách riêng từng phần. Tuy nhiên Part 1 là ấn tượng đầu tiên và là lúc bạn ổn định tâm lý. Trả lời tự nhiên, đủ ý ở Part 1 giúp bạn tự tin hơn khi bước sang Part 2 và Part 3. Nếu đang tự học, hãy đặt việc luyện nói vào một [lộ trình tự học IELTS từ mất gốc](/blog/lo-trinh-tu-hoc-ielts/) để kỹ năng này được luyện đều mỗi tuần.
+Điểm Speaking được đánh giá trên toàn bộ bài nói, không tách riêng từng phần. Tuy nhiên Part 1 là ấn tượng đầu tiên và là lúc bạn ổn định tâm lý. Trả lời tự nhiên, đủ ý ở Part 1 giúp bạn tự tin hơn khi bước sang Part 2 và Part 3. Nếu đang tự học, hãy đặt việc luyện nói vào một [lộ trình tự học IELTS từ mất gốc](/vi/blog/lo-trinh-tu-hoc-ielts/) để kỹ năng này được luyện đều mỗi tuần.

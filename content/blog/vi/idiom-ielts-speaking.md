@@ -9,7 +9,7 @@ tags: [idiom, speaking]
 keyword: "idiom ielts speaking"
 cover: speaking
 coverAlt: "Phòng luyện Speaking Lexkite với Part 1, 2, 3 theo chủ đề và câu trả lời mẫu"
-publishAt: 2026-10-19T13:35:00+07:00
+publishAt: 2026-10-20T08:56:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -64,7 +64,7 @@ Một idiom "đúng chỗ" thường có ba đặc điểm: trả lời trực t
 
 > *Honestly, only once in a blue moon. I'm usually on the go during the week, so I tend to grab something quick near my office. But at weekends I try to cook something simple with my sister.*
 
-Hai cụm (*once in a blue moon*, *on the go*) nhưng mỗi cụm đều phục vụ ý và có giải thích theo sau. Cách trả lời ngắn mà đủ ý này được phân tích kỹ trong bài [trả lời IELTS Speaking Part 1 sao cho ghi điểm](/blog/ielts-speaking-part-1/).
+Hai cụm (*once in a blue moon*, *on the go*) nhưng mỗi cụm đều phục vụ ý và có giải thích theo sau. Cách trả lời ngắn mà đủ ý này được phân tích kỹ trong bài [trả lời IELTS Speaking Part 1 sao cho ghi điểm](/vi/blog/ielts-speaking-part-1/).
 
 ### Ví dụ Part 2 (trích đoạn)
 
@@ -72,7 +72,7 @@ Hai cụm (*once in a blue moon*, *on the go*) nhưng mỗi cụm đều phục 
 
 > *…At first I kept falling off the board, but after about two weeks I finally got the hang of it. What I love is that surfing is a far cry from my office job – there are no screens, just the sea and the wind…*
 
-Ở Part 2, idiom nên nằm trong mạch kể chuyện; xem thêm [cách dùng 1 phút chuẩn bị cue card](/blog/ielts-speaking-part-2-cue-card/) để có dàn ý trước khi chèn cụm hay.
+Ở Part 2, idiom nên nằm trong mạch kể chuyện; xem thêm [cách dùng 1 phút chuẩn bị cue card](/vi/blog/ielts-speaking-part-2-cue-card/) để có dàn ý trước khi chèn cụm hay.
 
 ### Ví dụ Part 3
 
@@ -109,7 +109,7 @@ Mỗi tuần chỉ cần hai, ba idiom đi hết bốn bước là đủ. Mườ
 
 {{youtube: | Gợi ý video: So sánh câu trả lời Speaking lạm dụng idiom và câu trả lời tự nhiên}}
 
-Idiom chỉ là một phần của [tiêu chí Lexical Resource](/blog/lexical-resource-ielts/). Bạn có thể đọc thêm bài [phrasal verb thông dụng](/blog/phrasal-verb-thong-dung/) để có thêm cách diễn đạt tự nhiên cho Speaking.
+Idiom chỉ là một phần của [tiêu chí Lexical Resource](/vi/blog/lexical-resource-ielts/). Bạn có thể đọc thêm bài [phrasal verb thông dụng](/vi/blog/phrasal-verb-thong-dung/) để có thêm cách diễn đạt tự nhiên cho Speaking.
 
 ## Lỗi người Việt hay mắc khi dùng idiom
 
@@ -126,7 +126,7 @@ Không có quy định, nhưng một idiom trong một câu trả lời Part 1 h
 
 ### Dùng idiom trong IELTS Writing có được không?
 
-Hầu hết idiom mang sắc thái thân mật nên không phù hợp với Writing Task 2. Ngoại lệ là lá thư thân mật trong [IELTS General Writing Task 1](/blog/ielts-general-writing-task-1-viet-thu/), nơi một idiom nhẹ nhàng có thể hợp giọng. Một số cụm trung tính như *in the long run* thì dùng được, nhưng nhìn chung nên để idiom cho Speaking.
+Hầu hết idiom mang sắc thái thân mật nên không phù hợp với Writing Task 2. Ngoại lệ là lá thư thân mật trong [IELTS General Writing Task 1](/vi/blog/ielts-general-writing-task-1-viet-thu/), nơi một idiom nhẹ nhàng có thể hợp giọng. Một số cụm trung tính như *in the long run* thì dùng được, nhưng nhìn chung nên để idiom cho Speaking.
 
 ### Học idiom từ đâu để không bị lỗi thời?
 

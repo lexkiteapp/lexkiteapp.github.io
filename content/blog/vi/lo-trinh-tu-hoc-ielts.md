@@ -16,11 +16,11 @@ status: ready
 ---
 Tự học IELTS giống như leo núi không có hướng dẫn viên. Bạn hoàn toàn có thể lên đỉnh, nhưng nếu không có bản đồ, rất dễ đi vòng, kiệt sức giữa chừng hoặc lạc vào những con đường "mẹo nhanh" không dẫn tới đâu. Một **lộ trình tự học IELTS** rõ ràng giúp bạn biết hôm nay cần làm gì, tuần này cần đạt gì và khi nào nên chuyển sang giai đoạn tiếp theo.
 
-Bài viết chia hành trình từ mất gốc đến band 6.5+ thành bốn giai đoạn. Thời gian ở mỗi giai đoạn chỉ là gợi ý cho người học khoảng 1–1,5 giờ mỗi ngày; tốc độ thật phụ thuộc vào xuất phát điểm và mức độ đều đặn của bạn. Nếu đích đến của bạn là TOEIC, hãy xem [lộ trình riêng từ 450 lên 750+ điểm TOEIC](/blog/lo-trinh-tu-hoc-toeic/).
+Bài viết chia hành trình từ mất gốc đến band 6.5+ thành bốn giai đoạn. Thời gian ở mỗi giai đoạn chỉ là gợi ý cho người học khoảng 1–1,5 giờ mỗi ngày; tốc độ thật phụ thuộc vào xuất phát điểm và mức độ đều đặn của bạn. Nếu đích đến của bạn là TOEIC, hãy xem [lộ trình riêng từ 450 lên 750+ điểm TOEIC](/vi/blog/lo-trinh-tu-hoc-toeic/).
 
 ## Trước khi bắt đầu: biết mình đang ở đâu
 
-Sai lầm phổ biến nhất là chọn tài liệu theo cảm tính. Người mất gốc mở ngay sách luyện đề, còn người đã có nền lại quay về học bảng chữ cái. Cả hai đều lãng phí thời gian.
+Sai lầm phổ biến nhất là chọn tài liệu theo cảm tính. Người mất gốc mở ngay sách luyện đề, còn người đã có nền lại quay về học bảng chữ cái. Cả hai đều lãng phí thời gian. Nếu nền tảng còn quá yếu, hãy bắt đầu bằng [lộ trình học tiếng Anh mất gốc 90 ngày](/vi/blog/hoc-tieng-anh-mat-goc/) trước khi vào sách luyện đề.
 
 Hãy làm một bài kiểm tra trình độ ngắn về từ vựng và ngữ pháp để biết mình ở khoảng A2, B1 hay B2. Sau đó, đặt ba thông số:
 
@@ -28,7 +28,7 @@ Hãy làm một bài kiểm tra trình độ ngắn về từ vựng và ngữ p
 2. **Ngày thi dự kiến**, kể cả khi chưa đăng ký.
 3. **Số giờ thật sự có mỗi tuần**, tính trung thực, không phải số giờ "lý tưởng".
 
-Ba con số này cho bạn biết lộ trình cần căng hay thoải mái. Nếu khoảng cách quá lớn so với thời gian, hãy dời ngày thi thay vì ép bản thân học quá sức rồi bỏ cuộc. Bài [kiểm tra trình độ tiếng Anh](/blog/kiem-tra-trinh-do-tieng-anh/) giải thích kỹ hơn cách đọc kết quả đầu vào.
+Ba con số này cho bạn biết lộ trình cần căng hay thoải mái. Nếu khoảng cách quá lớn so với thời gian, hãy dời ngày thi thay vì ép bản thân học quá sức rồi bỏ cuộc. Bài [kiểm tra trình độ tiếng Anh](/vi/blog/kiem-tra-trinh-do-tieng-anh/) giải thích kỹ hơn cách đọc kết quả đầu vào.
 
 ## Lộ trình tự học IELTS qua 4 giai đoạn
 
@@ -65,7 +65,7 @@ Ví dụ câu bạn nên viết đúng ở cuối giai đoạn này: *I moved to
 Đây là lúc bắt đầu học "luật chơi" của IELTS.
 
 - **Listening:** làm quen 4 phần, các dạng điền từ, trắc nghiệm, nối thông tin.
-- **Reading:** luyện từng dạng câu như [True/False/Not Given](/blog/ielts-reading-true-false-not-given/), Matching Headings; tập skimming và scanning.
+- **Reading:** luyện từng dạng câu như [True/False/Not Given](/vi/blog/ielts-reading-true-false-not-given/), Matching Headings; tập skimming và scanning.
 - **Writing:** học cấu trúc bài Task 2 (mở bài, hai thân bài, kết bài) và cách mô tả biểu đồ Task 1. Đọc vài [bài mẫu Task 2 band 8 có chú thích](/samples/) giúp bạn thấy cấu trúc đó vận hành ra sao.
 - **Speaking:** luyện Part 2 với 1 phút chuẩn bị và nói 1–2 phút; Part 3 với câu trả lời có lý do và ví dụ.
 - **Từ vựng:** chuyển sang học theo chủ đề IELTS và từ học thuật. Danh sách AWL gồm 570 họ từ thường gặp trong văn bản học thuật là nguồn tốt.
@@ -76,7 +76,7 @@ Ngữ pháp ở giai đoạn này nên hướng tới câu phức: mệnh đề 
 
 Khi đã nắm dạng đề, phần lớn thời gian dành cho luyện có bấm giờ và sửa lỗi.
 
-- [Thi thử đủ bốn kỹ năng](/blog/thi-thu-ielts-online/) định kỳ, mỗi 1–2 tuần.
+- [Thi thử đủ bốn kỹ năng](/vi/blog/thi-thu-ielts-online/) định kỳ, mỗi 1–2 tuần.
 - Ghi lỗi sai vào sổ, ôn sổ lỗi đều đặn.
 - Viết ít nhất hai bài Task 2 mỗi tuần và tự chấm theo bốn tiêu chí.
 - Nâng cấp từ vựng: collocation, paraphrase, cách diễn đạt chính xác hơn.
@@ -101,7 +101,7 @@ Nguyên tắc: càng gần ngày thi, tỉ trọng luyện kỹ năng sản sinh
 - **Bỏ qua kỹ năng mình ghét.** Band overall là trung bình bốn kỹ năng. Một kỹ năng 5.0 có thể kéo cả bài xuống.
 - **Không đo tiến độ.** Không có mốc kiểm tra, bạn sẽ không biết lộ trình có đang hiệu quả hay không.
 
-Về cách học từ vựng sao cho nhớ lâu, bạn có thể đọc [cách học từ vựng IELTS hiệu quả](/blog/cach-hoc-tu-vung-ielts-hieu-qua/).
+Về cách học từ vựng sao cho nhớ lâu, bạn có thể đọc [cách học từ vựng IELTS hiệu quả](/vi/blog/cach-hoc-tu-vung-ielts-hieu-qua/).
 
 ## Làm ngay trong Lexkite: dựng lộ trình của riêng bạn
 

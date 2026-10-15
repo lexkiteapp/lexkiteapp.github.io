@@ -9,7 +9,7 @@ tags: [ngu-phap, writing]
 keyword: "câu phức trong ielts"
 cover: grammar
 coverAlt: "Trang Ngữ pháp IELTS trong Lexkite với lộ trình theo chương, 12 thì và bài luyện tổng hợp"
-publishAt: 2026-10-28T15:30:00+07:00
+publishAt: 2026-11-03T11:25:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -62,7 +62,7 @@ Khi đã dùng thuần thục, bạn có thể rút gọn để câu gọn hơn:
 
 ## Loại 2: Mệnh đề trạng ngữ (adverbial clauses)
 
-Mệnh đề trạng ngữ trả lời câu hỏi *khi nào, vì sao, với điều kiện gì, mặc dù gì*. Đây là loại câu phức dễ học nhất và dùng được ở hầu hết các đoạn. Khi [mô tả biểu đồ đường ở Task 1](/blog/ielts-writing-task-1-line-graph/), mệnh đề mở đầu bằng *while* hay *after* giúp so sánh hai xu hướng trong cùng một câu.
+Mệnh đề trạng ngữ trả lời câu hỏi *khi nào, vì sao, với điều kiện gì, mặc dù gì*. Đây là loại câu phức dễ học nhất và dùng được ở hầu hết các đoạn. Khi [mô tả biểu đồ đường ở Task 1](/vi/blog/ielts-writing-task-1-line-graph/), mệnh đề mở đầu bằng *while* hay *after* giúp so sánh hai xu hướng trong cùng một câu.
 
 | Chức năng | Từ nối | Ví dụ tự đặt |
 |---|---|---|
@@ -89,7 +89,7 @@ Mệnh đề danh từ đóng vai trò như một danh từ: làm chủ ngữ, t
 - **Câu hỏi gián tiếp:** *It is unclear **whether this policy will reduce pollution**.*
 - **Sau danh từ:** *There is growing evidence **that regular exercise improves concentration**.*
 
-Cấu trúc *What + mệnh đề + is…* đặc biệt hữu ích khi bạn muốn nhấn mạnh ý chính ở đầu đoạn. Còn *It is unclear whether…* là cách nói thận trọng rất hợp với văn học thuật. Trong [thư trang trọng của IELTS General](/blog/ielts-general-writing-task-1-viet-thu/), mẫu *I would be grateful if…* cũng là một câu phức rất quen thuộc.
+Cấu trúc *What + mệnh đề + is…* đặc biệt hữu ích khi bạn muốn nhấn mạnh ý chính ở đầu đoạn. Còn *It is unclear whether…* là cách nói thận trọng rất hợp với văn học thuật. Trong [thư trang trọng của IELTS General](/vi/blog/ielts-general-writing-task-1-viet-thu/), mẫu *I would be grateful if…* cũng là một câu phức rất quen thuộc.
 
 ### Lỗi người Việt hay mắc
 
@@ -98,7 +98,7 @@ Cấu trúc *What + mệnh đề + is…* đặc biệt hữu ích khi bạn mu�
 
 ## Viết câu phức trong IELTS: kết hợp cả ba loại mệnh đề
 
-Hãy thử biến một nhóm câu đơn thành một câu phức hoàn chỉnh. Đây là bài tập bạn có thể tự làm mỗi ngày. Đổi cấu trúc câu theo cách này cũng là một trong những [kỹ thuật paraphrase hay dùng trong IELTS](/blog/cach-paraphrase-trong-ielts/).
+Hãy thử biến một nhóm câu đơn thành một câu phức hoàn chỉnh. Đây là bài tập bạn có thể tự làm mỗi ngày. Đổi cấu trúc câu theo cách này cũng là một trong những [kỹ thuật paraphrase hay dùng trong IELTS](/vi/blog/cach-paraphrase-trong-ielts/).
 
 **Câu đơn:** *Many people shop online. It is convenient. Local shops are losing customers. This is a problem for town centres.*
 
@@ -106,7 +106,7 @@ Hãy thử biến một nhóm câu đơn thành một câu phức hoàn chỉnh.
 
 Câu này có một mệnh đề trạng ngữ chỉ nguyên nhân (*Because…*), một mệnh đề chính, và một mệnh đề quan hệ nối cả ý trước (*which poses…*). Nó dài vừa phải và hoàn toàn dễ đọc.
 
-Lưu ý quan trọng: đừng cố nhồi ba bốn mệnh đề vào mọi câu. Câu quá dài làm tăng khả năng mắc lỗi và giảm sự mạch lạc. Một bài tốt có nhịp: câu ngắn để nêu ý, câu phức để giải thích và phát triển. Khi kết hợp câu, bạn cũng cần từ nối phù hợp; bài [từ nối trong IELTS Writing](/blog/tu-noi-trong-ielts-writing/) có danh sách theo chức năng.
+Lưu ý quan trọng: đừng cố nhồi ba bốn mệnh đề vào mọi câu. Câu quá dài làm tăng khả năng mắc lỗi và giảm sự mạch lạc. Một bài tốt có nhịp: câu ngắn để nêu ý, câu phức để giải thích và phát triển. Khi kết hợp câu, bạn cũng cần từ nối phù hợp; bài [từ nối trong IELTS Writing](/vi/blog/tu-noi-trong-ielts-writing/) có danh sách theo chức năng.
 
 ## Làm ngay trong Lexkite: luyện câu phức có hệ thống
 
@@ -125,7 +125,7 @@ Lưu ý quan trọng: đừng cố nhồi ba bốn mệnh đề vào mọi câu.
 
 {{youtube: | Gợi ý video: ghép bốn câu đơn thành một câu phức đúng ngữ pháp, giải thích từng bước}}
 
-Khi đã quen câu phức, hãy đặt chúng vào đúng khung bài. Bài [cấu trúc IELTS Writing Task 2](/blog/cau-truc-ielts-writing-task-2/) giúp bạn biết nên dùng loại câu nào ở mở bài, thân bài và kết bài.
+Khi đã quen câu phức, hãy đặt chúng vào đúng khung bài. Bài [cấu trúc IELTS Writing Task 2](/vi/blog/cau-truc-ielts-writing-task-2/) giúp bạn biết nên dùng loại câu nào ở mở bài, thân bài và kết bài.
 
 ## Câu hỏi thường gặp
 

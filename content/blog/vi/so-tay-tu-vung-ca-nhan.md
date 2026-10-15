@@ -9,7 +9,7 @@ tags: [so-tu, tu-vung]
 keyword: "sổ tay từ vựng"
 cover: library
 coverAlt: "Thư viện từ vựng Lexkite với các bộ từ cốt lõi có cấp độ A1 đến B2"
-publishAt: 2026-10-22T12:36:00+07:00
+publishAt: 2026-10-25T12:18:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -55,11 +55,11 @@ Có ba cách sắp xếp phổ biến, mỗi cách hợp với mục tiêu khác
 
 1. **Theo chủ đề:** môi trường, giáo dục, công nghệ, sức khỏe… Rất hợp với IELTS Writing và Speaking, vì đề thi đến theo chủ đề. Mỗi chủ đề vài trang, để trống chỗ để bổ sung. Có thể mượn khung chủ đề từ [các bộ từ vựng IELTS, TOEIC chia nhóm sẵn](/tu-vung/).
 2. **Theo kỹ năng:** một phần cho từ dùng khi viết (từ nối, cụm học thuật), một phần cho từ nói (cụm thân mật, cụm động từ). Hợp nếu bạn đang yếu một kỹ năng cụ thể.
-3. **Theo nguồn:** mỗi bài đọc, mỗi bài nghe một trang. Hợp cho giai đoạn đọc rộng, ví dụ khi bạn [đọc báo tiếng Anh mỗi ngày để lấy từ](/blog/doc-bao-tieng-anh-mo-rong-tu-vung/), nhưng khó ôn tổng hợp.
+3. **Theo nguồn:** mỗi bài đọc, mỗi bài nghe một trang. Hợp cho giai đoạn đọc rộng, ví dụ khi bạn [đọc báo tiếng Anh mỗi ngày để lấy từ](/vi/blog/doc-bao-tieng-anh-mo-rong-tu-vung/), nhưng khó ôn tổng hợp.
 
 Một cách kết hợp hiệu quả: ghi nhanh theo nguồn trong lúc học, rồi cuối tuần chuyển những từ đáng giữ sang phần theo chủ đề. Việc chép lại lần hai chính là một lần ôn.
 
-Ngoài từ đơn, hãy dành riêng vài trang cho **cụm từ và cấu trúc câu hay**, ví dụ *It is widely believed that…*, *play a crucial role in…*. Nếu bạn đang ôn IELTS, bài [collocation trong IELTS](/blog/collocation-ielts/) gợi ý những cụm nên đưa vào phần này.
+Ngoài từ đơn, hãy dành riêng vài trang cho **cụm từ và cấu trúc câu hay**, ví dụ *It is widely believed that…*, *play a crucial role in…*. Nếu bạn đang ôn IELTS, bài [collocation trong IELTS](/vi/blog/collocation-ielts/) gợi ý những cụm nên đưa vào phần này.
 
 ### Thói quen ôn sổ mỗi tuần
 
@@ -68,7 +68,7 @@ Một cuốn sổ chỉ có giá trị khi được mở lại. Hãy đặt lị
 1. Lướt các từ ghi trong tuần, che cột nghĩa và tự nói nghĩa.
 2. Từ nào nhớ ngay, đánh một dấu tích nhỏ. Từ nào phải nghĩ lâu hoặc sai, khoanh tròn.
 3. Với mỗi từ khoanh tròn, viết thêm một câu mới, khác câu cũ.
-4. Chọn ba từ khoanh tròn để dùng trong tuần tới, khi nhắn tin, viết nhật ký hay luyện nói. Nếu thấy ôn sổ khô khan, vài [trò chơi từ vựng ngắn](/blog/hoc-tu-vung-qua-tro-choi/) cũng là một lượt ôn có ích.
+4. Chọn ba từ khoanh tròn để dùng trong tuần tới, khi nhắn tin, viết nhật ký hay luyện nói. Nếu thấy ôn sổ khô khan, vài [trò chơi từ vựng ngắn](/vi/blog/hoc-tu-vung-qua-tro-choi/) cũng là một lượt ôn có ích.
 
 Sau một tháng, nhìn số dấu tích và số vòng tròn là bạn biết ngay phần nào của sổ đã "sống" và phần nào vẫn nằm im trên giấy.
 
@@ -80,7 +80,7 @@ Hãy dành vài trang cuối cho những lỗi bạn từng mắc: dùng sai gi�
 - ✓ *I'm interested in history.*
 - Lý do: *-ed* cho cảm xúc của người, *-ing* cho tính chất của sự vật.
 
-Lỗi sai là thông tin cá nhân hóa nhất mà bạn có. Một trang lỗi được ôn đều đặn thường giúp bạn tiến bộ nhanh hơn một trang từ mới. Bài [sổ lỗi sai tiếng Anh](/blog/so-loi-sai-tieng-anh/) hướng dẫn chi tiết hơn cách phân loại và ôn lỗi.
+Lỗi sai là thông tin cá nhân hóa nhất mà bạn có. Một trang lỗi được ôn đều đặn thường giúp bạn tiến bộ nhanh hơn một trang từ mới. Bài [sổ lỗi sai tiếng Anh](/vi/blog/so-loi-sai-tieng-anh/) hướng dẫn chi tiết hơn cách phân loại và ôn lỗi.
 
 {{youtube: | Gợi ý video: Mở một cuốn sổ tay từ vựng mẫu và cách ghi một mục từ đủ 6 thông tin}}
 
@@ -88,7 +88,7 @@ Lỗi sai là thông tin cá nhân hóa nhất mà bạn có. Một trang lỗi 
 
 Sổ giấy có lợi thế: viết tay giúp bạn chậm lại và chú ý hơn. Nhưng nó có một điểm yếu lớn: không tự nhắc bạn ôn. Từ ghi tuần trước sẽ bị quên nếu bạn không chủ động lật lại, mà con người thì thường lật những trang mình đã thuộc.
 
-Giải pháp là kết hợp: ghi tay hoặc ghi nhanh trên điện thoại khi gặp từ, rồi chuyển những từ đáng nhớ sang flashcard có lịch ôn giãn cách. Thuật toán sẽ tính khi nào bạn sắp quên và đưa từ đó trở lại, thay bạn quyết định "hôm nay ôn trang nào". Nếu bạn chưa quen khái niệm này, xem bài [FSRS là gì](/blog/fsrs-la-gi/).
+Giải pháp là kết hợp: ghi tay hoặc ghi nhanh trên điện thoại khi gặp từ, rồi chuyển những từ đáng nhớ sang flashcard có lịch ôn giãn cách. Thuật toán sẽ tính khi nào bạn sắp quên và đưa từ đó trở lại, thay bạn quyết định "hôm nay ôn trang nào". Nếu bạn chưa quen khái niệm này, xem bài [FSRS là gì](/vi/blog/fsrs-la-gi/).
 
 Quy tắc chuyển đơn giản: từ nào bạn **muốn dùng** khi nói hoặc viết thì chuyển thành thẻ. Từ chỉ cần nhận ra khi đọc thì để trong sổ là đủ.
 

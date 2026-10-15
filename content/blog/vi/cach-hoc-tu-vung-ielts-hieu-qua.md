@@ -24,13 +24,13 @@ Trước khi vào các bước, hãy nhìn ba nguyên nhân phổ biến nhất 
 - **Học từ trần trụi.** Biết *impact* nghĩa là "tác động" nhưng không biết nói *have an impact on*, nên khi viết lại thành *impact to* hay *make impact*.
 - **Không có lịch ôn.** Não người quên rất nhanh trong vài ngày đầu. Không ôn đúng lúc thì công học coi như mất.
 
-Ba lỗi này gợi ý luôn lời giải: chọn từ vừa sức, học theo cụm và ngữ cảnh, ôn có hệ thống. Bảy bước dưới đây chỉ là cách sắp xếp ba nguyên tắc đó thành thói quen hằng ngày.
+Ba lỗi này gợi ý luôn lời giải: chọn từ vừa sức, học theo cụm và ngữ cảnh, ôn có hệ thống. Bảy bước dưới đây chỉ là cách sắp xếp ba nguyên tắc đó thành thói quen hằng ngày. Với những từ nghe giống nhau hoặc nghĩa gần nhau, hãy tách riêng thành từng cặp, như trong bài [các cặp từ dễ nhầm lẫn](/vi/blog/cac-cap-tu-de-nham-lan-trong-tieng-anh/). Với những từ nghe giống nhau hoặc nghĩa gần nhau, hãy tách riêng thành từng cặp, như trong bài [các cặp từ dễ nhầm lẫn](/vi/blog/cac-cap-tu-de-nham-lan-trong-tieng-anh/).
 
 ## Cách học từ vựng IELTS theo 7 bước
 
 ### Bước 1: Xác định nền tảng trước khi học "từ IELTS"
 
-IELTS không chỉ kiểm tra từ học thuật. Phần lớn bài nghe, bài đọc vẫn được xây trên khoảng vài nghìn từ thông dụng nhất. Nếu bạn còn hổng nhóm từ này, hãy lấp nó trước. Một bộ hữu ích là NGSL (New General Service List) với khoảng 2.800 từ cốt lõi. Sau đó mới chuyển sang từ học thuật như Academic Word List và từ theo chủ đề thi, ví dụ [nhóm từ về giáo dục](/blog/tu-vung-ielts-chu-de-education/), [cụm từ chủ đề môi trường](/blog/tu-vung-ielts-chu-de-environment/) hay [từ vựng công nghệ, mạng xã hội](/blog/tu-vung-ielts-chu-de-technology/).
+IELTS không chỉ kiểm tra từ học thuật. Phần lớn bài nghe, bài đọc vẫn được xây trên khoảng vài nghìn từ thông dụng nhất. Nếu bạn còn hổng nhóm từ này, hãy lấp nó trước. Một bộ hữu ích là NGSL (New General Service List) với khoảng 2.800 từ cốt lõi. Sau đó mới chuyển sang từ học thuật như Academic Word List và từ theo chủ đề thi, ví dụ [nhóm từ về giáo dục](/vi/blog/tu-vung-ielts-chu-de-education/), [cụm từ chủ đề môi trường](/vi/blog/tu-vung-ielts-chu-de-environment/) hay [từ vựng công nghệ, mạng xã hội](/vi/blog/tu-vung-ielts-chu-de-technology/).
 
 Một cách tự kiểm tra nhanh: đọc một đoạn bài báo tiếng Anh khoảng 200 từ. Nếu bạn phải tra hơn 10 từ, nền tảng còn mỏng, nên ưu tiên từ cốt lõi.
 
@@ -46,7 +46,7 @@ Với mỗi từ, ghi ít nhất ba thứ: nghĩa, một câu ví dụ, và mộ
 - Cụm: *sustainable development*, *a sustainable way of living*.
 - Câu tự đặt: *Many cities are trying to make public transport a more sustainable choice for commuters.*
 
-Khi tự đặt câu, bạn buộc não xử lý từ ở mức sâu hơn so với chỉ đọc nghĩa. Đây cũng là lý do câu ví dụ do chính bạn viết thường dễ nhớ hơn câu chép sẵn.
+Khi tự đặt câu, bạn buộc não xử lý từ ở mức sâu hơn so với chỉ đọc nghĩa. Đây cũng là lý do câu ví dụ do chính bạn viết thường dễ nhớ hơn câu chép sẵn. Khi tự đặt câu cho nhóm từ chỉ cảm xúc, [thang cường độ từ vựng về cảm xúc](/vi/blog/tu-vung-tieng-anh-ve-cam-xuc/) giúp bạn chọn đúng mức độ. Khi tự đặt câu cho nhóm từ chỉ cảm xúc, [thang cường độ từ vựng về cảm xúc](/vi/blog/tu-vung-tieng-anh-ve-cam-xuc/) giúp bạn chọn đúng mức độ.
 
 ### Bước 4: Nghe và nói từ thành tiếng
 
@@ -54,7 +54,7 @@ Một từ bạn không phát âm được sẽ khó nhận ra trong Listening. 
 
 ### Bước 5: Ôn ngắt quãng thay vì ôn dồn
 
-Thay vì đọc lại cả danh sách mỗi tối, hãy ôn mỗi từ vào đúng lúc bạn sắp quên nó. Khoảng cách giữa các lần ôn tăng dần: một ngày, vài ngày, một tuần, vài tuần. Nguyên lý này gọi là lặp lại ngắt quãng, bạn có thể đọc kỹ hơn ở bài [lặp lại ngắt quãng là gì](/blog/lap-lai-ngat-quang/). Làm thủ công rất mất công, nên dùng flashcard có thuật toán lập lịch sẽ nhẹ nhàng hơn nhiều.
+Thay vì đọc lại cả danh sách mỗi tối, hãy ôn mỗi từ vào đúng lúc bạn sắp quên nó. Khoảng cách giữa các lần ôn tăng dần: một ngày, vài ngày, một tuần, vài tuần. Nguyên lý này gọi là lặp lại ngắt quãng, bạn có thể đọc kỹ hơn ở bài [lặp lại ngắt quãng là gì](/vi/blog/lap-lai-ngat-quang/). Làm thủ công rất mất công, nên dùng flashcard có thuật toán lập lịch sẽ nhẹ nhàng hơn nhiều.
 
 ### Bước 6: Tự kiểm tra, đừng chỉ đọc lại
 
@@ -66,7 +66,7 @@ Một từ chỉ thực sự thuộc về bạn khi bạn chủ động dùng đ
 
 > *Our city still relies heavily on motorbikes, so reducing emissions will require a more sustainable transport system.*
 
-Nếu không chắc câu mình viết có tự nhiên không, hãy tra lại collocation trong từ điển hoặc đối chiếu danh sách [collocation học thuật cho IELTS](/blog/collocation-ielts/) trước khi ghi vào sổ.
+Nếu không chắc câu mình viết có tự nhiên không, hãy tra lại collocation trong từ điển hoặc đối chiếu danh sách [collocation học thuật cho IELTS](/vi/blog/collocation-ielts/) trước khi ghi vào sổ.
 
 ## Lịch học mẫu 30 phút mỗi ngày
 

@@ -9,7 +9,7 @@ tags: [toefl, dinh-dang-moi]
 keyword: "toefl ibt 2026"
 cover: toefl
 coverAlt: "Trang Luyện thi TOEFL iBT trong Lexkite với thông tin định dạng mới từ 21/01/2026 và bảng cấu trúc đề"
-publishAt: 2026-10-30T10:32:00+07:00
+publishAt: 2026-11-07T20:22:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -53,7 +53,7 @@ Tổng cộng có 12 dạng bài. Dưới đây là điểm chính của từng 
 
 ## Reading: ba dạng bài, trong đó hai dạng mới
 
-**Complete the Words.** Bạn đọc một đoạn văn học thuật ngắn, trong đó một số từ bị xóa mất phần sau, và phải điền các chữ cái còn thiếu. Ví dụ tự soạn: *Many students prefer to stu___ in the library because it is qui___.* (đáp án: *study*, *quiet*). Dạng này kiểm tra cùng lúc từ vựng, chính tả và ngữ pháp. Mẹo: đọc cả câu trước khi điền, vì loại từ, thì và số ít/số nhiều thường quyết định đáp án. Bài [Complete the Words TOEFL](/blog/toefl-complete-the-words/) đi sâu vào dạng này.
+**Complete the Words.** Bạn đọc một đoạn văn học thuật ngắn, trong đó một số từ bị xóa mất phần sau, và phải điền các chữ cái còn thiếu. Ví dụ tự soạn: *Many students prefer to stu___ in the library because it is qui___.* (đáp án: *study*, *quiet*). Dạng này kiểm tra cùng lúc từ vựng, chính tả và ngữ pháp. Mẹo: đọc cả câu trước khi điền, vì loại từ, thì và số ít/số nhiều thường quyết định đáp án. Bài [Complete the Words TOEFL](/vi/blog/toefl-complete-the-words/) đi sâu vào dạng này.
 
 **Read in Daily Life.** Đọc những văn bản đời thường như thông báo, email, tờ rơi, tin nhắn rồi trả lời câu hỏi trắc nghiệm. Đây là thay đổi đáng chú ý: TOEFL không còn chỉ toàn bài học thuật dài.
 
@@ -86,12 +86,12 @@ Mẹo chung: ghi chú từ khóa và chú ý các từ nối như *however*, *so
 ## Nên chuẩn bị TOEFL iBT 2026 thế nào?
 
 1. **Bỏ tài liệu theo định dạng cũ** cho phần cấu trúc đề. Từ vựng và kỹ năng đọc nghe vẫn dùng được, nhưng dạng bài đã khác.
-2. **Củng cố từ vựng học thuật và chính tả.** Complete the Words và Build a Sentence trừng phạt lỗi chính tả, lỗi trật tự từ. Danh sách học thuật như [AWL (570 họ từ)](/blog/academic-word-list-awl/) là nguồn tốt; xem thêm [từ vựng TOEFL iBT](/blog/tu-vung-toefl-ibt/). Các bộ này cũng có sẵn trên [trang từ vựng theo kỳ thi](/tu-vung/).
-3. **Luyện văn bản đời thường**, không chỉ văn bản học thuật, cho Read in Daily Life và Listen and Choose a Response. Với những văn bản này, [nhóm khoảng 2.800 từ thông dụng nhất](/blog/2800-tu-tieng-anh-thong-dung-ngsl/) quan trọng không kém từ học thuật.
+2. **Củng cố từ vựng học thuật và chính tả.** Complete the Words và Build a Sentence trừng phạt lỗi chính tả, lỗi trật tự từ. Danh sách học thuật như [AWL (570 họ từ)](/vi/blog/academic-word-list-awl/) là nguồn tốt; xem thêm [từ vựng TOEFL iBT](/vi/blog/tu-vung-toefl-ibt/). Các bộ này cũng có sẵn trên [trang từ vựng theo kỳ thi](/tu-vung/).
+3. **Luyện văn bản đời thường**, không chỉ văn bản học thuật, cho Read in Daily Life và Listen and Choose a Response. Với những văn bản này, [nhóm khoảng 2.800 từ thông dụng nhất](/vi/blog/2800-tu-tieng-anh-thong-dung-ngsl/) quan trọng không kém từ học thuật.
 4. **Luyện viết nhanh có giới hạn thời gian** cho Email và Academic Discussion.
 5. **Luyện nhắc lại câu chính xác** để chuẩn bị cho Listen and Repeat; ghi âm và so sánh với bản gốc.
 
-Nếu bạn còn đang cân nhắc giữa các kỳ thi, bài [nên thi IELTS, TOEIC hay TOEFL](/blog/nen-thi-ielts-toeic-hay-toefl/) có so sánh giúp bạn chọn.
+Nếu bạn còn đang cân nhắc giữa các kỳ thi, bài [nên thi IELTS, TOEIC hay TOEFL](/vi/blog/nen-thi-ielts-toeic-hay-toefl/) có so sánh giúp bạn chọn.
 
 ## Làm ngay trong Lexkite: luyện đủ 12 dạng bài
 

@@ -9,7 +9,7 @@ tags: [dictation, listening]
 keyword: "chép chính tả tiếng anh"
 cover: listening
 coverAlt: "Màn hình Luyện nghe IELTS trong Lexkite có nút Chép chính tả"
-publishAt: 2026-10-25T12:18:00+07:00
+publishAt: 2026-10-30T14:37:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -67,21 +67,21 @@ Ba mức độ nên đi qua lần lượt:
 
 Về tốc độ: nghe ở tốc độ chậm hơn một chút là hợp lý khi mới tập, nhưng đừng ở đó mãi. Mục tiêu cuối cùng là chép được ở tốc độ tự nhiên.
 
-Về chất liệu: hội thoại đời thường (đặt chỗ, hỏi đường) dễ hơn bài giảng học thuật. Bắt đầu từ đó, rồi tăng dần. Nếu bạn đang ôn IELTS, các phần nghe theo đúng định dạng đề là lựa chọn tốt, vì bạn luyện tai và làm quen dạng bài cùng lúc. Xem thêm [mẹo làm bài IELTS Listening](/blog/meo-lam-bai-ielts-listening/) để kết hợp.
+Về chất liệu: hội thoại đời thường (đặt chỗ, hỏi đường) dễ hơn bài giảng học thuật. Bắt đầu từ đó, rồi tăng dần. Nếu bạn đang ôn IELTS, các phần nghe theo đúng định dạng đề là lựa chọn tốt, vì bạn luyện tai và làm quen dạng bài cùng lúc. Xem thêm [mẹo làm bài IELTS Listening](/vi/blog/meo-lam-bai-ielts-listening/) để kết hợp.
 
 ## Giữ thói quen: 10 phút mỗi ngày tốt hơn 2 giờ cuối tuần
 
-Dictation đòi hỏi tập trung cao nên rất mệt nếu làm lâu; nó hợp nhất khi là một phần trong [lịch học 15 phút mỗi ngày](/blog/hoc-tieng-anh-15-phut-moi-ngay/). Một lịch đơn giản:
+Dictation đòi hỏi tập trung cao nên rất mệt nếu làm lâu; nó hợp nhất khi là một phần trong [lịch học 15 phút mỗi ngày](/vi/blog/hoc-tieng-anh-15-phut-moi-ngay/). Một lịch đơn giản:
 
 - **Thứ Hai đến thứ Sáu:** 10 phút mỗi ngày, khoảng 5–8 câu.
 - **Thứ Bảy:** nghe lại toàn bộ đoạn đã chép trong tuần, không nhìn chữ. Bạn sẽ ngạc nhiên vì nghe rõ hơn hẳn.
-- **Chủ nhật:** nghỉ, hoặc chỉ ôn lại flashcard các từ mới gặp, hay [đọc một bài báo tiếng Anh ngắn](/blog/doc-bao-tieng-anh-mo-rong-tu-vung/) để gặp lại các từ đó trong văn bản.
+- **Chủ nhật:** nghỉ, hoặc chỉ ôn lại flashcard các từ mới gặp, hay [đọc một bài báo tiếng Anh ngắn](/vi/blog/doc-bao-tieng-anh-mo-rong-tu-vung/) để gặp lại các từ đó trong văn bản.
 
 Vài cách chống nản:
 
 - **Ghi lại tỉ lệ chính xác** mỗi ngày. Nhìn con số tăng từ 60% lên 80% là động lực rất thật.
 - **Không chép bài hoàn toàn mới mỗi ngày.** Quay lại bài cũ ở mức khó hơn cũng là một buổi luyện tốt.
-- **Đọc to câu vừa chép** (kỹ thuật nhại theo – shadowing). Nói được thì nghe dễ hơn. Bạn có thể đọc thêm về [shadowing luyện nói](/blog/shadowing-luyen-noi-tieng-anh/).
+- **Đọc to câu vừa chép** (kỹ thuật nhại theo – shadowing). Nói được thì nghe dễ hơn. Bạn có thể đọc thêm về [shadowing luyện nói](/vi/blog/shadowing-luyen-noi-tieng-anh/).
 - **Chấp nhận để lại khoảng trống.** Có những câu bạn sẽ không nghe ra hôm nay. Không sao cả.
 
 ## Làm ngay trong Lexkite: chép chính tả theo từng phần nghe
@@ -115,7 +115,7 @@ Có, nếu chọn đúng mức. Người mới nên bắt đầu với dạng đ
 Khoảng 3–4 lần là hợp lý. Nếu vẫn không nghe ra, hãy để trống và đi tiếp, sau đó xem lời thoại. Việc nghe lại một câu quá nhiều lần thường không giúp thêm, chỉ làm bạn mệt và mất động lực.
 
 ### Nên gõ hay viết tay khi chép chính tả?
-Cả hai đều được. Gõ nhanh hơn, dễ so với lời thoại và làm được ngay trên [ứng dụng học tiếng Anh miễn phí trên điện thoại](/blog/app-hoc-tieng-anh-tren-dien-thoai/). Viết tay giúp nhớ chính tả tốt hơn và giống điều kiện thi trên giấy. Bạn có thể gõ khi luyện hằng ngày và thỉnh thoảng viết tay để rèn chính tả.
+Cả hai đều được. Gõ nhanh hơn, dễ so với lời thoại và làm được ngay trên [ứng dụng học tiếng Anh miễn phí trên điện thoại](/vi/blog/app-hoc-tieng-anh-tren-dien-thoai/). Viết tay giúp nhớ chính tả tốt hơn và giống điều kiện thi trên giấy. Bạn có thể gõ khi luyện hằng ngày và thỉnh thoảng viết tay để rèn chính tả.
 
 ### Bao lâu thì thấy dictation có hiệu quả?
 Điều này khác nhau ở mỗi người. Thường sau vài tuần luyện đều mỗi ngày, bạn sẽ nhận ra mình nghe rõ hơn các từ nhỏ và âm cuối. Ghi lại tỉ lệ chính xác mỗi buổi là cách tốt nhất để tự thấy tiến bộ.

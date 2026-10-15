@@ -9,7 +9,7 @@ tags: [technology, ielts, chu-de]
 keyword: "từ vựng ielts chủ đề technology"
 cover: library
 coverAlt: "Thư viện từ vựng Lexkite chia bộ từ theo NGSL, IELTS theo đề, Writing, Speaking và TOEIC"
-publishAt: 2026-10-20T17:00:00+07:00
+publishAt: 2026-10-22T18:13:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -20,7 +20,7 @@ Hãy thử tự hỏi: bạn có thể nói liền hai phút về việc trí tu
 
 Ở Writing Task 2, đề công nghệ thường đi theo vài hướng: lợi ích và tác hại của mạng xã hội với giới trẻ, máy móc có lấy mất việc làm không, có nên hạn chế trẻ em dùng thiết bị điện tử, chính phủ có nên kiểm soát dữ liệu cá nhân. Ở Speaking, Part 1 hỏi bạn dùng điện thoại vào việc gì, Part 2 có thể yêu cầu mô tả một thiết bị hay một ứng dụng hữu ích, Part 3 hỏi về tương lai của công nghệ trong xã hội.
 
-Công nghệ cũng thường đan vào các đề khác, chẳng hạn học online trong [nhóm từ vựng về giáo dục](/blog/tu-vung-ielts-chu-de-education/) hay xe điện trong [nhóm từ về môi trường](/blog/tu-vung-ielts-chu-de-environment/).
+Công nghệ cũng thường đan vào các đề khác, chẳng hạn học online trong [nhóm từ vựng về giáo dục](/vi/blog/tu-vung-ielts-chu-de-education/) hay xe điện trong [nhóm từ về môi trường](/vi/blog/tu-vung-ielts-chu-de-environment/).
 
 Điểm chung là giám khảo muốn thấy bạn dùng từ chính xác thay vì những từ chung chung như "technology is good" hay "use phone too much". Mỗi nhóm dưới đây giúp bạn chuyển từ ý mơ hồ sang câu cụ thể.
 
@@ -94,7 +94,7 @@ Từ vựng chỉ phát huy khi gắn vào lập luận. Thử áp dụng cách 
 - **Ý 3 (nhượng bộ):** Điện thoại giúp liên lạc khi khẩn cấp và học tập.
   *That said, a basic phone allows parents to stay in touch with their children in an emergency.*
 
-Để đa dạng hóa câu, đừng lặp "technology" mãi. Bạn có thể thay bằng *digital devices, modern gadgets, online platforms, these innovations* tùy ngữ cảnh. Kỹ thuật này gọi là paraphrase, xem chi tiết ở bài [cách paraphrase trong IELTS](/blog/cach-paraphrase-trong-ielts/).
+Để đa dạng hóa câu, đừng lặp "technology" mãi. Bạn có thể thay bằng *digital devices, modern gadgets, online platforms, these innovations* tùy ngữ cảnh. Kỹ thuật này gọi là paraphrase, xem chi tiết ở bài [cách paraphrase trong IELTS](/vi/blog/cach-paraphrase-trong-ielts/).
 
 ## Trả lời Speaking tự nhiên hơn
 
@@ -124,7 +124,7 @@ Câu trả lời Part 3 hay thường có ba lớp: quan điểm, phân tích ph
 
 ## Làm ngay trong Lexkite: ôn từ công nghệ bằng trò chơi ghép thẻ
 
-Một danh sách dài dễ đọc lướt rồi quên. Quy trình đầy đủ để giữ từ lâu có trong bài [học từ vựng IELTS theo bảy bước](/blog/cach-hoc-tu-vung-ielts-hieu-qua/); dưới đây là phiên bản gọn cho chủ đề này. Hãy để các từ trên đi qua vài vòng luyện ngắn:
+Một danh sách dài dễ đọc lướt rồi quên. Quy trình đầy đủ để giữ từ lâu có trong bài [học từ vựng IELTS theo bảy bước](/vi/blog/cach-hoc-tu-vung-ielts-hieu-qua/); dưới đây là phiên bản gọn cho chủ đề này. Hãy để các từ trên đi qua vài vòng luyện ngắn:
 
 1. Mở [Thư viện từ vựng](/#/library) và tìm bộ từ phù hợp trong tab IELTS theo đề hoặc Writing. Thêm những từ như *privacy, surveillance, misinformation* vào sổ từ của bạn.
 2. Vào [Ghép thẻ](/#/practice/match), chọn nguồn từ là sổ từ của bạn. Trò chơi yêu cầu ghép từ tiếng Anh với nghĩa tiếng Việt trong lúc đồng hồ đếm giây.
@@ -148,4 +148,4 @@ Có hai cách phổ biến: giọng Anh thường đọc /ˈprɪvəsi/, giọng 
 Không nên bịa số liệu. Nếu không chắc chắn, hãy dùng ví dụ mang tính minh họa như *for instance, many banks now use chatbots to answer basic questions*. Ví dụ hợp lý quan trọng hơn con số.
 
 ### Học từ theo chủ đề có đủ để đạt band cao không?
-Học theo chủ đề giúp bạn có từ đúng lúc cần, nhưng nên kết hợp với collocation và từ học thuật dùng chung. Bài [Academic Word List](/blog/academic-word-list-awl/) gợi ý thêm nhóm từ dùng được cho mọi chủ đề.
+Học theo chủ đề giúp bạn có từ đúng lúc cần, nhưng nên kết hợp với collocation và từ học thuật dùng chung. Bài [Academic Word List](/vi/blog/academic-word-list-awl/) gợi ý thêm nhóm từ dùng được cho mọi chủ đề.

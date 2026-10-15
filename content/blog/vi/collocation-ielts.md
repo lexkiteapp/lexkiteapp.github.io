@@ -9,7 +9,7 @@ tags: [collocation, ielts, writing]
 keyword: "collocation ielts"
 cover: dict
 coverAlt: "Từ điển Anh–Việt Lexkite tra từ resilient với phiên âm, ví dụ và collocation"
-publishAt: 2026-10-18T13:46:00+07:00
+publishAt: 2026-10-19T13:35:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -50,7 +50,7 @@ Câu thứ hai không dùng từ nào quá khó. Khác biệt nằm ở các c�
 | Động từ + trạng từ | *decline sharply*, *vary considerably* |
 | Động từ + giới từ | *contribute to*, *depend on* |
 
-Khi học một từ mới, hãy tự hỏi: từ này thường đi với động từ nào, tính từ nào, giới từ nào? Trả lời được ba câu đó, bạn đã nắm phần lớn cách dùng.
+Khi học một từ mới, hãy tự hỏi: từ này thường đi với động từ nào, tính từ nào, giới từ nào? Trả lời được ba câu đó, bạn đã nắm phần lớn cách dùng. Những cụm này cũng rất hữu ích khi soạn thư từ, xem thêm [cách viết email tiếng Anh công việc](/vi/blog/cach-viet-email-tieng-anh/).
 
 ## 40+ collocation học thuật theo chủ đề
 
@@ -88,7 +88,7 @@ Danh sách dưới đây được chọn vì hay dùng trong Writing Task 2 và 
 
 > *Group projects help students acquire skills that exams cannot measure.*
 
-Muốn có thêm ý tưởng và cụm từ cho đề trường học, xem [bộ từ vựng chủ đề giáo dục](/blog/tu-vung-ielts-chu-de-education/).
+Muốn có thêm ý tưởng và cụm từ cho đề trường học, xem [bộ từ vựng chủ đề giáo dục](/vi/blog/tu-vung-ielts-chu-de-education/).
 
 **Môi trường**
 21. *reduce emissions* – giảm khí thải
@@ -100,7 +100,7 @@ Muốn có thêm ý tưởng và cụm từ cho đề trường học, xem [bộ
 
 > *Rapid urban expansion poses a threat to natural habitats around the city.*
 
-Nhóm này được mở rộng trong bài [từ vựng IELTS về môi trường kèm câu mẫu](/blog/tu-vung-ielts-chu-de-environment/).
+Nhóm này được mở rộng trong bài [từ vựng IELTS về môi trường kèm câu mẫu](/vi/blog/tu-vung-ielts-chu-de-environment/).
 
 **Công nghệ và truyền thông**
 27. *rapid advances* – tiến bộ nhanh chóng
@@ -112,7 +112,7 @@ Nhóm này được mở rộng trong bài [từ vựng IELTS về môi trườn
 
 > *A heavy reliance on social media makes it easier to spread misinformation.*
 
-Các cụm về AI, mạng xã hội và dữ liệu cá nhân có thêm trong bài [từ vựng chủ đề Technology](/blog/tu-vung-ielts-chu-de-technology/).
+Các cụm về AI, mạng xã hội và dữ liệu cá nhân có thêm trong bài [từ vựng chủ đề Technology](/vi/blog/tu-vung-ielts-chu-de-technology/).
 
 **Sức khỏe**
 33. *a sedentary lifestyle* – lối sống ít vận động
@@ -133,7 +133,7 @@ Các cụm về AI, mạng xã hội và dữ liệu cá nhân có thêm trong b
 ## Cách tra và ghi collocation để dùng được
 
 1. **Tra từ điển có mục collocation**, không chỉ xem nghĩa. Ghi lại hai, ba cụm phổ biến nhất.
-2. **Ghi theo cụm, không ghi từ lẻ.** Thay vì ghi *threat = mối đe dọa*, ghi *pose a threat to sth*. Đây cũng là tinh thần của bước 3 trong [quy trình 7 bước học từ vựng IELTS](/blog/cach-hoc-tu-vung-ielts-hieu-qua/).
+2. **Ghi theo cụm, không ghi từ lẻ.** Thay vì ghi *threat = mối đe dọa*, ghi *pose a threat to sth*. Đây cũng là tinh thần của bước 3 trong [quy trình 7 bước học từ vựng IELTS](/vi/blog/cach-hoc-tu-vung-ielts-hieu-qua/).
 3. **Đặt một câu của riêng bạn**, tốt nhất là câu bạn có thể dùng lại trong bài thi.
 4. **Nhóm theo chủ đề**, như danh sách ở trên. Khi gặp đề về môi trường, bạn lấy ra cả một nhóm.
 5. **Kiểm chứng trước khi dùng.** Nếu bạn tự nghĩ ra một tổ hợp mà không chắc, tra lại. Đừng đánh cược trong phòng thi.
@@ -168,7 +168,7 @@ Câu 5 là lỗi rất phổ biến trong Task 1. Hãy nhớ cặp *raise prices
 
 {{youtube: | Gợi ý video: 10 lỗi collocation người Việt hay mắc trong IELTS Writing}}
 
-Muốn đưa collocation vào bài viết mạch lạc hơn, đọc thêm bài [từ nối trong IELTS Writing](/blog/tu-noi-trong-ielts-writing/).
+Muốn đưa collocation vào bài viết mạch lạc hơn, đọc thêm bài [từ nối trong IELTS Writing](/vi/blog/tu-noi-trong-ielts-writing/).
 
 ## Câu hỏi thường gặp
 

@@ -9,7 +9,7 @@ tags: [thoi-quen, tu-hoc]
 keyword: "học tiếng anh mỗi ngày 15 phút"
 cover: home
 coverAlt: "Trang Hôm nay trong Lexkite với số thẻ cần ôn, nhiệm vụ trong ngày và nút Bắt đầu ôn tập"
-publishAt: 2026-10-31T10:06:00+07:00
+publishAt: 2026-11-09T21:16:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -22,7 +22,7 @@ Bài này không hứa bạn sẽ thành thạo chỉ với 15 phút. Bài này 
 
 Có ba lý do khiến những buổi học ngắn mà đều thường cho kết quả tốt hơn những buổi dài mà thất thường.
 
-**Trí nhớ cần được nhắc lại đúng lúc.** Từ vựng học hôm nay sẽ mờ dần nếu không được gặp lại. Ôn ngắn mỗi ngày giúp bạn gặp lại từ trước khi quên hẳn. Đây là nguyên lý của phương pháp [lặp lại ngắt quãng](/blog/lap-lai-ngat-quang/), nền tảng của hầu hết hệ thống flashcard hiện đại.
+**Trí nhớ cần được nhắc lại đúng lúc.** Từ vựng học hôm nay sẽ mờ dần nếu không được gặp lại. Ôn ngắn mỗi ngày giúp bạn gặp lại từ trước khi quên hẳn. Đây là nguyên lý của phương pháp [lặp lại ngắt quãng](/vi/blog/lap-lai-ngat-quang/), nền tảng của hầu hết hệ thống flashcard hiện đại.
 
 **Rào cản bắt đầu rất thấp.** Ít ai có cớ để từ chối 15 phút. Nhưng rất nhiều người có cớ để hoãn một buổi học 2 tiếng. Khi việc bắt đầu dễ, bạn sẽ bắt đầu thường xuyên hơn.
 
@@ -47,9 +47,9 @@ Quy tắc quan trọng nhất: **ôn trước, học mới sau**. Nếu chỉ c�
 
 ### Biến thể theo mục tiêu
 
-- **Ôn IELTS**: phút 10–13 thay bằng đọc một đoạn Reading và làm 3–4 câu hỏi. Cuối tuần thêm một buổi dài viết Task 2. Khung 15 phút này ghép được vào [lộ trình tự học IELTS theo từng giai đoạn](/blog/lo-trinh-tu-hoc-ielts/).
+- **Ôn IELTS**: phút 10–13 thay bằng đọc một đoạn Reading và làm 3–4 câu hỏi. Cuối tuần thêm một buổi dài viết Task 2. Khung 15 phút này ghép được vào [lộ trình tự học IELTS theo từng giai đoạn](/vi/blog/lo-trinh-tu-hoc-ielts/).
 - **Ôn TOEIC**: phút 10–13 làm 10 câu Part 5, ghi lại cấu trúc ngữ pháp hay sai.
-- **Học giao tiếp**: phút 10–15 nghe một đoạn hội thoại ngắn rồi nhại theo từng câu bằng [phương pháp shadowing](/blog/shadowing-luyen-noi-tieng-anh/).
+- **Học giao tiếp**: phút 10–15 nghe một đoạn hội thoại ngắn rồi nhại theo từng câu bằng [phương pháp shadowing](/vi/blog/shadowing-luyen-noi-tieng-anh/).
 
 ### Ví dụ một buổi 15 phút cụ thể
 
@@ -88,7 +88,7 @@ Chuỗi ngày học liên tiếp là công cụ tạo động lực mạnh: bạ
 3. **Khi đứt chuỗi, quay lại với phần ôn trước.** Đừng cố học bù từ mới; số thẻ đến hạn tích tụ sẽ làm bạn nản.
 4. **Nhìn bức tranh tháng, không nhìn từng ngày.** 25/30 ngày học là một tháng rất tốt, dù chuỗi bị đứt hai lần.
 
-Nếu muốn đi xa hơn, bạn có thể đặt mục tiêu cụ thể cho cả quá trình theo cách trong bài [đặt mục tiêu học tiếng Anh](/blog/dat-muc-tieu-hoc-tieng-anh/).
+Nếu muốn đi xa hơn, bạn có thể đặt mục tiêu cụ thể cho cả quá trình theo cách trong bài [đặt mục tiêu học tiếng Anh](/vi/blog/dat-muc-tieu-hoc-tieng-anh/).
 
 ## Làm ngay trong Lexkite
 
@@ -115,7 +115,7 @@ Trên điện thoại, bạn có thể cài Lexkite lên màn hình chính như 
 ## Câu hỏi thường gặp
 
 ### Học tiếng Anh mỗi ngày 15 phút có đủ để thi IELTS không?
-Với phần lớn người học, 15 phút mỗi ngày là mức tối thiểu để giữ nhịp, chưa đủ để chuẩn bị đầy đủ cho một kỳ thi bốn kỹ năng. Hãy dùng 15 phút cho ngày bận và thêm các buổi dài hơn vào cuối tuần cho Writing và đề thi thử. Nếu còn phân vân giữa các chứng chỉ, bài [nên thi IELTS, TOEIC hay TOEFL](/blog/nen-thi-ielts-toeic-hay-toefl/) giúp bạn chọn trước khi tăng giờ học.
+Với phần lớn người học, 15 phút mỗi ngày là mức tối thiểu để giữ nhịp, chưa đủ để chuẩn bị đầy đủ cho một kỳ thi bốn kỹ năng. Hãy dùng 15 phút cho ngày bận và thêm các buổi dài hơn vào cuối tuần cho Writing và đề thi thử. Nếu còn phân vân giữa các chứng chỉ, bài [nên thi IELTS, TOEIC hay TOEFL](/vi/blog/nen-thi-ielts-toeic-hay-toefl/) giúp bạn chọn trước khi tăng giờ học.
 
 ### Nên học buổi sáng hay buổi tối?
 Thời điểm tốt nhất là thời điểm bạn giữ được đều đặn. Nhiều người thấy buổi sáng ít bị gián đoạn hơn. Nếu học buổi tối, hãy học trước khi quá mệt, không để đến sát giờ ngủ.

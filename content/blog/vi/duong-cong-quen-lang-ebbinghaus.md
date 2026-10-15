@@ -48,7 +48,7 @@ Từ đó rút ra ba điều:
 - **Các lần ôn sau có thể giãn ra dần**: vài ngày, một tuần, vài tuần. Trí nhớ đã bền hơn nên không cần ôn dày.
 - **Học nhiều từ mới mà không ôn là lãng phí.** Thà học 10 từ và ôn đều còn hơn học 40 từ rồi để chúng trôi.
 
-Đây chính là nền tảng của phương pháp [lặp lại ngắt quãng](/blog/lap-lai-ngat-quang/), mà các app flashcard hiện đại tự động hóa.
+Đây chính là nền tảng của phương pháp [lặp lại ngắt quãng](/vi/blog/lap-lai-ngat-quang/), mà các app flashcard hiện đại tự động hóa.
 
 ## Năm cách "làm phẳng" đường cong quên lãng
 
@@ -56,11 +56,11 @@ Từ đó rút ra ba điều:
 
 **1. Ôn đúng thời điểm.** Ôn khi bạn sắp quên, không quá sớm cũng không quá muộn. Mỗi lần ôn như vậy khiến lần quên sau chậm hơn.
 
-**2. Tự kiểm tra thay vì đọc lại.** Che nghĩa đi và cố nhớ. Nỗ lực gợi nhớ củng cố trí nhớ mạnh hơn việc nhìn lại đáp án. Kỹ thuật này có tên [active recall, hay chủ động gợi nhớ](/blog/active-recall-chu-dong-goi-nho/).
+**2. Tự kiểm tra thay vì đọc lại.** Che nghĩa đi và cố nhớ. Nỗ lực gợi nhớ củng cố trí nhớ mạnh hơn việc nhìn lại đáp án. Kỹ thuật này có tên [active recall, hay chủ động gợi nhớ](/vi/blog/active-recall-chu-dong-goi-nho/).
 
 **3. Tạo nghĩa và liên kết.** Ebbinghaus cố tình dùng chuỗi vô nghĩa; bạn thì nên làm ngược lại. Gắn từ với hình ảnh, cảm xúc, câu chuyện của mình. Ví dụ với *drought* (hạn hán): *The drought last summer left the rice fields in my hometown cracked and dry.* Một câu gắn với quê nhà dễ nhớ hơn định nghĩa khô khan.
 
-**4. Học qua nhiều kênh.** Nghe phát âm, đọc to, viết câu, gặp lại từ trong bài đọc. Mỗi kênh là một "đường dẫn" thêm vào trí nhớ. Gặp lại từ trong văn bản thật chính là cốt lõi của [cách học từ vựng qua ngữ cảnh](/blog/hoc-tu-vung-qua-ngu-canh/).
+**4. Học qua nhiều kênh.** Nghe phát âm, đọc to, viết câu, gặp lại từ trong bài đọc. Mỗi kênh là một "đường dẫn" thêm vào trí nhớ. Gặp lại từ trong văn bản thật chính là cốt lõi của [cách học từ vựng qua ngữ cảnh](/vi/blog/hoc-tu-vung-qua-ngu-canh/).
 
 **5. Ngủ đủ.** Giấc ngủ đóng vai trò quan trọng trong việc củng cố trí nhớ. Học từ buổi tối rồi ôn nhanh vào sáng hôm sau là một nhịp rất tốt.
 
@@ -77,7 +77,7 @@ Giả sử mỗi ngày bạn có 25 phút. Đây là cách chia thời gian sao 
 | Thứ Sáu | 15 phút | 5 từ | đọc 1 bài ngắn |
 | Cuối tuần | 15 phút | không học từ mới | viết 1 đoạn dùng 8 từ |
 
-Để ý cột "Ôn từ cũ" tăng dần trong tuần còn cột "Học từ mới" giảm dần. Đó là hình ảnh thực tế của việc "đuổi theo" đường cong: càng nhiều từ đang trong giai đoạn dễ quên, bạn càng cần dành thời gian ôn. Sang tuần thứ hai, khi các từ tuần trước đã bền hơn, bạn có thể tăng lại số từ mới. Những hôm thấy ngán lật thẻ, hãy thay một phần thời gian ôn bằng [trò chơi từ vựng có chủ đích](/blog/hoc-tu-vung-qua-tro-choi/) như ghép thẻ hay điền từ.
+Để ý cột "Ôn từ cũ" tăng dần trong tuần còn cột "Học từ mới" giảm dần. Đó là hình ảnh thực tế của việc "đuổi theo" đường cong: càng nhiều từ đang trong giai đoạn dễ quên, bạn càng cần dành thời gian ôn. Sang tuần thứ hai, khi các từ tuần trước đã bền hơn, bạn có thể tăng lại số từ mới. Những hôm thấy ngán lật thẻ, hãy thay một phần thời gian ôn bằng [trò chơi từ vựng có chủ đích](/vi/blog/hoc-tu-vung-qua-tro-choi/) như ghép thẻ hay điền từ.
 
 ## Làm ngay trong Lexkite
 
@@ -87,7 +87,7 @@ Lexkite đưa đường cong quên lãng vào cách sắp lịch ôn, để bạ
 
 ![Trang Phương pháp học của Lexkite với vòng lặp mỗi ngày, đường cong quên lãng và cân bằng 4 kỹ năng](media:method "Phương pháp học: đường cong quên lãng là nền của lịch ôn")
 
-2. Học từ mới rồi vào phần Ôn tập mỗi ngày. Thuật toán FSRS ước lượng khả năng nhớ của từng thẻ và chỉ đưa ra thẻ sắp chạm ngưỡng quên. Muốn hiểu cơ chế này, đọc bài [FSRS là gì](/blog/fsrs-la-gi/).
+2. Học từ mới rồi vào phần Ôn tập mỗi ngày. Thuật toán FSRS ước lượng khả năng nhớ của từng thẻ và chỉ đưa ra thẻ sắp chạm ngưỡng quên. Muốn hiểu cơ chế này, đọc bài [FSRS là gì](/vi/blog/fsrs-la-gi/).
 3. Mở trang [Tiến độ](/#/stats) để xem chuỗi ngày học, lịch học 6 tháng dạng heatmap và dự báo số thẻ đến hạn. Một heatmap đều màu là dấu hiệu bạn đang "làm phẳng" đường cong rất tốt.
 
 ![Trang Tiến độ của Lexkite với cấp độ, XP, chuỗi ngày, heatmap 6 tháng và dự báo thẻ đến hạn](media:stats "Tiến độ: heatmap học đều và dự báo thẻ đến hạn")

@@ -9,7 +9,7 @@ tags: [shadowing, speaking, listening]
 keyword: "shadowing"
 cover: practice-speak
 coverAlt: "Màn hình luyện phát âm có chấm điểm trong Lexkite với cụm cut down on và nút micro"
-publishAt: 2026-11-01T19:03:00+07:00
+publishAt: 2026-11-12T21:40:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -30,7 +30,7 @@ Chính sự "không kịp nghĩ" đó tạo nên giá trị của kỹ thuật. 
 - **Phản xạ nói**: miệng quen với chuỗi âm tiếng Anh, giảm cảm giác "líu lưỡi".
 - **Kỹ năng nghe**: muốn nhại được, bạn phải nghe từng chi tiết. Nhiều người thấy kỹ năng nghe tiến bộ trước cả kỹ năng nói.
 
-Shadowing không thay thế việc học phát âm từng âm. Nếu bạn chưa phân biệt được /iː/ và /ɪ/ (sheep và ship), hãy dành thời gian cho phần đó trước hoặc song song. Bài [luyện phát âm tiếng Anh](/blog/luyen-phat-am-tieng-anh/) có lộ trình cho phần nền này.
+Shadowing không thay thế việc học phát âm từng âm. Nếu bạn chưa phân biệt được /iː/ và /ɪ/ (sheep và ship), hãy dành thời gian cho phần đó trước hoặc song song. Bài [luyện phát âm tiếng Anh](/vi/blog/luyen-phat-am-tieng-anh/) có lộ trình cho phần nền này.
 
 ## Chọn tài liệu shadowing phù hợp
 
@@ -44,7 +44,7 @@ Tài liệu sai là lý do số một khiến người học bỏ shadowing sau 
 | Giọng | Một giọng rõ ràng, chất lượng thu âm tốt | Nhiều người nói chồng lên nhau, nhạc nền to |
 | Nội dung | Hội thoại đời thường hoặc chủ đề bạn sẽ nói khi thi | Văn bản đọc kiểu văn viết quá trang trọng |
 
-Với người ôn IELTS, các đoạn hội thoại trong bài nghe Section 1 (đặt phòng, đăng ký khóa học) là tài liệu rất tốt vì câu ngắn, rõ, gần với văn nói. Người học TOEIC có thể dùng các đoạn hội thoại công sở ngắn. Khi đã nhại trơn tru, hãy dùng lại chính những câu đó để trả lời [các câu hỏi ngắn của Speaking Part 1](/blog/ielts-speaking-part-1/).
+Với người ôn IELTS, các đoạn hội thoại trong bài nghe Section 1 (đặt phòng, đăng ký khóa học) là tài liệu rất tốt vì câu ngắn, rõ, gần với văn nói. Người học TOEIC có thể dùng các đoạn hội thoại công sở ngắn. Khi đã nhại trơn tru, hãy dùng lại chính những câu đó để trả lời [các câu hỏi ngắn của Speaking Part 1](/vi/blog/ielts-speaking-part-1/).
 
 ### Chọn giọng Anh hay giọng Mỹ?
 
@@ -74,7 +74,7 @@ Khi nghe lại bản gốc, hãy tập trung vào ba hiện tượng mà ngườ
 
 Chỉ cần nắm ba điểm này, bản shadowing của bạn sẽ nghe khác hẳn sau vài tuần.
 
-Lặp lại cùng một đoạn trong 3–5 ngày trước khi chuyển sang đoạn mới. Lặp lại nhiều lần mới tạo được thay đổi thật trong cơ miệng và tai nghe. Khi đã nhại tốt các đoạn khoảng một phút, bạn có thể tập giữ nhịp nói liên tục như trong [phần độc thoại hai phút ở Part 2](/blog/ielts-speaking-part-2-cue-card/).
+Lặp lại cùng một đoạn trong 3–5 ngày trước khi chuyển sang đoạn mới. Lặp lại nhiều lần mới tạo được thay đổi thật trong cơ miệng và tai nghe. Khi đã nhại tốt các đoạn khoảng một phút, bạn có thể tập giữ nhịp nói liên tục như trong [phần độc thoại hai phút ở Part 2](/vi/blog/ielts-speaking-part-2-cue-card/).
 
 ## Sai lầm thường gặp khi luyện shadowing
 
@@ -98,7 +98,7 @@ Lexkite có ba công cụ ghép vừa khít với quy trình shadowing.
 
 ![Thư viện phát âm IPA](media:pron "Thư viện phát âm IPA trong Lexkite: nguyên âm đơn, nguyên âm đôi, phụ âm, từ ví dụ và chấm điểm từng âm")
 
-Nếu muốn rèn đôi tai kỹ hơn trước khi nhại, hãy kết hợp với [chép chính tả tiếng Anh](/blog/chep-chinh-ta-tieng-anh-dictation/).
+Nếu muốn rèn đôi tai kỹ hơn trước khi nhại, hãy kết hợp với [chép chính tả tiếng Anh](/vi/blog/chep-chinh-ta-tieng-anh-dictation/).
 
 {{cta: /#/practice/speak | Thử nói một cụm từ và xem điểm phát âm}}
 
@@ -116,4 +116,4 @@ Khoảng 10–20 phút mỗi ngày là đủ để thấy thay đổi nếu bạ
 Shadowing hỗ trợ trực tiếp tiêu chí Pronunciation và một phần Fluency & Coherence nhờ cải thiện ngữ điệu và độ trôi chảy. Tuy vậy, bạn vẫn cần luyện phát triển ý và từ vựng cho từng chủ đề để đáp ứng các tiêu chí còn lại. Một cách làm là shadowing [các câu trả lời mẫu theo chủ đề Speaking](/speaking/), rồi tự nói lại bằng ý của mình.
 
 ### Có cần hiểu hết nghĩa trước khi shadowing không?
-Nên hiểu gần hết. Khi hiểu nghĩa, bạn bắt chước được cả cảm xúc và chỗ nhấn mạnh hợp lý. Nhại một đoạn không hiểu chỉ là luyện âm thanh, ít giúp bạn dùng được câu đó khi nói thật. Điều này càng đúng với thành ngữ: hãy hiểu sắc thái trước rồi mới nhại, như gợi ý trong bài [dùng idiom tự nhiên khi thi nói](/blog/idiom-ielts-speaking/).
+Nên hiểu gần hết. Khi hiểu nghĩa, bạn bắt chước được cả cảm xúc và chỗ nhấn mạnh hợp lý. Nhại một đoạn không hiểu chỉ là luyện âm thanh, ít giúp bạn dùng được câu đó khi nói thật. Điều này càng đúng với thành ngữ: hãy hiểu sắc thái trước rồi mới nhại, như gợi ý trong bài [dùng idiom tự nhiên khi thi nói](/vi/blog/idiom-ielts-speaking/).

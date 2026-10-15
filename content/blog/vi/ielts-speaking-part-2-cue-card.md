@@ -9,7 +9,7 @@ tags: [speaking, part-2]
 keyword: "ielts speaking part 2"
 cover: speaking
 coverAlt: "Phòng luyện Speaking trong Lexkite với Part 1, 2, 3 theo chủ đề"
-publishAt: 2026-10-26T06:58:00+07:00
+publishAt: 2026-11-01T06:37:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -27,7 +27,7 @@ Phần thi Speaking kéo dài 11–14 phút, gồm 3 phần. Part 2 nằm ở gi
 - Bạn nói **1–2 phút**. Giám khảo có thể dừng bạn khi hết giờ.
 - Có thể có một hai câu hỏi ngắn sau đó, rồi chuyển sang Part 3 với các câu hỏi thảo luận liên quan.
 
-Đừng nhầm phần này với [TOEIC Part 2 nghe hỏi–đáp](/blog/toeic-listening-part-2/), một phần thi nghe chọn câu đáp ngắn hoàn toàn khác.
+Đừng nhầm phần này với [TOEIC Part 2 nghe hỏi–đáp](/vi/blog/toeic-listening-part-2/), một phần thi nghe chọn câu đáp ngắn hoàn toàn khác.
 
 Thẻ đề thường có dạng *"Describe…"* kèm các gợi ý *who / what / when / where* và một dòng cuối *"and explain why / how you felt"*. Dòng cuối này quan trọng nhất: đó là nơi bạn thể hiện suy nghĩ, cảm xúc, và thường là phần giúp bài nói có chiều sâu.
 
@@ -74,7 +74,7 @@ Khung này dùng được cho hầu hết thẻ đề về người, nơi chốn
 >
 > *Looking back, it wasn't a big thing to do, but it made me feel genuinely useful. It also made me realise that in a busy city, we often don't even know who lives next door. Since then, I've made a habit of saying hello to her whenever I see her, and she sometimes gives me fruit from her hometown.*
 
-Hãy để ý: câu chuyện rất đời thường, nhưng có chi tiết cụ thể (tầng năm, đầu gối đau, sạc dự phòng), có trình tự rõ, và có phần suy ngẫm ở cuối. Những cụm như *out of the question* hay *made a habit of* cũng là điểm cộng cho [tiêu chí từ vựng Lexical Resource](/blog/lexical-resource-ielts/) mà không cần từ hiếm.
+Hãy để ý: câu chuyện rất đời thường, nhưng có chi tiết cụ thể (tầng năm, đầu gối đau, sạc dự phòng), có trình tự rõ, và có phần suy ngẫm ở cuối. Những cụm như *out of the question* hay *made a habit of* cũng là điểm cộng cho [tiêu chí từ vựng Lexical Resource](/vi/blog/lexical-resource-ielts/) mà không cần từ hiếm.
 
 ## Kéo dài tự nhiên đến 2 phút
 
@@ -88,7 +88,7 @@ Khi thấy mình sắp hết ý, đừng lặp lại câu cũ. Hãy dùng các "
 
 Về ngữ pháp, Part 2 là cơ hội để thể hiện nhiều thì: quá khứ đơn cho diễn biến, quá khứ tiếp diễn cho bối cảnh (*was working*), quá khứ hoàn thành (*hadn't had*), hiện tại hoàn thành cho kết quả hiện nay (*I've made a habit*). Bạn không cần ép dùng, nhưng câu chuyện có trình tự sẽ tự nhiên gọi chúng ra.
 
-Nếu bạn muốn phần Part 1 trước đó cũng trôi chảy, xem bài [IELTS Speaking Part 1](/blog/ielts-speaking-part-1/). Còn nếu muốn câu chuyện thêm sinh động bằng thành ngữ, có thể tham khảo [idiom cho IELTS Speaking](/blog/idiom-ielts-speaking/) – nhưng dùng vừa phải.
+Nếu bạn muốn phần Part 1 trước đó cũng trôi chảy, xem bài [IELTS Speaking Part 1](/vi/blog/ielts-speaking-part-1/). Còn nếu muốn câu chuyện thêm sinh động bằng thành ngữ, có thể tham khảo [idiom cho IELTS Speaking](/vi/blog/idiom-ielts-speaking/) – nhưng dùng vừa phải.
 
 ## Làm ngay trong Lexkite: luyện cue card có giờ
 
@@ -104,7 +104,7 @@ Trong [Phòng luyện Speaking](/#/speaking), bạn có thể chọn Part 2 theo
 
 ![Trang Thi thử IELTS 4 kỹ năng với lựa chọn Speaking và lịch sử thi thử](media:mock "Thi thử IELTS: chọn Speaking để luyện cả ba phần liên tiếp")
 
-Khi đã luyện riêng Part 2 được một thời gian, hãy vào [Thi thử IELTS](/#/mock) và chọn Speaking để quen nhịp chuyển từ Part 1 sang Part 2 rồi Part 3. Cách tổ chức một buổi thi thử nghiêm túc có trong bài [thi thử IELTS online và học từ lỗi sai](/blog/thi-thu-ielts-online/). Bạn cũng có thể đọc thêm câu hỏi và gợi ý theo chủ đề tại trang [luyện IELTS Speaking](/speaking/).
+Khi đã luyện riêng Part 2 được một thời gian, hãy vào [Thi thử IELTS](/#/mock) và chọn Speaking để quen nhịp chuyển từ Part 1 sang Part 2 rồi Part 3. Cách tổ chức một buổi thi thử nghiêm túc có trong bài [thi thử IELTS online và học từ lỗi sai](/vi/blog/thi-thu-ielts-online/). Bạn cũng có thể đọc thêm câu hỏi và gợi ý theo chủ đề tại trang [luyện IELTS Speaking](/speaking/).
 
 {{cta: /#/speaking | Chọn một thẻ đề Part 2 và nói thử 2 phút}}
 

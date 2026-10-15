@@ -9,14 +9,14 @@ tags: [toeic, part-5, ngu-phap]
 keyword: "toeic part 5"
 cover: toeic
 coverAlt: "Trang Luyện thi TOEIC trong Lexkite với phần luyện theo Part và thi thử chấm tự động"
-publishAt: 2026-10-28T18:31:00+07:00
+publishAt: 2026-11-05T08:19:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
 ---
 Ba mươi câu, mỗi câu một chỗ trống, bốn lựa chọn. Nhìn qua thì **TOEIC Part 5** có vẻ là phần nhẹ nhàng nhất của Reading. Nhưng chính ở đây, rất nhiều thí sinh đánh mất thời gian quý giá: đọc cả câu, dịch từng chữ, cân nhắc mãi giữa hai đáp án, để rồi vào Part 7 với chưa đầy 45 phút cho 54 câu đọc hiểu.
 
-Tin vui là Part 5 có tính quy luật rất cao. Khi biết câu hỏi thuộc nhóm nào, bạn thường chỉ cần nhìn vài từ quanh chỗ trống là chọn được. Mục tiêu thực tế: trung bình khoảng 20 giây mỗi câu, tức chừng 10 phút cho cả phần. Nếu bạn đang ở mức 450–550, Part 5 cũng là trọng tâm của chặng đầu trong [lộ trình tự học TOEIC lên 750+](/blog/lo-trinh-tu-hoc-toeic/).
+Tin vui là Part 5 có tính quy luật rất cao. Khi biết câu hỏi thuộc nhóm nào, bạn thường chỉ cần nhìn vài từ quanh chỗ trống là chọn được. Mục tiêu thực tế: trung bình khoảng 20 giây mỗi câu, tức chừng 10 phút cho cả phần. Nếu bạn đang ở mức 450–550, Part 5 cũng là trọng tâm của chặng đầu trong [lộ trình tự học TOEIC lên 750+](/vi/blog/lo-trinh-tu-hoc-toeic/).
 
 ## TOEIC Part 5: nhìn đáp án trước khi đọc câu
 
@@ -111,7 +111,7 @@ Chỉ *submit* đi tự nhiên với *expenses* (nộp chi phí để thanh toá
 3. **Chọn và đi tiếp.** Nếu sau khoảng 30 giây vẫn phân vân, chọn đáp án hợp lý nhất, đánh dấu và chuyển câu. Đừng để một câu kéo cả phần.
 4. **Không quay lại** trừ khi cuối giờ còn dư.
 
-Thời gian tiết kiệm ở đây chính là thời gian bạn có thêm cho [Part 7 với đoạn đơn, đoạn kép và đoạn ba](/blog/toeic-part-7-doc-hieu/). Để thấy Part 5 nằm ở đâu trong tổng thể đề, đọc [tổng quan đề TOEIC](/blog/cau-truc-de-thi-toeic/).
+Thời gian tiết kiệm ở đây chính là thời gian bạn có thêm cho [Part 7 với đoạn đơn, đoạn kép và đoạn ba](/vi/blog/toeic-part-7-doc-hieu/). Để thấy Part 5 nằm ở đâu trong tổng thể đề, đọc [tổng quan đề TOEIC](/vi/blog/cau-truc-de-thi-toeic/).
 
 ## Làm ngay trong Lexkite: luyện Part 5 có giải thích
 
@@ -124,7 +124,7 @@ Thời gian tiết kiệm ở đây chính là thời gian bạn có thêm cho [
 
 ![Mục Ngữ pháp của Lexkite chia chương, có 12 thì, các cấp từ A1 đến B2 cùng phần luyện chung](media:grammar "Ôn lại các thì và bài luyện tổng hợp khi Part 5 sai nhiều về ngữ pháp")
 
-5. Các cụm từ vựng gặp trong đề, hãy lưu thành flashcard để ôn mỗi ngày. Muốn có sẵn danh sách, xem [từ vựng TOEIC chia theo nhóm chủ đề](/blog/tu-vung-toeic-theo-chu-de/).
+5. Các cụm từ vựng gặp trong đề, hãy lưu thành flashcard để ôn mỗi ngày. Muốn có sẵn danh sách, xem [từ vựng TOEIC chia theo nhóm chủ đề](/vi/blog/tu-vung-toeic-theo-chu-de/).
 
 {{cta: /#/toeic | Luyện TOEIC Part 5 ngay}}
 
@@ -139,7 +139,7 @@ Part 5 có 30 câu, là phần đầu tiên của Reading. Reading có tổng c�
 Nhiều người đặt mục tiêu khoảng 10–12 phút cho Part 5, tức khoảng 20 giây mỗi câu, để dành phần lớn thời gian cho Part 7.
 
 ### Học ngữ pháp hay từ vựng để tăng điểm Part 5?
-Cả hai. Câu từ loại, thì và giới từ cần ngữ pháp chắc; câu từ vựng cần biết nghĩa và collocation trong môi trường công sở. Nếu mới bắt đầu, củng cố từ loại trước vì nhóm này xuất hiện nhiều và dễ cải thiện. Ở phần nghe, phần tương tự dễ lên điểm nhanh là [Part 2 với các câu hỏi Wh- ngắn](/blog/toeic-listening-part-2/).
+Cả hai. Câu từ loại, thì và giới từ cần ngữ pháp chắc; câu từ vựng cần biết nghĩa và collocation trong môi trường công sở. Nếu mới bắt đầu, củng cố từ loại trước vì nhóm này xuất hiện nhiều và dễ cải thiện. Ở phần nghe, phần tương tự dễ lên điểm nhanh là [Part 2 với các câu hỏi Wh- ngắn](/vi/blog/toeic-listening-part-2/).
 
 ### Có nên dịch cả câu sang tiếng Việt khi làm Part 5?
 Không nên với câu từ loại, thì, giới từ, vì tốn thời gian mà không cần thiết. Chỉ với câu từ vựng bạn mới cần hiểu nghĩa cả câu.

@@ -26,7 +26,7 @@ Trước khi so sánh số câu hay thời gian, hãy hiểu mỗi kỳ thi ra �
 
 **TOEIC Listening & Reading** tập trung vào tiếng Anh trong môi trường công việc: email, thông báo, cuộc họp, quảng cáo, lịch trình. Bài thi phổ biến nhất chỉ có nghe và đọc, toàn bộ là trắc nghiệm.
 
-**TOEFL iBT** đo tiếng Anh học thuật cho môi trường đại học, gồm cả bốn kỹ năng, làm trên máy tính. Từ 21/01/2026, TOEFL iBT áp dụng [định dạng thi mới](/blog/toefl-ibt-dinh-dang-moi-2026/): bài ngắn hơn (khoảng 1,5 giờ), thích ứng theo năng lực và báo điểm theo thang band 1–6.
+**TOEFL iBT** đo tiếng Anh học thuật cho môi trường đại học, gồm cả bốn kỹ năng, làm trên máy tính. Từ 21/01/2026, TOEFL iBT áp dụng [định dạng thi mới](/vi/blog/toefl-ibt-dinh-dang-moi-2026/): bài ngắn hơn (khoảng 1,5 giờ), thích ứng theo năng lực và báo điểm theo thang band 1–6.
 
 Ba kỳ thi này là sản phẩm của các tổ chức khác nhau, và nhãn hiệu thuộc về chủ sở hữu tương ứng. Điều quan trọng với bạn không phải kỳ thi nào "xịn" hơn, mà là nơi bạn nộp hồ sơ chấp nhận kỳ thi nào.
 
@@ -43,7 +43,7 @@ Ba kỳ thi này là sản phẩm của các tổ chức khác nhau, và nhãn h
 Một vài điểm đáng chú ý từ bảng:
 
 - **IELTS Writing** có hai bài: Task 1 tối thiểu 150 từ, Task 2 tối thiểu 250 từ, và Task 2 chiếm tỉ trọng gấp đôi Task 1. Đây thường là kỹ năng khiến người Việt "kẹt band".
-- **TOEIC** chia rõ Listening khoảng 45 phút cho 100 câu và Reading 75 phút cho 100 câu (xem [cấu trúc 7 Part của đề TOEIC](/blog/cau-truc-de-thi-toeic/) để biết từng phần hỏi gì). Không có viết hay nói ở bài thi phổ biến, nên bạn có thể tập trung ôn hai kỹ năng.
+- **TOEIC** chia rõ Listening khoảng 45 phút cho 100 câu và Reading 75 phút cho 100 câu (xem [cấu trúc 7 Part của đề TOEIC](/vi/blog/cau-truc-de-thi-toeic/) để biết từng phần hỏi gì). Không có viết hay nói ở bài thi phổ biến, nên bạn có thể tập trung ôn hai kỹ năng.
 - **TOEFL** định dạng mới thích ứng theo năng lực: độ khó các phần sau phụ thuộc vào cách bạn làm phần trước. Bạn nên làm quen với cảm giác thi trên máy tính.
 
 ## Nên thi IELTS hay TOEIC: chọn theo mục tiêu của bạn
@@ -92,7 +92,7 @@ Lexkite là app học miễn phí, có khu luyện riêng cho cả ba kỳ thi, 
 
 ![Trang luyện thi TOEFL iBT định dạng mới](media:toefl "Luyện thi TOEFL iBT trong Lexkite: bảng cấu trúc đề định dạng từ 21/01/2026 và các dạng câu mới")
 
-Đã chọn xong? Hãy đọc tiếp [lộ trình tự học IELTS](/blog/lo-trinh-tu-hoc-ielts/) hoặc [lộ trình tự học TOEIC](/blog/lo-trinh-tu-hoc-toeic/) để biết cần làm gì trong những tuần đầu tiên.
+Đã chọn xong? Hãy đọc tiếp [lộ trình tự học IELTS](/vi/blog/lo-trinh-tu-hoc-ielts/) hoặc [lộ trình tự học TOEIC](/vi/blog/lo-trinh-tu-hoc-toeic/) để biết cần làm gì trong những tuần đầu tiên.
 
 {{cta: /#/mock | Làm thử một bài thi để biết mình hợp kỳ thi nào}}
 
@@ -110,4 +110,4 @@ Cả ba chứng chỉ thường được các tổ chức chấp nhận trong kh
 Có phần giúp ích, vì kỹ năng nghe đọc và vốn từ là nền tảng chung. Nhưng TOEIC có từ vựng công sở và dạng câu riêng, nên bạn vẫn cần vài tuần làm quen với đề TOEIC trước khi thi. [Các bộ từ vựng chia theo IELTS, TOEIC, TOEFL](/tu-vung/) giúp bạn thấy rõ phần từ trùng và phần riêng của mỗi kỳ thi.
 
 ### Nên thi IELTS hay TOEIC nếu chưa rõ mục tiêu?
-Nếu chưa rõ, hãy ưu tiên xây nền tảng bốn kỹ năng và vốn từ cốt lõi trước. Cách [học từ theo quy trình có ôn lặp](/blog/cach-hoc-tu-vung-ielts-hieu-qua/) dùng được cho cả ba kỳ thi. Khi mục tiêu rõ hơn, việc chuyển sang ôn một kỳ thi cụ thể sẽ nhanh hơn nhiều so với bắt đầu từ con số không.
+Nếu chưa rõ, hãy ưu tiên xây nền tảng bốn kỹ năng và vốn từ cốt lõi trước. Cách [học từ theo quy trình có ôn lặp](/vi/blog/cach-hoc-tu-vung-ielts-hieu-qua/) dùng được cho cả ba kỳ thi. Khi mục tiêu rõ hơn, việc chuyển sang ôn một kỳ thi cụ thể sẽ nhanh hơn nhiều so với bắt đầu từ con số không.

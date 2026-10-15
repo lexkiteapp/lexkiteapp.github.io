@@ -9,7 +9,7 @@ tags: [ngu-canh, doc-hieu]
 keyword: "học từ vựng qua ngữ cảnh"
 cover: read-article
 coverAlt: "Bài đọc The Growing Problem of Space Debris trong Lexkite với từ khóa tô màu và danh sách từ bên phải"
-publishAt: 2026-10-21T08:14:00+07:00
+publishAt: 2026-10-23T13:57:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -27,7 +27,7 @@ Ngữ cảnh còn dạy bạn những điều mà danh sách từ không dạy �
 - **Ngữ pháp đi kèm:** *suggest* đi với *doing* hoặc mệnh đề *that*, không đi với *to do*.
 - **Mức độ trang trọng:** *commence* xuất hiện trong văn bản hành chính, còn hội thoại hằng ngày dùng *start*.
 
-Nói cách khác, ngữ cảnh cho bạn biết không chỉ từ nghĩa là gì mà còn **dùng nó thế nào**. Đây chính là điều tiêu chí Lexical Resource của IELTS hay [các đoạn đọc đơn, đoạn kép của TOEIC Part 7](/blog/toeic-part-7-doc-hieu/) đòi hỏi.
+Nói cách khác, ngữ cảnh cho bạn biết không chỉ từ nghĩa là gì mà còn **dùng nó thế nào**. Đây chính là điều tiêu chí Lexical Resource của IELTS hay [các đoạn đọc đơn, đoạn kép của TOEIC Part 7](/vi/blog/toeic-part-7-doc-hieu/) đòi hỏi.
 
 ## Cách học từ vựng qua ngữ cảnh: 4 bước
 
@@ -40,7 +40,7 @@ Khi gặp từ lạ, đừng vội mở từ điển. Hãy dừng lại vài gi�
 - **Cấu tạo từ:** tiền tố *un-, mis-, over-*; hậu tố *-able, -less, -ment*.
 - **Logic câu:** từ đó là tốt hay xấu, mạnh hay yếu?
 
-Ví dụ: *The old bridge was deemed unsafe, so the council decided to demolish it and build a new one.* Bạn có thể chưa biết *demolish*, nhưng cây cầu không an toàn và họ xây cầu mới, vậy *demolish* gần như chắc chắn là phá bỏ.
+Ví dụ: *The old bridge was deemed unsafe, so the council decided to demolish it and build a new one.* Bạn có thể chưa biết *demolish*, nhưng cây cầu không an toàn và họ xây cầu mới, vậy *demolish* gần như chắc chắn là phá bỏ. Kỹ năng đoán nghĩa này cũng giúp bạn [đọc hiểu tiếng Anh nhanh hơn](/vi/blog/cach-doc-hieu-tieng-anh-nhanh/) mà không cần dừng lại tra từ.
 
 Việc đoán, dù đúng hay sai, buộc não phải xử lý từ sâu hơn. Khi tra lại và thấy mình đoán đúng, bạn sẽ nhớ lâu hơn; khi đoán sai, sự bất ngờ cũng giúp từ in đậm hơn.
 
@@ -56,7 +56,7 @@ Nếu ba câu đều là "không", cứ đọc tiếp. Một bài đọc lưu 5�
 
 ### Bước 3: Lưu cả câu, không lưu từ trơ trọi
 
-Đây là bước nhiều người bỏ qua. Khi lưu vào flashcard hoặc [sổ tay từ vựng](/blog/so-tay-tu-vung-ca-nhan/), ghi lại:
+Đây là bước nhiều người bỏ qua. Khi lưu vào flashcard hoặc [sổ tay từ vựng](/vi/blog/so-tay-tu-vung-ca-nhan/), ghi lại:
 
 - Từ và phiên âm.
 - **Câu gốc** nơi bạn gặp từ (hoặc một đoạn ngắn).
@@ -71,7 +71,7 @@ Ví dụ thẻ hoàn chỉnh:
 
 ### Bước 4: Ôn bằng cách che từ trong câu
 
-Khi ôn, đừng chỉ nhìn từ rồi nhớ nghĩa. Hãy thử nhìn câu đã che từ, rồi tự điền: *The council decided to ______ the old bridge.* Cách này luyện đúng kỹ năng bạn cần khi viết và nói: nghĩ ra từ phù hợp cho một tình huống. Điền từ vào câu cũng là một trong những [trò chơi học từ vựng](/blog/hoc-tu-vung-qua-tro-choi/) hiệu quả nhất.
+Khi ôn, đừng chỉ nhìn từ rồi nhớ nghĩa. Hãy thử nhìn câu đã che từ, rồi tự điền: *The council decided to ______ the old bridge.* Cách này luyện đúng kỹ năng bạn cần khi viết và nói: nghĩ ra từ phù hợp cho một tình huống. Điền từ vào câu cũng là một trong những [trò chơi học từ vựng](/vi/blog/hoc-tu-vung-qua-tro-choi/) hiệu quả nhất.
 
 ## Thu thập ngữ cảnh từ đâu
 
@@ -83,7 +83,7 @@ Khi ôn, đừng chỉ nhìn từ rồi nhớ nghĩa. Hãy thử nhìn câu đã
 
 **Cuộc sống của bạn.** Biển hiệu, hướng dẫn sử dụng, tin nhắn từ đồng nghiệp nước ngoài. Ngữ cảnh gắn với trải nghiệm thật là loại dễ nhớ nhất.
 
-Nếu bạn muốn bắt đầu với đọc báo, bài [đọc báo tiếng Anh để mở rộng từ vựng](/blog/doc-bao-tieng-anh-mo-rong-tu-vung/) có gợi ý chọn nguồn và cách đọc.
+Nếu bạn muốn bắt đầu với đọc báo, bài [đọc báo tiếng Anh để mở rộng từ vựng](/vi/blog/doc-bao-tieng-anh-mo-rong-tu-vung/) có gợi ý chọn nguồn và cách đọc.
 
 {{youtube: | Gợi ý video: Đọc một đoạn văn tiếng Anh và đoán nghĩa từ mới bằng manh mối ngữ cảnh}}
 
@@ -130,7 +130,7 @@ Lexkite được thiết kế để bạn không phải chép tay từng câu:
 Mỗi từ tốn thêm vài chục giây để đọc và ghi câu, nhưng bạn tiết kiệm được rất nhiều lần học lại vì từ bám lâu hơn. Tính tổng thời gian để thực sự dùng được một từ, cách học qua ngữ cảnh thường hiệu quả hơn.
 
 ### Người mới bắt đầu có học qua ngữ cảnh được không?
-Được, nhưng cần văn bản thật dễ, như truyện đọc phân cấp hoặc bài đọc trình độ A2. Song song, nên học nhóm từ thông dụng nhất để có nền; xem bài [2.800 từ tiếng Anh thông dụng nhất](/blog/2800-tu-tieng-anh-thong-dung-ngsl/).
+Được, nhưng cần văn bản thật dễ, như truyện đọc phân cấp hoặc bài đọc trình độ A2. Song song, nên học nhóm từ thông dụng nhất để có nền; xem bài [2.800 từ tiếng Anh thông dụng nhất](/vi/blog/2800-tu-tieng-anh-thong-dung-ngsl/).
 
 ### Một câu ví dụ có đủ không?
 Một câu là điểm khởi đầu tốt. Với từ quan trọng, thu thêm câu thứ hai hoặc thứ ba ở nguồn khác nhau sẽ cho bạn bức tranh đầy đủ hơn về nghĩa và cách dùng.

@@ -9,7 +9,7 @@ tags: [listening, ielts]
 keyword: "mẹo làm bài ielts listening"
 cover: listening
 coverAlt: "Màn hình Luyện nghe IELTS trong Lexkite với 10 đề, 4 phần mỗi đề"
-publishAt: 2026-10-24T14:24:00+07:00
+publishAt: 2026-10-29T14:15:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -49,7 +49,7 @@ Người nói trong IELTS rất hay sửa lại thông tin vừa nói. Ví dụ 
 
 ### 3. Đáp án đúng thường được nói bằng từ khác
 
-Câu hỏi viết *"inexpensive"*, người nói lại nói *"it won't cost you much"*. Với câu chọn đáp án, cả ba phương án thường đều được nhắc tới trong bài nghe – chỉ một phương án khớp đúng nghĩa. Đừng chọn vì "nghe thấy từ đó". Nguyên tắc này cũng giúp ích khi bạn phân biệt [False và Not Given ở phần Reading](/blog/ielts-reading-true-false-not-given/).
+Câu hỏi viết *"inexpensive"*, người nói lại nói *"it won't cost you much"*. Với câu chọn đáp án, cả ba phương án thường đều được nhắc tới trong bài nghe – chỉ một phương án khớp đúng nghĩa. Đừng chọn vì "nghe thấy từ đó". Nguyên tắc này cũng giúp ích khi bạn phân biệt [False và Not Given ở phần Reading](/vi/blog/ielts-reading-true-false-not-given/).
 
 ### 4. Đánh vần và số: luyện riêng, đừng xem nhẹ
 
@@ -62,11 +62,11 @@ Phần 1 thường có tên người, tên đường được đánh vần. Hãy
 
 ### 5. Chính tả là điểm, không phải chi tiết phụ
 
-Viết sai chính tả thì câu đó không được tính. Những từ hay sai: *accommodation, environment, government, library, February, necessary, Wednesday*. Hãy lập danh sách riêng và chép lại vài lần mỗi tuần. Đưa những từ này vào [quy trình học từ vựng IELTS bảy bước](/blog/cach-hoc-tu-vung-ielts-hieu-qua/) sẽ giúp bạn nhớ cả nghĩa lẫn mặt chữ.
+Viết sai chính tả thì câu đó không được tính. Những từ hay sai: *accommodation, environment, government, library, February, necessary, Wednesday*. Hãy lập danh sách riêng và chép lại vài lần mỗi tuần. Đưa những từ này vào [quy trình học từ vựng IELTS bảy bước](/vi/blog/cach-hoc-tu-vung-ielts-hieu-qua/) sẽ giúp bạn nhớ cả nghĩa lẫn mặt chữ.
 
 ### 6. Số ít, số nhiều và đuôi -s
 
-Nếu người nói nói *"two bedrooms"* mà bạn viết *"bedroom"*, đáp án bị sai. Tai người Việt thường bỏ qua âm cuối, nên hãy luyện nghe phụ âm cuối kỹ (xem thêm bài [luyện phát âm tiếng Anh](/blog/luyen-phat-am-tieng-anh/) – nói được âm cuối thì nghe cũng rõ hơn).
+Nếu người nói nói *"two bedrooms"* mà bạn viết *"bedroom"*, đáp án bị sai. Tai người Việt thường bỏ qua âm cuối, nên hãy luyện nghe phụ âm cuối kỹ (xem thêm bài [luyện phát âm tiếng Anh](/vi/blog/luyen-phat-am-tieng-anh/) – nói được âm cuối thì nghe cũng rõ hơn).
 
 ### 7. Lỡ một câu thì bỏ qua ngay
 
@@ -87,7 +87,7 @@ Làm hết đề này đến đề khác là cách luyện tốn thời gian mà
 1. **Chọn một phần** (ví dụ phần 1), làm trong điều kiện thi: nghe một lần, không dừng.
 2. **Chấm và phân loại lỗi:** sai do không nghe ra? Do chính tả? Do bẫy đổi ý? Do viết quá số từ?
 3. **Nghe lại có lời thoại**, dừng ở đúng chỗ sai, nghe vài lần cho tới khi nghe rõ từng âm.
-4. **Chép chính tả** một đoạn ngắn chứa lỗi sai. Đây là cách luyện tai rất hiệu quả, xem chi tiết trong bài [chép chính tả tiếng Anh](/blog/chep-chinh-ta-tieng-anh-dictation/).
+4. **Chép chính tả** một đoạn ngắn chứa lỗi sai. Đây là cách luyện tai rất hiệu quả, xem chi tiết trong bài [chép chính tả tiếng Anh](/vi/blog/chep-chinh-ta-tieng-anh-dictation/).
 
 Sau 2–3 tuần, bạn sẽ thấy rõ mình yếu nhất ở loại lỗi nào, và tập trung vào đúng chỗ đó.
 
@@ -102,7 +102,7 @@ Trong phần [Luyện nghe IELTS](/#/listening), mỗi đề được chia sẵn
 3. Chuyển sang **Chép chính tả** cho phần đó, bắt đầu ở mức dễ.
 4. Khi đã quen, thử nghe với giọng khác (Anh, Mỹ, Úc) vì bài thi thật có nhiều giọng.
 
-Khi đã luyện từng phần được vài tuần, hãy thử [một bài thi trọn vẹn trong điều kiện như thật](/blog/thi-thu-ielts-online/) để kiểm tra sức bền và khả năng giữ tập trung suốt 4 phần.
+Khi đã luyện từng phần được vài tuần, hãy thử [một bài thi trọn vẹn trong điều kiện như thật](/vi/blog/thi-thu-ielts-online/) để kiểm tra sức bền và khả năng giữ tập trung suốt 4 phần.
 
 ![Trang Thi thử IELTS 4 kỹ năng: chọn Listening, chọn đề và xem lịch sử thi thử](media:mock "Thi thử IELTS: chọn kỹ năng Listening, chọn đề, xem lại lịch sử các lần thi")
 

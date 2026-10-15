@@ -9,7 +9,7 @@ tags: [linking-words, writing]
 keyword: "từ nối trong ielts writing"
 cover: write
 coverAlt: "Phòng viết IELTS Task 2 của Lexkite với đề theo chủ đề, gợi ý ý tưởng và khung bài"
-publishAt: 2026-10-19T18:27:00+07:00
+publishAt: 2026-10-21T08:14:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -54,7 +54,7 @@ Một ví dụ tự viết có đủ ba chức năng:
 
 **3. Dùng sai ngữ pháp.** *Despite it was raining…* sai; đúng là *Despite the rain…* hoặc *Although it was raining…*. Tương tự, *Because of people are busy* phải là *Because people are busy*.
 
-**4. Dùng cụm "khuôn" quá trang trọng.** *Last but not least*, *Every coin has two sides* – nghe như văn mẫu. Giám khảo thường đánh giá cao cách diễn đạt đơn giản và chính xác hơn. Ngược lại, trong [thư thân mật của IELTS General Task 1](/blog/ielts-general-writing-task-1-viet-thu/), từ nối đời thường như *anyway* hay *by the way* lại rất hợp.
+**4. Dùng cụm "khuôn" quá trang trọng.** *Last but not least*, *Every coin has two sides* – nghe như văn mẫu. Giám khảo thường đánh giá cao cách diễn đạt đơn giản và chính xác hơn. Ngược lại, trong [thư thân mật của IELTS General Task 1](/vi/blog/ielts-general-writing-task-1-viet-thu/), từ nối đời thường như *anyway* hay *by the way* lại rất hợp.
 
 **5. Chỉ có từ nối, không có liên kết ý.** Gắn *Therefore* vào một câu không phải kết quả của câu trước không làm đoạn văn logic hơn.
 
@@ -63,9 +63,9 @@ Một ví dụ tự viết có đủ ba chức năng:
 Bài viết band cao thường dùng nhiều công cụ liên kết khác ngoài từ nối:
 
 - **Đại từ và từ chỉ định**: *this*, *these*, *such*. Ví dụ: *Many young people move to big cities for work.* ***This trend*** *puts pressure on housing.*
-- **Từ đồng nghĩa và từ cùng trường nghĩa**: *cars → private vehicles → these vehicles*. Vừa tránh lặp, vừa giữ chủ đề xuyên suốt. Đây cũng là kỹ thuật cốt lõi khi [paraphrase trong IELTS](/blog/cach-paraphrase-trong-ielts/).
+- **Từ đồng nghĩa và từ cùng trường nghĩa**: *cars → private vehicles → these vehicles*. Vừa tránh lặp, vừa giữ chủ đề xuyên suốt. Đây cũng là kỹ thuật cốt lõi khi [paraphrase trong IELTS](/vi/blog/cach-paraphrase-trong-ielts/).
 - **Lặp lại từ khóa có chủ đích**: lặp từ chính trong câu chủ đề của mỗi đoạn giúp người đọc định hướng.
-- **Câu chủ đề rõ ràng**: một câu mở đoạn nêu ý chính làm cả đoạn mạch lạc hơn bất kỳ từ nối nào. Vị trí của câu chủ đề trong [bố cục mở bài, thân bài, kết bài của Task 2](/blog/cau-truc-ielts-writing-task-2/) là thứ nên nắm trước khi bàn đến từ nối.
+- **Câu chủ đề rõ ràng**: một câu mở đoạn nêu ý chính làm cả đoạn mạch lạc hơn bất kỳ từ nối nào. Vị trí của câu chủ đề trong [bố cục mở bài, thân bài, kết bài của Task 2](/vi/blog/cau-truc-ielts-writing-task-2/) là thứ nên nắm trước khi bàn đến từ nối.
 
 So sánh hai đoạn tự viết:
 
@@ -105,7 +105,7 @@ Một cách viết lại:
 
 {{youtube: | Gợi ý video: Sửa một đoạn văn Task 2 lạm dụng từ nối thành đoạn văn tự nhiên}}
 
-Từ nối cần đi cùng collocation chính xác để bài viết thực sự tự nhiên. Xem thêm bài [collocation IELTS](/blog/collocation-ielts/).
+Từ nối cần đi cùng collocation chính xác để bài viết thực sự tự nhiên. Xem thêm bài [collocation IELTS](/vi/blog/collocation-ielts/).
 
 ## Câu hỏi thường gặp
 
@@ -123,4 +123,4 @@ Không bị trừ chỉ vì dùng. Vấn đề là khi cả bài chỉ dựa và
 
 ### Task 1 có cần từ nối giống Task 2 không?
 
-Task 1 cũng cần liên kết, nhưng chức năng hơi khác: so sánh (*while*, *whereas*, *in contrast*), trình tự thời gian (*subsequently*, *by the end of the period*) và tổng quan (*overall*). Từ nối lập luận như *therefore* ít dùng hơn. Bài [mô tả biểu đồ đường Task 1](/blog/ielts-writing-task-1-line-graph/) có ví dụ cho từng nhóm.
+Task 1 cũng cần liên kết, nhưng chức năng hơi khác: so sánh (*while*, *whereas*, *in contrast*), trình tự thời gian (*subsequently*, *by the end of the period*) và tổng quan (*overall*). Từ nối lập luận như *therefore* ít dùng hơn. Bài [mô tả biểu đồ đường Task 1](/vi/blog/ielts-writing-task-1-line-graph/) có ví dụ cho từng nhóm.

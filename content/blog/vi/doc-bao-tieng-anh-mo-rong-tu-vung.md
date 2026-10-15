@@ -9,7 +9,7 @@ tags: [doc-hieu, tu-vung]
 keyword: "đọc báo tiếng anh"
 cover: read-article
 coverAlt: "Bài đọc The Growing Problem of Space Debris trong Lexkite với từ khóa tô màu và câu hỏi True/False/Not Given"
-publishAt: 2026-11-02T12:04:00+07:00
+publishAt: 2026-11-13T20:04:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -28,7 +28,7 @@ Bài viết giải thích sự khác nhau giữa hai kiểu đọc, cách chọn
 | Lượng đọc | Ít, một hai đoạn | Nhiều, nhiều bài mỗi tuần |
 | Cảm giác | Học bài | Đọc để biết, đọc vì thích |
 
-Cả hai đều có giá trị. Đọc kỹ giúp bạn hiểu cấu trúc câu và cách dùng từ chính xác, rất cần cho bài thi. Đọc mở rộng giúp bạn gặp lại cùng một từ nhiều lần trong nhiều ngữ cảnh khác nhau. Mỗi lần gặp lại, hiểu biết về từ đó dày thêm một chút: từ đó hay đi với từ nào, dùng trong tình huống trang trọng hay thân mật, mang sắc thái tích cực hay tiêu cực.
+Cả hai đều có giá trị. Đọc kỹ giúp bạn hiểu cấu trúc câu và cách dùng từ chính xác, rất cần cho bài thi. Đọc mở rộng giúp bạn gặp lại cùng một từ nhiều lần trong nhiều ngữ cảnh khác nhau. Mỗi lần gặp lại, hiểu biết về từ đó dày thêm một chút: từ đó hay đi với từ nào, dùng trong tình huống trang trọng hay thân mật, mang sắc thái tích cực hay tiêu cực. Nếu muốn đọc trôi hơn mà vẫn nắm ý chính, hãy xem [cách đọc hiểu tiếng Anh nhanh](/vi/blog/cach-doc-hieu-tieng-anh-nhanh/).
 
 Phần lớn người học Việt Nam chỉ đọc kỹ, rất ít đọc mở rộng. Kết quả là vốn từ biết nghĩa thì nhiều, nhưng không "cảm" được cách dùng.
 
@@ -44,7 +44,7 @@ Nếu bạn ở trình độ A2–B1, đừng bắt đầu bằng bài bình lu�
 
 ### Chọn chủ đề bạn quan tâm thật sự
 
-Đọc về thứ bạn thích, dù là bóng đá, công nghệ hay nấu ăn, giúp bạn đọc được lâu hơn. Bạn cũng đã có sẵn kiến thức nền, nên đoán nghĩa từ mới dễ hơn. Người ôn IELTS có thể ưu tiên các chủ đề hay gặp như môi trường, giáo dục, công nghệ, sức khỏe. Người ôn TOEIC nên đọc thêm email, thông báo, quảng cáo công sở vì đó là chất liệu của [phần đọc hiểu TOEIC Part 7](/blog/toeic-part-7-doc-hieu/); người ôn TOEFL có thể tham khảo [nhóm từ vựng TOEFL iBT nên học](/blog/tu-vung-toefl-ibt/).
+Đọc về thứ bạn thích, dù là bóng đá, công nghệ hay nấu ăn, giúp bạn đọc được lâu hơn. Bạn cũng đã có sẵn kiến thức nền, nên đoán nghĩa từ mới dễ hơn. Người ôn IELTS có thể ưu tiên các chủ đề hay gặp như môi trường, giáo dục, công nghệ, sức khỏe. Người ôn TOEIC nên đọc thêm email, thông báo, quảng cáo công sở vì đó là chất liệu của [phần đọc hiểu TOEIC Part 7](/vi/blog/toeic-part-7-doc-hieu/); người ôn TOEFL có thể tham khảo [nhóm từ vựng TOEFL iBT nên học](/vi/blog/tu-vung-toefl-ibt/).
 
 ### Đọc theo chuỗi một câu chuyện
 
@@ -58,11 +58,11 @@ Sai lầm lớn nhất là ghi mọi từ mới. Một bài báo có thể có 1
 2. **Mình có cần dùng từ này không?** Từ liên quan đến chủ đề thi hoặc công việc của bạn được ưu tiên; đối chiếu nhanh với [danh sách từ vựng theo kỳ thi](/tu-vung/) sẽ biết từ đó có đáng học không. Tên riêng, thuật ngữ quá chuyên ngành thì bỏ qua.
 3. **Không biết từ này có làm mình hiểu sai ý không?** Nếu không, có thể đọc lướt qua.
 
-Mỗi bài, chỉ chọn khoảng 3–5 từ để đưa vào [sổ tay từ vựng cá nhân](/blog/so-tay-tu-vung-ca-nhan/). Và quan trọng: **ghi cả cụm hoặc cả câu**, không ghi từ đơn lẻ. Ví dụ, thay vì ghi "debris = mảnh vỡ", hãy ghi:
+Mỗi bài, chỉ chọn khoảng 3–5 từ để đưa vào [sổ tay từ vựng cá nhân](/vi/blog/so-tay-tu-vung-ca-nhan/). Và quan trọng: **ghi cả cụm hoặc cả câu**, không ghi từ đơn lẻ. Ví dụ, thay vì ghi "debris = mảnh vỡ", hãy ghi:
 
 > Even a tiny piece of **debris** can damage a satellite at high speed.
 
-Câu gốc giữ lại collocation và ngữ cảnh, giúp bạn nhớ cách dùng chứ không chỉ nghĩa. Nếu muốn hiểu sâu hơn vì sao ngữ cảnh quan trọng, bài [học từ vựng qua ngữ cảnh](/blog/hoc-tu-vung-qua-ngu-canh/) phân tích kỹ điểm này.
+Câu gốc giữ lại collocation và ngữ cảnh, giúp bạn nhớ cách dùng chứ không chỉ nghĩa. Nếu muốn hiểu sâu hơn vì sao ngữ cảnh quan trọng, bài [học từ vựng qua ngữ cảnh](/vi/blog/hoc-tu-vung-qua-ngu-canh/) phân tích kỹ điểm này.
 
 ### Đoán nghĩa trước khi tra
 
@@ -74,7 +74,7 @@ Một lịch gợi ý cho người có khoảng 20 phút mỗi ngày:
 
 - **Thứ Hai đến thứ Năm**: mỗi ngày đọc mở rộng 1–2 bài dễ, không dừng lại tra từ trừ khi mất mạch. Cuối bài, chọn 3 từ để lưu.
 - **Thứ Sáu**: đọc kỹ một bài khó hơn, phân tích hai đến ba câu dài, chú ý từ nối và cấu trúc.
-- **Thứ Bảy**: ôn lại toàn bộ từ đã lưu trong tuần bằng flashcard, xen vài lượt [trò chơi từ vựng như ghép thẻ, điền từ](/blog/hoc-tu-vung-qua-tro-choi/) cho đỡ đơn điệu.
+- **Thứ Bảy**: ôn lại toàn bộ từ đã lưu trong tuần bằng flashcard, xen vài lượt [trò chơi từ vựng như ghép thẻ, điền từ](/vi/blog/hoc-tu-vung-qua-tro-choi/) cho đỡ đơn điệu.
 - **Chủ Nhật**: nghỉ hoặc đọc tự do bất kỳ thứ gì bạn thích bằng tiếng Anh.
 
 ### Đọc tiêu đề như một bài tập nhỏ

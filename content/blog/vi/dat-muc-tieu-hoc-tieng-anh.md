@@ -9,7 +9,7 @@ tags: [muc-tieu, dong-luc]
 keyword: "mục tiêu học tiếng anh"
 cover: goal
 coverAlt: "Màn hình Mục tiêu và kế hoạch học trong Lexkite với kỳ thi, điểm mục tiêu, ngày thi và số giờ mỗi tuần"
-publishAt: 2026-10-31T08:33:00+07:00
+publishAt: 2026-11-09T19:17:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -27,7 +27,7 @@ Hãy so sánh hai câu:
 
 Câu đầu không sai, nhưng nó không bao giờ hoàn thành. Bạn có thể học ba tháng và vẫn thấy mình "chưa cải thiện mấy". Câu thứ hai tạo ra ba thứ rất quý: một **điểm đích** để biết khi nào xong, một **hạn chót** để biết còn bao nhiêu thời gian, và một **nhịp học** để mỗi tuần tự kiểm tra.
 
-Mục tiêu mơ hồ còn có một tác hại ngầm: nó khiến bạn học theo hứng. Hôm nay xem video phát âm, mai làm đề ngữ pháp, tuần sau tải một app khác. Mỗi hoạt động đều "có ích", nhưng không hoạt động nào được lặp lại đủ lâu để tạo kết quả.
+Mục tiêu mơ hồ còn có một tác hại ngầm: nó khiến bạn học theo hứng. Hôm nay xem video phát âm, mai làm đề ngữ pháp, tuần sau tải một app khác. Mỗi hoạt động đều "có ích", nhưng không hoạt động nào được lặp lại đủ lâu để tạo kết quả. Nếu bạn học mãi mà không tiến bộ, hãy đọc [vì sao học tiếng Anh mãi không giỏi](/vi/blog/vi-sao-hoc-tieng-anh-mai-khong-gioi/) để tìm nguyên nhân.
 
 ## Mục tiêu học tiếng Anh theo SMART
 
@@ -55,16 +55,16 @@ Bạn Lan làm thử đề TOEIC được khoảng 450 điểm, cần 600 để 
 
 Mục tiêu sáu tháng quá xa để tạo cảm giác cấp bách. Chỉ tiêu tuần thì vừa đủ gần. Cách chia gợi ý:
 
-1. **Tính tổng thời gian có**: số tuần đến ngày thi nhân với số giờ thực tế mỗi tuần. Hãy trung thực; nếu đi làm cả ngày, 5–7 giờ mỗi tuần đã là con số đáng nể. Những khoảng chờ ngắn trong ngày cũng cộng vào được nếu bạn có sẵn một [app học tiếng Anh miễn phí cài trên điện thoại](/blog/app-hoc-tieng-anh-tren-dien-thoai/).
+1. **Tính tổng thời gian có**: số tuần đến ngày thi nhân với số giờ thực tế mỗi tuần. Hãy trung thực; nếu đi làm cả ngày, 5–7 giờ mỗi tuần đã là con số đáng nể. Những khoảng chờ ngắn trong ngày cũng cộng vào được nếu bạn có sẵn một [app học tiếng Anh miễn phí cài trên điện thoại](/vi/blog/app-hoc-tieng-anh-tren-dien-thoai/).
 2. **Phân bổ theo điểm yếu**: kỹ năng thấp nhất nhận nhiều thời gian nhất, nhưng không bỏ hẳn các kỹ năng còn lại.
 3. **Đặt chỉ tiêu đo được cho mỗi tuần**, ví dụ:
-   - Ôn hết thẻ đến hạn ít nhất 6/7 ngày, theo kiểu [tự kiểm tra chủ động](/blog/active-recall-chu-dong-goi-nho/) chứ không chỉ đọc lại.
-   - Học 70 từ mới, ưu tiên [học từ qua ngữ cảnh](/blog/hoc-tu-vung-qua-ngu-canh/) của bài đọc, bài nghe.
+   - Ôn hết thẻ đến hạn ít nhất 6/7 ngày, theo kiểu [tự kiểm tra chủ động](/vi/blog/active-recall-chu-dong-goi-nho/) chứ không chỉ đọc lại.
+   - Học 70 từ mới, ưu tiên [học từ qua ngữ cảnh](/vi/blog/hoc-tu-vung-qua-ngu-canh/) của bài đọc, bài nghe.
    - Làm 2 bài Listening, 2 bài Reading.
    - Viết 1 bài Task 2 và tự sửa theo bốn tiêu chí chấm.
 4. **Chừa một buổi "đệm"** mỗi tuần để bù khi có việc đột xuất. Kế hoạch không có chỗ cho đời sống thật sẽ vỡ ngay tuần thứ hai.
 
-Nếu thời gian mỗi ngày rất ít, bài [học tiếng Anh mỗi ngày 15 phút](/blog/hoc-tieng-anh-15-phut-moi-ngay/) có lịch mẫu để bạn bắt đầu nhỏ mà vẫn đều.
+Nếu thời gian mỗi ngày rất ít, bài [học tiếng Anh mỗi ngày 15 phút](/vi/blog/hoc-tieng-anh-15-phut-moi-ngay/) có lịch mẫu để bạn bắt đầu nhỏ mà vẫn đều.
 
 ## Theo dõi tiến độ và điều chỉnh
 
@@ -80,7 +80,7 @@ Khi bị chậm nhịp, đừng dồn bù gấp đôi vào tuần sau. Cách đ�
 
 ### Giữ động lực khi tiến bộ chậm
 
-Tiến bộ tiếng Anh thường đi theo bậc thang: vài tuần như không đổi gì, rồi bỗng dưng nhảy lên. Ở những tuần "phẳng", hãy nhìn vào chỉ số đầu vào thay vì điểm số. Bạn vẫn đang tích lũy, chỉ là kết quả chưa lộ ra. Ghi lại một câu bạn nói được hôm nay mà tháng trước chưa nói được cũng là cách hay để thấy mình đang đi lên. Ở giai đoạn này, xen vài lượt [học từ vựng qua trò chơi](/blog/hoc-tu-vung-qua-tro-choi/) giúp buổi học bớt nặng nề mà vẫn ôn được từ cũ.
+Tiến bộ tiếng Anh thường đi theo bậc thang: vài tuần như không đổi gì, rồi bỗng dưng nhảy lên. Ở những tuần "phẳng", hãy nhìn vào chỉ số đầu vào thay vì điểm số. Bạn vẫn đang tích lũy, chỉ là kết quả chưa lộ ra. Ghi lại một câu bạn nói được hôm nay mà tháng trước chưa nói được cũng là cách hay để thấy mình đang đi lên. Ở giai đoạn này, xen vài lượt [học từ vựng qua trò chơi](/vi/blog/hoc-tu-vung-qua-tro-choi/) giúp buổi học bớt nặng nề mà vẫn ôn được từ cũ.
 
 ## Làm ngay trong Lexkite
 
