@@ -1,0 +1,17 @@
+// Kiểm tra lời giải đề thi dịch sẵn (web/i18n/explain/<lang>.json): mỗi ngôn ngữ phủ ≥ 98% câu hiện có, không lẫn tiếng Việt, JSON hợp lệ.
+import fs from 'fs'; import path from 'path'; import { fileURLToPath } from 'url';
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..'), g = {};
+for (const d of ['listen', 'readtest', 'toeic', 'toefl']) for (const f of fs.readdirSync(path.join(ROOT, 'web/js', d))) if (f.endsWith('.js')) try { new Function('self', fs.readFileSync(path.join(ROOT, 'web/js', d, f), 'utf8'))(g); } catch (e) { /* bỏ qua */ }
+const src = new Set(); JSON.stringify([g.LISTENING, g.READ_EXPLAIN, g.TOEIC, g.TOEFL], (k, v) => { if ((k === 'why' || k === 'explain') && typeof v === 'string' && v.trim()) src.add(v); return v; });
+const hash = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return (h >>> 0).toString(36); };
+const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
+const langs = ['en', ...fs.readFileSync(path.join(ROOT, 'scripts/i18n-langs.txt'), 'utf8').split('\n').map(s => s.trim()).filter(s => s && !s.startsWith('#'))];
+let bad = 0; const rows = [];
+for (const l of langs) {
+  const f = path.join(ROOT, 'web/i18n/explain', l + '.json'); if (!fs.existsSync(f)) { rows.push(`${l}: thiếu file`); bad++; continue; }
+  const j = JSON.parse(fs.readFileSync(f, 'utf8')); let have = 0, vi = 0;
+  for (const s of src) { const x = j[hash(s)]; if (x) { have++; if (VI.test(x)) vi++; } }
+  const pct = have / src.size * 100; rows.push(`${l} ${pct.toFixed(1)}%${vi ? ` lẫn-Việt ${vi}` : ''}`);
+  if (pct < 98 || vi > 2) bad++;
+}
+console.log((bad ? '✗' : '✓') + ` explain: ${src.size} lời giải · ` + rows.join(' · ')); process.exit(bad ? 1 : 0);
