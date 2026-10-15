@@ -51,7 +51,7 @@ export const verify = async (...a) => { const c = await claims(...a); return c ?
 // Không tuyệt đối toàn cầu (đếm theo từng trung tâm dữ liệu) – đủ chặn spam/script tự động; người dùng thường không chạm tới.
 export async function limit(key, max, windowSec) {
   try {
-    const c = caches.default, req = new Request('https://rate.lexkite.internal/' + encodeURIComponent(key)), now = Date.now();
+    const c = /** @type {any} */ (caches).default, req = new Request('https://rate.lexkite.internal/' + encodeURIComponent(key)), now = Date.now();
     const hit = await c.match(req); let st = hit ? await hit.json() : null;
     if (!st || st.reset <= now) st = { n: 0, reset: now + windowSec * 1000 };
     if (st.n >= max) return Math.ceil((st.reset - now) / 1000);

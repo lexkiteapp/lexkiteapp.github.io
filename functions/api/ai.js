@@ -52,21 +52,21 @@ export async function onRequestPost({ request, env }) {
   const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
   const id = uid ? 'u:' + uid : 'ip:' + (await sha('lexkite|' + ip)).slice(0, 24); // không lưu IP gốc
   let cfg = {}; try { cfg = Object.fromEntries(((await env.DB.prepare("SELECT k, v FROM config WHERE k IN ('ai_user', 'ai_anon', 'ai_global')").all()).results || []).filter(r => r.v !== '').map(r => [r.k, +r.v])); } catch (e) { /* chưa có bảng config */ }
-  const limit = uid ? (cfg.ai_user >= 0 ? cfg.ai_user : LIMIT_USER) : (cfg.ai_anon >= 0 ? cfg.ai_anon : LIMIT_ANON), day = new Date().toISOString().slice(0, 10);
+  const quota = uid ? (cfg.ai_user >= 0 ? cfg.ai_user : LIMIT_USER) : (cfg.ai_anon >= 0 ? cfg.ai_anon : LIMIT_ANON), day = new Date().toISOString().slice(0, 10);
   try {
     await setup(env.DB);
     const h = await sha(sys + '\n' + prompt);
     const hit = await env.DB.prepare('SELECT out FROM ai_cache WHERE h = ?').bind(h).first();
     const used = (await env.DB.prepare('SELECT n FROM ai_quota WHERE id = ? AND day = ?').bind(id, day).first())?.n || 0;
-    if (hit) return json(request, 200, { out: JSON.parse(hit.out), left: Math.max(0, limit - used), cached: true });
-    if (used >= limit) return json(request, 429, { error: 'quota', left: 0, signIn: !uid, message: `Bạn đã dùng hết ${limit} lượt AI miễn phí hôm nay. Hãy quay lại vào ngày mai hoặc dùng khóa cá nhân.` });
+    if (hit) return json(request, 200, { out: JSON.parse(hit.out), left: Math.max(0, quota - used), cached: true });
+    if (used >= quota) return json(request, 429, { error: 'quota', left: 0, signIn: !uid, message: `Bạn đã dùng hết ${quota} lượt AI miễn phí hôm nay. Hãy quay lại vào ngày mai hoặc dùng khóa cá nhân.` });
     const all = (await env.DB.prepare("SELECT n FROM ai_quota WHERE id = '*' AND day = ?").bind(day).first())?.n || 0;
-    if (all >= (cfg.ai_global > 0 ? cfg.ai_global : GLOBAL_DAY)) return json(request, 429, { error: 'busy', left: limit - used });
+    if (all >= (cfg.ai_global > 0 ? cfg.ai_global : GLOBAL_DAY)) return json(request, 429, { error: 'busy', left: quota - used });
     const { out, model } = await runModel(env, sys, prompt);
     const up = 'INSERT INTO ai_quota (id, day, n) VALUES (?1, ?2, 1) ON CONFLICT (id, day) DO UPDATE SET n = n + 1';
     await env.DB.batch([env.DB.prepare(up).bind(id, day), env.DB.prepare(up).bind('*', day), env.DB.prepare('INSERT OR REPLACE INTO ai_cache (h, out, at) VALUES (?, ?, ?)').bind(h, JSON.stringify(out), Date.now())]);
     out._model = model;
-    return json(request, 200, { out, left: Math.max(0, limit - used - 1), model });
+    return json(request, 200, { out, left: Math.max(0, quota - used - 1), model });
   } catch (e) {
     return json(request, 503, { error: 'ai', detail: String(e && e.message || e).slice(0, 120) });
   }
