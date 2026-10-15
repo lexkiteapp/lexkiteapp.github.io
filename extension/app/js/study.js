@@ -76,7 +76,7 @@
     if (!nothing) { Sfx.win(); confetti(); }
     const acc = session.done ? Math.round((session.done - session.again) / session.done * 100) : 0;
     view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate">
-      <div class="em">${nothing ? '🎉' : '🏆'}</div>
+      <div class="em kit-cele">${window.Kit ? Kit.svg('win', 120) : (nothing ? '🎉' : '🏆')}</div>
       <h2>${nothing ? t('Hôm nay bạn đã ôn hết!') : t('Hoàn thành {n} lượt ôn!', { n: session.done })}</h2>
       ${nothing ? '' : `<div class="row center" style="gap:1.5rem;margin:1rem 0"><div><b style="font-size:1.6rem;color:var(--gold)">+${session.xp}</b><div class="tiny muted">XP</div></div><div><b style="font-size:1.6rem;color:var(--good)">${acc}%</b><div class="tiny muted">${t('Nhớ ngay')}</div></div><div><b style="font-size:1.6rem">🔥${App.streak()}</b><div class="tiny muted">${t('Chuỗi ngày')}</div></div></div>`}
       ${(session.missed || []).length ? `<div style="margin:.6rem 0"><div class="small muted">🔁 ${t('Từ vừa quên – xem lại 1 lần nữa:')}</div><div class="row center" style="gap:.35rem;margin-top:.3rem">${session.missed.slice(0, 12).map(w => `<a class="chip" href="#/dict/${encodeURIComponent(w)}">${esc(w)}</a>`).join('')}</div></div>` : ''}
@@ -425,7 +425,7 @@
       const unitPassed = unit && App.completeUnit ? App.completeUnit(unit, pct) : null;
       const band = mode === 'test' ? (pct >= 95 ? '8.5+' : pct >= 85 ? '7.5–8.0' : pct >= 70 ? '6.5–7.0' : pct >= 50 ? '5.5–6.0' : '< 5.5') : '';
       view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate">
-        <div class="em">${pct >= 80 ? '🏆' : pct >= 50 ? '👍' : '💪'}</div>
+        <div class="em kit-cele">${window.Kit ? Kit.svg(pct >= 80 ? 'win' : pct >= 50 ? 'cheer' : 'think', 110) : (pct >= 80 ? '🏆' : pct >= 50 ? '👍' : '💪')}</div>
         <div class="score-ring" style="--p:${pct};--c:${pct >= 80 ? 'var(--good)' : pct >= 50 ? 'var(--hard)' : 'var(--again)'}"><b>${pct}%</b></div>
         <h2 style="margin-top:1rem">${t('{score}/{total} câu đúng', { score: run.score, total: qs.length })}</h2>
         ${band ? `<p>${t('Mức từ vựng ước tính: <b>Band {band}</b>', { band })} <span class="muted small">${t('(tham khảo)')}</span></p>` : ''}

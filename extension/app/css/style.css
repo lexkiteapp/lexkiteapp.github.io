@@ -955,3 +955,18 @@ a, button, label, .option, .card.hover, [role="button"] { touch-action: manipula
 .ad-slot.on { margin: 1.4rem 0 .4rem; min-height: 110px; padding: .5rem; border: 1px dashed var(--line); border-radius: 14px; background: var(--surface); overflow: hidden; }
 .ad-slot .ad-label { font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0 0 .3rem .2rem; }
 html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom)); }
+
+/* Linh vật Kit */
+.kit-greet { display: flex; align-items: center; gap: .7rem; }
+.kit-greet svg { flex: none; filter: drop-shadow(0 6px 10px rgba(0,0,0,.18)); }
+.kit-say { font-weight: 800; font-size: 1.02rem; line-height: 1.35; }
+@media (prefers-reduced-motion: no-preference) {
+  .kit-greet svg, .kit-cele svg { animation: kitbob 2.6s ease-in-out infinite; }
+  svg .blink { transform-box: fill-box; transform-origin: center; animation: kitblink 4.2s infinite; }
+  svg .flap-l { transform-origin: 32px 68px; animation: kitflapL .9s ease-in-out infinite; }
+  svg .flap-r { transform-origin: 88px 68px; animation: kitflapR .9s ease-in-out infinite; }
+}
+@keyframes kitbob { 50% { transform: translateY(-3px); } }
+@keyframes kitblink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+@keyframes kitflapL { 50% { transform: rotate(14deg); } }
+@keyframes kitflapR { 50% { transform: rotate(-14deg); } }

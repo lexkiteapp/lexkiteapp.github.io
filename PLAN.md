@@ -14,7 +14,7 @@ Cập nhật: 15/10/2026.
 
 ## 2. Thương hiệu Lexkite trên sản phẩm
 - [x] Tên, logo “cuốn sách biết bay”, icon web/add-on/iOS/Android, màn hình chờ, bảng màu
-- [ ] Linh vật Kit trong app: chào ở trang chủ, ăn mừng khi xong bài/lên band, trạng thái trống, buồn khi sắp mất chuỗi
+- [x] Linh vật Kit trong app: chào ở trang chủ (vui / ăn mừng / buồn khi sắp mất chuỗi), ăn mừng khi xong phiên ôn & bài luyện
 - [ ] Font thương hiệu (Bricolage Grotesque + Figtree) – tải nhẹ, có dự phòng
 - [ ] Bộ ảnh & mô tả cửa hàng (App Store, Google Play, Chrome Web Store) theo 15 ngôn ngữ
 - [ ] App ID mới `com.lexkite.app` trước khi lên Store

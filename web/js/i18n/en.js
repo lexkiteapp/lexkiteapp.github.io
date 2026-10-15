@@ -2085,6 +2085,10 @@
   'Học từ vựng IELTS, TOEIC & TOEFL miễn phí: flashcard FSRS, từ điển song ngữ có phát âm, luyện 4 kỹ năng và thi thử có giải thích chi tiết.': 'Learn IELTS, TOEIC & TOEFL vocabulary free: FSRS flashcards, a bilingual dictionary with pronunciation, 4-skill practice and mock tests with detailed explanations.',
   'Giọng đọc tự nhiên cho bài nghe & giám khảo (tải âm thanh từ mạng)': 'Natural voices for listening & examiner (streams audio)',
   'Quảng cáo': 'Advertisement',
+  'Xong mục tiêu hôm nay rồi! Giỏi quá 🎉': 'Today’s goal done! Amazing 🎉',
+  'Học 5 phút với mình để giữ chuỗi nhé!': 'Study 5 minutes with me to keep your streak!',
+  'Hôm nay mình ôn {n} thẻ cùng nhau nhé!': 'Let’s review {n} cards together today!',
+  'Chọn bộ từ đầu tiên cùng mình nhé!': 'Let’s pick your first word set together!',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* English UI strings – toefl.js (TOEFL iBT practice, 2026 format) */

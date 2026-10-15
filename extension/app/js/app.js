@@ -389,7 +389,12 @@
     view.innerHTML = `
       <div class="hero">
         <div class="card hero-main stack">
-          <div class="muted">${greet}${name ? ', ' + esc(name) : ''} 👋</div>
+          ${(() => { // Linh vật Kit chào theo tình huống: đạt mục tiêu → ăn mừng, tối mà chưa học → buồn, còn lại → vui
+            const done = todayReviews >= goal, late = h >= 19 && !todayReviews && cards.length;
+            const mood = done ? 'win' : late ? 'sad' : 'happy';
+            const msg = done ? t('Xong mục tiêu hôm nay rồi! Giỏi quá 🎉') : late ? t('Học 5 phút với mình để giữ chuỗi nhé!') : total ? t('Hôm nay mình ôn {n} thẻ cùng nhau nhé!', { n: total }) : t('Chọn bộ từ đầu tiên cùng mình nhé!');
+            return window.Kit ? `<div class="kit-greet">${Kit.svg(mood, 62)}<div><div class="muted small">${greet}${name ? ', ' + esc(name) : ''}</div><div class="kit-say">${msg}</div></div></div>` : `<div class="muted">${greet}${name ? ', ' + esc(name) : ''} 👋</div>`;
+          })()}
           <div class="row between">
             <div><div class="big-num">${total}</div><div class="muted">${t('thẻ cần học hôm nay')}</div></div>
             <div class="small" style="text-align:right;line-height:1.9">🔁 ${t('{n} thẻ ôn lại', { n: due })}<br>✨ ${t('{n} từ mới', { n: newCount })}</div>

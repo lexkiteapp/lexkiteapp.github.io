@@ -1,7 +1,7 @@
 /* Service worker: cache giao diện để dùng offline + mở app khi bấm thông báo. */
-const CACHE = 'lexkite-20261015082815';
+const CACHE = 'lexkite-20261015083034';
 // Chỉ phần lõi (các file trong index.html) – phần nặng tải khi cần từ CDN và được lưu lại lúc dùng
-const SHELL = ['./', 'index.html', 'css/style.css', 'js/heal.js', 'js/native.js', 'js/ads-config.js', 'js/ads.js', 'js/i18n.js', 'js/data.js', 'js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lexis.js', 'js/structures.js', 'js/core.js', 'js/vi-check.js', 'js/dictionary.js', 'js/game.js', 'js/ui.js', 'js/app.js', 'js/study.js', 'js/reading.js', 'js/path.js', 'js/speak/more.js', 'js/speaking.js', 'js/plan.js', 'js/method.js', 'js/goal.js', 'js/cbt.js', 'js/phrases.js', 'js/ai.js', 'js/assist.js', 'js/firebase-config.js', 'js/sync.js', 'js/i18n/en.js', 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png'];
+const SHELL = ['./', 'index.html', 'css/style.css', 'js/heal.js', 'js/native.js', 'js/ads-config.js', 'js/ads.js', 'js/kit.js', 'js/i18n.js', 'js/data.js', 'js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lexis.js', 'js/structures.js', 'js/core.js', 'js/vi-check.js', 'js/dictionary.js', 'js/game.js', 'js/ui.js', 'js/app.js', 'js/study.js', 'js/reading.js', 'js/path.js', 'js/speak/more.js', 'js/speaking.js', 'js/plan.js', 'js/method.js', 'js/goal.js', 'js/cbt.js', 'js/phrases.js', 'js/ai.js', 'js/assist.js', 'js/firebase-config.js', 'js/sync.js', 'js/i18n/en.js', 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => Promise.all(SHELL.map(u => c.add(new Request(u, { cache: 'reload' })).catch(() => {}))  /* cache:'reload' – bỏ qua bộ nhớ đệm HTTP, không bao giờ cất nhầm file cũ */)).then(() => self.skipWaiting()));
