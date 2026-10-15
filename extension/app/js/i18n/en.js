@@ -2481,6 +2481,17 @@
   'Học trước 7 giờ sáng trong 5 ngày': 'Study before 7 am on 5 days',
   'Thợ săn từ': 'Word Hunter',
   'Học 50 từ mới trong một ngày': 'Learn 50 new words in one day',
+  'Kit đây! Học 5 phút cùng mình nhé?': "It's Kit! Five minutes together?",
+  'Kit nhớ bạn rồi đó 🐦': "Kit misses you 🐦",
+  'Bay một vòng từ vựng không?': "Up for a quick word flight?",
+  'Đến giờ cất cánh rồi! 🪁': "Time to take off! 🪁",
+  'Có {n} thẻ đang chờ – xong nhanh thôi, mình ở đây cùng bạn.': "{n} cards are waiting – it'll be quick, I'm right here with you.",
+  '{n} thẻ sắp quên – ôn bây giờ là nhớ lâu nhất đó!': "{n} cards are about to fade – reviewing now makes them stick longest!",
+  'Giữ chuỗi 🔥{s} ngày nhé – chỉ cần ôn {n} thẻ.': "Keep your 🔥{s}-day streak – just {n} cards to review.",
+  'Ôn {n} thẻ hôm nay để bắt đầu chuỗi ngày học nhé!': "Review {n} cards today to start your streak!",
+  'Hôm nay chưa có thẻ cần ôn – học thêm vài từ mới không?': "Nothing due today – how about a few new words?",
+  'Một bài nghe ngắn 5 phút trước khi ngủ nhé?': "A short 5-minute listening before bed?",
+  'Đọc một đoạn ngắn và lưu 3 từ hay – nhẹ nhàng thôi!': "Read a short passage and save 3 good words – nice and easy!",
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* Thống nhất thuật ngữ khi nhiều nhóm dùng chung 1 khóa */

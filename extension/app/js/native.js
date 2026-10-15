@@ -31,8 +31,7 @@
       const tt = (k, en) => (typeof g.t === 'function' ? g.t(k) : en); // đúng ngôn ngữ giao diện (15 ngôn ngữ)
       await LN.schedule({ notifications: [{
         id: 1,
-        title: tt('Lexkite – đến giờ học rồi!', 'Lexkite – time to study!') + ' 📚',
-        body: tt('Học vài từ mới để giữ chuỗi ngày học nhé', 'Review a few cards to keep your streak') + ' 🔥',
+        ...(g.App && g.App.kitNudge ? g.App.kitNudge() : { title: tt('Lexkite – đến giờ học rồi!', 'Lexkite – time to study!') + ' 📚', body: tt('Học vài từ mới để giữ chuỗi ngày học nhé', 'Review a few cards to keep your streak') + ' 🔥' }),
         schedule: { on: { hour: hh || 20, minute: mm || 0 }, repeats: true, allowWhileIdle: true },
         extra: { route: '#/review' },
       }] });

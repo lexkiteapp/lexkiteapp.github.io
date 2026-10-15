@@ -1128,10 +1128,18 @@
       'BEGIN:VALARM', 'ACTION:DISPLAY', 'DESCRIPTION:' + t('Đến giờ ôn từ vựng IELTS!'), 'TRIGGER:PT0M', 'END:VALARM', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
   }
 
+  // Lời nhắc học bằng giọng Kit (vui, không gây áp lực), đổi câu theo ngày
+  App.kitNudge = () => {
+    const { total } = Cards.dueCount(state.cards, state.settings, state.stats), st = streak(), day = Math.floor(Date.now() / DAY);
+    const titles = [t('Kit đây! Học 5 phút cùng mình nhé?'), t('Kit nhớ bạn rồi đó 🐦'), t('Bay một vòng từ vựng không?'), t('Đến giờ cất cánh rồi! 🪁')];
+    const bodies = total
+      ? [t('Có {n} thẻ đang chờ – xong nhanh thôi, mình ở đây cùng bạn.', { n: total }), t('{n} thẻ sắp quên – ôn bây giờ là nhớ lâu nhất đó!', { n: total }), st > 1 ? t('Giữ chuỗi 🔥{s} ngày nhé – chỉ cần ôn {n} thẻ.', { s: st, n: total }) : t('Ôn {n} thẻ hôm nay để bắt đầu chuỗi ngày học nhé!', { n: total })]
+      : [t('Hôm nay chưa có thẻ cần ôn – học thêm vài từ mới không?'), t('Một bài nghe ngắn 5 phút trước khi ngủ nhé?'), t('Đọc một đoạn ngắn và lưu 3 từ hay – nhẹ nhàng thôi!')];
+    return { title: titles[day % titles.length] + ' – Lexkite', body: bodies[day % bodies.length] };
+  };
   async function notify(force) {
     const { total } = Cards.dueCount(state.cards, state.settings, state.stats);
-    const title = t('Lexkite – đến giờ học rồi!') + ' 📚';
-    const body = total ? t('Bạn có {n} thẻ cần ôn hôm nay. Giữ chuỗi 🔥{s} ngày nhé!', { n: total, s: streak() }) : t('Học vài từ mới để giữ chuỗi ngày học nhé') + ' 🔥';
+    const { title, body } = App.kitNudge();
     if (Store.isExtension && chrome.runtime) { chrome.runtime.sendMessage({ type: 'testNotify' }); return; }
     if (!('Notification' in window)) return force && toast(t('Trình duyệt không hỗ trợ thông báo'));
     if (Notification.permission !== 'granted') {
@@ -1149,8 +1157,7 @@
     if (!('caches' in window) || !navigator.serviceWorker) return;
     const { total } = Cards.dueCount(state.cards, state.settings, state.stats);
     const today = new Date().toISOString().slice(0, 10), studied = (state.stats.days || {})[todayKey()] > 0;
-    const m = { on: s.reminderOn !== false, time: s.reminderTime || '20:00', last: studied ? today : '', title: t('Lexkite – đến giờ học rồi!') + ' 📚',
-      body: total ? t('Bạn có {n} thẻ cần ôn hôm nay. Giữ chuỗi 🔥{s} ngày nhé!', { n: total, s: streak() }) : t('Học vài từ mới để giữ chuỗi ngày học nhé') };
+    const m = { on: s.reminderOn !== false, time: s.reminderTime || '20:00', last: studied ? today : '', ...App.kitNudge() };
     const k = JSON.stringify(m); if (k === metaKey) return; metaKey = k;
     await (await caches.open('lk-meta')).put('/__meta', new Response(k, { headers: { 'Content-Type': 'application/json' } }));
     const reg = await navigator.serviceWorker.getRegistration();
