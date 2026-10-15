@@ -1419,7 +1419,7 @@
       </div>`;
     // Thẻ demo tương tác: chạm lật → chấm Nhớ/Dễ → chuông + pháo hoa + Kit chúc mừng → mời học tiếp
     const flip = () => { $('#wFront').hidden = true; $('#wBack').hidden = false; };
-    $('#wCard').onclick = e => { if (!e.target.closest('button,a')) flip(); };
+    $('#wCard').onclick = e => { if (!e.target.closest('button:not(#wFront),a')) flip(); };
     $('#wSay').onclick = e => { e.stopPropagation(); speak('sustainable', state.settings.accent); };
     $$('[data-wg]').forEach(b => b.onclick = e => { e.stopPropagation(); const g = b.dataset.wg;
       if (g === 'good' || g === 'easy') { Sfx.correct(); confetti(30); const k = $('#wKit'); if (k && window.Kit) k.innerHTML = Kit.svg('win', 72, true); }
