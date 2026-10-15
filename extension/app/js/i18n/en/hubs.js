@@ -171,4 +171,7 @@
   'Đã lập kế hoạch! Kế hoạch hôm nay sẽ theo mục tiêu này.': 'Plan saved! Your daily plan will follow this goal.',
   'Tiếp tục bài đang học': 'Pick up where you left off',
   'Mở lại': 'Continue',
+  'Hết 3 lượt chấm AI miễn phí hôm nay. Đăng nhập để có 5 lượt/ngày, hoặc thêm khóa Gemini riêng để chấm không giới hạn. Dưới đây là kết quả chấm nhanh:': "You've used today's 3 free AI gradings. Sign in for 5 a day, or add your own Gemini key for unlimited grading. Here is a quick rule-based result:",
+  'Hết lượt chấm AI miễn phí hôm nay – mai có lượt mới, hoặc thêm khóa Gemini riêng để chấm không giới hạn. Dưới đây là kết quả chấm nhanh:': "You've used today's free AI gradings – new ones tomorrow, or add your own Gemini key for unlimited grading. Here is a quick rule-based result:",
+  'Còn {n} lượt chấm AI miễn phí hôm nay': '{n} free AI gradings left today',
 }); })(typeof self !== 'undefined' ? self : this);
