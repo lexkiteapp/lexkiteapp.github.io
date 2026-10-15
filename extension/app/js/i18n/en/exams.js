@@ -141,7 +141,7 @@
   '<b>Paraphrase</b>: câu hỏi hiếm khi dùng đúng từ trong bài nghe – hãy nghe ý, không chỉ nghe từ.': '<b>Paraphrase</b>: questions rarely use the exact words from the recording – listen for meaning, not just words.',
   '<b>Giới hạn từ</b>: “ONE WORD AND/OR A NUMBER” mà viết 2 từ là sai cả câu. Chú ý chính tả và số nhiều.': '<b>Word limits</b>: writing 2 words for “ONE WORD AND/OR A NUMBER” makes the whole answer wrong. Check spelling and plurals.',
   '<b>Chép chính tả</b> 10 phút mỗi ngày là cách nhanh nhất để nghe ra từng âm, nối âm và nuốt âm.': '<b>Dictation</b> for 10 minutes a day is the fastest way to catch individual sounds, linking and reduced sounds.',
-  'Luyện nghe': 'Listening',
+
   'Chế độ luyện tập': 'Practice mode',
   'Chế độ thi thật': 'Exam mode',
   'Nghe': 'Play',
@@ -154,7 +154,7 @@
   'Bấm dòng để nghe từ đó · chạm từ để tra': 'Tap a line to play from there · tap a word to look it up',
   'khoảng lặng': 'pause',
   'Tạm dừng': 'Pause',
-  'Nghe tiếp': 'Resume',
+  'Nghe tiếp': 'Keep listening',
   'Đã nghe xong': 'Finished',
   'Nghe lại từ đầu': 'Replay from start',
   'Hết bài nghe – kiểm tra lại đáp án rồi nộp bài.': 'Recording finished – check your answers, then submit.',
