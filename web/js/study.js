@@ -153,7 +153,7 @@
       <div class="study-top">
         <a class="icon-btn" href="${App.backHref().replace(/^#\/practice$/, "#/home")}" title="${t('Thoát')}">✕</a>
         ${session.last ? `<button class="icon-btn" id="undoBtn" title="${t('Hoàn tác lần chấm vừa rồi (Z)')}">↶</button>` : ''}
-        <a class="icon-btn" href="#/handsfree" title="${t('Chế độ Rảnh tay')}" aria-label="${t('Chế độ Rảnh tay')}">🎧</a>
+        <a class="icon-btn" href="#/handsfree/session" title="${t('Chế độ Rảnh tay')}" aria-label="${t('Chế độ Rảnh tay')}">🎧</a>
         <div class="progress"><i style="width:${pct}%"></i></div>
         <span class="small muted" style="white-space:nowrap" title="${t('Thẻ đang ở bước học (1–10 phút) sẽ quay lại trong phiên')}">✅ ${session.done} · ${t('<b>{n}</b> thẻ còn lại', { n: new Set(session.queue).size })}</span>
       </div>

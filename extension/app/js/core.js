@@ -11,8 +11,8 @@
 
   // Dữ liệu lớn (flashcard) trên web: IndexedDB (dung lượng hàng GB) thay vì localStorage (~5MB) → người học chăm không bị
   // "đầy bộ nhớ" âm thầm. Tự chuyển dữ liệu cũ sang lần đầu; trình duyệt không có IndexedDB → vẫn dùng localStorage.
-  const BIG = new Set(['cards', 'dcIndex']);
-  const isBig = key => BIG.has(key) || String(key).startsWith('dc2:'); // flashcard + bộ nhớ đệm từ điển → IndexedDB (không chạm giới hạn 5 MB của localStorage)
+  const BIG = new Set(['cards', 'dcIndex', 'sentences']);
+  const isBig = key => BIG.has(key) || String(key).startsWith('dc2:') || String(key).startsWith('dc:'); // flashcard + bộ nhớ đệm từ điển → IndexedDB (không chạm giới hạn 5 MB của localStorage)
   let dbp = null;
   const idb = () => dbp || (dbp = new Promise((res, rej) => {
     if (typeof indexedDB === 'undefined') return rej(new Error('no-idb'));
@@ -45,9 +45,16 @@
     return v;
   };
   // Xin lưu trữ bền vững: Safari/Android không tự xóa IndexedDB của người học khi máy gần đầy bộ nhớ
-  if (!hasChrome && typeof navigator !== 'undefined' && navigator.storage && navigator.storage.persist) navigator.storage.persisted().then(p => p || navigator.storage.persist()).catch(() => {});
+  const ensurePersist = () => {
+    try {
+      if (!hasChrome && typeof navigator !== 'undefined' && navigator.storage && navigator.storage.persist) {
+        navigator.storage.persisted().then(p => p || navigator.storage.persist()).catch(() => {});
+      }
+    } catch (e) { /* bỏ qua */ }
+  };
+  ensurePersist();
   // Dọn đệm từ điển cũ trong localStorage (đã chuyển sang IndexedDB)
-  try { if (!hasChrome && typeof localStorage !== 'undefined') Object.keys(localStorage).filter(k => /^(ielts|sbx)\.(dc2:|dcIndex$)/.test(k)).forEach(k => localStorage.removeItem(k)); } catch (e) { /* bỏ qua */ }
+  try { if (!hasChrome && typeof localStorage !== 'undefined') Object.keys(localStorage).filter(k => /^(ielts|sbx)\.(dc2?:|dcIndex$)/.test(k)).forEach(k => localStorage.removeItem(k)); } catch (e) { /* bỏ qua */ }
   const Store = {
     async get(key, fallback) {
       try {
@@ -296,6 +303,7 @@
       }
       card.mod = Date.now();
       map[key] = card;
+      ensurePersist();
       await Store.set('cards', map);
       const del = await Store.get('deleted', {});
       if (del[key]) { delete del[key]; await Store.set('deleted', del); }
@@ -385,5 +393,5 @@
     },
   };
 
-  g.Core = { keyOf, Golden, Store, SRS, Cards, Stats, DEFAULT_SETTINGS, todayKey, startOfToday, endOfToday, DAY };
+  g.Core = { keyOf, Golden, Store, SRS, Cards, Stats, DEFAULT_SETTINGS, todayKey, startOfToday, endOfToday, DAY, ensurePersist };
 })(typeof self !== 'undefined' ? self : this);
