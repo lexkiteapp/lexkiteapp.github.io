@@ -2089,6 +2089,8 @@
   'Học 5 phút với mình để giữ chuỗi nhé!': 'Study 5 minutes with me to keep your streak!',
   'Hôm nay mình ôn {n} thẻ cùng nhau nhé!': 'Let’s review {n} cards together today!',
   'Chọn bộ từ đầu tiên cùng mình nhé!': 'Let’s pick your first word set together!',
+  'Chào bạn, mình là Kit! 3 câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.': 'Hi, I’m Kit! Three quick questions and I’ll build a plan just for you.',
+  '6.800+ từ IELTS, TOEIC & TOEFL': '6,800+ IELTS, TOEIC & TOEFL words',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* English UI strings – toefl.js (TOEFL iBT practice, 2026 format) */

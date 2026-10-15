@@ -1210,7 +1210,7 @@
     App.cleanup = () => document.body.classList.remove('bare');
     if (step === 'setup') return setup();
     const feats = [
-      ['📚', t('4.600+ từ IELTS & TOEIC'), t('NGSL, 570 từ học thuật AWL, 1.250 từ TOEIC, chủ đề IELTS, phrasal verb, collocation band 7+')],
+      ['📚', t('6.800+ từ IELTS, TOEIC & TOEFL'), t('NGSL, 570 từ học thuật AWL, 1.250 từ TOEIC, chủ đề IELTS, phrasal verb, collocation band 7+')],
       ['🧠', t('Flashcard FSRS như Anki'), t('Thuật toán ghi nhớ hiện đại nhất nhắc bạn ôn đúng lúc sắp quên')],
       ['📌', t('Từ gắn ngữ cảnh'), t('Lưu từ kèm câu gốc từ bài đọc, báo, YouTube… nhớ lâu gấp nhiều lần')],
       ['🎙️', t('Luyện phát âm có chấm điểm'), t('Nói vào micro, AI nhận dạng giọng và chấm điểm ngay')],
@@ -1234,7 +1234,7 @@
             <p class="small muted" style="margin-top:.8rem">${t('Miễn phí · Không quảng cáo · Dữ liệu học thuộc về bạn')}</p>
           </div>
           <div class="card" style="padding:0;overflow:hidden;box-shadow:var(--shadow-lg)">
-            <div style="background:linear-gradient(135deg,#0F3D3E,#17595A 60%,#1F7A72);padding:1.6rem;color:#fff;text-align:center">
+            <div style="background:linear-gradient(135deg,#0F3D3E,#17595A 60%,#1F7A72);padding:1.6rem;color:#fff;text-align:center;position:relative">${window.Kit ? `<div class="kit-cele" style="position:absolute;right:.6rem;top:.5rem">${Kit.svg('cheer', 64)}</div>` : ''}
               <div style="font-size:4rem">🌿</div><div style="font-size:2rem;font-weight:800">sustainable</div>
               <div style="opacity:.85">/səˈsteɪnəbl/ · adj · B2</div></div>
             <div style="padding:1.2rem 1.4rem">
@@ -1257,6 +1257,7 @@
     const draw = () => {
       view.innerHTML = `<div style="max-width:760px;margin:0 auto" class="stack">
         <div class="row between"><span class="brand" style="padding:0"><img class="logo" src="icons/icon.svg" alt=""><span class="wordmark">lex<b>kite</b></span></span><a class="small" href="#/welcome">← ${t('Quay lại')}</a></div>
+        ${window.Kit ? `<div class="kit-greet card" style="background:var(--primary-soft);border:0">${Kit.svg('happy', 58)}<div><div class="kit-say">${t('Chào bạn, mình là Kit! 3 câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.')}</div></div></div>` : ''}
         <div class="card"><h2>🎯 ${t('Band mục tiêu của bạn?')}</h2><div class="tabs" style="display:inline-flex;margin-top:.4rem" id="bandT">${['5.5', '6.0', '6.5', '7.0', '7.5', '8.0+'].map(b => `<button data-v="${b}" class="${pick.band === b ? 'on' : ''}">${b}</button>`).join('')}</div></div>
         <div class="card"><h2>⏱ ${t('Bạn muốn học với cường độ nào?')}</h2><div class="grid g3" style="margin-top:.6rem">${paces.map(([v, pt, d]) => `<button class="option ${pick.pace === v ? 'right' : ''}" data-pace="${v}" style="flex-direction:column;align-items:flex-start"><b>${pt}</b><span class="small muted" style="font-weight:500">${d}</span></button>`).join('')}</div></div>
         <div class="card"><h2>📚 ${t('Chọn chủ đề muốn học trước')}</h2><p class="muted small">${t('Chọn 1–5 chủ đề, bạn có thể thêm sau trong Thư viện.')}</p>
