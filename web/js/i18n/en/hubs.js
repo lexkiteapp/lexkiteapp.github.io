@@ -177,4 +177,5 @@
   'AI chấm Writing & Speaking miễn phí của Lexkite': "Lexkite's free AI grading for Writing & Speaking",
   '3 lượt mỗi ngày, đăng nhập được 5 lượt – không cần khóa': '3 a day, 5 when signed in – no key needed',
   'Không bắt buộc – thêm khóa Gemini miễn phí của riêng bạn để chấm không giới hạn. Khóa chỉ lưu trên máy này.': 'Optional – add your own free Gemini key for unlimited grading. The key stays on this device only.',
+  'Bỏ qua tới nội dung chính': 'Skip to main content',
 }); })(typeof self !== 'undefined' ? self : this);

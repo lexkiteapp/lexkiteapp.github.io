@@ -1117,3 +1117,7 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
 /* Chế độ tối: chữ XP/chuỗi ngày sáng hơn cho dễ đọc trên nền tối */
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pill.xp { color: var(--gold); } :root:not([data-theme="light"]) .pill.fire { color: #fb923c; } }
 :root[data-theme="dark"] .pill.xp { color: var(--gold); } :root[data-theme="dark"] .pill.fire { color: #fb923c; }
+/* Bàn phím: viền rõ khi chọn bằng phím Tab (không hiện khi bấm chuột) + liên kết bỏ qua tới nội dung */
+:where(a, button, [role="button"], input, select, textarea, summary, [tabindex]):focus-visible { outline: 3px solid color-mix(in srgb, var(--primary) 70%, transparent); outline-offset: 2px; border-radius: 10px; }
+.skip-link { position: fixed; left: .8rem; top: -3rem; z-index: 100; padding: .6rem 1rem; border-radius: 10px; background: var(--primary); color: var(--primary-ink); font-weight: 700; transition: top .15s; }
+.skip-link:focus { top: .8rem; }
