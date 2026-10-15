@@ -33,6 +33,10 @@ jobs:
         run: |
           OUT=$(node scripts/test/smoke.js "$PWD/web" 2>/dev/null | tail -1); echo "$OUT"
           [ "$OUT" = "ERRORS none" ]
+      - name: Khả năng truy cập (nút phải có nhãn cho trình đọc màn hình)
+        run: |
+          OUT=$(node scripts/test/a11y.js "$PWD/web" 2>/dev/null | grep NOLABEL || true); echo "${OUT:-✓ mọi nút đều có nhãn}"
+          [ -z "$OUT" ]
       - name: Quét toàn bộ trang nội dung
         run: |
           OUT=$(node scripts/test/crawl.js "$PWD/web" 2>/dev/null | tail -1); echo "$OUT"
