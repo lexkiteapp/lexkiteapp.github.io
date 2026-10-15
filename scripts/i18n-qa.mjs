@@ -16,7 +16,7 @@ const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễ�
 const BAD = /\b(Currículo|Currículum|Lebenslauf|CV)\b|简历|이력서|बायोडाटा|Резюме|Mirar hacia arriba|Olhe para cima|Schau nach oben|抬头看|見上げ|올려다|ऊपर देखो|Посмотрите вверх|Yukarıya bak|Lihatlah ke atas|มองขึ้น/;
 const vars = s => (String(s).match(/\{[a-zA-Z0-9_]+\}/g) || []).sort().join(',');
 const tags = s => (String(s).match(/<\/?[a-z]+/gi) || []).map(x => x.toLowerCase()).sort().join(',');
-const short = k => String(EN[k]).trim().split(/\s+/).length <= 3 && !/[{<]/.test(EN[k]) && /[a-z]/i.test(EN[k]);
+const short = k => String(EN[k]).trim().split(/\s+/).length <= 3 && !/[{<]/.test(EN[k]) && /[a-z]/i.test(EN[k]) && !/^[A-Z0-9 &–-]+$/.test(EN[k]) && !/IELTS|TOEIC|TOEFL|Part|Task/.test(EN[k]); // tên riêng/thuật ngữ thi giữ nguyên tiếng Anh
 let errors = 0; const report = [];
 for (const l of langs) {
   let D; try { D = load(l + '.js')[l] || {}; } catch (e) { report.push(`✗ ${l}: không đọc được (${e.message})`); errors++; continue; }

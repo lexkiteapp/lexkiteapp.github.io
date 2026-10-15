@@ -27,7 +27,7 @@ Một khóa chỉ có **một** bản tiếng Anh: không khai báo trùng khóa
 - giữ nguyên biến `{n}` và thẻ HTML
 - không còn chữ tiếng Việt có dấu (lẫn tiếng)
 - không mắc lỗi dịch máy đã biết (danh sách `BAD` trong script – thêm mẫu mới khi phát hiện)
-- `--short`: liệt kê nhãn ngắn chưa có bản dịch tay (mục tiêu: 0)
+- `--short`: liệt kê nhãn ngắn chưa có bản dịch tay (mục tiêu: 0; đã đạt 0 ngày 15/10/2026 – tên riêng & thuật ngữ thi như "Writing Task 2" được giữ nguyên)
 
 Khóa thiếu → giao diện tự hiện tiếng Anh (en.js nạp trước), không bao giờ hiện tiếng Việt.
 
