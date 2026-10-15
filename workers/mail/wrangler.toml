@@ -8,3 +8,12 @@ preview_urls = false
 [[send_email]]
 name = "SEB"
 destination_address = "vintagezulilyjewelry@gmail.com"
+
+# Email cảnh báo tự động mỗi ngày 01:00 UTC (08:00 giờ VN) – chỉ gửi khi có mục cần xử lý
+[triggers]
+crons = ["0 1 * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "lexkite-sync"
+database_id = "7ce39cd0-9333-4843-bd6f-5ccbefbde670"

@@ -4,5 +4,6 @@ Disallow: /*?sandbox=
 Disallow: /*?demo=
 Disallow: /*&sandbox=
 Disallow: /*&demo=
+Disallow: /admin
 
 Sitemap: https://lexkite.com/sitemap.xml

@@ -26,7 +26,8 @@ async function keys(force) {
   return jwks;
 }
 // Xác minh Firebase ID token (RS256) → uid, hoặc null
-export async function verify(token, now = Date.now() / 1000, getKeys = keys) {
+// Trả về toàn bộ claims (sub, email, email_verified, name…) của Firebase ID token hợp lệ, hoặc null
+export async function claims(token, now = Date.now() / 1000, getKeys = keys) {
   const p = (token || '').split('.');
   if (p.length !== 3) return null;
   let head, body;
@@ -41,11 +42,14 @@ export async function verify(token, now = Date.now() / 1000, getKeys = keys) {
   if (body.aud !== PROJECT || body.iss !== 'https://securetoken.google.com/' + PROJECT) return null;
   if (!(body.exp > now) || !(body.iat <= now + 300)) return null;
   if (typeof body.sub !== 'string' || !body.sub || body.sub.length > 128) return null;
-  return body.sub;
+  return body;
 }
+export const verify = async (...a) => { const c = await claims(...a); return c ? c.sub : null; };
+
 
 async function setup(db) {
   if (ready) return;
+  await db.prepare('CREATE TABLE IF NOT EXISTS users (uid TEXT PRIMARY KEY, email TEXT, name TEXT, created INTEGER NOT NULL, seen INTEGER NOT NULL, plat TEXT, n INTEGER DEFAULT 1) WITHOUT ROWID').run();
   await db.prepare('CREATE TABLE IF NOT EXISTS docs (uid TEXT NOT NULL, k TEXT NOT NULL, h TEXT NOT NULL, body TEXT NOT NULL, updated INTEGER NOT NULL, PRIMARY KEY (uid, k)) WITHOUT ROWID').run();
   ready = true;
 }
@@ -54,7 +58,8 @@ export const onRequestOptions = ({ request }) => new Response(null, { status: 20
 
 export async function onRequestPost({ request, env }) {
   if (!env.DB) return json(request, 500, { error: 'no-db' });
-  const uid = await verify((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')).catch(() => null);
+  const who = await claims((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')).catch(() => null);
+  const uid = who && who.sub;
   if (!uid) return json(request, 401, { error: 'auth' });
   if (+(request.headers.get('Content-Length') || 0) > MAX_TOTAL) return json(request, 413, { error: 'too-large' });
   let req;
@@ -62,6 +67,10 @@ export async function onRequestPost({ request, env }) {
   try {
     await setup(env.DB);
     if (req.op === 'pull') {
+      // Sổ người dùng cho trang quản trị: chỉ ghi khi lần thấy trước đã hơn 1 giờ (tiết kiệm lượt ghi D1)
+      const o = request.headers.get('Origin') || '', plat = /^chrome-extension:/.test(o) ? 'ext' : /^capacitor:/.test(o) ? 'app' : 'web', now = Date.now();
+      await env.DB.prepare('INSERT INTO users (uid, email, name, created, seen, plat, n) VALUES (?1, ?2, ?3, ?4, ?4, ?5, 1) ON CONFLICT (uid) DO UPDATE SET email = ?2, name = ?3, seen = ?4, plat = ?5, n = n + 1 WHERE users.seen < ?4 - 3600000')
+        .bind(uid, String(who.email || '').slice(0, 200), String(who.name || '').slice(0, 100), now, plat).run().catch(() => {});
       const have = req.have && typeof req.have === 'object' ? req.have : {};
       const { results } = await env.DB.prepare('SELECT k, h, body FROM docs WHERE uid = ?').bind(uid).all();
       const docs = {};

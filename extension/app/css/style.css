@@ -1150,3 +1150,7 @@ body.focus .view { padding-top: 1rem; }
 .contact-form label { display: flex; flex-direction: column; gap: .35rem; font-weight: 600; font-size: .92rem; }
 .contact-form input, .contact-form textarea { font: inherit; font-weight: 400; padding: .7rem .8rem; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); color: var(--text); }
 .contact-form textarea { resize: vertical; min-height: 8rem; }
+.lk-banner { position: sticky; top: 0; z-index: 60; display: flex; align-items: center; justify-content: center; gap: .6rem; padding: .55rem 2.6rem .55rem 1rem; font-size: .9rem; font-weight: 600; background: #0F3D3E; color: #fff; text-align: center; }
+.lk-banner.warn { background: #9a5d00; } .lk-banner.ok { background: #15803d; }
+.lk-banner a { color: #fff; text-decoration: underline; }
+.lk-banner button { position: absolute; right: .6rem; background: none; border: 0; color: #fff; font-size: 1.3rem; cursor: pointer; line-height: 1; }

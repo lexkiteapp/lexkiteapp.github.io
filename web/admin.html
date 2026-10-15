@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Lexkite Admin</title>
+  <link rel="icon" href="icons/icon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="adm">
+  <header class="adm-top">
+    <span class="brand" style="padding:0"><img class="logo" src="icons/icon.svg" alt=""><span class="wordmark">lex<b>kite</b></span> <span class="adm-tag">Admin</span></span>
+    <nav class="adm-tabs" id="tabs" hidden>
+      <button data-tab="overview" class="on">Tổng quan</button><button data-tab="analytics">Phân tích</button><button data-tab="users">Người dùng</button><button data-tab="inbox">Hộp thư <b id="inboxN"></b></button><button data-tab="alerts">Cảnh báo <b id="alertN"></b></button><button data-tab="services">Dịch vụ &amp; API</button><button data-tab="settings">Cài đặt</button>
+    </nav>
+    <span class="adm-me" id="me"></span>
+  </header>
+  <main class="adm-main" id="main"><div class="card center adm-login"><h2>Trang quản trị Lexkite</h2><p class="muted">Chỉ tài khoản quản trị được cấp quyền.</p><button class="btn primary" id="signin">Đăng nhập bằng Google</button><p class="small muted" id="loginMsg"></p></div></main>
+  <script src="js/firebase-config.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

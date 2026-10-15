@@ -1460,6 +1460,37 @@
     setTimeout(() => idle(refreshIPA), 15000);
     if (isIOS()) setTimeout(() => App.installNudge && App.installNudge(), 25000);
   };
+  /* Thống kê ẩn danh + báo lỗi tự động (functions/api/hit.js) và thông báo đầu trang do quản trị đặt (functions/api/config.js).
+   * Không cookie, không lưu IP: vid là mã ngẫu nhiên trên máy; 1 bản ghi mỗi phiên. Tắt khi ?sandbox / ?demo / trình duyệt tự động. */
+  (() => {
+    if (/[?&](sandbox|demo)=/.test(location.search) || navigator.webdriver) return;
+    const BASE = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com';
+    const rid = () => Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
+    let vid, ret = 1;
+    try { vid = localStorage.getItem('lk.vid'); if (!vid) { vid = rid(); ret = 0; localStorage.setItem('lk.vid', vid); } } catch (e) { vid = rid(); ret = 0; }
+    const sid = rid(), path = (location.hash.match(/^#\/([a-z-]+)/) || [, 'home'])[1];
+    const plat = /^chrome-extension:/.test(location.protocol) ? 'ext' : /^capacitor:/.test(location.protocol) || window.Capacitor ? 'app' : matchMedia('(display-mode: standalone)').matches ? 'pwa' : 'web';
+    const dev = innerWidth < 768 ? 'mobile' : innerWidth < 1100 ? 'tablet' : 'desktop';
+    let pages = 1, dur = 0, since = document.visibilityState === 'visible' ? Date.now() : 0, errs = 0;
+    const send = d => { try { navigator.sendBeacon ? navigator.sendBeacon(BASE + '/api/hit', JSON.stringify(d)) : fetch(BASE + '/api/hit', { method: 'POST', body: JSON.stringify(d), keepalive: true }); } catch (e) { /* bỏ qua */ } };
+    const flush = () => { if (since) { dur += (Date.now() - since) / 1000; since = 0; } send({ t: 's', sid, vid, ret, path, ref: document.referrer, lang: window.I18N ? I18N.lang() : '', dev, plat, dur: Math.round(dur), pages }); };
+    addEventListener('hashchange', () => pages++);
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flush(); else since = Date.now(); });
+    addEventListener('pagehide', flush);
+    const err = (msg, src, line) => { if (++errs > 5 || !msg || /ResizeObserver loop|^Script error\.?$/.test(msg)) return; send({ t: 'e', msg: String(msg), src: String(src || '').replace(location.origin, ''), line, path: (location.hash.match(/^#\/([a-z-]+)/) || [, ''])[1] }); };
+    addEventListener('error', e => err(e.message, e.filename, e.lineno));
+    addEventListener('unhandledrejection', e => { const r = e.reason; err(r && (r.message || String(r)), r && r.stack && (r.stack.split('\n')[1] || '').trim(), 0); });
+    setTimeout(() => fetch(BASE + '/api/config').then(r => r.ok ? r.json() : {}).then(c => {
+      if (!c.banner) return;
+      const key = 'lk.banner.' + c.banner.length + c.banner.slice(0, 20);
+      try { if (localStorage.getItem(key)) return; } catch (e) { /* bỏ qua */ }
+      const el = document.createElement('div');
+      el.className = 'lk-banner ' + (c.banner_level || 'info'); el.setAttribute('role', 'status');
+      el.innerHTML = `<span>${esc(c.banner)}</span>${/^https:\/\//.test(c.banner_url || '') ? ` <a href="${esc(c.banner_url)}" target="_blank" rel="noopener">→</a>` : ''}<button type="button" aria-label="${t('Đóng')}">×</button>`;
+      el.querySelector('button').onclick = () => { el.remove(); try { localStorage.setItem(key, 1); } catch (e) { /* bỏ qua */ } };
+      document.body.prepend(el);
+    }).catch(() => {}), 2500);
+  })();
   // Script nạp kiểu defer: chờ DOMContentLoaded (lúc mọi script đã chạy xong) rồi mới khởi động app
   if (document.readyState === 'loading' || !window.__lkReady) document.addEventListener('DOMContentLoaded', boot, { once: true }); else setTimeout(boot, 0);
 })();

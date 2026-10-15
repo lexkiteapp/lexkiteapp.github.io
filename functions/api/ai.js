@@ -49,7 +49,8 @@ export async function onRequestPost({ request, env }) {
   const uid = await verify((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')).catch(() => null);
   const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
   const id = uid ? 'u:' + uid : 'ip:' + (await sha('lexkite|' + ip)).slice(0, 24); // không lưu IP gốc
-  const limit = uid ? LIMIT_USER : LIMIT_ANON, day = new Date().toISOString().slice(0, 10);
+  let cfg = {}; try { cfg = Object.fromEntries(((await env.DB.prepare("SELECT k, v FROM config WHERE k IN ('ai_user', 'ai_anon', 'ai_global')").all()).results || []).filter(r => r.v !== '').map(r => [r.k, +r.v])); } catch (e) { /* chưa có bảng config */ }
+  const limit = uid ? (cfg.ai_user >= 0 ? cfg.ai_user : LIMIT_USER) : (cfg.ai_anon >= 0 ? cfg.ai_anon : LIMIT_ANON), day = new Date().toISOString().slice(0, 10);
   try {
     await setup(env.DB);
     const h = await sha(sys + '\n' + prompt);
@@ -58,7 +59,7 @@ export async function onRequestPost({ request, env }) {
     if (hit) return json(request, 200, { out: JSON.parse(hit.out), left: Math.max(0, limit - used), cached: true });
     if (used >= limit) return json(request, 429, { error: 'quota', left: 0, signIn: !uid });
     const all = (await env.DB.prepare("SELECT n FROM ai_quota WHERE id = '*' AND day = ?").bind(day).first())?.n || 0;
-    if (all >= GLOBAL_DAY) return json(request, 429, { error: 'busy', left: limit - used });
+    if (all >= (cfg.ai_global > 0 ? cfg.ai_global : GLOBAL_DAY)) return json(request, 429, { error: 'busy', left: limit - used });
     const { out, model } = await runModel(env, sys, prompt);
     const up = 'INSERT INTO ai_quota (id, day, n) VALUES (?1, ?2, 1) ON CONFLICT (id, day) DO UPDATE SET n = n + 1';
     await env.DB.batch([env.DB.prepare(up).bind(id, day), env.DB.prepare(up).bind('*', day), env.DB.prepare('INSERT OR REPLACE INTO ai_cache (h, out, at) VALUES (?, ?, ?)').bind(h, JSON.stringify(out), Date.now())]);
