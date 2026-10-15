@@ -6,7 +6,8 @@
   const { $, esc, toast } = UI;
   const App = window.App;
   const SDK = 'https://www.gstatic.com/firebasejs/10.12.2/';
-  const CHUNK = 150; // giữ mỗi tài liệu < 1 MiB kể cả khi thẻ có nhiều ngữ cảnh
+  const NB = 32; // số nhóm thẻ cố định (mỗi nhóm < 1 MiB với tới ~90.000 thẻ)
+  const bucketOf = k => { let x = 2166136261; for (let i = 0; i < k.length; i++) { x ^= k.charCodeAt(i); x = Math.imul(x, 16777619); } return (x >>> 0) % NB; };
 
   const Sync = { user: null, status: 'idle', lastSync: 0 };
   window.Sync = Sync;
@@ -218,12 +219,14 @@
     try {
       const cards = await Cards.all();
       const keys = Object.keys(cards).sort();
-      const chunks = Math.ceil(keys.length / CHUNK);
+      // 32 nhóm CỐ ĐỊNH theo mã băm của từ (không cắt theo thứ tự chữ cái): thêm/sửa 1 từ chỉ đổi đúng 1 nhóm → chỉ 1 lượt ghi D1
+      const chunks = NB, parts = Array.from({ length: NB }, () => ({}));
+      keys.forEach(k => { parts[bucketOf(k)][k] = slim(cards[k]); });
       const out = {};
       const pending = {};
       let writes = 0;
       for (let i = 0; i < chunks; i++) {
-        const part = {}; keys.slice(i * CHUNK, (i + 1) * CHUNK).forEach(k => { part[k] = slim(cards[k]); });
+        const part = parts[i];
         const json = JSON.stringify(part), h = hash(json);
         if (sentHashes['cards_' + i] === h) continue;
         if (json.length > 900000) console.warn('chunk lớn', i, json.length);

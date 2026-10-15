@@ -88,9 +88,14 @@ export async function onRequestPost({ request, env }) {
       await env.DB.prepare('INSERT INTO users (uid, email, name, created, seen, plat, n) VALUES (?1, ?2, ?3, ?4, ?4, ?5, 1) ON CONFLICT (uid) DO UPDATE SET email = ?2, name = ?3, seen = ?4, plat = ?5, n = n + 1 WHERE users.seen < ?4 - 3600000')
         .bind(uid, String(who.email || '').slice(0, 200), String(who.name || '').slice(0, 100), now, plat).run().catch(() => {});
       const have = req.have && typeof req.have === 'object' ? req.have : {};
-      const { results } = await env.DB.prepare('SELECT k, h, body FROM docs WHERE uid = ?').bind(uid).all();
+      // Bước 1: chỉ lấy khóa + hash (nhẹ); bước 2: chỉ đọc nội dung tài liệu khác hash với máy người dùng
+      const { results } = await env.DB.prepare('SELECT k, h FROM docs WHERE uid = ?').bind(uid).all();
+      const need = (results || []).filter(r => have[r.k] !== r.h).map(r => r.k);
       const docs = {};
-      for (const r of results || []) if (have[r.k] !== r.h) docs[r.k] = JSON.parse(r.body);
+      if (need.length) {
+        const rows = (await env.DB.prepare(`SELECT k, body FROM docs WHERE uid = ? AND k IN (${need.map(() => '?').join(',')})`).bind(uid, ...need).all()).results || [];
+        for (const r of rows) docs[r.k] = JSON.parse(r.body);
+      }
       return json(request, 200, { docs });
     }
     if (req.op === 'push') {

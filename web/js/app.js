@@ -288,7 +288,8 @@
     $$('#nav .nav-group').forEach(gp => { const on = gp.dataset.tab === tab; gp.classList.toggle('current', on); if (on) gp.open = true; });
     UI.stopSpeak(); UI.clearRecs();
     document.onkeydown = null;
-    if (App.cleanup) { App.cleanup(); App.cleanup = null; }
+    if (App.cleanup) { try { App.cleanup(); } catch (e) { /* bỏ qua */ } App.cleanup = null; }
+    while (App.cleanups.length) { try { App.cleanups.pop()(); } catch (e) { /* một hàm lỗi không chặn các hàm khác */ } }
     // Chuyển trang mượt (View Transitions – Chrome/Edge/Safari mới); máy cũ: hiệu ứng mờ dần sẵn có
     const render = async () => {
       window.scrollTo(0, 0);
@@ -359,6 +360,8 @@
   // Nghĩa hiển thị DUY NHẤT cho mọi danh sách/thẻ: tiếng Việt chỉ khi người học chọn nghĩa tiếng Việt;
   // ngôn ngữ khác → nghĩa tiếng mẹ đẻ dịch sẵn (gói) → định nghĩa tiếng Anh. Không bao giờ rơi về tiếng Việt.
   App.meanOf = x => { if (!x) return ''; if (I18N.meanLang() === 'vi') return x.vi || x.def || ''; return (I18N.lang() !== 'en' && App.nativeGloss && App.nativeGloss(x.word)) || x.def || ''; };
+  // Dọn dẹp khi rời trang: nhiều module có thể đăng ký (App.onCleanup(fn)); App.cleanup (1 hàm) vẫn được hỗ trợ
+  App.cleanups = []; App.onCleanup = fn => { if (typeof fn === 'function') App.cleanups.push(fn); };
   App.packs = {};
   App.nativeGloss = w => { const p = App.packs[I18N.lang()], e = p && p[String(w || '').toLowerCase()]; return e ? e[0] : ''; };
   App.loadPack = () => {
