@@ -48,7 +48,7 @@ Kết quả rà (15/10/2026, curl lexkite.com):
 - [x] Mỗi bài có `publishAt` (ISO 8601, múi +07:00). Build chỉ đưa bài đã đến giờ.
 - [x] `node scripts/blog-schedule.mjs` – bài có `publishAt:` trống (hàng đợi) được xếp 2–3 bài/ngày, giờ ngẫu nhiên 06:00–22:59 (giờ VN), mỗi bài một khung giờ khác nhau, nối tiếp ngày cuối đã xếp. `--dry` xem trước, `--seed` lặp lại được, `--status` in lịch.
 - [x] `.github/workflows/blog-publish.yml`: cron mỗi giờ (phút 7) – miễn phí với repo công khai. Chạy `blog-due.mjs --since 70` → nếu có bài vừa đến giờ: `curl -X POST $CF_PAGES_DEPLOY_HOOK` (secret GitHub, **không commit**) → chờ build → `indexnow.mjs`. Không có bài → không làm gì (không tốn build).
-- [ ] **Anh/cha làm 1 lần** (cần quyền tài khoản): Cloudflare → Pages `lexkite` → Settings → Builds → Deploy hooks → tạo hook “blog-cron” (nhánh main) → GitHub `lexkiteapp/lexkiteapp.github.io` → Settings → Secrets → Actions → `CF_PAGES_DEPLOY_HOOK` = URL hook.
+- [x] (15/10/2026: hook "blog-cron" nhánh main + secret đã tạo) **Anh/cha làm 1 lần** (cần quyền tài khoản): Cloudflare → Pages `lexkite` → Settings → Builds → Deploy hooks → tạo hook “blog-cron” (nhánh main) → GitHub `lexkiteapp/lexkiteapp.github.io` → Settings → Secrets → Actions → `CF_PAGES_DEPLOY_HOOK` = URL hook.
 - Lưu ý: GitHub tắt cron của repo không có hoạt động 60 ngày – repo đang commit thường xuyên; nếu ngừng, bấm “Enable workflow”.
 
 ## 4. Quy trình viết (mỗi bài đi đủ 7 bước; bước nào hỏng → không vào hàng đợi)
