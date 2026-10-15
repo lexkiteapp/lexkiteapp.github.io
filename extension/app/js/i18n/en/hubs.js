@@ -114,6 +114,7 @@
   'Đăng nhập để sao lưu & đồng bộ': 'Sign in to back up & sync',
   'Kỳ thi, điểm mục tiêu, ngày thi': 'Exam, target score, test date',
   'Ứng dụng': 'App',
+  'Việc học': 'Learning',
   'Tài khoản, nhắc học, âm thanh, giao diện': 'Account, reminders, sound, appearance',
   'Tìm hiểu thêm': 'Learn more',
   'Cách Lexkite giúp bạn nhớ lâu': 'How Lexkite helps you remember',

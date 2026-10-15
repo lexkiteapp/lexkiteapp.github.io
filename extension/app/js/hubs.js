@@ -145,7 +145,7 @@
       + `<div class="card me-head"><span class="avatar lg">${u && u.photoURL ? `<img src="${esc(u.photoURL)}" alt="" referrerpolicy="no-referrer">` : esc(((u && (u.displayName || u.email)) || 'L')[0].toUpperCase())}</span>
         <div class="me-tx"><b>${esc((u && u.displayName) || t('Bạn'))}</b><div class="small muted">${u ? esc(u.email || '') : `<a href="#/settings">${t('Đăng nhập để sao lưu & đồng bộ')}</a>`}</div>
         <div class="me-stats"><span>⭐ ${t('Cấp {n}', { n: L.level || 1 })}</span><span>🔥 ${t('{n} ngày', { n: streak || 0 })}</span><span>${EXAMS[App.exam()].ic} ${esc(EXAMS[App.exam()].short)}</span></div></div></div>`
-      + `<h3 class="set-h">${t('Học tập')}</h3><div class="set-list">`
+      + `<h3 class="set-h">${t('Việc học')}</h3><div class="set-list">`
       + row('#/goal', '🚩', t('Mục tiêu & kế hoạch'), t('Kỳ thi, điểm mục tiêu, ngày thi'))
       + row('#/stats', '📊', t('Tiến độ & huy hiệu'))
       + row('#/mistakes', '📕', t('Sổ lỗi sai'), t('Làm lại các câu đã sai'))

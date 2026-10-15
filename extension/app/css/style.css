@@ -1057,7 +1057,7 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
 .me-row:hover { background: var(--surface-2); text-decoration: none; }
 .me-row .chev { color: var(--muted); font-size: 1.2rem; }
 @media (max-width: 640px) {
-  .exam-chip { padding: .3rem .6rem; font-size: .8rem; }
+  .top-stats .exam-chip { display: none; } /* điện thoại: đổi kỳ thi ngay trên trang Kỹ năng/Thi thử/Tôi – nhường chỗ cho ô tra từ */
   .hub-grid { grid-template-columns: 1fr; gap: .6rem; }
   .hub-card { padding: .85rem .95rem; }
 }
