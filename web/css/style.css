@@ -1166,3 +1166,8 @@ body.focus .view { padding-top: 1rem; }
 .qe-flash { outline: 3px solid var(--primary); outline-offset: 2px; transition: outline .3s; }
 /* Danh sách dài: chỉ vẽ hàng đang thấy (Baseline content-visibility) – cuộn mượt trên máy yếu */
 .word-row, .model-row, .md-item { content-visibility: auto; contain-intrinsic-size: auto 72px; }
+.hf-card { text-align: center; padding: 2rem 1.2rem; min-height: 14rem; display: flex; flex-direction: column; justify-content: center; gap: .3rem; }
+.hf-word { font-size: clamp(2rem, 7vw, 3rem); font-weight: 800; }
+.hf-mean { font-size: 1.25rem; }
+.hf-ctl { display: flex; justify-content: center; align-items: center; gap: 1rem; margin-top: 1rem; }
+.hf-ctl .icon-btn { font-size: 1.4rem; width: 3rem; height: 3rem; }

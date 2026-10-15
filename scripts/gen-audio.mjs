@@ -40,6 +40,17 @@ for (const u of (c.TOEFL || {}).speaking || []) { const v = GEN[u.accent] || GEN
   const longs = [...(c.READINGS || []).map(r => r.text), ...Object.values(c.SPEAK_SAMPLES || {}).map(x => x.a)];
   for (const txt of longs) for (const sen of c.KVoice.split(txt)) addOne(GEN['en-GB'], sen);
 }
+// Từ vựng (giọng Anh bf_emma): mọi lần phát âm từ trong app tự dùng Kokoro, và chế độ Học rảnh tay phát được khi khóa màn hình.
+// Thứ tự: từ cốt lõi NGSL → công sở → học thuật → còn lại. Câu ví dụ dùng chung đường đọc câu (UI.tts).
+{
+  const d = { t: x => x }; vm.createContext(d); vm.runInContext(fs.readFileSync('web/js/data.js', 'utf8').replace(/typeof self !== 'undefined' \? self : this/, 'globalThis'), d);
+  for (const f of fs.readdirSync('web/js/lib').filter(f => /\.js$/.test(f) && !/^notes/.test(f))) { try { vm.runInContext(fs.readFileSync('web/js/lib/' + f, 'utf8').replace(/typeof self !== 'undefined' \? self : this/, 'globalThis'), d); } catch (e) { /* bỏ qua */ } }
+  const ord = id => (/^ngsl/.test(id) ? 0 : /^office/.test(id) ? 1 : /^(awl|nawl)/.test(id) ? 2 : 3);
+  const tops = [...((d.IELTS_DATA || {}).TOPICS || [])].sort((a, b) => ord(a.id) - ord(b.id));
+  const seen = new Set();
+  for (const tp of tops) for (const w of tp.words) { const k = String(w.word || '').trim(); if (!k || seen.has(k.toLowerCase())) continue; seen.add(k.toLowerCase()); addOne(GEN['en-GB'], k); }
+  for (const tp of tops) for (const w of tp.words) if (w.ex && w.ex.split(' ').length >= 4) for (const sen of c.KVoice.split(w.ex)) addOne(GEN['en-GB'], sen);
+}
 const writeIndex = () => { const keys = fs.readdirSync(OUT).filter(f => f.endsWith('.mp3')).map(f => f.slice(0, -4)).sort(); fs.writeFileSync(IDX, `/* Danh sách câu thoại đã có file âm thanh Kokoro (tự sinh bởi scripts/gen-audio.mjs) */\n(function (g) { g.LISTEN_AUDIO = new Set(${JSON.stringify(keys.join(' '))}.split(' ').filter(Boolean)); })(typeof self !== 'undefined' ? self : this);\n`); return keys.length; };
 console.log(`${parts.length} phần nghe · cần tạo ${jobs.size} câu`);
 if (jobs.size && limit > 0) {

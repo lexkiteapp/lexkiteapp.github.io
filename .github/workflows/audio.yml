@@ -6,7 +6,7 @@ on:
     - cron: '0 19 * * *'   # 02:00 giờ Việt Nam
   workflow_dispatch:
     inputs:
-      limit: { description: 'Số câu mỗi lần', default: '400' }
+      limit: { description: 'Số câu mỗi lần', default: '1500' }
 permissions:
   contents: write
 concurrency:
@@ -15,7 +15,7 @@ concurrency:
 jobs:
   gen:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 300
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -28,7 +28,7 @@ jobs:
         if: steps.count.outputs.left != '0'
         run: |
           npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
-          NODE_PATH=/tmp/kk/node_modules node scripts/gen-audio.mjs --limit "${{ github.event.inputs.limit || '400' }}"
+          NODE_PATH=/tmp/kk/node_modules node scripts/gen-audio.mjs --limit "${{ github.event.inputs.limit || '1500' }}"
       - name: Lưu vào repo
         if: steps.count.outputs.left != '0'
         run: |
