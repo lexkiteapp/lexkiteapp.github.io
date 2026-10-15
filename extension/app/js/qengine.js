@@ -26,15 +26,15 @@
       if (gr.type === 'multi') {
         const picked = $$(`[data-multi="${gi}"]:checked`, root).map(x => x.value);
         const correct = picked.filter(x => gr.a.includes(x));
-        gr.n.forEach((n, k) => { res[n] = { ok: k < correct.length, given: picked.join(', '), answer: gr.a.join(', '), cue: gr.cue, q: gr.q }; });
+        gr.n.forEach((n, k) => { res[n] = { ok: k < correct.length, given: picked.join(', '), answer: gr.a.join(', '), cue: gr.cue, q: gr.q, type: 'multi', alts: gr.a }; });
         return;
       }
       gr.items.forEach(it => {
         const el = $(`[data-qn="${it.n}"]`, root);
-        if (gr.type === 'mcq') { const v = $(`input[name="q${it.n}"]:checked`, root); const given = v ? +v.value : null; res[it.n] = { ok: given === it.a, given: given == null ? '' : L[given], answer: L[it.a] + '. ' + it.options[it.a], cue: it.cue, q: it.q }; }
-        else if (TF[gr.type]) { const v = $(`input[name="q${it.n}"]:checked`, root); const given = v ? v.value : ''; res[it.n] = { ok: given === it.a, given, answer: it.a, cue: it.cue, q: it.text }; }
-        else if (gr.type === 'match') { const v = el ? el.value : ''; const opt = gr.options.find(o => code(o) === it.a); res[it.n] = { ok: v === it.a, given: v, answer: it.a + (opt && label(opt) ? ' – ' + label(opt) : ''), cue: it.cue, q: it.text }; }
-        else { const v = el ? el.value.trim() : ''; const r = gradeGap(it, gr.limit, v); res[it.n] = { ok: r.ok, over: r.over, given: v, answer: it.a[0], cue: it.cue, q: it.text }; }
+        if (gr.type === 'mcq') { const v = $(`input[name="q${it.n}"]:checked`, root); const given = v ? +v.value : null; res[it.n] = { ok: given === it.a, given: given == null ? '' : L[given], answer: L[it.a] + '. ' + it.options[it.a], cue: it.cue, q: it.q, type: 'mcq', alts: [String(it.a)] }; }
+        else if (TF[gr.type]) { const v = $(`input[name="q${it.n}"]:checked`, root); const given = v ? v.value : ''; res[it.n] = { ok: given === it.a, given, answer: it.a, cue: it.cue, q: it.text, type: gr.type, alts: [it.a] }; }
+        else if (gr.type === 'match') { const v = el ? el.value : ''; const opt = gr.options.find(o => code(o) === it.a); res[it.n] = { ok: v === it.a, given: v, answer: it.a + (opt && label(opt) ? ' – ' + label(opt) : ''), cue: it.cue, q: it.text, type: 'match', alts: [it.a] }; }
+        else { const v = el ? el.value.trim() : ''; const r = gradeGap(it, gr.limit, v); res[it.n] = { ok: r.ok, over: r.over, given: v, answer: it.a[0], cue: it.cue, q: it.text, type: 'gap', alts: it.a, limit: gr.limit }; }
       });
     });
     return res;
@@ -75,6 +75,49 @@
       $$('input, select', item).forEach(x => x.disabled = true);
     });
     if (onEvidence) $$('[data-ev]', root).forEach(b => b.onclick = () => onEvidence(+b.dataset.ev));
+    stats(root, res);
+  }
+
+  // Bảng độ chính xác theo dạng câu hỏi + nút "Làm lại câu sai" (chỉ mở lại câu sai, ẩn câu đúng, chấm lại tại chỗ)
+  const TYPE_NAME = () => ({ mcq: t('Trắc nghiệm'), multi: t('Chọn 2 đáp án'), match: t('Nối thông tin'), tfng: 'TRUE / FALSE / NOT GIVEN', ynng: 'YES / NO / NOT GIVEN', gap: t('Điền từ') });
+  function stats(root, res) {
+    const by = {};
+    Object.entries(res).forEach(([n, r]) => { const k = r.type || 'gap'; (by[k] = by[k] || { ok: 0, all: 0, wrong: [] }).all++; if (r.ok) by[k].ok++; else by[k].wrong.push(n); });
+    if (Object.keys(by).length < 1) return;
+    const old = root.querySelector('.qe-stats'); if (old) old.remove();
+    const wrongN = Object.values(res).filter(r => !r.ok).length;
+    root.insertAdjacentHTML('afterbegin', `<div class="card qe-stats"><div class="row between" style="gap:.5rem;flex-wrap:wrap"><b>📊 ${t('Kết quả theo dạng câu hỏi')}</b>${wrongN ? `<button type="button" class="btn sm primary" data-retake>↻ ${t('Làm lại {n} câu sai', { n: wrongN })}</button>` : ''}</div>
+      <table class="qe-tbl"><tr><th>${t('Dạng câu hỏi')}</th><th>${t('Đúng')}</th><th>%</th><th>${t('Câu sai')}</th></tr>${Object.entries(by).map(([k, v]) => `<tr><td>${esc(TYPE_NAME()[k] || k)}</td><td>${v.ok}/${v.all}</td><td><span class="qe-pct ${v.ok / v.all >= 0.75 ? 'ok' : v.ok / v.all >= 0.5 ? 'mid' : 'no'}">${Math.round(v.ok / v.all * 100)}%</span></td><td>${v.wrong.map(n => `<button type="button" class="qe-n" data-goq="${n}">${n}</button>`).join(' ') || '–'}</td></tr>`).join('')}</table></div>`);
+    $$('[data-goq]', root).forEach(b => b.onclick = () => { const el = itemOf(root, b.dataset.goq); if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); el.classList.add('qe-flash'); setTimeout(() => el.classList.remove('qe-flash'), 1200); } });
+    const rb = $('[data-retake]', root); if (rb) rb.onclick = () => retake(root, res);
+  }
+  function retake(root, res) {
+    const items = $$('.lq-item', root);
+    items.forEach(item => {
+      const ns = item.dataset.item.split(',').map(Number), ok = ns.every(n => res[n] && res[n].ok);
+      item.hidden = ok; if (ok) return;
+      item.classList.remove('no', 'half', 'ok'); const fb = $('.lq-fb', item); if (fb) { fb.hidden = true; fb.innerHTML = ''; }
+      $$('input, select', item).forEach(x => { x.disabled = false; if (x.type === 'radio' || x.type === 'checkbox') x.checked = false; else x.value = ''; });
+    });
+    const st = $('.qe-stats', root); if (st) st.innerHTML = `<div class="row between" style="gap:.5rem;flex-wrap:wrap"><b>↻ ${t('Làm lại các câu sai')}</b><span><button type="button" class="btn sm primary" data-recheck>${t('Kiểm tra')}</button> <button type="button" class="btn sm ghost" data-showall>${t('Hiện tất cả câu')}</button></span></div>`;
+    $('[data-showall]', root).onclick = () => items.forEach(i => { i.hidden = false; });
+    $('[data-recheck]', root).onclick = () => {
+      let right = 0, total = 0;
+      items.filter(i => !i.hidden).forEach(item => {
+        const ns = item.dataset.item.split(',').map(Number), r = res[ns[0]]; if (!r) return;
+        let ok;
+        if (r.type === 'multi') { const picked = $$('input[data-multi]:checked', item).map(x => x.value); ok = picked.length === r.alts.length && picked.every(x => r.alts.includes(x)); }
+        else if (r.type === 'mcq' || r.type === 'tfng' || r.type === 'ynng') { const v = $('input[type=radio]:checked', item); ok = !!v && String(v.value) === String(r.alts[0]); }
+        else if (r.type === 'match') { const v = $('select', item); ok = !!v && v.value === r.alts[0]; }
+        else { const v = $('input', item); ok = !!v && gradeGap({ a: r.alts }, r.limit, v.value).ok; }
+        total++; if (ok) right++;
+        item.classList.add(ok ? 'ok' : 'no'); const fb = $('.lq-fb', item); fb.hidden = false; fb.innerHTML = `${ok ? '✅' : '❌'} ${t('Đáp án: <b>{a}</b>', { a: esc(r.answer) })}`;
+        $$('input, select', item).forEach(x => x.disabled = true);
+      });
+      st.innerHTML = `<b>${t('Làm lại: đúng {right}/{total} câu', { right, total })}</b> <button type="button" class="btn sm ghost" data-showall2>${t('Hiện tất cả câu')}</button>`;
+      $('[data-showall2]', root).onclick = () => items.forEach(i => { i.hidden = false; });
+    };
+    const first = items.find(i => !i.hidden); if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
   // Quy đổi điểm thô → band (thang công bố phổ biến, chỉ tham khảo)

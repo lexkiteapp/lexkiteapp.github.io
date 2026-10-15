@@ -2550,6 +2550,15 @@
   'Business Service List: từ vựng công việc, văn phòng, kinh doanh hay gặp trong TOEIC': 'Business Service List: work, office and business vocabulary common in TOEIC',
   'Chế độ tiếp theo': 'Next mode',
   'Đã hoàn thành': 'Completed',
+  "Nối thông tin": "Matching",
+  "Kết quả theo dạng câu hỏi": "Results by question type",
+  "Làm lại {n} câu sai": "Retry {n} wrong answers",
+  "Dạng câu hỏi": "Question type",
+  "Đúng": "Correct",
+  "Câu sai": "Wrong",
+  "Làm lại các câu sai": "Retry the wrong answers",
+  "Hiện tất cả câu": "Show all questions",
+  "Làm lại: đúng {right}/{total} câu": "Retry: {right}/{total} correct",
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* Thống nhất thuật ngữ khi nhiều nhóm dùng chung 1 khóa */

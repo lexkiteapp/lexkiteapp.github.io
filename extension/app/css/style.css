@@ -1157,3 +1157,10 @@ body.focus .view { padding-top: 1rem; }
 .lang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .5rem; margin-top: .8rem; }
 .lang-grid .btn { justify-content: center; }
 #mTabs button .mdone { color: var(--good); font-weight: 800; }
+.qe-stats { margin-bottom: 1rem; }
+.qe-tbl { width: 100%; border-collapse: collapse; font-size: .88rem; margin-top: .6rem; }
+.qe-tbl th { text-align: left; color: var(--muted); font-weight: 600; border-bottom: 1px solid var(--line); padding: .35rem .3rem; }
+.qe-tbl td { border-bottom: 1px solid var(--line); padding: .4rem .3rem; vertical-align: top; }
+.qe-pct { font-weight: 800; } .qe-pct.ok { color: var(--good); } .qe-pct.mid { color: #b45309; } .qe-pct.no { color: var(--again); }
+.qe-n { border: 1px solid var(--line); background: var(--bg); color: var(--text); border-radius: 6px; padding: 0 .4rem; font: 700 .8rem/1.6 inherit; cursor: pointer; margin: 0 .15rem .15rem 0; }
+.qe-flash { outline: 3px solid var(--primary); outline-offset: 2px; transition: outline .3s; }
