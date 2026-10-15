@@ -9,7 +9,7 @@ tags: [awl, ielts, tu-vung-hoc-thuat]
 keyword: "academic word list"
 cover: library
 coverAlt: "“Vocabulary library” trong Lexkite: các tab nguồn từ và những bộ từ cốt lõi có nhãn cấp độ"
-publishAt: 2026-10-18T12:20:00+07:00
+publishAt: 2026-10-15T09:00:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

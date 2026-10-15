@@ -9,7 +9,7 @@ tags: [fsrs, flashcard, anki]
 keyword: "fsrs là gì"
 cover: review
 coverAlt: "Phiên ôn flashcard trong Lexkite với thẻ từ “pollution”, phiên âm và nút “Flip”"
-publishAt: 2026-10-16T08:41:00+07:00
+publishAt: 2026-10-15T08:00:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

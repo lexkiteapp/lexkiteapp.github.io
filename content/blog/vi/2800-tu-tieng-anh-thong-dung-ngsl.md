@@ -9,7 +9,7 @@ tags: [ngsl, co-ban]
 keyword: "từ tiếng anh thông dụng nhất"
 cover: library
 coverAlt: "Màn hình “Vocabulary library” của Lexkite với các bộ từ chia theo nguồn và cấp độ A1–B2"
-publishAt: 2026-10-26T17:05:00+07:00
+publishAt: 2026-10-15T10:00:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
