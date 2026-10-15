@@ -37,6 +37,8 @@ for (const lang of process.argv.slice(2)) {
     process.stdout.write(`\r${lang} ${i}/${todo.length}`); await sleep(400);
     if (ok && ok % 200 < batch.length) fs.writeFileSync(file, JSON.stringify(out)); // lưu dần, ngắt giữa chừng không mất
   }
+  // Câu dịch lỗi định dạng nhiều lần (máy dịch gộp/tách dấu ngoặc): dùng bản tiếng Anh thay vì để người học thấy tiếng Việt
+  if (lang !== 'en') { const ef = path.join(ROOT, 'web/i18n/explain/en.json'), en = fs.existsSync(ef) ? JSON.parse(fs.readFileSync(ef, 'utf8')) : {}; for (const s of src) { const h = hash(s); if (!out[h] && en[h]) out[h] = en[h]; } }
   fs.writeFileSync(file, JSON.stringify(out));
   console.log(`\n✓ ${lang}: ${Object.keys(out).length}/${src.size} câu (mới ${ok}, lỗi ${fail} – lần chạy sau thử lại)`);
 }
