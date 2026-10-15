@@ -1,7 +1,7 @@
 /* Linh vật Kit – chú én Lexkite (SVG thuần, ~3 KB). Kit.svg(cảm xúc, cỡ, hoạt cảnh): happy | win | cheer | think | sad | sleep */
 (function (g) {
   const kit = (m = 'happy', s = 120, anim = true) => {
-    const NAVY = '#2F62C0', NAVY2 = '#244E9E', RED = '#EF6A4C', CREAM = '#FFF7EA';
+    const NAVY = '#0F3D3E', NAVY2 = '#17595A', RED = '#E5502F', CREAM = '#FFF7EA';
     // Mắt to long lanh trên nền đầu xanh than: tròng trắng + con ngươi + 2 điểm sáng
     const E = (x, y) => `<g class="${anim ? 'blink' : ''}"><ellipse cx="${x}" cy="${y}" rx="10" ry="11" fill="#fff"/><ellipse cx="${x + 1}" cy="${y + 1.5}" rx="7" ry="8" fill="#0D1B33"/><circle cx="${x + 3.4}" cy="${y - 2.4}" r="2.4" fill="#fff"/><circle cx="${x - 1.4}" cy="${y + 3.8}" r="1.2" fill="#fff" opacity=".85"/></g>`;
     const arc = (x, y, up) => `<path d="M${x - 7} ${y} q7 ${up ? -9 : 7} 14 0" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>`;

@@ -68,7 +68,7 @@ p { margin: .4rem 0; }
 .main { overflow-x: clip; }
 .sidebar { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; gap: .25rem; padding: 1.1rem .9rem; background: var(--surface); border-right: 1px solid var(--line); overflow-y: auto; }
 .brand { display: flex; align-items: center; gap: .6rem; color: var(--text); font-size: 1.15rem; padding: .2rem .5rem 1rem; white-space: nowrap; }
-.logo { display: block; width: 36px; height: 36px; border-radius: 10px; box-shadow: 0 6px 16px rgba(109,93,252,.35); flex: none; }
+.logo { display: block; width: 36px; height: 36px; border-radius: 10px; box-shadow: 0 6px 18px rgba(15, 61, 62, 0.22); flex: none; }
 .wordmark { font-weight: 800; letter-spacing: -.02em; font-size: 1.22rem; color: var(--text); }
 .wordmark b { background: linear-gradient(90deg, #E5502F, #FFB054); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .nav-label { font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: .9rem .7rem .3rem; }

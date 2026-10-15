@@ -18,6 +18,8 @@
     }
     const D = window.IELTS_DATA || { TOPICS: [] };
     for (const tp of D.TOPICS) for (const w of tp.words) if (w.ex) { const n = norm(w.ex).split(' ').length, k = n >= 4 && n <= 14 ? kKey(w.ex) : ''; if (k) out.push({ kind: 'audio', text: w.ex, key: k, word: w.word }); }
+    // Câu trong 30 bài đọc (đã có giọng Kokoro sẵn) – nguồn dự phòng phong phú
+    if (out.length < 40 && window.KVoice) for (const r of window.READINGS || []) for (const sen of KVoice.split(r.text || '')) { const n = norm(sen).split(' ').length, k = n >= 5 && n <= 14 ? kKey(sen) : ''; if (k) out.push({ kind: 'audio', text: sen, key: k }); }
     return UI.shuffle(out).slice(0, 40);
   }
 
