@@ -104,6 +104,11 @@
     if (!LP.length || !RT) return routes.toeic();
     const res = { L: {}, R: {} };
     let player = null, timer = null;
+    // Lưu bài làm dở (đề dài ~2 giờ): tải lại trang / app bị tắt vẫn tiếp tục được – Listening theo Part, Reading từng đáp án + đồng hồ
+    const SK = 'lk.toeicRun.' + n;
+    const save = x => { try { localStorage.setItem(SK, JSON.stringify({ ...x, res, at: Date.now() })); } catch (e) { /* bỏ qua */ } };
+    const saved = (() => { try { const x = JSON.parse(localStorage.getItem(SK) || 'null'); return x && Date.now() - x.at < 864e5 ? x : null; } catch (e) { return null; } })();
+    const clearRun = () => { try { localStorage.removeItem(SK); } catch (e) { /* bỏ qua */ } };
     document.body.classList.add('bare');
     window.onbeforeunload = () => t('Bạn đang làm bài thi – rời trang sẽ mất kết quả.');
     App.cleanup = () => { if (player) player.stop(); clearInterval(timer); document.body.classList.remove('bare'); window.onbeforeunload = null; };
@@ -116,9 +121,9 @@
       player = App.listening.Player(p, { onEnd: () => { const s = $('#tState'); if (s) s.textContent = '✓ ' + t('Hết phần nghe'); const b = $('#tNext'); if (b) b.disabled = false; } });
       player.play(0);
       setTimeout(() => { const b = $('#tNext'); if (b) b.disabled = false; }, 30000);
-      $('#tNext').onclick = () => { player.stop(); const r = QE.collect(p, $('#lQs')); Object.keys(r).forEach(q => { r[q].part = p.part; { const i0 = p.groups.flatMap(g => g.items || []).find(i => i.n === +q) || {}; r[q].explain = QE.exT(i0.explain, i0._mv); } }); Object.assign(res.L, r); if (k < LP.length - 1) lPart(k + 1); else reading(); window.scrollTo({ top: 0 }); };
+      $('#tNext').onclick = () => { player.stop(); const r = QE.collect(p, $('#lQs')); Object.keys(r).forEach(q => { r[q].part = p.part; { const i0 = p.groups.flatMap(g => g.items || []).find(i => i.n === +q) || {}; r[q].explain = QE.exT(i0.explain, i0._mv); } }); Object.assign(res.L, r); save(k < LP.length - 1 ? { stage: 'L', k: k + 1 } : { stage: 'R' }); if (k < LP.length - 1) lPart(k + 1); else reading(); window.scrollTo({ top: 0 }); };
     };
-    const reading = () => {
+    const reading = (restore) => {
       const units = RT.parts.flatMap(pt => unitsOf(pt).map(u => ({ ...u, part: pt.part })));
       const mins = Math.max(20, Math.round(units.reduce((a, u) => a + u.groups.reduce((b, g) => b + g.items.length, 0), 0) * 0.75));
       const nums = units.flatMap(u => QE.numsOf({ groups: u.groups }));
@@ -128,15 +133,19 @@
       // Bảng câu hỏi: đánh dấu câu đã làm, bấm để nhảy tới
       const answered = q => { const el = $(`#tq [data-item="${q}"]`) || $$('#tq [data-item]').find(x => x.dataset.item.split(',').includes(String(q))); if (!el) return false; return [...el.querySelectorAll('input, select')].some(i => i.type === 'radio' || i.type === 'checkbox' ? i.checked : i.value.trim()); };
       const paint = () => { let k = 0; $$('.tx-grid [data-go]').forEach(b => { const a = answered(+b.dataset.go); b.classList.toggle('on', a); if (a) k++; }); $('#tCnt').textContent = t('{a}/{b} câu đã làm', { a: k, b: nums.length }); };
-      $('#tq').addEventListener('change', paint); $('#tq').addEventListener('input', paint); paint();
+      const fields = () => $$('#tq input, #tq select');
+      const snap = () => fields().map(i => (i.type === 'radio' || i.type === 'checkbox' ? (i.checked ? 1 : 0) : i.value));
+      if (restore && Array.isArray(restore.ans)) fields().forEach((i, j) => { const v = restore.ans[j]; if (v == null) return; if (i.type === 'radio' || i.type === 'checkbox') i.checked = !!v; else i.value = v; });
+      const keep = () => save({ stage: 'R', ans: snap(), left });
+      $('#tq').addEventListener('change', () => { paint(); keep(); }); $('#tq').addEventListener('input', paint); paint();
       $$('.tx-grid [data-go]').forEach(b => b.onclick = () => { const q = b.dataset.go, el = $(`#tq [data-item="${q}"]`) || $$('#tq [data-item]').find(x => x.dataset.item.split(',').includes(q)); if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); el.classList.add('tx-flash'); setTimeout(() => el.classList.remove('tx-flash'), 1200); } });
-      let left = mins * 60; const tick = () => { left--; const c = $('#tClock'); if (c) { c.textContent = `${String(Math.floor(left / 60)).padStart(2, '0')}:${String(left % 60).padStart(2, '0')}`; c.classList.toggle('warn', left < 300); } if (left <= 0) submit(); };
+      let left = restore && restore.left > 0 ? restore.left : mins * 60; const tick = () => { left--; if (left % 15 === 0) keep(); const c = $('#tClock'); if (c) { c.textContent = `${String(Math.floor(left / 60)).padStart(2, '0')}:${String(left % 60).padStart(2, '0')}`; c.classList.toggle('warn', left < 300); } if (left <= 0) submit(); };
       tick(); timer = setInterval(tick, 1000);
       const submit = () => { clearInterval(timer); units.forEach((u, k) => { const r = QE.collect({ groups: u.groups }, $(`.toeic-u[data-u="${k}"]`)); Object.values(r).forEach(x => { x.part = u.part; }); Object.keys(r).forEach(q => { { const i0 = u.groups.flatMap(g => g.items || []).find(i => i.n === +q) || {}; r[q].explain = QE.exT(i0.explain, i0._mv); } }); Object.assign(res.R, r); }); finish(); };
       $('#tSub').onclick = () => { const miss = nums.filter(q => !answered(q)).length; if (confirm(miss ? t('Còn {n} câu chưa làm. Vẫn nộp bài?', { n: miss }) : t('Nộp bài Reading?'))) submit(); };
     };
     const finish = async () => {
-      App.cleanup(); App.cleanup = null;
+      App.cleanup(); App.cleanup = null; clearRun();
       const cnt = o => { const v = Object.values(o); return [v.filter(r => r.ok).length, v.length]; };
       const [lr, lt] = cnt(res.L), [rr, rt] = cnt(res.R);
       const ls = scaled(lr / Math.max(1, lt)), rs = scaled(rr / Math.max(1, rt)), total = ls + rs;
@@ -176,6 +185,10 @@
       ${hist.length ? `<div class="small" style="margin-top:.8rem"><b>📈 ${t('Các lần trước')}</b><div class="row" style="gap:.35rem;margin-top:.3rem">${hist.map(h => `<span class="chip">${h.total} <span class="muted">(L ${h.ls} · R ${h.rs})</span></span>`).join('')}</div></div>` : ''}
       <button class="btn primary lg block" id="tGo" style="margin-top:1.1rem">${t('Bắt đầu làm bài')} →</button></div></div>`;
     $('#tTest').onclick = () => UI.tts('This is a sound check. If you can hear this clearly, you are ready.', 'en-US');
-    $('#tGo').onclick = () => lPart(0);
+    $('#tGo').onclick = () => { clearRun(); lPart(0); };
+    if (saved) {
+      $('#tGo').insertAdjacentHTML('beforebegin', `<button class="btn lg block" id="tResume" style="margin-top:1.1rem">⏯ ${saved.stage === 'R' ? t('Tiếp tục bài đang làm – Reading (còn {m} phút)', { m: Math.ceil((saved.left || 0) / 60) || '…' }) : t('Tiếp tục bài đang làm – Listening Part {p}', { p: (LP[saved.k] || LP[0]).part })}</button>`);
+      $('#tResume').onclick = () => { Object.assign(res, saved.res || {}); if (saved.stage === 'R') reading(saved); else lPart(Math.min(saved.k || 0, LP.length - 1)); };
+    }
   };
 })();
