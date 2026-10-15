@@ -154,10 +154,30 @@
       + `<button type="button" class="set-row me-row" data-exam-pick><span class="set-l"><span>${EXAMS[App.exam()].ic} ${t('Kỳ thi của bạn')}</span><small>${esc(EXAMS[App.exam()].name)}</small></span><span class="chev" aria-hidden="true">›</span></button>`
       + `</div><h3 class="set-h">${t('Tìm hiểu thêm')}</h3><div class="set-list">`
       + row('#/method', '🧪', t('Cách Lexkite giúp bạn nhớ lâu'))
+      + `<span id="meBlog"></span>`
       + row('#/resources', '🌐', t('Tài nguyên miễn phí'))
       + (I18N.lang() === 'vi' ? [['samples', '📄', 'Bài mẫu Writing Task 2'], ['speaking', '🗣️', 'Chủ đề Speaking'], ['tu-vung', '📚', 'Từ vựng theo chủ đề'], ['ngu-phap', '🧠', 'Ngữ pháp tiếng Anh'], ['viet-thu', '✉️', 'Thư mẫu IELTS General']].map(([p, ic, l]) => row('https://lexkite.com/' + p + '/', ic, l, '', true)).join('') : '')
       + `</div></div>`;
+    App.blogLive().then(on => { const el = document.getElementById('meBlog'); if (on && el) el.outerHTML = `<a class="set-row me-row" href="${App.blogUrl()}" data-blog><span class="set-l"><span>📰 ${t('Blog học tiếng Anh')}</span><small>${t('Mẹo thi, từ vựng theo chủ đề, phương pháp học')}</small></span><span class="chev" aria-hidden="true">›</span></a>`; });
   };
+
+  // ---------- Blog (trang tĩnh /blog/ – tạo lúc build): chỉ hiện lối vào khi blog đã có trên máy chủ ----------
+  const BLOG = 'https://lexkite.com/blog/';
+  const sameSite = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname);
+  App.blogUrl = () => (sameSite ? '/blog/' : BLOG);
+  App.blogLive = async () => {
+    try { const c = JSON.parse(localStorage.getItem('vb.blog') || 'null'); if (c && Date.now() - c.at < 864e5) return c.on; } catch (e) { /* bỏ qua */ }
+    let on = false;
+    try { const r = await fetch(App.blogUrl() + 'rss.xml', { method: 'HEAD', cache: 'no-store' }); on = r.ok && /xml/.test(r.headers.get('content-type') || ''); } catch (e) { on = false; }
+    try { localStorage.setItem('vb.blog', JSON.stringify({ on, at: Date.now() })); } catch (e) { /* bỏ qua */ }
+    return on;
+  };
+  // App iOS/Android & add-on: mở blog bằng trình duyệt (blog cần mạng); web: mở cùng tab
+  document.addEventListener('click', e => {
+    const a = e.target.closest && e.target.closest('a[data-blog]'); if (!a || sameSite) return;
+    e.preventDefault(); window.open(BLOG, '_blank', 'noopener');
+  });
+  App.blogLive().then(on => { if (on) document.querySelectorAll('#nav a[data-blog]').forEach(a => { a.hidden = false; a.href = App.blogUrl(); }); });
 
   // ---------- Bản đồ điều hướng: trang → [mục chính, mục con] (đánh dấu menu, đường dẫn "Kỹ năng › Nghe") ----------
   const SKILL_OF = { listening: 'listening', listen: 'listening', dictation: 'listening', reading: 'reading', read: 'reading', rtype: 'reading', cbt: 'reading', 'toeic-r': 'reading', write: 'writing', task1: 'writing', letters: 'writing', ideas: 'writing', model: 'writing', models: 'writing', speaking: 'speaking' };
