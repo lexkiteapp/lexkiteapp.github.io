@@ -18,3 +18,13 @@
 - Chính xác: chỉ dùng sự thật trong §7 hoặc kiến thức phổ thông chắc chắn; không bịa nghiên cứu, số liệu, trích dẫn, tên người; không hứa điểm số; không nói Lexkite “chính thức” hay liên kết với IELTS/ETS. Tính năng Lexkite chỉ mô tả những gì có trong shots.json/README.
 - Mỗi bài có phần “Làm ngay trong Lexkite” (H2) hướng dẫn từng bước bằng tính năng thật, nhưng không biến bài thành quảng cáo: ≥ 70% nội dung là kiến thức hữu ích độc lập.
 - Không lặp đoạn/câu giữa các bài (có máy kiểm trùng 8 từ liên tiếp). Mở bài khác nhau, tránh khuôn “Trong bài viết này…”.
+
+## Bài kiến thức nền (evergreen, brief có `"type": "evergreen"`)
+Mục tiêu: bài hay nhất tiếng Việt cho chủ đề đó – như một chuyên gia ngôn ngữ học/giáo viên IELTS hàng đầu chia sẻ, không phải bài giới thiệu app.
+- Độ dài 1.800–2.500 từ. Mở bài trả lời thẳng câu hỏi trong 2–3 câu, rồi mới đi sâu.
+- **Phân tích, không liệt kê**: giải thích *vì sao* (logic của tiếng Anh, so sánh với tiếng Việt – nguồn gốc lỗi của người Việt), có cặp câu đúng/sai đối chiếu, bảng tóm tắt, sơ đồ quyết định bằng danh sách.
+- Ví dụ tự đặt, tự nhiên, nhiều ngữ cảnh (đời sống, công việc, học thuật). Đánh dấu mức độ (A2/B1/B2/C1) khi hữu ích.
+- Có mục **“Tự kiểm tra”** (5–8 câu bài tập nhỏ) và **đáp án có giải thích** ngay sau.
+- App chỉ xuất hiện nhẹ ở mục “Luyện thêm” cuối bài (≥ 2 liên kết `/#/…` trong câu chữ + 1 hộp CTA). Không quảng cáo lộ liễu.
+- ≥ 4 liên kết tới bài blog khác (bài trong briefs.json) và liên kết bài ngữ pháp/từ vựng tĩnh liên quan (`/ngu-phap/`, `/tu-vung/`…) khi có.
+- Không trích lời bài hát, phụ đề phim, đoạn sách/báo có bản quyền; không bịa tên nghiên cứu, số liệu, tên podcast/kênh cụ thể; thông tin ngôn ngữ phải chuẩn (đối chiếu kiến thức từ điển Oxford/Cambridge, ngữ pháp chuẩn).

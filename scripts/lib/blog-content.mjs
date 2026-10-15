@@ -2,7 +2,7 @@
 // Dùng chung cho build-blog, blog-check, blog-schedule, blog-due – không phụ thuộc gói ngoài.
 import fs from 'node:fs'; import path from 'node:path';
 export const ROOT = 'content/blog';
-export const CATEGORIES = { 'tu-vung': 'Từ vựng', ielts: 'IELTS', toeic: 'TOEIC', toefl: 'TOEFL', 'phuong-phap': 'Phương pháp học' };
+export const CATEGORIES = { 'tu-vung': 'Từ vựng', ielts: 'IELTS', toeic: 'TOEIC', toefl: 'TOEFL', 'phuong-phap': 'Phương pháp học', 'ngu-phap': 'Ngữ pháp & cách dùng', 'phat-am': 'Phát âm', 'ky-nang': 'Kỹ năng tiếng Anh' };
 export const config = () => JSON.parse(fs.readFileSync(path.join(ROOT, 'config.json'), 'utf8'));
 
 const scalar = v => {

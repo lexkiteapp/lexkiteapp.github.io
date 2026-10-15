@@ -2,7 +2,7 @@
 // BLOG_DRAFTS=1 xem trước mọi bài). Sinh: bài /blog/<slug>/, danh sách + phân trang, chuyên mục, thẻ, RSS, sitemap-blog.xml.
 // Ảnh: CDN repo lexkite-media (content/blog/config.json → mediaBase); BLOG_MEDIA_LOCAL=1 chép ảnh .media/out vào dist để xem thử.
 import fs from 'node:fs'; import path from 'node:path';
-import { loadPosts, isLive, publishTime, wordCount, config, CATEGORIES, ROOT } from './lib/blog-content.mjs';
+import { loadPosts, parse, isLive, publishTime, wordCount, config, CATEGORIES, ROOT } from './lib/blog-content.mjs';
 
 const C = config(), SITE = C.site.replace(/\/$/, ''), DEF = C.defaultLang || 'vi', PER = C.postsPerPage || 12;
 const NOW = process.env.BLOG_NOW ? Date.parse(process.env.BLOG_NOW) : Date.now(), DRAFTS = process.env.BLOG_DRAFTS === '1';
@@ -21,10 +21,11 @@ if (fs.existsSync('scripts/blog-check.mjs') && process.env.BLOG_SKIP_CHECK !== '
 const when = p => publishTime(p) || NOW; // bài chưa xếp lịch (chỉ khi xem trước BLOG_DRAFTS) → coi như đăng lúc build
 const posts = all.filter(p => p.status !== 'draft' && (DRAFTS || isLive(p, NOW))).sort((a, b) => when(b) - when(a) || a.slug.localeCompare(b.slug));
 
+let LIVE = new Set(); // URL các bài đã phát hành (gán sau khi có danh sách bài)
 // ---------- Chữ giao diện theo ngôn ngữ (bản dịch sau này chỉ cần thêm khóa) ----------
 const L = {
-  vi: { blog: 'Blog', home: 'Trang chủ', open: 'Mở app', min: 'phút đọc', toc: 'Nội dung bài', related: 'Bài liên quan', tags: 'Thẻ', page: 'Trang', newer: '← Mới hơn', older: 'Cũ hơn →', all: 'Tất cả', updated: 'Cập nhật', play: 'Phát video', by: 'Lexkite', cat: 'Chuyên mục', tagT: 'Bài viết về', foot: 'Lexkite – học từ vựng & luyện thi IELTS, TOEIC, TOEFL miễn phí. Nội dung tự biên soạn.', tm: 'IELTS, TOEIC, TOEFL là nhãn hiệu của chủ sở hữu tương ứng; Lexkite là sản phẩm độc lập.', skip: 'Bỏ qua đến nội dung', try: 'Học miễn phí trên Lexkite', tryD: 'Flashcard FSRS, từ điển song ngữ, luyện 4 kỹ năng và thi thử – không cần thẻ tín dụng.', rss: 'RSS', words: 'Từ vựng', samples: 'Bài mẫu' },
-  en: { blog: 'Blog', home: 'Home', open: 'Open app', min: 'min read', toc: 'Contents', related: 'Related posts', tags: 'Tags', page: 'Page', newer: '← Newer', older: 'Older →', all: 'All', updated: 'Updated', play: 'Play video', by: 'Lexkite', cat: 'Category', tagT: 'Posts about', foot: 'Lexkite – free vocabulary and IELTS, TOEIC, TOEFL practice. Original content.', tm: 'IELTS, TOEIC and TOEFL are trademarks of their respective owners; Lexkite is independent.', skip: 'Skip to content', try: 'Learn free with Lexkite', tryD: 'FSRS flashcards, bilingual dictionary, 4-skill practice and mock tests – no credit card.', rss: 'RSS', words: 'Vocabulary', samples: 'Samples' },
+  vi: { blog: 'Blog', home: 'Trang chủ', open: 'Mở app', min: 'phút đọc', toc: 'Nội dung bài', related: 'Bài liên quan', tags: 'Thẻ', page: 'Trang', newer: '← Mới hơn', older: 'Cũ hơn →', all: 'Tất cả', updated: 'Cập nhật', play: 'Phát video', by: 'Lexkite', cat: 'Chuyên mục', tagT: 'Bài viết về', foot: 'Lexkite – học từ vựng & luyện thi IELTS, TOEIC, TOEFL miễn phí. Nội dung tự biên soạn.', tm: 'IELTS, TOEIC, TOEFL là nhãn hiệu của chủ sở hữu tương ứng; Lexkite là sản phẩm độc lập.', skip: 'Bỏ qua đến nội dung', about: 'Về Blog Lexkite', try: 'Học miễn phí trên Lexkite', tryD: 'Flashcard FSRS, từ điển song ngữ, luyện 4 kỹ năng và thi thử – không cần thẻ tín dụng.', rss: 'RSS', words: 'Từ vựng', samples: 'Bài mẫu' },
+  en: { blog: 'Blog', home: 'Home', open: 'Open app', min: 'min read', toc: 'Contents', related: 'Related posts', tags: 'Tags', page: 'Page', newer: '← Newer', older: 'Older →', all: 'All', updated: 'Updated', play: 'Play video', by: 'Lexkite', cat: 'Category', tagT: 'Posts about', foot: 'Lexkite – free vocabulary and IELTS, TOEIC, TOEFL practice. Original content.', tm: 'IELTS, TOEIC and TOEFL are trademarks of their respective owners; Lexkite is independent.', skip: 'Skip to content', about: 'About', try: 'Learn free with Lexkite', tryD: 'FSRS flashcards, bilingual dictionary, 4-skill practice and mock tests – no credit card.', rss: 'RSS', words: 'Vocabulary', samples: 'Samples' },
 };
 const T = l => L[l] || L.en;
 const base = l => (l === DEF ? '/blog/' : `/${l}/blog/`);
@@ -51,6 +52,8 @@ function inline(s) {
   s = esc(s).replace(/`([^`]+)`/g, (m, c) => `\u0000${codes.push(c) - 1}\u0000`);
   s = s.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+&quot;([^&]*)&quot;)?\)/g, (m, alt, src) => src.startsWith('media:') ? picture(src.slice(6), alt) : `<img src="${src}" alt="${alt}" loading="lazy">`)
     .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, t, h) => {
+      const bm = h.match(/^\/(?:[a-z]{2}(?:-[a-z]+)?\/)?blog\/([^/#?]+)\/$/);
+      if (bm && !['chu-de', 'the', 'trang'].includes(bm[1]) && !LIVE.has(h)) return t; // bài đích chưa đến giờ đăng → chữ thường, không tạo link 404
       const ext = /^https?:/.test(h) && !h.startsWith(SITE), app = h.startsWith('/#/');
       return `<a href="${h}"${ext ? ' rel="noopener" target="_blank"' : ''}${app ? ' class="app"' : ''}>${t}</a>`;
     })
@@ -177,7 +180,7 @@ ${extraHead}${jsonld.map(ld).join('\n')}
 <main id="nd">
 ${body}
 </main>
-<footer><div class="bar"><p>${t.foot} <a href="${b}rss.xml">${t.rss}</a> · <a href="/privacy">Privacy</a></p><p>${t.tm}</p><p>© ${new Date(NOW).getFullYear()} Lexkite</p></div></footer>
+<footer><div class="bar"><p>${t.foot} <a href="${b}gioi-thieu/">${t.about}</a> · <a href="${b}rss.xml">${t.rss}</a> · <a href="/privacy">Privacy</a></p><p>${t.tm}</p><p>© ${new Date(NOW).getFullYear()} Lexkite</p></div></footer>
 ${script}
 </body>
 </html>`;
@@ -190,6 +193,7 @@ const card = (p, h = 'h2', eager = false) => `<article class="card"><a class="ti
 // ---------- Ghi file ----------
 const written = [], sm = []; // sm: { loc, lastmod, alt }
 const write = (u, html) => { const f = path.join(OUT, u, 'index.html'); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, html); written.push(u); };
+LIVE = new Set(posts.map(postUrl));
 const byKey = new Map(); for (const p of posts) (byKey.get(p.translationKey || p.slug) || byKey.set(p.translationKey || p.slug, []).get(p.translationKey || p.slug)).push(p);
 const alts = p => { const g = byKey.get(p.translationKey || p.slug) || [p]; if (g.length < 2) return []; const a = g.map(x => ({ lang: x.lang, url: postUrl(x) })); const d = g.find(x => x.lang === DEF); return d ? [...a, { lang: 'x-default', url: postUrl(d) }] : a; };
 
@@ -203,7 +207,7 @@ for (const p of posts) {
   const cat = CATEGORIES[p.category] || p.category, b = base(p.lang);
   const crumbs = [[t.home, '/'], [t.blog, b], [cat, `${b}chu-de/${p.category}/`], [p.title, postUrl(p)]];
   const jsonld = [
-    { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, description: p.description, image: [imgUrl(p.cover)], datePublished: iso(pub), dateModified: iso(upd), inLanguage: p.lang, wordCount: words, keywords: [p.keyword, ...(p.tags || [])].join(', '), articleSection: cat, mainEntityOfPage: SITE + postUrl(p), author: { '@type': 'Organization', name: p.author || 'Lexkite', url: SITE + '/' }, publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: { '@type': 'ImageObject', url: `${SITE}/icons/icon-512.png`, width: 512, height: 512 } } },
+    { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, description: p.description, image: [imgUrl(p.cover)], datePublished: iso(pub), dateModified: iso(upd), inLanguage: p.lang, wordCount: words, keywords: [p.keyword, ...(p.tags || [])].join(', '), articleSection: cat, mainEntityOfPage: SITE + postUrl(p), author: { '@type': 'Organization', name: p.author || 'Lexkite', url: `${SITE}${base(p.lang)}gioi-thieu/` }, publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: { '@type': 'ImageObject', url: `${SITE}/icons/icon-512.png`, width: 512, height: 512 } } },
     crumbsLd(crumbs),
     ...(faq.length >= 2 ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
   ];
@@ -264,6 +268,15 @@ ${list[0] ? `<lastBuildDate>${new Date(when(list[0])).toUTCString()}</lastBuildD
 </rss>
 `;
   fs.mkdirSync(path.join(OUT, b), { recursive: true }); fs.writeFileSync(path.join(OUT, b, 'rss.xml'), rss);
+}
+
+// Trang tĩnh của blog (giới thiệu, quy trình biên tập…): content/blog/pages/<lang>/<slug>.md → /blog/<slug>/
+for (const lang of fs.existsSync(`${ROOT}/pages`) ? fs.readdirSync(`${ROOT}/pages`) : []) for (const f of fs.readdirSync(`${ROOT}/pages/${lang}`).filter(f => f.endsWith('.md'))) {
+  const { data, body } = parse(fs.readFileSync(`${ROOT}/pages/${lang}/${f}`, 'utf8'), f), t = T(lang), u = `${base(lang)}${data.slug || f.slice(0, -3)}/`;
+  const crumbs = [[t.home, '/'], [t.blog, base(lang)], [data.title, u]];
+  write(u, layout({ lang, title: `${data.title} | Lexkite`, desc: data.description, url: u, body: `${crumbsHtml(crumbs)}<article class="post"><h1>${esc(data.title)}</h1>${render(body, lang).html}</article>`,
+    jsonld: [crumbsLd(crumbs), { '@context': 'https://schema.org', '@type': 'AboutPage', name: data.title, description: data.description, url: SITE + u, inLanguage: lang, about: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: `${SITE}/icons/icon-512.png` } }] }));
+  sm.push({ loc: u, lastmod: iso(NOW) });
 }
 
 // Sitemap blog: tối đa 10.000 URL/file (sitemap-blog.xml, sitemap-blog-2.xml…) – build-sitemap-index.mjs gom vào sitemap.xml

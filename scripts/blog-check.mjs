@@ -6,7 +6,7 @@ import { ROOT, CATEGORIES, plainText, wordCount, readPost, loadPostsAt, briefSlu
 
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/, TAG = /^[a-z0-9-]+$/, YT = /^[\w-]{11}$/;
 const ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})$/, DAY = /^\d{4}-\d{2}-\d{2}$/;
-const RESERVED = new Set(['trang', 'chu-de', 'the', 'rss.xml']); // /blog/<…>/ không phải bài
+const RESERVED = new Set(['trang', 'chu-de', 'the', 'rss.xml', 'gioi-thieu']); // /blog/<…>/ không phải bài
 const FAQ = /^(câu hỏi thường gặp|faq)\b/i;
 const rel = f => (f && !path.relative(process.cwd(), f).startsWith('..') ? path.relative(process.cwd(), f) : f);
 const len = s => [...String(s ?? '')].length;
@@ -85,7 +85,10 @@ export function checkPosts(posts, { all = posts, root = ROOT } = {}) {
     const hrefs = [...[...body.matchAll(/(?<!!)\[[^\]]*\]\(\s*([^)\s]+)(?:\s+"[^"]*")?\s*\)/g)].map(m => m[1]), ...ctas];
     const internal = hrefs.filter(h => h.startsWith('/') && !h.startsWith('//')), app = internal.filter(h => h.startsWith('/#/'));
     if (internal.length < 3) E('links', `cần ≥ 3 liên kết nội bộ, đang có ${internal.length}`);
-    if (app.length < 2) E('links', `cần ≥ 2 liên kết vào app (/#/…), đang có ${app.length}`);
+        if (app.length - ctas.filter(h => h.startsWith('/#/')).length < 2) E('links', `cần ≥ 2 liên kết vào app (/#/…) trong câu chữ (không tính nút CTA), đang có ${app.length - ctas.filter(h => h.startsWith('/#/')).length}`);
+    const blogOut = new Set(internal.map(h => (h.match(/^\/(?:[a-z]{2}(?:-[a-z]+)?\/)?blog\/([^/#?]+)\//) || [])[1]).filter(x => x && !RESERVED.has(x)));
+    if (blogOut.size < 4) E('links', `cần ≥ 4 liên kết tới bài blog khác (khác nhau), đang có ${blogOut.size}`);
+    if (!internal.some(h => /^\/(samples|speaking|tu-vung|ngu-phap|viet-thu)\//.test(h))) W('links', 'nên có ≥ 1 liên kết tới trang tĩnh /tu-vung/, /samples/, /ngu-phap/, /speaking/ hoặc /viet-thu/');
     for (const h of internal) {
       const m = h.match(/^\/(?:([a-z]{2}(?:-[a-z]+)?)\/)?blog\/([^/#?]+)\/?(?:[#?].*)?$/);
       if (!m || RESERVED.has(m[2])) continue;
@@ -106,6 +109,10 @@ export function checkPosts(posts, { all = posts, root = ROOT } = {}) {
     // Trùng giữa các bài (cùng ngôn ngữ)
     for (const k of ['slug', 'title', 'description', 'keyword']) { const v = p[k] && `${p.lang}\u0000${norm(p[k])}`, fs_ = v ? seen[k].get(v) : null; if (fs_ && fs_.length > 1) E('duplicate', `${k} trùng với ${fs_.filter(f => path.resolve(f) !== path.resolve(p.file)).map(rel).join(', ')}`); }
   }
+  // Liên kết đến: bài không được bài nào trỏ tới là “bài mồ côi” (Google khó thấy, ít được chuyền sức mạnh)
+  const live = all.filter(p => p.status !== 'draft'), inbound = new Map();
+  for (const p of live) for (const m of new Set([...p.body.matchAll(/\]\(\/(?:[a-z]{2}(?:-[a-z]+)?\/)?blog\/([^/#?)]+)\//g)].map(m => `${p.lang}/${m[1]}`))) inbound.set(m, (inbound.get(m) || 0) + 1);
+  if (live.length >= 10) for (const p of posts) { const n = inbound.get(`${p.lang}/${p.slug}`) || 0; if (n < 3) warnings.push(`${rel(p.file)}: [inbound] chỉ ${n} bài khác trỏ tới (nên ≥ 3) – thêm liên kết từ bài liên quan`); }
   return { errors, warnings };
 }
 
