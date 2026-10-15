@@ -3,9 +3,11 @@
 Thứ tự = ưu tiên. Quy trình làm theo [PLAYBOOK.md](PLAYBOOK.md), chuẩn công nghệ theo [TECH-RADAR.md](TECH-RADAR.md).
 
 ## Đang làm / làm tiếp
-0. **Gói người đi làm (yêu cầu 15/10)**: (a) Bộ "Tiếng Anh Công sở & Sự nghiệp" tự biên soạn – Email & Slack, Họp & Đàm phán, Phỏng vấn, IT & văn phòng (thư viện + Sổ cụm từ); (b) Cứu chuỗi: hộp thoại Kit khi đứt 1 ngày → xem quảng cáo thưởng (khi AdMob bật) hoặc khiên miễn phí 1 lần/tháng; (c) Thì thầm: tăng gain 1,5–2× cho đường Whisper trên máy, nới ngưỡng chấm cho Web Speech; (d) Phản xạ 60 giây: clip YouTube 3–5 s (đoạn đã lưu có t=) + câu audio của mình → nhại lại → tô xanh/đỏ từng từ trên máy.
-1. **Gói nghĩa 13 ngôn ngữ + kho từ NAWL/BSL**: sinh bằng curl shim trên máy (Google gtx chặn GitHub runner) → commit; CI chạy tiếp phần tinh chỉnh. Thêm nguồn dịch dự phòng Workers AI m2m100 cho CI.
-2. **Chrome Translator API** (dịch trên máy) thay gtx ở client cho nghĩa/câu – nhanh, offline, không giới hạn.
+000. **Đợt hiện đại (yêu cầu 15/10)**: (1) nút 🎧 Rảnh tay trong #/review + khoảng lặng 2,5 s tự nhớ + giao diện tối (đã có lõi #/handsfree); (2) vuốt thẻ kiểu Tinder (phải = Nhớ, trái = Quên, lên = nghe lại, translate3d 60fps); (3) 3 vòng tròn mục tiêu ở trang chủ (ôn FSRS · từ mới · nói/shadowing), đủ 3 → pháo hoa + 50 XP; (4) add-on Tab mới: thẻ "thời điểm vàng" + Đã nhớ / Cần ôn + ô tìm kiếm chrome.search, tắt được (tắt → về trang tab mặc định).
+00. **Học rảnh tay khi tắt màn hình** ✓ (2.6.202) – còn: theo dõi pipeline Kokoro 14.261 đoạn (1.500/đêm); kiểm tra trên Android thật, nếu WebView dừng âm thanh khi tắt màn hình → thêm plugin trình phát gốc (foreground service media).
+0. **Gói người đi làm (yêu cầu 15/10)**: ~~(a) bộ Công sở~~ ✓ · ~~(b) cứu chuỗi~~ ✓ · còn: (c) Thì thầm: tăng gain 1,5–2× cho đường Whisper trên máy, nới ngưỡng chấm cho Web Speech; (d) Phản xạ 60 giây: clip YouTube 3–5 s (đoạn đã lưu có t=) + câu audio của mình → nhại lại → tô xanh/đỏ từng từ trên máy.
+1. **Gói nghĩa 13 ngôn ngữ** ✓ (6.880 từ/ngôn ngữ) · **kho từ NAWL/BSL** đang sinh (Wiktionary dự phòng vì dictionaryapi.dev lỗi 522): sinh bằng curl shim trên máy (Google gtx chặn GitHub runner) → commit; CI chạy tiếp phần tinh chỉnh. Thêm nguồn dịch dự phòng Workers AI m2m100 cho CI.
+2. ~~Chrome Translator API~~ ✓ (dịch trên máy khi gói ngôn ngữ đã có).
 3. **Nghe chép chính tả 3 mức** (dễ/khó/cả câu) + phím tắt + tab transcript có bản dịch theo ngôn ngữ người học; dùng chung cho Listening/TOEIC/TOEFL.
 4. **Lời giải 3 phần** cho đề (trích đoạn · từ khóa ↔ paraphrase · giải thích) + tô đoạn trong bài khi bấm.
 5. **Lớp Khóa học**: Khóa → Chương → Bài → Hoạt động; % tiến độ, "Tiếp tục bài học", tự đánh dấu hoàn thành khi đạt; dựa trên chương trình tự biên soạn (tham khảo cấu trúc `docs/research/study4-syllabi.md`).

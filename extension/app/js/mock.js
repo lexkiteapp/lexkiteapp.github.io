@@ -236,13 +236,13 @@
       const answers = [];
       const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
       intro('speaking', `<p class="muted">${t('Giám khảo sẽ đọc câu hỏi; micro tự bật khi đến lượt bạn. Part 1 trả lời 20–40 giây · Part 2: 1 phút chuẩn bị, nói tối đa 2 phút · Part 3: 40–60 giây.')}${SR ? '' : `<br><b>${t('Trình duyệt này không chuyển giọng nói thành chữ – hãy dùng Chrome hoặc Edge để được chấm.')}</b>`}</p>`, async () => {
-        try { const st = await navigator.mediaDevices.getUserMedia({ audio: true }); st.getTracks().forEach(x => x.stop()); } catch (e) { toast('⚠️ ' + t('Cần cho phép micro để thi Speaking')); }
+        try { const st = await navigator.mediaDevices.getUserMedia({ audio: { autoGainControl: true, noiseSuppression: true, echoCancellation: true } }); st.getTracks().forEach(x => x.stop()); } catch (e) { toast('⚠️ ' + t('Cần cho phép micro để thi Speaking')); }
         ask(0);
       });
       function recorder() {
         let finalText = '', interim = '', rec = null, media = null, chunks = [], stream = null, on = true;
         const startP = (async () => {
-          try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); media = new MediaRecorder(stream); media.ondataavailable = e => e.data.size && chunks.push(e.data); media.start(); } catch (e) { /* không có micro */ }
+          try { stream = await navigator.mediaDevices.getUserMedia({ audio: { autoGainControl: true, noiseSuppression: true, echoCancellation: true } }); media = new MediaRecorder(stream); media.ondataavailable = e => e.data.size && chunks.push(e.data); media.start(); } catch (e) { /* không có micro */ }
           if (SR) { rec = new SR(); rec.lang = state.settings.accent || 'en-GB'; rec.continuous = true; rec.interimResults = true;
             rec.onresult = e => { interim = ''; for (let i = e.resultIndex; i < e.results.length; i++) { const r = e.results[i]; if (r.isFinal) finalText += r[0].transcript + ' '; else interim += r[0].transcript; } const l = $('#mkLive'); if (l) l.textContent = (finalText + interim).slice(-220); };
             rec.onend = () => { if (on && rec) try { rec.start(); } catch (e) { /* đang chạy */ } };

@@ -101,7 +101,7 @@
   function stopRec() { clearInterval(rec.timer); rec.timer = null; try { if (rec.media && rec.media.state !== 'inactive') rec.media.stop(); else if (rec.stream) rec.stream.getTracks().forEach(x => x.stop()); } catch (e) { /* đã dừng */ } }
   async function record(seconds, onTick, onDone) {
     if (!navigator.mediaDevices || !window.MediaRecorder) { toast(t('Trình duyệt không hỗ trợ ghi âm.')); return false; }
-    try { rec.stream = await navigator.mediaDevices.getUserMedia({ audio: true }); } catch (e) { toast(t('Cần cho phép dùng micro để ghi âm.')); return false; }
+    try { rec.stream = await navigator.mediaDevices.getUserMedia({ audio: { autoGainControl: true, noiseSuppression: true, echoCancellation: true } }); } catch (e) { toast(t('Cần cho phép dùng micro để ghi âm.')); return false; }
     const chunks = [], media = rec.media = new MediaRecorder(rec.stream), stream = rec.stream;
     media.ondataavailable = e => e.data.size && chunks.push(e.data);
     media.onstop = () => { stream.getTracks().forEach(x => x.stop()); onDone(chunks.length ? UI.recUrl(new Blob(chunks, { type: media.mimeType || 'audio/webm' }), 'toefl') : ''); };

@@ -278,4 +278,7 @@
   "Khóa màn hình vẫn nghe được với các từ có giọng đọc chất lượng cao (Kokoro). Danh sách: {t}": "Words with high-quality (Kokoro) audio keep playing with the screen locked. List: {t}",
   "Chưa có từ nào để nghe.": "No words to play yet.",
   "Từ đến hạn ôn": "Words due for review",
+  "Chế độ thì thầm khi luyện nói": "Whisper mode for speaking practice",
+  "Hãy đeo tai nghe và nói thì thầm vào micro – không làm phiền người xung quanh.": "Wear headphones and whisper into the mic – no need to disturb people around you.",
+  "Thì thầm": "Whisper mode",
 }); })(typeof self !== 'undefined' ? self : this);

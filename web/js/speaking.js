@@ -129,7 +129,7 @@
         if (k >= sents.length) { box.innerHTML = `<div class="feedback ok" style="position:static;margin-top:.6rem"><b>${t('Hoàn thành shadowing · trung bình {pct}% giống mẫu', { pct: Math.round(total / sents.length) })}</b></div>`; App.reward({ spoken: 3, xp: 10 }); return; }
         const s2 = sents[k];
         box.innerHTML = `<div class="card" style="margin-top:.6rem;box-shadow:none;border:1px solid var(--line)"><div class="tiny muted">${t('Câu {i}/{n} – nghe rồi nói lặp lại, bắt chước nhịp và ngữ điệu', { i: k + 1, n: sents.length })}</div>
-          <div style="font-size:1.1rem;margin:.4rem 0">${esc(s2)}</div><div class="row"><button class="btn sm" id="shL">🔊 ${t('Nghe')}</button><button class="btn sm" id="shS">🐢</button><button class="btn sm primary" id="shR">🎙️ ${t('Nói lại')}</button><button class="btn sm ghost" id="shN">${t('Bỏ qua')} →</button></div><div id="shRes" class="small" style="margin-top:.4rem"></div></div>`;
+          <div style="font-size:1.1rem;margin:.4rem 0">${esc(s2)}</div><label class="md-sw small" style="margin:.2rem 0 .5rem"><input type="checkbox" data-whisper ${state.settings.whisperMode ? 'checked' : ''}><span></span>🤫 ${t('Thì thầm')}</label><div class="row"><button class="btn sm" id="shL">🔊 ${t('Nghe')}</button><button class="btn sm" id="shS">🐢</button><button class="btn sm primary" id="shR">🎙️ ${t('Nói lại')}</button><button class="btn sm ghost" id="shN">${t('Bỏ qua')} →</button></div><div id="shRes" class="small" style="margin-top:.4rem"></div></div>`;
         const say = r => UI.tts(s2, state.settings.accent, r);
         $('#shL').onclick = () => say(); $('#shS').onclick = () => say(0.7); $('#shN').onclick = () => { k++; step(); };
         $('#shR').onclick = () => {
@@ -154,7 +154,7 @@
     const clock = s => `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
     const startRec = async () => {
       UI.stopSpeak();
-      try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); }
+      try { stream = await navigator.mediaDevices.getUserMedia({ audio: { autoGainControl: true, noiseSuppression: true, echoCancellation: true } }); }
       catch (e) { return toast('⚠️ ' + t('Cần cho phép dùng micro (biểu tượng 🎙️ trên thanh địa chỉ)')); }
       chunks = []; finalText = ''; interim = '';
       try { media = new MediaRecorder(stream); media.ondataavailable = e => e.data.size && chunks.push(e.data); media.start(); } catch (e) { media = null; }

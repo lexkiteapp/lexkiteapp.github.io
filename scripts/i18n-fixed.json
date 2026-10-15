@@ -14765,5 +14765,20 @@
   "ar": "الكلمة التالية",
   "ru": "Следующее слово",
   "tr": "Sonraki kelime"
+ },
+ "Thì thầm": {
+  "es": "Modo susurro",
+  "pt": "Modo sussurro",
+  "fr": "Mode chuchotement",
+  "de": "Flüstermodus",
+  "id": "Mode berbisik",
+  "th": "โหมดกระซิบ",
+  "zh": "耳语模式",
+  "ja": "ささやきモード",
+  "ko": "속삭임 모드",
+  "hi": "फुसफुसाहट मोड",
+  "ar": "وضع الهمس",
+  "ru": "Режим шёпота",
+  "tr": "Fısıltı modu"
  }
 }

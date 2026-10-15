@@ -400,6 +400,7 @@
     }
     new MutationObserver(() => { clearTimeout(timer); timer = setTimeout(pass, 120); }).observe(view, { childList: true, subtree: true, characterData: false });
   })();
+  document.addEventListener('change', e => { if (e.target.matches && e.target.matches('[data-whisper]')) { state.settings.whisperMode = e.target.checked; saveSettings(); if (e.target.checked) toast(t('Hãy đeo tai nghe và nói thì thầm vào micro – không làm phiền người xung quanh.'), 4500); } });
   window.addEventListener('hashchange', route);
   document.addEventListener('click', e => {
     const a = e.target.closest && e.target.closest('a[href^="#/"]');
@@ -1137,6 +1138,7 @@
         + slide(nc(t('Tốc độ đọc:')), 'vRate', (s.ttsRate || 0.92).toFixed(2) + '×', `<input type="range" min="0.6" max="1.2" step="0.02" id="sRate" value="${s.ttsRate || 0.92}">`)
         + row(`<button type="button" class="btn sm" id="sTry">▶️ ${t('Nghe thử câu mẫu')}</button>`, '', t('Từ đơn ưu tiên bản ghi giọng người thật'))
         + tog('sAuto', s.autoSpeak, t('Tự phát âm khi hiện thẻ'))
+        + tog('sWhisper', s.whisperMode, '🤫 ' + t('Chế độ thì thầm khi luyện nói'))
         + tog('sHq', s.hqVoice !== false, t('Giọng đọc tự nhiên cho bài nghe & giám khảo (tải âm thanh từ mạng)'))
         + tog('sSfx', s.sfx, t('Hiệu ứng âm thanh')))}
       ${sec('remind', '⏰ ' + t('Nhắc học hằng ngày'),
@@ -1185,6 +1187,7 @@
     $('#sTry').onclick = () => UI.tts('Many people believe that renewable energy is the key to a sustainable future. However, the transition will not happen overnight.', s.accent);
     $('#sAccent').onchange = e => { s.accent = e.target.value; save(); fillVoices(); speak('pronunciation', s.accent); };
     $('#sAuto').onchange = e => { s.autoSpeak = e.target.checked; save(); };
+    $('#sWhisper').onchange = e => { s.whisperMode = e.target.checked; save(); if (s.whisperMode) toast(t('Hãy đeo tai nghe và nói thì thầm vào micro – không làm phiền người xung quanh.'), 4500); };
     $('#sHq').onchange = e => { s.hqVoice = e.target.checked; save(); };
     $('#sSfx').onchange = e => { s.sfx = e.target.checked; save(); if (s.sfx) { Core.sfxOff = false; Sfx.correct(); } };
     $$('#sTheme button').forEach(b => b.onclick = () => { s.theme = b.dataset.v; applyTheme(); save(); $$('#sTheme button').forEach(x => x.classList.toggle('on', x === b)); });
