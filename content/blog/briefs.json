@@ -1,0 +1,964 @@
+{
+ "_note": "Bước 1 quy trình: brief từ khóa & ý định cho từng bài. Một từ khóa chính chỉ thuộc một bài.",
+ "briefs": [
+  {
+   "slug": "cach-hoc-tu-vung-ielts-hieu-qua",
+   "keyword": "cách học từ vựng ielts",
+   "category": "tu-vung",
+   "tags": [
+    "ielts",
+    "tu-vung",
+    "flashcard"
+   ],
+   "shots": [
+    "library",
+    "review",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/review",
+    "/#/practice/learn"
+   ],
+   "angle": "Quy trình 7 bước học từ IELTS nhớ lâu: chọn từ đúng cấp, học trong ngữ cảnh, ôn ngắt quãng, dùng lại khi viết/nói",
+   "intent": "informational"
+  },
+  {
+   "slug": "fsrs-la-gi",
+   "keyword": "fsrs là gì",
+   "category": "phuong-phap",
+   "tags": [
+    "fsrs",
+    "flashcard",
+    "anki"
+   ],
+   "shots": [
+    "review",
+    "method",
+    "stats"
+   ],
+   "routes": [
+    "/#/review",
+    "/#/method",
+    "/#/settings"
+   ],
+   "angle": "Giải thích FSRS (độ khó, độ ổn định, khả năng nhớ), so với SM-2, cách chọn mục tiêu ghi nhớ 80–95%",
+   "intent": "informational"
+  },
+  {
+   "slug": "lap-lai-ngat-quang",
+   "keyword": "lặp lại ngắt quãng",
+   "category": "phuong-phap",
+   "tags": [
+    "spaced-repetition",
+    "ghi-nho"
+   ],
+   "shots": [
+    "method",
+    "review"
+   ],
+   "routes": [
+    "/#/method",
+    "/#/review"
+   ],
+   "angle": "Spaced repetition là gì, tại sao hiệu quả, lịch ôn mẫu, sai lầm hay gặp",
+   "intent": "informational"
+  },
+  {
+   "slug": "duong-cong-quen-lang-ebbinghaus",
+   "keyword": "đường cong quên lãng",
+   "category": "phuong-phap",
+   "tags": [
+    "ghi-nho",
+    "ebbinghaus"
+   ],
+   "shots": [
+    "method",
+    "stats"
+   ],
+   "routes": [
+    "/#/method",
+    "/#/stats"
+   ],
+   "angle": "Thí nghiệm Ebbinghaus, ý nghĩa với người học từ vựng, cách 'làm phẳng' đường cong",
+   "intent": "informational"
+  },
+  {
+   "slug": "academic-word-list-awl",
+   "keyword": "academic word list",
+   "category": "tu-vung",
+   "tags": [
+    "awl",
+    "ielts",
+    "tu-vung-hoc-thuat"
+   ],
+   "shots": [
+    "library",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/practice/test"
+   ],
+   "angle": "AWL 570 họ từ: nguồn gốc, vì sao quan trọng cho IELTS Academic/TOEFL, cách học theo sublist",
+   "intent": "informational"
+  },
+  {
+   "slug": "collocation-ielts",
+   "keyword": "collocation ielts",
+   "category": "tu-vung",
+   "tags": [
+    "collocation",
+    "ielts",
+    "writing"
+   ],
+   "shots": [
+    "dict",
+    "phrases"
+   ],
+   "routes": [
+    "/#/dict/",
+    "/#/phrases"
+   ],
+   "angle": "Collocation là gì, các kiểu kết hợp, 40+ collocation học thuật tự chọn, cách tra & ghi",
+   "intent": "informational"
+  },
+  {
+   "slug": "phrasal-verb-thong-dung",
+   "keyword": "phrasal verb thông dụng",
+   "category": "tu-vung",
+   "tags": [
+    "phrasal-verb",
+    "speaking"
+   ],
+   "shots": [
+    "practice-learn",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/practice/learn",
+    "/#/practice/speak"
+   ],
+   "angle": "Cách học phrasal verb theo tiểu từ (up, out, off…), 30 cụm thông dụng có ví dụ tự đặt, khi nào nên tránh trong Writing",
+   "intent": "informational"
+  },
+  {
+   "slug": "idiom-ielts-speaking",
+   "keyword": "idiom ielts speaking",
+   "category": "ielts",
+   "tags": [
+    "idiom",
+    "speaking"
+   ],
+   "shots": [
+    "speaking",
+    "phrases"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/phrases"
+   ],
+   "angle": "Dùng idiom tự nhiên trong Speaking, idiom nên/không nên dùng, ví dụ câu trả lời",
+   "intent": "informational"
+  },
+  {
+   "slug": "tu-noi-trong-ielts-writing",
+   "keyword": "từ nối trong ielts writing",
+   "category": "ielts",
+   "tags": [
+    "linking-words",
+    "writing"
+   ],
+   "shots": [
+    "write",
+    "phrases"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/phrases"
+   ],
+   "angle": "Linking words theo chức năng, lỗi lạm dụng, cohesion tự nhiên ảnh hưởng tiêu chí Coherence & Cohesion",
+   "intent": "informational"
+  },
+  {
+   "slug": "tu-vung-ielts-chu-de-environment",
+   "keyword": "từ vựng ielts chủ đề environment",
+   "category": "tu-vung",
+   "tags": [
+    "environment",
+    "ielts",
+    "chu-de"
+   ],
+   "shots": [
+    "library",
+    "read-article"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/reading"
+   ],
+   "angle": "Từ & collocation chủ đề môi trường, câu mẫu Writing/Speaking tự viết",
+   "intent": "informational"
+  },
+  {
+   "slug": "tu-vung-ielts-chu-de-education",
+   "keyword": "từ vựng ielts chủ đề education",
+   "category": "tu-vung",
+   "tags": [
+    "education",
+    "ielts",
+    "chu-de"
+   ],
+   "shots": [
+    "library",
+    "write"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/write"
+   ],
+   "angle": "Từ vựng giáo dục cho Task 2 & Speaking, ý tưởng lập luận",
+   "intent": "informational"
+  },
+  {
+   "slug": "tu-vung-ielts-chu-de-technology",
+   "keyword": "từ vựng ielts chủ đề technology",
+   "category": "tu-vung",
+   "tags": [
+    "technology",
+    "ielts",
+    "chu-de"
+   ],
+   "shots": [
+    "library",
+    "practice-match"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/practice/match"
+   ],
+   "angle": "Từ vựng công nghệ, AI, mạng xã hội, quyền riêng tư; câu mẫu",
+   "intent": "informational"
+  },
+  {
+   "slug": "hoc-tu-vung-qua-ngu-canh",
+   "keyword": "học từ vựng qua ngữ cảnh",
+   "category": "phuong-phap",
+   "tags": [
+    "ngu-canh",
+    "doc-hieu"
+   ],
+   "shots": [
+    "read-article",
+    "dict"
+   ],
+   "routes": [
+    "/#/reading",
+    "/#/dict/"
+   ],
+   "angle": "Vì sao học từ trong câu nhớ lâu hơn, cách thu thập câu khi đọc/nghe, lưu kèm ngữ cảnh",
+   "intent": "informational"
+  },
+  {
+   "slug": "cach-doc-phien-am-ipa",
+   "keyword": "cách đọc phiên âm ipa",
+   "category": "tu-vung",
+   "tags": [
+    "ipa",
+    "phat-am"
+   ],
+   "shots": [
+    "pron",
+    "dict"
+   ],
+   "routes": [
+    "/#/pron",
+    "/#/dict/"
+   ],
+   "angle": "Bảng IPA cho người Việt, âm dễ nhầm, khác biệt UK/US, cách tra phiên âm",
+   "intent": "informational"
+  },
+  {
+   "slug": "hoc-tu-vung-qua-tro-choi",
+   "keyword": "học từ vựng qua trò chơi",
+   "category": "phuong-phap",
+   "tags": [
+    "gamification",
+    "tu-vung"
+   ],
+   "shots": [
+    "practice",
+    "practice-match",
+    "stats"
+   ],
+   "routes": [
+    "/#/practice",
+    "/#/stats"
+   ],
+   "angle": "Game hóa đúng cách: luyện truy xuất, giới hạn thời gian, XP/chuỗi ngày giữ động lực",
+   "intent": "informational"
+  },
+  {
+   "slug": "so-tay-tu-vung-ca-nhan",
+   "keyword": "sổ tay từ vựng",
+   "category": "phuong-phap",
+   "tags": [
+    "so-tu",
+    "tu-vung"
+   ],
+   "shots": [
+    "library",
+    "mistakes"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/mistakes"
+   ],
+   "angle": "Cách ghi sổ từ vựng hiệu quả (từ, nghĩa, ví dụ, collocation), số hóa thành flashcard",
+   "intent": "informational"
+  },
+  {
+   "slug": "tu-vung-toeic-theo-chu-de",
+   "keyword": "từ vựng toeic theo chủ đề",
+   "category": "toeic",
+   "tags": [
+    "toeic",
+    "tu-vung"
+   ],
+   "shots": [
+    "toeic",
+    "library"
+   ],
+   "routes": [
+    "/#/toeic",
+    "/#/library"
+   ],
+   "angle": "Chủ đề TOEIC (văn phòng, tuyển dụng, tài chính, du lịch…), TSL, cách học theo Part",
+   "intent": "informational"
+  },
+  {
+   "slug": "tu-vung-toefl-ibt",
+   "keyword": "từ vựng toefl",
+   "category": "toefl",
+   "tags": [
+    "toefl",
+    "tu-vung"
+   ],
+   "shots": [
+    "toefl",
+    "library"
+   ],
+   "routes": [
+    "/#/toefl",
+    "/#/library"
+   ],
+   "angle": "Từ học thuật cho TOEFL iBT định dạng mới, AWL, cách học cho Complete the Words",
+   "intent": "informational"
+  },
+  {
+   "slug": "2800-tu-tieng-anh-thong-dung-ngsl",
+   "keyword": "từ tiếng anh thông dụng nhất",
+   "category": "tu-vung",
+   "tags": [
+    "ngsl",
+    "co-ban"
+   ],
+   "shots": [
+    "library",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/practice/learn"
+   ],
+   "angle": "NGSL ~2.800 từ phủ phần lớn văn bản, học theo nhóm tần suất, lộ trình cho người mất gốc",
+   "intent": "informational"
+  },
+  {
+   "slug": "cach-paraphrase-trong-ielts",
+   "keyword": "cách paraphrase trong ielts",
+   "category": "ielts",
+   "tags": [
+    "paraphrase",
+    "writing",
+    "reading"
+   ],
+   "shots": [
+    "write",
+    "dict"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/dict/"
+   ],
+   "angle": "5 kỹ thuật paraphrase (đồng nghĩa, đổi từ loại, đổi cấu trúc, bị động, khái quát), ví dụ tự đặt",
+   "intent": "informational"
+  },
+  {
+   "slug": "ielts-reading-true-false-not-given",
+   "keyword": "true false not given",
+   "category": "ielts",
+   "tags": [
+    "reading",
+    "ielts"
+   ],
+   "shots": [
+    "reading",
+    "read-article"
+   ],
+   "routes": [
+    "/#/reading"
+   ],
+   "angle": "Phân biệt False và Not Given, quy trình 4 bước, ví dụ tự viết",
+   "intent": "informational"
+  },
+  {
+   "slug": "ielts-reading-skimming-scanning",
+   "keyword": "skimming scanning ielts reading",
+   "category": "ielts",
+   "tags": [
+    "reading",
+    "ky-nang-doc"
+   ],
+   "shots": [
+    "reading",
+    "read-article"
+   ],
+   "routes": [
+    "/#/reading"
+   ],
+   "angle": "Kỹ thuật đọc lướt & đọc quét, phân bổ 60 phút, luyện đo thời gian",
+   "intent": "informational"
+  },
+  {
+   "slug": "meo-lam-bai-ielts-listening",
+   "keyword": "mẹo làm bài ielts listening",
+   "category": "ielts",
+   "tags": [
+    "listening",
+    "ielts"
+   ],
+   "shots": [
+    "listening",
+    "mock"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/mock"
+   ],
+   "angle": "Đọc trước câu hỏi, bẫy đổi ý, chính tả, số; luyện theo phần",
+   "intent": "informational"
+  },
+  {
+   "slug": "chep-chinh-ta-tieng-anh-dictation",
+   "keyword": "chép chính tả tiếng anh",
+   "category": "phuong-phap",
+   "tags": [
+    "dictation",
+    "listening"
+   ],
+   "shots": [
+    "listening",
+    "practice"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/practice"
+   ],
+   "angle": "Dictation luyện nghe: cách làm, mức độ, tránh nản",
+   "intent": "informational"
+  },
+  {
+   "slug": "cau-truc-ielts-writing-task-2",
+   "keyword": "cấu trúc ielts writing task 2",
+   "category": "ielts",
+   "tags": [
+    "writing",
+    "task-2"
+   ],
+   "shots": [
+    "write"
+   ],
+   "routes": [
+    "/#/write",
+    "/samples/"
+   ],
+   "angle": "Dạng đề Task 2, bố cục 4–5 đoạn, phân tích đề, lập dàn ý 5 phút",
+   "intent": "informational"
+  },
+  {
+   "slug": "ielts-writing-task-1-line-graph",
+   "keyword": "ielts writing task 1 line graph",
+   "category": "ielts",
+   "tags": [
+    "writing",
+    "task-1"
+   ],
+   "shots": [
+    "task1"
+   ],
+   "routes": [
+    "/#/task1"
+   ],
+   "angle": "Cấu trúc 4 đoạn, overview, từ vựng xu hướng, câu mẫu tự viết",
+   "intent": "informational"
+  },
+  {
+   "slug": "ielts-general-writing-task-1-viet-thu",
+   "keyword": "ielts general writing task 1",
+   "category": "ielts",
+   "tags": [
+    "writing",
+    "general",
+    "viet-thu"
+   ],
+   "shots": [
+    "letters"
+   ],
+   "routes": [
+    "/#/letters",
+    "/viet-thu/"
+   ],
+   "angle": "3 giọng thư, mở/kết thư, cách trả lời 3 gạch đầu dòng",
+   "intent": "informational"
+  },
+  {
+   "slug": "ielts-speaking-part-2-cue-card",
+   "keyword": "ielts speaking part 2",
+   "category": "ielts",
+   "tags": [
+    "speaking",
+    "part-2"
+   ],
+   "shots": [
+    "speaking"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/speaking/"
+   ],
+   "angle": "Tận dụng 1 phút chuẩn bị, khung kể chuyện, kéo dài tự nhiên 2 phút",
+   "intent": "informational"
+  },
+  {
+   "slug": "ielts-speaking-part-1",
+   "keyword": "ielts speaking part 1",
+   "category": "ielts",
+   "tags": [
+    "speaking",
+    "part-1"
+   ],
+   "shots": [
+    "speaking",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Trả lời ngắn có mở rộng, chủ đề thường gặp, lỗi hay mắc",
+   "intent": "informational"
+  },
+  {
+   "slug": "luyen-phat-am-tieng-anh",
+   "keyword": "luyện phát âm tiếng anh",
+   "category": "phuong-phap",
+   "tags": [
+    "phat-am",
+    "ipa",
+    "speaking"
+   ],
+   "shots": [
+    "pron",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/pron",
+    "/#/practice/speak"
+   ],
+   "angle": "Lỗi phát âm người Việt (âm cuối, /θ/, nối âm, trọng âm), cách luyện có phản hồi",
+   "intent": "informational"
+  },
+  {
+   "slug": "lexical-resource-ielts",
+   "keyword": "lexical resource ielts",
+   "category": "ielts",
+   "tags": [
+    "band-descriptors",
+    "writing",
+    "speaking"
+   ],
+   "shots": [
+    "write",
+    "dict"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/dict/"
+   ],
+   "angle": "Tiêu chí Lexical Resource: phạm vi, độ chính xác, từ ít phổ biến, collocation; cách nâng",
+   "intent": "informational"
+  },
+  {
+   "slug": "thi-thu-ielts-online",
+   "keyword": "thi thử ielts online",
+   "category": "ielts",
+   "tags": [
+    "thi-thu",
+    "ielts"
+   ],
+   "shots": [
+    "mock"
+   ],
+   "routes": [
+    "/#/mock"
+   ],
+   "angle": "Cách thi thử hiệu quả, điều kiện như thi thật, phân tích lỗi sau thi",
+   "intent": "informational"
+  },
+  {
+   "slug": "lo-trinh-tu-hoc-ielts",
+   "keyword": "lộ trình tự học ielts",
+   "category": "ielts",
+   "tags": [
+    "lo-trinh",
+    "tu-hoc"
+   ],
+   "shots": [
+    "path",
+    "goal",
+    "placement"
+   ],
+   "routes": [
+    "/#/path",
+    "/#/goal",
+    "/#/placement"
+   ],
+   "angle": "Lộ trình theo giai đoạn từ mất gốc đến 6.5+, phân bổ thời gian",
+   "intent": "informational"
+  },
+  {
+   "slug": "ngu-phap-ielts-cau-phuc",
+   "keyword": "câu phức trong ielts",
+   "category": "ielts",
+   "tags": [
+    "ngu-phap",
+    "writing"
+   ],
+   "shots": [
+    "grammar",
+    "write"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "Câu phức: mệnh đề quan hệ, trạng ngữ, danh từ; tiêu chí Grammatical Range",
+   "intent": "informational"
+  },
+  {
+   "slug": "cau-truc-de-thi-toeic",
+   "keyword": "cấu trúc đề thi toeic",
+   "category": "toeic",
+   "tags": [
+    "toeic",
+    "cau-truc-de"
+   ],
+   "shots": [
+    "toeic"
+   ],
+   "routes": [
+    "/#/toeic"
+   ],
+   "angle": "7 Part, thời gian, điểm 10–990, cách luyện từng phần",
+   "intent": "informational"
+  },
+  {
+   "slug": "toeic-part-5-meo-lam-bai",
+   "keyword": "toeic part 5",
+   "category": "toeic",
+   "tags": [
+    "toeic",
+    "part-5",
+    "ngu-phap"
+   ],
+   "shots": [
+    "toeic",
+    "grammar"
+   ],
+   "routes": [
+    "/#/toeic",
+    "/#/grammar"
+   ],
+   "angle": "Phân loại câu Part 5 (từ loại, thì, giới từ, từ vựng), chiến lược 20 giây/câu",
+   "intent": "informational"
+  },
+  {
+   "slug": "toeic-part-7-doc-hieu",
+   "keyword": "toeic part 7",
+   "category": "toeic",
+   "tags": [
+    "toeic",
+    "part-7",
+    "doc-hieu"
+   ],
+   "shots": [
+    "toeic",
+    "reading"
+   ],
+   "routes": [
+    "/#/toeic",
+    "/#/reading"
+   ],
+   "angle": "Đoạn đơn/kép/ba, câu hỏi suy luận, quản lý thời gian",
+   "intent": "informational"
+  },
+  {
+   "slug": "toeic-listening-part-2",
+   "keyword": "toeic part 2",
+   "category": "toeic",
+   "tags": [
+    "toeic",
+    "part-2",
+    "listening"
+   ],
+   "shots": [
+    "toeic",
+    "listening"
+   ],
+   "routes": [
+    "/#/toeic",
+    "/#/listening"
+   ],
+   "angle": "Câu hỏi Wh-, câu trả lời gián tiếp, bẫy âm giống",
+   "intent": "informational"
+  },
+  {
+   "slug": "lo-trinh-tu-hoc-toeic",
+   "keyword": "lộ trình tự học toeic",
+   "category": "toeic",
+   "tags": [
+    "toeic",
+    "lo-trinh"
+   ],
+   "shots": [
+    "toeic",
+    "goal",
+    "path"
+   ],
+   "routes": [
+    "/#/toeic",
+    "/#/goal"
+   ],
+   "angle": "Lộ trình 450 → 750+, phân bổ từ vựng/ngữ pháp/luyện đề",
+   "intent": "informational"
+  },
+  {
+   "slug": "toefl-ibt-dinh-dang-moi-2026",
+   "keyword": "toefl ibt 2026",
+   "category": "toefl",
+   "tags": [
+    "toefl",
+    "dinh-dang-moi"
+   ],
+   "shots": [
+    "toefl"
+   ],
+   "routes": [
+    "/#/toefl"
+   ],
+   "angle": "Định dạng TOEFL iBT từ 21/01/2026: ngắn hơn, thích ứng, thang band 1–6; chuẩn bị gì",
+   "intent": "informational"
+  },
+  {
+   "slug": "toefl-complete-the-words",
+   "keyword": "complete the words toefl",
+   "category": "toefl",
+   "tags": [
+    "toefl",
+    "reading"
+   ],
+   "shots": [
+    "toefl",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/toefl"
+   ],
+   "angle": "Dạng điền chữ cái còn thiếu: kỹ năng cần (từ loại, ngữ cảnh, chính tả), cách luyện",
+   "intent": "informational"
+  },
+  {
+   "slug": "nen-thi-ielts-toeic-hay-toefl",
+   "keyword": "nên thi ielts hay toeic",
+   "category": "phuong-phap",
+   "tags": [
+    "ielts",
+    "toeic",
+    "toefl"
+   ],
+   "shots": [
+    "mock",
+    "toeic",
+    "toefl"
+   ],
+   "routes": [
+    "/#/mock",
+    "/#/toeic",
+    "/#/toefl"
+   ],
+   "angle": "So sánh mục đích, cấu trúc, thang điểm, ai nên thi gì",
+   "intent": "informational"
+  },
+  {
+   "slug": "kiem-tra-trinh-do-tieng-anh",
+   "keyword": "kiểm tra trình độ tiếng anh",
+   "category": "phuong-phap",
+   "tags": [
+    "placement",
+    "cefr"
+   ],
+   "shots": [
+    "placement",
+    "path"
+   ],
+   "routes": [
+    "/#/placement"
+   ],
+   "angle": "CEFR A1–C2, cách tự đánh giá, dùng kết quả để chọn lộ trình",
+   "intent": "informational"
+  },
+  {
+   "slug": "dat-muc-tieu-hoc-tieng-anh",
+   "keyword": "mục tiêu học tiếng anh",
+   "category": "phuong-phap",
+   "tags": [
+    "muc-tieu",
+    "dong-luc"
+   ],
+   "shots": [
+    "goal",
+    "stats"
+   ],
+   "routes": [
+    "/#/goal",
+    "/#/stats"
+   ],
+   "angle": "Mục tiêu SMART cho kỳ thi, chỉ tiêu tuần, theo dõi tiến độ",
+   "intent": "informational"
+  },
+  {
+   "slug": "hoc-tieng-anh-15-phut-moi-ngay",
+   "keyword": "học tiếng anh mỗi ngày 15 phút",
+   "category": "phuong-phap",
+   "tags": [
+    "thoi-quen",
+    "tu-hoc"
+   ],
+   "shots": [
+    "home",
+    "m-home",
+    "review"
+   ],
+   "routes": [
+    "/#/home",
+    "/#/review"
+   ],
+   "angle": "Thói quen ngắn mỗi ngày, gắn thói quen, chuỗi ngày, lịch mẫu 15 phút",
+   "intent": "informational"
+  },
+  {
+   "slug": "so-loi-sai-tieng-anh",
+   "keyword": "sổ lỗi sai",
+   "category": "phuong-phap",
+   "tags": [
+    "loi-sai",
+    "on-tap"
+   ],
+   "shots": [
+    "mistakes"
+   ],
+   "routes": [
+    "/#/mistakes"
+   ],
+   "angle": "Học từ lỗi sai: ghi lỗi, phân loại, ôn lại có chủ đích",
+   "intent": "informational"
+  },
+  {
+   "slug": "active-recall-chu-dong-goi-nho",
+   "keyword": "active recall",
+   "category": "phuong-phap",
+   "tags": [
+    "active-recall",
+    "ghi-nho"
+   ],
+   "shots": [
+    "practice-test",
+    "review"
+   ],
+   "routes": [
+    "/#/practice/test",
+    "/#/review"
+   ],
+   "angle": "Chủ động gợi nhớ vs đọc lại, hiệu ứng kiểm tra, áp dụng cho từ vựng",
+   "intent": "informational"
+  },
+  {
+   "slug": "app-hoc-tieng-anh-tren-dien-thoai",
+   "keyword": "app học tiếng anh miễn phí",
+   "category": "phuong-phap",
+   "tags": [
+    "pwa",
+    "dien-thoai"
+   ],
+   "shots": [
+    "m-home",
+    "m-review"
+   ],
+   "routes": [
+    "/#/home"
+   ],
+   "angle": "Học trên điện thoại: cài PWA, học offline, đồng bộ, nhắc học (tiêu chí chọn app miễn phí)",
+   "intent": "informational"
+  },
+  {
+   "slug": "shadowing-luyen-noi-tieng-anh",
+   "keyword": "shadowing",
+   "category": "phuong-phap",
+   "tags": [
+    "shadowing",
+    "speaking",
+    "listening"
+   ],
+   "shots": [
+    "practice-speak",
+    "pron",
+    "listening"
+   ],
+   "routes": [
+    "/#/practice/speak",
+    "/#/listening"
+   ],
+   "angle": "Kỹ thuật shadowing từng bước, chọn tài liệu, kết hợp chấm phát âm",
+   "intent": "informational"
+  },
+  {
+   "slug": "doc-bao-tieng-anh-mo-rong-tu-vung",
+   "keyword": "đọc báo tiếng anh",
+   "category": "phuong-phap",
+   "tags": [
+    "doc-hieu",
+    "tu-vung"
+   ],
+   "shots": [
+    "read-article",
+    "reading"
+   ],
+   "routes": [
+    "/#/reading"
+   ],
+   "angle": "Đọc mở rộng (extensive reading), chọn bài vừa sức, ghi từ có chọn lọc",
+   "intent": "informational"
+  }
+ ]
+}

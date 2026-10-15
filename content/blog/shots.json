@@ -1,0 +1,128 @@
+{
+ "_note": "Ảnh chụp app thật cho blog: id → đường dẫn trong app (#/...) và khung hình. Chạy: node scripts/blog-shots.mjs [id...] rồi node scripts/blog-media.mjs",
+ "app": "https://lexkite.com/?sandbox=1&demo=1&hl=vi",
+ "shots": {
+  "home": {
+   "route": "#/home",
+   "desc": "Trang Hôm nay: Kit chào, số thẻ cần ôn hôm nay, nhiệm vụ trong ngày (+XP), nút Bắt đầu ôn tập / Luyện tập, đặt mục tiêu & ngày thi, kế hoạch hôm nay"
+  },
+  "review": {
+   "route": "#/review",
+   "desc": "Phiên ôn flashcard: thẻ từ 'pollution' có ảnh emoji, phiên âm, nút Lật thẻ; thanh tiến độ số thẻ còn lại"
+  },
+  "library": {
+   "route": "#/library",
+   "desc": "Thư viện từ vựng 6.800+ từ: tab Tất cả / Từ vựng cốt lõi NGSL / IELTS theo đề / Writing / Speaking / TOEIC (TSL); các bộ 'Từ cốt lõi 1–281…' có cấp độ A1–B2"
+  },
+  "dict": {
+   "route": "#/dict/resilient",
+   "desc": "Từ điển Anh–Việt tra 'resilient': phiên âm UK/US, nghe, nghĩa 'có khả năng phục hồi', câu ví dụ, collocation, đồng nghĩa, nút Lưu flashcard"
+  },
+  "practice": {
+   "route": "#/practice",
+   "desc": "Trò chơi & bài tập: Học thông minh, Ghép thẻ, Luyện phát âm, Trắc nghiệm, Điền từ, Nghe & chép, Bài kiểm tra, Phòng viết; chọn nguồn từ (Sổ từ của tôi)"
+  },
+  "practice-learn": {
+   "route": "#/practice/learn",
+   "desc": "Học thông minh: thẻ giới thiệu cụm 'come up with' – nghĩa, định nghĩa tiếng Anh, ví dụ, mẹo nhớ, lỗi hay gặp, cách dùng trong IELTS"
+  },
+  "practice-match": {
+   "route": "#/practice/match",
+   "desc": "Ghép thẻ tính giờ: ghép từ tiếng Anh (privacy, perspective, surveillance…) với nghĩa tiếng Việt, đồng hồ đếm giây"
+  },
+  "practice-speak": {
+   "route": "#/practice/speak",
+   "desc": "Luyện phát âm có chấm điểm: cụm 'cut down on', nút micro để nói, chấm theo giọng nói"
+  },
+  "practice-test": {
+   "route": "#/practice/test",
+   "desc": "Bài kiểm tra trắc nghiệm: 'run out of' chọn nghĩa đúng trong 4 phương án"
+  },
+  "listening": {
+   "route": "#/listening",
+   "desc": "Luyện nghe IELTS: 10 đề, 4 phần mỗi đề, giọng Anh–Mỹ–Úc, tốc độ chỉnh được, nút Luyện tập / Nghe lần đầu / Chép chính tả"
+  },
+  "reading": {
+   "route": "#/reading",
+   "desc": "Bài đọc IELTS theo cấp A2–C1: The Rise of Urban Farming, The Four-Day Working Week, Microplastics in the Ocean… chạm từ để tra"
+  },
+  "read-article": {
+   "route": "#/read/space-debris",
+   "desc": "Bài đọc 'The Growing Problem of Space Debris': từ khóa tô màu, chạm để tra & lưu, danh sách từ khóa bên phải, câu hỏi True/False/Not Given"
+  },
+  "grammar": {
+   "route": "#/grammar",
+   "desc": "Ngữ pháp IELTS: lộ trình chương, 12 thì (hiện tại đơn, tiếp diễn, hoàn thành…), cấp A1–B2, bài luyện tổng hợp"
+  },
+  "write": {
+   "route": "#/write",
+   "desc": "Phòng viết IELTS Task 2: chọn đề theo chủ đề, gợi ý ý tưởng, từ vựng gợi ý, khung viết bài, bài mẫu band 8 có chú thích, thống kê xu hướng dạng đề"
+  },
+  "speaking": {
+   "route": "#/speaking",
+   "desc": "Phòng luyện Speaking: Part 1/2/3 theo chủ đề, câu hỏi mẫu, câu trả lời mẫu band 7.5–8, từ vựng nên dùng"
+  },
+  "toeic": {
+   "route": "#/toeic",
+   "desc": "Luyện thi TOEIC Listening + Reading: thi thử 7 đề chấm tự động quy đổi 10–990, luyện theo Part, từ vựng TOEIC (TSL)"
+  },
+  "toefl": {
+   "route": "#/toefl",
+   "desc": "Luyện thi TOEFL iBT: định dạng mới từ 21/01/2026 (bài ngắn hơn ~1,5 giờ, thang band 1–6), bảng cấu trúc đề, dạng Complete the Words, Read in Daily Life, Read an Academic Passage"
+  },
+  "mock": {
+   "route": "#/mock",
+   "desc": "Thi thử IELTS 4 kỹ năng: chọn Listening/Reading/Writing/Speaking, chọn đề, lịch sử thi thử, cấu trúc bài thi"
+  },
+  "pron": {
+   "route": "#/pron",
+   "desc": "Thư viện phát âm IPA kiểu ELSA: nguyên âm đơn, nguyên âm đôi, phụ âm; từ ví dụ, luyện từng âm, chấm điểm"
+  },
+  "stats": {
+   "route": "#/stats",
+   "desc": "Tiến độ & huy hiệu: cấp độ, XP, chuỗi ngày, số thẻ đã ôn, lịch học 6 tháng (heatmap), dự báo thẻ đến hạn"
+  },
+  "path": {
+   "route": "#/path",
+   "desc": "Lộ trình chinh phục IELTS: các chặng theo band (Chặng 0 – Từ cốt lõi…), mỗi chặng gồm từ → luyện → nghe → kiểm tra"
+  },
+  "mistakes": {
+   "route": "#/mistakes",
+   "desc": "Sổ lỗi sai: gom lỗi theo Từ vựng / Ngữ pháp / Đọc hiểu / Nghe để ôn lại"
+  },
+  "method": {
+   "route": "#/method",
+   "desc": "Phương pháp học của Lexkite: vòng lặp mỗi ngày ~30 phút (ôn thẻ đến hạn → học từ mới → luyện → đọc/nghe → nói), đường cong quên lãng, cân bằng 4 kỹ năng"
+  },
+  "placement": {
+   "route": "#/placement",
+   "desc": "Kiểm tra đầu vào 5 phút: 20 câu từ vựng & ngữ pháp từ A2 đến C1, gợi ý lộ trình"
+  },
+  "phrases": {
+   "route": "#/phrases",
+   "desc": "Sổ cụm từ & cấu trúc: thêm cụm/câu hay, bài mẫu có chỉ cấu trúc, gắn nhãn Task/band"
+  },
+  "letters": {
+   "route": "#/letters",
+   "desc": "Viết thư IELTS General Task 1: thư trang trọng / bán trang trọng / thân mật, đề mẫu, thư mẫu band 8"
+  },
+  "task1": {
+   "route": "#/task1",
+   "desc": "Writing Task 1 Academic: biểu đồ đường/cột/tròn/bảng/quy trình, cấu trúc 4 đoạn, từ vựng mô tả xu hướng, bài mẫu band 8"
+  },
+  "goal": {
+   "route": "#/goal",
+   "desc": "Mục tiêu & kế hoạch học: chọn kỳ thi (IELTS Academic…), điểm mục tiêu, ngày thi, số giờ mỗi tuần, chỉ tiêu tuần"
+  },
+  "m-home": {
+   "route": "#/home",
+   "mobile": true,
+   "desc": "Giao diện điện thoại (PWA) – trang Hôm nay"
+  },
+  "m-review": {
+   "route": "#/review",
+   "mobile": true,
+   "desc": "Giao diện điện thoại – ôn flashcard"
+  }
+ }
+}

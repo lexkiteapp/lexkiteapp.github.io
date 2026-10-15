@@ -1,0 +1,125 @@
+# Lexkite – SEO & blog tự đăng
+
+Mục tiêu: lexkite.com đứng top tìm kiếm tiếng Việt cho từ khóa học từ vựng / luyện thi IELTS, TOEIC, TOEFL; blog tĩnh nhanh, đúng chuẩn, tự đăng 2–3 bài/ngày, hạ tầng 0 đồng chịu được hàng chục nghìn bài; sau này thêm bản dịch.
+Cập nhật: 15/10/2026. Nhánh: `claude/seo-blog-3eb248` (cha gộp & phát hành).
+
+## 0. Kiến trúc tóm tắt
+```
+content/blog/vi/<slug>.md      bài viết (front matter + Markdown) – nguồn duy nhất
+content/blog/briefs.json       bước 1: từ khóa, ý định tìm kiếm, tính năng app gắn kèm, ảnh dùng
+content/blog/shots.json        danh sách ảnh chụp app (id → #/route)
+content/blog/media.json        sổ ảnh đã xử lý (id → kích thước, mã băm, base CDN) – nhỏ, có trong git
+.media/  (git bỏ qua)          ảnh gốc PNG + bản AVIF/WebP đã nén; bản sao repo ảnh
+scripts/build-blog.mjs         sinh /blog/… tĩnh lúc build (chỉ bài publishAt ≤ giờ build)
+scripts/blog-check.mjs         kiểm tra SEO on-page + chất lượng (hỏng → build/hàng đợi dừng)
+scripts/blog-dupes.mjs         tự kiểm tra trùng lặp/đạo văn nội bộ (shingle 8 từ)
+scripts/blog-schedule.mjs      xếp lịch 2–3 bài/ngày, giờ ngẫu nhiên, khác giờ nhau
+scripts/blog-due.mjs           liệt kê bài vừa đến giờ đăng (cho cron) 
+scripts/indexnow.mjs           báo Bing/Yandex (IndexNow) URL mới
+scripts/blog-shots.mjs         chụp app thật (?sandbox=1&demo=1&hl=vi) bằng Chromium headless
+scripts/blog-media.mjs         PNG → AVIF/WebP 3 cỡ, ghi media.json, --push lên repo ảnh
+.github/workflows/blog-publish.yml   cron mỗi giờ → deploy hook Cloudflare Pages khi có bài đến hạn → IndexNow
+```
+
+## 1. SEO kỹ thuật – rà soát & sửa
+Kết quả rà (15/10/2026, curl lexkite.com):
+- [ ] **Canonical/sitemap trỏ URL `.html`** nhưng Cloudflare Pages chuyển 308 `/x.html → /x` → Google thấy canonical là URL chuyển hướng. Sửa: mọi canonical, sitemap, hreflang, liên kết nội bộ dùng URL không đuôi.
+- [ ] **Soft 404**: đường dẫn không tồn tại trả 200 + trang app (Pages bật chế độ SPA khi thiếu `404.html`). App chỉ dùng hash route → thêm `404.html` thật (noindex) để tắt fallback.
+- [ ] **hreflang `?hl=xx`** trỏ tới URL có canonical là `/` (tín hiệu mâu thuẫn). Sửa: bỏ hreflang theo tham số cho trang app; hreflang chỉ dùng giữa các trang tĩnh có bản dịch thật (bài mẫu vi/en, blog khi có bản dịch).
+- [ ] **Sitemap index**: `sitemap.xml` thành sitemapindex → `sitemap-pages.xml` (app + trang SEO cũ) + `sitemap-blog.xml` (chia 10.000 URL/file), có `lastmod`.
+- [ ] robots.txt: cho phép tất cả, chặn `/?sandbox`, `/*?demo=`, khai báo sitemap index.
+- [ ] Open Graph/Twitter: ảnh chia sẻ 1200×630 (`og-default.png` theo bộ nhận diện), `summary_large_image`, `og:url` đúng, `og:locale`.
+- [ ] JSON-LD: WebApplication (trang chủ), BreadcrumbList + LearningResource (trang SEO cũ), BlogPosting + BreadcrumbList (+ FAQPage chỉ khi bài có mục hỏi đáp hiển thị), Blog/CollectionPage cho trang danh sách.
+- [ ] Thẻ `<html lang>`, viewport, theme-color, favicon trên mọi trang tĩnh.
+- [ ] Core Web Vitals trang tĩnh: không JS chặn hiển thị, CSS nội tuyến < 14 KB, ảnh có width/height (CLS 0), ảnh đầu `fetchpriority=high`, ảnh sau `loading=lazy decoding=async`, font hệ thống (không tải Google Fonts cho blog), video YouTube dạng facade.
+- [ ] `_headers`: cache dài cho ảnh/âm thanh/icon, `X-Content-Type-Options`, `Referrer-Policy`; trang HTML luôn kiểm lại.
+- [ ] Đo Lighthouse trên bản live sau khi phát hành (cha/anh chạy PageSpeed Insights) – mục tiêu ≥ 95 cho /blog/.
+
+## 2. Blog engine (`scripts/build-blog.mjs`, không phụ thuộc gói ngoài)
+- [ ] Đọc `content/blog/<lang>/*.md`; bỏ `status: draft`; chỉ phát hành bài có `publishAt ≤ now` (biến `BLOG_NOW` để thử, `BLOG_DRAFTS=1` xem trước tất cả).
+- [ ] URL sạch: `/blog/<slug>/` (vi, ngôn ngữ chính); bản dịch sau này: `/<lang>/blog/<slug>/` + hreflang theo `translationKey`.
+- [ ] Trang danh sách `/blog/` + phân trang `/blog/trang/2/`; chuyên mục `/blog/chu-de/<cat>/`; thẻ `/blog/the/<tag>/` (chỉ thẻ có ≥ 2 bài mới được lập chỉ mục, còn lại noindex,follow).
+- [ ] RSS `/blog/rss.xml` (20 bài mới nhất), sitemap blog có lastmod, mục lục (TOC) tự sinh, thời gian đọc, bài liên quan (cùng chuyên mục + thẻ chung), nút gọi hành động vào app (`/#/...`).
+- [ ] Giao diện: màu từ token `web/css/style.css` (--primary #E5502F, --brand-ink #0F3D3E, --accent #12807A…), logo `icons/icon.svg`, chế độ tối theo hệ thống, tương phản AA, có skip-link, focus rõ, `prefers-reduced-motion`.
+- [ ] Markdown tối giản tự viết: tiêu đề, đoạn, danh sách, bảng, trích dẫn, code, liên kết, ảnh, đậm/nghiêng + mã riêng (xem §5).
+
+## 3. Lịch đăng tự động
+- [ ] Mỗi bài có `publishAt` (ISO 8601, múi +07:00). Build chỉ đưa bài đã đến giờ.
+- [ ] `node scripts/blog-schedule.mjs` – bài có `publishAt:` trống (hàng đợi) được xếp 2–3 bài/ngày, giờ ngẫu nhiên 06:00–22:59 (giờ VN), mỗi bài một khung giờ khác nhau, nối tiếp ngày cuối đã xếp. `--dry` xem trước, `--seed` lặp lại được, `--status` in lịch.
+- [ ] `.github/workflows/blog-publish.yml`: cron mỗi giờ (phút 7) – miễn phí với repo công khai. Chạy `blog-due.mjs --since 70` → nếu có bài vừa đến giờ: `curl -X POST $CF_PAGES_DEPLOY_HOOK` (secret GitHub, **không commit**) → chờ build → `indexnow.mjs`. Không có bài → không làm gì (không tốn build).
+- [ ] **Anh/cha làm 1 lần** (cần quyền tài khoản): Cloudflare → Pages `lexkite` → Settings → Builds → Deploy hooks → tạo hook “blog-cron” (nhánh main) → GitHub `lexkiteapp/lexkiteapp.github.io` → Settings → Secrets → Actions → `CF_PAGES_DEPLOY_HOOK` = URL hook.
+- Lưu ý: GitHub tắt cron của repo không có hoạt động 60 ngày – repo đang commit thường xuyên; nếu ngừng, bấm “Enable workflow”.
+
+## 4. Quy trình viết (mỗi bài đi đủ 7 bước; bước nào hỏng → không vào hàng đợi)
+1. **Brief từ khóa & ý định** – `content/blog/briefs.json`: từ khóa chính, từ khóa phụ, ý định (informational/commercial/navigational), người đọc, câu hỏi cần trả lời, tính năng Lexkite gắn kèm, ảnh. Tránh 2 bài cùng từ khóa chính (ăn thịt từ khóa).
+2. **Dàn ý** – H2/H3 trả lời đúng ý định, có phần “làm ngay trong Lexkite”, FAQ chỉ khi có câu hỏi thật.
+3. **Viết nháp** – văn phong tự nhiên, ví dụ tiếng Anh tự đặt, ≥ 1.200 từ, không chép/nhại câu của nguồn nào.
+4. **Kiểm tra sự thật** – đối chiếu thông tin đề thi với nguồn chính thức (IELTS.org, ETS); số liệu không chắc → bỏ hoặc nói chung. Ghi `factChecked: <ngày>` khi đã soát. Danh sách sự thật đã xác minh dùng chung: §7.
+5. **Chính tả tiếng Việt** – `node scripts/vi-lint.mjs` (đã mở rộng quét `content/blog/**/*.md`).
+6. **Trùng lặp/đạo văn** – `node scripts/blog-dupes.mjs`: shingle 8 từ giữa mọi bài + nội dung SEO sẵn có; ngưỡng chồng lấn > 12% → lỗi. (Không kiểm được Internet offline → bước 3 bắt buộc tự viết; có thể kiểm ngẫu nhiên bằng tìm câu trong Google.)
+7. **Chấm SEO on-page** – `node scripts/blog-check.mjs [file…]`: tiêu đề 30–65 ký tự, mô tả 110–160, slug ASCII, không H1 trong thân, ≥ 4 H2, không nhảy cấp, từ khóa ở tiêu đề + 120 từ đầu + ≥ 1 H2, ≥ 1.200 từ, mọi ảnh có alt ≥ 10 ký tự và có trong media.json, ≥ 3 liên kết nội bộ (≥ 2 vào app), liên kết blog nội bộ phải tồn tại, chuyên mục hợp lệ, 2–6 thẻ, `publishAt` hợp lệ, không trùng tiêu đề/mô tả/slug, có `factChecked`, slot YouTube hợp lệ. Build gọi validator → bài lỗi làm build dừng.
+
+## 5. Định dạng bài (đặc tả)
+```markdown
+---
+title: "Cách học từ vựng IELTS hiệu quả: 7 bước nhớ lâu"     # 30–65 ký tự
+description: "…"                                            # 110–160 ký tự
+slug: cach-hoc-tu-vung-ielts-hieu-qua                        # a-z0-9-, ≤ 75
+lang: vi
+translationKey: cach-hoc-tu-vung-ielts-hieu-qua              # khóa chung cho các bản dịch
+category: tu-vung                                            # tu-vung | ielts | toeic | toefl | phuong-phap
+tags: [ielts, flashcard, fsrs]                               # 2–6, chữ thường, a-z0-9-
+keyword: "cách học từ vựng ielts"                            # từ khóa chính (chữ thường)
+cover: review                                                # id ảnh trong media.json (ảnh đầu bài + og:image)
+coverAlt: "Màn hình ôn flashcard trong Lexkite"
+publishAt: 2026-10-16T08:17:00+07:00                         # trống = đang chờ xếp lịch
+updated:                                                     # tùy chọn, ngày sửa nội dung
+factChecked: 2026-10-15
+author: Lexkite
+status: ready                                                # ready | draft
+---
+Đoạn mở đầu (chứa từ khóa trong 120 từ đầu)…
+
+## Tiêu đề H2
+![Alt mô tả ảnh](media:review "Chú thích hiển thị dưới ảnh")
+[Mở phần Ôn tập](/#/review)   ← liên kết vào app
+[Bài liên quan](/blog/flashcard-fsrs-la-gi/)
+{{youtube: | Gợi ý nội dung video: …}}     ← slot video TÙY CHỌN: id trống = không hiển thị gì; anh tải video lên kênh rồi điền id
+{{cta: /#/practice/learn | Học thử 10 từ đầu tiên}}   ← hộp kêu gọi hành động
+
+## Câu hỏi thường gặp      ← tùy chọn; mỗi H3 là 1 câu hỏi, đoạn sau là trả lời → FAQPage JSON-LD
+### Câu hỏi…?
+Trả lời…
+```
+Dịch sau này: tạo `content/blog/en/<slug-en>.md` cùng `translationKey` → engine tự sinh `/en/blog/<slug-en>/` và hreflang hai chiều.
+
+## 6. Ảnh & video
+- **Chọn: repo GitHub riêng `lexkiteapp/lexkite-media` + GitHub Pages** (`https://lexkiteapp.github.io/lexkite-media/blog/…`), cùng mô hình CDN phụ đang dùng (`scripts/cdn-pin.sh`).
+  - Vì sao: miễn phí, không cần thẻ; repo chính không phình (ảnh không bao giờ vào repo app); đường dẫn có mã băm → bất biến, cache vĩnh viễn; đổi nhà cung cấp chỉ cần sửa `mediaBase` trong `content/blog/config.json`.
+  - Không chọn jsDelivr làm gốc: giới hạn kích thước gói GitHub (~50 MB/repo) không đủ cho hàng chục nghìn ảnh; vẫn có thể bật làm lớp đệm cho ảnh đơn lẻ. Không chọn R2: kích hoạt R2 đòi phương thức thanh toán.
+  - Dung lượng: ~3 ảnh/bài × 3 cỡ × 2 định dạng ≈ 250–400 KB/bài → ~2.500 bài/GB. Khi repo ảnh gần 900 MB → mở repo shard mới `lexkite-media-2`, ghi `base` theo từng ảnh trong media.json (đã hỗ trợ).
+- [ ] `blog-media.mjs`: PNG → AVIF + WebP ở 480/960/1440 px, `<picture>` + `srcset/sizes`, width/height cố định, lazy trừ ảnh đầu.
+- [ ] Video: `{{youtube: ID | tiêu đề}}` → ảnh thumbnail `i.ytimg.com` + nút play; iframe `youtube-nocookie.com` chỉ tải khi bấm (0 KB JS bên thứ ba lúc tải trang). Không bịa ID – slot trống không hiển thị.
+- [ ] **Cần anh đồng ý**: tạo repo công khai `lexkiteapp/lexkite-media` + bật Pages, rồi `node scripts/blog-media.mjs --push` (token gh trên máy đang hết hạn → `gh auth login`).
+
+## 7. Sự thật đã xác minh (dùng chung khi viết; chỉ ghi điều chắc chắn)
+- IELTS: 4 kỹ năng; thang band 0–9 (bước 0,5). Listening ~30 phút, 40 câu, 4 phần. Reading 60 phút, 40 câu, 3 bài (Academic) . Writing 60 phút: Task 1 ≥ 150 từ (~20 phút), Task 2 ≥ 250 từ (~40 phút), Task 2 chiếm tỉ trọng gấp đôi Task 1. Speaking 11–14 phút, 3 phần, Part 2 có 1 phút chuẩn bị, nói 1–2 phút. 4 tiêu chí Writing: Task Achievement/Response, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy. Speaking: Fluency & Coherence, Lexical Resource, Grammatical Range & Accuracy, Pronunciation. Dạng Reading: True/False/Not Given, Yes/No/Not Given, Matching Headings…
+- TOEIC Listening & Reading: 200 câu, ~2 giờ (Listening ~45 phút/100 câu, Reading 75 phút/100 câu), 7 Part (Part 1 Tranh 6, Part 2 Hỏi–đáp 25, Part 3 Hội thoại 39, Part 4 Bài nói 30, Part 5 Câu chưa hoàn chỉnh 30, Part 6 Hoàn thành đoạn 16, Part 7 Đọc hiểu 54), điểm 10–990.
+- TOEFL iBT: định dạng mới áp dụng từ 21/01/2026 – bài ngắn hơn (khoảng 1,5 giờ), thích ứng theo năng lực, điểm theo thang band 1–6 (kèm thang 0–120 trong giai đoạn chuyển tiếp); dạng câu mới như Complete the Words, Read in Daily Life, Read an Academic Passage (theo dữ liệu app `web/js/toefl/`). Không nêu số câu chi tiết khác ngoài dữ liệu app.
+- AWL (Coxhead, 2000): 570 họ từ học thuật. NGSL: ~2.800 từ cốt lõi. FSRS: thuật toán lập lịch mã nguồn mở, có trong Anki từ bản 23.10.
+- Không hứa điểm số, không nói “chính thức”, không dùng logo/đề của IELTS/ETS. Ghi nhãn hiệu thuộc chủ sở hữu.
+
+## 8. 50 bài đầu (vi) – xem `content/blog/briefs.json`
+- [ ] Brief 50 bài (từ khóa không trùng nhau, 5 chuyên mục)
+- [ ] Viết 50 bài, mỗi bài ≥ 1.200 từ, ≥ 2 ảnh app thật, liên kết vào app & bài liên quan, slot YouTube tùy chọn
+- [ ] 6 bài đăng ngay (publishAt = 15/10/2026), 44 bài xếp lịch 2–3 bài/ngày
+
+## 9. Công cụ tìm kiếm
+- [ ] IndexNow: khóa công khai `web/<key>.txt`, `scripts/indexnow.mjs` gửi api.indexnow.org (Bing, Yandex, Seznam, Naver…) sau mỗi lần đăng.
+- [ ] Google Search Console (tài khoản vintagezulilyjewelry@gmail.com): thêm thuộc tính miền `lexkite.com` → bản ghi TXT `google-site-verification=…` trong Cloudflare DNS → Xác minh → gửi `https://lexkite.com/sitemap.xml`. Đăng nhập/đồng ý điều khoản: anh bấm.
+- [ ] Bing Webmaster Tools: nhập từ GSC (1 chạm) sau khi GSC xong.
+
+## 10. Hoàn tất
+- [ ] `node scripts/vi-lint.mjs`, `node scripts/i18n-missing.mjs --strict`, `node scripts/blog-check.mjs`, `node scripts/blog-dupes.mjs` đều qua
+- [ ] `bash scripts/build-web.sh` sạch, có blog
+- [ ] Commit trên nhánh, gửi tóm tắt cho phiên cha
