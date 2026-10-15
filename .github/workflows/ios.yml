@@ -1,0 +1,37 @@
+# Tự build app iOS cho Simulator trên máy macOS của GitHub – miễn phí cho repo công khai, không cần ký (chưa có Apple Developer).
+# Mục đích: bắt lỗi build sớm (Capacitor/SPM/Info.plist). Kết quả: lexkite-ios-sim.zip (App.app) để kéo thả vào Simulator.
+# Khi có tài khoản Apple Developer: thêm bước ký (match/App Store Connect API key) + archive → TestFlight.
+name: Build iOS (simulator)
+on:
+  push:
+    branches: [main]
+    paths: ['mobile/**', 'scripts/build-mobile.sh', '.github/workflows/ios.yml']
+  workflow_dispatch:
+concurrency:
+  group: ios
+  cancel-in-progress: true
+jobs:
+  sim:
+    runs-on: macos-15
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build web → mobile/www → cap sync
+        run: |
+          npm ci --prefix mobile --no-audit --no-fund
+          ./scripts/build-mobile.sh
+      - name: xcodebuild (iphonesimulator, không ký)
+        working-directory: mobile/ios/App
+        run: |
+          xcodebuild -project App.xcodeproj -scheme App -configuration Debug -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO build | tail -40
+          test -d build/Build/Products/Debug-iphonesimulator/App.app
+          cd build/Build/Products/Debug-iphonesimulator && zip -qry "$GITHUB_WORKSPACE/lexkite-ios-sim.zip" App.app
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lexkite-ios-sim
+          path: lexkite-ios-sim.zip

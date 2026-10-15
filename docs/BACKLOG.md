@@ -19,13 +19,13 @@ Thứ tự = ưu tiên. Quy trình làm theo [PLAYBOOK.md](PLAYBOOK.md), chuẩn
 7. ✓ (đã có: kế hoạch hôm nay, mục tiêu + đếm ngược, tuần, 3 vòng mục tiêu) **Kế hoạch học**: checklist mỗi ngày + tuần + đếm ngược ngày thi theo band mục tiêu.
 8. ✓ (đã có trong Speaking + Phản xạ 60 giây) **Nói đuổi (shadowing)** từng câu có chấm phát âm AI.
 9. ✓ (2.6.229) **Luyện paraphrase** (bài đọc/transcript ↔ câu hỏi, tô màu cặp).
-10. **Rà đề thi so với đặc tả chính thức** (số câu, thời gian, dạng bài) IELTS/TOEIC/TOEFL; dịch sẵn lời giải 13 ngôn ngữ.
+10. ✓ một phần (IELTS L/R đúng 40 câu/đề; TOEIC P5/P6 đúng 30/16, đề rút gọn có cột số câu đề thật; còn dịch sẵn lời giải) **Rà đề thi so với đặc tả chính thức** (số câu, thời gian, dạng bài) IELTS/TOEIC/TOEFL; dịch sẵn lời giải 13 ngôn ngữ.
 11. ✓ phần lớn (🔊 + chấm FSRS, Ôn nhanh 3 thẻ; còn QR) **Add-on (Gói 3 còn lại)**: popup thanh công cụ – 🔊 + chấm FSRS trong danh sách gần đây, "Ôn nhanh 3 thẻ", mã QR mở app, tự đồng bộ nền khi lưu.
 12. ✓ một phần (phát lại đoạn YouTube trong ôn tập; còn thiết lập 2 bước) **Gói 1/2 còn lại**: thiết lập 2 bước (mục tiêu + thời gian/ngày); nút phát lại đoạn YouTube trong ôn tập (thẻ có `t=`).
 13. ✓ phần lớn (prefetch không thực thi → TBT 0; LCP thật đo ở Quản trị; khung dựng sẵn 0,66 s) **Tốc độ**: LCP 6,4 s → mục tiêu < 2,5 s (đọc chi tiết LCP từ báo cáo Lighthouse mới); Speculation Rules, `content-visibility`.
-14. **Turnstile** cho form liên hệ; **axe-core** vào kiểm thử.
+14. ✓ axe-core (`scripts/test/axe.js`, 20 màn hình, trong `npm test`; còn Turnstile cần anh tạo khóa) **Turnstile** cho form liên hệ; **axe-core** vào kiểm thử.
 15. **Rà dịch câu dài bằng AI** (đã duyệt) cho 13 ngôn ngữ; xem ảnh chụp giao diện tự động (nhánh `screens`).
-16. **iOS**: workflow build trên máy macOS của GitHub (simulator) – khi có Apple Developer thì ký & phát hành.
+16. ✓ workflow ios.yml (build simulator không ký, tải App.app) – còn ký & TestFlight khi có Apple Developer. **iOS**: workflow build trên máy macOS của GitHub (simulator) – khi có Apple Developer thì ký & phát hành.
 17. **Kiến trúc** (PLAN §12): tách app.js/study.js theo module, mở rộng kiểm tra kiểu.
 
 ## Chờ anh (không tự làm được)
