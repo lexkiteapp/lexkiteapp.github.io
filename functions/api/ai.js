@@ -64,6 +64,6 @@ export async function onRequestPost({ request, env }) {
     out._model = model;
     return json(request, 200, { out, left: Math.max(0, limit - used - 1), model });
   } catch (e) {
-    return json(request, 502, { error: 'ai', detail: String(e && e.message || e).slice(0, 120) });
+    return json(request, 503, { error: 'ai', detail: String(e && e.message || e).slice(0, 120) });
   }
 }
