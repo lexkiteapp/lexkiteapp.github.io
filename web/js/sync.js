@@ -157,6 +157,7 @@
   async function pullMerge() {
     setStatus('syncing');
     try {
+      if (App.need) await App.need('words', 'tsl').catch(() => {});
       // 1 lượt gọi: máy chủ chỉ trả meta + các gói thẻ đã thay đổi kể từ lần đồng bộ trước
       if (Date.now() < await Store.get('syncPausedUntil', 0)) return setStatus('ok', t('Đồng bộ tạm nghỉ – dữ liệu vẫn trên máy.'));
       const pulled = (await Store.get('pulledHashes', {}))[Sync.user.uid] || {};
