@@ -1113,3 +1113,4 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
 .clamp2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.6em; }
 .topic-meta { font-weight: 700; margin-top: auto; }
 .sp-topic select { width: auto; max-width: 100%; min-width: 220px; }
+.resume { margin-top: .8rem; }

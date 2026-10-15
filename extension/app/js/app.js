@@ -265,6 +265,7 @@
       // Đường dẫn "Kỹ năng › Nghe" ở đầu trang con → luôn biết mình đang ở đâu, 1 chạm quay lại trang trung tâm
       const c = my === routeSeq && App.crumb && App.crumb(name, arg), ph = c && view.querySelector('.page-head');
       if (ph && !ph.querySelector('.crumb')) ph.insertAdjacentHTML('afterbegin', c);
+      if (my === routeSeq) markActivity(name, arg);
     };
     if (document.startViewTransition && !matchMedia('(prefers-reduced-motion: reduce)').matches && !document.hidden) {
       // Hiệu ứng có thể bị trình duyệt hủy (tab chạy nền, chuyển trang dồn dập) → vẫn luôn vẽ trang, không bao giờ để màn hình trắng
@@ -280,6 +281,15 @@
     render();
   }
   App.route = route;
+  // Bài đang học dở (nghe, đọc, viết, ngữ pháp, nói, đề thi…) → khối "Tiếp tục" ở trang Hôm nay mở lại bằng 1 chạm
+  const RESUME = { listen: '🎧', read: '📰', write: '✍️', task1: '📈', letters: '✉️', grammar: '📐', speaking: '🗣️', 'toefl-p': '🏛️', 'toeic-r': '💼', 'toeic-test': '💼', 'listen-test': '🎧', model: '📄', pron: '🔤', cbt: '🖥️', ideas: '💡' };
+  function markActivity(name, arg) {
+    if (!RESUME[name] || !arg || arg === 'mix') return;
+    const h = view.querySelector('.page-head h1, h1, h2'); const title = h ? h.textContent.replace(/\s+/g, ' ').trim().slice(0, 90) : '';
+    if (!title) return;
+    try { localStorage.setItem('vb.lastActivity', JSON.stringify({ em: RESUME[name], title, href: location.hash, at: Date.now() })); } catch (e) { /* bỏ qua */ }
+  }
+  App.lastActivity = () => { try { const a = JSON.parse(localStorage.getItem('vb.lastActivity') || 'null'); return a && Date.now() - a.at < 4 * DAY ? a : null; } catch (e) { return null; } };
   function notFound() {
     view.innerHTML = `<div class="card empty-note" style="max-width:560px;margin:2rem auto;text-align:center"><div style="font-size:2.4rem">🧭</div><h1 style="margin:.3rem 0">${t('Không tìm thấy trang')}</h1><p class="muted">${t('Liên kết có thể đã cũ. Chọn một mục bên dưới để tiếp tục học.')}</p>
       <div class="row center" style="flex-wrap:wrap">${[['home', '🏠', t('Hôm nay')], ['vocab', '📚', t('Từ vựng')], ['skills', '🎯', t('Kỹ năng')], ['tests', '🏁', t('Thi thử')], ['me', '👤', t('Tôi')]].map(([r, ic, l]) => `<a class="btn sm" href="#/${r}">${ic} ${l}</a>`).join('')}</div></div>`;
@@ -407,6 +417,7 @@
         ${chip}
       </div>
       <section class="card today-card" id="todayPlan" aria-busy="true"><div class="skel skel-l"></div><div class="skel skel-l"></div><div class="skel skel-l"></div></section>
+      ${(() => { const a = App.lastActivity(); return a ? `<a class="card hover hub-card resume" href="${esc(a.href)}"><span class="hub-ic" aria-hidden="true">${a.em}</span><span class="hub-tx"><small>${t('Tiếp tục bài đang học')}</small><b>${esc(a.title)}</b></span><span class="btn sm">${t('Mở lại')} →</span></a>` : ''; })()}
       <a class="quest-line small" href="#/stats?s=quests">🏅 ${t('Nhiệm vụ hôm nay: {a}/{b}', { a: doneQ.length, b: quests.length })} · ${quests.filter(q => !doneQ.includes(q.id)).map(q => q.icon).join(' ')} <span aria-hidden="true">›</span></a>
       <div class="card wotd wotd-sm">
         ${pic(w)}
