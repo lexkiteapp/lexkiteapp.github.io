@@ -1,0 +1,41 @@
+# Việc blog tự động mỗi sáng (06:30 giờ VN): xếp lịch bài mới (status: ready, chưa có publishAt) cho từng ngôn ngữ
+# → commit (Cloudflare tự build) và mở/cập nhật issue nhắc khi sắp hết bài chờ đăng hoặc bài cần kiểm chứng lại. Miễn phí (repo công khai).
+name: Blog daily
+on:
+  schedule:
+    - cron: '30 23 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: blog-daily
+  cancel-in-progress: false
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Xếp lịch bài mới (qua cổng chất lượng)
+        run: node scripts/blog-pipeline.mjs queue || echo "::warning::Có bài chưa đạt cổng chất lượng – chưa xếp lịch"
+      - name: Commit lịch đăng
+        run: |
+          if ! git diff --quiet -- content/blog; then
+            git config user.name "lexkite-bot"; git config user.email "lexkiteapp@users.noreply.github.com"
+            git add content/blog && git commit -m "Blog: tự xếp lịch bài mới" && git push
+          else echo "· Không có bài mới cần xếp lịch"; fi
+      - name: Nhắc việc (issue)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          msg=$(node scripts/blog-pipeline.mjs health)
+          echo "$msg"
+          if echo "$msg" | grep -q '⚠'; then
+            n=$(gh issue list --label blog-health --state open --json number -q '.[0].number')
+            gh label create blog-health --color E5502F --force >/dev/null 2>&1 || true
+            if [ -n "$n" ]; then gh issue comment "$n" --body "$msg"; else gh issue create --title "Blog: cần thêm bài / kiểm chứng lại" --label blog-health --body "$msg"; fi
+          fi
