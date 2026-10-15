@@ -237,7 +237,7 @@ ${related.length ? `<section aria-labelledby="rel"><h2 id="rel">${t.related}</h2
 }
 
 // Danh sách: /blog/, chuyên mục, thẻ (phân trang)
-const langs = [...new Set(posts.map(p => p.lang))];
+const langs = [...new Set(all.filter(p => p.status !== 'draft').map(p => p.lang))]; // ngôn ngữ đã có bài (kể cả chờ lịch) → có /<lang>/blog/ + RSS ngay (noindex khi chưa có bài)
 if (!langs.includes(DEF)) langs.unshift(DEF);
 for (const lang of langs) {
   const t = T(lang), b = base(lang), sg = SEG(lang), list = posts.filter(p => p.lang === lang);
