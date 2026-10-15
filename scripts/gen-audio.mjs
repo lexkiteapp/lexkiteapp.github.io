@@ -55,7 +55,10 @@ const writeIndex = () => { const keys = fs.readdirSync(OUT).filter(f => f.endsWi
 console.log(`${parts.length} phần nghe · cần tạo ${jobs.size} câu`);
 if (jobs.size && limit > 0) {
   const { KokoroTTS } = require('kokoro-js');
-  const tts = await KokoroTTS.from_pretrained('onnx-community/Kokoro-82M-v1.0-ONNX', { dtype: 'q8', device: 'cpu' });
+  // Tải mô hình (~90 MB từ Hugging Face) – thử lại khi mạng/máy chủ lỗi tạm thời (máy chủ CI hay bị từ chối lần đầu)
+  let tts = null;
+  for (let k = 1; k <= 6 && !tts; k++) { try { tts = await KokoroTTS.from_pretrained('onnx-community/Kokoro-82M-v1.0-ONNX', { dtype: 'q8', device: 'cpu' }); } catch (e) { console.error(`Tải mô hình lỗi (lần ${k}): ${e && (e.cause && e.cause.code || e.message)}`); await new Promise(r => setTimeout(r, 15000 * k)); } }
+  if (!tts) { console.error('Không tải được mô hình Kokoro – bỏ qua lượt này'); process.exit(1); }
   let n = 0; const t0 = Date.now();
   for (const [key, { voice, text }] of jobs) {
     if (n >= limit) break;

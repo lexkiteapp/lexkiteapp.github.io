@@ -24,10 +24,18 @@ jobs:
       - name: Đếm câu còn thiếu
         id: count
         run: echo "left=$(node scripts/gen-audio.mjs --limit 0 | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
+      - name: Cài kokoro-js
+        if: steps.count.outputs.left != '0'
+        run: npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
+      - name: Đệm mô hình Kokoro giữa các lượt (đỡ tải lại ~90 MB, tránh lỗi mạng)
+        if: steps.count.outputs.left != '0'
+        uses: actions/cache@v4
+        with:
+          path: /tmp/kk/node_modules/@huggingface/transformers/.cache
+          key: kokoro-82m-v1-q8
       - name: Tạo âm thanh
         if: steps.count.outputs.left != '0'
         run: |
-          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
           NODE_PATH=/tmp/kk/node_modules node scripts/gen-audio.mjs --limit "${{ github.event.inputs.limit || '1500' }}"
       - name: Lưu vào repo
         if: steps.count.outputs.left != '0'
