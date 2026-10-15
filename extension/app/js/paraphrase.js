@@ -1,23 +1,14 @@
 /* 🔁 Luyện paraphrase (#/paraphrase): kỹ năng quyết định band Reading – nhận ra cách bài đọc DIỄN ĐẠT LẠI từ khóa của câu hỏi.
  * Dữ liệu: cặp [cụm trong câu hỏi, cách diễn đạt trong bài] từ lời giải đề Reading (READ_EXPLAIN, tự biên soạn).
- * Chỉ lấy câu có đáp án khớp nghĩa (bỏ TRUE/FALSE/NOT GIVEN mang nghĩa mâu thuẫn/không có) để luyện đúng paraphrase đồng nghĩa. */
+ * Chỉ lấy câu có đáp án khớp nghĩa (dữ liệu gọn ~50 KB, không tải cả bộ đề) (bỏ TRUE/FALSE/NOT GIVEN mang nghĩa mâu thuẫn/không có) để luyện đúng paraphrase đồng nghĩa. */
 (function () {
   const { $, $$, esc } = UI;
   const App = window.App;
   const { routes } = App;
   const view = App.view;
-  const NEG = /^(FALSE|NO|NOT GIVEN)$/i;
 
-  function pairs() {
-    const ans = {}; // id đề → số câu → đáp án
-    for (const tst of window.READTESTS || []) for (const p of tst.passages || []) for (const gr of p.groups || []) for (const it of gr.items || []) (ans[tst.id] = ans[tst.id] || {})[it.n] = Array.isArray(it.a) ? it.a[0] : it.a;
-    const out = [], seen = new Set();
-    for (const [tid, qs] of Object.entries(window.READ_EXPLAIN || {})) for (const [n, e] of Object.entries(qs)) {
-      if (NEG.test(String((ans[tid] || {})[n] || ''))) continue;
-      for (const [q, p] of e.keys || []) { const k = q.toLowerCase() + '|' + p.toLowerCase(); if (q && p && !seen.has(k) && q.toLowerCase() !== p.toLowerCase()) { seen.add(k); out.push({ q, p }); } }
-    }
-    return out;
-  }
+  // Dữ liệu sinh sẵn: scripts/gen-paraphrase.mjs (lọc câu FALSE/NO/NOT GIVEN, bỏ trùng)
+  const pairs = () => (window.PARAPHRASE || []).map(([q, p]) => ({ q, p }));
 
   routes.paraphrase = function () {
     const all = pairs();
