@@ -8,7 +8,7 @@ category: phuong-phap
 tags: [fsrs, flashcard, anki]
 keyword: "fsrs là gì"
 cover: review
-coverAlt: "Phiên ôn flashcard trong Lexkite với thẻ từ pollution và nút Lật thẻ"
+coverAlt: "Phiên ôn flashcard trong Lexkite với thẻ từ “pollution”, phiên âm và nút “Flip”"
 publishAt: 2026-10-16T08:41:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -80,16 +80,14 @@ Lexkite dùng FSRS cho toàn bộ flashcard, nên bạn không phải cài đặ
 1. Mở [Ôn tập flashcard](/#/review). App chỉ đưa ra những thẻ đã đến hạn theo lịch FSRS. Hãy cố nhớ nghĩa trước rồi mới lật thẻ.
 2. Chấm thật lòng bằng bốn mức Quên, Khó, Nhớ, Dễ. Chấm "Nhớ" khi bạn nhớ ra chắc chắn, chỉ chấm "Dễ" khi nhớ ngay không cần nghĩ. Chấm sai lệch sẽ làm lịch kém chính xác.
 
-![Phiên ôn flashcard Lexkite với thẻ pollution, phiên âm và thanh tiến độ](media:review "Ôn flashcard: chỉ những thẻ đến hạn theo FSRS")
-
 3. Vào [Cài đặt](/#/settings) để chỉnh mục tiêu ghi nhớ trong khoảng 80–95%. Mặc định là 90%.
 4. Xem trang [Phương pháp học](/#/method) để hiểu vòng lặp mỗi ngày và đường cong quên lãng mà app dựa vào.
 
-![Trang Phương pháp học của Lexkite với vòng lặp mỗi ngày và đường cong quên lãng](media:method "Phương pháp học: vòng lặp hằng ngày và đường cong quên lãng")
+![“The Lexkite method” mô tả thứ tự các bước trong một buổi học hằng ngày](media:method "Bốn kỹ năng được cân bằng trong cùng một buổi học ngắn")
 
 5. Theo dõi trang Tiến độ để thấy dự báo số thẻ đến hạn những ngày tới. Nếu cột dự báo quá cao, giảm số từ mới mỗi ngày.
 
-![Trang Tiến độ với XP, chuỗi ngày, lịch học dạng heatmap và dự báo thẻ đến hạn](media:stats "Tiến độ: lịch học 6 tháng và dự báo thẻ đến hạn")
+![Trang thống kê trong Lexkite với heatmap lịch học và dự báo thẻ đến hạn](media:stats "Biểu đồ thẻ đến hạn cho thấy FSRS xếp lịch ôn từng ngày")
 
 {{cta: /#/review | Mở phiên ôn đầu tiên với FSRS}}
 

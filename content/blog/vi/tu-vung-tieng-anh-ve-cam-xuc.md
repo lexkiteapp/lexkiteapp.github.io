@@ -8,7 +8,7 @@ category: tu-vung
 tags: [cam-xuc, tu-vung]
 keyword: "từ vựng tiếng anh về cảm xúc"
 cover: library
-coverAlt: "Thư viện từ vựng Lexkite với các tab NGSL, IELTS theo đề, Speaking, TOEIC và các bộ từ chia cấp độ"
+coverAlt: "“Vocabulary library” trong Lexkite: các tab nguồn từ và những bộ từ cốt lõi có nhãn cấp độ"
 publishAt: 2026-11-13T22:16:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -138,6 +138,8 @@ Thay vì chỉ dùng tính từ, bạn có thể diễn đạt cảm xúc bằng
 
 Một vài từ "tinh tế" rất hữu ích trong Speaking: *nostalgic* /nɒˈstældʒɪk/ (hoài niệm), *homesick* (nhớ nhà), *grateful* (biết ơn), *relieved* /rɪˈliːvd/ (nhẹ nhõm). Và một cặp hay nhầm: *jealous* (ghen, sợ mất thứ mình có hoặc ghen tị) và *envious* (thèm muốn thứ người khác có) – trong giao tiếp hằng ngày, *jealous* thường được dùng cho cả hai nghĩa. Muốn học thêm cách kết hợp từ, xem bài [collocation IELTS](/vi/blog/collocation-ielts/).
 
+![Từ điển “English – Vietnamese dictionary” của Lexkite khi tra “resilient”: phiên âm UK/US, nghĩa và ví dụ](media:dict "Tra từ chỉ cảm xúc để xem collocation và cách diễn đạt sinh động")
+
 ## Idiom về cảm xúc – dùng có chừng mực
 
 | Idiom | Nghĩa |
@@ -162,7 +164,7 @@ Ví dụ một đoạn Part 2 tự viết cho đề "Describe a time you felt pr
 
 Hãy để ý: đoạn văn dùng cả một chuỗi cảm xúc (*on edge, stressed, worried, thrilled, relieved, proud, frustrated*) theo diễn biến câu chuyện. Đây là cách thể hiện vốn từ tự nhiên, đúng như tiêu chí Lexical Resource mà bài [Lexical Resource trong IELTS](/vi/blog/lexical-resource-ielts/) giải thích. Cấu trúc trả lời Part 2 có trong bài [IELTS Speaking Part 2 cue card](/vi/blog/ielts-speaking-part-2-cue-card/).
 
-![Phòng luyện Speaking trong Lexkite với Part 1, 2, 3 theo chủ đề, câu trả lời mẫu band 7.5–8 và từ vựng nên dùng](media:speaking "Đọc câu trả lời mẫu theo chủ đề và để ý các từ chỉ cảm xúc được dùng theo diễn biến câu chuyện")
+![Màn hình Speaking trong Lexkite: chọn Part, xem câu hỏi mẫu, câu trả lời mẫu và từ vựng nên dùng](media:speaking "Dùng từ cảm xúc trong câu trả lời Speaking mẫu để nghe tự nhiên hơn")
 
 ## Tự kiểm tra
 
@@ -188,7 +190,7 @@ Hãy để ý: đoạn văn dùng cả một chuỗi cảm xúc (*on edge, stres
 
 Lưu các từ trong bài vào sổ từ theo từng thang cường độ, rồi ôn bằng các trò như ghép thẻ, điền từ trong mục [Trò chơi & bài tập](/#/practice) với nguồn "Sổ từ của tôi". Muốn học thêm từ cảm xúc theo cấp độ, duyệt [thư viện từ vựng](/#/library) ở tab Speaking.
 
-![Mục Trò chơi và bài tập của Lexkite gồm Học thông minh, Ghép thẻ, Trắc nghiệm, Điền từ, chọn nguồn từ Sổ từ của tôi](media:practice "Ôn từ cảm xúc trong sổ từ riêng qua ghép thẻ, trắc nghiệm và điền từ")
+![Danh sách các hoạt động luyện từ trong Lexkite, có phần chọn nguồn từ như sổ từ cá nhân](media:practice "Chọn dạng bài luyện cho bộ từ cảm xúc để gặp lại từ nhiều kiểu")
 
 Sau đó, mở [phòng luyện Speaking](/#/speaking), chọn một đề Part 2 về một trải nghiệm đáng nhớ và tự nói 2 phút, cố dùng ít nhất bốn từ cảm xúc khác nhau theo diễn biến câu chuyện. Có thể tham khảo thêm [bài mẫu Speaking theo chủ đề](/speaking/).
 

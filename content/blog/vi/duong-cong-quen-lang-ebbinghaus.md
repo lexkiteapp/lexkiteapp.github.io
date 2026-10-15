@@ -8,7 +8,7 @@ category: phuong-phap
 tags: [ghi-nho, ebbinghaus]
 keyword: "đường cong quên lãng"
 cover: method
-coverAlt: "Trang Phương pháp học của Lexkite minh họa đường cong quên lãng"
+coverAlt: "“The Lexkite method” mô tả thứ tự các bước trong một buổi học hằng ngày"
 publishAt: 2026-10-17T22:33:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -50,6 +50,8 @@ Từ đó rút ra ba điều:
 
 Đây chính là nền tảng của phương pháp [lặp lại ngắt quãng](/vi/blog/lap-lai-ngat-quang/), mà các app flashcard hiện đại tự động hóa.
 
+![Màn hình ôn flashcard của Lexkite: thẻ “pollution”, thanh tiến độ và nút “Flip”](media:review "Thẻ ôn đúng lúc sắp quên để làm chậm đường cong quên lãng")
+
 ## Năm cách "làm phẳng" đường cong quên lãng
 
 "Làm phẳng" ở đây nghĩa là khiến trí nhớ giảm chậm hơn. Có năm cách thực tế:
@@ -85,12 +87,10 @@ Lexkite đưa đường cong quên lãng vào cách sắp lịch ôn, để bạ
 
 1. Mở [Phương pháp học](/#/method) để xem đường cong quên lãng và vòng học khoảng 30 phút mỗi ngày mà app gợi ý.
 
-![Trang Phương pháp học của Lexkite với vòng lặp mỗi ngày, đường cong quên lãng và cân bằng 4 kỹ năng](media:method "Phương pháp học: đường cong quên lãng là nền của lịch ôn")
-
 2. Học từ mới rồi vào phần Ôn tập mỗi ngày. Thuật toán FSRS ước lượng khả năng nhớ của từng thẻ và chỉ đưa ra thẻ sắp chạm ngưỡng quên. Muốn hiểu cơ chế này, đọc bài [FSRS là gì](/vi/blog/fsrs-la-gi/).
 3. Mở trang [Tiến độ](/#/stats) để xem chuỗi ngày học, lịch học 6 tháng dạng heatmap và dự báo số thẻ đến hạn. Một heatmap đều màu là dấu hiệu bạn đang "làm phẳng" đường cong rất tốt.
 
-![Trang Tiến độ của Lexkite với cấp độ, XP, chuỗi ngày, heatmap 6 tháng và dự báo thẻ đến hạn](media:stats "Tiến độ: heatmap học đều và dự báo thẻ đến hạn")
+![Màn hình tiến độ và huy hiệu của Lexkite: cấp độ, XP, chuỗi ngày, số thẻ đã ôn và lịch học 6 tháng](media:stats "Lịch học dạng heatmap cho thấy bạn có ôn đều đặn chống quên không")
 
 {{cta: /#/method | Xem vòng học mỗi ngày dựa trên đường cong quên lãng}}
 

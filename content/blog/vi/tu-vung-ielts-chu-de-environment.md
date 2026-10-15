@@ -8,7 +8,7 @@ category: tu-vung
 tags: [environment, ielts, chu-de]
 keyword: "từ vựng ielts chủ đề environment"
 cover: library
-coverAlt: "Thư viện từ vựng Lexkite với các bộ từ theo chủ đề và cấp độ"
+coverAlt: "“Vocabulary library” trong Lexkite: các tab nguồn từ và những bộ từ cốt lõi có nhãn cấp độ"
 publishAt: 2026-10-21T18:49:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -96,6 +96,8 @@ Nếu bạn có sẵn vốn từ cho năm nhóm dưới đây, bạn có thể x
 
 Biết từ đơn chưa đủ; [các cụm collocation](/vi/blog/collocation-ielts/) mới là thứ khiến câu văn nghe tự nhiên. Một số cụm động từ + danh từ đáng thuộc:
 
+![Kết quả tra từ “resilient” kèm câu ví dụ, collocation và nút lưu thành flashcard](media:dict "Xem collocation về môi trường để viết câu nghe tự nhiên hơn")
+
 - *tackle / address environmental problems* – giải quyết vấn đề môi trường
 - *reduce / cut emissions* – giảm phát thải
 - *protect / preserve natural resources* – bảo vệ tài nguyên thiên nhiên
@@ -134,6 +136,8 @@ Một đoạn thân bài mẫu:
 
 Chú ý cách các collocation (*cut emissions*, *phase out*, *single-use plastics*) được đặt vào lập luận, không chèn cho có. Muốn xem nhiều đoạn như vậy, hãy đọc [các bài mẫu Task 2 band 8 theo chủ đề](/samples/). Để nối các ý mượt hơn, xem bài [từ nối trong IELTS Writing](/vi/blog/tu-noi-trong-ielts-writing/).
 
+![Mục Writing của Lexkite gồm gợi ý ý tưởng, khung viết và bài mẫu có chú thích](media:write "Viết Task 2 về môi trường với gợi ý ý tưởng và khung bài")
+
 ### Speaking Part 1
 
 **Câu hỏi:** *Do you do anything to protect the environment?*
@@ -154,11 +158,9 @@ Khi gặp câu hỏi môi trường ở Speaking, hãy dùng khung ba bước đ
 
 1. Mở [Thư viện từ vựng](/#/library) và tìm bộ chủ đề "Môi trường" (Environment). Ngoài ra còn các bộ liên quan như "Năng lượng", "Động vật và Thiên nhiên", "Khoa học và Môi trường". Thêm 10–12 từ mỗi ngày vào flashcard.
 
-![Thư viện từ vựng Lexkite với các tab Tất cả, NGSL, IELTS theo đề, Writing, Speaking, TOEIC và cấp độ A1–B2](media:library "Thư viện: chọn bộ từ theo chủ đề và cấp độ")
-
 2. Gặp lại từ trong ngữ cảnh: vào [Bài đọc IELTS](/#/reading), chọn bài như *Microplastics in the Ocean* hoặc *The Growing Problem of Space Debris*. Từ khóa được tô màu; chạm vào để tra và lưu ngay vào sổ từ, sau đó làm câu hỏi True/False/Not Given.
 
-![Bài đọc The Growing Problem of Space Debris trong Lexkite với từ khóa tô màu và câu hỏi True/False/Not Given](media:read-article "Bài đọc: chạm từ để tra và lưu, kèm câu hỏi True/False/Not Given")
+![Bài đọc IELTS trong Lexkite: tô màu từ khóa, tra từ ngay trên bài và làm câu hỏi](media:read-article "Danh sách từ khóa bên phải giúp ôn lại sau khi đọc")
 
 3. Cuối tuần, viết một đoạn thân bài về đề môi trường ở trên, dùng ít nhất năm collocation vừa học.
 

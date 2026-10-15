@@ -8,7 +8,7 @@ category: tu-vung
 tags: [word-formation, tu-vung]
 keyword: "tiền tố hậu tố trong tiếng anh"
 cover: dict
-coverAlt: "Từ điển Anh–Việt Lexkite tra từ resilient với phiên âm UK/US, nghĩa, ví dụ và collocation"
+coverAlt: "Từ điển “English – Vietnamese dictionary” của Lexkite khi tra “resilient”: phiên âm UK/US, nghĩa và ví dụ"
 publishAt: 2026-11-08T19:43:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -101,6 +101,8 @@ Hai lưu ý quan trọng:
 
 Quy luật: *-tion, -sion, -ic, -ity* thường nhấn vào âm tiết **ngay trước** hậu tố. Khi học một họ từ, hãy học luôn trọng âm từng thành viên. Bài [quy tắc đánh trọng âm tiếng Anh](/vi/blog/quy-tac-danh-trong-am-tieng-anh/) phân tích kỹ nhóm quy luật này.
 
+![Thư viện phát âm IPA của Lexkite chia nguyên âm đơn, nguyên âm đôi và phụ âm, kèm từ ví dụ](media:pron "Chọn một âm IPA để nghe trọng âm dịch chuyển khi thêm hậu tố")
+
 ## Gốc từ Latin và Hy Lạp thông dụng
 
 Phần lớn từ học thuật trong tiếng Anh có gốc Latin hoặc Hy Lạp. Học khoảng vài chục gốc phổ biến là bạn có chìa khóa cho hàng trăm từ.
@@ -133,7 +135,7 @@ Gặp từ lạ *irreversible* trong bài đọc:
 
 Cảnh giác với **phân tích giả**. *Discuss* không phải *dis-* + *cuss*; *uncle* không phải *un-* + *cle*; *pretty* không chứa tiền tố *pre-*. Nhiều từ có hình thức giống tiền tố nhưng đã hòa thành một khối từ lâu. Quy tắc an toàn: phân tích cấu tạo để **đoán**, ngữ cảnh để **xác nhận**, từ điển để **dùng**. Khi tra, một [từ điển Anh–Anh](/vi/blog/cach-dung-tu-dien-anh-anh/) dành cho người học thường ghi rõ các dạng từ trong cùng họ.
 
-![Thư viện từ vựng Lexkite với các tab NGSL, IELTS theo đề, TOEIC và các bộ từ chia cấp độ A1–B2](media:library "Học theo bộ từ có cấp độ giúp bạn gặp lại cùng một gốc từ, tiền tố và hậu tố nhiều lần")
+![Màn hình “Vocabulary library” của Lexkite với các bộ từ chia theo nguồn và cấp độ A1–B2](media:library "Bộ từ theo cấp độ giúp bạn luyện đoán nghĩa từ có tiền tố, hậu tố")
 
 ## Học theo họ từ thay vì từ lẻ
 
@@ -189,7 +191,7 @@ Mỗi ngày chọn một gốc từ trong bảng ở trên, tra 3–4 từ chứ
 
 Khi ôn [thư viện từ vựng](/#/library) theo cấp độ, thử che nghĩa và đoán từ cấu tạo trước khi xem. Kết hợp với kỹ thuật trong bài [ghi nhớ từ vựng bằng liên tưởng](/vi/blog/cach-ghi-nho-tu-vung-bang-lien-tuong/) cho những từ khó.
 
-![Thẻ Học thông minh trong Lexkite hiển thị nghĩa, định nghĩa tiếng Anh, ví dụ và mẹo nhớ của một cụm từ](media:practice-learn "Định nghĩa tiếng Anh và ví dụ trên thẻ giúp kiểm tra lại nghĩa bạn đã đoán từ cấu tạo từ")
+![Thẻ học từ mới của Lexkite giới thiệu cụm “come up with”: nghĩa, định nghĩa tiếng Anh, ví dụ và mẹo nhớ](media:practice-learn "Thẻ học từ mới cho thấy từ gốc cùng nghĩa, ví dụ và mẹo nhớ")
 
 {{youtube: | Gợi ý video: tách cấu tạo 10 từ học thuật dài thành tiền tố, gốc từ và hậu tố}}
 

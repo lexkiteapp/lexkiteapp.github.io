@@ -8,7 +8,7 @@ category: tu-vung
 tags: [education, ielts, chu-de]
 keyword: "từ vựng ielts chủ đề education"
 cover: library
-coverAlt: "Thư viện từ vựng Lexkite với các tab NGSL, IELTS theo đề, Writing, Speaking và TOEIC"
+coverAlt: "“Vocabulary library” trong Lexkite: các tab nguồn từ và những bộ từ cốt lõi có nhãn cấp độ"
 publishAt: 2026-10-21T21:54:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -25,6 +25,8 @@ Tiêu chí Lexical Resource đánh giá việc bạn dùng từ đa dạng, chí
 ## Từ vựng IELTS chủ đề Education theo nhóm ý
 
 Thay vì học một danh sách dài vô tận, hãy chia từ theo câu hỏi mà đề thường đặt ra. Mỗi nhóm dưới đây đi kèm cụm từ hay đi cùng (collocation) vì giám khảo chấm cách bạn kết hợp từ chứ không chấm từ đứng riêng. Nếu chưa quen khái niệm này, xem [hơn 40 collocation học thuật kèm cách tự học](/vi/blog/collocation-ielts/).
+
+![Từ điển “English – Vietnamese dictionary” của Lexkite khi tra “resilient”: phiên âm UK/US, nghĩa và ví dụ](media:dict "Tra từ Education như “curriculum” để lưu nghĩa và collocation")
 
 ### Nhóm 1: Các cấp học và hệ thống
 
@@ -75,8 +77,6 @@ Câu mẫu: *Online courses offer flexibility, but they demand a level of self-d
 - **role model** – tấm gương.
 
 Câu mẫu: *In rural areas, a teacher shortage often means one underpaid teacher has to handle several classes at once.*
-
-![Thư viện từ vựng Lexkite với các tab Tất cả, NGSL, IELTS theo đề, Writing, Speaking và TOEIC](media:library "Thư viện chia từ theo nguồn: từ cốt lõi NGSL, IELTS theo đề, Writing, Speaking, TOEIC")
 
 ## Ý tưởng lập luận cho các dạng đề Task 2
 
@@ -138,7 +138,7 @@ Ghi riêng những lỗi này vào một chỗ và ôn lại định kỳ sẽ h
 4. Vào [Phòng viết IELTS Task 2](/#/write), chọn một đề thuộc chủ đề giáo dục. Phòng viết có gợi ý ý tưởng, từ vựng gợi ý, khung bài và bài mẫu band 8 có chú thích để bạn so sánh.
 5. Viết một đoạn thân bài dùng ít nhất ba cụm từ trong bài này, rồi đối chiếu với bài mẫu xem bạn có dùng từ đúng ngữ cảnh không.
 
-![Phòng viết IELTS Task 2 trong Lexkite với đề theo chủ đề, gợi ý ý tưởng và bài mẫu band 8](media:write "Phòng viết: chọn đề theo chủ đề, xem gợi ý ý tưởng, từ vựng và bài mẫu có chú thích")
+![Mục Writing của Lexkite gồm gợi ý ý tưởng, khung viết và bài mẫu có chú thích](media:write "Dùng đề Writing về giáo dục để áp dụng danh sách từ này")
 
 {{cta: /#/write | Chọn một đề Education và viết thử đoạn đầu tiên}}
 

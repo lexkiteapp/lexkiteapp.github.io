@@ -8,7 +8,7 @@ category: phuong-phap
 tags: [so-tu, tu-vung]
 keyword: "sổ tay từ vựng"
 cover: library
-coverAlt: "Thư viện từ vựng Lexkite với các bộ từ cốt lõi có cấp độ A1 đến B2"
+coverAlt: "Thư viện từ vựng Lexkite (“Vocabulary library”) gồm hơn 6.800 từ chia thành nhiều bộ theo cấp độ"
 publishAt: 2026-10-25T12:18:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -90,6 +90,8 @@ Sổ giấy có lợi thế: viết tay giúp bạn chậm lại và chú ý hơ
 
 Giải pháp là kết hợp: ghi tay hoặc ghi nhanh trên điện thoại khi gặp từ, rồi chuyển những từ đáng nhớ sang flashcard có lịch ôn giãn cách. Thuật toán sẽ tính khi nào bạn sắp quên và đưa từ đó trở lại, thay bạn quyết định "hôm nay ôn trang nào". Nếu bạn chưa quen khái niệm này, xem bài [FSRS là gì](/vi/blog/fsrs-la-gi/).
 
+![Màn hình ôn flashcard của Lexkite: thẻ “pollution”, thanh tiến độ và nút “Flip”](media:review "Số hóa sổ tay thành flashcard rồi ôn bằng nút “Flip”")
+
 Quy tắc chuyển đơn giản: từ nào bạn **muốn dùng** khi nói hoặc viết thì chuyển thành thẻ. Từ chỉ cần nhận ra khi đọc thì để trong sổ là đủ.
 
 ## Làm ngay trong Lexkite: sổ từ và sổ lỗi số
@@ -102,9 +104,7 @@ Lexkite có sẵn hai "cuốn sổ" số để bạn khỏi phải chép tay m�
 4. Vào [Sổ lỗi sai](/#/mistakes) để xem các lỗi được gom theo Từ vựng, Ngữ pháp, Đọc hiểu và Nghe. Ôn phần này mỗi tuần một lần, giống như trang lỗi sai trong sổ giấy.
 5. Vẫn giữ một cuốn sổ giấy nhỏ nếu bạn thích viết tay, chủ yếu cho phần "câu của tôi".
 
-![Thư viện từ vựng Lexkite với các tab Tất cả, NGSL, IELTS theo đề, Writing, Speaking, TOEIC và bộ từ cốt lõi theo cấp độ](media:library "Thư viện: chọn bộ từ theo nguồn và cấp độ rồi thêm vào sổ từ của bạn")
-
-![Sổ lỗi sai trong Lexkite gom lỗi theo Từ vựng, Ngữ pháp, Đọc hiểu và Nghe](media:mistakes "Sổ lỗi sai: các lỗi được gom theo nhóm để ôn lại")
+![Mục “Mistake log” của Lexkite gom lỗi sai theo từ vựng, ngữ pháp, đọc hiểu và nghe để ôn lại](media:mistakes "Sổ từ và sổ lỗi nằm cạnh nhau để bạn tra cứu và ôn nhanh")
 
 {{cta: /#/library | Chọn 10 từ đầu tiên cho sổ từ của bạn}}
 

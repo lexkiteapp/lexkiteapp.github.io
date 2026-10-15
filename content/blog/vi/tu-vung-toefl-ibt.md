@@ -8,7 +8,7 @@ category: toefl
 tags: [toefl, tu-vung]
 keyword: "từ vựng toefl"
 cover: toefl
-coverAlt: "Trang luyện thi TOEFL iBT trong Lexkite với bảng cấu trúc đề định dạng mới và dạng Complete the Words"
+coverAlt: "Mục TOEFL trong Lexkite: bảng cấu trúc đề, Complete the Words, Read in Daily Life, Read an Academic Passage"
 publishAt: 2026-10-26T07:08:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -37,6 +37,8 @@ Phần Reading của [định dạng TOEFL iBT 2026](/vi/blog/toefl-ibt-dinh-dan
 ### Tầng 2: Từ học thuật dùng chung
 
 Academic Word List (AWL) của Coxhead (2000) gồm 570 họ từ xuất hiện thường xuyên trong văn bản học thuật thuộc nhiều ngành: *analyse, concept, establish, factor, significant, structure, theory, vary*. Những từ này không thuộc riêng ngành nào, nên dù bài đọc nói về sinh học hay lịch sử, bạn vẫn gặp chúng. Xem danh sách và cách học trong bài [Academic Word List (AWL)](/vi/blog/academic-word-list-awl/).
+
+![Màn hình chọn bài đọc của Lexkite với các chủ đề như làm việc bốn ngày một tuần và vi nhựa đại dương](media:reading "Chọn bài đọc học thuật để gặp từ TOEFL dùng chung trong ngữ cảnh")
 
 Mẹo học AWL cho TOEFL: học theo **họ từ**. *Vary, variable, variation, various, variety* cùng một gốc; nắm gốc rồi, bạn dễ đoán được phần đuôi khi làm Complete the Words.
 
@@ -105,9 +107,7 @@ Cuối tuần, làm một bài đọc đầy đủ theo định dạng mới đ�
 4. Thêm những từ hay viết sai vào sổ từ và ôn bằng flashcard. Trong phần Trò chơi & bài tập, chế độ Điền từ hoặc Nghe & chép giúp bạn luyện viết lại từ thay vì chỉ nhận ra.
 5. Mỗi tuần quay lại trang TOEFL để làm thêm một bài, so sánh số lỗi chính tả với tuần trước.
 
-![Trang Luyện thi TOEFL iBT trong Lexkite với bảng cấu trúc đề định dạng mới, thang band 1–6 và các dạng câu Reading](media:toefl "Luyện thi TOEFL iBT: cấu trúc đề định dạng mới và các dạng câu như Complete the Words")
-
-![Thư viện từ vựng Lexkite với tab Từ vựng cốt lõi NGSL, Writing và các bộ từ theo cấp độ](media:library "Thư viện: bắt đầu từ bộ từ cốt lõi rồi mở rộng sang từ học thuật")
+![Màn hình “Vocabulary library” của Lexkite với các bộ từ chia theo nguồn và cấp độ A1–B2](media:library "Mỗi bộ từ có nhãn cấp độ, bạn chọn bộ vừa sức để học")
 
 {{cta: /#/toefl | Làm thử một bài Complete the Words}}
 

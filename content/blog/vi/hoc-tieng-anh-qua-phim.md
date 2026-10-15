@@ -8,7 +8,7 @@ category: ky-nang
 tags: [phim, nghe]
 keyword: "học tiếng anh qua phim"
 cover: dict
-coverAlt: "Từ điển Anh–Việt Lexkite với phiên âm UK/US, nghĩa, ví dụ và nút lưu flashcard"
+coverAlt: "Mục từ “resilient” trong từ điển Anh–Việt của Lexkite với phiên âm, nút nghe, collocation và từ đồng nghĩa"
 publishAt: 2026-10-31T11:50:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -85,6 +85,8 @@ Học tiếng Anh qua phim hiệu quả nhất khi bạn tách ra **một cảnh
 
 Một cảnh 2 phút xử lý theo 7 bước mất khoảng 30–40 phút. Nghe có vẻ chậm, nhưng một tháng làm đều bạn sẽ có hàng trăm cụm từ thật, gắn với hình ảnh và cảm xúc cụ thể.
 
+![Màn hình luyện phát âm của Lexkite với cụm “cut down on”, nút micro và chấm điểm theo giọng nói](media:practice-speak "Đọc lại thoại của một cảnh vào micro rồi so với bản gốc")
+
 ## Nên ghi gì vào sổ khi xem phim?
 
 Đừng ghi những từ hiếm chỉ xuất hiện một lần, như tên một loại vũ khí trong phim viễn tưởng. Hãy ưu tiên những thứ bạn có thể dùng lại:
@@ -148,11 +150,11 @@ Dòng "câu của tôi" là quan trọng nhất: tự đặt một câu trong đ
 
 Khi gặp một cụm lạ trong phim, tra trong [từ điển Anh–Việt](/#/dict/fair) để xem nghĩa, câu ví dụ và collocation, rồi bấm lưu để cụm đó vào lịch ôn flashcard. Những câu hay, khung câu bạn muốn dùng lại nên lưu vào [Sổ cụm từ](/#/phrases).
 
-![Sổ cụm từ và cấu trúc của Lexkite, nơi thêm cụm và câu hay kèm nhãn](media:phrases "Sổ cụm từ: lưu câu phản ứng và cụm hay gặp trong phim")
+![Màn hình “Phrases & structures” cho phép lưu cụm từ và đối chiếu với bài mẫu](media:phrases "Lưu cụm từ hay trong phim để dùng lại khi nói")
 
 Phim là đầu vào thú vị nhưng khó kiểm soát tốc độ. Để luyện tai có cấu trúc song song, dùng [bài luyện nghe có chỉnh tốc độ](/#/listening) với các giọng Anh, Mỹ, Úc và chế độ chép chính tả.
 
-![Trang luyện nghe IELTS với giọng Anh–Mỹ–Úc, tốc độ chỉnh được và chế độ chép chính tả](media:listening "Luyện nghe: chỉnh tốc độ, nghe lần đầu và chép chính tả")
+![Màn hình luyện nghe của Lexkite: chọn đề, chỉnh tốc độ, nghe lần đầu hoặc chép chính tả](media:listening "Chép chính tả lời thoại ngắn để bắt âm nối và âm yếu")
 
 Nếu thích học qua nội dung giải trí, đọc thêm [học tiếng Anh qua bài hát](/vi/blog/hoc-tieng-anh-qua-bai-hat/) và [học tiếng Anh qua podcast](/vi/blog/hoc-tieng-anh-qua-podcast/). Các thành ngữ thường gặp trong hội thoại có trong bộ [từ vựng idioms](/tu-vung/idioms).
 

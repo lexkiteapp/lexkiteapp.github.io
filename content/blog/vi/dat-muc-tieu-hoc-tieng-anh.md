@@ -8,7 +8,7 @@ category: phuong-phap
 tags: [muc-tieu, dong-luc]
 keyword: "mục tiêu học tiếng anh"
 cover: goal
-coverAlt: "Màn hình Mục tiêu và kế hoạch học trong Lexkite với kỳ thi, điểm mục tiêu, ngày thi và số giờ mỗi tuần"
+coverAlt: "“Goal & study plan” giúp bạn đặt điểm mục tiêu và ngày thi cho kế hoạch học"
 publishAt: 2026-11-09T19:17:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -28,6 +28,8 @@ Hãy so sánh hai câu:
 Câu đầu không sai, nhưng nó không bao giờ hoàn thành. Bạn có thể học ba tháng và vẫn thấy mình "chưa cải thiện mấy". Câu thứ hai tạo ra ba thứ rất quý: một **điểm đích** để biết khi nào xong, một **hạn chót** để biết còn bao nhiêu thời gian, và một **nhịp học** để mỗi tuần tự kiểm tra.
 
 Mục tiêu mơ hồ còn có một tác hại ngầm: nó khiến bạn học theo hứng. Hôm nay xem video phát âm, mai làm đề ngữ pháp, tuần sau tải một app khác. Mỗi hoạt động đều "có ích", nhưng không hoạt động nào được lặp lại đủ lâu để tạo kết quả. Nếu bạn học mãi mà không tiến bộ, hãy đọc [vì sao học tiếng Anh mãi không giỏi](/vi/blog/vi-sao-hoc-tieng-anh-mai-khong-gioi/) để tìm nguyên nhân.
+
+![Trang “Today” của Lexkite với số thẻ cần ôn hôm nay, nhiệm vụ trong ngày và “Today's plan”](media:home "Trang “Today” gom thẻ đến hạn và nhiệm vụ để bạn biết bắt đầu từ đâu")
 
 ## Mục tiêu học tiếng Anh theo SMART
 
@@ -86,14 +88,12 @@ Tiến bộ tiếng Anh thường đi theo bậc thang: vài tuần như không 
 
 Lexkite có trang [Mục tiêu & kế hoạch học](/#/goal) giúp bạn biến các bước ở trên thành con số cụ thể.
 
-![Trang Mục tiêu và kế hoạch học](media:goal "Mục tiêu & kế hoạch học trong Lexkite: chọn kỳ thi, điểm mục tiêu, ngày thi, số giờ mỗi tuần và chỉ tiêu tuần")
-
 1. Mở [trang Mục tiêu](/#/goal), chọn kỳ thi (ví dụ IELTS Academic), điểm mục tiêu và ngày thi.
 2. Nhập số giờ bạn thật sự có mỗi tuần. App gợi ý chỉ tiêu tuần dựa trên các con số này.
 3. Mỗi cuối tuần, vào [Tiến độ & huy hiệu](/#/stats) để xem chuỗi ngày học, số thẻ đã ôn, lịch học dạng heatmap và dự báo số thẻ đến hạn những ngày tới.
 4. Nếu lịch học trên heatmap có nhiều ô trống liền nhau, đó là tín hiệu để giảm chỉ tiêu hoặc dời giờ học sang khung giờ dễ giữ hơn.
 
-![Trang Tiến độ và huy hiệu](media:stats "Tiến độ & huy hiệu: cấp độ, XP, chuỗi ngày, số thẻ đã ôn, lịch học 6 tháng và dự báo thẻ đến hạn")
+![Màn hình tiến độ và huy hiệu của Lexkite: cấp độ, XP, chuỗi ngày, số thẻ đã ôn và lịch học 6 tháng](media:stats "Theo dõi chuỗi ngày và XP để biết mục tiêu của bạn đang tiến tới đâu")
 
 {{cta: /#/goal | Đặt mục tiêu và chỉ tiêu tuần đầu tiên}}
 

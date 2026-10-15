@@ -8,7 +8,7 @@ category: toefl
 tags: [toefl, reading]
 keyword: "complete the words toefl"
 cover: toefl
-coverAlt: "Trang luyện thi TOEFL iBT trong Lexkite với bảng cấu trúc đề và dạng Complete the Words"
+coverAlt: "Mục TOEFL trong Lexkite: bảng cấu trúc đề, Complete the Words, Read in Daily Life, Read an Academic Passage"
 publishAt: 2026-11-07T21:05:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -35,8 +35,6 @@ Nói cách khác, Complete the Words đo ba năng lực:
 1. **Ngữ pháp trong ngữ cảnh**: chủ ngữ số ít hay số nhiều, thì của động từ, từ nối nào hợp lý.
 2. **Vốn từ vựng chủ động**: không chỉ nhận ra từ khi thấy đủ mặt chữ, mà phải tự sinh ra được từ đó. Vốn từ chủ động này cũng là nền cho [kỹ năng diễn đạt lại ý (paraphrase)](/vi/blog/cach-paraphrase-trong-ielts/) mà mọi kỳ thi học thuật đều cần.
 3. **Chính tả**: một chữ cái sai là cả từ sai, không có điểm "gần đúng".
-
-![Trang luyện thi TOEFL iBT trong Lexkite](media:toefl "Trang TOEFL iBT trong Lexkite: bảng cấu trúc đề định dạng mới và các dạng Complete the Words, Read in Daily Life, Read an Academic Passage")
 
 Nếu bạn chưa nắm tổng thể định dạng mới, hãy đọc trước bài [TOEFL iBT định dạng mới 2026](/vi/blog/toefl-ibt-dinh-dang-moi-2026/) để biết Complete the Words nằm ở đâu trong toàn bộ bài thi.
 
@@ -67,6 +65,8 @@ Chủ ngữ thật là "population" (số ít), nên đáp án là **has**, khô
 ### Tín hiệu 4: mạch logic của cả đoạn
 
 Từ nối như "however", "because", "although", "while" thường quyết định ý câu sau. Nếu câu trước nói một loài cây phát triển nhanh, câu sau mở đầu bằng "How____, it needs a lot of water" thì gần như chắc chắn là **However**, vì ý sau đưa ra mặt hạn chế. Thói quen bám mạch logic này cũng giúp ích khi bạn gặp các dạng suy luận như [True/False/Not Given trong IELTS Reading](/vi/blog/ielts-reading-true-false-not-given/).
+
+![Danh sách bài đọc IELTS theo cấp độ A2–C1 trong Lexkite, như “The Rise of Urban Farming”](media:reading "Chọn bài đọc theo cấp độ để luyện dựa vào mạch logic của đoạn văn")
 
 ## Những lỗi hay gặp và cách sửa
 
@@ -111,7 +111,7 @@ Quy trình gợi ý cho một buổi 20 phút:
 3. Chép những từ sai chính tả hoặc những cụm cố định mới vào sổ từ, rồi lưu chúng thành flashcard.
 4. Dùng [Bài kiểm tra trắc nghiệm](/#/practice/test) để tự kiểm tra lại nghĩa các từ vừa lưu sau một hai ngày.
 
-![Bài kiểm tra trắc nghiệm chọn nghĩa đúng của cụm từ](media:practice-test "Bài kiểm tra trong Lexkite: chọn nghĩa đúng của 'run out of' trong 4 phương án")
+![Bài kiểm tra trắc nghiệm của Lexkite với cụm “run out of” và bốn đáp án](media:practice-test "Trắc nghiệm nghĩa: nhận diện trước khi tự sản sinh")
 
 Muốn nắm chắc vốn từ nền cho cả bài thi, bạn có thể đọc thêm [từ vựng TOEFL iBT](/vi/blog/tu-vung-toefl-ibt/) để biết nên ưu tiên nhóm từ nào trước.
 

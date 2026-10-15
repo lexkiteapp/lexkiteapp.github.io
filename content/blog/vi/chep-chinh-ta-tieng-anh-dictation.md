@@ -8,7 +8,7 @@ category: phuong-phap
 tags: [dictation, listening]
 keyword: "chép chính tả tiếng anh"
 cover: listening
-coverAlt: "Màn hình Luyện nghe IELTS trong Lexkite có nút Chép chính tả"
+coverAlt: "Màn hình luyện nghe của Lexkite: chọn đề, chỉnh tốc độ, nghe lần đầu hoặc chép chính tả"
 publishAt: 2026-10-30T14:37:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -59,6 +59,8 @@ Sau khoảng mười bài, hãy đếm xem loại lỗi nào nhiều nhất. Đ�
 
 Lý do phổ biến nhất khiến người học bỏ dictation là chọn bài **quá khó**. Một nguyên tắc dễ nhớ: nếu bạn chép đúng dưới khoảng một nửa số từ, bài đó đang quá sức. Hãy lùi lại.
 
+![Màn hình luyện phát âm của Lexkite với cụm “cut down on”, nút micro và chấm điểm theo giọng nói](media:practice-speak "Đọc to đoạn vừa chép vào micro để so với cách đọc đúng")
+
 Ba mức độ nên đi qua lần lượt:
 
 - **Mức điền từ (dễ):** Bạn được xem câu, chỉ một phần từ bị ẩn. Bạn nghe và điền vào chỗ trống. Phù hợp khi mới bắt đầu hoặc khi nghe giọng lạ.
@@ -86,8 +88,6 @@ Vài cách chống nản:
 
 ## Làm ngay trong Lexkite: chép chính tả theo từng phần nghe
 
-![Màn hình Luyện nghe IELTS có 10 đề, 4 phần mỗi đề và nút Chép chính tả](media:listening "Mỗi phần nghe có nút Chép chính tả bên cạnh Luyện tập và Nghe lần đầu")
-
 Trong [phần Luyện nghe](/#/listening), mỗi phần của đề đều có chế độ **Chép chính tả** với ba mức: điền từ mức trung bình, điền từ mức khó và chép cả câu. Cách dùng gợi ý:
 
 1. Chọn một phần nghe bạn đã làm câu hỏi trước đó (để đã quen bối cảnh).
@@ -98,7 +98,7 @@ Trong [phần Luyện nghe](/#/listening), mỗi phần của đề đều có c
 
 Muốn luyện chép chính tả với **từ vựng của chính bạn** thay vì cả đoạn hội thoại, hãy dùng trò **Nghe & chép** trong mục luyện tập.
 
-![Trang Trò chơi và bài tập với Học thông minh, Ghép thẻ, Luyện phát âm, Nghe và chép](media:practice "Mục Luyện tập: chọn Nghe & chép, nguồn từ là Sổ từ của tôi")
+![Màn hình trò chơi và bài tập từ vựng của Lexkite: học thông minh, ghép thẻ, trắc nghiệm, điền từ, nghe chép](media:practice "Mỗi dạng bài luyện một mức nhớ khác nhau")
 
 Mở [Trò chơi & bài tập](/#/practice), chọn Nghe & chép với nguồn từ là sổ từ của bạn. Đây là bài khởi động 3 phút rất hợp trước khi vào chép cả đoạn.
 

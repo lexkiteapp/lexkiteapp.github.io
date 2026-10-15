@@ -8,7 +8,7 @@ category: ielts
 tags: [paraphrase, writing, reading]
 keyword: "cách paraphrase trong ielts"
 cover: write
-coverAlt: "Phòng viết IELTS Task 2 trong Lexkite với đề theo chủ đề, từ vựng gợi ý và bài mẫu band 8"
+coverAlt: "Mục Writing của Lexkite gồm gợi ý ý tưởng, khung viết và bài mẫu có chú thích"
 publishAt: 2026-10-27T16:33:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -24,6 +24,8 @@ status: ready
 - **Speaking:** khi quên một từ, paraphrase giúp bạn diễn đạt vòng mà không ngắt mạch nói, điều có lợi cho Fluency.
 
 Nói cách khác, paraphrase vừa là kỹ năng **tạo ra** (Writing, Speaking) vừa là kỹ năng **nhận ra** (Reading, Listening). Luyện một chiều sẽ giúp chiều còn lại. Để luyện chiều nhận ra paraphrase, bài [cách đọc hiểu tiếng Anh nhanh mà vẫn hiểu sâu](/vi/blog/cach-doc-hieu-tieng-anh-nhanh/) có thể giúp bạn.
+
+![Mục “Phrases & structures” của Lexkite: thêm cụm từ hay, bài mẫu chỉ cấu trúc và gắn nhãn Task hoặc band](media:phrases "Lưu các cách diễn đạt khác nhau cho cùng một ý vào “Phrases & structures”")
 
 ## Cách paraphrase trong IELTS: 5 kỹ thuật cốt lõi
 
@@ -125,9 +127,7 @@ Paraphrase phụ thuộc rất nhiều vào vốn collocation; xem thêm bài [c
 4. Với từ bạn muốn thay nhưng không chắc, tra trong [từ điển Anh–Việt](/#/dict/resilient). Mỗi mục từ có câu ví dụ, collocation và từ đồng nghĩa, giúp bạn chọn từ thay thế hợp ngữ cảnh. Lưu những từ hữu ích thành flashcard.
 5. Lặp lại với một đề khác vào ngày hôm sau; sau một tuần, đọc lại các câu mở bài để thấy mình tiến bộ.
 
-![Phòng viết IELTS Task 2 trong Lexkite với chọn đề theo chủ đề, gợi ý ý tưởng, từ vựng gợi ý và bài mẫu band 8](media:write "Phòng viết: viết câu mở bài của bạn trước, rồi so với bài mẫu có chú thích")
-
-![Từ điển Anh–Việt Lexkite tra resilient với câu ví dụ, collocation và từ đồng nghĩa](media:dict "Mục từ có đồng nghĩa và collocation, hữu ích khi chọn từ thay thế")
+![Từ điển “English – Vietnamese dictionary” của Lexkite khi tra “resilient”: phiên âm UK/US, nghĩa và ví dụ](media:dict "Tra từ đồng nghĩa và collocation rồi nghe phiên âm trước khi paraphrase")
 
 {{cta: /#/write | Paraphrase một đề Task 2 ngay bây giờ}}
 

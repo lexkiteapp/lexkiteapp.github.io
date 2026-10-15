@@ -8,7 +8,7 @@ category: ielts
 tags: [band-descriptors, writing, speaking]
 keyword: "lexical resource ielts"
 cover: write
-coverAlt: "Phòng viết IELTS Task 2 trong Lexkite với gợi ý ý tưởng, từ vựng gợi ý và bài mẫu band 8"
+coverAlt: "Màn hình luyện Writing Task 2 trong Lexkite với bài mẫu band 8 có chú thích"
 publishAt: 2026-11-03T06:23:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -86,6 +86,8 @@ Trước khi dùng một từ mới trong bài, hãy tra lại: từ này đi v�
 
 Từ đã học mà không được gặp lại sẽ rơi khỏi trí nhớ chỉ sau vài ngày. Ôn theo lịch ngắt quãng giúp bạn giữ được vốn từ đủ lâu để nó "chảy" ra khi viết và nói. Đây là lý do flashcard với thuật toán lập lịch như FSRS hiệu quả hơn việc đọc lại sổ tay.
 
+![Phiên ôn flashcard trong Lexkite với thẻ từ “pollution”, phiên âm và nút “Flip”](media:review "Thẻ flashcard quay lại đúng lịch giúp từ học thuật không bị quên")
+
 ### 6. Viết, rồi tự soát lỗi từ vựng
 
 Sau mỗi bài viết, dành năm phút chỉ để soát từ: từ nào lặp lại hơn ba lần, cụm nào bạn không chắc collocation, từ nào có thể cụ thể hơn. Ghi những lỗi đó vào một danh sách riêng để không mắc lại.
@@ -102,14 +104,12 @@ Sau mỗi bài viết, dành năm phút chỉ để soát từ: từ nào lặp 
 
 Bạn có thể áp dụng các bước trên ngay trong ứng dụng, không cần cài đặt thêm gì.
 
-![Phòng viết IELTS Task 2 trong Lexkite với gợi ý ý tưởng, từ vựng gợi ý, khung viết bài và bài mẫu band 8](media:write "Phòng viết: chọn đề theo chủ đề, xem từ vựng gợi ý và bài mẫu band 8 có chú thích")
-
 1. Mở [Phòng viết IELTS](/#/write) và chọn một đề theo chủ đề bạn muốn luyện.
 2. Đọc phần từ vựng gợi ý trước khi viết. Chọn 5–6 cụm bạn chưa từng dùng và đặt mục tiêu đưa chúng vào bài.
 3. Viết bài theo khung có sẵn (tương tự [dàn bài bốn đoạn cho Task 2](/vi/blog/cau-truc-ielts-writing-task-2/)), sau đó so với bài mẫu band 8 có chú thích. Chú ý cách bài mẫu chọn từ cụ thể thay vì từ chung chung.
 4. Với mỗi từ còn phân vân, tra trong [từ điển Anh–Việt](/#/dict/) để xem collocation, câu ví dụ và từ đồng nghĩa, rồi bấm lưu thành flashcard.
 
-![Từ điển Anh–Việt trong Lexkite tra từ resilient với phiên âm UK/US, nghĩa, câu ví dụ, collocation và đồng nghĩa](media:dict "Tra 'resilient': xem collocation, đồng nghĩa và lưu thẳng thành flashcard")
+![Kết quả tra từ “resilient” kèm câu ví dụ, collocation và nút lưu thành flashcard](media:dict "Tra collocation của từ để nâng điểm Lexical Resource trong Writing")
 
 5. Mỗi ngày ôn lại các thẻ đến hạn. Khi một cụm đã thuộc, hãy thử dùng nó trong câu trả lời Speaking của chính bạn.
 

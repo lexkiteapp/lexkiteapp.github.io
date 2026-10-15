@@ -8,7 +8,7 @@ category: ky-nang
 tags: [doc-hieu, reading]
 keyword: "cách đọc hiểu tiếng anh nhanh"
 cover: reading
-coverAlt: "Danh sách bài đọc IELTS theo cấp độ A2–C1 trong Lexkite, chạm từ để tra"
+coverAlt: "Danh sách bài đọc IELTS theo cấp độ A2–C1 trong Lexkite, như “The Rise of Urban Farming”"
 publishAt: 2026-10-30T10:32:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -73,6 +73,8 @@ Với câu dài, hãy tìm **chủ ngữ chính và động từ chính** trư�
 - Sau đó mới đọc phần bổ nghĩa: bản báo cáo nào? Bản được công bố tháng trước, do một nhóm nghiên cứu về chất lượng không khí ở mười thành phố châu Á.
 
 Một số tín hiệu giúp bạn "bỏ qua tạm" phần phụ: dấu phẩy cặp, *which/who/that*, phân từ *-ing/-ed* đứng sau danh từ, cụm giới từ dài. Nếu hay bị rối với các cấu trúc này, ôn lại trang ngữ pháp về [mệnh đề quan hệ](/ngu-phap/relative-clauses).
+
+![Màn hình “Grammar” của Lexkite với lộ trình chương, 12 thì và các cấp độ từ A1 đến B2](media:grammar "Học ngữ pháp theo chương giúp bạn nhận ra chủ ngữ và động từ chính của câu dài")
 
 ## Đoán nghĩa từ ngữ cảnh
 
@@ -148,11 +150,11 @@ Trong phòng thi IELTS Reading với 60 phút cho 40 câu, phối hợp ba kiể
 
 Nếu muốn luyện ngay, kho [bài đọc theo cấp độ A2–C1](/#/reading) có các chủ đề như nông nghiệp đô thị hay tuần làm việc bốn ngày. Chọn bài thấp hơn trình độ một bậc cho đọc mở rộng, và bài đúng trình độ cho đọc kỹ.
 
-![Bài đọc The Growing Problem of Space Debris với từ khóa tô màu và câu hỏi True/False/Not Given](media:read-article "Bài đọc: từ khóa tô màu, chạm để tra và câu hỏi True/False/Not Given")
+![Bài đọc IELTS trong Lexkite: tô màu từ khóa, tra từ ngay trên bài và làm câu hỏi](media:read-article "Đọc bài có từ khóa tô màu, chạm vào từ lạ thay vì tra từng chữ")
 
 Ví dụ trong [bài đọc về rác vũ trụ](/#/read/space-debris), từ khóa được tô màu và bạn chạm vào từ để tra và lưu, nên không phải rời khỏi bài. Hãy đoán nghĩa trước khi chạm. Khi cần xem kỹ một từ, mở [từ điển Anh–Việt](/#/dict/tranquil) để xem ví dụ và collocation.
 
-![Từ điển Anh–Việt tra từ resilient với nghĩa, câu ví dụ và collocation](media:dict "Từ điển: nghĩa, ví dụ và collocation, lưu thành flashcard")
+![Kết quả tra từ “resilient” kèm câu ví dụ, collocation và nút lưu thành flashcard](media:dict "Tra “resilient” ngay khi gặp để hiểu từ trong ngữ cảnh bài đọc")
 
 {{cta: /#/reading | Chọn một bài đọc vừa sức và đo tốc độ}}
 

@@ -8,7 +8,7 @@ category: ngu-phap
 tags: [loi-sai, ngu-phap]
 keyword: "lỗi sai tiếng anh người việt hay mắc"
 cover: mistakes
-coverAlt: "Sổ lỗi sai của Lexkite gom lỗi theo Từ vựng, Ngữ pháp, Đọc hiểu và Nghe"
+coverAlt: "Màn hình “Mistake log”: lỗi được xếp theo kỹ năng để bạn ôn đúng chỗ yếu"
 publishAt: 2026-10-20T17:00:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -154,11 +154,11 @@ Nếu bạn sửa đúng 6/7 trở lên, những lỗi nền tảng đã khá v�
 
 Lý thuyết của từng nhóm lỗi nằm trong mục [Ngữ pháp IELTS](/#/grammar) của Lexkite, xếp theo chương và cấp độ A1–B2. Bạn có thể học lại đúng chương liên quan tới lỗi của mình thay vì học lại từ đầu.
 
-![Trang Ngữ pháp IELTS của Lexkite với lộ trình chương, 12 thì và cấp độ A1 đến B2](media:grammar "Ngữ pháp IELTS: học lại đúng chương liên quan tới lỗi của bạn")
+![Màn hình “Grammar” của Lexkite với lộ trình chương, 12 thì và các cấp độ từ A1 đến B2](media:grammar "Ôn ngữ pháp theo chương để sửa các lỗi người Việt hay mắc")
 
 Khi luyện viết, dùng [Phòng viết IELTS Task 2](/#/write) để viết một bài hoàn chỉnh, rồi soát lại theo từng lỗi như hướng dẫn ở trên. Lỗi nào lặp lại, đưa vào [Sổ lỗi sai](/#/mistakes) để ôn.
 
-![Phòng viết IELTS Task 2 trong Lexkite với đề theo chủ đề, gợi ý ý tưởng, từ vựng và khung viết bài](media:write "Phòng viết: luyện viết rồi tự soát lỗi theo từng nhóm")
+![Mục Writing của Lexkite gồm gợi ý ý tưởng, khung viết và bài mẫu có chú thích](media:write "Viết lại câu bị lỗi trong phòng Writing rồi so với bài mẫu")
 
 {{cta: /#/mistakes | Mở Sổ lỗi sai và ôn lỗi của bạn}}
 
@@ -173,6 +173,8 @@ Có, nhất là lỗi mạo từ, s/es và giới từ, vì chúng ít ảnh hư
 ### Có nên tránh nghĩ bằng tiếng Việt khi nói tiếng Anh?
 
 Ở trình độ đầu, dịch trong đầu là bình thường. Khi tiến bộ, học theo cụm từ và câu mẫu sẽ giúp bạn dần bớt dịch. Bài [tư duy bằng tiếng Anh](/vi/blog/tu-duy-bang-tieng-anh/) gợi ý cách chuyển đổi từng bước, phù hợp với từng trình độ.
+
+![Bài kiểm tra đầu vào 5 phút của Lexkite: 20 câu từ vựng và ngữ pháp từ A2 đến C1](media:placement "Làm bài một mình, không tra từ, để kết quả sát thực tế")
 
 ### Lỗi nào ảnh hưởng nhiều nhất tới điểm IELTS?
 

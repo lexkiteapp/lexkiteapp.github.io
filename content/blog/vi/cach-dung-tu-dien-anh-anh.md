@@ -8,7 +8,7 @@ category: phuong-phap
 tags: [tu-dien, tu-vung]
 keyword: "từ điển anh anh"
 cover: dict
-coverAlt: "Từ điển Lexkite tra từ resilient với phiên âm UK/US, nghĩa, câu ví dụ, collocation và từ đồng nghĩa"
+coverAlt: "Kết quả tra từ “resilient” kèm câu ví dụ, collocation và nút lưu thành flashcard"
 publishAt: 2026-11-12T07:54:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -55,6 +55,8 @@ Một mục từ chứa nhiều thông tin hơn bạn nghĩ. Đi lần lượt t
 ### Phát âm và trọng âm
 
 Hầu hết từ điển learner's ghi IPA cả giọng Anh và giọng Mỹ, kèm file nghe. Ví dụ *suggest*: giọng Anh thường là /səˈdʒest/, giọng Mỹ thường là /səɡˈdʒest/. Dấu ˈ đặt trước âm tiết mang trọng âm. Nếu chưa đọc được ký hiệu, xem bài [cách đọc phiên âm IPA](/vi/blog/cach-doc-phien-am-ipa/); còn khác biệt hai giọng có trong bài [Anh–Anh và Anh–Mỹ khác nhau thế nào](/vi/blog/anh-anh-va-anh-my-khac-nhau/).
+
+![Bảng âm IPA của Lexkite với nguyên âm, phụ âm và luyện từng âm](media:pron "Xem phiên âm và trọng âm của từ ngay trong bảng âm IPA")
 
 ### Từ loại và nhãn ngữ pháp
 
@@ -104,7 +106,7 @@ Câu ví dụ cho bạn thấy từ "sống" trong ngữ cảnh. Hộp collocati
 
 Bước 5 là bước tạo khác biệt. Một người ghi "suggest = gợi ý" và một người ghi "suggest + V-ing / suggest that sb do; ✗ suggest sb to do" sẽ viết ra những câu rất khác nhau. Cách ghi chép chi tiết có trong bài [sổ tay từ vựng cá nhân](/vi/blog/so-tay-tu-vung-ca-nhan/).
 
-![Thẻ Học thông minh trong Lexkite với nghĩa tiếng Việt, định nghĩa tiếng Anh, ví dụ, lỗi hay gặp và cách dùng trong IELTS](media:practice-learn "Định nghĩa tiếng Anh đặt cạnh nghĩa tiếng Việt, kèm lỗi hay gặp – một bước đệm tốt khi đang chuyển dần sang từ điển Anh–Anh")
+![Thẻ cụm “come up with” trong Lexkite kèm ví dụ, mẹo nhớ, lỗi hay gặp và cách dùng trong IELTS](media:practice-learn "Một thẻ có nghĩa, ví dụ và mẹo nhớ để chốt kết quả tra từ")
 
 ## Lúc nào vẫn nên dùng từ điển song ngữ
 
@@ -146,7 +148,7 @@ Cách dùng hiệu quả nhất là **kết hợp**: song ngữ để hiểu nha
 
 Thử tra *suggest* trong [từ điển Anh–Việt của Lexkite](/#/dict/suggest) và đối chiếu với một từ điển learner's bạn chọn: ghi lại cấu trúc, collocation và nhãn. Khi gặp từ hay, lưu thành flashcard, rồi để [phiên ôn tập](/#/review) nhắc lại theo lịch. Ở chế độ [Học thông minh](/#/practice/learn), thử che nghĩa tiếng Việt và chỉ đọc định nghĩa tiếng Anh trước – một cách tập chuyển dần mà không quá sức. Muốn hiểu vì sao câu ví dụ quan trọng, đọc thêm bài [học từ vựng qua ngữ cảnh](/vi/blog/hoc-tu-vung-qua-ngu-canh/).
 
-![Phiên ôn flashcard trong Lexkite với thẻ từ pollution có phiên âm và nút Lật thẻ](media:review "Từ đã tra kỹ nên được lưu và ôn lại theo lịch, nếu không phần lớn sẽ bị quên sau vài ngày")
+![Thẻ flashcard của từ “pollution” kèm hình minh họa, phiên âm và nút “Flip” để lật thẻ](media:review "Cuối quy trình tra từ, ôn lại bằng flashcard và tự nhớ nghĩa trước")
 
 {{youtube: | Gợi ý video: đọc trọn một mục từ trong từ điển learner's – phát âm, nhãn ngữ pháp, cấu trúc, collocation}}
 

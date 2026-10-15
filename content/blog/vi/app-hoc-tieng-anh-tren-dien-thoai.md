@@ -8,7 +8,7 @@ category: phuong-phap
 tags: [pwa, dien-thoai]
 keyword: "app học tiếng anh miễn phí"
 cover: m-home
-coverAlt: "Giao diện điện thoại của Lexkite hiển thị trang Hôm nay"
+coverAlt: "Màn hình “Today” khi mở Lexkite như một ứng dụng trên điện thoại"
 publishAt: 2026-11-11T16:26:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -34,6 +34,8 @@ Trước khi tải bất kỳ app nào, hãy chấm nó theo sáu câu hỏi sau
 ### Phương pháp quan trọng hơn giao diện
 
 Một app đẹp với trò chơi vui mắt nhưng không bao giờ cho bạn gặp lại từ cũ đúng lúc sẽ khiến bạn quên phần lớn những gì đã học. Hãy ưu tiên app có cơ chế ôn tập dựa trên trí nhớ, ví dụ thuật toán lặp lại ngắt quãng như FSRS. Bạn có thể tìm hiểu thêm trong bài [FSRS là gì](/vi/blog/fsrs-la-gi/). Nếu đã dùng app lâu mà vẫn chưa giỏi, hãy xem [vì sao học tiếng Anh mãi không giỏi](/vi/blog/vi-sao-hoc-tieng-anh-mai-khong-gioi/).
+
+![Màn hình ôn flashcard của Lexkite: thẻ “pollution”, thanh tiến độ và nút “Flip”](media:review "Một app tốt cho bạn tự nhớ trước, có hình, phiên âm và thanh tiến độ")
 
 ### Cẩn thận với "miễn phí nửa vời"
 
@@ -103,14 +105,12 @@ Thông báo nhắc học là công cụ tốt nhưng không hoàn hảo. Với w
 
 Lexkite là app học tiếng Anh miễn phí dạng web, có thể cài lên màn hình chính điện thoại như một ứng dụng.
 
-![Trang Hôm nay của Lexkite trên điện thoại](media:m-home "Giao diện điện thoại của Lexkite: trang Hôm nay")
-
 1. Mở lexkite.com trên điện thoại. Trên iPhone, làm theo các bước Chia sẻ → Thêm vào MH chính ở trên. Trên Android, dùng nút cài đặt nếu trình duyệt hiển thị.
 2. Đăng nhập tài khoản trong phần Cài đặt để đồng bộ tiến độ giữa điện thoại và máy tính.
 3. Trong Cài đặt, bật **Nhắc học hằng ngày** và chọn giờ nhắc. Thêm lịch nhắc vào điện thoại nếu muốn chắc chắn hơn.
 4. Mỗi ngày, mở [trang Hôm nay](/#/home) để xem số thẻ cần ôn, rồi vào [phiên ôn flashcard](/#/review) để ôn hết thẻ đến hạn.
 
-![Ôn flashcard trên điện thoại](media:m-review "Giao diện điện thoại của Lexkite: ôn flashcard")
+![Ôn flashcard trên điện thoại với Lexkite: thẻ từ cùng nút lật thẻ ở cuối màn hình](media:m-review "Ôn vài thẻ khi chờ xe là cách tận dụng thời gian rảnh")
 
 {{cta: /#/home | Mở Lexkite trên điện thoại và ôn thẻ hôm nay}}
 

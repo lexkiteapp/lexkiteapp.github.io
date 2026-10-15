@@ -8,7 +8,7 @@ category: tu-vung
 tags: [collocation, ielts, writing]
 keyword: "collocation ielts"
 cover: dict
-coverAlt: "Từ điển Anh–Việt Lexkite tra từ resilient với phiên âm, ví dụ và collocation"
+coverAlt: "Từ điển “English – Vietnamese dictionary” của Lexkite khi tra “resilient”: phiên âm UK/US, nghĩa và ví dụ"
 publishAt: 2026-10-19T13:35:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -55,6 +55,8 @@ Khi học một từ mới, hãy tự hỏi: từ này thường đi với độ
 ## 40+ collocation học thuật theo chủ đề
 
 Danh sách dưới đây được chọn vì hay dùng trong Writing Task 2 và Speaking Part 3. Mỗi nhóm có một câu ví dụ tự đặt.
+
+![Phòng viết IELTS Task 2 của Lexkite: chọn đề theo chủ đề, gợi ý ý tưởng, từ vựng và khung bài](media:write "Phòng viết gợi ý ý tưởng và từ vựng để dùng collocation theo chủ đề")
 
 **Xã hội và chính sách**
 1. *take measures* – áp dụng biện pháp
@@ -156,11 +158,9 @@ Câu 5 là lỗi rất phổ biến trong Task 1. Hãy nhớ cặp *raise prices
 
 1. Tra từ trong [Từ điển Anh–Việt](/#/dict/resilient). Mỗi mục có phiên âm UK/US, nghĩa, câu ví dụ, collocation và từ đồng nghĩa, kèm nút lưu thành flashcard.
 
-![Từ điển Lexkite tra từ resilient với phiên âm UK/US, nghĩa có khả năng phục hồi, ví dụ và collocation](media:dict "Từ điển: mỗi từ đều có mục collocation và nút lưu flashcard")
-
 2. Ghi cụm hay vào [Sổ cụm từ và cấu trúc](/#/phrases). Bạn có thể gắn nhãn theo Task hoặc band để khi luyện viết lấy ra nhanh.
 
-![Sổ cụm từ và cấu trúc của Lexkite với bài mẫu chỉ rõ cấu trúc và nhãn Task, band](media:phrases "Sổ cụm từ: lưu collocation, gắn nhãn Task và band")
+![Sổ cụm từ và cấu trúc trong Lexkite, nơi lưu cụm/câu hay kèm nhãn theo bài thi](media:phrases "Lưu collocation hay vào mục cụm từ rồi đối chiếu với bài mẫu")
 
 3. Trong thư viện còn có bộ "Collocation band 7+" để bạn học thêm theo flashcard. Để thấy collocation được dùng trong cả bài hoàn chỉnh, đọc các [bài mẫu Task 2 band 8 có chú thích](/samples/).
 

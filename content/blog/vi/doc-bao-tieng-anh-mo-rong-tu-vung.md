@@ -8,7 +8,7 @@ category: phuong-phap
 tags: [doc-hieu, tu-vung]
 keyword: "đọc báo tiếng anh"
 cover: read-article
-coverAlt: "Bài đọc The Growing Problem of Space Debris trong Lexkite với từ khóa tô màu và câu hỏi True/False/Not Given"
+coverAlt: "Bài đọc IELTS trong Lexkite: tô màu từ khóa, tra từ ngay trên bài và làm câu hỏi"
 publishAt: 2026-11-13T20:04:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -68,6 +68,8 @@ Câu gốc giữ lại collocation và ngữ cảnh, giúp bạn nhớ cách dù
 
 Trước khi mở từ điển, hãy đoán nghĩa dựa vào câu xung quanh, từ loại và tiền tố, hậu tố. Ví dụ "unsustainable": "un-" là không, "sustain" là duy trì, "-able" là có thể, nên nghĩa là "không thể duy trì được". Đoán xong mới tra để kiểm tra. Thói quen này giúp ích trực tiếp cho phần Reading trong phòng thi, nơi bạn không có từ điển.
 
+![Từ điển “English – Vietnamese dictionary” của Lexkite khi tra “resilient”: phiên âm UK/US, nghĩa và ví dụ](media:dict "Đoán nghĩa theo ngữ cảnh trước, rồi mới tra từ để kiểm tra lại")
+
 ## Quy trình đọc báo mỗi tuần
 
 Một lịch gợi ý cho người có khoảng 20 phút mỗi ngày:
@@ -87,15 +89,13 @@ Sau mỗi bài, hãy thử tóm tắt nội dung trong hai câu tiếng Anh. Bư
 
 Khu [Bài đọc IELTS](/#/reading) của Lexkite có các bài sắp theo cấp độ từ A2 đến C1, với các chủ đề như nông nghiệp đô thị, tuần làm việc bốn ngày hay vi nhựa trong đại dương. Bạn chạm vào từ bất kỳ để tra nghĩa ngay, không phải chuyển sang ứng dụng khác.
 
-![Danh sách bài đọc theo cấp độ](media:reading "Bài đọc IELTS trong Lexkite theo cấp A2–C1: The Rise of Urban Farming, The Four-Day Working Week, Microplastics in the Ocean, chạm từ để tra")
+![Kho bài đọc IELTS chia theo cấp độ; chạm vào từ trong bài để tra nghĩa](media:reading "Chọn bài đọc theo cấp độ phù hợp để mở rộng vốn từ qua báo")
 
 1. Mở [Bài đọc](/#/reading), chọn bài ở cấp độ thấp hơn trình độ của bạn một chút để đọc mở rộng, hoặc đúng cấp để đọc kỹ.
 2. Đọc một lượt không tra. Sau đó xem danh sách từ khóa được tô màu trong bài.
 3. Chạm vào 3–5 từ bạn đã chọn theo ba câu hỏi lọc ở trên, rồi lưu chúng thành flashcard.
 4. Làm phần câu hỏi True/False/Not Given ở cuối bài để kiểm tra mức hiểu.
 5. Những ngày sau, ôn các từ đã lưu trong [phiên ôn flashcard](/#/review).
-
-![Bài đọc về rác vũ trụ có từ khóa tô màu](media:read-article "Bài đọc 'The Growing Problem of Space Debris': từ khóa tô màu, chạm để tra và lưu, danh sách từ khóa, câu hỏi True/False/Not Given")
 
 {{cta: /#/reading | Chọn một bài đọc vừa sức và lưu 3 từ đầu tiên}}
 

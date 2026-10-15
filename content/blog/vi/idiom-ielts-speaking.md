@@ -8,7 +8,7 @@ category: ielts
 tags: [idiom, speaking]
 keyword: "idiom ielts speaking"
 cover: speaking
-coverAlt: "Phòng luyện Speaking Lexkite với Part 1, 2, 3 theo chủ đề và câu trả lời mẫu"
+coverAlt: "Phòng luyện Speaking của Lexkite với Part 1, 2, 3 theo chủ đề, câu hỏi mẫu và câu trả lời band 7.5–8"
 publishAt: 2026-10-20T08:56:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -86,6 +86,8 @@ Hai cụm (*once in a blue moon*, *on the go*) nhưng mỗi cụm đều phục 
 
 Học thuộc nghĩa chưa đủ để dùng được trong phòng thi. Hãy đưa mỗi idiom qua bốn bước:
 
+![Luyện phát âm có chấm điểm trong Lexkite, dùng micro để nói cụm “cut down on”](media:practice-speak "Nói thử idiom thành câu hoàn chỉnh vào micro để biến nó thành của mình")
+
 1. **Nghe nó trong ngữ cảnh thật.** Tìm một đoạn hội thoại, podcast hoặc câu trả lời mẫu (ví dụ trong [40 chủ đề Speaking có bài mẫu](/speaking/)) có idiom đó, để biết người ta dùng trong tình huống nào và với giọng điệu ra sao.
 2. **Viết hai câu về chính bạn.** Ví dụ với *go the extra mile*: *My manager always goes the extra mile for new staff.* và *I went the extra mile to prepare for my sister's wedding.*
 3. **Nói to đến khi trơn tru.** Idiom thường được nói liền một hơi, trọng âm rơi vào từ mang nghĩa chính (*go the EXtra MILE*). Ghi âm và nghe lại.
@@ -97,11 +99,9 @@ Mỗi tuần chỉ cần hai, ba idiom đi hết bốn bước là đủ. Mườ
 
 1. Mở [Phòng luyện Speaking](/#/speaking) và chọn một chủ đề Part 1, 2 hoặc 3. Đọc câu hỏi mẫu, sau đó xem câu trả lời mẫu band 7.5–8 và mục từ vựng nên dùng để thấy cách cụm từ tự nhiên được đặt vào ngữ cảnh.
 
-![Phòng luyện Speaking Lexkite với Part 1, 2, 3 theo chủ đề, câu hỏi và câu trả lời mẫu band 7.5–8](media:speaking "Phòng luyện Speaking: câu trả lời mẫu và từ vựng nên dùng theo chủ đề")
-
 2. Chọn 5–7 idiom hợp với bạn nhất và lưu vào [Sổ cụm từ](/#/phrases), gắn nhãn chủ đề. Ghi kèm một câu bạn thật sự sẽ nói về cuộc sống của mình.
 
-![Sổ cụm từ và cấu trúc Lexkite cho phép thêm cụm, xem bài mẫu và gắn nhãn Task, band](media:phrases "Sổ cụm từ: lưu idiom kèm câu tự đặt và nhãn chủ đề")
+![Màn hình “Phrases & structures” cho phép lưu cụm từ và đối chiếu với bài mẫu](media:phrases "Lưu idiom và đối chiếu với câu trả lời mẫu Speaking")
 
 3. Trong Thư viện còn có bộ "Thành ngữ cho Speaking" để ôn bằng flashcard. Sau khi ôn, tự ghi âm một câu trả lời và nghe lại xem idiom có trôi chảy không.
 

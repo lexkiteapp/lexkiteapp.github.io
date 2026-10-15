@@ -8,7 +8,7 @@ category: ielts
 tags: [speaking, part-1]
 keyword: "ielts speaking part 1"
 cover: speaking
-coverAlt: "Phòng luyện Speaking của Lexkite với câu hỏi Part 1 theo chủ đề"
+coverAlt: "Mục luyện nói IELTS của Lexkite chia theo ba Part và theo chủ đề"
 publishAt: 2026-11-01T18:21:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -60,6 +60,8 @@ Câu trả lời tốt không dùng từ khó nào, nhưng có lý do, có thói
 
 Bạn không cần dùng cả năm cách cho mọi câu. Chỉ một cách là đủ để câu trả lời không bị cụt.
 
+![Bảng âm IPA của Lexkite với nguyên âm, phụ âm và luyện từng âm](media:pron "Chọn một âm IPA khó để nói rõ hơn khi mở rộng câu trả lời Part 1")
+
 ## Chủ đề thường gặp và câu trả lời mẫu
 
 ### Công việc hoặc học tập
@@ -99,8 +101,6 @@ Bạn không cần dùng cả năm cách cho mọi câu. Chỉ một cách là �
 
 ## Làm ngay trong Lexkite: luyện Part 1 có phản hồi
 
-![Phòng luyện Speaking với Part 1/2/3 theo chủ đề, câu hỏi mẫu và câu trả lời mẫu band 7.5–8](media:speaking "Chọn Part 1 theo chủ đề, xem câu hỏi mẫu, câu trả lời mẫu và từ vựng nên dùng")
-
 [Phòng luyện Speaking](/#/speaking) có sẵn câu hỏi Part 1 theo chủ đề. Một buổi 15 phút có thể như sau:
 
 1. Chọn một chủ đề, đọc câu hỏi, **tự nói câu trả lời trước** theo công thức Trả lời – Lý do – Chi tiết. Ghi âm lại.
@@ -110,7 +110,7 @@ Bạn không cần dùng cả năm cách cho mọi câu. Chỉ một cách là �
 
 Phát âm rõ là điều kiện để giám khảo hiểu bạn ngay. Nếu bạn thấy mình hay vấp ở một cụm từ cụ thể, hãy luyện riêng cụm đó.
 
-![Màn hình luyện phát âm có chấm điểm với cụm cut down on và nút micro](media:practice-speak "Luyện phát âm có chấm điểm: bấm micro, đọc cụm từ, xem điểm theo giọng nói")
+![Màn hình luyện phát âm của Lexkite với cụm “cut down on”, nút micro và chấm điểm theo giọng nói](media:practice-speak "Nói thử câu trả lời Part 1 vào micro và xem phản hồi ngay")
 
 Trong [Luyện phát âm](/#/practice/speak), bạn đọc từng cụm từ vào micro và được chấm theo giọng nói. Dùng nó cho những cụm bạn định dùng trong Part 1 – ví dụ *"cut down on"*, *"get used to"* – để chúng ra miệng tự nhiên khi thi. Khi Part 1 đã ổn, hãy chuyển sang [IELTS Speaking Part 2](/vi/blog/ielts-speaking-part-2-cue-card/), phần đòi hỏi nói dài và có cấu trúc.
 

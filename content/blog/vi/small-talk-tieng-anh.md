@@ -8,7 +8,7 @@ category: ky-nang
 tags: [giao-tiep, small-talk]
 keyword: "small talk tiếng anh"
 cover: phrases
-coverAlt: "Sổ cụm từ và cấu trúc của Lexkite để lưu câu hay và gắn nhãn"
+coverAlt: "Sổ cụm từ và cấu trúc trong Lexkite, nơi lưu cụm/câu hay kèm nhãn theo bài thi"
 publishAt: 2026-11-04T06:25:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -169,11 +169,11 @@ Small talk dựa rất nhiều vào cụm câu sẵn có. Hãy lưu những câu
 
 Nhiều câu hỏi IELTS Speaking Part 1 như về nơi ở, sở thích, cuối tuần chính là chủ đề small talk. Luyện trả lời theo công thức "Trả lời + Thêm" trong [phòng luyện Speaking](/#/speaking), và xem thêm bài [IELTS Speaking Part 1](/vi/blog/ielts-speaking-part-1/).
 
-![Phòng luyện Speaking với câu hỏi Part 1, 2, 3 theo chủ đề và câu trả lời mẫu](media:speaking "Phòng luyện Speaking: chủ đề Part 1 rất gần với small talk hằng ngày")
+![Phòng luyện Speaking của Lexkite với Part 1, 2, 3 theo chủ đề, câu hỏi mẫu và câu trả lời band 7.5–8](media:speaking "Xem câu hỏi mẫu về chủ đề quen thuộc để có sẵn ý cho small talk")
 
 Các câu ngắn như *Nice chatting with you* cần nói tự nhiên, đúng nhịp. Luyện chúng với [Luyện phát âm có chấm điểm](/#/practice/speak).
 
-![Màn hình luyện phát âm có chấm điểm với nút micro để nói cụm từ](media:practice-speak "Luyện phát âm: tập nói các câu small talk ngắn cho tự nhiên")
+![Luyện phát âm có chấm điểm trong Lexkite, dùng micro để nói cụm “cut down on”](media:practice-speak "Nói thử câu mở chuyện vào micro cho tự tin hơn khi giao tiếp")
 
 Muốn nói lâu hơn mà không ngập ngừng, đọc tiếp bài [cách luyện nói tiếng Anh trôi chảy](/vi/blog/cach-luyen-noi-tieng-anh-troi-chay/).
 

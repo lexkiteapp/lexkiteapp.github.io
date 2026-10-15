@@ -8,7 +8,7 @@ category: ngu-phap
 tags: [cau-hoi, giao-tiep]
 keyword: "cách đặt câu hỏi trong tiếng anh"
 cover: grammar
-coverAlt: "Trang Ngữ pháp IELTS của Lexkite với lộ trình chương, 12 thì và các bài luyện theo cấp A1–B2"
+coverAlt: "Mục ngữ pháp IELTS trong Lexkite: danh sách thì, cấp độ và bài luyện tổng hợp"
 publishAt: 2026-11-14T06:22:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -142,7 +142,7 @@ Câu hỏi đuôi dùng để xác nhận điều mình nghĩ là đúng, hoặc
 
 **Ngữ điệu quyết định nghĩa.** Xuống giọng ở đuôi: bạn gần như chắc chắn, chỉ muốn người kia xác nhận. Lên giọng: bạn thật sự không chắc và đang hỏi. Về ngữ điệu nói chung, xem bài [ngữ điệu tiếng Anh](/vi/blog/ngu-dieu-tieng-anh/); phần lý thuyết đầy đủ về câu hỏi đuôi và câu trả lời ngắn có ở bài ngữ pháp [question tags và short answers](/ngu-phap/question-tags-short-answers).
 
-![Phòng luyện Speaking trong Lexkite với câu hỏi mẫu Part 1, 2, 3 theo chủ đề và câu trả lời mẫu band 7.5–8](media:speaking "Đọc câu hỏi mẫu của giám khảo để quen các dạng câu hỏi Wh- và Yes/No trong ngữ cảnh thật")
+![Màn hình Speaking trong Lexkite: chọn Part, xem câu hỏi mẫu, câu trả lời mẫu và từ vựng nên dùng](media:speaking "Xem câu hỏi mẫu Speaking để học cách đặt câu hỏi tự nhiên")
 
 ## Sơ đồ tự kiểm tra trước khi hỏi
 
@@ -190,7 +190,7 @@ Sửa lỗi hoặc hoàn thành câu.
 
 Đọc bài ngữ pháp tĩnh về [các loại câu hỏi](/ngu-phap/questions), sau đó làm bài trong [lộ trình ngữ pháp](/#/grammar) để kiểm tra phản xạ chia trợ động từ theo thì. Để luyện nói, mở [phòng luyện Speaking](/#/speaking), đọc to câu hỏi mẫu của giám khảo, rồi tự đặt thêm ba câu hỏi cùng chủ đề. Muốn luyện ngữ điệu, dùng chế độ [luyện phát âm có chấm điểm](/#/practice/speak) với những câu hỏi ngắn bạn vừa đặt.
 
-![Màn hình luyện phát âm có chấm điểm trong Lexkite với nút micro để nói và chấm theo giọng nói](media:practice-speak "Đọc to câu hỏi vừa tự đặt và để hệ thống chấm theo giọng nói")
+![Luyện phát âm có chấm điểm trong Lexkite, dùng micro để nói cụm “cut down on”](media:practice-speak "Tập đọc to các mẫu câu hỏi và xem điểm phát âm ngay")
 
 Nếu bạn đang học lại từ đầu, câu hỏi Yes/No và Wh- là một trong những điểm đầu tiên cần vững, như trong lộ trình ở bài [học tiếng Anh mất gốc](/vi/blog/hoc-tieng-anh-mat-goc/).
 

@@ -8,7 +8,7 @@ category: phuong-phap
 tags: [spaced-repetition, ghi-nho]
 keyword: "lặp lại ngắt quãng"
 cover: method
-coverAlt: "Trang Phương pháp học của Lexkite mô tả vòng lặp ôn tập mỗi ngày"
+coverAlt: "Trang “The Lexkite method”: vòng lặp học khoảng 30 phút mỗi ngày từ ôn thẻ, học từ mới, luyện, đọc/nghe đến nói"
 publishAt: 2026-10-17T07:55:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -65,6 +65,8 @@ Phương pháp tốt đến đâu cũng không cứu được một thẻ kém. 
 
 Mỗi thẻ chỉ nên kiểm tra **một** thông tin. Thẻ ghi năm nghĩa của một từ sẽ khiến bạn lúc nhớ lúc quên và khó chấm điểm chính xác.
 
+![Trang chủ Lexkite bản tiếng Anh, mục “Today” gom thẻ cần ôn, nhiệm vụ và kế hoạch hôm nay](media:home "Mỗi ngày mở “Today” trước, rồi làm theo kế hoạch hiển thị")
+
 ## Kết hợp lặp lại ngắt quãng với các kỹ thuật khác
 
 Lặp lại ngắt quãng mạnh nhất khi đi cùng vài thói quen học khác:
@@ -82,12 +84,10 @@ Lexkite xây cả vòng học hằng ngày quanh lặp lại ngắt quãng, nên
 
 1. Mở trang [Phương pháp học](/#/method) để xem vòng lặp mỗi ngày khoảng 30 phút: ôn thẻ đến hạn trước, sau đó học từ mới, luyện tập, đọc hoặc nghe, rồi nói. Trang này cũng minh họa đường cong quên lãng.
 
-![Trang Phương pháp học của Lexkite với vòng lặp mỗi ngày và đường cong quên lãng](media:method "Vòng lặp mỗi ngày: ôn thẻ đến hạn trước, học từ mới sau")
-
 2. Vào [Ôn tập](/#/review) mỗi ngày. App chỉ hiện những thẻ đã đến hạn, nên hôm ít thẻ bạn xong trong vài phút.
 3. Trước khi lật, tự nói nghĩa hoặc đặt nhanh một câu. Sau đó chấm mức nhớ để app tính lần ôn tiếp theo.
 
-![Phiên ôn flashcard với thẻ pollution có phiên âm và nút Lật thẻ](media:review "Tự nhớ trước rồi mới lật thẻ để tận dụng hiệu ứng kiểm tra")
+![Thẻ flashcard của từ “pollution” kèm hình minh họa, phiên âm và nút “Flip” để lật thẻ](media:review "Sau khi bấm “Flip”, chấm mức độ nhớ để thẻ quay lại đúng hạn")
 
 {{cta: /#/review | Ôn các thẻ đến hạn hôm nay}}
 

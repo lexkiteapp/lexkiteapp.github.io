@@ -8,7 +8,7 @@ category: phuong-phap
 tags: [active-recall, ghi-nho]
 keyword: "active recall"
 cover: practice-test
-coverAlt: "Bài kiểm tra trắc nghiệm trong Lexkite yêu cầu chọn nghĩa đúng của cụm run out of"
+coverAlt: "Câu trắc nghiệm trong Lexkite: chọn nghĩa đúng của “run out of” trong 4 phương án"
 publishAt: 2026-11-11T14:44:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -98,18 +98,18 @@ Kỹ thuật này đặc biệt hữu ích trước khi luyện Speaking hoặc 
 
 Giải thích một từ hoặc một quy tắc ngữ pháp cho bạn học, hoặc thậm chí cho chính mình trước gương, cũng là active recall. Khi phải diễn đạt bằng lời của mình, bạn sẽ nhận ra ngay chỗ mình còn mơ hồ. Nếu không giải thích được vì sao dùng "has" mà không phải "have" trong một câu, có nghĩa là bạn đang dựa vào cảm giác chứ chưa thật sự hiểu.
 
+![Màn hình “Grammar” của Lexkite với lộ trình chương, 12 thì và các cấp độ từ A1 đến B2](media:grammar "Làm bài ngữ pháp rồi giải thích lại bằng lời của mình để kiểm tra mức hiểu")
+
 ## Làm ngay trong Lexkite
 
 Lexkite xây dựng việc ôn từ vựng xoay quanh active recall.
-
-![Bài kiểm tra trắc nghiệm chọn nghĩa đúng](media:practice-test "Bài kiểm tra trong Lexkite: chọn nghĩa đúng của 'run out of' trong 4 phương án")
 
 1. Mở [phiên ôn flashcard](/#/review). Mỗi thẻ hiện từ, phiên âm và hình minh họa. Hãy tự nói nghĩa **trước khi** bấm Lật thẻ.
 2. Chấm điểm trung thực sau khi lật. Hệ thống lập lịch FSRS dùng đánh giá của bạn để quyết định khi nào thẻ quay lại, nhắm đúng lúc bạn sắp quên.
 3. Dùng [Bài kiểm tra trắc nghiệm](/#/practice/test) để luyện mức 2, đặc biệt với những từ dễ nhầm.
 4. Khi đã quen, thử các bài như Điền từ trong mục Luyện tập để lên mức sản sinh.
 
-![Phiên ôn flashcard trong Lexkite](media:review "Phiên ôn flashcard: thẻ 'pollution' có emoji minh họa, phiên âm, nút Lật thẻ và thanh tiến độ")
+![Phiên ôn flashcard trong Lexkite với thẻ từ “pollution”, phiên âm và nút “Flip”](media:review "Đoán nghĩa trong đầu trước khi bấm “Flip” chính là active recall")
 
 Muốn hiểu thêm về cách thuật toán xếp lịch ôn, hãy đọc bài [FSRS là gì](/vi/blog/fsrs-la-gi/).
 

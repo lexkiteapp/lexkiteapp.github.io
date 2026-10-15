@@ -8,7 +8,7 @@ category: ky-nang
 tags: [writing, doan-van]
 keyword: "cách viết đoạn văn tiếng anh"
 cover: write
-coverAlt: "Phòng viết IELTS Task 2 của Lexkite với đề theo chủ đề, gợi ý ý tưởng và khung viết bài"
+coverAlt: "Phòng viết IELTS Task 2 của Lexkite: chọn đề theo chủ đề, gợi ý ý tưởng, từ vựng và khung bài"
 publishAt: 2026-11-06T07:03:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -74,7 +74,7 @@ Hãy để ý: câu thứ hai trả lời "vì sao", câu thứ ba trả lời "
 
 PEEL là **giàn giáo**: dùng khi chưa quen, bỏ dần khi đã tự nhiên. Người viết giỏi có thể gộp Explain và Example trong một câu, nhưng luôn giữ nguyên tắc "một đoạn – một ý – có chứng minh".
 
-![Màn hình Writing Task 1 Academic trong Lexkite với cấu trúc bốn đoạn và bài mẫu band 8](media:task1 "Bài Task 1 cũng là chuỗi đoạn văn: mỗi đoạn thân gom một nhóm số liệu, có câu mở đầu nói rõ nhóm đó")
+![Màn hình Task 1 trong Lexkite với từ vựng mô tả xu hướng và bài mẫu band 8](media:task1 "Xem cấu trúc bài mẫu để thấy mỗi đoạn mở ý và chốt ý ở đâu")
 
 ## Liên kết ý: mạch đoạn văn không chỉ là từ nối
 
@@ -101,6 +101,8 @@ Không có độ dài "đúng" cho câu tiếng Anh, nhưng có hai cực cần 
 - **Câu dài nối bằng dấu phẩy** – lỗi rất "Việt": tiếng Việt cho phép nối nhiều vế bằng dấu phẩy, tiếng Anh thì không. *Many people use cars, this causes pollution, the government should act.* là lỗi comma splice.
 
 Cách sửa là kết hợp câu đơn với câu phức có chủ đích: một câu dài chứa mệnh đề quan hệ hoặc mệnh đề phụ để giải thích, xen một câu ngắn để nhấn ý. Ví dụ: *Because most commuters still rely on private cars, traffic in the city centre rarely moves smoothly at rush hour. The cost is not only time.* Câu ngắn thứ hai tạo nhịp và dẫn sang ý mới về chi phí.
+
+![Màn hình “Grammar” của Lexkite với lộ trình chương, 12 thì và các cấp độ từ A1 đến B2](media:grammar "Ôn ngữ pháp theo chương để câu trong đoạn có độ dài và nhịp hợp lý")
 
 Chưa vững câu phức? Đọc bài [ngữ pháp câu phức cho IELTS](/vi/blog/ngu-phap-ielts-cau-phuc/) và bài [câu đơn, ghép, phức](/ngu-phap/sentence-types).
 
@@ -163,7 +165,7 @@ Khung "một đoạn – một ý" giữ nguyên ở mọi thể loại, chỉ �
 
 Cách nhanh nhất để thấm khung đoạn văn là đọc kỹ đoạn văn tốt rồi tự viết lại. Bạn có thể mở [60 bài mẫu Task 2 band 8 có chú thích](/samples/), chọn một đoạn thân và gạch chân câu chủ đề, câu giải thích, câu ví dụ.
 
-![Sổ cụm từ và cấu trúc trong Lexkite với bài mẫu có đánh dấu cấu trúc và nhãn Task, band](media:phrases "Lưu những câu chủ đề và cấu trúc nối ý hay vào sổ để dùng lại khi viết")
+![Màn hình “Phrases & structures” cho phép lưu cụm từ và đối chiếu với bài mẫu](media:phrases "Lưu câu chủ đề và câu nối hay để đưa vào đoạn văn của mình")
 
 Khi gặp câu chủ đề hoặc cách nối ý hay, hãy chép vào [sổ cụm từ và cấu trúc](/#/phrases) kèm nhãn Task để tra lại. Sau đó vào [Phòng viết](/#/write), chọn một đề theo chủ đề quen thuộc và viết đúng **một** đoạn thân theo PEEL, rồi so với khung viết bài và bài mẫu có chú thích.
 

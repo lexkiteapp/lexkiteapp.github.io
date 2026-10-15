@@ -8,7 +8,7 @@ category: toeic
 tags: [toeic, tu-vung]
 keyword: "từ vựng toeic theo chủ đề"
 cover: toeic
-coverAlt: "Trang luyện thi TOEIC Listening và Reading trong Lexkite với thi thử, luyện theo Part và từ vựng TSL"
+coverAlt: "Trang luyện thi TOEIC của Lexkite: thi thử 7 đề chấm tự động quy đổi 10–990, luyện theo Part và từ vựng"
 publishAt: 2026-10-25T14:06:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -89,8 +89,6 @@ Câu mẫu: *The printer is still under warranty, so the store offered to replac
 
 Câu mẫu: *The east wing of the facility will be closed next week for renovation, and all deliveries should go to the main entrance.*
 
-![Trang luyện thi TOEIC trong Lexkite với thi thử 7 đề, luyện theo Part và từ vựng TOEIC TSL](media:toeic "Luyện thi TOEIC: thi thử chấm tự động quy đổi 10–990, luyện theo Part và từ vựng TSL")
-
 ## Học từ vựng gắn với từng Part
 
 Mỗi Part đòi hỏi bạn dùng từ theo một cách khác, nên cách học cũng nên khác:
@@ -114,6 +112,8 @@ Muốn hiểu rõ cấu trúc và cách phân bổ thời gian, xem bài [cấu 
 
 Mẹo: mỗi khi sai một câu Part 5, đừng chỉ ghi đáp án đúng. Ghi cả cụm chứa nó, vì đề sau rất có thể hỏi lại đúng collocation đó trong câu khác. Cách nhận diện nhanh bốn nhóm câu hỏi có trong bài [mẹo làm Part 5 trong 20 giây mỗi câu](/vi/blog/toeic-part-5-meo-lam-bai/).
 
+![Mục từ “resilient” trong từ điển Anh–Việt của Lexkite với phiên âm, nút nghe, collocation và từ đồng nghĩa](media:dict "Tra từ dễ nhầm trong TOEIC để xem nghĩa, ví dụ và đồng nghĩa")
+
 ### Một tuần học theo chủ đề mẫu
 
 Để biến danh sách trên thành thói quen, thử chia mỗi tuần cho một chủ đề:
@@ -136,7 +136,7 @@ TSL (TOEIC Service List) là danh sách khoảng 1.250 từ do Browne và Cullig
 4. Khi đã quen, làm một đề thi thử. Lexkite chấm tự động và quy đổi sang thang 10–990, giúp bạn biết vốn từ đã đủ cho mục tiêu chưa.
 5. Câu nào sai vì không biết từ, thêm từ đó vào sổ từ để nó quay lại trong các lượt ôn sau.
 
-![Thư viện từ vựng Lexkite với tab TOEIC (TSL) bên cạnh NGSL và IELTS](media:library "Thư viện: tab TOEIC (TSL) chứa danh sách từ dành cho bối cảnh TOEIC")
+![“Vocabulary library” trong Lexkite: các tab nguồn từ và những bộ từ cốt lõi có nhãn cấp độ](media:library "Chia từ thành bộ nhỏ giúp mỗi buổi học có mục tiêu rõ ràng")
 
 {{cta: /#/toeic | Luyện một Part TOEIC và ghi lại từ bạn chưa biết}}
 

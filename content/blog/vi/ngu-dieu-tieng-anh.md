@@ -8,7 +8,7 @@ category: phat-am
 tags: [ngu-dieu, speaking]
 keyword: "ngữ điệu tiếng anh"
 cover: pron
-coverAlt: "Thư viện phát âm IPA của Lexkite gồm nguyên âm đơn, nguyên âm đôi, phụ âm và chấm điểm"
+coverAlt: "Thư viện phát âm IPA của Lexkite chia nguyên âm đơn, nguyên âm đôi và phụ âm, kèm từ ví dụ"
 publishAt: 2026-10-26T06:58:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -147,11 +147,11 @@ Chọn ngữ điệu phù hợp (↘, ↗ hay ↘↗) cho phần in nghiêng, ho
 
 Cách tốt nhất để luyện ngữ điệu là nói với những câu hỏi thật. Phòng [luyện Speaking](/#/speaking) của Lexkite có câu hỏi Part 1, 2, 3 theo chủ đề và câu trả lời mẫu band 7.5–8. Hãy đánh dấu nhóm ý và âm nhấn lên một câu trả lời mẫu, đọc to vài lần, rồi trả lời câu hỏi bằng ý của chính bạn.
 
-![Phòng luyện Speaking trong Lexkite với Part 1, 2, 3 theo chủ đề, câu hỏi mẫu và câu trả lời mẫu band 7.5 đến 8](media:speaking "Phòng Speaking: đánh dấu ngữ điệu trên câu trả lời mẫu rồi nói theo")
+![Màn hình Speaking trong Lexkite: chọn Part, xem câu hỏi mẫu, câu trả lời mẫu và từ vựng nên dùng](media:speaking "Xem câu hỏi mẫu Speaking để tập lên xuống giọng khi nói")
 
 Với từng cụm ngắn, dùng [Luyện phát âm có chấm điểm](/#/practice/speak) để kiểm tra độ rõ; còn [thư viện phát âm IPA](/#/pron) giúp bạn củng cố các âm riêng lẻ trước khi ghép thành câu.
 
-![Luyện phát âm có chấm điểm trong Lexkite: cụm cut down on, nút micro và điểm theo giọng nói](media:practice-speak "Luyện phát âm: nói cụm ngắn và nhận điểm")
+![Luyện phát âm có chấm điểm trong Lexkite, dùng micro để nói cụm “cut down on”](media:practice-speak "Nói lại câu mẫu vào micro để so ngữ điệu với giọng chuẩn")
 
 {{cta: /#/speaking | Luyện ngữ điệu với câu hỏi Speaking thật}}
 

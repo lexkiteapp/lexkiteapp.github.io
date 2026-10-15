@@ -8,7 +8,7 @@ category: ky-nang
 tags: [nghe, listening]
 keyword: "cách luyện nghe tiếng anh"
 cover: listening
-coverAlt: "Trang luyện nghe IELTS của Lexkite với 10 đề, giọng Anh–Mỹ–Úc và tốc độ chỉnh được"
+coverAlt: "Trang “IELTS Listening” của Lexkite với 10 đề, giọng Anh–Mỹ–Úc, tốc độ chỉnh được và chế độ chép chính tả"
 publishAt: 2026-10-29T17:21:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -75,6 +75,8 @@ Gợi ý theo trình độ:
 - **B2–C1**: phỏng vấn, bài giảng, podcast tốc độ tự nhiên, phim không phụ đề, bài nghe IELTS phần 3–4.
 
 Muốn khai thác phim và podcast đúng cách, đọc thêm [học tiếng Anh qua phim](/vi/blog/hoc-tieng-anh-qua-phim/) và [học tiếng Anh qua podcast](/vi/blog/hoc-tieng-anh-qua-podcast/).
+
+![Bài nói thử cụm “cut down on”: bấm micro, đọc to và xem điểm phát âm](media:practice-speak "Đọc to đoạn vừa nghe vào micro để thấy khác biệt với bản gốc")
 
 ## Quy trình 5 lượt nghe: cách luyện nghe tiếng Anh từng bước
 
@@ -148,11 +150,11 @@ Nếu bạn luyện thi, ngày thứ Sáu nên làm theo đúng định dạng b
 
 Trong Lexkite, [phần luyện nghe IELTS](/#/listening) có các nút Nghe lần đầu, Luyện tập và Chép chính tả, khá sát với lượt 1, 2 và 3 của quy trình trên; tốc độ chỉnh được nên bạn có thể bắt đầu chậm.
 
-![Danh sách trò chơi và bài tập của Lexkite gồm Nghe & chép, Luyện phát âm, Trắc nghiệm](media:practice "Trò chơi & bài tập: Nghe & chép giúp luyện tai với từ trong sổ của bạn")
+![Trang luyện tập của Lexkite gồm nhiều dạng bài từ vựng và lựa chọn nguồn từ](media:practice "Chọn nguồn từ trước, rồi chọn dạng bài phù hợp với mục tiêu hôm nay")
 
 Những từ "biết mặt chữ, không biết mặt âm" nên được luyện riêng bằng [bài Nghe & chép trong mục Luyện tập](/#/practice), chọn nguồn từ là sổ từ của bạn. Lỗi nghe nào lặp lại, hãy xem lại trong [Sổ lỗi sai](/#/mistakes), nơi lỗi được gom riêng theo nhóm Nghe.
 
-![Sổ lỗi sai gom lỗi theo Từ vựng, Ngữ pháp, Đọc hiểu và Nghe](media:mistakes "Sổ lỗi sai: ôn lại riêng các lỗi nghe")
+![Mục “Mistake log” của Lexkite gom lỗi sai theo từ vựng, ngữ pháp, đọc hiểu và nghe để ôn lại](media:mistakes "Ghi lại các câu nghe sai vào “Mistake log” để luyện lại sau")
 
 Muốn có thêm từ vựng theo chủ đề để nghe dễ hơn, tham khảo các [bộ từ vựng theo chủ đề](/tu-vung/).
 

@@ -8,7 +8,7 @@ category: tu-vung
 tags: [phrasal-verb, speaking]
 keyword: "phrasal verb thông dụng"
 cover: practice-learn
-coverAlt: "Thẻ Học thông minh của Lexkite giới thiệu phrasal verb come up with"
+coverAlt: "Màn hình học thông minh của Lexkite cho cụm “come up with” với nghĩa, ví dụ và lưu ý dùng đúng"
 publishAt: 2026-10-19T18:27:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -114,18 +114,18 @@ Không có nghĩa là cấm hoàn toàn. Những cụm như *carry out*, *rely o
 
 1. Mở [Học thông minh](/#/practice/learn). Mỗi cụm như *come up with* có nghĩa, định nghĩa tiếng Anh, câu ví dụ, mẹo nhớ, lỗi hay gặp và cách dùng trong IELTS.
 
-![Thẻ Học thông minh Lexkite giới thiệu cụm come up with với nghĩa, định nghĩa tiếng Anh, ví dụ và mẹo nhớ](media:practice-learn "Học thông minh: mỗi phrasal verb có ví dụ, mẹo nhớ và lỗi hay gặp")
-
 2. Trong Thư viện, chọn bộ "Phrasal verbs thông dụng" để thêm cả nhóm vào flashcard.
 3. Luyện nói với [Luyện phát âm có chấm điểm](/#/practice/speak). Phrasal verb thường có trọng âm rơi vào tiểu từ (*cut DOWN on*, *give UP*), nói đúng sẽ tự nhiên hơn nhiều. Nếu chưa quen ký hiệu trọng âm trong từ điển, hãy xem [hướng dẫn đọc phiên âm IPA](/vi/blog/cach-doc-phien-am-ipa/).
 
-![Màn hình Luyện phát âm Lexkite với cụm cut down on và nút micro để chấm điểm](media:practice-speak "Luyện phát âm: nói cụm cut down on và nhận điểm theo giọng nói")
+![Màn hình luyện phát âm của Lexkite với cụm “cut down on”, nút micro và chấm điểm theo giọng nói](media:practice-speak "Nói to phrasal verb “cut down on” vào micro rồi xem điểm")
 
 {{cta: /#/practice/learn | Học 10 phrasal verb đầu tiên với Học thông minh}}
 
 {{youtube: | Gợi ý video: Nghĩa của tiểu từ up, out, off qua 15 phrasal verb thông dụng}}
 
 Phrasal verb dùng nhiều nhất ở Speaking; xem thêm cách nói tự nhiên ở bài [idiom trong IELTS Speaking](/vi/blog/idiom-ielts-speaking/). Các [bài nói mẫu IELTS theo chủ đề](/speaking/) cũng là nguồn tốt để thấy phrasal verb được dùng trong ngữ cảnh.
+
+![Thư viện phát âm IPA của Lexkite chia nguyên âm đơn, nguyên âm đôi và phụ âm, kèm từ ví dụ](media:pron "Chọn âm IPA để luyện đọc đúng phrasal verb có âm nối")
 
 ## Câu hỏi thường gặp
 

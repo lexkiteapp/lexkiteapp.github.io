@@ -8,7 +8,7 @@ category: ngu-phap
 tags: [tu-de-nham, tu-vung]
 keyword: "các cặp từ dễ nhầm lẫn trong tiếng anh"
 cover: dict
-coverAlt: "Từ điển Anh–Việt Lexkite tra từ resilient với phiên âm UK/US, nghĩa và câu ví dụ"
+coverAlt: "Mục từ “resilient” trong từ điển Anh–Việt của Lexkite với phiên âm, nút nghe, collocation và từ đồng nghĩa"
 publishAt: 2026-10-20T09:53:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -23,6 +23,8 @@ Bài này gom hơn 30 cặp phổ biến nhất với người học Việt, m�
 Tiếng Anh vay mượn rất nhiều từ tiếng Latin và tiếng Pháp qua nhiều thời kỳ, nên có những "họ từ" mà các thành viên chỉ khác nhau một hậu tố nhưng đã tách nghĩa (*historic/historical*). Bên cạnh đó, nhiều cặp động từ cổ trong tiếng Anh vốn là một cặp "tự xảy ra" và "làm cho xảy ra" (*rise/raise*, *lie/lay*), và người học dễ trộn chúng vì nghĩa gần nhau.
 
 Với người Việt, còn một nguyên nhân nữa: ta thường học từ qua nghĩa tiếng Việt. "Mượn" dịch được cả *borrow* lẫn *lend*; "nói" dịch được *say, tell, speak, talk*. Khi hai từ tiếng Anh dùng chung một nghĩa tiếng Việt trong sổ tay, não không có lý do gì để phân biệt chúng. Giải pháp là học từ kèm **cấu trúc câu** và **ví dụ**, không chỉ kèm nghĩa. Với các từ chỉ cảm xúc, nhầm lẫn còn nằm ở mức độ mạnh yếu, xem [từ vựng tiếng Anh về cảm xúc](/vi/blog/tu-vung-tieng-anh-ve-cam-xuc/).
+
+![Sổ lỗi sai (“Mistake log”) trong Lexkite phân nhóm các câu từng làm sai](media:mistakes "Mỗi lần nhầm cặp từ, ghi vào “Mistake log” để khỏi nhầm lại")
 
 ## Nhóm 1: viết hoặc đọc gần giống nhau
 
@@ -112,11 +114,11 @@ Chọn từ đúng trong ngoặc.
 
 Cách nhanh nhất để thoát khỏi một cặp từ hay nhầm là tra cả hai từ, nghe phát âm và đọc câu ví dụ. Trong Lexkite, mỗi mục [từ điển Anh–Việt](/#/dict/affect) có phiên âm UK/US, nghĩa, ví dụ, collocation và nút lưu thành flashcard. Lưu cả hai từ của cặp, rồi ôn bằng trò [ghép thẻ](/#/practice/match) để buộc mắt phân biệt chúng trong vài giây.
 
-![Trò ghép thẻ tính giờ trong Lexkite: ghép từ tiếng Anh như privacy, perspective với nghĩa tiếng Việt](media:practice-match "Ghép thẻ có đồng hồ đếm giây – hợp để luyện các cặp dễ nhầm")
+![Màn hình ghép thẻ có đồng hồ đếm giây, nối từ tiếng Anh với nghĩa tiếng Việt tương ứng](media:practice-match "Ghép từ với nghĩa trong giới hạn thời gian để tách rõ hai từ gần nghĩa")
 
 Khi đã quen, chuyển sang [bài kiểm tra trắc nghiệm](/#/practice/test) với nguồn từ là sổ từ của bạn.
 
-![Bài kiểm tra trắc nghiệm của Lexkite hỏi nghĩa đúng của run out of trong bốn phương án](media:practice-test "Bài kiểm tra: chọn nghĩa đúng trong bốn phương án")
+![Màn hình trắc nghiệm từ vựng: một cụm từ, bốn nghĩa để chọn](media:practice-test "Trắc nghiệm bốn đáp án buộc bạn chọn đúng giữa hai từ dễ lẫn")
 
 {{cta: /#/practice/match | Ghép thẻ các cặp từ bạn hay nhầm}}
 

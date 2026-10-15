@@ -8,7 +8,7 @@ category: tu-vung
 tags: [awl, ielts, tu-vung-hoc-thuat]
 keyword: "academic word list"
 cover: library
-coverAlt: "Thư viện từ vựng Lexkite với các bộ từ chia theo nguồn và cấp độ"
+coverAlt: "“Vocabulary library” trong Lexkite: các tab nguồn từ và những bộ từ cốt lõi có nhãn cấp độ"
 publishAt: 2026-10-18T12:20:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -90,12 +90,10 @@ Lexkite có sẵn 10 bộ AWL Sublist 1 đến 10, mỗi từ kèm phiên âm, n
 
 1. Vào [Thư viện từ vựng](/#/library), tìm các bộ "AWL Sublist" và bắt đầu với Sublist 1. Nếu nền tảng còn yếu, học trước vài bộ Từ cốt lõi NGSL trong cùng thư viện. Danh sách đầy đủ từng sublist cũng có trên trang [từ vựng AWL và IELTS theo bộ](/tu-vung/).
 
-![Thư viện từ vựng Lexkite với các tab Tất cả, NGSL, IELTS theo đề, Writing, Speaking, TOEIC](media:library "Thư viện có các bộ từ chia theo nguồn và cấp độ")
-
 2. Thêm từ vào flashcard và ôn mỗi ngày; app tự xếp lịch theo FSRS để sublist cũ không bị quên khi bạn học sublist mới.
 3. Cuối tuần, mở [Bài kiểm tra trắc nghiệm](/#/practice/test) với nguồn từ là sổ từ của bạn để tự đánh giá.
 
-![Bài kiểm tra trắc nghiệm Lexkite yêu cầu chọn nghĩa đúng của run out of trong 4 phương án](media:practice-test "Bài kiểm tra trắc nghiệm: chọn nghĩa đúng trong 4 phương án")
+![Bài kiểm tra trắc nghiệm của Lexkite với cụm “run out of” và bốn đáp án](media:practice-test "Làm trắc nghiệm nghĩa để kiểm tra những từ AWL bạn vừa học")
 
 {{cta: /#/library | Mở AWL Sublist 1 và học 10 từ đầu tiên}}
 
@@ -119,6 +117,8 @@ AWL có 570 họ từ, chia thành 10 sublist. Mỗi họ từ gồm nhiều d�
 ### Thi IELTS General có cần học AWL không?
 
 Có ích nhưng không phải ưu tiên hàng đầu. IELTS General thiên về văn bản đời sống và công việc, nên từ thông dụng và từ theo tình huống quan trọng hơn. Bạn có thể học các sublist đầu để phục vụ Writing Task 2.
+
+![Mục Writing của Lexkite gồm gợi ý ý tưởng, khung viết và bài mẫu có chú thích](media:write "Chọn đề Writing theo chủ đề để dùng từ AWL vào bài viết thật")
 
 ### Học hết AWL mất bao lâu?
 

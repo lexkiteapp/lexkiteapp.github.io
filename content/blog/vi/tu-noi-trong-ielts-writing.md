@@ -8,7 +8,7 @@ category: ielts
 tags: [linking-words, writing]
 keyword: "từ nối trong ielts writing"
 cover: write
-coverAlt: "Phòng viết IELTS Task 2 của Lexkite với đề theo chủ đề, gợi ý ý tưởng và khung bài"
+coverAlt: "Màn hình luyện Writing Task 2 trong Lexkite với bài mẫu band 8 có chú thích"
 publishAt: 2026-10-21T08:14:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -93,11 +93,9 @@ Một cách viết lại:
 
 1. Vào [Phòng viết IELTS Task 2](/#/write), chọn một đề theo chủ đề. Dùng khung viết bài và gợi ý ý tưởng để lập dàn ý trước, vì mạch lạc bắt đầu từ dàn ý chứ không phải từ nối.
 
-![Phòng viết IELTS Task 2 Lexkite với đề theo chủ đề, gợi ý ý tưởng, từ vựng gợi ý, khung bài và bài mẫu band 8](media:write "Phòng viết Task 2: lập dàn ý với khung bài và xem bài mẫu band 8 có chú thích")
-
 2. Đọc bài mẫu band 8 có chú thích và để ý các công cụ liên kết: từ nối, đại từ, từ đồng nghĩa. Ghi lại những cụm hay vào [Sổ cụm từ và cấu trúc](/#/phrases) với nhãn chức năng (đối lập, kết quả…).
 
-![Sổ cụm từ và cấu trúc Lexkite với bài mẫu có chỉ cấu trúc và nhãn Task, band](media:phrases "Sổ cụm từ: lưu từ nối theo chức năng, gắn nhãn Task")
+![Sổ cụm từ và cấu trúc trong Lexkite, nơi lưu cụm/câu hay kèm nhãn theo bài thi](media:phrases "Lưu từ nối như “however” và đối chiếu cách dùng trong bài mẫu")
 
 3. Ôn bộ "Từ nối và liên kết câu" trong Thư viện bằng flashcard, rồi viết một đoạn thân bài và tự đếm: có câu nào dùng từ nối không cần thiết không?
 
@@ -124,3 +122,6 @@ Không bị trừ chỉ vì dùng. Vấn đề là khi cả bài chỉ dựa và
 ### Task 1 có cần từ nối giống Task 2 không?
 
 Task 1 cũng cần liên kết, nhưng chức năng hơi khác: so sánh (*while*, *whereas*, *in contrast*), trình tự thời gian (*subsequently*, *by the end of the period*) và tổng quan (*overall*). Từ nối lập luận như *therefore* ít dùng hơn. Bài [mô tả biểu đồ đường Task 1](/vi/blog/ielts-writing-task-1-line-graph/) có ví dụ cho từng nhóm.
+
+
+![Trang luyện miêu tả biểu đồ của Lexkite chia theo dạng biểu đồ](media:task1 "Xem cấu trúc bài Task 1 để biết nên nối ý ở những chỗ nào")

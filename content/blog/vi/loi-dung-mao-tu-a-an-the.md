@@ -8,7 +8,7 @@ category: ngu-phap
 tags: [ngu-phap, mao-tu]
 keyword: "cách dùng mạo từ a an the"
 cover: grammar
-coverAlt: "Trang Ngữ pháp IELTS của Lexkite với lộ trình chương và bài luyện tổng hợp"
+coverAlt: "Màn hình “Grammar” của Lexkite với lộ trình chương, 12 thì và các cấp độ từ A1 đến B2"
 publishAt: 2026-10-19T11:46:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -110,6 +110,8 @@ Một cặp đáng chú ý vì cả hai đều đúng nhưng nghĩa khác:
 
 Trong IELTS Writing Task 2, hầu hết các câu nêu quan điểm thuộc loại thứ nhất. Khi viết về *students, technology, people, society* theo nghĩa chung, bỏ *the*. Bài [cấu trúc IELTS Writing Task 2](/vi/blog/cau-truc-ielts-writing-task-2/) có nhiều câu mở bài để bạn quan sát cách dùng này.
 
+![Phòng viết IELTS Task 2 của Lexkite: chọn đề theo chủ đề, gợi ý ý tưởng, từ vựng và khung bài](media:write "Viết lại câu có mạo từ rồi đối chiếu với bài mẫu")
+
 ## Mẹo tự soát mạo từ khi viết
 
 1. **Gạch chân mọi danh từ đếm được số ít** trong bản nháp. Mỗi từ phải có một từ hạn định đứng trước (*a, the, my, this, each…*). Đây là cách nhanh nhất bắt lỗi thiếu mạo từ.
@@ -149,11 +151,11 @@ Nếu bạn sai câu 2 hoặc 7, hãy dành thời gian cho phần "khi nào kh�
 
 Mạo từ được củng cố nhờ gặp lặp lại trong văn bản thật. Khi đọc một bài ở mục [bài đọc theo cấp độ](/#/reading), thử tô tất cả *a/an/the* trong một đoạn và tự giải thích từng chữ theo cây quyết định ở trên. Mười phút như vậy hiệu quả hơn một giờ học thuộc quy tắc.
 
-![Danh sách bài đọc IELTS theo cấp A2 đến C1 trong Lexkite, chạm vào từ để tra nghĩa](media:reading "Bài đọc theo cấp độ: chọn bài vừa sức để quan sát mạo từ trong ngữ cảnh")
+![Màn hình chọn bài đọc của Lexkite với các chủ đề như làm việc bốn ngày một tuần và vi nhựa đại dương](media:reading "Đọc bài tiếng Anh để quan sát mạo từ a, an, the trong ngữ cảnh")
 
 Sau đó, ôn chương mạo từ trong [Ngữ pháp IELTS](/#/grammar) và làm vài lượt [bài kiểm tra trắc nghiệm](/#/practice/test). Lý thuyết đầy đủ, có thêm các trường hợp đặc biệt, nằm ở trang [mạo từ](/ngu-phap/articles).
 
-![Màn hình bài kiểm tra trắc nghiệm của Lexkite với bốn phương án cho cụm run out of](media:practice-test "Trắc nghiệm nhanh để luyện phản xạ")
+![Câu trắc nghiệm trong Lexkite: chọn nghĩa đúng của “run out of” trong 4 phương án](media:practice-test "Làm trắc nghiệm chọn a, an, the hoặc không mạo từ cho từng câu")
 
 {{cta: /#/grammar | Ôn chương mạo từ trong Lexkite}}
 

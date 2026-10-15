@@ -8,7 +8,7 @@ category: tu-vung
 tags: [ipa, phat-am]
 keyword: "cách đọc phiên âm ipa"
 cover: pron
-coverAlt: "Thư viện phát âm IPA trong Lexkite chia nguyên âm đơn, nguyên âm đôi và phụ âm"
+coverAlt: "Bảng âm IPA của Lexkite với nguyên âm, phụ âm và luyện từng âm"
 publishAt: 2026-10-23T17:08:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -116,6 +116,8 @@ Nếu đang ôn IELTS, hãy tập đọc IPA ngay trên từ theo chủ đề th
 
 Muốn đi xa hơn từng âm riêng lẻ, như nối âm, ngữ điệu và nhịp, bạn có thể đọc tiếp bài [luyện phát âm tiếng Anh](/vi/blog/luyen-phat-am-tieng-anh/).
 
+![Bài nói thử cụm “cut down on”: bấm micro, đọc to và xem điểm phát âm](media:practice-speak "Đọc to từ theo phiên âm vừa tra rồi xem điểm để biết mình sai âm nào")
+
 ## Làm ngay trong Lexkite: luyện IPA theo từng âm
 
 1. Mở [Thư viện phát âm IPA](/#/pron). Các âm được chia thành nguyên âm đơn, nguyên âm đôi và phụ âm; mỗi âm có từ ví dụ để nghe.
@@ -123,9 +125,7 @@ Muốn đi xa hơn từng âm riêng lẻ, như nối âm, ngữ điệu và nh�
 3. Khi gặp từ mới, tra trong [từ điển Anh–Việt](/#/dict/resilient). Mỗi mục từ có phiên âm UK và US kèm nút nghe, nên bạn có thể so sánh hai giọng ngay.
 4. Lưu từ thành flashcard. Khi ôn, cố đọc to từ trước khi lật thẻ.
 
-![Thư viện phát âm IPA trong Lexkite với nguyên âm đơn, nguyên âm đôi, phụ âm và từ ví dụ](media:pron "Thư viện phát âm: chọn từng âm IPA, nghe từ ví dụ và luyện có chấm điểm")
-
-![Mục từ resilient trong từ điển Lexkite với phiên âm UK/US và nút nghe](media:dict "Từ điển hiển thị phiên âm UK và US, bấm nghe để so sánh hai giọng")
+![Mục từ “resilient” trong từ điển Anh–Việt của Lexkite với phiên âm, nút nghe, collocation và từ đồng nghĩa](media:dict "Từ điển có phiên âm hai giọng và nút nghe để luyện đọc IPA mỗi ngày")
 
 {{cta: /#/pron | Luyện một cặp âm khó ngay hôm nay}}
 

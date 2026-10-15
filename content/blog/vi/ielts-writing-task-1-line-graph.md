@@ -8,7 +8,7 @@ category: ielts
 tags: [writing, task-1]
 keyword: "ielts writing task 1 line graph"
 cover: task1
-coverAlt: "Màn hình Writing Task 1 Academic trong Lexkite với các dạng biểu đồ và bài mẫu"
+coverAlt: "Mục Writing Task 1 Academic của Lexkite: biểu đồ đường, cột, tròn, bảng, quy trình và cấu trúc 4 đoạn"
 publishAt: 2026-10-30T19:30:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -64,6 +64,8 @@ Hãy để ý: overview có hai đặc điểm (hai xu hướng ngược chiều
 > *E-books, by contrast, started from a very low base of just 5,000 loans. Their popularity grew quickly, reaching 20,000 in 2015 and almost tripling to 55,000 by 2020. Shortly after that, the two lines crossed, and e-book loans finished the period at 70,000, about 20,000 higher than printed books.*
 
 Toàn bài khoảng 170 từ – vừa đủ, mọi câu đều có nhiệm vụ. Để ý các từ nối như *by contrast, while, shortly after that*; cách [dùng từ nối đúng chức năng, không lạm dụng](/vi/blog/tu-noi-trong-ielts-writing/) được phân tích riêng.
+
+![Phòng viết IELTS Task 2 của Lexkite: chọn đề theo chủ đề, gợi ý ý tưởng, từ vựng và khung bài](media:write "Mở phòng Writing để xem đề line graph và gợi ý ý tưởng")
 
 ## Từ vựng mô tả xu hướng cho line graph
 
@@ -123,8 +125,6 @@ Mỗi đoạn thân bài nên có ít nhất một câu so sánh như vậy, tha
 
 ## Làm ngay trong Lexkite: luyện line graph với bài mẫu
 
-![Màn hình Writing Task 1 Academic gồm biểu đồ đường, cột, tròn, bảng, quy trình và bài mẫu band 8](media:task1 "Writing Task 1 Academic: chọn dạng biểu đồ, xem cấu trúc 4 đoạn, từ vựng xu hướng và bài mẫu")
-
 Trong [phần Writing Task 1](/#/task1), bạn có thể chọn riêng dạng biểu đồ đường để luyện. Gợi ý một buổi 30 phút:
 
 1. Chọn một biểu đồ đường, **tự trả lời 5 câu hỏi** ở đầu bài này trên nháp trong 3 phút.
@@ -133,7 +133,7 @@ Trong [phần Writing Task 1](/#/task1), bạn có thể chọn riêng dạng bi
 4. Mở bài mẫu band 8, so cách nhóm dữ liệu và cách chọn từ chỉ mức độ.
 5. Lưu những cụm mô tả xu hướng hay vào [Sổ cụm từ](/#/phrases) để dùng lại.
 
-![Sổ cụm từ và cấu trúc với nhãn Task và band để ôn lại câu hay](media:phrases "Lưu cụm mô tả xu hướng vào Sổ cụm từ, gắn nhãn Task 1")
+![Màn hình “Phrases & structures” cho phép lưu cụm từ và đối chiếu với bài mẫu](media:phrases "Lưu cụm từ mô tả xu hướng để dùng cho biểu đồ đường")
 
 Sau khi quen line graph, các dạng khác (cột, bảng) sẽ dễ hơn nhiều vì từ vựng và cách viết overview gần như giống nhau. Còn khi muốn chuyển sang bài luận, hãy xem hướng dẫn [cấu trúc IELTS Writing Task 2](/vi/blog/cau-truc-ielts-writing-task-2/) và đọc thêm [bài mẫu Task 2 band 8 có chú thích](/samples/).
 

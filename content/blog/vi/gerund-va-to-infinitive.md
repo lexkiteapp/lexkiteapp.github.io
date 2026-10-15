@@ -8,7 +8,7 @@ category: ngu-phap
 tags: [gerund, ngu-phap]
 keyword: "gerund và to infinitive"
 cover: grammar
-coverAlt: "Trang Ngữ pháp IELTS của Lexkite với các chương và cấp độ A1 đến B2"
+coverAlt: "Trang “Grammar” liệt kê các chương ngữ pháp theo cấp độ, có bài luyện đi kèm"
 publishAt: 2026-10-22T12:36:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -164,11 +164,11 @@ Chia động từ trong ngoặc ở dạng V-ing hoặc to V.
 
 Cách bền nhất để nhớ dạng theo sau là học động từ như một cụm có sẵn khuôn: *avoid doing sth, refuse to do sth*. Trong Lexkite, phần [Học thông minh](/#/practice/learn) trình bày mỗi từ, cụm từ với định nghĩa, ví dụ, mẹo nhớ và lỗi hay gặp – rất hợp để ghi lại khuôn này.
 
-![Thẻ Học thông minh trong Lexkite giới thiệu cụm come up with với nghĩa, ví dụ, mẹo nhớ và lỗi hay gặp](media:practice-learn "Học thông minh: mỗi thẻ có ví dụ, mẹo nhớ và lỗi hay gặp")
+![Thẻ học từ mới của Lexkite giới thiệu cụm “come up with”: nghĩa, định nghĩa tiếng Anh, ví dụ và mẹo nhớ](media:practice-learn "Học cả mẹo nhớ và lỗi hay gặp giúp tránh dùng sai ngay từ đầu")
 
 Khi đã học xong một nhóm, ôn chương liên quan trong [Ngữ pháp IELTS](/#/grammar) rồi làm [bài kiểm tra trắc nghiệm](/#/practice/test) để kiểm tra tốc độ.
 
-![Bài kiểm tra trắc nghiệm trong Lexkite hỏi nghĩa của run out of với bốn phương án](media:practice-test "Kiểm tra nhanh sau khi học xong một nhóm động từ")
+![Câu trắc nghiệm trong Lexkite: chọn nghĩa đúng của “run out of” trong 4 phương án](media:practice-test "Làm trắc nghiệm để chọn đúng giữa V-ing và to V trong câu")
 
 {{cta: /#/grammar | Ôn chương gerund và to infinitive}}
 

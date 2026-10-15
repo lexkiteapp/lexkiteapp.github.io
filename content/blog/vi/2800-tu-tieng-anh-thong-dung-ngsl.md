@@ -8,7 +8,7 @@ category: tu-vung
 tags: [ngsl, co-ban]
 keyword: "từ tiếng anh thông dụng nhất"
 cover: library
-coverAlt: "Thư viện từ vựng Lexkite với tab Từ vựng cốt lõi NGSL và các bộ từ cốt lõi theo cấp độ A1 đến B2"
+coverAlt: "Màn hình “Vocabulary library” của Lexkite với các bộ từ chia theo nguồn và cấp độ A1–B2"
 publishAt: 2026-10-26T17:05:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -23,6 +23,8 @@ NGSL (New General Service List) là danh sách khoảng 2.800 từ cốt lõi c�
 Điểm mạnh của NGSL là **độ phủ**: chỉ khoảng 2.800 từ nhưng chiếm phần lớn số từ bạn gặp trong văn bản thông thường. Nói cách khác, nếu bạn biết chắc NGSL, đa số từ trên một trang báo phổ thông sẽ quen thuộc với bạn. Phần còn lại là từ chuyên ngành, từ hiếm, tên riêng.
 
 Một lưu ý: "biết" ở đây nghĩa là hiểu được nghĩa khi đọc hoặc nghe. Để nói và viết, bạn còn cần biết collocation, ngữ pháp đi kèm và cách phát âm.
+
+![Bảng âm IPA của Lexkite với nguyên âm, phụ âm và luyện từng âm](media:pron "Bảng âm IPA giúp bạn đọc đúng từng từ NGSL ngay khi mới gặp")
 
 ## Vì sao nên học từ tiếng Anh thông dụng nhất trước
 
@@ -102,9 +104,7 @@ Lexkite có sẵn danh sách NGSL đã chia thành các bộ nhỏ, có cấp đ
 4. Ôn các thẻ đến hạn mỗi ngày; thuật toán FSRS tự xếp lịch.
 5. Khi đã đi qua vài bộ, thử các trò chơi như Ghép thẻ hoặc Điền từ để chắc rằng bạn nhớ lại được từ, không chỉ nhận ra.
 
-![Thư viện từ vựng Lexkite với tab Từ vựng cốt lõi NGSL và các bộ Từ cốt lõi theo cấp độ A1 đến B2](media:library "Tab Từ vựng cốt lõi NGSL: danh sách chia thành các bộ nhỏ có cấp độ")
-
-![Thẻ Học thông minh trong Lexkite giới thiệu cụm come up with với nghĩa, ví dụ, mẹo nhớ và lỗi hay gặp](media:practice-learn "Học thông minh: mỗi từ có nghĩa, định nghĩa tiếng Anh, ví dụ, mẹo nhớ và lỗi hay gặp")
+![Thẻ học từ mới của Lexkite giới thiệu cụm “come up with”: nghĩa, định nghĩa tiếng Anh, ví dụ và mẹo nhớ](media:practice-learn "Một thẻ đủ nghĩa và ví dụ để học trọn từng bộ NGSL nhỏ")
 
 {{cta: /#/library | Mở bộ Từ cốt lõi đầu tiên và học 10 từ}}
 

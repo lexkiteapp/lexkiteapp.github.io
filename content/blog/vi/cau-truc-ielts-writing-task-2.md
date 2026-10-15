@@ -8,7 +8,7 @@ category: ielts
 tags: [writing, task-2]
 keyword: "cấu trúc ielts writing task 2"
 cover: write
-coverAlt: "Phòng viết IELTS Task 2 trong Lexkite với đề theo chủ đề và khung viết bài"
+coverAlt: "Phòng viết IELTS Task 2 của Lexkite: chọn đề theo chủ đề, gợi ý ý tưởng, từ vựng và khung bài"
 publishAt: 2026-10-16T20:17:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -48,6 +48,8 @@ Một số bạn viết 5 đoạn (3 thân bài). Cách này không sai, nhưng 
 ### Mở bài: hai việc, không hơn
 
 Mở bài chỉ cần (1) nhắc lại chủ đề bằng từ của bạn và (2) trả lời thẳng câu hỏi. Ví dụ tự viết cho đề: *"Some people think that children should start learning a foreign language at primary school. To what extent do you agree?"*
+
+![Màn hình Task 1 trong Lexkite với từ vựng mô tả xu hướng và bài mẫu band 8](media:task1 "Chọn dạng bài và xem khung để mở bài đúng hai việc cần làm")
 
 > *It is often argued that foreign languages should be introduced in the early years of schooling. I largely agree with this view, as young learners tend to pick up pronunciation more easily and develop a positive attitude towards other cultures.*
 
@@ -99,8 +101,6 @@ Dàn ý mẫu trên nháp có thể ngắn như sau:
 
 ## Làm ngay trong Lexkite: viết theo khung, so với bài mẫu
 
-![Phòng viết IELTS Task 2 với đề theo chủ đề, gợi ý ý tưởng, từ vựng gợi ý và bài mẫu band 8](media:write "Phòng viết Task 2: chọn đề theo chủ đề, xem gợi ý ý tưởng, khung viết bài và bài mẫu có chú thích")
-
 [Phòng viết IELTS](/#/write) được thiết kế đúng theo quy trình ở trên. Một buổi luyện 50 phút có thể như sau:
 
 1. **Chọn đề theo chủ đề** bạn còn yếu. Thống kê xu hướng dạng đề giúp bạn biết dạng nào đáng luyện trước.
@@ -109,7 +109,7 @@ Dàn ý mẫu trên nháp có thể ngắn như sau:
 4. **Viết bài theo khung** 4 đoạn trong 35 phút, bấm giờ.
 5. **Đọc bài mẫu band 8 có chú thích**, chú ý cách họ phát triển ý trong thân bài. Ghi lại một hai cấu trúc hay vào sổ.
 
-![Sổ cụm từ và cấu trúc: thêm cụm hay, xem bài mẫu có chỉ cấu trúc, gắn nhãn Task và band](media:phrases "Sổ cụm từ & cấu trúc: lưu câu hay từ bài mẫu, gắn nhãn Task 2 để ôn lại")
+![Màn hình “Phrases & structures” cho phép lưu cụm từ và đối chiếu với bài mẫu](media:phrases "Viết theo khung rồi đối chiếu cụm từ, cấu trúc với bài mẫu")
 
 Những cấu trúc vừa ghi, bạn có thể lưu vào [Sổ cụm từ & cấu trúc](/#/phrases) và gắn nhãn Task 2. Trước buổi viết sau, đọc lại 5 phút để chọn một hai cấu trúc muốn thử dùng.
 

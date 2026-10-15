@@ -8,7 +8,7 @@ category: ielts
 tags: [speaking, part-2]
 keyword: "ielts speaking part 2"
 cover: speaking
-coverAlt: "Phòng luyện Speaking trong Lexkite với Part 1, 2, 3 theo chủ đề"
+coverAlt: "Phòng luyện Speaking của Lexkite với Part 1, 2, 3 theo chủ đề, câu hỏi mẫu và câu trả lời band 7.5–8"
 publishAt: 2026-11-01T06:37:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -88,11 +88,11 @@ Khi thấy mình sắp hết ý, đừng lặp lại câu cũ. Hãy dùng các "
 
 Về ngữ pháp, Part 2 là cơ hội để thể hiện nhiều thì: quá khứ đơn cho diễn biến, quá khứ tiếp diễn cho bối cảnh (*was working*), quá khứ hoàn thành (*hadn't had*), hiện tại hoàn thành cho kết quả hiện nay (*I've made a habit*). Bạn không cần ép dùng, nhưng câu chuyện có trình tự sẽ tự nhiên gọi chúng ra.
 
+![Trang “Grammar” liệt kê các chương ngữ pháp theo cấp độ, có bài luyện đi kèm](media:grammar "Mỗi thì có bài luyện riêng và bài tổng hợp ở cuối")
+
 Nếu bạn muốn phần Part 1 trước đó cũng trôi chảy, xem bài [IELTS Speaking Part 1](/vi/blog/ielts-speaking-part-1/). Còn nếu muốn câu chuyện thêm sinh động bằng thành ngữ, có thể tham khảo [idiom cho IELTS Speaking](/vi/blog/idiom-ielts-speaking/) – nhưng dùng vừa phải.
 
 ## Làm ngay trong Lexkite: luyện cue card có giờ
-
-![Phòng luyện Speaking với Part 1, 2, 3 theo chủ đề, câu hỏi mẫu và câu trả lời mẫu band 7.5–8](media:speaking "Phòng luyện Speaking: chọn Part 2 theo chủ đề, xem câu trả lời mẫu và từ vựng nên dùng")
 
 Trong [Phòng luyện Speaking](/#/speaking), bạn có thể chọn Part 2 theo chủ đề. Một buổi luyện 20 phút:
 
@@ -102,7 +102,7 @@ Trong [Phòng luyện Speaking](/#/speaking), bạn có thể chọn Part 2 theo
 4. Đọc câu trả lời mẫu band 7.5–8 và phần từ vựng nên dùng. Chọn 3 cụm muốn đưa vào lần nói sau.
 5. Nói lại cùng đề lần thứ hai. Lần hai gần như luôn trôi chảy hơn hẳn.
 
-![Trang Thi thử IELTS 4 kỹ năng với lựa chọn Speaking và lịch sử thi thử](media:mock "Thi thử IELTS: chọn Speaking để luyện cả ba phần liên tiếp")
+![Trang thi thử IELTS bốn kỹ năng trong Lexkite với cấu trúc bài thi và lịch sử các lần thi](media:mock "Thi thử từng kỹ năng trong điều kiện có giờ")
 
 Khi đã luyện riêng Part 2 được một thời gian, hãy vào [Thi thử IELTS](/#/mock) và chọn Speaking để quen nhịp chuyển từ Part 1 sang Part 2 rồi Part 3. Cách tổ chức một buổi thi thử nghiêm túc có trong bài [thi thử IELTS online và học từ lỗi sai](/vi/blog/thi-thu-ielts-online/). Bạn cũng có thể đọc thêm câu hỏi và gợi ý theo chủ đề tại trang [luyện IELTS Speaking](/speaking/).
 

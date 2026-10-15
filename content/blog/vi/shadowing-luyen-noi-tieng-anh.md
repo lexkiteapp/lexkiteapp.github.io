@@ -8,7 +8,7 @@ category: phuong-phap
 tags: [shadowing, speaking, listening]
 keyword: "shadowing"
 cover: practice-speak
-coverAlt: "Màn hình luyện phát âm có chấm điểm trong Lexkite với cụm cut down on và nút micro"
+coverAlt: "Luyện phát âm có chấm điểm trong Lexkite, dùng micro để nói cụm “cut down on”"
 publishAt: 2026-11-12T21:40:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -88,15 +88,13 @@ Lặp lại cùng một đoạn trong 3–5 ngày trước khi chuyển sang đo
 
 Lexkite có ba công cụ ghép vừa khít với quy trình shadowing.
 
-![Luyện phát âm có chấm điểm](media:practice-speak "Luyện phát âm trong Lexkite: cụm 'cut down on', nút micro để nói, chấm điểm theo giọng nói")
-
 1. **Chọn tài liệu**: vào [Luyện nghe IELTS](/#/listening). Có 10 đề, mỗi đề 4 phần, nhiều giọng Anh, Mỹ, Úc, và **tốc độ chỉnh được**, rất hợp cho bước 3 khi bạn cần nghe chậm lại. Chế độ Chép chính tả cũng giúp bạn nghe kỹ từng từ trước khi nhại.
 2. **Luyện câu khó**: dùng [Luyện phát âm có chấm điểm](/#/practice/speak). Nói từng cụm từ vào micro và xem điểm phát âm, thay cho việc tự đoán mình đúng hay sai.
 3. **Sửa âm nền**: nếu một âm cứ bị chấm thấp, mở thư viện phát âm IPA, luyện riêng âm đó với từ ví dụ rồi quay lại đoạn shadowing.
 
-![Luyện nghe IELTS với tốc độ chỉnh được](media:listening "Luyện nghe IELTS trong Lexkite: 10 đề, 4 phần mỗi đề, giọng Anh–Mỹ–Úc, tốc độ chỉnh được, chế độ Chép chính tả")
+![Danh sách đề luyện nghe IELTS trong Lexkite, mỗi đề 4 phần và nhiều giọng đọc](media:listening "Nghe đề ở tốc độ chậm hơn để bắt đầu shadowing dễ hơn")
 
-![Thư viện phát âm IPA](media:pron "Thư viện phát âm IPA trong Lexkite: nguyên âm đơn, nguyên âm đôi, phụ âm, từ ví dụ và chấm điểm từng âm")
+![Bảng âm IPA của Lexkite với nguyên âm, phụ âm và luyện từng âm](media:pron "Luyện từng âm IPA trước khi nói đuổi theo cả câu")
 
 Nếu muốn rèn đôi tai kỹ hơn trước khi nhại, hãy kết hợp với [chép chính tả tiếng Anh](/vi/blog/chep-chinh-ta-tieng-anh-dictation/).
 

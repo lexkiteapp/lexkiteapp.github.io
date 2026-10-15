@@ -8,7 +8,7 @@ category: phuong-phap
 tags: [dong-luc, phuong-phap]
 keyword: "học tiếng anh mãi không giỏi"
 cover: method
-coverAlt: "Trang Phương pháp học của Lexkite mô tả vòng lặp mỗi ngày khoảng 30 phút và đường cong quên lãng"
+coverAlt: "Màn hình phương pháp của Lexkite giải thích đường cong quên lãng và cách cân bằng bốn kỹ năng"
 publishAt: 2026-11-10T12:09:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -65,6 +65,8 @@ Tháng này học IELTS, tháng sau chuyển giao tiếp, tháng sau nữa thử
 
 Đây là nguyên nhân khó nhận ra nhất. Đọc lại ghi chép, xem video bài giảng, tô màu từ vựng – tất cả tạo cảm giác "mình hiểu rồi" vì thông tin trông quen thuộc. Nhưng **nhận ra** khác xa **tự nhớ lại**. Khi phải tự dùng từ trong câu mà không nhìn tài liệu, bạn mới biết mình thực sự nắm được bao nhiêu.
 
+![Màn hình luyện phát âm của Lexkite với cụm “cut down on”, nút micro và chấm điểm theo giọng nói](media:practice-speak "Nói vào micro và xem điểm để thấy năng lực thật của mình")
+
 **Triệu chứng:** học xong một buổi thấy rất ổn, nhưng làm bài kiểm tra hoặc nói chuyện thì "quên sạch".
 
 **Cách sửa:** thay việc đọc lại bằng việc **tự kiểm tra**: che nghĩa và nhớ lại, gấp sách và viết lại ý chính, giải thích điểm ngữ pháp cho người khác. Phương pháp này có tên [active recall](/vi/blog/active-recall-chu-dong-goi-nho/). Nó khó chịu hơn đọc lại, và chính sự khó chịu đó là dấu hiệu não đang làm việc.
@@ -77,7 +79,7 @@ Nếu bạn nói *I am agree* hàng trăm lần mà không ai sửa, lỗi đó 
 
 **Cách sửa:** tìm nguồn phản hồi – giáo viên, bạn học giỏi hơn, so sánh với bài mẫu, ghi âm rồi nghe lại. Quan trọng hơn: ghi lại lỗi của mình một chỗ để ôn có chủ đích, như hướng dẫn trong bài [sổ lỗi sai tiếng Anh](/vi/blog/so-loi-sai-tieng-anh/).
 
-![Sổ lỗi sai trong Lexkite gom lỗi theo nhóm Từ vựng, Ngữ pháp, Đọc hiểu, Nghe để ôn lại](media:mistakes "Gom lỗi theo nhóm giúp nhận ra lỗi nào lặp lại nhiều nhất để ôn có chủ đích")
+![Mục “Mistake log” của Lexkite gom lỗi sai theo từ vựng, ngữ pháp, đọc hiểu và nghe để ôn lại](media:mistakes "Có “Mistake log” thì lỗi sai không bị bỏ quên mà được ôn lại")
 
 ## Bảng tự chẩn đoán
 
@@ -114,7 +116,7 @@ Hai việc giúp vượt qua:
 - **Đo bằng hành vi, không bằng cảm giác**: số ngày học liên tục, số thẻ đã ôn, số bài viết hoàn thành. Những con số này tăng đều ngay cả khi cảm giác "chẳng tiến bộ".
 - **Đặt việc học vào thứ bạn thích**: nếu bạn mê nấu ăn, xem video nấu ăn tiếng Anh; nếu bạn thích bóng đá, đọc tin thể thao. Bài [tư duy bằng tiếng Anh](/vi/blog/tu-duy-bang-tieng-anh/) có thêm cách đưa tiếng Anh vào đời sống hằng ngày.
 
-![Trang Tiến độ và huy hiệu trong Lexkite với chuỗi ngày, số thẻ đã ôn và lịch học 6 tháng dạng heatmap](media:stats "Lịch học dạng heatmap và chuỗi ngày cho thấy sự đều đặn – thước đo đáng tin hơn cảm giác")
+![Bảng tiến độ Lexkite hiển thị chuỗi ngày học, XP và các huy hiệu](media:stats "Huy hiệu và XP là động lực nhỏ để giữ thói quen")
 
 ## Tự kiểm tra
 

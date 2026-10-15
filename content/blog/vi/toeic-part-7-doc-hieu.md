@@ -8,7 +8,7 @@ category: toeic
 tags: [toeic, part-7, doc-hieu]
 keyword: "toeic part 7"
 cover: toeic
-coverAlt: "Trang Luyện thi TOEIC trong Lexkite với luyện theo Part, thi thử và từ vựng TOEIC"
+coverAlt: "Màn hình TOEIC của Lexkite gồm thi thử có chấm điểm tự động và luyện riêng từng Part"
 publishAt: 2026-11-05T13:30:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -43,6 +43,8 @@ Văn bản đơn đứng trước, văn bản kép và ba đứng sau. Vì vậy
 *When will the new policy take effect?* / *How much does the membership cost?*
 
 Đây là dạng phổ biến nhất. Cách làm: xác định từ khóa trong câu hỏi (tên riêng, con số, ngày tháng), quét văn bản tìm từ đó hoặc từ đồng nghĩa, rồi đọc kỹ câu chứa nó.
+
+![Trang đọc có từ khóa tô màu, chạm để tra nghĩa và câu hỏi True/False/Not Given](media:read-article "Câu hỏi chi tiết nằm ngay cạnh bài đọc để bạn dò từng thông tin")
 
 **Lưu ý:** đáp án đúng thường được diễn đạt lại (paraphrase). Văn bản viết *The store will close at 6 p.m. instead of 9 p.m.*, đáp án có thể là *Its hours will be shortened*. Khả năng nhận ra cách nói gián tiếp này cũng là chìa khóa của [Part 2 trong phần nghe](/vi/blog/toeic-listening-part-2/).
 
@@ -121,13 +123,11 @@ Chiến thuật chỉ giúp đến một mức. Để thật sự đọc nhanh, 
 
 ## Làm ngay trong Lexkite: luyện Part 7 và đọc hằng ngày
 
-![Giao diện luyện TOEIC trên Lexkite gồm 7 đề thi thử, phần luyện riêng từng Part và kho từ TSL](media:toeic "Luyện riêng Part 7 theo từng đề, nộp bài để xem giải thích")
-
 1. Mở khu [luyện TOEIC](/#/toeic), lấy một Test và chọn thẻ Part 7.
 2. Tự đặt đồng hồ khoảng một phút cho mỗi câu. Nộp bài, đọc giải thích và ghi lại dạng câu bạn sai nhiều nhất.
 3. Mỗi ngày đọc thêm một bài ngắn trong mục [Bài đọc](/#/reading). Các bài được xếp theo cấp A2–C1; chạm vào từ chưa biết để tra và lưu.
 
-![Mục Bài đọc trong Lexkite với các bài theo cấp A2–C1 như The Rise of Urban Farming và The Four-Day Working Week](media:reading "Bài đọc theo cấp độ: chạm từ để tra, luyện tốc độ đọc mỗi ngày")
+![Danh sách bài đọc IELTS theo cấp độ A2–C1 trong Lexkite, như “The Rise of Urban Farming”](media:reading "Luyện đọc Part 7 theo cấp độ rồi xem lại từ khóa sau khi đọc")
 
 4. Ôn các từ đã lưu bằng flashcard. Khi từ vựng quen dần, tốc độ đọc Part 7 sẽ tự tăng.
 

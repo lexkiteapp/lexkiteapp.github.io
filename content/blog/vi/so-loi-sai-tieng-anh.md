@@ -8,7 +8,7 @@ category: phuong-phap
 tags: [loi-sai, on-tap]
 keyword: "sổ lỗi sai"
 cover: mistakes
-coverAlt: "Màn hình Sổ lỗi sai trong Lexkite gom lỗi theo Từ vựng, Ngữ pháp, Đọc hiểu và Nghe"
+coverAlt: "Sổ lỗi sai (“Mistake log”) trong Lexkite phân nhóm các câu từng làm sai"
 publishAt: 2026-11-11T10:45:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -85,6 +85,8 @@ Nhóm lỗi này nên có một cột riêng, vì cách sửa không phải là 
 
 Một kỹ thuật nhỏ giúp tìm ra gốc rễ của lỗi: hỏi "vì sao" liên tiếp. Ví dụ: Vì sao sai câu này? Vì chọn "False". Vì sao chọn "False"? Vì thấy bài nói ngược với câu hỏi. Vì sao nghĩ là ngược? Vì hiểu nhầm "rarely" là "thường xuyên". Đến lần hỏi thứ ba, bạn phát hiện đây thực ra là lỗi từ vựng, không phải lỗi chiến thuật đọc hiểu. Phân loại đúng thì cách sửa mới đúng.
 
+![Danh sách bài đọc IELTS theo cấp độ A2–C1 trong Lexkite, như “The Rise of Urban Farming”](media:reading "Đọc bài, chạm vào chỗ sai để tự hỏi “vì sao” mình mắc lỗi")
+
 Khi một nhóm chiếm hơn một phần ba tổng số lỗi, đó là nơi bạn nên dồn thời gian tuần tới. Ví dụ, nếu lỗi hòa hợp chủ ngữ – động từ xuất hiện liên tục, một buổi ôn [chuyên đề ngữ pháp đó](/ngu-phap/) sẽ có giá trị hơn ba đề thi thử. Bạn có thể biến điều này thành [một mục tiêu học rõ ràng cho tuần tới](/vi/blog/dat-muc-tieu-hoc-tieng-anh/), chẳng hạn giảm một nửa số lỗi hòa hợp sau hai tuần.
 
 ## Ôn lại lỗi sai có chủ đích
@@ -108,8 +110,6 @@ Khoảng cách tăng dần là chủ ý: nó buộc bạn gợi nhớ khi kiến
 
 Ghi sổ bằng tay rất tốt, nhưng tốn thời gian. Trong Lexkite, mọi câu bạn làm sai ở các bài luyện được ghi tự động vào [Sổ lỗi sai](/#/mistakes), gom theo bốn nhóm: Từ vựng, Ngữ pháp, Đọc hiểu và Nghe.
 
-![Màn hình Sổ lỗi sai trong Lexkite](media:mistakes "Sổ lỗi sai: lỗi được gom theo Từ vựng, Ngữ pháp, Đọc hiểu và Nghe để ôn lại")
-
 Cách dùng hiệu quả:
 
 1. Làm một bài luyện, ví dụ một chương trong [Ngữ pháp IELTS](/#/grammar). Câu sai sẽ được ghi lại sau khi bạn nộp bài.
@@ -117,7 +117,7 @@ Cách dùng hiệu quả:
 3. Với mỗi lỗi, xem lại vì sao sai. Tự viết ra cột "vì sao mình sai" và một câu tự đặt vào sổ tay của bạn.
 4. Khi đã hiểu, đánh dấu **Đã hiểu** để sổ gọn lại và bạn chỉ còn thấy những lỗi cần chú ý.
 
-![Trang Ngữ pháp IELTS với lộ trình chương](media:grammar "Ngữ pháp IELTS trong Lexkite: lộ trình chương, 12 thì, cấp A1–B2 và bài luyện tổng hợp")
+![Mục ngữ pháp IELTS trong Lexkite: danh sách thì, cấp độ và bài luyện tổng hợp](media:grammar "Ôn lại điểm ngữ pháp từng sai bằng bài học theo chương")
 
 {{cta: /#/mistakes | Mở Sổ lỗi sai và ôn 5 lỗi gần nhất}}
 

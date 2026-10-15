@@ -8,7 +8,7 @@ category: ielts
 tags: [writing, general, viet-thu]
 keyword: "ielts general writing task 1"
 cover: letters
-coverAlt: "Màn hình Viết thư IELTS General Task 1 trong Lexkite với ba loại thư"
+coverAlt: "Màn hình viết thư IELTS General Task 1 trong Lexkite với đề mẫu và thư mẫu"
 publishAt: 2026-10-31T08:33:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -61,6 +61,8 @@ Bố cục chuẩn:
 
 Mỗi đoạn không chỉ "đáp" mà nên **mở rộng** bằng một chi tiết cụ thể: thời gian, lý do, hậu quả, đề nghị. Đó là điều tạo nên sự khác biệt giữa bài đủ ý và bài phát triển ý tốt. Nối các chi tiết trong đoạn bằng [từ nối đúng chức năng](/vi/blog/tu-noi-trong-ielts-writing/) như *as, so, alternatively* giúp thư mạch lạc hơn.
 
+![Màn hình luyện Writing Task 2 trong Lexkite với bài mẫu band 8 có chú thích](media:write "Phòng viết nêu rõ ba gạch đầu dòng để mỗi ý thành một đoạn thư")
+
 ### Ví dụ thư bán trang trọng (tự viết)
 
 Đề giả định: *Bạn thuê một căn hộ, máy giặt bị hỏng. Viết thư cho chủ nhà: mô tả vấn đề, cho biết nó ảnh hưởng thế nào đến bạn, đề nghị cách giải quyết.*
@@ -112,8 +114,6 @@ Giữ đúng 20 phút rất quan trọng, vì Task 2 cần khoảng 40 phút và
 
 ## Làm ngay trong Lexkite: luyện từng loại thư
 
-![Màn hình Viết thư IELTS General Task 1 với thư trang trọng, bán trang trọng, thân mật, đề mẫu và thư mẫu band 8](media:letters "Viết thư General Task 1: chọn loại thư, xem đề mẫu và thư mẫu band 8")
-
 [Phần Viết thư](/#/letters) chia sẵn ba loại thư nên bạn có thể luyện có chủ đích. Lịch gợi ý cho một tuần:
 
 1. **Ngày 1–2:** chọn thư trang trọng, đọc một thư mẫu band 8, gạch chân lời chào, câu mở, câu kết. Sau đó viết một thư cho đề khác trong 20 phút.
@@ -123,7 +123,7 @@ Giữ đúng 20 phút rất quan trọng, vì Task 2 cần khoảng 40 phút và
 
 Mỗi khi gặp cụm hay trong thư mẫu, lưu vào [Sổ cụm từ](/#/phrases), chia theo ba giọng. Bạn cũng có thể đọc thêm các thư mẫu trên trang [viết thư IELTS](/viet-thu/).
 
-![Trang lưu cụm hay và câu mẫu, có thể gắn nhãn theo Task](media:phrases "Lưu câu mở thư, câu kết thư hay vào Sổ cụm từ để ôn lại trước buổi thi")
+![Mục “Phrases & structures” của Lexkite: thêm cụm từ hay, bài mẫu chỉ cấu trúc và gắn nhãn Task hoặc band](media:phrases "Lưu mẫu câu cho thư trang trọng và thân mật để dùng lại")
 
 Khi đã quen thư, bạn có thể chuyển sang phần chiếm nhiều điểm hơn: xem hướng dẫn [cấu trúc IELTS Writing Task 2](/vi/blog/cau-truc-ielts-writing-task-2/) – phần bài luận giống nhau ở cả Academic và General.
 

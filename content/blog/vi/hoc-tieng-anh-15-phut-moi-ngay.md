@@ -8,7 +8,7 @@ category: phuong-phap
 tags: [thoi-quen, tu-hoc]
 keyword: "học tiếng anh mỗi ngày 15 phút"
 cover: home
-coverAlt: "Trang Hôm nay trong Lexkite với số thẻ cần ôn, nhiệm vụ trong ngày và nút Bắt đầu ôn tập"
+coverAlt: "Trang chủ Lexkite bản tiếng Anh, mục “Today” gom thẻ cần ôn, nhiệm vụ và kế hoạch hôm nay"
 publishAt: 2026-11-09T21:16:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -94,19 +94,17 @@ Nếu muốn đi xa hơn, bạn có thể đặt mục tiêu cụ thể cho cả
 
 Lexkite được thiết kế quanh đúng nhịp học ngắn này. Mỗi lần mở app, bạn vào [trang Hôm nay](/#/home): Kit (nhân vật hướng dẫn) chào bạn, cho biết số thẻ cần ôn hôm nay, các nhiệm vụ trong ngày kèm điểm XP và kế hoạch hôm nay.
 
-![Trang Hôm nay trên máy tính](media:home "Trang Hôm nay trong Lexkite: số thẻ cần ôn, nhiệm vụ trong ngày (+XP), nút Bắt đầu ôn tập và Luyện tập, kế hoạch hôm nay")
-
 Quy trình 15 phút trong app:
 
 1. Mở [trang Hôm nay](/#/home), bấm **Bắt đầu ôn tập** để ôn hết thẻ đến hạn trong [phiên ôn flashcard](/#/review). Lật thẻ, tự nhớ nghĩa trước khi xem đáp án.
 2. Nếu còn thời gian, bấm **Luyện tập** để học từ mới hoặc chơi một bài ngắn.
 3. Hoàn thành các nhiệm vụ trong ngày để giữ chuỗi và nhận XP.
 
-![Trang Hôm nay trên điện thoại](media:m-home "Giao diện điện thoại của Lexkite: trang Hôm nay")
+![Lexkite trên điện thoại: trang “Today” hiển thị kế hoạch học hôm nay](media:m-home "Cùng dữ liệu với bản máy tính, chỉ khác bố cục")
 
 Trên điện thoại, bạn có thể cài Lexkite lên màn hình chính như một ứng dụng để mở chỉ bằng một chạm, đúng tinh thần "bắt đầu trong 5 giây".
 
-![Phiên ôn flashcard với thẻ từ pollution](media:review "Phiên ôn flashcard: thẻ 'pollution' có emoji minh họa, phiên âm, nút Lật thẻ và thanh tiến độ")
+![Màn hình ôn flashcard của Lexkite: thẻ “pollution”, thanh tiến độ và nút “Flip”](media:review "Mười lăm phút mỗi ngày đủ để ôn gọn vài thẻ flashcard")
 
 {{cta: /#/home | Bắt đầu buổi học 15 phút đầu tiên}}
 

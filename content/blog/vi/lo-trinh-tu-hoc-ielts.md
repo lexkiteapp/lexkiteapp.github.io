@@ -8,7 +8,7 @@ category: ielts
 tags: [lo-trinh, tu-hoc]
 keyword: "lộ trình tự học ielts"
 cover: path
-coverAlt: "Lộ trình chinh phục IELTS trong Lexkite với các chặng theo band, mỗi chặng gồm từ, luyện, nghe và kiểm tra"
+coverAlt: "Màn hình “Your IELTS path” của Lexkite: các chặng theo band, mỗi chặng gồm từ, luyện, nghe và kiểm tra"
 publishAt: 2026-10-16T10:05:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -107,12 +107,12 @@ Về cách học từ vựng sao cho nhớ lâu, bạn có thể đọc [cách h
 
 Lexkite có sẵn các công cụ cho ba bước quan trọng nhất của lộ trình: đo đầu vào, đặt mục tiêu và đi theo từng chặng.
 
-![Kiểm tra đầu vào 5 phút trong Lexkite với 20 câu từ vựng và ngữ pháp từ A2 đến C1](media:placement "Bài kiểm tra đầu vào: 20 câu từ A2 đến C1, có gợi ý lộ trình sau khi làm")
+![Bài kiểm tra đầu vào 5 phút của Lexkite: 20 câu từ vựng và ngữ pháp từ A2 đến C1](media:placement "Năm phút, 20 câu để biết mình đang ở đâu")
 
 1. Làm [bài kiểm tra đầu vào](/#/placement) khoảng 5 phút để biết trình độ ước lượng và nhận gợi ý điểm xuất phát.
 2. Mở [Mục tiêu & kế hoạch học](/#/goal), chọn kỳ thi, điểm mục tiêu, ngày thi và số giờ mỗi tuần. Ứng dụng chia chỉ tiêu theo tuần để bạn biết mình đang nhanh hay chậm.
 
-![Màn hình Mục tiêu và kế hoạch học trong Lexkite: chọn kỳ thi, điểm mục tiêu, ngày thi, số giờ mỗi tuần và chỉ tiêu tuần](media:goal "Đặt điểm mục tiêu và ngày thi để có chỉ tiêu học mỗi tuần")
+![“Goal & study plan” giúp bạn đặt điểm mục tiêu và ngày thi cho kế hoạch học](media:goal "Kế hoạch cập nhật lại khi bạn đổi mục tiêu")
 
 3. Đi theo [Lộ trình chinh phục IELTS](/#/path), xuất phát ở Chặng 0 – Từ cốt lõi. Mỗi bài trong chặng đi qua vòng học từ, luyện, nghe và kiểm tra, nên bạn không chỉ học từ mà còn dùng được nó.
 4. Mỗi ngày mở ứng dụng, ôn các thẻ đến hạn trước, rồi mới học bài mới.

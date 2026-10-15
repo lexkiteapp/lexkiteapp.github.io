@@ -8,7 +8,7 @@ category: ielts
 tags: [listening, ielts]
 keyword: "mẹo làm bài ielts listening"
 cover: listening
-coverAlt: "Màn hình Luyện nghe IELTS trong Lexkite với 10 đề, 4 phần mỗi đề"
+coverAlt: "Danh sách đề luyện nghe IELTS trong Lexkite, mỗi đề 4 phần và nhiều giọng đọc"
 publishAt: 2026-10-29T14:15:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -68,6 +68,8 @@ Viết sai chính tả thì câu đó không được tính. Những từ hay sa
 
 Nếu người nói nói *"two bedrooms"* mà bạn viết *"bedroom"*, đáp án bị sai. Tai người Việt thường bỏ qua âm cuối, nên hãy luyện nghe phụ âm cuối kỹ (xem thêm bài [luyện phát âm tiếng Anh](/vi/blog/luyen-phat-am-tieng-anh/) – nói được âm cuối thì nghe cũng rõ hơn).
 
+![Bài nói thử cụm “cut down on”: bấm micro, đọc to và xem điểm phát âm](media:practice-speak "Đọc to từ số nhiều có đuôi -s để nghe rõ âm cuối trong bài nghe")
+
 ### 7. Lỡ một câu thì bỏ qua ngay
 
 Đây là mẹo khó làm nhất về mặt tâm lý. Nếu bạn bỏ lỡ câu 14, việc tiếc nuối khiến bạn lỡ luôn câu 15, 16. Hãy luôn để mắt ở **câu tiếp theo**. Có thể đoán một đáp án hợp lý cho câu đã lỡ ở cuối giờ.
@@ -93,8 +95,6 @@ Sau 2–3 tuần, bạn sẽ thấy rõ mình yếu nhất ở loại lỗi nào
 
 ## Làm ngay trong Lexkite: nghe theo phần, rồi thi thử
 
-![Màn hình Luyện nghe IELTS với 10 đề, mỗi đề 4 phần, chọn giọng Anh, Mỹ, Úc và chỉnh tốc độ](media:listening "Luyện nghe IELTS: 10 đề, 4 phần mỗi đề, nhiều giọng, tốc độ chỉnh được")
-
 Trong phần [Luyện nghe IELTS](/#/listening), mỗi đề được chia sẵn thành 4 phần nên bạn có thể luyện đúng phần mình yếu. Gợi ý một buổi 25 phút:
 
 1. Chọn một phần, bấm **Nghe lần đầu** để làm như thi thật, chỉ nghe một lần.
@@ -104,7 +104,7 @@ Trong phần [Luyện nghe IELTS](/#/listening), mỗi đề được chia sẵn
 
 Khi đã luyện từng phần được vài tuần, hãy thử [một bài thi trọn vẹn trong điều kiện như thật](/vi/blog/thi-thu-ielts-online/) để kiểm tra sức bền và khả năng giữ tập trung suốt 4 phần.
 
-![Trang Thi thử IELTS 4 kỹ năng: chọn Listening, chọn đề và xem lịch sử thi thử](media:mock "Thi thử IELTS: chọn kỹ năng Listening, chọn đề, xem lại lịch sử các lần thi")
+![Trang thi thử IELTS bốn kỹ năng trong Lexkite với cấu trúc bài thi và lịch sử các lần thi](media:mock "Lịch sử thi thử giúp bạn theo dõi điểm qua từng lần")
 
 Vào [Thi thử IELTS](/#/mock), chọn Listening, và làm liền một mạch không dừng. So kết quả với các lần trước trong lịch sử thi thử để thấy tiến bộ thật.
 

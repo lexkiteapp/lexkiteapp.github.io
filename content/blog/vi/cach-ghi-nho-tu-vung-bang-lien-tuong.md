@@ -8,7 +8,7 @@ category: phuong-phap
 tags: [mnemonic, ghi-nho]
 keyword: "cách ghi nhớ từ vựng bằng liên tưởng"
 cover: practice-learn
-coverAlt: "Thẻ Học thông minh trong Lexkite giới thiệu cụm come up with với nghĩa, ví dụ và mẹo nhớ"
+coverAlt: "Thẻ học từ mới của Lexkite giới thiệu cụm “come up with”: nghĩa, định nghĩa tiếng Anh, ví dụ và mẹo nhớ"
 publishAt: 2026-11-08T14:55:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -48,6 +48,8 @@ Một số ví dụ tự đặt:
 | *soak* | /səʊk/ | ngâm | "xô" | Quần áo bẩn **ngâm** trong cái **xô** đầy nước |
 
 Điều kiện để từ khóa hiệu quả: hình ảnh phải **cụ thể** và **có tương tác**. "Chổi" và "việc nhà" đứng cạnh nhau chưa đủ; hãy hình dung chính bạn đang cầm chổi, còn mẹ đang liệt kê một danh sách việc dài.
+
+![Bài đọc “The Growing Problem of Space Debris” trong Lexkite với từ khóa tô màu và danh sách từ khóa](media:read-article "Đọc bài có từ khóa tô màu để gắn hình ảnh liên tưởng với từ mới")
 
 **Cảnh báo phát âm.** Từ khóa chỉ giống âm một phần. *Nap* có nguyên âm /æ/, không phải "a" của "nạp"; *boast* có nguyên âm đôi /əʊ/, không phải "ô". Luôn tra và nghe phát âm chuẩn trước, sau đó mới tạo liên tưởng, để từ khóa không "đè" lên cách đọc đúng. Nếu chưa đọc được phiên âm, xem bài [cách đọc phiên âm IPA](/vi/blog/cach-doc-phien-am-ipa/).
 
@@ -116,7 +118,7 @@ Kiểu liên tưởng này không chỉ giúp nhớ mà còn giúp **đoán ngh�
 
 Bước 5 chính là [active recall](/vi/blog/active-recall-chu-dong-goi-nho/). Khi kết hợp, liên tưởng làm lần nhớ đầu dễ hơn, còn ôn ngắt quãng giữ trí nhớ đó lâu dài.
 
-![Phiên ôn flashcard trong Lexkite với thẻ pollution có ảnh minh họa, phiên âm và nút Lật thẻ](media:review "Ảnh minh họa trên thẻ là một móc liên tưởng hình ảnh; nhớ lại nghĩa trước khi lật thẻ để rèn khả năng gọi lại")
+![Phiên ôn flashcard trong Lexkite với thẻ từ “pollution”, phiên âm và nút “Flip”](media:review "Nhớ hình liên tưởng trước, bấm “Flip” sau, rồi tự chấm mức độ nhớ")
 
 ## Tự kiểm tra
 
@@ -142,7 +144,7 @@ Chọn 10 từ bạn đã quên nhiều lần trong sổ từ, áp dụng kỹ t
 
 Trong Lexkite, chế độ [Học thông minh](/#/practice/learn) giới thiệu từ kèm ví dụ và mẹo nhớ – hãy dùng mẹo có sẵn làm gợi ý rồi tự tạo liên tưởng riêng. Sau đó để [phiên ôn flashcard](/#/review) nhắc lại đúng lúc bạn sắp quên, và thử trò [ghép thẻ tính giờ](/#/practice/match) để kiểm tra phản xạ.
 
-![Trò ghép thẻ tính giờ trong Lexkite: nối từ privacy, perspective, surveillance với nghĩa tiếng Việt](media:practice-match "Ghép thẻ có đồng hồ đếm giây – cách nhanh để biết liên tưởng đã thành phản xạ hay chưa")
+![Trò ghép thẻ tính giờ của Lexkite: nối từ tiếng Anh như privacy, perspective với nghĩa tiếng Việt](media:practice-match "Trò ghép thẻ giúp khởi động trí nhớ liên tưởng trước buổi ôn")
 
 {{youtube: | Gợi ý video: tạo liên tưởng từ khóa cho 5 từ tiếng Anh khó nhớ, kèm hình minh họa}}
 

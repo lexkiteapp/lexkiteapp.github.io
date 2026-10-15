@@ -8,7 +8,7 @@ category: phat-am
 tags: [phat-am, ipa]
 keyword: "âm khó trong tiếng anh với người việt"
 cover: pron
-coverAlt: "Thư viện phát âm IPA của Lexkite với nguyên âm đơn, nguyên âm đôi và phụ âm"
+coverAlt: "Màn hình phát âm trong Lexkite: chọn từng âm IPA, nghe từ ví dụ và luyện có chấm điểm"
 publishAt: 2026-10-27T17:51:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -158,11 +158,11 @@ Cặp tối thiểu (minimal pairs) là hai từ chỉ khác nhau đúng một �
 
 Muốn biết mình đang mắc nhóm lỗi nào, bạn có thể vào [thư viện phát âm IPA](/#/pron), chọn từng âm như /θ/ hay /æ/ để nghe từ ví dụ và nói thử. Khi đã nắm từng âm, chuyển sang [luyện phát âm có chấm điểm](/#/practice/speak) với cụm từ, vì âm khó thường lộ ra rõ nhất khi đứng giữa các âm khác.
 
-![Màn hình luyện phát âm có chấm điểm với cụm cut down on và nút micro](media:practice-speak "Luyện phát âm: nói vào micro và nhận chấm điểm theo giọng nói")
+![Bài nói thử cụm “cut down on”: bấm micro, đọc to và xem điểm phát âm](media:practice-speak "Đọc to từ có âm khó vào micro rồi xem âm nào bị trừ điểm")
 
 Khi gặp từ mới, tra [từ điển](/#/dict/think) để nghe cả hai giọng UK và US. Khác biệt giữa hai giọng được phân tích kỹ trong bài [Anh Anh và Anh Mỹ khác nhau thế nào](/vi/blog/anh-anh-va-anh-my-khac-nhau/).
 
-![Từ điển Anh–Việt tra từ resilient với phiên âm UK, US và nút nghe](media:dict "Từ điển: phiên âm và nút nghe cho cả giọng Anh và giọng Mỹ")
+![Kết quả tra từ “resilient” kèm câu ví dụ, collocation và nút lưu thành flashcard](media:dict "Tra từ để nghe mẫu rồi lưu luôn những từ có âm khó vào flashcard")
 
 {{cta: /#/pron | Luyện từng âm khó trong thư viện IPA}}
 

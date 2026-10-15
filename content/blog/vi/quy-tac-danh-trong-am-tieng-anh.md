@@ -8,7 +8,7 @@ category: phat-am
 tags: [trong-am, phat-am]
 keyword: "quy tắc đánh trọng âm tiếng anh"
 cover: pron
-coverAlt: "Thư viện phát âm IPA trong Lexkite với nguyên âm đơn, nguyên âm đôi và phụ âm"
+coverAlt: "Màn hình phát âm trong Lexkite: chọn từng âm IPA, nghe từ ví dụ và luyện có chấm điểm"
 publishAt: 2026-10-24T09:52:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -82,6 +82,8 @@ Với từ ba âm tiết trở lên, đừng đếm âm tiết từ đầu. Hãy
 | -ious, -eous | *deˈlicious* /dɪˈlɪʃəs/, *amˈbitious, couˈrageous* |
 
 Đây là nhóm đáng nhớ nhất vì rất nhiều từ học thuật thuộc về nó. Ngoại lệ đáng biết của *-ic*: *ˈpolitics, ˈArabic, ˈCatholic, aˈrithmetic* (danh từ).
+
+![Màn hình học thông minh của Lexkite cho cụm “come up with” với nghĩa, ví dụ và lưu ý dùng đúng](media:practice-learn "Thẻ học từ mới có phiên âm giúp bạn thấy trọng âm rơi ở đâu")
 
 ### Nhóm 2: trọng âm rơi vào âm tiết thứ ba tính từ cuối
 
@@ -177,11 +179,11 @@ Chọn âm tiết mang trọng âm chính (viết hoa âm tiết đó).
 
 Khi gặp từ mới, tra trong [từ điển Anh–Việt](/#/dict/photography) của Lexkite: mỗi mục có phiên âm UK/US và nút nghe, đủ để bạn kiểm tra dấu trọng âm và nghe cách nhấn.
 
-![Từ điển Anh–Việt Lexkite tra từ resilient với phiên âm UK/US, nút nghe, nghĩa và câu ví dụ](media:dict "Từ điển: kiểm tra dấu trọng âm trong phiên âm và nghe mẫu")
+![Kết quả tra từ “resilient” kèm câu ví dụ, collocation và nút lưu thành flashcard](media:dict "Tra từ để xem dấu trọng âm trên phiên âm hai giọng")
 
 Sau đó, luyện nói với phần [Luyện phát âm có chấm điểm](/#/practice/speak): đọc từ hoặc cụm, hệ thống chấm theo giọng nói của bạn. Muốn luyện riêng từng âm trước, mở [thư viện phát âm IPA](/#/pron).
 
-![Màn hình luyện phát âm có chấm điểm trong Lexkite với cụm cut down on và nút micro](media:practice-speak "Luyện phát âm: nói vào micro và nhận điểm")
+![Bài nói thử cụm “cut down on”: bấm micro, đọc to và xem điểm phát âm](media:practice-speak "Nói từng từ nhiều âm tiết vào micro và xem trọng âm đúng chưa")
 
 {{cta: /#/practice/speak | Luyện nhấn đúng trọng âm với micro}}
 

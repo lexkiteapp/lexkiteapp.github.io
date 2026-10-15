@@ -8,7 +8,7 @@ category: toeic
 tags: [toeic, lo-trinh]
 keyword: "lộ trình tự học toeic"
 cover: toeic
-coverAlt: "Trang Luyện thi TOEIC trong Lexkite với thi thử chấm tự động quy đổi 10–990 và luyện theo Part"
+coverAlt: "Màn hình TOEIC của Lexkite gồm thi thử có chấm điểm tự động và luyện riêng từng Part"
 publishAt: 2026-11-07T15:34:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -99,12 +99,12 @@ Cần danh sách từ chia nhóm cho chặng 1? Hãy mở [bộ từ TOEIC chia 
 
 1. Vào trang [đặt mục tiêu](/#/goal), chọn TOEIC L&R làm kỳ thi, nhập mức điểm muốn đạt, hạn thi và thời gian bạn dành được hằng tuần. Ứng dụng tính khối lượng cần học và chia chỉ tiêu theo tuần.
 
-![Trang đặt mục tiêu của Lexkite: kỳ thi, mức điểm cần đạt, hạn thi, giờ học hằng tuần, chỉ tiêu tuần](media:goal "Khai báo kỳ thi TOEIC và hạn thi, ứng dụng chia việc theo từng tuần")
+![Trang đặt mục tiêu trong Lexkite, từ đó tạo kế hoạch và chỉ tiêu theo tuần](media:goal "Số giờ học mỗi tuần quyết định chỉ tiêu bạn phải đạt")
 
 2. Vào [Luyện thi TOEIC](/#/toeic) để học từ vựng TOEIC (TSL), luyện từng Part và làm đề thi thử có chấm tự động, điểm quy đổi chỉ mang tính ước lượng (10–990).
 3. Nếu vốn từ thông dụng còn mỏng, hãy học thêm Chặng 0 – Từ cốt lõi trong [Lộ trình học](/#/path). Dù lộ trình này được thiết kế cho IELTS, các từ cốt lõi ở chặng đầu cũng là nền cho TOEIC.
 
-![Lộ trình học trong Lexkite chia chặng theo band; chặng đầu tiên là Chặng 0 – Từ cốt lõi, mỗi chặng có học từ, luyện, nghe, kiểm tra](media:path "Chặng 0 – Từ cốt lõi giúp lấp vốn từ thông dụng trước khi học từ chuyên ngành")
+![Trang lộ trình của Lexkite sắp xếp việc học theo chặng và band mục tiêu](media:path "Lộ trình theo chương giúp bạn lập kế hoạch tự học TOEIC từng tuần")
 
 4. Mỗi ngày bắt đầu bằng ôn các thẻ đến hạn, rồi mới đến bài luyện trong lịch tuần.
 

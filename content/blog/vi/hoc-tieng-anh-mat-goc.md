@@ -8,7 +8,7 @@ category: phuong-phap
 tags: [mat-goc, lo-trinh]
 keyword: "học tiếng anh mất gốc"
 cover: placement
-coverAlt: "Bài kiểm tra đầu vào 5 phút của Lexkite với 20 câu từ vựng và ngữ pháp từ A2 đến C1"
+coverAlt: "Trang placement test của Lexkite với câu hỏi từ vựng, ngữ pháp và gợi ý lộ trình"
 publishAt: 2026-11-10T06:31:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -54,6 +54,8 @@ Nếu thấy mình trong danh sách này, bài [vì sao học tiếng Anh mãi k
 
 Mục tiêu: đọc được phiên âm, phát âm rõ các từ cơ bản, nói được 10–15 câu giới thiệu bản thân.
 
+![Bài nói thử cụm “cut down on”: bấm micro, đọc to và xem điểm phát âm](media:practice-speak "Ngày 1–30: tập nói từng âm vào micro và xem điểm phát âm")
+
 - **Phát âm**: học bảng IPA theo nhóm (nguyên âm ngắn/dài, nguyên âm đôi, phụ âm). Tiếng Anh chuẩn Anh có khoảng 44 âm; chưa cần hoàn hảo, chỉ cần nhận ra và đọc được. Ưu tiên các cặp người Việt hay nhầm: /iː/–/ɪ/ (*sheep*–*ship*), /æ/–/e/ (*bad*–*bed*), và âm cuối /s/, /z/, /t/, /d/.
 - **Từ vựng**: khoảng 10 từ mới mỗi ngày từ nhóm thông dụng nhất – đại từ, động từ cơ bản (*be, have, do, go, like, want, need*), danh từ quanh nhà, gia đình, công việc, đồ ăn, số đếm, thời gian.
 - **Ngữ pháp tối thiểu**: động từ *to be* (*I am, she is, they are*), câu khẳng định – phủ định – nghi vấn với *to be*, thì hiện tại đơn với *I/you/we/they*.
@@ -78,7 +80,7 @@ Mục tiêu: khoảng 1.000 từ, đọc hiểu đoạn văn 150–200 từ đơ
 - **Nói**: tự nói (self-talk) khi làm việc nhà, mô tả việc mình đang làm bằng hiện tại tiếp diễn; nhại theo câu ngắn từ bài nghe.
 - **Nghe đọc**: tăng thời lượng; chọn tài liệu bạn hiểu khoảng 80–90%.
 
-![Lộ trình chinh phục IELTS trong Lexkite chia thành các chặng theo band, bắt đầu từ Chặng 0 – Từ cốt lõi](media:path "Mỗi chặng của lộ trình đi theo vòng từ → luyện → nghe → kiểm tra, bắt đầu từ chặng từ cốt lõi")
+![Màn hình “Your IELTS path” của Lexkite: các chặng theo band, mỗi chặng gồm từ, luyện, nghe và kiểm tra](media:path "Lộ trình 90 ngày giúp bạn biết mình đang ở giai đoạn nào")
 
 ## Lịch học mỗi ngày (45 phút)
 
@@ -140,7 +142,7 @@ Sau khoảng 90 ngày học đều, hãy kiểm tra:
 
 Bắt đầu bằng [bài kiểm tra đầu vào 5 phút](/#/placement) để biết xuất phát điểm và nhận gợi ý lộ trình. Sau đó luyện từng âm với từ ví dụ trong [thư viện phát âm IPA](/#/pron), song song với bài [cách đọc phiên âm IPA](/vi/blog/cach-doc-phien-am-ipa/).
 
-![Thư viện phát âm IPA trong Lexkite gồm nguyên âm đơn, nguyên âm đôi, phụ âm, có từ ví dụ và chấm điểm](media:pron "Luyện từng âm với từ ví dụ là bước nên làm ngay trong tháng đầu tiên")
+![Thư viện phát âm IPA của Lexkite chia nguyên âm đơn, nguyên âm đôi và phụ âm, kèm từ ví dụ](media:pron "Chọn âm IPA để luyện đi luyện lại khi lấy lại gốc phát âm")
 
 Khi đã quen âm, đi theo [lộ trình chặng](/#/path) bắt đầu từ chặng từ cốt lõi, và đọc thêm bài ngữ pháp tĩnh về [thì hiện tại đơn](/ngu-phap/present-simple) – thì đầu tiên bạn cần dùng vững.
 

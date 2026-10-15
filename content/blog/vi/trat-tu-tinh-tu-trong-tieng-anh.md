@@ -8,7 +8,7 @@ category: ngu-phap
 tags: [tinh-tu, ngu-phap]
 keyword: "trật tự tính từ trong tiếng anh"
 cover: grammar
-coverAlt: "Lộ trình chương Ngữ pháp IELTS trong Lexkite, có cấp độ A1 đến B2 và bài luyện tổng hợp"
+coverAlt: "Trang “Grammar” liệt kê các chương ngữ pháp theo cấp độ, có bài luyện đi kèm"
 publishAt: 2026-10-22T14:12:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -148,11 +148,11 @@ Câu 5 có một chi tiết đáng chú ý: mạo từ đi theo **âm đầu c�
 
 Trật tự tính từ trở thành phản xạ khi bạn dùng nó trong bài viết thật. Thử viết một đoạn mô tả trong [Phòng viết IELTS](/#/write), rồi gạch chân tất cả cụm danh từ có từ hai tính từ trở lên và kiểm tra theo OSASCOMP.
 
-![Phòng viết IELTS Task 2 trong Lexkite với đề theo chủ đề, từ vựng gợi ý và bài mẫu band 8 có chú thích](media:write "Phòng viết: luyện mô tả rồi tự soát trật tự tính từ")
+![Mục Writing của Lexkite gồm gợi ý ý tưởng, khung viết và bài mẫu có chú thích](media:write "Viết câu có nhiều tính từ rồi so thứ tự với bài mẫu")
 
 Lý thuyết về tính từ và các chương ngữ pháp liên quan nằm trong mục [Ngữ pháp IELTS](/#/grammar). Sau khi ôn, làm thêm vài vòng [bài kiểm tra trắc nghiệm](/#/practice/test) để giữ nhịp luyện.
 
-![Bài kiểm tra trắc nghiệm của Lexkite: chọn nghĩa đúng của run out of trong bốn phương án](media:practice-test "Trắc nghiệm ngắn để giữ nhịp ôn luyện")
+![Bài kiểm tra trắc nghiệm của Lexkite với cụm “run out of” và bốn đáp án](media:practice-test "Làm trắc nghiệm để chọn đúng thứ tự tính từ trước danh từ")
 
 {{cta: /#/write | Viết một đoạn mô tả và tự soát tính từ}}
 

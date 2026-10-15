@@ -8,7 +8,7 @@ category: ielts
 tags: [reading, ky-nang-doc]
 keyword: "skimming scanning ielts reading"
 cover: reading
-coverAlt: "Kho bài đọc IELTS chia theo cấp độ trong Lexkite"
+coverAlt: "Màn hình chọn bài đọc của Lexkite với các chủ đề như làm việc bốn ngày một tuần và vi nhựa đại dương"
 publishAt: 2026-10-29T13:55:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -59,6 +59,8 @@ Scanning hiệu quả khi bạn tìm thứ **dễ nhận ra bằng mắt**: con 
 
 Ví dụ, câu hỏi: *"In which year did the first rooftop hive appear in the city?"* → bạn tìm một **con số 4 chữ số**. Mắt chạy dọc trang, chỉ dừng lại khi gặp số. Bạn không cần đọc chữ nào khác. Kỹ năng dò số liệu này cũng có ích khi viết: với [Writing Task 1 dạng line graph](/vi/blog/ielts-writing-task-1-line-graph/), bạn phải quét biểu đồ để chọn mốc năm, điểm cao nhất và thấp nhất.
 
+![Màn hình “Vocabulary library” của Lexkite với các bộ từ chia theo nguồn và cấp độ A1–B2](media:library "Chọn bộ từ theo cấp độ để luyện nhận diện dạng thông tin khi scanning")
+
 Khi từ khóa không có hình dạng đặc biệt (ví dụ *"pollution"*), hãy chuẩn bị sẵn **vài từ đồng nghĩa** trước khi quét: *contamination, dirty air, emissions*. Bài đọc IELTS hiếm khi lặp lại y nguyên từ của câu hỏi, nên ai paraphrase nhanh thì quét nhanh. Bạn có thể luyện riêng kỹ năng này qua bài [cách paraphrase trong IELTS](/vi/blog/cach-paraphrase-trong-ielts/).
 
 ### Mẹo scanning
@@ -91,8 +93,6 @@ Thứ tự gợi ý cho mỗi bài:
 
 Kỹ thuật đọc chỉ nhanh lên khi bạn lặp lại trên nhiều văn bản với áp lực thời gian nhẹ. Lexkite có kho bài đọc chia theo cấp, giúp bạn luyện mỗi ngày một bài vừa sức.
 
-![Kho bài đọc IELTS theo cấp A2–C1 với các bài The Rise of Urban Farming, The Four-Day Working Week](media:reading "Chọn bài đọc theo cấp độ; chạm vào từ bất kỳ để tra nghĩa")
-
 Bài tập 15 phút mỗi ngày:
 
 1. Mở [phần Bài đọc IELTS](/#/reading), chọn một bài ở cấp bạn đọc được khoảng 70–80% từ.
@@ -101,7 +101,7 @@ Bài tập 15 phút mỗi ngày:
 4. Mở lại bài, làm phần câu hỏi. Với mỗi câu, ghi chú bạn đã **quét** từ khóa nào để định vị.
 5. Gặp từ khóa học thuật lạ, chạm vào để tra và lưu vào sổ từ, sau đó ôn bằng flashcard.
 
-![Bài đọc The Growing Problem of Space Debris với từ khóa được tô màu và danh sách từ khóa bên phải](media:read-article "Từ khóa trong bài được tô màu; danh sách từ khóa bên phải giúp bạn tập scanning")
+![Trang đọc có từ khóa tô màu, chạm để tra nghĩa và câu hỏi True/False/Not Given](media:read-article "Đọc bài có từ khóa tô màu để luyện skimming và scanning theo giờ")
 
 Một mẹo nhỏ: danh sách từ khóa ở bên phải bài đọc là "bài tập scanning" có sẵn. Chọn một từ trong danh sách, rồi thử tìm nó trong bài nhanh nhất có thể. Làm 5 từ liên tiếp, bạn sẽ thấy mắt quen dần việc nhảy cụm.
 

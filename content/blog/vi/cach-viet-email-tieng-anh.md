@@ -8,7 +8,7 @@ category: ky-nang
 tags: [email, writing]
 keyword: "cách viết email tiếng anh"
 cover: letters
-coverAlt: "Trang viết thư IELTS General Task 1 của Lexkite với thư trang trọng, bán trang trọng và thân mật"
+coverAlt: "Mục “Letter writing – IELTS General Task 1” của Lexkite: thư trang trọng, bán trang trọng, thân mật và thư mẫu band 8"
 publishAt: 2026-11-04T19:43:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -45,6 +45,8 @@ Người Việt hay mở email bằng nhiều câu hỏi thăm rồi mới vào 
 - *I'm reaching out because a colleague mentioned you're the right person to ask about…*
 
 Tránh câu mở thừa chữ như *I am writing this email to inform you that…*. Viết ngắn hơn: *I'd like to let you know that…*, hoặc nói thẳng nội dung.
+
+![Phòng viết IELTS Task 2 của Lexkite: chọn đề theo chủ đề, gợi ý ý tưởng, từ vựng và khung bài](media:write "Xem khung bài và gợi ý ý tưởng để viết câu mở đầu email vào thẳng mục đích")
 
 ## Mở và kết theo mức trang trọng
 
@@ -192,11 +194,11 @@ Email công việc và thư IELTS General Task 1 dùng chung nhiều kỹ năng:
 
 Những câu mở đầu, câu đề nghị và lời kết bạn thấy hay nên lưu vào [Sổ cụm từ](/#/phrases), chia nhãn theo mức trang trọng để dùng lại.
 
-![Sổ cụm từ và cấu trúc với câu hay và bài mẫu có chỉ cấu trúc, gắn nhãn](media:phrases "Sổ cụm từ: lưu câu mở đầu, lời đề nghị và lời kết theo mức trang trọng")
+![Màn hình “Phrases & structures” cho phép lưu cụm từ và đối chiếu với bài mẫu](media:phrases "Lưu mẫu câu mở đầu và kết thúc email vào một chỗ để dùng lại")
 
 Khi phân vân một từ có hợp với văn phong trang trọng không, tra trong [từ điển Anh–Việt](/#/dict/appreciate) để xem câu ví dụ và collocation.
 
-![Từ điển Anh–Việt tra từ resilient với nghĩa, ví dụ, collocation và từ đồng nghĩa](media:dict "Từ điển: kiểm tra ví dụ và collocation trước khi dùng từ trong email")
+![Kết quả tra từ “resilient” kèm câu ví dụ, collocation và nút lưu thành flashcard](media:dict "Tra “resilient” để xem một từ trang trọng đi với những cụm nào")
 
 Muốn viết các đoạn trong email mạch lạc hơn, đọc bài [cách viết đoạn văn tiếng Anh](/vi/blog/cach-viet-doan-van-tieng-anh/).
 

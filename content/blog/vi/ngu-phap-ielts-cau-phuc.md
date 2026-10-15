@@ -8,7 +8,7 @@ category: ielts
 tags: [ngu-phap, writing]
 keyword: "câu phức trong ielts"
 cover: grammar
-coverAlt: "Trang Ngữ pháp IELTS trong Lexkite với lộ trình theo chương, 12 thì và bài luyện tổng hợp"
+coverAlt: "Trang “Grammar” liệt kê các chương ngữ pháp theo cấp độ, có bài luyện đi kèm"
 publishAt: 2026-11-03T11:25:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -64,6 +64,8 @@ Khi đã dùng thuần thục, bạn có thể rút gọn để câu gọn hơn:
 
 Mệnh đề trạng ngữ trả lời câu hỏi *khi nào, vì sao, với điều kiện gì, mặc dù gì*. Đây là loại câu phức dễ học nhất và dùng được ở hầu hết các đoạn. Khi [mô tả biểu đồ đường ở Task 1](/vi/blog/ielts-writing-task-1-line-graph/), mệnh đề mở đầu bằng *while* hay *after* giúp so sánh hai xu hướng trong cùng một câu.
 
+![Mục Writing Task 1 Academic của Lexkite: biểu đồ đường, cột, tròn, bảng, quy trình và cấu trúc 4 đoạn](media:task1 "Chọn dạng bài để thấy mệnh đề trạng ngữ trong khung bài mẫu")
+
 | Chức năng | Từ nối | Ví dụ tự đặt |
 |---|---|---|
 | Thời gian | when, while, once, as soon as | *Once a habit is formed, it is difficult to change.* |
@@ -110,13 +112,11 @@ Lưu ý quan trọng: đừng cố nhồi ba bốn mệnh đề vào mọi câu.
 
 ## Làm ngay trong Lexkite: luyện câu phức có hệ thống
 
-![Trang Ngữ pháp IELTS trong Lexkite với lộ trình chương, 12 thì từ hiện tại đơn đến hoàn thành, cấp A1–B2 và bài luyện tổng hợp](media:grammar "Ngữ pháp IELTS: học theo chương, có cấp độ và bài luyện tổng hợp")
-
 1. Mở [Ngữ pháp IELTS](/#/grammar) và đi theo lộ trình chương. Nếu còn yếu các thì, hãy ôn 12 thì trước, vì mọi câu phức đều đứng trên nền thì đúng.
 2. Làm các bài về mệnh đề quan hệ, mệnh đề phân từ và câu điều kiện, rồi làm bài luyện tổng hợp để kiểm tra.
 3. Sang [Phòng viết IELTS](/#/write), chọn một đề Task 2, mở bài mẫu band 8 kèm ghi chú và đánh dấu từng câu phức trong đó. Ghi lại hai ba cấu trúc bạn muốn bắt chước.
 
-![Màn hình Phòng viết của Lexkite: đề Task 2 theo chủ đề, gợi ý ý tưởng, khung bài, kèm một bài mẫu đạt band 8](media:write "Đọc bài mẫu band 8 để thấy cách người viết xen câu đơn với câu phức")
+![Mục Writing của Lexkite gồm gợi ý ý tưởng, khung viết và bài mẫu có chú thích](media:write "Viết câu phức theo khung rồi đối chiếu với bài mẫu band 8")
 
 4. Viết bài của bạn, đặt mục tiêu mỗi đoạn thân bài có ít nhất hai câu phức thuộc hai loại khác nhau.
 5. Muốn xem nhanh các chủ điểm ngữ pháp dạng tra cứu, bạn có thể mở trang [ngữ pháp tiếng Anh](/ngu-phap/).

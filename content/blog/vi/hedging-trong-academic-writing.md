@@ -8,7 +8,7 @@ category: ky-nang
 tags: [academic-writing, hedging]
 keyword: "hedging trong academic writing"
 cover: write
-coverAlt: "Phòng viết IELTS Task 2 trong Lexkite với đề theo chủ đề, từ vựng gợi ý và bài mẫu có chú thích"
+coverAlt: "Màn hình luyện Writing Task 2 trong Lexkite với bài mẫu band 8 có chú thích"
 publishAt: 2026-11-06T15:10:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -88,7 +88,7 @@ Rất nhiều câu quá khẳng định có thể sửa chỉ bằng cách thu h
 
 *Arguably* là trạng từ đáng giá: nó nói "tôi có lý do để khẳng định, nhưng biết có người phản đối". Dùng một lần trong bài là đủ.
 
-![Sổ cụm từ và cấu trúc trong Lexkite với bài mẫu được đánh dấu cấu trúc và gắn nhãn Task, band](media:phrases "Gom các khung hedging như tend to, it appears that, to some extent vào sổ cụm từ để dùng lại khi viết")
+![Mục “Phrases & structures” của Lexkite: thêm cụm từ hay, bài mẫu chỉ cấu trúc và gắn nhãn Task hoặc band](media:phrases "Lưu trạng từ giới hạn phạm vi như “generally” và đối chiếu với bài mẫu")
 
 ## Ví dụ trước và sau: sửa một đoạn quá khẳng định
 
@@ -136,7 +136,7 @@ Trước mỗi câu khẳng định, tự hỏi lần lượt:
 
 **Task 1.** Ở đây hedging chủ yếu là **ước lượng số liệu**: *approximately*, *roughly*, *just under*, *slightly over*, *around a third*. Bạn đọc số từ biểu đồ nên không thể chính xác tuyệt đối; dùng các từ này vừa đúng vừa giúp tránh lặp số. Xem cách áp dụng trong bài [mô tả biểu đồ đường Task 1](/vi/blog/ielts-writing-task-1-line-graph/).
 
-![Màn hình Writing Task 1 Academic trong Lexkite với các dạng biểu đồ, cấu trúc bốn đoạn và từ vựng mô tả xu hướng](media:task1 "Từ vựng mô tả xu hướng trong Task 1 có nhiều từ ước lượng như approximately, roughly – một dạng hedging với số liệu")
+![Trang luyện miêu tả biểu đồ của Lexkite chia theo dạng biểu đồ](media:task1 "Áp dụng hedging khi miêu tả xu hướng trong bài mẫu Task 1")
 
 **Bài luận đại học, báo cáo.** Hedging xuất hiện dày nhất ở phần thảo luận kết quả và kết luận: *These findings suggest…*, *One possible explanation is…*, *Further research would be needed to…*. Khi viết đoạn văn học thuật, kết hợp hedging với khung đoạn văn trong bài [cách viết đoạn văn tiếng Anh](/vi/blog/cach-viet-doan-van-tieng-anh/).
 
@@ -163,6 +163,8 @@ Trước mỗi câu khẳng định, tự hỏi lần lượt:
 ## Luyện thêm
 
 Hãy lấy một bài viết cũ của bạn, gạch chân mọi câu có *all, every, always, never, prove, definitely*, rồi sửa theo sơ đồ quyết định ở trên. Đối chiếu với bài ngữ pháp tĩnh về [ngôn ngữ thận trọng (hedging)](/ngu-phap/hedging) và chương modal trong [lộ trình ngữ pháp IELTS](/#/grammar).
+
+![Trang “Grammar” liệt kê các chương ngữ pháp theo cấp độ, có bài luyện đi kèm](media:grammar "Ôn ngữ pháp về động từ khuyết thiếu để hedging chính xác hơn")
 
 Sau đó mở [Phòng viết](/#/write), chọn một đề Task 2 và viết hai đoạn thân: đặt quan điểm rõ ở câu chủ đề, hedging ở luận cứ. Cấu trúc nào bạn thấy hay trong bài mẫu thì lưu vào [sổ cụm từ](/#/phrases) để dùng lại.
 

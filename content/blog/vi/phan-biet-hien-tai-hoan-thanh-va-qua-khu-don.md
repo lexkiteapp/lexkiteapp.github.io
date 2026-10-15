@@ -8,7 +8,7 @@ category: ngu-phap
 tags: [ngu-phap, thi]
 keyword: "phân biệt hiện tại hoàn thành và quá khứ đơn"
 cover: grammar
-coverAlt: "Trang Ngữ pháp IELTS của Lexkite với lộ trình chương và 12 thì tiếng Anh"
+coverAlt: "Mục ngữ pháp IELTS trong Lexkite: danh sách thì, cấp độ và bài luyện tổng hợp"
 publishAt: 2026-10-18T13:46:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -164,11 +164,11 @@ Nếu sai câu 1 hoặc 6, bạn đang chọn thì theo "chuyện đã xảy ra"
 
 Hiểu quy tắc chỉ là nửa đường; phần còn lại là gặp đủ nhiều câu để phản xạ tự chọn đúng thì. Trong Lexkite, chương các thì ở mục [Ngữ pháp IELTS](/#/grammar) có lộ trình từ hiện tại đơn tới hoàn thành, mỗi bài kèm câu luyện. Sau đó, làm vài vòng [bài kiểm tra trắc nghiệm](/#/practice/test) để luyện tốc độ nhận diện.
 
-![Bài kiểm tra trắc nghiệm trong Lexkite với câu hỏi chọn nghĩa đúng cho run out of trong bốn phương án](media:practice-test "Bài kiểm tra trắc nghiệm: chọn một trong bốn phương án")
+![Câu trắc nghiệm trong Lexkite: chọn nghĩa đúng của “run out of” trong 4 phương án](media:practice-test "Làm trắc nghiệm để chọn đúng giữa hiện tại hoàn thành và quá khứ đơn")
 
 Câu nào sai, hãy đưa vào [Sổ lỗi sai](/#/mistakes) để ôn lại đúng chỗ yếu, thay vì làm lại cả bài. Cách tận dụng sổ lỗi được hướng dẫn chi tiết trong bài [sổ lỗi sai tiếng Anh](/vi/blog/so-loi-sai-tieng-anh/).
 
-![Sổ lỗi sai của Lexkite gom lỗi theo Từ vựng, Ngữ pháp, Đọc hiểu và Nghe](media:mistakes "Sổ lỗi sai: lỗi ngữ pháp được gom riêng để ôn lại")
+![Mục “Mistake log” của Lexkite gom lỗi sai theo từ vựng, ngữ pháp, đọc hiểu và nghe để ôn lại](media:mistakes "Gom câu chia sai thì vào “Mistake log” để ôn lại")
 
 {{cta: /#/grammar | Ôn chương các thì trong Lexkite}}
 

@@ -8,7 +8,7 @@ category: phuong-phap
 tags: [ielts, toeic, toefl]
 keyword: "nên thi ielts hay toeic"
 cover: mock
-coverAlt: "Trang thi thử IELTS 4 kỹ năng trong Lexkite với lựa chọn Listening, Reading, Writing, Speaking"
+coverAlt: "Màn hình “IELTS Mock Test – 4 Skills” của Lexkite: chọn kỹ năng, chọn đề và xem lịch sử thi thử"
 publishAt: 2026-10-16T16:48:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -81,16 +81,14 @@ Một mẹo thực tế: làm thử một phần đề của từng kỳ thi tro
 
 Lexkite là app học miễn phí, có khu luyện riêng cho cả ba kỳ thi, nên bạn có thể thử từng loại trước khi quyết định.
 
-![Trang thi thử IELTS 4 kỹ năng](media:mock "Thi thử IELTS trong Lexkite: chọn Listening, Reading, Writing hoặc Speaking, chọn đề và xem lịch sử thi thử")
-
 1. Vào [Thi thử IELTS](/#/mock), làm một bài Reading để cảm nhận độ dài văn bản và các dạng như True/False/Not Given.
 2. Sang [Luyện thi TOEIC](/#/toeic), chọn luyện theo Part (ví dụ Part 5 Câu chưa hoàn chỉnh) để thử nhịp làm bài trắc nghiệm công sở.
 3. Mở [Luyện thi TOEFL iBT](/#/toefl), làm thử một bài Complete the Words hoặc Read in Daily Life theo định dạng mới.
 4. Ghi lại cảm nhận: phần nào bạn thấy tự tin, phần nào khiến bạn lúng túng. Kết hợp với yêu cầu của nơi nhận hồ sơ để chốt kỳ thi.
 
-![Trang luyện thi TOEIC Listening và Reading](media:toeic "Luyện thi TOEIC trong Lexkite: thi thử chấm tự động quy đổi 10–990, luyện theo Part, từ vựng TOEIC")
+![Mục TOEIC Listening và Reading trong Lexkite với đề thi thử, luyện theo Part và danh sách từ TOEIC](media:toeic "TOEIC: thi thử trọn đề hoặc luyện riêng từng Part")
 
-![Trang luyện thi TOEFL iBT định dạng mới](media:toefl "Luyện thi TOEFL iBT trong Lexkite: bảng cấu trúc đề định dạng từ 21/01/2026 và các dạng câu mới")
+![Mục TOEFL trong Lexkite: bảng cấu trúc đề, Complete the Words, Read in Daily Life, Read an Academic Passage](media:toefl "Cấu trúc TOEFL iBT mới được tóm tắt trong một bảng")
 
 Đã chọn xong? Hãy đọc tiếp [lộ trình tự học IELTS](/vi/blog/lo-trinh-tu-hoc-ielts/) hoặc [lộ trình tự học TOEIC](/vi/blog/lo-trinh-tu-hoc-toeic/) để biết cần làm gì trong những tuần đầu tiên.
 

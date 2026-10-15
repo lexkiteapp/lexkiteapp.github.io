@@ -8,7 +8,7 @@ category: phuong-phap
 tags: [placement, cefr]
 keyword: "kiểm tra trình độ tiếng anh"
 cover: placement
-coverAlt: "Màn hình kiểm tra đầu vào 5 phút trong Lexkite với 20 câu từ vựng và ngữ pháp từ A2 đến C1"
+coverAlt: "Bài kiểm tra đầu vào 5 phút của Lexkite: 20 câu từ vựng và ngữ pháp từ A2 đến C1"
 publishAt: 2026-11-08T22:18:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -45,6 +45,8 @@ Bài kiểm tra xếp lớp (placement test) thường gồm câu hỏi từ v�
 
 Với mỗi kỹ năng, hãy đọc các câu mô tả dưới đây và đánh dấu những câu bạn làm được **mà không cần tra từ điển**:
 
+![Kết quả tra từ “resilient” kèm câu ví dụ, collocation và nút lưu thành flashcard](media:dict "Tra một từ để thử xem mình hiểu nghĩa và ví dụ tới đâu")
+
 - **Nghe**: Tôi hiểu được đoạn hội thoại ngắn về chỉ đường (A2). Tôi theo được ý chính của một bản tin khi người nói rõ ràng (B1). Tôi hiểu phần lớn một bài giảng về chủ đề quen thuộc (B2).
 - **Đọc**: Tôi đọc được thực đơn và biển báo (A2). Tôi đọc hiểu email cá nhân kể chuyện (B1). Tôi đọc được bài báo nêu quan điểm và nhận ra lập luận của tác giả (B2).
 - **Nói**: Tôi giới thiệu bản thân và sở thích (A2). Tôi kể lại một chuyến đi với đủ chi tiết (B1). Tôi tranh luận về một vấn đề xã hội, đưa lý do và ví dụ (B2).
@@ -80,8 +82,6 @@ Từ kết quả này, hãy [đặt mục tiêu học theo SMART](/vi/blog/dat-m
 
 Lexkite có bài [kiểm tra đầu vào 5 phút](/#/placement) gồm 20 câu từ vựng và ngữ pháp, độ khó trải từ A2 đến C1. Làm xong, bạn nhận gợi ý lộ trình phù hợp với kết quả.
 
-![Màn hình kiểm tra đầu vào trong Lexkite](media:placement "Kiểm tra đầu vào 5 phút: 20 câu từ vựng và ngữ pháp từ A2 đến C1, kèm gợi ý lộ trình")
-
 Các bước gợi ý:
 
 1. Chọn lúc tỉnh táo, làm bài [kiểm tra trình độ](/#/placement) một mạch, không tra từ điển. Gặp câu không chắc, hãy chọn theo cảm nhận đầu tiên thay vì đoán ngẫu nhiên.
@@ -89,7 +89,7 @@ Các bước gợi ý:
 3. Mở [Lộ trình chinh phục IELTS](/#/path). Lộ trình chia thành các chặng theo band, mỗi chặng đi theo vòng từ vựng, luyện tập, nghe và kiểm tra. Bắt đầu từ chặng tương ứng với kết quả của bạn.
 4. Đặt lịch kiểm tra lại sau khoảng 2–3 tháng.
 
-![Lộ trình chinh phục IELTS chia theo chặng](media:path "Lộ trình chinh phục IELTS trong Lexkite: các chặng theo band, mỗi chặng gồm từ, luyện, nghe và kiểm tra")
+![Trang lộ trình của Lexkite sắp xếp việc học theo chặng và band mục tiêu](media:path "Lộ trình chia chặng để mỗi giai đoạn có việc rõ ràng")
 
 {{cta: /#/placement | Làm bài kiểm tra trình độ 5 phút}}
 

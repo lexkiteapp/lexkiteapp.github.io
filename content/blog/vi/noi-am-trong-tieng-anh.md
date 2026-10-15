@@ -8,7 +8,7 @@ category: phat-am
 tags: [noi-am, nghe]
 keyword: "nối âm trong tiếng anh"
 cover: pron
-coverAlt: "Thư viện phát âm IPA của Lexkite với nguyên âm, phụ âm và nút luyện từng âm"
+coverAlt: "Màn hình phát âm trong Lexkite: chọn từng âm IPA, nghe từ ví dụ và luyện có chấm điểm"
 publishAt: 2026-10-25T21:13:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -107,6 +107,8 @@ Cả hai, nhưng ưu tiên khác nhau.
 
 Nhịp nhấn và dạng yếu gắn chặt với ngữ điệu câu – xem tiếp bài [ngữ điệu tiếng Anh](/vi/blog/ngu-dieu-tieng-anh/). Còn nếu âm cuối là điểm yếu của bạn, bài [cách phát âm ed và s es](/vi/blog/cach-phat-am-ed-va-s-es/) sẽ hữu ích.
 
+![Màn hình luyện phát âm của Lexkite với cụm “cut down on”, nút micro và chấm điểm theo giọng nói](media:practice-speak "Nói cụm từ có nối âm vào micro để kiểm tra bằng điểm số")
+
 ## Quy trình luyện nối âm với một đoạn nghe
 
 1. **Chọn một đoạn ngắn có transcript**, 20–40 giây, tốc độ tự nhiên nhưng không quá nhanh.
@@ -144,11 +146,11 @@ Viết lại câu đầy đủ (dạng chữ) từ cách nghe sau, và cho biế
 
 Nối âm chỉ trở nên quen tai khi bạn nghe đủ nhiều giọng thật. Mục [Luyện nghe IELTS](/#/listening) trong Lexkite có 10 đề, mỗi đề 4 phần với giọng Anh, Mỹ, Úc; tốc độ chỉnh được, nên bạn có thể giảm tốc để nghe rõ chỗ nối rồi tăng dần. Chế độ Chép chính tả rất hợp với bước 6 ở trên.
 
-![Màn hình luyện nghe IELTS trong Lexkite với 10 đề, giọng Anh, Mỹ, Úc, chỉnh tốc độ và nút Chép chính tả](media:listening "Luyện nghe: giảm tốc để nghe rõ chỗ nối âm, rồi chép chính tả")
+![Màn hình luyện nghe của Lexkite: chọn đề, chỉnh tốc độ, nghe lần đầu hoặc chép chính tả](media:listening "Chép chính tả đoạn có nối âm để luyện nghe các từ dính nhau")
 
 Muốn củng cố từng âm trước khi ghép, mở [thư viện phát âm IPA](/#/pron). Ngoài ra, mục [Trò chơi và bài tập](/#/practice) có bài Nghe và chép dùng chính các từ trong sổ của bạn.
 
-![Danh sách trò chơi và bài tập trong Lexkite gồm Học thông minh, Luyện phát âm, Nghe và chép, Bài kiểm tra](media:practice "Trò chơi và bài tập: Nghe và chép với từ trong sổ của bạn")
+![Màn hình trò chơi và bài tập từ vựng của Lexkite: học thông minh, ghép thẻ, trắc nghiệm, điền từ, nghe chép](media:practice "Chọn dạng bài luyện từ để học các cụm hay bị nối âm")
 
 {{cta: /#/listening | Luyện nghe nối âm với giọng Anh, Mỹ, Úc}}
 

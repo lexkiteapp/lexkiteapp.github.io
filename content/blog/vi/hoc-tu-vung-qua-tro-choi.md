@@ -8,7 +8,7 @@ category: phuong-phap
 tags: [gamification, tu-vung]
 keyword: "học từ vựng qua trò chơi"
 cover: practice
-coverAlt: "Màn hình Trò chơi và bài tập trong Lexkite với Học thông minh, Ghép thẻ, Trắc nghiệm, Điền từ"
+coverAlt: "Trang luyện tập của Lexkite gồm nhiều dạng bài từ vựng và lựa chọn nguồn từ"
 publishAt: 2026-10-24T14:24:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -101,11 +101,9 @@ Lexkite có sẵn nhiều dạng luyện tập nằm trong một màn hình, nê
 4. Khi đã quen, nâng độ khó với **Điền từ**, **Nghe & chép** hoặc **Luyện phát âm**. Cuối tuần, làm một **Bài kiểm tra** để tổng kết.
 5. Vào trang [Tiến độ & huy hiệu](/#/stats) để xem cấp độ, XP, chuỗi ngày, số thẻ đã ôn và lịch học dạng heatmap. Nhìn heatmap thưa hay dày là cách trung thực nhất để biết bạn có học đều hay không.
 
-![Màn hình Trò chơi và bài tập trong Lexkite với Học thông minh, Ghép thẻ, Luyện phát âm, Trắc nghiệm, Điền từ, Nghe & chép](media:practice "Chọn dạng luyện tập và nguồn từ, ví dụ Sổ từ của tôi")
+![Trò ghép thẻ tính giờ của Lexkite: nối từ tiếng Anh như privacy, perspective với nghĩa tiếng Việt](media:practice-match "Đồng hồ đếm giây giúp phản xạ nhận diện nghĩa nhanh hơn")
 
-![Trò chơi Ghép thẻ tính giờ trong Lexkite với các từ privacy, perspective, surveillance](media:practice-match "Ghép thẻ: nối từ với nghĩa trong khi đồng hồ đếm giây")
-
-![Trang Tiến độ trong Lexkite với cấp độ, XP, chuỗi ngày, lịch học 6 tháng và dự báo thẻ đến hạn](media:stats "Tiến độ & huy hiệu: XP, chuỗi ngày, heatmap 6 tháng và dự báo thẻ đến hạn")
+![Màn hình tiến độ và huy hiệu của Lexkite: cấp độ, XP, chuỗi ngày, số thẻ đã ôn và lịch học 6 tháng](media:stats "Huy hiệu và chuỗi ngày thưởng cho thói quen chơi trò từ vựng")
 
 {{cta: /#/practice | Chơi một lượt Ghép thẻ với từ trong sổ của bạn}}
 

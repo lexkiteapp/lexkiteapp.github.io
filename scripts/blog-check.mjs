@@ -118,6 +118,10 @@ export function checkPosts(posts, { all = posts, root = ROOT } = {}) {
     // Trùng giữa các bài (cùng ngôn ngữ)
     for (const k of ['slug', 'title', 'description', 'keyword']) { const v = p[k] && `${p.lang}\u0000${norm(p[k])}`, fs_ = v ? seen[k].get(v) : null; if (fs_ && fs_.length > 1) E('duplicate', `${k} trùng với ${fs_.filter(f => path.resolve(f) !== path.resolve(p.file)).map(rel).join(', ')}`); }
   }
+  // Chú thích ảnh phải viết theo ngữ cảnh từng bài – trùng nguyên văn giữa các bài là lỗi (nội dung rập khuôn)
+  const capSeen = new Map();
+  for (const p of all.filter(x => x.status !== 'draft')) for (const m of (p.body || '').matchAll(/!\[[^\]]*\]\(\s*media:[\w-]+\s+"([^"]+)"\s*\)/g)) { const k = `${p.lang}\u0000${m[1].trim().toLowerCase()}`; (capSeen.get(k) || capSeen.set(k, new Set()).get(k)).add(rel(p.file)); }
+  for (const p of posts) for (const m of (p.body || '').matchAll(/!\[[^\]]*\]\(\s*media:[\w-]+\s+"([^"]+)"\s*\)/g)) { const f = capSeen.get(`${p.lang}\u0000${m[1].trim().toLowerCase()}`); if (f && f.size > 1) errors.push(`${rel(p.file)}: [caption] chú thích "${m[1].slice(0, 60)}" trùng ${f.size - 1} bài khác – viết theo ngữ cảnh bài`); }
   // Liên kết đến: bài không được bài nào trỏ tới là “bài mồ côi” (Google khó thấy, ít được chuyền sức mạnh)
   const live = all.filter(p => p.status !== 'draft'), inbound = new Map();
   for (const p of live) for (const m of new Set([...p.body.matchAll(/\]\(\/(?:[a-z]{2}(?:-[a-z]+)?\/)?blog\/([^/#?)]+)\//g)].map(m => `${p.lang}/${m[1]}`))) inbound.set(m, (inbound.get(m) || 0) + 1);

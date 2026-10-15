@@ -8,7 +8,7 @@ category: ielts
 tags: [thi-thu, ielts]
 keyword: "thi thử ielts online"
 cover: mock
-coverAlt: "Màn hình Thi thử IELTS 4 kỹ năng trong Lexkite: chọn Listening, Reading, Writing, Speaking và chọn đề"
+coverAlt: "Mục thi thử IELTS của Lexkite cho chọn Listening, Reading, Writing hoặc Speaking"
 publishAt: 2026-11-03T10:24:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -75,6 +75,8 @@ Với Listening và Reading, đừng chỉ ghi "sai câu 23". Hãy ghi *lý do*:
 
 Sau vài bài, bạn sẽ thấy một hai nhóm lỗi chiếm phần lớn. Ví dụ, nếu một nửa câu sai Reading là do nhầm Not Given, bạn biết chính xác cần luyện gì. Bài [cách xử lý dạng True/False/Not Given](/vi/blog/ielts-reading-true-false-not-given/) là điểm bắt đầu tốt.
 
+![Màn hình chọn bài đọc của Lexkite với các chủ đề như làm việc bốn ngày một tuần và vi nhựa đại dương](media:reading "Bài đọc chia từ A2 đến C1 để tăng dần độ khó")
+
 ### Bước 2: Làm lại không bấm giờ
 
 Với những câu sai, hãy làm lại mà không nhìn đáp án, không giới hạn thời gian. Nếu làm lại vẫn sai, vấn đề là kiến thức (từ vựng, ngữ pháp). Nếu làm lại đúng, vấn đề là tốc độ hoặc tâm lý.
@@ -95,14 +97,12 @@ Tất cả lỗi trên nên được gom về một nơi. Một sổ lỗi sai �
 
 Lexkite có chế độ thi thử bốn kỹ năng mô phỏng một buổi thi IELTS Academic, bấm giờ và chấm tự động. Đề do Lexkite tự biên soạn nên điểm mang tính tham khảo, dùng để theo dõi tiến bộ chứ không thay thế điểm thi thật.
 
-![Màn hình Thi thử IELTS 4 kỹ năng trong Lexkite với lựa chọn Listening, Reading, Writing, Speaking, chọn đề và lịch sử thi thử](media:mock "Chọn kỹ năng và đề, xem lại lịch sử các lần thi thử trước")
-
 1. Mở [Thi thử IELTS](/#/mock), chọn các kỹ năng muốn thi. Lần đầu, hãy chọn đủ cả bốn để biết bức tranh toàn cảnh.
 2. Chọn đề Listening và Reading. Nếu bạn thi General Training, chọn đề Reading dạng General.
 3. Đeo tai nghe, cho phép micro nếu thi Speaking, và làm bài liền mạch theo đúng thời gian.
 4. Sau khi có kết quả, mở [Sổ lỗi sai](/#/mistakes) để xem lỗi được gom theo Từ vựng, Ngữ pháp, Đọc hiểu, Nghe và ôn lại từng nhóm.
 
-![Sổ lỗi sai trong Lexkite gom lỗi theo Từ vựng, Ngữ pháp, Đọc hiểu và Nghe để ôn lại](media:mistakes "Sổ lỗi sai: ôn lại theo từng nhóm lỗi thay vì làm thêm đề mới")
+![Màn hình “Mistake log”: lỗi được xếp theo kỹ năng để bạn ôn đúng chỗ yếu](media:mistakes "Sau buổi thi thử, xem “Mistake log” để biết nên ôn phần nào")
 
 5. Ghi điểm từng kỹ năng vào lịch sử thi thử và so sánh sau 2–3 tuần. Điều đáng theo dõi là xu hướng, không phải một con số đơn lẻ.
 

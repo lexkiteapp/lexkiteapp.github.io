@@ -8,7 +8,7 @@ category: ky-nang
 tags: [tu-duy, giao-tiep]
 keyword: "tư duy bằng tiếng anh"
 cover: speaking
-coverAlt: "Phòng luyện Speaking của Lexkite với Part 1, 2, 3 theo chủ đề và câu trả lời mẫu"
+coverAlt: "Màn hình Speaking trong Lexkite: chọn Part, xem câu hỏi mẫu, câu trả lời mẫu và từ vựng nên dùng"
 publishAt: 2026-10-31T10:06:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -94,6 +94,8 @@ Khi học *a dent* (vết móp), hãy hình dung một chiếc xe bị móp, đ�
 
 Khi đã ở trình độ B1 trở lên, đọc thêm định nghĩa trong từ điển Anh–Anh. Định nghĩa đơn giản như *reluctant: not willing to do something* giúp bạn hiểu từ bằng chính tiếng Anh. Cách khai thác từ điển này có trong bài [cách dùng từ điển Anh–Anh](/vi/blog/cach-dung-tu-dien-anh-anh/).
 
+![Mục từ “resilient” trong từ điển Anh–Việt của Lexkite với phiên âm, nút nghe, collocation và từ đồng nghĩa](media:dict "Dùng định nghĩa tiếng Anh trong từ điển để dần bớt dịch sang tiếng Việt")
+
 ### 5. Viết nhật ký tiếng Anh năm câu mỗi ngày
 
 Mỗi tối, viết năm câu về ngày hôm đó. Luật chơi:
@@ -146,11 +148,11 @@ Sửa các câu "dịch từng chữ" sau thành câu tự nhiên.
 
 Để biến khung câu và cụm từ thành phản xạ, cần có nơi lưu chúng có hệ thống. [Sổ cụm từ và cấu trúc](/#/phrases) cho phép bạn thêm cụm hay, câu mẫu và gắn nhãn để ôn lại.
 
-![Sổ cụm từ và cấu trúc với bài mẫu chỉ rõ cấu trúc và nhãn Task, band](media:phrases "Sổ cụm từ: lưu khung câu và cụm hay để dùng lại khi nói")
+![Mục “Phrases & structures” của Lexkite: thêm cụm từ hay, bài mẫu chỉ cấu trúc và gắn nhãn Task hoặc band](media:phrases "Lưu cụm từ thường dùng để nghĩ thẳng bằng tiếng Anh")
 
 Khi học cụm mới, chế độ [Học thông minh](/#/practice/learn) giới thiệu mỗi cụm kèm định nghĩa tiếng Anh, ví dụ và lỗi hay gặp, giúp bạn hiểu cụm bằng chính tiếng Anh.
 
-![Thẻ Học thông minh giới thiệu cụm come up with với định nghĩa tiếng Anh, ví dụ và mẹo nhớ](media:practice-learn "Học thông minh: mỗi cụm có định nghĩa tiếng Anh, ví dụ và lỗi hay gặp")
+![Thẻ cụm “come up with” trong Lexkite kèm ví dụ, mẹo nhớ, lỗi hay gặp và cách dùng trong IELTS](media:practice-learn "Thẻ học từ mới có định nghĩa tiếng Anh để tập nghĩ không qua dịch")
 
 Sau đó, luyện bài tập "tự hỏi, tự trả lời" với các câu hỏi theo chủ đề trong [phòng luyện Speaking](/#/speaking). Muốn nói nhanh và liền mạch hơn, đọc tiếp bài [cách luyện nói tiếng Anh trôi chảy](/vi/blog/cach-luyen-noi-tieng-anh-troi-chay/).
 

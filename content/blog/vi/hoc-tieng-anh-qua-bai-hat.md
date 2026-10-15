@@ -8,7 +8,7 @@ category: ky-nang
 tags: [bai-hat, phat-am]
 keyword: "học tiếng anh qua bài hát"
 cover: pron
-coverAlt: "Thư viện phát âm IPA trong Lexkite với nguyên âm đơn, nguyên âm đôi, phụ âm và từ ví dụ"
+coverAlt: "Màn hình phát âm trong Lexkite: chọn từng âm IPA, nghe từ ví dụ và luyện có chấm điểm"
 publishAt: 2026-11-12T15:22:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -103,7 +103,7 @@ Trước khi hát, **đọc** lời như đang nói chuyện bình thường, đ
 
 Lấy các cụm đã ghi, đặt 2–3 câu của riêng bạn trong ngữ cảnh khác. Nếu điệp khúc có một phrasal verb như *give up* hay *hold on*, hãy dùng nó để nói về chuyện học hành hoặc công việc của bạn. Không có bước này, cụm từ chỉ nằm yên trong bài hát. Danh sách [phrasal verb theo chủ đề](/tu-vung/phrasal) là nguồn tốt để mở rộng.
 
-![Màn hình luyện nghe IELTS trong Lexkite với 10 đề, giọng Anh–Mỹ–Úc, chỉnh tốc độ và chế độ chép chính tả](media:listening "Sau khi tai đã quen nhịp qua bài hát, chuyển sang bài nghe có chép chính tả và chỉnh tốc độ để luyện nghe chuẩn")
+![Màn hình luyện nghe của Lexkite: chọn đề, chỉnh tốc độ, nghe lần đầu hoặc chép chính tả](media:listening "Nghe và chép lại một câu hát để tái sử dụng cụm từ trong bài nói")
 
 ## Kế hoạch một tuần với một bài hát
 
@@ -145,7 +145,7 @@ Bài hát là gia vị, không phải món chính. Trong một tuần học, nê
 
 Nếu khi hát theo bạn thấy vài âm cứ "trượt" mãi, hãy luyện riêng từng âm trong [thư viện phát âm IPA](/#/pron), rồi thử nói cụm từ trong bài hát ở chế độ [luyện phát âm có chấm điểm](/#/practice/speak). Bài [các âm khó trong tiếng Anh với người Việt](/vi/blog/cac-am-kho-trong-tieng-anh-voi-nguoi-viet/) chỉ ra những âm cần ưu tiên. Song song, dành vài buổi mỗi tuần cho [bài luyện nghe có chép chính tả](/#/listening) để tai quen với lời nói chuẩn.
 
-![Màn hình luyện phát âm có chấm điểm trong Lexkite với cụm cut down on và nút micro để nói](media:practice-speak "Nói lại cụm từ đã học trong bài hát và để hệ thống chấm theo giọng nói")
+![Luyện phát âm có chấm điểm trong Lexkite, dùng micro để nói cụm “cut down on”](media:practice-speak "Hát hoặc đọc lại câu yêu thích vào micro rồi xem điểm phát âm")
 
 {{youtube: | Gợi ý video: phân tích nối âm và dạng yếu trong một bài hát tiếng Anh chậm, kèm cách tự làm bài điền lời}}
 

@@ -8,7 +8,7 @@ category: ky-nang
 tags: [podcast, nghe]
 keyword: "học tiếng anh qua podcast"
 cover: listening
-coverAlt: "Trang luyện nghe IELTS của Lexkite với nhiều giọng, chỉnh tốc độ và chép chính tả"
+coverAlt: "Màn hình luyện nghe của Lexkite: chọn đề, chỉnh tốc độ, nghe lần đầu hoặc chép chính tả"
 publishAt: 2026-11-02T12:04:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -85,6 +85,8 @@ Một ví dụ tự đặt để luyện nhịp, chữ in hoa là âm tiết đ�
 
 Các từ *I, was, to, you, but* được đọc lướt và nhẹ, các từ in hoa mang trọng âm. Khi bạn shadowing đúng nhịp này, câu nghe tự nhiên hơn hẳn dù phát âm từng âm chưa hoàn hảo.
 
+![Thư viện phát âm IPA của Lexkite chia nguyên âm đơn, nguyên âm đôi và phụ âm, kèm từ ví dụ](media:pron "Chọn một âm IPA để chuẩn bị trước khi shadowing theo podcast")
+
 ## Lịch nghe podcast hằng ngày dễ duy trì
 
 Cách duy trì tốt nhất là gắn podcast với việc bạn đã làm mỗi ngày.
@@ -130,11 +132,11 @@ Hãy giữ một bảng theo dõi đơn giản: ngày, tên tập, đoạn đã 
 
 Podcast thường không có bài tập kèm theo. Để có phần luyện tai được kiểm tra đáp án, dùng [bài luyện nghe IELTS](/#/listening) với giọng Anh, Mỹ, Úc và tốc độ chỉnh được. Bước shadowing có thể thực hành từng cụm với [Luyện phát âm có chấm điểm](/#/practice/speak).
 
-![Màn hình luyện phát âm có chấm điểm với cụm cut down on và nút micro](media:practice-speak "Luyện phát âm: nói theo từng cụm và nhận chấm điểm theo giọng nói")
+![Luyện phát âm có chấm điểm trong Lexkite, dùng micro để nói cụm “cut down on”](media:practice-speak "Nói đuổi theo podcast vào micro rồi so điểm phát âm")
 
 Những cụm hay ghi từ podcast nên được lưu vào sổ từ, rồi luyện lại bằng [bài Nghe & chép trong mục Luyện tập](/#/practice) để tai quen âm của chính những cụm đó.
 
-![Danh sách trò chơi và bài tập gồm Nghe & chép, Luyện phát âm, Trắc nghiệm, chọn nguồn từ là Sổ từ của tôi](media:practice "Trò chơi & bài tập: luyện lại các cụm đã lưu bằng Nghe & chép")
+![Danh sách các hoạt động luyện từ trong Lexkite, có phần chọn nguồn từ như sổ từ cá nhân](media:practice "Dùng bài tập luyện từ để ôn lại từ vựng nghe được trong podcast")
 
 Muốn luyện nói từ những gì đã nghe, tham khảo câu trả lời mẫu theo chủ đề ở mục [Speaking mẫu](/speaking/) và đọc bài [cách luyện nói tiếng Anh trôi chảy](/vi/blog/cach-luyen-noi-tieng-anh-troi-chay/). Nếu bạn thích học bằng hình ảnh hơn, xem bài [học tiếng Anh qua phim](/vi/blog/hoc-tieng-anh-qua-phim/).
 

@@ -8,7 +8,7 @@ category: phat-am
 tags: [phat-am, am-cuoi]
 keyword: "cách phát âm ed và s es"
 cover: pron
-coverAlt: "Thư viện phát âm IPA của Lexkite với phụ âm, nguyên âm, từ ví dụ và chấm điểm"
+coverAlt: "Bảng âm IPA của Lexkite với nguyên âm, phụ âm và luyện từng âm"
 publishAt: 2026-10-24T12:30:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -162,11 +162,11 @@ Nếu bạn sai câu 4 hoặc 6, bạn vẫn đang nhìn chữ thay vì nghe âm
 
 Lý thuyết đã đủ; giờ cần luyện miệng. Phần [Luyện phát âm có chấm điểm](/#/practice/speak) trong Lexkite cho bạn đọc từ và cụm vào micro rồi chấm theo giọng nói – hợp để kiểm tra xem đuôi đã "có mặt" chưa.
 
-![Luyện phát âm có chấm điểm trong Lexkite: cụm cut down on và nút micro để nói](media:practice-speak "Đọc vào micro và nhận điểm theo giọng nói")
+![Bài nói thử cụm “cut down on”: bấm micro, đọc to và xem điểm phát âm](media:practice-speak "Đọc to các từ đuôi -ed, -s vào micro và xem âm nào cần sửa")
 
 Khi không chắc âm cuối của từ gốc, tra trong [từ điển Anh–Việt](/#/dict/fixed) để xem phiên âm UK/US và nghe mẫu. Muốn luyện riêng các âm /s z ʃ ʒ tʃ dʒ/, mở [thư viện phát âm IPA](/#/pron).
 
-![Từ điển Lexkite với phiên âm UK/US, nút nghe, nghĩa và câu ví dụ của từ resilient](media:dict "Từ điển: tra phiên âm để biết âm cuối thật của từ")
+![Mục từ “resilient” trong từ điển Anh–Việt của Lexkite với phiên âm, nút nghe, collocation và từ đồng nghĩa](media:dict "Nghe mẫu hai giọng của từ ví dụ để so đuôi -ed và -s với cách bạn đọc")
 
 {{cta: /#/practice/speak | Luyện đọc đuôi ed và s/es với micro}}
 

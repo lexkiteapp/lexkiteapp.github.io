@@ -8,7 +8,7 @@ category: phuong-phap
 tags: [ngu-canh, doc-hieu]
 keyword: "học từ vựng qua ngữ cảnh"
 cover: read-article
-coverAlt: "Bài đọc The Growing Problem of Space Debris trong Lexkite với từ khóa tô màu và danh sách từ bên phải"
+coverAlt: "Bài đọc IELTS trong Lexkite: tô màu từ khóa, tra từ ngay trên bài và làm câu hỏi"
 publishAt: 2026-10-23T13:57:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -85,6 +85,8 @@ Khi ôn, đừng chỉ nhìn từ rồi nhớ nghĩa. Hãy thử nhìn câu đã
 
 Nếu bạn muốn bắt đầu với đọc báo, bài [đọc báo tiếng Anh để mở rộng từ vựng](/vi/blog/doc-bao-tieng-anh-mo-rong-tu-vung/) có gợi ý chọn nguồn và cách đọc.
 
+![Danh sách bài đọc IELTS theo cấp độ A2–C1 trong Lexkite, như “The Rise of Urban Farming”](media:reading "Đọc bài theo cấp độ để thu thập từ vựng kèm câu ngữ cảnh")
+
 {{youtube: | Gợi ý video: Đọc một đoạn văn tiếng Anh và đoán nghĩa từ mới bằng manh mối ngữ cảnh}}
 
 ### Ví dụ: một đoạn văn, ba từ đáng lưu
@@ -118,9 +120,7 @@ Lexkite được thiết kế để bạn không phải chép tay từng câu:
 4. Làm câu hỏi True/False/Not Given ở cuối bài. Câu hỏi buộc bạn đọc lại đúng những câu chứa từ khóa, tức là gặp từ lần thứ hai trong ngữ cảnh.
 5. Với từ cần tìm hiểu sâu hơn, mở [từ điển Anh–Việt](/#/dict/resilient) để xem phiên âm UK/US, câu ví dụ, collocation và từ đồng nghĩa, rồi bấm Lưu flashcard.
 
-![Bài đọc The Growing Problem of Space Debris trong Lexkite với từ khóa tô màu, danh sách từ khóa và câu hỏi True/False/Not Given](media:read-article "Chạm vào từ được tô màu để tra và lưu; câu hỏi cuối bài giúp bạn gặp lại từ")
-
-![Từ điển Lexkite tra từ resilient với phiên âm UK/US, nghĩa, câu ví dụ, collocation và nút Lưu flashcard](media:dict "Mục từ resilient: nghĩa, câu ví dụ, collocation, đồng nghĩa và nút lưu thành flashcard")
+![Từ điển “English – Vietnamese dictionary” của Lexkite khi tra “resilient”: phiên âm UK/US, nghĩa và ví dụ](media:dict "Chạm vào từ trong bài, xem nghĩa rồi lưu kèm câu chứa nó")
 
 {{cta: /#/reading | Chọn một bài đọc và lưu 5 từ kèm ngữ cảnh}}
 

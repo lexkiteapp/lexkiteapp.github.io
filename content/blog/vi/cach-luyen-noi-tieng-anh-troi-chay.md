@@ -8,7 +8,7 @@ category: ky-nang
 tags: [speaking, giao-tiep]
 keyword: "cách luyện nói tiếng anh trôi chảy"
 cover: practice-speak
-coverAlt: "Màn hình luyện phát âm Lexkite với cụm cut down on, nút micro và chấm điểm"
+coverAlt: "Luyện phát âm có chấm điểm trong Lexkite, dùng micro để nói cụm “cut down on”"
 publishAt: 2026-11-02T17:47:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -164,11 +164,11 @@ Lịch luyện một tuần gợi ý:
 
 Để luyện có chủ đề, [phòng luyện Speaking](/#/speaking) chia câu hỏi theo Part 1, 2, 3 và chủ đề, kèm câu trả lời mẫu và từ vựng nên dùng. Đọc câu mẫu sau khi bạn đã tự nói, để so sánh cách triển khai ý, không phải để học thuộc.
 
-![Phòng luyện Speaking với Part 1, 2, 3 theo chủ đề, câu hỏi mẫu và câu trả lời mẫu](media:speaking "Phòng luyện Speaking: câu hỏi theo chủ đề và câu trả lời mẫu để đối chiếu")
+![Mục luyện nói IELTS của Lexkite chia theo ba Part và theo chủ đề](media:speaking "Xem câu trả lời mẫu rồi học cách mở ý và nối ý để nói trôi chảy hơn")
 
 Những cụm dẫn dắt và từ khó phát âm nên được luyện riêng với [Luyện phát âm có chấm điểm](/#/practice/speak). Khi muốn thử sức trong điều kiện giống phòng thi, chọn phần Speaking trong [thi thử IELTS](/#/mock).
 
-![Màn hình thi thử IELTS 4 kỹ năng với lựa chọn Speaking, chọn đề và lịch sử thi thử](media:mock "Thi thử IELTS: chọn phần Speaking để luyện trong điều kiện có giờ")
+![Mục thi thử IELTS của Lexkite cho chọn Listening, Reading, Writing hoặc Speaking](media:mock "Chọn đề rồi làm một mạch như thi thật")
 
 Tham khảo thêm câu trả lời mẫu theo chủ đề ở mục [Speaking mẫu](/speaking/), và nếu bạn muốn luyện nói trong tình huống xã giao, đọc bài [small talk tiếng Anh](/vi/blog/small-talk-tieng-anh/).
 

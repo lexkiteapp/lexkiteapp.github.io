@@ -8,7 +8,7 @@ category: toefl
 tags: [toefl, dinh-dang-moi]
 keyword: "toefl ibt 2026"
 cover: toefl
-coverAlt: "Trang Luyện thi TOEFL iBT trong Lexkite với thông tin định dạng mới từ 21/01/2026 và bảng cấu trúc đề"
+coverAlt: "Màn hình TOEFL iBT của Lexkite theo định dạng mới, thang band 1–6"
 publishAt: 2026-11-07T20:22:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -25,6 +25,8 @@ Có ba thay đổi lớn mà người ôn thi cần nắm.
 ### 1. Bài thi ngắn hơn
 
 Tổng thời gian còn khoảng 1,5 giờ cho cả bốn kỹ năng Reading, Listening, Writing, Speaking. Thời gian ngắn hơn đồng nghĩa với việc mỗi câu, mỗi phần có "trọng lượng" lớn hơn; mất tập trung vài phút có thể ảnh hưởng rõ rệt.
+
+![Kho bài đọc IELTS chia theo cấp độ; chạm vào từ trong bài để tra nghĩa](media:reading "Bảng tóm tắt cho thấy bài TOEFL iBT mới ngắn hơn bản cũ")
 
 ### 2. Đề thích ứng theo năng lực
 
@@ -95,14 +97,12 @@ Nếu bạn còn đang cân nhắc giữa các kỳ thi, bài [nên thi IELTS, T
 
 ## Làm ngay trong Lexkite: luyện đủ 12 dạng bài
 
-![Trang Luyện thi TOEFL iBT trong Lexkite với định dạng mới từ 21/01/2026, thang band 1–6, bảng cấu trúc đề và các dạng Complete the Words, Read in Daily Life, Read an Academic Passage](media:toefl "Luyện thi TOEFL iBT: bảng cấu trúc đề và luyện từng dạng bài theo định dạng mới")
-
 1. Mở [Luyện thi TOEFL iBT](/#/toefl) và xem bảng cấu trúc đề để nắm tổng thể.
 2. Bắt đầu với Complete the Words và Build a Sentence, hai dạng mới cần làm quen sớm. Mỗi câu có giải thích tiếng Việt.
 3. Sau mỗi bài trắc nghiệm, ứng dụng hiển thị tỉ lệ đúng và một band ước tính 1–6 để bạn theo dõi tiến bộ. Đây là quy đổi trên bộ đề tự biên soạn, không phải thang điểm chính thức của ETS.
 4. Câu sai được đưa vào [Sổ lỗi sai](/#/mistakes). Ôn sổ này mỗi tuần để không lặp lại lỗi cũ.
 
-![Màn hình Sổ lỗi sai của Lexkite, chia các lỗi thành nhóm Từ vựng, Ngữ pháp, Đọc hiểu, Nghe](media:mistakes "Các câu làm sai được gom lại theo nhóm để ôn có trọng tâm")
+![Sổ lỗi sai (“Mistake log”) trong Lexkite phân nhóm các câu từng làm sai](media:mistakes "Phân nhóm theo từ vựng, ngữ pháp, đọc và nghe để thấy điểm yếu")
 
 {{cta: /#/toefl | Luyện thử Complete the Words và Build a Sentence}}
 

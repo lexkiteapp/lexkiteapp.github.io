@@ -8,7 +8,7 @@ category: tu-vung
 tags: [technology, ielts, chu-de]
 keyword: "từ vựng ielts chủ đề technology"
 cover: library
-coverAlt: "Thư viện từ vựng Lexkite chia bộ từ theo NGSL, IELTS theo đề, Writing, Speaking và TOEIC"
+coverAlt: "Màn hình “Vocabulary library” của Lexkite với các bộ từ chia theo nguồn và cấp độ A1–B2"
 publishAt: 2026-10-22T18:13:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -59,6 +59,8 @@ Câu mẫu: *Because algorithms show users more of what they already like, socia
 
 Câu mẫu: *Facial recognition cameras may reduce street crime, but they also raise serious concerns about mass surveillance and the right to privacy.*
 
+![Phòng viết IELTS Task 2 của Lexkite: chọn đề theo chủ đề, gợi ý ý tưởng, từ vựng và khung bài](media:write "Chọn đề Task 2 về quyền riêng tư và dữ liệu để dùng từ công nghệ")
+
 ### 4. Công việc và đời sống số
 
 - **remote work / work remotely** – làm việc từ xa.
@@ -78,8 +80,6 @@ Câu mẫu: *The digital divide means that elderly people in rural areas often s
 - **breakthrough** – bước đột phá.
 
 Câu mẫu: *Smartphones have become so user-friendly that even young children can operate them without instructions.*
-
-![Thư viện từ vựng Lexkite với các tab NGSL, IELTS theo đề, Writing, Speaking, TOEIC](media:library "Bạn có thể tìm bộ từ theo đề IELTS trong tab IELTS theo đề của Thư viện")
 
 ## Sắp xếp ý cho đề Task 2 về công nghệ
 
@@ -132,7 +132,7 @@ Một danh sách dài dễ đọc lướt rồi quên. Quy trình đầy đủ �
 4. Sau khi ghép thành thạo, viết một câu của riêng bạn với mỗi từ. Đây là bước chuyển từ "nhận ra" sang "dùng được".
 5. Để các thẻ vào lịch ôn hằng ngày, thuật toán FSRS sẽ tự nhắc lại đúng lúc bạn sắp quên.
 
-![Trò chơi Ghép thẻ trong Lexkite với các từ privacy, perspective, surveillance và đồng hồ đếm giây](media:practice-match "Ghép thẻ tính giờ: nối từ tiếng Anh với nghĩa tiếng Việt càng nhanh càng tốt")
+![Bài ghép từ với nghĩa trong Lexkite, chạy đồng hồ để tạo áp lực thời gian nhẹ](media:practice-match "Ghép từ công nghệ như “privacy” với nghĩa để ôn nhanh")
 
 {{cta: /#/practice/match | Ghép thử các từ công nghệ trong một lượt tính giờ}}
 

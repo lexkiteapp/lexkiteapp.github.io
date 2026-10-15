@@ -8,7 +8,7 @@ category: toeic
 tags: [toeic, part-5, ngu-phap]
 keyword: "toeic part 5"
 cover: toeic
-coverAlt: "Trang Luyện thi TOEIC trong Lexkite với phần luyện theo Part và thi thử chấm tự động"
+coverAlt: "Trang luyện thi TOEIC của Lexkite: thi thử 7 đề chấm tự động quy đổi 10–990, luyện theo Part và từ vựng"
 publishAt: 2026-11-05T08:19:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -75,6 +75,8 @@ Bạn cần chọn đúng thì, đúng chủ động hay bị động, đúng s�
 
 Nhóm này kiểm tra bạn có phân biệt được từ đứng trước cụm danh từ và từ đứng trước mệnh đề hay không.
 
+![Kho bài đọc IELTS chia theo cấp độ; chạm vào từ trong bài để tra nghĩa](media:reading "Chọn bài đọc để quan sát giới từ, liên từ trong câu tiếng Anh")
+
 | Đứng trước cụm danh từ | Đứng trước mệnh đề (S + V) | Nghĩa |
 |---|---|---|
 | despite, in spite of | although, even though | mặc dù |
@@ -115,14 +117,12 @@ Thời gian tiết kiệm ở đây chính là thời gian bạn có thêm cho [
 
 ## Làm ngay trong Lexkite: luyện Part 5 có giải thích
 
-![Màn hình TOEIC của Lexkite: đề thi thử quy đổi 10–990, khu luyện từng Part, từ vựng TSL](media:toeic "Chọn Part 5 trong phần Luyện theo Part để làm và xem giải thích")
-
 1. Trong trang [TOEIC](/#/toeic), chọn Test bất kỳ rồi bấm vào thẻ Part 5.
 2. Làm hết các câu có bấm giờ bằng đồng hồ của bạn, đặt mục tiêu khoảng 10 phút.
 3. Nộp bài và đọc giải thích. Với mỗi câu sai, ghi lại nó thuộc nhóm nào trong bốn nhóm trên.
 4. Nếu sai nhiều ở thì hoặc từ loại, mở [Ngữ pháp](/#/grammar) để ôn lại chủ điểm đó trước khi luyện đề tiếp.
 
-![Mục Ngữ pháp của Lexkite chia chương, có 12 thì, các cấp từ A1 đến B2 cùng phần luyện chung](media:grammar "Ôn lại các thì và bài luyện tổng hợp khi Part 5 sai nhiều về ngữ pháp")
+![Trang “Grammar” liệt kê các chương ngữ pháp theo cấp độ, có bài luyện đi kèm](media:grammar "Học ngữ pháp theo chương để làm Part 5 nhanh và có lý do rõ")
 
 5. Các cụm từ vựng gặp trong đề, hãy lưu thành flashcard để ôn mỗi ngày. Muốn có sẵn danh sách, xem [từ vựng TOEIC chia theo nhóm chủ đề](/vi/blog/tu-vung-toeic-theo-chu-de/).
 

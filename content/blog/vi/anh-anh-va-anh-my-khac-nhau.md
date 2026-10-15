@@ -8,7 +8,7 @@ category: phat-am
 tags: [anh-anh, anh-my]
 keyword: "anh anh và anh mỹ khác nhau"
 cover: dict
-coverAlt: "Từ điển Anh–Việt Lexkite hiển thị phiên âm UK và US kèm nút nghe cho từ resilient"
+coverAlt: "Kết quả tra từ “resilient” kèm câu ví dụ, collocation và nút lưu thành flashcard"
 publishAt: 2026-10-28T15:30:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -178,11 +178,11 @@ Cách nhanh nhất để quen hai giọng là nghe cùng một từ ở cả hai
 
 Sau đó, luyện tai với [bài nghe IELTS nhiều giọng](/#/listening): các đề có giọng Anh, Mỹ, Úc và chỉnh được tốc độ, nên bạn có thể nghe chậm để bắt chi tiết như /r/ hay /t/.
 
-![Trang luyện nghe IELTS với 10 đề, giọng Anh–Mỹ–Úc và tốc độ chỉnh được](media:listening "Luyện nghe: giọng Anh, Mỹ, Úc, chỉnh tốc độ và chế độ chép chính tả")
+![Danh sách đề luyện nghe IELTS trong Lexkite, mỗi đề 4 phần và nhiều giọng đọc](media:listening "Nghe đề IELTS để làm quen nhiều giọng đọc, nhất là giọng Anh")
 
 Khi đã chọn được giọng, hãy [luyện phát âm có chấm điểm](/#/practice/speak) với những từ khác biệt ở trên để giữ phát âm nhất quán.
 
-![Màn hình luyện phát âm có nút micro và chấm điểm cho cụm cut down on](media:practice-speak "Luyện phát âm: nói thử và xem điểm theo giọng nói")
+![Màn hình luyện phát âm của Lexkite với cụm “cut down on”, nút micro và chấm điểm theo giọng nói](media:practice-speak "Nói lại cụm từ vào micro để so phát âm của bạn với giọng chuẩn")
 
 {{cta: /#/listening | Nghe thử giọng Anh, Mỹ, Úc trong một đề}}
 
@@ -203,6 +203,8 @@ Không sai, nhất là trong giao tiếp. Trong văn viết trang trọng hoặc
 ### Từ điển ghi hai phiên âm thì nên học cái nào?
 
 Học phiên âm của giọng bạn đã chọn để nói, và nghe qua phiên âm còn lại để nhận ra khi gặp. Ký hiệu (r) trong phiên âm Anh Anh nhắc bạn rằng /r/ chỉ được đọc khi có nguyên âm theo sau.
+
+![Màn hình phát âm trong Lexkite: chọn từng âm IPA, nghe từ ví dụ và luyện có chấm điểm](media:pron "Mỗi âm IPA có ví dụ riêng, tiện so cách đọc Anh và Mỹ")
 
 ### Giọng Úc gần Anh Anh hay Anh Mỹ hơn?
 

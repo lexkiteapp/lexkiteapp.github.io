@@ -8,7 +8,7 @@ category: tu-vung
 tags: [ielts, tu-vung, flashcard]
 keyword: "cách học từ vựng ielts"
 cover: library
-coverAlt: "Thư viện từ vựng Lexkite với các tab NGSL, IELTS theo đề, Writing, Speaking, TOEIC"
+coverAlt: "Thư viện từ vựng Lexkite (“Vocabulary library”) gồm hơn 6.800 từ chia thành nhiều bộ theo cấp độ"
 publishAt: 2026-10-16T07:12:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -68,6 +68,8 @@ Một từ chỉ thực sự thuộc về bạn khi bạn chủ động dùng đ
 
 Nếu không chắc câu mình viết có tự nhiên không, hãy tra lại collocation trong từ điển hoặc đối chiếu danh sách [collocation học thuật cho IELTS](/vi/blog/collocation-ielts/) trước khi ghi vào sổ.
 
+![Kết quả tra từ “resilient” kèm câu ví dụ, collocation và nút lưu thành flashcard](media:dict "Lưu từ IELTS thành flashcard từ kết quả tra để dùng lại trong Writing")
+
 ## Lịch học mẫu 30 phút mỗi ngày
 
 Bảng dưới đây là một lịch đơn giản cho người đi làm hoặc sinh viên bận rộn:
@@ -87,15 +89,13 @@ Bảy bước trên có thể làm bằng giấy bút, nhưng phần chọn từ
 
 1. **Chọn bộ từ đúng cấp.** Mở [Thư viện từ vựng](/#/library), bắt đầu với tab Từ vựng cốt lõi NGSL nếu bạn còn yếu nền tảng, hoặc chọn IELTS theo đề, Writing, Speaking khi đã vững hơn. Mỗi bộ có ghi cấp độ để bạn chọn vừa sức.
 
-![Thư viện từ vựng Lexkite với các tab Tất cả, NGSL, IELTS theo đề, Writing, Speaking, TOEIC](media:library "Thư viện chia bộ từ theo nguồn và cấp độ A1–B2")
-
 2. **Học từ mới có ngữ cảnh.** Chế độ [Học thông minh](/#/practice/learn) giới thiệu từng từ hoặc cụm kèm nghĩa, định nghĩa tiếng Anh, câu ví dụ, mẹo nhớ, lỗi hay gặp và cách dùng trong IELTS – đúng tinh thần của bước 3.
 
-![Thẻ Học thông minh giới thiệu cụm come up with với nghĩa, ví dụ, mẹo nhớ và lỗi hay gặp](media:practice-learn "Học thông minh: mỗi cụm có ví dụ, mẹo nhớ và cách dùng trong IELTS")
+![Màn hình học thông minh của Lexkite cho cụm “come up with” với nghĩa, ví dụ và lưu ý dùng đúng](media:practice-learn "Thẻ học từ mới có đủ nghĩa, ví dụ, mẹo nhớ và lỗi hay gặp")
 
 3. **Ôn theo lịch tự động.** Vào phần [Ôn tập flashcard](/#/review), app dùng thuật toán FSRS để quyết định hôm nay cần ôn thẻ nào. Bạn chỉ việc lật thẻ, tự nhớ trước rồi chấm mức độ nhớ.
 
-![Phiên ôn flashcard với thẻ từ pollution, phiên âm và nút Lật thẻ](media:review "Phiên ôn flashcard: tự nhớ trước khi lật thẻ")
+![Phiên ôn flashcard trong Lexkite với thẻ từ “pollution”, phiên âm và nút “Flip”](media:review "Ôn từ IELTS bằng flashcard, có hình minh họa và thanh tiến độ")
 
 {{cta: /#/library | Chọn bộ từ đầu tiên và học 10 từ hôm nay}}
 

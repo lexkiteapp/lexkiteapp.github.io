@@ -8,7 +8,7 @@ category: toeic
 tags: [toeic, part-2, listening]
 keyword: "toeic part 2"
 cover: toeic
-coverAlt: "Trang Luyện thi TOEIC trong Lexkite với luyện theo Part, thi thử và từ vựng TOEIC"
+coverAlt: "Trang luyện thi TOEIC của Lexkite: thi thử 7 đề chấm tự động quy đổi 10–990, luyện theo Part và từ vựng"
 publishAt: 2026-11-05T17:45:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -36,6 +36,8 @@ Có thể chia câu hỏi thành các nhóm chính:
 ## Câu hỏi Wh-: nghe kỹ ba từ đầu tiên
 
 Với câu hỏi Wh-, từ để hỏi quyết định gần như mọi thứ. Nếu bạn bắt được *where*, bạn biết đáp án phải là một địa điểm (hoặc câu trả lời gián tiếp liên quan đến nơi chốn). Nếu nghe nhầm *where* thành *when*, bạn gần như chắc chắn sai.
+
+![Sổ lỗi sai (“Mistake log”) trong Lexkite phân nhóm các câu từng làm sai](media:mistakes "Ghi lại câu Wh- nghe sai vào “Mistake log” để luyện lại")
 
 **Những cặp dễ nhầm với người Việt:**
 
@@ -115,13 +117,11 @@ Quy tắc kinh nghiệm: **nếu một đáp án lặp lại âm của câu hỏ
 
 ## Làm ngay trong Lexkite – rèn tai cho Part 2
 
-![Trang TOEIC Listening & Reading trong ứng dụng Lexkite, nơi chọn đề và luyện riêng Part 2](media:toeic "Luyện theo Part: chọn Part 2 để nghe và chọn câu đáp phù hợp")
-
 1. Truy cập [trang TOEIC](/#/toeic), chọn Test rồi vào thẻ Part 2. Phần mẹo trên trang cũng nhắc đúng điều quan trọng nhất: nghe kỹ từ để hỏi và cẩn thận đáp án lặp âm.
 2. Sau khi nộp bài, nghe lại các câu sai và ghi lại loại bẫy.
 3. Để luyện tai rộng hơn, dùng mục [Luyện nghe](/#/listening) với chế độ chép chính tả. Bạn có thể nghe nhiều giọng Anh, Mỹ, Úc và chỉnh tốc độ chậm lại khi mới bắt đầu.
 
-![Mục Luyện nghe trong Lexkite với 10 đề, giọng Anh–Mỹ–Úc, tốc độ chỉnh được và chế độ Chép chính tả](media:listening "Chế độ Chép chính tả giúp nhận ra âm nối và âm bị nuốt")
+![Màn hình luyện nghe của Lexkite: chọn đề, chỉnh tốc độ, nghe lần đầu hoặc chép chính tả](media:listening "Chọn Part 2 và đề nghe, chỉnh tốc độ để rèn tai")
 
 4. Lưu những cặp từ dễ nhầm (*contract/contact*, *lunch/launch*) thành flashcard để ôn mỗi ngày. Từ vựng công sở hay xuất hiện trong Part 2 cũng có trong [bộ từ TOEIC trên trang từ vựng](/tu-vung/).
 

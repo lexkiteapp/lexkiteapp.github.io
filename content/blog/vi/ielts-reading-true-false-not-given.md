@@ -8,7 +8,7 @@ category: ielts
 tags: [reading, ielts]
 keyword: "true false not given"
 cover: reading
-coverAlt: "Danh sách bài đọc IELTS theo cấp độ A2–C1 trong Lexkite"
+coverAlt: "Kho bài đọc IELTS chia theo cấp độ; chạm vào từ trong bài để tra nghĩa"
 publishAt: 2026-10-28T18:31:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -61,6 +61,8 @@ Hãy chú ý câu thứ tư. Nhiều bạn suy luận "chỉ nói weekdays, ch�
 
 Người ra đề rất thích chỉnh một từ "mức độ" để biến True thành False hoặc Not Given. Hãy khoanh những từ sau trong câu phát biểu:
 
+![Mục “Mistake log” của Lexkite gom lỗi sai theo từ vựng, ngữ pháp, đọc hiểu và nghe để ôn lại](media:mistakes "Mục “Mistake log” gom lại câu True/False/Not Given bạn hay trả lời sai")
+
 - **Số lượng:** all, most, some, a few, only, none.
 - **Tần suất:** always, usually, sometimes, rarely, never.
 - **Mức chắc chắn:** proves, suggests, may, is believed to.
@@ -100,8 +102,6 @@ Ví dụ: bài đọc viết *"Some researchers believe the method is effective"
 
 Kỹ thuật chỉ thành phản xạ khi bạn luyện trên nhiều văn bản. Lexkite có sẵn kho bài đọc chia theo cấp độ, kèm câu hỏi dạng này, để bạn luyện mỗi ngày một bài ngắn.
 
-![Danh sách bài đọc IELTS theo cấp A2–C1 như The Rise of Urban Farming và Microplastics in the Ocean](media:reading "Phần Bài đọc IELTS: chọn bài theo cấp độ, chạm vào từ để tra nghĩa")
-
 Cách luyện gợi ý:
 
 1. Mở [kho bài đọc IELTS](/#/reading) và chọn bài đúng cấp hiện tại của bạn (A2–B1 nếu mới bắt đầu, B2–C1 nếu đang nhắm band 6.5 trở lên).
@@ -109,7 +109,7 @@ Cách luyện gợi ý:
 3. Làm phần câu hỏi True/False/Not Given theo đúng 4 bước ở trên. Với mỗi câu, viết nháp **một dòng lý do** (ví dụ: "đoạn 2 nói doubled → False").
 4. Gặp từ lạ trong câu chứa đáp án, chạm vào từ để tra và lưu thành flashcard. Lần sau gặp lại, bạn sẽ so mức độ nhanh hơn.
 
-![Bài đọc The Growing Problem of Space Debris có từ khóa tô màu và câu hỏi True/False/Not Given](media:read-article "Bài đọc mẫu: từ khóa được tô màu, chạm để tra và lưu, câu hỏi True/False/Not Given ở cuối bài")
+![Bài đọc IELTS trong Lexkite: tô màu từ khóa, tra từ ngay trên bài và làm câu hỏi](media:read-article "Làm câu True/False/Not Given ngay cạnh bài đọc, dò từng ý trong đoạn")
 
 Sau khoảng 10–15 bài, bạn sẽ nhận ra mình hay sai kiểu nào: nhầm False với Not Given, hay bỏ sót từ mức độ. Ghi nhận đó quan trọng hơn số câu đúng của từng bài.
 

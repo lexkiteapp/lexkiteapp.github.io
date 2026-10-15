@@ -8,7 +8,7 @@ category: phuong-phap
 tags: [phat-am, ipa, speaking]
 keyword: "luyện phát âm tiếng anh"
 cover: pron
-coverAlt: "Thư viện phát âm IPA trong Lexkite với nguyên âm và phụ âm"
+coverAlt: "Thư viện phát âm IPA của Lexkite chia nguyên âm đơn, nguyên âm đôi và phụ âm, kèm từ ví dụ"
 publishAt: 2026-11-01T19:03:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -60,6 +60,8 @@ Hai âm này không có trong tiếng Việt, nên thường bị thay bằng "t
 
 Trong tiếng Anh, *ship* /ʃɪp/ và *sheep* /ʃiːp/ là hai từ khác nhau. Tương tự: *full – fool*, *live – leave*, *bit – beat*.
 
+![Phòng luyện Speaking của Lexkite với Part 1, 2, 3 theo chủ đề, câu hỏi mẫu và câu trả lời band 7.5–8](media:speaking "Chọn Part và chủ đề rồi luyện với câu hỏi mẫu")
+
 **Cách luyện:** luyện theo **cặp âm tối thiểu** (minimal pairs). Đọc to từng cặp, ghi âm, nghe lại xem hai từ có thật sự khác nhau không. Nguyên âm dài không chỉ dài hơn mà còn **căng** hơn; nguyên âm ngắn thì lỏng, gọn. Nếu bạn chưa quen ký hiệu, đọc bài [cách đọc phiên âm IPA](/vi/blog/cach-doc-phien-am-ipa/) trước sẽ dễ hơn nhiều.
 
 ### 4. Trọng âm từ
@@ -94,14 +96,12 @@ Một vòng luyện hiệu quả: **nghe mẫu → nói → nhận phản hồi 
 
 ## Làm ngay trong Lexkite: luyện từng âm, rồi từng cụm
 
-![Thư viện phát âm IPA với nguyên âm đơn, nguyên âm đôi, phụ âm và từ ví dụ](media:pron "Thư viện phát âm IPA: chọn từng âm, nghe từ ví dụ, luyện và được chấm điểm")
-
 [Thư viện phát âm IPA](/#/pron) chia các âm thành nguyên âm đơn, nguyên âm đôi và phụ âm, mỗi âm có từ ví dụ để luyện và chấm điểm. Một lộ trình 2 tuần gợi ý:
 
 1. **Tuần 1:** mỗi ngày chọn một nhóm âm liên quan đến lỗi của bạn, ví dụ ngày 1 là /θ/ – /ð/, ngày 2 là /ɪ/ – /iː/, ngày 3 là các phụ âm cuối /t/, /d/, /k/. Nghe mẫu, nói, xem điểm, nói lại.
 2. **Tuần 2:** chuyển từ âm đơn sang cụm từ có nối âm.
 
-![Màn hình luyện phát âm có chấm điểm với cụm từ cut down on và nút micro](media:practice-speak "Luyện phát âm cụm từ: bấm micro, đọc cụm từ và được chấm theo giọng nói")
+![Màn hình luyện phát âm của Lexkite với cụm “cut down on”, nút micro và chấm điểm theo giọng nói](media:practice-speak "Luyện từng âm vào micro, nhìn điểm rồi mới ghép thành từ")
 
 Với cụm từ, dùng [Luyện phát âm có chấm điểm](/#/practice/speak): bấm micro, đọc cụm như *"cut down on"* liền một hơi, xem điểm. Cụm này là ví dụ điển hình của nối âm: /kʌt.daʊ.nɒn/ (âm /t/ của cut chỉ đóng nhẹ, không bật hơi). Khi điểm ổn định, hãy dùng chính những cụm đó khi luyện [IELTS Speaking Part 1](/vi/blog/ielts-speaking-part-1/) để phát âm đi vào lời nói thật.
 

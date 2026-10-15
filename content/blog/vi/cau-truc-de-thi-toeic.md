@@ -8,7 +8,7 @@ category: toeic
 tags: [toeic, cau-truc-de]
 keyword: "cấu trúc đề thi toeic"
 cover: toeic
-coverAlt: "Trang Luyện thi TOEIC Listening và Reading trong Lexkite với thi thử, luyện theo Part và từ vựng TOEIC"
+coverAlt: "Mục TOEIC Listening và Reading trong Lexkite với đề thi thử, luyện theo Part và danh sách từ TOEIC"
 publishAt: 2026-10-16T13:26:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
@@ -87,6 +87,8 @@ Phần dài nhất, gồm đoạn đơn (một văn bản), đoạn kép (hai v�
 
 Vì Listening chạy theo audio, nên chiến thuật thời gian chủ yếu nằm ở Reading. Một cách chia phổ biến:
 
+![Màn hình luyện nghe của Lexkite: chọn đề, chỉnh tốc độ, nghe lần đầu hoặc chép chính tả](media:listening "Chỉnh tốc độ chậm lại khi mới bắt đầu, tăng dần khi quen")
+
 | Part | Số câu | Thời gian gợi ý |
 |---|---|---|
 | Part 5 | 30 | 10–12 phút |
@@ -116,13 +118,11 @@ Muốn học từ theo nhóm, bạn có thể xem [từ vựng TOEIC theo chủ 
 
 ## Làm ngay trong Lexkite: luyện TOEIC theo đúng cấu trúc
 
-![Trang Luyện thi TOEIC trong Lexkite với thi thử 7 đề chấm tự động quy đổi 10–990, luyện theo Part và từ vựng TOEIC](media:toeic "Luyện thi TOEIC: thi thử, luyện theo Part và từ vựng TOEIC (TSL) trên cùng một trang")
-
 1. Mở [Luyện thi TOEIC](/#/toeic). Trang này có đề thi thử chấm tự động và quy đổi điểm ước tính trên thang 10–990, cùng phần luyện theo từng Part.
 2. Bắt đầu bằng luyện theo Part, ưu tiên Part bạn yếu nhất. Mỗi lần chỉ hiện các Part của một đề nên dễ theo dõi trên điện thoại.
 3. Học từ vựng TOEIC (TSL) trong [Thư viện từ vựng](/#/library), tab TOEIC, và ôn bằng flashcard mỗi ngày.
 
-![Thư viện từ vựng Lexkite với các tab Tất cả, NGSL, IELTS theo đề, Writing, Speaking và TOEIC (TSL)](media:library "Thư viện từ vựng: chọn tab TOEIC (TSL) để học từ vựng công sở")
+![Màn hình “Vocabulary library” của Lexkite với các bộ từ chia theo nguồn và cấp độ A1–B2](media:library "Chọn bộ từ TOEIC theo cấp độ để học đúng phần từ vựng của đề thi")
 
 4. Khi đã quen từng phần, làm một đề thi thử đầy đủ và so điểm qua các tuần.
 
