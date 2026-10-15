@@ -1,0 +1,17 @@
+# Cloudflare Pages: mã nguồn luôn kiểm tra bản mới (ETag → 304 nếu không đổi, rất nhẹ); âm thanh/ảnh đặt tên theo nội dung → lưu lâu
+/
+  Cache-Control: no-cache
+/index.html
+  Cache-Control: no-cache
+/sw.js
+  Cache-Control: no-store
+/js/*
+  Cache-Control: no-cache
+/css/*
+  Cache-Control: no-cache
+/*.webmanifest
+  Cache-Control: no-cache
+/audio/*
+  Cache-Control: public, max-age=31536000, immutable
+/icons/*
+  Cache-Control: public, max-age=604800
