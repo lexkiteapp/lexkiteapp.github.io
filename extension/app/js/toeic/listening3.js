@@ -268,7 +268,7 @@
           { n: 74, q: 'What is the purpose of the message?', options: ['To confirm a delivery date', 'To request a payment', 'To report that a product is unavailable', 'To advertise a sale'], a: 2, cue: 'the Linden desk, is out of stock until next month',
             explain: 'Mục đích chính: báo mẫu bàn Linden "out of stock until next month" (hết hàng đến tháng sau) và đề xuất mẫu thay thế → C. Ngày giao chưa được xác nhận – người nói còn đề nghị gọi lại để lên lịch (A sai).' },
           { n: 75, q: 'What does the speaker suggest the listener do?', options: ['Measure an office space', 'Visit a showroom', 'Choose a different color', 'Cancel an order'], a: 0, cue: 'please measure your space before you decide',
-            explain: 'Vì mẫu Aspen to hơn một chút, người nói khuyên "measure your space before you decide" (đo không gian trước khi quyết định) → A. Mẫu Aspen có CÙNG màu, nên C sai.' },
+            explain: 'Vì mẫu Aspen to hơn một chút, người nói khuyên "measure your space before you decide" (đo không gian trước khi quyết định) → A. Mẫu Aspen có CÙNG màu, nên phương án C sai.' },
           { n: 76, q: 'What does the speaker offer?', options: ['A discount on a future order', 'A full refund', 'Coverage of an extra cost', 'Free assembly'], a: 2, cue: "we'll cover the difference in price",
             explain: '"we\'ll cover the difference in price" (chúng tôi sẽ chịu phần chênh lệch giá) → chi trả khoản phát sinh (C). Giao hàng miễn phí là có sẵn từ trước ("still be free"); không nhắc đến lắp ráp hay hoàn tiền.' },
         ] },

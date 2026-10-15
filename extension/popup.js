@@ -64,7 +64,7 @@
         <div class="pp-qbtn" hidden><button class="btn sm" data-q="0">${tx('Quên')}</button><button class="btn sm primary" data-q="2">${tx('Nhớ')}</button></div>`;
       const flip = () => { $('#qCard .q-back').hidden = false; $('#qCard .q-hint').hidden = true; document.querySelector('.pp-qbtn').hidden = false; speak(c.word, settings.accent === 'en-US' ? c.audioUS : c.audio); };
       $('#qCard').onclick = flip; $('#qCard').onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } };
-      document.querySelectorAll('[data-q]').forEach(b => b.onclick = async () => { await Cards.patch(c.word, card => { card.srs = Core.SRS.review(card.srs, +b.dataset.q); }); await Stats.logReview(false); qi++; draw(); });
+      document.querySelectorAll('[data-q]').forEach(b => b.onclick = async () => { await Cards.patch(c.word, card => { card.srs = Core.SRS.review(card.srs, +b.dataset.q); }); await Stats.logReview(false); try { chrome.runtime.sendMessage({ type: 'triggerSync' }).catch(() => {}); } catch (e) {} qi++; draw(); });
     };
     draw();
   }
@@ -79,6 +79,7 @@
     document.querySelectorAll('.pp-say').forEach(b => b.onclick = e => { e.preventDefault(); const c = recent.find(x => x.word === b.dataset.say); speak(b.dataset.say, c && (settings.accent === 'en-US' ? c.audioUS : c.audio)); });
   }
   $('#open').onclick = e => { e.preventDefault(); open('#/home'); };
+  const qrBtn = $('#showQr'); if (qrBtn) qrBtn.onclick = e => { e.preventDefault(); const box = $('#qrBox'); if (!box) return; box.hidden = !box.hidden; if (!box.hidden && !$('#qrSvg').hasChildNodes() && window.LKQR) $('#qrSvg').innerHTML = window.LKQR.svg('https://lexkite.com'); };
   // Trạng thái đồng bộ tài khoản (liên kết qua web app lexkite.com)
   const { linked } = await chrome.storage.local.get('linked');
   const ago = t => { const m = Math.round((Date.now() - t) / 60000); return m < 1 ? tx('vừa xong') : m < 60 ? tx('{n} phút trước', { n: m }) : m < 1440 ? tx('{n} giờ trước', { n: Math.round(m / 60) }) : tx('{n} ngày trước', { n: Math.round(m / 1440) }); };
@@ -133,6 +134,6 @@
       <div class="row" style="margin-top:10px"><button class="btn sm primary" id="save" ${saved ? 'disabled' : ''}>${saved ? tx('✓ Đã có') : tx('+ Lưu flashcard')}</button><button class="btn sm" id="more">${tx('Chi tiết')}</button></div></div>`;
     $('#spk').onclick = () => speak(e.word, settings.accent === 'en-US' ? e.audioUS : e.audio);
     $('#more').onclick = () => open('#/dict/' + encodeURIComponent(e.word));
-    $('#save').onclick = async () => { await Cards.add(e); $('#save').textContent = tx('✓ Đã lưu'); $('#save').disabled = true; };
+    $('#save').onclick = async () => { await Cards.add(e); $('#save').textContent = tx('✓ Đã lưu'); $('#save').disabled = true; try { chrome.runtime.sendMessage({ type: 'triggerSync' }).catch(() => {}); } catch (e) {} };
   };
 })();

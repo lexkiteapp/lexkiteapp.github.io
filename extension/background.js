@@ -199,6 +199,28 @@ async function aiExplain(text, sentence, targetLang = UI_LANG) {
   return { error: 'FAILED' };
 }
 
+// Tự đồng bộ nền khi lưu từ mới/ôn thẻ (nếu đã liên kết tài khoản)
+let bgSyncTimer = null;
+function scheduleBgSync() {
+  if (bgSyncTimer) clearTimeout(bgSyncTimer);
+  bgSyncTimer = setTimeout(async () => {
+    try {
+      const { linked } = await chrome.storage.local.get('linked');
+      if (!linked || !linked.email) return;
+      const tabs = await chrome.tabs.query({ url: ['https://lexkite.com/*', 'https://*.pages.dev/*'] });
+      if (tabs && tabs.length) return; // Tab đang mở sẽ tự đồng bộ qua cầu nối
+      const before = (linked.at || 0);
+      const tab = await chrome.tabs.create({ url: 'https://lexkite.com/#/home', active: false });
+      for (let i = 0; i < 20; i++) {
+        await new Promise(r => setTimeout(r, 1000));
+        const cur = ((await chrome.storage.local.get('linked')).linked || {}).at || 0;
+        if (cur > before) break;
+      }
+      chrome.tabs.remove(tab.id).catch(() => {});
+    } catch (e) { /* bỏ qua nếu lỗi mạng */ }
+  }, 3500);
+}
+
 // ---------- Tin nhắn từ content script / popup / app ----------
 chrome.runtime.onMessage.addListener((msg, sender, reply) => {
   (async () => { try {
@@ -215,7 +237,12 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
       }
       case 'save': {
         const card = await Cards.add(msg.entry, msg.context);
+        scheduleBgSync();
         return reply({ ok: true, card });
+      }
+      case 'triggerSync': {
+        scheduleBgSync();
+        return reply({ ok: true });
       }
       case 'uiDict': return reply({ dict: await uiDict(msg.lang) });
       case 'ytTracks': { // danh sách phụ đề của video YouTube (đọc player response trong trang – chỉ URL phụ đề, không dữ liệu người dùng)
