@@ -74,6 +74,7 @@
   const masteredCount = () => Object.values(state.cards).filter(c => SRS.mastery(c.srs) === 3).length;
 
   function updateChrome() {
+    if (App.updateExamChip) App.updateExamChip();
     const st = streak();
     $('#streakPill').textContent = `🔥 ${st}${state.game.freezes ? ' 🧊' + state.game.freezes : ''}`;
     $('#xpPill').textContent = `⭐ ${state.game.xp.toLocaleString(I18N.lang())}`;
@@ -188,7 +189,7 @@
   };
   const ROUTE_BUNDLE = { letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: 'grammar', placement: 'grammar', pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
     toefl: ['listening', 'toefl'], 'toefl-p': ['listening', 'toefl'],
-    toeic: ['tsl', 'listening', 'toeic'], 'toeic-r': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: 'tsl', topic: 'tsl', practice: 'tsl', dict: 'tsl', write: 'writing', task1: 'writing', model: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'] };
+    toeic: ['tsl', 'listening', 'toeic'], 'toeic-r': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: 'tsl', topic: 'tsl', practice: 'tsl', dict: 'tsl', write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'] };
   const bundleP = {};
   // Phần nặng (đề thi, từ vựng, ngữ pháp…) tải từ CDN jsDelivr (miễn phí, không giới hạn băng thông, gắn đúng phiên bản commit)
   // → máy chủ chính chỉ phục vụ phần lõi, chịu được lượng người dùng lớn gấp nhiều lần. CDN lỗi → tự lấy từ máy chủ chính.
@@ -240,14 +241,23 @@
     let skel = null;
     if (b.some(x => !App.loaded(x))) skel = setTimeout(() => { view.innerHTML = `<div class="skel-page" aria-busy="true" aria-label="${t('Đang tải…')}"><div class="skel skel-h"></div><div class="skel skel-l"></div><div class="skel-grid">${'<div class="skel skel-card"></div>'.repeat(4)}</div></div>`; }, 150);
     if (b.length) { await App.need(...b); clearTimeout(skel); if (my !== routeSeq) return; }
-    const fn = routes[name] || routes.home;
-    const navKey = name === 'topic' ? 'library' : name === 'practice' && arg === 'speak' ? 'speak' : name === 'read' ? 'reading' : /^(listen|listen-test|dictation)$/.test(name) ? 'listening' : /^toefl/.test(name) ? 'toefl' : /^toeic/.test(name) ? 'toeic' : name === 'ideas' ? 'write' : name;
-    $$('#nav a, #bnav a').forEach(a => a.classList.toggle('active', a.dataset.route === navKey));
+    const fn = routes[name] || (name ? notFound : routes.home);
+    // Đánh dấu mục đang mở: thanh dưới theo 5 mục chính, menu bên theo mục con; nhóm chứa trang hiện tại tự mở
+    const [tab, item] = App.navOf ? App.navOf(name, arg) : [name, name];
+    $$('#bnav a').forEach(a => a.classList.toggle('active', a.dataset.tab === tab));
+    $$('#nav a[data-route]').forEach(a => a.classList.toggle('active', a.dataset.route === item));
+    $$('#nav .nav-group').forEach(gp => { const on = gp.dataset.tab === tab; gp.classList.toggle('current', on); if (on) gp.open = true; });
     UI.stopSpeak(); UI.clearRecs();
     document.onkeydown = null;
     if (App.cleanup) { App.cleanup(); App.cleanup = null; }
     // Chuyển trang mượt (View Transitions – Chrome/Edge/Safari mới); máy cũ: hiệu ứng mờ dần sẵn có
-    const render = () => { fn(arg, query); window.scrollTo(0, 0); };
+    const render = async () => {
+      window.scrollTo(0, 0);
+      await fn(arg, query);
+      // Đường dẫn "Kỹ năng › Nghe" ở đầu trang con → luôn biết mình đang ở đâu, 1 chạm quay lại trang trung tâm
+      const c = my === routeSeq && App.crumb && App.crumb(name, arg), ph = c && view.querySelector('.page-head');
+      if (ph && !ph.querySelector('.crumb')) ph.insertAdjacentHTML('afterbegin', c);
+    };
     if (document.startViewTransition && !matchMedia('(prefers-reduced-motion: reduce)').matches && !document.hidden) {
       try { document.startViewTransition(render); return; } catch (e) { /* trình duyệt không hỗ trợ */ }
     }
@@ -255,6 +265,10 @@
     render();
   }
   App.route = route;
+  function notFound() {
+    view.innerHTML = `<div class="card empty-note" style="max-width:560px;margin:2rem auto;text-align:center"><div style="font-size:2.4rem">🧭</div><h1 style="margin:.3rem 0">${t('Không tìm thấy trang')}</h1><p class="muted">${t('Liên kết có thể đã cũ. Chọn một mục bên dưới để tiếp tục học.')}</p>
+      <div class="row center" style="flex-wrap:wrap">${[['home', '🏠', t('Hôm nay')], ['vocab', '📚', t('Từ vựng')], ['skills', '🎯', t('Kỹ năng')], ['tests', '🏁', t('Thi thử')], ['me', '👤', t('Tôi')]].map(([r, ic, l]) => `<a class="btn sm" href="#/${r}">${ic} ${l}</a>`).join('')}</div></div>`;
+  }
   // Tải trước gói của trang khi người dùng sắp bấm (rê chuột/chạm vào liên kết) → mở trang gần như tức thì
   const prefetchFor = a => { const h = a && a.getAttribute && a.getAttribute('href'); if (!h || !h.startsWith('#/')) return; const n = h.slice(2).split(/[/?]/)[0]; const b = [].concat(ROUTE_BUNDLE[n] || []); if (b.some(x => !App.loaded(x))) App.need(...b).catch(() => {}); };
   ['pointerdown', 'mouseover', 'focusin'].forEach(ev => document.addEventListener(ev, e => prefetchFor(e.target.closest && e.target.closest('a[href^="#/"]')), { passive: true }));
@@ -357,121 +371,59 @@
         <div style="font-size:2.4rem">${r.emoji}</div>
         <div class="grow"><div class="row"><h3 style="margin:0">${esc(r.title)}</h3>${levelChip(r.level)}</div><div class="muted small">${esc(r.summaryVi)}</div></div>
         <span class="btn sm">${t('Đọc →')}</span></a>` : '';
+  // ================= HÔM NAY: 4 khối – chào + mục tiêu · kế hoạch hôm nay (1 nút chính) · từ của ngày · quảng cáo =================
   routes.home = function () {
+    const k = todayKey(), now = new Date(), h = now.getHours();
     const cards = Object.values(state.cards);
-    const { due, newCount, total } = Cards.dueCount(state.cards, state.settings, state.stats);
-    const k = todayKey();
-    const gd = state.game.days[k] || {};
     const todayReviews = state.stats.days[k] || 0;
-    const goal = state.settings.dailyGoal;
-    const st = streak();
-    const days = activeDays();
-    const L = Game.levelOf(state.game.xp);
-    const quests = Game.questsFor(k);
-    const doneQ = state.game.questsDone[k] || [];
-
-    // Tuần hiện tại (T2 → CN)
-    const now = new Date(); const dow = (now.getDay() + 6) % 7;
-    const week = Array.from({ length: 7 }, (_, i) => { const d = new Date(now); d.setDate(now.getDate() - dow + i); return d; });
-    const dn = [t('T2'), t('T3'), t('T4'), t('T5'), t('T6'), t('T7'), t('CN')];
-
-    const seed = allWords();
-    const w = seed[Math.floor(Date.now() / DAY) % seed.length];
-    const h = now.getHours();
     const greet = h < 11 ? t('Chào buổi sáng') : h < 18 ? t('Chào buổi chiều') : t('Chào buổi tối');
     const name = state.user ? (state.user.displayName || '').split(' ').pop() : '';
-
-    // Chủ đề đang học dở
-    const progressTopics = TOPICS.map(t => ({ t, n: t.words.filter(x => inDeck(x.word)).length })).filter(x => x.n > 0 && x.n < x.t.words.length).slice(0, 3);
-    const suggestTopics = progressTopics.length ? progressTopics.map(x => x.t) : TOPICS.filter(t => t.group === 'topics').slice(0, 3);
-    const reading = (window.READINGS || [])[Math.floor(Date.now() / DAY) % Math.max(1, (window.READINGS || []).length)];
-
+    const ex = App.exam ? App.exam() : 'ielts', X = (App.EXAMS || {})[ex] || { ic: '🎓', short: 'IELTS' };
+    const g = state.settings.goal;
+    const left = g && g.date ? Math.ceil((new Date(g.date) - now) / DAY) : null;
+    const chip = g && g.target ? `<a class="goal-chip" href="#/goal">${X.ic} ${esc(X.short)} ${esc(String(g.target))}${left > 0 ? ' · ' + t('còn {n} ngày', { n: left }) : ''}</a>` : `<a class="goal-chip" href="#/goal">🚩 ${t('Đặt mục tiêu')}</a>`;
+    const late = h >= 19 && !todayReviews && cards.length;
+    const seed = allWords(), w = seed[Math.floor(Date.now() / DAY) % seed.length];
+    const quests = Game.questsFor(k), doneQ = state.game.questsDone[k] || [];
     view.innerHTML = `
-      <div class="hero">
-        <div class="card hero-main stack">
-          ${(() => { // Linh vật Kit chào theo tình huống: đạt mục tiêu → ăn mừng, tối mà chưa học → buồn, còn lại → vui
-            const done = todayReviews >= goal, late = h >= 19 && !todayReviews && cards.length;
-            const mood = done ? 'win' : late ? 'sad' : 'happy';
-            const msg = done ? t('Xong mục tiêu hôm nay rồi! Giỏi quá 🎉') : late ? t('Học 5 phút với mình để giữ chuỗi nhé!') : total ? t('Hôm nay mình ôn {n} thẻ cùng nhau nhé!', { n: total }) : t('Chọn bộ từ đầu tiên cùng mình nhé!');
-            return window.Kit ? `<div class="kit-greet">${Kit.svg(mood, 62)}<div><div class="muted small">${greet}${name ? ', ' + esc(name) : ''}</div><div class="kit-say">${msg}</div></div></div>` : `<div class="muted">${greet}${name ? ', ' + esc(name) : ''} 👋</div>`;
-          })()}
-          <div class="row between">
-            <div><div class="big-num">${total}</div><div class="muted">${t('thẻ cần học hôm nay')}</div></div>
-            <div class="small" style="text-align:right;line-height:1.9">🔁 ${t('{n} thẻ ôn lại', { n: due })}<br>✨ ${t('{n} từ mới', { n: newCount })}</div>
-          </div>
-          <div>
-            <div class="row between small"><span>${t('Mục tiêu ôn tập hôm nay')}</span><b>${todayReviews}/${goal}</b></div>
-            <div class="progress"><i style="width:${Math.min(100, todayReviews / goal * 100)}%"></i></div>
-          </div>
-          ${forgetting().length ? `<a href="#/practice/learn?src=forgetting" class="small" style="color:#fff;background:rgba(255,255,255,.16);padding:.45rem .8rem;border-radius:10px;display:inline-block">⚠️ ${t('<b>{n} từ sắp quên</b> (độ nhớ &lt; 85%) – ôn nhanh ngay →', { n: forgetting().length })}</a>` : ''}
-          <div class="row">
-            ${total ? `<a class="btn primary lg" href="#/review">${t('Bắt đầu ôn tập →')}</a>` : cards.length ? `<a class="btn primary lg" href="#/practice/learn">${t('Học thông minh')} 🧠</a>` : `<a class="btn primary lg" href="#/library">${t('Chọn bộ từ đầu tiên →')}</a>`}
-            <a class="btn lg" style="background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.3)" href="#/practice">🎯 ${t('Luyện tập')}</a>
-          </div>
-        </div>
-        <div class="card">
-          <div class="row between"><h3 style="margin:0">${t('Nhiệm vụ hôm nay')}</h3><span class="chip">${doneQ.length}/3</span></div>
-          ${quests.map(q => { const v = Math.min(q.goal, gd[q.metric] || 0); const ok = doneQ.includes(q.id); return `
-            <div class="quest ${ok ? 'done' : ''}"><div class="em">${ok ? '✅' : q.icon}</div>
-              <div class="grow"><div class="row between small"><b>${esc(q.text)}</b><span class="muted">+${q.xp} XP</span></div>
-              <div class="progress thin xp" style="margin-top:.35rem"><i style="width:${v / q.goal * 100}%"></i></div><div class="tiny muted">${v}/${q.goal}</div></div></div>`; }).join('')}
+      <div class="today-head">
+        ${window.Kit ? Kit.svg(late ? 'sad' : 'happy', 52) : ''}
+        <div class="grow"><div class="muted small">${greet}${name ? ', ' + esc(name) : ''}</div><div class="kit-say" id="kitSay">${late ? t('Học 5 phút với mình để giữ chuỗi nhé!') : t('Đây là kế hoạch của bạn hôm nay')}</div></div>
+        ${chip}
+      </div>
+      <section class="card today-card" id="todayPlan" aria-busy="true"><div class="skel skel-l"></div><div class="skel skel-l"></div><div class="skel skel-l"></div></section>
+      <a class="quest-line small" href="#/stats?s=quests">🏅 ${t('Nhiệm vụ hôm nay: {a}/{b}', { a: doneQ.length, b: quests.length })} · ${quests.filter(q => !doneQ.includes(q.id)).map(q => q.icon).join(' ')} <span aria-hidden="true">›</span></a>
+      <div class="card wotd wotd-sm">
+        ${pic(w)}
+        <div>
+          <div class="tiny muted" style="font-weight:700;text-transform:uppercase;letter-spacing:.06em">${t('Từ của ngày')}</div>
+          <div class="row"><a href="#/dict/${encodeURIComponent(w.word)}" style="font-size:1.3rem;font-weight:800;color:var(--text)">${esc(w.word)}</a>${posChip(w.pos)}${levelChip(w.level)}<span class="ipa small">${esc(w.ipa)}</span><button class="icon-btn sm" data-speak="${esc(w.word)}" aria-label="${t('Nghe')}">🔊</button></div>
+          <div class="vi">${esc(I18N.meanLang() === 'en' && w.def ? w.def : w.vi)}</div>
+          <div class="row" style="margin-top:.4rem">${inDeck(w.word) ? `<span class="chip ok">✓ ${t('Đã có trong sổ')}</span>` : `<button class="btn sm" data-add-seed="${esc(w.word)}">+ Flashcard</button>`}</div>
         </div>
       </div>
-
-      <div id="goalCard" style="margin-top:1rem"></div>
-      <div id="weekCard"></div>
-      <div class="card" id="todayPlan" style="margin-top:1rem"></div>
-
-      <div class="grid g4 stats" style="margin-top:1rem">
-        <div class="card stat"><div class="em">🔥</div><div><b>${t('{n} ngày', { n: st })}</b><span class="muted small">${t('Chuỗi học')}</span></div></div>
-        <div class="card stat"><div class="em">⭐</div><div><b>${t('Cấp {n}', { n: L.level })}</b><span class="muted small">${esc(L.title)}</span></div></div>
-        <div class="card stat"><div class="em">📒</div><div><b>${cards.length}</b><span class="muted small">${t('Từ trong sổ')}</span></div></div>
-        <div class="card stat"><div class="em">🧠</div><div><b>${masteredCount()}</b><span class="muted small">${t('Đã thuộc')}</span></div></div>
-      </div>
-
-      <div class="grid g2" style="margin-top:1rem">
-        <div class="card" id="goldenCard"></div>
-        <div class="card">
-          <div class="row between"><h3 style="margin:0">${t('Cấp độ nhớ')}</h3><a class="small" href="#/method">${t('Vì sao? →')}</a></div>
-          ${levelBars()}
-        </div>
-      </div>
-
-      <div class="grid g2" style="margin-top:1rem">
-        <div class="card">
-          <div class="row between"><h3 style="margin:0">${t('Tuần này')}</h3><span class="muted small">${t('{n} XP hôm nay', { n: gd.xp || 0 })}</span></div>
-          <div class="week" style="margin-top:1rem">${week.map((d, i) => `<div>${dn[i]}<i class="${days.has(todayKey(d)) ? 'on' : ''} ${todayKey(d) === k ? 'today' : ''}">${days.has(todayKey(d)) ? '🔥' : d.getDate()}</i></div>`).join('')}</div>
-        </div>
-        <div class="card wotd" style="grid-template-columns:96px minmax(0,1fr)">
-          ${pic(w)}
-          <div>
-            <div class="tiny muted" style="font-weight:700;text-transform:uppercase;letter-spacing:.06em">${t('Từ của ngày')}</div>
-            <div class="row"><a href="#/dict/${encodeURIComponent(w.word)}" style="font-size:1.4rem;font-weight:800;color:var(--text)">${esc(w.word)}</a>${posChip(w.pos)}${levelChip(w.level)}</div>
-            <div class="row"><span class="ipa small">${esc(w.ipa)}</span><button class="icon-btn sm" data-speak="${esc(w.word)}">🔊</button></div>
-            <div class="vi" style="font-size:1.05rem">${esc(I18N.meanLang() === 'en' && w.def ? w.def : w.vi)}</div>
-            <div class="row" style="margin-top:.4rem">${inDeck(w.word) ? `<span class="chip ok">✓ ${t('Đã có trong sổ')}</span>` : `<button class="btn sm primary" data-add-seed="${esc(w.word)}">+ Flashcard</button>`}</div>
-          </div>
-        </div>
-      </div>
-
-      ${App.pathCurrent && App.pathCurrent() ? (() => { const u = App.pathCurrent(); return `<a class="card hover row nowrap" href="#/path" style="margin-top:1rem;color:var(--text);border-left:5px solid ${u.stage.color}">
-        <div style="font-size:2.2rem;width:60px;height:60px;border-radius:18px;display:grid;place-items:center;background:var(--surface-2)">${u.topic.emoji}</div>
-        <div class="grow"><div class="tiny muted" style="font-weight:700;text-transform:uppercase">🗺️ ${t('Lộ trình')} · ${esc(u.stage.name)}</div><h3 style="margin:.1rem 0">${t('Bài tiếp theo: {name}', { name: esc(u.topic.name) })}</h3>
-        <div class="progress thin" style="max-width:320px"><i style="width:${Math.round(u.pct * 100)}%"></i></div></div><span class="btn sm primary">${t('Tiếp tục →')}</span></a>`; })() : ''}
-
-      <div class="section-title"><h2>${t('Chế độ luyện tập')}</h2><a href="#/practice">${t('Tất cả →')}</a></div>
-      <div class="modes">${modeTiles().slice(0, 6).join('')}</div>
-
-      <div class="section-title"><h2>${progressTopics.length ? t('Học tiếp') : t('Gợi ý cho bạn')}</h2><a href="#/library">${t('Thư viện →')}</a></div>
-      <div class="grid g3">${suggestTopics.map(topicCard).join('')}</div>
-
-      <div id="homeRead">${readHtml(reading)}</div>
       ${window.Ads ? Ads.slot('home') : ''}
     `;
-    if (!reading) App.need('readings').then(() => { const el = document.getElementById('homeRead'), rs = window.READINGS || []; if (el && rs.length) el.innerHTML = readHtml(rs[Math.floor(Date.now() / DAY) % rs.length]); }).catch(() => {});
     bindCommon();
-    const drawGolden = () => {
-      const el = $('#goldenCard'); if (!el) return;
+    if (App.todayPlan) App.todayPlan().then(tasks => {
+      const el = $('#todayPlan'); if (!el) return;
+      el.removeAttribute('aria-busy');
+      const n = tasks.filter(x => x.done).length, next = tasks.find(x => !x.done), mins = tasks.filter(x => !x.done).reduce((a, x) => a + (x.mins || 0), 0);
+      if (!next) {
+        el.innerHTML = `<div class="today-done">${window.Kit ? Kit.svg('win', 72, true) : '🎉'}<h2>${t('Xong kế hoạch hôm nay!')} 🎉</h2><p class="muted">${t('Ngày mai quay lại để giữ chuỗi nhé. Muốn học thêm?')}</p>
+          <div class="row center"><a class="btn" href="#/practice">⚡ ${t('Trò chơi từ vựng')}</a><a class="btn" href="#/skills">🎯 ${t('Luyện thêm kỹ năng')}</a></div></div>`;
+        const ks = $('#kitSay'); if (ks) ks.textContent = t('Xong mục tiêu hôm nay rồi! Giỏi quá 🎉');
+        return;
+      }
+      el.innerHTML = `<div class="row between nowrap"><div><h2 style="margin:0">${t('Kế hoạch hôm nay')}</h2><div class="muted small">${t('{a}/{b} việc', { a: n, b: tasks.length })}${mins ? ' · ≈ ' + t('{m} phút', { m: mins }) : ''}</div></div>${ring(Math.round(n / tasks.length * 100), n + '/' + tasks.length, 'var(--primary)')}</div>
+        <div class="plan">${tasks.map(x => `<a class="plan-item ${x.done ? 'done' : ''} ${x === next ? 'next' : ''}" href="${x.href}"><span class="pi-em" aria-hidden="true">${x.done ? '✅' : x.em}</span><div class="grow"><b>${esc(x.t)}</b><div class="small muted">${esc(x.sub || '')}</div></div>${x.mins && !x.done ? `<span class="pi-min">${t('{m} phút', { m: x.mins })}</span>` : ''}</a>`).join('')}</div>
+        <a class="btn primary lg block" href="${next.href}" style="margin-top:.9rem">${n ? t('Tiếp tục: {step}', { step: esc(next.t) }) : t('Bắt đầu: {step}', { step: esc(next.t) })} →</a>`;
+    });
+  };
+
+  // Khối thống kê cũ của trang chủ → trang Tiến độ
+  function drawGolden(el) {
+      if (!el) return;
       const now = Golden.dueNow(state.cards);
       const nx = Golden.next(state.cards);
       if (now) {
@@ -489,29 +441,17 @@
           <div class="row" style="margin-top:.9rem">${fresh ? `<a class="btn primary" href="#/review">✨ ${t('Học {n} từ mới ngay', { n: fresh })}</a>` : `<a class="btn primary" href="#/library">📚 ${t('Chọn bộ từ')}</a>`}<a class="btn" href="#/method">${t('Thời điểm vàng là gì?')}</a></div>
           <div class="tiny muted" style="margin-top:.8rem">${t('Đường cong quên lãng: sau 1 ngày bạn quên ~50% từ mới học – ôn đúng lúc giúp nhớ gần như mãi mãi.')}</div>`;
       }
-    };
-    drawGolden();
-    if (App.goalCard) App.goalCard().then(h => { const el = $('#goalCard'); if (el) el.innerHTML = h; });
-    // Tổng kết tuần (kiểu báo cáo tuần của Duolingo): tuần này so với tuần trước – thấy rõ tiến bộ, có động lực duy trì
-    (() => {
+    }
+
+  function weekSummary(el) {
       const D = state.game.days || {}, sum = (from, n) => { const o = { newWords: 0, reviews: 0, quizzes: 0, xp: 0, active: 0 }; for (let i = 0; i < n; i++) { const d = new Date(from); d.setDate(d.getDate() - i); const x = D[todayKey(d)]; if (x) { o.newWords += x.newWords || 0; o.reviews += x.reviews || 0; o.quizzes += x.quizzes || 0; o.xp += x.xp || 0; if (x.xp || x.reviews) o.active++; } } return o; };
       const now = new Date(), dow = (now.getDay() + 6) % 7, cur = sum(now, dow + 1), lastEnd = new Date(now); lastEnd.setDate(now.getDate() - dow - 1); const prev = sum(lastEnd, 7);
       if (!prev.xp && !cur.xp) return;
       const cell = (em, label, a, b) => { const d = a - b; return `<div class="wk-cell"><span>${em}</span><b>${a}</b><small>${label}</small>${b || a ? `<i class="${d >= 0 ? 'up' : 'down'}">${d >= 0 ? '▲' : '▼'} ${Math.abs(d)}</i>` : ''}</div>`; };
-      const el = $('#weekCard'); if (!el) return;
+      if (!el) return;
       el.innerHTML = `<div class="card" style="margin-top:1rem"><div class="row between"><b>📅 ${t('Tuần này của bạn')}</b><span class="tiny muted">${t('so với cả tuần trước')}</span></div>
         <div class="wk-grid">${cell('✨', t('Từ mới'), cur.newWords, prev.newWords)}${cell('🔁', t('Lượt ôn'), cur.reviews, prev.reviews)}${cell('🎯', t('Bài luyện'), cur.quizzes, prev.quizzes)}${cell('🔥', t('Ngày học'), cur.active, prev.active)}</div></div>`;
-    })();
-    if (App.todayPlan) App.todayPlan().then(tasks => {
-      const el = $('#todayPlan'); if (!el) return;
-      const n = tasks.filter(t => t.done).length;
-      const pl = state.settings.placement;
-      el.innerHTML = `<div class="row between"><h3 style="margin:0">📋 ${t('Kế hoạch hôm nay')} <span class="muted small">· ${pl ? t('cá nhân hóa theo band {band}', { band: esc(pl.band) }) : t('cá nhân hóa')}</span></h3><span class="chip ${n === tasks.length ? 'ok' : ''}">${n}/${tasks.length}</span></div>
-        <div class="plan">${tasks.map((t, i) => `<a class="plan-item ${t.done ? 'done' : ''}" href="${t.href}"><span class="pi-num">${t.done ? '✓' : i + 1}</span><span class="pi-em">${t.em}</span><div class="grow"><b>${esc(t.t)}</b><div class="tiny muted">${esc(t.sub)}</div></div><span class="muted">→</span></a>`).join('')}</div>`;
-    });
-    const gt = setInterval(drawGolden, 30000);
-    App.cleanup = () => clearInterval(gt);
-  };
+  }
 
   function levelBars() {
     const n = [0, 0, 0, 0, 0, 0];
@@ -1023,6 +963,25 @@
   // Trang Phương pháp: js/method.js
 
   // ================= CÀI ĐẶT =================
+  // Trang Tiến độ nhận các khối thống kê từ trang chủ cũ: nhiệm vụ hôm nay, tuần này, thời điểm vàng, cấp độ nhớ
+  const statsBase = routes.stats;
+  routes.stats = function (...a) {
+    statsBase.apply(this, a);
+    const k = todayKey(), gd = state.game.days[k] || {}, quests = Game.questsFor(k), doneQ = state.game.questsDone[k] || [];
+    const ph = view.querySelector('.page-head');
+    const html = `<div class="grid g2 stats-top">
+      <div class="card" id="quests"><div class="row between"><h3 style="margin:0">🏅 ${t('Nhiệm vụ hôm nay')}</h3><span class="chip">${doneQ.length}/${quests.length}</span></div>
+        ${quests.map(q => { const v = Math.min(q.goal, gd[q.metric] || 0); const ok = doneQ.includes(q.id); return `<div class="quest ${ok ? 'done' : ''}"><div class="em">${ok ? '✅' : q.icon}</div><div class="grow"><div class="row between small"><b>${esc(q.text)}</b><span class="muted">+${q.xp} XP</span></div><div class="progress thin xp" style="margin-top:.35rem"><i style="width:${v / q.goal * 100}%"></i></div><div class="tiny muted">${v}/${q.goal}</div></div></div>`; }).join('')}</div>
+      <div class="card" id="goldenCard"></div>
+      <div class="card"><div class="row between"><h3 style="margin:0">${t('Cấp độ nhớ')}</h3><a class="small" href="#/method">${t('Vì sao? →')}</a></div>${levelBars()}</div>
+      <div id="weekCard"></div></div>`;
+    if (ph) ph.insertAdjacentHTML('afterend', html); else view.insertAdjacentHTML('afterbegin', html);
+    drawGolden($('#goldenCard')); weekSummary($('#weekCard'));
+    const gt = setInterval(() => drawGolden($('#goldenCard')), 30000);
+    App.cleanup = () => clearInterval(gt);
+    if (/[?&]s=quests/.test(location.hash)) { const q = $('#quests'); if (q) q.scrollIntoView({ block: 'center' }); }
+  };
+
   routes.settings = function () {
     const s = state.settings;
     const perm = 'Notification' in window ? Notification.permission : 'unsupported';
@@ -1299,7 +1258,7 @@
   function bindCommon(after) {
     $$('[data-speak]').forEach(b => b.onclick = e => { e.preventDefault(); e.stopPropagation(); speak(b.dataset.speak, b.dataset.accent || state.settings.accent, b.dataset.url || ''); });
     $$('[data-speak-text]').forEach(b => b.onclick = e => { e.stopPropagation(); speak(b.dataset.speakText, state.settings.accent); });
-    $$('[data-slow]').forEach(b => b.onclick = e => { e.stopPropagation(); UI.tts(b.dataset.slow, state.settings.accent, 0.55); });
+    $$('[data-slow]').forEach(b => b.onclick = e => { e.stopPropagation(); const w = INDEX[String(b.dataset.slow).toLowerCase()] || state.cards[String(b.dataset.slow).toLowerCase()]; speak(b.dataset.slow, state.settings.accent, w && (state.settings.accent === 'en-US' ? w.audioUS || w.audio : w.audio), true); });
     $$('[data-add-seed]').forEach(b => b.onclick = async e => {
       e.preventDefault();
       const w = INDEX[b.dataset.addSeed.toLowerCase()];

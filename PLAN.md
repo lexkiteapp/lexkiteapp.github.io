@@ -65,7 +65,7 @@ Cập nhật: 15/10/2026.
 - [ ] Kiểm tra phiên bản nội dung khi có mạng → cập nhật bài mới không cần lên bản Store mới
 
 ## 10. Sắp xếp lại giao diện & tính năng (theo rà soát của chuyên gia UX – scratchpad ux-audit)
-- [ ] GĐ0–1: 5 mục chính mọi nền tảng (Hôm nay · Từ vựng · Kỹ năng · Thi thử · Tôi), menu nhóm gọn, chọn kỳ thi trên thanh trên, đường dẫn "Kỹ năng › Nghe", trang không tồn tại có hướng dẫn
+- [x] GĐ0–1: 5 mục chính mọi nền tảng (Hôm nay · Từ vựng · Kỹ năng · Thi thử · Tôi), menu nhóm gọn, chọn kỳ thi trên thanh trên, đường dẫn "Kỹ năng › Nghe", trang không tồn tại có hướng dẫn
 - [ ] GĐ2: Trang "Hôm nay" chỉ 4 khối + 1 kế hoạch hôm nay duy nhất theo kỳ thi
 - [ ] GĐ3: Bắt đầu bằng chọn kỳ thi → bài học đầu tiên trong 30 giây; TOEFL trong Mục tiêu; lộ trình/thư viện theo kỳ thi
 - [ ] GĐ4: Gộp phần trùng (Reading trên máy thành nút bật trong bài đọc, danh sách bài mẫu)

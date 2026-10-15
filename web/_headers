@@ -1,20 +1,30 @@
-# Cloudflare Pages: header theo đường dẫn. Không đặt Cache-Control cho /* (Pages gộp header trùng tên bằng dấu phẩy);
-# HTML/JS/CSS giữ mặc định của Pages (max-age=0, must-revalidate) vì tên file không có hash.
+# Cloudflare Pages: mã nguồn luôn kiểm tra bản mới (ETag → 304 nếu không đổi, rất nhẹ); âm thanh/ảnh đặt tên theo nội dung → lưu lâu
+/
+  Cache-Control: no-cache
+/index.html
+  Cache-Control: no-cache
+/sw.js
+  Cache-Control: no-store
+/js/*
+  Cache-Control: no-cache
+/css/*
+  Cache-Control: no-cache
+/*.webmanifest
+  Cache-Control: no-cache
+/audio/*
+  Cache-Control: public, max-age=31536000, immutable
+/icons/*
+  Cache-Control: public, max-age=604800
+/screenshots/*
+  Cache-Control: public, max-age=604800
+/og-default.png
+  Cache-Control: public, max-age=604800
+# Blog & trang SEO tĩnh: HTML luôn kiểm tra bản mới (bài đăng theo lịch); RSS/sitemap cũng vậy
+/blog/*
+  Cache-Control: no-cache
+/sitemap*.xml
+  Cache-Control: no-cache
+# Bảo mật cơ bản cho mọi trang (chỉ thêm header khác tên, không đụng Cache-Control)
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
-
-/sw.js
-  Cache-Control: no-cache
-
-/audio/*
-  Cache-Control: public, max-age=31536000, immutable
-
-/icons/*
-  Cache-Control: public, max-age=31536000, immutable
-
-/screenshots/*
-  Cache-Control: public, max-age=31536000, immutable
-
-/og-default.png
-  Cache-Control: public, max-age=31536000, immutable
