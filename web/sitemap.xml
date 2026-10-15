@@ -2,6 +2,34 @@
 <!-- Bản dev. Bản thật do build sinh: dist/sitemap.xml (sitemap index) → sitemap-pages.xml, sitemap-blog*.xml -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://lexkite.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://lexkite.com/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://lexkite.com/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/en/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/vi/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/es/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/pt/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/fr/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/de/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/id/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/th/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/zh/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/ja/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/ko/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/hi/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/ar/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/ru/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/tr/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/en/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/vi/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/es/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/pt/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/fr/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/de/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/id/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/th/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/zh/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/ja/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/ko/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/hi/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/ar/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/ru/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://lexkite.com/tr/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>

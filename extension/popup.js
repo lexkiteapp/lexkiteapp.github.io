@@ -81,9 +81,16 @@
   $('#markK').onchange = async e => { settings.markKnown = e.target.checked; await Store.set('settings', settings); };
   $('#dbl').onchange = async e => { settings.dblclickOn = e.target.checked; await Store.set('settings', settings); };
 
+  // Cùng cách chọn giọng với bảng tra trên trang (content.js): giọng tự nhiên tốt nhất, không dùng bản ghi âm chất lượng không đều
+  const bestVoice = acc => {
+    const want = settings.voice && settings.voice[acc], vs = speechSynthesis.getVoices(), w = want && vs.find(x => x.name === want); if (w) return w;
+    const sc = v => !v.lang.startsWith('en') ? -1 : (v.lang.replace('_', '-') === acc ? 100 : 10) + (/Natural|Neural|Online/i.test(v.name) ? 60 : 0) + (/^Google (UK|US) English/i.test(v.name) ? 50 : 0) + (/Premium|Enhanced|Siri/i.test(v.name) ? 45 : 0) + (/Daniel|Serena|Kate|Oliver|Samantha|Ava|Allison|Susan|Tom/i.test(v.name) ? 20 : 0);
+    return speechSynthesis.getVoices().map(v => [v, sc(v)]).filter(x => x[1] > 0).sort((a, b) => b[1] - a[1]).map(x => x[0])[0] || null;
+  };
   const speak = (w, url) => {
-    if (url) return new Audio(url).play().catch(() => {});
-    const u = new SpeechSynthesisUtterance(w); u.lang = settings.accent; speechSynthesis.speak(u);
+    if (url && !window.speechSynthesis) return new Audio(url).play().catch(() => {});
+    const go = () => { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(w); u.lang = settings.accent || 'en-GB'; u.rate = settings.ttsRate || .92; const v = bestVoice(u.lang); if (v) u.voice = v; speechSynthesis.speak(u); };
+    if (speechSynthesis.getVoices().length) go(); else { let d = false; const f = () => { if (!d) { d = true; go(); } }; speechSynthesis.addEventListener('voiceschanged', f, { once: true }); setTimeout(f, 600); }
   };
 
   $('#f').onsubmit = async ev => {

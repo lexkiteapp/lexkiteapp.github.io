@@ -592,10 +592,10 @@
         ${(x.collocations || []).length ? `<div class="st-v"><b>${tx('Cụm hay đi kèm:')}</b> ${x.collocations.map(c => `<span class="chipw">${esc(c)}</span>`).join(' ')}</div>` : ''}
         ${(x.examples || []).map(e => `<div class="ex">“${esc(e.en)}” <button class="spk mini" data-text="${esc(e.en)}">🔊</button><div class="muted">${esc(e.vi)}</div></div>`).join('')}
         ${x.tip ? `<div class="st-v">💡 ${esc(x.tip)}</div>` : ''}</div>`);
-      out.querySelectorAll('.spk[data-text]').forEach(z => z.onclick = () => { const u = new SpeechSynthesisUtterance(z.dataset.text); u.lang = accent; u.rate = .95; speechSynthesis.cancel(); speechSynthesis.speak(u); });
+      out.querySelectorAll('.spk[data-text]').forEach(z => z.onclick = () => speak(z.dataset.text, '', accent, .95));
       position(info.rect);
     };
-    const say = rate => { const u = new SpeechSynthesisUtterance(info.text); u.lang = accent; u.rate = rate; speechSynthesis.cancel(); speechSynthesis.speak(u); };
+    const say = rate => speak(info.text, '', accent, rate);
     b.querySelector('#close').onclick = () => { speechSynthesis.cancel(); hide(); };
     b.querySelector('#listen').onclick = () => say(.95);
     b.querySelector('#slow').onclick = () => say(.6);

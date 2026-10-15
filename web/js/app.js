@@ -638,6 +638,9 @@
 
   // ================= TỪ ĐIỂN =================
   const lookedUp = new Set();
+  // Trang pháp lý đúng ngôn ngữ giao diện (web/<lang>/privacy.html sinh bởi scripts/build-legal.mjs); trong add-on/app trỏ về lexkite.com
+  App.legalUrl = name => (/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com') + '/' + I18N.lang() + '/' + name;
+
   routes.contact = function () {
     const API = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '/api/contact' : 'https://lexkite.com/api/contact';
     const t0 = Date.now(), u = state.user || {};
@@ -1286,7 +1289,7 @@
         <footer class="w-foot">
           <div><span class="brand" style="padding:0"><img class="logo" src="icons/icon.svg" alt=""><span class="wordmark">lex<b>kite</b></span></span><p class="small muted">${t('Học từ vựng & luyện thi tiếng Anh miễn phí – nhớ lâu bằng khoa học.')}</p><p class="tiny muted">${t('IELTS, TOEIC, TOEFL là nhãn hiệu của các tổ chức sở hữu. Lexkite là sản phẩm độc lập, không liên kết với các tổ chức này.')}</p></div>
           <div><b class="small">${t('Sản phẩm')}</b><a href="#/welcome/setup">${t('Ứng dụng web')}</a><a href="#/settings">${t('Add-on Chrome')}</a><a href="#/tests">${t('Thi thử')}</a><a href="${App.blogUrl ? App.blogUrl() : '/vi/blog/'}">${t('Blog học tiếng Anh')}</a></div>
-          <div><b class="small">${t('Pháp lý & hỗ trợ')}</b><a href="privacy.html">${t('Chính sách quyền riêng tư')}</a><a href="terms.html">${t('Điều khoản sử dụng')}</a><a href="#/contact">${t('Liên hệ')}</a></div>
+          <div><b class="small">${t('Pháp lý & hỗ trợ')}</b><a href="${App.legalUrl('privacy')}">${t('Chính sách quyền riêng tư')}</a><a href="${App.legalUrl('terms')}">${t('Điều khoản sử dụng')}</a><a href="#/contact">${t('Liên hệ')}</a></div>
         </footer>
       </div>`;
     // Thẻ demo tương tác: chạm lật → chấm Nhớ/Dễ → chuông + pháo hoa + Kit chúc mừng → mời học tiếp
