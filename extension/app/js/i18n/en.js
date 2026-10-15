@@ -2341,7 +2341,7 @@
   'Âm khó, trọng âm, chấm phát âm từ': 'Tricky sounds, stress, word pronunciation scoring',
   '{exam} không thi {skills}.': '{exam} does not test {skills}.',
   'Vẫn muốn luyện?': 'Want to practise anyway?',
-  'Ôn lại': 'Go back over',
+  'Ôn lại': 'Review again',
   'Làm lại các câu đã sai để không sai lần nữa': 'Redo questions you got wrong so they stick',
   'Làm lại các câu đã sai': 'Redo questions you got wrong',
   'Làm đề đầy đủ có tính giờ khi đã sẵn sàng': 'Take a full timed test when you are ready',
@@ -2467,7 +2467,7 @@
   'Điểm {exam} từ {a} đến {b}': '{exam} scores range from {a} to {b}',
   'Đã lập kế hoạch! Kế hoạch hôm nay sẽ theo mục tiêu này.': 'Plan saved! Your daily plan will follow this goal.',
   'Tiếp tục bài đang học': 'Pick up where you left off',
-  'Mở lại': 'Resume',
+  'Mở lại': 'Continue',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* Thống nhất thuật ngữ khi nhiều nhóm dùng chung 1 khóa */
