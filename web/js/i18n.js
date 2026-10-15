@@ -34,6 +34,7 @@
       if (l && l !== lang && SUPPORTED.includes(l) && !read(KEY)) set(l);
     }).catch(() => {});
   }
+  /** @type {Record<string, Record<string, string>>} */
   const D = g.I18N_DICT = g.I18N_DICT || {};
   // t(chuỗi gốc, {biến}) – thiếu bản dịch thì dùng tiếng Anh, rồi mới tới chuỗi gốc
   function t(src, vars) {
@@ -73,7 +74,7 @@
     const boot = () => {
       apply();
       // Trang ?hl=xx là phiên bản riêng của ngôn ngữ đó (không phải bản trùng của trang gốc)
-      try { if (new URLSearchParams(location.search).get('hl') === lang) { const c = document.querySelector('link[rel="canonical"]'); if (c) c.href = c.href.split('?')[0] + '?hl=' + lang; } } catch (e) { /* bỏ qua */ }
+      try { if (new URLSearchParams(location.search).get('hl') === lang) { const c = /** @type {HTMLLinkElement|null} */ (document.querySelector('link[rel="canonical"]')); if (c) c.href = c.href.split('?')[0] + '?hl=' + lang; } } catch (e) { /* bỏ qua */ }
       meta();
     };
     // Gọi lại khi file từ điển nạp xong (script nạp động không chặn DOMContentLoaded)

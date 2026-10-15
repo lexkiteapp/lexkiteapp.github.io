@@ -2,3 +2,4 @@
 declare var chrome: any;
 declare function t(key: string, vars?: Record<string, any>): string;
 interface Window { t: typeof t; [key: string]: any }
+declare var I18N: any;
