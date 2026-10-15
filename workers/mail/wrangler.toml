@@ -1,0 +1,10 @@
+# Worker nội bộ chuyển tin nhắn từ form liên hệ (functions/api/contact.js) vào hộp thư support – không có URL công khai.
+name = "lexkite-mail"
+main = "index.js"
+compatibility_date = "2026-10-01"
+workers_dev = false
+preview_urls = false
+
+[[send_email]]
+name = "SEB"
+destination_address = "vintagezulilyjewelry@gmail.com"

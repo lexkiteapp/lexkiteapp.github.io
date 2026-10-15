@@ -638,6 +638,38 @@
 
   // ================= TỪ ĐIỂN =================
   const lookedUp = new Set();
+  routes.contact = function () {
+    const API = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '/api/contact' : 'https://lexkite.com/api/contact';
+    const t0 = Date.now(), u = state.user || {};
+    view.innerHTML = `
+      <div class="page-head"><div><h1>${t('Liên hệ')}</h1><p class="muted">${t('Góp ý, báo lỗi hay hợp tác – chúng tôi thường trả lời trong 1–2 ngày làm việc.')}</p></div></div>
+      <form class="card contact-form" id="ctForm" style="max-width:640px" novalidate>
+        <label>${t('Tên của bạn')}<input name="name" maxlength="100" autocomplete="name" value="${esc(u.displayName || '')}"></label>
+        <label>${t('Email của bạn')} *<input name="email" type="email" required maxlength="200" autocomplete="email" value="${esc(u.email || '')}"></label>
+        <label>${t('Nội dung')} *<textarea name="msg" required minlength="10" maxlength="5000" rows="6"></textarea></label>
+        <input name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+        <div class="row" style="gap:.8rem;align-items:center"><button class="btn primary" type="submit">${t('Gửi tin nhắn')}</button><span class="small muted" id="ctMsg" role="status"></span></div>
+      </form>
+      <p class="small muted" style="margin-top:1rem">${t('Hoặc email trực tiếp')}: <a href="mailto:support@lexkite.com">support@lexkite.com</a></p>`;
+    const f = $('#ctForm'), out = $('#ctMsg');
+    f.onsubmit = async e => {
+      e.preventDefault();
+      const d = Object.fromEntries(new FormData(f));
+      if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(d.email)) { out.textContent = t('Vui lòng nhập email hợp lệ.'); f.email.focus(); return; }
+      if (d.msg.trim().length < 10) { out.textContent = t('Nội dung quá ngắn (tối thiểu 10 ký tự).'); f.msg.focus(); return; }
+      const btn = f.querySelector('button'); btn.disabled = true; out.textContent = t('Đang gửi…');
+      try {
+        const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...d, lang: I18N.lang(), ms: Date.now() - t0 }) });
+        if (r.status === 429) throw new Error('rate');
+        if (!r.ok) throw new Error('fail');
+        f.innerHTML = `<div class="center" style="padding:1.5rem"><div style="font-size:2.5rem">✉️</div><h3>${t('Đã gửi!')}</h3><p class="muted">${t('Cảm ơn bạn. Chúng tôi sẽ trả lời qua email {email}.', { email: esc(d.email) })}</p></div>`;
+      } catch (err) {
+        btn.disabled = false;
+        out.textContent = err.message === 'rate' ? t('Bạn đã gửi nhiều tin, vui lòng thử lại sau 1 giờ.') : t('Chưa gửi được, vui lòng thử lại hoặc email support@lexkite.com.');
+      }
+    };
+  };
+
   routes.dict = async function (q) {
     const recent = await Store.get('recent', []);
     view.innerHTML = `
@@ -1254,7 +1286,7 @@
         <footer class="w-foot">
           <div><span class="brand" style="padding:0"><img class="logo" src="icons/icon.svg" alt=""><span class="wordmark">lex<b>kite</b></span></span><p class="small muted">${t('Học từ vựng & luyện thi tiếng Anh miễn phí – nhớ lâu bằng khoa học.')}</p><p class="tiny muted">${t('IELTS, TOEIC, TOEFL là nhãn hiệu của các tổ chức sở hữu. Lexkite là sản phẩm độc lập, không liên kết với các tổ chức này.')}</p></div>
           <div><b class="small">${t('Sản phẩm')}</b><a href="#/welcome/setup">${t('Ứng dụng web')}</a><a href="#/settings">${t('Add-on Chrome')}</a><a href="#/tests">${t('Thi thử')}</a><a href="${App.blogUrl ? App.blogUrl() : '/vi/blog/'}">${t('Blog học tiếng Anh')}</a></div>
-          <div><b class="small">${t('Pháp lý & hỗ trợ')}</b><a href="privacy.html">${t('Chính sách quyền riêng tư')}</a><a href="terms.html">${t('Điều khoản sử dụng')}</a><a href="mailto:support@lexkite.com">${t('Hỗ trợ')}</a></div>
+          <div><b class="small">${t('Pháp lý & hỗ trợ')}</b><a href="privacy.html">${t('Chính sách quyền riêng tư')}</a><a href="terms.html">${t('Điều khoản sử dụng')}</a><a href="#/contact">${t('Liên hệ')}</a></div>
         </footer>
       </div>`;
     // Thẻ demo tương tác: chạm lật → chấm Nhớ/Dễ → chuông + pháo hoa + Kit chúc mừng → mời học tiếp

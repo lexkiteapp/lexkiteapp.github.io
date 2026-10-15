@@ -2511,6 +2511,20 @@
   'Chính sách quyền riêng tư': "Privacy policy",
   'Điều khoản sử dụng': "Terms of use",
   'Hỗ trợ': "Support",
+  "Liên hệ": "Contact",
+  "Góp ý, báo lỗi hay hợp tác – chúng tôi thường trả lời trong 1–2 ngày làm việc.": "Feedback, bug reports or partnerships – we usually reply within 1–2 business days.",
+  "Tên của bạn": "Your name",
+  "Email của bạn": "Your email",
+  "Nội dung": "Message",
+  "Gửi tin nhắn": "Send message",
+  "Hoặc email trực tiếp": "Or email us directly",
+  "Vui lòng nhập email hợp lệ.": "Please enter a valid email address.",
+  "Nội dung quá ngắn (tối thiểu 10 ký tự).": "Your message is too short (at least 10 characters).",
+  "Đang gửi…": "Sending…",
+  "Đã gửi!": "Sent!",
+  "Cảm ơn bạn. Chúng tôi sẽ trả lời qua email {email}.": "Thank you. We will reply to {email}.",
+  "Bạn đã gửi nhiều tin, vui lòng thử lại sau 1 giờ.": "You have sent several messages. Please try again in an hour.",
+  "Chưa gửi được, vui lòng thử lại hoặc email support@lexkite.com.": "Could not send. Please try again or email support@lexkite.com.",
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* Thống nhất thuật ngữ khi nhiều nhóm dùng chung 1 khóa */

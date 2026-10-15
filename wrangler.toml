@@ -10,3 +10,8 @@ database_id = "7ce39cd0-9333-4843-bd6f-5ccbefbde670"
 
 [ai]
 binding = "AI"
+
+# Form liên hệ → Worker nội bộ workers/mail (gửi vào hộp thư support qua Email Routing)
+[[services]]
+binding = "MAIL"
+service = "lexkite-mail"
