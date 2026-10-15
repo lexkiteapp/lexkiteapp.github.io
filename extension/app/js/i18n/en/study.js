@@ -99,7 +99,7 @@
   /* ---------- study.js: Smart Learn ---------- */
   '{done}/{total} từ': '{done}/{total} words',
   'Nghe chậm': 'Play slowly',
-  'Từ mới': 'New word',
+  'Từ mới': 'New words',
   'Chạm để lật': 'Tap to flip',
   'Mình đã biết từ này': 'I already know this word',
   'Đã đánh dấu “{word}” là từ đã biết – sẽ ôn lại sau ~1 tháng': 'Marked “{word}” as known – you’ll review it again in about a month',

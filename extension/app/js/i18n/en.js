@@ -1287,7 +1287,7 @@
   /* ---------- study.js: Smart Learn ---------- */
   '{done}/{total} từ': '{done}/{total} words',
   'Nghe chậm': 'Play slowly',
-  'Từ mới': 'New word',
+  'Từ mới': 'New words',
   'Chạm để lật': 'Tap to flip',
   'Mình đã biết từ này': 'I already know this word',
   'Đã đánh dấu “{word}” là từ đã biết – sẽ ôn lại sau ~1 tháng': 'Marked “{word}” as known – you’ll review it again in about a month',
@@ -1692,7 +1692,7 @@
   'Tiến độ & huy hiệu': 'Progress & badges',
   'Cài đặt': 'Settings',
   'Tiến độ': 'Progress',
-  'Tra từ… (phím /)': 'Look up a word… (press /)',
+  'Tra từ… (phím /)': 'Look up a word… (press /)', 'Tra từ…': 'Look up a word…',
   'Tra từ': 'Look up a word',
   'Chuỗi ngày học': 'Study streak',
   'Tổng XP': 'Total XP',

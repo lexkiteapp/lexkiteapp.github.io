@@ -31,7 +31,7 @@
   'Tiến độ & huy hiệu': 'Progress & badges',
   'Cài đặt': 'Settings',
   'Tiến độ': 'Progress',
-  'Tra từ… (phím /)': 'Look up a word… (press /)',
+  'Tra từ… (phím /)': 'Look up a word… (press /)', 'Tra từ…': 'Look up a word…',
   'Tra từ': 'Look up a word',
   'Chuỗi ngày học': 'Study streak',
   'Tổng XP': 'Total XP',
