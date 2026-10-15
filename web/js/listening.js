@@ -355,6 +355,7 @@
       if (k >= lines.length) {
         const pct = done ? Math.round(score / done * 100) : 0;
         App.reward({ quizzes: 1, dictations: 1, xp: 10 + Math.round(pct / 5) });
+        Game.mutate(gs => { gs.dictDone = { ...(gs.dictDone || {}), [p.id]: Math.max(pct, (gs.dictDone || {})[p.id] || 0) }; }).then(g2 => { state.game = g2; }); /* tiến độ Khóa học */
         view.innerHTML = `<div class="study-wrap"><div class="card celebrate empty"><div class="em">⌨️</div><h2>${t('Chính xác {p}%', { p: pct })}</h2><p class="muted">${t('{n} câu đã chép. Chép chính tả đều đặn giúp tai nhận ra nối âm, nuốt âm và trọng âm câu.', { n: done })}</p><div class="row center"><a class="btn primary" href="#/listen/${p.id}">🎯 ${t('Làm câu hỏi phần này')}</a><a class="btn" href="#/dictation/${p.id}?m=${mode === 'mid' ? 'hard' : 'full'}">${t('Thử mức khó hơn')}</a><a class="btn" href="#/listening">${t('Về Luyện nghe')}</a></div></div></div>`;
         return;
       }

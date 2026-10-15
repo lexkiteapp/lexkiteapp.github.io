@@ -95,6 +95,7 @@
     const skillCard = k => { const list = itemsFor(k, ex); return list ? card('#/skill/' + k, SK[k].ic, SK[k].name(), list.map(x => esc(x[2])).slice(0, 3).join(' · '), done[k] ? t('{n} bài đã làm', { n: done[k] }) : '') : ''; };
     const off = Object.keys(SK).filter(k => !itemsFor(k, ex));
     view.innerHTML = head('🎯 ' + t('Kỹ năng'), t('Luyện từng kỹ năng theo đúng dạng bài của kỳ thi bạn chọn.'), examBtn())
+      + `<a class="card hover hub-hero" href="#/courses"><span class="hub-ic" aria-hidden="true">📚</span><span class="hub-tx"><b>${t('Khóa học theo lộ trình')}</b><small>${t('Học theo chương, tự đánh dấu hoàn thành, luôn biết bài tiếp theo')}</small></span><span class="chev" aria-hidden="true">›</span></a>`
       + `<div class="hub-grid">${Object.keys(SK).map(skillCard).join('')}
         ${card('#/grammar', '📐', t('Ngữ pháp'), t('Bài học ngắn kèm bài tập'), done.grammar ? t('{n} bài đã làm', { n: done.grammar }) : '')}
         ${card('#/pron', '🔤', t('Phát âm'), t('Âm khó, trọng âm, chấm phát âm từ'), done.pron ? t('{n} bài đã làm', { n: done.pron }) : '')}</div>`
