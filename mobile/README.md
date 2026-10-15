@@ -34,7 +34,7 @@ Mỗi lần cập nhật, GitHub tự build file cài đặt (`.github/workflows
 ### 2. Đưa lên Google Play
 - Tạo tài khoản **Google Play Console**: https://play.google.com/console (phí **25 USD một lần**).
 - Android Studio → *Build → Generate Signed Bundle (.aab)* → tạo khóa ký. **Cất giữ file .keystore và mật khẩu cẩn thận**, mất là không cập nhật app được nữa.
-- Tải file `.aab` lên Play Console, điền mô tả (có thể dùng nội dung trong `store/`), ảnh chụp màn hình, chính sách quyền riêng tư: https://vocaband.web.app/privacy.html
+- Tải file `.aab` lên Play Console, điền mô tả (có thể dùng nội dung trong `store/`), ảnh chụp màn hình, chính sách quyền riêng tư: https://lexkite.com/privacy.html
 
 ### 3. iPhone / App Store
 - Cài **Xcode** từ App Store trên Mac (miễn phí, ~15 GB, cần đăng nhập Apple ID).
@@ -44,7 +44,7 @@ Mỗi lần cập nhật, GitHub tự build file cài đặt (`.github/workflows
 
 ### 4. Bật đăng nhập Google trong app (để đồng bộ giữa app – web – add-on)
 Google chặn đăng nhập trong khung web của app, nên phải dùng đăng nhập gốc (miễn phí):
-1. Firebase Console → dự án **ielts-lexi-2026** → *Add app* → Android, package name `com.vocaband.app`. Thêm luôn iOS với bundle ID `com.vocaband.app`.
+1. Firebase Console → dự án **ielts-lexi-2026** → *Add app* → Android, package name `com.lexkite.app`. Thêm luôn iOS với bundle ID `com.lexkite.app`.
 2. Tải `google-services.json` (Android) và `GoogleService-Info.plist` (iOS) về thư mục `mobile/`, rồi nhắn em. Em sẽ cài plugin đăng nhập gốc và nối với hệ thống đồng bộ sẵn có.
 
-Trong lúc chưa có bước 4, app vẫn học bình thường và lưu dữ liệu trên máy. Đồng bộ đa thiết bị thì đăng nhập trên vocaband.web.app.
+Trong lúc chưa có bước 4, app vẫn học bình thường và lưu dữ liệu trên máy. Đồng bộ đa thiết bị thì đăng nhập trên lexkite.com.

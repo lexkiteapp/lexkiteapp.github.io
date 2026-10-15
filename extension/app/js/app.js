@@ -253,6 +253,7 @@
     // Đánh dấu mục đang mở: thanh dưới theo 5 mục chính, menu bên theo mục con; nhóm chứa trang hiện tại tự mở
     const [tab, item] = App.navOf ? App.navOf(name, arg) : [name, name];
     $$('#bnav a').forEach(a => a.classList.toggle('active', a.dataset.tab === tab));
+    document.body.classList.toggle('focus', name === 'review' || (name === 'practice' && !!arg)); // đang ôn/luyện → tập trung 100% vào thẻ
     $$('#nav a[data-route]').forEach(a => a.classList.toggle('active', a.dataset.route === item));
     $$('#nav .nav-group').forEach(gp => { const on = gp.dataset.tab === tab; gp.classList.toggle('current', on); if (on) gp.open = true; });
     UI.stopSpeak(); UI.clearRecs();
@@ -1221,26 +1222,48 @@
           <span class="row w-tools" style="gap:.5rem">${App.langPicker()}<button class="btn ghost sm" id="skipW">${t('Đã có dữ liệu? Vào app →')}</button></span></div>
         <div class="grid g2" style="align-items:center;gap:2.5rem">
           <div>
-            <span class="chip lv">✨ ${t('Dành cho người luyện thi IELTS')}</span>
+            <span class="chip lv">✨ ${t('Nền tảng học từ vựng IELTS, TOEIC & tiếng Anh thực chiến')}</span>
             <h1 style="font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;margin:1rem 0">${t('Từ vựng vững,')}<br><span style="background:linear-gradient(90deg,#E5502F,#FFB054);-webkit-background-clip:text;background-clip:text;color:transparent">${t('band điểm bứt phá.')}</span></h1>
             <p class="muted" style="font-size:1.1rem">${t('Học 15 phút mỗi ngày với flashcard thông minh, trò chơi, bài đọc và luyện phát âm. Mọi từ đều có phiên âm chuẩn Anh–Anh, nghĩa tiếng Việt và câu ví dụ IELTS.')}</p>
             <div class="row w-cta" style="margin-top:1.5rem"><a class="btn primary lg" href="#/welcome/setup">${t('Bắt đầu miễn phí →')}</a><button class="btn lg" id="loginW">${t('Tôi đã có tài khoản')}</button></div>
             <a class="small" href="#/placement" style="display:inline-block;margin-top:.7rem;font-weight:700">🧭 ${t('Kiểm tra trình độ trước (5 phút) →')}</a>
-            <p class="small muted" style="margin-top:.8rem">${t('Miễn phí · Không quảng cáo · Dữ liệu học thuộc về bạn')}</p>
+            <p class="small muted" style="margin-top:.8rem">${t('Miễn phí · Dữ liệu học thuộc về bạn')}</p>
           </div>
-          <div class="card" style="padding:0;overflow:hidden;box-shadow:var(--shadow-lg)">
-            <div style="background:linear-gradient(135deg,#0F3D3E,#17595A 60%,#1F7A72);padding:1.6rem;color:#fff;text-align:center;position:relative">${window.Kit ? `<div class="kit-cele" style="position:absolute;right:.6rem;top:.5rem">${Kit.svg('cheer', 64)}</div>` : ''}
+          <div class="w-demo">
+          <div class="card w-card" id="wCard" role="button" tabindex="0" aria-label="${t('Chạm để lật')}" style="padding:0;overflow:hidden;box-shadow:var(--shadow-lg)">
+            <div style="background:linear-gradient(135deg,#0F3D3E,#17595A 60%,#1F7A72);padding:1.6rem;color:#fff;text-align:center;position:relative"><div class="kit-cele" id="wKit" style="position:absolute;right:.6rem;top:.5rem">${window.Kit ? Kit.svg('cheer', 64) : ''}</div>
               <div style="font-size:4rem">🌿</div><div style="font-size:2rem;font-weight:800">sustainable</div>
-              <div style="opacity:.85">/səˈsteɪnəbl/ · adj · B2</div></div>
+              <div class="row center" style="opacity:.9;gap:.4rem">/səˈsteɪnəbl/ · adj · B2 <button type="button" class="icon-btn sm" id="wSay" aria-label="${t('Nghe')}: sustainable" style="background:rgba(255,255,255,.18);color:#fff">🔊</button></div></div>
             <div style="padding:1.2rem 1.4rem">
-              <div class="vi">bền vững</div>
+              <div id="wFront" class="muted small center">👆 ${t('Chạm để lật')}</div>
+              <div id="wBack" hidden><div class="vi">${esc(I18N.meanLang() === 'en' ? 'able to continue without harming the environment' : 'bền vững')}</div>
               <div class="example-box small" style="margin-top:.6rem">Governments must invest in <mark>sustainable</mark> energy to protect future generations.</div>
-              <div class="grades" style="margin-top:1rem"><span class="btn g-again sm">${t('Quên')}</span><span class="btn g-hard sm">${t('Khó')}</span><span class="btn g-good sm">${t('Nhớ')}</span><span class="btn g-easy sm">${t('Dễ')}</span></div>
+              <div class="grades" style="margin-top:1rem">${[['again', t('Quên')], ['hard', t('Khó')], ['good', t('Nhớ')], ['easy', t('Dễ')]].map(([g, l]) => `<button type="button" class="btn g-${g} sm" data-wg="${g}">${l}</button>`).join('')}</div></div>
+              <div id="wDone" hidden class="center"><div class="kit-say" style="margin:.4rem 0">${t('Tuyệt vời! Đó chính là cách Lexkite giúp bạn nhớ lâu.')}</div><a class="btn primary" href="#/welcome/setup">${t('Tiếp tục học lộ trình của bạn →')}</a></div>
             </div>
           </div>
+          <div class="grid g2 w-hl" style="margin-top:1rem">
+            <div class="card"><b>🎬 ${t('Bắt từ trên YouTube')}</b><div class="muted small">${t('Dừng video, lưu từ kèm câu gốc và mốc thời gian.')}</div></div>
+            <div class="card"><b>🌐 ${t('Tra từ trên mọi trang web')}</b><div class="muted small">${t('Bấm đúp để tra, bôi đen để dịch cả câu.')}</div></div>
+          </div>
+          </div>
         </div>
-        <div class="grid g3" style="margin-top:3rem">${feats.map(([em, ti, d]) => `<div class="card"><div style="font-size:2rem">${em}</div><h3 style="margin:.5rem 0 .3rem">${ti}</h3><div class="muted small">${d}</div></div>`).join('')}</div>
+        <div class="grid g3 w-feats" style="margin-top:3rem">${feats.map(([em, ti, d]) => `<div class="card"><div style="font-size:2rem">${em}</div><h3 style="margin:.5rem 0 .3rem">${ti}</h3><div class="muted small">${d}</div></div>`).join('')}</div>
+        <footer class="w-foot">
+          <div><span class="brand" style="padding:0"><img class="logo" src="icons/icon.svg" alt=""><span class="wordmark">lex<b>kite</b></span></span><p class="small muted">${t('Học từ vựng & luyện thi tiếng Anh miễn phí – nhớ lâu bằng khoa học.')}</p><p class="tiny muted">${t('IELTS, TOEIC, TOEFL là nhãn hiệu của các tổ chức sở hữu. Lexkite là sản phẩm độc lập, không liên kết với các tổ chức này.')}</p></div>
+          <div><b class="small">${t('Sản phẩm')}</b><a href="#/welcome/setup">${t('Ứng dụng web')}</a><a href="#/settings">${t('Add-on Chrome')}</a><a href="#/tests">${t('Thi thử')}</a><a href="${App.blogUrl ? App.blogUrl() : '/vi/blog/'}">${t('Blog học tiếng Anh')}</a></div>
+          <div><b class="small">${t('Pháp lý & hỗ trợ')}</b><a href="privacy.html">${t('Chính sách quyền riêng tư')}</a><a href="terms.html">${t('Điều khoản sử dụng')}</a><a href="mailto:braydanamilio@gmail.com">${t('Hỗ trợ')}</a></div>
+        </footer>
       </div>`;
+    // Thẻ demo tương tác: chạm lật → chấm Nhớ/Dễ → chuông + pháo hoa + Kit chúc mừng → mời học tiếp
+    const flip = () => { $('#wFront').hidden = true; $('#wBack').hidden = false; };
+    $('#wCard').onclick = e => { if (!e.target.closest('button,a')) flip(); };
+    $('#wCard').onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } };
+    $('#wSay').onclick = e => { e.stopPropagation(); speak('sustainable', state.settings.accent); };
+    $$('[data-wg]').forEach(b => b.onclick = e => { e.stopPropagation(); const g = b.dataset.wg;
+      if (g === 'good' || g === 'easy') { Sfx.correct(); confetti(30); const k = $('#wKit'); if (k && window.Kit) k.innerHTML = Kit.svg('win', 72, true); }
+      else Sfx.wrong();
+      $('#wBack').hidden = true; $('#wDone').hidden = false; });
     $('#skipW').onclick = finishOnboarding;
     $('#loginW').onclick = async () => { if (window.Sync && Sync.signIn) { await Sync.signIn(); if (state.user) finishOnboarding(); } else finishOnboarding(); };
   };

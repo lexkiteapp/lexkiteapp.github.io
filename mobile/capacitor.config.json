@@ -12,11 +12,11 @@
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 600,
-      "backgroundColor": "#5b4cf0",
+      "backgroundColor": "#0F3D3E",
       "showSpinner": false
     },
     "LocalNotifications": {
-      "iconColor": "#5b4cf0"
+      "iconColor": "#E5502F"
     }
   }
 }

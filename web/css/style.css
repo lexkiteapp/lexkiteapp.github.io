@@ -1121,3 +1121,22 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
 :where(a, button, [role="button"], input, select, textarea, summary, [tabindex]):focus-visible { outline: 3px solid color-mix(in srgb, var(--primary) 70%, transparent); outline-offset: 2px; border-radius: 10px; }
 .skip-link { position: fixed; left: .8rem; top: -3rem; z-index: 100; padding: .6rem 1rem; border-radius: 10px; background: var(--primary); color: var(--primary-ink); font-weight: 700; transition: top .15s; }
 .skip-link:focus { top: .8rem; }
+/* Trang chào mừng: thẻ demo tương tác, khối nổi bật, footer */
+.w-card { cursor: pointer; transition: transform .15s; }
+.w-card:hover { transform: translateY(-2px); }
+.w-foot { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 1.5rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.w-foot > div { display: flex; flex-direction: column; gap: .45rem; }
+.w-foot a { color: var(--muted); font-size: .9rem; }
+.w-foot a:hover { color: var(--primary); }
+@media (max-width: 640px) {
+  .w-feats { display: none; }
+  .w-cta .btn { flex: 1 1 100%; padding: .95rem 1rem; font-size: 1.05rem; }
+  .w-foot { grid-template-columns: 1fr 1fr; } .w-foot > div:first-child { grid-column: 1 / -1; }
+  .w-hl { grid-template-columns: 1fr; }
+}
+/* Phản hồi chạm: nút & thẻ nảy nhẹ khi bấm */
+.btn:active, .card.hover:active, .hub-card:active, .plan-item:active, .option:active { transform: scale(.97); transition: transform 80ms; }
+/* Chế độ tập trung khi ôn thẻ/luyện: ẩn menu bên, thanh trên và thanh dưới */
+body.focus .sidebar, body.focus .topbar, body.focus .bottom-nav { display: none; }
+body.focus .shell { grid-template-columns: 1fr; }
+body.focus .view { padding-top: 1rem; }

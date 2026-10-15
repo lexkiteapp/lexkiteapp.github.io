@@ -2492,6 +2492,22 @@
   'Hôm nay chưa có thẻ cần ôn – học thêm vài từ mới không?': "Nothing due today – how about a few new words?",
   'Một bài nghe ngắn 5 phút trước khi ngủ nhé?': "A short 5-minute listening before bed?",
   'Đọc một đoạn ngắn và lưu 3 từ hay – nhẹ nhàng thôi!': "Read a short passage and save 3 good words – nice and easy!",
+  'Nền tảng học từ vựng IELTS, TOEIC & tiếng Anh thực chiến': "Vocabulary for IELTS, TOEIC & real-world English",
+  'Miễn phí · Dữ liệu học thuộc về bạn': "Free · Your study data belongs to you",
+  'Tuyệt vời! Đó chính là cách Lexkite giúp bạn nhớ lâu.': "Great! That's how Lexkite makes words stick.",
+  'Tiếp tục học lộ trình của bạn →': "Continue to your learning path →",
+  'Bắt từ trên YouTube': "Catch words on YouTube",
+  'Dừng video, lưu từ kèm câu gốc và mốc thời gian.': "Pause the video and save words with the original line and timestamp.",
+  'Tra từ trên mọi trang web': "Look up words on any website",
+  'Bấm đúp để tra, bôi đen để dịch cả câu.': "Double-click to look up, highlight to translate a whole sentence.",
+  'Học từ vựng & luyện thi tiếng Anh miễn phí – nhớ lâu bằng khoa học.': "Free English vocabulary & exam prep – remember for longer, backed by science.",
+  'IELTS, TOEIC, TOEFL là nhãn hiệu của các tổ chức sở hữu. Lexkite là sản phẩm độc lập, không liên kết với các tổ chức này.': "IELTS, TOEIC and TOEFL are trademarks of their respective owners. Lexkite is independent and not affiliated with them.",
+  'Sản phẩm': "Product",
+  'Ứng dụng web': "Web app",
+  'Pháp lý & hỗ trợ': "Legal & support",
+  'Chính sách quyền riêng tư': "Privacy policy",
+  'Điều khoản sử dụng': "Terms of use",
+  'Hỗ trợ': "Support",
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* Thống nhất thuật ngữ khi nhiều nhóm dùng chung 1 khóa */
