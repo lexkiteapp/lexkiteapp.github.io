@@ -13,6 +13,8 @@ const LET = /(→\s*|\(|[Đđ]áp án\s+|[Cc]họn\s+|[Pp]hương án\s+)([A-D])
 const protect = s => { const keep = []; const t = s.replace(LET, (m, pre, L) => pre + `{${L}}`).replace(/\{[A-D]\}|“[^”]{1,120}”|"[^"]{1,120}"|‘[^’]{1,80}’/g, m => (VI.test(m) ? m : `[[${keep.push(m) - 1}]]`)); return { t, keep }; };
 const restore = (t, keep) => t.replace(/\[\[\s*(\d+)\s*\]\]/g, (m, i) => keep[+i] ?? m);
 const tokensOk = (a, b) => (a.match(/\[\[\d+\]\]/g) || []).length === (b.match(/\[\[\s*\d+\s*\]\]/g) || []).length;
+// Ngân sách thời gian (CI): EXPLAIN_MIN=50 → dừng đúng hạn, lưu phần đã dịch, lần chạy sau làm tiếp
+const DEADLINE = Date.now() + (process.env.EXPLAIN_MIN ? +process.env.EXPLAIN_MIN : 1e6) * 60000;
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 async function tr(lang, lines) {
   const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=vi&tl=${lang}&dt=t&q=${encodeURIComponent(lines.join('\n'))}`;
@@ -25,7 +27,7 @@ for (const lang of process.argv.slice(2)) {
   const out = {}, todo = [];
   for (const s of src) { const h = hash(s); if (old[h] && !VI.test(old[h])) out[h] = old[h]; else todo.push(s); }
   let ok = 0, fail = 0;
-  for (let i = 0; i < todo.length;) {
+  for (let i = 0; i < todo.length && Date.now() < DEADLINE;) {
     const batch = []; let len = 0;
     while (i < todo.length && len < 1800) { batch.push(todo[i]); len += todo[i].length + 1; i++; }
     const prot = batch.map(s => protect(s.replace(/\n/g, ' ')));

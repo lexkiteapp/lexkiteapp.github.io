@@ -5,6 +5,8 @@ on:
   push:
     branches: [main]
     paths: [scripts/i18n-langs.txt, web/js/i18n/en.js, scripts/i18n-fixed.json, scripts/gen-i18n.mjs, .github/workflows/i18n.yml, 'content/legal/en/**', 'content/legal/vi/**', scripts/build-legal.mjs, scripts/gen-explain.mjs, 'web/js/readtest/explain-*.js']
+  schedule:
+    - cron: '30 2 * * *'  # hằng đêm: dịch tiếp phần còn dở (lời giải đề thi dịch dần theo ngân sách thời gian)
   workflow_dispatch:
 permissions:
   contents: write
@@ -20,11 +22,12 @@ jobs:
           node-version: 22
       - name: Dịch từng ngôn ngữ
         run: |
+          SECONDS=0
           for l in $(grep -v '^#' scripts/i18n-langs.txt); do node scripts/gen-i18n.mjs "$l" || echo "lỗi $l"; sleep 2; done
           node scripts/i18n-fix.mjs  # bản dịch tay cho nhãn ngắn dễ bị dịch máy sai nghĩa
           node scripts/build-legal.mjs --translate  # Chính sách & Điều khoản cho 15 ngôn ngữ (chỉ dịch dòng mới/sửa)
           node scripts/gen-hero.mjs  # khung trang chào mừng dựng sẵn trong index.html theo bản dịch mới
-          for l in $(grep -v '^#' scripts/i18n-langs.txt); do node scripts/gen-explain.mjs "$l" || echo "lỗi lời giải $l"; done  # lời giải đề thi (chỉ câu mới)
+          for l in $(grep -v '^#' scripts/i18n-langs.txt); do EXPLAIN_MIN=$(( 50 - (SECONDS / 60) )) node scripts/gen-explain.mjs "$l" || echo "lỗi lời giải $l"; done  # lời giải đề thi (chỉ câu mới)
           node scripts/i18n-qa.mjs   # báo cáo chất lượng: đủ khóa, đúng biến, không lẫn tiếng (xem docs/I18N-PIPELINE.md)
       - name: Lưu kết quả vào repo (tự lấy bản mới nhất trước khi đẩy, thử lại tối đa 5 lần)
         run: |
