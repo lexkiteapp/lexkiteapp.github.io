@@ -1164,8 +1164,9 @@ body.focus .view { padding-top: 1rem; }
 .qe-pct { font-weight: 800; } .qe-pct.ok { color: var(--good); } .qe-pct.mid { color: #b45309; } .qe-pct.no { color: var(--again); }
 .qe-n { border: 1px solid var(--line); background: var(--bg); color: var(--text); border-radius: 6px; padding: 0 .4rem; font: 700 .8rem/1.6 inherit; cursor: pointer; margin: 0 .15rem .15rem 0; }
 .qe-flash { outline: 3px solid var(--primary); outline-offset: 2px; transition: outline .3s; }
-/* Danh sách dài: chỉ vẽ hàng đang thấy (Baseline content-visibility) – cuộn mượt trên máy yếu */
+/* Danh sách dài & khối dưới trang: chỉ vẽ khi cuộn tới (Baseline content-visibility) – LCP nhanh & cuộn mượt */
 .word-row, .model-row, .md-item { content-visibility: auto; contain-intrinsic-size: auto 72px; }
+.w-feats, .w-foot { content-visibility: auto; contain-intrinsic-size: auto 400px; }
 .hf-card { text-align: center; padding: 2rem 1.2rem; min-height: 14rem; display: flex; flex-direction: column; justify-content: center; gap: .3rem; }
 .hf-word { font-size: clamp(2rem, 7vw, 3rem); font-weight: 800; }
 .hf-mean { font-size: 1.25rem; }
