@@ -7,7 +7,7 @@
   --text: #171827;
   --muted: #676b84;
   --line: #e2e4ef;
-  --primary: #E5502F;
+  --primary: #CC3F1C; /* đạt tương phản WCAG AA 4.9:1 với chữ trắng */
   --primary-2: #FF7A4D;
   --primary-ink: #ffffff;
   --primary-soft: #FFEBE4;
@@ -16,9 +16,9 @@
   --brand-ink: #0F3D3E;
   --gold: #f5a524;
   --gold-soft: #fff4dc;
-  --again: #e5484d;
+  --again: #d1343a;
   --hard: #f59e0b;
-  --good: #16a34a;
+  --good: #15803d;
   --easy: #2563eb;
   --good-soft: #e3f7ea;
   --again-soft: #fde8e8;
@@ -96,7 +96,7 @@ p { margin: .4rem 0; }
 .suggest .vi { margin-left: auto; font-size: .85rem; color: var(--muted); font-weight: 500; }
 .top-stats { margin-left: auto; display: flex; align-items: center; gap: .5rem; }
 .pill { display: inline-flex; align-items: center; gap: .35rem; padding: .35rem .75rem; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-weight: 700; font-size: .9rem; white-space: nowrap; }
-.pill.fire { color: #ea580c; } .pill.xp { color: var(--gold); }
+.pill.fire { color: #c2410c; } .pill.xp { color: #9a5d00; } /* chữ trên nền sáng đạt AA */
 .icon-btn { border: 0; background: var(--surface-2); width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: inline-grid; place-items: center; font-size: 1rem; flex: none; transition: background .15s, transform .1s; }
 .icon-btn:hover { background: var(--primary-soft); }
 .icon-btn:active { transform: scale(.94); }
@@ -1114,3 +1114,6 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
 .topic-meta { font-weight: 700; margin-top: auto; }
 .sp-topic select { width: auto; max-width: 100%; min-width: 220px; }
 .resume { margin-top: .8rem; }
+/* Chế độ tối: chữ XP/chuỗi ngày sáng hơn cho dễ đọc trên nền tối */
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pill.xp { color: var(--gold); } :root:not([data-theme="light"]) .pill.fire { color: #fb923c; } }
+:root[data-theme="dark"] .pill.xp { color: var(--gold); } :root[data-theme="dark"] .pill.fire { color: #fb923c; }
