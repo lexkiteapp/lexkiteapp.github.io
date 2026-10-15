@@ -15,4 +15,7 @@ for (const tp of g.IELTS_DATA.TOPICS) for (const w of tp.words) {
   if (!out[k] || rank[lv] > rank[out[k]]) out[k] = lv;
 }
 fs.writeFileSync(new URL('extension/academic.json', R), JSON.stringify(out));
+// Tên bài ngữ pháp cho nút "📖 Học bài: …" trong bảng dịch đoạn của add-on: { id: [tên Việt, tên Anh] }
+const G = {}; for (const f of fs.readdirSync(new URL('web/js/grammar/', R))) if (/\.js$/.test(f)) { try { new Function('self', rd('web/js/grammar/' + f))(G); } catch (e) { /* bỏ qua */ } }
+fs.writeFileSync(new URL('extension/grammar-titles.json', R), JSON.stringify(Object.fromEntries((G.GRAMMAR || []).map(x => [x.id, [x.title, x.en]]))));
 console.log(`✓ academic.json: ${Object.keys(out).length} từ học thuật B2–C2`);

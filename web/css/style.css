@@ -1198,3 +1198,6 @@ body.hf-ambient .hf-card { background: #10201f; color: #e6f2ef; border-color: #1
 .rings-legend i { width: .7rem; height: .7rem; border-radius: 50%; flex: none; }
 .rings-legend span { flex: 1; } .rings-legend b { font-variant-numeric: tabular-nums; }
 @media (prefers-reduced-motion: reduce) { .rings .ring-fg { transition: none; } }
+.g-tabs { margin: 0 0 1rem; flex-wrap: wrap; }
+.g-chal textarea { width: 100%; font: inherit; }
+mark.g-ok { background: rgba(21,128,61,.18); color: var(--good); font-weight: 700; border-radius: 4px; padding: 0 .15rem; }

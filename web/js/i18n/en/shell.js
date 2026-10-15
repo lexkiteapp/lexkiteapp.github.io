@@ -472,4 +472,5 @@
   "Từ học thuật – bấm để tra": "Academic word – click to look up",
   "Gạch chân từ học thuật B2–C2": "Underline B2–C2 academic words",
   "⌨️ A câu trước · S lặp câu · D câu sau": "⌨️ A previous line · S repeat line · D next line",
+  "Học bài: {n} →": "Lesson: {n} →",
 }); })(typeof self !== 'undefined' ? self : this);

@@ -2133,6 +2133,7 @@
   "Từ học thuật – bấm để tra": "Academic word – click to look up",
   "Gạch chân từ học thuật B2–C2": "Underline B2–C2 academic words",
   "⌨️ A câu trước · S lặp câu · D câu sau": "⌨️ A previous line · S repeat line · D next line",
+  "Học bài: {n} →": "Lesson: {n} →",
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* English UI strings – toefl.js (TOEFL iBT practice, 2026 format) */
@@ -2620,6 +2621,19 @@
   "Thì thầm": "Whisper mode",
   'Màn tối': 'Dark screen',
   "Đủ 3 vòng mục tiêu hôm nay! +50 XP": "All 3 daily rings closed! +50 XP",
+  "Tất cả {n} bài": "All {n} lessons",
+  "Trọng tâm IELTS 7.0+": "IELTS 7.0+ essentials",
+  "Bí kíp TOEIC Part 5 & 6": "TOEIC Part 5 & 6 essentials",
+  "Thử thách tự đặt câu": "Write-your-own-sentence challenge",
+  "Đặt một câu hoàn chỉnh sử dụng cấu trúc bạn vừa học": "Write a complete sentence using the structure you just learned",
+  "Gõ câu tiếng Anh của bạn…": "Type your English sentence…",
+  "Kiểm tra câu": "Check sentence",
+  "Hãy viết một câu hoàn chỉnh (ít nhất 4 từ).": "Write a complete sentence (at least 4 words).",
+  "Tuyệt! Bạn đã dùng đúng cấu trúc của bài.": "Great! You used this lesson's structure correctly.",
+  "Lưu câu này vào Sổ tay ôn tập": "Save this sentence to your notebook",
+  "Chưa thấy cấu trúc của bài trong câu.": "This lesson's structure isn't in your sentence yet.",
+  "Gợi ý: xem lại ví dụ ở phần “Cách dùng”, rồi viết lại câu theo đúng công thức.": "Tip: review the examples under “When to use it”, then rewrite your sentence to follow the pattern.",
+  "Tự đặt câu": "Your sentence",
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* Thống nhất thuật ngữ khi nhiều nhóm dùng chung 1 khóa */

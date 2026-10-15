@@ -48,6 +48,13 @@
     const d = done();
     // Bài nên học tiếp: bài chưa đạt 80% (đang dở) → bài đầu tiên chưa học theo thứ tự chương
     const order = CHAPTERS.flatMap(c => lessonsOf(c).map(x => ({ x, c })));
+    // Tab trọng tâm theo kỳ thi (luyện cấp tốc): chỉ hiện bài & tiến độ của nhóm đã chọn
+    const FOCUS = {
+      ielts: 'participle-clauses passive-reporting-causative hedging nominalisation inversion-cleft comparison-special numbers-data-language purpose-result reason-contrast relative-clauses conditionals-2-3 parallel-structure punctuation sequence-of-tenses determiners'.split(' '),
+      toeic: 'parts-of-speech-patterns word-formation prepositions dependent-prepositions conjunctions subject-verb-agreement pronouns countable-uncountable adjectives-adverbs tenses-ielts modals-obligation-advice verb-types'.split(' '),
+    };
+    let gtab = 'all'; try { gtab = sessionStorage.getItem('g.tab') || 'all'; } catch (e) { /* bỏ qua */ }
+    if (!FOCUS[gtab]) gtab = 'all';
     const nx = order.find(o => d[o.x.id] != null && d[o.x.id] < 80) || order.find(o => d[o.x.id] == null);
     const nDone = Object.keys(d).filter(k => d[k] >= 80).length;
     // Không lẫn tiếng: giao diện tiếng Việt → tên Việt + tên Anh; ngôn ngữ khác → tên đã dịch, chưa dịch thì dùng tên tiếng Anh
@@ -58,12 +65,13 @@
       <div class="page-head"><div><h1>📐 ${t('Ngữ pháp')}</h1><p class="muted">${t('{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.', { n: all.length })}</p></div>
         ${ring(all.length ? nDone / all.length * 100 : 0, `${nDone}/${all.length}`, 'var(--good)')}</div>
       ${nx ? `<a class="card hover hub-hero" href="#/grammar/${nx.x.id}"><span class="hub-ic" aria-hidden="true">${nx.x.emoji}</span><span class="hub-tx"><small>${d[nx.x.id] != null ? t('Làm lại cho chắc · lần trước {pct}%', { pct: d[nx.x.id] }) : t('Bài tiếp theo')} · ${t('Chương {n}', { n: nx.c.n })}</small><b>${esc(TT(nx.x))}</b>${SUM(nx.x) ? `<small>${esc(SUM(nx.x))}</small>` : ''}</span><span class="btn primary sm">${t('Học ngay')} →</span></a>` : ''}
-      <div class="g-chapters">${CHAPTERS.map(c => {
+      <div class="tabs seg g-tabs" id="gTabs" role="tablist">${[['all', t('Tất cả {n} bài', { n: all.length })], ['ielts', '🎓 ' + t('Trọng tâm IELTS 7.0+')], ['toeic', '💼 ' + t('Bí kíp TOEIC Part 5 & 6')]].map(([k, l]) => `<button type="button" role="tab" aria-selected="${gtab === k}" class="${gtab === k ? 'on' : ''}" data-gt="${k}">${l}</button>`).join('')}</div>
+      ${gtab !== 'all' ? (() => { const ls = FOCUS[gtab].map(id => all.find(x => x.id === id)).filter(Boolean), dn = ls.filter(x => d[x.id] >= 80).length; return `<div class="card g-focus"><div class="row between" style="margin-bottom:.6rem"><b>${gtab === 'ielts' ? '🎓 ' + t('Trọng tâm IELTS 7.0+') : '💼 ' + t('Bí kíp TOEIC Part 5 & 6')}</b>${ring(ls.length ? dn / ls.length * 100 : 0, `${dn}/${ls.length}`, 'var(--good)')}</div><div class="g-list">${ls.map(x => row(x, chapterOf(x.id))).join('')}</div></div>`; })() : `<div class="g-chapters">${CHAPTERS.map(c => {
         const ls = lessonsOf(c); if (!ls.length) return '';
         const dn = ls.filter(x => d[x.id] >= 80).length, open = nx && nx.c === c;
         return `<details class="g-chap" id="chap${c.n}" ${open ? 'open' : ''} style="--cc:${c.color}"><summary><span class="em" aria-hidden="true">${c.emoji}</span><span class="g-tx"><b>${t('Chương {n}', { n: c.n })} · ${esc(t(c.name))}</b><small>${esc(t(c.desc))}</small></span><span class="g-prog"><span class="small muted">${dn}/${ls.length}</span><span class="progress thin"><i style="width:${dn / ls.length * 100}%"></i></span></span></summary>
           <div class="g-list">${ls.map(x => row(x, c)).join('')}<a class="g-row g-test" href="#/grammar/mix?ch=${c.n}"><span class="em" aria-hidden="true">📝</span><span class="g-tx"><b>${t('Kiểm tra chương')}</b><small>${t('Trộn câu hỏi của cả chương')}</small></span><span aria-hidden="true">›</span></a></div></details>`;
-      }).join('') || `<div class="card empty"><div class="em">📐</div>${t('Đang cập nhật bài học…')}</div>`}</div>
+      }).join('') || `<div class="card empty"><div class="em">📐</div>${t('Đang cập nhật bài học…')}</div>`}</div>`}
       <h3 class="set-h hub-h">📝 ${t('Kiểm tra tổng hợp')}</h3>
       <div class="hub-grid"><a class="card hover hub-card" href="#/grammar/mix"><span class="hub-ic" aria-hidden="true">🔀</span><span class="hub-tx"><b>${t('Đề tổng hợp {n} câu', { n: 20 })}</b><small>${t('Trộn câu hỏi từ các bài đã học (hoặc mọi bài)')}</small></span></a>
         <a class="card hover hub-card" href="#/grammar/mix?n=40"><span class="hub-ic" aria-hidden="true">🏁</span><span class="hub-tx"><b>${t('Đề tổng hợp {n} câu', { n: 40 })}</b><small>${t('Ôn toàn bộ chương trình – như bài thi cuối khóa')}</small></span></a></div>`;
@@ -262,6 +270,32 @@
   }
 
   // ---------- Chế độ xem toàn bài ----------
+  // ✍️ Thử thách tự đặt câu: nhận diện cấu trúc mục tiêu trên máy (grammar/check.js + structures.js), đúng → tô xanh, +15 XP, lưu câu
+  const challengeHtml = x => (window.GRAMMAR_CHECK || {})[x.id] ? `<div class="g-block g-chal" id="gChal"><h3>✍️ ${t('Thử thách tự đặt câu')}</h3>
+      <p class="small muted">${t('Đặt một câu hoàn chỉnh sử dụng cấu trúc bạn vừa học')} · <b translate="no">${esc(GRAMMAR_CHECK[x.id][1])}</b></p>
+      <textarea class="input" id="gcIn" rows="2" spellcheck="true" lang="en" placeholder="${t('Gõ câu tiếng Anh của bạn…')}"></textarea>
+      <div class="row" style="margin-top:.6rem"><button class="btn primary" id="gcChk">${t('Kiểm tra câu')}</button></div><div id="gcOut" aria-live="polite"></div></div>` : '';
+  function bindChallenge(x) {
+    const box = $('#gChal'); if (!box) return;
+    const [src, formula] = GRAMMAR_CHECK[x.id], re = new RegExp(src, 'iu');
+    $('#gcChk', box).onclick = () => {
+      const sen = $('#gcIn', box).value.trim().replace(/\s+/g, ' '), out = $('#gcOut', box);
+      if (sen.split(' ').length < 4 || !/[a-z]/i.test(sen)) { out.innerHTML = `<div class="feedback no" style="position:static;margin-top:.6rem">${t('Hãy viết một câu hoàn chỉnh (ít nhất 4 từ).')}</div>`; return; }
+      const m = sen.match(re) || null, st = window.VBStruct ? VBStruct.analyze(sen, 20).find(r => r.lesson === x.id) : null;
+      const hit = m ? m[0] : st ? st.match : '';
+      if (hit) {
+        const i = sen.toLowerCase().indexOf(hit.toLowerCase()), marked = i >= 0 ? esc(sen.slice(0, i)) + `<mark class="g-ok">${esc(sen.slice(i, i + hit.length))}</mark>` + esc(sen.slice(i + hit.length)) : esc(sen);
+        const first = !(state.game && state.game.gch && state.game.gch[x.id + '|' + sen.toLowerCase()]);
+        if (first) { App.reward({ xp: 15 }); Game.mutate(gs => { gs.gch = gs.gch || {}; gs.gch[x.id + '|' + sen.toLowerCase()] = 1; }).then(g2 => { state.game = g2; }); }
+        Sfx.correct();
+        out.innerHTML = `<div class="feedback ok" style="position:static;margin-top:.6rem;display:flex;gap:.8rem;align-items:center">${window.Kit ? Kit.svg('cheer', 56) : '🎉'}<div><div>${marked}</div><b>${t('Tuyệt! Bạn đã dùng đúng cấu trúc của bài.')}</b>${first ? ' +15 XP' : ''}<div style="margin-top:.4rem"><button class="btn sm" id="gcSave">＋ ${t('Lưu câu này vào Sổ tay ôn tập')}</button></div></div></div>`;
+        const sv = $('#gcSave', out); if (sv) sv.onclick = () => App.savePhraseDialog ? App.savePhraseDialog({ phrase: x.en, vi: I18N.lang() === 'vi' ? x.title : '', sentence: sen, title: t('Ngữ pháp') }) : null;
+      } else {
+        Sfx.wrong && Sfx.wrong();
+        out.innerHTML = `<div class="feedback no" style="position:static;margin-top:.6rem">${t('Chưa thấy cấu trúc của bài trong câu.')} ${t('Công thức')}: <b translate="no">${esc(formula)}</b><div class="small" style="margin-top:.3rem">${t('Gợi ý: xem lại ví dụ ở phần “Cách dùng”, rồi viết lại câu theo đúng công thức.')}</div></div>`;
+      }
+    };
+  }
   function lessonFull(id) {
     const all = L(), i = all.findIndex(x => x.id === id), x = all[i];
     if (!x) return routes.grammar();
@@ -273,10 +307,13 @@
       <div class="stack" id="gBody">${x.blocks.map(b => (R[b.type] || (() => ''))(b)).join('')}</div>
       <div style="margin-top:1rem">${quizHtml(x)}</div>
       ${drillsOf(x).length ? `<div style="margin-top:1rem">${drillsHtml(x)}</div>` : ''}
+      <div style="margin-top:1rem">${challengeHtml(x)}</div>
       <div class="row between" style="margin-top:1rem">${prev ? `<a class="btn" href="#/grammar/${prev.id}?view=full">← ${esc(prev.title)}</a>` : '<span></span>'}${next ? `<a class="btn primary" href="#/grammar/${next.id}?view=full">${esc(next.title)} →</a>` : `<a class="btn primary" href="#/grammar">${t('Hoàn thành chủ điểm')} 🎉</a>`}</div>`;
+    $$('[data-gt]').forEach(b => b.onclick = () => { try { sessionStorage.setItem('g.tab', b.dataset.gt); } catch (e) { /* bỏ qua */ } routes.grammar(); });
     App.bindCommon();
     bindQuiz(x, next, () => lessonFull(id));
     if (drillsOf(x).length) bindDrills(x);
+    bindChallenge(x);
   }
 
   // ---------- Chế độ học từng bước (kiểu Duolingo) ----------
@@ -332,6 +369,7 @@
       }) });
     if (drillsOf(x).length) steps.push({ name: t('Tự luận'), em: '✍️', html: () => drillsHtml(x), bind: () => bindDrills(x) });
     steps.push({ name: t('Luyện tập'), em: '✏️', html: () => quizHtml(x), bind: () => bindQuiz(x, next, () => lessonSteps(id)) });
+    if ((window.GRAMMAR_CHECK || {})[x.id]) steps.push({ name: t('Tự đặt câu'), em: '✍️', html: () => challengeHtml(x), bind: () => bindChallenge(x) });
 
     let cur = 0, gateOk = false;
     function stepOk() { gateOk = true; const n = $('#sNext'); if (n) n.disabled = false; }

@@ -14885,5 +14885,50 @@
   "ar": "جارٍ الإضافة…",
   "ru": "Добавление…",
   "tr": "Ekleniyor…"
+ },
+ "Kiểm tra câu": {
+  "es": "Comprobar frase",
+  "pt": "Verificar frase",
+  "fr": "Vérifier la phrase",
+  "de": "Satz prüfen",
+  "id": "Periksa kalimat",
+  "th": "ตรวจประโยค",
+  "zh": "检查句子",
+  "ja": "文をチェック",
+  "ko": "문장 확인",
+  "hi": "वाक्य जाँचें",
+  "ar": "تحقق من الجملة",
+  "ru": "Проверить предложение",
+  "tr": "Cümleyi kontrol et"
+ },
+ "Tự đặt câu": {
+  "es": "Tu frase",
+  "pt": "Sua frase",
+  "fr": "Votre phrase",
+  "de": "Dein Satz",
+  "id": "Kalimatmu",
+  "th": "ประโยคของคุณ",
+  "zh": "自己造句",
+  "ja": "自分で作文",
+  "ko": "나만의 문장",
+  "hi": "अपना वाक्य",
+  "ar": "جملتك",
+  "ru": "Ваше предложение",
+  "tr": "Kendi cümlen"
+ },
+ "Trọng tâm IELTS 7.0+": {
+  "es": "Clave IELTS 7.0+",
+  "pt": "Essencial IELTS 7.0+",
+  "fr": "Essentiel IELTS 7.0+",
+  "de": "IELTS 7.0+ Kern",
+  "id": "Inti IELTS 7.0+",
+  "th": "หัวใจ IELTS 7.0+",
+  "zh": "雅思7.0+重点",
+  "ja": "IELTS 7.0+ 重点",
+  "ko": "IELTS 7.0+ 핵심",
+  "hi": "IELTS 7.0+ मुख्य",
+  "ar": "أساسيات IELTS 7.0+",
+  "ru": "Главное для IELTS 7.0+",
+  "tr": "IELTS 7.0+ temel"
  }
 }

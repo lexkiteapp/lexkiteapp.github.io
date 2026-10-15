@@ -203,7 +203,7 @@
   }
   // ---------- Nạp module theo trang (lazy loading): trang đầu chỉ tải phần lõi, phần nặng tải khi cần ----------
   const G = 'js/grammar/', BUNDLES = {
-    grammar: [...['tenses', 'verbs', 'sentences', 'foundation', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c'].map(f => G + f + '.js'), 'js/grammar.js'],
+    grammar: [...['tenses', 'verbs', 'sentences', 'foundation', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'check'].map(f => G + f + '.js'), 'js/grammar.js'],
     pron: ['js/pron/sounds.js', 'js/pron/skills.js', 'js/pron.js'],
     words: ['js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lib/office.js'], // 4 kho từ (~145 KB nén) – không chặn trang đầu, tải khi cần/lúc rảnh
     readings: ['js/readings.js', 'js/readings-more.js', 'js/cbt.js', 'js/method.js'], // 30 bài đọc – chỉ tải khi cần (trang chủ tự điền mục "Bài đọc hôm nay")

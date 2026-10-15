@@ -37,7 +37,7 @@
     'Dịch với Lexkite': 'Translate with Lexkite', 'Nghe câu ví dụ': 'Play example', 'Quay lại từ trước': 'Back to previous word', 'Quay lại': 'Back',
     'Anh–Mỹ': 'US English', 'Nghe giọng Anh–Anh (phím P)': 'British pronunciation (P key)', 'Nghe giọng Anh–Mỹ': 'American pronunciation', 'Nghe chậm': 'Play slowly',
     '📌 Ngữ cảnh sẽ lưu': '📌 Context to save', '📌 Ngữ cảnh': '📌 Context', 'Nghe cả câu': 'Play sentence', '⏳ Đang dịch câu…': '⏳ Translating sentence…',
-    '✓ Đã lưu vào flashcard': '✓ Saved to flashcards', '+ Thêm ngữ cảnh': '+ Add context', '✓ Đã lưu': '✓ Saved', '✓ Đã trong sổ thẻ': '✓ In your deck', '⌨️ A câu trước · S lặp câu · D câu sau': '⌨️ A previous line · S repeat line · D next line', 'Từ học thuật – bấm để tra': 'Academic word – click to look up', '+ Lưu flashcard': '+ Save flashcard',
+    '✓ Đã lưu vào flashcard': '✓ Saved to flashcards', '+ Thêm ngữ cảnh': '+ Add context', '✓ Đã lưu': '✓ Saved', '✓ Đã trong sổ thẻ': '✓ In your deck', '⌨️ A câu trước · S lặp câu · D câu sau': '⌨️ A previous line · S repeat line · D next line', 'Học bài: {n} →': 'Lesson: {n} →', 'Từ học thuật – bấm để tra': 'Academic word – click to look up', '+ Lưu flashcard': '+ Save flashcard',
     'Chi tiết': 'Details', 'Đóng (Esc)': 'Close (Esc)', '⚠️ Thử lưu lại': '⚠️ Retry saving', 'tên riêng': 'proper noun', 'cụm từ': 'phrase', 'từ': 'word',
     '🔊 Nghe': '🔊 Listen', 'Tra từng từ:': 'Look up each word:', 'Tên riêng (địa danh, người, tổ chức…) – không có trong từ điển phổ thông.': 'Proper noun (place, person, organization…) – not in the general dictionary.',
     'Chưa có trong từ điển – đã dịch tự động.': 'Not in the dictionary yet – machine-translated.', '+ Lưu cụm từ': '+ Save phrase', '+ Lưu từ': '+ Save word',
@@ -552,6 +552,7 @@
     const vi = (r && r.vi) || '';
     const words = info.text.split(/\s+/).filter(x => /[A-Za-z]/.test(x)).map(x => x.replace(/^[^A-Za-z]+|[^A-Za-z'’-]+$/g, ''));
     const structs = (window.VBStruct ? VBStruct.analyze(info.text, 4) : []);
+    if (structs.length && !GT) { try { GT = await (await fetch(chrome.runtime.getURL('grammar-titles.json'))).json(); } catch (e) { GT = {}; } }
     let sentence = ''; try { sentence = info.range ? sentenceAround(info.range) : ''; } catch (e) { /* bỏ qua */ }
     const st = (await chrome.storage.local.get('settings')).settings || {};
     const accent = st.accent || 'en-GB';
@@ -561,7 +562,7 @@
         <div class="src">${esc(info.text)}</div>
         ${ML() === 'en' ? '' : `<div class="tr">${vi ? esc(vi) : tx('Không dịch được đoạn này.')}</div>`}
         ${words.length > 1 && words.length <= 12 ? `<div class="def" style="margin-top:8px"><b>${tx('Tra từng từ:')}</b> ${words.map(x => `<span class="lw chipw" data-w="${esc(x.toLowerCase())}">${esc(x)}</span>`).join(' ')}</div>` : ''}
-        ${structs.length ? `<div class="st"><b>${tx('🧩 Cấu trúc trong đoạn')}</b>${structs.map(x => `<div class="st-i"><div><span class="st-n">${esc(x.name)}</span> <span class="st-m">“${esc(x.match)}”</span></div><div class="st-v">${esc(x.vi)}</div><button class="st-l" data-lesson="${esc(x.lesson)}">${tx('📐 Học bài ngữ pháp này →')}</button></div>`).join('')}</div>` : ''}
+        ${structs.length ? `<div class="st"><b>${tx('🧩 Cấu trúc trong đoạn')}</b>${structs.map(x => `<div class="st-i"><div><span class="st-n">${esc(x.name)}</span> <span class="st-m">“${esc(x.match)}”</span></div>${UI_LANG === 'vi' ? `<div class="st-v">${esc(x.vi)}</div>` : ''}<button class="st-l" data-lesson="${esc(x.lesson)}">${GT && GT[x.lesson] ? '📖 ' + tx('Học bài: {n} →', { n: esc(UI_LANG === 'vi' ? GT[x.lesson][0] : GT[x.lesson][1]) }) : tx('📐 Học bài ngữ pháp này →')}</button></div>`).join('')}</div>` : ''}
         <div id="aiEx"></div>
       </div>
       <div class="foot">
@@ -649,7 +650,7 @@
   const level5 = s => !s || !s.last ? 0 : s.reps === 0 ? 1 : s.interval <= 3 ? 2 : s.interval <= 10 ? 3 : s.interval <= 30 ? 4 : 5;
   let known = new Map(), knownRe = null, marked = 0, toastShown = false;
   const SKIP = 'SCRIPT,STYLE,NOSCRIPT,TEXTAREA,INPUT,SELECT,OPTION,CODE,PRE,KBD,SAMP,SVG,MATH,VB-MARK,IELTS-LEXI-POPUP,TITLE,HEAD';
-  let ACAD = null; // từ học thuật B2–C2 (academic.json, sinh từ AWL + NAWL + kho Lexkite)
+  let ACAD = null, GT = null; // GT: tên bài ngữ pháp (grammar-titles.json) // từ học thuật B2–C2 (academic.json, sinh từ AWL + NAWL + kho Lexkite)
   async function loadKnown() {
     const r = await chrome.storage.local.get('cards');
     known = new Map(Object.values(r.cards || {}).filter(c => c.word && c.word.length > 2 && !/\s/.test(c.word)).map(c => [c.word.toLowerCase(), { vi: c.vi || '', ipa: c.ipa || '', lv: level5(c.srs) }]));
