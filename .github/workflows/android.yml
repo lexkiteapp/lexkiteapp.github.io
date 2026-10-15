@@ -1,5 +1,5 @@
 # Tự build app Android (APK) trên máy chủ GitHub – miễn phí cho repo công khai, không cần cài Android Studio.
-# Kết quả: file vocaband.apk đính kèm bản phát hành "android-latest" (tải về điện thoại là cài được).
+# Kết quả: file lexkite.apk đính kèm bản phát hành "android-latest" (tải về điện thoại là cài được).
 name: Build Android app
 on:
   push:
@@ -33,15 +33,15 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew --no-daemon assembleDebug
-          cp app/build/outputs/apk/debug/app-debug.apk ../../vocaband.apk
+          cp app/build/outputs/apk/debug/app-debug.apk ../../lexkite.apk
       - uses: actions/upload-artifact@v4
         with:
-          name: vocaband-android
-          path: vocaband.apk
+          name: lexkite-android
+          path: lexkite.apk
       - name: Publish "android-latest" release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release delete android-latest --yes --cleanup-tag || true
-          gh release create android-latest vocaband.apk --prerelease --title "Vocaband Android (bản mới nhất)" \
-            --notes "Bản build tự động từ commit ${GITHUB_SHA::7}. Tải vocaband.apk về điện thoại Android → mở file → cho phép cài từ nguồn này → Cài đặt. (Bản thử nghiệm, chưa lên Google Play.)"
+          gh release create android-latest lexkite.apk --prerelease --title "Lexkite Android (bản mới nhất)" \
+            --notes "Bản build tự động từ commit ${GITHUB_SHA::7}. Tải lexkite.apk về điện thoại Android → mở file → cho phép cài từ nguồn này → Cài đặt. (Bản thử nghiệm, chưa lên Google Play.)"

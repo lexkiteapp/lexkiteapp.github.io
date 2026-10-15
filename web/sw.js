@@ -15,7 +15,7 @@ const STATIC = /\.(png|svg|jpg|jpeg|webp|ico|woff2?)$/;
 self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
   // File dữ liệu từ GitHub Pages (CDN phụ, luôn là bản mới nhất): lấy mạng trước, lưu lại để dùng khi offline
-  if (e.request.method === 'GET' && url.hostname === 'braydanamilio-spec.github.io') {
+  if (e.request.method === 'GET' && url.hostname === 'lexkiteapp.github.io') {
     e.respondWith(fetch(e.request).then(r => { if (r.ok || r.type === 'opaque') { const c = r.clone(); caches.open(CACHE).then(x => x.put(e.request, c)); } return r; }).catch(() => caches.match(e.request)));
     return;
   }

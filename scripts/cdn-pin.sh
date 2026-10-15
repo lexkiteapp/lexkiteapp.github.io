@@ -4,11 +4,11 @@
 # Chỉ bật khi GitHub Pages đã deploy xong đúng commit hiện tại; file nào khác nội dung → lấy từ Firebase.
 set -uo pipefail
 cd "$(dirname "$0")/.."
-PAGES="https://braydanamilio-spec.github.io/ielts-lexi/"
+PAGES="https://lexkiteapp.github.io/"
 SHA=$(git rev-parse HEAD)
 ok=""
 for try in $(seq 1 20); do   # chờ tối đa ~5 phút cho GitHub Pages deploy commit này
-  st=$(curl -s -m 20 "https://api.github.com/repos/braydanamilio-spec/ielts-lexi/actions/workflows/pages.yml/runs?head_sha=$SHA&per_page=1" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{try{const r=JSON.parse(s).workflow_runs[0];console.log(r?r.status+':'+r.conclusion:'none')}catch(e){console.log('err')}})")
+  st=$(curl -s -m 20 "https://api.github.com/repos/lexkiteapp/lexkiteapp.github.io/actions/workflows/pages.yml/runs?head_sha=$SHA&per_page=1" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{try{const r=JSON.parse(s).workflow_runs[0];console.log(r?r.status+':'+r.conclusion:'none')}catch(e){console.log('err')}})")
   [ "$st" = "completed:success" ] && { ok=1; break; }
   case "$st" in completed:*) break;; esac
   sleep 15
