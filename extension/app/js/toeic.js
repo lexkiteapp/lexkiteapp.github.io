@@ -147,7 +147,7 @@
       const sheet = o => `<div class="lsheet">${Object.keys(o).map(Number).sort((a, b) => a - b).map(q => `<div class="${o[q].ok ? 'ok' : 'no'}"><b>${q}</b> ${o[q].ok ? '✓' : '✗'} <span>${esc(o[q].answer)}</span></div>`).join('')}</div>`;
       view.innerHTML = `<div class="study-wrap" style="max-width:860px"><div class="card celebrate"><div class="em">💼</div><h2>${t('{n}/990 điểm (ước tính)', { n: total })}</h2>
         <div class="mk-bands" style="grid-template-columns:repeat(2,minmax(0,1fr))"><div><span>🎧</span><b>${ls}</b><small>Listening · ${lr}/${lt}</small></div><div><span>📖</span><b>${rs}</b><small>Reading · ${rr}/${rt}</small></div></div>
-        <p class="small muted" style="margin-top:.8rem">${t('Quy đổi tuyến tính trên đề rút gọn tự biên soạn – chỉ để tham khảo, không phải thang điểm chính thức của ETS.')}</p></div>
+        <p class="small muted" style="margin-top:.8rem">${t('Quy đổi ước tính trên đề tự biên soạn – chỉ để tham khảo, không phải thang điểm chính thức của ETS.')}</p></div>
         ${(() => { // Tỉ lệ đúng theo từng Part → chỉ ra Part yếu nhất để luyện
           const by = {}; [...Object.values(res.L).map(r => ['L', r]), ...Object.values(res.R).map(r => ['R', r])].forEach(([k, r]) => { const key = (k === 'L' ? '🎧 ' : '📖 ') + 'Part ' + r.part; (by[key] = by[key] || [0, 0])[1]++; if (r.ok) by[key][0]++; });
           const rows = Object.entries(by), weak = rows.slice().sort((a, b) => a[1][0] / a[1][1] - b[1][0] / b[1][1])[0];
@@ -170,7 +170,7 @@
         ${LP.some(p => p.part === 1) ? '' : `<tr class="muted"><td>🎧 Listening · Part 1</td><td>–</td><td>${t('mô tả tranh – chưa có')}</td><td>${OFF[1]}</td></tr>`}
         ${LP.map((p, i) => `<tr><td>🎧 Listening · Part ${p.part}</td><td>${lq[i]}</td><td class="muted">${t('nghe 1 lần')}</td><td class="muted">${OFF[p.part] || ''}</td></tr>`).join('')}
         ${rParts.map((x, i) => `<tr><td>📖 Reading · Part ${x.part}</td><td>${x.q}</td><td class="muted">${i === 0 ? t('{m} phút cho cả Reading', { m: rMins }) : ''}</td><td class="muted">${OFF[x.part] || ''}</td></tr>`).join('')}
-      </tbody></table><p class="tiny muted" style="margin:.4rem 0 0">${t('Đề rút gọn tự biên soạn, cùng dạng câu hỏi với đề thật (200 câu: Listening 45 phút, Reading 75 phút).')}</p>
+      </tbody></table><p class="tiny muted" style="margin:.4rem 0 0">${t('Đề tự biên soạn đúng cấu trúc đề thật: 200 câu, Listening ~45 phút, Reading 75 phút.')}</p>
       <div class="tx-check"><b>✅ ${t('Trước khi bắt đầu')}</b><ul class="small"><li>${t('Đeo tai nghe, chọn nơi yên tĩnh – audio chỉ phát 1 lần như thi thật.')}</li><li>${t('Reading có đồng hồ đếm ngược, hết giờ tự nộp.')}</li><li>${t('Câu sai tự vào Sổ lỗi sai kèm giải thích.')}</li></ul>
         <button class="btn sm" id="tTest">🔊 ${t('Thử loa')}</button></div>
       ${hist.length ? `<div class="small" style="margin-top:.8rem"><b>📈 ${t('Các lần trước')}</b><div class="row" style="gap:.35rem;margin-top:.3rem">${hist.map(h => `<span class="chip">${h.total} <span class="muted">(L ${h.ls} · R ${h.rs})</span></span>`).join('')}</div></div>` : ''}
