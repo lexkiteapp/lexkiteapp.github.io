@@ -418,7 +418,7 @@
   // ---------- Tìm kiếm toàn cục + gợi ý ----------
   (function search() {
     const input = $('#gq'), box = $('#suggest');
-    if (input && matchMedia('(max-width: 600px)').matches) input.placeholder = t('Tra từ…'); // màn hẹp: bỏ gợi ý phím tắt (không có bàn phím) để chữ không bị cắt
+    if (input && matchMedia('(max-width: 600px)').matches) { input.setAttribute('data-i18n-placeholder', 'Tra từ…'); input.placeholder = t('Tra từ…'); } // màn hẹp: bỏ gợi ý phím tắt (không có bàn phím) để chữ không bị cắt
     input.setAttribute('aria-label', t('Tra từ'));
     let items = [], idx = -1, timer = null, seq = 0;
     const render = () => {
