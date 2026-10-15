@@ -23,6 +23,10 @@ const posts = all.filter(p => p.status !== 'draft' && (DRAFTS || isLive(p, NOW))
 
 let LIVE = new Set(), CUR = DEF; // CUR: ngôn ngữ của trang đang dựng // URL các bài đã phát hành (gán sau khi có danh sách bài)
 // ---------- Chữ giao diện theo ngôn ngữ (bản dịch sau này chỉ cần thêm khóa) ----------
+const COPY = {
+  vi: 'Bài viết được biên soạn độc quyền bởi đội ngũ học thuật Lexkite (lexkite.com). Vui lòng ghi rõ nguồn khi trích dẫn.',
+  en: 'This article was written exclusively by the Lexkite academic team (lexkite.com). Please credit the source when quoting.',
+};
 const L = {
   vi: { blog: 'Blog', home: 'Trang chủ', open: 'Mở app', min: 'phút đọc', toc: 'Nội dung bài', related: 'Bài liên quan', tags: 'Thẻ', page: 'Trang', newer: '← Mới hơn', older: 'Cũ hơn →', all: 'Tất cả', updated: 'Cập nhật', play: 'Phát video', by: 'Lexkite', cat: 'Chuyên mục', tagT: 'Bài viết về', foot: 'Lexkite – học từ vựng & luyện thi IELTS, TOEIC, TOEFL miễn phí. Nội dung tự biên soạn.', tm: 'IELTS, TOEIC, TOEFL là nhãn hiệu của chủ sở hữu tương ứng; Lexkite là sản phẩm độc lập.', skip: 'Bỏ qua đến nội dung', about: 'Về Blog Lexkite', try: 'Học miễn phí trên Lexkite', tryD: 'Flashcard FSRS, từ điển song ngữ, luyện 4 kỹ năng và thi thử – không cần thẻ tín dụng.', rss: 'RSS', words: 'Từ vựng', samples: 'Bài mẫu', seg: { cat: 'chu-de', tag: 'the', page: 'trang' }, aboutSlug: 'gioi-thieu', nav: { words: '/tu-vung/', samples: '/samples/' } },
   en: { blog: 'Blog', home: 'Home', open: 'Open app', min: 'min read', toc: 'Contents', related: 'Related posts', tags: 'Tags', page: 'Page', newer: '← Newer', older: 'Older →', all: 'All', updated: 'Updated', play: 'Play video', by: 'Lexkite', cat: 'Category', tagT: 'Posts about', foot: 'Lexkite – free vocabulary and IELTS, TOEIC, TOEFL practice. Original content.', tm: 'IELTS, TOEIC and TOEFL are trademarks of their respective owners; Lexkite is independent.', skip: 'Skip to content', about: 'About', try: 'Learn free with Lexkite', tryD: 'FSRS flashcards, bilingual dictionary, 4-skill practice and mock tests – no credit card.', rss: 'RSS', words: 'Vocabulary', samples: 'Samples', seg: { cat: 'topic', tag: 'tag', page: 'page' }, aboutSlug: 'about', nav: { words: '/en/vocabulary/', samples: '/en/samples/' },
@@ -71,12 +75,31 @@ function inline(s) {
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/(^|[^*\w])\*([^*\s][^*]*)\*/g, '$1<em>$2</em>').replace(/(^|\s)_([^_]+)_(?=\s|[.,;:!?]|$)/g, '$1<em>$2</em>');
   return s.replace(/\u0000(\d+)\u0000/g, (m, i) => `<code>${codes[i]}</code>`);
 }
+// Liên kết nội bộ thương hiệu (chống cào bài, tăng liên kết về app): chỉ lần xuất hiện ĐẦU, tối đa 3 link/bài, không trong tiêu đề/link sẵn có
+const AUTOLINK = {
+  vi: [['flashcard FSRS', '/#/review'], ['tiện ích Chrome', '/#/settings'], ['ôn thi IELTS', '/'], ['tra từ', '/#/dict'], ['luyện phát âm', '/#/pron']],
+  en: [['FSRS flashcards', '/#/review'], ['Chrome extension', '/#/settings'], ['IELTS preparation', '/'], ['look up words', '/#/dict'], ['pronunciation practice', '/#/pron']],
+};
+let LINKED = null;
+function autolink(html, lang) {
+  const list = AUTOLINK[lang]; if (!list || !LINKED || LINKED.n >= 3) return html;
+  // chỉ thay trong phần chữ ngoài thẻ <a>…</a>
+  return html.split(/(<a\b[\s\S]*?<\/a>|<[^>]+>)/).map(part => {
+    if (part.startsWith('<') || LINKED.n >= 3) return part;
+    for (const [kw, href] of list) {
+      if (LINKED.n >= 3 || LINKED.has(kw)) continue;
+      const re = new RegExp(`(^|[^\\p{L}])(${kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})(?![\\p{L}])`, 'iu');
+      if (re.test(part)) { part = part.replace(re, (m, pre, w) => `${pre}<a href="${SITE}${href}">${w}</a>`); LINKED.add(kw); LINKED.n++; }
+    }
+    return part;
+  }).join('');
+}
 function render(md, lang, cover) {
-  CUR = lang;
+  CUR = lang; LINKED = Object.assign(new Set(), { n: 0 });
   const lines = md.replace(/\r/g, '').split('\n'), out = [], toc = [], faq = [], videos = [], ids = new Set();
   let i = 0, inFaq = false, q = null;
   const para = [];
-  const flush = () => { if (para.length) { const h = inline(para.join(' ')); out.push(`<p>${h}</p>`); if (q && !q.a) q.a = para.join(' ').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/[*_`]/g, ''); para.length = 0; } };
+  const flush = () => { if (para.length) { const h = autolink(inline(para.join(' ')), lang); out.push(`<p>${h}</p>`); if (q && !q.a) q.a = para.join(' ').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/[*_`]/g, ''); para.length = 0; } };
   const hid = t => { let id = slugify(t) || 'muc', k = id, n = 2; while (ids.has(k)) k = `${id}-${n++}`; ids.add(k); return k; };
   while (i < lines.length) {
     const ln = lines[i];
@@ -144,7 +167,7 @@ blockquote{margin:20px 0;padding:10px 18px;background:var(--primary-soft);border
 .tbl{overflow-x:auto;margin:18px 0}table{border-collapse:collapse;width:100%;font-size:15px;background:var(--surface)}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{background:var(--accent-soft)}
 code{background:var(--accent-soft);padding:1px 5px;border-radius:5px;font-size:.92em}pre{background:#11132a;color:#e8eaf6;padding:14px;border-radius:12px;overflow:auto}pre code{background:none;padding:0}
 a.app{font-weight:600}
-.cta{background:linear-gradient(135deg,#0F3D3E,#12807A);color:#fff;border-radius:var(--r);padding:18px 20px;margin:28px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.cta p{margin:0;max-width:52ch}
+.copy{font-size:13px;color:var(--muted,#6b6f85);border-top:1px solid var(--line,#e3e5ef);padding-top:12px;margin-top:28px}.cta{background:linear-gradient(135deg,#0F3D3E,#12807A);color:#fff;border-radius:var(--r);padding:18px 20px;margin:28px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.cta p{margin:0;max-width:52ch}
 .yt{position:relative;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;margin:24px 0}.yt img,.yt iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}.yt button{position:absolute;inset:0;margin:auto;width:72px;height:50px;border:0;border-radius:14px;background:#E5502F;cursor:pointer}.yt button::after{content:"";position:absolute;left:29px;top:15px;border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff}
 .tags{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0}.tags a{border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:14px;text-decoration:none;color:var(--text);background:var(--surface)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin:18px 0}.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}.card a.ti{color:var(--text);text-decoration:none}.card a.ti:hover h3,.card a.ti:hover h2{color:var(--primary)}
@@ -233,6 +256,7 @@ for (const p of posts) {
 ${toc.length >= 3 ? `<details class="toc" open><summary>${t.toc}</summary><ol>${toc.map(h => `<li><a href="#${h.id}">${inline(h.txt)}</a></li>`).join('')}</ol></details>` : ''}
 ${html}
 ${(p.tags || []).some(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2) ? `<div class="tags" aria-label="${t.tags}">${p.tags.filter(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2).map(g => `<a href="${b}${sg.tag}/${g}/">#${esc(g)}</a>`).join('')}</div>` : ''}
+<p class="copy">© ${new Date(pub).getFullYear()} Lexkite · ${COPY[p.lang] || COPY.en}</p>
 <section class="trybox"><h2>${t.try}</h2><p>${t.tryD}</p><a class="btn" href="/">${t.open} →</a></section>
 </article>
 ${related.length ? `<section aria-labelledby="rel"><h2 id="rel">${t.related}</h2><div class="grid">${related.map(x => card(x, 'h3')).join('')}</div></section>` : ''}`;
