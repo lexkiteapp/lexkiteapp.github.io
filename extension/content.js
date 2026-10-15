@@ -486,7 +486,7 @@
       ev.stopPropagation();
       const w = x.dataset.w.replace(/^'+|'+$/g, '');
       if (!w || !cur || w === cur.word) return;
-      const sentence = (x.closest('.ex, .ctx, .def') || x).textContent.replace(/^📌 (Ngữ cảnh( sẽ lưu)?|Context( to save)?)/, '').replace(/🇻🇳.*$/s, '').replace(/[“”]/g, '').replace(/🔊/g, '').trim();
+      const sentence = (x.closest('.ex, .ctx, .def, .pdef, .pg') || x).textContent.replace(/^📌 (Ngữ cảnh( sẽ lưu)?|Context( to save)?)/, '').replace(/🇻🇳.*$/s, '').replace(/[“”]/g, '').replace(/🔊/g, '').trim();
       show(w, cur.rect, sentence.split(' ').length >= 3 ? sentence : '', cur.meta, 'nested');
     });
     const back = b.querySelector('.back');

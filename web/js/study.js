@@ -56,6 +56,7 @@
 
   // ================= ÔN TẬP SRS =================
   let session = null;
+  App.currentSession = () => session;
   // ahead > 0: ôn trước các thẻ đến hạn trong N ngày tới (như "Custom Study" của Anki) – không thêm từ mới
   function buildQueue(ahead = 0) {
     const list = Object.values(state.cards);
