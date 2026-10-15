@@ -37,7 +37,7 @@ Cập nhật: 15/10/2026.
 ## 5. Giữ chân người dùng
 - [x] Huy hiệu thói quen: Cú đêm, Chim sớm, Thợ săn từ (50 từ/ngày); Mọt sách đã có
 - [ ] Widget màn hình chính iOS/Android (chuỗi ngày + thẻ cần ôn)
-- [ ] Thông báo nhắc học bằng giọng Kit (vui, không gây áp lực)
+- [x] Thông báo nhắc học bằng giọng Kit (vui, không gây áp lực)
 
 ## 6. Nội dung
 - [ ] Bộ “Tiếng Anh đời thực”: slang & idiom hiện đại, du lịch – du học sinh tồn, phỏng vấn & email công sở (học theo tình huống 2 câu)

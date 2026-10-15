@@ -1,5 +1,5 @@
 /* Service worker: cache giao diện để dùng offline + mở app khi bấm thông báo. */
-const CACHE = 'lexkite-20261015114101';
+const CACHE = 'lexkite-20261015114229';
 // Chỉ phần lõi (các file trong index.html) – phần nặng tải khi cần từ CDN và được lưu lại lúc dùng
 const SHELL = ['./', 'index.html', 'css/style.css', 'js/heal.js', 'js/native.js', 'js/ads-config.js', 'js/ads.js', 'js/kit.js', 'js/i18n.js', 'js/data.js', 'js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lexis.js', 'js/structures.js', 'js/core.js', 'js/dictionary.js', 'js/game.js', 'js/ui.js', 'js/app.js', 'js/study.js', 'js/reading.js', 'js/path.js', 'js/plan.js', 'js/goal.js', 'js/hubs.js', 'js/phrases.js', 'js/ai.js', 'js/assist.js', 'js/firebase-config.js', 'js/sync.js', 'js/i18n/en.js', 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png'];
 
@@ -7,10 +7,13 @@ self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => Promise.all(SHELL.map(u => c.add(new Request(u, { cache: 'reload' })).catch(() => {}))  /* cache:'reload' – bỏ qua bộ nhớ đệm HTTP, không bao giờ cất nhầm file cũ */)).then(() => self.skipWaiting()));
 });
 self.addEventListener('activate', e => {
-  e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE && k !== 'lk-meta').map(k => caches.delete(k)))).then(() => self.clients.claim()));
+  e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE && k !== 'lk-meta' && k !== AUDIO).map(k => caches.delete(k)))).then(() => self.clients.claim()));
 });
 // HTML/JS/CSS: lấy bản mới từ mạng (chờ tối đa 2,5 giây) → không bao giờ trộn file cũ với file mới; offline thì dùng cache.
 // Ảnh/icon: lấy từ cache ngay.
+// Âm thanh lưu riêng, tối đa 600 file gần nhất (~12 MB) – nghe lại tức thì, offline được, không phình bộ nhớ máy
+const AUDIO = 'lk-audio', AUDIO_MAX = 600;
+const trimAudio = c => c.keys().then(ks => { if (ks.length > AUDIO_MAX) return Promise.all(ks.slice(0, ks.length - AUDIO_MAX).map(k => c.delete(k))); });
 const STATIC = /\.(png|svg|jpg|jpeg|webp|ico|woff2?|mp3)$/; // âm thanh đặt tên theo nội dung → không bao giờ đổi
 self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
@@ -21,7 +24,7 @@ self.addEventListener('fetch', e => {
   }
   // Âm thanh trên CDN riêng (tên file theo nội dung, không bao giờ đổi): có sẵn thì phát ngay, nghe được cả khi offline
   if (e.request.method === 'GET' && url.hostname === 'lexkiteapp.github.io' && /\.mp3$/.test(url.pathname)) {
-    e.respondWith(caches.match(e.request).then(hit => hit || fetch(e.request).then(r => { if (r.ok) { const c = r.clone(); caches.open(CACHE).then(x => x.put(e.request, c)); } return r; })));
+    e.respondWith(caches.match(e.request).then(hit => hit || fetch(e.request).then(r => { if (r.ok) { const c = r.clone(); caches.open(AUDIO).then(x => x.put(e.request, c).then(() => trimAudio(x))); } return r; })));
     return;
   }
   if (e.request.method !== 'GET' || url.origin !== location.origin) return; // API từ điển luôn đi mạng
