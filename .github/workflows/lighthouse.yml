@@ -1,0 +1,33 @@
+# Đo tốc độ & chất lượng lexkite.com bằng Lighthouse (điện thoại, mạng 4G giả lập) – miễn phí trên máy chủ GitHub.
+# Kết quả tóm tắt lưu vào reports/lighthouse.json để theo dõi theo thời gian (mục tiêu ≥ 95).
+name: Đo tốc độ Lighthouse
+on:
+  schedule:
+    - cron: '0 1 * * 1'   # thứ Hai hằng tuần
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/lighthouse.yml']
+permissions:
+  contents: write
+jobs:
+  lh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chạy Lighthouse
+        run: |
+          mkdir -p reports
+          for p in "" "vi/blog/"; do
+            npx -y lighthouse@12.2.1 "https://lexkite.com/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox" --output=json --output-path=/tmp/lh.json --quiet || continue
+            node -e "const d=require('/tmp/lh.json'),a=d.audits,c=d.categories;const o={url:d.finalDisplayedUrl,at:d.fetchTime,scores:Object.fromEntries(Object.entries(c).map(([k,v])=>[k,Math.round(v.score*100)])),metrics:Object.fromEntries(['first-contentful-paint','largest-contentful-paint','total-blocking-time','cumulative-layout-shift','speed-index'].map(k=>[k,a[k].displayValue])),fails:Object.values(a).filter(x=>x.score!==null&&x.score<0.9&&['binary','numeric','metricSavings'].includes(x.scoreDisplayMode)).map(x=>x.title+(x.displayValue?' – '+x.displayValue:'')).slice(0,25)};const f='reports/lighthouse.json';let all={};try{all=require('./'+f)}catch(e){};all['${p:-home}']=o;require('fs').writeFileSync(f,JSON.stringify(all,null,1));console.log(JSON.stringify(o.scores))"
+          done
+      - name: Lưu kết quả
+        run: |
+          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
+          git add reports/lighthouse.json; git diff --cached --quiet && exit 0
+          git commit -qm "Báo cáo Lighthouse $(date -u +%F)"
+          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
