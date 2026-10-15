@@ -37,7 +37,9 @@ for (let i = 0; i < keys.length;) {
   const batch = []; let len = 0;
   while (i < keys.length && len < 1500) { const v = EN[keys[i]].replace(/\n/g, ' '); batch.push([keys[i], v]); len += v.length + 1; i++; }
   const prot = batch.map(([, v]) => protect(v));
-  const res = await translate(prot.map(p => p.t));
+  let res = await translate(prot.map(p => p.t));
+  // Lô bị lệch dòng (Google gộp/tách câu) → dịch lại từng câu, không bỏ sót cả lô
+  if (!res || res.length !== batch.length) { res = []; for (const p of prot) { const r1 = await translate([p.t]); res.push(r1 ? r1.join(' ') : ''); await new Promise(r => setTimeout(r, 300)); } }
   batch.forEach(([k, v], j) => {
     const tr = res && res[j] ? restore(res[j].trim(), prot[j].keep) : '';
     const cased = tr && /^\p{Lu}/u.test(v) && /^\p{Ll}/u.test(tr) ? tr[0].toLocaleUpperCase(lang) + tr.slice(1) : tr; // viết hoa chữ đầu như bản tiếng Anh
