@@ -281,8 +281,8 @@
   (function contentTranslate() {
     const to = I18N.learnLang(); if (to === 'vi' || !window.MutationObserver) return;
     const VI = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
-    // Không dịch vùng học     const SKIP = '.vi, .svi, .ctxvi, .gap-vi, [data-keep-vi], input, textarea, script, style, code, .entry-word'; làm bài (phương án trắc nghiệm, thẻ, câu hỏi) – tránh lộ đáp án
-    const SKIP = '.vi, .svi, .ctxvi, .gap-vi, [data-keep-vi], input, textarea, script, style, code, .entry-word, .study-wrap, .options, .option, .flash, .lq-group, .toeic-u, .mk-qs, .sheet';
+    // Không dịch vùng học & làm bài (phương án trắc nghiệm, thẻ, câu hỏi) – tránh lộ đáp án; tên ngôn ngữ giữ nguyên tiếng gốc (translate="no")
+    const SKIP = '.vi, .svi, .ctxvi, .gap-vi, [data-keep-vi], input, textarea, script, style, code, .entry-word, .study-wrap, .options, .option, .flash, .lq-group, .toeic-u, .mk-qs, .sheet, [translate="no"]';
     const KEY = 'vb.cx.' + to; let mem = {}; try { mem = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { mem = {}; }
     const save = () => { try { const ks = Object.keys(mem); if (ks.length > 4000) ks.slice(0, ks.length - 4000).forEach(k => delete mem[k]); localStorage.setItem(KEY, JSON.stringify(mem)); } catch (e) { /* đầy bộ nhớ */ } };
     let timer = 0, busy = false;
@@ -1026,75 +1026,64 @@
   routes.settings = function () {
     const s = state.settings;
     const perm = 'Notification' in window ? Notification.permission : 'unsupported';
+    const nc = x => x.replace(/[:：]\s*$/, ''); // nhãn đứng riêng – bỏ dấu hai chấm ở cuối
+    const row = (label, ctl, hint = '') => `<div class="set-row"><div class="set-l"><span>${label}</span>${hint ? `<small>${hint}</small>` : ''}</div><div class="set-c">${ctl}</div></div>`;
+    const tog = (id, on, label, hint = '') => `<label class="set-row switch"><span class="set-l"><span>${label}</span>${hint ? `<small>${hint}</small>` : ''}</span><input type="checkbox" id="${id}" ${on ? 'checked' : ''}></label>`;
+    const slide = (label, vid, val, input, hint = '') => `<label class="set-row col"><span class="set-top"><span>${label}</span><b id="${vid}">${val}</b></span>${input}${hint ? `<small>${hint}</small>` : ''}</label>`;
+    const seg = (id, items, cur) => `<div class="tabs seg" id="${id}">${items.map(([v, l, attr]) => `<button type="button" data-v="${v}" class="${cur === v ? 'on' : ''}"${attr || ''}>${l}</button>`).join('')}</div>`;
+    const sec = (id, title, body) => `<section class="set-sec" id="set-${id}"><h3 class="set-h">${title}</h3><div class="set-list">${body}</div></section>`;
+    const NAV = [['account', '☁️', t('Tài khoản')], ['look', '🎨', t('Giao diện')], ['study', '🎯', t('Học tập')], ['sound', '🔊', t('Âm thanh')], ['remind', '⏰', t('Nhắc học')], ['ai', '🤖', 'AI'], ['data', '💾', t('Dữ liệu')]];
     view.innerHTML = `
+      <div class="set-wrap">
       <div class="page-head"><div><h1>${t('Cài đặt')}</h1><p class="muted">${t('Tài khoản, nhắc học, mục tiêu và giao diện')}</p></div></div>
-      <div class="card stack" id="syncBox" style="margin-bottom:1rem"></div>
-      <div id="aiBox" style="margin-bottom:1rem"></div>
-      <div class="grid g2">
-        <div class="card">
-          <h2>⏰ ${t('Nhắc học hằng ngày')}</h2>
-          <label class="switch"><span>${t('Bật nhắc học')}</span><input type="checkbox" id="sRem" ${s.reminderOn ? 'checked' : ''}></label>
-          <label class="field" style="margin:.4rem 0 .8rem"><span>${t('Giờ nhắc')}</span><input type="time" class="input" id="sTime" value="${esc(s.reminderTime)}"></label>
-          ${Store.isExtension
-            ? `<p class="small muted">✅ ${t('Add-on gửi thông báo vào giờ này mỗi ngày (kể cả khi chưa mở trang) và hiện số thẻ cần ôn trên biểu tượng.')}</p>`
-            : `<p class="small muted">${t('Trình duyệt chỉ nhắc được khi trang đang mở. Để nhắc chắc chắn, thêm lịch nhắc vào điện thoại hoặc dùng add-on Chrome.')}</p>
-               <div class="row">
-                 <button class="btn sm" id="sPerm" ${perm === 'granted' || perm === 'unsupported' ? 'disabled' : ''}>${perm === 'granted' ? '✓ ' + t('Đã cho phép thông báo') : perm === 'unsupported' ? t('Không hỗ trợ thông báo') : '🔔 ' + t('Cho phép thông báo')}</button>
-                 <button class="btn sm" id="sIcs">📅 ${t('Thêm vào Lịch (.ics)')}</button>
-               </div>`}
-          <button class="btn sm" id="sTest" style="margin-top:.6rem">${t('Thử gửi thông báo')}</button>
-          <hr style="border:0;border-top:1px solid var(--line);margin:1rem 0">
-          <label class="switch"><span><b>⏰ ${t('Nhắc “thời điểm vàng”')}</b><br><span class="small muted">${t('Báo khi có từ sắp bị quên')}</span></span><input type="checkbox" id="sGold" ${s.goldenOn ? 'checked' : ''}></label>
-          <label class="field" style="margin-top:.4rem"><span>${t('Chỉ nhắc khi có ít nhất <b id="vGMin">{n}</b> từ cần ôn', { n: s.goldenMin })}</span><input type="range" min="1" max="50" id="sGMin" value="${s.goldenMin}" style="width:100%"></label>
-          <div class="grid g2" style="margin-top:.6rem"><label class="field"><span>${t('Giờ yên lặng từ')}</span><input type="time" class="input" id="sQ1" value="${esc(s.quietStart)}"></label><label class="field"><span>${t('đến')}</span><input type="time" class="input" id="sQ2" value="${esc(s.quietEnd)}"></label></div>
-        </div>
-        <div class="card">
-          <h2>🎯 ${t('Mục tiêu học')}</h2>
-          <label class="field"><span>${t('Từ mới mỗi ngày:')} <b id="vNew">${s.dailyNew}</b></span><input type="range" min="0" max="50" id="sNew" value="${s.dailyNew}" style="width:100%"></label>
-          <label class="field" style="margin-top:.6rem"><span>${t('Mục tiêu lượt ôn mỗi ngày:')} <b id="vGoal">${s.dailyGoal}</b></span><input type="range" min="5" max="200" step="5" id="sGoal" value="${s.dailyGoal}" style="width:100%"></label>
-          <label class="field" style="margin-top:.6rem"><span>${t('Tối đa thẻ mỗi phiên ôn:')} <b id="vCap">${s.sessionCap || t('Không giới hạn')}</b></span><input type="range" min="0" max="200" step="10" id="sCap" value="${s.sessionCap}" style="width:100%"></label>
-          <label class="field" style="margin-top:.6rem"><span>🧠 ${t('Mục tiêu ghi nhớ (thuật toán FSRS):')} <b id="vRet">${Math.round((s.retention || 0.9) * 100)}%</b></span><input type="range" min="0.8" max="0.95" step="0.01" id="sRet" value="${s.retention || 0.9}" style="width:100%"></label>
-          <div class="tiny muted">${t('Khả năng còn nhớ mỗi từ khi đến lượt ôn. 90% là cân bằng tốt nhất; 95% nhớ chắc hơn nhưng số lượt ôn gần gấp đôi; 85% ít ôn hơn, hợp khi bận.')}</div>
-        </div>
-        <div class="card">
-          <h2>🔊 ${t('Âm thanh & phát âm')}</h2>
-          <label class="field"><span>${t('Giọng phát âm')}</span>
-            <select class="input" id="sAccent"><option value="en-GB" ${s.accent === 'en-GB' ? 'selected' : ''}>🇬🇧 ${t('Anh – Anh (khuyên dùng cho IELTS)')}</option><option value="en-US" ${s.accent === 'en-US' ? 'selected' : ''}>🇺🇸 ${t('Anh – Mỹ')}</option></select></label>
-          <label class="field" style="margin-top:.6rem"><span>${t('Giọng đọc')}</span><select class="input" id="sVoice"></select></label><div id="voiceTip" class="tip small" style="margin-top:.5rem" hidden></div>
-          <label class="field" style="margin-top:.6rem"><span>${t('Tốc độ đọc:')} <b id="vRate">${(s.ttsRate || 0.92).toFixed(2)}×</b></span><input type="range" min="0.6" max="1.2" step="0.02" id="sRate" value="${s.ttsRate || 0.92}" style="width:100%"></label>
-          <div class="row" style="margin:.4rem 0 .6rem"><button class="btn sm" id="sTry">▶️ ${t('Nghe thử câu mẫu')}</button><span class="tiny muted">${t('Từ đơn ưu tiên bản ghi giọng người thật')}</span></div>
-          <label class="switch"><span>${t('Tự phát âm khi hiện thẻ')}</span><input type="checkbox" id="sAuto" ${s.autoSpeak ? 'checked' : ''}></label>
-          <label class="switch"><span>${t('Giọng đọc tự nhiên cho bài nghe & giám khảo (tải âm thanh từ mạng)')}</span><input type="checkbox" id="sHq" ${s.hqVoice !== false ? 'checked' : ''}></label>
-          <label class="switch"><span>${t('Hiệu ứng âm thanh')}</span><input type="checkbox" id="sSfx" ${s.sfx ? 'checked' : ''}></label>
-        </div>
-        <div class="card">
-          <h2>🎨 ${t('Giao diện')}</h2>
-          <div class="small muted" style="margin:.2rem 0 .3rem">🌐 ${t('Ngôn ngữ giao diện')}</div>${App.langPicker()}
-          <div class="small muted" style="margin:.8rem 0 .3rem">📖 ${t('Nghĩa từ hiển thị bằng')}</div><div class="tabs" id="sMean" style="display:inline-flex">${[['vi', 'Tiếng Việt'], ['en', t('Định nghĩa tiếng Anh')]].map(([v, l]) => `<button data-v="${v}" class="${I18N.meanLang() === v ? 'on' : ''}">${l}</button>`).join('')}</div>
-          <div class="small muted" style="margin:.8rem 0 .3rem">${t('Chế độ màu')}</div>
-          <div class="tabs" id="sTheme" style="display:inline-flex">${[['auto', '🌓 ' + t('Tự động')], ['light', '☀️ ' + t('Sáng')], ['dark', '🌙 ' + t('Tối')]].map(([v, l]) => `<button data-v="${v}" class="${s.theme === v ? 'on' : ''}">${l}</button>`).join('')}</div>
-        </div>
-      </div>
-      <div class="card stack" style="margin-top:1rem">
-        <h2>🧩 ${t('Add-on từ điển cho Chrome')}</h2>
-        <p>${t('Bấm đúp vào bất kỳ từ tiếng Anh nào trên web để xem phiên âm, nghĩa, hình ảnh và <b>lưu vào flashcard kèm câu gốc làm ngữ cảnh</b>. Bôi đen cả câu/đoạn để <b>dịch sang tiếng Việt</b>.')}</p>
-        <p class="small muted">${t('Cài đặt: mở <code>chrome://extensions</code> → bật <i>Developer mode</i> → <i>Load unpacked</i> → chọn thư mục <code>extension</code>.')}</p>
-      </div>
-      <div class="card stack" style="margin-top:1rem">
-        <h2>💾 ${t('Dữ liệu')}</h2>
-        <div class="row"><button class="btn sm" id="sExport">⬇️ ${t('Xuất sao lưu')}</button><label class="btn sm">⬆️ ${t('Nhập sao lưu')}<input type="file" id="sImport" accept="application/json" hidden></label>
-        <button class="btn sm danger" id="sReset">${t('Xóa toàn bộ dữ liệu học')}</button></div>
+      <nav class="set-nav" aria-label="${t('Cài đặt')}">${NAV.map(([id, ic, l]) => `<button type="button" data-jump="${id}"><span aria-hidden="true">${ic}</span> ${l}</button>`).join('')}</nav>
+      <section class="set-sec" id="set-account"><div class="card stack" id="syncBox"></div></section>
+      ${sec('look', '🎨 ' + t('Giao diện'),
+        row('🌐 ' + t('Ngôn ngữ giao diện'), App.langPicker())
+        + row('📖 ' + t('Nghĩa từ hiển thị bằng'), seg('sMean', [['vi', 'Tiếng Việt', ' translate="no" lang="vi" data-keep-vi'], ['en', t('Định nghĩa tiếng Anh')]], I18N.meanLang()))
+        + row(t('Chế độ màu'), seg('sTheme', [['auto', '🌓 ' + t('Tự động')], ['light', '☀️ ' + t('Sáng')], ['dark', '🌙 ' + t('Tối')]], s.theme)))}
+      ${sec('study', '🎯 ' + t('Mục tiêu học'),
+        slide(nc(t('Từ mới mỗi ngày:')), 'vNew', s.dailyNew, `<input type="range" min="0" max="50" id="sNew" value="${s.dailyNew}">`)
+        + slide(nc(t('Mục tiêu lượt ôn mỗi ngày:')), 'vGoal', s.dailyGoal, `<input type="range" min="5" max="200" step="5" id="sGoal" value="${s.dailyGoal}">`)
+        + slide(nc(t('Tối đa thẻ mỗi phiên ôn:')), 'vCap', s.sessionCap || t('Không giới hạn'), `<input type="range" min="0" max="200" step="10" id="sCap" value="${s.sessionCap}">`)
+        + slide('🧠 ' + nc(t('Mục tiêu ghi nhớ (thuật toán FSRS):')), 'vRet', Math.round((s.retention || 0.9) * 100) + '%', `<input type="range" min="0.8" max="0.95" step="0.01" id="sRet" value="${s.retention || 0.9}">`, t('Khả năng còn nhớ mỗi từ khi đến lượt ôn. 90% là cân bằng tốt nhất; 95% nhớ chắc hơn nhưng số lượt ôn gần gấp đôi; 85% ít ôn hơn, hợp khi bận.')))}
+      ${sec('sound', '🔊 ' + t('Âm thanh & phát âm'),
+        row(t('Giọng phát âm'), `<select class="input" id="sAccent"><option value="en-GB" ${s.accent === 'en-GB' ? 'selected' : ''}>🇬🇧 ${t('Anh – Anh (khuyên dùng cho IELTS)')}</option><option value="en-US" ${s.accent === 'en-US' ? 'selected' : ''}>🇺🇸 ${t('Anh – Mỹ')}</option></select>`)
+        + row(t('Giọng đọc'), `<select class="input" id="sVoice"></select>`)
+        + '<div id="voiceTip" class="tip small set-tip" hidden></div>'
+        + slide(nc(t('Tốc độ đọc:')), 'vRate', (s.ttsRate || 0.92).toFixed(2) + '×', `<input type="range" min="0.6" max="1.2" step="0.02" id="sRate" value="${s.ttsRate || 0.92}">`)
+        + row(`<button type="button" class="btn sm" id="sTry">▶️ ${t('Nghe thử câu mẫu')}</button>`, '', t('Từ đơn ưu tiên bản ghi giọng người thật'))
+        + tog('sAuto', s.autoSpeak, t('Tự phát âm khi hiện thẻ'))
+        + tog('sHq', s.hqVoice !== false, t('Giọng đọc tự nhiên cho bài nghe & giám khảo (tải âm thanh từ mạng)'))
+        + tog('sSfx', s.sfx, t('Hiệu ứng âm thanh')))}
+      ${sec('remind', '⏰ ' + t('Nhắc học hằng ngày'),
+        tog('sRem', s.reminderOn, t('Bật nhắc học'))
+        + `<div id="remOpts" ${s.reminderOn ? '' : 'hidden'}>`
+        + row(t('Giờ nhắc'), `<input type="time" class="input" id="sTime" value="${esc(s.reminderTime)}">`, Store.isExtension ? t('Add-on gửi thông báo vào giờ này mỗi ngày (kể cả khi chưa mở trang) và hiện số thẻ cần ôn trên biểu tượng.') : t('Trình duyệt chỉ nhắc được khi trang đang mở. Để nhắc chắc chắn, thêm lịch nhắc vào điện thoại hoặc dùng add-on Chrome.'))
+        + `<div class="set-row"><div class="set-btns">${Store.isExtension ? '' : `<button type="button" class="btn sm" id="sPerm" ${perm === 'granted' || perm === 'unsupported' ? 'disabled' : ''}>${perm === 'granted' ? '✓ ' + t('Đã cho phép thông báo') : perm === 'unsupported' ? t('Không hỗ trợ thông báo') : '🔔 ' + t('Cho phép thông báo')}</button><button type="button" class="btn sm" id="sIcs">📅 ${t('Thêm vào Lịch (.ics)')}</button>`}<button type="button" class="btn sm ghost" id="sTest">${t('Thử gửi thông báo')}</button></div></div></div>`
+        + tog('sGold', s.goldenOn, t('Nhắc “thời điểm vàng”'), t('Báo khi có từ sắp bị quên'))
+        + `<div id="goldOpts" ${s.goldenOn ? '' : 'hidden'}>`
+        + `<label class="set-row col"><span class="set-top"><span>${t('Chỉ nhắc khi có ít nhất <b id="vGMin">{n}</b> từ cần ôn', { n: s.goldenMin })}</span></span><input type="range" min="1" max="50" id="sGMin" value="${s.goldenMin}"></label>`
+        + row(t('Giờ yên lặng từ'), `<span class="set-btns"><input type="time" class="input" id="sQ1" value="${esc(s.quietStart)}"><span class="muted">${t('đến')}</span><input type="time" class="input" id="sQ2" value="${esc(s.quietEnd)}"></span>`)
+        + '</div>')}
+      <section class="set-sec" id="set-ai"><div id="aiBox"></div></section>
+      ${Store.isExtension ? '' : sec('ext', '🧩 ' + t('Add-on từ điển cho Chrome'), `<div class="set-row"><div class="set-l"><span class="small">${t('Bấm đúp vào bất kỳ từ tiếng Anh nào trên web để xem phiên âm, nghĩa, hình ảnh và <b>lưu vào flashcard kèm câu gốc làm ngữ cảnh</b>. Bôi đen cả câu/đoạn để <b>dịch sang tiếng Việt</b>.')}</span><small>${t('Cài đặt: mở <code>chrome://extensions</code> → bật <i>Developer mode</i> → <i>Load unpacked</i> → chọn thư mục <code>extension</code>.')}</small></div></div>`)}
+      ${sec('data', '💾 ' + t('Dữ liệu'),
+        row(t('Xuất sao lưu'), `<button type="button" class="btn sm" id="sExport">⬇️ ${t('Xuất sao lưu')}</button>`)
+        + row(t('Nhập sao lưu'), `<label class="btn sm">⬆️ ${t('Nhập sao lưu')}<input type="file" id="sImport" accept="application/json" hidden></label>`)
+        + row(`<span class="danger-t">${t('Xóa toàn bộ dữ liệu học')}</span>`, `<button type="button" class="btn sm danger" id="sReset">${t('Xóa')}</button>`))}
       </div>`;
+    $$('.set-nav [data-jump]').forEach(b => b.onclick = () => { const el = document.getElementById('set-' + b.dataset.jump); if (el) el.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); });
 
     const save = async () => { await saveSettings(); Core.sfxOff = !s.sfx; updateChrome(); if (window.Sync) Sync.schedule(); };
-    $('#sRem').onchange = e => { s.reminderOn = e.target.checked; save(); };
+    $('#sRem').onchange = e => { s.reminderOn = e.target.checked; $('#remOpts').hidden = !s.reminderOn; save(); };
     $('#sTime').onchange = e => { s.reminderTime = e.target.value || '20:00'; save(); toast(t('Sẽ nhắc lúc {time} mỗi ngày', { time: s.reminderTime })); };
     $('#sNew').oninput = e => { s.dailyNew = +e.target.value; $('#vNew').textContent = s.dailyNew; save(); };
     $('#sGoal').oninput = e => { s.dailyGoal = +e.target.value; $('#vGoal').textContent = s.dailyGoal; save(); };
     const drawAI = async () => { const b = $('#aiBox'); if (!b || !window.AI) return; b.innerHTML = await AI.settingsHtml(); AI.bindSettings(drawAI); };
     drawAI();
     $('#sRet').oninput = e => { s.retention = +e.target.value; SRS.retentionTarget = s.retention; $('#vRet').textContent = Math.round(s.retention * 100) + '%'; save(); };
-    $('#sGold').onchange = e => { s.goldenOn = e.target.checked; save(); };
+    $('#sGold').onchange = e => { s.goldenOn = e.target.checked; $('#goldOpts').hidden = !s.goldenOn; save(); };
     $('#sGMin').oninput = e => { s.goldenMin = +e.target.value; $('#vGMin').textContent = s.goldenMin; save(); };
     $('#sQ1').onchange = e => { s.quietStart = e.target.value || '22:30'; save(); };
     $('#sQ2').onchange = e => { s.quietEnd = e.target.value || '07:00'; save(); };
@@ -1201,8 +1190,8 @@
   // Bộ chọn ngôn ngữ giao diện: chỉ liệt kê ngôn ngữ đã dịch đầy đủ (tránh giao diện nửa nọ nửa kia)
   // ≤ 3 ngôn ngữ: nút bấm; nhiều hơn: danh sách thả xuống, tên ngôn ngữ viết bằng chính tiếng đó (Español, 日本語…)
   App.langPicker = () => I18N.SUPPORTED.length <= 3
-    ? `<div class="tabs" data-lang-pick style="display:inline-flex">${I18N.SUPPORTED.map(l => `<button data-v="${l}" class="${I18N.lang() === l ? 'on' : ''}">${I18N.LANGS[l][1]}</button>`).join('')}</div>`
-    : `<select class="input lang-select" data-lang-select aria-label="Language">${I18N.SUPPORTED.map(l => `<option value="${l}" ${I18N.lang() === l ? 'selected' : ''}>${I18N.LANGS[l][1]}</option>`).join('')}</select>`;
+    ? `<div class="tabs" data-lang-pick style="display:inline-flex" translate="no">${I18N.SUPPORTED.map(l => `<button data-v="${l}" class="${I18N.lang() === l ? 'on' : ''}">${I18N.LANGS[l][1]}</button>`).join('')}</div>`
+    : `<select class="input lang-select" data-lang-select aria-label="Language" translate="no">${I18N.SUPPORTED.map(l => `<option value="${l}" ${I18N.lang() === l ? 'selected' : ''}>${I18N.LANGS[l][1]}</option>`).join('')}</select>`;
   document.addEventListener('change', e => { if (e.target.matches && e.target.matches('[data-lang-select]') && e.target.value !== I18N.lang()) I18N.set(e.target.value); });
   document.addEventListener('click', e => { const b = e.target.closest('[data-lang-pick] [data-v]'); if (b && b.dataset.v !== I18N.lang()) I18N.set(b.dataset.v); });
   routes.welcome = function (step) {

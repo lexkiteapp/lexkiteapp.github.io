@@ -249,14 +249,13 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
     const k = await getKey();
     const ns = await nanoStatus();
     const nano = ns === 'available' ? '✅ ' + t('Sẵn sàng') : ns === 'downloadable' || ns === 'downloading' ? `<button class="btn sm" id="aiNanoDl">⬇️ ${t('Tải về (~2 GB, 1 lần)')}</button>` : '— ' + t('Trình duyệt chưa hỗ trợ');
-    // Bảng các mức AI miễn phí người học đang có (luôn có ít nhất mức chấm nhanh)
-    const tiers = `<div class="ai-tiers small">
-      <div><span>⚡ ${t('Chấm nhanh & ghi chú từ soạn sẵn')}</span><b class="good">✅ ${t('Luôn có')}</b></div>
-      <div><span>💻 ${t('AI có sẵn trong Chrome (trên máy, riêng tư)')}</span><b>${nano}</b></div>
-      <div><span>✨ ${t('Gemini – chấm chi tiết như giám khảo')}</span><b class="${k ? 'good' : ''}">${k ? '✅ ' + t('Đã bật') : t('Cần khóa miễn phí')}</b></div></div>`;
-    return `<div class="card"><h2>🤖 ${t('Chấm bài bằng AI')}</h2>${tiers}<p class="small muted">${t('Dùng khóa Google Gemini miễn phí của bạn để chấm Writing & Speaking chi tiết. Khóa chỉ lưu trên máy này.')}</p>
-      <div class="row"><span class="chip ${k ? 'ok' : ''}">${k ? '✓ ' + t('Đã có khóa {key}…', { key: esc(k.slice(0, 6)) }) : t('Chưa có khóa')}</span><button class="btn sm" id="aiSet">${k ? t('Đổi khóa') : t('Thêm khóa')}</button>${k ? `<button class="btn sm ghost" id="aiDel">${t('Xóa khóa')}</button>` : ''}</div>
-      <label class="field" style="margin-top:.6rem"><span class="small">${t('Mô hình')}</span><select class="input" id="aiModel">${['', ...MODELS].map(m => `<option value="${m}" ${(state.settings.aiModel || '') === m ? 'selected' : ''}>${m || t('Tự động (khuyên dùng)')}</option>`).join('')}</select></label></div>`;
+    // Các mức AI miễn phí người học đang có (luôn có ít nhất mức chấm nhanh) – cùng kiểu danh sách với trang Cài đặt
+    const r = (l, c, h = '') => `<div class="set-row"><div class="set-l"><span>${l}</span>${h ? `<small>${h}</small>` : ''}</div><div class="set-c">${c}</div></div>`;
+    return `<h3 class="set-h">🤖 ${t('Chấm bài bằng AI')}</h3><div class="set-list">
+      ${r('⚡ ' + t('Chấm nhanh & ghi chú từ soạn sẵn'), `<b class="good small">✅ ${t('Luôn có')}</b>`)}
+      ${r('💻 ' + t('AI có sẵn trong Chrome (trên máy, riêng tư)'), `<span class="small">${nano}</span>`)}
+      ${r('✨ ' + t('Gemini – chấm chi tiết như giám khảo'), `<span class="set-btns">${k ? `<span class="chip ok">✓ ${t('Đã có khóa {key}…', { key: esc(k.slice(0, 6)) })}</span>` : ''}<button type="button" class="btn sm" id="aiSet">${k ? t('Đổi khóa') : t('Thêm khóa')}</button>${k ? `<button type="button" class="btn sm ghost" id="aiDel">${t('Xóa khóa')}</button>` : ''}</span>`, t('Dùng khóa Google Gemini miễn phí của bạn để chấm Writing & Speaking chi tiết. Khóa chỉ lưu trên máy này.'))}
+      ${r(t('Mô hình'), `<select class="input" id="aiModel">${['', ...MODELS].map(m => `<option value="${m}" ${(state.settings.aiModel || '') === m ? 'selected' : ''}>${m || t('Tự động (khuyên dùng)')}</option>`).join('')}</select>`)}</div>`;
   }
   function bindSettings(rerender) {
     const s = $('#aiSet'); if (s) s.onclick = () => keyDialog(rerender);

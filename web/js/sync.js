@@ -1,5 +1,5 @@
-/* Tài khoản & đồng bộ đám mây (Firebase Auth + Firestore).
- * Dữ liệu lưu ở users/{uid}/data/{meta|cards_0..n}; gộp 2 chiều theo hoạt động gần nhất.
+/* Tài khoản & đồng bộ đám mây: đăng nhập Google bằng Firebase Auth, dữ liệu lưu ở Cloudflare D1 qua /api/sync
+ * (functions/api/sync.js – hạn mức miễn phí lớn hơn Firestore nhiều lần). Tài liệu: meta + cards_0..n; gộp 2 chiều theo hoạt động gần nhất.
  */
 (function () {
   const { Store, Cards } = Core;
@@ -11,6 +11,14 @@
   const Sync = { user: null, status: 'idle', lastSync: 0 };
   window.Sync = Sync;
   let fb = null, db = null, timer = null, box = null;
+  // Cùng tên miền → gọi thẳng; app/add-on/bản xem trước → gọi về lexkite.com
+  const API = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '/api/sync' : 'https://lexkite.com/api/sync';
+  async function api(body) {
+    const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await Sync.user.getIdToken() }, body: JSON.stringify(body) });
+    if (r.status === 429) throw Object.assign(new Error('quota'), { code: 'resource-exhausted' });
+    if (!r.ok) throw new Error('sync ' + r.status);
+    return r.json();
+  }
 
   const supported = !Store.isExtension && !Store.sandbox && window.FIREBASE_CONFIG && location.protocol.startsWith('http');
 
@@ -20,9 +28,9 @@
   async function init() {
     if (!supported || fb) return;
     await loadScript(SDK + 'firebase-app-compat.js');
-    await Promise.all([loadScript(SDK + 'firebase-auth-compat.js'), loadScript(SDK + 'firebase-firestore-compat.js')]);
+    await loadScript(SDK + 'firebase-auth-compat.js'); // chỉ cần đăng nhập – không tải Firestore SDK (nhẹ hơn ~100 KB)
     fb = firebase.initializeApp(FIREBASE_CONFIG);
-    db = firebase.firestore();
+    db = true;
     firebase.auth().onAuthStateChanged(async u => {
       Sync.user = u; Sync.ready = true; App.state.user = u ? { uid: u.uid, displayName: u.displayName, email: u.email, photoURL: u.photoURL } : null;
       App.updateChrome(); render();
@@ -72,7 +80,6 @@
 
   // Dấu “đã xóa” chỉ cần giữ đủ lâu để mọi thiết bị kịp đồng bộ → bỏ mục quá 90 ngày, tránh phình dữ liệu
   const pruneDel = d => { const cut = Date.now() - 90 * 864e5; for (const k of Object.keys(d)) if (d[k] < cut) delete d[k]; return d; };
-  const ref = () => db.collection('users').doc(Sync.user.uid).collection('data');
 
   // ---------- Cầu nối với add-on Chrome (cùng máy) ----------
   let extReady = false;
@@ -150,14 +157,11 @@
   async function pullMerge() {
     setStatus('syncing');
     try {
-      // Đọc meta trước; chỉ tải các gói thẻ đã thay đổi kể từ lần đồng bộ trước (tiết kiệm lượt đọc)
-      const docs = {};
-      const ms = await ref().doc('meta').get();
-      if (ms.exists) docs.meta = ms.data();
+      // 1 lượt gọi: máy chủ chỉ trả meta + các gói thẻ đã thay đổi kể từ lần đồng bộ trước
+      if (Date.now() < await Store.get('syncPausedUntil', 0)) return setStatus('ok', t('Đồng bộ tạm nghỉ – dữ liệu vẫn trên máy.'));
       const pulled = (await Store.get('pulledHashes', {}))[Sync.user.uid] || {};
+      const docs = (await api({ op: 'pull', have: pulled })).docs || {};
       const hs = (docs.meta && docs.meta.hs) || {};
-      const need = docs.meta ? [...Array(docs.meta.chunks || 0).keys()].map(i => 'cards_' + i).filter(k => !hs[k] || hs[k] !== pulled[k]) : [];
-      await Promise.all(need.map(async k => { const d = await ref().doc(k).get(); if (d.exists) docs[k] = d.data(); }));
       // Đăng nhập tài khoản khác với lần trước → hỏi trước khi gộp dữ liệu trên máy vào
       const lastUid = await Store.get('lastUid', '');
       if (lastUid && lastUid !== Sync.user.uid && Object.keys(await Cards.all()).length) {
@@ -209,7 +213,7 @@
       const cards = await Cards.all();
       const keys = Object.keys(cards).sort();
       const chunks = Math.ceil(keys.length / CHUNK);
-      const batch = db.batch();
+      const out = {};
       const pending = {};
       let writes = 0;
       for (let i = 0; i < chunks; i++) {
@@ -217,14 +221,14 @@
         const json = JSON.stringify(part), h = hash(json);
         if (sentHashes['cards_' + i] === h) continue;
         if (json.length > 900000) console.warn('chunk lớn', i, json.length);
-        batch.set(ref().doc('cards_' + i), await docBody(json)); pending['cards_' + i] = h; writes++;
+        out['cards_' + i] = { h, body: JSON.stringify(await docBody(json)) }; pending['cards_' + i] = h; writes++;
       }
       const hs = {}; for (let i = 0; i < chunks; i++) hs['cards_' + i] = pending['cards_' + i] || sentHashes['cards_' + i] || '';
       const game = await Game.get();
       const meta = JSON.stringify({ stats: await Core.Stats.get(), game: { ...game, questsDone: {} }, settings: await Store.get('settings', {}), settingsAt: await Store.get('settingsAt', 0), deleted: pruneDel(await Store.get('deleted', {})) });
       const mh = hash(meta + chunks);
-      if (sentHashes.meta !== mh || writes) { batch.set(ref().doc('meta'), { chunks, updated: Date.now(), hs, ...(await docBody(meta)) }); pending.meta = mh; writes++; }
-      if (writes) await batch.commit();
+      if (sentHashes.meta !== mh || writes) { out.meta = { h: mh, body: JSON.stringify({ chunks, updated: Date.now(), hs, ...(await docBody(meta)) }) }; pending.meta = mh; writes++; }
+      if (writes) await api({ op: 'push', docs: out });
       // Ghi nhớ trạng thái đã khớp với cloud → lần sau chỉ tải gói thay đổi
       if (writes) { const all = await Store.get('pulledHashes', {}); all[Sync.user.uid] = hs; await Store.set('pulledHashes', all); }
       if (extReady) { extCall('set', { cards: await Cards.all(), deleted: await Store.get('deleted', {}), stats: await Core.Stats.get() }); extCall('linked', { email: Sync.user.email, name: Sync.user.displayName || '' }); }

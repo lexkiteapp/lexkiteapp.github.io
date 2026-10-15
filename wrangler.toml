@@ -1,0 +1,9 @@
+# Cấu hình Cloudflare Pages (dự án lexkite): web tĩnh trong dist/ + API đồng bộ functions/api/sync.js dùng D1
+name = "lexkite"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-10-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "lexkite-sync"
+database_id = "7ce39cd0-9333-4843-bd6f-5ccbefbde670"
