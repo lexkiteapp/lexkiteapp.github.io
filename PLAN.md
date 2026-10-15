@@ -63,3 +63,16 @@ Cập nhật: 15/10/2026.
 - [ ] Build iOS bằng máy macOS của GitHub (cần tài khoản Apple Developer)
 - [ ] Gói cài đặt nhẹ nhất: không kèm âm thanh/trang SEO, tải khi cần + giới hạn bộ nhớ đệm
 - [ ] Kiểm tra phiên bản nội dung khi có mạng → cập nhật bài mới không cần lên bản Store mới
+
+## 10. Sắp xếp lại giao diện & tính năng (theo rà soát của chuyên gia UX – scratchpad ux-audit)
+- [ ] GĐ0–1: 5 mục chính mọi nền tảng (Hôm nay · Từ vựng · Kỹ năng · Thi thử · Tôi), menu nhóm gọn, chọn kỳ thi trên thanh trên, đường dẫn "Kỹ năng › Nghe", trang không tồn tại có hướng dẫn
+- [ ] GĐ2: Trang "Hôm nay" chỉ 4 khối + 1 kế hoạch hôm nay duy nhất theo kỳ thi
+- [ ] GĐ3: Bắt đầu bằng chọn kỳ thi → bài học đầu tiên trong 30 giây; TOEFL trong Mục tiêu; lộ trình/thư viện theo kỳ thi
+- [ ] GĐ4: Gộp phần trùng (Reading trên máy thành nút bật trong bài đọc, danh sách bài mẫu)
+
+## 11. SEO & blog tự đăng (phiên làm song song – chi tiết ở docs/SEO-PLAN.md)
+- [ ] Rà SEO kỹ thuật toàn trang (thẻ meta, dữ liệu có cấu trúc, sitemap, tốc độ) + Google Search Console & Bing (IndexNow)
+- [ ] Quy trình viết bài chuẩn SEO nhiều bước (ý định tìm kiếm → dàn ý → viết → ảnh chụp app → kiểm tra chất lượng/chính tả/trùng lặp)
+- [ ] 50 bài viết đầu tiên, có ảnh chụp minh họa nhẹ (WebP/AVIF) + chỗ nhúng YouTube nhẹ (chỉ tải khi bấm)
+- [ ] Ảnh lưu ngoài mã nguồn chính (CDN miễn phí) để hàng chục nghìn bài vẫn nhẹ
+- [ ] Lịch đăng tự động 2–3 bài/ngày vào giờ ngẫu nhiên (GitHub Actions cron + hẹn giờ trong bài)
