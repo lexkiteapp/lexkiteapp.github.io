@@ -63,7 +63,7 @@
     if (RTL.has(lang)) document.documentElement.dir = 'rtl';
     // Nạp file ngôn ngữ trước khi các module khác chạy (dùng createElement thay vì document.write để tối ưu Lighthouse)
     if (lang !== 'vi' && g.document) {
-      const addScript = src => { const s = document.createElement('script'); s.src = src; s.async = false; s.onload = () => g.I18N.meta && g.I18N.meta(); document.head.appendChild(s); };
+      const addScript = src => { const s = document.createElement('script'); s.src = src; s.async = false; s.onload = () => { if (g.I18N.apply) g.I18N.apply(); if (g.I18N.meta) g.I18N.meta(); }; document.head.appendChild(s); };
       addScript('js/i18n/en.js');
       if (lang !== 'en') addScript(`js/i18n/${lang}.js`);
     }

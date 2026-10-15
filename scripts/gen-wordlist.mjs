@@ -43,6 +43,7 @@ async function wikiIPA(w) {
   const pick = all.find(a => /RP|UK/.test(a)) || all[0] || '';
   return (pick.split('|').find(x => /^\/.+\/$/.test(x)) || '');
 }
+let saved = 0;
 for (const x of LIST) {
   if (n >= MAX) break;
   const k = x.word.toLowerCase(); const ce = cache[k]; if (ce && ce.v === 2 && ((ce.ipa && ce.def && ce.vi) || (ce.tries || 0) >= 3)) continue;
@@ -87,6 +88,7 @@ for (const x of LIST) {
   if (ce) { e.ipa = e.ipa || ce.ipa || ''; e.def = e.def || ce.def || ''; e.ex = e.ex || ce.ex || ''; }
   e.syn = [...new Set(e.syn)].filter(s => !/\s/.test(s)).slice(0, 3);
   cache[k] = e;
+  if (++saved % 25 === 0) fs.writeFileSync(cp, JSON.stringify(cache, null, 1)); // lưu dần: dừng giữa chừng không mất tiến độ
   await sleep(900);
 }
 fs.writeFileSync(cp, JSON.stringify(cache, null, 1));
