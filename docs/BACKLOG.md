@@ -12,17 +12,17 @@ Thứ tự = ưu tiên. Quy trình làm theo [PLAYBOOK.md](PLAYBOOK.md), chuẩn
 0. ✓ **Gói người đi làm** (công sở, cứu chuỗi, thì thầm 2.6.203, phản xạ 60 giây 2.6.216–217). Ghi chú gốc: (c) Thì thầm: tăng gain 1,5–2× cho đường Whisper trên máy, nới ngưỡng chấm cho Web Speech; (d) Phản xạ 60 giây: clip YouTube 3–5 s (đoạn đã lưu có t=) + câu audio của mình → nhại lại → tô xanh/đỏ từng từ trên máy.
 1. **Gói nghĩa 13 ngôn ngữ** ✓ (6.880 từ/ngôn ngữ) · **kho từ NAWL/BSL** đang sinh (Wiktionary dự phòng vì dictionaryapi.dev lỗi 522): sinh bằng curl shim trên máy (Google gtx chặn GitHub runner) → commit; CI chạy tiếp phần tinh chỉnh. Thêm nguồn dịch dự phòng Workers AI m2m100 cho CI.
 2. ~~Chrome Translator API~~ ✓ (dịch trên máy khi gói ngôn ngữ đã có).
-3. **Nghe chép chính tả 3 mức** (dễ/khó/cả câu) + phím tắt + tab transcript có bản dịch theo ngôn ngữ người học; dùng chung cho Listening/TOEIC/TOEFL.
-4. **Lời giải 3 phần** cho đề (trích đoạn · từ khóa ↔ paraphrase · giải thích) + tô đoạn trong bài khi bấm.
-5. **Lớp Khóa học**: Khóa → Chương → Bài → Hoạt động; % tiến độ, "Tiếp tục bài học", tự đánh dấu hoàn thành khi đạt; dựa trên chương trình tự biên soạn (tham khảo cấu trúc `docs/research/study4-syllabi.md`).
-6. **Gói 6 trò từ vựng** cho mọi bộ từ (chọn nghĩa, ghép cặp, nghe chọn, gõ từ, nghe chép, thẻ).
-7. **Kế hoạch học**: checklist mỗi ngày + tuần + đếm ngược ngày thi theo band mục tiêu.
-8. **Nói đuổi (shadowing)** từng câu có chấm phát âm AI.
-9. **Luyện paraphrase** (bài đọc/transcript ↔ câu hỏi, tô màu cặp).
+3. ✓ (2.6.220) **Nghe chép chính tả 3 mức** (dễ/khó/cả câu) + phím tắt + tab transcript có bản dịch theo ngôn ngữ người học; dùng chung cho Listening/TOEIC/TOEFL.
+4. ✓ (2.6.223) **Lời giải 3 phần** cho đề (trích đoạn · từ khóa ↔ paraphrase · giải thích) + tô đoạn trong bài khi bấm.
+5. ✓ (2.6.225) **Lớp Khóa học**: Khóa → Chương → Bài → Hoạt động; % tiến độ, "Tiếp tục bài học", tự đánh dấu hoàn thành khi đạt; dựa trên chương trình tự biên soạn (tham khảo cấu trúc `docs/research/study4-syllabi.md`).
+6. ✓ (đã có: học, trắc nghiệm, ghép thẻ, điền từ, nghe chép, kiểm tra) **Gói 6 trò từ vựng** cho mọi bộ từ (chọn nghĩa, ghép cặp, nghe chọn, gõ từ, nghe chép, thẻ).
+7. ✓ (đã có: kế hoạch hôm nay, mục tiêu + đếm ngược, tuần, 3 vòng mục tiêu) **Kế hoạch học**: checklist mỗi ngày + tuần + đếm ngược ngày thi theo band mục tiêu.
+8. ✓ (đã có trong Speaking + Phản xạ 60 giây) **Nói đuổi (shadowing)** từng câu có chấm phát âm AI.
+9. ✓ (2.6.229) **Luyện paraphrase** (bài đọc/transcript ↔ câu hỏi, tô màu cặp).
 10. **Rà đề thi so với đặc tả chính thức** (số câu, thời gian, dạng bài) IELTS/TOEIC/TOEFL; dịch sẵn lời giải 13 ngôn ngữ.
-11. **Add-on (Gói 3 còn lại)**: popup thanh công cụ – 🔊 + chấm FSRS trong danh sách gần đây, "Ôn nhanh 3 thẻ", mã QR mở app, tự đồng bộ nền khi lưu.
-12. **Gói 1/2 còn lại**: thiết lập 2 bước (mục tiêu + thời gian/ngày); nút phát lại đoạn YouTube trong ôn tập (thẻ có `t=`).
-13. **Tốc độ**: LCP 6,4 s → mục tiêu < 2,5 s (đọc chi tiết LCP từ báo cáo Lighthouse mới); Speculation Rules, `content-visibility`.
+11. ✓ phần lớn (🔊 + chấm FSRS, Ôn nhanh 3 thẻ; còn QR) **Add-on (Gói 3 còn lại)**: popup thanh công cụ – 🔊 + chấm FSRS trong danh sách gần đây, "Ôn nhanh 3 thẻ", mã QR mở app, tự đồng bộ nền khi lưu.
+12. ✓ một phần (phát lại đoạn YouTube trong ôn tập; còn thiết lập 2 bước) **Gói 1/2 còn lại**: thiết lập 2 bước (mục tiêu + thời gian/ngày); nút phát lại đoạn YouTube trong ôn tập (thẻ có `t=`).
+13. ✓ phần lớn (prefetch không thực thi → TBT 0; LCP thật đo ở Quản trị; khung dựng sẵn 0,66 s) **Tốc độ**: LCP 6,4 s → mục tiêu < 2,5 s (đọc chi tiết LCP từ báo cáo Lighthouse mới); Speculation Rules, `content-visibility`.
 14. **Turnstile** cho form liên hệ; **axe-core** vào kiểm thử.
 15. **Rà dịch câu dài bằng AI** (đã duyệt) cho 13 ngôn ngữ; xem ảnh chụp giao diện tự động (nhánh `screens`).
 16. **iOS**: workflow build trên máy macOS của GitHub (simulator) – khi có Apple Developer thì ký & phát hành.

@@ -63,20 +63,22 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
       const out = await Promise.race([s.prompt(prompt.replace(/\(Vietnamese[^)]*\)/g, '(English)').replace(/Vietnamese/g, 'English') + '\nReturn only JSON.'), new Promise((_, rej) => setTimeout(() => rej(new Error('TIMEOUT')), 60000))]);
       const j = JSON.parse(String(out).replace(/^[^{]*/, '').replace(/[^}]*$/, ''));
       j._model = 'Gemini Nano (' + t('AI trên máy') + ')';
-      return await toVietnamese(j);
+      return await toLocalized(j);
     } finally { try { s.destroy(); } catch (e) { /* bỏ qua */ } }
   }
-  // Dịch các trường nhận xét sang tiếng Việt (một lần gọi dịch cho cả bài)
+  // Dịch các trường nhận xét sang ngôn ngữ người học (một lần gọi dịch cho cả bài)
   const VI_KEYS = new Set(['summary', 'strengths', 'improvements', 'comment', 'why', 'note', 'meaning', 'explain', 'grammar', 'tip']);
-  async function toVietnamese(obj) {
+  async function toLocalized(obj) {
     const slots = [];
     const walk = (o, inVi) => { if (Array.isArray(o)) o.forEach((x, i) => typeof x === 'string' ? inVi && slots.push([o, i]) : walk(x, inVi)); else if (o && typeof o === 'object') Object.keys(o).forEach(k => typeof o[k] === 'string' ? VI_KEYS.has(k) && slots.push([o, k]) : walk(o[k], VI_KEYS.has(k))); };
     walk(obj, false);
     (obj.examples || []).forEach(e => { if (e && e.en) slots.push([e, 'vi', e.en]); });
     if (!slots.length || !window.Dict) return obj;
+    const L = (window.I18N && I18N.lang && I18N.lang()) || 'vi';
+    if (L === 'en') return obj;
     const src = slots.map(([o, k, en]) => String(en || o[k]).replace(/\n/g, ' '));
-    const vi = (await Dict.translateVi(src.join('\n'))).split('\n');
-    slots.forEach(([o, k], i) => { if (vi[i]) o[k] = vi[i].trim(); });
+    const trans = (await (L === 'vi' ? Dict.translateVi(src.join('\n')) : Dict.translateTo(src.join('\n'), L))).split('\n');
+    slots.forEach(([o, k], i) => { if (trans[i]) o[k] = trans[i].trim(); });
     return obj;
   }
 

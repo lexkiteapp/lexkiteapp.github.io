@@ -42,8 +42,8 @@
       const text = ta.value; if (text.trim().split(/\s+/).length < 5) return toast(t('Viết ít nhất 1–2 câu rồi kiểm tra nhé'));
       out.innerHTML = `<div class="small muted" style="margin-top:.6rem">⏳ ${t('Đang kiểm tra…')}</div>`;
       let ms; try { ms = await check(text); } catch (e) { out.innerHTML = `<div class="small" style="margin-top:.6rem">❌ ${esc(e.message)}</div>`; return; }
-      if (!ms.length) { out.innerHTML = `<div class="small" style="margin-top:.6rem;color:var(--good)">✅ ${t('Không phát hiện lỗi ngữ pháp/chính tả. Hãy tập trung vào ý và từ vựng nhé!')}</div>`; return; }
-      const vi = (await Dict.translateVi(ms.map(m => m.msg.replace(/\n/g, ' ')).join('\n')).catch(() => '')).split('\n');
+      const L = (window.I18N && I18N.lang && I18N.lang()) || 'vi';
+      const vi = L === 'en' ? ms.map(m => m.msg) : (await (L === 'vi' ? Dict.translateVi(ms.map(m => m.msg.replace(/\n/g, ' ')).join('\n')) : Dict.translateTo(ms.map(m => m.msg.replace(/\n/g, ' ')).join('\n'), L)).catch(() => '')).split('\n');
       const counts = {}; ms.forEach(m => { counts[m.type] = (counts[m.type] || 0) + 1; });
       out.innerHTML = `<div class="row" style="margin:.6rem 0 .3rem;gap:.3rem">${Object.entries(counts).map(([k, n]) => `<span class="chip" style="color:${(TYPE[k] || TYPE.uncategorized)[1]}">${(TYPE[k] || TYPE.uncategorized)[0]}: ${n}</span>`).join('')}</div>
         <div class="wa-list">${ms.map((m, i) => `<div class="wa-it" data-i="${i}"><div class="row between nowrap"><span><span class="wa-tag" style="background:${(TYPE[m.type] || TYPE.uncategorized)[1]}">${(TYPE[m.type] || TYPE.uncategorized)[0]}</span> <s class="wa-bad">${esc(m.bad)}</s></span><button class="icon-btn sm" data-ign="${i}" title="${t('Bỏ qua')}">✕</button></div>

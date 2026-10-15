@@ -353,7 +353,7 @@
         <label class="field"><span>${t('Câu ví dụ / ngữ cảnh')}</span><textarea class="input" id="pEx">${esc(sentence)}</textarea></label>
       </div>
       <div class="row between" style="margin-top:1rem"><button class="btn" data-close>${t('Hủy')}</button><button class="btn primary" id="pSave">${t('Lưu vào Sổ cụm từ')}</button></div>`);
-    const tr = async () => { const ph = $('#pPh').value.trim(); if (!ph) return; $('#pVi').placeholder = `⏳ ${t('Đang dịch…')}`; const v = await Dict.translateVi(ph); if (!$('#pVi').value) $('#pVi').value = v; $('#pVi').placeholder = t('Nghĩa tiếng Việt của cả cụm'); };
+    const tr = async () => { const ph = $('#pPh').value.trim(); if (!ph) return; $('#pVi').placeholder = `⏳ ${t('Đang dịch…')}`; const L = I18N.learnLang(); const v = L === 'vi' ? await Dict.translateVi(ph) : await Dict.translateTo(ph, L); if (!$('#pVi').value) $('#pVi').value = v; $('#pVi').placeholder = t('Nghĩa tiếng Việt của cả cụm'); };
     $('#pTr').onclick = tr;
     if (!vi) tr();
     $('#pSave').onclick = async () => {
@@ -387,7 +387,7 @@
     $('[data-x]', pop).onclick = () => { pop.hidden = true; };
     $('[data-sp]', pop).onclick = () => UI.speak(info.phrase, state.settings.accent);
     $('[data-save]', pop).onclick = () => { pop.hidden = true; savePhraseDialog(info); };
-    if (!info.vi) Dict.translateVi(info.phrase).then(v => { info.vi = v || ''; const d = $('.vi', pop); if (d && !pop.hidden) d.textContent = info.vi || t('Không dịch được – thử lại sau'); }).catch(() => {});
+    if (!info.vi) { const L = I18N.learnLang(); (L === 'vi' ? Dict.translateVi(info.phrase) : Dict.translateTo(info.phrase, L)).then(v => { info.vi = v || ''; const d = $('.vi', pop); if (d && !pop.hidden) d.textContent = info.vi || t('Không dịch được – thử lại sau'); }).catch(() => {}); }
   }
   const NO_LOOKUP = 'input, textarea, select, .cbt, .mk-read, .mk-write, .mk-qs, .sel-pop, .sel-bar, .pop';
   const place = (el, r, below = 8) => {
@@ -430,7 +430,8 @@
     if (k === 'save') { getSelection().removeAllRanges(); return savePhraseDialog({ phrase: info.text, sentence: info.sentence, title: t('Lưu từ Lexkite') }); }
     pop.hidden = false; pop.innerHTML = `<div class="muted small">⏳ ${k === 'look' ? t('Đang tra “{text}”…', { text: esc(info.text.slice(0, 60)) }) : t('Đang dịch “{text}”…', { text: esc(info.text.slice(0, 60)) })}</div>`; place(pop, info.rect);
     if (k === 'tr') {
-      const vi = await Dict.translateVi(info.text);
+      const L = I18N.learnLang();
+      const vi = L === 'vi' ? await Dict.translateVi(info.text) : await Dict.translateTo(info.text, L);
       const structs = window.VBStruct ? VBStruct.analyze(info.text, 4) : [];
       pop.innerHTML = `<div class="row between nowrap"><b class="small">🌐 ${t('Bản dịch')}</b><button class="icon-btn sm" data-x>✕</button></div><div style="margin:.4rem 0;line-height:1.6">${esc(vi || t('Không dịch được – thử lại sau.'))}</div>
         ${structs.length ? `<div class="st-box"><b class="small">🧩 ${t('Cấu trúc trong đoạn')}</b>${structs.map(x => `<div class="st-row"><b>${esc(x.name)}</b> <i class="muted">“${esc(x.match)}”</i><div class="small muted">${esc(x.vi)}</div><a class="small" href="#/grammar/${esc(x.lesson)}">📐 ${t('Học bài này →')}</a></div>`).join('')}</div>` : ''}
@@ -448,8 +449,8 @@
         const lem = w0 => (App.lemma && App.lemma(w0)) || w0;
         const local = ws.map(w0 => IELTS_DATA.INDEX[lem(w0)] || IELTS_DATA.INDEX[w0] || null);
         const miss = ws.filter((w0, i) => !local[i]);
-        const tr = miss.length ? (await Dict.translateVi(miss.map(lem).join('\n')).catch(() => '')).split('\n') : [];
-        const looks = ws.map((w0, i) => { const L = local[i]; if (L) return { w: L.word, vi: L.vi, ipa: L.ipa || '', pos: L.pos || '' }; const k = miss.indexOf(w0), vi = (tr[k] || '').trim(); return vi && vi.toLowerCase() !== lem(w0) ? { w: lem(w0), vi: Dict.fixVi(vi), ipa: '', pos: '' } : null; });
+        const tr = miss.length ? (await (L === 'vi' ? Dict.translateVi(miss.map(lem).join('\n')) : Dict.translateTo(miss.map(lem).join('\n'), L)).catch(() => '')).split('\n') : [];
+        const looks = ws.map((w0, i) => { const loc = local[i]; if (loc) return { w: loc.word, vi: App.meanOf ? App.meanOf(loc) : loc.vi, ipa: loc.ipa || '', pos: loc.pos || '' }; const k = miss.indexOf(w0), vi = (tr[k] || '').trim(); return vi && vi.toLowerCase() !== lem(w0) ? { w: lem(w0), vi: L === 'vi' ? Dict.fixVi(vi) : vi, ipa: '', pos: '' } : null; });
         const vocab = looks.filter(Boolean);
         out.innerHTML = `${vocab.length ? `<div class="st-box"><b class="small">📚 ${t('Từ vựng quan trọng')}</b>${vocab.map(v => `<div class="st-row"><b>${esc(v.w)}</b> <span class="muted small">${esc(v.ipa)} ${esc(v.pos)}</span><div class="small">${esc(v.vi)}</div></div>`).join('')}</div>` : ''}<div data-ai2></div>`;
         place(pop, info.rect);
@@ -472,20 +473,22 @@
     } else {
       const w = info.text.toLowerCase();
       const d = (await Dict.quick(w)) || (await Dict.lookup(w, { examples: false, image: false }));
+      const L = I18N.learnLang();
       if (!d || !d.found) {
-        const vi = (d && d.vi) || await Dict.translateVi(info.text);
+        const vi = (d && (App.meanOf ? App.meanOf(d) : d.vi)) || (L === 'vi' ? await Dict.translateVi(info.text) : await Dict.translateTo(info.text, L));
         pop.innerHTML = `<div class="row between nowrap"><b>${esc(info.text)}</b><button class="icon-btn sm" data-x>✕</button></div><div class="vi" style="margin:.3rem 0">${esc(vi || t('Không tìm thấy'))}</div>${info.text.includes(' ') ? `<button class="btn sm primary" data-ph>🧩 ${t('Lưu cụm')}</button>` : ''}`;
       } else {
+        const mText = App.meanOf ? App.meanOf(d) : d.vi;
         pop.innerHTML = `<div class="row between nowrap"><div><b style="font-size:1.2rem">${esc(d.word)}</b> ${UI.posChip ? UI.posChip(d.pos) : ''}</div><button class="icon-btn sm" data-x>✕</button></div>
           <div class="row" style="gap:.3rem"><span class="ipa">${esc(d.ipa || '')}</span><button class="icon-btn sm" data-sp>🔊</button></div>
-          <div class="vi" style="font-size:1.05rem;margin:.2rem 0">${esc(d.vi)}</div>
-          ${d.def ? `<div class="small muted">${esc(d.def)}</div>` : ''}
+          ${mText ? `<div class="vi" style="font-size:1.05rem;margin:.2rem 0">${esc(mText)}</div>` : ''}
+          ${d.def && d.def !== mText ? `<div class="small muted">${esc(d.def)}</div>` : ''}
           ${info.sentence && info.sentence !== info.text ? UI.ctxBox(info.sentence, d.word) : ''}
           <div class="row" style="margin-top:.6rem"><button class="btn sm primary" data-save>${App.inDeck(d.word) ? `+ ${t('Thêm ngữ cảnh')}` : `+ ${t('Lưu flashcard')}`}</button>${info.text.includes(' ') ? `<button class="btn sm" data-ph>🧩 ${t('Lưu cụm')}</button>` : ''}<a class="btn sm ghost" href="#/dict/${encodeURIComponent(d.word)}">${t('Chi tiết')}</a></div>`;
         $('[data-sp]', pop).onclick = () => UI.speak(d.word, state.settings.accent, d.audio);
         $('[data-save]', pop).onclick = async ev => {
           const b = ev.currentTarget; b.disabled = true;
-          const vi = info.sentence ? await Dict.translateVi(info.sentence) : '';
+          const vi = info.sentence ? (L === 'vi' ? await Dict.translateVi(info.sentence) : await Dict.translateTo(info.sentence, L)) : '';
           await App.addWord(d, info.sentence ? { text: info.sentence, vi, title: document.title.replace(/ – Lexkite$/, '') || 'Lexkite' } : null);
           b.textContent = `✓ ${t('Đã lưu')}`;
         };

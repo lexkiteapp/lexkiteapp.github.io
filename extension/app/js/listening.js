@@ -134,13 +134,20 @@
       const d = (await Dict.quick(word)) || (await Dict.lookup(word, { examples: false, image: false }));
       if (pop !== mine) return;
       if (!d || !d.found) { pop.innerHTML = `<div class="muted">${t('Không tìm thấy “{w}”.', { w: esc(word) })}</div>`; return; }
+      const mText = App.meanOf ? App.meanOf(d) : d.vi;
       pop.innerHTML = `<div class="row between nowrap"><b style="font-size:1.15rem">${esc(d.word)}</b><button class="icon-btn sm" data-x>✕</button></div>
-        <div class="row"><span class="ipa">${esc(d.ipa || '')}</span><button class="icon-btn sm" data-s>🔊</button></div><div class="vi">${esc(d.vi)}</div>
+        <div class="row"><span class="ipa">${esc(d.ipa || '')}</span><button class="icon-btn sm" data-s>🔊</button></div>${mText ? `<div class="vi">${esc(mText)}</div>` : ''}
         ${UI.ctxBox(sentence, d.word)}
         <div class="row" style="margin-top:.6rem"><button class="btn sm primary" data-save>${App.inDeck(d.word) ? '+ ' + t('Thêm ngữ cảnh') : '+ ' + t('Lưu flashcard')}</button></div>`;
       $('[data-x]', pop).onclick = close;
       $('[data-s]', pop).onclick = () => UI.speak(d.word, state.settings.accent, d.audio);
-      $('[data-save]', pop).onclick = async ev => { const b = ev.currentTarget; b.disabled = true; const vi = await Dict.translateVi(sentence); await App.addWord(d, { text: sentence, vi, title: '🎧 ' + title }); b.textContent = '✓ ' + t('Đã lưu kèm ngữ cảnh'); };
+      $('[data-save]', pop).onclick = async ev => {
+        const b = ev.currentTarget; b.disabled = true;
+        const L = I18N.learnLang();
+        const vi = L === 'vi' ? await Dict.translateVi(sentence) : await Dict.translateTo(sentence, L);
+        await App.addWord(d, { text: sentence, vi, title: '🎧 ' + title });
+        b.textContent = '✓ ' + t('Đã lưu kèm ngữ cảnh');
+      };
     });
     document.addEventListener('mousedown', function off(e) { if (!document.body.contains(box)) return document.removeEventListener('mousedown', off); if (pop && !pop.contains(e.target)) close(); });
   }
@@ -250,7 +257,9 @@
         b.disabled = true; const v = p.vocab[+b.dataset.v];
         const line = (p.script.find(l => l.t && l.t.toLowerCase().includes(v.w.toLowerCase())) || {}).t || '';
         const d = (await Dict.quick(v.w)) || { word: v.w, vi: v.vi, found: true };
-        await App.addWord({ ...d, word: v.w, vi: d.vi || v.vi }, line ? { text: line, vi: await Dict.translateVi(line), title: '🎧 ' + p.title } : null); b.textContent = '✓';
+        const L = I18N.learnLang();
+        const trLine = line ? (L === 'vi' ? await Dict.translateVi(line) : await Dict.translateTo(line, L)) : '';
+        await App.addWord({ ...d, word: v.w, vi: App.meanOf ? App.meanOf(d) || v.vi : (d.vi || v.vi) }, line ? { text: line, vi: trLine, title: '🎧 ' + p.title } : null); b.textContent = '✓';
       });
       // Hiện lời thoại kèm chỗ có đáp án
       $('#lTransWrap').hidden = false; trans.innerHTML = transcriptHtml(p, true); trans.classList.remove('blur');
