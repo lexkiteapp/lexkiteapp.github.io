@@ -919,12 +919,48 @@
   }
 
   // ================= SỔ TỪ =================
+  // 🔗 Chia sẻ bộ thẻ: nén danh sách từ vào chính đường link (không máy chủ, không giới hạn). Chỉ gồm nội dung từ – không có ngữ cảnh cá nhân/tiến độ.
+  const b64u = buf => btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  const unb64u = s2 => Uint8Array.from(atob(s2.replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0));
+  async function packDeck(name, cards) {
+    const data = JSON.stringify({ v: 1, n: String(name).slice(0, 80), w: cards.slice(0, 300).map(c => [c.word, c.ipa || '', c.pos || '', c.vi || '', c.def || '', (c.ex || '').slice(0, 160)]) });
+    const buf = await new Response(new Blob([data]).stream().pipeThrough(new CompressionStream('deflate-raw'))).arrayBuffer();
+    return 'https://lexkite.com/#/deck?share=' + b64u(buf);
+  }
+  async function unpackDeck(code) {
+    const txt = await new Response(new Blob([unb64u(code)]).stream().pipeThrough(new DecompressionStream('deflate-raw'))).text();
+    const d = JSON.parse(txt); if (!d || !Array.isArray(d.w)) throw new Error('bad');
+    return { name: String(d.n || 'Lexkite'), words: d.w.filter(r => Array.isArray(r) && r[0]).map(r => ({ word: String(r[0]).slice(0, 60), ipa: r[1] || '', pos: r[2] || '', vi: r[3] || '', def: r[4] || '', ex: r[5] || '' })) };
+  }
+  async function shareDeck(name, cards) {
+    if (!cards.length) return toast(t('Chưa có từ nào để chia sẻ'));
+    if (typeof CompressionStream === 'undefined') return toast(t('Trình duyệt chưa hỗ trợ – hãy cập nhật trình duyệt'));
+    const url = await packDeck(name, cards);
+    if (navigator.share) { try { await navigator.share({ title: name, text: t('Bộ thẻ từ vựng trên Lexkite: {n}', { n: name }), url }); return; } catch (e) { /* người dùng hủy → hiện link */ } }
+    const box = modal(`<h2>🔗 ${t('Chia sẻ bộ thẻ')}</h2><p class="muted small">${t('{n} từ · người nhận mở link là xem trước và thêm vào lịch ôn của họ.', { n: Math.min(300, cards.length) })}</p><input class="input" id="shUrl" readonly value="${esc(url)}"><div class="row" style="margin-top:.8rem"><button class="btn primary" id="shCopy">📋 ${t('Sao chép link')}</button><button class="btn ghost" data-close>${t('Đóng')}</button></div>`);
+    $('#shCopy', box).onclick = async () => { try { await navigator.clipboard.writeText(url); toast('✓ ' + t('Đã sao chép link')); } catch (e) { $('#shUrl', box).select(); } };
+  }
+  async function sharedPreview(code) {
+    view.innerHTML = `<p class="muted">${t('Đang mở bộ thẻ…')}</p>`;
+    let d; try { d = await unpackDeck(code); } catch (e) { view.innerHTML = `<div class="card center"><h2>${t('Link bộ thẻ không hợp lệ')}</h2><a class="btn" href="#/deck">${t('Về Sổ từ')}</a></div>`; return; }
+    const fresh = d.words.filter(w => !inDeck(w.word));
+    view.innerHTML = `<div class="page-head"><div><div class="muted small">🔗 ${t('Bộ thẻ được chia sẻ')}</div><h1>${esc(d.name)}</h1><p class="muted">${t('{n} từ · {k} từ mới với bạn', { n: d.words.length, k: fresh.length })}</p></div></div>
+      <button class="btn primary lg block" id="shAdd" ${fresh.length ? '' : 'disabled'}>＋ ${t('Thêm vào lộ trình ôn FSRS của tôi')}</button>
+      <div class="card" style="margin-top:1rem">${d.words.map(w => `<div class="word-row"><div style="min-width:0"><b>${esc(w.word)}</b> <span class="ipa small">${esc(w.ipa)}</span>${inDeck(w.word) ? ' <span class="chip">✓</span>' : ''}<div class="small vi">${esc(App.meanOf(w))}</div></div></div>`).join('')}</div>`;
+    $('#shAdd').onclick = async () => {
+      const b = $('#shAdd'); b.disabled = true; b.textContent = t('Đang thêm…');
+      for (const w of fresh) await addWord({ ...w, topic: 'shared' }, null, { silent: true });
+      Sfx.win(); confetti(100); toast(t('Đã thêm {n} từ vào lịch ôn', { n: fresh.length }));
+      location.hash = '#/deck';
+    };
+  }
   routes.deck = function (arg, query) {
+    if (query && query.get('share')) return sharedPreview(query.get('share'));
     const from = query && query.get('from') || '';
     const list = Object.values(state.cards);
     view.innerHTML = `
       <div class="page-head"><div><h1>${t('Sổ từ của bạn')}</h1><p class="muted">${t('{n} từ · {k} đã thuộc', { n: list.length, k: masteredCount() })}</p></div>
-        <div class="row"><a class="btn sm" href="#/practice/learn?src=deck">🧠 ${t('Học')}</a><a class="btn sm" href="#/practice/test?src=deck">📝 ${t('Kiểm tra')}</a><button class="btn sm" id="exportBtn">⬇️ ${t('Xuất')}</button><label class="btn sm">⬆️ ${t('Nhập')}<input type="file" id="importFile" accept="application/json" hidden></label><button class="btn sm" id="ankiOut" title="${t('Tạo file nhập thẳng vào Anki (File → Import)')}">🃏 ${t('Xuất sang Anki')}</button><label class="btn sm" title="${t('Nhập file .txt/.tsv/.csv xuất từ Anki (Notes in Plain Text)')}">🃏 ${t('Nhập từ Anki')}<input type="file" id="ankiIn" accept=".txt,.tsv,.csv,text/plain,text/csv" hidden></label></div></div>
+        <div class="row"><a class="btn sm" href="#/practice/learn?src=deck">🧠 ${t('Học')}</a><a class="btn sm" href="#/practice/test?src=deck">📝 ${t('Kiểm tra')}</a><button class="btn sm" id="shareBtn">🔗 ${t('Chia sẻ bộ thẻ')}</button><button class="btn sm" id="exportBtn">⬇️ ${t('Xuất')}</button><label class="btn sm">⬆️ ${t('Nhập')}<input type="file" id="importFile" accept="application/json" hidden></label><button class="btn sm" id="ankiOut" title="${t('Tạo file nhập thẳng vào Anki (File → Import)')}">🃏 ${t('Xuất sang Anki')}</button><label class="btn sm" title="${t('Nhập file .txt/.tsv/.csv xuất từ Anki (Notes in Plain Text)')}">🃏 ${t('Nhập từ Anki')}<input type="file" id="ankiIn" accept=".txt,.tsv,.csv,text/plain,text/csv" hidden></label></div></div>
       <div class="grid g4" style="margin-bottom:1rem">
         <input class="input" id="filterQ" placeholder="${t('Tìm từ hoặc nghĩa…')}">
         <select class="input" id="filterTopic"><option value="">${t('Tất cả bộ từ')}</option>${TOPICS.map(t => `<option value="${t.id}">${t.emoji} ${esc(t.name)}</option>`).join('')}<option value="mine">📌 ${t('Từ tự thêm')}</option></select>
@@ -932,11 +968,13 @@
         <select class="input" id="filterM"><option value="">${t('Mọi mức độ')}</option><option value="0">${t('Chưa học')}</option><option value="1">${t('Đang học')}</option><option value="2">${t('Quen')}</option><option value="3">${t('Đã thuộc')}</option></select>
       </div>
       <div class="card" id="deckList"></div>`;
+    let shownRows = list;
     const draw = () => {
       const q = $('#filterQ').value.trim().toLowerCase(), tp = $('#filterTopic').value, m = $('#filterM').value, fr = $('#filterFrom').value;
       const forgetSet = new Set(forgetting().map(c => c.word));
       const rows = list.filter(c => (!q || c.word.includes(q) || (c.vi || '').toLowerCase().includes(q)) && (!tp || c.topic === tp) && (m === '' || SRS.mastery(c.srs) === +m)
         && (!fr || (fr === 'forget' ? forgetSet.has(c.word) : origin(c) === fr))).sort((a, b) => fr === 'forget' ? SRS.retention(a.srs) - SRS.retention(b.srs) : b.added - a.added);
+      shownRows = rows;
       $('#deckList').innerHTML = rows.length ? rows.slice(0, 400).map(c => `
         <div class="deck-row">
           <div class="em">${c.image ? `<img src="${esc(c.image)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : esc(c.emoji)}</div>
@@ -952,6 +990,7 @@
     ['filterQ', 'filterTopic', 'filterM', 'filterFrom'].forEach(id => $('#' + id).addEventListener('input', draw));
     draw();
     $('#exportBtn').onclick = exportData;
+    $('#shareBtn').onclick = () => { const tp = $('#filterTopic').value, T = TOPICS.find(x => x.id === tp); shareDeck(T ? T.name : t('Bộ từ của {n}', { n: (state.user && state.user.displayName) || 'Lexkite' }), shownRows); };
     $('#importFile').onchange = importData;
     $('#ankiOut').onclick = exportAnki;
     $('#ankiIn').onchange = importAnki;

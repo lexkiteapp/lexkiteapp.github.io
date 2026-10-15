@@ -2114,6 +2114,22 @@
   "Mở Lexkite": "Open Lexkite",
   "Tắt thẻ ở tab mới": "Turn off new-tab card",
   "Thẻ từ vựng ở tab mới": "Vocabulary card on new tab",
+  "Chia sẻ bộ thẻ": "Share deck",
+  "Chưa có từ nào để chia sẻ": "No words to share yet",
+  "Trình duyệt chưa hỗ trợ – hãy cập nhật trình duyệt": "Your browser does not support this – please update it",
+  "Bộ thẻ từ vựng trên Lexkite: {n}": "Vocabulary deck on Lexkite: {n}",
+  "{n} từ · người nhận mở link là xem trước và thêm vào lịch ôn của họ.": "{n} words · recipients can preview and add them to their review schedule.",
+  "Sao chép link": "Copy link",
+  "Đã sao chép link": "Link copied",
+  "Đang mở bộ thẻ…": "Opening deck…",
+  "Link bộ thẻ không hợp lệ": "Invalid deck link",
+  "Về Sổ từ": "Back to My words",
+  "Bộ thẻ được chia sẻ": "Shared deck",
+  "{n} từ · {k} từ mới với bạn": "{n} words · {k} new to you",
+  "Thêm vào lộ trình ôn FSRS của tôi": "Add to my FSRS review plan",
+  "Đang thêm…": "Adding…",
+  "Đã thêm {n} từ vào lịch ôn": "Added {n} words to your reviews",
+  "Bộ từ của {n}": "{n}'s word list",
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* English UI strings – toefl.js (TOEFL iBT practice, 2026 format) */
