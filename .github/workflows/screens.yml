@@ -1,0 +1,30 @@
+# Chụp ảnh giao diện tự động (điện thoại/máy tính × sáng/tối × vi/en) – lưu vào nhánh "screens" (không làm nặng nhánh chính).
+name: Chụp ảnh giao diện
+on:
+  schedule:
+    - cron: '30 1 * * *'   # 08:30 giờ Việt Nam
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/screens.yml', 'scripts/test/screens.mjs']
+permissions:
+  contents: write
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chụp
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chromium
+          mkdir -p /tmp/screens && node scripts/test/screens.mjs /tmp/screens
+      - name: Lưu vào nhánh screens (chỉ giữ bản mới nhất)
+        run: |
+          cd /tmp/screens && git init -q && git checkout -q -b screens
+          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
+          git add . && git commit -qm "Ảnh giao diện $(date -u +%F)"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" screens
