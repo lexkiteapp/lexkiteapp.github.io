@@ -24,7 +24,7 @@ Cập nhật: 15/10/2026.
 - [ ] Làm lại trang chủ (Kit + mục tiêu hôm nay + học tiếp 1 chạm), điều hướng dưới trên điện thoại
 - [ ] Hệ thống chuyển động & âm thanh phản hồi thống nhất (đúng/sai/hoàn thành)
 - [ ] Hướng dẫn lần đầu cùng Kit (3 bước, chọn mục tiêu → học thẻ đầu tiên trong 30 giây)
-- [ ] Rà khả năng truy cập (tương phản AA, bàn phím, trình đọc màn hình), chế độ tối tinh chỉnh
+- [x] Rà khả năng truy cập (tương phản AA, bàn phím, trình đọc màn hình), chế độ tối tinh chỉnh
 - [ ] Ảnh chụp trước/sau mỗi vòng gửi anh duyệt
 
 ## 4. Quảng cáo (miễn phí, có quảng cáo)
@@ -35,7 +35,7 @@ Cập nhật: 15/10/2026.
 - [ ] Cập nhật chính sách riêng tư, bỏ chữ “Không quảng cáo”, khai báo an toàn dữ liệu trên Store
 
 ## 5. Giữ chân người dùng
-- [ ] Huy hiệu thói quen: Cú đêm, Dậy sớm, Mọt sách (50 từ/ngày)
+- [x] Huy hiệu thói quen: Cú đêm, Chim sớm, Thợ săn từ (50 từ/ngày); Mọt sách đã có
 - [ ] Widget màn hình chính iOS/Android (chuỗi ngày + thẻ cần ôn)
 - [ ] Thông báo nhắc học bằng giọng Kit (vui, không gây áp lực)
 

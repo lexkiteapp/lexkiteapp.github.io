@@ -51,6 +51,9 @@
     { id: 'speaker', icon: '🎙️', name: t('Phát âm chuẩn'), desc: t('Phát âm đúng 50 từ'), test: s => s.total.spoken >= 50 },
     { id: 'reader', icon: '📖', name: t('Mọt sách'), desc: t('Đọc xong 5 bài đọc'), test: s => s.total.readings >= 5 },
     { id: 'speed', icon: '⚡', name: t('Tia chớp'), desc: t('Ghép thẻ dưới 25 giây'), test: s => s.best.match && s.best.match < 25 },
+    { id: 'night', icon: '🦉', name: t('Cú đêm'), desc: t('Học sau 22 giờ trong 5 ngày'), test: s => (s.total.night || 0) >= 5 },
+    { id: 'early', icon: '🐦', name: t('Chim sớm'), desc: t('Học trước 7 giờ sáng trong 5 ngày'), test: s => (s.total.early || 0) >= 5 },
+    { id: 'hunter', icon: '🏹', name: t('Thợ săn từ'), desc: t('Học 50 từ mới trong một ngày'), test: s => Object.values(s.days).some(x => (x.newWords || 0) >= 50) },
     { id: 'level5', icon: '🎖️', name: t('Cấp 5'), desc: t('Đạt cấp độ 5'), test: s => levelOf(s.xp).level >= 5 },
     { id: 'level10', icon: '👑', name: t('Cấp 10'), desc: t('Đạt cấp độ 10'), test: s => levelOf(s.xp).level >= 10 },
   ];
@@ -91,6 +94,8 @@
       const after = levelOf(s.xp).level;
       if (after > before) events.push({ type: 'level', level: after, title: levelOf(s.xp).title });
       if (delta.matchTime && (!s.best.match || delta.matchTime < s.best.match)) s.best.match = delta.matchTime;
+      // Thói quen theo giờ học (đếm tối đa 1 lần/ngày): cú đêm 22h–4h, chim sớm 4h–7h
+      if (gained > 0) { const h = new Date().getHours(); if ((h >= 22 || h < 4) && !d.night) { d.night = 1; s.total.night = (s.total.night || 0) + 1; } if (h >= 4 && h < 7 && !d.early) { d.early = 1; s.total.early = (s.total.early || 0) + 1; } }
       // Huy hiệu
       if (ctx) for (const b of BADGES) if (!s.badges[b.id] && b.test(s, ctx)) { s.badges[b.id] = Date.now(); events.push({ type: 'badge', badge: b }); }
       // giữ 400 ngày gần nhất

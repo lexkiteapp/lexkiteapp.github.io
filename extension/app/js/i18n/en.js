@@ -2475,6 +2475,12 @@
   '3 lượt mỗi ngày, đăng nhập được 5 lượt – không cần khóa': '3 a day, 5 when signed in – no key needed',
   'Không bắt buộc – thêm khóa Gemini miễn phí của riêng bạn để chấm không giới hạn. Khóa chỉ lưu trên máy này.': 'Optional – add your own free Gemini key for unlimited grading. The key stays on this device only.',
   'Bỏ qua tới nội dung chính': 'Skip to main content',
+  'Cú đêm': 'Night Owl',
+  'Học sau 22 giờ trong 5 ngày': 'Study after 10 pm on 5 days',
+  'Chim sớm': 'Early Bird',
+  'Học trước 7 giờ sáng trong 5 ngày': 'Study before 7 am on 5 days',
+  'Thợ săn từ': 'Word Hunter',
+  'Học 50 từ mới trong một ngày': 'Learn 50 new words in one day',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* Thống nhất thuật ngữ khi nhiều nhóm dùng chung 1 khóa */
