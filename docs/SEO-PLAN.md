@@ -123,3 +123,20 @@ Dịch sau này: tạo `content/blog/en/<slug-en>.md` cùng `translationKey` →
 - [ ] `node scripts/vi-lint.mjs`, `node scripts/i18n-missing.mjs --strict`, `node scripts/blog-check.mjs`, `node scripts/blog-dupes.mjs` đều qua
 - [ ] `bash scripts/build-web.sh` sạch, có blog
 - [ ] Commit trên nhánh, gửi tóm tắt cho phiên cha
+
+## 11. Vận hành blog
+```bash
+# 1 bài mới: content/blog/vi/<slug>.md (slug có trong briefs.json, publishAt: để trống = vào hàng đợi)
+node scripts/vi-lint.mjs                         # chính tả tiếng Việt (web/js + content/blog/<lang>/*.md)
+node scripts/blog-check.mjs [file.md …]          # SEO on-page; không có file → mọi bài không phải draft
+node scripts/blog-dupes.mjs [file.md …]          # trùng lặp giữa các bài (> 12%) và với nội dung site (> 5%)
+node scripts/blog-schedule.mjs --dry             # xem trước lịch (2–3 bài/ngày, giờ ngẫu nhiên 06–22h VN); bài chưa qua blog-check bị giữ lại
+node scripts/blog-schedule.mjs                   # ghi publishAt vào các bài trong hàng đợi (--seed N, --from YYYY-MM-DD, --per 2-3)
+node scripts/blog-schedule.mjs --status          # số bài đã đăng / chờ đăng / hàng đợi + lịch từng ngày
+node scripts/blog-due.mjs --since 70             # URL vừa đến giờ đăng (--all-live: mọi bài đã đăng, --json)
+node scripts/indexnow.mjs --dry [url…]           # xem payload IndexNow (bỏ --dry để gửi; đọc URL từ stdin nếu không có tham số)
+```
+- Thử nghiệm với thư mục khác: `--root <thư mục chứa vi/, briefs.json, media.json>` (blog-check, blog-dupes, blog-schedule, blog-due).
+- Commit + push bài đã xếp lịch lên `main` → cron `.github/workflows/blog-publish.yml` (phút 7 mỗi giờ) gọi deploy hook khi có bài đến hạn, chờ 5 phút rồi gửi IndexNow. Chạy tay: Actions → Blog publish → Run workflow (force = build lại dù không có bài).
+- Khóa IndexNow: `content/blog/config.json` → `indexNowKey`, file công khai `web/<key>.txt` (phải có trên lexkite.com). Đổi khóa = tạo file mới + sửa config.
+- **Thiết lập 1 lần (anh/cha):** Cloudflare Dashboard → Workers & Pages → `lexkite` → Settings → Builds → Deploy hooks → Add (tên `blog-cron`, nhánh `main`) → sao chép URL → GitHub `lexkiteapp/lexkiteapp.github.io` → Settings → Secrets and variables → Actions → New repository secret `CF_PAGES_DEPLOY_HOOK` = URL đó. Không ghi URL hook vào repo. Thiếu secret → workflow báo lỗi rõ ràng.

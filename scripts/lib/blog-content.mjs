@@ -7,7 +7,7 @@ export const config = () => JSON.parse(fs.readFileSync(path.join(ROOT, 'config.j
 
 const scalar = v => {
   v = v.trim();
-  if (v === '') return '';
+  if (v === '' || v.startsWith('#')) return ''; // trống hoặc chỉ có chú thích
   if (v.startsWith('"')) { try { return JSON.parse(v); } catch (e) { return v.slice(1, -1); } }
   if (v.startsWith('[') && v.endsWith(']')) return v.slice(1, -1).split(',').map(s => scalar(s)).filter(s => s !== '');
   if (v === 'true' || v === 'false') return v === 'true';
@@ -53,3 +53,30 @@ export function plainText(body) {
     .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/^\s*\|?[\s:|-]+\|[\s:|-]*$/gm, ' ').replace(/[#>*_`|~]/g, ' ');
 }
 export const wordCount = body => (plainText(body).match(/[\p{L}\p{N}][\p{L}\p{N}'’.-]*/gu) || []).length;
+// Đọc 1 file bài (ngôn ngữ mặc định = tên thư mục cha) – cho công cụ nhận đường dẫn file
+export function readPost(file) {
+  const src = fs.readFileSync(file, 'utf8'), { data, body } = parse(src, file);
+  return { ...data, lang: data.lang || path.basename(path.dirname(file)), slug: data.slug || path.basename(file, '.md'), file, body, src };
+}
+// Như loadPosts nhưng với thư mục gốc tùy chọn (--root khi thử nghiệm)
+export function loadPostsAt(root = ROOT, { lang } = {}) {
+  const out = [];
+  if (!fs.existsSync(root)) return out;
+  for (const l of fs.readdirSync(root).sort()) {
+    const dir = path.join(root, l);
+    if (!fs.statSync(dir).isDirectory() || (lang && l !== lang) || !/^[a-z]{2}(-[a-z]+)?$/i.test(l)) continue;
+    for (const f of fs.readdirSync(dir).filter(f => f.endsWith('.md')).sort()) out.push(readPost(path.join(dir, f)));
+  }
+  return out;
+}
+const readJSON = f => { try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch { return null; } };
+// Thứ tự slug trong briefs.json (dùng cho xếp lịch + kiểm liên kết /blog/<slug>/)
+export const briefSlugs = (root = ROOT) => (readJSON(path.join(root, 'briefs.json'))?.briefs || []).map(b => b.slug);
+// Tập id ảnh hợp lệ: media.json (sổ ảnh đã xử lý) – chưa có thì dùng shots.json (fallback = true)
+export function mediaIds(root = ROOT) {
+  const m = readJSON(path.join(root, 'media.json'));
+  if (m) { const o = m.media || m.images || m.items || m; return { ids: new Set(Object.keys(o).filter(k => !k.startsWith('_') && typeof o[k] === 'object')), fallback: false }; }
+  return { ids: new Set(Object.keys(readJSON(path.join(root, 'shots.json'))?.shots || {})), fallback: true };
+}
+// URL tuyệt đối của bài: /blog/<slug>/ (ngôn ngữ chính) hoặc /<lang>/blog/<slug>/
+export const postUrl = (p, base = 'https://lexkite.com', def = 'vi') => `${base.replace(/\/$/, '')}${p.lang === def ? '' : '/' + p.lang}/blog/${p.slug}/`;
