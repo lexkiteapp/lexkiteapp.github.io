@@ -52,7 +52,7 @@
     ],
   });
 
-  /* ---------------- Part 2: Question–Response (Q7–21) ---------------- */
+  /* ---------------- Part 2: Question–Response (Q7–31) ---------------- */
   const P2 = [
     { n: 7, qs: 'A', rs: 'B', q: 'Where should I put these boxes of printer paper?',
       r: ['In the supply closet, please.', 'Yes, I printed them yesterday.', 'About twenty pages.'], a: 0,
@@ -99,6 +99,36 @@
     { n: 21, qs: 'C', rs: 'D', q: 'The sales figures for June look much better than we expected.',
       r: ['Better late than never.', 'Yes, the new ad campaign really helped.', 'I expected him at noon.'], a: 1,
       explain: 'Câu nhận xét doanh số tốt hơn mong đợi → đồng tình và giải thích: "Yes, the new ad campaign really helped" (chiến dịch quảng cáo mới thực sự có hiệu quả). A lặp "better" trong thành ngữ không liên quan. C lặp "expected".' },
+    { n: 22, qs: 'A', rs: 'B', q: "What's the password for the guest Wi-Fi?",
+      r: ["It's printed on the card at the reception desk.", 'Yes, I passed it on to her.', 'The guests arrived early.'], a: 0,
+      explain: 'Câu hỏi "What" hỏi mật khẩu Wi-Fi cho khách → trả lời gián tiếp: "It\'s printed on the card at the reception desk" (mật khẩu được in trên tấm thẻ ở quầy lễ tân). B bẫy âm "password" – "passed" và trả lời Yes với câu Wh-. C lặp từ "guest".' },
+    { n: 23, qs: 'B', rs: 'C', q: 'Are you attending the product demonstration on Thursday?',
+      r: ['A new line of kitchen appliances.', "I haven't been invited.", 'On Thursday at the latest.'], a: 1,
+      explain: 'Câu hỏi Yes/No (có tham dự buổi giới thiệu sản phẩm không) → trả lời gián tiếp "I haven\'t been invited" (tôi chưa được mời – tức là không đi). A liên tưởng đến "product" nhưng mô tả sản phẩm. C lặp "Thursday" và trả lời When.' },
+    { n: 24, qs: 'C', rs: 'D', q: "You've already reserved the conference room, haven't you?",
+      r: ['It seats about twenty people.', 'He made a dinner reservation.', "Sorry, I forgot. I'll do it right now."], a: 2,
+      explain: 'Câu hỏi đuôi xác nhận việc đã đặt phòng họp → thừa nhận chưa làm và sẽ làm ngay: "Sorry, I forgot. I\'ll do it right now". A mô tả sức chứa của phòng. B bẫy âm "reserved" – "reservation" với chủ ngữ sai (He).' },
+    { n: 25, qs: 'D', rs: 'A', q: 'Where are we holding the year-end party?',
+      r: ['At the end of the year.', 'About a hundred guests.', "The committee hasn't decided yet."], a: 2,
+      explain: 'Câu hỏi "Where" (ở đâu) → đáp gián tiếp "The committee hasn\'t decided yet" (ban tổ chức chưa quyết định). A lặp "end/year" nhưng trả lời When. B trả lời số lượng khách (How many).' },
+    { n: 26, qs: 'A', rs: 'B', q: 'How much will it cost to repair the copier?',
+      r: ['The technician will send us an estimate.', 'Twenty copies, please.', 'Yes, it was repaired last week.'], a: 0,
+      explain: '"How much" hỏi chi phí sửa máy photo → đáp gián tiếp "The technician will send us an estimate" (kỹ thuật viên sẽ gửi bảng báo giá). B bẫy âm "copier" – "copies". C trả lời Yes với câu Wh- và lặp "repair".' },
+    { n: 27, qs: 'B', rs: 'C', q: 'Would you mind checking these figures before the meeting?',
+      r: ['The meeting room is on the left.', 'Not at all. Just leave them on my desk.', 'He finally figured it out.'], a: 1,
+      explain: 'Lời nhờ "Would you mind…?" (phiền bạn… được không) → "Not at all" nghĩa là ĐỒNG Ý (không phiền gì): "Not at all. Just leave them on my desk". A lặp từ "meeting". C bẫy âm "figures" – "figured".' },
+    { n: 28, qs: 'C', rs: 'D', q: "Doesn't the bus to the convention center leave from here?",
+      r: ['Every fifteen minutes.', 'Yes, I left my bag here.', 'The stop moved to the other side of the station.'], a: 2,
+      explain: 'Câu hỏi phủ định xác nhận điểm đón xe buýt → đáp gián tiếp "The stop moved to the other side of the station" (trạm đã chuyển sang phía bên kia nhà ga). A trả lời tần suất (How often). B bẫy âm "leave" – "left" và lặp "here".' },
+    { n: 29, qs: 'D', rs: 'A', q: "Who's in charge of ordering office supplies?",
+      r: ['Talk to Ms. Brennan in purchasing.', 'Yes, we have plenty of them.', 'At the stationery store.'], a: 0,
+      explain: 'Câu hỏi "Who" (ai phụ trách đặt văn phòng phẩm) → "Talk to Ms. Brennan in purchasing" (hãy hỏi chị Brennan bên phòng mua hàng). B trả lời Yes với câu Wh-. C trả lời nơi mua (Where).' },
+    { n: 30, qs: 'A', rs: 'B', q: "I think we should extend the store's opening hours.",
+      r: ['It closes at nine on weekdays.', "Let's look at the sales data first.", 'You need an extension cord.'], a: 1,
+      explain: 'Câu trần thuật nêu ý kiến (nên kéo dài giờ mở cửa) → phản hồi hợp lý: "Let\'s look at the sales data first" (hãy xem số liệu bán hàng trước đã). A chỉ nêu giờ đóng cửa, không phản hồi ý kiến. C bẫy âm "extend" – "extension".' },
+    { n: 31, qs: 'B', rs: 'C', q: 'Why did Mr. Patel leave the meeting early?',
+      r: ['Early in the morning.', 'He meets them every week.', 'He had a flight to catch.'], a: 2,
+      explain: 'Câu hỏi "Why" (tại sao) → nêu lý do: "He had a flight to catch" (ông ấy phải kịp chuyến bay). A lặp "early" nhưng trả lời When. B bẫy âm "meeting" – "meets".' },
   ];
   const p2script = [
     { say: 'Part 2. In this part, you will hear a question or a statement, followed by three spoken responses. Choose the best response. The responses are not printed in your test book.' }, { pause: 3 },

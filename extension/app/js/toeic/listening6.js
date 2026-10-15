@@ -52,7 +52,7 @@
     ],
   });
 
-  /* ---------------- Part 2: Question–Response (Q7–21) ---------------- */
+  /* ---------------- Part 2: Question–Response (Q7–31) ---------------- */
   const P2 = [
     { n: 7, qs: 'A', rs: 'B', q: 'What time is checkout on Sunday?',
       r: ['Noon, but you can request a later time.', 'Please check the receipt.', 'Room four twelve.'], a: 0,
@@ -99,6 +99,36 @@
     { n: 21, qs: 'C', rs: 'A', q: "How was the turnout at the store's anniversary sale?",
       r: ['Turn left at the corner.', 'Every year in June.', 'We had record crowds.'], a: 2,
       explain: '"How was the turnout…?" hỏi số người đến dự → "We had record crowds" (lượng khách đông kỷ lục). "Turn left at the corner" bẫy âm "turnout" – "turn". "Every year in June" chỉ liên tưởng đến "anniversary" (dịp kỷ niệm hằng năm).' },
+    { n: 22, qs: 'D', rs: 'B', q: 'When will my new debit card arrive?',
+      r: ['Within five business days.', 'Yes, the card was declined.', 'At the main branch.'], a: 0,
+      explain: 'Câu hỏi "When" (khi nào nhận được thẻ ghi nợ mới) → "Within five business days" (trong vòng năm ngày làm việc). B trả lời Yes với câu Wh- và lặp "card". C trả lời Where.' },
+    { n: 23, qs: 'A', rs: 'C', q: "Who's working the cash register this evening?",
+      r: ['Cash or credit?', 'Until nine this evening.', 'Check the schedule in the back.'], a: 2,
+      explain: 'Câu hỏi "Who" (tối nay ai trực quầy thu ngân) → đáp gián tiếp "Check the schedule in the back" (xem lịch phân ca ở phía sau). A lặp "cash". B lặp "this evening" và trả lời How long.' },
+    { n: 24, qs: 'B', rs: 'D', q: 'Could you gift-wrap this sweater for me?',
+      r: ['Of course. Which paper would you like?', "It's made of wool.", "We've already wrapped up the meeting."], a: 0,
+      explain: 'Lời nhờ "Could you…?" (gói quà chiếc áo len) → đồng ý và hỏi thêm: "Of course. Which paper would you like?" (được ạ, anh/chị chọn giấy gói nào?). B mô tả chất liệu áo. C bẫy "gift-wrap" – "wrapped up" (kết thúc).' },
+    { n: 25, qs: 'C', rs: 'A', q: 'Where can I exchange foreign currency?',
+      r: ['The exchange rate is good today.', 'At the counter at the end of the hall.', 'Currently, no.'], a: 1,
+      explain: 'Câu hỏi "Where" (đổi ngoại tệ ở đâu) → "At the counter at the end of the hall" (ở quầy cuối hành lang). A lặp "exchange" nhưng nói tỷ giá. C bẫy âm "currency" – "currently".' },
+    { n: 26, qs: 'D', rs: 'C', q: "The pool is open until ten, isn't it?",
+      r: ['Actually, it closes early tonight.', 'Ten towels, please.', 'Yes, I opened it.'], a: 0,
+      explain: 'Câu hỏi đuôi xác nhận giờ mở cửa hồ bơi → "Actually, it closes early tonight" (thật ra tối nay đóng cửa sớm). B lặp "ten". C bẫy "open" – "opened" với nghĩa mở (vật).' },
+    { n: 27, qs: 'A', rs: 'B', q: "Don't you think the prices are too high?",
+      r: ['Put it on the top shelf.', 'Every Friday at noon.', "They're about average for this area."], a: 2,
+      explain: 'Câu hỏi phủ định hỏi ý kiến (giá có quá cao không) → "They\'re about average for this area" (giá cũng chỉ ở mức trung bình trong khu vực này). A liên tưởng "high" – kệ trên cao. C trả lời How often.' },
+    { n: 28, qs: 'B', rs: 'C', q: 'Why are these jackets on sale?',
+      r: ["We're making room for the spring collection.", "Yes, they're for sale.", 'A large size, please.'], a: 0,
+      explain: 'Câu hỏi "Why" (sao áo khoác giảm giá) → lý do: "We\'re making room for the spring collection" (cần chỗ cho bộ sưu tập mùa xuân). B trả lời Yes với câu Wh- và bẫy "on sale" (giảm giá) – "for sale" (để bán). C nói cỡ áo.' },
+    { n: 29, qs: 'C', rs: 'D', q: 'Would you like to pay in cash or by card?',
+      r: ["Yes, I'd like to.", 'Is there a fee for using a card?', 'A good credit score.'], a: 1,
+      explain: 'Câu hỏi lựa chọn "A or B?" → đáp bằng câu hỏi lại (dạng gián tiếp hay gặp): "Is there a fee for using a card?" (trả bằng thẻ có mất phí không?). A sai vì câu lựa chọn không trả lời Yes. C liên tưởng "card" – "credit".' },
+    { n: 30, qs: 'D', rs: 'A', q: "The room key isn't working.",
+      r: ['On the fourth floor.', "Yes, I'm working late.", 'Let me reprogram it for you.'], a: 2,
+      explain: 'Câu trần thuật báo sự cố (thẻ khóa phòng không dùng được) → giải pháp: "Let me reprogram it for you" (để tôi cài lại thẻ cho anh/chị). A trả lời vị trí. B lặp "working" với nghĩa làm việc.' },
+    { n: 31, qs: 'A', rs: 'D', q: 'How do I reset my online banking password?',
+      r: ["There's a link on the login page.", "It's set for Tuesday.", 'The bank opens at nine.'], a: 0,
+      explain: '"How do I…" hỏi cách làm → "There\'s a link on the login page" (có đường dẫn ở trang đăng nhập). B bẫy âm "reset" – "set". C lặp "bank" và trả lời When.' },
   ];
   const p2script = [
     { say: 'Part 2. In this part, you will hear a question or a statement, followed by three spoken responses. Choose the best response. The responses are not printed in your test book.' }, { pause: 3 },

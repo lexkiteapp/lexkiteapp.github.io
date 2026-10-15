@@ -52,7 +52,7 @@
     ],
   });
 
-  /* ---------------- Part 2: Question–Response (Q7–21) ---------------- */
+  /* ---------------- Part 2: Question–Response (Q7–31) ---------------- */
   const P2 = [
     { n: 7, qs: 'A', rs: 'B', q: 'When will the budget figures for next year be finalized?',
       r: ['He finalized the deal.', 'By the end of this week.', 'It was a figure of speech.'], a: 1,
@@ -99,6 +99,36 @@
     { n: 21, qs: 'C', rs: 'A', q: "What's the fastest way to get to the Linwood branch office?",
       r: ['It opened last year.', 'Take the subway to Fifth Street.', 'A branch of the old oak tree.'], a: 1,
       explain: '"What\'s the fastest way to get to…?" hỏi cách đi → "Take the subway to Fifth Street" (đi tàu điện ngầm đến phố Fifth). "It opened last year" nói về thời điểm chi nhánh khai trương. "A branch of the old oak tree" lặp "branch" với nghĩa "cành cây".' },
+    { n: 22, qs: 'D', rs: 'B', q: "What's on the agenda for tomorrow's board meeting?",
+      r: ["Mostly next year's budget.", 'He boarded the train at noon.', 'In the boardroom upstairs.'], a: 0,
+      explain: 'Câu hỏi "What" (chương trình họp hội đồng quản trị có gì) → "Mostly next year\'s budget" (chủ yếu là ngân sách năm sau). B bẫy âm "board" – "boarded". C bẫy âm "board" – "boardroom" và trả lời Where.' },
+    { n: 23, qs: 'A', rs: 'C', q: 'Where are the spare keys for the delivery van?',
+      r: ["Yes, they're the key points.", 'It was delivered on Monday.', 'Ask the security guard.'], a: 2,
+      explain: 'Câu hỏi "Where" (chìa khóa dự phòng ở đâu) → đáp gián tiếp "Ask the security guard" (hãy hỏi bảo vệ). A trả lời Yes với câu Wh- và lặp "key" với nghĩa khác (ý chính). B bẫy âm "delivery" – "delivered".' },
+    { n: 24, qs: 'B', rs: 'D', q: "You're coming to the client dinner, aren't you?",
+      r: ['Seafood, I think.', "I wouldn't miss it.", "Yes, she's our client."], a: 1,
+      explain: 'Câu hỏi đuôi (bạn sẽ đến bữa tối với khách chứ?) → "I wouldn\'t miss it" (tôi nhất định không bỏ lỡ – tức là có đến). A liên tưởng "dinner" – món ăn. C lặp "client" và nói về người khác.' },
+    { n: 25, qs: 'C', rs: 'A', q: 'Why has the conference been moved to June?',
+      r: ["The venue wasn't available in May.", 'We moved offices last year.', 'Yes, in the conference room.'], a: 0,
+      explain: 'Câu hỏi "Why" (tại sao hội nghị dời sang tháng Sáu) → lý do: "The venue wasn\'t available in May" (địa điểm không trống vào tháng Năm). B lặp "moved" với nghĩa chuyển văn phòng. C trả lời Yes với câu Wh- và lặp "conference".' },
+    { n: 26, qs: 'D', rs: 'C', q: 'Shall I make copies of the contract for everyone?',
+      r: ['A three-year contract.', 'Yes, he made them.', 'Just one for the legal team, please.'], a: 2,
+      explain: 'Lời đề nghị "Shall I…?" (tôi photo hợp đồng cho mọi người nhé) → điều chỉnh: "Just one for the legal team, please" (chỉ cần một bản cho bộ phận pháp lý). A lặp "contract". B lặp "made" với chủ ngữ sai.' },
+    { n: 27, qs: 'A', rs: 'B', q: 'Is the training session on Tuesday or Wednesday?',
+      r: ["Yes, it's on Tuesday.", "It's been moved to Thursday.", 'A two-hour session.'], a: 1,
+      explain: 'Câu hỏi lựa chọn "A or B?" → đáp kiểu "không phải cả hai" thường gặp trong TOEIC: "It\'s been moved to Thursday" (đã dời sang thứ Năm). A sai vì câu lựa chọn không trả lời Yes. C lặp "session" nhưng nói thời lượng.' },
+    { n: 28, qs: 'B', rs: 'C', q: 'How can I get a parking permit for the staff lot?',
+      r: ['Fill out a form at the front desk.', 'Near the staff entrance.', "Yes, it's permitted."], a: 0,
+      explain: '"How can I get" hỏi cách thức → "Fill out a form at the front desk" (điền mẫu đơn ở quầy lễ tân). B lặp "staff" và trả lời Where. C bẫy âm "permit" – "permitted", trả lời Yes với câu Wh-.' },
+    { n: 29, qs: 'C', rs: 'D', q: "Haven't you finished the inventory count yet?",
+      r: ["It's in the inventory list.", "Yes, I'm counting on you.", 'Almost. Just two more shelves.'], a: 2,
+      explain: 'Câu hỏi phủ định (bạn chưa kiểm kho xong à?) → "Almost. Just two more shelves" (sắp xong, còn hai kệ nữa). A lặp "inventory". B bẫy "count" – "counting on" (trông cậy vào).' },
+    { n: 30, qs: 'D', rs: 'A', q: 'The printer on the third floor is out of toner.',
+      r: ["There's a spare cartridge in the cabinet.", 'The third floor, please.', "He's out of the office today."], a: 0,
+      explain: 'Câu trần thuật báo sự cố (máy in hết mực) → giải pháp: "There\'s a spare cartridge in the cabinet" (có hộp mực dự phòng trong tủ). B lặp "third floor". C lặp "out of" với nghĩa khác (vắng mặt).' },
+    { n: 31, qs: 'A', rs: 'D', q: "Who's going to lead the tour for the visiting engineers?",
+      r: ['A two-hour tour.', 'Mr. Okonkwo volunteered.', "They're visiting next week."], a: 1,
+      explain: 'Câu hỏi "Who" (ai dẫn đoàn kỹ sư tham quan) → "Mr. Okonkwo volunteered" (ông Okonkwo đã xung phong). A lặp "tour" nhưng nói thời lượng. C lặp "visiting" và trả lời When.' },
   ];
   const p2script = [
     { say: 'Part 2. In this part, you will hear a question or a statement, followed by three spoken responses. Choose the best response. The responses are not printed in your test book.' }, { pause: 3 },

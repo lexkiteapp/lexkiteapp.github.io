@@ -52,7 +52,7 @@
     ],
   });
 
-  /* ---------------- Part 2: Question–Response (Q7–21) ---------------- */
+  /* ---------------- Part 2: Question–Response (Q7–31) ---------------- */
   const P2 = [
     { n: 7, qs: 'A', rs: 'B', q: 'When is the new receptionist starting?',
       r: ['At the front desk.', 'Next Monday, I think.', 'He started the car.'], a: 1,
@@ -99,6 +99,36 @@
     { n: 21, qs: 'C', rs: 'D', q: 'How did the client react to our proposal?',
       r: ['By express mail.', 'A proposal for a new office.', 'She asked for a few changes.'], a: 2,
       explain: '"How did … react" hỏi phản ứng → "She asked for a few changes" (bà ấy yêu cầu sửa vài chỗ). A là bẫy "How" = bằng cách nào (phương thức gửi). C lặp từ "proposal" nhưng chỉ mô tả nội dung đề xuất.' },
+    { n: 22, qs: 'D', rs: 'B', q: 'Why is the front entrance closed?',
+      r: ['Close to the bank.', 'The floor is being cleaned.', "At six o'clock."], a: 1,
+      explain: 'Câu hỏi "Why" (tại sao lối vào chính đóng) → lý do: "The floor is being cleaned" (sàn đang được lau). A bẫy từ "closed" (đóng) – "close to" (gần). C trả lời thời điểm (When).' },
+    { n: 23, qs: 'A', rs: 'C', q: 'Who should I send the invoice to?',
+      r: ['Directly to the finance department.', 'Yes, I sent it yesterday.', 'Within thirty days.'], a: 0,
+      explain: 'Câu hỏi "Who" (gửi hóa đơn cho ai) → "Directly to the finance department" (gửi thẳng cho phòng tài chính). B trả lời Yes với câu Wh- và lặp "send – sent". C liên tưởng đến hạn thanh toán hóa đơn nhưng trả lời When.' },
+    { n: 24, qs: 'B', rs: 'D', q: 'Is the new printer easy to use?',
+      r: ['Ten pages per minute.', 'I used to work there.', "There's a guide taped to the side."], a: 2,
+      explain: 'Câu hỏi Yes/No (máy in mới dễ dùng không) → đáp gián tiếp "There\'s a guide taped to the side" (có hướng dẫn dán bên hông máy). A nói tốc độ in. B bẫy âm "use" – "used to".' },
+    { n: 25, qs: 'C', rs: 'A', q: "Let's take a short break before we continue.",
+      r: ["It's broken again.", 'Good idea. I need some coffee.', 'Continue to the next page.'], a: 1,
+      explain: 'Lời đề nghị "Let\'s…" (nghỉ giải lao một chút) → đồng ý: "Good idea. I need some coffee". A bẫy âm "break" – "broken". C lặp từ "continue".' },
+    { n: 26, qs: 'D', rs: 'C', q: 'How long have you worked at this branch?',
+      r: ['Almost five years.', 'About two meters long.', 'At the branch on Elm Street.'], a: 0,
+      explain: '"How long have you worked" hỏi khoảng thời gian → "Almost five years" (gần năm năm). B lặp "long" nhưng nói chiều dài. C lặp "branch" và trả lời Where.' },
+    { n: 27, qs: 'A', rs: 'B', q: 'Do you prefer the window seat or the aisle seat?',
+      r: ['Yes, I prefer it.', 'Please have a seat.', 'Either is fine with me.'], a: 2,
+      explain: 'Câu hỏi lựa chọn "A or B?" → "Either is fine with me" (chỗ nào cũng được). A trả lời Yes và lặp "prefer". B lặp "seat" nhưng là lời mời ngồi.' },
+    { n: 28, qs: 'B', rs: 'C', q: "Didn't Ms. Kwan already approve the design?",
+      r: ['A new design team.', 'She wants to see one more version.', 'He proved it again.'], a: 1,
+      explain: 'Câu hỏi phủ định (chị Kwan duyệt thiết kế rồi phải không) → đáp gián tiếp "She wants to see one more version" (chị ấy muốn xem thêm một phiên bản nữa – tức là chưa duyệt). A lặp "design". C bẫy âm "approve" – "proved".' },
+    { n: 29, qs: 'C', rs: 'D', q: 'When is the next shuttle to the downtown hotel?',
+      r: ['The schedule is posted by the exit.', 'Down the hall to the left.', "Yes, it's a nice hotel."], a: 0,
+      explain: 'Câu hỏi "When" (chuyến xe đưa đón kế tiếp lúc mấy giờ) → đáp gián tiếp "The schedule is posted by the exit" (lịch chạy được dán cạnh lối ra). B bẫy âm "downtown" – "down" và trả lời Where. C trả lời Yes với câu Wh-.' },
+    { n: 30, qs: 'D', rs: 'A', q: 'The client wants the samples by Friday.',
+      r: ['A free sample.', 'By express mail.', "Then we'd better ship them today."], a: 2,
+      explain: 'Câu trần thuật nêu yêu cầu của khách → phản hồi hành động: "Then we\'d better ship them today" (vậy ta nên gửi ngay hôm nay). A lặp "sample". B lặp "by" nhưng nói cách gửi.' },
+    { n: 31, qs: 'A', rs: 'D', q: 'Could you lend me your calculator for a minute?',
+      r: ['A minute ago.', 'Sure, here you go.', 'He lent me fifty dollars.'], a: 1,
+      explain: 'Lời nhờ "Could you…?" (cho mượn máy tính) → đồng ý: "Sure, here you go" (được, đây này). A lặp "minute" và trả lời When. C bẫy âm "lend" – "lent" với chủ ngữ sai.' },
   ];
   const p2script = [
     { say: 'Part 2. In this part, you will hear a question or a statement, followed by three spoken responses. Choose the best response. The responses are not printed in your test book.' }, { pause: 3 },

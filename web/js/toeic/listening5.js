@@ -52,7 +52,7 @@
     ],
   });
 
-  /* ---------------- Part 2: Question–Response (Q7–21) ---------------- */
+  /* ---------------- Part 2: Question–Response (Q7–31) ---------------- */
   const P2 = [
     { n: 7, qs: 'A', rs: 'B', q: 'When does the new parking policy take effect?',
       r: ['Starting on the first of next month.', 'In the employee lot.', 'It was very effective.'], a: 0,
@@ -99,6 +99,36 @@
     { n: 21, qs: 'C', rs: 'A', q: 'How did the product launch go yesterday?',
       r: ['Go straight down this hall.', 'Better than we expected.', 'Lunch is served at noon.'], a: 1,
       explain: '"How did … go?" hỏi kết quả, diễn biến → "Better than we expected" (tốt hơn chúng tôi mong đợi). "Go straight down this hall" lặp từ "go" với nghĩa chỉ đường. "Lunch is served at noon" bẫy âm "launch" – "lunch".' },
+    { n: 22, qs: 'D', rs: 'B', q: "Where's the staff training being held this year?",
+      r: ["It's held twice a year.", 'Yes, I trained there.', "We're doing it online this time."], a: 2,
+      explain: 'Câu hỏi "Where" (khóa đào tạo năm nay tổ chức ở đâu) → đáp gián tiếp "We\'re doing it online this time" (lần này học trực tuyến). A lặp "held" nhưng trả lời How often. B trả lời Yes với câu Wh- và bẫy "training" – "trained".' },
+    { n: 23, qs: 'A', rs: 'C', q: 'Can you call the hotel to confirm our reservation?',
+      r: ['A double room with a view.', 'I already did this morning.', "Yes, it's a nice hotel."], a: 1,
+      explain: 'Lời nhờ "Can you…?" (gọi khách sạn xác nhận đặt phòng) → "I already did this morning" (sáng nay tôi làm rồi). A liên tưởng đặt phòng nhưng nói loại phòng. C trả lời Yes nhưng nội dung là nhận xét khách sạn.' },
+    { n: 24, qs: 'B', rs: 'D', q: 'When did you start working on the Larson account?',
+      r: ['Right after I joined the company.', 'At the bank downtown.', "It's working now."], a: 0,
+      explain: 'Câu hỏi "When" (bắt đầu phụ trách khách hàng Larson khi nào) → "Right after I joined the company" (ngay sau khi tôi vào công ty). B liên tưởng "account" – ngân hàng, trả lời Where. C lặp "working" với nghĩa (máy) chạy được.' },
+    { n: 25, qs: 'C', rs: 'A', q: "This model comes in other colors, doesn't it?",
+      r: ['The model is very popular.', 'He came in late.', "It's also available in silver and red."], a: 2,
+      explain: 'Câu hỏi đuôi (mẫu này có màu khác không?) → "It\'s also available in silver and red" (còn có màu bạc và đỏ). A lặp "model". B bẫy "comes in" (có loại) – "came in" (đi vào).' },
+    { n: 26, qs: 'D', rs: 'C', q: "Shouldn't we have received the invoice by now?",
+      r: ['A receipt for lunch.', "Yes, I'll be on time.", "I'll call the supplier and ask."], a: 2,
+      explain: 'Câu hỏi phủ định (lẽ ra phải nhận được hóa đơn rồi chứ?) → hành động: "I\'ll call the supplier and ask" (tôi sẽ gọi hỏi nhà cung cấp). A bẫy âm "received" – "receipt". B liên tưởng "by now" – đúng giờ nhưng không liên quan.' },
+    { n: 27, qs: 'A', rs: 'B', q: 'Why are there so many people in the lobby?',
+      r: ['Yes, quite a few.', 'A job fair starts at ten.', 'In the hotel lobby.'], a: 1,
+      explain: 'Câu hỏi "Why" (sao sảnh đông người) → lý do: "A job fair starts at ten" (hội chợ việc làm bắt đầu lúc 10 giờ). A trả lời Yes với câu Wh-. C lặp "lobby" và trả lời Where.' },
+    { n: 28, qs: 'B', rs: 'C', q: 'Should I book the flight now, or wait until the price drops?',
+      r: ['A book about flying.', 'Yes, it dropped.', 'Prices usually go up closer to the date.'], a: 2,
+      explain: 'Câu hỏi lựa chọn "A or B?" → đáp gián tiếp "Prices usually go up closer to the date" (càng gần ngày giá càng tăng – ngụ ý nên đặt ngay). A bẫy "book" (đặt) – "book" (sách). B trả lời Yes và lặp "drop".' },
+    { n: 29, qs: 'C', rs: 'D', q: "I've been asked to give a speech at the awards dinner.",
+      r: ["Congratulations! That's quite an honor.", 'Dinner is at seven.', 'She speaks three languages.'], a: 0,
+      explain: 'Câu trần thuật chia sẻ tin vui (được mời phát biểu) → "Congratulations! That\'s quite an honor" (chúc mừng, thật là vinh dự). B lặp "dinner". C bẫy âm "speech" – "speaks".' },
+    { n: 30, qs: 'D', rs: 'A', q: 'How many chairs do we need for the seminar?',
+      r: ["They're in the storage room.", 'Forty people registered.', 'Yes, we need them.'], a: 1,
+      explain: '"How many" hỏi số lượng ghế → đáp gián tiếp "Forty people registered" (có 40 người đăng ký – tức cần khoảng 40 ghế). A trả lời ghế ở đâu. C trả lời Yes với câu Wh-.' },
+    { n: 31, qs: 'A', rs: 'D', q: 'What should I wear to the factory tour?',
+      r: ['A ten-minute tour.', 'At the factory gate.', 'Comfortable shoes are a must.'], a: 2,
+      explain: 'Câu hỏi "What should I wear" (mặc gì khi tham quan nhà máy) → "Comfortable shoes are a must" (nhất định phải đi giày thoải mái). A lặp "tour" nhưng nói thời lượng. B lặp "factory" và trả lời Where.' },
   ];
   const p2script = [
     { say: 'Part 2. In this part, you will hear a question or a statement, followed by three spoken responses. Choose the best response. The responses are not printed in your test book.' }, { pause: 3 },

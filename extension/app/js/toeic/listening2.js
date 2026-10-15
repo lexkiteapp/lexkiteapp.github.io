@@ -52,7 +52,7 @@
     ],
   });
 
-  /* ---------------- Part 2: Question–Response (Q7–21) ---------------- */
+  /* ---------------- Part 2: Question–Response (Q7–31) ---------------- */
   const P2 = [
     { n: 7, qs: 'B', rs: 'A', q: 'What time does the hardware store close on Sundays?',
       r: ['At five, I believe.', 'Close to the post office.', 'Some new tools.'], a: 0,
@@ -99,6 +99,36 @@
     { n: 21, qs: 'A', rs: 'B', q: 'When are we expecting the inspectors from the city?',
       r: ['Sometime after lunch.', 'They inspected every room.', 'At City Hall.'], a: 0,
       explain: 'Câu hỏi "When" (khi nào) → "Sometime after lunch" (lúc nào đó sau bữa trưa). B lặp âm "inspectors" – "inspected". C lặp từ "city" nhưng trả lời địa điểm.' },
+    { n: 22, qs: 'B', rs: 'C', q: 'What did the clients think of the new logo design?',
+      r: ['They signed it this morning.', 'A graphic designer.', 'They asked for a few changes.'], a: 2,
+      explain: 'Câu hỏi "What did … think" (khách hàng nghĩ gì về logo mới) → "They asked for a few changes" (họ yêu cầu chỉnh vài chỗ). A bẫy âm "design" – "signed". B bẫy âm "design" – "designer" và trả lời Who.' },
+    { n: 23, qs: 'D', rs: 'A', q: 'When will the renovation of the lobby be finished?',
+      r: ['Hopefully by the end of the month.', 'It has a dark wood finish.', 'In the main lobby.'], a: 0,
+      explain: 'Câu hỏi "When" (khi nào xong) → "Hopefully by the end of the month" (hy vọng là trước cuối tháng). B bẫy từ "finished" – "finish" (lớp hoàn thiện bề mặt). C lặp "lobby" và trả lời Where.' },
+    { n: 24, qs: 'A', rs: 'C', q: 'Do you want me to drive you to the train station?',
+      r: ['The trains run every hour.', "Thanks, but I've already called a taxi.", "He's a very careful driver."], a: 1,
+      explain: 'Lời đề nghị giúp đỡ "Do you want me to…?" → từ chối lịch sự: "Thanks, but I\'ve already called a taxi" (cảm ơn, nhưng tôi gọi taxi rồi). A lặp "train". C bẫy âm "drive" – "driver".' },
+    { n: 25, qs: 'C', rs: 'B', q: "Aren't you supposed to be on vacation this week?",
+      r: ['A week in Portugal.', "Yes, it's a great location.", 'My trip was postponed.'], a: 2,
+      explain: 'Câu hỏi phủ định (chẳng phải tuần này bạn nghỉ phép sao?) → giải thích gián tiếp: "My trip was postponed" (chuyến đi của tôi bị hoãn). A lặp "week". B bẫy âm "vacation" – "location".' },
+    { n: 26, qs: 'B', rs: 'D', q: 'Would you like the report printed or sent by e-mail?',
+      r: ["Yes, I'd like that.", 'Two hundred copies.', 'An electronic copy is fine.'], a: 2,
+      explain: 'Câu hỏi lựa chọn "A or B?" → chọn một phương án: "An electronic copy is fine" (bản điện tử là được). A sai vì câu lựa chọn không trả lời Yes. B liên tưởng đến "printed" nhưng trả lời số lượng.' },
+    { n: 27, qs: 'D', rs: 'C', q: 'How did you hear about the job opening?',
+      r: ['It opens at eight.', 'A friend of mine works here.', "I didn't hear the phone."], a: 1,
+      explain: '"How did you hear about…" hỏi biết thông tin tuyển dụng qua đâu → "A friend of mine works here" (một người bạn của tôi làm ở đây). A bẫy âm "opening" – "opens". C lặp "hear".' },
+    { n: 28, qs: 'A', rs: 'B', q: "Who's going to replace Mr. Dawson as store manager?",
+      r: ["They're still interviewing candidates.", 'Next to the storeroom.', 'Yes, the parts were replaced.'], a: 0,
+      explain: 'Câu hỏi "Who" (ai thay ông Dawson) → đáp gián tiếp "They\'re still interviewing candidates" (họ vẫn đang phỏng vấn ứng viên – chưa biết là ai). B bẫy âm "store" – "storeroom", trả lời Where. C trả lời Yes với câu Wh- và lặp "replace".' },
+    { n: 29, qs: 'C', rs: 'A', q: "The workshop starts at nine, doesn't it?",
+      r: ['The shop is around the corner.', 'Nine participants so far.', 'Let me check the program.'], a: 2,
+      explain: 'Câu hỏi đuôi xác nhận giờ bắt đầu → đáp gián tiếp "Let me check the program" (để tôi xem lại chương trình). A bẫy âm "workshop" – "shop". B lặp "nine" nhưng nói số người tham gia.' },
+    { n: 30, qs: 'D', rs: 'B', q: 'The delivery truck is blocking the loading dock.',
+      r: ["Yes, it's locked.", "I'll ask the driver to move it.", 'A truckload of furniture.'], a: 1,
+      explain: 'Câu trần thuật báo vấn đề (xe tải chắn bến bốc hàng) → hành động giải quyết: "I\'ll ask the driver to move it" (tôi sẽ bảo tài xế dời xe). A bẫy âm "blocking/dock" – "locked". C bẫy âm "truck" – "truckload".' },
+    { n: 31, qs: 'B', rs: 'A', q: 'Where did you get that tablet case?',
+      r: ["In that case, let's wait.", 'About thirty dollars.', 'It came free with the tablet.'], a: 2,
+      explain: 'Câu hỏi "Where" (mua bao máy tính bảng ở đâu) → đáp gián tiếp "It came free with the tablet" (được tặng kèm khi mua máy). A lặp "case" với nghĩa khác ("in that case" = nếu vậy). B trả lời giá tiền (How much).' },
   ];
   const p2script = [
     { say: 'Part 2. In this part, you will hear a question or a statement, followed by three spoken responses. Choose the best response. The responses are not printed in your test book.' }, { pause: 3 },

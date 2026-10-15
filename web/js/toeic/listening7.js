@@ -52,7 +52,7 @@
     ],
   });
 
-  /* ---------------- Part 2: Question–Response (Q7–21) ---------------- */
+  /* ---------------- Part 2: Question–Response (Q7–31) ---------------- */
   const P2 = [
     { n: 7, qs: 'A', rs: 'B', q: 'Where should I leave these returned packages?',
       r: ['By Thursday at the latest.', 'On the cart beside the loading dock.', 'Yes, I packed them myself.'], a: 1,
@@ -99,6 +99,36 @@
     { n: 21, qs: 'C', rs: 'A', q: 'How was the open house on Saturday?',
       r: ['The door is open.', "It's on Saturday.", 'We had over forty visitors.'], a: 2,
       explain: '"How was…?" hỏi diễn biến, kết quả của buổi mở cửa xem nhà → "We had over forty visitors" (có hơn 40 người đến xem). "The door is open" lặp từ "open". "It\'s on Saturday" lặp "Saturday" và trả lời thời gian, trong khi sự kiện đã diễn ra.' },
+    { n: 22, qs: 'D', rs: 'B', q: 'What time does the clinic open on Saturdays?',
+      r: ['The clinic on Main Street.', "Yes, it's open.", "We're closed on weekends."], a: 2,
+      explain: 'Câu hỏi "What time" (phòng khám mở cửa lúc mấy giờ thứ Bảy) → đáp gián tiếp "We\'re closed on weekends" (cuối tuần chúng tôi nghỉ). A lặp "clinic" và trả lời Where. B trả lời Yes với câu Wh-.' },
+    { n: 23, qs: 'A', rs: 'C', q: 'Where should we store the new medical supplies?',
+      r: ['In the cabinet next to the lab.', 'At medical school.', 'A store downtown.'], a: 0,
+      explain: 'Câu hỏi "Where" (cất vật tư y tế ở đâu) → "In the cabinet next to the lab" (trong tủ cạnh phòng xét nghiệm). B lặp "medical". C bẫy "store" (cất giữ) – "store" (cửa hàng).' },
+    { n: 24, qs: 'B', rs: 'D', q: 'Has the landlord fixed the heating in your apartment?',
+      r: ['A fixed monthly rent.', "He's sending someone tomorrow.", 'Two bedrooms and a kitchen.'], a: 1,
+      explain: 'Câu hỏi Yes/No (chủ nhà sửa máy sưởi chưa) → đáp gián tiếp "He\'s sending someone tomorrow" (mai ông ấy cho người đến – tức là chưa). A lặp "fixed" với nghĩa cố định. C liên tưởng "apartment" nhưng mô tả căn hộ.' },
+    { n: 25, qs: 'C', rs: 'A', q: "Why don't we update the software over the weekend?",
+      r: ["That way no one's work will be interrupted.", 'Because it was updated.', 'Last weekend.'], a: 0,
+      explain: '"Why don\'t we…?" là lời ĐỀ NGHỊ → đồng tình và nêu lợi ích: "That way no one\'s work will be interrupted" (như vậy công việc của ai cũng không bị gián đoạn). B bẫy: trả lời "Because" như câu hỏi Why thật. C lặp "weekend".' },
+    { n: 26, qs: 'D', rs: 'C', q: "Who'll be signing for the delivery?",
+      r: ['A delivery fee.', 'Sign here, please.', 'The receptionist can do it.'], a: 2,
+      explain: 'Câu hỏi "Who" (ai ký nhận hàng) → "The receptionist can do it" (lễ tân có thể ký). A lặp "delivery". B lặp "sign".' },
+    { n: 27, qs: 'A', rs: 'B', q: "The new tenants are moving in on Friday, aren't they?",
+      r: ["That's what the agent told me.", 'A large moving truck.', 'Ten units in total.'], a: 0,
+      explain: 'Câu hỏi đuôi xác nhận ngày chuyển đến → "That\'s what the agent told me" (môi giới bảo tôi như vậy – tức là đúng). B lặp "moving". C liên tưởng "tenants" – căn hộ nhưng nói số lượng.' },
+    { n: 28, qs: 'B', rs: 'C', q: "Isn't the backup drive full already?",
+      r: ['Back up the street.', 'A full-time position.', 'I deleted the old files yesterday.'], a: 2,
+      explain: 'Câu hỏi phủ định (ổ sao lưu đầy rồi phải không?) → đáp gián tiếp "I deleted the old files yesterday" (hôm qua tôi đã xóa các tệp cũ – tức là còn chỗ). A bẫy âm "backup" – "back up the street". B lặp "full".' },
+    { n: 29, qs: 'C', rs: 'D', q: 'Should the boxes go by air or by sea?',
+      r: ['Yes, I can see them.', 'The customer needs them next week.', 'Some fresh air.'], a: 1,
+      explain: 'Câu hỏi lựa chọn "A or B?" → đáp gián tiếp "The customer needs them next week" (tuần sau khách cần hàng – ngụ ý phải gửi đường hàng không). A bẫy âm "sea" – "see" và trả lời Yes. C lặp "air".' },
+    { n: 30, qs: 'D', rs: 'A', q: 'How long is the wait to see Dr. Ellison?',
+      r: ['About twenty minutes.', 'She was here a long time ago.', 'Wait for me outside.'], a: 0,
+      explain: '"How long" hỏi phải chờ bao lâu → "About twenty minutes" (khoảng hai mươi phút). B lặp "long". C lặp "wait".' },
+    { n: 31, qs: 'A', rs: 'D', q: "The tracking number for this shipment isn't valid.",
+      r: ['A valid passport.', "Yes, I'll track it.", 'Let me check whether I copied it correctly.'], a: 2,
+      explain: 'Câu trần thuật báo vấn đề (mã vận đơn không hợp lệ) → "Let me check whether I copied it correctly" (để tôi kiểm tra xem đã chép đúng chưa). A lặp "valid". B bẫy âm "tracking" – "track".' },
   ];
   const p2script = [
     { say: 'Part 2. In this part, you will hear a question or a statement, followed by three spoken responses. Choose the best response. The responses are not printed in your test book.' }, { pause: 3 },
