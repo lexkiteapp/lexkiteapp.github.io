@@ -75,6 +75,7 @@
       <h3 class="set-h hub-h">📝 ${t('Kiểm tra tổng hợp')}</h3>
       <div class="hub-grid"><a class="card hover hub-card" href="#/grammar/mix"><span class="hub-ic" aria-hidden="true">🔀</span><span class="hub-tx"><b>${t('Đề tổng hợp {n} câu', { n: 20 })}</b><small>${t('Trộn câu hỏi từ các bài đã học (hoặc mọi bài)')}</small></span></a>
         <a class="card hover hub-card" href="#/grammar/mix?n=40"><span class="hub-ic" aria-hidden="true">🏁</span><span class="hub-tx"><b>${t('Đề tổng hợp {n} câu', { n: 40 })}</b><small>${t('Ôn toàn bộ chương trình – như bài thi cuối khóa')}</small></span></a></div>`;
+    $$('[data-gt]').forEach(b => b.onclick = () => { try { sessionStorage.setItem('g.tab', b.dataset.gt); } catch (e) { /* bỏ qua */ } routes.grammar(); });
   };
   const levelChip = l => l ? `<span class="chip lv ${esc(l)}">${esc(l)}</span>` : '';
 
@@ -309,7 +310,6 @@
       ${drillsOf(x).length ? `<div style="margin-top:1rem">${drillsHtml(x)}</div>` : ''}
       <div style="margin-top:1rem">${challengeHtml(x)}</div>
       <div class="row between" style="margin-top:1rem">${prev ? `<a class="btn" href="#/grammar/${prev.id}?view=full">← ${esc(prev.title)}</a>` : '<span></span>'}${next ? `<a class="btn primary" href="#/grammar/${next.id}?view=full">${esc(next.title)} →</a>` : `<a class="btn primary" href="#/grammar">${t('Hoàn thành chủ điểm')} 🎉</a>`}</div>`;
-    $$('[data-gt]').forEach(b => b.onclick = () => { try { sessionStorage.setItem('g.tab', b.dataset.gt); } catch (e) { /* bỏ qua */ } routes.grammar(); });
     App.bindCommon();
     bindQuiz(x, next, () => lessonFull(id));
     if (drillsOf(x).length) bindDrills(x);
