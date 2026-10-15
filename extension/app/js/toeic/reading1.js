@@ -306,6 +306,64 @@ Operations Manager, Bluewater Travel`,
               explain: 'Cô hủy lớp ngân sách vì tuần đó đi hội chợ thương mại ở Osaka → trùng lịch với sự kiện công việc.' },
             { n: 170, q: "What is suggested about Ms. Haddad's cancellation?", options: ['It will not be refunded because of the policy.', "It meets the institute's deadline for a full refund.", 'It is for the September 21 workshop.', 'It was sent directly to Ms. Petrenko.'], a: 1, cue: 'at least seven days before a workshop',
               explain: 'Email gửi ngày 30/9, lớp Budgeting diễn ra 12/10 (trước 12 ngày) → thỏa điều kiện hủy trước ít nhất 7 ngày để được hoàn tiền đầy đủ.' }
+          ] } ] },
+        { title: 'Order form, Invoice and E-mail', text:
+`Corvane Office Supply – Online Order Form
+
+Customer: Halden Architects
+Contact: Priya Raman, Office Manager
+Order date: March 3
+Delivery address: 48 Quay Road, Suite 300, Portwick
+
+Item | Quantity | Unit price
+Ergonomic desk chair (gray) | 6 | $210
+Adjustable standing desk | 4 | $340
+Under-desk storage cabinet | 6 | $95
+
+Delivery option: Standard (5–7 business days, free for orders over $1,000)
+Special instructions: Please deliver before 10:00 A.M., as the building's freight elevator is not available in the afternoon.
+
+* * *
+
+Corvane Office Supply – Invoice No. 70815
+Date: March 9
+Bill to: Halden Architects, 48 Quay Road, Suite 300, Portwick
+
+Item | Quantity | Amount
+Ergonomic desk chair (black) | 6 | $1,260
+Adjustable standing desk | 4 | $1,360
+Under-desk storage cabinet | 6 | $570
+Delivery | – | $0
+Total due | | $3,190
+
+Payment is due within 30 days of the invoice date. Items may be returned or exchanged within 14 days of delivery at no charge. Please keep all original packaging until you are sure that the items meet your needs.
+
+* * *
+
+To: customerservice@corvane.com
+From: Priya Raman
+Date: March 11
+Subject: Invoice No. 70815
+
+Dear Customer Service,
+
+Our order arrived yesterday, and the desks and cabinets are exactly what we wanted. However, the chairs are not the color I selected. Our new office has been decorated in light tones, and the chairs we received would not match the rest of the furniture.
+
+I would like to exchange all six chairs for the ones I originally ordered. I have kept the boxes, so the chairs can be collected at any time. Please note that the delivery arrived in the afternoon, and the driver had to carry everything up the stairs. I would therefore appreciate it if the collection could be scheduled for the morning.
+
+Kind regards,
+Priya Raman`,
+          groups: [ { type: 'mcq', instr: 'Questions 171-175 refer to the following order form, invoice, and e-mail.', items: [
+            { n: 171, q: 'Why did Ms. Raman send the e-mail?', options: ['To report that an order arrived late', 'To request a refund for damaged furniture', 'To ask for some items to be exchanged', 'To change a delivery address'], a: 2, cue: 'I would like to exchange all six chairs',
+              explain: 'Đoạn 2 của email: "I would like to exchange all six chairs" → mục đích là đổi hàng. Hàng giao đúng hạn (đặt 3/3, giao 10/3), không hề bị hư hỏng và cô không đổi địa chỉ giao hàng.' },
+            { n: 172, q: 'What color chairs did Ms. Raman originally order?', options: ['Black', 'Gray', 'White', 'Light brown'], a: 1, cue: 'Ergonomic desk chair (gray)',
+              explain: 'Câu hỏi kết hợp 2 tài liệu: phiếu đặt hàng ghi "Ergonomic desk chair (gray)", còn hóa đơn ghi "(black)" – đúng với lời phàn nàn "not the color I selected". Màu đen là màu giao nhầm; "light tones" chỉ là tông màu trang trí văn phòng.' },
+            { n: 173, q: 'What is probably true about the exchange Ms. Raman requested?', options: ['It must be paid for in advance.', 'It will be delayed until April.', 'It requires a new order form.', 'It will be handled at no charge.'], a: 3, cue: 'returned or exchanged within 14 days of delivery at no charge',
+              explain: 'Hóa đơn: hàng được đổi "within 14 days of delivery at no charge"; email cho biết hàng giao ngày 10/3 ("arrived yesterday", email ngày 11/3) và cô còn giữ thùng → yêu cầu đổi nằm trong hạn, miễn phí. Không có thông tin về trả tiền trước, phiếu đặt hàng mới hay việc trì hoãn.' },
+            { n: 174, q: 'In the invoice, the word "meet" in paragraph 1 is closest in meaning to', options: ['satisfy', 'encounter', 'gather', 'join'], a: 0, cue: 'meet your needs',
+              explain: '"the items meet your needs" = sản phẩm đáp ứng nhu cầu → "meet" mang nghĩa "satisfy". "encounter" (gặp gỡ), "gather" (tập hợp), "join" (tham gia) là các nghĩa khác của "meet", không hợp ngữ cảnh.' },
+            { n: 175, q: 'What is suggested about the delivery on March 10?', options: ['It included fewer items than ordered.', 'It was made by a different company.', "It did not follow the customer's instructions.", 'It was charged a delivery fee.'], a: 2, cue: 'the delivery arrived in the afternoon',
+              explain: 'Phiếu đặt hàng yêu cầu "Please deliver before 10:00 A.M." vì thang máy chở hàng không dùng được buổi chiều; email cho biết "the delivery arrived in the afternoon" → giao hàng không theo hướng dẫn. Số lượng giao đủ, phí giao hàng là $0 (đơn trên $1,000).' }
           ] } ] }
       ] }
   ] });

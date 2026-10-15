@@ -300,6 +300,59 @@ Delia Sorensen`,
               explain: '"promote the bakery" = quảng bá tiệm bánh ≈ "advertise", phù hợp với chủ đề buổi hội thảo "Marketing on a Small Budget". "move up" (thăng chức) là nghĩa khác của "promote" khi nói về nhân viên; "support" (ủng hộ) và "raise" (nâng lên) không hợp ngữ cảnh.' },
             { n: 170, q: 'How much will Ms. Sorensen\'s friend most likely pay for the final workshop?', options: ['Nothing', '$15', '$25', '$90'], a: 1, cue: 'other participants pay $15 per session',
               explain: 'Kết hợp hai văn bản: bạn của cô không có thẻ thư viện, mà người không có thẻ trả "$15 per session" → $15 cho buổi cuối (24/4). "Nothing" chỉ đúng với người có thẻ; 25 là số chỗ ngồi tối đa, 90 là số phút mỗi buổi – đều là bẫy số liệu.' }
+          ] } ] },
+        { title: 'Job posting, E-mail and Schedule', text:
+`Position Available: Customer Support Team Leader
+Lumora Home Appliances – Westford Service Center
+
+Lumora is seeking an experienced team leader to supervise a group of twelve support agents who assist customers by phone and online chat. Responsibilities include preparing weekly work schedules, training new staff, and handling complaints that agents cannot resolve on their own.
+
+Applicants must have at least three years of experience in customer service, including one year in a supervisory role. Fluency in Spanish is an advantage, as many of our customers are Spanish speakers. The position is full-time, with some weekend shifts.
+
+To apply, send a résumé and cover letter to Ines Corvo at hr@lumora.com by September 25. Interviews will be held the following week.
+
+* * *
+
+To: Ines Corvo
+From: Rafael Okafor
+Date: September 22
+Subject: Customer Support Team Leader position
+
+Dear Ms. Corvo,
+
+I am writing to apply for the team leader position advertised on your Web site. For the past four years, I have worked in the customer care department at Delmont Telecom, where I was promoted to shift supervisor eighteen months ago. In that role, I oversee eight agents and am responsible for resolving escalated complaints.
+
+I grew up in Monterrey, Mexico, and speak Spanish as my first language. My résumé is attached.
+
+Please note that I will be attending a training course in Chicago from September 29 to October 1, so I would be grateful if any interview could be arranged after those dates.
+
+Sincerely,
+Rafael Okafor
+
+* * *
+
+Lumora Home Appliances – Interview Schedule
+Position: Customer Support Team Leader
+Interview panel: Ines Corvo (Human Resources), Paul Haskins (Service Center Manager)
+
+Date | Time | Candidate
+September 30 | 10:00 A.M. | Hye-jin Park
+September 30 | 2:00 P.M. | Daniel Whitford
+October 1 | 11:00 A.M. | Amara Ndiaye
+October 2 | 9:30 A.M. | Rafael Okafor
+
+All interviews take place in Meeting Room 3. Candidates will be asked to complete a 20-minute written exercise before meeting the panel, so they should arrive fifteen minutes early.`,
+          groups: [ { type: 'mcq', instr: 'Questions 171-175 refer to the following job posting, e-mail, and schedule.', items: [
+            { n: 171, q: 'What is one responsibility of the advertised position?', options: ['Repairing home appliances', 'Selling products by phone', 'Translating documents', 'Creating staff schedules'], a: 3, cue: 'preparing weekly work schedules',
+              explain: 'Tin tuyển dụng liệt kê nhiệm vụ "preparing weekly work schedules" → lập lịch làm việc cho nhân viên. Công ty bán đồ gia dụng nhưng vị trí này không sửa chữa hay bán hàng; tiếng Tây Ban Nha chỉ là lợi thế, không phải việc dịch tài liệu.' },
+            { n: 172, q: 'Why did Mr. Okafor write the e-mail?', options: ['To accept a job offer', 'To request a training course', 'To apply for a job', 'To recommend a colleague'], a: 2, cue: 'I am writing to apply',
+              explain: 'Câu mở đầu email: "I am writing to apply for the team leader position" → nộp đơn xin việc. Khóa đào tạo ở Chicago chỉ được nhắc để giải thích lịch bận, không phải mục đích của email.' },
+            { n: 173, q: 'What is suggested about Mr. Okafor?', options: ['He has a skill that Lumora considers useful.', 'He currently supervises twelve agents.', 'He has worked at Lumora before.', 'He submitted his application after the deadline.'], a: 0, cue: 'speak Spanish as my first language',
+              explain: 'Kết hợp 2 tài liệu: tin tuyển dụng ghi "Fluency in Spanish is an advantage"; email: ông "speak Spanish as my first language" → ông có kỹ năng Lumora coi trọng. Ông giám sát 8 người (12 là số nhân viên ở Lumora); email gửi ngày 22/9, trước hạn 25/9; ông đang làm ở Delmont Telecom.' },
+            { n: 174, q: "What is probably true about Mr. Okafor's interview?", options: ['It will be conducted by phone.', 'It is the first interview of the week.', 'It was scheduled after he returns from a course.', 'It will last only twenty minutes.'], a: 2, cue: 'October 2 | 9:30 A.M. | Rafael Okafor',
+              explain: 'Email: ông học ở Chicago "from September 29 to October 1" và xin phỏng vấn sau thời gian đó; lịch xếp ông vào "October 2 | 9:30 A.M." → được sắp xếp theo yêu cầu. Buổi phỏng vấn diễn ra tại Meeting Room 3, không qua điện thoại; ông là người cuối cùng; 20 phút chỉ là thời gian làm bài viết.' },
+            { n: 175, q: 'In the job posting, the word "handling" in paragraph 1 is closest in meaning to', options: ['touching', 'dealing with', 'carrying', 'delivering'], a: 1, cue: 'handling complaints',
+              explain: '"handling complaints that agents cannot resolve" = xử lý các khiếu nại → "dealing with". "touching" (chạm vào), "carrying" (mang vác), "delivering" (giao) là nghĩa vật lý của "handle", không hợp ngữ cảnh.' }
           ] } ] }
       ] }
   ] });

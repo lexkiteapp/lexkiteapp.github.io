@@ -333,6 +333,52 @@ Tomasz Wilk`,
               explain: 'Ông là hội viên Standard; hội viên Standard trả $8 mỗi lớp.' },
             { n: 170, q: 'Why is Mr. Wilk interested in changing his membership?', options: ['He is moving closer to the gym.', 'He wants access to the pool.', 'He is unhappy with his instructor.', 'He goes to classes frequently.'], a: 3, cue: 'I am now attending classes several times a week',
               explain: 'Ông muốn nâng cấp vì đi học nhiều lần mỗi tuần; gói Premium được học miễn phí.' }
+          ] } ] },
+        { title: 'E-mail, Itinerary and Online review', text:
+`To: Tomas Lindqvist
+From: reservations@harbourviewsuites.com
+Date: May 2
+Subject: Booking confirmation HV-5521
+
+Dear Mr. Lindqvist,
+
+Thank you for choosing Harbourview Suites in Sydney. We are pleased to confirm your reservation of a Business King room for three nights, arriving on May 19 and departing on May 22, at a rate of AUD 245 per night. Breakfast in our Level 2 restaurant is included.
+
+As a member of our Blue Anchor loyalty program, you are entitled to complimentary airport transfers. To arrange one, simply reply to this e-mail with your flight details at least 48 hours before arrival. Late checkout until 2:00 P.M. is also available to members on request.
+
+Reservations Team, Harbourview Suites
+
+* * *
+
+Travel Itinerary – Tomas Lindqvist, Regional Sales Director, Norrby Instruments
+
+May 19 | Arrive Sydney, flight NI 482, 7:40 A.M. | Transfer to hotel
+May 20 | 9:00 A.M.–5:00 P.M. | Meetings with distributors, Norrby Sydney office
+May 21 | 10:00 A.M. | Product demonstration, Pacific Medical Expo, Darling Harbour
+May 22 | Depart Sydney, flight NI 487, 6:15 P.M.
+
+Note: All taxi and meal expenses not covered by the hotel should be paid with the corporate card, and receipts must be submitted within ten days of your return.
+
+* * *
+
+Harbourview Suites – Guest Review
+Posted by T. Lindqvist, May 24
+Rating: 4 out of 5
+
+I stayed here for three nights on a business trip. The driver who collected me from the airport was waiting when I landed, which was a relief after a long overnight flight. My room was spacious and quiet, and the desk was large enough to spread out my documents. The location is ideal, as the expo center is a short walk away.
+
+My only complaint concerns breakfast. The restaurant was so crowded on my first morning that I had to wait twenty minutes for a table. Staff told me that a large tour group was staying at the hotel. On my last day, I appreciated being able to keep my room until the afternoon before heading to the airport.`,
+          groups: [ { type: 'mcq', instr: 'Questions 171-175 refer to the following e-mail, itinerary, and online review.', items: [
+            { n: 171, q: 'What is the purpose of the e-mail?', options: ['To confirm a hotel reservation', 'To announce a room upgrade', 'To request payment of a deposit', 'To advertise a loyalty program'], a: 0, cue: 'pleased to confirm your reservation',
+              explain: 'Ngay đoạn 1 của email: "We are pleased to confirm your reservation" → xác nhận đặt phòng. Chương trình Blue Anchor chỉ được nhắc như quyền lợi của khách, không phải mục đích chính; không có nâng hạng phòng hay yêu cầu đặt cọc.' },
+            { n: 172, q: 'In the e-mail, the word "arrange" in paragraph 2 is closest in meaning to', options: ['decorate', 'organize', 'adjust', 'sort'], a: 1, cue: 'To arrange one',
+              explain: '"To arrange one" (one = an airport transfer) = sắp xếp/đặt một chuyến đưa đón → "organize". "decorate" (trang trí), "sort" (phân loại), "adjust" (điều chỉnh) không hợp ngữ cảnh đặt dịch vụ.' },
+            { n: 173, q: 'What is probably true about Mr. Lindqvist?', options: ['He sent his flight details to the hotel in advance.', 'He paid for a taxi from the airport.', 'He changed his departure date.', 'He stayed at the hotel for four nights.'], a: 0, cue: 'The driver who collected me from the airport was waiting',
+              explain: 'Email: muốn được đưa đón miễn phí thì phải gửi "flight details at least 48 hours before arrival"; bài đánh giá: "The driver who collected me from the airport was waiting" → ông đã gửi thông tin chuyến bay trước. Vì có xe đón nên không phải đi taxi; ông ở đúng ba đêm và rời đi 22/5 như dự kiến.' },
+            { n: 174, q: 'Why did Mr. Lindqvist have to wait for breakfast?', options: ['The restaurant opened late.', 'He arrived before breakfast was served.', 'Many other guests were eating at the same time.', 'His room did not include breakfast.'], a: 2, cue: 'a large tour group was staying at the hotel',
+              explain: 'Bài đánh giá: nhà hàng "so crowded" vì "a large tour group was staying at the hotel" → nhiều khách ăn cùng lúc. Email cho biết bữa sáng đã bao gồm trong giá phòng; không có thông tin nhà hàng mở cửa muộn.' },
+            { n: 175, q: "What is suggested about Mr. Lindqvist's last day in Sydney?", options: ['He gave a product demonstration that day.', 'He missed his flight.', 'He met distributors in the morning.', 'He used a benefit available to loyalty program members.'], a: 3, cue: 'keep my room until the afternoon',
+              explain: 'Bài đánh giá: ngày cuối ông được "keep my room until the afternoon"; email cho biết "Late checkout until 2:00 P.M." là quyền lợi dành cho thành viên → ông đã dùng ưu đãi thành viên. Theo lịch trình, buổi giới thiệu sản phẩm là 21/5 và gặp nhà phân phối là 20/5, không phải ngày cuối (22/5).' }
           ] } ] }
       ] }
   ] });

@@ -167,6 +167,7 @@
     view.innerHTML = `<div class="study-wrap" style="max-width:820px"><div class="card tx-start">
       <div class="row between"><div><div class="tiny muted">💼 TOEIC Listening & Reading</div><h2 style="margin:.2rem 0">Mock Test ${n}</h2></div>${(state.game.toeicBest || {}).total ? `<span class="chip ok">🏆 ${t('Cao nhất')}: ${state.game.toeicBest.total}</span>` : ''}</div>
       <table class="tx-table"><thead><tr><th>${t('Phần')}</th><th>${t('Số câu')}</th><th>${t('Thời gian')}</th><th class="muted">${t('Đề thật')}</th></tr></thead><tbody>
+        ${LP.some(p => p.part === 1) ? '' : `<tr class="muted"><td>🎧 Listening · Part 1</td><td>–</td><td>${t('mô tả tranh – chưa có')}</td><td>${OFF[1]}</td></tr>`}
         ${LP.map((p, i) => `<tr><td>🎧 Listening · Part ${p.part}</td><td>${lq[i]}</td><td class="muted">${t('nghe 1 lần')}</td><td class="muted">${OFF[p.part] || ''}</td></tr>`).join('')}
         ${rParts.map((x, i) => `<tr><td>📖 Reading · Part ${x.part}</td><td>${x.q}</td><td class="muted">${i === 0 ? t('{m} phút cho cả Reading', { m: rMins }) : ''}</td><td class="muted">${OFF[x.part] || ''}</td></tr>`).join('')}
       </tbody></table><p class="tiny muted" style="margin:.4rem 0 0">${t('Đề rút gọn tự biên soạn, cùng dạng câu hỏi với đề thật (200 câu: Listening 45 phút, Reading 75 phút).')}</p>

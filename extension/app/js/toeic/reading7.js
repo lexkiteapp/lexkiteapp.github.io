@@ -301,6 +301,64 @@ Tregenza Print Works`,
               explain: '"a trade show that opened at noon" = hội chợ thương mại khai mạc lúc 12 giờ trưa → "opened" ≈ "began" (bắt đầu). "unlocked" (mở khóa), "revealed" (tiết lộ), "unfolded" (mở ra, trải ra) là các nghĩa khác của "open", không hợp ngữ cảnh sự kiện.' },
             { n: 170, q: 'How much was Ms. Tregenza most likely charged for the shipment?', options: ['$26.00', '$30.60', '$34.00', '$39.00'], a: 1, cue: 'Business account holders receive a 10 percent discount on all services.',
               explain: 'Kết hợp hai văn bản: gói hàng nặng 4 kg (dưới 5 kg, không tính phụ phí) gửi bằng Priority Plus giá $34.00; cô có tài khoản doanh nghiệp nên được giảm 10% → $34.00 − $3.40 = $30.60. Cô tự mang đến quầy nên không mất phí lấy hàng $5. "$34.00" là giá chưa giảm; "$39.00" là giá cộng thêm phí lấy hàng – đều là bẫy.' }
+          ] } ] },
+        { title: 'Web page, E-mail and Form', text:
+`www.coastalretailforum.org/register
+
+Coastal Retail Forum – Halverton Convention Center, June 8–9
+
+Registration options:
+Full pass (both days, includes lunch and the June 8 evening reception): $395
+One-day pass (lunch included): $240
+Reception only: $60
+
+Register before May 1 to receive $50 off a full pass. Groups of four or more from the same company save an additional 10% on all passes.
+
+This year's keynote speaker, retail analyst Corinne Matsuda, will open the forum at 9:00 A.M. on June 8. Workshops on store design, online sales, and staff training will run throughout both days. A full program will be posted on May 15.
+
+* * *
+
+To: registration@coastalretailforum.org
+From: Arjun Mehta
+Date: May 20
+Subject: Registration question
+
+Hello,
+
+I registered for a full pass last month, but a client meeting has now been scheduled for the morning of June 8, and I will not be able to arrive in Halverton until about 2:00 P.M. that day. I am disappointed to miss the opening talk, as I have followed Ms. Matsuda's research for years.
+
+Would it be possible to receive recordings of any sessions I miss? Also, I see from the program that the store design workshop is offered on both days. Could I switch my place to the June 9 session?
+
+Thank you,
+Arjun Mehta
+Store Planning Manager, Tidewell Outlets
+
+* * *
+
+Coastal Retail Forum – Participant Feedback
+
+Name: Arjun Mehta
+Company: Tidewell Outlets
+Pass type: Full pass
+
+Please rate the following (1 = poor, 5 = excellent):
+Workshops: 5
+Venue: 4
+Meals and reception: 3
+Registration process: 5
+
+Comments: The store design workshop was the highlight of the forum for me, and I was glad the organizers were able to move me to the second day without any trouble. The online recordings also helped me catch up on what I missed. My only suggestion is to provide more vegetarian dishes at lunch, as they had run out by the time I reached the buffet on the second day.`,
+          groups: [ { type: 'mcq', instr: 'Questions 171-175 refer to the following web page, e-mail, and form.', items: [
+            { n: 171, q: 'What is indicated about the full pass?', options: ['It includes an evening event.', 'It is available only to groups.', 'It costs $240.', 'It must be purchased by May 1.'], a: 0, cue: 'includes lunch and the June 8 evening reception',
+              explain: 'Trang web: vé Full pass "includes lunch and the June 8 evening reception" → có sự kiện buổi tối. $240 là giá vé một ngày; mua trước 1/5 chỉ để được giảm $50, không bắt buộc; ưu đãi nhóm là giảm thêm, không giới hạn người mua.' },
+            { n: 172, q: 'Why did Mr. Mehta send the e-mail?', options: ['To cancel his registration', 'To make requests because of a schedule conflict', 'To ask for a refund', 'To propose a workshop topic'], a: 1, cue: 'Could I switch my place to the June 9 session',
+              explain: 'Vì có cuộc họp với khách sáng 8/6, ông hỏi xin bản ghi các phiên bị lỡ và "Could I switch my place to the June 9 session?" → đưa ra yêu cầu do trùng lịch. Ông không hủy đăng ký hay đòi hoàn tiền.' },
+            { n: 173, q: 'What is probably true about Mr. Mehta?', options: ['He registered as part of a group.', 'He gave a presentation at the forum.', 'He paid for a one-day pass.', 'He did not see the keynote speech in person.'], a: 3, cue: 'will open the forum at 9:00 A.M. on June 8',
+              explain: 'Kết hợp 2 tài liệu: trang web – bài phát biểu chính của Ms. Matsuda bắt đầu "at 9:00 A.M. on June 8"; email – ông chỉ đến Halverton khoảng 2 giờ chiều hôm đó → không nghe trực tiếp. Phiếu góp ý ghi "Full pass", không phải vé một ngày; không có thông tin đăng ký theo nhóm hay thuyết trình.' },
+            { n: 174, q: "What is suggested about Mr. Mehta's requests?", options: ['Neither of them could be accommodated.', 'Only the request for recordings was granted.', 'Both of them were granted.', 'They were handled by Ms. Matsuda.'], a: 2, cue: 'move me to the second day without any trouble',
+              explain: 'Email có 2 yêu cầu: xin bản ghi và đổi sang buổi workshop ngày 9/6. Phiếu góp ý: ban tổ chức "move me to the second day without any trouble" và "The online recordings also helped me" → cả hai đều được đáp ứng. Ms. Matsuda là diễn giả, không xử lý đăng ký.' },
+            { n: 175, q: 'In the form, the word "highlight" in the comments is closest in meaning to', options: ['final event', 'main topic', 'brightest light', 'best part'], a: 3, cue: 'the highlight of the forum',
+              explain: '"The store design workshop was the highlight of the forum for me" = phần hay nhất của diễn đàn → "best part". "brightest light" là nghĩa đen sai ngữ cảnh; "final event" và "main topic" không đúng nghĩa.' }
           ] } ] }
       ] }
   ] });

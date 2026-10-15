@@ -308,6 +308,58 @@ Customer Support Manager, Larchmont Insurance`,
               explain: '"entitle sb to sth" = cho ai quyền được hưởng cái gì → "booking this far ahead entitles us to a discount" (đặt sớm như vậy cho chúng tôi quyền được giảm giá) ≈ "allows". "names" (đặt tên) là nghĩa khác của "entitle" (đặt tiêu đề) nhưng không hợp ngữ cảnh; "requires" và "describes" sai nghĩa.' },
             { n: 170, q: 'What does Mr. Baek ask about one of his team members?', options: ['Whether she can bring a family member', 'Whether she can join a different activity', 'Whether she can arrive late', 'Whether she can receive a refund'], a: 1, cue: 'Is there an alternative activity she could take part in at the same location?',
               explain: 'Một nhân viên bị đau mắt cá chân, không đi bộ đường dài được; ông hỏi "Is there an alternative activity she could take part in…?" → liệu cô ấy có thể tham gia hoạt động khác không. "family commitments" ở đoạn trước là lý do không ngủ qua đêm, không phải việc đưa người nhà theo.' }
+          ] } ] },
+        { title: 'Notice, Form and E-mail', text:
+`Ashgrove Community Centre – Room Rentals
+
+The Ashgrove Community Centre offers three rooms for meetings, classes, and private events.
+
+The Maple Room seats up to 20 people and is equipped with a projector and screen. The Cedar Hall holds up to 120 guests and includes a small stage and a sound system. The Willow Studio, which has a sprung wooden floor and wall mirrors, is ideal for dance and fitness classes of up to 25 participants.
+
+Rates are $30 per hour for the Maple Room and the Willow Studio and $85 per hour for the Cedar Hall. Registered nonprofit organizations receive a 20% discount. Requests must be submitted at least three weeks in advance. Please note that the centre closes at 10:00 P.M.
+
+* * *
+
+Room Rental Request Form
+
+Name: Gloria Petrakis
+Organization: Ashgrove Seniors' Walking Club (registered nonprofit)
+Date of event: Saturday, November 14
+Time: 6:00 P.M.–10:30 P.M.
+Room requested: Cedar Hall
+Expected number of guests: 90
+Purpose: Annual awards dinner
+
+Additional requests: We will bring in food from an outside caterer. We would also like to use the stage for a short slide presentation, so we will need a projector if one can be provided.
+
+* * *
+
+To: Gloria Petrakis
+From: Desmond Achebe, Facilities Coordinator
+Date: October 20
+Subject: Your rental request
+
+Dear Ms. Petrakis,
+
+Thank you for your request. Cedar Hall is available on November 14, and I have reserved it for your club. However, as the building closes at 10:00 P.M., I have adjusted your booking to end at that time. Your group will need to have cleared the hall by then.
+
+Outside catering is permitted, provided that the caterer brings its own serving equipment. The projector normally kept in the Maple Room can be moved to the stage for your event at no extra cost.
+
+The total for four hours, including your discount, comes to $272.
+
+Best regards,
+Desmond Achebe`,
+          groups: [ { type: 'mcq', instr: 'Questions 171-175 refer to the following notice, form, and e-mail.', items: [
+            { n: 171, q: 'What is indicated about the Willow Studio?', options: ['It has a small stage.', 'It is suitable for exercise classes.', 'It holds more people than the Cedar Hall.', 'It costs $85 per hour.'], a: 1, cue: 'ideal for dance and fitness classes',
+              explain: 'Thông báo: Willow Studio "is ideal for dance and fitness classes" → phù hợp cho lớp tập luyện. Sân khấu nhỏ và giá $85/giờ là của Cedar Hall; Willow chỉ chứa 25 người, ít hơn Cedar Hall (120).' },
+            { n: 172, q: 'What is the main purpose of the e-mail?', options: ['To confirm a reservation and explain some details', 'To decline a request for a room', 'To request payment of a deposit', 'To recommend a local caterer'], a: 0, cue: 'I have reserved it for your club',
+              explain: 'Email báo "I have reserved it for your club" rồi giải thích giờ kết thúc, quy định về đồ ăn bên ngoài, máy chiếu và tổng chi phí → xác nhận đặt phòng kèm chi tiết. Yêu cầu không bị từ chối; không có tiền đặt cọc hay giới thiệu nhà cung cấp đồ ăn.' },
+            { n: 173, q: 'What is probably true about the projector that will be used at the dinner?', options: ['It must be rented separately.', 'It belongs to the walking club.', 'It is usually installed in the Willow Studio.', 'It is normally used in a room that seats up to 20 people.'], a: 3, cue: 'The projector normally kept in the Maple Room',
+              explain: 'Email: "The projector normally kept in the Maple Room" sẽ được chuyển lên sân khấu; thông báo: "The Maple Room seats up to 20 people" → máy chiếu thường dùng trong phòng 20 chỗ. Máy chiếu được dùng "at no extra cost" nên không phải thuê riêng; nó thuộc trung tâm, không phải của câu lạc bộ.' },
+            { n: 174, q: 'In the e-mail, the word "cleared" in paragraph 1 is closest in meaning to', options: ['approved', 'explained', 'emptied', 'crossed'], a: 2, cue: 'cleared the hall',
+              explain: '"Your group will need to have cleared the hall by then" = phải dọn trống/rời khỏi hội trường trước 10 giờ tối → "emptied". "approved" (phê duyệt), "explained" (làm rõ) và "crossed" (vượt qua) là nghĩa khác của "clear", không hợp ngữ cảnh.' },
+            { n: 175, q: 'What is suggested about the rental fee quoted by Mr. Achebe?', options: ['It includes a charge for catering equipment.', "It reflects the club's nonprofit status.", 'It is based on a rate of $30 per hour.', 'It covers four and a half hours.'], a: 1, cue: 'including your discount',
+              explain: 'Kết hợp 3 tài liệu: Cedar Hall giá $85/giờ × 4 giờ = $340; câu lạc bộ là "registered nonprofit" nên được giảm 20% → $272, đúng như email ghi "including your discount". $30/giờ là giá phòng khác; thời gian đã rút còn 4 giờ (6:00–10:00 tối); nhà cung cấp đồ ăn tự mang dụng cụ.' }
           ] } ] }
       ] }
   ] });

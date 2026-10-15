@@ -327,6 +327,63 @@ Operations Manager, Carrow Freight`,
               explain: 'Câu hỏi kết hợp: trang web giảm thêm 10% cho nhóm từ 5 người trở lên cùng công ty; email đăng ký 6 nhân viên → đủ điều kiện (C). Email gửi ngày 3/10, đã qua hạn giá sớm 30/9 (B sai).' },
             { n: 170, q: 'What does Ms. Ferreira ask about two of her colleagues?', options: ['Whether they can share a pass', 'Whether they can collect their badges at an evening event', 'Whether they can attend only the dinner', 'Whether they can stay at a different hotel'], a: 1, cue: 'pick up their badges at the dinner instead of at the registration desk',
               explain: 'Bà hỏi hai đồng nghiệp đến muộn có thể "pick up their badges at the dinner" không – bữa tối networking diễn ra vào tối 5/11 → nhận thẻ tại một sự kiện buổi tối (B). Họ vẫn đăng ký vé trọn gói, chỉ lỡ các phiên ban ngày (C sai).' }
+          ] } ] },
+        { title: 'Price list, E-mail and Delivery notice', text:
+`Montaro Coffee Traders – Wholesale Price List (effective July 1)
+
+Product | Origin | Price per 5 kg bag
+House Blend | Brazil and Colombia | $92
+Highland Reserve | Ethiopia | $128
+Dark Harbor Espresso | Sumatra | $110
+Morning Light Decaf | Peru | $105
+
+Orders of ten or more bags receive free delivery; smaller orders are charged a flat fee of $25. Orders received by noon on a weekday are shipped the same day. Our Ethiopian beans are harvested once a year, so supplies may be limited from late summer until the next harvest arrives in November.
+
+* * *
+
+To: orders@montarocoffee.com
+From: Leon Abara
+Date: August 18
+Subject: Weekly order
+
+Hello,
+
+Please send us the following: six bags of House Blend, three bags of Dark Harbor Espresso, and two bags of Highland Reserve. We have recently added a cold brew menu, and it has been far more popular than we expected, so we are going through beans much faster than before.
+
+If any item is unavailable, please substitute the decaf rather than delaying the entire order. We would like to have everything by Thursday, as we are hosting a tasting event that evening.
+
+Best regards,
+Leon Abara
+Manager, Bramble Street Café
+
+* * *
+
+Montaro Coffee Traders – Delivery Notice
+
+Customer: Bramble Street Café
+Order date: August 18
+Shipped: August 18
+Expected arrival: August 20 (Thursday)
+
+Items shipped:
+House Blend – 6 bags
+Dark Harbor Espresso – 3 bags
+Morning Light Decaf – 2 bags
+
+Delivery charge: $0.00
+
+Note: One item on your order was out of stock and has been replaced according to your instructions. We apologize for any inconvenience.`,
+          groups: [ { type: 'mcq', instr: 'Questions 171-175 refer to the following price list, e-mail, and delivery notice.', items: [
+            { n: 171, q: 'What is the purpose of the delivery notice?', options: ['To request payment for an order', 'To provide details about a shipment', 'To announce a price increase', 'To confirm a change of address'], a: 1, cue: 'Items shipped',
+              explain: 'Thông báo liệt kê ngày gửi, ngày dự kiến đến, "Items shipped" và phí giao hàng → cung cấp thông tin về lô hàng đã gửi. Không có yêu cầu thanh toán, tăng giá hay đổi địa chỉ.' },
+            { n: 172, q: 'Why is Bramble Street Café using more coffee than before?', options: ['It is opening a second location.', 'Its supplier has raised its prices.', 'It is extending its business hours.', 'A new type of drink is selling well.'], a: 3, cue: 'far more popular than we expected',
+              explain: 'Email: quán vừa thêm "a cold brew menu" và nó "far more popular than we expected" → loại đồ uống mới bán chạy. Không nhắc đến chi nhánh mới, tăng giá hay kéo dài giờ mở cửa.' },
+            { n: 173, q: 'In the e-mail, the phrase "going through" in paragraph 1 is closest in meaning to', options: ['using up', 'examining', 'passing by', 'experiencing'], a: 0, cue: 'going through beans much faster',
+              explain: '"going through beans much faster than before" = dùng hết hạt cà phê nhanh hơn → "using up". "examining" (xem xét kỹ), "experiencing" (trải qua) và "passing by" (đi ngang qua) là các nghĩa khác của "go through", không hợp ngữ cảnh.' },
+            { n: 174, q: "What is suggested about Mr. Abara's order?", options: ['It will arrive after the tasting event.', 'It was received after noon.', 'It did not include any Ethiopian beans.', 'It contained only one type of coffee.'], a: 2, cue: 'Morning Light Decaf – 2 bags',
+              explain: 'Kết hợp 3 tài liệu: ông đặt 2 bao Highland Reserve (bảng giá: xuất xứ "Ethiopia", nguồn cung hạn chế từ cuối hè); thông báo giao hàng thay bằng "Morning Light Decaf – 2 bags" theo đúng dặn dò "substitute the decaf" → đơn không có hạt Ethiopia. Hàng đến thứ Năm, đúng ngày tổ chức buổi thử cà phê; hàng gửi ngay trong ngày nên đơn được nhận trước buổi trưa.' },
+            { n: 175, q: 'What is probably true about the delivery charge?', options: ['It was added to a later invoice.', 'It was waived because of the size of the order.', 'It was reduced because one item was out of stock.', 'It applies only to orders received after noon.'], a: 1, cue: 'Orders of ten or more bags receive free delivery',
+              explain: 'Đơn hàng gồm 6 + 3 + 2 = 11 bao; bảng giá ghi "Orders of ten or more bags receive free delivery" và thông báo ghi "Delivery charge: $0.00" → được miễn phí vì số lượng lớn. Mức $25 chỉ áp dụng cho đơn dưới 10 bao; việc hết hàng không liên quan đến phí giao.' }
           ] } ] }
       ] }
   ] });

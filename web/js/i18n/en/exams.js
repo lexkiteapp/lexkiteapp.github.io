@@ -303,7 +303,7 @@
   'Học từ vựng bài “{title}”': 'Learn vocabulary from “{title}”',
 }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, {
-  'Cao nhất': 'Best', 'Phần': 'Section', 'Số câu': 'Questions', 'Thời gian': 'Time', 'nghe 1 lần': 'played once', '{m} phút cho cả Reading': '{m} min for all of Reading', 'Đề thật': 'Real exam', 'Đề rút gọn tự biên soạn, cùng dạng câu hỏi với đề thật (200 câu: Listening 45 phút, Reading 75 phút).': 'A shorter original practice test with the same question types as the real exam (200 questions: Listening 45 min, Reading 75 min).',
+  'Cao nhất': 'Best', 'Phần': 'Section', 'Số câu': 'Questions', 'Thời gian': 'Time', 'nghe 1 lần': 'played once', '{m} phút cho cả Reading': '{m} min for all of Reading', 'Đề thật': 'Real exam', 'mô tả tranh – chưa có': 'photographs – not included', 'Đề rút gọn tự biên soạn, cùng dạng câu hỏi với đề thật (200 câu: Listening 45 phút, Reading 75 phút).': 'A shorter original practice test with the same question types as the real exam (200 questions: Listening 45 min, Reading 75 min).',
   'Trước khi bắt đầu': 'Before you start', 'Đeo tai nghe, chọn nơi yên tĩnh – audio chỉ phát 1 lần như thi thật.': 'Use headphones in a quiet place – audio plays only once, as in the real test.',
   'Reading có đồng hồ đếm ngược, hết giờ tự nộp.': 'Reading is timed and submits automatically when time runs out.', 'Câu sai tự vào Sổ lỗi sai kèm giải thích.': 'Wrong answers go to your Mistake log with explanations.',
   'Thử loa': 'Test sound', 'Các lần trước': 'Previous attempts', 'Bắt đầu làm bài': 'Start the test', 'Bảng câu hỏi': 'Question map',

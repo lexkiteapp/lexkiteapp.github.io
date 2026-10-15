@@ -304,6 +304,55 @@ Henrietta Vos`,
               explain: '"the fees are really adding up" = các khoản phí cộng dồn lại thành nhiều ≈ "increasing" (tăng lên). "being calculated" (được tính toán) là nghĩa đen của "add up" nhưng không hợp ngữ cảnh than phiền; "agreeing" (hợp lý, khớp – nghĩa của "add up" trong "it doesn\'t add up") và "joining" sai nghĩa.' },
             { n: 170, q: 'What is most likely true about Ms. Vos\'s monthly fee?', options: ['It will rise to $45.', 'It has already been refunded.', 'It may not have to be paid.', 'It will be charged twice in August.'], a: 2, cue: 'The monthly fee is waived for any month in which the account\'s average balance is above $20,000.',
               explain: 'Kết hợp hai văn bản: phí hằng tháng được miễn ("waived") khi số dư trung bình trên $20,000, mà số dư của công ty bà luôn trên $25,000 → có thể không phải trả phí. $45 là phí gói Premier mà bà không cần; không có thông tin hoàn phí hay thu phí hai lần.' }
+          ] } ] },
+        { title: 'Article, Schedule and Memo', text:
+`Fennick Insurance Staff Newsletter – March Issue
+Moving Day Approaches
+
+After nearly twenty years on Dalton Avenue, Fennick Insurance will relocate its head office to the newly built Riverside Exchange tower in April. The new premises will give us an additional 2,000 square meters of space, a staff café, and a rooftop terrace with views of the river.
+
+The move will take place over three weekends so that normal business can continue during the week. Each department will be assigned a specific weekend, and employees will be asked to pack their own desks on the Friday before their move. Boxes and labels will be distributed by the facilities team.
+
+Chief Operating Officer Lena Brandt said, "This building reflects how much we have grown. It will also allow us to bring our claims staff, currently in a separate office, under one roof."
+
+* * *
+
+Riverside Exchange Relocation Schedule
+
+Weekend | Departments | Floor
+April 4–5 | Finance, Human Resources | 8
+April 11–12 | Sales, Marketing | 9
+April 18–19 | Claims, Customer Service | 10
+
+Network and phone connections will be tested on the Sunday of each move. Employees should report to their new floor on the Monday following their department's move. Parking permits for the Riverside Exchange garage can be requested from the facilities team.
+
+* * *
+
+MEMO
+To: All Marketing staff
+From: Owen Castellanos, Marketing Director
+Date: March 27
+Re: Our move
+
+Team,
+
+As you know, our turn to move is approaching. Please note that the facilities team has asked us to pack a day earlier than other departments, because a large client presentation is scheduled in our current conference room that Friday afternoon and the space must be kept clear.
+
+Please make sure that each box is labeled with your name and new desk number. Personal items such as plants and framed photographs should be taken home and brought to the new office yourselves.
+
+Thank you,
+Owen`,
+          groups: [ { type: 'mcq', instr: 'Questions 171-175 refer to the following article, schedule, and memo.', items: [
+            { n: 171, q: 'What is the purpose of the article?', options: ['To announce the opening of a new branch', 'To inform staff about a planned relocation', 'To introduce a new chief operating officer', 'To advertise office space for rent'], a: 1, cue: 'will relocate its head office',
+              explain: 'Đoạn 1: Fennick Insurance "will relocate its head office" sang tòa Riverside Exchange, các đoạn sau mô tả cách chuyển → thông báo kế hoạch chuyển văn phòng. Đây là trụ sở chính chuyển đi, không phải mở chi nhánh; bà Lena Brandt chỉ được trích lời.' },
+            { n: 172, q: 'What is mentioned as a feature of the new building?', options: ['A fitness center', 'A child-care center', 'A conference hall for clients', 'An outdoor space at the top of the building'], a: 3, cue: 'a rooftop terrace',
+              explain: 'Bài báo nêu tòa nhà mới có "a staff café, and a rooftop terrace with views of the river" → khoảng sân ngoài trời trên mái. Phòng gym, nhà trẻ hay hội trường cho khách đều không được nhắc đến.' },
+            { n: 173, q: 'In the article, the word "assigned" in paragraph 2 is closest in meaning to', options: ['given', 'signed', 'moved', 'described'], a: 0, cue: 'assigned a specific weekend',
+              explain: '"Each department will be assigned a specific weekend" = mỗi phòng ban được phân/giao một cuối tuần cụ thể → "given". "signed" (ký) chỉ giống mặt chữ; "moved" và "described" không hợp nghĩa.' },
+            { n: 174, q: 'What is probably true about the Marketing department?', options: ['It will move on the first weekend.', 'It will work on the eighth floor.', 'It will pack its desks on Thursday, April 9.', 'It will hold a client presentation in the new building.'], a: 2, cue: 'pack a day earlier than other departments',
+              explain: 'Kết hợp 3 tài liệu: bài báo – nhân viên đóng gói "on the Friday before their move"; lịch – Marketing chuyển ngày 11–12/4 (thứ Sáu trước đó là 10/4); bản ghi nhớ – Marketing "pack a day earlier" → thứ Năm 9/4. Marketing chuyển vào cuối tuần thứ hai, lên tầng 9; buổi thuyết trình diễn ra ở phòng họp hiện tại.' },
+            { n: 175, q: 'What is suggested about the employees who currently work in a separate office?', options: ['They will move during the first weekend in April.', 'They will share a floor with the Sales department.', 'They will pack their desks on a Thursday.', 'They will work on the tenth floor.'], a: 3, cue: 'Claims, Customer Service | 10',
+              explain: 'Bài báo: nhân viên bộ phận bồi thường "currently in a separate office"; lịch: "Claims, Customer Service | 10" → họ sẽ làm việc ở tầng 10. Họ chuyển vào cuối tuần 18–19/4; Sales ở tầng 9; chỉ Marketing phải đóng gói sớm vào thứ Năm.' }
           ] } ] }
       ] }
   ] });
