@@ -229,32 +229,12 @@
   // Ảnh minh họa từ Openverse (kho ảnh Creative Commons): ưu tiên CC0/phạm vi công cộng, sau đó giấy phép cho phép dùng thương mại.
   // Trả về { src, credit, link, license } – luôn hiển thị ghi nguồn theo giấy phép.
   async function freeImage(word) {
-    const q = encodeURIComponent(word);
-    // Chỉ nhận ảnh thực sự liên quan: tiêu đề hoặc thẻ mô tả phải chứa từ (hoặc dạng gốc của từ)
-    const stem = word.toLowerCase().replace(/(ies|es|s|ed|ing)$/, '').slice(0, Math.max(4, word.length - 3));
-    const relevant = r => {
-      const hay = [(r.title || ''), ...(r.tags || []).map(t => t.name || '')].join(' ').toLowerCase();
-      return new RegExp(`\\b${stem.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(hay);
-    };
-    const titleHit = r => new RegExp(`\\b${stem.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test((r.title || '').toLowerCase());
-    const photo = r => r.thumbnail && !r.mature && !/svg|gif/i.test(r.filetype || '') && !/maki|icon|logo|symbol|emblem|coat of arms|\.svg|\.tif|\.pdf|diagram|chart|map of/i.test(r.title || '')
-      && (!r.width || r.width >= 400) && (!r.height || !r.width || (r.width / r.height > 0.6 && r.width / r.height < 2.2));
-    const pick = d => d && Array.isArray(d.results) && (d.results.find(r => photo(r) && titleHit(r)) || d.results.find(r => photo(r) && relevant(r)));
-    const api = qs => fetchJSON(`https://api.openverse.org/v1/images/?q=${q}&page_size=12&mature=false&${qs}`, 3000);
-    // 3 truy vấn chạy song song, chọn theo thứ tự ưu tiên: stock CC0 → mọi CC0/PD → CC BY (ghi nguồn)
-    const [a1, a2, a3] = await Promise.all([api('license=cc0,pdm&source=stocksnap,rawpixel,nappy,wikimedia'), api('license=cc0,pdm'), api('license_type=commercial&source=wikimedia,flickr')]);
-    let r = pick(a1) || pick(a2) || pick(a3);
-    if (!r) return null;
-    // Ảnh thu nhỏ lấy thẳng từ nguồn (dịch vụ thumb của Openverse đôi khi lỗi 424)
-    const thumbOf = r => {
-      const u = r.url || '';
-      if (/upload\.wikimedia\.org/.test(u)) { const f = decodeURIComponent(u.split('/').pop()); return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(f)}?width=480`; }
-      if (/staticflickr\.com/.test(u)) return u.replace(/(_[a-z])?\.jpg$/, '_n.jpg');
-      return u || r.thumbnail;
-    };
-    const lic = (r.license || '').toUpperCase() + (r.license_version && !/cc0|pdm/i.test(r.license) ? ' ' + r.license_version : '');
-    return { src: thumbOf(r), link: r.foreign_landing_url || r.url, license: lic,
-      credit: t('“{title}” – {creator} · {license} · qua Openverse', { title: (r.title || word).slice(0, 60), creator: r.creator || t('không rõ tác giả'), license: /pdm/i.test(r.license) ? 'Public Domain' : lic }) };
+    // Qua proxy /api/img (lưu đệm ở biên Cloudflare, dùng chung mọi người dùng) – tránh hết hạn mức ẩn danh của Openverse
+    const base = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com';
+    const r = await fetchJSON(`${base}/api/img?w=${encodeURIComponent(String(word).toLowerCase())}`, 4000);
+    if (!r || r.none || !r.src) return null;
+    return { src: r.src, link: r.link, license: r.license,
+      credit: t('“{title}” – {creator} · {license} · qua Openverse', { title: r.title || word, creator: r.creator || t('không rõ tác giả'), license: r.license }) };
   }
   // Giữ tên cũ cho mã gọi trước đây
   const wikiImage = async word => { const im = await freeImage(word); return im ? im.src : ''; };
@@ -296,7 +276,21 @@
     if (C.some(e => e.pos.length !== 1) && /^(noun|verb|adjective)$/.test(pos)) { const ini = e => /^\/ˈ/.test(e.ipa), S = C.filter(e => (pos === 'verb' ? !ini(e) && /ˈ/.test(e.ipa) : ini(e))); if (S.length) C = S; }
     return (C.find(hasAcc) || C.find(e => !e.acc) || C[0]).ipa;
   };
+  // Nghĩa theo từ loại: dữ liệu từ điển Google đôi khi sai (vd. complete động từ = "không chê được").
+  // Từ có trong kho Lexkite → nghĩa biên soạn đứng đầu đúng từ loại; Google chỉ 1 nghĩa trái với kho → bỏ nghĩa đó.
+  const POS_SENSE = { n: 'noun', v: 'verb', adj: 'adjective', adv: 'adverb', 'danh từ': 'noun', 'động từ': 'verb', 'tính từ': 'adjective', 'trạng từ': 'adverb' };
+  function fixSenses(senses, local) {
+    if (!local || !local.vi || !local.pos) return senses;
+    const lp = POS_SENSE[String(local.pos).toLowerCase()]; if (!lp) return senses;
+    const mine = local.vi.split(/[,;]\s*/).map(x => x.replace(/\(.*?\)/g, '').trim()).filter(Boolean);
+    const out = senses.map(x => ({ ...x, terms: x.terms.slice() })), hit = out.find(x => (POS_SENSE[String(x.pos).toLowerCase()] || String(x.pos).toLowerCase()) === lp);
+    if (!hit) return [{ pos: lp, terms: mine }, ...out];
+    const agree = hit.terms.some(term => mine.some(m => term.includes(m) || m.includes(term)));
+    hit.terms = hit.terms.length <= 1 && !agree ? mine : [...new Set([...mine, ...hit.terms])].slice(0, 6);
+    return out;
+  }
   function build(word, local, gg, fd, wk, img, sents) {
+    if (gg && local) gg = { ...gg, senses: fixSenses(gg.senses, local) };
     const gFirst = gg && gg.defs[0] && gg.defs[0].defs[0];
     const fFirst = fd && fd.meanings[0];
     const anyEx = (gg && gg.defs.flatMap(m => m.defs).find(d => d.ex)) || (fd && fd.meanings.flatMap(m => m.defs).find(d => d.ex));
