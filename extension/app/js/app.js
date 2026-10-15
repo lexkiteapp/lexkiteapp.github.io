@@ -259,7 +259,14 @@
       if (ph && !ph.querySelector('.crumb')) ph.insertAdjacentHTML('afterbegin', c);
     };
     if (document.startViewTransition && !matchMedia('(prefers-reduced-motion: reduce)').matches && !document.hidden) {
-      try { document.startViewTransition(render); return; } catch (e) { /* trình duyệt không hỗ trợ */ }
+      // Hiệu ứng có thể bị trình duyệt hủy (tab chạy nền, chuyển trang dồn dập) → vẫn luôn vẽ trang, không bao giờ để màn hình trắng
+      let drawn = false; const once = () => { if (drawn) return; drawn = true; return render(); };
+      try {
+        const vt = document.startViewTransition(once);
+        vt.updateCallbackDone.catch(once); vt.ready.catch(() => {}); vt.finished.catch(() => {});
+        setTimeout(once, 400);
+        return;
+      } catch (e) { /* trình duyệt không hỗ trợ */ }
     }
     view.style.animation = 'none'; void view.offsetWidth; view.style.animation = '';
     render();
