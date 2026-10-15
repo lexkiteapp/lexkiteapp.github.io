@@ -6,7 +6,7 @@ import { ROOT, CATEGORIES, plainText, wordCount, readPost, loadPostsAt, briefSlu
 
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/, TAG = /^[a-z0-9-]+$/, YT = /^[\w-]{11}$/;
 const ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})$/, DAY = /^\d{4}-\d{2}-\d{2}$/;
-const RESERVED = new Set(['trang', 'chu-de', 'the', 'rss.xml', 'gioi-thieu']); // /blog/<…>/ không phải bài
+const RESERVED = new Set(['trang', 'chu-de', 'the', 'page', 'topic', 'tag', 'rss.xml', 'gioi-thieu']); // /blog/<…>/ không phải bài
 const FAQ = /^(câu hỏi thường gặp|faq)\b/i;
 const rel = f => (f && !path.relative(process.cwd(), f).startsWith('..') ? path.relative(process.cwd(), f) : f);
 const len = s => [...String(s ?? '')].length;
@@ -46,6 +46,11 @@ export function checkPosts(posts, { all = posts, root = ROOT } = {}) {
     if (p.publishAt && !(ISO.test(p.publishAt) && !isNaN(Date.parse(p.publishAt)))) E('publishAt', `"${p.publishAt}" không phải ISO 8601 có múi giờ (vd 2026-10-16T08:17:00+07:00)`);
     if (p.factChecked) { if (!DAY.test(p.factChecked) || isNaN(Date.parse(p.factChecked))) E('factChecked', `"${p.factChecked}" phải là ngày YYYY-MM-DD`); }
     else if (!draft) E('factChecked', 'thiếu factChecked (bắt buộc khi không phải draft)');
+    // Điểm chất lượng từ bước chấm (prompts/6-review.md): bắt buộc ≥ 85/100 cho bài mới (bài kiểm chứng trước 16/10/2026 được miễn)
+    const qs = p.qualityScore === '' || p.qualityScore == null ? null : Number(p.qualityScore);
+    if (qs != null && !(qs >= 85 && qs <= 100)) E('quality', `qualityScore ${p.qualityScore} – cần 85–100 (chấm lại theo prompts/6-review.md)`);
+    else if (qs == null && !draft && !(p.factChecked && p.factChecked <= '2026-10-15')) E('quality', 'thiếu qualityScore (chấm theo prompts/6-review.md, cần ≥ 85)');
+    if (!draft && /TODO-LOCALIZE|<!--\s*(Brief|Viết theo)/.test(p.body || '')) E('todo', 'còn ghi chú nháp (TODO-LOCALIZE / Brief) trong bài');
     if (p.updated && (!DAY.test(p.updated) || isNaN(Date.parse(p.updated)))) E('updated', `"${p.updated}" phải là ngày YYYY-MM-DD`);
     // Từ khóa
     if (kw) {
@@ -69,6 +74,10 @@ export function checkPosts(posts, { all = posts, root = ROOT } = {}) {
       else if (!media.ids.has(id)) E('image', `ảnh media:${id} không có trong ${media.fallback ? 'shots.json' : 'media.json'}`);
       if (len(m[1].trim()) < 10) E('image', `alt ảnh "${m[1]}" quá ngắn (cần ≥ 10 ký tự)`);
     }
+    // Số ảnh: ≥ 2 ảnh thân bài khác ảnh bìa và khác nhau; bài dài (≥ 1.800 từ) nên ≥ 3
+    const bodyImgs = new Set([...body.matchAll(/!\[[^\]]*\]\(\s*media:([\w-]+)/g)].map(m => m[1]).filter(id => id !== p.cover));
+    if (bodyImgs.size < 2) E('image', `cần ≥ 2 ảnh trong thân bài (khác ảnh bìa, khác nhau), đang có ${bodyImgs.size}`);
+    else if (wc >= 1800 && bodyImgs.size < 3) W('image', `bài dài ${wc} từ nên có ≥ 3 ảnh thân bài (đang ${bodyImgs.size})`);
     if (!p.cover) E('cover', 'thiếu cover'); else if (!media.ids.has(p.cover)) E('cover', `cover "${p.cover}" không có trong ${media.fallback ? 'shots.json' : 'media.json'}`);
     if (len(String(p.coverAlt ?? '').trim()) < 10) E('cover', 'coverAlt cần ≥ 10 ký tự');
     // Shortcode

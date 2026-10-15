@@ -1,4 +1,4 @@
-// Chụp màn hình app thật (bản ?sandbox=1&demo=1 – dữ liệu mẫu tách riêng) cho bài blog → .media/src/<id>.png
+// Chụp màn hình app thật bằng giao diện TIẾNG ANH (dùng chung cho mọi ngôn ngữ blog; bản ?sandbox=1&demo=1 – dữ liệu mẫu tách riêng) cho bài blog → .media/src/<id>.png
 // Cần playwright-core + Chromium: bash scripts/setup-media-tools.sh. Dùng: node scripts/blog-shots.mjs [id ...]
 import fs from 'node:fs'; import { createRequire } from 'node:module';
 const TOOLS = process.env.LEXKITE_TOOLS || `${process.cwd()}/.tools`;
@@ -11,7 +11,7 @@ const px = process.env.HTTPS_PROXY && new URL(process.env.HTTPS_PROXY);
 // --single-process: chạy được cả trong môi trường hạn chế tiến trình con (sandbox macOS)
 const b = await chromium.launch({ headless: true, args: ['--single-process', '--no-zygote', '--no-sandbox', '--disable-gpu', '--use-mock-keychain', '--hide-scrollbars'],
   proxy: px ? { server: `http://${px.host}`, username: decodeURIComponent(px.username), password: decodeURIComponent(px.password) } : undefined });
-const ctx = await b.newContext({ locale: 'vi-VN', reducedMotion: 'reduce' });
+const ctx = await b.newContext({ locale: 'en-US', reducedMotion: 'reduce' });
 const p = await ctx.newPage();
 const cdp = await ctx.newCDPSession(p);
 await p.goto(cfg.app + '#/home', { waitUntil: 'load' }); await p.waitForTimeout(3000); // nạp dữ liệu mẫu

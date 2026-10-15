@@ -1,6 +1,6 @@
 {
  "_note": "Ảnh chụp app thật cho blog: id → đường dẫn trong app (#/...) và khung hình. Chạy: node scripts/blog-shots.mjs [id...] rồi node scripts/blog-media.mjs",
- "app": "https://lexkite.com/?sandbox=1&demo=1&hl=vi",
+ "app": "https://lexkite.com/?sandbox=1&demo=1&hl=en",
  "shots": {
   "home": {
    "route": "#/home",

@@ -141,3 +141,18 @@ node scripts/indexnow.mjs --dry [url…]           # xem payload IndexNow (bỏ 
 - Commit + push bài đã xếp lịch lên `main` → cron `.github/workflows/blog-publish.yml` (phút 7 mỗi giờ) gọi deploy hook khi có bài đến hạn, chờ 5 phút rồi gửi IndexNow. Chạy tay: Actions → Blog publish → Run workflow (force = build lại dù không có bài).
 - Khóa IndexNow: `content/blog/config.json` → `indexNowKey`, file công khai `web/<key>.txt` (phải có trên lexkite.com). Đổi khóa = tạo file mới + sửa config.
 - **Thiết lập 1 lần (anh/cha):** Cloudflare Dashboard → Workers & Pages → `lexkite` → Settings → Builds → Deploy hooks → Add (tên `blog-cron`, nhánh `main`) → sao chép URL → GitHub `lexkiteapp/lexkiteapp.github.io` → Settings → Secrets and variables → Actions → New repository secret `CF_PAGES_DEPLOY_HOOK` = URL đó. Không ghi URL hook vào repo. Thiếu secret → workflow báo lỗi rõ ràng.
+
+## 12. Mở rộng hàng chục nghìn bài – vẫn 0 đồng, vẫn nhẹ
+| Tài nguyên | Giới hạn miễn phí | Blog dùng | Cách giữ an toàn |
+|---|---|---|---|
+| Cloudflare Pages: số file/lần deploy | 20.000 | 1 file/bài + trang danh sách/chuyên mục/thẻ (thẻ < 2 bài không tạo trang) | `build-web.sh` cảnh báo > 15.000, chặn > 19.500. App hiện chiếm ~4.500 file (3.866 file âm thanh) → còn ~14.000 bài. |
+| Cloudflare Pages: build | 500 lần/tháng, 20 phút/lần | cron chỉ gọi build khi có bài đến giờ (2–3 lần/ngày ≈ 90/tháng) | engine dựng 80 bài < 1 giây |
+| Repo git | khuyến nghị < 1 GB | chỉ Markdown (~15 KB/bài → 10.000 bài ≈ 150 MB) | ảnh/video KHÔNG vào repo |
+| Ảnh: GitHub Pages `lexkite-media` | ~1 GB/kho, ~100 GB băng thông/tháng | ảnh chụp app tiếng Anh DÙNG CHUNG mọi bài & mọi ngôn ngữ (~5 MB tổng), AVIF/WebP 3 cỡ | kho đầy → kho shard mới, `base` theo ảnh trong media.json |
+| Video | – | YouTube (kênh Lexkite), facade: chỉ tải iframe khi bấm | 0 KB lúc tải trang |
+| Trang | – | ~9 KB HTML gzip, 0 JS (trừ bài có video), CSS nội tuyến, font hệ thống | CLS 0 nhờ width/height |
+| Sitemap / RSS | 50.000 URL/file | `sitemap-blog-<lang>.xml` chia 10.000 URL/file; RSS 20 bài mới | sitemap index tự gom |
+
+Khi gần 15.000 file (bước tiếp, vẫn miễn phí, làm theo thứ tự):
+1. Đưa âm thanh app (3.866 file, 120 MB) ra kho `lexkiteapp.github.io` (đã là CDN phụ) → trả lại ~3.900 chỗ trong 20.000 file.
+2. Tách từng ngôn ngữ blog thành dự án Pages riêng (vd. `lexkite-blog-en`) và gắn đường dẫn `/en/blog/*` bằng Cloudflare Worker route (100.000 lượt/ngày miễn phí) – hoặc khi đó nâng Workers Paid 5 USD/tháng (100.000 file, 10 triệu lượt).
