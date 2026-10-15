@@ -1676,14 +1676,21 @@
     let pages = 1, dur = 0, since = document.visibilityState === 'visible' ? Date.now() : 0, errs = 0;
     let lcp = 0; try { new PerformanceObserver(l => { const e = l.getEntries().pop(); if (e) lcp = Math.round(e.startTime); }).observe({ type: 'largest-contentful-paint', buffered: true }); } catch (e) { /* trình duyệt không hỗ trợ */ } // LCP thật của người dùng (Core Web Vitals)
     const send = d => { try { navigator.sendBeacon ? navigator.sendBeacon(BASE + '/api/hit', JSON.stringify(d)) : fetch(BASE + '/api/hit', { method: 'POST', body: JSON.stringify(d), keepalive: true }); } catch (e) { /* bỏ qua */ } };
-    const flush = () => { if (since) { dur += (Date.now() - since) / 1000; since = 0; } send({ t: 's', sid, vid, ret, path, ref: document.referrer, lang: window.I18N ? I18N.lang() : '', dev, plat, dur: Math.round(dur), pages, lcp }); };
+    // Quy mô lớn: chỉ một tỉ lệ người dùng gửi thống kê phiên (hit_rate do quản trị đặt, ổn định theo vid) – giữ D1/Functions trong gói miễn phí
+    let rate = 1; try { rate = Math.min(1, Math.max(0.01, +localStorage.getItem('lk.hr') || 1)); } catch (e) { /* bỏ qua */ }
+    const inSample = (parseInt(vid.slice(0, 6), 36) % 1000) < rate * 1000;
+    let lastSent = 0;
+    const flush = (force) => { if (since) { dur += (Date.now() - since) / 1000; since = 0; } if (!inSample || (!force && Date.now() - lastSent < 60000)) return; lastSent = Date.now(); send({ t: 's', sid, vid, ret, path, ref: document.referrer, lang: window.I18N ? I18N.lang() : '', dev, plat, dur: Math.round(dur), pages, lcp }); };
     addEventListener('hashchange', () => pages++);
     document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flush(); else since = Date.now(); });
-    addEventListener('pagehide', flush);
+    addEventListener('pagehide', () => flush(true));
     const err = (msg, src, line) => { if (++errs > 5 || !msg || /ResizeObserver loop|^Script error\.?$/.test(msg)) return; send({ t: 'e', msg: String(msg), src: String(src || '').replace(location.origin, ''), line, path: (location.hash.match(/^#\/([a-z-]+)/) || [, ''])[1] }); };
     addEventListener('error', e => err(e.message, e.filename, e.lineno));
     addEventListener('unhandledrejection', e => { const r = e.reason; err(r && (r.message || String(r)), r && r.stack && (r.stack.split('\n')[1] || '').trim(), 0); });
-    setTimeout(() => fetch(BASE + '/api/config').then(r => r.ok ? r.json() : {}).then(c => {
+    // Cấu hình công khai: đệm 1 giờ trên máy (mỗi lần mở trang không gọi Functions)
+    const cfg = () => { try { const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'); if (c && Date.now() - c.at < 3600e3) return Promise.resolve(c.v); } catch (e) { /* bỏ qua */ } return fetch(BASE + '/api/config').then(r => r.ok ? r.json() : {}).then(v => { try { localStorage.setItem('lk.cfg', JSON.stringify({ at: Date.now(), v })); } catch (e) { /* bỏ qua */ } return v; }); };
+    setTimeout(() => cfg().then(c => {
+      try { if (c.hit_rate) localStorage.setItem('lk.hr', c.hit_rate); else localStorage.removeItem('lk.hr'); } catch (e) { /* bỏ qua */ }
       if (!c.banner) return;
       const key = 'lk.banner.' + c.banner.length + c.banner.slice(0, 20);
       try { if (localStorage.getItem(key)) return; } catch (e) { /* bỏ qua */ }

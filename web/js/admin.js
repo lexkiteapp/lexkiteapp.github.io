@@ -72,6 +72,7 @@
       const pct = (x, y) => y ? Math.round(x / y * 100) + '%' : '–';
       main.innerHTML = `
         <div class="tools"><b>Khoảng thời gian</b>${[1, 7, 30, 90, 365].map(d => `<button class="btn sm ${d === days ? 'primary' : ''}" data-d="${d}">${d === 1 ? 'Hôm nay' : d + ' ngày'}</button>`).join('')}</div>
+        ${a.rate < 1 ? `<div class="card" style="margin-bottom:.8rem">ℹ️ Đang lấy mẫu ${Math.round(a.rate * 100)}% người dùng – số phiên/người thực tế ≈ số dưới đây × ${Math.round(1 / a.rate)}; tỉ lệ % và trung bình giữ nguyên.</div>` : ''}
         <div class="kpis">
           <div class="card kpi"><div class="l">Phiên truy cập</div><div class="v">${num(s.s)}</div></div>
           <div class="card kpi"><div class="l">Khách (thiết bị)</div><div class="v">${num(s.v)}</div><div class="s">${s.v ? (s.s / s.v).toFixed(1) : 0} phiên/khách</div></div>
@@ -155,7 +156,7 @@
     },
     async settings() {
       const c = await api('config'), v = k => esc((c.values[k] || {}).v || '');
-      const L = { banner: 'Thông báo đầu trang (để trống = tắt)', banner_url: 'Link kèm thông báo (https://…)', banner_level: 'Kiểu thông báo: info / warn / ok', ai_user: 'Lượt chấm AI/ngày – đã đăng nhập (mặc định 5)', ai_anon: 'Lượt chấm AI/ngày – khách (mặc định 3)', ai_global: 'Trần AI toàn hệ thống/ngày (mặc định 400)', alert_errors: 'Ngưỡng cảnh báo lỗi JS/24h (mặc định 50)', note: 'Ghi chú nội bộ cho quản trị' };
+      const L = { banner: 'Thông báo đầu trang (để trống = tắt)', banner_url: 'Link kèm thông báo (https://…)', banner_level: 'Kiểu thông báo: info / warn / ok', ai_user: 'Lượt chấm AI/ngày – đã đăng nhập (mặc định 5)', ai_anon: 'Lượt chấm AI/ngày – khách (mặc định 3)', ai_global: 'Trần AI toàn hệ thống/ngày (mặc định 400)', alert_errors: 'Ngưỡng cảnh báo lỗi JS/24h (mặc định 50)', hit_rate: 'Tỉ lệ lấy mẫu thống kê 0.01–1 (mặc định 1 = mọi người; > 30k người/ngày nên đặt 0.1 để giữ D1 miễn phí)', note: 'Ghi chú nội bộ cho quản trị' };
       main.innerHTML = `<div class="card"><h3>Cài đặt website</h3><div class="form2">${c.keys.map(k => `<label>${L[k] || k}${k === 'banner' || k === 'note' ? `<textarea name="${k}" rows="2">${v(k)}</textarea>` : `<input name="${k}" value="${v(k)}">`}<span class="small muted" style="font-weight:400">${c.values[k] ? 'Sửa ' + when(c.values[k].at) + ' bởi ' + esc(c.values[k].by) : ''}</span></label>`).join('')}</div>
         <div class="tools" style="margin-top:1rem"><button class="btn primary" id="csave">Lưu cài đặt</button><span class="small muted" id="cmsg">Thông báo hiện trên web/app sau tối đa 5 phút.</span></div></div>`;
       $('#csave').onclick = async () => { const values = {}; main.querySelectorAll('[name]').forEach(i => values[i.name] = i.value.trim()); await api('configSet', { values }); $('#cmsg').textContent = '✓ Đã lưu'; };

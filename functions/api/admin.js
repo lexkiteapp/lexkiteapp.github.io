@@ -6,7 +6,7 @@ import { setup as hitSetup } from './hit.js';
 
 const ORIGINS = /^https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)$/;
 const REPO = 'lexkiteapp/lexkiteapp.github.io';
-const CONFIG_KEYS = ['banner', 'banner_url', 'banner_level', 'ai_user', 'ai_anon', 'ai_global', 'alert_errors', 'note'];
+const CONFIG_KEYS = ['banner', 'banner_url', 'banner_level', 'ai_user', 'ai_anon', 'ai_global', 'alert_errors', 'note', 'hit_rate'];
 const DAY = 86400e3;
 const cors = req => { const o = req.headers.get('Origin') || ''; return ORIGINS.test(o) ? { 'Access-Control-Allow-Origin': o, 'Access-Control-Allow-Headers': 'Authorization, Content-Type', 'Access-Control-Allow-Methods': 'POST, OPTIONS', Vary: 'Origin' } : {}; };
 const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...cors(req) } });
@@ -104,7 +104,8 @@ const OPS = {
       one(db, 'SELECT COUNT(*) AS s, COUNT(DISTINCT vid) AS v, AVG(dur) AS dur, AVG(pages) AS pages, SUM(ret) AS ret, SUM(pages <= 1 AND dur < 15) AS bounce, AVG(lcp) AS lcp, SUM(lcp > 0 AND lcp <= 2500) AS lcpGood, SUM(lcp > 0) AS lcpN FROM sessions WHERE day >= ?', from),
       all(db, "SELECT CASE WHEN c = 1 THEN '1' WHEN c <= 3 THEN '2–3' WHEN c <= 7 THEN '4–7' WHEN c <= 15 THEN '8–15' ELSE '16+' END AS k, COUNT(*) AS n FROM (SELECT vid, COUNT(*) AS c FROM sessions WHERE day >= ? GROUP BY vid) GROUP BY k", from),
     ]);
-    return { days, daily, refs, countries, devs, langs, plats, paths, sum, freq };
+    const rate = +((await one(db, "SELECT v FROM config WHERE k = 'hit_rate'").catch(() => null)) || {}).v || 1;
+    return { days, daily, refs, countries, devs, langs, plats, paths, sum, freq, rate };
   },
   async errors(db) { return { rows: await all(db, 'SELECT * FROM errors ORDER BY last DESC LIMIT 200') }; },
   async errorsClear(db, b) { if (b.h) await db.prepare('DELETE FROM errors WHERE h = ?').bind(String(b.h)).run(); else await db.prepare('DELETE FROM errors').run(); return { ok: true }; },

@@ -1,5 +1,5 @@
 /* Cấu hình công khai do quản trị đặt (thông báo đầu trang…) – GET /api/config, đệm 5 phút ở biên Cloudflare. */
-export const PUBLIC_KEYS = ['banner', 'banner_url', 'banner_level'];
+export const PUBLIC_KEYS = ['banner', 'banner_url', 'banner_level', 'hit_rate'];
 export async function onRequestGet({ env }) {
   const out = {};
   try {
