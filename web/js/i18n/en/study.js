@@ -469,4 +469,4 @@
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Làm lại {n} lỗi sai': 'Retry {n} mistakes', 'Tự nhớ lại đáp án – sửa lỗi = tăng điểm nhanh nhất': 'Recall the answer yourself – fixing mistakes is the fastest way to score higher' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Hoàn tác lần chấm vừa rồi (Z)': 'Undo last grade (Z)', 'Đã hoàn tác – chấm lại thẻ này': 'Undone – grade this card again' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'hoàn tác': 'undo' }); })(typeof self !== 'undefined' ? self : this);
-(function (g) { Object.assign(g.I18N_DICT.en, { 'Mẹo nhớ': 'Mnemonic', 'Lỗi hay gặp': 'Common mistake', 'Cách dùng khi thi': 'Exam usage', 'Họ từ': 'Word family', 'Chế độ Rảnh tay': 'Hands-free mode' }); })(typeof self !== 'undefined' ? self : this);
+(function (g) { Object.assign(g.I18N_DICT.en, { 'Mẹo nhớ': 'Mnemonic', 'Lỗi hay gặp': 'Common mistake', 'Cách dùng khi thi': 'Exam usage', 'Họ từ': 'Word family', 'Chế độ Rảnh tay': 'Hands-free mode', 'Xem lại đoạn gốc': 'Replay the original clip' }); })(typeof self !== 'undefined' ? self : this);

@@ -1209,3 +1209,4 @@ mark.g-ok { background: rgba(21,128,61,.18); color: var(--good); font-weight: 70
 @keyframes rxp { from { opacity: .55; } to { opacity: 1; } }
 .rx-yt { width: min(100%, 520px); aspect-ratio: 16/9; border: 0; border-radius: 12px; margin: 0 auto .6rem; }
 @media (prefers-reduced-motion: reduce) { .rx-mic { animation: none; } }
+.ctx-yt { display: block; width: min(100%, 440px); aspect-ratio: 16/9; border: 0; border-radius: 10px; margin: .5rem 0 .2rem; }

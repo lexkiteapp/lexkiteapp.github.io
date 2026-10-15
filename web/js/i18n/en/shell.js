@@ -473,4 +473,6 @@
   "Gạch chân từ học thuật B2–C2": "Underline B2–C2 academic words",
   "⌨️ A câu trước · S lặp câu · D câu sau": "⌨️ A previous line · S repeat line · D next line",
   "Học bài: {n} →": "Lesson: {n} →",
+  "Xong {n} thẻ – tuyệt!": "Done {n} cards – great!",
+  "⚡ Ôn nhanh {i}/{n}": "⚡ Quick review {i}/{n}",
 }); })(typeof self !== 'undefined' ? self : this);

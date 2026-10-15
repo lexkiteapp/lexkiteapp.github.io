@@ -14975,5 +14975,20 @@
   "ar": "استمع جيدًا…",
   "ru": "Слушайте внимательно…",
   "tr": "Dikkatle dinle…"
+ },
+ "Xem lại đoạn gốc": {
+  "es": "Ver el clip original",
+  "pt": "Rever o trecho original",
+  "fr": "Revoir l’extrait",
+  "de": "Originalclip ansehen",
+  "id": "Putar ulang klip asli",
+  "th": "ดูคลิปต้นฉบับ",
+  "zh": "重看原片段",
+  "ja": "元の場面を見る",
+  "ko": "원본 장면 다시 보기",
+  "hi": "मूल क्लिप देखें",
+  "ar": "إعادة المقطع الأصلي",
+  "ru": "Пересмотреть фрагмент",
+  "tr": "Orijinal klibi izle"
  }
 }

@@ -1,7 +1,7 @@
 {
-  "name": "Lexkite – Từ vựng IELTS",
+  "name": "Lexkite – Học từ vựng IELTS, TOEIC & Tiếng Anh thực chiến",
   "short_name": "Lexkite",
-  "description": "Từ vựng IELTS thông minh: lộ trình theo band, flashcard thời điểm vàng, từ điển Oxford Languages, luyện Speaking & Writing.",
+  "description": "Học từ vựng thông minh: flashcard FSRS, tra từ trên YouTube & báo chí, luyện nghe nói rảnh tay, thi thử IELTS & TOEIC 100% miễn phí.",
   "start_url": "./index.html#/home",
   "scope": "./",
   "display": "standalone",

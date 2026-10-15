@@ -11,6 +11,16 @@
   // ---------- Nguồn từ ----------
   // Nghĩa hiển thị theo ngôn ngữ người học: tiếng Việt, hoặc định nghĩa tiếng Anh cho người học quốc tế
   const mean = x => App.meanOf(x);
+  // ▶ Xem lại đoạn YouTube gốc (thẻ lưu từ phụ đề có t=): nhúng youtube-nocookie khoảng 8 giây quanh câu
+  const ytOf = src => { try { const u = new URL(src); if (!/(^|\.)(youtube\.com|youtu\.be)$/.test(u.hostname)) return null; const id = /youtu\.be$/.test(u.hostname) ? u.pathname.slice(1) : u.searchParams.get('v'); const tt = parseInt(String(u.searchParams.get('t') || '0').replace(/s$/, ''), 10) || 0; return id && /^[\w-]{6,15}$/.test(id) ? { id, t: tt } : null; } catch (e) { return null; } };
+  document.addEventListener('click', e => {
+    const b = e.target.closest && e.target.closest('[data-ytsrc]'); if (!b) return;
+    e.preventDefault(); e.stopPropagation();
+    const y = ytOf(b.dataset.ytsrc), host = b.closest('.ex'); if (!y || !host) return;
+    const old = host.querySelector('.ctx-yt'); if (old) { old.remove(); return; }
+    const s0 = Math.max(0, y.t - 2);
+    host.insertAdjacentHTML('beforeend', `<iframe class="ctx-yt" src="https://www.youtube-nocookie.com/embed/${y.id}?start=${s0}&end=${s0 + 8}&autoplay=1&rel=0&playsinline=1" allow="autoplay; encrypted-media" title="YouTube"></iframe>`);
+  }, true);
   // Người học quốc tế (giao diện es/ja/ar…): thêm nghĩa bằng tiếng mẹ đẻ dưới định nghĩa tiếng Anh
   const nativeFill = (el, word) => { const L = I18N.lang(); if (!el || L === 'vi' || L === 'en' || I18N.meanLang() === 'vi') return; const pk = App.nativeGloss && App.nativeGloss(word); if (pk) { el.textContent = '🌐 ' + pk; return; } (App.loadPack ? App.loadPack() : Promise.resolve()).then(() => App.nativeGloss(word) || Dict.translateTo(word, L)).then(r => { if (r && r.toLowerCase() !== word.toLowerCase() && el.isConnected) el.textContent = '🌐 ' + r; }).catch(() => {}); };
   const norm = w => ({ word: w.word, ipa: w.ipa || '', vi: mean(w), ex: w.ex || '', def: w.def || '', pos: w.pos || '', emoji: w.emoji || '📘', image: w.image || '', audio: w.audio || '', level: w.level || '', topic: w.topic || '' });
@@ -159,7 +169,7 @@
             <div class="vi" style="margin:.3rem 0">${esc(mean(c))}</div><div class="wi-native" data-native></div>
             ${c.def && mean(c) !== c.def ? `<div>${esc(c.def)}</div>` : ''}
             ${c.ex ? `<div class="example-box" style="margin-top:.8rem">${highlight(c.ex, c.word)} <button class="icon-btn sm" data-speak-text="${esc(c.ex)}">🔊</button></div>` : ''}
-            ${c.contexts.length ? `<div style="margin-top:.8rem"><b class="small">📌 ${t('Ngữ cảnh của bạn')}</b>${c.contexts.slice(0, 2).map(x => `<div class="ex small" style="margin-top:.3rem">“${highlight(x.text, c.word)}” <button class="ctx-say sm" data-saysent="${esc(x.text)}" title="${t('Nghe cả câu')}">🔊</button>${x.title ? ` <span class="muted">— ${esc(x.title === 'Câu của tôi' ? t('Câu của tôi') : x.title)}</span>` : ''}${x.vi && I18N.meanLang() === 'vi' ? `<div style="font-style:normal">🇻🇳 ${esc(x.vi)}</div>` : ''}</div>`).join('')}</div>` : ''}
+            ${c.contexts.length ? `<div style="margin-top:.8rem"><b class="small">📌 ${t('Ngữ cảnh của bạn')}</b>${c.contexts.slice(0, 2).map(x => `<div class="ex small" style="margin-top:.3rem">“${highlight(x.text, c.word)}” <button class="ctx-say sm" data-saysent="${esc(x.text)}" title="${t('Nghe cả câu')}">🔊</button>${ytOf(x.source) ? ` <button class="ctx-say sm" data-ytsrc="${esc(x.source)}" title="${t('Xem lại đoạn gốc')}">▶</button>` : ''}${x.title ? ` <span class="muted">— ${esc(x.title === 'Câu của tôi' ? t('Câu của tôi') : x.title)}</span>` : ''}${x.vi && I18N.meanLang() === 'vi' ? `<div style="font-style:normal">🇻🇳 ${esc(x.vi)}</div>` : ''}</div>`).join('')}</div>` : ''}
             ${(c.sentences || []).length ? `<div style="margin-top:.8rem"><b class="small">💬 ${t('Câu song ngữ')}</b>${c.sentences.map(x => `<div class="small" style="margin-top:.3rem">${highlight(x.en, c.word)}${I18N.meanLang() === 'vi' && x.vi ? `<div class="muted">${esc(x.vi)}</div>` : ''}</div>`).join('')}</div>` : ''}
             ${c.col.length ? `<div class="small" style="margin-top:.8rem">🔗 ${c.col.map(esc).join(' · ')}</div>` : ''}
             ${c.syn.length ? `<div class="small" style="margin-top:.3rem">≈ ${c.syn.map(esc).join(', ')}</div>` : ''}

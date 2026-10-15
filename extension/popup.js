@@ -6,7 +6,7 @@
   try { const { uiLang } = await chrome.storage.local.get('uiLang'); if (pickLang(uiLang)) UI_LANG = pickLang(uiLang); localStorage.setItem('vb.uiLang', UI_LANG); } catch (e) { /* bỏ qua */ }
   if (UI_LANG !== 'vi' && UI_LANG !== 'en') try { XD = ((await chrome.runtime.sendMessage({ type: 'uiDict', lang: UI_LANG })) || {}).dict || {}; } catch (e) { /* bỏ qua */ } // trang ứng dụng trong add-on dùng cùng ngôn ngữ
   const EN = {
-    'thẻ cần học hôm nay': 'cards due today', 'Ôn ngay →': 'Review now →', 'Mục tiêu': 'Goal', 'Thẻ từ vựng ở tab mới': 'Vocabulary card on new tab', 'Gạch chân từ học thuật B2–C2': 'Underline B2–C2 academic words', 'Mới lưu': 'Just saved', 'Đã thuộc': 'Learned', 'Sắp đến hạn ôn': 'Due for review soon', 'Nghe': 'Listen', 'Tra nhanh một từ…': 'Quick word lookup…',
+    'thẻ cần học hôm nay': 'cards due today', 'Ôn ngay →': 'Review now →', 'Mục tiêu': 'Goal', 'Xong {n} thẻ – tuyệt!': 'Done {n} cards – great!', '⚡ Ôn nhanh {i}/{n}': '⚡ Quick review {i}/{n}', 'Chạm để lật': 'Tap to flip', 'Quên': 'Forgot', 'Nhớ': 'Got it', 'Thẻ từ vựng ở tab mới': 'Vocabulary card on new tab', 'Gạch chân từ học thuật B2–C2': 'Underline B2–C2 academic words', 'Mới lưu': 'Just saved', 'Đã thuộc': 'Learned', 'Sắp đến hạn ôn': 'Due for review soon', 'Nghe': 'Listen', 'Tra nhanh một từ…': 'Quick word lookup…',
     '⚙️ Cài đặt tra từ': '⚙️ Lookup settings', 'Khi bôi đen chữ': 'When text is selected', 'Hiện nút 🌐 để dịch': 'Show 🌐 button to translate',
     'Tự dịch ngay': 'Translate instantly', 'Tắt': 'Off', 'Bấm đúp để tra từ': 'Double-click to look up words',
     'Đánh dấu từ đã học trên trang': 'Highlight learned words on pages', 'Mở ứng dụng ↗': 'Open app ↗',
@@ -51,6 +51,23 @@
   const { due, newCount } = Cards.dueCount(cards, settings, stats);
   $('#dueChips').innerHTML = `<span class="pp-chip">${tx('🔁 {n} ôn lại', { n: due })}</span><span class="pp-chip">${tx('✨ {n} từ mới', { n: newCount })}</span>`;
   if (!total) $('#review').textContent = tx('Thêm từ mới →');
+  // ⚡ Ôn nhanh 3 thẻ đến hạn ngay trong popup: chạm để lật → Quên / Nhớ (cập nhật lịch FSRS)
+  const dueList = Object.values(cards).filter(c => c.srs && (c.srs.reps > 0 || c.srs.last) && c.srs.due <= Date.now()).sort((a, b) => a.srs.due - b.srs.due).slice(0, 3);
+  if (dueList.length) {
+    let qi = 0;
+    const qmean = c => (UI_LANG === 'vi' ? c.vi || c.def : c.def || '') || '';
+    const draw = () => {
+      const c = dueList[qi];
+      if (!c) { $('#quick').innerHTML = `<div class="pp-quick done">✓ ${tx('Xong {n} thẻ – tuyệt!', { n: dueList.length })}</div>`; return; }
+      $('#quick').innerHTML = `<div class="pp-sec">${tx('⚡ Ôn nhanh {i}/{n}', { i: qi + 1, n: dueList.length })}</div>
+        <div class="pp-quick" id="qCard" role="button" tabindex="0"><b>${esc(c.word)}</b><span class="muted small">${esc(c.ipa || '')}</span><div class="q-back" hidden>${esc(qmean(c))}</div><div class="muted small q-hint">${tx('Chạm để lật')}</div></div>
+        <div class="pp-qbtn" hidden><button class="btn sm" data-q="0">${tx('Quên')}</button><button class="btn sm primary" data-q="2">${tx('Nhớ')}</button></div>`;
+      const flip = () => { $('#qCard .q-back').hidden = false; $('#qCard .q-hint').hidden = true; document.querySelector('.pp-qbtn').hidden = false; speak(c.word, settings.accent === 'en-US' ? c.audioUS : c.audio); };
+      $('#qCard').onclick = flip; $('#qCard').onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } };
+      document.querySelectorAll('[data-q]').forEach(b => b.onclick = async () => { await Cards.patch(c.word, card => { card.srs = Core.SRS.review(card.srs, +b.dataset.q); }); await Stats.logReview(false); qi++; draw(); });
+    };
+    draw();
+  }
   // Từ vừa lưu gần đây: nhìn lại nhanh, bấm để xem chi tiết
   const recent = Object.values(cards).filter(c => c.added).sort((a, b) => b.added - a.added).slice(0, 5);
   if (recent.length) {

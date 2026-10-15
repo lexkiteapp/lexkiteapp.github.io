@@ -30,3 +30,8 @@ body.popup { width: 360px; padding: 14px; margin: 0; }
 /* Ô tra nhanh: viền xám tinh tế, chỉ sáng cam khi đang gõ */
 .popup .search .input { border: 1px solid var(--line, #e2e8f0); transition: border-color .15s, box-shadow .15s; }
 .popup .search .input:focus { outline: none; border: 1.5px solid #E5502F; box-shadow: 0 0 0 3px rgba(229, 80, 47, .15); }
+
+.pp-quick { display: flex; flex-direction: column; gap: 2px; padding: 12px; border: 1px solid var(--line, #e2e8f0); border-radius: 12px; cursor: pointer; text-align: center; margin: 4px 0; }
+.pp-quick b { font-size: 1.15rem; } .pp-quick .q-back { font-weight: 700; color: #1F7A72; margin-top: 4px; }
+.pp-quick.done { cursor: default; color: #15803d; font-weight: 700; }
+.pp-qbtn { display: flex; gap: 8px; justify-content: center; margin-bottom: 6px; } .pp-qbtn .btn { flex: 1; }
