@@ -1,7 +1,7 @@
 // Báo URL mới cho các công cụ tìm kiếm hỗ trợ IndexNow (Bing, Yandex, Seznam, Naver…) qua api.indexnow.org.
 // Khóa công khai: content/blog/config.json "indexNowKey" + file web/<key>.txt (công khai theo thiết kế).
 // Dùng: node scripts/indexnow.mjs [--dry] [url…]   hoặc   node scripts/blog-due.mjs --since 70 | node scripts/indexnow.mjs
-// Luôn gửi kèm https://lexkite.com/blog/. Thoát 0 khi API trả 200/202.
+// Luôn gửi kèm https://lexkite.com/vi/blog/. Thoát 0 khi API trả 200/202.
 import fs from 'node:fs'; import { config } from './lib/blog-content.mjs';
 
 const args = process.argv.slice(2), dry = args.includes('--dry');
@@ -12,7 +12,7 @@ if (!/^[a-f0-9]{32}$/.test(key || '')) { console.error('✗ indexnow: thiếu/sa
 if (!fs.existsSync(`web/${key}.txt`)) console.error(`⚠ indexnow: không thấy web/${key}.txt – công cụ tìm kiếm sẽ không xác minh được khóa`);
 const bad = urls.filter(u => { try { return new URL(u).host !== host; } catch { return true; } });
 for (const u of bad) console.error(`⚠ bỏ qua URL không thuộc ${host}: ${u}`);
-const urlList = [...new Set([...urls.filter(u => !bad.includes(u)), `${site}/blog/`])];
+const urlList = [...new Set([...urls.filter(u => !bad.includes(u)), `${site}/vi/blog/`])];
 const payload = { host, key, keyLocation: `${site}/${key}.txt`, urlList };
 if (dry) { console.log(JSON.stringify(payload, null, 1)); process.exit(0); }
 try {

@@ -10,7 +10,7 @@ content/blog/briefs.json       bước 1: từ khóa, ý định tìm kiếm, t�
 content/blog/shots.json        danh sách ảnh chụp app (id → #/route)
 content/blog/media.json        sổ ảnh đã xử lý (id → kích thước, mã băm, base CDN) – nhỏ, có trong git
 .media/  (git bỏ qua)          ảnh gốc PNG + bản AVIF/WebP đã nén; bản sao repo ảnh
-scripts/build-blog.mjs         sinh /blog/… tĩnh lúc build (chỉ bài publishAt ≤ giờ build)
+scripts/build-blog.mjs         sinh /vi/blog/… tĩnh lúc build (chỉ bài publishAt ≤ giờ build)
 scripts/blog-check.mjs         kiểm tra SEO on-page + chất lượng (hỏng → build/hàng đợi dừng)
 scripts/blog-dupes.mjs         tự kiểm tra trùng lặp/đạo văn nội bộ (shingle 8 từ)
 scripts/blog-schedule.mjs      xếp lịch 2–3 bài/ngày, giờ ngẫu nhiên, khác giờ nhau
@@ -33,13 +33,14 @@ Kết quả rà (15/10/2026, curl lexkite.com):
 - [x] Thẻ `<html lang>`, viewport, theme-color, favicon trên mọi trang tĩnh.
 - [x] Core Web Vitals trang tĩnh: không JS chặn hiển thị, CSS nội tuyến < 14 KB, ảnh có width/height (CLS 0), ảnh đầu `fetchpriority=high`, ảnh sau `loading=lazy decoding=async`, font hệ thống (không tải Google Fonts cho blog), video YouTube dạng facade.
 - [x] `_headers`: cache dài cho ảnh/âm thanh/icon, `X-Content-Type-Options`, `Referrer-Policy`; trang HTML luôn kiểm lại.
-- [ ] Đo Lighthouse trên bản live sau khi phát hành (cha/anh chạy PageSpeed Insights) – mục tiêu ≥ 95 cho /blog/.
+- [ ] Đo Lighthouse trên bản live sau khi phát hành (cha/anh chạy PageSpeed Insights) – mục tiêu ≥ 95 cho /vi/blog/.
 
-## 2. Blog engine (`scripts/build-blog.mjs`, không phụ thuộc gói ngoài)
+## 2. Blog engine
+- [x] **Đa ngôn ngữ theo thư mục** (chốt 15/10/2026 với phiên chính): `/<lang>/blog/<slug>/` trên cùng tên miền – `/vi/blog/` trước, sau này `/en/`, `/ja/`, `/id/`…; không subdomain, không chia theo nước, không tự chuyển theo IP. `/blog/*` → 301 sang `/vi/blog/*` (`web/_redirects`). Mỗi ngôn ngữ có RSS `/<lang>/blog/rss.xml` và sitemap `sitemap-blog-<lang>.xml`; hreflang + x-default giữa các bản cùng `translationKey`. Chỉ mở ngôn ngữ mới khi có bài bản địa hóa thật (từ khóa riêng từng thị trường), không dịch máy hàng loạt. Ảnh dùng chung, alt/chú thích theo ngôn ngữ. (`scripts/build-blog.mjs`, không phụ thuộc gói ngoài)
 - [x] Đọc `content/blog/<lang>/*.md`; bỏ `status: draft`; chỉ phát hành bài có `publishAt ≤ now` (biến `BLOG_NOW` để thử, `BLOG_DRAFTS=1` xem trước tất cả).
-- [x] URL sạch: `/blog/<slug>/` (vi, ngôn ngữ chính); bản dịch sau này: `/<lang>/blog/<slug>/` + hreflang theo `translationKey`.
-- [x] Trang danh sách `/blog/` + phân trang `/blog/trang/2/`; chuyên mục `/blog/chu-de/<cat>/`; thẻ `/blog/the/<tag>/` (chỉ thẻ có ≥ 2 bài mới được lập chỉ mục, còn lại noindex,follow).
-- [x] RSS `/blog/rss.xml` (20 bài mới nhất), sitemap blog có lastmod, mục lục (TOC) tự sinh, thời gian đọc, bài liên quan (cùng chuyên mục + thẻ chung), nút gọi hành động vào app (`/#/...`).
+- [x] URL sạch: `/vi/blog/<slug>/` (vi, ngôn ngữ chính); bản dịch sau này: `/<lang>/blog/<slug>/` + hreflang theo `translationKey`.
+- [x] Trang danh sách `/vi/blog/` + phân trang `/vi/blog/trang/2/`; chuyên mục `/vi/blog/chu-de/<cat>/`; thẻ `/vi/blog/the/<tag>/` (chỉ thẻ có ≥ 2 bài mới được lập chỉ mục, còn lại noindex,follow).
+- [x] RSS `/vi/blog/rss.xml` (20 bài mới nhất), sitemap blog có lastmod, mục lục (TOC) tự sinh, thời gian đọc, bài liên quan (cùng chuyên mục + thẻ chung), nút gọi hành động vào app (`/#/...`).
 - [x] Giao diện: màu từ token `web/css/style.css` (--primary #E5502F, --brand-ink #0F3D3E, --accent #12807A…), logo `icons/icon.svg`, chế độ tối theo hệ thống, tương phản AA, có skip-link, focus rõ, `prefers-reduced-motion`.
 - [x] Markdown tối giản tự viết: tiêu đề, đoạn, danh sách, bảng, trích dẫn, code, liên kết, ảnh, đậm/nghiêng + mã riêng (xem §5).
 
@@ -83,7 +84,7 @@ status: ready                                                # ready | draft
 ## Tiêu đề H2
 ![Alt mô tả ảnh](media:review "Chú thích hiển thị dưới ảnh")
 [Mở phần Ôn tập](/#/review)   ← liên kết vào app
-[Bài liên quan](/blog/flashcard-fsrs-la-gi/)
+[Bài liên quan](/vi/blog/flashcard-fsrs-la-gi/)
 {{youtube: | Gợi ý nội dung video: …}}     ← slot video TÙY CHỌN: id trống = không hiển thị gì; anh tải video lên kênh rồi điền id
 {{cta: /#/practice/learn | Học thử 10 từ đầu tiên}}   ← hộp kêu gọi hành động
 

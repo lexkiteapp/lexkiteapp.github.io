@@ -78,5 +78,5 @@ export function mediaIds(root = ROOT) {
   if (m) { const o = m.media || m.images || m.items || m; return { ids: new Set(Object.keys(o).filter(k => !k.startsWith('_') && typeof o[k] === 'object')), fallback: false }; }
   return { ids: new Set(Object.keys(readJSON(path.join(root, 'shots.json'))?.shots || {})), fallback: true };
 }
-// URL tuyệt đối của bài: /blog/<slug>/ (ngôn ngữ chính) hoặc /<lang>/blog/<slug>/
-export const postUrl = (p, base = 'https://lexkite.com', def = 'vi') => `${base.replace(/\/$/, '')}${p.lang === def ? '' : '/' + p.lang}/blog/${p.slug}/`;
+// URL tuyệt đối của bài: /<lang>/blog/<slug>/ (mọi ngôn ngữ, kể cả vi; /blog/ chuyển 301 sang /vi/blog/)
+export const postUrl = (p, base = 'https://lexkite.com', def = 'vi') => `${base.replace(/\/$/, '')}${'/' + p.lang}/blog/${p.slug}/`;

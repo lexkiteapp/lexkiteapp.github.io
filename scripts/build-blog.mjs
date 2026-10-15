@@ -21,14 +21,14 @@ if (fs.existsSync('scripts/blog-check.mjs') && process.env.BLOG_SKIP_CHECK !== '
 const when = p => publishTime(p) || NOW; // bài chưa xếp lịch (chỉ khi xem trước BLOG_DRAFTS) → coi như đăng lúc build
 const posts = all.filter(p => p.status !== 'draft' && (DRAFTS || isLive(p, NOW))).sort((a, b) => when(b) - when(a) || a.slug.localeCompare(b.slug));
 
-let LIVE = new Set(); // URL các bài đã phát hành (gán sau khi có danh sách bài)
+let LIVE = new Set(), CUR = DEF; // CUR: ngôn ngữ của trang đang dựng // URL các bài đã phát hành (gán sau khi có danh sách bài)
 // ---------- Chữ giao diện theo ngôn ngữ (bản dịch sau này chỉ cần thêm khóa) ----------
 const L = {
   vi: { blog: 'Blog', home: 'Trang chủ', open: 'Mở app', min: 'phút đọc', toc: 'Nội dung bài', related: 'Bài liên quan', tags: 'Thẻ', page: 'Trang', newer: '← Mới hơn', older: 'Cũ hơn →', all: 'Tất cả', updated: 'Cập nhật', play: 'Phát video', by: 'Lexkite', cat: 'Chuyên mục', tagT: 'Bài viết về', foot: 'Lexkite – học từ vựng & luyện thi IELTS, TOEIC, TOEFL miễn phí. Nội dung tự biên soạn.', tm: 'IELTS, TOEIC, TOEFL là nhãn hiệu của chủ sở hữu tương ứng; Lexkite là sản phẩm độc lập.', skip: 'Bỏ qua đến nội dung', about: 'Về Blog Lexkite', try: 'Học miễn phí trên Lexkite', tryD: 'Flashcard FSRS, từ điển song ngữ, luyện 4 kỹ năng và thi thử – không cần thẻ tín dụng.', rss: 'RSS', words: 'Từ vựng', samples: 'Bài mẫu' },
   en: { blog: 'Blog', home: 'Home', open: 'Open app', min: 'min read', toc: 'Contents', related: 'Related posts', tags: 'Tags', page: 'Page', newer: '← Newer', older: 'Older →', all: 'All', updated: 'Updated', play: 'Play video', by: 'Lexkite', cat: 'Category', tagT: 'Posts about', foot: 'Lexkite – free vocabulary and IELTS, TOEIC, TOEFL practice. Original content.', tm: 'IELTS, TOEIC and TOEFL are trademarks of their respective owners; Lexkite is independent.', skip: 'Skip to content', about: 'About', try: 'Learn free with Lexkite', tryD: 'FSRS flashcards, bilingual dictionary, 4-skill practice and mock tests – no credit card.', rss: 'RSS', words: 'Vocabulary', samples: 'Samples' },
 };
 const T = l => L[l] || L.en;
-const base = l => (l === DEF ? '/blog/' : `/${l}/blog/`);
+const base = l => `/${l}/blog/`; // thư mục theo ngôn ngữ: /vi/blog/, /en/blog/… (/blog/ → 301 sang /vi/blog/ trong _redirects)
 const postUrl = p => `${base(p.lang)}${p.slug}/`;
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const slugify = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/gi, 'd').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -52,6 +52,7 @@ function inline(s) {
   s = esc(s).replace(/`([^`]+)`/g, (m, c) => `\u0000${codes.push(c) - 1}\u0000`);
   s = s.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+&quot;([^&]*)&quot;)?\)/g, (m, alt, src) => src.startsWith('media:') ? picture(src.slice(6), alt) : `<img src="${src}" alt="${alt}" loading="lazy">`)
     .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, t, h) => {
+      if (h.startsWith('/blog/')) h = base(CUR) + h.slice(6); // link /blog/<slug>/ trong bài → thư mục ngôn ngữ của bài
       const bm = h.match(/^\/(?:[a-z]{2}(?:-[a-z]+)?\/)?blog\/([^/#?]+)\/$/);
       if (bm && !['chu-de', 'the', 'trang'].includes(bm[1]) && !LIVE.has(h)) return t; // bài đích chưa đến giờ đăng → chữ thường, không tạo link 404
       const ext = /^https?:/.test(h) && !h.startsWith(SITE), app = h.startsWith('/#/');
@@ -61,6 +62,7 @@ function inline(s) {
   return s.replace(/\u0000(\d+)\u0000/g, (m, i) => `<code>${codes[i]}</code>`);
 }
 function render(md, lang, cover) {
+  CUR = lang;
   const lines = md.replace(/\r/g, '').split('\n'), out = [], toc = [], faq = [], videos = [], ids = new Set();
   let i = 0, inFaq = false, q = null;
   const para = [];
@@ -280,16 +282,17 @@ for (const lang of fs.existsSync(`${ROOT}/pages`) ? fs.readdirSync(`${ROOT}/page
 }
 
 // Sitemap blog: tối đa 10.000 URL/file (sitemap-blog.xml, sitemap-blog-2.xml…) – build-sitemap-index.mjs gom vào sitemap.xml
-for (const f of fs.existsSync(OUT) ? fs.readdirSync(OUT).filter(f => /^sitemap-blog(-\d+)?\.xml$/.test(f)) : []) fs.rmSync(path.join(OUT, f));
-const CH = 10000;
-for (let k = 0; k * CH < sm.length; k++) { // chưa có bài → không ghi sitemap rỗng
-  const part = sm.slice(k * CH, (k + 1) * CH);
+for (const f of fs.existsSync(OUT) ? fs.readdirSync(OUT).filter(f => /^sitemap-blog(-[a-z]{2}(-[a-z]+)?)?(-\d+)?\.xml$/.test(f)) : []) fs.rmSync(path.join(OUT, f));
+const CH = 10000; // sitemap-blog-<lang>.xml (thêm -2, -3… khi > 10.000 URL); chưa có bài → không ghi file rỗng
+for (const lang of new Set(sm.map(e => e.loc.split('/')[1]))) { const all_ = sm.filter(e => e.loc.split('/')[1] === lang);
+for (let k = 0; k * CH < all_.length; k++) {
+  const part = all_.slice(k * CH, (k + 1) * CH);
   const x = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${part.map(e => `  <url><loc>${SITE}${e.loc}</loc><lastmod>${e.lastmod}</lastmod>${(e.alt || []).map(a => `<xhtml:link rel="alternate" hreflang="${a.lang}" href="${SITE}${a.url}"/>`).join('')}</url>`).join('\n')}
 </urlset>
 `;
-  fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(path.join(OUT, k ? `sitemap-blog-${k + 1}.xml` : 'sitemap-blog.xml'), x);
-}
+  fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(path.join(OUT, `sitemap-blog-${lang}${k ? `-${k + 1}` : ''}.xml`), x);
+} }
 const queued = all.filter(p => p.status !== 'draft' && !isLive(p, NOW)).length;
 console.log(`✓ Blog: ${posts.length} bài phát hành, ${queued} bài chờ lịch · ${written.length} trang · RSS · ${sm.length} URL sitemap`);
