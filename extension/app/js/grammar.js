@@ -46,28 +46,24 @@
     if (id) return lesson(id, arguments[1]);
     const all = L();
     const d = done();
+    // Bài nên học tiếp: bài chưa đạt 80% (đang dở) → bài đầu tiên chưa học theo thứ tự chương
+    const order = CHAPTERS.flatMap(c => lessonsOf(c).map(x => ({ x, c })));
+    const nx = order.find(o => d[o.x.id] != null && d[o.x.id] < 80) || order.find(o => d[o.x.id] == null);
+    const nDone = Object.keys(d).filter(k => d[k] >= 80).length;
+    const row = (x, c) => `<a class="g-row" href="#/grammar/${x.id}"><span class="em" aria-hidden="true">${x.emoji}</span><span class="g-tx"><b>${esc(x.title)}</b><small>${esc(x.en)}</small></span>${d[x.id] != null ? `<span class="chip ${d[x.id] >= 80 ? 'ok' : ''}">${d[x.id] >= 80 ? '✓ ' : ''}${d[x.id]}%</span>` : levelChip(x.level)}</a>`;
     view.innerHTML = `
-      <div class="page-head"><div><h1>📐 ${t('Ngữ pháp IELTS')}</h1><p class="muted">${t('{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.', { n: all.length })}</p></div>
-        <div class="row">${ring(all.length ? Object.keys(d).length / all.length * 100 : 0, `${Object.keys(d).length}/${all.length}`, 'var(--good)')}<a class="btn primary" href="#/grammar/mix">🔀 ${t('Luyện tổng hợp {n} câu', { n: 20 })}</a></div></div>
-      <div class="chap-nav">${CHAPTERS.map(c => `<a href="#chap${c.n}" class="chip" data-chap="${c.n}">${c.emoji} Ch.${c.n}</a>`).join('')}<a class="chip" href="#chap11" data-chap="11">📝 Ch.11</a></div>
-      ${CHAPTERS.map(c => {
-        const ls = lessonsOf(c);
-        if (!ls.length) return '';
-        const u = { color: c.color };
-        const dn = ls.filter(x => d[x.id] >= 80).length;
-        return `<div class="section-title" id="chap${c.n}"><h2>${c.emoji} ${t('Chương {n}', { n: c.n })} · ${esc(t(c.name))} <span class="muted small">(${dn}/${ls.length})</span></h2>
-            <a class="btn sm" href="#/grammar/mix?ch=${c.n}">📝 ${t('Kiểm tra chương')}</a></div><p class="muted small" style="margin-top:-.6rem">${esc(t(c.desc))}</p>
-          <div class="grid auto">${ls.map(x => `
-            <a class="card hover topic-card" href="#/grammar/${x.id}" style="color:var(--text);border-top:4px solid ${u.color}">
-              <div class="row between"><span class="em">${x.emoji}</span>${d[x.id] ? `<span class="chip ok">✓ ${d[x.id]}%</span>` : levelChip(x.level)}</div>
-              <h3>${esc(x.title)}</h3><div class="tiny muted" style="font-weight:700">${esc(x.en)}</div>
-              <div class="muted small">${esc(x.summary)}</div>
-            </a>`).join('')}</div>`;
-      }).join('') || `<div class="card empty"><div class="em">📐</div>${t('Đang cập nhật bài học…')}</div>`}
-      <div class="section-title" id="chap11"><h2>📝 ${t('Chương {n}', { n: 11 })} · ${t('Kiểm tra tổng hợp')}</h2></div>
-      <div class="grid auto"><a class="card hover topic-card" href="#/grammar/mix" style="color:var(--text)"><span class="em">🔀</span><h3>${t('Đề tổng hợp {n} câu', { n: 20 })}</h3><div class="muted small">${t('Trộn câu hỏi từ các bài đã học (hoặc mọi bài)')}</div></a>
-        <a class="card hover topic-card" href="#/grammar/mix?n=40" style="color:var(--text)"><span class="em">🏁</span><h3>${t('Đề tổng hợp {n} câu', { n: 40 })}</h3><div class="muted small">${t('Ôn toàn bộ chương trình – như bài thi cuối khóa')}</div></a></div>`;
-    $$('.chap-nav a[data-chap]').forEach(a => a.onclick = e => { e.preventDefault(); const el = document.getElementById('chap' + a.dataset.chap); if (el) el.scrollIntoView({ behavior: 'smooth' }); });
+      <div class="page-head"><div><h1>📐 ${t('Ngữ pháp')}</h1><p class="muted">${t('{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.', { n: all.length })}</p></div>
+        ${ring(all.length ? nDone / all.length * 100 : 0, `${nDone}/${all.length}`, 'var(--good)')}</div>
+      ${nx ? `<a class="card hover hub-hero" href="#/grammar/${nx.x.id}"><span class="hub-ic" aria-hidden="true">${nx.x.emoji}</span><span class="hub-tx"><small>${d[nx.x.id] != null ? t('Làm lại cho chắc · lần trước {pct}%', { pct: d[nx.x.id] }) : t('Bài tiếp theo')} · ${t('Chương {n}', { n: nx.c.n })}</small><b>${esc(nx.x.title)}</b><small>${esc(nx.x.summary)}</small></span><span class="btn primary sm">${t('Học ngay')} →</span></a>` : ''}
+      <div class="g-chapters">${CHAPTERS.map(c => {
+        const ls = lessonsOf(c); if (!ls.length) return '';
+        const dn = ls.filter(x => d[x.id] >= 80).length, open = nx && nx.c === c;
+        return `<details class="g-chap" id="chap${c.n}" ${open ? 'open' : ''} style="--cc:${c.color}"><summary><span class="em" aria-hidden="true">${c.emoji}</span><span class="g-tx"><b>${t('Chương {n}', { n: c.n })} · ${esc(t(c.name))}</b><small>${esc(t(c.desc))}</small></span><span class="g-prog"><span class="small muted">${dn}/${ls.length}</span><span class="progress thin"><i style="width:${dn / ls.length * 100}%"></i></span></span></summary>
+          <div class="g-list">${ls.map(x => row(x, c)).join('')}<a class="g-row g-test" href="#/grammar/mix?ch=${c.n}"><span class="em" aria-hidden="true">📝</span><span class="g-tx"><b>${t('Kiểm tra chương')}</b><small>${t('Trộn câu hỏi của cả chương')}</small></span><span aria-hidden="true">›</span></a></div></details>`;
+      }).join('') || `<div class="card empty"><div class="em">📐</div>${t('Đang cập nhật bài học…')}</div>`}</div>
+      <h3 class="set-h hub-h">📝 ${t('Kiểm tra tổng hợp')}</h3>
+      <div class="hub-grid"><a class="card hover hub-card" href="#/grammar/mix"><span class="hub-ic" aria-hidden="true">🔀</span><span class="hub-tx"><b>${t('Đề tổng hợp {n} câu', { n: 20 })}</b><small>${t('Trộn câu hỏi từ các bài đã học (hoặc mọi bài)')}</small></span></a>
+        <a class="card hover hub-card" href="#/grammar/mix?n=40"><span class="hub-ic" aria-hidden="true">🏁</span><span class="hub-tx"><b>${t('Đề tổng hợp {n} câu', { n: 40 })}</b><small>${t('Ôn toàn bộ chương trình – như bài thi cuối khóa')}</small></span></a></div>`;
   };
   const levelChip = l => l ? `<span class="chip lv ${esc(l)}">${esc(l)}</span>` : '';
 

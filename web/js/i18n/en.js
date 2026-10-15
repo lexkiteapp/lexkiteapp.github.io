@@ -2451,6 +2451,9 @@
   '{n} bài': '{n} answers',
   'Đã thêm {n} cụm vào sổ': 'Added {n} phrases to your book',
   'Đọc bài mẫu, bấm vào cụm hay để lưu vào sổ này': 'Read a model answer and tap good phrases to save them here',
+  'Học ngay': 'Start',
+  'Làm lại cho chắc · lần trước {pct}%': 'Redo to lock it in · last time {pct}%',
+  'Trộn câu hỏi của cả chương': 'Mixed questions from the whole chapter',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* Thống nhất thuật ngữ khi nhiều nhóm dùng chung 1 khóa */
