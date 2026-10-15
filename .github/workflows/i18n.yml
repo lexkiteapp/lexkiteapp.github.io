@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
-concurrency: { group: google-translate, cancel-in-progress: false }  # dùng chung hàng đợi với word-packs, wordlists
+concurrency: { group: i18n, cancel-in-progress: false }  # nhóm riêng: dùng chung nhóm thì run chờ bị run khác đè (GitHub giữ 1 run chờ/nhóm)
 jobs:
   translate:
     runs-on: ubuntu-latest
