@@ -202,7 +202,8 @@ const write = (u, html) => { const f = path.join(OUT, u, 'index.html'); fs.mkdir
 LIVE = new Set(posts.map(postUrl));
 const TAGN = new Map(); for (const p of posts) for (const g of p.tags || []) TAGN.set(`${p.lang}/${g}`, (TAGN.get(`${p.lang}/${g}`) || 0) + 1); // thẻ < 2 bài → không có trang thẻ
 const byKey = new Map(); for (const p of posts) (byKey.get(p.translationKey || p.slug) || byKey.set(p.translationKey || p.slug, []).get(p.translationKey || p.slug)).push(p);
-const alts = p => { const g = byKey.get(p.translationKey || p.slug) || [p]; if (g.length < 2) return []; const a = g.map(x => ({ lang: x.lang, url: postUrl(x) })); const d = g.find(x => x.lang === 'en') || g.find(x => x.lang === DEF); // x-default: bản tiếng Anh (khách quốc tế), không có thì ngôn ngữ chính return d ? [...a, { lang: 'x-default', url: postUrl(d) }] : a; };
+// x-default: bản tiếng Anh (khách quốc tế) nếu có, không thì ngôn ngữ chính
+const alts = p => { const g = byKey.get(p.translationKey || p.slug) || [p]; if (g.length < 2) return []; const a = g.map(x => ({ lang: x.lang, url: postUrl(x) })); const d = g.find(x => x.lang === 'en') || g.find(x => x.lang === DEF); return d ? [...a, { lang: 'x-default', url: postUrl(d) }] : a; };
 
 // Bài viết
 for (const p of posts) {
