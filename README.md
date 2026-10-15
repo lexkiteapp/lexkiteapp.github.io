@@ -70,3 +70,5 @@ Toàn bộ là HTML/CSS/JS thuần, local-first, nên có thể đóng gói thà
 
 ---
 “IELTS” là nhãn hiệu của British Council, IDP: IELTS Australia và Cambridge University Press & Assessment. Lexkite là sản phẩm độc lập, không liên kết với các tổ chức này.
+
+<!-- Pages: lexkiteapp.github.io -->
