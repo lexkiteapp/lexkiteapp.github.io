@@ -2548,6 +2548,8 @@
   'BSL – Từ vựng kinh doanh': 'BSL – Business vocabulary',
   'New Academic Word List: từ học thuật hay gặp trong IELTS Academic & TOEFL (ngoài AWL)': 'New Academic Word List: academic words common in IELTS Academic & TOEFL (beyond the AWL)',
   'Business Service List: từ vựng công việc, văn phòng, kinh doanh hay gặp trong TOEIC': 'Business Service List: work, office and business vocabulary common in TOEIC',
+  'Chế độ tiếp theo': 'Next mode',
+  'Đã hoàn thành': 'Completed',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* Thống nhất thuật ngữ khi nhiều nhóm dùng chung 1 khóa */

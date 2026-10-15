@@ -14555,5 +14555,35 @@
   "ar": "الموقف",
   "ru": "Позиция",
   "tr": "Görüş"
+ },
+ "Chế độ tiếp theo": {
+  "es": "Siguiente modo",
+  "pt": "Próximo modo",
+  "fr": "Mode suivant",
+  "de": "Nächster Modus",
+  "id": "Mode berikutnya",
+  "th": "โหมดถัดไป",
+  "zh": "下一个模式",
+  "ja": "次のモード",
+  "ko": "다음 모드",
+  "hi": "अगला मोड",
+  "ar": "الوضع التالي",
+  "ru": "Следующий режим",
+  "tr": "Sonraki mod"
+ },
+ "Đã hoàn thành": {
+  "es": "Completado",
+  "pt": "Concluído",
+  "fr": "Terminé",
+  "de": "Abgeschlossen",
+  "id": "Selesai",
+  "th": "เสร็จแล้ว",
+  "zh": "已完成",
+  "ja": "完了",
+  "ko": "완료",
+  "hi": "पूरा हुआ",
+  "ar": "مكتمل",
+  "ru": "Выполнено",
+  "tr": "Tamamlandı"
  }
 }

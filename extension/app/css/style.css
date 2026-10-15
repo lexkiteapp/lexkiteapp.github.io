@@ -1156,3 +1156,4 @@ body.focus .view { padding-top: 1rem; }
 .lk-banner button { position: absolute; right: .6rem; background: none; border: 0; color: #fff; font-size: 1.3rem; cursor: pointer; line-height: 1; }
 .lang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .5rem; margin-top: .8rem; }
 .lang-grid .btn { justify-content: center; }
+#mTabs button .mdone { color: var(--good); font-weight: 800; }

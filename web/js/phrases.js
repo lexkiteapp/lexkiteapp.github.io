@@ -85,6 +85,7 @@
       await App.addWord({ word: c.en, vi: c.vi, pos: 'phrase', ex: sent.trim(), emoji: '🧩', topic: 'phrases' }, sent ? { text: sent.trim(), title: t('Bài mẫu Task {n}', { n: m.task }) } : null, { silent: true });
       b.textContent = '✓'; Sfx.correct();
     });
+    Core.Store.get('mdone:' + m.id, []).then(markDone);
     $$('#mTabs button').forEach(b => b.onclick = () => {
       $$('#mTabs button').forEach(x => x.classList.toggle('on', x === b));
       const k = b.dataset.mt; $('#mRead').hidden = k !== 'read'; $('#mPane').hidden = k === 'read';
@@ -131,16 +132,21 @@
   const stripRole = p => p.replace(/<<[^>]*>>\s*/g, '');
   const roleOf = p => (p.match(/<<([^>]*)>>/) || [])[1] || '';
   const norm = x => x.toLowerCase().replace(/[’']/g, "'").replace(/[^a-z0-9' ]/g, ' ').replace(/\s+/g, ' ').trim();
+  // ✓ trên các chế độ luyện đã đạt ≥ 70% (lưu theo từng bài mẫu)
+  function markDone(d) { document.querySelectorAll('#mTabs button[data-mt]').forEach(b => { const ok = d.includes(b.dataset.mt); b.classList.toggle('done', ok); if (ok && !b.querySelector('.mdone')) b.insertAdjacentHTML('beforeend', ' <span class="mdone" aria-label="' + t('Đã hoàn thành') + '">✓</span>'); }); }
   function finish(m, kind, right, total, box) {
     const pct = Math.round(right / Math.max(1, total) * 100);
+    if (pct >= 70) Core.Store.get('mdone:' + m.id, []).then(d => { if (!d.includes(kind)) { d.push(kind); Core.Store.set('mdone:' + m.id, d); } markDone(d); });
     App.reward({ quizzes: 1, perfect: pct === 100 ? 1 : 0, xp: 5 + right * 2 }); pct >= 80 ? (Sfx.win(), confetti(80)) : Sfx.correct();
-    box.insertAdjacentHTML('beforeend', `<div class="feedback ${pct >= 70 ? 'ok' : 'no'}" style="position:static;margin-top:1rem"><b>${t('{right}/{total} đúng ({pct}%)', { right, total, pct })}</b> · +${5 + right * 2} XP</div>`);
+    const tabs = [...document.querySelectorAll('#mTabs button[data-mt]')], cur = tabs.findIndex(b => b.dataset.mt === kind), nx = tabs[cur + 1];
+    box.insertAdjacentHTML('beforeend', `<div class="feedback ${pct >= 70 ? 'ok' : 'no'}" style="position:static;margin-top:1rem"><b>${t('{right}/{total} đúng ({pct}%)', { right, total, pct })}</b> · +${5 + right * 2} XP${pct >= 70 && nx ? ` <button class="btn sm primary" id="mNext" style="margin-left:.6rem">${t('Chế độ tiếp theo')} → ${esc(nx.textContent.replace(/✓/g, '').trim())}</button>` : ''}</div>`);
+    const nb = box.querySelector('#mNext'); if (nb) nb.onclick = () => { nx.click(); nx.scrollIntoView({ behavior: 'smooth', block: 'center' }); };
   }
   // Ô điền + ngân hàng từ (dùng cho từ vựng & liên kết)
   function gapExercise(m, box, kind) {
     const re = kind === 'vocab' ? /\[\[([^|\]]+)\|[^\]]+\]\]/g : /\{\{([^}]+)\}\}/g;
     const answers = [];
-    const html = paras(m.text).map(p => '<p>' + esc(stripRole(p)).replace(kind === 'vocab' ? /\[\[([^|\]]+)\|([^\]]+)\]\]/g : /\{\{([^}]+)\}\}/g, (x, a, vi) => { const raw = a.replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&'); const i = answers.push(raw) - 1; return `<input class="gap" data-i="${i}" size="${Math.max(6, raw.length)}" autocomplete="off" spellcheck="false">${kind === 'vocab' && vi ? `<span class="gap-vi">${vi}</span>` : ''}`; })
+    const html = paras(m.text).map(p => '<p>' + esc(stripRole(p)).replace(kind === 'vocab' ? /\[\[([^|\]]+)\|([^\]]+)\]\]/g : /\{\{([^}]+)\}\}/g, (x, a, vi) => { const raw = a.replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&'); const i = answers.push(raw) - 1; return `<input class="gap" data-i="${i}" size="${Math.max(6, raw.length)}" autocomplete="off" spellcheck="false">${kind === 'vocab' && vi ? `<span class="gap-vi" data-gi="${i}">${I18N.learnLang() === 'vi' ? vi : '…'}</span>` : ''}`; })
       .replace(kind === 'vocab' ? /\{\{([^}]+)\}\}/g : /\[\[([^|\]]+)\|[^\]]+\]\]/g, '$1') + '</p>').join('');
     const bank = UI.shuffle([...new Set(answers)]);
     box.innerHTML = `<div class="card"><p class="small muted">${kind === 'vocab' ? t('Điền các <b>cụm từ</b> vào chỗ trống. Bấm vào cụm trong ngân hàng để điền vào ô đang chọn.') : t('Điền <b>từ nối / cụm liên kết</b> phù hợp vào chỗ trống.')}</p>
@@ -149,6 +155,15 @@
       <div class="annot" style="font-size:1rem;line-height:2.3;margin-top:1rem">${html}</div>
       <div class="row" style="margin-top:1rem"><button class="btn primary" id="chk">${t('Kiểm tra')}</button><button class="btn" id="show">${t('Xem đáp án')}</button><button class="btn ghost" id="clr">${t('Xóa hết')}</button></div></div>`;
     const vh = $('#viHint', box); if (vh) vh.onchange = () => box.classList.toggle('no-vi', !vh.checked);
+    if (kind === 'vocab' && I18N.learnLang() !== 'vi') { // không bao giờ hiện gợi ý tiếng Việt cho người học ngôn ngữ khác
+      const L = I18N.learnLang(), spans = [...box.querySelectorAll('.gap-vi[data-gi]')];
+      const fill = arr => spans.forEach(sp => { const v = arr[+sp.dataset.gi]; sp.textContent = v || ''; sp.hidden = !v; });
+      if (L === 'en') fill([]); else {
+        const pre = answers.map(a => (App.nativeGloss && App.nativeGloss(a)) || '');
+        const miss = answers.map((a, k) => (pre[k] ? null : a)).filter(Boolean);
+        (miss.length ? Dict.translateTo(miss.join('\n'), L).catch(() => '') : Promise.resolve('')).then(r => { const tr = String(r || '').split('\n'); let j = 0; fill(pre.map(v => v || (tr[j++] || '').trim())); });
+      }
+    }
     let focus = box.querySelector('.gap');
     $$('.gap', box).forEach(g => g.onfocus = () => { focus = g; });
     // Mờ các cụm đã dùng trong ngân hàng
