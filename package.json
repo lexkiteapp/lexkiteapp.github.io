@@ -1,0 +1,15 @@
+{
+  "name": "lexkite",
+  "private": true,
+  "description": "Lexkite – IELTS, TOEIC & TOEFL learning app (web PWA, Chrome extension, iOS/Android)",
+  "type": "commonjs",
+  "scripts": {
+    "build": "bash scripts/build-web.sh",
+    "test": "node scripts/vi-lint.mjs && node scripts/i18n-missing.mjs --strict && node scripts/i18n-qa.mjs && node scripts/test/unit.mjs && node scripts/test/smoke.js web && node scripts/test/crawl.js web",
+    "test:unit": "node scripts/test/unit.mjs",
+    "test:smoke": "node scripts/test/smoke.js web"
+  },
+  "devDependencies": {
+    "jsdom": "25.0.1"
+  }
+}

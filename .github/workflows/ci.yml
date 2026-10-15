@@ -15,8 +15,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Cài jsdom (chỉ cho kiểm thử)
-        run: npm i --no-save --no-audit --no-fund --prefix scripts/test jsdom@25
+      - name: Cài thư viện kiểm thử (package.json gốc)
+        run: npm ci --no-audit --no-fund
+      - name: Test riêng FSRS & API đồng bộ
+        run: node scripts/test/unit.mjs
       - name: Chính tả tiếng Việt
         run: node scripts/vi-lint.mjs
       - name: Đủ bản tiếng Anh

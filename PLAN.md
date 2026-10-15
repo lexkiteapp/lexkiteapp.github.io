@@ -76,3 +76,10 @@ Cập nhật: 15/10/2026.
 - [ ] 50 bài viết đầu tiên, có ảnh chụp minh họa nhẹ (WebP/AVIF) + chỗ nhúng YouTube nhẹ (chỉ tải khi bấm)
 - [ ] Ảnh lưu ngoài mã nguồn chính (CDN miễn phí) để hàng chục nghìn bài vẫn nhẹ
 - [ ] Lịch đăng tự động 2–3 bài/ngày vào giờ ngẫu nhiên (GitHub Actions cron + hẹn giờ trong bài)
+
+## 12. Kiến trúc mã (làm dần, mỗi bước có kiểm thử)
+- [ ] Test riêng: thuật toán FSRS (core.js), API đồng bộ D1 (functions/api/sync.js) – chạy trong CI
+- [ ] Kiểm tra kiểu bằng TypeScript chế độ JSDoc (`// @ts-check`) cho core.js, sync.js, functions/ – chạy trong CI
+- [ ] Tách app.js (126 KB) theo trang: thư viện, từ điển, sổ từ, tiến độ, cài đặt → gói tải khi cần
+- [ ] Tách study.js theo 7 chế độ luyện; tách extension/content.js (YouTube / dịch / tra từ)
+- [ ] Chuyển dần sang ES Modules + esbuild (từng module, giữ deep link & kiểm thử xanh)
