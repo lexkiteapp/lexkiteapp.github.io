@@ -281,6 +281,14 @@
     render();
   }
   App.route = route;
+  // Khả năng truy cập: nút loa/nghe chỉ có biểu tượng → tự gắn nhãn "Nghe: <từ>" cho trình đọc màn hình (kể cả nút sinh sau)
+  const SAY = '[data-speak],[data-saysent],[data-say],[data-speak-text],[data-slow]';
+  const labelSay = root => root.querySelectorAll && root.querySelectorAll(SAY).forEach(b => {
+    if (b.getAttribute('aria-label') || b.getAttribute('title')) return;
+    const w = b.dataset.speak || b.dataset.saysent || b.dataset.say || b.dataset.speakText || b.dataset.slow || '';
+    b.setAttribute('aria-label', (b.dataset.slow ? t('Nghe chậm') : t('Nghe')) + (w ? ': ' + w.slice(0, 80) : ''));
+  });
+  if (window.MutationObserver) new MutationObserver(ms => { for (const m of ms) for (const n of m.addedNodes) if (n.nodeType === 1) { if (n.matches && n.matches(SAY)) labelSay(n.parentNode || n); else labelSay(n); } }).observe(view, { childList: true, subtree: true });
   // Bài đang học dở (nghe, đọc, viết, ngữ pháp, nói, đề thi…) → khối "Tiếp tục" ở trang Hôm nay mở lại bằng 1 chạm
   const RESUME = { listen: '🎧', read: '📰', write: '✍️', task1: '📈', letters: '✉️', grammar: '📐', speaking: '🗣️', 'toefl-p': '🏛️', 'toeic-r': '💼', 'toeic-test': '💼', 'listen-test': '🎧', model: '📄', pron: '🔤', cbt: '🖥️', ideas: '💡' };
   function markActivity(name, arg) {
