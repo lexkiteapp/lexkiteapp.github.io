@@ -378,7 +378,7 @@
     $('#ans').focus();
     if (q.type === 'type-listen') {
       $('#play').onclick = () => speak(w.word, accent(), w.audio);
-      $('#slow').onclick = () => tts(w.word, accent(), 0.5);
+      $('#slow').onclick = () => speak(w.word, accent(), w.audio, true);
       setTimeout(() => speak(w.word, accent(), w.audio), 250);
     }
     $('#skip').onclick = () => finish(false);
@@ -491,7 +491,7 @@
         nativeFill($('[data-native]'), w.word);
         if (w.ex && I18N.learnLang() === 'vi') Dict.translateVi(w.ex).then(tr => { const e = $('#fiTr'); if (e && tr) e.textContent = '🇻🇳 ' + tr; }).catch(() => {});
         $('#sayI').onclick = () => speak(w.word, accent(), w.audio);
-        $('#slowI').onclick = () => tts(w.word, accent(), 0.5);
+        $('#slowI').onclick = () => speak(w.word, accent(), w.audio, true);
         speak(w.word, accent(), w.audio);
         $('#gotIt').focus();
         $('#gotIt').onclick = () => { queue.unshift(w); next(); };
@@ -607,7 +607,7 @@
         <div class="row center" style="margin-top:1rem"><button class="btn" id="skipW">${t('Bỏ qua')}</button><button class="btn primary" id="nextW" hidden>${t('Từ tiếp theo →')}</button></div>
       </div>`;
       $('#model').onclick = () => speak(w.word, accent(), w.audio);
-      $('#modelSlow').onclick = () => tts(w.word, accent(), 0.55);
+      $('#modelSlow').onclick = () => speak(w.word, accent(), w.audio, true);
       // Từ ngoài thư viện (vd. mở từ add-on): tự tra phiên âm UK/US, nghĩa và bản ghi phát âm
       if (!w.ipa || !w.vi || !w.audio) Dict.quick(w.word).then(d => {
         if (!d || !d.found || items[i] !== w) return;

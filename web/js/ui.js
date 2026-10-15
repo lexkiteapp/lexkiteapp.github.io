@@ -192,22 +192,24 @@
       return URL.createObjectURL(await r.blob());
     } catch (e) { return url; } // máy chủ không cho tải (CORS) → phát trực tiếp
   }
-  function speak(text, accent, url) {
+  // speak(text, accent, url, slow): slow = true → bản ghi người thật phát chậm 0,7× (giữ cao độ); không có bản ghi → giọng máy chậm
+  function speak(text, accent, url, slow) {
     accent = accent || prefs().accent || 'en-GB';
+    const fb = () => tts(text, accent, slow ? 0.55 : undefined);
     if (url) {
       stopSpeak();
       const my = speakSeq;
       audioSrc(url).then(src => {
         if (my !== speakSeq) return; // người dùng đã bấm nghe từ khác
         try {
-          audioEl = new Audio(src); audioEl.playbackRate = 1;
+          audioEl = new Audio(src); audioEl.preservesPitch = true; audioEl.playbackRate = slow ? 0.7 : 1;
           if (src.startsWith('blob:')) audioEl.onended = () => URL.revokeObjectURL(src);
-          audioEl.play().catch(() => tts(text, accent));
-        } catch (e) { tts(text, accent); }
+          audioEl.play().catch(fb);
+        } catch (e) { fb(); }
       });
       return;
     }
-    tts(text, accent);
+    fb();
   }
   if ('speechSynthesis' in g) { speechSynthesis.getVoices(); speechSynthesis.addEventListener && speechSynthesis.addEventListener('voiceschanged', () => speechSynthesis.getVoices()); }
 

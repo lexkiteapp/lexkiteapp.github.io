@@ -1258,7 +1258,7 @@
   function bindCommon(after) {
     $$('[data-speak]').forEach(b => b.onclick = e => { e.preventDefault(); e.stopPropagation(); speak(b.dataset.speak, b.dataset.accent || state.settings.accent, b.dataset.url || ''); });
     $$('[data-speak-text]').forEach(b => b.onclick = e => { e.stopPropagation(); speak(b.dataset.speakText, state.settings.accent); });
-    $$('[data-slow]').forEach(b => b.onclick = e => { e.stopPropagation(); UI.tts(b.dataset.slow, state.settings.accent, 0.55); });
+    $$('[data-slow]').forEach(b => b.onclick = e => { e.stopPropagation(); const w = INDEX[String(b.dataset.slow).toLowerCase()] || state.cards[String(b.dataset.slow).toLowerCase()]; speak(b.dataset.slow, state.settings.accent, w && (state.settings.accent === 'en-US' ? w.audioUS || w.audio : w.audio), true); });
     $$('[data-add-seed]').forEach(b => b.onclick = async e => {
       e.preventDefault();
       const w = INDEX[b.dataset.addSeed.toLowerCase()];
