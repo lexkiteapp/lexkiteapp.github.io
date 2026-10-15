@@ -2456,6 +2456,9 @@
   'Trộn câu hỏi của cả chương': 'Mixed questions from the whole chapter',
   'Blog học tiếng Anh': 'English learning blog',
   'Xem cả {n} bộ': 'See all {n} sets',
+  'Chủ đề': 'Topic',
+  'Chủ đề ngẫu nhiên': 'Random topic',
+  '{n} chủ đề': '{n} topics',
   'Mẹo thi, từ vựng theo chủ đề, phương pháp học': 'Exam tips, topic vocabulary, study methods',
 }); })(typeof self !== 'undefined' ? self : this);
 
