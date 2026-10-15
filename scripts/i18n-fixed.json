@@ -14150,5 +14150,50 @@
   "ar": "ابحث عن الكلمات في أي موقع",
   "ru": "Поиск слов на любом сайте",
   "tr": "Her sitede kelime ara"
+ },
+ "Tính năng": {
+  "es": "Funciones",
+  "pt": "Recursos",
+  "fr": "Fonctionnalités",
+  "de": "Funktionen",
+  "id": "Fitur",
+  "th": "ฟีเจอร์",
+  "zh": "功能",
+  "ja": "機能",
+  "ko": "기능",
+  "hi": "सुविधाएँ",
+  "ar": "الميزات",
+  "ru": "Возможности",
+  "tr": "Özellikler"
+ },
+ "Đăng nhập": {
+  "es": "Iniciar sesión",
+  "pt": "Entrar",
+  "fr": "Se connecter",
+  "de": "Anmelden",
+  "id": "Masuk",
+  "th": "เข้าสู่ระบบ",
+  "zh": "登录",
+  "ja": "ログイン",
+  "ko": "로그인",
+  "hi": "साइन इन करें",
+  "ar": "تسجيل الدخول",
+  "ru": "Войти",
+  "tr": "Giriş yap"
+ },
+ "Blog": {
+  "es": "Blog",
+  "pt": "Blog",
+  "fr": "Blog",
+  "de": "Blog",
+  "id": "Blog",
+  "th": "บล็อก",
+  "zh": "博客",
+  "ja": "ブログ",
+  "ko": "블로그",
+  "hi": "ब्लॉग",
+  "ar": "المدونة",
+  "ru": "Блог",
+  "tr": "Blog"
  }
 }

@@ -2093,6 +2093,9 @@
   '6.800+ từ IELTS, TOEIC & TOEFL': '6,800+ IELTS, TOEIC & TOEFL words',
   'Âm thanh': 'Sound',
   'Nhắc học': 'Reminders',
+  'Tính năng': 'Features',
+  'Đăng nhập': 'Sign in',
+  'Blog': 'Blog',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* English UI strings – toefl.js (TOEFL iBT practice, 2026 format) */
