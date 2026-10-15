@@ -351,7 +351,7 @@
         <div class="sheet-word"><button class="sheet-say" data-sayw aria-label="${t('Nghe')}">🔊</button><div style="min-width:0"><div><b class="sw">${esc(w.word)}</b>${w.pos ? ` <span class="sp">(${esc(w.pos)})</span>` : ''}</div>${w.ipa ? `<div class="sipa">${esc(w.ipa)}</div>` : ''}<div class="svi">${esc(mean(w))}</div></div></div>
         ${w.ex ? `<div class="sheet-ex">${highlight(w.ex, w.word)} <button class="ctx-say sm" data-saysent="${esc(w.ex)}" title="${t('Nghe câu')}">🔊</button><button class="ctx-say sm" data-tr title="${t('Dịch câu')}">🌐</button><div class="sheet-tr" hidden></div></div>` : ''}
         <button class="btn lg block sheet-next" id="nextQ">${t('Tiếp tục')} ↵</button></div></div>`;
-      const tr = $('[data-tr]', fb); if (tr) tr.onclick = async () => { const t = $('.sheet-tr', fb); if (!t.hidden) { t.hidden = true; return; } t.hidden = false; t.textContent = '…'; t.textContent = await Dict.translateVi(w.ex); };
+      const tr = $('[data-tr]', fb); if (tr) tr.onclick = async () => { const t = $('.sheet-tr', fb); if (!t.hidden) { t.hidden = true; return; } t.hidden = false; t.textContent = '…'; const L = I18N.learnLang(); t.textContent = L === 'vi' ? await Dict.translateVi(w.ex) : await Dict.translateTo(w.ex, L); };
       $('[data-sayw]', fb).onclick = () => speak(w.word, accent(), w.audio);
       if (!ok || q.type.startsWith('type')) speak(w.word, accent(), w.audio);
       $('#nextQ').focus();

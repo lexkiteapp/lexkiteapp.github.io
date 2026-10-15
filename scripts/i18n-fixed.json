@@ -15350,5 +15350,35 @@
   "ar": "دورات موجهة",
   "ru": "Курсы по плану",
   "tr": "Rehberli kurslar"
+ },
+ "Luyện paraphrase": {
+  "es": "Práctica de paráfrasis",
+  "pt": "Prática de paráfrase",
+  "fr": "Entraînement à la paraphrase",
+  "de": "Paraphrasen üben",
+  "id": "Latihan parafrase",
+  "th": "ฝึกถอดความ",
+  "zh": "同义改写练习",
+  "ja": "言い換え練習",
+  "ko": "패러프레이즈 연습",
+  "hi": "पैराफ्रेज़ अभ्यास",
+  "ar": "تدريب إعادة الصياغة",
+  "ru": "Тренировка перефраза",
+  "tr": "Başka ifade alıştırması"
+ },
+ "Về Reading": {
+  "es": "Volver a Reading",
+  "pt": "Voltar ao Reading",
+  "fr": "Retour à Reading",
+  "de": "Zurück zu Reading",
+  "id": "Kembali ke Reading",
+  "th": "กลับไป Reading",
+  "zh": "返回阅读",
+  "ja": "Readingに戻る",
+  "ko": "Reading으로 돌아가기",
+  "hi": "Reading पर वापस",
+  "ar": "العودة إلى Reading",
+  "ru": "Назад к Reading",
+  "tr": "Reading’e dön"
  }
 }

@@ -101,20 +101,22 @@
       // Tra nhanh (~0,4 giây); âm thanh/ảnh sẽ được bổ sung ngầm khi lưu thẻ
       const e = (await Dict.quick(word)) || (await Dict.lookup(word, { examples: false, image: false }));
       if (pop !== mine) return;
-      if (!e || !e.found) { pop.innerHTML = `<div class="muted">${t('Không tìm thấy “{w}”.', { w: esc(word) })}${e && e.vi ? ` ${t('Dịch: <b>{vi}</b>', { vi: esc(e.vi) })}` : ''}</div>`; return; }
+      if (!e || !e.found) { pop.innerHTML = `<div class="muted">${t('Không tìm thấy “{w}”.', { w: esc(word) })}${e && e.vi ? ` ${t('Dịch: <b>{vi}</b>', { vi: esc(App.meanOf ? App.meanOf(e) : e.vi) })}` : ''}</div>`; return; }
       const saved = App.inDeck(e.word);
+      const mText = App.meanOf ? App.meanOf(e) : e.vi;
       pop.innerHTML = `
         <div class="row between nowrap"><div><span style="font-size:1.3rem;font-weight:800">${esc(e.word)}</span> ${posChip(e.pos)}${levelChip(e.level)}</div><button class="icon-btn sm" data-x>✕</button></div>
         <div class="row"><span class="ipa">${esc(e.ipa)}</span><button class="icon-btn sm" data-s>🔊</button></div>
-        <div class="vi" style="font-size:1.05rem">${esc(e.vi)}</div>
-        ${e.def ? `<div class="small" style="margin-top:.3rem">${esc(e.def)}</div>` : ''}
+        ${mText ? `<div class="vi" style="font-size:1.05rem">${esc(mText)}</div>` : ''}
+        ${e.def && e.def !== mText ? `<div class="small" style="margin-top:.3rem">${esc(e.def)}</div>` : ''}
         ${UI.ctxBox(sentence, e.word === word ? word : e.word)}
         <div class="row" style="margin-top:.7rem"><button class="btn sm primary" data-save>+ ${saved ? t('Thêm ngữ cảnh') : t('Lưu flashcard')}</button><a class="btn sm" href="#/dict/${encodeURIComponent(e.word)}">${t('Chi tiết')}</a></div>`;
       $('[data-x]', pop).onclick = closePop;
       $('[data-s]', pop).onclick = () => speak(e.word, state.settings.accent, e.audio);
       $('[data-save]', pop).onclick = async ev => {
         const b = ev.currentTarget; b.disabled = true;
-        const vi = await Dict.translateVi(sentence);
+        const L = I18N.learnLang();
+        const vi = L === 'vi' ? await Dict.translateVi(sentence) : await Dict.translateTo(sentence, L);
         await App.addWord(e, { text: sentence, vi, title: t('Bài đọc: {title}', { title: r.title }) });
         b.textContent = '✓ ' + t('Đã lưu kèm ngữ cảnh');
         $$(`.tw[data-w="${CSS.escape(word)}"]`).forEach(x => x.classList.add('mine'));

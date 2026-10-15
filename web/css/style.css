@@ -1218,3 +1218,4 @@ mark.g-ok { background: rgba(21,128,61,.18); color: var(--good); font-weight: 70
 @media (max-width: 480px) { .qx-r { grid-template-columns: 1fr; gap: .1rem; } }
 .course-card h3 { margin: .5rem 0 .2rem; } .course-pct { color: var(--good); } .course-bar { margin: .7rem 0 .5rem; }
 .course-head { margin: .6rem 0 1rem; } .course-unit .g-row.done b { color: var(--muted); } .course-unit .g-row.next { outline: 2px solid var(--primary); outline-offset: -2px; border-radius: 10px; }
+.pp-q { font-size: 1.25rem; font-weight: 700; color: var(--primary); }

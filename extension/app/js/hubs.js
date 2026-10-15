@@ -68,7 +68,7 @@
       general: () => [['#/listening', '🎧', t('Luyện nghe'), t('Bài nghe theo trình độ, có transcript')], ['#/practice/listen', '⌨️', t('Nghe – gõ từ'), t('Nghe từ trong sổ và gõ lại')]],
     },
     reading: {
-      ielts: () => [['#/reading', '📰', t('Bài đọc theo trình độ'), t('30 bài, có thể làm ở chế độ thi trên máy')], ['#/rtype', '🎯', t('Luyện theo dạng câu hỏi'), t('True/False/Not Given, Matching, điền từ…')], ['#/cbt', '🖥️', t('Đọc trên máy tính'), t('Giao diện như thi IELTS trên máy')]],
+      ielts: () => [['#/reading', '📰', t('Bài đọc theo trình độ'), t('30 bài, có thể làm ở chế độ thi trên máy')], ['#/rtype', '🎯', t('Luyện theo dạng câu hỏi'), t('True/False/Not Given, Matching, điền từ…')], ['#/paraphrase', '🔁', t('Luyện paraphrase'), t('Nhận ra cách bài đọc diễn đạt lại từ khóa câu hỏi')], ['#/cbt', '🖥️', t('Đọc trên máy tính'), t('Giao diện như thi IELTS trên máy')]],
       toeic: () => [['#/toeic', '💼', t('TOEIC Part 5–7'), t('Điền câu, điền đoạn, đọc hiểu')]],
       toefl: () => [TOEFL_T('cw', '🧩', 'Complete the Words', t('Điền chữ còn thiếu')), TOEFL_T('daily', '📱', 'Read in Daily Life', t('Tin nhắn, thông báo, email')), TOEFL_T('academic', '📚', 'Read an Academic Passage', t('Đoạn văn học thuật ngắn'))],
       general: () => [['#/reading', '📰', t('Bài đọc theo trình độ'), t('Đọc vừa sức, lưu từ mới kèm câu gốc')]],

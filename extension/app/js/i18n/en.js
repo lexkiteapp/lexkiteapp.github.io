@@ -2678,6 +2678,13 @@
   "Tiếp theo": "Up next",
   "Khóa học theo lộ trình": "Guided courses",
   "Học theo chương, tự đánh dấu hoàn thành, luôn biết bài tiếp theo": "Learn by chapter with automatic progress – always know your next lesson",
+  "Luyện paraphrase": "Paraphrase practice",
+  "Nhận ra cách bài đọc diễn đạt lại từ khóa câu hỏi": "Spot how the passage rewords the question keywords",
+  "Câu hỏi viết:": "The question says:",
+  "Bài đọc sẽ diễn đạt lại ý này là:": "The passage rewords this as:",
+  "Nhận ra paraphrase nhanh là chìa khóa để làm Reading đúng và kịp giờ.": "Spotting paraphrases quickly is the key to accurate, on-time Reading.",
+  "Về Reading": "Back to Reading",
+  "Đang cập nhật dữ liệu…": "Updating data…",
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* Thống nhất thuật ngữ khi nhiều nhóm dùng chung 1 khóa */
