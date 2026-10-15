@@ -1,12 +1,12 @@
 // Kiểm SEO on-page + chất lượng bài blog (SEO-PLAN §4 bước 7, định dạng §5).
 // Dùng: node scripts/blog-check.mjs [--root content/blog] [file.md …]   (không có file → mọi bài không phải draft)
 // Build gọi: import { checkPosts } from './blog-check.mjs' → { errors: string[], warnings: string[] } (mỗi dòng "file: [luật] thông điệp")
-import path from 'node:path'; import { fileURLToPath } from 'node:url';
+import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath } from 'node:url';
 import { ROOT, CATEGORIES, plainText, wordCount, readPost, loadPostsAt, briefSlugs, mediaIds } from './lib/blog-content.mjs';
 
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/, TAG = /^[a-z0-9-]+$/, YT = /^[\w-]{11}$/;
 const ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})$/, DAY = /^\d{4}-\d{2}-\d{2}$/;
-const RESERVED = new Set(['trang', 'chu-de', 'the', 'page', 'topic', 'tag', 'rss.xml', 'gioi-thieu']); // /blog/<…>/ không phải bài
+const RESERVED = new Set(['trang', 'chu-de', 'the', 'page', 'topic', 'tag', 'rss.xml', 'gioi-thieu', 'about']); // /blog/<…>/ không phải bài
 const FAQ = /^(câu hỏi thường gặp|faq)\b/i;
 const rel = f => (f && !path.relative(process.cwd(), f).startsWith('..') ? path.relative(process.cwd(), f) : f);
 const len = s => [...String(s ?? '')].length;
@@ -18,7 +18,7 @@ const noCode = body => body.replace(/```[\s\S]*?```/g, m => m.replace(/[^\n]/g, 
 
 export function checkPosts(posts, { all = posts, root = ROOT } = {}) {
   const errors = [], warnings = [];
-  const media = mediaIds(root), briefs = new Set(briefSlugs(root));
+  const media = mediaIds(root), briefs = new Set((JSON.parse(fs.readFileSync(path.join(root, 'briefs.json'), 'utf8')).briefs || []).map(b => `${b.lang || 'vi'}/${b.slug}`));
   const slugs = new Set([...all, ...posts].map(p => `${p.lang}/${p.slug}`));
   if (media.fallback) warnings.push(`${rel(path.join(root, 'media.json'))}: [media] chưa có media.json – tạm kiểm id ảnh theo shots.json`);
   // Đếm trùng giữa các bài cùng ngôn ngữ (gộp all + posts, theo đường dẫn file)
@@ -102,7 +102,7 @@ export function checkPosts(posts, { all = posts, root = ROOT } = {}) {
       const m = h.match(/^\/(?:([a-z]{2}(?:-[a-z]+)?)\/)?blog\/([^/#?]+)\/?(?:[#?].*)?$/);
       if (!m || RESERVED.has(m[2])) continue;
       const l = m[1] || 'vi';
-      if (!slugs.has(`${l}/${m[2]}`) && !(l === 'vi' && briefs.has(m[2]))) E('links', `liên kết ${h} trỏ tới bài không tồn tại`);
+      if (!slugs.has(`${l}/${m[2]}`) && !briefs.has(`${l}/${m[2]}`)) E('links', `liên kết ${h} trỏ tới bài không tồn tại`);
       if (!h.endsWith('/') && !/[#?]/.test(h)) W('links', `nên có "/" cuối: ${h}`);
     }
     for (const h of hrefs) if (!h.startsWith('/') && !h.startsWith('#') && !h.startsWith('mailto:') && !h.startsWith('https://') || h.startsWith('//')) E('links', `liên kết ngoài phải là https: ${h}`);

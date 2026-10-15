@@ -2,7 +2,7 @@
 // mỗi bài trong ngày một khung giờ khác nhau, phút ngẫu nhiên; bắt đầu từ ngày sau max(hôm nay, ngày cuối đã xếp).
 // Thứ tự: theo briefs.json rồi theo tên file. Chỉ sửa dòng publishAt (setField).
 // Bài không qua blog-check bị giữ lại (không vào lịch) trừ khi --no-check.
-// Dùng: node scripts/blog-schedule.mjs [--dry] [--no-check] [--seed N] [--from YYYY-MM-DD] [--per 2-3] [--status] [--root content/blog]
+// Dùng: node scripts/blog-schedule.mjs [--dry] [--no-check] [--seed N] [--from YYYY-MM-DD] [--per 2-3] [--lang vi] [--status] [--root content/blog]
 import fs from 'node:fs'; import path from 'node:path';
 import { checkPosts } from './blog-check.mjs';
 import { ROOT, setField, loadPostsAt, briefSlugs, publishTime } from './lib/blog-content.mjs';
@@ -14,7 +14,7 @@ const a = process.argv.slice(2);
 for (let i = 0; i < a.length; i++) {
   const k = a[i];
   if (k === '--dry') opt.dry = true; else if (k === '--no-check') opt.check = false; else if (k === '--status') opt.status = true; else if (k === '--root') opt.root = a[++i];
-  else if (k === '--seed') opt.seed = Number(a[++i]); else if (k === '--from') opt.from = a[++i];
+  else if (k === '--lang') opt.lang = a[++i]; else if (k === '--seed') opt.seed = Number(a[++i]); else if (k === '--from') opt.from = a[++i];
   else if (k === '--per') { const m = String(a[++i]).match(/^(\d)(?:-(\d))?$/); if (!m) throw new Error('--per phải dạng 2 hoặc 2-3'); opt.per = [+m[1], +(m[2] || m[1])]; }
   else { console.error(`Tham số lạ: ${k}`); process.exit(2); }
 }
@@ -28,6 +28,7 @@ const int = (lo, hi) => lo + Math.floor(rnd() * (hi - lo + 1));
 
 const now = Date.now(), today = day(now);
 const posts = loadPostsAt(opt.root).filter(p => p.status !== 'draft');
+if (opt.lang) posts.splice(0, posts.length, ...posts.filter(p => p.lang === opt.lang)); // mỗi ngôn ngữ có nhịp đăng riêng
 const scheduled = posts.filter(p => !isNaN(publishTime(p)));
 let queue = posts.filter(p => !p.publishAt);
 if (opt.check && queue.length && !opt.status) {

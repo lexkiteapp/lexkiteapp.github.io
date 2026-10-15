@@ -24,12 +24,13 @@ const posts = all.filter(p => p.status !== 'draft' && (DRAFTS || isLive(p, NOW))
 let LIVE = new Set(), CUR = DEF; // CUR: ngôn ngữ của trang đang dựng // URL các bài đã phát hành (gán sau khi có danh sách bài)
 // ---------- Chữ giao diện theo ngôn ngữ (bản dịch sau này chỉ cần thêm khóa) ----------
 const L = {
-  vi: { blog: 'Blog', home: 'Trang chủ', open: 'Mở app', min: 'phút đọc', toc: 'Nội dung bài', related: 'Bài liên quan', tags: 'Thẻ', page: 'Trang', newer: '← Mới hơn', older: 'Cũ hơn →', all: 'Tất cả', updated: 'Cập nhật', play: 'Phát video', by: 'Lexkite', cat: 'Chuyên mục', tagT: 'Bài viết về', foot: 'Lexkite – học từ vựng & luyện thi IELTS, TOEIC, TOEFL miễn phí. Nội dung tự biên soạn.', tm: 'IELTS, TOEIC, TOEFL là nhãn hiệu của chủ sở hữu tương ứng; Lexkite là sản phẩm độc lập.', skip: 'Bỏ qua đến nội dung', about: 'Về Blog Lexkite', try: 'Học miễn phí trên Lexkite', tryD: 'Flashcard FSRS, từ điển song ngữ, luyện 4 kỹ năng và thi thử – không cần thẻ tín dụng.', rss: 'RSS', words: 'Từ vựng', samples: 'Bài mẫu', seg: { cat: 'chu-de', tag: 'the', page: 'trang' } },
-  en: { blog: 'Blog', home: 'Home', open: 'Open app', min: 'min read', toc: 'Contents', related: 'Related posts', tags: 'Tags', page: 'Page', newer: '← Newer', older: 'Older →', all: 'All', updated: 'Updated', play: 'Play video', by: 'Lexkite', cat: 'Category', tagT: 'Posts about', foot: 'Lexkite – free vocabulary and IELTS, TOEIC, TOEFL practice. Original content.', tm: 'IELTS, TOEIC and TOEFL are trademarks of their respective owners; Lexkite is independent.', skip: 'Skip to content', about: 'About', try: 'Learn free with Lexkite', tryD: 'FSRS flashcards, bilingual dictionary, 4-skill practice and mock tests – no credit card.', rss: 'RSS', words: 'Vocabulary', samples: 'Samples', seg: { cat: 'topic', tag: 'tag', page: 'page' },
+  vi: { blog: 'Blog', home: 'Trang chủ', open: 'Mở app', min: 'phút đọc', toc: 'Nội dung bài', related: 'Bài liên quan', tags: 'Thẻ', page: 'Trang', newer: '← Mới hơn', older: 'Cũ hơn →', all: 'Tất cả', updated: 'Cập nhật', play: 'Phát video', by: 'Lexkite', cat: 'Chuyên mục', tagT: 'Bài viết về', foot: 'Lexkite – học từ vựng & luyện thi IELTS, TOEIC, TOEFL miễn phí. Nội dung tự biên soạn.', tm: 'IELTS, TOEIC, TOEFL là nhãn hiệu của chủ sở hữu tương ứng; Lexkite là sản phẩm độc lập.', skip: 'Bỏ qua đến nội dung', about: 'Về Blog Lexkite', try: 'Học miễn phí trên Lexkite', tryD: 'Flashcard FSRS, từ điển song ngữ, luyện 4 kỹ năng và thi thử – không cần thẻ tín dụng.', rss: 'RSS', words: 'Từ vựng', samples: 'Bài mẫu', seg: { cat: 'chu-de', tag: 'the', page: 'trang' }, aboutSlug: 'gioi-thieu', nav: { words: '/tu-vung/', samples: '/samples/' } },
+  en: { blog: 'Blog', home: 'Home', open: 'Open app', min: 'min read', toc: 'Contents', related: 'Related posts', tags: 'Tags', page: 'Page', newer: '← Newer', older: 'Older →', all: 'All', updated: 'Updated', play: 'Play video', by: 'Lexkite', cat: 'Category', tagT: 'Posts about', foot: 'Lexkite – free vocabulary and IELTS, TOEIC, TOEFL practice. Original content.', tm: 'IELTS, TOEIC and TOEFL are trademarks of their respective owners; Lexkite is independent.', skip: 'Skip to content', about: 'About', try: 'Learn free with Lexkite', tryD: 'FSRS flashcards, bilingual dictionary, 4-skill practice and mock tests – no credit card.', rss: 'RSS', words: 'Vocabulary', samples: 'Samples', seg: { cat: 'topic', tag: 'tag', page: 'page' }, aboutSlug: 'about', nav: { words: '/en/vocabulary/', samples: '/en/samples/' },
     cats: { 'tu-vung': 'Vocabulary', ielts: 'IELTS', toeic: 'TOEIC', toefl: 'TOEFL', 'phuong-phap': 'Study methods', 'ngu-phap': 'Grammar & usage', 'phat-am': 'Pronunciation', 'ky-nang': 'English skills' } },
 };
 const T = l => ({ ...L.en, ...(L[l] || {}) }); // ngôn ngữ chưa dịch giao diện → tiếng Anh
 const SEG = l => T(l).seg, catName = (k, l) => (L[l] && L[l].cats && L[l].cats[k]) || CATEGORIES[k] || k; // tên chuyên mục theo ngôn ngữ (mặc định tiếng Việt)
+const ABOUTS = new Set(Object.values(L).map(x => x.aboutSlug));
 const SEGS = new Set(Object.values(L).flatMap(x => Object.values(x.seg)));
 const base = l => `/${l}/blog/`; // thư mục theo ngôn ngữ: /vi/blog/, /en/blog/… (/blog/ → 301 sang /vi/blog/ trong _redirects)
 const postUrl = p => `${base(p.lang)}${p.slug}/`;
@@ -57,7 +58,7 @@ function inline(s) {
     .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, t, h) => {
       if (h.startsWith('/blog/')) h = base(CUR) + h.slice(6); // link /blog/<slug>/ trong bài → thư mục ngôn ngữ của bài
       const bm = h.match(/^\/(?:[a-z]{2}(?:-[a-z]+)?\/)?blog\/([^/#?]+)\/$/);
-      if (bm && !SEGS.has(bm[1]) && bm[1] !== 'gioi-thieu' && !LIVE.has(h)) return t; // bài đích chưa đến giờ đăng → chữ thường, không tạo link 404
+      if (bm && !SEGS.has(bm[1]) && !ABOUTS.has(bm[1]) && !LIVE.has(h)) return t; // bài đích chưa đến giờ đăng → chữ thường, không tạo link 404
       const ext = /^https?:/.test(h) && !h.startsWith(SITE), app = h.startsWith('/#/');
       return `<a href="${h}"${ext ? ' rel="noopener" target="_blank"' : ''}${app ? ' class="app"' : ''}>${t}</a>`;
     })
@@ -181,11 +182,11 @@ ${extraHead}${jsonld.map(ld).join('\n')}
 <body>
 <a class="skip" href="#nd">${t.skip}</a>
 <header class="top"><div class="bar"><a class="logo" href="/"><img src="/icons/icon.svg" width="32" height="32" alt=""><span>lex<b>kite</b></span></a>
-<nav class="main" aria-label="Lexkite"><a href="${b}">${t.blog}</a><a href="/tu-vung/">${t.words}</a><a href="/samples/">${t.samples}</a><a class="btn" href="/">${t.open}</a></nav></div></header>
+<nav class="main" aria-label="Lexkite"><a href="${b}">${t.blog}</a><a href="${t.nav.words}">${t.words}</a><a href="${t.nav.samples}">${t.samples}</a><a class="btn" href="/">${t.open}</a></nav></div></header>
 <main id="nd">
 ${body}
 </main>
-<footer><div class="bar"><p>${t.foot} <a href="${b}gioi-thieu/">${t.about}</a> · <a href="${b}rss.xml">${t.rss}</a> · <a href="/privacy">Privacy</a></p><p>${t.tm}</p><p>© ${new Date(NOW).getFullYear()} Lexkite</p></div></footer>
+<footer><div class="bar"><p>${t.foot} <a href="${b}${t.aboutSlug}/">${t.about}</a> · <a href="${b}rss.xml">${t.rss}</a> · <a href="/privacy">Privacy</a></p><p>${t.tm}</p><p>© ${new Date(NOW).getFullYear()} Lexkite</p></div></footer>
 ${script}
 </body>
 </html>`;
@@ -213,7 +214,7 @@ for (const p of posts) {
   const cat = catName(p.category, p.lang), b = base(p.lang), sg = SEG(p.lang);
   const crumbs = [[t.home, '/'], [t.blog, b], [cat, `${b}${sg.cat}/${p.category}/`], [p.title, postUrl(p)]];
   const jsonld = [
-    { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, description: p.description, image: [imgUrl(p.cover)], datePublished: iso(pub), dateModified: iso(upd), inLanguage: p.lang, wordCount: words, keywords: [p.keyword, ...(p.tags || [])].join(', '), articleSection: cat, mainEntityOfPage: SITE + postUrl(p), author: { '@type': 'Organization', name: p.author || 'Lexkite', url: `${SITE}${base(p.lang)}gioi-thieu/` }, publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: { '@type': 'ImageObject', url: `${SITE}/icons/icon-512.png`, width: 512, height: 512 } } },
+    { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, description: p.description, image: [imgUrl(p.cover)], datePublished: iso(pub), dateModified: iso(upd), inLanguage: p.lang, wordCount: words, keywords: [p.keyword, ...(p.tags || [])].join(', '), articleSection: cat, mainEntityOfPage: SITE + postUrl(p), author: { '@type': 'Organization', name: p.author || 'Lexkite', url: `${SITE}${base(p.lang)}${T(p.lang).aboutSlug}/` }, publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: { '@type': 'ImageObject', url: `${SITE}/icons/icon-512.png`, width: 512, height: 512 } } },
     crumbsLd(crumbs),
     ...(faq.length >= 2 ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
   ];

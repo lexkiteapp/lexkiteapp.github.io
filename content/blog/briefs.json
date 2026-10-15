@@ -1555,6 +1555,519 @@
    "angle": "Câu hỏi trợ động từ, Wh-, câu hỏi chủ ngữ (Who called?), câu hỏi gián tiếp lịch sự, câu hỏi đuôi; lỗi trật tự từ của người Việt",
    "intent": "informational",
    "type": "evergreen"
+  },
+  {
+   "slug": "how-to-learn-ielts-vocabulary",
+   "keyword": "how to learn ielts vocabulary",
+   "category": "tu-vung",
+   "tags": [
+    "ielts",
+    "tu-vung",
+    "flashcard"
+   ],
+   "shots": [
+    "library",
+    "review",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/review",
+    "/#/practice/learn"
+   ],
+   "angle": "Quy trình 7 bước học từ IELTS nhớ lâu: chọn từ đúng cấp, học trong ngữ cảnh, ôn ngắt quãng, dùng lại khi viết/nói",
+   "intent": "informational",
+   "lang": "en",
+   "source": "cach-hoc-tu-vung-ielts-hieu-qua"
+  },
+  {
+   "slug": "fsrs-algorithm-explained",
+   "keyword": "fsrs algorithm",
+   "category": "phuong-phap",
+   "tags": [
+    "fsrs",
+    "flashcard",
+    "anki"
+   ],
+   "shots": [
+    "review",
+    "method",
+    "stats"
+   ],
+   "routes": [
+    "/#/review",
+    "/#/method",
+    "/#/settings"
+   ],
+   "angle": "Giải thích FSRS (độ khó, độ ổn định, khả năng nhớ), so với SM-2, cách chọn mục tiêu ghi nhớ 80–95%",
+   "intent": "informational",
+   "lang": "en",
+   "source": "fsrs-la-gi"
+  },
+  {
+   "slug": "spaced-repetition-for-language-learning",
+   "keyword": "spaced repetition for language learning",
+   "category": "phuong-phap",
+   "tags": [
+    "spaced-repetition",
+    "ghi-nho"
+   ],
+   "shots": [
+    "method",
+    "review"
+   ],
+   "routes": [
+    "/#/method",
+    "/#/review"
+   ],
+   "angle": "Spaced repetition là gì, tại sao hiệu quả, lịch ôn mẫu, sai lầm hay gặp",
+   "intent": "informational",
+   "lang": "en",
+   "source": "lap-lai-ngat-quang"
+  },
+  {
+   "slug": "academic-word-list",
+   "keyword": "academic word list",
+   "category": "tu-vung",
+   "tags": [
+    "awl",
+    "ielts",
+    "tu-vung-hoc-thuat"
+   ],
+   "shots": [
+    "library",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/practice/test"
+   ],
+   "angle": "AWL 570 họ từ: nguồn gốc, vì sao quan trọng cho IELTS Academic/TOEFL, cách học theo sublist",
+   "intent": "informational",
+   "lang": "en",
+   "source": "academic-word-list-awl"
+  },
+  {
+   "slug": "ielts-collocations",
+   "keyword": "ielts collocations",
+   "category": "tu-vung",
+   "tags": [
+    "collocation",
+    "ielts",
+    "writing"
+   ],
+   "shots": [
+    "dict",
+    "phrases"
+   ],
+   "routes": [
+    "/#/dict/",
+    "/#/phrases"
+   ],
+   "angle": "Collocation là gì, các kiểu kết hợp, 40+ collocation học thuật tự chọn, cách tra & ghi",
+   "intent": "informational",
+   "lang": "en",
+   "source": "collocation-ielts"
+  },
+  {
+   "slug": "linking-words-for-ielts-writing",
+   "keyword": "linking words for ielts writing",
+   "category": "ielts",
+   "tags": [
+    "linking-words",
+    "writing"
+   ],
+   "shots": [
+    "write",
+    "phrases"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/phrases"
+   ],
+   "angle": "Linking words theo chức năng, lỗi lạm dụng, cohesion tự nhiên ảnh hưởng tiêu chí Coherence & Cohesion",
+   "intent": "informational",
+   "lang": "en",
+   "source": "tu-noi-trong-ielts-writing"
+  },
+  {
+   "slug": "ielts-reading-true-false-not-given",
+   "keyword": "true false not given",
+   "category": "ielts",
+   "tags": [
+    "reading",
+    "ielts"
+   ],
+   "shots": [
+    "reading",
+    "read-article"
+   ],
+   "routes": [
+    "/#/reading"
+   ],
+   "angle": "Phân biệt False và Not Given, quy trình 4 bước, ví dụ tự viết",
+   "intent": "informational",
+   "lang": "en",
+   "source": "ielts-reading-true-false-not-given"
+  },
+  {
+   "slug": "ielts-listening-tips",
+   "keyword": "ielts listening tips",
+   "category": "ielts",
+   "tags": [
+    "listening",
+    "ielts"
+   ],
+   "shots": [
+    "listening",
+    "mock"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/mock"
+   ],
+   "angle": "Đọc trước câu hỏi, bẫy đổi ý, chính tả, số; luyện theo phần",
+   "intent": "informational",
+   "lang": "en",
+   "source": "meo-lam-bai-ielts-listening"
+  },
+  {
+   "slug": "ielts-writing-task-2-structure",
+   "keyword": "ielts writing task 2 structure",
+   "category": "ielts",
+   "tags": [
+    "writing",
+    "task-2"
+   ],
+   "shots": [
+    "write"
+   ],
+   "routes": [
+    "/#/write",
+    "/samples/"
+   ],
+   "angle": "Dạng đề Task 2, bố cục 4–5 đoạn, phân tích đề, lập dàn ý 5 phút",
+   "intent": "informational",
+   "lang": "en",
+   "source": "cau-truc-ielts-writing-task-2"
+  },
+  {
+   "slug": "ielts-writing-task-1-line-graph",
+   "keyword": "ielts line graph",
+   "category": "ielts",
+   "tags": [
+    "writing",
+    "task-1"
+   ],
+   "shots": [
+    "task1"
+   ],
+   "routes": [
+    "/#/task1"
+   ],
+   "angle": "Cấu trúc 4 đoạn, overview, từ vựng xu hướng, câu mẫu tự viết",
+   "intent": "informational",
+   "lang": "en",
+   "source": "ielts-writing-task-1-line-graph"
+  },
+  {
+   "slug": "ielts-speaking-part-2-tips",
+   "keyword": "ielts speaking part 2",
+   "category": "ielts",
+   "tags": [
+    "speaking",
+    "part-2"
+   ],
+   "shots": [
+    "speaking"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/speaking/"
+   ],
+   "angle": "Tận dụng 1 phút chuẩn bị, khung kể chuyện, kéo dài tự nhiên 2 phút",
+   "intent": "informational",
+   "lang": "en",
+   "source": "ielts-speaking-part-2-cue-card"
+  },
+  {
+   "slug": "toeic-test-format",
+   "keyword": "toeic test format",
+   "category": "toeic",
+   "tags": [
+    "toeic",
+    "cau-truc-de"
+   ],
+   "shots": [
+    "toeic"
+   ],
+   "routes": [
+    "/#/toeic"
+   ],
+   "angle": "7 Part, thời gian, điểm 10–990, cách luyện từng phần",
+   "intent": "informational",
+   "lang": "en",
+   "source": "cau-truc-de-thi-toeic"
+  },
+  {
+   "slug": "new-toefl-ibt-format-2026",
+   "keyword": "new toefl format 2026",
+   "category": "toefl",
+   "tags": [
+    "toefl",
+    "dinh-dang-moi"
+   ],
+   "shots": [
+    "toefl"
+   ],
+   "routes": [
+    "/#/toefl"
+   ],
+   "angle": "Định dạng TOEFL iBT từ 21/01/2026: ngắn hơn, thích ứng, thang band 1–6; chuẩn bị gì",
+   "intent": "informational",
+   "lang": "en",
+   "source": "toefl-ibt-dinh-dang-moi-2026"
+  },
+  {
+   "slug": "present-perfect-vs-past-simple",
+   "keyword": "present perfect vs past simple",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "thi"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "Phân tích tư duy thời gian của người bản xứ (kết nối hiện tại vs mốc đã đóng), tín hiệu, các cặp câu đối chiếu, lỗi người Việt, bài tập có đáp án",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "en",
+   "source": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don"
+  },
+  {
+   "slug": "articles-a-an-the-rules",
+   "keyword": "a an the rules",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "mao-tu"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "Vì sao người Việt hay sai mạo từ (tiếng Việt không có mạo từ), cây quyết định chọn a/an/the/Ø, danh từ chung chung vs xác định, bài tập",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "en",
+   "source": "loi-dung-mao-tu-a-an-the"
+  },
+  {
+   "slug": "commonly-confused-words-in-english",
+   "keyword": "commonly confused words",
+   "category": "ngu-phap",
+   "tags": [
+    "tu-de-nham",
+    "tu-vung"
+   ],
+   "shots": [
+    "dict",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/dict/",
+    "/#/practice/test"
+   ],
+   "angle": "30 cặp từ dễ nhầm (affect/effect, economic/economical, rise/raise…) có mẹo phân biệt & ví dụ tự đặt",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "en",
+   "source": "cac-cap-tu-de-nham-lan-trong-tieng-anh"
+  },
+  {
+   "slug": "gerunds-and-infinitives",
+   "keyword": "gerunds and infinitives",
+   "category": "ngu-phap",
+   "tags": [
+    "gerund",
+    "ngu-phap"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "Logic đằng sau (hướng tới tương lai vs trải nghiệm), động từ đổi nghĩa (stop/remember/try), mẹo nhớ theo nhóm",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "en",
+   "source": "gerund-va-to-infinitive"
+  },
+  {
+   "slug": "english-word-stress-rules",
+   "keyword": "word stress rules",
+   "category": "phat-am",
+   "tags": [
+    "trong-am",
+    "phat-am"
+   ],
+   "shots": [
+    "pron",
+    "dict"
+   ],
+   "routes": [
+    "/#/pron",
+    "/#/dict/"
+   ],
+   "angle": "Trọng âm từ 2–3 âm tiết, hậu tố giữ/kéo trọng âm, danh từ–động từ đổi trọng âm (record), ngoại lệ, cách tra",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "en",
+   "source": "quy-tac-danh-trong-am-tieng-anh"
+  },
+  {
+   "slug": "connected-speech-in-english",
+   "keyword": "connected speech",
+   "category": "phat-am",
+   "tags": [
+    "noi-am",
+    "nghe"
+   ],
+   "shots": [
+    "pron",
+    "listening"
+   ],
+   "routes": [
+    "/#/pron",
+    "/#/listening"
+   ],
+   "angle": "Connected speech: nối phụ âm–nguyên âm, nuốt âm, đồng hóa, dạng yếu (weak forms); vì sao nghe không ra; luyện",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "en",
+   "source": "noi-am-trong-tieng-anh"
+  },
+  {
+   "slug": "how-to-improve-english-listening",
+   "keyword": "how to improve english listening",
+   "category": "ky-nang",
+   "tags": [
+    "nghe",
+    "listening"
+   ],
+   "shots": [
+    "listening",
+    "practice"
+   ],
+   "routes": [
+    "/#/listening"
+   ],
+   "angle": "Mô hình nghe từ dưới lên/trên xuống, nghe chủ động vs thụ động, chọn tài liệu i+1, quy trình 5 lượt nghe một đoạn",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "en",
+   "source": "luyen-nghe-tieng-anh-hieu-qua"
+  },
+  {
+   "slug": "hedging-in-academic-writing",
+   "keyword": "hedging in academic writing",
+   "category": "ky-nang",
+   "tags": [
+    "academic-writing",
+    "hedging"
+   ],
+   "shots": [
+    "write",
+    "phrases"
+   ],
+   "routes": [
+    "/#/write",
+    "/ngu-phap/"
+   ],
+   "angle": "Ngôn ngữ thận trọng: modal, động từ tường thuật, trạng từ mức độ; khi nào cần, khi nào lạm dụng; ví dụ trước/sau",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "en",
+   "source": "hedging-trong-academic-writing"
+  },
+  {
+   "slug": "shadowing-technique",
+   "keyword": "shadowing technique",
+   "category": "phuong-phap",
+   "tags": [
+    "shadowing",
+    "speaking",
+    "listening"
+   ],
+   "shots": [
+    "practice-speak",
+    "pron",
+    "listening"
+   ],
+   "routes": [
+    "/#/practice/speak",
+    "/#/listening"
+   ],
+   "angle": "Kỹ thuật shadowing từng bước, chọn tài liệu, kết hợp chấm phát âm",
+   "intent": "informational",
+   "lang": "en",
+   "source": "shadowing-luyen-noi-tieng-anh"
+  },
+  {
+   "slug": "active-recall-for-vocabulary",
+   "keyword": "active recall",
+   "category": "phuong-phap",
+   "tags": [
+    "active-recall",
+    "ghi-nho"
+   ],
+   "shots": [
+    "practice-test",
+    "review"
+   ],
+   "routes": [
+    "/#/practice/test",
+    "/#/review"
+   ],
+   "angle": "Chủ động gợi nhớ vs đọc lại, hiệu ứng kiểm tra, áp dụng cho từ vựng",
+   "intent": "informational",
+   "lang": "en",
+   "source": "active-recall-chu-dong-goi-nho"
+  },
+  {
+   "slug": "how-to-write-a-formal-email",
+   "keyword": "how to write a formal email",
+   "category": "ky-nang",
+   "tags": [
+    "email",
+    "writing"
+   ],
+   "shots": [
+    "letters",
+    "write"
+   ],
+   "routes": [
+    "/#/letters",
+    "/viet-thu/"
+   ],
+   "angle": "Cấu trúc email công việc, mở/kết theo mức trang trọng, lời đề nghị lịch sự, lỗi hay gặp, 3 email mẫu tự viết",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "en",
+   "source": "cach-viet-email-tieng-anh"
   }
  ]
 }
