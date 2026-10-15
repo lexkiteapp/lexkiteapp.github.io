@@ -273,7 +273,7 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
       ${r('⚡ ' + t('Chấm nhanh & ghi chú từ soạn sẵn'), `<b class="good small">✅ ${t('Luôn có')}</b>`)}
       ${r('💻 ' + t('AI có sẵn trong Chrome (trên máy, riêng tư)'), `<span class="small">${nano}</span>`)}
       ${r('✨ ' + t('Gemini – chấm chi tiết như giám khảo'), `<span class="set-btns">${k ? `<span class="chip ok">✓ ${t('Đã có khóa {key}…', { key: esc(k.slice(0, 6)) })}</span>` : ''}<button type="button" class="btn sm" id="aiSet">${k ? t('Đổi khóa') : t('Thêm khóa')}</button>${k ? `<button type="button" class="btn sm ghost" id="aiDel">${t('Xóa khóa')}</button>` : ''}</span>`, t('Không bắt buộc – thêm khóa Gemini miễn phí của riêng bạn để chấm không giới hạn. Khóa chỉ lưu trên máy này.'))}
-      ${r(t('Mô hình'), `<select class="input" id="aiModel">${['', ...MODELS].map(m => `<option value="${m}" ${(state.settings.aiModel || '') === m ? 'selected' : ''}>${m || t('Tự động (khuyên dùng)')}</option>`).join('')}</select>`)}</div>`;
+      ${r(t('Mô hình'), `<select class="input" id="aiModel" aria-label="${t('Mô hình')}">${['', ...MODELS].map(m => `<option value="${m}" ${(state.settings.aiModel || '') === m ? 'selected' : ''}>${m || t('Tự động (khuyên dùng)')}</option>`).join('')}</select>`)}</div>`;
   }
   function bindSettings(rerender) {
     const s = $('#aiSet'); if (s) s.onclick = () => keyDialog(rerender);

@@ -1186,7 +1186,7 @@
     const s = state.settings;
     const perm = 'Notification' in window ? Notification.permission : 'unsupported';
     const nc = x => x.replace(/[:：]\s*$/, ''); // nhãn đứng riêng – bỏ dấu hai chấm ở cuối
-    const row = (label, ctl, hint = '') => `<div class="set-row"><div class="set-l"><span>${label}</span>${hint ? `<small>${hint}</small>` : ''}</div><div class="set-c">${ctl}</div></div>`;
+    const row = (label, ctl, hint = '') => (ctl = ctl.replace(/<(select|input)(?![^>]*aria-label)(?![^>]*type="file")/g, `<$1 aria-label="${esc(String(label).replace(/<[^>]+>/g, ''))}"`), `<div class="set-row"><div class="set-l"><span>${label}</span>${hint ? `<small>${hint}</small>` : ''}</div><div class="set-c">${ctl}</div></div>`);
     const tog = (id, on, label, hint = '') => `<label class="set-row switch"><span class="set-l"><span>${label}</span>${hint ? `<small>${hint}</small>` : ''}</span><input type="checkbox" id="${id}" ${on ? 'checked' : ''}></label>`;
     const slide = (label, vid, val, input, hint = '') => `<label class="set-row col"><span class="set-top"><span>${label}</span><b id="${vid}">${val}</b></span>${input}${hint ? `<small>${hint}</small>` : ''}</label>`;
     const seg = (id, items, cur) => `<div class="tabs seg" id="${id}">${items.map(([v, l, attr]) => `<button type="button" data-v="${v}" class="${cur === v ? 'on' : ''}"${attr || ''}>${l}</button>`).join('')}</div>`;
@@ -1392,12 +1392,12 @@
             <p class="small muted" style="margin-top:.8rem">${t('Miễn phí · Dữ liệu học thuộc về bạn')}</p>
           </div>
           <div class="w-demo">
-          <div class="card w-card" id="wCard" role="button" tabindex="0" aria-label="${t('Chạm để lật')}" style="padding:0;overflow:hidden;box-shadow:var(--shadow-lg)">
+          <div class="card w-card" id="wCard" style="padding:0;overflow:hidden;box-shadow:var(--shadow-lg)">
             <div style="background:linear-gradient(135deg,#0F3D3E,#17595A 60%,#1F7A72);padding:1.6rem;color:#fff;text-align:center;position:relative"><div class="kit-cele" id="wKit" style="position:absolute;right:.6rem;top:.5rem">${window.Kit ? Kit.svg('cheer', 64) : ''}</div>
               <div style="font-size:4rem">🌿</div><div style="font-size:2rem;font-weight:800">sustainable</div>
               <div class="row center" style="opacity:.9;gap:.4rem">/səˈsteɪnəbl/ · adj · B2 <button type="button" class="icon-btn sm" id="wSay" aria-label="${t('Nghe')}: sustainable" style="background:rgba(255,255,255,.18);color:#fff">🔊</button></div></div>
             <div style="padding:1.2rem 1.4rem">
-              <div id="wFront" class="muted small center">👆 ${t('Chạm để lật')}</div>
+              <button type="button" id="wFront" class="linkish muted small center" style="display:block;width:100%;background:none;border:0;cursor:pointer;font:inherit">👆 ${t('Chạm để lật')}</button>
               <div id="wBack" hidden><div class="vi">${esc(I18N.meanLang() === 'en' ? 'able to continue without harming the environment' : 'bền vững')}</div>
               <div class="example-box small" style="margin-top:.6rem">Governments must invest in <mark>sustainable</mark> energy to protect future generations.</div>
               <div class="grades" style="margin-top:1rem">${[['again', t('Quên')], ['hard', t('Khó')], ['good', t('Nhớ')], ['easy', t('Dễ')]].map(([g, l]) => `<button type="button" class="btn g-${g} sm" data-wg="${g}">${l}</button>`).join('')}</div></div>
@@ -1420,7 +1420,6 @@
     // Thẻ demo tương tác: chạm lật → chấm Nhớ/Dễ → chuông + pháo hoa + Kit chúc mừng → mời học tiếp
     const flip = () => { $('#wFront').hidden = true; $('#wBack').hidden = false; };
     $('#wCard').onclick = e => { if (!e.target.closest('button,a')) flip(); };
-    $('#wCard').onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } };
     $('#wSay').onclick = e => { e.stopPropagation(); speak('sustainable', state.settings.accent); };
     $$('[data-wg]').forEach(b => b.onclick = e => { e.stopPropagation(); const g = b.dataset.wg;
       if (g === 'good' || g === 'easy') { Sfx.correct(); confetti(30); const k = $('#wKit'); if (k && window.Kit) k.innerHTML = Kit.svg('win', 72, true); }
