@@ -9,7 +9,7 @@ tags: [linking-words, writing]
 keyword: "từ nối trong ielts writing"
 cover: write
 coverAlt: "Màn hình luyện Writing Task 2 trong Lexkite với bài mẫu band 8 có chú thích"
-publishAt: 2026-10-21T08:14:00+07:00
+publishAt: 2026-10-27T20:29:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

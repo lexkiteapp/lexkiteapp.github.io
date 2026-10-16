@@ -9,7 +9,7 @@ tags: [ipa, phat-am]
 keyword: "cách đọc phiên âm ipa"
 cover: pron
 coverAlt: "Bảng âm IPA của Lexkite với nguyên âm, phụ âm và luyện từng âm"
-publishAt: 2026-10-23T17:08:00+07:00
+publishAt: 2026-11-03T21:14:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [toeic, tu-vung]
 keyword: "từ vựng toeic theo chủ đề"
 cover: toeic
 coverAlt: "Trang luyện thi TOEIC của Lexkite: thi thử 7 đề chấm tự động quy đổi 10–990, luyện theo Part và từ vựng"
-publishAt: 2026-10-25T14:06:00+07:00
+publishAt: 2026-11-08T14:45:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

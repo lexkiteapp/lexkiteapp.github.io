@@ -9,7 +9,7 @@ tags: [phim, nghe]
 keyword: "học tiếng anh qua phim"
 cover: dict
 coverAlt: "Mục từ “resilient” trong từ điển Anh–Việt của Lexkite với phiên âm, nút nghe, collocation và từ đồng nghĩa"
-publishAt: 2026-10-31T11:50:00+07:00
+publishAt: 2026-11-24T12:03:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

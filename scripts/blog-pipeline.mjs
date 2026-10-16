@@ -30,11 +30,11 @@ if (cmd === 'new') {
   s = s.slice(0, end) + `\n<!-- TODO-LOCALIZE: viết lại cho người đọc ${to} theo content/blog/prompts/5-localize.md (từ khóa bản địa, ví dụ & lỗi của người học nước đó). Bản gốc ${src.lang} bên dưới chỉ để tham khảo – xóa sau khi viết. -->\n` + s.slice(end);
   fs.writeFileSync(f, s); console.log(`✓ Tạo ${f} (draft, translationKey=${src.translationKey || src.slug}) – ảnh dùng chung, chỉ viết lại alt/chú thích`);
 } else if (cmd === 'gate') {
-  const ok = [run('scripts/vi-lint.mjs'), run('scripts/blog-check.mjs', args), run('scripts/blog-dupes.mjs', args)].every(Boolean);
+  const ok = [run('scripts/vi-lint.mjs'), run('scripts/blog-check.mjs', args), run('scripts/blog-dupes.mjs', args), run('scripts/blog-schedule.mjs', ['--verify'])].every(Boolean);
   console.log(ok ? '✓ Cổng chất lượng: ĐẠT' : '✗ Cổng chất lượng: CHƯA ĐẠT – sửa lỗi trên rồi chạy lại'); process.exit(ok ? 0 : 1);
 } else if (cmd === 'queue') {
   if (![run('scripts/vi-lint.mjs'), run('scripts/blog-check.mjs'), run('scripts/blog-dupes.mjs')].every(Boolean)) { console.error('✗ Chưa xếp lịch vì cổng chất lượng chưa đạt'); process.exit(1); }
-  for (const l of [...new Set(loadPosts().map(p => p.lang))]) run('scripts/blog-schedule.mjs', ['--lang', l, ...(opt('--seed') ? ['--seed', opt('--seed')] : [])]); // mỗi ngôn ngữ một nhịp đăng
+  run('scripts/blog-schedule.mjs', opt('--seed') ? ['--seed', opt('--seed')] : []); // mỗi ngôn ngữ một nhịp, ≤ 1 bài/ngày, cụm cách ≥ 7 ngày, giờ địa phương
 } else if (cmd === 'status') {
   const P = loadPosts(), now = Date.now(), by = {};
   for (const p of P) { const k = `${p.lang}`; by[k] ||= { draft: 0, queued: 0, scheduled: 0, live: 0 }; const t = Date.parse(p.publishAt); by[k][p.status === 'draft' ? 'draft' : !p.publishAt ? 'queued' : t <= now ? 'live' : 'scheduled']++; }

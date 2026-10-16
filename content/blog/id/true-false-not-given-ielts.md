@@ -9,7 +9,7 @@ tags: [reading, ielts, true-false-not-given]
 keyword: "true false not given ielts"
 cover: reading
 coverAlt: "Daftar bacaan IELTS Lexkite per level A2–C1 seperti The Rise of Urban Farming dan Microplastics in the Ocean"
-publishAt: 2026-10-19T18:30:00+07:00
+publishAt: 2026-10-20T19:31:00+07:00
 factChecked: 2026-10-17
 qualityScore: 93
 author: Lexkite
@@ -18,7 +18,7 @@ status: ready
 
 Soal **true false not given ielts** meminta Anda membandingkan sebuah pernyataan dengan isi teks. Jawab **True** jika teks membenarkannya, **False** jika teks menyatakan hal yang berlawanan, dan **Not Given** jika teks tidak memberi cukup informasi untuk memutuskan. Bagian tersulitnya hampir selalu sama: memisahkan False dari Not Given. Kuncinya satu pertanyaan sederhana, yaitu *adakah kata-kata di teks yang membuat pernyataan itu mustahil benar?* Kalau ada, jawabannya False. Kalau teks diam saja, jawabannya Not Given.
 
-Aturannya pendek, tetapi di bawah tekanan waktu banyak peserta dari Indonesia tetap kehilangan poin di tipe soal ini. Panduan ini menjelaskan penyebabnya, memberi metode empat langkah, dan menutup dengan latihan mandiri beserta kunci jawaban.
+Aturannya pendek, tetapi di bawah tekanan waktu banyak peserta dari Indonesia tetap kehilangan poin di tipe soal ini. Panduan ini menjelaskan penyebabnya, memberi metode empat langkah, dan menutup dengan latihan mandiri beserta kunci jawaban. Jika kamu belum tahu kapan sebaiknya mulai melatih tipe soal ini, lihat roadmap [belajar IELTS otodidak](/id/blog/belajar-ielts-otodidak/).
 
 *(IELTS adalah merek dagang milik pemiliknya masing-masing. Lexkite tidak berafiliasi dengan penyelenggara tes, dan semua teks contoh di bawah ini ditulis sendiri.)*
 

@@ -9,7 +9,7 @@ tags: [phrasal-verb, speaking]
 keyword: "phrasal verb thông dụng"
 cover: practice-learn
 coverAlt: "Màn hình học thông minh của Lexkite cho cụm “come up with” với nghĩa, ví dụ và lưu ý dùng đúng"
-publishAt: 2026-10-19T18:27:00+07:00
+publishAt: 2026-10-23T12:30:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [muc-tieu, dong-luc]
 keyword: "mục tiêu học tiếng anh"
 cover: goal
 coverAlt: "“Goal & study plan” giúp bạn đặt điểm mục tiêu và ngày thi cho kế hoạch học"
-publishAt: 2026-11-09T19:17:00+07:00
+publishAt: 2026-12-16T17:32:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -98,6 +98,8 @@ Lexkite có trang [Mục tiêu & kế hoạch học](/#/goal) giúp bạn biến
 {{cta: /#/goal | Đặt mục tiêu và chỉ tiêu tuần đầu tiên}}
 
 {{youtube: | Gợi ý video: viết lại một mục tiêu mơ hồ thành mục tiêu SMART và chia thành chỉ tiêu tuần}}
+
+Khi chia chỉ tiêu tuần, bạn có thể lấy nội dung từ [từ vựng theo chủ đề](/tu-vung/) và [chủ điểm ngữ pháp](/ngu-phap/).
 
 ## Câu hỏi thường gặp
 

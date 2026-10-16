@@ -9,7 +9,7 @@ tags: [ngu-dieu, speaking]
 keyword: "ngữ điệu tiếng anh"
 cover: pron
 coverAlt: "Thư viện phát âm IPA của Lexkite chia nguyên âm đơn, nguyên âm đôi và phụ âm, kèm từ ví dụ"
-publishAt: 2026-10-26T06:58:00+07:00
+publishAt: 2026-11-10T11:51:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -118,6 +118,8 @@ Trong giao tiếp hằng ngày, ngữ điệu còn quyết định độ lịch 
 4. **Shadowing**: nói đè lên bản ghi, chậm một nhịp, bắt chước cả cao độ lẫn chỗ dừng. Bài [shadowing](/vi/blog/shadowing-luyen-noi-tieng-anh/) hướng dẫn chi tiết.
 5. **Phóng đại rồi thu lại**: lần đầu, làm ngữ điệu "quá lố" như diễn kịch. Người Việt thường lo nghe kỳ, nhưng thực tế khi thu lại một nửa, kết quả lại vừa tự nhiên.
 6. **Ghi âm và so sánh**: nghe bản của bạn ngay sau bản mẫu. Chú ý hai điểm: cuối câu có xuống rõ không, và âm nhấn có rơi đúng từ không.
+
+![Màn hình luyện nghe của Lexkite: 10 đề, giọng Anh–Mỹ–Úc, tốc độ chỉnh được, nút Luyện tập, Nghe lần đầu và Chép chính tả](media:listening "Bài nghe có chỉnh tốc độ là nguồn tốt để shadowing, bắt chước nhịp lên xuống giọng")
 
 Trọng âm từ là nền móng của nhấn câu; nếu chưa chắc phần đó, xem trước bài [quy tắc đánh trọng âm tiếng Anh](/vi/blog/quy-tac-danh-trong-am-tieng-anh/).
 

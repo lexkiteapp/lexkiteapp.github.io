@@ -30,6 +30,8 @@ struct LexSnapshot: Codable, Hashable {
     var v: Int?
     var at: Double?
     var due: Int?
+    var days: [Int]?
+    var newDay: Int?
     var streak: Int?
     var lang: String?
     var rtl: Bool?
@@ -54,9 +56,20 @@ struct LexSnapshot: Codable, Hashable {
     }
     static func load() -> LexSnapshot? { decode(LexShared.defaults.string(forKey: LexShared.key)) }
 
+    /// Trạng thái ở thời điểm `date`: số thẻ cần ôn + các từ đã đến hạn. Qua ngày mới mà chưa mở app vẫn đúng
+    /// (days[i] = thẻ ôn đến hạn hết ngày thứ i kể từ ngày chụp snapshot, newDay = thẻ mới mỗi ngày).
+    func state(at date: Date, calendar cal: Calendar = .current) -> (count: Int, words: [LexWord]) {
+        let snapDay = cal.startOfDay(for: Date(timeIntervalSince1970: (at ?? 0) / 1000))
+        let day = cal.startOfDay(for: date)
+        let k = max(0, cal.dateComponents([.day], from: snapDay, to: day).day ?? 0)
+        let endMs = (cal.date(byAdding: .day, value: 1, to: day) ?? date).timeIntervalSince1970 * 1000
+        let ws = list.filter { ($0.due ?? 0) <= endMs } // từ mới có due = 0
+        guard k > 0, let ds = days, !ds.isEmpty else { return (dueCount, ws) }
+        return ((k < ds.count ? ds[k] : ds[ds.count - 1]) + max(0, newDay ?? 0), ws)
+    }
+
     /// Từ hiển thị ở mốc giờ `slot` (đổi mỗi giờ, xoay vòng trong ≤ 20 từ đến hạn)
-    func word(at slot: Int) -> LexWord? {
-        let ws = list
+    static func pick(_ ws: [LexWord], slot: Int) -> LexWord? {
         guard !ws.isEmpty else { return nil }
         return ws[((slot % ws.count) + ws.count) % ws.count]
     }

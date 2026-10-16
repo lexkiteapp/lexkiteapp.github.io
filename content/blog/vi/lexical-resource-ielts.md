@@ -9,7 +9,7 @@ tags: [band-descriptors, writing, speaking]
 keyword: "lexical resource ielts"
 cover: write
 coverAlt: "Màn hình luyện Writing Task 2 trong Lexkite với bài mẫu band 8 có chú thích"
-publishAt: 2026-11-03T06:23:00+07:00
+publishAt: 2026-11-30T09:03:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -68,11 +68,13 @@ Lưu ý: ví dụ trên chỉ minh họa xu hướng của tiêu chí, không ph
 
 ### 1. Học từ theo chủ đề, không theo danh sách ngẫu nhiên
 
-Đề IELTS xoay quanh những nhóm chủ đề quen thuộc: giáo dục, môi trường, công nghệ, [sức khỏe](/vi/blog/tu-vung-ielts-chu-de-health/), đô thị, công việc. Học theo cụm chủ đề giúp bạn có "kho" sẵn khi gặp đề. Mỗi chủ đề, hãy nhắm 30–50 từ và cụm từ có ví dụ đầy đủ. Các [bộ từ vựng IELTS chia theo chủ đề](/tu-vung/) là điểm khởi đầu tiện lợi.
+Đề IELTS xoay quanh những nhóm chủ đề quen thuộc: giáo dục, môi trường, công nghệ, [sức khỏe](/vi/blog/tu-vung-ielts-chu-de-health/), đô thị, [công việc](/vi/blog/tu-vung-ielts-chu-de-work/). Học theo cụm chủ đề giúp bạn có "kho" sẵn khi gặp đề. Mỗi chủ đề, hãy nhắm 30–50 từ và cụm từ có ví dụ đầy đủ. Các [bộ từ vựng IELTS chia theo chủ đề](/tu-vung/) là điểm khởi đầu tiện lợi.
 
 ### 2. Luôn học kèm collocation và một câu ví dụ
 
 Đừng ghi *impact = tác động*. Hãy ghi *have a significant impact on*, *a negative impact*, *assess the impact of*. Từ đứng một mình gần như vô dụng khi viết; từ đi kèm cụm mới dùng được ngay.
+
+![Sổ cụm từ & cấu trúc trong Lexkite: thêm cụm hay và câu hay, bài mẫu có chỉ cấu trúc, gắn nhãn Task và band](media:phrases "Lưu nguyên cụm collocation kèm câu ví dụ thay vì ghi một từ đơn lẻ")
 
 ### 3. Paraphrase đề bài bằng nhiều cách
 

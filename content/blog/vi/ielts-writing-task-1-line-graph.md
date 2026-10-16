@@ -9,7 +9,7 @@ tags: [writing, task-1]
 keyword: "ielts writing task 1 line graph"
 cover: task1
 coverAlt: "Mục Writing Task 1 Academic của Lexkite: biểu đồ đường, cột, tròn, bảng, quy trình và cấu trúc 4 đoạn"
-publishAt: 2026-10-30T19:30:00+07:00
+publishAt: 2026-11-21T20:59:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

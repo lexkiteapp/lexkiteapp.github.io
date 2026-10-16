@@ -9,7 +9,7 @@ tags: [connected-speech, pronunciation, listening, weak-forms]
 keyword: "connected speech"
 cover: pron
 coverAlt: "Lexkite pronunciation library showing English vowel and consonant sounds in IPA"
-publishAt: 2026-10-23T16:47:00+07:00
+publishAt: 2026-11-03T21:14:00+05:30
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

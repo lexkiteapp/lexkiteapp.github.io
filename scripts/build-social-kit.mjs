@@ -8,7 +8,7 @@ import os from 'node:os';
 import { execSync } from 'node:child_process';
 import vm from 'node:vm';
 import { createRequire } from 'node:module';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const BRAND = path.join(ROOT, 'brand');
@@ -18,7 +18,7 @@ const FONT_DIR = path.join(SRC, 'fonts');
 
 // ---------- phụ thuộc (không thêm vào repo) ----------
 const DEPS = process.env.SOCIAL_KIT_DEPS || path.join(os.tmpdir(), 'lexkite-social-deps');
-const need = ['@resvg/resvg-js', 'sharp', 'opentype.js'];
+const need = ['@resvg/resvg-js', 'sharp', 'opentype.js', 'qrcode'];
 if (!need.every((d) => fs.existsSync(path.join(DEPS, 'node_modules', d)))) {
   fs.mkdirSync(DEPS, { recursive: true });
   console.log('Cài công cụ dựng ảnh vào', DEPS);
@@ -133,7 +133,7 @@ const kitSvg = (m) => kitCtx.self.Kit.svg(m, 512, false).replace(/ class=""/g, '
 // Đồng bộ brand/kit-*.svg với app để không ai dùng nhầm bản cũ
 for (const m of ['happy', 'win', 'cheer', 'think', 'sad', 'sleep']) fs.writeFileSync(path.join(BRAND, `kit-${m}.svg`), kitSvg(m).replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ') + '\n');
 const KIT = {};
-for (const k of ['happy', 'cheer', 'win', 'sad']) KIT[k] = kitSvg(k).replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, '');
+for (const k of ['happy', 'cheer', 'win', 'sad', 'think', 'sleep']) KIT[k] = kitSvg(k).replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, '');
 // Kit thân teal đậm → viền sáng kiểu sticker để nổi trên nền teal
 const HALO = `<filter id="kithalo" x="-10%" y="-10%" width="120%" height="120%"><feMorphology in="SourceAlpha" operator="dilate" radius="2.6" result="d"/><feFlood flood-color="${C.paper}"/><feComposite in2="d" operator="in" result="o"/><feMerge><feMergeNode in="o"/><feMergeNode in="SourceGraphic"/></feMerge></filter>`;
 const kit = (x, y, s, k = 'happy', rot = 0) => `<g transform="rotate(${rot} ${x + s / 2} ${y + s / 2})"><svg x="${x}" y="${y}" width="${s}" height="${s}" viewBox="-4 -4 128 128" overflow="visible"><g filter="url(#kithalo)">${KIT[k]}</g></svg></g>`;
@@ -654,4 +654,6 @@ figcaption{padding:12px 14px;display:grid;gap:2px;font-size:.85rem}figcaption b{
 ${sec}</div></body></html>`;
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+// Dùng lại trong scripts/build-social-templates.mjs
+export { C, F, COPY, DEPS, req, Resvg, sharp, measure, text, fit, wrap, id, mark, markCentered, wordmark, lockup, lockupWidth, kit, KIT, kitSvg, glow, sky, sparkles, pill, coralGrad, svgDoc, encode, rasterize, FONT_DIR, OUT, ROOT };
+if (import.meta.url === pathToFileURL(process.argv[1]).href) main().catch((e) => { console.error(e); process.exit(1); });

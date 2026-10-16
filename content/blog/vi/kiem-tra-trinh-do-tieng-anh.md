@@ -9,7 +9,7 @@ tags: [placement, cefr]
 keyword: "kiểm tra trình độ tiếng anh"
 cover: placement
 coverAlt: "Bài kiểm tra đầu vào 5 phút của Lexkite: 20 câu từ vựng và ngữ pháp từ A2 đến C1"
-publishAt: 2026-11-08T22:18:00+07:00
+publishAt: 2026-12-15T16:36:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

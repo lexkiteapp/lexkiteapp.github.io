@@ -9,7 +9,7 @@ tags: [tu-dien, tu-vung]
 keyword: "từ điển anh anh"
 cover: dict
 coverAlt: "Kết quả tra từ “resilient” kèm câu ví dụ, collocation và nút lưu thành flashcard"
-publishAt: 2026-11-12T07:54:00+07:00
+publishAt: 2026-12-23T20:09:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

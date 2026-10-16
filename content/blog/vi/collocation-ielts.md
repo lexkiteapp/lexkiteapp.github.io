@@ -9,7 +9,7 @@ tags: [collocation, ielts, writing]
 keyword: "collocation ielts"
 cover: dict
 coverAlt: "Từ điển “English – Vietnamese dictionary” của Lexkite khi tra “resilient”: phiên âm UK/US, nghĩa và ví dụ"
-publishAt: 2026-10-19T13:35:00+07:00
+publishAt: 2026-10-22T09:32:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -79,6 +79,8 @@ Danh sách dưới đây được chọn vì hay dùng trong Writing Task 2 và 
 14. *career prospects* – triển vọng nghề nghiệp
 
 > *Flexible working hours can boost productivity without reducing job security.*
+
+Các cụm về tuyển dụng, làm từ xa và cân bằng cuộc sống được gom đầy đủ trong bài [từ vựng IELTS chủ đề Work](/vi/blog/tu-vung-ielts-chu-de-work/).
 
 **Giáo dục**
 15. *gain knowledge* – tiếp thu kiến thức

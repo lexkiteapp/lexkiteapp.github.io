@@ -9,7 +9,7 @@ tags: [ielts, writing, task-2]
 keyword: "struktur writing task 2 ielts"
 cover: write
 coverAlt: "Ruang latihan IELTS Writing Task 2 Lexkite dengan pilihan topik, ide pendukung, kosakata dan kerangka esai"
-publishAt: 2026-11-17T07:03:00+07:00
+publishAt: 2026-10-23T12:30:00+07:00
 factChecked: 2026-10-16
 author: Lexkite
 status: ready
@@ -29,7 +29,7 @@ Kriteria penilaian resmi IELTS Writing Task 2 dinilai berdasarkan empat komponen
 1. **Task Response (TR):** Seberapa tepat Anda menjawab seluruh instruksi soal dan mempertahankan posisi yang konsisten dari awal hingga akhir.
 2. **Coherence and Cohesion (CC):** Bagaimana Anda mengelompokkan ide dalam paragraf logis serta menggunakan kata penghubung secara wajar.
 3. **Lexical Resource (LR):** Variasi dan ketepatan penggunaan kosakata serta kolokasi akademis.
-4. **Grammatical Range and Accuracy (GRA):** Penggunaan kalimat kompleks dan akurasi tata bahasa.
+4. **Grammatical Range and Accuracy (GRA):** Penggunaan kalimat kompleks dan akurasi tata bahasa, termasuk pola seperti *suggest doing* yang dibahas di [gerund dan to infinitive](/id/blog/gerund-dan-to-infinitive/).
 
 Struktur esai yang rapi secara langsung mendongkrak skor pada kriteria Task Response dan Coherence and Cohesion. Esai dengan tata bahasa yang bagus sekalipun akan tertahan di band 6.0 jika paragrafnya tercampur aduk atau posisi penulis tidak jelas di paragraf pengantar dan penutup.
 

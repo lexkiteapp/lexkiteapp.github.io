@@ -9,7 +9,7 @@ tags: [doc-hieu, tu-vung]
 keyword: "đọc báo tiếng anh"
 cover: read-article
 coverAlt: "Bài đọc IELTS trong Lexkite: tô màu từ khóa, tra từ ngay trên bài và làm câu hỏi"
-publishAt: 2026-11-13T20:04:00+07:00
+publishAt: 2026-12-26T12:38:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

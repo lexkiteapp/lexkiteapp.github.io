@@ -9,7 +9,7 @@ tags: [shadowing, speaking, listening]
 keyword: "shadowing"
 cover: practice-speak
 coverAlt: "Luyện phát âm có chấm điểm trong Lexkite, dùng micro để nói cụm “cut down on”"
-publishAt: 2026-11-12T21:40:00+07:00
+publishAt: 2026-12-25T14:02:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

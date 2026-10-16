@@ -9,7 +9,7 @@ tags: [technology, ielts, chu-de]
 keyword: "từ vựng ielts chủ đề technology"
 cover: library
 coverAlt: "Màn hình “Vocabulary library” của Lexkite với các bộ từ chia theo nguồn và cấp độ A1–B2"
-publishAt: 2026-10-22T18:13:00+07:00
+publishAt: 2026-11-01T19:16:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -69,7 +69,7 @@ Câu mẫu: *Facial recognition cameras may reduce street crime, but they also r
 - **tech-savvy** – thạo công nghệ.
 - **cashless payment** – thanh toán không tiền mặt.
 
-Câu mẫu: *The digital divide means that elderly people in rural areas often struggle with services that have moved entirely online.*
+Câu mẫu: *The digital divide means that elderly people in rural areas often struggle with services that have moved entirely online.* Muốn nói sâu hơn về làm từ xa hay mất việc vì máy móc, xem [từ vựng chủ đề công việc](/vi/blog/tu-vung-ielts-chu-de-work/).
 
 ### 5. Thiết bị và đổi mới
 

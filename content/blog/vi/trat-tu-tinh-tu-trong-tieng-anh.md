@@ -9,7 +9,7 @@ tags: [tinh-tu, ngu-phap]
 keyword: "trật tự tính từ trong tiếng anh"
 cover: grammar
 coverAlt: "Trang “Grammar” liệt kê các chương ngữ pháp theo cấp độ, có bài luyện đi kèm"
-publishAt: 2026-10-22T14:12:00+07:00
+publishAt: 2026-10-31T09:12:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -143,6 +143,8 @@ Sắp xếp các tính từ trong ngoặc theo thứ tự đúng.
 7. **a quiet, peaceful village** (hai ý kiến ngang hàng, dùng phẩy); **a tall green tree** (kích thước + màu, tích lũy, không phẩy).
 
 Câu 5 có một chi tiết đáng chú ý: mạo từ đi theo **âm đầu của từ đứng ngay sau nó**, nên khi đổi thứ tự tính từ, *a/an* có thể thay đổi. Bài [cách dùng mạo từ a an the](/vi/blog/loi-dung-mao-tu-a-an-the/) giải thích quy tắc âm này.
+
+![Mục “Mistake log” của Lexkite gom lỗi sai theo từ vựng, ngữ pháp, đọc hiểu và nghe để ôn lại](media:mistakes "Ghi các câu xếp sai thứ tự tính từ vào sổ lỗi sai để ôn lại")
 
 ## Luyện thêm
 

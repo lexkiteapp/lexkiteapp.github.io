@@ -29,6 +29,7 @@ struct LexBackground: View {
 struct LexWidgetView: View {
     let snap: LexSnapshot
     let word: LexWord?
+    let count: Int
     let family: LexFamily
     @Environment(\.colorScheme) var scheme
 
@@ -75,7 +76,7 @@ struct LexWidgetView: View {
     }
 
     private var countLine: some View {
-        Text(snap.dueCount > 0 ? snap.countText(snap.dueCount) : snap.noneText)
+        Text(count > 0 ? snap.countText(count) : snap.noneText)
             .font(.system(size: 13, weight: .bold, design: .rounded)).foregroundColor(p.accent).lineLimit(1).minimumScaleFactor(0.7)
     }
 
@@ -98,11 +99,11 @@ struct LexWidgetView: View {
                 Spacer(minLength: 0)
             }
             VStack(spacing: 4) {
-                Text("\(snap.dueCount)").font(.system(size: 40, weight: .black, design: .rounded))
+                Text("\(count)").font(.system(size: 40, weight: .black, design: .rounded))
                     .foregroundStyle(LexPalette.kite).lineLimit(1).minimumScaleFactor(0.5)
                 Text(snap.titleText).font(.system(size: 12, weight: .semibold)).foregroundColor(p.sub)
                     .multilineTextAlignment(.center).lineLimit(2).minimumScaleFactor(0.8)
-                Text(snap.dueCount > 0 ? snap.reviewText : snap.doneText)
+                Text(count > 0 ? snap.reviewText : snap.doneText)
                     .font(.system(size: 13, weight: .heavy, design: .rounded)).foregroundColor(.white).lineLimit(1).minimumScaleFactor(0.6)
                     .padding(.horizontal, 10).padding(.vertical, 5).background(Capsule().fill(LexPalette.kite)).padding(.top, 2)
             }
@@ -119,7 +120,7 @@ struct LexWidgetView: View {
                 if let lv = word?.lv, !lv.isEmpty { Text(lv).font(.system(size: 11, weight: .bold)).opacity(0.75) }
             }
             Text(word?.m ?? snap.doneText).font(.system(size: 14, weight: .medium)).lineLimit(1).minimumScaleFactor(0.75)
-            Text("🔥\(snap.streakDays) · \(snap.dueCount > 0 ? snap.countText(snap.dueCount) : snap.noneText)")
+            Text("🔥\(snap.streakDays) · \(count > 0 ? snap.countText(count) : snap.noneText)")
                 .font(.system(size: 12, weight: .semibold)).lineLimit(1).minimumScaleFactor(0.7).opacity(0.8)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -129,6 +130,6 @@ struct LexWidgetView: View {
         if let w = word {
             return Text("\(w.w) · \(w.m ?? "")")
         }
-        return Text("🔥\(snap.streakDays) · \(snap.dueCount > 0 ? snap.countText(snap.dueCount) : snap.noneText)")
+        return Text("🔥\(snap.streakDays) · \(count > 0 ? snap.countText(count) : snap.noneText)")
     }
 }

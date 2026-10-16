@@ -9,7 +9,7 @@ tags: [mnemonic, ghi-nho]
 keyword: "cách ghi nhớ từ vựng bằng liên tưởng"
 cover: practice-learn
 coverAlt: "Thẻ học từ mới của Lexkite giới thiệu cụm “come up with”: nghĩa, định nghĩa tiếng Anh, ví dụ và mẹo nhớ"
-publishAt: 2026-11-08T14:55:00+07:00
+publishAt: 2026-12-13T17:36:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

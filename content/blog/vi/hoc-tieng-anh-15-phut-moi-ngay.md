@@ -9,7 +9,7 @@ tags: [thoi-quen, tu-hoc]
 keyword: "học tiếng anh mỗi ngày 15 phút"
 cover: home
 coverAlt: "Trang chủ Lexkite bản tiếng Anh, mục “Today” gom thẻ cần ôn, nhiệm vụ và kế hoạch hôm nay"
-publishAt: 2026-11-09T21:16:00+07:00
+publishAt: 2026-12-17T21:08:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -109,6 +109,8 @@ Trên điện thoại, bạn có thể cài Lexkite lên màn hình chính như 
 {{cta: /#/home | Bắt đầu buổi học 15 phút đầu tiên}}
 
 {{youtube: | Gợi ý video: quay màn hình một buổi học 15 phút thực tế, từ ôn thẻ đến nói to câu ví dụ}}
+
+Mỗi ngày bạn có thể chọn một chủ đề trong [từ vựng](/tu-vung/) hoặc một chủ điểm trong [ngữ pháp](/ngu-phap/) cho vừa khung 15 phút.
 
 ## Câu hỏi thường gặp
 

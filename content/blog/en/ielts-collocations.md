@@ -9,7 +9,7 @@ tags: [collocations, ielts, writing, vocabulary]
 keyword: "ielts collocations"
 cover: dict
 coverAlt: "Lexkite dictionary entry for \"resilient\" listing pronunciation, an example sentence, collocations and synonyms"
-publishAt: 2026-10-17T18:10:00+07:00
+publishAt: 2026-10-20T19:31:00+05:30
 factChecked: 2026-10-15
 qualityScore: 93
 author: Lexkite
@@ -23,7 +23,7 @@ This guide explains the main types of collocation, gives 45 useful pairs grouped
 
 A collocation is a word partnership that is more frequent than chance and usually cannot be explained by grammar alone. Nothing in grammar stops you saying *fast food* and *quick food*, yet only the first is normal English. Likewise we *take* a photo, *catch* a cold and *pay* attention, but nobody *makes* a photo in English, even though many languages use that verb.
 
-Collocations are not the same as idioms. An idiom has a meaning you cannot work out from its parts (*a piece of cake* = something easy). A collocation is transparent in meaning; the challenge is only in choosing the expected word. That is exactly why it is easy to get wrong: you understand *heavy rain* the first time you see it, so you never notice you would have written *big rain*.
+Collocations are not the same as idioms. An idiom has a meaning you cannot work out from its parts (*a piece of cake* = something easy), which is why [idioms for IELTS Speaking](/en/blog/idioms-for-ielts-speaking/) need far more care than collocations. A collocation is transparent in meaning; the challenge is only in choosing the expected word. That is exactly why it is easy to get wrong: you understand *heavy rain* the first time you see it, so you never notice you would have written *big rain*.
 
 ## Why IELTS collocations matter for your band score
 
@@ -76,7 +76,7 @@ These are high-utility pairs for Task 2 and Speaking Part 3. Each one is neutral
 
 ### Collocations for Speaking: same idea, lighter register
 
-Speaking Part 1 and Part 2 are conversational, so the formal pairs above can sound stiff there. Natural spoken collocations are often built on everyday verbs: *get on well with someone*, *keep in touch*, *a tight budget*, *a hectic schedule*, *grab a quick bite*, *take up a hobby*. Save *implement a policy* or *allocate funding* for Part 3 and Task 2, where the discussion is abstract.
+[Speaking Part 1](/en/blog/ielts-speaking-part-1-tips/) and Part 2 are conversational, so the formal pairs above can sound stiff there. Natural spoken collocations are often built on everyday verbs: *get on well with someone*, *keep in touch*, *a tight budget*, *a hectic schedule*, *grab a quick bite*, *take up a hobby*. Save *implement a policy* or *allocate funding* for Part 3 and Task 2, where the discussion is abstract.
 
 Do not try to memorise all 45 at once. Choose the topics you find hardest and learn five pairs a day, each with a sentence of your own. To see collocations in full essays, browse the [band 8 Task 2 sample essays](/en/samples/), where useful phrases are highlighted.
 

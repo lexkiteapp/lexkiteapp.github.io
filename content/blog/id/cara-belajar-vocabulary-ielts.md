@@ -75,6 +75,8 @@ Saat membuat kalimat sendiri, otakmu dipaksa memproses kata itu lebih dalam diba
 
 Kata yang tidak bisa kamu ucapkan akan sulit kamu kenali di Listening. Dengarkan pelafalannya, lihat transkripsi fonetiknya, lalu ucapkan dua atau tiga kali. Pelajar Indonesia cenderung membaca kata sesuai ejaannya, padahal bahasa Inggris tidak selalu begitu. Perhatikan tekanan suku kata: *ecoNOMic* berbeda dengan *eCONomy*. Perhatikan juga bunyi akhir seperti *-s* dan *-ed* yang sering "tertelan". Tips lain untuk bagian ini ada di artikel [tips listening IELTS](/id/blog/tips-listening-ielts/).
 
+![Latihan pelafalan Lexkite dengan penilaian: frasa “cut down on” dan tombol mikrofon, dinilai dari suaramu](media:practice-speak "Mengucapkan kata dengan suara keras lalu melihat nilainya membantu kamu mengenali bunyi itu saat Listening")
+
 ### Langkah 5: Ulangi dengan jeda, jangan sistem kebut semalam
 
 Daripada membaca ulang seluruh daftar setiap malam, ulangi setiap kata tepat saat kamu hampir melupakannya. Jarak antar-pengulangan makin lama makin panjang: satu hari, beberapa hari, seminggu, beberapa minggu. Prinsip ini disebut spaced repetition; penjelasan lengkapnya ada di artikel [metode spaced repetition](/id/blog/metode-spaced-repetition/). Mengatur jadwal ini secara manual sangat merepotkan, jadi flashcard dengan algoritma penjadwalan akan jauh lebih ringan.
@@ -128,13 +130,13 @@ Tujuh langkah di atas bisa dikerjakan dengan kertas dan pulpen, tetapi memilih k
 - **Memaksakan kata "keren" ke dalam esai.** Penguji menilai ketepatan dan kewajaran pemakaian kata, bukan seberapa langka kata itu. Kata biasa yang dipakai dengan benar lebih baik daripada kata asing yang dipakai keliru.
 - **Berhenti mengulang beberapa hari lalu menyerah.** Kalau sempat bolos, kembali dan kerjakan kartu yang jatuh tempo lebih dulu; jangan memaksa mengejar kata baru.
 - **Hanya belajar satu arah, Inggris → Indonesia.** Latih juga arah Indonesia → Inggris sebagai persiapan Writing dan Speaking.
-- **Mengabaikan tata bahasa di sekitar kata.** Kata yang tepat bisa tetap terdengar salah kalau bentuk kata kerjanya keliru. Contohnya pilihan antara *have used* dan *used*, yang dibahas di [perbedaan present perfect dan simple past](/id/blog/perbedaan-present-perfect-dan-simple-past/).
+- **Mengabaikan tata bahasa di sekitar kata.** Kata yang tepat bisa tetap terdengar salah kalau bentuk kata kerjanya keliru. Contohnya pilihan antara *have used* dan *used*, yang dibahas di [perbedaan present perfect dan simple past](/id/blog/perbedaan-present-perfect-dan-simple-past/), atau pola *avoid doing* vs *refuse to do* di [gerund dan to infinitive](/id/blog/gerund-dan-to-infinitive/).
 
 ## Pertanyaan yang sering diajukan
 
 ### Berapa banyak vocabulary IELTS yang sebaiknya dipelajari per hari?
 
-Untuk kebanyakan pelajar mandiri, 10–15 kata baru per hari sudah cukup, ditambah waktu untuk mengulang kata lama. Yang paling penting adalah konsistensi selama berbulan-bulan. Kalau jumlah kartu yang harus diulang setiap hari naik terlalu cepat, kurangi kata baru selama beberapa hari.
+Untuk kebanyakan pelajar mandiri, 10–15 kata baru per hari sudah cukup, ditambah waktu untuk mengulang kata lama. Porsi kosakata dalam rencana besarmu dibahas di panduan [belajar IELTS otodidak](/id/blog/belajar-ielts-otodidak/). Yang paling penting adalah konsistensi selama berbulan-bulan. Kalau jumlah kartu yang harus diulang setiap hari naik terlalu cepat, kurangi kata baru selama beberapa hari.
 
 ### Lebih baik belajar per topik atau dari daftar seperti AWL?
 

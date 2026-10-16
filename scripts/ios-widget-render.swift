@@ -18,7 +18,7 @@ struct Render {
             for (fam, fname, size) in sizes {
                 for dark in [false, true] {
                     let accessory = fam == .rectangular || fam == .inline
-                    let view = LexWidgetView(snap: snap, word: snap.list.first, family: fam)
+                    let view = LexWidgetView(snap: snap, word: snap.list.first, count: snap.dueCount, family: fam)
                         .padding(accessory ? 6 : 16)
                         .frame(width: size.width, height: size.height)
                         .foregroundColor(accessory ? .white : nil)

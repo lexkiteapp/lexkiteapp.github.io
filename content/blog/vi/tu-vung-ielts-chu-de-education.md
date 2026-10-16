@@ -9,7 +9,7 @@ tags: [education, ielts, chu-de]
 keyword: "từ vựng ielts chủ đề education"
 cover: library
 coverAlt: "“Vocabulary library” trong Lexkite: các tab nguồn từ và những bộ từ cốt lõi có nhãn cấp độ"
-publishAt: 2026-10-21T21:54:00+07:00
+publishAt: 2026-10-29T10:53:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -131,6 +131,8 @@ Ghi riêng những lỗi này vào một chỗ và ôn lại định kỳ sẽ h
 ## Làm ngay trong Lexkite: biến danh sách này thành vốn từ thật
 
 Đọc xong mà không ôn thì vài ngày sau bạn sẽ quên gần hết. Dưới đây là cách dùng Lexkite để những từ trên ở lại lâu hơn:
+
+![Phiên ôn flashcard trong Lexkite: thẻ “pollution” có emoji, phiên âm và nút Lật thẻ](media:review "Ôn lại từ Education đã lưu bằng flashcard thay vì chỉ đọc danh sách")
 
 1. Mở [Thư viện từ vựng](/#/library), vào tab IELTS theo đề hoặc Writing để tìm các bộ từ liên quan đến giáo dục. Thêm những từ bạn chưa chắc vào sổ từ của mình.
 2. Với từ nào còn mơ hồ, tra trong từ điển của app để xem phiên âm, ví dụ và collocation rồi bấm lưu flashcard.

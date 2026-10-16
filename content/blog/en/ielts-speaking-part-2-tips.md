@@ -9,7 +9,7 @@ tags: [ielts, speaking, part-2, cue-card]
 keyword: "ielts speaking part 2"
 cover: speaking
 coverAlt: "Lexkite Speaking room with Part 1, 2 and 3 questions by topic, band 7.5–8 sample answers and useful vocabulary"
-publishAt: 2026-10-20T10:50:00+07:00
+publishAt: 2026-10-26T21:41:00+05:30
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -61,7 +61,7 @@ The prompts on the card naturally fit into these steps, so you still cover every
 
 *Looking back, the skill is useful in a practical sense, because I've never paid anyone to fix my bike. But I think the bigger lesson was patience. Repairs rarely work the first time, and that workshop taught me to slow down and check things step by step, which helps me with studying as well.*
 
-Notice the features: a clear opening line, sequence words, one vivid moment, a reflective ending, natural phrases such as *I'd say* and *looking back*, and a mix of past simple, present perfect and *would*.
+Notice the features: a clear opening line, sequence words, one vivid moment, a reflective ending, natural phrases such as *I'd say* and *looking back*, and a mix of past simple, present perfect and *would*. It contains no showy idioms at all; if you want to add one, our guide to [idioms for IELTS Speaking](/en/blog/idioms-for-ielts-speaking/) explains how to place it inside a story.
 
 ## How to extend your talk naturally to two minutes
 
