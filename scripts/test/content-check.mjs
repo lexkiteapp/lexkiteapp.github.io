@@ -91,6 +91,11 @@ const scriptLint = (tag, sc) => (sc || []).forEach((l, i) => lintEn(`${tag} scri
 for (const p of C.LISTENING || []) { groups(p.id, 'IELTS Listening', p.groups, it => it.explain, 'Part ' + p.part); scriptLint(p.id, p.script); }
 // IELTS Reading (lời giải ở READ_EXPLAIN)
 for (const t of C.READTESTS || []) for (const [pi, p] of t.passages.entries()) { groups(`${t.id}p${pi + 1}`, t.gt ? 'IELTS Reading GT' : 'IELTS Reading AC', p.groups, it => C.READ_EXPLAIN?.[t.id]?.[it.n]?.why, 'Passage ' + (pi + 1)); lintEn(`${t.id}p${pi + 1} text`, p.text); }
+// keys (từ khóa câu hỏi ↔ paraphrase trong bài) phải là tiếng Anh nguyên văn – ghi chú tiếng Việt chỉ để ở why
+for (const [tid, ex] of Object.entries(C.READ_EXPLAIN || {})) for (const [n, e] of Object.entries(ex || {})) (e.keys || []).forEach((kp, j) => {
+  if (!Array.isArray(kp) || kp.length !== 2 || kp.some(x => typeof x !== 'string' || !x.trim())) E(`${tid} q${n} keys#${j + 1}`, 'cặp từ khóa phải gồm 2 chuỗi không rỗng');
+  else kp.forEach(x => { if (VI.test(x.replace(/[éèÉ]/g, ''))) E(`${tid} q${n} keys#${j + 1}`, `từ khóa lẫn tiếng Việt: "${x}"`); });
+});
 // TOEIC
 for (const t of C.TOEIC?.reading || []) for (const pt of t.parts) { for (const [ki, ps] of [{ groups: pt.groups }, ...(pt.passages || [])].entries()) { groups(`${t.id} P${pt.part}`, 'TOEIC Reading', ps.groups, it => it.explain, 'Part ' + pt.part); if (ps.text) lintEn(`${t.id} P${pt.part} text${ki}`, ps.text); } }
 for (const p of C.TOEIC?.listening || []) { groups(p.id, 'TOEIC Listening', p.groups, it => it.explain, 'Part ' + p.part); scriptLint(p.id, p.script); }
