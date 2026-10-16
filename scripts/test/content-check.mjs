@@ -22,6 +22,7 @@ function lintEn(where, s) {
   for (const m of t.matchAll(/\S\s+([,;:!?](?!\?)|\.(?!\.|\d))(?=\s|$)/g)) if (!/_{2,}|-{3,}/.test(t.slice(Math.max(0, m.index - 4), m.index + 2))) Wn(where, `khoảng trắng trước dấu "${m[1]}"`);
   for (const m of t.matchAll(/\b(a|an|A|An)\s+([A-Za-z][\w-]*)/g)) {
     const w = m[2], an = /^an$/i.test(m[1]), vowel = /^[aeiou]/i.test(w);
+    if (m[1] === 'An' && /^[A-Z]/.test(w)) continue; // địa danh tiếng Việt: An Bang, An Giang…
     if (/^A/.test(m[1]) && /[A-Z][\w’']*\s+$/.test(t.slice(Math.max(0, m.index - 20), m.index)) && !/[.!?:]\s+$/.test(t.slice(Math.max(0, m.index - 3), m.index))) continue; // Hoi An, Room A…
     if (/^[A-Z]{2,}$/.test(w) || /^[A-Z]$/.test(w)) continue; // viết tắt/chữ cái: khó xác định, bỏ qua
     if (an && !vowel && !AN_OK.test(w)) E(where, `"${m[0]}" → a`);
@@ -140,6 +141,14 @@ for (const p of C.TOEIC?.listening || []) { const sc = p.script || []; for (cons
     if (!last) E(tag, `lời giải TFNG/YNNG chưa nêu kết luận (${A})`); else if (last.replace('NOTGIVEN', 'NOT GIVEN') !== A) E(tag, `kết luận trong lời giải (${last}) khác đáp án ${A}`); };
   for (const t of C.READTESTS || []) for (const p of t.passages) for (const g of p.groups) if (['tfng', 'ynng'].includes(g.type)) for (const it of g.items) verdict(`${t.id} q${it.n}`, it.a, C.READ_EXPLAIN?.[t.id]?.[it.n]?.why);
   for (const r of C.READINGS || []) r.questions.forEach((q, i) => { if (q.type === 'tfng') verdict(`reading ${r.id} q${i + 1}`, q.answer, q.explain); });
+}
+// Văn bản tiếng Anh khác: câu trả lời Speaking mẫu, bài mẫu Writing, kho ý tưởng, thư GT, đề Speaking (lỗi a/an, lặp từ, khoảng trắng)
+{ const strip = s => String(s || '').replace(/\[\[([^|\]]+)\|[^\]]*\]\]/g, '$1').replace(/\{\{([^}]+)\}\}/g, '$1').replace(/<<[^>]*>>\s*/g, '');
+  for (const [q, v] of Object.entries(C.SPEAK_SAMPLES || {})) { lintEn('speak-sample ' + q.slice(0, 30), q); lintEn('speak-sample ' + q.slice(0, 30), v.a); }
+  for (const m of C.MODELS || []) lintEn('model ' + m.id, strip(m.text));
+  for (const t of C.IDEAS || []) for (const is of t.issues) { lintEn('ideas ' + t.topic, is.q); for (const i of [...is.for, ...is.against]) lintEn('ideas ' + t.topic + '/' + i.idea, i.ex); }
+  for (const t of C.SPEAK_MORE || []) [...t.p1, t.p2.q, ...t.p3].forEach(q => lintEn('speak ' + t.title, q));
+  for (const l of C.GT_LETTERS || []) lintEn('gt-letter ' + (l.id || ''), strip(l.model || l.sample || ''));
 }
 // Câu trùng trong cùng ngân hàng
 for (const [b, list] of Object.entries(banks)) { const seen = new Map(); for (const x of list) { if (seen.has(x.q)) E(x.where, `trùng câu với ${seen.get(x.q)} (${b})`); else seen.set(x.q, x.where); } }

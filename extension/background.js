@@ -291,6 +291,13 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
         return reply({ ok: true });
       }
       case 'usage': countUse(msg.ev); return reply({ ok: true });
+      case 'extJson': { // dữ liệu trong gói cho content script (MV3 chặn trang web đọc file add-on không khai báo web_accessible_resources)
+        const n = { academic: 'academic.json', 'grammar-titles': 'grammar-titles.json' }[msg.name];
+        if (!n) return reply({});
+        self.__json = self.__json || {};
+        if (!self.__json[n]) self.__json[n] = await fetch(chrome.runtime.getURL(n)).then(r => r.json()).catch(() => ({}));
+        return reply({ data: self.__json[n] });
+      }
       case 'imgData': { // ảnh minh họa dạng data: URL cho trang có CSP chặn ảnh ngoài (chỉ http/https, chỉ ảnh, ≤ 600 KB, đệm 30 ảnh gần nhất)
         const u = String(msg.url || '');
         if (!/^https:\/\//.test(u)) return reply({});
