@@ -12,6 +12,7 @@ Mục đích: chia tải để không ai chạm giới hạn token, không sửa
 3. **Chỉ commit file của việc mình** (`git add <file>` cụ thể, **không** `git add -A`) – tránh gom phần người kia đang sửa dở.
 3b. **Nội dung học** (từ vựng/bài tập/đề thi): theo `docs/CONTENT-RULES.md` – nguồn, chuẩn từng loại, ngân sách dung lượng, cổng kiểm.
 3c. **Tài nguyên hệ thống** (dịch vụ, Worker, kho lưu trữ, tên miền, API ngoài, mail): ghi vào `infra/resources.json` theo `docs/INFRA-RULES.md` – `npm test` chặn nếu thiếu.
+3d. **Thương hiệu** (Kit, logo, màu, ảnh mạng xã hội): chỉ lấy từ nguồn ghi trong `docs/BRAND-RULES.md` (Kit = `web/js/kit.js`), không vẽ lại.
 4. **Trước khi commit**: `npm test` phải PASS (chính tả, i18n 15 ngôn ngữ, unit, smoke, lẫn tiếng, lời giải, axe, crawl).
 5. **Chuỗi giao diện mới** luôn qua `t('…')` (khóa tiếng Việt) + thêm tiếng Anh vào `web/js/i18n/en/*.js`.
 6. **Xong việc**: xóa dòng ở *Đang làm*, thêm 2–4 dòng vào *Nhật ký bàn giao* (đã làm gì, file nào, cần bên kia kiểm gì).

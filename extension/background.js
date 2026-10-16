@@ -287,6 +287,23 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
         return reply({ ok: true });
       }
       case 'usage': countUse(msg.ev); return reply({ ok: true });
+      case 'imgData': { // ảnh minh họa dạng data: URL cho trang có CSP chặn ảnh ngoài (chỉ http/https, chỉ ảnh, ≤ 600 KB, đệm 30 ảnh gần nhất)
+        const u = String(msg.url || '');
+        if (!/^https:\/\//.test(u)) return reply({});
+        self.__imgs = self.__imgs || new Map();
+        if (self.__imgs.has(u)) return reply({ data: self.__imgs.get(u) });
+        const ctl = new AbortController(), tm = setTimeout(() => ctl.abort(), 8000);
+        try {
+          const r = await fetch(u, { signal: ctl.signal, credentials: 'omit', referrerPolicy: 'no-referrer' });
+          const b = r.ok ? await r.blob() : null;
+          if (!b || !/^image\//.test(b.type) || b.size > 600 * 1024) return reply({});
+          const bytes = new Uint8Array(await b.arrayBuffer()); let bin = '';
+          for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+          const data = `data:${b.type};base64,${btoa(bin)}`;
+          self.__imgs.set(u, data); if (self.__imgs.size > 30) self.__imgs.delete(self.__imgs.keys().next().value);
+          return reply({ data });
+        } catch (e) { return reply({}); } finally { clearTimeout(tm); }
+      }
       case 'uiDict': return reply({ dict: await uiDict(msg.lang) });
       case 'ytTracks': { // danh sách phụ đề của video YouTube (đọc player response trong trang – chỉ URL phụ đề, không dữ liệu người dùng)
         try {

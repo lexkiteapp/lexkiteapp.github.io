@@ -1,0 +1,917 @@
+{
+ "generated": "2026-10-16",
+ "colors": {
+  "teal": "#0F3D3E",
+  "teal2": "#17595A",
+  "tealDeep": "#0A2C2D",
+  "tealGlow": "#2A7D7A",
+  "coral": "#F2553B",
+  "coralUI": "#E5502F",
+  "coralMid": "#FF7A4D",
+  "apricot": "#FFB054",
+  "sun": "#FFC94A",
+  "cream": "#FFE7C2",
+  "paper": "#F4FBF8",
+  "sky": "#CFE9F2",
+  "mint": "#2FBF71"
+ },
+ "assets": [
+  {
+   "platform": "facebook",
+   "file": "facebook/facebook-avatar-720x720.png",
+   "w": 720,
+   "h": 720,
+   "fmt": "png",
+   "use": "Page profile picture",
+   "kb": 72,
+   "zones": [
+    {
+     "type": "circle",
+     "x": 0,
+     "y": 0,
+     "w": 720,
+     "h": 720,
+     "label": "Circle crop"
+    }
+   ],
+   "guide": null
+  },
+  {
+   "platform": "facebook",
+   "file": "facebook/facebook-cover-1640x624.jpg",
+   "w": 1640,
+   "h": 624,
+   "fmt": "jpg",
+   "use": "Page cover photo (EN)",
+   "kb": 84,
+   "zones": [
+    {
+     "type": "view",
+     "x": 0,
+     "y": 0,
+     "w": 1640,
+     "h": 624,
+     "label": "Desktop 1640×624"
+    },
+    {
+     "type": "view",
+     "x": 265,
+     "y": 0,
+     "w": 1110,
+     "h": 624,
+     "label": "Mobile ≈1110×624"
+    },
+    {
+     "type": "block",
+     "x": 30,
+     "y": 440,
+     "w": 330,
+     "h": 184,
+     "label": "Profile photo"
+    },
+    {
+     "type": "safe",
+     "x": 385,
+     "y": 56,
+     "w": 990,
+     "h": 460,
+     "label": "Safe 990×460"
+    }
+   ],
+   "guide": "guides/facebook-cover-1640x624-guide.jpg"
+  },
+  {
+   "platform": "facebook",
+   "file": "facebook/facebook-cover-vi-1640x624.jpg",
+   "w": 1640,
+   "h": 624,
+   "fmt": "jpg",
+   "use": "Page cover photo (VI)",
+   "kb": 81,
+   "zones": [
+    {
+     "type": "view",
+     "x": 0,
+     "y": 0,
+     "w": 1640,
+     "h": 624,
+     "label": "Desktop 1640×624"
+    },
+    {
+     "type": "view",
+     "x": 265,
+     "y": 0,
+     "w": 1110,
+     "h": 624,
+     "label": "Mobile ≈1110×624"
+    },
+    {
+     "type": "block",
+     "x": 30,
+     "y": 440,
+     "w": 330,
+     "h": 184,
+     "label": "Profile photo"
+    },
+    {
+     "type": "safe",
+     "x": 385,
+     "y": 56,
+     "w": 990,
+     "h": 460,
+     "label": "Safe 990×460"
+    }
+   ],
+   "guide": null
+  },
+  {
+   "platform": "facebook",
+   "file": "facebook/facebook-post-1080x1080.jpg",
+   "w": 1080,
+   "h": 1080,
+   "fmt": "jpg",
+   "use": "Feed post template (promo)",
+   "kb": 139,
+   "zones": [],
+   "guide": null
+  },
+  {
+   "platform": "facebook",
+   "file": "facebook/facebook-link-1200x630.jpg",
+   "w": 1200,
+   "h": 630,
+   "fmt": "jpg",
+   "use": "Link share / Open Graph image",
+   "kb": 82,
+   "zones": [
+    {
+     "type": "safe",
+     "x": 72,
+     "y": 64,
+     "w": 1056,
+     "h": 502,
+     "label": "Safe"
+    }
+   ],
+   "guide": null
+  },
+  {
+   "platform": "facebook",
+   "file": "facebook/facebook-event-1920x1005.jpg",
+   "w": 1920,
+   "h": 1005,
+   "fmt": "jpg",
+   "use": "Event cover",
+   "kb": 142,
+   "zones": [
+    {
+     "type": "safe",
+     "x": 140,
+     "y": 120,
+     "w": 1640,
+     "h": 765,
+     "label": "Safe"
+    }
+   ],
+   "guide": null
+  },
+  {
+   "platform": "instagram",
+   "file": "instagram/instagram-avatar-1080x1080.png",
+   "w": 1080,
+   "h": 1080,
+   "fmt": "png",
+   "use": "Profile picture",
+   "kb": 115,
+   "zones": [
+    {
+     "type": "circle",
+     "x": 0,
+     "y": 0,
+     "w": 1080,
+     "h": 1080,
+     "label": "Circle crop"
+    }
+   ],
+   "guide": null
+  },
+  {
+   "platform": "instagram",
+   "file": "instagram/instagram-post-word-1080x1080.jpg",
+   "w": 1080,
+   "h": 1080,
+   "fmt": "jpg",
+   "use": "Feed post template · Word of the day",
+   "kb": 117,
+   "zones": [],
+   "guide": null
+  },
+  {
+   "platform": "instagram",
+   "file": "instagram/instagram-post-quiz-1080x1350.jpg",
+   "w": 1080,
+   "h": 1350,
+   "fmt": "jpg",
+   "use": "Feed post template 4:5 · Quiz",
+   "kb": 136,
+   "zones": [
+    {
+     "type": "view",
+     "x": 0,
+     "y": 0,
+     "w": 1080,
+     "h": 1350,
+     "label": "Feed 4:5"
+    },
+    {
+     "type": "safe",
+     "x": 34,
+     "y": 0,
+     "w": 1012,
+     "h": 1350,
+     "label": "Grid 1012×1350"
+    }
+   ],
+   "guide": null
+  },
+  {
+   "platform": "instagram",
+   "file": "instagram/instagram-story-1080x1920.jpg",
+   "w": 1080,
+   "h": 1920,
+   "fmt": "jpg",
+   "use": "Story template · Word of the day",
+   "kb": 139,
+   "zones": [
+    {
+     "type": "block",
+     "x": 0,
+     "y": 0,
+     "w": 1080,
+     "h": 250,
+     "label": "Profile & progress bar"
+    },
+    {
+     "type": "block",
+     "x": 0,
+     "y": 1670,
+     "w": 1080,
+     "h": 250,
+     "label": "Reply bar"
+    },
+    {
+     "type": "safe",
+     "x": 0,
+     "y": 250,
+     "w": 1080,
+     "h": 1420,
+     "label": "Safe 1080×1420"
+    }
+   ],
+   "guide": "guides/instagram-story-1080x1920-guide.jpg"
+  },
+  {
+   "platform": "instagram",
+   "file": "instagram/instagram-reel-cover-1080x1920.jpg",
+   "w": 1080,
+   "h": 1920,
+   "fmt": "jpg",
+   "use": "Reel cover template",
+   "kb": 125,
+   "zones": [
+    {
+     "type": "view",
+     "x": 0,
+     "y": 240,
+     "w": 1080,
+     "h": 1440,
+     "label": "Profile grid 3:4"
+    },
+    {
+     "type": "view",
+     "x": 0,
+     "y": 420,
+     "w": 1080,
+     "h": 1080,
+     "label": "1:1 crop"
+    },
+    {
+     "type": "block",
+     "x": 0,
+     "y": 1620,
+     "w": 1080,
+     "h": 300,
+     "label": "Caption & audio"
+    },
+    {
+     "type": "safe",
+     "x": 90,
+     "y": 270,
+     "w": 840,
+     "h": 1330,
+     "label": "Safe"
+    }
+   ],
+   "guide": "guides/instagram-reel-cover-1080x1920-guide.jpg"
+  },
+  {
+   "platform": "instagram",
+   "file": "instagram/instagram-highlight-vocabulary-1080x1920.jpg",
+   "w": 1080,
+   "h": 1920,
+   "fmt": "jpg",
+   "use": "Highlight cover · Từ vựng",
+   "kb": 85,
+   "zones": [
+    {
+     "type": "circle",
+     "x": 140,
+     "y": 560,
+     "w": 800,
+     "h": 800,
+     "label": "Highlight circle"
+    }
+   ],
+   "guide": null
+  },
+  {
+   "platform": "instagram",
+   "file": "instagram/instagram-highlight-ielts-1080x1920.jpg",
+   "w": 1080,
+   "h": 1920,
+   "fmt": "jpg",
+   "use": "Highlight cover · IELTS",
+   "kb": 82,
+   "zones": [
+    {
+     "type": "circle",
+     "x": 140,
+     "y": 560,
+     "w": 800,
+     "h": 800,
+     "label": "Highlight circle"
+    }
+   ],
+   "guide": null
+  },
+  {
+   "platform": "instagram",
+   "file": "instagram/instagram-highlight-toeic-1080x1920.jpg",
+   "w": 1080,
+   "h": 1920,
+   "fmt": "jpg",
+   "use": "Highlight cover · TOEIC",
+   "kb": 80,
+   "zones": [
+    {
+     "type": "circle",
+     "x": 140,
+     "y": 560,
+     "w": 800,
+     "h": 800,
+     "label": "Highlight circle"
+    }
+   ],
+   "guide": null
+  },
+  {
+   "platform": "instagram",
+   "file": "instagram/instagram-highlight-tips-1080x1920.jpg",
+   "w": 1080,
+   "h": 1920,
+   "fmt": "jpg",
+   "use": "Highlight cover · Mẹo",
+   "kb": 81,
+   "zones": [
+    {
+     "type": "circle",
+     "x": 140,
+     "y": 560,
+     "w": 800,
+     "h": 800,
+     "label": "Highlight circle"
+    }
+   ],
+   "guide": null
+  },
+  {
+   "platform": "instagram",
+   "file": "instagram/instagram-highlight-app-1080x1920.jpg",
+   "w": 1080,
+   "h": 1920,
+   "fmt": "jpg",
+   "use": "Highlight cover · Ứng dụng",
+   "kb": 86,
+   "zones": [
+    {
+     "type": "circle",
+     "x": 140,
+     "y": 560,
+     "w": 800,
+     "h": 800,
+     "label": "Highlight circle"
+    }
+   ],
+   "guide": null
+  },
+  {
+   "platform": "instagram",
+   "file": "instagram/instagram-highlight-review-1080x1920.jpg",
+   "w": 1080,
+   "h": 1920,
+   "fmt": "jpg",
+   "use": "Highlight cover · Review",
+   "kb": 83,
+   "zones": [
+    {
+     "type": "circle",
+     "x": 140,
+     "y": 560,
+     "w": 800,
+     "h": 800,
+     "label": "Highlight circle"
+    }
+   ],
+   "guide": null
+  },
+  {
+   "platform": "tiktok",
+   "file": "tiktok/tiktok-avatar-1080x1080.png",
+   "w": 1080,
+   "h": 1080,
+   "fmt": "png",
+   "use": "Profile photo",
+   "kb": 115,
+   "zones": [
+    {
+     "type": "circle",
+     "x": 0,
+     "y": 0,
+     "w": 1080,
+     "h": 1080,
+     "label": "Circle crop"
+    }
+   ],
+   "guide": null
+  },
+  {
+   "platform": "tiktok",
+   "file": "tiktok/tiktok-cover-1080x1920.jpg",
+   "w": 1080,
+   "h": 1920,
+   "fmt": "jpg",
+   "use": "Video cover template",
+   "kb": 125,
+   "zones": [
+    {
+     "type": "block",
+     "x": 0,
+     "y": 0,
+     "w": 1080,
+     "h": 160,
+     "label": "Top bar"
+    },
+    {
+     "type": "block",
+     "x": 930,
+     "y": 700,
+     "w": 150,
+     "h": 970,
+     "label": "Action buttons"
+    },
+    {
+     "type": "block",
+     "x": 0,
+     "y": 1620,
+     "w": 1080,
+     "h": 300,
+     "label": "Caption & sound"
+    },
+    {
+     "type": "view",
+     "x": 0,
+     "y": 240,
+     "w": 1080,
+     "h": 1440,
+     "label": "Profile grid 3:4"
+    },
+    {
+     "type": "safe",
+     "x": 90,
+     "y": 270,
+     "w": 840,
+     "h": 1330,
+     "label": "Safe"
+    }
+   ],
+   "guide": "guides/tiktok-cover-1080x1920-guide.jpg"
+  },
+  {
+   "platform": "youtube",
+   "file": "youtube/youtube-avatar-800x800.png",
+   "w": 800,
+   "h": 800,
+   "fmt": "png",
+   "use": "Channel picture",
+   "kb": 81,
+   "zones": [
+    {
+     "type": "circle",
+     "x": 0,
+     "y": 0,
+     "w": 800,
+     "h": 800,
+     "label": "Circle crop"
+    }
+   ],
+   "guide": null
+  },
+  {
+   "platform": "youtube",
+   "file": "youtube/youtube-banner-2560x1440.jpg",
+   "w": 2560,
+   "h": 1440,
+   "fmt": "jpg",
+   "use": "Channel banner",
+   "kb": 133,
+   "zones": [
+    {
+     "type": "view",
+     "x": 0,
+     "y": 0,
+     "w": 2560,
+     "h": 1440,
+     "label": "TV 2560×1440"
+    },
+    {
+     "type": "view",
+     "x": 0,
+     "y": 508,
+     "w": 2560,
+     "h": 423,
+     "label": "Desktop max 2560×423"
+    },
+    {
+     "type": "view",
+     "x": 352,
+     "y": 508,
+     "w": 1855,
+     "h": 423,
+     "label": "Tablet 1855×423"
+    },
+    {
+     "type": "safe",
+     "x": 507,
+     "y": 508,
+     "w": 1546,
+     "h": 423,
+     "label": "Safe (all devices) 1546×423"
+    }
+   ],
+   "guide": "guides/youtube-banner-2560x1440-guide.jpg"
+  },
+  {
+   "platform": "youtube",
+   "file": "youtube/youtube-watermark-150x150.png",
+   "w": 150,
+   "h": 150,
+   "fmt": "png",
+   "use": "Video watermark (Branding)",
+   "kb": 7,
+   "zones": [],
+   "guide": null
+  },
+  {
+   "platform": "youtube",
+   "file": "youtube/youtube-thumbnail-1280x720.jpg",
+   "w": 1280,
+   "h": 720,
+   "fmt": "jpg",
+   "use": "Thumbnail template",
+   "kb": 108,
+   "zones": [
+    {
+     "type": "block",
+     "x": 1090,
+     "y": 650,
+     "w": 170,
+     "h": 54,
+     "label": "Timestamp"
+    }
+   ],
+   "guide": null
+  },
+  {
+   "platform": "youtube",
+   "file": "youtube/youtube-endscreen-1920x1080.jpg",
+   "w": 1920,
+   "h": 1080,
+   "fmt": "jpg",
+   "use": "End screen background (last 5–20 s)",
+   "kb": 114,
+   "zones": [
+    {
+     "type": "safe",
+     "x": 200,
+     "y": 340,
+     "w": 720,
+     "h": 405,
+     "label": "Video 1"
+    },
+    {
+     "type": "safe",
+     "x": 1000,
+     "y": 340,
+     "w": 720,
+     "h": 405,
+     "label": "Video 2"
+    },
+    {
+     "type": "circle",
+     "x": 855,
+     "y": 800,
+     "w": 210,
+     "h": 210,
+     "label": "Subscribe"
+    }
+   ],
+   "guide": null
+  },
+  {
+   "platform": "watermark",
+   "file": "watermark/lexkite-watermark-mark-light-300x300.png",
+   "w": 300,
+   "h": 300,
+   "fmt": "png",
+   "use": "Mark watermark · light",
+   "kb": 4,
+   "zones": [],
+   "guide": null
+  },
+  {
+   "platform": "watermark",
+   "file": "watermark/lexkite-watermark-mark-dark-300x300.png",
+   "w": 300,
+   "h": 300,
+   "fmt": "png",
+   "use": "Mark watermark · dark",
+   "kb": 5,
+   "zones": [],
+   "guide": null
+  },
+  {
+   "platform": "watermark",
+   "file": "watermark/lexkite-watermark-mark-color-300x300.png",
+   "w": 300,
+   "h": 300,
+   "fmt": "png",
+   "use": "Mark watermark · color",
+   "kb": 15,
+   "zones": [],
+   "guide": null
+  },
+  {
+   "platform": "watermark",
+   "file": "watermark/lexkite-watermark-horizontal-light-720x180.png",
+   "w": 720,
+   "h": 180,
+   "fmt": "png",
+   "use": "Horizontal watermark · for dark footage",
+   "kb": 15,
+   "zones": [],
+   "guide": null
+  },
+  {
+   "platform": "watermark",
+   "file": "watermark/lexkite-watermark-horizontal-dark-720x180.png",
+   "w": 720,
+   "h": 180,
+   "fmt": "png",
+   "use": "Horizontal watermark · for light footage",
+   "kb": 15,
+   "zones": [],
+   "guide": null
+  },
+  {
+   "platform": "x",
+   "file": "x/x-avatar-400x400.png",
+   "w": 400,
+   "h": 400,
+   "fmt": "png",
+   "use": "Profile photo",
+   "kb": 38,
+   "zones": [
+    {
+     "type": "circle",
+     "x": 0,
+     "y": 0,
+     "w": 400,
+     "h": 400,
+     "label": "Circle crop"
+    }
+   ],
+   "guide": null
+  },
+  {
+   "platform": "x",
+   "file": "x/x-header-1500x500.jpg",
+   "w": 1500,
+   "h": 500,
+   "fmt": "jpg",
+   "use": "Header",
+   "kb": 68,
+   "zones": [
+    {
+     "type": "block",
+     "x": 20,
+     "y": 330,
+     "w": 320,
+     "h": 170,
+     "label": "Profile photo"
+    },
+    {
+     "type": "safe",
+     "x": 380,
+     "y": 70,
+     "w": 1060,
+     "h": 340,
+     "label": "Safe"
+    }
+   ],
+   "guide": "guides/x-header-1500x500-guide.jpg"
+  },
+  {
+   "platform": "linkedin",
+   "file": "linkedin/linkedin-avatar-400x400.png",
+   "w": 400,
+   "h": 400,
+   "fmt": "png",
+   "use": "Logo / profile photo",
+   "kb": 38,
+   "zones": [
+    {
+     "type": "circle",
+     "x": 0,
+     "y": 0,
+     "w": 400,
+     "h": 400,
+     "label": "Circle crop"
+    }
+   ],
+   "guide": null
+  },
+  {
+   "platform": "linkedin",
+   "file": "linkedin/linkedin-cover-1584x396.jpg",
+   "w": 1584,
+   "h": 396,
+   "fmt": "jpg",
+   "use": "Cover / banner",
+   "kb": 54,
+   "zones": [
+    {
+     "type": "block",
+     "x": 24,
+     "y": 150,
+     "w": 340,
+     "h": 246,
+     "label": "Profile photo"
+    },
+    {
+     "type": "safe",
+     "x": 420,
+     "y": 56,
+     "w": 1110,
+     "h": 284,
+     "label": "Safe"
+    }
+   ],
+   "guide": "guides/linkedin-cover-1584x396-guide.jpg"
+  },
+  {
+   "platform": "zalo",
+   "file": "zalo/zalo-avatar-720x720.png",
+   "w": 720,
+   "h": 720,
+   "fmt": "png",
+   "use": "OA avatar",
+   "kb": 72,
+   "zones": [
+    {
+     "type": "circle",
+     "x": 0,
+     "y": 0,
+     "w": 720,
+     "h": 720,
+     "label": "Circle crop"
+    }
+   ],
+   "guide": null
+  },
+  {
+   "platform": "zalo",
+   "file": "zalo/zalo-cover-1280x1400.jpg",
+   "w": 1280,
+   "h": 1400,
+   "fmt": "jpg",
+   "use": "OA cover (VI) – 2× of 640×700",
+   "kb": 108,
+   "zones": [
+    {
+     "type": "view",
+     "x": 0,
+     "y": 360,
+     "w": 1280,
+     "h": 680,
+     "label": "Visible 1280×680"
+    },
+    {
+     "type": "safe",
+     "x": 70,
+     "y": 380,
+     "w": 1140,
+     "h": 640,
+     "label": "Safe"
+    }
+   ],
+   "guide": "guides/zalo-cover-1280x1400-guide.jpg"
+  },
+  {
+   "platform": "logo",
+   "file": "logo/lexkite-mark.png",
+   "svg": "logo/lexkite-mark.svg",
+   "use": "mark",
+   "fmt": "png"
+  },
+  {
+   "platform": "logo",
+   "file": "logo/lexkite-mark-white.png",
+   "svg": "logo/lexkite-mark-white.svg",
+   "use": "mark white",
+   "fmt": "png"
+  },
+  {
+   "platform": "logo",
+   "file": "logo/lexkite-mark-teal.png",
+   "svg": "logo/lexkite-mark-teal.svg",
+   "use": "mark teal",
+   "fmt": "png"
+  },
+  {
+   "platform": "logo",
+   "file": "logo/lexkite-app-icon.png",
+   "svg": "logo/lexkite-app-icon.svg",
+   "use": "app icon",
+   "fmt": "png"
+  },
+  {
+   "platform": "logo",
+   "file": "logo/lexkite-logo-horizontal-on-dark.png",
+   "svg": "logo/lexkite-logo-horizontal-on-dark.svg",
+   "use": "logo horizontal on dark",
+   "fmt": "png"
+  },
+  {
+   "platform": "logo",
+   "file": "logo/lexkite-logo-horizontal-on-dark-bg.png",
+   "svg": "logo/lexkite-logo-horizontal-on-dark-bg.svg",
+   "use": "logo horizontal on dark bg",
+   "fmt": "png"
+  },
+  {
+   "platform": "logo",
+   "file": "logo/lexkite-logo-horizontal-on-light.png",
+   "svg": "logo/lexkite-logo-horizontal-on-light.svg",
+   "use": "logo horizontal on light",
+   "fmt": "png"
+  },
+  {
+   "platform": "logo",
+   "file": "logo/lexkite-logo-horizontal-white.png",
+   "svg": "logo/lexkite-logo-horizontal-white.svg",
+   "use": "logo horizontal white",
+   "fmt": "png"
+  },
+  {
+   "platform": "logo",
+   "file": "logo/lexkite-logo-horizontal-teal.png",
+   "svg": "logo/lexkite-logo-horizontal-teal.svg",
+   "use": "logo horizontal teal",
+   "fmt": "png"
+  },
+  {
+   "platform": "logo",
+   "file": "logo/lexkite-logo-stacked-on-dark-bg.png",
+   "svg": "logo/lexkite-logo-stacked-on-dark-bg.svg",
+   "use": "logo stacked on dark bg",
+   "fmt": "png"
+  },
+  {
+   "platform": "logo",
+   "file": "logo/lexkite-clearspace.png",
+   "svg": "logo/lexkite-clearspace.svg",
+   "use": "clearspace",
+   "fmt": "png"
+  }
+ ]
+}

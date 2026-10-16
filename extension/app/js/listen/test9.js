@@ -43,7 +43,7 @@
     groups: [
       { type: 'form', title: 'Kingfisher River Cruises – Group booking', instr: 'Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.', limit: 2,
         items: [
-          { n: 1, text: 'Name: Hannah ___', a: ['Lindqvist'], cue: 'L, I, N, D, Q, V, I, S, T', explain: 'Họ được đánh vần L-I-N-D-Q-V-I-S-T.' },
+          { n: 1, text: 'Name: Hannah ___', a: ['Lindqvist'], cue: 'L, I, N, D, Q, V, I, S, T', explain: 'Họ được đánh vần L-I-N-D-Q-V-I-S-T. Câu nghe được: “L, I, N, D, Q, V, I, S, T.”' },
           { n: 2, text: 'Group: Thornbury ___ Club', a: ['Walking'], cue: "we're just called the Thornbury Walking Club", explain: 'Bẫy: người ta hay tưởng là hội leo núi (hiking society), nhưng tên đúng là câu lạc bộ đi bộ.' },
           { n: 3, text: 'Trip: full day to ___ Bridge', a: ['Carlow'], cue: 'The full-day one, to Carlow Bridge', explain: 'Một số thành viên muốn chuyến ngắn tới Abbey Lock, nhưng nhóm chọn chuyến cả ngày vì có bữa trưa.' },
           { n: 4, text: 'Date: Sunday ___ June', a: ['15', '15th', 'fifteenth'], cue: 'Sunday the 15th, then', explain: 'Thứ Bảy 14 đã kín chỗ nên đổi sang Chủ nhật 15.' },
@@ -112,10 +112,10 @@
         items: [
           { n: 15, text: 'the foyer', a: 'B', cue: "They're the oldest thing in the building", explain: 'Gạch lát sàn nguyên bản làm ở Ý – thứ cổ nhất trong tòa nhà.' },
           { n: 16, text: 'the auditorium', a: 'C', cue: "What's special about the auditorium is the sound", explain: 'Bẫy: ghế không phải nguyên bản (E sai) – chúng đã được thay khi trùng tu.' },
-          { n: 17, text: 'the gallery', a: 'F', cue: "it's where we keep a small exhibition", explain: 'Khu ghế rẻ nhất thời Victoria nay là nơi trưng bày lịch sử nhà hát.' },
-          { n: 18, text: 'the dressing rooms', a: 'D', cue: 'These are being repainted at the moment', explain: 'Phòng thay đồ đang được sơn lại (being decorated).' },
-          { n: 19, text: 'the wardrobe department', a: 'G', cue: 'Eight people work there full time', explain: 'Bộ phận trang phục bận rộn nhất, có tám người làm toàn thời gian.' },
-          { n: 20, text: 'the café', a: 'A', cue: "it's already won an award for its design", explain: 'Quán cà phê (trước là kho cảnh trí) đã đoạt giải thiết kế.' },
+          { n: 17, text: 'the gallery', a: 'F', cue: "it's where we keep a small exhibition", explain: "Khu ghế rẻ nhất thời Victoria nay là nơi trưng bày lịch sử nhà hát. Câu nghe được: “it's where we keep a small exhibition.”" },
+          { n: 18, text: 'the dressing rooms', a: 'D', cue: 'These are being repainted at the moment', explain: 'Phòng thay đồ đang được sơn lại (being decorated). Câu nghe được: “These are being repainted at the moment.”' },
+          { n: 19, text: 'the wardrobe department', a: 'G', cue: 'Eight people work there full time', explain: 'Bộ phận trang phục bận rộn nhất, có tám người làm toàn thời gian. Câu nghe được: “Eight people work there full time.”' },
+          { n: 20, text: 'the café', a: 'A', cue: "it's already won an award for its design", explain: "Quán cà phê (trước là kho cảnh trí) đã đoạt giải thiết kế. Câu nghe được: “it's already won an award for its design.”" },
         ] },
     ],
     vocab: [
@@ -240,16 +240,16 @@
     groups: [
       { type: 'note', title: 'The history of lighthouses', instr: 'Complete the notes below. Write ONE WORD ONLY for each answer.', limit: 1,
         items: [
-          { n: 31, text: 'Problem with wood and coal fires: too much ___', a: ['smoke'], cue: 'they produced a great deal of smoke', explain: 'Khói che mất ánh sáng đúng lúc cần nhất.' },
-          { n: 32, text: 'Early offshore towers were made of ___', a: ['timber', 'wood'], cue: 'The first attempts on offshore rocks were made of timber', explain: 'Các tháp gỗ đầu tiên bị bão cuốn trôi.' },
-          { n: 33, text: 'In the 1750s, a tower was built of interlocking ___ blocks', a: ['granite'], cue: 'interlocking blocks of granite', explain: 'Các khối đá granit khớp vào nhau nên cả tháp như một khối đá liền.' },
-          { n: 34, text: 'Its shape was based on an ___ tree', a: ['oak'], cue: 'based on the trunk of an oak tree', explain: 'Hình dáng thân cây sồi: rộng ở chân, hẹp ở đỉnh, làm sóng yếu đi.' },
+          { n: 31, text: 'Problem with wood and coal fires: too much ___', a: ['smoke'], cue: 'they produced a great deal of smoke', explain: 'Khói che mất ánh sáng đúng lúc cần nhất. Câu nghe được: “they produced a great deal of smoke.”' },
+          { n: 32, text: 'Early offshore towers were made of ___', a: ['timber', 'wood'], cue: 'The first attempts on offshore rocks were made of timber', explain: 'Các tháp gỗ đầu tiên bị bão cuốn trôi. Câu nghe được: “The first attempts on offshore rocks were made of timber.”' },
+          { n: 33, text: 'In the 1750s, a tower was built of interlocking ___ blocks', a: ['granite'], cue: 'interlocking blocks of granite', explain: 'Các khối đá granit khớp vào nhau nên cả tháp như một khối đá liền. Câu nghe được: “interlocking blocks of granite.”' },
+          { n: 34, text: 'Its shape was based on an ___ tree', a: ['oak'], cue: 'based on the trunk of an oak tree', explain: 'Hình dáng thân cây sồi: rộng ở chân, hẹp ở đỉnh, làm sóng yếu đi. Câu nghe được: “based on the trunk of an oak tree.”' },
           { n: 35, text: 'In the 1820s, a new type of ___ produced a powerful beam', a: ['lens'], cue: 'the real advance came in the eighteen twenties with a new kind of lens', explain: 'Gương chỉ giúp được chút ít; bước tiến thật là thấu kính bằng các vòng thủy tinh.' },
           { n: 36, text: 'Each lighthouse had its own pattern of ___', a: ['flashes'], cue: 'each light was given its own pattern of flashes', explain: 'Mỗi ngọn hải đăng có kiểu chớp riêng như “chữ ký”, in trên hải đồ.' },
-          { n: 37, text: '___ were used when there was fog', a: ['horns'], cue: 'lighthouses were also fitted with horns', explain: 'Trong sương mù ánh sáng ít tác dụng nên dùng còi hiệu.' },
+          { n: 37, text: '___ were used when there was fog', a: ['horns'], cue: 'lighthouses were also fitted with horns', explain: 'Trong sương mù ánh sáng ít tác dụng nên dùng còi hiệu. Câu nghe được: “lighthouses were also fitted with horns.”' },
           { n: 38, text: 'The keepers’ job was mainly ___ rather than dangerous', a: ['lonely'], cue: 'The job was not so much dangerous as lonely', explain: '“not so much dangerous as lonely” – chủ yếu là cô đơn, không phải nguy hiểm.' },
-          { n: 39, text: 'Most important daily task: ___', a: ['cleaning'], cue: 'Their most important daily task was cleaning', explain: 'Muội đèn bám lên thấu kính và cửa kính làm giảm độ sáng đáng kể.' },
-          { n: 40, text: 'Many modern lights use ___ power', a: ['solar'], cue: 'using solar panels', explain: 'Ngày nay nhiều đèn chạy bằng năng lượng mặt trời.' },
+          { n: 39, text: 'Most important daily task: ___', a: ['cleaning'], cue: 'Their most important daily task was cleaning', explain: 'Muội đèn bám lên thấu kính và cửa kính làm giảm độ sáng đáng kể. Câu nghe được: “Their most important daily task was cleaning.”' },
+          { n: 40, text: 'Many modern lights use ___ power', a: ['solar'], cue: 'using solar panels', explain: 'Ngày nay nhiều đèn chạy bằng năng lượng mặt trời. Câu nghe được: “using solar panels.”' },
         ] },
     ],
     vocab: [

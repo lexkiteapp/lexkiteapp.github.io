@@ -246,7 +246,7 @@
     const r = await fetchJSON(`${base}/api/img?w=${encodeURIComponent(String(word).toLowerCase())}`, 4000);
     if (!r || r.none || !r.src) return null;
     return { src: r.src, link: r.link, license: r.license,
-      credit: t('“{title}” – {creator} · {license} · qua Openverse', { title: r.title || word, creator: r.creator || t('không rõ tác giả'), license: r.license }) };
+      credit: t('“{title}” – {creator} · {license} · qua Openverse', { title: r.title || word, creator: r.creator || t('không rõ tác giả'), license: r.license }).replace('Openverse', r.via || 'Openverse') };
   }
   // Giữ tên cũ cho mã gọi trước đây
   const wikiImage = async word => { const im = await freeImage(word); return im ? im.src : ''; };
@@ -368,7 +368,16 @@
     if (!word) return null;
     if (cache.has(word)) return cache.get(word);
     const saved = await persist.get(word);
-    if (saved && Date.now() - saved._t < FRESH) { cache.set(word, saved); return saved; }
+    if (saved && Date.now() - saved._t < FRESH) {
+      // Bản lưu thiếu ảnh (lần tra trước mạng/Openverse chậm) → thử lấy lại ảnh, tối đa 6 giờ/lần, không tra lại cả từ
+      if (image && !saved.image && /^n|danh/.test(saved.pos || 'n') && Date.now() - (saved._imgTry || 0) > 6 * 3600e3) {
+        const im = await freeImage(word).catch(() => null);
+        saved._imgTry = Date.now();
+        if (im && im.src) { saved.image = im.src; saved.imageCredit = { text: im.credit, link: im.link }; }
+        persist.set(word, saved);
+      }
+      cache.set(word, saved); return saved;
+    }
 
     const local = (g.IELTS_DATA && g.IELTS_DATA.INDEX[word]) || null;
     let [gg, fd, wk, img, sents] = await Promise.all([

@@ -8,7 +8,7 @@
       try { if (!chrome.runtime.id) return; } catch (x) { return; } // bản add-on cũ đã bị thay thế
       try {
         if (e.data.op === 'get') { const data = await chrome.storage.local.get(KEYS); window.postMessage({ lkBridge: 'res', id: e.data.id, data }, location.origin); }
-        else if (e.data.op === 'diag') { const { errLog } = await chrome.storage.local.get('errLog'); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { v: chrome.runtime.getManifest().version, errLog: errLog || [] } }, location.origin); }
+        else if (e.data.op === 'diag') { const { errLog } = await chrome.storage.local.get('errLog'); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { v: chrome.runtime.getManifest().version, errLog: errLog || [], ui: UI_LANG, ml: ML(), nav: navigator.language } }, location.origin); }
         else if (e.data.op === 'lang') { const l = (e.data.data || {}).lang; if (pickLang(l)) await chrome.storage.local.set({ uiLang: pickLang(l) }); window.postMessage({ lkBridge: 'res', id: e.data.id, ok: true }, location.origin); }
         else if (e.data.op === 'linked') { const d = e.data.data || {}; await chrome.storage.local.set({ linked: { email: String(d.email || '').slice(0, 120), name: String(d.name || '').slice(0, 80), at: Date.now() } }); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { ok: true } }, location.origin); }
         else if (e.data.op === 'aiKeyGet') { const { aiKey } = await chrome.storage.local.get('aiKey'); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { aiKey: aiKey || '' } }, location.origin); }
@@ -141,10 +141,23 @@
     if (host && host.parentNode === parent) return;
     if (host) { parent.appendChild(host); return; }
     host = document.createElement('ielts-lexi-popup');
-    root = host.attachShadow({ mode: 'closed' });
+    root = host.attachShadow({ mode: navigator.webdriver ? 'open' : 'closed' }); // 'open' chỉ khi chạy kiểm thử tự động (scripts/test/ext-e2e.mjs)
     root.innerHTML = H(`<style>${CSS}</style><div class="box" hidden></div><button class="fab" hidden title="${tx('Dịch với Lexkite')}">🌐</button>`);
     parent.appendChild(host);
     root.addEventListener('mousedown', e => e.stopPropagation());
+    // Tra tiếp trong chính bảng tra/dịch (định nghĩa, ví dụ, câu ngữ cảnh, bản dịch): bấm đúp 1 từ tiếng Anh → tra lồng (có nút Quay lại);
+    // bôi đen nhiều từ → dịch đoạn đó
+    const inBoxSel = () => { const sel = root.getSelection ? root.getSelection() : document.getSelection(); if (!sel || !sel.rangeCount || sel.isCollapsed) return null; const t = sel.toString().trim(); return t && /[A-Za-z]{2}/.test(t) ? { t, range: sel.getRangeAt(0) } : null; };
+    root.addEventListener('dblclick', e => {
+      if (e.target.closest('button, a, input, select, textarea')) return;
+      const s = inBoxSel(); if (!s) return;
+      const w = s.t.replace(/[^A-Za-z'’-]/g, '').toLowerCase();
+      if (w.length > 1 && w !== (cur && cur.word)) { e.stopPropagation(); show(w, s.range.getBoundingClientRect(), s.range.startContainer && s.range.startContainer.textContent ? s.range.startContainer.textContent.slice(0, 300) : '', {}, 'nested'); }
+    });
+    root.addEventListener('mouseup', e => {
+      if (e.detail >= 2 || e.target.closest('button, a, input, select, textarea')) return;
+      setTimeout(() => { const s = inBoxSel(); if (s && s.t.split(/\s+/).length > 1) translateSelection({ text: s.t, range: null, rect: s.range.getBoundingClientRect() }); }, 10);
+    });
   }
   const box = () => root.querySelector('.box');
   let onHide = null;
@@ -354,12 +367,12 @@
     current = word;
     const st = (await chrome.storage.local.get('settings')).settings || {};
     const accent = st.accent || 'en-GB';
-    let e = null, saved = false, ctxVi = '', mlW = '', didSave = false, spoke = false, note = null;
+    let e = null, saved = false, ctxVi = '', ctxDone = false, mlW = '', didSave = false, spoke = false, note = null;
 
     // Một giọng thống nhất cho lúc tự đọc và nút UK/US: dùng giọng máy tốt nhất; bản ghi âm tình nguyện viên (chất lượng không đều) chỉ dùng khi máy không có giọng đọc
     const audioFor = acc => !e || window.speechSynthesis ? '' : acc === 'en-US' ? (e.audioUS || e.audio) : (e.audio && !/-us\.mp3$/.test(e.audio) ? e.audio : '');
     const sayWord = (acc, rate) => speak(e ? e.word : word, rate ? '' : audioFor(acc), acc, rate);
-    const paintCtx = () => { const el = b.querySelector('.ctxvi'); if (el && current === word) el.textContent = ctxVi ? FLAG(ML()) + ' ' + ctxVi : ''; };
+    const paintCtx = () => { ctxDone = true; const el = b.querySelector('.ctxvi'); if (el && current === word) el.textContent = ctxVi ? FLAG(ML()) + ' ' + ctxVi : ''; };
 
     function render() {
       preloadAudio(audioFor('en-GB')); preloadAudio(audioFor('en-US'));
@@ -399,7 +412,7 @@
           ${defs || (e.def ? `<div class="def">${linkify(e.def)}</div>` : '')}
           ${note && UI_LANG === 'vi' ? `<div class="wn-x"><div>💡 ${esc(note.m)}</div><div>⚠️ ${esc(note.e)}</div></div>` : ''}
           ${e.ex && !hasEx ? `<div class="ex">“${linkify(e.ex, e.word)}” <button class="spk mini" data-text="${esc(e.ex)}" title="${tx('Nghe câu ví dụ')}">🔊</button></div>` : ''}
-          ${ctxHtml ? `<div class="ctx"><b>${tx('📌 Ngữ cảnh sẽ lưu')}</b> <button class="spk mini" data-text="${esc(context)}" title="${tx('Nghe cả câu')}">🔊</button><button class="spk mini" data-text="${esc(context)}" data-rate="0.65" title="${tx('Nghe chậm')}">🐢</button><br>${ctxHtml}<div class="ctxvi ex" style="margin-top:4px">${ctxVi ? FLAG(ML()) + ' ' + esc(ctxVi) : tx('⏳ Đang dịch câu…')}</div></div>` : ''}
+          ${ctxHtml ? `<div class="ctx"><b>${tx('📌 Ngữ cảnh sẽ lưu')}</b> <button class="spk mini" data-text="${esc(context)}" title="${tx('Nghe cả câu')}">🔊</button><button class="spk mini" data-text="${esc(context)}" data-rate="0.65" title="${tx('Nghe chậm')}">🐢</button><br>${ctxHtml}<div class="ctxvi ex" style="margin-top:4px">${ctxVi ? FLAG(ML()) + ' ' + esc(ctxVi) : ML() === 'en' || ctxDone ? '' : tx('⏳ Đang dịch câu…')}</div></div>` : ''}
           ${e.partial ? '<div class="sk" style="width:50%;margin-top:8px"></div>' : ''}
         </div>
         <div class="foot">
@@ -408,7 +421,9 @@
           <button class="x" id="close" title="${tx('Đóng (Esc)')}">×</button>
         </div>`);
       const img = b.querySelector('.pic img');
-      if (img) img.onerror = () => { const p = img.parentElement; if (e.emoji) p.textContent = e.emoji; else { p.className = 'pic ltr'; p.textContent = (e.word || '?').charAt(0); } };
+      // Ảnh bị chặn bởi CSP của trang (vd. google.com chỉ cho ảnh cùng tên miền) → nhờ service worker tải rồi gắn dạng data: URL; vẫn lỗi → chữ cái/emoji
+      const noPic = () => { const p = img.parentElement; if (!p) return; if (e.emoji) p.textContent = e.emoji; else { p.className = 'pic ltr'; p.textContent = (e.word || '?').charAt(0); } };
+      if (img) img.onerror = () => { if (img.dataset.retried || /^data:/.test(img.src)) return noPic(); img.dataset.retried = 1; chrome.runtime.sendMessage({ type: 'imgData', url: e.image }).then(r => { if (r && r.data) img.src = r.data; else noPic(); }).catch(noPic); };
       b.querySelectorAll('.spk[data-acc]').forEach(x => x.onclick = () => sayWord(x.dataset.acc));
       b.querySelector('.spk[data-slow]').onclick = () => sayWord(accent, 0.55);
       b.querySelectorAll('.spk[data-text]').forEach(x => x.onclick = () => speak(x.dataset.text, '', accent, +(x.dataset.rate || 0.95)));
@@ -538,14 +553,14 @@
   function showFab(info) {
     ensureHost();
     const f = root.querySelector('.fab');
-    const rects = info.range.getClientRects();
+    const rects = info.range ? info.range.getClientRects() : [];
     const last = rects[rects.length - 1] || info.rect;
     f.style.left = Math.min(window.innerWidth - 44, last.right + 6) + 'px';
     f.style.top = Math.min(window.innerHeight - 44, last.bottom + 6) + 'px';
     f.hidden = false;
     f.onclick = () => {
       f.hidden = true;
-      if (isWordish(info.text)) show(info.text.toLowerCase(), info.rect, sentenceAround(info.range));
+      if (isWordish(info.text)) show(info.text.toLowerCase(), info.rect, info.range ? sentenceAround(info.range) : info.context || '');
       else translateSelection(info);
     };
   }
@@ -622,10 +637,14 @@
   const fromHost = e => host && e.composedPath && e.composedPath().includes(host);
   // Trên chính web app Lexkite: từ đã có bảng tra riêng (.tw) và nút lưu cụm riêng → tiện ích nhường, tránh hiện 2 bảng
   const OWN_APP = /^(www\.)?lexkite\.com$|^lexkite\.pages\.dev$|^(vocaband|ielts-lexi-2026)\.web\.app$|^localhost$/.test(location.hostname);
+  // Đang làm BÀI THI trên lexkite.com (thi thử, đề TOEIC/TOEFL, kiểm tra đầu vào, phòng thi máy tính) → khóa tra/dịch để kết quả đo đúng trình độ;
+  // học và luyện tập thì vẫn tra/dịch bình thường
+  const EXAM_ROUTES = /^#\/(mock|toeic-test|listen-test|toefl-p|cbt|placement)(\/|\?|$)/;
+  const inExam = el => OWN_APP && (EXAM_ROUTES.test(location.hash) || !!(el && el.closest && el.closest('.cbt, .mk-read, .mk-write, .mk-qs, [data-exam]')));
   const appHandles = (el, sel) => OWN_APP && el && el.closest && !!(el.closest('.tw, .pop, .sel-fab, .sel-bar, .sel-pop, [data-own-lookup]') || (sel && el.closest('#view')));
 
   function onDbl(e) {
-    if (!alive() || !enabled || inEditable(e.target) || fromHost(e) || appHandles(e.target)) return;
+    if (!alive() || !enabled || inEditable(e.target) || fromHost(e) || appHandles(e.target) || inExam(e.target)) return;
     // Trên chính lexkite.com: web app tự hiện thanh "Tra nghĩa" (.sel-bar) cho vùng chọn trong nội dung → nhường để không hiện 2 bảng;
     // nơi web app không tra (trang chào mừng, đầu trang…) thì tiện ích tra như mọi trang khác.
     if (OWN_APP && !e.lkDeferred) { const ev = { clientX: e.clientX, clientY: e.clientY, target: e.target, lkDeferred: true }; setTimeout(() => { const b = document.querySelector('.sel-bar'); if (!(b && !b.hidden)) onDbl(ev); }, 80); return; }
@@ -639,7 +658,20 @@
   }
   document.addEventListener('dblclick', onDbl);
   document.addEventListener('mouseup', e => {
-    if (!alive() || fromHost(e) || e.button !== 0 || inEditable(e.target) || appHandles(e.target)) return;
+    if (!alive() || fromHost(e) || e.button !== 0 || appHandles(e.target) || inExam(e.target)) return;
+    // Ô nhập chữ (bài viết, điền từ…): bôi đen → nút 🌐 để dịch (không tự dịch, không chặn việc gõ)
+    const fld = e.target && e.target.closest && e.target.closest('textarea, input[type="text"], input[type="search"], input:not([type])');
+    if (fld) {
+      if (selectMode === 'off') return;
+      setTimeout(() => {
+        const t = String(fld.value || '').slice(fld.selectionStart || 0, fld.selectionEnd || 0).trim();
+        if (!t || t.length > 3000 || !/[A-Za-z]{2}/.test(t)) return;
+        const r = fld.getBoundingClientRect(), rect = { left: Math.min(e.clientX, r.right - 10), right: Math.min(e.clientX, r.right - 10), top: e.clientY - 10, bottom: e.clientY + 6, width: 0, height: 16 };
+        showFab({ text: t, range: null, rect, context: t });
+      }, 10);
+      return;
+    }
+    if (inEditable(e.target)) return;
     // Đợi trình duyệt cập nhật vùng chọn. Trên lexkite.com: nhường khi web app đã hiện thanh "Tra nghĩa/Dịch" (.sel-bar);
     // nơi web không dịch (trang chào mừng, trang "bare") thì tiện ích dịch như mọi trang khác.
     setTimeout(() => {
