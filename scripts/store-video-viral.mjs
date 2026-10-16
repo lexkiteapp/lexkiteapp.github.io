@@ -95,14 +95,13 @@ const br = await chromium.launch();
 const pg = await br.newPage({ viewport: { width: CW, height: CH }, deviceScaleFactor: 1 });
 const segs = [];
 
-// 1. HOOK (2,8 s) – nỗi khổ quen thuộc → lời hứa
+// 1. HOOK (2,8 s) – nỗi khổ quen thuộc → lời hứa. KHÔNG nêu/gạch tên thương hiệu khác (chính sách nhãn hiệu & quảng cáo so sánh của YouTube/Google Ads/CWS)
 {
   const words = ['Still', 'copy-pasting', 'words', 'into'];
   const f = path.join(TMP, 'hook.mp4');
   await seq(pg, `<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
     <div style="font-size:96px;font-weight:900;letter-spacing:-.04em;line-height:1.05">${words.map((w, i) => `<span class="a" style="display:inline-block;margin:0 14px;animation:pop .45s ${0.08 + i * 0.16}s both">${w}</span>`).join('')}</div>
-    <div style="position:relative;display:inline-block;margin-top:14px"><span class="a" style="display:inline-block;font-size:104px;font-weight:900;letter-spacing:-.04em;color:#9fb3b1;animation:pop .45s .74s both">Google Translate?</span>
-      <i class="a" style="position:absolute;left:-10px;right:-10px;top:52%;height:12px;border-radius:6px;background:#F2553B;transform-origin:left;animation:strike .35s 1.45s both"></i></div>
+    <div style="display:inline-block;margin-top:14px"><span class="a" style="display:inline-block;font-size:104px;font-weight:900;letter-spacing:-.04em;color:#9fb3b1;animation:pop .45s .74s both">a translator?</span></div>
     <div class="a" style="margin-top:46px;font-size:64px;font-weight:900;letter-spacing:-.03em;animation:up .45s 1.75s both">There’s a <em>faster</em> way.</div></div>`, 2.9, f);
   segs.push({ file: f, d: 2.9, tr: 'circleopen' });
 }
