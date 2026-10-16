@@ -23,7 +23,7 @@ jobs:
           npx playwright install --with-deps chromium
           sudo apt-get install -y -qq ffmpeg fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core >/dev/null
           bash scripts/build-extension.sh
-          for l in $(echo "${{ inputs.langs || 'en,vi' }}" | tr ',' ' '); do LANG_V=$l node scripts/store-video.mjs /tmp/store-video; done
+          for l in $(echo "${{ inputs.langs || 'en,vi' }}" | tr ',' ' '); do LANG_V=$l node scripts/store-video.mjs /tmp/store-video || echo "::warning::Video $l lỗi"; done; ls /tmp/store-video/*.mp4
       - name: Lưu vào nhánh store-video
         run: |
           cd /tmp/store-video && git init -q && git checkout -q -b store-video

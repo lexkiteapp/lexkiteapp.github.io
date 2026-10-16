@@ -179,31 +179,31 @@ async function run(lang) {
 
   // Dữ liệu mẫu (thẻ, chuỗi ngày) qua app trong add-on – dùng chung chrome.storage với popup, tab mới, trang web
   const app = await ctx.newPage();
-  await app.goto(base + `app/index.html?demo=1&hl=${lang}#/home`); await sleep(5000);
-  await app.goto(base + `app/index.html?hl=${lang}#/home`); await sleep(3500);
+  await app.goto(base + `app/index.html?demo=1&hl=${lang}#/home`, { waitUntil: 'domcontentloaded' }); await sleep(5000);
+  await app.goto(base + `app/index.html?hl=${lang}#/home`, { waitUntil: 'domcontentloaded' }); await sleep(3500);
   const appShot = await app.screenshot();
   const page = await ctx.newPage();
   await page.route('https://news.example.com/**', r => r.fulfill({ contentType: 'text/html', body: ARTICLE }));
 
   // 1. Bấm đúp tra từ (tắt nút 🌐 của vùng chọn để ảnh gọn)
   await setSettings({ selectMode: 'off', markKnown: false, markAcademic: false });
-  await page.goto('https://news.example.com/cities-forests'); await sleep(2500);
+  await page.goto('https://news.example.com/cities-forests', { waitUntil: 'domcontentloaded' }); await sleep(2500);
   await page.dblclick('#w'); await sleep(14000); // chờ bảng tra tải xong (nghĩa, ảnh, ví dụ)
   const s1 = await page.screenshot();
   // 2. Bôi đen câu → tự dịch
   await setSettings({ selectMode: 'auto' });
-  await page.goto('https://news.example.com/cities-forests'); await sleep(2500);
+  await page.goto('https://news.example.com/cities-forests', { waitUntil: 'domcontentloaded' }); await sleep(2500);
   const b = await page.locator('#s').boundingBox();
   await page.mouse.move(b.x + 1, b.y + 6); await page.mouse.down(); await page.mouse.move(b.x + b.width - 2, b.y + b.height - 8, { steps: 12 }); await page.mouse.up();
   await sleep(14000);
   const s2 = await page.screenshot();
   // 3. Popup – kích thước thật
   const pop = await ctx.newPage(); await pop.setViewportSize({ width: 380, height: 600 });
-  await pop.goto(base + 'popup.html'); await sleep(2500);
+  await pop.goto(base + 'popup.html', { waitUntil: 'domcontentloaded' }); await sleep(2500);
   const s3 = await pop.screenshot();
   // 4. Tab mới
   const nt = await ctx.newPage(); await nt.setViewportSize({ width: 880, height: 660 });
-  await nt.goto(base + 'newtab.html'); await sleep(2500);
+  await nt.goto(base + 'newtab.html', { waitUntil: 'domcontentloaded' }); await sleep(2500);
   const s4 = await nt.screenshot();
 
   await ctx.close();
