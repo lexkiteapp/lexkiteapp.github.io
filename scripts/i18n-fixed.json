@@ -16844,5 +16844,20 @@
     "ar": "لماذا يصل إلى المستوى 6 فقط",
     "ru": "Почему только балл 6",
     "tr": "Neden yalnızca band 6 alıyor"
+  },
+  "Dữ liệu minh họa (tự biên soạn)": {
+    "es": "Datos ilustrativos (elaborados por Lexkite)",
+    "pt": "Dados ilustrativos (elaborados pela Lexkite)",
+    "fr": "Données illustratives (rédigées par Lexkite)",
+    "de": "Beispieldaten (von Lexkite erstellt)",
+    "id": "Data ilustrasi (disusun oleh Lexkite)",
+    "th": "ข้อมูลตัวอย่าง (จัดทำโดย Lexkite)",
+    "zh": "示例数据（由 Lexkite 编写）",
+    "ja": "例示データ（Lexkite 作成）",
+    "ko": "예시 데이터 (Lexkite 작성)",
+    "hi": "उदाहरण के लिए डेटा (Lexkite द्वारा तैयार)",
+    "ar": "بيانات توضيحية (من إعداد Lexkite)",
+    "ru": "Условные данные (составлены Lexkite)",
+    "tr": "Örnek veriler (Lexkite tarafından hazırlandı)"
   }
 }

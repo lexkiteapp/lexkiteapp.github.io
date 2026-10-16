@@ -320,6 +320,7 @@
   // ---- phrases.js: annotated model answers ----
   'Chưa có bài mẫu này.': 'This model answer isn’t available yet.',
   'Về đề bài': 'Back to the task',
+  'Dữ liệu minh họa (tự biên soạn)': 'Illustrative data (written by Lexkite)',
   'Bài band 6 để so sánh': 'Band 6 essay for comparison',
   'Vì sao chỉ đạt band 6': 'Why it only reaches band 6',
   'Bài mẫu có phân tích': 'Annotated model answer',

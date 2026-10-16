@@ -118,7 +118,7 @@
   "batch": 6,
   "file": "web/js/task1.js",
   "priority": 1,
-  "have": 8,
+  "have": 14,
   "focus": "đủ 6 dạng: line, bar, pie, table, process, map; dữ liệu biểu đồ tự tạo (SVG), bài mẫu band 8 + overview"
  }
 }
