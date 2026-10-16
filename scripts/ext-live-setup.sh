@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Add-on "Load unpacked" luôn là bản mới nhất trên GitHub main – chạy 1 lần trên máy Mac:
 #   bash scripts/ext-live-setup.sh
-# Tạo ~/lexkite-ext-live (bản sao chỉ-đọc của main, không ai sửa tay) + tác vụ nền macOS (launchd) cứ 60 giây
+# Tạo ~/lexkite-ext-live (chỉ thư mục extension/ của main, ~20 MB, không ai sửa tay) + tác vụ nền macOS (launchd) cứ 60 giây
 # kéo main mới nhất về. Add-on trong Chrome trỏ vào ~/lexkite-ext-live/extension; devAutoReload trong background.js
 # thấy version đổi là tự nạp lại → mọi phiên (Claude chính, phiên phụ, Antigravity) đẩy lên main là Chrome có bản mới sau ~1–2 phút.
 set -euo pipefail
@@ -11,17 +11,18 @@ REPO="https://github.com/lexkiteapp/lexkiteapp.github.io.git"
 PLIST="$HOME/Library/LaunchAgents/com.lexkite.ext-live.plist"
 
 if [ ! -d "$LIVE/.git" ]; then
-  echo "→ Tạo $LIVE (lấy từ repo đang có trên máy, không tải lại toàn bộ)…"
-  git clone -q --reference-if-able "$SRC" --dissociate "$REPO" "$LIVE" || git clone -q "$REPO" "$LIVE"
+  echo "→ Tạo $LIVE – chỉ thư mục extension/, chỉ bản mới nhất (~20 MB, không tải lịch sử hay phần web/âm thanh)…"
+  git clone -q --depth 1 --filter=blob:none --sparse "$REPO" "$LIVE"
+  git -C "$LIVE" sparse-checkout set extension
 fi
-
 cat > "$LIVE/.sync.sh" <<'SH'
 #!/bin/bash
 # Đồng bộ ~/lexkite-ext-live với origin/main (thư mục chỉ để Chrome đọc – được phép ghi đè)
 cd "$HOME/lexkite-ext-live" || exit 0
-git fetch -q origin main 2>/dev/null || exit 0
-[ "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)" ] && exit 0
-git reset -q --hard origin/main && git clean -qfd extension/ && echo "$(date '+%F %T') → $(git rev-parse --short HEAD) $(grep -o '"version": "[^"]*"' extension/manifest.json)"
+git fetch -q --depth 1 origin main 2>/dev/null || exit 0
+[ "$(git rev-parse HEAD)" = "$(git rev-parse FETCH_HEAD)" ] && exit 0
+git reset -q --hard FETCH_HEAD && git clean -qfd extension/ && echo "$(date '+%F %T') → $(git rev-parse --short HEAD) $(grep -o '"version": "[^"]*"' extension/manifest.json)"
+git gc -q --prune=now 2>/dev/null || true   # bỏ bản cũ – thư mục luôn ~20 MB
 SH
 chmod +x "$LIVE/.sync.sh"
 
