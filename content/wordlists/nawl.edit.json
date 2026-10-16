@@ -28,41 +28,1027 @@
   "ex": "Good speakers watch the audience for cues that they are losing interest."
  },
  "flip": {
-  "pos": "v"
+  "pos": "v",
+  "ex": "Flip the pancake when it turns golden."
  },
  "drift": {
-  "pos": "v"
+  "pos": "v",
+  "ex": "The boat drifted slowly down the river."
  },
  "elaborate": {
-  "def": "made or done with great care and with a lot of detail"
+  "def": "made or done with great care and with a lot of detail",
+  "ex": "They made elaborate plans for the wedding."
  },
  "emit": {
   "def": "to release or send out gas, light, heat or sound"
  },
  "censor": {
-  "def": "a person whose job is to examine books, films, etc. and remove parts that are considered unacceptable"
+  "def": "a person whose job is to examine books, films, etc. and remove parts that are considered unacceptable",
+  "ex": "The censor removed several scenes from the film."
  },
  "fluid": {
   "pos": "n",
-  "vi": "chất lỏng"
+  "vi": "chất lỏng",
+  "ex": "Drink plenty of fluids when you have a fever."
  },
  "span": {
   "pos": "n",
   "vi": "khoảng thời gian"
  },
  "slash": {
-  "def": "the symbol /, used to separate words or numbers"
+  "def": "the symbol /, used to separate words or numbers",
+  "ex": "Write the date with a slash between the day and month."
  },
  "entrant": {
   "pos": "n"
  },
  "substrate": {
-  "pos": "n"
+  "pos": "n",
+  "ex": "The enzyme acts on a specific substrate."
  },
  "uplift": {
   "def": "an improvement or increase, especially one that makes people feel more hopeful"
  },
  "sensitivity": {
-  "def": "the ability to notice and react to small changes, or to understand other people's feelings"
+  "def": "the ability to notice and react to small changes, or to understand other people's feelings",
+  "ex": "Teachers need sensitivity when talking to worried students."
+ },
+ "amongst": {
+  "ex": "The decision caused disagreement amongst the members of the committee."
+ },
+ "backward": {
+  "ex": "The village was once seen as backward, but it now has fast internet."
+ },
+ "collective": {
+  "ex": "Climate change requires collective action from all countries."
+ },
+ "computation": {
+  "ex": "Modern computers can perform billions of computations per second."
+ },
+ "freely": {
+  "ex": "Students can move freely between the two libraries."
+ },
+ "generalize": {
+  "ex": "It is dangerous to generalize from such a small sample."
+ },
+ "goodness": {
+  "ex": "She helped her neighbours out of the goodness of her heart."
+ },
+ "historically": {
+  "ex": "Historically, the town depended on fishing."
+ },
+ "importantly": {
+  "ex": "More importantly, the new method saves time.",
+  "vi": "điều quan trọng là"
+ },
+ "nationalism": {
+  "ex": "The essay discusses the rise of nationalism in nineteenth-century Europe."
+ },
+ "nicely": {
+  "ex": "The room is small but nicely decorated.",
+  "vi": "đẹp, khéo"
+ },
+ "painful": {
+  "ex": "The injury was painful but not serious."
+ },
+ "pardon": {
+  "ex": "Pardon me, could you repeat that?",
+  "vi": "tha thứ; xin lỗi"
+ },
+ "parental": {
+  "ex": "Children under twelve need parental permission to join the club.",
+  "vi": "thuộc cha mẹ"
+ },
+ "photographic": {
+  "ex": "She has an almost photographic memory for faces.",
+  "vi": "thuộc nhiếp ảnh"
+ },
+ "problematic": {
+  "ex": "Relying on a single supplier can be problematic."
+ },
+ "ruler": {
+  "ex": "Use a ruler to draw a straight line."
+ },
+ "sexuality": {
+  "ex": "The course covers health topics such as nutrition, growth and sexuality.",
+  "vi": "giới tính"
+ },
+ "terribly": {
+  "ex": "I'm terribly sorry for the delay."
+ },
+ "thickness": {
+  "ex": "The thickness of the ice was measured every week."
+ },
+ "underneath": {
+  "ex": "The keys were underneath a pile of papers.",
+  "vi": "bên dưới",
+  "pos": "prep"
+ },
+ "adaptive": {
+  "ex": "Some animals show remarkable adaptive behaviour in cold climates."
+ },
+ "bang": {
+  "ex": "Someone banged on the door late at night.",
+  "vi": "đập mạnh"
+ },
+ "bat": {
+  "ex": "Bats sleep during the day and hunt at night.",
+  "vi": "con dơi; gậy (bóng chày)"
+ },
+ "blank": {
+  "ex": "Leave the last line blank."
+ },
+ "bleed": {
+  "ex": "The cut on his finger started to bleed."
+ },
+ "broadly": {
+  "ex": "Broadly speaking, the results were positive."
+ },
+ "bucket": {
+  "ex": "She filled a bucket with water to wash the car."
+ },
+ "characterization": {
+  "ex": "The novel is praised for its strong characterization."
+ },
+ "cheat": {
+  "ex": "Students who cheat in the exam will fail the course."
+ },
+ "cheers": {
+  "ex": "Cheers! Thanks for the drink.",
+  "vi": "cạn ly; cảm ơn",
+  "pos": "excl"
+ },
+ "clever": {
+  "ex": "That's a clever solution to the problem."
+ },
+ "comparable": {
+  "ex": "Prices here are comparable to those in the capital."
+ },
+ "conditional": {
+  "ex": "The job offer is conditional on a successful health check."
+ },
+ "conscious": {
+  "ex": "She is very conscious of her health and eats well.",
+  "vi": "có ý thức"
+ },
+ "consciousness": {
+  "ex": "He lost consciousness for a few seconds after the fall."
+ },
+ "cure": {
+  "ex": "Scientists are still searching for a cure for the disease.",
+  "vi": "cách chữa, thuốc chữa"
+ },
+ "detection": {
+  "ex": "Early detection of the illness makes treatment easier."
+ },
+ "directive": {
+  "ex": "The company issued a directive on working from home.",
+  "vi": "chỉ thị",
+  "pos": "n"
+ },
+ "disturbance": {
+  "ex": "The noise caused a disturbance to the neighbours."
+ },
+ "enormously": {
+  "ex": "The festival has grown enormously in recent years."
+ },
+ "equality": {
+  "ex": "The organisation works for gender equality."
+ },
+ "ghost": {
+  "ex": "The old house is said to have a ghost."
+ },
+ "incredible": {
+  "ex": "The view from the summit was incredible."
+ },
+ "incredibly": {
+  "ex": "The exam was incredibly difficult."
+ },
+ "industrialization": {
+  "ex": "Rapid industrialization changed the region in the 1990s."
+ },
+ "industrialize": {
+  "ex": "Many Asian countries began to industrialize after 1960."
+ },
+ "intensity": {
+  "ex": "The intensity of the storm surprised the forecasters."
+ },
+ "intensive": {
+  "ex": "She took an intensive English course over the summer.",
+  "vi": "chuyên sâu"
+ },
+ "interviewer": {
+  "ex": "The interviewer asked about my previous experience."
+ },
+ "mathematical": {
+  "ex": "The model is based on a simple mathematical formula."
+ },
+ "minus": {
+  "ex": "Ten minus four equals six."
+ },
+ "monkey": {
+  "ex": "A monkey took my sunglasses at the temple."
+ },
+ "nasty": {
+  "ex": "I had a nasty cold last week."
+ },
+ "nest": {
+  "ex": "The birds built a nest under the roof."
+ },
+ "observer": {
+  "ex": "Observers say the election was fair."
+ },
+ "periodic": {
+  "ex": "The machines need periodic checks."
+ },
+ "physically": {
+  "ex": "The job is physically demanding."
+ },
+ "positively": {
+  "ex": "Most customers responded positively to the new design."
+ },
+ "progression": {
+  "ex": "The course follows a logical progression from easy to difficult."
+ },
+ "progressive": {
+  "ex": "The school is known for its progressive teaching methods."
+ },
+ "pronounce": {
+  "ex": "How do you pronounce this word?"
+ },
+ "punch": {
+  "ex": "He punched the air in celebration.",
+  "vi": "đấm"
+ },
+ "punish": {
+  "ex": "Parents should not punish children too harshly."
+ },
+ "punishment": {
+  "ex": "Many schools have stopped using physical punishment."
+ },
+ "purely": {
+  "ex": "The decision was based purely on cost."
+ },
+ "resistant": {
+  "ex": "This jacket is resistant to water."
+ },
+ "ridiculous": {
+  "ex": "It's ridiculous to pay that much for a coffee."
+ },
+ "rope": {
+  "ex": "They tied the boat to the dock with a rope."
+ },
+ "rub": {
+  "ex": "Rub some cream into your skin."
+ },
+ "selective": {
+  "ex": "The university is very selective about who it accepts."
+ },
+ "separation": {
+  "ex": "The separation from her family was hard at first."
+ },
+ "slavery": {
+  "ex": "The museum explains the history of slavery in America."
+ },
+ "snake": {
+  "ex": "Be careful; there are snakes in the long grass."
+ },
+ "socially": {
+  "ex": "Older people who stay socially active tend to be healthier."
+ },
+ "stabilize": {
+  "ex": "The government took steps to stabilize prices."
+ },
+ "standardize": {
+  "ex": "The company standardized its training across all branches."
+ },
+ "sword": {
+  "ex": "The museum displays an ancient sword."
+ },
+ "tense": {
+  "ex": "The atmosphere in the room was tense before the results."
+ },
+ "tricky": {
+  "ex": "This grammar point is quite tricky.",
+  "vi": "khó, rắc rối"
+ },
+ "unstable": {
+  "ex": "The ladder looks unstable, so be careful."
+ },
+ "variability": {
+  "ex": "There is great variability in rainfall from year to year."
+ },
+ "wisdom": {
+  "ex": "My grandfather is a man of great wisdom.",
+  "vi": "sự khôn ngoan"
+ },
+ "accelerate": {
+  "ex": "The car accelerated quickly onto the motorway."
+ },
+ "acceleration": {
+  "ex": "The new model has better acceleration."
+ },
+ "accumulation": {
+  "ex": "The accumulation of plastic in the ocean is a serious problem."
+ },
+ "acid": {
+  "ex": "Lemon juice contains citric acid.",
+  "vi": "axit",
+  "pos": "n"
+ },
+ "acidic": {
+  "ex": "Coffee is slightly acidic."
+ },
+ "adolescent": {
+  "ex": "The book is written for adolescent readers."
+ },
+ "affirm": {
+  "ex": "The report affirms the importance of early education."
+ },
+ "alien": {
+  "ex": "At first, life in the big city felt alien to him.",
+  "vi": "xa lạ"
+ },
+ "alliance": {
+  "ex": "Several small shops formed an alliance to compete with the supermarket."
+ },
+ "allocation": {
+  "ex": "The allocation of funds to schools is decided every year."
+ },
+ "approximation": {
+  "ex": "The number is only an approximation."
+ },
+ "archaeology": {
+  "ex": "She studied archaeology at university."
+ },
+ "atomic": {
+  "ex": "An atomic clock is extremely accurate."
+ },
+ "behavioral": {
+  "ex": "The study looked at behavioral changes in teenagers."
+ },
+ "cattle": {
+  "ex": "The farmers raise cattle on the hills."
+ },
+ "civilization": {
+  "ex": "The ancient Egyptians built a great civilization along the Nile."
+ },
+ "communicative": {
+  "ex": "The teacher uses a communicative approach in class."
+ },
+ "communist": {
+  "ex": "The country had a communist government for many years."
+ },
+ "competent": {
+  "ex": "She is a competent and reliable manager.",
+  "vi": "có năng lực"
+ },
+ "conception": {
+  "ex": "His conception of success is very different from mine."
+ },
+ "conduction": {
+  "ex": "Metals allow the conduction of heat."
+ },
+ "conserve": {
+  "ex": "Turn off the lights to conserve energy."
+ },
+ "continent": {
+  "ex": "Africa is the second largest continent."
+ },
+ "coordination": {
+  "ex": "The project needs good coordination between departments."
+ },
+ "correlate": {
+  "ex": "Sleep quality correlates with exam performance."
+ },
+ "crystal": {
+  "ex": "Snowflakes are made of ice crystals."
+ },
+ "cyclic": {
+  "ex": "Tourism in the town is cyclic and depends on the season."
+ },
+ "damp": {
+  "ex": "The walls of the old house are damp."
+ },
+ "deliberately": {
+  "ex": "He deliberately ignored my message."
+ },
+ "demonstrator": {
+  "ex": "Thousands of demonstrators marched peacefully through the city."
+ },
+ "dense": {
+  "ex": "The city has a dense population."
+ },
+ "dictate": {
+  "ex": "Your budget will dictate where you can stay."
+ },
+ "disability": {
+  "ex": "The new law protects workers with a disability."
+ },
+ "dominant": {
+  "ex": "English is the dominant language of the internet."
+ },
+ "domination": {
+  "ex": "The company's domination of the market is ending."
+ },
+ "drain": {
+  "ex": "The kitchen drain is blocked.",
+  "vi": "cống thoát nước"
+ },
+ "elevation": {
+  "ex": "The village is at an elevation of 1,500 metres."
+ },
+ "elimination": {
+  "ex": "The elimination of waste is a key goal."
+ },
+ "essentially": {
+  "ex": "The two phones are essentially the same.",
+  "vi": "về cơ bản"
+ },
+ "estimation": {
+  "ex": "By my estimation, the work will take three days."
+ },
+ "execute": {
+  "ex": "The plan was executed perfectly."
+ },
+ "execution": {
+  "ex": "The execution of the project took longer than expected."
+ },
+ "fertility": {
+  "ex": "The fertility of the soil makes the area ideal for farming."
+ },
+ "flesh": {
+  "ex": "The flesh of the mango is sweet and soft."
+ },
+ "fundamentally": {
+  "ex": "The two approaches are fundamentally different."
+ },
+ "genetically": {
+  "ex": "Some crops are genetically modified to resist insects."
+ },
+ "genetics": {
+  "ex": "Genetics explains why children look like their parents."
+ },
+ "globalization": {
+  "ex": "Globalization has changed the way companies do business."
+ },
+ "grasp": {
+  "ex": "It took me a while to grasp the main idea."
+ },
+ "gross": {
+  "ex": "The company's gross income rose by ten percent.",
+  "vi": "tổng (gộp)"
+ },
+ "hip": {
+  "ex": "She hurt her hip when she fell."
+ },
+ "immune": {
+  "ex": "Exercise helps to keep your immune system strong."
+ },
+ "independently": {
+  "ex": "Students should learn to work independently."
+ },
+ "inevitably": {
+  "ex": "Prices will inevitably rise when fuel costs go up."
+ },
+ "infect": {
+  "ex": "The virus can infect both people and animals."
+ },
+ "initiation": {
+  "ex": "The initiation of the new programme was delayed."
+ },
+ "inject": {
+  "ex": "The nurse injected the vaccine into my arm."
+ },
+ "invasion": {
+  "ex": "The castle was built to protect the town from invasion."
+ },
+ "legend": {
+  "ex": "According to legend, a dragon lived in the lake."
+ },
+ "legitimate": {
+  "ex": "Illness is a legitimate reason for missing work."
+ },
+ "magnetic": {
+  "ex": "The Earth has a magnetic field."
+ },
+ "manipulation": {
+  "ex": "The study warns about the manipulation of data."
+ },
+ "missile": {
+  "ex": "The museum has an old missile from the 1960s."
+ },
+ "mobility": {
+  "ex": "Social mobility is easier with good education."
+ },
+ "morality": {
+  "ex": "The novel raises questions about morality."
+ },
+ "mortality": {
+  "ex": "Infant mortality has fallen sharply in the last fifty years."
+ },
+ "naked": {
+  "ex": "You can't see these tiny animals with the naked eye.",
+  "vi": "trần trụi, không che"
+ },
+ "objection": {
+  "ex": "Does anyone have any objection to the plan?"
+ },
+ "oral": {
+  "ex": "The course ends with an oral exam.",
+  "vi": "bằng lời nói"
+ },
+ "organ": {
+  "ex": "The heart is a vital organ."
+ },
+ "philosopher": {
+  "ex": "Socrates was a famous Greek philosopher."
+ },
+ "philosophical": {
+  "ex": "They had a philosophical discussion about happiness."
+ },
+ "powder": {
+  "ex": "Mix the powder with warm water."
+ },
+ "profound": {
+  "ex": "The book had a profound effect on me.",
+  "vi": "sâu sắc"
+ },
+ "psychologist": {
+  "ex": "The school psychologist helps students with stress."
+ },
+ "randomly": {
+  "ex": "Participants were randomly divided into two groups."
+ },
+ "rationality": {
+  "ex": "Economists often assume the rationality of consumers."
+ },
+ "rejection": {
+  "ex": "He felt hurt by the rejection of his application."
+ },
+ "reproduction": {
+  "ex": "The course covers plant reproduction."
+ },
+ "republic": {
+  "ex": "France is a republic."
+ },
+ "revolutionary": {
+  "ex": "The smartphone was a revolutionary invention."
+ },
+ "rhythm": {
+  "ex": "Dance to the rhythm of the music."
+ },
+ "infectious": {
+  "ex": "Her laughter is so infectious that everyone starts smiling."
+ },
+ "scatter": {
+  "ex": "The wind scattered the papers across the floor.",
+  "vi": "rải, làm phân tán"
+ },
+ "sensible": {
+  "ex": "It would be sensible to book the hotel early."
+ },
+ "sin": {
+  "ex": "In many religions, lying is considered a sin."
+ },
+ "sophisticate": {
+  "ex": "Travelling abroad helped to sophisticate her taste in food.",
+  "vi": "làm cho tinh tế"
+ },
+ "statistical": {
+  "ex": "The researchers used statistical methods to analyse the data."
+ },
+ "statistically": {
+  "ex": "The difference between the two groups was not statistically significant."
+ },
+ "substitution": {
+  "ex": "The substitution of sugar with honey changed the taste."
+ },
+ "subtle": {
+  "ex": "There is a subtle difference between the two colours."
+ },
+ "sufficiently": {
+  "ex": "The room was not sufficiently warm."
+ },
+ "suicide": {
+  "ex": "The charity runs a helpline to prevent suicide."
+ },
+ "swell": {
+  "ex": "Her ankle began to swell after the fall."
+ },
+ "technically": {
+  "ex": "Technically, the shop is closed, but the owner let us in."
+ },
+ "transformation": {
+  "ex": "The city has undergone a complete transformation."
+ },
+ "treaty": {
+  "ex": "The two countries signed a peace treaty."
+ },
+ "unity": {
+  "ex": "The festival is a symbol of national unity."
+ },
+ "vague": {
+  "ex": "His answer was too vague to be useful."
+ },
+ "virtue": {
+  "ex": "Patience is a virtue."
+ },
+ "weave": {
+  "ex": "The women weave colourful cloth by hand."
+ },
+ "adverse": {
+  "ex": "The drug may have adverse effects on some patients."
+ },
+ "anthropology": {
+  "ex": "She studied anthropology and lived with a village community for a year."
+ },
+ "arrow": {
+  "ex": "Follow the arrows to the exit."
+ },
+ "barrel": {
+  "ex": "The wine is stored in wooden barrels."
+ },
+ "basin": {
+  "ex": "The Mekong basin is home to millions of people."
+ },
+ "biologist": {
+  "ex": "A marine biologist studies life in the ocean."
+ },
+ "bizarre": {
+  "ex": "He told us a bizarre story about his trip."
+ },
+ "bubble": {
+  "ex": "The children were blowing bubbles in the garden."
+ },
+ "bullet": {
+  "ex": "The police officer wore a bullet-proof vest."
+ },
+ "capitalism": {
+  "ex": "The book compares capitalism and other economic systems."
+ },
+ "capitalist": {
+  "ex": "A capitalist invests money to make a profit."
+ },
+ "clone": {
+  "ex": "Scientists successfully cloned a sheep in 1996.",
+  "vi": "nhân bản vô tính",
+  "pos": "v"
+ },
+ "comparative": {
+  "ex": "The study is a comparative analysis of two schools."
+ },
+ "competence": {
+  "ex": "The job requires competence in at least two languages."
+ },
+ "credibility": {
+  "ex": "The scandal damaged the newspaper's credibility."
+ },
+ "decay": {
+  "ex": "Sugar causes tooth decay."
+ },
+ "diary": {
+  "ex": "She writes in her diary every night."
+ },
+ "dictionary": {
+  "ex": "Look up the word in the dictionary."
+ },
+ "dilemma": {
+  "ex": "I faced a dilemma: take the job or continue my studies."
+ },
+ "disadvantage": {
+  "ex": "One disadvantage of the flat is the noise."
+ },
+ "displacement": {
+  "ex": "The flood caused the displacement of thousands of families."
+ },
+ "dissolve": {
+  "ex": "Sugar dissolves quickly in hot water."
+ },
+ "electron": {
+  "ex": "An electron has a negative charge."
+ },
+ "emperor": {
+  "ex": "The emperor lived in the palace in Hue."
+ },
+ "fossil": {
+  "ex": "The museum has dinosaur fossils."
+ },
+ "goat": {
+  "ex": "The farmer keeps goats for their milk."
+ },
+ "gut": {
+  "ex": "Trust your gut feeling."
+ },
+ "horizon": {
+  "ex": "The sun sank below the horizon."
+ },
+ "illusion": {
+  "ex": "The mirror creates the illusion of more space."
+ },
+ "impulse": {
+  "ex": "I bought the shoes on impulse.",
+  "vi": "sự bốc đồng; xung lực"
+ },
+ "indifference": {
+  "ex": "His indifference to the problem surprised us."
+ },
+ "infinite": {
+  "ex": "The universe may be infinite."
+ },
+ "insect": {
+  "ex": "Bees are useful insects."
+ },
+ "invade": {
+  "ex": "Weeds can quickly invade a garden."
+ },
+ "leaf": {
+  "ex": "A leaf fell from the tree."
+ },
+ "linguistics": {
+  "ex": "She is studying linguistics at university."
+ },
+ "liver": {
+  "ex": "Too much alcohol can damage the liver."
+ },
+ "lung": {
+  "ex": "Smoking damages the lungs."
+ },
+ "marble": {
+  "ex": "The floor of the hotel is made of marble."
+ },
+ "metaphor": {
+  "ex": "\"Time is money\" is a common metaphor."
+ },
+ "monopoly": {
+  "ex": "The company has a monopoly on electricity supply."
+ },
+ "multiply": {
+  "ex": "Multiply three by four."
+ },
+ "noble": {
+  "ex": "Helping others is a noble goal."
+ },
+ "plural": {
+  "ex": "\"Children\" is the plural form of \"child\"."
+ },
+ "polar": {
+  "ex": "Polar bears live in the Arctic."
+ },
+ "portrayal": {
+  "ex": "The film's portrayal of village life is very realistic.",
+  "vi": "sự miêu tả"
+ },
+ "prejudice": {
+  "ex": "We should fight against prejudice in society."
+ },
+ "proposition": {
+  "ex": "Buying a house in the city is an expensive proposition.",
+  "vi": "đề xuất; vấn đề"
+ },
+ "residual": {
+  "ex": "Wash the vegetables to remove any residual chemicals."
+ },
+ "rhetoric": {
+  "ex": "The politician's rhetoric impressed the crowd.",
+  "vi": "lời lẽ hùng biện"
+ },
+ "rotation": {
+  "ex": "The rotation of the Earth causes day and night."
+ },
+ "sensation": {
+  "ex": "I felt a burning sensation in my throat."
+ },
+ "shallow": {
+  "ex": "The water is shallow enough for children."
+ },
+ "skip": {
+  "ex": "I skipped breakfast this morning.",
+  "vi": "bỏ qua; nhảy"
+ },
+ "spontaneous": {
+  "ex": "The audience burst into spontaneous applause."
+ },
+ "stereotype": {
+  "ex": "The film challenges old stereotypes about women."
+ },
+ "strand": {
+  "ex": "She pushed a strand of hair from her face."
+ },
+ "subjective": {
+  "ex": "Taste in music is very subjective."
+ },
+ "thumb": {
+  "ex": "He gave me a thumbs-up and smiled."
+ },
+ "toxic": {
+  "ex": "Some plants are toxic to cats."
+ },
+ "transcription": {
+  "ex": "Read the transcription of the interview."
+ },
+ "transplant": {
+  "ex": "He had a kidney transplant last year."
+ },
+ "triangle": {
+  "ex": "A triangle has three sides."
+ },
+ "tutor": {
+  "ex": "She works as an English tutor."
+ },
+ "upward": {
+  "ex": "Prices are moving upward again.",
+  "vi": "lên trên"
+ },
+ "utterance": {
+  "ex": "Each utterance in the dialogue was recorded."
+ },
+ "applause": {
+  "ex": "The speech ended with loud applause."
+ },
+ "composite": {
+  "ex": "The photo is a composite of several images."
+ },
+ "convergence": {
+  "ex": "There is a convergence of opinion on this issue."
+ },
+ "degrade": {
+  "ex": "Plastic takes hundreds of years to degrade."
+ },
+ "dilute": {
+  "ex": "Dilute the juice with water."
+ },
+ "dominance": {
+  "ex": "The team's dominance of the league continued."
+ },
+ "dye": {
+  "ex": "She used a natural dye to colour the cloth."
+ },
+ "ecology": {
+  "ex": "The course looks at the ecology of rainforests."
+ },
+ "elasticity": {
+  "ex": "Skin loses its elasticity with age."
+ },
+ "hawk": {
+  "ex": "A hawk was flying above the field."
+ },
+ "inferior": {
+  "ex": "Cheap products are often inferior in quality.",
+  "vi": "kém hơn"
+ },
+ "kidney": {
+  "ex": "The kidneys clean the blood."
+ },
+ "maternal": {
+  "ex": "She has a strong maternal instinct.",
+  "vi": "thuộc người mẹ"
+ },
+ "nominal": {
+  "ex": "Members pay only a nominal fee.",
+  "vi": "danh nghĩa, tượng trưng"
+ },
+ "numerical": {
+  "ex": "Put the files in numerical order.",
+  "vi": "thuộc số"
+ },
+ "optimal": {
+  "ex": "The optimal temperature for this plant is twenty degrees."
+ },
+ "pest": {
+  "ex": "Farmers try to protect their crops from pests.",
+  "vi": "loài gây hại"
+ },
+ "pragmatic": {
+  "ex": "We need a pragmatic solution to this problem."
+ },
+ "radar": {
+  "ex": "The plane disappeared from the radar."
+ },
+ "replication": {
+  "ex": "Scientists need replication of the experiment to trust the result."
+ },
+ "reservoir": {
+  "ex": "The reservoir supplies water to the whole city."
+ },
+ "socialize": {
+  "ex": "I like to socialize with my colleagues after work."
+ },
+ "swap": {
+  "ex": "Can we swap seats?"
+ },
+ "trivial": {
+  "ex": "Don't worry about such trivial details."
+ },
+ "turbulent": {
+  "ex": "The country went through a turbulent period in the 1980s."
+ },
+ "unintelligible": {
+  "ex": "The message was unintelligible because of the bad connection."
+ },
+ "urine": {
+  "ex": "The doctor asked for a urine sample."
+ },
+ "vegetation": {
+  "ex": "The island is covered in thick vegetation."
+ },
+ "wheat": {
+  "ex": "Bread is made from wheat flour."
+ },
+ "antiquity": {
+  "ex": "The temple dates from antiquity."
+ },
+ "chess": {
+  "ex": "My grandfather taught me to play chess."
+ },
+ "corpus": {
+  "ex": "Researchers studied a corpus of a million English words.",
+  "vi": "kho ngữ liệu"
+ },
+ "deceive": {
+  "ex": "The advertisement was designed to deceive customers."
+ },
+ "deflection": {
+  "ex": "The deflection of light by gravity was first observed in 1919."
+ },
+ "encode": {
+  "ex": "The data is encoded before it is sent."
+ },
+ "facet": {
+  "ex": "The course covers every facet of hotel management."
+ },
+ "mercury": {
+  "ex": "Mercury is a metal that is liquid at room temperature."
+ },
+ "oscillation": {
+  "ex": "The engineer measured the oscillation of the bridge."
+ },
+ "quiz": {
+  "ex": "We have a short vocabulary quiz every Friday."
+ },
+ "scroll": {
+  "ex": "Scroll down to see more photos."
+ },
+ "secrete": {
+  "ex": "The glands secrete sweat when we are hot."
+ },
+ "dissection": {
+  "ex": "Students learn anatomy through dissection.",
+  "vi": "sự mổ xẻ"
+ },
+ "grammatical": {
+  "ex": "The sentence is not grammatical."
+ },
+ "morphology": {
+  "ex": "Morphology studies how words are formed."
+ },
+ "phenomenal": {
+  "ex": "The band's success has been phenomenal."
+ },
+ "trajectory": {
+  "ex": "Scientists calculated the trajectory of the rocket."
+ },
+ "inversion": {
+  "ex": "Inversion is used after negative adverbs such as \"never\"."
+ },
+ "phonological": {
+  "ex": "Children develop phonological awareness before they learn to read."
+ },
+ "sneeze": {
+  "ex": "Dust makes me sneeze."
+ },
+ "capillary": {
+  "ex": "Capillary vessels carry blood to every cell.",
+  "vi": "thuộc mao mạch"
+ },
+ "comma": {
+  "ex": "Put a comma after the introductory phrase."
+ },
+ "equivalence": {
+  "ex": "Students learn the equivalence of fractions and decimals."
+ },
+ "oxidize": {
+  "ex": "Iron oxidizes and turns to rust when it gets wet."
+ },
+ "volition": {
+  "ex": "She left the company of her own volition."
+ },
+ "factorial": {
+  "ex": "The factorial of four is twenty-four."
+ },
+ "classroom": {
+  "ex": "The classroom has a large interactive whiteboard."
+ },
+ "halfway": {
+  "ex": "We stopped for lunch halfway to the coast."
+ },
+ "pi": {
+  "ex": "The value of pi is about 3.14."
+ },
+ "super": {
+  "ex": "The new library is super modern."
+ },
+ "oxygen": {
+  "ex": "Plants produce oxygen during the day."
  }
 }
