@@ -3,5 +3,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application>
         <activity android:name=".WidgetPreviewActivity" android:exported="true" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".WidgetHostActivity" android:exported="true" android:theme="@style/AppTheme.NoActionBar" />
+        <receiver android:name=".WidgetTestReceiver" android:exported="true">
+            <intent-filter><action android:name="com.lexkite.app.WIDGET_TEST" /></intent-filter>
+        </receiver>
     </application>
 </manifest>

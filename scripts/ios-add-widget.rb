@@ -62,5 +62,32 @@ unless embed
   embed.dst_subfolder_spec = '13'
   embed.add_file_reference(widget.product_reference, true).settings = { 'ATTRIBUTES' => ['RemoveHeadersOnCopy'] }
 end
+
+# Test XCTest chạy trong app (simulator): LexkiteTests + scheme dùng chung "App" (build App, test LexkiteTests)
+tg = project.main_group.children.find { |g| g.respond_to?(:path) && g.path == 'LexkiteTests' } || project.main_group.new_group('LexkiteTests', 'LexkiteTests')
+tests = project.targets.find { |t| t.name == 'LexkiteTests' }
+unless tests
+  tests = project.new_target(:unit_test_bundle, 'LexkiteTests', :ios, '15.0', nil, :swift)
+  tests.build_configurations.each do |c|
+    s = c.build_settings
+    s['PRODUCT_BUNDLE_IDENTIFIER'] = 'com.lexkite.app.tests'
+    s['PRODUCT_NAME'] = '$(TARGET_NAME)'
+    s['GENERATE_INFOPLIST_FILE'] = 'YES'
+    s['SWIFT_VERSION'] = '5.0'
+    s['TARGETED_DEVICE_FAMILY'] = '1,2'
+    s['TEST_HOST'] = '$(BUILT_PRODUCTS_DIR)/App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/App'
+    s['BUNDLE_LOADER'] = '$(TEST_HOST)'
+  end
+  tests.add_dependency(app)
+end
+{ 'WidgetTests.swift' => tg, 'WidgetSnapshot.swift' => wg }.each do |f, grp|
+  ref = grp.files.find { |x| x.path == f } || grp.new_reference(f)
+  tests.source_build_phase.add_file_reference(ref, true)
+end
+scheme = Xcodeproj::XCScheme.new
+scheme.add_build_target(app)
+scheme.add_test_target(tests)
+scheme.set_launch_target(app)
+scheme.save_as(project.path, 'App', true)
 project.save
 puts '✓ LexkiteWidget đã có trong App.xcodeproj'

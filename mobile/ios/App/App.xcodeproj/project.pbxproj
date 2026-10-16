@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02508AD1AAAE57762357FEEB /* WidgetSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0D88EFCC704CE289C1A4CB /* WidgetSnapshot.swift */; };
 		0A88D2886B71276F56C5E649 /* LexkiteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58750283C23E50CF461BB66 /* LexkiteWidget.swift */; };
 		1CC5DD35450CEE99C9F7C8AF /* WidgetSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0D88EFCC704CE289C1A4CB /* WidgetSnapshot.swift */; };
 		2F8B629EA0EBA8972F5EC46A /* WidgetBridgePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834C855EE7FCE1C83B1B7179 /* WidgetBridgePlugin.swift */; };
@@ -19,6 +20,7 @@
 		504EC30F1FED79650016851F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 504EC30E1FED79650016851F /* Assets.xcassets */; };
 		504EC3121FED79650016851F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504EC3101FED79650016851F /* LaunchScreen.storyboard */; };
 		50B271D11FEDC1A000F3C39B /* public in Resources */ = {isa = PBXBuildFile; fileRef = 50B271D01FEDC1A000F3C39B /* public */; };
+		51C0F177682CB7F7C425631F /* WidgetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8679ECA067D44E86F0D89552 /* WidgetTests.swift */; };
 		610DB8B03263E00BC8F36D45 /* WidgetSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0D88EFCC704CE289C1A4CB /* WidgetSnapshot.swift */; };
 		7228D0291D77F91305141E4F /* LexkiteWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7119DA08DB3BAEE8117AA054 /* LexkiteWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		73A2AEAE9421CE6CE6F6E258 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E35329E0E187A285025CF8DA /* Localizable.strings */; };
@@ -26,12 +28,20 @@
 		9582B6832FE993A70072D4E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9582B6822FE993A50072D4E8 /* SceneDelegate.swift */; };
 		B73A696BDB86C81A5C918A07 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7189C16E6EE0840EA7D4C0 /* WidgetKit.framework */; };
 		B9D0D9C9423193E2DCCBCC63 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538C2784CD91E2D8FCE0582D /* SwiftUI.framework */; };
+		C39DB064A3AE286A9B2BDD69 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AFA3EC93CE9E693209F321 /* Foundation.framework */; };
 		C555A85B2237479742F91D52 /* LexkiteBridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472533D67AAAFC089022E72F /* LexkiteBridgeViewController.swift */; };
 		CB0E61AA63BFF4876C7DAEB7 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 6CAE5F1AFFAA6A47661BAA73 /* PrivacyInfo.xcprivacy */; };
 		E7812FBF8F485E0DF759E67C /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215F53F7DE48D1BA934567F /* WidgetViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		719B596A77631D49BAC24278 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 504EC2FC1FED79650016851F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 504EC3031FED79650016851F;
+			remoteInfo = App;
+		};
 		7C02695B1A758369838B6B32 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 504EC2FC1FED79650016851F /* Project object */;
@@ -82,6 +92,7 @@
 		72944CF05ED061D89D9040A7 /* de */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		75A599374ABA5ABCF6D7B4A9 /* es */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		834C855EE7FCE1C83B1B7179 /* WidgetBridgePlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WidgetBridgePlugin.swift; sourceTree = "<group>"; };
+		8679ECA067D44E86F0D89552 /* WidgetTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WidgetTests.swift; sourceTree = "<group>"; };
 		889DA2596844373D15793FB7 /* zh-Hans */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9582B6822FE993A50072D4E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		958DCC722DB07C7200EA8C5F /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = ../debug.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -90,6 +101,7 @@
 		AA48EC8E3066F947CD480FDD /* ru */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B013B3784340C4045E99ACA9 /* LexkiteWidget.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = LexkiteWidget.entitlements; sourceTree = "<group>"; };
 		B89797DD4AA97A9333028C38 /* vi */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BFC047C575B6B1C14A96FACB /* LexkiteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LexkiteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C215F53F7DE48D1BA934567F /* WidgetViews.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WidgetViews.swift; sourceTree = "<group>"; };
 		C58750283C23E50CF461BB66 /* LexkiteWidget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LexkiteWidget.swift; sourceTree = "<group>"; };
 		D6F3EB855FEA0CE6F48C059E /* id */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -117,6 +129,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6BD4ADEBE9E36E958AFBFFE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C39DB064A3AE286A9B2BDD69 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -128,6 +148,7 @@
 				504EC3051FED79650016851F /* Products */,
 				B0BBD31B1633A0CA28903B16 /* LexkiteWidget */,
 				6C8A115A733CA655864B9F69 /* Frameworks */,
+				8387E64304712C5272BD087A /* LexkiteTests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,6 +157,7 @@
 			children = (
 				504EC3041FED79650016851F /* App.app */,
 				7119DA08DB3BAEE8117AA054 /* LexkiteWidget.appex */,
+				BFC047C575B6B1C14A96FACB /* LexkiteTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,6 +188,15 @@
 				B388B7C506E3A617EB391571 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8387E64304712C5272BD087A /* LexkiteTests */ = {
+			isa = PBXGroup;
+			children = (
+				8679ECA067D44E86F0D89552 /* WidgetTests.swift */,
+			);
+			name = LexkiteTests;
+			path = LexkiteTests;
 			sourceTree = "<group>";
 		};
 		B0BBD31B1633A0CA28903B16 /* LexkiteWidget */ = {
@@ -235,6 +266,24 @@
 			productReference = 7119DA08DB3BAEE8117AA054 /* LexkiteWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		EB977F27D1C68708B1396B0C /* LexkiteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C2C5BF1CA495E9A0EBE5343 /* Build configuration list for PBXNativeTarget "LexkiteTests" */;
+			buildPhases = (
+				CCC7FC683D36E5A06B2E1441 /* Sources */,
+				6BD4ADEBE9E36E958AFBFFE6 /* Frameworks */,
+				08B0A57A2E3D2D002B85D769 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				73BAB8F8B38CC0CCAC978B05 /* PBXTargetDependency */,
+			);
+			name = LexkiteTests;
+			productName = LexkiteTests;
+			productReference = BFC047C575B6B1C14A96FACB /* LexkiteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -283,11 +332,19 @@
 			targets = (
 				504EC3031FED79650016851F /* App */,
 				BE7C664CCA3ABEA7A57AF74C /* LexkiteWidget */,
+				EB977F27D1C68708B1396B0C /* LexkiteTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		08B0A57A2E3D2D002B85D769 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		504EC3021FED79650016851F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -336,9 +393,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CCC7FC683D36E5A06B2E1441 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51C0F177682CB7F7C425631F /* WidgetTests.swift in Sources */,
+				02508AD1AAAE57762357FEEB /* WidgetSnapshot.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		73BAB8F8B38CC0CCAC978B05 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = App;
+			target = 504EC3031FED79650016851F /* App */;
+			targetProxy = 719B596A77631D49BAC24278 /* PBXContainerItemProxy */;
+		};
 		B8D202FCFD72E330D6EA6B8F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = LexkiteWidget;
@@ -570,6 +642,39 @@
 			};
 			name = Release;
 		};
+		5835ADE84F988C9558738F37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lexkite.app.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/App";
+			};
+			name = Debug;
+		};
+		AEE112F88FFAE0660EC5F6D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lexkite.app.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/App";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		B68434011A9C912139A6BBE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -598,6 +703,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1C2C5BF1CA495E9A0EBE5343 /* Build configuration list for PBXNativeTarget "LexkiteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEE112F88FFAE0660EC5F6D8 /* Release */,
+				5835ADE84F988C9558738F37 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		504EC2FF1FED79650016851F /* Build configuration list for PBXProject "App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
