@@ -9,3 +9,5 @@
 | 2026-10-16 | IELTS Reading GT4 | 40 câu (3 section) | 50a54901 | phiên nội dung | phiên chính: làm thử + nộp trên trang thật hl=en, chấm điểm & xem câu sai đạt; trả sửa keys lẫn Việt |
 | 2026-10-16 | Sửa keys lẫn tiếng Việt + luật content-check | 47 lời giải (AC rt1–10, GT1–4) | 93fc377b | phiên nội dung | phiên chính: tự quét 1.010 cặp keys – 0 lẫn Việt; content-check 0 lỗi |
 | 2026-10-16 | TOEFL Speaking | 32 câu (20 repeat, 12 interview) – đạt chỉ tiêu 150 | 9cb55c8f | phiên nội dung | phiên chính: đọc mẫu 5/71 đạt (phát âm theo giọng, tiêu chí cụ thể), gate xanh |
+| 2026-10-16 | Blog SEO es/id/ja | 6 bài | fa86d1ce | phiên blog | phiên chính: tự so 18/18 alt ↔ desc khớp, blog-check 0 lỗi |
+| 2026-10-16 | IELTS Writing Task 2 | 10 đề (p61–p70) + UI dàn ý/từ/band 6 | 55fd4ccb | phiên nội dung | phiên chính: đọc mẫu 4/203 đạt, trang thật hl=en hiện đủ outline/vocab/band 6, 0 lẫn Việt |

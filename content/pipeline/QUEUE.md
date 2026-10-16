@@ -5,7 +5,7 @@ Quy trình & tiêu chí nghiệm thu: `docs/CONTENT-PIPELINE.md`. Lấy lô Đ�
 | # | Loại | Có / chỉ tiêu | % | Lô tiếp theo | Trọng tâm | File | Chi tiết hiện có |
 |---|---|---|---|---|---|---|---|
 | 1 | IELTS Writing Task 1 Academic | 8 / 40 đề | 20% | 6 đề | đủ 6 dạng: line, bar, pie, table, process, map; dữ liệu biểu đồ tự tạo (SVG), bài mẫu band 8 + overview | `web/js/task1.js` |  |
-| 2 | IELTS Writing Task 2 | 24 / 100 đề | 24% | 10 đề | mỗi đề: bài mẫu band 8 + bài band 6 kèm nhận xét theo 4 tiêu chí, dàn ý, từ vựng chủ đề; phủ đủ dạng opinion/discussion/advantages/problem-solution/two-part | `web/js/write/models*.js` |  |
+| 2 | IELTS Writing Task 2 | 34 / 100 đề | 34% | 10 đề | mỗi đề: bài mẫu band 8 + bài band 6 kèm nhận xét theo 4 tiêu chí, dàn ý, từ vựng chủ đề; phủ đủ dạng opinion/discussion/advantages/problem-solution/two-part | `web/js/write/models*.js` |  |
 | 3 | TOEFL Writing | 76 / 100 đề | 76% | 20 đề | — | `web/js/toefl/data*.js` | sentence: 48, email: 14, discussion: 14 |
 | 4 | IELTS Reading GT | 160 / 200 câu | 80% | 40 câu | — | `web/js/readtest/gt*.js` | Passage 1: 56, Passage 2: 52, Passage 3: 52 |
 | 5 | TOEIC Speaking & Writing | 0 / 60 đề | 0% | 20 đề | 11 dạng Speaking + 8 dạng Writing theo cấu trúc ETS công khai; bài mẫu + tiêu chí chấm | `web/js/toeic/sw*.js (mới – cần UI)` |  |
