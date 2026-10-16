@@ -109,7 +109,7 @@
   "batch": 10,
   "file": "web/js/write/models*.js",
   "priority": 1,
-  "have": 24,
+  "have": 34,
   "focus": "mỗi đề: bài mẫu band 8 + bài band 6 kèm nhận xét theo 4 tiêu chí, dàn ý, từ vựng chủ đề; phủ đủ dạng opinion/discussion/advantages/problem-solution/two-part"
  },
  "IELTS Writing Task 1 Academic": {

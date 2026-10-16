@@ -36,6 +36,17 @@
     ['p58', 'Two-part question', 'education', 'Fewer university students are choosing to study subjects such as history, literature and philosophy. Why is this happening? Does it matter for society?'],
     ['p59', 'Two-part question', 'urban', 'In many countries, young people are leaving small towns and villages to live in big cities. What are the reasons for this, and what could be done to make rural areas more attractive to them?'],
     ['p60', 'Two-part question', 'media', 'More and more people are paying for online news subscriptions, even though plenty of news is available for free. Why do people choose to pay for news? Should quality news be free for everyone?'],
+    // Lô 6 (có bài band 6 + nhận xét 4 tiêu chí, dàn ý, từ vựng)
+    ['p61', 'Agree/Disagree', 'health', 'Sugary drinks should be heavily taxed in order to discourage people from buying them. To what extent do you agree or disagree?'],
+    ['p62', 'Agree/Disagree', 'technology', 'Children under the age of fourteen should not be allowed to own a smartphone. To what extent do you agree or disagree?'],
+    ['p63', 'Discussion', 'environment', 'Some people believe that the best way to tackle climate change is for individuals to change their lifestyles, while others think that only action by governments and international agreements can make a real difference. Discuss both views and give your own opinion.'],
+    ['p64', 'Discussion', 'work', 'Some people think employers should choose new staff mainly on the basis of their qualifications, while others believe that personality and attitude are more important. Discuss both views and give your own opinion.'],
+    ['p65', 'Advantages–Disadvantages', 'urban', 'In many cities, people can now rent electric scooters through a mobile app and leave them anywhere on the street. Do the advantages of this outweigh the disadvantages?'],
+    ['p66', 'Advantages–Disadvantages', 'travel', 'More and more people choose to spend their holidays doing volunteer work abroad, such as teaching or helping with conservation projects. Do the advantages of this trend outweigh the disadvantages?'],
+    ['p67', 'Problem–Solution', 'urban', 'In many large cities, housing has become too expensive for young people and key workers such as nurses and teachers. What are the causes of this problem, and what solutions can you suggest?'],
+    ['p68', 'Problem–Solution', 'culture', 'Many of the world\'s languages are in danger of disappearing. Why is this happening, and what can be done to protect them?'],
+    ['p69', 'Two-part question', 'technology', 'Many people now spend several hours a day playing video games. Why have video games become so popular, and is this a positive or negative development?'],
+    ['p70', 'Two-part question', 'work', 'In the past, many people stayed in the same job for most of their working lives, but today people change jobs much more often. Why is this happening, and is it a positive or negative development?'],
   ]);
   g.MODELS = (g.MODELS || []).concat([
     { id: 't2-p31', task: 2, ref: 'p31', band: '8.0', words: 285,

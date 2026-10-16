@@ -16814,5 +16814,35 @@
     "ar": "تدرّب مجددًا",
     "ru": "Ещё раз",
     "tr": "Tekrar çalış"
+  },
+  "Bài band 6 để so sánh": {
+    "es": "Redacción de banda 6 para comparar",
+    "pt": "Redação de banda 6 para comparação",
+    "fr": "Essai de niveau 6 pour comparaison",
+    "de": "Band-6-Aufsatz zum Vergleich",
+    "id": "Esai band 6 sebagai pembanding",
+    "th": "เรียงความระดับ band 6 เพื่อเปรียบเทียบ",
+    "zh": "6 分作文对比",
+    "ja": "比較用のバンド6エッセイ",
+    "ko": "비교용 밴드 6 에세이",
+    "hi": "तुलना के लिए बैंड 6 निबंध",
+    "ar": "مقال بمستوى 6 للمقارنة",
+    "ru": "Эссе на балл 6 для сравнения",
+    "tr": "Karşılaştırma için band 6 makale"
+  },
+  "Vì sao chỉ đạt band 6": {
+    "es": "Por qué solo alcanza la banda 6",
+    "pt": "Por que só chega à banda 6",
+    "fr": "Pourquoi il n'atteint que le niveau 6",
+    "de": "Warum er nur Band 6 erreicht",
+    "id": "Mengapa hanya mencapai band 6",
+    "th": "ทำไมได้แค่ band 6",
+    "zh": "为何只得 6 分",
+    "ja": "バンド6にとどまる理由",
+    "ko": "밴드 6에 그치는 이유",
+    "hi": "यह केवल बैंड 6 तक क्यों पहुँचता है",
+    "ar": "لماذا يصل إلى المستوى 6 فقط",
+    "ru": "Почему только балл 6",
+    "tr": "Neden yalnızca band 6 alıyor"
   }
 }
