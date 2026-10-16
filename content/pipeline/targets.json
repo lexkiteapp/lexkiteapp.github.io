@@ -102,5 +102,23 @@
   "file": "web/js/toeic/sw*.js (mới – cần UI)",
   "priority": 2,
   "focus": "11 dạng Speaking + 8 dạng Writing theo cấu trúc ETS công khai; bài mẫu + tiêu chí chấm"
+ },
+ "IELTS Writing Task 2": {
+  "target": 100,
+  "unit": "đề",
+  "batch": 10,
+  "file": "web/js/write/models*.js",
+  "priority": 1,
+  "have": 24,
+  "focus": "mỗi đề: bài mẫu band 8 + bài band 6 kèm nhận xét theo 4 tiêu chí, dàn ý, từ vựng chủ đề; phủ đủ dạng opinion/discussion/advantages/problem-solution/two-part"
+ },
+ "IELTS Writing Task 1 Academic": {
+  "target": 40,
+  "unit": "đề",
+  "batch": 6,
+  "file": "web/js/task1.js",
+  "priority": 1,
+  "have": 8,
+  "focus": "đủ 6 dạng: line, bar, pie, table, process, map; dữ liệu biểu đồ tự tạo (SVG), bài mẫu band 8 + overview"
  }
 }
