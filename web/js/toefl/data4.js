@@ -1041,11 +1041,186 @@
     tips: 'Mẫu câu "The answer is not to… but to…" giúp bạn vừa giữ quan điểm vừa giải quyết phản đối – rất hợp với dạng bài thảo luận.',
   });
 
+  /* ===================================================================
+   * BỘ 5 · LISTENING (tự biên soạn): Choose a Response 1–8, 2 hội thoại, 2 thông báo, 2 bài giảng = 32 câu.
+   * Đáp án đúng viết ở vị trí 0, được xoay ở cuối file.
+   * =================================================================== */
+  const RESP5 = [
+    { s: 'B', t: "Has anyone seen the charger for the projector?",
+      options: ["I think Maria put it in the top drawer.", "The projector shows very clear images.", "Yes, I've seen that film twice.", "It charges ten dollars an hour."],
+      explain: "Hỏi có ai thấy bộ sạc không → trả lời nơi có thể tìm: \"Hình như Maria để nó trong ngăn kéo trên cùng\". \"seen that film\", \"charges ten dollars\" là bẫy lặp từ \"seen\", \"charge\"." },
+    { s: 'A', t: "When is the deadline for the scholarship application?",
+      options: ["It's the fifteenth of next month.", "I applied for two scholarships.", "The application is four pages long.", "At the student services office."],
+      explain: "Câu hỏi \"When\" → cần mốc thời gian: \"Ngày 15 tháng sau\". \"At the student services office\" trả lời cho \"Where\"; các câu khác lặp từ \"applied\", \"application\"." },
+    { s: 'B', t: "I'm thinking of dropping my statistics class.",
+      options: ["Really? You might want to talk to your adviser first.", "I dropped my phone on the stairs.", "Statistics show that prices are rising.", "The class meets on Tuesdays and Thursdays."],
+      explain: "Người nói định bỏ môn thống kê → lời khuyên phù hợp: \"Thật à? Có lẽ bạn nên nói chuyện với cố vấn học tập trước\". \"dropped my phone\" lặp từ \"drop\" với nghĩa khác (làm rơi)." },
+    { s: 'A', t: "Who's giving the keynote speech at the conference?",
+      options: ["A professor from the medical school, I believe.", "The speech lasted about an hour.", "I gave my keys to the receptionist.", "It's in the main auditorium."],
+      explain: "Câu hỏi \"Who\" → cần một người: \"Một giáo sư trường y, mình nghĩ vậy\". \"keys\" là bẫy âm gần giống \"keynote\"; \"main auditorium\" trả lời cho \"Where\"." },
+    { s: 'B', t: "Didn't you say you'd already finished the reading?",
+      options: ["I did, but I want to go over it again.", "No, I don't like reading novels.", "The reading room is on the third floor.", "I'll finish it by next year."],
+      explain: "Câu hỏi phủ định để xác nhận (\"Chẳng phải bạn nói đã đọc xong rồi sao?\") → xác nhận và giải thích: \"Đúng vậy, nhưng mình muốn đọc lại\". Các phương án khác lặp \"reading\", \"finish\"." },
+    { s: 'A', t: "How about ordering pizza for the study group tonight?",
+      options: ["Sounds good – I'll ask everyone what they want.", "About twelve dollars each.", "We studied until midnight.", "The group has five members."],
+      explain: "\"How about…?\" là lời đề nghị → đồng ý/từ chối: \"Nghe hay đấy – để mình hỏi mọi người muốn gì\". \"About twelve dollars\" trả lời cho \"How much\" – bẫy từ \"about\"." },
+    { s: 'B', t: "The printer in the computer lab is out of paper again.",
+      options: ["I'll let the lab assistant know.", "I printed my essay yesterday.", "The paper was due on Monday.", "Computers are getting cheaper."],
+      explain: "Người nói báo máy in hết giấy → phản hồi hành động: \"Để mình báo trợ lý phòng máy\". \"paper was due\" dùng \"paper\" theo nghĩa bài luận – bẫy đa nghĩa." },
+    { s: 'A', t: "Should I submit the report by email or print it out?",
+      options: ["Email is fine – the professor prefers digital copies.", "Yes, you should submit it.", "The printer is next to the door.", "I reported the problem yesterday."],
+      explain: "Câu hỏi lựa chọn (email hay bản in) → chọn một: \"Email là được – giáo sư thích bản điện tử\". Không trả lời Yes/No cho câu hỏi lựa chọn; \"reported\" là bẫy lặp từ." },
+  ];
+  const respScript5 = [{ say: 'Listen and choose the best response. You will hear each sentence once.' }, { pause: 2 }];
+  RESP5.forEach((r, i) => { respScript5.push({ say: 'Number ' + (i + 1) + '.' }, { s: r.s, t: r.t }, { pause: 4 }); });
+  TF.listening.push({
+    id: 'tf5-lr', set: 5, task: 'response', title: 'Choose a Response · Set 5',
+    speakers: { A: { name: 'Speaker 1', accent: 'en-US', gender: 'm' }, B: { name: 'Speaker 2', accent: 'en-GB', gender: 'f' } },
+    script: respScript5,
+    groups: [mcq('Listen to each sentence and choose the best response.', RESP5.map((r, i) => ({ n: i + 1, q: 'Choose the best response to sentence ' + (i + 1) + '.', options: r.options, a: 0, cue: r.t, explain: r.explain })))],
+  });
 
-  /* Xoay vị trí đáp án đúng (chỉ các unit của bộ 4) */
+  TF.listening.push({
+    id: 'tf5-lc1', set: 5, task: 'conversation', title: 'Booking a Group Study Room',
+    speakers: { S: { name: 'Student (Leo)', accent: 'en-US', gender: 'm' }, L: { name: 'Librarian', accent: 'en-GB', gender: 'f' } },
+    script: [
+      { say: 'Listen to a conversation between a student and a librarian.' }, { pause: 1 },
+      { s: 'S', t: "Hi. I'd like to book a group study room for Thursday afternoon. There are five of us working on a marketing presentation." },
+      { s: 'L', t: "Let me check. I'm afraid all the rooms are taken on Thursday afternoon – it's the week before exams. But room 4B is free on Thursday morning from nine to twelve." },
+      { s: 'S', t: "Hmm, two of my group have a lecture until ten. Could we book it from ten?" },
+      { s: 'L', t: "Yes, that's fine. Rooms can be booked for a maximum of three hours, so you could have it from ten until one, if one o'clock is still free… Yes, it is." },
+      { s: 'S', t: "Great. Does the room have a screen? We need to practise with our slides." },
+      { s: 'L', t: "It has a large screen, but you'll need to bring your own laptop cable. The library ran out of spare ones last month, and the new ones haven't arrived yet." },
+      { s: 'S', t: "OK, I'll remind everyone. And do I need to do anything else?" },
+      { s: 'L', t: "Just show your student card at the desk when you arrive. If you're more than fifteen minutes late, the room may be given to someone on the waiting list." },
+    ],
+    groups: [mcq('Answer the questions about the conversation.', [
+      { n: 9, q: 'Why can the student not have a room on Thursday afternoon?', options: ['All the rooms have already been reserved.', 'The library closes early on Thursdays.', 'His group is too large for the rooms.', 'Rooms cannot be booked during exams.'], a: 0, cue: 'all the rooms are taken on Thursday afternoon',
+        explain: "Thủ thư nói \"all the rooms are taken on Thursday afternoon\" vì là tuần trước kỳ thi → mọi phòng đã có người đặt. Thư viện không đóng cửa sớm và vẫn cho đặt phòng buổi sáng." },
+      { n: 10, q: 'Why does the student ask to start at ten o\'clock?', options: ['Some group members are in a lecture until then.', 'The room is being cleaned before ten.', 'The library opens at ten.', 'He has an exam at nine.'], a: 0, cue: 'two of my group have a lecture until ten',
+        explain: "\"two of my group have a lecture until ten\" → hai thành viên bận học đến 10 giờ nên xin bắt đầu từ 10 giờ." },
+      { n: 11, q: 'What does the librarian say about laptop cables?', options: ['Students must bring their own because the library has none at the moment.', 'They can be borrowed from the front desk.', 'They are not needed for the screen.', 'New cables were delivered last month.'], a: 0, cue: "you'll need to bring your own laptop cable",
+        explain: "\"you'll need to bring your own laptop cable\" vì thư viện hết cáp dự phòng và cáp mới \"haven't arrived yet\" → hiện không có cáp để mượn. Phương án \"delivered last month\" sai: tháng trước là lúc hết cáp." },
+      { n: 12, q: 'What will happen if the group arrives more than fifteen minutes late?', options: ['The room might be given to other students.', 'They will have to pay a fine.', 'Their booking will be moved to the afternoon.', 'They will lose their library cards.'], a: 0, cue: 'the room may be given to someone on the waiting list',
+        explain: "Đến trễ hơn 15 phút thì \"the room may be given to someone on the waiting list\" → phòng có thể bị chuyển cho người khác. Không có tiền phạt hay thu thẻ." },
+    ])],
+  });
+  TF.listening.push({
+    id: 'tf5-lc2', set: 5, task: 'conversation', title: 'Asking About a Late Assignment',
+    speakers: { S: { name: 'Student (Nadia)', accent: 'en-GB', gender: 'f' }, T: { name: 'Teaching assistant', accent: 'en-US', gender: 'm' } },
+    script: [
+      { say: 'Listen to a conversation between a student and a teaching assistant.' }, { pause: 1 },
+      { s: 'S', t: "Hi, Mark. I wanted to talk to you about the history essay. I'm afraid I won't be able to hand it in on Friday." },
+      { s: 'T', t: "OK. What's happened?" },
+      { s: 'S', t: "My grandmother is in hospital, and I'm going home this weekend to see her. I've written about half of the essay, but I don't think I can finish it properly before I leave." },
+      { s: 'T', t: "I'm sorry to hear that. Normally, late essays lose five percent for each day they're late. But in a family emergency like this, you can apply for an extension, and then there's no penalty." },
+      { s: 'S', t: "How do I apply?" },
+      { s: 'T', t: "There's a short form on the department website. You'll need to explain the situation briefly, and it has to be submitted before the original deadline, so try to do it by Thursday." },
+      { s: 'S', t: "I'll do it tonight. How much extra time do people usually get?" },
+      { s: 'T', t: "Usually one week. If you need longer than that, you'd have to speak to Professor Daly directly." },
+    ],
+    groups: [mcq('Answer the questions about the conversation.', [
+      { n: 13, q: 'Why does the student want to speak to the teaching assistant?', options: ['She cannot submit her essay by the deadline.', 'She wants feedback on her essay plan.', 'She has lost part of her essay.', 'She wants to change her essay topic.'], a: 0, cue: "I won't be able to hand it in on Friday",
+        explain: "Nadia nói ngay: \"I won't be able to hand it in on Friday\" → không kịp nộp bài đúng hạn. Cô đã viết được một nửa, không làm mất bài hay đổi đề tài." },
+      { n: 14, q: 'What is the usual penalty for a late essay?', options: ['Five percent is taken off for each day.', 'The essay receives a grade of zero.', 'The student must write a second essay.', 'There is no penalty for the first day.'], a: 0, cue: "late essays lose five percent for each day they're late",
+        explain: "\"late essays lose five percent for each day they're late\" → trừ 5% mỗi ngày nộp muộn." },
+      { n: 15, q: 'What must the student do to avoid a penalty?', options: ['Submit an online form before the original deadline', 'Bring a letter from the hospital', 'Finish the essay before the weekend', 'Ask her grandmother to contact the department'], a: 0, cue: 'it has to be submitted before the original deadline',
+        explain: "Phải điền \"a short form on the department website\" và \"it has to be submitted before the original deadline\" → nộp đơn xin gia hạn trực tuyến trước hạn chót ban đầu. Không nhắc đến giấy của bệnh viện." },
+      { n: 16, q: 'What does the teaching assistant say about extensions longer than one week?', options: ['The student would need to talk to the professor.', 'They are never allowed.', 'They are given automatically.', 'They require a second form.'], a: 0, cue: "you'd have to speak to Professor Daly directly",
+        explain: "Gia hạn thường là một tuần; nếu cần lâu hơn \"you'd have to speak to Professor Daly directly\" → phải gặp giáo sư. Không nói là bị cấm hay tự động được duyệt." },
+    ])],
+  });
+
+  TF.listening.push({
+    id: 'tf5-la1', set: 5, task: 'announcement', title: 'New Dining Hall Hours',
+    speakers: { A: { name: 'Dining services manager', accent: 'en-GB', gender: 'm' } },
+    script: [
+      { say: 'Listen to an announcement from the campus dining services.' }, { pause: 1 },
+      { s: 'A', t: "Good morning, everyone. Starting next Monday, the main dining hall will open an hour later on weekdays, at eight a.m. instead of seven. Very few students were using the hall before eight, so we're moving staff to the evening, when it's much busier." },
+      { s: 'A', t: "As a result, dinner will now be served until nine p.m., an hour later than before. If you have an early class and need breakfast before eight, the café in the library will start serving hot breakfasts from seven." },
+      { s: 'A', t: "Please note that meal plan cards can now be used at the library café as well, so you won't need to pay extra." },
+    ],
+    groups: [mcq('Answer the questions about the announcement.', [
+      { n: 17, q: 'Why is the dining hall changing its morning opening time?', options: ['Few students used it early in the morning.', 'The kitchen is being repaired.', 'Staff asked to start work later.', 'Breakfast will no longer be served.'], a: 0, cue: 'Very few students were using the hall before eight',
+        explain: "\"Very few students were using the hall before eight\" nên nhà ăn mở muộn hơn và chuyển nhân viên sang buổi tối đông khách → ít người dùng buổi sáng sớm." },
+      { n: 18, q: 'What change will be made to dinner?', options: ['It will be served for an extra hour.', 'It will start an hour earlier.', 'It will only be served in the café.', 'It will cost more than before.'], a: 0, cue: 'dinner will now be served until nine p.m., an hour later than before',
+        explain: "\"dinner will now be served until nine p.m., an hour later than before\" → bữa tối kéo dài thêm một giờ." },
+      { n: 19, q: 'What does the speaker say about the library café?', options: ['Students can use their meal plan cards there.', 'It will close at seven a.m.', 'It will only serve cold food.', 'It is moving to the dining hall.'], a: 0, cue: 'meal plan cards can now be used at the library café',
+        explain: "\"meal plan cards can now be used at the library café as well\" → dùng thẻ suất ăn ở quán cà phê thư viện, không phải trả thêm. Quán MỞ từ 7 giờ và phục vụ đồ ăn sáng nóng." },
+    ])],
+  });
+  TF.listening.push({
+    id: 'tf5-la2', set: 5, task: 'announcement', title: 'Water Supply Interruption',
+    speakers: { A: { name: 'Facilities office', accent: 'en-US', gender: 'f' } },
+    script: [
+      { say: 'Listen to an announcement in a university building.' }, { pause: 1 },
+      { s: 'A', t: "This is an announcement from the facilities office. On Wednesday, the water supply to the science building will be turned off from one p.m. to five p.m. while engineers replace a damaged pipe." },
+      { s: 'A', t: "During this time, the toilets and sinks in the building won't work, and laboratory experiments that need running water must not take place. Lab classes scheduled for Wednesday afternoon have been moved to Friday morning." },
+      { s: 'A', t: "Drinking water will be available from bottles at the main entrance. We apologise for the inconvenience and thank you for your patience." },
+    ],
+    groups: [mcq('Answer the questions about the announcement.', [
+      { n: 20, q: 'Why will the water be turned off?', options: ['So that a damaged pipe can be replaced', 'Because of a shortage in the city', 'To test the fire safety system', 'Because the building will be closed'], a: 0, cue: 'while engineers replace a damaged pipe',
+        explain: "Nước bị cắt \"while engineers replace a damaged pipe\" → để thay một đoạn ống hỏng." },
+      { n: 21, q: 'What will happen to the lab classes on Wednesday afternoon?', options: ['They will take place on Friday morning instead.', 'They will be cancelled without replacement.', 'They will be held in another building.', 'They will start at five p.m.'], a: 0, cue: 'have been moved to Friday morning',
+        explain: "\"Lab classes scheduled for Wednesday afternoon have been moved to Friday morning\" → dời sang sáng thứ Sáu, không bị hủy." },
+      { n: 22, q: 'Where can people get drinking water?', options: ['At the main entrance', 'In the laboratories', 'From the facilities office', 'In the building next door'], a: 0, cue: 'Drinking water will be available from bottles at the main entrance',
+        explain: "\"Drinking water will be available from bottles at the main entrance\" → nước uống đóng chai ở lối vào chính." },
+    ])],
+  });
+
+  TF.listening.push({
+    id: 'tf5-lt1', set: 5, task: 'talk', title: 'Economics: The Tragedy of the Commons',
+    speakers: { P: { name: 'Professor', accent: 'en-US', gender: 'm' } },
+    script: [
+      { say: 'Listen to part of a lecture in an economics class.' }, { pause: 1 },
+      { s: 'P', t: "Today I want to look at a famous idea called the tragedy of the commons. It was made popular by the ecologist Garrett Hardin in 1968. Hardin asked us to imagine a pasture – a field of grass – that is open to all the herders in a village." },
+      { s: 'P', t: "Each herder benefits from adding one more cow, because he gets all the profit from that animal. But the cost – the damage to the grass – is shared by everyone. So each person has a reason to keep adding animals, and eventually the pasture is overgrazed and destroyed. Everyone loses, even though each decision seemed sensible on its own." },
+      { s: 'P', t: "Hardin argued that the only solutions were government control or dividing the land into private property. But that conclusion was later challenged. The political scientist Elinor Ostrom studied fishing grounds, forests and irrigation systems around the world, and she found many communities that had managed shared resources successfully for centuries." },
+      { s: 'P', t: "What did these communities have in common? Clear rules about who could use the resource, ways of monitoring each other, and gradual punishments for people who broke the rules. In 2009, Ostrom became the first woman to win the Nobel Prize in Economics, largely for this work." },
+      { s: 'P', t: "So the lesson isn't that shared resources are always doomed. It's that they need well-designed rules – and those rules don't always have to come from the government." },
+    ],
+    groups: [mcq('Answer the questions about the lecture.', [
+      { n: 23, q: 'What is the lecture mainly about?', options: ['A theory about shared resources and a challenge to its conclusions', 'The history of farming in European villages', 'Why governments should own all natural resources', 'How cows damage different types of grass'], a: 0, cue: 'a famous idea called the tragedy of the commons',
+        explain: "Bài giảng trình bày ý tưởng \"the tragedy of the commons\" của Hardin rồi đến nghiên cứu của Ostrom phản bác kết luận của ông → lý thuyết về tài nguyên chung và sự thách thức kết luận của nó." },
+      { n: 24, q: 'According to the professor, why does each herder add more cows?', options: ['He receives all the benefit, but the cost is shared.', 'The village rules require it.', 'The grass grows faster with more animals.', 'He wants to damage other herders\' land.'], a: 0, cue: 'he gets all the profit from that animal',
+        explain: "Mỗi người \"gets all the profit from that animal\" còn thiệt hại cho đồng cỏ \"is shared by everyone\" → lợi ích riêng, chi phí chung." },
+      { n: 25, q: 'What did Elinor Ostrom discover?', options: ['Many communities had managed shared resources well for a long time.', 'Private property always protects resources better.', 'Hardin\'s pasture example was based on a real village.', 'Fishing grounds cannot be shared successfully.'], a: 0, cue: 'found many communities that had managed shared resources successfully for centuries',
+        explain: "Ostrom \"found many communities that had managed shared resources successfully for centuries\" → nhiều cộng đồng quản lý tài nguyên chung tốt trong thời gian dài." },
+      { n: 26, q: 'Which of the following was a feature of the successful communities?', options: ['Gradual punishments for people who broke the rules', 'Complete government control of the resource', 'Unlimited access for all users', 'Dividing the resource into private plots'], a: 0, cue: 'gradual punishments for people who broke the rules',
+        explain: "Đặc điểm chung: quy định rõ ai được dùng, giám sát lẫn nhau và \"gradual punishments for people who broke the rules\". Kiểm soát của chính phủ và chia đất tư nhân là giải pháp của Hardin – chính điều bị Ostrom thách thức." },
+      { n: 27, q: 'What is the professor\'s main conclusion?', options: ['Shared resources can survive if there are well-designed rules.', 'Shared resources are always destroyed in the end.', 'Only governments can protect natural resources.', 'Hardin\'s idea should no longer be taught.'], a: 0, cue: 'they need well-designed rules',
+        explain: "Kết luận: tài nguyên chung không phải lúc nào cũng diệt vong – \"they need well-designed rules\", và luật lệ đó không nhất thiết đến từ chính phủ." },
+    ])],
+  });
+  TF.listening.push({
+    id: 'tf5-lt2', set: 5, task: 'talk', title: 'Art History: Painting with Oil',
+    speakers: { P: { name: 'Professor', accent: 'en-GB', gender: 'f' } },
+    script: [
+      { say: 'Listen to part of a lecture in an art history class.' }, { pause: 1 },
+      { s: 'P', t: "Before the fifteenth century, most European painters worked with tempera, which is pigment mixed with egg yolk. Tempera dries very quickly, in a matter of minutes, so artists had to apply it in small, precise strokes. It's very difficult to blend one colour smoothly into another." },
+      { s: 'P', t: "Oil paint – pigment mixed with oils such as linseed oil – had been known for centuries, but in the early fifteenth century, painters in Flanders, in what is now Belgium, developed it to an extraordinary level. The best-known example is Jan van Eyck. You'll sometimes read that he invented oil painting, but that isn't true. What he and his contemporaries did was refine the technique." },
+      { s: 'P', t: "The key advantage of oil is that it dries slowly – over days rather than minutes. That gave artists time to blend colours and to make changes. They also applied paint in thin, transparent layers called glazes. Light passes through each layer and reflects back from the layers beneath, which gives the colours a deep, glowing quality." },
+      { s: 'P', t: "Over the next century, the technique spread to Italy, and by the sixteenth century oil had largely replaced tempera. Another reason was practical: oil paint could be used on canvas, which was lighter and cheaper than the wooden panels used for tempera, so paintings became larger and easier to transport." },
+    ],
+    groups: [mcq('Answer the questions about the lecture.', [
+      { n: 28, q: 'What problem with tempera does the professor mention?', options: ['It dries so quickly that colours are hard to blend.', 'It could only be used on canvas.', 'It was more expensive than oil paint.', 'Its colours faded after a few years.'], a: 0, cue: 'Tempera dries very quickly',
+        explain: "\"Tempera dries very quickly, in a matter of minutes\" nên \"It's very difficult to blend one colour smoothly into another\" → khô quá nhanh, khó hòa màu." },
+      { n: 29, q: 'What does the professor say about Jan van Eyck?', options: ['He improved oil painting but did not invent it.', 'He was the first artist to use linseed oil.', 'He refused to use oil paint.', 'He brought oil painting from Italy to Flanders.'], a: 0, cue: "You'll sometimes read that he invented oil painting, but that isn't true",
+        explain: "Giảng viên nói rõ: \"You'll sometimes read that he invented oil painting, but that isn't true\" – ông và những người cùng thời đã \"refine the technique\" (hoàn thiện kỹ thuật)." },
+      { n: 30, q: 'Why does the professor mention glazes?', options: ['To explain how oil paintings achieved deep, glowing colours', 'To show why oil paint dried slowly', 'To describe how tempera was prepared', 'To explain why canvas was cheaper than wood'], a: 0, cue: 'gives the colours a deep, glowing quality',
+        explain: "Lớp sơn mỏng trong suốt (glazes) cho ánh sáng xuyên qua và phản chiếu lại, \"which gives the colours a deep, glowing quality\" → giải thích màu sắc sâu và rực rỡ." },
+      { n: 31, q: 'According to the professor, what was one practical advantage of oil paint?', options: ['It could be used on canvas, which was lighter and cheaper.', 'It required no special preparation.', 'It could be applied with fingers instead of brushes.', 'It was easier to remove from paintings.'], a: 0, cue: 'oil paint could be used on canvas, which was lighter and cheaper',
+        explain: "\"oil paint could be used on canvas, which was lighter and cheaper than the wooden panels\" → tranh lớn hơn và dễ vận chuyển hơn." },
+      { n: 32, q: 'What can be inferred about tempera paintings?', options: ['They were usually painted on wooden panels.', 'They were larger than most oil paintings.', 'They were mainly produced in Flanders.', 'They took several days to dry.'], a: 0, cue: 'the wooden panels used for tempera',
+        explain: "Câu \"canvas, which was lighter and cheaper than the wooden panels used for tempera\" cho thấy tranh tempera thường vẽ trên tấm gỗ. Tempera khô trong vài phút, không phải vài ngày." },
+    ])],
+  });
+
+
+  /* Xoay vị trí đáp án đúng (chỉ các unit của bộ 4–5) */
   const PAT = [2, 0, 3, 1, 1, 3, 0, 2, 3, 2, 1, 0];
   const counter = {};
-  [...TF.reading, ...TF.listening].filter(u => /^tf4-/.test(u.id)).forEach(u => (u.groups || []).forEach(gr => {
+  [...TF.reading, ...TF.listening].filter(u => /^tf[45]-/.test(u.id)).forEach(u => (u.groups || []).forEach(gr => {
     if (gr.type !== 'mcq' || gr._rot) return; gr._rot = 1;
     gr.items.forEach(it => {
       const k = counter[u.task] = (counter[u.task] || 0) + 1;
