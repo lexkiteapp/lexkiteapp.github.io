@@ -8,7 +8,7 @@ Dán ở YouTube Studio → Tùy chỉnh (Customization) → Thông tin cơ bả
 
 Sự thật đã kiểm (không hứa quá): miễn phí; web app + add-on Chrome; app iOS/Android chưa lên cửa hàng → ghi "coming soon". Không dùng logo/nhãn hiệu IELTS/ETS như thể được tài trợ.
 
-============================================================
+---
 
 Mô tả kênh – English (mặc định, ~900 ký tự)
 
@@ -46,7 +46,7 @@ Video mới mỗi tuần. Đăng ký kênh và bật thông báo để không b�
 
 Lexkite là ứng dụng học độc lập, không liên kết với British Council, IDP, Cambridge hay ETS.
 
-============================================================
+---
 
 Từ khóa kênh (dán nguyên dòng, ~480 ký tự)
 
@@ -56,3 +56,60 @@ Gợi ý bổ sung
 - Video giới thiệu kênh (trailer) cho người chưa đăng ký: dùng lexkite-promo-en.mp4 (bộ video add-on).
 - Watermark: brand/social/youtube/ (150×150, Tùy chỉnh → Xây dựng thương hiệu).
 - Danh sách phát nên tạo sẵn: IELTS Vocabulary by Topic · IELTS Speaking Part 2 · TOEIC Part 5 Tips · Grammar in 5 Minutes · Learn English with Lexkite (hướng dẫn app).
+
+---
+
+15 ngôn ngữ – bản dịch mô tả kênh (YouTube Studio → Tùy chỉnh → Thông tin cơ bản → Thêm bản dịch)
+
+Mỗi ngôn ngữ: chọn ngôn ngữ → dán Tên kênh (giữ "Lexkite") + Mô tả bên dưới. Người xem ở nước đó sẽ thấy mô tả bằng tiếng của họ.
+
+Español (es)
+Lexkite – aprende vocabulario en inglés que no se olvida. Clases gratis para IELTS, TOEIC, TOEFL y el inglés de cada día: vocabulario por temas, gramática fácil, consejos de examen, respuestas modelo y pronunciación. Practica gratis en lexkite.com con tarjetas inteligentes (repetición espaciada), diccionario, simulacros con explicaciones y extensión para Chrome, en 15 idiomas. ¡Vídeos nuevos cada semana: suscríbete!
+Português (pt)
+Lexkite – aprenda vocabulário de inglês que fica na memória. Aulas grátis para IELTS, TOEIC, TOEFL e o inglês do dia a dia: vocabulário por tema, gramática simples, dicas de prova, respostas modelo e pronúncia. Pratique grátis em lexkite.com com flashcards inteligentes (repetição espaçada), dicionário, simulados com explicações e extensão para o Chrome, em 15 idiomas. Vídeos novos toda semana – inscreva-se!
+Français (fr)
+Lexkite – apprenez un vocabulaire anglais qui reste. Cours gratuits pour l'IELTS, le TOEIC, le TOEFL et l'anglais du quotidien : vocabulaire par thème, grammaire simple, conseils d'examen, réponses modèles et prononciation. Entraînez-vous gratuitement sur lexkite.com avec des cartes intelligentes (répétition espacée), un dictionnaire, des examens blancs corrigés et une extension Chrome, en 15 langues. Nouvelles vidéos chaque semaine – abonnez-vous !
+Deutsch (de)
+Lexkite – englische Vokabeln lernen, die hängen bleiben. Kostenlose Lektionen für IELTS, TOEIC, TOEFL und Alltagsenglisch: Wortschatz nach Themen, einfache Grammatik, Prüfungstipps, Musterantworten und Aussprache. Übe kostenlos auf lexkite.com mit smarten Karteikarten (Spaced Repetition), Wörterbuch, Probetests mit Erklärungen und Chrome-Erweiterung – in 15 Sprachen. Jede Woche neue Videos – jetzt abonnieren!
+Bahasa Indonesia (id)
+Lexkite – belajar kosakata bahasa Inggris yang benar-benar diingat. Pelajaran gratis untuk IELTS, TOEIC, TOEFL, dan bahasa Inggris sehari-hari: kosakata per topik, tata bahasa yang mudah, tips ujian, contoh jawaban, dan pelafalan. Latihan gratis di lexkite.com dengan flashcard pintar (spaced repetition), kamus, tes simulasi beserta pembahasan, dan ekstensi Chrome – dalam 15 bahasa. Video baru setiap minggu – subscribe sekarang!
+ไทย (th)
+Lexkite – เรียนคำศัพท์ภาษาอังกฤษแบบจำได้นาน บทเรียนฟรีสำหรับ IELTS, TOEIC, TOEFL และภาษาอังกฤษในชีวิตประจำวัน: คำศัพท์ตามหัวข้อ ไวยากรณ์เข้าใจง่าย เทคนิคทำข้อสอบ ตัวอย่างคำตอบ และการออกเสียง ฝึกฟรีที่ lexkite.com ด้วยแฟลชการ์ดอัจฉริยะ (ทบทวนแบบเว้นระยะ) พจนานุกรม ข้อสอบจำลองพร้อมเฉลย และส่วนขยาย Chrome รองรับ 15 ภาษา มีวิดีโอใหม่ทุกสัปดาห์ – กดติดตามเลย!
+中文 (zh)
+Lexkite——让英语单词真正记得住。免费课程覆盖雅思、托业、托福和日常英语：分主题词汇、简单易懂的语法、考试技巧、范文答案和发音练习。在 lexkite.com 免费练习：智能闪卡（间隔重复）、词典、带解析的模拟考试和 Chrome 扩展，支持 15 种语言。每周更新视频——欢迎订阅！
+日本語 (ja)
+Lexkite ― 忘れない英単語学習。IELTS・TOEIC・TOEFL と日常英語のための無料レッスン：テーマ別の単語、わかりやすい文法、試験のコツ、模範解答、発音。lexkite.com で無料練習：スマート単語カード（間隔反復）、辞書、解説付き模擬試験、Chrome 拡張機能、15 言語対応。毎週新しい動画を公開中 ― チャンネル登録をお願いします！
+한국어 (ko)
+Lexkite – 오래 기억되는 영어 단어 학습. IELTS, TOEIC, TOEFL과 일상 영어를 위한 무료 강의: 주제별 어휘, 쉬운 문법, 시험 팁, 모범 답안, 발음. lexkite.com에서 무료로 연습하세요: 스마트 플래시카드(간격 반복), 사전, 해설이 있는 모의고사, 크롬 확장 프로그램, 15개 언어 지원. 매주 새 영상 – 지금 구독하세요!
+हिन्दी (hi)
+Lexkite – अंग्रेज़ी शब्दावली जो याद रहे। IELTS, TOEIC, TOEFL और रोज़मर्रा की अंग्रेज़ी के लिए मुफ़्त पाठ: विषय के अनुसार शब्द, आसान व्याकरण, परीक्षा टिप्स, मॉडल उत्तर और उच्चारण। lexkite.com पर मुफ़्त अभ्यास करें – स्मार्ट फ़्लैशकार्ड (स्पेस्ड रिपिटिशन), शब्दकोश, व्याख्या सहित मॉक टेस्ट और Chrome एक्सटेंशन, 15 भाषाओं में। हर हफ़्ते नए वीडियो – अभी सब्सक्राइब करें!
+العربية (ar)
+Lexkite – تعلّم مفردات إنجليزية تبقى في الذاكرة. دروس مجانية لاختبارات IELTS وTOEIC وTOEFL والإنجليزية اليومية: مفردات حسب الموضوع، قواعد مبسطة، نصائح للاختبار، إجابات نموذجية ونطق صحيح. تدرّب مجانًا على lexkite.com باستخدام بطاقات ذكية (التكرار المتباعد) وقاموس واختبارات تجريبية مع الشرح وإضافة لمتصفح Chrome، بـ15 لغة. فيديوهات جديدة كل أسبوع – اشترك الآن!
+Русский (ru)
+Lexkite – английские слова, которые запоминаются надолго. Бесплатные уроки для IELTS, TOEIC, TOEFL и повседневного английского: лексика по темам, понятная грамматика, советы к экзаменам, образцы ответов и произношение. Занимайтесь бесплатно на lexkite.com: умные карточки (интервальные повторения), словарь, пробные тесты с разбором и расширение для Chrome – на 15 языках. Новые видео каждую неделю – подписывайтесь!
+Türkçe (tr)
+Lexkite – akılda kalan İngilizce kelime öğrenimi. IELTS, TOEIC, TOEFL ve günlük İngilizce için ücretsiz dersler: konuya göre kelimeler, kolay dil bilgisi, sınav ipuçları, örnek cevaplar ve telaffuz. lexkite.com'da ücretsiz çalışın: akıllı kelime kartları (aralıklı tekrar), sözlük, açıklamalı deneme sınavları ve Chrome eklentisi, 15 dilde. Her hafta yeni videolar – hemen abone olun!
+
+---
+
+Từ khóa kênh – bản đa ngôn ngữ 15 nước (DÙNG BẢN NÀY thay bản en+vi ở trên; ≤ 500 ký tự)
+Lexkite, learn English, IELTS, TOEIC, TOEFL, English vocabulary, English grammar, học tiếng Anh, aprender inglés, aprender inglês, apprendre l'anglais, Englisch lernen, belajar bahasa Inggris, เรียนภาษาอังกฤษ, 学英语, 英語学習, 영어 공부, अंग्रेजी सीखें, تعلم الإنجليزية, изучение английского, İngilizce öğren, flashcards, spaced repetition
+
+Thẻ cho từng video theo ngôn ngữ của video (dán ở ô Tags khi đăng video)
+| Ngôn ngữ | Thẻ |
+|---|---|
+| en | Lexkite, learn English, IELTS vocabulary, TOEIC tips, TOEFL iBT, English grammar, English vocabulary, spaced repetition |
+| vi | Lexkite, học tiếng Anh, từ vựng IELTS, luyện thi TOEIC, ngữ pháp tiếng Anh, từ vựng tiếng Anh, luyện thi IELTS |
+| es | Lexkite, aprender inglés, vocabulario en inglés, IELTS, TOEIC, gramática inglesa, inglés gratis |
+| pt | Lexkite, aprender inglês, vocabulário em inglês, IELTS, TOEIC, gramática inglesa, inglês grátis |
+| fr | Lexkite, apprendre l'anglais, vocabulaire anglais, IELTS, TOEIC, grammaire anglaise, anglais gratuit |
+| de | Lexkite, Englisch lernen, englische Vokabeln, IELTS, TOEIC, englische Grammatik, Englisch kostenlos |
+| id | Lexkite, belajar bahasa Inggris, kosakata bahasa Inggris, IELTS, TOEIC, grammar bahasa Inggris, TOEFL |
+| th | Lexkite, เรียนภาษาอังกฤษ, คำศัพท์ภาษาอังกฤษ, IELTS, TOEIC, ไวยากรณ์ภาษาอังกฤษ, TOEFL |
+| zh | Lexkite, 学英语, 英语单词, 雅思, 托业, 托福, 英语语法, 背单词 |
+| ja | Lexkite, 英語学習, 英単語, IELTS, TOEIC, TOEFL, 英文法, 単語帳 |
+| ko | Lexkite, 영어 공부, 영어 단어, 아이엘츠, 토익, 토플, 영문법 |
+| hi | Lexkite, अंग्रेजी सीखें, English vocabulary in Hindi, IELTS, TOEIC, अंग्रेजी व्याकरण, spoken English |
+| ar | Lexkite, تعلم الإنجليزية, مفردات إنجليزية, IELTS, TOEIC, قواعد اللغة الإنجليزية, TOEFL |
+| ru | Lexkite, изучение английского, английские слова, IELTS, TOEIC, грамматика английского, TOEFL |
+| tr | Lexkite, İngilizce öğren, İngilizce kelimeler, IELTS, TOEIC, İngilizce dilbilgisi, TOEFL |
