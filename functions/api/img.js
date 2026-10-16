@@ -12,7 +12,7 @@ function pick(results, word) {
   const free = r => /cc0|pdm/i.test(r.license || '');
   const words = r => (r.title || '').replace(/\.[a-z]{3,4}$/i, '').split(/[\s_\-–:,.!?()]+/).filter(Boolean);
   const whole = new RegExp(`(^|[^a-z])${stem}[a-z]{0,4}([^a-z]|$)`, 'i');
-  const EVENT = /\b(minister|president|chair|ceremony|conference|summit|forum|meeting|briefing|speech|addresses|day|award|festival|society|association|council|committee|campaign|initiative|program(me)?|report|press|launch|logo|poster|flyer|sign|map|chart|diagram|screenshot|slide|book|cover|museum|exhibit|mural|painting|portrait)\b/i;
+  const EVENT = /\b(minister|president|chair|ceremony|conference|summit|forum|meeting|briefing|speech|addresses|day|award|festival|society|association|council|committee|campaign|initiative|program(me)?|report|press|launch|logo|poster|flyer|sign|map|chart|diagram|screenshot|slide|book|cover|museum|exhibit|mural|painting|portrait|plan|dictionary|definition|glossary|facebook|twitter|google|microsoft|apple|amazon|youtube|instagram|website|online|internet|privacy|hire|ie\d+|warming|amphibian)\b/i;
   const strict = r => photo(r) && whole.test(r.title || '') && words(r).length <= 5 && !EVENT.test(r.title || '');
   return results.find(r => strict(r) && free(r)) || results.find(strict);
 }
@@ -33,7 +33,7 @@ async function wiki(word) {
   const d = await r.json(), src = (d.originalimage || {}).source || '';
   if (d.type !== 'standard' || !/\/wikipedia\/commons\//.test(src)) return null;
   const file = decodeURIComponent(src.split('?')[0].split('/').pop().replace(/^\d+px-/, ''));
-  if (!/\.jpe?g$/i.test(file)) return null;
+  if (!/\.jpe?g$/i.test(file) || /museum|mural|painting|portrait|fresco|engraving|lithograph|map|flag|logo|poster|plaque|diagram/i.test(file)) return null; // tranh/bản đồ/biểu đồ không minh họa tốt nghĩa từ
   const q = await fetch(`https://commons.wikimedia.org/w/api.php?action=query&format=json&titles=${encodeURIComponent('File:' + file)}&prop=imageinfo&iiprop=url|extmetadata|size&iiurlwidth=480`, UA);
   if (!q.ok) return null;
   const pg = Object.values(((await q.json()).query || {}).pages || {})[0] || {}, ii = (pg.imageinfo || [])[0], m = (ii && ii.extmetadata) || {};
@@ -46,7 +46,7 @@ async function wiki(word) {
 export async function onRequestGet({ request, waitUntil }) {
   const url = new URL(request.url), word = String(url.searchParams.get('w') || '').toLowerCase().trim().slice(0, 60);
   if (!/^[a-z][a-z' -]*$/.test(word)) return H({ none: true }, 86400);
-  const key = new Request(`https://lexkite.com/api/img?w=${encodeURIComponent(word)}&v=3`), cache = caches.default; // v3: Wikipedia trước, Openverse lọc chặt sau → bỏ đệm ảnh lệch nghĩa cũ
+  const key = new Request(`https://lexkite.com/api/img?w=${encodeURIComponent(word)}&v=4`), cache = caches.default; // v3: Wikipedia trước, Openverse lọc chặt sau → bỏ đệm ảnh lệch nghĩa cũ
   const hit = await cache.match(key); if (hit) return hit;
   let out = { none: true }, ttl = 7 * 86400;
   // 1) Ảnh đại diện bài Wikipedia đúng khái niệm (society → gia đình, climate → mây…) – thường đúng nghĩa hơn ảnh khớp chữ trong tiêu đề
