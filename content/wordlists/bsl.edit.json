@@ -1,0 +1,170 @@
+{
+ "_": "Sửa tay định nghĩa/ví dụ sau khi duyệt (gen-wordlist.mjs áp dụng khi xuất file). Nội dung tự biên soạn – Lexkite, CC BY-SA 4.0.",
+ "beta": {
+  "def": "a measure of how much the price of a share or investment moves compared with the market as a whole",
+  "ex": "Shares with a high beta usually rise and fall more sharply than the market."
+ },
+ "summit": {
+  "def": "an official meeting between leaders of governments or organisations",
+  "ex": "The trade summit brought together ministers from twelve countries."
+ },
+ "repay": {
+  "def": "to pay back money that you have borrowed",
+  "ex": "The company plans to repay the loan within five years."
+ },
+ "outsider": {
+  "def": "a person who is not part of a particular group, organisation or company",
+  "ex": "The board appointed an outsider as chief executive to bring in fresh ideas."
+ },
+ "offshore": {
+  "ex": "Many manufacturers have moved production to offshore factories to cut costs."
+ },
+ "lag": {
+  "def": "a period of delay between one event and another",
+  "ex": "There is often a time lag between placing an order and receiving the goods."
+ },
+ "headline": {
+  "def": "the title of a newspaper story, printed in large letters",
+  "ex": "The merger made the headlines in every business newspaper."
+ },
+ "macroeconomic": {
+  "ex": "The central bank publishes macroeconomic forecasts every quarter."
+ },
+ "contingency": {
+  "def": "an event that might happen in the future and that you need to plan for",
+  "ex": "We have set aside extra funds for any contingency during the project."
+ },
+ "median": {
+  "def": "the middle value in a set of numbers arranged in order",
+  "ex": "The median salary in the department rose by four percent last year."
+ },
+ "receiver": {
+  "def": "a person or organisation that receives something; also the part of a telephone that you hold to your ear",
+  "ex": "Please check that the receiver's address is correct before you send the parcel."
+ },
+ "abolish": {
+  "def": "to officially end a law, system or practice",
+  "ex": "The government voted to abolish the tax on small businesses."
+ },
+ "lure": {
+  "ex": "The retailer used heavy discounts to lure shoppers away from its competitors."
+ },
+ "spy": {
+  "def": "to watch someone or something secretly in order to get information",
+  "ex": "The company was accused of spying on its competitors' research."
+ },
+ "liquidate": {
+  "def": "to close a business and sell everything it owns in order to pay its debts",
+  "ex": "The firm was forced to liquidate after it lost its biggest client."
+ },
+ "exclusion": {
+  "def": "the act of not allowing someone or something to take part or be included",
+  "ex": "The policy contains several exclusions, so read the contract carefully."
+ },
+ "dot": {
+  "def": "a small round mark or spot",
+  "ex": "Our website address is lexkite dot com."
+ },
+ "hub": {
+  "def": "the central or most important part of an area, system or activity",
+  "ex": "Singapore is a major shipping and financial hub in Asia."
+ },
+ "echo": {
+  "def": "a sound that is heard again because it reflects off a surface; also an idea or opinion that repeats another one",
+  "ex": "Her report echoes the concerns raised at last month's meeting."
+ },
+ "petty": {
+  "def": "small and not important",
+  "ex": "Please keep receipts for any petty cash you spend on office supplies."
+ },
+ "notable": {
+  "def": "important or interesting enough to deserve attention",
+  "ex": "The most notable change this year was the move to online ordering."
+ },
+ "originate": {
+  "def": "to begin or be created in a particular place or way",
+  "ex": "The idea for the product originated in a staff suggestion box."
+ },
+ "predictor": {
+  "ex": "Customer satisfaction is a strong predictor of future sales."
+ },
+ "peg": {
+  "def": "a fixed level at which the value of a currency or price is kept",
+  "ex": "The country kept its currency peg to the US dollar for many years."
+ },
+ "woe": {
+  "def": "problems or troubles",
+  "ex": "Rising fuel costs have added to the airline's financial woes."
+ },
+ "commentator": {
+  "def": "a person who gives opinions about events on television, radio or in newspapers",
+  "ex": "Several business commentators predicted that interest rates would rise."
+ },
+ "salvage": {
+  "ex": "The new manager managed to salvage the deal at the last minute."
+ },
+ "doom": {
+  "def": "a terrible future situation that you cannot avoid",
+  "ex": "Despite the talk of doom, sales actually rose in the final quarter."
+ },
+ "smuggle": {
+  "ex": "Customs officers check containers to stop people smuggling goods into the country."
+ },
+ "cheaply": {
+  "ex": "The new machines allow us to produce spare parts more cheaply."
+ },
+ "pit": {
+  "def": "a large hole in the ground, for example where minerals are dug out",
+  "ex": "The construction team dug a deep pit for the building's foundations."
+ },
+ "annum": {
+  "def": "year (used in the phrase per annum, meaning 'each year')",
+  "ex": "The position offers a salary of 45,000 dollars per annum."
+ },
+ "mar": {
+  "def": "to spoil something or make it less good",
+  "ex": "The product launch was marred by technical problems."
+ },
+ "reportedly": {
+  "def": "according to what people say or what is reported",
+  "ex": "The company is reportedly planning to open three new stores."
+ },
+ "maneuver": {
+  "def": "a clever or careful action done to gain an advantage",
+  "ex": "The merger was a smart maneuver to enter the Asian market."
+ },
+ "credential": {
+  "def": "a qualification, achievement or document that shows you are suitable for something",
+  "ex": "All applicants must send copies of their professional credentials."
+ },
+ "peacekeeping": {
+  "ex": "The organisation funds peacekeeping and humanitarian projects around the world."
+ },
+ "decimal": {
+  "def": "a number expressed using a decimal point, such as 0.5 or 2.75",
+  "ex": "Please round all prices to two decimal places."
+ },
+ "leverage": {
+  "def": "the use of borrowed money to increase the possible return on an investment; also the power to influence a situation",
+  "ex": "The company used leverage to finance the takeover of its rival."
+ },
+ "diversify": {
+  "def": "to develop a wider range of products, services or investments in order to reduce risk",
+  "ex": "The firm decided to diversify into renewable energy."
+ },
+ "thereafter": {
+  "ex": "The contract runs for one year and may be renewed annually thereafter."
+ },
+ "triple": {
+  "ex": "Online sales have tripled since the company launched its app."
+ },
+ "bidder": {
+  "ex": "The building was sold to the highest bidder at the auction."
+ },
+ "saver": {
+  "ex": "Higher interest rates are good news for savers."
+ },
+ "flotation": {
+  "ex": "The company raised two million dollars through its stock market flotation."
+ }
+}

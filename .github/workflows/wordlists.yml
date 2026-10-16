@@ -14,7 +14,7 @@ concurrency: { group: google-translate, cancel-in-progress: false }  # dùng chu
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 75
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -24,11 +24,15 @@ jobs:
           node scripts/gen-wordlist.mjs nawl --max 600
           node scripts/gen-wordlist.mjs bsl --max 600
           node scripts/vi-lint.mjs | tail -3
+      - name: Bổ sung phiên âm & ví dụ còn trống (chạy dần, có lưu đệm)
+        run: |
+          node scripts/fill-vocab.mjs --max 1000 | tail -3
+          if ! node scripts/test/content-check.mjs > "$RUNNER_TEMP/cc.txt"; then tail -20 "$RUNNER_TEMP/cc.txt"; echo 'content-check lỗi → bỏ thay đổi kho từ lần này'; git checkout web/js/lib web/js/data.js; fi
       - name: Lưu kết quả (thử lại tối đa 5 lần)
         run: |
           git config user.name "lexkite-bot"
           git config user.email "lexkite-bot@users.noreply.github.com"
-          git add -A web/js/lib/nawl.js web/js/lib/bsl.js content/wordlists
+          git add -A web/js/lib web/js/data.js content/wordlists
           git diff --cached --quiet && exit 0
           git commit -m "Kho từ theo kỳ thi: cập nhật tự động"
           for i in 1 2 3 4 5; do git pull --rebase -X theirs origin main && git push && exit 0; sleep $((i * 7)); done

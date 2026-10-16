@@ -1,0 +1,67 @@
+# Đăng bản mới của add-on lên Chrome Web Store (API v2): build → kiểm tra quy tắc → tải gói → gửi duyệt.
+# Chạy tay: Actions → "Đăng add-on Chrome Web Store" → Run workflow. Thiết lập 1 lần + quy tắc: docs/CWS-RULES.md
+# Secrets cần có: CWS_CLIENT_ID, CWS_CLIENT_SECRET, CWS_REFRESH_TOKEN, CWS_PUBLISHER_ID, CWS_EXTENSION_ID
+name: Đăng add-on Chrome Web Store
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'upload = chỉ tải gói (bản nháp, tự bấm gửi trên dashboard) · publish = tải + gửi duyệt'
+        type: choice
+        options: [publish, upload]
+        default: publish
+concurrency: { group: cws-publish, cancel-in-progress: false }
+permissions:
+  contents: read
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CID: ${{ secrets.CWS_CLIENT_ID }}
+      CSECRET: ${{ secrets.CWS_CLIENT_SECRET }}
+      RTOKEN: ${{ secrets.CWS_REFRESH_TOKEN }}
+      PUB: ${{ secrets.CWS_PUBLISHER_ID }}
+      EXT: ${{ secrets.CWS_EXTENSION_ID }}
+      API: https://chromewebstore.googleapis.com
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Kiểm tra secrets
+        run: |
+          for v in CID CSECRET RTOKEN PUB EXT; do [ -n "${!v}" ] || { echo "::error::Thiếu secret cho $v – xem docs/CWS-RULES.md mục Thiết lập"; exit 1; }; done
+      - name: Lấy access token
+        run: |
+          TOKEN=$(curl -sf https://oauth2.googleapis.com/token -d client_id="$CID" -d client_secret="$CSECRET" -d refresh_token="$RTOKEN" -d grant_type=refresh_token | jq -r .access_token)
+          [ -n "$TOKEN" ] && [ "$TOKEN" != null ] || { echo "::error::Không lấy được access token (refresh token hết hạn? xem docs/CWS-RULES.md)"; exit 1; }
+          echo "::add-mask::$TOKEN"; echo "TOKEN=$TOKEN" >> "$GITHUB_ENV"
+      - name: Phiên bản đang có trên cửa hàng
+        run: |
+          ST=$(curl -sf -H "Authorization: Bearer $TOKEN" "$API/v2/publishers/$PUB/items/$EXT:fetchStatus") || { echo "::error::fetchStatus lỗi – kiểm CWS_PUBLISHER_ID / CWS_EXTENSION_ID"; exit 1; }
+          echo "$ST" | jq -c '{published: .publishedItemRevisionStatus.state, submitted: .submittedItemRevisionStatus.state, upload: .lastAsyncUploadState}' || true
+          SV=$(echo "$ST" | jq -r '[.. | objects | .crxVersion? // empty] | map(split(".") | map(tonumber)) | max // [] | map(tostring) | join(".")')
+          echo "Bản trên cửa hàng: ${SV:-chưa có}"; echo "STORE_VER=$SV" >> "$GITHUB_ENV"
+          if echo "$ST" | jq -e '.submittedItemRevisionStatus.state == "PENDING_REVIEW"' >/dev/null 2>&1; then echo "::error::Đang có bản chờ duyệt – đợi duyệt xong hoặc hủy trên dashboard rồi chạy lại"; exit 1; fi
+      - name: Build + kiểm tra quy tắc
+        run: |
+          bash scripts/build-extension.sh --zip
+          node scripts/cws-check.mjs --zip store/lexkite-extension.zip ${STORE_VER:+--store-version "$STORE_VER"}
+      - name: Tải gói lên
+        run: |
+          R=$(curl -s -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/zip" --data-binary @store/lexkite-extension.zip "$API/upload/v2/publishers/$PUB/items/$EXT:upload")
+          echo "$R" | jq -c '{uploadState, crxVersion, error}' || echo "$R"
+          S=$(echo "$R" | jq -r .uploadState)
+          for i in $(seq 1 20); do
+            [ "$S" = "IN_PROGRESS" ] || [ "$S" = "UPLOAD_IN_PROGRESS" ] || break
+            sleep 10; S=$(curl -s -H "Authorization: Bearer $TOKEN" "$API/v2/publishers/$PUB/items/$EXT:fetchStatus" | jq -r '.lastAsyncUploadState // "IN_PROGRESS"')
+          done
+          [ "$S" = "SUCCEEDED" ] || [ "$S" = "SUCCESS" ] || { echo "::error::Tải gói thất bại ($S)"; exit 1; }
+      - name: Gửi duyệt
+        if: inputs.mode == 'publish'
+        run: |
+          R=$(curl -s -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Length: 0" "$API/v2/publishers/$PUB/items/$EXT:publish")
+          echo "$R" | jq -c . || echo "$R"
+          echo "$R" | jq -e '.error' >/dev/null 2>&1 && { echo "::error::Gửi duyệt thất bại"; exit 1; } || true
+          V=$(jq -r .version extension/manifest.json)
+          echo "### ✅ Đã gửi duyệt Lexkite $V (trước đó: ${STORE_VER:-chưa có})" >> "$GITHUB_STEP_SUMMARY"
