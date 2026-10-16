@@ -1,6 +1,8 @@
 # Phối hợp Claude ⇄ Antigravity (chia việc, tránh chồng chéo)
 
-Mục đích: chia tải để không ai chạm giới hạn token, không sửa đè lên nhau. Repo là "bảng giao việc" chung.
+Mục đích: chia tải để không ai chạm giới hạn token, không sửa đè lên nhau.
+
+**➡️ Giao việc & báo cáo hằng ngày ở `docs/agents/BOARD.md`** (TODO → ĐANG LÀM → CHỜ DUYỆT → ĐÃ XONG). File này chỉ giữ quy tắc chung.
 
 ## Quy tắc vàng
 0. **Mỗi bên một thư mục làm việc** (bắt buộc – dùng chung 1 thư mục thì lệnh ship của bên này sẽ gom luôn file bên kia đang sửa dở, như đã xảy ra ở commit c0e088db). Antigravity làm trong worktree riêng:
