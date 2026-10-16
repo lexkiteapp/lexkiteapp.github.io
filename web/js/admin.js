@@ -69,10 +69,15 @@
     $('#inboxN').textContent = o.inbox.open || '';
     $('#alertN').textContent = a.rows.filter(r => !r.ok).length || '';
   }
+  // Biểu đồ 24 cột giờ trong ngày
+  const hourChart = rows => { const v = Array.from({ length: 24 }, (_, h) => ((rows || []).find(r => r.k === h) || {}).n || 0), m = Math.max(1, ...v); return `<div class="hchart">${v.map((n, h) => `<div title="${h}h: ${n} phiên"><i style="height:${Math.max(2, n / m * 100)}%"></i><small>${h % 3 ? '' : h + 'h'}</small></div>`).join('')}</div>`; };
+  // Cột chồng khách mới / quay lại theo ngày
+  const stack = rows => { if (!rows.length) return '<p class="small muted">Chưa có dữ liệu</p>'; const m = Math.max(1, ...rows.map(r => (r.fresh || 0) + (r.back || 0))); return `<div class="hchart stack">${rows.slice(-30).map(r => `<div title="${esc(r.day)}: ${r.fresh || 0} mới · ${r.back || 0} quay lại"><i class="b" style="height:${(r.back || 0) / m * 100}%"></i><i style="height:${(r.fresh || 0) / m * 100}%"></i><small>${esc(String(r.day).slice(8))}</small></div>`).join('')}</div><p class="small muted"><span class="lg new"></span> Khách mới <span class="lg back"></span> Quay lại</p>`; };
   const bars = (rows, label = r => r.k, val = r => r.n, extra = r => '') => {
-    const max = Math.max(1, ...rows.map(val));
-    return `<div class="bars">${rows.map(r => `<div class="row2"><span class="k" title="${esc(label(r))}">${esc(label(r)) || '–'}</span><span><span class="bar" style="display:block;width:${val(r) / max * 100}%"></span></span><span class="small">${num(val(r))}${extra(r)}</span></div>`).join('') || '<p class="muted small">Chưa có dữ liệu</p>'}</div>`;
-  };
+    if (!rows || !rows.length) return '<p class="small muted">Chưa có dữ liệu</p>';
+    const max = Math.max(1, ...rows.map(val)), tot = rows.reduce((t, r) => t + (+val(r) || 0), 0) || 1;
+    return `<div class="hbars">${rows.map(r => `<div class="row2"><span class="k" title="${esc(label(r))}">${esc(label(r)) || '–'}</span><span class="track"><i style="width:${val(r) / max * 100}%"></i></span><span class="v">${num(val(r))}<small> · ${Math.round(val(r) / tot * 100)}%${extra(r)}</small></span></div>`).join('')}</div>`;
+  };;
   const chart = (rows, key) => {
     if (!rows.length) return '<p class="muted small">Chưa có dữ liệu</p>';
     const W = 600, H = 170, max = Math.max(1, ...rows.map(r => +r[key] || 0)), bw = W / rows.length;
@@ -299,6 +304,17 @@
           <div class="card"><h3>Tần suất (số phiên mỗi khách)</h3>${bars(['1', '2–3', '4–7', '8–15', '16+'].map(k => a.freq.find(f => f.k === k) || { k, n: 0 }), r => r.k + ' lần')}</div>
           <div class="card"><h3>Thiết bị</h3>${bars(a.devs)}<h3 style="margin-top:1rem">Nền tảng</h3>${bars(a.plats, r => ({ web: 'Web', pwa: 'Web đã cài (PWA)', ext: 'Add-on Chrome', app: 'App iOS/Android' })[r.k] || r.k)}</div>
           <div class="card"><h3>Ngôn ngữ giao diện</h3>${bars(a.langs)}</div>
+        </div>
+        <h3 class="sec-t">⏰ Thói quen sử dụng</h3>
+        <div class="adm-grid">
+          <div class="card span2"><h3>Giờ cao điểm (giờ Việt Nam)</h3>${hourChart(a.hours)}</div>
+          <div class="card"><h3>Ngày trong tuần</h3>${bars(['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'].map((k, i) => ({ k, n: ((a.wdays || []).find(w => w.k === i) || {}).n || 0 })))}</div>
+          <div class="card"><h3>Thời lượng phiên</h3>${bars(a.durs || [])}</div>
+        </div>
+        <h3 class="sec-t">📈 Tăng trưởng</h3>
+        <div class="adm-grid">
+          <div class="card span2"><h3>Khách mới & khách quay lại theo ngày</h3>${stack(a.nr || [])}</div>
+          <div class="card"><h3>Tài khoản đăng ký mới</h3>${(a.signups || []).length ? bars(a.signups.slice(-14).reverse(), r => r.day) : '<p class="small muted">Chưa có đăng ký mới trong khoảng này</p>'}</div>
         </div>
         <p class="small muted" style="margin-top:1rem">Thống kê ẩn danh tự xây: không cookie, không lưu IP; quốc gia do Cloudflare xác định. Không tính bot, Lighthouse và chế độ sandbox.</p>`;
       main.querySelectorAll('[data-d]').forEach(b => b.onclick = () => { sessionStorage.setItem('adm.days', b.dataset.d); show('analytics'); });

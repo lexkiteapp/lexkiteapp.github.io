@@ -289,3 +289,15 @@ body.adm { background: var(--bg); min-height: 100vh; font-feature-settings: "cv0
     background-size: 200% 100%;
   }
 }
+
+/* Thống kê: danh sách ngang (tên riêng .hbars – tránh trùng .bars của app) + biểu đồ giờ / khách mới–quay lại */
+.hbars .row2 { display: grid; grid-template-columns: minmax(70px, 34%) 1fr auto; gap: .6rem; align-items: center; font-size: .86rem; padding: .28rem 0; border-bottom: 1px dashed var(--line, #eef0f4); }
+.hbars .row2:last-child { border-bottom: 0; } .hbars .k { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hbars .track { height: 8px; border-radius: 99px; background: var(--line, #eef0f4); overflow: hidden; } .hbars .track i { display: block; height: 100%; border-radius: 99px; background: var(--primary); min-width: 3px; }
+.hbars .v { font-weight: 700; white-space: nowrap; text-align: right; } .hbars .v small { font-weight: 500; color: var(--muted); }
+.hchart { display: flex; align-items: flex-end; gap: 3px; height: 150px; padding-top: .4rem; }
+.hchart > div { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 2px; min-width: 0; }
+.hchart i { width: 100%; background: var(--primary); border-radius: 4px 4px 1px 1px; display: block; } .hchart.stack i.b { background: #0f766e; border-radius: 1px; }
+.hchart small { font-size: .62rem; color: var(--muted); height: 12px; }
+.lg { display: inline-block; width: 10px; height: 10px; border-radius: 3px; vertical-align: middle; margin: 0 .25rem 0 .6rem; } .lg.new { background: var(--primary); } .lg.back { background: #0f766e; }
+.sec-t { margin: 1.4rem 0 .6rem; font-size: 1rem; } .card.span2 { grid-column: span 2; } @media (max-width: 760px) { .card.span2 { grid-column: auto; } }

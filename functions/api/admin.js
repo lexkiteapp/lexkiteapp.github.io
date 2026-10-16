@@ -122,7 +122,16 @@ const OPS = {
       all(db, "SELECT CASE WHEN c = 1 THEN '1' WHEN c <= 3 THEN '2–3' WHEN c <= 7 THEN '4–7' WHEN c <= 15 THEN '8–15' ELSE '16+' END AS k, COUNT(*) AS n FROM (SELECT vid, COUNT(*) AS c FROM sessions WHERE day >= ? GROUP BY vid) GROUP BY k", from),
     ]);
     const rate = +((await one(db, "SELECT v FROM config WHERE k = 'hit_rate'").catch(() => null)) || {}).v || 1;
-    return { days, daily, refs, countries, devs, langs, plats, paths, sum, freq, rate };
+    // Chi tiết thêm: giờ cao điểm & ngày trong tuần (giờ Việt Nam), thời lượng phiên theo nhóm, khách mới/quay lại theo ngày, đăng ký mới theo ngày
+    const VN = 7 * 3600000, since = Date.now() - days * DAY;
+    const [hours, wdays, durs, nr, signups] = await Promise.all([
+      all(db, `SELECT CAST(((at + ${VN}) / 3600000) % 24 AS INTEGER) AS k, COUNT(*) AS n FROM sessions WHERE at >= ? GROUP BY k ORDER BY k`, since),
+      all(db, `SELECT CAST(((at + ${VN}) / 86400000 + 4) % 7 AS INTEGER) AS k, COUNT(*) AS n FROM sessions WHERE at >= ? GROUP BY k ORDER BY k`, since),
+      all(db, "SELECT CASE WHEN dur < 15 THEN '<15 giây' WHEN dur < 60 THEN '15–60 giây' WHEN dur < 180 THEN '1–3 phút' WHEN dur < 600 THEN '3–10 phút' WHEN dur < 1800 THEN '10–30 phút' ELSE '30+ phút' END AS k, COUNT(*) AS n, MIN(dur) AS o FROM sessions WHERE day >= ? GROUP BY k ORDER BY o", from),
+      all(db, 'SELECT day, SUM(ret = 0) AS fresh, SUM(ret = 1) AS back FROM sessions WHERE day >= ? GROUP BY day ORDER BY day', from),
+      all(db, `SELECT strftime('%Y-%m-%d', (created + ${VN}) / 1000, 'unixepoch') AS day, COUNT(*) AS n FROM users WHERE created >= ? GROUP BY day ORDER BY day`, since),
+    ]);
+    return { days, daily, refs, countries, devs, langs, plats, paths, sum, freq, rate, hours, wdays, durs, nr, signups };
   },
   async errors(db) { return { rows: await all(db, 'SELECT * FROM errors ORDER BY last DESC LIMIT 200') }; },
   async errorsClear(db, b) { if (b.h) await db.prepare('DELETE FROM errors WHERE h = ?').bind(String(b.h)).run(); else await db.prepare('DELETE FROM errors').run(); return { ok: true }; },
