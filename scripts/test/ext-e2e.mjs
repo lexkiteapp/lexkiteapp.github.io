@@ -40,7 +40,7 @@ await ctx.route('https://t3.example.com/**', r => r.fulfill({ contentType: 'text
 await ctx.route('https://t4.example.com/**', r => r.fulfill({ contentType: 'text/html', body: RTL }));
 ctx.on('page', p => {
   p.on('pageerror', e => errors.push(`page ${p.url().slice(0, 60)}: ${e.message}`));
-  p.on('console', m => { if (m.type() === 'error' && /chrome-extension|lexkite|Lexkite/.test(m.text() + (m.location().url || ''))) errors.push(`console ${p.url().slice(0, 50)}: ${m.text().slice(0, 200)}`); });
+  p.on('console', m => { if (m.type() === 'error' && /chrome-extension|lexkite|Lexkite/.test(m.text() + (m.location().url || ''))) errors.push(`console ${p.url().slice(0, 50)}: ${m.text().slice(0, 160)} @ ${(m.location().url || '').slice(0, 120)}`); });
 });
 let [sw] = ctx.serviceWorkers(); if (!sw) sw = await ctx.waitForEvent('serviceworker');
 sw.on('console', m => { if (m.type() === 'error') errors.push('sw: ' + m.text().slice(0, 200)); });
@@ -79,7 +79,7 @@ rec('dữ liệu mẫu: có thẻ trong chrome.storage', cardsN > 10, cardsN);
 const pg = await ctx.newPage();
 await setSettings({ selectMode: 'icon', dblclickOn: true, markKnown: true, markAcademic: true });
 await pg.goto('https://t1.example.com/article'); await sleep(2500);
-rec('content script: đánh dấu từ đã học / học thuật trên trang', (await pg.locator('vb-mark').count()) >= 0, await pg.locator('vb-mark').count());
+await sleep(2500); rec('content script: gạch chân từ học thuật / đánh dấu từ đã học trên trang', (await pg.locator('vb-mark').count()) > 0, await pg.locator('vb-mark').count());
 await dbl(pg, '#w'); await sleep(9000);
 let c = await card(pg);
 await shot(pg, 'lookup-resilience');
