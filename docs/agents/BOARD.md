@@ -27,16 +27,35 @@ Mẫu thẻ:
 
 ## TODO
 
-### [U2] Sửa lỗi giao diện mobile (đo tự động 375px) + vi tương tác chuẩn Duolingo · @antigravity · ưu tiên: CAO NHẤT
-- Lỗi đo được (Claude chạy script đo bố cục trên lexkite.com?sandbox=1&demo=1, bề rộng 375px):
-  1. **#/home**: lời chào "Chào buổi chiều / Đây là kế hoạch của bạn hôm nay" bị ép thành cột hẹp (mỗi dòng 1 chữ) vì chip "IELTS 6.5 · còn 120 ngày" cùng hàng → xếp chip xuống dưới trên màn < 480px.
-  2. **Vùng chạm < 44×44px**: nút 🔊 (#/home, #/review, #/phrases), mục "Tôi" ở thanh dưới (#/goal, #/mistakes, #/settings, #/stats), "Viết" (#/models) → tăng vùng chạm (padding/min-size 44px) không đổi kích thước biểu tượng.
-  3. **#/settings**: phần tử tràn ngang (BUTTON/SPAN trong hàng cài đặt) → wrap/ellipsis.
-  4. **#/stats**: thanh/ô tràn ngang (`I.l1`), chữ < 11.5px (nhãn biểu đồ 3,4,5,6, "▲ 1") → tối thiểu 12px, biểu đồ co theo khung.
-  5. **#/me**: chữ < 11.5px ("0 Đã thuộc", "2d") → ≥ 12px.
-- Nâng cấp cảm giác (Duolingo/Elsa): phản hồi đúng/sai có rung nhẹ (navigator.vibrate trên mobile, tôn trọng prefers-reduced-motion), hiệu ứng nảy nhẹ cho đáp án đúng, lắc cho sai; **màn kết thúc phiên ôn** có tổng kết (số thẻ, % đúng, XP, chuỗi ngày, Kit ăn mừng) + nút "Học tiếp" rõ ràng; skeleton thay vì "Đang tải…".
-- File/khu vực: `web/css/style.css`, markup trong `web/js/app.js`/`web/js/study.js`/`web/js/hubs.js` CHỈ phần giao diện liên quan (ghi rõ trong Báo cáo). Chuỗi mới qua `t()` + en.
-- Tiêu chí xong: chạy lại script đo (Claude sẽ chạy) → 0 lỗi squeezed/overflow, 0 nút < 44px ở các trang trên; `npm test` PASS (axe 0 lỗi nghiêm trọng); ảnh trước/sau mô tả trong Báo cáo.
+> **Giao diện chia nhỏ từng thẻ** (anh Quyền 16/10): mỗi thẻ 1 cụm màn hình/nền tảng, làm xong → CHỜ DUYỆT → Claude duyệt (đo tự động + xem thật) → thẻ tiếp. Làm theo thứ tự U2a → U2b → U2c → U2d → U2e.
+
+### [U2a] Trang chủ mobile – lời chào bị ép cột + vùng chạm 🔊 · @antigravity · ưu tiên: CAO NHẤT
+- #/home (375px): lời chào "Chào buổi chiều / Đây là kế hoạch của bạn hôm nay" bị ép thành cột hẹp vì chip "IELTS 6.5 · còn 120 ngày" cùng hàng → < 480px xếp chip xuống dưới lời chào. Nút 🔊 (home, #/review, #/phrases) vùng chạm ≥ 44×44px (giữ cỡ biểu tượng).
+- File: `web/css/style.css` (+ markup home nếu bắt buộc). Báo cáo: ảnh trước/sau 375px sáng & tối.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+### [U2b] Thanh điều hướng dưới + Cài đặt/Thống kê/Tôi trên mobile · @antigravity · ưu tiên: cao
+- Mục "Tôi" (và các mục) ở thanh dưới vùng chạm ≥ 44px; #/settings phần tử tràn ngang trong hàng cài đặt → wrap/ellipsis; #/stats biểu đồ tràn ngang (`I.l1`) + nhãn < 11.5px → ≥ 12px, co theo khung; #/me chữ "0 Đã thuộc", "2d" ≥ 12px; "Viết" ở #/models ≥ 44px.
+- File: `web/css/style.css` (+ markup liên quan, ghi rõ). Báo cáo như U2a.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+### [U2c] Cảm giác chấm bài chuẩn Duolingo · @antigravity · ưu tiên: vừa
+- Đúng: nảy nhẹ + rung ngắn (navigator.vibrate trên mobile); sai: lắc + rung đôi; tôn trọng `prefers-reduced-motion` & cài đặt âm thanh hiện có; skeleton thay "Đang tải…" ở #/review, #/home.
+- File: `web/css/style.css`, `web/js/study.js` (chỉ phần phản hồi giao diện). Chuỗi mới qua `t()` + en.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+### [U2d] Màn kết thúc phiên ôn · @antigravity · ưu tiên: vừa
+- Tổng kết: số thẻ, % đúng, XP nhận, chuỗi ngày (+1 khi giữ được), từ khó nhất phiên; Kit ăn mừng; nút chính "Học tiếp" + phụ "Về trang chủ"; chia sẻ thành tích (Web Share API, có fallback copy).
+- File: `web/js/study.js` (phần màn kết thúc), `web/css/style.css`, `web/js/i18n/en/*.js`.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+### [U2e] App iOS/Android – kiểm tra ảnh demo CI & sửa giao diện riêng app · @antigravity · ưu tiên: vừa
+- Xem artifact `lexkite-ios-screenshots` / `lexkite-android-screenshots` của workflow ios.yml / android.yml (lần chạy mới nhất) → sửa lỗi giao diện riêng app (safe-area dưới/trên, thanh dưới chồng home indicator, bàn phím che ô nhập, chế độ tối hệ thống). Selector dùng `html.native`.
+- File: `web/css/style.css`. Báo cáo kèm tên ảnh đã kiểm.
 - Báo cáo:
 - Cần sửa / Nhận xét:
 
