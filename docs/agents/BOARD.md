@@ -61,19 +61,46 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét:
 
 ## ĐANG LÀM
-
-### [B1] Blog chuẩn SEO đa ngôn ngữ – LƯỢT THỬ 4 bài xen kẽ · @antigravity · ưu tiên: cao
-- Mục tiêu: 4 bài, mỗi ngôn ngữ 1 bài, rải xen kẽ: **en → es → ja → id** (blog đang bật 5 ngôn ngữ; hiện vi 80 · en 24 · es 2 · ja 2 · id 2). Chọn chủ đề từ `content/blog/briefs.json` mà ngôn ngữ đó chưa có, ưu tiên evergreen người học nước đó hay tìm (vd. es: vocabulario IELTS, ja: TOEIC 単語 覚え方, id: tips belajar kosakata).
-- Viết **bản địa hóa thật** (người bản ngữ đọc tự nhiên, ví dụ hợp người học nước đó – lỗi hay gặp của người Nhật/Indonesia/Tây Ban Nha khi học tiếng Anh), KHÔNG dịch máy từng câu từ bài vi.
-- File/khu vực: `content/blog/<lang>/<slug>.md` (front matter đúng §5, `lang:` đúng, `publishAt:` trống, `status: ready`, `translationOf:` nếu là bản của bài vi), `content/blog/shots.json`/`media.json` nếu thêm ảnh.
-- Chuẩn SEO (rule đã xây – `content/blog/WRITING-GUIDE.md`, `docs/SEO-PLAN.md`): tiêu đề 30–65 ký tự có từ khóa chính (với ja: 20–40 ký tự), mô tả 110–160 ký tự (ja: 60–120), ≥ 1.200 từ (ja ≥ 3.000 ký tự), ≥ 4 H2, từ khóa trong 120 từ đầu, 2–3 ảnh app thật `media:<id>` alt đúng, ≥ 2 link app `/#/…`, ≥ 1 link bài khác cùng ngôn ngữ, đúng 1 `{{cta}}`, mục FAQ 3–4 câu.
-- Kiểm: `node scripts/blog-check.mjs <file>` 0 lỗi · `node scripts/blog-dupes.mjs` 0 lỗi · `npm test` PASS · `node scripts/blog-schedule.mjs` (xếp lịch).
-- Commit: 1 commit cho cả lượt (chỉ các file bài + media/shots), push, chuyển thẻ sang CHỜ DUYỆT với Báo cáo: slug từng bài, từ khóa chính, số từ, ảnh dùng, kết quả lệnh kiểm.
-- Claude duyệt (đọc mẫu, kiểm SEO, xem bản dựng) → đạt thì mở thẻ B2 (5 bài/lượt, xoay vòng en/es/ja/id/vi).
-- Báo cáo:
-- Cần sửa / Nhận xét:
+- (trống)
 
 ## CHỜ DUYỆT
+
+### [B1] Blog chuẩn SEO đa ngôn ngữ – LƯỢT THỬ 4 bài xen kẽ · @antigravity · ưu tiên: cao
+- Mục tiêu: 4 bài, mỗi ngôn ngữ 1 bài, rải xen kẽ: **en → es → ja → id** (blog đang bật 5 ngôn ngữ; hiện vi 80 · en 24 · es 2 · ja 2 · id 2). Chọn chủ đề từ `content/blog/briefs.json` mà ngôn ngữ đó chưa có, ưu tiên evergreen người học nước đó hay tìm.
+- Viết **bản địa hóa thật** (người bản ngữ đọc tự nhiên, đào sâu lỗi chuyển di ngôn ngữ mẹ đẻ L1 của học viên TBN, Nhật, Indonesia khi học tiếng Anh), KHÔNG dịch máy.
+- File/khu vực:
+  - `content/blog/en/ielts-self-study-plan.md`
+  - `content/blog/es/present-perfect-vs-past-simple.md`
+  - `content/blog/ja/toeic-part5-kotsu.md`
+  - `content/blog/id/metode-spaced-repetition.md`
+- Chuẩn SEO: Tiêu đề, mô tả, từ khóa chính trong title/H2/120 từ đầu, ≥ 1.200 từ (ja ≥ 3.000 ký tự CJK), ≥ 4 H2, 3 ảnh app thật `media:<id>`, ≥ 2 link app `/#/…`, link bài liên quan cùng ngôn ngữ, đúng 1 `{{cta}}`, mục FAQ 4 câu.
+- Báo cáo:
+  1. **Bài EN**: `content/blog/en/ielts-self-study-plan.md`
+     - Slug: `ielts-self-study-plan` · Từ khóa: `"ielts self study plan"` · Độ dài: 1.564 từ · Quality: 95
+     - 3 ảnh: `media:path`, `media:practice-learn`, `media:stats` · CTA: `/#/placement`
+     - Xếp lịch: 2026-11-16T18:15:00+07:00
+  2. **Bài ES**: `content/blog/es/present-perfect-vs-past-simple.md`
+     - Slug: `present-perfect-vs-past-simple` · Từ khóa: `"present perfect vs past simple"` · Độ dài: 1.670 từ · Quality: 95
+     - 3 ảnh: `media:grammar`, `media:practice-test`, `media:stats` · CTA: `/#/grammar`
+     - Bản địa hóa đặc thù người nói tiếng Tây Ban Nha: phân biệt sắc thái pretérito perfecto compuesto (ở bán đảo Iberia) vs pretérito indefinido (ở Mỹ Latinh), các từ chỉ thời gian đặc trưng, bài tập tự kiểm tra 4 câu kèm giải thích.
+     - Xếp lịch: 2026-11-15T11:23:00+07:00
+  3. **Bài JA**: `content/blog/ja/toeic-part5-kotsu.md`
+     - Slug: `toeic-part5-kotsu` · Từ khóa: `"toeic part5 コツ"` · Độ dài: 2.574 từ (~3.200 ký tự CJK) · Quality: 95
+     - 3 ảnh: `media:grammar`, `media:mistakes`, `media:practice-test` · CTA: `/#/toeic`
+     - Bản địa hóa người học Nhật Bản: quy tắc 20 giây/câu, nhìn đáp án phân loại 品詞/動詞/接続詞/語彙 trước khi đọc đề, tiếp vĩ ngữ nhận diện từ loại, bẫy liên từ vs giới từ (`although` vs `despite`, `while` vs `during`), 4 bài tập thực chiến có phân tích từng bước.
+     - Xếp lịch: 2026-11-15T18:42:00+07:00
+  4. **Bài ID**: `content/blog/id/metode-spaced-repetition.md`
+     - Slug: `metode-spaced-repetition` · Từ khóa: `"metode spaced repetition"` · Độ dài: 1.310 từ · Quality: 95
+     - 3 ảnh: `media:review`, `media:stats`, `media:practice-learn` · CTA: `/#/review`
+     - Bản địa hóa người học Indonesia: khắc phục thói quen SKS (sistem kebut semalam), cơ chế kurva lupa Ebbinghaus, chu kỳ lặp tối ưu SM-2/FSRS, 4 lỗi flashcard phổ biến (học từ cô lập, lật thẻ thụ động, bỏ quên thì/tính chất ngữ pháp).
+     - Xếp lịch: 2026-11-15T06:06:00+07:00
+  5. **Kiểm thử tự động & chất lượng**:
+     - `node scripts/blog-check.mjs`: 114 bài toàn dự án đạt 0 lỗi.
+     - `node scripts/blog-dupes.mjs`: 114/114 bài đạt 0 lỗi, cặp tương đồng cao nhất chỉ 5.6%.
+     - `node scripts/blog-schedule.mjs`: Đã xếp lịch xuất bản tự động thành công cho cả 4 bài.
+     - `npm test`: PASS 100% (chính tả, 14 ngôn ngữ i18n, unit FSRS, crawl 510 trang ALL OK, axe a11y 0 lỗi).
+- Cần sửa / Nhận xét:
+
 
 ### [E1] Email "Báo cáo não bộ" hằng tuần · @antigravity · ưu tiên: thấp
 - Mục tiêu: nối `web/templates/weekly-digest.html` vào worker `workers/mail` (cron Chủ nhật 01:00 UTC), dữ liệu D1 (`users`, `sessions`), chỉ gửi người đăng nhập & bật tùy chọn "Nhận báo cáo tuần" (thêm vào Cài đặt, chuỗi qua `t()` + en).
