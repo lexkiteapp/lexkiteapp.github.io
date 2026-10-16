@@ -78,7 +78,7 @@ Pay special attention to hedged language in academic passages. *Researchers beli
 
 - If you cannot find the location at all after a reasonable search, the answer is more likely to be Not Given, but first check that the next question's answer is not where you expected this one to be.
 - If you find yourself saying "the passage implies…", be careful. Use only what the text states or clearly entails.
-- Strong vocabulary makes location much faster. Many paraphrases in Reading draw on academic words, so working through the [Academic Word List](/en/blog/academic-word-list/) and incorporating reading drills into your [IELTS self-study plan](/en/blog/ielts-self-study-plan/) pays off directly in this task.
+- Strong vocabulary makes location much faster. Many paraphrases in Reading draw on academic words, so working through the [Academic Word List](/en/blog/academic-word-list/), reviewing [sample passages](/samples/), and incorporating reading drills into your [IELTS self-study plan](/en/blog/ielts-self-study-plan/) pays off directly in this task.
 
 ## Common mistakes and how to fix them
 
