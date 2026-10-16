@@ -6,6 +6,7 @@ import { execFileSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 import os from 'os';
+import http from 'http';
 import { CAP, VIDEO } from './store-copy.mjs';
 
 const OUT = path.resolve(process.argv[2] || 'store-video');
@@ -88,7 +89,9 @@ const ctx = await chromium.launchPersistentContext(prof, {
   args: [`--disable-extensions-except=${EXT}`, `--load-extension=${EXT}`, `--lang=${LOCALE}`],
 });
 await ctx.addInitScript(CURSOR);
-await ctx.route('https://news.example.com/**', r => r.fulfill({ contentType: 'text/html', body: ARTICLE }));
+const srv = http.createServer((q, r) => { r.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' }); r.end(ARTICLE); });
+await new Promise(r => srv.listen(8765, '127.0.0.1', r));
+const NEWS = 'http://127.0.0.1:8765/';
 let [sw] = ctx.serviceWorkers(); if (!sw) sw = await ctx.waitForEvent('serviceworker');
 const base = `chrome-extension://${new URL(sw.url()).host}/`;
 const setSettings = s => sw.evaluate(s => chrome.storage.local.get('settings').then(({ settings }) => chrome.storage.local.set({ settings: { ...(settings || {}), ...s } })), s);
@@ -101,9 +104,9 @@ const warm = await ctx.newPage();
 try {
 await go(warm, base + `app/index.html?demo=1&hl=${LANG}#/home`); await sleep(5000);
 await setSettings({ selectMode: 'off', markKnown: false, markAcademic: false });
-await go(warm, 'https://news.example.com/a'); await sleep(2000); await warm.dblclick('#w'); await sleep(9000);
+await go(warm, NEWS + 'a'); await sleep(2000); await warm.dblclick('#w'); await sleep(9000);
 await setSettings({ selectMode: 'auto' });
-await go(warm, 'https://news.example.com/a'); await sleep(2000);
+await go(warm, NEWS + 'a'); await sleep(2000);
 { const b = await warm.locator('#s').boundingBox(); await warm.mouse.move(b.x + 1, b.y + 8); await warm.mouse.down(); await warm.mouse.move(b.x + b.width - 2, b.y + b.height - 8, { steps: 10 }); await warm.mouse.up(); }
 await sleep(9000);
 } catch (e) { console.log('⚠ làm nóng lỗi (bỏ qua):', e.message.split('\n')[0]); }
@@ -123,7 +126,7 @@ async function record(fn) {
 // 1. Bấm đúp tra từ
 await setSettings({ selectMode: 'off' });
 scenes.push({ i: 0, url: 'dailyplanet.com/environment', ...await record(async (p, mark) => {
-  await go(p, 'https://news.example.com/cities-forests'); await sleep(1800);
+  await go(p, NEWS + 'cities-forests'); await sleep(1800);
   const ss = mark(); await p.mouse.move(300, 650); await sleep(300);
   const b = await p.locator('#w').boundingBox(); await p.mouse.move(b.x + b.width / 2, b.y + b.height / 2, { steps: 30 }); await sleep(350);
   await p.mouse.dblclick(b.x + b.width / 2, b.y + b.height / 2); await sleep(4200);
@@ -134,7 +137,7 @@ scenes.push({ i: 0, url: 'dailyplanet.com/environment', ...await record(async (p
 // 2. Bôi đen câu → dịch + cấu trúc
 await setSettings({ selectMode: 'auto' });
 scenes.push({ i: 1, url: 'dailyplanet.com/environment', ...await record(async (p, mark) => {
-  await go(p, 'https://news.example.com/cities-forests'); await sleep(1800);
+  await go(p, NEWS + 'cities-forests'); await sleep(1800);
   const ss = mark(); const b = await p.locator('#s').boundingBox();
   await p.mouse.move(200, 700); await p.mouse.move(b.x + 1, b.y + 9, { steps: 25 }); await sleep(250);
   await p.mouse.down(); await p.mouse.move(b.x + b.width - 2, b.y + b.height - 9, { steps: 45 }); await p.mouse.up();
@@ -192,7 +195,7 @@ for (const [k, s] of scenes.entries()) {
 const outro = path.join(TMP, 'outro.png');
 await card(cp, outro, `<div class="center"><img src="${ICON}"><h1>${T.outro[0]}</h1><div class="cws"><img src="${ICON}" style="width:44px;height:44px;border-radius:10px;box-shadow:none">Chrome Web Store</div><p style="margin-top:30px">${T.outro[1]}</p></div>`);
 still(outro, 4, path.join(TMP, `p${parts.length}.mp4`)); parts.push(`p${parts.length}.mp4`);
-await br.close();
+await br.close(); srv.close();
 fs.writeFileSync(path.join(TMP, 'list.txt'), parts.map(p => `file '${path.join(TMP, p)}'`).join('\n'));
 const mp4 = path.join(OUT, `lexkite-promo-${LANG}.mp4`);
 ff(['-f', 'concat', '-safe', '0', '-i', path.join(TMP, 'list.txt'), '-c', 'copy', '-movflags', '+faststart', mp4]);
