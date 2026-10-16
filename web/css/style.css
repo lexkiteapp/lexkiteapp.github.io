@@ -180,7 +180,7 @@ mark { background: color-mix(in srgb, var(--gold) 32%, transparent); color: inhe
 /* ---------- Home ---------- */
 .hero { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 1rem; }
 .hero-main { position: relative; overflow: hidden; background: linear-gradient(135deg, #0F3D3E 0%, #17595A 60%, #1F7A72 125%); color: #fff; border: 0; box-shadow: 0 18px 40px rgba(15,61,62,.32); }
-.hero-main::after { content: ""; position: absolute; right: -60px; top: -60px; width: 220px; height: 220px; border-radius: 50%; background: rgba(255,255,255,.12); }
+.hero-main::after { content: ""; position: absolute; right: -60px; top: -60px; width: 220px; height: 220px; border-radius: 50%; background: rgba(255,255,255,.12); pointer-events: none; } /* vòng trang trí không được chặn bấm nút (vd. "Ôn ngay" trong popup add-on) */
 .hero-main .muted { color: rgba(255,255,255,.82); }
 .hero-main .btn.primary { background: #fff; color: #0F3D3E; border-color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.15); }
 .hero-main .progress { background: rgba(255,255,255,.25); }
