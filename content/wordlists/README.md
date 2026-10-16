@@ -5,4 +5,8 @@
 | nawl-1.2.csv | New Academic Word List 1.2 © Browne, Culligan & Phillips (newgeneralservicelist.com) | CC BY-SA 4.0 | IELTS Academic, TOEFL |
 | bsl-1.20.csv | Business Service List 1.20 © Browne & Culligan (newgeneralservicelist.com) | CC BY-SA 4.0 | TOEIC |
 
-Pipeline tự động (GitHub Action `wordlists.yml`): lọc từ đã có trong app → phiên âm/định nghĩa/ví dụ từ Free Dictionary API (Wiktionary, CC BY-SA) và Tatoeba (CC BY 2.0 FR) → nghĩa tiếng Việt đúng từ loại (Google Translate) → kiểm tra chất lượng → `web/js/lib/nawl.js`, `web/js/lib/bsl.js` (bộ 100 từ). Mục thiếu dữ liệu bị loại, không đưa vào app.
+Pipeline (GitHub Action `wordlists.yml` + biên soạn tay):
+1. `gen-wordlist.mjs`: lọc từ đã có trong app → phiên âm (Wiktionary, CC BY-SA) → gợi ý nghĩa tiếng Việt đúng từ loại → kiểm tra chất lượng → `web/js/lib/nawl.js`, `web/js/lib/bsl.js` (bộ 100 từ).
+2. **Định nghĩa tiếng Anh và câu ví dụ do Lexkite tự biên soạn** (CONTENT-RULES §1) trong `<id>.edit.json` (`{ "từ": { def, ex, pos, vi } }`), ghi bằng `node scripts/add-defs.mjs file.txt <id>` (mỗi dòng `từ|định nghĩa|ví dụ`, có kiểm tự động). Từ chưa có định nghĩa tự viết **không** được xuất vào app.
+3. `<id>.fix.json`: sửa nghĩa tiếng Việt sau khi duyệt, hoặc `"-"` để loại từ không phù hợp.
+4. `fill-vocab.mjs` (chạy hằng đêm): điền phiên âm còn thiếu cho các kho khác từ Wiktionary; không lấy câu ví dụ bên ngoài.
