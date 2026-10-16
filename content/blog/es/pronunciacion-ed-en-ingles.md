@@ -109,7 +109,7 @@ En el Listening de IELTS, escribir *past* cuando la respuesta es *passed* (o al 
 
 ### El enlace con la palabra siguiente
 
-En el habla real, la /t/ o /d/ final se une a la vocal que viene detrás: *worked out* suena "work-taut", *picked it up* suena "pik-ti-tup". Y ante otra consonante, a veces casi desaparece: en *I asked them*, la /t/ apenas se oye. Saber esto evita dos frustraciones: no entender a los nativos y creer que tú también puedes omitirla siempre. Al principio, pronúnciala clara; la fusión llega con la fluidez.
+En el habla real, la /t/ o /d/ final se une a la vocal que viene detrás: *worked out* suena "work-taut", *picked it up* suena "pik-ti-tup". Y ante otra consonante, a veces casi desaparece: en *I asked them*, la /t/ apenas se oye. Saber esto evita dos frustraciones: no entender a los nativos y creer que tú también puedes omitirla siempre. Al principio, pronúnciala clara; la fusión llega con la fluidez. Este enlace es constante en los [phrasal verbs más usados](/es/blog/phrasal-verbs-mas-usados/) en pasado, como *ended up* o *found out*.
 
 ## Cómo entrenar el oído y la boca
 

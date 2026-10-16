@@ -80,7 +80,7 @@ Una palabra está aprendida cuando la usas sin pensarlo. Cada semana, escribe un
 ## Errores típicos de los hispanohablantes al aprender vocabulario
 
 - **Traducir palabra por palabra.** *I have 25 years* (tengo 25 años) en vez de *I am 25*; *explain me* en vez de *explain to me*.
-- **Evitar los phrasal verbs.** Por comodidad elegimos el verbo de origen latino (*tolerate*, *postpone*, *continue*) en lugar de *put up with*, *put off* o *carry on*, que son más naturales en la conversación diaria.
+- **Evitar los phrasal verbs.** Por comodidad elegimos el verbo de origen latino (*tolerate*, *postpone*, *continue*) en lugar de *put up with*, *put off* o *carry on*, que son más naturales en la conversación diaria. Tienes los más útiles, agrupados por partícula, en nuestra guía de [phrasal verbs más usados](/es/blog/phrasal-verbs-mas-usados/).
 - **Confiar ciegamente en los cognados.** Funcionan muy bien con terminaciones como *-tion/-ción* o *-ity/-idad*, pero hay que comprobarlos siempre: *sensible* significa "sensato", no "sensible".
 - **No aprender el plural ni la forma verbal.** *Information* y *advice* son incontables en inglés: *some advice*, nunca *an advice* ni *advices*.
 - **Estudiar sin repasar.** Añadir palabras nuevas cada día sin revisar las anteriores es llenar un cubo agujereado.

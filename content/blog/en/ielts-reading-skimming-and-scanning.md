@@ -63,7 +63,7 @@ Turn to the question set and underline two types of keywords:
 - **Unchangeable keywords:** Dates, statistical figures, proper nouns, and scientific terms that cannot be easily paraphrased.
 - **Changeable keywords:** Verbs, descriptive adjectives, and common nouns that the test writers will disguise using synonyms (for example, *decline* becoming *plummet*, or *beneficial* becoming *advantageous*).
 
-Familiarity with higher-tier academic synonyms from the [academic word list](/en/blog/academic-word-list/) makes spotting these paraphrases intuitive and instantaneous.
+Familiarity with higher-tier academic synonyms from the [academic word list](/en/blog/academic-word-list/) makes spotting these paraphrases intuitive and instantaneous, and our guide on [how to paraphrase in IELTS](/en/blog/how-to-paraphrase-in-ielts/) shows the five patterns test writers rely on.
 
 ### 5. Scan Diagonally to Anchor the Relevant Paragraph
 

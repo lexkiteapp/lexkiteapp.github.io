@@ -108,7 +108,7 @@ Ejemplos:
 
 - *My neighbours had a loud argument last night.* (Tuvieron una fuerte discusión.)
 - *We discussed the budget at the meeting.* (Hablamos del presupuesto, sin pelear.)
-- *I can't stand his jokes.* (No soporto sus bromas.)
+- *I can't stand his jokes.* (No soporto sus bromas.) En la conversación también oirás *put up with*, uno de los [phrasal verbs más usados](/es/blog/phrasal-verbs-mas-usados/) para decir que aguantas algo.
 - *Let me introduce you to my sister.* (Te presento a mi hermana.)
 - *He pretended to be asleep.* (Fingió estar dormido.)
 

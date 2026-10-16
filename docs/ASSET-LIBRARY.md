@@ -4,6 +4,14 @@ Mục tiêu: một kho **mô-đun** (nhân vật, biểu cảm, cử chỉ, phò
 
 Liên quan: `docs/VIDEO-PIPELINE.md` (dựng video), `docs/VIDEO-CONTENT-PLAN.md` (nội dung), `docs/MEDIA-QA-RUBRIC.md` (chấm điểm), `content/video/assets.json` (danh mục máy đọc), `docs/BRAND-RULES.md`.
 
+
+## 0. Luật chống "lơ lửng" (ưu tiên cao nhất – anh chủ 17/10)
+- **Phòng = cảnh hoàn chỉnh**: Kling vẽ trọn nội thất, đèn, cửa sổ, đồ trang trí trong cùng 1 phối cảnh & ánh sáng; chừa **vùng sàn trống** (giữa hoặc 1/3 trái/phải) cho nhân vật. KHÔNG ghép đồ vật rời vào giữa sàn.
+- Đồ vật rời (sprite) chỉ dùng làm **tiền cảnh cắt mép khung** (mép bàn, cốc, cây sát cạnh dưới) – không cần chạm sàn nên không thể lơ lửng.
+- Mỗi phòng có **hồ sơ sàn** `rooms/<id>.json`: `floor:{yNear,yFar}`, `vanish:[x,y]`, `scaleAt(y)` (chiều cao người theo độ sâu), `stand:[{x,y}]` các điểm đứng hợp lệ, `light:{dir,warmth}`.
+- Ghép nhân vật: chân = điểm `stand`, cao = `scaleAt(y)`, **bóng tiếp xúc** + bóng đổ theo `light.dir`, chỉnh màu theo `warmth`; ngồi chỉ ở ghế/sofa vẽ sẵn trong phòng (có điểm `seat`).
+- Cổng tự động: chân lệch vùng sàn > 1% chiều cao khung, tỉ lệ sai > 5%, thiếu bóng → chặn.
+
 ## 1. Quy chuẩn chung (bắt buộc để ghép không lệch)
 | Quy chuẩn | Giá trị |
 |---|---|

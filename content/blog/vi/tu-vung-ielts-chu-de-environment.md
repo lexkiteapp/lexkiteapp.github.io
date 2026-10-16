@@ -122,7 +122,7 @@ Nhiều lỗi trong bài viết về môi trường không phải do thiếu t�
 
 Hai lỗi hay gặp: viết *The river is very pollution* thay vì *The river is heavily polluted*; và dùng *conservative* với nghĩa "bảo tồn". Khi nói về bảo tồn thiên nhiên, dùng *conservation efforts* hoặc *conserve natural resources*.
 
-Ngoài ra, phân biệt *effect* (danh từ: tác động) và *affect* (động từ: ảnh hưởng tới): *Pollution affects public health* và *Pollution has a serious effect on public health*.
+Ngoài ra, phân biệt *effect* (danh từ: tác động) và *affect* (động từ: ảnh hưởng tới): *Pollution affects public health* và *Pollution has a serious effect on public health*. Cụm *public health* là cầu nối sang [từ vựng IELTS chủ đề sức khỏe](/vi/blog/tu-vung-ielts-chu-de-health/).
 
 ## Câu mẫu Writing và Speaking tự viết
 

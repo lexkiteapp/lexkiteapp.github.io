@@ -68,7 +68,7 @@ Lưu ý: ví dụ trên chỉ minh họa xu hướng của tiêu chí, không ph
 
 ### 1. Học từ theo chủ đề, không theo danh sách ngẫu nhiên
 
-Đề IELTS xoay quanh những nhóm chủ đề quen thuộc: giáo dục, môi trường, công nghệ, sức khỏe, đô thị, công việc. Học theo cụm chủ đề giúp bạn có "kho" sẵn khi gặp đề. Mỗi chủ đề, hãy nhắm 30–50 từ và cụm từ có ví dụ đầy đủ. Các [bộ từ vựng IELTS chia theo chủ đề](/tu-vung/) là điểm khởi đầu tiện lợi.
+Đề IELTS xoay quanh những nhóm chủ đề quen thuộc: giáo dục, môi trường, công nghệ, [sức khỏe](/vi/blog/tu-vung-ielts-chu-de-health/), đô thị, công việc. Học theo cụm chủ đề giúp bạn có "kho" sẵn khi gặp đề. Mỗi chủ đề, hãy nhắm 30–50 từ và cụm từ có ví dụ đầy đủ. Các [bộ từ vựng IELTS chia theo chủ đề](/tu-vung/) là điểm khởi đầu tiện lợi.
 
 ### 2. Luôn học kèm collocation và một câu ví dụ
 
