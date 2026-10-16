@@ -82,8 +82,9 @@
   chrome.storage.onChanged.addListener(ch => { if (ch.settings) applySettings(ch.settings.newValue); });
 
   // Trusted Types: YouTube và một số trang bắt buộc dùng TrustedHTML cho innerHTML
-  const ttPolicy = (() => { try { return window.trustedTypes && trustedTypes.createPolicy ? trustedTypes.createPolicy('vocaband#lexi', { createHTML: x => x }) : null; } catch (e) { return null; } })();
-  const H = html => (ttPolicy ? ttPolicy.createHTML(html) : html);
+  let ttPolicy; // undefined = chưa kiểm; null = trang không bắt buộc TrustedHTML
+  const needTT = () => { try { document.createElement('div').innerHTML = '<b></b>'; return false; } catch (e) { return true; } };
+  const H = html => { if (ttPolicy === undefined) { ttPolicy = null; if (window.trustedTypes && trustedTypes.createPolicy && needTT()) try { ttPolicy = trustedTypes.createPolicy('vocaband#lexi', { createHTML: x => x }); } catch (e) { ttPolicy = null; } } return ttPolicy ? ttPolicy.createHTML(html) : html; };
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
   const CSS = `
@@ -98,11 +99,11 @@
     .pic.ltr { background: linear-gradient(135deg, #0F3D3E, #1F7A72); color: #fff; font: 800 30px/1 -apple-system, "Segoe UI", sans-serif; text-transform: lowercase; }
     .inDeck { background: #e8f5ec; color: #15803d; font-weight: 700; }
     .w { font-size: 20px; font-weight: 800; }
-    .chip { display: inline-block; padding: 0 7px; margin-left: 4px; border-radius: 99px; background: #f1f2f8; color: #6b6f85; font-size: 11px; vertical-align: middle; }
-    .lv { background: #fdece6; color: #CC3F1C; font-weight: 700; }
+    .chip { display: inline-block; padding: 0 7px; margin-left: 4px; border-radius: 99px; background: #f1f2f8; color: #565a6e; font-size: 11px; vertical-align: middle; }
+    .lv { background: #fdece6; color: #A5300F; font-weight: 700; }
     .ipa { color: #6b6f85; font-family: "Lucida Sans Unicode", "Arial Unicode MS", sans-serif; }
     .spks { display: flex; gap: 6px; margin: 4px 0 2px; flex-wrap: wrap; }
-    .spk { border: 0; background: #fdece6; color: #CC3F1C; border-radius: 999px; height: 26px; padding: 0 10px; cursor: pointer; font: 700 12px/26px -apple-system, "Segoe UI", sans-serif; vertical-align: middle; }
+    .spk { border: 0; background: #fdece6; color: #A5300F; border-radius: 999px; height: 26px; padding: 0 10px; cursor: pointer; font: 700 12px/26px -apple-system, "Segoe UI", sans-serif; vertical-align: middle; }
     .spk:hover { background: #CC3F1C; color: #fff; }
     .spk.mini { height: 22px; padding: 0 6px; line-height: 22px; font-size: 11px; }
     .sk { height: 11px; border-radius: 6px; margin: 7px 0; background: linear-gradient(90deg, #eef0f6 25%, #f8f9fc 50%, #eef0f6 75%); background-size: 200% 100%; animation: sh 1s infinite linear; }
