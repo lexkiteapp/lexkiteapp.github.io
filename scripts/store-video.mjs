@@ -18,6 +18,13 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 fs.mkdirSync(OUT, { recursive: true });
 const ICON = 'data:image/svg+xml;base64,' + fs.readFileSync('web/icons/icon.svg').toString('base64');
 const FONT = '<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&display=block" rel="stylesheet">';
+// Mở trang có thử lại: điều hướng đôi khi treo trên runner CI (trang mẫu qua ctx.route / trang add-on) → 3 lần × 20 giây
+async function go(page, url) {
+  for (let i = 0; i < 3; i++) {
+    try { await page.goto(url, { waitUntil: 'commit', timeout: 20000 }); await page.waitForLoadState('domcontentloaded', { timeout: 15000 }).catch(() => {}); return; }
+    catch (e) { if (i === 2) throw e; await page.goto('about:blank').catch(() => {}); await sleep(1500); }
+  }
+}
 const ff = args => execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...args], { stdio: 'inherit' });
 
 const T = { ...VIDEO[LANG], s: CAP[LANG].map(([k, h, p]) => [k, h, p]) };
@@ -92,11 +99,11 @@ for (const p of ctx.pages()) if (p.url().startsWith(base)) await p.close().catch
 // Dữ liệu mẫu + làm nóng bộ đệm tra từ/dịch (cảnh quay không phải chờ mạng)
 const warm = await ctx.newPage();
 try {
-await warm.goto(base + `app/index.html?demo=1&hl=${LANG}#/home`, { waitUntil: 'commit', timeout: 60000 }); await sleep(5000);
+await go(warm, base + `app/index.html?demo=1&hl=${LANG}#/home`); await sleep(5000);
 await setSettings({ selectMode: 'off', markKnown: false, markAcademic: false });
-await warm.goto('https://news.example.com/a', { waitUntil: 'commit', timeout: 60000 }); await sleep(2000); await warm.dblclick('#w'); await sleep(9000);
+await go(warm, 'https://news.example.com/a'); await sleep(2000); await warm.dblclick('#w'); await sleep(9000);
 await setSettings({ selectMode: 'auto' });
-await warm.goto('https://news.example.com/a', { waitUntil: 'commit', timeout: 60000 }); await sleep(2000);
+await go(warm, 'https://news.example.com/a'); await sleep(2000);
 { const b = await warm.locator('#s').boundingBox(); await warm.mouse.move(b.x + 1, b.y + 8); await warm.mouse.down(); await warm.mouse.move(b.x + b.width - 2, b.y + b.height - 8, { steps: 10 }); await warm.mouse.up(); }
 await sleep(9000);
 } catch (e) { console.log('⚠ làm nóng lỗi (bỏ qua):', e.message.split('\n')[0]); }
@@ -116,7 +123,7 @@ async function record(fn) {
 // 1. Bấm đúp tra từ
 await setSettings({ selectMode: 'off' });
 scenes.push({ i: 0, url: 'dailyplanet.com/environment', ...await record(async (p, mark) => {
-  await p.goto('https://news.example.com/cities-forests', { waitUntil: 'commit', timeout: 60000 }); await sleep(1800);
+  await go(p, 'https://news.example.com/cities-forests'); await sleep(1800);
   const ss = mark(); await p.mouse.move(300, 650); await sleep(300);
   const b = await p.locator('#w').boundingBox(); await p.mouse.move(b.x + b.width / 2, b.y + b.height / 2, { steps: 30 }); await sleep(350);
   await p.mouse.dblclick(b.x + b.width / 2, b.y + b.height / 2); await sleep(4200);
@@ -127,7 +134,7 @@ scenes.push({ i: 0, url: 'dailyplanet.com/environment', ...await record(async (p
 // 2. Bôi đen câu → dịch + cấu trúc
 await setSettings({ selectMode: 'auto' });
 scenes.push({ i: 1, url: 'dailyplanet.com/environment', ...await record(async (p, mark) => {
-  await p.goto('https://news.example.com/cities-forests', { waitUntil: 'commit', timeout: 60000 }); await sleep(1800);
+  await go(p, 'https://news.example.com/cities-forests'); await sleep(1800);
   const ss = mark(); const b = await p.locator('#s').boundingBox();
   await p.mouse.move(200, 700); await p.mouse.move(b.x + 1, b.y + 9, { steps: 25 }); await sleep(250);
   await p.mouse.down(); await p.mouse.move(b.x + b.width - 2, b.y + b.height - 9, { steps: 45 }); await p.mouse.up();
@@ -138,7 +145,7 @@ scenes.push({ i: 1, url: 'dailyplanet.com/environment', ...await record(async (p
 const popCtxPage = async () => { const p = await ctx.newPage(); await p.setViewportSize({ width: 380, height: 600 }); return p; };
 {
   const page = await popCtxPage(); const t0 = Date.now(); const mark = () => (Date.now() - t0) / 1000;
-  await page.goto(base + 'popup.html', { waitUntil: 'commit', timeout: 60000 }); await sleep(1800);
+  await go(page, base + 'popup.html'); await sleep(1800);
   const ss = mark(); await page.mouse.move(330, 560); await sleep(300);
   const q = page.locator('#qCard'); if (await q.count()) { const b = await q.boundingBox(); await page.mouse.move(b.x + b.width / 2, b.y + b.height / 2, { steps: 25 }); await sleep(400); await page.mouse.click(b.x + b.width / 2, b.y + b.height / 2); await sleep(1600); }
   const r = page.locator('#review'); { const b = await r.boundingBox(); await page.mouse.move(b.x + b.width / 2, b.y + b.height / 2, { steps: 20 }); } await sleep(1500);
@@ -147,7 +154,7 @@ const popCtxPage = async () => { const p = await ctx.newPage(); await p.setViewp
 }
 // 4. Tab mới: lật thẻ → "Đã nhớ"
 scenes.push({ i: 3, url: 'New Tab', ...await record(async (p, mark) => {
-  await p.goto(base + 'newtab.html', { waitUntil: 'commit', timeout: 60000 }); await sleep(1800);
+  await go(p, base + 'newtab.html'); await sleep(1800);
   const ss = mark(); await p.mouse.move(640, 760); await sleep(300);
   const g = p.locator('#ntGood'); if (await g.isVisible()) { const b = await g.boundingBox(); await p.mouse.move(b.x + b.width / 2, b.y + b.height / 2, { steps: 30 }); await sleep(500); await p.mouse.click(b.x + b.width / 2, b.y + b.height / 2); }
   await sleep(2600);
@@ -155,7 +162,7 @@ scenes.push({ i: 3, url: 'New Tab', ...await record(async (p, mark) => {
 }) });
 // 5. Ứng dụng học: trang chủ, cuộn nhẹ
 scenes.push({ i: 4, url: 'Lexkite', ...await record(async (p, mark) => {
-  await p.goto(base + `app/index.html?hl=${LANG}#/home`, { waitUntil: 'commit', timeout: 60000 }); await sleep(3000);
+  await go(p, base + `app/index.html?hl=${LANG}#/home`); await sleep(3000);
   const ss = mark(); await p.mouse.move(700, 500, { steps: 20 }); await sleep(600);
   for (let k = 0; k < 8; k++) { await p.mouse.wheel(0, 70); await sleep(180); } await sleep(1600);
   return { ss, d: +(mark() - ss).toFixed(2) };
