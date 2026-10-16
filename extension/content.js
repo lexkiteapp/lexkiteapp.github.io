@@ -468,7 +468,8 @@
     }
 
     if (ML() !== 'vi' && ML() !== 'en') chrome.runtime.sendMessage({ type: 'translate', text: word, tl: ML() }).then(r => { mlW = (r && r.vi) || ''; const el = b.querySelector('.vi'); if (el && current === word && mlW.toLowerCase() !== word.toLowerCase()) el.textContent = mlW; }).catch(() => {});
-    if (context && ML() !== 'en') chrome.runtime.sendMessage({ type: 'translate', text: context, tl: ML() }).then(r => { ctxVi = (r && r.vi) || ''; paintCtx(); }).catch(() => {});
+    // Dịch câu ngữ cảnh: không phản hồi sau 10 giây (mạng chậm / add-on vừa nạp lại) → bỏ dòng "Đang dịch câu…" thay vì treo mãi
+    if (context && ML() !== 'en') { const ctxT = setTimeout(paintCtx, 10000); chrome.runtime.sendMessage({ type: 'translate', text: context, tl: ML() }).then(r => { clearTimeout(ctxT); ctxVi = (r && r.vi) || ''; paintCtx(); }).catch(() => { clearTimeout(ctxT); paintCtx(); }); }
     const full = chrome.runtime.sendMessage({ type: 'lookup', word });
     full.catch(() => {}); // tránh lỗi "Uncaught (in promise)" khi add-on vừa được cập nhật
     let q;

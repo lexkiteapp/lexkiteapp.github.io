@@ -568,7 +568,7 @@
     ['stockbroker', '', 'n', 'nhà môi giới chứng khoán', 'a person who buys and sells shares for others', 'Her stockbroker advised her to sell the shares.', 'work as a stockbroker|consult a stockbroker', '', 'B2', '📈'],
     ['tablecloth', '', 'n', 'khăn trải bàn', 'a cloth that covers a table', 'The waiter replaced the tablecloth before the guests arrived.', 'white tablecloth|linen tablecloth', '', 'A2', '🍽️'],
     ['thirsty', '/ˈθɜːsti/', 'adj', 'khát', 'wanting to drink', 'Water is provided in case anyone gets thirsty.', 'feel thirsty|get thirsty', '', 'A1', '🥤'],
-    ['thrill', '', 'n', 'sự hồi hộp, phấn khích', 'a feeling of excitement', 'Winning the large government contract was a real thrill for the team.', 'a real thrill|thrill of', '', 'B2', '🎢'],
+    ['thrill', '/θrɪl/', 'n', 'sự hồi hộp, phấn khích', 'a feeling of excitement', 'Winning the large government contract was a real thrill for the team.', 'a real thrill|thrill of', '', 'B2', '🎢'],
     ['tile', '/taɪl/', 'n', 'gạch lát, ngói', 'a flat piece of baked clay for floors or roofs', 'The bathroom floor in the staff area needs new tiles.', 'floor tile|roof tile', '', 'B1', '🧱'],
     ['toiletry', '/ˈtɔɪlɪtri/', 'n', 'đồ dùng vệ sinh cá nhân', 'a product for washing and personal care', 'Free toiletries such as shampoo and soap are provided in every room.', 'travel toiletries|toiletry bag', '', 'B2', '🧴'],
     ['trademark', '/ˈtreɪdmɑːk/', 'n', 'nhãn hiệu (đăng ký)', 'a name or symbol legally owned by a company', 'The company\'s logo is a registered trademark in many countries.', 'registered trademark|trademark law', '', 'B2', '™️'],
