@@ -69,7 +69,8 @@ jobs:
           disable-animations: true
           script: |
             adb install -r lexkite.apk && mkdir -p shots
-            adb shell monkey -p com.lexkite.app -c android.intent.category.LAUNCHER 1 && sleep 15 && adb exec-out screencap -p > shots/android-1-start.png
+            adb logcat -c; adb shell monkey -p com.lexkite.app -c android.intent.category.LAUNCHER 1; sleep 45; adb exec-out screencap -p > shots/android-1-start.png
+            adb logcat -d -s chromium:V Capacitor:V Capacitor/Console:V AndroidRuntime:E '*:F' > shots/logcat.txt || true
             adb shell cmd uimode night yes && sleep 4 && adb exec-out screencap -p > shots/android-2-dark.png
       - uses: actions/upload-artifact@v4
         if: always()
