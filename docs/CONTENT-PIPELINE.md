@@ -20,7 +20,7 @@ Loại · số lượng · cấp CEFR/Part · file đích · mẫu định dạn
 
 ## 4. Cổng tự động (phải xanh trước khi đẩy)
 `npm run content:gate` = `content-check` (0 lỗi: đáp án/phương án/căn cứ/lỗi tiếng Anh) + `size-budget` (dung lượng, cảnh báo nội dung chỉ được giảm) + `vi-lint` + `brand-check` + `infra-check`; rồi `npm test` đầy đủ.
-`explain-check` (bản dịch lời giải ≥ 98%) được phép tạm đỏ tối đa 1 đêm sau lô mới.
+`explain-check`: bản dịch lời giải 13 ngôn ngữ do bot đêm làm – 90–98% chỉ là cảnh báo ⚠ (KHÔNG chờ, KHÔNG dịch tay, không tốn token); < 90% mới chặn (pipeline dịch hỏng → báo phiên chính).
 
 ## 5. Nghiệm thu (phiên chính)
 1. Diff đúng phạm vi file trong brief; đếm đúng số lượng.
