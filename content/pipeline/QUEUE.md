@@ -4,9 +4,9 @@ Quy trình & tiêu chí nghiệm thu: `docs/CONTENT-PIPELINE.md`. Lấy lô Đ�
 
 | # | Loại | Có / chỉ tiêu | % | Lô tiếp theo | Trọng tâm | File | Chi tiết hiện có |
 |---|---|---|---|---|---|---|---|
-| 1 | TOEFL Speaking | 88 / 150 câu | 59% | 30 câu | — | `web/js/toefl/data*.js` | repeat: 56, interview: 32 |
-| 2 | IELTS Reading GT | 120 / 200 câu | 60% | 40 câu | — | `web/js/readtest/gt*.js` | Passage 1: 42, Passage 2: 39, Passage 3: 39 |
-| 3 | TOEFL Writing | 76 / 100 đề | 76% | 20 đề | — | `web/js/toefl/data*.js` | sentence: 48, email: 14, discussion: 14 |
+| 1 | IELTS Reading GT | 120 / 200 câu | 60% | 40 câu | — | `web/js/readtest/gt*.js` | Passage 1: 42, Passage 2: 39, Passage 3: 39 |
+| 2 | TOEFL Writing | 76 / 100 đề | 76% | 20 đề | — | `web/js/toefl/data*.js` | sentence: 48, email: 14, discussion: 14 |
+| 3 | TOEFL Speaking | 118 / 150 câu | 79% | 30 câu | — | `web/js/toefl/data*.js` | repeat: 74, interview: 44 |
 | 4 | Ngữ pháp – tự luận | 800 / 1000 câu | 80% | 60 câu | 31 chủ đề CHƯA có bài tự luận: participle-clauses, subjunctive, hedging, nominalisation, paraphrase-ielts, alternatives-to-if, reported-advanced… (≥ 10 câu/chủ đề) | `web/js/grammar/*.js` | A2: 140, B1: 300, B2: 270, C1: 90 |
 | 5 | TOEIC Speaking & Writing | 0 / 60 đề | 0% | 20 đề | 11 dạng Speaking + 8 dạng Writing theo cấu trúc ETS công khai; bài mẫu + tiêu chí chấm | `web/js/toeic/sw*.js (mới – cần UI)` |  |
 | 6 | TOEFL Listening | 128 / 200 câu | 64% | 32 câu | — | `web/js/toefl/data*.js` | response: 32, conversation: 32, announcement: 24, talk: 40 |
