@@ -596,7 +596,7 @@
     const vi = (r && r.vi) || '';
     const words = info.text.split(/\s+/).filter(x => /[A-Za-z]/.test(x)).map(x => x.replace(/^[^A-Za-z]+|[^A-Za-z'’-]+$/g, ''));
     const structs = (window.VBStruct ? VBStruct.analyze(info.text, 4) : []);
-    if (structs.length && !GT) { try { GT = await (await fetch(chrome.runtime.getURL('grammar-titles.json'))).json(); } catch (e) { GT = {}; } }
+    if (structs.length && !GT) { try { GT = ((await chrome.runtime.sendMessage({ type: 'extJson', name: 'grammar-titles' })) || {}).data || {}; } catch (e) { GT = {}; } }
     let sentence = ''; try { sentence = info.range ? sentenceAround(info.range) : ''; } catch (e) { /* bỏ qua */ }
     const st = (await chrome.storage.local.get('settings')).settings || {};
     const accent = st.accent || 'en-GB';
@@ -722,7 +722,7 @@
     const r = await chrome.storage.local.get('cards');
     known = new Map(Object.values(r.cards || {}).filter(c => c.word && c.word.length > 2 && !/\s/.test(c.word)).map(c => [c.word.toLowerCase(), { vi: c.vi || '', ipa: c.ipa || '', lv: level5(c.srs) }]));
     if (acadOn) {
-      if (!ACAD) try { ACAD = await (await fetch(chrome.runtime.getURL('academic.json'))).json(); } catch (e) { ACAD = {}; }
+      if (!ACAD) try { ACAD = ((await chrome.runtime.sendMessage({ type: 'extJson', name: 'academic' })) || {}).data || {}; } catch (e) { ACAD = {}; }
       for (const [w, cefr] of Object.entries(ACAD)) if (!known.has(w)) known.set(w, { acad: cefr });
     }
     knownRe = known.size ? new RegExp(`\\b(${[...known.keys()].sort((a, b) => b.length - a.length).map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})(s|es|ed|d|ing)?\\b`, 'gi') : null;
