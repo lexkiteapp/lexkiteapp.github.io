@@ -2536,6 +2536,222 @@
    "type": "evergreen",
    "lang": "en",
    "source": "ielts-reading-skimming-scanning"
+  },
+  {
+   "slug": "tu-vung-ielts-chu-de-health",
+   "keyword": "từ vựng ielts chủ đề health",
+   "category": "tu-vung",
+   "tags": [
+    "environment",
+    "ielts",
+    "chu-de"
+   ],
+   "shots": [
+    "library",
+    "speaking",
+    "write",
+    "practice-match"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/reading"
+   ],
+   "angle": "Từ & collocation chủ đề sức khỏe (lối sống, y tế công, sức khỏe tinh thần) cho Writing/Speaking, câu mẫu tự viết, lỗi dùng từ người Việt",
+   "intent": "informational",
+   "lang": "vi"
+  },
+  {
+   "slug": "how-to-paraphrase-in-ielts",
+   "keyword": "how to paraphrase in ielts",
+   "category": "ielts",
+   "tags": [
+    "paraphrase",
+    "writing",
+    "reading"
+   ],
+   "shots": [
+    "write",
+    "dict"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/dict/"
+   ],
+   "angle": "5 kỹ thuật paraphrase (đồng nghĩa, đổi từ loại, đổi cấu trúc, bị động, khái quát), ví dụ tự đặt",
+   "intent": "informational",
+   "lang": "en",
+   "source": "cach-paraphrase-trong-ielts"
+  },
+  {
+   "slug": "phrasal-verbs-mas-usados",
+   "keyword": "phrasal verbs más usados",
+   "category": "tu-vung",
+   "tags": [
+    "phrasal-verb",
+    "speaking"
+   ],
+   "shots": [
+    "practice-learn",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/practice/learn",
+    "/#/practice/speak"
+   ],
+   "angle": "Cách học phrasal verb theo tiểu từ (up, out, off…), 30 cụm thông dụng có ví dụ tự đặt, khi nào nên tránh trong Writing",
+   "intent": "informational",
+   "lang": "es",
+   "source": "phrasal-verb-thong-dung"
+  },
+  {
+   "slug": "toeic-part7-jikan-haibun",
+   "keyword": "toeic part7 時間配分",
+   "category": "toeic",
+   "tags": [
+    "toeic",
+    "part-7",
+    "doc-hieu"
+   ],
+   "shots": [
+    "toeic",
+    "reading"
+   ],
+   "routes": [
+    "/#/toeic",
+    "/#/reading"
+   ],
+   "angle": "Đoạn đơn/kép/ba, câu hỏi suy luận, quản lý thời gian",
+   "intent": "informational",
+   "lang": "ja",
+   "source": "toeic-part-7-doc-hieu"
+  },
+  {
+   "slug": "true-false-not-given-ielts",
+   "keyword": "true false not given ielts",
+   "category": "ielts",
+   "tags": [
+    "reading",
+    "ielts"
+   ],
+   "shots": [
+    "reading",
+    "read-article"
+   ],
+   "routes": [
+    "/#/reading"
+   ],
+   "angle": "Phân biệt False và Not Given, quy trình 4 bước, ví dụ tự viết",
+   "intent": "informational",
+   "lang": "id",
+   "source": "ielts-reading-true-false-not-given"
+  },
+  {
+   "slug": "tu-vung-ielts-chu-de-work",
+   "keyword": "từ vựng ielts chủ đề work",
+   "category": "tu-vung",
+   "tags": [
+    "work",
+    "ielts",
+    "chu-de"
+   ],
+   "shots": [
+    "library",
+    "speaking",
+    "write",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/write"
+   ],
+   "angle": "Từ & collocation chủ đề công việc (tuyển dụng, làm từ xa, cân bằng công việc–cuộc sống, tự động hóa) cho Writing/Speaking, câu mẫu tự viết, lỗi dùng từ người Việt",
+   "intent": "informational",
+   "lang": "vi"
+  },
+  {
+   "slug": "idioms-for-ielts-speaking",
+   "keyword": "idioms for ielts speaking",
+   "category": "ielts",
+   "tags": [
+    "idiom",
+    "speaking"
+   ],
+   "shots": [
+    "speaking",
+    "phrases"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/phrases"
+   ],
+   "angle": "Dùng idiom tự nhiên trong Speaking, idiom nên/không nên dùng, ví dụ câu trả lời",
+   "intent": "informational",
+   "lang": "en",
+   "source": "idiom-ielts-speaking"
+  },
+  {
+   "slug": "como-mejorar-el-listening-en-ingles",
+   "keyword": "cómo mejorar el listening en inglés",
+   "category": "ky-nang",
+   "tags": [
+    "nghe",
+    "listening"
+   ],
+   "shots": [
+    "listening",
+    "practice"
+   ],
+   "routes": [
+    "/#/listening"
+   ],
+   "angle": "Mô hình nghe từ dưới lên/trên xuống, nghe chủ động vs thụ động, chọn tài liệu i+1, quy trình 5 lượt nghe một đoạn",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "es",
+   "source": "luyen-nghe-tieng-anh-hieu-qua"
+  },
+  {
+   "slug": "eigo-listening-joutatsu",
+   "keyword": "英語 リスニング 上達",
+   "category": "ky-nang",
+   "tags": [
+    "nghe",
+    "listening"
+   ],
+   "shots": [
+    "listening",
+    "practice"
+   ],
+   "routes": [
+    "/#/listening"
+   ],
+   "angle": "Mô hình nghe từ dưới lên/trên xuống, nghe chủ động vs thụ động, chọn tài liệu i+1, quy trình 5 lượt nghe một đoạn",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "ja",
+   "source": "luyen-nghe-tieng-anh-hieu-qua"
+  },
+  {
+   "slug": "gerund-dan-to-infinitive",
+   "keyword": "gerund dan to infinitive",
+   "category": "ngu-phap",
+   "tags": [
+    "gerund",
+    "ngu-phap"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "Logic đằng sau (hướng tới tương lai vs trải nghiệm), động từ đổi nghĩa (stop/remember/try), mẹo nhớ theo nhóm",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "id",
+   "source": "gerund-va-to-infinitive"
   }
  ]
 }
