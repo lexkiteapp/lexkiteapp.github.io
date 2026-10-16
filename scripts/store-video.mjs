@@ -6,6 +6,7 @@ import { execFileSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 import os from 'os';
+import { CAP, VIDEO } from './store-copy.mjs';
 
 const OUT = path.resolve(process.argv[2] || 'store-video');
 const TMP = fs.mkdtempSync(path.join(os.tmpdir(), 'lkv-'));
@@ -19,30 +20,7 @@ const ICON = 'data:image/svg+xml;base64,' + fs.readFileSync('web/icons/icon.svg'
 const FONT = '<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&display=block" rel="stylesheet">';
 const ff = args => execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...args], { stdio: 'inherit' });
 
-const T = {
-  en: {
-    intro: ['Learn English words<br><em>while you browse.</em>', 'The free vocabulary extension for IELTS, TOEIC & everyday English'],
-    s: [
-      ['On any website', 'Double-click.<br><em>Understand instantly.</em>', 'IPA, audio, meanings and examples – right where you read.'],
-      ['Translate & learn grammar', 'Select a sentence.<br><em>See how it works.</em>', 'Instant translation plus the grammar structures inside it.'],
-      ['Toolbar popup', 'Your daily study,<br><em>one click away.</em>', 'Cards due today, quick lookup and a 1-minute review.'],
-      ['New tab', 'Learn a word<br><em>every new tab.</em>', 'A flashcard from your own deck, at the right moment.'],
-      ['Full study app included', 'Remember words<br><em>for good.</em>', 'FSRS spaced repetition, 6,000+ words, IELTS & TOEIC practice.'],
-    ],
-    outro: ['Add to Chrome –<br><em>it’s free.</em>', 'lexkite.com'],
-  },
-  vi: {
-    intro: ['Học từ vựng tiếng Anh<br><em>ngay khi lướt web.</em>', 'Tiện ích từ vựng miễn phí cho IELTS, TOEIC và tiếng Anh hằng ngày'],
-    s: [
-      ['Trên mọi trang web', 'Bấm đúp vào từ.<br><em>Hiểu ngay lập tức.</em>', 'Phiên âm, phát âm, nghĩa và ví dụ ngay tại chỗ bạn đọc.'],
-      ['Dịch & học ngữ pháp', 'Bôi đen một câu.<br><em>Hiểu cả cấu trúc.</em>', 'Dịch tức thì, kèm giải thích cấu trúc ngữ pháp trong câu.'],
-      ['Cửa sổ tiện ích', 'Việc học mỗi ngày,<br><em>chỉ một cú bấm.</em>', 'Thẻ cần ôn, tra nhanh và ôn 1 phút.'],
-      ['Tab mới', 'Mỗi tab mới,<br><em>thêm một từ.</em>', 'Một thẻ từ chính sổ của bạn, đúng thời điểm.'],
-      ['Kèm ứng dụng học đầy đủ', 'Nhớ từ vựng<br><em>thật lâu.</em>', 'Lặp lại ngắt quãng FSRS, 6.000+ từ, luyện IELTS & TOEIC.'],
-    ],
-    outro: ['Thêm vào Chrome –<br><em>miễn phí.</em>', 'lexkite.com'],
-  },
-}[LANG];
+const T = { ...VIDEO[LANG], s: CAP[LANG].map(([k, h, p]) => [k, h, p]) };
 
 const ARTICLE = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Why cities are planting forests</title>
 <style>body{margin:0;font:21px/1.75 Georgia,serif;color:#23272a;background:#fbfaf7}nav{display:flex;gap:28px;align-items:center;padding:16px 56px;border-bottom:1px solid #e7e3da;font:600 15px Arial,sans-serif;color:#555}
@@ -63,7 +41,7 @@ const CURSOR = `(() => { const add = () => { if (document.getElementById('lk-cur
   if (document.documentElement) add(); document.addEventListener('DOMContentLoaded', add); })();`;
 
 const BG = `background:radial-gradient(1300px 700px at 92% -10%,rgba(255,176,84,.30),transparent 60%),radial-gradient(1000px 700px at -10% 110%,rgba(31,122,114,.55),transparent 60%),linear-gradient(160deg,#0B3233,#0F3D3E 45%,#123f40);`;
-const BASE_CSS = `*{box-sizing:border-box;margin:0}body{width:${CW}px;height:${CH}px;overflow:hidden;font-family:"Be Vietnam Pro","Noto Sans CJK JP",system-ui,sans-serif;color:#fff;${BG}position:relative}
+const BASE_CSS = `*{box-sizing:border-box;margin:0}body{width:${CW}px;height:${CH}px;overflow:hidden;font-family:"Be Vietnam Pro","Noto Sans","Noto Sans Arabic","Noto Sans Devanagari","Noto Sans Thai","Noto Sans CJK JP",system-ui,sans-serif;color:#fff;${BG}position:relative}
 em{font-style:normal;background:linear-gradient(90deg,#FFB054,#F2553B);-webkit-background-clip:text;background-clip:text;color:transparent}
 .brand{position:absolute;left:96px;top:72px;display:flex;align-items:center;gap:16px;font-weight:800;font-size:36px;letter-spacing:-.02em}.brand img{width:62px;height:62px;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,.3)}.brand b{color:#FFB054}
 .txt{position:absolute;left:96px;top:300px;width:520px}.kick{display:inline-block;font-size:19px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#FFB054;background:rgba(255,176,84,.12);border:1px solid rgba(255,176,84,.35);padding:8px 16px;border-radius:99px}
@@ -81,7 +59,7 @@ async function card(page, file, body) {
   await page.evaluate(() => document.fonts.ready); await sleep(300);
   await page.screenshot({ path: file });
 }
-const sceneBg = (i, url, extra = '') => { const [k, h, p] = T.s[i]; return `<div class="brand"><img src="${ICON}"><span>lex<b>kite</b></span></div><div class="txt"><span class="kick">${k}</span><h1>${h}</h1><p>${p}</p></div>${extra}<div class="win"><div class="bar"><span></span><span></span><span></span><div>🔒 ${url}</div></div></div>`; };
+const sceneBg = (i, url, extra = '') => { const [k, h, p] = T.s[i]; return `<div class="brand"><img src="${ICON}"><span>lex<b>kite</b></span></div><div class="txt"${LANG === 'ar' ? ' dir="rtl" style="text-align:right"' : ''}><span class="kick">${k}</span><h1>${h}</h1><p>${p}</p></div>${extra}<div class="win"><div class="bar"><span></span><span></span><span></span><div>🔒 ${url}</div></div></div>`; };
 
 // Ghép 1 cảnh: nền PNG + đoạn video [ss, ss+d] đặt vào khung, mờ dần đầu/cuối
 function compose(bg, vid, ss, d, out, box = WIN) {
@@ -190,7 +168,7 @@ for (const [k, s] of scenes.entries()) {
   if (s.popup) {
     const extra = `<div style="position:absolute;left:720px;top:190px;width:1080px;border-radius:16px;overflow:hidden;opacity:.5;filter:blur(2px)"><img style="display:block;width:100%" src="data:image/png;base64,${artB64}"></div>`;
     const [kk, h, p] = T.s[s.i];
-    await card(cp, bg, `<div class="brand"><img src="${ICON}"><span>lex<b>kite</b></span></div><div class="txt"><span class="kick">${kk}</span><h1>${h}</h1><p>${p}</p></div>${extra}<div style="position:absolute;left:1070px;top:120px;width:456px;height:720px;border-radius:20px;box-shadow:0 50px 110px rgba(0,0,0,.55);background:#fff"></div>`);
+    await card(cp, bg, `<div class="brand"><img src="${ICON}"><span>lex<b>kite</b></span></div><div class="txt"${LANG === 'ar' ? ' dir="rtl" style="text-align:right"' : ''}><span class="kick">${kk}</span><h1>${h}</h1><p>${p}</p></div>${extra}<div style="position:absolute;left:1070px;top:120px;width:456px;height:720px;border-radius:20px;box-shadow:0 50px 110px rgba(0,0,0,.55);background:#fff"></div>`);
     compose(bg, s.vid, s.ss, s.d, path.join(TMP, `p${k + 1}.mp4`), { x: 1070, y: 120, w: 456, h: 720 });
   } else {
     await card(cp, bg, sceneBg(s.i, s.url));
