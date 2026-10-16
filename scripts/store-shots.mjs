@@ -87,6 +87,41 @@ const CAP = {
     ['Nouvel onglet', 'Un mot<br><em>à chaque onglet.</em>', 'Une carte de votre propre paquet à chaque nouvel onglet.', ['Des mots au bon moment', 'Un geste : je sais / à revoir', 'Désactivable à tout moment'], 'Nouvel onglet'],
     ['Application complète incluse', 'Retenez les mots<br><em>durablement.</em>', 'Répétition espacée FSRS et entraînement IELTS & TOEIC, gratuit.', ['Révisions FSRS comme Anki', 'Plus de 6 000 mots avec audio', 'Tests blancs corrigés'], 'Lexkite'],
   ],
+  ar: [
+    ['على أي موقع', 'انقر نقرًا مزدوجًا.<br><em>وافهم فورًا.</em>', 'النطق والمعاني والأمثلة في المكان الذي تقرأ فيه.', ['النطق البريطاني والأمريكي مع الصوت', 'المعاني حسب نوع الكلمة', 'احفظ الكلمة مع جملتها الأصلية'], 'dailyplanet.com/environment'],
+    ['ترجمة وقواعد', 'حدّد جملة.<br><em>وافهم تركيبها.</em>', 'ترجمة فورية مع شرح التراكيب النحوية في الجملة.', ['ترجم أي نص تحدده', 'شرح الأنماط النحوية', 'استمع بسرعة عادية أو بطيئة'], 'dailyplanet.com/environment'],
+    ['نافذة الإضافة', 'دراستك اليومية<br><em>بنقرة واحدة.</em>', 'البطاقات المستحقة، الهدف اليومي، بحث سريع ومراجعة في دقيقة.', ['بطاقات اليوم في لمحة', 'مراجعة سريعة دون مغادرة الصفحة', 'مزامنة بين أجهزتك (اختياري)'], ''],
+    ['علامة تبويب جديدة', 'كلمة جديدة<br><em>مع كل تبويب.</em>', 'بطاقة من مجموعتك الخاصة في كل مرة تفتح فيها تبويبًا.', ['كلمات في الوقت المناسب', 'نقرة واحدة: حفظتها / راجعها', 'يمكنك إيقافها متى شئت'], 'New Tab'],
+    ['تطبيق تعلّم متكامل', 'احفظ الكلمات<br><em>إلى الأبد.</em>', 'تكرار متباعد FSRS وتدريب على IELTS وTOEIC مجانًا.', ['مراجعة FSRS مثل Anki', 'أكثر من 6000 كلمة بالصوت', 'اختبارات تدريبية مع الشرح'], 'Lexkite'],
+  ],
+  hi: [
+    ['किसी भी वेबसाइट पर', 'डबल-क्लिक करें।<br><em>तुरंत समझें।</em>', 'जहाँ आप पढ़ रहे हैं, वहीं उच्चारण, अर्थ और उदाहरण।', ['ब्रिटिश और अमेरिकी IPA + ऑडियो', 'शब्द-भेद के अनुसार अर्थ', 'मूल वाक्य के साथ सेव करें'], 'dailyplanet.com/environment'],
+    ['अनुवाद और व्याकरण', 'वाक्य चुनें।<br><em>उसकी संरचना समझें।</em>', 'तुरंत अनुवाद, साथ में वाक्य की व्याकरण संरचना की व्याख्या।', ['कोई भी चयन अनुवाद करें', 'व्याकरण पैटर्न समझाए गए', 'सामान्य या धीमी गति से सुनें'], 'dailyplanet.com/environment'],
+    ['एक्सटेंशन पॉपअप', 'रोज़ की पढ़ाई,<br><em>बस एक क्लिक पर।</em>', 'आज के कार्ड, दैनिक लक्ष्य, क्विक लुकअप और 1 मिनट रिव्यू।', ['आज के कार्ड एक नज़र में', 'पेज छोड़े बिना रिव्यू', 'डिवाइस सिंक (वैकल्पिक)'], ''],
+    ['नया टैब', 'हर नए टैब में<br><em>एक नया शब्द।</em>', 'हर बार टैब खोलने पर आपकी अपनी डेक से एक कार्ड।', ['सही समय पर शब्द', 'एक टैप: याद है / दोबारा', 'कभी भी बंद करें'], 'New Tab'],
+    ['पूरा स्टडी ऐप शामिल', 'शब्द याद रखें<br><em>हमेशा के लिए।</em>', 'FSRS स्पेस्ड रिपिटिशन और IELTS व TOEIC अभ्यास, मुफ़्त।', ['Anki जैसा FSRS रिव्यू', 'ऑडियो के साथ 6,000+ शब्द', 'व्याख्या सहित प्रैक्टिस टेस्ट'], 'Lexkite'],
+  ],
+  ru: [
+    ['На любом сайте', 'Двойной клик.<br><em>Понятно сразу.</em>', 'Произношение, значения и примеры прямо там, где вы читаете.', ['Британская и американская транскрипция + аудио', 'Значения по частям речи', 'Сохранение с исходным предложением'], 'dailyplanet.com/environment'],
+    ['Перевод и грамматика', 'Выделите фразу.<br><em>Поймите структуру.</em>', 'Мгновенный перевод и разбор грамматических конструкций.', ['Перевод любого выделения', 'Грамматика с объяснениями', 'Обычная или медленная озвучка'], 'dailyplanet.com/environment'],
+    ['Окно расширения', 'Ежедневная учёба —<br><em>в один клик.</em>', 'Карточки на сегодня, цель дня, быстрый поиск и повтор за минуту.', ['Карточки на сегодня одним взглядом', 'Повтор, не покидая страницу', 'Синхронизация устройств (по желанию)'], ''],
+    ['Новая вкладка', 'Новое слово<br><em>в каждой вкладке.</em>', 'Карточка из вашей колоды при каждом открытии вкладки.', ['Слова в нужный момент', 'Одно касание: знаю / повторить', 'Можно отключить в любой момент'], 'New Tab'],
+    ['Полное приложение в комплекте', 'Запоминайте слова<br><em>надолго.</em>', 'Интервальные повторения FSRS и подготовка к IELTS и TOEIC бесплатно.', ['Повторения FSRS как в Anki', 'Более 6000 слов с озвучкой', 'Пробные тесты с разбором'], 'Lexkite'],
+  ],
+  th: [
+    ['บนทุกเว็บไซต์', 'ดับเบิลคลิก<br><em>เข้าใจทันที</em>', 'คำอ่าน ความหมาย และตัวอย่าง ตรงที่คุณกำลังอ่าน', ['IPA แบบอังกฤษและอเมริกัน + เสียง', 'ความหมายตามชนิดคำ', 'บันทึกพร้อมประโยคต้นฉบับ'], 'dailyplanet.com/environment'],
+    ['แปลและไวยากรณ์', 'เลือกประโยค<br><em>เข้าใจโครงสร้าง</em>', 'แปลทันที พร้อมอธิบายโครงสร้างไวยากรณ์ในประโยค', ['แปลข้อความที่เลือกได้ทันที', 'อธิบายรูปแบบไวยากรณ์', 'ฟังความเร็วปกติหรือช้า'], 'dailyplanet.com/environment'],
+    ['หน้าต่างส่วนขยาย', 'การเรียนประจำวัน<br><em>ในคลิกเดียว</em>', 'การ์ดที่ต้องทบทวน เป้าหมายรายวัน ค้นหาด่วน และทบทวน 1 นาที', ['เห็นการ์ดวันนี้ในพริบตา', 'ทบทวนโดยไม่ต้องออกจากหน้า', 'ซิงก์ข้ามอุปกรณ์ (ไม่บังคับ)'], ''],
+    ['แท็บใหม่', 'คำศัพท์ใหม่<br><em>ทุกแท็บใหม่</em>', 'การ์ดจากคลังคำของคุณทุกครั้งที่เปิดแท็บ', ['คำศัพท์มาในจังหวะที่ใช่', 'แตะครั้งเดียว: จำได้ / ทบทวน', 'ปิดได้ทุกเมื่อ'], 'New Tab'],
+    ['มาพร้อมแอปเรียนครบชุด', 'จำคำศัพท์<br><em>ได้นาน</em>', 'ทบทวนแบบเว้นระยะ FSRS และฝึก IELTS & TOEIC ฟรี', ['ทบทวน FSRS แบบ Anki', 'คำศัพท์ 6,000+ คำพร้อมเสียง', 'ข้อสอบฝึกพร้อมเฉลย'], 'Lexkite'],
+  ],
+  tr: [
+    ['Her web sitesinde', 'Çift tıkla.<br><em>Anında anla.</em>', 'Telaffuz, anlamlar ve örnekler, tam okuduğun yerde.', ['İngiliz ve Amerikan IPA + ses', 'Sözcük türüne göre anlamlar', 'Orijinal cümleyle kaydet'], 'dailyplanet.com/environment'],
+    ['Çeviri ve dil bilgisi', 'Bir cümle seç.<br><em>Yapısını anla.</em>', 'Anında çeviri ve cümledeki dil bilgisi yapılarının açıklaması.', ['Her seçimi çevir', 'Dil bilgisi kalıpları açıklanır', 'Normal veya yavaş dinle'], 'dailyplanet.com/environment'],
+    ['Eklenti penceresi', 'Günlük çalışman<br><em>bir tık uzakta.</em>', 'Bugünkü kartlar, günlük hedef, hızlı arama ve 1 dakikalık tekrar.', ['Bugünkü kartlar bir bakışta', 'Sayfadan çıkmadan tekrar', 'Cihazlar arası senkron (isteğe bağlı)'], ''],
+    ['Yeni sekme', 'Her yeni sekmede<br><em>bir kelime.</em>', 'Her sekme açışında kendi destenden bir kart.', ['Kelimeler doğru zamanda', 'Tek dokunuş: biliyorum / tekrar', 'İstediğin zaman kapat'], 'New Tab'],
+    ['Tam çalışma uygulaması dahil', 'Kelimeleri<br><em>kalıcı öğren.</em>', 'FSRS aralıklı tekrar ve IELTS & TOEIC pratiği, ücretsiz.', ['Anki gibi FSRS tekrarı', 'Sesli 6.000+ kelime', 'Açıklamalı deneme sınavları'], 'Lexkite'],
+  ],
 };
 
 const ARTICLE = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Why cities are planting forests</title>
@@ -99,7 +134,7 @@ h1{font:700 40px/1.15 Georgia,serif;margin:6px 0 10px}.by{font:14px Arial,sans-s
 <p>Critics point out that new trees take decades to mature, yet many councils now see green space as an essential part of climate adaptation rather than an optional extra.</p></main></body></html>`;
 
 const BG = `background:radial-gradient(900px 500px at 92% -10%,rgba(255,176,84,.30),transparent 60%),radial-gradient(700px 500px at -10% 110%,rgba(31,122,114,.55),transparent 60%),linear-gradient(160deg,#0B3233,#0F3D3E 45%,#123f40);`;
-const CSS = `*{box-sizing:border-box;margin:0}body{width:${W}px;height:${H}px;overflow:hidden;font-family:"Be Vietnam Pro",system-ui,sans-serif;color:#fff;${BG}position:relative}
+const CSS = `*{box-sizing:border-box;margin:0}body{width:${W}px;height:${H}px;overflow:hidden;font-family:"Be Vietnam Pro","Noto Sans","Noto Sans Arabic","Noto Sans Devanagari","Noto Sans Thai","Noto Sans CJK JP",system-ui,sans-serif;color:#fff;${BG}position:relative}
 body:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:22px 22px;mask-image:linear-gradient(90deg,#000,transparent 55%)}
 .brand{position:absolute;left:64px;top:52px;display:flex;align-items:center;gap:12px;font-weight:800;font-size:26px;letter-spacing:-.02em}.brand img{width:44px;height:44px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.3)}.brand b{color:#FFB054}
 .txt{position:absolute;left:64px;top:170px;width:400px}.kick{display:inline-block;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#FFB054;background:rgba(255,176,84,.12);border:1px solid rgba(255,176,84,.35);padding:6px 12px;border-radius:99px}
@@ -123,7 +158,7 @@ async function frame(page, lang, i, shot, popup = null) {
   await page.setViewportSize({ width: W, height: H });
   await page.setContent(`<!doctype html><html><head><meta charset="utf-8">${FONT}<style>${CSS}</style></head><body><div class="glow"></div>
     <div class="brand"><img src="${ICON}"><span>lex<b>kite</b></span></div>
-    <div class="txt"><span class="kick">${kick}</span><h1>${title}</h1><p class="sub">${sub}</p><ul>${pts.map(x => `<li><i>✓</i>${x}</li>`).join('')}</ul></div>${visual}</body></html>`);
+    <div class="txt"${lang === 'ar' ? ' dir="rtl" style="text-align:right"' : ''}><span class="kick">${kick}</span><h1>${title}</h1><p class="sub">${sub}</p><ul>${pts.map(x => `<li><i>✓</i>${x}</li>`).join('')}</ul></div>${visual}</body></html>`);
   await page.evaluate(() => document.fonts.ready); await sleep(400);
   await page.screenshot({ path: `${OUT}/${lang}-${i + 1}.png`, clip: { x: 0, y: 0, width: W, height: H } });
 }
@@ -189,7 +224,7 @@ async function promos(shot) {
   const big = `<body class="b"><div class="txt"><div class="l"><img src="${ICON}"><div class="n">lex<b>kite</b></div></div><h1>Learn English words<br><em>while you browse.</em></h1>
     <p>Double-click to look up · Save with context · Remember with FSRS</p><div class="tags"><span>Free</span><span>15 languages</span><span>IELTS · TOEIC</span></div></div>
     <div class="win"><div class="bar"><span></span><span></span><span></span></div><img src="${img}"></div></body>`;
-  const css = `*{margin:0;box-sizing:border-box}body{font-family:"Be Vietnam Pro",system-ui,sans-serif;color:#fff;overflow:hidden;position:relative;${BG}}
+  const css = `*{margin:0;box-sizing:border-box}body{font-family:"Be Vietnam Pro","Noto Sans","Noto Sans Arabic","Noto Sans Devanagari","Noto Sans Thai","Noto Sans CJK JP",system-ui,sans-serif;color:#fff;overflow:hidden;position:relative;${BG}}
     em{font-style:normal;background:linear-gradient(90deg,#FFB054,#F2553B);-webkit-background-clip:text;background-clip:text;color:transparent}
     .l{display:flex;align-items:center;gap:10px}.l img{border-radius:22%;box-shadow:0 8px 20px rgba(0,0,0,.35)}.n{font-weight:800;letter-spacing:-.03em}.n b{color:#FFB054}
     .s{width:440px;height:280px;padding:26px 28px}.s .l img{width:42px;height:42px}.s .n{font-size:28px}.s .t{font-size:24px;font-weight:800;line-height:1.15;letter-spacing:-.02em;margin-top:18px;width:250px}
@@ -210,7 +245,7 @@ async function promos(shot) {
 }
 
 // Thị trường: giao diện + chữ quảng cáo + bản dịch theo ngôn ngữ đó; bản en (ảnh chung toàn cầu) minh họa dịch sang tiếng Tây Ban Nha
-const LANGS = (process.env.LANGS || 'en,vi,es,pt,ja,ko,zh,id,de,fr').split(',');
+const LANGS = (process.env.LANGS || 'en,vi,es,pt,ja,ko,zh,id,de,fr,ar,hi,ru,th,tr').split(',');
 const enShot = await run(LANGS[0]);
 for (const l of LANGS.slice(1)) await run(l);
 await promos(enShot);
