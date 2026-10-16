@@ -700,6 +700,7 @@
       }
     },
     async services() {
+      const T = (r, k) => { if (LANG !== 'en') return r[k] || ''; try { const e = JSON.parse(r.i18n || '{}'); return e[k] || r[k] || ''; } catch (x) { return r[k] || ''; } }; // dữ liệu dịch vụ theo ngôn ngữ quản trị (cột i18n JSON)
       const [u, s, gk] = await Promise.all([api('usage'), api('services'), api('geminiStatus').catch(() => ({}))]);
       // Nhóm & trạng thái để quản lý trực quan: thẻ theo nhóm, lọc nhanh, tìm kiếm (regex khớp dữ liệu dịch vụ – không phải chữ giao diện)
       const GROUPS = [['infra', '☁️ Hạ tầng & dữ liệu', /cloudflare (pages|d1|email)|tên miền|github|firebase/i], ['ai', '🤖 AI & dịch', /workers ai|gemini|translate|claude/i], ['grow', '📈 Phát hành & tăng trưởng', /search console|admob|apple|play|chrome web store/i]];
@@ -719,11 +720,11 @@
         <div class="svc-tools"><input type="search" id="sq" placeholder="${L('🔎 Tìm dịch vụ, tài khoản…')}" aria-label="${L('Tìm dịch vụ')}"><div class="svc-chips" role="tablist">${[['all', 'Tất cả'], ['on', 'Đang dùng'], ['todo', 'Chưa thiết lập']].map(([k, l], i) => `<button type="button" class="chip-f ${i ? '' : 'on'}" data-f="${k}">${L(l)}</button>`).join('')}</div><button class="btn primary sm" id="sadd">${L('+ Thêm dịch vụ')}</button></div>
         <div id="svcList"></div>`;
       const card = r => { const st = state(r), [pc, pl] = PILL[st]; return `<article class="svc-card" data-st="${st}" data-q="${esc((r.name + ' ' + r.account + ' ' + r.purpose).toLowerCase())}">
-          <header><div class="svc-name"><b>${esc(r.name)}</b><span class="pill ${pc}">${L(pl)}</span>${keyed(r) ? (gk.set ? `<span class="pill ok">${L('🔑 {n} khóa', { n: (gk.keys || []).length })}</span>` : `<span class="pill warn">${L('🔑 chưa có khóa')}</span>`) : ''}</div>
-            <button class="icon-btn-s" data-sid="${r.id}" title="${L('Sửa')}" aria-label="${L('Sửa {n}', { n: esc(r.name) })}">✎</button></header>
-          ${r.purpose ? `<p class="svc-purpose">${esc(r.purpose)}</p>` : ''}
-          <dl class="svc-meta">${r.account ? `<div><dt>👤</dt><dd>${esc(r.account)}</dd></div>` : ''}${r.free ? `<div><dt>🎁</dt><dd>${esc(r.free)}</dd></div>` : ''}${r.secret && !keyed(r) ? `<div><dt>🔐</dt><dd><code>${esc(r.secret)}</code></dd></div>` : ''}</dl>
-          ${r.note ? `<p class="svc-note">${esc(r.note)}</p>` : ''}
+          <header><div class="svc-name"><b>${esc(T(r, 'name'))}</b><span class="pill ${pc}">${L(pl)}</span>${keyed(r) ? (gk.set ? `<span class="pill ok">${L('🔑 {n} khóa', { n: (gk.keys || []).length })}</span>` : `<span class="pill warn">${L('🔑 chưa có khóa')}</span>`) : ''}</div>
+            <button class="icon-btn-s" data-sid="${r.id}" title="${L('Sửa')}" aria-label="${L('Sửa {n}', { n: esc(T(r, 'name')) })}">✎</button></header>
+          ${r.purpose ? `<p class="svc-purpose">${esc(T(r, 'purpose'))}</p>` : ''}
+          <dl class="svc-meta">${r.account ? `<div><dt>👤</dt><dd>${esc(T(r, 'account'))}</dd></div>` : ''}${r.free ? `<div><dt>🎁</dt><dd>${esc(T(r, 'free'))}</dd></div>` : ''}${r.secret && !keyed(r) ? `<div><dt>🔐</dt><dd><code>${esc(T(r, 'secret'))}</code></dd></div>` : ''}</dl>
+          ${r.note ? `<p class="svc-note">${esc(T(r, 'note'))}</p>` : ''}
           <footer>${keyed(r) ? `<button class="btn sm ${gk.set ? '' : 'primary'}" data-key="gemini">🔑 ${gk.set ? L('Quản lý khóa') : L('Thêm khóa')}</button>` : ''}${r.console ? `<a class="btn sm ${keyed(r) && !gk.set ? '' : 'primary'}" target="_blank" rel="noopener" href="${esc(r.console)}">${L('Mở trang quản lý ↗')}</a>` : ''}${r.billing ? `<a class="btn ghost sm" target="_blank" rel="noopener" href="${esc(r.billing)}">${L('Nâng gói')}</a>` : ''}</footer></article>`; };
       $('#svcList').innerHTML = [...GROUPS, ['other', '🧩 Khác']].map(([g, title]) => { const rows = s.rows.filter(r => groupOf(r) === g); return rows.length ? `<section class="svc-group"><h3>${L(title)} <span class="muted small">${rows.length}</span></h3><div class="svc-grid">${rows.map(card).join('')}</div></section>` : ''; }).join('');
       let f = 'all';
