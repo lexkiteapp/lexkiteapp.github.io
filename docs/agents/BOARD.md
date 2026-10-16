@@ -27,6 +27,15 @@ Mẫu thẻ:
 
 ## TODO
 
+### [W1] Trang "Tiêu chí chấm" IELTS Writing & Speaking (band 4–9) + bài mẫu nhiều mức band · @antigravity (giao diện) + phiên nội dung (chữ) · ưu tiên: vừa
+- Mục tiêu: người học hiểu vì sao bài được band X và cần làm gì để lên band – chuẩn CONTENT-RULES §2.
+- Nội dung (tự diễn đạt, KHÔNG chép band descriptors chính thức của IELTS): 4 tiêu chí Writing (Task Response/Achievement, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy) và 4 tiêu chí Speaking (Fluency & Coherence, Lexical Resource, Grammatical Range & Accuracy, Pronunciation) × band 4–9; mỗi đề mẫu có 3 bài ở band 5 / 6.5 / 8 kèm nhận xét theo tiêu chí.
+- Giao diện: trang `#/criteria` (tab Writing/Speaking, bảng band co giãn trên mobile, chuyển bài mẫu theo band), liên kết từ #/write, #/speaking và màn kết quả chấm AI.
+- Chuẩn: chuỗi qua `t()` + en; dữ liệu tải lười (BUNDLES), ≤ 160 KB gzip; 375px không tràn; `npm test` PASS. Làm trong worktree riêng.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+
 ### [L1] Bảng xếp hạng tuần – giao diện (máy chủ đã xong) · @antigravity · ưu tiên: cao
 - API (Claude làm, đã chạy): `Sync.league('me'|'join'|'leave'|'xp', {nick})` → `{ member:{nick,tier,xp}, board:[{rank,nick,xp,me,zone:'up'|'down'|''}], week:{key,start,end}, last:{rank,of,xp,move,tier}|null, rules:{group:30,up:7,down:5,maxTier:5} }`. XP tự gửi khi chuyển trang (≤ 1 lần/5 phút) sau khi người dùng tham gia. Mã: `functions/api/league.js`, `web/js/sync.js`.
 - Việc: thẻ "🏆 Giải đấu tuần" ở #/home (dưới thẻ hôm nay) + trang `#/league`:
