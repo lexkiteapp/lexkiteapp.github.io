@@ -461,6 +461,294 @@
     ],
   });
 
+  /* ===================================================================
+   * BỘ 5 · WRITING (tự biên soạn). Build a Sentence câu 41–48;
+   * email/discussion có thêm: outline (dàn ý), vocab (từ nên dùng),
+   * mid + midNote (bài mức trung bình và lý do kém hơn bài mẫu).
+   * =================================================================== */
+  TF.writing.push({
+    id: 'tf5-bs', set: 5, task: 'sentence', title: 'Build a Sentence · Set 5',
+    instr: 'Put the words in the correct order to make a grammatical response.',
+    items: [
+      { n: 41, prompt: 'Where did you find that article?', chunks: ['I', 'found', 'it', 'in a journal', 'that my professor', 'recommended'], end: '.',
+        explain: "S + V + O: \"I found it\"; nơi chốn \"in a journal\" rồi mệnh đề quan hệ \"that my professor recommended\" bổ nghĩa cho \"a journal\" nên phải đứng ngay sau nó." },
+      { n: 42, prompt: 'Why didn\'t you come to the meeting?', chunks: ['nobody', 'told me', 'that', 'it had been', 'moved', 'to Tuesday'], end: '.',
+        explain: "tell + sb + that + mệnh đề: \"nobody told me that…\"; bị động quá khứ hoàn thành \"it had been moved\" (cuộc họp đã bị dời TRƯỚC lúc đó); \"move to + thời điểm mới\"." },
+      { n: 43, prompt: 'How long have you been learning English?', chunks: ['I', 'have been', 'studying', 'it', 'since', 'I was ten'], end: '.',
+        explain: "Hiện tại hoàn thành tiếp diễn \"have been + V-ing\" cho hành động kéo dài đến nay; \"since + mốc thời gian/mệnh đề quá khứ\": \"since I was ten\"." },
+      { n: 44, prompt: 'Do you know if the library is open on Sunday?', chunks: ['I\'m not sure', 'whether', 'it', 'opens', 'on weekends'], end: '.',
+        explain: "Câu hỏi gián tiếp sau \"I'm not sure\": whether + S + V theo trật tự câu khẳng định (\"whether it opens\", không đảo \"does it open\"); \"on weekends\" đứng cuối." },
+      { n: 45, prompt: 'What did your advisor suggest?', chunks: ['she', 'suggested', 'that', 'I', 'take', 'an extra writing course'], end: '.',
+        explain: "suggest + that + S + V nguyên mẫu (giả định cách): \"that I take\", không dùng \"took\" hay \"to take\"." },
+      { n: 46, prompt: 'I can\'t open the file you sent me.', chunks: ['which', 'program', 'are you', 'using', 'to open', 'it'], end: '?', starter: 'Oh no!',
+        explain: "Câu hỏi Wh- với \"which + danh từ\": \"which program\" + trợ động từ đảo lên \"are you using\"; \"to open it\" chỉ mục đích đứng cuối." },
+      { n: 47, prompt: 'Which apartment did you decide to rent?', chunks: ['the one', 'with', 'a balcony', 'that', 'faces', 'the park'], end: '.',
+        explain: "Đại từ \"the one\" + cụm giới từ \"with a balcony\"; mệnh đề quan hệ \"that faces the park\" bổ nghĩa cho \"a balcony\" – chủ ngữ số ít nên \"faces\" thêm -s." },
+      { n: 48, prompt: 'Would you mind if I borrowed your notes?', chunks: ['you', 'can', 'keep', 'them', 'until', 'the end of the week'], end: '.', starter: 'Not at all.',
+        explain: "Động từ khuyết thiếu \"can + V nguyên mẫu\": \"you can keep them\"; \"until + mốc thời gian\" đứng cuối: \"until the end of the week\"." },
+    ],
+  });
+  TF.writing.push({
+    id: 'tf5-em1', set: 5, task: 'email', title: 'Asking to Join a Research Project', minutes: 7,
+    scenario: 'Your biology professor, Dr. Lin, mentioned in class that she is looking for undergraduate assistants for a summer project on local river pollution. You are very interested, but you have never worked in a research lab.',
+    to: 'Dr. Lin, your biology professor',
+    points: ['Explain why you are interested in the project.', 'Describe skills or experience that could be useful.', 'Ask about the next steps for applying.'],
+    model: "Dear Dr. Lin,\n\nMy name is Sara Ahmed, and I am a second-year student in your Introduction to Ecology course. In class on Tuesday, you mentioned that you are looking for assistants for your summer project on river pollution, and I would very much like to be considered.\n\nI grew up near the Clearwater River, and I have seen how much its condition has changed in recent years, so the topic is personally important to me. Although I have not worked in a research lab before, I earned an A in the chemistry lab course last semester, and I am comfortable using spreadsheets to organize data. I am also available full-time from June to August.\n\nCould you tell me how to apply and whether you need any documents, such as a transcript or a reference? I would also be happy to meet during your office hours.\n\nThank you for your time.\n\nSincerely,\nSara Ahmed",
+    mid: "Dear Dr. Lin,\n\nI heard about your summer project in class. I am very interested in it because I like biology and the environment is important. I think it would be a great experience for me.\n\nI don't have research experience, but I am a hard worker and I learn quickly. I am also good at working with other people.\n\nPlease tell me if I can join the project. Thank you.\n\nBest regards,\nSara",
+    midNote: 'Bài trung bình đủ ba ý nhưng chung chung: lý do quan tâm ("environment is important") và kỹ năng ("hard worker") không có chi tiết kiểm chứng; không giới thiệu mình là ai; chỉ xin "join" thay vì hỏi bước nộp đơn cụ thể. Bài mẫu nêu môn học, điểm phòng thí nghiệm, kỹ năng bảng tính, thời gian rảnh và hỏi rõ giấy tờ cần nộp.',
+    outline: ['Giới thiệu bản thân + nơi nghe về dự án + mục đích thư', 'Lý do quan tâm (gắn với trải nghiệm thật)', 'Kỹ năng liên quan dù chưa làm nghiên cứu (môn học, công cụ, thời gian)', 'Hỏi cách nộp đơn, giấy tờ cần có; đề nghị gặp; cảm ơn'],
+    vocab: ['I would very much like to be considered – rất mong được xem xét', 'personally important to me – có ý nghĩa với cá nhân tôi', 'Although I have not… before – dù tôi chưa từng…', 'be comfortable using… – sử dụng thành thạo…', 'Could you tell me how to apply…? – xin cô cho biết cách nộp đơn…'],
+    checklist: ['Giới thiệu bản thân và nêu mục đích thư ngay đoạn đầu', 'Lý do quan tâm cụ thể, có chi tiết cá nhân', 'Nêu kỹ năng liên quan có bằng chứng (điểm, công cụ, thời gian rảnh)', 'Hỏi rõ bước tiếp theo (cách nộp, giấy tờ)', 'Giọng trang trọng với giáo sư; có lời cảm ơn và ký tên đầy đủ', 'Khoảng 120–180 từ'],
+    tips: 'Khi thiếu kinh nghiệm, đừng giấu – hãy dùng "Although I have not…" rồi chuyển ngay sang điểm mạnh có bằng chứng.',
+  });
+  TF.writing.push({
+    id: 'tf5-em2', set: 5, task: 'email', title: 'A Lost Jacket at the Campus Gym', minutes: 7,
+    scenario: 'Yesterday you left your jacket in the locker room of the campus gym. When you went back this morning, it was not there, and the student at the front desk was not sure what happens to lost items.',
+    to: 'Mr. Russo, the manager of the campus gym',
+    points: ['Describe the item and when and where you lost it.', 'Explain why it is important to you.', 'Ask what you should do next.'],
+    model: "Dear Mr. Russo,\n\nI am writing to ask for your help in finding a jacket that I left in the men's locker room at the campus gym yesterday evening, at around 7 p.m.\n\nIt is a dark green waterproof jacket with a black hood and a small tear near the left pocket. My student ID card was in the inside pocket, which is why I am especially worried. Without the card, I cannot enter the library or pay for meals in the dining hall.\n\nWhen I returned this morning, the student at the front desk was not sure where lost items are kept. Could you let me know whether the jacket has been handed in, and if not, whether there is a lost-and-found form I should fill out? I can come to the gym at any time this week.\n\nThank you for your help.\n\nBest regards,\nOmar Haddad",
+    mid: "Dear Mr. Russo,\n\nYesterday I lost my jacket at the gym. It is green. I went back today but it was not there and the person at the desk did not know anything, which was not very helpful.\n\nThe jacket is important because my student card is inside it. I need it every day.\n\nCan you please find my jacket and send it to me? Thank you.\n\nOmar",
+    midNote: 'Bài trung bình mô tả quá sơ sài ("It is green"), thiếu nơi và giờ cụ thể nên người quản lý khó tìm; câu chê nhân viên trực ("not very helpful") làm giọng thư kém lịch sự; yêu cầu "find my jacket and send it" không thực tế. Bài mẫu mô tả đặc điểm nhận dạng, hậu quả cụ thể khi mất thẻ và hỏi đúng quy trình (mẫu báo mất đồ).',
+    outline: ['Mục đích thư + nơi, thời điểm để quên', 'Mô tả chi tiết để nhận dạng (màu, chất liệu, dấu hiệu riêng)', 'Vì sao quan trọng (thẻ sinh viên bên trong → hậu quả)', 'Hỏi đã có ai nộp chưa / thủ tục báo mất; thời gian có thể đến; cảm ơn'],
+    vocab: ['I am writing to ask for your help in… – tôi viết thư để nhờ ông giúp…', 'a dark green waterproof jacket – áo khoác chống nước màu xanh lá đậm', 'which is why I am especially worried – đó là lý do tôi đặc biệt lo lắng', 'be handed in – được (ai đó) nộp lại', 'a lost-and-found form – mẫu khai báo mất đồ'],
+    checklist: ['Nêu mục đích, nơi và thời điểm để quên ngay đoạn đầu', 'Mô tả đồ vật đủ chi tiết để nhận dạng', 'Giải thích vì sao đồ vật quan trọng bằng hậu quả cụ thể', 'Hỏi bước tiếp theo hợp lý (đã có ai nộp chưa, mẫu khai báo)', 'Không chê trách nhân viên; giọng lịch sự', 'Khoảng 120–180 từ'],
+    tips: 'Thông tin càng cụ thể (giờ, màu, dấu hiệu riêng) thì người nhận càng dễ giúp – đó cũng là tiêu chí "development" của giám khảo.',
+  });
+  TF.writing.push({
+    id: 'tf5-em3', set: 5, task: 'email', title: 'Rescheduling a Job Interview', minutes: 7,
+    scenario: 'A local company has invited you to an interview for a part-time marketing assistant job next Wednesday at 10 a.m. However, you have just learned that you have a final exam at the same time.',
+    to: 'Ms. Grant, the hiring coordinator at the company',
+    points: ['Thank her for the invitation and confirm your interest.', 'Explain why you cannot attend at the scheduled time.', 'Suggest other times when you are available.'],
+    model: "Dear Ms. Grant,\n\nThank you very much for inviting me to interview for the part-time marketing assistant position. I am still very interested in the role and was pleased to hear from you.\n\nUnfortunately, I have just found out that my final exam in statistics has been scheduled for next Wednesday at 10 a.m., the same time as the interview. Because the exam is worth forty percent of my grade, I am not able to move it.\n\nWould it be possible to reschedule the interview? I am free on Wednesday afternoon after 2 p.m., all day on Thursday, and on Friday morning. If none of these times are convenient, I would be happy to have the interview by video call instead.\n\nI apologize for any inconvenience, and I look forward to hearing from you.\n\nKind regards,\nMinh Tran",
+    mid: "Dear Ms. Grant,\n\nThanks for the invitation. I can't come to the interview on Wednesday because I have an exam. Exams at my university are very important and we cannot change them.\n\nCan we do the interview another day? I am free next week.\n\nI hope this is OK. I really want this job.\n\nBest,\nMinh",
+    midNote: 'Bài trung bình ngắn (khoảng 60 từ) và giọng quá thân mật với nhà tuyển dụng ("Thanks", "OK", "Best"); "I am free next week" không đưa khung giờ cụ thể, buộc người nhận phải hỏi lại; thiếu lời xin lỗi vì gây bất tiện. Bài mẫu nêu thời gian thi chính xác, ba khung giờ thay thế và cả phương án gọi video.',
+    outline: ['Cảm ơn lời mời + khẳng định vẫn rất quan tâm', 'Lý do không thể đến: lịch thi trùng, không đổi được (kèm chi tiết)', 'Đề xuất 2–3 khung giờ cụ thể + phương án dự phòng (video call)', 'Xin lỗi vì bất tiện; mong phản hồi'],
+    vocab: ['I have just found out that… – tôi vừa biết rằng…', 'has been scheduled for… – đã được xếp lịch vào…', 'Would it be possible to reschedule…? – liệu có thể dời lịch… không?', 'If none of these times are convenient… – nếu các khung giờ này đều không tiện…', 'I apologize for any inconvenience – xin lỗi vì sự bất tiện'],
+    checklist: ['Cảm ơn và khẳng định vẫn muốn ứng tuyển', 'Lý do vắng mặt rõ ràng, có chi tiết (môn, giờ, tỉ trọng điểm)', 'Đưa ít nhất hai khung giờ thay thế cụ thể', 'Có phương án linh hoạt (phỏng vấn online)', 'Giọng trang trọng, có lời xin lỗi; ký tên đầy đủ', 'Khoảng 120–180 từ'],
+    tips: 'Thư xin đổi lịch tốt luôn giúp người nhận ra quyết định ngay: đưa sẵn các lựa chọn cụ thể thay vì "another day".',
+  });
+  TF.writing.push({
+    id: 'tf5-em4', set: 5, task: 'email', title: 'Construction Noise near the Library', minutes: 7,
+    scenario: 'Construction work has started next to the main library. The noise begins at 7 a.m. and continues all day, and it is now very difficult to study there during the exam period.',
+    to: 'Mr. Bell, the director of campus facilities',
+    points: ['Describe the problem.', 'Explain how it affects students.', 'Suggest one or two possible solutions.'],
+    model: "Dear Mr. Bell,\n\nI am a third-year student, and I am writing about the construction work beside the main library, which began on Monday.\n\nThe drilling starts at 7 a.m. and continues until about 6 p.m., and it can be heard clearly on every floor, even in the silent study rooms. Because final exams begin in two weeks, many students rely on the library as a quiet place to revise. Several of my classmates and I have stopped going there, and the other study spaces on campus are already full.\n\nI understand that the work is necessary, but I would like to suggest two possible solutions. First, the noisiest work could be done in the early morning before the library opens. Second, the university could open some empty classrooms in the Arts Building as extra quiet study areas during the exam period.\n\nThank you for considering these ideas.\n\nYours sincerely,\nAnna Kowalski",
+    mid: "Dear Mr. Bell,\n\nThe construction near the library is too loud. Nobody can study there anymore and everybody is very angry about it. It is the worst time because exams are coming.\n\nI think you should stop the construction until the exams finish. Or you can tell the workers to be more quiet.\n\nPlease do something soon.\n\nAnna",
+    midNote: 'Bài trung bình nêu đúng vấn đề nhưng phóng đại ("Nobody", "everybody is very angry") thay vì đưa chi tiết (giờ khoan, tầng nào nghe thấy); giải pháp thiếu thực tế (dừng hẳn công trình) và giọng ra lệnh ("Please do something soon"); "more quiet" nên là "quieter". Bài mẫu thừa nhận công trình cần thiết, rồi đề xuất hai giải pháp khả thi.',
+    outline: ['Giới thiệu + vấn đề (vị trí, thời điểm bắt đầu)', 'Mô tả mức độ (giờ giấc, nghe thấy ở đâu)', 'Ảnh hưởng: mùa thi, sinh viên mất chỗ học, chỗ khác đã kín', 'Thừa nhận công trình cần thiết + 2 giải pháp khả thi; cảm ơn'],
+    vocab: ['can be heard clearly on every floor – nghe rõ ở mọi tầng', 'rely on… as a quiet place to revise – dựa vào… làm nơi ôn bài yên tĩnh', 'I understand that…, but… – tôi hiểu rằng…, nhưng…', 'I would like to suggest two possible solutions – tôi xin đề xuất hai giải pháp', 'Thank you for considering these ideas – cảm ơn ông đã xem xét'],
+    checklist: ['Nêu rõ vấn đề với chi tiết (giờ, vị trí, mức độ)', 'Giải thích ảnh hưởng cụ thể, gắn với mùa thi', 'Đưa một đến hai giải pháp khả thi', 'Giọng góp ý xây dựng, không phóng đại hay ra lệnh', 'Mở và kết thư trang trọng', 'Khoảng 120–180 từ'],
+    tips: 'Thư phàn nàn đạt điểm cao khi người viết tỏ ra hiểu vị trí của bên kia ("I understand that…") rồi mới đề xuất.',
+  });
+  TF.writing.push({
+    id: 'tf5-em5', set: 5, task: 'email', title: 'Recommending a Book for the Library', minutes: 7,
+    scenario: 'The university library asks students to recommend books it should buy. You recently read a book that helped you a lot in one of your courses, but the library does not have a copy.',
+    to: 'Ms. Ortiz, the library\'s collections librarian',
+    points: ['Identify the book you want to recommend.', 'Explain how it helped you.', 'Explain why other students would benefit from it.'],
+    model: "Dear Ms. Ortiz,\n\nI saw the library's request for book suggestions, and I would like to recommend Thinking with Data, an introduction to statistics for social science students.\n\nI borrowed a copy from a friend while I was taking Research Methods last semester. The textbook for the course was quite technical, but this book explains each method using everyday examples, such as surveys about sleep and exercise. After reading the chapter on sampling, I finally understood a topic I had struggled with for weeks, and my grade on the next assignment improved considerably.\n\nI believe many other students would benefit from it as well. Research Methods is required for every psychology and sociology major, so more than two hundred students take it each year, and many of them find statistics difficult. Having two or three copies in the library would make the book available to everyone.\n\nThank you for considering my suggestion.\n\nBest regards,\nLeo Martins",
+    mid: "Dear Ms. Ortiz,\n\nI want to recommend a book called Thinking with Data. It is a very good book and I liked it a lot.\n\nIt helped me in my Research Methods class. It is easier than our textbook and it has many examples, so I understood the course better.\n\nI think other students will also like it, because statistics is difficult for many people. Please buy this book for the library.\n\nThank you,\nLeo",
+    midNote: 'Bài trung bình đủ ba ý nhưng mỗi ý chỉ một câu chung chung ("very good", "many examples"); không có ví dụ cụ thể về việc sách giúp thế nào; lý do cho sinh viên khác thiếu số liệu. Bài mẫu mô tả loại sách, cho ví dụ (chương chọn mẫu, điểm tăng) và lập luận bằng quy mô người học (môn bắt buộc, hơn 200 sinh viên/năm).',
+    outline: ['Mở: phản hồi lời kêu gọi + tên và loại sách', 'Sách đã giúp thế nào: bối cảnh môn học, so sánh với giáo trình, kết quả cụ thể', 'Lợi ích cho người khác: môn bắt buộc, số sinh viên, độ khó', 'Đề xuất số bản; cảm ơn'],
+    vocab: ['I would like to recommend… – tôi muốn giới thiệu…', 'explains each method using everyday examples – giải thích mỗi phương pháp bằng ví dụ đời thường', 'a topic I had struggled with for weeks – chủ đề tôi vật lộn suốt nhiều tuần', 'improved considerably – tiến bộ đáng kể', 'would benefit from it as well – cũng sẽ được lợi từ nó'],
+    checklist: ['Nêu tên và giới thiệu ngắn về cuốn sách', 'Kể sách giúp bạn bằng ví dụ và kết quả cụ thể', 'Lý do cho sinh viên khác có lập luận (môn bắt buộc, số lượng)', 'Có đề xuất cụ thể (số bản)', 'Giọng trang trọng, mạch lạc theo đoạn', 'Khoảng 120–180 từ'],
+    tips: 'Thay tính từ chung chung ("very good") bằng một kết quả đo được – giám khảo đánh giá cao chi tiết làm bằng chứng.',
+  });
+  TF.writing.push({
+    id: 'tf5-em6', set: 5, task: 'email', title: 'Asking a Coworker to Swap Shifts', minutes: 7,
+    scenario: 'You work part-time at the campus café. Your cousin is getting married next Saturday, but you are scheduled to work that morning. Your coworker Jamie usually works on Sundays.',
+    to: 'Jamie, a coworker at the café',
+    points: ['Explain your situation.', 'Ask Jamie to swap shifts with you.', 'Offer something to make the swap easier for Jamie.'],
+    model: "Hi Jamie,\n\nI hope your week is going well. I have a favor to ask. My cousin is getting married next Saturday, and I only found out the date for the ceremony yesterday. Unfortunately, I'm scheduled to work the 7 a.m. to 1 p.m. shift at the café that day.\n\nWould you be willing to swap shifts with me? I could take your Sunday shift on the same weekend, from 9 a.m. to 3 p.m., so you would still work the same number of hours. If Sunday doesn't suit you, I'd also be happy to cover one of your weekday evening shifts later this month.\n\nI know it's short notice, so please don't feel any pressure to say yes. If you agree, I'll let our manager know and update the schedule myself.\n\nThanks so much!\n\nCheers,\nPriya",
+    mid: "Hi Jamie,\n\nCan you work my shift next Saturday? My cousin is getting married and I have to go. I will work your shift on Sunday.\n\nPlease tell me soon because I need to know.\n\nThanks,\nPriya",
+    midNote: 'Bài trung bình quá ngắn (khoảng 40 từ) và mở đầu bằng yêu cầu thẳng thừng; thiếu giờ ca làm, thiếu phương án nếu Chủ nhật không tiện; câu "Please tell me soon because I need to know" gây áp lực. Bài mẫu giải thích hoàn cảnh, đưa hai lựa chọn đổi ca, chủ động báo quản lý và tôn trọng quyền từ chối của Jamie.',
+    outline: ['Lời chào thân mật + "I have a favor to ask"', 'Hoàn cảnh: đám cưới, ca làm bị trùng (giờ cụ thể)', 'Đề nghị đổi ca + hai phương án bù lại', 'Thông cảm vì báo gấp; tự lo việc báo quản lý; cảm ơn'],
+    vocab: ['I have a favor to ask – mình có việc muốn nhờ', 'Would you be willing to…? – bạn có sẵn lòng… không?', 'swap shifts / cover a shift – đổi ca / làm thay ca', 'If Sunday doesn\'t suit you… – nếu Chủ nhật không tiện cho bạn…', 'It\'s short notice – báo hơi gấp'],
+    checklist: ['Nêu hoàn cảnh rõ ràng, có thời gian cụ thể', 'Đề nghị đổi ca lịch sự (Would you be willing…?)', 'Đưa ít nhất một cách bù lại, tốt hơn là hai lựa chọn', 'Tôn trọng quyền từ chối; tự lo phần thủ tục', 'Giọng thân mật phù hợp đồng nghiệp', 'Khoảng 120–180 từ'],
+    tips: 'Nhờ vả hiệu quả = lý do rõ + đề nghị cụ thể + giảm phiền cho người kia. Với đồng nghiệp, dùng giọng thân mật nhưng vẫn lịch sự.',
+  });
+  TF.writing.push({
+    id: 'tf5-ad1', set: 5, task: 'discussion', title: 'Should Lectures Be Replaced by Videos?', minutes: 10,
+    professor: { name: 'Dr. Patel', text: 'Many universities now record lectures and put them online. Some instructors have gone further: students watch short video lectures at home and use class time only for discussion and problem-solving. Should universities replace traditional lectures with recorded videos? Why or why not?' },
+    students: [
+      { name: 'Hana', text: 'Yes. With videos, I can pause and rewatch difficult parts, and I can study at the time of day when I concentrate best. Class time is much more useful for asking questions.' },
+      { name: 'Marcus', text: 'I\'m not convinced. Many students never watch the videos, so they arrive unprepared and the discussion doesn\'t work. Live lectures at least make sure everyone hears the material.' },
+    ],
+    model: "I believe universities should replace most lectures with videos, but only if the courses are designed to make students watch them. Hana is right that the ability to pause and replay a video helps students understand difficult material at their own pace. Still, Marcus raises a real concern, since a discussion falls apart when half the class is unprepared. One practical solution is to add a short online quiz after each video that counts toward the final grade. For example, in my chemistry course, a three-question quiz is due before every seminar, and almost everyone now comes prepared. In this way, videos and active class time can work together.",
+    mid: "I agree with Hana that videos are better than lectures. When I watch a video I can stop it and watch again, so I understand better. Also I can study at night when I am free. Marcus says students don't watch the videos, but I think this is their problem, not the university's problem. Students are adults and they should be responsible. So universities should use videos.",
+    midNote: 'Bài trung bình (khoảng 70 từ, dưới mức ~100 từ) chủ yếu lặp lại ý của Hana; bác bỏ Marcus bằng một câu cảm tính ("their problem") mà không đưa ý mới; câu ngắn, từ nối đơn giản (Also, So). Bài mẫu thừa nhận mối lo của Marcus và đóng góp giải pháp mới (quiz tính điểm) kèm ví dụ thực tế.',
+    outline: ['Câu chủ đề: đồng ý có điều kiện', 'Ghi nhận ý Hana (tự điều chỉnh tốc độ học)', 'Thừa nhận lo ngại của Marcus', 'Ý mới: quiz ngắn tính điểm sau mỗi video + ví dụ cá nhân', 'Câu kết: video và giờ học chủ động bổ trợ nhau'],
+    vocab: ['at their own pace – theo tốc độ của riêng mình', 'raise a real concern – nêu một mối lo chính đáng', 'fall apart – đổ vỡ, không hiệu quả', 'count toward the final grade – được tính vào điểm cuối kỳ', 'In this way, … – bằng cách này, …'],
+    checklist: ['Nêu quan điểm rõ ngay câu đầu', 'Phản hồi cả Hana và Marcus', 'Đóng góp ý MỚI: quiz tính điểm để bảo đảm sinh viên xem video', 'Có ví dụ cụ thể hỗ trợ', 'Dùng từ nối đa dạng: Still, since, For example, In this way', 'Tối thiểu khoảng 100 từ'],
+    tips: 'Khi đồng ý với một bạn, hãy dùng ý của bạn kia làm "vấn đề" rồi giải quyết nó – cách nhanh nhất để có ý mới.',
+  });
+  TF.writing.push({
+    id: 'tf5-ad2', set: 5, task: 'discussion', title: 'Is a Gap Year a Good Idea?', minutes: 10,
+    professor: { name: 'Dr. Romero', text: 'In some countries, it is common for young people to take a "gap year" between high school and university. They may work, travel, or volunteer before starting their degree. Is taking a gap year a good idea for most students? Explain your opinion.' },
+    students: [
+      { name: 'Chloe', text: 'Definitely. After twelve years of school, many students are tired and unsure about what to study. A year of work or travel helps them understand what they really want.' },
+      { name: 'Ravi', text: 'I think it\'s risky. Once students stop studying, it can be hard to get back into the habit. Also, not every family can afford to let their child spend a year traveling.' },
+    ],
+    model: "In my view, a gap year can be valuable, but only when students plan it with a clear purpose. I agree with Chloe that a break can help students choose a major more carefully, which may prevent them from switching programs later and wasting time and money. However, Ravi's point about cost is important, because a year of travel is a luxury many families cannot afford. That is why I think the most useful gap years involve paid work or a structured volunteer program rather than travel. For instance, a student who works in a hospital for a year can save money and also find out whether a career in medicine really suits them.",
+    mid: "I think a gap year is a good idea. Chloe is right that students are tired after school and they need a rest. During a gap year they can travel and see new places, which is very interesting. Ravi thinks it is expensive, but students can work and save money. In conclusion, I believe a gap year is good for most students.",
+    midNote: 'Bài trung bình (khoảng 65 từ) có quan điểm và nhắc cả hai bạn, nhưng phần lớn diễn đạt lại ý của Chloe; phản hồi Ravi chỉ một mệnh đề, chưa phát triển; không có ví dụ; "very interesting", "good" là từ chung chung. Bài mẫu đặt điều kiện (có mục đích rõ), chỉ ra lợi ích kinh tế gián tiếp và đưa ví dụ làm việc ở bệnh viện.',
+    outline: ['Câu chủ đề: có giá trị NẾU có mục đích rõ', 'Đồng ý Chloe + mở rộng (tránh đổi ngành, đỡ tốn kém)', 'Thừa nhận ý chi phí của Ravi', 'Ý mới: ưu tiên đi làm có lương / tình nguyện có tổ chức thay vì du lịch', 'Ví dụ: làm ở bệnh viện → vừa tiết kiệm vừa thử nghề'],
+    vocab: ['with a clear purpose – với mục đích rõ ràng', 'switch programs – đổi ngành học', 'a luxury many families cannot afford – điều xa xỉ nhiều gia đình không kham nổi', 'a structured volunteer program – chương trình tình nguyện có tổ chức', 'suit someone – phù hợp với ai'],
+    checklist: ['Nêu quan điểm rõ (có điều kiện) ngay câu đầu', 'Phản hồi cả Chloe và Ravi, không chỉ nhắc tên', 'Đóng góp ý MỚI: loại gap year hữu ích nhất', 'Ví dụ cụ thể (làm việc ở bệnh viện)', 'Dùng từ nối: However, That is why, For instance', 'Tối thiểu khoảng 100 từ'],
+    tips: 'Thêm điều kiện ("only when…") giúp quan điểm tinh tế hơn và mở đường cho ý mới của riêng bạn.',
+  });
+  TF.writing.push({
+    id: 'tf5-ad3', set: 5, task: 'discussion', title: 'Specialize Early or Study Broadly?', minutes: 10,
+    professor: { name: 'Dr. Whitfield', text: 'University systems differ in how quickly students specialize. In some, students choose a single subject from their first day. In others, they spend the first one or two years taking courses in many different fields. Which approach do you think prepares students better for their future? Why?' },
+    students: [
+      { name: 'Jonas', text: 'Specializing early is better. Students who start their major immediately can study it in much more depth, and they graduate with stronger skills in their field.' },
+      { name: 'Amara', text: 'I prefer a broad start. Many of today\'s jobs didn\'t exist ten years ago, so it\'s more important to learn how to think in different ways than to know one subject very deeply.' },
+    ],
+    model: "I find Amara's argument more convincing, although Jonas makes a fair point about depth. It is true that students who specialize early gain detailed knowledge sooner. However, because careers now change so quickly, the ability to connect ideas from different fields has become extremely valuable. In fact, many important problems today, such as climate change, require people who understand science, economics, and policy at the same time. A broad first year also gives students a chance to discover interests they did not know they had. For example, my roommate entered university planning to study law, but an introductory geology course changed her mind, and she is now very happy as an earth science major.",
+    mid: "I agree with Amara. Jobs are changing very fast because of technology, so students need to learn many different things. If students only study one subject, they will have problems in the future when their job disappears. Jonas says students can study in depth, but I think depth is not so important now. Studying broadly is also more interesting for students.",
+    midNote: 'Bài trung bình (khoảng 65 từ) có lập trường nhưng bác bỏ Jonas quá dễ dãi ("depth is not so important"); lập luận "their job disappears" phóng đại và thiếu ví dụ; câu cuối thêm lý do mới mà không giải thích. Bài mẫu công nhận giá trị chiều sâu, rồi bổ sung hai ý mới (vấn đề liên ngành như biến đổi khí hậu; khám phá sở thích) kèm ví dụ thực tế.',
+    outline: ['Câu chủ đề: nghiêng về Amara, ghi nhận Jonas', 'Nhượng bộ: chuyên sâu sớm có lợi gì', 'Lập luận chính: nghề nghiệp thay đổi → cần kết nối liên ngành (ví dụ biến đổi khí hậu)', 'Ý mới thứ hai: năm đầu rộng giúp khám phá sở thích + ví dụ bạn cùng phòng'],
+    vocab: ['find… more convincing – thấy… thuyết phục hơn', 'make a fair point about… – có lý ở điểm…', 'connect ideas from different fields – kết nối ý tưởng giữa các lĩnh vực', 'In fact, … – thực tế là, …', 'discover interests they did not know they had – khám phá sở thích chưa từng biết'],
+    checklist: ['Nêu lựa chọn rõ ngay câu đầu', 'Phản hồi cả hai bạn, có nhượng bộ công bằng', 'Đóng góp ít nhất một ý MỚI (liên ngành / khám phá sở thích)', 'Ví dụ cụ thể (biến đổi khí hậu, người bạn cùng phòng)', 'Từ nối đa dạng: It is true that, However, In fact, For example', 'Tối thiểu khoảng 100 từ'],
+    tips: 'Mẫu câu nhượng bộ "It is true that…, However…" giúp bài cân bằng và tự nhiên – rất được chuộng trong phần thảo luận học thuật.',
+  });
+  TF.writing.push({
+    id: 'tf5-ad4', set: 5, task: 'discussion', title: 'Should Museums Be Free?', minutes: 10,
+    professor: { name: 'Dr. Nakamura', text: 'Next week we will look at how cultural institutions are funded. In some cities, national museums are free to enter, while in others visitors pay a ticket price that helps cover the museum\'s costs. Should public museums be free for everyone? Explain your position.' },
+    students: [
+      { name: 'Sofia', text: 'Yes. Art and history belong to everyone. If museums charge high prices, families with low incomes will never visit, and they miss out on an important part of education.' },
+      { name: 'Ben', text: 'I disagree. Museums are expensive to run. If they don\'t sell tickets, they have to rely on government money, and in difficult years their budgets will be cut.' },
+    ],
+    model: "I support free entry for permanent collections, but I think museums should be allowed to charge for special exhibitions. Sofia makes an excellent point that ticket prices keep many families away, and I would add that free access matters most for children, whose interest in science or art often begins with a single visit. At the same time, Ben is correct that museums need a stable source of income. A mixed model can address both concerns. Special exhibitions, which attract tourists and dedicated visitors, could have ticket prices, while the main galleries remain free. Several museums in London already work this way, and they continue to attract millions of visitors every year.",
+    mid: "Museums should be free because everyone should be able to learn about history and art. I agree with Sofia. Some families have little money and they cannot pay for tickets. Ben thinks museums need money, but the government can give them money because culture is important for the country. If museums are free, more people will visit them and learn new things.",
+    midNote: 'Bài trung bình (khoảng 65 từ) chọn một phía và lặp lại lập luận của Sofia; trả lời Ben bằng giả định "the government can give them money" – đúng điều Ben đã lo ngại, nên phản biện yếu; không có ví dụ. Bài mẫu đưa ra mô hình kết hợp (miễn phí khu thường trực, thu phí triển lãm đặc biệt) giải quyết được cả hai mối lo, kèm ví dụ thực tế.',
+    outline: ['Câu chủ đề: miễn phí khu trưng bày thường trực, thu phí triển lãm đặc biệt', 'Đồng ý Sofia + mở rộng (trẻ em)', 'Ghi nhận Ben: cần nguồn thu ổn định', 'Ý mới: mô hình kết hợp + ví dụ các bảo tàng ở London'],
+    vocab: ['free entry / admission – vào cửa miễn phí', 'permanent collections – bộ sưu tập thường trực', 'a stable source of income – nguồn thu ổn định', 'a mixed model can address both concerns – mô hình kết hợp giải quyết được cả hai mối lo', 'attract dedicated visitors – thu hút khách tham quan tâm huyết'],
+    checklist: ['Nêu quan điểm rõ và cụ thể ngay câu đầu', 'Phản hồi cả Sofia và Ben, có mở rộng ý', 'Đóng góp ý MỚI: mô hình miễn phí + thu phí kết hợp', 'Có ví dụ thực tế', 'Từ nối: At the same time, while, already', 'Tối thiểu khoảng 100 từ'],
+    tips: 'Kiểm tra phản biện của bạn: nếu nó lặp lại đúng điều người kia lo ngại (ví dụ "chính phủ chi tiền"), đó chưa phải phản biện.',
+  });
+  TF.writing.push({
+    id: 'tf5-ad5', set: 5, task: 'discussion', title: 'A Four-Day Workweek?', minutes: 10,
+    professor: { name: 'Dr. Adeyemi', text: 'Several companies have tested a four-day workweek, in which employees work fewer hours for the same pay. Supporters say it improves well-being and productivity; critics say it is unrealistic for many businesses. Should more companies adopt a four-day workweek? Why or why not?' },
+    students: [
+      { name: 'Elena', text: 'Yes. People who have more time to rest make fewer mistakes and are more creative. I have read that some companies in the trials did not lose any productivity at all.' },
+      { name: 'Tom', text: 'It works for office jobs, maybe. But hospitals, schools, and shops need staff every day. You can\'t simply close a hospital on Fridays.' },
+    ],
+    model: "I think more companies should try a four-day week, but the way it is organized has to depend on the industry. Elena is right that well-rested employees often work more efficiently, and the results of recent trials suggest that the change does not have to reduce output. Tom, however, is correct that many services must stay open every day. The solution is not for everyone to take Friday off. Instead, staff could work in rotating teams, so that each person has a three-day weekend while the business stays open. For example, a hospital department could divide nurses into two groups with different days off. This approach would bring the benefits Elena describes without the problem Tom identifies.",
+    mid: "I agree with Elena. A four-day week is better for workers because they can rest more and spend time with their family. When people are happy, they work harder. Tom talks about hospitals, but hospitals are only a small part of all jobs, so most companies can still do it. I think in the future every company will have a four-day week.",
+    midNote: 'Bài trung bình (khoảng 65 từ) gạt bỏ ý Tom ("only a small part") thay vì giải quyết; câu kết dự đoán "every company" thiếu căn cứ; không có ví dụ cụ thể. Bài mẫu thừa nhận cả hai phía và đưa ý mới (luân phiên nhóm trực để vẫn mở cửa hằng ngày) kèm ví dụ khoa trong bệnh viện.',
+    outline: ['Câu chủ đề: nên thử, nhưng cách tổ chức tùy ngành', 'Ghi nhận Elena (nghỉ ngơi → hiệu quả; thử nghiệm không giảm năng suất)', 'Thừa nhận Tom (dịch vụ phải mở mỗi ngày)', 'Ý mới: nhóm luân phiên ngày nghỉ + ví dụ khoa bệnh viện', 'Kết: giữ lợi ích, tránh vấn đề'],
+    vocab: ['well-rested employees – nhân viên được nghỉ ngơi đầy đủ', 'reduce output – làm giảm sản lượng', 'work in rotating teams – làm theo nhóm luân phiên', 'a three-day weekend – kỳ nghỉ cuối tuần ba ngày', 'without the problem … identifies – mà không gặp vấn đề … nêu ra'],
+    checklist: ['Nêu quan điểm có điều kiện ngay câu đầu', 'Phản hồi Elena và Tom một cách công bằng', 'Đóng góp ý MỚI: lịch luân phiên', 'Ví dụ cụ thể (khoa bệnh viện)', 'Từ nối: however, Instead, For example', 'Tối thiểu khoảng 100 từ'],
+    tips: 'Biến phản đối của một bạn thành "thiết kế" cho giải pháp: "The solution is not…, Instead…" là khung câu rất hiệu quả.',
+  });
+  TF.writing.push({
+    id: 'tf5-ad6', set: 5, task: 'discussion', title: 'Should Young Children Learn to Code?', minutes: 10,
+    professor: { name: 'Dr. Sato', text: 'Some countries have made computer programming a required subject in primary school, starting at around age seven. Others believe young children should focus on reading, writing, and mathematics first. Should coding be taught in primary school? Explain why or why not.' },
+    students: [
+      { name: 'Lucas', text: 'Yes. Computers are part of almost every job now. If children start early, coding will feel natural to them, just like learning a second language at a young age.' },
+      { name: 'Mei', text: 'I\'m worried it will take time away from basic skills. Programming languages change all the time, but reading and maths will always be essential.' },
+    ],
+    model: "I believe primary schools should teach the basic ideas behind coding, but not specific programming languages. Mei is right that the languages professionals use today may be outdated by the time young children grow up. However, the logical thinking behind coding, such as breaking a big problem into small steps, will stay useful for life. Lucas also has a point that early exposure makes technology less intimidating. Importantly, these skills do not have to replace maths or reading. For example, children can practise giving step-by-step instructions to a small robot during a maths lesson, which builds both number skills and logical thinking. In this way, schools can prepare children for the future without neglecting the basics.",
+    mid: "I agree with Mei. Children in primary school are very young, and the most important thing for them is reading and maths. If they learn coding, they will have less time for these subjects. Also, coding is difficult and some children will not like it. Lucas says coding is important for jobs, but children can learn it later in high school.",
+    midNote: 'Bài trung bình (khoảng 60 từ) chỉ đứng về phía Mei và thêm lý do "coding is difficult" không có giải thích; trả lời Lucas bằng một câu ngắn; thiếu ví dụ và không có ý mới thật sự. Bài mẫu phân biệt "tư duy lập trình" với "ngôn ngữ lập trình", cho thấy hai bên không mâu thuẫn và minh họa bằng hoạt động robot trong giờ toán.',
+    outline: ['Câu chủ đề: dạy tư duy lập trình, không dạy ngôn ngữ cụ thể', 'Đồng ý Mei: ngôn ngữ lập trình sẽ lỗi thời', 'Ý mới: tư duy chia nhỏ vấn đề dùng suốt đời', 'Ghi nhận Lucas + cho thấy không cần thay thế môn cơ bản', 'Ví dụ: robot trong giờ toán; câu kết'],
+    vocab: ['the basic ideas behind… – ý tưởng nền tảng của…', 'be outdated – lỗi thời', 'break a big problem into small steps – chia vấn đề lớn thành các bước nhỏ', 'early exposure – được tiếp xúc sớm', 'without neglecting the basics – mà không bỏ bê kiến thức nền'],
+    checklist: ['Nêu quan điểm rõ và tinh tế ngay câu đầu', 'Phản hồi cả Lucas và Mei', 'Đóng góp ý MỚI: phân biệt tư duy và ngôn ngữ lập trình', 'Ví dụ cụ thể (robot trong giờ toán)', 'Từ nối: However, Importantly, For example, In this way', 'Tối thiểu khoảng 100 từ'],
+    tips: 'Một ý mới mạnh thường đến từ việc tách khái niệm ("coding" = tư duy hay ngôn ngữ?) để hòa giải hai quan điểm tưởng như đối lập.',
+  });
+
+  /* BỘ 5 · SPEAKING (tự biên soạn): 3 Listen and Repeat × 6 câu, 3 Interview × 4 câu (mẫu ~45 giây + tiêu chí chấm trong tip). */
+  TF.speaking.push({
+    id: 'tf5-rp1', set: 5, task: 'repeat', title: 'Fitness Center Orientation', accent: 'en-US',
+    context: 'You are starting a part-time job at the campus fitness center. Listen to the manager and repeat exactly what you hear.',
+    sentences: [
+      { t: 'Please wipe down each machine after use.', tip: '"wipe down" nối âm /waɪpdaʊn/; nhấn "EACH MACHINE".' },
+      { t: 'Towels are available at the front desk.', tip: '"available" /əˈveɪləbəl/ nhấn âm tiết thứ hai; "front desk" giữ rõ /nt/ và /sk/.' },
+      { t: 'The swimming pool closes at nine on weekdays.', tip: 'Nhấn "NINE" và "WEEKDAYS"; "closes" /ˈkloʊzɪz/ có hai âm tiết.' },
+      { t: 'New members must complete a short safety course.', tip: '"complete a" nối âm /kəmˈpliːtə/; nhấn "SAFETY COURSE".' },
+      { t: 'If a machine is broken, put a sign on it and tell a staff member.', tip: 'Ngắt nhịp sau "broken,"; "put a sign on it" đọc liền; giọng Mỹ biến /t/ thành âm bật nhẹ: /pʊɾə saɪn ɑnɪt/.' },
+      { t: 'During exam week, the center stays open until midnight so that students can take a break from studying.', tip: 'Câu dài – chia nhịp: "During exam week / the center stays open until midnight / so that students can take a break from studying".' },
+    ],
+  });
+  TF.speaking.push({
+    id: 'tf5-rp2', set: 5, task: 'repeat', title: 'Admissions Office Assistant', accent: 'en-GB',
+    context: 'You are helping at the university admissions office during an open day. Listen to the coordinator and repeat exactly what you hear.',
+    sentences: [
+      { t: 'Welcome to our open day.', tip: 'Nhấn "OPEN DAY"; "to our" đọc lướt /tʊˈaʊə/.' },
+      { t: 'Campus tours leave every half hour.', tip: '"half" giọng Anh /hɑːf/ không có /l/; nhấn "HALF HOUR".' },
+      { t: 'Applications for next year close in January.', tip: '"Applications" /ˌæplɪˈkeɪʃənz/ nhấn âm tiết thứ ba; "January" /ˈdʒænjuəri/.' },
+      { t: 'You can speak to current students in the main hall.', tip: '"current" /ˈkʌrənt/; "main hall" – giữ âm cuối /n/ trước /h/.' },
+      { t: 'Information about scholarships is available on our website.', tip: '"scholarships" /ˈskɒləʃɪps/ giọng Anh; nhấn "SCHOLARSHIPS" và "WEBSITE".' },
+      { t: 'Visitors who would like to attend a sample lecture should collect a ticket from this desk before eleven o\'clock.', tip: 'Câu dài – chia nhịp: "Visitors who would like to attend a sample lecture / should collect a ticket from this desk / before eleven o\'clock".' },
+    ],
+  });
+  TF.speaking.push({
+    id: 'tf5-rp3', set: 5, task: 'repeat', title: 'Nature Reserve Field Trip', accent: 'en-US',
+    context: 'You are assisting on a biology field trip to a nature reserve. Listen to the guide and repeat exactly what you hear.',
+    sentences: [
+      { t: 'Stay on the marked trails.', tip: '"marked" /mɑrkt/ – đuôi -ed đọc /t/; nhấn "MARKED TRAILS".' },
+      { t: 'The bus will leave at four sharp.', tip: '"four sharp" = đúng 4 giờ; nhấn "FOUR SHARP", giữ rõ /ʃ/.' },
+      { t: 'Do not feed the birds or other animals.', tip: 'Nhấn "NOT" để rõ ý cấm; "birds" /bɜrdz/ giữ âm cuối /dz/.' },
+      { t: 'Record the time and location of each sighting.', tip: '"Record" là động từ nên nhấn âm tiết sau /rɪˈkɔrd/; "sighting" /ˈsaɪtɪŋ/, Mỹ đọc /ˈsaɪɾɪŋ/.' },
+      { t: 'If you see a nest, observe it quietly from a distance.', tip: 'Ngắt nhịp sau "nest,"; "observe it" nối âm /əbˈzɜrvɪt/.' },
+      { t: 'Before we leave the reserve, please check that you have collected all of your equipment and trash.', tip: 'Câu dài – chia nhịp: "Before we leave the reserve / please check that you have collected / all of your equipment and trash".' },
+    ],
+  });
+  TF.speaking.push({
+    id: 'tf5-iv1', set: 5, task: 'interview', title: 'Music and the Arts', seconds: 45, accent: 'en-US',
+    context: 'A researcher from the arts department is interviewing students about the role of music and the arts in their lives. Answer each question. You will have about 45 seconds for each answer.',
+    questions: [
+      { q: 'What kind of music do you usually listen to, and when?',
+        model: "I mostly listen to jazz and some pop music. I usually put on music when I'm walking to campus or cooking dinner, because it makes those routine tasks more enjoyable. When I'm studying, though, I switch to instrumental music without lyrics, since words distract me. On weekends I sometimes go to small concerts at a café near my apartment, which is a nice way to discover new local musicians.",
+        tip: 'Tiêu chí: trả lời thẳng (thể loại + thời điểm) · 2–3 tình huống cụ thể · có "though" để đối lập · khoảng 70–100 từ, nói trôi chảy.' },
+      { q: 'Do you think art classes are as important as science classes in schools?',
+        model: "I think they're important, but in a different way. Science classes teach students how the world works, while art classes help them express ideas and think creatively. For example, in my high school art class, we designed posters for a local festival, and I learned how to plan a project and accept criticism. Those skills are useful in any job, so I believe schools should keep a balance between the two.",
+        tip: 'Tiêu chí: nêu quan điểm rõ ngay câu đầu · so sánh hai môn bằng "while" · 1 ví dụ cá nhân · câu kết quay lại quan điểm.' },
+      { q: 'How has technology changed the way people enjoy music or art?',
+        model: "Technology has made music and art much easier to access. Today, anyone with a phone can stream millions of songs or visit a museum's online collection for free. It has also changed how art is created, because young artists can share their work on social media without needing a gallery or a record company. However, I think something is lost when everything is on a screen, so I still try to see live performances when I can.",
+        tip: 'Tiêu chí: 2 thay đổi rõ ràng (tiếp cận + sáng tác) · có ví dụ cụ thể · thêm ý cân bằng bằng "However" · khoảng 80–110 từ.' },
+      { q: 'Should governments spend public money to support artists? Why or why not?',
+        model: "Yes, I think governments should provide some support. Many artists earn very little, especially at the beginning of their careers, and without help, only people from wealthy families could afford to become artists. Public funding also benefits society, because it pays for free concerts, public sculptures, and community workshops that everyone can enjoy. Of course, the money should be distributed fairly, perhaps through grants that are decided by independent experts.",
+        tip: 'Tiêu chí: lập trường rõ · 2 lý do (công bằng cho nghệ sĩ + lợi ích xã hội) · đề xuất điều kiện ("Of course…") · từ vựng chủ đề: funding, grants, afford.' },
+    ],
+  });
+  TF.speaking.push({
+    id: 'tf5-iv2', set: 5, task: 'interview', title: 'Volunteering and Helping Others', seconds: 45, accent: 'en-GB',
+    context: 'A staff member from the student volunteering office is interviewing students about community service. Answer each question. You will have about 45 seconds for each answer.',
+    questions: [
+      { q: 'Have you ever done any volunteer work? Tell me about it.',
+        model: "Yes, last summer I volunteered at a food bank in my hometown for about two months. I worked there twice a week, sorting donations and packing boxes for families who needed support. At first it was just physical work, but over time I started talking to the people who came in, and I realised how many of them had jobs but still struggled to pay for food. That experience changed how I think about poverty.",
+        tip: 'Tiêu chí: thời gian, nơi chốn, việc làm cụ thể · kể theo diễn biến (At first… over time…) · kết bằng điều bạn học được.' },
+      { q: 'Why do you think some students choose not to volunteer?',
+        model: "I think the main reason is time. Many students have part-time jobs as well as their studies, so it's hard to find a free afternoon every week. Another reason is that some people simply don't know where to start, because volunteering opportunities aren't always advertised clearly. If universities shared a simple list of short, flexible projects, I believe more students would get involved.",
+        tip: 'Tiêu chí: 2 lý do rõ ràng (The main reason… Another reason…) · giải thích mỗi lý do · thêm một đề xuất giải pháp ngắn.' },
+      { q: 'Should volunteering be a requirement for graduating from university?',
+        model: "I don't think it should be compulsory. Volunteering works best when people choose to do it, because they're more motivated and more helpful to the organisation. If it became a requirement, some students might just do the minimum hours to get a certificate. Instead, universities could encourage it by giving academic credit or recognising volunteer work on students' records.",
+        tip: 'Tiêu chí: lập trường rõ ngay câu đầu · lý do + hệ quả nếu bắt buộc · phương án thay thế bằng "Instead" · khoảng 70–100 từ.' },
+      { q: 'In your opinion, what is the best way for young people to help their local community?',
+        model: "I think the best way is to use the skills they already have. For example, students who are good with technology could teach older people how to use video calls or online banking, which can make a big difference to someone who lives alone. Young people could also tutor children from families who can't afford private lessons. Help like this is practical and builds connections between generations.",
+        tip: 'Tiêu chí: một ý chính rõ ràng · 2 ví dụ cụ thể · giải thích tác động ("which can make a big difference") · câu kết tổng quát.' },
+    ],
+  });
+  TF.speaking.push({
+    id: 'tf5-iv3', set: 5, task: 'interview', title: 'Money and Spending Habits', seconds: 45, accent: 'en-US',
+    context: 'An economics researcher is interviewing university students about how they manage money. Answer each question. You will have about 45 seconds for each answer.',
+    questions: [
+      { q: 'How do you usually keep track of your spending?',
+        model: "I use a free budgeting app on my phone. At the start of each month, I set limits for categories like food, transport, and entertainment, and the app shows me how much I have left. I also check my bank account every Sunday evening. It only takes five minutes, but it helps me notice if I've been spending too much on things like coffee or takeaway food.",
+        tip: 'Tiêu chí: nêu công cụ/cách làm cụ thể · mô tả các bước · nêu lợi ích bằng ví dụ · khoảng 70–100 từ, dùng thì hiện tại đơn cho thói quen.' },
+      { q: 'What is something you spent money on recently that you think was worth it?',
+        model: "Recently I bought a good pair of noise-cancelling headphones. They were quite expensive, but I share an apartment with three people, and it's often noisy in the evenings. Now I can concentrate on my assignments at home instead of going to the library every night, which saves me time. So even though the price was high, I think it was a very good investment.",
+        tip: 'Tiêu chí: món đồ cụ thể · lý do mua (hoàn cảnh) · lợi ích đo được · kết luận bằng "even though…" thể hiện cân nhắc.' },
+      { q: 'Do you think schools should teach students how to manage money?',
+        model: "Yes, definitely. Many young people leave school without knowing how to make a budget, how interest on a loan works, or how to avoid debt from credit cards. These are skills everyone needs, but not every family talks about money at home. A short course in the last year of high school, with practical exercises like planning a monthly budget, could prevent a lot of problems later in life.",
+        tip: 'Tiêu chí: lập trường rõ · liệt kê 2–3 kỹ năng cụ thể · lý do vì sao trường học cần dạy · đề xuất hình thức cụ thể.' },
+      { q: 'Some people say that young people today spend too much money on things they don\'t need. Do you agree?',
+        model: "I partly agree. Online shopping and social media advertising make it very easy to buy things on impulse, and I've definitely done that myself. However, I don't think it's only a problem for young people, and many students actually spend very carefully because they have limited income. A simple habit that helps is waiting twenty-four hours before buying anything that isn't essential.",
+        tip: 'Tiêu chí: quan điểm có mức độ ("I partly agree") · nguyên nhân + ví dụ bản thân · phản biện bằng "However" · kết bằng lời khuyên thực tế.' },
+    ],
+  });
+
 
   /* Xoay vị trí đáp án đúng (chỉ các unit của bộ 4) */
   const PAT = [2, 0, 3, 1, 1, 3, 0, 2, 3, 2, 1, 0];

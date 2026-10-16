@@ -294,7 +294,11 @@
       $('#wOut').innerHTML = `<div class="grid g2" style="align-items:start">
         <div class="card" style="margin:0"><h3 style="margin-top:0">📝 ${t('Bài mẫu')}</h3><div style="white-space:pre-wrap;line-height:1.7">${esc(u.model)}</div><div class="tiny muted" style="margin-top:.4rem">${t('{n} từ', { n: wc(u.model) })}</div></div>
         <div class="card" style="margin:0"><h3 style="margin-top:0">✅ ${t('Tự kiểm tra bài của bạn')}</h3>${u.checklist.map((c, k) => `<label class="small" style="display:flex;gap:.45rem;align-items:flex-start;margin:.35rem 0;cursor:pointer"><input type="checkbox" data-ck="${k}"> <span>${esc(c)}</span></label>`).join('')}
-          <div class="small" id="ckRes" style="margin-top:.4rem"></div><div class="tip small" style="margin-top:.6rem">💡 ${esc(u.tips)}</div></div></div>`;
+          <div class="small" id="ckRes" style="margin-top:.4rem"></div><div class="tip small" style="margin-top:.6rem">💡 ${esc(u.tips)}</div></div></div>${u.mid ? `
+        <div class="card" style="margin:1rem 0 0"><h3 style="margin-top:0">📄 ${t('Bài mức trung bình')}</h3><div style="white-space:pre-wrap;line-height:1.7">${esc(u.mid)}</div><div class="tiny muted" style="margin-top:.4rem">${t('{n} từ', { n: wc(u.mid) })}</div>
+          ${u.midNote ? `<div class="tip small" style="margin-top:.6rem">🔍 <b>${t('Vì sao kém hơn bài mẫu')}:</b> ${esc(u.midNote)}</div>` : ''}</div>` : ''}${u.outline ? `
+        <div class="card" style="margin:1rem 0 0"><h3 style="margin-top:0">🧭 ${t('Dàn ý')}</h3><ol class="small" style="margin:.2rem 0 0;padding-left:1.3rem;line-height:1.7">${u.outline.map(o => `<li>${esc(o)}</li>`).join('')}</ol></div>` : ''}${u.vocab ? `
+        <div class="card" style="margin:1rem 0 0"><h3 style="margin-top:0">🔤 ${t('Từ nên dùng')}</h3><div>${u.vocab.map(v => `<span class="chip" style="white-space:normal;max-width:100%;color:inherit">${esc(v)}</span>`).join('')}</div></div>` : ''}`;
       const upd = () => { const a = $$('[data-ck]:checked').length, b = u.checklist.length; $('#ckRes').innerHTML = `<b>${t('Đạt {a}/{b} tiêu chí', { a, b })}</b>`; };
       $$('[data-ck]').forEach(x => x.onchange = upd); upd();
       if (!rewarded && wc(ta.value) >= minW) { rewarded = true; App.reward({ xp: 10 }); }
