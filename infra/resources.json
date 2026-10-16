@@ -12,7 +12,9 @@
    "status": "Miễn phí",
    "match": [
     "lexkite.com",
-    "lexkite"
+    "lexkite",
+    "www.lexkite.com",
+    "lexkite.pages.dev"
    ]
   },
   {
@@ -234,7 +236,8 @@
     "api.openverse.org",
     "api.languagetool.org",
     "upload.wikimedia.org",
-    "commons.wikimedia.org"
+    "commons.wikimedia.org",
+    "en.wikipedia.org"
    ]
   },
   {
