@@ -140,32 +140,120 @@
 
   // ---------- Tôi ----------
   // Lối vào trang Quản trị: chỉ hiện khi máy chủ xác nhận email là admin (ADMIN_EMAILS) – người khác không thấy
-  const adminRow = async () => {
-    if (!App.isAdmin || !(await App.isAdmin())) return; const box = document.getElementById('meAdmin');
-    if (box) box.outerHTML = `<a class="set-row me-row" href="${App.adminUrl()}" target="_blank" rel="noopener"><span class="set-l"><span>🛡️ ${t('Quản trị hệ thống')}</span><small>${t('Người dùng, hộp thư, phân tích, chất lượng, Gemini API')}</small></span><span class="chev" aria-hidden="true">›</span></a>`;
-  };
-  routes.me = function () {
-    const u = state.user, L = Game.levelOf((state.game || {}).xp || 0), streak = App.streak();
-    const row = (href, ic, label, hint = '', ext = false) => `<a class="set-row me-row" href="${href}"${ext ? ' target="_blank" rel="noopener"' : ''}><span class="set-l"><span>${ic} ${label}</span>${hint ? `<small>${hint}</small>` : ''}</span><span class="chev" aria-hidden="true">${ext ? '↗' : '›'}</span></a>`;
+  routes.me = async function () {
+    const u = state.user, g = state.game || {}, cards = state.cards || {};
+    const L = Game.levelOf(g.xp || 0), streak = App.streak();
+    const totalC = Object.keys(cards).length;
+    const masteredC = Object.values(cards).filter(c => c && c.S >= 21).length;
+    const forgettingC = (App.forgetting ? App.forgetting() : []).length;
+    const exKey = App.exam ? App.exam() : 'ielts';
+    const examObj = EXAMS[exKey] || { ic: '🎓', short: 'IELTS', name: 'IELTS Academic' };
+    const xpPct = Math.min(100, Math.max(4, Math.round(L.into / L.need * 100)));
+
+    let openMistakes = 0;
+    try {
+      const list = (window.Core && Core.Store) ? await Core.Store.get('mistakes', []) : [];
+      openMistakes = (list || []).filter(x => !x.fixed).length;
+    } catch (e) { openMistakes = 0; }
+
+    const [isAdmin, blogOn] = await Promise.all([
+      App.isAdmin ? App.isAdmin().catch(() => false) : false,
+      App.blogLive ? App.blogLive().catch(() => false) : false
+    ]);
+
+    const row = (href, ic, label, hint = '', ext = false, badge = '') => `
+      <a class="set-row me-row" href="${href}"${ext ? ' target="_blank" rel="noopener"' : ''}>
+        <div class="me-row-left">
+          <span class="me-icon-box" aria-hidden="true">${ic}</span>
+          <div class="set-l">
+            <span class="me-row-title">${label}</span>
+            ${hint ? `<small>${hint}</small>` : ''}
+          </div>
+        </div>
+        <div class="me-row-right">
+          ${badge ? badge : ''}
+          <span class="chev" aria-hidden="true">${ext ? '↗' : '›'}</span>
+        </div>
+      </a>`;
+
     view.innerHTML = `<div class="set-wrap">` + head(t('Tôi'), '')
-      + `<div class="card me-head"><span class="avatar lg">${u && u.photoURL ? `<img src="${esc(u.photoURL)}" alt="" referrerpolicy="no-referrer">` : esc(((u && (u.displayName || u.email)) || 'L')[0].toUpperCase())}</span>
-        <div class="me-tx"><b>${esc((u && u.displayName) || t('Bạn'))}</b><div class="small muted">${u ? esc(u.email || '') : `<a href="#/settings">${t('Đăng nhập để sao lưu & đồng bộ')}</a>`}</div>
-        <div class="me-stats"><span>⭐ ${t('Cấp {n}', { n: L.level || 1 })}</span><span>🔥 ${t('{n} ngày', { n: streak || 0 })}</span><span>${EXAMS[App.exam()].ic} ${esc(EXAMS[App.exam()].short)}</span></div></div></div>`
-      + `<h3 class="set-h">${t('Việc học')}</h3><div class="set-list">`
+      + `<div class="card me-head">
+          <div class="me-avatar-wrap">
+            <span class="avatar lg">${u && u.photoURL ? `<img src="${esc(u.photoURL)}" alt="" referrerpolicy="no-referrer">` : esc(((u && (u.displayName || u.email)) || 'L')[0].toUpperCase())}</span>
+            <span class="me-streak-flame" title="${t('{n} ngày', { n: streak || 0 })}">🔥 ${streak || 0}</span>
+          </div>
+          <div class="me-tx">
+            <div class="me-name-row">
+              <b>${esc((u && u.displayName) || t('Bạn'))}</b>
+              <span class="me-exam-badge">${examObj.ic} ${esc(examObj.short)}</span>
+            </div>
+            <div class="me-sub-row">${u ? esc(u.email || '') : `<a href="#/settings">${t('Đăng nhập để sao lưu & đồng bộ')}</a>`}</div>
+            <div class="me-title-chip">👑 ${esc(L.title || '')} · ${t('Cấp {n}', { n: L.level || 1 })}</div>
+            <div class="me-xp-container">
+              <div class="me-xp-bar"><div class="me-xp-fill" style="width:${xpPct}%"></div></div>
+              <div class="me-xp-sub">
+                <span>${t('{a}/{b} XP tới cấp {n}', { a: L.into, b: L.need, n: L.level + 1 })}</span>
+                <span>⭐ ${t('Tổng {xp} XP', { xp: (g.xp || 0).toLocaleString(I18N.lang()) })}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="me-bento">
+          <a class="me-card" href="#/library">
+            <div class="me-card-head">
+              <span class="me-card-lbl">📚 ${t('Từ vựng')}</span>
+              <span class="me-card-tag">${masteredC} ${t('Đã thuộc')}</span>
+            </div>
+            <div class="me-card-val">${totalC}</div>
+            <div class="me-card-sub">${t('{n} từ · {k} đã thuộc', { n: totalC, k: masteredC })}</div>
+          </a>
+
+          <a class="me-card" href="#/stats">
+            <div class="me-card-head">
+              <span class="me-card-lbl">🔥 ${t('Chuỗi ngày')}</span>
+              <span class="me-card-tag good">${streak > 0 ? streak + 'd' : '–'}</span>
+            </div>
+            <div class="me-card-val">${streak || 0}</div>
+            <div class="me-card-sub">${g.freezes ? '🧊 ' + g.freezes : t('{n} ngày', { n: streak || 0 })}</div>
+          </a>
+
+          <a class="me-card" href="#/review?src=forgetting">
+            <div class="me-card-head">
+              <span class="me-card-lbl">⏰ ${t('Thời điểm vàng')}</span>
+              <span class="me-card-tag ${forgettingC ? 'warn' : 'good'}">${forgettingC ? forgettingC : '0'}</span>
+            </div>
+            <div class="me-card-val">${forgettingC}</div>
+            <div class="me-card-sub">${forgettingC ? t('{n} từ đang sắp quên', { n: forgettingC }) : t('Đã thuộc')}</div>
+          </a>
+        </div>
+
+        <h3 class="set-h">${t('Việc học')}</h3><div class="set-list">`
       + row('#/goal', '🚩', t('Mục tiêu & kế hoạch'), t('Kỳ thi, điểm mục tiêu, ngày thi'))
-      + row('#/stats', '📊', t('Tiến độ & huy hiệu'))
-      + row('#/mistakes', '📕', t('Sổ lỗi sai'), t('Làm lại các câu đã sai'))
+      + row('#/stats', '📊', t('Tiến độ & huy hiệu'), t('Chuỗi {n} ngày · {xp} XP', { n: streak || 0, xp: (g.xp || 0).toLocaleString(I18N.lang()) }))
+      + row('#/mistakes', '📕', t('Sổ lỗi sai'), t('Làm lại các câu đã sai'), false, openMistakes ? `<span class="pill-count warn">${openMistakes}</span>` : '')
       + `</div><h3 class="set-h">${t('Ứng dụng')}</h3><div class="set-list">`
-      + `<span id="meAdmin"></span>`
+      + (isAdmin ? row(App.adminUrl(), '🛡️', t('Quản trị hệ thống'), t('Người dùng, hộp thư, phân tích, chất lượng, Gemini API'), true) : '')
       + row('#/settings', '⚙️', t('Cài đặt'), t('Tài khoản, nhắc học, âm thanh, giao diện'))
-      + `<button type="button" class="set-row me-row" data-exam-pick><span class="set-l"><span>${EXAMS[App.exam()].ic} ${t('Kỳ thi của bạn')}</span><small>${esc(EXAMS[App.exam()].name)}</small></span><span class="chev" aria-hidden="true">›</span></button>`
+      + `<button type="button" class="set-row me-row" data-exam-pick>
+          <div class="me-row-left">
+            <span class="me-icon-box" aria-hidden="true">${examObj.ic}</span>
+            <div class="set-l">
+              <span class="me-row-title">${t('Kỳ thi của bạn')}</span>
+              <small>${esc(examObj.name)}</small>
+            </div>
+          </div>
+          <div class="me-row-right">
+            <span class="me-badge">${esc(examObj.short)}</span>
+            <span class="chev" aria-hidden="true">›</span>
+          </div>
+        </button>`
       + `</div><h3 class="set-h">${t('Tìm hiểu thêm')}</h3><div class="set-list">`
       + row('#/method', '🧪', t('Cách Lexkite giúp bạn nhớ lâu'))
-      + `<span id="meBlog"></span>`
+      + (blogOn ? row(App.blogUrl(), '📰', t('Blog học tiếng Anh'), t('Mẹo thi, từ vựng theo chủ đề, phương pháp học')) : '')
       + row('#/resources', '🌐', t('Tài nguyên miễn phí'))
       + (I18N.lang() === 'vi' ? [['samples', '📄', 'Bài mẫu Writing Task 2'], ['speaking', '🗣️', 'Chủ đề Speaking'], ['tu-vung', '📚', 'Từ vựng theo chủ đề'], ['ngu-phap', '🧠', 'Ngữ pháp tiếng Anh'], ['viet-thu', '✉️', 'Thư mẫu IELTS General']].map(([p, ic, l]) => row('https://lexkite.com/' + p + '/', ic, l, '', true)).join('') : '')
       + `</div></div>`;
-    adminRow(); App.blogLive().then(on => { const el = document.getElementById('meBlog'); if (on && el) el.outerHTML = `<a class="set-row me-row" href="${App.blogUrl()}" data-blog><span class="set-l"><span>📰 ${t('Blog học tiếng Anh')}</span><small>${t('Mẹo thi, từ vựng theo chủ đề, phương pháp học')}</small></span><span class="chev" aria-hidden="true">›</span></a>`; });
   };
 
   // ---------- Blog (trang tĩnh /blog/ – tạo lúc build): chỉ hiện lối vào khi blog đã có trên máy chủ ----------

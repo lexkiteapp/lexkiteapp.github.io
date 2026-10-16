@@ -1046,16 +1046,128 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
 .crumb a { color: var(--muted); }
 .crumb a:hover { color: var(--primary); }
 .page-head:has(> .crumb) { flex-wrap: wrap; }
-.me-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
-.avatar.lg { width: 64px; height: 64px; font-size: 1.6rem; flex: none; }
-.me-tx { min-width: 0; }
-.me-tx b { font-size: 1.15rem; }
-.me-stats { display: flex; flex-wrap: wrap; gap: .4rem .9rem; margin-top: .4rem; font-size: .88rem; font-weight: 600; }
-.me-row { color: var(--text); text-decoration: none; width: 100%; background: none; border: 0; font: inherit; text-align: left; cursor: pointer; }
+/* Trang Tôi (Learner Profile & Hub) */
+.me-head {
+  display: flex; gap: 1.25rem; align-items: flex-start;
+  padding: 1.35rem 1.4rem; border-radius: var(--radius);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--primary-soft) 40%, var(--surface)), var(--surface));
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, var(--line));
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.1rem;
+}
+.me-avatar-wrap { position: relative; flex: none; }
+.me-avatar-wrap .avatar.lg {
+  width: 72px; height: 72px; font-size: 1.9rem; font-weight: 800;
+  border-radius: 50%; border: 3px solid var(--surface);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--primary) 25%, transparent);
+  background: linear-gradient(135deg, var(--primary), var(--primary-2, #ff7a4d));
+  color: #fff; display: flex; align-items: center; justify-content: center;
+}
+.me-streak-flame {
+  position: absolute; bottom: -4px; right: -4px;
+  background: var(--surface); border: 1.5px solid var(--line);
+  font-size: .82rem; font-weight: 800; border-radius: 999px;
+  padding: .1rem .45rem; display: flex; align-items: center; gap: .2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,.1);
+}
+.me-tx { flex: 1; min-width: 0; }
+.me-name-row { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: .5rem; }
+.me-name-row b { font-size: 1.25rem; font-weight: 800; letter-spacing: -.01em; }
+.me-exam-badge {
+  font-size: .78rem; font-weight: 700; padding: .2rem .65rem; border-radius: 999px;
+  background: var(--surface); border: 1px solid var(--line); color: var(--text);
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+}
+.me-sub-row { font-size: .84rem; color: var(--muted); margin: .15rem 0 .45rem; }
+.me-title-chip {
+  display: inline-flex; align-items: center; gap: .35rem; font-size: .8rem; font-weight: 700;
+  color: var(--primary); background: var(--primary-soft); padding: .2rem .6rem; border-radius: 8px;
+  margin-bottom: .5rem;
+}
+.me-xp-container { margin-top: .3rem; }
+.me-xp-bar {
+  height: 8px; border-radius: 999px; background: color-mix(in srgb, var(--line) 70%, transparent);
+  overflow: hidden; margin-bottom: .35rem;
+}
+.me-xp-fill {
+  height: 100%; border-radius: 999px;
+  background: linear-gradient(90deg, var(--gold, #f5a524), var(--primary));
+  transition: width .4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.me-xp-sub {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: .76rem; color: var(--muted); font-weight: 600;
+}
+
+/* Cognitive Brain Bento Matrix */
+.me-bento {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin-bottom: 1.4rem;
+}
+@media (max-width: 600px) {
+  .me-bento { grid-template-columns: 1fr; }
+  .me-head { flex-direction: column; align-items: center; text-align: center; }
+  .me-name-row { justify-content: center; }
+  .me-xp-sub { flex-direction: column; gap: .2rem; }
+}
+.me-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm, 14px);
+  padding: .9rem 1rem; display: flex; flex-direction: column; justify-content: space-between;
+  box-shadow: var(--shadow-sm); text-decoration: none; color: inherit;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.me-card:hover {
+  transform: translateY(-2px); border-color: color-mix(in srgb, var(--primary) 40%, var(--line));
+  box-shadow: var(--shadow); text-decoration: none;
+}
+.me-card-head { display: flex; justify-content: space-between; align-items: center; gap: .4rem; margin-bottom: .35rem; }
+.me-card-lbl { font-size: .78rem; font-weight: 700; color: var(--muted); }
+.me-card-tag { font-size: .7rem; font-weight: 700; padding: .1rem .4rem; border-radius: 999px; background: var(--surface-2); color: var(--muted); }
+.me-card-tag.good { background: #dcfce7; color: #15803d; }
+.me-card-tag.warn { background: #fef3c7; color: #b45309; }
+.me-card-val {
+  font-size: 1.55rem; font-weight: 800; line-height: 1.2; letter-spacing: -.02em;
+  font-feature-settings: "tnum"; font-variant-numeric: tabular-nums; color: var(--text);
+}
+.me-card-sub { font-size: .74rem; color: var(--muted); margin-top: .25rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Squircle Icon Navigation Rows */
+.me-row {
+  display: flex; align-items: center; justify-content: space-between; gap: .75rem;
+  padding: .85rem 1.15rem; min-height: 58px;
+  color: var(--text); text-decoration: none; width: 100%;
+  background: none; border: 0; font: inherit; text-align: left; cursor: pointer;
+  transition: background .15s ease;
+}
 .set-list > .me-row { border-top: 1px solid var(--line); }
 .set-list > .me-row:first-child { border-top: 0; }
 .me-row:hover { background: var(--surface-2); text-decoration: none; }
+.me-row-left { display: flex; align-items: center; gap: .9rem; flex: 1; min-width: 0; }
+.me-icon-box {
+  width: 38px; height: 38px; border-radius: 11px; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.15rem; background: var(--surface-2); border: 1px solid color-mix(in srgb, var(--line) 60%, transparent);
+  transition: transform .15s ease, background .15s ease;
+}
+.me-row:hover .me-icon-box {
+  background: color-mix(in srgb, var(--primary) 12%, var(--surface-2));
+  transform: scale(1.05);
+}
+.me-row-title { font-size: .95rem; font-weight: 700; color: var(--text); }
+.me-row-right { display: flex; align-items: center; gap: .55rem; flex: none; }
 .me-row .chev { color: var(--muted); font-size: 1.2rem; }
+.me-badge {
+  font-size: .74rem; font-weight: 700; padding: .15rem .5rem; border-radius: 999px;
+  background: var(--surface-2); color: var(--muted);
+}
+.pill-count {
+  font-size: .72rem; font-weight: 800; padding: .12rem .48rem; border-radius: 999px;
+}
+.pill-count.warn { background: #fee2e2; color: #dc2626; }
+@media (prefers-color-scheme: dark) {
+  .me-card-tag.good { background: #12301d; color: #4ade80; }
+  .me-card-tag.warn { background: #3a2e12; color: #fbbf24; }
+  .pill-count.warn { background: #3a1a1c; color: #f87171; }
+}
 @media (max-width: 640px) {
   .top-stats .exam-chip { display: none; } /* điện thoại: đổi kỳ thi ngay trên trang Kỹ năng/Thi thử/Tôi – nhường chỗ cho ô tra từ */
   .hub-grid { grid-template-columns: 1fr; gap: .6rem; }
