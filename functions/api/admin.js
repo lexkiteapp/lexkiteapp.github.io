@@ -175,8 +175,10 @@ const OPS = {
     if (!/^(AIza[\w-]{20,}|AQ\.[\w.-]{20,})$/.test(key)) return { ok: false, error: 'Khóa không đúng định dạng (AIza… hoặc AQ.…)' };
     const list = await gkList(db); if (list.some(x => x.k === key)) return { ok: false, error: 'Khóa này đã có trong danh sách' };
     if (list.length >= 20) return { ok: false, error: 'Tối đa 20 khóa' };
-    const r = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash', { headers: { 'x-goog-api-key': key } });
-    if (!r.ok) { const m = ((await r.json().catch(() => ({}))).error || {}).message || ''; return { ok: false, error: `Google từ chối khóa (HTTP ${r.status})${m ? ': ' + m.slice(0, 160) : ''}${/location/i.test(m) ? ' – máy chủ Cloudflare đang ở vùng Gemini chưa hỗ trợ' : ''}` }; }
+    const U = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash';
+    let r = await fetch(U, { headers: { 'x-goog-api-key': key } });
+    if (r.status === 401 || r.status === 400) { const r2 = await fetch(U + '?key=' + encodeURIComponent(key)); if (r2.ok) r = r2; } // một số khóa kiểu mới chỉ nhận qua ?key=
+    if (!r.ok) { const m = ((await r.json().catch(() => ({}))).error || {}).message || ''; return { ok: false, error: `Google từ chối khóa (HTTP ${r.status}, khóa nhận được dài ${key.length} ký tự, đuôi …${key.slice(-4)})${m ? ': ' + m.slice(0, 160) : ''}${/location/i.test(m) ? ' – máy chủ Cloudflare đang ở vùng Gemini chưa hỗ trợ' : ''}` }; }
     list.push({ k: key, at: Date.now(), by: who.email }); await gkSave(db, list);
     return { ok: true, last4: key.slice(-4), count: list.length };
   },

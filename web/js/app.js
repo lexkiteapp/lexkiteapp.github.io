@@ -1376,8 +1376,22 @@
       const last = await Store.get('lastGolden', 0);
       if (n >= s.goldenMin && Date.now() - last > 3 * 3600 * 1000 && document.hidden) {
         await Store.set('lastGolden', Date.now());
+        const forgetCards = (App.forgetting ? App.forgetting() : []).filter(c => c && c.word);
+        const topWords = forgetCards.slice(0, 3).map(c => c.word);
+        const base = t('{n} từ đang ở thời điểm sắp quên – ôn 3 phút để nhớ lâu hơn!', { n });
+        const body = topWords.length ? `${topWords.join(', ')} · ${base}` : base;
         const reg = navigator.serviceWorker && await navigator.serviceWorker.getRegistration();
-        const opt = { body: t('{n} từ đang ở thời điểm sắp quên – ôn 3 phút để nhớ lâu hơn!', { n }), icon: 'icons/icon-192.png', tag: 'golden', data: { url: location.href.split('#')[0] + '#/review' } };
+        const opt = {
+          body,
+          icon: 'icons/icon-192.png',
+          badge: 'icons/icon-192.png',
+          tag: 'golden',
+          data: { url: location.href.split('#')[0] + '#/review?src=forgetting' },
+          actions: [
+            { action: 'review', title: '🧠 ' + t('Ôn tập ngay') },
+            { action: 'later', title: '⏱️ ' + t('Để sau') }
+          ]
+        };
         const gt = '⏰ ' + t('Thời điểm vàng!');
         reg ? reg.showNotification(gt, opt) : new Notification(gt, opt);
       }

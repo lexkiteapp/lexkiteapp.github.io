@@ -1,5 +1,5 @@
 /* Service worker: cache giao diện để dùng offline + mở app khi bấm thông báo. */
-const CACHE = 'lexkite-20261016095154';
+const CACHE = 'lexkite-20261016095855';
 // Chỉ phần lõi (các file trong index.html) – phần nặng tải khi cần từ CDN và được lưu lại lúc dùng
 const SHELL = ['./', 'index.html', 'css/style.css', 'js/heal.js', 'js/native.js', 'js/ads-config.js', 'js/ads.js', 'js/kit.js', 'js/i18n.js', 'js/data.js', 'js/lexis.js', 'js/structures.js', 'js/core.js', 'js/dictionary.js', 'js/game.js', 'js/ui.js', 'js/app.js', 'js/study.js', 'js/reading.js', 'js/path.js', 'js/plan.js', 'js/goal.js', 'js/hubs.js', 'js/phrases.js', 'js/ai.js', 'js/assist.js', 'js/firebase-config.js', 'js/sync.js', 'js/i18n/en.js', 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png'];
 
@@ -45,6 +45,7 @@ self.addEventListener('fetch', e => {
 });
 self.addEventListener('notificationclick', e => {
   e.notification.close();
+  if (e.action === 'later') return;
   const target = (e.notification.data && e.notification.data.url) || './#/review';
   e.waitUntil(self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(list => {
     for (const c of list) if ('focus' in c) { c.navigate(target); return c.focus(); }
