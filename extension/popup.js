@@ -4,7 +4,7 @@
   const pickLang = l => { l = String(l || '').toLowerCase().split('-')[0]; return XLANGS.includes(l) ? l : null; };
   let UI_LANG = pickLang(chrome.i18n && chrome.i18n.getUILanguage ? chrome.i18n.getUILanguage() : navigator.language) || 'en', XD = {};
   try { const { uiLang } = await chrome.storage.local.get('uiLang'); if (pickLang(uiLang)) UI_LANG = pickLang(uiLang); localStorage.setItem('vb.uiLang', UI_LANG); } catch (e) { /* bỏ qua */ }
-  if (UI_LANG !== 'vi' && UI_LANG !== 'en') try { XD = ((await chrome.runtime.sendMessage({ type: 'uiDict', lang: UI_LANG })) || {}).dict || {}; } catch (e) { /* bỏ qua */ } // trang ứng dụng trong add-on dùng cùng ngôn ngữ
+  if (UI_LANG !== 'vi' && UI_LANG !== 'en') try { XD = ((await Promise.race([chrome.runtime.sendMessage({ type: 'uiDict', lang: UI_LANG }), new Promise(r => setTimeout(r, 2500))])) || {}).dict || {}; } catch (e) { /* bỏ qua */ } // trang ứng dụng trong add-on dùng cùng ngôn ngữ
   const EN = {
     'thẻ cần học hôm nay': 'cards due today', 'Ôn ngay →': 'Review now →', 'Mục tiêu': 'Goal', 'Xong {n} thẻ – tuyệt!': 'Done {n} cards – great!', '⚡ Ôn nhanh {i}/{n}': '⚡ Quick review {i}/{n}', 'Chạm để lật': 'Tap to flip', 'Quên': 'Forgot', 'Nhớ': 'Got it', 'Thẻ từ vựng ở tab mới': 'Vocabulary card on new tab', 'Gạch chân từ học thuật B2–C2': 'Underline B2–C2 academic words', 'Mới lưu': 'Just saved', 'Đã thuộc': 'Learned', 'Sắp đến hạn ôn': 'Due for review soon', 'Nghe': 'Listen', 'Tra nhanh một từ…': 'Quick word lookup…',
     '⚙️ Cài đặt tra từ': '⚙️ Lookup settings', 'Khi bôi đen chữ': 'When text is selected', 'Hiện nút 🌐 để dịch': 'Show 🌐 button to translate',
@@ -28,14 +28,21 @@
   chrome.runtime.sendMessage({ type: 'usage', ev: 'popup' }).catch(() => {}); // thống kê ẩn danh: chỉ đếm số lần mở
   const $ = s => document.querySelector(s);
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  // Mở ứng dụng: dùng lại tab Lexkite đang mở (không mở thêm tab), chờ Chrome mở xong rồi mới đóng popup
+  // Mở ứng dụng: dùng lại tab Lexkite đang mở trong cửa sổ này (không mở thêm tab), chờ Chrome mở xong rồi mới đóng popup
+  // Mỗi bước có giới hạn thời gian & đường lui: tab app trong cửa sổ hiện tại → tab mới → nhờ service worker → window.open.
+  // (Trước đây tab app ở cửa sổ khác/không gian khác được "kích hoạt" ngầm nên người dùng tưởng nút không phản ứng.)
+  const within = (p, ms = 4000) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms))]);
   const open = async hash => {
-    const base = chrome.runtime.getURL('app/index.html');
+    const url = chrome.runtime.getURL('app/index.html') + hash;
+    let ok = false;
     try {
-      const [tab] = await chrome.tabs.query({ url: base + '*' });
-      if (tab) { await chrome.tabs.update(tab.id, { url: base + hash, active: true }); await chrome.windows.update(tab.windowId, { focused: true }); }
-      else await chrome.tabs.create({ url: base + hash });
-    } catch (e) { await chrome.tabs.create({ url: base + hash }).catch(() => {}); }
+      const [tab] = await within(chrome.tabs.query({ currentWindow: true, url: chrome.runtime.getURL('app/index.html') + '*' })).catch(() => []);
+      if (tab) ok = !!(await within(chrome.tabs.update(tab.id, { url, active: true })));
+      else ok = !!(await within(chrome.tabs.create({ url, active: true })));
+    } catch (e) { /* thử cách khác */ }
+    if (!ok) try { ok = !!(await within(chrome.tabs.create({ url, active: true }))); } catch (e) { /* thử cách khác */ }
+    if (!ok) try { ok = !!(await within(chrome.runtime.sendMessage({ type: 'openApp', hash }), 3000)); } catch (e) { /* thử cách khác */ }
+    if (!ok) window.open(url, '_blank');
     window.close();
   };
 
