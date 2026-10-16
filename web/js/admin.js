@@ -9,7 +9,7 @@
     // Thanh trên, đăng nhập, tab
     'Tổng quan': 'Overview', 'Phân tích': 'Analytics', 'Người dùng': 'Users', 'Hộp thư': 'Inbox', 'Cảnh báo': 'Alerts', 'Chất lượng': 'Quality', 'Dịch vụ & API': 'Services & API', 'Cài đặt': 'Settings',
     'Trang quản trị Lexkite': 'Lexkite Admin', 'Chỉ tài khoản quản trị được cấp quyền.': 'Authorized admin accounts only.', 'Đăng nhập bằng Google': 'Sign in with Google',
-    'Về app': 'Back to app', 'Tự động (theo máy)': 'Auto (system)', 'Sáng': 'Light', 'Tối': 'Dark', 'Giao diện: {m} – bấm để đổi': 'Theme: {m} – click to change', 'Đổi giao diện sáng/tối': 'Switch light/dark theme',
+    'Về app': 'Back to app', 'Về trang chủ Lexkite': 'Back to the Lexkite home page', 'Tự động (theo máy)': 'Auto (system)', 'Sáng': 'Light', 'Tối': 'Dark', 'Giao diện: {m} – bấm để đổi': 'Theme: {m} – click to change', 'Đổi giao diện sáng/tối': 'Switch light/dark theme',
     'Đổi ngôn ngữ': 'Change language', 'Ngôn ngữ: Tiếng Việt – bấm để chuyển sang English': 'Language: English – click to switch to Vietnamese', 'Thoát': 'Sign out',
     'Không có quyền': 'Access denied', '{e} chưa được cấp quyền quản trị.': '{e} does not have admin access.', 'Đổi tài khoản': 'Switch account',
     'Phiên đăng nhập quản trị đã hết. Đăng nhập lại ngay?': 'Your admin session has expired. Sign in again now?', 'Phiên đăng nhập đã hết – đăng nhập lại rồi thử lại': 'Session expired – sign in again and retry',
@@ -174,6 +174,7 @@
 
   const renderMe = u => {
     $('#me').innerHTML = `<a class="btn ghost sm theme-btn" href="/#/home" id="home">↩ ${L('Về app')}</a><button class="btn ghost sm theme-btn" id="thm" title="${L('Đổi giao diện sáng/tối')}"></button><button class="btn ghost sm lang-btn" id="lng"></button>${esc(u.email)} <button class="btn ghost sm" id="out">${L('Thoát')}</button>`;
+    { const br = document.querySelector('.adm-top .brand'); if (br) br.title = L('Về trang chủ Lexkite'); }
     paintTheme(); paintStatic(); $('#thm').onclick = () => { const order = ['auto', 'light', 'dark'], cur = localStorage.getItem('lk.admTheme') || 'auto'; setTheme(order[(order.indexOf(cur) + 1) % 3]); };
     $('#lng').onclick = () => setLang(LANG === 'vi' ? 'en' : 'vi');
     $('#out').onclick = () => auth.signOut().then(() => location.reload());
