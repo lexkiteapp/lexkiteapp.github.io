@@ -1,0 +1,61 @@
+# 🩺 Rà soát lỗi tiềm ẩn HẰNG NGÀY trên toàn bộ web/add-on/app (miễn phí – máy chủ GitHub, không tốn gì):
+# kiểm thử đầy đủ (chính tả, đa ngôn ngữ 14 thứ tiếng, logic FSRS/đồng bộ, giao diện, trợ năng WCAG, lời giải đề thi, liên kết),
+# kiểm tra kiểu, cú pháp workflow, và bản LIVE (trang, API, dữ liệu, âm thanh, phiên bản deploy).
+# Có lỗi → workflow đỏ + mở/cập nhật issue "🩺 Rà soát hằng ngày" → bản tin email 8h sáng (workers/mail) & thông báo GitHub gửi về mail.
+name: Rà soát hằng ngày
+on:
+  schedule:
+    - cron: '0 0 * * *'   # 07:00 giờ Việt Nam – trước bản tin email 08:00
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+concurrency: { group: health, cancel-in-progress: true }
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci --no-audit --no-fund
+      - name: Kiểm thử đầy đủ (npm test)
+        id: test
+        continue-on-error: true
+        run: npm test
+      - name: Lẫn tiếng – đủ 14 ngôn ngữ
+        id: leak
+        continue-on-error: true
+        run: npm run test:leak
+      - name: Kiểm tra kiểu (TypeScript)
+        id: tsc
+        continue-on-error: true
+        run: npx -y -p typescript@5.6.3 tsc -p tsconfig.check.json
+      - name: Cú pháp mọi workflow
+        id: yaml
+        continue-on-error: true
+        run: for f in .github/workflows/*.yml; do python3 -c "import yaml,sys;yaml.safe_load(open(sys.argv[1]))" "$f" || exit 1; done
+      - name: Bản live (lexkite.com + CDN âm thanh)
+        id: live
+        continue-on-error: true
+        run: node scripts/test/live-check.mjs
+      - name: Báo cáo (issue + email)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          R: "test=${{ steps.test.outcome }} leak=${{ steps.leak.outcome }} tsc=${{ steps.tsc.outcome }} yaml=${{ steps.yaml.outcome }} live=${{ steps.live.outcome }}"
+        run: |
+          RUN="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          BAD=$(echo "$R" | tr ' ' '\n' | grep -v '=success' || true)
+          TITLE="🩺 Rà soát hằng ngày"
+          NUM=$(gh issue list --state open --search "$TITLE in:title" --json number --jq '.[0].number' 2>/dev/null || true)
+          if [ -z "$BAD" ]; then
+            echo "✅ Mọi kiểm tra đạt" >> "$GITHUB_STEP_SUMMARY"
+            [ -n "$NUM" ] && gh issue close "$NUM" --comment "✅ $(date -u +%F): mọi kiểm tra đạt – tự đóng. $RUN"
+            exit 0
+          fi
+          BODY="$(date -u +%F) – các bước lỗi:\n$(echo "$BAD" | sed 's/^/- ❌ /')\n\nChi tiết: $RUN"
+          if [ -n "$NUM" ]; then gh issue comment "$NUM" --body "$(printf "$BODY")"; else gh issue create --title "$TITLE" --body "$(printf "$BODY")"; fi
+          echo "❌ Lỗi: $BAD" >> "$GITHUB_STEP_SUMMARY"
+          exit 1
