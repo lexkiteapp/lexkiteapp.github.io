@@ -203,7 +203,7 @@
     11: { why: "Văn bản D chỉ nói học viên mới phải kiểm tra trình độ qua điện thoại “with the tutor”; không có thông tin giáo viên có phải người bản ngữ hay không → NOT GIVEN.", para: "D", keys: [["the Spanish tutor", "the tutor"]] },
     12: { why: "Văn bản E: “In heavy rain, the session will move to a classroom indoors” – mưa to thì chuyển vào lớp học trong nhà chứ không hủy → FALSE.", para: "E", keys: [["cancelled when there is heavy rain", "will move to a classroom indoors"]] },
     13: { why: "Văn bản F: chỉ được hoàn tiền đầy đủ nếu hủy “at least seven days before your course starts”; hủy trước năm ngày thì không được hoàn tiền → FALSE.", para: "F", keys: [["cancel five days before", "at least seven days before"], ["get their money back", "a full refund"]] },
-    14: { why: "Không văn bản nào nhắc đến bãi đỗ xe; văn bản F chỉ nói cách đăng ký và học phí → NOT GIVEN.", para: "F", keys: [["free parking", "(không được nhắc tới)"]] },
+    14: { why: "Không văn bản nào nhắc đến bãi đỗ xe; văn bản F chỉ nói cách đăng ký và học phí → NOT GIVEN.", para: "F" },
 
     /* ---- Section 2: Information for New Hospital Volunteers ---- */
     15: { why: "Đoạn C: muốn đổi ca thì “first arrange a swap with another volunteer and then inform the volunteer office by email” – cách xử lý khi không làm được một ca → C.", para: "C", keys: [["unable to work a particular shift", "need to change a shift"]] },
@@ -228,7 +228,7 @@
     32: { why: "Đoạn F: “For passengers, the experience is mixed” – người ủng hộ nêu lợi ích, nhưng có bất tiện; đánh giá “range from enthusiastic to bitterly disappointed” → ý kiến hành khách khác nhau → v.", para: "F", keys: [["Opinions differ among travellers", "the experience is mixed… range from enthusiastic to bitterly disappointed"]] },
     33: { why: "Đoạn G: tác giả cho rằng “night trains are unlikely ever to replace air travel for very long journeys” → trái với nhận định → NO.", para: "G", keys: [["eventually replace most long-distance flights", "unlikely ever to replace air travel for very long journeys"]] },
     34: { why: "Đoạn G: tàu đêm có vai trò giá trị trên tuyến “roughly 600 to 1,500 kilometres” – quá dài cho tàu ngày nhưng đủ ngắn cho một đêm, tức quãng đường trung bình → YES.", para: "G", keys: [["journeys of a medium length", "routes of roughly 600 to 1,500 kilometres"]] },
-    35: { why: "Đoạn F chỉ nói giá vé hiện nay “frequently higher than those of budget flights”; tác giả không dự đoán giá vé sẽ giảm → NOT GIVEN.", para: "F", keys: [["will become cheaper", "(không có dự đoán về giá vé)"]] },
+    35: { why: "Đoạn F chỉ nói giá vé hiện nay “frequently higher than those of budget flights”; tác giả không dự đoán giá vé sẽ giảm → NOT GIVEN.", para: "F" },
     36: { why: "Đoạn G: “I believe that night trains deserve public investment, just as roads and airports have received” – tác giả ủng hộ dùng tiền công → YES.", para: "G", keys: [["spend public money", "deserve public investment"]] },
     37: { why: "Đoạn B: “A sleeping car carries far fewer passengers than a carriage of ordinary seats” → passengers.", para: "B", keys: [["holds far fewer", "carries far fewer"]] },
     38: { why: "Đoạn B: “crews must work overnight shifts” → overnight.", para: "B", keys: [["Crews have to work", "crews must work"]] },
@@ -435,8 +435,8 @@
     10: { why: "Thông báo F: thùng đựng rác thực phẩm “every household will receive free of charge” – được phát miễn phí → FALSE.", para: "F", keys: [["have to pay", "free of charge"], ["food waste container", "small grey caddy"]] },
     11: { why: "Thông báo G: “households of six or more people, can apply for one” (thùng lớn hơn) → gia đình đông người có thể được cấp thùng lớn → TRUE.", para: "G", keys: [["Large families", "households of six or more people"], ["a bigger rubbish bin", "a larger rubbish bin"]] },
     12: { why: "Thông báo G: “Garden waste is not included in the standard service” – muốn thu rác vườn phải trả phí £48/năm → FALSE.", para: "G", keys: [["part of the normal service", "not included in the standard service"]] },
-    13: { why: "Thông báo chỉ nói lịch thu rác tái chế “will continue to be collected weekly”; không nhắc gì đến trung tâm tái chế mới → NOT GIVEN.", para: "F", keys: [["a new recycling centre", "(không được nhắc tới)"]] },
-    14: { why: "Thông báo G chỉ nói “Bins that are left out may be removed” – thùng có thể bị thu đi; không hề nói đến tiền phạt → NOT GIVEN.", para: "G", keys: [["will be fined", "may be removed (không nói phạt tiền)"]] },
+    13: { why: "Thông báo chỉ nói lịch thu rác tái chế “will continue to be collected weekly”; không nhắc gì đến trung tâm tái chế mới → NOT GIVEN.", para: "F" },
+    14: { why: "Thông báo G chỉ nói “Bins that are left out may be removed” – thùng có thể bị thu đi; không hề nói đến tiền phạt → NOT GIVEN.", para: "G" },
 
     /* ---- Section 2: Working at Harbourside Distribution Centre ---- */
     15: { why: "Đoạn E: “if the scanner beeps twice, you have picked the wrong product” – tiếng bíp hai lần cho biết đã lấy nhầm hàng → E.", para: "E", keys: [["an incorrect item", "the wrong product"], ["how you know", "the scanner beeps twice"]] },
@@ -462,7 +462,7 @@
     33: { why: "Đoạn A chỉ gọi Pharos là “The most famous early example” – ví dụ sớm nổi tiếng nhất, không nói đó là ngọn hải đăng ĐẦU TIÊN → NOT GIVEN.", para: "A", keys: [["the first lighthouse ever built", "The most famous early example"]] },
     34: { why: "Đoạn C: thay cho “one thick piece of glass, which would have been extremely heavy”, Fresnel dùng nhiều vòng kính mỏng → nhẹ hơn một thấu kính dày → TRUE.", para: "C", keys: [["lighter than a single thick lens", "Instead of one thick piece of glass, which would have been extremely heavy"]] },
     35: { why: "Đoạn D: “Each light was therefore given its own pattern” – mỗi đèn một kiểu chớp riêng, không giống nhau → FALSE.", para: "D", keys: [["the same flashing pattern", "its own pattern"]] },
-    36: { why: "Đoạn E chỉ nói người gác ở trạm trên đá “might spend weeks without leaving the tower”; không có thông tin về lương → NOT GIVEN.", para: "E", keys: [["were paid more", "(không nhắc đến lương)"]] },
+    36: { why: "Đoạn E chỉ nói người gác ở trạm trên đá “might spend weeks without leaving the tower”; không có thông tin về lương → NOT GIVEN.", para: "E" },
     37: { why: "Đoạn E: đèn được thắp mỗi tối, “its wick trimmed regularly through the night” → wick (bấc đèn).", para: "E", keys: [["trimmed during the night", "trimmed regularly through the night"]] },
     38: { why: "Đoạn E: “keepers also had to sound a fog signal for hours at a time when visibility was poor” → fog signal (đúng hai từ).", para: "E", keys: [["for hours", "for hours at a time"], ["When visibility was poor", "when visibility was poor"]] },
     39: { why: "Đoạn F: “Lamps could now be switched on and off by light-sensitive sensors” – cảm biến phản ứng với ánh sáng → C. Vệ tinh được nhắc đến để định vị tàu, không dùng để bật/tắt đèn.", para: "F", keys: [["sensors that react to light", "light-sensitive sensors"]] },

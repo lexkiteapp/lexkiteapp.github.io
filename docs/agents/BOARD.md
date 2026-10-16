@@ -27,6 +27,34 @@ Mẫu thẻ:
 
 ## TODO
 
+### [Q1] "Chơi nhanh 15 giây" + trắc nghiệm "Phong cách tiếng Anh của bạn" (xóa ngại, không sợ sai) · @antigravity · ưu tiên: cao
+- **⚡ 15 giây**: 3–5 câu siêu ngắn, mỗi câu 1 dòng + 2–3 lựa chọn to (icon/hình), lấy từ thẻ đến hạn + từ mới phù hợp trình độ; xong trong ~15 giây; kết thúc bằng 1 câu khen + (nếu tốt) thẻ chia sẻ S1. Lối vào: nút lớn ở #/home, deep link `#/quick` cho widget & popup add-on. Sai không trừ gì, chỉ hiện đáp án đúng nhẹ nhàng.
+- **Phong cách tiếng Anh của bạn** (thay màn đầu của bài xếp trình độ cho người mới): 5–7 câu dạng tính cách, KHÔNG có đáp án sai (vd. "Gặp email tiếng Anh dài, bạn…: A dùng emoji trả lời nhanh / B soạn kỹ từng câu / C 'Yes, I agree' rồi tính sau"), mỗi lựa chọn ngầm gắn với tình huống/từ vựng theo cấp độ → kết quả vui ("Hệ Tối Giản", "Hệ Cầu Toàn"…) + gợi ý lộ trình & trình độ khởi đầu. Bài xếp trình độ đầy đủ vẫn giữ cho ai muốn.
+- Chữ qua `t()` + en (15 ngôn ngữ), nút ≥ 44px, 375px không tràn, dark mode, hiệu ứng nhẹ (micro-interaction) nhưng tôn trọng `prefers-reduced-motion`. Dữ liệu dùng kho sẵn có (`Core.Cards`, kho từ theo CEFR) – không thêm nội dung lớn.
+- Làm trong worktree riêng; `npm test` PASS; báo cáo kèm ảnh/GIF 375px.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+
+### [S1] Thẻ khoe thành tích để chia sẻ (viral, $0) · @antigravity · ưu tiên: cao
+- Khi nào hiện: (1) xong phiên ôn đạt mục tiêu ngày, (2) chuỗi ngày đạt mốc 3/7/14/30/100, (3) nút "Chia sẻ" ở #/stats và #/me.
+- Thẻ ảnh 1080×1920 (story) + 1080×1080 (bài đăng), vẽ bằng Canvas trên máy: Kit (`Kit.svg('win')` từ `web/js/kit.js`), số từ học hôm nay, chuỗi ngày 🔥, XP tuần, mục tiêu kỳ thi (nếu có), mã QR nhỏ + `lexkite.com` (QR: dùng `extension/qr.js` sẵn có hoặc tương đương nhẹ). Màu theo `docs/BRAND-RULES.md`. KHÔNG ghi số liệu bịa kiểu "vượt 85% người dùng" – chỉ số thật của người dùng.
+- **Bảo vệ cái tôi (bắt buộc):** chỉ mời chia sẻ khi kết quả TỐT hoặc đạt mốc (mục tiêu ngày, chuỗi 3/7/14/30/100, ≥ 80% đúng). Kết quả thấp → lời động viên hóm hỉnh (vd. "Não bạn đang ở chế độ nghỉ dưỡng – làm ly cà phê rồi thử lại nhé ☕"), lưu riêng, KHÔNG hiện nút chia sẻ. Thẻ chỉ làm người dùng trông giỏi/hài hước hơn, không bao giờ lộ điểm thấp.
+- Chia sẻ: `navigator.share({ files: [png] })` (mobile, Instagram/Facebook/WhatsApp/Zalo tự hiện) → nếu không hỗ trợ thì nút Tải ảnh + Sao chép link. App Capacitor: dùng plugin Share nếu đã có.
+- Chữ trên thẻ theo ngôn ngữ giao diện (15 ngôn ngữ, qua `t()` + en), RTL đúng cho ar.
+- File: `web/js/` (module mới tải lười, ≤ 30 KB gz) + `web/css/style.css`. Làm trong worktree riêng; `npm test` PASS; báo cáo kèm 2 ảnh thẻ mẫu (vi, en).
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+### [X1] Xuất dữ liệu: Excel, PDF, Anki .apkg (chống "giam dữ liệu") · @antigravity · ưu tiên: vừa
+- Đã có: sao lưu JSON, xuất/nhập Anki dạng văn bản, CSV (#/settings + trang bộ thẻ, `web/js/app.js` ~dòng 980–1060).
+- Thêm: (1) **Excel .xlsx** không thư viện nặng (SpreadsheetML/zip tối thiểu hoặc thư viện ≤ 30 KB tải lười): cột từ, phiên âm, từ loại, nghĩa, ví dụ, ngữ cảnh đã lưu, cấp CEFR, lần ôn tới; (2) **PDF**: trang in danh sách từ đẹp (CSS `@media print` + `window.print()` → "Lưu thành PDF"), chọn bộ thẻ/chủ đề; (3) **Anki .apkg** (tùy chọn, làm cuối): nếu cần sql.js thì chỉ tải khi bấm xuất.
+- Gom vào 1 khu "📦 Dữ liệu của bạn" ở #/settings, ghi rõ "Dữ liệu là của bạn – xuất bất cứ lúc nào".
+- `web/js/app.js` do Claude giữ: chỉ thêm hàm xuất ở module mới (vd. `web/js/export.js`) + 1 dòng gọi; ghi vào ĐANG LÀM trước khi sửa. Chuỗi qua `t()` + en; `npm test` PASS.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+
 ### [W1] Trang "Tiêu chí chấm" IELTS Writing & Speaking (band 4–9) + bài mẫu nhiều mức band · @antigravity (giao diện) + phiên nội dung (chữ) · ưu tiên: vừa
 - Mục tiêu: người học hiểu vì sao bài được band X và cần làm gì để lên band – chuẩn CONTENT-RULES §2.
 - Nội dung (tự diễn đạt, KHÔNG chép band descriptors chính thức của IELTS): 4 tiêu chí Writing (Task Response/Achievement, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy) và 4 tiêu chí Speaking (Fluency & Coherence, Lexical Resource, Grammatical Range & Accuracy, Pronunciation) × band 4–9; mỗi đề mẫu có 3 bài ở band 5 / 6.5 / 8 kèm nhận xét theo tiêu chí.
@@ -63,14 +91,8 @@ Mẫu thẻ:
 > **Giao diện chia nhỏ từng thẻ** (anh Quyền 16/10): mỗi thẻ 1 cụm màn hình/nền tảng, làm xong → CHỜ DUYỆT → Claude duyệt (đo tự động + xem thật) → thẻ tiếp. Làm theo thứ tự U2a → U2b → U2c → U2d → U2e.
 
 
-### [U2b] Thanh điều hướng dưới + Cài đặt/Thống kê/Tôi trên mobile · @antigravity · ưu tiên: cao
-- Mục "Tôi" (và các mục) ở thanh dưới vùng chạm ≥ 44px; #/settings phần tử tràn ngang trong hàng cài đặt → wrap/ellipsis; #/stats biểu đồ tràn ngang (`I.l1`) + nhãn < 11.5px → ≥ 12px, co theo khung; #/me chữ "0 Đã thuộc", "2d" ≥ 12px; "Viết" ở #/models ≥ 44px.
-- File: `web/css/style.css` (+ markup liên quan, ghi rõ). Báo cáo như U2a.
-- ▶️ **MỞ – làm ngay** (Claude 16/10, sau khi duyệt U2a). Làm trong worktree riêng `../lexkite-ag`. Đo thật ở 375px: không tràn ngang, mọi nút ≥ 44px, chữ ≥ 12px; chạy `npm test` (có thêm `size-budget`). Xong chuyển CHỜ DUYỆT kèm số đo trước/sau.
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
 ### [U2c] Cảm giác chấm bài chuẩn Duolingo · @antigravity · ưu tiên: vừa
+- ▶️ **MỞ – làm ngay** (Claude 16/10 sau khi duyệt U2b). Tiếp tục worktree riêng như U2b (tốt). Đẩy lên nhánh `antigravity` cũng được – Claude gộp vào main khi duyệt.
 - Đúng: nảy nhẹ + rung ngắn (navigator.vibrate trên mobile); sai: lắc + rung đôi; tôn trọng `prefers-reduced-motion` & cài đặt âm thanh hiện có; skeleton thay "Đang tải…" ở #/review, #/home.
 - File: `web/css/style.css`, `web/js/study.js` (chỉ phần phản hồi giao diện). Chuỗi mới qua `t()` + en.
 - Báo cáo:
@@ -146,4 +168,4 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét: (Claude 16/10) ✅ Giao diện + template + i18n đạt. ✏️ Claude đã đổi mặc định sang **TẮT (opt-in)**: `emailDigest: false`, công tắc `=== true` – email gửi người dùng phải do họ tự bật (GDPR/chính sách mail). ⏸️ Phần gửi chưa triển khai được: Cloudflare Email Routing (`env.SEB`) chỉ gửi tới địa chỉ đã xác minh → cần dịch vụ gửi mail cho người dùng (đề xuất Resend miễn phí 3.000 mail/tháng) + bản ghi DNS SPF/DKIM + trang hủy đăng ký `/api/unsub`. Chờ anh Quyền chọn dịch vụ → Claude làm worker. Thẻ giữ ở CHỜ DUYỆT.
 
 ## ĐÃ XONG
-- [A0] Nhắc học thông minh (0e7c6c3c) · [A1] Giao diện Admin bento (trong c0e088db) · [A2] Trang Tôi (868e44cb) · [U2a] Trang chủ mobile (lên live trong 1d6502ca) – Claude đo 375px: lời chào 278px, chip hàng 2, vùng chạm 🔊 44px, không tràn ✅ · [B1] Blog 4 bài en/es/ja/id (4c122d19) – Claude đã duyệt 16/10.
+- [A0] Nhắc học thông minh (0e7c6c3c) · [A1] Giao diện Admin bento (trong c0e088db) · [A2] Trang Tôi (868e44cb) · [U2b] Thanh dưới/Cài đặt/Thống kê/Tôi mobile (a7f682c7 → main 6addec8f) – Claude đo live 375px: nút thanh dưới 73×48, 5 trang 0 tràn, 0 chữ < 12px ✅ · [U2a] Trang chủ mobile (lên live trong 1d6502ca) – Claude đo 375px: lời chào 278px, chip hàng 2, vùng chạm 🔊 44px, không tràn ✅ · [B1] Blog 4 bài en/es/ja/id (4c122d19) – Claude đã duyệt 16/10.

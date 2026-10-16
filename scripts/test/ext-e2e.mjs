@@ -205,6 +205,50 @@ c = await card(lx); await shot(lx, 'lexkite-mock');
 rec('lexkite.com đang thi (#/mock): add-on khóa tra', !c || !c.visible, c && c.text.slice(0, 60));
 await lx.close();
 
+// ---------- 6b. ✍️ Soát lỗi viết: textarea có lỗi → gạch chân → sửa 1 chạm; ô mật khẩu → không gạch ----------
+const WC = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Write</title></head><body style="font:16px/1.5 Arial,sans-serif;padding:30px">
+<textarea id="wta" rows="4" cols="70"></textarea><p><input id="wpw" type="password" size="40"></p>
+<div id="wce" contenteditable="true" style="border:1px solid #ccc;min-height:60px;width:600px;padding:8px"></div></body></html>`;
+await ctx.route('https://t5.example.com/**', r => r.fulfill({ contentType: 'text/html', body: WC }));
+const wcState = page => page.evaluate(() => {
+  const h = document.querySelector('lexkite-wc'), r = h && h.shadowRoot; if (!r) return { u: 0, us: [], card: false, text: '', badge: false };
+  const c = r.querySelector('.card'), b = r.querySelector('.badge');
+  const us = [...r.querySelectorAll('.u')].map(u => { const q = u.getBoundingClientRect(); return { x: q.x, y: q.y, w: q.width, t: u.className }; });
+  return { u: us.length, us, card: !!(c && !c.hidden), text: c && !c.hidden ? c.innerText : '', badge: !!(b && !b.hidden) };
+});
+const wp = await ctx.newPage(); await wp.goto('https://t5.example.com/write'); await sleep(1500);
+await wp.click('#wta'); await wp.keyboard.type('She have a apple. ', { delay: 5 }); await sleep(2500);
+rec('soát lỗi viết: mặc định TẮT (không gạch chân)', (await wcState(wp)).u === 0);
+await setSettings({ wcOn: true }); await wp.reload(); await sleep(1500);
+await wp.click('#wta'); await wp.keyboard.type('I recieve your email and she have a informations about it. ', { delay: 5 }); await sleep(3000);
+let ws = await wcState(wp); await shot(wp, 'writecheck-underline');
+rec('soát lỗi viết: textarea có lỗi → gạch chân', ws.u >= 2 && ws.badge, `u=${ws.u} ${ws.us.map(u => u.t).join(',')}`);
+if (ws.u) {
+  const f = ws.us[0]; await wp.mouse.click(f.x + f.w / 2, f.y - 6); await sleep(700); ws = await wcState(wp);
+  rec('soát lỗi viết: bấm chữ bị gạch → hộp gợi ý', ws.card && /receive/.test(ws.text), ws.text.slice(0, 120));
+  await wp.evaluate(() => { const r = document.querySelector('lexkite-wc').shadowRoot; const b = r.querySelector('[data-a="why"]'); if (b) b.click(); }); await sleep(400);
+  const why = await wp.evaluate(() => { const w = document.querySelector('lexkite-wc').shadowRoot.querySelector('.why'); return w && !w.hidden ? w.innerText : ''; });
+  await shot(wp, 'writecheck-why');
+  rec('soát lỗi viết: "Vì sao?" có giải thích', why.length > 20, why.slice(0, 100));
+  if (L !== 'vi') rec('soát lỗi viết: hộp gợi ý không lẫn tiếng Việt', !VI.test(ws.text + why), ((ws.text + why).match(new RegExp('.{0,25}' + VI.source + '.{0,25}', 'i')) || [''])[0]);
+  await wp.evaluate(() => document.querySelector('lexkite-wc').shadowRoot.querySelector('.rep').click()); await sleep(800);
+  const v = await wp.inputValue('#wta');
+  rec('soát lỗi viết: sửa 1 chạm', /I receive your email/.test(v) && !/recieve/.test(v), v.slice(0, 80));
+}
+// lỗi ngữ pháp có bài học liên quan: "she have" → has
+await sleep(2500); ws = await wcState(wp);
+const g = ws.us.find(u => /grammar/.test(u.t));
+if (g) { await wp.mouse.click(g.x + g.w / 2, g.y - 6); await sleep(700); ws = await wcState(wp); rec('soát lỗi viết: lỗi ngữ pháp có gợi ý', ws.card && /has/.test(ws.text), ws.text.slice(0, 120)); await wp.keyboard.press('Escape'); }
+await wp.click('#wpw'); await wp.keyboard.type('I recieve teh email she have', { delay: 5 }); await sleep(2500);
+ws = await wcState(wp); rec('soát lỗi viết: ô mật khẩu → không gạch chân', ws.u === 0 && !ws.badge, `u=${ws.u}`);
+await wp.click('#wce'); await wp.keyboard.type('He don\'t like it because its a very important decision. ', { delay: 5 }); await sleep(3000);
+ws = await wcState(wp); await shot(wp, 'writecheck-contenteditable');
+rec('soát lỗi viết: contenteditable → gạch chân', ws.u >= 2, `u=${ws.u} ${ws.us.map(u => u.t).join(',')}`);
+await wp.emulateMedia({ colorScheme: 'dark' }); await sleep(300);
+if (ws.us[0]) { await wp.mouse.click(ws.us[0].x + ws.us[0].w / 2, ws.us[0].y - 6); await sleep(700); await shot(wp, 'writecheck-dark'); }
+await wp.emulateMedia({ colorScheme: 'light' });
+await setSettings({ wcOn: false }); await wp.close();
+
 // ---------- 7. Lỗi & nhật ký ----------
 const errLog = (await store('errLog')) || [];
 rec('errLog của add-on rỗng', !errLog.length, errLog.map(e => e.where + ': ' + e.m.slice(0, 120)).join(' | '));

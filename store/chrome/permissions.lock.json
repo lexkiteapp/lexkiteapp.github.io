@@ -7,6 +7,6 @@
   "chrome_url_overrides": ["newtab"],
   "remote_hosts_fetched": [
     "lexkite.com", "translate.googleapis.com", "api.dictionaryapi.dev", "en.wiktionary.org", "en.wikipedia.org",
-    "api.tatoeba.org", "api.datamuse.com", "api.mymemory.translated.net", "api.openverse.org", "generativelanguage.googleapis.com"
+    "api.tatoeba.org", "api.datamuse.com", "api.mymemory.translated.net", "api.openverse.org", "generativelanguage.googleapis.com", "api.languagetool.org"
   ]
 }

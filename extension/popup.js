@@ -17,6 +17,9 @@
     '⚠️ Chưa đồng bộ tài khoản – dữ liệu chỉ ở máy này': '⚠️ Account not synced – data is only on this device', '☁️ Đồng bộ với Google': '☁️ Sync with Google',
     '⏳ Đang đồng bộ…': '⏳ Syncing…', '✓ Đã đồng bộ': '✓ Synced', 'Thử lại': 'Retry', '⏳ Đang tra…': '⏳ Looking up…',
     '✓ Đã có': '✓ Saved', '+ Lưu flashcard': '+ Save flashcard', 'Chi tiết': 'Details', '✓ Đã lưu': '✓ Saved',
+    '✍️ Soát lỗi viết': '✍️ Writing check', 'Gạch chân lỗi tiếng Anh khi bạn gõ trên mọi trang · bấm để sửa và xem vì sao sai': 'Underlines English mistakes as you type on any site · tap to fix and see why',
+    'Kiểm nâng cao (LanguageTool)': 'Advanced check (LanguageTool)', 'Bật trên {site}': 'On for {site}', 'Trang này không hỗ trợ soát lỗi viết': 'Writing check is not available on this page',
+    'Mặc định chữ chỉ được soát ngay trên máy. Kiểm nâng cao gửi chữ trong ô bạn đang gõ tới LanguageTool. Không bao giờ soát ô mật khẩu, email, thẻ thanh toán và trang ngân hàng.': 'By default your text is checked on your device only. Advanced check sends the text of the box you are typing in to LanguageTool. Password, email and payment card fields and banking sites are never checked.',
     'Mở trên điện thoại (mã QR)': 'Open on phone (QR code)', 'Không tìm thấy “{q}”.': 'No results for “{q}”.', ' Dịch: <b>{vi}</b>': ' Translation: <b>{vi}</b>', 'Chính sách quyền riêng tư': 'Privacy policy', 'Quét bằng camera điện thoại để học:': 'Scan with your phone camera to study:',
   };
   const tx = (src, vars) => { let s = UI_LANG === 'vi' ? src : (XD[src] || EN[src] || src); if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)); return s; };
@@ -113,6 +116,21 @@
   $('#dbl').onchange = async e => { settings.dblclickOn = e.target.checked; await Store.set('settings', settings); };
   if ($('#acOn')) { $('#acOn').checked = settings.markAcademic !== false; $('#acOn').onchange = async e => { settings.markAcademic = e.target.checked; await Store.set('settings', settings); }; }
   if ($('#ntOn')) { $('#ntOn').checked = settings.newtabOn !== false; $('#ntOn').onchange = async e => { settings.newtabOn = e.target.checked; await Store.set('settings', settings); }; }
+
+  // ✍️ Soát lỗi viết: bật chung (mặc định tắt) · bật/tắt riêng trang đang mở · kiểm nâng cao bằng LanguageTool
+  {
+    const more = () => { $('#wcMore').hidden = !settings.wcOn; };
+    $('#wcOn').checked = settings.wcOn === true; $('#wcAdv').checked = settings.wcAdv === true; more();
+    $('#wcOn').onchange = async e => { settings.wcOn = e.target.checked; await Store.set('settings', settings); more(); };
+    $('#wcAdv').onchange = async e => { settings.wcAdv = e.target.checked; await Store.set('settings', settings); };
+    let site = '';
+    try { const [tab] = await chrome.tabs.query({ active: true, currentWindow: true }); const u = new URL(tab && tab.url || ''); if (/^https?:$/.test(u.protocol)) site = u.hostname.replace(/^www\./, ''); } catch (e) { /* trang nội bộ của Chrome */ }
+    const { wcOffSites = [] } = await chrome.storage.local.get('wcOffSites');
+    if (site) {
+      $('#wcSiteTxt').textContent = tx('Bật trên {site}', { site }); $('#wcSite').checked = !wcOffSites.includes(site);
+      $('#wcSite').onchange = async e => { const { wcOffSites: cur = [] } = await chrome.storage.local.get('wcOffSites'); const next = e.target.checked ? cur.filter(h => h !== site) : [...new Set([...cur, site])]; await chrome.storage.local.set({ wcOffSites: next.slice(-500) }); };
+    } else { $('#wcSiteTxt').textContent = tx('Trang này không hỗ trợ soát lỗi viết'); $('#wcSite').disabled = true; }
+  }
 
   // Cùng cách chọn giọng với bảng tra trên trang (content.js): giọng tự nhiên tốt nhất, không dùng bản ghi âm chất lượng không đều
   const bestVoice = acc => {

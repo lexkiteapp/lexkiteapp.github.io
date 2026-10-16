@@ -48,3 +48,11 @@ Google chặn đăng nhập trong khung web của app, nên phải dùng đăng 
 2. Tải `google-services.json` (Android) và `GoogleService-Info.plist` (iOS) về thư mục `mobile/`, rồi nhắn em. Em sẽ cài plugin đăng nhập gốc và nối với hệ thống đồng bộ sẵn có.
 
 Trong lúc chưa có bước 4, app vẫn học bình thường và lưu dữ liệu trên máy. Đồng bộ đa thiết bị thì đăng nhập trên lexkite.com.
+
+## Widget màn hình chính / khóa
+- **iOS** (`ios/App/LexkiteWidget/`, WidgetKit): nhỏ, vừa, màn hình khóa (accessoryRectangular, accessoryInline – iOS 16+). Target do `ruby scripts/ios-add-widget.rb` thêm vào `App.xcodeproj` (chạy lại an toàn).
+- **Android** (`LexkiteWidget.kt`, RemoteViews): 2×2 và 4×2 (tự đổi bố cục theo độ rộng). Android không còn widget màn hình khóa trên điện thoại.
+- **Dữ liệu**: `web/js/native.js` → plugin nội bộ `WidgetBridge.update({ json })` (iOS `WidgetBridgePlugin.swift` → App Group `group.com.lexkite.app`; Android `WidgetBridgePlugin.kt` → SharedPreferences). Snapshot ≤ 20 từ đến hạn + số thẻ + chuỗi ngày + nhãn đã dịch (15 ngôn ngữ). Ghi khi mở app, sau phiên ôn, sau đồng bộ. Widget không gọi mạng; từ đổi mỗi giờ.
+- **Chạm widget** → `lexkite://review?w=từ` → app mở `#/review?w=từ` (thẻ đó lên đầu phiên ôn).
+- Mô tả trong thư viện widget: `node scripts/gen-widget-i18n.mjs` (lấy từ i18n web).
+- **Khi phát hành iOS**: tạo App Group `group.com.lexkite.app` trên Apple Developer, bật App Groups cho cả `com.lexkite.app` và `com.lexkite.app.widget`, chọn Team cho cả 2 target (entitlements đã có sẵn).
