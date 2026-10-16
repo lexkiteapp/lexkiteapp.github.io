@@ -70,10 +70,23 @@ async function card(page, file, body) {
 const sceneBg = (i, url, extra = '') => { const [k, h, p] = T.s[i]; return `<div class="brand"><img src="${ICON}"><span>lex<b>kite</b></span></div><div class="txt"${LANG === 'ar' ? ' dir="rtl" style="text-align:right"' : ''}><span class="kick">${k}</span><h1>${h}</h1><p>${p}</p></div>${extra}<div class="win"><div class="bar"><span></span><span></span><span></span><div>🔒 ${url}</div></div></div>`; };
 
 // Ghép 1 cảnh: nền PNG + đoạn video [ss, ss+d] đặt vào khung, mờ dần đầu/cuối
-function compose(bg, vid, ss, d, out, box = WIN, vp = [VW, VH]) {
-  const [cw, ch] = [Math.min(VW, vp[0]), Math.min(VH, vp[1])]; // vùng trang thật ở góc trên-trái của bản ghi 1280×800
+// Bản ghi Playwright luôn 1280×800; phần trang thật nằm góc trên-trái, phần thừa đệm màu xám (~134,132,130) → dò từ 1 khung giữa đoạn
+function contentBox(vid, ss, d) {
+  const buf = execFileSync('ffmpeg', ['-loglevel', 'error', '-ss', String(ss + d / 2), '-i', vid, '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], { maxBuffer: 64 << 20 });
+  const px = (x, y) => { const i = (y * VW + x) * 3; return [buf[i], buf[i + 1], buf[i + 2]]; };
+  const pad = ([r, g, b]) => Math.abs(r - g) < 10 && Math.abs(g - b) < 10 && r > 105 && r < 165;
+  const rowPad = y => { let n = 0; for (let x = 0; x < VW; x += 8) n += pad(px(x, y)); return n / (VW / 8) > 0.97; };
+  const colPad = x => { let n = 0; for (let y = 0; y < VH; y += 8) n += pad(px(x, y)); return n / (VH / 8) > 0.97; };
+  let h = VH; while (h > 100 && rowPad(h - 1)) h--;
+  let w = VW; while (w > 100 && colPad(w - 1)) w--;
+  return [w - (w % 2), h - (h % 2)];
+}
+function compose(bg, vid, ss, d, out, box = WIN, vp = [VW, VH], fit = false) { // fit: thu vừa khung (popup) thay vì phủ kín rồi cắt
+  let [cw, ch] = [Math.min(VW, vp[0]), Math.min(VH, vp[1])];
+  try { const [dw, dh] = contentBox(vid, ss, d); cw = Math.min(cw, dw); ch = Math.min(ch, dh); } catch (e) { /* giữ kích thước khung nhìn */ }
+  console.log(`  cắt ${path.basename(vid)} → ${cw}×${ch}`);
   ff(['-loop', '1', '-t', String(d), '-i', bg, '-ss', String(ss), '-t', String(d), '-i', vid, '-filter_complex',
-    `[1:v]crop=${cw}:${ch}:0:0,scale=${box.w}:${box.h}:force_original_aspect_ratio=increase:flags=lanczos,crop=${box.w}:${box.h}:0:0,setsar=1[v];[0:v][v]overlay=${box.x}:${box.y}:shortest=1,fps=${FPS},format=yuv420p,fade=t=in:st=0:d=0.35,fade=t=out:st=${(d - 0.35).toFixed(2)}:d=0.35`,
+    `[1:v]crop=${cw}:${ch}:0:0,${fit ? `scale=${box.w}:${box.h}:force_original_aspect_ratio=decrease:flags=lanczos,pad=${box.w}:${box.h}:0:0:white` : `scale=${box.w}:${box.h}:force_original_aspect_ratio=increase:flags=lanczos,crop=${box.w}:${box.h}:0:0`},setsar=1[v];[0:v][v]overlay=${box.x}:${box.y}:shortest=1,fps=${FPS},format=yuv420p,fade=t=in:st=0:d=0.35,fade=t=out:st=${(d - 0.35).toFixed(2)}:d=0.35`,
     '-r', String(FPS), '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-an', out]);
 }
 function still(png, d, out) { // 1 ảnh → d giây, phóng to chậm (zoompan trên 1 khung duy nhất, phóng 2× trước để không rung)
@@ -185,7 +198,7 @@ for (const [k, s] of scenes.entries()) {
     const extra = `<div style="position:absolute;left:720px;top:190px;width:1080px;border-radius:16px;overflow:hidden;opacity:.5;filter:blur(2px)"><img style="display:block;width:100%" src="data:image/png;base64,${artB64}"></div>`;
     const [kk, h, p] = T.s[s.i];
     await card(cp, bg, `<div class="brand"><img src="${ICON}"><span>lex<b>kite</b></span></div><div class="txt"${LANG === 'ar' ? ' dir="rtl" style="text-align:right"' : ''}><span class="kick">${kk}</span><h1>${h}</h1><p>${p}</p></div>${extra}<div style="position:absolute;left:1070px;top:120px;width:456px;height:720px;border-radius:20px;box-shadow:0 50px 110px rgba(0,0,0,.55);background:#fff"></div>`);
-    compose(bg, s.vid, s.ss, s.d, path.join(TMP, `p${k + 1}.mp4`), { x: 1070, y: 120, w: 456, h: 720 }, s.vp);
+    compose(bg, s.vid, s.ss, s.d, path.join(TMP, `p${k + 1}.mp4`), { x: 1070, y: 120, w: 456, h: 720 }, s.vp, true);
   } else {
     await card(cp, bg, sceneBg(s.i, s.url));
     compose(bg, s.vid, s.ss, s.d, path.join(TMP, `p${k + 1}.mp4`), WIN, s.vp);
