@@ -38,7 +38,7 @@ jobs:
         continue-on-error: true
         run: |
           timeout 600 node scripts/harvest-content.mjs 3000 2>/dev/null | tail -1 || echo 'thu thập quá giờ – dùng danh sách cũ'
-          LANGS=$(grep -v '^#' scripts/i18n-langs.txt); N=$(echo $LANGS | wc -w)
+          LANGS="en $(grep -v '^#' scripts/i18n-langs.txt)"  # en cũng cần: nội dung soạn tiếng Việt → giao diện tiếng Anh
           for l in $LANGS; do CONTENT_MIN=1 node scripts/gen-content-i18n.mjs "$l" || echo "lỗi nội dung $l"; done
       - name: Lưu kết quả vào repo (tự lấy bản mới nhất trước khi đẩy, thử lại tối đa 5 lần)
         if: always()
