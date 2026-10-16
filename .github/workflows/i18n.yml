@@ -21,10 +21,6 @@ jobs:
         with:
           node-version: 22
       - run: npm ci --no-audit --no-fund
-      - name: Dịch sẵn nội dung bài học (thu thập câu mới → chỉ dịch phần mới, 13 ngôn ngữ)
-        run: |
-          node scripts/harvest-content.mjs 3000 2>/dev/null | tail -1
-          for l in $(grep -v '^#' scripts/i18n-langs.txt); do CONTENT_MIN=3 node scripts/gen-content-i18n.mjs "$l" || echo "lỗi nội dung $l"; done
       - name: Dịch từng ngôn ngữ
         run: |
           SECONDS=0
@@ -37,7 +33,15 @@ jobs:
           for l in $(grep -v '^#' scripts/i18n-langs.txt); do EXPLAIN_MIN=$(( 50 - (SECONDS / 60) )) node scripts/gen-explain.mjs "$l" || echo "lỗi lời giải $l"; done  # lời giải đề thi (chỉ câu mới)
           node scripts/i18n-backcheck.mjs || echo 'kiểm nghĩa lỗi mạng – lần sau làm tiếp'  # dịch ngược câu mới/đổi → web/i18n/backcheck.json (tab Chất lượng)
           node scripts/i18n-qa.mjs   # báo cáo chất lượng: đủ khóa, đúng biến, không lẫn tiếng (xem docs/I18N-PIPELINE.md)
+      - name: Dịch sẵn nội dung bài học (dùng thời gian còn lại – dịch dần qua nhiều đêm, chỉ câu mới)
+        timeout-minutes: 25
+        continue-on-error: true
+        run: |
+          timeout 600 node scripts/harvest-content.mjs 3000 2>/dev/null | tail -1 || echo 'thu thập quá giờ – dùng danh sách cũ'
+          LANGS=$(grep -v '^#' scripts/i18n-langs.txt); N=$(echo $LANGS | wc -w)
+          for l in $LANGS; do CONTENT_MIN=1 node scripts/gen-content-i18n.mjs "$l" || echo "lỗi nội dung $l"; done
       - name: Lưu kết quả vào repo (tự lấy bản mới nhất trước khi đẩy, thử lại tối đa 5 lần)
+        if: always()
         run: |
           git config user.name "lexkite-bot"
           git config user.email "lexkite-bot@users.noreply.github.com"
