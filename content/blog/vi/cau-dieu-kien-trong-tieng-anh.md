@@ -117,7 +117,7 @@ Trong tiếng Anh học thuật, việc lặp đi lặp lại từ *If* sẽ là
 
 Ngữ pháp chỉ thực sự trở thành phản xạ tự nhiên khi bạn đặt nó vào ngữ cảnh đọc, nghe và viết câu hoàn chỉnh. Trong hệ thống học tập của Lexkite, bạn có thể thực hành các chủ điểm ngữ pháp thông qua nhiều công cụ tương tác:
 
-![Màn hình Học thông minh của Lexkite giới thiệu cụm từ come up with kèm nghĩa, ví dụ và mẹo nhớ](media:practice-learn "Tính năng Học thông minh giúp bạn phân tích cấu trúc câu và phát hiện lỗi sai ngữ pháp thường gặp")
+![Màn hình Học thông minh của Lexkite giới thiệu cụm từ come up with kèm nghĩa, ví dụ và mẹo nhớ](media:practice-learn "Học thông minh: mỗi cụm từ có nghĩa, ví dụ, mẹo nhớ và lỗi hay gặp – học cụm, rồi đặt vào câu điều kiện của riêng bạn")
 
 Đầu tiên, bạn hãy truy cập mục [lộ trình ngữ pháp](/#/grammar) để xem sơ đồ 12 thì và hệ thống phân cấp câu từ cơ bản đến nâng cao. Sau đó, tại khu vực [trò chơi và bài tập](/#/practice), hãy thử sức với các bài tập trắc nghiệm và điền từ để củng cố khả năng nhận biết mệnh đề điều kiện:
 
@@ -125,7 +125,7 @@ Ngữ pháp chỉ thực sự trở thành phản xạ tự nhiên khi bạn đ�
 
 Mỗi khi bắt gặp một liên từ hoặc cấu trúc mới trong lúc đọc tài liệu, bạn có thể tra cứu tức thì trên [từ điển Anh–Việt](/#/dict) của app để lưu lại kèm ví dụ thực tế:
 
-![Từ điển Anh–Việt của Lexkite tra từ resilient hiển thị phiên âm UK và US, ví dụ, collocation và nút lưu flashcard](media:dict "Tra cứu nhanh nghĩa và các kết hợp từ của mệnh đề điều kiện trực tiếp trong từ điển Lexkite")
+![Từ điển Anh–Việt của Lexkite tra từ resilient hiển thị phiên âm UK và US, ví dụ, collocation và nút lưu flashcard](media:dict "Tra nhanh nghĩa, ví dụ và collocation của từ mới gặp trong câu điều kiện, rồi lưu thành flashcard")
 
 Bạn cũng có thể xem thêm kho bài học tại chuyên trang [ngữ pháp tiếng Anh](/ngu-phap/) để hệ thống hóa kiến thức bài bản mỗi ngày.
 

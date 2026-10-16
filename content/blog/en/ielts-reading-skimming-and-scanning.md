@@ -114,7 +114,7 @@ Whenever you encounter unfamiliar idioms or collocations while reading, tap any 
 
 Consistently recording your practice sessions and monitoring retention on your [progress dashboard](/#/stats) ensures your reading rate climbs steadily ahead of test day:
 
-![Learning progress and badges dashboard on Lexkite showing level, XP, daily streak, reviewed cards, and six month heatmap](media:stats "Track your reading speed and daily study streaks to maintain test readiness")
+![Learning progress and badges dashboard on Lexkite showing level, XP, daily streak, reviewed cards, and six month heatmap](media:stats "Track your daily streak, XP and reviewed cards to keep your reading practice consistent")
 
 You can also explore full-length practice tests and model essays in our [sample library](/samples/) to benchmark your performance against official band descriptors.
 
