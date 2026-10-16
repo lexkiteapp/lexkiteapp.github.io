@@ -1,7 +1,7 @@
 {
  "_": "Sửa tay định nghĩa/ví dụ sau khi duyệt (gen-wordlist.mjs áp dụng khi xuất file). Nội dung tự biên soạn – Lexkite, CC BY-SA 4.0.",
  "beta": {
-  "def": "a measure of how much the price of a share or investment moves compared with the market as a whole",
+  "def": "a number showing how much a share price moves compared with the market",
   "ex": "Shares with a high beta usually rise and fall more sharply than the market."
  },
  "summit": {
@@ -41,7 +41,7 @@
   "ex": "The median salary in the department rose by four percent last year."
  },
  "receiver": {
-  "def": "a person or organisation that receives something; also the part of a telephone that you hold to your ear",
+  "def": "a person or organisation that receives something; also part of a telephone",
   "ex": "Please check that the receiver's address is correct before you send the parcel."
  },
  "abolish": {
@@ -66,15 +66,15 @@
  },
  "dot": {
   "def": "a small round mark or spot",
-  "ex": "Our website address is lexkite dot com."
+  "ex": "Our company website address is lexkite dot com, written without any spaces."
  },
  "hub": {
   "def": "the central or most important part of an area, system or activity",
   "ex": "Singapore is a major shipping and financial hub in Asia."
  },
  "echo": {
-  "def": "a sound that is heard again because it reflects off a surface; also an idea or opinion that repeats another one",
-  "ex": "Her report echoes the concerns raised at last month's meeting."
+  "def": "a repeated sound; also an opinion that repeats an earlier one",
+  "ex": "Her report echoes the concerns that staff raised at last month's meeting."
  },
  "petty": {
   "def": "small and not important",
@@ -153,8 +153,8 @@
   "ex": "Please round all prices to two decimal places."
  },
  "leverage": {
-  "def": "the use of borrowed money to increase the possible return on an investment; also the power to influence a situation",
-  "ex": "The company used leverage to finance the takeover of its rival."
+  "def": "using borrowed money to increase possible profits; also power to influence",
+  "ex": "The company used leverage to finance the takeover of its main competitor."
  },
  "diversify": {
   "def": "to develop a wider range of products, services or investments in order to reduce risk",
@@ -202,7 +202,7 @@
  },
  "intrigue": {
   "def": "to make someone very interested or curious",
-  "ex": "The new product design intrigued many investors."
+  "ex": "The unusual design of the new product intrigued many potential investors."
  },
  "launder": {
   "def": "to hide the illegal origin of money by passing it through legal businesses",
@@ -213,8 +213,8 @@
   "ex": "Traders use arbitrage to profit from small price differences between markets."
  },
  "convertible": {
-  "def": "able to be changed into another form, for example a bond that can be exchanged for shares",
-  "ex": "The bank issued convertible bonds."
+  "def": "able to be changed into another form, such as shares",
+  "ex": "The bank issued convertible bonds that investors can later exchange for shares."
  },
  "ambition": {
   "def": "a strong wish to achieve success, power or a particular goal",
@@ -242,11 +242,11 @@
  },
  "liquidation": {
   "def": "the process of closing a company and selling its assets to pay its debts",
-  "ex": "The company went into liquidation last year."
+  "ex": "The construction company went into liquidation after losing its largest contract."
  },
  "macroeconomics": {
   "def": "the study of a whole economy, including total output, income, employment and prices",
-  "ex": "Macroeconomics studies inflation and unemployment."
+  "ex": "Macroeconomics studies issues such as inflation, unemployment and national growth."
  },
  "sacrifice": {
   "def": "the act of giving up something valuable in order to get something more important",
@@ -254,15 +254,16 @@
  },
  "acre": {
   "def": "a unit for measuring land, equal to about 4,047 square metres",
-  "ex": "The farm covers two hundred acres."
+  "ex": "The organic farm covers two hundred acres of land near the river."
  },
  "shield": {
   "def": "something that protects a person or thing from harm or danger",
-  "ex": "Insurance shields the company from large losses."
+  "ex": "Good insurance acts as a shield that protects the company from large losses.",
+  "vi": "tấm khiên; sự bảo vệ"
  },
  "encyclopedia": {
   "def": "a book or website with information on many subjects, usually arranged in alphabetical order",
-  "ex": "The online encyclopedia is updated every day."
+  "ex": "The online encyclopedia is updated every day by thousands of volunteer editors."
  },
  "contemplate": {
   "def": "to think carefully about something, especially a possible future action",
@@ -277,16 +278,16 @@
   "ex": "Negligence is the most common type of tort."
  },
  "succession": {
-  "def": "the process of one person taking over a position after another, or a number of things that follow each other",
-  "ex": "The company has a clear plan for succession when the director retires."
+  "def": "the process of one person taking over a role after another",
+  "ex": "The company has a clear plan for succession when the current director retires."
  },
  "cotton": {
   "def": "a soft white natural fibre from a plant, used to make cloth",
-  "ex": "The factory produces cotton shirts."
+  "ex": "The factory produces cotton shirts for several well-known clothing brands."
  },
  "helicopter": {
-  "def": "an aircraft with long blades on top that turn round, allowing it to rise straight up and stay in one place in the air",
-  "ex": "The company uses a helicopter to inspect the power lines."
+  "def": "an aircraft with turning blades on top that can fly straight up",
+  "ex": "The energy company uses a helicopter to inspect its power lines every year."
  },
  "conspiracy": {
   "def": "a secret plan by a group of people to do something illegal or harmful",
@@ -298,14 +299,14 @@
  },
  "disposition": {
   "def": "a person's natural character; also the way something is arranged or sold",
-  "ex": "He has a calm disposition.",
+  "ex": "The new receptionist has a calm and friendly disposition.",
   "vi": "tính khí; cách sắp xếp, xử lý (tài sản)"
  },
  "sensitivity": {
   "def": "the ability to notice and react to small changes, or to understand other people's feelings"
  },
  "maturity": {
-  "ex": "The bond reaches maturity in ten years.",
+  "ex": "The government bond reaches maturity in ten years, when investors are repaid in full.",
   "def": "the date when an investment or loan must be paid back"
  },
  "volatility": {
@@ -329,7 +330,7 @@
   "def": "a company that provides insurance"
  },
  "profitability": {
-  "ex": "The new strategy improved the company's profitability.",
+  "ex": "The new pricing strategy improved the company's profitability within a single year.",
   "def": "the ability of a business to make a profit"
  },
  "conversion": {
@@ -337,11 +338,11 @@
   "def": "the process of changing something from one form or use to another"
  },
  "scandal": {
-  "ex": "The scandal forced the director to resign.",
+  "ex": "The accounting scandal forced the finance director to resign last month.",
   "def": "an event that shocks people because it involves dishonest or wrong behaviour"
  },
  "publicly": {
-  "ex": "The company publicly apologised for the delay.",
+  "ex": "The airline publicly apologised for the delays and offered passengers a refund.",
   "def": "in a way that is open to everyone; also owned by the government"
  },
  "governance": {
@@ -354,7 +355,7 @@
   "vi": "người nổi loạn, chống đối"
  },
  "restructure": {
-  "ex": "The firm restructured its sales department.",
+  "ex": "The firm restructured its sales department to focus on online customers.",
   "def": "to organise a company or system in a new way"
  },
  "allowance": {
@@ -366,7 +367,7 @@
   "def": "an official document giving the right to do something; also a right to buy shares"
  },
  "technological": {
-  "ex": "Technological change is creating new jobs.",
+  "ex": "Rapid technological change is creating new jobs while making others disappear.",
   "def": "relating to technology"
  },
  "shrink": {
@@ -394,11 +395,11 @@
   "def": "a person who is part of a group or company and knows secret information"
  },
  "constitutional": {
-  "ex": "The court ruled on a constitutional question.",
+  "ex": "The court ruled on a constitutional question about the powers of local councils.",
   "def": "relating to the basic laws of a country"
  },
  "privatization": {
-  "ex": "The privatization of the railway was controversial.",
+  "ex": "The privatization of the national railway was controversial with many passengers.",
   "def": "the sale of a state-owned company to private owners"
  },
  "accordance": {
@@ -406,11 +407,11 @@
   "def": "agreement with a rule or wish (in accordance with)"
  },
  "activist": {
-  "ex": "Environmental activists protested outside the factory.",
+  "ex": "Environmental activists protested outside the factory about the pollution in the river.",
   "def": "a person who works to bring about political or social change"
  },
  "consultancy": {
-  "ex": "She works for an engineering consultancy.",
+  "ex": "She works for an engineering consultancy that advises on major transport projects.",
   "def": "a company that gives expert advice to other businesses"
  },
  "lessee": {
@@ -422,15 +423,15 @@
   "def": "to go bankrupt (go bust); also to break something"
  },
  "rally": {
-  "ex": "Share prices rallied after the good news.",
+  "ex": "Share prices rallied strongly after the company announced better-than-expected results.",
   "def": "an increase in prices after a fall"
  },
  "exempt": {
-  "ex": "Small businesses are exempt from this tax.",
+  "ex": "Small businesses with low turnover are exempt from this new tax.",
   "def": "not required to do or pay something"
  },
  "weaken": {
-  "ex": "The currency weakened against the dollar.",
+  "ex": "The national currency weakened against the dollar after the interest rate cut.",
   "def": "to become or make something less strong"
  },
  "suppress": {
@@ -442,35 +443,35 @@
   "def": "to be stronger and win; to be common"
  },
  "municipal": {
-  "ex": "The municipal library is open on Sundays.",
+  "ex": "The municipal library offers free English classes for adults on Sunday mornings.",
   "def": "relating to a town or city government"
  },
  "hostile": {
-  "ex": "The company rejected a hostile takeover bid.",
+  "ex": "The company's board rejected a hostile takeover bid from a larger competitor.",
   "def": "unfriendly and aggressive; in business, a takeover that is not wanted"
  },
  "gamble": {
-  "ex": "Opening a restaurant is always a gamble.",
+  "ex": "Opening a new restaurant in a quiet area is always a gamble for investors.",
   "def": "a risky action that may succeed or fail"
  },
  "tighten": {
-  "ex": "The bank tightened its lending rules.",
+  "ex": "The bank tightened its lending rules after several customers failed to repay loans.",
   "def": "to make something stricter or firmer"
  },
  "squeeze": {
-  "ex": "Rising costs are squeezing small businesses.",
+  "ex": "Rising energy and transport costs are squeezing the profits of small businesses.",
   "def": "to put pressure on something so that there is less of it"
  },
  "scrap": {
-  "ex": "The factory sells metal scrap for recycling.",
+  "ex": "The factory sells its metal scrap to a recycling company every month.",
   "def": "old metal or other material that can be used again; also a small piece"
  },
  "petrol": {
-  "ex": "Petrol prices rose again this week.",
+  "ex": "Petrol prices rose again this week, so more people are using public transport.",
   "def": "fuel used in cars"
  },
  "uncertain": {
-  "ex": "The future of the project is uncertain.",
+  "ex": "The future of the project is uncertain until the government confirms the funding.",
   "def": "not known or not definite"
  },
  "seize": {
@@ -486,11 +487,11 @@
   "def": "the total value of a company's shares"
  },
  "diplomat": {
-  "ex": "The diplomat spoke three foreign languages.",
+  "ex": "The diplomat spoke three foreign languages and had worked in five different countries.",
   "def": "a person who represents their country abroad"
  },
  "intent": {
-  "ex": "The letter of intent was signed yesterday.",
+  "ex": "Both companies signed a letter of intent to work together on the new project.",
   "def": "purpose or intention"
  },
  "lessor": {
@@ -510,19 +511,19 @@
   "def": "not treating people equally or reasonably"
  },
  "demographic": {
-  "ex": "Demographic changes affect the demand for housing.",
+  "ex": "Demographic changes, such as an ageing population, affect the demand for housing.",
   "def": "relating to the structure of a population, such as age and income"
  },
  "senator": {
-  "ex": "The senator spoke at the business conference.",
+  "ex": "The senator gave a speech about trade policy at the annual business conference.",
   "def": "a member of a senate"
  },
  "adoption": {
-  "ex": "The adoption of new software improved efficiency.",
+  "ex": "The adoption of new accounting software has improved efficiency in the finance team.",
   "def": "the decision to start using something new"
  },
  "privately": {
-  "ex": "The company is privately owned.",
+  "ex": "The company is privately owned, so it does not have to publish its accounts.",
   "def": "without other people being present; also owned by individuals, not the state"
  },
  "plunge": {
@@ -530,11 +531,11 @@
   "def": "to fall suddenly and by a large amount"
  },
  "legally": {
-  "ex": "The contract is legally binding.",
+  "ex": "The contract becomes legally binding once both parties have signed it.",
   "def": "according to the law"
  },
  "revive": {
-  "ex": "The new manager revived the struggling business.",
+  "ex": "The new manager revived the struggling business by focusing on online sales.",
   "def": "to bring something back into use or to a healthy state"
  },
  "intermediary": {
@@ -572,8 +573,9 @@
   "vi": "người kiên cường, không bỏ cuộc"
  },
  "grip": {
-  "ex": "Hold the handle with a firm grip.",
-  "def": "to hold something tightly; to have a strong effect on"
+  "ex": "The new manager quickly got a firm grip on the company's finances.",
+  "def": "to hold something tightly; to have a strong effect on",
+  "vi": "sự kiểm soát; nắm chặt"
  },
  "compel": {
   "ex": "The new law compels companies to publish their salaries.",
@@ -584,16 +586,17 @@
   "def": "a reduction in speed or activity, especially in the economy"
  },
  "suspicion": {
-  "ex": "The sudden profits raised suspicion.",
+  "ex": "The sudden increase in profits raised suspicion among the auditors.",
   "def": "a feeling that something is wrong or that someone is guilty"
  },
  "dump": {
-  "ex": "Don't dump old electronics with normal rubbish.",
-  "def": "a place where rubbish is left"
+  "ex": "The council fined a company for leaving old electronics at an illegal dump.",
+  "def": "a place where rubbish is left",
+  "vi": "bãi rác"
  },
  "bail": {
-  "ex": "The government had to bail out the bank.",
-  "def": "money paid so that an accused person can stay out of prison until trial; also rescuing a company with money"
+  "ex": "The government had to bail out the bank to protect customers' savings.",
+  "def": "money paid to free an accused person until trial; also rescuing a failing company"
  },
  "surrender": {
   "ex": "You must surrender your old passport when you get a new one.",
@@ -616,7 +619,7 @@
   "def": "brave and confident"
  },
  "handful": {
-  "ex": "Only a handful of customers complained.",
+  "ex": "Only a handful of customers complained about the new opening hours.",
   "def": "a small number or amount"
  },
  "respective": {
@@ -628,7 +631,7 @@
   "def": "the probability that something will happen"
  },
  "allegation": {
-  "ex": "The company denied the allegations of fraud.",
+  "ex": "The company strongly denied the allegations of fraud made in the newspaper report.",
   "def": "a statement that someone has done something wrong, without proof"
  },
  "downward": {
@@ -640,15 +643,15 @@
   "def": "to lose value over time"
  },
  "digit": {
-  "ex": "Your PIN must have four digits.",
+  "ex": "Your new security PIN must contain four digits and should not be easy to guess.",
   "def": "any of the numbers from 0 to 9"
  },
  "provoke": {
-  "ex": "The price increase provoked complaints from customers.",
+  "ex": "The sudden price increase provoked many complaints from regular customers.",
   "def": "to cause a reaction, especially an angry one"
  },
  "secular": {
-  "ex": "The country has a secular education system.",
+  "ex": "The country has a secular education system that does not teach any religion.",
   "def": "not religious"
  },
  "distress": {
@@ -657,7 +660,7 @@
   "vi": "tình trạng khó khăn (tài chính); sự đau khổ"
  },
  "accountability": {
-  "ex": "Managers must take accountability for their decisions.",
+  "ex": "Managers must take accountability for the decisions their teams make.",
   "def": "the fact of being responsible for your decisions and actions"
  },
  "incorporation": {
@@ -669,7 +672,7 @@
   "def": "relating to diplomacy; also tactful in dealing with people"
  },
  "formerly": {
-  "ex": "The hotel was formerly a bank.",
+  "ex": "The luxury hotel in the city centre was formerly the headquarters of a bank.",
   "def": "in the past"
  },
  "optimization": {
@@ -685,7 +688,7 @@
   "def": "completely; entirely"
  },
  "predictable": {
-  "ex": "Sales are quite predictable in the summer.",
+  "ex": "Sales of ice cream are quite predictable because they rise every summer.",
   "def": "able to be known or expected in advance"
  },
  "chaos": {
@@ -701,7 +704,7 @@
   "def": "an amount of money that builds up over time but has not yet been paid"
  },
  "confront": {
-  "ex": "We must confront the problem directly.",
+  "ex": "The new manager decided to confront the problem of low staff morale directly.",
   "def": "to deal with a difficult situation directly"
  },
  "exile": {
@@ -717,7 +720,7 @@
   "def": "a strong belief; also a court decision that someone is guilty"
  },
  "continuously": {
-  "ex": "The machines run continuously day and night.",
+  "ex": "The machines in the factory run continuously, day and night, all week.",
   "def": "without stopping"
  },
  "reliance": {
@@ -729,7 +732,7 @@
   "def": "a fight or serious disagreement"
  },
  "deter": {
-  "ex": "High prices deter many tourists.",
+  "ex": "High ticket prices deter many young people from going to concerts.",
   "def": "to make someone decide not to do something"
  },
  "condemn": {
@@ -737,7 +740,7 @@
   "def": "to say strongly that something is wrong"
  },
  "operative": {
-  "ex": "The new rules become operative next month.",
+  "ex": "The new safety rules become operative at all of our sites next month.",
   "def": "working or in effect"
  },
  "privatize": {
@@ -745,11 +748,11 @@
   "def": "to sell a state-owned company to private owners"
  },
  "endure": {
-  "ex": "The company endured a difficult year.",
+  "ex": "The company endured a difficult year but returned to profit in the spring.",
   "def": "to suffer something difficult for a long time"
  },
  "deflation": {
-  "ex": "Deflation can be as harmful as inflation.",
+  "ex": "Economists warn that deflation can be as harmful to growth as high inflation.",
   "def": "a general fall in prices in an economy"
  },
  "fierce": {
@@ -757,11 +760,11 @@
   "def": "very strong and determined; very intense"
  },
  "instant": {
-  "ex": "The new product was an instant success.",
+  "ex": "The new smartphone app was an instant success with younger customers.",
   "def": "happening immediately"
  },
  "sentiment": {
-  "ex": "Consumer sentiment improved in the second quarter.",
+  "ex": "Consumer sentiment improved in the second quarter as unemployment fell.",
   "def": "a general feeling or opinion, especially in a market"
  },
  "centralize": {
@@ -777,11 +780,11 @@
   "def": "to try very hard to achieve something"
  },
  "bribe": {
-  "ex": "The official refused to accept a bribe.",
+  "ex": "The government official refused to accept a bribe and reported the company to the police.",
   "def": "money or a gift given dishonestly to persuade someone"
  },
  "controller": {
-  "ex": "The financial controller checks all payments.",
+  "ex": "The financial controller checks every payment before it leaves the company.",
   "def": "a person who manages the finances of an organisation"
  },
  "supervision": {
@@ -789,19 +792,20 @@
   "def": "the act of watching over people or work to make sure it is done correctly"
  },
  "endowment": {
-  "ex": "The university's endowment funds many scholarships.",
+  "ex": "The university's large endowment funds hundreds of scholarships for international students.",
   "def": "money given to an organisation to provide a regular income"
  },
  "reconcile": {
-  "ex": "The accountant reconciled the bank statements.",
-  "def": "to make two things agree; to find a way to be friends again"
+  "ex": "At the end of each month, the accountant reconciles the bank statements with the company records.",
+  "def": "to make two things agree; to find a way to be friends again",
+  "vi": "đối chiếu (sổ sách); hòa giải"
  },
  "liberty": {
   "ex": "Customers are at liberty to cancel within fourteen days.",
   "def": "the freedom to live and act as you choose"
  },
  "decent": {
-  "ex": "She earns a decent salary.",
+  "ex": "She earns a decent salary and receives good benefits from her employer.",
   "def": "of an acceptable standard; honest and good"
  },
  "appetite": {
@@ -817,27 +821,27 @@
   "def": "to measure or express something as an amount"
  },
  "corn": {
-  "ex": "The farm grows corn and soybeans.",
+  "ex": "The farm grows corn and soybeans, which are sold to food manufacturers.",
   "def": "a tall plant grown for its yellow grain; maize"
  },
  "skeptical": {
-  "ex": "Many investors are skeptical about the plan.",
+  "ex": "Many investors are skeptical about the plan to expand into so many new markets.",
   "def": "doubtful that something is true or useful"
  },
  "legislative": {
-  "ex": "The legislative changes will affect all businesses.",
+  "ex": "The legislative changes will affect how all businesses store customer data.",
   "def": "relating to making laws"
  },
  "negligence": {
-  "ex": "The company was found guilty of negligence.",
+  "ex": "The company was found guilty of negligence after a worker was injured at the site.",
   "def": "failure to take proper care, causing harm"
  },
  "determinant": {
-  "ex": "Price is the main determinant of demand.",
+  "ex": "Price is the main determinant of demand for many everyday products.",
   "def": "a factor that decides how something happens"
  },
  "icon": {
-  "ex": "Click the icon to open the app.",
+  "ex": "Click the printer icon at the top of the page to print your boarding pass.",
   "def": "a small picture on a screen; also a famous symbol of something"
  },
  "steep": {
@@ -845,7 +849,7 @@
   "def": "rising or falling sharply; very high (price)"
  },
  "optimism": {
-  "ex": "There is growing optimism about the economy.",
+  "ex": "There is growing optimism among business owners about the economy next year.",
   "def": "the feeling that good things will happen"
  },
  "faction": {
@@ -861,7 +865,7 @@
   "def": "a table or small shop in a market"
  },
  "optimize": {
-  "ex": "We need to optimize our delivery routes.",
+  "ex": "We need to optimize our delivery routes to reduce fuel costs and delays.",
   "def": "to make something as good or effective as possible"
  },
  "discretionary": {
@@ -881,11 +885,11 @@
   "def": "the act of saying no to something"
  },
  "geographic": {
-  "ex": "The company has a wide geographic reach.",
+  "ex": "The company has a wide geographic reach, with offices on four continents.",
   "def": "relating to geography or location"
  },
  "policeman": {
-  "ex": "A policeman directed the traffic.",
+  "ex": "A policeman directed the traffic while the traffic lights were being repaired.",
   "def": "a male police officer"
  },
  "amortize": {
@@ -902,19 +906,20 @@
   "def": "to be too much for someone to deal with"
  },
  "consistency": {
-  "ex": "Customers value consistency in quality.",
+  "ex": "Customers value consistency in quality, so every branch follows the same recipes.",
   "def": "the quality of always being the same in standard or behaviour"
  },
  "declaration": {
-  "ex": "Please complete the customs declaration form.",
-  "def": "an official statement; also a form giving information to the authorities"
+  "ex": "Travellers must complete a customs declaration form before they leave the airport.",
+  "def": "an official statement; also a form giving information to the authorities",
+  "vi": "tờ khai; lời tuyên bố"
  },
  "harsh": {
   "ex": "The company received harsh criticism for the delay.",
   "def": "very severe or unkind"
  },
  "flee": {
-  "ex": "Investors fled the market after the crash.",
+  "ex": "Many investors fled the stock market after the sudden crash in prices.",
   "def": "to leave a place quickly to escape danger"
  },
  "covariance": {
@@ -926,7 +931,7 @@
   "def": "together with others"
  },
  "spur": {
-  "ex": "Lower taxes could spur investment.",
+  "ex": "Lower taxes for small firms could act as a spur to investment and job creation.",
   "def": "something that encourages an activity or development"
  },
  "socialist": {
@@ -934,11 +939,11 @@
   "def": "relating to socialism"
  },
  "browser": {
-  "ex": "Open the link in your web browser.",
+  "ex": "Open the payment link in your web browser and enter your booking number.",
   "def": "a program used to view websites"
  },
  "exaggerate": {
-  "ex": "Don't exaggerate the risks in your report.",
+  "ex": "Don't exaggerate the risks in your report, or the board may reject the project.",
   "def": "to describe something as bigger or more important than it is"
  },
  "triumph": {
@@ -955,7 +960,7 @@
   "vi": "nạn nhân; bên bị thiệt hại"
  },
  "distinctive": {
-  "ex": "The brand has a distinctive logo.",
+  "ex": "The brand has a distinctive orange logo that customers recognise immediately.",
   "def": "easy to recognise because it is different"
  },
  "constituency": {
@@ -977,11 +982,11 @@
   "vi": "yếu tố khơi mào"
  },
  "competitiveness": {
-  "ex": "Lower costs improved the company's competitiveness.",
+  "ex": "Lower production costs improved the company's competitiveness in international markets.",
   "def": "the ability to compete successfully"
  },
  "copper": {
-  "ex": "Copper prices rose sharply this year.",
+  "ex": "Copper prices rose sharply this year because of strong demand from electric car makers.",
   "def": "a reddish-brown metal used for wires and pipes"
  },
  "poison": {
@@ -1005,11 +1010,11 @@
   "def": "to reduce something by a small amount"
  },
  "denounce": {
-  "ex": "Consumer groups denounced the price increase.",
+  "ex": "Consumer groups publicly denounced the sudden increase in electricity prices.",
   "def": "to criticise something strongly in public"
  },
  "protester": {
-  "ex": "Protesters gathered outside the head office.",
+  "ex": "Hundreds of protesters gathered outside the head office to demand better pay.",
   "def": "a person who takes part in a protest"
  },
  "distortion": {
@@ -1017,7 +1022,7 @@
   "def": "a change that makes something false or unclear"
  },
  "continually": {
-  "ex": "The company continually improves its products.",
+  "ex": "The company continually improves its products based on feedback from customers.",
   "def": "happening again and again"
  },
  "awkward": {
@@ -1029,7 +1034,7 @@
   "def": "the act of getting involved in something without being asked"
  },
  "geographical": {
-  "ex": "The company has a wide geographical presence.",
+  "ex": "The company has a wide geographical presence, with branches in twenty countries.",
   "def": "relating to geography"
  },
  "encompass": {
@@ -1037,19 +1042,19 @@
   "def": "to include a wide range of things"
  },
  "uncover": {
-  "ex": "The audit uncovered several errors.",
+  "ex": "The annual audit uncovered several errors in the company's financial records.",
   "def": "to discover something that was hidden"
  },
  "worsen": {
-  "ex": "The economic situation worsened in the autumn.",
+  "ex": "The economic situation worsened in the autumn as energy prices continued to rise.",
   "def": "to become or make something worse"
  },
  "successive": {
-  "ex": "Profits have risen for five successive years.",
+  "ex": "The company's profits have risen for five successive years.",
   "def": "following one after another"
  },
  "simplicity": {
-  "ex": "Customers love the simplicity of the app.",
+  "ex": "Customers love the simplicity of the app, which takes only seconds to learn.",
   "def": "the quality of being simple and easy"
  },
  "flourish": {
@@ -1061,15 +1066,15 @@
   "def": "the degree to which something is connected or useful"
  },
  "tumble": {
-  "ex": "Shares took a tumble after the announcement.",
+  "ex": "Shares in the airline took a tumble after the company announced lower profits.",
   "def": "a sudden fall in price or value"
  },
  "denominate": {
-  "ex": "The loan is denominated in US dollars.",
+  "ex": "The loan is denominated in US dollars, so exchange rates affect the cost.",
   "def": "to state a value in a particular currency"
  },
  "bureaucratic": {
-  "ex": "The application process is slow and bureaucratic.",
+  "ex": "The visa application process is slow, bureaucratic and often frustrating.",
   "def": "involving too many complicated official rules"
  },
  "brick": {
@@ -1077,15 +1082,15 @@
   "def": "a hard rectangular block used for building walls"
  },
  "internally": {
-  "ex": "The position was filled internally.",
+  "ex": "The manager's position was filled internally by a member of the sales team.",
   "def": "within an organisation or body"
  },
  "transparent": {
-  "ex": "The company is transparent about its prices.",
+  "ex": "The company tries to be transparent about how it sets its prices.",
   "def": "open and honest, with nothing hidden"
  },
  "hugely": {
-  "ex": "The event was hugely successful.",
+  "ex": "The training programme was hugely successful and will run again next year.",
   "def": "extremely; very much"
  },
  "bilateral": {
@@ -1093,27 +1098,27 @@
   "def": "involving two countries or groups"
  },
  "routinely": {
-  "ex": "Staff routinely check the machines every morning.",
+  "ex": "Technicians routinely check the machines every morning before production starts.",
   "def": "regularly, as a normal part of a process"
  },
  "bull": {
-  "ex": "Bulls expect the market to keep rising.",
+  "ex": "Bulls expect the stock market to keep rising throughout the next year.",
   "def": "an investor who expects share prices to rise"
  },
  "idle": {
-  "ex": "Many machines stood idle during the holiday.",
+  "ex": "Many factory machines stood idle during the long national holiday.",
   "def": "not working or being used"
  },
  "wary": {
-  "ex": "Investors are wary of new start-ups.",
+  "ex": "Many investors are wary of new start-ups that have not yet made a profit.",
   "def": "careful because you think there may be a problem"
  },
  "credible": {
-  "ex": "We need credible evidence before we decide.",
+  "ex": "The committee needs credible evidence before it can make a final decision.",
   "def": "able to be believed or trusted"
  },
  "tolerate": {
-  "ex": "The manager will not tolerate lateness.",
+  "ex": "The new manager made it clear that she will not tolerate lateness.",
   "def": "to accept something unpleasant without complaining"
  },
  "casino": {
@@ -1121,7 +1126,7 @@
   "def": "a place where people play games of chance for money"
  },
  "steam": {
-  "ex": "The old factory ran on steam power.",
+  "ex": "The old textile factory ran on steam power in the nineteenth century.",
   "def": "the hot gas produced when water boils"
  },
  "doubtful": {
@@ -1129,24 +1134,24 @@
   "def": "unlikely or uncertain"
  },
  "ideological": {
-  "ex": "The disagreement was ideological rather than practical.",
+  "ex": "The disagreement between the two parties was ideological rather than practical.",
   "def": "based on a set of political or social beliefs"
  },
  "outrage": {
-  "ex": "The price increase caused outrage among customers.",
+  "ex": "The sudden price increase caused outrage among regular customers on social media.",
   "def": "strong anger and shock"
  },
  "averse": {
-  "ex": "Many investors are averse to risk.",
+  "ex": "Many older investors are averse to risk and prefer safe government bonds.",
   "def": "strongly disliking or opposed to something",
   "vi": "không thích, ngại (rủi ro)"
  },
  "enlarge": {
-  "ex": "Click on the photo to enlarge it.",
+  "ex": "Click on the photo to enlarge it and see the details of the product.",
   "def": "to make something bigger"
  },
  "fairness": {
-  "ex": "Employees value fairness in pay.",
+  "ex": "Employees value fairness in pay, especially between men and women.",
   "def": "the quality of treating people equally and reasonably"
  },
  "dependency": {
@@ -1154,11 +1159,11 @@
   "def": "the state of relying on someone or something"
  },
  "prepayment": {
-  "ex": "A prepayment of twenty percent is required.",
+  "ex": "A prepayment of twenty percent is required before we can confirm your order.",
   "def": "payment made in advance"
  },
  "externality": {
-  "ex": "Pollution is a negative externality of production.",
+  "ex": "Pollution is a negative externality of production that affects people living nearby.",
   "def": "a cost or benefit that affects people outside an activity"
  },
  "perpetual": {
@@ -1166,18 +1171,18 @@
   "def": "lasting for ever or for a very long time"
  },
  "ration": {
-  "ex": "During the shortage, fuel was rationed.",
+  "ex": "During the fuel shortage, petrol was rationed to twenty litres per customer.",
   "def": "a fixed amount of something that a person is allowed to have"
  },
  "mosque": {
   "ex": "The old mosque is a popular tourist attraction."
  },
  "analytic": {
-  "ex": "The job requires strong analytic skills.",
+  "ex": "The job requires strong analytic skills and experience with large data sets.",
   "def": "using logical analysis"
  },
  "prone": {
-  "ex": "Older machines are prone to breaking down.",
+  "ex": "Older machines are more prone to breaking down, which increases repair costs.",
   "def": "likely to suffer from or do something bad"
  },
  "plead": {
@@ -1185,7 +1190,7 @@
   "def": "to ask for something in an urgent and emotional way"
  },
  "openly": {
-  "ex": "She spoke openly about the company's problems.",
+  "ex": "The chief executive spoke openly about the company's financial problems.",
   "def": "honestly and without hiding anything"
  },
  "newcomer": {
@@ -1209,7 +1214,7 @@
   "def": "to get back something that was lost"
  },
  "restrictive": {
-  "ex": "The bank's lending rules are very restrictive.",
+  "ex": "The bank's lending rules are very restrictive for people who are self-employed.",
   "def": "limiting what people can do"
  },
  "deed": {
@@ -1226,7 +1231,7 @@
   "def": "happening sometimes but not often"
  },
  "asylum": {
-  "ex": "The organisation helps people seeking asylum.",
+  "ex": "The charity provides legal advice to people who are seeking asylum.",
   "def": "protection given by a country to someone who has escaped danger"
  },
  "isolation": {
@@ -1234,11 +1239,11 @@
   "def": "the state of being alone or separated from others"
  },
  "investigator": {
-  "ex": "An investigator examined the company's accounts.",
+  "ex": "An independent investigator examined the company's accounts for several months.",
   "def": "a person who carefully examines facts to find the truth"
  },
  "explosive": {
-  "ex": "The issue of pay is politically explosive.",
+  "ex": "The issue of executive pay has become politically explosive this year.",
   "def": "likely to cause strong reactions or rapid change"
  },
  "tactical": {
@@ -1250,7 +1255,7 @@
   "def": "to receive benefits as a result of your actions"
  },
  "gloomy": {
-  "ex": "The economic forecast is gloomy.",
+  "ex": "The latest economic forecast is gloomy, with slower growth expected next year.",
   "def": "sad and without hope"
  },
  "defensive": {
@@ -1262,7 +1267,7 @@
   "def": "a political system in which property is owned by the state"
  },
  "frustration": {
-  "ex": "Customers expressed frustration at the long wait.",
+  "ex": "Customers expressed frustration at the long wait for their refunds.",
   "def": "the feeling of being annoyed because you cannot achieve something"
  },
  "diligence": {
@@ -1275,19 +1280,19 @@
   "vi": "cơn giận dữ; mốt nhất thời"
  },
  "constructive": {
-  "ex": "Thank you for your constructive feedback.",
+  "ex": "Thank you for your constructive feedback on our new customer service system.",
   "def": "useful and helpful"
  },
  "laser": {
-  "ex": "The printer uses laser technology.",
+  "ex": "The new office printer uses laser technology to print documents more quickly.",
   "def": "a strong narrow beam of light used in machines and medicine"
  },
  "skeptic": {
-  "ex": "Skeptics doubt that the plan will work.",
+  "ex": "Skeptics doubt that the new tax will reduce traffic in the city centre.",
   "def": "a person who doubts that something is true"
  },
  "bounce": {
-  "ex": "The market bounced back after the holiday.",
+  "ex": "The market bounced back quickly after the short period of uncertainty.",
   "def": "to recover quickly after a fall (bounce back)",
   "vi": "phục hồi nhanh (bounce back)"
  },
@@ -1300,15 +1305,15 @@
   "def": "an improvement in quality or value"
  },
  "decentralize": {
-  "ex": "The company decentralized decision-making to regional offices.",
+  "ex": "The company decentralized decision-making by giving more power to regional offices.",
   "def": "to move control from one central place to several smaller ones"
  },
  "explode": {
-  "ex": "Demand for electric bikes exploded last year.",
+  "ex": "Demand for electric bikes exploded last year as fuel prices increased.",
   "def": "to burst violently; to increase suddenly and greatly"
  },
  "pensioner": {
-  "ex": "Pensioners receive a discount on train tickets.",
+  "ex": "Pensioners receive a fifty percent discount on train tickets during the week.",
   "def": "a person who receives a pension, especially an older person"
  },
  "prudent": {
@@ -1316,7 +1321,7 @@
   "def": "careful and sensible, especially with money"
  },
  "vow": {
-  "ex": "The new CEO vowed to cut costs.",
+  "ex": "The new chief executive made a vow to cut costs without reducing jobs.",
   "def": "a serious promise"
  },
  "prosper": {
@@ -1328,7 +1333,7 @@
   "def": "willing to work with others; also owned and run by its members"
  },
  "exert": {
-  "ex": "Large retailers exert pressure on their suppliers.",
+  "ex": "Large supermarket chains exert strong pressure on their suppliers to lower prices.",
   "def": "to use power or influence to make something happen"
  },
  "expectancy": {
@@ -1336,11 +1341,11 @@
   "def": "the expected length of time something will last (life expectancy)"
  },
  "franc": {
-  "ex": "Switzerland still uses the franc.",
+  "ex": "Switzerland still uses the franc instead of the euro.",
   "def": "the currency of Switzerland and some other countries"
  },
  "sheer": {
-  "ex": "The sheer number of applications surprised us.",
+  "ex": "The sheer number of job applications surprised the small company.",
   "def": "used to emphasise how great something is"
  },
  "realization": {
@@ -1352,7 +1357,7 @@
   "def": "ready to face danger or difficulty without fear"
  },
  "negotiator": {
-  "ex": "The union's chief negotiator met the managers.",
+  "ex": "The union's chief negotiator met the managers to discuss the pay offer.",
   "def": "a person who takes part in negotiations"
  },
  "offensive": {
@@ -1360,11 +1365,11 @@
   "def": "rude and likely to upset people"
  },
  "embody": {
-  "ex": "The new office embodies the company's values.",
+  "ex": "The new open-plan office embodies the company's values of teamwork and openness.",
   "def": "to represent an idea or quality clearly"
  },
  "intelligent": {
-  "ex": "She is an intelligent and hardworking employee.",
+  "ex": "She is an intelligent and hardworking employee who learns new systems quickly.",
   "def": "able to learn and understand quickly"
  },
  "slim": {
@@ -1380,7 +1385,7 @@
   "def": "a statement that something is true"
  },
  "fiduciary": {
-  "ex": "Directors have a fiduciary duty to shareholders.",
+  "ex": "Company directors have a fiduciary duty to act in the interests of shareholders.",
   "def": "relating to managing money or property for another person"
  },
  "plague": {
@@ -1393,7 +1398,7 @@
   "def": "the place in the ground where a dead person is buried"
  },
  "negotiable": {
-  "ex": "The salary is negotiable.",
+  "ex": "The salary for the position is negotiable, depending on experience.",
   "def": "able to be changed through discussion"
  },
  "reconstruction": {
@@ -1401,15 +1406,15 @@
   "def": "the process of rebuilding something"
  },
  "rightly": {
-  "ex": "Customers rightly expect good service.",
+  "ex": "Customers rightly expect quick and polite service when they pay high prices.",
   "def": "correctly; for a good reason"
  },
  "sadly": {
-  "ex": "Sadly, the shop is closing next month.",
+  "ex": "Sadly, the family-owned bookshop on the corner is closing next month.",
   "def": "used to say that something is unfortunate"
  },
  "incorrect": {
-  "ex": "The invoice contains an incorrect amount.",
+  "ex": "The invoice contains an incorrect amount, so please send a corrected copy.",
   "def": "not correct; wrong"
  },
  "sympathy": {
@@ -1417,15 +1422,15 @@
   "def": "understanding and care for someone's problems"
  },
  "forecaster": {
-  "ex": "Forecasters expect growth to slow next year.",
+  "ex": "Economic forecasters expect growth to slow down next year.",
   "def": "a person who predicts future events, especially weather or economic trends"
  },
  "conceal": {
-  "ex": "The company tried to conceal its losses.",
+  "ex": "The company tried to conceal its losses from investors for several months.",
   "def": "to hide something"
  },
  "clarity": {
-  "ex": "The report lacks clarity.",
+  "ex": "The report lacks clarity, so the board asked for a shorter, simpler version.",
   "def": "the quality of being clear and easy to understand"
  },
  "prosperous": {
@@ -1433,19 +1438,19 @@
   "def": "rich and successful"
  },
  "globally": {
-  "ex": "The brand is recognised globally.",
+  "ex": "The sportswear brand is recognised globally thanks to its famous logo.",
   "def": "around the world"
  },
  "revival": {
-  "ex": "The town is enjoying an economic revival.",
+  "ex": "The old port town is enjoying an economic revival thanks to tourism.",
   "def": "a return to strength, popularity or use"
  },
  "nationalize": {
-  "ex": "The government decided to nationalize the railways.",
+  "ex": "The government decided to nationalize the railways to improve the service.",
   "def": "to put a private company under state ownership"
  },
  "swiftly": {
-  "ex": "The company responded swiftly to the complaints.",
+  "ex": "The company responded swiftly to the complaints and fixed the problem within a day.",
   "def": "quickly and without delay"
  },
  "deliberate": {
@@ -1457,7 +1462,7 @@
   "def": "a strong explosion; also a powerful rush of air"
  },
  "impair": {
-  "ex": "Lack of sleep can impair your judgment.",
+  "ex": "Lack of sleep can seriously impair your judgment when making important decisions.",
   "def": "to damage or weaken something"
  },
  "testify": {
@@ -1465,11 +1470,11 @@
   "def": "to give evidence in court"
  },
  "liberalize": {
-  "ex": "The government plans to liberalize trade.",
+  "ex": "The government plans to liberalize trade by reducing taxes on imported goods.",
   "def": "to make laws or controls less strict"
  },
  "persistent": {
-  "ex": "Persistent problems with the software annoyed users.",
+  "ex": "Persistent problems with the new software annoyed both staff and customers.",
   "def": "continuing for a long time; refusing to give up"
  },
  "catastrophe": {
@@ -1477,11 +1482,11 @@
   "def": "a sudden event that causes great damage or suffering"
  },
  "endless": {
-  "ex": "The list of tasks seemed endless.",
+  "ex": "The list of tasks before the product launch seemed endless.",
   "def": "seeming to have no end"
  },
  "worthy": {
-  "ex": "The charity is a worthy cause.",
+  "ex": "The local children's hospital is a worthy cause for the company's charity day.",
   "def": "deserving respect or support"
  },
  "corrective": {
@@ -1489,15 +1494,15 @@
   "def": "intended to correct a problem"
  },
  "speculator": {
-  "ex": "Speculators bought large amounts of the currency.",
+  "ex": "Speculators bought large amounts of the currency, hoping that its value would rise.",
   "def": "a person who buys and sells things hoping to make a quick profit"
  },
  "plainly": {
-  "ex": "The instructions were written plainly.",
+  "ex": "The safety instructions were written plainly so that every worker could understand them.",
   "def": "clearly; in a simple way"
  },
  "unexpectedly": {
-  "ex": "Sales rose unexpectedly in December.",
+  "ex": "Sales rose unexpectedly in December, even though prices had increased.",
   "def": "in a way that is surprising"
  },
  "heir": {
@@ -1505,19 +1510,19 @@
   "def": "a person who will receive money or property when someone dies"
  },
  "genuinely": {
-  "ex": "She was genuinely surprised by the promotion.",
+  "ex": "She was genuinely surprised when the manager offered her a promotion.",
   "def": "truly; really"
  },
  "grim": {
-  "ex": "The company faces a grim future.",
+  "ex": "The company faces a grim future unless it can find new customers quickly.",
   "def": "very serious and worrying"
  },
  "brutal": {
-  "ex": "Competition in the industry is brutal.",
+  "ex": "Competition in the smartphone industry is brutal, and many brands have failed.",
   "def": "very cruel or extremely difficult"
  },
  "histogram": {
-  "ex": "The histogram shows the distribution of ages.",
+  "ex": "The histogram shows the distribution of customers' ages in five-year groups.",
   "def": "a chart that shows how often values occur, using bars"
  },
  "misunderstand": {
@@ -1554,11 +1559,11 @@
   "vi": "dấu tích (✓)"
  },
  "defy": {
-  "ex": "Sales defied expectations and kept rising.",
+  "ex": "Sales of the new product defied expectations and kept rising for months.",
   "def": "to refuse to obey; to be very difficult to explain"
  },
  "realizable": {
-  "ex": "The plan is realizable within two years.",
+  "ex": "The plan to double production is realizable within two years.",
   "def": "able to be achieved or turned into money"
  },
  "creditor": {
@@ -1591,7 +1596,7 @@
  },
  "regulatory": {
   "def": "relating to the rules that control an activity",
-  "ex": "New regulatory changes will affect all banks."
+  "ex": "New regulatory changes will require all banks to publish their fees online."
  },
  "disclose": {
   "def": "to make information known, especially something secret",
@@ -1607,15 +1612,15 @@
  },
  "deem": {
   "def": "to consider something in a particular way",
-  "ex": "The proposal was deemed too expensive."
+  "ex": "The board deemed the proposal too expensive and asked for a cheaper option."
  },
  "telecom": {
   "def": "telecommunications; the business of phones and internet services",
-  "ex": "She works for a large telecom company."
+  "ex": "She works in marketing for a large telecom company based in Singapore."
  },
  "taxable": {
   "def": "on which tax must be paid",
-  "ex": "Most income from part-time work is taxable."
+  "ex": "Most income from part-time work is taxable, so keep a record of your earnings."
  },
  "ledger": {
   "def": "a book or computer file in which a company records money paid and received",
@@ -1644,7 +1649,7 @@
  },
  "parliamentary": {
   "def": "relating to a parliament",
-  "ex": "The new law needs parliamentary approval."
+  "ex": "The new data protection law still needs parliamentary approval before it takes effect."
  },
  "charter": {
   "def": "a formal document describing the rights or aims of an organisation",
@@ -1652,11 +1657,11 @@
  },
  "intangible": {
   "def": "not physical; impossible to touch but still valuable",
-  "ex": "A good reputation is an intangible asset."
+  "ex": "A strong brand and a good reputation are valuable intangible assets for any company."
  },
  "accrue": {
   "def": "to increase gradually over time, especially money or interest",
-  "ex": "Interest accrues on the loan every month."
+  "ex": "Interest accrues on the loan every month until the full amount is repaid."
  },
  "interim": {
   "def": "temporary, until something permanent is arranged",
@@ -1690,7 +1695,7 @@
  },
  "statutory": {
   "def": "required or controlled by law",
-  "ex": "Employees are entitled to statutory holiday pay."
+  "ex": "Employees are entitled to statutory holiday pay of at least twenty days a year."
  },
  "volatile": {
   "def": "likely to change suddenly and unexpectedly",
@@ -1698,19 +1703,19 @@
  },
  "nationalist": {
   "def": "a person who strongly supports their own nation's independence or interests",
-  "ex": "Nationalist parties gained support in the election."
+  "ex": "Nationalist parties gained more support in several countries during the last election."
  },
  "conglomerate": {
   "def": "a large company made up of many different businesses",
-  "ex": "The conglomerate owns hotels, airlines and supermarkets."
+  "ex": "The conglomerate owns hotels, airlines and supermarkets in more than ten countries."
  },
  "ballot": {
   "def": "a system or paper used for secret voting",
-  "ex": "Members voted by secret ballot."
+  "ex": "Union members voted by secret ballot on whether to accept the pay offer."
  },
  "treasury": {
   "def": "the government department that manages a country's money",
-  "ex": "The treasury published new economic forecasts."
+  "ex": "The treasury published new economic forecasts showing slower growth next year."
  },
  "underwrite": {
   "def": "to agree to pay for losses or guarantee a financial deal",
@@ -1718,15 +1723,15 @@
  },
  "tangible": {
   "def": "real and able to be seen or measured",
-  "ex": "The new system has brought tangible benefits."
+  "ex": "The new delivery system has already brought tangible benefits to our customers."
  },
  "judicial": {
   "def": "relating to courts and judges",
-  "ex": "The decision is subject to judicial review."
+  "ex": "The planning decision is now subject to judicial review in the high court."
  },
  "mainstream": {
   "def": "accepted by or typical of most people",
-  "ex": "The idea has now become mainstream."
+  "ex": "Electric cars have moved from a niche product into the mainstream market."
  },
  "amid": {
   "def": "during or in the middle of",
@@ -1734,7 +1739,7 @@
  },
  "unchanged": {
   "def": "not changed",
-  "ex": "Interest rates were left unchanged."
+  "ex": "The central bank left interest rates unchanged at its meeting this month."
  },
  "redemption": {
   "def": "the act of exchanging something for money or goods; also paying back a debt",
@@ -1742,11 +1747,11 @@
  },
  "info": {
   "def": "information (informal)",
-  "ex": "For more info, please visit our website."
+  "ex": "For more info about our courses, please visit the student services website."
  },
  "sterling": {
   "def": "the money system of the United Kingdom; the British pound",
-  "ex": "The price is given in pounds sterling.",
+  "ex": "The hotel prices on the website are given in pounds sterling.",
   "vi": "đồng bảng Anh",
   "pos": "n"
  },
@@ -1776,11 +1781,11 @@
  },
  "scrutiny": {
   "def": "careful and detailed examination",
-  "ex": "The company's accounts came under close scrutiny."
+  "ex": "The company's accounts came under close scrutiny after the scandal."
  },
  "tier": {
   "def": "one of several levels in a system",
-  "ex": "The airline offers three tiers of membership."
+  "ex": "The airline offers three tiers of membership with different benefits for frequent flyers."
  },
  "inadequate": {
   "def": "not good enough or not enough",
@@ -1788,7 +1793,7 @@
  },
  "covenant": {
   "def": "a formal agreement or promise in a contract",
-  "ex": "The loan agreement includes several covenants."
+  "ex": "The loan agreement includes several covenants that limit how much the company can borrow."
  },
  "doctrine": {
   "def": "a set of beliefs or principles",
@@ -1805,7 +1810,7 @@
  },
  "provincial": {
   "def": "relating to a province or region outside the capital",
-  "ex": "The provincial government approved the new hospital."
+  "ex": "The provincial government approved funding for a new hospital in the region."
  },
  "veto": {
   "def": "the right to officially reject a decision or plan",
@@ -1821,7 +1826,7 @@
  },
  "lucrative": {
   "def": "producing a lot of money",
-  "ex": "Selling online has become a lucrative business."
+  "ex": "Selling handmade products online has become a lucrative business for some designers."
  },
  "pact": {
   "def": "a formal agreement between two or more parties",
@@ -1841,19 +1846,19 @@
  },
  "restraint": {
   "def": "control over something; the act of limiting spending or actions",
-  "ex": "The government called for wage restraint."
+  "ex": "The government called for wage restraint to help control rising inflation."
  },
  "aversion": {
   "def": "a strong dislike of something",
-  "ex": "Many investors have an aversion to risk."
+  "ex": "Many older investors have a strong aversion to risk and prefer safe savings accounts."
  },
  "indirectly": {
   "def": "not directly; through another person or thing",
-  "ex": "Higher fuel prices indirectly affect food prices."
+  "ex": "Higher fuel prices indirectly affect the price of food in supermarkets."
  },
  "yuan": {
   "def": "the currency of China",
-  "ex": "The price was paid in yuan."
+  "ex": "The Chinese supplier asked to be paid in yuan rather than in US dollars."
  },
  "redeem": {
   "def": "to exchange a voucher or points for goods; to pay back a debt",
@@ -1865,19 +1870,19 @@
  },
  "safeguard": {
   "def": "something that protects against harm or loss",
-  "ex": "The new law includes safeguards for consumers."
+  "ex": "The new consumer law includes several safeguards against unfair contracts."
  },
  "predetermine": {
   "def": "to decide or fix something in advance",
-  "ex": "The prices were predetermined by the supplier."
+  "ex": "The delivery prices were predetermined by the supplier in the original contract."
  },
  "analytical": {
   "def": "using careful logical examination",
-  "ex": "The job requires strong analytical skills."
+  "ex": "The position requires strong analytical skills and experience with financial data."
  },
  "congressional": {
   "def": "relating to a congress, especially the US Congress",
-  "ex": "A congressional committee is investigating the case."
+  "ex": "A congressional committee is investigating the bank's lending practices."
  },
  "populist": {
   "def": "a politician who claims to represent ordinary people against the elite",
@@ -1890,7 +1895,7 @@
  },
  "debenture": {
   "def": "a long-term loan to a company that pays fixed interest",
-  "ex": "The company issued debentures to raise capital."
+  "ex": "The company issued debentures to raise capital for its new factory."
  },
  "outperform": {
   "def": "to do better than someone or something else",
@@ -1898,15 +1903,16 @@
  },
  "broadband": {
   "def": "a fast internet connection",
-  "ex": "Most homes in the city have broadband."
+  "ex": "Most homes in the city now have access to fast and reliable broadband."
  },
  "entail": {
   "def": "to involve something as a necessary part",
-  "ex": "The job entails a lot of travel."
+  "ex": "The sales manager position entails a lot of travel to visit customers abroad."
  },
  "reconciliation": {
   "def": "the process of making two accounts agree; also becoming friendly again",
-  "ex": "The accountant completed the bank reconciliation."
+  "ex": "The accountant completed the monthly bank reconciliation before the auditors arrived.",
+  "vi": "sự đối chiếu (sổ sách); hòa giải"
  },
  "consortium": {
   "def": "a group of companies working together on a project",
@@ -1926,7 +1932,7 @@
  },
  "viewer": {
   "def": "a person who watches television or a video",
-  "ex": "The programme attracted two million viewers."
+  "ex": "The final episode of the series attracted more than two million viewers."
  },
  "buffer": {
   "def": "something that reduces a shock or protects against problems",
@@ -1938,7 +1944,7 @@
  },
  "cyclical": {
   "def": "happening in repeated cycles",
-  "ex": "The building industry is highly cyclical."
+  "ex": "The building industry is highly cyclical, with periods of rapid growth and decline."
  },
  "cartel": {
   "def": "a group of companies that agree to control prices and limit competition",
@@ -1950,11 +1956,11 @@
  },
  "outright": {
   "def": "completely and immediately",
-  "ex": "The company bought the building outright."
+  "ex": "Instead of renting, the company bought the office building outright last year."
  },
  "lesser": {
   "def": "smaller in size, amount or importance",
-  "ex": "Other factors played a lesser role."
+  "ex": "Price was important, but other factors played a lesser role in customers' decisions."
  },
  "haul": {
   "def": "to pull or carry something heavy",
@@ -1970,8 +1976,8 @@
   "ex": "The dissolution of the partnership was agreed by both sides."
  },
  "royalty": {
-  "def": "a payment made to a writer or inventor each time their work is used or sold",
-  "ex": "The author receives a royalty on every book sold."
+  "def": "a payment to a writer or inventor each time their work is sold",
+  "ex": "The author receives a royalty of ten percent on every book sold."
  },
  "macro": {
   "def": "relating to large-scale or general conditions",
@@ -1991,7 +1997,7 @@
  },
  "template": {
   "def": "a document or pattern used as a model for making others",
-  "ex": "Use this template to write your report."
+  "ex": "Please use this template when you write your monthly report for the board."
  },
  "obituary": {
   "def": "an article about the life of someone who has recently died",
@@ -1999,7 +2005,7 @@
  },
  "peso": {
   "def": "the currency of several Latin American countries and the Philippines",
-  "ex": "The price was given in Mexican pesos."
+  "ex": "The price of the tour was given in Mexican pesos rather than US dollars."
  },
  "stochastic": {
   "def": "involving chance or random variables",
@@ -2007,7 +2013,7 @@
  },
  "tribal": {
   "def": "relating to a tribe",
-  "ex": "Tribal leaders were invited to the meeting."
+  "ex": "Tribal leaders were invited to the meeting about the new mining project."
  },
  "empower": {
   "def": "to give someone the power or confidence to do something",
@@ -2059,19 +2065,19 @@
  },
  "entrepreneurial": {
   "def": "showing the qualities needed to start and run a business",
-  "ex": "She has a strong entrepreneurial spirit."
+  "ex": "She has a strong entrepreneurial spirit and started her first business at twenty."
  },
  "hypothetical": {
   "def": "based on an imagined situation rather than fact",
-  "ex": "Let's consider a hypothetical example."
+  "ex": "Let's consider a hypothetical example to explain how the tax would work."
  },
  "boycott": {
   "def": "to refuse to buy, use or take part in something as a protest",
-  "ex": "Customers boycotted the brand after the scandal."
+  "ex": "Thousands of customers boycotted the brand after the scandal became public."
  },
  "disastrous": {
   "def": "very bad or unsuccessful",
-  "ex": "The product launch was disastrous."
+  "ex": "The product launch was disastrous because the website crashed on the first day."
  },
  "dissident": {
   "def": "disagreeing strongly with official views"
@@ -2086,15 +2092,15 @@
  },
  "ratify": {
   "def": "to make an agreement officially valid by signing or voting for it",
-  "ex": "All member countries must ratify the treaty."
+  "ex": "All member countries must ratify the trade agreement before it can take effect."
  },
  "proclaim": {
   "def": "to announce something publicly and officially",
-  "ex": "The company proclaimed record profits."
+  "ex": "The company proudly proclaimed record profits at its annual meeting."
  },
  "enrich": {
   "def": "to improve the quality of something; also to make someone richer",
-  "ex": "Reading widely can enrich your vocabulary."
+  "ex": "Reading widely in English can enrich your vocabulary and improve your writing."
  },
  "clout": {
   "def": "power and influence",
@@ -2102,11 +2108,11 @@
  },
  "ineffective": {
   "def": "not producing the intended result",
-  "ex": "The old marketing strategy was ineffective."
+  "ex": "The old marketing strategy was ineffective, so sales continued to fall."
  },
  "syndicate": {
   "def": "a group of people or companies working together for a business purpose",
-  "ex": "A syndicate of banks provided the loan."
+  "ex": "A syndicate of international banks provided the loan for the new airport."
  },
  "supervisory": {
   "def": "relating to supervising people or work",
@@ -2114,7 +2120,7 @@
  },
  "dissent": {
   "def": "to express disagreement with an official view",
-  "ex": "Two board members dissented from the decision."
+  "ex": "Two board members dissented from the decision to close the factory."
  },
  "synergy": {
   "def": "the extra benefit from two groups working together",
@@ -2122,7 +2128,7 @@
  },
  "fraudulent": {
   "def": "dishonest and illegal, intended to cheat",
-  "ex": "The bank detected several fraudulent transactions."
+  "ex": "The bank detected several fraudulent transactions on the customer's credit card."
  },
  "constituent": {
   "def": "forming part of a whole",
@@ -2134,7 +2140,7 @@
  },
  "ounce": {
   "def": "a unit of weight equal to about 28 grams",
-  "ex": "Gold is priced per ounce."
+  "ex": "Gold is traded on international markets at a price per ounce."
  },
  "contributor": {
   "def": "a person or thing that helps to cause something or gives money or work",
@@ -2146,7 +2152,7 @@
  },
  "imminent": {
   "def": "likely to happen very soon",
-  "ex": "An announcement about the merger is imminent."
+  "ex": "Staff believe that an announcement about the merger is imminent."
  },
  "empowerment": {
   "def": "the process of giving people more control over their lives or work",
@@ -2154,11 +2160,11 @@
  },
  "void": {
   "def": "having no legal force",
-  "ex": "The contract was declared void."
+  "ex": "The contract was declared void because one of the signatures was missing."
  },
  "alas": {
   "def": "used to express sadness or regret (old-fashioned)",
-  "ex": "Alas, the offer had already ended."
+  "ex": "We hoped to win the contract, but alas, the client chose another supplier."
  },
  "prod": {
   "def": "to encourage someone to do something",
@@ -2170,15 +2176,15 @@
  },
  "legitimacy": {
   "def": "the quality of being legal or acceptable",
-  "ex": "The legitimacy of the vote was questioned."
+  "ex": "The legitimacy of the vote was questioned after reports of missing ballots."
  },
  "inconsistent": {
   "def": "not staying the same; not in agreement",
-  "ex": "The results were inconsistent with earlier studies."
+  "ex": "The results of the new study were inconsistent with earlier research findings."
  },
  "timber": {
   "def": "wood used for building or making things",
-  "ex": "The house is built from local timber."
+  "ex": "The new office building is made from local timber to reduce its carbon footprint."
  },
  "intercept": {
   "def": "to stop someone or something before it reaches its destination",
@@ -2186,7 +2192,7 @@
  },
  "dismal": {
   "def": "very bad or depressing",
-  "ex": "Sales were dismal in the first quarter."
+  "ex": "Sales were dismal in the first quarter because of the cold weather."
  },
  "demise": {
   "def": "the end or failure of something",
@@ -2194,7 +2200,7 @@
  },
  "intensify": {
   "def": "to become or make something stronger or more extreme",
-  "ex": "Competition between the two airlines has intensified."
+  "ex": "Competition between the two budget airlines has intensified this year."
  },
  "aviation": {
   "def": "the design, building and flying of aircraft",
