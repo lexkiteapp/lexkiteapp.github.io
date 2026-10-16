@@ -61,7 +61,7 @@ The prompts on the card naturally fit into these steps, so you still cover every
 
 *Looking back, the skill is useful in a practical sense, because I've never paid anyone to fix my bike. But I think the bigger lesson was patience. Repairs rarely work the first time, and that workshop taught me to slow down and check things step by step, which helps me with studying as well.*
 
-Notice the features: a clear opening line, sequence words, one vivid moment, a reflective ending, natural phrases such as *I'd say* and *looking back*, and a mix of past simple, present perfect and *would*.
+Notice the features: a clear opening line, sequence words, one vivid moment, a reflective ending, natural phrases such as *I'd say* and *looking back*, and a mix of past simple, present perfect and *would*. It contains no showy idioms at all; if you want to add one, our guide to [idioms for IELTS Speaking](/en/blog/idioms-for-ielts-speaking/) explains how to place it inside a story.
 
 ## How to extend your talk naturally to two minutes
 
