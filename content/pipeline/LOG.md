@@ -13,3 +13,4 @@
 | 2026-10-16 | IELTS Writing Task 2 | 10 đề (p61–p70) + UI dàn ý/từ/band 6 | 55fd4ccb | phiên nội dung | phiên chính: đọc mẫu 4/203 đạt, trang thật hl=en hiện đủ outline/vocab/band 6, 0 lẫn Việt |
 | 2026-10-16 | IELTS Writing Task 1 | 6 đề (đủ 6 dạng) | 2d360cfd | phiên nội dung | phiên chính: đọc mẫu đạt; sửa số đếm thật Task 1 = 38, Task 2 = 70 (trước đếm thiếu file) |
 | 2026-10-16 | TOEFL Writing | 20 đề (bộ 6: 8 câu ghép, 6 email, 6 discussion) – 76→96 | 4d919e92 | phiên nội dung | chờ phiên chính nghiệm thu |
+| 2026-10-16 | IELTS Reading GT | đề GT5, 40 câu – đạt chỉ tiêu 200 | 38e40935 | phiên nội dung | chờ phiên chính nghiệm thu |
