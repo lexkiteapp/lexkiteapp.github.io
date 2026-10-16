@@ -67,9 +67,10 @@ function compose(bg, vid, ss, d, out, box = WIN) {
     `[1:v]scale=${box.w}:${box.h}:flags=lanczos,setsar=1[v];[0:v][v]overlay=${box.x}:${box.y}:shortest=1,fps=${FPS},format=yuv420p,fade=t=in:st=0:d=0.35,fade=t=out:st=${(d - 0.35).toFixed(2)}:d=0.35`,
     '-r', String(FPS), '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-an', out]);
 }
-function still(png, d, out) {
-  ff(['-loop', '1', '-t', String(d), '-i', png, '-vf', `fps=${FPS},format=yuv420p,zoompan=z='min(zoom+0.0006,1.04)':d=${Math.round(d * FPS)}:s=${CW}x${CH}:fps=${FPS},fade=t=in:st=0:d=0.4,fade=t=out:st=${(d - 0.4).toFixed(2)}:d=0.4`,
-    '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-an', out]);
+function still(png, d, out) { // 1 ảnh → d giây, phóng to chậm (zoompan trên 1 khung duy nhất, phóng 2× trước để không rung)
+  const n = Math.round(d * FPS);
+  ff(['-i', png, '-vf', `scale=${CW * 2}:${CH * 2},zoompan=z='1+0.035*on/${n}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=${n}:s=${CW}x${CH}:fps=${FPS},format=yuv420p,fade=t=in:st=0:d=0.4,fade=t=out:st=${(d - 0.4).toFixed(2)}:d=0.4`,
+    '-frames:v', String(n), '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-an', out]);
 }
 
 const prof = fs.mkdtempSync(path.join(os.tmpdir(), 'lk-'));
@@ -185,4 +186,6 @@ const mp4 = path.join(OUT, `lexkite-promo-${LANG}.mp4`);
 ff(['-f', 'concat', '-safe', '0', '-i', path.join(TMP, 'list.txt'), '-c', 'copy', '-movflags', '+faststart', mp4]);
 // Ảnh bìa YouTube 1280×720
 ff(['-i', intro, '-vf', 'scale=1280:720', path.join(OUT, `lexkite-thumb-${LANG}.jpg`)]);
-console.log('✓', mp4, (fs.statSync(mp4).size / 1048576).toFixed(1) + ' MB', scenes.map(s => s.d).join(' + '));
+const dur = +execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', mp4], { encoding: 'utf8' });
+if (dur > 70) throw new Error('Video quá dài: ' + dur + 's');
+console.log('✓', mp4, dur.toFixed(1) + 's', (fs.statSync(mp4).size / 1048576).toFixed(1) + ' MB', scenes.map(s => s.d).join(' + '));
