@@ -43,7 +43,7 @@
    "h": 624,
    "fmt": "jpg",
    "use": "Page cover photo (EN)",
-   "kb": 78,
+   "kb": 84,
    "zones": [
     {
      "type": "view",
@@ -87,7 +87,7 @@
    "h": 624,
    "fmt": "jpg",
    "use": "Page cover photo (VI)",
-   "kb": 76,
+   "kb": 81,
    "zones": [
     {
      "type": "view",
@@ -131,7 +131,7 @@
    "h": 1080,
    "fmt": "jpg",
    "use": "Feed post template (promo)",
-   "kb": 131,
+   "kb": 139,
    "zones": [],
    "guide": null
   },
@@ -142,7 +142,7 @@
    "h": 630,
    "fmt": "jpg",
    "use": "Link share / Open Graph image",
-   "kb": 76,
+   "kb": 82,
    "zones": [
     {
      "type": "safe",
@@ -162,7 +162,7 @@
    "h": 1005,
    "fmt": "jpg",
    "use": "Event cover",
-   "kb": 132,
+   "kb": 142,
    "zones": [
     {
      "type": "safe",
@@ -202,7 +202,7 @@
    "h": 1080,
    "fmt": "jpg",
    "use": "Feed post template · Word of the day",
-   "kb": 116,
+   "kb": 117,
    "zones": [],
    "guide": null
   },
@@ -213,7 +213,7 @@
    "h": 1350,
    "fmt": "jpg",
    "use": "Feed post template 4:5 · Quiz",
-   "kb": 134,
+   "kb": 136,
    "zones": [
     {
      "type": "view",
@@ -241,7 +241,7 @@
    "h": 1920,
    "fmt": "jpg",
    "use": "Story template · Word of the day",
-   "kb": 136,
+   "kb": 139,
    "zones": [
     {
      "type": "block",
@@ -277,7 +277,7 @@
    "h": 1920,
    "fmt": "jpg",
    "use": "Reel cover template",
-   "kb": 119,
+   "kb": 125,
    "zones": [
     {
      "type": "view",
@@ -461,7 +461,7 @@
    "h": 1920,
    "fmt": "jpg",
    "use": "Video cover template",
-   "kb": 119,
+   "kb": 125,
    "zones": [
     {
      "type": "block",
@@ -533,7 +533,7 @@
    "h": 1440,
    "fmt": "jpg",
    "use": "Channel banner",
-   "kb": 125,
+   "kb": 133,
    "zones": [
     {
      "type": "view",
@@ -588,7 +588,7 @@
    "h": 720,
    "fmt": "jpg",
    "use": "Thumbnail template",
-   "kb": 103,
+   "kb": 108,
    "zones": [
     {
      "type": "block",
@@ -608,7 +608,7 @@
    "h": 1080,
    "fmt": "jpg",
    "use": "End screen background (last 5–20 s)",
-   "kb": 111,
+   "kb": 114,
    "zones": [
     {
      "type": "safe",
@@ -719,7 +719,7 @@
    "h": 500,
    "fmt": "jpg",
    "use": "Header",
-   "kb": 62,
+   "kb": 68,
    "zones": [
     {
      "type": "block",
@@ -767,7 +767,7 @@
    "h": 396,
    "fmt": "jpg",
    "use": "Cover / banner",
-   "kb": 49,
+   "kb": 54,
    "zones": [
     {
      "type": "block",
@@ -815,7 +815,7 @@
    "h": 1400,
    "fmt": "jpg",
    "use": "OA cover (VI) – 2× of 640×700",
-   "kb": 102,
+   "kb": 108,
    "zones": [
     {
      "type": "view",

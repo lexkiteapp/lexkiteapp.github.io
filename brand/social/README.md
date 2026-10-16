@@ -79,6 +79,8 @@ node scripts/build-social-kit.mjs
 - logo xếp dọc;
 - hình quy tắc khoảng trống.
 
+`preview-overview.jpg` là ảnh tổng quan. Linh vật Kit lấy trực tiếp từ `web/js/kit.js` (bản trong app); mỗi lần chạy script cũng ghi lại `brand/kit-*.svg` cho khớp.
+
 `guides/` chứa ảnh vẽ đè vùng an toàn, vùng hiển thị theo thiết bị và vùng bị giao diện che. Ý nghĩa màu: xanh lá là vùng an toàn, xanh nhạt là vùng hiển thị theo thiết bị, đỏ là phần bị giao diện che, vàng là phần bị cắt tròn.
 
 ## Lưu ý
