@@ -1,0 +1,28 @@
+{
+  "_note": "Chữ hook + thông tin nhân vật cho bộ mẫu. Sửa rồi chạy: node scripts/build-social-templates.mjs",
+  "url": "lexkite.com",
+  "qrUrl": "https://lexkite.com",
+  "characters": {
+    "mia": { "name": "Mia", "role": "Marketing · New York", "src": "mia/a.png", "bust": [300, 40, 1200, 1600], "face": [850, 415, 760] },
+    "leo": { "name": "Leo", "role": "Idiom nerd · Austin", "src": "leo/neutral.png", "bust": [240, 40, 1200, 1600], "face": [855, 415, 760] },
+    "ama": { "name": "Ama", "role": "Student · test prep", "src": "ama/dna.png", "bust": [320, 100, 1200, 1600], "face": [920, 475, 760] },
+    "diane": { "name": "Diane", "role": "Manager", "src": "diane/dna.png", "bust": [220, 0, 1200, 1600], "face": [835, 330, 660] },
+    "carlos": { "name": "Carlos", "role": "Café owner", "src": "carlos/neutral.png", "bust": [300, 0, 1200, 1600], "face": [885, 360, 720] }
+  },
+  "kit": { "name": "Kit", "role": "Memory coach · Lexkite" },
+  "thumbs": {
+    "yt-dont-say": { "char": "mia", "kicker": "STOP SAYING", "wrong": "I'm agree", "right": "I agree" },
+    "yt-big-hook": { "char": "leo", "kicker": "Leo explains", "lines": ["SPILL", "THE TEA"], "tail": "(badly)" },
+    "yt-quiz": { "char": "ama", "kicker": "90% GET THIS WRONG", "a": "affect", "b": "effect" },
+    "short-pov": { "char": "diane", "kicker": "POV", "lines": ["Your boss says", "“Let’s circle", "back.”"] },
+    "short-native": { "char": "carlos", "kicker": "TEXTBOOK vs REAL LIFE", "textbook": "How are you?", "real": "What’s up?" },
+    "short-why": { "char": "ama", "kicker": "Wait, why though?", "lines": ["“an hour”", "but", "“a university”?"] }
+  },
+  "posts": {
+    "post-word": { "char": "ama", "label": "WORD OF THE DAY", "word": "resilient", "ipa": "/rɪˈzɪliənt/", "pos": "adjective", "meaning": "able to recover quickly after something difficult" },
+    "post-idiom": { "char": "leo", "label": "IDIOM", "say": "Here’s the thing…", "idiom": "break the ice", "meaning": "to make people feel relaxed when they first meet" },
+    "post-dont-say": { "char": "mia", "label": "DON’T SAY · SAY", "wrong": "Can you borrow me a pen?", "right": "Can you lend me a pen?", "note": "lend = give · borrow = take" },
+    "post-quiz": { "char": "carlos", "label": "QUICK QUIZ", "question": "“Can I get a latte ___ oat milk?”", "options": ["by", "with", "for"] }
+  },
+  "endcard": { "title": "Practice this free", "sub": "Scan to start learning", "crew": "Learn with Mia, Leo & Ama" }
+}
