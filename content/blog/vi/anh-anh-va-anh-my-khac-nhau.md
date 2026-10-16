@@ -9,7 +9,7 @@ tags: [anh-anh, anh-my]
 keyword: "anh anh và anh mỹ khác nhau"
 cover: dict
 coverAlt: "Kết quả tra từ “resilient” kèm câu ví dụ, collocation và nút lưu thành flashcard"
-publishAt: 2026-10-28T15:30:00+07:00
+publishAt: 2026-11-14T10:07:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

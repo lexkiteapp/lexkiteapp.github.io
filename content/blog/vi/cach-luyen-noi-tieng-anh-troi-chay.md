@@ -9,7 +9,7 @@ tags: [speaking, giao-tiep]
 keyword: "cách luyện nói tiếng anh trôi chảy"
 cover: practice-speak
 coverAlt: "Luyện phát âm có chấm điểm trong Lexkite, dùng micro để nói cụm “cut down on”"
-publishAt: 2026-11-02T17:47:00+07:00
+publishAt: 2026-11-29T15:19:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -74,6 +74,8 @@ Những chủ đề này cũng trùng với dạng IELTS Speaking Part 2, nên b
 ## Từ đệm và cụm dẫn dắt: ngập ngừng một cách tự nhiên
 
 Người bản ngữ cũng ngập ngừng. Khác biệt là họ ngập ngừng **bằng tiếng Anh** và ở **đúng chỗ**. Người Việt thường im lặng hẳn, hoặc buột ra "ờ", "à" kiểu tiếng Việt. Thay chúng bằng các cụm sau giúp bạn có thời gian nghĩ mà người nghe vẫn thấy bạn đang nói:
+
+![Sổ cụm từ và cấu trúc của Lexkite: thêm cụm hay, bài mẫu có chỉ cấu trúc, gắn nhãn Task và band](media:phrases "Ghi các cụm dẫn dắt vào sổ cụm từ để dùng lại khi nói")
 
 | Mục đích | Cụm tự nhiên |
 |---|---|

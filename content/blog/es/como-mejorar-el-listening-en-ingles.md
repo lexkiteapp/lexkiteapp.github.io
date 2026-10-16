@@ -9,7 +9,7 @@ tags: [listening, comprension-auditiva, metodo]
 keyword: "cómo mejorar el listening en inglés"
 cover: listening
 coverAlt: "Pantalla de Listening IELTS de Lexkite con 10 pruebas de 4 partes, acentos británico, americano y australiano y velocidad ajustable"
-publishAt: 2026-10-20T16:18:00+07:00
+publishAt: 2026-10-20T17:12:00-06:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

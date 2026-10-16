@@ -9,7 +9,7 @@ tags: [nghe, listening]
 keyword: "cách luyện nghe tiếng anh"
 cover: listening
 coverAlt: "Trang “IELTS Listening” của Lexkite với 10 đề, giọng Anh–Mỹ–Úc, tốc độ chỉnh được và chế độ chép chính tả"
-publishAt: 2026-10-29T17:21:00+07:00
+publishAt: 2026-11-18T20:15:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

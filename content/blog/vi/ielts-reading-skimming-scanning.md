@@ -9,7 +9,7 @@ tags: [reading, ky-nang-doc]
 keyword: "skimming scanning ielts reading"
 cover: reading
 coverAlt: "Màn hình chọn bài đọc của Lexkite với các chủ đề như làm việc bốn ngày một tuần và vi nhựa đại dương"
-publishAt: 2026-10-29T13:55:00+07:00
+publishAt: 2026-11-16T08:42:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

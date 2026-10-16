@@ -9,7 +9,7 @@ tags: [speaking, giao-tiep, fluency]
 keyword: "cara lancar berbicara bahasa inggris"
 cover: practice-speak
 coverAlt: "Latihan pelafalan Lexkite untuk frasa “cut down on” dengan tombol mikrofon dan penilaian berdasarkan suara"
-publishAt: 2026-10-18T20:29:00+07:00
+publishAt: 2026-10-19T14:11:00+07:00
 factChecked: 2026-10-16
 author: Lexkite
 status: ready

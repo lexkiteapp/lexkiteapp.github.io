@@ -9,7 +9,7 @@ tags: [reading, ielts, true-false-not-given]
 keyword: "true false not given"
 cover: reading
 coverAlt: "Lexkite IELTS Reading list with passages graded A2 to C1, including urban farming, the four-day week and ocean microplastics"
-publishAt: 2026-10-18T20:37:00+07:00
+publishAt: 2026-10-22T09:32:00+05:30
 factChecked: 2026-10-15
 qualityScore: 94
 author: Lexkite

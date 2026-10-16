@@ -9,7 +9,7 @@ tags: [reading, ielts]
 keyword: "true false not given"
 cover: reading
 coverAlt: "Kho bài đọc IELTS chia theo cấp độ; chạm vào từ trong bài để tra nghĩa"
-publishAt: 2026-10-28T18:31:00+07:00
+publishAt: 2026-11-15T17:18:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -93,6 +93,8 @@ Ví dụ: bài đọc viết *"Some researchers believe the method is effective"
 **2. Đọc câu phát biểu quá nhanh.** Câu *"The project was **not** completed on time"* chỉ khác bản gốc một chữ "not". Hãy đọc chậm câu hỏi, đọc nhanh bài đọc – không phải ngược lại.
 
 **3. Bị đồng nghĩa đánh lừa.** Bài viết *"The bridge was **rebuilt**"*, câu hỏi viết *"The bridge was **repaired**"*. Hai việc khác nhau; nếu bài không nói gì về việc sửa chữa thì không thể chọn True chỉ vì nghĩa gần.
+
+![Kết quả tra từ “resilient” kèm phiên âm UK/US, nghĩa, câu ví dụ, từ đồng nghĩa và nút lưu thành flashcard](media:dict "Tra từ để xem nghĩa, ví dụ và từ đồng nghĩa, tránh đánh đồng hai từ chỉ gần nghĩa")
 
 **4. Chọn False vì câu phát biểu "nghe vô lý".** Bài đọc về một thành phố tưởng tượng có thể nói bất cứ điều gì. Bạn chỉ trung thành với văn bản.
 

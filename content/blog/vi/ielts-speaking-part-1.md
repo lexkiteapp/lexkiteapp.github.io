@@ -9,7 +9,7 @@ tags: [speaking, part-1]
 keyword: "ielts speaking part 1"
 cover: speaking
 coverAlt: "Mục luyện nói IELTS của Lexkite chia theo ba Part và theo chủ đề"
-publishAt: 2026-11-01T18:21:00+07:00
+publishAt: 2026-11-26T17:54:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

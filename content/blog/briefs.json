@@ -2752,6 +2752,1334 @@
    "type": "evergreen",
    "lang": "id",
    "source": "gerund-va-to-infinitive"
+  },
+  {
+   "slug": "ielts-speaking-part-1-tips",
+   "keyword": "ielts speaking part 1",
+   "category": "ielts",
+   "tags": [
+    "speaking",
+    "part-1"
+   ],
+   "shots": [
+    "speaking",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Trả lời ngắn có mở rộng, chủ đề thường gặp, lỗi hay mắc",
+   "intent": "informational",
+   "lang": "en",
+   "source": "ielts-speaking-part-1"
+  },
+  {
+   "slug": "gerundio-o-infinitivo-en-ingles",
+   "keyword": "gerundio o infinitivo en inglés",
+   "category": "ngu-phap",
+   "tags": [
+    "gerund",
+    "ngu-phap"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "Logic đằng sau (hướng tới tương lai vs trải nghiệm), động từ đổi nghĩa (stop/remember/try), mẹo nhớ theo nhóm",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "es",
+   "source": "gerund-va-to-infinitive"
+  },
+  {
+   "slug": "toeic-part2-kotsu",
+   "keyword": "toeic part2 コツ",
+   "category": "toeic",
+   "tags": [
+    "toeic",
+    "part-2",
+    "listening"
+   ],
+   "shots": [
+    "toeic",
+    "listening"
+   ],
+   "routes": [
+    "/#/toeic",
+    "/#/listening"
+   ],
+   "angle": "Câu hỏi Wh-, câu trả lời gián tiếp, bẫy âm giống",
+   "intent": "informational",
+   "lang": "ja",
+   "source": "toeic-listening-part-2"
+  },
+  {
+   "slug": "belajar-ielts-otodidak",
+   "keyword": "belajar ielts otodidak",
+   "category": "ielts",
+   "tags": [
+    "lo-trinh",
+    "tu-hoc"
+   ],
+   "shots": [
+    "path",
+    "goal",
+    "placement"
+   ],
+   "routes": [
+    "/#/path",
+    "/#/goal",
+    "/#/placement"
+   ],
+   "angle": "Lộ trình theo giai đoạn từ mất gốc đến 6.5+, phân bổ thời gian",
+   "intent": "informational",
+   "lang": "id",
+   "source": "lo-trinh-tu-hoc-ielts"
+  },
+  {
+   "slug": "como-aprender-ingles-sozinho",
+   "keyword": "como aprender inglês sozinho",
+   "category": "phuong-phap",
+   "tags": [
+    "mat-goc",
+    "lo-trinh"
+   ],
+   "shots": [
+    "placement",
+    "path"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/path"
+   ],
+   "angle": "Lộ trình 90 ngày cho người mất gốc: phát âm & 1000 từ đầu, ngữ pháp lõi, nghe đọc dễ; tránh sai lầm tham nhiều",
+   "intent": "informational",
+   "lang": "pt",
+   "source": "hoc-tieng-anh-mat-goc",
+   "cluster": "hoc-tieng-anh-mat-goc",
+   "role": "pillar",
+   "pillar": "como-aprender-ingles-sozinho"
+  },
+  {
+   "slug": "como-aprender-vocabulario-em-ingles",
+   "keyword": "como aprender vocabulário em inglês",
+   "category": "tu-vung",
+   "tags": [
+    "ielts",
+    "tu-vung",
+    "flashcard"
+   ],
+   "shots": [
+    "library",
+    "review",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/review",
+    "/#/practice/learn"
+   ],
+   "angle": "Quy trình 7 bước học từ IELTS nhớ lâu: chọn từ đúng cấp, học trong ngữ cảnh, ôn ngắt quãng, dùng lại khi viết/nói",
+   "intent": "informational",
+   "lang": "pt",
+   "source": "cach-hoc-tu-vung-ielts-hieu-qua",
+   "cluster": "cach-hoc-tu-vung-ielts-hieu-qua",
+   "role": "satellite",
+   "pillar": "como-aprender-ingles-sozinho"
+  },
+  {
+   "slug": "present-perfect-ou-simple-past",
+   "keyword": "present perfect ou simple past",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "thi"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "Phân tích tư duy thời gian của người bản xứ (kết nối hiện tại vs mốc đã đóng), tín hiệu, các cặp câu đối chiếu, lỗi người Việt, bài tập có đáp án",
+   "intent": "informational",
+   "lang": "pt",
+   "source": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don",
+   "cluster": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don",
+   "role": "satellite",
+   "pillar": "como-aprender-ingles-sozinho"
+  },
+  {
+   "slug": "phrasal-verbs-mais-usados",
+   "keyword": "phrasal verbs mais usados",
+   "category": "tu-vung",
+   "tags": [
+    "phrasal-verb",
+    "speaking"
+   ],
+   "shots": [
+    "practice-learn",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/practice/learn",
+    "/#/practice/speak"
+   ],
+   "angle": "Cách học phrasal verb theo tiểu từ (up, out, off…), 30 cụm thông dụng có ví dụ tự đặt, khi nào nên tránh trong Writing",
+   "intent": "informational",
+   "lang": "pt",
+   "source": "phrasal-verb-thong-dung",
+   "cluster": "phrasal-verb-thong-dung",
+   "role": "satellite",
+   "pillar": "como-aprender-ingles-sozinho"
+  },
+  {
+   "slug": "dicas-ielts-listening",
+   "keyword": "dicas ielts listening",
+   "category": "ielts",
+   "tags": [
+    "listening",
+    "ielts"
+   ],
+   "shots": [
+    "listening",
+    "mock"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/mock"
+   ],
+   "angle": "Đọc trước câu hỏi, bẫy đổi ý, chính tả, số; luyện theo phần",
+   "intent": "informational",
+   "lang": "pt",
+   "source": "meo-lam-bai-ielts-listening",
+   "cluster": "meo-lam-bai-ielts-listening",
+   "role": "satellite",
+   "pillar": "como-aprender-ingles-sozinho"
+  },
+  {
+   "slug": "apprendre-anglais-seul",
+   "keyword": "apprendre l'anglais seul",
+   "category": "phuong-phap",
+   "tags": [
+    "mat-goc",
+    "lo-trinh"
+   ],
+   "shots": [
+    "placement",
+    "path"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/path"
+   ],
+   "angle": "Lộ trình 90 ngày cho người mất gốc: phát âm & 1000 từ đầu, ngữ pháp lõi, nghe đọc dễ; tránh sai lầm tham nhiều",
+   "intent": "informational",
+   "lang": "fr",
+   "source": "hoc-tieng-anh-mat-goc",
+   "cluster": "hoc-tieng-anh-mat-goc",
+   "role": "pillar",
+   "pillar": "apprendre-anglais-seul"
+  },
+  {
+   "slug": "apprendre-vocabulaire-anglais",
+   "keyword": "apprendre le vocabulaire anglais",
+   "category": "tu-vung",
+   "tags": [
+    "ielts",
+    "tu-vung",
+    "flashcard"
+   ],
+   "shots": [
+    "library",
+    "review",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/review",
+    "/#/practice/learn"
+   ],
+   "angle": "Quy trình 7 bước học từ IELTS nhớ lâu: chọn từ đúng cấp, học trong ngữ cảnh, ôn ngắt quãng, dùng lại khi viết/nói",
+   "intent": "informational",
+   "lang": "fr",
+   "source": "cach-hoc-tu-vung-ielts-hieu-qua",
+   "cluster": "cach-hoc-tu-vung-ielts-hieu-qua",
+   "role": "satellite",
+   "pillar": "apprendre-anglais-seul"
+  },
+  {
+   "slug": "present-perfect-ou-preterit",
+   "keyword": "present perfect ou prétérit",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "thi"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "Phân tích tư duy thời gian của người bản xứ (kết nối hiện tại vs mốc đã đóng), tín hiệu, các cặp câu đối chiếu, lỗi người Việt, bài tập có đáp án",
+   "intent": "informational",
+   "lang": "fr",
+   "source": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don",
+   "cluster": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don",
+   "role": "satellite",
+   "pillar": "apprendre-anglais-seul"
+  },
+  {
+   "slug": "faux-amis-anglais-francais",
+   "keyword": "faux amis anglais français",
+   "category": "ngu-phap",
+   "tags": [
+    "tu-de-nham",
+    "tu-vung"
+   ],
+   "shots": [
+    "dict",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/dict/",
+    "/#/practice/test"
+   ],
+   "angle": "30 cặp từ dễ nhầm (affect/effect, economic/economical, rise/raise…) có mẹo phân biệt & ví dụ tự đặt",
+   "intent": "informational",
+   "lang": "fr",
+   "source": "cac-cap-tu-de-nham-lan-trong-tieng-anh",
+   "cluster": "cac-cap-tu-de-nham-lan-trong-tieng-anh",
+   "role": "satellite",
+   "pillar": "apprendre-anglais-seul"
+  },
+  {
+   "slug": "conseils-ielts-listening",
+   "keyword": "conseils ielts listening",
+   "category": "ielts",
+   "tags": [
+    "listening",
+    "ielts"
+   ],
+   "shots": [
+    "listening",
+    "mock"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/mock"
+   ],
+   "angle": "Đọc trước câu hỏi, bẫy đổi ý, chính tả, số; luyện theo phần",
+   "intent": "informational",
+   "lang": "fr",
+   "source": "meo-lam-bai-ielts-listening",
+   "cluster": "meo-lam-bai-ielts-listening",
+   "role": "satellite",
+   "pillar": "apprendre-anglais-seul"
+  },
+  {
+   "slug": "englisch-lernen-tipps",
+   "keyword": "englisch lernen tipps",
+   "category": "phuong-phap",
+   "tags": [
+    "mat-goc",
+    "lo-trinh"
+   ],
+   "shots": [
+    "placement",
+    "path"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/path"
+   ],
+   "angle": "Lộ trình 90 ngày cho người mất gốc: phát âm & 1000 từ đầu, ngữ pháp lõi, nghe đọc dễ; tránh sai lầm tham nhiều",
+   "intent": "informational",
+   "lang": "de",
+   "source": "hoc-tieng-anh-mat-goc",
+   "cluster": "hoc-tieng-anh-mat-goc",
+   "role": "pillar",
+   "pillar": "englisch-lernen-tipps"
+  },
+  {
+   "slug": "englisch-vokabeln-lernen",
+   "keyword": "englisch vokabeln lernen",
+   "category": "tu-vung",
+   "tags": [
+    "ielts",
+    "tu-vung",
+    "flashcard"
+   ],
+   "shots": [
+    "library",
+    "review",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/review",
+    "/#/practice/learn"
+   ],
+   "angle": "Quy trình 7 bước học từ IELTS nhớ lâu: chọn từ đúng cấp, học trong ngữ cảnh, ôn ngắt quãng, dùng lại khi viết/nói",
+   "intent": "informational",
+   "lang": "de",
+   "source": "cach-hoc-tu-vung-ielts-hieu-qua",
+   "cluster": "cach-hoc-tu-vung-ielts-hieu-qua",
+   "role": "satellite",
+   "pillar": "englisch-lernen-tipps"
+  },
+  {
+   "slug": "present-perfect-oder-simple-past",
+   "keyword": "present perfect oder simple past",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "thi"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "Phân tích tư duy thời gian của người bản xứ (kết nối hiện tại vs mốc đã đóng), tín hiệu, các cặp câu đối chiếu, lỗi người Việt, bài tập có đáp án",
+   "intent": "informational",
+   "lang": "de",
+   "source": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don",
+   "cluster": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don",
+   "role": "satellite",
+   "pillar": "englisch-lernen-tipps"
+  },
+  {
+   "slug": "false-friends-englisch-deutsch",
+   "keyword": "false friends englisch deutsch",
+   "category": "ngu-phap",
+   "tags": [
+    "tu-de-nham",
+    "tu-vung"
+   ],
+   "shots": [
+    "dict",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/dict/",
+    "/#/practice/test"
+   ],
+   "angle": "30 cặp từ dễ nhầm (affect/effect, economic/economical, rise/raise…) có mẹo phân biệt & ví dụ tự đặt",
+   "intent": "informational",
+   "lang": "de",
+   "source": "cac-cap-tu-de-nham-lan-trong-tieng-anh",
+   "cluster": "cac-cap-tu-de-nham-lan-trong-tieng-anh",
+   "role": "satellite",
+   "pillar": "englisch-lernen-tipps"
+  },
+  {
+   "slug": "ielts-listening-tipps",
+   "keyword": "ielts listening tipps",
+   "category": "ielts",
+   "tags": [
+    "listening",
+    "ielts"
+   ],
+   "shots": [
+    "listening",
+    "mock"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/mock"
+   ],
+   "angle": "Đọc trước câu hỏi, bẫy đổi ý, chính tả, số; luyện theo phần",
+   "intent": "informational",
+   "lang": "de",
+   "source": "meo-lam-bai-ielts-listening",
+   "cluster": "meo-lam-bai-ielts-listening",
+   "role": "satellite",
+   "pillar": "englisch-lernen-tipps"
+  },
+  {
+   "slug": "ingilizce-nasil-ogrenilir",
+   "keyword": "ingilizce nasıl öğrenilir",
+   "category": "phuong-phap",
+   "tags": [
+    "mat-goc",
+    "lo-trinh"
+   ],
+   "shots": [
+    "placement",
+    "path"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/path"
+   ],
+   "angle": "Lộ trình 90 ngày cho người mất gốc: phát âm & 1000 từ đầu, ngữ pháp lõi, nghe đọc dễ; tránh sai lầm tham nhiều",
+   "intent": "informational",
+   "lang": "tr",
+   "source": "hoc-tieng-anh-mat-goc",
+   "cluster": "hoc-tieng-anh-mat-goc",
+   "role": "pillar",
+   "pillar": "ingilizce-nasil-ogrenilir"
+  },
+  {
+   "slug": "ingilizce-kelime-ezberleme",
+   "keyword": "ingilizce kelime ezberleme",
+   "category": "tu-vung",
+   "tags": [
+    "ielts",
+    "tu-vung",
+    "flashcard"
+   ],
+   "shots": [
+    "library",
+    "review",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/review",
+    "/#/practice/learn"
+   ],
+   "angle": "Quy trình 7 bước học từ IELTS nhớ lâu: chọn từ đúng cấp, học trong ngữ cảnh, ôn ngắt quãng, dùng lại khi viết/nói",
+   "intent": "informational",
+   "lang": "tr",
+   "source": "cach-hoc-tu-vung-ielts-hieu-qua",
+   "cluster": "cach-hoc-tu-vung-ielts-hieu-qua",
+   "role": "satellite",
+   "pillar": "ingilizce-nasil-ogrenilir"
+  },
+  {
+   "slug": "present-perfect-simple-past-farki",
+   "keyword": "present perfect simple past farkı",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "thi"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "Phân tích tư duy thời gian của người bản xứ (kết nối hiện tại vs mốc đã đóng), tín hiệu, các cặp câu đối chiếu, lỗi người Việt, bài tập có đáp án",
+   "intent": "informational",
+   "lang": "tr",
+   "source": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don",
+   "cluster": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don",
+   "role": "satellite",
+   "pillar": "ingilizce-nasil-ogrenilir"
+  },
+  {
+   "slug": "ingilizce-telaffuz-gelistirme",
+   "keyword": "ingilizce telaffuz geliştirme",
+   "category": "phuong-phap",
+   "tags": [
+    "phat-am",
+    "ipa",
+    "speaking"
+   ],
+   "shots": [
+    "pron",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/pron",
+    "/#/practice/speak"
+   ],
+   "angle": "Lỗi phát âm người Việt (âm cuối, /θ/, nối âm, trọng âm), cách luyện có phản hồi",
+   "intent": "informational",
+   "lang": "tr",
+   "source": "luyen-phat-am-tieng-anh",
+   "cluster": "luyen-phat-am-tieng-anh",
+   "role": "satellite",
+   "pillar": "ingilizce-nasil-ogrenilir"
+  },
+  {
+   "slug": "ielts-listening-taktikleri",
+   "keyword": "ielts listening taktikleri",
+   "category": "ielts",
+   "tags": [
+    "listening",
+    "ielts"
+   ],
+   "shots": [
+    "listening",
+    "mock"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/mock"
+   ],
+   "angle": "Đọc trước câu hỏi, bẫy đổi ý, chính tả, số; luyện theo phần",
+   "intent": "informational",
+   "lang": "tr",
+   "source": "meo-lam-bai-ielts-listening",
+   "cluster": "meo-lam-bai-ielts-listening",
+   "role": "satellite",
+   "pillar": "ingilizce-nasil-ogrenilir"
+  },
+  {
+   "slug": "kak-vyuchit-angliyskiy-samostoyatelno",
+   "keyword": "как выучить английский самостоятельно",
+   "category": "phuong-phap",
+   "tags": [
+    "mat-goc",
+    "lo-trinh"
+   ],
+   "shots": [
+    "placement",
+    "path"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/path"
+   ],
+   "angle": "Lộ trình 90 ngày cho người mất gốc: phát âm & 1000 từ đầu, ngữ pháp lõi, nghe đọc dễ; tránh sai lầm tham nhiều",
+   "intent": "informational",
+   "lang": "ru",
+   "source": "hoc-tieng-anh-mat-goc",
+   "cluster": "hoc-tieng-anh-mat-goc",
+   "role": "pillar",
+   "pillar": "kak-vyuchit-angliyskiy-samostoyatelno"
+  },
+  {
+   "slug": "kak-zapominat-angliyskie-slova",
+   "keyword": "как запоминать английские слова",
+   "category": "tu-vung",
+   "tags": [
+    "ielts",
+    "tu-vung",
+    "flashcard"
+   ],
+   "shots": [
+    "library",
+    "review",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/review",
+    "/#/practice/learn"
+   ],
+   "angle": "Quy trình 7 bước học từ IELTS nhớ lâu: chọn từ đúng cấp, học trong ngữ cảnh, ôn ngắt quãng, dùng lại khi viết/nói",
+   "intent": "informational",
+   "lang": "ru",
+   "source": "cach-hoc-tu-vung-ielts-hieu-qua",
+   "cluster": "cach-hoc-tu-vung-ielts-hieu-qua",
+   "role": "satellite",
+   "pillar": "kak-vyuchit-angliyskiy-samostoyatelno"
+  },
+  {
+   "slug": "present-perfect-i-past-simple",
+   "keyword": "present perfect и past simple",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "thi"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "Phân tích tư duy thời gian của người bản xứ (kết nối hiện tại vs mốc đã đóng), tín hiệu, các cặp câu đối chiếu, lỗi người Việt, bài tập có đáp án",
+   "intent": "informational",
+   "lang": "ru",
+   "source": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don",
+   "cluster": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don",
+   "role": "satellite",
+   "pillar": "kak-vyuchit-angliyskiy-samostoyatelno"
+  },
+  {
+   "slug": "artikli-v-angliyskom",
+   "keyword": "артикли в английском",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "mao-tu"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "Vì sao người Việt hay sai mạo từ (tiếng Việt không có mạo từ), cây quyết định chọn a/an/the/Ø, danh từ chung chung vs xác định, bài tập",
+   "intent": "informational",
+   "lang": "ru",
+   "source": "loi-dung-mao-tu-a-an-the",
+   "cluster": "loi-dung-mao-tu-a-an-the",
+   "role": "satellite",
+   "pillar": "kak-vyuchit-angliyskiy-samostoyatelno"
+  },
+  {
+   "slug": "ielts-listening-sovety",
+   "keyword": "ielts listening советы",
+   "category": "ielts",
+   "tags": [
+    "listening",
+    "ielts"
+   ],
+   "shots": [
+    "listening",
+    "mock"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/mock"
+   ],
+   "angle": "Đọc trước câu hỏi, bẫy đổi ý, chính tả, số; luyện theo phần",
+   "intent": "informational",
+   "lang": "ru",
+   "source": "meo-lam-bai-ielts-listening",
+   "cluster": "meo-lam-bai-ielts-listening",
+   "role": "satellite",
+   "pillar": "kak-vyuchit-angliyskiy-samostoyatelno"
+  },
+  {
+   "slug": "kayfa-ataallam-al-injliziya",
+   "keyword": "تعلم الإنجليزية بنفسك",
+   "category": "phuong-phap",
+   "tags": [
+    "mat-goc",
+    "lo-trinh"
+   ],
+   "shots": [
+    "placement",
+    "path"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/path"
+   ],
+   "angle": "Lộ trình 90 ngày cho người mất gốc: phát âm & 1000 từ đầu, ngữ pháp lõi, nghe đọc dễ; tránh sai lầm tham nhiều",
+   "intent": "informational",
+   "lang": "ar",
+   "source": "hoc-tieng-anh-mat-goc",
+   "cluster": "hoc-tieng-anh-mat-goc",
+   "role": "pillar",
+   "pillar": "kayfa-ataallam-al-injliziya"
+  },
+  {
+   "slug": "hifz-al-kalimat-al-injliziya",
+   "keyword": "حفظ الكلمات الإنجليزية",
+   "category": "tu-vung",
+   "tags": [
+    "ielts",
+    "tu-vung",
+    "flashcard"
+   ],
+   "shots": [
+    "library",
+    "review",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/review",
+    "/#/practice/learn"
+   ],
+   "angle": "Quy trình 7 bước học từ IELTS nhớ lâu: chọn từ đúng cấp, học trong ngữ cảnh, ôn ngắt quãng, dùng lại khi viết/nói",
+   "intent": "informational",
+   "lang": "ar",
+   "source": "cach-hoc-tu-vung-ielts-hieu-qua",
+   "cluster": "cach-hoc-tu-vung-ielts-hieu-qua",
+   "role": "satellite",
+   "pillar": "kayfa-ataallam-al-injliziya"
+  },
+  {
+   "slug": "present-perfect-wa-past-simple",
+   "keyword": "الفرق بين present perfect و past simple",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "thi"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "Phân tích tư duy thời gian của người bản xứ (kết nối hiện tại vs mốc đã đóng), tín hiệu, các cặp câu đối chiếu, lỗi người Việt, bài tập có đáp án",
+   "intent": "informational",
+   "lang": "ar",
+   "source": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don",
+   "cluster": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don",
+   "role": "satellite",
+   "pillar": "kayfa-ataallam-al-injliziya"
+  },
+  {
+   "slug": "nasaih-ielts-listening",
+   "keyword": "نصائح ielts listening",
+   "category": "ielts",
+   "tags": [
+    "listening",
+    "ielts"
+   ],
+   "shots": [
+    "listening",
+    "mock"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/mock"
+   ],
+   "angle": "Đọc trước câu hỏi, bẫy đổi ý, chính tả, số; luyện theo phần",
+   "intent": "informational",
+   "lang": "ar",
+   "source": "meo-lam-bai-ielts-listening",
+   "cluster": "meo-lam-bai-ielts-listening",
+   "role": "satellite",
+   "pillar": "kayfa-ataallam-al-injliziya"
+  },
+  {
+   "slug": "tahsin-nutq-al-injliziya",
+   "keyword": "تحسين النطق بالإنجليزية",
+   "category": "phuong-phap",
+   "tags": [
+    "phat-am",
+    "ipa",
+    "speaking"
+   ],
+   "shots": [
+    "pron",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/pron",
+    "/#/practice/speak"
+   ],
+   "angle": "Lỗi phát âm người Việt (âm cuối, /θ/, nối âm, trọng âm), cách luyện có phản hồi",
+   "intent": "informational",
+   "lang": "ar",
+   "source": "luyen-phat-am-tieng-anh",
+   "cluster": "luyen-phat-am-tieng-anh",
+   "role": "satellite",
+   "pillar": "kayfa-ataallam-al-injliziya"
+  },
+  {
+   "slug": "angrezi-kaise-seekhe",
+   "keyword": "अंग्रेजी कैसे सीखें",
+   "category": "phuong-phap",
+   "tags": [
+    "mat-goc",
+    "lo-trinh"
+   ],
+   "shots": [
+    "placement",
+    "path"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/path"
+   ],
+   "angle": "Lộ trình 90 ngày cho người mất gốc: phát âm & 1000 từ đầu, ngữ pháp lõi, nghe đọc dễ; tránh sai lầm tham nhiều",
+   "intent": "informational",
+   "lang": "hi",
+   "source": "hoc-tieng-anh-mat-goc",
+   "cluster": "hoc-tieng-anh-mat-goc",
+   "role": "pillar",
+   "pillar": "angrezi-kaise-seekhe"
+  },
+  {
+   "slug": "english-words-yaad-karne-ka-tarika",
+   "keyword": "इंग्लिश वर्ड्स याद करने का तरीका",
+   "category": "tu-vung",
+   "tags": [
+    "ielts",
+    "tu-vung",
+    "flashcard"
+   ],
+   "shots": [
+    "library",
+    "review",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/review",
+    "/#/practice/learn"
+   ],
+   "angle": "Quy trình 7 bước học từ IELTS nhớ lâu: chọn từ đúng cấp, học trong ngữ cảnh, ôn ngắt quãng, dùng lại khi viết/nói",
+   "intent": "informational",
+   "lang": "hi",
+   "source": "cach-hoc-tu-vung-ielts-hieu-qua",
+   "cluster": "cach-hoc-tu-vung-ielts-hieu-qua",
+   "role": "satellite",
+   "pillar": "angrezi-kaise-seekhe"
+  },
+  {
+   "slug": "ielts-ki-taiyari-kaise-kare",
+   "keyword": "ielts की तैयारी कैसे करें",
+   "category": "ielts",
+   "tags": [
+    "lo-trinh",
+    "tu-hoc"
+   ],
+   "shots": [
+    "path",
+    "goal",
+    "placement"
+   ],
+   "routes": [
+    "/#/path",
+    "/#/goal",
+    "/#/placement"
+   ],
+   "angle": "Lộ trình theo giai đoạn từ mất gốc đến 6.5+, phân bổ thời gian",
+   "intent": "informational",
+   "lang": "hi",
+   "source": "lo-trinh-tu-hoc-ielts",
+   "cluster": "lo-trinh-tu-hoc-ielts",
+   "role": "satellite",
+   "pillar": "angrezi-kaise-seekhe"
+  },
+  {
+   "slug": "english-bolna-kaise-sikhe",
+   "keyword": "इंग्लिश बोलना कैसे सीखें",
+   "category": "ky-nang",
+   "tags": [
+    "speaking",
+    "giao-tiep"
+   ],
+   "shots": [
+    "practice-speak",
+    "speaking"
+   ],
+   "routes": [
+    "/#/practice/speak",
+    "/#/speaking"
+   ],
+   "angle": "Trôi chảy vs chính xác, kỹ thuật 4/3/2, từ đệm tự nhiên, tự ghi âm & tự sửa, luyện một mình",
+   "intent": "informational",
+   "lang": "hi",
+   "source": "cach-luyen-noi-tieng-anh-troi-chay",
+   "cluster": "cach-luyen-noi-tieng-anh-troi-chay",
+   "role": "satellite",
+   "pillar": "angrezi-kaise-seekhe"
+  },
+  {
+   "slug": "present-perfect-tense-hindi",
+   "keyword": "present perfect tense in hindi",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "thi"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "Phân tích tư duy thời gian của người bản xứ (kết nối hiện tại vs mốc đã đóng), tín hiệu, các cặp câu đối chiếu, lỗi người Việt, bài tập có đáp án",
+   "intent": "informational",
+   "lang": "hi",
+   "source": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don",
+   "cluster": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don",
+   "role": "satellite",
+   "pillar": "angrezi-kaise-seekhe"
+  },
+  {
+   "slug": "toeic-gongbubeop",
+   "keyword": "토익 공부법",
+   "category": "toeic",
+   "tags": [
+    "toeic",
+    "lo-trinh"
+   ],
+   "shots": [
+    "toeic",
+    "goal",
+    "path"
+   ],
+   "routes": [
+    "/#/toeic",
+    "/#/goal"
+   ],
+   "angle": "Lộ trình 450 → 750+, phân bổ từ vựng/ngữ pháp/luyện đề",
+   "intent": "informational",
+   "lang": "ko",
+   "source": "lo-trinh-tu-hoc-toeic",
+   "cluster": "lo-trinh-tu-hoc-toeic",
+   "role": "pillar",
+   "pillar": "toeic-gongbubeop"
+  },
+  {
+   "slug": "yeongdaneo-amgibeop",
+   "keyword": "영어 단어 암기법",
+   "category": "tu-vung",
+   "tags": [
+    "ielts",
+    "tu-vung",
+    "flashcard"
+   ],
+   "shots": [
+    "library",
+    "review",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/review",
+    "/#/practice/learn"
+   ],
+   "angle": "Quy trình 7 bước học từ IELTS nhớ lâu: chọn từ đúng cấp, học trong ngữ cảnh, ôn ngắt quãng, dùng lại khi viết/nói",
+   "intent": "informational",
+   "lang": "ko",
+   "source": "cach-hoc-tu-vung-ielts-hieu-qua",
+   "cluster": "cach-hoc-tu-vung-ielts-hieu-qua",
+   "role": "satellite",
+   "pillar": "toeic-gongbubeop"
+  },
+  {
+   "slug": "toeic-part5-munbeop",
+   "keyword": "토익 파트5",
+   "category": "toeic",
+   "tags": [
+    "toeic",
+    "part-5",
+    "ngu-phap"
+   ],
+   "shots": [
+    "toeic",
+    "grammar"
+   ],
+   "routes": [
+    "/#/toeic",
+    "/#/grammar"
+   ],
+   "angle": "Phân loại câu Part 5 (từ loại, thì, giới từ, từ vựng), chiến lược 20 giây/câu",
+   "intent": "informational",
+   "lang": "ko",
+   "source": "toeic-part-5-meo-lam-bai",
+   "cluster": "toeic-part-5-meo-lam-bai",
+   "role": "satellite",
+   "pillar": "toeic-gongbubeop"
+  },
+  {
+   "slug": "hyeonjaewanryo-gwageo-chai",
+   "keyword": "현재완료 과거 차이",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "thi"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "Phân tích tư duy thời gian của người bản xứ (kết nối hiện tại vs mốc đã đóng), tín hiệu, các cặp câu đối chiếu, lỗi người Việt, bài tập có đáp án",
+   "intent": "informational",
+   "lang": "ko",
+   "source": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don",
+   "cluster": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don",
+   "role": "satellite",
+   "pillar": "toeic-gongbubeop"
+  },
+  {
+   "slug": "yeongeo-shadowing-bangbeop",
+   "keyword": "영어 쉐도잉 방법",
+   "category": "phuong-phap",
+   "tags": [
+    "shadowing",
+    "speaking",
+    "listening"
+   ],
+   "shots": [
+    "practice-speak",
+    "pron",
+    "listening"
+   ],
+   "routes": [
+    "/#/practice/speak",
+    "/#/listening"
+   ],
+   "angle": "Kỹ thuật shadowing từng bước, chọn tài liệu, kết hợp chấm phát âm",
+   "intent": "informational",
+   "lang": "ko",
+   "source": "shadowing-luyen-noi-tieng-anh",
+   "cluster": "shadowing-luyen-noi-tieng-anh",
+   "role": "satellite",
+   "pillar": "toeic-gongbubeop"
+  },
+  {
+   "slug": "bei-dan-ci-de-fang-fa",
+   "keyword": "背单词的方法",
+   "category": "tu-vung",
+   "tags": [
+    "ielts",
+    "tu-vung",
+    "flashcard"
+   ],
+   "shots": [
+    "library",
+    "review",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/review",
+    "/#/practice/learn"
+   ],
+   "angle": "Quy trình 7 bước học từ IELTS nhớ lâu: chọn từ đúng cấp, học trong ngữ cảnh, ôn ngắt quãng, dùng lại khi viết/nói",
+   "intent": "informational",
+   "lang": "zh",
+   "source": "cach-hoc-tu-vung-ielts-hieu-qua",
+   "cluster": "cach-hoc-tu-vung-ielts-hieu-qua",
+   "role": "pillar",
+   "pillar": "bei-dan-ci-de-fang-fa"
+  },
+  {
+   "slug": "ya-si-ting-li-ji-qiao",
+   "keyword": "雅思听力技巧",
+   "category": "ielts",
+   "tags": [
+    "listening",
+    "ielts"
+   ],
+   "shots": [
+    "listening",
+    "mock"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/mock"
+   ],
+   "angle": "Đọc trước câu hỏi, bẫy đổi ý, chính tả, số; luyện theo phần",
+   "intent": "informational",
+   "lang": "zh",
+   "source": "meo-lam-bai-ielts-listening",
+   "cluster": "meo-lam-bai-ielts-listening",
+   "role": "satellite",
+   "pillar": "bei-dan-ci-de-fang-fa"
+  },
+  {
+   "slug": "xian-zai-wan-cheng-shi-he-yi-ban-guo-qu-shi",
+   "keyword": "现在完成时和一般过去时的区别",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "thi"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "Phân tích tư duy thời gian của người bản xứ (kết nối hiện tại vs mốc đã đóng), tín hiệu, các cặp câu đối chiếu, lỗi người Việt, bài tập có đáp án",
+   "intent": "informational",
+   "lang": "zh",
+   "source": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don",
+   "cluster": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don",
+   "role": "satellite",
+   "pillar": "bei-dan-ci-de-fang-fa"
+  },
+  {
+   "slug": "ying-yu-fa-yin-lian-xi",
+   "keyword": "英语发音练习",
+   "category": "phuong-phap",
+   "tags": [
+    "phat-am",
+    "ipa",
+    "speaking"
+   ],
+   "shots": [
+    "pron",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/pron",
+    "/#/practice/speak"
+   ],
+   "angle": "Lỗi phát âm người Việt (âm cuối, /θ/, nối âm, trọng âm), cách luyện có phản hồi",
+   "intent": "informational",
+   "lang": "zh",
+   "source": "luyen-phat-am-tieng-anh",
+   "cluster": "luyen-phat-am-tieng-anh",
+   "role": "satellite",
+   "pillar": "bei-dan-ci-de-fang-fa"
+  },
+  {
+   "slug": "ya-si-kou-yu-ji-qiao",
+   "keyword": "雅思口语技巧",
+   "category": "ielts",
+   "tags": [
+    "speaking",
+    "part-2"
+   ],
+   "shots": [
+    "speaking"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/speaking/"
+   ],
+   "angle": "Tận dụng 1 phút chuẩn bị, khung kể chuyện, kéo dài tự nhiên 2 phút",
+   "intent": "informational",
+   "lang": "zh",
+   "source": "ielts-speaking-part-2-cue-card",
+   "cluster": "ielts-speaking-part-2-cue-card",
+   "role": "satellite",
+   "pillar": "bei-dan-ci-de-fang-fa"
+  },
+  {
+   "slug": "rian-phasa-angkrit-duai-tua-eng",
+   "keyword": "เรียนภาษาอังกฤษด้วยตัวเอง",
+   "category": "phuong-phap",
+   "tags": [
+    "mat-goc",
+    "lo-trinh"
+   ],
+   "shots": [
+    "placement",
+    "path"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/path"
+   ],
+   "angle": "Lộ trình 90 ngày cho người mất gốc: phát âm & 1000 từ đầu, ngữ pháp lõi, nghe đọc dễ; tránh sai lầm tham nhiều",
+   "intent": "informational",
+   "lang": "th",
+   "source": "hoc-tieng-anh-mat-goc",
+   "cluster": "hoc-tieng-anh-mat-goc",
+   "role": "pillar",
+   "pillar": "rian-phasa-angkrit-duai-tua-eng"
+  },
+  {
+   "slug": "withi-thong-sap-phasa-angkrit",
+   "keyword": "วิธีท่องศัพท์ภาษาอังกฤษ",
+   "category": "tu-vung",
+   "tags": [
+    "ielts",
+    "tu-vung",
+    "flashcard"
+   ],
+   "shots": [
+    "library",
+    "review",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/review",
+    "/#/practice/learn"
+   ],
+   "angle": "Quy trình 7 bước học từ IELTS nhớ lâu: chọn từ đúng cấp, học trong ngữ cảnh, ôn ngắt quãng, dùng lại khi viết/nói",
+   "intent": "informational",
+   "lang": "th",
+   "source": "cach-hoc-tu-vung-ielts-hieu-qua",
+   "cluster": "cach-hoc-tu-vung-ielts-hieu-qua",
+   "role": "satellite",
+   "pillar": "rian-phasa-angkrit-duai-tua-eng"
+  },
+  {
+   "slug": "theknik-tham-kho-sop-toeic",
+   "keyword": "เทคนิคทำข้อสอบ toeic",
+   "category": "toeic",
+   "tags": [
+    "toeic",
+    "lo-trinh"
+   ],
+   "shots": [
+    "toeic",
+    "goal",
+    "path"
+   ],
+   "routes": [
+    "/#/toeic",
+    "/#/goal"
+   ],
+   "angle": "Lộ trình 450 → 750+, phân bổ từ vựng/ngữ pháp/luyện đề",
+   "intent": "informational",
+   "lang": "th",
+   "source": "lo-trinh-tu-hoc-toeic",
+   "cluster": "lo-trinh-tu-hoc-toeic",
+   "role": "satellite",
+   "pillar": "rian-phasa-angkrit-duai-tua-eng"
+  },
+  {
+   "slug": "present-perfect-kap-past-simple",
+   "keyword": "present perfect กับ past simple",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "thi"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "Phân tích tư duy thời gian của người bản xứ (kết nối hiện tại vs mốc đã đóng), tín hiệu, các cặp câu đối chiếu, lỗi người Việt, bài tập có đáp án",
+   "intent": "informational",
+   "lang": "th",
+   "source": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don",
+   "cluster": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don",
+   "role": "satellite",
+   "pillar": "rian-phasa-angkrit-duai-tua-eng"
+  },
+  {
+   "slug": "fuek-ok-siang-phasa-angkrit",
+   "keyword": "ฝึกออกเสียงภาษาอังกฤษ",
+   "category": "phuong-phap",
+   "tags": [
+    "phat-am",
+    "ipa",
+    "speaking"
+   ],
+   "shots": [
+    "pron",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/pron",
+    "/#/practice/speak"
+   ],
+   "angle": "Lỗi phát âm người Việt (âm cuối, /θ/, nối âm, trọng âm), cách luyện có phản hồi",
+   "intent": "informational",
+   "lang": "th",
+   "source": "luyen-phat-am-tieng-anh",
+   "cluster": "luyen-phat-am-tieng-anh",
+   "role": "satellite",
+   "pillar": "rian-phasa-angkrit-duai-tua-eng"
   }
  ]
 }

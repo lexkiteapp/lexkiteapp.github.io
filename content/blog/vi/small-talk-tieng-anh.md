@@ -9,7 +9,7 @@ tags: [giao-tiep, small-talk]
 keyword: "small talk tiếng anh"
 cover: phrases
 coverAlt: "Sổ cụm từ và cấu trúc trong Lexkite, nơi lưu cụm/câu hay kèm nhãn theo bài thi"
-publishAt: 2026-11-04T06:25:00+07:00
+publishAt: 2026-12-03T18:04:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -144,6 +144,8 @@ Công thức: **từ báo hiệu** (*Anyway*, *Well*, *Right*) + **lý do** + **
 - **Lời khen** về đồ đạc, ý tưởng, bài thuyết trình là bình thường. Đáp lại bằng *Thank you!* hoặc *Thanks, I got it on sale*, đừng chối bỏ kiểu "Không, có gì đâu" quá mức, vì người khen có thể thấy khó xử.
 - **Khoảng cách cá nhân**: đứng quá gần hoặc chạm vào tay người mới quen có thể khiến người kia không thoải mái.
 - **Giọng điệu**: người Mỹ thường thể hiện nhiệt tình rõ hơn (*That's awesome!*), người Anh hay nói giảm (*Not bad at all* có thể có nghĩa là "khá tốt"). Khác biệt từ vựng giữa hai bên có ở bài [Anh Anh và Anh Mỹ khác nhau](/vi/blog/anh-anh-va-anh-my-khac-nhau/).
+
+![Màn hình luyện nghe của Lexkite: 10 đề, giọng Anh–Mỹ–Úc, tốc độ chỉnh được, nút Luyện tập, Nghe lần đầu và Chép chính tả](media:listening "Nghe bài có giọng Anh, Mỹ, Úc để quen cách nói của từng vùng")
 
 ## Tự kiểm tra
 

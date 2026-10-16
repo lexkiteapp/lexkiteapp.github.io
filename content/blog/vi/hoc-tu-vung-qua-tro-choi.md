@@ -9,7 +9,7 @@ tags: [gamification, tu-vung]
 keyword: "học từ vựng qua trò chơi"
 cover: practice
 coverAlt: "Trang luyện tập của Lexkite gồm nhiều dạng bài từ vựng và lựa chọn nguồn từ"
-publishAt: 2026-10-24T14:24:00+07:00
+publishAt: 2026-11-06T12:51:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

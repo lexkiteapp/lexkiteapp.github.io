@@ -9,7 +9,7 @@ tags: [cau-hoi, giao-tiep]
 keyword: "cách đặt câu hỏi trong tiếng anh"
 cover: grammar
 coverAlt: "Mục ngữ pháp IELTS trong Lexkite: danh sách thì, cấp độ và bài luyện tổng hợp"
-publishAt: 2026-11-14T06:22:00+07:00
+publishAt: 2026-12-28T08:57:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -159,6 +159,8 @@ Sau vài tuần luyện có ý thức, các bước này sẽ chạy tự độn
 ## Câu hỏi trong bài thi
 
 **IELTS Speaking.** Bạn chủ yếu trả lời, nhưng hiểu cấu trúc câu hỏi giúp bạn bắt đúng ý giám khảo, nhất là thì của câu hỏi (*Did you…* hỏi quá khứ, *Have you ever…* hỏi trải nghiệm). Bạn cũng có thể hỏi lại một cách tự nhiên: *Could you repeat the question, please?* hoặc *What do you mean by…?* Xem các dạng câu hỏi thường gặp trong bài [IELTS Speaking Part 1](/vi/blog/ielts-speaking-part-1/).
+
+![Sổ cụm từ và cấu trúc của Lexkite: thêm cụm hay, bài mẫu có chỉ cấu trúc, gắn nhãn Task và band](media:phrases "Lưu các câu hỏi lại như “Could you repeat the question, please?” vào sổ cụm từ để dùng khi cần")
 
 **TOEIC Listening Part 2.** Toàn bộ phần này là câu hỏi – đáp. Nhận ra ngay từ để hỏi ở đầu câu (*Where, When, Who, Why*) đã loại được nhiều đáp án sai. Câu hỏi gián tiếp, câu hỏi đuôi, câu hỏi phủ định là những dạng gây bẫy nhiều nhất – phân tích trong bài [TOEIC Listening Part 2](/vi/blog/toeic-listening-part-2/).
 

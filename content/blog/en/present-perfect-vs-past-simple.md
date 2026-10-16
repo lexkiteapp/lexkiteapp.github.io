@@ -9,7 +9,7 @@ tags: [grammar, tenses, present-perfect, past-simple]
 keyword: "present perfect vs past simple"
 cover: grammar
 coverAlt: "Lexkite grammar roadmap with chapters on the 12 English tenses, A1–B2 levels and mixed practice exercises"
-publishAt: 2026-10-21T21:48:00+07:00
+publishAt: 2026-10-29T10:53:00+05:30
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

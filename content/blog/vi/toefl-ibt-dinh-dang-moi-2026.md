@@ -9,7 +9,7 @@ tags: [toefl, dinh-dang-moi]
 keyword: "toefl ibt 2026"
 cover: toefl
 coverAlt: "Màn hình TOEFL iBT của Lexkite theo định dạng mới, thang band 1–6"
-publishAt: 2026-11-07T20:22:00+07:00
+publishAt: 2026-12-11T13:07:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

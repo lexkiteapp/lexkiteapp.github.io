@@ -9,7 +9,7 @@ tags: [listening, ielts, exam-tips]
 keyword: "ielts listening tips"
 cover: listening
 coverAlt: "Lexkite IELTS Listening practice page with 10 tests of four parts, British, American and Australian voices and adjustable speed"
-publishAt: 2026-10-19T15:32:00+07:00
+publishAt: 2026-10-23T12:30:00+05:30
 factChecked: 2026-10-15
 qualityScore: 93
 author: Lexkite

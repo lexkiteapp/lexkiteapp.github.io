@@ -9,7 +9,7 @@ tags: [email, business-english, writing, formal-writing]
 keyword: "how to write a formal email"
 cover: letters
 coverAlt: "Lexkite IELTS General letter practice with formal, semi-formal and informal letter types"
-publishAt: 2026-10-25T22:51:00+07:00
+publishAt: 2026-11-08T14:45:00+05:30
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

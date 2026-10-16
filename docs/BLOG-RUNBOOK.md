@@ -14,8 +14,17 @@ Cập nhật 15/10/2026. Không chứa mật khẩu/khóa bí mật. Chi tiết 
 | Video | Kênh YouTube Lexkite (chưa có) | Điền ID vào `{{youtube: ID | …}}` trong bài |
 | Lịch viết bài | Claude desktop → Scheduled → "Lexkite: viết lô bài blog hằng tuần" (thứ Hai 9h) | ~15 bài/tuần, hỏi anh trước khi gộp/đẩy |
 
-## Ngôn ngữ đã mở (16/10/2026)
-vi (80 bài), en (24, phủ Ấn Độ/Philippines/Nigeria…), id (2), es (2, trung tính – phủ Mexico/Mỹ Latinh/Tây Ban Nha), ja (2). Mở tiếp: pt (Brazil) → ko → zh → th → ar → tr → fr → de → it/pl. Ngôn ngữ mới: thêm `L.<lang>` trong scripts/build-blog.mjs, blogName/blogDesc trong config.json, trang about trong content/blog/pages/<lang>/, 6 brief.
+
+## 15 ngôn ngữ & cấu trúc cụm bài (17/10/2026)
+- Mở đủ 15 ngôn ngữ của app: vi, en, es, ja, id, pt (Brazil), fr, de, tr, ru, ar (phải→trái), hi, ko, zh (giản thể), th. Chữ giao diện, chuyên mục, og:locale, hreflang, RSS `/<lang>/blog/rss.xml`, trang giới thiệu đều theo ngôn ngữ; `ar` có `dir="rtl"` + CSS đảo chiều.
+- **Trụ cột – vệ tinh:** mỗi ngôn ngữ 1 bài trụ cột (brief `role: pillar`, hướng dẫn tổng quan) + các bài vệ tinh (`role: satellite`, `pillar: <slug>`) đi sâu từng ý; trụ cột trỏ tới mọi vệ tinh, vệ tinh trỏ về trụ cột và lẫn nhau. Các bản cùng chủ đề ở ngôn ngữ khác nối bằng `translationKey` → hreflang + x-default (en).
+- **Từ khóa bản địa:** brief viết theo cách người học nước đó tìm (vd. ko "토익 공부법", pt "como aprender inglês sozinho", zh "背单词的方法"), không dịch máy từ khóa tiếng Việt. Tiếng Nhật/Trung/Thái đếm từ theo ký tự (2 ký tự Hán/Kana hoặc 3 ký tự Thái ≈ 1 từ).
+- Lệnh chuẩn cho tác tử: `content/blog/prompts/agent-pillar.md` (mở ngôn ngữ), `agent-write.md` (viết 1 bài), `agent-review.md` (chấm độc lập ≥ 92).
+
+## Lịch đăng thông minh (`scripts/blog-schedule.mjs`)
+- Tối đa **1 bài/ngôn ngữ/ngày** (`--per`), giờ ngẫu nhiên 07:00–21:59 theo **múi giờ nước đó** (`config.json → timezones`, tính cả giờ mùa hè; en theo Ấn Độ, es theo Mexico, pt theo Brazil…).
+- **Chống ăn thịt từ khóa:** bài cùng cụm (`cluster` trong brief, mặc định `translationKey`) trong cùng ngôn ngữ cách nhau **≥ 7 ngày**.
+- Xếp theo thứ tự briefs.json (trụ cột trước), lấp ngày trống sớm nhất; `--reflow` xếp lại các bài chưa đăng theo luật mới; `--verify` kiểm toàn bộ lịch (chạy trong `blog-pipeline gate` và CI) – vi phạm → lỗi.
 
 ## Đường dẫn
 - Bài: `/<lang>/blog/<slug>/` (vi, en…) · danh sách `/<lang>/blog/` · chuyên mục `/vi/blog/chu-de/<cat>/` (`/en/blog/topic/`) · thẻ `/vi/blog/the/<tag>/` (`/en/blog/tag/`) · RSS `/<lang>/blog/rss.xml` · giới thiệu `/vi/blog/gioi-thieu/`, `/en/blog/about/`.

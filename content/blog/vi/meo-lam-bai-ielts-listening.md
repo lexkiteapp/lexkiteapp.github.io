@@ -9,7 +9,7 @@ tags: [listening, ielts]
 keyword: "mẹo làm bài ielts listening"
 cover: listening
 coverAlt: "Danh sách đề luyện nghe IELTS trong Lexkite, mỗi đề 4 phần và nhiều giọng đọc"
-publishAt: 2026-10-29T14:15:00+07:00
+publishAt: 2026-11-17T12:12:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

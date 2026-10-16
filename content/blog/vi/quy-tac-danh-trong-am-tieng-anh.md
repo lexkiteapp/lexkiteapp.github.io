@@ -9,7 +9,7 @@ tags: [trong-am, phat-am]
 keyword: "quy tắc đánh trọng âm tiếng anh"
 cover: pron
 coverAlt: "Màn hình phát âm trong Lexkite: chọn từng âm IPA, nghe từ ví dụ và luyện có chấm điểm"
-publishAt: 2026-10-24T09:52:00+07:00
+publishAt: 2026-11-04T19:50:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

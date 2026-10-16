@@ -9,7 +9,7 @@ tags: [paraphrase, writing, reading]
 keyword: "cách paraphrase trong ielts"
 cover: write
 coverAlt: "Mục Writing của Lexkite gồm gợi ý ý tưởng, khung viết và bài mẫu có chú thích"
-publishAt: 2026-10-27T16:33:00+07:00
+publishAt: 2026-11-12T21:38:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

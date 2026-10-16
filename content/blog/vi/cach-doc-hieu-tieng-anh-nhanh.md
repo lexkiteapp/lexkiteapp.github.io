@@ -9,7 +9,7 @@ tags: [doc-hieu, reading]
 keyword: "cách đọc hiểu tiếng anh nhanh"
 cover: reading
 coverAlt: "Danh sách bài đọc IELTS theo cấp độ A2–C1 trong Lexkite, như “The Rise of Urban Farming”"
-publishAt: 2026-10-30T10:32:00+07:00
+publishAt: 2026-11-19T17:58:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
