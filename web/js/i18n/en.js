@@ -2811,6 +2811,47 @@
   'Chuyển dữ liệu': 'Move data',
 }); })(typeof self !== 'undefined' ? self : this);
 
+/* Call Mia (#/call) – tiếng Anh giao diện */
+(function (g) { Object.assign(g.I18N_DICT.en, {
+  'Mua cà phê cho cả nhóm': 'Coffee run for the team',
+  'Kể chuyện cuối tuần': 'Talking about the weekend',
+  'Ngày đầu đi làm ở Mỹ': 'First day at a US office',
+  'Họp đầu ngày (stand-up)': 'Daily stand-up meeting',
+  'Đặt lịch khám bác sĩ': 'Booking a doctor\'s appointment',
+  'Gọi hỏi thuê căn hộ': 'Calling about an apartment',
+  '“Agree” đã là động từ – không cần “am/is/are” đứng trước.': '“Agree” is already a verb – you don’t need “am/is/are” before it.',
+  'Với he/she/it, phủ định dùng “doesn’t”, không dùng “don’t”.': 'With he/she/it, the negative is “doesn’t”, not “don’t”.',
+  'Sau can/could/should/will không dùng “to”.': 'Don’t use “to” after can/could/should/will.',
+  'Từ so sánh hơn như “better” đã mang nghĩa “hơn” – bỏ “more”.': 'Comparatives like “better” already mean “more” – drop “more”.',
+  'Danh từ không đếm được (information, advice…) không thêm -s.': 'Uncountable nouns (information, advice…) don’t take -s.',
+  '“Very” không đứng trước động từ – dùng “really” hoặc “very much” ở cuối câu.': '“Very” can’t go before a verb – use “really”, or “very much” at the end.',
+  'Sau want/need/would like, động từ tiếp theo cần “to”.': 'After want/need/would like, the next verb needs “to”.',
+  'Trước nghề nghiệp số ít cần mạo từ “a/an”.': 'Use “a/an” before a singular job title.',
+  'Với he/she/it ở thì hiện tại đơn, động từ thêm -s/-es.': 'In the present simple, verbs after he/she/it take -s/-es.',
+  'Chuyện đã xảy ra (hôm qua, cuối tuần trước…) dùng động từ ở thì quá khứ.': 'For things that already happened (yesterday, last weekend…), use the past tense.',
+  'Gọi cho Mia': 'Call Mia',
+  'Cuộc gọi video luyện nói: Mia hỏi, bạn trả lời bằng giọng nói hoặc chọn gợi ý. Lỗi được sửa nhẹ nhàng, cuối cuộc gọi có tổng kết.': 'Speaking practice by video call: Mia asks, you answer by voice or pick a suggestion. Mistakes are corrected gently, with a summary at the end.',
+  'Lời bạn nói được nhận dạng ngay trên trình duyệt, Lexkite không lưu lại.': 'Your speech is recognized in the browser – Lexkite does not store it.',
+  'Gọi ngay': 'Call now',
+  'Cuộc gọi khác': 'Another call',
+  'Cuộc gọi với Mia': 'Call with Mia',
+  'Cuộc gọi luyện tập': 'Practice call',
+  'Gợi ý trả lời': 'Suggested replies',
+  'Bật/tắt phụ đề dịch': 'Show or hide translated subtitles',
+  'Kết thúc cuộc gọi': 'End call',
+  'Mia hiểu ý bạn! Nói tự nhiên hơn:': 'Mia understood you! A more natural way to say it:',
+  'Tổng kết cuộc gọi': 'Call summary',
+  '{m} phút {s} giây': '{m} min {s} sec',
+  'Bạn đã trả lời {n}/{k} lượt, trong đó {s} lượt bằng giọng nói.': 'You answered {n}/{k} turns, {s} of them by voice.',
+  'Cách nói tự nhiên hơn': 'More natural ways to say it',
+  'Không có lỗi nào cần sửa – tuyệt vời!': 'Nothing to correct – excellent!',
+  'Cụm từ nên nhớ': 'Phrases to remember',
+  'Thêm vào thẻ ôn': 'Add to review cards',
+  'Gọi lại': 'Call again',
+  'Đã thêm {n} thẻ': 'Added {n} cards',
+  'Cuộc gọi video luyện nói, sửa lỗi nhẹ nhàng': 'Video-call speaking practice with gentle corrections',
+}); })(typeof self !== 'undefined' ? self : this);
+
 /* Thống nhất thuật ngữ khi nhiều nhóm dùng chung 1 khóa */
 (function (g) { Object.assign(g.I18N_DICT.en, {
   'Kiểm tra': 'Check', 'Tiếp tục': 'Continue', 'Bỏ qua': 'Skip', 'Điền từ': 'Fill in the blank', 'Chọn nghĩa đúng': 'Choose the correct meaning',
