@@ -34,21 +34,35 @@ class LexkiteWidget : AppWidgetProvider() {
             manager.getAppWidgetIds(ComponentName(context, LexkiteWidget::class.java)).forEach { render(context, manager, it) }
         }
 
-        private fun snapshot(context: Context): JSONObject =
+        fun snapshot(context: Context): JSONObject =
             runCatching { JSONObject(context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getString(KEY, null) ?: "{}") }.getOrDefault(JSONObject())
 
         private fun label(s: JSONObject, key: String, en: String): String = s.optJSONObject("l")?.optString(key)?.takeIf { it.isNotBlank() } ?: en
 
+        /** Số thẻ cần ôn + các từ đã đến hạn ở thời điểm `now`; qua ngày mới mà chưa mở app vẫn đúng (days[i], newDay). */
+        fun stateAt(s: JSONObject, now: Long): Pair<Int, List<JSONObject>> {
+            val tz = java.util.Calendar.getInstance()
+            fun dayStart(ms: Long): Long = tz.apply { timeInMillis = ms; set(java.util.Calendar.HOUR_OF_DAY, 0); set(java.util.Calendar.MINUTE, 0); set(java.util.Calendar.SECOND, 0); set(java.util.Calendar.MILLISECOND, 0) }.timeInMillis
+            val today = dayStart(now)
+            val end = tz.apply { timeInMillis = today; add(java.util.Calendar.DAY_OF_YEAR, 1) }.timeInMillis
+            val k = Math.max(0, Math.round((today - dayStart(s.optLong("at", now))) / 86_400_000.0).toInt())
+            val arr = s.optJSONArray("words")
+            val words = (0 until (arr?.length() ?: 0)).mapNotNull { arr!!.optJSONObject(it) }.filter { it.optLong("due", 0) <= end }
+            val days = s.optJSONArray("days")
+            if (k == 0 || days == null || days.length() == 0) return Pair(s.optInt("due", 0), words)
+            return Pair(days.optInt(Math.min(k, days.length() - 1)) + Math.max(0, s.optInt("newDay", 0)), words)
+        }
+
         fun render(context: Context, manager: AppWidgetManager, id: Int) {
-            val s = snapshot(context)
-            val words = s.optJSONArray("words")
-            val count = words?.length() ?: 0
-            // Từ đổi mỗi giờ, xoay vòng trong ≤ 20 từ đến hạn
-            val word = if (count > 0) words!!.optJSONObject(((System.currentTimeMillis() / 3_600_000L) % count).toInt()) else null
-            val due = s.optInt("due", 0)
-            val streak = s.optInt("streak", 0)
             val minW = manager.getAppWidgetOptions(id).getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH, 0)
-            val medium = minW >= 220
+            manager.updateAppWidget(id, build(context, snapshot(context), minW >= 220, id, System.currentTimeMillis()))
+        }
+
+        fun build(context: Context, s: JSONObject, medium: Boolean, id: Int, now: Long): RemoteViews {
+            val (due, words) = stateAt(s, now)
+            // Từ đổi mỗi giờ, xoay vòng trong ≤ 20 từ đến hạn
+            val word = if (words.isNotEmpty()) words[((now / 3_600_000L) % words.size).toInt()] else null
+            val streak = s.optInt("streak", 0)
             val v = RemoteViews(context.packageName, if (medium) R.layout.widget_medium else R.layout.widget_small)
 
             v.setInt(R.id.widget_root, "setLayoutDirection", if (s.optBoolean("rtl")) View.LAYOUT_DIRECTION_RTL else View.LAYOUT_DIRECTION_LTR)
@@ -75,7 +89,7 @@ class LexkiteWidget : AppWidgetProvider() {
             val uri = Uri.parse("lexkite://review" + if (w.isNotEmpty()) "?w=" + Uri.encode(w) else "")
             val intent = Intent(Intent.ACTION_VIEW, uri, context, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)
             v.setOnClickPendingIntent(R.id.widget_root, PendingIntent.getActivity(context, id, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE))
-            manager.updateAppWidget(id, v)
+            return v
         }
     }
 }
