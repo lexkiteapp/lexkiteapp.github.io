@@ -47,6 +47,11 @@ unless wg.children.any? { |x| x.isa == 'PBXVariantGroup' }
   langs.each { |l| vg.new_reference("#{l}.lproj/Localizable.strings").tap { |r| r.name = l; r.last_known_file_type = 'text.plist.strings' } }
   widget.resources_build_phase.add_file_reference(vg, true)
 end
+# Khai báo quyền riêng tư (App Store): UserDefaults dùng chung qua App Group (lý do 1C8F.1)
+{ app => app_group, widget => wg }.each do |t, grp|
+  ref = grp.files.find { |x| x.path == 'PrivacyInfo.xcprivacy' } || grp.new_reference('PrivacyInfo.xcprivacy')
+  t.resources_build_phase.add_file_reference(ref, true)
+end
 project.root_object.known_regions = (project.root_object.known_regions + langs + ['Base']).uniq
 
 app.build_configurations.each { |c| c.build_settings['CODE_SIGN_ENTITLEMENTS'] = 'App/App.entitlements' }

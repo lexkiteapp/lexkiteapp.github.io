@@ -109,7 +109,9 @@ Hacer un examen tras otro consume mucho tiempo y mejora poco. Es más eficaz un 
 3. **Vuelve a escuchar con la transcripción**: detén el audio justo donde fallaste y repite hasta oír cada sonido.
 4. **Haz un dictado** de un fragmento corto que contenga tus errores. Escribir lo que oyes obliga a fijarte en finales, plurales y letras dobles.
 
-En dos o tres semanas tendrás claro cuál es tu tipo de error dominante, y podrás concentrar el esfuerzo justo ahí. Si además estás valorando otros exámenes, compara con el [nuevo formato del TOEFL iBT 2026](/es/blog/nuevo-formato-toefl-ibt-2026/), que también evalúa la comprensión auditiva.
+![Registro de errores de Lexkite con los fallos agrupados en vocabulario, gramática, lectura y comprensión auditiva](media:mistakes "Revisar juntos los fallos de comprensión auditiva ayuda a detectar tu error dominante en pocas semanas")
+
+En dos o tres semanas tendrás claro cuál es tu tipo de error dominante, y podrás concentrar el esfuerzo justo ahí; para entrenar el oído fuera del examen, sigue el método de [cómo mejorar el listening en inglés](/es/blog/como-mejorar-el-listening-en-ingles/). Si además estás valorando otros exámenes, compara con el [nuevo formato del TOEFL iBT 2026](/es/blog/nuevo-formato-toefl-ibt-2026/), que también evalúa la comprensión auditiva.
 
 ## Ponlo en práctica en Lexkite
 

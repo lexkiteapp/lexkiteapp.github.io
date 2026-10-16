@@ -7,24 +7,31 @@ struct LexEntry: TimelineEntry {
     let date: Date
     let snap: LexSnapshot
     let word: LexWord?
+    let count: Int
+
+    init(date: Date, snap: LexSnapshot) {
+        let st = snap.state(at: date)
+        self.date = date; self.snap = snap; self.count = st.count
+        self.word = LexSnapshot.pick(st.words, slot: LexProvider.slot(date))
+    }
 }
 
 struct LexProvider: TimelineProvider {
-    func placeholder(in context: Context) -> LexEntry { LexEntry(date: Date(), snap: .sample, word: LexSnapshot.sample.list.first) }
+    func placeholder(in context: Context) -> LexEntry { LexEntry(date: Date(), snap: .sample) }
 
     func getSnapshot(in context: Context, completion: @escaping (LexEntry) -> Void) {
         let s = LexSnapshot.load() ?? .sample
-        completion(LexEntry(date: Date(), snap: s, word: s.word(at: Self.slot(Date()))))
+        completion(LexEntry(date: Date(), snap: s))
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<LexEntry>) -> Void) {
         let s = LexSnapshot.load() ?? LexSnapshot()
         let now = Date(), cal = Calendar.current
         let hour = cal.dateInterval(of: .hour, for: now)?.start ?? now
-        var entries = [LexEntry(date: now, snap: s, word: s.word(at: Self.slot(now)))]
+        var entries = [LexEntry(date: now, snap: s)]
         for i in 1..<12 {
             guard let d = cal.date(byAdding: .hour, value: i, to: hour) else { continue }
-            entries.append(LexEntry(date: d, snap: s, word: s.word(at: Self.slot(d))))
+            entries.append(LexEntry(date: d, snap: s))
         }
         completion(Timeline(entries: entries, policy: .atEnd))
     }
@@ -49,7 +56,7 @@ struct LexEntryView: View {
     }
 
     var body: some View {
-        LexWidgetView(snap: entry.snap, word: entry.word, family: family)
+        LexWidgetView(snap: entry.snap, word: entry.word, count: entry.count, family: family)
             .lexContainerBackground(accessory: family == .rectangular || family == .inline)
             .widgetURL(lexReviewURL(entry.word))
     }

@@ -148,7 +148,7 @@ En Estados Unidos, *go to college* equivale a "ir a la universidad"; si hablas d
 
 {{youtube: | Idea de vídeo: 10 falsos amigos inglés–español en 3 minutos, con frases de ejemplo y pronunciación}}
 
-Los falsos amigos también aparecen en los exámenes: en el Listening de IELTS, una palabra que "suena" a español puede llevarte a la opción equivocada (tienes estrategias en nuestros [consejos para IELTS Listening](/es/blog/consejos-ielts-listening/)), y en las tareas de completar palabras del [nuevo formato del TOEFL iBT 2026](/es/blog/nuevo-formato-toefl-ibt-2026/) la ortografía exacta cuenta. Cuando escribas tus frases de ejemplo, aprovecha para practicar también la diferencia entre [present perfect y past simple](/es/blog/present-perfect-vs-past-simple/).
+Los falsos amigos también aparecen en los exámenes: en el Listening de IELTS, una palabra que "suena" a español puede llevarte a la opción equivocada (tienes estrategias en nuestros [consejos para IELTS Listening](/es/blog/consejos-ielts-listening/) y un método de entrenamiento en [cómo mejorar el listening en inglés](/es/blog/como-mejorar-el-listening-en-ingles/)), y en las tareas de completar palabras del [nuevo formato del TOEFL iBT 2026](/es/blog/nuevo-formato-toefl-ibt-2026/) la ortografía exacta cuenta. Cuando escribas tus frases de ejemplo, aprovecha para practicar también la diferencia entre [present perfect y past simple](/es/blog/present-perfect-vs-past-simple/).
 
 ## Test rápido: ¿caes en la trampa?
 
