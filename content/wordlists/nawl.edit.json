@@ -1,0 +1,30 @@
+{
+ "_": "Sửa tay định nghĩa/ví dụ sau khi duyệt (gen-wordlist.mjs áp dụng khi xuất file). Nội dung tự biên soạn – Lexkite, CC BY-SA 4.0.",
+ "psychiatric": {
+  "ex": "The study compared patients from three psychiatric hospitals."
+ },
+ "particle": {
+  "ex": "Fine dust particles from traffic can damage the lungs."
+ },
+ "portray": {
+  "ex": "The novel portrays life in a small fishing village in the 1950s."
+ },
+ "partition": {
+  "ex": "A glass partition divides the open office into two quiet areas."
+ },
+ "reactive": {
+  "ex": "Instead of being reactive, the team now plans for problems in advance."
+ },
+ "spectrum": {
+  "ex": "The survey covered a wide spectrum of opinions on public transport."
+ },
+ "sniff": {
+  "ex": "Trained dogs sniff passengers' luggage at the airport."
+ },
+ "temporal": {
+  "ex": "The study examined temporal changes in rainfall over fifty years."
+ },
+ "cue": {
+  "ex": "Good speakers watch the audience for cues that they are losing interest."
+ }
+}

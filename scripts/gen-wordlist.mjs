@@ -11,8 +11,12 @@ const LISTS = {
   bsl: { file: 'content/wordlists/bsl-1.20.csv', title: 'BSL – Từ vựng kinh doanh', emoji: '💼', desc: 'Business Service List: từ vựng công việc, văn phòng, kinh doanh hay gặp trong TOEIC', head: 'Business Service List 1.20 © Browne & Culligan (newgeneralservicelist.com), CC BY-SA 4.0', level: i => (i < 900 ? 'B1' : 'B2') },
 };
 const L = LISTS[ID]; if (!L) { console.error('dùng: gen-wordlist.mjs <' + Object.keys(LISTS).join('|') + '>'); process.exit(1); }
+// Định nghĩa Wiktionary lệch nghĩa (trang viết hoa/viết tắt, mã ngôn ngữ, chỉ trỏ sang từ khác) → không dùng
+const BADDEF = /ISO 639|NATO|ICAO|radiotelephony|[Aa]lternative (?:form|spelling|letter-case)|^Synonym of|[Ii]nitialism of|[Aa]bbreviation of|Greek alphabet|^A rope\b/;
 // Ví dụ phải chứa đúng từ (hoặc biến thể chia -s/-es/-ed/-d/-ing/-ly) – tránh 'denominator' cho denominate
 const hasWord = (w, s) => !!s && new RegExp('\\b' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(s|es|ed|d|ing|ly)?\\b', 'i').test(s);
+// Câu ví dụ Tatoeba: loại chủ đề nhạy cảm (chính trị, tôn giáo, bạo lực, tình dục…) và bộ nhân vật meme (Sami/Layla…) – không hợp với app học
+export const SENSITIVE = /\b(hamas|israel\w*|palestin\w*|gaza|terror\w*|bomb\w*|kill\w*|murder\w*|hitler|nazi\w*|rap(e|ed|ist)|suicide|sex\w*|naked|porn\w*|prostitut\w*|drunk\w*|cocaine|heroin|guns?|shoot\w*|stab\w*|corpse|god|allah|jesus|bible|church|mosque|islam\w*|muslim\w*|christian\w*|jews?|jewish|communis\w*|algeria\w*|kabyle|berber|trump|obama|putin|hate|stupid|idiot|damn|hell|sami|layla|fadil|dania|salima|rima|skura|mennad|baya|yanni|ziri)\b/i;
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 async function get(url) { for (let i = 0; i < 3; i++) { try { const r = await fetch(url, { headers: { 'User-Agent': 'lexkite-wordlist (support@lexkite.com)' } }); if (r.status === 404) return null; if (r.ok) return await r.json(); if (r.text) { const tx = await r.text(); if (/^\s*\{/.test(tx)) { try { return JSON.parse(tx); } catch (e) { return null; } } } /* {…} = không tìm thấy / đối tượng JSON – không phải lỗi mạng */ if (r.status === 429) await sleep(20000); } catch (e) { /* thử lại */ } await sleep(1500 * (i + 1)); } return undefined; }
 
@@ -60,7 +64,7 @@ for (const x of LIST) {
     for (const m of en.meanings || []) {
       if (!e.pos) e.pos = m.partOfSpeech;
       if (m.partOfSpeech !== e.pos) continue;
-      for (const d of m.definitions || []) { if (!e.def) e.def = d.definition; if (!e.ex && d.example && d.example.split(' ').length >= 5 && new RegExp('\\b' + k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(s|es|ed|d|ing|ly)?\\b', 'i').test(d.example)) e.ex = d.example; }
+      for (const d of m.definitions || []) { if (!e.def) e.def = d.definition; if (!e.ex && d.example && d.example.split(' ').length >= 5 && !SENSITIVE.test(d.example) && new RegExp('\\b' + k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(s|es|ed|d|ing|ly)?\\b', 'i').test(d.example)) e.ex = d.example; }
       e.syn.push(...(m.synonyms || []));
     }
   }
@@ -69,12 +73,12 @@ for (const x of LIST) {
     const wd = await get(`https://en.wiktionary.org/api/rest_v1/page/definition/${encodeURIComponent(k)}`);
     const ens = wd && Array.isArray(wd.en) ? wd.en : [];
     const pe = ens.find(z => z.partOfSpeech && POSN(z.partOfSpeech.toLowerCase()) === e.pos) || ens[0];
-    const d0 = pe && (pe.definitions || []).map(z => String(z.definition || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()).find(z => z.length > 8 && !/^\(.*\)$/.test(z));
+    const d0 = pe && (pe.definitions || []).map(z => String(z.definition || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()).find(z => z.length > 8 && !/^\(.*\)$/.test(z) && !BADDEF.test(z));
     if (d0) { e.def = d0.slice(0, 200); if (!e.pos) e.pos = POSN(pe.partOfSpeech.toLowerCase()); }
   }
   if (!e.ex) {
     const tt = await get(`https://api.tatoeba.org/unstable/sentences?lang=eng&q=${encodeURIComponent(k)}&sort=relevance&limit=10`);
-    const s = tt && Array.isArray(tt.data) ? tt.data.map(d => d.text).filter(s => s.split(' ').length >= 6 && s.length < 140 && hasWord(k, s)).sort((a, b) => Math.abs(a.length - 75) - Math.abs(b.length - 75))[0] : '';
+    const s = tt && Array.isArray(tt.data) ? tt.data.map(d => d.text).filter(s => s.split(' ').length >= 6 && s.length < 140 && hasWord(k, s) && !SENSITIVE.test(s)).sort((a, b) => Math.abs(a.length - 75) - Math.abs(b.length - 75))[0] : '';
     if (s) e.ex = s;
   }
   // Nghĩa: bản dịch thông dụng (dt=t) là nghĩa chính – dữ liệu từ điển (dt=bd) của từ hiếm thường cổ/lệch, chỉ dùng bổ sung khi từ phổ biến (≥ 3 nghĩa)
@@ -101,18 +105,22 @@ const TYPO = JSON.parse(rd('web/js/dictionary.js').match(/const VI_TYPO = (\{[^}
 const fixVi = v => String(v).normalize('NFC').replace(/[\p{L}]+/gu, w => { const r = TYPO[w.toLowerCase()]; return r ? (w[0] === w[0].toUpperCase() ? r[0].toUpperCase() + r.slice(1) : r) : w; });
 const OLDTONE = /(?<![\p{L}q])(?:[bcdđghklmnprstvx]|ch|kh|ng|nh|ph|th|tr)?(oà|oá|oả|oã|oạ|oè|oé|oẻ|oẽ|oẹ|uỳ|uý|uỷ|uỹ|uỵ)(?!\p{L})/iu;
 for (const k in cache) if (cache[k] && cache[k].vi) cache[k].vi = fixVi(cache[k].vi);
-const VI = /[À-ỹđĐ]/u; // mọi chữ Latin có dấu (gồm dấu kép ố, ắ, ữ…) – nghĩa tiếng Việt hầu như luôn có dấu
+const VI = /[À-ỹđĐ]/u;
+ // mọi chữ Latin có dấu (gồm dấu kép ố, ắ, ữ…) – nghĩa tiếng Việt hầu như luôn có dấu
 // Sửa tay sau khi duyệt (content/wordlists/<id>.fix.json): { "từ": "nghĩa đúng" } hoặc "-" để loại từ (thuật ngữ lệch ngữ cảnh, nghĩa máy dịch sai)
 const FIX = (() => { try { return JSON.parse(rd(`content/wordlists/${ID}.fix.json`)); } catch (e) { return {}; } })();
+const EDIT = (() => { try { return JSON.parse(rd(`content/wordlists/${ID}.edit.json`)); } catch (e) { return {}; } })(); // sửa tay định nghĩa/ví dụ: { "từ": { def, ex } }
+const cleanDef = d => String(d).replace(/\.mw-parser-output[^}]*\}/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&\w+;/g, '').replace(/\s+/g, ' ').replace(/\s+([.,;])/g, '$1').trim();
 const good = [], bad = [];
 LIST.forEach((x, i) => {
   const e = cache[x.word.toLowerCase()]; if (!e) return;
   if (FIX[x.word] === '-') { bad.push(x.word + ' – loại khi duyệt tay'); return; }
-  const why = !e.ipa ? 'thiếu phiên âm' : !e.vi || e.vi.toLowerCase() === x.word.toLowerCase() ? 'thiếu nghĩa' : !VI.test(e.vi) && e.vi.split(' ').length < 2 ? 'nghĩa không phải tiếng Việt' : !e.def ? 'thiếu định nghĩa' : OLDTONE.test(e.vi) ? 'kiểu bỏ dấu cũ' : !SHORT[e.pos] ? 'từ loại lạ' : '';
+  const ed = EDIT[x.word] || {}; const def = cleanDef(ed.def || e.def || ''), ex = ed.ex || (e.ex && !SENSITIVE.test(e.ex) ? e.ex : '');
+  const why = !e.ipa ? 'thiếu phiên âm' : !e.vi || e.vi.toLowerCase() === x.word.toLowerCase() ? 'thiếu nghĩa' : !VI.test(e.vi) && e.vi.split(' ').length < 2 ? 'nghĩa không phải tiếng Việt' : !def ? 'thiếu định nghĩa' : !ed.def && BADDEF.test(def) ? 'định nghĩa lệch nghĩa (mã ngôn ngữ/dạng khác…) – cần sửa tay' : OLDTONE.test(e.vi) ? 'kiểu bỏ dấu cũ' : !SHORT[e.pos] ? 'từ loại lạ' : '';
   if (why) { bad.push(x.word + ' – ' + why); return; }
   const ipa = ('/' + e.ipa.replace(/^[\/\[]|[\/\]]$/g, '') + '/').replace(/ɹ/g, 'r').replace(/ɫ/g, 'l').replace(/\.(?=\S)/g, '').replace(/ɛ/g, 'e').replace(/ɝ/g, 'ɜː').replace(/ɚ/g, 'ə');
   const viMain = FIX[x.word] || String(e.vi).split(/,\s*/)[0].trim(); // chỉ giữ nghĩa thông dụng chính – nghĩa phụ từ dữ liệu từ điển hay lệch/lặp
-  good.push([x.word, ipa.replace(/[\u032F\u02D1\u0329\u0306]/g, ''), SHORT[e.pos], viMain, e.def.replace(/\s+/g, ' ').trim(), hasWord(x.word, e.ex) ? e.ex : '', '', e.syn.join('|'), L.level(i), '']);
+  good.push([x.word, ipa.replace(/[\u032F\u02D1\u0329\u0306]/g, ''), SHORT[e.pos], viMain, def, hasWord(x.word, ex) ? ex : '', '', e.syn.join('|'), L.level(i), '']);
 });
 const q = s => "'" + String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'") + "'";
 let js = `/* ${L.head}. Phiên âm/định nghĩa/ví dụ: Free Dictionary API (Wiktionary, CC BY-SA), Tatoeba (CC BY 2.0 FR); nghĩa tiếng Việt: Lexkite.\n * FILE SINH TỰ ĐỘNG bởi scripts/gen-wordlist.mjs – đừng sửa tay. Row: [word, ipa, pos, vi, def, ex, col, syn, level, emoji] */\n(function (g) {\n  const add = g.IELTS_DATA.add;\n`;
