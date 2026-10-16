@@ -1,46 +1,59 @@
 {
  "_": "Sửa tay định nghĩa/ví dụ sau khi duyệt (gen-wordlist.mjs áp dụng khi xuất file). Nội dung tự biên soạn – Lexkite, CC BY-SA 4.0.",
  "psychiatric": {
-  "ex": "The study compared patients from three psychiatric hospitals."
+  "ex": "The study compared patients from three psychiatric hospitals.",
+  "def": "relating to the treatment of mental illness"
  },
  "particle": {
-  "ex": "Fine dust particles from traffic can damage the lungs."
+  "ex": "Fine dust particles from traffic can damage the lungs.",
+  "def": "a very small piece of something"
  },
  "portray": {
-  "ex": "The novel portrays life in a small fishing village in the 1950s."
+  "ex": "The novel portrays life in a small fishing village in the 1950s.",
+  "def": "to describe or show someone or something in a particular way"
  },
  "partition": {
-  "ex": "A glass partition divides the open office into two quiet areas."
+  "ex": "A glass partition divides the open office into two quiet areas.",
+  "def": "a thin wall that divides a room; also the division of something into parts"
  },
  "reactive": {
-  "ex": "Instead of being reactive, the team now plans for problems in advance."
+  "ex": "Instead of being reactive, the team now plans for problems in advance.",
+  "def": "reacting to events instead of planning ahead; also responding quickly"
  },
  "spectrum": {
-  "ex": "The survey covered a wide spectrum of opinions on public transport."
+  "ex": "The survey covered a wide spectrum of opinions on public transport.",
+  "def": "a complete range of different things; also the range of colours in light",
+  "vi": "phạm vi; quang phổ"
  },
  "sniff": {
-  "ex": "Trained dogs sniff passengers' luggage at the airport."
+  "ex": "Trained dogs sniff passengers' luggage at the airport.",
+  "def": "to breathe in through the nose to smell something"
  },
  "temporal": {
-  "ex": "The study examined temporal changes in rainfall over fifty years."
+  "ex": "The study examined temporal changes in rainfall over fifty years.",
+  "def": "relating to time"
  },
  "cue": {
-  "ex": "Good speakers watch the audience for cues that they are losing interest."
+  "ex": "Good speakers watch the audience for cues that they are losing interest.",
+  "def": "a signal for someone to do something"
  },
  "flip": {
   "pos": "v",
-  "ex": "Flip the pancake when it turns golden."
+  "ex": "Flip the pancake when it turns golden.",
+  "def": "to turn something over quickly"
  },
  "drift": {
   "pos": "v",
-  "ex": "The boat drifted slowly down the river."
+  "ex": "The boat drifted slowly down the river.",
+  "def": "to move slowly, carried by water or air"
  },
  "elaborate": {
   "def": "made or done with great care and with a lot of detail",
   "ex": "They made elaborate plans for the wedding."
  },
  "emit": {
-  "def": "to release or send out gas, light, heat or sound"
+  "def": "to send out gas, light, heat or sound",
+  "ex": "Older cars emit more harmful gases than newer models."
  },
  "censor": {
   "def": "a person whose job is to examine books, films, etc. and remove parts that are considered unacceptable",
@@ -49,1006 +62,2032 @@
  "fluid": {
   "pos": "n",
   "vi": "chất lỏng",
-  "ex": "Drink plenty of fluids when you have a fever."
+  "ex": "Drink plenty of fluids when you have a fever.",
+  "def": "a liquid"
  },
  "span": {
   "pos": "n",
-  "vi": "khoảng thời gian"
+  "vi": "khoảng thời gian",
+  "def": "the length of time that something lasts",
+  "ex": "The project has a span of three years."
  },
  "slash": {
   "def": "the symbol /, used to separate words or numbers",
   "ex": "Write the date with a slash between the day and month."
  },
  "entrant": {
-  "pos": "n"
+  "pos": "n",
+  "def": "a person who enters a competition, profession or market",
+  "ex": "Each entrant must submit an original photograph."
  },
  "substrate": {
   "pos": "n",
-  "ex": "The enzyme acts on a specific substrate."
+  "ex": "The enzyme acts on a specific substrate.",
+  "def": "a substance on which something acts or grows"
  },
  "uplift": {
-  "def": "an improvement or increase, especially one that makes people feel more hopeful"
+  "def": "an improvement or increase that makes people feel more hopeful",
+  "ex": "The new park gave the area a much-needed uplift."
  },
  "sensitivity": {
   "def": "the ability to notice and react to small changes, or to understand other people's feelings",
   "ex": "Teachers need sensitivity when talking to worried students."
  },
  "amongst": {
-  "ex": "The decision caused disagreement amongst the members of the committee."
+  "ex": "The decision caused disagreement amongst the members of the committee.",
+  "def": "among; in or between members of a group"
  },
  "backward": {
-  "ex": "The village was once seen as backward, but it now has fast internet."
+  "ex": "The village was once seen as backward, but it now has fast internet.",
+  "def": "less developed or modern than others"
  },
  "collective": {
-  "ex": "Climate change requires collective action from all countries."
+  "ex": "Climate change requires collective action from all countries.",
+  "def": "shared or done by all members of a group"
  },
  "computation": {
-  "ex": "Modern computers can perform billions of computations per second."
+  "ex": "Modern computers can perform billions of computations per second.",
+  "def": "the act or process of calculating something"
  },
  "freely": {
-  "ex": "Students can move freely between the two libraries."
+  "ex": "Students can move freely between the two libraries.",
+  "def": "without being controlled or limited"
  },
  "generalize": {
-  "ex": "It is dangerous to generalize from such a small sample."
+  "ex": "It is dangerous to generalize from such a small sample.",
+  "def": "to make a general statement based on only some examples"
  },
  "goodness": {
-  "ex": "She helped her neighbours out of the goodness of her heart."
+  "ex": "She helped her neighbours out of the goodness of her heart.",
+  "def": "the quality of being kind and good"
  },
  "historically": {
-  "ex": "Historically, the town depended on fishing."
+  "ex": "Historically, the town depended on fishing.",
+  "def": "in the past; when looking at history"
  },
  "importantly": {
   "ex": "More importantly, the new method saves time.",
-  "vi": "điều quan trọng là"
+  "vi": "điều quan trọng là",
+  "def": "used to show that something is important"
  },
  "nationalism": {
-  "ex": "The essay discusses the rise of nationalism in nineteenth-century Europe."
+  "ex": "The essay discusses the rise of nationalism in nineteenth-century Europe.",
+  "def": "strong love for and pride in your own country"
  },
  "nicely": {
   "ex": "The room is small but nicely decorated.",
-  "vi": "đẹp, khéo"
+  "vi": "đẹp, khéo",
+  "def": "in a pleasant, attractive or polite way"
  },
  "painful": {
-  "ex": "The injury was painful but not serious."
+  "ex": "The injury was painful but not serious.",
+  "def": "causing physical or emotional pain"
  },
  "pardon": {
   "ex": "Pardon me, could you repeat that?",
-  "vi": "tha thứ; xin lỗi"
+  "vi": "tha thứ; xin lỗi",
+  "def": "to forgive someone; also used to ask someone to repeat something"
  },
  "parental": {
   "ex": "Children under twelve need parental permission to join the club.",
-  "vi": "thuộc cha mẹ"
+  "vi": "thuộc cha mẹ",
+  "def": "relating to parents"
  },
  "photographic": {
   "ex": "She has an almost photographic memory for faces.",
-  "vi": "thuộc nhiếp ảnh"
+  "vi": "thuộc nhiếp ảnh",
+  "def": "relating to photographs or photography"
  },
  "problematic": {
-  "ex": "Relying on a single supplier can be problematic."
+  "ex": "Relying on a single supplier can be problematic.",
+  "def": "causing difficulties or problems"
  },
  "ruler": {
-  "ex": "Use a ruler to draw a straight line."
+  "ex": "Use a ruler to draw a straight line.",
+  "def": "a straight strip used for measuring and drawing lines"
  },
  "sexuality": {
   "ex": "The course covers health topics such as nutrition, growth and sexuality.",
-  "vi": "giới tính"
+  "vi": "giới tính",
+  "def": "a person's sexual feelings, identity and behaviour"
  },
  "terribly": {
-  "ex": "I'm terribly sorry for the delay."
+  "ex": "I'm terribly sorry for the delay.",
+  "def": "very; extremely"
  },
  "thickness": {
-  "ex": "The thickness of the ice was measured every week."
+  "ex": "The thickness of the ice was measured every week.",
+  "def": "how thick something is"
  },
  "underneath": {
   "ex": "The keys were underneath a pile of papers.",
   "vi": "bên dưới",
-  "pos": "prep"
+  "pos": "prep",
+  "def": "directly under something"
  },
  "adaptive": {
-  "ex": "Some animals show remarkable adaptive behaviour in cold climates."
+  "ex": "Some animals show remarkable adaptive behaviour in cold climates.",
+  "def": "able to change to suit new conditions"
  },
  "bang": {
   "ex": "Someone banged on the door late at night.",
-  "vi": "đập mạnh"
+  "vi": "đập mạnh",
+  "def": "to hit something hard and noisily"
  },
  "bat": {
   "ex": "Bats sleep during the day and hunt at night.",
-  "vi": "con dơi; gậy (bóng chày)"
+  "vi": "con dơi; gậy (bóng chày)",
+  "def": "a small flying animal active at night; also a stick used to hit a ball"
  },
  "blank": {
-  "ex": "Leave the last line blank."
+  "ex": "Leave the last line blank.",
+  "def": "empty, with nothing written or recorded on it"
  },
  "bleed": {
-  "ex": "The cut on his finger started to bleed."
+  "ex": "The cut on his finger started to bleed.",
+  "def": "to lose blood from the body"
  },
  "broadly": {
-  "ex": "Broadly speaking, the results were positive."
+  "ex": "Broadly speaking, the results were positive.",
+  "def": "in a general way, without details"
  },
  "bucket": {
-  "ex": "She filled a bucket with water to wash the car."
+  "ex": "She filled a bucket with water to wash the car.",
+  "def": "an open container with a handle, used for carrying water"
  },
  "characterization": {
-  "ex": "The novel is praised for its strong characterization."
+  "ex": "The novel is praised for its strong characterization.",
+  "def": "the way a writer creates and describes characters"
  },
  "cheat": {
-  "ex": "Students who cheat in the exam will fail the course."
+  "ex": "Students who cheat in the exam will fail the course.",
+  "def": "to act dishonestly to gain an advantage"
  },
  "cheers": {
   "ex": "Cheers! Thanks for the drink.",
   "vi": "cạn ly; cảm ơn",
-  "pos": "excl"
+  "pos": "excl",
+  "def": "said when people lift their glasses to drink together; also an informal thank you"
  },
  "clever": {
-  "ex": "That's a clever solution to the problem."
+  "ex": "That's a clever solution to the problem.",
+  "def": "quick to learn and understand; intelligent"
  },
  "comparable": {
-  "ex": "Prices here are comparable to those in the capital."
+  "ex": "Prices here are comparable to those in the capital.",
+  "def": "similar enough to be compared"
  },
  "conditional": {
-  "ex": "The job offer is conditional on a successful health check."
+  "ex": "The job offer is conditional on a successful health check.",
+  "def": "depending on something else happening first"
  },
  "conscious": {
   "ex": "She is very conscious of her health and eats well.",
-  "vi": "có ý thức"
+  "vi": "có ý thức",
+  "def": "aware of something; awake and able to think"
  },
  "consciousness": {
-  "ex": "He lost consciousness for a few seconds after the fall."
+  "ex": "He lost consciousness for a few seconds after the fall.",
+  "def": "the state of being awake and aware"
  },
  "cure": {
   "ex": "Scientists are still searching for a cure for the disease.",
-  "vi": "cách chữa, thuốc chữa"
+  "vi": "cách chữa, thuốc chữa",
+  "def": "a medicine or treatment that makes an illness go away"
  },
  "detection": {
-  "ex": "Early detection of the illness makes treatment easier."
+  "ex": "Early detection of the illness makes treatment easier.",
+  "def": "the act of noticing or discovering something"
  },
  "directive": {
   "ex": "The company issued a directive on working from home.",
   "vi": "chỉ thị",
-  "pos": "n"
+  "pos": "n",
+  "def": "an official instruction or order"
  },
  "disturbance": {
-  "ex": "The noise caused a disturbance to the neighbours."
+  "ex": "The noise caused a disturbance to the neighbours.",
+  "def": "something that interrupts or upsets a normal situation"
  },
  "enormously": {
-  "ex": "The festival has grown enormously in recent years."
+  "ex": "The festival has grown enormously in recent years.",
+  "def": "very much; to a very great degree"
  },
  "equality": {
-  "ex": "The organisation works for gender equality."
+  "ex": "The organisation works for gender equality.",
+  "def": "the situation in which everyone has the same rights and chances"
  },
  "ghost": {
-  "ex": "The old house is said to have a ghost."
+  "ex": "The old house is said to have a ghost.",
+  "def": "the spirit of a dead person that some people believe they can see"
  },
  "incredible": {
-  "ex": "The view from the summit was incredible."
+  "ex": "The view from the summit was incredible.",
+  "def": "extremely good or hard to believe"
  },
  "incredibly": {
-  "ex": "The exam was incredibly difficult."
+  "ex": "The exam was incredibly difficult.",
+  "def": "extremely; in a way that is hard to believe"
  },
  "industrialization": {
-  "ex": "Rapid industrialization changed the region in the 1990s."
+  "ex": "Rapid industrialization changed the region in the 1990s.",
+  "def": "the process of developing industries in a country or region"
  },
  "industrialize": {
-  "ex": "Many Asian countries began to industrialize after 1960."
+  "ex": "Many Asian countries began to industrialize after 1960.",
+  "def": "to develop many industries in a country or area"
  },
  "intensity": {
-  "ex": "The intensity of the storm surprised the forecasters."
+  "ex": "The intensity of the storm surprised the forecasters.",
+  "def": "the quality of being very strong or extreme"
  },
  "intensive": {
   "ex": "She took an intensive English course over the summer.",
-  "vi": "chuyên sâu"
+  "vi": "chuyên sâu",
+  "def": "involving a lot of effort or work in a short time"
  },
  "interviewer": {
-  "ex": "The interviewer asked about my previous experience."
+  "ex": "The interviewer asked about my previous experience.",
+  "def": "a person who asks the questions in an interview"
  },
  "mathematical": {
-  "ex": "The model is based on a simple mathematical formula."
+  "ex": "The model is based on a simple mathematical formula.",
+  "def": "relating to mathematics"
  },
  "minus": {
-  "ex": "Ten minus four equals six."
+  "ex": "Ten minus four equals six.",
+  "def": "used when one number is taken away from another"
  },
  "monkey": {
-  "ex": "A monkey took my sunglasses at the temple."
+  "ex": "A monkey took my sunglasses at the temple.",
+  "def": "an intelligent animal with a long tail that lives in trees"
  },
  "nasty": {
-  "ex": "I had a nasty cold last week."
+  "ex": "I had a nasty cold last week.",
+  "def": "very unpleasant or unkind"
  },
  "nest": {
-  "ex": "The birds built a nest under the roof."
+  "ex": "The birds built a nest under the roof.",
+  "def": "a place that a bird builds to lay its eggs in"
  },
  "observer": {
-  "ex": "Observers say the election was fair."
+  "ex": "Observers say the election was fair.",
+  "def": "a person who watches or notices something"
  },
  "periodic": {
-  "ex": "The machines need periodic checks."
+  "ex": "The machines need periodic checks.",
+  "def": "happening again and again at regular times"
  },
  "physically": {
-  "ex": "The job is physically demanding."
+  "ex": "The job is physically demanding.",
+  "def": "in a way that relates to the body"
  },
  "positively": {
-  "ex": "Most customers responded positively to the new design."
+  "ex": "Most customers responded positively to the new design.",
+  "def": "in a good or hopeful way; also definitely"
  },
  "progression": {
-  "ex": "The course follows a logical progression from easy to difficult."
+  "ex": "The course follows a logical progression from easy to difficult.",
+  "def": "the process of developing or moving forward gradually"
  },
  "progressive": {
-  "ex": "The school is known for its progressive teaching methods."
+  "ex": "The school is known for its progressive teaching methods.",
+  "def": "supporting new ideas and social change"
  },
  "pronounce": {
-  "ex": "How do you pronounce this word?"
+  "ex": "How do you pronounce this word?",
+  "def": "to make the sound of a word or letter"
  },
  "punch": {
   "ex": "He punched the air in celebration.",
-  "vi": "đấm"
+  "vi": "đấm",
+  "def": "to hit someone or something hard with a closed hand"
  },
  "punish": {
-  "ex": "Parents should not punish children too harshly."
+  "ex": "Parents should not punish children too harshly.",
+  "def": "to make someone suffer because they have done something wrong"
  },
  "punishment": {
-  "ex": "Many schools have stopped using physical punishment."
+  "ex": "Many schools have stopped using physical punishment.",
+  "def": "a way of making someone suffer for doing something wrong"
  },
  "purely": {
-  "ex": "The decision was based purely on cost."
+  "ex": "The decision was based purely on cost.",
+  "def": "only; completely"
  },
  "resistant": {
-  "ex": "This jacket is resistant to water."
+  "ex": "This jacket is resistant to water.",
+  "def": "not damaged or affected by something"
  },
  "ridiculous": {
-  "ex": "It's ridiculous to pay that much for a coffee."
+  "ex": "It's ridiculous to pay that much for a coffee.",
+  "def": "very silly or unreasonable"
  },
  "rope": {
-  "ex": "They tied the boat to the dock with a rope."
+  "ex": "They tied the boat to the dock with a rope.",
+  "def": "a thick, strong cord made of twisted threads"
  },
  "rub": {
-  "ex": "Rub some cream into your skin."
+  "ex": "Rub some cream into your skin.",
+  "def": "to move your hand or an object backwards and forwards over a surface"
  },
  "selective": {
-  "ex": "The university is very selective about who it accepts."
+  "ex": "The university is very selective about who it accepts.",
+  "def": "careful about what you choose"
  },
  "separation": {
-  "ex": "The separation from her family was hard at first."
+  "ex": "The separation from her family was hard at first.",
+  "def": "the act of separating or the state of being apart"
  },
  "slavery": {
-  "ex": "The museum explains the history of slavery in America."
+  "ex": "The museum explains the history of slavery in America.",
+  "def": "the system of owning people and forcing them to work"
  },
  "snake": {
-  "ex": "Be careful; there are snakes in the long grass."
+  "ex": "Be careful; there are snakes in the long grass.",
+  "def": "a long animal with no legs that moves along the ground"
  },
  "socially": {
-  "ex": "Older people who stay socially active tend to be healthier."
+  "ex": "Older people who stay socially active tend to be healthier.",
+  "def": "in a way that relates to society or meeting other people"
  },
  "stabilize": {
-  "ex": "The government took steps to stabilize prices."
+  "ex": "The government took steps to stabilize prices.",
+  "def": "to become or make something steady and unlikely to change"
  },
  "standardize": {
-  "ex": "The company standardized its training across all branches."
+  "ex": "The company standardized its training across all branches.",
+  "def": "to make things the same according to a fixed standard"
  },
  "sword": {
-  "ex": "The museum displays an ancient sword."
+  "ex": "The museum displays an ancient sword.",
+  "def": "a weapon with a long metal blade"
  },
  "tense": {
-  "ex": "The atmosphere in the room was tense before the results."
+  "ex": "The atmosphere in the room was tense before the results.",
+  "def": "nervous and worried; unable to relax"
  },
  "tricky": {
   "ex": "This grammar point is quite tricky.",
-  "vi": "khó, rắc rối"
+  "vi": "khó, rắc rối",
+  "def": "difficult and needing care or skill"
  },
  "unstable": {
-  "ex": "The ladder looks unstable, so be careful."
+  "ex": "The ladder looks unstable, so be careful.",
+  "def": "likely to change, move or fall suddenly"
  },
  "variability": {
-  "ex": "There is great variability in rainfall from year to year."
+  "ex": "There is great variability in rainfall from year to year.",
+  "def": "the degree to which something changes or varies"
  },
  "wisdom": {
   "ex": "My grandfather is a man of great wisdom.",
-  "vi": "sự khôn ngoan"
+  "vi": "sự khôn ngoan",
+  "def": "the ability to make good decisions based on knowledge and experience"
  },
  "accelerate": {
-  "ex": "The car accelerated quickly onto the motorway."
+  "ex": "The car accelerated quickly onto the motorway.",
+  "def": "to happen or make something happen faster"
  },
  "acceleration": {
-  "ex": "The new model has better acceleration."
+  "ex": "The new model has better acceleration.",
+  "def": "an increase in speed or rate"
  },
  "accumulation": {
-  "ex": "The accumulation of plastic in the ocean is a serious problem."
+  "ex": "The accumulation of plastic in the ocean is a serious problem.",
+  "def": "the gradual increase in the amount of something"
  },
  "acid": {
   "ex": "Lemon juice contains citric acid.",
   "vi": "axit",
-  "pos": "n"
+  "pos": "n",
+  "def": "a chemical substance that can burn or damage things"
  },
  "acidic": {
-  "ex": "Coffee is slightly acidic."
+  "ex": "Coffee is slightly acidic.",
+  "def": "containing acid or having a sour, sharp taste"
  },
  "adolescent": {
-  "ex": "The book is written for adolescent readers."
+  "ex": "The book is written for adolescent readers.",
+  "def": "a young person who is developing from a child into an adult"
  },
  "affirm": {
-  "ex": "The report affirms the importance of early education."
+  "ex": "The report affirms the importance of early education.",
+  "def": "to state firmly that something is true"
  },
  "alien": {
   "ex": "At first, life in the big city felt alien to him.",
-  "vi": "xa lạ"
+  "vi": "xa lạ",
+  "def": "strange and unfamiliar"
  },
  "alliance": {
-  "ex": "Several small shops formed an alliance to compete with the supermarket."
+  "ex": "Several small shops formed an alliance to compete with the supermarket.",
+  "def": "an agreement between groups or countries to work together"
  },
  "allocation": {
-  "ex": "The allocation of funds to schools is decided every year."
+  "ex": "The allocation of funds to schools is decided every year.",
+  "def": "the act of sharing out money, time or resources for a purpose"
  },
  "approximation": {
-  "ex": "The number is only an approximation."
+  "ex": "The number is only an approximation.",
+  "def": "a value or description that is close to the true one but not exact"
  },
  "archaeology": {
-  "ex": "She studied archaeology at university."
+  "ex": "She studied archaeology at university.",
+  "def": "the study of the past by examining ancient objects and buildings"
  },
  "atomic": {
-  "ex": "An atomic clock is extremely accurate."
+  "ex": "An atomic clock is extremely accurate.",
+  "def": "relating to atoms or to energy produced from atoms"
  },
  "behavioral": {
-  "ex": "The study looked at behavioral changes in teenagers."
+  "ex": "The study looked at behavioral changes in teenagers.",
+  "def": "relating to the way people or animals behave"
  },
  "cattle": {
-  "ex": "The farmers raise cattle on the hills."
+  "ex": "The farmers raise cattle on the hills.",
+  "def": "cows and bulls kept on a farm"
  },
  "civilization": {
-  "ex": "The ancient Egyptians built a great civilization along the Nile."
+  "ex": "The ancient Egyptians built a great civilization along the Nile.",
+  "def": "an advanced human society with its own culture and organisation"
  },
  "communicative": {
-  "ex": "The teacher uses a communicative approach in class."
+  "ex": "The teacher uses a communicative approach in class.",
+  "def": "relating to communication; willing to talk and share information"
  },
  "communist": {
-  "ex": "The country had a communist government for many years."
+  "ex": "The country had a communist government for many years.",
+  "def": "a person who supports communism"
  },
  "competent": {
   "ex": "She is a competent and reliable manager.",
-  "vi": "có năng lực"
+  "vi": "có năng lực",
+  "def": "having enough skill or knowledge to do something well"
  },
  "conception": {
-  "ex": "His conception of success is very different from mine."
+  "ex": "His conception of success is very different from mine.",
+  "def": "an idea or understanding of what something is like"
  },
  "conduction": {
-  "ex": "Metals allow the conduction of heat."
+  "ex": "Metals allow the conduction of heat.",
+  "def": "the movement of heat or electricity through a material"
  },
  "conserve": {
-  "ex": "Turn off the lights to conserve energy."
+  "ex": "Turn off the lights to conserve energy.",
+  "def": "to protect something and use it carefully so that it lasts"
  },
  "continent": {
-  "ex": "Africa is the second largest continent."
+  "ex": "Africa is the second largest continent.",
+  "def": "one of the large land masses of the world, such as Asia or Africa"
  },
  "coordination": {
-  "ex": "The project needs good coordination between departments."
+  "ex": "The project needs good coordination between departments.",
+  "def": "the organisation of different people or parts so they work well together"
  },
  "correlate": {
-  "ex": "Sleep quality correlates with exam performance."
+  "ex": "Sleep quality correlates with exam performance.",
+  "def": "to have a close connection, so that one changes when the other changes"
  },
  "crystal": {
-  "ex": "Snowflakes are made of ice crystals."
+  "ex": "Snowflakes are made of ice crystals.",
+  "def": "a clear, hard mineral or high-quality glass"
  },
  "cyclic": {
-  "ex": "Tourism in the town is cyclic and depends on the season."
+  "ex": "Tourism in the town is cyclic and depends on the season.",
+  "def": "happening again and again in a regular pattern"
  },
  "damp": {
-  "ex": "The walls of the old house are damp."
+  "ex": "The walls of the old house are damp.",
+  "def": "slightly wet, often in an unpleasant way"
  },
  "deliberately": {
-  "ex": "He deliberately ignored my message."
+  "ex": "He deliberately ignored my message.",
+  "def": "on purpose; not by accident"
  },
  "demonstrator": {
-  "ex": "Thousands of demonstrators marched peacefully through the city."
+  "ex": "Thousands of demonstrators marched peacefully through the city.",
+  "def": "a person who takes part in a public protest"
  },
  "dense": {
-  "ex": "The city has a dense population."
+  "ex": "The city has a dense population.",
+  "def": "having many things or people close together"
  },
  "dictate": {
-  "ex": "Your budget will dictate where you can stay."
+  "ex": "Your budget will dictate where you can stay.",
+  "def": "to tell someone exactly what they must do; to control something"
  },
  "disability": {
-  "ex": "The new law protects workers with a disability."
+  "ex": "The new law protects workers with a disability.",
+  "def": "a physical or mental condition that limits what a person can do"
  },
  "dominant": {
-  "ex": "English is the dominant language of the internet."
+  "ex": "English is the dominant language of the internet.",
+  "def": "more powerful, important or noticeable than others"
  },
  "domination": {
-  "ex": "The company's domination of the market is ending."
+  "ex": "The company's domination of the market is ending.",
+  "def": "power or control over others"
  },
  "drain": {
   "ex": "The kitchen drain is blocked.",
-  "vi": "cống thoát nước"
+  "vi": "cống thoát nước",
+  "def": "a pipe or channel that carries away dirty water"
  },
  "elevation": {
-  "ex": "The village is at an elevation of 1,500 metres."
+  "ex": "The village is at an elevation of 1,500 metres.",
+  "def": "the height of a place above sea level"
  },
  "elimination": {
-  "ex": "The elimination of waste is a key goal."
+  "ex": "The elimination of waste is a key goal.",
+  "def": "the complete removal of something"
  },
  "essentially": {
   "ex": "The two phones are essentially the same.",
-  "vi": "về cơ bản"
+  "vi": "về cơ bản",
+  "def": "basically; when you consider the most important facts"
  },
  "estimation": {
-  "ex": "By my estimation, the work will take three days."
+  "ex": "By my estimation, the work will take three days.",
+  "def": "a judgement or calculation of approximate size, value or quality"
  },
  "execute": {
-  "ex": "The plan was executed perfectly."
+  "ex": "The plan was executed perfectly.",
+  "def": "to carry out a plan or order; also to kill someone as a legal punishment"
  },
  "execution": {
-  "ex": "The execution of the project took longer than expected."
+  "ex": "The execution of the project took longer than expected.",
+  "def": "the carrying out of a plan; also a legal killing as punishment"
  },
  "fertility": {
-  "ex": "The fertility of the soil makes the area ideal for farming."
+  "ex": "The fertility of the soil makes the area ideal for farming.",
+  "def": "the ability to produce babies, young animals or crops"
  },
  "flesh": {
-  "ex": "The flesh of the mango is sweet and soft."
+  "ex": "The flesh of the mango is sweet and soft.",
+  "def": "the soft part of the body, or of a fruit, under the skin"
  },
  "fundamentally": {
-  "ex": "The two approaches are fundamentally different."
+  "ex": "The two approaches are fundamentally different.",
+  "def": "in a basic and very important way"
  },
  "genetically": {
-  "ex": "Some crops are genetically modified to resist insects."
+  "ex": "Some crops are genetically modified to resist insects.",
+  "def": "in a way that relates to genes"
  },
  "genetics": {
-  "ex": "Genetics explains why children look like their parents."
+  "ex": "Genetics explains why children look like their parents.",
+  "def": "the study of how features are passed from parents to children through genes"
  },
  "globalization": {
-  "ex": "Globalization has changed the way companies do business."
+  "ex": "Globalization has changed the way companies do business.",
+  "def": "the process by which economies and cultures around the world become connected"
  },
  "grasp": {
-  "ex": "It took me a while to grasp the main idea."
+  "ex": "It took me a while to grasp the main idea.",
+  "def": "to understand something; also to hold something firmly"
  },
  "gross": {
   "ex": "The company's gross income rose by ten percent.",
-  "vi": "tổng (gộp)"
+  "vi": "tổng (gộp)",
+  "def": "total, before tax or costs are taken away"
  },
  "hip": {
-  "ex": "She hurt her hip when she fell."
+  "ex": "She hurt her hip when she fell.",
+  "def": "the part on each side of the body where the legs join it"
  },
  "immune": {
-  "ex": "Exercise helps to keep your immune system strong."
+  "ex": "Exercise helps to keep your immune system strong.",
+  "def": "protected against a disease or not affected by something"
  },
  "independently": {
-  "ex": "Students should learn to work independently."
+  "ex": "Students should learn to work independently.",
+  "def": "without help or control from others"
  },
  "inevitably": {
-  "ex": "Prices will inevitably rise when fuel costs go up."
+  "ex": "Prices will inevitably rise when fuel costs go up.",
+  "def": "in a way that cannot be avoided"
  },
  "infect": {
-  "ex": "The virus can infect both people and animals."
+  "ex": "The virus can infect both people and animals.",
+  "def": "to give a disease to a person, animal or plant"
  },
  "initiation": {
-  "ex": "The initiation of the new programme was delayed."
+  "ex": "The initiation of the new programme was delayed.",
+  "def": "the start of something; also the act of welcoming someone into a group"
  },
  "inject": {
-  "ex": "The nurse injected the vaccine into my arm."
+  "ex": "The nurse injected the vaccine into my arm.",
+  "def": "to put a drug into the body with a needle"
  },
  "invasion": {
-  "ex": "The castle was built to protect the town from invasion."
+  "ex": "The castle was built to protect the town from invasion.",
+  "def": "an attack in which an army enters another country"
  },
  "legend": {
-  "ex": "According to legend, a dragon lived in the lake."
+  "ex": "According to legend, a dragon lived in the lake.",
+  "def": "a very old story that may not be true"
  },
  "legitimate": {
-  "ex": "Illness is a legitimate reason for missing work."
+  "ex": "Illness is a legitimate reason for missing work.",
+  "def": "allowed by law; reasonable and acceptable"
  },
  "magnetic": {
-  "ex": "The Earth has a magnetic field."
+  "ex": "The Earth has a magnetic field.",
+  "def": "having the power to attract iron; relating to magnets"
  },
  "manipulation": {
-  "ex": "The study warns about the manipulation of data."
+  "ex": "The study warns about the manipulation of data.",
+  "def": "the act of controlling something skilfully; also unfair control of people"
  },
  "missile": {
-  "ex": "The museum has an old missile from the 1960s."
+  "ex": "The museum has an old missile from the 1960s.",
+  "def": "a weapon that flies through the air and explodes"
  },
  "mobility": {
-  "ex": "Social mobility is easier with good education."
+  "ex": "Social mobility is easier with good education.",
+  "def": "the ability to move or change easily"
  },
  "morality": {
-  "ex": "The novel raises questions about morality."
+  "ex": "The novel raises questions about morality.",
+  "def": "beliefs about what is right and wrong behaviour"
  },
  "mortality": {
-  "ex": "Infant mortality has fallen sharply in the last fifty years."
+  "ex": "Infant mortality has fallen sharply in the last fifty years.",
+  "def": "the number of deaths in a group or period"
  },
  "naked": {
   "ex": "You can't see these tiny animals with the naked eye.",
-  "vi": "trần trụi, không che"
+  "vi": "trần trụi, không che",
+  "def": "not covered by clothes or any protection"
  },
  "objection": {
-  "ex": "Does anyone have any objection to the plan?"
+  "ex": "Does anyone have any objection to the plan?",
+  "def": "a statement showing that you disagree with something"
  },
  "oral": {
   "ex": "The course ends with an oral exam.",
-  "vi": "bằng lời nói"
+  "vi": "bằng lời nói",
+  "def": "spoken rather than written; relating to the mouth"
  },
  "organ": {
-  "ex": "The heart is a vital organ."
+  "ex": "The heart is a vital organ.",
+  "def": "a part of the body with a particular job, such as the heart"
  },
  "philosopher": {
-  "ex": "Socrates was a famous Greek philosopher."
+  "ex": "Socrates was a famous Greek philosopher.",
+  "def": "a person who studies questions about life, knowledge and truth"
  },
  "philosophical": {
-  "ex": "They had a philosophical discussion about happiness."
+  "ex": "They had a philosophical discussion about happiness.",
+  "def": "relating to philosophy; calm when facing problems"
  },
  "powder": {
-  "ex": "Mix the powder with warm water."
+  "ex": "Mix the powder with warm water.",
+  "def": "a substance made of very small dry pieces"
  },
  "profound": {
   "ex": "The book had a profound effect on me.",
-  "vi": "sâu sắc"
+  "vi": "sâu sắc",
+  "def": "very great or deep; showing deep understanding"
  },
  "psychologist": {
-  "ex": "The school psychologist helps students with stress."
+  "ex": "The school psychologist helps students with stress.",
+  "def": "a person who studies the mind and behaviour"
  },
  "randomly": {
-  "ex": "Participants were randomly divided into two groups."
+  "ex": "Participants were randomly divided into two groups.",
+  "def": "without any order, plan or pattern"
  },
  "rationality": {
-  "ex": "Economists often assume the rationality of consumers."
+  "ex": "Economists often assume the rationality of consumers.",
+  "def": "the quality of being based on reason and clear thinking"
  },
  "rejection": {
-  "ex": "He felt hurt by the rejection of his application."
+  "ex": "He felt hurt by the rejection of his application.",
+  "def": "the act of refusing to accept something or someone"
  },
  "reproduction": {
-  "ex": "The course covers plant reproduction."
+  "ex": "The course covers plant reproduction.",
+  "def": "the process of producing young; also a copy of something"
  },
  "republic": {
-  "ex": "France is a republic."
+  "ex": "France is a republic.",
+  "def": "a country ruled by an elected government with no king or queen"
  },
  "revolutionary": {
-  "ex": "The smartphone was a revolutionary invention."
+  "ex": "The smartphone was a revolutionary invention.",
+  "def": "completely new and causing great change"
  },
  "rhythm": {
-  "ex": "Dance to the rhythm of the music."
+  "ex": "Dance to the rhythm of the music.",
+  "def": "a regular repeated pattern of sounds or movements"
  },
  "infectious": {
-  "ex": "Her laughter is so infectious that everyone starts smiling."
+  "ex": "Her laughter is so infectious that everyone starts smiling.",
+  "def": "able to spread from one person to another"
  },
  "scatter": {
   "ex": "The wind scattered the papers across the floor.",
-  "vi": "rải, làm phân tán"
+  "vi": "rải, làm phân tán",
+  "def": "to throw or spread things over a wide area"
  },
  "sensible": {
-  "ex": "It would be sensible to book the hotel early."
+  "ex": "It would be sensible to book the hotel early.",
+  "def": "showing good judgement; practical"
  },
  "sin": {
-  "ex": "In many religions, lying is considered a sin."
+  "ex": "In many religions, lying is considered a sin.",
+  "def": "an action that breaks a religious or moral law"
  },
  "sophisticate": {
   "ex": "Travelling abroad helped to sophisticate her taste in food.",
-  "vi": "làm cho tinh tế"
+  "vi": "làm cho tinh vi",
+  "def": "to make something more complex or refined"
  },
  "statistical": {
-  "ex": "The researchers used statistical methods to analyse the data."
+  "ex": "The researchers used statistical methods to analyse the data.",
+  "def": "relating to statistics"
  },
  "statistically": {
-  "ex": "The difference between the two groups was not statistically significant."
+  "ex": "The difference between the two groups was not statistically significant.",
+  "def": "in a way that relates to statistics"
  },
  "substitution": {
-  "ex": "The substitution of sugar with honey changed the taste."
+  "ex": "The substitution of sugar with honey changed the taste.",
+  "def": "the act of using one thing in place of another"
  },
  "subtle": {
-  "ex": "There is a subtle difference between the two colours."
+  "ex": "There is a subtle difference between the two colours.",
+  "def": "small and not obvious, but important"
  },
  "sufficiently": {
-  "ex": "The room was not sufficiently warm."
+  "ex": "The room was not sufficiently warm.",
+  "def": "enough for a particular purpose"
  },
  "suicide": {
-  "ex": "The charity runs a helpline to prevent suicide."
+  "ex": "The charity runs a helpline to prevent suicide.",
+  "def": "the act of killing yourself"
  },
  "swell": {
-  "ex": "Her ankle began to swell after the fall."
+  "ex": "Her ankle began to swell after the fall.",
+  "def": "to become larger or rounder than normal"
  },
  "technically": {
-  "ex": "Technically, the shop is closed, but the owner let us in."
+  "ex": "Technically, the shop is closed, but the owner let us in.",
+  "def": "according to the exact facts or rules; relating to technical skills"
  },
  "transformation": {
-  "ex": "The city has undergone a complete transformation."
+  "ex": "The city has undergone a complete transformation.",
+  "def": "a complete change in appearance or character"
  },
  "treaty": {
-  "ex": "The two countries signed a peace treaty."
+  "ex": "The two countries signed a peace treaty.",
+  "def": "a formal written agreement between countries"
  },
  "unity": {
-  "ex": "The festival is a symbol of national unity."
+  "ex": "The festival is a symbol of national unity.",
+  "def": "the state of being joined together or in agreement"
  },
  "vague": {
-  "ex": "His answer was too vague to be useful."
+  "ex": "His answer was too vague to be useful.",
+  "def": "not clear or detailed"
  },
  "virtue": {
-  "ex": "Patience is a virtue."
+  "ex": "Patience is a virtue.",
+  "def": "a good quality or moral behaviour"
  },
  "weave": {
-  "ex": "The women weave colourful cloth by hand."
+  "ex": "The women weave colourful cloth by hand.",
+  "def": "to make cloth by crossing threads over and under each other"
  },
  "adverse": {
-  "ex": "The drug may have adverse effects on some patients."
+  "ex": "The drug may have adverse effects on some patients.",
+  "def": "harmful or negative"
  },
  "anthropology": {
-  "ex": "She studied anthropology and lived with a village community for a year."
+  "ex": "She studied anthropology and lived with a village community for a year.",
+  "def": "the study of human societies and cultures"
  },
  "arrow": {
-  "ex": "Follow the arrows to the exit."
+  "ex": "Follow the arrows to the exit.",
+  "def": "a thin stick shot from a bow; also a sign showing direction"
  },
  "barrel": {
-  "ex": "The wine is stored in wooden barrels."
+  "ex": "The wine is stored in wooden barrels.",
+  "def": "a large round container with flat ends, used for liquids"
  },
  "basin": {
-  "ex": "The Mekong basin is home to millions of people."
+  "ex": "The Mekong basin is home to millions of people.",
+  "def": "the area of land from which water flows into a river; also a bowl"
  },
  "biologist": {
-  "ex": "A marine biologist studies life in the ocean."
+  "ex": "A marine biologist studies life in the ocean.",
+  "def": "a scientist who studies living things"
  },
  "bizarre": {
-  "ex": "He told us a bizarre story about his trip."
+  "ex": "He told us a bizarre story about his trip.",
+  "def": "very strange and unusual"
  },
  "bubble": {
-  "ex": "The children were blowing bubbles in the garden."
+  "ex": "The children were blowing bubbles in the garden.",
+  "def": "a ball of air or gas inside a liquid"
  },
  "bullet": {
-  "ex": "The police officer wore a bullet-proof vest."
+  "ex": "The police officer wore a bullet-proof vest.",
+  "def": "a small piece of metal fired from a gun"
  },
  "capitalism": {
-  "ex": "The book compares capitalism and other economic systems."
+  "ex": "The book compares capitalism and other economic systems.",
+  "def": "an economic system in which businesses are owned privately and run for profit"
  },
  "capitalist": {
-  "ex": "A capitalist invests money to make a profit."
+  "ex": "A capitalist invests money to make a profit.",
+  "def": "a person who supports capitalism or invests money to make a profit"
  },
  "clone": {
   "ex": "Scientists successfully cloned a sheep in 1996.",
   "vi": "nhân bản vô tính",
-  "pos": "v"
+  "pos": "v",
+  "def": "to make an exact genetic copy of a plant or animal"
  },
  "comparative": {
-  "ex": "The study is a comparative analysis of two schools."
+  "ex": "The study is a comparative analysis of two schools.",
+  "def": "involving comparison between two or more things"
  },
  "competence": {
-  "ex": "The job requires competence in at least two languages."
+  "ex": "The job requires competence in at least two languages.",
+  "def": "the ability to do something well"
  },
  "credibility": {
-  "ex": "The scandal damaged the newspaper's credibility."
+  "ex": "The scandal damaged the newspaper's credibility.",
+  "def": "the quality of being believed or trusted"
  },
  "decay": {
-  "ex": "Sugar causes tooth decay."
+  "ex": "Sugar causes tooth decay.",
+  "def": "to rot or be slowly destroyed by natural processes"
  },
  "diary": {
-  "ex": "She writes in her diary every night."
+  "ex": "She writes in her diary every night.",
+  "def": "a book in which you write about events each day"
  },
  "dictionary": {
-  "ex": "Look up the word in the dictionary."
+  "ex": "Look up the word in the dictionary.",
+  "def": "a book or website that lists words and explains their meanings"
  },
  "dilemma": {
-  "ex": "I faced a dilemma: take the job or continue my studies."
+  "ex": "I faced a dilemma: take the job or continue my studies.",
+  "def": "a situation in which you must make a difficult choice"
  },
  "disadvantage": {
-  "ex": "One disadvantage of the flat is the noise."
+  "ex": "One disadvantage of the flat is the noise.",
+  "def": "something that makes a situation worse or less successful"
  },
  "displacement": {
-  "ex": "The flood caused the displacement of thousands of families."
+  "ex": "The flood caused the displacement of thousands of families.",
+  "def": "the act of forcing people to leave their homes; also the movement of something from its usual place"
  },
  "dissolve": {
-  "ex": "Sugar dissolves quickly in hot water."
+  "ex": "Sugar dissolves quickly in hot water.",
+  "def": "to mix with a liquid and become part of it"
  },
  "electron": {
-  "ex": "An electron has a negative charge."
+  "ex": "An electron has a negative charge.",
+  "def": "a very small particle with a negative electric charge"
  },
  "emperor": {
-  "ex": "The emperor lived in the palace in Hue."
+  "ex": "The emperor lived in the palace in Hue.",
+  "def": "the male ruler of an empire"
  },
  "fossil": {
-  "ex": "The museum has dinosaur fossils."
+  "ex": "The museum has dinosaur fossils.",
+  "def": "the remains of an ancient plant or animal preserved in rock"
  },
  "goat": {
-  "ex": "The farmer keeps goats for their milk."
+  "ex": "The farmer keeps goats for their milk.",
+  "def": "an animal with horns that is kept for its milk and meat"
  },
  "gut": {
-  "ex": "Trust your gut feeling."
+  "ex": "Trust your gut feeling.",
+  "def": "the tube in the body that carries food from the stomach"
  },
  "horizon": {
-  "ex": "The sun sank below the horizon."
+  "ex": "The sun sank below the horizon.",
+  "def": "the line where the earth or sea seems to meet the sky"
  },
  "illusion": {
-  "ex": "The mirror creates the illusion of more space."
+  "ex": "The mirror creates the illusion of more space.",
+  "def": "a false idea or something that is not what it seems"
  },
  "impulse": {
   "ex": "I bought the shoes on impulse.",
-  "vi": "sự bốc đồng; xung lực"
+  "vi": "sự bốc đồng; xung lực",
+  "def": "a sudden strong wish to do something; also a short signal of energy"
  },
  "indifference": {
-  "ex": "His indifference to the problem surprised us."
+  "ex": "His indifference to the problem surprised us.",
+  "def": "a lack of interest or concern"
  },
  "infinite": {
-  "ex": "The universe may be infinite."
+  "ex": "The universe may be infinite.",
+  "def": "without limits or end"
  },
  "insect": {
-  "ex": "Bees are useful insects."
+  "ex": "Bees are useful insects.",
+  "def": "a small animal with six legs, such as an ant or a bee"
  },
  "invade": {
-  "ex": "Weeds can quickly invade a garden."
+  "ex": "Weeds can quickly invade a garden.",
+  "def": "to enter a country with an army in order to take control"
  },
  "leaf": {
-  "ex": "A leaf fell from the tree."
+  "ex": "A leaf fell from the tree.",
+  "def": "one of the flat green parts that grow on a plant"
  },
  "linguistics": {
-  "ex": "She is studying linguistics at university."
+  "ex": "She is studying linguistics at university.",
+  "def": "the scientific study of language"
  },
  "liver": {
-  "ex": "Too much alcohol can damage the liver."
+  "ex": "Too much alcohol can damage the liver.",
+  "def": "a large organ in the body that cleans the blood"
  },
  "lung": {
-  "ex": "Smoking damages the lungs."
+  "ex": "Smoking damages the lungs.",
+  "def": "one of the two organs in the chest used for breathing"
  },
  "marble": {
-  "ex": "The floor of the hotel is made of marble."
+  "ex": "The floor of the hotel is made of marble.",
+  "def": "a hard, smooth stone used for buildings and statues"
  },
  "metaphor": {
-  "ex": "\"Time is money\" is a common metaphor."
+  "ex": "\"Time is money\" is a common metaphor.",
+  "def": "a way of describing something by comparing it to something else"
  },
  "monopoly": {
-  "ex": "The company has a monopoly on electricity supply."
+  "ex": "The company has a monopoly on electricity supply.",
+  "def": "complete control of a market by one company"
  },
  "multiply": {
-  "ex": "Multiply three by four."
+  "ex": "Multiply three by four.",
+  "def": "to increase greatly in number; in maths, to add a number to itself several times"
  },
  "noble": {
-  "ex": "Helping others is a noble goal."
+  "ex": "Helping others is a noble goal.",
+  "def": "having fine personal qualities; also belonging to a high social class"
  },
  "plural": {
-  "ex": "\"Children\" is the plural form of \"child\"."
+  "ex": "\"Children\" is the plural form of \"child\".",
+  "def": "the form of a word used for more than one"
  },
  "polar": {
-  "ex": "Polar bears live in the Arctic."
+  "ex": "Polar bears live in the Arctic.",
+  "def": "relating to the North or South Pole"
  },
  "portrayal": {
   "ex": "The film's portrayal of village life is very realistic.",
-  "vi": "sự miêu tả"
+  "vi": "sự miêu tả",
+  "def": "the way someone or something is shown or described"
  },
  "prejudice": {
-  "ex": "We should fight against prejudice in society."
+  "ex": "We should fight against prejudice in society.",
+  "def": "an unfair opinion about someone formed without knowing them"
  },
  "proposition": {
   "ex": "Buying a house in the city is an expensive proposition.",
-  "vi": "đề xuất; vấn đề"
+  "vi": "đề xuất; vấn đề",
+  "def": "a suggestion or plan; also a statement that can be tested"
  },
  "residual": {
-  "ex": "Wash the vegetables to remove any residual chemicals."
+  "ex": "Wash the vegetables to remove any residual chemicals.",
+  "def": "remaining after the main part has gone"
  },
  "rhetoric": {
   "ex": "The politician's rhetoric impressed the crowd.",
-  "vi": "lời lẽ hùng biện"
+  "vi": "lời lẽ hùng biện",
+  "def": "language used to persuade people, sometimes without real meaning"
  },
  "rotation": {
-  "ex": "The rotation of the Earth causes day and night."
+  "ex": "The rotation of the Earth causes day and night.",
+  "def": "the act of turning around a centre; also taking turns"
  },
  "sensation": {
-  "ex": "I felt a burning sensation in my throat."
+  "ex": "I felt a burning sensation in my throat.",
+  "def": "a physical feeling; also great excitement or interest"
  },
  "shallow": {
-  "ex": "The water is shallow enough for children."
+  "ex": "The water is shallow enough for children.",
+  "def": "not deep"
  },
  "skip": {
   "ex": "I skipped breakfast this morning.",
-  "vi": "bỏ qua; nhảy"
+  "vi": "bỏ qua; nhảy",
+  "def": "to not do or not have something; also to move by jumping lightly"
  },
  "spontaneous": {
-  "ex": "The audience burst into spontaneous applause."
+  "ex": "The audience burst into spontaneous applause.",
+  "def": "happening naturally without planning"
  },
  "stereotype": {
-  "ex": "The film challenges old stereotypes about women."
+  "ex": "The film challenges old stereotypes about women.",
+  "def": "a fixed and simple idea about a type of person or thing that is often wrong"
  },
  "strand": {
-  "ex": "She pushed a strand of hair from her face."
+  "ex": "She pushed a strand of hair from her face.",
+  "def": "a single thin thread, hair or wire"
  },
  "subjective": {
-  "ex": "Taste in music is very subjective."
+  "ex": "Taste in music is very subjective.",
+  "def": "based on personal feelings rather than facts"
  },
  "thumb": {
-  "ex": "He gave me a thumbs-up and smiled."
+  "ex": "He gave me a thumbs-up and smiled.",
+  "def": "the short thick finger on the side of the hand"
  },
  "toxic": {
-  "ex": "Some plants are toxic to cats."
+  "ex": "Some plants are toxic to cats.",
+  "def": "poisonous and harmful"
  },
  "transcription": {
-  "ex": "Read the transcription of the interview."
+  "ex": "Read the transcription of the interview.",
+  "def": "a written copy of spoken words"
  },
  "transplant": {
-  "ex": "He had a kidney transplant last year."
+  "ex": "He had a kidney transplant last year.",
+  "def": "an operation to move an organ from one person to another"
  },
  "triangle": {
-  "ex": "A triangle has three sides."
+  "ex": "A triangle has three sides.",
+  "def": "a shape with three straight sides"
  },
  "tutor": {
-  "ex": "She works as an English tutor."
+  "ex": "She works as an English tutor.",
+  "def": "a teacher who gives private lessons to one student or a small group"
  },
  "upward": {
   "ex": "Prices are moving upward again.",
-  "vi": "lên trên"
+  "vi": "lên trên",
+  "def": "towards a higher place or level"
  },
  "utterance": {
-  "ex": "Each utterance in the dialogue was recorded."
+  "ex": "Each utterance in the dialogue was recorded.",
+  "def": "something that a person says"
  },
  "applause": {
-  "ex": "The speech ended with loud applause."
+  "ex": "The speech ended with loud applause.",
+  "def": "the sound of people clapping to show approval"
  },
  "composite": {
-  "ex": "The photo is a composite of several images."
+  "ex": "The photo is a composite of several images.",
+  "def": "made of several different parts or materials"
  },
  "convergence": {
-  "ex": "There is a convergence of opinion on this issue."
+  "ex": "There is a convergence of opinion on this issue.",
+  "def": "the process of coming together or becoming similar"
  },
  "degrade": {
-  "ex": "Plastic takes hundreds of years to degrade."
+  "ex": "Plastic takes hundreds of years to degrade.",
+  "def": "to make something worse in quality; also to break down slowly"
  },
  "dilute": {
-  "ex": "Dilute the juice with water."
+  "ex": "Dilute the juice with water.",
+  "def": "to make a liquid weaker by adding water"
  },
  "dominance": {
-  "ex": "The team's dominance of the league continued."
+  "ex": "The team's dominance of the league continued.",
+  "def": "power or control over others"
  },
  "dye": {
-  "ex": "She used a natural dye to colour the cloth."
+  "ex": "She used a natural dye to colour the cloth.",
+  "def": "a substance used to change the colour of cloth or hair"
  },
  "ecology": {
-  "ex": "The course looks at the ecology of rainforests."
+  "ex": "The course looks at the ecology of rainforests.",
+  "def": "the relationship between plants, animals and their environment; the study of this"
  },
  "elasticity": {
-  "ex": "Skin loses its elasticity with age."
+  "ex": "Skin loses its elasticity with age.",
+  "def": "the ability to stretch and then return to the original shape"
  },
  "hawk": {
-  "ex": "A hawk was flying above the field."
+  "ex": "A hawk was flying above the field.",
+  "def": "a large bird that hunts small animals"
  },
  "inferior": {
   "ex": "Cheap products are often inferior in quality.",
-  "vi": "kém hơn"
+  "vi": "kém hơn",
+  "def": "lower in quality or position"
  },
  "kidney": {
-  "ex": "The kidneys clean the blood."
+  "ex": "The kidneys clean the blood.",
+  "def": "one of two organs that remove waste from the blood"
  },
  "maternal": {
   "ex": "She has a strong maternal instinct.",
-  "vi": "thuộc người mẹ"
+  "vi": "thuộc người mẹ",
+  "def": "relating to a mother"
  },
  "nominal": {
   "ex": "Members pay only a nominal fee.",
-  "vi": "danh nghĩa, tượng trưng"
+  "vi": "danh nghĩa, tượng trưng",
+  "def": "existing in name only; very small in amount"
  },
  "numerical": {
   "ex": "Put the files in numerical order.",
-  "vi": "thuộc số"
+  "vi": "thuộc số",
+  "def": "relating to numbers"
  },
  "optimal": {
-  "ex": "The optimal temperature for this plant is twenty degrees."
+  "ex": "The optimal temperature for this plant is twenty degrees.",
+  "def": "best or most effective"
  },
  "pest": {
   "ex": "Farmers try to protect their crops from pests.",
-  "vi": "loài gây hại"
+  "vi": "loài gây hại",
+  "def": "an insect or animal that damages crops or food"
  },
  "pragmatic": {
-  "ex": "We need a pragmatic solution to this problem."
+  "ex": "We need a pragmatic solution to this problem.",
+  "def": "dealing with problems in a practical and realistic way"
  },
  "radar": {
-  "ex": "The plane disappeared from the radar."
+  "ex": "The plane disappeared from the radar.",
+  "def": "a system that uses radio waves to find the position of objects"
  },
  "replication": {
-  "ex": "Scientists need replication of the experiment to trust the result."
+  "ex": "Scientists need replication of the experiment to trust the result.",
+  "def": "the act of repeating a study or copying something exactly"
  },
  "reservoir": {
-  "ex": "The reservoir supplies water to the whole city."
+  "ex": "The reservoir supplies water to the whole city.",
+  "def": "a large natural or artificial lake used to store water"
  },
  "socialize": {
-  "ex": "I like to socialize with my colleagues after work."
+  "ex": "I like to socialize with my colleagues after work.",
+  "def": "to spend time with other people for pleasure"
  },
  "swap": {
-  "ex": "Can we swap seats?"
+  "ex": "Can we swap seats?",
+  "def": "to exchange one thing for another"
  },
  "trivial": {
-  "ex": "Don't worry about such trivial details."
+  "ex": "Don't worry about such trivial details.",
+  "def": "small and not important"
  },
  "turbulent": {
-  "ex": "The country went through a turbulent period in the 1980s."
+  "ex": "The country went through a turbulent period in the 1980s.",
+  "def": "full of sudden change, conflict or confusion"
  },
  "unintelligible": {
-  "ex": "The message was unintelligible because of the bad connection."
+  "ex": "The message was unintelligible because of the bad connection.",
+  "def": "impossible to understand"
  },
  "urine": {
-  "ex": "The doctor asked for a urine sample."
+  "ex": "The doctor asked for a urine sample.",
+  "def": "the yellow liquid waste that people and animals pass from the body"
  },
  "vegetation": {
-  "ex": "The island is covered in thick vegetation."
+  "ex": "The island is covered in thick vegetation.",
+  "def": "plants in general, especially those in a particular area"
  },
  "wheat": {
-  "ex": "Bread is made from wheat flour."
+  "ex": "Bread is made from wheat flour.",
+  "def": "a plant whose grain is used to make flour"
  },
  "antiquity": {
-  "ex": "The temple dates from antiquity."
+  "ex": "The temple dates from antiquity.",
+  "def": "ancient times; also an object from ancient times"
  },
  "chess": {
-  "ex": "My grandfather taught me to play chess."
+  "ex": "My grandfather taught me to play chess.",
+  "def": "a board game for two players in which each tries to trap the other's king"
  },
  "corpus": {
   "ex": "Researchers studied a corpus of a million English words.",
-  "vi": "kho ngữ liệu"
+  "vi": "kho ngữ liệu",
+  "def": "a large collection of written or spoken texts used for study"
  },
  "deceive": {
-  "ex": "The advertisement was designed to deceive customers."
+  "ex": "The advertisement was designed to deceive customers.",
+  "def": "to make someone believe something that is not true"
  },
  "deflection": {
-  "ex": "The deflection of light by gravity was first observed in 1919."
+  "ex": "The deflection of light by gravity was first observed in 1919.",
+  "def": "a change in the direction of something"
  },
  "encode": {
-  "ex": "The data is encoded before it is sent."
+  "ex": "The data is encoded before it is sent.",
+  "def": "to change information into a code"
  },
  "facet": {
-  "ex": "The course covers every facet of hotel management."
+  "ex": "The course covers every facet of hotel management.",
+  "def": "one part or aspect of something"
  },
  "mercury": {
-  "ex": "Mercury is a metal that is liquid at room temperature."
+  "ex": "Mercury is a metal that is liquid at room temperature.",
+  "def": "a heavy silver metal that is liquid at room temperature"
  },
  "oscillation": {
-  "ex": "The engineer measured the oscillation of the bridge."
+  "ex": "The engineer measured the oscillation of the bridge.",
+  "def": "regular movement backwards and forwards"
  },
  "quiz": {
-  "ex": "We have a short vocabulary quiz every Friday."
+  "ex": "We have a short vocabulary quiz every Friday.",
+  "def": "a short test or competition with questions"
  },
  "scroll": {
-  "ex": "Scroll down to see more photos."
+  "ex": "Scroll down to see more photos.",
+  "def": "a long roll of paper with writing on it"
  },
  "secrete": {
-  "ex": "The glands secrete sweat when we are hot."
+  "ex": "The glands secrete sweat when we are hot.",
+  "def": "to produce and release a liquid inside the body"
  },
  "dissection": {
   "ex": "Students learn anatomy through dissection.",
-  "vi": "sự mổ xẻ"
+  "vi": "sự mổ xẻ",
+  "def": "the cutting up of a body or plant to study it"
  },
  "grammatical": {
-  "ex": "The sentence is not grammatical."
+  "ex": "The sentence is not grammatical.",
+  "def": "relating to grammar; following the rules of grammar"
  },
  "morphology": {
-  "ex": "Morphology studies how words are formed."
+  "ex": "Morphology studies how words are formed.",
+  "def": "the study of the form and structure of words or living things"
  },
  "phenomenal": {
-  "ex": "The band's success has been phenomenal."
+  "ex": "The band's success has been phenomenal.",
+  "def": "extremely good or great"
  },
  "trajectory": {
-  "ex": "Scientists calculated the trajectory of the rocket."
+  "ex": "Scientists calculated the trajectory of the rocket.",
+  "def": "the path that a moving object follows; also the direction of development"
  },
  "inversion": {
-  "ex": "Inversion is used after negative adverbs such as \"never\"."
+  "ex": "Inversion is used after negative adverbs such as \"never\".",
+  "def": "the act of turning something upside down or reversing the usual order"
  },
  "phonological": {
-  "ex": "Children develop phonological awareness before they learn to read."
+  "ex": "Children develop phonological awareness before they learn to read.",
+  "def": "relating to the sound system of a language"
  },
  "sneeze": {
-  "ex": "Dust makes me sneeze."
+  "ex": "Dust makes me sneeze.",
+  "def": "to suddenly force air out through the nose and mouth"
  },
  "capillary": {
   "ex": "Capillary vessels carry blood to every cell.",
-  "vi": "thuộc mao mạch"
+  "vi": "thuộc mao mạch",
+  "def": "relating to the very thin blood vessels in the body"
  },
  "comma": {
-  "ex": "Put a comma after the introductory phrase."
+  "ex": "Put a comma after the introductory phrase.",
+  "def": "a punctuation mark used to separate parts of a sentence"
  },
  "equivalence": {
-  "ex": "Students learn the equivalence of fractions and decimals."
+  "ex": "Students learn the equivalence of fractions and decimals.",
+  "def": "the state of being equal in value or meaning"
  },
  "oxidize": {
-  "ex": "Iron oxidizes and turns to rust when it gets wet."
+  "ex": "Iron oxidizes and turns to rust when it gets wet.",
+  "def": "to combine with oxygen, often causing rust"
  },
  "volition": {
-  "ex": "She left the company of her own volition."
+  "ex": "She left the company of her own volition.",
+  "def": "the power to make your own choices"
  },
  "factorial": {
-  "ex": "The factorial of four is twenty-four."
+  "ex": "The factorial of four is twenty-four.",
+  "def": "the result of multiplying a whole number by all the whole numbers below it"
  },
  "classroom": {
-  "ex": "The classroom has a large interactive whiteboard."
+  "ex": "The classroom has a large interactive whiteboard.",
+  "def": "a room in a school where lessons take place"
  },
  "halfway": {
-  "ex": "We stopped for lunch halfway to the coast."
+  "ex": "We stopped for lunch halfway to the coast.",
+  "def": "at the middle point between two places or times"
  },
  "pi": {
-  "ex": "The value of pi is about 3.14."
+  "ex": "The value of pi is about 3.14.",
+  "def": "the number, about 3.14, used to calculate the size of circles"
  },
  "super": {
-  "ex": "The new library is super modern."
+  "ex": "The new library is super modern.",
+  "def": "very good; also extremely"
  },
  "oxygen": {
-  "ex": "Plants produce oxygen during the day."
+  "ex": "Plants produce oxygen during the day.",
+  "def": "a gas in the air that people and animals need to breathe"
+ },
+ "bodily": {
+  "def": "relating to the human body",
+  "ex": "Regular exercise helps to prevent many bodily aches and pains."
+ },
+ "continuity": {
+  "def": "the fact of continuing without stopping or changing",
+  "ex": "A good manager ensures continuity when staff leave the company."
+ },
+ "marker": {
+  "def": "something that shows where something is or what it is",
+  "ex": "A low income is often a marker of other social problems."
+ },
+ "outer": {
+  "def": "on the outside or furthest from the centre",
+  "ex": "The outer layer of the planet is made of rock."
+ },
+ "realism": {
+  "def": "the attitude of accepting a situation as it really is",
+  "ex": "The new manager brought a sense of realism to the planning process."
+ },
+ "subset": {
+  "def": "a smaller group that is part of a larger group",
+  "ex": "A small subset of the participants were interviewed again a year later."
+ },
+ "systematic": {
+  "def": "done according to a careful and organised plan",
+  "ex": "The researchers carried out a systematic review of previous studies."
+ },
+ "commentary": {
+  "def": "a spoken or written description and explanation of an event",
+  "ex": "The match was shown with live commentary in three languages."
+ },
+ "connector": {
+  "def": "a part that joins two or more things together",
+  "ex": "Make sure the connector is pushed firmly into the laptop."
+ },
+ "instability": {
+  "def": "a situation in which something is likely to change suddenly",
+  "ex": "Political instability can discourage foreign investment."
+ },
+ "likelihood": {
+  "def": "how likely something is to happen",
+  "ex": "There is a high likelihood that prices will rise again next year."
+ },
+ "lump": {
+  "def": "a small piece of something solid with no particular shape",
+  "ex": "Stir the sauce well so that there are no lumps in it."
+ },
+ "reactor": {
+  "def": "a large machine that produces nuclear energy",
+  "ex": "The old nuclear reactor was finally shut down in 2020."
+ },
+ "variance": {
+  "def": "the amount by which something differs; in statistics, a measure of spread",
+  "ex": "The analysis showed little variance between the two groups."
+ },
+ "variant": {
+  "def": "different from the usual form of something",
+  "ex": "Scientists are tracking a new variant form of the virus."
+ },
+ "absorption": {
+  "def": "the process of taking in liquid, energy or information",
+  "ex": "The absorption of water by the soil reduces the risk of flooding."
+ },
+ "bacterial": {
+  "def": "caused by or relating to bacteria",
+  "ex": "Antibiotics are used to treat bacterial infections, not viral ones."
+ },
+ "conceptual": {
+  "def": "relating to ideas rather than to real things",
+  "ex": "The course gives students a conceptual framework for analysing markets."
+ },
+ "contradictory": {
+  "def": "containing ideas or facts that cannot both be true",
+  "ex": "The witnesses gave contradictory accounts of the accident."
+ },
+ "depict": {
+  "def": "to show or describe someone or something in a picture or writing",
+  "ex": "The painting depicts a busy market scene in the nineteenth century."
+ },
+ "derivative": {
+  "def": "copied from or based on something else, without original ideas",
+  "ex": "Critics described the film as derivative and predictable.",
+  "vi": "bắt chước, thiếu sáng tạo"
+ },
+ "dimensional": {
+  "def": "having a particular number of dimensions, such as two or three",
+  "ex": "The architect showed us a three-dimensional model of the building.",
+  "vi": "thuộc chiều (không gian)"
+ },
+ "elite": {
+  "def": "a small group of people with the most power, money or skill",
+  "ex": "Top universities are often accused of educating only the elite.",
+  "vi": "giới tinh hoa"
+ },
+ "evolutionary": {
+  "def": "relating to the gradual development of living things over time",
+  "ex": "Scientists study the evolutionary history of birds using fossils."
+ },
+ "fiber": {
+  "def": "the part of food that helps digestion; also a thin thread",
+  "ex": "Whole grains and vegetables are good sources of fiber."
+ },
+ "justification": {
+  "def": "a good reason for doing something",
+  "ex": "There is no justification for raising the price so much."
+ },
+ "liable": {
+  "def": "legally responsible for paying for something",
+  "ex": "The company is liable for any damage caused by its products."
+ },
+ "molecular": {
+  "def": "relating to molecules",
+  "ex": "The lab studies the molecular structure of new materials."
+ },
+ "myth": {
+  "def": "a traditional story; also a common belief that is not true",
+  "ex": "It is a myth that goldfish have a three-second memory."
+ },
+ "quantitative": {
+  "def": "relating to amounts or numbers",
+  "ex": "The study combines quantitative data with interviews."
+ },
+ "reconstruct": {
+  "def": "to build or create something again after it has been damaged",
+  "ex": "The museum reconstructed the ancient temple using the original stones."
+ },
+ "render": {
+  "def": "to cause something to be in a particular state; to give or provide",
+  "ex": "The flood rendered the road impossible to use.",
+  "vi": "khiến cho, làm cho; cung cấp"
+ },
+ "simultaneously": {
+  "def": "at the same time",
+  "ex": "The film was released simultaneously in cinemas and online."
+ },
+ "theorist": {
+  "def": "a person who develops ideas and theories in a subject",
+  "ex": "Several theorists have tried to explain why economic crises happen."
+ },
+ "tribe": {
+  "def": "a group of families who share the same language, culture and leader",
+  "ex": "The tribe has lived in the forest for hundreds of years."
+ },
+ "aluminum": {
+  "def": "a light, silver-coloured metal used for cans and planes",
+  "ex": "Drink cans are usually made of aluminum."
+ },
+ "audio": {
+  "def": "relating to sound that is recorded or broadcast",
+  "ex": "The museum offers an audio guide in five languages.",
+  "vi": "thuộc âm thanh"
+ },
+ "autonomy": {
+  "def": "the freedom to make your own decisions",
+  "ex": "Universities want more autonomy over how they spend their funds."
+ },
+ "bundle": {
+  "def": "a number of things tied or wrapped together",
+  "ex": "She carried a bundle of old newspapers to the recycling bin."
+ },
+ "chunk": {
+  "def": "a large piece or part of something",
+  "ex": "Rent takes a large chunk of my monthly salary."
+ },
+ "classification": {
+  "def": "the act of putting things into groups according to their type",
+  "ex": "The classification of plants helps scientists study them more easily."
+ },
+ "clay": {
+  "def": "a type of heavy earth that becomes hard when it is baked",
+  "ex": "The children made small pots out of clay."
+ },
+ "critique": {
+  "def": "a careful written or spoken judgement of something",
+  "ex": "She wrote a detailed critique of the government's plan."
+ },
+ "crude": {
+  "def": "simple and not carefully made; also in its natural, unprocessed state",
+  "ex": "The price of crude oil rose sharply last month."
+ },
+ "deficiency": {
+  "def": "a lack of something that is needed",
+  "ex": "A vitamin D deficiency can make you feel tired."
+ },
+ "diameter": {
+  "def": "the length of a straight line through the centre of a circle",
+  "ex": "The pizza has a diameter of thirty centimetres."
+ },
+ "ecological": {
+  "def": "relating to the relationship between living things and their environment",
+  "ex": "The new airport could cause serious ecological damage."
+ },
+ "elementary": {
+  "def": "basic and simple; relating to the first stage of learning",
+  "ex": "This course is for students with only an elementary knowledge of French.",
+  "vi": "cơ bản, sơ cấp"
+ },
+ "essence": {
+  "def": "the most basic and important quality of something",
+  "ex": "The essence of good teaching is clear communication.",
+  "vi": "bản chất, cốt lõi"
+ },
+ "fraction": {
+  "def": "a small part of something; in maths, a number such as one half",
+  "ex": "Only a fraction of the plastic we use is recycled."
+ },
+ "fringe": {
+  "def": "the outer edge of an area or group",
+  "ex": "The new housing estate is on the fringe of the city.",
+  "vi": "rìa, vùng ven"
+ },
+ "fusion": {
+  "def": "the joining of two or more things to make one",
+  "ex": "The restaurant serves a fusion of Thai and Italian food."
+ },
+ "gauge": {
+  "def": "an instrument for measuring amount or level",
+  "ex": "The fuel gauge showed that the tank was almost empty."
+ },
+ "horizontal": {
+  "def": "flat and level with the ground",
+  "ex": "Draw a horizontal line across the top of the page."
+ },
+ "inclusion": {
+  "def": "the act of including someone or something",
+  "ex": "The inclusion of students with disabilities in normal classes is now common."
+ },
+ "inhibition": {
+  "def": "a feeling that stops you from doing or saying what you want",
+  "ex": "Speaking a foreign language can reduce your inhibitions."
+ },
+ "lever": {
+  "def": "a bar used to lift or move something; also a way of influencing a situation",
+  "ex": "Pull the lever to open the door."
+ },
+ "limb": {
+  "def": "an arm or a leg",
+  "ex": "He broke a limb in the accident but recovered quickly.",
+  "vi": "chi (tay hoặc chân)"
+ },
+ "linear": {
+  "def": "in a straight line or developing in a simple step-by-step way",
+  "ex": "The story is told in a linear way, from beginning to end."
+ },
+ "matrix": {
+  "def": "a set of numbers in rows and columns; also a system in which something develops",
+  "ex": "The data was organised into a matrix of rows and columns."
+ },
+ "momentum": {
+  "def": "the force that keeps something moving or developing",
+  "ex": "The campaign gained momentum after the TV debate."
+ },
+ "monetary": {
+  "def": "relating to money, especially in a country's economy",
+  "ex": "The central bank sets monetary policy."
+ },
+ "obscure": {
+  "def": "not well known or not easy to understand",
+  "ex": "The poem is full of obscure references."
+ },
+ "optical": {
+  "def": "relating to sight or light",
+  "ex": "Glasses correct many common optical problems."
+ },
+ "paradox": {
+  "def": "a situation or statement that seems impossible because it contains two opposite facts",
+  "ex": "It is a paradox that we have more ways to communicate but feel more alone."
+ },
+ "predominantly": {
+  "def": "mostly; mainly",
+  "ex": "The town's population is predominantly young."
+ },
+ "realm": {
+  "def": "an area of activity or interest",
+  "ex": "New discoveries are being made in the realm of medicine.",
+  "vi": "lĩnh vực"
+ },
+ "residue": {
+  "def": "a small amount of something that remains after a process",
+  "ex": "Wash fruit carefully to remove any chemical residue."
+ },
+ "rotate": {
+  "def": "to turn around a central point",
+  "ex": "The Earth rotates once every twenty-four hours."
+ },
+ "spatial": {
+  "def": "relating to space and the position of things",
+  "ex": "Pilots need good spatial awareness."
+ },
+ "stance": {
+  "def": "an opinion or attitude about something",
+  "ex": "The government has taken a firm stance on illegal parking."
+ },
+ "surplus": {
+  "def": "an amount that is more than is needed",
+  "ex": "The country had a trade surplus last year."
+ },
+ "syndrome": {
+  "def": "a group of symptoms that together show a particular medical condition",
+  "ex": "Some people develop syndrome-related problems as they age."
+ },
+ "synthesis": {
+  "def": "the combination of different ideas or things into a whole",
+  "ex": "The report is a synthesis of research from many countries."
+ },
+ "thread": {
+  "def": "a thin string used for sewing; also the main idea connecting parts of a story",
+  "ex": "I lost the thread of the conversation.",
+  "vi": "sợi chỉ; mạch (câu chuyện)"
+ },
+ "trauma": {
+  "def": "a severe shock or injury, physical or emotional",
+  "ex": "Children who lose their homes may suffer long-term trauma."
+ },
+ "utilize": {
+  "def": "to use something for a practical purpose",
+  "ex": "The factory utilizes solar power to reduce costs."
+ },
+ "vein": {
+  "def": "a tube that carries blood back to the heart",
+  "ex": "The nurse found a vein in my arm to take blood."
+ },
+ "vertical": {
+  "def": "standing or pointing straight up",
+  "ex": "The climbers looked up at the vertical wall of rock."
+ },
+ "abdominal": {
+  "def": "relating to the stomach area of the body",
+  "ex": "He went to the doctor with abdominal pain."
+ },
+ "altitude": {
+  "def": "the height of something above sea level",
+  "ex": "Some people feel ill at high altitude."
+ },
+ "bracket": {
+  "def": "one of a pair of marks ( ) used around extra information; also a group within a range",
+  "ex": "Write the plural form in brackets.",
+  "vi": "dấu ngoặc; nhóm, khung (thu nhập…)"
+ },
+ "cone": {
+  "def": "a solid shape with a round base and a pointed top",
+  "ex": "Ice cream is often served in a cone."
+ },
+ "converge": {
+  "def": "to move towards the same point and meet",
+  "ex": "The two roads converge just outside the town."
+ },
+ "cylinder": {
+  "def": "a shape with long straight sides and two round ends",
+  "ex": "Gas is stored in metal cylinders.",
+  "vi": "hình trụ; bình (khí)"
+ },
+ "deviation": {
+  "def": "a difference from what is normal or expected",
+  "ex": "Any deviation from the safety rules must be reported."
+ },
+ "diffusion": {
+  "def": "the spreading of something over a wide area",
+  "ex": "The diffusion of new technology was slow in rural areas."
+ },
+ "elastic": {
+  "def": "able to stretch and return to its original shape",
+  "ex": "The waistband is made of elastic material."
+ },
+ "equilibrium": {
+  "def": "a state of balance",
+  "ex": "The economy reached a new equilibrium after the crisis."
+ },
+ "fungus": {
+  "def": "a living thing such as a mushroom that grows on plants or rotting matter",
+  "ex": "A fungus was growing on the old wooden fence."
+ },
+ "incumbent": {
+  "def": "a person who currently holds an official position",
+  "ex": "The incumbent was re-elected for a second term.",
+  "vi": "người đương nhiệm"
+ },
+ "lateral": {
+  "def": "relating to the side; sideways",
+  "ex": "The company encourages lateral thinking to solve problems.",
+  "vi": "ở bên; theo chiều ngang"
+ },
+ "membrane": {
+  "def": "a thin layer that covers or protects something",
+  "ex": "A thin membrane surrounds every cell."
+ },
+ "niche": {
+  "def": "a small but specialised part of a market; also a suitable place or role",
+  "ex": "The company found a niche selling eco-friendly furniture.",
+  "vi": "thị trường ngách; vị trí thích hợp"
+ },
+ "nitrogen": {
+  "def": "a gas that makes up most of the air",
+  "ex": "Plants need nitrogen to grow."
+ },
+ "node": {
+  "def": "a point where lines or parts of a network join",
+  "ex": "Each node in the network can send and receive data."
+ },
+ "nucleus": {
+  "def": "the central part of an atom or cell; the central part of anything",
+  "ex": "A small group of experienced staff formed the nucleus of the new team."
+ },
+ "par": {
+  "def": "an equal level or standard",
+  "ex": "The hotel's service is on a par with the best in the city."
+ },
+ "plantation": {
+  "def": "a large farm where crops such as tea or coffee are grown",
+  "ex": "They visited a tea plantation in the highlands."
+ },
+ "precipitation": {
+  "def": "rain, snow or hail that falls to the ground",
+  "ex": "Annual precipitation in the region is very low."
+ },
+ "quantum": {
+  "def": "relating to the behaviour of very small particles in physics",
+  "ex": "Quantum computers may solve some problems much faster."
+ },
+ "scripture": {
+  "def": "the holy writings of a religion",
+  "ex": "The students compared passages from different scriptures."
+ },
+ "semantic": {
+  "def": "relating to the meaning of words",
+  "ex": "The two sentences have the same semantic content."
+ },
+ "singular": {
+  "def": "the form of a word used for one person or thing",
+  "ex": "\"Child\" is the singular form of \"children\"."
+ },
+ "slab": {
+  "def": "a thick, flat piece of stone, wood or food",
+  "ex": "The path was made of large slabs of stone."
+ },
+ "static": {
+  "def": "not moving or changing",
+  "ex": "House prices have remained static this year."
+ },
+ "surgical": {
+  "def": "relating to medical operations",
+  "ex": "The patient needed surgical treatment."
+ },
+ "synthetic": {
+  "def": "made by people, not natural",
+  "ex": "This jacket is made of synthetic material."
+ },
+ "thermal": {
+  "def": "relating to heat",
+  "ex": "Thermal clothing keeps you warm in very cold weather."
+ },
+ "tract": {
+  "def": "a large area of land; also a system of connected tubes in the body",
+  "ex": "Large tracts of forest have been cleared for farming.",
+  "vi": "vùng, dải đất; đường (tiêu hóa, hô hấp)"
+ },
+ "contour": {
+  "def": "the outline or shape of something; a line on a map joining points of equal height",
+  "ex": "The map shows the contours of the hills."
+ },
+ "coronary": {
+  "def": "relating to the arteries that supply blood to the heart",
+  "ex": "Smoking increases the risk of coronary heart disease.",
+  "vi": "thuộc động mạch vành"
+ },
+ "fin": {
+  "def": "a thin flat part on the body of a fish that helps it swim",
+  "ex": "The shark's fin cut through the water."
+ },
+ "flux": {
+  "def": "continuous change",
+  "ex": "The industry is in a state of flux.",
+  "vi": "sự thay đổi liên tục"
+ },
+ "hepatitis": {
+  "def": "a disease that causes swelling of the liver",
+  "ex": "Hepatitis can be prevented with a vaccine."
+ },
+ "invert": {
+  "def": "to turn something upside down or the other way round",
+  "ex": "Invert the cake onto a plate once it has cooled."
+ },
+ "locus": {
+  "def": "the central point or place where something happens",
+  "ex": "The city became the locus of political protest.",
+  "vi": "trung tâm, nơi diễn ra"
+ },
+ "mole": {
+  "def": "a small dark mark on the skin; also a small animal that lives underground",
+  "ex": "The doctor checked a mole on my arm."
+ },
+ "neuron": {
+  "def": "a cell that carries messages in the brain and nerves",
+  "ex": "The brain contains billions of neurons."
+ },
+ "notation": {
+  "def": "a system of written signs used in music, maths or science",
+  "ex": "Musical notation allows people to read and play music."
+ },
+ "novice": {
+  "def": "a person who is new to an activity and has little experience",
+  "ex": "This course is designed for complete novices."
+ },
+ "physiological": {
+  "def": "relating to the way living bodies work",
+  "ex": "Stress can cause physiological changes such as a faster heartbeat."
+ },
+ "radius": {
+  "def": "the distance from the centre of a circle to its edge",
+  "ex": "The shop delivers within a radius of five kilometres."
+ },
+ "receptor": {
+  "def": "a part of a cell or the body that responds to a particular signal",
+  "ex": "Taste receptors on the tongue detect sweet and bitter flavours."
+ },
+ "repertoire": {
+  "def": "all the songs, skills or works that a person can perform",
+  "ex": "The band has a large repertoire of folk songs.",
+  "vi": "vốn tiết mục; vốn kỹ năng"
+ },
+ "sensory": {
+  "def": "relating to the senses of sight, hearing, smell, taste and touch",
+  "ex": "The museum offers sensory activities for young children."
+ },
+ "solvent": {
+  "def": "having enough money to pay all debts",
+  "ex": "The company must stay solvent to survive the crisis.",
+  "vi": "có khả năng thanh toán"
+ },
+ "sperm": {
+  "def": "a cell produced by a male that can join with an egg to produce young",
+  "ex": "The biology lesson explained how sperm and egg cells combine."
+ },
+ "syllable": {
+  "def": "a single unit of sound in a word",
+  "ex": "The word \"banana\" has three syllables."
+ },
+ "terminology": {
+  "def": "the special words used in a particular subject",
+  "ex": "Medical terminology can be difficult for patients to understand."
+ },
+ "vector": {
+  "def": "a quantity that has both size and direction; also an insect that carries disease",
+  "ex": "Mosquitoes are a vector for several diseases."
+ },
+ "confound": {
+  "def": "to confuse or surprise someone by being unexpected",
+  "ex": "The results confounded the experts."
+ },
+ "fetal": {
+  "def": "relating to an unborn baby",
+  "ex": "Doctors monitor fetal development during pregnancy."
+ },
+ "gradient": {
+  "def": "the degree to which a slope rises or falls",
+  "ex": "The road has a steep gradient near the top of the hill."
+ },
+ "infinity": {
+  "def": "a space, time or quantity without limit",
+  "ex": "The road seemed to stretch into infinity."
+ },
+ "longitudinal": {
+  "def": "following the same people or things over a long period",
+  "ex": "A longitudinal study followed the children for twenty years."
+ },
+ "marrow": {
+  "def": "the soft substance inside bones",
+  "ex": "Bone marrow produces new blood cells."
+ },
+ "millimeter": {
+  "def": "a unit of length equal to one thousandth of a metre",
+  "ex": "Rainfall is measured in millimeters."
+ },
+ "morphological": {
+  "def": "relating to the form and structure of words, plants or animals",
+  "ex": "The researchers compared morphological features of the two species."
+ },
+ "neural": {
+  "def": "relating to nerves or the nervous system",
+  "ex": "The study examined neural activity during sleep."
+ },
+ "null": {
+  "def": "having no legal force; also equal to zero",
+  "ex": "The contract was declared null and void.",
+  "vi": "vô hiệu; bằng không"
+ },
+ "optimum": {
+  "def": "best or most suitable",
+  "ex": "The optimum temperature for growing tomatoes is around twenty-five degrees."
+ },
+ "primer": {
+  "def": "a basic book for teaching a subject; also a first coat of paint",
+  "ex": "The book is a useful primer on economics for beginners.",
+  "vi": "sách vỡ lòng; lớp sơn lót"
+ },
+ "proton": {
+  "def": "a tiny particle with a positive electric charge in the centre of an atom",
+  "ex": "Every atom of hydrogen has one proton.",
+  "vi": "proton (hạt mang điện dương)"
+ },
+ "soluble": {
+  "def": "able to dissolve in liquid; also able to be solved",
+  "ex": "Sugar is soluble in water."
+ },
+ "vowel": {
+  "def": "a speech sound such as a, e, i, o or u",
+  "ex": "English has more vowel sounds than vowel letters."
+ },
+ "algebra": {
+  "def": "a type of maths that uses letters to represent numbers",
+  "ex": "She found algebra easier than geometry."
+ },
+ "amplitude": {
+  "def": "the size of a vibration or wave",
+  "ex": "The amplitude of the sound wave determines how loud it is."
+ },
+ "circa": {
+  "def": "approximately; used before a date",
+  "ex": "The house was built circa 1850.",
+  "vi": "khoảng (năm)",
+  "pos": "prep"
+ },
+ "consonant": {
+  "def": "a speech sound or letter that is not a vowel",
+  "ex": "The word \"strength\" begins with three consonants.",
+  "vi": "phụ âm",
+  "pos": "n"
+ },
+ "cortex": {
+  "def": "the outer layer of the brain or of an organ",
+  "ex": "The cortex is involved in thinking and memory."
+ },
+ "lexical": {
+  "def": "relating to words and vocabulary",
+  "ex": "Lexical resource is one of the criteria in IELTS Writing."
+ },
+ "syntactic": {
+  "def": "relating to the way words are arranged to form sentences",
+  "ex": "Syntactic errors make sentences difficult to understand."
+ },
+ "theorem": {
+  "def": "a statement in maths that can be proved to be true",
+  "ex": "Students learn Pythagoras' theorem at secondary school."
+ },
+ "aerosol": {
+  "def": "a container that releases liquid as a fine spray",
+  "ex": "Aerosol sprays can contain harmful gases."
+ },
+ "axiom": {
+  "def": "a statement accepted as true without needing proof",
+  "ex": "It is an axiom of economics that people respond to incentives."
+ },
+ "calculus": {
+  "def": "a branch of maths that studies change, using differentiation and integration",
+  "ex": "Engineering students must study calculus.",
+  "vi": "phép tính vi tích phân"
+ },
+ "congruent": {
+  "def": "matching or in agreement; in maths, identical in shape and size",
+  "ex": "The two triangles are congruent."
+ },
+ "denominator": {
+  "def": "the number below the line in a fraction",
+  "ex": "In the fraction three quarters, four is the denominator."
+ },
+ "exponential": {
+  "def": "increasing faster and faster as it grows",
+  "ex": "The city has seen exponential growth in tourism.",
+  "vi": "theo cấp số mũ"
+ },
+ "helix": {
+  "def": "a shape like a spiral or a coil",
+  "ex": "DNA has the shape of a double helix."
+ },
+ "herbicide": {
+  "def": "a chemical used to kill unwanted plants",
+  "ex": "Farmers spray herbicide to control weeds."
+ },
+ "splice": {
+  "def": "a join made by connecting two ends together",
+  "ex": "The engineer repaired the cable with a careful splice."
+ },
+ "connotation": {
+  "def": "an idea or feeling suggested by a word in addition to its main meaning",
+  "ex": "The word \"cheap\" can have a negative connotation.",
+  "vi": "nghĩa hàm ẩn"
+ },
+ "descriptor": {
+  "def": "a word or phrase that describes the features of something",
+  "ex": "The band descriptors explain what candidates must do at each level.",
+  "vi": "mục mô tả, tiêu chí mô tả"
+ },
+ "artwork": {
+  "def": "a painting, drawing or other piece of art",
+  "ex": "The museum displays artwork by local students."
+ },
+ "footnote": {
+  "def": "a note at the bottom of a page giving extra information",
+  "ex": "The source of the data is given in a footnote."
+ },
+ "pathway": {
+  "def": "a path for walking; also a way of reaching a goal",
+  "ex": "The college offers a pathway to university for international students."
+ },
+ "parenthesis": {
+  "def": "one of a pair of brackets ( ); also extra information inside a sentence",
+  "ex": "Write the abbreviation in a parenthesis after the full name."
  }
 }
