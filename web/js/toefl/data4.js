@@ -657,6 +657,98 @@
     tips: 'Một ý mới mạnh thường đến từ việc tách khái niệm ("coding" = tư duy hay ngôn ngữ?) để hòa giải hai quan điểm tưởng như đối lập.',
   });
 
+  /* BỘ 5 · SPEAKING (tự biên soạn): 3 Listen and Repeat × 6 câu, 3 Interview × 4 câu (mẫu ~45 giây + tiêu chí chấm trong tip). */
+  TF.speaking.push({
+    id: 'tf5-rp1', set: 5, task: 'repeat', title: 'Fitness Center Orientation', accent: 'en-US',
+    context: 'You are starting a part-time job at the campus fitness center. Listen to the manager and repeat exactly what you hear.',
+    sentences: [
+      { t: 'Please wipe down each machine after use.', tip: '"wipe down" nối âm /waɪpdaʊn/; nhấn "EACH MACHINE".' },
+      { t: 'Towels are available at the front desk.', tip: '"available" /əˈveɪləbəl/ nhấn âm tiết thứ hai; "front desk" giữ rõ /nt/ và /sk/.' },
+      { t: 'The swimming pool closes at nine on weekdays.', tip: 'Nhấn "NINE" và "WEEKDAYS"; "closes" /ˈkloʊzɪz/ có hai âm tiết.' },
+      { t: 'New members must complete a short safety course.', tip: '"complete a" nối âm /kəmˈpliːtə/; nhấn "SAFETY COURSE".' },
+      { t: 'If a machine is broken, put a sign on it and tell a staff member.', tip: 'Ngắt nhịp sau "broken,"; "put a sign on it" đọc liền; giọng Mỹ biến /t/ thành âm bật nhẹ: /pʊɾə saɪn ɑnɪt/.' },
+      { t: 'During exam week, the center stays open until midnight so that students can take a break from studying.', tip: 'Câu dài – chia nhịp: "During exam week / the center stays open until midnight / so that students can take a break from studying".' },
+    ],
+  });
+  TF.speaking.push({
+    id: 'tf5-rp2', set: 5, task: 'repeat', title: 'Admissions Office Assistant', accent: 'en-GB',
+    context: 'You are helping at the university admissions office during an open day. Listen to the coordinator and repeat exactly what you hear.',
+    sentences: [
+      { t: 'Welcome to our open day.', tip: 'Nhấn "OPEN DAY"; "to our" đọc lướt /tʊˈaʊə/.' },
+      { t: 'Campus tours leave every half hour.', tip: '"half" giọng Anh /hɑːf/ không có /l/; nhấn "HALF HOUR".' },
+      { t: 'Applications for next year close in January.', tip: '"Applications" /ˌæplɪˈkeɪʃənz/ nhấn âm tiết thứ ba; "January" /ˈdʒænjuəri/.' },
+      { t: 'You can speak to current students in the main hall.', tip: '"current" /ˈkʌrənt/; "main hall" – giữ âm cuối /n/ trước /h/.' },
+      { t: 'Information about scholarships is available on our website.', tip: '"scholarships" /ˈskɒləʃɪps/ giọng Anh; nhấn "SCHOLARSHIPS" và "WEBSITE".' },
+      { t: 'Visitors who would like to attend a sample lecture should collect a ticket from this desk before eleven o\'clock.', tip: 'Câu dài – chia nhịp: "Visitors who would like to attend a sample lecture / should collect a ticket from this desk / before eleven o\'clock".' },
+    ],
+  });
+  TF.speaking.push({
+    id: 'tf5-rp3', set: 5, task: 'repeat', title: 'Nature Reserve Field Trip', accent: 'en-US',
+    context: 'You are assisting on a biology field trip to a nature reserve. Listen to the guide and repeat exactly what you hear.',
+    sentences: [
+      { t: 'Stay on the marked trails.', tip: '"marked" /mɑrkt/ – đuôi -ed đọc /t/; nhấn "MARKED TRAILS".' },
+      { t: 'The bus will leave at four sharp.', tip: '"four sharp" = đúng 4 giờ; nhấn "FOUR SHARP", giữ rõ /ʃ/.' },
+      { t: 'Do not feed the birds or other animals.', tip: 'Nhấn "NOT" để rõ ý cấm; "birds" /bɜrdz/ giữ âm cuối /dz/.' },
+      { t: 'Record the time and location of each sighting.', tip: '"Record" là động từ nên nhấn âm tiết sau /rɪˈkɔrd/; "sighting" /ˈsaɪtɪŋ/, Mỹ đọc /ˈsaɪɾɪŋ/.' },
+      { t: 'If you see a nest, observe it quietly from a distance.', tip: 'Ngắt nhịp sau "nest,"; "observe it" nối âm /əbˈzɜrvɪt/.' },
+      { t: 'Before we leave the reserve, please check that you have collected all of your equipment and trash.', tip: 'Câu dài – chia nhịp: "Before we leave the reserve / please check that you have collected / all of your equipment and trash".' },
+    ],
+  });
+  TF.speaking.push({
+    id: 'tf5-iv1', set: 5, task: 'interview', title: 'Music and the Arts', seconds: 45, accent: 'en-US',
+    context: 'A researcher from the arts department is interviewing students about the role of music and the arts in their lives. Answer each question. You will have about 45 seconds for each answer.',
+    questions: [
+      { q: 'What kind of music do you usually listen to, and when?',
+        model: "I mostly listen to jazz and some pop music. I usually put on music when I'm walking to campus or cooking dinner, because it makes those routine tasks more enjoyable. When I'm studying, though, I switch to instrumental music without lyrics, since words distract me. On weekends I sometimes go to small concerts at a café near my apartment, which is a nice way to discover new local musicians.",
+        tip: 'Tiêu chí: trả lời thẳng (thể loại + thời điểm) · 2–3 tình huống cụ thể · có "though" để đối lập · khoảng 70–100 từ, nói trôi chảy.' },
+      { q: 'Do you think art classes are as important as science classes in schools?',
+        model: "I think they're important, but in a different way. Science classes teach students how the world works, while art classes help them express ideas and think creatively. For example, in my high school art class, we designed posters for a local festival, and I learned how to plan a project and accept criticism. Those skills are useful in any job, so I believe schools should keep a balance between the two.",
+        tip: 'Tiêu chí: nêu quan điểm rõ ngay câu đầu · so sánh hai môn bằng "while" · 1 ví dụ cá nhân · câu kết quay lại quan điểm.' },
+      { q: 'How has technology changed the way people enjoy music or art?',
+        model: "Technology has made music and art much easier to access. Today, anyone with a phone can stream millions of songs or visit a museum's online collection for free. It has also changed how art is created, because young artists can share their work on social media without needing a gallery or a record company. However, I think something is lost when everything is on a screen, so I still try to see live performances when I can.",
+        tip: 'Tiêu chí: 2 thay đổi rõ ràng (tiếp cận + sáng tác) · có ví dụ cụ thể · thêm ý cân bằng bằng "However" · khoảng 80–110 từ.' },
+      { q: 'Should governments spend public money to support artists? Why or why not?',
+        model: "Yes, I think governments should provide some support. Many artists earn very little, especially at the beginning of their careers, and without help, only people from wealthy families could afford to become artists. Public funding also benefits society, because it pays for free concerts, public sculptures, and community workshops that everyone can enjoy. Of course, the money should be distributed fairly, perhaps through grants that are decided by independent experts.",
+        tip: 'Tiêu chí: lập trường rõ · 2 lý do (công bằng cho nghệ sĩ + lợi ích xã hội) · đề xuất điều kiện ("Of course…") · từ vựng chủ đề: funding, grants, afford.' },
+    ],
+  });
+  TF.speaking.push({
+    id: 'tf5-iv2', set: 5, task: 'interview', title: 'Volunteering and Helping Others', seconds: 45, accent: 'en-GB',
+    context: 'A staff member from the student volunteering office is interviewing students about community service. Answer each question. You will have about 45 seconds for each answer.',
+    questions: [
+      { q: 'Have you ever done any volunteer work? Tell me about it.',
+        model: "Yes, last summer I volunteered at a food bank in my hometown for about two months. I worked there twice a week, sorting donations and packing boxes for families who needed support. At first it was just physical work, but over time I started talking to the people who came in, and I realised how many of them had jobs but still struggled to pay for food. That experience changed how I think about poverty.",
+        tip: 'Tiêu chí: thời gian, nơi chốn, việc làm cụ thể · kể theo diễn biến (At first… over time…) · kết bằng điều bạn học được.' },
+      { q: 'Why do you think some students choose not to volunteer?',
+        model: "I think the main reason is time. Many students have part-time jobs as well as their studies, so it's hard to find a free afternoon every week. Another reason is that some people simply don't know where to start, because volunteering opportunities aren't always advertised clearly. If universities shared a simple list of short, flexible projects, I believe more students would get involved.",
+        tip: 'Tiêu chí: 2 lý do rõ ràng (The main reason… Another reason…) · giải thích mỗi lý do · thêm một đề xuất giải pháp ngắn.' },
+      { q: 'Should volunteering be a requirement for graduating from university?',
+        model: "I don't think it should be compulsory. Volunteering works best when people choose to do it, because they're more motivated and more helpful to the organisation. If it became a requirement, some students might just do the minimum hours to get a certificate. Instead, universities could encourage it by giving academic credit or recognising volunteer work on students' records.",
+        tip: 'Tiêu chí: lập trường rõ ngay câu đầu · lý do + hệ quả nếu bắt buộc · phương án thay thế bằng "Instead" · khoảng 70–100 từ.' },
+      { q: 'In your opinion, what is the best way for young people to help their local community?',
+        model: "I think the best way is to use the skills they already have. For example, students who are good with technology could teach older people how to use video calls or online banking, which can make a big difference to someone who lives alone. Young people could also tutor children from families who can't afford private lessons. Help like this is practical and builds connections between generations.",
+        tip: 'Tiêu chí: một ý chính rõ ràng · 2 ví dụ cụ thể · giải thích tác động ("which can make a big difference") · câu kết tổng quát.' },
+    ],
+  });
+  TF.speaking.push({
+    id: 'tf5-iv3', set: 5, task: 'interview', title: 'Money and Spending Habits', seconds: 45, accent: 'en-US',
+    context: 'An economics researcher is interviewing university students about how they manage money. Answer each question. You will have about 45 seconds for each answer.',
+    questions: [
+      { q: 'How do you usually keep track of your spending?',
+        model: "I use a free budgeting app on my phone. At the start of each month, I set limits for categories like food, transport, and entertainment, and the app shows me how much I have left. I also check my bank account every Sunday evening. It only takes five minutes, but it helps me notice if I've been spending too much on things like coffee or takeaway food.",
+        tip: 'Tiêu chí: nêu công cụ/cách làm cụ thể · mô tả các bước · nêu lợi ích bằng ví dụ · khoảng 70–100 từ, dùng thì hiện tại đơn cho thói quen.' },
+      { q: 'What is something you spent money on recently that you think was worth it?',
+        model: "Recently I bought a good pair of noise-cancelling headphones. They were quite expensive, but I share an apartment with three people, and it's often noisy in the evenings. Now I can concentrate on my assignments at home instead of going to the library every night, which saves me time. So even though the price was high, I think it was a very good investment.",
+        tip: 'Tiêu chí: món đồ cụ thể · lý do mua (hoàn cảnh) · lợi ích đo được · kết luận bằng "even though…" thể hiện cân nhắc.' },
+      { q: 'Do you think schools should teach students how to manage money?',
+        model: "Yes, definitely. Many young people leave school without knowing how to make a budget, how interest on a loan works, or how to avoid debt from credit cards. These are skills everyone needs, but not every family talks about money at home. A short course in the last year of high school, with practical exercises like planning a monthly budget, could prevent a lot of problems later in life.",
+        tip: 'Tiêu chí: lập trường rõ · liệt kê 2–3 kỹ năng cụ thể · lý do vì sao trường học cần dạy · đề xuất hình thức cụ thể.' },
+      { q: 'Some people say that young people today spend too much money on things they don\'t need. Do you agree?',
+        model: "I partly agree. Online shopping and social media advertising make it very easy to buy things on impulse, and I've definitely done that myself. However, I don't think it's only a problem for young people, and many students actually spend very carefully because they have limited income. A simple habit that helps is waiting twenty-four hours before buying anything that isn't essential.",
+        tip: 'Tiêu chí: quan điểm có mức độ ("I partly agree") · nguyên nhân + ví dụ bản thân · phản biện bằng "However" · kết bằng lời khuyên thực tế.' },
+    ],
+  });
+
 
   /* Xoay vị trí đáp án đúng (chỉ các unit của bộ 4) */
   const PAT = [2, 0, 3, 1, 1, 3, 0, 2, 3, 2, 1, 0];
