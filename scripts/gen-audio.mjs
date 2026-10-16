@@ -54,6 +54,8 @@ for (const u of (c.TOEFL || {}).speaking || []) { const v = GEN[u.accent] || GEN
 const writeIndex = () => { const keys = fs.readdirSync(OUT).filter(f => f.endsWith('.mp3')).map(f => f.slice(0, -4)).sort(); fs.writeFileSync(IDX, `/* Danh sách câu thoại đã có file âm thanh Kokoro (tự sinh bởi scripts/gen-audio.mjs) */\n(function (g) { g.LISTEN_AUDIO = new Set(${JSON.stringify(keys.join(' '))}.split(' ').filter(Boolean)); })(typeof self !== 'undefined' ? self : this);\n`); return keys.length; };
 console.log(`${parts.length} phần nghe · cần tạo ${jobs.size} câu`);
 if (jobs.size && limit > 0) {
+  // phonemizer (emscripten) nuốt lỗi và in cả mã nguồn 1 dòng khổng lồ → tự in lỗi ngắn gọn trước
+  for (const ev of ['uncaughtException', 'unhandledRejection']) process.prependListener(ev, e => console.error(`✗ ${ev}: ${e && (e.cause ? (e.cause.code || e.cause.message) + ' · ' : '') + (e && e.message)}`));
   const { KokoroTTS } = require('kokoro-js');
   // Tải mô hình (~90 MB từ Hugging Face) – thử lại khi mạng/máy chủ lỗi tạm thời (máy chủ CI hay bị từ chối lần đầu)
   let tts = null;
