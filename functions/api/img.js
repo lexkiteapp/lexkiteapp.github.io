@@ -13,7 +13,7 @@ function pick(results, word) {
   const words = r => (r.title || '').replace(/\.[a-z]{3,4}$/i, '').split(/[\s_\-–:,.!?()]+/).filter(Boolean);
   const whole = new RegExp(`(^|[^a-z])${stem}[a-z]{0,4}([^a-z]|$)`, 'i');
   const EVENT = /\b(minister|president|chair|ceremony|conference|summit|forum|meeting|briefing|speech|addresses|day|award|festival|society|association|council|committee|campaign|initiative|program(me)?|report|press|launch|logo|poster|flyer|sign|map|chart|diagram|screenshot|slide|book|cover|museum|exhibit|mural|painting|portrait|plan|dictionary|definition|glossary|facebook|twitter|google|microsoft|apple|amazon|youtube|instagram|website|online|internet|privacy|hire|ie\d+|warming|amphibian)\b/i;
-  const strict = r => photo(r) && whole.test(r.title || '') && words(r).length <= 5 && !EVENT.test(r.title || '');
+  const strict = r => photo(r) && whole.test(r.title || '') && words(r).length <= 2 && !EVENT.test(r.title || ''); // tiêu đề gần như đúng bằng từ ("Market", "Research") – thà không ảnh còn hơn ảnh lạc đề
   return results.find(r => strict(r) && free(r)) || results.find(strict);
 }
 const thumbOf = r => {
@@ -46,7 +46,7 @@ async function wiki(word) {
 export async function onRequestGet({ request, waitUntil }) {
   const url = new URL(request.url), word = String(url.searchParams.get('w') || '').toLowerCase().trim().slice(0, 60);
   if (!/^[a-z][a-z' -]*$/.test(word)) return H({ none: true }, 86400);
-  const key = new Request(`https://lexkite.com/api/img?w=${encodeURIComponent(word)}&v=4`), cache = caches.default; // v3: Wikipedia trước, Openverse lọc chặt sau → bỏ đệm ảnh lệch nghĩa cũ
+  const key = new Request(`https://lexkite.com/api/img?w=${encodeURIComponent(word)}&v=5`), cache = caches.default; // v3: Wikipedia trước, Openverse lọc chặt sau → bỏ đệm ảnh lệch nghĩa cũ
   const hit = await cache.match(key); if (hit) return hit;
   let out = { none: true }, ttl = 7 * 86400;
   // 1) Ảnh đại diện bài Wikipedia đúng khái niệm (society → gia đình, climate → mây…) – thường đúng nghĩa hơn ảnh khớp chữ trong tiêu đề
