@@ -19,14 +19,15 @@
   }
 
   // Nhắc học hằng ngày theo giờ người học chọn trong Cài đặt (mặc định 20:00)
-  async function scheduleReminder() {
+  // opts.ask: chỉ xin quyền thông báo khi người dùng chủ động (lưu cài đặt/thiết lập) – KHÔNG hỏi ngay lúc mở app (trải nghiệm & yêu cầu App Store)
+  async function scheduleReminder(opts = {}) {
     const LN = P.LocalNotifications; if (!LN || !g.Core) return;
     try {
       const s = await g.Core.Store.get('settings', {});
       await LN.cancel({ notifications: [{ id: 1 }] }).catch(() => {});
       if (s.reminderOn === false) return;
       const perm = await LN.checkPermissions();
-      if (perm.display !== 'granted') { const r = await LN.requestPermissions(); if (r.display !== 'granted') return; }
+      if (perm.display !== 'granted') { if (!opts.ask) return; const r = await LN.requestPermissions(); if (r.display !== 'granted') return; }
       const [hh, mm] = String(s.reminderTime || '20:00').split(':').map(Number);
       const tt = (k, en) => (typeof g.t === 'function' ? g.t(k) : en); // đúng ngôn ngữ giao diện (15 ngôn ngữ)
       await LN.schedule({ notifications: [{
@@ -61,5 +62,5 @@
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncBar);
   window.addEventListener('load', syncBar);
   g.VBNative.scheduleReminder = scheduleReminder;
-  window.addEventListener('load', () => setTimeout(scheduleReminder, 3000));
+  window.addEventListener('load', () => setTimeout(() => scheduleReminder({ ask: false }), 3000));
 })(typeof self !== 'undefined' ? self : this);

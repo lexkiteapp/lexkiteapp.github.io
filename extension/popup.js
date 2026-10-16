@@ -25,6 +25,7 @@
   document.querySelectorAll('[data-tx-html]').forEach(el => { el.innerHTML = tx(el.innerHTML.trim()); });
   document.querySelectorAll('[data-tx-ph]').forEach(el => { el.placeholder = tx(el.placeholder); });
   const { Store, Cards, Stats, DEFAULT_SETTINGS, todayKey } = Core;
+  chrome.runtime.sendMessage({ type: 'usage', ev: 'popup' }).catch(() => {}); // thống kê ẩn danh: chỉ đếm số lần mở
   const $ = s => document.querySelector(s);
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   // Mở ứng dụng: dùng lại tab Lexkite đang mở (không mở thêm tab), chờ Chrome mở xong rồi mới đóng popup

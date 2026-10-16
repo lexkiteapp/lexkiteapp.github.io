@@ -167,7 +167,10 @@
       // 1 lượt gọi: máy chủ chỉ trả meta + các gói thẻ đã thay đổi kể từ lần đồng bộ trước
       if (Date.now() < await Store.get('syncPausedUntil', 0)) return setStatus('ok', t('Đồng bộ tạm nghỉ – dữ liệu vẫn trên máy.'));
       const pulled = (await Store.get('pulledHashes', {}))[Sync.user.uid] || {};
-      const docs = (await api({ op: 'pull', have: pulled })).docs || {};
+      // Phễu chuyển đổi: gửi mã khách ẩn danh (lk.vid) 1 lần cho mỗi tài khoản trên máy này → máy chủ ghi vid_uid (khách → đăng ký)
+      let vid = ''; try { const v = localStorage.getItem('lk.vid') || ''; if (/^[a-z0-9]{8,32}$/.test(v) && localStorage.getItem('lk.vidUid') !== Sync.user.uid) vid = v; } catch (e) { /* bỏ qua */ }
+      const docs = (await api(vid ? { op: 'pull', have: pulled, vid } : { op: 'pull', have: pulled })).docs || {};
+      if (vid) try { localStorage.setItem('lk.vidUid', Sync.user.uid); } catch (e) { /* bỏ qua */ }
       const hs = (docs.meta && docs.meta.hs) || {};
       // Đăng nhập tài khoản khác với lần trước → hỏi trước khi gộp dữ liệu trên máy vào
       const lastUid = await Store.get('lastUid', '');

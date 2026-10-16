@@ -1,9 +1,10 @@
 /* API trang quản trị (/admin.html). Chỉ email trong biến bí mật ADMIN_EMAILS (Cloudflare Pages) được dùng.
  * POST /api/admin  (Authorization: Bearer <Firebase ID token>)  { op, ... }
- * op: usage · services · serviceSet · serviceDelete · overview · users · usersExport · user · userDelete · inbox · inboxMark · analytics · live · errors · errorsClear · config · configSet · alerts */
+ * op: usage · services · serviceSet · serviceDelete · overview · users · usersExport · user · userDelete · inbox · inboxMark · analytics · live · growth · errors · errorsClear · config · configSet · alerts */
 import { claims, limit } from './sync.js';
 import { geminiKeys, geminiCall, isCooling, resetGeminiCache, gemFetch } from './ai.js';
 import { setup as hitSetup } from './hit.js';
+import { growthData } from './growth.js';
 
 const ORIGINS = /^https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)$/;
 const REPO = 'lexkiteapp/lexkiteapp.github.io';
@@ -221,6 +222,8 @@ const OPS = {
     const rate = +((await one(db, "SELECT v FROM config WHERE k = 'hit_rate'").catch(() => null)) || {}).v || 1;
     return { at: now, rate, ...fast, ...slow };
   },
+  // Tăng trưởng & giữ chân, add-on Chrome, phễu chuyển đổi (functions/api/growth.js) – đệm 10 phút theo kỳ 7/30/90 ngày
+  async growth(db, b) { const P = [7, 30, 90].includes(+b.days) ? +b.days : 30; return cached('growth-v1?d=' + P, 600, () => growthData(db, P)); },
   async errors(db) { return { rows: await all(db, 'SELECT * FROM errors ORDER BY last DESC LIMIT 200') }; },
   async errorsClear(db, b) { if (b.h) await db.prepare('DELETE FROM errors WHERE h = ?').bind(String(b.h)).run(); else await db.prepare('DELETE FROM errors').run(); return { ok: true }; },
   async config(db) { const rows = (await all(db, 'SELECT k, v, at, by FROM config')).filter(r => CONFIG_KEYS.includes(r.k)); return { keys: CONFIG_KEYS, values: Object.fromEntries(rows.map(r => [r.k, r])) }; },

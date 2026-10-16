@@ -4,6 +4,7 @@
   const { Store, Cards, SRS, DEFAULT_SETTINGS } = Core;
   const settings = { ...DEFAULT_SETTINGS, ...(await Store.get('settings', {})) };
   if (settings.newtabOn === false) { try { const tab = await chrome.tabs.getCurrent(); chrome.tabs.update(tab.id, { url: 'chrome://new-tab-page/' }); } catch (e) { location.replace('https://www.google.com/'); } return; }
+  chrome.runtime.sendMessage({ type: 'usage', ev: 'newtab' }).catch(() => {}); // thống kê ẩn danh: chỉ đếm số lần mở
   const XL = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'], pick = l => { l = String(l || '').toLowerCase().split('-')[0]; return XL.includes(l) ? l : null; };
   let L = pick(chrome.i18n.getUILanguage()) || 'en'; try { const { uiLang } = await chrome.storage.local.get('uiLang'); if (pick(uiLang)) L = pick(uiLang); } catch (e) { /* bỏ qua */ }
   let XD = {}; if (L !== 'vi' && L !== 'en') try { XD = ((await chrome.runtime.sendMessage({ type: 'uiDict', lang: L })) || {}).dict || {}; } catch (e) { /* bỏ qua */ }

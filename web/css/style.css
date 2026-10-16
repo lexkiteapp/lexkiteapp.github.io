@@ -922,7 +922,7 @@ button, .btn, .option, .tabs, .bottom-nav { -webkit-user-select: none; user-sele
 .wn-slot:empty { display: none; }
 .wn-slot { margin-top: 1rem; }
 /* App gốc (Capacitor): chừa tai thỏ/thanh trạng thái ở trên & thanh điều hướng ở dưới */
-html.native .topbar { padding-top: max(.6rem, env(safe-area-inset-top)); }
+html.native .topbar, html.native .w-head { padding-top: max(.6rem, env(safe-area-inset-top)); } /* app iOS/Android: đầu trang không đè tai thỏ/thanh trạng thái */
 html.native body { overscroll-behavior: none; }
 html:not([lang="vi"]) .vi-only { display: none !important; }
 /* ===== Mượt như app gốc ===== */
@@ -1340,3 +1340,7 @@ mark.g-ok { background: rgba(21,128,61,.18); color: var(--good); font-weight: 70
 .adm-ic { width: 40px; height: 40px; flex: none; display: grid; place-items: center; font-size: 1.25rem; border-radius: 12px; background: var(--primary-soft); }
 .adm-tx { display: flex; flex-direction: column; min-width: 0; } .adm-tx b { font-size: .95rem; } .adm-tx small { color: var(--muted); font-size: .78rem; line-height: 1.35; }
 @media (max-width: 480px) { .adm-grid { grid-template-columns: 1fr 1fr; } .adm-tile { flex-direction: column; align-items: flex-start; gap: .45rem; padding: .75rem; } }
+
+/* Trang chào mừng trên màn hẹp: ẩn menu chữ (Tính năng/Thi thử/Add-on) để không xuống dòng – đã có nút Bắt đầu & Đăng nhập */
+@media (max-width: 600px) { .w-head .w-nav { display: none; } }
+html.native .w-nav a[href="#/settings"] { display: none; } /* trong app không quảng cáo add-on Chrome */

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Lexkite – Sorry to see you go</title>
+  <link rel="icon" href="icons/icon.svg">
+  <style>
+    :root { --bg: #f6f4ef; --card: #fff; --text: #1d2a2b; --muted: #5d6b6c; --line: #e3ded3; --primary: #1F7A72; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #0f1a1c; --card: #172427; --text: #e7eeee; --muted: #9db0b1; --line: #27393c; --primary: #3fb3a6; } }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 16px; background: var(--bg); color: var(--text); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    .box { width: 100%; max-width: 520px; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 28px 24px; text-align: center; }
+    .logo { width: 56px; height: 56px; }
+    h1 { font-size: 1.45rem; margin: .6rem 0 .3rem; }
+    p { color: var(--muted); margin: .3rem 0 1rem; }
+    .reasons { display: grid; gap: 8px; margin: 1rem 0; }
+    .reasons button { font: inherit; text-align: left; padding: 11px 14px; border-radius: 12px; border: 1.5px solid var(--line); background: transparent; color: var(--text); cursor: pointer; }
+    .reasons button:hover, .reasons button:focus-visible { border-color: var(--primary); outline: none; }
+    .reasons button.on { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .thanks { color: var(--primary); font-weight: 600; min-height: 1.5em; }
+    .links a { color: var(--primary); font-weight: 600; text-decoration: none; margin: 0 .5rem; }
+    .lng { position: fixed; top: 12px; right: 16px; font: inherit; font-size: .85rem; background: transparent; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <button class="lng" id="lng" type="button"></button>
+  <main class="box">
+    <img class="logo" src="icons/icon.svg" alt="">
+    <h1 data-t="h"></h1>
+    <p data-t="sub"></p>
+    <div class="reasons" id="reasons"></div>
+    <div class="thanks" id="thanks" aria-live="polite"></div>
+    <p class="links"><a href="/" data-t="web"></a><a href="/#/contact" data-t="contact"></a></p>
+  </main>
+  <script>
+  /* Trang sau khi gỡ add-on (chrome.runtime.setUninstallURL): đếm 1 lượt gỡ + lý do (tùy chọn) – ẩn danh, không cookie, không dữ liệu cá nhân. */
+  (function () {
+    var T = {
+      vi: { h: 'Rất tiếc khi bạn rời đi 😢', sub: 'Lexkite đã được gỡ khỏi trình duyệt. Bạn có thể cho chúng mình biết lý do không? (chỉ 1 chạm, ẩn danh)', web: 'Tiếp tục học trên web →', contact: 'Góp ý', thanks: 'Cảm ơn bạn! Chúng mình sẽ cải thiện Lexkite.', lng: 'English',
+        r: { notuse: 'Mình không còn dùng nữa', noisy: 'Hiện popup/gạch chân gây phiền', bugs: 'Bị lỗi hoặc chạy chậm', privacy: 'Lo ngại quyền riêng tư / quyền truy cập', alt: 'Đã chuyển sang công cụ khác', other: 'Lý do khác' } },
+      en: { h: 'Sorry to see you go 😢', sub: 'Lexkite has been removed from your browser. Could you tell us why? (one tap, anonymous)', web: 'Keep learning on the web →', contact: 'Feedback', thanks: 'Thank you! We will use this to make Lexkite better.', lng: 'Tiếng Việt',
+        r: { notuse: 'I don’t use it anymore', noisy: 'Popups/underlines were annoying', bugs: 'Bugs or slow performance', privacy: 'Privacy / permission concerns', alt: 'Switched to another tool', other: 'Other reason' } }
+    };
+    var q = new URLSearchParams(location.search), lang = q.get('l') === 'vi' || (!q.get('l') && /^vi/i.test(navigator.language || '')) ? 'vi' : 'en', picked = '';
+    var send = function (d) { try { var b = JSON.stringify(Object.assign({ t: 'x' }, d)); navigator.sendBeacon ? navigator.sendBeacon('/api/hit', b) : fetch('/api/hit', { method: 'POST', body: b, keepalive: true }); } catch (e) { /* bỏ qua */ } };
+    var paint = function () {
+      var t = T[lang]; document.documentElement.lang = lang; document.title = 'Lexkite – ' + t.h.replace(/\s*\S+$/, '');
+      document.querySelectorAll('[data-t]').forEach(function (el) { el.textContent = t[el.getAttribute('data-t')]; });
+      document.getElementById('lng').textContent = t.lng;
+      var box = document.getElementById('reasons'); box.innerHTML = '';
+      Object.keys(t.r).forEach(function (k) {
+        var b = document.createElement('button'); b.type = 'button'; b.textContent = t.r[k]; if (k === picked) b.className = 'on'; b.disabled = !!picked;
+        b.onclick = function () { if (picked) return; picked = k; send({ ev: {}, reason: k }); document.getElementById('thanks').textContent = T[lang].thanks; paint(); };
+        box.appendChild(b);
+      });
+      if (picked) document.getElementById('thanks').textContent = t.thanks;
+    };
+    document.getElementById('lng').onclick = function () { lang = lang === 'vi' ? 'en' : 'vi'; paint(); };
+    paint();
+    // Chỉ đếm khi đến từ add-on (src=ext) và 1 lần mỗi tab (tải lại trang không cộng thêm)
+    try { if (q.get('src') === 'ext' && !sessionStorage.getItem('lk.bye')) { sessionStorage.setItem('lk.bye', '1'); send({ ev: { uninstall: 1 } }); } } catch (e) { /* bỏ qua */ }
+  })();
+  </script>
+</body>
+</html>

@@ -578,6 +578,7 @@
         </div>
         <p class="small muted" style="margin-top:1rem">${L('Thống kê ẩn danh tự xây: không cookie, không lưu IP; quốc gia do Cloudflare xác định. Không tính bot, Lighthouse và chế độ sandbox. "Hôm nay" theo giờ UTC.')}</p>`;
       main.querySelectorAll('[data-d]').forEach(b => b.onclick = () => { sessionStorage.setItem('adm.days', b.dataset.d); show('analytics'); });
+      if (window.AdminGrowth) { const g = document.createElement('section'); main.appendChild(g); AdminGrowth.render(g, api, L, { esc, num, lang: () => LANG }); } // js/admin-growth.js
       if (!l) return;
       drawMap(l.countries);
       // Tự cập nhật thẻ trực tiếp 30 giây/lần – chỉ khi đang mở tab Phân tích và trang đang hiển thị

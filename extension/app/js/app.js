@@ -46,7 +46,7 @@
     applyTheme();
     updateChrome();
   }
-  const saveSettings = async () => { await Store.set('settingsAt', Date.now()); const r = await Store.set('settings', state.settings); if (window.VBNative && VBNative.scheduleReminder) VBNative.scheduleReminder(); return r; }; // app gốc: đặt lại giờ nhắc học
+  const saveSettings = async () => { await Store.set('settingsAt', Date.now()); const r = await Store.set('settings', state.settings); if (window.VBNative && VBNative.scheduleReminder) VBNative.scheduleReminder({ ask: !!state.settings.onboarded }); return r; }; // app gốc: đặt lại giờ nhắc học
 
   // Ngày có học = có ôn thẻ hoặc có XP
   function activeDays() {
@@ -1704,6 +1704,8 @@
     // Nền tảng: app Capacitor tách iOS / Android (dòng cũ 'app' vẫn đọc được trong Quản trị)
     const cap = window.Capacitor, capP = cap && cap.getPlatform ? cap.getPlatform() : '';
     const plat = /^chrome-extension:/.test(location.protocol) ? 'ext' : capP === 'ios' || capP === 'android' ? capP : /^capacitor:/.test(location.protocol) || cap ? 'app' : matchMedia('(display-mode: standalone)').matches ? 'pwa' : 'web';
+    // Add-on: dùng chung mã khách với service worker (chrome.storage 'lk.vid') để thống kê add-on & phễu khớp nhau (áp dụng từ phiên sau)
+    if (plat === 'ext' && window.chrome && chrome.storage) try { chrome.storage.local.get('lk.vid').then(o => { const x = o['lk.vid']; if (!x) chrome.storage.local.set({ 'lk.vid': vid }); else if (x !== vid) localStorage.setItem('lk.vid', x); }).catch(() => {}); } catch (e) { /* bỏ qua */ }
     const dev = innerWidth < 768 ? 'mobile' : innerWidth < 1100 ? 'tablet' : 'desktop';
     let pages = 1, dur = 0, since = document.visibilityState === 'visible' ? Date.now() : 0, errs = 0;
     let lcp = 0; try { new PerformanceObserver(l => { const e = l.getEntries().pop(); if (e) lcp = Math.round(e.startTime); }).observe({ type: 'largest-contentful-paint', buffered: true }); } catch (e) { /* trình duyệt không hỗ trợ */ } // LCP thật của người dùng (Core Web Vitals)

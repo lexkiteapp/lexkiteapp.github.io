@@ -344,6 +344,7 @@
     meta = meta || { source: location.href, title: document.title };
     if (mode === 'nested' && cur) hist.push(cur); else if (mode !== 'back') hist = [];
     cur = { word, rect, context, meta };
+    if (mode !== 'back') try { chrome.runtime.sendMessage({ type: 'usage', ev: 'lookup' }).catch(() => {}); } catch (x) { /* add-on vừa cập nhật */ } // chỉ đếm số lần – không gửi từ/URL
     ensureHost();
     hideFab();
     const b = box();

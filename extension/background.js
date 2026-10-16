@@ -108,6 +108,38 @@ async function injectIntoOpenTabs() {
   await Promise.all(tabs.map(t => chrome.scripting.executeScript({ target: { tabId: t.id, allFrames: true }, files: ['app/js/structures.js', 'content.js'] }).catch(() => {})));
 }
 
+// ---------- Thống kê sử dụng ẩn danh (functions/api/hit.js t:'x') ----------
+// Chỉ đếm số lần (tra từ / lưu thẻ / mở popup / mở tab mới) theo ngày trên máy; gửi 1 lượt/ngày vào lần dùng đầu tiên của ngày mới
+// (kèm tổng của ngày dùng trước đó). Không gửi từ đã tra, URL trang, email hay bất kỳ dữ liệu cá nhân nào.
+const HIT = 'https://lexkite.com/api/hit', USE_EV = ['lookup', 'save', 'popup', 'newtab'];
+const isDevInstall = () => !chrome.runtime.getManifest().update_url; // bản "Load unpacked" trên máy phát triển
+async function extVid() {
+  const o = await chrome.storage.local.get('lk.vid');
+  if (/^[a-z0-9]{8,32}$/.test(o['lk.vid'] || '')) return o['lk.vid'];
+  const v = Math.random().toString(36).slice(2, 10) + Date.now().toString(36); // cùng dạng với lk.vid của web app
+  await chrome.storage.local.set({ 'lk.vid': v });
+  return v;
+}
+const hitLang = async () => pickLang((await chrome.storage.local.get('uiLang')).uiLang) || UI_LANG;
+async function sendHit(body) {
+  try { await fetch(HIT, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ t: 'x', vid: await extVid(), ver: chrome.runtime.getManifest().version, lang: await hitLang(), ...body }), keepalive: true }); } catch (e) { /* mạng lỗi – bỏ qua */ }
+}
+let useQ = Promise.resolve(); // ghi tuần tự để không mất lượt đếm khi nhiều tin nhắn tới cùng lúc
+function countUse(ev) {
+  if (!USE_EV.includes(ev)) return;
+  useQ = useQ.then(async () => {
+    const day = new Date().toISOString().slice(0, 10); // ngày UTC, khớp máy chủ
+    let u = (await chrome.storage.local.get('lk.use'))['lk.use'];
+    let prev = null;
+    if (!u || u.day !== day) { if (u && u.day && u.c) prev = { day: u.day, ev: u.c }; u = { day, c: { lookup: 0, save: 0, popup: 0, newtab: 0 }, sent: false }; }
+    u.c[ev] = (u.c[ev] || 0) + 1;
+    const first = !u.sent; u.sent = true; u.active = true;
+    await chrome.storage.local.set({ 'lk.use': u });
+    if (first) sendHit({ day, ev: u.c, prev: prev || undefined });
+  }).catch(() => {});
+}
+try { if (chrome.runtime.setUninstallURL) chrome.runtime.setUninstallURL('https://lexkite.com/bye?src=ext&v=' + encodeURIComponent(chrome.runtime.getManifest().version) + '&l=' + UI_LANG); } catch (e) { /* bỏ qua */ }
+
 chrome.runtime.onInstalled.addListener(async ({ reason }) => {
   await initContextMenus();
   injectIntoOpenTabs();
@@ -115,6 +147,7 @@ chrome.runtime.onInstalled.addListener(async ({ reason }) => {
   await scheduleReminder();
   updateBadge();
   if (reason === 'install') openApp('#/home');
+  if (!isDevInstall() && (reason === 'install' || reason === 'update')) sendHit({ ev: { [reason]: 1 } });
 });
 chrome.runtime.onStartup.addListener(() => { scheduleReminder(); updateBadge(); });
 
@@ -237,6 +270,7 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
       }
       case 'save': {
         const card = await Cards.add(msg.entry, msg.context);
+        if (sender.tab && /^https?:/.test(sender.url || '')) countUse('save'); // lưu từ trang web (content script)
         scheduleBgSync();
         return reply({ ok: true, card });
       }
@@ -244,6 +278,7 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
         scheduleBgSync();
         return reply({ ok: true });
       }
+      case 'usage': countUse(msg.ev); return reply({ ok: true });
       case 'uiDict': return reply({ dict: await uiDict(msg.lang) });
       case 'ytTracks': { // danh sách phụ đề của video YouTube (đọc player response trong trang – chỉ URL phụ đề, không dữ liệu người dùng)
         try {

@@ -64,6 +64,7 @@ export async function limit(key, max, windowSec) {
 async function setup(db) {
   if (ready) return;
   await db.prepare('CREATE TABLE IF NOT EXISTS users (uid TEXT PRIMARY KEY, email TEXT, name TEXT, created INTEGER NOT NULL, seen INTEGER NOT NULL, plat TEXT, n INTEGER DEFAULT 1) WITHOUT ROWID').run();
+  await db.prepare('CREATE TABLE IF NOT EXISTS vid_uid (vid TEXT PRIMARY KEY, uid TEXT NOT NULL, at INTEGER NOT NULL) WITHOUT ROWID').run();
   await db.prepare('CREATE TABLE IF NOT EXISTS docs (uid TEXT NOT NULL, k TEXT NOT NULL, h TEXT NOT NULL, body TEXT NOT NULL, updated INTEGER NOT NULL, PRIMARY KEY (uid, k)) WITHOUT ROWID').run();
   ready = true;
 }
@@ -87,6 +88,8 @@ export async function onRequestPost({ request, env }) {
       const o = request.headers.get('Origin') || '', plat = /^chrome-extension:/.test(o) ? 'ext' : /^capacitor:/.test(o) ? 'ios' : o === 'https://localhost' ? 'android' : 'web', now = Date.now();
       await env.DB.prepare('INSERT INTO users (uid, email, name, created, seen, plat, n) VALUES (?1, ?2, ?3, ?4, ?4, ?5, 1) ON CONFLICT (uid) DO UPDATE SET email = ?2, name = ?3, seen = ?4, plat = ?5, n = n + 1 WHERE users.seen < ?4 - 3600000')
         .bind(uid, String(who.email || '').slice(0, 200), String(who.name || '').slice(0, 100), now, plat).run().catch(() => {});
+      // Phễu chuyển đổi: máy gửi mã khách ẩn danh 1 lần/tài khoản → gắn vid với uid (giữ liên kết đầu tiên)
+      if (typeof req.vid === 'string' && /^[a-z0-9]{8,32}$/.test(req.vid)) await env.DB.prepare('INSERT OR IGNORE INTO vid_uid (vid, uid, at) VALUES (?1, ?2, ?3)').bind(req.vid, uid, now).run().catch(() => {});
       const have = req.have && typeof req.have === 'object' ? req.have : {};
       // Bước 1: chỉ lấy khóa + hash (nhẹ); bước 2: chỉ đọc nội dung tài liệu khác hash với máy người dùng
       const { results } = await env.DB.prepare('SELECT k, h FROM docs WHERE uid = ?').bind(uid).all();
