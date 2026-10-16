@@ -54,7 +54,7 @@ export async function geminiCall(env, body, model = 'gemini-2.5-flash') {
   for (let n = 0; n < keys.length; n++) {
     const k = keys[(start + n) % keys.length]; if (await isCooling(k)) continue;
     let r; try { r = await gemFetch(env, `models/${model}:generateContent`, k, body); } catch (e) { continue; }
-    if (!r.ok) gemDiag += ` …${k.slice(-4)}:${r.status}`;
+    if (!r.ok) gemDiag += ` …${k.slice(-4)}:${r.status}:${(await r.clone().text().catch(() => "")).replace(/\s+/g, " ").slice(0, 160)}`;
     if (!r.ok) console.log('gemini', k.slice(-4), r.status, (await r.clone().text().catch(() => '')).slice(0, 200)); // xem bằng wrangler pages deployment tail
     if (r.status === 429 || r.status === 403 || r.status === 401) { await cool(k); continue; } // hết lượt / khóa hỏng → nghỉ 1 giờ, thử khóa khác
     if (!r.ok) continue;
