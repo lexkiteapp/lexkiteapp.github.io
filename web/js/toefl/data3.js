@@ -1,4 +1,4 @@
-/* TOEFL iBT (định dạng từ 21/01/2026) – Bộ luyện tập 3 (+ Reading & Listening bộ 4). Nội dung 100% tự biên soạn, không dùng tài liệu của ETS.
+/* TOEFL iBT (định dạng từ 21/01/2026) – Bộ luyện tập 3 và 4 (bộ 4 ghép vào đây vì app.js chỉ nạp data1–3). Nội dung 100% tự biên soạn, không dùng tài liệu của ETS.
  * Nạp SAU data1.js và data2.js: chỉ BỔ SUNG vào window.TOEFL (không ghi đè), cùng định dạng với data1/data2.
  *  - Số câu `n` nối tiếp bộ 2 (vd. Daily Life 21–30, Academic 41–60…) để tên ô chọn (radio "q{n}") không trùng.
  *  - Email/Discussion/Repeat/Interview: hiện thành thẻ "Bộ 5", "Bộ 6" (chọn qua ?i=).
@@ -821,6 +821,138 @@
       { n: 64, q: 'What can be inferred about the officials who judged the prize?', options: ['They had expected a solution based on astronomy.', 'They designed sea clocks themselves.', 'They paid Harrison the full prize immediately.', 'They did not believe longitude was important.'], a: 0, cue: 'slow to accept a mechanical solution',
         explain: "Câu suy luận: nhiều chuyên gia \"expected the answer to come from astronomy\", và hội đồng \"slow to accept a mechanical solution\", chỉ trả tiền thưởng từng phần, muộn màng → suy ra họ đã kỳ vọng một giải pháp thiên văn học hơn là đồng hồ cơ." },
     ])],
+  });
+
+  /* ===================================================================
+   * BỘ 4 · WRITING & SPEAKING (tự biên soạn). Build a Sentence câu 31–40.
+   * =================================================================== */
+  TF.writing.push({
+    id: 'tf4-bs', set: 4, task: 'sentence', title: 'Build a Sentence · Set 4',
+    instr: 'Put the words in the correct order to make a grammatical response.',
+    items: [
+      { n: 31, prompt: 'Why were you late for class?', chunks: ['the bus', 'was', 'delayed', 'because of', 'the heavy snow'], end: '.',
+        explain: "Câu bị động quá khứ S + was + V3: \"the bus was delayed\"; \"because of + cụm danh từ\" chỉ nguyên nhân đứng sau: \"because of the heavy snow\"." },
+      { n: 32, prompt: 'Have you decided which course to take?', chunks: ['I', 'haven\'t', 'made up', 'my mind', 'yet'], end: '.',
+        explain: "Hiện tại hoàn thành phủ định \"haven't + V3\"; cụm \"make up my mind\" = quyết định; \"yet\" đứng cuối câu phủ định." },
+      { n: 33, prompt: 'Can you tell me where the computer lab is?', chunks: ['it\'s', 'on the third floor', 'next to', 'the library entrance'], end: '.',
+        explain: "S + be + nơi chốn: \"it's on the third floor\"; cụm vị trí bổ sung \"next to the library entrance\" đứng sau." },
+      { n: 34, prompt: 'What did the professor say about the project?', chunks: ['she', 'told us', 'to', 'finish', 'the first draft', 'by Friday'], end: '.',
+        explain: "Câu tường thuật mệnh lệnh: tell + sb + to V → \"she told us to finish the first draft\"; mốc thời hạn \"by Friday\" đứng cuối." },
+      { n: 35, prompt: 'Do you know when the café opens?', chunks: ['I', 'think', 'it', 'opens', 'at', 'seven thirty'], end: '.',
+        explain: "Câu trả lời dùng mệnh đề sau \"I think\": \"I think it opens at seven thirty\" – chủ ngữ \"it\" số ít nên \"opens\" thêm -s; \"at\" + giờ." },
+      { n: 36, prompt: 'Is the new dormitory better than the old one?', chunks: ['it\'s', 'much', 'quieter', 'than', 'the one', 'I lived in', 'last year'], end: '.',
+        explain: "So sánh hơn có từ nhấn mạnh: \"much + quieter + than\"; \"the one (that) I lived in last year\" là mệnh đề quan hệ rút gọn đại từ." },
+      { n: 37, prompt: 'Could you help me move these chairs?', chunks: ['where', 'would you like', 'me', 'to put', 'them'], end: '?', starter: 'Sure!',
+        explain: "Câu hỏi Wh- với \"would you like + sb + to V\": \"where would you like me to put them?\" (bạn muốn mình đặt chúng ở đâu?)." },
+      { n: 38, prompt: 'Did you enjoy the guest lecture?', chunks: ['it was', 'more interesting', 'than', 'I had expected'], end: '.', starter: 'Yes!',
+        explain: "So sánh hơn \"more interesting than\"; quá khứ hoàn thành \"I had expected\" diễn tả điều đã nghĩ TRƯỚC buổi giảng." },
+      { n: 39, prompt: 'Why did you choose this university?', chunks: ['it', 'offers', 'one of', 'the best', 'engineering programs', 'in the country'], end: '.',
+        explain: "Cấu trúc \"one of + the + so sánh nhất + danh từ số nhiều\": \"one of the best engineering programs\"; nơi chốn \"in the country\" đứng cuối." },
+      { n: 40, prompt: 'Should I bring anything to the study group?', chunks: ['you', 'might', 'want', 'to bring', 'your notes', 'from last week'], end: '.',
+        explain: "Lời khuyên nhẹ nhàng \"might want to + V\" (có lẽ bạn nên…): \"you might want to bring your notes from last week\"." },
+    ],
+  });
+  TF.writing.push({
+    id: 'tf4-em1', set: 4, task: 'email', title: 'Reporting a Problem in Your Dormitory', minutes: 7,
+    scenario: 'The heating in your dormitory room has not worked properly for a week. It is getting colder, and you have already told the front desk once, but nothing has happened.',
+    to: 'Ms. Patel, the housing services manager',
+    points: ['Describe the problem and how long it has lasted.', 'Explain how it is affecting you.', 'Ask for a specific action and suggest a time.'],
+    model: "Dear Ms. Patel,\n\nI am writing about a problem with the heating in my room, 314 in Maple Hall. For the past week, the radiator has only produced a little heat, and the temperature in the room has dropped to around 15°C at night.\n\nI reported the problem at the front desk last Monday, but no one has come to look at it yet. The cold is making it difficult for me to sleep and to study in my room, and I have had to spend most evenings in the library.\n\nCould you please arrange for a technician to check the radiator as soon as possible? I am available every morning before 11 a.m. this week, and I am happy for staff to enter the room if I am not there.\n\nThank you very much for your help.\n\nBest regards,\nDaniel Kim",
+    checklist: ['Nêu rõ vấn đề (lò sưởi hỏng), địa điểm (số phòng) và thời gian kéo dài ngay đoạn đầu', 'Cho biết đã báo trước đó nhưng chưa được xử lý – nêu sự việc, không trách móc', 'Giải thích ảnh hưởng cụ thể (khó ngủ, khó học)', 'Đề xuất hành động cụ thể và khung giờ thuận tiện', 'Giọng văn lịch sự, trang trọng; có lời cảm ơn và ký tên', 'Khoảng 120–180 từ'],
+    tips: 'Thư phản ánh hiệu quả khi có chi tiết kiểm chứng được (số phòng, nhiệt độ, ngày đã báo) và một đề nghị rõ ràng, thay vì chỉ than phiền chung chung.',
+  });
+  TF.writing.push({
+    id: 'tf4-em2', set: 4, task: 'email', title: 'Inviting a Classmate to a Study Group', minutes: 7,
+    scenario: 'You are organizing a study group for your statistics course before the final exam. A classmate, Lena, missed the last two classes but is good at statistics.',
+    to: 'Lena, a classmate in your statistics course',
+    points: ['Explain why you are writing.', 'Give details about the study group.', 'Explain why you would like her to join.'],
+    model: "Hi Lena,\n\nI hope you're doing well. I noticed you missed the last two statistics classes, so I wanted to let you know about a study group a few of us are starting before the final exam.\n\nWe're planning to meet every Tuesday and Thursday from 6 to 8 p.m. in Room 12 of the library, starting next week. Each session, we'll review one chapter and work through practice problems together. I can also share my notes from the classes you missed.\n\nIt would be great if you could join us. You always explain the difficult formulas so clearly in class, and I think the rest of us could learn a lot from you. Of course, it would also help you catch up on the material.\n\nLet me know if you're interested!\n\nBest,\nTom",
+    checklist: ['Mở đầu thân thiện và nêu lý do viết thư', 'Cung cấp chi tiết cụ thể: thời gian, địa điểm, nội dung buổi học', 'Nêu lý do mời (bạn giỏi môn này) và lợi ích cho cả hai bên', 'Đề nghị hỗ trợ (chia sẻ ghi chép) – thể hiện thiện chí', 'Giọng văn thân mật nhưng rõ ràng; có câu kết mời phản hồi', 'Khoảng 120–180 từ'],
+    tips: 'Với thư gửi bạn cùng lớp, giọng văn thân mật hơn (Hi…, Best,…) nhưng vẫn cần đủ ba ý của đề và chi tiết cụ thể.',
+  });
+  TF.writing.push({
+    id: 'tf4-ad1', set: 4, task: 'discussion', title: 'Should Homework Be Graded?', minutes: 10,
+    professor: { name: 'Dr. Owens', text: 'This week in our education course, we are looking at how teachers assess learning. Some teachers grade every homework assignment, while others give feedback but no grades, arguing that homework should be a chance to practise without pressure. Should homework count toward students\' final grades? Explain why or why not.' },
+    students: [
+      { name: 'Maya', text: 'Yes. If homework doesn\'t count, many students simply won\'t do it. Grades give people a reason to practise regularly instead of studying only before exams.' },
+      { name: 'Luis', text: 'I disagree. When homework is graded, students copy answers or use AI tools just to get points. Without grades, they would be more honest about what they don\'t understand.' },
+    ],
+    model: "I think homework should count toward final grades, but only for a small percentage. Maya is right that many students need some motivation to practise regularly; without any reward, homework often gets pushed aside by other deadlines. However, Luis makes a good point about copying. To solve this, teachers could grade homework mainly for completion and effort rather than for correct answers. For example, if each assignment were worth just one or two percent, students would still have a reason to do it, but there would be little benefit in copying. As a result, homework could remain a low-pressure way to practise while still encouraging good study habits.",
+    checklist: ['Nêu quan điểm rõ ngay câu đầu (đồng ý có điều kiện)', 'Phản hồi cả ý của Maya và Luis', 'Đóng góp ý MỚI: chấm theo mức độ hoàn thành, tỉ trọng điểm nhỏ', 'Có ví dụ cụ thể (1–2% mỗi bài) hỗ trợ lập luận', 'Dùng từ nối: However, For example, As a result', 'Tối thiểu khoảng 100 từ'],
+    tips: 'Một cách mạnh để đóng góp ý mới là đề xuất giải pháp dung hòa giải quyết mối lo của người phản đối, thay vì chỉ chọn một bên.',
+  });
+  TF.writing.push({
+    id: 'tf4-ad2', set: 4, task: 'discussion', title: 'Are Online Reviews Reliable?', minutes: 10,
+    professor: { name: 'Dr. Mensah', text: 'In our marketing class, we have discussed how online customer reviews influence what people buy. Some people rely heavily on star ratings and reviews, while others believe reviews are often fake or extreme. How much should consumers trust online reviews when making a purchase? Explain your view.' },
+    students: [
+      { name: 'Aiko', text: 'I trust them a lot. When hundreds of people say a product is good, it is probably good. Reviews also mention problems that advertisements never tell you about.' },
+      { name: 'David', text: 'I am more careful. Some companies pay for positive reviews, and people who had a bad experience are much more likely to write one than satisfied customers.' },
+    ],
+    model: "In my opinion, online reviews are useful, but consumers should read them carefully rather than trust the star rating alone. Aiko is correct that a large number of reviews can reveal real strengths and weaknesses that advertisements hide. On the other hand, David is right that some reviews are fake or written only by very angry customers. A good strategy is to focus on detailed reviews from verified buyers and to look for problems that many different people mention. For instance, if several reviewers say that a laptop battery lasts only two hours, that is probably true. In short, reviews are most reliable when we look for patterns instead of single opinions.",
+    checklist: ['Nêu quan điểm rõ ngay câu đầu', 'Phản hồi cả Aiko và David', 'Đóng góp ý MỚI: đọc đánh giá chi tiết, người mua đã xác minh, tìm điểm lặp lại', 'Có ví dụ cụ thể (pin laptop)', 'Dùng từ nối: On the other hand, For instance, In short', 'Tối thiểu khoảng 100 từ'],
+    tips: 'Tránh chỉ tóm tắt lại hai bạn; giám khảo chấm cao khi bạn đưa thêm tiêu chí hay cách làm cụ thể của riêng mình.',
+  });
+  TF.speaking.push({
+    id: 'tf4-rp1', set: 4, task: 'repeat', title: 'Library Help Desk', accent: 'en-GB',
+    context: 'You are training to work at the university library help desk. Listen to the supervisor and repeat exactly what you hear.',
+    sentences: [
+      { t: 'Good morning, how can I help?', tip: 'Nhấn "HELP"; "how can I" đọc lướt, nối âm /haʊkənaɪ/.' },
+      { t: 'Books are due back in three weeks.', tip: '"due back" giọng Anh /djuː bæk/; nhấn "THREE WEEKS".' },
+      { t: 'You can renew them online up to twice.', tip: '"renew" /rɪˈnjuː/; "up to" đọc lướt /ʌptə/.' },
+      { t: 'Quiet study rooms are on the fourth floor.', tip: '"Quiet" có hai âm tiết /ˈkwaɪət/, khác "quite"; "fourth floor" giữ rõ /θ/ và /fl/.' },
+      { t: 'Please keep food and drinks out of the reading room.', tip: 'Nối âm "out of" /aʊtəv/; nhấn "FOOD", "DRINKS", "READING ROOM".' },
+      { t: 'If a book is missing from the shelf, you can request it at this desk.', tip: 'Ngắt nhịp sau "shelf,"; "request it" nối âm /rɪˈkwestɪt/.' },
+      { t: 'Students who return books late will not be able to borrow anything until the fine is paid.', tip: 'Câu dài – chia nhịp: "Students who return books late / will not be able to borrow anything / until the fine is paid".' },
+    ],
+  });
+  TF.speaking.push({
+    id: 'tf4-rp2', set: 4, task: 'repeat', title: 'Science Lab Assistant', accent: 'en-US',
+    context: 'You are starting work as an assistant in a chemistry teaching lab. Listen to the lab manager and repeat exactly what you hear.',
+    sentences: [
+      { t: 'Safety glasses are required at all times.', tip: 'Nhấn "SAFETY GLASSES" và "ALL TIMES"; "required" /rɪˈkwaɪərd/.' },
+      { t: 'Check the gas valves before you leave.', tip: '"valves" /vælvz/ – giữ rõ âm cuối /vz/.' },
+      { t: 'Label every bottle with the date and your initials.', tip: '"Label" /ˈleɪbəl/; "initials" /ɪˈnɪʃəlz/, nhấn âm tiết thứ hai.' },
+      { t: 'Broken glass goes in the yellow container.', tip: '"Broken glass" có cụm /k/ + /gl/; nhấn "YELLOW".' },
+      { t: 'Students should wash their hands before leaving the lab.', tip: 'Nối âm "wash their" – giữ âm /ʃ/ rồi chuyển sang /ð/.' },
+      { t: 'If anything spills, tell the instructor immediately.', tip: 'Ngắt nhịp sau "spills,"; "immediately" /ɪˈmiːdiətli/.' },
+      { t: 'At the end of each session, return all equipment to the cabinet and wipe down the benches.', tip: 'Câu dài – chia nhịp: "At the end of each session / return all equipment to the cabinet / and wipe down the benches".' },
+    ],
+  });
+  TF.speaking.push({
+    id: 'tf4-iv1', set: 4, task: 'interview', title: 'Sleep and Daily Routines', seconds: 45, accent: 'en-GB',
+    context: 'A health researcher is interviewing university students about their sleep and daily routines. Answer each question. You will have about 45 seconds for each answer.',
+    questions: [
+      { q: 'To start, could you describe a typical evening for you during the semester?',
+        model: "On most evenings I get back from campus around six and cook a simple dinner. After that, I usually study for two or three hours, either in my room or in the library. I try to stop working by ten so that I have some time to relax, maybe by reading or calling my family, before I go to bed.",
+        tip: 'Kể theo trình tự thời gian (around six → after that → by ten) để câu trả lời mạch lạc.' },
+      { q: 'How many hours do you usually sleep, and do you think it is enough?',
+        model: "I usually sleep about six and a half hours on weekdays, which honestly isn't quite enough. I often feel tired in my morning classes, especially on Mondays. On weekends I sleep longer, around eight hours, but I've read that it's better to keep the same schedule every day, so I'm trying to go to bed a little earlier.",
+        tip: 'Trả lời thẳng câu hỏi (con số cụ thể) rồi đánh giá và nêu bằng chứng (thấy mệt buổi sáng).' },
+      { q: 'What do you think is the biggest cause of poor sleep among students?',
+        model: "I think the biggest cause is using phones late at night. Many students check social media or watch videos in bed, and it's easy to lose track of time. The bright screen also makes it harder to fall asleep. Stress about deadlines plays a role too, but I believe phones are the main problem because the habit is so common.",
+        tip: 'Nêu một nguyên nhân chính, giải thích hai cơ chế (mất thời gian + ánh sáng màn hình), rồi so sánh ngắn với nguyên nhân khác.' },
+      { q: 'Should universities do more to help students sleep better? What could they do?',
+        model: "Yes, I think they should. For example, universities could avoid scheduling exams very early in the morning, and libraries could close earlier so students aren't tempted to stay up all night. They could also run short workshops on healthy sleep habits during orientation week. Small changes like these could improve both health and grades.",
+        tip: 'Đồng ý rồi đưa 2–3 đề xuất cụ thể, kết bằng lợi ích chung.' },
+    ],
+  });
+  TF.speaking.push({
+    id: 'tf4-iv2', set: 4, task: 'interview', title: 'Learning Languages', seconds: 45, accent: 'en-US',
+    context: 'A researcher from the language center is interviewing students about their experience of learning languages. Answer each question. You will have about 45 seconds for each answer.',
+    questions: [
+      { q: 'What languages have you studied, and how did you start learning them?',
+        model: "Apart from my first language, I've studied English and a little Japanese. I started English in primary school, mostly through songs and simple games. I began Japanese at university because I was interested in Japanese films, and I wanted to understand them without subtitles one day.",
+        tip: 'Liệt kê ngắn gọn rồi kể cách bắt đầu cho từng ngôn ngữ, kèm động lực cá nhân.' },
+      { q: 'Which part of learning a language do you find most difficult?',
+        model: "For me, listening is the hardest part. When people speak quickly, they connect words together, and I miss important details. Reading is much easier because I can go back and check. To improve, I've started listening to short podcasts every day and repeating sentences out loud.",
+        tip: 'Chọn một kỹ năng, giải thích vì sao khó, so sánh với kỹ năng dễ hơn và nêu cách bạn đang khắc phục.' },
+      { q: 'Do you think it is better to learn a language in a classroom or by living abroad?',
+        model: "I think living abroad is more effective, because you have to use the language every day in real situations, like shopping or asking for directions. However, a classroom is still useful at the beginning, since a teacher can explain grammar clearly and correct mistakes. Ideally, learners should combine both.",
+        tip: 'Đưa lựa chọn chính kèm lý do, sau đó thừa nhận ưu điểm của phương án còn lại bằng "However…" và kết luận dung hòa.' },
+      { q: 'How might technology change the way people learn languages in the future?',
+        model: "Technology will probably make practice much easier. AI tutors can already hold conversations and correct pronunciation at any time of day. In the future, people might use smart glasses that show translations or vocabulary in real situations. Still, I believe human teachers will remain important for motivation and cultural understanding.",
+        tip: 'Nêu thay đổi hiện tại → dự đoán tương lai → một ý cân bằng về vai trò của con người.' },
+    ],
   });
 
   /* ===================================================================
