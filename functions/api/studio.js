@@ -230,7 +230,7 @@ export async function publishJob(env, db, job, { at, accounts, auto = false } = 
     const done = await doneCount(db); if (done < st.manualFirst) throw new Bad(409, 'manual-approval', { done, need: st.manualFirst });
   }
   if (job.status === 'qa_ok') {
-    if (!job.qa || !qaTotal(job.qa.scores).pass) throw new Bad(409, 'qa-below-90');
+    if (!job.qa || job.qa.blocked || !qaTotal(job.qa.scores).pass) throw new Bad(409, job.qa && job.qa.blocked ? 'qa-blocked' : 'qa-below-90'); // blocked = lỗi cổng nhất quán/chống lặp (VIDEO-PIPELINE §8–9)
     const oid = job.files && job.files.object_id; if (!oid || !/^[A-Za-z0-9_-]{1,100}$/.test(String(oid))) throw new Bad(409, 'no-file');
     const used = await gc(env, 'POST', `storage/objects/${oid}/use`, {});
     const mediaId = pick(used, 'media_id') || pick(used.media || {}, 'id') || pick(used, 'id'); if (!mediaId) throw new Bad(502, 'no-media-id');
@@ -321,8 +321,9 @@ const OPS = {
     const j = await getJob(db, b.id); if (!j) throw new Bad(404, 'not-found');
     if (!['rendered', 'qa_ok', 'qa_fail'].includes(j.status)) throw new Bad(409, 'bad-transition', { from: j.status, to: 'qa' });
     const q = qaTotal({ ...((j.qa && j.qa.scores) || {}), ...(b.scores || {}) });
-    const qa = { ...(j.qa || {}), scores: q.scores, total: q.total, missing: q.missing, pass: q.pass, manual: Date.now() };
-    return { job: await save(db, j, { status: q.missing.length ? (j.status === 'rendered' ? 'rendered' : 'qa_fail') : q.pass ? 'qa_ok' : 'qa_fail', qa }) };
+    const pass = q.pass && !(j.qa && j.qa.blocked); // chấm tay không gỡ được chặn của cổng nhất quán – phải dựng lại
+    const qa = { ...(j.qa || {}), scores: q.scores, total: q.total, missing: q.missing, pass, manual: Date.now() };
+    return { job: await save(db, j, { status: q.missing.length ? (j.status === 'rendered' ? 'rendered' : 'qa_fail') : pass ? 'qa_ok' : 'qa_fail', qa }) };
   },
   async publish(env, db, b) {
     if (b.confirm !== true) throw new Bad(400, 'confirm');
@@ -354,7 +355,13 @@ async function secretOk(env, given) {
   const [a, b] = await Promise.all([hex('studio|' + want), hex('studio|' + given)]); let d = 0; for (let i = 0; i < a.length; i++) d |= a.charCodeAt(i) ^ b.charCodeAt(i); return d === 0; // so sánh băm, thời gian không đổi
 }
 const CI = {
-  async ciJob(env, db, b) { const j = await getJob(db, b.id); if (!j) throw new Bad(404, 'not-found'); return { job: { id: j.id, topic: j.topic, format: j.format, lang: j.lang, status: j.status, script: j.script } }; },
+  async ciJob(env, db, b) {
+    const j = await getJob(db, b.id); if (!j) throw new Bad(404, 'not-found');
+    // dấu vân tay biến thể của 30 video gần nhất → bộ sinh chống lặp (scripts/video/variants.mjs)
+    const rows = ((await db.prepare('SELECT files_json FROM video_jobs WHERE id != ? AND files_json LIKE ? ORDER BY updated DESC LIMIT 30').bind(j.id, '%"variant"%').all()).results || []);
+    const recent = rows.map(r => J(r.files_json, {}).variant).filter(v => v && typeof v === 'object').reverse();
+    return { job: { id: j.id, topic: j.topic, format: j.format, lang: j.lang, status: j.status, script: j.script, recent } };
+  },
   async ciResult(env, db, b) {
     let j = await getJob(db, b.id); if (!j) throw new Bad(404, 'not-found');
     if (!['rendering', 'rendered'].includes(j.status)) throw new Bad(409, 'bad-transition', { from: j.status, to: 'rendered' });
@@ -362,9 +369,14 @@ const CI = {
     for (const k of ['object_id', 'run_url', 'preview_url', 'artifact']) if (typeof f[k] === 'string' && f[k].length <= 300 && (k === 'object_id' ? /^[A-Za-z0-9_-]{1,100}$/.test(f[k]) : /^https:\/\//.test(f[k]) || k === 'artifact')) files[k] = f[k];
     for (const k of ['duration', 'size', 'width', 'height']) if (Number.isFinite(+f[k])) files[k] = +f[k];
     if (Array.isArray(f.todo)) files.todo = f.todo.slice(0, 12).map(x => String(x).slice(0, 60));
+    if (f.variant && typeof f.variant === 'object') { // dấu vân tay tổ hợp (chuỗi ngắn) để chống lặp
+      const v = {}; for (const k of ['format', 'setting', 'cast', 'hookStyle', 'transition', 'music', 'endCard', 'cameraSet', 'scene', 'time', 'season', 'room']) if (typeof f.variant[k] === 'string') v[k] = f.variant[k].slice(0, 80);
+      if (Array.isArray(f.variant.clips)) v.clips = f.variant.clips.slice(0, 20).map(x => String(x).slice(0, 60)); files.variant = v;
+    }
     if (!b.ok) return { job: await save(db, j, { status: j.status === 'rendering' ? 'script_ok' : j.status, files, error: 'render: ' + String(b.error || 'lỗi không rõ').slice(0, 300) }) };
-    const q = qaTotal(b.qa && b.qa.scores), qa = { scores: q.scores, total: q.total, missing: q.missing, pass: q.pass, gates: (b.qa && Array.isArray(b.qa.gates) ? b.qa.gates.slice(0, 20) : []).map(g => ({ k: String(g.k || '').slice(0, 30), ok: !!g.ok, note: String(g.note || '').slice(0, 160) })), at: Date.now() };
-    j = await save(db, j, { status: q.missing.length ? 'rendered' : q.pass ? 'qa_ok' : 'qa_fail', files, qa, error: null });
+    const blocked = !!(b.qa && b.qa.blocked), consistency = (b.qa && Array.isArray(b.qa.consistency) ? b.qa.consistency.slice(0, 20) : []).map(x => String(x).slice(0, 200));
+    const q = qaTotal(b.qa && b.qa.scores), qa = { scores: q.scores, total: q.total, missing: q.missing, pass: q.pass && !blocked, blocked, consistency, gates: (b.qa && Array.isArray(b.qa.gates) ? b.qa.gates.slice(0, 20) : []).map(g => ({ k: String(g.k || '').slice(0, 30), ok: !!g.ok, note: String(g.note || '').slice(0, 160) })), at: Date.now() };
+    j = await save(db, j, { status: q.missing.length ? 'rendered' : qa.pass ? 'qa_ok' : 'qa_fail', files, qa, error: null });
     let auto = null;
     if (j.status === 'qa_ok') { try { j = await publishJob(env, db, j, { auto: true }); auto = 'scheduled'; } catch (e) { auto = e.code || 'error'; } }
     return { job: { id: j.id, status: j.status }, auto };

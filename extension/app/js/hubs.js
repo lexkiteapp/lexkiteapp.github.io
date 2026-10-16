@@ -86,7 +86,7 @@
     },
   };
   CONTENT.listening.ieltsgt = CONTENT.listening.ielts; CONTENT.reading.ieltsgt = CONTENT.reading.ielts; CONTENT.speaking.ieltsgt = CONTENT.speaking.ielts;
-  const RP = () => ['#/roleplay', '💼', t('Roleplay công sở'), t('Đóng vai họp, phỏng vấn, đàm phán với AI')];
+  const RP = () => ['#/roleplay', '💼', t('Roleplay công sở'), t('Đóng vai họp, phỏng vấn, đàm phán với AI')], CALL = () => ['#/call', '📞', t('Gọi cho Mia'), t('Cuộc gọi video luyện nói, sửa lỗi nhẹ nhàng')];
   const itemsFor = (sk, ex) => (CONTENT[sk][ex] || (() => null))();
   const tiles = list => list.map(([h, ic, n, d]) => card(h, ic, esc(n), d)).join('');
 
@@ -107,7 +107,7 @@
 
   routes.skill = function (k) {
     if (!SK[k]) { location.replace('#/skills'); return; }
-    const ex = App.exam(), mine = (x => k === 'speaking' ? [...(x || []), RP()] : x)(itemsFor(k, ex));
+    const ex = App.exam(), mine = (x => k === 'speaking' ? [...(x || []), RP(), CALL()] : x)(itemsFor(k, ex));
     const others = Object.keys(EXAMS).filter(e => e !== ex && e !== 'general' && itemsFor(k, e) && !(e === 'ieltsgt' && ex === 'ielts' && k !== 'writing') && !(e === 'ielts' && ex === 'ieltsgt' && k !== 'writing'));
     view.innerHTML = head(SK[k].ic + ' ' + SK[k].name(), mine ? t('Dạng bài {exam}', { exam: EXAMS[ex].name }) : t('{exam} không thi kỹ năng này – bạn vẫn có thể luyện theo kỳ thi khác bên dưới.', { exam: EXAMS[ex].short }), examBtn())
       + (mine ? `<div class="hub-grid">${tiles(mine)}</div>` : '')
@@ -280,7 +280,7 @@
   App.blogLive().then(on => { if (on) document.querySelectorAll('#nav a[data-blog]').forEach(a => { a.hidden = false; a.href = App.blogUrl(); }); });
 
   // ---------- Bản đồ điều hướng: trang → [mục chính, mục con] (đánh dấu menu, đường dẫn "Kỹ năng › Nghe") ----------
-  const SKILL_OF = { listening: 'listening', listen: 'listening', dictation: 'listening', reading: 'reading', read: 'reading', rtype: 'reading', cbt: 'reading', 'toeic-r': 'reading', write: 'writing', task1: 'writing', letters: 'writing', ideas: 'writing', model: 'writing', models: 'writing', speaking: 'speaking', roleplay: 'speaking' };
+  const SKILL_OF = { listening: 'listening', listen: 'listening', dictation: 'listening', reading: 'reading', read: 'reading', rtype: 'reading', cbt: 'reading', 'toeic-r': 'reading', write: 'writing', task1: 'writing', letters: 'writing', ideas: 'writing', model: 'writing', models: 'writing', speaking: 'speaking', roleplay: 'speaking', call: 'speaking' };
   const TOEFL_SK = { cw: 'reading', daily: 'reading', academic: 'reading', response: 'listening', conversation: 'listening', announcement: 'listening', talk: 'listening', sentence: 'writing', email: 'writing', discussion: 'writing', repeat: 'speaking', interview: 'speaking' };
   App.navOf = (name, arg) => {
     if (!name || name === 'home') return ['home', 'home'];

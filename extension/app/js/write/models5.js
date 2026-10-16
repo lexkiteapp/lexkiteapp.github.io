@@ -392,5 +392,274 @@ In conclusion, people change jobs more often because of money and boring work. I
         } },
       outline: ['Mở bài: so sánh quá khứ – hiện tại + trả lời cả hai phần (do kinh tế & kỳ vọng; phần lớn tích cực)', 'Thân 1: nguyên nhân – công việc kém ổn định (tái cấu trúc), thay đổi giá trị của người trẻ, nền tảng tuyển dụng trực tuyến', 'Thân 2: vì sao tích cực – kỹ năng đa dạng, dễ thích nghi, ví dụ trợ lý marketing, tăng lương', 'Nhượng bộ: chi phí cho doanh nghiệp & cá nhân, cách giảm thiểu', 'Kết bài'],
       vocab: [['job security', 'sự ổn định công việc'], ['job-hopping', 'nhảy việc'], ['restructure', 'tái cấu trúc'], ['career progression', 'thăng tiến nghề nghiệp'], ['labour market', 'thị trường lao động'], ['adaptable', 'dễ thích nghi'], ['staff turnover', 'tỉ lệ nghỉ việc'], ['pension benefits', 'quyền lợi lương hưu'], ['meaningful work', 'công việc có ý nghĩa']] },
+
+    /* ===== Lô 17 (tự biên soạn): p71–p80 – bài band 8 + bài band 6 kèm nhận xét, dàn ý, từ vựng ===== */
+    { id: 't2-p71', task: 2, ref: 'p71', band: '8.0', words: 281,
+      text: `<<Mở bài>> Final examinations have long been the main way of judging students' abilities, but some educators argue that they should be replaced by [[continuous assessment|đánh giá thường xuyên]] of coursework and projects. While I agree that exams have serious limitations, I do not believe they should be abolished entirely.
+
+<<Thân bài 1>> <<Câu chủ đề>> There are strong reasons to reduce our reliance on exams. <<Giải thích>> A single test taken on one day can be affected by illness, anxiety or simple bad luck, so it may not reflect what a student has learned over a whole year. {{Furthermore}}, exams mainly reward the ability to [[recall information under pressure|nhớ lại thông tin khi chịu áp lực]], {{whereas}} many valuable skills, such as research, teamwork and creativity, are better shown through projects. <<Ví dụ>> A student who designs and tests a science experiment over several weeks demonstrates far more than one who memorises facts for a two-hour paper.
+
+<<Thân bài 2>> <<Câu chủ đề>> {{Nevertheless}}, exams have advantages that continuous assessment cannot easily replace. <<Giải thích>> Because every candidate answers the same questions under the same conditions, exams are [[relatively fair and difficult to cheat in|tương đối công bằng và khó gian lận]]. Coursework, by contrast, can be completed with help from parents, tutors or, increasingly, artificial intelligence tools, which makes it hard to know whose work is being graded. Exams also encourage students to [[review and connect|ôn lại và kết nối]] everything they have learned.
+
+<<Quan điểm>> <<Câu chủ đề>> In my view, the best system combines both methods. Continuous assessment could account for around half of a student's final grade, reflecting [[sustained effort|nỗ lực bền bỉ]] and practical skills, while a final exam would provide [[an independent check|một sự kiểm chứng độc lập]] of knowledge.
+
+<<Kết bài>> {{In conclusion}}, {{although}} exams are an imperfect measure of ability, replacing them completely would create new problems of fairness. A [[balanced combination|sự kết hợp cân bằng]] of exams and continuous assessment would give a more accurate picture of what students can do.`,
+      band6: { text: `Nowadays many people think that exams are not a good way to test students. They think teachers should use continuous assessment instead. I partly agree with this opinion.
+
+On the one hand, exams have many problems. Students feel very stressed before exams and some of them cannot sleep. If a student is sick on the exam day, he will get a bad mark even if he studied hard. Also exams only test memory, not other skills like teamwork or creativity. For example, in my school we had to remember many dates for history exam but we forgot them after the exam. This shows that exams do not always measure real learning. Some students are good at projects but they are not good at exams, so their marks do not show their real ability.
+
+On the other hand, exams are also useful. All students do the same test at the same time, so it is fair. Coursework is not always fair because some students get help from their parents or copy from the internet. Teachers cannot know who really did the work. Exams are also useful because students have to review all the lessons before the test, so they remember the whole subject better.
+
+In my opinion, schools should use both exams and continuous assessment. For example, coursework can be 50 percent and exams can be 50 percent. In this way students will not be too stressed and the result will be more fair.
+
+In conclusion, exams have advantages and disadvantages. I think we should not remove exams completely but we should use continuous assessment too.`,
+        notes: {
+          TR: 'Trả lời đúng câu hỏi "to what extent" bằng quan điểm dung hòa, có lý do cho cả hai phía; tuy vậy các ý mới dừng ở mức kể ra, ví dụ về ngày tháng lịch sử chưa gắn với lập luận chính → TR 6.',
+          CC: 'Bố cục rõ ràng, có On the one hand/On the other hand; nhưng "For example" dùng hai lần với hai chức năng khác nhau, đoạn kết lặp lại đoạn quan điểm → CC 6.',
+          LR: 'Từ vựng chủ đề cơ bản (stressed, fair, copy); nhiều cụm chung chung như "many problems", "bad mark"; thiếu collocation như "under pressure", "independent check" → LR 6.',
+          GRA: 'Có câu phức nhưng còn lỗi: "for history exam" (thiếu mạo từ → for the history exam), "more fair" (→ fairer), "he will get a bad mark even if he studied hard" (thì chưa nhất quán) → GRA 6.',
+        } },
+      outline: ['Mở bài: diễn đạt lại đề + quan điểm (đồng ý một phần, không bỏ hẳn thi)', 'Thân 1: hạn chế của thi – một ngày, áp lực, chỉ đo trí nhớ + ví dụ dự án khoa học', 'Thân 2: ưu điểm của thi – công bằng, khó gian lận (bài làm ở nhà có thể nhờ người/AI), buộc ôn tập tổng hợp', 'Quan điểm: kết hợp khoảng 50/50', 'Kết bài'],
+      vocab: [['continuous assessment', 'đánh giá thường xuyên'], ['under pressure', 'dưới áp lực'], ['memorise facts', 'học thuộc dữ kiện'], ['coursework', 'bài tập tính điểm trong khóa'], ['cheat', 'gian lận'], ['sustained effort', 'nỗ lực bền bỉ'], ['an accurate picture of', 'bức tranh chính xác về'], ['abolish', 'bãi bỏ'], ['reliance on', 'sự phụ thuộc vào']] },
+
+    { id: 't2-p72', task: 2, ref: 'p72', band: '8.0', words: 268,
+      text: `<<Mở bài>> Single-use plastic items such as bags, straws and food containers have become [[a symbol of wasteful consumption|biểu tượng của lối tiêu dùng lãng phí]]. Some people believe governments should ban these products entirely. I largely agree, although a ban needs to be carefully designed to work.
+
+<<Thân bài 1>> <<Câu chủ đề>> The environmental case for a ban is compelling. <<Giải thích>> Many single-use plastics are used for only a few minutes but [[persist in the environment for centuries|tồn tại trong môi trường hàng thế kỷ]], breaking into tiny particles that enter rivers, oceans and the food chain. Recycling has not solved the problem, because much of this packaging is too dirty, too light or too mixed in materials to be recycled economically. <<Ví dụ>> {{For example}}, after several countries charged for or banned plastic bags, the number of bags used dropped sharply, showing that [[firm rules change behaviour|quy định chặt chẽ làm thay đổi hành vi]] far more effectively than voluntary campaigns.
+
+<<Thân bài 2>> <<Câu chủ đề>> {{However}}, a complete ban could cause problems if it is introduced carelessly. <<Giải thích>> Some disabled people rely on plastic straws, and in healthcare, single-use items are essential for preventing infection. {{In addition}}, if plastic is simply replaced with paper or thick reusable bags that are used only once, the environmental benefit may be smaller than expected, since these alternatives require more energy to produce.
+
+<<Quan điểm>> <<Câu chủ đề>> I therefore believe that governments should ban single-use plastics where [[practical alternatives already exist|đã có sẵn giải pháp thay thế khả thi]], while allowing clear exceptions for medical use and accessibility. At the same time, they should invest in [[refill and reuse systems|hệ thống nạp lại và tái sử dụng]] so that people are not simply switching from one disposable material to another.
+
+<<Kết bài>> {{In conclusion}}, banning single-use plastics is a necessary step to reduce pollution, {{provided that}} the ban includes sensible exceptions and is supported by genuine reusable alternatives.`,
+      band6: { text: `Today plastic pollution is a very serious problem in the world. Some people think the government should ban all single-use plastic products. I agree with this idea because plastic is very harmful for the environment.
+
+Firstly, single-use plastic is used only one time and then people throw it away. This creates a lot of rubbish. Many plastic bags and bottles go to the sea and kill fish and turtles. Plastic also takes hundreds of years to break down, so the problem will continue for a long time. If the government bans these products, there will be less rubbish. In addition, plastic pollution is not only in the sea but also in our food, because small pieces of plastic are found in fish and salt.
+
+Secondly, people will not change their habits if there is no law. For example, in my country many people still use plastic bags because they are free and convenient. When supermarkets started to charge money for bags, people started to bring their own bags. This shows that rules are more effective than advertisements.
+
+However, some people say that plastic is necessary in some situations, for example in hospitals. I think this is true, so the government can allow plastic in hospitals only. Also companies need time to find new materials. The government can give them one or two years to prepare before the ban starts.
+
+In conclusion, I strongly agree that single-use plastic should be banned because it damages the environment and people will only change if there is a law.`,
+        notes: {
+          TR: 'Quan điểm rõ và nhất quán, có lý do và ví dụ; tuy nhiên đoạn nhượng bộ chỉ được giải quyết bằng một câu ("allow plastic in hospitals only") và mâu thuẫn nhẹ với kết luận "strongly agree … should be banned" → TR 6–6.5.',
+          CC: 'Phân đoạn hợp lý, từ nối rõ (Firstly, Secondly, However), nhưng câu "Also companies need time to find new materials" được thêm vào cuối mà không liên kết với ý trước → CC 6.',
+          LR: 'Đủ từ chủ đề (rubbish, break down, charge money) nhưng lặp "plastic" rất nhiều; "harmful for" (→ harmful to); thiếu từ học thuật như "disposable", "alternatives" → LR 6.',
+          GRA: 'Câu đa dạng vừa phải; lỗi giới từ "harmful for", "used only one time" (→ used only once); dấu phẩy thiếu trước "so" ở một số câu → GRA 6.',
+        } },
+      outline: ['Mở bài: bối cảnh + quan điểm (đồng ý phần lớn, cần thiết kế cẩn thận)', 'Thân 1: lý lẽ môi trường – tồn tại lâu, vi nhựa, tái chế không giải quyết được + ví dụ thu phí túi nilon', 'Thân 2: rủi ro khi cấm thiếu cân nhắc – người khuyết tật, y tế, vật liệu thay thế tốn năng lượng', 'Quan điểm: cấm khi đã có giải pháp thay thế, có ngoại lệ, đầu tư hệ thống tái sử dụng', 'Kết bài'],
+      vocab: [['single-use plastic', 'nhựa dùng một lần'], ['disposable', 'dùng một lần rồi bỏ'], ['food chain', 'chuỗi thức ăn'], ['break down', 'phân hủy'], ['voluntary campaign', 'chiến dịch tự nguyện'], ['exception', 'ngoại lệ'], ['accessibility', 'khả năng tiếp cận (cho người khuyết tật)'], ['reusable alternatives', 'giải pháp tái sử dụng thay thế'], ['compelling', 'thuyết phục']] },
+
+    { id: 't2-p73', task: 2, ref: 'p73', band: '8.0', words: 265,
+      text: `<<Mở bài>> International sporting events such as the Olympic Games attract billions of viewers, but they also cost host countries enormous sums of money. Some people believe these events [[bring nations together|gắn kết các quốc gia]], while others regard them as a waste of resources. In my opinion, their value depends largely on how they are organised.
+
+<<Thân bài 1>> <<Câu chủ đề>> Supporters argue that major tournaments promote understanding between countries. <<Giải thích>> Athletes from very different backgrounds compete under the same rules, and spectators often cheer for talented competitors regardless of nationality. Such events can also [[inspire young people|truyền cảm hứng cho giới trẻ]] to take up sport, and they give smaller nations a rare opportunity to be noticed on the world stage. <<Ví dụ>> When an athlete from a country that has never won a medal reaches the podium, the moment can create [[a sense of pride and connection|cảm giác tự hào và gắn kết]] far beyond sport.
+
+<<Thân bài 2>> <<Câu chủ đề>> {{On the other hand}}, critics point to the [[huge financial burden|gánh nặng tài chính khổng lồ]] on host cities. <<Giải thích>> New stadiums, transport links and security can cost billions, and some venues are rarely used after the event. Residents may also be displaced to make room for construction. {{Moreover}}, the promised boost to tourism and the economy is often smaller and shorter than organisers predict.
+
+<<Quan điểm>> <<Câu chủ đề>> I believe international events are worthwhile, but only if hosts [[avoid unnecessary spending|tránh chi tiêu không cần thiết]]. Using existing venues, sharing the hosting between several cities, and planning in advance how new facilities will serve local communities afterwards would reduce the costs while keeping the benefits.
+
+<<Kết bài>> {{In conclusion}}, {{while}} major sporting events can be extremely expensive, they also bring people together and inspire future generations. With more responsible planning, their benefits can clearly [[outweigh their costs|lớn hơn chi phí của chúng]].`,
+      band6: { text: `Big sporting events like the Olympics and the World Cup are very popular around the world. Some people say these events bring countries together, but other people think they are a waste of money. In this essay I will discuss both sides and give my opinion.
+
+First, international sports events can make people from different countries closer. During the Olympics, people watch athletes from many countries and they can learn about other cultures. Also, these events make young people interested in sport, so they will be more healthy. For example, after my country won a medal in badminton, many children started to play badminton. Big events also bring many tourists to the host country, so hotels and restaurants can earn more money during the event.
+
+However, these events are very expensive. The host country must build new stadiums, hotels and roads. After the event, many stadiums are empty and nobody uses them. This money can be used for hospitals or schools instead. Also, sometimes poor people have to leave their homes because the government needs land for the stadiums. In addition, the event only lasts for a few weeks, but the country has to pay for it for many years.
+
+In my opinion, I think these events are good but the government should not spend too much money. They can use old stadiums and only build what is really necessary.
+
+In conclusion, international sporting events have both good and bad sides. I believe they are useful if the host country spends money carefully.`,
+        notes: {
+          TR: 'Thảo luận đủ hai quan điểm và có ý kiến riêng; ý kiến cuối khá giống bài mẫu nhưng chỉ được phát triển trong hai câu, chưa giải thích vì sao lợi ích lớn hơn chi phí → TR 6.',
+          CC: 'Bố cục bốn đoạn rõ ràng; dùng "First" nhưng không có "Second" tương ứng; "In my opinion, I think" thừa; liên kết giữa các câu trong đoạn còn đơn giản (Also, For example) → CC 6.',
+          LR: 'Từ vựng phù hợp nhưng đơn giản: "make people closer", "good and bad sides", "very expensive"; thiếu cụm như "host city", "financial burden", "displaced" → LR 6.',
+          GRA: 'Đa số câu đúng nhưng ít cấu trúc phức; lỗi "more healthy" (→ healthier); "Big sporting events like … are very popular" dùng like trong văn học thuật nên thay bằng such as → GRA 6.',
+        } },
+      outline: ['Mở bài: diễn đạt lại hai quan điểm + ý kiến (giá trị phụ thuộc cách tổ chức)', 'Thân 1: gắn kết, cảm hứng cho giới trẻ, cơ hội cho nước nhỏ + ví dụ huy chương đầu tiên', 'Thân 2: gánh nặng tài chính, sân bỏ không, di dời dân, lợi ích du lịch bị thổi phồng', 'Quan điểm: đáng tổ chức nếu tiết kiệm – dùng sân cũ, chia nhiều thành phố, kế hoạch sử dụng sau sự kiện', 'Kết bài'],
+      vocab: [['host country / host city', 'nước/thành phố đăng cai'], ['regardless of nationality', 'bất kể quốc tịch'], ['on the world stage', 'trên trường quốc tế'], ['reach the podium', 'đứng trên bục nhận huy chương'], ['financial burden', 'gánh nặng tài chính'], ['venue', 'địa điểm tổ chức'], ['be displaced', 'bị di dời'], ['boost to tourism', 'cú hích cho du lịch'], ['outweigh the costs', 'lớn hơn chi phí']] },
+
+    { id: 't2-p74', task: 2, ref: 'p74', band: '8.0', words: 260,
+      text: `<<Mở bài>> When people have money to spare, some choose to spend it on experiences such as travel, concerts or courses, while others prefer to buy [[material possessions|tài sản vật chất]] like clothes, gadgets or furniture. Although both choices can bring satisfaction, I believe that experiences generally offer more lasting value.
+
+<<Thân bài 1>> <<Câu chủ đề>> Those who prefer possessions argue that objects provide [[long-term practical benefits|lợi ích thực tế lâu dài]]. <<Giải thích>> A good sofa or a reliable laptop can be used every day for years, whereas a holiday is over in a week. Possessions can also be a sensible investment: high-quality items often last longer and may even be resold. <<Ví dụ>> {{For many families}}, buying a car or a home improves daily life in ways that a single trip cannot.
+
+<<Thân bài 2>> <<Câu chủ đề>> {{On the other hand}}, experiences tend to create happiness that [[lasts beyond the moment|kéo dài vượt qua khoảnh khắc]]. <<Giải thích>> People quickly get used to new possessions, so the pleasure of a new phone fades within weeks. Memories of a trip or a concert, by contrast, often grow more meaningful over time and become part of our [[sense of identity|ý thức về bản thân]]. Experiences are also usually shared with others, which strengthens relationships. <<Ví dụ>> A family camping trip may be remembered and discussed for decades, long after a new television has been replaced.
+
+<<Quan điểm>> <<Câu chủ đề>> In my view, the best approach is to buy the possessions we genuinely need and [[prioritise experiences|ưu tiên trải nghiệm]] with any extra money. This avoids the cycle of constantly buying new things in search of satisfaction.
+
+<<Kết bài>> {{In conclusion}}, {{although}} useful possessions improve our daily lives, experiences generally bring deeper and more lasting happiness, so they are often the wiser way to spend [[discretionary income|thu nhập tùy ý chi tiêu]].`,
+      band6: { text: `Some people like to spend their money on experiences such as travelling, while other people prefer to buy things like clothes and electronic devices. This essay will discuss both views and give my own opinion.
+
+On the one hand, buying things has some advantages. When you buy a new laptop or a new car, you can use it for a long time. It is useful in your daily life. For example, my father bought a car five years ago and our family still uses it every day. Some things like gold or houses can also be sold later for more money. Moreover, some things like a good bed or a warm coat make our daily life more comfortable.
+
+On the other hand, experiences can make people happier. When you travel to a new country, you can see beautiful places, try new food and meet new people. These memories stay with you forever. In contrast, when you buy a new phone, you are happy only for a short time, then you want a newer one. Also, people usually travel with their family or friends, so they can have a good time together. These shared memories can make relationships stronger.
+
+In my opinion, I prefer to spend money on experiences because I think memories are more important than things. However, we still need to buy some necessary things for our life. For example, a student needs a computer for studying.
+
+To sum up, both experiences and possessions have advantages, but I believe experiences make people happier.`,
+        notes: {
+          TR: 'Bàn đủ hai quan điểm, có ý kiến rõ; nhưng ví dụ "gold or houses can be sold later for more money" lệch khỏi ý "possessions" thường ngày, và lý do cho quan điểm cá nhân chỉ là "memories are more important" → TR 6.',
+          CC: 'Bố cục chuẩn với On the one hand/On the other hand/In contrast; tuy vậy các ý trong đoạn 3 xếp liền nhau, thiếu câu chủ đề nêu cơ chế (vì sao trải nghiệm vui lâu hơn) → CC 6.',
+          LR: 'Từ vựng hợp lý nhưng đơn giản, lặp "things", "happy/happier"; thiếu từ như "possessions", "fade", "lasting" ở mức tự nhiên → LR 6.',
+          GRA: 'Câu đơn và ghép là chính; "In my opinion, I prefer" thừa; dấu phẩy nối câu "you are happy only for a short time, then you want…" → GRA 6.',
+        } },
+      outline: ['Mở bài: hai lựa chọn chi tiêu + quan điểm (trải nghiệm có giá trị lâu dài hơn)', 'Thân 1: lý lẽ cho vật chất – dùng hằng ngày, đầu tư, ví dụ xe/nhà', 'Thân 2: lý lẽ cho trải nghiệm – thích nghi nhanh với đồ mới, ký ức đậm dần, chia sẻ với người khác + ví dụ cắm trại', 'Quan điểm: mua thứ cần thiết, ưu tiên trải nghiệm với tiền dư', 'Kết bài'],
+      vocab: [['material possessions', 'tài sản vật chất'], ['money to spare', 'tiền dư'], ['fade', 'phai dần'], ['meaningful', 'có ý nghĩa'], ['sense of identity', 'ý thức về bản thân'], ['strengthen relationships', 'thắt chặt các mối quan hệ'], ['discretionary income', 'thu nhập tùy ý chi tiêu'], ['get used to', 'quen với'], ['lasting value', 'giá trị lâu dài']] },
+
+    { id: 't2-p75', task: 2, ref: 'p75', band: '8.0', words: 274,
+      text: `<<Mở bài>> A growing number of people now turn to AI chatbots for advice on matters such as health, money and relationships. Although these tools offer [[instant and convenient support|sự hỗ trợ tức thì và tiện lợi]], I believe their disadvantages currently outweigh their advantages when the advice concerns important personal decisions.
+
+<<Thân bài 1>> <<Câu chủ đề>> The appeal of chatbots is easy to understand. <<Giải thích>> They are available at any hour, free or cheap to use, and able to explain complicated topics in simple language. For people who cannot afford a financial adviser or who feel embarrassed discussing personal problems, a chatbot can be [[a useful first step|bước khởi đầu hữu ích]]. <<Ví dụ>> {{For instance}}, someone confused by the terms of a loan can ask a chatbot to explain them clearly before speaking to the bank.
+
+<<Thân bài 2>> <<Câu chủ đề>> {{However}}, the risks are significant. <<Giải thích>> Chatbots can produce answers that sound confident but are [[factually wrong|sai về mặt dữ kiện]], and users without expert knowledge may not notice the mistake. In health matters, this could lead someone to ignore serious symptoms or to take inappropriate medication. {{In addition}}, a chatbot does not know a person's full situation in the way a doctor or counsellor does, so its advice may be too general. Finally, users may share [[sensitive personal information|thông tin cá nhân nhạy cảm]] without understanding how it will be stored or used.
+
+<<Quan điểm>> <<Câu chủ đề>> {{For these reasons}}, I think chatbots should be treated as a source of general information rather than [[a substitute for professional advice|sự thay thế cho tư vấn chuyên môn]]. Developers should also clearly warn users about their limitations and direct them to qualified professionals for serious issues.
+
+<<Kết bài>> {{In conclusion}}, {{while}} AI chatbots make information more accessible, relying on them for important personal decisions is risky. At present, their disadvantages outweigh the benefits unless they are used carefully alongside human expertise.`,
+      band6: { text: `Today, many people use AI chatbots to ask about their health, their money and their relationships. This trend has some advantages, but I think the disadvantages are more important.
+
+The first advantage is that chatbots are very convenient. You can ask them at any time, even at midnight, and they answer immediately. Also, most chatbots are free, so people who do not have much money can use them. Some people feel shy to talk to a doctor or a friend about their problems, so they prefer to talk to a chatbot. Chatbots can also explain difficult words, for example in a bank contract, in simple language.
+
+However, there are some serious disadvantages. Chatbots sometimes give wrong information, and people may believe it because the answer looks very professional. For example, if someone has a pain in their chest and the chatbot says it is not serious, the person may not go to the hospital. This is very dangerous. In addition, chatbots do not really understand our situation like a real doctor does. A doctor can examine the patient and ask more questions before giving advice.
+
+Another problem is privacy. When people tell chatbots about their health or money, this information can be saved by the company. Some companies may use this data for advertising, and users usually do not read the privacy policy carefully.
+
+In conclusion, AI chatbots are useful for simple questions but they are dangerous for important problems. I believe the disadvantages outweigh the advantages, so people should still ask experts.`,
+        notes: {
+          TR: 'Trả lời đúng câu hỏi, quan điểm nhất quán và có ví dụ tốt (đau ngực); tuy nhiên đoạn về quyền riêng tư chỉ một câu, chưa phát triển → TR 6.5.',
+          CC: 'Phân đoạn rõ, từ nối phù hợp (However, For example, In addition, Another problem); đoạn quyền riêng tư quá ngắn làm bài thiếu cân đối → CC 6.',
+          LR: 'Từ vựng đủ dùng nhưng còn lặp và chung chung ("very convenient", "very dangerous"); "feel shy to talk" không tự nhiên (→ feel embarrassed talking) → LR 6.',
+          GRA: 'Câu phức có nhưng chưa đa dạng; lỗi "feel shy to talk to" (cấu trúc), "a pain in their chest" (→ chest pain) → GRA 6.',
+        } },
+      outline: ['Mở bài: bối cảnh + quan điểm (nhược điểm lớn hơn khi là quyết định quan trọng)', 'Thân 1: lợi ích – 24/7, rẻ, giải thích dễ hiểu, giúp người ngại ngùng + ví dụ điều khoản vay', 'Thân 2: rủi ro – sai mà tự tin, sức khỏe, thiếu hiểu hoàn cảnh, dữ liệu nhạy cảm', 'Quan điểm: chỉ là nguồn thông tin chung, cần cảnh báo và hướng đến chuyên gia', 'Kết bài'],
+      vocab: [['instant support', 'hỗ trợ tức thì'], ['factually wrong', 'sai về dữ kiện'], ['inappropriate medication', 'dùng thuốc không phù hợp'], ['counsellor', 'chuyên viên tư vấn'], ['sensitive personal information', 'thông tin cá nhân nhạy cảm'], ['substitute for', 'sự thay thế cho'], ['qualified professional', 'chuyên gia có chuyên môn'], ['accessible', 'dễ tiếp cận'], ['limitations', 'hạn chế']] },
+
+    { id: 't2-p76', task: 2, ref: 'p76', band: '8.0', words: 257,
+      text: `<<Mở bài>> To reduce traffic and pollution, several cities have introduced a [[congestion charge|phí ùn tắc]], a fee that drivers must pay to enter the city centre at busy times. Although this policy has drawbacks, I believe its advantages are greater, provided that the money raised is used to improve public transport.
+
+<<Thân bài 1>> <<Câu chủ đề>> The main benefit of a congestion charge is that it [[reduces traffic quickly|giảm lưu lượng xe nhanh chóng]]. <<Giải thích>> When driving into the centre becomes more expensive, some people switch to buses, trains or bicycles, or travel at less busy times. Fewer cars mean shorter journey times for buses, delivery vehicles and emergency services, as well as cleaner air and less noise. <<Ví dụ>> {{For example}}, cities that introduced such charges, including London and Stockholm, saw noticeable falls in traffic in the charging zone. {{In addition}}, the revenue can be [[reinvested in public transport|tái đầu tư vào giao thông công cộng]].
+
+<<Thân bài 2>> <<Câu chủ đề>> {{Nevertheless}}, the policy can be unfair to some groups. <<Giải thích>> A daily charge is a much heavier burden for low-income workers than for wealthy drivers, especially if they work early or late shifts when public transport is limited. Small businesses in the centre may also worry that customers will [[shop elsewhere|đi mua sắm ở nơi khác]] to avoid the fee.
+
+<<Quan điểm>> <<Câu chủ đề>> These problems, however, can be reduced through careful design. Discounts for residents, people with disabilities and essential workers, combined with [[better and cheaper public transport|giao thông công cộng tốt hơn và rẻ hơn]], would make the charge fairer. Clear communication would also help businesses and customers adapt.
+
+<<Kết bài>> {{In conclusion}}, {{although}} congestion charges can place an extra burden on some drivers, their benefits for traffic, health and public transport outweigh these disadvantages when the scheme is designed fairly.`,
+      band6: { text: `Some big cities now make drivers pay money when they drive into the city centre. This is called a congestion charge. In my opinion, this policy has more advantages than disadvantages.
+
+The biggest advantage is less traffic. Many people do not want to pay, so they will use the bus or the train. As a result, the roads are less busy and people can travel faster. The air will also be cleaner because there are fewer cars. For example, I read that London has this charge and the traffic is better now. Moreover, buses and ambulances can move faster when the roads are not so busy, which is very important in an emergency.
+
+Another advantage is money. The city can use the money from drivers to make public transport better, for example buy new buses or build more bike lanes. If public transport becomes better and cheaper, more people will leave their cars at home, so the problem of traffic will be solved in the long term.
+
+However, there are also some disadvantages. Poor people have to pay the same money as rich people, so it is not fair for them. Some people must drive because there is no bus near their house. Also shops in the city centre may lose customers. Some customers may go to shopping malls outside the city.
+
+In conclusion, a congestion charge has some problems, but I think it is a good idea because it reduces traffic and pollution. The government should help poor people so that the policy is more fair.`,
+        notes: {
+          TR: 'Có quan điểm rõ và trả lời đúng câu hỏi; nhưng nhược điểm chỉ liệt kê, giải pháp "help poor people" quá mơ hồ; ví dụ London dẫn nguồn mơ hồ ("I read that") → TR 6.',
+          CC: 'Bố cục hợp lý (The biggest advantage, Another advantage, However); đoạn nhược điểm là chuỗi câu rời rạc, chưa có câu chủ đề nêu tác động công bằng → CC 6.',
+          LR: 'Từ vựng cơ bản ("pay money", "less traffic", "same money"); "more fair" (→ fairer); thiếu từ như "revenue", "low-income", "exemption" → LR 6.',
+          GRA: 'Câu đúng nhưng đơn giản; lỗi "make public transport better, for example buy new buses" (thiếu by buying), "more fair" → GRA 6.',
+        } },
+      outline: ['Mở bài: định nghĩa phí ùn tắc + quan điểm (lợi lớn hơn nếu tái đầu tư)', 'Thân 1: giảm xe nhanh, xe buýt và cấp cứu đi nhanh, không khí sạch + ví dụ London, Stockholm + nguồn thu', 'Thân 2: bất công với người thu nhập thấp, ca sớm/muộn; lo ngại của cửa hàng trung tâm', 'Quan điểm: thiết kế công bằng – giảm phí cho cư dân, người khuyết tật, lao động thiết yếu; cải thiện giao thông công cộng', 'Kết bài'],
+      vocab: [['congestion charge', 'phí ùn tắc'], ['charging zone', 'khu vực thu phí'], ['revenue', 'nguồn thu'], ['reinvest in', 'tái đầu tư vào'], ['low-income workers', 'người lao động thu nhập thấp'], ['essential workers', 'lao động thiết yếu'], ['exemption / discount', 'miễn/giảm'], ['emergency services', 'dịch vụ khẩn cấp'], ['burden', 'gánh nặng']] },
+
+    { id: 't2-p77', task: 2, ref: 'p77', band: '8.0', words: 267,
+      text: `<<Mở bài>> In many large cities, the number of people without a permanent home appears to be rising. This essay will examine the main causes of homelessness and suggest some [[measures that could reduce it|biện pháp có thể giảm tình trạng này]].
+
+<<Thân bài 1>> <<Câu chủ đề>> The most direct cause is [[the rising cost of housing|chi phí nhà ở tăng cao]]. <<Giải thích>> When rents increase faster than wages, people on low incomes can be pushed out of their homes by a single unexpected event, such as losing a job, a medical emergency or a relationship breakdown. {{In addition}}, many people who become homeless face other difficulties, including mental illness or addiction, which make it harder to keep a job or a tenancy. Gaps in support, for example when young people leave state care or prisoners are released [[without a place to live|mà không có chỗ ở]], can also lead directly to life on the streets.
+
+<<Thân bài 2>> <<Câu chủ đề>> Tackling homelessness therefore requires action on several fronts. <<Giải thích>> {{First}}, governments should increase the supply of affordable and social housing so that fewer people are one crisis away from losing their home. {{Second}}, an approach often called [[Housing First|"Nhà ở trước tiên"]] – providing people with stable housing quickly and then offering support with health, addiction and employment – has shown promising results in several countries, because it is much easier to recover when you have a safe place to live. <<Ví dụ>> {{Third}}, prevention is cheaper than cure: emergency grants to help families pay overdue rent can stop an eviction before it happens.
+
+<<Kết bài>> {{In conclusion}}, homelessness is caused mainly by expensive housing combined with personal crises and gaps in public support. Building more affordable homes, providing housing quickly with ongoing support and [[preventing evictions early|ngăn chặn việc trục xuất từ sớm]] would make a significant difference.`,
+      band6: { text: `Nowadays, there are more and more homeless people in big cities. This is a serious problem and in this essay I will explain the causes and suggest some solutions.
+
+There are several reasons for this problem. The main reason is that houses in big cities are very expensive. Many people cannot pay the rent, especially when they lose their job. Another reason is that some people have health problems or they are addicted to drugs or alcohol, so it is difficult for them to work. Some young people also have problems with their family and they leave home. In addition, when prisoners leave prison, many of them do not have a place to live, and it is difficult for them to rent a house.
+
+There are some solutions to solve this problem. Firstly, the government should build more cheap houses for poor people. If the rent is cheap, fewer people will lose their homes. Secondly, the government and charities should help homeless people to find a job, so they can pay for their own house. Thirdly, there should be more shelters where homeless people can sleep and eat for free. Finally, the government can give money to families who cannot pay their rent for a short time, so they will not lose their home in the first place. This is cheaper than helping them after they become homeless.
+
+In conclusion, homelessness is caused by expensive houses, health problems and family problems. The government should build cheap houses, help people find jobs and open more shelters.`,
+        notes: {
+          TR: 'Trả lời đủ nguyên nhân và giải pháp, nhưng giải pháp mang tính liệt kê; không giải thích vì sao "find a job" khả thi khi người vô gia cư chưa có chỗ ở ổn định; ý phòng ngừa chỉ nêu ngắn gọn ở cuối → TR 6.',
+          CC: 'Bố cục rõ, từ nối Firstly/Secondly/Thirdly máy móc; "solutions to solve" lặp nghĩa; kết bài chỉ liệt kê lại → CC 6.',
+          LR: 'Từ vựng cơ bản ("cheap houses", "poor people") – thiếu từ học thuật như affordable housing, shelter được dùng nhưng chưa có prevention, eviction, tenancy → LR 6.',
+          GRA: 'Câu đa phần đơn giản, ít lỗi nghiêm trọng; "help homeless people to find a job" chấp nhận được; thiếu cấu trúc phức như mệnh đề quan hệ, câu điều kiện đa dạng → GRA 6.',
+        } },
+      outline: ['Mở bài: vấn đề + giới thiệu nguyên nhân và giải pháp', 'Thân 1: nguyên nhân – giá nhà tăng nhanh hơn lương, khủng hoảng cá nhân, sức khỏe tâm thần/nghiện, khoảng trống hỗ trợ (rời trại trẻ, mãn hạn tù)', 'Thân 2: giải pháp – nhà ở giá rẻ/xã hội, mô hình Housing First, phòng ngừa bằng trợ cấp khẩn cấp tiền thuê', 'Kết bài'],
+      vocab: [['homelessness', 'tình trạng vô gia cư'], ['permanent home', 'chỗ ở ổn định'], ['relationship breakdown', 'đổ vỡ quan hệ'], ['addiction', 'chứng nghiện'], ['tenancy', 'quyền/hợp đồng thuê nhà'], ['social housing', 'nhà ở xã hội'], ['shelter', 'nơi trú ẩn'], ['overdue rent', 'tiền thuê quá hạn'], ['prevention is cheaper than cure', 'phòng bệnh rẻ hơn chữa bệnh']] },
+
+    { id: 't2-p78', task: 2, ref: 'p78', band: '8.0', words: 270,
+      text: `<<Mở bài>> Many young people finish school with good grades but without [[practical life skills|kỹ năng sống thực tế]] such as managing money, cooking or dealing with official paperwork. This essay will explain why this happens and suggest how the situation could be improved.
+
+<<Thân bài 1>> <<Câu chủ đề>> One major reason is that school systems focus heavily on [[academic subjects that are tested|các môn học thuật được đưa vào thi]]. <<Giải thích>> Because schools are judged by exam results, there is little time or incentive to teach topics that do not appear in national tests. At the same time, many parents work long hours, so children have fewer opportunities to learn skills such as cooking or budgeting at home. {{Moreover}}, modern technology has made some skills seem unnecessary: food can be ordered through an app, and payments happen automatically, so young people may never see [[how money actually flows in and out|tiền thực sự vào ra như thế nào]].
+
+<<Thân bài 2>> <<Câu chủ đề>> Several measures could address this gap. <<Giải thích>> {{First}}, schools could include short, practical courses in personal finance and basic cooking, perhaps as part of existing subjects. <<Ví dụ>> {{For example}}, a mathematics class could teach students to compare loan offers or calculate the real cost of a phone contract, which makes the subject more relevant at the same time. {{Second}}, schools could work with local businesses and banks to offer [[hands-on workshops|các buổi thực hành]]. {{Finally}}, parents can involve teenagers in everyday tasks, such as planning a weekly food budget or filling in forms, which costs nothing but builds confidence.
+
+<<Kết bài>> {{In conclusion}}, the lack of practical skills among school leavers results mainly from exam-focused education, busy family lives and technology that hides everyday processes. Combining practical lessons at school with [[greater involvement at home|sự tham gia nhiều hơn ở nhà]] would prepare young people far better for adult life.`,
+      band6: { text: `Today many students finish school but they do not know how to do simple things like cooking or managing their money. In this essay I will explain the reasons and give some solutions.
+
+The first reason is that schools only teach academic subjects like maths, science and history. Teachers want students to pass the exams, so they do not have time to teach life skills. The second reason is that parents are very busy with their jobs. They do everything for their children, so the children do not learn. Also, nowadays young people can order food on their phones, so they do not need to cook. Similarly, many people pay for everything with a card or a phone, so teenagers do not understand how much money they really spend.
+
+To solve this problem, schools should have life skills lessons. For example, students can learn how to make a budget or cook a simple meal. This will help them when they go to university or start working. Schools can also invite people from banks to explain how loans and credit cards work, because many young people get into debt when they first use a credit card. Parents should also teach their children at home. They can ask their children to help with cooking and shopping. They can also give teenagers a small budget for the family's weekly food.
+
+In conclusion, many students do not have practical skills because schools focus on exams and parents are busy. Schools and parents should work together to teach children these important skills.`,
+        notes: {
+          TR: 'Trả lời đủ hai phần, nguyên nhân hợp lý; nhưng mỗi giải pháp chỉ 1–2 câu, chưa nêu cách lồng ghép vào chương trình học hiện có hay ví dụ cụ thể → TR 6.',
+          CC: 'Có cấu trúc rõ (The first reason, The second reason, To solve this problem); một số câu nối bằng "so" liên tục khiến đoạn văn lặp nhịp → CC 6.',
+          LR: 'Từ vựng đơn giản và đúng; "life skills", "make a budget" phù hợp nhưng chưa có collocation học thuật như "personal finance", "exam-focused" → LR 6.',
+          GRA: 'Câu đúng ngữ pháp, ít lỗi; tuy vậy chủ yếu câu đơn/ghép với "so", "because" → GRA 6.',
+        } },
+      outline: ['Mở bài: vấn đề + giới thiệu nguyên nhân và giải pháp', 'Thân 1: nguyên nhân – trường học tập trung môn thi, cha mẹ bận, công nghệ che khuất quy trình đời thường', 'Thân 2: giải pháp – khóa ngắn về tài chính cá nhân & nấu ăn + ví dụ lồng vào giờ toán, workshop với doanh nghiệp/ngân hàng, giao việc ở nhà', 'Kết bài'],
+      vocab: [['practical life skills', 'kỹ năng sống thực tế'], ['personal finance', 'tài chính cá nhân'], ['budgeting', 'lập ngân sách chi tiêu'], ['incentive', 'động lực, lợi ích khuyến khích'], ['exam-focused', 'chú trọng thi cử'], ['paperwork', 'giấy tờ thủ tục'], ['hands-on workshop', 'buổi thực hành'], ['school leavers', 'học sinh vừa tốt nghiệp phổ thông'], ['relevant', 'thiết thực, liên quan']] },
+
+    { id: 't2-p79', task: 2, ref: 'p79', band: '8.0', words: 282,
+      text: `<<Mở bài>> Cinemas were once the main place to watch new films, but today many people prefer to watch them at home on large televisions or laptops. This essay will explain why this shift has happened and argue that, overall, it is [[a mixed but largely positive development|một xu hướng vừa có lợi vừa có hại nhưng phần lớn là tích cực]].
+
+<<Thân bài 1>> <<Câu chủ đề>> Several factors explain the change. <<Giải thích>> The most important is the rise of streaming services, which offer thousands of films for a monthly fee that is often lower than the price of [[a single cinema ticket|một vé xem phim]]. Some major films are now released online only a few weeks after reaching cinemas, or even on the same day. {{In addition}}, home viewing has become much more comfortable thanks to affordable large screens and good sound systems. {{Finally}}, watching at home is more flexible: viewers can pause a film, watch it at any time and avoid the cost of travel and snacks.
+
+<<Thân bài 2>> <<Câu chủ đề>> I believe this development is mostly positive. <<Giải thích>> It makes films [[accessible to more people|dễ tiếp cận hơn với nhiều người]], including those who live far from cinemas, have young children or have disabilities that make going out difficult. It has also helped smaller and foreign-language films find audiences that cinemas rarely gave them. {{However}}, there are some losses. Cinemas offer [[a shared experience|trải nghiệm chung]] that is difficult to recreate at home, and some films are designed for the big screen. If too many cinemas close, towns may lose an important social space.
+
+<<Kết bài>> {{In conclusion}}, people now watch films at home mainly because of cheap streaming services, better home technology and greater convenience. {{Although}} this trend threatens the traditional cinema experience, its benefits in terms of choice and accessibility make it a largely positive development, as long as cinemas adapt by [[offering experiences that homes cannot|mang lại trải nghiệm mà ở nhà không có]].`,
+      band6: { text: `Nowadays, many people like to watch films at home instead of going to the cinema. There are several reasons for this, and I think it is both positive and negative.
+
+The main reason is streaming services like Netflix. With a small monthly fee, people can watch many films, and it is cheaper than buying cinema tickets. Also, many people now have big TVs and good speakers at home, so watching at home is almost the same as the cinema. Another reason is convenience. At home, people can watch whenever they want, stop the film and eat their own food. Moreover, some new films are shown online only a few weeks after they appear in cinemas, so people prefer to wait and watch them at home.
+
+In my opinion, this trend is positive in some ways. People can save money and time, and families with small children can enjoy films together at home. People who live far from a cinema or who have a disability can also watch new films more easily. Small films from other countries can also find more viewers online. However, it is also negative. Cinemas are losing customers and some of them have to close. Watching a film in the cinema with many people is a special experience which cannot happen at home. In addition, some films have amazing pictures and sound that are much better on a big screen.
+
+In conclusion, people watch films at home because it is cheap and convenient. I think this development has both positive and negative sides.`,
+        notes: {
+          TR: 'Phần nguyên nhân tốt, nhưng phần 2 không có câu trả lời rõ ("both positive and negative" ở cả mở bài và kết bài) – đề hỏi positive hay negative cần lập trường rõ ràng → TR 5.5–6.',
+          CC: 'Bố cục rõ, từ nối hợp lý (The main reason, Also, Another reason, However); đoạn 3 gộp cả mặt tốt và xấu nên thiếu trọng tâm → CC 6.',
+          LR: 'Từ vựng phù hợp (streaming services, monthly fee, convenience) nhưng còn đơn giản; dùng tên thương hiệu "Netflix" thay vì diễn đạt khái quát → LR 6.',
+          GRA: 'Câu phần lớn đúng; có mệnh đề quan hệ ("which cannot happen at home"); ít cấu trúc phức tạp hơn → GRA 6.',
+        } },
+      outline: ['Mở bài: bối cảnh + trả lời ngắn cả hai phần (phần lớn tích cực)', 'Thân 1: nguyên nhân – dịch vụ trực tuyến rẻ, phim ra mắt online sớm, thiết bị gia đình tốt, linh hoạt', 'Thân 2: đánh giá – tiếp cận rộng hơn (vùng xa, có con nhỏ, khuyết tật), phim nhỏ có khán giả; mất trải nghiệm chung, rạp đóng cửa', 'Kết bài: phần lớn tích cực nếu rạp thích nghi'],
+      vocab: [['streaming service', 'dịch vụ phát trực tuyến'], ['release a film', 'phát hành phim'], ['home viewing', 'xem tại nhà'], ['convenience', 'sự tiện lợi'], ['accessible', 'dễ tiếp cận'], ['foreign-language films', 'phim nói tiếng nước ngoài'], ['a shared experience', 'trải nghiệm chung'], ['social space', 'không gian giao lưu'], ['adapt', 'thích nghi']] },
+
+    { id: 't2-p80', task: 2, ref: 'p80', band: '8.0', words: 279,
+      text: `<<Mở bài>> In many countries, the average age at which people marry has risen considerably over recent decades, and more people are choosing not to marry at all. This essay will discuss the main reasons for this trend and argue that it is [[a largely positive reflection of changing opportunities|sự phản ánh phần lớn tích cực của những cơ hội đang thay đổi]].
+
+<<Thân bài 1>> <<Câu chủ đề>> Several social and economic factors explain why people marry later. <<Giải thích>> {{First}}, young adults now spend longer in education, and many want to [[establish their careers|ổn định sự nghiệp]] before starting a family. This is particularly true for women, who have far more educational and professional opportunities than in the past. {{Second}}, the cost of housing and weddings has increased, so many couples feel they need to save money before marrying. {{Finally}}, attitudes have changed: living together without marriage is more widely accepted, so there is less [[social pressure|áp lực xã hội]] to marry young.
+
+<<Thân bài 2>> <<Câu chủ đề>> In my view, this trend is mainly positive. <<Giải thích>> People who marry later have usually had more time to understand themselves and to choose a partner carefully, and they are often more financially secure. Later marriage also reflects greater freedom, especially for women, to make choices about education and work. <<Ví dụ>> {{However}}, there can be disadvantages. Couples who delay starting a family may face [[difficulties having children|khó khăn khi có con]], and in countries with ageing populations, falling birth rates create long-term economic challenges.
+
+<<Quan điểm>> <<Câu chủ đề>> These problems are real, but they are better addressed through support such as affordable childcare and housing than by encouraging people to marry before they are ready.
+
+<<Kết bài>> {{In conclusion}}, people are marrying later mainly because of longer education, economic pressures and changing social attitudes. {{Although}} the trend brings some challenges, it largely reflects [[greater personal freedom and security|sự tự do và an toàn cá nhân lớn hơn]], so I consider it a positive development.`,
+      band6: { text: `In many countries, people are getting married later than before. In the past, people usually got married in their early twenties, but now many people wait until they are thirty or older. There are some reasons for this, and I think it is mostly a positive development.
+
+Firstly, young people study for a longer time today. Many of them go to university and then do a master's degree, so they are busy until their late twenties. After that, they want to find a good job and earn money before they get married. Secondly, life is more expensive now. A wedding and a house cost a lot of money, so couples need time to save. Thirdly, society is more open. In the past, if a person was not married at thirty, other people would talk about them, but now it is normal. Many couples also live together for some years before they decide to get married.
+
+I think this trend is positive because people are more mature when they get married. They know what they want and they can choose the right partner, so maybe there will be fewer divorces. Also, women can focus on their careers.
+
+However, there is one problem. If people get married late, they will have children late, and some couples may have difficulty having children. In countries where the population is getting older, this can also cause problems for the economy in the future.
+
+In conclusion, people get married later because of education, money and changing attitudes. I believe it is a positive development.`,
+        notes: {
+          TR: 'Trả lời đủ hai phần, quan điểm rõ và nhất quán; câu "maybe there will be fewer divorces" là suy đoán không có căn cứ; nhược điểm chưa được đối chiếu với quan điểm → TR 6.',
+          CC: 'Bố cục mạch lạc (Firstly/Secondly/Thirdly, However); đoạn nhược điểm chỉ hai câu và đứng tách rời → CC 6.',
+          LR: 'Từ vựng chủ đề khá (mature, divorce, attitudes, master\'s degree) nhưng còn lặp "get married"; thiếu cách diễn đạt đa dạng như "delay marriage", "financially secure" → LR 6.',
+          GRA: 'Có câu điều kiện và câu phức ("if a person was not married at thirty, other people would talk…"); lỗi nhỏ ít; độ đa dạng cấu trúc ở mức trung bình → GRA 6.',
+        } },
+      outline: ['Mở bài: xu hướng kết hôn muộn + quan điểm (phần lớn tích cực)', 'Thân 1: nguyên nhân – học lâu hơn, ổn định sự nghiệp (đặc biệt phụ nữ), chi phí nhà/đám cưới, thái độ xã hội thay đổi', 'Thân 2: đánh giá – chín chắn, chọn bạn đời kỹ, an toàn tài chính, tự do hơn; nhược điểm: khó có con, tỉ lệ sinh giảm', 'Quan điểm: giải quyết nhược điểm bằng hỗ trợ (giữ trẻ, nhà ở) thay vì thúc kết hôn sớm', 'Kết bài'],
+      vocab: [['average age', 'độ tuổi trung bình'], ['establish a career', 'ổn định sự nghiệp'], ['financially secure', 'vững vàng về tài chính'], ['social pressure', 'áp lực xã hội'], ['cohabit / live together', 'sống chung'], ['birth rate', 'tỉ lệ sinh'], ['ageing population', 'dân số già hóa'], ['affordable childcare', 'dịch vụ giữ trẻ giá hợp lý'], ['mature', 'chín chắn']] },
   ]);
 })(typeof self !== 'undefined' ? self : this);

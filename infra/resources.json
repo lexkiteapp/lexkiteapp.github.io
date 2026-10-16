@@ -324,7 +324,7 @@
    "key": "video-studio",
    "name": "Video Studio (dây chuyền video tự động)",
    "kind": "ci",
-   "purpose": "Quản trị → Video Studio (web/js/admin-studio.js) + API /api/studio (functions/api/studio.js, D1 bảng video_jobs, config 'studio'): kịch bản (Gemini xoay vòng) → GitHub Actions video.yml (scripts/video/render.mjs) → kho GrabCast → tạo bài & lên lịch giờ vàng Mỹ. Đọc content/video/queue.json + assets.json qua raw.githubusercontent.com. Env Cloudflare Pages: secret GH_DISPATCH_TOKEN (PAT fine-grained, Actions: write trên repo), secret STUDIO_CALLBACK_SECRET (trùng với GitHub Actions secret), STUDIO_REF tùy chọn (mặc định main); GitHub Actions: STUDIO_CALLBACK_SECRET, GRABCAST_API_KEY",
+   "purpose": "Quản trị → Video Studio (web/js/admin-studio.js) + API /api/studio (functions/api/studio.js, D1 bảng video_jobs, config 'studio'): kịch bản (Gemini xoay vòng) → GitHub Actions video.yml (scripts/video/render.mjs; CI tải miễn phí: mô hình Kokoro-82M ONNX + faster-whisper tiny.en từ huggingface.co, bản phát hành Rhubarb Lip Sync 1.13.0 từ github.com; casting.json/formats.json/brand/library/manifest.json) → kho GrabCast → tạo bài & lên lịch giờ vàng Mỹ. Đọc content/video/queue.json + assets.json qua raw.githubusercontent.com. Env Cloudflare Pages: secret GH_DISPATCH_TOKEN (PAT fine-grained, Actions: write trên repo), secret STUDIO_CALLBACK_SECRET (trùng với GitHub Actions secret), STUDIO_REF tùy chọn (mặc định main); GitHub Actions: STUDIO_CALLBACK_SECRET, GRABCAST_API_KEY",
    "console": "https://lexkite.com/admin.html#studio",
    "free": "Actions miễn phí (repo công khai) · D1 vài dòng/video",
    "upgrade": "—",

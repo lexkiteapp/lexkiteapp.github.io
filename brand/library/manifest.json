@@ -1,0 +1,38 @@
+{
+  "_note": "Kho dựng video (scripts/video/render.mjs). Đường dẫn tương đối với brand/library/. File chưa có → render tự lùi: clip → ảnh tĩnh (stills) → bỏ nhân vật; phòng → nền màu thương hiệu. rooms: hồ sơ sàn theo docs/ASSET-LIBRARY.md §0 (floor, stand, scaleAt, light). clips: mp4 'stacked' = nửa trên màu, nửa dưới mặt nạ alpha (xuất bằng scripts/video/clip_to_layer.py --stacked, đã cắt bóng sàn dính – trim_floor_shadow); foot = [x, y] đế giày trong 1 nửa khung, figH = chiều cao người (px); facing = hướng nhìn gốc (left|right|front); mouth = clip có cử động miệng (bắt buộc cho người đang nói). Thêm tài nguyên = thêm file + mục ở đây.",
+  "rooms": [
+    { "id": "office-01-day", "file": "rooms/office-01-day.png", "tag": "office", "time": "day", "floor": { "yNear": 1900, "yFar": 1540 }, "stand": [{ "x": 290, "y": 1760 }, { "x": 540, "y": 1730 }, { "x": 790, "y": 1760 }], "scaleAt": { "yFar": 1540, "hFar": 960, "yNear": 1900, "hNear": 1240 }, "light": { "dir": -1, "warmth": 0.15 } },
+    { "id": "office-01-night", "file": "rooms/office-01-night.png", "tag": "office", "time": "night", "floor": { "yNear": 1900, "yFar": 1540 }, "stand": [{ "x": 290, "y": 1760 }, { "x": 540, "y": 1730 }, { "x": 790, "y": 1760 }], "scaleAt": { "yFar": 1540, "hFar": 960, "yNear": 1900, "hNear": 1240 }, "light": { "dir": 1, "warmth": 0.35 } },
+    { "id": "cafe-01-day", "file": "rooms/cafe-01-day.png", "tag": "cafe", "time": "day", "floor": { "yNear": 1900, "yFar": 1560 }, "stand": [{ "x": 300, "y": 1760 }, { "x": 540, "y": 1740 }, { "x": 780, "y": 1760 }], "scaleAt": { "yFar": 1560, "hFar": 980, "yNear": 1900, "hNear": 1240 }, "light": { "dir": 1, "warmth": 0.3 } },
+    { "id": "school-01-day", "file": "rooms/school-01-day.png", "tag": "school", "time": "day", "floor": { "yNear": 1900, "yFar": 1560 }, "stand": [{ "x": 320, "y": 1760 }, { "x": 540, "y": 1740 }, { "x": 760, "y": 1760 }], "scaleAt": { "yFar": 1560, "hFar": 980, "yNear": 1900, "hNear": 1240 }, "light": { "dir": -1, "warmth": 0.1 } },
+    { "id": "library-01-day", "file": "rooms/library-01-day.png", "tag": "library", "time": "day", "floor": { "yNear": 1900, "yFar": 1560 }, "stand": [{ "x": 320, "y": 1760 }, { "x": 540, "y": 1740 }, { "x": 760, "y": 1760 }], "scaleAt": { "yFar": 1560, "hFar": 980, "yNear": 1900, "hNear": 1240 }, "light": { "dir": -1, "warmth": 0.25 } },
+    { "id": "exam-01-day", "file": "rooms/exam-01-day.png", "tag": "exam", "time": "day", "floor": { "yNear": 1900, "yFar": 1560 }, "stand": [{ "x": 540, "y": 1750 }], "scaleAt": { "yFar": 1560, "hFar": 980, "yNear": 1900, "hNear": 1240 }, "light": { "dir": -1, "warmth": 0 } },
+    { "id": "home-01-day", "file": "rooms/home-01-day.png", "tag": "home", "time": "day", "floor": { "yNear": 1900, "yFar": 1560 }, "stand": [{ "x": 300, "y": 1760 }, { "x": 540, "y": 1740 }, { "x": 780, "y": 1760 }], "scaleAt": { "yFar": 1560, "hFar": 980, "yNear": 1900, "hNear": 1240 }, "light": { "dir": 1, "warmth": 0.3 } },
+    { "id": "airport-01-day", "file": "rooms/airport-01-day.png", "tag": "airport", "time": "day", "floor": { "yNear": 1900, "yFar": 1560 }, "stand": [{ "x": 300, "y": 1760 }, { "x": 540, "y": 1740 }, { "x": 780, "y": 1760 }], "scaleAt": { "yFar": 1560, "hFar": 980, "yNear": 1900, "hNear": 1240 }, "light": { "dir": -1, "warmth": 0.05 } }
+  ],
+  "clips": [
+    { "id": "mia_talk_point", "who": "mia", "file": "clips/mia_talk_point.mp4", "alpha": "stacked", "outfit": "office", "tags": ["talk", "point"], "mouth": true, "facing": "right" },
+    { "id": "mia_ask_think", "who": "mia", "file": "clips/mia_ask_think.mp4", "alpha": "stacked", "outfit": "office", "tags": ["ask", "think"], "mouth": true, "facing": "right" },
+    { "id": "mia_shock_headgrab", "who": "mia", "file": "clips/mia_shock_headgrab.mp4", "alpha": "stacked", "outfit": "office", "tags": ["shock", "headgrab"], "mouth": true, "facing": "front" },
+    { "id": "mia_wave_thumbs", "who": "mia", "file": "clips/mia_wave_thumbs.mp4", "alpha": "stacked", "outfit": "office", "tags": ["wave", "thumbs"], "mouth": true, "facing": "front" },
+    { "id": "mia_nod_laugh", "who": "mia", "file": "clips/mia_nod_laugh.mp4", "alpha": "stacked", "outfit": "office", "tags": ["nod", "laugh"], "mouth": false, "facing": "right" },
+    { "id": "mia_idle", "who": "mia", "file": "clips/mia_idle.mp4", "alpha": "stacked", "outfit": "office", "tags": ["idle"], "mouth": false, "facing": "right" },
+    { "id": "leo_talk_point", "who": "leo", "file": "clips/leo_talk_point.mp4", "alpha": "stacked", "outfit": "office", "tags": ["talk", "point"], "mouth": true, "facing": "left" },
+    { "id": "leo_think_idea", "who": "leo", "file": "clips/leo_think_idea.mp4", "alpha": "stacked", "outfit": "office", "tags": ["think", "ask"], "mouth": true, "facing": "left" },
+    { "id": "leo_shock_headgrab", "who": "leo", "file": "clips/leo_shock_headgrab.mp4", "alpha": "stacked", "outfit": "office", "tags": ["shock", "headgrab"], "mouth": true, "facing": "front" },
+    { "id": "leo_wave_thumbs", "who": "leo", "file": "clips/leo_wave_thumbs.mp4", "alpha": "stacked", "outfit": "office", "tags": ["wave", "thumbs", "laugh"], "mouth": true, "facing": "front" },
+    { "id": "leo_idle", "who": "leo", "file": "clips/leo_idle.mp4", "alpha": "stacked", "outfit": "office", "tags": ["idle", "nod"], "mouth": false, "facing": "left" },
+    { "id": "ama_ask_point", "who": "ama", "file": "clips/ama_ask_point.mp4", "alpha": "stacked", "outfit": "casual", "tags": ["ask", "talk", "point"], "mouth": true, "facing": "front" },
+    { "id": "ama_shock_headgrab", "who": "ama", "file": "clips/ama_shock_headgrab.mp4", "alpha": "stacked", "outfit": "casual", "tags": ["shock", "headgrab"], "mouth": true, "facing": "front" },
+    { "id": "ama_think_win", "who": "ama", "file": "clips/ama_think_win.mp4", "alpha": "stacked", "outfit": "casual", "tags": ["think", "thumbs"], "mouth": true, "facing": "front" },
+    { "id": "ama_wave_thumbs", "who": "ama", "file": "clips/ama_wave_thumbs.mp4", "alpha": "stacked", "outfit": "casual", "tags": ["wave", "thumbs", "laugh"], "mouth": true, "facing": "front" },
+    { "id": "ama_idle", "who": "ama", "file": "clips/ama_idle.mp4", "alpha": "stacked", "outfit": "casual", "tags": ["idle", "nod"], "mouth": false, "facing": "front" }
+  ],
+  "stills": [
+    { "who": "mia", "file": "stills/mia_office.png", "outfit": "office", "facing": "front" },
+    { "who": "leo", "file": "stills/leo_office.png", "outfit": "office", "facing": "front" },
+    { "who": "ama", "file": "stills/ama_casual.png", "outfit": "casual", "facing": "front" },
+    { "who": "mia", "file": "stills/mia_casual.png", "outfit": "casual", "facing": "front" },
+    { "who": "leo", "file": "stills/leo_casual.png", "outfit": "casual", "facing": "front" }
+  ]
+}

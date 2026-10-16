@@ -127,6 +127,15 @@ r = await ci({ op: 'ciResult', id: id2, ok: false, error: 'ffmpeg exploded' }); 
 ok(g.status === 'script_ok' && /ffmpeg/.test(g.error), 'CI lỗi → về script_ok + ghi lỗi');
 r = await ci({ op: 'ciResult', id: id2, ok: true, qa: { scores: full } }); ok(r.s === 409, 'gọi lại khi không ở trạng thái dựng → 409');
 
+// 7b) Cổng nhất quán/chống lặp (VIDEO-PIPELINE §8–9): blocked → không bao giờ qa_ok, chấm tay không gỡ được; dấu vân tay biến thể lưu & trả về cho CI
+const id3 = await mk('blocked by consistency');
+r = await ci({ op: 'ciResult', id: id3, ok: true, files: { object_id: 'obj_9', variant: { format: 'dont-say', setting: 'office-01-day|none', cast: 'mia+leo', hookStyle: 'stamp', transition: 'fade-teal', music: 'pad-a', endCard: 'qr', cameraSet: 'doc', clips: ['mia_talk_point'], evil: '<x>' } }, qa: { scores: full, blocked: true, consistency: ['[brand] câu 2: carlos không thuộc dàn hợp lệ của bối cảnh "office"'] } });
+g = (await call(ADM, { op: 'get', id: id3 })).j.job;
+ok(r.s === 200 && g.status === 'qa_fail' && g.qa.blocked && !g.qa.pass && /carlos/.test(g.qa.consistency[0]), 'QA đủ điểm nhưng blocked → qa_fail + ghi lý do');
+ok(g.files.variant && g.files.variant.format === 'dont-say' && !('evil' in g.files.variant) && g.files.variant.clips.length === 1, 'lưu dấu vân tay biến thể (lọc khóa lạ)');
+r = await call(ADM, { op: 'qaSet', id: id3, scores: { knowledge: 20, share: 5 } }); ok(r.j.job.status === 'qa_fail' && r.j.job.qa.pass === false, 'chấm tay không gỡ chặn nhất quán');
+const id4 = await mk('needs recent'); r = await ci({ op: 'ciJob', id: id4 }); ok(r.s === 200 && r.j.job.recent.some(v => v.format === 'dont-say'), 'ciJob trả dấu vân tay video gần đây');
+
 // 8) Hàng đợi
 r = await call(ADM, { op: 'createFromQueue', n: 5 }); ok(r.s === 200 && r.j.jobs.length === 2 && r.j.left === 0, 'tạo job từ queue.json');
 r = await call(ADM, { op: 'createFromQueue', n: 5 }); ok(r.j.jobs.length === 0, 'không tạo trùng chủ đề');

@@ -15,6 +15,7 @@ env:
   JOB: ${{ github.event.inputs.job_id }}
   STUDIO_API: https://lexkite.com/api/studio
   STUDIO_CALLBACK_SECRET: ${{ secrets.STUDIO_CALLBACK_SECRET }}
+  VIDEO_STRICT: '1'
 jobs:
   render:
     runs-on: ubuntu-latest
@@ -30,24 +31,49 @@ jobs:
         with:
           python-version: '3.12'
       - name: Cài ffmpeg (libass) + phông DejaVu
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core >/dev/null && ffmpeg -hide_banner -filters | grep -q ' ass '
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core unzip >/dev/null && ffmpeg -hide_banner -filters | grep -q ' ass '
+      # Công cụ nặng – đều miễn phí, chạy CPU: Kokoro (kokoro-js như audio.yml), faster-whisper tiny.en, Rhubarb Lip Sync (bản phát hành), numpy/pillow/scipy (cắt bóng sàn ảnh tĩnh)
+      - name: Đệm mô hình (Kokoro ~90 MB, whisper tiny.en ~75 MB)
+        uses: actions/cache@v4
+        with:
+          path: |
+            /tmp/kk/node_modules/@huggingface/transformers/.cache
+            ~/.cache/huggingface
+          key: video-models-kokoro82m-q8-whisper-tiny-en-v1
+      - name: Cài kokoro-js + faster-whisper + Rhubarb
+        run: |
+          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          pip install -q faster-whisper==1.1.1 numpy pillow scipy
+          curl -fsSL -o /tmp/rhubarb.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          mkdir -p /tmp/rhubarb && unzip -q /tmp/rhubarb.zip -d /tmp/rhubarb
+          echo "RHUBARB=$(find /tmp/rhubarb -type f -name rhubarb | head -1)" >> "$GITHUB_ENV"
 
-      # ---------- Dây chuyền dựng (mỗi bước đọc/ghi out/video/<job>/state.json) ----------
-      - name: 1 · Lấy kịch bản đã duyệt
+      # ---------- Dây chuyền dựng (mỗi bước đọc/ghi out/video/<job>/state.json; VIDEO_STRICT=1: thiếu công cụ → lỗi, không lặng lẽ bỏ qua) ----------
+      - name: 1 · Lấy kịch bản đã duyệt (+ dấu vân tay 30 video gần nhất)
         run: node scripts/video/render.mjs --job "$JOB" --step fetch
-      - name: 2 · Giọng đọc Kokoro (TODO – hiện ước lượng thời lượng)
+      - name: 2 · Biến thể có seed (khuôn × bối cảnh × dàn × góc máy × hook × chuyển cảnh × nhạc × end card, chống lặp)
+        run: node scripts/video/render.mjs --job "$JOB" --step variant
+      - name: 3 · Cổng nhất quán bối cảnh – nhân vật – lời thoại
+        run: node scripts/video/render.mjs --job "$JOB" --step cast
+      - name: 4 · Giọng đọc Kokoro (-16 LUFS)
+        env:
+          KOKORO_NODE_PATH: /tmp/kk/node_modules
         run: node scripts/video/render.mjs --job "$JOB" --step tts
-      - name: 3 · Mốc thời gian từng từ (TODO whisper – hiện chia đều)
+      - name: 5 · Mốc thời gian từng từ (faster-whisper tiny.en)
         run: node scripts/video/render.mjs --job "$JOB" --step align
-      - name: 4 · Khẩu hình Rhubarb (TODO)
+      - name: 6 · Khẩu hình Rhubarb
         run: node scripts/video/render.mjs --job "$JOB" --step lipsync
-      - name: 5 · Phụ đề karaoke ASS
+      - name: 7 · Phụ đề karaoke ASS + hook + CTA
         run: node scripts/video/render.mjs --job "$JOB" --step karaoke
-      - name: 6 · Ghép video (ffmpeg, nền tạm + phụ đề burn-in)
+      - name: 8 · Ghép video 1080×1920 30 fps (phòng + nhân vật + bóng + máy + nhạc tự tổng hợp + phụ đề burn-in)
         id: compose
         run: node scripts/video/render.mjs --job "$JOB" --step compose
-      - name: 7 · Cổng chất lượng
+      - name: 9 · Cổng chất lượng (LUFS, khẩu hình, phụ đề, nhịp, nhất quán, chống lặp)
         run: node scripts/video/render.mjs --job "$JOB" --step qa
+      - name: Báo cáo độ phủ tài nguyên (không chặn)
+        if: always()
+        continue-on-error: true
+        run: node scripts/video/render.mjs --coverage | tee -a "$GITHUB_STEP_SUMMARY" >/dev/null
 
       # ---------- Lưu trữ & gọi lại ----------
       - name: Lưu bản xem trước (artifact 14 ngày)
@@ -59,6 +85,8 @@ jobs:
             out/video/${{ github.event.inputs.job_id }}/video.mp4
             out/video/${{ github.event.inputs.job_id }}/subs.*
             out/video/${{ github.event.inputs.job_id }}/state.json
+            out/video/${{ github.event.inputs.job_id }}/words.json
+            out/video/${{ github.event.inputs.job_id }}/visemes.json
           retention-days: 14
       - name: Tải vào kho GrabCast (pool bulk – Studio tự tạo bài & lên lịch)
         id: store
