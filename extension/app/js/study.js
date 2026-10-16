@@ -7,6 +7,15 @@
   const { state, routes } = App;
   const view = App.view;
   const accent = () => state.settings.accent;
+  // Phản hồi xúc giác chuẩn Duolingo: đúng = rung ngắn 35ms; sai = rung đôi [50, 40, 50]ms (tôn trọng prefers-reduced-motion & tắt âm)
+  const haptic = ok => {
+    try {
+      if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (navigator.vibrate && (!state.settings || state.settings.sfx !== false)) {
+        navigator.vibrate(ok ? 35 : [50, 40, 50]);
+      }
+    } catch (e) { /* bỏ qua */ }
+  };
 
   // ---------- Nguồn từ ----------
   // Nghĩa hiển thị theo ngôn ngữ người học: tiếng Việt, hoặc định nghĩa tiếng Anh cho người học quốc tế
@@ -242,9 +251,14 @@
         e.preventDefault(); e.stopPropagation();
         const v = norm(inp.value); if (!v) return;
         const dd = dist(v, norm(c.word)), sug = dd === 0 ? 2 : dd === 1 ? 1 : 0;
-        inp.disabled = true; inp.classList.add(dd === 0 ? 'ok' : dd === 1 ? 'near' : 'bad');
+        inp.disabled = true;
+        inp.classList.remove('ans-bounce', 'ans-shake');
+        void inp.offsetWidth;
+        inp.classList.add(dd === 0 ? 'ok' : dd === 1 ? 'near' : 'bad');
+        inp.classList.add(dd === 0 ? 'ans-bounce' : 'ans-shake');
         $('#typeRes').innerHTML = dd === 0 ? `✅ ${t('Chính xác!')}` : `${dd === 1 ? '🟡 ' + t('Gần đúng – sai 1 chữ') : '❌ ' + t('Chưa đúng')}: <b>${esc(c.word)}</b>`;
         dd === 0 ? Sfx.correct() : Sfx.wrong && Sfx.wrong();
+        haptic(dd === 0);
         flip();
         const b = $(`[data-grade="${sug}"]`); if (b) { b.classList.add('suggest'); b.focus(); }
       });
@@ -303,6 +317,18 @@
       const xp = g === 0 ? 2 : wasNew ? 8 : 5;
       session.xp += xp; snap.xp = xp; session.last = snap;
       g === 0 ? Sfx.wrong() : Sfx.correct();
+      haptic(g > 0);
+      const fc = $('#flash');
+      if (fc) {
+        fc.classList.remove('ans-bounce', 'ans-shake');
+        void fc.offsetWidth;
+        fc.classList.add(g === 0 ? 'ans-shake' : 'ans-bounce');
+      }
+      if (el) {
+        el.classList.remove('ans-bounce', 'ans-shake');
+        void el.offsetWidth;
+        el.classList.add(g === 0 ? 'ans-shake' : 'ans-bounce');
+      }
       App.reward({ reviews: 1, newWords: wasNew ? 1 : 0, again: g === 0 ? 1 : 0, xp }, el);
       session.queue.shift();
       session.done += 1;
@@ -310,6 +336,7 @@
       if (c.srs.reps === 0) session.queue.splice(Math.min(session.queue.length, g === 0 ? 3 : 6), 0, key);
       if (g === 0) { session.again += 1; if (!session.missed.includes(c.word)) session.missed.push(c.word); }
       if (!/^#\/review/.test(location.hash)) return; // đã rời trang ôn tập
+      if (g === 0) await new Promise(r => setTimeout(r, 200));
       session.queue.length ? showCard() : reviewDone(false);
     }
   }
@@ -350,6 +377,7 @@
       if (answered) return; answered = true;
       if (!ok && App.logMistake) App.logMistake({ kind: 'vocab', q: q.type.startsWith('mcq-en') || q.type === 'type-vi' || q.type === 'type-spell' ? t('Từ tiếng Anh nghĩa là “{vi}”?', { vi: mean(w) }) : q.type === 'type-cloze' && w.ex ? t('Điền từ: {sentence}', { sentence: w.ex.replace(UI.wordRegex(w.word), '___') }) : t('Nghĩa của “{word}”?', { word: w.word }), answer: q.type === 'mcq-vi' ? w.vi : (q.answer || w.word), given: given || '', explain: `${w.word} ${w.ipa || ''} = ${w.vi}`, ref: w.word });
       ok ? Sfx.correct() : Sfx.wrong();
+      haptic(ok);
       const fb = $('#fb', box);
       fb.innerHTML = `<div class="sheet ${ok ? 'ok' : 'no'}"><div class="sheet-in">
         <div class="sheet-head">${ok ? ['✅ ' + t('Chính xác!'), '🎉 ' + t('Tuyệt vời!'), '👏 ' + t('Giỏi lắm!')][Math.floor(Math.random() * 3)] : '❌ ' + t('Chưa đúng · Đáp án: {answer}', { answer: esc(q.answer || w.word) })}</div>
@@ -375,8 +403,22 @@
       const pick = b => {
         if (answered) return;
         const ok = b.dataset.o === w.word;
-        $$('.option', box).forEach(x => { if (x.dataset.o === w.word) x.classList.add('right'); });
-        if (!ok) b.classList.add('wrong');
+        $$('.option', box).forEach(x => {
+          if (x.dataset.o === w.word) {
+            x.classList.add('right');
+            x.classList.add('ans-bounce');
+          }
+        });
+        if (!ok) {
+          b.classList.add('wrong');
+          b.classList.add('ans-shake');
+        }
+        const qc = $('.q-card', box);
+        if (qc) {
+          qc.classList.remove('ans-bounce', 'ans-shake');
+          void qc.offsetWidth;
+          qc.classList.add(ok ? 'ans-bounce' : 'ans-shake');
+        }
         finish(ok);
       };
       $$('.option', box).forEach(b => b.onclick = () => pick(b));
@@ -425,9 +467,32 @@
       if (!a) return;
       const ok = a === w.word.toLowerCase() || a === target.toLowerCase();
       // Sai 1 ký tự → cho thử lại một lần
-      if (!ok && !q.retried && similarity(a, target) >= 0.8) { q.retried = true; toast(t('Gần đúng rồi! Kiểm tra lại chính tả') + ' 👀'); return; }
+      if (!ok && !q.retried && similarity(a, target) >= 0.8) {
+        q.retried = true;
+        toast(t('Gần đúng rồi! Kiểm tra lại chính tả') + ' 👀');
+        haptic(false);
+        const inp = $('#ans');
+        if (inp) {
+          inp.classList.remove('ans-shake');
+          void inp.offsetWidth;
+          inp.classList.add('ans-shake');
+        }
+        return;
+      }
       $('#ans').disabled = true;
-      finish(ok);
+      const inp = $('#ans');
+      if (inp) {
+        inp.classList.remove('ans-bounce', 'ans-shake');
+        void inp.offsetWidth;
+        inp.classList.add(ok ? 'ans-bounce' : 'ans-shake');
+      }
+      const qc = $('.q-card', box);
+      if (qc) {
+        qc.classList.remove('ans-bounce', 'ans-shake');
+        void qc.offsetWidth;
+        qc.classList.add(ok ? 'ans-bounce' : 'ans-shake');
+      }
+      finish(ok, a);
     };
     document.onkeydown = e => { if (answered && e.key === 'Enter' && e.target.id !== 'ans') { e.preventDefault(); $('#nextQ').click(); } };
   }
@@ -598,10 +663,10 @@
       if (sel === b) { b.classList.remove('sel'); sel = null; return; }
       const a = tiles[+sel.dataset.i];
       if (a.id === t.id && a.kind !== t.kind) {
-        Sfx.correct(); sel.classList.add('gone'); b.classList.add('gone'); sel = null; left--;
+        Sfx.correct(); haptic(true); sel.classList.add('gone'); b.classList.add('gone'); sel = null; left--;
         if (!left) done();
       } else {
-        Sfx.wrong(); misses++; const s = sel; s.classList.remove('sel'); s.classList.add('bad'); b.classList.add('bad');
+        Sfx.wrong(); haptic(false); misses++; const s = sel; s.classList.remove('sel'); s.classList.add('bad'); b.classList.add('bad');
         setTimeout(() => { s.classList.remove('bad'); b.classList.remove('bad'); }, 400); sel = null;
       }
     });
