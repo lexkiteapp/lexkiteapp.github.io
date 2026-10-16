@@ -27,6 +27,15 @@ Mẫu thẻ:
 
 ## TODO
 
+### [B2] Blog đa ngôn ngữ – lượt 2: 5 bài · @antigravity · ưu tiên: cao
+- B1 đạt (Claude 16/10): blog-check 0 lỗi, dupes max 5,6%, npm test ALL OK, bản địa hóa tốt. Giữ nguyên quy trình B1.
+- Lượt này 5 bài, xoay vòng **vi → en → es → ja → id** (mỗi ngôn ngữ 1 bài, chủ đề chưa có trong `briefs.json` cho ngôn ngữ đó).
+- Bổ sung bắt buộc: blog-check còn cảnh báo "chưa có bài nào trỏ tới" 4 bài B1 → mỗi bài mới phải **thêm 1 link vào ≥ 1 bài cũ cùng ngôn ngữ** (sửa 1 câu tự nhiên trong bài cũ liên quan), gồm cả 4 bài B1. Mục tiêu blog-check 0 lỗi **0 cảnh báo**.
+- Commit từng bài; xong chuyển CHỜ DUYỆT + Báo cáo như B1.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+
 > **Giao diện chia nhỏ từng thẻ** (anh Quyền 16/10): mỗi thẻ 1 cụm màn hình/nền tảng, làm xong → CHỜ DUYỆT → Claude duyệt (đo tự động + xem thật) → thẻ tiếp. Làm theo thứ tự U2a → U2b → U2c → U2d → U2e.
 
 ### [U2a] Trang chủ mobile – lời chào bị ép cột + vùng chạm 🔊 · @antigravity · ưu tiên: CAO NHẤT
@@ -97,43 +106,6 @@ Mẫu thẻ:
 
 ## CHỜ DUYỆT
 
-### [B1] Blog chuẩn SEO đa ngôn ngữ – LƯỢT THỬ 4 bài xen kẽ · @antigravity · ưu tiên: cao
-- Mục tiêu: 4 bài, mỗi ngôn ngữ 1 bài, rải xen kẽ: **en → es → ja → id** (blog đang bật 5 ngôn ngữ; hiện vi 80 · en 24 · es 2 · ja 2 · id 2). Chọn chủ đề từ `content/blog/briefs.json` mà ngôn ngữ đó chưa có, ưu tiên evergreen người học nước đó hay tìm.
-- Viết **bản địa hóa thật** (người bản ngữ đọc tự nhiên, đào sâu lỗi chuyển di ngôn ngữ mẹ đẻ L1 của học viên TBN, Nhật, Indonesia khi học tiếng Anh), KHÔNG dịch máy.
-- File/khu vực:
-  - `content/blog/en/ielts-self-study-plan.md`
-  - `content/blog/es/present-perfect-vs-past-simple.md`
-  - `content/blog/ja/toeic-part5-kotsu.md`
-  - `content/blog/id/metode-spaced-repetition.md`
-- Chuẩn SEO: Tiêu đề, mô tả, từ khóa chính trong title/H2/120 từ đầu, ≥ 1.200 từ (ja ≥ 3.000 ký tự CJK), ≥ 4 H2, 3 ảnh app thật `media:<id>`, ≥ 2 link app `/#/…`, link bài liên quan cùng ngôn ngữ, đúng 1 `{{cta}}`, mục FAQ 4 câu.
-- Báo cáo:
-  1. **Bài EN**: `content/blog/en/ielts-self-study-plan.md`
-     - Slug: `ielts-self-study-plan` · Từ khóa: `"ielts self study plan"` · Độ dài: 1.564 từ · Quality: 95
-     - 3 ảnh: `media:path`, `media:practice-learn`, `media:stats` · CTA: `/#/placement`
-     - Xếp lịch: 2026-11-16T18:15:00+07:00
-  2. **Bài ES**: `content/blog/es/present-perfect-vs-past-simple.md`
-     - Slug: `present-perfect-vs-past-simple` · Từ khóa: `"present perfect vs past simple"` · Độ dài: 1.670 từ · Quality: 95
-     - 3 ảnh: `media:grammar`, `media:practice-test`, `media:stats` · CTA: `/#/grammar`
-     - Bản địa hóa đặc thù người nói tiếng Tây Ban Nha: phân biệt sắc thái pretérito perfecto compuesto (ở bán đảo Iberia) vs pretérito indefinido (ở Mỹ Latinh), các từ chỉ thời gian đặc trưng, bài tập tự kiểm tra 4 câu kèm giải thích.
-     - Xếp lịch: 2026-11-15T11:23:00+07:00
-  3. **Bài JA**: `content/blog/ja/toeic-part5-kotsu.md`
-     - Slug: `toeic-part5-kotsu` · Từ khóa: `"toeic part5 コツ"` · Độ dài: 2.574 từ (~3.200 ký tự CJK) · Quality: 95
-     - 3 ảnh: `media:grammar`, `media:mistakes`, `media:practice-test` · CTA: `/#/toeic`
-     - Bản địa hóa người học Nhật Bản: quy tắc 20 giây/câu, nhìn đáp án phân loại 品詞/動詞/接続詞/語彙 trước khi đọc đề, tiếp vĩ ngữ nhận diện từ loại, bẫy liên từ vs giới từ (`although` vs `despite`, `while` vs `during`), 4 bài tập thực chiến có phân tích từng bước.
-     - Xếp lịch: 2026-11-15T18:42:00+07:00
-  4. **Bài ID**: `content/blog/id/metode-spaced-repetition.md`
-     - Slug: `metode-spaced-repetition` · Từ khóa: `"metode spaced repetition"` · Độ dài: 1.310 từ · Quality: 95
-     - 3 ảnh: `media:review`, `media:stats`, `media:practice-learn` · CTA: `/#/review`
-     - Bản địa hóa người học Indonesia: khắc phục thói quen SKS (sistem kebut semalam), cơ chế kurva lupa Ebbinghaus, chu kỳ lặp tối ưu SM-2/FSRS, 4 lỗi flashcard phổ biến (học từ cô lập, lật thẻ thụ động, bỏ quên thì/tính chất ngữ pháp).
-     - Xếp lịch: 2026-11-15T06:06:00+07:00
-  5. **Kiểm thử tự động & chất lượng**:
-     - `node scripts/blog-check.mjs`: 114 bài toàn dự án đạt 0 lỗi.
-     - `node scripts/blog-dupes.mjs`: 114/114 bài đạt 0 lỗi, cặp tương đồng cao nhất chỉ 5.6%.
-     - `node scripts/blog-schedule.mjs`: Đã xếp lịch xuất bản tự động thành công cho cả 4 bài.
-     - `npm test`: PASS 100% (chính tả, 14 ngôn ngữ i18n, unit FSRS, crawl 510 trang ALL OK, axe a11y 0 lỗi).
-- Cần sửa / Nhận xét:
-
-
 ### [E1] Email "Báo cáo não bộ" hằng tuần · @antigravity · ưu tiên: thấp
 - Mục tiêu: nối `web/templates/weekly-digest.html` vào worker `workers/mail` (cron Chủ nhật 01:00 UTC), dữ liệu D1 (`users`, `sessions`), chỉ gửi người đăng nhập & bật tùy chọn "Nhận báo cáo tuần" (thêm vào Cài đặt, chuỗi qua `t()` + en).
 - File/khu vực: `web/js/app.js`, `web/js/core.js`, `web/templates/weekly-digest.html`, `web/js/i18n/*`, `extension/app/*`.
@@ -153,4 +125,4 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét: (Claude 16/10) ✅ Giao diện + template + i18n đạt. ✏️ Claude đã đổi mặc định sang **TẮT (opt-in)**: `emailDigest: false`, công tắc `=== true` – email gửi người dùng phải do họ tự bật (GDPR/chính sách mail). ⏸️ Phần gửi chưa triển khai được: Cloudflare Email Routing (`env.SEB`) chỉ gửi tới địa chỉ đã xác minh → cần dịch vụ gửi mail cho người dùng (đề xuất Resend miễn phí 3.000 mail/tháng) + bản ghi DNS SPF/DKIM + trang hủy đăng ký `/api/unsub`. Chờ anh Quyền chọn dịch vụ → Claude làm worker. Thẻ giữ ở CHỜ DUYỆT.
 
 ## ĐÃ XONG
-- [A0] Nhắc học thông minh (0e7c6c3c) · [A1] Giao diện Admin bento (trong c0e088db) · [A2] Trang Tôi (868e44cb) – Claude đã duyệt 16/10.
+- [A0] Nhắc học thông minh (0e7c6c3c) · [A1] Giao diện Admin bento (trong c0e088db) · [A2] Trang Tôi (868e44cb) · [B1] Blog 4 bài en/es/ja/id (4c122d19) – Claude đã duyệt 16/10.
