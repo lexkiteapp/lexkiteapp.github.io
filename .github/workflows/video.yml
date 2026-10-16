@@ -1,0 +1,76 @@
+# Dựng 1 video cho Video Studio (Quản trị → Video Studio → "Dựng video"). functions/api/studio.js gọi workflow_dispatch với job_id
+# (secret GH_DISPATCH_TOKEN ở Cloudflare Pages). Chạy trên ubuntu-latest (miễn phí, repo công khai). Luồng: docs/VIDEO-PIPELINE.md §7.
+# Bí mật GitHub Actions cần: STUDIO_CALLBACK_SECRET (trùng giá trị trên Cloudflare Pages), GRABCAST_API_KEY (tải video vào kho GrabCast; thiếu → bỏ qua bước tải kho).
+name: Dựng video (Video Studio)
+on:
+  workflow_dispatch:
+    inputs:
+      job_id: { description: 'Mã job video (video_jobs.id)', required: true }
+permissions:
+  contents: read
+concurrency:
+  group: video-${{ github.event.inputs.job_id }}
+  cancel-in-progress: false
+env:
+  JOB: ${{ github.event.inputs.job_id }}
+  STUDIO_API: https://lexkite.com/api/studio
+  STUDIO_CALLBACK_SECRET: ${{ secrets.STUDIO_CALLBACK_SECRET }}
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Kiểm mã job
+        run: echo "$JOB" | grep -Eq '^[A-Za-z0-9_-]{1,40}$' || { echo "job_id không hợp lệ"; exit 1; }
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Cài ffmpeg (libass) + phông DejaVu
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core >/dev/null && ffmpeg -hide_banner -filters | grep -q ' ass '
+
+      # ---------- Dây chuyền dựng (mỗi bước đọc/ghi out/video/<job>/state.json) ----------
+      - name: 1 · Lấy kịch bản đã duyệt
+        run: node scripts/video/render.mjs --job "$JOB" --step fetch
+      - name: 2 · Giọng đọc Kokoro (TODO – hiện ước lượng thời lượng)
+        run: node scripts/video/render.mjs --job "$JOB" --step tts
+      - name: 3 · Mốc thời gian từng từ (TODO whisper – hiện chia đều)
+        run: node scripts/video/render.mjs --job "$JOB" --step align
+      - name: 4 · Khẩu hình Rhubarb (TODO)
+        run: node scripts/video/render.mjs --job "$JOB" --step lipsync
+      - name: 5 · Phụ đề karaoke ASS
+        run: node scripts/video/render.mjs --job "$JOB" --step karaoke
+      - name: 6 · Ghép video (ffmpeg, nền tạm + phụ đề burn-in)
+        id: compose
+        run: node scripts/video/render.mjs --job "$JOB" --step compose
+      - name: 7 · Cổng chất lượng
+        run: node scripts/video/render.mjs --job "$JOB" --step qa
+
+      # ---------- Lưu trữ & gọi lại ----------
+      - name: Lưu bản xem trước (artifact 14 ngày)
+        id: art
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-${{ github.event.inputs.job_id }}
+          path: |
+            out/video/${{ github.event.inputs.job_id }}/video.mp4
+            out/video/${{ github.event.inputs.job_id }}/subs.*
+            out/video/${{ github.event.inputs.job_id }}/state.json
+          retention-days: 14
+      - name: Tải vào kho GrabCast (pool bulk – Studio tự tạo bài & lên lịch)
+        id: store
+        env:
+          GRABCAST_API_KEY: ${{ secrets.GRABCAST_API_KEY }}
+        run: |
+          if [ -z "$GRABCAST_API_KEY" ]; then echo "⚠️ chưa có secret GRABCAST_API_KEY – bỏ qua tải kho"; exit 0; fi
+          node scripts/video/publish-grabcast.mjs --file "out/video/$JOB/video.mp4" --store-only
+      - name: Báo kết quả về Studio
+        if: always()
+        env:
+          OBJECT_ID: ${{ steps.store.outputs.object_id }}
+          PREVIEW_URL: ${{ steps.store.outputs.preview_url || steps.art.outputs.artifact-url }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: node scripts/video/render.mjs --job "$JOB" --step report --ok "${{ job.status }}"
