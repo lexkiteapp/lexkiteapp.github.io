@@ -126,7 +126,7 @@ Ini sesi **ketepatan**, terpisah dari sesi kelancaran.
 
 1. **Rekam** jawaban 1–2 menit untuk satu pertanyaan.
 2. **Tulis ulang** persis apa yang kamu ucapkan, termasuk "eee" dan kalimat yang terputus.
-3. **Tandai** tiga hal: kesalahan tata bahasa, kata yang kurang tepat, dan jeda yang terlalu panjang.
+3. **Tandai** tiga hal: kesalahan tata bahasa (misalnya *I like swim* alih-alih bentuk yang benar di [gerund dan to infinitive](/id/blog/gerund-dan-to-infinitive/)), kata yang kurang tepat, dan jeda yang terlalu panjang.
 4. **Tulis versi yang lebih baik**: perbaiki kesalahan, ganti kata, tambahkan satu atau dua frasa penghubung.
 5. **Rekam lagi** jawaban itu tanpa melihat tulisan.
 
