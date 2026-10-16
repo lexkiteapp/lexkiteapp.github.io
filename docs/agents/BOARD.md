@@ -27,9 +27,19 @@ Mẫu thẻ:
 
 ## TODO
 
+### [Q1] "Chơi nhanh 15 giây" + trắc nghiệm "Phong cách tiếng Anh của bạn" (xóa ngại, không sợ sai) · @antigravity · ưu tiên: cao
+- **⚡ 15 giây**: 3–5 câu siêu ngắn, mỗi câu 1 dòng + 2–3 lựa chọn to (icon/hình), lấy từ thẻ đến hạn + từ mới phù hợp trình độ; xong trong ~15 giây; kết thúc bằng 1 câu khen + (nếu tốt) thẻ chia sẻ S1. Lối vào: nút lớn ở #/home, deep link `#/quick` cho widget & popup add-on. Sai không trừ gì, chỉ hiện đáp án đúng nhẹ nhàng.
+- **Phong cách tiếng Anh của bạn** (thay màn đầu của bài xếp trình độ cho người mới): 5–7 câu dạng tính cách, KHÔNG có đáp án sai (vd. "Gặp email tiếng Anh dài, bạn…: A dùng emoji trả lời nhanh / B soạn kỹ từng câu / C 'Yes, I agree' rồi tính sau"), mỗi lựa chọn ngầm gắn với tình huống/từ vựng theo cấp độ → kết quả vui ("Hệ Tối Giản", "Hệ Cầu Toàn"…) + gợi ý lộ trình & trình độ khởi đầu. Bài xếp trình độ đầy đủ vẫn giữ cho ai muốn.
+- Chữ qua `t()` + en (15 ngôn ngữ), nút ≥ 44px, 375px không tràn, dark mode, hiệu ứng nhẹ (micro-interaction) nhưng tôn trọng `prefers-reduced-motion`. Dữ liệu dùng kho sẵn có (`Core.Cards`, kho từ theo CEFR) – không thêm nội dung lớn.
+- Làm trong worktree riêng; `npm test` PASS; báo cáo kèm ảnh/GIF 375px.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+
 ### [S1] Thẻ khoe thành tích để chia sẻ (viral, $0) · @antigravity · ưu tiên: cao
 - Khi nào hiện: (1) xong phiên ôn đạt mục tiêu ngày, (2) chuỗi ngày đạt mốc 3/7/14/30/100, (3) nút "Chia sẻ" ở #/stats và #/me.
 - Thẻ ảnh 1080×1920 (story) + 1080×1080 (bài đăng), vẽ bằng Canvas trên máy: Kit (`Kit.svg('win')` từ `web/js/kit.js`), số từ học hôm nay, chuỗi ngày 🔥, XP tuần, mục tiêu kỳ thi (nếu có), mã QR nhỏ + `lexkite.com` (QR: dùng `extension/qr.js` sẵn có hoặc tương đương nhẹ). Màu theo `docs/BRAND-RULES.md`. KHÔNG ghi số liệu bịa kiểu "vượt 85% người dùng" – chỉ số thật của người dùng.
+- **Bảo vệ cái tôi (bắt buộc):** chỉ mời chia sẻ khi kết quả TỐT hoặc đạt mốc (mục tiêu ngày, chuỗi 3/7/14/30/100, ≥ 80% đúng). Kết quả thấp → lời động viên hóm hỉnh (vd. "Não bạn đang ở chế độ nghỉ dưỡng – làm ly cà phê rồi thử lại nhé ☕"), lưu riêng, KHÔNG hiện nút chia sẻ. Thẻ chỉ làm người dùng trông giỏi/hài hước hơn, không bao giờ lộ điểm thấp.
 - Chia sẻ: `navigator.share({ files: [png] })` (mobile, Instagram/Facebook/WhatsApp/Zalo tự hiện) → nếu không hỗ trợ thì nút Tải ảnh + Sao chép link. App Capacitor: dùng plugin Share nếu đã có.
 - Chữ trên thẻ theo ngôn ngữ giao diện (15 ngôn ngữ, qua `t()` + en), RTL đúng cho ar.
 - File: `web/js/` (module mới tải lười, ≤ 30 KB gz) + `web/css/style.css`. Làm trong worktree riêng; `npm test` PASS; báo cáo kèm 2 ảnh thẻ mẫu (vi, en).
