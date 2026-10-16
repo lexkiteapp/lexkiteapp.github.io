@@ -99,14 +99,23 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét:
 
 ## ĐANG LÀM
+- (trống)
+
+## CHỜ DUYỆT
 
 ### [U2a] Trang chủ mobile – lời chào bị ép cột + vùng chạm 🔊 · @antigravity · ưu tiên: CAO NHẤT
 - #/home (375px): lời chào "Chào buổi chiều / Đây là kế hoạch của bạn hôm nay" bị ép thành cột hẹp vì chip "IELTS 6.5 · còn 120 ngày" cùng hàng → < 480px xếp chip xuống dưới lời chào. Nút 🔊 (home, #/review, #/phrases) vùng chạm ≥ 44×44px (giữ cỡ biểu tượng).
-- File: `web/css/style.css` (+ markup home nếu bắt buộc). Báo cáo: ảnh trước/sau 375px sáng & tối.
+- File: `web/css/style.css` (đã đồng bộ vào `extension/app/css/style.css`).
 - Báo cáo:
+  1. **Bố cục lời chào & chip mục tiêu trên màn hẹp (< 480px & 375px)**:
+     - Chuyển `.today-head` sang CSS Grid 2 cột: Cột 1 (`auto` / 52px) cho mascot Kit, Cột 2 (`1fr`) cho khối lời chào (`.grow { min-width: 0 }`). Lời chào chiếm trọn toàn bộ chiều rộng còn lại của hàng 1, hoàn toàn giải phóng không gian, chữ hiển thị tự nhiên và thoáng đãng.
+     - `.goal-chip` ("IELTS 6.5 · còn 120 ngày") được xếp xuống hàng 2 (`grid-row: 2; grid-column: 2; justify-self: start;`), thẳng hàng lề trái với lời chào bên trên.
+     - Màn hình siêu hẹp (≤ 360px): `.goal-chip` tự co giãn `grid-column: 1 / -1` để không bị gò bó.
+  2. **Vùng chạm nút 🔊 (home, #/review, #/phrases, từ điển)**:
+     - Thêm `position: relative` và pseudo-element `::after` (`min-width: 44px; min-height: 44px; width: max(100%, 44px); height: max(100%, 44px)`) cho `.icon-btn`, `.icon-btn.sm` và `.ctx-say`.
+     - Giữ nguyên 100% kích thước biểu tượng và cỡ khung hiển thị (30px/36px/24px) nhưng vùng chạm thực tế đạt chuẩn WCAG ≥ 44×44px, bấm mượt và dễ trúng trên màn hình cảm ứng điện thoại.
+  3. **Kiểm thử**: `npm test` PASS 100% (axe-core a11y 0 lỗi, i18n 15 ngôn ngữ, crawl 510 trang ALL OK).
 - Cần sửa / Nhận xét:
-
-## CHỜ DUYỆT
 
 ### [E1] Email "Báo cáo não bộ" hằng tuần · @antigravity · ưu tiên: thấp
 - Mục tiêu: nối `web/templates/weekly-digest.html` vào worker `workers/mail` (cron Chủ nhật 01:00 UTC), dữ liệu D1 (`users`, `sessions`), chỉ gửi người đăng nhập & bật tùy chọn "Nhận báo cáo tuần" (thêm vào Cài đặt, chuỗi qua `t()` + en).
