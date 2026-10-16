@@ -103,14 +103,8 @@ Mẫu thẻ:
 > **Giao diện chia nhỏ từng thẻ** (anh Quyền 16/10): mỗi thẻ 1 cụm màn hình/nền tảng, làm xong → CHỜ DUYỆT → Claude duyệt (đo tự động + xem thật) → thẻ tiếp. Làm theo thứ tự U2a → U2b → U2c → U2d → U2e.
 
 
-### [U2c] Cảm giác chấm bài chuẩn Duolingo · @antigravity · ưu tiên: vừa
-- ▶️ **MỞ – làm ngay** (Claude 16/10 sau khi duyệt U2b). Tiếp tục worktree riêng như U2b (tốt). Đẩy lên nhánh `antigravity` cũng được – Claude gộp vào main khi duyệt.
-- Đúng: nảy nhẹ + rung ngắn (navigator.vibrate trên mobile); sai: lắc + rung đôi; tôn trọng `prefers-reduced-motion` & cài đặt âm thanh hiện có; skeleton thay "Đang tải…" ở #/review, #/home.
-- File: `web/css/style.css`, `web/js/study.js` (chỉ phần phản hồi giao diện). Chuỗi mới qua `t()` + en.
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
 ### [U2d] Màn kết thúc phiên ôn · @antigravity · ưu tiên: vừa
+- ▶️ **MỞ – làm ngay** (Claude 16/10 sau khi duyệt U2c). Gắn luôn thẻ khoe thành tích S1 vào màn này (chỉ khi kết quả tốt – quy tắc bảo vệ cái tôi).
 - Tổng kết: số thẻ, % đúng, XP nhận, chuỗi ngày (+1 khi giữ được), từ khó nhất phiên; Kit ăn mừng; nút chính "Học tiếp" + phụ "Về trang chủ"; chia sẻ thành tích (Web Share API, có fallback copy).
 - File: `web/js/study.js` (phần màn kết thúc), `web/css/style.css`, `web/js/i18n/en/*.js`.
 - Báo cáo:
@@ -180,4 +174,4 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét: (Claude 16/10) ✅ Giao diện + template + i18n đạt. ✏️ Claude đã đổi mặc định sang **TẮT (opt-in)**: `emailDigest: false`, công tắc `=== true` – email gửi người dùng phải do họ tự bật (GDPR/chính sách mail). ⏸️ Phần gửi chưa triển khai được: Cloudflare Email Routing (`env.SEB`) chỉ gửi tới địa chỉ đã xác minh → cần dịch vụ gửi mail cho người dùng (đề xuất Resend miễn phí 3.000 mail/tháng) + bản ghi DNS SPF/DKIM + trang hủy đăng ký `/api/unsub`. Chờ anh Quyền chọn dịch vụ → Claude làm worker. Thẻ giữ ở CHỜ DUYỆT.
 
 ## ĐÃ XONG
-- [A0] Nhắc học thông minh (0e7c6c3c) · [A1] Giao diện Admin bento (trong c0e088db) · [A2] Trang Tôi (868e44cb) · [U2b] Thanh dưới/Cài đặt/Thống kê/Tôi mobile (a7f682c7 → main 6addec8f) – Claude đo live 375px: nút thanh dưới 73×48, 5 trang 0 tràn, 0 chữ < 12px ✅ · [U2a] Trang chủ mobile (lên live trong 1d6502ca) – Claude đo 375px: lời chào 278px, chip hàng 2, vùng chạm 🔊 44px, không tràn ✅ · [B1] Blog 4 bài en/es/ja/id (4c122d19) – Claude đã duyệt 16/10.
+- [A0] Nhắc học thông minh (0e7c6c3c) · [A1] Giao diện Admin bento (trong c0e088db) · [A2] Trang Tôi (868e44cb) · [U2c] Cảm giác chấm bài Duolingo + khung chờ tải (0239c9d4 → main) – Claude thử live 375px: sai → lắc, đáp án đúng → nảy, 0 lỗi, 0 tràn; hoạt ảnh tắt khi giảm chuyển động ✅ · [U2b] Thanh dưới/Cài đặt/Thống kê/Tôi mobile (a7f682c7 → main 6addec8f) – Claude đo live 375px: nút thanh dưới 73×48, 5 trang 0 tràn, 0 chữ < 12px ✅ · [U2a] Trang chủ mobile (lên live trong 1d6502ca) – Claude đo 375px: lời chào 278px, chip hàng 2, vùng chạm 🔊 44px, không tràn ✅ · [B1] Blog 4 bài en/es/ja/id (4c122d19) – Claude đã duyệt 16/10.
