@@ -27,11 +27,14 @@ Mẫu thẻ:
 
 ## TODO
 
-### [B1] Blog chuẩn SEO có ảnh chụp app thật – lượt 1 (bù bài tiếng Anh) · @antigravity · ưu tiên: cao
-- Mục tiêu: viết 5 bài tiếng Anh tương ứng 5 bài tiếng Việt đã có nhưng chưa có bản en (so `content/blog/vi` với `content/blog/en`, chọn bài evergreen/lượt xem cao trước).
-- File/khu vực: `content/blog/en/<slug>.md`, `content/blog/shots.json`, `content/blog/media.json` (nếu thêm ảnh).
-- Quy trình & chuẩn: `docs/COORDINATION.md` mục "Việc mở" số 3 + `content/blog/WRITING-GUIDE.md` (viết lại tự nhiên cho người học quốc tế, không dịch máy từng câu).
-- Tiêu chí xong: `node scripts/blog-check.mjs <file>` 0 lỗi; `node scripts/blog-dupes.mjs` 0 lỗi; 2–3 ảnh app thật/bài; `node scripts/blog-schedule.mjs` đã xếp lịch; `npm test` PASS.
+### [B1] Blog chuẩn SEO đa ngôn ngữ – LƯỢT THỬ 4 bài xen kẽ · @antigravity · ưu tiên: cao
+- Mục tiêu: 4 bài, mỗi ngôn ngữ 1 bài, rải xen kẽ: **en → es → ja → id** (blog đang bật 5 ngôn ngữ; hiện vi 80 · en 24 · es 2 · ja 2 · id 2). Chọn chủ đề từ `content/blog/briefs.json` mà ngôn ngữ đó chưa có, ưu tiên evergreen người học nước đó hay tìm (vd. es: vocabulario IELTS, ja: TOEIC 単語 覚え方, id: tips belajar kosakata).
+- Viết **bản địa hóa thật** (người bản ngữ đọc tự nhiên, ví dụ hợp người học nước đó – lỗi hay gặp của người Nhật/Indonesia/Tây Ban Nha khi học tiếng Anh), KHÔNG dịch máy từng câu từ bài vi.
+- File/khu vực: `content/blog/<lang>/<slug>.md` (front matter đúng §5, `lang:` đúng, `publishAt:` trống, `status: ready`, `translationOf:` nếu là bản của bài vi), `content/blog/shots.json`/`media.json` nếu thêm ảnh.
+- Chuẩn SEO (rule đã xây – `content/blog/WRITING-GUIDE.md`, `docs/SEO-PLAN.md`): tiêu đề 30–65 ký tự có từ khóa chính (với ja: 20–40 ký tự), mô tả 110–160 ký tự (ja: 60–120), ≥ 1.200 từ (ja ≥ 3.000 ký tự), ≥ 4 H2, từ khóa trong 120 từ đầu, 2–3 ảnh app thật `media:<id>` alt đúng, ≥ 2 link app `/#/…`, ≥ 1 link bài khác cùng ngôn ngữ, đúng 1 `{{cta}}`, mục FAQ 3–4 câu.
+- Kiểm: `node scripts/blog-check.mjs <file>` 0 lỗi · `node scripts/blog-dupes.mjs` 0 lỗi · `npm test` PASS · `node scripts/blog-schedule.mjs` (xếp lịch).
+- Commit: 1 commit cho cả lượt (chỉ các file bài + media/shots), push, chuyển thẻ sang CHỜ DUYỆT với Báo cáo: slug từng bài, từ khóa chính, số từ, ảnh dùng, kết quả lệnh kiểm.
+- Claude duyệt (đọc mẫu, kiểm SEO, xem bản dựng) → đạt thì mở thẻ B2 (5 bài/lượt, xoay vòng en/es/ja/id/vi).
 - Báo cáo:
 - Cần sửa / Nhận xét:
 
