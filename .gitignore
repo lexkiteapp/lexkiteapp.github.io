@@ -18,3 +18,7 @@ ACCOUNTS.local.md
 .tools/
 .media/
 scripts/test/node_modules/
+
+# Ảnh cửa hàng theo thị trường (50 ảnh) – lưu ở nhánh store-shots, không làm nặng main
+store/chrome/screenshots/[a-df-uw-z][a-z]-[1-5].png
+!store/chrome/screenshots/vi-[1-5].png
