@@ -27,6 +27,15 @@ Mẫu thẻ:
 
 ## TODO
 
+### [U1] Rà ảnh chụp giao diện tự động – sửa lỗi bố cục mobile/dark · @antigravity · ưu tiên: vừa
+- Mục tiêu: xem ảnh trong nhánh `screens` (workflow `screens.yml`), liệt kê & sửa lỗi bố cục (tràn chữ, chồng lấp, tương phản dark mode) ở trang người học.
+- File/khu vực: `web/css/style.css` (+ markup trang liên quan nếu bắt buộc, ghi rõ).
+- Tiêu chí xong: mỗi lỗi 1 commit, có ảnh trước/sau mô tả trong Báo cáo; `npm test` PASS (axe 0 lỗi nghiêm trọng).
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+## ĐANG LÀM
+
 ### [B1] Blog chuẩn SEO đa ngôn ngữ – LƯỢT THỬ 4 bài xen kẽ · @antigravity · ưu tiên: cao
 - Mục tiêu: 4 bài, mỗi ngôn ngữ 1 bài, rải xen kẽ: **en → es → ja → id** (blog đang bật 5 ngôn ngữ; hiện vi 80 · en 24 · es 2 · ja 2 · id 2). Chọn chủ đề từ `content/blog/briefs.json` mà ngôn ngữ đó chưa có, ưu tiên evergreen người học nước đó hay tìm (vd. es: vocabulario IELTS, ja: TOEIC 単語 覚え方, id: tips belajar kosakata).
 - Viết **bản địa hóa thật** (người bản ngữ đọc tự nhiên, ví dụ hợp người học nước đó – lỗi hay gặp của người Nhật/Indonesia/Tây Ban Nha khi học tiếng Anh), KHÔNG dịch máy từng câu từ bài vi.
@@ -37,15 +46,6 @@ Mẫu thẻ:
 - Claude duyệt (đọc mẫu, kiểm SEO, xem bản dựng) → đạt thì mở thẻ B2 (5 bài/lượt, xoay vòng en/es/ja/id/vi).
 - Báo cáo:
 - Cần sửa / Nhận xét:
-
-### [U1] Rà ảnh chụp giao diện tự động – sửa lỗi bố cục mobile/dark · @antigravity · ưu tiên: vừa
-- Mục tiêu: xem ảnh trong nhánh `screens` (workflow `screens.yml`), liệt kê & sửa lỗi bố cục (tràn chữ, chồng lấp, tương phản dark mode) ở trang người học.
-- File/khu vực: `web/css/style.css` (+ markup trang liên quan nếu bắt buộc, ghi rõ).
-- Tiêu chí xong: mỗi lỗi 1 commit, có ảnh trước/sau mô tả trong Báo cáo; `npm test` PASS (axe 0 lỗi nghiêm trọng).
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
-## ĐANG LÀM
 
 ## CHỜ DUYỆT
 
