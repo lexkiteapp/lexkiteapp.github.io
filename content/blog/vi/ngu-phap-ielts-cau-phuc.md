@@ -75,6 +75,8 @@ Mệnh đề trạng ngữ trả lời câu hỏi *khi nào, vì sao, với đi�
 | Mục đích | so that | *Schools should teach coding so that students are ready for future jobs.* |
 | Kết quả | so … that, such … that | *The policy was so unpopular that it was withdrawn within a year.* |
 
+Riêng với mệnh đề điều kiện, bạn có thể xem hướng dẫn chi tiết về các loại [câu điều kiện trong tiếng Anh](/vi/blog/cau-dieu-kien-trong-tieng-anh/) để nắm chắc quy tắc chia thì và cấu trúc đảo ngữ.
+
 ### Lỗi người Việt hay mắc
 
 - Dùng hai từ nối cho một quan hệ: ~~*Although it is cheap, but…*~~ → bỏ *but*. Tiếng Việt nói "tuy… nhưng…", tiếng Anh chỉ cần một vế.

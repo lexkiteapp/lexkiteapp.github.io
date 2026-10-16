@@ -130,7 +130,7 @@ Bước 5 quan trọng hơn người học nghĩ. Kể chuyện là địa hạt
 
 **IELTS Writing Task 1.** Biểu đồ có mốc trong quá khứ (1990–2010) gần như luôn mô tả bằng quá khứ đơn: *The number of visitors rose sharply between 1995 and 2005.* Chỉ khi số liệu kéo tới hiện tại mới cân nhắc hiện tại hoàn thành. Xem bài [mô tả line graph trong Task 1](/vi/blog/ielts-writing-task-1-line-graph/) để luyện các động từ xu hướng.
 
-**IELTS Writing Task 2.** Hiện tại hoàn thành giúp nêu bối cảnh: *In recent decades, remote work has become increasingly common.* Câu này kết hợp tốt với câu phức để tăng điểm Grammatical Range – xem thêm [câu phức trong IELTS](/vi/blog/ngu-phap-ielts-cau-phuc/).
+**IELTS Writing Task 2.** Hiện tại hoàn thành giúp nêu bối cảnh: *In recent decades, remote work has become increasingly common.* Câu này kết hợp tốt với câu phức để tăng điểm Grammatical Range – xem thêm [câu phức trong IELTS](/vi/blog/ngu-phap-ielts-cau-phuc/) và các dạng [câu điều kiện trong tiếng Anh](/vi/blog/cau-dieu-kien-trong-tieng-anh/).
 
 **TOEIC Part 5.** Câu hỏi về thì thường cài tín hiệu như *since, for the past three years, last quarter*. Đọc toàn câu, tìm tín hiệu thời gian trước khi nhìn đáp án. Bài [mẹo làm TOEIC Part 5](/vi/blog/toeic-part-5-meo-lam-bai/) phân tích chiến thuật này kỹ hơn.
 

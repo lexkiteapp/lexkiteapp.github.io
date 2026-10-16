@@ -88,21 +88,6 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét:
 
 
-### [B2] Blog đa ngôn ngữ – lượt 2: 5 bài · @antigravity · ưu tiên: cao
-- B1 đạt (Claude 16/10): blog-check 0 lỗi, dupes max 5,6%, npm test ALL OK, bản địa hóa tốt. Giữ nguyên quy trình B1.
-- 📖 **Hướng dẫn bắt buộc**: Đọc kỹ và tuân thủ mục 3 ("Blog chuẩn SEO có ảnh chụp app thật") trong `docs/COORDINATION.md` cùng `content/blog/WRITING-GUIDE.md` trước khi viết.
-- Lượt này 5 bài, xoay vòng **vi → en → es → ja → id** (mỗi ngôn ngữ 1 bài, chủ đề chưa có trong `briefs.json` cho ngôn ngữ đó).
-- Bổ sung bắt buộc: blog-check còn cảnh báo "chưa có bài nào trỏ tới" 4 bài B1 → mỗi bài mới phải **thêm 1 link vào ≥ 1 bài cũ cùng ngôn ngữ** (sửa 1 câu tự nhiên trong bài cũ liên quan), gồm cả 4 bài B1. Mục tiêu blog-check 0 lỗi **0 cảnh báo**.
-- ⚠️ Ảnh B1: 8/11 alt/chú thích **mô tả sai ảnh** (vd. ảnh thẻ "run out of" ghi là "đề thi thời gian/thì động từ", ảnh flashcard ghi là "biểu đồ đường cong quên") – Claude đã sửa. Từ B2: alt/chú thích phải **khớp đúng `desc` trong `shots.json`**; ảnh có sẵn không hợp chủ đề thì thêm shot mới & chụp, không gán chú thích cho có.
-- Quy tắc nội dung chung: `docs/CONTENT-RULES.md`.
-- Commit từng bài; xong chuyển CHỜ DUYỆT + Báo cáo như B1.
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
-
-> **Giao diện chia nhỏ từng thẻ** (anh Quyền 16/10): mỗi thẻ 1 cụm màn hình/nền tảng, làm xong → CHỜ DUYỆT → Claude duyệt (đo tự động + xem thật) → thẻ tiếp. Làm theo thứ tự U2a → U2b → U2c → U2d → U2e.
-
-
 ### [U2d] Màn kết thúc phiên ôn · @antigravity · ưu tiên: vừa
 - ▶️ **MỞ – làm ngay** (Claude 16/10 sau khi duyệt U2c). Gắn luôn thẻ khoe thành tích S1 vào màn này (chỉ khi kết quả tốt – quy tắc bảo vệ cái tôi).
 - Tổng kết: số thẻ, % đúng, XP nhận, chuỗi ngày (+1 khi giữ được), từ khó nhất phiên; Kit ăn mừng; nút chính "Học tiếp" + phụ "Về trang chủ"; chia sẻ thành tích (Web Share API, có fallback copy).
@@ -174,4 +159,8 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét: (Claude 16/10) ✅ Giao diện + template + i18n đạt. ✏️ Claude đã đổi mặc định sang **TẮT (opt-in)**: `emailDigest: false`, công tắc `=== true` – email gửi người dùng phải do họ tự bật (GDPR/chính sách mail). ⏸️ Phần gửi chưa triển khai được: Cloudflare Email Routing (`env.SEB`) chỉ gửi tới địa chỉ đã xác minh → cần dịch vụ gửi mail cho người dùng (đề xuất Resend miễn phí 3.000 mail/tháng) + bản ghi DNS SPF/DKIM + trang hủy đăng ký `/api/unsub`. Chờ anh Quyền chọn dịch vụ → Claude làm worker. Thẻ giữ ở CHỜ DUYỆT.
 
 ## ĐÃ XONG
+
+### [B2] Blog đa ngôn ngữ – lượt 2: 5 bài · @antigravity · ✅ ĐÃ XONG (Claude 16/10)
+- Nghiệm thu: blog-check 0 lỗi, 5 bài mới 0 cảnh báo; alt ảnh khớp shots.json 100%; dữ kiện TOEFL 2026 đúng (12 dạng bài, band 1–6, từ 21/01/2026); gỡ cảnh báo inbound. Cherry-pick vào lexkite-main (b9091286…bad2d0ca), lịch xuất bản 17–18/11.
+- Góp ý lượt sau: chú thích (title) ảnh không được hứa tính năng app không có (vd. "Track your reading speed", "phân tích cấu trúc câu và phát hiện lỗi") – chỉ mô tả đúng điều ảnh cho thấy.
 - [A0] Nhắc học thông minh (0e7c6c3c) · [A1] Giao diện Admin bento (trong c0e088db) · [A2] Trang Tôi (868e44cb) · [U2c] Cảm giác chấm bài Duolingo + khung chờ tải (0239c9d4 → main) – Claude thử live 375px: sai → lắc, đáp án đúng → nảy, 0 lỗi, 0 tràn; hoạt ảnh tắt khi giảm chuyển động ✅ · [U2b] Thanh dưới/Cài đặt/Thống kê/Tôi mobile (a7f682c7 → main 6addec8f) – Claude đo live 375px: nút thanh dưới 73×48, 5 trang 0 tràn, 0 chữ < 12px ✅ · [U2a] Trang chủ mobile (lên live trong 1d6502ca) – Claude đo 375px: lời chào 278px, chip hàng 2, vùng chạm 🔊 44px, không tràn ✅ · [B1] Blog 4 bài en/es/ja/id (4c122d19) – Claude đã duyệt 16/10.

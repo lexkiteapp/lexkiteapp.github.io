@@ -2488,6 +2488,54 @@
    "type": "evergreen",
    "lang": "en",
    "source": "lo-trinh-tu-hoc-ielts"
+  },
+  {
+   "slug": "cau-dieu-kien-trong-tieng-anh",
+   "keyword": "câu điều kiện trong tiếng anh",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "cau-dieu-kien",
+    "thi"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/",
+    "/#/practice"
+   ],
+   "angle": "Phân loại câu điều kiện loại 0, 1, 2, 3 và hỗn hợp: công thức, cách dùng, đảo ngữ, các bẫy thường gặp và bài tập tự kiểm tra có đáp án",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "vi"
+  },
+  {
+   "slug": "ielts-reading-skimming-and-scanning",
+   "keyword": "skimming and scanning in ielts reading",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "reading",
+    "exam-tips"
+   ],
+   "shots": [
+    "reading",
+    "read-article",
+    "dict"
+   ],
+   "routes": [
+    "/#/reading",
+    "/samples/"
+   ],
+   "angle": "Practical skimming and scanning techniques for IELTS Reading: 60-minute time allocation, keyword spotting, avoiding traps, and practice drills",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "en",
+   "source": "ielts-reading-skimming-scanning"
   }
  ]
 }

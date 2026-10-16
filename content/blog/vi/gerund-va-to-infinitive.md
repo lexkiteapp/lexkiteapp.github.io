@@ -174,7 +174,7 @@ Khi đã học xong một nhóm, ôn chương liên quan trong [Ngữ pháp IELT
 
 {{youtube: | Gợi ý video: Stop, remember, try – vì sao đổi nghĩa khi đổi V-ing và to V}}
 
-Để dùng các cấu trúc này linh hoạt trong bài viết, đọc thêm [câu phức trong IELTS](/vi/blog/ngu-phap-ielts-cau-phuc/) và soát những lỗi chuyển di khác trong bài [lỗi sai tiếng Anh người Việt hay mắc](/vi/blog/loi-sai-tieng-anh-nguoi-viet-hay-mac/). Người luyện TOEIC sẽ gặp dạng câu hỏi này thường xuyên ở [TOEIC Part 5](/vi/blog/toeic-part-5-meo-lam-bai/).
+Để dùng các cấu trúc này linh hoạt trong bài viết, đọc thêm [câu phức trong IELTS](/vi/blog/ngu-phap-ielts-cau-phuc/), các dạng [câu điều kiện trong tiếng Anh](/vi/blog/cau-dieu-kien-trong-tieng-anh/) và soát những lỗi chuyển di khác trong bài [lỗi sai tiếng Anh người Việt hay mắc](/vi/blog/loi-sai-tieng-anh-nguoi-viet-hay-mac/). Người luyện TOEIC sẽ gặp dạng câu hỏi này thường xuyên ở [TOEIC Part 5](/vi/blog/toeic-part-5-meo-lam-bai/).
 
 ## Câu hỏi thường gặp
 

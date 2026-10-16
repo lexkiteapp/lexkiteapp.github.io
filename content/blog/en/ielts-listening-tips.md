@@ -108,7 +108,7 @@ If you got two or more wrong, add a two-minute format check at the end of each p
 
 ## Train each part separately, not only full tests
 
-Doing one full test after another shows your score but does not tell you what to fix. Separate practice by part is more efficient.
+Doing one full test after another shows your score but does not tell you what to fix. Separate practice by part is more efficient. To build this into an effective long-term routine, map out your preparation phases with a structured [IELTS self-study plan](/en/blog/ielts-self-study-plan/).
 
 | Part | Focus | Practice idea |
 |---|---|---|

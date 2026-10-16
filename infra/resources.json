@@ -313,11 +313,22 @@
    "console": "https://grabcast.click/scheduler.html",
    "free": "Giới hạn khóa API: 60 lượt/phút · 3.000 lượt/ngày",
    "upgrade": "Backend của chính chủ dự án – nâng hạn mức trên GrabCast",
-   "status": "Đang thiết lập",
+   "status": "Đang chạy (đã có khóa; chờ kết nối kênh)",
    "match": [
     "grabcast.click",
     "grabcast-api-342720596878.us-central1.run.app"
    ]
+  },
+  {
+   "key": "grabcast-ai",
+   "name": "GrabCast AI pool (văn bản & ảnh dự phòng)",
+   "kind": "ai",
+   "purpose": "Kho AI dùng chung của chủ dự án qua GrabCast: POST /api/owner-ai/generate (Gemini/Groq/Cloudflare, tự chuyển nhà cung cấp) và /api/owner-ai/image (luôn provider=cloudflare, ảnh 1024², tự cắt). Dùng làm dự phòng khi Workers AI riêng của Lexkite hết hạn mức. Env: secret GRABCAST_AI_KEY (scope ai:text + ai:image)",
+   "console": "https://grabcast.click/admin.html",
+   "free": "60 lượt/phút · 3.000 lượt/ngày theo khóa; ảnh 10 lượt/khung",
+   "upgrade": "Thêm khóa nhà cung cấp trong GrabCast Admin",
+   "status": "Sẵn sàng (chưa dùng)",
+   "match": []
   },
   {
    "key": "admob",

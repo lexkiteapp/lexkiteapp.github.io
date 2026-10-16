@@ -79,7 +79,7 @@ Consistency matters more than length. This routine fits a lunch break or a commu
 | 18–25 | Read or listen to one short text and catch familiar words | See words in real context |
 | 25–30 | Write three sentences or speak for one minute using today's words | Turn recognition into use |
 
-On a busy day, do only the first block. Reviews that pile up are the main reason people quit flashcards, so protect those ten minutes even when you skip new words.
+On a busy day, do only the first block. Reviews that pile up are the main reason people quit flashcards, so protect those ten minutes even when you skip new words. When planning your preparation timeline, structure your weekly targets following an actionable [IELTS self-study plan](/en/blog/ielts-self-study-plan/) so your lexical development directly supports all four modules.
 
 ## Practise the routine in Lexkite
 
@@ -102,7 +102,7 @@ You can run the whole routine on the free Lexkite app without building your own 
 - **Collecting synonyms for paraphrasing.** Many learners keep lists like *big = huge = enormous = immense*. These words are not interchangeable: *a huge problem* is natural, *an immense problem* is less common, and *an enormous decision* sounds odd. Learn the phrase each word lives in.
 - **Using every new word immediately.** Forcing *plethora* into a Speaking Part 1 answer about your hometown sounds unnatural. Match the word to the register.
 - **Ignoring word forms.** The academic word *analyse* has *analysis*, *analytical* and *analyst*. Wrong word forms (*an economic growth*, *the develop of cities*) cost Lexical Resource and Grammar marks at the same time; the [Academic Word List](/en/blog/academic-word-list/) guide shows how to learn whole families.
-- **Measuring progress by word count.** Two hundred words you can use beat a thousand you merely recognise.
+- **Measuring progress by word count.** Two hundred words you can use beat a thousand you merely recognise. Building lexical recognition also underpins rapid [skimming and scanning in IELTS Reading](/en/blog/ielts-reading-skimming-and-scanning/), where spotting keywords quickly saves critical test minutes.
 
 ## Self-check: is your method working?
 
