@@ -141,7 +141,7 @@
     if (host && host.parentNode === parent) return;
     if (host) { parent.appendChild(host); return; }
     host = document.createElement('ielts-lexi-popup');
-    root = host.attachShadow({ mode: 'closed' });
+    root = host.attachShadow({ mode: navigator.webdriver ? 'open' : 'closed' }); // 'open' chỉ khi chạy kiểm thử tự động (scripts/test/ext-e2e.mjs)
     root.innerHTML = H(`<style>${CSS}</style><div class="box" hidden></div><button class="fab" hidden title="${tx('Dịch với Lexkite')}">🌐</button>`);
     parent.appendChild(host);
     root.addEventListener('mousedown', e => e.stopPropagation());
