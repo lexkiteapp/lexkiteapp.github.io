@@ -2,10 +2,13 @@
 name: Kiểm thử add-on (E2E)
 on:
   workflow_dispatch:
+    inputs:
+      ext_ref: { description: 'Kiểm add-on của commit cũ (ảnh "trước khi sửa"); để trống = bản hiện tại', default: '' }
+      langs: { description: 'Ngôn ngữ (JSON)', default: '["vi","en","es","ja","zh","ar"]' }
   push:
     branches: [main]
     paths: ['extension/*.js', 'extension/*.html', 'extension/*.css', 'extension/manifest.json', 'scripts/test/ext-e2e.mjs', '.github/workflows/ext-e2e.yml']
-concurrency: { group: ext-e2e, cancel-in-progress: true }
+concurrency: { group: "ext-e2e-${{ inputs.ext_ref || 'cur' }}", cancel-in-progress: true }
 permissions:
   contents: write
 jobs:
@@ -15,9 +18,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        lang: [vi, en, es, ja, zh, ar]
+        lang: ${{ fromJSON(inputs.langs || '["vi","en","es","ja","zh","ar"]') }}
     steps:
       - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Dùng add-on của commit cũ
+        if: inputs.ext_ref != ''
+        run: git checkout ${{ inputs.ext_ref }} -- extension web
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Kiểm thử ${{ matrix.lang }}
@@ -42,4 +49,4 @@ jobs:
           cd /tmp/ext-qa && git init -q && git checkout -q -b ext-qa
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
           git add . && git commit -qm "Kiểm thử add-on $(date -u +%F\ %T)"
-          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ext-qa
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:${{ inputs.ext_ref != '' && 'ext-qa-before' || 'ext-qa' }}
