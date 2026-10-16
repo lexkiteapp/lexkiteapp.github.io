@@ -20,6 +20,7 @@ async function setup(db) {
   await hitSetup(db);
   await db.batch([
     db.prepare('CREATE TABLE IF NOT EXISTS services (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, purpose TEXT, account TEXT, console TEXT, billing TEXT, free TEXT, secret TEXT, status TEXT, note TEXT, ord INTEGER DEFAULT 0)'),
+    db.prepare('CREATE TABLE IF NOT EXISTS i18n_judge (h TEXT PRIMARY KEY, lang TEXT, ok INTEGER, note TEXT, at INTEGER) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS config (k TEXT PRIMARY KEY, v TEXT, at INTEGER, by TEXT) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS users (uid TEXT PRIMARY KEY, email TEXT, name TEXT, created INTEGER NOT NULL, seen INTEGER NOT NULL, plat TEXT, n INTEGER DEFAULT 1) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS contact_msgs (id INTEGER PRIMARY KEY AUTOINCREMENT, who TEXT NOT NULL, at INTEGER NOT NULL, name TEXT, email TEXT, msg TEXT, lang TEXT, sent INTEGER DEFAULT 0)'),
@@ -129,6 +130,21 @@ const OPS = {
     await c.put(key, new Response(JSON.stringify(out), { headers: { 'Cache-Control': 'max-age=600' } }));
     return out;
   },
+  // Kiểm nghĩa bản dịch: câu bị dịch ngược nghi sai (web/i18n/backcheck.json) → AI Cloudflare (gói miễn phí) xác nhận theo lô 15 câu
+  async judge(db, b, who, env) {
+    const lang = String(b.lang || ''), rep = await (await fetch('https://lexkite.com/i18n/backcheck.json?x=' + Date.now())).json(), L = (rep.langs || {})[lang];
+    if (!L || !env.AI) return { error: !env.AI ? 'no-ai' : 'no-lang' };
+    const done = new Set((await all(db, 'SELECT h FROM i18n_judge WHERE lang = ?', lang)).map(r => r.h)), todo = L.flagged.filter(f => !done.has(f.h)).slice(0, 45);
+    for (let i = 0; i < todo.length; i += 15) {
+      const part = todo.slice(i, i + 15), list = part.map((f, j) => `${j + 1}. EN: ${f.en.replace(/<[^>]+>/g, '')}\n   ${lang.toUpperCase()}: ${f.tr.replace(/<[^>]+>/g, '')}`).join('\n');
+      let out = {};
+      try { const r = await env.AI.run('@cf/meta/llama-3.3-70b-instruct-fp8-fast', { messages: [{ role: 'system', content: 'You are a professional UI localization reviewer. For each numbered pair decide if the translation conveys the same meaning as the English UI text (minor wording/style differences are OK). Reply ONLY JSON: {"wrong":[{"i":number,"why":"short reason in Vietnamese"}]} listing only clearly wrong ones.' }, { role: 'user', content: list }], max_tokens: 600 }); out = JSON.parse(String(r.response || r).match(/\{[\s\S]*\}/)[0]); } catch (e) { continue; }
+      const wrong = new Map((out.wrong || []).map(w => [+w.i, String(w.why || '').slice(0, 200)]));
+      await db.batch(part.map((f, j) => db.prepare('INSERT OR REPLACE INTO i18n_judge (h, lang, ok, note, at) VALUES (?, ?, ?, ?, ?)').bind(f.h, lang, wrong.has(j + 1) ? 0 : 1, wrong.get(j + 1) || '', Date.now())));
+    }
+    const rows = await all(db, 'SELECT h, ok, note FROM i18n_judge WHERE lang = ?', lang), by = Object.fromEntries(rows.map(r => [r.h, r]));
+    return { lang, judged: rows.length, pending: L.flagged.filter(f => !by[f.h]).length, wrong: L.flagged.filter(f => by[f.h] && !by[f.h].ok).map(f => ({ ...f, why: by[f.h].note })) };
+  },
   async alerts(db) {
     const now = Date.now(), out = [];
     try {
@@ -157,6 +173,6 @@ export async function onRequestPost({ request, env }) {
   if (!who || !who.email_verified || !admins.includes(String(who.email).toLowerCase())) return json(request, 403, { error: 'forbidden' });
   let b; try { b = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
   const fn = OPS[b.op]; if (!fn) return json(request, 400, { error: 'op' });
-  try { await setup(env.DB); return json(request, 200, await fn(env.DB, b, who)); }
+  try { await setup(env.DB); return json(request, 200, await fn(env.DB, b, who, env)); }
   catch (e) { return json(request, 500, { error: String(e && e.message || e).slice(0, 200) }); }
 }

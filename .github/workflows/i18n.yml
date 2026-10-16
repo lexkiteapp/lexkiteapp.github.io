@@ -28,12 +28,13 @@ jobs:
           node scripts/build-legal.mjs --translate  # Chính sách & Điều khoản cho 15 ngôn ngữ (chỉ dịch dòng mới/sửa)
           node scripts/gen-hero.mjs  # khung trang chào mừng dựng sẵn trong index.html theo bản dịch mới
           for l in $(grep -v '^#' scripts/i18n-langs.txt); do EXPLAIN_MIN=$(( 50 - (SECONDS / 60) )) node scripts/gen-explain.mjs "$l" || echo "lỗi lời giải $l"; done  # lời giải đề thi (chỉ câu mới)
+          node scripts/i18n-backcheck.mjs || echo 'kiểm nghĩa lỗi mạng – lần sau làm tiếp'  # dịch ngược câu mới/đổi → web/i18n/backcheck.json (tab Chất lượng)
           node scripts/i18n-qa.mjs   # báo cáo chất lượng: đủ khóa, đúng biến, không lẫn tiếng (xem docs/I18N-PIPELINE.md)
       - name: Lưu kết quả vào repo (tự lấy bản mới nhất trước khi đẩy, thử lại tối đa 5 lần)
         run: |
           git config user.name "lexkite-bot"
           git config user.email "lexkite-bot@users.noreply.github.com"
-          git add web/js/i18n/*.js web/i18n/explain web/index.html web/*/privacy.html web/*/terms.html web/privacy.html web/terms.html content/legal/cache
+          git add web/js/i18n/*.js web/i18n/explain web/i18n/backcheck.json content/i18n-backcheck-cache.json web/index.html web/*/privacy.html web/*/terms.html web/privacy.html web/terms.html content/legal/cache
           git diff --cached --quiet && exit 0
           git commit -m "i18n: cập nhật bản dịch giao diện tự động"
           for i in 1 2 3 4 5; do git pull --rebase -X theirs origin main && git push && exit 0; sleep $((i * 10)); done

@@ -141,7 +141,19 @@
           <div class="card kpi"><div class="l">14 lượt gần nhất</div><div class="v" style="font-size:1.1rem;letter-spacing:2px">${q.history.map(h => `<a href="${esc(h.url)}" target="_blank" rel="noopener" title="${when(h.at)}">${h.ok ? '🟢' : '🔴'}</a>`).join('') || '–'}</div><div class="s">${q.history.filter(h => h.ok).length}/${q.history.length} lượt đạt</div></div></div>
         <div class="card"><h3>${q.score >= q.standard ? '✅ Đạt chuẩn' : '⚠️ Dưới chuẩn – cần xử lý'}</h3><table class="tbl">${q.checks.map(c => `<tr><td><span class="dot ${c.ok ? '' : 'bad'}"></span>${esc(c.name)}</td><td>${c.ok ? 'Đạt' : '<b>Không đạt</b>'}</td></tr>`).join('')}</table>
         ${q.url ? `<p class="small"><a href="${esc(q.url)}" target="_blank" rel="noopener">Xem chi tiết lượt rà soát →</a></p>` : ''}
+        <div id="bcBox" style="margin-top:1rem"></div>
         <p class="small muted">Rà soát tự động mỗi ngày 7h sáng: kiểm thử đầy đủ (chính tả, đa ngôn ngữ 14 thứ tiếng, thuật toán FSRS & đồng bộ, giao diện, trợ năng WCAG, lời giải đề thi, liên kết), kiểm tra kiểu, cú pháp workflow, bản live (trang, API, dữ liệu, âm thanh, phiên bản). Không đạt → email cảnh báo 8h sáng.</p></div>`;
+      // Kiểm nghĩa bản dịch: dịch ngược (tự động sau mỗi lượt dịch) → câu nghi sai → AI xác nhận (bấm nút, gói AI miễn phí)
+      const bc = await fetch('/i18n/backcheck.json?x=' + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null);
+      if (bc && bc.langs) {
+        $('#bcBox').innerHTML = `<h3>🌐 Kiểm nghĩa bản dịch (dịch ngược + AI)</h3><p class="small muted">Cập nhật ${when(bc.at)} · "khớp nghĩa" = tỉ lệ câu dịch ngược về tiếng Anh vẫn đúng ý; câu nghi sai cần AI xác nhận.</p>
+          <table class="tbl"><tr><th>Ngôn ngữ</th><th>Số câu</th><th>Khớp nghĩa</th><th>Nghi sai</th><th></th></tr>${Object.entries(bc.langs).map(([l, x]) => `<tr><td><b>${esc(l)}</b></td><td>${num(x.checked)}</td><td>${x.ok}%</td><td>${x.flagged.length}</td><td><button class="btn sm" data-judge="${esc(l)}">🤖 AI xác nhận</button></td></tr>`).join('')}</table><div id="bcRes"></div>`;
+        main.querySelectorAll('[data-judge]').forEach(b => b.onclick = async () => {
+          b.disabled = true; b.textContent = '⏳ …'; const r = await api('judge', { lang: b.dataset.judge }); b.disabled = false; b.textContent = '🤖 AI xác nhận';
+          $('#bcRes').innerHTML = r.error ? `<p class="small">Lỗi: ${esc(r.error)}</p>` : `<h4>${esc(r.lang)}: AI đã duyệt ${r.judged} câu · còn ${r.pending} câu chờ (bấm tiếp) · <b>${r.wrong.length} câu sai nghĩa</b></h4>
+            <div class="tbl-wrap"><table class="tbl"><tr><th>Tiếng Anh</th><th>Bản dịch</th><th>Dịch ngược</th><th>Lý do</th></tr>${r.wrong.map(w => `<tr><td class="small">${esc(w.en)}</td><td class="small">${esc(w.tr)}</td><td class="small muted">${esc(w.back)}</td><td class="small">${esc(w.why)}</td></tr>`).join('') || '<tr><td colspan="4">Không có câu sai</td></tr>'}</table></div>`;
+        });
+      }
     },
     async services() {
       const [u, s] = await Promise.all([api('usage'), api('services')]);

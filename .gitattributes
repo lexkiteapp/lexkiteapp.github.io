@@ -1,1 +1,3 @@
 web/i18n/explain/*.json merge=ours
+content/i18n-backcheck-cache.json merge=ours
+web/i18n/backcheck.json merge=ours
