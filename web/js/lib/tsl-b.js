@@ -224,7 +224,7 @@
     ['timely', '/ˈtaɪmli/', 'adj', 'kịp thời, đúng lúc', 'happening at the right time', 'Thank you very much for your timely response to our request.', 'timely manner|timely delivery', '', 'B2', '⏱️'],
     ['uncomfortable', '/ʌnˈkʌmftəbl/', 'adj', 'không thoải mái', 'not feeling physically relaxed or at ease', 'The seats in the waiting room are uncomfortable.', 'feel uncomfortable|uncomfortable situation', '', 'B1', '😣'],
     ['amenity', '/əˈmiːnəti/', 'n', 'tiện nghi', 'a useful feature of a place', 'The hotel\'s amenities include a pool and gym.', 'basic amenities|hotel amenities', '', 'B2', '🏊'],
-    ['approximate', '', 'adj', 'xấp xỉ, gần đúng', 'nearly correct but not exact', 'The approximate cost of the project is $50,000.', 'approximate cost|approximate time', '', 'B1', '📏'],
+    ['approximate', '/əˈprɒksɪmət/', 'adj', 'xấp xỉ, gần đúng', 'nearly correct but not exact', 'The approximate cost of the project is $50,000.', 'approximate cost|approximate time', '', 'B1', '📏'],
     ['await', '/əˈweɪt/', 'v', 'chờ đợi', 'to wait for', 'We await your reply to our proposal with great interest.', 'await approval|eagerly await', '', 'B2', '⌛'],
     ['barbecue', '/ˈbɑːbɪˌkjuː/', 'n', 'tiệc nướng ngoài trời', 'an outdoor meal of grilled food', 'The company barbecue will be held in the park.', 'company barbecue|have a barbecue', '', 'A2', '🍖'],
     ['beginner', '/bɪˈɡɪnə/', 'n', 'người mới bắt đầu', 'a person starting to learn something', 'This software training course is designed especially for complete beginners.', 'complete beginner|beginner level', '', 'A2', '🌱'],

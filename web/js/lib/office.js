@@ -120,7 +120,7 @@
     ['complexity', '/kəmˈpleksɪti/', 'n', 'sự phức tạp', 'state of having many parts and not being simple', 'The complexity of the problem surprised everyone.', '', '', 'C1', '🧩'],
     ['liability', '/laɪəˈbɪlɪti/', 'n', 'trách nhiệm pháp lý; khoản nợ', 'something that is owed to someone else (e.g., a debt)', 'The company accepts no liability for lost items.', '', '', 'C1', '⚖️'],
     ['surprisingly', '/səˈpraɪzɪŋli/', 'adv', 'đáng ngạc nhiên', 'in an unexpected way', 'Surprisingly, the test was quite easy.', '', '', 'B1', '😲'],
-    ['extract', '', 'v', 'chiết xuất, trích', 'to take something out of something else', 'This oil is extracted from coconuts.', '', '', 'C1', '🧪'],
+    ['extract', '/ɪkˈstrækt/', 'v', 'chiết xuất, trích', 'to take something out of something else', 'This oil is extracted from coconuts.', '', '', 'C1', '🧪'],
     ['implementation', '/ˌɪmplɪmənˈteɪʃən/', 'n', 'sự thực hiện', 'making a law, system, or plan start to happen or be used', 'The implementation of the new system took six months.', '', '', 'C1', '⚙️'],
     ['bias', '/ˈbaɪəs/', 'n', 'sự thiên vị', 'a strong feeling not based on facts to believe one thing over another', 'The report shows a clear bias against small businesses.', '', '', 'C1', '⚖️'],
     ['differently', '/ˈdɪfərəntli/', 'adv', 'khác biệt', 'in a way that is not the same', 'Everyone learns in a different way, so teachers explain things differently.', '', '', 'B1', '🔀'],
