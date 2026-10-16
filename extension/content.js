@@ -365,7 +365,9 @@
       preloadAudio(audioFor('en-GB')); preloadAudio(audioFor('en-US'));
       // Gom theo từ loại như từ điển lớn: mỗi từ loại = nghĩa Việt + định nghĩa Anh + ví dụ của đúng nghĩa đó
       const POSV = { noun: 'danh từ', verb: 'động từ', adjective: 'tính từ', adverb: 'trạng từ', preposition: 'giới từ', conjunction: 'liên từ', pronoun: 'đại từ', interjection: 'thán từ', determiner: 'từ hạn định', abbreviation: 'viết tắt', phrase: 'cụm từ', 'phrasal verb': 'cụm động từ' };
-      const toEn = x => { x = String(x || '').toLowerCase(); const hit = Object.keys(POSV).find(k => POSV[k] === x); return hit || x; };
+      const ABBR = { n: 'noun', v: 'verb', adj: 'adjective', adv: 'adverb', prep: 'preposition', conj: 'conjunction', pron: 'pronoun', det: 'determiner', int: 'interjection', abbr: 'abbreviation', 'phr v': 'phrasal verb', 'phr. v.': 'phrasal verb' };
+      // Chuẩn hóa nhãn từ loại (Việt / viết tắt / Anh) về 1 khóa tiếng Anh → không tách 2 nhóm "danh từ" và "n", không lộ tiếng Việt ở giao diện khác
+      const toEn = x => { x = String(x || '').normalize('NFC').trim().toLowerCase().replace(/\.$/, ''); const hit = Object.keys(POSV).find(k => POSV[k] === x); return hit || ABBR[x] || x; };
       const groups = [], byPos = {};
       const grp = x => byPos[x] || (byPos[x] = groups[groups.push({ pos: x, vi: [], defs: [] }) - 1]);
       (e.senses || []).forEach(x => { grp(toEn(x.pos)).vi = x.terms.slice(0, 4); });
