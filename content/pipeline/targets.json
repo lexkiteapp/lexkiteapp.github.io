@@ -1,0 +1,16 @@
+{
+  "_note": "Chỉ tiêu tối thiểu từng loại nội dung (mức 'top thế giới' cho app luyện thi miễn phí). scripts/content-queue.mjs so với số thật (content-check --json) → content/pipeline/QUEUE.md. Nâng chỉ tiêu khi đạt.",
+  "IELTS Reading GT":        { "target": 200, "unit": "câu", "batch": 40, "file": "web/js/readtest/gt*.js", "priority": 1 },
+  "TOEFL Writing":           { "target": 100, "unit": "đề", "batch": 20, "file": "web/js/toefl/data*.js", "priority": 1 },
+  "TOEFL Speaking":          { "target": 150, "unit": "câu", "batch": 30, "file": "web/js/toefl/data*.js", "priority": 1 },
+  "TOEFL Listening":         { "target": 200, "unit": "câu", "batch": 32, "file": "web/js/toefl/data*.js", "priority": 2 },
+  "Ngữ pháp – trắc nghiệm":  { "target": 1200, "unit": "câu", "batch": 60, "file": "web/js/grammar/*.js", "priority": 2, "focus": "C1 ≥ 200" },
+  "Ngữ pháp – tự luận":      { "target": 1000, "unit": "câu", "batch": 60, "file": "web/js/grammar/*.js", "priority": 3 },
+  "Bài đọc ngắn":            { "target": 300, "unit": "bài", "batch": 15, "file": "web/js/readings-more.js", "priority": 2 },
+  "TOEIC Listening":         { "target": 800, "unit": "câu", "batch": 50, "file": "web/js/toeic/listening*.js", "priority": 3, "focus": "Part 1 (ảnh) ≥ 60" },
+  "TOEIC Reading":           { "target": 800, "unit": "câu", "batch": 50, "file": "web/js/toeic/reading*.js", "priority": 3 },
+  "IELTS Listening":         { "target": 480, "unit": "câu", "batch": 40, "file": "web/js/listen/test*.js", "priority": 3 },
+  "IELTS Reading AC":        { "target": 480, "unit": "câu", "batch": 40, "file": "web/js/readtest/test*.js", "priority": 3 },
+  "TOEFL Reading":           { "target": 280, "unit": "câu", "batch": 40, "file": "web/js/toefl/data*.js", "priority": 3 },
+  "Từ vựng (mục)":           { "target": 10000, "unit": "mục", "batch": 100, "file": "web/js/lib/*.js", "priority": 3, "focus": "C2 ≥ 500" }
+}

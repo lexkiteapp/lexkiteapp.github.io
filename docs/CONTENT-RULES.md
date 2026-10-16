@@ -1,5 +1,7 @@
 # Quy tắc & pipeline nội dung học (từ vựng · bài tập · đề thi)
 
+> Quy trình sản xuất từng lô (hàng đợi, brief, cổng kiểm, nghiệm thu): **`docs/CONTENT-PIPELINE.md`**.
+
 Áp dụng cho mọi người/agent thêm hoặc sửa nội dung (Claude, Antigravity, phiên phụ). Mục tiêu: **chất lượng top 1, nhẹ, mượt mọi thiết bị, 100% miễn phí, không bản quyền.**
 
 ## 1. Nguồn & bản quyền
