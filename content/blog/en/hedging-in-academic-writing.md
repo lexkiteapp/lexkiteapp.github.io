@@ -9,7 +9,7 @@ tags: [academic-writing, hedging, ielts-writing, modal-verbs]
 keyword: "hedging in academic writing"
 cover: write
 coverAlt: "Lexkite IELTS Writing Task 2 room with topic list, idea prompts, useful vocabulary and essay frame"
-publishAt: 2026-10-24T19:58:00+07:00
+publishAt: 2026-11-05T16:53:00+05:30
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -176,7 +176,7 @@ It is not wrong, but it is informal and often appears at the start of a sentence
 
 ### Do I need hedging in IELTS Speaking?
 
-Light hedging helps in Part 3, where you discuss abstract topics: *I'd say…*, *It probably depends on…*, *That's generally true, but…*. It makes your answers sound thoughtful. Do not overuse it in Part 1, where simple, direct answers are expected.
+Light hedging helps in Part 3, where you discuss abstract topics: *I'd say…*, *It probably depends on…*, *That's generally true, but…*. It makes your answers sound thoughtful. Do not overuse it in [IELTS Speaking Part 1](/en/blog/ielts-speaking-part-1-tips/), where simple, direct answers are expected.
 
 ### How many hedges should one essay have?
 
