@@ -1,4 +1,4 @@
-/* Giải thích chi tiết đáp án Reading General Training (tự biên soạn) – GT1, GT2, GT3 */
+/* Giải thích chi tiết đáp án Reading General Training (tự biên soạn) – GT1, GT2 */
 (function (g) {
   const E = g.READ_EXPLAIN = g.READ_EXPLAIN || {};
 
@@ -98,53 +98,5 @@
     38: { why: "Đoạn E: xe đạp “take up a fraction of the road space of a car” → điền “road space”. “produce no pollution” ≈ “produce no exhaust fumes”.", para: "E", keys: [["need only a fraction of the ___", "take up a fraction of the road space"], ["no pollution", "no exhaust fumes"]] },
     39: { why: "Đoạn E: người đi xe đạp “though they spend less on each visit, tend to visit local shops more often” → điền “local shops”.", para: "E", keys: [["although cyclists spend less on each visit", "though they spend less on each visit"], ["go to ___ more often", "visit local shops more often"]] },
     40: { why: "Đoạn F: khi nhiều công ty tràn ngập xe đạp không trạm ở Trung Quốc khoảng năm 2017, “many were abandoned in huge piles, and some of the companies went out of business” → C. B nói về London, không phải Trung Quốc.", para: "F", keys: [["left unused", "abandoned in huge piles"], ["some firms failed", "some of the companies went out of business"]] },
-  };
-  /* ======================= GT 3 ======================= */
-  E.gt3 = {
-    /* ---- Section 1: Evening and Weekend Courses ---- */
-    1: { why: "Văn bản B (Sơ cứu): học phí £60 “but some employers will cover the cost, so ask your manager” – người đi làm có thể được công ty trả học phí → B.", para: "B", keys: [["your employer might pay", "some employers will cover the cost"]] },
-    2: { why: "Văn bản D (Tiếng Tây Ban Nha cấp 2): học viên mới “must book a free ten-minute telephone level check” trước khi đăng ký – phải kiểm tra trình độ → D.", para: "D", keys: [["have their ability tested", "telephone level check"], ["before joining", "before you enrol"]] },
-    3: { why: "Văn bản C (Nhiếp ảnh số): “a smartphone is not suitable for this course” – điện thoại thông minh không dùng được trong khóa này → C.", para: "C", keys: [["cannot be used", "is not suitable"], ["a piece of equipment", "a smartphone"]] },
-    4: { why: "Văn bản E (Trồng rau): “participants are welcome to take home anything they grow” – học viên được mang về những gì mình trồng → E. Văn bản A (gốm) không nói học viên được giữ sản phẩm.", para: "E", keys: [["keep what they produce", "take home anything they grow"]] },
-    5: { why: "Văn bản F: “A 30% discount is available to people aged over 65 and to anyone receiving unemployment benefit” – giảm giá cho một số nhóm người → F.", para: "F", keys: [["a lower price", "A 30% discount"], ["certain groups of people", "people aged over 65… anyone receiving unemployment benefit"]] },
-    6: { why: "Văn bản A (Gốm): “Classes are limited to eight students” – sĩ số tối đa 8 người → A. Văn bản F nói về số đăng ký TỐI THIỂU (dưới 5 có thể hủy), không phải tối đa.", para: "A", keys: [["a maximum class size", "limited to eight students"]] },
-    7: { why: "Văn bản D: “the course textbook costs an additional £18” – giáo trình tính thêm tiền ngoài học phí → D.", para: "D", keys: [["an extra cost", "an additional £18"], ["course materials", "the course textbook"]] },
-    8: { why: "Văn bản A: “The fee of £95 includes all clay and the cost of firing your pieces” – học phí đã gồm đất sét (vật liệu) → TRUE.", para: "A", keys: [["includes the materials", "includes all clay"]] },
-    9: { why: "Văn bản B: chứng chỉ “valid for three years” – có hiệu lực ba năm, không phải gia hạn hằng năm → mâu thuẫn → FALSE.", para: "B", keys: [["renewed every year", "valid for three years"]] },
-    10: { why: "Văn bản C: “the course includes two outdoor sessions on Sunday mornings” – có hai buổi học ngoài trời → TRUE.", para: "C", keys: [["take place outside", "two outdoor sessions"]] },
-    11: { why: "Văn bản D chỉ nói học viên mới phải kiểm tra trình độ qua điện thoại “with the tutor”; không có thông tin giáo viên có phải người bản ngữ hay không → NOT GIVEN.", para: "D", keys: [["the Spanish tutor", "the tutor"]] },
-    12: { why: "Văn bản E: “In heavy rain, the session will move to a classroom indoors” – mưa to thì chuyển vào lớp học trong nhà chứ không hủy → FALSE.", para: "E", keys: [["cancelled when there is heavy rain", "will move to a classroom indoors"]] },
-    13: { why: "Văn bản F: chỉ được hoàn tiền đầy đủ nếu hủy “at least seven days before your course starts”; hủy trước năm ngày thì không được hoàn tiền → FALSE.", para: "F", keys: [["cancel five days before", "at least seven days before"], ["get their money back", "a full refund"]] },
-    14: { why: "Không văn bản nào nhắc đến bãi đỗ xe; văn bản F chỉ nói cách đăng ký và học phí → NOT GIVEN.", para: "F", keys: [["free parking", "(không được nhắc tới)"]] },
-
-    /* ---- Section 2: Information for New Hospital Volunteers ---- */
-    15: { why: "Đoạn C: muốn đổi ca thì “first arrange a swap with another volunteer and then inform the volunteer office by email” – cách xử lý khi không làm được một ca → C.", para: "C", keys: [["unable to work a particular shift", "need to change a shift"]] },
-    16: { why: "Đoạn A: tình nguyện viên “do not provide medical care of any kind” và “should never help a patient to eat, drink or get out of bed” → loại hỗ trợ không được làm → A.", para: "A", keys: [["must not give", "should never help"]] },
-    17: { why: "Đoạn D: áo polo và thẻ tên phải được trả lại: “Please return them to the volunteer office when you stop volunteering” → D.", para: "D", keys: [["handed back", "return them"], ["when you leave", "when you stop volunteering"]] },
-    18: { why: "Đoạn G: “Once you have completed 100 hours of volunteering, you will receive a certificate” và có thể xin thư giới thiệu – quyền lợi chỉ có sau một khoảng thời gian → G.", para: "G", keys: [["after a certain period", "Once you have completed 100 hours"]] },
-    19: { why: "Đoạn E: với bệnh đường ruột “you should stay away for 48 hours after your symptoms have ended” – thời gian phải chờ trước khi quay lại → E.", para: "E", keys: [["how long to wait", "stay away for 48 hours"], ["one kind of illness", "a stomach illness"]] },
-    20: { why: "Đoạn B: “All volunteers must complete a background check” – kiểm tra lý lịch bắt buộc với mọi tình nguyện viên → B.", para: "B", keys: [["a check… on every volunteer", "All volunteers must complete a background check"]] },
-    21: { why: "Đoạn B: “provide the names of two references” – cung cấp hai người giới thiệu → references.", para: "B", keys: [["give details of two", "provide the names of two references"]] },
-    22: { why: "Đoạn B: buổi định hướng “covers fire safety, infection control and confidentiality” → confidentiality.", para: "B", keys: [["Induction topics", "induction, which covers"]] },
-    23: { why: "Đoạn C: “at least one three-hour shift a week for a minimum of six months” → six months (không quá hai từ).", para: "C", keys: [["for at least", "for a minimum of"]] },
-    24: { why: "Đoạn C: “Shifts are booked through the online rota” → rota (lịch phân ca).", para: "C", keys: [["booked using", "booked through"]] },
-    25: { why: "Đoạn D: “Shoes should be comfortable and closed” → closed (giày kín mũi).", para: "D", keys: [["Footwear", "Shoes"]] },
-    26: { why: "Đoạn E: rửa tay “with soap and water or with the alcohol gel provided” mỗi khi vào/ra khu bệnh → gel.", para: "E", keys: [["On entering or leaving a ward", "every time you enter or leave a ward"]] },
-    27: { why: "Đoạn G: tiền đi lại tối đa £10 mỗi ca “will be repaid if you provide receipts” → receipts.", para: "G", keys: [["Travel costs", "Travel costs of up to £10 per shift"]] },
-
-    /* ---- Section 3: The Return of the Night Train ---- */
-    28: { why: "Đoạn B giải thích vì sao tàu đêm suy tàn: hàng không giá rẻ, tàu cao tốc ban ngày, chi phí vận hành cao → hành khách chuyển sang phương tiện khác → i “Why the passengers went elsewhere”.", para: "B", keys: [["Why the passengers went elsewhere", "Several factors explain this decline"]] },
-    29: { why: "Đoạn C: khi nhà khai thác Đức rút lui năm 2016, công ty đường sắt Áo “took over several of the routes” và thành công → một công ty nắm lấy cơ hội → ii.", para: "C", keys: [["An opportunity taken by one company", "Austria's state railway company took over several of the routes"]] },
-    30: { why: "Đoạn D: sự hồi sinh “driven largely by concern about climate change” – lo ngại về môi trường kéo hành khách mới đến với tàu đêm → iii.", para: "D", keys: [["Environmental worries", "concern about climate change"], ["bring new customers", "travellers… have started to avoid short flights"]] },
-    31: { why: "Đoạn E liệt kê khó khăn: luật lệ, phí đường ray, hệ thống tín hiệu khác nhau giữa các nước, phải đổi đầu máy ở biên giới → trở ngại xuyên biên giới → iv. Lưu ý: thiếu toa giường nằm cũng được nhắc nhưng ý chung của đoạn là các trở ngại khi chạy quốc tế.", para: "E", keys: [["Obstacles", "considerable difficulties"], ["cross national borders", "changed at borders"]] },
-    32: { why: "Đoạn F: “For passengers, the experience is mixed” – người ủng hộ nêu lợi ích, nhưng có bất tiện; đánh giá “range from enthusiastic to bitterly disappointed” → ý kiến hành khách khác nhau → v.", para: "F", keys: [["Opinions differ among travellers", "the experience is mixed… range from enthusiastic to bitterly disappointed"]] },
-    33: { why: "Đoạn G: tác giả cho rằng “night trains are unlikely ever to replace air travel for very long journeys” → trái với nhận định → NO.", para: "G", keys: [["eventually replace most long-distance flights", "unlikely ever to replace air travel for very long journeys"]] },
-    34: { why: "Đoạn G: tàu đêm có vai trò giá trị trên tuyến “roughly 600 to 1,500 kilometres” – quá dài cho tàu ngày nhưng đủ ngắn cho một đêm, tức quãng đường trung bình → YES.", para: "G", keys: [["journeys of a medium length", "routes of roughly 600 to 1,500 kilometres"]] },
-    35: { why: "Đoạn F chỉ nói giá vé hiện nay “frequently higher than those of budget flights”; tác giả không dự đoán giá vé sẽ giảm → NOT GIVEN.", para: "F", keys: [["will become cheaper", "(không có dự đoán về giá vé)"]] },
-    36: { why: "Đoạn G: “I believe that night trains deserve public investment, just as roads and airports have received” – tác giả ủng hộ dùng tiền công → YES.", para: "G", keys: [["spend public money", "deserve public investment"]] },
-    37: { why: "Đoạn B: “A sleeping car carries far fewer passengers than a carriage of ordinary seats” → passengers.", para: "B", keys: [["holds far fewer", "carries far fewer"]] },
-    38: { why: "Đoạn B: “crews must work overnight shifts” → overnight.", para: "B", keys: [["Crews have to work", "crews must work"]] },
-    39: { why: "Đoạn B: “each carriage can make only one journey every 24 hours” → journey.", para: "B", keys: [["complete just one", "make only one"]] },
-    40: { why: "Đoạn E: “Perhaps the most serious problem is a shortage of modern sleeping carriages”, và đơn đặt hàng mới “can take several years to be delivered” → toa giường nằm khan hiếm, lâu mới có → B. Các phương án khác không được nhắc tới.", para: "E", keys: [["the most serious problem", "Perhaps the most serious problem"], ["scarce and slow to arrive", "a shortage… can take several years to be delivered"]] },
   };
 })(typeof self !== 'undefined' ? self : this);
