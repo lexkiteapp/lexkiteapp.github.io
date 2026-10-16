@@ -65,3 +65,29 @@ chọn chủ đề → kịch bản (JSON) → kiểm kịch bản → giọng �
 - Duyệt từng lần dùng credit Kling ở G1 (Claude báo số credit dự kiến trước).
 - Tạo khóa OAuth YouTube (giống CWS, Claude mở sẵn trang).
 - Xem & duyệt 5 video đầu.
+
+## 7. Video Studio (Quản trị → Video Studio) – điều phối A→Z
+Trang `admin.html#studio` (`web/js/admin-studio.js`, tải lười khi mở tab) + API `POST /api/studio` (`functions/api/studio.js`, chỉ admin qua `adminGate`, ghi `admin_log`). Dữ liệu D1 bảng `video_jobs` (tự tạo) + cài đặt ở `config` khóa `studio`.
+
+**Luồng trạng thái** (máy chủ chặn bước sai, 409 `bad-transition`):
+```
+idea → script → script_ok → rendering → rendered (chờ chấm tay) → qa_ok | qa_fail → uploaded → scheduled → published
+```
+| Bước | Ai làm | Chi tiết |
+|---|---|---|
+| Ý tưởng | admin (➕ Job mới) hoặc 📥 hàng đợi `content/video/queue.json` (đọc từ nhánh main qua raw.githubusercontent.com, bỏ chủ đề trùng) | `create` / `createFromQueue` |
+| Kịch bản | ✨ Gemini (khóa xoay vòng sẵn có, `geminiCall`) theo khuôn §2: hook ≤ 6 từ (≈ 2 s) → situation → explain → example → Kit's tip → CTA lexkite.com. Không có AI → khung mẫu để sửa tay | `scriptGen` · sửa từng dòng (who/beat/text/expr/gesture) `scriptSave` |
+| Kiểm kịch bản | máy chủ (`checkScript`) | ≤ 60 s (bài dài ≤ 480 s, ước 2,6 từ/s), đủ 6 phần, nhân vật trong dàn, **không số liệu/thống kê**, **không thương hiệu đối thủ**, CTA về lexkite.com → `scriptApprove` |
+| Dựng | GitHub Actions `video.yml` (workflow_dispatch `job_id`, ubuntu-latest miễn phí) | `render` gọi GitHub API bằng secret `GH_DISPATCH_TOKEN`. Các bước tách riêng trong yml, mỗi bước `node scripts/video/render.mjs --job <id> --step <bước>`: fetch → tts (TODO Kokoro) → align (tạm chia đều; TODO whisper) → lipsync (TODO Rhubarb) → karaoke ASS → compose (ffmpeg nền tạm/ảnh phòng + phụ đề burn-in) → qa. Rồi artifact xem trước (14 ngày) → `publish-grabcast.mjs --store-only` (tải vào kho GrabCast, ra `object_id`) → gọi lại |
+| Gọi lại | CI → `POST /api/studio` header `X-Studio-Secret` (= `STUDIO_CALLBACK_SECRET`) | `ciJob` (lấy kịch bản) · `ciResult` (files, điểm QA). Máy chủ tự cộng lại điểm; còn tiêu chí chưa chấm → `rendered`; đủ → `qa_ok` (≥ 90) / `qa_fail`. CI lỗi → về `script_ok` + ghi lỗi |
+| Chấm QA | CI chấm phần đo được (hook, phụ đề, thương hiệu, CTA; bản tạm: âm thanh/khẩu hình/nhịp = 0) · admin chấm tay `knowledge`, `share` | thang `docs/MEDIA-QA-RUBRIC.md` mục C, `qaSet` |
+| Đăng | 📤 (xác nhận) hoặc tự động | `publish`: `storage/objects/{id}/use` → media → kênh (cài đặt: kênh mặc định / nền tảng / mọi kênh còn hoạt động) → `posts/validate` → `posts` (Idempotency-Key ổn định) → `posts/{id}/schedule` |
+| Lịch | máy chủ chọn **khung trống kế tiếp** giờ New York 7·8·12·19·20 (tự EST/EDT), cách bài khác ≥ 45 phút, ≤ hạn mức/ngày; hoặc admin chọn giờ | `slots` · `schedule` · `unschedule` · `sync` (GrabCast báo đã đăng → `published`) |
+
+**Chế độ tự động** (công tắc trên trang): kịch bản AI hợp lệ → tự duyệt + tự dựng; video `qa_ok` → tự đăng & lên lịch **chỉ khi** đã có ≥ N video đăng/lên lịch bằng tay (cài đặt "duyệt tay N video đầu", mặc định 5 – §4.6) và còn hạn mức/ngày. Bản dựng tạm (chưa có giọng/khẩu hình/nhịp) không bao giờ đạt 90 → không thể tự đăng.
+
+**Bí mật cần đặt** (không bao giờ trả về trình duyệt / in log):
+- Cloudflare Pages: `GH_DISPATCH_TOKEN` (PAT fine-grained, chỉ repo `lexkiteapp/lexkiteapp.github.io`, quyền **Actions: Read and write**), `STUDIO_CALLBACK_SECRET` (chuỗi ngẫu nhiên ≥ 32 ký tự), `GRABCAST_API_KEY` (đã có). Tùy chọn `STUDIO_REF` (mặc định `main`).
+- GitHub Actions secrets: `STUDIO_CALLBACK_SECRET` (cùng giá trị), `GRABCAST_API_KEY`.
+
+**Việc còn lại (TODO nặng, giao diện đã cố định trong `render.mjs`)**: tts → `line-NN.wav` + `s.lines[i].dur`; align → `words.json [{line,w,start,end}]`; lipsync → `visemes.json [{line,start,end,v}]`; dựng rig nhân vật (Remotion/ffmpeg overlay) theo expr/gesture; đo LUFS (`ebur128`) và lệch khẩu hình để chấm `audio`/`lipsync`/`pacing`.

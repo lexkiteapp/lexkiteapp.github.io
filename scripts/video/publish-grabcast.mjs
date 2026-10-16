@@ -1,5 +1,6 @@
 // Xuất bản video qua GrabCast (bước 10 docs/VIDEO-PIPELINE.md) – chạy trong GitHub Actions, gọi thẳng API GrabCast.
 // Dùng: node scripts/video/publish-grabcast.mjs --file video.mp4 --meta script.json [--at 2026-10-20T23:00:00Z] [--accounts id1,id2] [--dry-run]
+//      node scripts/video/publish-grabcast.mjs --file video.mp4 --store-only   (Video Studio: chỉ tải vào kho → in object_id; Studio tự use/tạo bài/lên lịch)
 //   env: GRABCAST_API_KEY (secret, bắt buộc trừ khi --dry-run) · GRABCAST_WORKSPACE (mặc định 4 = Lexkite) · GRABCAST_API_BASE (tùy chọn)
 // Luồng: tải video vào kho lưu trữ (pool bulk) → complete → use (ra media_id) → validate → tạo bài (Idempotency-Key ổn định) → schedule (nếu có --at).
 // Không có --at → để bài ở trạng thái nháp (duyệt/lên lịch trong Quản trị → Video & Social). Khóa không bao giờ được in ra.
@@ -9,19 +10,19 @@ import crypto from 'crypto';
 
 const args = process.argv.slice(2), flag = n => args.includes('--' + n), opt = n => { const i = args.indexOf('--' + n); return i >= 0 ? args[i + 1] : undefined; };
 const die = m => { console.error('✗ publish-grabcast: ' + m); process.exit(1); };
-const DRY = flag('dry-run'), FILE = opt('file'), META = opt('meta'), AT = opt('at'), ACCS = (opt('accounts') || '').split(',').map(s => s.trim()).filter(Boolean);
-if (!FILE || !META) die('cần --file video.mp4 --meta script.json');
+const DRY = flag('dry-run'), STORE_ONLY = flag('store-only'), FILE = opt('file'), META = opt('meta'), AT = opt('at'), ACCS = (opt('accounts') || '').split(',').map(s => s.trim()).filter(Boolean);
+if (!FILE || (!META && !STORE_ONLY)) die('cần --file video.mp4 --meta script.json (hoặc --store-only)');
 if (!fs.existsSync(FILE)) die('không thấy file ' + FILE);
 if (AT && (isNaN(Date.parse(AT)) || Date.parse(AT) < Date.now() + 60e3)) die('--at phải là thời điểm ISO trong tương lai: ' + AT);
 const BASE = String(process.env.GRABCAST_API_BASE || 'https://grabcast-api-342720596878.us-central1.run.app').replace(/\/+$/, '');
 const KEY = process.env.GRABCAST_API_KEY || '', WS = String(process.env.GRABCAST_WORKSPACE || '4');
 if (!KEY && !DRY) die('thiếu env GRABCAST_API_KEY (secret của repo)');
 
-const raw = JSON.parse(fs.readFileSync(META, 'utf8')), m = raw.publish || raw.social || raw;
+const raw = META ? JSON.parse(fs.readFileSync(META, 'utf8')) : {}, m = raw.publish || raw.social || raw;
 const stat = fs.statSync(FILE), sha = crypto.createHash('sha256').update(fs.readFileSync(FILE)).digest('hex');
 const hashtags = Array.isArray(m.hashtags) ? m.hashtags.map(h => '#' + String(h).replace(/^#/, '')).join(' ') : '';
 const caption = [m.caption || m.description || raw.caption || '', hashtags].filter(Boolean).join('\n\n').trim();
-if (!caption) die('meta thiếu caption/description');
+if (!caption && !STORE_ONLY) die('meta thiếu caption/description');
 const scrub = s => (KEY ? String(s).split(KEY).join('***') : String(s));
 
 async function gc(method, p, body, extra = {}) {
@@ -47,6 +48,7 @@ const kindFor = a => { const k = a && (a.kinds || a.supported_kinds || a.post_ki
 // Khóa chống trùng: cùng video + cùng kênh + cùng giờ → chạy lại workflow không tạo bài đôi
 const idemFor = ids => crypto.createHash('sha256').update([sha, ids.join(','), AT || 'draft'].join('|')).digest('hex').slice(0, 40);
 
+if (DRY && STORE_ONLY) { console.log(JSON.stringify({ base: BASE, workspace: WS, key: KEY ? '***' : '(chưa đặt)', steps: [{ POST: 'storage/objects', body: begin }, { PUT: '<upload_url>', bytes: stat.size }, { POST: 'storage/objects/<object_id>/complete' }] }, null, 2)); process.exit(0); }
 if (DRY) {
   const ids = ACCS.length ? ACCS : ['<tất cả kênh đang hoạt động>'];
   const p = post(['<media_id>']); p.targets = ids.map(id => ({ account_id: id, kind: 'video', options: {} }));
@@ -58,9 +60,9 @@ if (DRY) {
 }
 
 // 1) Kênh đích
-const accounts = list(await gc('GET', 'accounts'));
+const accounts = STORE_ONLY ? [] : list(await gc('GET', 'accounts'));
 const targetsAcc = ACCS.length ? ACCS.map(id => accounts.find(a => String(a.id) === id) || die('không thấy kênh ' + id + ' trong workspace ' + WS)) : accounts.filter(a => !/expired|error|revoked|disconnected/i.test(String(pick(a, 'status', 'state') || '')));
-if (!targetsAcc.length) die(`workspace ${WS} chưa có kênh nào – kết nối tại https://grabcast.click/scheduler.html`);
+if (!targetsAcc.length && !STORE_ONLY) die(`workspace ${WS} chưa có kênh nào – kết nối tại https://grabcast.click/scheduler.html`);
 // 2) Tải video vào kho (bulk) → complete → use
 const st = await gc('POST', 'storage/objects', begin), o = st.object || st.data || st, up = st.upload || o.upload || {};
 const oid = pick(o, 'object_id', 'id'), url = pick(st, 'upload_url', 'url', 'put_url') || pick(o, 'upload_url', 'url') || pick(up, 'url', 'upload_url');
@@ -74,6 +76,12 @@ try {
   const lease = pick(st, 'lease_id', 'lease') || pick(o, 'lease_id', 'lease');
   await gc('POST', `storage/objects/${encodeURIComponent(oid)}/complete`, lease ? { lease_id: typeof lease === 'object' ? lease.id : lease, size: stat.size } : { size: stat.size });
 } catch (e) { await gc('POST', `storage/objects/${encodeURIComponent(oid)}/abort`, {}).catch(() => {}); die('tải lên thất bại: ' + scrub(e.message)); }
+if (STORE_ONLY) {
+  const pv = pick(st, 'preview_url', 'public_url') || pick(o, 'preview_url', 'public_url');
+  console.log(`✓ đã lưu vào kho: object ${oid}`);
+  if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `object_id=${oid}\n` + (/^https:\/\//.test(String(pv || '')) && pv !== url ? `preview_url=${pv}\n` : ''));
+  process.exit(0);
+}
 const used = await gc('POST', `storage/objects/${encodeURIComponent(oid)}/use`, {});
 const mediaId = pick(used, 'media_id') || pick(used.media || {}, 'id') || pick(used, 'id');
 if (!mediaId) die('GrabCast không trả về media_id');

@@ -178,6 +178,15 @@
     if (!r.ok) { const m = j.message || j.detail || (j.error && j.error !== 'upstream' ? j.error : '') || 'HTTP ' + r.status, e = new Error(typeof m === 'string' ? m : JSON.stringify(m)); e.code = j.error; e.status = r.status; e.data = j; throw e; }
     return j;
   }
+  // Video Studio qua /api/studio (functions/api/studio.js) – dùng cho tab Video Studio (js/admin-studio.js, tải lười). Lỗi → err.code + err.data (need, from/to, errs…)
+  async function stapi(op, body = {}) {
+    const u = auth.currentUser || user;
+    if (!u) { if (confirm(L('Phiên đăng nhập quản trị đã hết. Đăng nhập lại ngay?'))) await signIn(); throw new Error(L('Phiên đăng nhập đã hết – đăng nhập lại rồi thử lại')); }
+    const r = await fetch('/api/studio', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await u.getIdToken() }, body: JSON.stringify({ op, ...body }) });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) { const e = new Error(j.message || j.error || 'HTTP ' + r.status); e.code = j.error; e.status = r.status; e.data = j; throw e; }
+    return j;
+  }
   const signIn = () => auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(e => { $('#loginMsg').textContent = e.message; });
   $('#signin').onclick = signIn;
 
@@ -759,6 +768,11 @@
     async social() {
       main.innerHTML = '';
       if (window.AdminSocial) AdminSocial.render(main, sapi, L, { esc, num, when, lang: () => LANG }); // js/admin-social.js
+    },
+    async studio() {
+      main.innerHTML = '';
+      if (!window.AdminStudio) await new Promise((y, n) => { const sc = document.createElement('script'); sc.src = 'js/admin-studio.js'; sc.onload = y; sc.onerror = n; document.head.appendChild(sc); }); // tải lười – chỉ khi mở tab
+      AdminStudio.render(main, stapi, sapi, L, { esc, lang: () => LANG }); // js/admin-studio.js
     },
     async settings() {
       const c = await api('config'), v = k => esc((c.values[k] || {}).v || '');
