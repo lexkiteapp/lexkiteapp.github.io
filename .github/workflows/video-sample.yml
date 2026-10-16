@@ -1,0 +1,54 @@
+# Dựng video MẪU từ kịch bản content/video/samples/*.json bằng toàn bộ dây chuyền thật (Kokoro, faster-whisper, Rhubarb, ffmpeg) – không cần job Studio/secret.
+# Dùng để kiểm chất lượng end-to-end; kết quả: artifact video-sample (mp4 + qa.json).
+name: Dựng video mẫu (kiểm end-to-end)
+on:
+  workflow_dispatch:
+    inputs:
+      script: { description: 'Kịch bản mẫu', required: false, default: 'content/video/samples/sample.json' }
+permissions:
+  contents: read
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Cài ffmpeg (libass) + phông DejaVu
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core unzip >/dev/null && ffmpeg -hide_banner -filters | grep -q ' ass '
+      # Công cụ nặng – đều miễn phí, chạy CPU: Kokoro (kokoro-js như audio.yml), faster-whisper tiny.en, Rhubarb Lip Sync (bản phát hành), numpy/pillow/scipy (cắt bóng sàn ảnh tĩnh)
+      - name: Đệm mô hình (Kokoro ~90 MB, whisper tiny.en ~75 MB)
+        uses: actions/cache@v4
+        with:
+          path: |
+            /tmp/kk/node_modules/@huggingface/transformers/.cache
+            ~/.cache/huggingface
+          key: video-models-kokoro82m-q8-whisper-tiny-en-v1
+      - name: Cài kokoro-js + faster-whisper + Rhubarb
+        run: |
+          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          pip install -q faster-whisper==1.1.1 numpy pillow scipy
+          curl -fsSL -o /tmp/rhubarb.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          mkdir -p /tmp/rhubarb && unzip -q /tmp/rhubarb.zip -d /tmp/rhubarb
+          echo "RHUBARB=$(find /tmp/rhubarb -type f -name rhubarb | head -1)" >> "$GITHUB_ENV"
+
+      # ---------- Dây chuyền dựng (mỗi bước đọc/ghi out/video/<job>/state.json; VIDEO_STRICT=1: thiếu công cụ → lỗi, không lặng lẽ bỏ qua) ----------
+      - name: Dựng video mẫu (toàn bộ các bước)
+        run: node scripts/video/render.mjs --local --script "${{ github.event.inputs.script }}" 2>&1 | tee render.log
+      - name: Báo cáo độ phủ tài nguyên
+        if: always()
+        run: node scripts/video/render.mjs --coverage | tee -a "$GITHUB_STEP_SUMMARY" >/dev/null
+      - name: Lưu kết quả
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-sample
+          retention-days: 14
+          path: |
+            out/video/**
+            render.log
