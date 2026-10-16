@@ -385,16 +385,21 @@
     const KEY = 'vb.cx.' + to; let mem = {}; try { mem = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { mem = {}; }
     const save = () => { try { const ks = Object.keys(mem); if (ks.length > 4000) ks.slice(0, ks.length - 4000).forEach(k => delete mem[k]); localStorage.setItem(KEY, JSON.stringify(mem)); } catch (e) { /* đầy bộ nhớ */ } };
     let timer = 0, busy = false;
+    // Bản dịch SẴN do CI tạo (scripts/gen-content-i18n.mjs, CDN) → hiện ngay đúng ngôn ngữ; chỉ câu chưa có mới dịch máy lúc chạy
+    let pre = null; const preP = fetch((/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com') + '/i18n/content/' + to + '.json')
+      .then(r => (r.ok ? r.json() : {})).catch(() => ({})).then(j => (pre = j || {}));
+    const got = k => mem[k] || (pre && pre[k]) || ''; // bản dịch sẵn không ghi vào localStorage (giữ bộ nhớ máy nhẹ)
     async function pass() {
       if (busy) return; busy = true;
       try {
+        if (!pre) await Promise.race([preP, new Promise(r => setTimeout(r, 1500))]);
         const nodes = [], tw = document.createTreeWalker(view, NodeFilter.SHOW_TEXT); let n;
         while ((n = tw.nextNode())) { const s = n.nodeValue.trim().replace(/\s+/g, ' '); if (s.length > 1 && VI.test(s) && (!n.parentElement.closest(SKIP) || n.parentElement.closest('.wn'))) nodes.push(n); /* ghi chú từ (.wn) luôn được dịch cho người học quốc tế */ }
         const need = [];
         // Thuộc tính hiển thị (tooltip, nhãn trợ năng, gợi ý ô nhập) cũng phải theo ngôn ngữ người dùng
         const attrs = []; view.querySelectorAll('[title],[aria-label],[placeholder]').forEach(el => { if (el.closest(SKIP) && !el.matches('input,textarea')) return; ['title', 'aria-label', 'placeholder'].forEach(a => { const v = el.getAttribute(a); if (v && VI.test(v)) attrs.push([el, a, v.trim()]); }); });
-        attrs.forEach(([el, a, v]) => { if (mem[v]) el.setAttribute(a, mem[v]); else if (!need.includes(v)) need.push(v); });
-        const put = x => { const s = x.nodeValue.trim().replace(/\s+/g, ' '); if (!mem[s]) return false; const m = x.nodeValue.match(/^\s*/)[0], e = x.nodeValue.match(/\s*$/)[0]; x.nodeValue = m + mem[s] + e; return true; };
+        attrs.forEach(([el, a, v]) => { if (got(v)) el.setAttribute(a, got(v)); else if (!need.includes(v)) need.push(v); });
+        const put = x => { const s = x.nodeValue.trim().replace(/\s+/g, ' '); if (!got(s)) return false; const m = x.nodeValue.match(/^\s*/)[0], e = x.nodeValue.match(/\s*$/)[0]; x.nodeValue = m + got(s) + e; return true; };
         nodes.forEach(x => { if (!put(x)) { const s = x.nodeValue.trim().replace(/\s+/g, ' '); if (!need.includes(s)) need.push(s); } });
         for (let i = 0; i < need.length;) { // lô ≤ 1800 ký tự
           const batch = []; let len = 0; while (i < need.length && len + need[i].length < 1800) { batch.push(need[i]); len += need[i].length + 1; i++; } if (!batch.length) batch.push(need[i++]);
@@ -403,7 +408,7 @@
           const out = r[0].map(x => x[0]).join('').split('\n');
           batch.forEach((s, k) => { if (out[k] && out[k].trim()) mem[s] = out[k].trim(); });
         }
-        if (need.length) { save(); nodes.forEach(put); attrs.forEach(([el, a, v]) => { if (mem[v]) el.setAttribute(a, mem[v]); }); }
+        if (need.length) { save(); nodes.forEach(put); attrs.forEach(([el, a, v]) => { if (got(v)) el.setAttribute(a, got(v)); }); }
       } finally { busy = false; }
     }
     new MutationObserver(() => { clearTimeout(timer); timer = setTimeout(pass, 120); }).observe(view, { childList: true, subtree: true, characterData: false });

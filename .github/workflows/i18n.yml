@@ -20,6 +20,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - run: npm ci --no-audit --no-fund
+      - name: Dịch sẵn nội dung bài học (thu thập câu mới → chỉ dịch phần mới, 13 ngôn ngữ)
+        run: |
+          node scripts/harvest-content.mjs 3000 2>/dev/null | tail -1
+          for l in $(grep -v '^#' scripts/i18n-langs.txt); do CONTENT_MIN=3 node scripts/gen-content-i18n.mjs "$l" || echo "lỗi nội dung $l"; done
       - name: Dịch từng ngôn ngữ
         run: |
           SECONDS=0
@@ -36,7 +41,7 @@ jobs:
         run: |
           git config user.name "lexkite-bot"
           git config user.email "lexkite-bot@users.noreply.github.com"
-          git add scripts/i18n-fixed.json web/js/i18n/*.js web/i18n/explain web/i18n/backcheck.json content/i18n-backcheck-cache.json web/index.html web/*/privacy.html web/*/terms.html web/privacy.html web/terms.html content/legal/cache
+          git add content/i18n/strings.json web/i18n/content scripts/i18n-fixed.json web/js/i18n/*.js web/i18n/explain web/i18n/backcheck.json content/i18n-backcheck-cache.json web/index.html web/*/privacy.html web/*/terms.html web/privacy.html web/terms.html content/legal/cache
           git diff --cached --quiet && exit 0
           git commit -m "i18n: cập nhật bản dịch giao diện tự động"
           for i in 1 2 3 4 5; do git pull --rebase -X theirs origin main && git push && exit 0; sleep $((i * 10)); done
