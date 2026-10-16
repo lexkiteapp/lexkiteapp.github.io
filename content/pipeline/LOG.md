@@ -22,3 +22,4 @@
 | 2026-10-17 | Từ vựng chủ đề | 100 mục (5 chủ đề công sở & đời sống Mỹ) + 100 ghi chú học từ | 9c57d2f8 | phiên nội dung | chờ phiên chính nghiệm thu |
 | 2026-10-17 | Bài đọc ngắn | 15 bài (75 câu) – 210→285 | 244520db | phiên nội dung | chờ phiên chính nghiệm thu |
 | 2026-10-17 | IELTS Writing Task 2 | 10 đề p71–p80 (đủ bộ band 8/band 6/nhận xét/dàn ý/từ) – 70→80 | 98f46b71 | phiên nội dung | chờ phiên chính nghiệm thu |
+| 2026-10-17 | Ngữ pháp trắc nghiệm C1 | 60 câu (6 chủ đề × 10) – C1 108→168 | bee55b5e | phiên nội dung | chờ phiên chính nghiệm thu |
