@@ -47,7 +47,7 @@ for (const [k, x] of todo) {
   net++;
   if (needIpa && !/\s/.test(k)) {
     const j = await get(`https://en.wiktionary.org/w/api.php?action=parse&page=${encodeURIComponent(k)}&prop=wikitext&format=json&formatversion=2`);
-    const tx = (j?.parse?.wikitext || '').split(/\n==(?!=)/).find(s => /^\s*English\s*==/.test(s)) || '';
+    const tx = ('\n' + (j?.parse?.wikitext || '')).split(/\n==(?!=)/).find(s => /^\s*English\s*==/.test(s)) || '';
     const all = [...tx.matchAll(/\{\{IPA\|en\|([^}]*)\}\}/g)].map(m => m[1]);
     const pick = all.find(a => /\b(RP|UK|GB)\b/.test(a)) || all.find(a => !/\b(US|GA|CA|AU|NZ)\b/.test(a)) || all[0] || '';
     const ip = pick.split('|').find(s => /^\/.+\/$/.test(s)); if (ip) c.ipa = fixIPA(ip); if (j !== undefined) c.ipaTried = 1;
