@@ -1362,3 +1362,4 @@ html.native .w-nav a[href="#/settings"] { display: none; } /* trong app không q
 
 /* Ghi chú học từ chờ dịch sang ngôn ngữ người học (app.js contentTranslate) – ẩn để không lộ tiếng Việt */
 .wn.wn-tr { display: none; }
+.tr-wait { visibility: hidden; } /* nghĩa tiếng Việt chờ dịch (vd. nghĩa cụm từ ở #/dict) – giữ chỗ, không lộ tiếng Việt */

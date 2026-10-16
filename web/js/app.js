@@ -410,7 +410,7 @@
         }
         if (need.length) { save(); nodes.forEach(put); attrs.forEach(([el, a, v]) => { if (got(v)) el.setAttribute(a, got(v)); }); }
         // Ghi chú học từ (soạn tiếng Việt): chỉ hiện khi đã dịch hết sang ngôn ngữ người học – không lộ tiếng Việt khi dịch chậm/lỗi
-        view.querySelectorAll('.wn.wn-tr').forEach(el => { if (!VI.test(el.textContent)) el.classList.remove('wn-tr'); });
+        view.querySelectorAll('.wn.wn-tr, .tr-wait').forEach(el => { if (!VI.test(el.textContent)) el.classList.remove('wn-tr', 'tr-wait'); });
       } finally { busy = false; }
     }
     new MutationObserver(() => { clearTimeout(timer); timer = setTimeout(pass, 120); }).observe(view, { childList: true, subtree: true, characterData: false });
@@ -929,7 +929,7 @@
     const re = UI.wordRegex(e.word);
     const lib = Object.values(INDEX).filter(w => /\s/.test(w.word) && re.test(w.word)).slice(0, 10);
     const mine = Object.values(state.cards).filter(c => /\s/.test(c.word) && re.test(c.word) && !lib.some(l => l.word === c.word)).slice(0, 10);
-    const row = (w, own) => `<div class="phr"><b>${esc(w.word)}</b> <span class="small" style="color:var(--accent);font-weight:700">${esc(w.vi || '')}</span>${w.ex ? `<div class="ex small">“${UI.highlight(w.ex, w.word)}”</div>` : ''}${w.note ? `<div class="tiny muted">📐 ${esc(w.note)}</div>` : ''}
+    const row = (w, own) => `<div class="phr"><b>${esc(w.word)}</b> <span class="small${I18N.learnLang() !== 'vi' && /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i.test(w.vi || '') ? ' tr-wait' : ''}" style="color:var(--accent);font-weight:700">${esc(w.vi || '')}</span>${w.ex ? `<div class="ex small">“${UI.highlight(w.ex, w.word)}”</div>` : ''}${w.note ? `<div class="tiny muted">📐 ${esc(w.note)}</div>` : ''}
       <div class="row" style="margin-top:.2rem"><button class="icon-btn sm" data-speak="${esc(w.word)}">🔊</button>${own || inDeck(w.word) ? `<span class="chip ok">✓ ${t('Đã lưu')}</span>` : `<button class="btn sm ghost" data-add-seed="${esc(w.word)}">+ ${t('Lưu cụm')}</button>`}</div></div>`;
     el.innerHTML = `<div style="margin-top:1rem"><div class="row between"><h3 style="margin:0">🧩 ${t('Cụm từ & cấu trúc với “{w}”', { w: esc(e.word) })}</h3><button class="btn sm" id="addPhr">＋ ${t('Lưu cụm / cấu trúc của bạn')}</button></div>
       ${lib.length || mine.length ? `<div class="phr-grid">${lib.map(w => row(w, false)).join('')}${mine.map(c => row(c, true)).join('')}</div>` : `<p class="small muted" style="margin:.4rem 0 0">${t('Chưa có cụm nào trong thư viện. Mẹo: <b>bôi đen một cụm trong câu ví dụ</b> phía trên rồi bấm “🧩 Lưu cụm này”.')}</p>`}</div>`;
