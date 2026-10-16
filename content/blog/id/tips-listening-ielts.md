@@ -59,7 +59,7 @@ Jawabannya adalah **10:45**, bukan 9:30. Pasang telinga untuk penanda ralat sepe
 
 ### 3. Jawaban benar biasanya diucapkan dengan kata lain
 
-Soal menulis *inexpensive*, penutur berkata *it won't break the bank*. Pada soal pilihan ganda, ketiga opsi sering disebut semua di audio, tetapi hanya satu yang maknanya cocok. Jangan memilih jawaban hanya karena "katanya kedengaran". Kemampuan mengenali parafrase ini sangat bergantung pada kosakata; cara membangunnya dibahas di [cara belajar vocabulary IELTS](/id/blog/cara-belajar-vocabulary-ielts/).
+Soal menulis *inexpensive*, penutur berkata *it won't break the bank*. Pada soal pilihan ganda, ketiga opsi sering disebut semua di audio, tetapi hanya satu yang maknanya cocok. Jangan memilih jawaban hanya karena "katanya kedengaran"; prinsip yang sama berlaku di Reading, misalnya pada soal [True False Not Given IELTS](/id/blog/true-false-not-given-ielts/). Kemampuan mengenali parafrase ini sangat bergantung pada kosakata; cara membangunnya dibahas di [cara belajar vocabulary IELTS](/id/blog/cara-belajar-vocabulary-ielts/).
 
 ### 4. Latih ejaan huruf dan angka secara khusus
 

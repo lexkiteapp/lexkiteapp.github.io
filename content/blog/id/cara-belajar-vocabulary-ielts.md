@@ -36,7 +36,7 @@ Di Writing dan Speaking, kosakata dinilai lewat kriteria **Lexical Resource**, s
 - **Collocation dan gaya:** di band 7, deskriptor menyebut pemakaian *less common lexical items* dengan kesadaran akan gaya dan collocation.
 - **Ejaan dan pembentukan kata:** *economy – economic – economical* bukan kata yang bisa saling ditukar.
 
-Di Listening dan Reading tidak ada kriteria kosakata terpisah, tetapi jawaban yang salah eja dihitung salah, dan soal sering memakai sinonim dari kata di teks. Jadi target belajarmu ada dua: mengenali banyak kata saat membaca dan mendengar, serta memakai sebagian kecilnya dengan tepat saat menulis dan berbicara.
+Di Listening dan Reading tidak ada kriteria kosakata terpisah, tetapi jawaban yang salah eja dihitung salah, dan soal sering memakai sinonim dari kata di teks, terutama pada soal [true false not given IELTS](/id/blog/true-false-not-given-ielts/). Jadi target belajarmu ada dua: mengenali banyak kata saat membaca dan mendengar, serta memakai sebagian kecilnya dengan tepat saat menulis dan berbicara.
 
 ## Kesalahan khas pelajar Indonesia saat memakai kosakata
 
