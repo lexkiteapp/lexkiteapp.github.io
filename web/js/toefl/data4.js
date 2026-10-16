@@ -749,6 +749,106 @@
     ],
   });
 
+  /* BỘ 5 · SPEAKING lô 5 (tự biên soạn): 4 Listen and Repeat × 5 câu (8 → 20 từ), 3 Interview × 4 câu (mẫu ~45 giây + tiêu chí chấm trong tip). */
+  TF.speaking.push({
+    id: 'tf5-rp4', set: 5, task: 'repeat', title: 'Campus IT Help Desk', accent: 'en-US',
+    context: 'You are training to work at the campus IT help desk. Listen to your supervisor and repeat exactly what you hear.',
+    sentences: [
+      { t: 'Please restart your laptop before you call us.', tip: 'Nhấn "RESTART" và "CALL"; "before you" đọc lướt /bɪˈfɔr jə/.' },
+      { t: 'You can reset your password on the student portal.', tip: '"password" /ˈpæswɜrd/ – không đọc âm /w/ rõ; "portal" Mỹ đọc /ˈpɔrɾəl/.' },
+      { t: 'The campus Wi-Fi is usually slower in the library during exam week.', tip: 'Nhấn "SLOWER" và "EXAM WEEK"; "usually" /ˈjuːʒuəli/.' },
+      { t: 'If your screen is cracked, we can send the laptop to the manufacturer for repair.', tip: 'Ngắt nhịp sau "cracked,"; "manufacturer" /ˌmænjəˈfæktʃərər/ nhấn âm tiết thứ ba.' },
+      { t: 'Students who forget to back up their files should save their work to the university cloud storage every evening.', tip: 'Câu dài – chia nhịp: "Students who forget to back up their files / should save their work / to the university cloud storage / every evening".' },
+    ],
+  });
+  TF.speaking.push({
+    id: 'tf5-rp5', set: 5, task: 'repeat', title: 'Student Health Centre Reception', accent: 'en-GB',
+    context: 'You are starting a part-time job at the reception desk of the student health centre. Listen to the practice manager and repeat exactly what you hear.',
+    sentences: [
+      { t: 'Please take a seat and wait to be called.', tip: '"take a seat" nối âm /teɪkəsiːt/; nhấn "SEAT" và "CALLED".' },
+      { t: 'Appointments can be booked online or by telephone from eight.', tip: '"Appointments" /əˈpɔɪntmənts/ nhấn âm tiết thứ hai; giọng Anh "telephone" /ˈtelɪfəʊn/.' },
+      { t: 'If you need to cancel, let us know at least a day in advance.', tip: 'Ngắt nhịp sau "cancel,"; "let us know" đọc liền; nhấn "a DAY in ADVANCE".' },
+      { t: 'New students should register with the centre as soon as possible after they arrive on campus.', tip: '"register" /ˈredʒɪstə/ (giọng Anh không phát âm r cuối); "as soon as possible" đọc liền /əzˈsuːnəzˈpɒsəbl/.' },
+      { t: 'For urgent problems outside opening hours, students should phone the national helpline, which is available twenty-four hours a day.', tip: 'Câu dài – chia nhịp: "For urgent problems outside opening hours / students should phone the national helpline / which is available twenty-four hours a day".' },
+    ],
+  });
+  TF.speaking.push({
+    id: 'tf5-rp6', set: 5, task: 'repeat', title: 'Art Gallery Volunteer', accent: 'en-US',
+    context: 'You are volunteering at the university art gallery. Listen to the gallery coordinator and repeat exactly what you hear.',
+    sentences: [
+      { t: 'Photographs are allowed, but please turn off the flash.', tip: 'Ngắt nhịp sau "allowed,"; "turn off the" nối âm /tɜrnɔfðə/.' },
+      { t: 'Large bags must be left in the lockers near the entrance.', tip: '"lockers" /ˈlɑkərz/ giọng Mỹ; nhấn "LARGE BAGS" và "LOCKERS".' },
+      { t: 'The new exhibition features paintings by students from the Department of Fine Arts.', tip: '"exhibition" /ˌeksɪˈbɪʃən/ – không đọc /h/; "features" /ˈfiːtʃərz/.' },
+      { t: 'Free guided tours start at the information desk every Saturday at eleven and last about forty minutes.', tip: 'Nhấn "FREE GUIDED TOURS"; "every Saturday at eleven" giữ nhịp đều, "about forty minutes" Mỹ đọc /ˈfɔrɾi/.' },
+      { t: 'Visitors are asked not to touch the sculptures, because oils from their hands can damage the surface over time.', tip: 'Câu dài – chia nhịp: "Visitors are asked not to touch the sculptures / because oils from their hands / can damage the surface over time".' },
+    ],
+  });
+  TF.speaking.push({
+    id: 'tf5-rp7', set: 5, task: 'repeat', title: 'Campus Bike Repair Workshop', accent: 'en-GB',
+    context: 'You are helping at a free bike repair workshop on campus. Listen to the mechanic and repeat exactly what you hear.',
+    sentences: [
+      { t: 'Check your tyre pressure at least once a week.', tip: '"tyre" giọng Anh /taɪə/; "pressure" /ˈpreʃə/; nhấn "ONCE a WEEK".' },
+      { t: 'Our workshop is open every Wednesday afternoon in the sports hall car park.', tip: 'Nhấn "WEDNESDAY" /ˈwenzdeɪ/ (chữ d đầu câm); "car park" giọng Anh /ˈkɑː pɑːk/.' },
+      { t: 'We provide the tools for free, but you will need to buy any new parts.', tip: 'Ngắt nhịp sau "free,"; nhấn "TOOLS", "FREE" và "NEW PARTS".' },
+      { t: 'Before you ride at night, make sure your front and rear lights are working properly.', tip: '"rear" /rɪə/; "properly" /ˈprɒpəli/ giọng Anh; nhấn "FRONT" và "REAR".' },
+      { t: 'If your brakes squeal when you stop, bring the bike in so that we can replace the pads.', tip: 'Câu dài – chia nhịp: "If your brakes squeal when you stop / bring the bike in / so that we can replace the pads".' },
+    ],
+  });
+  TF.speaking.push({
+    id: 'tf5-iv4', set: 5, task: 'interview', title: 'Sports and Exercise', seconds: 45, accent: 'en-US',
+    context: 'A researcher from the sports science department is interviewing students about exercise and physical activity. Answer each question. You will have about 45 seconds for each answer.',
+    questions: [
+      { q: 'How do you usually stay active during the semester?',
+        model: "My main form of exercise is cycling, because I ride my bike to campus every day, which is about twenty minutes each way. On top of that, I go to the university pool twice a week, usually early in the morning before my classes. I find that swimming helps me clear my head, so I tend to concentrate better for the rest of the day.",
+        tip: 'Tiêu chí: hoạt động cụ thể + tần suất · thêm lợi ích cá nhân · dùng hiện tại đơn cho thói quen · khoảng 70–100 từ.' },
+      { q: 'Do you prefer exercising alone or with other people? Why?',
+        model: "I generally prefer exercising with other people. When I go running with a friend, we push each other to go a little further, and it's harder to skip a session when someone is waiting for you. That said, I sometimes enjoy running alone with music, especially when I've had a stressful day and just need some quiet time to think.",
+        tip: 'Tiêu chí: lựa chọn rõ · 2 lý do có ví dụ · nhượng bộ bằng "That said" · kết thúc tự nhiên, không lặp lại câu hỏi.' },
+      { q: 'Why do you think many young adults do not get enough exercise?',
+        model: "I think the biggest reason is that daily life has become very sedentary. Students sit in lectures, then sit at a desk to study, and often relax by watching videos on their phones. Another factor is cost, since gym memberships can be expensive. If universities offered more free, short activities between classes, I believe more students would take part.",
+        tip: 'Tiêu chí: 2 nguyên nhân rõ ràng (The biggest reason… Another factor…) · ví dụ cụ thể · đề xuất giải pháp ngắn · từ vựng: sedentary, membership.' },
+      { q: 'Should schools spend more time on physical education? Explain your view.',
+        model: "Yes, I think they should. Regular exercise improves both physical health and concentration, so more PE could actually help students perform better in other subjects. It also teaches teamwork and how to deal with losing. However, PE lessons should offer a wider range of activities, like dance or climbing, so that students who don't enjoy competitive sports can still find something they like.",
+        tip: 'Tiêu chí: lập trường rõ · 2 lợi ích có giải thích · điều kiện/góp ý bằng "However" · khoảng 80–110 từ, phát âm rõ từ khóa.' },
+    ],
+  });
+  TF.speaking.push({
+    id: 'tf5-iv5', set: 5, task: 'interview', title: 'Reading and Books', seconds: 45, accent: 'en-GB',
+    context: 'A librarian is interviewing students about their reading habits for a report on campus library services. Answer each question. You will have about 45 seconds for each answer.',
+    questions: [
+      { q: 'What kinds of things do you enjoy reading in your free time?',
+        model: "In my free time I mostly read novels, especially detective stories, because I enjoy trying to solve the mystery before the end. I also read a lot of articles online about science and technology, usually on my phone while I'm on the bus. I'd like to read more non-fiction books, but during term I rarely have the energy for anything too serious.",
+        tip: 'Tiêu chí: thể loại cụ thể + lý do thích · bối cảnh đọc (khi nào, ở đâu) · thêm một mong muốn hoặc hạn chế cá nhân.' },
+      { q: 'Do you prefer printed books or e-books? Why?',
+        model: "I prefer printed books for reading at home. I find it easier to concentrate on paper, and I like being able to see how far I've got and to make notes in the margins. However, e-books are much more practical when I'm travelling, because I can carry dozens of them on one small device. So I'd say each format has its place.",
+        tip: 'Tiêu chí: lựa chọn rõ kèm 2 lý do · ghi nhận ưu điểm của lựa chọn còn lại bằng "However" · câu kết cân bằng.' },
+      { q: 'How could the university library encourage students to read more for pleasure?',
+        model: "One idea would be to create a relaxed reading area with comfortable chairs and a shelf of popular novels near the entrance, so that students notice them. The library could also run a book club once a month, perhaps with free coffee, because people are more likely to read a book if they can discuss it with others afterwards.",
+        tip: 'Tiêu chí: 2 đề xuất cụ thể · giải thích vì sao mỗi đề xuất hiệu quả · dùng "could/would" để đưa ý kiến lịch sự.' },
+      { q: 'Some people say that reading books is less important now that we have the internet. Do you agree?',
+        model: "I don't really agree. The internet is excellent for finding quick facts, but most online content is short and designed to be read quickly. Books, on the other hand, train us to follow a long argument or story and to think about it deeply. In my opinion, that ability to concentrate for a long time is more valuable than ever.",
+        tip: 'Tiêu chí: nêu rõ đồng ý/không · thừa nhận mặt mạnh của internet · so sánh bằng "on the other hand" · kết bằng nhận định riêng.' },
+    ],
+  });
+  TF.speaking.push({
+    id: 'tf5-iv6', set: 5, task: 'interview', title: 'The Environment in Daily Life', seconds: 45, accent: 'en-US',
+    context: 'A researcher from the campus sustainability office is interviewing students about environmental habits. Answer each question. You will have about 45 seconds for each answer.',
+    questions: [
+      { q: 'What do you do in your daily life to protect the environment?',
+        model: "I try to make a few small changes that add up over time. For example, I always carry a reusable water bottle and coffee cup, so I hardly ever buy drinks in plastic. I also walk or take the bus instead of driving, and I've started buying second-hand clothes online. None of these things are difficult, but they reduce the amount of waste I produce.",
+        tip: 'Tiêu chí: 2–3 hành động cụ thể · có ví dụ cho mỗi hành động · câu kết nêu tác động chung · khoảng 70–100 từ.' },
+      { q: 'Is it difficult for students to live in an environmentally friendly way? Why?',
+        model: "In some ways, yes. Environmentally friendly products are often more expensive, and students usually have limited budgets. Also, people who live in shared housing can't always control things like heating or recycling. On the other hand, many green habits actually save money, such as cooking at home or repairing things instead of replacing them, so it isn't impossible.",
+        tip: 'Tiêu chí: trả lời có mức độ ("In some ways") · 2 khó khăn cụ thể · mặt ngược lại bằng "On the other hand" · kết luận rõ.' },
+      { q: 'What could your university do to become more sustainable?',
+        model: "I think the university could start with food. The dining halls could offer more plant-based meals and give a discount to students who bring their own containers. Another idea would be to install solar panels on the large flat roofs of the sports buildings. These changes would reduce emissions and also show students that sustainability is taken seriously.",
+        tip: 'Tiêu chí: 2 đề xuất cụ thể, khả thi · ví dụ rõ (bữa ăn, pin mặt trời) · nêu lợi ích kép trong câu kết · từ vựng: plant-based, emissions.' },
+      { q: 'Who should be most responsible for protecting the environment: individuals, companies, or governments?',
+        model: "I believe governments should take the most responsibility, because they can set rules that apply to everyone, such as limits on pollution or taxes on plastic packaging. Companies will usually change their practices only when the law or their customers require it. Individuals still have a role to play, but personal choices alone can't solve problems on the scale of climate change.",
+        tip: 'Tiêu chí: chọn một bên rõ ràng · lý do + ví dụ chính sách · nhắc vai trò của hai bên còn lại · câu kết khái quát.' },
+    ],
+  });
+
 
   /* Xoay vị trí đáp án đúng (chỉ các unit của bộ 4) */
   const PAT = [2, 0, 3, 1, 1, 3, 0, 2, 3, 2, 1, 0];
