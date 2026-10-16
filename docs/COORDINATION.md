@@ -35,6 +35,7 @@ Mục đích: chia tải để không ai chạm giới hạn token, không sửa
    - Kiểm trước khi commit: `node scripts/blog-check.mjs <file>` (0 lỗi) + `node scripts/blog-dupes.mjs` (0 lỗi) + `node scripts/vi-lint.mjs` (bài vi) → `node scripts/blog-schedule.mjs` để xếp lịch.
    - Thứ tự: (a) bù bài tiếng Anh tương ứng các bài vi đã có (hiện vi 80 · en 24); (b) bài mới theo brief evergreen; (c) ngôn ngữ khác (es, ja, id…) khi blog ngôn ngữ đó đã bật.
    - Nhịp: mỗi lượt 3–5 bài, commit theo từng bài (`git add content/blog/<lang>/<slug>.md content/blog/media.json content/blog/shots.json`), ghi Nhật ký bàn giao số bài + slug.
+   - 📌 **Thực thi trên BOARD**: Nhận thẻ **[B2]** trên `docs/agents/BOARD.md` – luôn đối chiếu và tuân thủ chặt chẽ mục 3 hướng dẫn trên đây cùng `content/blog/WRITING-GUIDE.md` trước và trong khi viết bài.
 4. **Câu hỏi có biểu đồ TOEIC Part 3/4**: đề xuất định dạng dữ liệu `graphic` (bảng HTML đơn giản) + giao diện; Claude duyệt phần `web/js/qengine.js` trước khi sửa.
 
 ## Nhật ký bàn giao

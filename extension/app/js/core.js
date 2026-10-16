@@ -89,6 +89,7 @@
   const DEFAULT_SETTINGS = {
     reminderOn: true,
     reminderTime: '20:00',
+    reminderAuto: true,   // tự đặt giờ nhắc theo giờ hay học (tắt khi người dùng tự chọn giờ)
     emailDigest: false,   // email Báo cáo não bộ hằng tuần: mặc định TẮT – người dùng tự bật (opt-in, đúng GDPR & chính sách gửi mail)
     dailyNew: 10,
     dailyGoal: 20,
@@ -377,6 +378,9 @@
       const s = await Stats.get();
       const k = todayKey();
       s.days[k] = (s.days[k] || 0) + 1;
+      // Giờ hay học (24 ô, giờ máy) → giờ nhắc tự động; giảm một nửa khi nhiều để thói quen mới được ưu tiên
+      const hs = Array.isArray(s.hours) && s.hours.length === 24 ? s.hours : (s.hours = Array(24).fill(0));
+      hs[new Date().getHours()]++; if (hs.reduce((a, b) => a + b, 0) > 600) s.hours = hs.map(x => x >> 1);
       const ks = Object.keys(s.days).sort(); while (ks.length > 400) delete s.days[ks.shift()];
       if (isNew) {
         if (s.newToday.day !== k) s.newToday = { day: k, n: 0 };
@@ -384,6 +388,13 @@
       }
       await Store.set('stats', s);
       return s;
+    },
+    // Giờ nhắc thông minh: 15 phút trước khung giờ hay học nhất (cửa sổ 2 giờ) – cần ≥ 30 lượt ôn trên ≥ 3 ngày
+    smartTime(s) {
+      const hs = s && s.hours; if (!Array.isArray(hs) || hs.length !== 24) return '';
+      if (hs.reduce((a, b) => a + b, 0) < 30 || Object.keys(s.days || {}).length < 3) return '';
+      let best = 0; for (let h = 1; h < 24; h++) if (hs[h] + hs[(h + 1) % 24] > hs[best] + hs[(best + 1) % 24]) best = h;
+      return String((best + 23) % 24).padStart(2, '0') + ':45';
     },
     streak(s) {
       let n = 0;

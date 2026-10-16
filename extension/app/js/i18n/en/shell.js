@@ -285,6 +285,8 @@
   'Nhắc học hằng ngày': 'Daily reminder',
   'Bật nhắc học': 'Turn on reminders',
   'Giờ nhắc': 'Reminder time',
+  'Tự chọn giờ theo thói quen': 'Pick the time from my habits',
+  'Nhắc 15 phút trước khung giờ bạn hay học nhất (sau vài ngày học).': 'Reminds you 15 minutes before the hour you usually study (after a few days of learning).',
   'Add-on gửi thông báo vào giờ này mỗi ngày (kể cả khi chưa mở trang) và hiện số thẻ cần ôn trên biểu tượng.': 'The add-on sends a notification at this time every day (even if the app is closed) and shows your due count on its icon.',
   'Trình duyệt chỉ nhắc được khi trang đang mở. Để nhắc chắc chắn, thêm lịch nhắc vào điện thoại hoặc dùng add-on Chrome.': 'Browsers can only remind you while this page is open. For reliable reminders, add a calendar event on your phone or use the Chrome add-on.',
   'Đã cho phép thông báo': 'Notifications allowed',
