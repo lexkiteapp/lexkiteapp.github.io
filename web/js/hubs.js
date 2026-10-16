@@ -139,6 +139,13 @@
   };
 
   // ---------- Tôi ----------
+  // Lối vào trang Quản trị: chỉ hiện khi máy chủ xác nhận email là admin (ADMIN_EMAILS) – người khác không thấy
+  const adminRow = async () => {
+    const box = document.getElementById('meAdmin'); if (!box || !window.Sync || !Sync.user) return;
+    let ok = null; try { ok = sessionStorage.getItem('lk.adm.' + Sync.user.uid); } catch (e) { /* bỏ qua */ }
+    if (ok == null) { try { const r = await fetch((/^https?:/.test(location.protocol) ? '' : 'https://lexkite.com') + '/api/admin', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await Sync.user.getIdToken() }, body: '{"op":"ping"}' }); ok = r.ok ? '1' : '0'; sessionStorage.setItem('lk.adm.' + Sync.user.uid, ok); } catch (e) { return; } }
+    if (ok === '1' && document.getElementById('meAdmin')) box.outerHTML = `<a class="set-row me-row" href="${/^https?:/.test(location.protocol) ? '/admin' : 'https://lexkite.com/admin'}" target="_blank" rel="noopener"><span class="set-l"><span>🛡️ ${t('Quản trị hệ thống')}</span><small>${t('Người dùng, hộp thư, phân tích, chất lượng, Gemini API')}</small></span><span class="chev" aria-hidden="true">›</span></a>`;
+  };
   routes.me = function () {
     const u = state.user, L = Game.levelOf((state.game || {}).xp || 0), streak = App.streak();
     const row = (href, ic, label, hint = '', ext = false) => `<a class="set-row me-row" href="${href}"${ext ? ' target="_blank" rel="noopener"' : ''}><span class="set-l"><span>${ic} ${label}</span>${hint ? `<small>${hint}</small>` : ''}</span><span class="chev" aria-hidden="true">${ext ? '↗' : '›'}</span></a>`;
@@ -151,6 +158,7 @@
       + row('#/stats', '📊', t('Tiến độ & huy hiệu'))
       + row('#/mistakes', '📕', t('Sổ lỗi sai'), t('Làm lại các câu đã sai'))
       + `</div><h3 class="set-h">${t('Ứng dụng')}</h3><div class="set-list">`
+      + `<span id="meAdmin"></span>`
       + row('#/settings', '⚙️', t('Cài đặt'), t('Tài khoản, nhắc học, âm thanh, giao diện'))
       + `<button type="button" class="set-row me-row" data-exam-pick><span class="set-l"><span>${EXAMS[App.exam()].ic} ${t('Kỳ thi của bạn')}</span><small>${esc(EXAMS[App.exam()].name)}</small></span><span class="chev" aria-hidden="true">›</span></button>`
       + `</div><h3 class="set-h">${t('Tìm hiểu thêm')}</h3><div class="set-list">`
@@ -159,7 +167,7 @@
       + row('#/resources', '🌐', t('Tài nguyên miễn phí'))
       + (I18N.lang() === 'vi' ? [['samples', '📄', 'Bài mẫu Writing Task 2'], ['speaking', '🗣️', 'Chủ đề Speaking'], ['tu-vung', '📚', 'Từ vựng theo chủ đề'], ['ngu-phap', '🧠', 'Ngữ pháp tiếng Anh'], ['viet-thu', '✉️', 'Thư mẫu IELTS General']].map(([p, ic, l]) => row('https://lexkite.com/' + p + '/', ic, l, '', true)).join('') : '')
       + `</div></div>`;
-    App.blogLive().then(on => { const el = document.getElementById('meBlog'); if (on && el) el.outerHTML = `<a class="set-row me-row" href="${App.blogUrl()}" data-blog><span class="set-l"><span>📰 ${t('Blog học tiếng Anh')}</span><small>${t('Mẹo thi, từ vựng theo chủ đề, phương pháp học')}</small></span><span class="chev" aria-hidden="true">›</span></a>`; });
+    adminRow(); App.blogLive().then(on => { const el = document.getElementById('meBlog'); if (on && el) el.outerHTML = `<a class="set-row me-row" href="${App.blogUrl()}" data-blog><span class="set-l"><span>📰 ${t('Blog học tiếng Anh')}</span><small>${t('Mẹo thi, từ vựng theo chủ đề, phương pháp học')}</small></span><span class="chev" aria-hidden="true">›</span></a>`; });
   };
 
   // ---------- Blog (trang tĩnh /blog/ – tạo lúc build): chỉ hiện lối vào khi blog đã có trên máy chủ ----------

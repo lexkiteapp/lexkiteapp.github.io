@@ -147,6 +147,7 @@ const OPS = {
     return { lang, judged: rows.length, pending: L.flagged.filter(f => !by[f.h]).length, wrong: L.flagged.filter(f => by[f.h] && !by[f.h].ok).map(f => ({ ...f, why: by[f.h].note })) };
   },
   // ---- Gemini API: khóa dán trong Quản trị (D1 config 'gemini_key', không bao giờ trả về nguyên khóa) ----
+  async ping() { return { ok: true }; },
   async geminiStatus(db) {
     const k = (await one(db, "SELECT v, at, by FROM config WHERE k = 'gemini_key'"));
     return { set: !!k.v, last4: k.v ? k.v.slice(-4) : '', at: k.at || 0, by: k.by || '' };
