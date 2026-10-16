@@ -1708,7 +1708,10 @@
     if (plat === 'ext' && window.chrome && chrome.storage) try { chrome.storage.local.get('lk.vid').then(o => { const x = o['lk.vid']; if (!x) chrome.storage.local.set({ 'lk.vid': vid }); else if (x !== vid) localStorage.setItem('lk.vid', x); }).catch(() => {}); } catch (e) { /* bỏ qua */ }
     const dev = innerWidth < 768 ? 'mobile' : innerWidth < 1100 ? 'tablet' : 'desktop';
     let pages = 1, dur = 0, since = document.visibilityState === 'visible' ? Date.now() : 0, errs = 0;
-    let lcp = 0; try { new PerformanceObserver(l => { const e = l.getEntries().pop(); if (e) lcp = Math.round(e.startTime); }).observe({ type: 'largest-contentful-paint', buffered: true }); } catch (e) { /* trình duyệt không hỗ trợ */ } // LCP thật của người dùng (Core Web Vitals)
+    // Chuẩn web-vitals: bỏ LCP nếu trang mở ở tab nền (ẩn trước khi vẽ xong) – tránh số ảo hàng chục giây
+    let lcp = 0, hid = document.visibilityState === 'hidden' ? 0 : Infinity;
+    addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') hid = Math.min(hid, performance.now()); }, true);
+    try { new PerformanceObserver(l => { const e = l.getEntries().pop(); if (e && e.startTime < hid) lcp = Math.round(e.startTime); }).observe({ type: 'largest-contentful-paint', buffered: true }); } catch (e) { /* trình duyệt không hỗ trợ */ } // LCP thật của người dùng (Core Web Vitals)
     const send = d => { try { navigator.sendBeacon ? navigator.sendBeacon(BASE + '/api/hit', JSON.stringify(d)) : fetch(BASE + '/api/hit', { method: 'POST', body: JSON.stringify(d), keepalive: true }); } catch (e) { /* bỏ qua */ } };
     // Quy mô lớn: chỉ một tỉ lệ người dùng gửi thống kê phiên (hit_rate do quản trị đặt, ổn định theo vid) – giữ D1/Functions trong gói miễn phí
     let rate = 1; try { rate = Math.min(1, Math.max(0.01, +localStorage.getItem('lk.hr') || 1)); } catch (e) { /* bỏ qua */ }

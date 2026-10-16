@@ -176,7 +176,7 @@ const OPS = {
     const [daily, refs, countries, devs, langs, plats, paths, sum, freq] = await Promise.all([
       all(db, 'SELECT day, COUNT(*) AS s, COUNT(DISTINCT vid) AS v, AVG(dur) AS dur, AVG(pages) AS pages, SUM(ret) AS ret FROM sessions WHERE day >= ? GROUP BY day ORDER BY day', from),
       top("COALESCE(NULLIF(ref, ''), '(trực tiếp)')"), top('country', 20), top('dev'), top('lang', 15), top('plat'), top('path', 15),
-      one(db, 'SELECT COUNT(*) AS s, COUNT(DISTINCT vid) AS v, AVG(dur) AS dur, AVG(pages) AS pages, SUM(ret) AS ret, SUM(pages <= 1 AND dur < 15) AS bounce, AVG(lcp) AS lcp, SUM(lcp > 0 AND lcp <= 2500) AS lcpGood, SUM(lcp > 0) AS lcpN FROM sessions WHERE day >= ?', from),
+      one(db, 'SELECT COUNT(*) AS s, COUNT(DISTINCT vid) AS v, AVG(dur) AS dur, AVG(pages) AS pages, SUM(ret) AS ret, SUM(pages <= 1 AND dur < 15) AS bounce, (SELECT lcp FROM sessions WHERE day >= ?1 AND lcp > 0 ORDER BY lcp LIMIT 1 OFFSET (SELECT CAST(COUNT(*) * 0.75 AS INT) FROM sessions WHERE day >= ?1 AND lcp > 0)) AS lcp, SUM(lcp > 0 AND lcp <= 2500) AS lcpGood, SUM(lcp > 0) AS lcpN FROM sessions WHERE day >= ?1', from),
       all(db, "SELECT CASE WHEN c = 1 THEN '1' WHEN c <= 3 THEN '2–3' WHEN c <= 7 THEN '4–7' WHEN c <= 15 THEN '8–15' ELSE '16+' END AS k, COUNT(*) AS n FROM (SELECT vid, COUNT(*) AS c FROM sessions WHERE day >= ? GROUP BY vid) GROUP BY k", from),
     ]);
     const rate = +((await one(db, "SELECT v FROM config WHERE k = 'hit_rate'").catch(() => null)) || {}).v || 1;

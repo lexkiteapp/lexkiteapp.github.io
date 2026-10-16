@@ -66,7 +66,7 @@
     'Khoảng thời gian (phần Chi tiết)': 'Date range (Details section)', 'ℹ️ Đang lấy mẫu {p}% người dùng – số phiên/người thực tế ≈ số dưới đây × {x}; tỉ lệ % và trung bình giữ nguyên.': 'ℹ️ Sampling {p}% of users – actual sessions/users ≈ figures below × {x}; percentages and averages are unaffected.',
     '🗺️ Khách theo quốc gia · hôm nay': '🗺️ Visitors by country · today', 'Bản đồ khách theo quốc gia hôm nay': 'Map of visitors by country today', 'Không tải được số liệu trực tiếp.': 'Could not load live data.', '📊 Chi tiết · {r}': '📊 Details · {r}',
     'Phiên truy cập': 'Sessions', 'Khách (thiết bị)': 'Visitors (devices)', '{n} phiên/khách': '{n} sessions/visitor', 'Thời gian TB/phiên': 'Avg. time/session', 'Trang/phiên': 'Pages/session', 'Khách quay lại': 'Returning visitors',
-    'Thoát ngay (&lt;15 giây, 1 trang)': 'Bounce (&lt;15s, 1 page)', 'LCP thật (tốc độ hiện nội dung)': 'Real-user LCP (content load speed)', '{p} phiên đạt “Tốt” (≤ 2,5 s)': '{p} of sessions “Good” (≤ 2.5 s)',
+    'Thoát ngay (&lt;15 giây, 1 trang)': 'Bounce (&lt;15s, 1 page)', 'LCP thật (tốc độ hiện nội dung)': 'Real-user LCP (content load speed)', 'p75 · {p} phiên đạt “Tốt” (≤ 2,5 s)': 'p75 · {p} of sessions “Good” (≤ 2.5 s)', '{p} phiên đạt “Tốt” (≤ 2,5 s)': '{p} of sessions “Good” (≤ 2.5 s)',
     'Phiên theo ngày': 'Sessions per day', 'Nguồn truy cập': 'Traffic sources', 'Quốc gia': 'Countries', 'Trang vào đầu tiên': 'Landing pages', 'Tần suất (số phiên mỗi khách)': 'Frequency (sessions per visitor)', '{k} lần': '{k}×',
     'Thiết bị': 'Devices', 'Ngôn ngữ giao diện': 'UI language', '⏰ Thói quen sử dụng': '⏰ Usage habits', 'Giờ cao điểm (giờ Việt Nam)': 'Peak hours (Vietnam time)', 'Ngày trong tuần': 'Day of week', 'Thời lượng phiên': 'Session length',
     '📈 Tăng trưởng': '📈 Growth', 'Khách mới & khách quay lại theo ngày': 'New vs. returning visitors per day', 'Tài khoản đăng ký mới': 'New sign-ups', 'Chưa có đăng ký mới trong khoảng này': 'No new sign-ups in this range',
@@ -554,7 +554,7 @@
           <div class="card kpi"><div class="l">${L('Trang/phiên')}</div><div class="v">${(+s.pages || 0).toFixed(1)}</div></div>
           <div class="card kpi"><div class="l">${L('Khách quay lại')}</div><div class="v">${pct(s.ret, s.s)}</div></div>
           <div class="card kpi"><div class="l">${L('Thoát ngay (&lt;15 giây, 1 trang)')}</div><div class="v">${pct(s.bounce, s.s)}</div></div>
-          <div class="card kpi"><div class="l">${L('LCP thật (tốc độ hiện nội dung)')}</div><div class="v">${s.lcp ? (s.lcp / 1000).toFixed(2) + ' s' : '–'}</div><div class="s">${s.lcpN ? L('{p} phiên đạt “Tốt” (≤ 2,5 s)', { p: pct(s.lcpGood, s.lcpN) }) : L('chưa có dữ liệu')}</div></div>
+          <div class="card kpi"><div class="l">${L('LCP thật (tốc độ hiện nội dung)')}</div><div class="v">${s.lcp ? (s.lcp / 1000).toFixed(2) + ' s' : '–'}</div><div class="s">${s.lcpN ? L('p75 · {p} phiên đạt “Tốt” (≤ 2,5 s)', { p: pct(s.lcpGood, s.lcpN) }) : L('chưa có dữ liệu')}</div></div>
         </div>
         <div class="card"><h3>${L('Phiên theo ngày')}</h3>${chart(padDays(a.daily, a.days), 's')}</div>
         <div class="adm-grid">
