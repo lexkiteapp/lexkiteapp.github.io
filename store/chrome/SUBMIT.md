@@ -14,5 +14,6 @@ Dashboard: https://chrome.google.com/webstore/devconsole
 4. **Distribution**: Public, mọi khu vực, miễn phí.
 
 ## Mỗi lần cập nhật
+Tự động: GitHub Actions → "Đăng add-on Chrome Web Store" (thiết lập & quy tắc: `docs/CWS-RULES.md`). Thủ công:
 - Tăng `version` trong `extension/manifest.json` (CWS từ chối số phiên bản không tăng) → build zip → **Package → Upload new package** → Submit.
 - Thêm quyền mới ⇒ cập nhật `PRIVACY-PRACTICES.md`, chính sách `content/legal/{en,vi}/privacy.html` (`node scripts/build-legal.mjs`) và lý do quyền trên dashboard trước khi gửi.
