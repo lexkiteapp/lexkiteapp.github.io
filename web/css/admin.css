@@ -399,3 +399,7 @@ body.adm { background: var(--bg); min-height: 100vh; font-feature-settings: "cv0
 .u-kpis { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); } @media (max-width: 560px) { .u-kpis { grid-template-columns: 1fr 1fr; } .u-kpis .kpi:last-child { grid-column: 1 / -1; } .u-kpis .kpi .v { font-size: 1.4rem; } }
 
 .theme-btn { margin-right: .5rem; white-space: nowrap; }
+
+/* Nút đổi ngôn ngữ VI | EN (cạnh nút giao diện) */
+.lang-btn { margin-right: .5rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.lang-btn b { color: var(--primary); }

@@ -9,6 +9,8 @@ const ORIGINS = /^https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\
 const REPO = 'lexkiteapp/lexkiteapp.github.io';
 const CONFIG_KEYS = ['banner', 'banner_url', 'banner_level', 'ai_user', 'ai_anon', 'ai_global', 'alert_errors', 'note', 'hit_rate'];
 const DAY = 86400e3;
+// Ngôn ngữ giao diện quản trị: máy khách gửi ui: 'vi' | 'en' (thiếu = 'vi', tương thích cũ) – chỉ áp cho vài câu hiển thị
+const tx = (b, vi, en) => (b && b.ui === 'en' ? en : vi);
 const cors = req => { const o = req.headers.get('Origin') || ''; return ORIGINS.test(o) ? { 'Access-Control-Allow-Origin': o, 'Access-Control-Allow-Headers': 'Authorization, Content-Type', 'Access-Control-Allow-Methods': 'POST, OPTIONS', Vary: 'Origin' } : {}; };
 const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...cors(req) } });
 
@@ -83,7 +85,7 @@ async function cached(key, ttl, fn) {
 }
 
 const OPS = {
-  async usage(db) {
+  async usage(db, b) {
     const now = Date.now(), d1 = dayStr(now), t0 = Date.parse(d1 + 'T00:00:00Z');
     const r = await db.prepare('SELECT 1').run(), size = (r.meta && (r.meta.size_after ?? r.meta.db_size)) || 0;
     const tables = await all(db, "SELECT name FROM sqlite_master WHERE type = 'table' AND name NOT LIKE 'sqlite_%' AND name NOT LIKE '_cf_%'");
@@ -100,10 +102,10 @@ const OPS = {
     const aiCap = +((await one(db, "SELECT v FROM config WHERE k = 'ai_global'")).v || FREE.aiDay);
     const meter = (name, used, cap, unit, hint) => ({ name, used, cap, pct: cap ? Math.round(used / cap * 1000) / 10 : 0, unit, hint });
     return { counts, meters: [
-      meter('Dung lượng cơ sở dữ liệu D1', size, FREE.dbBytes, 'bytes', 'Gói miễn phí: 500 MB/cơ sở dữ liệu. Gói Workers Paid 5 USD/tháng: 10 GB.'),
-      meter('Lượt ghi D1 hôm nay (ước tính)', writes, FREE.writesDay, 'rows', 'Miễn phí 100.000 dòng/ngày; reset 0h UTC.'),
-      meter('Người dùng hoạt động 30 ngày (Firebase Auth)', mau, FREE.authMau, 'users', 'Miễn phí 50.000 MAU; vượt mức Google tính phí theo MAU.'),
-      meter('Lượt chấm AI hôm nay', ai, aiCap, 'calls', 'Trần do mình đặt để không vượt 10.000 neurons/ngày miễn phí của Workers AI.'),
+      meter(tx(b, 'Dung lượng cơ sở dữ liệu D1', 'D1 database storage'), size, FREE.dbBytes, 'bytes', tx(b, 'Gói miễn phí: 500 MB/cơ sở dữ liệu. Gói Workers Paid 5 USD/tháng: 10 GB.', 'Free tier: 500 MB per database. Workers Paid ($5/month): 10 GB.')),
+      meter(tx(b, 'Lượt ghi D1 hôm nay (ước tính)', 'D1 writes today (estimate)'), writes, FREE.writesDay, 'rows', tx(b, 'Miễn phí 100.000 dòng/ngày; reset 0h UTC.', 'Free: 100,000 rows/day; resets at 00:00 UTC.')),
+      meter(tx(b, 'Người dùng hoạt động 30 ngày (Firebase Auth)', '30-day active users (Firebase Auth)'), mau, FREE.authMau, 'users', tx(b, 'Miễn phí 50.000 MAU; vượt mức Google tính phí theo MAU.', 'Free up to 50,000 MAU; Google bills per MAU beyond that.')),
+      meter(tx(b, 'Lượt chấm AI hôm nay', 'AI grading calls today'), ai, aiCap, 'calls', tx(b, 'Trần do mình đặt để không vượt 10.000 neurons/ngày miễn phí của Workers AI.', 'Our own cap to stay within the free 10,000 neurons/day of Workers AI.')),
     ] };
   },
   async services(db) { return { rows: await all(db, 'SELECT * FROM services ORDER BY ord, id') }; },
@@ -267,11 +269,11 @@ const OPS = {
   },
   async geminiSet(db, b, who, env) {
     const key = String(b.key || '').trim();
-    if (!/^(AIza[\w-]{20,}|AQ\.[\w.-]{20,})$/.test(key)) return { ok: false, error: 'Khóa không đúng định dạng (AIza… hoặc AQ.…)' };
-    const list = await gkList(db); if (list.some(x => x.k === key)) return { ok: false, error: 'Khóa này đã có trong danh sách' };
-    if (list.length >= 20) return { ok: false, error: 'Tối đa 20 khóa' };
+    if (!/^(AIza[\w-]{20,}|AQ\.[\w.-]{20,})$/.test(key)) return { ok: false, error: tx(b, 'Khóa không đúng định dạng (AIza… hoặc AQ.…)', 'Invalid key format (AIza… or AQ.…)') };
+    const list = await gkList(db); if (list.some(x => x.k === key)) return { ok: false, error: tx(b, 'Khóa này đã có trong danh sách', 'This key is already in the list') };
+    if (list.length >= 20) return { ok: false, error: tx(b, 'Tối đa 20 khóa', 'Maximum 20 keys') };
     let r = await gemFetch(env, 'models/gemini-3.8-flash', key, null, 'GET'); if (r.status === 404) r = await gemFetch(env, 'models/gemini-2.5-flash', key, null, 'GET');
-    if (!r.ok) { const m = ((await r.json().catch(() => ({}))).error || {}).message || ''; return { ok: false, error: `Google từ chối khóa (HTTP ${r.status}, khóa nhận được dài ${key.length} ký tự, đuôi …${key.slice(-4)})${m ? ': ' + m.slice(0, 160) : ''}${/location/i.test(m) ? ' – máy chủ Cloudflare đang ở vùng Gemini chưa hỗ trợ' : ''}` }; }
+    if (!r.ok) { const m = ((await r.json().catch(() => ({}))).error || {}).message || ''; return { ok: false, error: tx(b, `Google từ chối khóa (HTTP ${r.status}, khóa nhận được dài ${key.length} ký tự, đuôi …${key.slice(-4)})`, `Google rejected the key (HTTP ${r.status}, received key is ${key.length} characters, ending …${key.slice(-4)})`) + (m ? ': ' + m.slice(0, 160) : '') + (/location/i.test(m) ? tx(b, ' – máy chủ Cloudflare đang ở vùng Gemini chưa hỗ trợ', ' – the Cloudflare server is in a region Gemini does not support yet') : '') }; }
     list.push({ k: key, at: Date.now(), by: who.email }); await gkSave(db, list);
     return { ok: true, last4: key.slice(-4), count: list.length };
   },
@@ -307,22 +309,23 @@ const OPS = {
     const wrongs = L.flagged.filter(f => done[f.h] && !done[f.h].ok).map(f => ({ ...f, ...parse(done[f.h].note) }));
     return { lang, reviewed: L.flagged.filter(f => done[f.h]).length, total: L.flagged.length, pending: L.flagged.filter(f => !done[f.h]).length, models: [...used], wrong: wrongs };
   },
-  async alerts(db) {
+  async alerts(db, b) {
     const now = Date.now(), out = [];
     try {
       const r = await fetch(`https://api.github.com/repos/${REPO}/actions/runs?per_page=40`, { headers: { 'User-Agent': 'lexkite-admin', Accept: 'application/vnd.github+json' } });
       const runs = (await r.json()).workflow_runs || [], seen = new Set();
       for (const w of runs) { if (seen.has(w.name)) continue; seen.add(w.name); out.push({ kind: 'workflow', name: w.name, status: w.status, ok: w.conclusion === 'success' || w.conclusion === 'skipped' || w.status !== 'completed', conclusion: w.conclusion, at: Date.parse(w.updated_at), url: w.html_url }); }
-    } catch (e) { out.push({ kind: 'workflow', name: 'GitHub API', ok: false, conclusion: 'không đọc được' }); }
+    } catch (e) { out.push({ kind: 'workflow', name: 'GitHub API', ok: false, conclusion: tx(b, 'không đọc được', 'unreadable') }); }
     const e = await one(db, 'SELECT COUNT(*) AS kinds, COALESCE(SUM(n), 0) AS hits FROM errors WHERE last > ?', now - DAY);
     const lim = +((await one(db, "SELECT v FROM config WHERE k = 'alert_errors'")).v || 50);
-    out.push({ kind: 'errors', name: 'Lỗi JavaScript 24h', ok: e.hits < lim, conclusion: `${e.hits} lượt / ${e.kinds} loại (ngưỡng ${lim})` });
+    out.push({ kind: 'errors', name: tx(b, 'Lỗi JavaScript 24h', 'JavaScript errors (24h)'), ok: e.hits < lim, conclusion: tx(b, `${e.hits} lượt / ${e.kinds} loại (ngưỡng ${lim})`, `${e.hits} hits / ${e.kinds} types (threshold ${lim})`) });
     const c = await one(db, 'SELECT COUNT(*) AS n, MIN(at) AS oldest FROM contact_msgs WHERE COALESCE(handled, 0) = 0');
-    out.push({ kind: 'inbox', name: 'Tin nhắn chưa xử lý', ok: !c.n || now - c.oldest < 2 * DAY, conclusion: c.n ? `${c.n} tin, cũ nhất ${Math.round((now - c.oldest) / 36e5)} giờ` : 'không có' });
+    const oldH = Math.round((now - c.oldest) / 36e5);
+    out.push({ kind: 'inbox', name: tx(b, 'Tin nhắn chưa xử lý', 'Open messages'), ok: !c.n || now - c.oldest < 2 * DAY, conclusion: c.n ? tx(b, `${c.n} tin, cũ nhất ${oldH} giờ`, `${c.n} message(s), oldest ${oldH}h`) : tx(b, 'không có', 'none') });
     const f = await one(db, 'SELECT COUNT(*) AS n FROM contact_msgs WHERE sent = 0 AND at > ?', now - 7 * DAY);
-    out.push({ kind: 'mail', name: 'Thư chuyển tiếp lỗi (7 ngày)', ok: !f.n, conclusion: f.n ? `${f.n} tin chưa chuyển được vào Gmail – xem Hộp thư` : 'ổn' });
-    const u = await OPS.usage(db);
-    for (const m of u.meters) out.push({ kind: 'capacity', name: m.name, ok: m.pct < 70, warn: m.pct >= 70 && m.pct < 90, conclusion: `${m.pct}% hạn mức miễn phí` });
+    out.push({ kind: 'mail', name: tx(b, 'Thư chuyển tiếp lỗi (7 ngày)', 'Failed email forwards (7 days)'), ok: !f.n, conclusion: f.n ? tx(b, `${f.n} tin chưa chuyển được vào Gmail – xem Hộp thư`, `${f.n} message(s) not forwarded to Gmail – see Inbox`) : tx(b, 'ổn', 'OK') });
+    const u = await OPS.usage(db, b);
+    for (const m of u.meters) out.push({ kind: 'capacity', name: m.name, ok: m.pct < 70, warn: m.pct >= 70 && m.pct < 90, conclusion: tx(b, `${m.pct}% hạn mức miễn phí`, `${m.pct}% of free tier`) });
     return { rows: out };
   },
 };
@@ -352,7 +355,7 @@ export async function onRequestPost({ request, env }) {
   }
   let b; try { b = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
   const fn = OPS[b.op]; if (!fn) return json(request, 400, { error: 'op' });
-  if (DANGER.has(b.op) && Date.now() / 1000 - (+who.auth_time || 0) > 900) return json(request, 401, { error: 'reauth', message: 'Thao tác quan trọng: hãy đăng xuất rồi đăng nhập lại (bảo mật) rồi thử lại.' });
+  if (DANGER.has(b.op) && Date.now() / 1000 - (+who.auth_time || 0) > 900) return json(request, 401, { error: 'reauth', message: tx(b, 'Thao tác quan trọng: hãy đăng xuất rồi đăng nhập lại (bảo mật) rồi thử lại.', 'Sensitive action: sign out and sign back in (for security), then try again.') });
   try { await setup(env.DB); const out = await fn(env.DB, b, who, env); if (WRITE.test(b.op)) await audit(env, request, who.email, b.op, true); return json(request, 200, out); }
   catch (e) { return json(request, 500, { error: String(e && e.message || e).slice(0, 200) }); }
 }
