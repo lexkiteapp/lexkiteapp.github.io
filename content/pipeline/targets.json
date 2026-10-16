@@ -41,8 +41,8 @@
   "unit": "câu",
   "batch": 60,
   "file": "web/js/grammar/*.js",
-  "priority": 1,
-  "focus": "31 chủ đề CHƯA có bài tự luận: participle-clauses, subjunctive, hedging, nominalisation, paraphrase-ielts, alternatives-to-if, reported-advanced… (≥ 10 câu/chủ đề)"
+  "priority": 2,
+  "focus": "mọi chủ đề đã có ≥ 10 câu; nâng chủ đề còn 10 câu lên ≥ 20 (ưu tiên C1/IELTS)"
  },
  "Bài đọc ngắn": {
   "target": 300,
