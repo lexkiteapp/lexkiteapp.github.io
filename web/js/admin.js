@@ -59,6 +59,7 @@
   });
   $('#tabs').onclick = e => { const b = e.target.closest('button[data-tab]'); if (b) show(b.dataset.tab); };
 
+  addEventListener('hashchange', () => { const h = location.hash.slice(1); if (VIEWS[h] && h !== tab && user) show(h); }); // gõ/đổi #tab trên thanh địa chỉ → chuyển tab
   async function show(t) {
     stopLive(); tab = t; try { history.replaceState(null, '', '#' + t); } catch (e) { /* bỏ qua */ } document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === t));
     main.innerHTML = `<div class="adm-loading-grid"><div class="skeleton-head"></div><div class="skeleton-grid">${'<div class="skeleton-card"></div>'.repeat(8)}</div></div>`;
@@ -78,6 +79,8 @@
     const max = Math.max(1, ...rows.map(val)), tot = rows.reduce((t, r) => t + (+val(r) || 0), 0) || 1;
     return `<div class="hbars">${rows.map(r => `<div class="row2"><span class="k" title="${esc(label(r))}">${esc(label(r)) || '–'}</span><span class="track"><i style="width:${val(r) / max * 100}%"></i></span><span class="v">${num(val(r))}<small> · ${Math.round(val(r) / tot * 100)}%${extra(r)}</small></span></div>`).join('')}</div>`;
   };;
+  // Đủ mọi ngày trong khoảng chọn (ngày không có phiên = 0) – tránh vài cột khổng lồ khi dữ liệu thưa
+  const padDays = (rows, days) => { const by = Object.fromEntries((rows || []).map(r => [r.day, r])), out = []; for (let i = Math.min(days, 90) - 1; i >= 0; i--) { const d = new Date(Date.now() - i * 864e5).toISOString().slice(0, 10); out.push(by[d] || { day: d, s: 0, v: 0 }); } return out; };
   const chart = (rows, key) => {
     if (!rows.length) return '<p class="muted small">Chưa có dữ liệu</p>';
     const W = 600, H = 170, max = Math.max(1, ...rows.map(r => +r[key] || 0)), bw = W / rows.length;
@@ -410,7 +413,7 @@
           <div class="card kpi"><div class="l">Thoát ngay (&lt;15 giây, 1 trang)</div><div class="v">${pct(s.bounce, s.s)}</div></div>
           <div class="card kpi"><div class="l">LCP thật (tốc độ hiện nội dung)</div><div class="v">${s.lcp ? (s.lcp / 1000).toFixed(2) + ' s' : '–'}</div><div class="s">${s.lcpN ? pct(s.lcpGood, s.lcpN) + ' phiên đạt “Tốt” (≤ 2,5 s)' : 'chưa có dữ liệu'}</div></div>
         </div>
-        <div class="card"><h3>Phiên theo ngày</h3>${chart(a.daily, 's')}</div>
+        <div class="card"><h3>Phiên theo ngày</h3>${chart(padDays(a.daily, a.days), 's')}</div>
         <div class="adm-grid">
           <div class="card"><h3>Nguồn truy cập</h3>${bars(a.refs, r => r.k, r => r.n, r => ` · ${dur(r.dur)}`)}</div>
           <div class="card"><h3>Quốc gia</h3>${bars(a.countries, r => FLAG(r.k))}</div>
