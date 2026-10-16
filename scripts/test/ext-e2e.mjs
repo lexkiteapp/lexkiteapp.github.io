@@ -124,10 +124,10 @@ await sleep(800); c = await card(pg);
 rec('ô nhập chữ (textarea): bôi đen → nút 🌐', c && c.fab);
 await pg.mouse.click(5, 5);
 // tắt bấm đúp
-await setSettings({ dblclickOn: false }); await sleep(500);
+await setSettings({ dblclickOn: false, markKnown: false, markAcademic: false }); await sleep(800); // tắt cả gạch chân: bấm vào từ được gạch chân luôn mở bảng tra (đúng thiết kế)
 await dbl(pg, '#w'); await sleep(2500); c = await card(pg);
 rec('tắt "Bấm đúp để tra": không hiện bảng', !c || !c.visible);
-await setSettings({ dblclickOn: true });
+await setSettings({ dblclickOn: true, markKnown: true, markAcademic: true });
 await hide(pg);
 
 // ---------- 3. Trang CSP chặn ảnh ngoài, iframe, RTL, giao diện tối ----------
