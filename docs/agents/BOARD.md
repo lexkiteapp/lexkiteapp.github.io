@@ -27,6 +27,18 @@ Mẫu thẻ:
 
 ## TODO
 
+### [C1] Nút kêu gọi thông minh trên blog & trang từ vựng tĩnh (phễu về add-on / app) · @antigravity · ưu tiên: vừa
+- Nơi áp dụng: trang blog (`scripts/build-blog.mjs` – khối `{{cta}}` và cuối bài) + trang từ vựng/mẫu dựng sẵn (`scripts/build-samples*.mjs`, `build-seo.mjs`).
+- Theo thiết bị (JS nhỏ inline, không chặn hiển thị, không làm hỏng SEO/LCP):
+  - Máy tính Chrome/Edge chưa cài add-on → "🖍 Bôi đen từ bất kỳ để tra ngay – cài add-on Lexkite (miễn phí)" (link Chrome Web Store khi đã duyệt; tạm thời link trang giới thiệu add-on).
+  - Điện thoại → "📲 Thêm Lexkite vào màn hình chính" (PWA) / app store khi đã phát hành.
+  - Mọi thiết bị: nút "＋ Lưu bộ từ này vào thẻ ôn" mở app tại đúng bộ từ (`/#/topic/<id>`).
+- Không pop-up chặn đọc; tắt được 7 ngày; đo nhấp qua `/api/hit` sẵn có (tham số nguồn, không thêm dịch vụ mới). Chữ theo ngôn ngữ của trang (15 ngôn ngữ).
+- Làm trong worktree riêng; `npm test` PASS (gồm blog-check, crawl); đo LCP không tăng.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+
 ### [Q1] "Chơi nhanh 15 giây" + trắc nghiệm "Phong cách tiếng Anh của bạn" (xóa ngại, không sợ sai) · @antigravity · ưu tiên: cao
 - **⚡ 15 giây**: 3–5 câu siêu ngắn, mỗi câu 1 dòng + 2–3 lựa chọn to (icon/hình), lấy từ thẻ đến hạn + từ mới phù hợp trình độ; xong trong ~15 giây; kết thúc bằng 1 câu khen + (nếu tốt) thẻ chia sẻ S1. Lối vào: nút lớn ở #/home, deep link `#/quick` cho widget & popup add-on. Sai không trừ gì, chỉ hiện đáp án đúng nhẹ nhàng.
 - **Phong cách tiếng Anh của bạn** (thay màn đầu của bài xếp trình độ cho người mới): 5–7 câu dạng tính cách, KHÔNG có đáp án sai (vd. "Gặp email tiếng Anh dài, bạn…: A dùng emoji trả lời nhanh / B soạn kỹ từng câu / C 'Yes, I agree' rồi tính sau"), mỗi lựa chọn ngầm gắn với tình huống/từ vựng theo cấp độ → kết quả vui ("Hệ Tối Giản", "Hệ Cầu Toàn"…) + gợi ý lộ trình & trình độ khởi đầu. Bài xếp trình độ đầy đủ vẫn giữ cho ai muốn.
