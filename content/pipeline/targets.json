@@ -108,8 +108,8 @@
   "unit": "đề",
   "batch": 10,
   "file": "web/js/write/models*.js",
-  "priority": 1,
-  "have": 34,
+  "priority": 2,
+  "have": 70,
   "focus": "mỗi đề: bài mẫu band 8 + bài band 6 kèm nhận xét theo 4 tiêu chí, dàn ý, từ vựng chủ đề; phủ đủ dạng opinion/discussion/advantages/problem-solution/two-part"
  },
  "IELTS Writing Task 1 Academic": {
@@ -117,8 +117,8 @@
   "unit": "đề",
   "batch": 6,
   "file": "web/js/task1.js",
-  "priority": 1,
-  "have": 14,
+  "priority": 3,
+  "have": 38,
   "focus": "đủ 6 dạng: line, bar, pie, table, process, map; dữ liệu biểu đồ tự tạo (SVG), bài mẫu band 8 + overview"
  }
 }
