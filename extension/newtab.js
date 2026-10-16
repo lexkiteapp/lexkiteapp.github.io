@@ -7,7 +7,7 @@
   chrome.runtime.sendMessage({ type: 'usage', ev: 'newtab' }).catch(() => {}); // thống kê ẩn danh: chỉ đếm số lần mở
   const XL = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'], pick = l => { l = String(l || '').toLowerCase().split('-')[0]; return XL.includes(l) ? l : null; };
   let L = pick(chrome.i18n.getUILanguage()) || 'en'; try { const { uiLang } = await chrome.storage.local.get('uiLang'); if (pick(uiLang)) L = pick(uiLang); } catch (e) { /* bỏ qua */ }
-  let XD = {}; if (L !== 'vi' && L !== 'en') try { XD = ((await chrome.runtime.sendMessage({ type: 'uiDict', lang: L })) || {}).dict || {}; } catch (e) { /* bỏ qua */ }
+  let XD = {}; if (L !== 'vi' && L !== 'en') try { XD = ((await Promise.race([chrome.runtime.sendMessage({ type: 'uiDict', lang: L }), new Promise(r => setTimeout(r, 2500))])) || {}).dict || {}; } catch (e) { /* bỏ qua */ }
   const EN = { '✓ Đã nhớ': '✓ Got it', '🔁 Cần ôn lại': '🔁 Review again', 'Thời điểm vàng': 'Golden moment', 'Từ mới lưu': 'Recently saved', 'Từ hôm nay': 'Word of the moment', 'Tìm trên web…': 'Search the web…', 'Mở Lexkite': 'Open Lexkite', 'Tắt thẻ ở tab mới': 'Turn off new-tab card', 'Nghe': 'Listen' };
   const tx = s => (L === 'vi' ? s : XD[s] || EN[s] || s);
   if (L === 'ar') document.documentElement.dir = 'rtl';

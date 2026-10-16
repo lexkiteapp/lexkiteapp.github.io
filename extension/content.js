@@ -13,13 +13,28 @@
         else if (e.data.op === 'linked') { const d = e.data.data || {}; await chrome.storage.local.set({ linked: { email: String(d.email || '').slice(0, 120), name: String(d.name || '').slice(0, 80), at: Date.now() } }); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { ok: true } }, location.origin); }
         else if (e.data.op === 'aiKeyGet') { const { aiKey } = await chrome.storage.local.get('aiKey'); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { aiKey: aiKey || '' } }, location.origin); }
         else if (e.data.op === 'aiKeySet') { const k = String((e.data.data || {}).aiKey || ''); if (!k || /^(AIza[\w-]{20,}|AQ\.[\w.-]{20,})$/.test(k)) await chrome.storage.local.set({ aiKey: k }); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { ok: true } }, location.origin); }
-        else if (e.data.op === 'set') { const d = e.data.data || {}; const put = {}; KEYS.forEach(k => { if (d[k]) put[k] = d[k]; }); await chrome.storage.local.set(put); window.postMessage({ lkBridge: 'res', id: e.data.id, ok: true }, location.origin); }
+        else if (e.data.op === 'set') {
+          // Gộp (không ghi đè): service worker/popup/tab mới có thể vừa lưu thẻ sau lúc web đọc → giữ cả hai, bản hoạt động mới hơn thắng (như mergeCards ở web/js/sync.js)
+          const d = e.data.data || {}, cur = await chrome.storage.local.get(['cards', 'stats', 'deleted']), put = {};
+          const act = c => Math.max((c && c.srs && c.srs.last) || 0, (c && c.added) || 0, (c && c.mod) || 0);
+          const deleted = Object.assign(Object.create(null), cur.deleted || {});
+          for (const [k, t] of Object.entries(d.deleted || {})) deleted[k] = Math.max(deleted[k] || 0, +t || 0);
+          if (d.cards) {
+            const out = Object.assign(Object.create(null), cur.cards || {});
+            for (const [k, c] of Object.entries(d.cards)) { const mine = out[k]; out[k] = !mine || act(c) >= act(mine) ? c : mine; }
+            for (const [k, t] of Object.entries(deleted)) if (out[k] && act(out[k]) < t) delete out[k];
+            put.cards = out;
+          }
+          if (d.deleted) put.deleted = deleted;
+          if (d.stats) { const a = cur.stats || {}, b = d.stats, days = { ...(a.days || {}) }; for (const [k, v] of Object.entries(b.days || {})) days[k] = Math.max(days[k] || 0, v || 0); put.stats = { ...a, ...b, days }; }
+          await chrome.storage.local.set(put); window.postMessage({ lkBridge: 'res', id: e.data.id, ok: true }, location.origin);
+        }
       } catch (err) { window.postMessage({ lkBridge: 'res', id: e.data.id, error: String(err) }, location.origin); }
     });
     window.postMessage({ lkBridge: 'hello', version: chrome.runtime.getManifest().version }, location.origin);
   }
   // Bản content script cũ (trước khi add-on được cập nhật/tải lại) tự tắt khi bản mới chạy
-  document.dispatchEvent(new CustomEvent('ielts-lexi-takeover'));
+  document.dispatchEvent(new CustomEvent('ielts-lexi-takeover', { detail: chrome.runtime.id }));
   // Lỗi của chính content script (thế giới riêng của add-on) → ghi vào nhật ký lỗi để chẩn đoán
   const report = (where, e) => { try { if (chrome.runtime.id) chrome.runtime.sendMessage({ type: 'logErr', where, m: String((e && (e.stack || e.message)) || e).slice(0, 600) + ' @' + location.hostname }).catch(() => {}); } catch (x) { /* bản cũ */ } };
   window.addEventListener('error', e => { if (e.filename && e.filename.startsWith('chrome-extension://')) report('cs', e.error || e.message); });
@@ -57,7 +72,8 @@
   const tx = (src, vars) => { let s = UI_LANG === 'vi' ? src : (XD[src] || EN[src] || src); if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)); return s; };
   let dead = false;
   const alive = () => { try { return !dead && !!chrome.runtime.id; } catch (e) { return false; } };
-  document.addEventListener('ielts-lexi-takeover', () => { dead = true; if (host) host.remove(); });
+  document.addEventListener('ielts-lexi-takeover', ev => { if (ev.detail !== chrome.runtime.id) return; // trang web không tắt được add-on
+    dead = true; if (host) host.remove(); });
 
   let host = null, root = null, enabled = true, selectMode = 'icon', current = null, markOn = true, acadOn = true, prefs = {};
   const applySettings = st => { st = st || {}; prefs = st; enabled = st.dblclickOn !== false; selectMode = st.selectMode || 'icon'; markOn = st.markKnown !== false; acadOn = st.markAcademic !== false; };
@@ -763,22 +779,25 @@
   }
   document.addEventListener('click', e => {
     const el = e.target.closest && e.target.closest('vb-mark');
-    if (!el || !alive() || el.closest('a,button')) return;
+    if (!el || !alive() || el.closest('a, button, label, summary, [role=button], [role=link], [role=tab], [onclick], [tabindex], [contenteditable]')) return;
     e.preventDefault(); e.stopPropagation();
     const r = document.createRange(); r.selectNodeContents(el);
     show(el.dataset.w, el.getBoundingClientRect(), sentenceAround(r));
   }, true);
-  let moT = null;
+  let moT = null; const pendingMark = [];
+  // Trang dựng bằng React/Vue/Angular/Svelte tự quản lý DOM – chèn <vb-mark> có thể làm app lỗi (removeChild) → không đánh dấu ở đó
+  const frameworkPage = () => !!document.querySelector('[data-reactroot], #__next, #root > *, #app > *, [data-v-app], [ng-version], [data-svelte-h], [data-sveltekit-hydrate]');
   const mo = new MutationObserver(muts => {
     if (!alive()) return mo.disconnect();
     if (!markOn || !knownRe) return;
     if (muts.every(m => [...m.addedNodes].every(x => x.nodeName === 'VB-MARK' || x.nodeType === 3 && x.parentElement && x.parentElement.nodeName === 'VB-MARK'))) return;
-    clearTimeout(moT); moT = setTimeout(() => markIn(document.body, 250), 1500);
+    const added = muts.flatMap(m => [...m.addedNodes]).filter(n => n.nodeType === 1 && n.nodeName !== 'VB-MARK' && n.isConnected);
+    pendingMark.push(...added); clearTimeout(moT); moT = setTimeout(() => { const ns = pendingMark.splice(0, 60); ns.forEach(n => n.isConnected && markIn(n, 80)); }, 1500);
   });
   (async () => {
     if (window.top !== window || /^(docs|mail)\.google\.com$|(^|\.)lexkite\.com$|^lexkite\.pages\.dev$|(^|\.)(vocaband|ielts-lexi-2026)\.web\.app$|^localhost$/.test(location.hostname)) return;
     await loadKnown(); injectMarkCss();
-    const go = () => { markIn(document.body); if (document.body) mo.observe(document.body, { childList: true, subtree: true }); };
+    const go = () => { if (frameworkPage()) return; markIn(document.body); if (document.body) mo.observe(document.body, { childList: true, subtree: true }); };
     'requestIdleCallback' in window ? requestIdleCallback(go, { timeout: 2500 }) : setTimeout(go, 1200);
   })();
   chrome.storage.onChanged.addListener(async ch => {
@@ -853,7 +872,7 @@
     // Mốc thời gian thật từng câu lấy từ phụ đề của chính video (ưu tiên phụ đề tiếng Anh do người làm, rồi phụ đề tự động)
     let cues = [], cueVid = '', hinted = false;
     const loadCues = async () => {
-      const id = new URL(location.href).searchParams.get('v'); if (!id || id === cueVid) return; cueVid = id; cues = [];
+      const id = new URL(location.href).searchParams.get('v'); if (!id) { cues = []; cueVid = ''; return; } if (id === cueVid) return; cueVid = id; cues = [];
       try {
         const r = await chrome.runtime.sendMessage({ type: 'ytTracks' }), tr = (r && r.tracks) || [];
         const pick = tr.find(x => /^en/.test(x.l) && x.k !== 'asr') || tr.find(x => /^en/.test(x.l)) || tr.find(x => x.k !== 'asr') || tr[0]; if (!pick) return;
@@ -879,10 +898,11 @@
   }
   if (/(^|\.)youtube\.com$/.test(location.hostname)) initYouTube();
 
-  chrome.runtime.onMessage.addListener(msg => {
+  chrome.runtime.onMessage.addListener((msg, s, reply) => {
     if (!alive()) return;
-    if (msg.type === 'translateSelection') { const info = selectionInfo(); if (info) translateSelection(info); return; }
+    if (msg.type === 'translateSelection') { const info = selectionInfo(); if (info) translateSelection(info); reply({ ok: true }); return; }
     if (msg.type !== 'showLookup') return;
+    reply({ ok: true });
     const sel = window.getSelection();
     const range = sel && sel.rangeCount ? sel.getRangeAt(0) : null;
     const rect = range ? range.getBoundingClientRect() : { left: window.innerWidth / 2, top: 80, bottom: 80, width: 0 };
