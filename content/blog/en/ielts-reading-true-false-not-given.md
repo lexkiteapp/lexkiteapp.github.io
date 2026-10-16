@@ -26,7 +26,7 @@ The question type appears in the Reading test, which lasts 60 minutes and contai
 These questions are not testing what you know about the topic. They test whether you can compare two pieces of language precisely. Three things make that hard:
 
 - **Background knowledge interferes.** If a statement sounds true in real life, you are tempted to mark True, even if the passage never says it.
-- **Paraphrase hides matches.** The passage rarely repeats the statement's words. *Fell considerably* may appear as *dropped sharply*.
+- **Paraphrase hides matches.** The passage rarely repeats the statement's words. *Fell considerably* may appear as *dropped sharply*; practising [how to paraphrase in IELTS](/en/blog/how-to-paraphrase-in-ielts/) trains you to spot these pairs.
 - **Small words change everything.** *Some*, *all*, *always*, *the first*, *only* and *mainly* can turn a nearly matching statement into False or Not Given.
 
 ## The False vs Not Given test: one question to ask

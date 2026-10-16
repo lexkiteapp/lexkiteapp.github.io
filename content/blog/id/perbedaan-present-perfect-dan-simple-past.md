@@ -140,7 +140,7 @@ Langkah 5 lebih penting dari yang dikira. Bercerita adalah wilayah simple past; 
 
 ![Ruang latihan Speaking Lexkite dengan Part 1, 2, 3 per topik, contoh pertanyaan, dan jawaban band 7.5–8](media:speaking "Contoh jawaban Speaking per topik: perhatikan kapan penutur berpindah dari present perfect ke simple past")
 
-**IELTS Writing Task 1.** Grafik dengan rentang waktu di masa lalu (misalnya 1995–2010) hampir selalu dideskripsikan dengan simple past: *The number of visitors rose sharply between 1995 and 2005.* Present perfect baru dipertimbangkan jika datanya menyambung sampai sekarang.
+**IELTS Writing Task 1.** Grafik dengan rentang waktu di masa lalu (misalnya 1995–2010) hampir selalu dideskripsikan dengan simple past: *The number of visitors rose sharply between 1995 and 2005.* Present perfect baru dipertimbangkan jika datanya menyambung sampai sekarang. Perbedaan *was* dan *has been* ini juga sering menentukan jawaban Not Given di soal [True False Not Given IELTS](/id/blog/true-false-not-given-ielts/).
 
 **IELTS Writing Task 2.** Present perfect membantu membangun latar: *In recent decades, remote work has become increasingly common.* Kalimat pembuka seperti ini masuk dengan rapi ke susunan esai di [struktur Writing Task 2 IELTS](/id/blog/struktur-writing-task-2-ielts/).
 

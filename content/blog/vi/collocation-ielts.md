@@ -116,7 +116,7 @@ Nhóm này được mở rộng trong bài [từ vựng IELTS về môi trườn
 
 Các cụm về AI, mạng xã hội và dữ liệu cá nhân có thêm trong bài [từ vựng chủ đề Technology](/vi/blog/tu-vung-ielts-chu-de-technology/).
 
-**Sức khỏe**
+**Sức khỏe** (đầy đủ hơn trong bài [từ vựng IELTS chủ đề Health](/vi/blog/tu-vung-ielts-chu-de-health/))
 33. *a sedentary lifestyle* – lối sống ít vận động
 34. *mental well-being* – sức khỏe tinh thần
 35. *a balanced diet* – chế độ ăn cân bằng
