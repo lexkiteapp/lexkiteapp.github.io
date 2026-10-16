@@ -135,6 +135,12 @@ for (const p of C.TOEIC?.listening || []) { const sc = p.script || []; for (cons
   const lines = {}; for (let j = k + 1; j < sc.length && !(sc[j].say || '').startsWith('Number '); j++) { const m = (sc[j].t || sc[j].say || '').match(/^\(?([A-D])[.)]\s*(.*)$/); if (m) lines[m[1]] = m[2].toLowerCase().replace(/\.$/, ''); }
   const right = lines[L(it.a)], cue = String(it.cue || '').toLowerCase().replace(/\.$/, '');
   if (!right) E(`${p.id} q${it.n}`, `kịch bản thiếu phương án ${L(it.a)}`); else if (cue && !right.includes(cue) && !cue.includes(right)) E(`${p.id} q${it.n}`, `đáp án ${L(it.a)} trong kịch bản không khớp câu trích căn cứ`); } }
+// TRUE/FALSE/NOT GIVEN & YES/NO/NOT GIVEN: lời giải phải nêu kết luận, và kết luận cuối cùng phải trùng đáp án
+{ const verdict = (tag, a, w) => { const A = String(a).toUpperCase(), last = (String(w || '').replace(/NOT GIVEN/g, 'NOTGIVEN').match(/\b(TRUE|FALSE|YES|NO|NOTGIVEN)\b/g) || []).pop();
+    if (!last) E(tag, `lời giải TFNG/YNNG chưa nêu kết luận (${A})`); else if (last.replace('NOTGIVEN', 'NOT GIVEN') !== A) E(tag, `kết luận trong lời giải (${last}) khác đáp án ${A}`); };
+  for (const t of C.READTESTS || []) for (const p of t.passages) for (const g of p.groups) if (['tfng', 'ynng'].includes(g.type)) for (const it of g.items) verdict(`${t.id} q${it.n}`, it.a, C.READ_EXPLAIN?.[t.id]?.[it.n]?.why);
+  for (const r of C.READINGS || []) r.questions.forEach((q, i) => { if (q.type === 'tfng') verdict(`reading ${r.id} q${i + 1}`, q.answer, q.explain); });
+}
 // Câu trùng trong cùng ngân hàng
 for (const [b, list] of Object.entries(banks)) { const seen = new Map(); for (const x of list) { if (seen.has(x.q)) E(x.where, `trùng câu với ${seen.get(x.q)} (${b})`); else seen.set(x.q, x.where); } }
 
