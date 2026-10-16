@@ -109,6 +109,26 @@ for (const g of C.GRAMMAR || []) {
 // Bài đọc ngắn (READINGS)
 for (const r of C.READINGS || []) { lintEn(r.id + ' text', r.text); (r.questions || []).forEach((q, i) => { const w = `reading ${r.id} q${i + 1}`; bump('Bài đọc ngắn', r.level); if (q.type === 'tfng') { if (!['TRUE', 'FALSE', 'NOT GIVEN'].includes(q.answer)) E(w, `đáp án "${q.answer}" không hợp lệ`); if (!q.explain) E(w, 'thiếu lời giải'); checkExplain(w, q.explain); } else if (q.options) mcq(w, null, q.q, q.options, q.answer, q.explain); else { gap(w, q.answer); if (!q.explain) E(w, 'thiếu lời giải'); } }); }
 
+// Câu điền từ IELTS: đáp án phải có nguyên văn trong kịch bản nghe / bài đọc và không vượt giới hạn số từ (đáp án là số được miễn vì kịch bản đọc bằng chữ)
+{ const NT = s => ' ' + String(s).toLowerCase().replace(/[’‘']/g, ' ').replace(/[^a-z0-9%£$]+/g, ' ').replace(/\s+/g, ' ').trim() + ' ';
+  const nw = a => a.trim().split(/\s+/).filter(x => !/^[£$]?\d/.test(x)).length;
+  const gapCheck = (tag, T, gs) => { T = NT(T); for (const g of gs || []) for (const it of g.items || []) if (Array.isArray(it.a) && it.a.length) {
+    if (!it.a.some(a => /\d/.test(a) || T.includes(NT(a))) && !(it.cue && /^([A-Z0-9], )+[A-Z0-9]\.?$/.test(it.cue.trim()))) E(`${tag} q${it.n}`, `đáp án "${it.a[0]}" không có trong kịch bản/bài đọc`);
+    if (g.limit && it.a.every(a => nw(a) > g.limit)) E(`${tag} q${it.n}`, `đáp án "${it.a[0]}" vượt giới hạn ${g.limit} từ`); } };
+  for (const p of C.LISTENING || []) gapCheck(p.id, (p.script || []).map(l => l.t || l.say || '').join(' '), p.groups);
+  for (const t of C.READTESTS || []) for (const [i, p] of t.passages.entries()) gapCheck(`${t.id}p${i + 1}`, (p.paras || []).map(x => x.t).join(' ') + ' ' + (p.text || ''), p.groups);
+}
+// Câu trích căn cứ (cue) của mọi câu hỏi đề thi phải có nguyên văn trong kịch bản/bài đọc (cho phép "…" nối đoạn; bỏ qua câu có chỗ trống TOEIC Part 6)
+{ const NT = s => ' ' + String(s).toLowerCase().replace(/[’‘']/g, ' ').replace(/[^a-z0-9%£$]+/g, ' ').replace(/\s+/g, ' ').trim() + ' ';
+  const cueCheck = (tag, T, gs) => { T = NT(T); for (const g of gs || []) for (const it of g.type === 'multi' ? [g] : (g.items || [])) { if (!it.cue || /-{3,}/.test(it.cue)) continue;
+    if (!String(it.cue).split(/\s*(?:\.\.\.|…)\s*/).filter(Boolean).every(p => T.includes(NT(p)))) E(`${tag} q${it.n}`, `câu trích căn cứ không có trong kịch bản/bài đọc: "${String(it.cue).slice(0, 60)}"`); } };
+  const scr = sc => (sc || []).map(l => l.t || l.say || '').join(' ');
+  for (const p of C.LISTENING || []) cueCheck(p.id, scr(p.script), p.groups);
+  for (const t of C.READTESTS || []) for (const [i, p] of t.passages.entries()) cueCheck(`${t.id}p${i + 1}`, (p.paras || []).map(x => x.t).join(' '), p.groups);
+  for (const p of C.TOEIC?.listening || []) cueCheck(p.id, scr(p.script), p.groups);
+  for (const t of C.TOEIC?.reading || []) for (const pt of t.parts) for (const ps of pt.passages || []) cueCheck(`${t.id} P${pt.part}`, ps.text, ps.groups);
+  for (const u of [...(C.TOEFL?.reading || []), ...(C.TOEFL?.listening || [])]) cueCheck(u.id, u.text || scr(u.script), u.groups);
+}
 // Câu trùng trong cùng ngân hàng
 for (const [b, list] of Object.entries(banks)) { const seen = new Map(); for (const x of list) { if (seen.has(x.q)) E(x.where, `trùng câu với ${seen.get(x.q)} (${b})`); else seen.set(x.q, x.where); } }
 
