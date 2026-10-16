@@ -1368,3 +1368,7 @@ html.native .w-nav a[href="#/settings"] { display: none; } /* trong app không q
 /* Ghi chú học từ chờ dịch sang ngôn ngữ người học (app.js contentTranslate) – ẩn để không lộ tiếng Việt */
 .wn.wn-tr { display: none; }
 .tr-wait { visibility: hidden; } /* nghĩa tiếng Việt chờ dịch (vd. nghĩa cụm từ ở #/dict) – giữ chỗ, không lộ tiếng Việt */
+
+/* 📲 Chuyển dữ liệu bằng mã QR (web/js/handoff.js) */
+.ho-card { max-width: 460px; margin: 0 auto; }
+.ho-qr { width: min(260px, 70vw); aspect-ratio: 1; margin: 1rem auto; padding: 12px; background: #fff; border-radius: 16px; box-shadow: var(--shadow-sm); }
