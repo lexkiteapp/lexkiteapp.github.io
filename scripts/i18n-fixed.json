@@ -14321,11 +14321,11 @@
     "pt": "✓ No seu baralho",
     "fr": "✓ Dans vos cartes",
     "de": "✓ In deinen Karten",
-    "id": "✓ Ada di kartu Anda",
+    "id": "✓ Sudah ada di dek Anda",
     "th": "✓ อยู่ในชุดการ์ดแล้ว",
     "zh": "✓ 已在卡组中",
     "ja": "✓ 単語帳に追加済み",
-    "ko": "✓ 내 카드에 있음",
+    "ko": "✓ 내 덱에 있음",
     "hi": "✓ आपके कार्ड में है",
     "ar": "✓ في بطاقاتك",
     "ru": "✓ В ваших карточках",
@@ -14977,10 +14977,10 @@
     "tr": "Dikkatlice dinleyin…"
   },
   "Xem lại đoạn gốc": {
-    "es": "Ver segmento original",
-    "pt": "Ver trecho original",
+    "es": "Volver a reproducir el clip original",
+    "pt": "Reproduzir o trecho original de novo",
     "fr": "Revoir l'extrait original",
-    "de": "Originalausschnitt ansehen",
+    "de": "Originalclip erneut abspielen",
     "id": "Tonton klip asli",
     "th": "ดูคลิปต้นฉบับ",
     "zh": "重放原视频片段",
@@ -14988,7 +14988,7 @@
     "ko": "원래 구간 다시보기",
     "hi": "मूल क्लिप फिर से देखें",
     "ar": "إعادة تشغيل المقطع الأصلي",
-    "ru": "Посмотреть исходный фрагмент",
+    "ru": "Прослушать исходный фрагмент снова",
     "tr": "Orijinal klibi yeniden izle"
   },
   "Xong {n} thẻ – tuyệt!": {
@@ -15024,17 +15024,17 @@
   "Nghe câu ngắn, nhại lại, chấm từng từ": {
     "es": "Escucha frases cortas, repítelas y califica palabra por palabra",
     "pt": "Ouça frases curtas, repita e avalie palavra por palavra",
-    "fr": "Écoutez des phrases courtes, répétez-les et notez mot à mot",
-    "de": "Kurze Sätze hören, nachsprechen und Wort für Wort bewerten",
-    "id": "Dengarkan kalimat pendek, tirukan, nilai kata demi kata",
-    "th": "ฟังประโยคสั้น เลียนเสียง ให้คะแนนทีละคำ",
+    "fr": "Écoutez une phrase courte, répétez-la et obtenez un retour mot par mot",
+    "de": "Kurzen Satz hören, nachsprechen, Feedback Wort für Wort erhalten",
+    "id": "Dengarkan kalimat pendek, tirukan, dapatkan umpan balik per kata",
+    "th": "ฟังประโยคสั้น พูดตาม แล้วรับผลประเมินทีละคำ",
     "zh": "听短句、跟读影子练习、逐字评分",
     "ja": "短い文を聞いてシャドーイング、単語ごとに採点",
     "ko": "짧은 문장을 듣고 섀도잉하여 단어별 채점",
     "hi": "छोटे वाक्य सुनें, दोहराएं, शब्द-दर-शब्द स्कोरिंग",
     "ar": "استمع إلى الجمل القصيرة، كررها، وتقييم كلمة بكلمة",
-    "ru": "Слушайте короткие фразы, повторяйте их и оценивайте каждое слово",
-    "tr": "Kısa cümleleri dinleyin, gölgeleyin, kelime kelime puanlayın"
+    "ru": "Послушайте короткую фразу, повторите её и получите оценку по каждому слову",
+    "tr": "Kısa bir cümle dinleyin, tekrarlayın, kelime kelime geri bildirim alın"
   },
   "Nghe một câu ngắn rồi nhại lại ngay – luyện phản xạ nghe nói như người bản xứ.": {
     "es": "Escucha una frase corta y repítela de inmediato: entrena reflejos naturales al hablar.",
@@ -15114,7 +15114,7 @@
   "Không nghe rõ – thử lại hoặc bỏ qua.": {
     "es": "No se escuchó con claridad; intenta de nuevo o salta.",
     "pt": "Não foi possível ouvir com clareza; tente novamente ou pule.",
-    "fr": "Pas bien compris – réessayez ou passez.",
+    "fr": "Pas bien entendu – réessayez ou passez.",
     "de": "Nicht deutlich gehört – versuche es noch einmal oder überspringe.",
     "id": "Kurang jelas terdengar – coba lagi atau lewati.",
     "th": "ฟังไม่ชัด – ลองอีกครั้งหรือข้าม",
@@ -15147,7 +15147,7 @@
     "fr": "(retranscrivez cette phrase pour afficher)",
     "de": "(diesen Satz transkribieren, um anzuzeigen)",
     "id": "(transkripsikan kalimat ini untuk melihat)",
-    "th": "(ถอดความประโยคนี้เพื่อดู)",
+    "th": "(พิมพ์ประโยคนี้ให้ครบเพื่อดู)",
     "zh": "(听写此句后即可查看)",
     "ja": "(この文をディクテーションして表示)",
     "ko": "(이 문장을 받아쓴 후 확인)",
@@ -15383,5 +15383,446 @@
   },
   "Tiếp tục bài đang làm – Listening Part {p}": {
     "hi": "परीक्षण फिर से शुरू करें – सुनना भाग {p}"
+  },
+  "Nộp bài & xem giải thích": {
+    "ja": "送信して解説を見る",
+    "zh": "提交并查看解析",
+    "hi": "सबमिट करें और व्याख्या देखें"
+  },
+  "Mình làm đúng": {
+    "ja": "正解できた",
+    "fr": "J'avais la bonne réponse",
+    "th": "ฉันตอบถูก"
+  },
+  "Còn <b style=\"color:var(--primary);font-size:1.1rem\">{time}</b> · {n} từ sẽ cần ôn": {
+    "ja": "<b style=\"color:var(--primary);font-size:1.1rem\">{time}</b>後 · {n} 語が復習期限になります",
+    "es": "En <b style=\"color:var(--primary);font-size:1.1rem\">{time}</b> · {n} palabras estarán pendientes de repaso",
+    "ko": "<b style=\"color:var(--primary);font-size:1.1rem\">{time}</b> 후 · {n}개 단어 복습 예정"
+  },
+  "Đa dạng từ nối hơn (However, Moreover, As a result…).": {
+    "ja": "より幅広い接続語を使いましょう（However, Moreover, As a result…）。"
+  },
+  "Không có lỗi sai nào cần xem lại.": {
+    "ja": "復習する間違いはありません。"
+  },
+  "Chưa có từ nào sắp quên": {
+    "ja": "忘れかけている単語はまだありません",
+    "zh": "暂无即将遗忘的单词",
+    "ko": "아직 잊혀 가는 단어가 없어요"
+  },
+  "Bay một vòng từ vựng không?": {
+    "ja": "サクッと単語フライトしませんか？",
+    "ko": "가볍게 단어 비행 한 번 할까요?"
+  },
+  "Hôm nay bạn đã ôn hết!": {
+    "ja": "今日の分はすべて完了です！"
+  },
+  "Giọng văn & lời chào – kết thư": {
+    "ja": "トーン、書き出しと結び",
+    "th": "โทน การขึ้นต้นและการลงท้าย",
+    "hi": "लहजा, शुरुआत और समापन",
+    "ru": "Тон, вступление и завершение"
+  },
+  "vượt quá số từ cho phép": {
+    "ja": "語数制限を超えています",
+    "ar": "تجاوز حد الكلمات"
+  },
+  "{n} từ · {k} từ mới với bạn": {
+    "ja": "{n} 語 · うち {k} 語が新出"
+  },
+  "Học trước 7 giờ sáng trong 5 ngày": {
+    "ja": "5日間、午前7時前に勉強する"
+  },
+  "Từ đến hạn ôn": {
+    "ja": "復習予定の単語",
+    "ru": "Слова к повторению",
+    "tr": "Tekrar zamanı gelen kelimeler"
+  },
+  "Chữa {n} câu Reading sai": {
+    "ja": "リーディングの間違い {n} 件を復習する",
+    "tr": "{n} yanlış Reading yanıtını gözden geçirin"
+  },
+  "Có {n} thẻ đang chờ – xong nhanh thôi, mình ở đây cùng bạn.": {
+    "ja": "{n} 枚のカードが待っています – すぐ終わるよ、そばにいるからね。"
+  },
+  "Từ nối & liên kết câu": {
+    "ja": "つなぎ言葉と結束性",
+    "th": "คำเชื่อมและความต่อเนื่องของเนื้อความ",
+    "tr": "Bağlaçlar ve tutarlılık"
+  },
+  "Từ nối & liên kết": {
+    "ja": "つなぎ言葉と結束性",
+    "th": "คำเชื่อมและความต่อเนื่องของเนื้อความ",
+    "tr": "Bağlaçlar ve tutarlılık"
+  },
+  "Đang tra “{text}”…": {
+    "ja": "「{text}」を検索中…",
+    "fr": "Recherche de « {text} »…"
+  },
+  "<b>Tổng quan:</b> 2 đặc điểm nổi bật nhất, không số liệu.": {
+    "ja": "<b>概要:</b> 最も目立つ特徴を 2 つ、数値は入れない。"
+  },
+  "Đang tra “{w}”…": {
+    "ja": "「{w}」を検索中…",
+    "fr": "Recherche de « {w} »…"
+  },
+  "Hết bài nghe – kiểm tra lại đáp án rồi nộp bài.": {
+    "ja": "録音が終了しました – 回答を確認してから提出してください。"
+  },
+  "Cụm từ & cấu trúc của tôi": {
+    "ja": "マイフレーズと構文",
+    "ar": "عباراتي وتراكيبي"
+  },
+  "Chưa đúng · Đáp án: {answer}": {
+    "ja": "惜しい · 答え: {answer}",
+    "th": "ยังไม่ถูก · คำตอบ: {answer}"
+  },
+  "Ôn {n} thẻ đang đến thời điểm vàng": {
+    "ja": "最適なタイミングで {n} 枚のカードを復習する",
+    "th": "ทบทวนการ์ด {n} ใบในเวลาที่เหมาะสมที่สุด",
+    "tr": "{n} kartı en uygun zamanda tekrar edin"
+  },
+  "Đang tra “{q}”…": {
+    "ja": "「{q}」を検索中…",
+    "fr": "Recherche de « {q} »…"
+  },
+  "Kit nhớ bạn rồi đó 🐦": {
+    "ja": "キットが寂しがっています 🐦",
+    "ar": "كيت يفتقدك 🐦"
+  },
+  "Đến giờ cất cánh rồi! 🪁": {
+    "ja": "飛び立つ時間です！ 🪁"
+  },
+  "{due} thẻ đến hạn · {total} lượt ôn đã làm": {
+    "es": "{due} tarjetas pendientes · {total} repasos hechos",
+    "pt": "{due} cartões pendentes · {total} revisões feitas",
+    "tr": "{due} kart tekrar bekliyor · {total} tekrar tamamlandı"
+  },
+  "IT & văn phòng hằng ngày": {
+    "es": "TI y oficina del día a día",
+    "th": "ไอทีและงานออฟฟิศในชีวิตประจำวัน",
+    "ar": "تقنية المعلومات والعمل المكتبي اليومي"
+  },
+  "Bộ từ IELTS đang học": {
+    "es": "Sets de IELTS en curso",
+    "de": "IELTS-Sets in Bearbeitung",
+    "ko": "진행 중인 IELTS 세트"
+  },
+  "Bật chấm bài bằng AI": {
+    "pt": "Ativar correção por IA"
+  },
+  "Tự phát âm khi hiện thẻ": {
+    "pt": "Reproduzir a pronúncia automaticamente nos cartões"
+  },
+  "nên viết ≥ {m} từ": {
+    "pt": "tente escrever ≥ {m} palavras"
+  },
+  "Chặng 0 · Từ cốt lõi": {
+    "fr": "Étape 0 · Mots essentiels",
+    "th": "ขั้นที่ 0 · คำศัพท์พื้นฐาน"
+  },
+  "Từ học thuật AWL, từ nối, cách nêu quan điểm": {
+    "fr": "Mots académiques AWL, mots de liaison et façons de donner son avis"
+  },
+  "Luyện lại có lời thoại": {
+    "fr": "Refaire l'exercice avec la transcription",
+    "ko": "스크립트를 보며 다시 연습하기"
+  },
+  "Chưa có lịch ôn": {
+    "fr": "Aucune révision prévue pour l'instant"
+  },
+  "Sai thì / thiếu -ed": {
+    "fr": "Mauvais temps verbal / -ed manquant"
+  },
+  "Xem câu tổng quan mẫu": {
+    "fr": "Voir un exemple de vue d'ensemble"
+  },
+  "Luyện Speaking 1 câu hỏi": {
+    "fr": "S'entraîner sur 1 question d'oral",
+    "ko": "말하기 문제 1개 연습"
+  },
+  "Nghe lại ({i}/{n})": {
+    "de": "Erneut abspielen ({i}/{n})"
+  },
+  "Luyện theo Part →": {
+    "de": "Nach Teilen üben →"
+  },
+  "Chuỗi {n} ngày · {xp} XP": {
+    "de": "{n}-Tage-Serie · {xp} XP",
+    "ru": "Серия {n} дн. · {xp} опыта"
+  },
+  "Phím tắt: <span class=\"kbd\">Space</span> lật · <span class=\"kbd\">1</span>–<span class=\"kbd\">4</span> chấm điểm · <span class=\"kbd\">P</span> phát âm": {
+    "de": "Tastenkürzel: <span class=\"kbd\">Leertaste</span> umdrehen · <span class=\"kbd\">1</span>–<span class=\"kbd\">4</span> bewerten · <span class=\"kbd\">P</span> aussprechen",
+    "ar": "الاختصارات: <span class=\"kbd\">مسافة</span> اقلب · <span class=\"kbd\">1</span>–<span class=\"kbd\">4</span> قيّم · <span class=\"kbd\">P</span> انطق"
+  },
+  "Ghép thẻ dưới 25 giây": {
+    "de": "Beende „Zuordnen“ in unter 25 Sekunden",
+    "id": "Selesaikan Cocokkan dalam waktu kurang dari 25 detik",
+    "zh": "25 秒内完成配对",
+    "ko": "25초 안에 짝 맞추기 완료하기"
+  },
+  "Còn {n} lượt chấm AI miễn phí hôm nay": {
+    "de": "Heute noch {n} kostenlose KI-Bewertungen übrig",
+    "ar": "تبقّى {n} تقييمات مجانية بالذكاء الاصطناعي اليوم"
+  },
+  "Thói quen “tắm ngôn ngữ” 20 phút/ngày": {
+    "id": "Kebiasaan imersi bahasa 20 menit setiap hari",
+    "th": "นิสัยฝึกภาษาแบบ immersion วันละ 20 นาที"
+  },
+  " Giữ chuỗi {n} ngày 🔥": {
+    "id": " Pertahankan streak {n} hari Anda 🔥",
+    "hi": " अपनी {n}-दिन की स्ट्रीक बनाए रखें 🔥"
+  },
+  "Âm khó, trọng âm, nối âm": {
+    "id": "Bunyi sulit, tekanan kata, penyambungan bunyi"
+  },
+  "Hoàn tác lần chấm vừa rồi (Z)": {
+    "id": "Urungkan penilaian terakhir (Z)"
+  },
+  "60 phút · Task 1 + Task 2": {
+    "th": "60 นาที · Task 1 + Task 2"
+  },
+  "Từ của ngày": {
+    "th": "คำศัพท์ประจำวัน"
+  },
+  "Học 5 phút với mình để giữ chuỗi nhé!": {
+    "th": "เรียนกับฉัน 5 นาทีเพื่อรักษาสถิติต่อเนื่องของคุณ!"
+  },
+  "Ôn đúng “thời điểm vàng” (FSRS)": {
+    "th": "ทบทวนในเวลาที่เหมาะสมที่สุด (FSRS)"
+  },
+  "Viết luận, AI chấm theo 4 tiêu chí": {
+    "th": "เรียงความที่ AI ให้คะแนนตามเกณฑ์ 4 ข้อ",
+    "tr": "Yapay zekanın 4 kritere göre puanladığı kompozisyonlar"
+  },
+  "Bài đọc sẽ diễn đạt lại ý này là:": {
+    "th": "บทอ่านเรียบเรียงใหม่เป็น:"
+  },
+  "<b>Mở bài:</b> viết lại đề (paraphrase).": {
+    "th": "<b>บทนำ:</b> เขียนโจทย์ใหม่ด้วยคำของคุณเอง",
+    "ko": "<b>서론:</b> 문제를 다른 말로 바꿔 쓰기."
+  },
+  "Gemini – chấm chi tiết như giám khảo": {
+    "th": "Gemini – คำแนะนำแบบผู้คุมสอบ"
+  },
+  "Đã xong {n}/{m} kỹ năng. Tiếp tục từ {skill}?": {
+    "th": "เสร็จแล้ว {n}/{m} ทักษะ ทำต่อจาก {skill} ไหม?",
+    "ar": "أُنجزت {n}/{m} مهارات. هل تريد المتابعة من {skill}؟"
+  },
+  "{n} thẻ đang ở thời điểm vàng – sắp quên": {
+    "th": "{n} การ์ดอยู่ในช่วงเวลาทอง – ใกล้จะลืมแล้ว",
+    "ko": "{n}장의 카드가 황금 타이밍 – 곧 잊혀요"
+  },
+  "3 lượt mỗi ngày, đăng nhập được 5 lượt – không cần khóa": {
+    "th": "3 ครั้งต่อวัน 5 ครั้งเมื่อลงชื่อเข้าใช้ – ไม่ต้องใช้คีย์"
+  },
+  "Dùng đa dạng từ nối hơn: however, moreover, as a result, for instance, in contrast…": {
+    "th": "ใช้คำเชื่อมให้หลากหลายขึ้น: however, moreover, as a result, for instance, in contrast…"
+  },
+  "Câu trả lời mẫu band 8": {
+    "th": "ตัวอย่างคำตอบ Band 8",
+    "ar": "نموذج إجابة بدرجة Band 8",
+    "ru": "Пример ответа на Band 8"
+  },
+  "TOEIC Reading – Part 5–7: collocation & thuật ngữ": {
+    "th": "TOEIC Reading – Part 5–7: คำที่มักใช้คู่กัน (collocations) และศัพท์เฉพาะ"
+  },
+  "Về đề bài": {
+    "th": "กลับไปที่โจทย์",
+    "ko": "과제로 돌아가기"
+  },
+  "Xu hướng đề Task 2 (2026)": {
+    "th": "เทรนด์ Task 2 (2026)"
+  },
+  "Cần khóa miễn phí": {
+    "th": "ต้องใช้คีย์ฟรี"
+  },
+  "Tải & bật": {
+    "th": "ดาวน์โหลดและเปิดใช้งาน",
+    "zh": "下载并启用",
+    "ar": "تنزيل وتفعيل",
+    "tr": "İndirin ve etkinleştirin"
+  },
+  "Bài thi đầy đủ · 3 passage": {
+    "th": "ข้อสอบฉบับเต็ม · 3 บทอ่าน",
+    "ar": "اختبار كامل · 3 نصوص"
+  },
+  "Thư mẫu band 8": {
+    "th": "ตัวอย่างจดหมาย Band 8"
+  },
+  "Nghe & phân biệt cặp từ": {
+    "zh": "听音并区分每组发音"
+  },
+  "Lượt ôn 14 ngày qua": {
+    "zh": "复习次数（最近 14 天）"
+  },
+  "Động từ nêu quan điểm – rào đón, từ nghiên cứu khoa học, từ nối học thuật hay bị paraphrase": {
+    "zh": "常被改述的主张动词与模糊限制动词、研究类词汇和学术连接词"
+  },
+  "Chép cả bài": {
+    "zh": "输入整篇作文",
+    "tr": "Kompozisyonun tamamını yazın"
+  },
+  "Phần nghe chưa phát xong. Vẫn chuyển tiếp?": {
+    "zh": "录音还没播完。仍要继续吗？",
+    "ar": "لم ينتهِ التسجيل بعد. هل تريد المتابعة على أي حال؟",
+    "tr": "Kayıt henüz bitmedi. Yine de devam edilsin mi?"
+  },
+  "Giao tiếp & nền tảng, chưa thi chứng chỉ": {
+    "zh": "日常英语与基础，暂不备考"
+  },
+  "Cách dùng / mẫu cấu trúc (tùy chọn)": {
+    "zh": "用法/句型（可选）"
+  },
+  "Ngân hàng ý tưởng Task 2": {
+    "zh": "Task 2 观点素材库"
+  },
+  "Hết giờ Reading": {
+    "zh": "阅读时间到"
+  },
+  "Hết giờ Writing": {
+    "zh": "写作时间已到"
+  },
+  "Bài này đang khóa": {
+    "zh": "本单元已锁定",
+    "ru": "Этот раздел закрыт"
+  },
+  "{wl} tuần · cần tăng {gap} band": {
+    "zh": "{wl} 周 · 需提高 {gap} 分",
+    "ar": "{wl} أسبوع · مطلوب +{gap} درجة",
+    "ru": "{wl} нед. · нужно ещё +{gap} балла",
+    "tr": "{wl} hafta · +{gap} band gerekli"
+  },
+  "Bộ thẻ từ vựng trên Lexkite: {n}": {
+    "zh": "Lexkite 上的词汇卡组：{n}",
+    "ar": "مجموعة المفردات على Lexkite: {n}"
+  },
+  "Bài mẫu band 8": {
+    "zh": "8 分范文",
+    "ar": "إجابات نموذجية بدرجة Band 8"
+  },
+  "{right}/{total} đúng ({pct}%)": {
+    "ko": "{right}/{total} 정답 ({pct}%)"
+  },
+  "{right}/{total} câu đúng ({pct}%)": {
+    "ko": "{right}/{total} 문항 정답 ({pct}%)"
+  },
+  "vd: pose a threat to / not only … but also …": {
+    "ko": "예: pose a threat to / not only … but also …"
+  },
+  "vd: S + pose a threat to + N · dùng trong Writing Task 2": {
+    "ko": "예: S + pose a threat to + N · Writing Task 2에서 사용"
+  },
+  "Bài tập tự luận ({n} câu)": {
+    "ko": "쓰기 연습 ({n}문항)"
+  },
+  "Luyện từng passage (20 phút)": {
+    "ko": "지문 1개 연습하기 (20분)",
+    "hi": "एक पैसेज का अभ्यास करें (20 मिनट)"
+  },
+  "Từ sắp quên (độ nhớ < 85%)": {
+    "ko": "잊어 가는 단어 (기억률 < 85%)"
+  },
+  "Làm lại cho chắc · lần trước {pct}%": {
+    "ko": "다시 풀어서 확실히 굳히기 · 지난번 {pct}%"
+  },
+  "<b style=\"color:var(--again)\">{n} từ</b> đang ở thời điểm sắp quên – ôn ngay để nhớ lâu nhất.": {
+    "ko": "<b style=\"color:var(--again)\">{n}개 단어</b>를 곧 잊어버릴 수 있어요. 지금 복습해서 확실히 기억하세요."
+  },
+  "(+5 XP · giúp nhớ sâu hơn)": {
+    "ko": "(+5 XP · 기억에 오래 남아요)",
+    "ru": "(+5 опыта · помогает запомнить)"
+  },
+  "Kiểm tra đầu vào (5 phút)": {
+    "ko": "레벨 테스트 (5분)",
+    "ru": "Тест на определение уровня (5 минут)"
+  },
+  "Viết 1 đoạn Task 2": {
+    "ko": "Task 2 문단 1개 쓰기"
+  },
+  "Làm quen thi trên máy tính": {
+    "ko": "컴퓨터 기반 IELTS에 익숙해지기"
+  },
+  "Lưu vào flashcard kèm ngữ cảnh": {
+    "ko": "문맥과 함께 플래시카드로 저장"
+  },
+  "{n} từ đang ở thời điểm sắp quên – ôn 3 phút để nhớ lâu hơn!": {
+    "ko": "{n}개 단어를 곧 잊어버릴 수 있어요. 3분만 복습하면 확실히 기억돼요!"
+  },
+  "Nói 2 phút theo thẻ đề": {
+    "ko": "큐카드를 보고 2분 동안 말하기"
+  },
+  "Một bài nghe ngắn 5 phút trước khi ngủ nhé?": {
+    "ko": "잠들기 전 5분 짧은 듣기 어때요?"
+  },
+  "{m} phút cho cả Reading": {
+    "hi": "पूरे Reading के लिए {m} मिनट"
+  },
+  "Nghĩa theo cụm": {
+    "hi": "वाक्यांश का अर्थ"
+  },
+  "Thân bài 1: quan điểm A – lý do & ví dụ.": {
+    "hi": "मुख्य भाग 1: मत A – कारण और उदाहरण।"
+  },
+  "Về đích (band 6.5+)": {
+    "hi": "आख़िरी चरण (बैंड 6.5+)",
+    "ar": "المرحلة الأخيرة (درجة 6.5+)",
+    "ru": "Финишная прямая (Band 6,5+)"
+  },
+  "Cân bằng 4 mạch học": {
+    "hi": "4 पहलुओं का संतुलन",
+    "ru": "Баланс 4 направлений",
+    "tr": "4 bileşenin dengesi"
+  },
+  "Nền tảng (band < 4.5)": {
+    "ar": "الأساس (درجة < 4.5)"
+  },
+  "Mô tả tranh, hỏi – đáp, hội thoại, bài nói": {
+    "ar": "الصور، السؤال والإجابة، المحادثات، الأحاديث القصيرة"
+  },
+  "Band TOEFL mục tiêu?": {
+    "ar": "ما درجة TOEFL التي تستهدفها؟"
+  },
+  "Ô tô màu = đã trả lời · bấm số để nhảy tới câu": {
+    "ru": "Закрашено = есть ответ · нажмите номер, чтобы перейти"
+  },
+  "Thẻ tiếp theo đến hạn: <b>{date}</b>.": {
+    "ru": "Следующее повторение карточки: <b>{date}</b>."
+  },
+  "Không có bài mẫu phù hợp.": {
+    "ru": "Нет подходящих образцов ответов."
+  },
+  "Câu trả lời mẫu & mẹo": {
+    "ru": "Пример ответа и советы"
+  },
+  "Không dùng viết tắt – đúng văn phong trang trọng.": {
+    "ru": "Без сокращений – уместно формально."
+  },
+  "Câu trả lời mẫu (band 7.5–8)": {
+    "ru": "Пример ответа (Band 7,5–8)"
+  },
+  "Phòng viết Task 2": {
+    "ru": "Комната Writing Task 2"
+  },
+  "Nhập từ tiếng Anh, ví dụ: sustainable": {
+    "ru": "Введите английское слово, например sustainable"
+  },
+  "Giữ chuỗi 🔥{s} ngày nhé – chỉ cần ôn {n} thẻ.": {
+    "ru": "Сохраните серию 🔥{s} дн. – осталось повторить всего {n} карточек."
+  },
+  "Gợi ý bắt đầu lộ trình từ <b>{stage}</b>.": {
+    "tr": "Yola <b>{stage}</b> aşamasından başlamanızı öneririz."
+  },
+  "{essays} bài viết · {spoken} điểm nói (30 ngày)": {
+    "tr": "{essays} kompozisyon · {spoken} konuşma puanı (30 gün)"
+  },
+  "Danh từ hay đi sau:": {
+    "tr": "Sık sık ardından gelen isimler:"
+  },
+  "Đã lưu “{p}” – vào Sổ cụm từ để ôn": {
+    "tr": "“{p}” kaydedildi – İfade Defterinizde tekrar edin"
+  },
+  "Không nêu ý kiến cá nhân (I think…).": {
+    "tr": "Kişisel görüş belirtmeyin (I think…)."
   }
 }

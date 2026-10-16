@@ -17,3 +17,7 @@ crons = ["0 1 * * *"]
 binding = "DB"
 database_name = "lexkite-sync"
 database_id = "7ce39cd0-9333-4843-bd6f-5ccbefbde670"
+
+# AI Cloudflare (gói miễn phí) – tự xác nhận nghĩa bản dịch mỗi đêm (judge.js)
+[ai]
+binding = "AI"

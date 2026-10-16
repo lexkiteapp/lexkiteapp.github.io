@@ -1,3 +1,4 @@
+import { judgeNightly } from './judge.js';
 /* Gửi thư nội bộ qua Cloudflare Email Routing (miễn phí, chỉ tới địa chỉ đã xác minh).
  * Chỉ được gọi qua service binding MAIL từ Pages Functions – workers_dev=false nên không ai gọi trực tiếp được. */
 import { EmailMessage } from 'cloudflare:email';
@@ -29,6 +30,7 @@ async function digest(env) {
     const runs = (await (await fetch('https://api.github.com/repos/lexkiteapp/lexkiteapp.github.io/actions/runs?per_page=40', { headers: { 'User-Agent': 'lexkite-digest' } })).json()).workflow_runs || [], seen = new Set();
     for (const w of runs) { if (seen.has(w.name)) continue; seen.add(w.name); if (w.status === 'completed' && w.conclusion === 'failure') items.push(`• Workflow "${w.name}" thất bại: ${w.html_url}`); }
   } catch (x) { /* GitHub tạm lỗi – bỏ qua */ }
+  try { const j = await judgeNightly(env); if (j.wrong) items.push(`• AI phát hiện ${j.wrong} câu dịch sai nghĩa (${j.langs.join(', ')}) – xem Quản trị → Chất lượng`); } catch (x) { /* AI tạm lỗi – đêm sau làm tiếp */ }
   if (items.length) await sendText(env, `[Lexkite] ${items.length} cảnh báo hệ thống`, `Tóm tắt tự động ${new Date(now).toISOString().slice(0, 10)}:\n\n${items.join('\n')}\n\nXem chi tiết: https://lexkite.com/admin.html`);
   return items;
 }
