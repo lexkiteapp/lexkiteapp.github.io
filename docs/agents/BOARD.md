@@ -38,11 +38,6 @@ Mẫu thẻ:
 
 > **Giao diện chia nhỏ từng thẻ** (anh Quyền 16/10): mỗi thẻ 1 cụm màn hình/nền tảng, làm xong → CHỜ DUYỆT → Claude duyệt (đo tự động + xem thật) → thẻ tiếp. Làm theo thứ tự U2a → U2b → U2c → U2d → U2e.
 
-### [U2a] Trang chủ mobile – lời chào bị ép cột + vùng chạm 🔊 · @antigravity · ưu tiên: CAO NHẤT
-- #/home (375px): lời chào "Chào buổi chiều / Đây là kế hoạch của bạn hôm nay" bị ép thành cột hẹp vì chip "IELTS 6.5 · còn 120 ngày" cùng hàng → < 480px xếp chip xuống dưới lời chào. Nút 🔊 (home, #/review, #/phrases) vùng chạm ≥ 44×44px (giữ cỡ biểu tượng).
-- File: `web/css/style.css` (+ markup home nếu bắt buộc). Báo cáo: ảnh trước/sau 375px sáng & tối.
-- Báo cáo:
-- Cần sửa / Nhận xét:
 
 ### [U2b] Thanh điều hướng dưới + Cài đặt/Thống kê/Tôi trên mobile · @antigravity · ưu tiên: cao
 - Mục "Tôi" (và các mục) ở thanh dưới vùng chạm ≥ 44px; #/settings phần tử tràn ngang trong hàng cài đặt → wrap/ellipsis; #/stats biểu đồ tràn ngang (`I.l1`) + nhãn < 11.5px → ≥ 12px, co theo khung; #/me chữ "0 Đã thuộc", "2d" ≥ 12px; "Viết" ở #/models ≥ 44px.
@@ -102,7 +97,12 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét:
 
 ## ĐANG LÀM
-- (trống)
+
+### [U2a] Trang chủ mobile – lời chào bị ép cột + vùng chạm 🔊 · @antigravity · ưu tiên: CAO NHẤT
+- #/home (375px): lời chào "Chào buổi chiều / Đây là kế hoạch của bạn hôm nay" bị ép thành cột hẹp vì chip "IELTS 6.5 · còn 120 ngày" cùng hàng → < 480px xếp chip xuống dưới lời chào. Nút 🔊 (home, #/review, #/phrases) vùng chạm ≥ 44×44px (giữ cỡ biểu tượng).
+- File: `web/css/style.css` (+ markup home nếu bắt buộc). Báo cáo: ảnh trước/sau 375px sáng & tối.
+- Báo cáo:
+- Cần sửa / Nhận xét:
 
 ## CHỜ DUYỆT
 
