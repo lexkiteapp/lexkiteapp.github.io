@@ -58,7 +58,7 @@ During this stage, dedicate thirty minutes every morning to sentence constructio
 Once your comprehension foundation is secure, deconstruct each test paper into its component task types:
 
 - **Listening:** Focus on predicting information categories before audio begins. In Section 1 and 2, drill numerical details, name spellings, and directional map labelling. In Section 3 and 4, train your ear to follow academic discussions and signposting signals. For targeted listening routines, review our dedicated guide on [IELTS listening strategies](/en/blog/ielts-listening-tips/).
-- **Reading:** Train specific techniques for high-difficulty question formats: True/False/Not Given, Matching Headings, and Summary Completion. Practise skimming for the central argument of each paragraph in under three minutes before scanning for precise supporting details.
+- **Reading:** Train specific techniques for high-difficulty question formats: True/False/Not Given, Matching Headings, and Summary Completion. Master the core techniques of [skimming and scanning in IELTS Reading](/en/blog/ielts-reading-skimming-and-scanning/) to locate arguments in under three minutes before scanning for precise supporting details.
 - **Writing:** Learn the four-paragraph academic structure for Task 2 (introduction, two focused body paragraphs with clear topic sentences and evidence, and conclusion). Review our step-by-step breakdown of [IELTS Writing Task 2 structure](/en/blog/ielts-writing-task-2-structure/) to understand how examiners evaluate Coherence and Cohesion alongside Task Response.
 - **Speaking:** Practise recording two-minute responses for Part 2 topics on your smartphone. Focus on fluency markers, natural discourse connectors, and eliminating filled pauses like *uh* or *um*.
 

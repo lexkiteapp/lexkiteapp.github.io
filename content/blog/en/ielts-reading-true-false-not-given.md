@@ -68,7 +68,7 @@ Pay special attention to hedged language in academic passages. *Researchers beli
 
 **Step 1: Read the statement and mark the key idea plus the qualifiers.** Underline the main subject and the limiting words: *only*, *before 1900*, *most*, *increased*.
 
-**Step 2: Locate the relevant part of the passage.** Questions of this type usually follow the order of the text, so the answer to question 3 is normally after the answer to question 2. Scan for names, numbers and dates first, because they do not get paraphrased easily.
+**Step 2: Locate the relevant part of the passage.** Questions of this type usually follow the order of the text, so the answer to question 3 is normally after the answer to question 2. Scan for names, numbers and dates first, because they do not get paraphrased easily. You can refine your search speed with the proven techniques in [skimming and scanning in IELTS Reading](/en/blog/ielts-reading-skimming-and-scanning/).
 
 **Step 3: Compare meaning, not words.** Read the sentence before and after the matching point as well. Ask: does it confirm, contradict or ignore each part of the statement, including the qualifiers?
 
@@ -78,7 +78,7 @@ Pay special attention to hedged language in academic passages. *Researchers beli
 
 - If you cannot find the location at all after a reasonable search, the answer is more likely to be Not Given, but first check that the next question's answer is not where you expected this one to be.
 - If you find yourself saying "the passage implies…", be careful. Use only what the text states or clearly entails.
-- Strong vocabulary makes location much faster. Many paraphrases in Reading draw on academic words, so working through the [Academic Word List](/en/blog/academic-word-list/) and the free [topic vocabulary lists](/en/vocabulary/) pays off directly in this task.
+- Strong vocabulary makes location much faster. Many paraphrases in Reading draw on academic words, so working through the [Academic Word List](/en/blog/academic-word-list/) and incorporating reading drills into your [IELTS self-study plan](/en/blog/ielts-self-study-plan/) pays off directly in this task.
 
 ## Common mistakes and how to fix them
 
