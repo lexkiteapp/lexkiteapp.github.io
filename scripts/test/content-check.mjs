@@ -129,6 +129,12 @@ for (const r of C.READINGS || []) { lintEn(r.id + ' text', r.text); (r.questions
   for (const t of C.TOEIC?.reading || []) for (const pt of t.parts) for (const ps of pt.passages || []) cueCheck(`${t.id} P${pt.part}`, ps.text, ps.groups);
   for (const u of [...(C.TOEFL?.reading || []), ...(C.TOEFL?.listening || [])]) cueCheck(u.id, u.text || scr(u.script), u.groups);
 }
+// TOEIC Part 2 (phương án chỉ là chữ A/B/C): dòng kịch bản của chữ cái đáp án phải trùng câu trích căn cứ
+for (const p of C.TOEIC?.listening || []) { const sc = p.script || []; for (const g of p.groups || []) for (const it of g.items || []) {
+  if (!(it.options || []).every(o => /^[A-D]$/.test(o))) continue; const k = sc.findIndex(l => (l.say || '').trim() === `Number ${it.n}.`); if (k < 0) { E(`${p.id} q${it.n}`, 'không thấy "Number n." trong kịch bản'); continue; }
+  const lines = {}; for (let j = k + 1; j < sc.length && !(sc[j].say || '').startsWith('Number '); j++) { const m = (sc[j].t || sc[j].say || '').match(/^\(?([A-D])[.)]\s*(.*)$/); if (m) lines[m[1]] = m[2].toLowerCase().replace(/\.$/, ''); }
+  const right = lines[L(it.a)], cue = String(it.cue || '').toLowerCase().replace(/\.$/, '');
+  if (!right) E(`${p.id} q${it.n}`, `kịch bản thiếu phương án ${L(it.a)}`); else if (cue && !right.includes(cue) && !cue.includes(right)) E(`${p.id} q${it.n}`, `đáp án ${L(it.a)} trong kịch bản không khớp câu trích căn cứ`); } }
 // Câu trùng trong cùng ngân hàng
 for (const [b, list] of Object.entries(banks)) { const seen = new Map(); for (const x of list) { if (seen.has(x.q)) E(x.where, `trùng câu với ${seen.get(x.q)} (${b})`); else seen.set(x.q, x.where); } }
 
