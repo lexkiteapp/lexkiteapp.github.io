@@ -34,7 +34,17 @@
   const mean = L === 'vi' ? c.vi || c.def : c.def || '';
   const ex = (c.contexts && c.contexts[0] && c.contexts[0].text) || c.ex || '';
   $('#ntCard').innerHTML = `<div class="nt-word">${esc(c.word)}</div><div class="nt-ipa"><span>${esc(c.ipa || '')}</span><button class="nt-say" id="ntSay" aria-label="${esc(tx('Nghe'))}">🔊</button></div>${mean ? `<div class="nt-mean">${esc(mean)}</div>` : ''}${ex ? `<div class="nt-ex">“${esc(String(ex).slice(0, 180))}”</div>` : ''}`;
-  const say = () => { if (!('speechSynthesis' in self)) return; const u = new SpeechSynthesisUtterance(c.word); u.lang = settings.accent || 'en-GB'; const v = speechSynthesis.getVoices().filter(x => x.lang.replace('_', '-') === u.lang).sort((a, b) => (/Natural|Online|Google/.test(b.name) ? 1 : 0) - (/Natural|Online|Google/.test(a.name) ? 1 : 0))[0]; if (v) u.voice = v; speechSynthesis.cancel(); speechSynthesis.speak(u); };
+  // Giọng đọc: Chrome nạp danh sách giọng bất đồng bộ – lần bấm đầu chưa có danh sách nên trước đây đọc bằng giọng mặc định, lần sau mới đúng giọng.
+  // Nạp sẵn khi mở tab + chờ 'voiceschanged' (tối đa 800 ms) → lần nào cũng cùng một giọng.
+  const pickVoice = lang => speechSynthesis.getVoices().filter(x => x.lang.replace('_', '-') === lang).sort((a, b) => (/Natural|Online|Google/.test(b.name) ? 1 : 0) - (/Natural|Online|Google/.test(a.name) ? 1 : 0))[0];
+  if ('speechSynthesis' in self) speechSynthesis.getVoices();
+  const say = () => {
+    if (!('speechSynthesis' in self)) return;
+    const go = () => { const u = new SpeechSynthesisUtterance(c.word); u.lang = settings.accent || 'en-GB'; u.rate = settings.ttsRate || .92; const v = pickVoice(u.lang); if (v) u.voice = v; speechSynthesis.cancel(); speechSynthesis.speak(u); };
+    if (speechSynthesis.getVoices().length) return go();
+    let done = false; const f = () => { if (!done) { done = true; go(); } };
+    speechSynthesis.addEventListener('voiceschanged', f, { once: true }); setTimeout(f, 800);
+  };
   $('#ntSay').onclick = say;
   if (cards[Core.keyOf(c.word)]) {
     $('#ntBtns').hidden = false;

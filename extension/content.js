@@ -638,16 +638,18 @@
   }
   document.addEventListener('dblclick', onDbl);
   document.addEventListener('mouseup', e => {
-    if (!alive() || fromHost(e) || e.button !== 0 || inEditable(e.target) || appHandles(e.target, true)) return;
-    // Đợi trình duyệt cập nhật vùng chọn
+    if (!alive() || fromHost(e) || e.button !== 0 || inEditable(e.target) || appHandles(e.target)) return;
+    // Đợi trình duyệt cập nhật vùng chọn. Trên lexkite.com: nhường khi web app đã hiện thanh "Tra nghĩa/Dịch" (.sel-bar);
+    // nơi web không dịch (trang chào mừng, trang "bare") thì tiện ích dịch như mọi trang khác.
     setTimeout(() => {
+      if (OWN_APP) { const sb = document.querySelector('.sel-bar'); if (sb && !sb.hidden) return; }
       if (e.altKey) { const s = fromSelection(); if (s && enabled) show(s.word, s.rect, s.context); return; }
       if (e.detail >= 2 || selectMode === 'off') return; // bấm đúp do dblclick xử lý
       const info = selectionInfo();
       if (!info) return;
       if (selectMode === 'auto' && !isWordish(info.text)) translateSelection(info);
       else showFab(info);
-    }, 10);
+    }, OWN_APP ? 80 : 10);
   });
   document.addEventListener('mousedown', e => {
     if (!alive() || fromHost(e)) return;
