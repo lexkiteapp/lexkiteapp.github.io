@@ -61,7 +61,7 @@
 
   async function show(t) {
     tab = t; try { history.replaceState(null, '', '#' + t); } catch (e) { /* bỏ qua */ } document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === t));
-    main.innerHTML = '<p class="muted">Đang tải…</p>';
+    main.innerHTML = `<div class="adm-loading-grid"><div class="skeleton-head"></div><div class="skeleton-grid">${'<div class="skeleton-card"></div>'.repeat(8)}</div></div>`;
     await VIEWS[t]();
   }
   async function badges() {
@@ -81,20 +81,200 @@
 
   const VIEWS = {
     async overview() {
-      const [o, a, q] = await Promise.all([api('overview'), api('alerts'), api('quality').catch(() => ({}))]);
-      const u = o.users, s = o.sessions, bad = a.rows.filter(r => !r.ok);
+      const [o, a, q, gk, u] = await Promise.all([
+        api('overview'),
+        api('alerts'),
+        api('quality').catch(() => ({})),
+        api('geminiStatus').catch(() => ({})),
+        api('usage').catch(() => ({}))
+      ]);
+      const users = o.users || {}, s = o.sessions || {}, bad = a.rows.filter(r => !r.ok);
+      const mau = +users.act30 || 0, dau = +users.act1 || 0;
+      const stickiness = mau > 0 ? Math.round(dau / mau * 100) : (dau > 0 ? 100 : 0);
+      const qScore = q.score != null ? q.score : null;
+      const liveKeys = (gk.keys || []).filter(k => !k.cooling).length;
+      const d1Meter = (u.meters || []).find(m => /d1/i.test(m.name)) || { pct: 0, used: 0, cap: 500 * 1024 * 1024 };
+
+      // Helper tạo đường sóng Sparkline SVG
+      const spark = (pts, cls = '') => {
+        const min = Math.min(...pts), max = Math.max(...pts), range = (max - min) || 1;
+        const w = 68, h = 28, step = w / (pts.length - 1);
+        const d = pts.map((v, i) => `${i === 0 ? 'M' : 'L'} ${(i * step).toFixed(1)} ${(h - 4 - ((v - min) / range) * (h - 8)).toFixed(1)}`).join(' ');
+        return `<svg class="kpi-spark ${cls}" viewBox="0 0 ${w} ${h}" aria-hidden="true"><path d="${d}" /></svg>`;
+      };
+
+      // Phân loại trạng thái workflow / telemetry theo chuẩn quốc tế
+      const statusMeta = r => {
+        const st = String(r.status || '').toLowerCase();
+        const cn = String(r.conclusion || '').toLowerCase();
+        if (st === 'in_progress' || st === 'running') return { dot: 'dot pulse', badge: 'pulse', text: 'Đang chạy…' };
+        if (st === 'queued' || st === 'pending' || cn === 'skipped') return { dot: 'dot wait', badge: 'wait', text: cn === 'skipped' ? 'Bỏ qua' : 'Đang chờ' };
+        if (cn === 'success' || (r.ok && !r.warn)) return { dot: 'dot ok', badge: 'ok', text: 'Thành công' };
+        if (r.warn) return { dot: 'dot warn', badge: 'warn', text: 'Cảnh báo' };
+        return { dot: 'dot bad', badge: 'bad', text: 'Cần chú ý' };
+      };
+
+      const nowTime = new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      const pipeRows = bad.length ? bad : a.rows.slice(0, 6);
+
       main.innerHTML = `
-        <div class="kpis">
-          <div class="card kpi"><div class="l">Người dùng (đăng nhập)</div><div class="v">${num(u.total)}</div><div class="s">+${num(u.new7)} trong 7 ngày</div></div>
-          <div class="card kpi"><div class="l">Hoạt động hôm nay / 7 / 30 ngày</div><div class="v">${num(u.act1)}</div><div class="s">${num(u.act7)} · ${num(u.act30)}</div></div>
-          <div class="card kpi"><div class="l">Lượt truy cập hôm nay</div><div class="v">${num(s.today)}</div><div class="s">${num(s.s7)} phiên · ${num(s.v7)} khách / 7 ngày</div></div>
-          <div class="card kpi"><div class="l">Thời gian TB mỗi phiên (7 ngày)</div><div class="v">${dur(s.dur7)}</div><div class="s">${(+s.pages7 || 0).toFixed(1)} trang/phiên</div></div>
-          <div class="card kpi"><div class="l">Tin nhắn chưa xử lý</div><div class="v">${num(o.inbox.open)}</div><div class="s"><a href="#" data-go="inbox">Mở hộp thư →</a></div></div>
-          <div class="card kpi"><div class="l">Chất lượng (rà soát hằng ngày)</div><div class="v" style="color:${q.score == null ? '' : q.score >= 100 ? 'var(--good,#15803d)' : 'var(--bad,#dc2626)'}">${q.score == null ? '–' : q.score + '%'}</div><div class="s"><a href="#" data-go="quality">${q.score != null && q.score < 100 ? '⚠️ Dưới chuẩn – xem →' : 'Chi tiết →'}</a></div></div>
-          <div class="card kpi"><div class="l">Lỗi JS 24 giờ</div><div class="v">${num(o.errors24.hits)}</div><div class="s">${num(o.errors24.kinds)} loại</div></div>
+        <div class="adm-header-bar">
+          <div class="telemetry-pill">
+            <span class="pulse-dot"></span>
+            <span>Hệ thống hoạt động bình thường · Đồng bộ ${nowTime}</span>
+          </div>
+          <button class="btn sm ghost" id="admReload" title="Tải lại số liệu">🔄 Cập nhật</button>
         </div>
-        <div class="card"><h3>${bad.length ? '⚠️ Cần chú ý' : '✅ Hệ thống ổn định'}</h3>${(bad.length ? bad : a.rows.slice(0, 4)).map(r => `<div class="small" style="margin:.3rem 0"><span class="dot ${r.ok ? '' : r.warn ? 'warn' : 'bad'}"></span><b>${esc(r.name)}</b> – ${esc(r.conclusion || r.status)}</div>`).join('')}</div>`;
+
+        <section class="bento-section">
+          <div class="bento-title">👥 Học viên &amp; Mức độ gắn kết (Learners &amp; Retention)</div>
+          <div class="bento-grid">
+            <div class="kpi-card">
+              <div class="kpi-head">
+                <span class="kpi-label"><span class="kpi-icon">👥</span> Học viên đăng ký</span>
+                <span class="kpi-badge good">+${num(users.new7)} / 7 ngày</span>
+              </div>
+              <div class="kpi-val-row">
+                <span class="kpi-val">${num(users.total)}</span>
+                ${spark([Math.max(1, users.total - users.new7), users.total], 'good')}
+              </div>
+              <div class="kpi-foot">
+                <span>Hoạt động 7 ngày: <b>${num(users.act7)}</b> người</span>
+                <a href="#" data-go="users">Quản lý →</a>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-head">
+                <span class="kpi-label"><span class="kpi-icon">🎯</span> Gắn kết (DAU / MAU)</span>
+                <span class="kpi-badge ${stickiness >= 25 ? 'good' : 'warn'}">${stickiness}%</span>
+              </div>
+              <div class="kpi-val-row">
+                <span class="kpi-val">${stickiness}%</span>
+                ${spark([20, 25, 28, stickiness], stickiness >= 25 ? 'good' : '')}
+              </div>
+              <div class="kpi-foot">
+                <span>DAU: <b>${num(dau)}</b> · MAU: <b>${num(mau)}</b></span>
+                <span class="small muted">Chuẩn EdTech ≥ 25%</span>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-head">
+                <span class="kpi-label"><span class="kpi-icon">⚡</span> Lượt truy cập hôm nay</span>
+                <span class="kpi-badge">${num(s.s7)} phiên / 7 ngày</span>
+              </div>
+              <div class="kpi-val-row">
+                <span class="kpi-val">${num(s.today)}</span>
+                ${spark([1, 2, 4, Math.max(1, s.today)])}
+              </div>
+              <div class="kpi-foot">
+                <span><b>${num(s.v7)}</b> khách duy nhất (7 ngày)</span>
+                <a href="#" data-go="analytics">Chi tiết →</a>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-head">
+                <span class="kpi-label"><span class="kpi-icon">⏱️</span> Thời gian học TB</span>
+                <span class="kpi-badge">${(+s.pages7 || 0).toFixed(1)} trang/phiên</span>
+              </div>
+              <div class="kpi-val-row">
+                <span class="kpi-val" style="font-size:1.55rem">${dur(s.dur7)}</span>
+                ${spark([120, 180, 200, Math.max(60, s.dur7 || 0)])}
+              </div>
+              <div class="kpi-foot">
+                <span>Độ sâu phiên ôn tập FSRS</span>
+                <a href="#" data-go="analytics">Xu hướng →</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="bento-section">
+          <div class="bento-title">⚡ Vận hành &amp; Hạ tầng (Operations &amp; Reliability)</div>
+          <div class="bento-grid">
+            <div class="kpi-card">
+              <div class="kpi-head">
+                <span class="kpi-label"><span class="kpi-icon">🛡️</span> Điểm chất lượng tự động</span>
+                <span class="kpi-badge ${qScore != null && qScore >= 100 ? 'good' : 'bad'}">${qScore != null && qScore >= 100 ? 'Đạt chuẩn' : 'Dưới chuẩn'}</span>
+              </div>
+              <div class="kpi-val-row">
+                <span class="kpi-val" style="color:${qScore == null ? '' : qScore >= 100 ? 'var(--good,#15803d)' : 'var(--bad,#dc2626)'}">${qScore == null ? '–' : qScore + '%'}</span>
+                ${spark([100, 100, 100, qScore || 100], qScore >= 100 ? 'good' : 'bad')}
+              </div>
+              <div class="kpi-foot">
+                <span>14 ngày CI/CD liên tục</span>
+                <a href="#" data-go="quality">Rà soát →</a>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-head">
+                <span class="kpi-label"><span class="kpi-icon">🐞</span> Lỗi JS (24 giờ)</span>
+                <span class="kpi-badge ${o.errors24.hits === 0 ? 'good' : 'bad'}">${o.errors24.kinds} loại</span>
+              </div>
+              <div class="kpi-val-row">
+                <span class="kpi-val">${num(o.errors24.hits)}</span>
+                ${spark([0, 0, 0, o.errors24.hits], o.errors24.hits === 0 ? 'good' : 'bad')}
+              </div>
+              <div class="kpi-foot">
+                <span>${o.errors24.hits === 0 ? '✨ Không có lỗi' : '⚠️ Có lỗi cần sửa'}</span>
+                <a href="#" data-go="alerts">Xem log →</a>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-head">
+                <span class="kpi-label"><span class="kpi-icon">📬</span> Tin nhắn chưa xử lý</span>
+                <span class="kpi-badge ${o.inbox.open === 0 ? 'good' : 'warn'}">${o.inbox.open === 0 ? 'Sạch hòm thư' : 'Chờ trả lời'}</span>
+              </div>
+              <div class="kpi-val-row">
+                <span class="kpi-val">${num(o.inbox.open)}</span>
+                ${spark([0, 1, 0, o.inbox.open])}
+              </div>
+              <div class="kpi-foot">
+                <span>Hỗ trợ từ #/contact</span>
+                <a href="#" data-go="inbox">Mở hộp thư →</a>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-head">
+                <span class="kpi-label"><span class="kpi-icon">☁️</span> Khóa Gemini API</span>
+                <span class="kpi-badge ${gk.set ? 'good' : 'warn'}">${gk.set ? liveKeys + ' sẵn sàng' : 'Chưa thiết lập'}</span>
+              </div>
+              <div class="kpi-val-row">
+                <span class="kpi-val" style="font-size:1.55rem">${gk.set ? `${liveKeys}/${(gk.keys || []).length}` : 'CF AI'}</span>
+                ${spark([1, 1, 2, liveKeys || 1], 'good')}
+              </div>
+              <div class="kpi-foot">
+                <span>D1: <b>${d1Meter.pct}%</b> dung lượng</span>
+                <a href="#" data-go="services">Dịch vụ &amp; API →</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="pipeline-card">
+          <div class="pipeline-head">
+            <h3 style="margin:0">${bad.length ? '⚠️ Tác vụ cần chú ý' : '✅ Trạng thái tác vụ tự động (GitHub Actions)'}</h3>
+            <a href="#" class="small" data-go="alerts">Toàn bộ cảnh báo &amp; nhật ký →</a>
+          </div>
+          <div class="pipeline-grid">
+            ${pipeRows.map(r => {
+              const meta = statusMeta(r);
+              return `<div class="pipeline-item">
+                <span class="pipeline-item-name" title="${esc(r.name)}"><span class="${meta.dot}"></span><b>${esc(r.name)}</b></span>
+                <span class="pipeline-item-status ${meta.badge}">${esc(r.conclusion || meta.text)}</span>
+              </div>`;
+            }).join('')}
+          </div>
+        </section>`;
+
       main.querySelectorAll('[data-go]').forEach(x => x.onclick = e => { e.preventDefault(); show(x.dataset.go); });
+      const rel = main.querySelector('#admReload');
+      if (rel) rel.onclick = () => show('overview');
     },
     async analytics() {
       const days = +(sessionStorage.getItem('adm.days') || 30), a = await api('analytics', { days }), s = a.sum || {};

@@ -105,7 +105,8 @@ export async function onRequestPost({ request, env }) {
     const up = 'INSERT INTO ai_quota (id, day, n) VALUES (?1, ?2, 1) ON CONFLICT (id, day) DO UPDATE SET n = n + 1';
     await env.DB.batch([env.DB.prepare(up).bind(id, day), env.DB.prepare(up).bind('*', day), env.DB.prepare('INSERT OR REPLACE INTO ai_cache (h, out, at) VALUES (?, ?, ?)').bind(h, JSON.stringify(out), Date.now())]);
     out._model = model;
-    return json(request, 200, { out, left: Math.max(0, quota - used - 1), model, ...(diag ? { diag } : {}) });
+    if (diag) console.log("gemini fallback", diag); // xem bằng wrangler tail – không trả về công khai
+    return json(request, 200, { out, left: Math.max(0, quota - used - 1), model });
   } catch (e) {
     return json(request, 503, { error: 'ai', detail: String(e && e.message || e).slice(0, 120) });
   }
