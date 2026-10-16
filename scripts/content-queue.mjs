@@ -6,7 +6,7 @@ import { execFileSync } from 'child_process';
 execFileSync('node', ['scripts/test/content-check.mjs', '--json'], { stdio: 'ignore' });
 const S = JSON.parse(fs.readFileSync('reports/content-stats.json', 'utf8')), T = JSON.parse(fs.readFileSync('content/pipeline/targets.json', 'utf8'));
 const sum = o => Object.entries(o || {}).filter(([k]) => k !== '—').reduce((a, [, v]) => a + (+v || 0), 0);
-const rows = Object.entries(T).filter(([k]) => !k.startsWith('_')).map(([k, t]) => { const have = S[k] ? sum(S[k]) : +t.have || 0; // loại chưa có trong content-check: số đếm tay ghi ở targets.json (have) const gap = Math.max(0, t.target - have); return { k, ...t, have, gap, pct: Math.round(have / t.target * 100), parts: S[k] || {} }; });
+const rows = Object.entries(T).filter(([k]) => !k.startsWith('_')).map(([k, t]) => { const have = S[k] ? sum(S[k]) : +t.have || 0; /* loại chưa có trong content-check: số đếm tay ở targets.json (have) */ const gap = Math.max(0, t.target - have); return { k, ...t, have, gap, pct: Math.round(have / t.target * 100), parts: S[k] || {} }; });
 rows.sort((a, b) => a.priority - b.priority || a.pct - b.pct);
 const open = rows.filter(r => r.gap > 0);
 const md = [`# Hàng đợi nội dung (tự sinh – \`npm run content:queue\`, ${new Date().toISOString().slice(0, 10)})`, '', 'Quy trình & tiêu chí nghiệm thu: `docs/CONTENT-PIPELINE.md`. Lấy lô ĐẦU TIÊN chưa có người nhận.', '',
