@@ -47,7 +47,9 @@ export async function geminiCall(env, body, model = 'gemini-2.5-flash') {
   const start = Math.floor(Math.random() * keys.length);
   for (let n = 0; n < keys.length; n++) {
     const k = keys[(start + n) % keys.length]; if (await isCooling(k)) continue;
-    let r; try { r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': k }, body: JSON.stringify(body) }); } catch (e) { continue; }
+    const U = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, B = JSON.stringify(body);
+    let r; try { r = await fetch(U, { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': k }, body: B }); if (r.status === 401 || r.status === 400) { const r2 = await fetch(U + '?key=' + encodeURIComponent(k), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: B }); if (r2.ok || r2.status === 429) r = r2; } } catch (e) { continue; }
+    if (!r.ok) console.log('gemini', k.slice(-4), r.status, (await r.clone().text().catch(() => '')).slice(0, 200)); // xem bằng wrangler pages deployment tail
     if (r.status === 429 || r.status === 403 || r.status === 401) { await cool(k); continue; } // hết lượt / khóa hỏng → nghỉ 1 giờ, thử khóa khác
     if (!r.ok) continue;
     const j = await r.json().catch(() => null); const text = j && (((j.candidates || [])[0] || {}).content || { parts: [] }).parts.map(p => p.text || '').join('');
