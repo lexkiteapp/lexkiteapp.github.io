@@ -108,7 +108,7 @@
     .spk.mini { height: 22px; padding: 0 6px; line-height: 22px; font-size: 11px; }
     .sk { height: 11px; border-radius: 6px; margin: 7px 0; background: linear-gradient(90deg, #eef0f6 25%, #f8f9fc 50%, #eef0f6 75%); background-size: 200% 100%; animation: sh 1s infinite linear; }
     @keyframes sh { to { background-position: -200% 0; } }
-    .vi { color: #0e8f8e; font-weight: 700; font-size: 15px; margin-top: 2px; }
+    .vi { color: #0a6f6e; font-weight: 700; font-size: 15px; margin-top: 2px; }
     .body { padding: 0 14px 12px; max-height: 340px; overflow: auto; overflow-anchor: none; } /* không tự giữ vị trí cuộn khi nội dung nạp thêm → dòng đầu không bị đẩy khuất */
     .def { margin: 4px 0; }
     .ex { color: #5d6177; font-style: italic; font-size: 13px; }

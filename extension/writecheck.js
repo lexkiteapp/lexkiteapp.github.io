@@ -63,8 +63,9 @@
   }
 
   // ---------- Shadow DOM riêng: lớp gạch chân + hộp gợi ý + huy hiệu ----------
-  const ttPolicy = (() => { try { return window.trustedTypes && trustedTypes.createPolicy ? trustedTypes.createPolicy('lexkite#wc', { createHTML: x => x }) : null; } catch (e) { return null; } })();
-  const H = html => (ttPolicy ? ttPolicy.createHTML(html) : html);
+  // Trusted Types: chỉ tạo policy khi trang thực sự bắt buộc TrustedHTML (tránh lỗi console trên trang giới hạn tên policy, vd. StackOverflow)
+  let ttPolicy;
+  const H = html => { if (ttPolicy === undefined) { ttPolicy = null; let need = false; try { document.createElement('div').innerHTML = '<b></b>'; } catch (e) { need = true; } if (need && window.trustedTypes && trustedTypes.createPolicy) try { ttPolicy = trustedTypes.createPolicy('lexkite#wc', { createHTML: x => x }); } catch (e) { ttPolicy = null; } } return ttPolicy ? ttPolicy.createHTML(html) : html; };
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const COL = { spelling: '#E5484D', grammar: '#2F6FEB', punct: '#D97706', style: '#0E8F8E' };
   const LABEL = { spelling: 'Lỗi chính tả', grammar: 'Lỗi ngữ pháp', punct: 'Lỗi dấu câu', style: 'Gợi ý văn phong' };
