@@ -8,7 +8,7 @@
   const App = window.App;
   const { state, routes } = App;
   const view = App.view;
-  const URL_OF = k => 'https://lexkiteapp.github.io/audio/l/' + k + '.mp3';
+  const URL_OF = k => g.audioUrl ? g.audioUrl(k) : 'https://audio.lexkite.com/audio/l/' + k + '.mp3';
   const kKey = text => (window.KVoice && window.LISTEN_AUDIO ? (k => (LISTEN_AUDIO.has(k) ? k : ''))(KVoice.lineKey('bf_emma', String(text).trim())) : '');
   let player = null;
 

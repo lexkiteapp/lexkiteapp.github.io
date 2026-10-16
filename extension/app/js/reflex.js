@@ -37,7 +37,7 @@
   }
 
   routes.reflex = function () {
-    const items = pool();
+    const items = pool().filter(it => it.kind === 'yt' || !window.audioHas || audioHas(it.key)); // bỏ câu chưa có giọng đọc
     view.innerHTML = `
       <div class="page-head"><div><h1>⚡ ${t('Phản xạ 60 giây')}</h1><p class="muted">${t('Nghe một câu ngắn rồi nhại lại ngay – luyện phản xạ nghe nói như người bản xứ.')}</p></div><div class="rx-timer" id="rxT">60</div></div>
       <div class="card rx-stage" id="rxStage" aria-live="polite"></div>
@@ -76,7 +76,7 @@
         $('#rxStage').insertAdjacentHTML('afterbegin', `<iframe id="rxYT" class="rx-yt" src="https://www.youtube-nocookie.com/embed/${it.id}?start=${s}&end=${e}&autoplay=1&controls=0&modestbranding=1&rel=0&playsinline=1" allow="autoplay; encrypted-media" title="YouTube"></iframe>`);
         ytTimer = setTimeout(() => { const f = $('#rxYT'); if (f) f.remove(); listen(it); }, 5600);
       } else {
-        audio = new Audio('https://lexkiteapp.github.io/audio/l/' + it.key + '.mp3');
+        audio = new Audio(window.audioUrl ? audioUrl(it.key) : 'https://audio.lexkite.com/audio/l/' + it.key + '.mp3');
         audio.onended = () => { miss = 0; listen(it); }; audio.onerror = () => { if (++miss > 3) return listen(it); i++; play(); }; // câu chưa có giọng đọc → bỏ qua, tối đa 3 lần liên tiếp
         audio.play().catch(() => listen(it));
       }

@@ -117,6 +117,12 @@
   // Giọng Kokoro tạo sẵn cho câu đọc đơn (câu hỏi giám khảo, TOEFL…): có file thì phát mp3, không thì giọng máy
   let hqEl = null;
   const stopHq = () => { if (hqEl) { hqEl.onended = hqEl.onerror = null; hqEl.pause(); hqEl = null; } };
+  // CDN âm thanh: audio.lexkite.com (Cloudflare Worker workers/audio, cache 1 năm, máy chủ gần người dùng) → dự phòng GitHub Pages
+  // (nguồn gốc). Đăng ký trong infra/resources.json. Lỗi 2 lần liên tiếp với CDN chính → tự chuyển dự phòng cho cả phiên.
+  let cdnFail = 0;
+  g.audioUrl = k => (cdnFail >= 2 ? 'https://lexkiteapp.github.io/audio/l/' : 'https://audio.lexkite.com/audio/l/') + k + '.mp3';
+  g.audioFail = () => { cdnFail++; };
+  g.audioHas = k => !g.LISTEN_AUDIO || g.LISTEN_AUDIO.has(k); // chỉ phát câu đã có giọng đọc (tránh 404)
   function tts(text, accent = 'en-GB', rate, opts = {}) {
     if (!text) return;
     stopHq();
@@ -126,14 +132,14 @@
       if (segs.length && segs.every(([k]) => g.LISTEN_AUDIO.has(k))) {
         const my = ++speakSeq; if ('speechSynthesis' in g) speechSynthesis.cancel();
         const pr = Math.min(1.3, Math.max(0.55, (rate || prefs().ttsRate || 0.92) / 0.95));
-        const url = k => 'https://lexkiteapp.github.io/audio/l/' + k + '.mp3'; // CDN âm thanh riêng (GitHub Pages) – gói web nhẹ, không tính vào giới hạn file của Cloudflare
+        const url = g.audioUrl;
         const play = i => {
           if (my !== speakSeq) return;
           if (i >= segs.length) { hqEl = null; if (opts.onEnd) opts.onEnd(); return; }
           const el = hqEl = new Audio(url(segs[i][0])); el.preservesPitch = true; el.playbackRate = pr;
           if (opts.onSentence) opts.onSentence(i, segs[i][1]);
           el.onended = () => play(i + 1);
-          el.onerror = () => { if (hqEl === el) { hqEl = null; tts(segs.slice(i).map(x => x[1]).join(' '), accent, rate, { ...opts, noHq: true }); } };
+          el.onerror = () => { g.audioFail(); if (hqEl === el) { hqEl = null; tts(segs.slice(i).map(x => x[1]).join(' '), accent, rate, { ...opts, noHq: true }); } };
           if (segs[i + 1]) { const n = new Audio(); n.preload = 'auto'; n.src = url(segs[i + 1][0]); }
           try { const r = el.play(); if (r && r.catch) r.catch(() => el.onerror && el.onerror()); } catch (e) { el.onerror(); }
         };
