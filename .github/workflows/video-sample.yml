@@ -39,6 +39,8 @@ jobs:
 
       # ---------- Dây chuyền dựng (mỗi bước đọc/ghi out/video/<job>/state.json; VIDEO_STRICT=1: thiếu công cụ → lỗi, không lặng lẽ bỏ qua) ----------
       - name: Dựng video mẫu (toàn bộ các bước)
+        env:
+          KOKORO_NODE_PATH: /tmp/kk/node_modules
         run: node scripts/video/render.mjs --local --script "${{ github.event.inputs.script }}" 2>&1 | tee render.log
       - name: Báo cáo độ phủ tài nguyên
         if: always()
