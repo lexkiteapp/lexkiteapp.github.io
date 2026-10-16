@@ -6,6 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import { execSync } from 'node:child_process';
+import vm from 'node:vm';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 
@@ -125,12 +126,17 @@ function lockup(x, y, h, theme = 'dark') {
   return { svg: m + wordmark(x + h * 1.1, y + h * 0.733, h * 0.733, { lex, kite }).svg, w: lockupWidth(h) };
 }
 
-// ---------- linh vật Kit (brand/kit-*.svg) ----------
+// ---------- linh vật Kit (nguồn thật: web/js/kit.js – bản trong app) ----------
+const kitCtx = { self: {} };
+vm.runInNewContext(fs.readFileSync(path.join(ROOT, 'web/js/kit.js'), 'utf8'), kitCtx);
+const kitSvg = (m) => kitCtx.self.Kit.svg(m, 512, false).replace(/ class=""/g, '').replace(/<!--[\s\S]*?-->/g, '').replace(/\n\s*/g, '');
+// Đồng bộ brand/kit-*.svg với app để không ai dùng nhầm bản cũ
+for (const m of ['happy', 'win', 'cheer', 'think', 'sad', 'sleep']) fs.writeFileSync(path.join(BRAND, `kit-${m}.svg`), kitSvg(m).replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ') + '\n');
 const KIT = {};
-for (const k of ['happy', 'cheer', 'win', 'sad']) {
-  KIT[k] = fs.readFileSync(path.join(BRAND, `kit-${k}.svg`), 'utf8').replace(/^[\s\S]*?<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '').replace(/ class=""/g, '').replace(/<!--[\s\S]*?-->/g, '');
-}
-const kit = (x, y, s, k = 'happy', rot = 0) => `<g transform="rotate(${rot} ${x + s / 2} ${y + s / 2})"><svg x="${x}" y="${y}" width="${s}" height="${s}" viewBox="0 0 120 120">${KIT[k]}</svg></g>`;
+for (const k of ['happy', 'cheer', 'win', 'sad']) KIT[k] = kitSvg(k).replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, '');
+// Kit thân teal đậm → viền sáng kiểu sticker để nổi trên nền teal
+const HALO = `<filter id="kithalo" x="-10%" y="-10%" width="120%" height="120%"><feMorphology in="SourceAlpha" operator="dilate" radius="2.6" result="d"/><feFlood flood-color="${C.paper}"/><feComposite in2="d" operator="in" result="o"/><feMerge><feMergeNode in="o"/><feMergeNode in="SourceGraphic"/></feMerge></filter>`;
+const kit = (x, y, s, k = 'happy', rot = 0) => `<g transform="rotate(${rot} ${x + s / 2} ${y + s / 2})"><svg x="${x}" y="${y}" width="${s}" height="${s}" viewBox="-4 -4 128 128" overflow="visible"><g filter="url(#kithalo)">${KIT[k]}</g></svg></g>`;
 function glow(cx, cy, r, color = C.sun, a = 0.22) {
   const g = id('gl');
   return `<defs><radialGradient id="${g}"><stop offset="0" stop-color="${color}" stop-opacity="${a}"/><stop offset="1" stop-color="${color}" stop-opacity="0"/></radialGradient></defs><circle cx="${cx}" cy="${cy}" r="${r}" fill="url(#${g})"/>`;
@@ -168,7 +174,7 @@ const coralGrad = (x1, y1, x2, y2) => {
   const g = id('cg');
   return { id: g, def: `<defs><linearGradient id="${g}" gradientUnits="userSpaceOnUse" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"><stop offset="0" stop-color="${C.apricot}"/><stop offset=".55" stop-color="${C.coralMid}"/><stop offset="1" stop-color="${C.coral}"/></linearGradient></defs>` };
 };
-const svgDoc = (w, h, body, bg = true) => `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><defs>${MARK_DEFS}</defs>${body}</svg>`;
+const svgDoc = (w, h, body, bg = true) => `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><defs>${MARK_DEFS}${HALO}</defs>${body}</svg>`;
 
 // ---------- bố cục ảnh bìa ngang (dùng chung FB/YT/X/LinkedIn/Zalo/sự kiện/link) ----------
 function coverArt(w, h, safe, { lang = 'en', kitName = 'happy', ghostSide = 'left' } = {}) {
