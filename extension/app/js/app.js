@@ -1262,7 +1262,8 @@
         + `<div id="goldOpts" ${s.goldenOn ? '' : 'hidden'}>`
         + `<label class="set-row col"><span class="set-top"><span>${t('Chỉ nhắc khi có ít nhất <b id="vGMin">{n}</b> từ cần ôn', { n: s.goldenMin })}</span></span><input type="range" min="1" max="50" id="sGMin" value="${s.goldenMin}"></label>`
         + row(t('Giờ yên lặng từ'), `<span class="set-btns"><input type="time" class="input" id="sQ1" value="${esc(s.quietStart)}"><span class="muted">${t('đến')}</span><input type="time" class="input" id="sQ2" value="${esc(s.quietEnd)}"></span>`)
-        + '</div>')}
+        + '</div>'
+        + tog('sDigest', s.emailDigest !== false, '📧 ' + t('Báo cáo não bộ qua email'), t('Gửi tóm tắt trí nhớ FSRS và các từ sắp quên vào sáng Chủ nhật (khi đã đăng nhập)')))}
       <section class="set-sec" id="set-ai"><div id="aiBox"></div></section>
       ${Store.isExtension ? '' : sec('ext', '🧩 ' + t('Add-on từ điển cho Chrome'), `<div class="set-row"><div class="set-l"><span class="small">${t('Bấm đúp vào bất kỳ từ tiếng Anh nào trên web để xem phiên âm, nghĩa, hình ảnh và <b>lưu vào flashcard kèm câu gốc làm ngữ cảnh</b>. Bôi đen cả câu/đoạn để <b>dịch sang tiếng Việt</b>.')}</span><small>${t('Cài đặt: mở <code>chrome://extensions</code> → bật <i>Developer mode</i> → <i>Load unpacked</i> → chọn thư mục <code>extension</code>.')}</small></div></div>`)}
       ${sec('data', '💾 ' + t('Dữ liệu'),
@@ -1287,6 +1288,7 @@
     $('#sQ1').onchange = e => { s.quietStart = e.target.value || '22:30'; save(); };
     $('#sQ2').onchange = e => { s.quietEnd = e.target.value || '07:00'; save(); };
     $('#sCap').oninput = e => { s.sessionCap = +e.target.value; $('#vCap').textContent = s.sessionCap || t('Không giới hạn'); save(); };
+    $('#sDigest').onchange = e => { s.emailDigest = e.target.checked; save(); };
     const fillVoices = () => {
       if (!$('#sVoice')) return; // đã rời trang Cài đặt
       const list = UI.voicesFor(s.accent);

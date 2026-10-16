@@ -89,6 +89,7 @@
   const DEFAULT_SETTINGS = {
     reminderOn: true,
     reminderTime: '20:00',
+    emailDigest: true,    // nhận email Báo cáo não bộ hằng tuần vào sáng Chủ nhật
     dailyNew: 10,
     dailyGoal: 20,
     accent: 'en-GB',

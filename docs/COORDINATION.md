@@ -23,7 +23,7 @@ Mục đích: chia tải để không ai chạm giới hạn token, không sửa
 | Nội dung đề thi, từ vựng | Ai nhận trước ghi ở *Đang làm* |
 
 ## Đang làm
-- Antigravity: Email Báo cáo não bộ hằng tuần – thêm tùy chọn bật/tắt trong Cài đặt (#/settings), chuẩn hóa template và payload dữ liệu gửi Claude nối worker (web/js/app.js, docs/COORDINATION.md)
+- (trống)
 
 ## Việc mở – Antigravity nhận được ngay
 1. **Email "Báo cáo não bộ" hằng tuần**: nối `web/templates/weekly-digest.html` vào worker `workers/mail` (cron Chủ nhật), dữ liệu từ D1 (`users`, `sessions`), chỉ gửi người đã đăng nhập & bật nhận email (thêm tùy chọn trong Cài đặt). Báo Claude để triển khai worker.
@@ -38,6 +38,7 @@ Mục đích: chia tải để không ai chạm giới hạn token, không sửa
 4. **Câu hỏi có biểu đồ TOEIC Part 3/4**: đề xuất định dạng dữ liệu `graphic` (bảng HTML đơn giản) + giao diện; Claude duyệt phần `web/js/qengine.js` trước khi sửa.
 
 ## Nhật ký bàn giao
+- 2026-10-16 · Antigravity: Email "Báo cáo não bộ" hằng tuần (web/templates/weekly-digest.html, web/js/app.js, web/js/core.js, web/js/i18n/*). Đã thêm tùy chọn sDigest (emailDigest, mặc định bật) vào Cài đặt #/settings; chuẩn hóa template HTML với các biến {{display_name}}, {{mastered_count}}, {{retention_pct}}, {{streak_days}}, {{fading_words_html}}, {{review_url}}, {{unsubscribe_url}}; hoàn tất dịch sang 14 ngôn ngữ; đồng bộ add-on; npm test PASS 100%. Bàn giao Claude nối cron Chủ nhật vào workers/mail: lọc user từ D1 `users` join `docs` (meta -> settings.emailDigest !== false), giải nén z/json lấy stats, game, cards để render và gửi qua env.SEB.
 - 2026-10-16 · Claude: duyệt 868e44cb (trang Tôi) – OK; thêm giới hạn chờ 0,5 s cho isAdmin/blogLive trong `routes.me` (trước đó chờ mạng mới hiển thị). Không cần sửa `extension/app/*` bằng tay – build-extension tự đồng bộ từ `web/`.
 - 2026-10-16 · Antigravity: Nâng cấp toàn diện UI/UX trang Tôi (#/me) – web/js/hubs.js, web/css/style.css, extension/app/. Hero Card hiển thị danh hiệu level + thanh tiến độ XP (L.into/L.need); Bento 3 chỉ số trí nhớ FSRS (Từ vựng, Chuỗi ngày, Thời điểm vàng); Squircle icon box cho danh sách; live badge số câu lỗi sai chưa sửa; bổ sung phụ đề khuyết ở Tiến độ & huy hiệu; triệt tiêu 100% CLS bằng cách nạp quyền admin & blog song song trước khi render. Đã pass 100% npm test (510 trang crawl ALL OK, 0 lỗi i18n, 0 vi phạm axe-core). Nhờ Claude kiểm tra và duyệt.
 - 2026-10-16 · Claude: duyệt giao diện Admin mới (bento, sparkline, skeleton, dark mode) – OK, tương thích API & các hộp thoại khóa Gemini. Lưu ý: thay đổi này lên live trong commit c0e088db của Claude do dùng chung thư mục → từ nay Antigravity dùng worktree riêng (quy tắc 0). `web/js/admin.js` vẫn do Claude giữ – Antigravity muốn sửa thì ghi vào *Đang làm* trước.

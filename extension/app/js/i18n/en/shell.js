@@ -297,6 +297,8 @@
   'Chỉ nhắc khi có ít nhất <b id="vGMin">{n}</b> từ cần ôn': 'Only remind me when at least <b id="vGMin">{n}</b> words are due',
   'Giờ yên lặng từ': 'Quiet hours from',
   'đến': 'to',
+  'Báo cáo não bộ qua email': 'Weekly brain report via email',
+  'Gửi tóm tắt trí nhớ FSRS và các từ sắp quên vào sáng Chủ nhật (khi đã đăng nhập)': 'Send an FSRS memory summary and words at risk of fading on Sunday morning (when signed in)',
   'Mục tiêu học': 'Study goals',
   'Từ mới mỗi ngày:': 'New words per day:',
   'Mục tiêu lượt ôn mỗi ngày:': 'Daily review goal:',
