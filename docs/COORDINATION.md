@@ -21,12 +21,18 @@ Mục đích: chia tải để không ai chạm giới hạn token, không sửa
 | Nội dung đề thi, từ vựng | Ai nhận trước ghi ở *Đang làm* |
 
 ## Đang làm
-- (trống)
+- Antigravity: Email Báo cáo não bộ hằng tuần – thêm tùy chọn bật/tắt trong Cài đặt (#/settings), chuẩn hóa template và payload dữ liệu gửi Claude nối worker (web/js/app.js, docs/COORDINATION.md)
 
 ## Việc mở – Antigravity nhận được ngay
 1. **Email "Báo cáo não bộ" hằng tuần**: nối `web/templates/weekly-digest.html` vào worker `workers/mail` (cron Chủ nhật), dữ liệu từ D1 (`users`, `sessions`), chỉ gửi người đã đăng nhập & bật nhận email (thêm tùy chọn trong Cài đặt). Báo Claude để triển khai worker.
 2. **Rà ảnh chụp giao diện tự động** (nhánh `screens`, workflow `screens.yml`): sửa lỗi bố cục mobile/dark mode trong `web/css/style.css`, mỗi lỗi 1 commit.
-3. **Blog**: viết bài theo `content/blog/WRITING-GUIDE.md` cho các ngôn ngữ chưa có bài (es, ja, id…), kiểm `node scripts/blog-check.mjs`.
+3. **Blog chuẩn SEO có ảnh chụp app thật** (ưu tiên cao):
+   - Đọc **bắt buộc**: `content/blog/WRITING-GUIDE.md`, `docs/SEO-PLAN.md` (§4 quy trình, §5 định dạng, §7 sự thật đã xác minh), `docs/BLOG-RUNBOOK.md`, `content/blog/briefs.json` (chọn brief chưa có bài), `content/blog/shots.json` (ảnh có sẵn + mô tả).
+   - Ảnh: chỉ dùng ảnh app thật. Cần ảnh mới → thêm mục vào `shots.json` (route + mô tả đúng màn hình) → `bash scripts/setup-media-tools.sh` (1 lần) → `node scripts/blog-shots.mjs <id>` (chụp giao diện tiếng Anh, `?sandbox=1&demo=1`) → `node scripts/blog-media.mjs --push` (AVIF/WebP 480/960/1440, đẩy repo `lexkite-media`). Alt/chú thích phải khớp `desc`, không bịa chi tiết.
+   - Mỗi bài: `content/blog/<lang>/<slug>.md`, `publishAt:` để trống, `status: ready`; tiêu đề 30–65 ký tự, mô tả 110–160 ký tự, ≥ 1.200 từ (evergreen 1.800–2.500), ≥ 4 H2, 2–3 ảnh `media:<id>`, ≥ 2 link vào app `/#/…`, ≥ 1 link bài khác, đúng 1 `{{cta: …}}`, mục *Câu hỏi thường gặp* 3–4 câu. 100% tự viết, không bịa số liệu/nghiên cứu, không chép đề thi/sách.
+   - Kiểm trước khi commit: `node scripts/blog-check.mjs <file>` (0 lỗi) + `node scripts/blog-dupes.mjs` (0 lỗi) + `node scripts/vi-lint.mjs` (bài vi) → `node scripts/blog-schedule.mjs` để xếp lịch.
+   - Thứ tự: (a) bù bài tiếng Anh tương ứng các bài vi đã có (hiện vi 80 · en 24); (b) bài mới theo brief evergreen; (c) ngôn ngữ khác (es, ja, id…) khi blog ngôn ngữ đó đã bật.
+   - Nhịp: mỗi lượt 3–5 bài, commit theo từng bài (`git add content/blog/<lang>/<slug>.md content/blog/media.json content/blog/shots.json`), ghi Nhật ký bàn giao số bài + slug.
 4. **Câu hỏi có biểu đồ TOEIC Part 3/4**: đề xuất định dạng dữ liệu `graphic` (bảng HTML đơn giản) + giao diện; Claude duyệt phần `web/js/qengine.js` trước khi sửa.
 
 ## Nhật ký bàn giao
