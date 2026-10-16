@@ -35,7 +35,7 @@ const CAP = {
 const ARTICLE = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Why cities are planting forests</title>
 <style>body{margin:0;font:19px/1.75 Georgia,serif;color:#23272a;background:#fbfaf7}nav{display:flex;gap:28px;align-items:center;padding:16px 56px;border-bottom:1px solid #e7e3da;font:600 14px Arial,sans-serif;color:#555}
 nav b{font:800 22px Georgia,serif;color:#111;margin-right:24px;letter-spacing:-.02em}main{max-width:780px;margin:0 auto;padding:30px 32px}.k{font:700 12px Arial,sans-serif;color:#1F7A72;letter-spacing:.12em}
-h1{font:700 40px/1.15 Georgia,serif;margin:6px 0 10px}.by{font:14px Arial,sans-serif;color:#888;margin-bottom:18px}.hero{height:120px;border-radius:10px;margin-bottom:18px;background:linear-gradient(120deg,#2f6b4f,#7fb069 55%,#d8e2a8)}</style></head>
+h1{font:700 40px/1.15 Georgia,serif;margin:6px 0 10px}.by{font:14px Arial,sans-serif;color:#888;margin-bottom:18px}.hero{height:70px;border-radius:10px;margin-bottom:18px;background:linear-gradient(120deg,#2f6b4f,#7fb069 55%,#d8e2a8)}</style></head>
 <body><nav><b>The Daily Planet</b><span>World</span><span>Environment</span><span>Science</span><span>Cities</span></nav><main><div class="k">ENVIRONMENT</div><h1>Why cities are planting forests</h1><div class="by">By Clara Hughes · 6 min read</div><div class="hero"></div>
 <p>Urban planners increasingly argue that trees are not decoration but infrastructure. Dense canopies can lower street temperatures by several degrees, improving the <span id="w">resilience</span> of neighbourhoods during heatwaves.</p>
 <p id="s">Although the initial cost is considerable, the long-term benefits to public health far outweigh the investment.</p>
@@ -49,7 +49,7 @@ body:before{content:"";position:absolute;inset:0;background-image:radial-gradien
 h1{font-size:46px;line-height:1.08;font-weight:800;letter-spacing:-.03em;margin-top:22px}h1 em{font-style:normal;background:linear-gradient(90deg,#FFB054,#F2553B);-webkit-background-clip:text;background-clip:text;color:transparent}
 p.sub{font-size:19px;line-height:1.5;color:rgba(255,255,255,.78);margin-top:18px}ul{list-style:none;padding:0;margin-top:28px;display:grid;gap:14px}li{display:flex;gap:12px;align-items:center;font-size:17px;font-weight:600}
 li i{flex:none;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#FFB054,#F2553B);display:grid;place-items:center;font-style:normal;font-size:14px;color:#0F3D3E;font-weight:800}
-.win{position:absolute;right:48px;top:110px;width:752px;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 40px 80px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.08)}
+.win{position:absolute;right:48px;top:92px;width:752px;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 40px 80px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.08)}
 .bar{height:38px;background:#eef1f0;display:flex;align-items:center;gap:8px;padding:0 14px}.bar span{width:11px;height:11px;border-radius:50%;background:#ff5f57}.bar span:nth-child(2){background:#febc2e}.bar span:nth-child(3){background:#28c840}
 .bar div{margin-left:14px;flex:1;height:24px;border-radius:7px;background:#fff;color:#5b6b6a;font:500 12.5px system-ui,sans-serif;display:flex;align-items:center;padding:0 12px;gap:8px}.bar div:before{content:"🔒";font-size:10px}
 .win img{display:block;width:100%}
@@ -74,7 +74,7 @@ async function frame(page, lang, i, shot, popup = null) {
 async function run(lang) {
   const prof = fs.mkdtempSync(path.join(os.tmpdir(), 'lk-'));
   const ctx = await chromium.launchPersistentContext(prof, {
-    channel: 'chromium', headless: true, locale: lang, viewport: { width: 880, height: 600 }, deviceScaleFactor: 2,
+    channel: 'chromium', headless: true, locale: lang, viewport: { width: 880, height: 660 }, deviceScaleFactor: 2,
     args: [`--disable-extensions-except=${EXT}`, `--load-extension=${EXT}`, `--lang=${lang}`],
   });
   let [sw] = ctx.serviceWorkers(); if (!sw) sw = await ctx.waitForEvent('serviceworker');
@@ -109,7 +109,7 @@ async function run(lang) {
   await pop.goto(base + 'popup.html'); await sleep(2500);
   const s3 = await pop.screenshot();
   // 4. Tab mới
-  const nt = await ctx.newPage(); await nt.setViewportSize({ width: 880, height: 600 });
+  const nt = await ctx.newPage(); await nt.setViewportSize({ width: 880, height: 660 });
   await nt.goto(base + 'newtab.html'); await sleep(2500);
   const s4 = await nt.screenshot();
 
