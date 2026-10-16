@@ -15,7 +15,8 @@ const ID = '[A-Za-z0-9_-]{1,100}'; // không cho '.' → chặn posts/.. (đi ng
 const ROUTES = [
   ['GET', 'accounts'], ['GET', 'posts'], ['GET', `posts/${ID}`], ['GET', `media/${ID}`],
   ['POST', 'media/upload-url'], ['POST', `media/${ID}/complete`],
-  ['POST', 'posts/validate'], ['POST', 'posts'], ['PATCH', `posts/${ID}`],
+  ['POST', 'validate'], ['POST', 'posts/validate'], ['POST', 'posts'], ['PATCH', `posts/${ID}`],
+  ['GET', `posts/${ID}/insights`], ['GET', `tiktok/creator-info/${ID}`], // ngăn chi tiết (số liệu) · biểu mẫu TikTok (quyền riêng tư của creator)
   ['POST', `posts/${ID}/(?:schedule|unschedule|publish-now|retry|cancel)`],
   ['POST', `storage/objects/${ID}/use`],
   ['GET', 'storage/stores'], ['GET', 'storage/objects'],
