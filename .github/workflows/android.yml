@@ -72,6 +72,12 @@ jobs:
             adb logcat -c; adb shell monkey -p com.lexkite.app -c android.intent.category.LAUNCHER 1; sleep 45; adb exec-out screencap -p > shots/android-1-start.png
             adb logcat -d -s chromium:V Capacitor:V Capacitor/Console:V AndroidRuntime:E '*:F' > shots/logcat.txt || true
             adb shell cmd uimode night yes && sleep 4 && adb exec-out screencap -p > shots/android-2-dark.png
+            # Widget màn hình chính: dựng đúng RemoteViews (WidgetPreviewActivity, chỉ bản debug; mỗi dòng chạy riêng nên không dùng biến), tối/sáng × vi/ar (RTL)
+            adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es lang vi && sleep 3 && adb exec-out screencap -p > shots/android-widget-vi-dark.png
+            adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es lang ar && sleep 3 && adb exec-out screencap -p > shots/android-widget-ar-dark.png
+            adb shell cmd uimode night no && sleep 2
+            adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es lang vi && sleep 3 && adb exec-out screencap -p > shots/android-widget-vi-light.png
+            adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es lang ar && sleep 3 && adb exec-out screencap -p > shots/android-widget-ar-light.png
       - uses: actions/upload-artifact@v4
         if: always()
         with:
