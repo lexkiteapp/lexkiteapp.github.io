@@ -346,7 +346,7 @@
     ['transplant', '/trɑːnzˈplɑːnt/', 'n', 'cấy ghép', 'a medical operation in which a new organ is placed inside a patient\'s body', 'He had a kidney transplant last year.', '', '', 'C1', ''],
     ['trauma', '/ˈtrɔːmə/', 'n', 'tổn thương', 'a very severe or upsetting experience', 'You can recover from your trauma.', '', '', 'C1', ''],
     ['triangle', '/ˈtraɪəŋɡəl/', 'n', 'tam giác', 'a closed shape with three straight sides', 'A triangle has three sides.', '', '', 'C1', ''],
-    ['tutor', '/ˈtjuːtəː/', 'n', 'gia sư', 'a teacher', 'She works as an English tutor.', '', '', 'C1', ''],
+    ['tutor', '/ˈtjuːtə/', 'n', 'gia sư', 'a teacher', 'She works as an English tutor.', '', '', 'C1', ''],
     ['upward', '/ˈʌpwəd/', 'adv', 'lên trên', 'moving toward a higher point or position', 'Prices are moving upward again.', '', '', 'C1', ''],
     ['utilize', '/ˈjuːtɪlaɪz/', 'v', 'sử dụng', 'to use something practically for a particular purpose', 'Pietro decided to utilize the opportunity.', '', '', 'C1', ''],
     ['utterance', '/ˈʌtərəns/', 'n', 'lời nói', 'something that is said', 'Each utterance in the dialogue was recorded.', '', '', 'C1', ''],
