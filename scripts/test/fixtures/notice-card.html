@@ -1,0 +1,33 @@
+<!doctype html>
+<!-- Trang mẫu tĩnh cho ext-e2e: bố cục "thẻ thông báo" kiểu bảng điều khiển nhà phát triển (nền sáng / ?dark), CSS reset mạnh, phông hệ thống.
+     Nội dung tự viết – không chép chữ, logo hay CSS của bên nào. Thay cho việc mở trang thật cần đăng nhập. -->
+<html lang="en"><head><meta charset="utf-8"><title>Developer console – notices</title>
+<style>
+  *,*::before,*::after{all:unset;box-sizing:border-box} /* reset rất mạnh: xóa mọi style mặc định */
+  html,body,div,section,header,p,h1,h2,span,a,ul,li,b{display:block}
+  span,a,b{display:inline}
+  html{font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#f5f5f7;color:#1d1d1f;-webkit-font-smoothing:antialiased}
+  body{padding:32px;max-width:980px;margin:0 auto}
+  header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+  h1{font-size:28px;font-weight:700;letter-spacing:-.01em}
+  .card{background:#fff;border-radius:14px;padding:22px 26px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+  h2{font-size:19px;font-weight:600;margin-bottom:8px;display:flex;gap:10px;align-items:center}
+  .tag{display:inline-block;font-size:12px;font-weight:600;padding:2px 10px;border-radius:99px;background:#fff4e5;color:#8a4b00}
+  .tag.ok{background:#e8f6ec;color:#1b6b32}.tag.err{background:#fdecec;color:#a11b1b}
+  p{color:#424245;margin:6px 0;line-height:1.55}
+  a{color:#0066cc;cursor:pointer}a:hover{text-decoration:underline}
+  li{margin:4px 0 4px 18px;list-style:disc;display:list-item;color:#424245}
+  html.dark{background:#000;color:#f5f5f7}html.dark .card{background:#1c1c1e;box-shadow:none}html.dark p,html.dark li{color:#c7c7cc}
+  html.dark a{color:#2997ff}html.dark .tag{background:#3a2a10;color:#ffcf8a}html.dark .tag.ok{background:#12301c;color:#7ee2a0}
+</style>
+<script>if (/[?&]dark\b/.test(location.search)) document.documentElement.classList.add('dark');</script>
+</head><body>
+<header><h1>Notices</h1><a>Manage notifications</a></header>
+<section class="card"><h2>Build processing <span class="tag">In progress</span></h2>
+  <p id="p1">Your latest build is <b id="avail">available</b> for internal testing once processing is complete. Additional <span id="subm">submissions</span> are <span id="req">required</span> before the release can be reviewed.</p>
+  <p><a>View build details</a> · <a>Learn about processing</a></p></section>
+<section class="card"><h2>Agreement update <span class="tag err">Action needed</span></h2>
+  <p>Review the updated terms to keep distributing your apps. The new <span id="lib">library</span> of policies explains how each <span id="feat">feature</span> may be used.</p>
+  <ul><li>Read the summary of changes</li><li>Accept the agreement in your account settings</li></ul></section>
+<section class="card"><h2>Analytics <span class="tag ok">Ready</span></h2><p>Weekly reports are ready to download. Trends show steady growth across all regions.</p></section>
+</body></html>

@@ -41,3 +41,8 @@ Bản đầu tiên phải tạo tay trên dashboard và đặt Visibility ít nh
 7. Chạy thử workflow với `mode = upload` → thấy bản nháp mới trên dashboard là xong.
 
 Lỗi thường gặp: `invalid_grant` ⇒ refresh token hết hạn/bị thu hồi (làm lại bước 5, kiểm consent screen đã *In production*); `fetchStatus` 403/404 ⇒ sai Publisher ID / Item ID hoặc email OAuth không phải chủ item; upload báo version ⇒ tăng `version`.
+
+## 5. Kiểm thử – KHÔNG dùng tài khoản thật của người dùng
+- Không mở trang cần đăng nhập (Apple App Store Connect, Google, ngân hàng, email…) bằng trình duyệt/tài khoản thật của anh Quyền để kiểm thử hay chụp ảnh: tự điều hướng có thể làm phiên đăng nhập bị đăng xuất/khóa (đã xảy ra với App Store Connect 16/10/2026).
+- Cần bố cục giống trang thật → dựng **trang mẫu tĩnh** trong `scripts/test/fixtures/` (chữ tự viết, không chép nội dung/logo/CSS của bên khác) và kiểm bằng `scripts/test/ext-e2e.mjs` trên CI (vd. `fixtures/notice-card.html`: thẻ thông báo sáng/tối, CSS reset mạnh).
+- Trang công khai không đăng nhập (Wikipedia, BBC, GitHub…) thì được dùng trong ext-e2e.

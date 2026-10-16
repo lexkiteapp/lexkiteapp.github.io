@@ -39,6 +39,8 @@ await ctx.route('https://t1.example.com/**', r => r.fulfill({ contentType: 'text
 await ctx.route('https://t2.example.com/**', r => r.fulfill({ contentType: 'text/html', body: CSP_PAGE, headers: { 'Content-Security-Policy': "img-src 'self'" } }));
 await ctx.route('https://t3.example.com/**', r => r.fulfill({ contentType: 'text/html', body: FRAME }));
 await ctx.route('https://t5.example.com/**', r => r.fulfill({ contentType: 'text/html', body: DARK }));
+const NOTICE = fs.readFileSync(new URL('./fixtures/notice-card.html', import.meta.url), 'utf8');
+await ctx.route('https://t6.example.com/**', r => r.fulfill({ contentType: 'text/html', body: NOTICE }));
 await ctx.route('https://t4.example.com/**', r => r.fulfill({ contentType: 'text/html', body: RTL }));
 ctx.on('page', p => {
   p.on('pageerror', e => errors.push(`page ${p.url().slice(0, 60)}: ${e.message}`));
@@ -185,6 +187,20 @@ await dbl(p5, '#w'); await sleep(7000); await shot(p5, 'dark-page');
 { const k = await contrast(p5); rec('trang tối → bảng tra TỐI, tương phản đạt', k && k.dark && !k.bad.length, k ? `dark=${k.dark} ${k.bad.slice(0, 3).join(' | ')}` : 'không hiện'); }
 await p5.close();
 await pg.emulateMedia({ colorScheme: 'light' }); await hide(pg);
+
+// ---------- 3b. Trang mẫu "thẻ thông báo" (CSS reset mạnh, nền sáng + tối) – thay cho trang thật cần đăng nhập ----------
+for (const dark of [false, true]) {
+  const tag = dark ? 'tối' : 'sáng', pn = await ctx.newPage(); await pn.goto('https://t6.example.com/notice' + (dark ? '?dark' : '')); await sleep(1800);
+  await dbl(pn, '#avail'); await sleep(7000); c = await card(pn); await shot(pn, 'notice-' + (dark ? 'dark' : 'light') + '-available');
+  { const k = await contrast(pn); rec(`thẻ thông báo (${tag}): "available" – bảng tra theo nền trang, tương phản ≥ 4.5:1`, k && k.dark === dark && !k.bad.length, k ? `dark=${k.dark} ${k.bad.slice(0, 3).join(' | ')}` : 'không hiện'); }
+  rec(`thẻ thông báo (${tag}): tính từ "available" không ảnh, không ô chữ cái`, c && c.visible && !c.img && !c.letter, c && (c.img || (c.letter ? 'letter' : 'none')));
+  await hide(pn);
+  await dbl(pn, '#lib'); await sleep(8000); c = await card(pn); await shot(pn, 'notice-' + (dark ? 'dark' : 'light') + '-library');
+  { const k = await contrast(pn); rec(`thẻ thông báo (${tag}): danh từ "library" – tương phản ≥ 4.5:1, không ô chữ cái`, k && !k.bad.length && c && !c.letter, k ? `${c && c.img ? 'img' : 'no-img'} ${k.bad.slice(0, 3).join(' | ')}` : 'không hiện'); }
+  const altOk = await pn.evaluate(() => { const r = document.querySelector('ielts-lexi-popup').shadowRoot; const i = r.querySelector('.pic img'); return !i || (i.alt && i.alt.length > 0); });
+  rec(`thẻ thông báo (${tag}): ảnh minh họa có alt`, altOk);
+  await pn.close();
+}
 
 // ---------- 4. Popup ----------
 const pop = await ctx.newPage(); await pop.setViewportSize({ width: 380, height: 600 });
