@@ -27,6 +27,19 @@ Mẫu thẻ:
 
 ## TODO
 
+### [U2] Sửa lỗi giao diện mobile (đo tự động 375px) + vi tương tác chuẩn Duolingo · @antigravity · ưu tiên: CAO NHẤT
+- Lỗi đo được (Claude chạy script đo bố cục trên lexkite.com?sandbox=1&demo=1, bề rộng 375px):
+  1. **#/home**: lời chào "Chào buổi chiều / Đây là kế hoạch của bạn hôm nay" bị ép thành cột hẹp (mỗi dòng 1 chữ) vì chip "IELTS 6.5 · còn 120 ngày" cùng hàng → xếp chip xuống dưới trên màn < 480px.
+  2. **Vùng chạm < 44×44px**: nút 🔊 (#/home, #/review, #/phrases), mục "Tôi" ở thanh dưới (#/goal, #/mistakes, #/settings, #/stats), "Viết" (#/models) → tăng vùng chạm (padding/min-size 44px) không đổi kích thước biểu tượng.
+  3. **#/settings**: phần tử tràn ngang (BUTTON/SPAN trong hàng cài đặt) → wrap/ellipsis.
+  4. **#/stats**: thanh/ô tràn ngang (`I.l1`), chữ < 11.5px (nhãn biểu đồ 3,4,5,6, "▲ 1") → tối thiểu 12px, biểu đồ co theo khung.
+  5. **#/me**: chữ < 11.5px ("0 Đã thuộc", "2d") → ≥ 12px.
+- Nâng cấp cảm giác (Duolingo/Elsa): phản hồi đúng/sai có rung nhẹ (navigator.vibrate trên mobile, tôn trọng prefers-reduced-motion), hiệu ứng nảy nhẹ cho đáp án đúng, lắc cho sai; **màn kết thúc phiên ôn** có tổng kết (số thẻ, % đúng, XP, chuỗi ngày, Kit ăn mừng) + nút "Học tiếp" rõ ràng; skeleton thay vì "Đang tải…".
+- File/khu vực: `web/css/style.css`, markup trong `web/js/app.js`/`web/js/study.js`/`web/js/hubs.js` CHỈ phần giao diện liên quan (ghi rõ trong Báo cáo). Chuỗi mới qua `t()` + en.
+- Tiêu chí xong: chạy lại script đo (Claude sẽ chạy) → 0 lỗi squeezed/overflow, 0 nút < 44px ở các trang trên; `npm test` PASS (axe 0 lỗi nghiêm trọng); ảnh trước/sau mô tả trong Báo cáo.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
 ### [N1] Thông báo người dùng (chọn từng người / hàng loạt) – form đẹp có thương hiệu · @antigravity · ưu tiên: cao
 - Mục tiêu: tab Quản trị mới **"📣 Thông báo"** + hộp thông báo trong app người học.
   - **Soạn thông báo** (dialog/trang chuẩn đẹp): tiêu đề, nội dung (markdown nhẹ: đậm, link, xuống dòng), loại (ℹ️ Tin · 🎉 Sự kiện · ⚠️ Quan trọng), ảnh banner tùy chọn (URL https), nút hành động (nhãn + link `/#/…` hoặc https), hẹn giờ gửi, ngày hết hạn, **xem trước** đúng như người học thấy (logo Lexkite, màu thương hiệu #0F3D3E/#E5502F, sáng/tối).
