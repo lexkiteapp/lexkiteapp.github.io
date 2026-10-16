@@ -30,7 +30,7 @@
       { t: 'verb', q: "The government ___ (just/announce) a new tax on plastic bags.", a: ["has just announced"], ex: "Just + hiện tại hoàn thành: việc vừa mới xảy ra." },
       { t: 'fill', q: "We have lived in this city ___ 2015.", a: ["since"], ex: "Since + mốc thời gian; for + khoảng thời gian." },
       { t: 'rewrite', q: "I started learning English 3 years ago.", start: "I have", a: ["I have learned English for 3 years.", "I have learnt English for 3 years.", "I have learned English for three years.", "I have learnt English for three years.", "I have been learning English for 3 years.", "I have been learning English for three years."], ex: "Bắt đầu … ago → have + V3 + for + khoảng thời gian." },
-      { t: 'rewrite', q: "This is the first time I have eaten sushi.", start: "I have never", a: ["I have never eaten sushi before."], ex: "This is the first time … = have never + V3 + before." },
+      { t: 'rewrite', q: "This is the first time I have eaten sushi.", start: "I have never", a: ["I have never eaten sushi before."], ex: 'This is the first time + S + have V3 (lần đầu làm gì) ↔ S + have never + V3 + before (chưa từng… trước đây).' },
       { t: 'rewrite', q: "The last time she saw her grandparents was in June.", start: "She has not", a: ["She has not seen her grandparents since June."], ex: "The last time … was in + mốc → has not + V3 + since + mốc." },
       { t: 'combine', q: "She moved to Hanoi in 2020. She still lives there.", hint: "since", start: "She has", a: ["She has lived in Hanoi since 2020.", "She has been living in Hanoi since 2020."], ex: "Hành động bắt đầu trong quá khứ và còn tiếp diễn → hiện tại hoàn thành + since." },
       { t: 'combine', q: "Tom lost his keys. He cannot get into his flat now.", hint: "so", start: "Tom has", a: ["Tom has lost his keys, so he cannot get into his flat now.", "Tom has lost his keys, so he cannot get into his flat."], ex: "Kết quả còn ảnh hưởng đến hiện tại → hiện tại hoàn thành." },
@@ -43,7 +43,7 @@
       { t: 'verb', q: "You look exhausted. ___ (you/work) late again?", a: ["Have you been working"], ex: "Câu hỏi: Have/Has + S + been + V-ing?" },
       { t: 'rewrite', q: "She started waiting for the bus 40 minutes ago.", start: "She has been", a: ["She has been waiting for the bus for 40 minutes.", "She has been waiting for the bus for forty minutes."], ex: "Started … ago → has been + V-ing + for + khoảng thời gian." },
       { t: 'rewrite', q: "We began building the new library in 2022, and we are still building it.", start: "We have been", a: ["We have been building the new library since 2022."], ex: "Bắt đầu năm … và vẫn đang tiếp tục → have been + V-ing + since." },
-      { t: 'rewrite', q: "When did you start studying for IELTS?", start: "How long have you", a: ["How long have you been studying for IELTS?", "How long have you studied for IELTS?"], ex: "When did you start…? ↔ How long have you been + V-ing?" },
+      { t: 'rewrite', q: "When did you start studying for IELTS?", start: "How long have you", a: ["How long have you been studying for IELTS?", "How long have you studied for IELTS?"], ex: 'Hỏi thời điểm bắt đầu (When did you start…?) ↔ hỏi khoảng thời gian kéo dài đến nay: How long have you been + V-ing?' },
       { t: 'combine', q: "His clothes are dirty. He has been playing football.", hint: "because", a: ["His clothes are dirty because he has been playing football."], ex: "Kết quả hiện tại do một quá trình vừa diễn ra → has been + V-ing." },
       { t: 'combine', q: "I started reading this report two hours ago. I am still reading it.", start: "I have been", a: ["I have been reading this report for two hours.", "I have been reading this report for 2 hours."], ex: "Hai câu gộp lại bằng have been + V-ing + for." },
       { t: 'error', parts: ["I", "have been knowing", "Linh", "for ten years."], w: 1, fix: "have known", ex: "Know là động từ trạng thái, không dùng dạng tiếp diễn." },
@@ -53,7 +53,7 @@
       { t: 'verb', q: "Alexander Fleming ___ (discover) penicillin in 1928.", a: ["discovered"], ex: "Sự việc kết thúc tại mốc quá khứ xác định → quá khứ đơn." },
       { t: 'verb', q: "We ___ (not/go) out last night because it was too cold.", a: ["did not go"], ex: "Phủ định quá khứ đơn: did not + V nguyên mẫu." },
       { t: 'verb', q: "Unemployment ___ (fall) sharply in 2010.", a: ["fell"], ex: "Fall là động từ bất quy tắc: fall – fell – fallen." },
-      { t: 'rewrite', q: "I haven't seen him for two years.", start: "The last time I", a: ["The last time I saw him was two years ago.", "The last time I saw him was 2 years ago."], ex: "Haven't + V3 + for … → The last time + S + V2 + was … ago." },
+      { t: 'rewrite', q: "I haven't seen him for two years.", start: "The last time I", a: ["The last time I saw him was two years ago.", "The last time I saw him was 2 years ago."], ex: 'S + haven\'t + V3 + for + khoảng thời gian ↔ The last time + S + V2 + was + khoảng thời gian + ago (lần cuối… là cách đây…).' },
       { t: 'rewrite', q: "She has worked at the bank since 2019.", start: "She started", a: ["She started working at the bank in 2019.", "She started to work at the bank in 2019."], ex: "Has + V3 + since + năm → started + V-ing + in + năm." },
       { t: 'rewrite', q: "It's five years since they got married.", start: "They got married", a: ["They got married five years ago.", "They got married 5 years ago."], ex: "It's + khoảng thời gian + since + V2 → S + V2 + … ago." },
       { t: 'combine', q: "I arrived at the station. Then I bought a ticket.", hint: "When", start: "When", a: ["When I arrived at the station, I bought a ticket."], ex: "Hai hành động nối tiếp trong quá khứ đều dùng quá khứ đơn." },
@@ -78,7 +78,7 @@
       { t: 'verb', q: "She failed the test because she ___ (not/revise).", a: ["had not revised"], ex: "Nguyên nhân xảy ra trước kết quả trong quá khứ → had not + V3." },
       { t: 'verb', q: "By 1990, the population of the city ___ (double).", a: ["had doubled"], ex: "By + mốc quá khứ → quá khứ hoàn thành." },
       { t: 'rewrite', q: "He finished his homework and then went out.", start: "After he had", a: ["After he had finished his homework, he went out."], ex: "After + had V3, + quá khứ đơn." },
-      { t: 'rewrite', q: "It was the first time I had seen the sea.", start: "I had never", a: ["I had never seen the sea before."], ex: "It was the first time … = had never + V3 + before." },
+      { t: 'rewrite', q: "It was the first time I had seen the sea.", start: "I had never", a: ["I had never seen the sea before."], ex: 'It was the first time + S + had V3 ↔ S + had never + V3 + before (chưa từng… trước đó).' },
       { t: 'rewrite', q: "She left before I arrived.", start: "By the time I arrived, she", a: ["By the time I arrived, she had left.", "By the time I arrived, she had already left."], ex: "By the time + quá khứ đơn, + quá khứ hoàn thành." },
       { t: 'combine', q: "The guests left. Then we cleaned the house.", hint: "after", start: "After", a: ["After the guests had left, we cleaned the house.", "After the guests left, we cleaned the house."], ex: "Hành động xảy ra trước dùng had + V3 sau after." },
       { t: 'combine', q: "The train left. Then we got to the station.", hint: "When", start: "When we got to the station,", a: ["When we got to the station, the train had left.", "When we got to the station, the train had already left."], ex: "Hành động xảy ra trước (tàu chạy) dùng quá khứ hoàn thành." },
@@ -207,15 +207,15 @@
     ],
     'passive-reporting-causative': [
       { t: 'verb', q: "Coffee is said ___ (originate) in Ethiopia.", a: ["to have originated"], ex: "Sự việc xảy ra trước lúc nói → S + is said + to have V3." },
-      { t: 'verb', q: "I had my eyes ___ (test) yesterday.", a: ["tested"], ex: "Have something done: have + O + V3." },
+      { t: 'verb', q: "I had my eyes ___ (test) yesterday.", a: ["tested"], ex: 'Thể nhờ bảo: have + tân ngữ + V3 (nhờ người khác làm) → had my eyes tested.' },
       { t: 'verb', q: "The suspect is believed ___ (hide) in the forest now.", a: ["to be hiding"], ex: "Đang diễn ra lúc nói → is believed + to be V-ing." },
-      { t: 'rewrite', q: "People say that green tea is good for health.", start: "Green tea is said", a: ["Green tea is said to be good for health."], ex: "People say that S + V → S + is said + to V." },
-      { t: 'rewrite', q: "People believe that the fire was caused by a cigarette.", start: "It is believed", a: ["It is believed that the fire was caused by a cigarette.", "It is believed the fire was caused by a cigarette."], ex: "People believe that … → It is believed that …" },
+      { t: 'rewrite', q: "People say that green tea is good for health.", start: "Green tea is said", a: ["Green tea is said to be good for health."], ex: 'Bị động tường thuật: People say that S + V → S + is said + to V (người ta nói rằng…) → Green tea is said to be good for health.' },
+      { t: 'rewrite', q: "People believe that the fire was caused by a cigarette.", start: "It is believed", a: ["It is believed that the fire was caused by a cigarette.", "It is believed the fire was caused by a cigarette."], ex: 'Bị động tường thuật với chủ ngữ giả: People believe that… → It is believed that… (người ta tin rằng…).' },
       { t: 'rewrite', q: "A mechanic repaired my car last week.", start: "I had my car", a: ["I had my car repaired last week.", "I had my car repaired by a mechanic last week."], ex: "Nhờ người khác làm → have + O + V3." },
-      { t: 'rewrite', q: "Experts expect that the economy will grow by 3%.", start: "The economy is expected", a: ["The economy is expected to grow by 3%."], ex: "Experts expect that … → S + is expected + to V." },
+      { t: 'rewrite', q: "Experts expect that the economy will grow by 3%.", start: "The economy is expected", a: ["The economy is expected to grow by 3%."], ex: 'Bị động tường thuật: Experts expect that S + will V → S + is expected + to V → The economy is expected to grow by 3%.' },
       { t: 'rewrite', q: "Someone is going to cut my hair tomorrow.", start: "I am going to have my hair", a: ["I am going to have my hair cut tomorrow."], ex: "Thể sai khiến: have + O + V3 (cut – cut – cut)." },
       { t: 'error', parts: ["She", "is reported", "to win", "the award last year."], w: 2, fix: "to have won", ex: "Sự việc trong quá khứ → to have + V3." },
-      { t: 'error', parts: ["We", "had", "the roof", "repair after the storm."], w: 3, fix: "repaired after the storm.", ex: "Have + O + V3: had the roof repaired." }
+      { t: 'error', parts: ["We", "had", "the roof", "repair after the storm."], w: 3, fix: "repaired after the storm.", ex: 'Thể nhờ bảo: have + tân ngữ + V3 → had the roof repaired (mái nhà được người khác sửa), không dùng V nguyên mẫu repair.' }
     ],
     'conditionals-0-1': [
       { t: 'verb', q: "If you heat ice, it ___ (melt).", a: ["melts"], ex: "Loại 0 (sự thật): If + hiện tại đơn, hiện tại đơn." },
@@ -256,7 +256,7 @@
     'reported-speech': [
       { t: 'verb', q: "She said, “I am tired.” → She said that she ___ (be) tired.", a: ["was"], ex: "Lùi thì: am → was." },
       { t: 'verb', q: "He said, “I have finished the report.” → He said he ___ (finish) the report.", a: ["had finished"], ex: "Lùi thì: hiện tại hoàn thành → quá khứ hoàn thành." },
-      { t: 'fill', q: "He said, “I will call you tomorrow.” → He said he would call me the ___ day.", a: ["next", "following"], ex: "Tomorrow → the next day / the following day." },
+      { t: 'fill', q: "He said, “I will call you tomorrow.” → He said he would call me the ___ day.", a: ["next", "following"], ex: 'Khi tường thuật, tomorrow đổi thành the next day / the following day (ngày hôm sau).' },
       { t: 'rewrite', q: "“I am working on a new project,” said Lan.", start: "Lan said that she", a: ["Lan said that she was working on a new project."], ex: "Hiện tại tiếp diễn lùi thành quá khứ tiếp diễn; I → she." },
       { t: 'rewrite', q: "“Where do you live?” the officer asked me.", start: "The officer asked me where", a: ["The officer asked me where I lived."], ex: "Câu hỏi Wh-: giữ từ để hỏi, đưa về trật tự S + V và lùi thì." },
       { t: 'rewrite', q: "“Don't touch the screen,” the technician told us.", start: "The technician told us", a: ["The technician told us not to touch the screen."], ex: "Mệnh lệnh phủ định → told + O + not to V." },
@@ -266,15 +266,15 @@
       { t: 'error', parts: ["He", "said me", "that he", "was busy."], w: 1, fix: "told me", ex: "Say không đi trực tiếp với tân ngữ người; dùng told me." }
     ],
     'gerund-infinitive': [
-      { t: 'verb', q: "I enjoy ___ (read) science fiction.", a: ["reading"], ex: "Enjoy + V-ing." },
-      { t: 'verb', q: "The government has decided ___ (ban) single-use plastics.", a: ["to ban"], ex: "Decide + to V." },
+      { t: 'verb', q: "I enjoy ___ (read) science fiction.", a: ["reading"], ex: 'enjoy + V-ing (thích làm gì) → reading.' },
+      { t: 'verb', q: "The government has decided ___ (ban) single-use plastics.", a: ["to ban"], ex: 'decide + to V (quyết định làm gì) → to ban.' },
       { t: 'verb', q: "I'll never forget ___ (see) the Eiffel Tower for the first time.", a: ["seeing"], ex: "Forget + V-ing: quên một việc đã làm trong quá khứ." },
       { t: 'rewrite', q: "It is difficult to learn a new language.", start: "Learning", a: ["Learning a new language is difficult."], ex: "V-ing có thể làm chủ ngữ của câu." },
       { t: 'rewrite', q: "He stopped smoking two years ago.", start: "He gave up", a: ["He gave up smoking two years ago."], ex: "Give up + V-ing = bỏ hẳn việc gì." },
       { t: 'rewrite', q: "Please remember that you must lock the door.", start: "Please remember", a: ["Please remember to lock the door."], ex: "Remember + to V: nhớ phải làm việc gì (chưa làm)." },
       { t: 'rewrite', q: "I'm sorry I said those things to you.", start: "I regret", a: ["I regret saying those things to you.", "I regret having said those things to you."], ex: "Regret + V-ing: hối tiếc về việc đã làm." },
-      { t: 'rewrite', q: "She said “No, I won't answer the question.”", start: "She refused", a: ["She refused to answer the question."], ex: "Refuse + to V." },
-      { t: 'error', parts: ["Would you mind", "to close", "the window,", "please?"], w: 1, fix: "closing", ex: "Mind + V-ing." },
+      { t: 'rewrite', q: "She said “No, I won't answer the question.”", start: "She refused", a: ["She refused to answer the question."], ex: 'Lời từ chối được tường thuật bằng refuse + to V (từ chối làm gì) → She refused to answer the question.' },
+      { t: 'error', parts: ["Would you mind", "to close", "the window,", "please?"], w: 1, fix: "closing", ex: 'Would you mind + V-ing? (phiền bạn… được không) → closing, không dùng to close.' },
       { t: 'error', parts: ["We", "are looking forward", "to meet", "you next week."], w: 2, fix: "to meeting", ex: "Look forward to + V-ing (to là giới từ)." }
     ]
   };

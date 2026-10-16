@@ -9,7 +9,9 @@ export function loadContent() {
   ctx.self = ctx; ctx.window = ctx; ctx.t = (s, v) => (v ? s.replace(/\{(\w+)\}/g, (m, k) => (v[k] != null ? v[k] : m)) : s);
   vm.createContext(ctx);
   const files = ['data.js', 'lexis.js', 'structures.js', 'readings-more.js'];
-  for (const d of DATA_DIRS) for (const f of fs.readdirSync(path.join(W, d)).sort()) if (f.endsWith('.js')) files.push(d + '/' + f);
+  // grammar: đúng thứ tự app nạp (web/js/app.js) – drills-*.js gắn bài tập vào chương đã có
+  const GORDER = ['tenses', 'verbs', 'sentences', 'foundation', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'check'];
+  for (const d of DATA_DIRS) for (const f of fs.readdirSync(path.join(W, d)).sort((a, b) => d === 'grammar' ? (GORDER.indexOf(a.slice(0, -3)) + 1 || 99) - (GORDER.indexOf(b.slice(0, -3)) + 1 || 99) : a < b ? -1 : 1)) if (f.endsWith('.js')) files.push(d + '/' + f);
   for (const f of files) { try { vm.runInContext(fs.readFileSync(path.join(W, f), 'utf8'), ctx, { filename: f }); } catch (e) { ctx.__errors = [...(ctx.__errors || []), f + ': ' + e.message]; } }
   return ctx;
 }
