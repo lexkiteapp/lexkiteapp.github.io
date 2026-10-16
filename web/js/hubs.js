@@ -156,9 +156,11 @@
       openMistakes = (list || []).filter(x => !x.fixed).length;
     } catch (e) { openMistakes = 0; }
 
+    // Không để mạng chậm chặn hiển thị: chờ tối đa 0,5 s (kết quả đã đệm theo phiên nên lần sau tức thì)
+    const cap = p => Promise.race([p, new Promise(r => setTimeout(() => r(false), 500))]);
     const [isAdmin, blogOn] = await Promise.all([
-      App.isAdmin ? App.isAdmin().catch(() => false) : false,
-      App.blogLive ? App.blogLive().catch(() => false) : false
+      cap(App.isAdmin ? App.isAdmin().catch(() => false) : false),
+      cap(App.blogLive ? App.blogLive().catch(() => false) : false)
     ]);
 
     const row = (href, ic, label, hint = '', ext = false, badge = '') => `
