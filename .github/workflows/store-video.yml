@@ -1,32 +1,46 @@
-# Video giới thiệu add-on (scripts/store-video.mjs) – quay add-on thật, ghép bằng ffmpeg → nhánh "store-video" (tải về để đăng YouTube).
+# Video giới thiệu add-on (scripts/store-video.mjs) – quay add-on thật, ghép bằng ffmpeg; 15 ngôn ngữ dựng song song
+# → gom vào nhánh "store-video" (tải về để đăng YouTube / Chrome Web Store).
 name: Video giới thiệu add-on
 on:
   workflow_dispatch:
     inputs:
-      langs: { description: 'Ngôn ngữ (cách nhau dấu phẩy)', default: 'en,vi' }
+      langs: { description: 'Ngôn ngữ (JSON)', default: '["en","vi","es","pt","ja","ko","zh","id","de","fr","ar","hi","ru","th","tr"]' }
   push:
     branches: [main]
-    paths: ['.github/workflows/store-video.yml', 'scripts/store-video.mjs']
+    paths: ['.github/workflows/store-video.yml', 'scripts/store-video.mjs', 'scripts/store-copy.mjs']
 permissions:
   contents: write
 jobs:
   video:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        lang: ${{ fromJSON(inputs.langs || '["en","vi","es","pt","ja","ko","zh","id","de","fr","ar","hi","ru","th","tr"]') }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - name: Dựng video
+      - name: Dựng video ${{ matrix.lang }}
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1
           npx playwright install --with-deps chromium
           sudo apt-get install -y -qq ffmpeg fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core >/dev/null
           bash scripts/build-extension.sh
-          for l in $(echo "${{ inputs.langs || 'en,vi' }}" | tr ',' ' '); do LANG_V=$l node scripts/store-video.mjs /tmp/store-video; done
+          LANG_V=${{ matrix.lang }} node scripts/store-video.mjs /tmp/store-video
+      - uses: actions/upload-artifact@v4
+        with: { name: 'video-${{ matrix.lang }}', path: /tmp/store-video/, retention-days: 7 }
+  publish:
+    needs: video
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with: { path: /tmp/store-video, pattern: 'video-*', merge-multiple: true }
       - name: Lưu vào nhánh store-video
         run: |
-          cd /tmp/store-video && git init -q && git checkout -q -b store-video
+          cd /tmp/store-video && ls -la && git init -q && git checkout -q -b store-video
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
           git add . && git commit -qm "Video giới thiệu $(date -u +%F)"
           git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" store-video

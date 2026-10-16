@@ -20,12 +20,16 @@ async function uiDict(lang) {
   return uiDicts[lang];
 }
 let XD = {};
-async function initContextMenus() {
-  try {
+// Dựng menu chuột phải tuần tự: onInstalled và đổi ngôn ngữ có thể gọi cùng lúc → removeAll/create đan xen gây lỗi "duplicate id"
+let menuQ = Promise.resolve();
+function initContextMenus() {
+  menuQ = menuQ.then(async () => {
     await chrome.contextMenus.removeAll();
-    chrome.contextMenus.create({ id: 'lexi-lookup', title: tx('Tra từ “%s” với Lexkite'), contexts: ['selection'] });
-    chrome.contextMenus.create({ id: 'lexi-translate', title: tx('Dịch đoạn đã chọn'), contexts: ['selection'] });
-  } catch (e) { /* contextMenus error */ }
+    const add = o => new Promise(res => chrome.contextMenus.create(o, () => { void chrome.runtime.lastError; res(); }));
+    await add({ id: 'lexi-lookup', title: tx('Tra từ “%s” với Lexkite'), contexts: ['selection'] });
+    await add({ id: 'lexi-translate', title: tx('Dịch đoạn đã chọn'), contexts: ['selection'] });
+  }).catch(() => { /* contextMenus error */ });
+  return menuQ;
 }
 const setLang = l => { if (!l) return; UI_LANG = l; uiDict(l).then(d => { XD = d; initContextMenus(); }); };
 chrome.storage.local.get('uiLang').then(r => setLang(pickLang(r.uiLang) || UI_LANG)).catch(() => {});

@@ -6,6 +6,7 @@ import { execFileSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 import os from 'os';
+import { CAP, VIDEO } from './store-copy.mjs';
 
 const OUT = path.resolve(process.argv[2] || 'store-video');
 const TMP = fs.mkdtempSync(path.join(os.tmpdir(), 'lkv-'));
@@ -19,30 +20,7 @@ const ICON = 'data:image/svg+xml;base64,' + fs.readFileSync('web/icons/icon.svg'
 const FONT = '<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&display=block" rel="stylesheet">';
 const ff = args => execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...args], { stdio: 'inherit' });
 
-const T = {
-  en: {
-    intro: ['Learn English words<br><em>while you browse.</em>', 'The free vocabulary extension for IELTS, TOEIC & everyday English'],
-    s: [
-      ['On any website', 'Double-click.<br><em>Understand instantly.</em>', 'IPA, audio, meanings and examples – right where you read.'],
-      ['Translate & learn grammar', 'Select a sentence.<br><em>See how it works.</em>', 'Instant translation plus the grammar structures inside it.'],
-      ['Toolbar popup', 'Your daily study,<br><em>one click away.</em>', 'Cards due today, quick lookup and a 1-minute review.'],
-      ['New tab', 'Learn a word<br><em>every new tab.</em>', 'A flashcard from your own deck, at the right moment.'],
-      ['Full study app included', 'Remember words<br><em>for good.</em>', 'FSRS spaced repetition, 6,000+ words, IELTS & TOEIC practice.'],
-    ],
-    outro: ['Add to Chrome –<br><em>it’s free.</em>', 'lexkite.com'],
-  },
-  vi: {
-    intro: ['Học từ vựng tiếng Anh<br><em>ngay khi lướt web.</em>', 'Tiện ích từ vựng miễn phí cho IELTS, TOEIC và tiếng Anh hằng ngày'],
-    s: [
-      ['Trên mọi trang web', 'Bấm đúp vào từ.<br><em>Hiểu ngay lập tức.</em>', 'Phiên âm, phát âm, nghĩa và ví dụ ngay tại chỗ bạn đọc.'],
-      ['Dịch & học ngữ pháp', 'Bôi đen một câu.<br><em>Hiểu cả cấu trúc.</em>', 'Dịch tức thì, kèm giải thích cấu trúc ngữ pháp trong câu.'],
-      ['Cửa sổ tiện ích', 'Việc học mỗi ngày,<br><em>chỉ một cú bấm.</em>', 'Thẻ cần ôn, tra nhanh và ôn 1 phút.'],
-      ['Tab mới', 'Mỗi tab mới,<br><em>thêm một từ.</em>', 'Một thẻ từ chính sổ của bạn, đúng thời điểm.'],
-      ['Kèm ứng dụng học đầy đủ', 'Nhớ từ vựng<br><em>thật lâu.</em>', 'Lặp lại ngắt quãng FSRS, 6.000+ từ, luyện IELTS & TOEIC.'],
-    ],
-    outro: ['Thêm vào Chrome –<br><em>miễn phí.</em>', 'lexkite.com'],
-  },
-}[LANG];
+const T = { ...VIDEO[LANG], s: CAP[LANG].map(([k, h, p]) => [k, h, p]) };
 
 const ARTICLE = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Why cities are planting forests</title>
 <style>body{margin:0;font:21px/1.75 Georgia,serif;color:#23272a;background:#fbfaf7}nav{display:flex;gap:28px;align-items:center;padding:16px 56px;border-bottom:1px solid #e7e3da;font:600 15px Arial,sans-serif;color:#555}
@@ -63,7 +41,7 @@ const CURSOR = `(() => { const add = () => { if (document.getElementById('lk-cur
   if (document.documentElement) add(); document.addEventListener('DOMContentLoaded', add); })();`;
 
 const BG = `background:radial-gradient(1300px 700px at 92% -10%,rgba(255,176,84,.30),transparent 60%),radial-gradient(1000px 700px at -10% 110%,rgba(31,122,114,.55),transparent 60%),linear-gradient(160deg,#0B3233,#0F3D3E 45%,#123f40);`;
-const BASE_CSS = `*{box-sizing:border-box;margin:0}body{width:${CW}px;height:${CH}px;overflow:hidden;font-family:"Be Vietnam Pro","Noto Sans CJK JP",system-ui,sans-serif;color:#fff;${BG}position:relative}
+const BASE_CSS = `*{box-sizing:border-box;margin:0}body{width:${CW}px;height:${CH}px;overflow:hidden;font-family:"Be Vietnam Pro","Noto Sans","Noto Sans Arabic","Noto Sans Devanagari","Noto Sans Thai","Noto Sans CJK JP",system-ui,sans-serif;color:#fff;${BG}position:relative}
 em{font-style:normal;background:linear-gradient(90deg,#FFB054,#F2553B);-webkit-background-clip:text;background-clip:text;color:transparent}
 .brand{position:absolute;left:96px;top:72px;display:flex;align-items:center;gap:16px;font-weight:800;font-size:36px;letter-spacing:-.02em}.brand img{width:62px;height:62px;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,.3)}.brand b{color:#FFB054}
 .txt{position:absolute;left:96px;top:300px;width:520px}.kick{display:inline-block;font-size:19px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#FFB054;background:rgba(255,176,84,.12);border:1px solid rgba(255,176,84,.35);padding:8px 16px;border-radius:99px}
@@ -81,7 +59,7 @@ async function card(page, file, body) {
   await page.evaluate(() => document.fonts.ready); await sleep(300);
   await page.screenshot({ path: file });
 }
-const sceneBg = (i, url, extra = '') => { const [k, h, p] = T.s[i]; return `<div class="brand"><img src="${ICON}"><span>lex<b>kite</b></span></div><div class="txt"><span class="kick">${k}</span><h1>${h}</h1><p>${p}</p></div>${extra}<div class="win"><div class="bar"><span></span><span></span><span></span><div>🔒 ${url}</div></div></div>`; };
+const sceneBg = (i, url, extra = '') => { const [k, h, p] = T.s[i]; return `<div class="brand"><img src="${ICON}"><span>lex<b>kite</b></span></div><div class="txt"${LANG === 'ar' ? ' dir="rtl" style="text-align:right"' : ''}><span class="kick">${k}</span><h1>${h}</h1><p>${p}</p></div>${extra}<div class="win"><div class="bar"><span></span><span></span><span></span><div>🔒 ${url}</div></div></div>`; };
 
 // Ghép 1 cảnh: nền PNG + đoạn video [ss, ss+d] đặt vào khung, mờ dần đầu/cuối
 function compose(bg, vid, ss, d, out, box = WIN) {
@@ -89,9 +67,10 @@ function compose(bg, vid, ss, d, out, box = WIN) {
     `[1:v]scale=${box.w}:${box.h}:flags=lanczos,setsar=1[v];[0:v][v]overlay=${box.x}:${box.y}:shortest=1,fps=${FPS},format=yuv420p,fade=t=in:st=0:d=0.35,fade=t=out:st=${(d - 0.35).toFixed(2)}:d=0.35`,
     '-r', String(FPS), '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-an', out]);
 }
-function still(png, d, out) {
-  ff(['-loop', '1', '-t', String(d), '-i', png, '-vf', `fps=${FPS},format=yuv420p,zoompan=z='min(zoom+0.0006,1.04)':d=${Math.round(d * FPS)}:s=${CW}x${CH}:fps=${FPS},fade=t=in:st=0:d=0.4,fade=t=out:st=${(d - 0.4).toFixed(2)}:d=0.4`,
-    '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-an', out]);
+function still(png, d, out) { // 1 ảnh → d giây, phóng to chậm (zoompan trên 1 khung duy nhất, phóng 2× trước để không rung)
+  const n = Math.round(d * FPS);
+  ff(['-i', png, '-vf', `scale=${CW * 2}:${CH * 2},zoompan=z='1+0.035*on/${n}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=${n}:s=${CW}x${CH}:fps=${FPS},format=yuv420p,fade=t=in:st=0:d=0.4,fade=t=out:st=${(d - 0.4).toFixed(2)}:d=0.4`,
+    '-frames:v', String(n), '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-an', out]);
 }
 
 const prof = fs.mkdtempSync(path.join(os.tmpdir(), 'lk-'));
@@ -111,11 +90,11 @@ for (const p of ctx.pages()) if (p.url().startsWith(base)) await p.close().catch
 
 // Dữ liệu mẫu + làm nóng bộ đệm tra từ/dịch (cảnh quay không phải chờ mạng)
 const warm = await ctx.newPage();
-await warm.goto(base + `app/index.html?demo=1&hl=${LANG}#/home`); await sleep(5000);
+await warm.goto(base + `app/index.html?demo=1&hl=${LANG}#/home`, { waitUntil: 'domcontentloaded' }); await sleep(5000);
 await setSettings({ selectMode: 'off', markKnown: false, markAcademic: false });
-await warm.goto('https://news.example.com/a'); await sleep(2000); await warm.dblclick('#w'); await sleep(9000);
+await warm.goto('https://news.example.com/a', { waitUntil: 'domcontentloaded' }); await sleep(2000); await warm.dblclick('#w'); await sleep(9000);
 await setSettings({ selectMode: 'auto' });
-await warm.goto('https://news.example.com/a'); await sleep(2000);
+await warm.goto('https://news.example.com/a', { waitUntil: 'domcontentloaded' }); await sleep(2000);
 { const b = await warm.locator('#s').boundingBox(); await warm.mouse.move(b.x + 1, b.y + 8); await warm.mouse.down(); await warm.mouse.move(b.x + b.width - 2, b.y + b.height - 8, { steps: 10 }); await warm.mouse.up(); }
 await sleep(9000); await warm.close();
 const articleShot = path.join(TMP, 'article.png');
@@ -132,7 +111,7 @@ async function record(fn) {
 // 1. Bấm đúp tra từ
 await setSettings({ selectMode: 'off' });
 scenes.push({ i: 0, url: 'dailyplanet.com/environment', ...await record(async (p, mark) => {
-  await p.goto('https://news.example.com/cities-forests'); await sleep(1800);
+  await p.goto('https://news.example.com/cities-forests', { waitUntil: 'domcontentloaded' }); await sleep(1800);
   const ss = mark(); await p.mouse.move(300, 650); await sleep(300);
   const b = await p.locator('#w').boundingBox(); await p.mouse.move(b.x + b.width / 2, b.y + b.height / 2, { steps: 30 }); await sleep(350);
   await p.mouse.dblclick(b.x + b.width / 2, b.y + b.height / 2); await sleep(4200);
@@ -143,7 +122,7 @@ scenes.push({ i: 0, url: 'dailyplanet.com/environment', ...await record(async (p
 // 2. Bôi đen câu → dịch + cấu trúc
 await setSettings({ selectMode: 'auto' });
 scenes.push({ i: 1, url: 'dailyplanet.com/environment', ...await record(async (p, mark) => {
-  await p.goto('https://news.example.com/cities-forests'); await sleep(1800);
+  await p.goto('https://news.example.com/cities-forests', { waitUntil: 'domcontentloaded' }); await sleep(1800);
   const ss = mark(); const b = await p.locator('#s').boundingBox();
   await p.mouse.move(200, 700); await p.mouse.move(b.x + 1, b.y + 9, { steps: 25 }); await sleep(250);
   await p.mouse.down(); await p.mouse.move(b.x + b.width - 2, b.y + b.height - 9, { steps: 45 }); await p.mouse.up();
@@ -154,7 +133,7 @@ scenes.push({ i: 1, url: 'dailyplanet.com/environment', ...await record(async (p
 const popCtxPage = async () => { const p = await ctx.newPage(); await p.setViewportSize({ width: 380, height: 600 }); return p; };
 {
   const page = await popCtxPage(); const t0 = Date.now(); const mark = () => (Date.now() - t0) / 1000;
-  await page.goto(base + 'popup.html'); await sleep(1800);
+  await page.goto(base + 'popup.html', { waitUntil: 'domcontentloaded' }); await sleep(1800);
   const ss = mark(); await page.mouse.move(330, 560); await sleep(300);
   const q = page.locator('#qCard'); if (await q.count()) { const b = await q.boundingBox(); await page.mouse.move(b.x + b.width / 2, b.y + b.height / 2, { steps: 25 }); await sleep(400); await page.mouse.click(b.x + b.width / 2, b.y + b.height / 2); await sleep(1600); }
   const r = page.locator('#review'); { const b = await r.boundingBox(); await page.mouse.move(b.x + b.width / 2, b.y + b.height / 2, { steps: 20 }); } await sleep(1500);
@@ -163,7 +142,7 @@ const popCtxPage = async () => { const p = await ctx.newPage(); await p.setViewp
 }
 // 4. Tab mới: lật thẻ → "Đã nhớ"
 scenes.push({ i: 3, url: 'New Tab', ...await record(async (p, mark) => {
-  await p.goto(base + 'newtab.html'); await sleep(1800);
+  await p.goto(base + 'newtab.html', { waitUntil: 'domcontentloaded' }); await sleep(1800);
   const ss = mark(); await p.mouse.move(640, 760); await sleep(300);
   const g = p.locator('#ntGood'); if (await g.isVisible()) { const b = await g.boundingBox(); await p.mouse.move(b.x + b.width / 2, b.y + b.height / 2, { steps: 30 }); await sleep(500); await p.mouse.click(b.x + b.width / 2, b.y + b.height / 2); }
   await sleep(2600);
@@ -171,7 +150,7 @@ scenes.push({ i: 3, url: 'New Tab', ...await record(async (p, mark) => {
 }) });
 // 5. Ứng dụng học: trang chủ, cuộn nhẹ
 scenes.push({ i: 4, url: 'Lexkite', ...await record(async (p, mark) => {
-  await p.goto(base + `app/index.html?hl=${LANG}#/home`); await sleep(3000);
+  await p.goto(base + `app/index.html?hl=${LANG}#/home`, { waitUntil: 'domcontentloaded' }); await sleep(3000);
   const ss = mark(); await p.mouse.move(700, 500, { steps: 20 }); await sleep(600);
   for (let k = 0; k < 8; k++) { await p.mouse.wheel(0, 70); await sleep(180); } await sleep(1600);
   return { ss, d: +(mark() - ss).toFixed(2) };
@@ -190,7 +169,7 @@ for (const [k, s] of scenes.entries()) {
   if (s.popup) {
     const extra = `<div style="position:absolute;left:720px;top:190px;width:1080px;border-radius:16px;overflow:hidden;opacity:.5;filter:blur(2px)"><img style="display:block;width:100%" src="data:image/png;base64,${artB64}"></div>`;
     const [kk, h, p] = T.s[s.i];
-    await card(cp, bg, `<div class="brand"><img src="${ICON}"><span>lex<b>kite</b></span></div><div class="txt"><span class="kick">${kk}</span><h1>${h}</h1><p>${p}</p></div>${extra}<div style="position:absolute;left:1070px;top:120px;width:456px;height:720px;border-radius:20px;box-shadow:0 50px 110px rgba(0,0,0,.55);background:#fff"></div>`);
+    await card(cp, bg, `<div class="brand"><img src="${ICON}"><span>lex<b>kite</b></span></div><div class="txt"${LANG === 'ar' ? ' dir="rtl" style="text-align:right"' : ''}><span class="kick">${kk}</span><h1>${h}</h1><p>${p}</p></div>${extra}<div style="position:absolute;left:1070px;top:120px;width:456px;height:720px;border-radius:20px;box-shadow:0 50px 110px rgba(0,0,0,.55);background:#fff"></div>`);
     compose(bg, s.vid, s.ss, s.d, path.join(TMP, `p${k + 1}.mp4`), { x: 1070, y: 120, w: 456, h: 720 });
   } else {
     await card(cp, bg, sceneBg(s.i, s.url));
@@ -207,4 +186,6 @@ const mp4 = path.join(OUT, `lexkite-promo-${LANG}.mp4`);
 ff(['-f', 'concat', '-safe', '0', '-i', path.join(TMP, 'list.txt'), '-c', 'copy', '-movflags', '+faststart', mp4]);
 // Ảnh bìa YouTube 1280×720
 ff(['-i', intro, '-vf', 'scale=1280:720', path.join(OUT, `lexkite-thumb-${LANG}.jpg`)]);
-console.log('✓', mp4, (fs.statSync(mp4).size / 1048576).toFixed(1) + ' MB', scenes.map(s => s.d).join(' + '));
+const dur = +execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', mp4], { encoding: 'utf8' });
+if (dur > 70) throw new Error('Video quá dài: ' + dur + 's');
+console.log('✓', mp4, dur.toFixed(1) + 's', (fs.statSync(mp4).size / 1048576).toFixed(1) + ' MB', scenes.map(s => s.d).join(' + '));
