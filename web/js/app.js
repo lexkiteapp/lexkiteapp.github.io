@@ -211,6 +211,7 @@
     voice: ['js/listen/kvoice.js', 'js/listen/audio-index.js'], // danh mục giọng Kokoro: mọi lần phát âm từ/câu dùng giọng chất lượng cao nếu có
     handsfree: ['js/handsfree.js'],
     reflex: ['js/reflex.js'],
+    handoff: ['js/lib/qr.js', 'js/handoff.js'], // 📲 chuyển dữ liệu bằng mã QR, không cần đăng nhập (mã hóa trên máy)
     roleplay: ['js/roleplay/data-a.js', 'js/roleplay/data-b.js', 'js/roleplay.js'], // Roleplay for Work: 10 kịch bản công sở
     courses: ['js/courses.js'],
     paraphrase: ['js/lib/paraphrase-data.js', 'js/paraphrase.js'],
@@ -222,7 +223,7 @@
     toefl: ['js/qengine.js', 'js/toefl/data1.js', 'js/toefl/data2.js', 'js/toefl/data3.js', 'js/toefl/data4.js', 'js/toefl.js'],
     toeic: ['js/qengine.js', 'js/toeic/reading1.js', 'js/toeic/reading2.js', 'js/toeic/listening1.js', 'js/toeic/listening2.js', 'js/toeic/reading3.js', 'js/toeic/listening3.js', 'js/toeic/reading4.js', 'js/toeic/listening4.js', 'js/toeic/reading5.js', 'js/toeic/listening5.js', 'js/toeic/reading6.js', 'js/toeic/listening6.js', 'js/toeic/reading7.js', 'js/toeic/listening7.js', 'js/toeic.js'],
   };
-  const ROUTE_BUNDLE = { paraphrase: 'paraphrase', courses: 'courses', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: 'grammar', placement: ['words', 'grammar'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
+  const ROUTE_BUNDLE = { paraphrase: 'paraphrase', courses: 'courses', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: 'grammar', placement: ['words', 'grammar'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
     toefl: ['listening', 'toefl'], 'toefl-p': ['listening', 'toefl'],
     toeic: ['tsl', 'listening', 'toeic'], 'toeic-r': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: ['words', 'tsl'], topic: ['words', 'tsl'], practice: ['words', 'tsl'], dict: ['words', 'tsl'], write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'], home: 'words', vocab: 'words', path: 'words', review: 'words', deck: 'words', stats: 'words'};
   const bundleP = {};
@@ -1277,7 +1278,8 @@
       <section class="set-sec" id="set-ai"><div id="aiBox"></div></section>
       ${Store.isExtension ? '' : sec('ext', '🧩 ' + t('Add-on từ điển cho Chrome'), `<div class="set-row"><div class="set-l"><span class="small">${t('Bấm đúp vào bất kỳ từ tiếng Anh nào trên web để xem phiên âm, nghĩa, hình ảnh và <b>lưu vào flashcard kèm câu gốc làm ngữ cảnh</b>. Bôi đen cả câu/đoạn để <b>dịch sang tiếng Việt</b>.')}</span><small>${t('Cài đặt: mở <code>chrome://extensions</code> → bật <i>Developer mode</i> → <i>Load unpacked</i> → chọn thư mục <code>extension</code>.')}</small></div></div>`)}
       ${sec('data', '💾 ' + t('Dữ liệu'),
-        row(t('Xuất sao lưu'), `<button type="button" class="btn sm" id="sExport">⬇️ ${t('Xuất sao lưu')}</button>`)
+        row(t('Chuyển dữ liệu'), `<a class="btn sm" href="#/handoff">${t('📲 Chuyển sang điện thoại (không cần đăng nhập)')}</a>`)
+        + row(t('Xuất sao lưu'), `<button type="button" class="btn sm" id="sExport">⬇️ ${t('Xuất sao lưu')}</button>`)
         + row(t('Nhập sao lưu'), `<label class="btn sm">⬆️ ${t('Nhập sao lưu')}<input type="file" id="sImport" accept="application/json" hidden></label>`)
         + row(`<span class="danger-t">${t('Xóa toàn bộ dữ liệu học')}</span>`, `<button type="button" class="btn sm danger" id="sReset">${t('Xóa')}</button>`))}
       </div>`;
