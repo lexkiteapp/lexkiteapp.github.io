@@ -758,7 +758,7 @@
   }
   function injectMarkCss() {
     if (document.getElementById('vb-mark-css')) return;
-    const st = document.createElement('style'); st.id = 'vb-mark-css';
+    const st = document.createElement('style'); st.id = 'vb-mark-css'; st.setAttribute('style', 'display:none !important'); // trang reset kiểu *{all:unset} không làm lộ CSS thành chữ
     st.textContent = `vb-mark{background:linear-gradient(transparent 60%,var(--vbc,rgba(124,58,237,.3)) 60%);border-radius:2px;cursor:help;color:inherit}
       vb-mark[data-l="1"]{--vbc:rgba(239,68,68,.38)}vb-mark[data-l="2"]{--vbc:rgba(245,158,11,.4)}vb-mark[data-l="3"]{--vbc:rgba(234,179,8,.4)}
       vb-mark[data-l="4"],vb-mark[data-l="5"]{--vbc:rgba(34,197,94,.35)}vb-mark[data-l="0"]{--vbc:rgba(204,63,28,.22)}
