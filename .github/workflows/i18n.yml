@@ -4,7 +4,7 @@ name: Sinh bản dịch giao diện (i18n)
 on:
   push:
     branches: [main]
-    paths: [scripts/i18n-langs.txt, web/js/i18n/en.js, scripts/i18n-fixed.json, scripts/gen-i18n.mjs, .github/workflows/i18n.yml, 'content/legal/en/**', 'content/legal/vi/**', scripts/build-legal.mjs, scripts/gen-explain.mjs, 'web/js/readtest/explain-*.js']
+    paths: [scripts/i18n-langs.txt, web/js/i18n/en.js, web/js/i18n/en/writecheck.js, scripts/i18n-fixed.json, scripts/gen-i18n.mjs, .github/workflows/i18n.yml, 'content/legal/en/**', 'content/legal/vi/**', scripts/build-legal.mjs, scripts/gen-explain.mjs, 'web/js/readtest/explain-*.js']
   schedule:
     - cron: '30 2 * * *'  # hằng đêm: dịch tiếp phần còn dở (lời giải đề thi dịch dần theo ngân sách thời gian)
   workflow_dispatch:

@@ -12,7 +12,8 @@ const lang = process.argv[2];
 if (!/^[a-z]{2}(-[A-Z]{2})?$/.test(lang || '') || lang === 'en' || lang === 'vi') { console.error('Dùng: node scripts/gen-i18n.mjs <mã ngôn ngữ, vd. es>'); process.exit(1); }
 const DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), '../web/js/i18n');
 const load = f => { const ctx = { self: {} }; ctx.self = ctx; vm.createContext(ctx); vm.runInContext(fs.readFileSync(f, 'utf8'), ctx); return ctx.I18N_DICT || {}; };
-const EN = load(path.join(DIR, 'en.js')).en;
+const ADDON_EN = f => { const ctx = { I18N_DICT: { en: {} } }; ctx.self = ctx; vm.createContext(ctx); vm.runInContext(fs.readFileSync(f, 'utf8'), ctx); return ctx.I18N_DICT.en; };
+const EN = { ...load(path.join(DIR, 'en.js')).en, ...ADDON_EN(path.join(DIR, 'en/writecheck.js')) }; // + chữ chỉ add-on dùng (không nằm trong khung web)
 const outFile = path.join(DIR, `${lang}.js`);
 const old = fs.existsSync(outFile) ? (load(outFile)[lang] || {}) : {};
 

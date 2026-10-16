@@ -98,9 +98,12 @@
     .why { margin-top: 8px; padding: 8px 10px; border-radius: 10px; background: #f0faf9; border: 1px solid #c9ece9; font-size: 13px; line-height: 1.5; }
     .why a { color: #0E8F8E; font-weight: 700; text-decoration: none; cursor: pointer; display: inline-block; margin-top: 4px; }
     .src { font-size: 11px; color: #8a8fa3; margin-top: 4px; }
+    .sec { font-size: 12px; font-weight: 700; color: #6b6f85; margin: 6px 0 2px; }
+    .btn.on { border-color: #0E8F8E; color: #0E8F8E; background: #f0faf9; } .btn[disabled] { opacity: .6; cursor: default; }
+    .rw { margin: 4px 0 6px; padding: 8px 10px; border-radius: 10px; background: #f6f7fb; border: 1px solid #e3e5ef; font-size: 13.5px; line-height: 1.5; max-height: 180px; overflow: auto; white-space: pre-wrap; text-align: left; }
     @media (prefers-color-scheme: dark) {
       .card { background: #1b1c26; color: #ecedf5; border-color: #2e3040; } .btn { background: #242533; border-color: #2e3040; color: #ecedf5; }
-      .msg { color: #b8bbcc; } .bad { color: #9a9db0; } .acts { border-color: #2e3040; } .why { background: #15302f; border-color: #1f4b48; } .why a { color: #2dd4bf; }
+      .msg { color: #b8bbcc; } .rw { background: #242533; border-color: #2e3040; } .btn.on { background: #15302f; } .sec { color: #9a9db0; } .bad { color: #9a9db0; } .acts { border-color: #2e3040; } .why { background: #15302f; border-color: #1f4b48; } .why a { color: #2dd4bf; }
     }`;
   let hostEl = null, root = null, layer = null, card = null, badge = null, mirror = null;
   function ensureUI() {
@@ -112,7 +115,7 @@
       layer = root.querySelector('.layer'); badge = root.querySelector('.badge'); card = root.querySelector('.card');
       // Bấm trong hộp gợi ý không làm ô nhập mất con trỏ
       for (const n of [card, badge]) n.addEventListener('mousedown', e => e.preventDefault());
-      badge.addEventListener('click', () => { if (cur && cur.issues.length) showCard(cur.issues[0]); });
+      badge.addEventListener('click', () => { if (cur) showPanel(); });
       card.addEventListener('click', onCardClick);
       card.addEventListener('keydown', e => { if (e.key === 'Escape') hideCard(true); });
     }
@@ -191,13 +194,14 @@
     // huy hiệu số lỗi ở góc dưới phải ô nhập
     const n = list.filter(x => x.type !== 'style').length, worst = list.find(x => x.type === 'spelling') || list.find(x => x.type === 'grammar') || list.find(x => x.type === 'punct') || list[0];
     const r = cur.el.getBoundingClientRect();
-    badge.hidden = !list.length || r.bottom < 0 || r.top > innerHeight;
+    badge.hidden = (!list.length && (cur.text || '').trim().split(/\s+/).length < 3) || r.bottom < 0 || r.top > innerHeight;
     if (!badge.hidden) {
-      badge.textContent = n ? String(n) : '✦'; badge.style.background = COL[worst.type]; badge.title = tx('Lexkite: {n} gợi ý viết', { n: list.length });
+      badge.textContent = n ? String(n) : list.length ? '✦' : '✓'; badge.style.background = worst ? COL[worst.type] : '#0E8F8E'; badge.title = tx('Lexkite: {n} gợi ý viết', { n: list.length });
       const bh = 22, x = Math.min(innerWidth - 30, r.right - 28), y = cur.kind === 'in' || r.height < 40 ? r.top + (r.height - bh) / 2 : r.bottom - bh - 6;
       badge.style.left = Math.max(0, x) + 'px'; badge.style.top = Math.max(0, y) + 'px';
     }
     if (activeIssue && !card.hidden) placeCard(activeIssue);
+    if (panel && !card.hidden) placePanel();
   }
   function clearDraw() { if (layer) layer.innerHTML = H(''); if (badge) badge.hidden = true; }
 
@@ -270,9 +274,11 @@
   }
 
   // ---------- Hộp gợi ý ----------
+  const SRC_LABEL = { lt: 'Máy chủ soát lỗi (kiểm nâng cao)', chrome: 'Chrome AI trên máy', rules: 'Bộ luật Lexkite (offline)', nano: 'Chrome AI trên máy', gemini: 'AI Gemini (khóa của bạn)' };
+  const LESSON_WHY = {}; for (const r of LK_WRITE.rules) if (r.lesson && !LESSON_WHY[r.lesson]) LESSON_WHY[r.lesson] = r.why; // lỗi từ máy chủ / Chrome AI → giải thích theo bài cùng chủ đề
   function showCard(x) {
-    if (!cur) return; activeIssue = x; ensureUI();
-    const why = x.why || GENERIC_WHY[x.type];
+    if (!cur) return; activeIssue = x; panel = null; ensureUI();
+    const why = x.why || (x.lesson && LESSON_WHY[x.lesson]) || GENERIC_WHY[x.type];
     const title = x.title ? tx(x.title) : tx(LABEL[x.type]);
     const reps = (x.reps || []).slice(0, 4);
     const lt = x.lesson && GT[x.lesson];
@@ -281,7 +287,7 @@
       <div class="reps"><span class="bad" dir="ltr">${esc(x.bad.trim() || '␣')}</span>${reps.map((r, i) => `<button class="rep" data-a="rep" data-k="${i}">${r === '' ? esc(tx('Xóa phần này')) : esc(r.trim() || '␣')}${x.levels && x.levels[i] ? `<span class="lv">${esc(x.levels[i])}</span>` : ''}</button>`).join('') || `<span class="msg">${esc(tx('Chưa có gợi ý sửa – bạn tự sửa lại nhé'))}</span>`}</div>
       ${x.msg && x.src !== 'rules' ? `<div class="msg">${esc(x.msg)}</div>` : ''}
       <div class="acts"><button class="btn" data-a="ign">${esc(tx('Bỏ qua lỗi'))}</button><button class="btn" data-a="why">💡 ${esc(tx('Vì sao?'))}</button><button class="btn off" data-a="off" title="${esc(tx('Tắt soát lỗi trên {site}', { site: HOST }))}">${esc(tx('Tắt trên trang này'))}</button></div>
-      <div class="why" hidden>${esc(tx(why))}${lt ? `<br><a data-a="lesson">📐 ${esc(tx('Học bài: {t}', { t: UI_LANG === 'vi' ? lt[0] : lt[1] }))} ↗</a>` : ''}<div class="src">${esc(x.src === 'lt' ? 'LanguageTool' : x.src === 'chrome' ? tx('Chrome AI trên máy') : tx('Bộ luật Lexkite (offline)'))}</div></div>`);
+      <div class="why" hidden>${esc(tx(why))}${lt ? `<br><a data-a="lesson">📐 ${esc(tx('Học bài: {t}', { t: UI_LANG === 'vi' ? lt[0] : lt[1] }))} ↗</a>` : ''}<div class="src">${esc(SRC_LABEL[x.src] ? tx(SRC_LABEL[x.src]) : '')}</div></div>`);
     card.hidden = false; placeCard(x); layout();
   }
   function placeCard(x) {
@@ -291,12 +297,14 @@
     if (top + h > innerHeight - 8) top = Math.max(8, q.top - h - 8);
     card.style.left = left + 'px'; card.style.top = top + 'px';
   }
-  function hideCard(refocus) { if (card) card.hidden = true; const had = activeIssue; activeIssue = null; if (had) layout(); if (refocus && cur) cur.el.focus(); }
+  function hideCard(refocus) { if (card) card.hidden = true; panel = null; const had = activeIssue; activeIssue = null; if (had) layout(); if (refocus && cur) cur.el.focus(); }
   let GT = {}; // tên bài ngữ pháp [vi, en] (extension/grammar-titles.json)
   send({ type: 'extJson', name: 'grammar-titles' }).then(r => { GT = (r && r.data) || {}; });
 
   function onCardClick(e) {
-    const b = e.target.closest('[data-a]'); if (!b || !cur || !activeIssue) return;
+    const b = e.target.closest('[data-a]'); if (!b || !cur) return;
+    if (panel) return onPanelClick(b);
+    if (!activeIssue) return;
     const x = activeIssue, a = b.dataset.a;
     if (a === 'close') return hideCard(true);
     if (a === 'why') { const w = card.querySelector('.why'); w.hidden = !w.hidden; placeCard(x); return; }
@@ -306,10 +314,17 @@
     if (a === 'rep') { const rep = x.reps[+b.dataset.k]; if (rep != null) replace(x, rep); }
   }
   function replace(x, rep) {
-    const c = cur, el = c.el, text = getText(c); c.text = text;
+    const c = cur, text = getText(c); c.text = text;
     if (text.slice(x.s, x.e) !== x.bad) { hideCard(true); return runCheck(); } // chữ đã đổi → soát lại
     countMistake(x, true);
-    el.focus();
+    applyRange(c, x, rep, text);
+    hideCard(false);
+    const d = rep.length - (x.e - x.s); c.issues = c.issues.filter(i => i !== x).map(i => (i.s >= x.e ? { ...i, s: i.s + d, e: i.e + d } : i));
+    c.text = getText(c); layout(); clearTimeout(tCheck); tCheck = setTimeout(runCheck, 400);
+  }
+  // Thay đoạn [s, e) bằng rep: execCommand giữ được Hoàn tác (Ctrl+Z) và báo cho React/khung soạn thảo; dự phòng setRangeText/Range
+  function applyRange(c, x, rep, text) {
+    const el = c.el; el.focus(); if (c.kind === 'ce') ceText(c);
     let ok = false;
     try {
       if (c.kind === 'ce') { const a = posOf(c, x.s), b = posOf(c, x.e); const rg = document.createRange(); rg.setStart(a[0], a[1]); rg.setEnd(b[0], b[1]); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(rg); }
@@ -321,9 +336,83 @@
       else el.setRangeText(rep, x.s, x.e, 'end');
       el.dispatchEvent(new InputEvent('input', { bubbles: true, inputType: 'insertText', data: rep }));
     }
-    hideCard(false);
-    const d = rep.length - (x.e - x.s); c.issues = c.issues.filter(i => i !== x).map(i => (i.s >= x.e ? { ...i, s: i.s + d, e: i.e + d } : i));
-    c.text = getText(c); layout(); clearTimeout(tCheck); tCheck = setTimeout(runCheck, 400);
+  }
+
+  // ---------- Bảng điều khiển (bấm huy hiệu): sửa tất cả lỗi · viết lại trang trọng / thân mật / ngắn gọn ----------
+  let panel = null; // { s, e, sel, text, out, src, mode, busy }
+  function rwTarget(c) {
+    const text = getText(c); c.text = text; let s = 0, e = text.length, sel = false;
+    try {
+      if (c.kind !== 'ce') { if (c.el.selectionEnd - c.el.selectionStart > 2) { s = c.el.selectionStart; e = c.el.selectionEnd; sel = true; } }
+      else {
+        const g = getSelection(), a = g && g.rangeCount ? g.getRangeAt(0) : null;
+        if (a && !a.collapsed && c.el.contains(a.commonAncestorContainer)) { const x = offOf(c, a.startContainer, a.startOffset), y = offOf(c, a.endContainer, a.endOffset); if (x >= 0 && y > x + 2) { s = x; e = y; sel = true; } }
+        if (!sel) { const k = caretOf(c); if (k >= 0 && text.length > 600) { s = text.lastIndexOf('\n', k - 1) + 1; const n = text.indexOf('\n', k); e = n < 0 ? text.length : n; } } // khung soạn thư dài: chỉ đoạn đang gõ
+      }
+    } catch (x) { /* dùng cả ô */ }
+    while (s < e && /\s/.test(text[s])) s++; while (e > s && /\s/.test(text[e - 1])) e--;
+    if (e - s > 2000) e = s + 2000;
+    return { s, e, sel, text: text.slice(s, e) };
+  }
+  function showPanel() {
+    ensureUI(); activeIssue = null; panel = rwTarget(cur); renderPanel(); layout();
+  }
+  const MODES = [['formal', 'Viết trang trọng'], ['casual', 'Viết thân mật'], ['concise', 'Viết ngắn gọn']];
+  function renderPanel() {
+    const p = panel, list = cur.issues, n = list.filter(x => x.type !== 'style' && x.reps.length).length;
+    card.dir = UI_LANG === 'ar' ? 'rtl' : 'ltr'; card.lang = UI_LANG;
+    card.innerHTML = H(`<div class="hd"><span class="tag" style="background:#0E8F8E">✍️ Lexkite</span><span class="ttl">${esc(list.length ? tx('Lexkite: {n} gợi ý viết', { n: list.length }) : tx('Chưa thấy lỗi nào'))}</span><button class="x" data-a="close" aria-label="${esc(tx('Đóng hộp gợi ý'))}">×</button></div>
+      ${list.length ? `<div class="reps"><button class="btn" data-a="first">${esc(tx('Xem từng lỗi'))}</button>${n ? `<button class="rep" data-a="fixall">${esc(tx('Sửa tất cả ({n})', { n }))}</button>` : ''}</div>` : ''}
+      <div class="sec">${esc(p.sel ? tx('Viết lại đoạn đang chọn') : tx('Viết lại cả đoạn'))}</div>
+      <div class="reps">${MODES.map(([m, l]) => `<button class="btn${p.mode === m ? ' on' : ''}" data-a="rw" data-m="${m}"${p.busy ? ' disabled' : ''}>${esc(tx(l))}</button>`).join('')}</div>
+      ${p.busy ? `<div class="msg">⏳ ${esc(tx('Đang viết lại…'))}</div>` : ''}
+      ${p.out != null ? (p.out.trim() === p.text.trim() ? `<div class="msg">${esc(tx('Bản viết lại giống bản gốc – câu đã ổn.'))}</div>` : `<div class="rw" dir="ltr">${esc(p.out)}</div><div class="reps"><button class="rep" data-a="rwapply">${esc(tx('Thay vào ô nhập'))}</button><button class="btn" data-a="rwcopy">${esc(tx('Sao chép'))}</button></div>`) + `<div class="src">${esc(tx(SRC_LABEL[p.src] || SRC_LABEL.rules))}</div>` : ''}
+      ${p.err ? `<div class="msg">${esc(tx('Không viết lại được lúc này – thử lại sau.'))}</div>` : ''}
+      <div class="acts"><button class="btn off" data-a="off" title="${esc(tx('Tắt soát lỗi trên {site}', { site: HOST }))}">${esc(tx('Tắt trên trang này'))}</button></div>`);
+    card.hidden = false; placePanel();
+  }
+  function placePanel() {
+    const q = badge && !badge.hidden ? badge.getBoundingClientRect() : cur && cur.el.getBoundingClientRect(); if (!q) return;
+    const w = card.offsetWidth || 320, h = card.offsetHeight || 200;
+    let left = Math.min(Math.max(8, q.right - w), innerWidth - w - 8), top = q.bottom + 8;
+    if (top + h > innerHeight - 8) top = Math.max(8, q.top - h - 8);
+    card.style.left = left + 'px'; card.style.top = top + 'px';
+  }
+  async function onPanelClick(b) {
+    const a = b.dataset.a, p = panel, c = cur;
+    if (a === 'close') return hideCard(true);
+    if (a === 'off') { panel = null; activeIssue = { rule: '', bad: '' }; return onCardClick({ target: b }); }
+    if (a === 'first') { const x = c.issues[0]; if (x) showCard(x); return; }
+    if (a === 'fixall') {
+      const text = getText(c); c.text = text;
+      const todo = c.issues.filter(x => x.type !== 'style' && x.reps.length && text.slice(x.s, x.e) === x.bad).sort((x, y) => y.s - x.s);
+      for (const x of todo) { countMistake(x, true); applyRange(c, x, x.reps[0], getText(c)); }
+      hideCard(false); c.issues = []; layout(); clearTimeout(tCheck); tCheck = setTimeout(runCheck, 300); return;
+    }
+    if (a === 'rw') {
+      if (p.busy || !p.text.trim()) return;
+      p.mode = b.dataset.m; p.busy = true; p.out = null; p.err = false; renderPanel();
+      const r = await rewriteText(p.text, p.mode); if (panel !== p) return;
+      p.busy = false; if (r && r.text) { p.out = r.text; p.src = r.src; } else p.err = true; renderPanel(); return;
+    }
+    if (a === 'rwapply') {
+      const text = getText(c); if (text.slice(p.s, p.e) !== p.text) { hideCard(true); return runCheck(); }
+      applyRange(c, { s: p.s, e: p.e }, p.out, text); hideCard(false); clearTimeout(tCheck); tCheck = setTimeout(runCheck, 300); return;
+    }
+    if (a === 'rwcopy') { try { await navigator.clipboard.writeText(p.out); b.textContent = '✓ ' + tx('Đã sao chép'); } catch (e) { /* trang chặn clipboard */ } }
+  }
+  // Viết lại: Chrome Rewriter API trên máy → (service worker) Gemini Nano trên máy / khóa Gemini của chính người dùng → bộ luật offline
+  async function rewriteText(text, mode) {
+    try {
+      const RW = self.Rewriter;
+      if (RW) {
+        const opt = { tone: mode === 'formal' ? 'more-formal' : mode === 'casual' ? 'more-casual' : 'as-is', length: mode === 'concise' ? 'shorter' : 'as-is', format: 'plain-text', expectedInputLanguages: ['en'], expectedContextLanguages: ['en'], outputLanguage: 'en' };
+        if ((await RW.availability(opt)) === 'available') { const rw = await RW.create(opt); try { const out = await rw.rewrite(text); if (out && out.trim()) return { text: out.trim(), src: 'chrome' }; } finally { try { rw.destroy(); } catch (e) { /* bỏ qua */ } } }
+      }
+    } catch (e) { /* trình duyệt chưa hỗ trợ */ }
+    const r = await send({ type: 'wcRewrite', text, mode });
+    if (r && r.text) return r;
+    return { text: LK_WRITE.rewrite(text, mode), src: 'rules' };
   }
 
   // ---------- Sổ lỗi sai: lỗi lặp lại (≥ 2 lần ở các lần viết khác nhau) → #/mistakes (+ từ viết sai → thẻ ôn FSRS) ----------
@@ -360,7 +449,7 @@
   }, true);
   document.addEventListener('input', e => {
     if (!cur) return; const t = target(e); if (t !== cur.el && !cur.el.contains(t)) return;
-    cur.seq++; cur.issues = []; activeIssue = null; if (card) card.hidden = true; clearDraw();
+    cur.seq++; cur.issues = []; activeIssue = null; panel = null; if (card) card.hidden = true; clearDraw();
     clearTimeout(tCheck); tCheck = setTimeout(runCheck, 600);
   }, true);
   // Bấm vào chữ bị gạch chân (con trỏ rơi vào đoạn lỗi) → hộp gợi ý
@@ -374,7 +463,7 @@
       if (x) showCard(x); else hideCard(false);
     }, 0);
   }, true);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && activeIssue) hideCard(false); }, true);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && (activeIssue || panel)) hideCard(false); }, true);
   window.addEventListener('scroll', () => { if (cur) scheduleLayout(); }, { capture: true, passive: true });
   window.addEventListener('resize', () => { if (cur) scheduleLayout(); }, { passive: true });
   document.addEventListener('fullscreenchange', () => { if (hostEl) ensureUI(); });

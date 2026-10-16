@@ -1,6 +1,6 @@
 # Lexkite – Chrome Web Store "Privacy practices" tab
 
-Matches the code of extension v2.6.351 (`extension/manifest.json`, `background.js`, `content.js`) and the policy at https://lexkite.com/privacy. Update this file whenever permissions or data flows change.
+Matches the code of extension v2.6.367 (`extension/manifest.json`, `background.js`, `content.js`) and the policy at https://lexkite.com/privacy. Update this file whenever permissions or data flows change.
 
 ## Single purpose
 ```
@@ -67,7 +67,7 @@ Tick these categories:
 | Location | No | The extension sends no location; IP addresses are not stored. |
 | Web history | No | The extension does not record visited pages. It stores the title/URL of a page only when the user saves a word from that page (counted under "Website content"). |
 | User activity | **Yes** | Daily anonymous usage counts (number of lookups, saves, popup and new-tab opens) with a random device identifier, plus install/update counts. No clicks, keystrokes or page data. |
-| Website content | **Yes** | The word or text the user selects, the sentence around it, and the page title/URL of words the user saves. Sent to lookup/translation services to get a result, and to lexkite.com only if the user signs in to sync. **Writing check (off by default):** the text the user types in a text box is checked on the device; only if the user also enables "Advanced check" is that text sent to LanguageTool (api.languagetool.org, max 20 requests/min). Never password/email/number/payment-card fields, banking or payment sites, or sites the user turned off. Not sent to us. |
+| Website content | **Yes** | The word or text the user selects, the sentence around it, and the page title/URL of words the user saves. Sent to lookup/translation services to get a result, and to lexkite.com only if the user signs in to sync. **Writing check (off by default):** the text the user types in a text box is checked on the device; only if the user also enables "Advanced check" is that text sent to LanguageTool (api.languagetool.org, max 20 requests/min). Never password/email/number/payment-card fields, banking or payment sites, or sites the user turned off. Not sent to us. **Rewrite (formal/casual/concise, user click only):** on device (Chrome built-in AI or bundled rules); only if on-device AI is unavailable and the user added their own Gemini key is the chosen text sent to Google Gemini with that key. |
 
 Certify all three statements:
 - [x] I do not sell or transfer user data to third parties, outside of the approved use cases.

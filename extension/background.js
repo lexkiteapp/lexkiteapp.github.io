@@ -290,6 +290,31 @@ async function wcLanguageTool(text) {
     return { list };
   } catch (e) { return { err: 'net' }; }
 }
+// Viết lại (người dùng chủ động bấm): Gemini Nano trên máy nếu Chrome có sẵn → khóa Gemini của CHÍNH người dùng (nếu đã thêm) → không có (content script dùng bộ luật offline)
+const RW_PROMPT = (text, mode) => `Rewrite the English text below to be ${mode === 'formal' ? 'more formal and professional' : mode === 'casual' ? 'more casual and friendly' : 'shorter and more concise'}. Keep the original meaning, fix any grammar or spelling mistakes, keep it in English, keep line breaks. Return ONLY the rewritten text, no quotes or explanations.\n\nText:\n${text}`;
+async function wcRewrite(text, mode) {
+  text = String(text || '').slice(0, 2000); mode = ['formal', 'casual', 'concise'].includes(mode) ? mode : 'formal';
+  const { settings, aiKey } = await chrome.storage.local.get(['settings', 'aiKey']);
+  if (!settings || settings.wcOn !== true || !text.trim()) return { err: 'off' };
+  const clean = t => String(t || '').trim().replace(/^```\w*\n?|```$/g, '').replace(/^["“](.*)["”]$/s, '$1').trim();
+  const LM = self.LanguageModel;
+  if (LM) {
+    try {
+      const opts = { expectedInputs: [{ type: 'text', languages: ['en'] }], expectedOutputs: [{ type: 'text', languages: ['en'] }] };
+      if ((await LM.availability(opts)) === 'available') { const s = await LM.create(opts); try { const out = clean(await Promise.race([s.prompt(RW_PROMPT(text, mode)), new Promise((_, j) => setTimeout(() => j(new Error('timeout')), 20000))])); if (out) return { text: out, src: 'nano' }; } finally { try { s.destroy(); } catch (e) { /* bỏ qua */ } } }
+    } catch (e) { /* bỏ qua */ }
+  }
+  if (!aiKey) return { err: 'NO_KEY' };
+  for (const m of (await aiModels(aiKey)).slice(0, 3)) {
+    try {
+      const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': aiKey }, signal: AbortSignal.timeout(20000), body: JSON.stringify({ contents: [{ role: 'user', parts: [{ text: RW_PROMPT(text, mode) }] }], generationConfig: { temperature: 0.3 } }) });
+      if (r.status === 404) continue; if (!r.ok) return { err: 'FAILED' };
+      const j = await r.json(), out = clean(((((j.candidates || [])[0] || {}).content || {}).parts || []).map(p => p.text || '').join(''));
+      if (out) return { text: out, src: 'gemini' };
+    } catch (e) { /* thử mẫu tiếp theo */ }
+  }
+  return { err: 'FAILED' };
+}
 // Lỗi viết lặp lại → Sổ lỗi sai (cùng định dạng App.logMistake trong web/js/plan.js). Chỉ lưu trên máy.
 async function wcMistake(m) {
   const seen = (await Store.get('wcSeen', {})) || {}, k = String(m.key || '').slice(0, 160); if (!k) return { ok: false };
@@ -361,6 +386,7 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
       case 'uiDict': return reply({ dict: await uiDict(msg.lang) });
       case 'wcLT': return reply(await wcLanguageTool(msg.text));
       case 'wcMistake': return reply(await wcMistake(msg));
+      case 'wcRewrite': return reply(await wcRewrite(msg.text, msg.mode));
       case 'ytTracks': { // danh sách phụ đề của video YouTube (đọc player response trong trang – chỉ URL phụ đề, không dữ liệu người dùng)
         try {
           const [res] = await chrome.scripting.executeScript({ target: { tabId: sender.tab.id }, world: 'MAIN', func: () => { const pr = (document.querySelector('#movie_player') && document.querySelector('#movie_player').getPlayerResponse && document.querySelector('#movie_player').getPlayerResponse()) || window.ytInitialPlayerResponse; const tr = pr && pr.captions && pr.captions.playerCaptionsTracklistRenderer && pr.captions.playerCaptionsTracklistRenderer.captionTracks; return (tr || []).map(t => ({ u: t.baseUrl, l: t.languageCode, k: t.kind || '' })); } });

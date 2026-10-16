@@ -256,7 +256,10 @@ await lx.close();
 // ---------- 6b. ✍️ Soát lỗi viết: textarea có lỗi → gạch chân → sửa 1 chạm; ô mật khẩu → không gạch ----------
 const WC = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Write</title></head><body style="font:16px/1.5 Arial,sans-serif;padding:30px">
 <textarea id="wta" rows="4" cols="70"></textarea><p><input id="wpw" type="password" size="40"></p>
-<div id="wce" contenteditable="true" style="border:1px solid #ccc;min-height:60px;width:600px;padding:8px"></div></body></html>`;
+<div id="wce" contenteditable="true" style="border:1px solid #ccc;min-height:60px;width:600px;padding:8px"></div>
+<div class="gmail"><div id="wgm" role="textbox" aria-label="Message Body" aria-multiline="true" contenteditable="true" g_editable="true" style="border:1px solid #ccc;min-height:70px;width:600px;padding:8px;margin-top:12px"><div><br></div></div></div>
+<div class="linkedin"><div class="ql-container"><div id="wli" class="ql-editor" contenteditable="true" data-placeholder="What do you want to talk about?" style="border:1px solid #ccc;min-height:70px;width:600px;padding:8px;margin-top:12px"><p><br></p></div></div></div>
+<p><textarea id="wrw" rows="3" cols="70"></textarea></p></body></html>`;
 await ctx.route('https://t5.example.com/**', r => r.fulfill({ contentType: 'text/html', body: WC }));
 const wcState = page => page.evaluate(() => {
   const h = document.querySelector('lexkite-wc'), r = h && h.shadowRoot; if (!r) return { u: 0, us: [], card: false, text: '', badge: false };
@@ -292,6 +295,28 @@ ws = await wcState(wp); rec('soát lỗi viết: ô mật khẩu → không gạ
 await wp.click('#wce'); await wp.keyboard.type('He don\'t like it because its a very important decision. ', { delay: 5 }); await sleep(3000);
 ws = await wcState(wp); await shot(wp, 'writecheck-contenteditable');
 rec('soát lỗi viết: contenteditable → gạch chân', ws.u >= 2, `u=${ws.u} ${ws.us.map(u => u.t).join(',')}`);
+// khung soạn thư kiểu Gmail và ô đăng bài kiểu LinkedIn (contenteditable lồng div/p)
+await wp.click('#wgm'); await wp.keyboard.type('Hi team, I have 25 years and she very tall. ', { delay: 5 }); await sleep(3000);
+ws = await wcState(wp); rec('soát lỗi viết: khung soạn thư kiểu Gmail → gạch chân', ws.u >= 2, `u=${ws.u}`);
+await wp.click('#wli'); await wp.keyboard.type('Yesterday we go to shopping with many friend. ', { delay: 5 }); await sleep(3000);
+ws = await wcState(wp); await shot(wp, 'writecheck-linkedin');
+rec('soát lỗi viết: ô đăng bài kiểu LinkedIn → gạch chân', ws.u >= 2, `u=${ws.u}`);
+const wcClick = (page, sel) => page.evaluate(sel => { const b = document.querySelector('lexkite-wc').shadowRoot.querySelector(sel); if (b) b.click(); return !!b; }, sel);
+// Sửa tất cả + viết lại trang trọng (CI không có AI trên máy/khóa Gemini → bộ luật offline, kết quả xác định)
+await wp.click('#wrw'); await wp.keyboard.type('She have a apple and I recieve it. ', { delay: 5 }); await sleep(2500);
+await wcClick(wp, '.badge'); await sleep(500); await shot(wp, 'writecheck-panel');
+rec('soát lỗi viết: bấm huy hiệu → bảng điều khiển', await wcClick(wp, '[data-a="fixall"]'));
+await sleep(1000); let rv = await wp.inputValue('#wrw');
+rec('soát lỗi viết: "Sửa tất cả" sửa mọi lỗi', /She has an apple and I receive it/.test(rv), rv);
+await wp.fill('#wrw', ''); await wp.click('#wrw'); await wp.keyboard.type("I don't think it's gonna work, thanks. ", { delay: 5 }); await sleep(2500);
+await wcClick(wp, '.badge'); await sleep(500); await wcClick(wp, '[data-a="rw"][data-m="formal"]'); await sleep(2500);
+const rwOut = await wp.evaluate(() => { const r = document.querySelector('lexkite-wc').shadowRoot.querySelector('.rw'); return r ? r.textContent : ''; });
+await shot(wp, 'writecheck-rewrite');
+rec('soát lỗi viết: viết lại trang trọng', /do not think it is going to work/.test(rwOut), rwOut);
+await wcClick(wp, '[data-a="rwapply"]'); await sleep(800); rv = await wp.inputValue('#wrw');
+rec('soát lỗi viết: "Thay vào ô nhập" sau khi viết lại', /I do not think it is going to work, thank you\./.test(rv), rv);
+const ui = await wp.evaluate(() => document.querySelector('lexkite-wc').shadowRoot.innerHTML);
+rec('soát lỗi viết: giao diện không nêu tên dịch vụ/đối thủ', !/LanguageTool|Grammarly|QuillBot/i.test(ui));
 await wp.emulateMedia({ colorScheme: 'dark' }); await sleep(300);
 if (ws.us[0]) { await wp.mouse.click(ws.us[0].x + ws.us[0].w / 2, ws.us[0].y - 6); await sleep(700); await shot(wp, 'writecheck-dark'); }
 await wp.emulateMedia({ colorScheme: 'light' });
