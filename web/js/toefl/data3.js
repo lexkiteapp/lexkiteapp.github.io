@@ -1,4 +1,4 @@
-/* TOEFL iBT (định dạng từ 21/01/2026) – Bộ luyện tập 3. Nội dung 100% tự biên soạn, không dùng tài liệu của ETS.
+/* TOEFL iBT (định dạng từ 21/01/2026) – Bộ luyện tập 3 (+ Reading bộ 4). Nội dung 100% tự biên soạn, không dùng tài liệu của ETS.
  * Nạp SAU data1.js và data2.js: chỉ BỔ SUNG vào window.TOEFL (không ghi đè), cùng định dạng với data1/data2.
  *  - Số câu `n` nối tiếp bộ 2 (vd. Daily Life 21–30, Academic 41–60…) để tên ô chọn (radio "q{n}") không trùng.
  *  - Email/Discussion/Repeat/Interview: hiện thành thẻ "Bộ 5", "Bộ 6" (chọn qua ?i=).
@@ -501,13 +501,160 @@
   });
 
   /* ===================================================================
-   * Xoay vị trí đáp án đúng (chỉ các unit của bộ 3): dữ liệu soạn với a = 0,
+   * BỘ 4 · READING (tự biên soạn). Daily Life câu 31–40, Academic 61–80.
+   * =================================================================== */
+  TF.reading.push({
+    id: 'tf4-cw1', set: 4, task: 'cw', title: 'Why Leaves Change Color in Autumn',
+    instr: 'Fill in the missing letters in the paragraph.',
+    text: "In summer, most leaves look green because they contain large amounts of chlorophyll, the pigment {th|at} plants use to capture energy {fr|om} sunlight. As the days become shorter {a|nd} cooler in autumn, many trees stop {prod|ucing} new chlorophyll. The green color slowly {fa|des}, and yellow and orange pigments that {we|re} there all along become visible. {So|me} trees also make red pigments at {th|is} time of year. Bright, sunny days {foll|owed} by cool nights tend to produce the most colorful {disp|lays}.",
+    explain: [
+      "Đại từ quan hệ \"that\" thay cho \"the pigment\", mở đầu mệnh đề quan hệ \"that plants use…\".",
+      "\"capture energy from sunlight\" = thu năng lượng TỪ ánh sáng mặt trời; giới từ \"from\" chỉ nguồn gốc.",
+      "Hai tính từ song song \"shorter and cooler\" nối bằng \"and\".",
+      "\"stop + V-ing\" = ngừng làm gì → \"stop producing\" (ngừng tạo ra).",
+      "Chủ ngữ số ít \"The green color\" + động từ hiện tại đơn thêm -s → \"fades\" (nhạt dần).",
+      "Mệnh đề quan hệ \"that were there all along\" (vốn đã có sẵn từ trước); chủ ngữ số nhiều \"pigments\" → \"were\".",
+      "\"Some trees\" = một số cây; \"some\" đứng trước danh từ số nhiều.",
+      "\"at this time of year\" = vào thời điểm này trong năm; cụm cố định.",
+      "Phân từ bị động rút gọn \"followed by\" (được tiếp nối bởi) = days which are followed by cool nights.",
+      "Sau tính từ \"colorful\" cần danh từ số nhiều \"displays\" (những cảnh sắc màu)."
+    ],
+  });
+  TF.reading.push({
+    id: 'tf4-cw2', set: 4, task: 'cw', title: 'The Printing Press',
+    instr: 'Fill in the missing letters in the paragraph.',
+    text: "Before the fifteenth century, books in Europe were usually copied {b|y} hand, so they were rare {a|nd} expensive. Around 1450, Johannes Gutenberg developed a printing {sys|tem} that used movable metal type. Each letter {w|as} cast as a separate piece, and the {pie|ces} could be arranged to form a page, inked, {a|nd} pressed onto paper. After printing, the {let|ters} could be taken apart and used {ag|ain} for the next page. As a result, books {bec|ame} cheaper, and ideas spread far more {qui|ckly} than before.",
+    explain: [
+      "\"by hand\" = bằng tay; cụm cố định với giới từ \"by\".",
+      "Hai tính từ song song \"rare and expensive\" (hiếm và đắt).",
+      "Sau \"a printing\" cần danh từ \"system\" (hệ thống in).",
+      "Bị động quá khứ: \"Each letter was cast\" (mỗi chữ được đúc); chủ ngữ số ít → \"was\".",
+      "\"the pieces\" = các con chữ (mảnh) đã nhắc ở trước; danh từ số nhiều.",
+      "Chuỗi ba động từ song song \"arranged…, inked, and pressed\" nối bằng \"and\".",
+      "\"the letters could be taken apart\" = các con chữ có thể được tháo rời; danh từ số nhiều.",
+      "\"used again\" = được dùng lại; trạng từ \"again\".",
+      "Quá khứ đơn \"became cheaper\" (trở nên rẻ hơn).",
+      "Trạng từ \"quickly\" bổ nghĩa cho động từ \"spread\"; \"far more quickly than before\" = nhanh hơn nhiều so với trước."
+    ],
+  });
+  TF.reading.push({
+    id: 'tf4-dl1', set: 4, task: 'daily', title: 'Recycling Center Holiday Hours',
+    text: "GREENFIELD RECYCLING CENTER – HOLIDAY HOURS\n\nThe center will be closed on December 25 and January 1. On all other days between December 20 and January 5, it will close at 3 p.m. instead of the usual 5 p.m.\n\nGift wrapping paper with glitter or metallic foil cannot be recycled and should be placed in regular trash. Plain paper and cardboard boxes are accepted as usual, but boxes must be flattened before drop-off.\n\nResidents may drop off natural holiday trees free of charge from January 2 to January 15. Please remove all lights and decorations first.",
+    groups: [mcq('Read the notice and answer the questions.', [
+      { n: 31, q: 'What will change about the center\'s hours during the holiday period?', options: ['It will close two hours earlier on most days.', 'It will open two hours later on most days.', 'It will be closed every weekend.', 'It will stay open later on December 31.'], a: 0,
+        explain: "\"it will close at 3 p.m. instead of the usual 5 p.m.\" → trong dịp lễ trung tâm đóng cửa sớm hơn hai tiếng vào hầu hết các ngày (trừ hai ngày nghỉ hẳn 25/12 và 1/1). Giờ mở cửa không đổi." },
+      { n: 32, q: 'What should residents do with wrapping paper that has glitter on it?', options: ['Put it in the regular trash', 'Flatten it before drop-off', 'Bring it in after January 2', 'Separate it from plain paper at the center'], a: 0,
+        explain: "Giấy gói có kim tuyến hoặc lớp kim loại \"cannot be recycled and should be placed in regular trash\" → bỏ vào thùng rác thường. Việc làm phẳng chỉ áp dụng cho hộp các-tông." },
+      { n: 33, q: 'What can be inferred about a resident who brings a decorated holiday tree on January 10?', options: ['The resident will need to take off the decorations first.', 'The resident will have to pay a small fee.', 'The tree will not be accepted on that date.', 'The resident must also bring cardboard boxes.'], a: 0,
+        explain: "Câu suy luận: cây thông được nhận miễn phí từ 2/1 đến 15/1 (ngày 10/1 nằm trong khoảng này), nhưng \"Please remove all lights and decorations first\" → người dân phải tháo đồ trang trí trước. Không mất phí (\"free of charge\")." },
+    ])],
+  });
+  TF.reading.push({
+    id: 'tf4-dl2', set: 4, task: 'daily', title: 'Email about a Course Waitlist',
+    text: "To: Students on the waitlist for PSYC 210\nFrom: Dr. Hana Okafor\nSubject: Waitlist update\n\nDear students,\n\nBecause of high demand, the department has agreed to open a second section of Introduction to Social Psychology. The new section will meet on Mondays and Wednesdays from 4:00 to 5:15 p.m. in Room 118 of Carver Hall.\n\nIf you would like a seat in the new section, please reply to this email by Friday at noon. Seats will be given in the order that replies are received. Students who do not reply will stay on the waitlist for the original section, but I should warn you that very few students drop the course after the first week.\n\nBest regards,\nDr. Okafor",
+    groups: [mcq('Read the email and answer the questions.', [
+      { n: 34, q: 'What is the main purpose of the email?', options: ['To offer students places in a newly created class section', 'To announce that a course has been cancelled', 'To change the room for the original section', 'To remind students about a Friday exam'], a: 0,
+        explain: "Mục đích chính: khoa mở thêm \"a second section\" vì nhu cầu cao, và giáo sư mời sinh viên trong danh sách chờ trả lời để nhận chỗ ở lớp mới. Không có thông tin hủy môn hay thi cử." },
+      { n: 35, q: 'How will seats in the new section be assigned?', options: ['On a first-come, first-served basis', 'By students\' grades in earlier courses', 'By a random drawing on Friday', 'According to students\' year of study'], a: 0,
+        explain: "\"Seats will be given in the order that replies are received\" → ai trả lời trước được xếp trước (first-come, first-served)." },
+      { n: 36, q: 'What does Dr. Okafor suggest about staying on the waitlist for the original section?', options: ['It is unlikely to result in getting a seat.', 'It guarantees a seat in the second week.', 'It is required for all psychology majors.', 'It gives students priority in the next term.'], a: 0,
+        explain: "Giáo sư cảnh báo \"very few students drop the course after the first week\" → hầu như không có ai bỏ lớp, nên ở lại danh sách chờ khó có chỗ. Không có thông tin về ưu tiên học kỳ sau." },
+    ])],
+  });
+  TF.reading.push({
+    id: 'tf4-dl3', set: 4, task: 'daily', title: 'Language Exchange Flyer',
+    text: "JOIN THE CAMPUS LANGUAGE EXCHANGE!\n\nWant to practice a new language with a native speaker? Our program matches you with a partner who wants to learn your language. You meet for one hour a week: thirty minutes in your language and thirty minutes in theirs.\n\nMeetings take place in the International Lounge, Student Union, 2nd floor, but partners may also agree to meet online.\n\nTo sign up, complete the short form at the International Office by September 15. Please list up to three languages you would like to practice, in order of preference.",
+    groups: [mcq('Read the flyer and answer the questions.', [
+      { n: 37, q: 'How is each weekly meeting organized?', options: ['The time is divided equally between two languages.', 'A teacher leads the first half of the session.', 'Partners speak only the language they are learning.', 'Each meeting focuses on a different language.'], a: 0,
+        explain: "\"thirty minutes in your language and thirty minutes in theirs\" → một tiếng mỗi tuần chia đều cho hai ngôn ngữ. Tờ rơi không nhắc đến giáo viên." },
+      { n: 38, q: 'According to the flyer, what must students do on the sign-up form?', options: ['Rank the languages they want to practice', 'Choose a meeting time', 'Describe their current language level', 'Name the partner they want'], a: 0,
+        explain: "\"list up to three languages you would like to practice, in order of preference\" → liệt kê tối đa ba ngôn ngữ theo thứ tự ưu tiên, tức là xếp hạng các ngôn ngữ muốn luyện." },
+    ])],
+  });
+  TF.reading.push({
+    id: 'tf4-dl4', set: 4, task: 'daily', title: 'Group Chat about a Presentation',
+    text: "Priya (8:02 p.m.): Hi both! Our presentation is on Thursday. Can we meet tomorrow to rehearse?\nCarlos (8:05 p.m.): Tomorrow works, but I've got a lab until 3. Anytime after that?\nJun (8:07 p.m.): I'm working at the café until 4:30, sorry.\nPriya (8:08 p.m.): How about 5 in the library? I'll book a group room with a screen.\nCarlos (8:09 p.m.): Perfect. I'll bring my laptop.\nJun (8:10 p.m.): Sounds good. I still need to finish the last two slides, though, so they might be a bit rough.\nPriya (8:11 p.m.): No worries. That's what the rehearsal is for!",
+    groups: [mcq('Read the messages and answer the questions.', [
+      { n: 39, q: 'Why do the students agree to meet at 5 p.m.?', options: ['Both Carlos and Jun are busy earlier in the afternoon.', 'The library opens at 5 p.m.', 'Their presentation starts at 5 p.m. on Thursday.', 'Priya cannot book a room before then.'], a: 0,
+        explain: "Carlos có giờ thực hành đến 3 giờ, Jun làm ở quán cà phê đến 4:30 → 5 giờ là thời điểm cả nhóm đều rảnh. Không có thông tin về giờ mở cửa thư viện." },
+      { n: 40, q: 'What does Priya mean when she writes, "That\'s what the rehearsal is for"?', options: ['The practice session is a chance to improve unfinished work.', 'Jun should finish the slides before the meeting.', 'The rehearsal will be cancelled if the slides are not ready.', 'She will make the last two slides herself.'], a: 0,
+        explain: "Jun lo hai trang cuối còn \"rough\" (thô, chưa hoàn chỉnh); Priya trấn an rằng buổi tập dượt chính là để chỉnh sửa những phần chưa xong. Cô không yêu cầu Jun phải làm xong trước." },
+    ])],
+  });
+
+  TF.reading.push({
+    id: 'tf4-ap1', set: 4, task: 'academic', title: 'Sea Otters and Kelp Forests',
+    text: [
+      "Along the rocky coasts of the North Pacific, kelp forests grow in cool, shallow water. Kelp is a large brown seaweed that can grow tens of centimeters in a single day and reach the surface from depths of more than twenty meters. These underwater forests provide food and shelter for hundreds of species, from small invertebrates to fish and marine mammals. Yet their survival depends, to a surprising degree, on a single predator: the sea otter.",
+      "Sea otters feed heavily on sea urchins, spiny animals that graze on kelp. Because otters have no thick layer of fat to keep them warm, they must eat a large amount of food every day, often around a quarter of their body weight. When otters are present, they keep urchin numbers low, and the urchins that survive tend to hide in cracks in the rocks, feeding mainly on pieces of kelp that drift past. When otters disappear, however, urchin populations can grow rapidly. The urchins leave their hiding places and move across the sea floor, eating the bases of the kelp. In some places, this has turned thick forests into so-called urchin barrens, areas where little except urchins remains.",
+      "The importance of otters became clear partly because of a historical accident. During the eighteenth and nineteenth centuries, sea otters were hunted intensively for their fur, which is the densest of any mammal. By the early twentieth century, they had disappeared from most of their original range, and only small groups survived. In 1911, an international agreement gave otters protection, and their numbers slowly began to recover. Scientists who later compared coastlines with and without otters found striking differences: where otters had returned, kelp was plentiful; where they were still absent, urchins were common and kelp was scarce.",
+      "An effect of this kind, in which a predator influences plants indirectly by controlling the animals that eat them, is known as a trophic cascade. The sea otter is therefore often described as a keystone species. Like the central stone that holds an arch together, a keystone species has an effect on its ecosystem that is much larger than its numbers alone would suggest.",
+      "Healthy kelp forests also benefit people. They reduce the force of waves that reach the shore, support fisheries, and take up carbon dioxide as they grow. For these reasons, some researchers argue that protecting sea otters may be one of the most effective ways to protect coastal ecosystems as a whole. Others caution that the relationship is not always simple. Water temperature, storms, and disease can also affect kelp and urchins, so the return of otters does not automatically restore every forest.",
+    ].join('\n\n'),
+    groups: [mcq('Read the passage and answer the questions.', [
+      { n: 61, q: 'According to paragraph 1, which of the following is true of kelp?', options: ['It can grow very quickly.', 'It grows mainly in warm water.', 'It provides food for only a few species.', 'It grows only in water deeper than twenty meters.'], a: 0, type: 'factual',
+        explain: "Dạng FACTUAL. Đoạn 1: tảo bẹ \"can grow tens of centimeters in a single day\" → mọc rất nhanh. Tảo sống ở nước \"cool, shallow\" (lạnh, nông), là nơi sống của \"hundreds of species\", nên các phương án còn lại đều sai." },
+      { n: 62, q: 'According to paragraph 2, why must sea otters eat a large amount of food?', options: ['They lack a thick layer of fat to keep them warm.', 'Sea urchins contain very little food value.', 'They must compete with fish for food.', 'They spend most of the day swimming long distances.'], a: 0, type: 'factual',
+        explain: "Dạng FACTUAL. \"Because otters have no thick layer of fat to keep them warm, they must eat a large amount of food every day\" → rái cá không có lớp mỡ dày giữ ấm nên phải ăn nhiều." },
+      { n: 63, q: 'The word "graze" in paragraph 2 is closest in meaning to', options: ['feed', 'climb', 'rest', 'hide'], a: 0, type: 'vocab',
+        explain: "Dạng VOCABULARY. \"sea urchins, spiny animals that graze on kelp\" = những con vật gặm/ăn tảo bẹ → \"feed\". Đoạn văn sau đó nói rõ nhím biển \"eating the bases of the kelp\"." },
+      { n: 64, q: 'According to paragraph 2, what happens when sea otters are present?', options: ['Sea urchins stay hidden and eat mostly drifting kelp.', 'Sea urchins move freely across the sea floor.', 'Kelp forests turn into urchin barrens.', 'Sea urchins begin to eat other animals.'], a: 0, type: 'factual',
+        explain: "Dạng FACTUAL. Khi có rái cá, nhím biển ít đi và những con sống sót \"tend to hide in cracks in the rocks, feeding mainly on pieces of kelp that drift past\" → ẩn nấp, chủ yếu ăn tảo trôi dạt. Việc bò khắp đáy biển và tạo \"urchin barrens\" chỉ xảy ra khi KHÔNG có rái cá." },
+      { n: 65, q: 'Why does the author mention that sea otter fur "is the densest of any mammal" in paragraph 3?', options: ['To explain why otters were hunted so intensively', 'To show how otters survive without body fat', 'To compare otters with other marine mammals', 'To explain why the 1911 agreement was signed'], a: 0, type: 'purpose',
+        explain: "Dạng RHETORICAL PURPOSE. Chi tiết bộ lông dày nhất trong các loài thú nằm ngay trong câu nói rái cá \"were hunted intensively for their fur\" → tác giả nêu ra để giải thích vì sao chúng bị săn bắt ráo riết đến gần tuyệt chủng." },
+      { n: 66, q: 'What can be inferred from paragraph 3 about the scientists\' comparison of coastlines?', options: ['It provided evidence that otters help kelp forests survive.', 'It showed that urchins prefer warmer coastlines.', 'It was carried out before otters were protected.', 'It proved that hunting otters had no effect on kelp.'], a: 0, type: 'inference',
+        explain: "Dạng INFERENCE. Nơi rái cá quay lại thì tảo bẹ dày đặc, nơi vắng rái cá thì nhiều nhím biển và ít tảo → so sánh này là bằng chứng cho thấy rái cá giúp rừng tảo bẹ tồn tại. Cuộc so sánh diễn ra \"later\", tức là sau khi rái cá được bảo vệ." },
+      { n: 67, q: 'According to paragraph 4, a trophic cascade occurs when', options: ['a predator affects plants by controlling the animals that eat them', 'plants grow faster than animals can eat them', 'a species disappears because of hunting', 'many predators compete for the same prey'], a: 0, type: 'factual',
+        explain: "Dạng FACTUAL. Định nghĩa trong đoạn 4: \"a predator influences plants indirectly by controlling the animals that eat them\" → động vật săn mồi tác động gián tiếp lên thực vật thông qua việc kiểm soát loài ăn thực vật." },
+      { n: 68, q: 'Why does the author compare a keystone species to "the central stone that holds an arch together" in paragraph 4?', options: ['To illustrate that one species can be essential to a whole ecosystem', 'To show that sea otters live among rocks', 'To explain how kelp is attached to the sea floor', 'To suggest that ecosystems are built slowly over time'], a: 0, type: 'purpose',
+        explain: "Dạng RHETORICAL PURPOSE. Viên đá đỉnh vòm giữ cả vòm đứng vững; tương tự, loài then chốt có ảnh hưởng \"much larger than its numbers alone would suggest\" → minh họa rằng một loài có thể quyết định sự tồn tại của cả hệ sinh thái." },
+      { n: 69, q: 'According to paragraph 5, all of the following are benefits of kelp forests EXCEPT', options: ['they increase the water temperature near the coast', 'they reduce the force of waves', 'they support fisheries', 'they take up carbon dioxide'], a: 0, type: 'negative',
+        explain: "Dạng NEGATIVE FACTUAL. Đoạn 5 liệt kê lợi ích: giảm lực sóng, hỗ trợ nghề cá, hấp thụ CO₂. Nhiệt độ nước chỉ được nhắc như một yếu tố ẢNH HƯỞNG đến tảo bẹ, không phải lợi ích do tảo mang lại → đáp án." },
+      { n: 70, q: 'What can be inferred from paragraph 5 about the return of sea otters to an area?', options: ['It may not be enough on its own to restore a kelp forest.', 'It always leads to more storms and disease.', 'It reduces the number of fish in the area.', 'It has no effect on sea urchin populations.'], a: 0, type: 'inference',
+        explain: "Dạng INFERENCE. Một số nhà khoa học lưu ý nhiệt độ nước, bão và dịch bệnh cũng ảnh hưởng, nên \"the return of otters does not automatically restore every forest\" → chỉ riêng việc rái cá quay lại có thể chưa đủ để phục hồi rừng tảo." },
+    ])],
+  });
+  TF.reading.push({
+    id: 'tf4-ap2', set: 4, task: 'academic', title: 'The Origins of Writing in Mesopotamia',
+    text: [
+      "Writing was invented independently in several parts of the world, but one of the earliest known systems developed in southern Mesopotamia, in what is now Iraq. By the late fourth millennium BCE, cities such as Uruk had grown large and complex. Temple and palace officials had to keep track of goods such as grain, livestock, and textiles, as well as the workers who produced them. Many scholars believe that writing grew out of this practical need to record economic information.",
+      "For thousands of years before writing appeared, people in the region had used small clay tokens of different shapes to represent goods. A cone or a sphere, for example, might stand for a particular measure of grain. Some researchers have argued that writing developed gradually from these tokens: at first they were sealed inside hollow clay containers, and their shapes were pressed into the outside so that the contents could be checked without breaking the container. Eventually, people may have realized that the marks alone were sufficient, and the tokens were no longer needed. This theory is influential but not universally accepted, and the exact steps remain a subject of debate.",
+      "The earliest tablets from Uruk, dating to around 3300–3000 BCE, contain mainly numbers and simple pictures. A drawing of an animal's head might represent the animal itself, and marks beside it showed how many. These records were limited in what they could express. They could show that ten sheep had been delivered, but they could not easily record a story, a law, or the name of a person.",
+      "Over the following centuries, the system changed in two important ways. First, the signs became more abstract. Scribes wrote by pressing the end of a cut reed into soft clay, which produced wedge-shaped marks, and the original pictures gradually turned into combinations of wedges. This style is called cuneiform, from the Latin word for \"wedge.\" Second, many signs came to represent sounds rather than only objects or ideas. A sign that originally meant one thing could be used for another word that sounded similar, much as a picture of an eye and a saw might be used to write the English phrase \"I saw.\" This development allowed scribes to write names, grammatical endings, and eventually whole sentences.",
+      "Learning cuneiform was difficult. The system used hundreds of signs, and many of them had more than one possible reading. Scribes trained for years in schools, copying lists of signs and model texts again and again. As a result, literacy remained limited to a relatively small group of specialists. Nevertheless, cuneiform proved remarkably adaptable. It was used to write several different languages over a period of about three thousand years, and the documents that survive include not only economic records but also letters, laws, scientific observations, and literature.",
+    ].join('\n\n'),
+    groups: [mcq('Read the passage and answer the questions.', [
+      { n: 71, q: 'According to paragraph 1, what do many scholars believe led to the development of writing in Mesopotamia?', options: ['The need to record economic information', 'The desire to preserve religious stories', 'Contact with other writing systems', 'The need to communicate with distant cities'], a: 0, type: 'factual',
+        explain: "Dạng FACTUAL. \"Many scholars believe that writing grew out of this practical need to record economic information\" → nhu cầu ghi chép thông tin kinh tế (hàng hóa, nhân công). Đoạn 1 còn nói chữ viết ra đời độc lập ở nhiều nơi, không do tiếp xúc với hệ chữ khác." },
+      { n: 72, q: 'The word "sufficient" in paragraph 2 is closest in meaning to', options: ['enough', 'permanent', 'accurate', 'attractive'], a: 0, type: 'vocab',
+        explain: "Dạng VOCABULARY. \"the marks alone were sufficient, and the tokens were no longer needed\" = chỉ riêng các dấu in đã ĐỦ, không cần thẻ đất sét nữa → \"enough\"." },
+      { n: 73, q: 'Why were the shapes of tokens pressed into the outside of clay containers, according to paragraph 2?', options: ['So that the contents could be checked without opening the container', 'So that the containers would be easier to carry', 'So that the tokens could be reused later', 'So that the containers could be sold as decorations'], a: 0, type: 'factual',
+        explain: "Dạng FACTUAL. Hình dạng thẻ được ấn ra mặt ngoài \"so that the contents could be checked without breaking the container\" → để kiểm tra bên trong có gì mà không phải đập vỡ vật chứa." },
+      { n: 74, q: 'What does the author suggest about the theory that writing developed from clay tokens?', options: ['It is widely discussed, but scholars still disagree about it.', 'It has been proven by the earliest tablets.', 'It has been rejected by most researchers.', 'It applies to every early writing system.'], a: 0, type: 'inference',
+        explain: "Dạng INFERENCE. Tác giả viết \"This theory is influential but not universally accepted, and the exact steps remain a subject of debate\" → giả thuyết có ảnh hưởng lớn nhưng các học giả vẫn còn tranh luận; chưa được chứng minh, cũng không bị đa số bác bỏ." },
+      { n: 75, q: 'Why does the author mention "ten sheep" in paragraph 3?', options: ['To illustrate the kind of information the earliest tablets could record', 'To show that sheep were the most valuable animals in Uruk', 'To explain how numbers were written with wedges', 'To argue that the earliest tablets recorded laws'], a: 0, type: 'purpose',
+        explain: "Dạng RHETORICAL PURPOSE. Ví dụ \"ten sheep had been delivered\" minh họa loại thông tin đơn giản (số lượng + vật) mà những tấm bảng đầu tiên ghi được, đối lập với việc chúng không ghi được truyện, luật hay tên người." },
+      { n: 76, q: 'According to paragraph 3, the earliest tablets could NOT easily record which of the following?', options: ['The name of a person', 'The number of animals delivered', 'The type of goods received', 'Quantities of grain'], a: 0, type: 'negative',
+        explain: "Dạng NEGATIVE FACTUAL. Đoạn 3: các tấm bảng sớm nhất ghi được số lượng và vật (ví dụ mười con cừu) nhưng \"could not easily record a story, a law, or the name of a person\" → tên người là thứ KHÔNG ghi được dễ dàng." },
+      { n: 77, q: 'According to paragraph 4, why is the writing system called cuneiform?', options: ['Because its signs were made of wedge-shaped marks', 'Because it was first used in a city called Cunei', 'Because it was written on pieces of reed', 'Because it was based on pictures of objects'], a: 0, type: 'factual',
+        explain: "Dạng FACTUAL. Bút sậy ấn vào đất sét tạo ra \"wedge-shaped marks\"; tên cuneiform đến \"from the Latin word for 'wedge'\" (cái nêm) → gọi theo hình dạng nét chữ hình nêm. Chữ viết trên đất sét, không phải trên sậy." },
+      { n: 78, q: 'Why does the author mention the English phrase "I saw" in paragraph 4?', options: ['To explain how a sign could be used for a word that sounded similar', 'To show that cuneiform was later used to write English', 'To compare the difficulty of English and cuneiform', 'To give an example of an abstract wedge-shaped sign'], a: 0, type: 'purpose',
+        explain: "Dạng RHETORICAL PURPOSE. Ví dụ hình con mắt (eye) + cái cưa (saw) để viết \"I saw\" minh họa nguyên tắc dùng một ký hiệu cho một từ khác ĐỒNG ÂM/gần âm – tức là ký hiệu bắt đầu biểu thị âm thanh. Chữ hình nêm không dùng để viết tiếng Anh." },
+      { n: 79, q: 'What can be inferred from paragraph 5 about literacy in ancient Mesopotamia?', options: ['Most ordinary people could not read or write cuneiform.', 'Children learned cuneiform easily at home.', 'Cuneiform had only a few signs to remember.', 'Scribes did not need any formal training.'], a: 0, type: 'inference',
+        explain: "Dạng INFERENCE. Chữ hình nêm có hàng trăm ký hiệu, người học phải được đào tạo nhiều năm, nên \"literacy remained limited to a relatively small group of specialists\" → phần lớn người bình thường không biết đọc viết." },
+      { n: 80, q: 'According to paragraph 5, all of the following types of documents survive in cuneiform EXCEPT', options: ['maps of trade routes', 'letters', 'laws', 'scientific observations'], a: 0, type: 'negative',
+        explain: "Dạng NEGATIVE FACTUAL. Đoạn 5 liệt kê văn bản còn lại gồm hồ sơ kinh tế, \"letters, laws, scientific observations, and literature\". Bản đồ tuyến đường buôn bán KHÔNG được nhắc tới → đáp án." },
+    ])],
+  });
+
+  /* ===================================================================
+   * Xoay vị trí đáp án đúng (chỉ các unit của bộ 3 và 4): dữ liệu soạn với a = 0,
    * xoay theo mẫu cố định cho từng dạng bài → A/B/C/D phân bố đều.
    * Cờ _rot ngăn xoay lặp (data1/data2 cũng dùng cờ này).
    * =================================================================== */
   const PAT = [2, 0, 3, 1, 1, 3, 0, 2, 3, 2, 1, 0];
   const counter = {};
-  [...TF.reading, ...TF.listening].filter(u => /^tf3-/.test(u.id)).forEach(u => (u.groups || []).forEach(gr => {
+  [...TF.reading, ...TF.listening].filter(u => /^tf[34]-/.test(u.id)).forEach(u => (u.groups || []).forEach(gr => {
     if (gr.type !== 'mcq' || gr._rot) return; gr._rot = 1;
     gr.items.forEach(it => {
       const k = counter[u.task] = (counter[u.task] || 0) + 1;
