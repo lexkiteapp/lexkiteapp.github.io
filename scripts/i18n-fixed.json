@@ -15824,5 +15824,20 @@
   },
   "Không nêu ý kiến cá nhân (I think…).": {
     "tr": "Kişisel görüş belirtmeyin (I think…)."
+  },
+  "Tự động theo giờ bạn hay học": {
+    "es": "Ajustar a la hora en que sueles estudiar",
+    "pt": "Ajustar ao horário em que você costuma estudar",
+    "fr": "Caler sur l’heure où vous étudiez d’habitude",
+    "de": "An deine übliche Lernzeit anpassen",
+    "id": "Sesuaikan dengan jam belajar Anda biasanya",
+    "th": "ปรับตามเวลาที่คุณเรียนเป็นประจำ",
+    "zh": "按你常学习的时间自动设定",
+    "ja": "いつも学習する時間に合わせる",
+    "ko": "평소 공부하는 시간에 맞추기",
+    "hi": "आप आमतौर पर जिस समय पढ़ते हैं, उसी के अनुसार",
+    "ar": "المطابقة مع وقت دراستك المعتاد",
+    "ru": "Подстроить под ваше обычное время занятий",
+    "tr": "Genelde çalıştığınız saate göre ayarla"
   }
 }

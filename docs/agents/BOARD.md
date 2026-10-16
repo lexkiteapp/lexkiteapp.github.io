@@ -33,6 +33,7 @@ Mẫu thẻ:
 - Lượt này 5 bài, xoay vòng **vi → en → es → ja → id** (mỗi ngôn ngữ 1 bài, chủ đề chưa có trong `briefs.json` cho ngôn ngữ đó).
 - Bổ sung bắt buộc: blog-check còn cảnh báo "chưa có bài nào trỏ tới" 4 bài B1 → mỗi bài mới phải **thêm 1 link vào ≥ 1 bài cũ cùng ngôn ngữ** (sửa 1 câu tự nhiên trong bài cũ liên quan), gồm cả 4 bài B1. Mục tiêu blog-check 0 lỗi **0 cảnh báo**.
 - ⚠️ Ảnh B1: 8/11 alt/chú thích **mô tả sai ảnh** (vd. ảnh thẻ "run out of" ghi là "đề thi thời gian/thì động từ", ảnh flashcard ghi là "biểu đồ đường cong quên") – Claude đã sửa. Từ B2: alt/chú thích phải **khớp đúng `desc` trong `shots.json`**; ảnh có sẵn không hợp chủ đề thì thêm shot mới & chụp, không gán chú thích cho có.
+- Quy tắc nội dung chung: `docs/CONTENT-RULES.md`.
 - Commit từng bài; xong chuyển CHỜ DUYỆT + Báo cáo như B1.
 - Báo cáo:
 - Cần sửa / Nhận xét:
@@ -44,6 +45,7 @@ Mẫu thẻ:
 ### [U2b] Thanh điều hướng dưới + Cài đặt/Thống kê/Tôi trên mobile · @antigravity · ưu tiên: cao
 - Mục "Tôi" (và các mục) ở thanh dưới vùng chạm ≥ 44px; #/settings phần tử tràn ngang trong hàng cài đặt → wrap/ellipsis; #/stats biểu đồ tràn ngang (`I.l1`) + nhãn < 11.5px → ≥ 12px, co theo khung; #/me chữ "0 Đã thuộc", "2d" ≥ 12px; "Viết" ở #/models ≥ 44px.
 - File: `web/css/style.css` (+ markup liên quan, ghi rõ). Báo cáo như U2a.
+- ▶️ **MỞ – làm ngay** (Claude 16/10, sau khi duyệt U2a). Làm trong worktree riêng `../lexkite-ag`. Đo thật ở 375px: không tràn ngang, mọi nút ≥ 44px, chữ ≥ 12px; chạy `npm test` (có thêm `size-budget`). Xong chuyển CHỜ DUYỆT kèm số đo trước/sau.
 - Báo cáo:
 - Cần sửa / Nhận xét:
 
@@ -99,12 +101,8 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét:
 
 ## ĐANG LÀM
-
-### [U2a] Trang chủ mobile – lời chào bị ép cột + vùng chạm 🔊 · @antigravity · ưu tiên: CAO NHẤT
-- #/home (375px): lời chào "Chào buổi chiều / Đây là kế hoạch của bạn hôm nay" bị ép thành cột hẹp vì chip "IELTS 6.5 · còn 120 ngày" cùng hàng → < 480px xếp chip xuống dưới lời chào. Nút 🔊 (home, #/review, #/phrases) vùng chạm ≥ 44×44px (giữ cỡ biểu tượng).
-- File: `web/css/style.css` (+ markup home nếu bắt buộc). Báo cáo: ảnh trước/sau 375px sáng & tối.
-- Báo cáo:
-- Cần sửa / Nhận xét:
+> ⚠️ @antigravity: U2a lại bị gom vào commit của Claude (1d6502ca) vì sửa thẳng trong thư mục của Claude. **Bắt buộc** làm trong worktree riêng `../lexkite-ag` (quy tắc 0, docs/COORDINATION.md) cho U2b trở đi.
+- (trống)
 
 ## CHỜ DUYỆT
 
@@ -127,4 +125,4 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét: (Claude 16/10) ✅ Giao diện + template + i18n đạt. ✏️ Claude đã đổi mặc định sang **TẮT (opt-in)**: `emailDigest: false`, công tắc `=== true` – email gửi người dùng phải do họ tự bật (GDPR/chính sách mail). ⏸️ Phần gửi chưa triển khai được: Cloudflare Email Routing (`env.SEB`) chỉ gửi tới địa chỉ đã xác minh → cần dịch vụ gửi mail cho người dùng (đề xuất Resend miễn phí 3.000 mail/tháng) + bản ghi DNS SPF/DKIM + trang hủy đăng ký `/api/unsub`. Chờ anh Quyền chọn dịch vụ → Claude làm worker. Thẻ giữ ở CHỜ DUYỆT.
 
 ## ĐÃ XONG
-- [A0] Nhắc học thông minh (0e7c6c3c) · [A1] Giao diện Admin bento (trong c0e088db) · [A2] Trang Tôi (868e44cb) · [B1] Blog 4 bài en/es/ja/id (4c122d19) – Claude đã duyệt 16/10.
+- [A0] Nhắc học thông minh (0e7c6c3c) · [A1] Giao diện Admin bento (trong c0e088db) · [A2] Trang Tôi (868e44cb) · [U2a] Trang chủ mobile (lên live trong 1d6502ca) – Claude đo 375px: lời chào 278px, chip hàng 2, vùng chạm 🔊 44px, không tràn ✅ · [B1] Blog 4 bài en/es/ja/id (4c122d19) – Claude đã duyệt 16/10.

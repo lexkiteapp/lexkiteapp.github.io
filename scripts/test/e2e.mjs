@@ -12,7 +12,7 @@ const ROUTES = ['home', 'vocab', 'library', 'review', 'practice', 'practice/lear
 const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
 const VIEWS = { mobile: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }, desktop: { viewport: { width: 1366, height: 860 } } };
 // Lỗi bỏ qua: do môi trường headless (âm thanh tự phát, quảng cáo/mạng ngoài), không phải lỗi app
-const BENIGN = /play\(\) (request|failed)|NotAllowedError|AbortError|autoplay|favicon|ERR_BLOCKED_BY_CLIENT|googletagmanager|speechSynthesis|net::ERR_ABORTED/i;
+const BENIGN = /play\(\) (request|failed)|NotAllowedError|AbortError|autoplay|favicon|ERR_BLOCKED_BY_CLIENT|googletagmanager|speechSynthesis|net::ERR_ABORTED|challenges\.cloudflare\.com|turnstile/i;
 const issues = [], add = (kind, lang, view, route, msg) => { const k = `${kind}|${route}|${String(msg).slice(0, 160)}`; const f = issues.find(x => x.k === k); if (f) { f.langs.add(lang); f.views.add(view); } else issues.push({ k, kind, route, msg: String(msg).slice(0, 300), langs: new Set([lang]), views: new Set([view]) }); };
 const browser = await chromium.launch();
 // Máy CI có gọi được dịch máy lúc chạy không? Không → lẫn tiếng chỉ là cảnh báo (người dùng thật vẫn được dịch)

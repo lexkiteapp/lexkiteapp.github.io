@@ -1,0 +1,8 @@
+{
+  "_note": "Ngân sách dung lượng (byte). Chỉ nâng khi có lý do rõ trong commit; contentWarn tự hạ khi nội dung tốt lên. Xem docs/CONTENT-RULES.md",
+  "shellGz": 389120,
+  "fileGz": 163840,
+  "allowBig": ["web/js/lib/notes-more.js", "web/js/lib/notes-ngsl.js"],
+  "totalJs": 15728640,
+  "contentWarn": 8287
+}
