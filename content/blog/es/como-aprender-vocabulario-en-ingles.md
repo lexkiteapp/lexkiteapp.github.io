@@ -139,7 +139,7 @@ Empieza por frecuencia (las palabras más comunes) para tener una base sólida y
 
 ### ¿Bastan las flashcards para tener un buen vocabulario?
 
-Las flashcards son ideales para no olvidar, pero no sustituyen la lectura, la escucha y el uso activo. Úsalas como el sistema de repaso y combínalas con textos reales y con práctica de escritura y conversación.
+Las flashcards son ideales para no olvidar, pero no sustituyen la lectura, la escucha (tienes un método en [cómo mejorar el listening en inglés](/es/blog/como-mejorar-el-listening-en-ingles/)) y el uso activo. Úsalas como el sistema de repaso y combínalas con textos reales y con práctica de escritura y conversación.
 
 ### ¿Cómo evito confundir palabras parecidas al español?
 
