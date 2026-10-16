@@ -1359,3 +1359,6 @@ mark.g-ok { background: rgba(21,128,61,.18); color: var(--good); font-weight: 70
 /* Trang chào mừng trên màn hẹp: ẩn menu chữ (Tính năng/Thi thử/Add-on) để không xuống dòng – đã có nút Bắt đầu & Đăng nhập */
 @media (max-width: 600px) { .w-head .w-nav { display: none; } }
 html.native .w-nav a[href="#/settings"] { display: none; } /* trong app không quảng cáo add-on Chrome */
+
+/* Ghi chú học từ chờ dịch sang ngôn ngữ người học (app.js contentTranslate) – ẩn để không lộ tiếng Việt */
+.wn.wn-tr { display: none; }
