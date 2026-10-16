@@ -269,6 +269,7 @@ ${related.length ? `<section aria-labelledby="rel"><h2 id="rel">${t.related}</h2
 // Danh sách: /blog/, chuyên mục, thẻ (phân trang)
 const langs = [...new Set(all.filter(p => p.status !== 'draft').map(p => p.lang))]; // ngôn ngữ đã có bài (kể cả chờ lịch) → có /<lang>/blog/ + RSS ngay (noindex khi chưa có bài)
 if (!langs.includes(DEF)) langs.unshift(DEF);
+const liveLangs = [];
 for (const lang of langs) {
   const t = T(lang), b = base(lang), sg = SEG(lang), list = posts.filter(p => p.lang === lang);
   const groups = [{ u: b, name: C.blogName[lang] || C.blogName.en, desc: C.blogDesc[lang] || C.blogDesc.en, items: list, kind: 'all' }];
@@ -306,7 +307,10 @@ ${list[0] ? `<lastBuildDate>${new Date(when(list[0])).toUTCString()}</lastBuildD
 </rss>
 `;
   fs.mkdirSync(path.join(OUT, b), { recursive: true }); fs.writeFileSync(path.join(OUT, b, 'rss.xml'), rss);
+  if (list.length) liveLangs.push(lang);
 }
+// Danh sách ngôn ngữ đã có bài đăng → app ẩn/hiện lối vào blog mà không phải dò rss từng ngôn ngữ (tránh lỗi 404 khi chưa có blog)
+fs.writeFileSync(path.join(OUT, 'blog-langs.json'), JSON.stringify(liveLangs));
 
 // Trang tĩnh của blog (giới thiệu, quy trình biên tập…): content/blog/pages/<lang>/<slug>.md → /blog/<slug>/
 for (const lang of fs.existsSync(`${ROOT}/pages`) ? fs.readdirSync(`${ROOT}/pages`) : []) for (const f of fs.readdirSync(`${ROOT}/pages/${lang}`).filter(f => f.endsWith('.md'))) {
