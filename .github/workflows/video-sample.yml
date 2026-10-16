@@ -38,6 +38,8 @@ jobs:
           echo "RHUBARB=$(find /tmp/rhubarb -type f -name rhubarb | head -1)" >> "$GITHUB_ENV"
 
       # ---------- Dây chuyền dựng (mỗi bước đọc/ghi out/video/<job>/state.json; VIDEO_STRICT=1: thiếu công cụ → lỗi, không lặng lẽ bỏ qua) ----------
+      - name: Kiểm faster-whisper
+        run: python3 -c "import faster_whisper,sys; print('faster-whisper OK', faster_whisper.__version__, sys.executable)"
       - name: Dựng video mẫu (toàn bộ các bước)
         env:
           KOKORO_NODE_PATH: /tmp/kk/node_modules
