@@ -248,7 +248,8 @@ details summary { cursor: pointer; }
 .grades { display: grid; grid-template-columns: repeat(4, 1fr); gap: .6rem; margin-top: 1rem; }
 .grades .btn { flex-direction: column; gap: 0; padding: .65rem; color: #fff; border: 0; }
 .grades .btn small { font-weight: 500; opacity: .92; font-size: .75rem; }
-.g-again { background: var(--again); } .g-hard { background: var(--hard); } .g-good { background: var(--good); } .g-easy { background: var(--easy); }
+/* nút chấm điểm giữ màu khi rê chuột (.btn:hover chung đổi nền sáng → chữ trắng trên nền trắng) */
+.g-again, .g-again:hover { background: var(--again); } .g-hard, .g-hard:hover { background: var(--hard); } .g-good, .g-good:hover { background: var(--good); } .g-easy, .g-easy:hover { background: var(--easy); }
 .grades .btn:hover { filter: brightness(1.08); }
 .mastery { display: inline-flex; gap: 3px; }
 .mastery i { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
