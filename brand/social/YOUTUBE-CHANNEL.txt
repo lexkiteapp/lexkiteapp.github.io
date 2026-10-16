@@ -1,0 +1,58 @@
+Kênh YouTube Lexkite – mô tả & từ khóa kênh
+
+Dán ở YouTube Studio → Tùy chỉnh (Customization) → Thông tin cơ bản (Basic info):
+- Mô tả kênh (≤ 1.000 ký tự): bản tiếng Anh làm mặc định; thêm bản tiếng Việt bằng *Thêm bản dịch* (Add language).
+- Từ khóa kênh: Cài đặt (Settings) → Kênh (Channel) → Thông tin cơ bản → Từ khóa (≤ 500 ký tự, cách nhau bằng dấu phẩy).
+- Đường liên kết (Links): Website https://lexkite.com · Blog https://lexkite.com/en/blog/ · Chrome add-on (link cửa hàng khi được duyệt).
+- Email liên hệ công việc: support@lexkite.com.
+
+Sự thật đã kiểm (không hứa quá): miễn phí; web app + add-on Chrome; app iOS/Android chưa lên cửa hàng → ghi "coming soon". Không dùng logo/nhãn hiệu IELTS/ETS như thể được tài trợ.
+
+============================================================
+
+Mô tả kênh – English (mặc định, ~900 ký tự)
+
+Lexkite helps you learn English vocabulary that sticks – free, for IELTS, TOEIC, TOEFL and real-world English.
+
+On this channel:
+• Vocabulary lessons by topic and level (A2–C2), with natural example sentences
+• IELTS Writing & Speaking tips, model answers and common mistakes
+• TOEIC & TOEFL strategies: time management, question types, traps
+• Grammar explained simply – with practice you can do right away
+• How to remember words for good with spaced repetition (FSRS)
+• Learn from YouTube, news and websites with the Lexkite Chrome extension
+
+Practise everything for free at https://lexkite.com – flashcards that remind you right before you forget, a dictionary with British & American pronunciation, mock tests with explanations, and an interface in 15 languages. iOS & Android apps coming soon.
+
+New videos every week. Subscribe and turn on notifications so you never miss a lesson.
+
+Lexkite is an independent learning app, not affiliated with the British Council, IDP, Cambridge or ETS.
+
+Mô tả kênh – Tiếng Việt (thêm bản dịch)
+
+Lexkite giúp bạn học từ vựng tiếng Anh nhớ lâu – miễn phí, cho IELTS, TOEIC, TOEFL và tiếng Anh thực tế.
+
+Trên kênh này:
+• Từ vựng theo chủ đề và trình độ (A2–C2), kèm câu ví dụ tự nhiên
+• Mẹo IELTS Writing & Speaking, bài mẫu và lỗi hay gặp
+• Chiến thuật TOEIC & TOEFL: phân bổ thời gian, dạng câu hỏi, bẫy thường gặp
+• Ngữ pháp giải thích dễ hiểu – có bài luyện làm ngay
+• Cách nhớ từ mãi mãi bằng lặp lại ngắt quãng (FSRS)
+• Học qua YouTube, báo và trang web với add-on Lexkite cho Chrome
+
+Luyện miễn phí tại https://lexkite.com – flashcard nhắc đúng lúc sắp quên, từ điển phát âm Anh–Anh & Anh–Mỹ, đề thi thử có lời giải, giao diện 15 ngôn ngữ. App iOS & Android sắp ra mắt.
+
+Video mới mỗi tuần. Đăng ký kênh và bật thông báo để không bỏ lỡ bài học nào.
+
+Lexkite là ứng dụng học độc lập, không liên kết với British Council, IDP, Cambridge hay ETS.
+
+============================================================
+
+Từ khóa kênh (dán nguyên dòng, ~480 ký tự)
+
+Lexkite, learn English, English vocabulary, IELTS vocabulary, IELTS preparation, IELTS speaking, IELTS writing, TOEIC, TOEIC preparation, TOEFL, TOEFL iBT, English grammar, spaced repetition, flashcards, Anki alternative, English pronunciation, academic vocabulary, phrasal verbs, collocations, học tiếng Anh, từ vựng tiếng Anh, luyện thi IELTS, luyện thi TOEIC, ngữ pháp tiếng Anh, học từ vựng, tiếng Anh giao tiếp, English for beginners, study English free
+
+Gợi ý bổ sung
+- Video giới thiệu kênh (trailer) cho người chưa đăng ký: dùng lexkite-promo-en.mp4 (bộ video add-on).
+- Watermark: brand/social/youtube/ (150×150, Tùy chỉnh → Xây dựng thương hiệu).
+- Danh sách phát nên tạo sẵn: IELTS Vocabulary by Topic · IELTS Speaking Part 2 · TOEIC Part 5 Tips · Grammar in 5 Minutes · Learn English with Lexkite (hướng dẫn app).

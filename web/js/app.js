@@ -394,7 +394,7 @@
       try {
         if (!pre) await Promise.race([preP, new Promise(r => setTimeout(r, 1500))]);
         const nodes = [], tw = document.createTreeWalker(view, NodeFilter.SHOW_TEXT); let n;
-        while ((n = tw.nextNode())) { const s = n.nodeValue.trim().replace(/\s+/g, ' '); if (s.length > 1 && VI.test(s) && (!n.parentElement.closest(SKIP) || n.parentElement.closest('.wn'))) nodes.push(n); /* ghi chú từ (.wn) luôn được dịch cho người học quốc tế */ }
+        while ((n = tw.nextNode())) { const s = n.nodeValue.trim().replace(/\s+/g, ' '); if (s.length > 1 && VI.test(s) && (!n.parentElement.closest(SKIP) || n.parentElement.closest('.wn, [translate="yes"]'))) nodes.push(n); /* ghi chú từ (.wn) luôn được dịch cho người học quốc tế */ }
         const need = [];
         // Thuộc tính hiển thị (tooltip, nhãn trợ năng, gợi ý ô nhập) cũng phải theo ngôn ngữ người dùng
         const attrs = []; view.querySelectorAll('[title],[aria-label],[placeholder]').forEach(el => { if (el.closest(SKIP) && !el.matches('input,textarea')) return; ['title', 'aria-label', 'placeholder'].forEach(a => { const v = el.getAttribute(a); if (v && VI.test(v)) attrs.push([el, a, v.trim()]); }); });
