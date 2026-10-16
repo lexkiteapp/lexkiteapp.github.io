@@ -15,7 +15,7 @@ author: Lexkite
 status: ready
 qualityScore: 94
 ---
-The most reliable **IELTS Writing Task 2 structure** is four paragraphs: an introduction that paraphrases the question and gives your position, two body paragraphs that each develop one main idea, and a short conclusion that restates your answer. That frame fits all five common question types; what changes is the job each paragraph does. Below you will find the frame paragraph by paragraph, a five-minute planning routine, a worked plan for an original question and the structural mistakes that quietly pull scores down.
+The most reliable **IELTS Writing Task 2 structure** is four paragraphs: an introduction that paraphrases the question (see [how to paraphrase in IELTS](/en/blog/how-to-paraphrase-in-ielts/)) and gives your position, two body paragraphs that each develop one main idea, and a short conclusion that restates your answer. That frame fits all five common question types; what changes is the job each paragraph does. Below you will find the frame paragraph by paragraph, a five-minute planning routine, a worked plan for an original question and the structural mistakes that quietly pull scores down.
 
 (IELTS is a trademark of its respective owners. Lexkite is independent, and every question on this page was written by us.)
 
