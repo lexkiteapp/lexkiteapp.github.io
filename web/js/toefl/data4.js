@@ -1493,6 +1493,108 @@
     tips: 'Cụm "I would also add a point that neither of them mentioned" là cách tự nhiên để báo hiệu ý mới cho giám khảo.',
   });
 
+  /* ===================================================================
+   * BỘ 5 · READING (tự biên soạn): 2 Complete the Words × 10 ô + 2 Academic × 10 câu = 40 câu.
+   * =================================================================== */
+  TF.reading.push({
+    id: 'tf5-cw1', set: 5, task: 'cw', title: 'Why the Sky Is Blue',
+    instr: 'Fill in the missing letters in the paragraph.',
+    text: "Sunlight looks white, but it is actually a mixture {o|f} all the colors of the rainbow. When {th|is} light enters the atmosphere, it hits {ti|ny} gas molecules in the air. These {mole|cules} scatter short wavelengths of light, such {a|s} blue, much more strongly than long wavelengths, {su|ch} as red. As a result, blue light {spr|eads} across the whole sky and reaches {o|ur} eyes from every direction. At sunset, sunlight {trav|els} through more of the atmosphere, so most of the blue is {scat|tered} away and the sky turns orange and red.",
+    explain: [
+      "\"a mixture of\" = hỗn hợp của; giới từ \"of\" sau \"mixture\".",
+      "\"this light\" = ánh sáng này (ánh sáng mặt trời vừa nhắc); đại từ chỉ định số ít.",
+      "Tính từ \"tiny\" (rất nhỏ) bổ nghĩa cho \"gas molecules\".",
+      "\"These molecules\" lặp lại danh từ số nhiều ở câu trước làm chủ ngữ.",
+      "\"such as\" = chẳng hạn như; cụm cố định.",
+      "Cấu trúc song song \"such as blue … such as red\".",
+      "Chủ ngữ số ít \"blue light\" + hiện tại đơn → \"spreads\" (lan ra).",
+      "Tính từ sở hữu \"our eyes\" (mắt chúng ta).",
+      "Chủ ngữ số ít \"sunlight\" → \"travels\" (đi qua).",
+      "Bị động \"is scattered away\" (bị tán xạ đi mất) sau \"most of the blue is\"."
+    ],
+  });
+  TF.reading.push({
+    id: 'tf5-cw2', set: 5, task: 'cw', title: 'The First Maps',
+    instr: 'Fill in the missing letters in the paragraph.',
+    text: "People have drawn maps for thousands of years. Some {o|f} the earliest known maps were scratched {in|to} clay tablets or painted on walls. {Th|ese} early maps usually showed small areas, {su|ch} as fields, rivers or the streets {o|f} a town. Over time, travelers and {trad|ers} needed maps that covered much larger {regi|ons}. Mapmakers began to collect information {fr|om} sailors and explorers and to combine it {in|to} single images of the known world. Even {tod|ay}, every map is a simplified picture of a far more complex reality.",
+    explain: [
+      "\"Some of the earliest known maps\" = một số bản đồ sớm nhất; \"some of\" + danh từ xác định.",
+      "\"scratched into clay tablets\" = khắc vào phiến đất sét; giới từ \"into\" chỉ chuyển động vào bề mặt.",
+      "Đại từ chỉ định số nhiều \"These\" đi với \"early maps\".",
+      "\"such as\" = chẳng hạn như, mở đầu danh sách ví dụ.",
+      "\"the streets of a town\" = các con phố của một thị trấn.",
+      "Danh từ số nhiều \"traders\" (thương nhân) song song với \"travelers\".",
+      "Sau tính từ \"larger\" cần danh từ số nhiều \"regions\" (vùng).",
+      "\"collect information from sailors\" = thu thập thông tin TỪ thủy thủ.",
+      "\"combine it into single images\" = gộp lại THÀNH một hình ảnh; \"into\" chỉ kết quả biến đổi.",
+      "\"Even today\" = ngay cả ngày nay."
+    ],
+  });
+  TF.reading.push({
+    id: 'tf5-ap1', set: 5, task: 'academic', title: 'The Long Journey of the Monarch Butterfly',
+    paras: [
+      "Every autumn, millions of monarch butterflies leave the northern United States and southern Canada and fly south. Many of the butterflies from eastern North America travel thousands of kilometers to a small number of mountain forests in central Mexico, where they spend the winter clustered together on fir trees. This migration is remarkable not only because of its distance but also because of the size of the travelers: a monarch weighs less than a gram.",
+      "What makes the journey even more puzzling is that no single butterfly makes the complete round trip. The monarchs that fly south in autumn belong to a special generation that lives much longer than usual – up to eight or nine months, compared with a few weeks for summer butterflies. In spring, these long-lived butterflies begin the flight north, but they lay eggs and die along the way. Their offspring continue the journey, and it takes several generations to reach the northern breeding areas again.",
+      "Because the butterflies that arrive in Mexico have never been there before, scientists have long wondered how they find their way. Research suggests that monarchs use the position of the sun as a compass. Since the sun moves across the sky during the day, the butterflies must also keep track of the time, and studies indicate that a clock in their antennae helps them adjust their direction. On cloudy days, they may rely on other cues, possibly including the Earth's magnetic field.",
+      "The migration faces serious threats. The caterpillars of monarch butterflies feed only on milkweed plants, which have declined in many agricultural areas. Logging has damaged parts of the forests where the butterflies spend the winter, and extreme weather can kill large numbers of them. Counts of the area occupied by monarchs in Mexico have varied greatly from year to year but have generally been much lower in recent decades than in the 1990s.",
+      "Conservation efforts now involve three countries. In Mexico, many of the wintering sites are protected, and local communities have been supported in developing tourism rather than cutting trees. In the United States and Canada, farmers, schools and home gardeners have been encouraged to plant milkweed and other flowering plants along the migration route. Scientists hope that these combined efforts will allow future generations of monarchs to continue one of the most extraordinary journeys in the natural world.",
+    ],
+    groups: [mcq('Read the passage and answer the questions.', [
+      { n: 61, q: 'According to paragraph 1, why is the monarch migration considered remarkable?', options: ['Because of the long distance and the small size of the butterflies', 'Because the butterflies fly only at night', 'Because the butterflies travel in a straight line', 'Because the migration happens twice a year'], a: 0, type: 'factual',
+        explain: "Dạng FACTUAL. \"This migration is remarkable not only because of its distance but also because of the size of the travelers: a monarch weighs less than a gram\" → vì quãng đường dài và kích thước rất nhỏ." },
+      { n: 62, q: 'The word "clustered" in paragraph 1 is closest in meaning to', options: ['grouped closely', 'hidden separately', 'flying quickly', 'resting alone'], a: 0, type: 'vocab',
+        explain: "Dạng VOCABULARY. \"clustered together on fir trees\" = tụ lại sát nhau thành cụm → grouped closely. \"together\" là gợi ý trực tiếp." },
+      { n: 63, q: 'According to paragraph 2, what is special about the generation that flies south in autumn?', options: ['It lives much longer than other generations.', 'It completes the full round trip.', 'It does not lay any eggs.', 'It is larger than other generations.'], a: 0, type: 'factual',
+        explain: "Dạng FACTUAL. Thế hệ bay về phương nam \"lives much longer than usual – up to eight or nine months, compared with a few weeks for summer butterflies\". Đoạn 2 nói rõ \"no single butterfly makes the complete round trip\"." },
+      { n: 64, q: 'What can be inferred from paragraph 2 about the butterflies that arrive in the north in summer?', options: ['They are descendants of the butterflies that wintered in Mexico.', 'They have already visited Mexico once.', 'They are the same butterflies that left in autumn.', 'They never lay eggs.'], a: 0, type: 'inference',
+        explain: "Dạng INFERENCE. Bướm mùa xuân đẻ trứng rồi chết dọc đường, \"Their offspring continue the journey, and it takes several generations\" → bướm đến phương bắc là con cháu của đàn trú đông." },
+      { n: 65, q: 'According to paragraph 3, why must monarchs keep track of the time?', options: ['Because the sun\'s position changes during the day', 'Because they fly only in the morning', 'Because they need to arrive before winter', 'Because they rest at the same time every day'], a: 0, type: 'factual',
+        explain: "Dạng FACTUAL. \"Since the sun moves across the sky during the day, the butterflies must also keep track of the time\" → vị trí mặt trời thay đổi theo giờ nên phải biết giờ để giữ hướng." },
+      { n: 66, q: 'The word "cues" in paragraph 3 is closest in meaning to', options: ['signals', 'dangers', 'partners', 'routes'], a: 0, type: 'vocab',
+        explain: "Dạng VOCABULARY. \"rely on other cues, possibly including the Earth's magnetic field\" – từ trường là một loại tín hiệu định hướng → cues = signals." },
+      { n: 67, q: 'Why does the author mention milkweed in paragraph 4?', options: ['To explain one reason why the migration is threatened', 'To describe what adult butterflies eat in Mexico', 'To show where monarchs spend the winter', 'To compare monarchs with other butterflies'], a: 0, type: 'purpose',
+        explain: "Dạng RHETORICAL PURPOSE. Sâu bướm \"feed only on milkweed plants, which have declined\" → đây là một trong các mối đe dọa được liệt kê ở đoạn 4." },
+      { n: 68, q: 'According to paragraph 4, all of the following are threats to monarchs EXCEPT', options: ['competition with other butterfly species', 'the decline of milkweed', 'logging in wintering forests', 'extreme weather'], a: 0, type: 'negative',
+        explain: "Dạng NEGATIVE FACTUAL. Đoạn 4 nêu: milkweed giảm, khai thác gỗ (logging), thời tiết cực đoan. Cạnh tranh với loài bướm khác KHÔNG được nhắc tới." },
+      { n: 69, q: 'According to paragraph 5, how have communities in Mexico been helped?', options: ['They have been supported in developing tourism instead of cutting trees.', 'They have been paid to plant milkweed.', 'They have been moved away from the forests.', 'They have been trained to count butterflies.'], a: 0, type: 'factual',
+        explain: "Dạng FACTUAL. \"local communities have been supported in developing tourism rather than cutting trees\". Trồng milkweed là việc ở Mỹ và Canada." },
+      { n: 70, q: 'Which of the following best describes the organization of the passage?', options: ['It describes a migration, explains how it works, and discusses threats and conservation.', 'It compares two theories and rejects both.', 'It tells the history of research in chronological order.', 'It argues that the migration will soon end.'], a: 0, type: 'inference',
+        explain: "Dạng ORGANIZATION. Đoạn 1 mô tả cuộc di cư, đoạn 2–3 giải thích cơ chế (nhiều thế hệ, định hướng), đoạn 4 nêu mối đe dọa, đoạn 5 nói về bảo tồn. Bài không khẳng định di cư sắp chấm dứt." },
+    ])],
+  });
+  TF.reading.push({
+    id: 'tf5-ap2', set: 5, task: 'academic', title: 'The Telegraph and the Shrinking World',
+    paras: [
+      "For most of human history, information could travel no faster than a person, a horse or a ship could carry it. A letter between Europe and North America might take weeks to arrive. In the nineteenth century, the electric telegraph changed this situation dramatically, making it possible to send messages across great distances almost instantly.",
+      "Several inventors in different countries worked on electric telegraph systems in the 1830s. In the United States, Samuel Morse and his colleagues developed a system that sent pulses of electric current along a wire. These pulses were recorded as short and long signals, which represented letters according to a code that became known as Morse code. In 1844, Morse sent a famous message from Washington, D.C., to Baltimore, demonstrating that the system could work over a long distance.",
+      "Telegraph lines spread rapidly along railways and roads. Railway companies used them to coordinate train movements, which improved safety, and newspapers used them to report events from distant cities on the same day. Businesses benefited as well: merchants could check prices in other markets before deciding where to buy or sell goods, which made trade more efficient.",
+      "Connecting continents was far more difficult. The first cable laid across the floor of the Atlantic Ocean in 1858 carried messages for only a few weeks before it failed. Engineers learned from this failure, and in 1866 a stronger and better-insulated cable established a lasting connection between Britain and North America. Messages that had once taken about ten days by ship could now be delivered within minutes.",
+      "Historians often describe the telegraph as an early form of the communication networks we rely on today. It changed expectations about how quickly news should arrive and how closely distant places could be connected. At the same time, sending messages was expensive, so they were usually short, and most ordinary people continued to rely on letters for personal communication well into the twentieth century.",
+    ],
+    groups: [mcq('Read the passage and answer the questions.', [
+      { n: 71, q: 'According to paragraph 1, what limited the speed of communication before the telegraph?', options: ['Messages could travel only as fast as people, animals or ships', 'Governments controlled the delivery of letters', 'Most people could not read', 'Paper was very expensive'], a: 0, type: 'factual',
+        explain: "Dạng FACTUAL. \"information could travel no faster than a person, a horse or a ship could carry it\" → tốc độ bị giới hạn bởi người, ngựa, tàu." },
+      { n: 72, q: 'The word "instantly" in paragraph 1 is closest in meaning to', options: ['immediately', 'cheaply', 'secretly', 'regularly'], a: 0, type: 'vocab',
+        explain: "Dạng VOCABULARY. \"almost instantly\" đối lập với \"weeks\" ở câu trước → gần như ngay lập tức = immediately." },
+      { n: 73, q: 'According to paragraph 2, how did Morse\'s system represent letters?', options: ['With combinations of short and long signals', 'With different colors of light', 'With printed symbols on paper rolls only', 'With sounds of different musical notes'], a: 0, type: 'factual',
+        explain: "Dạng FACTUAL. Xung điện \"were recorded as short and long signals, which represented letters according to a code\" → tổ hợp tín hiệu ngắn và dài." },
+      { n: 74, q: 'Why does the author mention the 1844 message from Washington to Baltimore?', options: ['To show that the system worked over a long distance', 'To explain why Morse moved to Baltimore', 'To show that other inventors had failed', 'To describe the first telephone call'], a: 0, type: 'purpose',
+        explain: "Dạng RHETORICAL PURPOSE. Bức điện năm 1844 được nêu \"demonstrating that the system could work over a long distance\"." },
+      { n: 75, q: 'According to paragraph 3, how did railway companies use the telegraph?', options: ['To coordinate train movements and improve safety', 'To sell tickets to passengers', 'To advertise new routes in newspapers', 'To pay their workers'], a: 0, type: 'factual',
+        explain: "Dạng FACTUAL. \"Railway companies used them to coordinate train movements, which improved safety\"." },
+      { n: 76, q: 'According to paragraph 3, all of the following benefited from the telegraph EXCEPT', options: ['farmers who sold goods only in their own village', 'railway companies', 'newspapers', 'merchants'], a: 0, type: 'negative',
+        explain: "Dạng NEGATIVE FACTUAL. Đoạn 3 nêu đường sắt, báo chí và thương nhân (merchants) được lợi. Nông dân chỉ bán trong làng KHÔNG được nhắc tới." },
+      { n: 77, q: 'What can be inferred from paragraph 4 about the 1858 cable?', options: ['Its failure provided lessons for later engineers.', 'It was never used to send any messages.', 'It was stronger than the 1866 cable.', 'It connected Britain and North America permanently.'], a: 0, type: 'inference',
+        explain: "Dạng INFERENCE. Cáp 1858 hỏng sau vài tuần, \"Engineers learned from this failure\" và cáp 1866 \"stronger and better-insulated\" → thất bại trở thành bài học. Cáp 1858 có gửi được tin trong vài tuần." },
+      { n: 78, q: 'The word "lasting" in paragraph 4 is closest in meaning to', options: ['permanent', 'expensive', 'experimental', 'temporary'], a: 0, type: 'vocab',
+        explain: "Dạng VOCABULARY. \"a lasting connection\" đối lập với cáp 1858 chỉ hoạt động vài tuần → lâu dài, bền vững = permanent." },
+      { n: 79, q: 'According to paragraph 5, why did most people continue to use letters for personal communication?', options: ['Telegraph messages were expensive.', 'Telegraph lines did not reach cities.', 'Letters were faster than telegrams.', 'Telegrams could not include names.'], a: 0, type: 'factual',
+        explain: "Dạng FACTUAL. \"sending messages was expensive, so they were usually short, and most ordinary people continued to rely on letters\"." },
+      { n: 80, q: 'Which of the following best states the main idea of the passage?', options: ['The telegraph greatly increased the speed of long-distance communication and changed society\'s expectations.', 'Samuel Morse was the only inventor of the telegraph.', 'The telegraph immediately replaced letters for everyone.', 'Underwater cables were easier to build than land lines.'], a: 0, type: 'inference',
+        explain: "Dạng MAIN IDEA. Bài nói điện báo giúp gửi tin gần như tức thì, lan rộng, nối các châu lục và \"changed expectations about how quickly news should arrive\". Bài nói nhiều nhà phát minh cùng nghiên cứu, thư tay vẫn phổ biến, và cáp dưới biển khó hơn nhiều." },
+    ])],
+  });
+
 
   /* Xoay vị trí đáp án đúng (chỉ các unit của bộ 4–6) */
   const PAT = [2, 0, 3, 1, 1, 3, 0, 2, 3, 2, 1, 0];
