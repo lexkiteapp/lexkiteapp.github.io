@@ -1,0 +1,353 @@
+{
+ "_note": "SỔ ĐĂNG KÝ TÀI NGUYÊN HỆ THỐNG – nguồn gốc duy nhất (repo công khai: KHÔNG ghi khóa/mật khẩu/token). Thêm dịch vụ, Worker, kho lưu trữ, tên miền, API ngoài mới → thêm 1 mục ở đây; scripts/test/infra-check.mjs (npm test) chặn ship nếu code dùng tài nguyên chưa đăng ký; scripts/infra-sync.mjs đẩy vào Quản trị → Dịch vụ (D1 services). Quy tắc: docs/INFRA-RULES.md",
+ "services": [
+  {
+   "key": "pages",
+   "name": "Cloudflare Pages",
+   "kind": "hosting",
+   "purpose": "Web lexkite.com, blog, nội dung học (JSON/JS tải lười), API /api/*",
+   "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/pages/view/lexkite",
+   "free": "Băng thông không giới hạn · 500 build/tháng · 20.000 file/bản · 100.000 lượt Functions/ngày",
+   "upgrade": "Workers Paid 5 USD/tháng khi Functions > 100k/ngày",
+   "status": "Miễn phí",
+   "match": [
+    "lexkite.com",
+    "lexkite"
+   ]
+  },
+  {
+   "key": "d1",
+   "name": "Cloudflare D1 (lexkite-sync)",
+   "kind": "db",
+   "purpose": "Đồng bộ học tập, người dùng, thống kê, tin nhắn, cấu hình, nhật ký quản trị",
+   "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/workers/d1",
+   "free": "5 GB · 5 triệu lượt đọc/ngày · 100.000 lượt ghi/ngày",
+   "upgrade": "Workers Paid; hoặc giảm hit_rate thống kê trong Quản trị",
+   "status": "Miễn phí",
+   "match": [
+    "lexkite-sync"
+   ]
+  },
+  {
+   "key": "audio-worker",
+   "name": "Cloudflare Worker lexkite-audio (audio.lexkite.com)",
+   "kind": "cdn",
+   "purpose": "CDN âm thanh: đứng trước GitHub Pages, máy chủ gần người dùng (có VN), cache 1 năm; app tự lùi về GitHub nếu lỗi",
+   "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/workers/services/view/lexkite-audio/production",
+   "free": "100.000 lượt/ngày (lượt trúng cache trình duyệt không tính)",
+   "upgrade": "Khi > 100k lượt/ngày: chuyển âm thanh sang R2 + tên miền tùy chỉnh (không qua Worker) hoặc Workers Paid",
+   "status": "Miễn phí",
+   "match": [
+    "audio.lexkite.com",
+    "lexkite-audio"
+   ]
+  },
+  {
+   "key": "audio-origin",
+   "name": "GitHub Pages âm thanh (lexkiteapp.github.io/audio)",
+   "kind": "storage",
+   "purpose": "Kho gốc file giọng đọc (audio.yml sinh hằng đêm) – nguồn của audio.lexkite.com",
+   "console": "https://github.com/lexkiteapp/lexkiteapp.github.io",
+   "free": "Trang ≤ 1 GB · ~100 GB băng thông/tháng (mềm) · file ≤ 100 MB",
+   "upgrade": "Gần 1 GB → chuyển sang Cloudflare R2 (10 GB miễn phí, không tính phí tải)",
+   "status": "Miễn phí",
+   "match": [
+    "lexkiteapp.github.io"
+   ]
+  },
+  {
+   "key": "ai",
+   "name": "Cloudflare Workers AI",
+   "kind": "ai",
+   "purpose": "Dự phòng chấm Writing/Speaking & duyệt dịch khi Gemini hết hạn mức (Llama 3.3 70B)",
+   "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/ai/workers-ai",
+   "free": "10.000 neuron/ngày",
+   "upgrade": "Workers Paid",
+   "status": "Miễn phí",
+   "match": []
+  },
+  {
+   "key": "gemini-worker",
+   "name": "Cloudflare Worker lexkite-gemini",
+   "kind": "worker",
+   "purpose": "Proxy Gemini đặt tại Mỹ (tránh lỗi 'User location is not supported'); gọi qua binding GEM",
+   "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/workers/services/view/lexkite-gemini/production",
+   "free": "100.000 lượt/ngày",
+   "upgrade": "Workers Paid",
+   "status": "Miễn phí",
+   "match": [
+    "lexkite-gemini",
+    "gem.internal",
+    "gemini-cool.lexkite.internal"
+   ]
+  },
+  {
+   "key": "gemini",
+   "name": "Gemini API",
+   "kind": "ai",
+   "purpose": "AI chấm bài viết/nói, duyệt bản dịch; nhiều khóa xoay vòng, quản lý ở Quản trị → Dịch vụ",
+   "console": "https://aistudio.google.com/apikey",
+   "free": "Hạn mức miễn phí theo khóa (tự xoay khóa khi 429)",
+   "upgrade": "Thêm khóa ở Quản trị hoặc bật trả phí Google AI",
+   "status": "Đang dùng",
+   "match": [
+    "generativelanguage.googleapis.com",
+    "aistudio.google.com"
+   ]
+  },
+  {
+   "key": "mail",
+   "name": "Cloudflare Email Routing + Worker lexkite-mail",
+   "kind": "mail",
+   "purpose": "support@ / contact@lexkite.com → Gmail chính; form liên hệ; bản tin quản trị 8h (cron 01:00 UTC); duyệt dịch đêm. Gửi mail cho người dùng (bản tin tuần) CHỜ chọn Resend/Brevo",
+   "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/lexkite.com/email/routing/overview",
+   "free": "Email Routing miễn phí (chỉ gửi tới địa chỉ đã xác minh)",
+   "upgrade": "Resend 3.000 mail/tháng miễn phí (cần DNS SPF/DKIM) cho mail người dùng",
+   "status": "Miễn phí",
+   "match": [
+    "lexkite-mail",
+    "SEB",
+    "mail.google.com"
+   ]
+  },
+  {
+   "key": "turnstile",
+   "name": "Cloudflare Turnstile",
+   "kind": "security",
+   "purpose": "Chống bot form liên hệ",
+   "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/turnstile",
+   "free": "Không giới hạn",
+   "upgrade": "—",
+   "status": "Miễn phí",
+   "match": [
+    "challenges.cloudflare.com"
+   ]
+  },
+  {
+   "key": "cache-internal",
+   "name": "Cloudflare Cache API (nội bộ)",
+   "kind": "internal",
+   "purpose": "Khóa nội bộ cho giới hạn tần suất & làm nguội khóa Gemini (không phải tên miền thật)",
+   "console": "",
+   "free": "—",
+   "upgrade": "—",
+   "status": "Nội bộ",
+   "match": [
+    "cache.lexkite.internal",
+    "rate.lexkite.internal"
+   ]
+  },
+  {
+   "key": "domain",
+   "name": "Tên miền lexkite.com (Dynadot)",
+   "kind": "domain",
+   "purpose": "Mua & gia hạn tại Dynadot; DNS quản lý ở Cloudflare",
+   "console": "https://www.dynadot.com/account/domain/name/list.html",
+   "free": "Trả phí theo năm",
+   "upgrade": "Bật tự gia hạn",
+   "status": "Đang dùng",
+   "match": []
+  },
+  {
+   "key": "firebase",
+   "name": "Firebase Auth (lexkite-app)",
+   "kind": "auth",
+   "purpose": "Đăng nhập Google cho web, add-on, app",
+   "console": "https://console.firebase.google.com/project/lexkite-app/authentication",
+   "free": "50.000 người dùng hoạt động/tháng",
+   "upgrade": "Gói Blaze",
+   "status": "Miễn phí",
+   "match": [
+    "securetoken.google.com",
+    "www.googleapis.com",
+    "www.gstatic.com"
+   ]
+  },
+  {
+   "key": "firebase-old",
+   "name": "Firebase cũ (ielts-lexi-2026)",
+   "kind": "hosting",
+   "purpose": "Chỉ chuyển hướng 301 tên miền cũ (ielts-lexi-2026.web.app, vocaband.web.app) về lexkite.com",
+   "console": "https://console.firebase.google.com/project/ielts-lexi-2026/hosting",
+   "free": "Gói Spark miễn phí",
+   "upgrade": "—",
+   "status": "Chỉ redirect",
+   "match": [
+    "ielts-lexi-2026",
+    "vocaband"
+   ]
+  },
+  {
+   "key": "github",
+   "name": "GitHub (lexkiteapp)",
+   "kind": "ci",
+   "purpose": "Mã nguồn, Actions: dịch, giọng đọc, rà soát hằng ngày + e2e, build iOS/Android, blog",
+   "console": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions",
+   "free": "Actions không giới hạn phút cho repo công khai",
+   "upgrade": "—",
+   "status": "Miễn phí",
+   "match": [
+    "api.github.com"
+   ]
+  },
+  {
+   "key": "media",
+   "name": "Kho ảnh blog lexkite-media (GitHub)",
+   "kind": "storage",
+   "purpose": "Ảnh chụp app cho blog (AVIF/WebP 480/960/1440)",
+   "console": "https://github.com/lexkiteapp/lexkite-media",
+   "free": "Repo ≤ 1 GB khuyến nghị",
+   "upgrade": "Cloudflare R2",
+   "status": "Miễn phí",
+   "match": []
+  },
+  {
+   "key": "gtx",
+   "name": "Google Translate (gtx) & từ điển mở",
+   "kind": "api",
+   "purpose": "Dịch máy lúc chạy (dự phòng – nội dung chính đã dịch sẵn ở web/i18n/content), nghĩa từ, phiên âm, ví dụ, ảnh minh họa",
+   "console": "",
+   "free": "Miễn phí, không cam kết (có thể bị giới hạn)",
+   "upgrade": "Dịch sẵn lúc build (đã làm) / Gemini",
+   "status": "Đang dùng",
+   "match": [
+    "translate.googleapis.com",
+    "api.dictionaryapi.dev",
+    "en.wiktionary.org",
+    "api.datamuse.com",
+    "api.tatoeba.org",
+    "api.mymemory.translated.net",
+    "api.openverse.org",
+    "api.languagetool.org",
+    "upload.wikimedia.org",
+    "commons.wikimedia.org"
+   ]
+  },
+  {
+   "key": "youtube",
+   "name": "YouTube (nhúng video)",
+   "kind": "video",
+   "purpose": "Video bài học & luyện phản xạ: nhúng youtube-nocookie (miễn phí, tự đổi chất lượng theo mạng)",
+   "console": "https://studio.youtube.com",
+   "free": "Không giới hạn",
+   "upgrade": "—",
+   "status": "Đang dùng",
+   "match": [
+    "www.youtube-nocookie.com"
+   ]
+  },
+  {
+   "key": "fonts",
+   "name": "Google Fonts",
+   "kind": "cdn",
+   "purpose": "Phông chữ giao diện",
+   "console": "",
+   "free": "Miễn phí",
+   "upgrade": "—",
+   "status": "Đang dùng",
+   "match": [
+    "fonts.googleapis.com",
+    "fonts.gstatic.com"
+   ]
+  },
+  {
+   "key": "jsdelivr",
+   "name": "jsDelivr CDN (thư viện AI chạy trên máy)",
+   "kind": "cdn",
+   "purpose": "Tải transformers.js để chạy AI ngay trên máy người dùng (không tốn máy chủ)",
+   "console": "",
+   "free": "Miễn phí",
+   "upgrade": "—",
+   "status": "Đang dùng",
+   "match": [
+    "cdn.jsdelivr.net"
+   ]
+  },
+  {
+   "key": "gsc",
+   "name": "Google Search Console",
+   "kind": "seo",
+   "purpose": "SEO lexkite.com, sitemap, IndexNow",
+   "console": "https://search.google.com/search-console",
+   "free": "Miễn phí",
+   "upgrade": "—",
+   "status": "Đang dùng",
+   "match": [
+    "www.google.com",
+    "schema.org"
+   ]
+  },
+  {
+   "key": "admob",
+   "name": "Google AdMob",
+   "kind": "ads",
+   "purpose": "Quảng cáo (sau này)",
+   "console": "https://admob.google.com/",
+   "free": "—",
+   "upgrade": "—",
+   "status": "Chưa dùng",
+   "match": [
+    "pagead2.googlesyndication.com"
+   ]
+  },
+  {
+   "key": "apple",
+   "name": "Apple Developer",
+   "kind": "store",
+   "purpose": "Phát hành app iOS",
+   "console": "https://developer.apple.com/account",
+   "free": "99 USD/năm",
+   "upgrade": "—",
+   "status": "Chưa đăng ký",
+   "match": []
+  },
+  {
+   "key": "play",
+   "name": "Google Play Console",
+   "kind": "store",
+   "purpose": "Phát hành app Android",
+   "console": "https://play.google.com/console",
+   "free": "25 USD một lần",
+   "upgrade": "—",
+   "status": "Chưa đăng ký",
+   "match": []
+  },
+  {
+   "key": "cws",
+   "name": "Chrome Web Store",
+   "kind": "store",
+   "purpose": "Phát hành add-on (hồ sơ: store/chrome, quy tắc docs/CWS-RULES.md)",
+   "console": "https://chrome.google.com/webstore/devconsole",
+   "free": "5 USD một lần",
+   "upgrade": "—",
+   "status": "Đang đăng ký",
+   "match": []
+  },
+  {
+   "key": "claude",
+   "name": "Claude Code (Anthropic)",
+   "kind": "dev",
+   "purpose": "Phát triển & vận hành",
+   "console": "https://claude.ai/settings/billing",
+   "free": "Theo gói",
+   "upgrade": "—",
+   "status": "Đang dùng",
+   "match": []
+  }
+ ],
+ "links": {
+  "_note": "Tên miền chỉ xuất hiện dưới dạng liên kết tham khảo cho người học (không gọi API, không lưu trữ)",
+  "hosts": [
+   "youglish.com",
+   "www.ted.com",
+   "www.oxfordlearnersdictionaries.com",
+   "www.britishcouncil.vn",
+   "www.bbc.co.uk",
+   "writeandimprove.com",
+   "learningenglish.voanews.com",
+   "learnenglish.britishcouncil.org",
+   "ielts.org",
+   "ielts.idp.com"
+  ]
+ }
+}
