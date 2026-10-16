@@ -10,7 +10,11 @@ function pick(results, word) {
     && (!r.width || r.width >= 400) && (!r.height || !r.width || (r.width / r.height > 0.6 && r.width / r.height < 2.2));
   const title = r => re.test((r.title || '').toLowerCase()), tags = r => re.test([(r.title || ''), ...(r.tags || []).map(t => t.name || '')].join(' ').toLowerCase());
   const free = r => /cc0|pdm/i.test(r.license || '');
-  return results.find(r => photo(r) && free(r) && title(r)) || results.find(r => photo(r) && title(r)) || results.find(r => photo(r) && free(r) && tags(r)) || results.find(r => photo(r) && tags(r));
+  const words = r => (r.title || '').replace(/\.[a-z]{3,4}$/i, '').split(/[\s_\-–:,.!?()]+/).filter(Boolean);
+  const whole = new RegExp(`(^|[^a-z])${stem}[a-z]{0,4}([^a-z]|$)`, 'i');
+  const EVENT = /\b(minister|president|chair|ceremony|conference|summit|forum|meeting|briefing|speech|addresses|day|award|festival|society|association|council|committee|campaign|initiative|program(me)?|report|press|launch|logo|poster|flyer|sign|map|chart|diagram|screenshot|slide|book|cover|museum|exhibit|mural|painting|portrait)\b/i;
+  const strict = r => photo(r) && whole.test(r.title || '') && words(r).length <= 5 && !EVENT.test(r.title || '');
+  return results.find(r => strict(r) && free(r)) || results.find(strict);
 }
 const thumbOf = r => {
   const u = r.url || '';
@@ -42,17 +46,19 @@ async function wiki(word) {
 export async function onRequestGet({ request, waitUntil }) {
   const url = new URL(request.url), word = String(url.searchParams.get('w') || '').toLowerCase().trim().slice(0, 60);
   if (!/^[a-z][a-z' -]*$/.test(word)) return H({ none: true }, 86400);
-  const key = new Request(`https://lexkite.com/api/img?w=${encodeURIComponent(word)}&v=2`), cache = caches.default; // v2: thêm nguồn Wikimedia Commons → bỏ đệm 'none' cũ
+  const key = new Request(`https://lexkite.com/api/img?w=${encodeURIComponent(word)}&v=3`), cache = caches.default; // v3: Wikipedia trước, Openverse lọc chặt sau → bỏ đệm ảnh lệch nghĩa cũ
   const hit = await cache.match(key); if (hit) return hit;
   let out = { none: true }, ttl = 7 * 86400;
-  try {
+  // 1) Ảnh đại diện bài Wikipedia đúng khái niệm (society → gia đình, climate → mây…) – thường đúng nghĩa hơn ảnh khớp chữ trong tiêu đề
+  try { const c = await wiki(word); if (c) { out = c; ttl = 30 * 86400; } } catch (e) { /* thử Openverse */ }
+  // 2) Openverse – chỉ nhận ảnh mà từ là chủ thể chính (tiêu đề ngắn, không phải ảnh sự kiện/người phát biểu/tên tổ chức)
+  if (out.none) try {
     const r = await fetch(`https://api.openverse.org/v1/images/?q=${encodeURIComponent(word)}&page_size=20&mature=false&license_type=commercial`, { headers: { 'User-Agent': 'Lexkite/1.0 (https://lexkite.com; support@lexkite.com)' } });
     if (r.ok) {
       const j = await r.json(), x = pick(j.results || [], word);
       if (x) { const lic = (x.license || '').toUpperCase() + (x.license_version && !/cc0|pdm/i.test(x.license) ? ' ' + x.license_version : ''); out = { src: thumbOf(x), link: x.foreign_landing_url || x.url, license: /pdm/i.test(x.license) ? 'Public Domain' : lic, title: (x.title || word).slice(0, 60), creator: x.creator || '' }; ttl = 30 * 86400; }
     } else ttl = 600; // Openverse bận/giới hạn → thử lại sau 10 phút
   } catch (e) { ttl = 600; }
-  if (out.none && ttl !== 600) { const c = await wiki(word).catch(() => null); if (c) { out = c; ttl = 30 * 86400; } }
   const res = H(out, ttl);
   waitUntil(cache.put(key, res.clone()));
   return res;
