@@ -266,7 +266,8 @@
   App.blogLive = async () => {
     try { const c = JSON.parse(localStorage.getItem('vb.blog.' + I18N.lang()) || 'null'); if (c && Date.now() - c.at < (c.on ? 864e5 : 3 * 3600e3)) return c.on; /* chưa có bài → kiểm tra lại sau 3 giờ */ } catch (e) { /* bỏ qua */ }
     let on = false;
-    try { const r = await fetch(App.blogUrl() + 'rss.xml', { cache: 'no-store' }); on = r.ok && /xml/.test(r.headers.get('content-type') || '') && (await r.text()).includes('<item'); } catch (e) { on = false; } /* có ít nhất 1 bài đã đăng */
+    try { const r = await fetch((sameSite ? '' : 'https://lexkite.com') + '/blog-langs.json', { cache: 'no-store' }); on = r.ok && (await r.json()).includes(I18N.lang()); } /* danh sách ngôn ngữ đã có bài (build-blog) – không dò rss 404 */
+    catch (e) { try { const r = await fetch(App.blogUrl() + 'rss.xml', { cache: 'no-store' }); on = r.ok && /xml/.test(r.headers.get('content-type') || '') && (await r.text()).includes('<item'); } catch (x) { on = false; } }
     try { localStorage.setItem('vb.blog.' + I18N.lang(), JSON.stringify({ on, at: Date.now() })); } catch (e) { /* bỏ qua */ }
     return on;
   };

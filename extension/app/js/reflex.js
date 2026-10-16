@@ -44,28 +44,31 @@
       <div class="row center" style="gap:.6rem;margin-top:1rem"><button class="btn primary lg" id="rxGo">▶ ${t('Bắt đầu')}</button><button class="btn" id="rxNext" hidden>${t('Câu tiếp')} →</button></div>
       <p class="tiny muted center" style="margin-top:.8rem">${t('Mẹo: lưu câu trong video YouTube bằng add-on Lexkite (bấm vào từ trong phụ đề) để luyện đúng những gì bạn đang xem.')}</p>`;
     if (!items.length) { $('#rxStage').innerHTML = `<p class="muted center">${t('Chưa có câu để luyện – hãy lưu vài câu từ YouTube hoặc quay lại sau khi kho giọng đọc cập nhật.')}</p>`; $('#rxGo').hidden = true; return; }
-    let i = 0, left = 60, tick = 0, score = 0, done = 0, audio = null, rec = null, ytTimer = 0;
+    let i = 0, left = 60, tick = 0, score = 0, done = 0, audio = null, rec = null, ytTimer = 0, dead = false, miss = 0;
+    const alive = () => !dead && document.body.contains($('#rxStage') || document.createElement('i')); // rời trang → bỏ mọi callback muộn (mic, âm thanh, hẹn giờ)
     const stopAll = () => { clearTimeout(ytTimer); if (audio) { audio.pause(); audio = null; } if (rec && rec.stop) try { rec.stop(); } catch (e) { /* bỏ qua */ } const f = $('#rxYT'); if (f) f.remove(); };
     const finish = () => {
-      stopAll(); clearInterval(tick);
+      if (!alive()) return; stopAll(); clearInterval(tick);
       $('#rxStage').innerHTML = `<div class="center"><div style="font-size:2.4rem">🏁</div><h2>${t('Hết giờ!')}</h2><p>${t('{n} câu · trung bình {p}%', { n: done, p: done ? Math.round(score / done) : 0 })}</p></div>`;
       $('#rxNext').hidden = true; $('#rxGo').hidden = false; $('#rxGo').textContent = '↻ ' + t('Chơi lại');
       if (done) App.reward({ spoken: done, xp: 5 + done * 2 });
     };
     const listen = it => {
+      if (!alive()) return;
       $('#rxStage').insertAdjacentHTML('beforeend', `<div class="rx-mic" id="rxMic">🎙️ ${t('Nhại lại câu vừa nghe…')}</div>`);
       rec = UI.recognize(it.text, state.settings.accent || 'en-GB', {
         result: ({ heard }) => {
+          if (!alive()) return;
           const c = colorize(it.text, heard); score += c.pct; done++;
           $('#rxStage').innerHTML = `<div class="rx-sent">${c.html}</div><div class="small muted" style="margin-top:.4rem">${t('Bạn nói')}: “${esc(heard || '…')}” · <b>${c.pct}%</b></div>`;
           c.pct >= 80 ? Sfx.correct() : Sfx.wrong && Sfx.wrong();
           $('#rxNext').hidden = false;
         },
-        error: () => { $('#rxStage').insertAdjacentHTML('beforeend', `<p class="small muted">${t('Không nghe rõ – thử lại hoặc bỏ qua.')}</p>`); $('#rxNext').hidden = false; },
+        error: () => { if (!alive()) return; $('#rxStage').insertAdjacentHTML('beforeend', `<p class="small muted">${t('Không nghe rõ – thử lại hoặc bỏ qua.')}</p>`); $('#rxNext').hidden = false; },
       });
     };
     const play = () => {
-      stopAll(); $('#rxNext').hidden = true;
+      if (!alive()) return; stopAll(); $('#rxNext').hidden = true;
       const it = items[i % items.length];
       $('#rxStage').innerHTML = `<div class="rx-sent muted">🎧 ${t('Nghe kỹ…')}</div>`;
       if (it.kind === 'yt') {
@@ -74,16 +77,16 @@
         ytTimer = setTimeout(() => { const f = $('#rxYT'); if (f) f.remove(); listen(it); }, 5600);
       } else {
         audio = new Audio('https://lexkiteapp.github.io/audio/l/' + it.key + '.mp3');
-        audio.onended = () => listen(it); audio.onerror = () => { i++; play(); };
+        audio.onended = () => { miss = 0; listen(it); }; audio.onerror = () => { if (++miss > 3) return listen(it); i++; play(); }; // câu chưa có giọng đọc → bỏ qua, tối đa 3 lần liên tiếp
         audio.play().catch(() => listen(it));
       }
     };
     $('#rxGo').onclick = () => {
       i = 0; left = 60; score = 0; done = 0; $('#rxGo').hidden = true; $('#rxT').textContent = left;
-      clearInterval(tick); tick = setInterval(() => { left--; $('#rxT').textContent = left; if (left <= 0) finish(); }, 1000);
+      clearInterval(tick); tick = setInterval(() => { if (!alive()) return clearInterval(tick); left--; $('#rxT').textContent = left; if (left <= 0) finish(); }, 1000);
       play();
     };
     $('#rxNext').onclick = () => { i++; play(); };
-    App.cleanup = () => { stopAll(); clearInterval(tick); };
+    App.cleanup = () => { dead = true; stopAll(); clearInterval(tick); };
   };
 })();

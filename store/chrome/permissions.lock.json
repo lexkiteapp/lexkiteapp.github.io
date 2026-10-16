@@ -1,0 +1,12 @@
+{
+  "_note": "Quyền add-on đã khai báo với Chrome Web Store (lý do: store/chrome/PRIVACY-PRACTICES.md, chính sách: content/legal/*/privacy.html). Đổi quyền ⇒ cập nhật 3 chỗ đó + file này + dashboard trước khi gửi duyệt. Kiểm bởi scripts/cws-check.mjs.",
+  "permissions": ["alarms", "contextMenus", "notifications", "scripting", "search", "storage"],
+  "optional_permissions": [],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "content_script_matches": ["http://*/*", "https://*/*"],
+  "chrome_url_overrides": ["newtab"],
+  "remote_hosts_fetched": [
+    "lexkite.com", "translate.googleapis.com", "api.dictionaryapi.dev", "en.wiktionary.org", "en.wikipedia.org",
+    "api.tatoeba.org", "api.datamuse.com", "api.mymemory.translated.net", "api.openverse.org", "generativelanguage.googleapis.com"
+  ]
+}
