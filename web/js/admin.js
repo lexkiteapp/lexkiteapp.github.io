@@ -14,26 +14,32 @@
   // Hộp thoại quản lý khóa API (Gemini): dán → kiểm tra với Google → lưu; Esc/nền để đóng; ẩn/hiện khóa
   function keyDialog(st, done) {
     const d = document.createElement('dialog'); d.className = 'key-dlg';
-    d.innerHTML = `<form method="dialog" class="key-box"><div class="row between"><h3 style="margin:0">✨ Khóa Gemini API</h3><button class="icon-x" value="x" aria-label="Đóng">✕</button></div>
-      <p class="small ${st.set ? 'ok-t' : 'muted'}">${st.set ? `✅ Đang dùng khóa …${esc(st.last4)} · cập nhật ${when(st.at)}${st.by ? ' bởi ' + esc(st.by) : ''}` : '⚪ Chưa có khóa – AI đang dùng Cloudflare Workers AI (miễn phí, chất lượng thấp hơn).'}</p>
-      <ol class="key-steps"><li>Mở <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a> (đăng nhập Google)</li><li>Bấm <b>Create API key</b> → sao chép</li><li>Dán vào ô dưới → <b>Lưu & kiểm tra</b></li></ol>
-      <label class="key-field"><input type="password" id="kv" placeholder="AIza… hoặc AQ.…" autocomplete="off" spellcheck="false" required><button type="button" class="btn ghost sm" id="kshow" aria-label="Hiện/ẩn khóa">👁</button></label>
-      <div class="small" id="kmsg" role="status" aria-live="polite"></div>
-      <div class="row between" style="margin-top:1rem">${st.set ? '<button type="button" class="btn ghost sm danger" id="kdel">Xóa khóa</button>' : '<span></span>'}<span class="row" style="gap:.5rem"><button class="btn ghost" value="x">Hủy</button><button type="button" class="btn primary" id="ksave">Lưu & kiểm tra</button></span></div>
-      <p class="tiny muted" style="margin:.8rem 0 0">🔒 Khóa chỉ máy chủ dùng (chấm bài viết/nói, duyệt bản dịch), không gửi xuống trình duyệt người học. Đổi/xóa khóa cần đăng nhập trong 15 phút gần nhất.</p></form>`;
+    const keys = st.keys || [], live = keys.filter(k => !k.cooling).length;
+    d.innerHTML = `<form method="dialog" class="key-box"><div class="row between"><h3 style="margin:0">✨ Khóa Gemini API <span class="pill ${keys.length ? 'ok' : 'warn'}">${keys.length} khóa</span></h3><button class="icon-x" value="x" aria-label="Đóng">✕</button></div>
+      <p class="small muted" style="margin:.5rem 0 0">Nhiều khóa = <b>xoay vòng</b>: khóa hết lượt tự nghỉ 1 giờ và chuyển khóa kế tiếp; hết khóa → tự dùng Cloudflare AI. Thêm khóa từ nhiều tài khoản Google để tăng hạn mức miễn phí.</p>
+      <ul class="key-list">${keys.map(k => `<li><span class="dot ${k.cooling ? 'warn' : ''}"></span><code>…${esc(k.last4)}</code><span class="small muted">${k.cooling ? 'tạm nghỉ (hết lượt)' : 'sẵn sàng'} · ${when(k.at)}${k.by ? ' · ' + esc(k.by.split('@')[0]) : ''}</span><button type="button" class="icon-btn-s" data-rm="${esc(k.last4)}" title="Gỡ khóa" aria-label="Gỡ khóa …${esc(k.last4)}">🗑</button></li>`).join('') || '<li class="muted small">Chưa có khóa – AI đang dùng Cloudflare Workers AI.</li>'}</ul>
+      <details ${keys.length ? '' : 'open'} class="key-help"><summary class="small"><b>Cách lấy khóa miễn phí</b></summary><ol class="key-steps"><li>Mở <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a> (đăng nhập Google)</li><li>Bấm <b>Create API key</b> → sao chép</li><li>Dán vào ô dưới → <b>Thêm khóa</b></li></ol></details>
+      <label class="key-field"><input type="password" id="kv" placeholder="Dán khóa AIza… hoặc AQ.…" autocomplete="off" spellcheck="false"><button type="button" class="btn ghost sm" id="kshow" aria-label="Hiện/ẩn khóa">👁</button><button type="button" class="btn primary" id="ksave">Thêm khóa</button></label>
+      <div class="small" id="kmsg" role="status" aria-live="polite" style="min-height:1.2em;margin-top:.4rem"></div>
+      <p class="tiny muted" style="margin:.6rem 0 0">🔒 ${live} khóa sẵn sàng. Khóa chỉ máy chủ dùng (chấm bài, duyệt bản dịch), chỉ hiện 4 ký tự cuối. Gỡ khóa cần đăng nhập trong 15 phút gần nhất.</p></form>`;
     document.body.appendChild(d); d.showModal(); d.querySelector('#kv').focus();
-    d.addEventListener('close', () => d.remove()); d.addEventListener('click', e => { if (e.target === d) d.close(); });
+    let changed = false;
+    d.addEventListener('close', () => { d.remove(); if (changed) done(); }); d.addEventListener('click', e => { if (e.target === d) d.close(); });
     const msg = (t, ok) => { const m = d.querySelector('#kmsg'); m.textContent = t; m.className = 'small ' + (ok === true ? 'ok-t' : ok === false ? 'bad-t' : 'muted'); };
     d.querySelector('#kshow').onclick = () => { const i = d.querySelector('#kv'); i.type = i.type === 'password' ? 'text' : 'password'; };
-    d.querySelector('#ksave').onclick = async () => {
+    const add = async () => {
       const key = d.querySelector('#kv').value.trim(); if (!key) return msg('Hãy dán khóa trước.', false);
       const b = d.querySelector('#ksave'); b.disabled = true; msg('⏳ Đang kiểm tra với Google…');
-      try { const r = await api('geminiSet', { key }); if (r.ok) { msg(`✓ Đã lưu khóa …${r.last4} – AI hệ thống chuyển sang Gemini.`, true); setTimeout(() => { d.close(); done(); }, 1100); } else { msg('✗ ' + (r.error || 'Không lưu được'), false); b.disabled = false; } } catch (e) { msg(e.message === 'reauth' ? 'Đăng nhập lại rồi thử lần nữa.' : '✗ ' + e.message, false); b.disabled = false; }
+      try { const r = await api('geminiSet', { key }); if (r.ok) { changed = true; msg(`✓ Đã thêm khóa …${r.last4} (tổng ${r.count} khóa)`, true); d.querySelector('#kv').value = ''; setTimeout(() => { d.close(); }, 900); } else msg('✗ ' + (r.error || 'Không lưu được'), false); } catch (e) { msg('✗ ' + e.message, false); }
+      b.disabled = false;
     };
-    const del = d.querySelector('#kdel'); if (del) del.onclick = async () => { if (!confirm('Xóa khóa Gemini? AI hệ thống sẽ quay về Cloudflare Workers AI.')) return; try { await api('geminiDelete'); d.close(); done(); } catch (e) { msg('✗ ' + e.message, false); } };
+    d.querySelector('#ksave').onclick = add; d.querySelector('#kv').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); add(); } });
+    d.querySelectorAll('[data-rm]').forEach(b => b.onclick = async () => { if (!confirm(`Gỡ khóa …${b.dataset.rm}?`)) return; try { await api('geminiRemove', { last4: b.dataset.rm }); changed = true; b.closest('li').remove(); msg('✓ Đã gỡ khóa', true); } catch (e) { msg('✗ ' + e.message, false); } });
   }
   async function api(op, body = {}) {
-    const r = await fetch('/api/admin', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await user.getIdToken() }, body: JSON.stringify({ op, ...body }) });
+    const u = auth.currentUser || user; // phiên có thể bị đăng xuất ở tab khác cùng lexkite.com
+    if (!u) { if (confirm('Phiên đăng nhập quản trị đã hết. Đăng nhập lại ngay?')) await signIn(); throw new Error('Phiên đăng nhập đã hết – đăng nhập lại rồi thử lại'); }
+    const r = await fetch('/api/admin', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await u.getIdToken() }, body: JSON.stringify({ op, ...body }) });
     const j = await r.json().catch(() => ({}));
     if (r.status === 403) throw new Error('forbidden');
     if (r.status === 401 && j.error === 'reauth') { if (confirm(j.message || 'Cần đăng nhập lại để xác nhận thao tác quan trọng. Đăng nhập lại ngay?')) { await auth.signOut(); await signIn(); } throw new Error('reauth'); }
@@ -170,60 +176,76 @@
       // Kiểm nghĩa bản dịch: dịch ngược (tự động sau mỗi lượt dịch) → câu nghi sai → AI xác nhận (bấm nút, gói AI miễn phí)
       const bc = await fetch('/i18n/backcheck.json?x=' + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null);
       if (bc && bc.langs) {
-        $('#bcBox').innerHTML = `<h3>🌐 Kiểm nghĩa bản dịch (dịch ngược + AI)</h3><p class="small muted">Cập nhật ${when(bc.at)} · "khớp nghĩa" = tỉ lệ câu dịch ngược về tiếng Anh vẫn đúng ý; câu nghi sai cần AI xác nhận.</p>
-          <table class="tbl"><tr><th>Ngôn ngữ</th><th>Số câu</th><th>Khớp nghĩa</th><th>Nghi sai</th><th></th></tr>${Object.entries(bc.langs).map(([l, x]) => `<tr><td><b>${esc(l)}</b></td><td>${num(x.checked)}</td><td>${x.ok}%</td><td>${x.flagged.length}</td><td><button class="btn sm" data-judge="${esc(l)}">🤖 AI xác nhận</button> <button class="btn sm" data-gem="${esc(l)}">✨ Gemini duyệt</button></td></tr>`).join('')}</table><div id="bcRes"></div>`;
-        main.querySelectorAll('[data-gem]').forEach(b => b.onclick = async () => {
-          b.disabled = true; b.textContent = '⏳ Gemini…'; const r = await api('geminiReview', { lang: b.dataset.gem }); b.disabled = false; b.textContent = '✨ Gemini duyệt';
-          $('#bcRes').innerHTML = r.error ? `<p class="small">✗ ${esc(r.error)}${/khóa/.test(r.error) ? ' – vào tab Cài đặt để dán khóa Gemini' : ''}</p>` : `<h4>✨ Gemini · ${esc(r.lang)}: duyệt ${r.reviewed} câu · <b>${r.wrong.length} câu sai nghĩa</b> ${r.wrong.length ? '<button class="btn sm primary" id="gAll">Áp dụng tất cả</button>' : ''}</h4>
-            <div class="tbl-wrap"><table class="tbl"><tr><th>Tiếng Anh</th><th>Bản dịch hiện tại</th><th>Gemini đề xuất</th><th>Lý do</th><th></th></tr>${r.wrong.map((w, i) => `<tr><td class="small">${esc(w.en)}</td><td class="small">${esc(w.tr)}</td><td class="small"><b>${esc(w.fix)}</b></td><td class="small">${esc(w.why)}</td><td><button class="btn sm" data-ap="${i}">Áp dụng</button></td></tr>`).join('') || '<tr><td colspan="5">✅ Không có câu sai</td></tr>'}</table></div>
-            <p class="small muted">Bản sửa đã áp dụng sẽ tự cập nhật vào app ở lượt dịch đêm (không cần sửa mã).</p>`;
+        $('#bcBox').innerHTML = `<h3>🌐 Kiểm nghĩa bản dịch (dịch ngược + AI)</h3><p class="small muted">Cập nhật ${when(bc.at)} · "khớp nghĩa" = tỉ lệ câu dịch ngược về tiếng Anh vẫn đúng ý. <b>Duyệt bằng AI</b>: Gemini (xoay vòng các khóa) → hết lượt tự chuyển Cloudflare AI; mỗi lần ≤ 60 câu, bấm tiếp để duyệt phần còn lại.</p>
+          <table class="tbl"><tr><th>Ngôn ngữ</th><th>Số câu</th><th>Khớp nghĩa</th><th>Nghi sai</th><th></th></tr>${Object.entries(bc.langs).map(([l, x]) => `<tr><td><b>${esc(l)}</b></td><td>${num(x.checked)}</td><td>${x.ok}%</td><td>${x.flagged.length}</td><td><button class="btn sm primary" data-rev="${esc(l)}">✨ Duyệt bằng AI</button></td></tr>`).join('')}</table><div id="bcRes"></div>`;
+        main.querySelectorAll('[data-rev]').forEach(b => b.onclick = async () => {
+          b.disabled = true; const old = b.textContent; b.textContent = '⏳ Đang duyệt…';
+          let r; try { r = await api('review', { lang: b.dataset.rev }); } catch (e) { r = { error: e.message }; }
+          b.disabled = false; b.textContent = old;
+          if (r.error) { $('#bcRes').innerHTML = `<p class="small bad-t">✗ ${esc(r.error)}</p>`; return; }
+          $('#bcRes').innerHTML = `<div class="rev-head"><b>${esc(r.lang)}</b> · đã duyệt ${r.reviewed}/${r.total} câu nghi sai${r.pending ? ` · còn ${r.pending} (bấm lại để duyệt tiếp)` : ' · ✅ xong'} · <b class="${r.wrong.length ? 'bad-t' : 'ok-t'}">${r.wrong.length} câu sai nghĩa</b>${r.models.length ? ` <span class="pill">${esc(r.models.join(' + '))}</span>` : ''} ${r.wrong.some(w => w.fix) ? '<button class="btn sm primary" id="gAll">Áp dụng tất cả</button>' : ''}</div>
+            <div class="tbl-wrap"><table class="tbl"><tr><th>Tiếng Anh</th><th>Bản dịch hiện tại</th><th>AI đề xuất</th><th>Lý do</th><th></th></tr>${r.wrong.map((w, i) => `<tr><td class="small">${esc(w.en)}</td><td class="small">${esc(w.tr)}</td><td class="small"><b>${esc(w.fix || '')}</b></td><td class="small">${esc(w.why || '')}</td><td>${w.fix ? `<button class="btn sm" data-ap="${i}">Áp dụng</button>` : ''}</td></tr>`).join('') || '<tr><td colspan="5">✅ Không có câu sai</td></tr>'}</table></div>
+            <p class="small muted">Bản sửa đã áp dụng sẽ tự cập nhật vào app ở lượt dịch đêm.</p>`;
           const ap = async i => { const w = r.wrong[i]; if (!w.fix) return; await api('i18nFixApprove', { lang: r.lang, key: w.key, val: w.fix }); const bt = main.querySelector(`[data-ap="${i}"]`); if (bt) { bt.disabled = true; bt.textContent = '✓ Đã duyệt'; } };
           main.querySelectorAll('[data-ap]').forEach(x => x.onclick = () => ap(+x.dataset.ap));
-          if ($('#gAll')) $('#gAll').onclick = async () => { for (let i = 0; i < r.wrong.length; i++) await ap(i); $('#gAll').textContent = '✓ Đã duyệt tất cả'; };
-        });
-        main.querySelectorAll('[data-judge]').forEach(b => b.onclick = async () => {
-          b.disabled = true; b.textContent = '⏳ …'; const r = await api('judge', { lang: b.dataset.judge }); b.disabled = false; b.textContent = '🤖 AI xác nhận';
-          $('#bcRes').innerHTML = r.error ? `<p class="small">Lỗi: ${esc(r.error)}</p>` : `<h4>${esc(r.lang)}: AI đã duyệt ${r.judged} câu · còn ${r.pending} câu chờ (bấm tiếp) · <b>${r.wrong.length} câu sai nghĩa</b></h4>
-            <div class="tbl-wrap"><table class="tbl"><tr><th>Tiếng Anh</th><th>Bản dịch</th><th>Dịch ngược</th><th>Lý do</th></tr>${r.wrong.map(w => `<tr><td class="small">${esc(w.en)}</td><td class="small">${esc(w.tr)}</td><td class="small muted">${esc(w.back)}</td><td class="small">${esc(w.why)}</td></tr>`).join('') || '<tr><td colspan="4">Không có câu sai</td></tr>'}</table></div>`;
+          if ($('#gAll')) $('#gAll').onclick = async () => { $('#gAll').disabled = true; for (let i = 0; i < r.wrong.length; i++) await ap(i); $('#gAll').textContent = '✓ Đã duyệt tất cả'; };
         });
       }
     },
     async services() {
       const [u, s, gk] = await Promise.all([api('usage'), api('services'), api('geminiStatus').catch(() => ({}))]);
-      const KEYED = r => /gemini/i.test(r.name) ? gk : null; // dịch vụ có khóa quản lý trực tiếp tại đây
+      // Nhóm & trạng thái để quản lý trực quan: thẻ theo nhóm, lọc nhanh, tìm kiếm
+      const GROUPS = [['infra', '☁️ Hạ tầng & dữ liệu', /cloudflare (pages|d1|email)|tên miền|github|firebase/i], ['ai', '🤖 AI & dịch', /workers ai|gemini|translate|claude/i], ['grow', '📈 Phát hành & tăng trưởng', /search console|admob|apple|play|chrome web store/i]];
+      const groupOf = r => (GROUPS.find(g => g[2].test(r.name)) || ['other', '🧩 Khác'])[0];
+      const state = r => /chưa đăng ký|chưa tạo/i.test(r.status + r.account) ? 'todo' : /chưa dùng/i.test(r.status) ? 'idle' : 'on';
+      const PILL = { on: ['ok', 'Đang dùng'], idle: ['muted', 'Chưa dùng'], todo: ['warn', 'Chưa thiết lập'] };
+      const keyed = r => /gemini/i.test(r.name);
+      const warnMeters = u.meters.filter(m => m.pct >= 70).length, cnt = k => s.rows.filter(r => state(r) === k).length;
       main.innerHTML = `
-        <div class="card"><h3>Dung lượng &amp; hạn mức miễn phí</h3>${u.meters.map(m => `<div class="meter ${m.pct >= 90 ? 'crit' : m.pct >= 70 ? 'warn' : ''}"><div class="row between small"><b>${esc(m.name)}</b><span>${m.unit === 'bytes' ? bytes(m.used) + ' / ' + bytes(m.cap) : num(m.used) + ' / ' + num(m.cap)} · ${m.pct}%</span></div><div class="track"><div class="fill" style="width:${Math.min(100, m.pct)}%"></div></div><div class="small muted">${esc(m.hint)}</div></div>`).join('')}
-          <p class="small muted">Số dòng mỗi bảng: ${Object.entries(u.counts).map(([k, v]) => `${esc(k)} ${num(v)}`).join(' · ')}. Vàng ≥ 70%, đỏ ≥ 90% → nâng gói trong trang quản lý của dịch vụ đó.</p></div>
-        <div class="card" style="margin-top:1rem"><div class="row between"><h3>Dịch vụ, tài khoản &amp; khóa API</h3><button class="btn sm" id="sadd">+ Thêm</button></div>
-          <p class="small muted">Khóa có nút <b>🔑</b> được quản lý ngay tại đây (kiểm tra với nhà cung cấp trước khi lưu, lưu phía máy chủ, chỉ hiện 4 ký tự cuối). Các khóa khác chỉ ghi <b>tên</b> và nơi cất (biến bí mật Cloudflare / GitHub Secrets).</p>
-          <div class="tbl-wrap"><table class="tbl"><tr><th>Dịch vụ</th><th>Dùng cho</th><th>Tài khoản</th><th>Miễn phí / giới hạn</th><th>Khóa (tên biến)</th><th>Trạng thái</th><th></th></tr>
-          ${s.rows.map(r => `<tr><td><b>${esc(r.name)}</b>${KEYED(r) ? (KEYED(r).set ? ` <span class="key-chip ok">✅ …${esc(KEYED(r).last4)}</span>` : ' <span class="key-chip">⚪ chưa có khóa</span>') : ''}${r.note ? `<div class="small muted">${esc(r.note)}</div>` : ''}</td><td class="small">${esc(r.purpose)}</td><td class="small">${esc(r.account)}</td><td class="small">${esc(r.free)}</td><td class="small"><code>${esc(r.secret)}</code></td><td class="small">${esc(r.status)}</td>
-            <td style="white-space:nowrap">${KEYED(r) ? `<button class="btn sm ${KEYED(r).set ? 'ghost' : 'primary'}" data-key="gemini">🔑 ${KEYED(r).set ? 'Đổi khóa' : 'Thêm khóa'}</button> ` : ''}${r.console ? `<a class="btn primary sm" target="_blank" rel="noopener" href="${esc(r.console)}">Mở</a> ` : ''}${r.billing ? `<a class="btn sm" target="_blank" rel="noopener" href="${esc(r.billing)}">Nâng gói</a> ` : ''}<button class="btn ghost sm" data-sid="${r.id}">Sửa</button></td></tr>`).join('') || '<tr><td colspan="7" class="muted">Chưa có dịch vụ</td></tr>'}</table></div></div>
-        <div id="sform"></div>`;
+        <div class="kpis">
+          <div class="card kpi"><div class="l">Dịch vụ</div><div class="v">${s.rows.length}</div><div class="s">trong hệ thống</div></div>
+          <div class="card kpi"><div class="l">Đang dùng</div><div class="v" style="color:#15803d">${cnt('on')}</div><div class="s">hoạt động bình thường</div></div>
+          <div class="card kpi"><div class="l">Chưa thiết lập</div><div class="v" style="color:#b45309">${cnt('todo') + cnt('idle')}</div><div class="s">cần đăng ký / thêm khóa</div></div>
+          <div class="card kpi"><div class="l">Hạn mức sắp đầy</div><div class="v" style="color:${warnMeters ? '#dc2626' : 'inherit'}">${warnMeters}</div><div class="s">≥ 70% gói miễn phí</div></div>
+        </div>
+        <details class="card svc-usage" ${warnMeters ? 'open' : ''}><summary><b>📊 Dung lượng & hạn mức miễn phí</b> <span class="small muted">· vàng ≥ 70%, đỏ ≥ 90%</span></summary>${u.meters.map(m => `<div class="meter ${m.pct >= 90 ? 'crit' : m.pct >= 70 ? 'warn' : ''}"><div class="row between small"><b>${esc(m.name)}</b><span>${m.unit === 'bytes' ? (m.used / 1048576).toFixed(1) + ' / ' + (m.cap / 1048576).toFixed(0) + ' MB' : num(m.used) + ' / ' + num(m.cap)} · <b>${m.pct}%</b></span></div><div class="bar"><i style="width:${Math.min(100, m.pct)}%"></i></div>${m.hint ? `<div class="tiny muted">${esc(m.hint)}</div>` : ''}</div>`).join('')}</details>
+        <div class="svc-tools"><input type="search" id="sq" placeholder="🔎 Tìm dịch vụ, tài khoản…" aria-label="Tìm dịch vụ"><div class="svc-chips" role="tablist">${[['all', 'Tất cả'], ['on', 'Đang dùng'], ['todo', 'Chưa thiết lập']].map(([k, l], i) => `<button type="button" class="chip-f ${i ? '' : 'on'}" data-f="${k}">${l}</button>`).join('')}</div><button class="btn primary sm" id="sadd">+ Thêm dịch vụ</button></div>
+        <div id="svcList"></div>`;
+      const card = r => { const st = state(r), [pc, pl] = PILL[st]; return `<article class="svc-card" data-st="${st}" data-q="${esc((r.name + ' ' + r.account + ' ' + r.purpose).toLowerCase())}">
+          <header><div class="svc-name"><b>${esc(r.name)}</b><span class="pill ${pc}">${pl}</span>${keyed(r) ? (gk.set ? `<span class="pill ok">🔑 ${(gk.keys || []).length} khóa</span>` : '<span class="pill warn">🔑 chưa có khóa</span>') : ''}</div>
+            <button class="icon-btn-s" data-sid="${r.id}" title="Sửa" aria-label="Sửa ${esc(r.name)}">✎</button></header>
+          ${r.purpose ? `<p class="svc-purpose">${esc(r.purpose)}</p>` : ''}
+          <dl class="svc-meta">${r.account ? `<div><dt>👤</dt><dd>${esc(r.account)}</dd></div>` : ''}${r.free ? `<div><dt>🎁</dt><dd>${esc(r.free)}</dd></div>` : ''}${r.secret && !keyed(r) ? `<div><dt>🔐</dt><dd><code>${esc(r.secret)}</code></dd></div>` : ''}</dl>
+          ${r.note ? `<p class="svc-note">${esc(r.note)}</p>` : ''}
+          <footer>${keyed(r) ? `<button class="btn sm ${gk.set ? '' : 'primary'}" data-key="gemini">🔑 ${gk.set ? 'Quản lý khóa' : 'Thêm khóa'}</button>` : ''}${r.console ? `<a class="btn sm ${keyed(r) && !gk.set ? '' : 'primary'}" target="_blank" rel="noopener" href="${esc(r.console)}">Mở trang quản lý ↗</a>` : ''}${r.billing ? `<a class="btn ghost sm" target="_blank" rel="noopener" href="${esc(r.billing)}">Nâng gói</a>` : ''}</footer></article>`; };
+      $('#svcList').innerHTML = [...GROUPS, ['other', '🧩 Khác']].map(([g, title]) => { const rows = s.rows.filter(r => groupOf(r) === g); return rows.length ? `<section class="svc-group"><h3>${title} <span class="muted small">${rows.length}</span></h3><div class="svc-grid">${rows.map(card).join('')}</div></section>` : ''; }).join('');
+      let f = 'all';
+      const apply = () => { const q = $('#sq').value.trim().toLowerCase(); main.querySelectorAll('.svc-card').forEach(c => { c.hidden = !((f === 'all' || (f === 'todo' ? c.dataset.st !== 'on' : c.dataset.st === f)) && (!q || c.dataset.q.includes(q))); }); main.querySelectorAll('.svc-group').forEach(gp => { gp.hidden = ![...gp.querySelectorAll('.svc-card')].some(c => !c.hidden); }); };
+      $('#sq').oninput = apply;
+      main.querySelectorAll('[data-f]').forEach(b => b.onclick = () => { f = b.dataset.f; main.querySelectorAll('[data-f]').forEach(x => x.classList.toggle('on', x === b)); apply(); });
+      // Sửa/thêm dịch vụ trong hộp thoại (không đẩy form xuống cuối trang)
       const form = (r = {}) => {
-        $('#sform').innerHTML = `<div class="card" style="margin-top:1rem"><h3>${r.id ? 'Sửa' : 'Thêm'} dịch vụ</h3><div class="form2">${[['name', 'Tên dịch vụ *'], ['purpose', 'Dùng cho'], ['account', 'Tài khoản / email đăng ký'], ['console', 'Link trang quản lý'], ['billing', 'Link thanh toán / nâng gói'], ['free', 'Gói miễn phí / giới hạn'], ['secret', 'Tên biến khóa (không ghi giá trị)'], ['status', 'Trạng thái'], ['note', 'Ghi chú']].map(([k, l]) => `<label>${l}<input name="${k}" value="${esc(r[k] || '')}"></label>`).join('')}</div>
-          <div class="tools" style="margin-top:.8rem"><button class="btn primary sm" id="ssave">Lưu</button>${r.id ? '<button class="btn ghost sm" id="sdel" style="color:var(--again)">Xóa</button>' : ''}</div></div>`;
-        $('#sform').scrollIntoView({ behavior: 'smooth' });
-        $('#ssave').onclick = async () => { const row = { id: r.id }; $('#sform').querySelectorAll('input').forEach(i => row[i.name] = i.value.trim()); if (/\b(sk-|AIza|ghp_|xox|-----BEGIN)/.test(row.secret + row.note)) return alert('Không lưu giá trị khóa ở đây – chỉ ghi tên biến.'); await api('serviceSet', { row }); show('services'); };
-        if ($('#sdel')) $('#sdel').onclick = async () => { if (confirm('Xóa dịch vụ này khỏi danh sách?')) { await api('serviceDelete', { id: r.id }); show('services'); } };
+        const d = document.createElement('dialog'); d.className = 'key-dlg';
+        d.innerHTML = `<form method="dialog" class="key-box"><div class="row between"><h3 style="margin:0">${r.id ? 'Sửa' : 'Thêm'} dịch vụ</h3><button class="icon-x" value="x" aria-label="Đóng">✕</button></div>
+          <div class="svc-form">${[['name', 'Tên dịch vụ *'], ['purpose', 'Dùng cho'], ['account', 'Tài khoản / email'], ['status', 'Trạng thái'], ['console', 'Link trang quản lý'], ['billing', 'Link nâng gói'], ['free', 'Gói miễn phí / giới hạn'], ['secret', 'Tên biến khóa (không ghi giá trị)'], ['note', 'Ghi chú']].map(([k, l]) => `<label class="${/note|purpose|free/.test(k) ? 'wide' : ''}">${l}<input name="${k}" value="${esc(r[k] || '')}" ${k === 'name' ? 'required' : ''}></label>`).join('')}</div>
+          <div class="row between" style="margin-top:1rem">${r.id ? '<button type="button" class="btn ghost sm danger" id="sdel">Xóa dịch vụ</button>' : '<span></span>'}<span class="row" style="gap:.5rem"><button class="btn ghost" value="x">Hủy</button><button type="button" class="btn primary" id="ssave">Lưu</button></span></div></form>`;
+        document.body.appendChild(d); d.showModal(); d.addEventListener('close', () => d.remove()); d.addEventListener('click', e => { if (e.target === d) d.close(); });
+        d.querySelector('#ssave').onclick = async () => { const row = { id: r.id }; d.querySelectorAll('input[name]').forEach(i => row[i.name] = i.value.trim()); if (!row.name) return d.querySelector('[name=name]').focus(); if (/\b(sk-|AIza|AQ\.|ghp_|xox|-----BEGIN)/.test(row.secret + row.note)) return alert('Không lưu giá trị khóa ở đây – chỉ ghi tên biến.'); await api('serviceSet', { row }); d.close(); show('services'); };
+        const del = d.querySelector('#sdel'); if (del) del.onclick = async () => { if (confirm('Xóa dịch vụ này khỏi danh sách?')) { await api('serviceDelete', { id: r.id }); d.close(); show('services'); } };
       };
       $('#sadd').onclick = () => form();
-      main.querySelectorAll('[data-key]').forEach(b => b.onclick = () => keyDialog(gk, () => show('services')));
       main.querySelectorAll('[data-sid]').forEach(b => b.onclick = () => form(s.rows.find(x => x.id === +b.dataset.sid)));
+      main.querySelectorAll('[data-key]').forEach(b => b.onclick = () => keyDialog(gk, () => show('services')));
     },
     async settings() {
       const c = await api('config'), v = k => esc((c.values[k] || {}).v || '');
       const L = { banner: 'Thông báo đầu trang (để trống = tắt)', banner_url: 'Link kèm thông báo (https://…)', banner_level: 'Kiểu thông báo: info / warn / ok', ai_user: 'Lượt chấm AI/ngày – đã đăng nhập (mặc định 5)', ai_anon: 'Lượt chấm AI/ngày – khách (mặc định 3)', ai_global: 'Trần AI toàn hệ thống/ngày (mặc định 400)', alert_errors: 'Ngưỡng cảnh báo lỗi JS/24h (mặc định 50)', hit_rate: 'Tỉ lệ lấy mẫu thống kê 0.01–1 (mặc định 1 = mọi người; > 30k người/ngày nên đặt 0.1 để giữ D1 miễn phí)', note: 'Ghi chú nội bộ cho quản trị' };
       main.innerHTML = `<div class="card"><h3>Cài đặt website</h3><div class="form2">${c.keys.map(k => `<label>${L[k] || k}${k === 'banner' || k === 'note' ? `<textarea name="${k}" rows="2">${v(k)}</textarea>` : `<input name="${k}" value="${v(k)}">`}<span class="small muted" style="font-weight:400">${c.values[k] ? 'Sửa ' + when(c.values[k].at) + ' bởi ' + esc(c.values[k].by) : ''}</span></label>`).join('')}</div>
         <div class="tools" style="margin-top:1rem"><button class="btn primary" id="csave">Lưu cài đặt</button><span class="small muted" id="cmsg">Thông báo hiện trên web/app sau tối đa 1 giờ.</span></div></div>`;
-      // Gemini API: dán khóa → hệ thống kiểm tra thật với Google rồi mới lưu; chỉ hiện 4 ký tự cuối
+      // Gemini API: nhiều khóa xoay vòng – quản lý trong hộp thoại dùng chung
       const g = await api('geminiStatus');
-      main.insertAdjacentHTML('beforeend', `<div class="card" style="margin-top:1rem"><h3>✨ Gemini API (Google AI – gói miễn phí)</h3>
-        <p class="small">${g.set ? `✅ Đang dùng khóa …${esc(g.last4)} · lưu ${when(g.at)}${g.by ? ' bởi ' + esc(g.by) : ''}` : '⚪ Chưa có khóa – AI đang dùng Cloudflare Workers AI.'}</p>
-        <p class="small muted">Lấy khóa miễn phí: <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a> → Create API key → dán vào đây. Dùng cho: chấm bài viết/nói, duyệt chéo bản dịch (tab Chất lượng).</p>
-        <div class="tools"><input type="password" id="gkey" placeholder="Dán khóa AIza… hoặc AQ.…" autocomplete="off" style="flex:1;min-width:220px"><button class="btn primary" id="gsave">Lưu & kiểm tra</button>${g.set ? '<button class="btn ghost" id="gdel">Xóa khóa</button>' : ''}<span class="small" id="gmsg"></span></div></div>`);
-      $('#gsave').onclick = async () => { const key = $('#gkey').value.trim(); if (!key) return; $('#gmsg').textContent = '⏳ Đang kiểm tra với Google…'; const r = await api('geminiSet', { key }); $('#gmsg').textContent = r.ok ? `✓ Đã lưu khóa …${r.last4}` : '✗ ' + (r.error || 'lỗi'); if (r.ok) setTimeout(() => show('settings'), 900); };
-      if ($('#gdel')) $('#gdel').onclick = async () => { if (confirm('Xóa khóa Gemini? AI sẽ quay về Cloudflare Workers AI.')) { await api('geminiDelete'); show('settings'); } };
+      main.insertAdjacentHTML('beforeend', `<div class="card" style="margin-top:1rem"><div class="row between"><div><h3 style="margin:0">✨ Gemini API</h3><p class="small muted" style="margin:.3rem 0 0">${g.set ? `${g.keys.length} khóa xoay vòng · ${g.keys.filter(k => !k.cooling).length} sẵn sàng` : 'Chưa có khóa – AI đang dùng Cloudflare Workers AI'} · dùng cho chấm bài viết/nói & duyệt bản dịch</p></div><button class="btn primary" id="gman">🔑 ${g.set ? 'Quản lý khóa' : 'Thêm khóa'}</button></div></div>`);
+      $('#gman').onclick = () => keyDialog(g, () => show('settings'));
       $('#csave').onclick = async () => { const values = {}; main.querySelectorAll('[name]').forEach(i => values[i.name] = i.value.trim()); await api('configSet', { values }); $('#cmsg').textContent = '✓ Đã lưu'; };
     },
   };

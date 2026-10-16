@@ -26,20 +26,39 @@ async function setup(db) {
   ready = true;
 }
 
-// Khóa Gemini: biến bí mật GEMINI_KEY (nếu có) hoặc khóa quản trị dán trong trang Quản trị → Cài đặt (D1 config, không công khai)
-let gkCache = { v: '', at: 0 };
-async function geminiKey(env) {
-  if (env.GEMINI_KEY) return env.GEMINI_KEY;
-  if (Date.now() - gkCache.at > 300000) { try { gkCache = { v: ((await env.DB.prepare("SELECT v FROM config WHERE k = 'gemini_key'").first()) || {}).v || '', at: Date.now() }; } catch (e) { gkCache = { v: '', at: Date.now() }; } }
-  return gkCache.v;
+// Nhiều khóa Gemini xoay vòng: biến bí mật GEMINI_KEY (nếu có) + danh sách khóa quản trị thêm ở Quản trị (D1 config 'gemini_keys').
+// Khóa bị giới hạn (429/403 hết lượt) → "tạm nghỉ" 1 giờ (Cache API ở biên) → tự dùng khóa kế tiếp; hết khóa → Workers AI.
+let gkCache = { v: [], at: 0 };
+export async function geminiKeys(env) {
+  if (Date.now() - gkCache.at > 120000) {
+    let list = [];
+    try { const rows = (await env.DB.prepare("SELECT k, v FROM config WHERE k IN ('gemini_keys', 'gemini_key')").all()).results || []; for (const r of rows) { if (r.k === 'gemini_keys') { try { list.push(...JSON.parse(r.v).map(x => x.k)); } catch (e) { /* bỏ qua */ } } else if (r.v) list.push(r.v); } } catch (e) { /* chưa có bảng */ }
+    gkCache = { v: [...new Set(list.filter(Boolean))], at: Date.now() };
+  }
+  return [...new Set([env.GEMINI_KEY, ...gkCache.v].filter(Boolean))];
+}
+export const resetGeminiCache = () => { gkCache.at = 0; };
+const coolKey = k => new Request('https://gemini-cool.lexkite.internal/' + k.slice(-10));
+export async function isCooling(k) { try { return !!(await /** @type {any} */ (caches).default.match(coolKey(k))); } catch (e) { return false; } }
+async function cool(k) { try { await /** @type {any} */ (caches).default.put(coolKey(k), new Response('1', { headers: { 'Cache-Control': 'max-age=3600' } })); } catch (e) { /* bỏ qua */ } }
+// Gọi Gemini với khóa xoay vòng (bắt đầu ở vị trí ngẫu nhiên để chia tải); trả { text, key } hoặc null nếu mọi khóa đều lỗi/hết lượt
+export async function geminiCall(env, body, model = 'gemini-2.5-flash') {
+  const keys = await geminiKeys(env); if (!keys.length) return null;
+  const start = Math.floor(Math.random() * keys.length);
+  for (let n = 0; n < keys.length; n++) {
+    const k = keys[(start + n) % keys.length]; if (await isCooling(k)) continue;
+    let r; try { r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': k }, body: JSON.stringify(body) }); } catch (e) { continue; }
+    if (r.status === 429 || r.status === 403 || r.status === 401) { await cool(k); continue; } // hết lượt / khóa hỏng → nghỉ 1 giờ, thử khóa khác
+    if (!r.ok) continue;
+    const j = await r.json().catch(() => null); const text = j && (((j.candidates || [])[0] || {}).content || { parts: [] }).parts.map(p => p.text || '').join('');
+    if (text) return { text, key: k.slice(-4) };
+  }
+  return null;
 }
 
 async function runModel(env, sys, prompt) {
-  const gk = await geminiKey(env);
-  if (gk) {
-    const r = await fetch(GEMINI(), { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': gk }, body: JSON.stringify({ systemInstruction: { parts: [{ text: sys }] }, contents: [{ role: 'user', parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0.2, maxOutputTokens: 4096 } }) });
-    if (r.ok) { const j = await r.json(); const out = parseJSON((((j.candidates || [])[0] || {}).content || { parts: [] }).parts.map(p => p.text || '').join('')); if (out) return { out, model: 'gemini-2.5-flash' }; }
-  }
+  const g = await geminiCall(env, { systemInstruction: { parts: [{ text: sys }] }, contents: [{ role: 'user', parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0.2 } });
+  if (g) { const out = parseJSON(g.text); if (out) return { out, model: 'gemini-2.5-flash' }; }
   if (!env.AI) throw new Error('no-model');
   const res = await env.AI.run(WAI_MODEL, { messages: [{ role: 'system', content: sys + '\nReply with ONE valid JSON object only, no markdown.' }, { role: 'user', content: prompt }], max_tokens: 2048, temperature: 0.2, response_format: { type: 'json_object' } });
   const raw = res && (res.response ?? res.result?.response);

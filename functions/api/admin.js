@@ -2,6 +2,7 @@
  * POST /api/admin  (Authorization: Bearer <Firebase ID token>)  { op, ... }
  * op: usage · services · serviceSet · serviceDelete · overview · users · user · userDelete · inbox · inboxMark · analytics · errors · errorsClear · config · configSet · alerts */
 import { claims, limit } from './sync.js';
+import { geminiKeys, geminiCall, isCooling, resetGeminiCache } from './ai.js';
 import { setup as hitSetup } from './hit.js';
 
 const ORIGINS = /^https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)$/;
@@ -34,6 +35,19 @@ async function setup(db) {
 const one = async (db, sql, ...a) => (await db.prepare(sql).bind(...a).first()) || {};
 const all = async (db, sql, ...a) => (await db.prepare(sql).bind(...a).all()).results || [];
 const dayStr = t => new Date(t).toISOString().slice(0, 10);
+
+// Danh sách khóa Gemini (gộp khóa đơn cũ 'gemini_key' vào danh sách mới)
+async function gkList(db) {
+  const rows = (await db.prepare("SELECT k, v, at, by FROM config WHERE k IN ('gemini_keys', 'gemini_key')").all()).results || [];
+  let list = []; const many = rows.find(r => r.k === 'gemini_keys'), one = rows.find(r => r.k === 'gemini_key');
+  try { list = many ? JSON.parse(many.v) : []; } catch (e) { list = []; }
+  if (one && one.v && !list.some(x => x.k === one.v)) list.unshift({ k: one.v, at: one.at || 0, by: one.by || '' });
+  return list;
+}
+async function gkSave(db, list) {
+  await db.batch([db.prepare('INSERT OR REPLACE INTO config (k, v, at) VALUES (?, ?, ?)').bind('gemini_keys', JSON.stringify(list), Date.now()), db.prepare("DELETE FROM config WHERE k = 'gemini_key'")]);
+  resetGeminiCache();
+}
 
 const OPS = {
   async usage(db) {
@@ -150,18 +164,23 @@ const OPS = {
   // ---- Gemini API: khóa dán trong Quản trị (D1 config 'gemini_key', không bao giờ trả về nguyên khóa) ----
   async ping() { return { ok: true }; },
   async auditLog(db) { return { rows: await all(db, 'SELECT at, email, op, ok, ip, country FROM admin_log ORDER BY id DESC LIMIT 100') }; },
-  async geminiStatus(db) {
-    const k = (await one(db, "SELECT v, at, by FROM config WHERE k = 'gemini_key'"));
-    return { set: !!k.v, last4: k.v ? k.v.slice(-4) : '', at: k.at || 0, by: k.by || '' };
+  // ---- Nhiều khóa Gemini xoay vòng (D1 config 'gemini_keys' = [{k, at, by}]) – không bao giờ trả nguyên khóa ----
+  async geminiStatus(db, b, who, env) {
+    const list = await gkList(db), keys = [];
+    for (const x of list) keys.push({ last4: x.k.slice(-4), at: x.at, by: x.by, cooling: await isCooling(x.k) });
+    return { set: keys.length > 0, last4: keys[0] ? keys[0].last4 : '', keys, env: !!(env && env.GEMINI_KEY) };
   },
   async geminiSet(db, b, who) {
     const key = String(b.key || '').trim();
     if (!/^(AIza[\w-]{20,}|AQ\.[\w.-]{20,})$/.test(key)) return { ok: false, error: 'Khóa không đúng định dạng (AIza… hoặc AQ.…)' };
+    const list = await gkList(db); if (list.some(x => x.k === key)) return { ok: false, error: 'Khóa này đã có trong danh sách' };
+    if (list.length >= 20) return { ok: false, error: 'Tối đa 20 khóa' };
     const r = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash', { headers: { 'x-goog-api-key': key } });
     if (!r.ok) return { ok: false, error: `Google từ chối khóa (HTTP ${r.status})` };
-    await db.prepare('INSERT OR REPLACE INTO config (k, v, at, by) VALUES (?, ?, ?, ?)').bind('gemini_key', key, Date.now(), who.email).run();
-    return { ok: true, last4: key.slice(-4) };
+    list.push({ k: key, at: Date.now(), by: who.email }); await gkSave(db, list);
+    return { ok: true, last4: key.slice(-4), count: list.length };
   },
+  async geminiRemove(db, b) { const list = (await gkList(db)).filter(x => x.k.slice(-4) !== String(b.last4 || '')); await gkSave(db, list); return { ok: true, count: list.length }; },
   // Duyệt 1 chạm: bản sửa được duyệt lưu D1 → workflow dịch đêm (i18n.yml) tự gộp vào scripts/i18n-fixed.json và áp vào app
   async i18nFixApprove(db, b, who) {
     const lang = String(b.lang || ''), key = String(b.key || ''), val = String(b.val || '').trim();
@@ -169,22 +188,29 @@ const OPS = {
     await db.prepare('INSERT OR REPLACE INTO i18n_fix (lang, key, val, at, by) VALUES (?, ?, ?, ?, ?)').bind(lang, key, val, Date.now(), who.email).run();
     return { ok: true };
   },
-  async geminiDelete(db) { await db.prepare("DELETE FROM config WHERE k = 'gemini_key'").run(); return { ok: true }; },
+  async geminiDelete(db) { await db.prepare("DELETE FROM config WHERE k IN ('gemini_key', 'gemini_keys')").run(); resetGeminiCache(); return { ok: true }; },
   // Gemini duyệt chéo bản dịch giao diện: mọi câu nghi sai (dịch ngược) của 1 ngôn ngữ, lô 40 câu, lưu D1 i18n_judge với khóa 'g:'+h
-  async geminiReview(db, b) {
-    const key = (await one(db, "SELECT v FROM config WHERE k = 'gemini_key'")).v; if (!key) return { error: 'Chưa có khóa Gemini' };
+  // Duyệt bản dịch bằng AI – 1 nút: Gemini (xoay vòng nhiều khóa) → hết khóa/hết lượt thì tự chuyển Cloudflare Workers AI
+  async review(db, b, who, env) {
     const lang = String(b.lang || ''), rep = await (await fetch('https://lexkite.com/i18n/backcheck.json?x=' + Date.now())).json(), L = (rep.langs || {})[lang];
     if (!L) return { error: 'no-lang' };
-    const items = L.flagged.slice(0, 80), wrong = [];
-    for (let i = 0; i < items.length; i += 40) {
-      const part = items.slice(i, i + 40), list = part.map((f, j) => `${j + 1}. EN: ${f.en.replace(/<[^>]+>/g, '')}\n   ${lang}: ${f.tr.replace(/<[^>]+>/g, '')}`).join('\n');
-      const r = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key }, body: JSON.stringify({ systemInstruction: { parts: [{ text: 'You are a professional UI localization reviewer for an English-learning app. For each numbered pair decide if the translation conveys the same meaning as the English UI text (minor wording differences are fine). Return JSON {"wrong":[{"i":number,"why":"short reason in Vietnamese","fix":"corrected translation keeping {placeholders}"}]} listing only clearly wrong ones.' }] }, contents: [{ role: 'user', parts: [{ text: list }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0.1 } }) });
-      if (!r.ok) return { error: `Gemini lỗi HTTP ${r.status}` };
-      let out = {}; try { const j = await r.json(); out = JSON.parse(j.candidates[0].content.parts.map(p => p.text || '').join('')); } catch (e) { continue; }
-      for (const w of out.wrong || []) { const f = part[+w.i - 1]; if (f) wrong.push({ ...f, why: String(w.why || '').slice(0, 200), fix: String(w.fix || '').slice(0, 400) }); }
-      await db.batch(part.map((f, j) => db.prepare('INSERT OR REPLACE INTO i18n_judge (h, lang, ok, note, at) VALUES (?, ?, ?, ?, ?)').bind('g:' + f.h, lang, (out.wrong || []).some(w => +w.i === j + 1) ? 0 : 1, 'gemini', Date.now())));
+    const done = Object.fromEntries((await all(db, 'SELECT h, ok, note FROM i18n_judge WHERE lang = ?', lang)).map(r => [r.h, r]));
+    const todo = L.flagged.filter(f => !done[f.h]).slice(0, 60), used = new Set();
+    const SYS = 'You are a professional UI localization reviewer for an English-learning app. For each numbered pair decide if the translation conveys the same meaning as the English UI text (minor wording/style differences are fine). Reply ONLY JSON {"wrong":[{"i":number,"why":"short reason in Vietnamese","fix":"corrected translation keeping {placeholders} and HTML tags"}]} listing only clearly wrong ones.';
+    for (let i = 0; i < todo.length; i += 20) {
+      const part = todo.slice(i, i + 20), list = part.map((f, j) => `${j + 1}. EN: ${f.en.replace(/<[^>]+>/g, '')}\n   ${lang}: ${f.tr}`).join('\n');
+      let out = null;
+      const g = await geminiCall(env, { systemInstruction: { parts: [{ text: SYS }] }, contents: [{ role: 'user', parts: [{ text: list }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0.1 } });
+      if (g) { try { out = JSON.parse(g.text); used.add('Gemini …' + g.key); } catch (e) { out = null; } }
+      if (!out && env.AI) { try { const r = await env.AI.run('@cf/meta/llama-3.3-70b-instruct-fp8-fast', { messages: [{ role: 'system', content: SYS }, { role: 'user', content: list }], max_tokens: 900 }); out = JSON.parse(String(r.response || r).match(/\{[\s\S]*\}/)[0]); used.add('Cloudflare Llama 3.3'); } catch (e) { out = null; } }
+      if (!out) continue;
+      const wrong = new Map((out.wrong || []).map(w => [+w.i, w]));
+      await db.batch(part.map((f, j) => db.prepare('INSERT OR REPLACE INTO i18n_judge (h, lang, ok, note, at) VALUES (?, ?, ?, ?, ?)').bind(f.h, lang, wrong.has(j + 1) ? 0 : 1, wrong.has(j + 1) ? JSON.stringify({ why: String(wrong.get(j + 1).why || '').slice(0, 200), fix: String(wrong.get(j + 1).fix || '').slice(0, 400) }) : '', Date.now())));
+      part.forEach((f, j) => { done[f.h] = { ok: wrong.has(j + 1) ? 0 : 1, note: wrong.has(j + 1) ? JSON.stringify({ why: wrong.get(j + 1).why, fix: wrong.get(j + 1).fix }) : '' }; });
     }
-    return { lang, reviewed: items.length, wrong };
+    const parse = n => { try { return JSON.parse(n); } catch (e) { return { why: n, fix: '' }; } };
+    const wrongs = L.flagged.filter(f => done[f.h] && !done[f.h].ok).map(f => ({ ...f, ...parse(done[f.h].note) }));
+    return { lang, reviewed: L.flagged.filter(f => done[f.h]).length, total: L.flagged.length, pending: L.flagged.filter(f => !done[f.h]).length, models: [...used], wrong: wrongs };
   },
   async alerts(db) {
     const now = Date.now(), out = [];
@@ -209,8 +235,8 @@ const OPS = {
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: cors(request) });
 
 // Thao tác ghi/xóa (ghi nhật ký) · thao tác nguy hiểm (phải vừa đăng nhập ≤ 15 phút – chống token bị đánh cắp dùng lại)
-const WRITE = /Set$|Delete$|Clear$|Mark$|Approve$|^inboxReply$|^judge$|^geminiReview$/;
-const DANGER = new Set(['userDelete', 'serviceDelete', 'errorsClear', 'geminiDelete', 'geminiSet']);
+const WRITE = /Set$|Delete$|Remove$|Clear$|Mark$|Approve$|^inboxReply$|^judge$|^review$/;
+const DANGER = new Set(['userDelete', 'serviceDelete', 'errorsClear', 'geminiDelete', 'geminiRemove']);
 const ipOf = req => req.headers.get('CF-Connecting-IP') || '?';
 async function audit(env, req, email, op, ok) {
   try { const h = [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode('lexkite-adm|' + ipOf(req))))].slice(0, 6).map(x => x.toString(16).padStart(2, '0')).join('');
