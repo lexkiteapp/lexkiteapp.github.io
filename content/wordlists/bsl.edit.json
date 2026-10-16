@@ -181,7 +181,8 @@
   "ex": "The new tea blends green tea with dried fruit."
  },
  "deprive": {
-  "def": "to take something important away from someone (deprive somebody of something)"
+  "def": "to take something important away from someone (deprive somebody of something)",
+  "ex": "Long hours deprive staff of time with their families."
  },
  "fret": {
   "def": "to worry about something, especially when it is not necessary",
@@ -198,46 +199,59 @@
   "def": "buying something in one market and selling it at a higher price in another market at the same time"
  },
  "convertible": {
-  "def": "able to be changed into another form, for example a bond that can be exchanged for shares"
+  "def": "able to be changed into another form, for example a bond that can be exchanged for shares",
+  "ex": "The bank issued convertible bonds."
  },
  "ambition": {
-  "def": "a strong wish to achieve success, power or a particular goal"
+  "def": "a strong wish to achieve success, power or a particular goal",
+  "ex": "Her ambition is to run her own company."
  },
  "trustee": {
   "def": "a person or organisation that legally controls money or property for the benefit of someone else"
  },
  "sack": {
-  "def": "a large bag made of strong material, used for storing and carrying goods"
+  "def": "a large bag made of strong material, used for storing and carrying goods",
+  "ex": "He was sacked for being late too often."
  },
  "installment": {
-  "def": "one of a series of regular payments that together pay for something"
+  "def": "one of a series of regular payments that together pay for something",
+  "ex": "You can pay for the laptop in twelve monthly installments."
  },
  "queue": {
-  "def": "a line of people or vehicles waiting for something"
+  "def": "a line of people or vehicles waiting for something",
+  "ex": "There was a long queue at the bank."
  },
  "commander": {
-  "def": "a person who is in charge of a group, especially in the armed forces"
+  "def": "a person who is in charge of a group, especially in the armed forces",
+  "ex": "The ship's commander gave the order to leave the port."
  },
  "liquidation": {
-  "def": "the process of closing a company and selling its assets to pay its debts"
+  "def": "the process of closing a company and selling its assets to pay its debts",
+  "ex": "The company went into liquidation last year."
  },
  "macroeconomics": {
-  "def": "the study of a whole economy, including total output, income, employment and prices"
+  "def": "the study of a whole economy, including total output, income, employment and prices",
+  "ex": "Macroeconomics studies inflation and unemployment."
  },
  "sacrifice": {
-  "def": "the act of giving up something valuable in order to get something more important"
+  "def": "the act of giving up something valuable in order to get something more important",
+  "ex": "He made many sacrifices to build his business."
  },
  "acre": {
-  "def": "a unit for measuring land, equal to about 4,047 square metres"
+  "def": "a unit for measuring land, equal to about 4,047 square metres",
+  "ex": "The farm covers two hundred acres."
  },
  "shield": {
-  "def": "something that protects a person or thing from harm or danger"
+  "def": "something that protects a person or thing from harm or danger",
+  "ex": "Insurance shields the company from large losses."
  },
  "encyclopedia": {
-  "def": "a book or website with information on many subjects, usually arranged in alphabetical order"
+  "def": "a book or website with information on many subjects, usually arranged in alphabetical order",
+  "ex": "The online encyclopedia is updated every day."
  },
  "contemplate": {
-  "def": "to think carefully about something, especially a possible future action"
+  "def": "to think carefully about something, especially a possible future action",
+  "ex": "The company is contemplating a move to Singapore."
  },
  "prospectus": {
   "def": "a document that gives details about a company, school or investment to people who may want to join or invest"
@@ -246,16 +260,20 @@
   "def": "a wrong act, other than a breach of contract, for which someone can be sued in a civil court"
  },
  "succession": {
-  "def": "the process of one person taking over a position after another, or a number of things that follow each other"
+  "def": "the process of one person taking over a position after another, or a number of things that follow each other",
+  "ex": "The company has a clear plan for succession when the director retires."
  },
  "cotton": {
-  "def": "a soft white natural fibre from a plant, used to make cloth"
+  "def": "a soft white natural fibre from a plant, used to make cloth",
+  "ex": "The factory produces cotton shirts."
  },
  "helicopter": {
-  "def": "an aircraft with long blades on top that turn round, allowing it to rise straight up and stay in one place in the air"
+  "def": "an aircraft with long blades on top that turn round, allowing it to rise straight up and stay in one place in the air",
+  "ex": "The company uses a helicopter to inspect the power lines."
  },
  "conspiracy": {
-  "def": "a secret plan by a group of people to do something illegal or harmful"
+  "def": "a secret plan by a group of people to do something illegal or harmful",
+  "ex": "The novel is about a conspiracy inside a large company."
  },
  "census": {
   "def": "an official count of the population of a country, with information about people's age, jobs, etc."
@@ -265,5 +283,938 @@
  },
  "sensitivity": {
   "def": "the ability to notice and react to small changes, or to understand other people's feelings"
+ },
+ "maturity": {
+  "ex": "The bond reaches maturity in ten years."
+ },
+ "volatility": {
+  "ex": "Investors are worried about the volatility of the market."
+ },
+ "risky": {
+  "ex": "Investing all your savings in one company is risky."
+ },
+ "regulator": {
+  "ex": "The banking regulator fined the company for breaking the rules."
+ },
+ "borrower": {
+  "ex": "Borrowers must repay the loan within five years."
+ },
+ "insurer": {
+  "ex": "The insurer paid for the damage to the car."
+ },
+ "profitability": {
+  "ex": "The new strategy improved the company's profitability."
+ },
+ "conversion": {
+  "ex": "The conversion of the old warehouse into offices took a year."
+ },
+ "scandal": {
+  "ex": "The scandal forced the director to resign."
+ },
+ "publicly": {
+  "ex": "The company publicly apologised for the delay."
+ },
+ "governance": {
+  "ex": "Good governance is essential for a successful company."
+ },
+ "rebel": {
+  "ex": "He was a rebel at school but became a successful businessman."
+ },
+ "restructure": {
+  "ex": "The firm restructured its sales department."
+ },
+ "allowance": {
+  "ex": "Staff receive a travel allowance of fifty dollars a month."
+ },
+ "warrant": {
+  "ex": "The decision does not warrant such a strong reaction."
+ },
+ "technological": {
+  "ex": "Technological change is creating new jobs."
+ },
+ "shrink": {
+  "ex": "The market for printed newspapers continues to shrink."
+ },
+ "foreigner": {
+  "ex": "Many foreigners work for international companies in the city."
+ },
+ "pledge": {
+  "ex": "The company pledged to cut its emissions by half."
+ },
+ "modest": {
+  "ex": "The company reported a modest increase in profits."
+ },
+ "presidency": {
+  "ex": "During her presidency, the association doubled its membership."
+ },
+ "insider": {
+  "ex": "An insider revealed details of the deal to the press."
+ },
+ "constitutional": {
+  "ex": "The court ruled on a constitutional question."
+ },
+ "privatization": {
+  "ex": "The privatization of the railway was controversial."
+ },
+ "accordance": {
+  "ex": "Payments are made in accordance with the contract."
+ },
+ "activist": {
+  "ex": "Environmental activists protested outside the factory."
+ },
+ "consultancy": {
+  "ex": "She works for an engineering consultancy."
+ },
+ "lessee": {
+  "ex": "The lessee is responsible for repairs to the property."
+ },
+ "bust": {
+  "ex": "Many small firms went bust during the crisis."
+ },
+ "rally": {
+  "ex": "Share prices rallied after the good news."
+ },
+ "exempt": {
+  "ex": "Small businesses are exempt from this tax."
+ },
+ "weaken": {
+  "ex": "The currency weakened against the dollar."
+ },
+ "suppress": {
+  "ex": "The company tried to suppress the bad news."
+ },
+ "prevail": {
+  "ex": "Common sense prevailed, and the meeting ended early."
+ },
+ "municipal": {
+  "ex": "The municipal library is open on Sundays."
+ },
+ "hostile": {
+  "ex": "The company rejected a hostile takeover bid."
+ },
+ "gamble": {
+  "ex": "Opening a restaurant is always a gamble."
+ },
+ "tighten": {
+  "ex": "The bank tightened its lending rules."
+ },
+ "squeeze": {
+  "ex": "Rising costs are squeezing small businesses."
+ },
+ "scrap": {
+  "ex": "The factory sells metal scrap for recycling."
+ },
+ "petrol": {
+  "ex": "Petrol prices rose again this week."
+ },
+ "uncertain": {
+  "ex": "The future of the project is uncertain."
+ },
+ "seize": {
+  "ex": "Customs officers seized the illegal goods at the port."
+ },
+ "beneficiary": {
+  "ex": "She is the main beneficiary of the insurance policy."
+ },
+ "capitalization": {
+  "ex": "The company has a market capitalization of two billion dollars."
+ },
+ "diplomat": {
+  "ex": "The diplomat spoke three foreign languages."
+ },
+ "intent": {
+  "ex": "The letter of intent was signed yesterday."
+ },
+ "lessor": {
+  "ex": "The lessor owns the building and rents it to the company."
+ },
+ "obstacle": {
+  "ex": "Lack of funding is the main obstacle to growth."
+ },
+ "amortization": {
+  "ex": "The table shows the amortization of the loan over twenty years."
+ },
+ "unfair": {
+  "ex": "Customers complained that the new fees were unfair."
+ },
+ "demographic": {
+  "ex": "Demographic changes affect the demand for housing."
+ },
+ "senator": {
+  "ex": "The senator spoke at the business conference."
+ },
+ "adoption": {
+  "ex": "The adoption of new software improved efficiency."
+ },
+ "privately": {
+  "ex": "The company is privately owned."
+ },
+ "plunge": {
+  "ex": "Sales plunged by thirty percent in the first quarter."
+ },
+ "legally": {
+  "ex": "The contract is legally binding."
+ },
+ "revive": {
+  "ex": "The new manager revived the struggling business."
+ },
+ "intermediary": {
+  "ex": "The bank acts as an intermediary between buyers and sellers."
+ },
+ "boast": {
+  "ex": "The hotel's boast is that it has the best view in town."
+ },
+ "discourage": {
+  "ex": "High fees discourage customers from using the service."
+ },
+ "fate": {
+  "ex": "The fate of the factory will be decided next week."
+ },
+ "widen": {
+  "ex": "The company plans to widen its range of products."
+ },
+ "devise": {
+  "ex": "We need to devise a new marketing strategy."
+ },
+ "speculation": {
+  "ex": "There is speculation that the firm will be sold."
+ },
+ "fighter": {
+  "ex": "She is a fighter and never gives up."
+ },
+ "grip": {
+  "ex": "Hold the handle with a firm grip."
+ },
+ "compel": {
+  "ex": "The new law compels companies to publish their salaries."
+ },
+ "slowdown": {
+  "ex": "There is a slowdown in the housing market."
+ },
+ "suspicion": {
+  "ex": "The sudden profits raised suspicion."
+ },
+ "dump": {
+  "ex": "Don't dump old electronics with normal rubbish."
+ },
+ "bail": {
+  "ex": "The government had to bail out the bank."
+ },
+ "surrender": {
+  "ex": "You must surrender your old passport when you get a new one."
+ },
+ "certainty": {
+  "ex": "There is no certainty that prices will fall."
+ },
+ "rebuild": {
+  "ex": "It took the company two years to rebuild its reputation."
+ },
+ "corrupt": {
+  "ex": "The corrupt official was removed from his job."
+ },
+ "bold": {
+  "ex": "The company made a bold decision to enter the Asian market."
+ },
+ "handful": {
+  "ex": "Only a handful of customers complained."
+ },
+ "respective": {
+  "ex": "The two managers returned to their respective offices."
+ },
+ "odds": {
+  "ex": "The odds of winning the contract are good."
+ },
+ "allegation": {
+  "ex": "The company denied the allegations of fraud."
+ },
+ "downward": {
+  "ex": "The chart shows a downward trend in sales."
+ },
+ "depreciate": {
+  "ex": "New cars depreciate quickly in their first year."
+ },
+ "digit": {
+  "ex": "Your PIN must have four digits."
+ },
+ "provoke": {
+  "ex": "The price increase provoked complaints from customers."
+ },
+ "secular": {
+  "ex": "The country has a secular education system."
+ },
+ "distress": {
+  "ex": "The company is in financial distress."
+ },
+ "accountability": {
+  "ex": "Managers must take accountability for their decisions."
+ },
+ "incorporation": {
+  "ex": "The certificate of incorporation shows when the company was founded."
+ },
+ "diplomatic": {
+  "ex": "She gave a diplomatic answer to the difficult question."
+ },
+ "formerly": {
+  "ex": "The hotel was formerly a bank."
+ },
+ "optimization": {
+  "ex": "Search engine optimization helps more people find your website."
+ },
+ "shed": {
+  "ex": "The company plans to shed five hundred jobs."
+ },
+ "wholly": {
+  "ex": "The firm is wholly owned by the government."
+ },
+ "predictable": {
+  "ex": "Sales are quite predictable in the summer."
+ },
+ "chaos": {
+  "ex": "The computer failure caused chaos at the airport."
+ },
+ "impairment": {
+  "ex": "The company recorded an impairment of its assets."
+ },
+ "accrual": {
+  "ex": "The accrual of interest begins on the first day of the loan."
+ },
+ "confront": {
+  "ex": "We must confront the problem directly."
+ },
+ "exile": {
+  "ex": "The writer lived in exile for many years."
+ },
+ "payback": {
+  "ex": "The payback period for the solar panels is about six years."
+ },
+ "conviction": {
+  "ex": "She spoke with great conviction about the project."
+ },
+ "continuously": {
+  "ex": "The machines run continuously day and night."
+ },
+ "reliance": {
+  "ex": "The company's reliance on one customer is risky."
+ },
+ "clash": {
+  "ex": "There was a clash between the two departments over the budget."
+ },
+ "deter": {
+  "ex": "High prices deter many tourists."
+ },
+ "condemn": {
+  "ex": "The union condemned the decision to close the factory."
+ },
+ "operative": {
+  "ex": "The new rules become operative next month."
+ },
+ "privatize": {
+  "ex": "The government plans to privatize the postal service."
+ },
+ "endure": {
+  "ex": "The company endured a difficult year."
+ },
+ "deflation": {
+  "ex": "Deflation can be as harmful as inflation."
+ },
+ "fierce": {
+  "ex": "There is fierce competition between the two airlines."
+ },
+ "instant": {
+  "ex": "The new product was an instant success."
+ },
+ "sentiment": {
+  "ex": "Consumer sentiment improved in the second quarter."
+ },
+ "centralize": {
+  "ex": "The company centralized all its purchasing in one office."
+ },
+ "sovereign": {
+  "ex": "The country issued sovereign bonds to raise money."
+ },
+ "strive": {
+  "ex": "We strive to give the best service to every customer."
+ },
+ "bribe": {
+  "ex": "The official refused to accept a bribe."
+ },
+ "controller": {
+  "ex": "The financial controller checks all payments."
+ },
+ "supervision": {
+  "ex": "New staff work under supervision for the first month."
+ },
+ "endowment": {
+  "ex": "The university's endowment funds many scholarships."
+ },
+ "reconcile": {
+  "ex": "The accountant reconciled the bank statements."
+ },
+ "liberty": {
+  "ex": "Customers are at liberty to cancel within fourteen days."
+ },
+ "decent": {
+  "ex": "She earns a decent salary."
+ },
+ "appetite": {
+  "ex": "Investors have a strong appetite for green energy."
+ },
+ "tobacco": {
+  "ex": "The tobacco industry faces strict rules on advertising."
+ },
+ "quantify": {
+  "ex": "It is difficult to quantify the benefits of training."
+ },
+ "corn": {
+  "ex": "The farm grows corn and soybeans."
+ },
+ "skeptical": {
+  "ex": "Many investors are skeptical about the plan."
+ },
+ "legislative": {
+  "ex": "The legislative changes will affect all businesses."
+ },
+ "negligence": {
+  "ex": "The company was found guilty of negligence."
+ },
+ "determinant": {
+  "ex": "Price is the main determinant of demand."
+ },
+ "icon": {
+  "ex": "Click the icon to open the app."
+ },
+ "steep": {
+  "ex": "There was a steep rise in prices last month."
+ },
+ "optimism": {
+  "ex": "There is growing optimism about the economy."
+ },
+ "faction": {
+  "ex": "Two factions within the board disagreed about the plan."
+ },
+ "rig": {
+  "ex": "Workers on the oil rig work twelve-hour shifts."
+ },
+ "stall": {
+  "ex": "She runs a fruit stall at the market."
+ },
+ "optimize": {
+  "ex": "We need to optimize our delivery routes."
+ },
+ "discretionary": {
+  "ex": "Discretionary spending falls when people are worried about money."
+ },
+ "mutually": {
+  "ex": "We hope to find a mutually beneficial solution."
+ },
+ "subprime": {
+  "ex": "Subprime loans were a cause of the 2008 crisis."
+ },
+ "refusal": {
+  "ex": "Her refusal to sign the contract surprised everyone."
+ },
+ "geographic": {
+  "ex": "The company has a wide geographic reach."
+ },
+ "policeman": {
+  "ex": "A policeman directed the traffic."
+ },
+ "amortize": {
+  "ex": "The cost of the machine is amortized over five years."
+ },
+ "loser": {
+  "ex": "There are winners and losers in every market."
+ },
+ "overwhelm": {
+  "ex": "The number of orders overwhelmed the small team."
+ },
+ "consistency": {
+  "ex": "Customers value consistency in quality."
+ },
+ "declaration": {
+  "ex": "Please complete the customs declaration form."
+ },
+ "harsh": {
+  "ex": "The company received harsh criticism for the delay."
+ },
+ "flee": {
+  "ex": "Investors fled the market after the crash."
+ },
+ "covariance": {
+  "ex": "The analyst calculated the covariance of the two stocks."
+ },
+ "jointly": {
+  "ex": "The project is jointly funded by two universities."
+ },
+ "spur": {
+  "ex": "Lower taxes could spur investment."
+ },
+ "socialist": {
+  "ex": "The country had a socialist economy for decades."
+ },
+ "browser": {
+  "ex": "Open the link in your web browser."
+ },
+ "exaggerate": {
+  "ex": "Don't exaggerate the risks in your report."
+ },
+ "triumph": {
+  "ex": "The new product was a triumph for the design team."
+ },
+ "delegation": {
+  "ex": "A trade delegation from Japan visited the factory."
+ },
+ "casualty": {
+  "ex": "Small shops were the first casualties of the online boom."
+ },
+ "distinctive": {
+  "ex": "The brand has a distinctive logo."
+ },
+ "constituency": {
+  "ex": "The politician met business owners in her constituency."
+ },
+ "explosion": {
+  "ex": "There has been an explosion in online shopping."
+ },
+ "remarkably": {
+  "ex": "Sales held up remarkably well during the crisis."
+ },
+ "spark": {
+  "ex": "The announcement sparked a rise in share prices."
+ },
+ "competitiveness": {
+  "ex": "Lower costs improved the company's competitiveness."
+ },
+ "copper": {
+  "ex": "Copper prices rose sharply this year."
+ },
+ "poison": {
+  "ex": "Some cleaning products contain poison, so keep them away from children."
+ },
+ "bitter": {
+  "ex": "The two companies were involved in a bitter legal dispute."
+ },
+ "hostility": {
+  "ex": "There was open hostility between the two managers."
+ },
+ "enlargement": {
+  "ex": "The enlargement of the store doubled its floor space."
+ },
+ "trim": {
+  "ex": "The company trimmed its budget by ten percent."
+ },
+ "denounce": {
+  "ex": "Consumer groups denounced the price increase."
+ },
+ "protester": {
+  "ex": "Protesters gathered outside the head office."
+ },
+ "distortion": {
+  "ex": "The report contains a distortion of the facts."
+ },
+ "continually": {
+  "ex": "The company continually improves its products."
+ },
+ "awkward": {
+  "ex": "There was an awkward silence after his question."
+ },
+ "interference": {
+  "ex": "The manager complained about interference from head office."
+ },
+ "geographical": {
+  "ex": "The company has a wide geographical presence."
+ },
+ "encompass": {
+  "ex": "The job encompasses sales, marketing and customer service."
+ },
+ "uncover": {
+  "ex": "The audit uncovered several errors."
+ },
+ "worsen": {
+  "ex": "The economic situation worsened in the autumn."
+ },
+ "successive": {
+  "ex": "Profits have risen for five successive years."
+ },
+ "simplicity": {
+  "ex": "Customers love the simplicity of the app."
+ },
+ "flourish": {
+  "ex": "Small businesses flourish in this part of the city."
+ },
+ "relevance": {
+  "ex": "The training has direct relevance to our work."
+ },
+ "tumble": {
+  "ex": "Shares took a tumble after the announcement."
+ },
+ "denominate": {
+  "ex": "The loan is denominated in US dollars."
+ },
+ "bureaucratic": {
+  "ex": "The application process is slow and bureaucratic."
+ },
+ "brick": {
+  "ex": "The office is in an old brick building."
+ },
+ "internally": {
+  "ex": "The position was filled internally."
+ },
+ "transparent": {
+  "ex": "The company is transparent about its prices."
+ },
+ "hugely": {
+  "ex": "The event was hugely successful."
+ },
+ "bilateral": {
+  "ex": "The two countries signed a bilateral trade agreement."
+ },
+ "routinely": {
+  "ex": "Staff routinely check the machines every morning."
+ },
+ "bull": {
+  "ex": "Bulls expect the market to keep rising."
+ },
+ "idle": {
+  "ex": "Many machines stood idle during the holiday."
+ },
+ "wary": {
+  "ex": "Investors are wary of new start-ups."
+ },
+ "credible": {
+  "ex": "We need credible evidence before we decide."
+ },
+ "tolerate": {
+  "ex": "The manager will not tolerate lateness."
+ },
+ "casino": {
+  "ex": "The hotel has a casino on the ground floor."
+ },
+ "steam": {
+  "ex": "The old factory ran on steam power."
+ },
+ "doubtful": {
+  "ex": "It is doubtful that the project will finish on time."
+ },
+ "ideological": {
+  "ex": "The disagreement was ideological rather than practical."
+ },
+ "outrage": {
+  "ex": "The price increase caused outrage among customers."
+ },
+ "averse": {
+  "ex": "Many investors are averse to risk."
+ },
+ "enlarge": {
+  "ex": "Click on the photo to enlarge it."
+ },
+ "fairness": {
+  "ex": "Employees value fairness in pay."
+ },
+ "dependency": {
+  "ex": "The country wants to reduce its dependency on imported oil."
+ },
+ "prepayment": {
+  "ex": "A prepayment of twenty percent is required."
+ },
+ "externality": {
+  "ex": "Pollution is a negative externality of production."
+ },
+ "perpetual": {
+  "ex": "The office seems to be in a state of perpetual change."
+ },
+ "ration": {
+  "ex": "During the shortage, fuel was rationed."
+ },
+ "mosque": {
+  "ex": "The old mosque is a popular tourist attraction."
+ },
+ "analytic": {
+  "ex": "The job requires strong analytic skills."
+ },
+ "prone": {
+  "ex": "Older machines are prone to breaking down."
+ },
+ "plead": {
+  "ex": "He pleaded for more time to finish the report."
+ },
+ "openly": {
+  "ex": "She spoke openly about the company's problems."
+ },
+ "newcomer": {
+  "ex": "The newcomer quickly took a large share of the market."
+ },
+ "prolong": {
+  "ex": "Regular maintenance prolongs the life of the equipment."
+ },
+ "accusation": {
+  "ex": "The company rejected the accusation of unfair pricing."
+ },
+ "precious": {
+  "ex": "Time is precious, so let's start the meeting."
+ },
+ "regain": {
+  "ex": "The company regained its position as market leader."
+ },
+ "restrictive": {
+  "ex": "The bank's lending rules are very restrictive."
+ },
+ "deed": {
+  "ex": "Keep the property deed in a safe place."
+ },
+ "horror": {
+  "ex": "To our horror, the files had been deleted."
+ },
+ "occasional": {
+  "ex": "The weather will be sunny with occasional showers."
+ },
+ "asylum": {
+  "ex": "The organisation helps people seeking asylum."
+ },
+ "isolation": {
+  "ex": "Working from home can lead to feelings of isolation."
+ },
+ "investigator": {
+  "ex": "An investigator examined the company's accounts."
+ },
+ "explosive": {
+  "ex": "The issue of pay is politically explosive."
+ },
+ "tactical": {
+  "ex": "The company made a tactical decision to lower prices."
+ },
+ "reap": {
+  "ex": "Firms that invest in training reap the benefits."
+ },
+ "gloomy": {
+  "ex": "The economic forecast is gloomy."
+ },
+ "defensive": {
+  "ex": "He became defensive when I asked about the delay."
+ },
+ "communism": {
+  "ex": "The museum explains the history of communism in Eastern Europe."
+ },
+ "frustration": {
+  "ex": "Customers expressed frustration at the long wait."
+ },
+ "diligence": {
+  "ex": "The buyer carried out due diligence before signing the deal."
+ },
+ "rage": {
+  "ex": "The new phone is all the rage among teenagers."
+ },
+ "constructive": {
+  "ex": "Thank you for your constructive feedback."
+ },
+ "laser": {
+  "ex": "The printer uses laser technology."
+ },
+ "skeptic": {
+  "ex": "Skeptics doubt that the plan will work."
+ },
+ "bounce": {
+  "ex": "The market bounced back after the holiday."
+ },
+ "unwilling": {
+  "ex": "The bank was unwilling to lend more money."
+ },
+ "enhancement": {
+  "ex": "The update includes several enhancements to the app."
+ },
+ "decentralize": {
+  "ex": "The company decentralized decision-making to regional offices."
+ },
+ "explode": {
+  "ex": "Demand for electric bikes exploded last year."
+ },
+ "pensioner": {
+  "ex": "Pensioners receive a discount on train tickets."
+ },
+ "prudent": {
+  "ex": "It is prudent to keep some money for emergencies."
+ },
+ "vow": {
+  "ex": "The new CEO vowed to cut costs."
+ },
+ "prosper": {
+  "ex": "The town prospered thanks to the new port."
+ },
+ "cooperative": {
+  "ex": "The farmers formed a cooperative to sell their coffee."
+ },
+ "exert": {
+  "ex": "Large retailers exert pressure on their suppliers."
+ },
+ "expectancy": {
+  "ex": "Life expectancy has increased over the past century."
+ },
+ "franc": {
+  "ex": "Switzerland still uses the franc."
+ },
+ "sheer": {
+  "ex": "The sheer number of applications surprised us."
+ },
+ "realization": {
+  "ex": "There is a growing realization that training matters."
+ },
+ "brave": {
+  "ex": "It was a brave decision to start her own business."
+ },
+ "negotiator": {
+  "ex": "The union's chief negotiator met the managers."
+ },
+ "offensive": {
+  "ex": "The advertisement was withdrawn because some people found it offensive."
+ },
+ "embody": {
+  "ex": "The new office embodies the company's values."
+ },
+ "intelligent": {
+  "ex": "She is an intelligent and hardworking employee."
+ },
+ "slim": {
+  "ex": "The chances of winning the contract are slim."
+ },
+ "disguise": {
+  "ex": "The price increase was a cut in quality in disguise."
+ },
+ "assertion": {
+  "ex": "There is no evidence to support his assertion."
+ },
+ "fiduciary": {
+  "ex": "Directors have a fiduciary duty to shareholders."
+ },
+ "plague": {
+  "ex": "Delays have plagued the project from the start."
+ },
+ "grave": {
+  "ex": "The ancient grave was discovered during building work."
+ },
+ "negotiable": {
+  "ex": "The salary is negotiable."
+ },
+ "reconstruction": {
+  "ex": "The reconstruction of the bridge will take a year."
+ },
+ "rightly": {
+  "ex": "Customers rightly expect good service."
+ },
+ "sadly": {
+  "ex": "Sadly, the shop is closing next month."
+ },
+ "incorrect": {
+  "ex": "The invoice contains an incorrect amount."
+ },
+ "sympathy": {
+  "ex": "We have sympathy for customers affected by the delay."
+ },
+ "forecaster": {
+  "ex": "Forecasters expect growth to slow next year."
+ },
+ "conceal": {
+  "ex": "The company tried to conceal its losses."
+ },
+ "clarity": {
+  "ex": "The report lacks clarity."
+ },
+ "prosperous": {
+  "ex": "The region is one of the most prosperous in the country."
+ },
+ "globally": {
+  "ex": "The brand is recognised globally."
+ },
+ "revival": {
+  "ex": "The town is enjoying an economic revival."
+ },
+ "nationalize": {
+  "ex": "The government decided to nationalize the railways."
+ },
+ "swiftly": {
+  "ex": "The company responded swiftly to the complaints."
+ },
+ "deliberate": {
+  "ex": "It was a deliberate decision to keep prices low."
+ },
+ "blast": {
+  "ex": "The marketing team had a blast at the conference."
+ },
+ "impair": {
+  "ex": "Lack of sleep can impair your judgment."
+ },
+ "testify": {
+  "ex": "The manager was asked to testify in court."
+ },
+ "liberalize": {
+  "ex": "The government plans to liberalize trade."
+ },
+ "persistent": {
+  "ex": "Persistent problems with the software annoyed users."
+ },
+ "catastrophe": {
+  "ex": "The flood was a catastrophe for local farmers."
+ },
+ "endless": {
+  "ex": "The list of tasks seemed endless."
+ },
+ "worthy": {
+  "ex": "The charity is a worthy cause."
+ },
+ "corrective": {
+  "ex": "The company took corrective action after the audit."
+ },
+ "speculator": {
+  "ex": "Speculators bought large amounts of the currency."
+ },
+ "plainly": {
+  "ex": "The instructions were written plainly."
+ },
+ "unexpectedly": {
+  "ex": "Sales rose unexpectedly in December."
+ },
+ "heir": {
+  "ex": "He is the heir to the family business."
+ },
+ "genuinely": {
+  "ex": "She was genuinely surprised by the promotion."
+ },
+ "grim": {
+  "ex": "The company faces a grim future."
+ },
+ "brutal": {
+  "ex": "Competition in the industry is brutal."
+ },
+ "histogram": {
+  "ex": "The histogram shows the distribution of ages."
+ },
+ "misunderstand": {
+  "ex": "Please don't misunderstand me; I like the idea."
+ },
+ "dent": {
+  "ex": "The bad news put a dent in sales."
+ },
+ "importer": {
+  "ex": "The company is a major importer of tea."
+ },
+ "geography": {
+  "ex": "The geography of the region makes transport expensive."
+ },
+ "confrontation": {
+  "ex": "The manager wanted to avoid a confrontation with the union."
+ },
+ "reversal": {
+  "ex": "There was a sudden reversal in the market."
+ },
+ "tide": {
+  "ex": "The tide of public opinion turned against the plan."
+ },
+ "tick": {
+  "ex": "Put a tick next to the correct answer."
+ },
+ "defy": {
+  "ex": "Sales defied expectations and kept rising."
+ },
+ "realizable": {
+  "ex": "The plan is realizable within two years."
  }
 }

@@ -4,6 +4,7 @@
 //         + nghĩa tiếng Việt đúng từ loại (Google Translate dt=bd). Kết quả lưu đệm content/wordlists/<id>.cache.json.
 // Kiểm tra chất lượng: bỏ từ đã có trong app, bỏ mục thiếu phiên âm/nghĩa/định nghĩa, nghĩa Việt phải có dấu tiếng Việt hoặc là từ mượn hợp lệ.
 import fs from 'fs';
+import { has as hasForm } from './lib/irregular.mjs';
 const R = new URL('../', import.meta.url), rd = p => fs.readFileSync(new URL(p, R), 'utf8');
 const ID = process.argv[2], mi = process.argv.indexOf('--max'), MAX = mi > 0 ? +process.argv[mi + 1] : 400;
 const LISTS = {
@@ -120,7 +121,7 @@ LIST.forEach((x, i) => {
   if (why) { bad.push(x.word + ' – ' + why); return; }
   const ipa = ('/' + e.ipa.replace(/^[\/\[]|[\/\]]$/g, '') + '/').replace(/ɹ/g, 'r').replace(/ɫ/g, 'l').replace(/\.(?=\S)/g, '').replace(/ɛ/g, 'e').replace(/ɝ/g, 'ɜː').replace(/ɚ/g, 'ə');
   const viMain = FIX[x.word] || String(e.vi).split(/,\s*/)[0].trim(); // chỉ giữ nghĩa thông dụng chính – nghĩa phụ từ dữ liệu từ điển hay lệch/lặp
-  good.push([x.word, ipa.replace(/[\u032F\u02D1\u0329\u0306]/g, ''), ed.pos || SHORT[e.pos], ed.vi || viMain, def, hasWord(x.word, ex) ? ex : '', '', e.syn.join('|'), L.level(i), '']);
+  good.push([x.word, ipa.replace(/[\u032F\u02D1\u0329\u0306]/g, ''), ed.pos || SHORT[e.pos], ed.vi || viMain, def, (ed.ex || hasWord(x.word, ex) || hasForm(x.word, ex)) ? ex : '', '', e.syn.join('|'), L.level(i), '']);
 });
 const q = s => "'" + String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'") + "'";
 let js = `/* ${L.head}. Phiên âm/định nghĩa/ví dụ: Free Dictionary API (Wiktionary, CC BY-SA), Tatoeba (CC BY 2.0 FR); nghĩa tiếng Việt: Lexkite.\n * FILE SINH TỰ ĐỘNG bởi scripts/gen-wordlist.mjs – đừng sửa tay. Row: [word, ipa, pos, vi, def, ex, col, syn, level, emoji] */\n(function (g) {\n  const add = g.IELTS_DATA.add;\n`;

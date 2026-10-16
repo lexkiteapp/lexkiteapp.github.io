@@ -3,6 +3,7 @@
 //   --stats  bảng số lượng theo loại/cấp độ · --warn  in cả cảnh báo (không làm hỏng test) · --json  ghi reports/content-stats.json
 import fs from 'node:fs'; import path from 'node:path';
 import { loadContent, ROOT } from '../lib/content-load.mjs';
+import { has } from '../lib/irregular.mjs';
 const C = loadContent(), ARG = new Set(process.argv.slice(2));
 const errs = [], warns = [], E = (w, m) => errs.push(w + ': ' + m), Wn = (w, m) => warns.push(w + ': ' + m);
 if (C.__errors) C.__errors.forEach(e => E('nạp', e));
@@ -123,7 +124,7 @@ for (const tp of D?.TOPICS || []) {
     else { if (FOREIGN.test(w.vi)) E(where, `nghĩa lẫn ngôn ngữ khác "${w.vi}"`); if (norm(w.vi) === norm(w.word) && !VI.test(w.vi) && w.word.length > 3) Wn(where, `nghĩa chưa dịch "${w.vi}"`); }
     if (!w.ipa?.trim()) Wn(where, 'thiếu phiên âm'); else if (!/^\/.+\/$|^\[.+\]$/.test(w.ipa.trim())) E(where, `phiên âm sai định dạng "${w.ipa}"`);
     if (!w.def?.trim()) Wn(where, 'thiếu định nghĩa'); else { if (VIS.test(w.def)) E(where, 'định nghĩa tiếng Anh lẫn tiếng Việt'); if (/[⁄{}\[\]|]|\b(?:wikt|w):|&\w+;/.test(w.def)) E(where, `định nghĩa còn ký tự rác "${w.def}"`); }
-    if (!w.ex?.trim()) Wn(where, 'thiếu ví dụ'); else { if (VIS.test(w.ex)) E(where, 'ví dụ lẫn tiếng Việt'); lintEn(where + ' ex', w.ex); const k = w.word.toLowerCase().split(/[\s\/(]/)[0].replace(/[^a-z-']/g, '').slice(0, Math.max(3, w.word.length - 3)); if (k.length >= 3 && !w.ex.toLowerCase().includes(k)) Wn(where, 'ví dụ không chứa từ'); }
+    if (!w.ex?.trim()) Wn(where, 'thiếu ví dụ'); else { if (VIS.test(w.ex)) E(where, 'ví dụ lẫn tiếng Việt'); lintEn(where + ' ex', w.ex); const w1 = w.word.split(/[\s\/(]/)[0], k = w1.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z-']/g, '').slice(0, Math.max(3, w.word.length - 3)); if (k.length >= 3 && !w.ex.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes(k) && !has(w1, w.ex)) Wn(where, 'ví dụ không chứa từ'); }
     if (!w.level) Wn(where, 'thiếu cấp độ'); else if (!LV.includes(w.level)) E(where, `cấp độ "${w.level}" không hợp lệ`);
   }
 }
