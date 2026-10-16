@@ -423,7 +423,7 @@
     ['isolation', '/ˌaɪsəˈleɪʃən/', 'n', 'sự cách ly', 'The state of being isolated, detached, or separated; the state of being away from other people.', 'Working from home can lead to feelings of isolation.', '', '', 'B1', ''],
     ['hypothetical', '/ˌhaɪpəˈθetɪkəl/', 'adj', 'giả định', 'Based upon a hypothesis; conjectural.', 'Let\'s not worry about hypothetical situations.', '', '', 'B1', ''],
     ['deprive', '/dɪˈpraɪv/', 'v', 'tước đoạt', 'to take something important away from someone (deprive somebody of something)', 'Long hours deprive staff of time with their families.', '', '', 'B1', ''],
-    ['investigator', '/ɪnˈvestɪˌɡeɪtəː/', 'n', 'người điều tra', 'One who investigates.', 'An investigator examined the company\'s accounts.', '', '', 'B1', ''],
+    ['investigator', '/ɪnˈvestɪˌɡeɪtə/', 'n', 'người điều tra', 'One who investigates.', 'An investigator examined the company\'s accounts.', '', '', 'B1', ''],
     ['explosive', '/ekˈspləʊsɪv/', 'adj', 'dễ nổ', 'Able to, or likely to, explode.', 'The issue of pay is politically explosive.', '', '', 'B1', ''],
     ['tactical', '/ˈtæktɪk(ə)l/', 'adj', 'chiến thuật', 'Of or relating to tactics.', 'The company made a tactical decision to lower prices.', '', '', 'B1', ''],
     ['reap', '/ˈriːp/', 'v', 'thu được', 'To cut (for example a grain) with a sickle, scythe, or reaping machine.', 'Firms that invest in training reap the benefits.', '', '', 'B1', ''],
