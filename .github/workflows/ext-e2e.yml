@@ -1,0 +1,45 @@
+# Kiểm thử đầu-cuối add-on thật (scripts/test/ext-e2e.mjs) – nhiều ngôn ngữ giao diện song song; báo cáo + ảnh → nhánh "ext-qa".
+name: Kiểm thử add-on (E2E)
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['extension/*.js', 'extension/*.html', 'extension/*.css', 'extension/manifest.json', 'scripts/test/ext-e2e.mjs', '.github/workflows/ext-e2e.yml']
+concurrency: { group: ext-e2e, cancel-in-progress: true }
+permissions:
+  contents: write
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        lang: [vi, en, es, ja, zh, ar]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Kiểm thử ${{ matrix.lang }}
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.50.1
+          npx playwright install --with-deps chromium
+          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core >/dev/null
+          bash scripts/build-extension.sh
+          LANG_T=${{ matrix.lang }} node scripts/test/ext-e2e.mjs /tmp/ext-qa
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'qa-${{ matrix.lang }}', path: /tmp/ext-qa/, retention-days: 7 }
+  publish:
+    needs: e2e
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with: { path: /tmp/ext-qa, pattern: 'qa-*', merge-multiple: true }
+      - name: Lưu báo cáo vào nhánh ext-qa
+        run: |
+          cd /tmp/ext-qa && git init -q && git checkout -q -b ext-qa
+          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
+          git add . && git commit -qm "Kiểm thử add-on $(date -u +%F\ %T)"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ext-qa

@@ -141,10 +141,23 @@
     if (host && host.parentNode === parent) return;
     if (host) { parent.appendChild(host); return; }
     host = document.createElement('ielts-lexi-popup');
-    root = host.attachShadow({ mode: 'closed' });
+    root = host.attachShadow({ mode: navigator.webdriver ? 'open' : 'closed' }); // 'open' chỉ khi chạy kiểm thử tự động (scripts/test/ext-e2e.mjs)
     root.innerHTML = H(`<style>${CSS}</style><div class="box" hidden></div><button class="fab" hidden title="${tx('Dịch với Lexkite')}">🌐</button>`);
     parent.appendChild(host);
     root.addEventListener('mousedown', e => e.stopPropagation());
+    // Tra tiếp trong chính bảng tra/dịch (định nghĩa, ví dụ, câu ngữ cảnh, bản dịch): bấm đúp 1 từ tiếng Anh → tra lồng (có nút Quay lại);
+    // bôi đen nhiều từ → dịch đoạn đó
+    const inBoxSel = () => { const sel = root.getSelection ? root.getSelection() : document.getSelection(); if (!sel || !sel.rangeCount || sel.isCollapsed) return null; const t = sel.toString().trim(); return t && /[A-Za-z]{2}/.test(t) ? { t, range: sel.getRangeAt(0) } : null; };
+    root.addEventListener('dblclick', e => {
+      if (e.target.closest('button, a, input, select, textarea')) return;
+      const s = inBoxSel(); if (!s) return;
+      const w = s.t.replace(/[^A-Za-z'’-]/g, '').toLowerCase();
+      if (w.length > 1 && w !== (cur && cur.word)) { e.stopPropagation(); show(w, s.range.getBoundingClientRect(), s.range.startContainer && s.range.startContainer.textContent ? s.range.startContainer.textContent.slice(0, 300) : '', {}, 'nested'); }
+    });
+    root.addEventListener('mouseup', e => {
+      if (e.detail >= 2 || e.target.closest('button, a, input, select, textarea')) return;
+      setTimeout(() => { const s = inBoxSel(); if (s && s.t.split(/\s+/).length > 1) translateSelection({ text: s.t, range: null, rect: s.range.getBoundingClientRect() }); }, 10);
+    });
   }
   const box = () => root.querySelector('.box');
   let onHide = null;
@@ -540,14 +553,14 @@
   function showFab(info) {
     ensureHost();
     const f = root.querySelector('.fab');
-    const rects = info.range.getClientRects();
+    const rects = info.range ? info.range.getClientRects() : [];
     const last = rects[rects.length - 1] || info.rect;
     f.style.left = Math.min(window.innerWidth - 44, last.right + 6) + 'px';
     f.style.top = Math.min(window.innerHeight - 44, last.bottom + 6) + 'px';
     f.hidden = false;
     f.onclick = () => {
       f.hidden = true;
-      if (isWordish(info.text)) show(info.text.toLowerCase(), info.rect, sentenceAround(info.range));
+      if (isWordish(info.text)) show(info.text.toLowerCase(), info.rect, info.range ? sentenceAround(info.range) : info.context || '');
       else translateSelection(info);
     };
   }
@@ -624,10 +637,14 @@
   const fromHost = e => host && e.composedPath && e.composedPath().includes(host);
   // Trên chính web app Lexkite: từ đã có bảng tra riêng (.tw) và nút lưu cụm riêng → tiện ích nhường, tránh hiện 2 bảng
   const OWN_APP = /^(www\.)?lexkite\.com$|^lexkite\.pages\.dev$|^(vocaband|ielts-lexi-2026)\.web\.app$|^localhost$/.test(location.hostname);
+  // Đang làm BÀI THI trên lexkite.com (thi thử, đề TOEIC/TOEFL, kiểm tra đầu vào, phòng thi máy tính) → khóa tra/dịch để kết quả đo đúng trình độ;
+  // học và luyện tập thì vẫn tra/dịch bình thường
+  const EXAM_ROUTES = /^#\/(mock|toeic-test|listen-test|toefl-p|cbt|placement)(\/|\?|$)/;
+  const inExam = el => OWN_APP && (EXAM_ROUTES.test(location.hash) || !!(el && el.closest && el.closest('.cbt, .mk-read, .mk-write, .mk-qs, [data-exam]')));
   const appHandles = (el, sel) => OWN_APP && el && el.closest && !!(el.closest('.tw, .pop, .sel-fab, .sel-bar, .sel-pop, [data-own-lookup]') || (sel && el.closest('#view')));
 
   function onDbl(e) {
-    if (!alive() || !enabled || inEditable(e.target) || fromHost(e) || appHandles(e.target)) return;
+    if (!alive() || !enabled || inEditable(e.target) || fromHost(e) || appHandles(e.target) || inExam(e.target)) return;
     // Trên chính lexkite.com: web app tự hiện thanh "Tra nghĩa" (.sel-bar) cho vùng chọn trong nội dung → nhường để không hiện 2 bảng;
     // nơi web app không tra (trang chào mừng, đầu trang…) thì tiện ích tra như mọi trang khác.
     if (OWN_APP && !e.lkDeferred) { const ev = { clientX: e.clientX, clientY: e.clientY, target: e.target, lkDeferred: true }; setTimeout(() => { const b = document.querySelector('.sel-bar'); if (!(b && !b.hidden)) onDbl(ev); }, 80); return; }
@@ -641,7 +658,20 @@
   }
   document.addEventListener('dblclick', onDbl);
   document.addEventListener('mouseup', e => {
-    if (!alive() || fromHost(e) || e.button !== 0 || inEditable(e.target) || appHandles(e.target)) return;
+    if (!alive() || fromHost(e) || e.button !== 0 || appHandles(e.target) || inExam(e.target)) return;
+    // Ô nhập chữ (bài viết, điền từ…): bôi đen → nút 🌐 để dịch (không tự dịch, không chặn việc gõ)
+    const fld = e.target && e.target.closest && e.target.closest('textarea, input[type="text"], input[type="search"], input:not([type])');
+    if (fld) {
+      if (selectMode === 'off') return;
+      setTimeout(() => {
+        const t = String(fld.value || '').slice(fld.selectionStart || 0, fld.selectionEnd || 0).trim();
+        if (!t || t.length > 3000 || !/[A-Za-z]{2}/.test(t)) return;
+        const r = fld.getBoundingClientRect(), rect = { left: Math.min(e.clientX, r.right - 10), right: Math.min(e.clientX, r.right - 10), top: e.clientY - 10, bottom: e.clientY + 6, width: 0, height: 16 };
+        showFab({ text: t, range: null, rect, context: t });
+      }, 10);
+      return;
+    }
+    if (inEditable(e.target)) return;
     // Đợi trình duyệt cập nhật vùng chọn. Trên lexkite.com: nhường khi web app đã hiện thanh "Tra nghĩa/Dịch" (.sel-bar);
     // nơi web không dịch (trang chào mừng, trang "bare") thì tiện ích dịch như mọi trang khác.
     setTimeout(() => {
