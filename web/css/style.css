@@ -71,6 +71,9 @@ p { margin: .4rem 0; }
 .logo { display: block; width: 36px; height: 36px; border-radius: 10px; box-shadow: 0 6px 18px rgba(15, 61, 62, 0.22); flex: none; }
 .wordmark { font-weight: 800; letter-spacing: -.02em; font-size: 1.22rem; color: var(--text); }
 .wordmark b { background: linear-gradient(90deg, #E5502F, #FFB054); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.grad-text { background: linear-gradient(90deg, #E5502F, #FFB054); -webkit-background-clip: text; background-clip: text; color: transparent; }
+/* Chữ tô gradient: khi bôi đen/bấm đúp, chữ trong suốt bị nền vùng chọn che mất → hiện màu đặc */
+.grad-text::selection, .wordmark b::selection { color: #C2410C; -webkit-text-fill-color: #C2410C; background: rgba(229, 80, 47, .18); }
 .nav-label { font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: .9rem .7rem .3rem; }
 .nav a { position: relative; display: flex; align-items: center; gap: .7rem; padding: .55rem .75rem; border-radius: 12px; color: var(--muted); font-weight: 600; font-size: .93rem; transition: background .15s, color .15s; }
 .nav a .ic { width: 22px; text-align: center; font-size: 1.05rem; }

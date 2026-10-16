@@ -1489,7 +1489,7 @@
           <div class="grid g2" style="align-items:center;gap:2.5rem">
             <div>
               <span class="chip lv">✨ ${t('Nền tảng học từ vựng IELTS, TOEIC & tiếng Anh thực chiến')}</span>
-              <h1 style="font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;margin:1rem 0">${t('Từ vựng vững,')}<br><span style="background:linear-gradient(90deg,#E5502F,#FFB054);-webkit-background-clip:text;background-clip:text;color:transparent">${t('band điểm bứt phá.')}</span></h1>
+              <h1 style="font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;margin:1rem 0">${t('Từ vựng vững,')}<br><span class="grad-text">${t('band điểm bứt phá.')}</span></h1>
               <p class="muted" style="font-size:1.1rem">${t('Học 15 phút mỗi ngày với flashcard thông minh, trò chơi, bài đọc và luyện phát âm. Mọi từ đều có phiên âm chuẩn Anh–Anh, nghĩa tiếng Việt và câu ví dụ IELTS.')}</p>
               <div class="row w-cta" style="margin-top:1.5rem"><a class="btn primary lg" href="#/welcome/setup">${t('Bắt đầu miễn phí →')}</a><button class="btn lg" id="loginW">${t('Tôi đã có tài khoản')}</button></div>
               <a class="small" href="#/placement" style="display:inline-block;margin-top:.7rem;font-weight:700">🧭 ${t('Kiểm tra trình độ trước (5 phút) →')}</a>
