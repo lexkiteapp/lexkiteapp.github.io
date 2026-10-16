@@ -41,14 +41,18 @@ export const resetGeminiCache = () => { gkCache.at = 0; };
 const coolKey = k => new Request('https://gemini-cool.lexkite.internal/' + k.slice(-10));
 export async function isCooling(k) { try { return !!(await /** @type {any} */ (caches).default.match(coolKey(k))); } catch (e) { return false; } }
 async function cool(k) { try { await /** @type {any} */ (caches).default.put(coolKey(k), new Response('1', { headers: { 'Cache-Control': 'max-age=3600' } })); } catch (e) { /* bỏ qua */ } }
+// Gọi Google Gemini: qua Worker proxy ghim tại Mỹ (env.GEM) nếu có, tránh vùng Gemini chưa hỗ trợ; không có thì gọi thẳng
+export async function gemFetch(env, path, key, body, method = 'POST') {
+  if (env.GEM) return env.GEM.fetch('https://gem.internal/', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ path, method, key, body }) });
+  return fetch('https://generativelanguage.googleapis.com/v1beta/' + path, { method, headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key }, body: method === 'GET' ? undefined : JSON.stringify(body) });
+}
 // Gọi Gemini với khóa xoay vòng (bắt đầu ở vị trí ngẫu nhiên để chia tải); trả { text, key } hoặc null nếu mọi khóa đều lỗi/hết lượt
 export async function geminiCall(env, body, model = 'gemini-2.5-flash') {
   const keys = await geminiKeys(env); if (!keys.length) return null;
   const start = Math.floor(Math.random() * keys.length);
   for (let n = 0; n < keys.length; n++) {
     const k = keys[(start + n) % keys.length]; if (await isCooling(k)) continue;
-    const U = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, B = JSON.stringify(body);
-    let r; try { r = await fetch(U, { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': k }, body: B }); if (r.status === 401 || r.status === 400) { const r2 = await fetch(U + '?key=' + encodeURIComponent(k), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: B }); if (r2.ok || r2.status === 429) r = r2; } } catch (e) { continue; }
+    let r; try { r = await gemFetch(env, `models/${model}:generateContent`, k, body); } catch (e) { continue; }
     if (!r.ok) console.log('gemini', k.slice(-4), r.status, (await r.clone().text().catch(() => '')).slice(0, 200)); // xem bằng wrangler pages deployment tail
     if (r.status === 429 || r.status === 403 || r.status === 401) { await cool(k); continue; } // hết lượt / khóa hỏng → nghỉ 1 giờ, thử khóa khác
     if (!r.ok) continue;

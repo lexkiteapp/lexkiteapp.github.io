@@ -2,7 +2,7 @@
  * POST /api/admin  (Authorization: Bearer <Firebase ID token>)  { op, ... }
  * op: usage · services · serviceSet · serviceDelete · overview · users · user · userDelete · inbox · inboxMark · analytics · errors · errorsClear · config · configSet · alerts */
 import { claims, limit } from './sync.js';
-import { geminiKeys, geminiCall, isCooling, resetGeminiCache } from './ai.js';
+import { geminiKeys, geminiCall, isCooling, resetGeminiCache, gemFetch } from './ai.js';
 import { setup as hitSetup } from './hit.js';
 
 const ORIGINS = /^https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)$/;
@@ -170,14 +170,12 @@ const OPS = {
     for (const x of list) keys.push({ last4: x.k.slice(-4), at: x.at, by: x.by, cooling: await isCooling(x.k) });
     return { set: keys.length > 0, last4: keys[0] ? keys[0].last4 : '', keys, env: !!(env && env.GEMINI_KEY) };
   },
-  async geminiSet(db, b, who) {
+  async geminiSet(db, b, who, env) {
     const key = String(b.key || '').trim();
     if (!/^(AIza[\w-]{20,}|AQ\.[\w.-]{20,})$/.test(key)) return { ok: false, error: 'Khóa không đúng định dạng (AIza… hoặc AQ.…)' };
     const list = await gkList(db); if (list.some(x => x.k === key)) return { ok: false, error: 'Khóa này đã có trong danh sách' };
     if (list.length >= 20) return { ok: false, error: 'Tối đa 20 khóa' };
-    const U = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash';
-    let r = await fetch(U, { headers: { 'x-goog-api-key': key } });
-    if (r.status === 401 || r.status === 400) { const r2 = await fetch(U + '?key=' + encodeURIComponent(key)); if (r2.ok) r = r2; } // một số khóa kiểu mới chỉ nhận qua ?key=
+    const r = await gemFetch(env, 'models/gemini-2.5-flash', key, null, 'GET');
     if (!r.ok) { const m = ((await r.json().catch(() => ({}))).error || {}).message || ''; return { ok: false, error: `Google từ chối khóa (HTTP ${r.status}, khóa nhận được dài ${key.length} ký tự, đuôi …${key.slice(-4)})${m ? ': ' + m.slice(0, 160) : ''}${/location/i.test(m) ? ' – máy chủ Cloudflare đang ở vùng Gemini chưa hỗ trợ' : ''}` }; }
     list.push({ k: key, at: Date.now(), by: who.email }); await gkSave(db, list);
     return { ok: true, last4: key.slice(-4), count: list.length };

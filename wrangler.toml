@@ -19,3 +19,8 @@ binding = "AI"
 [[services]]
 binding = "MAIL"
 service = "lexkite-mail"
+
+# Proxy Gemini ghim tại Mỹ (workers/gemini) – tránh lỗi "User location is not supported"
+[[services]]
+binding = "GEM"
+service = "lexkite-gemini"
