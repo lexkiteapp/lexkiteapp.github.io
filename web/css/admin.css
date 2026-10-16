@@ -30,3 +30,17 @@ body.adm { background: var(--bg); min-height: 100vh; }
 .form2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: .8rem; } .form2 label { display: flex; flex-direction: column; gap: .3rem; font-size: .85rem; font-weight: 600; }
 .tools { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; margin-bottom: .8rem; }
 .tools input { max-width: 320px; }
+
+/* Quản lý khóa API: nhãn trạng thái + hộp thoại */
+.key-chip { display: inline-block; font-size: .72rem; font-weight: 700; padding: .1rem .45rem; border-radius: 999px; background: var(--line, #e5e7eb); color: var(--muted, #555); margin-left: .35rem; vertical-align: middle; white-space: nowrap; }
+.key-chip.ok { background: #dcfce7; color: #15803d; }
+.key-dlg { border: 0; border-radius: 18px; padding: 0; width: min(480px, calc(100vw - 32px)); box-shadow: 0 24px 64px rgba(0,0,0,.25); background: var(--card, #fff); color: inherit; }
+.key-dlg::backdrop { background: rgba(15, 23, 42, .45); backdrop-filter: blur(2px); }
+.key-dlg[open] { animation: keyIn .18s ease-out; } @keyframes keyIn { from { opacity: 0; transform: translateY(8px) scale(.98); } }
+.key-box { padding: 1.25rem 1.3rem; } .key-box h3 { font-size: 1.1rem; }
+.key-steps { margin: .6rem 0 .9rem; padding-left: 1.2rem; line-height: 1.75; font-size: .92rem; }
+.key-field { display: flex; gap: .4rem; align-items: center; } .key-field input { flex: 1; font: .95rem ui-monospace, SFMono-Regular, Menlo, monospace; padding: .7rem .8rem; border: 1.5px solid var(--line, #ddd); border-radius: 12px; background: transparent; color: inherit; }
+.key-field input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 20%, transparent); }
+.icon-x { border: 0; background: transparent; font-size: 1.1rem; cursor: pointer; color: var(--muted, #666); padding: .2rem .4rem; border-radius: 8px; } .icon-x:hover { background: var(--line, #eee); }
+.ok-t { color: #15803d; } .bad-t { color: #dc2626; } .btn.danger { color: #dc2626; } .tiny { font-size: .75rem; }
+@media (prefers-color-scheme: dark) { .key-chip.ok { background: #14532d; color: #bbf7d0; } }
