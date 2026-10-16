@@ -38,7 +38,9 @@ jobs:
           echo "::add-mask::$TOKEN"; echo "TOKEN=$TOKEN" >> "$GITHUB_ENV"
       - name: Phiên bản đang có trên cửa hàng
         run: |
-          ST=$(curl -sf -H "Authorization: Bearer $TOKEN" "$API/v2/publishers/$PUB/items/$EXT:fetchStatus") || { echo "::error::fetchStatus lỗi – kiểm CWS_PUBLISHER_ID / CWS_EXTENSION_ID"; exit 1; }
+          echo "Độ dài ID: publisher ${#PUB} ký tự, item ${#EXT} ký tự (item đúng = 32 chữ a–p)"
+          ST=$(curl -s -w '\n%{http_code}' -H "Authorization: Bearer $TOKEN" "$API/v2/publishers/$PUB/items/$EXT:fetchStatus"); CODE=$(echo "$ST" | tail -1); ST=$(echo "$ST" | sed '$d')
+          [ "$CODE" = 200 ] || { echo "HTTP $CODE: $(echo "$ST" | jq -c '.error | {code, status, message}' 2>/dev/null || echo "$ST" | head -c 300)"; echo "::error::fetchStatus lỗi – kiểm CWS_PUBLISHER_ID / CWS_EXTENSION_ID"; exit 1; }
           echo "$ST" | jq -c '{published: .publishedItemRevisionStatus.state, submitted: .submittedItemRevisionStatus.state, upload: .lastAsyncUploadState}' || true
           SV=$(echo "$ST" | jq -r '[.. | objects | .crxVersion? // empty] | map(split(".") | map(tonumber)) | max // [] | map(tostring) | join(".")')
           echo "Bản trên cửa hàng: ${SV:-chưa có}"; echo "STORE_VER=$SV" >> "$GITHUB_ENV"
