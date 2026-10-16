@@ -24,9 +24,9 @@ jobs:
       - name: Đếm câu còn thiếu
         id: count
         run: echo "left=$(node scripts/gen-audio.mjs --limit 0 | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
-      - name: Cài kokoro-js
+      - name: Cài kokoro-js + ffmpeg (nén mp3 – ảnh máy chủ GitHub mới không còn sẵn ffmpeg)
         if: steps.count.outputs.left != '0'
-        run: npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null && npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
       - name: Đệm mô hình Kokoro giữa các lượt (đỡ tải lại ~90 MB, tránh lỗi mạng)
         if: steps.count.outputs.left != '0'
         uses: actions/cache@v4
