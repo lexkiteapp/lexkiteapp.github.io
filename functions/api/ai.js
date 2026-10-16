@@ -47,12 +47,14 @@ export async function gemFetch(env, path, key, body, method = 'POST') {
   return fetch('https://generativelanguage.googleapis.com/v1beta/' + path, { method, headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key }, body: method === 'GET' ? undefined : JSON.stringify(body) });
 }
 // Gọi Gemini với khóa xoay vòng (bắt đầu ở vị trí ngẫu nhiên để chia tải); trả { text, key } hoặc null nếu mọi khóa đều lỗi/hết lượt
+export let gemDiag = '';
 export async function geminiCall(env, body, model = 'gemini-2.5-flash') {
-  const keys = await geminiKeys(env); if (!keys.length) return null;
+  const keys = await geminiKeys(env); gemDiag = `keys=${keys.length} gem=${!!env.GEM}`; if (!keys.length) return null;
   const start = Math.floor(Math.random() * keys.length);
   for (let n = 0; n < keys.length; n++) {
     const k = keys[(start + n) % keys.length]; if (await isCooling(k)) continue;
     let r; try { r = await gemFetch(env, `models/${model}:generateContent`, k, body); } catch (e) { continue; }
+    if (!r.ok) gemDiag += ` …${k.slice(-4)}:${r.status}`;
     if (!r.ok) console.log('gemini', k.slice(-4), r.status, (await r.clone().text().catch(() => '')).slice(0, 200)); // xem bằng wrangler pages deployment tail
     if (r.status === 429 || r.status === 403 || r.status === 401) { await cool(k); continue; } // hết lượt / khóa hỏng → nghỉ 1 giờ, thử khóa khác
     if (!r.ok) continue;
@@ -70,7 +72,7 @@ async function runModel(env, sys, prompt) {
   const raw = res && (res.response ?? res.result?.response);
   const out = raw && typeof raw === 'object' ? raw : parseJSON(raw); // chế độ JSON có thể trả sẵn object
   if (!out) throw new Error('bad-json');
-  return { out, model: 'workers-ai/llama-3.1-8b' };
+  return { out, model: 'workers-ai/llama-3.1-8b', diag: gemDiag };
 }
 
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: cors(request) });
@@ -96,11 +98,11 @@ export async function onRequestPost({ request, env }) {
     if (used >= quota) return json(request, 429, { error: 'quota', left: 0, signIn: !uid, message: `Bạn đã dùng hết ${quota} lượt AI miễn phí hôm nay. Hãy quay lại vào ngày mai hoặc dùng khóa cá nhân.` });
     const all = (await env.DB.prepare("SELECT n FROM ai_quota WHERE id = '*' AND day = ?").bind(day).first())?.n || 0;
     if (all >= (cfg.ai_global > 0 ? cfg.ai_global : GLOBAL_DAY)) return json(request, 429, { error: 'busy', left: quota - used });
-    const { out, model } = await runModel(env, sys, prompt);
+    const { out, model, diag } = await runModel(env, sys, prompt);
     const up = 'INSERT INTO ai_quota (id, day, n) VALUES (?1, ?2, 1) ON CONFLICT (id, day) DO UPDATE SET n = n + 1';
     await env.DB.batch([env.DB.prepare(up).bind(id, day), env.DB.prepare(up).bind('*', day), env.DB.prepare('INSERT OR REPLACE INTO ai_cache (h, out, at) VALUES (?, ?, ?)').bind(h, JSON.stringify(out), Date.now())]);
     out._model = model;
-    return json(request, 200, { out, left: Math.max(0, quota - used - 1), model });
+    return json(request, 200, { out, left: Math.max(0, quota - used - 1), model, ...(diag ? { diag } : {}) });
   } catch (e) {
     return json(request, 503, { error: 'ai', detail: String(e && e.message || e).slice(0, 120) });
   }
