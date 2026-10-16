@@ -403,3 +403,8 @@ body.adm { background: var(--bg); min-height: 100vh; font-feature-settings: "cv0
 /* Nút đổi ngôn ngữ VI | EN (cạnh nút giao diện) */
 .lang-btn { margin-right: .5rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .lang-btn b { color: var(--primary); }
+
+/* Thanh tab: co lại & cuộn ngang khi chật (không cắt chữ); màn vừa/nhỏ đưa tab xuống hàng riêng full chiều rộng */
+.adm-tabs { min-width: 0; scrollbar-width: none; } .adm-tabs::-webkit-scrollbar { display: none; }
+.adm-tabs button { flex: none; white-space: nowrap; }
+@media (max-width: 1360px) { .adm-tabs { order: 3; flex-basis: 100%; } #me { margin-left: auto; } }
