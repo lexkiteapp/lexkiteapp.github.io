@@ -1216,11 +1216,288 @@
     ])],
   });
 
+  /* ===================================================================
+   * BỘ 6 · LISTENING (tự biên soạn): 8 response, 3 hội thoại × 4, 3 thông báo × 3, 2 bài giảng (5 + 6) = 40 câu.
+   * Đáp án đúng viết ở vị trí 0, được xoay ở cuối file.
+   * =================================================================== */
+  const RESP6 = [
+    { s: 'A', t: "Are you going to the career fair on Thursday?",
+      options: ["I'm planning to, if my lab finishes on time.", "The fair price was very reasonable.", "I went to Thursday's lecture.", "Careers in finance are popular."],
+      explain: "Hỏi có đi hội chợ việc làm không → trả lời dự định kèm điều kiện: \"Mình định đi, nếu buổi thí nghiệm xong kịp\". \"fair price\" là bẫy đồng âm khác nghĩa (fair = công bằng)." },
+    { s: 'B', t: "Where did you park your bike?",
+      options: ["In the rack behind the gym.", "About fifteen minutes ago.", "I rode it to the park yesterday.", "It's a mountain bike."],
+      explain: "Câu hỏi \"Where\" → địa điểm: \"Ở giá để xe sau phòng gym\". \"fifteen minutes ago\" trả lời \"When\"; \"the park\" là bẫy lặp âm \"park\"." },
+    { s: 'A', t: "I can't find my notes from yesterday's seminar.",
+      options: ["You can borrow mine if you like.", "The seminar starts tomorrow.", "I found it very interesting.", "Notes are usually written by hand."],
+      explain: "Người nói không tìm thấy ghi chép → phản hồi giúp đỡ: \"Bạn mượn của mình nếu muốn\". \"I found it\" lặp từ \"find\" nhưng nói về buổi seminar." },
+    { s: 'B', t: "Which textbook do we need for this course?",
+      options: ["The professor said the third edition is fine.", "It costs about sixty dollars.", "I need to book a room.", "The course ends in May."],
+      explain: "Câu hỏi \"Which textbook\" → xác định cuốn sách: \"Giáo sư nói bản thứ ba là được\". Giá tiền và thời gian không trả lời câu hỏi; \"book a room\" là bẫy từ \"book\"." },
+    { s: 'A', t: "Would you mind closing the window? It's a bit cold.",
+      options: ["Not at all – I was feeling cold too.", "Yes, it's a nice window.", "I mind my own business.", "The weather report said rain."],
+      explain: "\"Would you mind…?\" là lời nhờ; đồng ý thì trả lời \"Not at all\" (không phiền gì). \"Yes\" ở đây lại mang nghĩa là phiền – sai; \"mind my own business\" là bẫy lặp từ." },
+    { s: 'B', t: "How did your presentation go?",
+      options: ["Better than I expected, actually.", "I went by subway.", "It's next Monday at ten.", "I presented it to the manager."],
+      explain: "\"How did … go?\" hỏi kết quả → \"Tốt hơn mình nghĩ\". \"I went by subway\" bẫy từ \"go/went\" (phương tiện); \"next Monday\" trả lời \"When\"." },
+    { s: 'A', t: "Isn't the deadline for the scholarship today?",
+      options: ["No, they extended it until Friday.", "The scholarship is for science students.", "Yes, I read it yesterday.", "Dead plants should be removed."],
+      explain: "Câu hỏi phủ định để kiểm tra thông tin → \"Không, họ đã gia hạn đến thứ Sáu\". \"Dead plants\" là bẫy âm gần giống \"deadline\"." },
+    { s: 'B', t: "Let's take a short break before we continue.",
+      options: ["Good idea – I could use some coffee.", "I broke my phone last week.", "The break-in happened at night.", "We continued until midnight."],
+      explain: "Đề nghị nghỉ giải lao → đồng ý: \"Ý hay – mình đang cần chút cà phê\". \"broke\", \"break-in\" là bẫy biến thể của \"break\"." },
+  ];
+  const respScript6 = [{ say: 'Listen and choose the best response. You will hear each sentence once.' }, { pause: 2 }];
+  RESP6.forEach((r, i) => { respScript6.push({ say: 'Number ' + (i + 1) + '.' }, { s: r.s, t: r.t }, { pause: 4 }); });
+  TF.listening.push({
+    id: 'tf6-lr', set: 6, task: 'response', title: 'Choose a Response · Set 6',
+    speakers: { A: { name: 'Speaker 1', accent: 'en-GB', gender: 'f' }, B: { name: 'Speaker 2', accent: 'en-US', gender: 'm' } },
+    script: respScript6,
+    groups: [mcq('Listen to each sentence and choose the best response.', RESP6.map((r, i) => ({ n: i + 1, q: 'Choose the best response to sentence ' + (i + 1) + '.', options: r.options, a: 0, cue: r.t, explain: r.explain })))],
+  });
 
-  /* Xoay vị trí đáp án đúng (chỉ các unit của bộ 4–5) */
+  TF.listening.push({
+    id: 'tf6-lc1', set: 6, task: 'conversation', title: 'Choosing a Minor',
+    speakers: { S: { name: 'Student (Jake)', accent: 'en-US', gender: 'm' }, A: { name: 'Academic adviser', accent: 'en-US', gender: 'f' } },
+    script: [
+      { say: 'Listen to a conversation between a student and an academic adviser.' }, { pause: 1 },
+      { s: 'S', t: "Hi, Dr. Morales. I'm majoring in biology, and I have to choose a minor by the end of the month. I'm stuck between chemistry and computer science." },
+      { s: 'A', t: "Both are good choices. What do you want to do after you graduate?" },
+      { s: 'S', t: "I'm interested in genetics research. A lot of the job ads I've seen ask for experience analyzing large data sets." },
+      { s: 'A', t: "Then computer science might be more useful than you think. Modern genetics depends heavily on programming. Chemistry would overlap a lot with the courses you're already taking for your major." },
+      { s: 'S', t: "That's true. I've already done two chemistry courses. But I'm worried computer science will be too hard. I've never written any code." },
+      { s: 'A', t: "Most students in the introductory course haven't, either. It's designed for beginners. And the department runs free tutoring sessions every evening if you get stuck." },
+      { s: 'S', t: "OK, that's reassuring. Is there a deadline to sign up for the intro course?" },
+      { s: 'A', t: "Registration closes this Friday, so I'd do it today if I were you." },
+    ],
+    groups: [mcq('Answer the questions about the conversation.', [
+      { n: 9, q: 'What is the student trying to decide?', options: ['Which minor to choose', 'Whether to change his major', 'Which job to apply for', 'Which professor to work with'], a: 0, cue: "I have to choose a minor by the end of the month",
+        explain: "Jake nói \"I have to choose a minor by the end of the month\" và đang phân vân giữa hóa học và khoa học máy tính → chọn ngành phụ. Ngành chính sinh học giữ nguyên." },
+      { n: 10, q: 'Why does the adviser recommend computer science?', options: ['It is important for modern genetics research.', 'It is easier than chemistry.', 'It has more job openings than biology.', 'It requires fewer courses.'], a: 0, cue: 'Modern genetics depends heavily on programming',
+        explain: "\"Modern genetics depends heavily on programming\" – phù hợp mục tiêu nghiên cứu di truyền và yêu cầu phân tích dữ liệu lớn của Jake. Cố vấn không nói khoa học máy tính dễ hơn." },
+      { n: 11, q: 'What is the student worried about?', options: ['He has no programming experience.', 'He failed a chemistry course.', 'The tutoring sessions are expensive.', 'The intro course is already full.'], a: 0, cue: "I've never written any code",
+        explain: "\"I'm worried computer science will be too hard. I've never written any code\" → lo vì chưa từng lập trình. Buổi kèm học là miễn phí (free tutoring)." },
+      { n: 12, q: 'What does the adviser suggest the student do?', options: ['Register for the course today', 'Wait until the end of the month', 'Talk to the chemistry department first', 'Attend a tutoring session before deciding'], a: 0, cue: "I'd do it today if I were you",
+        explain: "Đăng ký đóng vào thứ Sáu nên cố vấn khuyên \"I'd do it today if I were you\" → đăng ký ngay hôm nay." },
+    ])],
+  });
+  TF.listening.push({
+    id: 'tf6-lc2', set: 6, task: 'conversation', title: 'Applying to Be a Resident Assistant',
+    speakers: { S: { name: 'Student (Mia)', accent: 'en-GB', gender: 'f' }, C: { name: 'Housing coordinator', accent: 'en-US', gender: 'm' } },
+    script: [
+      { say: 'Listen to a conversation between a student and a housing coordinator.' }, { pause: 1 },
+      { s: 'S', t: "Hi. I saw a poster saying you're looking for resident assistants for next year. Could you tell me a bit more about the job?" },
+      { s: 'C', t: "Sure. RAs live in the residence halls and support a floor of about thirty students. You'd organize social events, help solve problems between roommates, and be on call some evenings in case of emergencies." },
+      { s: 'S', t: "Is it paid?" },
+      { s: 'C', t: "Not with a salary, but RAs get free accommodation for the year, which saves most students around nine thousand dollars." },
+      { s: 'S', t: "That's a lot. I'm a bit worried about the time, though. I'm in the nursing program, and my schedule is pretty heavy." },
+      { s: 'C', t: "That's a fair concern. RAs usually spend about fifteen hours a week on the role. Several of our current RAs are nursing students, and they manage, but you'd need to be organized." },
+      { s: 'S', t: "How do I apply?" },
+      { s: 'C', t: "Fill in the online form and ask one professor to write you a short reference. After that, there's a group interview in March, where we watch how applicants work with other people." },
+    ],
+    groups: [mcq('Answer the questions about the conversation.', [
+      { n: 13, q: 'Why does the student go to see the housing coordinator?', options: ['To find out about a job as a resident assistant', 'To complain about a problem with her roommate', 'To ask about a room for next year', 'To organize a social event'], a: 0, cue: "you're looking for resident assistants for next year",
+        explain: "Mia thấy áp phích tuyển trợ lý ký túc xá và hỏi \"Could you tell me a bit more about the job?\" → tìm hiểu công việc RA." },
+      { n: 14, q: 'How are resident assistants rewarded for their work?', options: ['They receive free accommodation.', 'They are paid a monthly salary.', 'They receive extra course credit.', 'They get free meals.'], a: 0, cue: 'RAs get free accommodation for the year',
+        explain: "\"Not with a salary, but RAs get free accommodation for the year\" → được ở miễn phí, không nhận lương." },
+      { n: 15, q: 'What does the coordinator say about nursing students?', options: ['Some current RAs study nursing and cope with the workload.', 'They are not allowed to become RAs.', 'They need to work fewer hours.', 'They usually live off campus.'], a: 0, cue: 'Several of our current RAs are nursing students, and they manage',
+        explain: "\"Several of our current RAs are nursing students, and they manage, but you'd need to be organized\" → vẫn có sinh viên điều dưỡng làm được, miễn là biết sắp xếp." },
+      { n: 16, q: 'What happens at the group interview?', options: ['Staff observe how applicants work with others.', 'Applicants take a written test.', 'Professors give their references.', 'Applicants choose their floor.'], a: 0, cue: 'we watch how applicants work with other people',
+        explain: "Buổi phỏng vấn nhóm tháng Ba là nơi \"we watch how applicants work with other people\" → quan sát khả năng làm việc với người khác." },
+    ])],
+  });
+  TF.listening.push({
+    id: 'tf6-lc3', set: 6, task: 'conversation', title: 'A Problem with a Lab Partner',
+    speakers: { S: { name: 'Student (Omar)', accent: 'en-US', gender: 'm' }, P: { name: 'Professor', accent: 'en-GB', gender: 'f' } },
+    script: [
+      { say: 'Listen to a conversation between a student and a professor.' }, { pause: 1 },
+      { s: 'S', t: "Professor Clarke, can I talk to you about the physics lab? It's a bit awkward. My lab partner hasn't come to the last three sessions." },
+      { s: 'P', t: "I see. Have you been able to contact him?" },
+      { s: 'S', t: "I sent him a couple of messages, but he hasn't replied. I've been doing the experiments alone, and it's hard to take measurements and record them at the same time." },
+      { s: 'P', t: "That's not fair on you. Let me check the attendance records… Yes, he's missed several lectures too. I'll get in touch with him through his academic adviser to make sure he's all right." },
+      { s: 'S', t: "Thanks. What should I do about next week's experiment?" },
+      { s: 'P', t: "There's a group of two in your section that could take a third person, so I'll move you there. And for the reports you completed alone, I'll take that into account when I grade them." },
+      { s: 'S', t: "That would really help. Should I tell the other group?" },
+      { s: 'P', t: "No, I'll email all three of you this afternoon so everyone's clear about the change." },
+    ],
+    groups: [mcq('Answer the questions about the conversation.', [
+      { n: 17, q: 'What problem does the student have?', options: ['His lab partner has stopped attending the sessions.', 'He does not understand the experiments.', 'He lost the results of an experiment.', 'His lab partner does most of the work.'], a: 0, cue: "My lab partner hasn't come to the last three sessions",
+        explain: "\"My lab partner hasn't come to the last three sessions\" → bạn cùng nhóm vắng mặt nhiều buổi, Omar phải làm một mình." },
+      { n: 18, q: 'Why does the professor plan to contact the student\'s academic adviser?', options: ['To make sure the missing student is all right', 'To give Omar a better grade', 'To change the lab schedule', 'To report Omar for missing lectures'], a: 0, cue: "to make sure he's all right",
+        explain: "Giáo sư liên hệ qua cố vấn học tập \"to make sure he's all right\" → quan tâm sinh viên vắng mặt có ổn không." },
+      { n: 19, q: 'What will happen in next week\'s experiment?', options: ['The student will join another group.', 'The student will work alone again.', 'The experiment will be cancelled.', 'The professor will help the student.'], a: 0, cue: "I'll move you there",
+        explain: "Có một nhóm hai người có thể nhận thêm, nên \"I'll move you there\" → Omar chuyển sang nhóm khác." },
+      { n: 20, q: 'What does the professor say about the reports Omar completed alone?', options: ['She will consider the situation when grading them.', 'He must rewrite them with his new group.', 'They will not be graded.', 'His partner must sign them.'], a: 0, cue: "I'll take that into account when I grade them",
+        explain: "\"I'll take that into account when I grade them\" → khi chấm sẽ tính đến việc Omar phải làm một mình." },
+    ])],
+  });
+
+  TF.listening.push({
+    id: 'tf6-la1', set: 6, task: 'announcement', title: 'Textbook Buyback Week',
+    speakers: { A: { name: 'Bookstore manager', accent: 'en-US', gender: 'm' } },
+    script: [
+      { say: 'Listen to an announcement from the campus bookstore.' }, { pause: 1 },
+      { s: 'A', t: "Hello, students. Textbook buyback week starts next Monday at the campus bookstore. You can sell back textbooks you no longer need and receive up to half of the original price." },
+      { s: 'A', t: "The amount we pay depends on the condition of the book and on whether it will be used in a course next semester. Books with a lot of highlighting or missing pages can't be accepted." },
+      { s: 'A', t: "Please bring your student ID card. Payment will be added to your campus card instead of being given in cash, and it can be spent anywhere on campus." },
+    ],
+    groups: [mcq('Answer the questions about the announcement.', [
+      { n: 21, q: 'What is the purpose of the announcement?', options: ['To tell students they can sell back used textbooks', 'To announce a sale on new textbooks', 'To explain how to order books online', 'To remind students to return library books'], a: 0, cue: 'You can sell back textbooks you no longer need',
+        explain: "Thông báo tuần thu mua lại sách: \"You can sell back textbooks you no longer need\" → sinh viên bán lại sách đã dùng." },
+      { n: 22, q: 'Which book would NOT be accepted?', options: ['A book with missing pages', 'A book used in next semester\'s course', 'A book bought last year', 'A book with a student\'s name inside'], a: 0, cue: "Books with a lot of highlighting or missing pages can't be accepted",
+        explain: "\"Books with a lot of highlighting or missing pages can't be accepted\" → sách thiếu trang không được nhận." },
+      { n: 23, q: 'How will students receive their money?', options: ['It will be added to their campus card.', 'In cash at the bookstore', 'By bank transfer', 'As a discount on next semester\'s books only'], a: 0, cue: 'Payment will be added to your campus card instead of being given in cash',
+        explain: "\"Payment will be added to your campus card instead of being given in cash\" → tiền được nạp vào thẻ sinh viên, dùng được mọi nơi trong trường." },
+    ])],
+  });
+  TF.listening.push({
+    id: 'tf6-la2', set: 6, task: 'announcement', title: 'New Library Printing System',
+    speakers: { A: { name: 'Librarian', accent: 'en-GB', gender: 'f' } },
+    script: [
+      { say: 'Listen to an announcement in the university library.' }, { pause: 1 },
+      { s: 'A', t: "Good afternoon. From next week, the library is introducing a new printing system. Instead of printing directly from the library computers, you'll send documents from any device, including your own laptop or phone, and then collect them at any printer by tapping your student card." },
+      { s: 'A', t: "Documents you send will be stored for twenty-four hours. If they aren't collected by then, they'll be deleted, and you won't be charged." },
+      { s: 'A', t: "Printing prices will stay the same. If you need help setting up your device, library staff will be at the information desk from ten to two every day next week." },
+    ],
+    groups: [mcq('Answer the questions about the announcement.', [
+      { n: 24, q: 'What is the main advantage of the new system?', options: ['Students can print from their own devices.', 'Printing will be cheaper.', 'Printing will be free for one week.', 'Students no longer need a student card.'], a: 0, cue: "you'll send documents from any device, including your own laptop or phone",
+        explain: "Hệ thống mới cho phép \"send documents from any device, including your own laptop or phone\". Giá in giữ nguyên và vẫn phải chạm thẻ sinh viên." },
+      { n: 25, q: 'What happens to documents that are not collected within 24 hours?', options: ['They are deleted without a charge.', 'They are printed automatically.', 'They are emailed back to the student.', 'The student is charged a fee.'], a: 0, cue: "they'll be deleted, and you won't be charged",
+        explain: "Quá 24 giờ chưa lấy thì \"they'll be deleted, and you won't be charged\" → bị xóa, không tính tiền." },
+      { n: 26, q: 'Where can students get help next week?', options: ['At the information desk', 'In the computer lab', 'By calling the IT office', 'At any printer'], a: 0, cue: 'library staff will be at the information desk',
+        explain: "\"library staff will be at the information desk from ten to two every day next week\" → hỗ trợ tại quầy thông tin." },
+    ])],
+  });
+  TF.listening.push({
+    id: 'tf6-la3', set: 6, task: 'announcement', title: 'Changes to Gym Membership',
+    speakers: { A: { name: 'Recreation center director', accent: 'en-US', gender: 'f' } },
+    script: [
+      { say: 'Listen to an announcement at the campus recreation center.' }, { pause: 1 },
+      { s: 'A', t: "Attention, everyone. Starting in January, gym membership will be included in student fees, so all full-time students will be able to use the recreation center at no extra cost." },
+      { s: 'A', t: "Students who have already paid for a spring membership will receive a full refund automatically – you don't need to apply for it. Part-time students and staff can still buy memberships at the front desk." },
+      { s: 'A', t: "Because we expect the center to be much busier, fitness classes will now require online booking, and you can reserve a place up to three days in advance." },
+    ],
+    groups: [mcq('Answer the questions about the announcement.', [
+      { n: 27, q: 'What change is being announced?', options: ['Full-time students will no longer pay separately for the gym.', 'The recreation center will close in January.', 'Gym fees will increase for all students.', 'Staff will no longer be able to use the gym.'], a: 0, cue: 'gym membership will be included in student fees',
+        explain: "\"gym membership will be included in student fees\" → sinh viên chính quy dùng phòng tập không phải trả thêm. Nhân viên vẫn mua thẻ được." },
+      { n: 28, q: 'What should students who already paid for a spring membership do?', options: ['Nothing – their refund will be automatic.', 'Apply for a refund online', 'Visit the front desk', 'Exchange it for a fitness class'], a: 0, cue: "you don't need to apply for it",
+        explain: "\"will receive a full refund automatically – you don't need to apply for it\" → không cần làm gì." },
+      { n: 29, q: 'Why will fitness classes require online booking?', options: ['The center is expected to be busier.', 'Some classes have been cancelled.', 'The front desk will close.', 'Classes will now cost extra.'], a: 0, cue: 'we expect the center to be much busier',
+        explain: "\"Because we expect the center to be much busier, fitness classes will now require online booking\" → dự kiến đông hơn." },
+    ])],
+  });
+
+  TF.listening.push({
+    id: 'tf6-lt1', set: 6, task: 'talk', title: 'Botany: How Plants Defend Themselves',
+    speakers: { P: { name: 'Professor', accent: 'en-GB', gender: 'm' } },
+    script: [
+      { say: 'Listen to part of a lecture in a botany class.' }, { pause: 1 },
+      { s: 'P', t: "Plants can't run away from animals that want to eat them, so they've developed other ways to protect themselves. Some defenses are physical. Thorns and spines are obvious examples, but many plants also have tiny hairs on their leaves that make it difficult for small insects to walk or feed." },
+      { s: 'P', t: "Other defenses are chemical. Many plants produce substances that taste bitter or are poisonous. Caffeine, for instance, probably evolved partly because it is toxic to many insects. Interestingly, some plants only increase production of these chemicals after they've been attacked. That saves energy, because making defensive chemicals is expensive for the plant." },
+      { s: 'P', t: "Perhaps the most surprising strategy is calling for help. When caterpillars chew the leaves of a corn plant, for example, the plant releases particular chemicals into the air. These signals attract small wasps that lay their eggs inside the caterpillars, and the wasp larvae eventually kill them. In other words, the plant recruits the enemy of its enemy." },
+      { s: 'P', t: "Researchers are now looking at whether farmers could use these natural signals, for example by breeding crops that release stronger signals, so that they'd need fewer chemical pesticides." },
+    ],
+    groups: [mcq('Answer the questions about the lecture.', [
+      { n: 30, q: 'What is the lecture mainly about?', options: ['Different ways plants protect themselves from being eaten', 'How insects choose which plants to eat', 'Why caffeine is popular with humans', 'How farmers breed new types of corn'], a: 0, cue: "they've developed other ways to protect themselves",
+        explain: "Bài giảng trình bày các cách cây tự vệ: vật lý (gai, lông), hóa học (chất đắng, độc) và \"gọi trợ giúp\" → chủ đề là cơ chế tự vệ của thực vật." },
+      { n: 31, q: 'Why does the professor mention tiny hairs on leaves?', options: ['As an example of a physical defense', 'To explain how plants absorb water', 'To show how plants attract wasps', 'As an example of a chemical defense'], a: 0, cue: 'tiny hairs on their leaves that make it difficult for small insects to walk or feed',
+        explain: "Lông nhỏ trên lá được nêu sau \"Some defenses are physical\" → ví dụ cho tự vệ vật lý, khiến côn trùng khó bò và ăn." },
+      { n: 32, q: 'Why do some plants produce defensive chemicals only after an attack?', options: ['Making these chemicals uses a lot of energy.', 'The chemicals lose their effect over time.', 'Insects cannot detect the chemicals before an attack.', 'The chemicals also harm the plant.'], a: 0, cue: 'making defensive chemicals is expensive for the plant',
+        explain: "\"That saves energy, because making defensive chemicals is expensive for the plant\" → tiết kiệm năng lượng." },
+      { n: 33, q: 'What happens when caterpillars chew the leaves of a corn plant?', options: ['The plant releases chemicals that attract wasps.', 'The plant grows more thorns.', 'The plant stops producing caffeine.', 'The caterpillars become poisonous.'], a: 0, cue: 'the plant releases particular chemicals into the air',
+        explain: "Cây ngô \"releases particular chemicals into the air\", thu hút ong bắp cày nhỏ đẻ trứng vào sâu → cây \"gọi\" kẻ thù của kẻ thù." },
+      { n: 34, q: 'What does the professor imply about the corn plant\'s strategy?', options: ['It uses another species to fight its attackers.', 'It works only against large animals.', 'It is too expensive for most plants.', 'It harms the wasps as well as the caterpillars.'], a: 0, cue: 'the plant recruits the enemy of its enemy',
+        explain: "\"the plant recruits the enemy of its enemy\" → cây dùng một loài khác (ong bắp cày) để chống lại sâu ăn lá." },
+    ])],
+  });
+  TF.listening.push({
+    id: 'tf6-lt2', set: 6, task: 'talk', title: 'Psychology: The Bystander Effect',
+    speakers: { P: { name: 'Professor', accent: 'en-US', gender: 'f' } },
+    script: [
+      { say: 'Listen to part of a lecture in a psychology class.' }, { pause: 1 },
+      { s: 'P', t: "Today we're looking at the bystander effect – the finding that people are often less likely to help someone in an emergency when other people are present. Research on this began in the 1960s with the psychologists John Darley and Bibb Latané." },
+      { s: 'P', t: "Their interest was partly sparked by newspaper reports about a crime in New York, which claimed that dozens of neighbors had watched and done nothing. Later investigations found that those reports were greatly exaggerated, but the question they raised was a good one." },
+      { s: 'P', t: "In one well-known experiment, students filled out questionnaires in a room when smoke began coming through a vent. When they were alone, most of them left to report the smoke within a few minutes. But when they were with two other people who had been told to ignore the smoke, only a small minority reported it." },
+      { s: 'P', t: "Psychologists explain this in two ways. First, there's diffusion of responsibility: in a group, each person feels less personally responsible for acting. Second, there's social influence. In an unclear situation, we look at how others react, and if they seem calm, we assume nothing is wrong." },
+      { s: 'P', t: "The good news is that knowing about the effect seems to reduce it. And if you ever need help in a crowd, experts suggest pointing to one specific person and asking them directly. That removes the uncertainty about who should act." },
+    ],
+    groups: [mcq('Answer the questions about the lecture.', [
+      { n: 35, q: 'What is the bystander effect?', options: ['People are less likely to help when others are present.', 'People help more quickly in large groups.', 'People copy the behavior of strangers.', 'People exaggerate emergencies they have witnessed.'], a: 0, cue: 'people are often less likely to help someone in an emergency when other people are present',
+        explain: "Định nghĩa trong bài: \"people are often less likely to help someone in an emergency when other people are present\"." },
+      { n: 36, q: 'What does the professor say about the newspaper reports from New York?', options: ['They were later found to be exaggerated.', 'They were based on Darley and Latané\'s experiments.', 'They were completely accurate.', 'They were published after the research ended.'], a: 0, cue: 'those reports were greatly exaggerated',
+        explain: "\"Later investigations found that those reports were greatly exaggerated\", dù câu hỏi chúng đặt ra vẫn có giá trị." },
+      { n: 37, q: 'In the smoke experiment, what happened when participants were alone?', options: ['Most of them reported the smoke quickly.', 'Most of them ignored the smoke.', 'They waited for someone else to act.', 'They continued filling out the questionnaire.'], a: 0, cue: 'most of them left to report the smoke within a few minutes',
+        explain: "Khi ở một mình, \"most of them left to report the smoke within a few minutes\"; còn khi ở cùng hai người được dặn phớt lờ thì chỉ số ít báo." },
+      { n: 38, q: 'What is "diffusion of responsibility"?', options: ['Each person in a group feels less responsible for acting.', 'People copy the calm reactions of others.', 'People avoid helping strangers they do not trust.', 'Responsibility is given to the oldest person present.'], a: 0, cue: 'each person feels less personally responsible for acting',
+        explain: "\"diffusion of responsibility: in a group, each person feels less personally responsible for acting\". Phương án \"copy the calm reactions\" là cơ chế thứ hai (social influence)." },
+      { n: 39, q: 'Why does the professor mention people who "seem calm"?', options: ['To explain how social influence can stop people from acting', 'To show that calm people help more often', 'To describe the people who filled the room with smoke', 'To suggest that emergencies are rarely serious'], a: 0, cue: 'if they seem calm, we assume nothing is wrong',
+        explain: "Trong tình huống không rõ ràng, ta nhìn phản ứng của người khác – \"if they seem calm, we assume nothing is wrong\" → minh họa ảnh hưởng xã hội khiến người ta không hành động." },
+      { n: 40, q: 'What advice does the professor give for getting help in a crowd?', options: ['Ask one specific person directly.', 'Shout as loudly as possible.', 'Wait for the crowd to notice.', 'Call the people who seem calmest.'], a: 0, cue: 'pointing to one specific person and asking them directly',
+        explain: "Chuyên gia khuyên \"pointing to one specific person and asking them directly\" để không ai còn băn khoăn ai phải hành động." },
+    ])],
+  });
+
+  TF.writing.push({
+    id: 'tf6-em7', set: 6, task: 'email', title: 'Asking to Audit a Class', minutes: 7,
+    scenario: 'You are a business student, but you are very interested in a philosophy course, Ethics in Technology. Your schedule is already full, so you would like to attend the lectures without receiving credit (to "audit" the course).',
+    to: 'Professor Nwosu, who teaches Ethics in Technology',
+    points: ['Introduce yourself and explain your interest in the course.', 'Explain why you cannot take it for credit.', 'Ask whether you may audit it and what this would involve.'],
+    model: "Dear Professor Nwosu,\n\nMy name is Lucas Ferreira, and I am a third-year business student. I am writing to ask whether I could audit your course, Ethics in Technology, this semester.\n\nI became interested in the subject during an internship last summer, when my team had to decide how much customer data an app should collect. I realized that I had no framework for thinking about questions like this, and your course description seems to cover exactly these issues.\n\nUnfortunately, I cannot take the course for credit because my schedule already includes five required business courses, which is the maximum allowed. However, your lectures on Tuesdays fit around my other classes.\n\nWould it be possible for me to attend the lectures as an auditor? I would be happy to do the readings and to sit quietly at the back if seminar places are limited. Please let me know if there is a form I need to complete.\n\nThank you for considering my request.\n\nSincerely,\nLucas Ferreira",
+    mid: "Dear Professor,\n\nI want to join your ethics class but I can't take it for credit because I am too busy. Can I come to the lectures? I am very interested in technology and ethics.\n\nThank you,\nLucas",
+    midNote: 'Bài trung bình đủ ba ý nhưng mỗi ý một câu: không giới thiệu ngành học, lý do quan tâm chung chung, "too busy" không giải thích được vì sao không đăng ký tín chỉ; không hỏi thủ tục "audit" gồm những gì. Bài mẫu có trải nghiệm cụ thể (thực tập), lý do rõ (đã tối đa 5 môn) và cam kết tham gia nghiêm túc.',
+    outline: ['Giới thiệu + mục đích: xin dự thính (audit)', 'Lý do quan tâm gắn với trải nghiệm thực tập', 'Vì sao không đăng ký tín chỉ: đã tối đa số môn; giờ học vẫn phù hợp', 'Hỏi có được không, cần làm gì; cam kết; cảm ơn'],
+    vocab: ['audit a course – dự thính một môn học', 'a framework for thinking about… – khung tư duy về…', 'which is the maximum allowed – mức tối đa được phép', 'fit around my other classes – xếp được cùng các lớp khác', 'Would it be possible for me to…? – em có thể … được không ạ?'],
+    checklist: ['Giới thiệu bản thân và mục đích thư ngay đoạn đầu', 'Lý do quan tâm có trải nghiệm cụ thể', 'Giải thích rõ vì sao không học lấy tín chỉ', 'Câu hỏi lịch sự về việc dự thính và thủ tục', 'Giọng trang trọng với giáo sư; ký tên đầy đủ', 'Khoảng 120–180 từ'],
+    tips: 'Khi xin một ngoại lệ, hãy cho người nhận thấy bạn đã tính đến công sức của họ ("sit quietly at the back if seminar places are limited").',
+  });
+  TF.writing.push({
+    id: 'tf6-em8', set: 6, task: 'email', title: 'Organizing a Building Clean-Up Day', minutes: 7,
+    scenario: 'You live in a small apartment building. The shared garden and bike storage area have become messy, and you would like to organize a clean-up day with your neighbors.',
+    to: 'All residents of your building',
+    points: ['Explain the problem and your idea.', 'Give details of the date, time and what people should bring.', 'Encourage people to take part.'],
+    model: "Dear neighbors,\n\nI'm Hannah from Flat 4. Over the past few months, our shared garden and the bike storage area have become quite messy. There are old flower pots, broken bikes that nobody seems to use, and a lot of leaves blocking the path. I thought it might be nice to fix this together.\n\nI'd like to suggest a clean-up morning on Saturday, May 10, from 10 a.m. to 12 p.m. If you can, please bring gardening gloves and a broom. I'll provide rubbish bags and some coffee and snacks. If any of the bikes in storage belong to you, please put a name tag on them by May 8, so we know which ones can be donated.\n\nEven an hour of help would make a big difference, and it would be a great chance to get to know each other better. Please reply to this email or leave a note under my door if you can join.\n\nThanks, and I hope to see you there!\nHannah (Flat 4)",
+    mid: "Hello everyone,\n\nThe garden is very dirty and there are many old bikes. We should clean it. Let's do it on Saturday morning. Please bring some tools.\n\nHannah",
+    midNote: 'Bài trung bình nêu vấn đề nhưng mơ hồ ("very dirty", "some tools"); thiếu ngày giờ cụ thể; không có kế hoạch cho xe đạp cũ; không khuyến khích hàng xóm tham gia ngoài một câu ra lệnh "We should clean it". Bài mẫu có chi tiết rõ ràng, phân công đồ dùng, xử lý xe bỏ không và lời mời thân thiện.',
+    outline: ['Giới thiệu bản thân + mô tả vấn đề cụ thể', 'Đề xuất: ngày, giờ, đồ cần mang, việc mình chuẩn bị, xử lý xe đạp cũ', 'Khuyến khích tham gia + cách phản hồi'],
+    vocab: ['shared garden – vườn chung', 'I thought it might be nice to… – mình nghĩ sẽ thật hay nếu…', 'put a name tag on – gắn thẻ tên', 'make a big difference – tạo khác biệt lớn', 'get to know each other – làm quen với nhau'],
+    checklist: ['Nêu vấn đề với chi tiết cụ thể', 'Ngày, giờ, đồ cần mang rõ ràng', 'Có kế hoạch cho các vấn đề cụ thể (xe đạp bỏ không)', 'Lời khuyến khích thân thiện, nêu lợi ích', 'Giọng thân thiện phù hợp hàng xóm', 'Khoảng 120–180 từ'],
+    tips: 'Thư kêu gọi tham gia hiệu quả khi người đọc biết chính xác họ cần làm gì, lúc nào, mang theo gì.',
+  });
+  TF.writing.push({
+    id: 'tf6-ad7', set: 6, task: 'discussion', title: 'Should Universities Require a Foreign Language?', minutes: 10,
+    professor: { name: 'Dr. Haas', text: 'Some universities require all students, regardless of their major, to study a foreign language for at least one year. Others believe students should spend that time on courses related to their future careers. Should a foreign language be a requirement for all university students? Why or why not?' },
+    students: [
+      { name: 'Priya', text: 'Yes. Learning a language helps you understand another culture, and many employers value people who can work with international clients.' },
+      { name: 'Tom', text: 'I don\'t think so. One year is not long enough to become useful in a language, and translation apps are getting better every year.' },
+    ],
+    model: "I believe a language requirement is valuable, but it should be designed differently from traditional grammar courses. Priya is right that studying a language opens a window into another culture, and even basic ability shows international clients respect. However, Tom makes a fair point that one year rarely produces real fluency, and translation apps can now handle simple conversations. The solution, in my view, is to focus the requirement on practical communication and cultural understanding rather than grammar tests. For example, students could take a course that combines basic conversation with lessons on how business and politeness differ across cultures. Such skills cannot be replaced by an app, because they involve understanding people, not just words. This approach would make the requirement useful for students of every major.",
+    mid: "I agree with Priya that students should learn a foreign language. Languages are important in the modern world because of globalization. Tom says that translation apps are good, but apps make mistakes and they cannot understand culture. So I think universities should require a foreign language for all students.",
+    midNote: 'Bài trung bình (khoảng 55 từ) đồng ý với Priya và phản biện Tom bằng một câu, nhưng bỏ qua ý chính của Tom (một năm quá ngắn); lý do "because of globalization" chung chung; không có ý mới. Bài mẫu thừa nhận hạn chế đó và đề xuất thiết kế lại môn học theo hướng giao tiếp và văn hóa – điều ứng dụng dịch không thay thế được.',
+    outline: ['Quan điểm: nên bắt buộc nhưng thiết kế lại', 'Ủng hộ Priya: văn hóa, tôn trọng khách hàng quốc tế', 'Ghi nhận Tom: một năm không đủ trôi chảy, app dịch', 'Ý mới: môn học tập trung giao tiếp thực tế + khác biệt văn hóa + ví dụ', 'Câu kết'],
+    vocab: ['regardless of – bất kể', 'opens a window into – mở ra cánh cửa tìm hiểu', 'real fluency – sự trôi chảy thực sự', 'cannot be replaced by – không thể bị thay thế bởi', 'cultural understanding – hiểu biết văn hóa'],
+    checklist: ['Nêu quan điểm rõ ngay câu đầu', 'Phản hồi cả Priya và Tom', 'Đóng góp ý MỚI: thay đổi nội dung của môn bắt buộc', 'Có ví dụ cụ thể', 'Từ nối: However, For example, because', 'Tối thiểu khoảng 100 từ'],
+    tips: 'Thay vì tranh luận "có hay không", hãy hỏi "nếu có thì nên làm thế nào" – câu hỏi đó thường dẫn tới ý mới.',
+  });
+  TF.writing.push({
+    id: 'tf6-ad8', set: 6, task: 'discussion', title: 'Are Self-Driving Cars Good for Cities?', minutes: 10,
+    professor: { name: 'Dr. Okoro', text: 'Several companies are testing self-driving taxis in large cities. Supporters say they could reduce accidents and traffic, while critics worry about safety, jobs and the cost to cities. Overall, do you think self-driving cars would be good for cities? Explain your view.' },
+    students: [
+      { name: 'Leah', text: 'I think they would be very good. Most accidents are caused by human mistakes like speeding or texting, and a computer never gets tired or distracted.' },
+      { name: 'Marco', text: 'I am worried about jobs. Thousands of taxi and delivery drivers could lose their income, and cities would have to deal with the consequences.' },
+    ],
+    model: "I think self-driving cars could benefit cities, but only if they are introduced gradually and combined with good public transport. Leah is right that human error causes most accidents, so well-tested automated vehicles could save many lives. On the other hand, Marco's concern about drivers' jobs is serious, since a sudden change could leave many families without income. A gradual introduction, perhaps starting with routes at night or in specific zones, would give workers time to retrain for related jobs, such as maintaining vehicles or supervising fleets remotely. I would also add a point that neither of them mentioned: if self-driving taxis are cheap and convenient, people might use them instead of buses and trains, which could actually increase traffic. Therefore, cities should encourage shared rides and keep investing in public transport.",
+    mid: "I agree with Leah. Self-driving cars are safer because computers don't make mistakes. Marco is worried about jobs, but technology always changes jobs and people can find new jobs. In the future all cars will be self-driving, so cities should prepare now.",
+    midNote: 'Bài trung bình (khoảng 50 từ) khẳng định quá mức ("computers don\'t make mistakes", "all cars will be self-driving") và gạt ý của Marco đi bằng một câu khái quát; không có ý mới. Bài mẫu đồng ý có điều kiện, đề xuất triển khai dần để giải quyết vấn đề việc làm, và thêm một rủi ro mà cả hai bạn chưa nghĩ tới (tăng ùn tắc nếu thay thế giao thông công cộng).',
+    outline: ['Quan điểm: có lợi nếu triển khai dần + kết hợp giao thông công cộng', 'Ủng hộ Leah: lỗi con người gây phần lớn tai nạn', 'Ghi nhận Marco: việc làm; giải pháp triển khai dần, đào tạo lại', 'Ý mới: nguy cơ tăng ùn tắc nếu người dân bỏ xe buýt/tàu', 'Kết: khuyến khích đi chung xe, đầu tư giao thông công cộng'],
+    vocab: ['introduced gradually – được đưa vào dần dần', 'human error – lỗi con người', 'retrain for – được đào tạo lại cho', 'supervise fleets remotely – giám sát đội xe từ xa', 'a point that neither of them mentioned – một ý mà cả hai đều chưa nhắc'],
+    checklist: ['Nêu quan điểm có điều kiện ngay câu đầu', 'Phản hồi cả Leah và Marco', 'Đóng góp ý MỚI: triển khai dần; rủi ro tăng ùn tắc', 'Có ví dụ/đề xuất cụ thể', 'Từ nối: On the other hand, since, Therefore', 'Tối thiểu khoảng 100 từ'],
+    tips: 'Cụm "I would also add a point that neither of them mentioned" là cách tự nhiên để báo hiệu ý mới cho giám khảo.',
+  });
+
+
+  /* Xoay vị trí đáp án đúng (chỉ các unit của bộ 4–6) */
   const PAT = [2, 0, 3, 1, 1, 3, 0, 2, 3, 2, 1, 0];
   const counter = {};
-  [...TF.reading, ...TF.listening].filter(u => /^tf[45]-/.test(u.id)).forEach(u => (u.groups || []).forEach(gr => {
+  [...TF.reading, ...TF.listening].filter(u => /^tf[456]-/.test(u.id)).forEach(u => (u.groups || []).forEach(gr => {
     if (gr.type !== 'mcq' || gr._rot) return; gr._rot = 1;
     gr.items.forEach(it => {
       const k = counter[u.task] = (counter[u.task] || 0) + 1;

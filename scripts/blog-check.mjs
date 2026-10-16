@@ -10,10 +10,10 @@ const RESERVED = new Set(['trang', 'chu-de', 'the', 'page', 'topic', 'tag', 'rss
 const FAQ = FAQ_RE;
 const rel = f => (f && !path.relative(process.cwd(), f).startsWith('..') ? path.relative(process.cwd(), f) : f);
 const len = s => [...String(s ?? '')].length;
-const norm = s => String(s ?? '').normalize('NFC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+const norm = s => String(s ?? '').normalize('NFC').toLowerCase().replace(/i\u0307/g, 'i').replace(/[^\p{L}\p{M}\p{N}]+/gu, ' ').trim();
 const isCJK = s => /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Thai}]/u.test(s); // ngôn ngữ không tách từ bằng khoảng trắng
 const has = (text, kw) => !!kw && (isCJK(kw) ? norm(kw).split(' ').every(w => norm(text).replace(/\s+/g, '').includes(w)) : (' ' + norm(text) + ' ').includes(' ' + norm(kw) + ' ')); // tiếng Nhật/Trung: so khớp bỏ khoảng trắng
-const words = s => s.match(/[\p{L}\p{N}][\p{L}\p{N}'’.-]*/gu) || [];
+const words = s => s.match(/[\p{L}\p{N}][\p{L}\p{M}\p{N}'’.-]*/gu) || [];
 // Bỏ khối code để không bắt nhầm tiêu đề/liên kết bên trong (giữ số dòng)
 const noCode = body => body.replace(/```[\s\S]*?```/g, m => m.replace(/[^\n]/g, ''));
 

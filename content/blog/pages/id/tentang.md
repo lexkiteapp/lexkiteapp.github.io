@@ -16,7 +16,7 @@ Untuk kamu yang belajar mandiri dan butuh rencana yang jelas, kamu yang sibuk da
 3. **Draf:** tulisan 100% orisinal; semua contoh kalimat bahasa Inggris kami buat sendiri.
 4. **Cek fakta:** format tes, skala skor, dan durasi dicocokkan dengan penyelenggara resmi ([IELTS](https://ielts.org), [ETS – TOEIC](https://www.ets.org/toeic.html), [ETS – TOEFL](https://www.ets.org/toefl.html)). Kalau kami tidak yakin, informasi itu tidak kami tulis.
 5. **Cek duplikasi:** tidak menyalin dari halaman lain, termasuk dari artikel kami sendiri.
-6. **Tinjauan kualitas:** setiap artikel dinilai dengan rubrik editorial 100 poin dan baru diterbitkan jika skornya minimal 85.
+6. **Tinjauan kualitas:** setiap artikel dinilai dengan rubrik editorial 100 poin dan baru diterbitkan jika skornya minimal 90.
 
 Tanggal pengecekan fakta dicatat di setiap artikel. Jika format sebuah tes berubah, kami memperbarui artikelnya dan menampilkan tanggal pembaruan di bagian atas.
 

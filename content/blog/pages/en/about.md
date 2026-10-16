@@ -16,7 +16,7 @@ Self-learners who want a clear plan, busy people with 15–30 minutes a day, and
 3. **Draft:** 100% original writing; every English example sentence is our own.
 4. **Fact-check:** test formats, score scales and timings are checked against the official test owners ([IELTS](https://ielts.org), [ETS – TOEIC](https://www.ets.org/toeic.html), [ETS – TOEFL](https://www.ets.org/toefl.html)). If we are not sure, we leave it out.
 5. **Duplicate check:** no copying from other pages, including our own.
-6. **Quality review:** each article is scored against a 100-point editorial rubric and published only at 85 or above.
+6. **Quality review:** each article is scored against a 100-point editorial rubric and published only at 90 or above.
 
 The fact-check date is recorded for every article. When a test format changes, we update the article and show the update date at the top.
 
