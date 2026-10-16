@@ -1,6 +1,6 @@
 /* API trang quản trị (/admin.html). Chỉ email trong biến bí mật ADMIN_EMAILS (Cloudflare Pages) được dùng.
  * POST /api/admin  (Authorization: Bearer <Firebase ID token>)  { op, ... }
- * op: usage · services · serviceSet · serviceDelete · overview · users · user · userDelete · inbox · inboxMark · analytics · errors · errorsClear · config · configSet · alerts */
+ * op: usage · services · serviceSet · serviceDelete · overview · users · usersExport · user · userDelete · inbox · inboxMark · analytics · live · errors · errorsClear · config · configSet · alerts */
 import { claims, limit } from './sync.js';
 import { geminiKeys, geminiCall, isCooling, resetGeminiCache, gemFetch } from './ai.js';
 import { setup as hitSetup } from './hit.js';
@@ -49,6 +49,39 @@ async function gkSave(db, list) {
   resetGeminiCache();
 }
 
+const adminList = env => String((env && env.ADMIN_EMAILS) || '').toLowerCase().split(/[,\s]+/).filter(Boolean);
+// Bộ lọc danh sách người dùng (dùng chung cho users & usersExport). Danh sách email quản trị chỉ dùng trong SQL, không trả về máy khách.
+function userWhere(b, env) {
+  const now = Date.now(), w = [], a = [], admins = adminList(env), q = String(b.q || '').trim().toLowerCase();
+  if (q) { a.push('%' + q.replace(/[\\%_]/g, c => '\\' + c) + '%', q); w.push(`(lower(email) LIKE ?${a.length - 1} ESCAPE '\\' OR lower(name) LIKE ?${a.length - 1} ESCAPE '\\' OR lower(uid) = ?${a.length})`); }
+  if (b.role === 'admin' || b.role === 'learner') {
+    const ph = admins.map(x => { a.push(x); return '?' + a.length; }).join(', ');
+    w.push(b.role === 'admin' ? (admins.length ? `lower(email) IN (${ph})` : '0') : (admins.length ? `lower(COALESCE(email, '')) NOT IN (${ph})` : '1'));
+  }
+  if (b.status === 'active7') { a.push(now - 7 * DAY); w.push('seen > ?' + a.length); }
+  else if (b.status === 'dormant') { a.push(now - 30 * DAY); w.push('seen < ?' + a.length); }
+  else if (b.status === 'new7') { a.push(now - 7 * DAY); w.push('created > ?' + a.length); }
+  if (/^(web|ios|android|ext|app)$/.test(b.plat || '')) { a.push(b.plat); w.push('plat = ?' + a.length); }
+  return { sql: w.length ? ' WHERE ' + w.join(' AND ') : '', args: a, order: b.sort === 'new' ? 'created DESC' : 'seen DESC', admins };
+}
+const isAdm = (admins, email) => admins.includes(String(email || '').toLowerCase());
+// Đọc tài liệu đồng bộ (dạng {json} hoặc {z: gzip base64}) – chỉ dùng cho tài liệu nhỏ (meta)
+async function docJson(body) {
+  try {
+    const d = JSON.parse(body); if (d.json) return JSON.parse(d.json);
+    if (d.z) { const bin = atob(d.z), u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); return JSON.parse(await new Response(new Blob([u]).stream().pipeThrough(new DecompressionStream('gzip'))).text()); }
+  } catch (e) { /* bỏ qua */ }
+  return null;
+}
+// Đệm kết quả trong Cache API của Cloudflare (giảm lượt đọc D1 khi trang Quản trị tự cập nhật)
+async function cached(key, ttl, fn) {
+  const c = caches.default, req = new Request('https://cache.lexkite.internal/' + key);
+  try { const hit = await c.match(req); if (hit) return hit.json(); } catch (e) { /* không có cache (dev) */ }
+  const out = await fn();
+  try { await c.put(req, new Response(JSON.stringify(out), { headers: { 'Cache-Control': 'max-age=' + ttl } })); } catch (e) { /* bỏ qua */ }
+  return out;
+}
+
 const OPS = {
   async usage(db) {
     const now = Date.now(), d1 = dayStr(now), t0 = Date.parse(d1 + 'T00:00:00Z');
@@ -92,15 +125,37 @@ const OPS = {
     ]);
     return { users: u, sessions: s, inbox: c, errors24: e };
   },
-  async users(db, b) {
-    const q = '%' + String(b.q || '').trim().toLowerCase() + '%', off = Math.max(0, +b.offset || 0);
-    const rows = await all(db, 'SELECT uid, email, name, created, seen, plat, n FROM users WHERE lower(email) LIKE ?1 OR lower(name) LIKE ?1 OR uid = ?2 ORDER BY seen DESC LIMIT 50 OFFSET ?3', q, String(b.q || ''), off);
-    return { rows, total: (await one(db, 'SELECT COUNT(*) AS n FROM users')).n };
+  async users(db, b, who, env) {
+    const f = userWhere(b, env), off = Math.max(0, Math.floor(+b.offset || 0)), now = Date.now();
+    const [rows, cnt, k, plats] = await Promise.all([
+      all(db, `SELECT uid, email, name, created, seen, plat, n FROM users${f.sql} ORDER BY ${f.order} LIMIT 50 OFFSET ${off}`, ...f.args),
+      one(db, `SELECT COUNT(*) AS n FROM users${f.sql}`, ...f.args),
+      one(db, 'SELECT COUNT(*) AS total, SUM(seen > ?1) AS act1, SUM(seen > ?2) AS act7, SUM(seen > ?3) AS act30, SUM(created > ?2) AS new7 FROM users', now - DAY, now - 7 * DAY, now - 30 * DAY),
+      all(db, "SELECT COALESCE(plat, '') AS k, COUNT(*) AS n FROM users GROUP BY k ORDER BY n DESC"),
+    ]);
+    return { rows: rows.map(r => ({ ...r, isAdmin: isAdm(f.admins, r.email) })), filtered: cnt.n || 0, total: k.total || 0, kpi: k, plats, offset: off };
   },
-  async user(db, b) {
+  async usersExport(db, b, who, env) {
+    const f = userWhere(b, env);
+    const rows = await all(db, `SELECT email, name, plat, created, seen, n FROM users${f.sql} ORDER BY ${f.order} LIMIT 5000`, ...f.args);
+    return { rows: rows.map(r => ({ ...r, isAdmin: isAdm(f.admins, r.email) })) };
+  },
+  async user(db, b, who, env) {
     const u = await one(db, 'SELECT * FROM users WHERE uid = ?', String(b.uid));
     const docs = await all(db, 'SELECT k, LENGTH(body) AS bytes, updated FROM docs WHERE uid = ? ORDER BY k', String(b.uid));
-    return { user: u, docs };
+    // Số liệu học tập từ tài liệu "meta" (đã gồm thống kê & điểm thưởng) – chỉ đọc 1 tài liệu nhỏ
+    let learn = null;
+    const m = await one(db, "SELECT body FROM docs WHERE uid = ? AND k = 'meta'", String(b.uid));
+    if (m.body) {
+      const top = (() => { try { return JSON.parse(m.body); } catch (e) { return {}; } })(), d = await docJson(m.body);
+      if (d) {
+        const days = Object.keys((d.stats && d.stats.days) || {}).sort(), g = d.game || {}, tot = g.total || {};
+        let streak = 0; const set = new Set(days), t = new Date(); if (!set.has(t.toISOString().slice(0, 10))) t.setUTCDate(t.getUTCDate() - 1);
+        while (set.has(t.toISOString().slice(0, 10)) && streak < 400) { streak++; t.setUTCDate(t.getUTCDate() - 1); }
+        learn = { xp: g.xp || 0, studyDays: days.length, lastStudy: days[days.length - 1] || '', streak, reviews: tot.reviews || 0, newWords: tot.newWords || 0, quizzes: tot.quizzes || 0, readings: tot.readings || 0, spoken: tot.spoken || 0, badges: Object.keys(g.badges || {}).length, chunks: top.chunks || 0 };
+      }
+    }
+    return { user: { ...u, isAdmin: isAdm(adminList(env), u.email) }, docs, learn };
   },
   async userDelete(db, b) { // xóa dữ liệu đồng bộ theo yêu cầu của người dùng (GDPR) – tài khoản Google không bị ảnh hưởng
     const uid = String(b.uid || ''); if (!uid || b.confirm !== uid) throw new Error('confirm');
@@ -132,6 +187,37 @@ const OPS = {
       all(db, `SELECT strftime('%Y-%m-%d', (created + ${VN}) / 1000, 'unixepoch') AS day, COUNT(*) AS n FROM users WHERE created >= ? GROUP BY day ORDER BY day`, since),
     ]);
     return { days, daily, refs, countries, devs, langs, plats, paths, sum, freq, rate, hours, wdays, durs, nr, signups };
+  },
+  // Lưu lượng trực tiếp (tự cập nhật 30 giây/lần): phần nhanh đệm 20 giây, phần nặng (tổng, 14 ngày, 30 ngày) đệm 10 phút
+  async live(db, b) {
+    const days = Math.min(Math.max(+b.days || 30, 1), 365), now = Date.now(), d1 = dayStr(now), d7 = dayStr(now - 6 * DAY), d14 = dayStr(now - 13 * DAY), d30 = dayStr(now - 29 * DAY);
+    const fast = await cached('live-fast?d=' + days, 20, async () => {
+      const on = now - 5 * 60e3;
+      const [online, viewing, today, countries, pagesToday, refs, platsToday] = await Promise.all([
+        one(db, 'SELECT COUNT(DISTINCT vid) AS n FROM sessions WHERE last > ?', on),
+        all(db, "SELECT COALESCE(last_path, path, 'home') AS k, COUNT(DISTINCT vid) AS n FROM sessions WHERE last > ? GROUP BY k ORDER BY n DESC LIMIT 10", on),
+        one(db, 'SELECT COUNT(*) AS s, COALESCE(SUM(pages), 0) AS views, COUNT(DISTINCT vid) AS visitors, AVG(dur) AS dur FROM sessions WHERE day = ?', d1),
+        all(db, 'SELECT country AS k, COUNT(DISTINCT vid) AS n FROM sessions WHERE day = ? GROUP BY k ORDER BY n DESC LIMIT 250', d1),
+        all(db, 'SELECT path AS k, n FROM pageviews_day WHERE day = ? ORDER BY n DESC LIMIT 10', d1),
+        all(db, "SELECT ref AS k, COUNT(*) AS n FROM sessions WHERE day = ? AND ref <> '' GROUP BY ref ORDER BY n DESC LIMIT 10", d1),
+        all(db, "SELECT COALESCE(plat, 'web') AS k, COUNT(DISTINCT vid) AS n FROM sessions WHERE day = ? GROUP BY k ORDER BY n DESC", d1),
+      ]);
+      // Chưa có dữ liệu pageviews_day (trước khi cập nhật app) → dùng trang vào đầu tiên của phiên
+      const fb = pagesToday.length ? null : await all(db, 'SELECT path AS k, COUNT(*) AS n FROM sessions WHERE day = ? GROUP BY path ORDER BY n DESC LIMIT 10', d1);
+      return { online: online.n || 0, viewing, today: { ...today, perVisitor: today.visitors ? today.views / today.visitors : 0 }, countries, pagesToday: fb || pagesToday, pagesFallback: !!fb, refs, platsToday };
+    });
+    const slow = await cached('live-slow', 600, async () => {
+      const [total, series, plats30, pages7] = await Promise.all([
+        one(db, 'SELECT COALESCE(SUM(pages), 0) AS views, COUNT(DISTINCT vid) AS visitors FROM sessions'),
+        all(db, 'SELECT day, COALESCE(SUM(pages), 0) AS views, COUNT(DISTINCT vid) AS visitors FROM sessions WHERE day >= ? GROUP BY day ORDER BY day', d14),
+        all(db, "SELECT COALESCE(plat, 'web') AS k, COUNT(DISTINCT vid) AS n FROM sessions WHERE day >= ? GROUP BY k ORDER BY n DESC", d30),
+        all(db, 'SELECT path AS k, SUM(n) AS n FROM pageviews_day WHERE day >= ? GROUP BY path ORDER BY n DESC LIMIT 10', d7),
+      ]);
+      const by = Object.fromEntries(series.map(r => [r.day, r]));
+      return { total, plats30, pages7, series: Array.from({ length: 14 }, (_, i) => { const d = dayStr(now - (13 - i) * DAY); return { day: d, views: (by[d] || {}).views || 0, visitors: (by[d] || {}).visitors || 0 }; }) };
+    });
+    const rate = +((await one(db, "SELECT v FROM config WHERE k = 'hit_rate'").catch(() => null)) || {}).v || 1;
+    return { at: now, rate, ...fast, ...slow };
   },
   async errors(db) { return { rows: await all(db, 'SELECT * FROM errors ORDER BY last DESC LIMIT 200') }; },
   async errorsClear(db, b) { if (b.h) await db.prepare('DELETE FROM errors WHERE h = ?').bind(String(b.h)).run(); else await db.prepare('DELETE FROM errors').run(); return { ok: true }; },
@@ -244,7 +330,7 @@ const OPS = {
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: cors(request) });
 
 // Thao tác ghi/xóa (ghi nhật ký) · thao tác nguy hiểm (phải vừa đăng nhập ≤ 15 phút – chống token bị đánh cắp dùng lại)
-const WRITE = /Set$|Delete$|Remove$|Clear$|Mark$|Approve$|^inboxReply$|^judge$|^review$/;
+const WRITE = /Set$|Delete$|Remove$|Clear$|Mark$|Approve$|^inboxReply$|^judge$|^review$|^usersExport$/; // (xuất danh sách người dùng cũng ghi nhật ký)
 const DANGER = new Set(['userDelete', 'serviceDelete', 'errorsClear', 'geminiDelete', 'geminiRemove']);
 const ipOf = req => req.headers.get('CF-Connecting-IP') || '?';
 async function audit(env, req, email, op, ok) {
@@ -258,7 +344,7 @@ export async function onRequestPost({ request, env }) {
   const ip = ipOf(request);
   if (await limit('adm:' + ip, 120, 60)) return json(request, 429, { error: 'too-fast' });
   const who = await claims((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')).catch(() => null);
-  const admins = String(env.ADMIN_EMAILS || '').toLowerCase().split(/[,\s]+/).filter(Boolean);
+  const admins = adminList(env);
   if (!who || !who.email_verified || !admins.includes(String(who.email).toLowerCase())) {
     if (await limit('admx:' + ip, 10, 600)) return json(request, 429, { error: 'too-many-denied' });
     if (who && who.email) { try { await setup(env.DB); } catch (e) { /* bỏ qua */ } await audit(env, request, who.email, 'denied', false); } // tài khoản Google thật nhưng không phải admin → ghi lại

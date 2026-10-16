@@ -60,7 +60,7 @@
   $('#tabs').onclick = e => { const b = e.target.closest('button[data-tab]'); if (b) show(b.dataset.tab); };
 
   async function show(t) {
-    tab = t; try { history.replaceState(null, '', '#' + t); } catch (e) { /* bỏ qua */ } document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === t));
+    stopLive(); tab = t; try { history.replaceState(null, '', '#' + t); } catch (e) { /* bỏ qua */ } document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === t));
     main.innerHTML = `<div class="adm-loading-grid"><div class="skeleton-head"></div><div class="skeleton-grid">${'<div class="skeleton-card"></div>'.repeat(8)}</div></div>`;
     await VIEWS[t]();
   }
@@ -83,6 +83,115 @@
     const W = 600, H = 170, max = Math.max(1, ...rows.map(r => +r[key] || 0)), bw = W / rows.length;
     return `<svg class="chart" viewBox="0 0 ${W} ${H + 18}" preserveAspectRatio="none">${rows.map((r, i) => { const h = (+r[key] || 0) / max * H; return `<rect x="${i * bw + 1}" y="${H - h}" width="${Math.max(bw - 2, 1)}" height="${h}" rx="2" fill="var(--primary)"><title>${r.day}: ${r[key]}</title></rect>`; }).join('')}<text x="0" y="${H + 14}">${rows[0].day}</text><text x="${W}" y="${H + 14}" text-anchor="end">${rows[rows.length - 1].day}</text><text x="2" y="10">${num(max)}</text></svg>`;
   };
+
+  // ---------- Phân tích trực tiếp: thẻ KPI, biểu đồ vùng 14 ngày, bản đồ thế giới (jsvectormap tải lười) ----------
+  let liveTimer = null, worldMap = null, mapKey = '', mapLib = null, mapRO = null;
+  const stopLive = () => { if (liveTimer) { clearInterval(liveTimer); liveTimer = null; } if (mapRO) { mapRO.disconnect(); mapRO = null; } if (worldMap) { try { worldMap.destroy(); } catch (e) { /* bỏ qua */ } worldMap = null; } mapKey = ''; };
+  const PLAT = { web: ['🌐', 'Web'], pwa: ['📲', 'PWA (web đã cài)'], ext: ['🧩', 'Add-on Chrome'], ios: ['🍎', 'iOS'], android: ['🤖', 'Android'], app: ['📱', 'App (cũ)'] };
+  const platName = k => (PLAT[k] || ['', k || '–'])[1], platIcon = k => (PLAT[k] || ['❔'])[0];
+  const ago = t => { if (!t) return '–'; const m = Math.round((Date.now() - t) / 60000); return m < 1 ? 'vừa xong' : m < 60 ? m + ' phút trước' : m < 1440 ? Math.round(m / 60) + ' giờ trước' : Math.round(m / 1440) + ' ngày trước'; };
+  let regionNames = null; try { regionNames = new Intl.DisplayNames(['vi'], { type: 'region' }); } catch (e) { /* trình duyệt cũ */ }
+  const cname = c => { try { return c && c !== 'XX' && regionNames ? regionNames.of(c) : c || '?'; } catch (e) { return c; } };
+  const durS = s => { s = Math.round(+s || 0); return s < 60 ? s + ' giây' : Math.floor(s / 60) + 'p ' + String(s % 60).padStart(2, '0') + 's'; };
+  const nf1 = x => (+x || 0).toLocaleString('vi-VN', { maximumFractionDigits: 1 });
+  // Biểu đồ vùng mượt 2 chuỗi (lượt xem + khách) – di chuột vào cột để xem số (title)
+  const areaChart = rows => {
+    if (!rows || !rows.length) return '<p class="small muted">Chưa có dữ liệu</p>';
+    const W = Math.round(Math.min(1200, Math.max(320, main.clientWidth - 70))), H = 200, L = 36, T = 12, B = 22, iw = W - L - 8, ih = H - T - B, n = rows.length;
+    const max = Math.max(1, ...rows.map(r => +r.views || 0), ...rows.map(r => +r.visitors || 0)), nice = Math.ceil(max / Math.pow(10, Math.floor(Math.log10(max)))) * Math.pow(10, Math.floor(Math.log10(max)));
+    const X = i => L + (n === 1 ? iw / 2 : i * iw / (n - 1)), Y = v => T + ih - (+v || 0) / nice * ih;
+    const smooth = pts => pts.map((p, i) => { if (!i) return `M${p[0].toFixed(1)},${p[1].toFixed(1)}`; const a = pts[i - 2] || pts[i - 1], b = pts[i - 1], c = p, d = pts[i + 1] || p, k = 6; return `C${(b[0] + (c[0] - a[0]) / k).toFixed(1)},${Math.min(T + ih, b[1] + (c[1] - a[1]) / k).toFixed(1)} ${(c[0] - (d[0] - b[0]) / k).toFixed(1)},${Math.min(T + ih, c[1] - (d[1] - b[1]) / k).toFixed(1)} ${c[0].toFixed(1)},${c[1].toFixed(1)}`; }).join(' ');
+    const pv = rows.map((r, i) => [X(i), Y(r.views)]), pu = rows.map((r, i) => [X(i), Y(r.visitors)]), lv = smooth(pv);
+    const grid = [0, .5, 1].map(f => `<line x1="${L}" x2="${W - 8}" y1="${(T + ih - f * ih).toFixed(1)}" y2="${(T + ih - f * ih).toFixed(1)}" class="ac-grid"/><text x="${L - 6}" y="${(T + ih - f * ih + 3).toFixed(1)}" text-anchor="end">${num(Math.round(nice * f))}</text>`).join('');
+    const dd = d => d.slice(8) + '/' + d.slice(5, 7), cw = n > 1 ? iw / (n - 1) : iw;
+    return `<svg class="area-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Lượt xem và khách 14 ngày qua"><defs><linearGradient id="acFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="var(--primary)" stop-opacity=".35"/><stop offset="1" stop-color="var(--primary)" stop-opacity="0"/></linearGradient></defs>
+      ${grid}<path d="${lv} L${X(n - 1).toFixed(1)},${T + ih} L${X(0).toFixed(1)},${T + ih} Z" fill="url(#acFill)"/><path d="${lv}" class="ac-v"/><path d="${smooth(pu)}" class="ac-u"/>
+      ${rows.map((r, i) => `<g class="ac-col"><rect x="${(X(i) - cw / 2).toFixed(1)}" y="${T}" width="${cw.toFixed(1)}" height="${ih}" fill="transparent"/><line x1="${X(i).toFixed(1)}" x2="${X(i).toFixed(1)}" y1="${T}" y2="${T + ih}" class="ac-hl"/><circle cx="${pv[i][0].toFixed(1)}" cy="${pv[i][1].toFixed(1)}" r="3.5" class="ac-dv"/><circle cx="${pu[i][0].toFixed(1)}" cy="${pu[i][1].toFixed(1)}" r="3" class="ac-du"/>${i % 2 === (n - 1) % 2 ? `<text x="${X(i).toFixed(1)}" y="${H - 6}" text-anchor="middle">${dd(r.day)}</text>` : ''}<title>${dd(r.day)}: ${num(r.views)} lượt xem · ${num(r.visitors)} khách</title></g>`).join('')}</svg>
+      <p class="small muted ac-legend"><span class="lg new"></span> Lượt xem <span class="lg vis"></span> Khách</p>`;
+  };
+  const liveCard = l => {
+    const t = l.today || {}, tot = l.total || {};
+    const tile = (icon, label, val, sub = '', cls = '') => `<div class="lt ${cls}"><div class="lt-l">${icon} ${label}</div><div class="lt-v">${val}</div>${sub ? `<div class="lt-s">${sub}</div>` : ''}</div>`;
+    return `<div class="row between live-head"><h3 style="margin:0">📈 Lưu lượng trực tiếp</h3><span class="telemetry-pill"><span class="pulse-dot"></span>Live · tự cập nhật 30s · ${new Date(l.at || Date.now()).toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}</span></div>
+      ${l.rate < 1 ? `<p class="small muted" style="margin:.3rem 0 0">Lấy mẫu ${Math.round(l.rate * 100)}% – số thực ≈ × ${Math.round(1 / l.rate)}</p>` : ''}
+      <div class="lt-grid">
+        ${tile('<span class="pulse-dot"></span>', 'Đang online <small>(5 phút)</small>', num(l.online), 'khách có tín hiệu gần đây', 'on')}
+        ${tile('👁️', 'Lượt xem hôm nay', num(t.views), num(t.s) + ' phiên')}
+        ${tile('🧑', 'Khách hôm nay', num(t.visitors), 'thiết bị khác nhau')}
+        ${tile('📄', 'Trang/khách', nf1(t.perVisitor), 'hôm nay')}
+        ${tile('⏱️', 'Thời gian TB', t.s ? durS(t.dur) : '–', 'mỗi phiên hôm nay')}
+        ${tile('Σ', 'Tổng lượt xem', num(tot.views), num(tot.visitors) + ' khách từ trước đến nay')}
+      </div>
+      <div class="ac-wrap"><div class="small muted ac-title">14 ngày qua</div>${areaChart(l.series)}</div>`;
+  };
+  const route = k => '#/' + (k || 'home');
+  const liveGrid = l => {
+    const P = ['web', 'pwa', 'ext', 'ios', 'android'], m = rows => Object.fromEntries((rows || []).map(r => [r.k, r.n]));
+    const pt = m(l.platsToday), p30 = m(l.plats30), keys = [...P, ...Object.keys({ ...pt, ...p30 }).filter(k => !P.includes(k))];
+    const tt = Math.max(1, ...keys.map(k => pt[k] || 0)), t3 = Math.max(1, ...keys.map(k => p30[k] || 0));
+    return `
+      <div class="card"><h3>🌍 Quốc gia hôm nay</h3>${bars((l.countries || []).slice(0, 12), r => FLAG(r.k) + ' · ' + cname(r.k))}</div>
+      <div class="card"><h3>👀 Đang xem <span class="small muted">· ${num(l.online)} online</span></h3>${(l.viewing || []).length ? bars(l.viewing, r => route(r.k)) : '<p class="small muted">Không ai online trong 5 phút qua</p>'}</div>
+      <div class="card"><h3>📄 Trang xem nhiều hôm nay</h3>${bars(l.pagesToday, r => route(r.k))}${l.pagesFallback ? '<p class="tiny muted">Theo trang vào đầu tiên (chưa có số lượt xem từng trang).</p>' : ''}</div>
+      <div class="card"><h3>🔗 Nguồn giới thiệu hôm nay</h3>${(l.refs || []).length ? bars(l.refs) : '<p class="small muted">Chủ yếu truy cập trực tiếp</p>'}</div>
+      <div class="card"><h3>🔥 Trang xem nhiều · 7 ngày</h3>${bars(l.pages7, r => route(r.k))}</div>
+      <div class="card"><h3>📱 Nền tảng</h3><table class="tbl plat-tbl"><tr><th>Nền tảng</th><th class="num">Hôm nay</th><th class="num">30 ngày</th></tr>${keys.map(k => `<tr><td>${platIcon(k)} ${esc(platName(k))}</td><td class="num"><span class="mini"><i style="width:${(pt[k] || 0) / tt * 100}%"></i></span>${num(pt[k])}</td><td class="num"><span class="mini"><i style="width:${(p30[k] || 0) / t3 * 100}%"></i></span>${num(p30[k])}</td></tr>`).join('')}</table><p class="tiny muted">Số khách (thiết bị) khác nhau.</p></div>`;
+  };
+  // Nạp jsvectormap (MIT, lưu sẵn trong web/js/vendor) chỉ khi mở tab Phân tích
+  const loadMap = () => mapLib || (mapLib = new Promise((ok, fail) => {
+    if (!document.querySelector('link[data-jvm]')) { const c = document.createElement('link'); c.rel = 'stylesheet'; c.href = 'css/vendor/jsvectormap.min.css'; c.dataset.jvm = 1; document.head.appendChild(c); }
+    const js = src => new Promise((y, n) => { const s = document.createElement('script'); s.src = src; s.onload = y; s.onerror = n; document.head.appendChild(s); });
+    js('js/vendor/jsvectormap/jsvectormap.min.js').then(() => js('js/vendor/jsvectormap/world.js')).then(() => window.jsVectorMap ? ok(window.jsVectorMap) : fail(new Error('jsvectormap'))).catch(e => { mapLib = null; fail(e); });
+  }));
+  const BUCKETS = [['1', 1, '#fcd9cc'], ['2–5', 2, '#f7a98f'], ['6–20', 6, '#ef7a58'], ['21–100', 21, '#d9512e'], ['100+', 101, '#9e3215']];
+  const bucket = n => [...BUCKETS].reverse().find(b => n >= b[1]);
+  async function drawMap(countries) {
+    const box = $('#worldMap'); if (!box) return;
+    const rows = (countries || []).filter(r => r.k && r.k !== 'XX'), vals = Object.fromEntries(rows.map(r => [r.k, r.n])), known = rows.reduce((a, r) => a + r.n, 0), unk = (countries || []).filter(r => !r.k || r.k === 'XX').reduce((a, r) => a + r.n, 0);
+    mapKey = JSON.stringify(countries || []);
+    if ($('#mapSum')) $('#mapSum').textContent = `${rows.length} quốc gia · ${num(known)} khách${unk ? ` · ${num(unk)} không rõ` : ''}`;
+    if ($('#mapLegend')) $('#mapLegend').innerHTML = `<span class="small muted">Ít</span>${BUCKETS.map(b => `<span class="ml-i"><i style="background:${b[2]}"></i>${b[0]}</span>`).join('')}<span class="small muted">Nhiều khách</span>`;
+    try {
+      const JVM = await loadMap(); if (!$('#worldMap') || tab !== 'analytics') return;
+      if (worldMap) { try { worldMap.destroy(); } catch (e) { /* bỏ qua */ } worldMap = null; }
+      box.innerHTML = '';
+      const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+      const values = Object.fromEntries(Object.entries(vals).map(([k, n]) => [k, bucket(n)[0]]));
+      worldMap = new JVM({
+        selector: '#worldMap', map: 'world', backgroundColor: 'transparent', zoomButtons: true, zoomOnScroll: false, zoomMax: 8,
+        regionStyle: { initial: { fill: css('--surface-3') || '#dee2e8', stroke: css('--surface') || '#fff', strokeWidth: .4 }, hover: { fillOpacity: .8, cursor: 'pointer' } },
+        series: { regions: [{ attribute: 'fill', scale: Object.fromEntries(BUCKETS.map(b => [b[0], b[2]])), values }] },
+        onRegionTooltipShow(e, tip, code) { tip.text(`${cname(code)} – ${num(vals[code] || 0)} khách hôm nay`); },
+      });
+      // Bản đồ tự co giãn theo khung (đổi cỡ cửa sổ / xoay máy)
+      if (window.ResizeObserver && !mapRO) { let w = 0; mapRO = new ResizeObserver(() => { const k = box.clientWidth + 'x' + box.clientHeight; if (worldMap && k !== w) { w = k; try { worldMap.updateSize(); } catch (e) { /* bỏ qua */ } } }); mapRO.observe(box); }
+    } catch (e) {
+      box.classList.add('fallback');
+      box.innerHTML = `<p class="small muted">Không tải được bản đồ – danh sách quốc gia:</p>${bars(rows, r => FLAG(r.k) + ' · ' + cname(r.k))}`;
+    }
+  }
+  // ---------- Người dùng: hộp thoại chi tiết & xóa dữ liệu ----------
+  async function userDel(uid, done) {
+    const c = prompt('Xóa vĩnh viễn dữ liệu đồng bộ của tài khoản này (tài khoản Google không bị ảnh hưởng).\nGõ lại UID để xác nhận:\n' + uid);
+    if (c == null) return; if (c.trim() !== uid) return alert('UID không khớp – chưa xóa gì.');
+    try { await api('userDelete', { uid, confirm: uid }); done && done(); } catch (e) { if (e.message !== 'reauth') alert('Không xóa được: ' + e.message); }
+  }
+  async function userDialog(uid, done) {
+    const d = document.createElement('dialog'); d.className = 'key-dlg u-dlg';
+    d.innerHTML = '<div class="key-box"><p class="muted">Đang tải…</p></div>'; document.body.appendChild(d); d.showModal();
+    d.addEventListener('close', () => d.remove()); d.addEventListener('click', e => { if (e.target === d) d.close(); });
+    let r; try { r = await api('user', { uid }); } catch (e) { d.querySelector('.key-box').innerHTML = `<p class="bad-t">✗ ${esc(e.message)}</p>`; return; }
+    const u = r.user || {}, docs = r.docs || [], total = docs.reduce((a, x) => a + (x.bytes || 0), 0), L = r.learn;
+    const cards = docs.filter(x => /^cards_/.test(x.k)), other = docs.filter(x => !/^cards_/.test(x.k));
+    const fact = (k, v) => `<div><dt>${k}</dt><dd>${v}</dd></div>`;
+    d.innerHTML = `<form method="dialog" class="key-box"><div class="row between"><div class="u-who"><span class="u-av big" aria-hidden="true">${esc((u.name || u.email || '?').trim().charAt(0).toUpperCase())}</span><span><h3 style="margin:0">${esc(u.name || '(không tên)')} ${u.isAdmin ? '<span class="pill role-adm">👑 Quản trị</span>' : '<span class="pill">Người học</span>'}</h3><span class="small muted">${esc(u.email || '')}</span></span></div><button class="icon-x" value="x" aria-label="Đóng">✕</button></div>
+      <dl class="u-facts">${fact('UID', `<code>${esc(u.uid)}</code>`)}${fact('Nền tảng', `${platIcon(u.plat)} ${esc(platName(u.plat))}`)}${fact('Ngày tạo', when(u.created))}${fact('Hoạt động gần nhất', `${when(u.seen)} <span class="muted">(${ago(u.seen)})</span>`)}${fact('Số lần vào (đồng bộ)', num(u.n))}${fact('Dữ liệu đồng bộ', `${bytes(total)} · ${docs.length} phần`)}</dl>
+      ${L ? `<h4 class="u-h">📚 Học tập</h4><div class="u-stats">${[['⭐', 'XP', num(L.xp)], ['🔥', 'Chuỗi ngày', num(L.streak)], ['📅', 'Ngày đã học', num(L.studyDays)], ['🃏', 'Lượt ôn', num(L.reviews)], ['🌱', 'Từ mới', num(L.newWords)], ['🎯', 'Bài luyện', num(L.quizzes)], ['📖', 'Bài đọc', num(L.readings)], ['🎙️', 'Từ đã nói', num(L.spoken)], ['🏅', 'Huy hiệu', num(L.badges)]].map(([i, k, v]) => `<div><span>${i} ${k}</span><b>${v}</b></div>`).join('')}</div>${L.lastStudy ? `<p class="tiny muted">Ngày học gần nhất: ${esc(L.lastStudy)}</p>` : ''}` : ''}
+      <h4 class="u-h">🗂️ Tài liệu đồng bộ</h4>
+      <div class="tbl-wrap u-docs"><table class="tbl"><tr><th>Phần</th><th class="num">Dung lượng</th><th>Cập nhật</th></tr>${other.map(x => `<tr><td><code>${esc(x.k)}</code></td><td class="num">${bytes(x.bytes)}</td><td class="small">${when(x.updated)}</td></tr>`).join('')}${cards.length ? `<tr><td><code>cards_*</code> <span class="small muted">(${cards.length} gói thẻ)</span></td><td class="num">${bytes(cards.reduce((a, x) => a + x.bytes, 0))}</td><td class="small">${when(Math.max(...cards.map(x => x.updated)))}</td></tr>` : ''}${docs.length ? '' : '<tr><td colspan="3" class="muted">Không có dữ liệu đồng bộ</td></tr>'}</table></div>
+      <div class="row between" style="margin-top:1rem;gap:.5rem;flex-wrap:wrap">${docs.length || u.uid ? '<button type="button" class="btn ghost sm danger" id="udel">🗑 Xóa dữ liệu</button>' : '<span></span>'}<span class="row" style="gap:.5rem">${u.email ? `<a class="btn sm" href="mailto:${esc(u.email)}">✉️ Gửi email</a>` : ''}<button class="btn sm" value="x">Đóng</button></span></div></form>`;
+    const del = d.querySelector('#udel'); if (del) del.onclick = () => userDel(u.uid, () => { d.close(); done && done(); });
+  }
 
   const VIEWS = {
     async overview() {
@@ -282,11 +391,16 @@
       if (rel) rel.onclick = () => show('overview');
     },
     async analytics() {
-      const days = +(sessionStorage.getItem('adm.days') || 30), a = await api('analytics', { days }), s = a.sum || {};
+      const days = +(sessionStorage.getItem('adm.days') || 30);
+      const [a, l] = await Promise.all([api('analytics', { days }), api('live', { days }).catch(() => null)]), s = a.sum || {};
       const pct = (x, y) => y ? Math.round(x / y * 100) + '%' : '–';
       main.innerHTML = `
-        <div class="tools"><b>Khoảng thời gian</b>${[1, 7, 30, 90, 365].map(d => `<button class="btn sm ${d === days ? 'primary' : ''}" data-d="${d}">${d === 1 ? 'Hôm nay' : d + ' ngày'}</button>`).join('')}</div>
+        <div class="tools"><b>Khoảng thời gian (phần Chi tiết)</b>${[1, 7, 30, 90, 365].map(d => `<button class="btn sm ${d === days ? 'primary' : ''}" data-d="${d}">${d === 1 ? 'Hôm nay' : d + ' ngày'}</button>`).join('')}</div>
         ${a.rate < 1 ? `<div class="card" style="margin-bottom:.8rem">ℹ️ Đang lấy mẫu ${Math.round(a.rate * 100)}% người dùng – số phiên/người thực tế ≈ số dưới đây × ${Math.round(1 / a.rate)}; tỉ lệ % và trung bình giữ nguyên.</div>` : ''}
+        ${l ? `<section class="card live-card" id="liveCard">${liveCard(l)}</section>
+        <section class="card map-card"><div class="row between"><h3 style="margin:0">🗺️ Khách theo quốc gia · hôm nay</h3><span class="small muted" id="mapSum"></span></div><div class="world-map" id="worldMap" aria-label="Bản đồ khách theo quốc gia hôm nay"></div><div id="mapLegend" class="map-legend"></div></section>
+        <div class="adm-grid live-grid" id="liveGrid">${liveGrid(l)}</div>` : '<div class="card muted">Không tải được số liệu trực tiếp.</div>'}
+        <h3 class="sec-t detail-t">📊 Chi tiết · ${days === 1 ? 'hôm nay' : days + ' ngày'}</h3>
         <div class="kpis">
           <div class="card kpi"><div class="l">Phiên truy cập</div><div class="v">${num(s.s)}</div></div>
           <div class="card kpi"><div class="l">Khách (thiết bị)</div><div class="v">${num(s.v)}</div><div class="s">${s.v ? (s.s / s.v).toFixed(1) : 0} phiên/khách</div></div>
@@ -302,7 +416,7 @@
           <div class="card"><h3>Quốc gia</h3>${bars(a.countries, r => FLAG(r.k))}</div>
           <div class="card"><h3>Trang vào đầu tiên</h3>${bars(a.paths, r => '#/' + r.k)}</div>
           <div class="card"><h3>Tần suất (số phiên mỗi khách)</h3>${bars(['1', '2–3', '4–7', '8–15', '16+'].map(k => a.freq.find(f => f.k === k) || { k, n: 0 }), r => r.k + ' lần')}</div>
-          <div class="card"><h3>Thiết bị</h3>${bars(a.devs)}<h3 style="margin-top:1rem">Nền tảng</h3>${bars(a.plats, r => ({ web: 'Web', pwa: 'Web đã cài (PWA)', ext: 'Add-on Chrome', app: 'App iOS/Android' })[r.k] || r.k)}</div>
+          <div class="card"><h3>Thiết bị</h3>${bars(a.devs)}<h3 style="margin-top:1rem">Nền tảng</h3>${bars(a.plats, r => platName(r.k))}</div>
           <div class="card"><h3>Ngôn ngữ giao diện</h3>${bars(a.langs)}</div>
         </div>
         <h3 class="sec-t">⏰ Thói quen sử dụng</h3>
@@ -316,27 +430,79 @@
           <div class="card span2"><h3>Khách mới & khách quay lại theo ngày</h3>${stack(a.nr || [])}</div>
           <div class="card"><h3>Tài khoản đăng ký mới</h3>${(a.signups || []).length ? bars(a.signups.slice(-14).reverse(), r => r.day) : '<p class="small muted">Chưa có đăng ký mới trong khoảng này</p>'}</div>
         </div>
-        <p class="small muted" style="margin-top:1rem">Thống kê ẩn danh tự xây: không cookie, không lưu IP; quốc gia do Cloudflare xác định. Không tính bot, Lighthouse và chế độ sandbox.</p>`;
+        <p class="small muted" style="margin-top:1rem">Thống kê ẩn danh tự xây: không cookie, không lưu IP; quốc gia do Cloudflare xác định. Không tính bot, Lighthouse và chế độ sandbox. "Hôm nay" theo giờ UTC.</p>`;
       main.querySelectorAll('[data-d]').forEach(b => b.onclick = () => { sessionStorage.setItem('adm.days', b.dataset.d); show('analytics'); });
+      if (!l) return;
+      drawMap(l.countries);
+      // Tự cập nhật thẻ trực tiếp 30 giây/lần – chỉ khi đang mở tab Phân tích và trang đang hiển thị
+      liveTimer = setInterval(async () => {
+        if (tab !== 'analytics') { stopLive(); return; }
+        if (document.hidden) return;
+        try {
+          const n = await api('live', { days }); if (tab !== 'analytics' || !$('#liveCard')) return;
+          $('#liveCard').innerHTML = liveCard(n); $('#liveGrid').innerHTML = liveGrid(n);
+          if (JSON.stringify(n.countries) !== mapKey) drawMap(n.countries);
+        } catch (e) { /* lỗi mạng tạm thời – thử lại lượt sau */ }
+      }, 30000);
     },
     async users() {
-      const q = sessionStorage.getItem('adm.q') || '', off = +(sessionStorage.getItem('adm.off') || 0), r = await api('users', { q, offset: off });
+      let f; try { f = JSON.parse(sessionStorage.getItem('adm.uf') || '{}'); } catch (e) { f = {}; }
+      f = { q: '', role: '', status: '', plat: '', sort: 'seen', offset: 0, ...f };
+      const sel = (id, label, opts) => `<label class="u-sel"><span>${label}</span><select id="${id}">${opts.map(([v, t]) => `<option value="${v}" ${f[id.slice(1)] === v ? 'selected' : ''}>${t}</option>`).join('')}</select></label>`;
       main.innerHTML = `
-        <div class="tools"><input id="uq" placeholder="Tìm email, tên hoặc UID" value="${esc(q)}"><button class="btn sm" id="ugo">Tìm</button><span class="small muted">Tổng ${num(r.total)} tài khoản</span></div>
-        <div class="card tbl-wrap"><table class="tbl"><tr><th>Email</th><th>Tên</th><th>Nền tảng</th><th>Ngày tạo</th><th>Lần cuối</th><th>Số lần vào</th><th></th></tr>
-        ${r.rows.map(u => `<tr><td>${esc(u.email)}</td><td>${esc(u.name)}</td><td>${esc(u.plat)}</td><td>${when(u.created)}</td><td>${when(u.seen)}</td><td>${num(u.n)}</td><td><button class="btn ghost sm" data-uid="${esc(u.uid)}">Chi tiết</button></td></tr>`).join('') || '<tr><td colspan="7" class="muted">Chưa có người dùng</td></tr>'}</table></div>
-        <div class="tools" style="margin-top:.8rem">${off ? '<button class="btn sm" id="prev">← Trước</button>' : ''}${r.rows.length === 50 ? '<button class="btn sm" id="next">Sau →</button>' : ''}</div>
-        <div id="ud"></div>`;
-      const go = o => { sessionStorage.setItem('adm.q', $('#uq').value); sessionStorage.setItem('adm.off', o); show('users'); };
-      $('#ugo').onclick = () => go(0); $('#uq').onkeydown = e => e.key === 'Enter' && go(0);
-      if ($('#prev')) $('#prev').onclick = () => go(Math.max(0, off - 50)); if ($('#next')) $('#next').onclick = () => go(off + 50);
-      main.querySelectorAll('[data-uid]').forEach(b => b.onclick = async () => {
-        const d = await api('user', { uid: b.dataset.uid }), total = d.docs.reduce((a, x) => a + x.bytes, 0);
-        $('#ud').innerHTML = `<div class="card" style="margin-top:1rem"><h3>${esc(d.user.email || d.user.uid)}</h3><p class="small muted">UID ${esc(d.user.uid)} · dữ liệu đồng bộ ${bytes(total)} trong ${d.docs.length} phần · cập nhật ${when(Math.max(0, ...d.docs.map(x => x.updated)))}</p>
-          <a class="btn sm" href="mailto:${esc(d.user.email)}">Gửi email</a> <button class="btn ghost sm" id="udel" style="color:var(--again)">Xóa dữ liệu đồng bộ (theo yêu cầu người dùng)</button></div>`;
-        $('#ud').scrollIntoView({ behavior: 'smooth' });
-        $('#udel').onclick = async () => { const c = prompt('Xóa vĩnh viễn dữ liệu đồng bộ của tài khoản này. Gõ lại UID để xác nhận:'); if (c !== d.user.uid) return; await api('userDelete', { uid: c, confirm: c }); show('users'); };
-      });
+        <div class="kpis u-kpis" id="uKpi"></div>
+        <div class="card u-card">
+          <div class="u-tools">
+            <input type="search" id="uq" placeholder="🔎 Tìm email, tên hoặc UID" value="${esc(f.q)}" aria-label="Tìm người dùng">
+            ${sel('frole', 'Vai trò', [['', 'Tất cả'], ['admin', 'Quản trị'], ['learner', 'Người học']])}
+            ${sel('fstatus', 'Trạng thái', [['', 'Tất cả'], ['active7', 'Hoạt động 7 ngày'], ['dormant', 'Ngủ đông >30 ngày'], ['new7', 'Mới 7 ngày']])}
+            ${sel('fplat', 'Nền tảng', [['', 'Tất cả'], ['web', 'Web'], ['ios', 'iOS'], ['android', 'Android'], ['ext', 'Add-on Chrome'], ['app', 'App (cũ)']])}
+            ${sel('fsort', 'Sắp xếp', [['seen', 'Hoạt động gần nhất'], ['new', 'Mới nhất']])}
+            <button class="btn sm" id="ucsv" title="Tải CSV theo bộ lọc hiện tại (tối đa 5.000 dòng)">⬇ CSV</button>
+          </div>
+          <div class="tbl-wrap" id="uTable"><p class="small muted">Đang tải…</p></div>
+          <div class="u-pager" id="uPager"></div>
+        </div>`;
+      const save = () => sessionStorage.setItem('adm.uf', JSON.stringify(f));
+      let seq = 0;
+      const load = async () => {
+        save(); const my = ++seq, r = await api('users', f); if (my !== seq || tab !== 'users') return;
+        const k = r.kpi || {}, tot = r.total || 0;
+        $('#uKpi').innerHTML = `
+          <div class="card kpi"><div class="l">👥 Tổng người dùng</div><div class="v">${num(tot)}</div><div class="s">tài khoản đã đồng bộ</div></div>
+          <div class="card kpi"><div class="l">🟢 Hoạt động hôm nay</div><div class="v">${num(k.act1)}</div><div class="s">24 giờ qua</div></div>
+          <div class="card kpi"><div class="l">📅 Hoạt động 7 / 30 ngày</div><div class="v">${num(k.act7)} <small class="muted">/ ${num(k.act30)}</small></div><div class="s">${tot ? Math.round((k.act30 || 0) / tot * 100) : 0}% còn hoạt động trong tháng</div></div>
+          <div class="card kpi"><div class="l">✨ Mới 7 ngày</div><div class="v">${num(k.new7)}</div><div class="s">tài khoản đăng ký mới</div></div>
+          <div class="card kpi"><div class="l">📱 Theo nền tảng</div><div class="u-plats">${(r.plats || []).map(p => `<span class="pill">${platIcon(p.k)} ${esc(platName(p.k))} · <b>${num(p.n)}</b></span>`).join('') || '<span class="small muted">–</span>'}</div></div>`;
+        $('#uTable').innerHTML = `<table class="tbl u-tbl"><tr><th>Người dùng</th><th>Vai trò</th><th>Nền tảng</th><th>Ngày tạo</th><th>Hoạt động gần nhất</th><th class="num">Lần vào</th><th></th></tr>
+          ${r.rows.map(u => `<tr><td><div class="u-who"><span class="u-av" aria-hidden="true">${esc((u.name || u.email || '?').trim().charAt(0).toUpperCase())}</span><span><b>${esc(u.name || '(không tên)')}</b><br><span class="small muted">${esc(u.email || u.uid)}</span></span></div></td>
+            <td>${u.isAdmin ? '<span class="pill role-adm">👑 Quản trị</span>' : '<span class="pill">Người học</span>'}</td>
+            <td class="nowrap">${platIcon(u.plat)} ${esc(platName(u.plat))}</td><td class="small nowrap">${when(u.created)}</td>
+            <td class="small nowrap" title="${esc(when(u.seen))}"><span class="dot ${Date.now() - u.seen < 7 * 864e5 ? 'ok' : Date.now() - u.seen > 30 * 864e5 ? '' : 'warn'}"></span>${ago(u.seen)}</td><td class="num">${num(u.n)}</td>
+            <td class="nowrap"><button class="btn ghost sm" data-uid="${esc(u.uid)}">Chi tiết</button> <button class="btn ghost sm danger" data-del="${esc(u.uid)}">Xóa dữ liệu</button></td></tr>`).join('') || '<tr><td colspan="7" class="muted">Không có người dùng khớp bộ lọc</td></tr>'}</table>`;
+        const from = r.filtered ? f.offset + 1 : 0, to = Math.min(f.offset + 50, r.filtered);
+        $('#uPager').innerHTML = `<span class="small muted">${num(from)}–${num(to)} / ${num(r.filtered)}${r.filtered !== tot ? ` (lọc từ ${num(tot)})` : ''}</span><span><button class="btn sm" id="uprev" ${f.offset ? '' : 'disabled'}>← Trước</button> <button class="btn sm" id="unext" ${to < r.filtered ? '' : 'disabled'}>Sau →</button></span>`;
+        $('#uprev').onclick = () => { f.offset = Math.max(0, f.offset - 50); load(); };
+        $('#unext').onclick = () => { f.offset += 50; load(); };
+        main.querySelectorAll('[data-uid]').forEach(b => b.onclick = () => userDialog(b.dataset.uid, load));
+        main.querySelectorAll('[data-del]').forEach(b => b.onclick = () => userDel(b.dataset.del, load));
+      };
+      let deb; $('#uq').oninput = () => { clearTimeout(deb); deb = setTimeout(() => { f.q = $('#uq').value.trim(); f.offset = 0; load(); }, 350); };
+      [['#frole', 'role'], ['#fstatus', 'status'], ['#fplat', 'plat'], ['#fsort', 'sort']].forEach(([id, k]) => { $(id).onchange = () => { f[k] = $(id).value; f.offset = 0; load(); }; });
+      $('#ucsv').onclick = async () => {
+        const b = $('#ucsv'); b.disabled = true; b.textContent = '⏳ Đang xuất…';
+        try {
+          const r = await api('usersExport', { ...f, offset: 0 });
+          const cell = v => { let x = String(v == null ? '' : v); if (/^[=+\-@\t\r]/.test(x)) x = "'" + x; return /[",\n\r;]/.test(x) ? '"' + x.replace(/"/g, '""') + '"' : x; };
+          const iso = t => t ? new Date(t).toISOString() : '';
+          const lines = [['email', 'name', 'role', 'plat', 'created', 'seen', 'n'], ...r.rows.map(u => [u.email, u.name, u.isAdmin ? 'admin' : 'learner', u.plat, iso(u.created), iso(u.seen), u.n])].map(x => x.map(cell).join(','));
+          const url = URL.createObjectURL(new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' }));
+          const a = document.createElement('a'); a.href = url; a.download = `lexkite-users-${new Date().toISOString().slice(0, 10)}.csv`; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+          b.textContent = `✓ ${num(r.rows.length)} dòng`;
+        } catch (e) { b.textContent = '✗ Lỗi xuất'; }
+        setTimeout(() => { b.disabled = false; b.textContent = '⬇ CSV'; }, 2500);
+      };
+      await load();
     },
     async inbox() {
       const f = sessionStorage.getItem('adm.inbox') || 'open', r = await api('inbox', { filter: f });

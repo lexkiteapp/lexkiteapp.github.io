@@ -1698,8 +1698,10 @@
     const rid = () => Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
     let vid, ret = 1;
     try { vid = localStorage.getItem('lk.vid'); if (!vid) { vid = rid(); ret = 0; localStorage.setItem('lk.vid', vid); } } catch (e) { vid = rid(); ret = 0; }
-    const sid = rid(), path = (location.hash.match(/^#\/([a-z-]+)/) || [, 'home'])[1];
-    const plat = /^chrome-extension:/.test(location.protocol) ? 'ext' : /^capacitor:/.test(location.protocol) || window.Capacitor ? 'app' : matchMedia('(display-mode: standalone)').matches ? 'pwa' : 'web';
+    const cur = () => (location.hash.match(/^#\/([a-z0-9-]+)/) || [, 'home'])[1], sid = rid(), path = cur();
+    // Nền tảng: app Capacitor tách iOS / Android (dòng cũ 'app' vẫn đọc được trong Quản trị)
+    const cap = window.Capacitor, capP = cap && cap.getPlatform ? cap.getPlatform() : '';
+    const plat = /^chrome-extension:/.test(location.protocol) ? 'ext' : capP === 'ios' || capP === 'android' ? capP : /^capacitor:/.test(location.protocol) || cap ? 'app' : matchMedia('(display-mode: standalone)').matches ? 'pwa' : 'web';
     const dev = innerWidth < 768 ? 'mobile' : innerWidth < 1100 ? 'tablet' : 'desktop';
     let pages = 1, dur = 0, since = document.visibilityState === 'visible' ? Date.now() : 0, errs = 0;
     let lcp = 0; try { new PerformanceObserver(l => { const e = l.getEntries().pop(); if (e) lcp = Math.round(e.startTime); }).observe({ type: 'largest-contentful-paint', buffered: true }); } catch (e) { /* trình duyệt không hỗ trợ */ } // LCP thật của người dùng (Core Web Vitals)
@@ -1707,9 +1709,16 @@
     // Quy mô lớn: chỉ một tỉ lệ người dùng gửi thống kê phiên (hit_rate do quản trị đặt, ổn định theo vid) – giữ D1/Functions trong gói miễn phí
     let rate = 1; try { rate = Math.min(1, Math.max(0.01, +localStorage.getItem('lk.hr') || 1)); } catch (e) { /* bỏ qua */ }
     const inSample = (parseInt(vid.slice(0, 6), 36) % 1000) < rate * 1000;
-    let lastSent = 0;
-    const flush = (force) => { if (since) { dur += (Date.now() - since) / 1000; since = 0; } if (!inSample || (!force && Date.now() - lastSent < 60000)) return; lastSent = Date.now(); send({ t: 's', sid, vid, ret, path, ref: document.referrer, lang: window.I18N ? I18N.lang() : '', dev, plat, dur: Math.round(dur), pages, lcp }); };
-    addEventListener('hashchange', () => pages++);
+    let lastSent = 0, pv = { [path]: 1 }; // pv: lượt xem từng trang kể từ lần gửi trước (máy chủ cộng dồn vào pageviews_day)
+    const flush = (force) => {
+      if (since) { dur += (Date.now() - since) / 1000; since = document.visibilityState === 'visible' ? Date.now() : 0; }
+      if (!inSample || (!force && Date.now() - lastSent < 60000)) return;
+      lastSent = Date.now(); const d = pv; pv = {};
+      send({ t: 's', sid, vid, ret, path, cur: cur(), ref: document.referrer, lang: window.I18N ? I18N.lang() : '', dev, plat, dur: Math.round(dur), pages, lcp, pv: Object.keys(d).length ? d : undefined });
+    };
+    addEventListener('hashchange', () => { pages++; const r = cur(); if (r in pv || Object.keys(pv).length < 20) pv[r] = (pv[r] || 0) + 1; });
+    // "Đang online": gửi 1 lần sau 15 giây rồi nhịp 3 phút/lần khi tab đang hiển thị (ẩn tab → không gửi)
+    if (inSample) { setTimeout(() => document.visibilityState === 'visible' && flush(true), 15000); setInterval(() => { if (document.visibilityState === 'visible') flush(true); }, 180000); }
     document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flush(); else since = Date.now(); });
     addEventListener('pagehide', () => flush(true));
     const err = (msg, src, line) => { if (++errs > 5 || !msg || /ResizeObserver loop|^Script error\.?$/.test(msg)) return; send({ t: 'e', msg: String(msg), src: String(src || '').replace(location.origin, ''), line, path: (location.hash.match(/^#\/([a-z-]+)/) || [, ''])[1] }); };

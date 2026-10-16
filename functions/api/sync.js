@@ -83,8 +83,8 @@ export async function onRequestPost({ request, env }) {
   try {
     await setup(env.DB);
     if (req.op === 'pull') {
-      // Sổ người dùng cho trang quản trị: chỉ ghi khi lần thấy trước đã hơn 1 giờ (tiết kiệm lượt ghi D1)
-      const o = request.headers.get('Origin') || '', plat = /^chrome-extension:/.test(o) ? 'ext' : /^capacitor:/.test(o) ? 'app' : 'web', now = Date.now();
+      // Sổ người dùng cho trang quản trị (nền tảng: app iOS = capacitor://localhost, app Android = https://localhost): chỉ ghi khi lần thấy trước đã hơn 1 giờ (tiết kiệm lượt ghi D1)
+      const o = request.headers.get('Origin') || '', plat = /^chrome-extension:/.test(o) ? 'ext' : /^capacitor:/.test(o) ? 'ios' : o === 'https://localhost' ? 'android' : 'web', now = Date.now();
       await env.DB.prepare('INSERT INTO users (uid, email, name, created, seen, plat, n) VALUES (?1, ?2, ?3, ?4, ?4, ?5, 1) ON CONFLICT (uid) DO UPDATE SET email = ?2, name = ?3, seen = ?4, plat = ?5, n = n + 1 WHERE users.seen < ?4 - 3600000')
         .bind(uid, String(who.email || '').slice(0, 200), String(who.name || '').slice(0, 100), now, plat).run().catch(() => {});
       const have = req.have && typeof req.have === 'object' ? req.have : {};
