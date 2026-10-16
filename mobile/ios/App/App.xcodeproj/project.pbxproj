@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A88D2886B71276F56C5E649 /* LexkiteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58750283C23E50CF461BB66 /* LexkiteWidget.swift */; };
+		1CC5DD35450CEE99C9F7C8AF /* WidgetSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0D88EFCC704CE289C1A4CB /* WidgetSnapshot.swift */; };
+		2F8B629EA0EBA8972F5EC46A /* WidgetBridgePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834C855EE7FCE1C83B1B7179 /* WidgetBridgePlugin.swift */; };
 		2FAD9763203C412B000D30F8 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2FAD9762203C412B000D30F8 /* config.xml */; };
 		4D22ABE92AF431CB00220026 /* CapApp-SPM in Frameworks */ = {isa = PBXBuildFile; productRef = 4D22ABE82AF431CB00220026 /* CapApp-SPM */; };
 		50379B232058CBB4000EE86E /* capacitor.config.json in Resources */ = {isa = PBXBuildFile; fileRef = 50379B222058CBB4000EE86E /* capacitor.config.json */; };
@@ -15,11 +18,51 @@
 		504EC30F1FED79650016851F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 504EC30E1FED79650016851F /* Assets.xcassets */; };
 		504EC3121FED79650016851F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 504EC3101FED79650016851F /* LaunchScreen.storyboard */; };
 		50B271D11FEDC1A000F3C39B /* public in Resources */ = {isa = PBXBuildFile; fileRef = 50B271D01FEDC1A000F3C39B /* public */; };
+		610DB8B03263E00BC8F36D45 /* WidgetSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0D88EFCC704CE289C1A4CB /* WidgetSnapshot.swift */; };
+		7228D0291D77F91305141E4F /* LexkiteWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7119DA08DB3BAEE8117AA054 /* LexkiteWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		73A2AEAE9421CE6CE6F6E258 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E35329E0E187A285025CF8DA /* Localizable.strings */; };
+		92A5E1FFB52842BC2497CBE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34AFA3EC93CE9E693209F321 /* Foundation.framework */; };
 		9582B6832FE993A70072D4E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9582B6822FE993A50072D4E8 /* SceneDelegate.swift */; };
+		B73A696BDB86C81A5C918A07 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7189C16E6EE0840EA7D4C0 /* WidgetKit.framework */; };
+		B9D0D9C9423193E2DCCBCC63 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538C2784CD91E2D8FCE0582D /* SwiftUI.framework */; };
+		C555A85B2237479742F91D52 /* LexkiteBridgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472533D67AAAFC089022E72F /* LexkiteBridgeViewController.swift */; };
+		E7812FBF8F485E0DF759E67C /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215F53F7DE48D1BA934567F /* WidgetViews.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7C02695B1A758369838B6B32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 504EC2FC1FED79650016851F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE7C664CCA3ABEA7A57AF74C;
+			remoteInfo = LexkiteWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EF102F9BF05E57A4E3B2A4C9 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7228D0291D77F91305141E4F /* LexkiteWidget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		04647CD86025B57FA019C25A /* App.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = App.entitlements; sourceTree = "<group>"; };
+		08EEAD8C1C9626EBE7E37F12 /* pt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1E7189C16E6EE0840EA7D4C0 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/WidgetKit.framework; sourceTree = DEVELOPER_DIR; };
+		2A0D88EFCC704CE289C1A4CB /* WidgetSnapshot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WidgetSnapshot.swift; sourceTree = "<group>"; };
+		2A2E8638EF11E169ED26A4FC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D9833EE293F4C1F2EFFF5FC /* ja */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2FAD9762203C412B000D30F8 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = config.xml; sourceTree = "<group>"; };
+		34AFA3EC93CE9E693209F321 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		472533D67AAAFC089022E72F /* LexkiteBridgeViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LexkiteBridgeViewController.swift; sourceTree = "<group>"; };
 		50379B222058CBB4000EE86E /* capacitor.config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = capacitor.config.json; sourceTree = "<group>"; };
 		504EC3041FED79650016851F /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		504EC3071FED79650016851F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -28,8 +71,27 @@
 		504EC3111FED79650016851F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		504EC3131FED79650016851F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50B271D01FEDC1A000F3C39B /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; path = public; sourceTree = "<group>"; };
+		538C2784CD91E2D8FCE0582D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/SwiftUI.framework; sourceTree = DEVELOPER_DIR; };
+		55E381804F610C4104CD804D /* fr */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		60B4B98404FA59974C8BACA3 /* en */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7119DA08DB3BAEE8117AA054 /* LexkiteWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LexkiteWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		72944CF05ED061D89D9040A7 /* de */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		75A599374ABA5ABCF6D7B4A9 /* es */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		834C855EE7FCE1C83B1B7179 /* WidgetBridgePlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WidgetBridgePlugin.swift; sourceTree = "<group>"; };
+		889DA2596844373D15793FB7 /* zh-Hans */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9582B6822FE993A50072D4E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		958DCC722DB07C7200EA8C5F /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = ../debug.xcconfig; sourceTree = SOURCE_ROOT; };
+		98CB51F0F827DC7470981D51 /* ko */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AA05FC8DDF87BB4C26E47088 /* ar */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AA48EC8E3066F947CD480FDD /* ru */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B013B3784340C4045E99ACA9 /* LexkiteWidget.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = LexkiteWidget.entitlements; sourceTree = "<group>"; };
+		B89797DD4AA97A9333028C38 /* vi */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C215F53F7DE48D1BA934567F /* WidgetViews.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WidgetViews.swift; sourceTree = "<group>"; };
+		C58750283C23E50CF461BB66 /* LexkiteWidget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LexkiteWidget.swift; sourceTree = "<group>"; };
+		D6F3EB855FEA0CE6F48C059E /* id */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D94ACA70EE7F45EDC04A8607 /* hi */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E4D6B7F6AB2B6052DE270D73 /* th */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ED44E3D6BC16ABFEAFEA4A65 /* tr */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +100,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D22ABE92AF431CB00220026 /* CapApp-SPM in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58DCC32549901959F0B3622B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92A5E1FFB52842BC2497CBE5 /* Foundation.framework in Frameworks */,
+				B73A696BDB86C81A5C918A07 /* WidgetKit.framework in Frameworks */,
+				B9D0D9C9423193E2DCCBCC63 /* SwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +122,8 @@
 				958DCC722DB07C7200EA8C5F /* debug.xcconfig */,
 				504EC3061FED79650016851F /* App */,
 				504EC3051FED79650016851F /* Products */,
+				B0BBD31B1633A0CA28903B16 /* LexkiteWidget */,
+				6C8A115A733CA655864B9F69 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				504EC3041FED79650016851F /* App.app */,
+				7119DA08DB3BAEE8117AA054 /* LexkiteWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,8 +148,43 @@
 				504EC3131FED79650016851F /* Info.plist */,
 				2FAD9762203C412B000D30F8 /* config.xml */,
 				50B271D01FEDC1A000F3C39B /* public */,
+				834C855EE7FCE1C83B1B7179 /* WidgetBridgePlugin.swift */,
+				472533D67AAAFC089022E72F /* LexkiteBridgeViewController.swift */,
+				04647CD86025B57FA019C25A /* App.entitlements */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		6C8A115A733CA655864B9F69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B388B7C506E3A617EB391571 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B0BBD31B1633A0CA28903B16 /* LexkiteWidget */ = {
+			isa = PBXGroup;
+			children = (
+				2A0D88EFCC704CE289C1A4CB /* WidgetSnapshot.swift */,
+				C215F53F7DE48D1BA934567F /* WidgetViews.swift */,
+				C58750283C23E50CF461BB66 /* LexkiteWidget.swift */,
+				2A2E8638EF11E169ED26A4FC /* Info.plist */,
+				B013B3784340C4045E99ACA9 /* LexkiteWidget.entitlements */,
+				E35329E0E187A285025CF8DA /* Localizable.strings */,
+			);
+			name = LexkiteWidget;
+			path = LexkiteWidget;
+			sourceTree = "<group>";
+		};
+		B388B7C506E3A617EB391571 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				34AFA3EC93CE9E693209F321 /* Foundation.framework */,
+				1E7189C16E6EE0840EA7D4C0 /* WidgetKit.framework */,
+				538C2784CD91E2D8FCE0582D /* SwiftUI.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,10 +197,12 @@
 				504EC3001FED79650016851F /* Sources */,
 				504EC3011FED79650016851F /* Frameworks */,
 				504EC3021FED79650016851F /* Resources */,
+				EF102F9BF05E57A4E3B2A4C9 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B8D202FCFD72E330D6EA6B8F /* PBXTargetDependency */,
 			);
 			name = App;
 			packageProductDependencies = (
@@ -99,6 +211,23 @@
 			productName = App;
 			productReference = 504EC3041FED79650016851F /* App.app */;
 			productType = "com.apple.product-type.application";
+		};
+		BE7C664CCA3ABEA7A57AF74C /* LexkiteWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F952AC4B5331ACAC9918D2DF /* Build configuration list for PBXNativeTarget "LexkiteWidget" */;
+			buildPhases = (
+				2449FEF78AB77CFD2750E042 /* Sources */,
+				58DCC32549901959F0B3622B /* Frameworks */,
+				52919E16D45ED211923989F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LexkiteWidget;
+			productName = LexkiteWidget;
+			productReference = 7119DA08DB3BAEE8117AA054 /* LexkiteWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -123,6 +252,20 @@
 			knownRegions = (
 				en,
 				Base,
+				vi,
+				es,
+				pt,
+				fr,
+				de,
+				id,
+				th,
+				"zh-Hans",
+				ja,
+				ko,
+				hi,
+				ar,
+				ru,
+				tr,
 			);
 			mainGroup = 504EC2FB1FED79650016851F;
 			packageReferences = (
@@ -133,6 +276,7 @@
 			projectRoot = "";
 			targets = (
 				504EC3031FED79650016851F /* App */,
+				BE7C664CCA3ABEA7A57AF74C /* LexkiteWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -151,19 +295,49 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		52919E16D45ED211923989F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73A2AEAE9421CE6CE6F6E258 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2449FEF78AB77CFD2750E042 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				610DB8B03263E00BC8F36D45 /* WidgetSnapshot.swift in Sources */,
+				E7812FBF8F485E0DF759E67C /* WidgetViews.swift in Sources */,
+				0A88D2886B71276F56C5E649 /* LexkiteWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		504EC3001FED79650016851F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				504EC3081FED79650016851F /* AppDelegate.swift in Sources */,
 				9582B6832FE993A70072D4E8 /* SceneDelegate.swift in Sources */,
+				2F8B629EA0EBA8972F5EC46A /* WidgetBridgePlugin.swift in Sources */,
+				C555A85B2237479742F91D52 /* LexkiteBridgeViewController.swift in Sources */,
+				1CC5DD35450CEE99C9F7C8AF /* WidgetSnapshot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B8D202FCFD72E330D6EA6B8F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LexkiteWidget;
+			target = BE7C664CCA3ABEA7A57AF74C /* LexkiteWidget */;
+			targetProxy = 7C02695B1A758369838B6B32 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		504EC30B1FED79650016851F /* Main.storyboard */ = {
@@ -182,9 +356,57 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		E35329E0E187A285025CF8DA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B89797DD4AA97A9333028C38 /* vi */,
+				60B4B98404FA59974C8BACA3 /* en */,
+				75A599374ABA5ABCF6D7B4A9 /* es */,
+				08EEAD8C1C9626EBE7E37F12 /* pt */,
+				55E381804F610C4104CD804D /* fr */,
+				72944CF05ED061D89D9040A7 /* de */,
+				D6F3EB855FEA0CE6F48C059E /* id */,
+				E4D6B7F6AB2B6052DE270D73 /* th */,
+				889DA2596844373D15793FB7 /* zh-Hans */,
+				2D9833EE293F4C1F2EFFF5FC /* ja */,
+				98CB51F0F827DC7470981D51 /* ko */,
+				D94ACA70EE7F45EDC04A8607 /* hi */,
+				AA05FC8DDF87BB4C26E47088 /* ar */,
+				AA48EC8E3066F947CD480FDD /* ru */,
+				ED44E3D6BC16ABFEAFEA4A65 /* tr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		30CF8A11C63CD59C846755CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = LexkiteWidget/LexkiteWidget.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = LexkiteWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lexkite.app.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		504EC3141FED79650016851F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 958DCC722DB07C7200EA8C5F /* debug.xcconfig */;
@@ -299,6 +521,7 @@
 			baseConfigurationReference = 958DCC722DB07C7200EA8C5F /* debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = App/Info.plist;
@@ -321,6 +544,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/App.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = App/Info.plist;
@@ -337,6 +561,31 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
+		};
+		B68434011A9C912139A6BBE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = LexkiteWidget/LexkiteWidget.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = LexkiteWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lexkite.app.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -355,6 +604,15 @@
 			buildConfigurations = (
 				504EC3171FED79650016851F /* Debug */,
 				504EC3181FED79650016851F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F952AC4B5331ACAC9918D2DF /* Build configuration list for PBXNativeTarget "LexkiteWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30CF8A11C63CD59C846755CA /* Release */,
+				B68434011A9C912139A6BBE6 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

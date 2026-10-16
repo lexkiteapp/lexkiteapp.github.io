@@ -5,7 +5,7 @@ name: Build iOS (simulator)
 on:
   push:
     branches: [main]
-    paths: ['mobile/**', 'scripts/build-mobile.sh', '.github/workflows/ios.yml']
+    paths: ['mobile/**', 'scripts/build-mobile.sh', 'scripts/ios-widget-render.swift', '.github/workflows/ios.yml']
   workflow_dispatch:
 concurrency:
   group: ios
@@ -31,6 +31,14 @@ jobs:
             CODE_SIGNING_ALLOWED=NO build | tail -40
           test -d build/Build/Products/Debug-iphonesimulator/App.app
           cd build/Build/Products/Debug-iphonesimulator && zip -qry "$GITHUB_WORKSPACE/lexkite-ios-sim.zip" App.app
+      # Widget (WidgetKit) không đặt lên màn hình chính bằng lệnh được → render chính WidgetViews.swift bằng SwiftUI trên macOS
+      - name: Ảnh widget màn hình chính/khóa (sáng/tối, vi + ar RTL)
+        continue-on-error: true
+        run: |
+          mkdir -p shots
+          swiftc -parse-as-library mobile/ios/App/LexkiteWidget/WidgetSnapshot.swift mobile/ios/App/LexkiteWidget/WidgetViews.swift \
+            scripts/ios-widget-render.swift -o "$RUNNER_TEMP/lexrender"
+          "$RUNNER_TEMP/lexrender" shots
       - name: Chụp màn hình demo trên iPhone giả lập (xem nhanh mỗi bản build)
         continue-on-error: true
         run: |

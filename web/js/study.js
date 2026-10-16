@@ -79,6 +79,9 @@
       return;
     }
     session = { queue: buildQueue(ahead), done: 0, again: 0, missed: [], total: 0, xp: 0, reverse: !!session && session.reverse };
+    // Từ widget màn hình chính/khóa (#/review?w=từ): đưa đúng thẻ đang hiện lên đầu phiên ôn
+    const pin = query && query.get && String(query.get('w') || '').toLowerCase();
+    if (pin && state.cards[pin]) session.queue = [pin, ...session.queue.filter(k => k !== pin)];
     session.total = session.queue.length;
     if (!session.queue.length) return reviewDone(true);
     showCard();
