@@ -15,6 +15,7 @@
     const r = await fetch('/api/admin', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await user.getIdToken() }, body: JSON.stringify({ op, ...body }) });
     const j = await r.json().catch(() => ({}));
     if (r.status === 403) throw new Error('forbidden');
+    if (r.status === 401 && j.error === 'reauth') { if (confirm(j.message || 'Cần đăng nhập lại để xác nhận thao tác quan trọng. Đăng nhập lại ngay?')) { await auth.signOut(); await signIn(); } throw new Error('reauth'); }
     if (!r.ok) throw new Error(j.error || r.status);
     return j;
   }
@@ -26,13 +27,13 @@
     if (!u) return;
     $('#me').innerHTML = `${esc(u.email)} <button class="btn ghost sm" id="out">Thoát</button>`;
     $('#out').onclick = () => auth.signOut().then(() => location.reload());
-    try { await show('overview'); $('#tabs').hidden = false; badges(); }
+    try { const h = location.hash.slice(1); await show(VIEWS[h] ? h : 'overview'); $('#tabs').hidden = false; badges(); }
     catch (e) { main.innerHTML = `<div class="card center adm-login"><h2>Không có quyền</h2><p class="muted">${esc(u.email)} chưa được cấp quyền quản trị.</p><button class="btn" onclick="firebase.auth().signOut().then(()=>location.reload())">Đổi tài khoản</button></div>`; }
   });
   $('#tabs').onclick = e => { const b = e.target.closest('button[data-tab]'); if (b) show(b.dataset.tab); };
 
   async function show(t) {
-    tab = t; document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === t));
+    tab = t; try { history.replaceState(null, '', '#' + t); } catch (e) { /* bỏ qua */ } document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === t));
     main.innerHTML = '<p class="muted">Đang tải…</p>';
     await VIEWS[t]();
   }
@@ -125,12 +126,14 @@
       main.querySelectorAll('[data-id]').forEach(b => b.onclick = async () => { await api('inboxMark', { id: +b.dataset.id, handled: +b.dataset.h }); badges(); show('inbox'); });
     },
     async alerts() {
-      const [a, e] = await Promise.all([api('alerts'), api('errors')]);
+      const [a, e, lg] = await Promise.all([api('alerts'), api('errors'), api('auditLog').catch(() => ({ rows: [] }))]);
       main.innerHTML = `
         <div class="card"><h3>Trạng thái tự động</h3><table class="tbl">${a.rows.map(r => `<tr><td><span class="dot ${r.ok ? (r.warn ? 'warn' : '') : 'bad'}"></span>${esc(r.name)}</td><td>${esc(r.conclusion || r.status || '')}</td><td class="small muted">${r.at ? when(r.at) : ''}</td><td>${r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">Xem</a>` : ''}</td></tr>`).join('')}</table>
         <p class="small muted">Workflow GitHub (dịch, build Android, âm thanh, blog, đo tốc độ…) · lỗi JS · hộp thư · dung lượng. Email tóm tắt tự động gửi về support khi có mục đỏ.</p></div>
         <div class="card" style="margin-top:1rem"><div class="row between"><h3>Lỗi JavaScript từ người dùng</h3>${e.rows.length ? '<button class="btn ghost sm" id="eclr">Xóa tất cả</button>' : ''}</div>
         <div class="tbl-wrap"><table class="tbl"><tr><th>Lỗi</th><th>Vị trí</th><th>Trang</th><th>Số lần</th><th>Gần nhất</th><th></th></tr>${e.rows.map(x => `<tr><td class="msg">${esc(x.msg)}</td><td class="small">${esc(x.src)}</td><td>${esc(x.path)}</td><td>${num(x.n)}</td><td class="small">${when(x.last)}</td><td><button class="btn ghost sm" data-h="${x.h}">Đã sửa</button></td></tr>`).join('') || '<tr><td colspan="6" class="muted">Không có lỗi 🎉</td></tr>'}</table></div></div>`;
+      main.insertAdjacentHTML('beforeend', `<div class="card" style="margin-top:1rem"><h3>🔐 Nhật ký quản trị (100 thao tác gần nhất)</h3><p class="small muted">Mọi thao tác ghi/xóa và mọi lần tài khoản lạ cố vào trang quản trị (dòng đỏ). IP được băm, không lưu IP gốc.</p>
+        <div class="tbl-wrap"><table class="tbl"><tr><th>Lúc</th><th>Email</th><th>Thao tác</th><th>IP (băm)</th><th>Nước</th></tr>${lg.rows.map(x => `<tr${x.ok ? '' : ' style="color:var(--bad,#dc2626);font-weight:600"'}><td class="small">${when(x.at)}</td><td class="small">${esc(x.email)}</td><td>${x.ok ? esc(x.op) : '⛔ bị từ chối'}</td><td class="small muted">${esc(x.ip)}</td><td>${esc(x.country)}</td></tr>`).join('') || '<tr><td colspan="5" class="muted">Chưa có thao tác</td></tr>'}</table></div></div>`);
       if ($('#eclr')) $('#eclr').onclick = async () => { if (confirm('Xóa toàn bộ nhật ký lỗi?')) { await api('errorsClear'); show('alerts'); } };
       main.querySelectorAll('[data-h]').forEach(b => b.onclick = async () => { await api('errorsClear', { h: b.dataset.h }); show('alerts'); });
     },

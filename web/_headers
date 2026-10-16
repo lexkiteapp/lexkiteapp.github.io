@@ -41,6 +41,9 @@
 /admin*
   Cache-Control: no-cache
   X-Robots-Tag: noindex, nofollow
+  Content-Security-Policy: frame-ancestors 'none'
+  Referrer-Policy: no-referrer
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
 
 /packs/*
   Cache-Control: public, max-age=86400

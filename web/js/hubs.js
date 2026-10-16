@@ -141,10 +141,8 @@
   // ---------- Tôi ----------
   // Lối vào trang Quản trị: chỉ hiện khi máy chủ xác nhận email là admin (ADMIN_EMAILS) – người khác không thấy
   const adminRow = async () => {
-    const box = document.getElementById('meAdmin'); if (!box || !window.Sync || !Sync.user) return;
-    let ok = null; try { ok = sessionStorage.getItem('lk.adm.' + Sync.user.uid); } catch (e) { /* bỏ qua */ }
-    if (ok == null) { try { const r = await fetch((/^https?:/.test(location.protocol) ? '' : 'https://lexkite.com') + '/api/admin', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await Sync.user.getIdToken() }, body: '{"op":"ping"}' }); ok = r.ok ? '1' : '0'; sessionStorage.setItem('lk.adm.' + Sync.user.uid, ok); } catch (e) { return; } }
-    if (ok === '1' && document.getElementById('meAdmin')) box.outerHTML = `<a class="set-row me-row" href="${/^https?:/.test(location.protocol) ? '/admin' : 'https://lexkite.com/admin'}" target="_blank" rel="noopener"><span class="set-l"><span>🛡️ ${t('Quản trị hệ thống')}</span><small>${t('Người dùng, hộp thư, phân tích, chất lượng, Gemini API')}</small></span><span class="chev" aria-hidden="true">›</span></a>`;
+    if (!App.isAdmin || !(await App.isAdmin())) return; const box = document.getElementById('meAdmin');
+    if (box) box.outerHTML = `<a class="set-row me-row" href="${App.adminUrl()}" target="_blank" rel="noopener"><span class="set-l"><span>🛡️ ${t('Quản trị hệ thống')}</span><small>${t('Người dùng, hộp thư, phân tích, chất lượng, Gemini API')}</small></span><span class="chev" aria-hidden="true">›</span></a>`;
   };
   routes.me = function () {
     const u = state.user, L = Game.levelOf((state.game || {}).xp || 0), streak = App.streak();

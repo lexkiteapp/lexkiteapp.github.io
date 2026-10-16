@@ -1,7 +1,7 @@
 /* API trang quản trị (/admin.html). Chỉ email trong biến bí mật ADMIN_EMAILS (Cloudflare Pages) được dùng.
  * POST /api/admin  (Authorization: Bearer <Firebase ID token>)  { op, ... }
  * op: usage · services · serviceSet · serviceDelete · overview · users · user · userDelete · inbox · inboxMark · analytics · errors · errorsClear · config · configSet · alerts */
-import { claims } from './sync.js';
+import { claims, limit } from './sync.js';
 import { setup as hitSetup } from './hit.js';
 
 const ORIGINS = /^https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)$/;
@@ -20,6 +20,7 @@ async function setup(db) {
   await hitSetup(db);
   await db.batch([
     db.prepare('CREATE TABLE IF NOT EXISTS services (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, purpose TEXT, account TEXT, console TEXT, billing TEXT, free TEXT, secret TEXT, status TEXT, note TEXT, ord INTEGER DEFAULT 0)'),
+    db.prepare('CREATE TABLE IF NOT EXISTS admin_log (id INTEGER PRIMARY KEY AUTOINCREMENT, at INTEGER NOT NULL, email TEXT, op TEXT, ok INTEGER, ip TEXT, country TEXT)'),
     db.prepare('CREATE TABLE IF NOT EXISTS i18n_fix (lang TEXT, key TEXT, val TEXT, at INTEGER, by TEXT, PRIMARY KEY (lang, key)) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS i18n_judge (h TEXT PRIMARY KEY, lang TEXT, ok INTEGER, note TEXT, at INTEGER) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS config (k TEXT PRIMARY KEY, v TEXT, at INTEGER, by TEXT) WITHOUT ROWID'),
@@ -148,6 +149,7 @@ const OPS = {
   },
   // ---- Gemini API: khóa dán trong Quản trị (D1 config 'gemini_key', không bao giờ trả về nguyên khóa) ----
   async ping() { return { ok: true }; },
+  async auditLog(db) { return { rows: await all(db, 'SELECT at, email, op, ok, ip, country FROM admin_log ORDER BY id DESC LIMIT 100') }; },
   async geminiStatus(db) {
     const k = (await one(db, "SELECT v, at, by FROM config WHERE k = 'gemini_key'"));
     return { set: !!k.v, last4: k.v ? k.v.slice(-4) : '', at: k.at || 0, by: k.by || '' };
@@ -157,14 +159,14 @@ const OPS = {
     if (!/^(AIza[\w-]{20,}|AQ\.[\w.-]{20,})$/.test(key)) return { ok: false, error: 'Khóa không đúng định dạng (AIza… hoặc AQ.…)' };
     const r = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash', { headers: { 'x-goog-api-key': key } });
     if (!r.ok) return { ok: false, error: `Google từ chối khóa (HTTP ${r.status})` };
-    await db.prepare('INSERT OR REPLACE INTO config (k, v, at, by) VALUES (?, ?, ?, ?)').bind('gemini_key', key, Date.now(), who || '').run();
+    await db.prepare('INSERT OR REPLACE INTO config (k, v, at, by) VALUES (?, ?, ?, ?)').bind('gemini_key', key, Date.now(), who.email).run();
     return { ok: true, last4: key.slice(-4) };
   },
   // Duyệt 1 chạm: bản sửa được duyệt lưu D1 → workflow dịch đêm (i18n.yml) tự gộp vào scripts/i18n-fixed.json và áp vào app
   async i18nFixApprove(db, b, who) {
     const lang = String(b.lang || ''), key = String(b.key || ''), val = String(b.val || '').trim();
     if (!/^[a-z]{2}$/.test(lang) || !key || !val) return { ok: false };
-    await db.prepare('INSERT OR REPLACE INTO i18n_fix (lang, key, val, at, by) VALUES (?, ?, ?, ?, ?)').bind(lang, key, val, Date.now(), who || '').run();
+    await db.prepare('INSERT OR REPLACE INTO i18n_fix (lang, key, val, at, by) VALUES (?, ?, ?, ?, ?)').bind(lang, key, val, Date.now(), who.email).run();
     return { ok: true };
   },
   async geminiDelete(db) { await db.prepare("DELETE FROM config WHERE k = 'gemini_key'").run(); return { ok: true }; },
@@ -206,12 +208,30 @@ const OPS = {
 
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: cors(request) });
 
+// Thao tác ghi/xóa (ghi nhật ký) · thao tác nguy hiểm (phải vừa đăng nhập ≤ 15 phút – chống token bị đánh cắp dùng lại)
+const WRITE = /Set$|Delete$|Clear$|Mark$|Approve$|^inboxReply$|^judge$|^geminiReview$/;
+const DANGER = new Set(['userDelete', 'serviceDelete', 'errorsClear', 'geminiDelete', 'geminiSet']);
+const ipOf = req => req.headers.get('CF-Connecting-IP') || '?';
+async function audit(env, req, email, op, ok) {
+  try { const h = [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode('lexkite-adm|' + ipOf(req))))].slice(0, 6).map(x => x.toString(16).padStart(2, '0')).join('');
+    await env.DB.prepare('INSERT INTO admin_log (at, email, op, ok, ip, country) VALUES (?, ?, ?, ?, ?, ?)').bind(Date.now(), String(email || '').slice(0, 120), String(op || '').slice(0, 40), ok ? 1 : 0, h, (req.cf && req.cf.country) || '').run(); } catch (e) { /* nhật ký không được làm hỏng thao tác */ }
+}
+
 export async function onRequestPost({ request, env }) {
+  // 1) Chỉ nhận từ trang của mình (có Origin lạ → từ chối)  2) Giới hạn tốc độ theo IP: 120 lệnh/phút, lần bị từ chối 10/10 phút
+  const origin = request.headers.get('Origin'); if (origin && !ORIGINS.test(origin)) return json(request, 403, { error: 'origin' });
+  const ip = ipOf(request);
+  if (await limit('adm:' + ip, 120, 60)) return json(request, 429, { error: 'too-fast' });
   const who = await claims((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')).catch(() => null);
   const admins = String(env.ADMIN_EMAILS || '').toLowerCase().split(/[,\s]+/).filter(Boolean);
-  if (!who || !who.email_verified || !admins.includes(String(who.email).toLowerCase())) return json(request, 403, { error: 'forbidden' });
+  if (!who || !who.email_verified || !admins.includes(String(who.email).toLowerCase())) {
+    if (await limit('admx:' + ip, 10, 600)) return json(request, 429, { error: 'too-many-denied' });
+    if (who && who.email) { try { await setup(env.DB); } catch (e) { /* bỏ qua */ } await audit(env, request, who.email, 'denied', false); } // tài khoản Google thật nhưng không phải admin → ghi lại
+    return json(request, 403, { error: 'forbidden' });
+  }
   let b; try { b = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
   const fn = OPS[b.op]; if (!fn) return json(request, 400, { error: 'op' });
-  try { await setup(env.DB); return json(request, 200, await fn(env.DB, b, who, env)); }
+  if (DANGER.has(b.op) && Date.now() / 1000 - (+who.auth_time || 0) > 900) return json(request, 401, { error: 'reauth', message: 'Thao tác quan trọng: hãy đăng xuất rồi đăng nhập lại (bảo mật) rồi thử lại.' });
+  try { await setup(env.DB); const out = await fn(env.DB, b, who, env); if (WRITE.test(b.op)) await audit(env, request, who.email, b.op, true); return json(request, 200, out); }
   catch (e) { return json(request, 500, { error: String(e && e.message || e).slice(0, 200) }); }
 }
