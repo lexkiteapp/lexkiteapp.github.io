@@ -47,6 +47,17 @@
     ['p68', 'Problem–Solution', 'culture', 'Many of the world\'s languages are in danger of disappearing. Why is this happening, and what can be done to protect them?'],
     ['p69', 'Two-part question', 'technology', 'Many people now spend several hours a day playing video games. Why have video games become so popular, and is this a positive or negative development?'],
     ['p70', 'Two-part question', 'work', 'In the past, many people stayed in the same job for most of their working lives, but today people change jobs much more often. Why is this happening, and is it a positive or negative development?'],
+    // Lô 17 (có bài band 6 + nhận xét 4 tiêu chí, dàn ý, từ vựng)
+    ['p71', 'Agree/Disagree', 'education', 'Final examinations are not a good way to measure students\' abilities, and they should be replaced by continuous assessment of coursework and projects. To what extent do you agree or disagree?'],
+    ['p72', 'Agree/Disagree', 'environment', 'Governments should completely ban single-use plastic products such as bags, straws and food containers. To what extent do you agree or disagree?'],
+    ['p73', 'Discussion', 'culture', 'Some people believe that international sporting events such as the Olympic Games bring countries together, while others think they are a waste of money. Discuss both views and give your own opinion.'],
+    ['p74', 'Discussion', 'society', 'Some people prefer to spend their money on experiences such as travel and concerts, while others prefer to buy possessions such as clothes and electronic devices. Discuss both views and give your own opinion.'],
+    ['p75', 'Advantages–Disadvantages', 'technology', 'More and more people now ask AI chatbots for advice about their health, money and relationships. Do the advantages of this development outweigh the disadvantages?'],
+    ['p76', 'Advantages–Disadvantages', 'urban', 'Some cities charge drivers a fee to enter the city centre at busy times in order to reduce traffic. Do the advantages of this policy outweigh the disadvantages?'],
+    ['p77', 'Problem–Solution', 'society', 'In many large cities, the number of homeless people is increasing. What are the causes of this problem, and what measures could be taken to solve it?'],
+    ['p78', 'Problem–Solution', 'education', 'Many young people leave school without practical life skills such as managing money or cooking. Why is this the case, and what can be done to improve the situation?'],
+    ['p79', 'Two-part question', 'media', 'Many people now prefer to watch films at home rather than in the cinema. Why is this happening, and is it a positive or negative development?'],
+    ['p80', 'Two-part question', 'society', 'In many countries, people are getting married later in life than in the past. Why is this happening, and is it a positive or negative development?'],
   ]);
   g.MODELS = (g.MODELS || []).concat([
     { id: 't2-p31', task: 2, ref: 'p31', band: '8.0', words: 285,
