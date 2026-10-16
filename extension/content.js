@@ -65,7 +65,7 @@
     'Khóa AI tạm hết lượt miễn phí – thử lại sau ít phút.': 'Your AI key is out of free quota for now – try again in a few minutes.',
     'Khóa AI không hợp lệ – kiểm tra lại trong Cài đặt.': 'Invalid AI key – check it in Settings.', 'Không phân tích được lúc này.': 'Could not analyze right now.',
     '⚙️ Mở Cài đặt': '⚙️ Open Settings', 'Nghĩa trong ngữ cảnh:': 'Meaning in context:', 'Ngữ pháp:': 'Grammar:', 'Cụm hay đi kèm:': 'Common collocations:',
-    '✓ Đã chép': '✓ Copied', 'Lexkite cấp {lv}': 'Lexkite level {lv}', 'mới': 'new', '📒 {n} từ bạn đã học xuất hiện trên trang này': '📒 {n} words you have learned appear on this page',
+    '✓ Đã chép': '✓ Copied', 'Ảnh không đúng – ẩn ảnh này': 'Wrong picture – hide it', 'Lexkite cấp {lv}': 'Lexkite level {lv}', 'mới': 'new', '📒 {n} từ bạn đã học xuất hiện trên trang này': '📒 {n} words you have learned appear on this page',
   };
   // Nghĩa chính: nếu nghĩa tóm tắt quá ngắn/trùng từ gốc thì lấy nghĩa đầu tiên của mục từ
   const viMain = (e, shown) => { const v = String(e.vi || '').trim(); if (v.length >= 3 && v.toLowerCase() !== String(e.word || '').toLowerCase()) return v; const f = (shown || []).find(x => x.vi && x.vi.length); return f ? f.vi.slice(0, 3).join(', ') : v; };
@@ -78,6 +78,7 @@
   let host = null, root = null, enabled = true, selectMode = 'icon', current = null, markOn = true, acadOn = true, prefs = {};
   const applySettings = st => { st = st || {}; prefs = st; enabled = st.dblclickOn !== false; selectMode = st.selectMode || 'icon'; markOn = st.markKnown !== false; acadOn = st.markAcademic !== false; };
   chrome.storage.local.get('settings').then(r => applySettings(r.settings));
+  const badImg = new Set(); chrome.storage.local.get('badImg').then(r => (r.badImg || []).forEach(w => badImg.add(w))).catch(() => {}); // từ người dùng đã báo "ảnh không đúng"
   chrome.storage.onChanged.addListener(ch => { if (ch.settings) applySettings(ch.settings.newValue); });
 
   // Trusted Types: YouTube và một số trang bắt buộc dùng TrustedHTML cho innerHTML
@@ -109,30 +110,30 @@
     .vi { color: #0e8f8e; font-weight: 700; font-size: 15px; margin-top: 2px; }
     .body { padding: 0 14px 12px; max-height: 340px; overflow: auto; overflow-anchor: none; } /* không tự giữ vị trí cuộn khi nội dung nạp thêm → dòng đầu không bị đẩy khuất */
     .def { margin: 4px 0; }
-    .ex { color: #6b6f85; font-style: italic; font-size: 13px; }
+    .ex { color: #5d6177; font-style: italic; font-size: 13px; }
     .pg { margin: 8px 0; padding-left: 8px; border-left: 3px solid #e4e6f2; } .pg .chip { margin: 0 6px 0 0; } .pvi { font-weight: 600; }
-    .pdef { margin: 3px 0 0; font-size: 13.5px; } .wn-x { margin: 8px 0 2px; padding: 7px 9px; border-radius: 10px; background: #fdf3ee; font-size: 12.5px; line-height: 1.5; } .wn-x div + div { margin-top: 3px; } .pex { display: block; color: #6b6f85; font-size: 13px; }
-    .ctx { margin-top: 8px; padding: 8px 10px; background: #fff8e6; border-radius: 10px; font-size: 13px; }
+    .pdef { margin: 3px 0 0; font-size: 13.5px; } .wn-x { margin: 8px 0 2px; padding: 7px 9px; border-radius: 10px; background: #fdf3ee; color: #1c1d2b; font-size: 12.5px; line-height: 1.5; } .wn-x div + div { margin-top: 3px; } .pex { display: block; color: #6b6f85; font-size: 13px; }
+    .ctx { margin-top: 8px; padding: 8px 10px; background: #fff8e6; color: #1c1d2b; border-radius: 10px; font-size: 13px; }
     .ctx b { font-style: normal; }
-    mark { background: #fde68a; color: inherit; border-radius: 3px; padding: 0 2px; }
+    mark { background: #fde68a; color: #3b2a00; border-radius: 3px; padding: 0 2px; font-weight: 700; }
     .foot { display: flex; gap: 8px; padding: 10px 14px; border-top: 1px solid #eef0f6; background: #fafbfe; align-items: center; }
     .btn { border: 1px solid #e3e5ef; background: #fff; border-radius: 10px; padding: 7px 12px; font: 600 13px/1 inherit; font-family: inherit; cursor: pointer; color: #1c1d2b; }
     .btn.p { background: #CC3F1C; border-color: #CC3F1C; color: #fff; }
     .btn[disabled] { opacity: .6; cursor: default; }
     .lw { cursor: pointer; border-radius: 3px; }
     .lw:hover { background: #fdece6; color: #CC3F1C; }
-    .lw.hlw { background: #fde68a; font-weight: 700; }
-    .lw.chipw { display: inline-block; padding: 1px 8px; margin: 2px; border-radius: 999px; background: #f1f2f8; font-weight: 600; }
-    .chipw { display: inline-block; padding: 1px 8px; margin: 2px; border-radius: 999px; background: #f1f2f8; font-weight: 600; font-size: 12px; }
-    .st { margin-top: 10px; padding: 9px 10px; border-radius: 12px; background: #fdf6f2; border: 1px solid #f6d9cd; }
+    .lw.hlw { background: #fde68a; color: #3b2a00; font-weight: 700; }
+    .lw.chipw { display: inline-block; padding: 1px 8px; margin: 2px; border-radius: 999px; background: #f1f2f8; color: #1c1d2b; font-weight: 600; }
+    .chipw { display: inline-block; padding: 1px 8px; margin: 2px; border-radius: 999px; background: #f1f2f8; color: #1c1d2b; font-weight: 600; font-size: 12px; }
+    .st { margin-top: 10px; padding: 9px 10px; border-radius: 12px; background: #fdf6f2; color: #1c1d2b; border: 1px solid #f6d9cd; }
     .st.ai { background: #f0fdf4; border-color: #bbf7d0; }
     .st-i { padding: 6px 0; border-bottom: 1px dashed #f6d9cd; }
     .st-i:last-child { border-bottom: 0; }
-    .st-n { font-weight: 800; color: #CC3F1C; }
+    .st-n { font-weight: 800; color: #B23412; }
     .st-m { color: #6b7280; font-style: italic; }
     .st-v { font-size: 12.5px; color: #374151; margin-top: 3px; line-height: 1.5; }
     .st-l { margin-top: 4px; border: 0; background: none; color: #CC3F1C; font-weight: 700; font-size: 12px; cursor: pointer; padding: 0; }
-    .back { border: 0; background: #f1f2f8; border-radius: 8px; width: 26px; height: 26px; margin-right: 6px; cursor: pointer; font-weight: 800; vertical-align: middle; }
+    .back { border: 0; background: #f1f2f8; color: #1c1d2b; border-radius: 8px; width: 26px; height: 26px; margin-right: 6px; cursor: pointer; font-weight: 800; vertical-align: middle; }
     .back:hover { background: #CC3F1C; color: #fff; }
     .x { margin-left: auto; border: 0; background: none; font-size: 18px; cursor: pointer; color: #6b6f85; }
     .muted { color: #6b6f85; padding: 18px 14px; }
@@ -145,18 +146,43 @@
     .tr-head { display: flex; gap: 8px; align-items: center; padding: 12px 14px 8px; }
     .src { color: #6b6f85; font-size: 13px; margin-bottom: 10px; max-height: 120px; overflow: auto; border-left: 3px solid #e3e5ef; padding-left: 8px; }
     .tr { font-size: 15.5px; line-height: 1.55; color: inherit; font-weight: 500; }
-    @media (prefers-color-scheme: dark) {
-      .box { background: #1b1c26; color: #ecedf5; border-color: #2e3040; }
-      .pg { border-color: #2e3040; } .wn-x { background: #24233a; } .pic, .spk, .chip { background: #242533; } .foot { background: #171821; border-color: #2e3040; }
-      .btn { background: #242533; border-color: #2e3040; color: #ecedf5; } .ctx { background: #2b2618; }
-      .vi { color: #2dd4bf; } .lv { background: #3a2620; color: #ff9b7a; }
+    /* Giao diện tối: chỉ khi TRANG tối (lớp .dark gắn lúc hiện bảng) – bảng sáng trên trang sáng dù máy để chế độ tối */
+    .box.dark { background: #1b1c26; color: #ecedf5; border-color: #2e3040; }
+    .dark .pg { border-color: #2e3040; } .dark .wn-x { background: #24233a; color: #ecedf5; } .dark .pic, .dark .spk, .dark .chip { background: #2a2b3a; }
+    .dark .chip { color: #c3c6d6; } .dark .ipa, .dark .ex, .dark .src, .dark .pex, .dark .st-m, .dark .muted, .dark .x { color: #b4b8cc; }
+    .dark .foot { background: #171821; border-color: #2e3040; }
+    .dark .btn { background: #2a2b3a; border-color: #3a3c50; color: #ecedf5; } .dark .btn.p { background: #CC3F1C; border-color: #CC3F1C; color: #fff; }
+    .dark .ctx { background: #2b2618; color: #f3ecd9; } .dark .st { background: #2a1f1b; border-color: #5a3a2e; color: #ecedf5; } .dark .st-v { color: #d6d8e4; } .dark .st-n, .dark .st-l { color: #ff9b7a; }
+    .dark .st.ai { background: #13261b; border-color: #285c3a; }
+    .dark .vi { color: #2dd4bf; } .dark .lv { background: #3a2620; color: #ff9b7a; } .dark .spk { color: #ffb199; } .dark .spk:hover { background: #CC3F1C; color: #fff; }
+    .dark .lw.chipw, .dark .chipw, .dark .back { background: #2a2b3a; color: #ecedf5; } .dark .lw:hover { background: #3a2620; color: #ffb199; }
+    .dark .inDeck { background: #13261b; color: #6ee7a0; }
+    /* ảnh minh họa: nút "Ảnh không đúng" khi rê chuột */
+    .pic { position: relative; } .pic .noimg { position: absolute; right: 3px; top: 3px; width: 20px; height: 20px; border-radius: 50%; border: 0; background: rgba(0,0,0,.6); color: #fff; font-size: 11px; line-height: 20px; cursor: pointer; opacity: 0; transition: opacity .15s; padding: 0; }
+    .pic:hover .noimg { opacity: 1; }
     }`;
 
+  // Trang tối hay sáng? Lấy màu nền thật dưới vị trí bảng tra (đi ngược lên cha tới khi gặp nền không trong suốt)
+  const pageDark = rect => {
+    try {
+      const x = Math.min(innerWidth - 2, Math.max(1, rect ? (rect.left || 0) + 2 : innerWidth / 2)), y = Math.min(innerHeight - 2, Math.max(1, rect ? (rect.top || 0) + 2 : innerHeight / 2));
+      let el = document.elementFromPoint(x, y);
+      if (el && host && (el === host || host.contains(el))) el = document.body;
+      for (; el && el !== document.documentElement.parentNode; el = el.parentElement) {
+        const m = getComputedStyle(el).backgroundColor.match(/rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)(?:,\s*([\d.]+))?/);
+        if (m && (m[4] === undefined || +m[4] > 0.5)) { const [r, g, b] = [+m[1], +m[2], +m[3]]; return (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255 < 0.42; }
+      }
+      const cs = getComputedStyle(document.documentElement).colorScheme || '';
+      return /dark/.test(cs) && !/light/.test(cs);
+    } catch (e) { return false; }
+  };
   function ensureHost() {
     const parent = document.fullscreenElement || document.documentElement;
     if (host && host.parentNode === parent) return;
     if (host) { parent.appendChild(host); return; }
     host = document.createElement('ielts-lexi-popup');
+    // CSS của trang không được đổi vị trí/hiển thị/màu của phần tử gốc (transform/filter/opacity… làm lệch bảng tra)
+    host.style.cssText = 'all:initial !important;position:fixed !important;left:0 !important;top:0 !important;width:0 !important;height:0 !important;display:block !important;z-index:2147483647 !important;transform:none !important;filter:none !important;opacity:1 !important;visibility:visible !important;contain:style !important';
     root = host.attachShadow({ mode: navigator.webdriver ? 'open' : 'closed' }); // 'open' chỉ khi chạy kiểm thử tự động (scripts/test/ext-e2e.mjs)
     root.innerHTML = H(`<style>${CSS}</style><div class="box" hidden></div><button class="fab" hidden title="${tx('Dịch với Lexkite')}">🌐</button>`);
     parent.appendChild(host);
@@ -377,7 +403,7 @@
     ensureHost();
     hideFab();
     const b = box();
-    b.hidden = false;
+    b.hidden = false; b.classList.toggle('dark', pageDark(rect));
     b.innerHTML = H(`<div class="head"><div class="pic">📘</div><div style="flex:1"><div class="w">${esc(word)}</div><div class="sk" style="width:60%"></div><div class="sk" style="width:40%"></div></div></div><div class="body"><div class="sk"></div><div class="sk" style="width:80%"></div></div>`);
     position(rect);
     current = word;
@@ -416,7 +442,7 @@
       const ctxHtml = context ? linkify(context, word) : '';
       b.innerHTML = H(`
         <div class="head">
-          ${e.image ? `<div class="pic"><img src="${esc(e.image)}" alt="" referrerpolicy="no-referrer"></div>` : e.emoji ? `<div class="pic">${esc(e.emoji)}</div>` : `<div class="pic ltr" aria-hidden="true">${esc((e.word || '?').charAt(0))}</div>`}
+          ${e.image && !badImg.has(e.word) ? `<div class="pic"><img src="${esc(e.image)}" alt="${esc(e.word)}" referrerpolicy="no-referrer"><button class="noimg" title="${tx('Ảnh không đúng – ẩn ảnh này')}" aria-label="${tx('Ảnh không đúng – ẩn ảnh này')}">✕</button></div>` : e.emoji ? `<div class="pic">${esc(e.emoji)}</div>` : ''}
           <div style="min-width:0">
             <div>${hist.length ? `<button class="back" title="${tx('Quay lại từ trước')}">←</button>` : ''}<span class="w">${esc(e.word)}</span>${e.pos ? `<span class="chip">${esc(UI_LANG === 'vi' ? e.pos : toEn(e.pos))}</span>` : ''}${e.level ? `<span class="chip lv" title="CEFR">${esc(e.level)}</span>` : ''}${saved || didSave ? `<span class="chip inDeck">${tx('✓ Đã trong sổ thẻ')}</span>` : ''}</div>
             <div class="ipa">${esc(e.ipa || '')}${e.ipaUS && e.ipaUS !== e.ipa ? ` · <span title="${tx('Anh–Mỹ')}">${esc(e.ipaUS)}</span>` : ''}</div>
@@ -438,7 +464,9 @@
         </div>`);
       const img = b.querySelector('.pic img');
       // Ảnh bị chặn bởi CSP của trang (vd. google.com chỉ cho ảnh cùng tên miền) → nhờ service worker tải rồi gắn dạng data: URL; vẫn lỗi → chữ cái/emoji
-      const noPic = () => { const p = img.parentElement; if (!p) return; if (e.emoji) p.textContent = e.emoji; else { p.className = 'pic ltr'; p.textContent = (e.word || '?').charAt(0); } };
+      const noPic = () => { const p = img.parentElement; if (!p) return; if (e.emoji) p.textContent = e.emoji; else p.remove(); }; // không có ảnh hợp lệ → bỏ hẳn ô ảnh
+      const nb = b.querySelector('.pic .noimg');
+      if (nb) nb.onclick = ev => { ev.stopPropagation(); badImg.add(e.word); try { chrome.storage.local.set({ badImg: [...badImg].slice(-500) }); } catch (x) { /* bỏ qua */ } const p = nb.parentElement; if (e.emoji) p.textContent = e.emoji; else p.remove(); };
       if (img) img.onerror = () => { if (img.dataset.retried || /^data:/.test(img.src)) return noPic(); img.dataset.retried = 1; chrome.runtime.sendMessage({ type: 'imgData', url: e.image }).then(r => { if (r && r.data) img.src = r.data; else noPic(); }).catch(noPic); };
       b.querySelectorAll('.spk[data-acc]').forEach(x => x.onclick = () => sayWord(x.dataset.acc));
       b.querySelector('.spk[data-slow]').onclick = () => sayWord(accent, 0.55);
@@ -585,7 +613,7 @@
     ensureHost();
     hideFab();
     const b = box();
-    b.hidden = false;
+    b.hidden = false; b.classList.toggle('dark', pageDark(info && info.rect));
     current = info.text;
     b.innerHTML = H(`<div class="muted">${tx('⏳ Đang dịch…')}</div>`);
     position(info.rect);
@@ -733,7 +761,7 @@
     st.textContent = `vb-mark{background:linear-gradient(transparent 60%,var(--vbc,rgba(124,58,237,.3)) 60%);border-radius:2px;cursor:help;color:inherit}
       vb-mark[data-l="1"]{--vbc:rgba(239,68,68,.38)}vb-mark[data-l="2"]{--vbc:rgba(245,158,11,.4)}vb-mark[data-l="3"]{--vbc:rgba(234,179,8,.4)}
       vb-mark[data-l="4"],vb-mark[data-l="5"]{--vbc:rgba(34,197,94,.35)}vb-mark[data-l="0"]{--vbc:rgba(204,63,28,.22)}
-      vb-mark[data-a]{background:none;border-bottom:2px dotted #E5502F;border-radius:0}
+      vb-mark[data-a]{background:none;border-bottom:1.5px solid rgba(31,122,114,.55);border-radius:0;text-decoration:none} /* gạch xanh mảnh – không giống gạch đỏ lỗi chính tả */
       .ytp-caption-segment .vbw.known{box-shadow:inset 0 -.18em 0 rgba(34,197,94,.9)}`;
     (document.head || document.documentElement).appendChild(st);
   }

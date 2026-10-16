@@ -22,10 +22,11 @@ const ARTICLE = `<!doctype html><html lang="en"><head><meta charset="utf-8"><tit
 <h1>Why cities are planting forests</h1>
 <p>Urban planners argue that trees are infrastructure. Dense canopies improve the <span id="w">resilience</span> of neighbourhoods during heatwaves.</p>
 <p id="s">Although the initial cost is considerable, the long-term benefits to public health far outweigh the investment.</p>
-<p>A city <span id="n">forest</span> is worth <span id="adv">exactly</span> what people believe it is worth.</p>
+<p>A city <span id="n">forest</span> is worth <span id="adv">exactly</span> what people believe it is worth. Green space is <span id="adj">available</span> to everyone.</p>
 <p><textarea id="ta" rows="3" cols="60">The committee reached a unanimous decision after a long debate.</textarea></p>
 <p><input id="inp" value="sustainable development goals" size="40"></p></body></html>`;
 const CSP_PAGE = ARTICLE.replace('<title>', '<meta http-equiv="Content-Security-Policy" content="img-src \'self\'"><title>');
+const DARK = ARTICLE.replace('<style>', '<style>html,body{background:#111418;color:#e6e6e6}');
 const FRAME = `<!doctype html><html><body><h2>Frame host</h2><iframe id="f" src="https://t1.example.com/article" width="900" height="500"></iframe></body></html>`;
 const RTL = `<!doctype html><html dir="rtl" lang="ar"><head><meta charset="utf-8"></head><body style="font:18px sans-serif;padding:40px"><p>هذه فقرة عربية فيها كلمة <span id="w">resilience</span> باللغة الإنجليزية.</p></body></html>`;
 
@@ -37,6 +38,7 @@ const ctx = await chromium.launchPersistentContext(prof, {
 await ctx.route('https://t1.example.com/**', r => r.fulfill({ contentType: 'text/html', body: ARTICLE }));
 await ctx.route('https://t2.example.com/**', r => r.fulfill({ contentType: 'text/html', body: CSP_PAGE, headers: { 'Content-Security-Policy': "img-src 'self'" } }));
 await ctx.route('https://t3.example.com/**', r => r.fulfill({ contentType: 'text/html', body: FRAME }));
+await ctx.route('https://t5.example.com/**', r => r.fulfill({ contentType: 'text/html', body: DARK }));
 await ctx.route('https://t4.example.com/**', r => r.fulfill({ contentType: 'text/html', body: RTL }));
 ctx.on('page', p => {
   p.on('pageerror', e => errors.push(`page ${p.url().slice(0, 60)}: ${e.message}`));
@@ -56,6 +58,24 @@ const card = (page, frame) => (frame || page).evaluate(() => {
   const h = document.querySelector('ielts-lexi-popup'), r = h && h.shadowRoot; if (!r) return null;
   const b = r.querySelector('.box'), f = r.querySelector('.fab'), img = r.querySelector('.pic img'), pic = r.querySelector('.pic');
   return { visible: !!(b && !b.hidden), text: b ? b.innerText : '', fab: !!(f && !f.hidden), img: img ? img.src.slice(0, 60) : '', letter: pic && pic.classList.contains('ltr'), back: !!r.querySelector('.back, [id=back], .hb'), html: b ? b.innerHTML.length : 0 };
+});
+// Tương phản WCAG của mọi chữ trong bảng tra (nền = nền không trong suốt gần nhất trong shadow root; trộn alpha với nền .box)
+const contrast = (page, frame) => (frame || page).evaluate(() => {
+  const h = document.querySelector('ielts-lexi-popup'), r = h && h.shadowRoot; if (!r) return null;
+  const box = r.querySelector('.box:not([hidden])'); if (!box) return null;
+  const P = c => { const m = c.match(/rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)(?:,\s*([\d.]+))?/); return m ? [+m[1], +m[2], +m[3], m[4] === undefined ? 1 : +m[4]] : [0, 0, 0, 0]; };
+  const L = ([r, g, b]) => [r, g, b].map(v => { v /= 255; return v <= .03928 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4; }).reduce((s, v, i) => s + v * [.2126, .7152, .0722][i], 0);
+  const bgOf = el => { const st = []; for (let e = el; e; e = e.parentElement) { const c = P(getComputedStyle(e).backgroundColor); if (c[3] > 0) st.push(c); if (c[3] >= 1 || e === box) break; } let out = [255, 255, 255]; for (const c of st.reverse()) out = out.map((v, i) => v * (1 - c[3]) + c[i] * c[3]); return out; };
+  const bad = []; let n = 0;
+  for (const el of box.querySelectorAll('*')) {
+    if (![...el.childNodes].some(t => t.nodeType === 3 && t.nodeValue.trim().length > 1)) continue;
+    const cs = getComputedStyle(el); if (cs.visibility === 'hidden' || cs.display === 'none' || el.getClientRects().length === 0) continue;
+    const fg = P(cs.color), bg = bgOf(el), mixed = fg.slice(0, 3).map((v, i) => v * fg[3] + bg[i] * (1 - fg[3]));
+    const a = L(mixed), b = L(bg), ratio = (Math.max(a, b) + .05) / (Math.min(a, b) + .05);
+    const big = parseFloat(cs.fontSize) >= 24 || (parseFloat(cs.fontSize) >= 18.66 && +cs.fontWeight >= 700);
+    n++; if (ratio < (big ? 3 : 4.5)) bad.push(`${el.className || el.tagName}:"${el.textContent.trim().slice(0, 18)}" ${ratio.toFixed(2)}`);
+  }
+  return { n, bad, dark: box.classList.contains('dark') };
 });
 const hide = page => page.keyboard.press('Escape').catch(() => {});
 const dbl = async (page, sel, frame) => { const loc = (frame || page).locator(sel); await loc.scrollIntoViewIfNeeded(); await loc.dblclick(); };
@@ -89,6 +109,7 @@ await shot(pg, 'lookup-resilience');
 rec('bấm đúp: hiện bảng tra', c && c.visible, c && c.text.slice(0, 80));
 rec('bấm đúp: đúng từ + phiên âm', c && /resilience/i.test(c.text) && /\/.+\//.test(c.text), c && c.text.slice(0, 120));
 if (L !== 'vi') rec('bảng tra: không lẫn tiếng Việt', c && !VI.test(c.text), c && (c.text.match(new RegExp('.{0,25}' + VI.source + '.{0,25}', 'i')) || [''])[0]);
+{ const k = await contrast(pg); rec('tương phản bảng tra (trang sáng) ≥ 4.5:1', k && !k.bad.length, k ? `${k.n} chữ; lỗi: ${k.bad.slice(0, 4).join(' | ')}` : 'không đọc được'); rec('trang sáng → bảng tra sáng', k && !k.dark); }
 rec('bảng tra: không treo "Đang dịch câu"', c && !/⏳/.test(c.text), c && (c.text.match(/⏳.{0,40}/) || [''])[0]);
 // tra lồng: bấm đúp 1 từ trong định nghĩa
 const nested = await pg.evaluate(() => { const r = document.querySelector('ielts-lexi-popup').shadowRoot; const el = [...r.querySelectorAll('.box *')].find(e => e.children.length === 0 && /\b(ability|capacity|recover|quality|difficult\w*)\b/i.test(e.textContent)); if (!el) return null; const m = el.textContent.match(/\b(ability|capacity|recover|quality|difficult\w*)\b/i); const tn = [...el.childNodes].find(n => n.nodeType === 3 && n.nodeValue.includes(m[0])); if (!tn) return null; const rg = document.createRange(); const i = tn.nodeValue.indexOf(m[0]); rg.setStart(tn, i); rg.setEnd(tn, i + m[0].length); const b = rg.getBoundingClientRect(); return { x: b.x + b.width / 2, y: b.y + b.height / 2, w: m[0] }; });
@@ -101,6 +122,10 @@ rec('danh từ "forest": có ảnh minh họa', c && c.img && !c.letter, c && (c
 await hide(pg);
 await dbl(pg, '#adv'); await sleep(7000); c = await card(pg);
 rec('trạng từ "exactly": hiện bảng tra', c && c.visible && /exactly/i.test(c.text));
+rec('trạng từ "exactly": không ảnh, không ô chữ cái', c && !c.img && !c.letter, c && (c.img || (c.letter ? 'letter' : 'none')));
+await hide(pg);
+await dbl(pg, '#adj'); await sleep(7000); c = await card(pg);
+rec('tính từ "available": không ảnh lệch nghĩa, không ô chữ cái', c && c.visible && !c.img && !c.letter, c && (c.img || (c.letter ? 'letter' : 'none')));
 await hide(pg);
 
 // ---------- 2. Bôi đen: 3 chế độ ----------
@@ -108,6 +133,7 @@ const selectSentence = async () => { const b = await pg.locator('#s').boundingBo
 await selectSentence(); await sleep(800); c = await card(pg);
 rec('bôi đen (chế độ nút 🌐): hiện nút', c && c.fab);
 if (c && c.fab) { await pg.evaluate(() => document.querySelector('ielts-lexi-popup').shadowRoot.querySelector('.fab').click()); await sleep(7000); c = await card(pg); await shot(pg, 'translate-icon'); rec('bấm 🌐: hiện bản dịch', c && c.visible && c.text.length > 60, c && c.text.slice(0, 120)); }
+{ const k = await contrast(pg); rec('tương phản bản dịch ≥ 4.5:1', k && !k.bad.length, k ? k.bad.slice(0, 4).join(' | ') : 'không đọc được'); }
 if (L !== 'vi' && c) rec('bản dịch: không lẫn tiếng Việt', !VI.test(c.text), (c.text.match(new RegExp('.{0,25}' + VI.source + '.{0,25}', 'i')) || [''])[0]);
 await hide(pg); await pg.mouse.click(5, 5);
 await setSettings({ selectMode: 'auto' }); await sleep(500);
@@ -151,7 +177,13 @@ rec('trang RTL (Ả Rập): bảng tra hiện', c && c.visible);
 await p4.close();
 await pg.emulateMedia({ colorScheme: 'dark' }); await pg.reload(); await sleep(2000);
 await dbl(pg, '#w'); await sleep(6000); c = await card(pg); await shot(pg, 'dark');
-rec('giao diện tối: bảng tra hiện', c && c.visible);
+rec('máy chế độ tối + trang sáng: bảng tra hiện', c && c.visible);
+{ const k = await contrast(pg); rec('máy tối + trang sáng → bảng tra SÁNG, tương phản đạt', k && !k.dark && !k.bad.length, k ? `dark=${k.dark} ${k.bad.slice(0, 3).join(' | ')}` : ''); }
+await hide(pg);
+const p5 = await ctx.newPage(); await p5.goto('https://t5.example.com/dark'); await sleep(2000);
+await dbl(p5, '#w'); await sleep(7000); await shot(p5, 'dark-page');
+{ const k = await contrast(p5); rec('trang tối → bảng tra TỐI, tương phản đạt', k && k.dark && !k.bad.length, k ? `dark=${k.dark} ${k.bad.slice(0, 3).join(' | ')}` : 'không hiện'); }
+await p5.close();
 await pg.emulateMedia({ colorScheme: 'light' }); await hide(pg);
 
 // ---------- 4. Popup ----------
@@ -248,6 +280,26 @@ await wp.emulateMedia({ colorScheme: 'dark' }); await sleep(300);
 if (ws.us[0]) { await wp.mouse.click(ws.us[0].x + ws.us[0].w / 2, ws.us[0].y - 6); await sleep(700); await shot(wp, 'writecheck-dark'); }
 await wp.emulateMedia({ colorScheme: 'light' });
 await setSettings({ wcOn: false }); await wp.close();
+
+// ---------- 6b. Trang web thật đa dạng ----------
+if (['en', 'vi'].includes(L)) {
+  const SITES = [['https://en.wikipedia.org/wiki/Vocabulary', 'light'], ['https://www.bbc.com/news', 'light'], ['https://github.com/microsoft/vscode', 'light'], ['https://github.com/microsoft/vscode', 'dark'],
+    ['https://developer.apple.com/app-store-connect/', 'light'], ['https://news.ycombinator.com/', 'light'], ['https://www.theguardian.com/international', 'light'], ['https://stackoverflow.com/questions', 'light'],
+    ['https://old.reddit.com/r/EnglishLearning/', 'light'], ['https://docs.python.org/3/tutorial/index.html', 'light'], ['https://developer.mozilla.org/en-US/docs/Web/CSS', 'dark'], ['https://ar.wikipedia.org/wiki/%D9%84%D8%BA%D8%A9_%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A%D8%A9', 'light']];
+  for (const [u, scheme] of SITES) {
+    const sp = await ctx.newPage(); await sp.emulateMedia({ colorScheme: scheme });
+    const host = new URL(u).hostname + (scheme === 'dark' ? ' (dark)' : '');
+    try { await sp.goto(u, { waitUntil: 'domcontentloaded', timeout: 30000 }); } catch (e) { rec(`trang thật ${host}: tải trang`, true, 'bỏ qua – không tải được trên CI'); await sp.close(); continue; }
+    await sleep(4000);
+    const wd = await sp.evaluate(() => { const tw = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT); let n, k = 0; while ((n = tw.nextNode()) && k < 4000) { k++; const m = /\b[a-z]{6,12}\b/.exec(n.nodeValue); const pe = n.parentElement; if (!m || !pe || pe.closest('a,button,input,textarea,select,nav,header,script,style,[contenteditable]')) continue; const r = document.createRange(); r.setStart(n, m.index); r.setEnd(n, m.index + m[0].length); const b = r.getBoundingClientRect(); if (b.width > 8 && b.top > 60 && b.bottom < innerHeight - 60 && document.elementFromPoint(b.x + b.width / 2, b.y + b.height / 2) === pe) return { x: b.x + b.width / 2, y: b.y + b.height / 2, w: m[0] }; } return null; }).catch(() => null);
+    if (!wd) { rec(`trang thật ${host}: có chữ tiếng Anh để thử`, true, 'không tìm thấy từ phù hợp – bỏ qua'); await sp.close(); continue; }
+    await sp.mouse.dblclick(wd.x, wd.y); await sleep(7000);
+    const k = await contrast(sp); await shot(sp, 'site-' + host.replace(/[^a-z0-9]+/gi, '_'));
+    rec(`trang thật ${host}: bấm đúp "${wd.w}" hiện bảng tra`, !!k, k ? `${k.n} chữ` : 'không hiện');
+    if (k) rec(`trang thật ${host}: tương phản ≥ 4.5:1`, !k.bad.length, k.bad.slice(0, 3).join(' | '));
+    await sp.close();
+  }
+}
 
 // ---------- 7. Lỗi & nhật ký ----------
 const errLog = (await store('errLog')) || [];

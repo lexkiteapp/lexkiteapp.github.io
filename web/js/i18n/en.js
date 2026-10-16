@@ -2347,6 +2347,7 @@
   '{n} từ đang ở thời điểm sắp quên – ôn 3 phút để nhớ lâu hơn.': '{n} words are about to be forgotten – review for 3 minutes to remember them longer.',
   'Tra từ “%s” với Lexkite': 'Look up “%s” with Lexkite',
   'Dịch đoạn đã chọn sang tiếng Việt': 'Translate selection to Vietnamese',
+  'Ảnh không đúng – ẩn ảnh này': 'Wrong picture – hide it',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* Tên & giải thích cấu trúc ngữ pháp (web/js/structures.js) – bảng "Dịch đoạn đã chọn" trên web và add-on. Định dạng JSON để add-on đọc được. */
