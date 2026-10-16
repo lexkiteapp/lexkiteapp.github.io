@@ -19,7 +19,7 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1
           npx playwright install --with-deps chromium
-          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-cjk >/dev/null
+          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core >/dev/null
           bash scripts/build-extension.sh
           node scripts/store-shots.mjs /tmp/store-shots
       - name: Lưu vào nhánh store-shots
