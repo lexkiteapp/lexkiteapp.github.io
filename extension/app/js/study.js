@@ -71,6 +71,8 @@
   }
 
   routes.review = function (arg, query) {
+    // Từ thông báo "sắp quên" (checkReminder): ôn đúng nhóm từ sắp quên bằng chế độ học nhanh (nguồn 'forgetting')
+    if (query && query.get && query.get('src') === 'forgetting' && App.forgetting().length) { location.hash = '#/practice/learn?src=forgetting'; return; }
     const ahead = Math.min(7, Math.max(0, +((query && query.get && query.get('ahead')) || 0)));
     if (!Object.keys(state.cards).length) {
       view.innerHTML = `<div class="study-wrap"><div class="card empty"><div class="em">🃏</div><h2>${t('Chưa có flashcard nào')}</h2><p>${t('Thêm từ từ thư viện hoặc tra từ điển để bắt đầu.')}</p><div class="row center"><a class="btn primary" href="#/library">${t('Mở thư viện')}</a><a class="btn" href="#/dict">${t('Tra từ')}</a></div></div></div>`;

@@ -8,7 +8,7 @@ import { verify, limit } from './sync.js';
 
 const LIMIT_USER = 5, LIMIT_ANON = 3, GLOBAL_DAY = 400, MAX_PROMPT = 14000;
 const WAI_MODEL = '@cf/meta/llama-3.1-8b-instruct-fast';
-const GEMINI = () => 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent'; // khóa gửi qua header x-goog-api-key (nhận cả kiểu AIza… lẫn AQ.…)
+const GEMINI = () => 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent'; // khóa gửi qua header x-goog-api-key (nhận cả kiểu AIza… lẫn AQ.…)
 const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)|https?:\/\/localhost(:\d+)?|capacitor:\/\/localhost|chrome-extension:\/\/[a-z]{32})$/;
 let ready = false;
 
@@ -48,12 +48,15 @@ export async function gemFetch(env, path, key, body, method = 'POST') {
 }
 // Gọi Gemini với khóa xoay vòng (bắt đầu ở vị trí ngẫu nhiên để chia tải); trả { text, key } hoặc null nếu mọi khóa đều lỗi/hết lượt
 export let gemDiag = '';
-export async function geminiCall(env, body, model = 'gemini-2.5-flash') {
+// Mô hình theo thứ tự ưu tiên: Google ngừng cấp 2.5-flash cho khóa mới (2026) → dùng 3.8-flash, 2.5 dự phòng cho khóa cũ
+export const GEM_MODELS = ['gemini-3.8-flash', 'gemini-2.5-flash'];
+export let gemModel = GEM_MODELS[0];
+export async function geminiCall(env, body, model) {
   const keys = await geminiKeys(env); gemDiag = `keys=${keys.length} gem=${!!env.GEM}`; if (!keys.length) return null;
   const start = Math.floor(Math.random() * keys.length);
   for (let n = 0; n < keys.length; n++) {
     const k = keys[(start + n) % keys.length]; if (await isCooling(k)) continue;
-    let r; try { r = await gemFetch(env, `models/${model}:generateContent`, k, body); } catch (e) { continue; }
+    let r; try { for (const m of model ? [model] : GEM_MODELS) { r = await gemFetch(env, `models/${m}:generateContent`, k, body); if (r.status !== 404) { gemModel = m; break; } } } catch (e) { continue; }
     if (!r.ok) gemDiag += ` …${k.slice(-4)}:${r.status}:${(await r.clone().text().catch(() => "")).replace(/\s+/g, " ").slice(0, 400)}`;
     if (!r.ok) console.log('gemini', k.slice(-4), r.status, (await r.clone().text().catch(() => '')).slice(0, 200)); // xem bằng wrangler pages deployment tail
     if (r.status === 429 || r.status === 403 || r.status === 401) { await cool(k); continue; } // hết lượt / khóa hỏng → nghỉ 1 giờ, thử khóa khác
@@ -66,7 +69,7 @@ export async function geminiCall(env, body, model = 'gemini-2.5-flash') {
 
 async function runModel(env, sys, prompt) {
   const g = await geminiCall(env, { systemInstruction: { parts: [{ text: sys }] }, contents: [{ role: 'user', parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0.2 } });
-  if (g) { const out = parseJSON(g.text); if (out) return { out, model: 'gemini-2.5-flash' }; }
+  if (g) { const out = parseJSON(g.text); if (out) return { out, model: gemModel }; }
   if (!env.AI) throw new Error('no-model');
   const res = await env.AI.run(WAI_MODEL, { messages: [{ role: 'system', content: sys + '\nReply with ONE valid JSON object only, no markdown.' }, { role: 'user', content: prompt }], max_tokens: 2048, temperature: 0.2, response_format: { type: 'json_object' } });
   const raw = res && (res.response ?? res.result?.response);

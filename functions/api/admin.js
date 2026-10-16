@@ -175,7 +175,7 @@ const OPS = {
     if (!/^(AIza[\w-]{20,}|AQ\.[\w.-]{20,})$/.test(key)) return { ok: false, error: 'Khóa không đúng định dạng (AIza… hoặc AQ.…)' };
     const list = await gkList(db); if (list.some(x => x.k === key)) return { ok: false, error: 'Khóa này đã có trong danh sách' };
     if (list.length >= 20) return { ok: false, error: 'Tối đa 20 khóa' };
-    const r = await gemFetch(env, 'models/gemini-2.5-flash', key, null, 'GET');
+    let r = await gemFetch(env, 'models/gemini-3.8-flash', key, null, 'GET'); if (r.status === 404) r = await gemFetch(env, 'models/gemini-2.5-flash', key, null, 'GET');
     if (!r.ok) { const m = ((await r.json().catch(() => ({}))).error || {}).message || ''; return { ok: false, error: `Google từ chối khóa (HTTP ${r.status}, khóa nhận được dài ${key.length} ký tự, đuôi …${key.slice(-4)})${m ? ': ' + m.slice(0, 160) : ''}${/location/i.test(m) ? ' – máy chủ Cloudflare đang ở vùng Gemini chưa hỗ trợ' : ''}` }; }
     list.push({ k: key, at: Date.now(), by: who.email }); await gkSave(db, list);
     return { ok: true, last4: key.slice(-4), count: list.length };
