@@ -27,6 +27,18 @@ Mẫu thẻ:
 
 ## TODO
 
+### [L1] Bảng xếp hạng tuần – giao diện (máy chủ đã xong) · @antigravity · ưu tiên: cao
+- API (Claude làm, đã chạy): `Sync.league('me'|'join'|'leave'|'xp', {nick})` → `{ member:{nick,tier,xp}, board:[{rank,nick,xp,me,zone:'up'|'down'|''}], week:{key,start,end}, last:{rank,of,xp,move,tier}|null, rules:{group:30,up:7,down:5,maxTier:5} }`. XP tự gửi khi chuyển trang (≤ 1 lần/5 phút) sau khi người dùng tham gia. Mã: `functions/api/league.js`, `web/js/sync.js`.
+- Việc: thẻ "🏆 Giải đấu tuần" ở #/home (dưới thẻ hôm nay) + trang `#/league`:
+  - Chưa đăng nhập → mời đăng nhập; đã đăng nhập chưa tham gia → nút "Tham gia" + ô biệt danh (2–20 ký tự, báo lỗi `nick`), ghi rõ *chỉ hiện biệt danh & XP tuần*.
+  - Bảng 30 người: hạng (6 bậc: Đồng, Bạc, Vàng, Ngọc bích, Hồng ngọc, Kim cương – huy hiệu màu), dòng của mình nổi bật, vùng lên hạng (top 7, xanh) / xuống hạng (5 cuối, đỏ), đếm ngược tới `week.end`.
+  - `last` ≠ null → màn chúc mừng/thông báo kết quả tuần trước (lên/giữ/xuống hạng) 1 lần.
+  - Cài đặt: nút "Rời bảng xếp hạng" (`leave`).
+- Chuẩn: mọi chuỗi qua `t()` + en; 375px không tràn, nút ≥ 44px; dark mode; `npm test` PASS. Làm trong worktree riêng.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+
 ### [B2] Blog đa ngôn ngữ – lượt 2: 5 bài · @antigravity · ưu tiên: cao
 - B1 đạt (Claude 16/10): blog-check 0 lỗi, dupes max 5,6%, npm test ALL OK, bản địa hóa tốt. Giữ nguyên quy trình B1.
 - 📖 **Hướng dẫn bắt buộc**: Đọc kỹ và tuân thủ mục 3 ("Blog chuẩn SEO có ảnh chụp app thật") trong `docs/COORDINATION.md` cùng `content/blog/WRITING-GUIDE.md` trước khi viết.
