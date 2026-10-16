@@ -45,3 +45,34 @@ jobs:
           gh release delete android-latest --yes --cleanup-tag || true
           gh release create android-latest lexkite.apk --prerelease --title "Lexkite Android (bản mới nhất)" \
             --notes "Bản build tự động từ commit ${GITHUB_SHA::7}. Tải lexkite.apk về điện thoại Android → mở file → cho phép cài từ nguồn này → Cài đặt. (Bản thử nghiệm, chưa lên Google Play.)"
+
+  # Chụp màn hình demo trên Android giả lập (KVM của máy chủ GitHub) – xem nhanh mỗi bản build
+  screens:
+    needs: apk
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: lexkite-android
+      - name: Bật KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules && sudo udevadm trigger --name-match=kvm
+      - uses: reactivecircus/android-emulator-runner@v2
+        continue-on-error: true
+        with:
+          api-level: 34
+          arch: x86_64
+          target: google_apis
+          profile: pixel_7
+          disable-animations: true
+          script: |
+            adb install -r lexkite.apk && mkdir -p shots
+            adb shell monkey -p com.lexkite.app -c android.intent.category.LAUNCHER 1 && sleep 15 && adb exec-out screencap -p > shots/android-1-start.png
+            adb shell cmd uimode night yes && sleep 4 && adb exec-out screencap -p > shots/android-2-dark.png
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lexkite-android-screenshots
+          path: shots/
