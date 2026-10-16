@@ -27,6 +27,24 @@ Mẫu thẻ:
 
 ## TODO
 
+### [S1] Thẻ khoe thành tích để chia sẻ (viral, $0) · @antigravity · ưu tiên: cao
+- Khi nào hiện: (1) xong phiên ôn đạt mục tiêu ngày, (2) chuỗi ngày đạt mốc 3/7/14/30/100, (3) nút "Chia sẻ" ở #/stats và #/me.
+- Thẻ ảnh 1080×1920 (story) + 1080×1080 (bài đăng), vẽ bằng Canvas trên máy: Kit (`Kit.svg('win')` từ `web/js/kit.js`), số từ học hôm nay, chuỗi ngày 🔥, XP tuần, mục tiêu kỳ thi (nếu có), mã QR nhỏ + `lexkite.com` (QR: dùng `extension/qr.js` sẵn có hoặc tương đương nhẹ). Màu theo `docs/BRAND-RULES.md`. KHÔNG ghi số liệu bịa kiểu "vượt 85% người dùng" – chỉ số thật của người dùng.
+- Chia sẻ: `navigator.share({ files: [png] })` (mobile, Instagram/Facebook/WhatsApp/Zalo tự hiện) → nếu không hỗ trợ thì nút Tải ảnh + Sao chép link. App Capacitor: dùng plugin Share nếu đã có.
+- Chữ trên thẻ theo ngôn ngữ giao diện (15 ngôn ngữ, qua `t()` + en), RTL đúng cho ar.
+- File: `web/js/` (module mới tải lười, ≤ 30 KB gz) + `web/css/style.css`. Làm trong worktree riêng; `npm test` PASS; báo cáo kèm 2 ảnh thẻ mẫu (vi, en).
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+### [X1] Xuất dữ liệu: Excel, PDF, Anki .apkg (chống "giam dữ liệu") · @antigravity · ưu tiên: vừa
+- Đã có: sao lưu JSON, xuất/nhập Anki dạng văn bản, CSV (#/settings + trang bộ thẻ, `web/js/app.js` ~dòng 980–1060).
+- Thêm: (1) **Excel .xlsx** không thư viện nặng (SpreadsheetML/zip tối thiểu hoặc thư viện ≤ 30 KB tải lười): cột từ, phiên âm, từ loại, nghĩa, ví dụ, ngữ cảnh đã lưu, cấp CEFR, lần ôn tới; (2) **PDF**: trang in danh sách từ đẹp (CSS `@media print` + `window.print()` → "Lưu thành PDF"), chọn bộ thẻ/chủ đề; (3) **Anki .apkg** (tùy chọn, làm cuối): nếu cần sql.js thì chỉ tải khi bấm xuất.
+- Gom vào 1 khu "📦 Dữ liệu của bạn" ở #/settings, ghi rõ "Dữ liệu là của bạn – xuất bất cứ lúc nào".
+- `web/js/app.js` do Claude giữ: chỉ thêm hàm xuất ở module mới (vd. `web/js/export.js`) + 1 dòng gọi; ghi vào ĐANG LÀM trước khi sửa. Chuỗi qua `t()` + en; `npm test` PASS.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+
 ### [W1] Trang "Tiêu chí chấm" IELTS Writing & Speaking (band 4–9) + bài mẫu nhiều mức band · @antigravity (giao diện) + phiên nội dung (chữ) · ưu tiên: vừa
 - Mục tiêu: người học hiểu vì sao bài được band X và cần làm gì để lên band – chuẩn CONTENT-RULES §2.
 - Nội dung (tự diễn đạt, KHÔNG chép band descriptors chính thức của IELTS): 4 tiêu chí Writing (Task Response/Achievement, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy) và 4 tiêu chí Speaking (Fluency & Coherence, Lexical Resource, Grammatical Range & Accuracy, Pronunciation) × band 4–9; mỗi đề mẫu có 3 bài ở band 5 / 6.5 / 8 kèm nhận xét theo tiêu chí.
