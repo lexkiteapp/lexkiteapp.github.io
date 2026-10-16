@@ -20,3 +20,4 @@
 | 2026-10-17 | TOEIC Speaking & Writing | +20 đề – 20→40 | 157e10fd | phiên nội dung | chờ phiên chính nghiệm thu |
 | 2026-10-17 | TOEIC Speaking & Writing | +20 đề – 40→60, đạt chỉ tiêu | 700f152c | phiên nội dung | chờ phiên chính nghiệm thu |
 | 2026-10-17 | Từ vựng chủ đề | 100 mục (5 chủ đề công sở & đời sống Mỹ) + 100 ghi chú học từ | 9c57d2f8 | phiên nội dung | chờ phiên chính nghiệm thu |
+| 2026-10-17 | Bài đọc ngắn | 15 bài (75 câu) – 210→285 | 244520db | phiên nội dung | chờ phiên chính nghiệm thu |
