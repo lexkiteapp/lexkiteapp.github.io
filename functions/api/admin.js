@@ -116,6 +116,19 @@ const OPS = {
     if (batch.length) await db.batch(batch);
     return { ok: true, n: batch.length };
   },
+  // Chất lượng: kết quả workflow "Rà soát hằng ngày" (health.yml) – điểm = số hạng mục đạt / tổng; dưới 100% = dưới chuẩn
+  async quality() {
+    const c = caches.default, key = new Request('https://cache.lexkite.internal/quality'), hit = await c.match(key); if (hit) return hit.json();
+    const gh = u => fetch(`https://api.github.com/repos/${REPO}/${u}`, { headers: { 'User-Agent': 'lexkite-admin', Accept: 'application/vnd.github+json' } }).then(r => r.json());
+    const runs = ((await gh('actions/workflows/health.yml/runs?per_page=14')).workflow_runs || []).filter(r => r.status === 'completed');
+    const CHECK = /^(Kiểm thử|Lẫn tiếng|Kiểm tra kiểu|Cú pháp|Bản live)/;
+    const steps = async r => (((await gh(`actions/runs/${r.id}/jobs`)).jobs || [])[0] || { steps: [] }).steps.filter(x => CHECK.test(x.name)).map(x => ({ name: x.name, ok: x.conclusion === 'success' }));
+    const latest = runs[0] ? await steps(runs[0]) : [];
+    const score = latest.length ? Math.round(latest.filter(x => x.ok).length / latest.length * 100) : null;
+    const out = { score, standard: 100, at: runs[0] ? Date.parse(runs[0].updated_at) : 0, url: runs[0] ? runs[0].html_url : '', checks: latest, history: runs.map(r => ({ at: Date.parse(r.updated_at), ok: r.conclusion === 'success', url: r.html_url })) };
+    await c.put(key, new Response(JSON.stringify(out), { headers: { 'Cache-Control': 'max-age=600' } }));
+    return out;
+  },
   async alerts(db) {
     const now = Date.now(), out = [];
     try {

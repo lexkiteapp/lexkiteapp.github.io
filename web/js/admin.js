@@ -53,7 +53,7 @@
 
   const VIEWS = {
     async overview() {
-      const [o, a] = await Promise.all([api('overview'), api('alerts')]);
+      const [o, a, q] = await Promise.all([api('overview'), api('alerts'), api('quality').catch(() => ({}))]);
       const u = o.users, s = o.sessions, bad = a.rows.filter(r => !r.ok);
       main.innerHTML = `
         <div class="kpis">
@@ -62,6 +62,7 @@
           <div class="card kpi"><div class="l">Lượt truy cập hôm nay</div><div class="v">${num(s.today)}</div><div class="s">${num(s.s7)} phiên · ${num(s.v7)} khách / 7 ngày</div></div>
           <div class="card kpi"><div class="l">Thời gian TB mỗi phiên (7 ngày)</div><div class="v">${dur(s.dur7)}</div><div class="s">${(+s.pages7 || 0).toFixed(1)} trang/phiên</div></div>
           <div class="card kpi"><div class="l">Tin nhắn chưa xử lý</div><div class="v">${num(o.inbox.open)}</div><div class="s"><a href="#" data-go="inbox">Mở hộp thư →</a></div></div>
+          <div class="card kpi"><div class="l">Chất lượng (rà soát hằng ngày)</div><div class="v" style="color:${q.score == null ? '' : q.score >= 100 ? 'var(--good,#15803d)' : 'var(--bad,#dc2626)'}">${q.score == null ? '–' : q.score + '%'}</div><div class="s"><a href="#" data-go="quality">${q.score != null && q.score < 100 ? '⚠️ Dưới chuẩn – xem →' : 'Chi tiết →'}</a></div></div>
           <div class="card kpi"><div class="l">Lỗi JS 24 giờ</div><div class="v">${num(o.errors24.hits)}</div><div class="s">${num(o.errors24.kinds)} loại</div></div>
         </div>
         <div class="card"><h3>${bad.length ? '⚠️ Cần chú ý' : '✅ Hệ thống ổn định'}</h3>${(bad.length ? bad : a.rows.slice(0, 4)).map(r => `<div class="small" style="margin:.3rem 0"><span class="dot ${r.ok ? '' : r.warn ? 'warn' : 'bad'}"></span><b>${esc(r.name)}</b> – ${esc(r.conclusion || r.status)}</div>`).join('')}</div>`;
@@ -132,6 +133,15 @@
         <div class="tbl-wrap"><table class="tbl"><tr><th>Lỗi</th><th>Vị trí</th><th>Trang</th><th>Số lần</th><th>Gần nhất</th><th></th></tr>${e.rows.map(x => `<tr><td class="msg">${esc(x.msg)}</td><td class="small">${esc(x.src)}</td><td>${esc(x.path)}</td><td>${num(x.n)}</td><td class="small">${when(x.last)}</td><td><button class="btn ghost sm" data-h="${x.h}">Đã sửa</button></td></tr>`).join('') || '<tr><td colspan="6" class="muted">Không có lỗi 🎉</td></tr>'}</table></div></div>`;
       if ($('#eclr')) $('#eclr').onclick = async () => { if (confirm('Xóa toàn bộ nhật ký lỗi?')) { await api('errorsClear'); show('alerts'); } };
       main.querySelectorAll('[data-h]').forEach(b => b.onclick = async () => { await api('errorsClear', { h: b.dataset.h }); show('alerts'); });
+    },
+    async quality() {
+      const q = await api('quality'), col = q.score == null ? '' : q.score >= q.standard ? 'var(--good,#15803d)' : 'var(--bad,#dc2626)';
+      main.innerHTML = `
+        <div class="kpis"><div class="card kpi"><div class="l">Điểm chất lượng (lượt rà soát gần nhất)</div><div class="v" style="color:${col}">${q.score == null ? '–' : q.score + '%'}</div><div class="s">Chuẩn: ${q.standard}% · ${q.at ? when(q.at) : 'chưa chạy'}</div></div>
+          <div class="card kpi"><div class="l">14 lượt gần nhất</div><div class="v" style="font-size:1.1rem;letter-spacing:2px">${q.history.map(h => `<a href="${esc(h.url)}" target="_blank" rel="noopener" title="${when(h.at)}">${h.ok ? '🟢' : '🔴'}</a>`).join('') || '–'}</div><div class="s">${q.history.filter(h => h.ok).length}/${q.history.length} lượt đạt</div></div></div>
+        <div class="card"><h3>${q.score >= q.standard ? '✅ Đạt chuẩn' : '⚠️ Dưới chuẩn – cần xử lý'}</h3><table class="tbl">${q.checks.map(c => `<tr><td><span class="dot ${c.ok ? '' : 'bad'}"></span>${esc(c.name)}</td><td>${c.ok ? 'Đạt' : '<b>Không đạt</b>'}</td></tr>`).join('')}</table>
+        ${q.url ? `<p class="small"><a href="${esc(q.url)}" target="_blank" rel="noopener">Xem chi tiết lượt rà soát →</a></p>` : ''}
+        <p class="small muted">Rà soát tự động mỗi ngày 7h sáng: kiểm thử đầy đủ (chính tả, đa ngôn ngữ 14 thứ tiếng, thuật toán FSRS & đồng bộ, giao diện, trợ năng WCAG, lời giải đề thi, liên kết), kiểm tra kiểu, cú pháp workflow, bản live (trang, API, dữ liệu, âm thanh, phiên bản). Không đạt → email cảnh báo 8h sáng.</p></div>`;
     },
     async services() {
       const [u, s] = await Promise.all([api('usage'), api('services')]);
