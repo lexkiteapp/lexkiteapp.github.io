@@ -14,7 +14,7 @@ concurrency: { group: health, cancel-in-progress: true }
 jobs:
   health:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -41,10 +41,17 @@ jobs:
         id: live
         continue-on-error: true
         run: node scripts/test/live-check.mjs
+      - name: Đầu-cuối như người dùng thật (Chromium, 15 ngôn ngữ, mobile/desktop, sandbox)
+        id: e2e
+        continue-on-error: true
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chromium
+          node scripts/test/e2e.mjs
       - name: Báo cáo (issue + email)
         env:
           GH_TOKEN: ${{ github.token }}
-          R: "test=${{ steps.test.outcome }} leak=${{ steps.leak.outcome }} tsc=${{ steps.tsc.outcome }} yaml=${{ steps.yaml.outcome }} live=${{ steps.live.outcome }}"
+          R: "test=${{ steps.test.outcome }} leak=${{ steps.leak.outcome }} tsc=${{ steps.tsc.outcome }} yaml=${{ steps.yaml.outcome }} live=${{ steps.live.outcome }} e2e=${{ steps.e2e.outcome }}"
         run: |
           RUN="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
           BAD=$(echo "$R" | tr ' ' '\n' | grep -v '=success' || true)
