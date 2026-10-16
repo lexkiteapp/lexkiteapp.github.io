@@ -9,7 +9,7 @@ tags: [ielts, reading, exam-tips]
 keyword: "skimming and scanning in ielts reading"
 cover: reading
 coverAlt: "IELTS reading practice library on Lexkite categorized from A2 to C1 with tap-to-translate feature"
-publishAt:
+publishAt: 2026-11-18T21:16:00+07:00
 factChecked: 2026-10-16
 author: Lexkite
 status: ready
