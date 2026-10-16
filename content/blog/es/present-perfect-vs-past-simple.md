@@ -32,7 +32,7 @@ Observemos el siguiente principio fundamental:
   - *I have lived in Madrid for two years.* (Llevo dos años viviendo en Madrid; empecé hace dos años y sigo viviendo allí hoy).
   - *She has written three novels.* (Ha escrito tres novelas; sigue viva y podría publicar más en el futuro).
 
-![Fichas de práctica en Lexkite para repasar el presente perfecto en contexto](media:practice-learn "Tarjetas de estudio interactivo para fijar el uso de los tiempos verbales")
+![Tarjeta de aprendizaje de Lexkite con la expresión «come up with»: significado, definición en inglés y ejemplos](media:practice-learn "Cada expresión nueva se presenta con significado, definición y ejemplos antes de practicarla")
 
 Para profundizar en la estructura de las oraciones complejas y asimilar patrones naturales, puedes [abrir la sección de gramática](/#/grammar) y practicar combinaciones en contexto real.
 
@@ -71,7 +71,7 @@ Para ampliar tu vocabulario con colocaciones y estructuras habituales en el ámb
 
 ## Errores Típicos de los Hispanohablantes
 
-![Prueba rápida de gramática en Lexkite para comprobar la diferencia entre tiempos](media:practice-test "Módulo de autoevaluación con ejercicios de opción múltiple sobre tiempos verbales")
+![Pregunta de opción múltiple en Lexkite: elegir el significado correcto de «run out of»](media:practice-test "Las pruebas rápidas de opción múltiple confirman si de verdad recuerdas lo que estudiaste")
 
 Los errores más frecuentes no provienen de la falta de vocabulario, sino de transferir directamente los hábitos de nuestra lengua materna:
 

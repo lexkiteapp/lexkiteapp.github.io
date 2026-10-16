@@ -30,7 +30,7 @@ Bagi pembelajar bahasa Inggris di Indonesia, tantangan ini semakin berat karena 
 
 Kabar baiknya adalah kurva penurunan memori ini dapat dipatahkan. Setiap kali Anda melakukan sesi review tepat saat ingatan mulai memudar, kurva lupa akan merata dan proses kelupaan berjalan jauh lebih lambat. Setelah empat atau lima kali pengulangan berjeda, memori Anda akan terkunci secara stabil dalam jangka panjang.
 
-![Grafik kurva lupa Ebbinghaus dan interval pengulangan memori](media:review "Interval pengulangan bertahap yang mengembalikan retensi memori mendekati 100 persen")
+![Sesi review flashcard di Lexkite: kartu kata «pollution» dengan pelafalan, tombol balik kartu, dan bilah progres](media:review "Coba ingat artinya dulu, baru balik kartunya – inilah inti spaced repetition")
 
 ## Cara Kerja Metode Spaced Repetition dalam Mengunci Memori
 
@@ -40,7 +40,7 @@ Algoritma modern seperti SM-2 maupun FSRS (Free Spaced Repetition Scheduler) men
 
 Jika diterapkan secara konsisten, Anda hanya perlu meluangkan waktu 10 hingga 15 menit setiap hari untuk meninjau 20-30 kartu yang jatuh tempo. Anda tidak perlu lagi menyusun jadwal manual yang rumit di buku catatan, karena algoritma di [pelacak memori kosakata](/#/stats) menangani seluruh perhitungan jadwal secara otomatis.
 
-![Statistik retensi memori dan kartu yang perlu diulang hari ini](media:stats "Pelacakan retensi kosakata dan jadwal review harian otomatis")
+![Halaman progres Lexkite: level, XP, streak harian, jumlah kartu yang diulang, dan kalender belajar](media:stats "Pantau streak dan jumlah kartu yang sudah diulang untuk menjaga ritme belajar")
 
 ## Jadwal Pengulangan Ideal: Kapan Waktu Terbaik Melakukan Review?
 
@@ -74,7 +74,7 @@ Kosakata tidak berdiri sendiri terpisah dari tata bahasa. Ketika mempelajari kat
 ### 4. Membuat Kartu yang Terlalu Panjang dan Padat
 Satu kartu flashcard hanya boleh memuat satu fakta atau konsep tunggal (prinsip atomicity). Jika Anda memasukkan lima arti berbeda beserta seluruh daftar sinonim dalam satu kartu, otak akan kesulitan mengevaluasi apakah jawaban Anda benar atau salah. Pecah menjadi beberapa kartu terpisah untuk hasil yang jauh lebih tajam.
 
-![Latihan flashcard kosakata bahasa Inggris dengan spaced repetition](media:practice-learn "Praktik aktif memanggil memori kata sebelum membalik kartu flashcard")
+![Kartu belajar Lexkite untuk frasa «come up with»: arti, definisi bahasa Inggris, dan contoh kalimat](media:practice-learn "Kata baru diperkenalkan lengkap dengan arti, definisi, dan contoh sebelum masuk jadwal review")
 
 ## Langkah Praktis Menerapkan Spaced Repetition Mulai Hari Ini
 
