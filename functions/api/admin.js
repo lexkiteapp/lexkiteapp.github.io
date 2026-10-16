@@ -20,6 +20,7 @@ async function setup(db) {
   await hitSetup(db);
   await db.batch([
     db.prepare('CREATE TABLE IF NOT EXISTS services (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, purpose TEXT, account TEXT, console TEXT, billing TEXT, free TEXT, secret TEXT, status TEXT, note TEXT, ord INTEGER DEFAULT 0)'),
+    db.prepare('CREATE TABLE IF NOT EXISTS i18n_fix (lang TEXT, key TEXT, val TEXT, at INTEGER, by TEXT, PRIMARY KEY (lang, key)) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS i18n_judge (h TEXT PRIMARY KEY, lang TEXT, ok INTEGER, note TEXT, at INTEGER) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS config (k TEXT PRIMARY KEY, v TEXT, at INTEGER, by TEXT) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS users (uid TEXT PRIMARY KEY, email TEXT, name TEXT, created INTEGER NOT NULL, seen INTEGER NOT NULL, plat TEXT, n INTEGER DEFAULT 1) WITHOUT ROWID'),
@@ -110,7 +111,7 @@ const OPS = {
   },
   async errors(db) { return { rows: await all(db, 'SELECT * FROM errors ORDER BY last DESC LIMIT 200') }; },
   async errorsClear(db, b) { if (b.h) await db.prepare('DELETE FROM errors WHERE h = ?').bind(String(b.h)).run(); else await db.prepare('DELETE FROM errors').run(); return { ok: true }; },
-  async config(db) { const rows = await all(db, 'SELECT k, v, at, by FROM config'); return { keys: CONFIG_KEYS, values: Object.fromEntries(rows.map(r => [r.k, r])) }; },
+  async config(db) { const rows = (await all(db, 'SELECT k, v, at, by FROM config')).filter(r => CONFIG_KEYS.includes(r.k)); return { keys: CONFIG_KEYS, values: Object.fromEntries(rows.map(r => [r.k, r])) }; },
   async configSet(db, b, who) {
     const batch = [];
     for (const [k, v] of Object.entries(b.values || {})) if (CONFIG_KEYS.includes(k)) batch.push(db.prepare('INSERT INTO config (k, v, at, by) VALUES (?1, ?2, ?3, ?4) ON CONFLICT (k) DO UPDATE SET v = ?2, at = ?3, by = ?4').bind(k, String(v).slice(0, 2000), Date.now(), who.email));
@@ -144,6 +145,43 @@ const OPS = {
     }
     const rows = await all(db, 'SELECT h, ok, note FROM i18n_judge WHERE lang = ?', lang), by = Object.fromEntries(rows.map(r => [r.h, r]));
     return { lang, judged: rows.length, pending: L.flagged.filter(f => !by[f.h]).length, wrong: L.flagged.filter(f => by[f.h] && !by[f.h].ok).map(f => ({ ...f, why: by[f.h].note })) };
+  },
+  // ---- Gemini API: khóa dán trong Quản trị (D1 config 'gemini_key', không bao giờ trả về nguyên khóa) ----
+  async geminiStatus(db) {
+    const k = (await one(db, "SELECT v, at, by FROM config WHERE k = 'gemini_key'"));
+    return { set: !!k.v, last4: k.v ? k.v.slice(-4) : '', at: k.at || 0, by: k.by || '' };
+  },
+  async geminiSet(db, b, who) {
+    const key = String(b.key || '').trim();
+    if (!/^[A-Za-z0-9_-]{30,60}$/.test(key)) return { ok: false, error: 'Khóa không đúng định dạng' };
+    const r = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash?key=' + encodeURIComponent(key));
+    if (!r.ok) return { ok: false, error: `Google từ chối khóa (HTTP ${r.status})` };
+    await db.prepare('INSERT OR REPLACE INTO config (k, v, at, by) VALUES (?, ?, ?, ?)').bind('gemini_key', key, Date.now(), who || '').run();
+    return { ok: true, last4: key.slice(-4) };
+  },
+  // Duyệt 1 chạm: bản sửa được duyệt lưu D1 → workflow dịch đêm (i18n.yml) tự gộp vào scripts/i18n-fixed.json và áp vào app
+  async i18nFixApprove(db, b, who) {
+    const lang = String(b.lang || ''), key = String(b.key || ''), val = String(b.val || '').trim();
+    if (!/^[a-z]{2}$/.test(lang) || !key || !val) return { ok: false };
+    await db.prepare('INSERT OR REPLACE INTO i18n_fix (lang, key, val, at, by) VALUES (?, ?, ?, ?, ?)').bind(lang, key, val, Date.now(), who || '').run();
+    return { ok: true };
+  },
+  async geminiDelete(db) { await db.prepare("DELETE FROM config WHERE k = 'gemini_key'").run(); return { ok: true }; },
+  // Gemini duyệt chéo bản dịch giao diện: mọi câu nghi sai (dịch ngược) của 1 ngôn ngữ, lô 40 câu, lưu D1 i18n_judge với khóa 'g:'+h
+  async geminiReview(db, b) {
+    const key = (await one(db, "SELECT v FROM config WHERE k = 'gemini_key'")).v; if (!key) return { error: 'Chưa có khóa Gemini' };
+    const lang = String(b.lang || ''), rep = await (await fetch('https://lexkite.com/i18n/backcheck.json?x=' + Date.now())).json(), L = (rep.langs || {})[lang];
+    if (!L) return { error: 'no-lang' };
+    const items = L.flagged.slice(0, 80), wrong = [];
+    for (let i = 0; i < items.length; i += 40) {
+      const part = items.slice(i, i + 40), list = part.map((f, j) => `${j + 1}. EN: ${f.en.replace(/<[^>]+>/g, '')}\n   ${lang}: ${f.tr.replace(/<[^>]+>/g, '')}`).join('\n');
+      const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(key)}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ systemInstruction: { parts: [{ text: 'You are a professional UI localization reviewer for an English-learning app. For each numbered pair decide if the translation conveys the same meaning as the English UI text (minor wording differences are fine). Return JSON {"wrong":[{"i":number,"why":"short reason in Vietnamese","fix":"corrected translation keeping {placeholders}"}]} listing only clearly wrong ones.' }] }, contents: [{ role: 'user', parts: [{ text: list }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0.1 } }) });
+      if (!r.ok) return { error: `Gemini lỗi HTTP ${r.status}` };
+      let out = {}; try { const j = await r.json(); out = JSON.parse(j.candidates[0].content.parts.map(p => p.text || '').join('')); } catch (e) { continue; }
+      for (const w of out.wrong || []) { const f = part[+w.i - 1]; if (f) wrong.push({ ...f, why: String(w.why || '').slice(0, 200), fix: String(w.fix || '').slice(0, 400) }); }
+      await db.batch(part.map((f, j) => db.prepare('INSERT OR REPLACE INTO i18n_judge (h, lang, ok, note, at) VALUES (?, ?, ?, ?, ?)').bind('g:' + f.h, lang, (out.wrong || []).some(w => +w.i === j + 1) ? 0 : 1, 'gemini', Date.now())));
+    }
+    return { lang, reviewed: items.length, wrong };
   },
   async alerts(db) {
     const now = Date.now(), out = [];

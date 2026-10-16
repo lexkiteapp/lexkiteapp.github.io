@@ -147,7 +147,16 @@
       const bc = await fetch('/i18n/backcheck.json?x=' + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null);
       if (bc && bc.langs) {
         $('#bcBox').innerHTML = `<h3>🌐 Kiểm nghĩa bản dịch (dịch ngược + AI)</h3><p class="small muted">Cập nhật ${when(bc.at)} · "khớp nghĩa" = tỉ lệ câu dịch ngược về tiếng Anh vẫn đúng ý; câu nghi sai cần AI xác nhận.</p>
-          <table class="tbl"><tr><th>Ngôn ngữ</th><th>Số câu</th><th>Khớp nghĩa</th><th>Nghi sai</th><th></th></tr>${Object.entries(bc.langs).map(([l, x]) => `<tr><td><b>${esc(l)}</b></td><td>${num(x.checked)}</td><td>${x.ok}%</td><td>${x.flagged.length}</td><td><button class="btn sm" data-judge="${esc(l)}">🤖 AI xác nhận</button></td></tr>`).join('')}</table><div id="bcRes"></div>`;
+          <table class="tbl"><tr><th>Ngôn ngữ</th><th>Số câu</th><th>Khớp nghĩa</th><th>Nghi sai</th><th></th></tr>${Object.entries(bc.langs).map(([l, x]) => `<tr><td><b>${esc(l)}</b></td><td>${num(x.checked)}</td><td>${x.ok}%</td><td>${x.flagged.length}</td><td><button class="btn sm" data-judge="${esc(l)}">🤖 AI xác nhận</button> <button class="btn sm" data-gem="${esc(l)}">✨ Gemini duyệt</button></td></tr>`).join('')}</table><div id="bcRes"></div>`;
+        main.querySelectorAll('[data-gem]').forEach(b => b.onclick = async () => {
+          b.disabled = true; b.textContent = '⏳ Gemini…'; const r = await api('geminiReview', { lang: b.dataset.gem }); b.disabled = false; b.textContent = '✨ Gemini duyệt';
+          $('#bcRes').innerHTML = r.error ? `<p class="small">✗ ${esc(r.error)}${/khóa/.test(r.error) ? ' – vào tab Cài đặt để dán khóa Gemini' : ''}</p>` : `<h4>✨ Gemini · ${esc(r.lang)}: duyệt ${r.reviewed} câu · <b>${r.wrong.length} câu sai nghĩa</b> ${r.wrong.length ? '<button class="btn sm primary" id="gAll">Áp dụng tất cả</button>' : ''}</h4>
+            <div class="tbl-wrap"><table class="tbl"><tr><th>Tiếng Anh</th><th>Bản dịch hiện tại</th><th>Gemini đề xuất</th><th>Lý do</th><th></th></tr>${r.wrong.map((w, i) => `<tr><td class="small">${esc(w.en)}</td><td class="small">${esc(w.tr)}</td><td class="small"><b>${esc(w.fix)}</b></td><td class="small">${esc(w.why)}</td><td><button class="btn sm" data-ap="${i}">Áp dụng</button></td></tr>`).join('') || '<tr><td colspan="5">✅ Không có câu sai</td></tr>'}</table></div>
+            <p class="small muted">Bản sửa đã áp dụng sẽ tự cập nhật vào app ở lượt dịch đêm (không cần sửa mã).</p>`;
+          const ap = async i => { const w = r.wrong[i]; if (!w.fix) return; await api('i18nFixApprove', { lang: r.lang, key: w.key, val: w.fix }); const bt = main.querySelector(`[data-ap="${i}"]`); if (bt) { bt.disabled = true; bt.textContent = '✓ Đã duyệt'; } };
+          main.querySelectorAll('[data-ap]').forEach(x => x.onclick = () => ap(+x.dataset.ap));
+          if ($('#gAll')) $('#gAll').onclick = async () => { for (let i = 0; i < r.wrong.length; i++) await ap(i); $('#gAll').textContent = '✓ Đã duyệt tất cả'; };
+        });
         main.querySelectorAll('[data-judge]').forEach(b => b.onclick = async () => {
           b.disabled = true; b.textContent = '⏳ …'; const r = await api('judge', { lang: b.dataset.judge }); b.disabled = false; b.textContent = '🤖 AI xác nhận';
           $('#bcRes').innerHTML = r.error ? `<p class="small">Lỗi: ${esc(r.error)}</p>` : `<h4>${esc(r.lang)}: AI đã duyệt ${r.judged} câu · còn ${r.pending} câu chờ (bấm tiếp) · <b>${r.wrong.length} câu sai nghĩa</b></h4>
@@ -180,7 +189,15 @@
       const c = await api('config'), v = k => esc((c.values[k] || {}).v || '');
       const L = { banner: 'Thông báo đầu trang (để trống = tắt)', banner_url: 'Link kèm thông báo (https://…)', banner_level: 'Kiểu thông báo: info / warn / ok', ai_user: 'Lượt chấm AI/ngày – đã đăng nhập (mặc định 5)', ai_anon: 'Lượt chấm AI/ngày – khách (mặc định 3)', ai_global: 'Trần AI toàn hệ thống/ngày (mặc định 400)', alert_errors: 'Ngưỡng cảnh báo lỗi JS/24h (mặc định 50)', hit_rate: 'Tỉ lệ lấy mẫu thống kê 0.01–1 (mặc định 1 = mọi người; > 30k người/ngày nên đặt 0.1 để giữ D1 miễn phí)', note: 'Ghi chú nội bộ cho quản trị' };
       main.innerHTML = `<div class="card"><h3>Cài đặt website</h3><div class="form2">${c.keys.map(k => `<label>${L[k] || k}${k === 'banner' || k === 'note' ? `<textarea name="${k}" rows="2">${v(k)}</textarea>` : `<input name="${k}" value="${v(k)}">`}<span class="small muted" style="font-weight:400">${c.values[k] ? 'Sửa ' + when(c.values[k].at) + ' bởi ' + esc(c.values[k].by) : ''}</span></label>`).join('')}</div>
-        <div class="tools" style="margin-top:1rem"><button class="btn primary" id="csave">Lưu cài đặt</button><span class="small muted" id="cmsg">Thông báo hiện trên web/app sau tối đa 5 phút.</span></div></div>`;
+        <div class="tools" style="margin-top:1rem"><button class="btn primary" id="csave">Lưu cài đặt</button><span class="small muted" id="cmsg">Thông báo hiện trên web/app sau tối đa 1 giờ.</span></div></div>`;
+      // Gemini API: dán khóa → hệ thống kiểm tra thật với Google rồi mới lưu; chỉ hiện 4 ký tự cuối
+      const g = await api('geminiStatus');
+      main.insertAdjacentHTML('beforeend', `<div class="card" style="margin-top:1rem"><h3>✨ Gemini API (Google AI – gói miễn phí)</h3>
+        <p class="small">${g.set ? `✅ Đang dùng khóa …${esc(g.last4)} · lưu ${when(g.at)}${g.by ? ' bởi ' + esc(g.by) : ''}` : '⚪ Chưa có khóa – AI đang dùng Cloudflare Workers AI.'}</p>
+        <p class="small muted">Lấy khóa miễn phí: <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a> → Create API key → dán vào đây. Dùng cho: chấm bài viết/nói, duyệt chéo bản dịch (tab Chất lượng).</p>
+        <div class="tools"><input type="password" id="gkey" placeholder="Dán khóa AIza…" autocomplete="off" style="flex:1;min-width:220px"><button class="btn primary" id="gsave">Lưu & kiểm tra</button>${g.set ? '<button class="btn ghost" id="gdel">Xóa khóa</button>' : ''}<span class="small" id="gmsg"></span></div></div>`);
+      $('#gsave').onclick = async () => { const key = $('#gkey').value.trim(); if (!key) return; $('#gmsg').textContent = '⏳ Đang kiểm tra với Google…'; const r = await api('geminiSet', { key }); $('#gmsg').textContent = r.ok ? `✓ Đã lưu khóa …${r.last4}` : '✗ ' + (r.error || 'lỗi'); if (r.ok) setTimeout(() => show('settings'), 900); };
+      if ($('#gdel')) $('#gdel').onclick = async () => { if (confirm('Xóa khóa Gemini? AI sẽ quay về Cloudflare Workers AI.')) { await api('geminiDelete'); show('settings'); } };
       $('#csave').onclick = async () => { const values = {}; main.querySelectorAll('[name]').forEach(i => values[i.name] = i.value.trim()); await api('configSet', { values }); $('#cmsg').textContent = '✓ Đã lưu'; };
     },
   };

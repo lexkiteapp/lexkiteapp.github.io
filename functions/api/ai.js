@@ -26,9 +26,18 @@ async function setup(db) {
   ready = true;
 }
 
+// Khóa Gemini: biến bí mật GEMINI_KEY (nếu có) hoặc khóa quản trị dán trong trang Quản trị → Cài đặt (D1 config, không công khai)
+let gkCache = { v: '', at: 0 };
+async function geminiKey(env) {
+  if (env.GEMINI_KEY) return env.GEMINI_KEY;
+  if (Date.now() - gkCache.at > 300000) { try { gkCache = { v: ((await env.DB.prepare("SELECT v FROM config WHERE k = 'gemini_key'").first()) || {}).v || '', at: Date.now() }; } catch (e) { gkCache = { v: '', at: Date.now() }; } }
+  return gkCache.v;
+}
+
 async function runModel(env, sys, prompt) {
-  if (env.GEMINI_KEY) {
-    const r = await fetch(GEMINI(env.GEMINI_KEY), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ systemInstruction: { parts: [{ text: sys }] }, contents: [{ role: 'user', parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0.2, maxOutputTokens: 4096 } }) });
+  const gk = await geminiKey(env);
+  if (gk) {
+    const r = await fetch(GEMINI(gk), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ systemInstruction: { parts: [{ text: sys }] }, contents: [{ role: 'user', parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0.2, maxOutputTokens: 4096 } }) });
     if (r.ok) { const j = await r.json(); const out = parseJSON((((j.candidates || [])[0] || {}).content || { parts: [] }).parts.map(p => p.text || '').join('')); if (out) return { out, model: 'gemini-2.5-flash' }; }
   }
   if (!env.AI) throw new Error('no-model');

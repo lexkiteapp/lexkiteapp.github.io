@@ -24,6 +24,8 @@ jobs:
         run: |
           SECONDS=0
           for l in $(grep -v '^#' scripts/i18n-langs.txt); do node scripts/gen-i18n.mjs "$l" || echo "lỗi $l"; sleep 2; done
+          # Bản sửa dịch quản trị đã duyệt (Quản trị → Chất lượng → Áp dụng) → gộp vào i18n-fixed.json trước khi áp
+          node -e "const fs=require('fs');fetch('https://lexkite.com/api/i18nfix').then(r=>r.json()).then(a=>{const p='scripts/i18n-fixed.json',d=JSON.parse(fs.readFileSync(p,'utf8'));let n=0;for(const[k,v]of Object.entries(a)){d[k]=Object.assign(d[k]||{},v);n+=Object.keys(v).length}fs.writeFileSync(p,JSON.stringify(d,null,2)+'\\n');console.log('bản sửa đã duyệt:',n)}).catch(e=>console.log('bỏ qua i18nfix',e.message))"
           node scripts/i18n-fix.mjs  # bản dịch tay cho nhãn ngắn dễ bị dịch máy sai nghĩa
           node scripts/build-legal.mjs --translate  # Chính sách & Điều khoản cho 15 ngôn ngữ (chỉ dịch dòng mới/sửa)
           node scripts/gen-hero.mjs  # khung trang chào mừng dựng sẵn trong index.html theo bản dịch mới
@@ -34,7 +36,7 @@ jobs:
         run: |
           git config user.name "lexkite-bot"
           git config user.email "lexkite-bot@users.noreply.github.com"
-          git add web/js/i18n/*.js web/i18n/explain web/i18n/backcheck.json content/i18n-backcheck-cache.json web/index.html web/*/privacy.html web/*/terms.html web/privacy.html web/terms.html content/legal/cache
+          git add scripts/i18n-fixed.json web/js/i18n/*.js web/i18n/explain web/i18n/backcheck.json content/i18n-backcheck-cache.json web/index.html web/*/privacy.html web/*/terms.html web/privacy.html web/terms.html content/legal/cache
           git diff --cached --quiet && exit 0
           git commit -m "i18n: cập nhật bản dịch giao diện tự động"
           for i in 1 2 3 4 5; do git pull --rebase -X theirs origin main && git push && exit 0; sleep $((i * 10)); done
