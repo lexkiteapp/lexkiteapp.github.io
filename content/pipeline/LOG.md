@@ -14,3 +14,4 @@
 | 2026-10-16 | IELTS Writing Task 1 | 6 đề (đủ 6 dạng) | 2d360cfd | phiên nội dung | phiên chính: đọc mẫu đạt; sửa số đếm thật Task 1 = 38, Task 2 = 70 (trước đếm thiếu file) |
 | 2026-10-16 | TOEFL Writing | 20 đề (bộ 6: 8 câu ghép, 6 email, 6 discussion) – 76→96 | 4d919e92 | phiên nội dung | chờ phiên chính nghiệm thu |
 | 2026-10-16 | IELTS Reading GT | đề GT5, 40 câu – đạt chỉ tiêu 200 | 38e40935 | phiên nội dung | chờ phiên chính nghiệm thu |
+| 2026-10-16 | TOEFL Listening | 32 câu bộ 5 – 128→160 | d245a07d | phiên nội dung | chờ phiên chính nghiệm thu |
