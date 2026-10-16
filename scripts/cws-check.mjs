@@ -46,6 +46,9 @@ for (const f of files.filter(f => /\.(js|html)$/.test(f))) {
   if (remote.test(s)) errs.push(`${f}: tải mã từ xa (CWS cấm)`);
   if (!f.includes('/app/') && /\beval\(|new Function\(/.test(s)) errs.push(`${f}: eval/new Function`);
 }
+for (const f of files.filter(f => f.endsWith('.js') && !f.includes('/app/'))) { // lỗi cú pháp = service worker/content script chết hoàn toàn
+  try { execFileSync(process.execPath, ['--check', f], { stdio: 'pipe' }); } catch (e) { errs.push(`${f}: lỗi cú pháp – ${String(e.stderr || e.message).split('\n').find(l => /Error/.test(l)) || ''}`); }
+}
 const junk = files.filter(f => /\.(map|md|zip|pem|key|env)$|\/\.|\.local\./.test(f));
 if (junk.length) errs.push('file thừa trong extension/: ' + junk.slice(0, 5).join(', '));
 

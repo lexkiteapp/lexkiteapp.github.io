@@ -12,10 +12,11 @@ const XLANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko'
 const pickLang = l => { l = String(l || '').toLowerCase().split('-')[0]; return XLANGS.includes(l) ? l : null; };
 let UI_LANG = pickLang(chrome.i18n && chrome.i18n.getUILanguage ? chrome.i18n.getUILanguage() : navigator.language) || 'en';
 const uiDicts = {};
+// en: chỉ bảng tên cấu trúc ngữ pháp (chữ EN khác có sẵn trong từng file); ngôn ngữ khác: từ điển web đầy đủ
 async function uiDict(lang) {
-  if (!lang || lang === 'vi' || lang === 'en') return {};
+  if (!lang || lang === 'vi') return {};
   if (uiDicts[lang]) return uiDicts[lang];
-  try { const s = await (await fetch(chrome.runtime.getURL(`app/js/i18n/${lang}.js`))).text(); const i = s.indexOf('{"', s.indexOf('Object.assign(')), j = s.lastIndexOf('});'); uiDicts[lang] = JSON.parse(s.slice(i, j + 1)); } catch (e) { uiDicts[lang] = {}; }
+  try { const s = await (await fetch(chrome.runtime.getURL(lang === 'en' ? 'app/js/i18n/en/structs.js' : `app/js/i18n/${lang}.js`))).text(); const i = s.indexOf('{"', s.indexOf('Object.assign(')), j = s.lastIndexOf('});'); uiDicts[lang] = JSON.parse(s.slice(i, j + 1)); } catch (e) { uiDicts[lang] = {}; }
   return uiDicts[lang];
 }
 let XD = {};

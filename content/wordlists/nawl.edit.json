@@ -26,5 +26,43 @@
  },
  "cue": {
   "ex": "Good speakers watch the audience for cues that they are losing interest."
+ },
+ "flip": {
+  "pos": "v"
+ },
+ "drift": {
+  "pos": "v"
+ },
+ "elaborate": {
+  "def": "made or done with great care and with a lot of detail"
+ },
+ "emit": {
+  "def": "to release or send out gas, light, heat or sound"
+ },
+ "censor": {
+  "def": "a person whose job is to examine books, films, etc. and remove parts that are considered unacceptable"
+ },
+ "fluid": {
+  "pos": "n",
+  "vi": "chất lỏng"
+ },
+ "span": {
+  "pos": "n",
+  "vi": "khoảng thời gian"
+ },
+ "slash": {
+  "def": "the symbol /, used to separate words or numbers"
+ },
+ "entrant": {
+  "pos": "n"
+ },
+ "substrate": {
+  "pos": "n"
+ },
+ "uplift": {
+  "def": "an improvement or increase, especially one that makes people feel more hopeful"
+ },
+ "sensitivity": {
+  "def": "the ability to notice and react to small changes, or to understand other people's feelings"
  }
 }

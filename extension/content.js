@@ -29,7 +29,7 @@
   const XLANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
   const pickLang = l => { l = String(l || '').toLowerCase().split('-')[0]; return XLANGS.includes(l) ? l : null; };
   let UI_LANG = pickLang(chrome.i18n && chrome.i18n.getUILanguage ? chrome.i18n.getUILanguage() : navigator.language) || 'en', XD = {};
-  const setLang = l => { if (!l) return; UI_LANG = l; XD = {}; if (l !== 'vi' && l !== 'en') chrome.runtime.sendMessage({ type: 'uiDict', lang: l }).then(r => { if (UI_LANG === l) XD = (r && r.dict) || {}; }).catch(() => {}); };
+  const setLang = l => { if (!l) return; UI_LANG = l; XD = {}; if (l !== 'vi') chrome.runtime.sendMessage({ type: 'uiDict', lang: l }).then(r => { if (UI_LANG === l) XD = (r && r.dict) || {}; }).catch(() => {}); };
   try { chrome.storage.local.get('uiLang').then(r => setLang(pickLang(r.uiLang) || UI_LANG)).catch(() => {}); chrome.storage.onChanged.addListener(ch => { if (ch.uiLang) setLang(pickLang(ch.uiLang.newValue)); }); } catch (x) { /* bản cũ */ }
   const ML = () => { if (UI_LANG === 'vi') return 'vi'; if (UI_LANG !== 'en') return UI_LANG === 'zh' ? 'zh-CN' : UI_LANG; const l = (navigator.language || 'en').toLowerCase(); return l.startsWith('vi') ? 'en' : l.startsWith('zh') ? (/tw|hk|hant/.test(l) ? 'zh-TW' : 'zh-CN') : l.split('-')[0]; };
   const FLAG = l => ({ vi: '🇻🇳', en: '🇬🇧', es: '🇪🇸', pt: '🇧🇷', fr: '🇫🇷', de: '🇩🇪', id: '🇮🇩', th: '🇹🇭', zh: '🇨🇳', 'zh-CN': '🇨🇳', 'zh-TW': '🇹🇼', ja: '🇯🇵', ko: '🇰🇷', hi: '🇮🇳', ar: '🇸🇦', ru: '🇷🇺', tr: '🇹🇷' })[l] || '🌐';
@@ -365,7 +365,9 @@
       preloadAudio(audioFor('en-GB')); preloadAudio(audioFor('en-US'));
       // Gom theo từ loại như từ điển lớn: mỗi từ loại = nghĩa Việt + định nghĩa Anh + ví dụ của đúng nghĩa đó
       const POSV = { noun: 'danh từ', verb: 'động từ', adjective: 'tính từ', adverb: 'trạng từ', preposition: 'giới từ', conjunction: 'liên từ', pronoun: 'đại từ', interjection: 'thán từ', determiner: 'từ hạn định', abbreviation: 'viết tắt', phrase: 'cụm từ', 'phrasal verb': 'cụm động từ' };
-      const toEn = x => { x = String(x || '').toLowerCase(); const hit = Object.keys(POSV).find(k => POSV[k] === x); return hit || x; };
+      const ABBR = { n: 'noun', v: 'verb', adj: 'adjective', adv: 'adverb', prep: 'preposition', conj: 'conjunction', pron: 'pronoun', det: 'determiner', int: 'interjection', abbr: 'abbreviation', 'phr v': 'phrasal verb', 'phr. v.': 'phrasal verb' };
+      // Chuẩn hóa nhãn từ loại (Việt / viết tắt / Anh) về 1 khóa tiếng Anh → không tách 2 nhóm "danh từ" và "n", không lộ tiếng Việt ở giao diện khác
+      const toEn = x => { x = String(x || '').normalize('NFC').trim().toLowerCase().replace(/\.$/, ''); const hit = Object.keys(POSV).find(k => POSV[k] === x); return hit || ABBR[x] || x; };
       const groups = [], byPos = {};
       const grp = x => byPos[x] || (byPos[x] = groups[groups.push({ pos: x, vi: [], defs: [] }) - 1]);
       (e.senses || []).forEach(x => { grp(toEn(x.pos)).vi = x.terms.slice(0, 4); });
@@ -572,7 +574,7 @@
         <div class="src">${esc(info.text)}</div>
         ${ML() === 'en' ? '' : `<div class="tr">${vi ? esc(vi) : tx('Không dịch được đoạn này.')}</div>`}
         ${words.length > 1 && words.length <= 12 ? `<div class="def" style="margin-top:8px"><b>${tx('Tra từng từ:')}</b> ${words.map(x => `<span class="lw chipw" data-w="${esc(x.toLowerCase())}">${esc(x)}</span>`).join(' ')}</div>` : ''}
-        ${structs.length ? `<div class="st"><b>${tx('🧩 Cấu trúc trong đoạn')}</b>${structs.map(x => `<div class="st-i"><div><span class="st-n">${esc(x.name)}</span> <span class="st-m">“${esc(x.match)}”</span></div>${UI_LANG === 'vi' ? `<div class="st-v">${esc(x.vi)}</div>` : ''}<button class="st-l" data-lesson="${esc(x.lesson)}">${GT && GT[x.lesson] ? '📖 ' + tx('Học bài: {n} →', { n: esc(UI_LANG === 'vi' ? GT[x.lesson][0] : GT[x.lesson][1]) }) : tx('📐 Học bài ngữ pháp này →')}</button></div>`).join('')}</div>` : ''}
+        ${structs.length ? `<div class="st"><b>${tx('🧩 Cấu trúc trong đoạn')}</b>${structs.map(x => `<div class="st-i"><div><span class="st-n">${esc(tx(x.name))}</span> <span class="st-m">“${esc(x.match)}”</span></div>${UI_LANG === 'vi' || tx(x.vi) !== x.vi ? `<div class="st-v">${esc(tx(x.vi))}</div>` : ''}<button class="st-l" data-lesson="${esc(x.lesson)}">${GT && GT[x.lesson] ? '📖 ' + tx('Học bài: {n} →', { n: esc(UI_LANG === 'vi' ? GT[x.lesson][0] : GT[x.lesson][1]) }) : tx('📐 Học bài ngữ pháp này →')}</button></div>`).join('')}</div>` : ''}
         <div id="aiEx"></div>
       </div>
       <div class="foot">

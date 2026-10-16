@@ -1,11 +1,12 @@
-// Bổ sung phiên âm (IPA, ưu tiên giọng Anh–Anh) và câu ví dụ còn trống trong kho từ (web/js/lib/*.js, web/js/data.js).
-//   node scripts/fill-vocab.mjs [--max N] [--no-net]   (mặc định 1500 từ tra mạng/lần, có lưu đệm content/wordlists/fill.cache.json)
-// Nguồn theo thứ tự: mục cùng từ đã có trong app → bộ đệm wordlist → Wiktionary (CC BY-SA, giọng RP/UK) → Free Dictionary API (Wiktionary, CC BY-SA)
-//   → ví dụ dự phòng Tatoeba (CC BY 2.0 FR). Kiểm tra: ví dụ phải chứa đúng từ, 5–18 từ, chỉ ký tự Latin, không tên riêng lạ, kết thúc bằng dấu câu.
+// Bổ sung phiên âm (IPA, ưu tiên giọng Anh–Anh) còn trống trong kho từ (web/js/lib/*.js, web/js/data.js).
+//   node scripts/fill-vocab.mjs [--max N] [--minutes M] [--no-net]   (mặc định 1500 từ tra mạng/lần, có lưu đệm content/wordlists/fill.cache.json)
+// Nguồn phiên âm: mục cùng từ đã có trong app → bộ đệm wordlist → Wiktionary (CC BY-SA, giọng RP/UK) → Free Dictionary API (Wiktionary, CC BY-SA).
+//   Câu ví dụ KHÔNG lấy tự động (docs/CONTENT-RULES.md: ví dụ tự biên soạn).
 // Ví dụ chỉ tự điền cho từ thông dụng (NGSL): từ chuyên ngành/chủ đề cần câu đúng ngữ cảnh → biên soạn tay. Chỉ sửa đúng ô trống trên dòng đó; mục không tìm được nguồn đạt chuẩn để trống (content-check báo cảnh báo).
 import fs from 'node:fs'; import path from 'node:path';
 import { loadContent, ROOT } from './lib/content-load.mjs';
 const A = process.argv.slice(2), mi = A.indexOf('--max'), MAX = mi >= 0 ? +A[mi + 1] : 1500, NET = !A.includes('--no-net');
+const mm = A.indexOf('--minutes'), DEADLINE = Date.now() + (mm >= 0 ? +A[mm + 1] : 1e6) * 60000; // ngân sách thời gian (CI): hết giờ thì dừng tra, vẫn ghi phần đã có
 const CP = path.join(ROOT, 'content/wordlists/fill.cache.json');
 const cache = fs.existsSync(CP) ? JSON.parse(fs.readFileSync(CP, 'utf8')) : {};
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -29,7 +30,7 @@ const parse = line => { try { return new Function('return ' + line.trim().replac
 const q = s => "'" + String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'") + "'";
 const ROW = /^(\s*)(\['.*\])(,?\s*)$/;
 const todo = new Map(); // word → {pos, needIpa, needEx}
-const EXF = f => /ngsl\.js$/.test(f);
+const EXF = () => false; // CONTENT-RULES: câu ví dụ phải tự biên soạn → script chỉ điền phiên âm (IPA, nguồn mở), không lấy ví dụ từ Tatoeba/từ điển
 for (const f of FILES) for (const line of fs.readFileSync(path.join(ROOT, f), 'utf8').split('\n')) { const m = line.match(ROW); if (!m) continue; const r = parse(m[2]); if (!Array.isArray(r) || r.length < 9 || typeof r[0] !== 'string') continue; if (!EXF(f)) r[5] = r[5] || '-'; if (!r[1] || !r[5]) { const k = r[0].toLowerCase(), x = todo.get(k) || { pos: r[2], ipa: false, ex: false }; x.ipa ||= !r[1]; x.ex ||= !r[5]; todo.set(k, x); } }
 console.log(`cần bổ sung: ${[...todo.values()].filter(x => x.ipa).length} phiên âm, ${[...todo.values()].filter(x => x.ex).length} ví dụ`);
 
@@ -40,8 +41,8 @@ for (const [k, x] of todo) {
   if (HETERO.has(k)) x.ipa = false;
   if (x.ipa && !c.ipa && have.ipa.has(k)) c.ipa = have.ipa.get(k);
   if (x.ipa && !c.ipa && /\s/.test(k)) { const parts = k.split(/\s+/).map(p => have.ipa.get(p) || cache[p]?.ipa); if (parts.every(Boolean)) c.ipa = '/' + parts.map(p => p.replace(/^\/|\/$/g, '')).join(' ') + '/'; }
-  if (!NET || net >= MAX || /\s/.test(k) && !x.ex) continue;
-  const needIpa = x.ipa && !c.ipa && !c.ipaTried, needEx = x.ex && !c.exs && !c.exTried;
+  if (!NET || net >= MAX || Date.now() > DEADLINE || /\s/.test(k) && !x.ex) continue;
+  const needIpa = x.ipa && !c.ipa && !c.ipaTried, needEx = false;
   if (!needIpa && !needEx) continue;
   net++;
   if (needIpa && !/\s/.test(k)) {
