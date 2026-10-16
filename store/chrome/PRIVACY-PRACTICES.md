@@ -1,10 +1,10 @@
 # Lexkite – Chrome Web Store "Privacy practices" tab
 
-Matches the code of extension v2.6.316 (`extension/manifest.json`, `background.js`, `content.js`) and the policy at https://lexkite.com/privacy. Update this file whenever permissions or data flows change.
+Matches the code of extension v2.6.351 (`extension/manifest.json`, `background.js`, `content.js`) and the policy at https://lexkite.com/privacy. Update this file whenever permissions or data flows change.
 
 ## Single purpose
 ```
-Lexkite helps users learn English vocabulary while browsing: look up and translate words or text the user selects on any web page, save them with their context, and review them with spaced-repetition flashcards, reminders and a vocabulary card on the new tab page.
+Lexkite helps users learn English vocabulary while browsing: look up and translate words or text the user selects on any web page, save them with their context, and review them with spaced-repetition flashcards, reminders and a vocabulary card on the new tab page. An optional, off-by-default writing check explains the English mistakes in what the learner types and links each one to a grammar lesson and their mistake notebook.
 ```
 
 ## Permission justifications
@@ -41,7 +41,7 @@ The new tab page provided by the extension contains a search box; chrome.search.
 
 **Host permission (http://*/*, https://*/*)**
 ```
-The core feature works on any web page the user reads: double-click a word or select text to see its meaning or translation, save it with the sentence it appears in, optionally highlight words the user has already learned, and tap words in YouTube subtitles. The same permission lets the background service worker call the dictionary and translation services listed in the privacy policy (Google Translate, Free Dictionary API, Wiktionary, Tatoeba, Datamuse, MyMemory, Openverse, and the user's own Gemini key if provided) and lexkite.com for optional sync. Page content is processed locally; only the word or text the user chooses is sent to those services.
+The core feature works on any web page the user reads: double-click a word or select text to see its meaning or translation, save it with the sentence it appears in, optionally highlight words the user has already learned, tap words in YouTube subtitles, and (only if the user turns on the off-by-default Writing check) underline English mistakes in the text box the user is typing in, with a one-tap fix and a short explanation. The same permission lets the background service worker call the dictionary and translation services listed in the privacy policy (Google Translate, Free Dictionary API, Wiktionary, Tatoeba, Datamuse, MyMemory, Openverse, LanguageTool only if the user enables Writing check's "Advanced check", and the user's own Gemini key if provided) and lexkite.com for optional sync. Page content is processed locally; only the word or text the user chooses is sent to those services.
 ```
 
 **New tab override (chrome_url_overrides)** – not a permission, but reviewers ask:
@@ -67,7 +67,7 @@ Tick these categories:
 | Location | No | The extension sends no location; IP addresses are not stored. |
 | Web history | No | The extension does not record visited pages. It stores the title/URL of a page only when the user saves a word from that page (counted under "Website content"). |
 | User activity | **Yes** | Daily anonymous usage counts (number of lookups, saves, popup and new-tab opens) with a random device identifier, plus install/update counts. No clicks, keystrokes or page data. |
-| Website content | **Yes** | The word or text the user selects, the sentence around it, and the page title/URL of words the user saves. Sent to lookup/translation services to get a result, and to lexkite.com only if the user signs in to sync. |
+| Website content | **Yes** | The word or text the user selects, the sentence around it, and the page title/URL of words the user saves. Sent to lookup/translation services to get a result, and to lexkite.com only if the user signs in to sync. **Writing check (off by default):** the text the user types in a text box is checked on the device; only if the user also enables "Advanced check" is that text sent to LanguageTool (api.languagetool.org, max 20 requests/min). Never password/email/number/payment-card fields, banking or payment sites, or sites the user turned off. Not sent to us. |
 
 Certify all three statements:
 - [x] I do not sell or transfer user data to third parties, outside of the approved use cases.
@@ -82,5 +82,5 @@ Certify all three statements:
 
 ## Notes for the reviewer (optional "Test instructions" field)
 ```
-No account is needed. Open any article, double-click an English word to see the lookup card, or select a sentence to translate it. Click the toolbar icon for the popup. Open a new tab to see the vocabulary card (can be turned off with "Turn off" at the bottom).
+No account is needed. Open any article, double-click an English word to see the lookup card, or select a sentence to translate it. Click the toolbar icon for the popup. Open a new tab to see the vocabulary card (can be turned off with "Turn off" at the bottom). Writing check is off by default: turn on "Writing check" in the popup, then type "She have a apple" in any text box (e.g. a comment box) and click the underlined word.
 ```

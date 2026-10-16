@@ -16,7 +16,8 @@ const uiDicts = {};
 async function uiDict(lang) {
   if (!lang || lang === 'vi') return {};
   if (uiDicts[lang]) return uiDicts[lang];
-  try { const s = await (await fetch(chrome.runtime.getURL(lang === 'en' ? 'app/js/i18n/en/structs.js' : `app/js/i18n/${lang}.js`))).text(); const i = s.indexOf('{"', s.indexOf('Object.assign(')), j = s.lastIndexOf('});'); uiDicts[lang] = JSON.parse(s.slice(i, j + 1)); } catch (e) { uiDicts[lang] = {}; }
+  const one = async f => { try { const s = await (await fetch(chrome.runtime.getURL(f))).text(); const i = s.indexOf('{"', s.indexOf('Object.assign(')), j = s.lastIndexOf('});'); return JSON.parse(s.slice(i, j + 1)); } catch (e) { return {}; } };
+  uiDicts[lang] = lang === 'en' ? Object.assign(await one('app/js/i18n/en/structs.js'), await one('app/js/i18n/en/writecheck.js')) : await one(`app/js/i18n/${lang}.js`); // en: cấu trúc + soát lỗi viết (định dạng JSON)
   return uiDicts[lang];
 }
 let XD = {};
@@ -113,7 +114,7 @@ const openApp = (hash = '#/review') => chrome.tabs.create({ url: APP_URL + hash 
 // Chạy content script ngay trên các tab đang mở (không cần tải lại trang sau khi cài/cập nhật)
 async function injectIntoOpenTabs() {
   const tabs = await chrome.tabs.query({ url: ['http://*/*', 'https://*/*'] });
-  await Promise.all(tabs.map(t => chrome.scripting.executeScript({ target: { tabId: t.id, allFrames: true }, files: ['app/js/structures.js', 'content.js'] }).catch(() => {})));
+  await Promise.all(tabs.map(t => chrome.scripting.executeScript({ target: { tabId: t.id, allFrames: true }, files: ['app/js/structures.js', 'app/js/writecheck-rules.js', 'content.js', 'writecheck.js'] }).catch(() => {})));
 }
 
 // ---------- Thống kê sử dụng ẩn danh (functions/api/hit.js t:'x') ----------
@@ -266,6 +267,48 @@ function scheduleBgSync() {
   }, 3500);
 }
 
+// ---------- ✍️ Soát lỗi viết (writecheck.js) ----------
+// LanguageTool (máy chủ công khai): CHỈ khi người dùng bật cả "Soát lỗi viết" lẫn "Kiểm nâng cao". Giới hạn của máy chủ: 20 lượt/phút, ≤ 20 KB/lượt
+// → đếm lượt trong chrome.storage.session (service worker ngủ vẫn giữ), tối đa 18 lượt/phút, cắt chữ ≤ 18 KB.
+async function wcLanguageTool(text) {
+  const { settings } = await chrome.storage.local.get('settings');
+  if (!settings || settings.wcOn !== true || settings.wcAdv !== true) return { err: 'off' };
+  text = String(text || ''); const enc = new TextEncoder();
+  if (enc.encode(text).length > 18000) return { err: 'size' }; // quá dài – chỉ soát bằng luật trên máy
+  const now = Date.now(), ss = chrome.storage.session;
+  const log = ((ss && (await ss.get('wcLtLog')).wcLtLog) || []).filter(t => now - t < 60000);
+  if (log.length >= 18) return { err: 'rate' };
+  log.push(now); if (ss) await ss.set({ wcLtLog: log });
+  try {
+    const r = await fetch('https://api.languagetool.org/v2/check', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ text, language: 'en-US' }) });
+    if (r.status === 429) { if (ss) await ss.set({ wcLtLog: Array(18).fill(now) }); return { err: 'rate' }; }
+    if (!r.ok) return { err: 'http' };
+    const j = await r.json();
+    const type = m => { const it = (m.rule && m.rule.issueType) || '', cat = (m.rule && m.rule.category && m.rule.category.id) || ''; return it === 'misspelling' ? 'spelling' : /typographical|whitespace/.test(it) || /PUNCTUATION|TYPOGRAPHY|CASING/.test(cat) ? 'punct' : /style|register|locale-violation/.test(it) || /STYLE|REDUNDANCY|PLAIN_ENGLISH|COLLOQUIALISMS/.test(cat) ? 'style' : 'grammar'; };
+    const list = (j.matches || []).filter(m => !(m.rule && /^(EN_QUOTES|DASH_RULE|WHITESPACE_RULE|EN_UNPAIRED_BRACKETS)$/.test(m.rule.id)))
+      .slice(0, 60).map(m => ({ s: m.offset, e: m.offset + m.length, type: type(m), reps: (m.replacements || []).slice(0, 4).map(x => x.value), rule: 'lt:' + ((m.rule && m.rule.id) || ''), msg: String(m.message || '').slice(0, 300) }));
+    return { list };
+  } catch (e) { return { err: 'net' }; }
+}
+// Lỗi viết lặp lại → Sổ lỗi sai (cùng định dạng App.logMistake trong web/js/plan.js). Chỉ lưu trên máy.
+async function wcMistake(m) {
+  const seen = (await Store.get('wcSeen', {})) || {}, k = String(m.key || '').slice(0, 160); if (!k) return { ok: false };
+  const it = seen[k] = seen[k] || { n: 0 }; it.n++; it.at = Date.now();
+  const keys = Object.keys(seen); if (keys.length > 400) keys.sort((a, b) => seen[a].at - seen[b].at).slice(0, keys.length - 400).forEach(x => delete seen[x]);
+  await Store.set('wcSeen', seen);
+  if (it.n < 2) return { ok: true, n: it.n };
+  const list = await Store.get('mistakes', []), q = String(m.q || '').slice(0, 200), key = (m.kind === 'vocab' ? 'vocab' : 'grammar') + '|' + q;
+  const old = list.find(x => x.key === key);
+  if (old) { old.n = (old.n || 1) + 1; old.at = Date.now(); old.fixed = false; }
+  else list.unshift({ kind: m.kind === 'vocab' ? 'vocab' : 'grammar', q, given: String(m.given || '').slice(0, 80), answer: String(m.answer || '').slice(0, 80), explain: String(m.explain || '').slice(0, 400), ref: String(m.ref || '').slice(0, 60), src: 'writecheck', key, n: it.n, at: Date.now(), fixed: false });
+  await Store.set('mistakes', list.slice(0, 300));
+  // Từ hay viết sai → thẻ flashcard để ôn theo lịch FSRS
+  if (m.kind === 'vocab' && m.ref && /^[a-z][a-z' -]{1,30}$/i.test(m.ref) && !it.card) {
+    try { const cards = await Cards.all(); const w = m.ref.toLowerCase(); if (!cards[w]) { const e = await Dict.quick(w); if (e && e.word) { await Cards.add(e, null); scheduleBgSync(); } /* không kèm câu người dùng viết (thẻ được đồng bộ theo tài khoản) */ } it.card = 1; await Store.set('wcSeen', seen); } catch (e) { /* bỏ qua */ }
+  }
+  return { ok: true, n: it.n, logged: true };
+}
+
 // ---------- Tin nhắn từ content script / popup / app ----------
 chrome.runtime.onMessage.addListener((msg, sender, reply) => {
   (async () => { try {
@@ -316,6 +359,8 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
         } catch (e) { return reply({}); } finally { clearTimeout(tm); }
       }
       case 'uiDict': return reply({ dict: await uiDict(msg.lang) });
+      case 'wcLT': return reply(await wcLanguageTool(msg.text));
+      case 'wcMistake': return reply(await wcMistake(msg));
       case 'ytTracks': { // danh sách phụ đề của video YouTube (đọc player response trong trang – chỉ URL phụ đề, không dữ liệu người dùng)
         try {
           const [res] = await chrome.scripting.executeScript({ target: { tabId: sender.tab.id }, world: 'MAIN', func: () => { const pr = (document.querySelector('#movie_player') && document.querySelector('#movie_player').getPlayerResponse && document.querySelector('#movie_player').getPlayerResponse()) || window.ytInitialPlayerResponse; const tr = pr && pr.captions && pr.captions.playerCaptionsTracklistRenderer && pr.captions.playerCaptionsTracklistRenderer.captionTracks; return (tr || []).map(t => ({ u: t.baseUrl, l: t.languageCode, k: t.kind || '' })); } });

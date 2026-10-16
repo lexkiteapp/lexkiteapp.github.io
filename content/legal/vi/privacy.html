@@ -6,6 +6,7 @@
 <li>Chúng tôi <b>không bán, không chia sẻ</b> dữ liệu cá nhân của bạn cho bên thứ ba vì mục đích quảng cáo.</li>
 <li>Dữ liệu học (từ đã lưu, câu ngữ cảnh, tiến độ ôn tập) được lưu <b>trên thiết bị của bạn</b>. Chỉ khi bạn chủ động đăng nhập, dữ liệu mới được sao chép lên máy chủ để đồng bộ giữa các thiết bị.</li>
 <li>Tiện ích trình duyệt <b>không thu thập hay gửi đi lịch sử duyệt web hoặc nội dung trang</b>. Chỉ từ hoặc đoạn bạn chủ động bấm đúp, bôi đen hoặc chạm vào mới được gửi tới các dịch vụ tra cứu liệt kê bên dưới. Các tính năng tùy chọn trên trang (đánh dấu từ bạn đã lưu, gạch chân từ học thuật) chạy hoàn toàn trên máy bạn.</li>
+<li><b>Soát lỗi viết (mặc định tắt).</b> Nếu bạn bật “Soát lỗi viết” trong tiện ích, chữ bạn gõ trong ô nhập được soát lỗi tiếng Anh <b>ngay trên máy</b> (bộ luật của Lexkite và, nếu Chrome có sẵn, AI soát lỗi tích hợp của Chrome). Chỉ khi bạn bật thêm “Kiểm nâng cao”, chữ trong ô bạn đang gõ mới được gửi tới LanguageTool (api.languagetool.org) để tìm thêm lỗi; chữ này không gửi cho chúng tôi. Ô mật khẩu, email, số, thẻ thanh toán, trang ngân hàng – thanh toán và các trang bạn đã tắt không bao giờ được soát. Lỗi bạn lặp lại chỉ được lưu trên máy trong Sổ lỗi sai (một đoạn câu ngắn), từ bạn hay viết sai có thể được thêm vào flashcard (chỉ từ đó, không kèm chữ bạn viết).</li>
 </ul>
 <h2>2. Dữ liệu chúng tôi xử lý</h2>
 <table>
@@ -28,14 +29,14 @@
 <li>Tatoeba (api.tatoeba.org): câu ví dụ song ngữ</li>
 <li>Datamuse (api.datamuse.com): gợi ý từ, từ liên quan</li>
 <li>MyMemory (api.mymemory.translated.net): dịch dự phòng</li>
-<li>LanguageTool (api.languagetool.org): <b>chỉ khi bạn bấm “Kiểm tra ngữ pháp”</b>, đoạn văn trong ô soạn thảo được gửi đi để tìm lỗi ngữ pháp, chính tả</li>
+<li>LanguageTool (api.languagetool.org): <b>chỉ khi bạn bấm “Kiểm tra ngữ pháp”</b>, đoạn văn trong ô soạn thảo được gửi đi để tìm lỗi ngữ pháp, chính tả; trong tiện ích, <b>chỉ khi bạn bật Soát lỗi viết và Kiểm nâng cao</b>, chữ trong ô bạn đang gõ được gửi đi với cùng mục đích (tối đa 20 lượt mỗi phút)</li>
 <li>Google Gemini (generativelanguage.googleapis.com): <b>chỉ khi bạn tự thêm khóa API Gemini của mình</b> và yêu cầu tiện ích giải thích một cụm từ bằng AI; cụm từ và câu chứa nó được gửi đi bằng khóa của bạn. Khóa chỉ lưu trên máy bạn. Khi không có khóa, tiện ích có thể dùng AI tích hợp sẵn trong Chrome, chạy ngay trên máy bạn.</li>
 <li>YouTube: trên youtube.com, tiện ích tải phụ đề của video bạn đang xem để bạn chạm vào từ trong phụ đề.</li>
 </ul>
 <p>Website và dịch vụ của chúng tôi chạy trên Cloudflare. File âm thanh được tải từ GitHub Pages, phông chữ từ Google Fonts; như mọi website, các nhà cung cấp này nhận dữ liệu kỹ thuật của yêu cầu (như địa chỉ IP, loại trình duyệt) để gửi file.</p>
 <h2>4. Quyền của tiện ích trình duyệt</h2>
 <ul>
-<li><b>Truy cập trang web (http/https):</b> để hiện bảng tra khi bạn bấm đúp vào từ, dịch đoạn bạn bôi đen, tra từ trong phụ đề YouTube và, nếu bạn bật, đánh dấu từ đã lưu hoặc gạch chân từ học thuật trên trang. Nội dung trang được xử lý trên máy bạn và không bao giờ gửi cho chúng tôi; chỉ từ hoặc đoạn bạn chọn mới được gửi tới các dịch vụ tra cứu ở trên.</li>
+<li><b>Truy cập trang web (http/https):</b> để hiện bảng tra khi bạn bấm đúp vào từ, dịch đoạn bạn bôi đen, tra từ trong phụ đề YouTube và, nếu bạn bật, đánh dấu từ đã lưu, gạch chân từ học thuật trên trang hoặc soát lỗi tiếng Anh trong chữ bạn gõ vào ô nhập (Soát lỗi viết). Nội dung trang được xử lý trên máy bạn và không bao giờ gửi cho chúng tôi; chỉ từ hoặc đoạn bạn chọn mới được gửi tới các dịch vụ tra cứu ở trên.</li>
 <li><b>storage:</b> lưu từ vựng và tiến độ trên máy bạn.</li>
 <li><b>alarms, notifications:</b> nhắc học hằng ngày và nhắc ôn vào “thời điểm vàng”.</li>
 <li><b>contextMenus:</b> mục “Tra từ / Dịch đoạn đã chọn” khi nhấp chuột phải.</li>

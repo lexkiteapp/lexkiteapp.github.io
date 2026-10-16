@@ -59,4 +59,24 @@ ok((await call(A, { op: 'pull' }, 'https://evil.example')).h.get('Access-Control
   ok((await mk('ja', null)).exT(orig) === orig, 'lời giải: chưa có bản dịch → giữ bản gốc');
 }
 
+// ---------- ✍️ Soát lỗi viết (web/js/writecheck-rules.js + bản tiếng Anh cho add-on) ----------
+{
+  const w = { console }; w.self = w; vm.createContext(w);
+  vm.runInContext(fs.readFileSync(new URL('../../web/js/writecheck-rules.js', import.meta.url), 'utf8'), w);
+  const W = w.LK_WRITE, fix = t => { let out = t; for (const x of W.check(t).reverse()) out = out.slice(0, x.s) + (x.reps[0] ?? '') + out.slice(x.e); return out; };
+  const CASES = [['She have a apple.', 'She has an apple.'], ['I recieve your email.', 'I receive your email.'], ['You should to study more harder then me.', 'You should study harder than me.'],
+    ['Although it rained, but we went out.', 'Although it rained, we went out.'], ['I enjoy to read and look forward to meet you.', 'I enjoy reading and look forward to meeting you.'], ['I have went there and he don\'t know.', 'I have gone there and he doesn\'t know.'],
+    ['It depends of the weather.', 'It depends on the weather.'], ['If it will rain, we stay.', 'If it rains, we stay.'], ['i think its a good idea.', 'I think it\'s a good idea.']];
+  for (const [a, b] of CASES) ok(fix(a) === b, `soát lỗi viết: "${a}" → "${b}" (nhận "${fix(a)}")`);
+  for (const good of ['An hour ago, a university student met an MBA graduate.', 'The house had had a fire. E.g. this is fine.', 'They are happy and she has a lot.'.replace(' a lot', ' plenty'), 'He was interested in it and arrived at the station.'])
+    ok(!W.check(good).filter(x => x.type !== 'style').length, `soát lỗi viết: câu đúng không bị gạch "${good}" (${JSON.stringify(W.check(good).map(x => x.rule))})`);
+  ok(W.check('This is very important.').some(x => x.rule === 'lk:upgrade' && x.reps.includes('crucial') && x.levels[0]), 'soát lỗi viết: gợi ý nâng cấp từ vựng kèm cấp CEFR');
+  // service worker đọc bản tiếng Anh bằng JSON.parse (background.js uiDict) → phải là JSON một dòng & đủ khóa
+  const src = fs.readFileSync(new URL('../../web/js/i18n/en/writecheck.js', import.meta.url), 'utf8');
+  let EN = {}; try { EN = JSON.parse(src.slice(src.indexOf('{"', src.indexOf('Object.assign(')), src.lastIndexOf('});') + 1)); } catch (e) { ok(false, 'soát lỗi viết: en/writecheck.js không đọc được bằng JSON.parse – ' + e.message); }
+  const keys = new Set(W.rules.flatMap(r => [r.title, r.why]));
+  for (const f of ['../../extension/writecheck.js']) for (const m of fs.readFileSync(new URL(f, import.meta.url), 'utf8').matchAll(/\btx\('((?:[^'\\]|\\.)*)'/g)) keys.add(m[1]);
+  const miss = [...keys].filter(k => !EN[k]); ok(!miss.length, 'soát lỗi viết: thiếu bản tiếng Anh ' + JSON.stringify(miss.slice(0, 5)));
+}
+
 console.log(fails ? `✗ unit: ${fails} lỗi` : '✓ unit: FSRS & API đồng bộ – tất cả đạt'); process.exit(fails ? 1 : 0);
