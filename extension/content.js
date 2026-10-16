@@ -837,7 +837,7 @@
 
   // ---------- YouTube: chạm vào từ trong phụ đề để tra, video tự dừng ----------
   function initYouTube() {
-    const st = document.createElement('style');
+    const st = document.createElement('style'); st.setAttribute('style', 'display:none !important');
     st.textContent = `
       .ytp-caption-segment .vbw { cursor: pointer; border-radius: 4px; transition: background .1s; }
       .ytp-caption-segment .vbw:hover { background: #CC3F1C !important; color: #fff !important; }
