@@ -767,7 +767,8 @@
     },
     async social() {
       main.innerHTML = '';
-      if (window.AdminSocial) AdminSocial.render(main, sapi, L, { esc, num, when, lang: () => LANG }); // js/admin-social.js
+      if (!window.AdminSocial) await new Promise((y, n) => { const sc = document.createElement('script'); sc.src = 'js/admin-social.js'; sc.onload = y; sc.onerror = n; document.head.appendChild(sc); }); // tải lười – chỉ khi mở tab
+      AdminSocial.render(main, sapi, L, { esc, num, when, lang: () => LANG }); // js/admin-social.js
     },
     async studio() {
       main.innerHTML = '';

@@ -44,10 +44,10 @@ ok(calls.length === 0, 'chưa cấu hình → không gọi GrabCast');
 // 3) Whitelist
 const ALLOW = [['GET', 'accounts'], ['GET', 'posts'], ['GET', 'posts/p_123'], ['GET', 'media/m_1'], ['POST', 'media/upload-url'], ['POST', 'media/m_1/complete'], ['POST', 'posts/validate'], ['POST', 'posts'], ['PATCH', 'posts/p_1'],
   ['POST', 'posts/p_1/schedule'], ['POST', 'posts/p_1/unschedule'], ['POST', 'posts/p_1/publish-now'], ['POST', 'posts/p_1/retry'], ['POST', 'posts/p_1/cancel'], ['POST', 'storage/objects/o_1/use'],
-  ['GET', 'storage/stores'], ['GET', 'storage/objects'], ['POST', 'storage/objects'], ['POST', 'storage/objects/o_1/complete'], ['POST', 'storage/objects/o_1/abort'], ['GET', '/api/social/accounts']];
+  ['GET', 'storage/stores'], ['GET', 'storage/objects'], ['POST', 'storage/objects'], ['POST', 'validate'], ['GET', 'posts/p_1/insights'], ['GET', 'tiktok/creator-info/12'], ['POST', 'storage/objects/o_1/complete'], ['POST', 'storage/objects/o_1/abort'], ['GET', '/api/social/accounts']];
 for (const [m, p] of ALLOW) { const r = await call(ADM, { method: m, path: p }); ok(r.s === 200, `cho phép ${m} ${p} (nhận ${r.s})`); }
 const DENY = [['DELETE', 'posts/p_1'], ['DELETE', 'accounts/a_1'], ['POST', 'accounts'], ['POST', 'accounts/a_1/disconnect'], ['POST', 'accounts/connect'], ['GET', 'posts/../../admin'], ['GET', 'posts/a/b'], ['GET', 'posts/..'], ['GET', 'media/.'], ['POST', 'storage/objects/../use'],
-  ['PUT', 'posts/p_1'], ['GET', 'storage/stores/s_1/disconnect'], ['POST', 'storage/stores'], ['DELETE', 'storage/objects/o_1'], ['GET', 'https://evil.example/x'], ['GET', ''], ['POST', 'posts/p_1/delete'], ['PATCH', 'posts']];
+  ['PUT', 'posts/p_1'], ['GET', 'storage/stores/s_1/disconnect'], ['POST', 'storage/stores'], ['DELETE', 'storage/objects/o_1'], ['GET', 'https://evil.example/x'], ['GET', ''], ['POST', 'posts/p_1/delete'], ['PATCH', 'posts'], ['POST', 'posts/p_1/insights'], ['GET', 'tiktok/creator-info/../x'], ['POST', 'validate/x']];
 const before = calls.length;
 for (const [m, p] of DENY) { const r = await call(ADM, { method: m, path: p }); ok(r.s === 400 && r.j.error === 'route', `chặn ${m} ${p} (nhận ${r.s})`); }
 ok(calls.length === before, 'đường dẫn bị chặn → không gọi GrabCast');

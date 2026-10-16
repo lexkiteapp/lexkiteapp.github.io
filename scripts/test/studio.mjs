@@ -22,7 +22,7 @@ globalThis.fetch = async (url, init = {}) => {
   if (url.includes('api.github.com')) return new Response(null, { status: 204 });
   if (url.includes('raw.githubusercontent.com')) return new Response(JSON.stringify({ topics: [{ topic: 'Queue topic A' }, 'Queue topic B'] }), { status: 200 });
   const p = url.replace(/^.*\/api\/social\//, '').split('?')[0];
-  const R = { accounts: { items: [{ id: 'acc_yt', platform: 'youtube' }, { id: 'acc_tt', platform: 'tiktok', status: 'expired' }] }, 'posts/validate': { valid: true }, posts: { id: 'post_1' } };
+  const R = { accounts: { items: [{ id: 'acc_yt', platform: 'youtube' }, { id: 'acc_tt', platform: 'tiktok', status: 'expired' }] }, 'validate': { valid: true }, posts: { id: 'post_1' } };
   const body = /storage\/objects\/[^/]+\/use$/.test(p) ? { media_id: 'med_1' } : /posts\/[^/]+\/(schedule|unschedule)$/.test(p) ? { ok: true } : R[p] || {};
   return new Response(JSON.stringify(body), { status: 200 });
 };
@@ -100,7 +100,7 @@ r = await call(ADM, { op: 'publish', id, confirm: true }, { ...ENV, GRABCAST_API
 calls = []; r = await call(ADM, { op: 'publish', id, confirm: true }); g = r.j.job;
 ok(r.s === 200 && g.status === 'scheduled' && g.media_id === 'med_1' && g.post_id === 'post_1', 'đăng: use → validate → posts → schedule ' + r.text.slice(0, 200));
 const paths = calls.map(c => c.init.method + ' ' + c.url.replace(/^.*\/api\/social\//, ''));
-ok(paths.join('|') === 'POST storage/objects/obj_1/use|GET accounts|POST posts/validate|POST posts|POST posts/post_1/schedule', 'thứ tự gọi GrabCast: ' + paths.join('|'));
+ok(paths.join('|') === 'POST storage/objects/obj_1/use|GET accounts|POST validate|POST posts|POST posts/post_1/schedule', 'thứ tự gọi GrabCast: ' + paths.join('|'));
 const created = calls.find(c => /\/posts$/.test(c.url));
 ok(created && /^[0-9a-f]{40}$/.test(created.init.headers['Idempotency-Key']) && JSON.parse(created.init.body).targets.map(t => t.account_id).join() === 'acc_yt', 'Idempotency-Key + bỏ kênh hết hạn');
 const sch = JSON.parse(calls[calls.length - 1].init.body), nyH = +new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', hour: 'numeric', hourCycle: 'h23' }).format(new Date(sch.scheduled_at));

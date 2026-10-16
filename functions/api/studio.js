@@ -242,7 +242,7 @@ export async function publishJob(env, db, job, { at, accounts, auto = false } = 
     const kind = a => { const k = a && (a.kinds || a.supported_kinds || a.post_kinds); return Array.isArray(k) && k.length ? String(k[0]) : 'video'; };
     const caption = [sc.caption || sc.title || job.topic, (sc.hashtags || []).map(h => '#' + h).join(' ')].filter(Boolean).join('\n\n').slice(0, 2200);
     const payload = { title: String(sc.title || job.topic).slice(0, 200), caption, link: sc.link || 'https://lexkite.com/', media_ids: [mediaId], targets: acc.map(a => ({ account_id: a.id, kind: kind(a), options: {} })) };
-    const v = await gc(env, 'POST', 'posts/validate', payload), errs = [...(v.errors || []), ...((v.targets || []).flatMap(t => t.errors || []))];
+    const v = await gc(env, 'POST', 'validate', payload), errs = [...(v.errors || []), ...(v.problems || []), ...((v.targets || []).flatMap(t => [...(t.errors || []), ...(t.problems || [])]))].filter(x => !/warn/.test(String((x && x.level) || '')));
     if (v.valid === false || v.ok === false || errs.length) throw new Bad(422, 'validate', { message: JSON.stringify(errs.length ? errs : v).slice(0, 400) });
     const c = await gc(env, 'POST', 'posts', payload, (await hex(job.id + '|' + mediaId)).slice(0, 40));
     const postId = pick(c, 'id') || pick(c.post || c.data || {}, 'id'); if (!postId) throw new Bad(502, 'no-post-id');

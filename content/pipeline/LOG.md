@@ -19,3 +19,4 @@
 | 2026-10-17 | TOEFL Listening + Writing | 40 câu nghe bộ 6 (→200) + 4 đề viết (→100) – đạt chỉ tiêu | 22731d0e | phiên nội dung | chờ phiên chính nghiệm thu |
 | 2026-10-17 | TOEIC Speaking & Writing | +20 đề – 20→40 | 157e10fd | phiên nội dung | chờ phiên chính nghiệm thu |
 | 2026-10-17 | TOEIC Speaking & Writing | +20 đề – 40→60, đạt chỉ tiêu | 700f152c | phiên nội dung | chờ phiên chính nghiệm thu |
+| 2026-10-17 | Từ vựng chủ đề | 100 mục (5 chủ đề công sở & đời sống Mỹ) + 100 ghi chú học từ | 9c57d2f8 | phiên nội dung | chờ phiên chính nghiệm thu |
