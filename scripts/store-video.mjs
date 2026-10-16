@@ -125,6 +125,7 @@ await sleep(9000);
 } catch (e) { console.log('⚠ làm nóng lỗi (bỏ qua):', e.message.split('\n')[0]); }
 await warm.close().catch(() => {});
 const articleShot = path.join(TMP, 'article.png');
+let cardBox = null;
 
 const scenes = []; // { vid, ss, d, bg, box }
 async function record(fn) {
@@ -145,6 +146,9 @@ scenes.push({ i: 0, url: 'dailyplanet.com/environment', ...await record(async (p
   await p.mouse.dblclick(b.x + b.width / 2, b.y + b.height / 2); await sleep(4200);
   await p.mouse.move(b.x + b.width / 2 + 330, b.y + 120, { steps: 25 }); await sleep(1500);
   await p.screenshot({ path: articleShot });
+  // Ảnh bảng tra (cho thumbnail/hook bản viral) + vị trí tương đối để zoom máy quay
+  const cb = await p.evaluate(() => { const h = document.querySelector('ielts-lexi-popup'), b = h && h.shadowRoot && h.shadowRoot.querySelector('.box'); if (!b) return null; const r = b.getBoundingClientRect(); return { x: r.x, y: r.y, w: r.width, h: r.height }; }).catch(() => null);
+  if (cb) { cardBox = cb; await p.screenshot({ path: path.join(TMP, 'card.png'), clip: { x: Math.max(0, cb.x - 8), y: Math.max(0, cb.y - 8), width: cb.w + 16, height: cb.h + 16 } }).catch(() => {}); }
   return { ss, d: +(mark() - ss).toFixed(2) };
 }) });
 // 2. Bôi đen câu → dịch + cấu trúc
@@ -184,6 +188,15 @@ scenes.push({ i: 4, url: 'Lexkite', ...await record(async (p, mark) => {
   return { ss, d: +(mark() - ss).toFixed(2) };
 }) });
 await ctx.close();
+
+// Bản viral (scripts/store-video-viral.mjs) dùng lại đoạn quay gốc: RAW_OUT=<thư mục> → chép video + ảnh + mô tả cảnh rồi dừng
+if (process.env.RAW_OUT) {
+  const R = path.resolve(process.env.RAW_OUT); fs.mkdirSync(R, { recursive: true });
+  const out = scenes.map((s, k) => { const f = `clip${k}.webm`; fs.copyFileSync(s.vid, path.join(R, f)); return { ...s, vid: f }; });
+  for (const f of ['article.png', 'card.png']) if (fs.existsSync(path.join(TMP, f))) fs.copyFileSync(path.join(TMP, f), path.join(R, f));
+  fs.writeFileSync(path.join(R, 'scenes.json'), JSON.stringify({ lang: LANG, VW, VH, cardBox, scenes: out }, null, 1));
+  srv.close(); console.log('✓ RAW', R); process.exit(0);
+}
 
 // Ghép
 const br = await chromium.launch(); const cp = await br.newPage({ viewport: { width: CW, height: CH }, deviceScaleFactor: 1 });
