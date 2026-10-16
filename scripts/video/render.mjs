@@ -1,26 +1,40 @@
 // Dựng 1 video theo job của Video Studio (functions/api/studio.js) – chạy trong GitHub Actions video.yml (ubuntu-latest, miễn phí) hoặc trên máy.
-// Dùng: node scripts/video/render.mjs --job <id> [--step all|fetch|tts|align|lipsync|karaoke|compose|qa|report] [--script script.json] [--bg ảnh.png] [--ok success|failure]
+// Dùng: node scripts/video/render.mjs --job <id> [--step all|fetch|variant|cast|tts|align|lipsync|karaoke|compose|qa|report] [--script script.json] [--bg ảnh.png] [--ok success|failure]
+//       node scripts/video/render.mjs --local --script content/video/samples/sample.json [--seed s]  (chạy thử trên máy: không cần bí mật, không gọi Studio)
+//       node scripts/video/render.mjs --coverage   (báo cáo độ phủ tổ hợp + tài nguyên còn thiếu → out/video/coverage.json)
+//   tùy chọn: --library <thư mục kho dựng> (mặc định brand/library) · env VIDEO_STRICT=1 (CI: thiếu Kokoro/whisper/Rhubarb → lỗi thay vì bỏ qua)
 //   env: STUDIO_API (mặc định https://lexkite.com/api/studio) · STUDIO_CALLBACK_SECRET (secret, cần cho fetch/report) · OBJECT_ID, PREVIEW_URL, RUN_URL (bước report)
+//        KOKORO_NODE_PATH/NODE_PATH (thư mục node_modules có kokoro-js) · PYTHON (mặc định python3) · RHUBARB (mặc định rhubarb) · WHISPER_MODEL (mặc định tiny.en)
 // Trạng thái giữa các bước: out/video/<id>/state.json – mỗi bước đọc/ghi file này nên workflow tách bước rõ ràng (thất bại ở bước nào thấy ngay).
-// Kế hoạch đầy đủ (docs/VIDEO-PIPELINE.md §2): TTS Kokoro → căn mốc từ (whisper) → khẩu hình (Rhubarb) → phụ đề karaoke ASS → ghép → cổng QA → gọi lại Studio.
-// Đã làm (rẻ, chạy ngay): mốc từ chia đều theo ước lượng thời lượng · ASS karaoke \k · ghép ffmpeg nền tạm/ảnh phòng + phụ đề burn-in · cổng QA đo được · gọi lại.
-// TODO (nặng) – giao diện cố định bên dưới từng bước: tts, align (whisper), lipsync (rhubarb), dựng rig nhân vật. Không bao giờ in bí mật.
+// Dây chuyền (docs/VIDEO-PIPELINE.md §2, §7, §8): kịch bản → cổng nhất quán (casting) → giọng Kokoro (-16 LUFS) → mốc từ (faster-whisper, dự phòng chia đều)
+//   → khẩu hình (Rhubarb) → phụ đề karaoke ASS (từ đang đọc màu cam) + hook 2 s đầu + thẻ CTA → ghép ffmpeg (phòng theo bối cảnh, clip nhân vật đặt chân lên điểm đứng,
+//   bóng tiếp xúc, đẩy máy câu "đắt", cắt cảnh 2–4 s) 1080×1920 30 fps → cổng QA (MEDIA-QA-RUBRIC C) → gọi lại Studio. Không bao giờ in bí mật. Không dùng nhạc nền.
 import fs from 'fs';
 import path from 'path';
-import { execFileSync } from 'child_process';
+import { execFileSync, spawnSync } from 'child_process';
+import { createRequire } from 'module';
+import { fileURLToPath } from 'url';
+import * as V from './lib.mjs';
+import * as X from './variants.mjs';
 
 const args = process.argv.slice(2), opt = n => { const i = args.indexOf('--' + n); return i >= 0 ? args[i + 1] : undefined; };
 const die = m => { console.error('✗ render: ' + m); process.exit(1); };
-const ID = opt('job'), STEP = opt('step') || 'all';
-if (!ID || !/^[A-Za-z0-9_-]{1,40}$/.test(ID)) die('cần --job <id>');
+const LOCAL = args.includes('--local'), STRICT = process.env.VIDEO_STRICT === '1', COVERAGE = args.includes('--coverage');
+const ID = opt('job') || (LOCAL ? 'local' : COVERAGE ? 'coverage' : ''), STEP = opt('step') || 'all';
+if (!ID || !/^[A-Za-z0-9_-]{1,40}$/.test(ID)) die('cần --job <id> (hoặc --local)');
+if (LOCAL && !COVERAGE && !opt('script') && ['all', 'fetch'].includes(STEP)) die('--local cần --script <file.json> (vd. content/video/samples/sample.json)');
 const API = process.env.STUDIO_API || 'https://lexkite.com/api/studio', SECRET = process.env.STUDIO_CALLBACK_SECRET || '';
-const DIR = path.join('out/video', ID), STATE = path.join(DIR, 'state.json');
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+const LIB = path.resolve(opt('library') || path.join(ROOT, 'brand/library'));
+const DIR = path.join('out/video', ID), STATE = path.join(DIR, 'state.json'), P = f => path.join(DIR, f);
 fs.mkdirSync(DIR, { recursive: true });
 const load = () => (fs.existsSync(STATE) ? JSON.parse(fs.readFileSync(STATE, 'utf8')) : { id: ID, steps: {} });
 const store = s => fs.writeFileSync(STATE, JSON.stringify(s, null, 2));
-const W = { short: [1080, 1920], lesson: [1920, 1080] }, WPS = 2.6;
+const readJson = f => JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8'));
+const W = { short: [1080, 1920], lesson: [1920, 1080] }, WPS = 2.6, FPS = 30, GAP = 0.3, END_CARD = 2.2;
 const COMPETITORS = /\b(duolingo|babbel|busuu|memrise|rosetta\s*stone|cambly|preply|italki|elsa\s*speak|quizlet|cake\s*app|lingoda|mondly|praktika)\b/i;
 const CAST = ['mia', 'leo', 'ama', 'kit', 'diane', 'carlos'];
+const PY = process.env.PYTHON || 'python3', RHUBARB = process.env.RHUBARB || 'rhubarb';
 
 async function studio(body) {
   if (!SECRET) die('thiếu env STUDIO_CALLBACK_SECRET');
@@ -29,97 +43,307 @@ async function studio(body) {
   if (!r.ok) throw new Error(`studio ${body.op} → ${r.status} ${String(j.error || '')}`);
   return j;
 }
-const has = bin => { try { execFileSync(bin, ['-version'], { stdio: 'ignore' }); return true; } catch (e) { return false; } };
-const ff = a => execFileSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', ...a], { stdio: ['ignore', 'inherit', 'inherit'] });
+const canRun = (bin, a) => { try { execFileSync(bin, a, { stdio: 'ignore', timeout: 30000 }); return true; } catch (e) { return false; } };
+const ff = a => execFileSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', ...a], { stdio: ['ignore', 'inherit', 'inherit'], maxBuffer: 64 << 20 });
+const ffErr = a => spawnSync('ffmpeg', ['-hide_banner', '-nostats', ...a], { encoding: 'utf8', maxBuffer: 64 << 20 }).stderr || '';
+const probe = f => { const j = JSON.parse(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'stream=width,height,pix_fmt:format=duration', '-of', 'json', f], { encoding: 'utf8' })); const st = (j.streams || [])[0] || {}; return { w: st.width, h: st.height, pix: st.pix_fmt || '', dur: +(j.format || {}).duration || 0 }; };
+const todo = (s, k) => { s.todo = [...new Set([...(s.todo || []), k])]; };
+// Thiếu công cụ nặng: trên máy → bỏ qua có thông báo; CI (VIDEO_STRICT=1) → lỗi để không lặng lẽ ra video kém
+const skip = (s, k, why) => { if (STRICT) throw new Error(`${k}: ${why}`); console.log(`⚠️ bỏ qua ${k}: ${why}`); todo(s, k); };
+const libFile = f => (f ? path.join(LIB, f) : '');
+const exists = f => !!f && fs.existsSync(libFile(f));
+const existsRepo = f => !!f && fs.existsSync(path.join(ROOT, f));
+const manifestOf = () => (fs.existsSync(path.join(LIB, 'manifest.json')) ? JSON.parse(fs.readFileSync(path.join(LIB, 'manifest.json'), 'utf8')) : {});
+const HIST = 'out/video/history.json'; // lịch sử dấu vân tay khi chạy trên máy (CI lấy từ Studio: ciJob.recent)
 
 // ---------- Các bước ----------
 const STEPS = {
-  // 1) Lấy job (kịch bản đã duyệt) từ Studio – hoặc --script file.json khi chạy thử trên máy
+  // 1) Lấy job (kịch bản đã duyệt) từ Studio – hoặc --script file.json (chạy thử). File có thể là {topic, format, script} hoặc chỉ script {lines…}
   async fetch(s) {
     const f = opt('script');
-    const job = f ? { id: ID, format: 'short', topic: 'local', ...JSON.parse(fs.readFileSync(f, 'utf8')) } : (await studio({ op: 'ciJob', id: ID })).job;
-    if (f && !job.script) job.script = JSON.parse(fs.readFileSync(f, 'utf8'));
+    let job;
+    if (f) { const raw = JSON.parse(fs.readFileSync(f, 'utf8')); job = raw.script ? { id: ID, format: 'short', topic: raw.topic || raw.script.title || 'local', ...raw } : { id: ID, format: 'short', topic: raw.title || 'local', script: raw }; }
+    else job = (await studio({ op: 'ciJob', id: ID })).job;
     if (!job.script || !Array.isArray(job.script.lines) || !job.script.lines.length) throw new Error('job chưa có kịch bản');
-    s.job = job;
-    s.plan = ['fetch', 'tts (TODO: Kokoro)', 'align (tạm: chia đều; TODO: whisper)', 'lipsync (TODO: Rhubarb)', 'karaoke ASS', 'compose (tạm: nền + phụ đề)', 'qa', 'report'];
+    s.job = job; s.todo = []; s.local = LOCAL;
   },
-  // 2) TODO giọng đọc Kokoro (dùng lại cách cài của audio.yml: kokoro-js@1, giọng theo content/video/assets.json characters[who].voice)
-  //    Vào: s.job.script.lines[i] { who, text } → Ra: out/video/<id>/line-NN.wav (24 kHz mono, ffmpeg loudnorm I=-16:TP=-1.5:LRA=11)
-  //    và s.lines[i] = { wav: 'line-NN.wav', dur: giây đo bằng ffprobe }. Chưa có → dur ước lượng (từ / 2.6 + 0.3 s), không có wav.
+  // 2) Biến thể có seed (variants.mjs): khuôn × bối cảnh × dàn × góc máy × hook × chuyển cảnh × nhạc × end card; chống lặp với 30 video gần nhất.
+  //    Đổi vai (recast) chỉ khi lời thoại không gọi tên nhân vật. Lịch sử: Studio (job.recent) hoặc out/video/history.json khi chạy thử.
+  async variant(s) {
+    const formats = readJson('content/video/formats.json'), casting = readJson('content/video/casting.json');
+    const hist = Array.isArray(s.job.recent) ? s.job.recent : (fs.existsSync(HIST) ? JSON.parse(fs.readFileSync(HIST, 'utf8')).filter(h => h.id !== ID) : []);
+    const seed = opt('seed') || `${ID}|${s.job.seed || ''}`;
+    const v = X.pickVariant({ job: s.job, formats, casting, manifest: manifestOf(), history: hist, seed, exists, existsRepo, date: new Date() });
+    s.scriptOrig = s.scriptOrig || s.job.script;
+    s.job.script = v.recast ? X.applyCast(s.scriptOrig, v.cast) : s.scriptOrig;
+    s.variant = v; s.history = hist.slice(-formats.rules.recent);
+    console.log(`  ${v.format.id} · ${v.setting.id} · ${v.cast.to.join('+') || '—'} · hook ${v.hookStyle.id} · ${v.transition.id} · nhạc ${v.music.id} · end ${v.endCard.id} · máy ${v.cameraSet.id}${v.relaxed ? ' · ⚠️ chưa đạt luật chống lặp' : ''}`);
+  },
+  // 3) CỔNG NHẤT QUÁN (VIDEO-PIPELINE §8): chủ đề → bối cảnh + dàn (content/video/casting.json), phòng theo tag (không ngẫu nhiên),
+  //    clip người nói/nghe theo cảm xúc câu, hướng nhìn, liên tục trang phục/vị trí/ngày-đêm. Lỗi không dừng dựng (để xem trước) nhưng QA chấm 0 + chặn đăng.
+  async cast(s) {
+    const gap = readJson('content/video/formats.json').rules.clipSpacing || 3, avoidClips = (s.history || []).slice(-gap).flatMap(h => h.clips || []);
+    const st = V.buildStage({ job: s.job, casting: readJson('content/video/casting.json'), manifest: manifestOf(), exists, variant: s.variant || null, avoidClips });
+    s.stage = st; s.consistency = V.consistencyVerdict(st.fails);
+    if (s.variant) s.variant.fp.clips = st.clips;
+    console.log(`  chủ đề ${st.topic} · bối cảnh ${st.segs.map(g => `${g.scene}(${g.room.id})`).join(' → ')} · ${st.time}`);
+    if (!s.consistency.ok) console.log(s.consistency.reasons.map(r => '  ✗ ' + r).join('\n'));
+  },
+  // 4) Giọng Kokoro (kokoro-js như audio.yml) – giọng theo content/video/assets.json characters[who].voice (+ casting.json voices cho vai chưa có)
+  //    Ra: line-NN.wav (48 kHz mono, loudnorm I=-16 TP=-1.5) + s.lines[i].dur. Thiếu kokoro-js → ước lượng thời lượng (từ / 2,6 + 0,3 s), không có wav.
   async tts(s) {
-    s.lines = s.job.script.lines.map(l => ({ who: l.who, text: l.text, dur: +(String(l.text).trim().split(/\s+/).length / WPS + 0.3).toFixed(2), wav: null }));
-    s.todo = [...new Set([...(s.todo || []), 'tts'])];
+    s.lines = s.job.script.lines.map(l => ({ who: l.who, text: l.text, beat: l.beat, punch: !!l.punch, dur: +(V.tokens(l.text).length / WPS + 0.3).toFixed(2), wav: null }));
+    const voices = { ...Object.fromEntries(Object.entries(readJson('content/video/assets.json').characters || {}).map(([k, v]) => [k, v.voice])), ...(readJson('content/video/casting.json').voices || {}) };
+    const np = process.env.KOKORO_NODE_PATH || process.env.NODE_PATH;
+    let KokoroTTS; try { ({ KokoroTTS } = createRequire(np ? np.split(':')[0] + '/' : import.meta.url)('kokoro-js')); } catch (e) { return skip(s, 'tts', 'chưa cài kokoro-js (npm i --prefix /tmp/kk kokoro-js@1, rồi KOKORO_NODE_PATH=/tmp/kk/node_modules)'); }
+    let tts = null;
+    for (let k = 1; k <= 4 && !tts; k++) { try { tts = await KokoroTTS.from_pretrained('onnx-community/Kokoro-82M-v1.0-ONNX', { dtype: 'q8', device: 'cpu' }); } catch (e) { console.error(`  tải mô hình Kokoro lỗi (lần ${k}): ${e && (e.cause && e.cause.code || e.message)}`); await new Promise(r => setTimeout(r, 10000 * k)); } }
+    if (!tts) return skip(s, 'tts', 'không tải được mô hình Kokoro');
+    for (const [i, l] of s.lines.entries()) {
+      const nn = String(i).padStart(2, '0'), raw = P(`line-${nn}.raw.wav`), voice = voices[l.who] || 'af_heart';
+      const a = await tts.generate(String(l.text).replace(/["“”]/g, ''), { voice, speed: 1 }); await a.save(raw);
+      ff(['-i', raw, '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000', '-ac', '1', P(`line-${nn}.wav`)]);
+      fs.rmSync(raw, { force: true });
+      l.wav = `line-${nn}.wav`; l.voice = voice; l.dur = +probe(P(l.wav)).dur.toFixed(2);
+    }
+    console.log(`  ${s.lines.length} câu · ${s.lines.reduce((a, l) => a + l.dur, 0).toFixed(1)} s giọng`);
   },
-  // 3) Mốc từng từ. TODO: whisper.cpp / stable-ts (CPU) forced alignment trên line-NN.wav
-  //    Ra: out/video/<id>/words.json = [{ line, w, start, end }] (giây, tính từ đầu video). Tạm: chia đều thời lượng mỗi dòng cho các từ.
+  // 5) Mốc từng từ: faster-whisper tiny.en (word_timestamps, CPU) trên line-NN.wav → khớp ngược về từ kịch bản (lib.matchWords). Dự phòng: chia đều.
+  //    Ra: words.json = [{ line, w, start, end }] (giây, tính từ đầu video) + s.lines[i].start/end + s.duration (gồm thẻ CTA cuối).
   async align(s) {
-    let t = 0.2; const words = [];
-    s.lines.forEach((l, i) => { const ws = String(l.text).trim().split(/\s+/), d = (l.dur - 0.3) / ws.length; l.start = +t.toFixed(2); ws.forEach(w => { words.push({ line: i, w, start: +t.toFixed(2), end: +(t + d).toFixed(2) }); t += d; }); l.end = +t.toFixed(2); t += 0.3; });
-    s.duration = +(t + 0.5).toFixed(2); s.words = 'words.json';
-    fs.writeFileSync(path.join(DIR, 'words.json'), JSON.stringify(words));
-    if (!s.lines.some(l => l.wav)) s.todo = [...new Set([...(s.todo || []), 'align'])];
+    const lay = V.layoutLines(s.lines.map(l => l.dur), { gap: GAP });
+    s.lines.forEach((l, i) => Object.assign(l, lay[i]));
+    let asr = null;
+    const wavs = s.lines.filter(l => l.wav);
+    if (wavs.length && canRun(PY, ['-c', 'import faster_whisper'])) {
+      fs.writeFileSync(P('align-jobs.json'), JSON.stringify(wavs.map(l => ({ wav: P(l.wav), text: l.text }))));
+      try { asr = Object.fromEntries(JSON.parse(execFileSync(PY, [path.join(ROOT, 'scripts/video/align.py'), P('align-jobs.json'), '--model', process.env.WHISPER_MODEL || 'tiny.en'], { encoding: 'utf8', maxBuffer: 32 << 20, stdio: ['ignore', 'pipe', 'inherit'] })).map(x => [x.wav, x.words])); }
+      catch (e) { if (STRICT) throw new Error('faster-whisper lỗi: ' + String(e.message).slice(0, 120)); console.log('⚠️ faster-whisper lỗi → chia đều'); }
+    } else if (wavs.length) skip(s, 'align', 'chưa cài faster-whisper (pip install faster-whisper)');
+    else todo(s, 'align');
+    const words = []; s.align = [];
+    s.lines.forEach((l, i) => {
+      const ws = V.tokens(l.text), rel = asr && l.wav && asr[P(l.wav)] ? V.matchWords(ws, asr[P(l.wav)], l.dur) : { words: V.evenTiming(ws, l.wav ? 0.05 : 0, l.dur - (l.wav ? 0.05 : 0.3)), matched: 0, method: 'even' };
+      rel.words.forEach(x => words.push({ line: i, w: x.w, start: +(l.start + x.start).toFixed(2), end: +(l.start + x.end).toFixed(2) }));
+      s.align.push({ method: rel.method, matched: +rel.matched.toFixed(2) });
+    });
+    const last = s.lines[s.lines.length - 1];
+    s.endStart = +(last.end + 0.4).toFixed(2); s.duration = +(s.endStart + END_CARD).toFixed(2); s.words = 'words.json';
+    fs.writeFileSync(P('words.json'), JSON.stringify(words));
+    console.log(`  căn mốc: ${s.align.map(a => a.method).join(',')} · thời lượng ${s.duration} s`);
   },
-  // 4) TODO khẩu hình: rhubarb -f json -r phonetic --dialogFile line-NN.txt line-NN.wav
-  //    Ra: out/video/<id>/visemes.json = [{ line, start, end, v: 'A'|'B'|'C'|'D'|'E'|'F'|'G'|'H'|'X' }] (9 khẩu hình chuẩn Rhubarb). Cần wav từ bước tts.
-  async lipsync(s) { s.visemes = null; s.todo = [...new Set([...(s.todo || []), 'lipsync'])]; },
-  // 5) Phụ đề karaoke ASS (\k theo words.json): chữ sáng dần từng từ, từ khóa tô cam; nằm 1/3 dưới (vùng an toàn)
+  // 6) Khẩu hình Rhubarb Lip Sync (bản phát hành, CPU): rhubarb -f json -d line-NN.txt line-NN.wav
+  //    Ra: visemes.json = [{ line, start, end, v: 'A'…'H'|'X' }] (giây từ đầu video) – để chấm lệch khẩu hình và cho rig miệng sau này.
+  async lipsync(s) {
+    s.visemes = null;
+    if (!s.lines.some(l => l.wav)) return todo(s, 'lipsync');
+    if (!canRun(RHUBARB, ['--version'])) return skip(s, 'lipsync', 'chưa có rhubarb (tải bản phát hành Rhubarb-Lip-Sync)');
+    const all = [];
+    for (const [i, l] of s.lines.entries()) {
+      if (!l.wav) continue;
+      const nn = String(i).padStart(2, '0'); fs.writeFileSync(P(`line-${nn}.txt`), l.text);
+      execFileSync(RHUBARB, ['-q', '-f', 'json', '-d', P(`line-${nn}.txt`), '-o', P(`line-${nn}.vis.json`), P(l.wav)], { stdio: ['ignore', 'ignore', 'inherit'] });
+      for (const c of JSON.parse(fs.readFileSync(P(`line-${nn}.vis.json`), 'utf8')).mouthCues || []) all.push({ line: i, start: +(l.start + c.start).toFixed(3), end: +(l.start + c.end).toFixed(3), v: c.value });
+    }
+    fs.writeFileSync(P('visemes.json'), JSON.stringify(all)); s.visemes = 'visemes.json';
+    console.log(`  ${all.length} khẩu hình`);
+  },
+  // 7) Phụ đề karaoke ASS: từ đang đọc màu cam, từ khóa vàng, viền mực; vùng an toàn 1/3 dưới · hook chữ to 2 s đầu · thẻ CTA lexkite.com
   async karaoke(s) {
-    const [w, h] = W[s.job.format] || W.short, words = JSON.parse(fs.readFileSync(path.join(DIR, 'words.json'), 'utf8'));
-    const kw = new Set((s.job.script.keywords || []).flatMap(k => String(k).toLowerCase().split(/\s+/)));
-    const ts = x => { const cs = Math.round(x * 100), hh = Math.floor(cs / 360000), mm = Math.floor(cs / 6000) % 60, ss = Math.floor(cs / 100) % 60; return `${hh}:${String(mm).padStart(2, '0')}:${String(ss).padStart(2, '0')}.${String(cs % 100).padStart(2, '0')}`; };
-    const escA = t => String(t).replace(/[{}\\]/g, '');
-    // Màu ASS dạng &HAABBGGRR: chữ đã đọc = trắng, chưa đọc = vàng kem nhạt; từ khóa = cam thương hiệu #E5502F; viền teal đậm #0F3D3E
-    const fs1 = Math.round(h * 0.036), mv = Math.round(h * (s.job.format === 'lesson' ? 0.08 : 0.2));
-    const head = `[Script Info]\nScriptType: v4.00+\nPlayResX: ${w}\nPlayResY: ${h}\nWrapStyle: 0\n\n[V4+ Styles]\nFormat: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\nStyle: K,DejaVu Sans,${fs1},&H00FFFFFF,&H00C8E8FF,&H003E3D0F,&H80000000,1,0,0,0,100,100,0,0,1,6,0,2,80,80,${mv},1\n\n[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\n`;
-    const ev = s.lines.map((l, i) => { const lw = words.filter(x => x.line === i); return `Dialogue: 0,${ts(l.start)},${ts(l.end + 0.25)},K,${l.who},0,0,0,,` + lw.map(x => `{\\k${Math.max(1, Math.round((x.end - x.start) * 100))}}${kw.has(x.w.toLowerCase().replace(/[^a-z']/g, '')) ? `{\\1c&H002F50E5&}${escA(x.w)}{\\1c&H00FFFFFF&}` : escA(x.w)}`).join(' '); });
-    fs.writeFileSync(path.join(DIR, 'subs.ass'), head + ev.join('\n') + '\n');
-    // Kèm .srt (đăng kèm/nhúng app)
+    const [w, h] = W[s.job.format] || W.short, words = JSON.parse(fs.readFileSync(P('words.json'), 'utf8')), sc = s.job.script;
+    const v = s.variant, lb = v ? v.format.labels || {} : {}, seen = new Set();
+    const labels = s.lines.flatMap((l, i) => (lb[l.beat] && !seen.has(l.beat) && seen.add(l.beat) ? [{ start: i ? l.start : 0, end: Math.min(l.end, (i ? l.start : 0) + 2.5), ...lb[l.beat] }] : [])); // nhãn khuôn (DON'T SAY / SAY…) ở câu đầu mỗi phần
+    fs.writeFileSync(P('subs.ass'), V.buildAss({ w, h, format: s.job.format, lines: s.lines, words, keywords: sc.keywords || [], hook: sc.hook || s.lines[0].text, cta: { start: s.endStart + 0.15, end: s.duration }, hookStyle: v ? v.hookStyle.id : 'bold-top', labels, ctaText: !(v && v.endCard.textBaked) }));
     const srt = x => { const ms = Math.round(x * 1000), p2 = n => String(n).padStart(2, '0'); return `${p2(Math.floor(ms / 3600000))}:${p2(Math.floor(ms / 60000) % 60)}:${p2(Math.floor(ms / 1000) % 60)},${String(ms % 1000).padStart(3, '0')}`; };
-    fs.writeFileSync(path.join(DIR, 'subs.srt'), s.lines.map((l, i) => `${i + 1}\n${srt(l.start)} --> ${srt(l.end + 0.25)}\n${l.text}\n`).join('\n'));
+    fs.writeFileSync(P('subs.srt'), s.lines.map((l, i) => `${i + 1}\n${srt(l.start)} --> ${srt(l.end + 0.25)}\n${l.text}\n`).join('\n'));
     s.subs = 'subs.ass';
   },
-  // 6) Ghép (tạm): nền = --bg ảnh phòng nếu có, không thì màu kem thương hiệu; âm thanh = câm (chờ TTS); burn-in phụ đề ASS
-  //    TODO dựng thật: Remotion hoặc ffmpeg overlay rig nhân vật (brand/characters/<who>/rig/*) theo expr/gesture + visemes, cắt cảnh 2–4 s.
+  // 8) Ghép: dải giọng (-16 LUFS, 2 lượt loudnorm) + từng cảnh (phòng + nhân vật + bóng + khung máy) → nối → burn-in ASS → video.mp4 1080×1920 30 fps
   async compose(s) {
-    if (!has('ffmpeg')) throw new Error('thiếu ffmpeg');
-    const [w, h] = W[s.job.format] || W.short, d = String(s.duration), bg = opt('bg') || process.env.STUDIO_BG || '';
-    const src = bg && fs.existsSync(bg) ? ['-loop', '1', '-t', d, '-i', bg] : ['-f', 'lavfi', '-i', `color=c=0xFFF7EA:s=${w}x${h}:d=${d}:r=30`];
+    if (!canRun('ffmpeg', ['-version'])) throw new Error('thiếu ffmpeg');
+    const [w, h] = W[s.job.format] || W.short, D = s.duration;
+    const stage = s.stage || { lines: [], segs: [] };
+    // góc máy từng câu theo khuôn/bộ góc máy; chuyển cảnh rõ ràng khi đổi bối cảnh và sau hook
+    s.shots = V.planShots(s.lines.map((l, i) => ({ ...l, camera: s.variant ? X.cameraFor(s.variant, l, i) : null, transitionIn: !!(stage.lines[i] && stage.lines[i].transitionIn) || (i === 1 && !!s.variant) })), { endStart: s.endStart, duration: D });
+    buildVoice(s, D);
+    const list = [];
+    for (const [k, sh] of s.shots.entries()) {
+      const f = `shot-${String(k).padStart(2, '0')}.mp4`;
+      renderShot(s, sh, s.shots[k + 1], [w, h], P(f)); list.push(`file '${f}'`);
+    }
+    fs.writeFileSync(P('shots.txt'), list.join('\n') + '\n');
+    ff(['-f', 'concat', '-safe', '0', '-i', P('shots.txt'), '-c', 'copy', P('silent.mp4')]);
     const assOk = /^\s*\S+\s+ass\s/m.test(execFileSync('ffmpeg', ['-hide_banner', '-filters'], { encoding: 'utf8' }));
-    const vf = [`scale=${w}:${h}:force_original_aspect_ratio=increase`, `crop=${w}:${h}`, 'format=yuv420p', ...(assOk ? [`ass=${path.join(DIR, 'subs.ass')}`] : [])].join(',');
-    const out = path.join(DIR, 'video.mp4');
-    ff([...src, '-f', 'lavfi', '-t', d, '-i', 'anullsrc=r=48000:cl=stereo', '-vf', vf, '-r', '30', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '22', '-c:a', 'aac', '-b:a', '128k', '-shortest', '-movflags', '+faststart', out]);
-    s.video = 'video.mp4'; s.burned = assOk; s.static = true; s.width = w; s.height = h;
+    ff(['-i', P('silent.mp4'), '-i', P('voice.wav'), ...(assOk ? ['-vf', `ass=${P('subs.ass')}`] : []), '-map', '0:v', '-map', '1:a', '-r', String(FPS), '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '160k', '-ar', '48000', '-t', String(D), '-movflags', '+faststart', P('video.mp4')]);
+    for (const x of fs.readdirSync(DIR)) if (/^shot-\d+\.mp4$|^silent\.mp4$|^voice-mix\.wav$/.test(x)) fs.rmSync(P(x), { force: true });
+    s.video = 'video.mp4'; s.burned = assOk; s.width = w; s.height = h;
     if (!assOk) console.log('⚠️ ffmpeg không có bộ lọc ass (libass) – chưa burn-in phụ đề');
   },
-  // 7) Cổng QA (docs/MEDIA-QA-RUBRIC.md C) – chỉ chấm cái đo được; knowledge & share để người duyệt chấm (null)
+  // 9) Cổng QA (docs/MEDIA-QA-RUBRIC.md C) – chấm phần đo được; knowledge & share để người duyệt chấm (null). Lỗi nhất quán → mục tương ứng = 0 + blocked.
   async qa(s) {
     const sc = s.job.script, gates = [], g = (k, ok, note) => gates.push({ k, ok, note });
-    const v = path.join(DIR, 'video.mp4');
-    const dur = fs.existsSync(v) ? +execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', v], { encoding: 'utf8' }).trim() : 0;
+    const v = P('video.mp4'), [w, h] = W[s.job.format] || W.short;
+    const dur = fs.existsSync(v) ? probe(v).dur : 0;
     const max = s.job.format === 'lesson' ? 480 : 60; g('duration', dur > 0 && dur <= max, `${dur.toFixed(1)} s / ≤ ${max} s`);
-    const assText = fs.readFileSync(path.join(DIR, 'subs.ass'), 'utf8').split('\n').filter(l => l.startsWith('Dialogue:')).map(l => l.split(',').slice(9).join(',').replace(/\{[^}]*\}/g, '').replace(/\s+/g, ' ').trim());
-    const subsMatch = assText.join('|') === s.lines.map(l => String(l.text).replace(/[{}\\]/g, '').replace(/\s+/g, ' ').trim()).join('|');
-    g('subs-text', subsMatch, subsMatch ? 'phụ đề khớp kịch bản 100%' : 'phụ đề lệch kịch bản'); g('subs-burned', !!s.burned, s.burned ? 'đã burn-in' : 'chưa burn-in (thiếu libass)');
-    const hookSec = s.lines[0].end - s.lines[0].start; g('hook', hookSec <= 2.05, `hook ${hookSec.toFixed(1)} s`);
+    // Âm thanh: đo lại trên video cuối bằng ebur128
+    const hasAudio = s.lines.some(l => l.wav), lufs = fs.existsSync(v) ? V.parseEbur128(ffErr(['-i', v, '-map', '0:a', '-af', 'ebur128', '-f', 'null', '-'])) : null;
+    g('audio', V.audioScore(lufs) === 10, hasAudio ? `${lufs == null ? '?' : isFinite(lufs) ? lufs.toFixed(1) : '-inf'} LUFS (mục tiêu -16 ±1)` : 'chưa có giọng (bước tts bị bỏ qua)');
+    // Khẩu hình: lệch giữa lúc miệng mở (Rhubarb) và đầu cụm từ (whisper)
+    const words = JSON.parse(fs.readFileSync(P('words.json'), 'utf8')), vis = s.visemes ? JSON.parse(fs.readFileSync(P(s.visemes), 'utf8')) : null;
+    const lipMs = V.lipsyncOffset(words, vis); g('lipsync', lipMs != null && lipMs < 80, lipMs == null ? 'chưa đo được (thiếu khẩu hình/giọng)' : `lệch ~${lipMs} ms (< 80 ms)`);
+    // Phụ đề: đúng chữ 100%, burn-in, vùng an toàn, tương phản ≥ 4.5
+    const ass = fs.readFileSync(P('subs.ass'), 'utf8'), ex = V.subsExact(ass, s.lines);
+    const safe = V.subsSafeArea({ w, h, format: s.job.format, maxChars: Math.max(...s.lines.map(l => String(l.text).length)) });
+    const ctr = Math.min(...['white', 'orange', 'yellow'].map(c => V.contrast(V.BRAND[c], V.BRAND.ink)));
+    g('subs-text', ex.ok, ex.ok ? 'phụ đề khớp kịch bản 100%' : `phụ đề lệch kịch bản ở câu ${ex.bad.map(i => i + 1).join(', ')}`);
+    g('subs-safe', safe.ok, `khối phụ đề y ${safe.top}–${safe.bottom} (${safe.rows} dòng)`); g('subs-contrast', ctr >= 4.5, `tương phản tối thiểu ${ctr}:1`);
+    g('subs-burned', !!s.burned, s.burned ? 'đã burn-in' : 'chưa burn-in (thiếu libass)');
+    const hookSec = s.lines[0].end - s.lines[0].start, hookText = /,HOOK,/.test(ass); g('hook', hookSec <= 2.05 && hookText, `câu hook ${hookSec.toFixed(1)} s · chữ hook 2 s đầu: ${hookText ? 'có' : 'không'}`);
+    const pace = V.pacingScore(s.shots || []); g('pacing', pace.bad === 0, `${(s.shots || []).length} cảnh, TB ${pace.avg} s, dài nhất ${pace.max} s`);
     const allText = [sc.title, sc.caption, ...sc.lines.map(l => l.text)].join(' ');
     const brandOk = !COMPETITORS.test(allText) && sc.lines.every(l => CAST.includes(l.who)); g('brand', brandOk, brandOk ? 'không nhãn hiệu đối thủ, đúng dàn nhân vật' : 'có nhãn hiệu lạ/nhân vật lạ');
-    const ctaOk = sc.lines.some(l => l.beat === 'cta' && /lexkite/i.test(l.text)) && /^https:\/\/lexkite\.com\//.test(sc.link || 'https://lexkite.com/'); g('cta', ctaOk, ctaOk ? 'CTA về lexkite.com' : 'thiếu CTA lexkite');
-    const hasAudio = s.lines.some(l => l.wav); g('audio', hasAudio, hasAudio ? 'TODO đo LUFS (ffmpeg ebur128)' : 'chưa có giọng (bước tts TODO)');
-    g('lipsync', !!s.visemes, s.visemes ? 'TODO đo lệch visemes vs mốc từ' : 'chưa có khẩu hình (bước lipsync TODO)');
-    g('pacing', !s.static, s.static ? 'khung tĩnh (bản tạm, chưa dựng nhân vật)' : 'cắt cảnh 2–4 s');
-    s.qa = { scores: { hook: hookSec <= 2.05 ? 15 : 5, knowledge: null, lipsync: s.visemes ? null : 0, audio: hasAudio ? null : 0, subs: subsMatch && s.burned ? 10 : 0, pacing: s.static ? 0 : null, brand: brandOk ? 10 : 0, cta: ctaOk ? 5 : 0, share: null }, gates };
-    s.files = { duration: +dur.toFixed(2), size: fs.existsSync(v) ? fs.statSync(v).size : 0, width: s.width, height: s.height, todo: s.todo || [] };
+    const ctaOk = sc.lines.some(l => l.beat === 'cta' && /lexkite/i.test(l.text)) && /^https:\/\/lexkite\.com\//.test(sc.link || 'https://lexkite.com/'); g('cta', ctaOk, ctaOk ? 'CTA về lexkite.com + thẻ cuối' : 'thiếu CTA lexkite');
+    const cons = s.consistency || { ok: true, zero: [], reasons: [] };
+    const vr = s.variant; g('variety', !!vr && !vr.relaxed, vr ? `${vr.format.id} · không trùng ≥ 3 thành phần với ${(s.history || []).length} video gần nhất${vr.relaxed ? ' – CHƯA ĐẠT' : ''}` : 'không có biến thể');
+    g('consistency', cons.ok, cons.ok ? 'bối cảnh – nhân vật – lời thoại khớp' : `${cons.reasons.length} lỗi: ${cons.reasons[0]}`);
+    const scores = { hook: hookText ? V.hookScore(hookSec) : 5, knowledge: null, lipsync: V.lipsyncScore(lipMs), audio: hasAudio ? V.audioScore(lufs) : 0, subs: ex.ok && s.burned && safe.ok && ctr >= 4.5 ? 10 : 0, pacing: pace.score, brand: brandOk ? 10 : 0, cta: ctaOk ? 5 : 0, share: null };
+    for (const k of cons.zero) scores[k] = 0; // vi phạm nhất quán → 0 điểm mục tương ứng
+    if (vr && vr.relaxed) scores.pacing = 0; // lặp tổ hợp = nhàm → không đạt nhịp/độ mới, chặn đăng
+    s.qa = { scores, gates, blocked: !cons.ok || !!(vr && vr.relaxed), consistency: [...cons.reasons, ...(vr && vr.relaxed ? ['[pacing] tổ hợp trùng ≥ 3 thành phần với video gần đây'] : [])], variant: vr ? vr.fp : null, metrics: { lufs: lufs != null && isFinite(lufs) ? lufs : null, lipsyncMs: lipMs, shots: (s.shots || []).length, pace, align: s.align } };
+    s.files = { duration: +dur.toFixed(2), size: fs.existsSync(v) ? fs.statSync(v).size : 0, width: w, height: h, todo: s.todo || [] };
     console.log(gates.map(x => `${x.ok ? '✓' : '✗'} ${x.k}: ${x.note}`).join('\n'));
+    if (LOCAL && vr) { const h = (fs.existsSync(HIST) ? JSON.parse(fs.readFileSync(HIST, 'utf8')) : []).filter(x => x.id !== ID); h.push({ id: ID, ...vr.fp }); fs.writeFileSync(HIST, JSON.stringify(h.slice(-200))); }
+    const known = Object.values(scores).filter(x => x != null).reduce((a, b) => a + b, 0);
+    console.log(`  điểm tự chấm ${known}/75 (+ knowledge 20, share 5 chấm tay)${s.qa.blocked ? ' · CHẶN ĐĂNG (lỗi nhất quán)' : ''}`);
   },
-  // 8) Gọi lại Studio: files (object_id GrabCast từ bước tải kho, link xem trước) + điểm QA. --ok failure → báo lỗi để job quay về script_ok
+  // 10) Gọi lại Studio: files (object_id GrabCast, link xem trước) + điểm QA (+ blocked/consistency). --ok failure → báo lỗi để job quay về script_ok. --local: chỉ in.
   async report(s) {
+    if (LOCAL || s.local) { console.log(`  (chạy thử) không gọi Studio · video: ${s.video ? P(s.video) : '—'}`); return; }
     const ok = (opt('ok') || 'success') === 'success' && !!s.qa;
-    const files = { ...(s.files || {}), object_id: process.env.OBJECT_ID || undefined, preview_url: process.env.PREVIEW_URL || undefined, run_url: process.env.RUN_URL || undefined, artifact: s.video ? `video-${ID}` : undefined };
+    const files = { ...(s.files || {}), variant: s.variant ? s.variant.fp : undefined, object_id: process.env.OBJECT_ID || undefined, preview_url: process.env.PREVIEW_URL || undefined, run_url: process.env.RUN_URL || undefined, artifact: s.video ? `video-${ID}` : undefined };
     const r = await studio({ op: 'ciResult', id: ID, ok, files, qa: s.qa, error: ok ? undefined : (s.error || 'bước dựng thất bại – xem log Actions') });
     console.log(`✓ đã báo Studio: ${r.job ? r.job.status : '?'}${r.auto ? ' · tự đăng: ' + r.auto : ''}`);
   },
 };
-const ORDER = ['fetch', 'tts', 'align', 'lipsync', 'karaoke', 'compose', 'qa'];
+
+// Dải âm cả video: từng line-NN.wav đúng mốc + nhạc nền tự tổng hợp (aevalsrc, không bản quyền, ~-30 dBFS ≤ -24 dB) + hiệu ứng (whoosh ở chuyển cảnh, pop ở hook)
+// → trộn → loudnorm 2 lượt về -16 LUFS → voice.wav. Không có giọng → im lặng (không chuẩn hóa nhạc lên -16).
+function buildVoice(s, D) {
+  const ls = s.lines.filter(l => l.wav);
+  if (!ls.length) { ff(['-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=mono', '-t', String(D), P('voice.wav')]); return; }
+  const inputs = ls.flatMap(l => ['-i', P(l.wav)]), parts = ls.map((l, i) => `[${i}:a]adelay=${Math.round(l.start * 1000)}:all=1[a${i}]`), tags = ls.map((_, i) => `[a${i}]`);
+  const v = s.variant, mu = v && v.music && v.music.freqs, fx = v && v.sfx && v.sfx.id !== 'none' ? v.sfx : null;
+  if (mu) { // pad hợp âm + tremolo chậm, vào/ra mềm
+    const ex = mu.map(f => `sin(2*PI*${f}*t)`).join('+');
+    parts.push(`aevalsrc='${(0.05 / mu.length).toFixed(4)}*(${ex})*(0.7+0.3*sin(2*PI*${v.music.trem}*t))':s=48000:d=${D},lowpass=f=2400,afade=t=in:d=0.8,afade=t=out:st=${Math.max(0, D - 1.2).toFixed(2)}:d=1.2[mu]`); tags.push('[mu]');
+  }
+  if (fx) {
+    const ts = (s.shots || []).filter(x => x.transitionIn).map(x => x.start);
+    ts.forEach((t, k) => { parts.push(`anoisesrc=d=0.45:c=pink:a=${fx.whoosh}:r=48000,bandpass=f=1400:width_type=h:w=1800,afade=t=in:d=0.2,afade=t=out:st=0.2:d=0.25,adelay=${Math.max(0, Math.round((t - 0.2) * 1000))}:all=1[w${k}]`); tags.push(`[w${k}]`); });
+    parts.push(`sine=f=880:d=0.12:r=48000,volume=${fx.pop},afade=t=out:st=0.02:d=0.1,adelay=60:all=1[pop]`); tags.push('[pop]');
+  }
+  const mix = tags.length > 1 ? `${tags.join('')}amix=inputs=${tags.length}:normalize=0:dropout_transition=0[m]` : '[a0]anull[m]';
+  ff([...inputs, '-filter_complex', `${parts.join(';')};${mix};[m]apad=whole_dur=${D},atrim=0:${D}[o]`, '-map', '[o]', '-ar', '48000', '-ac', '1', P('voice-mix.wav')]);
+  const m = (ffErr(['-i', P('voice-mix.wav'), '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11:print_format=json', '-f', 'null', '-']).match(/\{[\s\S]*?\}/g) || []).pop();
+  const j = m ? JSON.parse(m) : null;
+  const ln = j ? `loudnorm=I=-16:TP=-1.5:LRA=11:measured_I=${j.input_i}:measured_TP=${j.input_tp}:measured_LRA=${j.input_lra}:measured_thresh=${j.input_thresh}:offset=${j.target_offset}:linear=true` : 'loudnorm=I=-16:TP=-1.5:LRA=11';
+  ff(['-i', P('voice-mix.wav'), '-af', `${ln},aresample=48000`, '-ac', '1', '-t', String(D), P('voice.wav')]);
+}
+
+// Lớp nhân vật: clip "stacked" (màu + mặt nạ) hoặc ảnh tĩnh trong suốt (đã cắt bóng sàn dính). Trả null nếu không dùng được (thiếu file / không có alpha).
+const layerCache = {};
+function actorLayer(a) {
+  if (!a.asset || a.asset.kind === 'none') return null;
+  const file = libFile(a.asset.file), key = file;
+  if (layerCache[key] !== undefined) return layerCache[key];
+  let L = null;
+  if (a.asset.kind === 'clip') {
+    const p = probe(file), stacked = a.asset.alpha === 'stacked', ph = stacked ? Math.floor(p.h / 2) : p.h;
+    if (stacked || /a/.test(p.pix.replace('yuv', ''))) L = { kind: 'clip', file, stacked, w: p.w, h: ph, dur: p.dur || 1, foot: a.asset.foot || [p.w / 2, ph], figH: a.asset.figH || ph };
+  } else {
+    const out = P(`still-${a.who}-${path.basename(file)}`);
+    const r = canRun(PY, ['-c', 'import numpy, PIL']) ? spawnSync(PY, [path.join(ROOT, 'scripts/video/layer_prep.py'), file, out], { encoding: 'utf8' }) : null;
+    if (r && r.status === 0) { const m = JSON.parse(r.stdout); L = { kind: 'still', file: out, w: m.w, h: m.h, foot: m.foot, figH: m.figH }; }
+    else if (!r) { const p = probe(file); if (/a/.test(p.pix.replace('yuv', ''))) L = { kind: 'still', file, w: p.w, h: p.h, foot: [p.w / 2, p.h], figH: p.h }; } // máy thiếu numpy: dùng nguyên ảnh, chân = giữa đáy
+  }
+  if (!L) console.log(`⚠️ ${a.who}: ${a.asset.file} không có kênh alpha – bỏ nhân vật khỏi cảnh`);
+  return (layerCache[key] = L);
+}
+
+// 1 cảnh = phòng + bóng tiếp xúc + nhân vật (chân trên điểm đứng, lật theo hướng nhìn, chỉnh ấm theo ánh sáng phòng) + Kit (câu của Kit) + khung máy
+function renderShot(s, sh, next, [W0, H0], out) {
+  const f0 = Math.round(sh.start * FPS), f1 = Math.round(sh.end * FPS), n = Math.max(1, f1 - f0), D = n / FPS, Ds = D.toFixed(3);
+  const st = s.stage || { lines: [], segs: [] }, li = sh.line >= 0 ? sh.line : s.lines.length - 1, sl = st.lines[li];
+  const seg = (st.segs || []).find(g => li >= g.from && li <= g.to) || { room: { ...V.DEFAULT_ROOM, virtual: true, time: 'day' } }, room = seg.room;
+  const inputs = [], fc = []; let k = 0, cur;
+  const bgImg = opt('bg') || (!room.virtual && libFile(room.file));
+  if (bgImg && fs.existsSync(bgImg)) { inputs.push('-loop', '1', '-framerate', String(FPS), '-t', Ds, '-i', bgImg); fc.push(`[${k++}:v]scale=${W0}:${H0}:force_original_aspect_ratio=increase,crop=${W0}:${H0},setsar=1,format=rgba[bg]`); }
+  else { const night = room.time === 'night'; fc.push(`color=c=${night ? '0x17595A' : '0xFFF7EA'}:s=${W0}x${H0}:r=${FPS}:d=${Ds},drawbox=x=0:y=${room.floor.yFar}:w=iw:h=ih:color=${night ? '0x0F3D3E' : '0xFFE7C2'}:t=fill,format=rgba[bg]`); }
+  cur = 'bg';
+  const actors = sh.framing === 'card' ? [] : (sl ? sl.actors : []);
+  const light = room.light || { dir: -1, warmth: 0 };
+  actors.forEach((a, j) => {
+    const L = actorLayer(a); if (!L) return;
+    const kk = L.h ? a.h / L.figH : 1, sw = Math.max(2, Math.round(L.w * kk / 2) * 2), shh = Math.max(2, Math.round(L.h * kk / 2) * 2);
+    const fx = a.flip ? L.w - L.foot[0] : L.foot[0], x = Math.round(a.x - fx * kk), y = Math.round(a.y - L.foot[1] * kk);
+    if (L.kind === 'clip') inputs.push('-stream_loop', '-1', '-i', L.file) /* không -ss: tua + lặp làm khung đầu xám */; else inputs.push('-loop', '1', '-framerate', String(FPS), '-i', L.file);
+    const src = `[${k++}:v]`;
+    fc.push(L.stacked ? `${src}fps=${FPS},split=2[c${j}][m${j}];[c${j}]crop=iw:ih/2:0:0[rgb${j}];[m${j}]crop=iw:ih/2:0:ih/2,format=gray[al${j}];[rgb${j}][al${j}]alphamerge,format=rgba[raw${j}]` : `${src}fps=${FPS},format=rgba[raw${j}]`);
+    const wm = +(light.warmth || 0) * 0.06;
+    fc.push(`[raw${j}]scale=${sw}:${shh}${a.flip ? ',hflip' : ''}${wm ? `,colorchannelmixer=rr=${(1 + wm).toFixed(3)}:bb=${(1 - wm).toFixed(3)}` : ''}[act${j}]`);
+    // bóng tiếp xúc dưới chân + bóng đổ mờ lệch theo hướng sáng (luật §0: thiếu bóng → chặn)
+    const ew = Math.round(a.h * 0.34 / 2) * 2, eh = Math.max(8, Math.round(a.h * 0.045 / 2) * 2), ew2 = Math.round(ew * 1.6 / 2) * 2, dx = Math.round(-(light.dir || -1) * a.h * 0.07);
+    const ell = (ww, hh, al) => `color=c=black@0.0:s=${ww}x${hh}:r=${FPS}:d=${Ds},format=rgba,geq=r='18':g='14':b='12':a='${al}*max(0,1-(pow((X-W/2)/(W/2),2)+pow((Y-H/2)/(H/2),2)))'`;
+    fc.push(`${ell(ew2, eh, 55)},gblur=sigma=6[cs${j}]`, `${ell(ew, eh, 150)},gblur=sigma=3[sh${j}]`);
+    fc.push(`[${cur}][cs${j}]overlay=x=${a.x - ew2 / 2 + dx}:y=${a.y - eh / 2}[b${j}a]`, `[b${j}a][sh${j}]overlay=x=${a.x - ew / 2}:y=${a.y - eh / 2}[b${j}b]`, `[b${j}b][act${j}]overlay=x=${x}:y=${y}:eof_action=repeat[b${j}]`);
+    cur = `b${j}`;
+  });
+  const icon = path.join(ROOT, 'brand/lexkite-icon-512.png'), v = s.variant;
+  // Lớp mùa (tiền cảnh cắt mép khung – luật §0, không đặt giữa sàn): overlays/<mùa>.png toàn khung, chỉ khi có file
+  const season = v && v.setting.season !== 'none' ? (readJson('content/video/formats.json').seasons.find(x => x.id === v.setting.season) || {}).file : null;
+  if (sh.framing !== 'card' && season && exists(season)) { inputs.push('-loop', '1', '-framerate', String(FPS), '-i', libFile(season)); fc.push(`[${k++}:v]scale=${W0}:${H0},format=rgba[ssn]`, `[${cur}][ssn]overlay=0:0[sso]`); cur = 'sso'; }
+  if (sh.framing === 'card') { // end card theo biến thể: ảnh mẫu brand/social/templates (đã in chữ) · nền màu thương hiệu + biểu tượng · phòng tối mờ + biểu tượng
+    const ec = (v && v.endCard) || { id: 'teal-icon', bg: '0x0F3D3E' };
+    if (ec.file && existsRepo(ec.file)) { inputs.push('-loop', '1', '-framerate', String(FPS), '-i', path.join(ROOT, ec.file)); fc.push(`[${k++}:v]scale=${W0}:${H0}:force_original_aspect_ratio=increase,crop=${W0}:${H0},format=rgba[ecf]`, `[${cur}][ecf]overlay=0:0[cd]`); cur = 'cd'; }
+    else {
+      fc.push(ec.bg === 'room' ? `[${cur}]gblur=sigma=12,drawbox=x=0:y=0:w=iw:h=ih:color=black@0.55:t=fill[cd]` : `[${cur}]drawbox=x=0:y=0:w=iw:h=ih:color=${ec.bg || '0x0F3D3E'}@0.96:t=fill[cd]`); cur = 'cd';
+      if (fs.existsSync(icon)) { inputs.push('-loop', '1', '-framerate', String(FPS), '-i', icon); fc.push(`[${k++}:v]scale=300:300,format=rgba[ic]`, `[${cur}][ic]overlay=x=${(W0 - 300) / 2}:y=${Math.round(H0 * 0.27)}[ce]`); cur = 'ce'; }
+    }
+  } else if (sl && sl.who === 'kit' && fs.existsSync(icon)) { // Kit nói: huy hiệu Kit nhún nhẹ (Kit chỉ từ tài nguyên thương hiệu, không vẽ AI)
+    inputs.push('-loop', '1', '-framerate', String(FPS), '-i', icon); fc.push(`[${k++}:v]scale=240:240,format=rgba[kit]`, `[${cur}][kit]overlay=x=${W0 - 290}:y='${Math.round(H0 * 0.3)}+12*sin(2*PI*t*1.5)'[kb]`); cur = 'kb';
+  }
+  // Góc máy: wide · close (cận người nói) · push (đẩy vào) · dolly (lùi ra) · pan (lia ngang) · split (chia đôi trên/dưới: người nói | người nghe)
+  const sp = actors.find(a => a.role === 'speaker'), ls = actors.find(a => a.role === 'listener');
+  const win = (a, z) => { const cw = Math.round(W0 / z / 2) * 2, ch = Math.round(H0 / z / 2) * 2, cx0 = a ? a.x : W0 / 2, cy0 = a ? a.y - a.h * 0.55 : H0 / 2; return { cw, ch, cx: Math.max(0, Math.min(W0 - cw, Math.round(cx0 - cw / 2))), cy: Math.max(0, Math.min(H0 - ch, Math.round(cy0 - ch / 2))) }; };
+  let fr = sh.framing; if (fr === 'split' && !(sp && ls)) fr = 'close';
+  if (fr === 'close') { const c = win(sp, 1.3); fc.push(`[${cur}]crop=${c.cw}:${c.ch}:${c.cx}:${c.cy},scale=${W0}:${H0}[fr]`); cur = 'fr'; }
+  else if (fr === 'push' || fr === 'dolly') {
+    const z = fr === 'push' ? `1+0.12*on/${n}` : `1.14-0.12*on/${n}`;
+    fc.push(`[${cur}]format=yuv420p,scale=${W0 * 1.5}:${H0 * 1.5},zoompan=z='${z}':x='(iw-iw/zoom)/2':y='(ih-ih/zoom)*0.42':d=1:s=${W0}x${H0}:fps=${FPS}[fr]`); cur = 'fr';
+  } else if (fr === 'pan') {
+    const cw = Math.round(W0 / 1.18 / 2) * 2, ch = Math.round(H0 / 1.18 / 2) * 2, dir = sp && sp.x > W0 / 2 ? 1 : -1, x0 = dir > 0 ? 0 : W0 - cw, x1 = dir > 0 ? W0 - cw : 0;
+    fc.push(`[${cur}]crop=${cw}:${ch}:'${x0}+(${x1 - x0})*min(1,t/${D.toFixed(3)})':${Math.round((H0 - ch) * 0.6)},scale=${W0}:${H0}[fr]`); cur = 'fr';
+  } else if (fr === 'split') {
+    const half = H0 / 2, pane = a => { const cw = Math.round(W0 / 1.6 / 2) * 2, ch = Math.round(cw * half / W0 / 2) * 2, cx = Math.max(0, Math.min(W0 - cw, Math.round(a.x - cw / 2))), cy = Math.max(0, Math.min(H0 - ch, Math.round(a.y - a.h * 0.78 - ch / 2))); return `crop=${cw}:${ch}:${cx}:${cy},scale=${W0}:${half}`; };
+    fc.push(`[${cur}]split=2[sa][sb]`, `[sa]${pane(sp)}[pa]`, `[sb]${pane(ls)}[pb]`, `[pa][pb]vstack,drawbox=x=0:y=${half - 4}:w=iw:h=8:color=0xFFF7EA:t=fill[fr]`); cur = 'fr';
+  }
+  const tr = (v && v.transition) || { color: '0x0F3D3E', d: 0.3 };
+  const fades = [sh.transitionIn ? `fade=t=in:st=0:d=${tr.d}:color=${tr.color}` : '', next && next.transitionIn ? `fade=t=out:st=${Math.max(0, D - tr.d).toFixed(3)}:d=${tr.d}:color=${tr.color}` : ''].filter(Boolean);
+  fc.push(`[${cur}]${fades.length ? fades.join(',') + ',' : ''}format=yuv420p,setsar=1[vo]`);
+  if (process.env.VIDEO_DEBUG) console.log(fc.join(';\n'));
+  ff([...inputs, '-filter_complex', fc.join(';'), '-map', '[vo]', '-frames:v', String(n), '-r', String(FPS), '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-pix_fmt', 'yuv420p', out]);
+}
+
+if (COVERAGE) { // báo cáo độ phủ – không dựng
+  const rep = X.coverage({ formats: readJson('content/video/formats.json'), casting: readJson('content/video/casting.json'), manifest: manifestOf(), exists, existsRepo, emotionTags: V.EMOTION_TAGS });
+  fs.mkdirSync('out/video', { recursive: true }); fs.writeFileSync('out/video/coverage.json', JSON.stringify(rep, null, 2));
+  console.log(`Tổ hợp khả dụng (tài nguyên hiện có, phòng thiếu file tính là nền màu thương hiệu): ${rep.total.toLocaleString('en-US')}`); for (const t of rep.topics) console.log(`  ${t.topic}: ${t.combos.toLocaleString('en-US')}`);
+  console.log(`Tài nguyên còn thiếu (${rep.missing.length}):`); for (const m of rep.missing) console.log('  - ' + m);
+  const full = X.coverage({ formats: readJson('content/video/formats.json'), casting: readJson('content/video/casting.json'), manifest: manifestOf(), exists: () => true, existsRepo, emotionTags: V.EMOTION_TAGS });
+  console.log(`Khi đủ tài nguyên trong manifest: ${full.total.toLocaleString('en-US')} tổ hợp → out/video/coverage.json`);
+  process.exit(0);
+}
+const ORDER = ['fetch', 'variant', 'cast', 'tts', 'align', 'lipsync', 'karaoke', 'compose', 'qa', ...(LOCAL ? ['report'] : [])];
 const run = STEP === 'all' ? ORDER : [STEP];
 if (!run.every(x => STEPS[x])) die('bước không hợp lệ: ' + STEP);
 const s = load();

@@ -1,0 +1,785 @@
+{
+ "_note": "Khuôn video + kho biến thể cho bộ sinh có seed (scripts/video/variants.mjs, docs/VIDEO-PIPELINE.md §9). Mỗi khuôn: topics (id chủ đề casting.json hoặc \"any\"), cast = [ít nhất, nhiều nhất] số người nói (không tính Kit), labels = nhãn chữ theo phần kịch bản (beat), camera = gợi ý góc máy theo beat. Thành phần chính để chống lặp: format, setting (phòng+giờ+mùa), cast, hookStyle, transition, music, endCard, cameraSet. Nhạc nền/hiệu ứng = tự tổng hợp bằng ffmpeg (không bản quyền).",
+ "formats": [
+  {
+   "id": "dont-say",
+   "name": "Don't say / Say",
+   "topics": "any",
+   "cast": [
+    1,
+    3
+   ],
+   "labels": {
+    "hook": {
+     "text": "DON'T SAY",
+     "color": "orange"
+    },
+    "example": {
+     "text": "SAY",
+     "color": "green"
+    }
+   },
+   "camera": {
+    "hook": "push",
+    "example": "close"
+   }
+  },
+  {
+   "id": "pov-office",
+   "name": "POV công sở",
+   "topics": [
+    "office-english",
+    "job-interview"
+   ],
+   "cast": [
+    2,
+    3
+   ],
+   "labels": {
+    "hook": {
+     "text": "POV",
+     "color": "teal"
+    }
+   },
+   "camera": {
+    "hook": "push",
+    "situation": "pan"
+   }
+  },
+  {
+   "id": "native-vs-textbook",
+   "name": "Native vs textbook",
+   "topics": "any",
+   "cast": [
+    1,
+    3
+   ],
+   "labels": {
+    "situation": {
+     "text": "TEXTBOOK",
+     "color": "orange"
+    },
+    "example": {
+     "text": "NATIVE",
+     "color": "green"
+    }
+   },
+   "camera": {
+    "situation": "wide",
+    "example": "split"
+   }
+  },
+  {
+   "id": "quiz-3s",
+   "name": "Đố 3 giây",
+   "topics": "any",
+   "cast": [
+    1,
+    3
+   ],
+   "labels": {
+    "hook": {
+     "text": "3-SECOND QUIZ",
+     "color": "yellow"
+    },
+    "explain": {
+     "text": "ANSWER",
+     "color": "green"
+    }
+   },
+   "camera": {
+    "hook": "push",
+    "explain": "close"
+   }
+  },
+  {
+   "id": "ama-asks-why",
+   "name": "Ama asks why",
+   "topics": [
+    "study-grammar",
+    "ielts-exam"
+   ],
+   "cast": [
+    1,
+    1
+   ],
+   "labels": {
+    "hook": {
+     "text": "WHY?",
+     "color": "yellow"
+    }
+   },
+   "camera": {
+    "hook": "close",
+    "explain": "pan"
+   }
+  },
+  {
+   "id": "leo-idiom",
+   "name": "Leo explains idiom",
+   "topics": [
+    "daily-life",
+    "office-english"
+   ],
+   "cast": [
+    2,
+    3
+   ],
+   "labels": {
+    "explain": {
+     "text": "IDIOM",
+     "color": "teal"
+    }
+   },
+   "camera": {
+    "explain": "close"
+   }
+  },
+  {
+   "id": "interview-diane",
+   "name": "Phỏng vấn với Diane",
+   "topics": [
+    "job-interview"
+   ],
+   "cast": [
+    2,
+    3
+   ],
+   "labels": {
+    "hook": {
+     "text": "INTERVIEW",
+     "color": "teal"
+    }
+   },
+   "camera": {
+    "situation": "split",
+    "explain": "close"
+   }
+  },
+  {
+   "id": "cafe-carlos",
+   "name": "Gọi đồ ở quán Carlos",
+   "topics": [
+    "ordering-coffee",
+    "restaurant"
+   ],
+   "cast": [
+    2,
+    3
+   ],
+   "labels": {
+    "hook": {
+     "text": "ORDER LIKE A LOCAL",
+     "color": "orange"
+    }
+   },
+   "camera": {
+    "situation": "pan",
+    "example": "close"
+   }
+  },
+  {
+   "id": "word-of-day",
+   "name": "Word of the day",
+   "topics": "any",
+   "cast": [
+    1,
+    3
+   ],
+   "labels": {
+    "hook": {
+     "text": "WORD OF THE DAY",
+     "color": "yellow"
+    }
+   },
+   "camera": {
+    "hook": "push",
+    "explain": "close"
+   }
+  },
+  {
+   "id": "pronunciation-fix",
+   "name": "Lỗi phát âm",
+   "topics": "any",
+   "cast": [
+    1,
+    3
+   ],
+   "labels": {
+    "situation": {
+     "text": "NOT LIKE THIS",
+     "color": "orange"
+    },
+    "example": {
+     "text": "SAY IT LIKE THIS",
+     "color": "green"
+    }
+   },
+   "camera": {
+    "example": "push"
+   }
+  },
+  {
+   "id": "mini-drama-3",
+   "name": "Mini-drama 3 cảnh",
+   "topics": "any",
+   "cast": [
+    2,
+    3
+   ],
+   "labels": {
+    "hook": {
+     "text": "ACT 1",
+     "color": "teal"
+    },
+    "explain": {
+     "text": "ACT 2",
+     "color": "teal"
+    },
+    "tip": {
+     "text": "ACT 3",
+     "color": "teal"
+    }
+   },
+   "camera": {
+    "hook": "wide",
+    "explain": "pan",
+    "tip": "push"
+   }
+  },
+  {
+   "id": "quiz-abc",
+   "name": "Quiz A/B/C",
+   "topics": "any",
+   "cast": [
+    1,
+    3
+   ],
+   "labels": {
+    "situation": {
+     "text": "A, B OR C?",
+     "color": "yellow"
+    },
+    "explain": {
+     "text": "ANSWER",
+     "color": "green"
+    }
+   },
+   "camera": {
+    "situation": "wide",
+    "explain": "push"
+   }
+  },
+  {
+   "id": "before-after",
+   "name": "Before / After câu nói",
+   "topics": "any",
+   "cast": [
+    1,
+    3
+   ],
+   "labels": {
+    "situation": {
+     "text": "BEFORE",
+     "color": "orange"
+    },
+    "example": {
+     "text": "AFTER",
+     "color": "green"
+    }
+   },
+   "camera": {
+    "situation": "close",
+    "example": "split"
+   }
+  },
+  {
+   "id": "top-3",
+   "name": "Top 3 cụm",
+   "topics": "any",
+   "cast": [
+    1,
+    3
+   ],
+   "labels": {
+    "hook": {
+     "text": "TOP 3",
+     "color": "yellow"
+    },
+    "explain": {
+     "text": "#1",
+     "color": "teal"
+    },
+    "example": {
+     "text": "#2",
+     "color": "teal"
+    },
+    "tip": {
+     "text": "#3",
+     "color": "teal"
+    }
+   },
+   "camera": {
+    "explain": "close",
+    "example": "pan"
+   }
+  },
+  {
+   "id": "story-30s",
+   "name": "Story 30 s",
+   "topics": "any",
+   "cast": [
+    1,
+    3
+   ],
+   "labels": {
+    "hook": {
+     "text": "STORY TIME",
+     "color": "teal"
+    }
+   },
+   "camera": {
+    "situation": "dolly",
+    "explain": "pan"
+   }
+  },
+  {
+   "id": "reaction",
+   "name": "Reaction",
+   "topics": "any",
+   "cast": [
+    2,
+    3
+   ],
+   "labels": {
+    "hook": {
+     "text": "REACTION",
+     "color": "orange"
+    }
+   },
+   "camera": {
+    "hook": "split",
+    "situation": "split"
+   }
+  },
+  {
+   "id": "repeat-after-me",
+   "name": "Thử thách nói theo",
+   "topics": "any",
+   "cast": [
+    1,
+    3
+   ],
+   "labels": {
+    "example": {
+     "text": "YOUR TURN",
+     "color": "green"
+    }
+   },
+   "camera": {
+    "example": "push"
+   }
+  },
+  {
+   "id": "grammar-60",
+   "name": "Ngữ pháp 60 s",
+   "topics": [
+    "study-grammar",
+    "ielts-exam",
+    "office-english"
+   ],
+   "cast": [
+    1,
+    3
+   ],
+   "labels": {
+    "hook": {
+     "text": "GRAMMAR IN 60s",
+     "color": "yellow"
+    }
+   },
+   "camera": {
+    "explain": "close",
+    "example": "wide"
+   }
+  },
+  {
+   "id": "email-fix",
+   "name": "Email sửa nhanh",
+   "topics": [
+    "office-english"
+   ],
+   "cast": [
+    1,
+    3
+   ],
+   "labels": {
+    "situation": {
+     "text": "BEFORE SEND",
+     "color": "orange"
+    },
+    "example": {
+     "text": "FIXED",
+     "color": "green"
+    }
+   },
+   "camera": {
+    "situation": "close",
+    "example": "push"
+   }
+  },
+  {
+   "id": "small-talk",
+   "name": "Small talk",
+   "topics": [
+    "office-english",
+    "daily-life",
+    "ordering-coffee"
+   ],
+   "cast": [
+    2,
+    3
+   ],
+   "labels": {
+    "hook": {
+     "text": "SMALL TALK",
+     "color": "teal"
+    }
+   },
+   "camera": {
+    "situation": "pan",
+    "example": "split"
+   }
+  },
+  {
+   "id": "ielts-band-up",
+   "name": "IELTS band up",
+   "topics": [
+    "ielts-exam"
+   ],
+   "cast": [
+    1,
+    1
+   ],
+   "labels": {
+    "situation": {
+     "text": "BAND 5",
+     "color": "orange"
+    },
+    "example": {
+     "text": "BAND 7+",
+     "color": "green"
+    }
+   },
+   "camera": {
+    "example": "push"
+   }
+  },
+  {
+   "id": "travel-survival",
+   "name": "Sống sót ở sân bay",
+   "topics": [
+    "travel"
+   ],
+   "cast": [
+    1,
+    3
+   ],
+   "labels": {
+    "hook": {
+     "text": "AT THE AIRPORT",
+     "color": "teal"
+    }
+   },
+   "camera": {
+    "situation": "pan",
+    "example": "close"
+   }
+  }
+ ],
+ "hookStyles": [
+  {
+   "id": "bold-top"
+  },
+  {
+   "id": "teal-box"
+  },
+  {
+   "id": "yellow-pop"
+  },
+  {
+   "id": "stamp"
+  },
+  {
+   "id": "two-tone"
+  },
+  {
+   "id": "type-on"
+  }
+ ],
+ "transitions": [
+  {
+   "id": "fade-teal",
+   "color": "0x0F3D3E",
+   "d": 0.3
+  },
+  {
+   "id": "fade-black",
+   "color": "black",
+   "d": 0.3
+  },
+  {
+   "id": "fade-cream",
+   "color": "0xFFF7EA",
+   "d": 0.3
+  },
+  {
+   "id": "flash-white",
+   "color": "white",
+   "d": 0.12
+  },
+  {
+   "id": "dip-orange",
+   "color": "0xE5502F",
+   "d": 0.2
+  },
+  {
+   "id": "dip-yellow",
+   "color": "0xFFC94A",
+   "d": 0.2
+  }
+ ],
+ "cameraSets": [
+  {
+   "id": "punchy",
+   "cycle": [
+    "push",
+    "close",
+    "wide",
+    "close"
+   ]
+  },
+  {
+   "id": "smooth",
+   "cycle": [
+    "pan",
+    "wide",
+    "dolly",
+    "wide"
+   ]
+  },
+  {
+   "id": "doc",
+   "cycle": [
+    "wide",
+    "close",
+    "wide",
+    "pan"
+   ]
+  },
+  {
+   "id": "split-heavy",
+   "cycle": [
+    "split",
+    "wide",
+    "split",
+    "close"
+   ]
+  },
+  {
+   "id": "zoomy",
+   "cycle": [
+    "push",
+    "dolly",
+    "push",
+    "wide"
+   ]
+  },
+  {
+   "id": "mixed",
+   "cycle": [
+    "wide",
+    "pan",
+    "close",
+    "split",
+    "dolly"
+   ]
+  }
+ ],
+ "music": [
+  {
+   "id": "none"
+  },
+  {
+   "id": "pad-c",
+   "freqs": [
+    261.63,
+    329.63,
+    392.0
+   ],
+   "trem": 0.25
+  },
+  {
+   "id": "pad-a",
+   "freqs": [
+    220.0,
+    277.18,
+    329.63
+   ],
+   "trem": 0.2
+  },
+  {
+   "id": "pad-f",
+   "freqs": [
+    174.61,
+    220.0,
+    261.63
+   ],
+   "trem": 0.33
+  },
+  {
+   "id": "pad-g",
+   "freqs": [
+    196.0,
+    246.94,
+    293.66
+   ],
+   "trem": 0.5
+  },
+  {
+   "id": "pad-d",
+   "freqs": [
+    146.83,
+    220.0,
+    293.66,
+    349.23
+   ],
+   "trem": 0.15
+  }
+ ],
+ "sfx": [
+  {
+   "id": "none"
+  },
+  {
+   "id": "soft",
+   "whoosh": 0.35,
+   "pop": 0.25
+  },
+  {
+   "id": "pop",
+   "whoosh": 0.2,
+   "pop": 0.45
+  }
+ ],
+ "endCards": [
+  {
+   "id": "qr",
+   "file": "brand/social/templates/png/endcard-qr-1080x1920.jpg",
+   "textBaked": true
+  },
+  {
+   "id": "teal-icon",
+   "bg": "0x0F3D3E"
+  },
+  {
+   "id": "cream-icon",
+   "bg": "0xFFF7EA"
+  },
+  {
+   "id": "orange-icon",
+   "bg": "0xE5502F"
+  },
+  {
+   "id": "room-dim",
+   "bg": "room"
+  },
+  {
+   "id": "yellow-icon",
+   "bg": "0xFFC94A"
+  }
+ ],
+ "seasons": [
+  {
+   "id": "none",
+   "months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+   ]
+  },
+  {
+   "id": "autumn",
+   "months": [
+    9,
+    10,
+    11
+   ],
+   "file": "overlays/autumn.png"
+  },
+  {
+   "id": "halloween",
+   "months": [
+    10
+   ],
+   "file": "overlays/halloween.png"
+  },
+  {
+   "id": "winter",
+   "months": [
+    12,
+    1,
+    2
+   ],
+   "file": "overlays/winter.png"
+  },
+  {
+   "id": "christmas",
+   "months": [
+    12
+   ],
+   "file": "overlays/christmas.png"
+  },
+  {
+   "id": "spring",
+   "months": [
+    3,
+    4,
+    5
+   ],
+   "file": "overlays/spring.png"
+  },
+  {
+   "id": "summer",
+   "months": [
+    6,
+    7,
+    8
+   ],
+   "file": "overlays/summer.png"
+  }
+ ],
+ "rules": {
+  "recent": 30,
+  "maxShared": 2,
+  "spacing": {
+   "format": 3,
+   "setting": 2,
+   "music": 2,
+   "endCard": 1,
+   "hookStyle": 1,
+   "transition": 1,
+   "cameraSet": 1
+  },
+  "clipSpacing": 3
+ }
+}
