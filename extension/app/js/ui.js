@@ -321,7 +321,16 @@
   const stopRecognize = () => { if (activeRec) { activeRec._stale = true; try { activeRec.abort(); } catch (e) { /* đã dừng */ } activeRec = null; } };
 
   // Ảnh minh họa kèm ghi nguồn theo giấy phép Creative Commons
-  const pic = (c, cls = 'pic') => `<div class="${cls}">${c.image ? `<img src="${esc(c.image)}" alt="${esc(c.word)}" loading="lazy" referrerpolicy="no-referrer">${c.imageCredit ? `<a class="pcredit" href="${esc(c.imageCredit.link)}" target="_blank" rel="noopener" title="${esc(c.imageCredit.text)}" onclick="event.stopPropagation()">ⓘ</a>` : ''}` : esc(c.emoji || '📘')}</div>`;
+  // Không dùng onclick="…" nội tuyến (CSP của add-on chặn): bấm ⓘ ghi nguồn ảnh không lật thẻ; [data-confirm] hỏi lại trước khi đi tiếp
+  if (g.document && !g.__lkDeleg) {
+    g.__lkDeleg = true;
+    document.addEventListener('click', e => {
+      if (e.target.closest && e.target.closest('.pcredit')) { e.stopPropagation(); return; }
+      const c = e.target.closest && e.target.closest('[data-confirm]');
+      if (c && !confirm(c.dataset.confirm)) { e.preventDefault(); e.stopPropagation(); }
+    }, true);
+  }
+  const pic = (c, cls = 'pic') => `<div class="${cls}">${c.image ? `<img src="${esc(c.image)}" alt="${esc(c.word)}" loading="lazy" referrerpolicy="no-referrer">${c.imageCredit ? `<a class="pcredit" href="${esc(c.imageCredit.link)}" target="_blank" rel="noopener" title="${esc(c.imageCredit.text)}">ⓘ</a>` : ''}` : esc(c.emoji || '📘')}</div>`;
   const levelChip = l => l ? `<span class="chip lv ${esc(l)}">${esc(l)}</span>` : '';
   const posChip = p => p ? `<span class="chip pos">${esc(p)}</span>` : '';
   const masteryDots = (s, SRS) => { const m = SRS.mastery(s); return `<span class="mastery" title="${t('Mức thuộc')}">${[1, 2, 3].map(i => `<i class="${i <= m ? 'on' : ''}"></i>`).join('')}</span>`; };

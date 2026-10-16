@@ -112,7 +112,7 @@
     document.body.classList.add('bare');
     window.onbeforeunload = () => t('Bạn đang làm bài thi – rời trang sẽ mất kết quả.');
     App.cleanup = () => { if (player) player.stop(); clearInterval(timer); document.body.classList.remove('bare'); window.onbeforeunload = null; };
-    const bar = (title, right = '') => `<div class="mk-bar"><div class="row nowrap"><b>💼 TOEIC Mock · Test ${n}</b><span class="chip">${esc(title)}</span></div><div class="row nowrap">${right}<a class="btn sm ghost" href="#/toeic" onclick="return confirm(${esc(JSON.stringify(t('Thoát bài thi?')))})">${t('Thoát')}</a></div></div>`;
+    const bar = (title, right = '') => `<div class="mk-bar"><div class="row nowrap"><b>💼 TOEIC Mock · Test ${n}</b><span class="chip">${esc(title)}</span></div><div class="row nowrap">${right}<a class="btn sm ghost" href="#/toeic" data-confirm="${esc(t('Thoát bài thi?'))}">${t('Thoát')}</a></div></div>`;
     const lPart = k => {
       const p = LP[k];
       view.innerHTML = `${bar('Listening · Part ' + p.part)}<div class="card lplayer" style="margin-top:1rem"><b id="tState">🔊 ${t('Đang phát – chỉ nghe 1 lần')}</b><span class="lnow small muted" id="lNow"></span></div>

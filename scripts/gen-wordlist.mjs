@@ -117,14 +117,14 @@ LIST.forEach((x, i) => {
   const e = cache[x.word.toLowerCase()]; if (!e) return;
   if (FIX[x.word] === '-') { bad.push(x.word + ' – loại khi duyệt tay'); return; }
   const ed = EDIT[x.word] || {}; const def = cleanDef(ed.def || e.def || ''), ex = ed.ex || (e.ex && !SENSITIVE.test(e.ex) ? e.ex : '');
-  const why = !e.ipa ? 'thiếu phiên âm' : !e.vi || e.vi.toLowerCase() === x.word.toLowerCase() ? 'thiếu nghĩa' : !VI.test(e.vi) && e.vi.split(' ').length < 2 ? 'nghĩa không phải tiếng Việt' : !def ? 'thiếu định nghĩa' : !ed.def && BADDEF.test(def) ? 'định nghĩa lệch nghĩa (mã ngôn ngữ/dạng khác…) – cần sửa tay' : OLDTONE.test(e.vi) ? 'kiểu bỏ dấu cũ' : !SHORT[e.pos] ? 'từ loại lạ' : '';
+  const why = !ed.def ? 'chờ biên soạn định nghĩa (CONTENT-RULES: định nghĩa tự viết)' : !e.ipa ? 'thiếu phiên âm' : !e.vi || e.vi.toLowerCase() === x.word.toLowerCase() ? 'thiếu nghĩa' : !VI.test(e.vi) && e.vi.split(' ').length < 2 ? 'nghĩa không phải tiếng Việt' : !def ? 'thiếu định nghĩa' : !ed.def && BADDEF.test(def) ? 'định nghĩa lệch nghĩa (mã ngôn ngữ/dạng khác…) – cần sửa tay' : OLDTONE.test(e.vi) ? 'kiểu bỏ dấu cũ' : !SHORT[e.pos] ? 'từ loại lạ' : '';
   if (why) { bad.push(x.word + ' – ' + why); return; }
   const ipa = ('/' + e.ipa.replace(/^[\/\[]|[\/\]]$/g, '') + '/').replace(/ɹ/g, 'r').replace(/ɫ/g, 'l').replace(/\.(?=\S)/g, '').replace(/ɛ/g, 'e').replace(/ɝ/g, 'ɜː').replace(/ɚ/g, 'ə');
   const viMain = FIX[x.word] || String(e.vi).split(/,\s*/)[0].trim(); // chỉ giữ nghĩa thông dụng chính – nghĩa phụ từ dữ liệu từ điển hay lệch/lặp
   good.push([x.word, ipa.replace(/[\u032F\u02D1\u0329\u0306]/g, ''), ed.pos || SHORT[e.pos], ed.vi || viMain, def, (ed.ex || hasWord(x.word, ex) || hasForm(x.word, ex)) ? ex : '', '', e.syn.join('|'), L.level(i), '']);
 });
 const q = s => "'" + String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'") + "'";
-let js = `/* ${L.head}. Phiên âm/định nghĩa/ví dụ: Free Dictionary API (Wiktionary, CC BY-SA), Tatoeba (CC BY 2.0 FR); nghĩa tiếng Việt: Lexkite.\n * FILE SINH TỰ ĐỘNG bởi scripts/gen-wordlist.mjs – đừng sửa tay. Row: [word, ipa, pos, vi, def, ex, col, syn, level, emoji] */\n(function (g) {\n  const add = g.IELTS_DATA.add;\n`;
+let js = `/* ${L.head}. Phiên âm: Wiktionary (CC BY-SA); định nghĩa tiếng Anh, câu ví dụ, nghĩa tiếng Việt: Lexkite tự biên soạn (content/wordlists/<id>.edit.json).\n * FILE SINH TỰ ĐỘNG bởi scripts/gen-wordlist.mjs – đừng sửa tay. Row: [word, ipa, pos, vi, def, ex, col, syn, level, emoji] */\n(function (g) {\n  const add = g.IELTS_DATA.add;\n`;
 for (let i = 0; i < good.length; i += 100) {
   const part = good.slice(i, i + 100);
   js += `  add('${ID}${i / 100 + 1}', '${ID.toUpperCase()} ${i + 1}–${i + part.length}', '${L.emoji}', ${q(L.desc)}, [\n${part.map(r => '    [' + r.map(q).join(', ') + '],').join('\n')}\n  ], '${ID}');\n`;
