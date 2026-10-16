@@ -33,6 +33,7 @@ Mẫu thẻ:
 - Lượt này 5 bài, xoay vòng **vi → en → es → ja → id** (mỗi ngôn ngữ 1 bài, chủ đề chưa có trong `briefs.json` cho ngôn ngữ đó).
 - Bổ sung bắt buộc: blog-check còn cảnh báo "chưa có bài nào trỏ tới" 4 bài B1 → mỗi bài mới phải **thêm 1 link vào ≥ 1 bài cũ cùng ngôn ngữ** (sửa 1 câu tự nhiên trong bài cũ liên quan), gồm cả 4 bài B1. Mục tiêu blog-check 0 lỗi **0 cảnh báo**.
 - ⚠️ Ảnh B1: 8/11 alt/chú thích **mô tả sai ảnh** (vd. ảnh thẻ "run out of" ghi là "đề thi thời gian/thì động từ", ảnh flashcard ghi là "biểu đồ đường cong quên") – Claude đã sửa. Từ B2: alt/chú thích phải **khớp đúng `desc` trong `shots.json`**; ảnh có sẵn không hợp chủ đề thì thêm shot mới & chụp, không gán chú thích cho có.
+- Quy tắc nội dung chung: `docs/CONTENT-RULES.md`.
 - Commit từng bài; xong chuyển CHỜ DUYỆT + Báo cáo như B1.
 - Báo cáo:
 - Cần sửa / Nhận xét:
@@ -44,6 +45,7 @@ Mẫu thẻ:
 ### [U2b] Thanh điều hướng dưới + Cài đặt/Thống kê/Tôi trên mobile · @antigravity · ưu tiên: cao
 - Mục "Tôi" (và các mục) ở thanh dưới vùng chạm ≥ 44px; #/settings phần tử tràn ngang trong hàng cài đặt → wrap/ellipsis; #/stats biểu đồ tràn ngang (`I.l1`) + nhãn < 11.5px → ≥ 12px, co theo khung; #/me chữ "0 Đã thuộc", "2d" ≥ 12px; "Viết" ở #/models ≥ 44px.
 - File: `web/css/style.css` (+ markup liên quan, ghi rõ). Báo cáo như U2a.
+- ▶️ **MỞ – làm ngay** (Claude 16/10, sau khi duyệt U2a). Làm trong worktree riêng `../lexkite-ag`. Đo thật ở 375px: không tràn ngang, mọi nút ≥ 44px, chữ ≥ 12px; chạy `npm test` (có thêm `size-budget`). Xong chuyển CHỜ DUYỆT kèm số đo trước/sau.
 - Báo cáo:
 - Cần sửa / Nhận xét:
 
