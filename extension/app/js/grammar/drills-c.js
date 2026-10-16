@@ -30,7 +30,7 @@
     'preference-advice': [
       { t: 'verb', q: "You'd better ___ your password with anyone. (not / share)", a: ['not share'], ex: 'had better + not + V nguyên mẫu.' },
       { t: 'verb', q: "It's high time the council ___ the broken streetlights. (repair)", a: ['repaired'], ex: "It's high time + S + V2/ed để nói về hiện tại." },
-      { t: 'verb', q: "Most commuters would prefer ___ from home two days a week. (work)", a: ['to work'], ex: 'would prefer + to V.' },
+      { t: 'verb', q: "Most commuters would prefer ___ from home two days a week. (work)", a: ['to work'], ex: 'would prefer + to V (muốn hơn) → would prefer to work.' },
       { t: 'rewrite', q: "I prefer cycling to driving to work.", start: 'I would rather', a: ['I would rather cycle than drive to work.', 'I would rather cycle to work than drive.'], ex: 'would rather + V + than + V (nguyên mẫu).' },
       { t: 'rewrite', q: "I'd like you not to use your phone during dinner.", start: 'I would rather you', a: ['I would rather you did not use your phone during dinner.'], ex: 'would rather + S2 + V quá khứ (didn\'t) để nói về hiện tại.' },
       { t: 'rewrite', q: "The government should have tackled traffic congestion long ago.", start: 'It is high time', a: ['It is high time the government tackled traffic congestion.', 'It is high time that the government tackled traffic congestion.', 'It is high time for the government to tackle traffic congestion.'], ex: 'It is high time + S + V2 (hoặc for sb to V): việc lẽ ra phải làm từ lâu.' },
@@ -54,16 +54,16 @@
     ],
 
     'dependent-prepositions': [
-      { t: 'fill', q: "Excessive screen time can contribute ___ poor sleep.", a: ['to'], ex: 'contribute to sth.' },
-      { t: 'fill', q: "Parents are responsible ___ their children's safety online.", a: ['for'], ex: 'responsible for sth.' },
+      { t: 'fill', q: "Excessive screen time can contribute ___ poor sleep.", a: ['to'], ex: 'contribute to sth = góp phần gây ra/dẫn đến → contribute to poor sleep.' },
+      { t: 'fill', q: "Parents are responsible ___ their children's safety online.", a: ['for'], ex: 'be responsible for sth = chịu trách nhiệm về → responsible for.' },
       { t: 'fill', q: "There has been a sharp increase ___ the number of electric cars.", a: ['in'], ex: 'increase/rise/fall in + thứ thay đổi.' },
-      { t: 'rewrite', q: "Tourism affects the local environment significantly.", start: 'Tourism has a significant', a: ['Tourism has a significant impact on the local environment.', 'Tourism has a significant effect on the local environment.'], ex: 'have an impact/effect on sth.' },
+      { t: 'rewrite', q: "Tourism affects the local environment significantly.", start: 'Tourism has a significant', a: ['Tourism has a significant impact on the local environment.', 'Tourism has a significant effect on the local environment.'], ex: 'Đổi động từ affect thành danh từ: have an impact/effect ON sth; trạng từ significantly → tính từ significant đứng trước danh từ.' },
       { t: 'rewrite', q: "Women make up 60% of the workforce.", start: 'Women account', a: ['Women account for 60% of the workforce.'], ex: 'account for = chiếm (tỉ lệ).' },
-      { t: 'rewrite', q: "Many residents oppose the construction of a new airport.", start: 'Many residents object', a: ['Many residents object to the construction of a new airport.'], ex: 'object to + N / V-ing.' },
+      { t: 'rewrite', q: "Many residents oppose the construction of a new airport.", start: 'Many residents object', a: ['Many residents object to the construction of a new airport.'], ex: 'oppose sth = object TO sth (phản đối); sau to là danh từ hoặc V-ing → object to the construction.' },
       { t: 'rewrite', q: "A poor diet often causes heart disease.", start: 'A poor diet often leads', a: ['A poor diet often leads to heart disease.'], ex: 'lead to = dẫn đến.' },
-      { t: 'rewrite', q: "Most people know about the dangers of smoking.", start: 'Most people are aware', a: ['Most people are aware of the dangers of smoking.'], ex: 'be aware of sth.' },
+      { t: 'rewrite', q: "Most people know about the dangers of smoking.", start: 'Most people are aware', a: ['Most people are aware of the dangers of smoking.'], ex: 'know about = be aware OF sth (nhận thức được) → are aware of the dangers.' },
       { t: 'error', parts: ['The new policy', 'will have', 'a positive effect', 'to small businesses.'], w: 3, fix: 'on small businesses.', ex: 'effect on, không phải effect to.' },
-      { t: 'error', parts: ['Many students', 'find it hard', 'to cope', 'about exam pressure.'], w: 3, fix: 'with exam pressure.', ex: 'cope with sth.' }
+      { t: 'error', parts: ['Many students', 'find it hard', 'to cope', 'about exam pressure.'], w: 3, fix: 'with exam pressure.', ex: 'cope WITH sth = đối phó, xoay xở với → cope with exam pressure, không dùng about.' }
     ],
 
     'reference-substitution': [
@@ -100,7 +100,7 @@
       { t: 'rewrite', q: "Because it rained heavily, the match was cancelled.", start: 'Due to', a: ['Due to the heavy rain, the match was cancelled.', 'Due to heavy rain, the match was cancelled.', 'Due to heavy rainfall, the match was cancelled.', 'Due to the heavy rainfall, the match was cancelled.'], ex: 'Due to + cụm danh từ thay cho because + mệnh đề.' },
       { t: 'rewrite', q: "The city expanded rapidly, which put pressure on housing.", start: 'The rapid', a: ['The rapid expansion of the city put pressure on housing.', "The rapid expansion of the city has put pressure on housing."], ex: 'expanded rapidly → the rapid expansion of the city làm chủ ngữ.' },
       { t: 'rewrite', q: "The government decided to raise taxes, and this led to protests.", start: "The government's", a: ["The government's decision to raise taxes led to protests."], ex: 'decided → decision; chủ ngữ thành sở hữu cách.' },
-      { t: 'rewrite', q: "Tuition fees were introduced, and as a result applications fell.", start: 'The introduction', a: ['The introduction of tuition fees led to a fall in applications.', 'The introduction of tuition fees led to a drop in applications.', 'The introduction of tuition fees led to a decline in applications.', 'The introduction of tuition fees led to a decrease in applications.', 'The introduction of tuition fees reduced applications.', 'The introduction of tuition fees caused applications to fall.', 'The introduction of tuition fees resulted in a fall in applications.'], ex: 'were introduced → the introduction of; fell → a fall in.' },
+      { t: 'rewrite', q: "Tuition fees were introduced, and as a result applications fell.", start: 'The introduction', a: ['The introduction of tuition fees led to a fall in applications.', 'The introduction of tuition fees led to a drop in applications.', 'The introduction of tuition fees led to a decline in applications.', 'The introduction of tuition fees led to a decrease in applications.', 'The introduction of tuition fees reduced applications.', 'The introduction of tuition fees caused applications to fall.', 'The introduction of tuition fees resulted in a fall in applications.'], ex: 'Danh từ hóa: were introduced → the introduction of; fell → a fall/drop/decline in; nối nguyên nhân – kết quả bằng led to/resulted in + danh từ.' },
       { t: 'error', parts: ['The develop', 'of renewable energy', 'has created', 'thousands of jobs.'], w: 0, fix: 'The development', ex: 'Sau the … of cần danh từ: development.' },
       { t: 'error', parts: ['There was', 'a significant', 'improve', 'in air quality last year.'], w: 2, fix: 'improvement', ex: 'a + tính từ + danh từ: a significant improvement.' }
     ],
@@ -137,7 +137,7 @@
       { t: 'verb', q: "In 1990, few people believed the internet ___ shopping so dramatically. (change)", a: ['would change'], ex: 'Dự đoán nhìn từ quá khứ → would + V.' },
       { t: 'rewrite', q: "I planned to study law, but I changed my mind.", start: 'I was going to', a: ['I was going to study law, but I changed my mind.'], ex: 'was going to + V: kế hoạch trong quá khứ không thành.' },
       { t: 'rewrite', q: "\"Prices will fall next year,\" the experts said.", start: 'The experts said that prices', a: ['The experts said that prices would fall the following year.', 'The experts said that prices would fall the next year.', 'The experts said that prices would fall the year after.'], ex: 'Tường thuật dự đoán: will → would.' },
-      { t: 'rewrite', q: "The plane was on the point of taking off when the engine failed.", start: 'The plane was about', a: ['The plane was about to take off when the engine failed.'], ex: 'be on the point of V-ing = be about to V.' },
+      { t: 'rewrite', q: "The plane was on the point of taking off when the engine failed.", start: 'The plane was about', a: ['The plane was about to take off when the engine failed.'], ex: 'be on the point of + V-ing = be about to + V nguyên mẫu (sắp sửa làm gì) → was about to take off.' },
       { t: 'combine', q: "The council intended to build a car park. Residents protested.", hint: 'was going to …, but', start: 'The council was going to', a: ['The council was going to build a car park, but residents protested.', 'The council was going to build a car park, but the residents protested.'], ex: 'was going to + but: dự định bị thay đổi.' },
       { t: 'combine', q: "We were ready to leave at that moment. Then the phone rang.", hint: 'about to … when', start: 'We were about to', a: ['We were about to leave when the phone rang.'], ex: 'was/were about to … when …: sắp làm thì có việc xen vào.' },
       { t: 'error', parts: ['In 2010,', 'experts predicted', 'that the economy', 'will recover by 2012.'], w: 3, fix: 'would recover by 2012.', ex: 'Dự đoán trong quá khứ → would, không dùng will.' },
@@ -145,7 +145,7 @@
     ],
 
     'alternatives-to-if': [
-      { t: 'fill', q: "___ we act now, the problem will get worse. (= if … not)", a: ['Unless'], ex: 'Unless = if … not.' },
+      { t: 'fill', q: "___ we act now, the problem will get worse. (= if … not)", a: ['Unless'], ex: 'Unless = if … not (trừ khi): Nếu chúng ta không hành động ngay thì vấn đề sẽ tệ hơn → Unless.' },
       { t: 'fill', q: "Take an umbrella in ___ it rains this afternoon.", a: ['case'], ex: 'in case = phòng khi.' },
       { t: 'fill', q: "___ you need further help, please contact the office. (đảo ngữ loại 1)", a: ['Should'], ex: 'Đảo ngữ loại 1 trang trọng: Should + S + V.' },
       { t: 'rewrite', q: "If you don't hurry, you'll miss the last bus.", start: 'Unless', a: ['Unless you hurry, you will miss the last bus.'], ex: 'Unless + mệnh đề khẳng định (bỏ don\'t).' },
@@ -160,10 +160,10 @@
     'emphasis-variety': [
       { t: 'fill', q: "I know you think I forgot, but I ___ send the email.", a: ['did'], ex: 'Nhấn mạnh hành động quá khứ: did + V.' },
       { t: 'fill', q: "Public transport ___ reduce congestion, despite what its critics say.", a: ['does'], ex: 'Chủ ngữ số ít, hiện tại: does + V nguyên mẫu.' },
-      { t: 'fill', q: "The reason why sales fell is ___ prices went up.", a: ['that'], ex: 'The reason why … is that …' },
+      { t: 'fill', q: "The reason why sales fell is ___ prices went up.", a: ['that'], ex: 'The reason why … is that + mệnh đề (không dùng because sau is) → that.' },
       { t: 'rewrite', q: "Governments need stricter laws.", start: 'What governments need', a: ['What governments need is stricter laws.'], ex: 'Câu chẻ: What + S + V + is + N.' },
       { t: 'rewrite', q: "The cost of housing concerns me most.", start: 'What concerns me most', a: ['What concerns me most is the cost of housing.'], ex: 'What + V + is + thông tin được nhấn mạnh.' },
-      { t: 'rewrite', q: "Young people move to cities because wages are higher there.", start: 'The reason why young people move to cities', a: ['The reason why young people move to cities is that wages are higher there.'], ex: 'The reason why + S + V + is that + S + V.' },
+      { t: 'rewrite', q: "Young people move to cities because wages are higher there.", start: 'The reason why young people move to cities', a: ['The reason why young people move to cities is that wages are higher there.'], ex: 'Câu nhấn mạnh lý do: The reason why + S + V + is that + S + V.' },
       { t: 'rewrite', q: "Governments, not individuals, should tackle climate change.", start: 'It is governments', a: ['It is governments that should tackle climate change.', 'It is governments who should tackle climate change.'], ex: 'Câu chẻ It is … that … nhấn mạnh chủ thể.' },
       { t: 'rewrite', q: "Regular exercise really improves mood.", start: 'Regular exercise does', a: ['Regular exercise does improve mood.'], ex: 'does + V nguyên mẫu thay cho really + V-s để nhấn mạnh.' },
       { t: 'error', parts: ['What the city needs', 'are', 'more affordable', 'housing.'], w: 1, fix: 'is', ex: 'Mệnh đề What … làm chủ ngữ → động từ số ít is.' },
@@ -197,14 +197,14 @@
     ],
 
     'paraphrase-structures': [
-      { t: 'fill', q: "The box was ___ heavy for the child to carry.", a: ['too'], ex: 'too + adj + for sb + to V.' },
+      { t: 'fill', q: "The box was ___ heavy for the child to carry.", a: ['too'], ex: 'too + tính từ + for sb + to V (quá… để ai làm gì) → too.' },
       { t: 'fill', q: "___ the heavy traffic, we arrived on time. (mặc dù)", a: ['Despite'], ex: 'Despite + cụm danh từ (không dùng although).' },
       { t: 'verb', q: "It ___ me two weeks to get used to the new job. (take)", a: ['took'], ex: 'It takes/took + sb + thời gian + to V.' },
       { t: 'rewrite', q: "Although he earned a high salary, he struggled to save money.", start: 'Despite', a: ['Despite earning a high salary, he struggled to save money.', 'Despite his high salary, he struggled to save money.', 'Despite the fact that he earned a high salary, he struggled to save money.', 'Despite having a high salary, he struggled to save money.'], ex: 'Although + mệnh đề → Despite + V-ing / N / the fact that.' },
-      { t: 'rewrite', q: "I spent three hours finishing the assignment.", start: 'It took me', a: ['It took me three hours to finish the assignment.'], ex: 'spend + time + V-ing ↔ It takes sb + time + to V.' },
+      { t: 'rewrite', q: "I spent three hours finishing the assignment.", start: 'It took me', a: ['It took me three hours to finish the assignment.'], ex: 'spend + thời gian + V-ing ↔ It takes/took + sb + thời gian + to V → It took me three hours to finish the assignment.' },
       { t: 'rewrite', q: "She used to smoke, but she has stopped.", start: 'She no longer', a: ['She no longer smokes.'], ex: 'used to (nhưng nay không) ↔ no longer + V hiện tại.' },
       { t: 'rewrite', q: "The bridge was not completed until 2015.", start: 'It was not until 2015 that', a: ['It was not until 2015 that the bridge was completed.'], ex: 'It was not until + mốc thời gian + that + S + V2.' },
-      { t: 'rewrite', q: "This is the first time I have visited London.", start: 'I have never', a: ['I have never visited London before.', 'I have never been to London before.'], ex: 'This is the first time … ↔ have never … before.' },
+      { t: 'rewrite', q: "This is the first time I have visited London.", start: 'I have never', a: ['I have never visited London before.', 'I have never been to London before.'], ex: 'This is the first time + S + have V3 ↔ S + have never + V3 + before (chưa từng… trước đây).' },
       { t: 'error', parts: ['The suitcase was', 'such heavy', 'that I', 'could not lift it.'], w: 1, fix: 'so heavy', ex: 'so + adj + that; such đi với cụm danh từ.' },
       { t: 'error', parts: ['It took', 'me', 'two hours', 'finishing the report.'], w: 3, fix: 'to finish the report.', ex: 'It takes sb + thời gian + to V.' }
     ],
@@ -216,7 +216,7 @@
       { t: 'rewrite', q: "Many people believe that children should learn a foreign language at primary school.", start: 'It is widely believed that', a: ['It is widely believed that children should learn a foreign language at primary school.'], ex: 'Đổi cấu trúc: many people believe → It is widely believed that.' },
       { t: 'rewrite', q: "The number of tourists rose sharply between 2000 and 2020.", start: 'There was a sharp', a: ['There was a sharp rise in the number of tourists between 2000 and 2020.', 'There was a sharp increase in the number of tourists between 2000 and 2020.'], ex: 'rose sharply → a sharp rise in (đổi dạng từ).' },
       { t: 'rewrite', q: "Because the city expanded, traffic increased.", start: 'The expansion of the city', a: ['The expansion of the city led to an increase in traffic.', 'The expansion of the city led to a rise in traffic.', 'The expansion of the city resulted in an increase in traffic.', 'The expansion of the city led to increased traffic.', 'The expansion of the city increased traffic.', 'The expansion of the city caused traffic to increase.'], ex: 'Danh từ hóa nguyên nhân thành chủ ngữ + led to.' },
-      { t: 'rewrite', q: "The graph shows how many students enrolled in three courses.", start: 'The graph illustrates the number of', a: ['The graph illustrates the number of students who enrolled in three courses.', 'The graph illustrates the number of students enrolling in three courses.', 'The graph illustrates the number of students enrolled in three courses.', 'The graph illustrates the number of students that enrolled in three courses.'], ex: 'shows → illustrates; how many → the number of.' },
+      { t: 'rewrite', q: "The graph shows how many students enrolled in three courses.", start: 'The graph illustrates the number of', a: ['The graph illustrates the number of students who enrolled in three courses.', 'The graph illustrates the number of students enrolling in three courses.', 'The graph illustrates the number of students enrolled in three courses.', 'The graph illustrates the number of students that enrolled in three courses.'], ex: 'Viết lại câu mở bài Task 1: shows → illustrates; how many students → the number of students (who) enrolled.' },
       { t: 'rewrite', q: "Sales of electric cars increased slightly in 2022.", start: 'Electric car sales saw a', a: ['Electric car sales saw a slight increase in 2022.', 'Electric car sales saw a slight rise in 2022.'], ex: 'Đổi chủ ngữ + danh từ hóa: increased slightly → saw a slight increase.' },
       { t: 'error', parts: ['The chart shows', 'a', 'dramatically', 'increase in house prices.'], w: 2, fix: 'dramatic', ex: 'Bổ nghĩa cho danh từ increase phải là tính từ dramatic.' },
       { t: 'error', parts: ['It is widely', 'believe', 'that exercise', 'improves mental health.'], w: 1, fix: 'believed', ex: 'Bị động khách quan: It is widely believed that…' }
@@ -240,9 +240,9 @@
       { t: 'verb', q: "The central bank ___ interest rates twice last year. (raise)", a: ['raised'], ex: 'Có tân ngữ (interest rates) → ngoại động từ raise.' },
       { t: 'form', q: "Unemployment remained ___ throughout 2021. (HIGHLY)", a: ['high'], ex: 'remain là động từ nối → theo sau là tính từ.' },
       { t: 'rewrite', q: "The university offered her a full scholarship.", start: 'The university offered a full scholarship', a: ['The university offered a full scholarship to her.'], ex: 'V + O vật + to + người.' },
-      { t: 'rewrite', q: "My uncle lent me his car for the weekend.", start: 'My uncle lent his car', a: ['My uncle lent his car to me for the weekend.'], ex: 'lend sb sth = lend sth to sb.' },
+      { t: 'rewrite', q: "My uncle lent me his car for the weekend.", start: 'My uncle lent his car', a: ['My uncle lent his car to me for the weekend.'], ex: 'lend sb sth = lend sth TO sb (cho ai mượn cái gì) → lent his car to me.' },
       { t: 'rewrite', q: "The company raised its prices by 5%.", start: 'The company\'s prices rose', a: ["The company's prices rose by 5%."], ex: 'Bỏ tân ngữ → dùng nội động từ rise.' },
-      { t: 'rewrite', q: "The teacher showed the class a short video.", start: 'The teacher showed a short video', a: ['The teacher showed a short video to the class.'], ex: 'show sb sth = show sth to sb.' },
+      { t: 'rewrite', q: "The teacher showed the class a short video.", start: 'The teacher showed a short video', a: ['The teacher showed a short video to the class.'], ex: 'show sb sth = show sth TO sb (cho ai xem cái gì) → showed a short video to the class.' },
       { t: 'rewrite', q: "Sales fell because of the recession.", start: 'The recession reduced', a: ['The recession reduced sales.'], ex: 'fall (nội động từ) ↔ reduce + tân ngữ (ngoại động từ).' },
       { t: 'error', parts: ['The number of tourists', 'was risen', 'sharply', 'after the airport opened.'], w: 1, fix: 'rose', ex: 'rise là nội động từ, không dùng bị động.' },
       { t: 'error', parts: ['The situation', 'seems', 'increasingly', 'seriously.'], w: 3, fix: 'serious.', ex: 'Sau động từ nối seem dùng tính từ.' }
@@ -251,7 +251,7 @@
     'conjunctions': [
       { t: 'fill', q: "The hotel was expensive, ___ the service was surprisingly poor. (trái ngược)", a: ['yet', 'but'], ex: 'yet / but nối hai ý trái ngược.' },
       { t: 'fill', q: "You can pay ___ by card or in cash.", a: ['either'], ex: 'either … or: một trong hai.' },
-      { t: 'fill', q: "Neither my parents ___ my brother is coming to the ceremony.", a: ['nor'], ex: 'neither … nor.' },
+      { t: 'fill', q: "Neither my parents ___ my brother is coming to the ceremony.", a: ['nor'], ex: 'Cặp liên từ neither … nor (không… cũng không) → nor.' },
       { t: 'rewrite', q: "Public transport is cheaper than driving, and it is also greener.", start: 'Public transport is not only', a: ['Public transport is not only cheaper but also greener than driving.', 'Public transport is not only cheaper than driving but also greener.'], ex: 'not only … but also nối hai tính từ.' },
       { t: 'rewrite', q: "The flat is small, but it is very well located.", start: 'Although', a: ['Although the flat is small, it is very well located.', 'Although it is small, the flat is very well located.'], ex: 'Although đứng đầu → phẩy sau mệnh đề phụ, bỏ but.' },
       { t: 'rewrite', q: "My sister doesn't like fish, and I don't like fish either.", start: 'Neither my sister nor I', a: ['Neither my sister nor I like fish.'], ex: 'Neither A nor B; động từ hòa hợp với B (I → like).' },
@@ -264,19 +264,19 @@
     'reported-advanced': [
       { t: 'fill', q: "The interviewer asked me ___ I had any experience. (câu hỏi Yes/No)", a: ['whether', 'if'], ex: 'Tường thuật câu hỏi Yes/No → if/whether.' },
       { t: 'verb', q: "She asked me what time the train ___. (leave)", a: ['left'], ex: 'Trật tự S + V và lùi thì: the train left.' },
-      { t: 'verb', q: "The minister denied ___ about the payments. (know)", a: ['knowing'], ex: 'deny + V-ing.' },
+      { t: 'verb', q: "The minister denied ___ about the payments. (know)", a: ['knowing'], ex: 'deny + V-ing (phủ nhận đã làm gì) → denied knowing.' },
       { t: 'rewrite', q: "\"Where do you live?\" she asked me.", start: 'She asked me where', a: ['She asked me where I lived.'], ex: 'Bỏ do, đưa về S + V, lùi thì.' },
       { t: 'rewrite', q: "\"Don't use your phones during the test,\" the teacher said to us.", start: 'The teacher told us', a: ['The teacher told us not to use our phones during the test.'], ex: 'Mệnh lệnh phủ định → tell sb not to V.' },
-      { t: 'rewrite', q: "\"I'm sorry I was late,\" Tom said.", start: 'Tom apologised for', a: ['Tom apologised for being late.', 'Tom apologised for having been late.'], ex: 'apologise for + V-ing.' },
-      { t: 'rewrite', q: "\"You stole the documents!\" the police said to him.", start: 'The police accused him', a: ['The police accused him of stealing the documents.', 'The police accused him of having stolen the documents.'], ex: 'accuse sb of + V-ing.' },
+      { t: 'rewrite', q: "\"I'm sorry I was late,\" Tom said.", start: 'Tom apologised for', a: ['Tom apologised for being late.', 'Tom apologised for having been late.'], ex: 'Lời xin lỗi tường thuật bằng apologise FOR + V-ing (hoặc having V3 để nhấn mạnh việc đã xảy ra) → Tom apologised for being late.' },
+      { t: 'rewrite', q: "\"You stole the documents!\" the police said to him.", start: 'The police accused him', a: ['The police accused him of stealing the documents.', 'The police accused him of having stolen the documents.'], ex: 'Lời buộc tội tường thuật bằng accuse sb OF + V-ing → The police accused him of stealing the documents.' },
       { t: 'rewrite', q: "\"Have you studied abroad?\" the examiner asked me.", start: 'The examiner asked me', a: ['The examiner asked me whether I had studied abroad.', 'The examiner asked me if I had studied abroad.'], ex: 'Yes/No → if/whether; hiện tại hoàn thành → quá khứ hoàn thành.' },
       { t: 'error', parts: ['She asked me', 'where', 'did I live', 'before moving to Hanoi.'], w: 2, fix: 'I had lived', ex: 'Câu hỏi tường thuật không đảo trợ động từ: S + V, lùi thì.' },
       { t: 'error', parts: ['My friend', 'suggested', 'to go', 'to the museum together.'], w: 2, fix: 'going', ex: 'suggest + V-ing, không dùng to V.' }
     ],
 
     'sentence-types': [
-      { t: 'fill', q: "___ an interesting talk it was!", a: ['What'], ex: 'What + a/an + adj + N (+ S + V)!' },
-      { t: 'fill', q: "___ fast technology develops!", a: ['How'], ex: 'How + adj/adv + S + V!' },
+      { t: 'fill', q: "___ an interesting talk it was!", a: ['What'], ex: 'Câu cảm thán có danh từ (talk): What + a/an + tính từ + danh từ (+ S + V)! → What.' },
+      { t: 'fill', q: "___ fast technology develops!", a: ['How'], ex: 'Câu cảm thán với trạng từ/tính từ (fast) không có danh từ: How + adj/adv + S + V! → How.' },
       { t: 'fill', q: "Tuition fees have risen, ___ fewer students are applying. (kết quả)", a: ['so'], ex: 'Câu ghép với FANBOYS: so chỉ kết quả.' },
       { t: 'rewrite', q: "It was a very stunning view.", start: 'What', a: ['What a stunning view it was!', 'What a stunning view!'], ex: 'Cảm thán với danh từ đếm được số ít: What a + adj + N!' },
       { t: 'rewrite', q: "The students worked very hard.", start: 'How', a: ['How hard the students worked!'], ex: 'Cảm thán với trạng từ: How + adv + S + V!' },
