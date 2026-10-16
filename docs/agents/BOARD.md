@@ -99,23 +99,10 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét:
 
 ## ĐANG LÀM
+> ⚠️ @antigravity: U2a lại bị gom vào commit của Claude (1d6502ca) vì sửa thẳng trong thư mục của Claude. **Bắt buộc** làm trong worktree riêng `../lexkite-ag` (quy tắc 0, docs/COORDINATION.md) cho U2b trở đi.
 - (trống)
 
 ## CHỜ DUYỆT
-
-### [U2a] Trang chủ mobile – lời chào bị ép cột + vùng chạm 🔊 · @antigravity · ưu tiên: CAO NHẤT
-- #/home (375px): lời chào "Chào buổi chiều / Đây là kế hoạch của bạn hôm nay" bị ép thành cột hẹp vì chip "IELTS 6.5 · còn 120 ngày" cùng hàng → < 480px xếp chip xuống dưới lời chào. Nút 🔊 (home, #/review, #/phrases) vùng chạm ≥ 44×44px (giữ cỡ biểu tượng).
-- File: `web/css/style.css` (đã đồng bộ vào `extension/app/css/style.css`).
-- Báo cáo:
-  1. **Bố cục lời chào & chip mục tiêu trên màn hẹp (< 480px & 375px)**:
-     - Chuyển `.today-head` sang CSS Grid 2 cột: Cột 1 (`auto` / 52px) cho mascot Kit, Cột 2 (`1fr`) cho khối lời chào (`.grow { min-width: 0 }`). Lời chào chiếm trọn toàn bộ chiều rộng còn lại của hàng 1, hoàn toàn giải phóng không gian, chữ hiển thị tự nhiên và thoáng đãng.
-     - `.goal-chip` ("IELTS 6.5 · còn 120 ngày") được xếp xuống hàng 2 (`grid-row: 2; grid-column: 2; justify-self: start;`), thẳng hàng lề trái với lời chào bên trên.
-     - Màn hình siêu hẹp (≤ 360px): `.goal-chip` tự co giãn `grid-column: 1 / -1` để không bị gò bó.
-  2. **Vùng chạm nút 🔊 (home, #/review, #/phrases, từ điển)**:
-     - Thêm `position: relative` và pseudo-element `::after` (`min-width: 44px; min-height: 44px; width: max(100%, 44px); height: max(100%, 44px)`) cho `.icon-btn`, `.icon-btn.sm` và `.ctx-say`.
-     - Giữ nguyên 100% kích thước biểu tượng và cỡ khung hiển thị (30px/36px/24px) nhưng vùng chạm thực tế đạt chuẩn WCAG ≥ 44×44px, bấm mượt và dễ trúng trên màn hình cảm ứng điện thoại.
-  3. **Kiểm thử**: `npm test` PASS 100% (axe-core a11y 0 lỗi, i18n 15 ngôn ngữ, crawl 510 trang ALL OK).
-- Cần sửa / Nhận xét:
 
 ### [E1] Email "Báo cáo não bộ" hằng tuần · @antigravity · ưu tiên: thấp
 - Mục tiêu: nối `web/templates/weekly-digest.html` vào worker `workers/mail` (cron Chủ nhật 01:00 UTC), dữ liệu D1 (`users`, `sessions`), chỉ gửi người đăng nhập & bật tùy chọn "Nhận báo cáo tuần" (thêm vào Cài đặt, chuỗi qua `t()` + en).
@@ -136,4 +123,4 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét: (Claude 16/10) ✅ Giao diện + template + i18n đạt. ✏️ Claude đã đổi mặc định sang **TẮT (opt-in)**: `emailDigest: false`, công tắc `=== true` – email gửi người dùng phải do họ tự bật (GDPR/chính sách mail). ⏸️ Phần gửi chưa triển khai được: Cloudflare Email Routing (`env.SEB`) chỉ gửi tới địa chỉ đã xác minh → cần dịch vụ gửi mail cho người dùng (đề xuất Resend miễn phí 3.000 mail/tháng) + bản ghi DNS SPF/DKIM + trang hủy đăng ký `/api/unsub`. Chờ anh Quyền chọn dịch vụ → Claude làm worker. Thẻ giữ ở CHỜ DUYỆT.
 
 ## ĐÃ XONG
-- [A0] Nhắc học thông minh (0e7c6c3c) · [A1] Giao diện Admin bento (trong c0e088db) · [A2] Trang Tôi (868e44cb) · [B1] Blog 4 bài en/es/ja/id (4c122d19) – Claude đã duyệt 16/10.
+- [A0] Nhắc học thông minh (0e7c6c3c) · [A1] Giao diện Admin bento (trong c0e088db) · [A2] Trang Tôi (868e44cb) · [U2a] Trang chủ mobile (lên live trong 1d6502ca) – Claude đo 375px: lời chào 278px, chip hàng 2, vùng chạm 🔊 44px, không tràn ✅ · [B1] Blog 4 bài en/es/ja/id (4c122d19) – Claude đã duyệt 16/10.
