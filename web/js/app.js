@@ -236,7 +236,9 @@
     const viaCdn = CDN && !cdnDown && CDN.files.includes(src);
     if (viaCdn && await loadOne(CDN.base + src)) return;
     if (viaCdn) cdnDown = true; // CDN lỗi → từ giờ dùng máy chủ chính cho các file còn lại (giữ đúng thứ tự)
-    await loadOne(src);
+    if (await loadOne(src)) return;
+    // Đang triển khai bản mới (Cloudflare chưa đồng bộ hết máy chủ) → file tạm trả trang lỗi HTML: chờ 1,5 s rồi thử lại 1 lần, bỏ qua bộ đệm
+    await new Promise(r => setTimeout(r, 1500)); await loadOne(src + (src.includes('?') ? '&' : '?') + 'r=' + Date.now());
   };
   // Tải song song nhưng chạy đúng thứ tự (async=false); file thiếu được bỏ qua
   App.need = (...names) => Promise.all(names.map(n => bundleP[n] || (bundleP[n] = Promise.all(BUNDLES[n].map(loadScript)))));
