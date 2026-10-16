@@ -4,9 +4,9 @@ Quy trình & tiêu chí nghiệm thu: `docs/CONTENT-PIPELINE.md`. Lấy lô Đ�
 
 | # | Loại | Có / chỉ tiêu | % | Lô tiếp theo | Trọng tâm | File | Chi tiết hiện có |
 |---|---|---|---|---|---|---|---|
-| 1 | TOEFL Writing | 56 / 100 đề | 56% | 20 đề | — | `web/js/toefl/data*.js` | sentence: 40, email: 8, discussion: 8 |
-| 2 | TOEFL Speaking | 88 / 150 câu | 59% | 30 câu | — | `web/js/toefl/data*.js` | repeat: 56, interview: 32 |
-| 3 | IELTS Reading GT | 120 / 200 câu | 60% | 40 câu | — | `web/js/readtest/gt*.js` | Passage 1: 42, Passage 2: 39, Passage 3: 39 |
+| 1 | TOEFL Speaking | 88 / 150 câu | 59% | 30 câu | — | `web/js/toefl/data*.js` | repeat: 56, interview: 32 |
+| 2 | IELTS Reading GT | 120 / 200 câu | 60% | 40 câu | — | `web/js/readtest/gt*.js` | Passage 1: 42, Passage 2: 39, Passage 3: 39 |
+| 3 | TOEFL Writing | 76 / 100 đề | 76% | 20 đề | — | `web/js/toefl/data*.js` | sentence: 48, email: 14, discussion: 14 |
 | 4 | TOEFL Listening | 128 / 200 câu | 64% | 32 câu | — | `web/js/toefl/data*.js` | response: 32, conversation: 32, announcement: 24, talk: 40 |
 | 5 | Bài đọc ngắn | 210 / 300 bài | 70% | 15 bài | — | `web/js/readings-more.js` | B1: 55, B2: 60, C1: 50, A2: 45 |
 | 6 | Ngữ pháp – trắc nghiệm | 960 / 1200 câu | 80% | 60 câu | C1 ≥ 200 | `web/js/grammar/*.js` | A2: 168, B1: 360, B2: 324, C1: 108 |
