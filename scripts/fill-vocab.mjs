@@ -40,7 +40,7 @@ for (const [k, x] of todo) {
   const c = cache[k] ||= {};
   if (HETERO.has(k)) x.ipa = false;
   if (x.ipa && !c.ipa && have.ipa.has(k)) c.ipa = have.ipa.get(k);
-  if (x.ipa && !c.ipa && /\s/.test(k)) { const parts = k.split(/\s+/).map(p => have.ipa.get(p) || cache[p]?.ipa); if (parts.every(Boolean)) c.ipa = '/' + parts.map(p => p.replace(/^\/|\/$/g, '')).join(' ') + '/'; }
+  if (x.ipa && !c.ipa && /\s/.test(k)) { const parts = k.replace(/[’']s\b/g, '').split(/\s+/).map(p => { const q = p.replace(/[^a-z'-]/g, ''); return have.ipa.get(q) || cache[q]?.ipa || (q.includes('-') && q.split('-').every(x => have.ipa.get(x) || cache[x]?.ipa) ? '/' + q.split('-').map(x => (have.ipa.get(x) || cache[x].ipa).replace(/^\/|\/$/g, '')).join(' ') + '/' : ''); }); if (parts.every(Boolean)) { const WEAK = { a: 'ə', an: 'ən', to: 'tə', of: 'əv', and: 'ənd', for: 'fə', at: 'ət', from: 'frəm', can: 'kən', some: 'səm', than: 'ðən', as: 'əz', the: 'ðə' }, ws = k.split(/\s+/); c.ipa = '/' + parts.map((p, i) => WEAK[ws[i]] || p.replace(/^\/|\/$/g, '')).join(' ') + '/'; } } // hư từ trong cụm đọc dạng yếu
   if (!NET || net >= MAX || Date.now() > DEADLINE || /\s/.test(k) && !x.ex) continue;
   const needIpa = x.ipa && !c.ipa && !c.ipaTried, needEx = false;
   if (!needIpa && !needEx) continue;

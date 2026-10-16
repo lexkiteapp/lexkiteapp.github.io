@@ -122,7 +122,7 @@ for (const tp of D?.TOPICS || []) {
     if (inTopic.has(w.word.toLowerCase())) E(where, 'trùng từ trong cùng bộ'); inTopic.add(w.word.toLowerCase());
     if (!w.vi?.trim()) E(where, 'thiếu nghĩa tiếng Việt');
     else { if (FOREIGN.test(w.vi)) E(where, `nghĩa lẫn ngôn ngữ khác "${w.vi}"`); if (norm(w.vi) === norm(w.word) && !VI.test(w.vi) && w.word.length > 3) Wn(where, `nghĩa chưa dịch "${w.vi}"`); }
-    if (!w.ipa?.trim()) Wn(where, 'thiếu phiên âm'); else if (!/^\/.+\/$|^\[.+\]$/.test(w.ipa.trim())) E(where, `phiên âm sai định dạng "${w.ipa}"`);
+    if (!w.ipa?.trim()) { if (!/^[A-Z0-9][A-Z0-9/&.-]+s?$/.test(w.word) && w.word.trim().split(/\s+/).length < 4) Wn(where, 'thiếu phiên âm'); } // từ viết tắt (API, TEU…) và mẫu câu ≥ 4 từ: không bắt buộc IPA (đã có nút nghe) else if (!/^\/.+\/$|^\[.+\]$/.test(w.ipa.trim())) E(where, `phiên âm sai định dạng "${w.ipa}"`);
     if (!w.def?.trim()) Wn(where, 'thiếu định nghĩa'); else { if (VIS.test(w.def)) E(where, 'định nghĩa tiếng Anh lẫn tiếng Việt'); if (/[⁄{}\[\]|]|\b(?:wikt|w):|&\w+;/.test(w.def)) E(where, `định nghĩa còn ký tự rác "${w.def}"`); }
     if (!w.ex?.trim()) Wn(where, 'thiếu ví dụ'); else { if (VIS.test(w.ex)) E(where, 'ví dụ lẫn tiếng Việt'); lintEn(where + ' ex', w.ex); const w1 = w.word.split(/[\s\/(]/)[0], k = w1.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z-']/g, '').slice(0, Math.max(3, w.word.length - 3)); if (k.length >= 3 && !w.ex.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes(k) && !has(w1, w.ex)) Wn(where, 'ví dụ không chứa từ'); }
     if (!w.level) Wn(where, 'thiếu cấp độ'); else if (!LV.includes(w.level)) E(where, `cấp độ "${w.level}" không hợp lệ`);
