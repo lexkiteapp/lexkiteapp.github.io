@@ -1,0 +1,558 @@
+{
+ "lang": "en",
+ "results": [
+  {
+   "lang": "en",
+   "check": "app: trang chủ hiển thị",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "môi trường: gọi được dịch máy (gtx)",
+   "ok": true,
+   "detail": "có"
+  },
+  {
+   "lang": "en",
+   "check": "app: #/review có nội dung",
+   "ok": true,
+   "detail": "✕\n🎧\n✅ 0 · 29 cards left\n🇬🇧 → 🇻🇳\n🔊\nListen, recall the meaning, then tap to "
+  },
+  {
+   "lang": "en",
+   "check": "app: #/review không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "app: #/vocab có nội dung",
+   "ok": true,
+   "detail": "📚 Vocabulary\n\nLearn new words, review right before you forget, look things up f"
+  },
+  {
+   "lang": "en",
+   "check": "app: #/vocab không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "app: #/settings có nội dung",
+   "ok": true,
+   "detail": "Me\nSettings\n\nAccount, reminders, goals and appearance\n\n☁️\nAccount\n🎨\nAppearance\n"
+  },
+  {
+   "lang": "en",
+   "check": "app: #/settings không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "app: #/dict/house có nội dung",
+   "ok": true,
+   "detail": "Vocabulary\nEnglish – Vietnamese dictionary\n\nOxford Languages definitions · UK/US"
+  },
+  {
+   "lang": "en",
+   "check": "app: #/dict/house không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "dữ liệu mẫu: có thẻ trong chrome.storage",
+   "ok": true,
+   "detail": "60"
+  },
+  {
+   "lang": "en",
+   "check": "content script: gạch chân từ học thuật / đánh dấu từ đã học trên trang",
+   "ok": true,
+   "detail": "11"
+  },
+  {
+   "lang": "en",
+   "check": "bấm đúp: hiện bảng tra",
+   "ok": true,
+   "detail": "resiliencenoun\n/rɪˈzɪlɪəns/ · /rɪˈzɪljəns/\n🔊 UK\n🔊 US\n🐢\nnoun\nthe capacity to w"
+  },
+  {
+   "lang": "en",
+   "check": "bấm đúp: đúng từ + phiên âm",
+   "ok": true,
+   "detail": "resiliencenoun\n/rɪˈzɪlɪəns/ · /rɪˈzɪljəns/\n🔊 UK\n🔊 US\n🐢\nnoun\nthe capacity to withstand or to recover quickly from diff"
+  },
+  {
+   "lang": "en",
+   "check": "bảng tra: không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "tương phản bảng tra (trang sáng) ≥ 4.5:1",
+   "ok": false,
+   "detail": "61 chữ; lỗi: chip:\"noun\" 4.44 | spk:\"🔊 UK\" 4.26 | spk:\"🔊 US\" 4.26 | spk:\"🐢\" 4.26"
+  },
+  {
+   "lang": "en",
+   "check": "trang sáng → bảng tra sáng",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "bảng tra: không treo \"Đang dịch câu\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "tra lồng trong bảng tra (bấm đúp từ trong định nghĩa)",
+   "ok": true,
+   "detail": "capacity → ←capacitynoun\n/kəˈpæsɪti/\n🔊 UK\n🔊 US\n🐢\nnoun\nthe maximum am"
+  },
+  {
+   "lang": "en",
+   "check": "danh từ \"forest\": có ảnh minh họa",
+   "ok": true,
+   "detail": "https://live.staticflickr.com/8071/8425048235_1d3570274b_n.j"
+  },
+  {
+   "lang": "en",
+   "check": "trạng từ \"exactly\": hiện bảng tra",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "trạng từ \"exactly\": không ảnh, không ô chữ cái",
+   "ok": false,
+   "detail": "letter"
+  },
+  {
+   "lang": "en",
+   "check": "tính từ \"available\": không ảnh lệch nghĩa, không ô chữ cái",
+   "ok": false,
+   "detail": "letter"
+  },
+  {
+   "lang": "en",
+   "check": "bôi đen (chế độ nút 🌐): hiện nút",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "bấm 🌐: hiện bản dịch",
+   "ok": true,
+   "detail": "🌐 Translate selection\nEN\n×\nAlthough the initial cost is considerable, the long-term benefits to public health far outwe"
+  },
+  {
+   "lang": "en",
+   "check": "tương phản bản dịch ≥ 4.5:1",
+   "ok": false,
+   "detail": "chip:\"EN\" 4.44"
+  },
+  {
+   "lang": "en",
+   "check": "bản dịch: không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "bôi đen (tự dịch): hiện bản dịch ngay",
+   "ok": true,
+   "detail": "🌐 Translate selection\nEN\n×\nAlthough the initial cost is considerable, the long-"
+  },
+  {
+   "lang": "en",
+   "check": "bôi đen (tắt): không hiện gì",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "ô nhập chữ (textarea): bôi đen → nút 🌐",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "tắt \"Bấm đúp để tra\": không hiện bảng",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "trang CSP chặn ảnh: vẫn có ảnh (data:)",
+   "ok": true,
+   "detail": "https://live.staticflickr.com/8071/8425048235_1d3570274b_n.j"
+  },
+  {
+   "lang": "en",
+   "check": "trong iframe: bấm đúp tra được",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "trang RTL (Ả Rập): bảng tra hiện",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "máy chế độ tối + trang sáng: bảng tra hiện",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "máy tối + trang sáng → bảng tra SÁNG, tương phản đạt",
+   "ok": false,
+   "detail": "dark=false chip:\"noun\" 3.05 | ipa:\"/rɪˈzɪlɪəns/ · /rɪ\" 3.42 | SPAN:\"/rɪˈzɪljəns/\" 3.42"
+  },
+  {
+   "lang": "en",
+   "check": "trang tối → bảng tra TỐI, tương phản đạt",
+   "ok": false,
+   "detail": "dark=false chip:\"noun\" 4.44 | spk:\"🔊 UK\" 4.26 | spk:\"🔊 US\" 4.26"
+  },
+  {
+   "lang": "en",
+   "check": "thẻ thông báo (sáng): \"available\" – bảng tra theo nền trang, tương phản ≥ 4.5:1",
+   "ok": false,
+   "detail": "dark=false chip:\"adjective\" 4.44 | spk:\"🔊 UK\" 4.26 | spk:\"🔊 US\" 4.26"
+  },
+  {
+   "lang": "en",
+   "check": "thẻ thông báo (sáng): tính từ \"available\" không ảnh, không ô chữ cái",
+   "ok": false,
+   "detail": "letter"
+  },
+  {
+   "lang": "en",
+   "check": "thẻ thông báo (sáng): danh từ \"library\" – tương phản ≥ 4.5:1, không ô chữ cái",
+   "ok": false,
+   "detail": "img chip:\"noun\" 4.44 | spk:\"🔊 UK\" 4.26 | spk:\"🔊 US\" 4.26"
+  },
+  {
+   "lang": "en",
+   "check": "thẻ thông báo (sáng): ảnh minh họa có alt",
+   "ok": false,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "thẻ thông báo (tối): \"available\" – bảng tra theo nền trang, tương phản ≥ 4.5:1",
+   "ok": false,
+   "detail": "dark=false chip:\"adjective\" 4.44 | spk:\"🔊 UK\" 4.26 | spk:\"🔊 US\" 4.26"
+  },
+  {
+   "lang": "en",
+   "check": "thẻ thông báo (tối): tính từ \"available\" không ảnh, không ô chữ cái",
+   "ok": false,
+   "detail": "letter"
+  },
+  {
+   "lang": "en",
+   "check": "thẻ thông báo (tối): danh từ \"library\" – tương phản ≥ 4.5:1, không ô chữ cái",
+   "ok": false,
+   "detail": "img chip:\"noun\" 4.44 | spk:\"🔊 UK\" 4.26 | spk:\"🔊 US\" 4.26"
+  },
+  {
+   "lang": "en",
+   "check": "thẻ thông báo (tối): ảnh minh họa có alt",
+   "ok": false,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "popup: hiển thị số thẻ cần ôn",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "popup: không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "popup: nút \"Ôn ngay\" không bị che",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "popup: bấm \"Ôn ngay\" mở ứng dụng",
+   "ok": true,
+   "detail": "chrome-extension://kblfilcmclonmeecilfiflfpingdofca/app/index.html#/review"
+  },
+  {
+   "lang": "en",
+   "check": "popup: tra nhanh \"house\"",
+   "ok": true,
+   "detail": "house\nn\nA1\n/haʊs/\n🔊\nngôi nhà\nbuilding in which a family, person lives\n+ Save fl"
+  },
+  {
+   "lang": "en",
+   "check": "popup: đổi \"Khi bôi đen chữ\" → lưu",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "tab mới: có thẻ từ",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "tab mới: không lẫn tiếng Việt (giao diện)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "tab mới: bấm \"Đã nhớ\" sang thẻ khác / cập nhật",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "lexkite.com (chào mừng): bấm đúp có bảng tra (add-on hoặc web)",
+   "ok": true,
+   "detail": "từ=Vocabulary addon=true web=false"
+  },
+  {
+   "lang": "en",
+   "check": "lexkite.com: không hiện 2 bảng cùng lúc",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "lexkite.com đang thi (#/mock): add-on khóa tra",
+   "ok": true,
+   "detail": "\n        \n          v\n          \n            vocabularyadjec"
+  },
+  {
+   "lang": "en",
+   "check": "soát lỗi viết: mặc định TẮT (không gạch chân)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "soát lỗi viết: textarea có lỗi → gạch chân",
+   "ok": true,
+   "detail": "u=3 u spelling,u grammar,u grammar"
+  },
+  {
+   "lang": "en",
+   "check": "soát lỗi viết: bấm chữ bị gạch → hộp gợi ý",
+   "ok": true,
+   "detail": "Spelling\nCommonly misspelled word\n×\nrecieve\nreceive\nIgnore\n💡 Why?\nTurn off here"
+  },
+  {
+   "lang": "en",
+   "check": "soát lỗi viết: \"Vì sao?\" có giải thích",
+   "ok": true,
+   "detail": "This word is misspelled. Learn the correct spelling – words you misspell often are added to your rev"
+  },
+  {
+   "lang": "en",
+   "check": "soát lỗi viết: hộp gợi ý không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "soát lỗi viết: sửa 1 chạm",
+   "ok": true,
+   "detail": "I receive your email and she have a informations about it. "
+  },
+  {
+   "lang": "en",
+   "check": "soát lỗi viết: lỗi ngữ pháp có gợi ý",
+   "ok": true,
+   "detail": "Grammar\nSubject–verb agreement\n×\nhave\nhas\nIgnore\n💡 Why?\nTurn off here"
+  },
+  {
+   "lang": "en",
+   "check": "soát lỗi viết: ô mật khẩu → không gạch chân",
+   "ok": true,
+   "detail": "u=0"
+  },
+  {
+   "lang": "en",
+   "check": "soát lỗi viết: contenteditable → gạch chân",
+   "ok": true,
+   "detail": "u=3 u grammar,u grammar,u style"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật en.wikipedia.org: bấm đúp \"encyclopedia\" hiện bảng tra",
+   "ok": true,
+   "detail": "51 chữ"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật en.wikipedia.org: tương phản ≥ 4.5:1",
+   "ok": false,
+   "detail": "chip:\"noun\" 4.44 | spk:\"🔊 UK\" 4.26 | spk:\"🔊 US\" 4.26"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật www.bbc.com: có chữ tiếng Anh để thử",
+   "ok": true,
+   "detail": "không tìm thấy từ phù hợp – bỏ qua"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật github.com: bấm đúp \"watching\" hiện bảng tra",
+   "ok": true,
+   "detail": "38 chữ"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật github.com: tương phản ≥ 4.5:1",
+   "ok": false,
+   "detail": "chip:\"verb\" 4.44 | spk:\"🔊 UK\" 4.26 | spk:\"🔊 US\" 4.26"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật github.com (dark): bấm đúp \"watching\" hiện bảng tra",
+   "ok": true,
+   "detail": "38 chữ"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật github.com (dark): tương phản ≥ 4.5:1",
+   "ok": false,
+   "detail": "chip:\"verb\" 3.05 | ipa:\"/ˈwɒtʃɪŋ/ · /ˈwɑtʃ\" 3.42 | SPAN:\"/ˈwɑtʃɪŋ/\" 3.42"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật developer.apple.com: bấm đúp \"member\" hiện bảng tra",
+   "ok": true,
+   "detail": "73 chữ"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật developer.apple.com: tương phản ≥ 4.5:1",
+   "ok": false,
+   "detail": "chip:\"noun\" 4.44 | spk:\"🔊 UK\" 4.26 | spk:\"🔊 US\" 4.26"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật news.ycombinator.com: bấm đúp \"points\" hiện bảng tra",
+   "ok": true,
+   "detail": "89 chữ"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật news.ycombinator.com: tương phản ≥ 4.5:1",
+   "ok": false,
+   "detail": "chip:\"noun\" 4.44 | spk:\"🔊 UK\" 4.26 | spk:\"🔊 US\" 4.26"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật www.theguardian.com: bấm đúp \"viewing\" hiện bảng tra",
+   "ok": true,
+   "detail": "55 chữ"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật www.theguardian.com: tương phản ≥ 4.5:1",
+   "ok": false,
+   "detail": "chip:\"verb\" 4.44 | spk:\"🔊 UK\" 4.26 | spk:\"🔊 US\" 4.26"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật stackoverflow.com: bấm đúp \"security\" hiện bảng tra",
+   "ok": true,
+   "detail": "61 chữ"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật stackoverflow.com: tương phản ≥ 4.5:1",
+   "ok": false,
+   "detail": "chip:\"noun\" 4.44 | spk:\"🔊 UK\" 4.26 | spk:\"🔊 US\" 4.26"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật old.reddit.com: bấm đúp \"request\" hiện bảng tra",
+   "ok": true,
+   "detail": "48 chữ"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật old.reddit.com: tương phản ≥ 4.5:1",
+   "ok": false,
+   "detail": "chip:\"noun\" 4.44 | spk:\"🔊 UK\" 4.26 | spk:\"🔊 US\" 4.26"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật docs.python.org: bấm đúp \"tutorial\" hiện bảng tra",
+   "ok": true,
+   "detail": "97 chữ"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật docs.python.org: tương phản ≥ 4.5:1",
+   "ok": false,
+   "detail": "chip:\"adjective\" 4.44 | spk:\"🔊 UK\" 4.26 | spk:\"🔊 US\" 4.26"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật developer.mozilla.org (dark): bấm đúp \"language\" hiện bảng tra",
+   "ok": true,
+   "detail": "88 chữ"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật developer.mozilla.org (dark): tương phản ≥ 4.5:1",
+   "ok": false,
+   "detail": "chip:\"noun\" 3.05 | ipa:\"/ˈlæŋɡwɪdʒ/\" 3.42 | spk:\"🔊 UK\" 3.10"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật ar.wikipedia.org: có chữ tiếng Anh để thử",
+   "ok": true,
+   "detail": "không tìm thấy từ phù hợp – bỏ qua"
+  },
+  {
+   "lang": "en",
+   "check": "errLog của add-on rỗng",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "không có lỗi console/trang từ add-on",
+   "ok": false,
+   "detail": "console https://stackoverflow.com/questions: Refused to create a TrustedTypePolicy named 'vocaband#lexi' because it violates the following Content Security Policy directive: \"trusted-types YKcu9 default\". @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/content.js | console https://stackoverflow.com/questions: Refused to create a TrustedTypePolicy named 'vocaband#lexi' because it violates the"
+  }
+ ],
+ "errors": [
+  "console https://stackoverflow.com/questions: Refused to create a TrustedTypePolicy named 'vocaband#lexi' because it violates the following Content Security Policy directive: \"trusted-types YKcu9 default\". @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/content.js",
+  "console https://stackoverflow.com/questions: Refused to create a TrustedTypePolicy named 'vocaband#lexi' because it violates the following Content Security Policy directive: \"trusted-types YKcu9 default\". @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/content.js",
+  "console https://stackoverflow.com/questions: Refused to create a TrustedTypePolicy named 'lexkite#wc' because it violates the following Content Security Policy directive: \"trusted-types YKcu9 default\". @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/writecheck.js",
+  "console https://stackoverflow.com/questions: Refused to create a TrustedTypePolicy named 'lexkite#wc' because it violates the following Content Security Policy directive: \"trusted-types YKcu9 default\". @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/writecheck.js",
+  "console https://stackoverflow.com/questions: Refused to create a TrustedTypePolicy named 'vocaband#lexi' because it violates the following Content Security Policy directive: \"trusted-types YKcu9 default\". @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/content.js",
+  "console https://stackoverflow.com/questions: Refused to create a TrustedTypePolicy named 'vocaband#lexi' because it violates the following Content Security Policy directive: \"trusted-types YKcu9 default\". @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/content.js",
+  "console https://stackoverflow.com/questions: Refused to create a TrustedTypePolicy named 'vocaband#lexi' because it violates the following Content Security Policy directive: \"trusted-types YKcu9 default\". @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/content.js",
+  "console https://stackoverflow.com/questions: Refused to create a TrustedTypePolicy named 'lexkite#wc' because it violates the following Content Security Policy directive: \"trusted-types YKcu9 default\". @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/writecheck.js",
+  "console https://stackoverflow.com/questions: Refused to create a TrustedTypePolicy named 'lexkite#wc' because it violates the following Content Security Policy directive: \"trusted-types YKcu9 default\". @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/writecheck.js",
+  "console https://stackoverflow.com/questions: Refused to create a TrustedTypePolicy named 'lexkite#wc' because it violates the following Content Security Policy directive: \"trusted-types YKcu9 default\". @ chrome-extension://kblfilcmclonmeecilfiflfpingdofca/writecheck.js"
+ ],
+ "errLog": []
+}
