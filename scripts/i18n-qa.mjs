@@ -13,7 +13,7 @@ const fixed = JSON.parse(fs.readFileSync(new URL('./i18n-fixed.json', import.met
 const load = f => { const g = {}; new Function('self', fs.readFileSync(new URL(f, root), 'utf8'))(g); return g.I18N_DICT; };
 const EN = { ...load('en.js').en, ...(() => { const g = { I18N_DICT: { en: {} } }; new Function('self', fs.readFileSync(new URL('en/writecheck.js', root), 'utf8'))(g); return g.I18N_DICT.en; })() }; // + chữ chỉ add-on dùng (soát lỗi viết)
 const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i; // chỉ chữ riêng của tiếng Việt (â ê ô cũng có trong tiếng Pháp/Bồ Đào Nha)
-const BAD = /\b(Currículo|Currículum|Lebenslauf|CV)\b|简历|이력서|बायोडाटा|Резюме|Mirar hacia arriba|Olhe para cima|Schau nach oben|抬头看|見上げ|올려다|ऊपर देखो|Посмотрите вверх|Yukarıya bak|Lihatlah ke atas|มองขึ้น/;
+const BAD = /लेक्सकाइट|ليكسكايت|Лексkite|Лекскайт|レックスカイト|렉스카이트|เล็กซ์ไคท์|莱克斯凯特|\b(Currículo|Currículum|Lebenslauf|CV)\b|简历|이력서|बायोडाटा|Резюме|Mirar hacia arriba|Olhe para cima|Schau nach oben|抬头看|見上げ|올려다|ऊपर देखो|Посмотрите вверх|Yukarıya bak|Lihatlah ke atas|มองขึ้น/;
 const vars = s => (String(s).match(/\{[a-zA-Z0-9_]+\}/g) || []).sort().join(',');
 const tags = s => (String(s).match(/<\/?[a-z]+/gi) || []).map(x => x.toLowerCase()).sort().join(',');
 const short = k => String(EN[k]).trim().split(/\s+/).length <= 3 && !/[{<]/.test(EN[k]) && /[a-z]/i.test(EN[k]) && !/^[A-Z0-9 &–-]+$/.test(EN[k]) && !/IELTS|TOEIC|TOEFL|Part|Task/.test(EN[k]); // tên riêng/thuật ngữ thi giữ nguyên tiếng Anh
