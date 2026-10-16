@@ -16,3 +16,4 @@
 | 2026-10-16 | IELTS Reading GT | đề GT5, 40 câu – đạt chỉ tiêu 200 | 38e40935 | phiên nội dung | chờ phiên chính nghiệm thu |
 | 2026-10-16 | TOEFL Listening | 32 câu bộ 5 – 128→160 | d245a07d | phiên nội dung | chờ phiên chính nghiệm thu |
 | 2026-10-17 | TOEIC Speaking & Writing | 20 đề + trang #/toeic-sw (chấm đọc to: khớp/tốc độ/ngắt quãng) – 0→20/60 | bef3163a | phiên nội dung | chờ phiên chính nghiệm thu |
+| 2026-10-17 | TOEFL Listening + Writing | 40 câu nghe bộ 6 (→200) + 4 đề viết (→100) – đạt chỉ tiêu | 22731d0e | phiên nội dung | chờ phiên chính nghiệm thu |
