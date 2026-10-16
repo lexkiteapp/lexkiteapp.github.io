@@ -81,14 +81,8 @@ Mẫu thẻ:
 > **Giao diện chia nhỏ từng thẻ** (anh Quyền 16/10): mỗi thẻ 1 cụm màn hình/nền tảng, làm xong → CHỜ DUYỆT → Claude duyệt (đo tự động + xem thật) → thẻ tiếp. Làm theo thứ tự U2a → U2b → U2c → U2d → U2e.
 
 
-### [U2b] Thanh điều hướng dưới + Cài đặt/Thống kê/Tôi trên mobile · @antigravity · ưu tiên: cao
-- Mục "Tôi" (và các mục) ở thanh dưới vùng chạm ≥ 44px; #/settings phần tử tràn ngang trong hàng cài đặt → wrap/ellipsis; #/stats biểu đồ tràn ngang (`I.l1`) + nhãn < 11.5px → ≥ 12px, co theo khung; #/me chữ "0 Đã thuộc", "2d" ≥ 12px; "Viết" ở #/models ≥ 44px.
-- File: `web/css/style.css` (+ markup liên quan, ghi rõ). Báo cáo như U2a.
-- ▶️ **MỞ – làm ngay** (Claude 16/10, sau khi duyệt U2a). Làm trong worktree riêng `../lexkite-ag`. Đo thật ở 375px: không tràn ngang, mọi nút ≥ 44px, chữ ≥ 12px; chạy `npm test` (có thêm `size-budget`). Xong chuyển CHỜ DUYỆT kèm số đo trước/sau.
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
 ### [U2c] Cảm giác chấm bài chuẩn Duolingo · @antigravity · ưu tiên: vừa
+- ▶️ **MỞ – làm ngay** (Claude 16/10 sau khi duyệt U2b). Tiếp tục worktree riêng như U2b (tốt). Đẩy lên nhánh `antigravity` cũng được – Claude gộp vào main khi duyệt.
 - Đúng: nảy nhẹ + rung ngắn (navigator.vibrate trên mobile); sai: lắc + rung đôi; tôn trọng `prefers-reduced-motion` & cài đặt âm thanh hiện có; skeleton thay "Đang tải…" ở #/review, #/home.
 - File: `web/css/style.css`, `web/js/study.js` (chỉ phần phản hồi giao diện). Chuỗi mới qua `t()` + en.
 - Báo cáo:
@@ -164,4 +158,4 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét: (Claude 16/10) ✅ Giao diện + template + i18n đạt. ✏️ Claude đã đổi mặc định sang **TẮT (opt-in)**: `emailDigest: false`, công tắc `=== true` – email gửi người dùng phải do họ tự bật (GDPR/chính sách mail). ⏸️ Phần gửi chưa triển khai được: Cloudflare Email Routing (`env.SEB`) chỉ gửi tới địa chỉ đã xác minh → cần dịch vụ gửi mail cho người dùng (đề xuất Resend miễn phí 3.000 mail/tháng) + bản ghi DNS SPF/DKIM + trang hủy đăng ký `/api/unsub`. Chờ anh Quyền chọn dịch vụ → Claude làm worker. Thẻ giữ ở CHỜ DUYỆT.
 
 ## ĐÃ XONG
-- [A0] Nhắc học thông minh (0e7c6c3c) · [A1] Giao diện Admin bento (trong c0e088db) · [A2] Trang Tôi (868e44cb) · [U2a] Trang chủ mobile (lên live trong 1d6502ca) – Claude đo 375px: lời chào 278px, chip hàng 2, vùng chạm 🔊 44px, không tràn ✅ · [B1] Blog 4 bài en/es/ja/id (4c122d19) – Claude đã duyệt 16/10.
+- [A0] Nhắc học thông minh (0e7c6c3c) · [A1] Giao diện Admin bento (trong c0e088db) · [A2] Trang Tôi (868e44cb) · [U2b] Thanh dưới/Cài đặt/Thống kê/Tôi mobile (a7f682c7 → main 6addec8f) – Claude đo live 375px: nút thanh dưới 73×48, 5 trang 0 tràn, 0 chữ < 12px ✅ · [U2a] Trang chủ mobile (lên live trong 1d6502ca) – Claude đo 375px: lời chào 278px, chip hàng 2, vùng chạm 🔊 44px, không tràn ✅ · [B1] Blog 4 bài en/es/ja/id (4c122d19) – Claude đã duyệt 16/10.
