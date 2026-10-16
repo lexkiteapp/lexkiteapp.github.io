@@ -3,10 +3,12 @@
  *   → { out: <JSON kết quả>, left: lượt còn lại hôm nay, model }
  * Mô hình: GEMINI_KEY (biến bí mật trên Cloudflare, nếu có) → Workers AI (miễn phí, có sẵn).
  * Hạn mức/ngày: đã đăng nhập 5 lượt, chưa đăng nhập 3 lượt (theo IP đã băm) + trần chung toàn hệ thống để không vượt gói miễn phí.
- * Kết quả lưu đệm trong D1 theo hash đề + bài → chấm lại cùng bài không tốn lượt. */
+ * Kết quả lưu đệm trong D1 theo hash đề + bài → chấm lại cùng bài không tốn lượt.
+ * kind: 'rp' (Roleplay for Work – câu thoại ngắn): hạn mức riêng theo lượt thoại (đăng nhập 60, khách 16 ≈ 2 hội thoại/ngày), trần chung riêng. */
 import { verify, limit } from './sync.js';
 
 const LIMIT_USER = 5, LIMIT_ANON = 3, GLOBAL_DAY = 400, MAX_PROMPT = 14000;
+const RP_USER = 60, RP_ANON = 16, RP_GLOBAL = 1500;
 const WAI_MODEL = '@cf/meta/llama-3.1-8b-instruct-fast';
 const GEMINI = () => 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent'; // khóa gửi qua header x-goog-api-key (nhận cả kiểu AIza… lẫn AQ.…)
 const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)|https?:\/\/localhost(:\d+)?|capacitor:\/\/localhost|chrome-extension:\/\/[a-z]{32})$/;
@@ -67,11 +69,11 @@ export async function geminiCall(env, body, model) {
   return null;
 }
 
-async function runModel(env, sys, prompt) {
-  const g = await geminiCall(env, { systemInstruction: { parts: [{ text: sys }] }, contents: [{ role: 'user', parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0.2 } });
+async function runModel(env, sys, prompt, temp = 0.2) {
+  const g = await geminiCall(env, { systemInstruction: { parts: [{ text: sys }] }, contents: [{ role: 'user', parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json', temperature: temp } });
   if (g) { const out = parseJSON(g.text); if (out) return { out, model: gemModel }; }
   if (!env.AI) throw new Error('no-model');
-  const res = await env.AI.run(WAI_MODEL, { messages: [{ role: 'system', content: sys + '\nReply with ONE valid JSON object only, no markdown.' }, { role: 'user', content: prompt }], max_tokens: 2048, temperature: 0.2, response_format: { type: 'json_object' } });
+  const res = await env.AI.run(WAI_MODEL, { messages: [{ role: 'system', content: sys + '\nReply with ONE valid JSON object only, no markdown.' }, { role: 'user', content: prompt }], max_tokens: 2048, temperature: temp, response_format: { type: 'json_object' } });
   const raw = res && (res.response ?? res.result?.response);
   const out = raw && typeof raw === 'object' ? raw : parseJSON(raw); // chế độ JSON có thể trả sẵn object
   if (!out) throw new Error('bad-json');
@@ -83,15 +85,15 @@ export const onRequestOptions = ({ request }) => new Response(null, { status: 20
 export async function onRequestPost({ request, env }) {
   if (!env.DB) return json(request, 500, { error: 'no-db' });
   let body; try { body = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
-  const prompt = String(body.prompt || ''), sys = String(body.sys || '').slice(0, 4000);
+  const prompt = String(body.prompt || ''), sys = String(body.sys || '').slice(0, 4000), rp = body.kind === 'rp';
   if (prompt.length < 40 || prompt.length > MAX_PROMPT) return json(request, 400, { error: 'size' });
   const uid = await verify((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')).catch(() => null);
   // Chống bắn liên tục (kể cả bài đã lưu đệm): mỗi người tối đa 6 yêu cầu/phút
   { const w = await limit('ai:' + (uid || request.headers.get('CF-Connecting-IP') || '?'), 6, 60); if (w) return json(request, 429, { error: 'too-fast', wait: w }); }
   const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
-  const id = uid ? 'u:' + uid : 'ip:' + (await sha('lexkite|' + ip)).slice(0, 24); // không lưu IP gốc
+  const id = (rp ? 'rp:' : '') + (uid ? 'u:' + uid : 'ip:' + (await sha('lexkite|' + ip)).slice(0, 24)); // không lưu IP gốc
   let cfg = {}; try { cfg = Object.fromEntries(((await env.DB.prepare("SELECT k, v FROM config WHERE k IN ('ai_user', 'ai_anon', 'ai_global')").all()).results || []).filter(r => r.v !== '').map(r => [r.k, +r.v])); } catch (e) { /* chưa có bảng config */ }
-  const quota = uid ? (cfg.ai_user >= 0 ? cfg.ai_user : LIMIT_USER) : (cfg.ai_anon >= 0 ? cfg.ai_anon : LIMIT_ANON), day = new Date().toISOString().slice(0, 10);
+  const quota = rp ? (uid ? RP_USER : RP_ANON) : uid ? (cfg.ai_user >= 0 ? cfg.ai_user : LIMIT_USER) : (cfg.ai_anon >= 0 ? cfg.ai_anon : LIMIT_ANON), day = new Date().toISOString().slice(0, 10), star = rp ? '*rp' : '*';
   try {
     await setup(env.DB);
     const h = await sha(sys + '\n' + prompt);
@@ -99,11 +101,11 @@ export async function onRequestPost({ request, env }) {
     const used = (await env.DB.prepare('SELECT n FROM ai_quota WHERE id = ? AND day = ?').bind(id, day).first())?.n || 0;
     if (hit) return json(request, 200, { out: JSON.parse(hit.out), left: Math.max(0, quota - used), cached: true });
     if (used >= quota) return json(request, 429, { error: 'quota', left: 0, signIn: !uid, message: `Bạn đã dùng hết ${quota} lượt AI miễn phí hôm nay. Hãy quay lại vào ngày mai hoặc dùng khóa cá nhân.` });
-    const all = (await env.DB.prepare("SELECT n FROM ai_quota WHERE id = '*' AND day = ?").bind(day).first())?.n || 0;
-    if (all >= (cfg.ai_global > 0 ? cfg.ai_global : GLOBAL_DAY)) return json(request, 429, { error: 'busy', left: quota - used });
-    const { out, model, diag } = await runModel(env, sys, prompt);
+    const all = (await env.DB.prepare('SELECT n FROM ai_quota WHERE id = ? AND day = ?').bind(star, day).first())?.n || 0;
+    if (all >= (rp ? RP_GLOBAL : cfg.ai_global > 0 ? cfg.ai_global : GLOBAL_DAY)) return json(request, 429, { error: 'busy', left: quota - used });
+    const { out, model, diag } = await runModel(env, sys, prompt, rp ? 0.7 : 0.2);
     const up = 'INSERT INTO ai_quota (id, day, n) VALUES (?1, ?2, 1) ON CONFLICT (id, day) DO UPDATE SET n = n + 1';
-    await env.DB.batch([env.DB.prepare(up).bind(id, day), env.DB.prepare(up).bind('*', day), env.DB.prepare('INSERT OR REPLACE INTO ai_cache (h, out, at) VALUES (?, ?, ?)').bind(h, JSON.stringify(out), Date.now())]);
+    await env.DB.batch([env.DB.prepare(up).bind(id, day), env.DB.prepare(up).bind(star, day), env.DB.prepare('INSERT OR REPLACE INTO ai_cache (h, out, at) VALUES (?, ?, ?)').bind(h, JSON.stringify(out), Date.now())]);
     out._model = model;
     if (diag) console.log("gemini fallback", diag); // xem bằng wrangler tail – không trả về công khai
     return json(request, 200, { out, left: Math.max(0, quota - used - 1), model });

@@ -61,10 +61,21 @@
    "key": "ai",
    "name": "Cloudflare Workers AI",
    "kind": "ai",
-   "purpose": "Dự phòng chấm Writing/Speaking & duyệt dịch khi Gemini hết hạn mức (Llama 3.3 70B)",
+   "purpose": "Dự phòng chấm Writing/Speaking, hội thoại Roleplay công sở (/api/ai kind 'rp': hạn mức riêng 60 lượt/người đăng nhập, 16/khách, trần 1.500/ngày) & duyệt dịch khi Gemini hết hạn mức",
    "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/ai/workers-ai",
    "free": "10.000 neuron/ngày",
    "upgrade": "Workers Paid",
+   "status": "Miễn phí",
+   "match": []
+  },
+  {
+   "key": "chrome-prompt-api",
+   "name": "Chrome Prompt API (Gemini Nano trên máy)",
+   "kind": "ai",
+   "purpose": "AI chạy trên máy người dùng cho Roleplay công sở (#/roleplay) và chấm bài khi có sẵn – không gọi máy chủ, $0",
+   "console": "https://developer.chrome.com/docs/ai/prompt-api",
+   "free": "Miễn phí, chạy cục bộ (chỉ Chrome máy tính đã tải mô hình)",
+   "upgrade": "Không cần",
    "status": "Miễn phí",
    "match": []
   },

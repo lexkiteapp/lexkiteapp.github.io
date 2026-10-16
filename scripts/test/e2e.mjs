@@ -8,7 +8,7 @@ const BASE = process.argv[2] || 'https://lexkite.com/';
 const LANGS = (process.argv[3] || 'vi,en,es,pt,fr,de,id,th,zh,ja,ko,hi,ar,ru,tr').split(',');
 const ROUTES = ['home', 'vocab', 'library', 'review', 'practice', 'practice/learn', 'path', 'stats', 'settings', 'me', 'skills', 'tests', 'phrases', 'models', 'grammar', 'pron',
   'listening', 'reading', 'speaking', 'write', 'task1', 'letters', 'toeic', 'toefl', 'contact', 'placement', 'dict/sustainable', 'topic/ngsl1', 'topic/office-email',
-  'model/t1-travel', 'handsfree', 'reflex', 'courses', 'course/ielts-writing', 'paraphrase', 'mistakes', 'goal'];
+  'model/t1-travel', 'handsfree', 'reflex', 'roleplay', 'roleplay/manager', 'courses', 'course/ielts-writing', 'paraphrase', 'mistakes', 'goal'];
 const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
 const VIEWS = { mobile: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }, desktop: { viewport: { width: 1366, height: 860 } } };
 // Lỗi bỏ qua: do môi trường headless (âm thanh tự phát, quảng cáo/mạng ngoài), không phải lỗi app
