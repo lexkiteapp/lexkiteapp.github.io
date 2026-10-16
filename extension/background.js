@@ -31,8 +31,9 @@ function initContextMenus() {
   }).catch(() => { /* contextMenus error */ });
   return menuQ;
 }
-const setLang = l => { if (!l) return; UI_LANG = l; uiDict(l).then(d => { XD = d; initContextMenus(); }); };
-chrome.storage.local.get('uiLang').then(r => setLang(pickLang(r.uiLang) || UI_LANG)).catch(() => {});
+let langReady = null, menuLang = null;
+const setLang = l => { if (!l) return langReady; UI_LANG = l; langReady = uiDict(l).then(d => { XD = d; if (menuLang !== l) { menuLang = l; initContextMenus(); } }).catch(() => {}); return langReady; };
+langReady = chrome.storage.local.get('uiLang').then(r => setLang(pickLang(r.uiLang) || UI_LANG)).catch(() => {});
 chrome.storage.onChanged.addListener(ch => { if (ch.uiLang) setLang(pickLang(ch.uiLang.newValue)); });
 const XLANG_NAMES = {
   vi: 'Vietnamese', en: 'English', es: 'Spanish', pt: 'Portuguese', fr: 'French',
@@ -67,6 +68,7 @@ async function scheduleReminder() {
 }
 
 async function sendReminder(force = false) {
+  await langReady; // thông báo đúng ngôn ngữ người dùng chọn kể cả khi SW vừa được alarm đánh thức
   const [s, cards, stats] = await Promise.all([getSettings(), Cards.all(), Stats.get()]);
   const done = stats.days[todayKey()] || 0;
   if (!force && done >= s.dailyGoal) return;
@@ -84,6 +86,7 @@ async function sendReminder(force = false) {
 
 // Thời điểm vàng: kiểm tra mỗi 15 phút, báo khi đủ số từ sắp quên (tối đa 1 lần / 3 giờ, tôn trọng giờ yên lặng)
 async function checkGolden() {
+  await langReady;
   const [s, cards] = await Promise.all([getSettings(), Cards.all()]);
   if (!s.goldenOn || Golden.quiet(s)) return;
   const n = Golden.dueNow(cards);
@@ -175,11 +178,11 @@ chrome.storage.onChanged.addListener(ch => {
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === 'lexi-translate' && tab && tab.id) {
-    chrome.tabs.sendMessage(tab.id, { type: 'translateSelection' }).catch(() => {});
+    chrome.tabs.sendMessage(tab.id, { type: 'translateSelection' }, { frameId: info.frameId || 0 }).catch(() => {});
     return;
   }
   if (info.menuItemId === 'lexi-lookup' && tab && tab.id) {
-    chrome.tabs.sendMessage(tab.id, { type: 'showLookup', word: info.selectionText }).catch(() => openApp('#/dict/' + encodeURIComponent(info.selectionText)));
+    chrome.tabs.sendMessage(tab.id, { type: 'showLookup', word: info.selectionText }, { frameId: info.frameId || 0 }).catch(() => openApp('#/dict/' + encodeURIComponent(info.selectionText)));
   }
 });
 
@@ -189,7 +192,7 @@ async function aiModels(key) {
   if (c && c.k === key.slice(-6) && Date.now() - c.at < 3 * 864e5 && c.list && c.list.length) return c.list;
   const base = ['gemini-2.5-flash', 'gemini-2.5-flash-lite', 'gemini-2.0-flash'];
   try {
-    const r = await fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=200', { headers: { 'x-goog-api-key': key } });
+    const r = await fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=200', { headers: { 'x-goog-api-key': key }, signal: AbortSignal.timeout(10000) });
     if (!r.ok) return base;
     const ver = n => parseFloat((n.match(/gemini-(\d+(?:\.\d+)?)/) || [0, 0])[1]);
     const list = ((await r.json()).models || []).filter(m => (m.supportedGenerationMethods || []).includes('generateContent')).map(m => m.name.replace(/^models\//, ''))
@@ -211,9 +214,10 @@ async function aiExplain(text, sentence, targetLang = UI_LANG) {
   const nano = async () => {
     const opts = { expectedInputs: [{ type: 'text', languages: ['en'] }], expectedOutputs: [{ type: 'text', languages: ['en'] }] };
     const av = await LM.availability(opts); if (av !== 'available') return null; // chưa tải sẵn → không tự tải ngầm ~2GB (tránh treo)
-    const s = await LM.create(opts);
+    const LIM = (p, ms) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms))]);
+    const s = await LIM(LM.create(opts), 15000);
     try {
-      const out = await s.prompt(EX_PROMPT(text, sentence, 'English') + '\nReturn only JSON.');
+      const out = await LIM(s.prompt(EX_PROMPT(text, sentence, 'English') + '\nReturn only JSON.'), 25000);
       const j = JSON.parse(String(out).replace(/^[^{]*/, '').replace(/[^}]*$/, ''));
       const slots = [['meaning'], ['grammar'], ['tip']].filter(([k]) => j[k]).map(([k]) => [j, k, j[k]]);
       (j.structure || []).forEach(x => x.explain && slots.push([x, 'explain', x.explain]));
@@ -228,7 +232,7 @@ async function aiExplain(text, sentence, targetLang = UI_LANG) {
   const models = settings && settings.aiModel ? [settings.aiModel, ...found.filter(m => m !== settings.aiModel)] : found;
   for (const m of models) {
     try {
-      const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': aiKey }, body: JSON.stringify({ contents: [{ role: 'user', parts: [{ text: EX_PROMPT(text, sentence, langName) }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0.2 } }) });
+      const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': aiKey }, signal: AbortSignal.timeout(25000), body: JSON.stringify({ contents: [{ role: 'user', parts: [{ text: EX_PROMPT(text, sentence, langName) }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0.2 } }) });
       if (r.status === 404) { await chrome.storage.local.set({ aiModels: null }); continue; }
       const j = await r.json();
       if (!r.ok) { if (r.status === 429 && LM) { try { const x = await nano(); if (x) return x; } catch (e) { /* bỏ qua */ } } return { error: r.status === 429 ? 'QUOTA' : r.status === 400 ? 'BAD_KEY' : 'FAILED' }; }
@@ -248,7 +252,7 @@ function scheduleBgSync() {
     try {
       const { linked } = await chrome.storage.local.get('linked');
       if (!linked || !linked.email) return;
-      const tabs = await chrome.tabs.query({ url: ['https://lexkite.com/*', 'https://*.pages.dev/*'] });
+      const tabs = await chrome.tabs.query({ url: ['https://lexkite.com/*', 'https://www.lexkite.com/*', 'https://lexkite.pages.dev/*'] });
       if (tabs && tabs.length) return; // Tab đang mở sẽ tự đồng bộ qua cầu nối
       const before = (linked.at || 0);
       const tab = await chrome.tabs.create({ url: 'https://lexkite.com/#/home', active: false });

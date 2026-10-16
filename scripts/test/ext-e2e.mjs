@@ -69,7 +69,8 @@ for (const r of ['review', 'vocab', 'settings', 'dict/house']) {
   await app.goto(base + `app/index.html?hl=${L}#/${r}`, { waitUntil: 'domcontentloaded' }); await sleep(2500);
   const t = await app.locator('#view').innerText().catch(() => '');
   rec(`app: #/${r} có nội dung`, t.length > 20, t.slice(0, 80));
-  if (L !== 'vi') rec(`app: #/${r} không lẫn tiếng Việt`, !VI.test(t.replace(/house|nhà/gi, '')) || L === 'vi', (t.match(new RegExp('.{0,20}' + VI.source + '.{0,20}', 'i')) || [''])[0]);
+  const tc = t.replace(/Tiếng Việt|Vietnamese|vietnamita|vietnamien|Vietnamesisch|ベトナム語|베트남어|越南语|الفيتنامية/gi, ''); // tên ngôn ngữ trong ô chọn – không phải lẫn tiếng
+  if (L !== 'vi') rec(`app: #/${r} không lẫn tiếng Việt`, !VI.test(tc), (tc.match(new RegExp('.{0,20}' + VI.source + '.{0,20}', 'i')) || [''])[0]);
 }
 const cardsN = Object.keys((await store('cards')) || {}).length;
 rec('dữ liệu mẫu: có thẻ trong chrome.storage', cardsN > 10, cardsN);
@@ -186,11 +187,12 @@ await nt.close();
 // ---------- 6. lexkite.com: học được dịch, đang thi bị khóa ----------
 const lx = await ctx.newPage();
 await lx.goto('https://lexkite.com/?hl=' + L + '#/welcome', { waitUntil: 'domcontentloaded' }); await sleep(5000);
-const h1 = lx.locator('h1').first();
-if (await h1.count()) { const b = await h1.boundingBox(); await lx.mouse.dblclick(b.x + 30, b.y + b.height / 2); await sleep(6000); }
+// bấm đúp vào một từ TIẾNG ANH trên trang (giao diện ja/zh/ar có tiêu đề không phải tiếng Anh)
+const enWord = await lx.evaluate(() => { const tw = document.createTreeWalker(document.querySelector('#view') || document.body, NodeFilter.SHOW_TEXT); let n; while ((n = tw.nextNode())) { const m = /\b[A-Za-z]{6,}\b/.exec(n.nodeValue); if (m && n.parentElement && n.parentElement.offsetParent && !n.parentElement.closest('button,a,input,select')) { const r = document.createRange(); r.setStart(n, m.index); r.setEnd(n, m.index + m[0].length); const b = r.getBoundingClientRect(); if (b.width && b.top > 0 && b.top < innerHeight) return { x: b.x + b.width / 2, y: b.y + b.height / 2, w: m[0] }; } } return null; });
+if (enWord) { await lx.mouse.dblclick(enWord.x, enWord.y); await sleep(6000); }
 c = await card(lx); const webBar = await lx.evaluate(() => { const b = document.querySelector('.sel-bar'); return !!(b && !b.hidden); });
 await shot(lx, 'lexkite-welcome');
-rec('lexkite.com (chào mừng): bấm đúp có bảng tra (add-on hoặc web)', (c && c.visible) || webBar, `addon=${c && c.visible} web=${webBar}`);
+rec('lexkite.com (chào mừng): bấm đúp có bảng tra (add-on hoặc web)', (c && c.visible) || webBar, `từ=${enWord && enWord.w} addon=${c && c.visible} web=${webBar}`);
 rec('lexkite.com: không hiện 2 bảng cùng lúc', !((c && c.visible) && webBar));
 await hide(lx);
 await lx.goto('https://lexkite.com/?hl=' + L + '#/mock', { waitUntil: 'domcontentloaded' }); await sleep(5000);

@@ -244,7 +244,8 @@
     // Qua proxy /api/img (lưu đệm ở biên Cloudflare, dùng chung mọi người dùng) – tránh hết hạn mức ẩn danh của Openverse
     const base = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com';
     const r = await fetchJSON(`${base}/api/img?w=${encodeURIComponent(String(word).toLowerCase())}`, 4000);
-    if (!r || r.none || !r.src) return null;
+    if (!r) return null;            // mạng/proxy chậm → null: lần tra sau thử lại
+    if (r.none || !r.src) return false; // thật sự không có ảnh phù hợp
     return { src: r.src, link: r.link, license: r.license,
       credit: t('“{title}” – {creator} · {license} · qua Openverse', { title: r.title || word, creator: r.creator || t('không rõ tác giả'), license: r.license }).replace('Openverse', r.via || 'Openverse') };
   }
@@ -366,13 +367,13 @@
   async function lookup(raw, { image = true, examples = true } = {}) {
     const word = normWord(raw);
     if (!word) return null;
-    if (cache.has(word)) return cache.get(word);
+    { const hit = cache.get(word); if (hit && (hit.image || !image || hit._imgTry)) return hit; } // trong phiên: bản thiếu ảnh do lỗi mạng (_imgTry 0) → thử lại
     const saved = await persist.get(word);
     if (saved && Date.now() - saved._t < FRESH) {
       // Bản lưu thiếu ảnh (lần tra trước mạng/Openverse chậm) → thử lấy lại ảnh, tối đa 6 giờ/lần, không tra lại cả từ
       if (image && !saved.image && /^n|danh/.test(saved.pos || 'n') && Date.now() - (saved._imgTry || 0) > 6 * 3600e3) {
         const im = await freeImage(word).catch(() => null);
-        saved._imgTry = Date.now();
+        saved._imgTry = im === null ? 0 : Date.now(); // lỗi mạng → thử lại lần sau; không có ảnh → 6 giờ
         if (im && im.src) { saved.image = im.src; saved.imageCredit = { text: im.credit, link: im.link }; }
         persist.set(word, saved);
       }
@@ -409,6 +410,7 @@
     }
     const entry = build(word, local, gg, fd, wk, img, sents);
     if (entry.image && !/^n|danh/.test(entry.pos || '')) { entry.image = ''; entry.imageCredit = null; }
+    if (image && !entry.image) entry._imgTry = img === null ? 0 : Date.now(); // ảnh lỗi/chậm → bản lưu sẽ thử lại ở lần tra sau
     cache.set(word, entry);
     if (image && examples) persist.set(word, { ...entry, meanings: entry.oxford.length ? [] : entry.meanings.slice(0, 2) });
     return entry;
