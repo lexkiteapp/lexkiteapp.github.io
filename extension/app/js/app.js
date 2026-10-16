@@ -741,7 +741,7 @@
     const siteKey = window.TURNSTILE_SITE_KEY || '0x4AAAAAAAMmZ7O1jJgQv8iY';
     if (!window.turnstile && !document.getElementById('cf-turnstile-script')) {
       const s = document.createElement('script'); s.id = 'cf-turnstile-script';
-      s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+      s.src = '';
       s.async = true; s.defer = true; document.head.appendChild(s);
     }
     const renderTurnstile = () => {

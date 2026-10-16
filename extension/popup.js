@@ -17,7 +17,7 @@
     '⚠️ Chưa đồng bộ tài khoản – dữ liệu chỉ ở máy này': '⚠️ Account not synced – data is only on this device', '☁️ Đồng bộ với Google': '☁️ Sync with Google',
     '⏳ Đang đồng bộ…': '⏳ Syncing…', '✓ Đã đồng bộ': '✓ Synced', 'Thử lại': 'Retry', '⏳ Đang tra…': '⏳ Looking up…',
     '✓ Đã có': '✓ Saved', '+ Lưu flashcard': '+ Save flashcard', 'Chi tiết': 'Details', '✓ Đã lưu': '✓ Saved',
-    'Mở trên điện thoại (mã QR)': 'Open on phone (QR code)', 'Quét bằng camera điện thoại để học:': 'Scan with your phone camera to study:',
+    'Mở trên điện thoại (mã QR)': 'Open on phone (QR code)', 'Chính sách quyền riêng tư': 'Privacy policy', 'Quét bằng camera điện thoại để học:': 'Scan with your phone camera to study:',
   };
   const tx = (src, vars) => { let s = UI_LANG === 'vi' ? src : (XD[src] || EN[src] || src); if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)); return s; };
   document.documentElement.lang = UI_LANG; document.documentElement.dir = UI_LANG === 'ar' ? 'rtl' : 'ltr';
@@ -80,6 +80,7 @@
     document.querySelectorAll('.pp-say').forEach(b => b.onclick = e => { e.preventDefault(); const c = recent.find(x => x.word === b.dataset.say); speak(b.dataset.say, c && (settings.accent === 'en-US' ? c.audioUS : c.audio)); });
   }
   $('#open').onclick = e => { e.preventDefault(); open('#/home'); };
+  if ($('#privacy')) $('#privacy').href = 'https://lexkite.com/' + UI_LANG + '/privacy';
   const qrBtn = $('#showQr'); if (qrBtn) qrBtn.onclick = e => { e.preventDefault(); const box = $('#qrBox'); if (!box) return; box.hidden = !box.hidden; if (!box.hidden && !$('#qrSvg').hasChildNodes() && window.LKQR) $('#qrSvg').innerHTML = window.LKQR.svg('https://lexkite.com'); };
   // Trạng thái đồng bộ tài khoản (liên kết qua web app lexkite.com)
   const { linked } = await chrome.storage.local.get('linked');

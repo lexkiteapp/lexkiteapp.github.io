@@ -32,13 +32,13 @@
     <div class="lg"><a class="brand" href="/" style="padding:0"><img class="logo" src="/icons/icon.svg" alt=""><span class="wordmark">lex<b>kite</b></span></a>
       <select aria-label="Language" onchange="location.href='/'+this.value+'/privacy'"><option value="en">English</option><option value="vi">Tiếng Việt</option><option value="es">Español</option><option value="pt">Português</option><option value="fr" selected>Français</option><option value="de">Deutsch</option><option value="id">Bahasa Indonesia</option><option value="th">ไทย</option><option value="zh">简体中文</option><option value="ja">日本語</option><option value="ko">한국어</option><option value="hi">हिन्दी</option><option value="ar">العربية</option><option value="ru">Русский</option><option value="tr">Türkçe</option></select></div>
     <h1>Privacy Policy</h1>
-    <p class="muted">Applies to the Lexkite web app (lexkite.com), the Lexkite iOS/Android apps and the “Lexkite” browser extension. Last updated: October 15, 2026.</p>
+    <p class="muted">Applies to the Lexkite web app (lexkite.com), the Lexkite iOS/Android apps and the “Lexkite” browser extension. Last updated: October 16, 2026.</p>
     <p>Data controller: <b>MODIAN LUXURY JEWELRY LLC</b>, a Wyoming limited liability company, 30 N Gould St Ste R, Sheridan, WY 82801, USA (“Lexkite”, “we”). Contact: <a href="mailto:support@lexkite.com">support@lexkite.com</a>.</p>
     <h2>1. Summary</h2>
     <ul>
     <li>We <b>do not sell or share</b> your personal data with third parties for advertising.</li>
     <li>Your learning data (saved words, context sentences, review progress) is stored <b>on your device</b>. It is copied to our servers only if you choose to sign in, so that it can sync between your devices.</li>
-    <li>The browser extension <b>does not read or collect your browsing history</b>. It only processes the word or text you actively double-click, select or tap.</li>
+    <li>The browser extension <b>does not collect or send your browsing history or page content</b>. Only the word or text you actively double-click, select or tap is sent to the lookup services listed below. Optional on-page features (highlighting words you have saved, underlining academic words) run entirely on your device.</li>
     </ul>
     <h2>2. Data we process</h2>
     <table>
@@ -51,6 +51,7 @@
     <tr><td>Name, email address and message you send through the contact form</td><td>Only when you send a message</td><td>Our database on Cloudflare and our support mailbox</td></tr>
     </table>
     <p><b>Anonymous usage statistics.</b> To improve the product we record, for each visit: the first page opened, the referring website (domain only), the country (determined by Cloudflare; IP addresses are not stored), device type, interface language, time spent and number of pages viewed, together with a random identifier kept on your device to recognise returning visits. We do not use cookies for this, the data is not linked to your name or email, and it is never shared with advertisers. Technical errors (error message and code location) are also recorded so we can fix them quickly.</p>
+    <p><b>Browser extension statistics.</b> Once a day the extension sends us how many times it was used (number of lookups, saved words, popup and new-tab opens), together with the extension version, interface language and a random identifier generated on your device. We also count installs and updates. These counts never include the words you look up, page addresses, your name or email. When you uninstall the extension, a page on lexkite.com opens where you can optionally tell us why.</p>
     <h2>3. Third-party services</h2>
     <p>When you look up a word or translate a sentence, <b>only that word or sentence</b> is sent to the following services to get a result, without your identity or history:</p>
     <ul>
@@ -61,15 +62,19 @@
     <li>Datamuse (api.datamuse.com): word suggestions and related words</li>
     <li>MyMemory (api.mymemory.translated.net): backup translation</li>
     <li>LanguageTool (api.languagetool.org): <b>only when you press “Check grammar”</b>, the text in the editor is sent to find grammar and spelling mistakes</li>
+    <li>Google Gemini (generativelanguage.googleapis.com): <b>only if you add your own Gemini API key</b> and ask the extension to explain an expression with AI; the expression and its sentence are sent using your key. Your key is stored only on your device. Without a key, the extension may use the AI built into Chrome, which runs on your device.</li>
+    <li>YouTube: on youtube.com, the extension loads the subtitles of the video you are watching so you can tap words in them.</li>
     </ul>
     <p>Our website and services are hosted by Cloudflare. Audio files are served from GitHub Pages and fonts from Google Fonts; like any website, these providers receive technical request data (such as IP address and browser type) needed to deliver the files.</p>
     <h2>4. Browser extension permissions</h2>
     <ul>
-    <li><b>Access to websites (http/https):</b> to show the lookup card when you double-click a word, translate text you select and look up words in YouTube subtitles. The extension does not read page content unless you interact with it.</li>
+    <li><b>Access to websites (http/https):</b> to show the lookup card when you double-click a word, translate text you select, look up words in YouTube subtitles and, if you turn these options on, highlight words you have saved or underline academic words on the page. Page content is processed on your device and is never sent to us; only the word or text you choose is sent to the lookup services above.</li>
     <li><b>storage:</b> to keep your vocabulary and progress on your device.</li>
     <li><b>alarms, notifications:</b> daily study reminders and “golden time” review reminders.</li>
     <li><b>contextMenus:</b> the “Look up / Translate selection” item in the right-click menu.</li>
-    <li><b>scripting:</b> to enable word lookup in tabs that were already open when you installed the extension.</li>
+    <li><b>scripting:</b> to enable word lookup in tabs that were already open when you installed the extension, and to read the subtitle list of the YouTube video you are watching.</li>
+    <li><b>search:</b> the search box on the Lexkite new tab page sends your query to your default search engine through Chrome.</li>
+    <li><b>New tab page:</b> the extension shows a vocabulary card on new tabs; you can turn it off in the extension settings.</li>
     </ul>
     <h2>5. Your rights</h2>
     <ul>

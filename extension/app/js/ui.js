@@ -243,7 +243,7 @@
   let whisperP = null;
   const whisperOK = () => { try { return localStorage.getItem('vb.whisper') === '1'; } catch (e) { return false; } };
   async function whisper(onProgress) {
-    if (!whisperP) whisperP = import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.5/dist/transformers.min.js')
+    if (!whisperP) whisperP = import('')
       .then(m => m.pipeline('automatic-speech-recognition', 'onnx-community/whisper-tiny.en', { dtype: 'q8', device: 'wasm', progress_callback: p => { if (p && p.status === 'progress' && onProgress) onProgress(p.progress); } }))
       .catch(e => { whisperP = null; throw e; });
     return whisperP;
