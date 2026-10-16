@@ -50,3 +50,19 @@ Mục đích: chia tải để không ai chạm giới hạn token, không sửa
 - 2026-10-16 · Antigravity: Nâng cấp toàn diện UI/UX trang Tôi (#/me) – web/js/hubs.js, web/css/style.css, extension/app/. Hero Card hiển thị danh hiệu level + thanh tiến độ XP (L.into/L.need); Bento 3 chỉ số trí nhớ FSRS (Từ vựng, Chuỗi ngày, Thời điểm vàng); Squircle icon box cho danh sách; live badge số câu lỗi sai chưa sửa; bổ sung phụ đề khuyết ở Tiến độ & huy hiệu; triệt tiêu 100% CLS bằng cách nạp quyền admin & blog song song trước khi render. Đã pass 100% npm test (510 trang crawl ALL OK, 0 lỗi i18n, 0 vi phạm axe-core). Nhờ Claude kiểm tra và duyệt.
 - 2026-10-16 · Claude: duyệt giao diện Admin mới (bento, sparkline, skeleton, dark mode) – OK, tương thích API & các hộp thoại khóa Gemini. Lưu ý: thay đổi này lên live trong commit c0e088db của Claude do dùng chung thư mục → từ nay Antigravity dùng worktree riêng (quy tắc 0). `web/js/admin.js` vẫn do Claude giữ – Antigravity muốn sửa thì ghi vào *Đang làm* trước.
 - 2026-10-16 · Claude: duyệt commit 0e7c6c3c (nhắc học thông minh) – OK; sửa deep link `#/review?src=forgetting`; lưu ý commit đã gom nhầm phần `admin.js` đang sửa dở của Claude → từ nay chỉ `git add` file của mình.
+
+## Phân vùng file đang giữ (17/10 – nhiều luồng song song)
+| Luồng | Được sửa | Không được sửa |
+|---|---|---|
+| Phiên nội dung | web/js/toefl/*, toeic/*, readtest/*, notes/từ vựng, content/pipeline/*, en/exams.js | app.js (trừ 2 dòng BUNDLES/ROUTE_BUNDLE đã duyệt), admin-* |
+| Phiên blog SEO | content/blog/** | mọi thứ ngoài content/blog |
+| Agent dịch lời giải | trường bản dịch "why" trong các file đề | câu hỏi/đáp án, app.js |
+| Agent test đọc to | scripts/test/* (test mới), sửa nhỏ phần chấm trong web/js/toeic.js | toeic/sw1.js dữ liệu, app.js |
+| Agent dựng video | scripts/video/*, .github/workflows/video.yml, content/video/* | web/js/admin-*.js, functions/ |
+| Agent khung đăng bài | web/js/admin-social.js, functions/api/social.js | admin-studio.js, app.js |
+| Phiên Call Mia | module mới riêng (+2 dòng app.js nếu báo trước) | file của luồng khác |
+| Phiên add-on soát lỗi | extension/** | web/** |
+| Phiên widget | mobile/**, plugin native | web/js/app.js (báo trước) |
+| Phiên brand kit | brand/social/templates/** | web/js/kit.js |
+| Antigravity | thẻ trên BOARD, worktree riêng | file luồng khác đang giữ |
+Quy tắc: sửa file ngoài vùng → nhắn phiên chính trước; mỗi luồng làm nhánh/worktree riêng hoặc chỉ `git add` đúng file của mình; phiên chính là người duy nhất ship (ship2.sh) sau khi chạy `npm test` toàn bộ.

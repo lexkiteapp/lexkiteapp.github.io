@@ -86,3 +86,19 @@ def main():
 
 if __name__ == '__main__':
     sys.exit(main())
+
+
+def trim_floor_shadow(rgba, white=235, min_px=20):
+    """Bỏ bóng sàn dính theo ảnh gốc (rembg giữ cả bóng xám dưới chân) → chân chạm đúng đế giày.
+    Đế = hàng cuối còn ≥ min_px điểm trắng giày hoặc viền tối; dưới đế xóa hết; quanh giày xóa điểm xám nhạt ít bão hòa."""
+    a = rgba[..., 3]; rgb = rgba[..., :3].astype(np.int16)
+    mx, mn = rgb.max(2), rgb.min(2)
+    solid = (a > 150) & ((mn > white) | (mx < 120))
+    rows = np.where(solid.sum(1) >= min_px)[0]
+    sole = int(rows.max()) + 3
+    out = rgba.copy(); out[sole:, :, 3] = 0
+    band = slice(max(0, sole - int(0.06 * sole)), sole)
+    grey = (a[band] < 235) & (mx[band] > 130) & (mx[band] < 228) & ((mx[band] - mn[band]) < 28)
+    out[band][..., 3][grey] = 0
+    ys = np.where(out[..., 3].max(1) > 10)[0]
+    return out[ys.min():sole], sole

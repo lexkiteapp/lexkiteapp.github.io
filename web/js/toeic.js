@@ -228,8 +228,14 @@
   // Đếm ngược chuẩn bị rồi gọi go()
   function swPrep(seconds, onTick, go) { let left = seconds; onTick(left); const id = setInterval(() => { left--; onTick(left); if (left <= 0) { clearInterval(id); go(); } }, 1000); sw.timers.push(id); return id; }
   // Chấm đọc to: độ khớp văn bản + tốc độ (từ/phút) + số lần ngắt quãng dài (ước tính từ nhận dạng giọng nói liên tục)
+  // SỬA LỖI: Chrome trả số dạng chữ số ("15%", "$50", "9 o'clock", "8:30") trong khi đề viết bằng chữ ("fifteen percent"…).
+  // UI.similarity bỏ hết chữ số → các từ này bị tính là "bỏ sót" và kéo độ khớp xuống. Đổi số (0–999) về chữ trước khi so.
+  const N1 = 'zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen'.split(' '), N10 = ',,twenty,thirty,forty,fifty,sixty,seventy,eighty,ninety'.split(',');
+  const numW = n => n < 20 ? N1[n] : n < 100 ? N10[Math.floor(n / 10)] + (n % 10 ? ' ' + N1[n % 10] : '') : N1[Math.floor(n / 100)] + ' hundred' + (n % 100 ? ' ' + numW(n % 100) : '');
+  const spellNums = s => String(s).replace(/(\d+):(\d\d)/g, (m, h, mm) => +mm ? `${h} ${+mm}` : h).replace(/\$(\d+)/g, '$1 dollars').replace(/(\d+)\s*%/g, '$1 percent')
+    .replace(/\d+/g, d => +d < 1000 ? ' ' + numW(+d) + ' ' : d).replace(/\s+/g, ' ').trim();
   function readScore(target, segs, t0, tEnd) {
-    const heard = segs.map(x => x.text).join(' ').trim(), n = wc(heard);
+    const heard = spellNums(segs.map(x => x.text).join(' ')), n = wc(heard);
     const dur = Math.max(1, ((segs.length ? segs[segs.length - 1].t : tEnd) - (t0 || tEnd)) / 1000);
     const wpm = n ? Math.round(n / dur * 60) : 0;
     let pauses = 0; for (let i = 1; i < segs.length; i++) if ((segs[i].t - segs[i - 1].t) / 1000 > wc(segs[i].text) / 2.6 + 2) pauses++;
@@ -276,8 +282,8 @@
     $('#swHear').onclick = () => UI.tts(u.text, accent, 0.95);
     const start = async () => {
       swStop(); UI.stopSpeak(); go.textContent = '⏹'; $('#swPrepB').disabled = true; phase.textContent = '🔴 ' + t('Đang ghi âm – bấm lần nữa để dừng');
-      const SR = window.SpeechRecognition || window.webkitSpeechRecognition, segs = []; let t0 = 0;
-      if (SR) { try { const r = sw.sr = new SR(); r.lang = accent; r.continuous = true; r.interimResults = false; r.onspeechstart = () => { t0 = t0 || performance.now(); }; r.onresult = e => { for (let k = e.resultIndex; k < e.results.length; k++) if (e.results[k].isFinal) { t0 = t0 || performance.now() - 1500; segs.push({ text: e.results[k][0].transcript.trim(), t: performance.now() }); } }; r.onerror = () => {}; r.start(); } catch (e) { sw.sr = null; } }
+      const SR = window.SpeechRecognition || window.webkitSpeechRecognition, segs = [], tStart = performance.now(); let t0 = 0;
+      if (SR) { try { const r = sw.sr = new SR(); r.lang = accent; r.continuous = true; r.interimResults = false; r.onspeechstart = () => { t0 = t0 || performance.now(); }; r.onresult = e => { for (let k = e.resultIndex; k < e.results.length; k++) if (e.results[k].isFinal) { t0 = t0 || tStart; /* SỬA LỖI: trình duyệt không phát onspeechstart → trước đây lấy (kết quả đầu − 1,5 s), nhưng cụm đầu thường dài 5–10 s → từ/phút bị thổi phồng; nay lấy lúc bắt đầu ghi */ segs.push({ text: e.results[k][0].transcript.trim(), t: performance.now() }); } }; r.onerror = () => {}; r.start(); } catch (e) { sw.sr = null; } }
       const ok = await swRecord(u.secs, left => { clock.textContent = mmss(left); clock.classList.toggle('warn', left <= 10); }, url => {
         try { if (sw.sr) sw.sr.stop(); } catch (e) { /* đã dừng */ }
         setTimeout(() => {
