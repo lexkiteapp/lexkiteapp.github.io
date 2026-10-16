@@ -621,8 +621,11 @@
   const OWN_APP = /^(www\.)?lexkite\.com$|^lexkite\.pages\.dev$|^(vocaband|ielts-lexi-2026)\.web\.app$|^localhost$/.test(location.hostname);
   const appHandles = (el, sel) => OWN_APP && el && el.closest && !!(el.closest('.tw, .pop, .sel-fab, .sel-bar, .sel-pop, [data-own-lookup]') || (sel && el.closest('#view')));
 
-  document.addEventListener('dblclick', e => {
+  function onDbl(e) {
     if (!alive() || !enabled || inEditable(e.target) || fromHost(e) || appHandles(e.target)) return;
+    // Trên chính lexkite.com: web app tự hiện thanh "Tra nghĩa" (.sel-bar) cho vùng chọn trong nội dung → nhường để không hiện 2 bảng;
+    // nơi web app không tra (trang chào mừng, đầu trang…) thì tiện ích tra như mọi trang khác.
+    if (OWN_APP && !e.lkDeferred) { const ev = { clientX: e.clientX, clientY: e.clientY, target: e.target, lkDeferred: true }; setTimeout(() => { const b = document.querySelector('.sel-bar'); if (!(b && !b.hidden)) onDbl(ev); }, 80); return; }
     const pt = wordAtPoint(e.clientX, e.clientY);
     if (pt) {
       const sel = window.getSelection(); try { sel.removeAllRanges(); sel.addRange(pt.range); } catch (x) { /* bỏ qua */ }
@@ -630,7 +633,8 @@
     }
     const s = fromSelection();
     if (s) show(s.word, s.rect, s.context);
-  });
+  }
+  document.addEventListener('dblclick', onDbl);
   document.addEventListener('mouseup', e => {
     if (!alive() || fromHost(e) || e.button !== 0 || inEditable(e.target) || appHandles(e.target, true)) return;
     // Đợi trình duyệt cập nhật vùng chọn
