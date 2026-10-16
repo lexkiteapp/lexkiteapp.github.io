@@ -2463,6 +2463,31 @@
    "type": "evergreen",
    "lang": "ja",
    "source": "phan-biet-hien-tai-hoan-thanh-va-qua-khu-don"
+  },
+  {
+   "slug": "ielts-self-study-plan",
+   "keyword": "ielts self study plan",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "study-plan",
+    "self-study"
+   ],
+   "shots": [
+    "placement",
+    "path",
+    "goal"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/path",
+    "/#/goal"
+   ],
+   "angle": "Stage-by-stage self-study roadmap from band 5.0 to 7.0+, daily time allocation, skill routines",
+   "intent": "informational",
+   "type": "evergreen",
+   "lang": "en",
+   "source": "lo-trinh-tu-hoc-ielts"
   }
  ]
 }

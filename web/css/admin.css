@@ -407,4 +407,4 @@ body.adm { background: var(--bg); min-height: 100vh; font-feature-settings: "cv0
 /* Thanh tab: co lại & cuộn ngang khi chật (không cắt chữ); màn vừa/nhỏ đưa tab xuống hàng riêng full chiều rộng */
 .adm-tabs { min-width: 0; scrollbar-width: none; } .adm-tabs::-webkit-scrollbar { display: none; }
 .adm-tabs button { flex: none; white-space: nowrap; }
-@media (max-width: 1360px) { .adm-tabs { order: 3; flex-basis: 100%; } #me { margin-left: auto; } }
+.adm-tabs { order: 3; flex-basis: 100%; } #me { margin-left: auto; } /* tab luôn ở hàng riêng – đủ chỗ cho 9 tab, không cắt chữ */
