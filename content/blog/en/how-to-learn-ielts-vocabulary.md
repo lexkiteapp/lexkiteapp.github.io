@@ -100,7 +100,7 @@ You can run the whole routine on the free Lexkite app without building your own 
 ## Common mistakes when building IELTS vocabulary
 
 - **Collecting synonyms for paraphrasing.** Many learners keep lists like *big = huge = enormous = immense*. These words are not interchangeable: *a huge problem* is natural, *an immense problem* is less common, and *an enormous decision* sounds odd. Learn the phrase each word lives in.
-- **Using every new word immediately.** Forcing *plethora* into a Speaking Part 1 answer about your hometown sounds unnatural. Match the word to the register.
+- **Using every new word immediately.** Forcing *plethora* into a Speaking Part 1 answer about your hometown sounds unnatural. Match the word to the register; the same applies to [idioms for IELTS Speaking](/en/blog/idioms-for-ielts-speaking/), where one well-placed expression beats a memorised list.
 - **Ignoring word forms.** The academic word *analyse* has *analysis*, *analytical* and *analyst*. Wrong word forms (*an economic growth*, *the develop of cities*) cost Lexical Resource and Grammar marks at the same time; the [Academic Word List](/en/blog/academic-word-list/) guide shows how to learn whole families.
 - **Measuring progress by word count.** Two hundred words you can use beat a thousand you merely recognise. Building lexical recognition also underpins rapid [skimming and scanning in IELTS Reading](/en/blog/ielts-reading-skimming-and-scanning/), where spotting keywords quickly saves critical test minutes.
 

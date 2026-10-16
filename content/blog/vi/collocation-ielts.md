@@ -80,6 +80,8 @@ Danh sách dưới đây được chọn vì hay dùng trong Writing Task 2 và 
 
 > *Flexible working hours can boost productivity without reducing job security.*
 
+Các cụm về tuyển dụng, làm từ xa và cân bằng cuộc sống được gom đầy đủ trong bài [từ vựng IELTS chủ đề Work](/vi/blog/tu-vung-ielts-chu-de-work/).
+
 **Giáo dục**
 15. *gain knowledge* – tiếp thu kiến thức
 16. *acquire skills* – có được kỹ năng

@@ -23,7 +23,7 @@ This guide explains the main types of collocation, gives 45 useful pairs grouped
 
 A collocation is a word partnership that is more frequent than chance and usually cannot be explained by grammar alone. Nothing in grammar stops you saying *fast food* and *quick food*, yet only the first is normal English. Likewise we *take* a photo, *catch* a cold and *pay* attention, but nobody *makes* a photo in English, even though many languages use that verb.
 
-Collocations are not the same as idioms. An idiom has a meaning you cannot work out from its parts (*a piece of cake* = something easy). A collocation is transparent in meaning; the challenge is only in choosing the expected word. That is exactly why it is easy to get wrong: you understand *heavy rain* the first time you see it, so you never notice you would have written *big rain*.
+Collocations are not the same as idioms. An idiom has a meaning you cannot work out from its parts (*a piece of cake* = something easy), which is why [idioms for IELTS Speaking](/en/blog/idioms-for-ielts-speaking/) need far more care than collocations. A collocation is transparent in meaning; the challenge is only in choosing the expected word. That is exactly why it is easy to get wrong: you understand *heavy rain* the first time you see it, so you never notice you would have written *big rain*.
 
 ## Why IELTS collocations matter for your band score
 

@@ -48,10 +48,17 @@ jobs:
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           npx playwright install --with-deps chromium
           node scripts/test/e2e.mjs
+      - name: Chấm đọc to TOEIC Speaking (micro giả + SpeechRecognition giả)
+        id: toeicread
+        continue-on-error: true
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chromium
+          npm run test:toeic-read
       - name: Báo cáo (issue + email)
         env:
           GH_TOKEN: ${{ github.token }}
-          R: "test=${{ steps.test.outcome }} leak=${{ steps.leak.outcome }} tsc=${{ steps.tsc.outcome }} yaml=${{ steps.yaml.outcome }} live=${{ steps.live.outcome }} e2e=${{ steps.e2e.outcome }}"
+          R: "test=${{ steps.test.outcome }} leak=${{ steps.leak.outcome }} tsc=${{ steps.tsc.outcome }} yaml=${{ steps.yaml.outcome }} live=${{ steps.live.outcome }} e2e=${{ steps.e2e.outcome }} toeicread=${{ steps.toeicread.outcome }}"
         run: |
           RUN="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
           BAD=$(echo "$R" | tr ' ' '\n' | grep -v '=success' || true)
