@@ -9,7 +9,7 @@ tags: [idiom, speaking]
 keyword: "idiom ielts speaking"
 cover: speaking
 coverAlt: "Phòng luyện Speaking của Lexkite với Part 1, 2, 3 theo chủ đề, câu hỏi mẫu và câu trả lời band 7.5–8"
-publishAt: 2026-10-20T08:56:00+07:00
+publishAt: 2026-10-24T10:28:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

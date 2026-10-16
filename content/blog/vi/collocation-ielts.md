@@ -9,7 +9,7 @@ tags: [collocation, ielts, writing]
 keyword: "collocation ielts"
 cover: dict
 coverAlt: "Từ điển “English – Vietnamese dictionary” của Lexkite khi tra “resilient”: phiên âm UK/US, nghĩa và ví dụ"
-publishAt: 2026-10-19T13:35:00+07:00
+publishAt: 2026-10-22T09:32:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

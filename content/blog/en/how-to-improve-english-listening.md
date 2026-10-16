@@ -9,7 +9,7 @@ tags: [listening, listening-skills, study-plan, dictation]
 keyword: "how to improve english listening"
 cover: listening
 coverAlt: "Lexkite IELTS listening tests with British, American and Australian voices and speed control"
-publishAt: 2026-10-24T06:24:00+07:00
+publishAt: 2026-11-04T19:50:00+05:30
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

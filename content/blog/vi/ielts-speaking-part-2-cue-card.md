@@ -9,7 +9,7 @@ tags: [speaking, part-2]
 keyword: "ielts speaking part 2"
 cover: speaking
 coverAlt: "Phòng luyện Speaking của Lexkite với Part 1, 2, 3 theo chủ đề, câu hỏi mẫu và câu trả lời band 7.5–8"
-publishAt: 2026-11-01T06:37:00+07:00
+publishAt: 2026-11-25T07:42:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

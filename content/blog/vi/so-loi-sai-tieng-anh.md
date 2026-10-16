@@ -9,7 +9,7 @@ tags: [loi-sai, on-tap]
 keyword: "sổ lỗi sai"
 cover: mistakes
 coverAlt: "Sổ lỗi sai (“Mistake log”) trong Lexkite phân nhóm các câu từng làm sai"
-publishAt: 2026-11-11T10:45:00+07:00
+publishAt: 2026-12-20T10:46:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

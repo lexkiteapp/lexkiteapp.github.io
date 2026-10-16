@@ -9,7 +9,7 @@ tags: [gerund, ngu-phap]
 keyword: "gerund và to infinitive"
 cover: grammar
 coverAlt: "Trang “Grammar” liệt kê các chương ngữ pháp theo cấp độ, có bài luyện đi kèm"
-publishAt: 2026-10-22T12:36:00+07:00
+publishAt: 2026-10-30T09:36:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -159,6 +159,8 @@ Chia động từ trong ngoặc ở dạng V-ing hoặc to V.
 6. **to buy** – Dừng xe lại **để** mua đồ ăn vặt.
 7. **turning down** – *mind* + V-ing.
 8. **clearing** – Thử một giải pháp xem có hiệu quả không; xóa bộ nhớ đệm không khó.
+
+![Mục “Mistake log” của Lexkite gom lỗi sai theo từ vựng, ngữ pháp, đọc hiểu và nghe để ôn lại](media:mistakes "Câu nào chọn sai giữa V-ing và to V, ghi vào sổ lỗi sai để ôn lại sau")
 
 ## Luyện thêm
 

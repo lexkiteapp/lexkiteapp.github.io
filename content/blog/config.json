@@ -9,13 +9,50 @@
     "en": "Lexkite Blog",
     "id": "Blog Lexkite",
     "es": "Blog de Lexkite",
-    "ja": "Lexkite ブログ"
+    "ja": "Lexkite ブログ",
+    "pt": "Blog Lexkite",
+    "fr": "Blog Lexkite",
+    "de": "Lexkite Blog",
+    "th": "บล็อก Lexkite",
+    "zh": "Lexkite 博客",
+    "ko": "Lexkite 블로그",
+    "hi": "Lexkite ब्लॉग",
+    "ar": "مدونة Lexkite",
+    "ru": "Блог Lexkite",
+    "tr": "Lexkite Blog"
   },
   "blogDesc": {
     "vi": "Cách học từ vựng và luyện thi IELTS, TOEIC, TOEFL hiệu quả: phương pháp khoa học, mẹo làm bài, lộ trình tự học – miễn phí cùng Lexkite.",
     "en": "Evidence-based ways to learn English vocabulary and prepare for IELTS, TOEIC and TOEFL – free with Lexkite.",
     "id": "Cara belajar kosakata bahasa Inggris dan persiapan IELTS, TOEIC, TOEFL yang efektif – metode berbasis riset, tips ujian, dan rencana belajar gratis bersama Lexkite.",
     "es": "Cómo aprender vocabulario en inglés y preparar IELTS, TOEIC y TOEFL con métodos probados, consejos de examen y planes de estudio gratuitos con Lexkite.",
-    "ja": "英単語の効率的な覚え方と IELTS・TOEIC・TOEFL の対策を、科学的な学習法・試験のコツ・無料の学習プランとともに紹介します。"
+    "ja": "英単語の効率的な覚え方と IELTS・TOEIC・TOEFL の対策を、科学的な学習法・試験のコツ・無料の学習プランとともに紹介します。",
+    "pt": "Como aprender vocabulário em inglês e se preparar para IELTS, TOEIC e TOEFL com métodos comprovados, dicas de prova e planos de estudo gratuitos com a Lexkite.",
+    "fr": "Comment apprendre le vocabulaire anglais et préparer l'IELTS, le TOEIC et le TOEFL : méthodes éprouvées, conseils d'examen et plans d'étude gratuits avec Lexkite.",
+    "de": "Englischen Wortschatz effektiv lernen und sich auf IELTS, TOEIC und TOEFL vorbereiten: bewährte Methoden, Prüfungstipps und kostenlose Lernpläne mit Lexkite.",
+    "th": "วิธีจำคำศัพท์ภาษาอังกฤษและเตรียมสอบ IELTS, TOEIC, TOEFL อย่างได้ผล ด้วยวิธีที่พิสูจน์แล้ว เทคนิคทำข้อสอบ และแผนการเรียนฟรีกับ Lexkite",
+    "zh": "高效背英语单词、备考雅思、托业和托福：科学的学习方法、应试技巧和免费学习计划，尽在 Lexkite。",
+    "ko": "영어 단어를 효과적으로 외우고 IELTS·토익·토플을 준비하는 법: 검증된 학습법, 시험 팁, Lexkite의 무료 학습 계획.",
+    "hi": "अंग्रेज़ी शब्दावली सीखने और IELTS, TOEIC, TOEFL की तैयारी के असरदार तरीके: परखे हुए तरीके, परीक्षा टिप्स और Lexkite के साथ मुफ़्त स्टडी प्लान।",
+    "ar": "كيف تتعلم مفردات اللغة الإنجليزية وتستعد لاختبارات IELTS وTOEIC وTOEFL بطرق مجربة ونصائح للاختبار وخطط دراسة مجانية مع Lexkite.",
+    "ru": "Как учить английские слова и готовиться к IELTS, TOEIC и TOEFL: проверенные методы, советы к экзамену и бесплатные планы занятий с Lexkite.",
+    "tr": "İngilizce kelime öğrenmenin ve IELTS, TOEIC, TOEFL'a hazırlanmanın etkili yolları: kanıtlanmış yöntemler, sınav ipuçları ve Lexkite ile ücretsiz çalışma planları."
+  },
+  "timezones": {
+    "vi": "Asia/Ho_Chi_Minh",
+    "en": "Asia/Kolkata",
+    "es": "America/Mexico_City",
+    "pt": "America/Sao_Paulo",
+    "fr": "Europe/Paris",
+    "de": "Europe/Berlin",
+    "id": "Asia/Jakarta",
+    "th": "Asia/Bangkok",
+    "zh": "Asia/Shanghai",
+    "ja": "Asia/Tokyo",
+    "ko": "Asia/Seoul",
+    "hi": "Asia/Kolkata",
+    "ar": "Asia/Riyadh",
+    "ru": "Europe/Moscow",
+    "tr": "Europe/Istanbul"
   }
 }

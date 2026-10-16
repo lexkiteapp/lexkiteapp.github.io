@@ -9,7 +9,7 @@ tags: [phat-am, am-cuoi]
 keyword: "cách phát âm ed và s es"
 cover: pron
 coverAlt: "Bảng âm IPA của Lexkite với nguyên âm, phụ âm và luyện từng âm"
-publishAt: 2026-10-24T12:30:00+07:00
+publishAt: 2026-11-05T16:53:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -131,6 +131,8 @@ Tách từ thành các âm rồi ghép dần: *wor – work – worked*: /wɜː/
 Lúc đầu, phóng đại đuôi một chút. Khi đã quen, đuôi /t/, /d/ trong câu nói nhanh có thể rất nhẹ – đặc biệt khi kẹp giữa hai phụ âm, như *walked to* – và đó là bình thường. Mục tiêu là đuôi **có mặt**, không phải đọc thật to.
 
 Ghi âm chính mình đọc một đoạn văn ngắn, nghe lại chỉ để đếm đuôi bị mất. Cách luyện nghe – nhại theo bài nói mẫu trong bài [shadowing](/vi/blog/shadowing-luyen-noi-tieng-anh/) cũng rất hiệu quả cho âm cuối.
+
+![Màn hình luyện nghe của Lexkite: 10 đề, giọng Anh–Mỹ–Úc, tốc độ chỉnh được, nút Luyện tập, Nghe lần đầu và Chép chính tả](media:listening "Hạ tốc độ bài nghe để nhại theo và bắt từng đuôi -ed, -s")
 
 ## Tự kiểm tra
 

@@ -9,7 +9,7 @@ tags: [gramatica, tiempos-verbales, errores-comunes]
 keyword: "present perfect vs past simple"
 cover: grammar
 coverAlt: "Pantalla de explicaciones gramaticales de Lexkite con ejemplos y reglas de uso"
-publishAt: 2026-11-15T11:23:00+07:00
+publishAt: 2026-10-21T09:32:00-06:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -34,7 +34,7 @@ Observemos el siguiente principio fundamental:
 
 ![Tarjeta de aprendizaje de Lexkite con la expresión «come up with»: significado, definición en inglés y ejemplos](media:practice-learn "Cada expresión nueva se presenta con significado, definición y ejemplos antes de practicarla")
 
-Para profundizar en la estructura de las oraciones complejas y asimilar patrones naturales, puedes [abrir la sección de gramática](/#/grammar) y practicar combinaciones en contexto real.
+Para profundizar en la estructura de las oraciones complejas y asimilar patrones naturales, puedes [abrir la sección de gramática](/#/grammar) y practicar combinaciones en contexto real; si dudas entre *I enjoy reading* y *I enjoy to read*, repasa también cuándo usar [gerundio o infinitivo en inglés](/es/blog/gerundio-o-infinitivo-en-ingles/).
 
 ## Reglas Clave: Cuándo Usar Present Perfect vs Past Simple
 

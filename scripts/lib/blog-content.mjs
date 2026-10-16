@@ -54,9 +54,10 @@ export function plainText(body) {
 }
 // Đếm từ: chữ viết có khoảng trắng đếm theo token; tiếng Nhật/Trung (không có khoảng trắng) quy đổi 2 ký tự ≈ 1 từ
 // Tiêu đề mục hỏi đáp (mọi ngôn ngữ) → FAQPage JSON-LD + kiểm tra
-export const FAQ_RE = /^(câu hỏi thường gặp|faq|frequently asked|pertanyaan yang sering|preguntas frecuentes|perguntas frequentes|よくある質問|자주 묻는 질문|常见问题|คำถามที่พบบ่อย|الأسئلة الشائعة|sıkça sorulan|questions fréquentes|häufig gestellte)/i;
+export const FAQ_RE = /^(câu hỏi thường gặp|faq|frequently asked|pertanyaan yang sering|preguntas frecuentes|perguntas frequentes|часто задаваемые вопросы|अक्सर पूछे जाने वाले प्रश्न|सामान्य प्रश्न|よくある質問|자주 묻는 질문|常见问题|คำถามที่พบบ่อย|الأسئلة الشائعة|sıkça sorulan|questions fréquentes|häufig gestellte)/i;
 export const CJK = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/gu;
-export const wordCount = body => { const t = plainText(body), cjk = (t.match(CJK) || []).length; return (t.replace(CJK, ' ').match(/[\p{L}\p{N}][\p{L}\p{N}'’.-]*/gu) || []).length + Math.round(cjk / 2); };
+export const THAI = /\p{Script=Thai}/gu; // tiếng Thái cũng không có khoảng trắng giữa từ: ~3 ký tự ≈ 1 từ
+export const wordCount = body => { const t = plainText(body), cjk = (t.match(CJK) || []).length, th = (t.match(THAI) || []).length; return (t.replace(CJK, ' ').replace(THAI, ' ').match(/[\p{L}\p{N}][\p{L}\p{N}'’.-]*/gu) || []).length + Math.round(cjk / 2) + Math.round(th / 3); };
 // Đọc 1 file bài (ngôn ngữ mặc định = tên thư mục cha) – cho công cụ nhận đường dẫn file
 export function readPost(file) {
   const src = fs.readFileSync(file, 'utf8'), { data, body } = parse(src, file);

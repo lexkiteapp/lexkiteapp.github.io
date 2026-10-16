@@ -9,7 +9,7 @@ tags: [ielts, listening, examenes]
 keyword: "consejos ielts listening"
 cover: listening
 coverAlt: "Pantalla de Listening IELTS de Lexkite con 10 pruebas de 4 partes, acentos y velocidad ajustable"
-publishAt: 2026-10-18T20:29:00+07:00
+publishAt: 2026-10-18T14:11:00-06:00
 factChecked: 2026-10-16
 author: Lexkite
 status: ready

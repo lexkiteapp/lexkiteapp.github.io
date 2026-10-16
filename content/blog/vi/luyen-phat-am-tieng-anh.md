@@ -9,7 +9,7 @@ tags: [phat-am, ipa, speaking]
 keyword: "luyện phát âm tiếng anh"
 cover: pron
 coverAlt: "Thư viện phát âm IPA của Lexkite chia nguyên âm đơn, nguyên âm đôi và phụ âm, kèm từ ví dụ"
-publishAt: 2026-11-01T19:03:00+07:00
+publishAt: 2026-11-27T19:56:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

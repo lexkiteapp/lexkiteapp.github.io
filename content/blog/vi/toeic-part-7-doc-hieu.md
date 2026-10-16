@@ -9,7 +9,7 @@ tags: [toeic, part-7, doc-hieu]
 keyword: "toeic part 7"
 cover: toeic
 coverAlt: "Màn hình TOEIC của Lexkite gồm thi thử có chấm điểm tự động và luyện riêng từng Part"
-publishAt: 2026-11-05T13:30:00+07:00
+publishAt: 2026-12-06T20:17:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

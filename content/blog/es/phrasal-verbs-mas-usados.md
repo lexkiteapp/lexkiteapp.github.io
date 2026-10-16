@@ -9,7 +9,7 @@ tags: [phrasal-verb, speaking, vocabulario]
 keyword: "phrasal verbs más usados"
 cover: practice-learn
 coverAlt: "Tarjeta de aprendizaje de Lexkite que presenta el phrasal verb come up with con definición, ejemplo y truco para recordarlo"
-publishAt: 2026-10-19T18:30:00+07:00
+publishAt: 2026-10-19T19:31:00-06:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -103,7 +103,7 @@ Estos fallos no vienen de no saber inglés, sino de traducir la estructura del e
 
 **2. Separar los que no se separan.** Con *look after*, *rely on* o *get on with*, el objeto siempre va detrás: *look after the kids*, nunca *look the kids after*.
 
-**3. *Look forward to* + infinitivo.** Ese *to* es una preposición, no parte del infinitivo, así que detrás va un sustantivo o un verbo en *-ing*.
+**3. *Look forward to* + infinitivo.** Ese *to* es una preposición, no parte del infinitivo, así que detrás va un sustantivo o un verbo en *-ing*. Tienes más casos como este en nuestra guía de [gerundio o infinitivo en inglés](/es/blog/gerundio-o-infinitivo-en-ingles/).
 
 - ✗ *I look forward to hear from you.* → ✓ *I look forward to hearing from you.*
 

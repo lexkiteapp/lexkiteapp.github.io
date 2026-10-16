@@ -9,7 +9,7 @@ tags: [cam-xuc, tu-vung]
 keyword: "từ vựng tiếng anh về cảm xúc"
 cover: library
 coverAlt: "“Vocabulary library” trong Lexkite: các tab nguồn từ và những bộ từ cốt lõi có nhãn cấp độ"
-publishAt: 2026-11-13T22:16:00+07:00
+publishAt: 2026-12-27T07:31:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

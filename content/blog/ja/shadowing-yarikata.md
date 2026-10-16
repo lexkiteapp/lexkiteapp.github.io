@@ -9,7 +9,7 @@ tags: [shadowing, speaking, listening, pronunciation]
 keyword: "シャドーイング やり方"
 cover: practice-speak
 coverAlt: "Lexkiteの発音練習画面。フレーズcut down onとマイクボタンが表示され、話した声で採点される"
-publishAt: 2026-10-18T20:29:00+07:00
+publishAt: 2026-10-19T14:11:00+09:00
 factChecked: 2026-10-16
 author: Lexkite
 status: ready

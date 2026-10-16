@@ -9,7 +9,7 @@ tags: [toeic, test-format, listening, reading]
 keyword: "toeic test format"
 cover: toeic
 coverAlt: "Lexkite TOEIC Listening and Reading practice with seven auto-scored mock tests, practice by part and TOEIC vocabulary"
-publishAt: 2026-10-21T07:23:00+07:00
+publishAt: 2026-10-27T20:29:00+05:30
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

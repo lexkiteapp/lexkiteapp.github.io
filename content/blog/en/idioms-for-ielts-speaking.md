@@ -9,7 +9,7 @@ tags: [ielts, speaking, idiom, vocabulary]
 keyword: "idioms for ielts speaking"
 cover: speaking
 coverAlt: "Lexkite Speaking room with Part 1, 2 and 3 questions by topic, band 7.5–8 sample answers and suggested vocabulary"
-publishAt: 2026-10-27T22:28:00+07:00
+publishAt: 2026-11-10T11:51:00+05:30
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -157,7 +157,7 @@ Finally, record yourself answering one question with a single idiom, play it bac
 ## Frequently asked questions
 
 ### How many idioms should I use in the Speaking test?
-There is no required number. One idiom in a Part 1 answer, or a few spread across the whole test, is plenty. Accuracy, the right context and smooth delivery matter far more than frequency.
+There is no required number. One idiom in a [Part 1 answer](/en/blog/ielts-speaking-part-1-tips/), or a few spread across the whole test, is plenty. Accuracy, the right context and smooth delivery matter far more than frequency.
 
 ### Can I use idioms in IELTS Writing?
 Most idioms are informal, so they rarely suit a Task 2 essay or an Academic Task 1 report. An informal letter in General Training Task 1 can take a light idiom, and neutral phrases such as *in the long run* work almost anywhere. In general, keep idioms for Speaking.

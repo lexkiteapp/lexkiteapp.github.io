@@ -95,6 +95,8 @@ Lexkite dùng FSRS cho toàn bộ flashcard, nên bạn không phải cài đặ
 
 Muốn hiểu sâu hơn nền tảng khoa học phía sau, bạn có thể đọc thêm bài [đường cong quên lãng Ebbinghaus](/vi/blog/duong-cong-quen-lang-ebbinghaus/).
 
+Để có thẻ mới cho FSRS sắp lịch, bạn có thể chọn từ trong [từ vựng theo chủ đề](/tu-vung/) hoặc [chủ điểm ngữ pháp](/ngu-phap/).
+
 ## FSRS phù hợp với ai
 
 FSRS hữu ích nhất cho những ai có lượng thẻ lớn và học đều trong thời gian dài: người luyện IELTS, TOEIC, TOEFL cần vài nghìn từ (nếu chưa chọn được kỳ thi, xem [so sánh IELTS, TOEIC và TOEFL](/vi/blog/nen-thi-ielts-toeic-hay-toefl/)), sinh viên y học thuật ngữ, người học ngoại ngữ thứ hai. Nếu bạn chỉ có vài chục thẻ cho một bài kiểm tra tuần sau, lợi ích của thuật toán không rõ rệt bằng việc tự kiểm tra đều đặn. Nhưng một khi số thẻ vượt quá vài trăm, việc tự tính ngày ôn gần như bất khả thi, và một thuật toán tốt sẽ tiết kiệm cho bạn rất nhiều giờ.

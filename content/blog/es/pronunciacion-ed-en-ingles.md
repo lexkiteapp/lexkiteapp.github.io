@@ -9,7 +9,7 @@ tags: [pronunciacion, verbos-regulares, pasado-simple]
 keyword: "pronunciación de -ed en inglés"
 cover: pron
 coverAlt: "Biblioteca de pronunciación IPA de Lexkite con vocales, diptongos y consonantes"
-publishAt: 2026-10-17T16:24:00+07:00
+publishAt: 2026-10-17T12:36:00-06:00
 factChecked: 2026-10-16
 author: Lexkite
 status: ready

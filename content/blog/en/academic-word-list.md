@@ -9,7 +9,7 @@ tags: [awl, ielts, academic-vocabulary, toefl]
 keyword: "academic word list"
 cover: library
 coverAlt: "Lexkite Vocabulary library with tabs for all words, NGSL core vocabulary, IELTS topics, Writing, Speaking and TOEIC"
-publishAt: 2026-10-17T14:02:00+07:00
+publishAt: 2026-10-19T14:11:00+05:30
 factChecked: 2026-10-15
 qualityScore: 93
 author: Lexkite
@@ -121,7 +121,7 @@ Lexkite includes ten ready-made sets, AWL Sublist 1 to AWL Sublist 10, with phon
 
 ## Mistakes to avoid with academic vocabulary
 
-- **Using AWL words everywhere.** "I utilise public transport to reach my workplace" sounds stiff in Speaking Part 1. Save formal words for Writing and Speaking Part 3.
+- **Using AWL words everywhere.** "I utilise public transport to reach my workplace" sounds stiff in [Speaking Part 1](/en/blog/ielts-speaking-part-1-tips/). Save formal words for Writing and Speaking Part 3.
 - **Learning translations only.** One-word translations hide grammar such as *consist of* or *be subject to*.
 - **Overloading sentences.** A sentence with six academic words is not automatically better. Clarity first; vocabulary second. For a natural academic tone, also look at [hedging in academic writing](/en/blog/hedging-in-academic-writing/).
 - **Ignoring the general list.** Without the everyday words around them, AWL words cannot be used accurately.
