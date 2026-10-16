@@ -61,6 +61,8 @@
   'Du lịch & Khách sạn': 'Tourism & Hospitality', 'Lễ tân, buồng phòng, F&B, đặt phòng, lữ hành, hướng dẫn viên, quản trị doanh thu…': 'Front desk, housekeeping, F&B, reservations, tour operations, guiding, revenue management…',
   'Giáo dục & Nghiên cứu học thuật': 'Education & Academic Research', 'Giảng dạy, chương trình học, đánh giá, đại học, viết bài nghiên cứu, phương pháp luận…': 'Teaching, curriculum, assessment, university, research writing, methodology…',
   'Logistics & Xuất nhập khẩu': 'Logistics & Import–Export', 'Chuỗi cung ứng, vận tải, kho bãi, Incoterms, chứng từ, hải quan, thanh toán quốc tế…': 'Supply chains, transport, warehousing, Incoterms, documents, customs, international payment…',
+  'Từ vựng C2 – học thuật nâng cao': 'C2 vocabulary – advanced academic',
+  'Từ học thuật cấp C2 cho IELTS 8+ / TOEFL 110+: lập luận, đánh giá, mô tả xu hướng – tự biên soạn; phiên âm theo Wiktionary (CC BY-SA)': 'C2 academic words for IELTS 8+ / TOEFL 110+: argument, evaluation, describing trends – written in-house; IPA from Wiktionary (CC BY-SA)',
 }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, {
   'Từ vựng theo kỳ thi': 'Exam vocabulary',

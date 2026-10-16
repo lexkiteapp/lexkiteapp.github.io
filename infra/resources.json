@@ -32,7 +32,7 @@
    "key": "audio-worker",
    "name": "Cloudflare Worker lexkite-audio (audio.lexkite.com)",
    "kind": "cdn",
-   "purpose": "CDN âm thanh + ảnh blog: đứng trước GitHub Pages, máy chủ gần người dùng (có VN), cache 1 năm; app tự lùi về GitHub nếu lỗi",
+   "purpose": "CDN âm thanh: đứng trước GitHub Pages, máy chủ gần người dùng (có VN), cache 1 năm; app tự lùi về GitHub nếu lỗi",
    "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/workers/services/view/lexkite-audio/production",
    "free": "100.000 lượt/ngày (lượt trúng cache trình duyệt không tính)",
    "upgrade": "Khi > 100k lượt/ngày: chuyển âm thanh sang R2 + tên miền tùy chỉnh (không qua Worker) hoặc Workers Paid",
@@ -191,10 +191,24 @@
    ]
   },
   {
+   "key": "media-worker",
+   "name": "Cloudflare Worker lexkite-media (media.lexkite.com)",
+   "kind": "cdn",
+   "purpose": "CDN ảnh riêng (blog, ảnh chụp app): đứng trước kho lexkite-media, máy chủ gần người dùng, cache 1 năm",
+   "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/workers/services/view/lexkite-media/production",
+   "free": "100.000 lượt/ngày (lượt trúng cache trình duyệt không tính)",
+   "upgrade": "Kho gần 1 GB → đổi ORIGIN trong workers/media sang R2 (URL ảnh giữ nguyên)",
+   "status": "Miễn phí",
+   "match": [
+    "media.lexkite.com",
+    "lexkite-media"
+   ]
+  },
+  {
    "key": "media",
    "name": "Kho ảnh blog lexkite-media (GitHub)",
    "kind": "storage",
-   "purpose": "Ảnh chụp app cho blog (AVIF/WebP 480/960/1440) – gốc GitHub Pages, phục vụ qua audio.lexkite.com/lexkite-media (Worker lexkite-audio, cache 1 năm)",
+   "purpose": "Kho gốc ảnh blog (AVIF/WebP 480/960/1440), phục vụ qua media.lexkite.com",
    "console": "https://github.com/lexkiteapp/lexkite-media",
    "free": "Repo ≤ 1 GB khuyến nghị",
    "upgrade": "Cloudflare R2",
