@@ -18,7 +18,7 @@ Cập nhật 15/10/2026. Không chứa mật khẩu/khóa bí mật. Chi tiết 
 ## 15 ngôn ngữ & cấu trúc cụm bài (17/10/2026)
 - Mở đủ 15 ngôn ngữ của app: vi, en, es, ja, id, pt (Brazil), fr, de, tr, ru, ar (phải→trái), hi, ko, zh (giản thể), th. Chữ giao diện, chuyên mục, og:locale, hreflang, RSS `/<lang>/blog/rss.xml`, trang giới thiệu đều theo ngôn ngữ; `ar` có `dir="rtl"` + CSS đảo chiều.
 - **Trụ cột – vệ tinh:** mỗi ngôn ngữ 1 bài trụ cột (brief `role: pillar`, hướng dẫn tổng quan) + các bài vệ tinh (`role: satellite`, `pillar: <slug>`) đi sâu từng ý; trụ cột trỏ tới mọi vệ tinh, vệ tinh trỏ về trụ cột và lẫn nhau. Các bản cùng chủ đề ở ngôn ngữ khác nối bằng `translationKey` → hreflang + x-default (en).
-- **Từ khóa bản địa:** brief viết theo cách người học nước đó tìm (vd. ko "토익 공부법", pt "como aprender inglês sozinho", zh "背单词的方法"), không dịch máy từ khóa tiếng Việt. Tiếng Nhật/Trung/Thái đếm từ theo ký tự (2 ký tự Hán/Kana hoặc 3 ký tự Thái ≈ 1 từ).
+- **Từ khóa bản địa:** brief viết theo cách người học nước đó tìm (vd. ko "토익 공부법", pt "como aprender inglês sozinho", zh "背单词的方法"), không dịch máy từ khóa tiếng Việt. Tiếng Nhật/Trung/Thái đếm từ theo ký tự (2 ký tự Hán/Kana hoặc 5 ký tự Thái ≈ 1 từ).
 - Lệnh chuẩn cho tác tử: `content/blog/prompts/agent-pillar.md` (mở ngôn ngữ), `agent-write.md` (viết 1 bài), `agent-review.md` (chấm độc lập ≥ 92).
 
 ## Lịch đăng thông minh (`scripts/blog-schedule.mjs`)

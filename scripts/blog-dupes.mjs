@@ -8,7 +8,7 @@ import { ROOT, plainText, readPost, loadPostsAt } from './lib/blog-content.mjs';
 
 const K = 8, PAIR = 0.12, CORPUS = 0.05, PARA = 25;
 const CORPUS_FILES = ['web/js/models.js', 'web/js/readings.js', 'web/js/write', 'web/js/speak'];
-const tokens = s => s.normalize('NFC').toLowerCase().replace(/[^\p{L}\p{N}\s]+/gu, ' ').split(/\s+/).filter(Boolean);
+const tokens = s => s.normalize('NFC').toLowerCase().replace(/[^\p{L}\p{M}\p{N}\s]+/gu, ' ').split(/\s+/).filter(Boolean);
 // Băm 53 bit (cyrb53) – ít va chạm, khóa số nhanh hơn chuỗi
 const hash = (s, seed = 0) => {
   let h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
