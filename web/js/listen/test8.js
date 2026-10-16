@@ -41,7 +41,7 @@
     groups: [
       { type: 'form', title: 'The Old Granary – Function booking', instr: 'Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.', limit: 2,
         items: [
-          { n: 1, text: 'Name: Martin ___', a: ['Okafor'], cue: 'O, K, A, F, O, R', explain: 'Họ được đánh vần O-K-A-F-O-R.' },
+          { n: 1, text: 'Name: Martin ___', a: ['Okafor'], cue: 'O, K, A, F, O, R', explain: 'Họ được đánh vần O-K-A-F-O-R. Câu nghe được: “O, K, A, F, O, R.”' },
           { n: 2, text: 'Occasion: ___ party', a: ['retirement'], cue: "it's really a retirement party", explain: 'Bẫy: mọi người tưởng là tiệc sinh nhật (birthday), thật ra là tiệc nghỉ hưu.' },
           { n: 3, text: 'Date: Friday ___ November', a: ['15', '15th', 'fifteenth'], cue: 'the following Friday, the 15th', explain: 'Ngày 8 bị đổi vì chị gái đi vắng; ngày đúng là thứ Sáu 15.' },
           { n: 4, text: 'Number of guests: ___', a: ['42', 'forty-two', 'forty two'], cue: 'so far forty-two have said yes', explain: '50 là số thiệp mời đã gửi; số khách xác nhận là 42.' },
@@ -113,11 +113,11 @@
         options: ['A lamps and small electrical items', 'B bicycles', 'C clothing', 'D jewellery', 'E computers', 'F toys', 'G clocks and watches'],
         items: [
           { n: 15, text: 'Derek', a: 'G', cue: "these days he's our expert on clocks and watches", explain: 'Bẫy: trước đây Derek sửa xe đạp, nay chuyên đồng hồ.' },
-          { n: 16, text: 'Phil', a: 'B', cue: 'Bikes are now handled by Phil', explain: 'Phil tiếp quản việc sửa xe đạp.' },
-          { n: 17, text: 'Amira', a: 'C', cue: 'Amira runs the sewing table', explain: 'Bàn may vá: sửa quần jean rách, thay khóa kéo, lên gấu.' },
+          { n: 16, text: 'Phil', a: 'B', cue: 'Bikes are now handled by Phil', explain: 'Phil tiếp quản việc sửa xe đạp. Câu nghe được: “Bikes are now handled by Phil.”' },
+          { n: 17, text: 'Amira', a: 'C', cue: 'Amira runs the sewing table', explain: 'Bàn may vá: sửa quần jean rách, thay khóa kéo, lên gấu. Câu nghe được: “Amira runs the sewing table.”' },
           { n: 18, text: 'Sunita', a: 'A', cue: 'she deals with lamps, toasters, kettles and other small electrical items', explain: 'Không ai sửa máy tính (E) – đó là phương án gây nhiễu.' },
-          { n: 19, text: 'Gareth', a: 'F', cue: "His table is always covered in children's toys", explain: 'Thợ mộc về hưu, chuyên sửa đồ chơi gỗ của trẻ em.' },
-          { n: 20, text: 'Lucy', a: 'D', cue: 'she can repair broken necklaces, earrings and bracelets', explain: 'Lucy được đào tạo làm thợ kim hoàn – sửa trang sức.' },
+          { n: 19, text: 'Gareth', a: 'F', cue: "His table is always covered in children's toys", explain: "Thợ mộc về hưu, chuyên sửa đồ chơi gỗ của trẻ em. Câu nghe được: “His table is always covered in children's toys.”" },
+          { n: 20, text: 'Lucy', a: 'D', cue: 'she can repair broken necklaces, earrings and bracelets', explain: 'Lucy được đào tạo làm thợ kim hoàn – sửa trang sức. Câu nghe được: “she can repair broken necklaces, earrings and bracelets.”' },
         ] },
     ],
     vocab: [
@@ -246,12 +246,12 @@
     groups: [
       { type: 'note', title: 'The natural ice trade', instr: 'Complete the notes below. Write ONE WORD ONLY for each answer.', limit: 1,
         items: [
-          { n: 31, text: 'Ice was cut in blocks from frozen ___ in New England', a: ['ponds'], cue: 'The ice was cut from frozen ponds in large blocks', explain: 'Băng được cắt thành khối từ các ao (ponds) đóng băng.' },
+          { n: 31, text: 'Ice was cut in blocks from frozen ___ in New England', a: ['ponds'], cue: 'The ice was cut from frozen ponds in large blocks', explain: 'Băng được cắt thành khối từ các ao (ponds) đóng băng. Câu nghe được: “The ice was cut from frozen ponds in large blocks.”' },
           { n: 32, text: 'Best insulation material: ___', a: ['sawdust'], cue: 'The material that worked best was sawdust', explain: 'Rơm (straw) được thử trước nhưng bị mục khi ẩm.' },
-          { n: 33, text: 'First major shipment abroad went to the ___ in 1806', a: ['Caribbean'], cue: 'a shipment to the Caribbean in 1806', explain: 'Chuyến hàng lớn đầu tiên ra nước ngoài là tới vùng Caribe.' },
+          { n: 33, text: 'First major shipment abroad went to the ___ in 1806', a: ['Caribbean'], cue: 'a shipment to the Caribbean in 1806', explain: 'Chuyến hàng lớn đầu tiên ra nước ngoài là tới vùng Caribe. Câu nghe được: “a shipment to the Caribbean in 1806.”' },
           { n: 34, text: 'It failed because there was no ___ to store the ice', a: ['warehouse'], cue: 'there was no warehouse at the destination', explain: 'Băng đến nơi an toàn nhưng không có nhà kho nên tan trên bến tàu.' },
-          { n: 35, text: 'Later, ice was shipped as far as ___', a: ['India'], cue: 'ice was being shipped as far as India', explain: 'Hành trình tới Ấn Độ kéo dài bốn tháng.' },
-          { n: 36, text: 'A horse-drawn ___ made blocks of equal size', a: ['plough', 'plow'], cue: 'the invention of a horse-drawn plough', explain: 'Chiếc cày do ngựa kéo tạo rãnh theo lưới đều nhau.' },
+          { n: 35, text: 'Later, ice was shipped as far as ___', a: ['India'], cue: 'ice was being shipped as far as India', explain: 'Hành trình tới Ấn Độ kéo dài bốn tháng. Câu nghe được: “ice was being shipped as far as India.”' },
+          { n: 36, text: 'A horse-drawn ___ made blocks of equal size', a: ['plough', 'plow'], cue: 'the invention of a horse-drawn plough', explain: 'Chiếc cày do ngựa kéo tạo rãnh theo lưới đều nhau. Câu nghe được: “the invention of a horse-drawn plough.”' },
           { n: 37, text: 'Biggest growth in demand came from the ___ industry', a: ['brewing'], cue: 'the biggest growth came from the brewing industry', explain: 'Ngành đánh bắt cá dùng nhiều băng, nhưng tăng trưởng lớn nhất là ngành nấu bia.' },
           { n: 38, text: '___ railway cars allowed meat to travel long distances', a: ['refrigerated'], cue: 'the development of refrigerated railway cars', explain: 'Toa tàu ướp lạnh chứa băng và muối giúp thịt không bị hỏng.' },
           { n: 39, text: 'Main reason for decline: ___ in rivers and lakes near cities', a: ['pollution'], cue: 'the rivers and lakes near them suffered from pollution', explain: 'Máy làm đá ban đầu đắt và kém tin cậy; nguyên nhân chính là ô nhiễm khiến băng tự nhiên mất an toàn.' },
