@@ -61,9 +61,9 @@ if (jobs.size && limit > 0) {
   let tts = null;
   for (let k = 1; k <= 6 && !tts; k++) { try { tts = await KokoroTTS.from_pretrained('onnx-community/Kokoro-82M-v1.0-ONNX', { dtype: 'q8', device: 'cpu' }); } catch (e) { console.error(`Tải mô hình lỗi (lần ${k}): ${e && (e.cause && e.cause.code || e.message)}`); await new Promise(r => setTimeout(r, 15000 * k)); } }
   if (!tts) { console.error('Không tải được mô hình Kokoro – bỏ qua lượt này'); process.exit(1); }
-  let n = 0; const t0 = Date.now();
+  let n = 0; const t0 = Date.now(), DEADLINE = t0 + (process.env.AUDIO_MIN ? +process.env.AUDIO_MIN : 1e6) * 60000;
   for (const [key, { voice, text }] of jobs) {
-    if (n >= limit) break;
+    if (n >= limit || Date.now() > DEADLINE) break; // AUDIO_MIN: dừng đúng hạn để CI kịp lưu (quá giờ job bị hủy → mất hết)
     const a = await tts.generate(text, { voice, speed: 1 });
     await a.save(TMP);
     execFileSync('ffmpeg', ['-loglevel', 'error', '-y', '-i', TMP, '-ac', '1', '-ar', '24000', '-b:a', '40k', `${OUT}/${key}.mp3`]);

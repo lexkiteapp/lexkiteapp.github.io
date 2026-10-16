@@ -36,7 +36,7 @@ jobs:
       - name: Tạo âm thanh
         if: steps.count.outputs.left != '0'
         run: |
-          NODE_PATH=/tmp/kk/node_modules node scripts/gen-audio.mjs --limit "${{ github.event.inputs.limit || '1500' }}"
+          AUDIO_MIN=240 NODE_PATH=/tmp/kk/node_modules node scripts/gen-audio.mjs --limit "${{ github.event.inputs.limit || '1500' }}"
       - name: Lưu vào repo
         if: steps.count.outputs.left != '0'
         run: |
