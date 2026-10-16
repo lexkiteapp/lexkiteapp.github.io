@@ -246,7 +246,7 @@
     const r = await fetchJSON(`${base}/api/img?w=${encodeURIComponent(String(word).toLowerCase())}`, 4000);
     if (!r || r.none || !r.src) return null;
     return { src: r.src, link: r.link, license: r.license,
-      credit: t('“{title}” – {creator} · {license} · qua Openverse', { title: r.title || word, creator: r.creator || t('không rõ tác giả'), license: r.license }) };
+      credit: t('“{title}” – {creator} · {license} · qua Openverse', { title: r.title || word, creator: r.creator || t('không rõ tác giả'), license: r.license }).replace('Openverse', r.via || 'Openverse') };
   }
   // Giữ tên cũ cho mã gọi trước đây
   const wikiImage = async word => { const im = await freeImage(word); return im ? im.src : ''; };
