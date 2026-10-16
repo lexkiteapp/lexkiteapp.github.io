@@ -5,7 +5,7 @@
   const { Store, Cards } = Core;
   const { $, esc, toast } = UI;
   const App = window.App;
-  const SDK = 'https://www.gstatic.com/firebasejs/10.12.2/';
+  const SDK = '';
   const NB = 32; // số nhóm thẻ cố định (mỗi nhóm < 1 MiB với tới ~90.000 thẻ)
   const bucketOf = k => { let x = 2166136261; for (let i = 0; i < k.length; i++) { x ^= k.charCodeAt(i); x = Math.imul(x, 16777619); } return (x >>> 0) % NB; };
 

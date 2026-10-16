@@ -149,7 +149,10 @@ chrome.runtime.onInstalled.addListener(async ({ reason }) => {
   if (reason === 'install') openApp('#/home');
   if (!isDevInstall() && (reason === 'install' || reason === 'update')) sendHit({ ev: { [reason]: 1 } });
 });
-chrome.runtime.onStartup.addListener(() => { scheduleReminder(); updateBadge(); });
+chrome.runtime.onStartup.addListener(async () => {
+  if (!(await chrome.alarms.get('badge'))) chrome.alarms.create('badge', { periodInMinutes: 15 }); // phòng alarm bị mất (Chrome xóa khi cập nhật lỗi)
+  scheduleReminder(); updateBadge();
+});
 
 chrome.alarms.onAlarm.addListener(a => {
   if (a.name === 'dev-reload') return;
@@ -321,6 +324,7 @@ async function devAutoReload() {
     if (disk.version && disk.version !== chrome.runtime.getManifest().version) chrome.runtime.reload();
   } catch (e) { /* bỏ qua */ }
 }
-chrome.alarms.create('dev-reload', { periodInMinutes: 0.5 });
+// Chỉ bản phát triển mới cần đánh thức service worker mỗi 30 giây; bản cửa hàng xóa alarm này (tiết kiệm pin)
+if (isDevInstall()) chrome.alarms.create('dev-reload', { periodInMinutes: 0.5 }); else chrome.alarms.clear('dev-reload');
 chrome.alarms.onAlarm.addListener(a => { if (a.name === 'dev-reload') devAutoReload(); });
 chrome.runtime.onStartup.addListener(devAutoReload);

@@ -18,7 +18,7 @@
   let adsLoaded = null;
   const loadAdSense = () => adsLoaded || (adsLoaded = new Promise(res => {
     const s = document.createElement('script'); s.async = true; s.crossOrigin = 'anonymous';
-    s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + encodeURIComponent(C.web.client);
+    s.src = '?client=' + encodeURIComponent(C.web.client);
     s.onload = () => res(true); s.onerror = () => res(false); document.head.appendChild(s);
   }));
   const fill = () => {
