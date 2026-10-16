@@ -109,7 +109,7 @@ const VI = /[À-ỹđĐ]/u;
  // mọi chữ Latin có dấu (gồm dấu kép ố, ắ, ữ…) – nghĩa tiếng Việt hầu như luôn có dấu
 // Sửa tay sau khi duyệt (content/wordlists/<id>.fix.json): { "từ": "nghĩa đúng" } hoặc "-" để loại từ (thuật ngữ lệch ngữ cảnh, nghĩa máy dịch sai)
 const FIX = (() => { try { return JSON.parse(rd(`content/wordlists/${ID}.fix.json`)); } catch (e) { return {}; } })();
-const EDIT = (() => { try { return JSON.parse(rd(`content/wordlists/${ID}.edit.json`)); } catch (e) { return {}; } })(); // sửa tay định nghĩa/ví dụ: { "từ": { def, ex } }
+const EDIT = (() => { try { return JSON.parse(rd(`content/wordlists/${ID}.edit.json`)); } catch (e) { return {}; } })(); // sửa tay: { "từ": { def, ex, pos, vi } }
 const cleanDef = d => String(d).replace(/\.mw-parser-output[^}]*\}/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&\w+;/g, '').replace(/\s+/g, ' ').replace(/\s+([.,;])/g, '$1').trim();
 const good = [], bad = [];
 LIST.forEach((x, i) => {
@@ -120,7 +120,7 @@ LIST.forEach((x, i) => {
   if (why) { bad.push(x.word + ' – ' + why); return; }
   const ipa = ('/' + e.ipa.replace(/^[\/\[]|[\/\]]$/g, '') + '/').replace(/ɹ/g, 'r').replace(/ɫ/g, 'l').replace(/\.(?=\S)/g, '').replace(/ɛ/g, 'e').replace(/ɝ/g, 'ɜː').replace(/ɚ/g, 'ə');
   const viMain = FIX[x.word] || String(e.vi).split(/,\s*/)[0].trim(); // chỉ giữ nghĩa thông dụng chính – nghĩa phụ từ dữ liệu từ điển hay lệch/lặp
-  good.push([x.word, ipa.replace(/[\u032F\u02D1\u0329\u0306]/g, ''), SHORT[e.pos], viMain, def, hasWord(x.word, ex) ? ex : '', '', e.syn.join('|'), L.level(i), '']);
+  good.push([x.word, ipa.replace(/[\u032F\u02D1\u0329\u0306]/g, ''), ed.pos || SHORT[e.pos], ed.vi || viMain, def, hasWord(x.word, ex) ? ex : '', '', e.syn.join('|'), L.level(i), '']);
 });
 const q = s => "'" + String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'") + "'";
 let js = `/* ${L.head}. Phiên âm/định nghĩa/ví dụ: Free Dictionary API (Wiktionary, CC BY-SA), Tatoeba (CC BY 2.0 FR); nghĩa tiếng Việt: Lexkite.\n * FILE SINH TỰ ĐỘNG bởi scripts/gen-wordlist.mjs – đừng sửa tay. Row: [word, ipa, pos, vi, def, ex, col, syn, level, emoji] */\n(function (g) {\n  const add = g.IELTS_DATA.add;\n`;

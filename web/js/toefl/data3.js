@@ -1,4 +1,4 @@
-/* TOEFL iBT (định dạng từ 21/01/2026) – Bộ luyện tập 3 (+ Reading bộ 4). Nội dung 100% tự biên soạn, không dùng tài liệu của ETS.
+/* TOEFL iBT (định dạng từ 21/01/2026) – Bộ luyện tập 3 (+ Reading & Listening bộ 4). Nội dung 100% tự biên soạn, không dùng tài liệu của ETS.
  * Nạp SAU data1.js và data2.js: chỉ BỔ SUNG vào window.TOEFL (không ghi đè), cùng định dạng với data1/data2.
  *  - Số câu `n` nối tiếp bộ 2 (vd. Daily Life 21–30, Academic 41–60…) để tên ô chọn (radio "q{n}") không trùng.
  *  - Email/Discussion/Repeat/Interview: hiện thành thẻ "Bộ 5", "Bộ 6" (chọn qua ?i=).
@@ -644,6 +644,182 @@
         explain: "Dạng INFERENCE. Chữ hình nêm có hàng trăm ký hiệu, người học phải được đào tạo nhiều năm, nên \"literacy remained limited to a relatively small group of specialists\" → phần lớn người bình thường không biết đọc viết." },
       { n: 80, q: 'According to paragraph 5, all of the following types of documents survive in cuneiform EXCEPT', options: ['maps of trade routes', 'letters', 'laws', 'scientific observations'], a: 0, type: 'negative',
         explain: "Dạng NEGATIVE FACTUAL. Đoạn 5 liệt kê văn bản còn lại gồm hồ sơ kinh tế, \"letters, laws, scientific observations, and literature\". Bản đồ tuyến đường buôn bán KHÔNG được nhắc tới → đáp án." },
+    ])],
+  });
+
+  /* ===================================================================
+   * BỘ 4 · LISTENING (tự biên soạn). Response 41–48, Conversation 41–48,
+   * Announcement 49–54, Academic Talk 55–64.
+   * =================================================================== */
+  const RESP4 = [
+    { s: 'A', t: "Do you know where I can get my student ID card replaced?",
+      options: ["Try the registration office in Building C.", "I replaced my phone last month.", "My student number starts with 24.", "The card was blue and white."],
+      explain: "Câu hỏi \"where\" (ở đâu) → cần một địa điểm: \"Thử phòng đăng ký ở tòa C xem\". Các phương án khác chỉ lặp từ \"replace\", \"student\", \"card\" để gây nhiễu." },
+    { s: 'B', t: "I can't believe the library is closed this weekend.",
+      options: ["I know – we'll have to study at the café instead.", "It was built in the 1960s.", "Yes, I believe in hard work.", "I closed the window before I left."],
+      explain: "Người nói than phiền thư viện đóng cửa cuối tuần → phản hồi đồng tình và đưa phương án thay thế: \"Ừ – chắc phải học ở quán cà phê thôi\". \"believe\", \"closed\" chỉ là bẫy lặp từ." },
+    { s: 'A', t: "How long did it take you to finish the lab report?",
+      options: ["About three hours, but the graphs took the longest.", "It's due next Tuesday.", "The lab is on the second floor.", "I took the long way home."],
+      explain: "Câu hỏi \"How long\" (mất bao lâu) → cần khoảng thời gian: \"Khoảng ba tiếng\". \"due next Tuesday\" trả lời cho \"When\"; \"took the long way\" là bẫy lặp từ." },
+    { s: 'B', t: "Shouldn't we start the presentation with the survey results?",
+      options: ["Good point – they're the most interesting part.", "The survey had twenty questions.", "I present the weather on the radio.", "We started at nine o'clock."],
+      explain: "Câu hỏi phủ định dùng để đề xuất (\"Chẳng phải ta nên mở đầu bằng kết quả khảo sát sao?\") → phản hồi đồng ý kèm lý do. Các phương án khác lặp \"survey\", \"present\", \"start\"." },
+    { s: 'A', t: "Would you rather meet in the morning or after lunch?",
+      options: ["After lunch works better for me.", "Yes, I'd like to meet.", "I had a sandwich for lunch.", "The meeting was very useful."],
+      explain: "Câu hỏi lựa chọn (A hay B) → chọn một phương án: \"Sau bữa trưa thì tiện hơn cho mình\". Không trả lời Yes/No cho câu hỏi lựa chọn." },
+    { s: 'B', t: "The professor posted the exam grades online.",
+      options: ["Really? I'll check mine right now.", "The post office closes at five.", "She's a very good professor.", "I'm going to grade school next year."],
+      explain: "Người nói thông báo đã có điểm thi trên mạng → phản hồi tự nhiên: \"Thật à? Để mình xem điểm ngay\". \"post office\", \"grade school\" là bẫy đồng âm/khác nghĩa." },
+    { s: 'A', t: "Why don't you join the hiking club this semester?",
+      options: ["I'd love to, but my schedule is already full.", "Because the club meets on Fridays.", "I joined two pieces of wood together.", "The mountains are very high."],
+      explain: "\"Why don't you…?\" là lời RỦ/gợi ý, không phải hỏi lý do → đáp lại bằng nhận lời hoặc từ chối lịch sự: \"Mình rất muốn, nhưng lịch đã kín rồi\". Phương án bắt đầu bằng \"Because\" là bẫy." },
+    { s: 'B', t: "Excuse me, is this seat taken?",
+      options: ["No, go ahead.", "I took the bus this morning.", "Yes, I'd like a seat by the window.", "The seats are made of plastic."],
+      explain: "Hỏi chỗ có người ngồi chưa → \"No, go ahead\" (Chưa, bạn cứ ngồi). Phương án \"Yes, I'd like a seat…\" nghe như trả lời nhưng sai ý; các câu khác lặp \"took\", \"seats\"." },
+  ];
+  const respScript4 = [{ say: 'Listen and choose the best response. You will hear each sentence once.' }, { pause: 2 }];
+  RESP4.forEach((r, i) => { respScript4.push({ say: 'Number ' + (i + 41) + '.' }, { s: r.s, t: r.t }, { pause: 4 }); });
+  TF.listening.push({
+    id: 'tf4-lr', set: 4, task: 'response', title: 'Choose a Response · Set 4',
+    speakers: { A: { name: 'Speaker 1', accent: 'en-GB', gender: 'm' }, B: { name: 'Speaker 2', accent: 'en-US', gender: 'f' } },
+    script: respScript4,
+    groups: [mcq('Listen to each sentence and choose the best response.', RESP4.map((r, i) => ({ n: i + 41, q: 'Choose the best response to sentence ' + (i + 41) + '.', options: r.options, a: 0, cue: r.t, explain: r.explain })))],
+  });
+
+  TF.listening.push({
+    id: 'tf4-lc1', set: 4, task: 'conversation', title: 'Getting Feedback on a Résumé',
+    speakers: { S: { name: 'Student (Aisha)', accent: 'en-US', gender: 'f' }, C: { name: 'Career adviser', accent: 'en-GB', gender: 'm' } },
+    script: [
+      { say: 'Listen to a conversation between a student and a career adviser.' }, { pause: 1 },
+      { s: 'S', t: "Hi. I'm applying for a summer internship at an engineering firm, and I was hoping you could look at my résumé." },
+      { s: 'C', t: "Of course. Let's see… Well, the layout is clear, but it's three pages long. For an internship, one page is usually best. Recruiters often spend less than a minute on each résumé." },
+      { s: 'S', t: "Oh. I wasn't sure what to leave out." },
+      { s: 'C', t: "I'd start with the list of high school awards. They're impressive, but they're quite old now. Your university project on solar panels is much more relevant to an engineering firm, so give that more space." },
+      { s: 'S', t: "OK. Should I describe what I did on the project in detail?" },
+      { s: 'C', t: "Yes, but focus on results. Instead of writing that you 'worked on' the panels, say what you achieved – for example, that your design improved efficiency by twelve percent. Numbers catch a recruiter's eye." },
+      { s: 'S', t: "That makes sense. The deadline is next Friday. Could I bring you a new version on Wednesday?" },
+      { s: 'C', t: "Sure. Book a slot online, and I'll check it again before you send it." },
+    ],
+    groups: [mcq('Answer the questions about the conversation.', [
+      { n: 41, q: 'Why does the student visit the career adviser?', options: ['To get advice on her résumé for an internship', 'To find out which companies offer internships', 'To ask about a job at the career center', 'To prepare for an interview next Friday'], a: 0, cue: 'look at my résumé',
+        explain: "Aisha nói ngay từ đầu: cô nộp đơn thực tập mùa hè ở một công ty kỹ thuật và muốn cố vấn \"look at my résumé\" → xin góp ý cho bản lý lịch. Thứ Sáu tới là hạn nộp hồ sơ, không phải ngày phỏng vấn." },
+      { n: 42, q: 'What does the adviser say about the length of the résumé?', options: ['It should be reduced to one page.', 'It should include more pages about awards.', 'Three pages is the usual length.', 'Length does not matter to recruiters.'], a: 0, cue: 'one page is usually best',
+        explain: "Lý lịch dài ba trang, trong khi với hồ sơ thực tập \"one page is usually best\" vì nhà tuyển dụng chỉ đọc mỗi bản chưa tới một phút → nên rút xuống một trang." },
+      { n: 43, q: 'Why does the adviser suggest removing the high school awards?', options: ['They are less relevant than her recent project.', 'They are not impressive enough.', 'Recruiters do not trust awards.', 'They are already listed on another page.'], a: 0, cue: 'much more relevant',
+        explain: "Cố vấn nói các giải thưởng thời phổ thông \"impressive, but quite old\", còn dự án pin mặt trời ở đại học \"much more relevant to an engineering firm\" → nên bỏ giải thưởng cũ để nhường chỗ cho nội dung liên quan hơn. Ông không chê chúng kém ấn tượng." },
+      { n: 44, q: 'Why does the adviser mention "twelve percent"?', options: ['To give an example of describing a measurable result', 'To show how much the firm pays interns', 'To explain how recruiters score résumés', 'To describe the cost of solar panels'], a: 0, cue: 'improved efficiency by twelve percent',
+        explain: "Con số 12% là ví dụ minh họa cho lời khuyên \"focus on results\": thay vì viết chung chung \"worked on\", hãy nêu kết quả đo được vì \"Numbers catch a recruiter's eye\"." },
+    ])],
+  });
+  TF.listening.push({
+    id: 'tf4-lc2', set: 4, task: 'conversation', title: 'Changing a Research Paper Topic',
+    speakers: { S: { name: 'Student (Ben)', accent: 'en-GB', gender: 'm' }, P: { name: 'Professor', accent: 'en-US', gender: 'f' } },
+    script: [
+      { say: 'Listen to a conversation between a student and a professor during office hours.' }, { pause: 1 },
+      { s: 'S', t: "Professor Lin, do you have a minute? It's about my research paper on urban gardens." },
+      { s: 'P', t: "Sure, Ben. How's it going?" },
+      { s: 'S', t: "Not great, honestly. I wanted to interview people who run community gardens in the city, but most of them haven't replied to my emails. I'm thinking about changing my topic." },
+      { s: 'P', t: "I understand, but you've already done a lot of reading. Before you change everything, have you tried visiting a garden in person? Many of the volunteers are there on Saturday mornings, and people are often happier to talk face to face than to answer an email from a stranger." },
+      { s: 'S', t: "I hadn't thought of that. There's one near my apartment." },
+      { s: 'P', t: "Good. And if you still can't get enough interviews, you could use the city's survey of community gardens. It was published last year, and it's in the library database. That way your paper would be based on published data instead of interviews." },
+      { s: 'S', t: "That's a relief. So I don't have to start from scratch." },
+      { s: 'P', t: "Exactly. Just send me a short note next week to let me know which approach you're taking." },
+    ],
+    groups: [mcq('Answer the questions about the conversation.', [
+      { n: 45, q: 'What problem does the student have?', options: ['People he wants to interview have not responded.', 'He cannot find any reading about his topic.', 'He missed the deadline for his paper.', 'The community garden near him has closed.'], a: 0, cue: "haven't replied to my emails",
+        explain: "Ben muốn phỏng vấn người quản lý vườn cộng đồng nhưng \"most of them haven't replied to my emails\" → người cần phỏng vấn không phản hồi. Giáo sư còn nói cậu đã đọc tài liệu khá nhiều." },
+      { n: 46, q: 'Why does the professor suggest visiting a garden on Saturday morning?', options: ['People may be more willing to talk in person.', 'The gardens are closed on weekdays.', 'She will be there to help him.', 'Saturday is the only day volunteers are paid.'], a: 0, cue: 'face to face',
+        explain: "Tình nguyện viên thường có mặt sáng thứ Bảy và \"people are often happier to talk face to face than to answer an email from a stranger\" → gặp trực tiếp thì dễ được nhận lời hơn." },
+      { n: 47, q: 'What does the professor say about the city survey?', options: ['It could replace the interviews as a source of data.', 'It is too old to be useful.', 'It is not available to students.', 'It must be included in every research paper.'], a: 0, cue: 'based on published data',
+        explain: "Nếu vẫn không đủ người phỏng vấn, Ben có thể dùng khảo sát của thành phố (xuất bản năm ngoái, có trong cơ sở dữ liệu thư viện) để bài viết \"based on published data instead of interviews\" → thay thế cho phỏng vấn." },
+      { n: 48, q: 'What does the student mean when he says, "So I don\'t have to start from scratch"?', options: ['He is glad he can keep the work he has already done.', 'He wants to choose a completely new topic.', 'He thinks the paper will take longer than expected.', 'He has not started any reading yet.'], a: 0, cue: 'start from scratch',
+        explain: "\"start from scratch\" = làm lại từ đầu. Ben nhẹ nhõm (\"That's a relief\") vì không phải đổi đề tài, giữ được phần đã đọc và đã làm." },
+    ])],
+  });
+
+  TF.listening.push({
+    id: 'tf4-la1', set: 4, task: 'announcement', title: 'Fire Drill in the Residence Hall',
+    speakers: { A: { name: 'Residence hall director', accent: 'en-US', gender: 'f' } },
+    script: [
+      { say: 'Listen to an announcement in a university residence hall.' }, { pause: 1 },
+      { s: 'A', t: "Attention, residents. There will be a fire drill in this building tomorrow, Thursday, at some point between ten a.m. and noon. We don't announce the exact time, because the goal is to practise reacting to a real emergency." },
+      { s: 'A', t: "When the alarm sounds, leave your room immediately and use the stairs, not the elevators. Please don't stop to collect your belongings. Close your door behind you, since a closed door slows the spread of smoke." },
+      { s: 'A', t: "Once you're outside, go to the meeting point in the parking lot across the street and wait there until a staff member gives you permission to return. We'll take attendance, so please don't leave the area early." },
+    ],
+    groups: [mcq('Answer the questions about the announcement.', [
+      { n: 49, q: 'Why is the exact time of the drill not announced?', options: ['So that residents practise responding as in a real emergency', 'Because the staff have not decided on the time yet', 'Because the alarm system might not work', 'So that fewer residents leave the building'], a: 0, cue: 'practise reacting to a real emergency',
+        explain: "\"We don't announce the exact time, because the goal is to practise reacting to a real emergency\" → không báo giờ chính xác để cư dân tập phản ứng như khi có sự cố thật." },
+      { n: 50, q: 'Why should residents close their doors?', options: ['A closed door slows the spread of smoke.', 'It prevents things from being stolen.', 'Staff need to check which rooms are empty.', 'It keeps the stairs clear.'], a: 0, cue: 'slows the spread of smoke',
+        explain: "\"Close your door behind you, since a closed door slows the spread of smoke\" → đóng cửa để làm chậm khói lan." },
+      { n: 51, q: 'What must residents do at the meeting point?', options: ['Wait until a staff member allows them to go back', 'Collect their belongings from staff', 'Sign up for a fire safety course', 'Return to the building after ten minutes'], a: 0, cue: 'wait there until a staff member',
+        explain: "Tại điểm tập trung phải \"wait there until a staff member gives you permission to return\" và không rời đi sớm vì sẽ điểm danh." },
+    ])],
+  });
+  TF.listening.push({
+    id: 'tf4-la2', set: 4, task: 'announcement', title: 'Guest Lecture Moved',
+    speakers: { A: { name: 'Department assistant', accent: 'en-GB', gender: 'm' } },
+    script: [
+      { say: 'Listen to an announcement at the beginning of a class.' }, { pause: 1 },
+      { s: 'A', t: "Before your lecture starts, a quick update about Friday's guest talk by Dr. Emma Ruiz on ocean plastics. So many people have registered that we're moving it from Room 204 to the main auditorium in the Hartley Building. The time hasn't changed – it still starts at four." },
+      { s: 'A', t: "Students in this course will receive extra credit for attending, but only if you scan your student card at the entrance. Unfortunately, we can't add your name afterwards." },
+      { s: 'A', t: "The talk will also be recorded, and the video will be posted on the department website next week. However, watching the recording doesn't count for extra credit." },
+    ],
+    groups: [mcq('Answer the questions about the announcement.', [
+      { n: 52, q: 'Why has the guest lecture been moved?', options: ['More people signed up than the original room can hold.', 'Room 204 is being repaired.', 'The speaker asked for a larger screen.', 'The time of the lecture has changed.'], a: 0, cue: 'So many people have registered',
+        explain: "\"So many people have registered that we're moving it… to the main auditorium\" → số người đăng ký vượt sức chứa phòng cũ. Giờ bắt đầu không đổi, vẫn 4 giờ." },
+      { n: 53, q: 'What must students do to receive extra credit?', options: ['Scan their student card when they arrive', 'Register on the department website', 'Write a summary of the talk', 'Watch the recording next week'], a: 0, cue: 'scan your student card',
+        explain: "Được cộng điểm \"only if you scan your student card at the entrance\" và không thể bổ sung tên sau → phải quét thẻ khi vào cửa. Xem video ghi lại thì không được cộng điểm." },
+      { n: 54, q: 'What does the speaker imply about students who cannot attend on Friday?', options: ['They can watch the talk later but will not get extra credit.', 'They can attend a second talk next week.', 'They should ask Dr. Ruiz for her notes.', 'They will lose points in the course.'], a: 0, cue: 'recording doesn\'t count',
+        explain: "Câu suy luận: bài nói được ghi hình và đăng lên web tuần sau, nhưng \"watching the recording doesn't count for extra credit\" → người vắng mặt vẫn xem lại được nhưng không được cộng điểm. Không có thông tin bị trừ điểm." },
+    ])],
+  });
+
+  TF.listening.push({
+    id: 'tf4-lt1', set: 4, task: 'talk', title: 'Geology: How Limestone Caves Form',
+    speakers: { P: { name: 'Professor', accent: 'en-US', gender: 'f' } },
+    script: [
+      { say: 'Listen to part of a talk in a geology class.' }, { pause: 1 },
+      { s: 'P', t: "Last week we looked at how rivers shape valleys. Today we're going underground, to look at how most large caves form. And the surprising answer is that the main tool isn't rushing water cutting through rock. It's chemistry." },
+      { s: 'P', t: "Most of the world's large caves form in limestone, a rock made mainly of a mineral called calcite. Now, rainwater picks up a small amount of carbon dioxide from the air, and even more from the soil it passes through. That makes the water slightly acidic – it contains a weak acid called carbonic acid. When this water seeps into cracks in limestone, it slowly dissolves the calcite." },
+      { s: 'P', t: "Slowly is the key word. The cracks widen by perhaps a fraction of a millimeter a year. But over tens or hundreds of thousands of years, small cracks can become passages, and passages can become huge chambers." },
+      { s: 'P', t: "Interestingly, the same chemistry also works in reverse. When water containing dissolved calcite drips from a cave ceiling, it releases some of its carbon dioxide into the cave air. As a result, it can't hold as much calcite, so a tiny amount is left behind. Drop by drop, this builds up formations hanging from the ceiling, called stalactites. Where the drops land on the floor, formations called stalagmites grow upward." },
+      { s: 'P', t: "Because these formations grow in layers, a bit like tree rings, scientists can use them to study past climates. But please don't touch them if you visit a cave. Oils from human skin can stop the calcite from building up, and a formation that took thousands of years to grow can be damaged in seconds." },
+    ],
+    groups: [mcq('Answer the questions about the talk.', [
+      { n: 55, q: 'What is the talk mainly about?', options: ['The chemical processes that form limestone caves and their features', 'How rivers cut deep valleys through rock', 'Why limestone is used as a building material', 'How to explore caves safely'], a: 0, cue: "It's chemistry",
+        explain: "Câu hỏi ý chính: giáo sư giải thích hang lớn hình thành chủ yếu nhờ phản ứng hóa học (nước có tính axit hòa tan đá vôi) và cùng cơ chế đó tạo ra thạch nhũ, măng đá. Sông tạo thung lũng chỉ là bài tuần trước." },
+      { n: 56, q: 'Why is rainwater able to dissolve limestone?', options: ['It becomes slightly acidic after taking in carbon dioxide.', 'It flows very fast through underground passages.', 'It contains small pieces of sand that wear away rock.', 'It becomes warm deep underground.'], a: 0, cue: 'carbonic acid',
+        explain: "Nước mưa hấp thụ CO₂ từ không khí và nhất là từ đất, trở nên \"slightly acidic\" (chứa axit cacbonic yếu) nên hòa tan được canxit trong đá vôi. Giáo sư nhấn mạnh công cụ chính KHÔNG phải dòng nước chảy xiết." },
+      { n: 57, q: 'Why does the professor say "Slowly is the key word"?', options: ['To stress that caves take a very long time to form', 'To warn students to move carefully in caves', 'To explain why caves are usually small', 'To suggest that the process has recently stopped'], a: 0, cue: 'fraction of a millimeter a year',
+        explain: "Câu hỏi mục đích: sau câu này giáo sư nói khe nứt chỉ rộng thêm một phần nhỏ milimét mỗi năm, phải qua hàng chục, hàng trăm nghìn năm mới thành hang lớn → nhấn mạnh quá trình diễn ra rất lâu." },
+      { n: 58, q: 'According to the professor, how do stalactites form?', options: ['Dripping water loses carbon dioxide and leaves calcite behind.', 'Acid in the water cuts holes in the cave ceiling.', 'Pieces of the ceiling break off and harden.', 'Plants on the surface push roots into the cave.'], a: 0, cue: 'releases some of its carbon dioxide',
+        explain: "Nước nhỏ giọt từ trần hang \"releases some of its carbon dioxide\", không giữ được nhiều canxit nữa nên để lại một lượng nhỏ → tích tụ dần thành thạch nhũ treo trên trần. Đây là quá trình ngược với hòa tan." },
+      { n: 59, q: 'Why does the professor compare cave formations to tree rings?', options: ['Both grow in layers that record information about the past.', 'Both grow at exactly the same speed.', 'Both are made of the same material.', 'Both are damaged by carbon dioxide.'], a: 0, cue: 'grow in layers',
+        explain: "Măng đá, thạch nhũ \"grow in layers, a bit like tree rings\", nên các nhà khoa học dùng chúng để nghiên cứu khí hậu trong quá khứ → giống vòng gỗ ở chỗ phát triển theo lớp và lưu lại thông tin quá khứ." },
+      { n: 60, q: 'Why does the professor ask students not to touch cave formations?', options: ['Oil from skin can stop them from growing.', 'They may contain harmful acid.', 'They are often too sharp to touch safely.', 'Touching them is illegal in most countries.'], a: 0, cue: 'Oils from human skin',
+        explain: "\"Oils from human skin can stop the calcite from building up\" – dầu trên da ngăn canxit bám tiếp, nên một khối mất hàng nghìn năm để hình thành có thể bị hỏng trong vài giây." },
+    ])],
+  });
+  TF.listening.push({
+    id: 'tf4-lt2', set: 4, task: 'talk', title: 'History of Science: The Problem of Longitude',
+    speakers: { P: { name: 'Professor', accent: 'en-GB', gender: 'm' } },
+    script: [
+      { say: 'Listen to part of a talk in a history of science class.' }, { pause: 1 },
+      { s: 'P', t: "For centuries, sailors could find their latitude – how far north or south they were – fairly easily, by measuring the height of the sun or certain stars. But longitude, their east–west position, was a much harder problem, and mistakes could send a ship onto rocks." },
+      { s: 'P', t: "The basic idea was actually simple. The Earth turns 360 degrees in 24 hours, so every hour of time difference equals 15 degrees of longitude. If a sailor knew the local time on the ship, from the position of the sun, and also the time at home port, the difference would show how far east or west the ship had travelled." },
+      { s: 'P', t: "The difficulty was keeping the home-port time. Pendulum clocks, the most accurate clocks of the period, simply didn't work on a rolling ship. And changes in temperature and humidity made other clocks run fast or slow." },
+      { s: 'P', t: "In 1714, the British government offered a large prize for a practical solution. Many experts expected the answer to come from astronomy, by observing the moon's position against the stars. But a self-taught clockmaker named John Harrison spent decades building sea clocks that could keep time accurately despite the movement of the ship. His most successful design was surprisingly small – about the size of a large pocket watch." },
+      { s: 'P', t: "Harrison's clocks performed well in sea trials, but the officials who judged the prize were slow to accept a mechanical solution, and he received his money only in stages, late in his life. Eventually, though, marine clocks – called chronometers – became standard equipment on ships." },
+    ],
+    groups: [mcq('Answer the questions about the talk.', [
+      { n: 61, q: 'What is the main topic of the talk?', options: ['How sailors solved the problem of finding longitude at sea', 'Why pendulum clocks were invented', 'How sailors measured latitude using the stars', 'The history of the British navy'], a: 0, cue: 'longitude',
+        explain: "Câu hỏi ý chính: bài nói giải thích vì sao xác định kinh độ trên biển khó, nguyên lý dựa vào chênh lệch giờ, và chiếc đồng hồ đi biển của John Harrison đã giải quyết vấn đề ra sao. Vĩ độ chỉ được nhắc để so sánh." },
+      { n: 62, q: 'According to the professor, what does a time difference of one hour represent?', options: ['15 degrees of longitude', '24 degrees of longitude', '360 degrees of latitude', '1 degree of latitude'], a: 0, cue: '15 degrees of longitude',
+        explain: "Trái Đất quay 360 độ trong 24 giờ → 360 : 24 = 15, nên \"every hour of time difference equals 15 degrees of longitude\"." },
+      { n: 63, q: 'Why does the professor mention pendulum clocks?', options: ['To show why accurate timekeeping at sea was difficult', 'To explain how Harrison designed his first clock', 'To describe how astronomers observed the moon', 'To argue that they were more accurate than chronometers'], a: 0, cue: "didn't work on a rolling ship",
+        explain: "Câu hỏi mục đích: đồng hồ quả lắc là loại chính xác nhất thời đó nhưng \"didn't work on a rolling ship\" → minh họa vì sao giữ được giờ chính xác trên biển là việc rất khó." },
+      { n: 64, q: 'What can be inferred about the officials who judged the prize?', options: ['They had expected a solution based on astronomy.', 'They designed sea clocks themselves.', 'They paid Harrison the full prize immediately.', 'They did not believe longitude was important.'], a: 0, cue: 'slow to accept a mechanical solution',
+        explain: "Câu suy luận: nhiều chuyên gia \"expected the answer to come from astronomy\", và hội đồng \"slow to accept a mechanical solution\", chỉ trả tiền thưởng từng phần, muộn màng → suy ra họ đã kỳ vọng một giải pháp thiên văn học hơn là đồng hồ cơ." },
     ])],
   });
 

@@ -138,7 +138,8 @@
   "ex": "All applicants must send copies of their professional credentials."
  },
  "peacekeeping": {
-  "ex": "The organisation funds peacekeeping and humanitarian projects around the world."
+  "ex": "The organisation funds peacekeeping and humanitarian projects around the world.",
+  "def": "the work of keeping peace between groups or countries that have been in conflict"
  },
  "decimal": {
   "def": "a number expressed using a decimal point, such as 0.5 or 2.75",
@@ -166,5 +167,103 @@
  },
  "flotation": {
   "ex": "The company raised two million dollars through its stock market flotation."
+ },
+ "affiliate": {
+  "def": "to officially connect a smaller company or organisation with a larger one",
+  "ex": "The clinic is affiliated with the city hospital."
+ },
+ "capitalize": {
+  "def": "to use a situation to gain an advantage (capitalize on something)",
+  "ex": "The company capitalized on the growing demand for electric bikes."
+ },
+ "blend": {
+  "def": "to mix two or more things together",
+  "ex": "The new tea blends green tea with dried fruit."
+ },
+ "deprive": {
+  "def": "to take something important away from someone (deprive somebody of something)"
+ },
+ "fret": {
+  "def": "to worry about something, especially when it is not necessary",
+  "ex": "There is no need to fret about the interview; you are well prepared."
+ },
+ "intrigue": {
+  "def": "to make someone very interested or curious",
+  "ex": "The new product design intrigued many investors."
+ },
+ "launder": {
+  "def": "to hide the illegal origin of money by passing it through legal businesses or bank accounts"
+ },
+ "arbitrage": {
+  "def": "buying something in one market and selling it at a higher price in another market at the same time"
+ },
+ "convertible": {
+  "def": "able to be changed into another form, for example a bond that can be exchanged for shares"
+ },
+ "ambition": {
+  "def": "a strong wish to achieve success, power or a particular goal"
+ },
+ "trustee": {
+  "def": "a person or organisation that legally controls money or property for the benefit of someone else"
+ },
+ "sack": {
+  "def": "a large bag made of strong material, used for storing and carrying goods"
+ },
+ "installment": {
+  "def": "one of a series of regular payments that together pay for something"
+ },
+ "queue": {
+  "def": "a line of people or vehicles waiting for something"
+ },
+ "commander": {
+  "def": "a person who is in charge of a group, especially in the armed forces"
+ },
+ "liquidation": {
+  "def": "the process of closing a company and selling its assets to pay its debts"
+ },
+ "macroeconomics": {
+  "def": "the study of a whole economy, including total output, income, employment and prices"
+ },
+ "sacrifice": {
+  "def": "the act of giving up something valuable in order to get something more important"
+ },
+ "acre": {
+  "def": "a unit for measuring land, equal to about 4,047 square metres"
+ },
+ "shield": {
+  "def": "something that protects a person or thing from harm or danger"
+ },
+ "encyclopedia": {
+  "def": "a book or website with information on many subjects, usually arranged in alphabetical order"
+ },
+ "contemplate": {
+  "def": "to think carefully about something, especially a possible future action"
+ },
+ "prospectus": {
+  "def": "a document that gives details about a company, school or investment to people who may want to join or invest"
+ },
+ "tort": {
+  "def": "a wrong act, other than a breach of contract, for which someone can be sued in a civil court"
+ },
+ "succession": {
+  "def": "the process of one person taking over a position after another, or a number of things that follow each other"
+ },
+ "cotton": {
+  "def": "a soft white natural fibre from a plant, used to make cloth"
+ },
+ "helicopter": {
+  "def": "an aircraft with long blades on top that turn round, allowing it to rise straight up and stay in one place in the air"
+ },
+ "conspiracy": {
+  "def": "a secret plan by a group of people to do something illegal or harmful"
+ },
+ "census": {
+  "def": "an official count of the population of a country, with information about people's age, jobs, etc."
+ },
+ "disposition": {
+  "def": "a person's natural character; also the way something is arranged or dealt with"
+ },
+ "sensitivity": {
+  "def": "the ability to notice and react to small changes, or to understand other people's feelings"
  }
 }
