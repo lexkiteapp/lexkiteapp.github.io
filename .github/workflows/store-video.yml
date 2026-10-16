@@ -1,0 +1,32 @@
+# Video giới thiệu add-on (scripts/store-video.mjs) – quay add-on thật, ghép bằng ffmpeg → nhánh "store-video" (tải về để đăng YouTube).
+name: Video giới thiệu add-on
+on:
+  workflow_dispatch:
+    inputs:
+      langs: { description: 'Ngôn ngữ (cách nhau dấu phẩy)', default: 'en,vi' }
+  push:
+    branches: [main]
+    paths: ['.github/workflows/store-video.yml', 'scripts/store-video.mjs']
+permissions:
+  contents: write
+jobs:
+  video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Dựng video
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.50.1
+          npx playwright install --with-deps chromium
+          sudo apt-get install -y -qq ffmpeg fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core >/dev/null
+          bash scripts/build-extension.sh
+          for l in $(echo "${{ inputs.langs || 'en,vi' }}" | tr ',' ' '); do LANG_V=$l node scripts/store-video.mjs /tmp/store-video; done
+      - name: Lưu vào nhánh store-video
+        run: |
+          cd /tmp/store-video && git init -q && git checkout -q -b store-video
+          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
+          git add . && git commit -qm "Video giới thiệu $(date -u +%F)"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" store-video

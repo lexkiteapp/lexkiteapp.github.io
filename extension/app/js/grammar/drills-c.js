@@ -288,4 +288,50 @@
     ]
   };
   (g.GRAMMAR || []).forEach(l => { if (D[l.id]) l.drills = D[l.id]; });
+  /* Bổ sung tự luận C1 (tự biên soạn): nối thêm vào bài tập sẵn có của chương, không thay thế */
+  const X = {
+    'inversion-cleft': [
+      { t: 'rewrite', q: "I had never seen such a beautiful sunset before.", start: 'Never before', a: ['Never before had I seen such a beautiful sunset.'], ex: 'Never before đứng đầu câu → đảo trợ động từ had lên trước chủ ngữ: Never before had I seen…' },
+      { t: 'rewrite', q: "He didn't realise his mistake until he got home.", start: 'Not until', a: ['Not until he got home did he realise his mistake.'], ex: 'Not until + mệnh đề đứng đầu → mệnh đề chính đảo ngữ với did: did he realise.' },
+      { t: 'rewrite', q: 'The location of the hotel impressed us most.', start: 'What', a: ['What impressed us most was the location of the hotel.', 'What impressed us the most was the location of the hotel.'], ex: 'Câu chẻ với What: What + V + was + điều được nhấn mạnh.' },
+      { t: 'fill', q: 'Little ___ they know that the shop would close the next day.', a: ['did'], ex: 'Little (hầu như không) đứng đầu câu mang nghĩa phủ định → đảo ngữ với trợ động từ did.' },
+      { t: 'error', parts: ['Hardly', 'we had sat down', 'when the fire alarm', 'went off.'], w: 1, fix: 'had we sat down', ex: 'Hardly… when đứng đầu câu → phải đảo ngữ: Hardly had we sat down when…' },
+    ],
+    'subjunctive': [
+      { t: 'verb', q: 'The landlord demanded that the rent ___ on time every month. (pay – bị động)', a: ['be paid'], ex: 'demand that + S + be + V3 (thể giả định, bị động); không chia theo chủ ngữ.' },
+      { t: 'verb', q: 'It is crucial that every member ___ the safety rules. (follow)', a: ['follow'], ex: 'It is crucial that + S + V nguyên mẫu (thể giả định) → follow, không thêm -s.' },
+      { t: 'rewrite', q: 'If it were not for your support, I would give up.', start: 'Were it not', a: ['Were it not for your support, I would give up.'], ex: 'Đảo ngữ điều kiện loại 2: Were it not for + N = If it were not for + N.' },
+      { t: 'rewrite', q: '"You should apply early," the adviser said to us.', start: 'The adviser recommended that', a: ['The adviser recommended that we apply early.', 'The adviser recommended that we should apply early.'], ex: 'recommend that + S + (should) + V nguyên mẫu → that we apply early.' },
+      { t: 'error', parts: ['The committee insisted', 'that the report', 'is rewritten', 'before Friday.'], w: 2, fix: 'be rewritten', ex: 'insist that + S + be + V3 (thể giả định) → be rewritten, không dùng is.' },
+    ],
+    'hedging': [
+      { t: 'rewrite', q: 'Social media causes anxiety in teenagers.', start: 'Social media may', a: ['Social media may cause anxiety in teenagers.'], ex: 'Rào đón bằng động từ khuyết thiếu may + V nguyên mẫu để giảm mức khẳng định.' },
+      { t: 'rewrite', q: 'Perhaps the results are wrong.', start: 'The results appear', a: ['The results appear to be wrong.'], ex: 'appear + to be + tính từ (dường như…) là cách rào đón trang trọng.' },
+      { t: 'fill', q: 'The data ___ to suggest that older drivers are safer. (khuynh hướng)', a: ['tends', 'seems', 'appears'], ex: 'tend/seem/appear + to V để làm nhẹ mức khẳng định; chủ ngữ data (số ít) → thêm -s.' },
+      { t: 'fill', q: 'It is ___ that the new policy will reduce traffic. (có khả năng)', a: ['likely', 'possible', 'probable'], ex: 'It is likely/possible that… (có khả năng là…) – cách rào đón quen thuộc trong văn học thuật.' },
+      { t: 'error', parts: ['The evidence', 'proves', 'that exercise may', 'improve memory.'], w: 1, fix: 'suggests', ex: '"may" cho thấy kết luận còn dè dặt; "proves" khẳng định chắc chắn nên mâu thuẫn → suggests.' },
+    ],
+    'nominalisation': [
+      { t: 'form', q: 'The ___ of the new airport has created thousands of jobs. (CONSTRUCT)', a: ['construction'], ex: 'Sau The và trước of cần danh từ: construct → construction.' },
+      { t: 'form', q: 'There has been a sharp ___ in the cost of housing. (RISE)', a: ['rise', 'increase'], ex: 'a + tính từ + danh từ: a sharp rise (sự tăng mạnh) in…' },
+      { t: 'rewrite', q: 'Prices increased rapidly, so many families struggled.', start: 'The rapid', a: ['The rapid increase in prices caused many families to struggle.', 'The rapid increase in prices meant that many families struggled.', 'The rapid rise in prices caused many families to struggle.'], ex: 'Danh từ hóa: increased rapidly → the rapid increase in prices; nối kết quả bằng caused + O + to V.' },
+      { t: 'rewrite', q: 'The council decided to close the library, and residents were angry.', start: "The council's decision", a: ["The council's decision to close the library angered residents.", "The council's decision to close the library made residents angry."], ex: 'decided to → decision to + V; were angry → động từ angered/made… angry.' },
+      { t: 'error', parts: ['The analyse', 'of the data', 'took', 'three weeks.'], w: 0, fix: 'The analysis', ex: 'Sau The cần danh từ: analyse (động từ) → analysis.' },
+    ],
+    'alternatives-to-if': [
+      { t: 'rewrite', q: 'If you need more information, please contact us.', start: 'Should', a: ['Should you need more information, please contact us.'], ex: 'Đảo ngữ loại 1: Should + S + V = If + S + V.' },
+      { t: 'rewrite', q: 'If she had studied harder, she would have passed.', start: 'Had', a: ['Had she studied harder, she would have passed.'], ex: 'Đảo ngữ loại 3: Had + S + V3 = If + S + had V3.' },
+      { t: 'fill', q: 'You can use the car ___ long as you fill up the tank.', a: ['as', 'so'], ex: 'as long as / so long as = miễn là.' },
+      { t: 'fill', q: 'Take a map with you ___ case your phone battery runs out.', a: ['in'], ex: 'in case + mệnh đề = phòng khi.' },
+      { t: 'error', parts: ['Unless', "you don't book", 'in advance,', "you won't get a seat."], w: 1, fix: 'you book', ex: 'Unless đã mang nghĩa phủ định (= if… not) nên mệnh đề sau ở dạng khẳng định: Unless you book…' },
+    ],
+    'emphasis-variety': [
+      { t: 'rewrite', q: 'The noise kept me awake.', start: 'It was', a: ['It was the noise that kept me awake.'], ex: 'Câu chẻ It was + cụm danh từ + that + V để nhấn mạnh nguyên nhân.' },
+      { t: 'rewrite', q: 'We need more time.', start: 'What we need', a: ['What we need is more time.'], ex: 'Câu chẻ What-cleft: What + S + V + is + điều được nhấn mạnh.' },
+      { t: 'fill', q: 'She ___ finish the report on time, although nobody believed she would.', a: ['did'], ex: 'Trợ động từ nhấn mạnh did + V nguyên mẫu (thật sự đã…).' },
+      { t: 'fill', q: '___ was the demand that the shop ran out of stock in a day.', a: ['Such'], ex: 'Đảo ngữ nhấn mạnh Such + be + N + that… (… đến mức mà).' },
+      { t: 'error', parts: ['It was', 'in Hanoi', 'where', 'I first met her.'], w: 2, fix: 'that', ex: 'Câu chẻ nhấn mạnh trạng ngữ nơi chốn dùng It was + in Hanoi + that…; dạng chuẩn là that.' },
+    ],
+  };
+  (g.GRAMMAR || []).forEach(l => { if (X[l.id]) l.drills = (l.drills || []).concat(X[l.id]); });
 })(typeof self !== 'undefined' ? self : this);
