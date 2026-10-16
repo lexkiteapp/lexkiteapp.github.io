@@ -136,7 +136,7 @@ Tujuh langkah di atas bisa dikerjakan dengan kertas dan pulpen, tetapi memilih k
 
 ### Berapa banyak vocabulary IELTS yang sebaiknya dipelajari per hari?
 
-Untuk kebanyakan pelajar mandiri, 10–15 kata baru per hari sudah cukup, ditambah waktu untuk mengulang kata lama. Yang paling penting adalah konsistensi selama berbulan-bulan. Kalau jumlah kartu yang harus diulang setiap hari naik terlalu cepat, kurangi kata baru selama beberapa hari.
+Untuk kebanyakan pelajar mandiri, 10–15 kata baru per hari sudah cukup, ditambah waktu untuk mengulang kata lama. Porsi kosakata dalam rencana besarmu dibahas di panduan [belajar IELTS otodidak](/id/blog/belajar-ielts-otodidak/). Yang paling penting adalah konsistensi selama berbulan-bulan. Kalau jumlah kartu yang harus diulang setiap hari naik terlalu cepat, kurangi kata baru selama beberapa hari.
 
 ### Lebih baik belajar per topik atau dari daftar seperti AWL?
 
