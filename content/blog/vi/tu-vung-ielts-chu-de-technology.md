@@ -69,7 +69,7 @@ Câu mẫu: *Facial recognition cameras may reduce street crime, but they also r
 - **tech-savvy** – thạo công nghệ.
 - **cashless payment** – thanh toán không tiền mặt.
 
-Câu mẫu: *The digital divide means that elderly people in rural areas often struggle with services that have moved entirely online.*
+Câu mẫu: *The digital divide means that elderly people in rural areas often struggle with services that have moved entirely online.* Muốn nói sâu hơn về làm từ xa hay mất việc vì máy móc, xem [từ vựng chủ đề công việc](/vi/blog/tu-vung-ielts-chu-de-work/).
 
 ### 5. Thiết bị và đổi mới
 

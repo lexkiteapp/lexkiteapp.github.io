@@ -186,7 +186,7 @@ Soal yang salah sebaiknya masuk ke [Mistake log](/#/mistakes) supaya kamu mengul
 
 {{youtube: | Ide video: Present perfect atau simple past? Cara memilih lewat bingkai waktu terbuka dan tertutup, dengan contoh kalimat orang Indonesia}}
 
-Kata kerja yang tepat juga butuh kosakata yang tepat; panduan [cara belajar vocabulary IELTS](/id/blog/cara-belajar-vocabulary-ielts/) membantu kamu mencatat kata lengkap dengan bentuk dan collocation-nya.
+Kata kerja yang tepat juga butuh kosakata yang tepat; panduan [cara belajar vocabulary IELTS](/id/blog/cara-belajar-vocabulary-ielts/) membantu kamu mencatat kata lengkap dengan bentuk dan collocation-nya, sedangkan [gerund dan to infinitive](/id/blog/gerund-dan-to-infinitive/) menjelaskan bentuk kata kerja kedua setelah *enjoy*, *want*, atau *stop*.
 
 ## Pertanyaan yang sering diajukan
 

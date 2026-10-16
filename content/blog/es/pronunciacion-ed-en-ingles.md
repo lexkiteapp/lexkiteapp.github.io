@@ -105,7 +105,7 @@ Como *-ed* tras sonido sordo es simplemente /t/, aparecen homófonos que confund
 - *missed* = *mist* /mɪst/.
 - *allowed* = *aloud* /əˈlaʊd/.
 
-En el Listening de IELTS, escribir *past* cuando la respuesta es *passed* (o al revés) cuesta el punto. Tienes más estrategias de este tipo en nuestros [consejos para IELTS Listening](/es/blog/consejos-ielts-listening/).
+En el Listening de IELTS, escribir *past* cuando la respuesta es *passed* (o al revés) cuesta el punto. Tienes más estrategias de este tipo en nuestros [consejos para IELTS Listening](/es/blog/consejos-ielts-listening/), y un plan diario para entrenar el oído en [cómo mejorar el listening en inglés](/es/blog/como-mejorar-el-listening-en-ingles/).
 
 ### El enlace con la palabra siguiente
 
@@ -122,6 +122,8 @@ Leer la regla lleva cinco minutos; automatizarla, unas semanas. Este plan funcio
 5. **Lee en voz alta un texto en pasado.** Una noticia corta o tu propio diario de ayer. Subraya antes los *-ed* y marca encima /t/, /d/ o /ɪd/.
 
 Un consejo extra: no te limites a los verbos "fáciles". Los verbos típicos de examen como *increased* /ɪnˈkriːst/, *decreased* /dɪˈkriːst/ o *reached* /riːtʃt/ aparecen sin parar al describir gráficos en IELTS Writing Task 1, y conviene dominarlos para cualquier examen, incluido el [nuevo formato del TOEFL iBT 2026](/es/blog/nuevo-formato-toefl-ibt-2026/). Y cuidado con las palabras parecidas al español: *pretended* no es "pretendió", sino "fingió"; lo explicamos con más ejemplos en la lista de [falsos amigos inglés–español](/es/blog/falsos-amigos-ingles-espanol/).
+
+![Sección Writing Task 1 Academic de Lexkite con gráficos de líneas, barras, circulares, tablas y procesos, estructura en 4 párrafos, vocabulario para describir tendencias y modelos de banda 8](media:task1 "Al describir tendencias en Task 1 usarás verbos como increased o reached: buen momento para practicar sus finales")
 
 ### Practica en Lexkite
 
