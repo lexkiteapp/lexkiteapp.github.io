@@ -212,8 +212,8 @@
     handsfree: ['js/handsfree.js'],
     reflex: ['js/reflex.js'],
     handoff: ['js/lib/qr.js', 'js/handoff.js'], // 📲 chuyển dữ liệu bằng mã QR, không cần đăng nhập (mã hóa trên máy)
-    roleplay: ['js/roleplay/data-a.js', 'js/roleplay/data-b.js', 'js/roleplay.js'],
-    call: ['js/call/calls.js', 'js/call.js'], // Call Mia: cuộc gọi luyện nói có kịch bản // Roleplay for Work: 10 kịch bản công sở
+    roleplay: ['js/roleplay/data-a.js', 'js/roleplay/data-b.js', 'js/roleplay.js'], // Roleplay for Work: 10 kịch bản công sở
+    call: ['js/call/calls.js', 'js/call.js'], // Call Mia: cuộc gọi luyện nói có kịch bản
     courses: ['js/courses.js'],
     paraphrase: ['js/lib/paraphrase-data.js', 'js/paraphrase.js'],
     listening: ['js/qengine.js', ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => `js/listen/test${n}.js`), 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/listening.js'],
