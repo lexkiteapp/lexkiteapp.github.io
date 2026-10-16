@@ -38,9 +38,11 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with: { path: /tmp/store-video, pattern: 'video-*', merge-multiple: true }
-      - name: Lưu vào nhánh store-video
+      - name: Lưu vào nhánh store-video (giữ video ngôn ngữ khác đã có)
         run: |
-          cd /tmp/store-video && ls -la && git init -q && git checkout -q -b store-video
+          git clone -q --depth 1 -b store-video "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" /tmp/old 2>/dev/null || mkdir -p /tmp/old
+          mkdir -p /tmp/store-video && cp -n /tmp/old/*.mp4 /tmp/old/*.jpg /tmp/store-video/ 2>/dev/null || true
+          cd /tmp/store-video && ls -la && rm -rf .git && git init -q && git checkout -q -b store-video
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
           git add . && git commit -qm "Video giới thiệu $(date -u +%F)"
           git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" store-video

@@ -62,9 +62,10 @@ async function card(page, file, body) {
 const sceneBg = (i, url, extra = '') => { const [k, h, p] = T.s[i]; return `<div class="brand"><img src="${ICON}"><span>lex<b>kite</b></span></div><div class="txt"${LANG === 'ar' ? ' dir="rtl" style="text-align:right"' : ''}><span class="kick">${k}</span><h1>${h}</h1><p>${p}</p></div>${extra}<div class="win"><div class="bar"><span></span><span></span><span></span><div>🔒 ${url}</div></div></div>`; };
 
 // Ghép 1 cảnh: nền PNG + đoạn video [ss, ss+d] đặt vào khung, mờ dần đầu/cuối
-function compose(bg, vid, ss, d, out, box = WIN) {
+function compose(bg, vid, ss, d, out, box = WIN, vp = [VW, VH]) {
+  const [cw, ch] = [Math.min(VW, vp[0]), Math.min(VH, vp[1])]; // vùng trang thật ở góc trên-trái của bản ghi 1280×800
   ff(['-loop', '1', '-t', String(d), '-i', bg, '-ss', String(ss), '-t', String(d), '-i', vid, '-filter_complex',
-    `[1:v]scale=${box.w}:${box.h}:flags=lanczos,setsar=1[v];[0:v][v]overlay=${box.x}:${box.y}:shortest=1,fps=${FPS},format=yuv420p,fade=t=in:st=0:d=0.35,fade=t=out:st=${(d - 0.35).toFixed(2)}:d=0.35`,
+    `[1:v]crop=${cw}:${ch}:0:0,scale=${box.w}:${box.h}:force_original_aspect_ratio=increase:flags=lanczos,crop=${box.w}:${box.h}:0:0,setsar=1[v];[0:v][v]overlay=${box.x}:${box.y}:shortest=1,fps=${FPS},format=yuv420p,fade=t=in:st=0:d=0.35,fade=t=out:st=${(d - 0.35).toFixed(2)}:d=0.35`,
     '-r', String(FPS), '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-an', out]);
 }
 function still(png, d, out) { // 1 ảnh → d giây, phóng to chậm (zoompan trên 1 khung duy nhất, phóng 2× trước để không rung)
@@ -90,13 +91,16 @@ for (const p of ctx.pages()) if (p.url().startsWith(base)) await p.close().catch
 
 // Dữ liệu mẫu + làm nóng bộ đệm tra từ/dịch (cảnh quay không phải chờ mạng)
 const warm = await ctx.newPage();
-await warm.goto(base + `app/index.html?demo=1&hl=${LANG}#/home`, { waitUntil: 'domcontentloaded' }); await sleep(5000);
+try {
+await warm.goto(base + `app/index.html?demo=1&hl=${LANG}#/home`, { waitUntil: 'commit', timeout: 60000 }); await sleep(5000);
 await setSettings({ selectMode: 'off', markKnown: false, markAcademic: false });
-await warm.goto('https://news.example.com/a', { waitUntil: 'domcontentloaded' }); await sleep(2000); await warm.dblclick('#w'); await sleep(9000);
+await warm.goto('https://news.example.com/a', { waitUntil: 'commit', timeout: 60000 }); await sleep(2000); await warm.dblclick('#w'); await sleep(9000);
 await setSettings({ selectMode: 'auto' });
-await warm.goto('https://news.example.com/a', { waitUntil: 'domcontentloaded' }); await sleep(2000);
+await warm.goto('https://news.example.com/a', { waitUntil: 'commit', timeout: 60000 }); await sleep(2000);
 { const b = await warm.locator('#s').boundingBox(); await warm.mouse.move(b.x + 1, b.y + 8); await warm.mouse.down(); await warm.mouse.move(b.x + b.width - 2, b.y + b.height - 8, { steps: 10 }); await warm.mouse.up(); }
-await sleep(9000); await warm.close();
+await sleep(9000);
+} catch (e) { console.log('⚠ làm nóng lỗi (bỏ qua):', e.message.split('\n')[0]); }
+await warm.close().catch(() => {});
 const articleShot = path.join(TMP, 'article.png');
 
 const scenes = []; // { vid, ss, d, bg, box }
@@ -104,14 +108,15 @@ async function record(fn) {
   const page = await ctx.newPage(); const t0 = Date.now();
   const mark = () => (Date.now() - t0) / 1000;
   const r = await fn(page, mark);
+  const vp = await page.evaluate(() => [innerWidth, innerHeight]).catch(() => [VW, VH]);
   await page.close(); const vid = await page.video().path();
-  return { vid, ...r };
+  return { vid, vp, ...r };
 }
 
 // 1. Bấm đúp tra từ
 await setSettings({ selectMode: 'off' });
 scenes.push({ i: 0, url: 'dailyplanet.com/environment', ...await record(async (p, mark) => {
-  await p.goto('https://news.example.com/cities-forests', { waitUntil: 'domcontentloaded' }); await sleep(1800);
+  await p.goto('https://news.example.com/cities-forests', { waitUntil: 'commit', timeout: 60000 }); await sleep(1800);
   const ss = mark(); await p.mouse.move(300, 650); await sleep(300);
   const b = await p.locator('#w').boundingBox(); await p.mouse.move(b.x + b.width / 2, b.y + b.height / 2, { steps: 30 }); await sleep(350);
   await p.mouse.dblclick(b.x + b.width / 2, b.y + b.height / 2); await sleep(4200);
@@ -122,7 +127,7 @@ scenes.push({ i: 0, url: 'dailyplanet.com/environment', ...await record(async (p
 // 2. Bôi đen câu → dịch + cấu trúc
 await setSettings({ selectMode: 'auto' });
 scenes.push({ i: 1, url: 'dailyplanet.com/environment', ...await record(async (p, mark) => {
-  await p.goto('https://news.example.com/cities-forests', { waitUntil: 'domcontentloaded' }); await sleep(1800);
+  await p.goto('https://news.example.com/cities-forests', { waitUntil: 'commit', timeout: 60000 }); await sleep(1800);
   const ss = mark(); const b = await p.locator('#s').boundingBox();
   await p.mouse.move(200, 700); await p.mouse.move(b.x + 1, b.y + 9, { steps: 25 }); await sleep(250);
   await p.mouse.down(); await p.mouse.move(b.x + b.width - 2, b.y + b.height - 9, { steps: 45 }); await p.mouse.up();
@@ -133,16 +138,16 @@ scenes.push({ i: 1, url: 'dailyplanet.com/environment', ...await record(async (p
 const popCtxPage = async () => { const p = await ctx.newPage(); await p.setViewportSize({ width: 380, height: 600 }); return p; };
 {
   const page = await popCtxPage(); const t0 = Date.now(); const mark = () => (Date.now() - t0) / 1000;
-  await page.goto(base + 'popup.html', { waitUntil: 'domcontentloaded' }); await sleep(1800);
+  await page.goto(base + 'popup.html', { waitUntil: 'commit', timeout: 60000 }); await sleep(1800);
   const ss = mark(); await page.mouse.move(330, 560); await sleep(300);
   const q = page.locator('#qCard'); if (await q.count()) { const b = await q.boundingBox(); await page.mouse.move(b.x + b.width / 2, b.y + b.height / 2, { steps: 25 }); await sleep(400); await page.mouse.click(b.x + b.width / 2, b.y + b.height / 2); await sleep(1600); }
   const r = page.locator('#review'); { const b = await r.boundingBox(); await page.mouse.move(b.x + b.width / 2, b.y + b.height / 2, { steps: 20 }); } await sleep(1500);
-  const d = +(mark() - ss).toFixed(2); await page.close();
-  scenes.push({ i: 2, popup: true, vid: await page.video().path(), ss, d });
+  const d = +(mark() - ss).toFixed(2); const vp = await page.evaluate(() => [innerWidth, innerHeight]).catch(() => [380, 600]); await page.close();
+  scenes.push({ i: 2, popup: true, vid: await page.video().path(), ss, d, vp });
 }
 // 4. Tab mới: lật thẻ → "Đã nhớ"
 scenes.push({ i: 3, url: 'New Tab', ...await record(async (p, mark) => {
-  await p.goto(base + 'newtab.html', { waitUntil: 'domcontentloaded' }); await sleep(1800);
+  await p.goto(base + 'newtab.html', { waitUntil: 'commit', timeout: 60000 }); await sleep(1800);
   const ss = mark(); await p.mouse.move(640, 760); await sleep(300);
   const g = p.locator('#ntGood'); if (await g.isVisible()) { const b = await g.boundingBox(); await p.mouse.move(b.x + b.width / 2, b.y + b.height / 2, { steps: 30 }); await sleep(500); await p.mouse.click(b.x + b.width / 2, b.y + b.height / 2); }
   await sleep(2600);
@@ -150,7 +155,7 @@ scenes.push({ i: 3, url: 'New Tab', ...await record(async (p, mark) => {
 }) });
 // 5. Ứng dụng học: trang chủ, cuộn nhẹ
 scenes.push({ i: 4, url: 'Lexkite', ...await record(async (p, mark) => {
-  await p.goto(base + `app/index.html?hl=${LANG}#/home`, { waitUntil: 'domcontentloaded' }); await sleep(3000);
+  await p.goto(base + `app/index.html?hl=${LANG}#/home`, { waitUntil: 'commit', timeout: 60000 }); await sleep(3000);
   const ss = mark(); await p.mouse.move(700, 500, { steps: 20 }); await sleep(600);
   for (let k = 0; k < 8; k++) { await p.mouse.wheel(0, 70); await sleep(180); } await sleep(1600);
   return { ss, d: +(mark() - ss).toFixed(2) };
@@ -170,10 +175,10 @@ for (const [k, s] of scenes.entries()) {
     const extra = `<div style="position:absolute;left:720px;top:190px;width:1080px;border-radius:16px;overflow:hidden;opacity:.5;filter:blur(2px)"><img style="display:block;width:100%" src="data:image/png;base64,${artB64}"></div>`;
     const [kk, h, p] = T.s[s.i];
     await card(cp, bg, `<div class="brand"><img src="${ICON}"><span>lex<b>kite</b></span></div><div class="txt"${LANG === 'ar' ? ' dir="rtl" style="text-align:right"' : ''}><span class="kick">${kk}</span><h1>${h}</h1><p>${p}</p></div>${extra}<div style="position:absolute;left:1070px;top:120px;width:456px;height:720px;border-radius:20px;box-shadow:0 50px 110px rgba(0,0,0,.55);background:#fff"></div>`);
-    compose(bg, s.vid, s.ss, s.d, path.join(TMP, `p${k + 1}.mp4`), { x: 1070, y: 120, w: 456, h: 720 });
+    compose(bg, s.vid, s.ss, s.d, path.join(TMP, `p${k + 1}.mp4`), { x: 1070, y: 120, w: 456, h: 720 }, s.vp);
   } else {
     await card(cp, bg, sceneBg(s.i, s.url));
-    compose(bg, s.vid, s.ss, s.d, path.join(TMP, `p${k + 1}.mp4`));
+    compose(bg, s.vid, s.ss, s.d, path.join(TMP, `p${k + 1}.mp4`), WIN, s.vp);
   }
   parts.push(`p${k + 1}.mp4`);
 }
