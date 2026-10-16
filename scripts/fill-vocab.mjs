@@ -1,11 +1,12 @@
 // Bổ sung phiên âm (IPA, ưu tiên giọng Anh–Anh) và câu ví dụ còn trống trong kho từ (web/js/lib/*.js, web/js/data.js).
-//   node scripts/fill-vocab.mjs [--max N] [--no-net]   (mặc định 1500 từ tra mạng/lần, có lưu đệm content/wordlists/fill.cache.json)
+//   node scripts/fill-vocab.mjs [--max N] [--minutes M] [--no-net]   (mặc định 1500 từ tra mạng/lần, có lưu đệm content/wordlists/fill.cache.json)
 // Nguồn theo thứ tự: mục cùng từ đã có trong app → bộ đệm wordlist → Wiktionary (CC BY-SA, giọng RP/UK) → Free Dictionary API (Wiktionary, CC BY-SA)
 //   → ví dụ dự phòng Tatoeba (CC BY 2.0 FR). Kiểm tra: ví dụ phải chứa đúng từ, 5–18 từ, chỉ ký tự Latin, không tên riêng lạ, kết thúc bằng dấu câu.
 // Ví dụ chỉ tự điền cho từ thông dụng (NGSL): từ chuyên ngành/chủ đề cần câu đúng ngữ cảnh → biên soạn tay. Chỉ sửa đúng ô trống trên dòng đó; mục không tìm được nguồn đạt chuẩn để trống (content-check báo cảnh báo).
 import fs from 'node:fs'; import path from 'node:path';
 import { loadContent, ROOT } from './lib/content-load.mjs';
 const A = process.argv.slice(2), mi = A.indexOf('--max'), MAX = mi >= 0 ? +A[mi + 1] : 1500, NET = !A.includes('--no-net');
+const mm = A.indexOf('--minutes'), DEADLINE = Date.now() + (mm >= 0 ? +A[mm + 1] : 1e6) * 60000; // ngân sách thời gian (CI): hết giờ thì dừng tra, vẫn ghi phần đã có
 const CP = path.join(ROOT, 'content/wordlists/fill.cache.json');
 const cache = fs.existsSync(CP) ? JSON.parse(fs.readFileSync(CP, 'utf8')) : {};
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -40,7 +41,7 @@ for (const [k, x] of todo) {
   if (HETERO.has(k)) x.ipa = false;
   if (x.ipa && !c.ipa && have.ipa.has(k)) c.ipa = have.ipa.get(k);
   if (x.ipa && !c.ipa && /\s/.test(k)) { const parts = k.split(/\s+/).map(p => have.ipa.get(p) || cache[p]?.ipa); if (parts.every(Boolean)) c.ipa = '/' + parts.map(p => p.replace(/^\/|\/$/g, '')).join(' ') + '/'; }
-  if (!NET || net >= MAX || /\s/.test(k) && !x.ex) continue;
+  if (!NET || net >= MAX || Date.now() > DEADLINE || /\s/.test(k) && !x.ex) continue;
   const needIpa = x.ipa && !c.ipa && !c.ipaTried, needEx = x.ex && !c.exs && !c.exTried;
   if (!needIpa && !needEx) continue;
   net++;
