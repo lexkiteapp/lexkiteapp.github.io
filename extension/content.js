@@ -408,7 +408,9 @@
           <button class="x" id="close" title="${tx('Đóng (Esc)')}">×</button>
         </div>`);
       const img = b.querySelector('.pic img');
-      if (img) img.onerror = () => { const p = img.parentElement; if (e.emoji) p.textContent = e.emoji; else { p.className = 'pic ltr'; p.textContent = (e.word || '?').charAt(0); } };
+      // Ảnh bị chặn bởi CSP của trang (vd. google.com chỉ cho ảnh cùng tên miền) → nhờ service worker tải rồi gắn dạng data: URL; vẫn lỗi → chữ cái/emoji
+      const noPic = () => { const p = img.parentElement; if (!p) return; if (e.emoji) p.textContent = e.emoji; else { p.className = 'pic ltr'; p.textContent = (e.word || '?').charAt(0); } };
+      if (img) img.onerror = () => { if (img.dataset.retried || /^data:/.test(img.src)) return noPic(); img.dataset.retried = 1; chrome.runtime.sendMessage({ type: 'imgData', url: e.image }).then(r => { if (r && r.data) img.src = r.data; else noPic(); }).catch(noPic); };
       b.querySelectorAll('.spk[data-acc]').forEach(x => x.onclick = () => sayWord(x.dataset.acc));
       b.querySelector('.spk[data-slow]').onclick = () => sayWord(accent, 0.55);
       b.querySelectorAll('.spk[data-text]').forEach(x => x.onclick = () => speak(x.dataset.text, '', accent, +(x.dataset.rate || 0.95)));

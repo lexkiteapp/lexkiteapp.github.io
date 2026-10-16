@@ -38,11 +38,11 @@
     groups: [
       { type: 'form', title: 'Spokes and Sprockets – Workshop booking', instr: 'Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.', limit: 2,
         items: [
-          { n: 1, text: 'Name: Hannah ___', a: ['Whitlock'], cue: 'W, H, I, T, L, O, C, K', explain: 'Họ được đánh vần W-H-I-T-L-O-C-K.' },
-          { n: 2, text: 'Phone: 07945 318 ___', a: ['662'], cue: "It's 07945 318 662.", explain: 'Ba số cuối của số điện thoại là 662.' },
+          { n: 1, text: 'Name: Hannah ___', a: ['Whitlock'], cue: 'W, H, I, T, L, O, C, K', explain: 'Họ được đánh vần W-H-I-T-L-O-C-K. Câu nghe được: “W, H, I, T, L, O, C, K.”' },
+          { n: 2, text: 'Phone: 07945 318 ___', a: ['662'], cue: "It's 07945 318 662.", explain: "Ba số cuối của số điện thoại là 662. Câu nghe được: “It's 07945 318 662.”" },
           { n: 3, text: 'Course level: ___', a: ['beginners', "beginners'", 'beginner'], cue: "I think I'd better start with the beginners' course.", explain: 'Bẫy: khóa nâng cao (advanced) về líp và phanh; chị ấy chỉ biết vá săm nên chọn khóa cơ bản.' },
           { n: 4, text: 'Day: ___ mornings', a: ['Saturday', 'Saturdays'], cue: 'So Saturday, please.', explain: 'Tối thứ Ba không được vì chị ấy làm muộn.' },
-          { n: 5, text: 'Start date: ___ April', a: ['12', '12th', 'twelfth'], cue: 'The next one starts on the 12th of April', explain: 'Khóa học bắt đầu ngày 12 tháng 4 và kéo dài bốn tuần.' },
+          { n: 5, text: 'Start date: ___ April', a: ['12', '12th', 'twelfth'], cue: 'The next one starts on the 12th of April', explain: 'Khóa học bắt đầu ngày 12 tháng 4 và kéo dài bốn tuần. Câu nghe được: “The next one starts on the 12th of April.”' },
           { n: 6, text: 'Bike to bring: ___ bike', a: ['road'], cue: "That's the road bike, then.", explain: 'Xe địa hình (mountain bike) đã cũ; xe đạp đường trường được dùng đi làm hằng ngày.' },
         ] },
       { type: 'note', title: 'Other information', instr: 'Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.', limit: 2,
@@ -95,7 +95,7 @@
     groups: [
       { type: 'mcq', instr: 'Choose the correct letter, A, B or C.',
         items: [
-          { n: 11, q: 'Harbour FM originally started as', options: ['a student project.', 'a council service.', 'a business venture.'], a: 0, cue: 'Harbour FM began as a student project in a garage', explain: 'Đài khởi đầu là một dự án sinh viên trong ga-ra, chỉ phát hai giờ mỗi tuần.' },
+          { n: 11, q: 'Harbour FM originally started as', options: ['a student project.', 'a council service.', 'a business venture.'], a: 0, cue: 'Harbour FM began as a student project in a garage', explain: 'Đài khởi đầu là một dự án sinh viên trong ga-ra, chỉ phát hai giờ mỗi tuần. Câu nghe được: “Harbour FM began as a student project in a garage.”' },
           { n: 12, q: 'Most of the station’s money comes from', options: ['advertising by large companies.', 'a grant from the town council.', 'sponsorship by local businesses.'], a: 1, cue: 'Most of our money comes from a grant from the town council', explain: 'Không có quảng cáo của công ty lớn; doanh nghiệp địa phương chỉ đóng góp phần còn lại.' },
           { n: 13, q: 'How long is the training period?', options: ['two weeks', 'six weeks', 'eighteen weeks'], a: 1, cue: 'That lasts six weeks, with one evening session a week', explain: '“Two” là số giờ phát sóng ban đầu; “eighteen” là số giờ phát mỗi ngày hiện nay.' },
           { n: 14, q: 'Most new volunteers begin by', options: ['presenting their own show.', 'reading the news.', 'working as a producer.'], a: 2, cue: 'usually as a producer, finding guests and checking facts', explain: 'Người mới thường giúp chương trình có sẵn với vai trò sản xuất, chưa có chương trình riêng.' },
@@ -104,10 +104,10 @@
       { type: 'match', instr: 'Where is each room? Choose FIVE answers from the box and write the correct letter, A–G, next to questions 16–20.',
         options: ['A opposite reception', 'B first door on the right in the left corridor', 'C at the end of the left corridor', 'D to the right of reception, next to the stairs', 'E at the top of the stairs', 'F between the newsroom and the fire exit', 'G beside the main entrance'],
         items: [
-          { n: 16, text: 'Studio One', a: 'A', cue: 'Directly opposite reception is Studio One.', explain: 'Studio One nằm đối diện quầy lễ tân, có đèn đỏ trên cửa.' },
-          { n: 17, text: 'Music library', a: 'B', cue: 'the first door on your right is the music library', explain: 'Hành lang bên trái lễ tân, cửa đầu tiên bên phải.' },
+          { n: 16, text: 'Studio One', a: 'A', cue: 'Directly opposite reception is Studio One.', explain: 'Studio One nằm đối diện quầy lễ tân, có đèn đỏ trên cửa. Câu nghe được: “Directly opposite reception is Studio One.”' },
+          { n: 17, text: 'Music library', a: 'B', cue: 'the first door on your right is the music library', explain: 'Hành lang bên trái lễ tân, cửa đầu tiên bên phải. Câu nghe được: “the first door on your right is the music library.”' },
           { n: 18, text: 'Studio Two', a: 'C', cue: 'At the end of that same corridor is Studio Two', explain: 'Cuối hành lang bên trái; dùng để thu âm, không phát trực tiếp.' },
-          { n: 19, text: 'Newsroom', a: 'D', cue: 'The newsroom is on the other side of reception, to the right, next to the stairs.', explain: 'Phía bên phải lễ tân, cạnh cầu thang.' },
+          { n: 19, text: 'Newsroom', a: 'D', cue: 'The newsroom is on the other side of reception, to the right, next to the stairs.', explain: 'Phía bên phải lễ tân, cạnh cầu thang. Câu nghe được: “The newsroom is on the other side of reception, to the right, next to the stairs.”' },
           { n: 20, text: 'Kitchen', a: 'F', cue: "It's the room between the newsroom and the fire exit.", explain: 'Bẫy: phòng đào tạo (training room) ở đầu cầu thang (E); bếp nằm giữa phòng tin tức và lối thoát hiểm.' },
         ] },
     ],
@@ -226,16 +226,16 @@
     groups: [
       { type: 'note', title: 'The printing press', instr: 'Complete the notes below. Write ONE WORD ONLY for each answer.', limit: 1,
         items: [
-          { n: 31, text: 'Before printing, books were copied by hand, mainly by ___', a: ['monks'], cue: 'mostly by monks', explain: 'Trước khi có máy in, sách chủ yếu do các tu sĩ chép tay.' },
-          { n: 32, text: 'In China and Korea, early printing used carved ___ blocks', a: ['wooden', 'wood'], cue: 'printing from carved wooden blocks for centuries', explain: 'Trung Quốc và Hàn Quốc in bằng khuôn gỗ khắc từ nhiều thế kỷ trước.' },
-          { n: 33, text: 'Gutenberg’s press was adapted from a ___ press', a: ['wine'], cue: 'the wine press, which was used to squeeze grapes', explain: 'Máy in được cải tiến từ máy ép nho làm rượu vang.' },
-          { n: 34, text: 'A hand ___ allowed letters to be cast quickly from metal', a: ['mould', 'mold'], cue: 'a hand mould that allowed individual letters to be cast quickly', explain: 'Khuôn đúc cầm tay giúp đúc nhanh từng con chữ kim loại giống hệt nhau.' },
-          { n: 35, text: 'He developed an ink based on ___', a: ['oil'], cue: 'he developed an ink based on oil', explain: 'Mực gốc nước của người chép sách trôi khỏi chữ kim loại, nên ông dùng mực gốc dầu.' },
+          { n: 31, text: 'Before printing, books were copied by hand, mainly by ___', a: ['monks'], cue: 'mostly by monks', explain: 'Trước khi có máy in, sách chủ yếu do các tu sĩ chép tay. Câu nghe được: “mostly by monks.”' },
+          { n: 32, text: 'In China and Korea, early printing used carved ___ blocks', a: ['wooden', 'wood'], cue: 'printing from carved wooden blocks for centuries', explain: 'Trung Quốc và Hàn Quốc in bằng khuôn gỗ khắc từ nhiều thế kỷ trước. Câu nghe được: “printing from carved wooden blocks for centuries.”' },
+          { n: 33, text: 'Gutenberg’s press was adapted from a ___ press', a: ['wine'], cue: 'the wine press, which was used to squeeze grapes', explain: 'Máy in được cải tiến từ máy ép nho làm rượu vang. Câu nghe được: “the wine press, which was used to squeeze grapes.”' },
+          { n: 34, text: 'A hand ___ allowed letters to be cast quickly from metal', a: ['mould', 'mold'], cue: 'a hand mould that allowed individual letters to be cast quickly', explain: 'Khuôn đúc cầm tay giúp đúc nhanh từng con chữ kim loại giống hệt nhau. Câu nghe được: “a hand mould that allowed individual letters to be cast quickly.”' },
+          { n: 35, text: 'He developed an ink based on ___', a: ['oil'], cue: 'he developed an ink based on oil', explain: 'Mực gốc nước của người chép sách trôi khỏi chữ kim loại, nên ông dùng mực gốc dầu. Câu nghe được: “he developed an ink based on oil.”' },
           { n: 36, text: 'The greatest cost for early printers was ___', a: ['paper'], cue: 'The greatest cost was paper', explain: 'Bẫy: máy in không phải chi phí chính; giấy có thể chiếm nửa giá sách.' },
-          { n: 37, text: 'Printing led to the standardisation of ___', a: ['language', 'spelling'], cue: 'One was the standardisation of language.', explain: 'Thợ in cần cách viết thống nhất, dần dần trở thành chuẩn chính tả.' },
-          { n: 38, text: 'Scientists could share accurate ___', a: ['diagrams'], cue: 'including accurate diagrams', explain: 'Hình vẽ thường bị méo khi chép tay; bản in giống hệt nhau giúp chia sẻ chính xác.' },
-          { n: 39, text: 'Authorities introduced ___ to control printed ideas', a: ['censorship'], cue: 'many introduced censorship', explain: 'Chính quyền và tôn giáo áp dụng kiểm duyệt, buộc thợ in xin phép trước khi xuất bản.' },
-          { n: 40, text: 'The most lasting effect was on ___', a: ['literacy'], cue: 'the most lasting effect, however, was on literacy', explain: 'Sách rẻ hơn khiến nhiều người học đọc; đọc trở thành hoạt động riêng tư.' },
+          { n: 37, text: 'Printing led to the standardisation of ___', a: ['language', 'spelling'], cue: 'One was the standardisation of language.', explain: 'Thợ in cần cách viết thống nhất, dần dần trở thành chuẩn chính tả. Câu nghe được: “One was the standardisation of language.”' },
+          { n: 38, text: 'Scientists could share accurate ___', a: ['diagrams'], cue: 'including accurate diagrams', explain: 'Hình vẽ thường bị méo khi chép tay; bản in giống hệt nhau giúp chia sẻ chính xác. Câu nghe được: “including accurate diagrams.”' },
+          { n: 39, text: 'Authorities introduced ___ to control printed ideas', a: ['censorship'], cue: 'many introduced censorship', explain: 'Chính quyền và tôn giáo áp dụng kiểm duyệt, buộc thợ in xin phép trước khi xuất bản. Câu nghe được: “many introduced censorship.”' },
+          { n: 40, text: 'The most lasting effect was on ___', a: ['literacy'], cue: 'the most lasting effect, however, was on literacy', explain: 'Sách rẻ hơn khiến nhiều người học đọc; đọc trở thành hoạt động riêng tư. Câu nghe được: “the most lasting effect, however, was on literacy.”' },
         ] },
     ],
     vocab: [

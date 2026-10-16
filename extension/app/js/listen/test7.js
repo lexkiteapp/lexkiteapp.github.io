@@ -48,9 +48,9 @@
     groups: [
       { type: 'form', title: 'Millbrook Allotment Society – New member', instr: 'Complete the form below. Write ONE WORD AND/OR A NUMBER for each answer.', limit: 2,
         items: [
-          { n: 1, text: 'Name: Marta ___', a: ['Delaney'], cue: 'D, E, L, A, N, E, Y', explain: 'Tên được đánh vần D-E-L-A-N-E-Y; cần chép đúng chính tả.' },
+          { n: 1, text: 'Name: Marta ___', a: ['Delaney'], cue: 'D, E, L, A, N, E, Y', explain: 'Tên được đánh vần D-E-L-A-N-E-Y; cần chép đúng chính tả. Câu nghe được: “D, E, L, A, N, E, Y.”' },
           { n: 2, text: 'Address: Flat 3, ___ Court', a: ['Rosewood'], cue: "It's Flat 3, Rosewood Court.", explain: 'Station Road chỉ là đường ở góc phố – bẫy gây nhiễu.' },
-          { n: 3, text: 'Postcode: ___', a: ['BR7 4QN', 'BR74QN'], cue: 'B, R, 7, 4, Q, N.', explain: 'Mã bưu chính được đọc từng ký tự: B-R-7-4-Q-N.' },
+          { n: 3, text: 'Postcode: ___', a: ['BR7 4QN', 'BR74QN'], cue: 'B, R, 7, 4, Q, N.', explain: 'Mã bưu chính được đọc từng ký tự: B-R-7-4-Q-N. Câu nghe được: “B, R, 7, 4, Q, N.”' },
           { n: 4, text: 'Size of plot: ___ plot', a: ['half'], cue: "I'll take a half plot", explain: 'Ban đầu muốn mảnh nguyên (full) nhưng phải chờ 2 năm nên đổi sang nửa mảnh (half).' },
           { n: 5, text: 'Plot number: ___', a: ['23', 'twenty-three', 'twenty three'], cue: 'The free one is plot twenty-three.', explain: 'Số 32 bị đính chính – mảnh 32 đã có người thuê; mảnh còn trống là 23.' },
           { n: 6, text: 'Previous experience: has grown ___ on balcony', a: ['tomatoes'], cue: "I've grown tomatoes for the last three summers", explain: 'Ớt (peppers) chỉ trồng một lần và thất bại; cà chua mới là kinh nghiệm thực sự.' },
@@ -124,7 +124,7 @@
         items: [
           { n: 16, text: 'gorge walking', a: 'F', cue: "you'll need to bring spare clothes to change into afterwards", explain: 'Không cần biết bơi; điểm cần nhớ là mang quần áo dự phòng vì sẽ bị ướt sũng.' },
           { n: 17, text: 'kayaking', a: 'B', cue: 'anyone kayaking must be able to swim fifty metres', explain: 'Trước đây chỉ có buổi sáng (D) – nay đã chạy cả ngày; yêu cầu là bơi được 50 m.' },
-          { n: 18, text: 'rock climbing', a: 'G', cue: 'if it rains heavily the session is cancelled', explain: 'Đá trơn khi mưa to nên buổi leo bị hủy.' },
+          { n: 18, text: 'rock climbing', a: 'G', cue: 'if it rains heavily the session is cancelled', explain: 'Đá trơn khi mưa to nên buổi leo bị hủy. Câu nghe được: “if it rains heavily the session is cancelled.”' },
           { n: 19, text: 'mountain biking', a: 'E', cue: 'Bike hire is an extra fifteen pounds a day.', explain: 'Hoạt động duy nhất không nằm trong gói – thuê xe thêm 15 bảng/ngày.' },
           { n: 20, text: 'orienteering', a: 'A', cue: "It's ideal for complete beginners", explain: 'Cắm trại qua đêm (C) đã bỏ từ vài năm trước; hoạt động này phù hợp người mới hoàn toàn.' },
         ] },
@@ -261,16 +261,16 @@
     groups: [
       { type: 'note', title: 'Mangrove forests', instr: 'Complete the notes below. Write ONE WORD ONLY for each answer.', limit: 1,
         items: [
-          { n: 31, text: 'Grow in the ___ zone, covered by the sea at high tide', a: ['intertidal'], cue: 'They occupy what we call the intertidal zone', explain: 'Vùng gian triều – bị nước biển phủ khi triều lên và lộ ra khi triều xuống.' },
-          { n: 32, text: 'Some roots filter out ___ from seawater', a: ['salt'], cue: 'have roots that filter out salt', explain: 'Rễ lọc muối trước khi nước vào cây.' },
+          { n: 31, text: 'Grow in the ___ zone, covered by the sea at high tide', a: ['intertidal'], cue: 'They occupy what we call the intertidal zone', explain: 'Vùng gian triều – bị nước biển phủ khi triều lên và lộ ra khi triều xuống. Câu nghe được: “They occupy what we call the intertidal zone.”' },
+          { n: 32, text: 'Some roots filter out ___ from seawater', a: ['salt'], cue: 'have roots that filter out salt', explain: 'Rễ lọc muối trước khi nước vào cây. Câu nghe được: “have roots that filter out salt.”' },
           { n: 33, text: 'Vertical roots allow the tree to take in ___', a: ['oxygen', 'air'], cue: 'These allow the tree to take in oxygen.', explain: 'Bùn gần như không có không khí nên rễ thở mọc thẳng lên để lấy oxy.' },
-          { n: 34, text: 'Propagules can float and survive for up to a ___', a: ['year'], cue: 'stay alive for up to a year', explain: 'Cây con (propagule) trôi theo thủy triều, sống được tới một năm.' },
-          { n: 35, text: 'A 100-metre band of mangroves reduces the height of ___', a: ['waves'], cue: 'reduce the height of waves', explain: 'Hệ rễ dày đặc làm giảm chiều cao sóng, bảo vệ làng mạc khi có bão.' },
+          { n: 34, text: 'Propagules can float and survive for up to a ___', a: ['year'], cue: 'stay alive for up to a year', explain: 'Cây con (propagule) trôi theo thủy triều, sống được tới một năm. Câu nghe được: “stay alive for up to a year.”' },
+          { n: 35, text: 'A 100-metre band of mangroves reduces the height of ___', a: ['waves'], cue: 'reduce the height of waves', explain: 'Hệ rễ dày đặc làm giảm chiều cao sóng, bảo vệ làng mạc khi có bão. Câu nghe được: “reduce the height of waves.”' },
           { n: 36, text: 'Most carbon is stored in the ___', a: ['soil'], cue: 'the great majority is stored in the soil', explain: 'Bẫy: thân và cành (trunks and branches) là điều người ta “tưởng”; thực tế là trong đất.' },
-          { n: 37, text: 'Roots provide a nursery for young ___', a: ['fish'], cue: 'provides a nursery for young fish', explain: 'Nước nông, kín gió giữa các rễ là nơi ương nuôi cá con.' },
+          { n: 37, text: 'Roots provide a nursery for young ___', a: ['fish'], cue: 'provides a nursery for young fish', explain: 'Nước nông, kín gió giữa các rễ là nơi ương nuôi cá con. Câu nghe được: “provides a nursery for young fish.”' },
           { n: 38, text: 'Biggest cause of loss: clearing land for ___ farms', a: ['shrimp'], cue: 'the clearing of forests to create shrimp farms', explain: 'Củi đốt và xây dựng chỉ góp phần; nguyên nhân lớn nhất là nuôi tôm.' },
           { n: 39, text: 'Many replanting projects failed because of the wrong ___', a: ['location'], cue: 'seedlings were planted in the wrong location', explain: 'Không phải do thiếu kinh phí (funding) như nhiều người nghĩ.' },
-          { n: 40, text: 'Successful projects involve local ___', a: ['communities'], cue: 'they involve local communities from the start', explain: 'Người dân sống cạnh rừng là người bảo vệ rừng lâu dài.' },
+          { n: 40, text: 'Successful projects involve local ___', a: ['communities'], cue: 'they involve local communities from the start', explain: 'Người dân sống cạnh rừng là người bảo vệ rừng lâu dài. Câu nghe được: “they involve local communities from the start.”' },
         ] },
     ],
     vocab: [
