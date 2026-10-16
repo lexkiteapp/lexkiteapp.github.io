@@ -21,3 +21,8 @@ database_id = "7ce39cd0-9333-4843-bd6f-5ccbefbde670"
 # AI Cloudflare (gói miễn phí) – tự xác nhận nghĩa bản dịch mỗi đêm (judge.js)
 [ai]
 binding = "AI"
+
+# Proxy Gemini ghim tại Mỹ (workers/gemini)
+[[services]]
+binding = "GEM"
+service = "lexkite-gemini"
