@@ -99,6 +99,14 @@ for (const [tid, ex] of Object.entries(C.READ_EXPLAIN || {})) for (const [n, e] 
 // TOEIC
 for (const t of C.TOEIC?.reading || []) for (const pt of t.parts) { for (const [ki, ps] of [{ groups: pt.groups }, ...(pt.passages || [])].entries()) { groups(`${t.id} P${pt.part}`, 'TOEIC Reading', ps.groups, it => it.explain, 'Part ' + pt.part); if (ps.text) lintEn(`${t.id} P${pt.part} text${ki}`, ps.text); } }
 for (const p of C.TOEIC?.listening || []) { groups(p.id, 'TOEIC Listening', p.groups, it => it.explain, 'Part ' + p.part); scriptLint(p.id, p.script); }
+const wc = s => String(s || '').split(/\s+/).filter(Boolean).length;
+// TOEIC Speaking & Writing (toeic/sw*.js): đếm đề + soát lỗi tiếng Anh ở văn bản đọc, câu hỏi, bài mẫu
+for (const u of [...(C.TOEIC_SW?.speaking || []), ...(C.TOEIC_SW?.writing || [])]) {
+  bump('TOEIC Speaking & Writing', u.task, 1);
+  [u.text, u.q, u.model, ...(u.questions || []).flatMap(q => [q.q, q.model])].forEach((x, k) => x && lintEn(`${u.id} #${k}`, x));
+  if (u.task === 'essay' && wc(u.model) < 300) E(u.id, `bài mẫu essay chỉ ${wc(u.model)} từ (< 300)`);
+  (u.checklist || []).forEach((c, k) => { if (!c.c || !c.ex) E(`${u.id} checklist#${k + 1}`, 'tiêu chí cần cả c và ex (ví dụ sửa)'); });
+}
 // TOEFL
 for (const u of C.TOEFL?.reading || []) { if (u.task === 'cw') { const blanks = (u.text.match(/\{[^}]*\}/g) || []).length; bump('TOEFL Reading', 'Complete the Words', blanks); if (!Array.isArray(u.explain) || u.explain.length !== blanks) E(u.id, `Complete the Words: ${blanks} ô trống nhưng ${u.explain?.length ?? 0} lời giải`); } else { groups(u.id, 'TOEFL Reading', u.groups, it => it.explain, u.task); lintEn(u.id + ' text', u.text); } }
 for (const u of C.TOEFL?.listening || []) { groups(u.id, 'TOEFL Listening', u.groups, it => it.explain, u.task); scriptLint(u.id, u.script); }
