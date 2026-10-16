@@ -6,7 +6,7 @@
   const App = window.App;
   const { state } = App;
   const MODELS = ['gemini-2.5-flash', 'gemini-2.5-flash-lite', 'gemini-2.0-flash'];
-  const API = (m, k) => `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(m)}:generateContent?key=${encodeURIComponent(k)}`;
+  const API = (m, k) => `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(m)}:generateContent`;
   const hash = s => { let h = 5381; for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0; return (h >>> 0).toString(36); };
 
   // Khóa AI dùng chung giữa web app và add-on trên cùng máy (qua cầu nối cục bộ, không lên cloud)
@@ -36,7 +36,7 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
     const c = await Store.get('aiModels', null);
     if (c && c.k === key.slice(-6) && Date.now() - c.at < 3 * 864e5 && c.list.length) return c.list;
     try {
-      const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?pageSize=200&key=${encodeURIComponent(key)}`);
+      const r = await fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=200', { headers: { 'x-goog-api-key': key } });
       if (!r.ok) return MODELS;
       const j = await r.json();
       const ver = n => parseFloat((n.match(/gemini-(\d+(?:\.\d+)?)/) || [0, 0])[1]);
@@ -110,7 +110,7 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
     for (const m of models) {
       const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 60000);
       try {
-        const r = await fetch(API(m, key), { method: 'POST', signal: ctrl.signal, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({
+        const r = await fetch(API(m, key), { method: 'POST', signal: ctrl.signal, headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key }, body: JSON.stringify({
           systemInstruction: { parts: [{ text: SYS }] },
           contents: [{ role: 'user', parts: [{ text: prompt }] }],
           generationConfig: { responseMimeType: 'application/json', temperature: 0.2, maxOutputTokens: 4096 },
@@ -209,12 +209,12 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
       <p class="small" style="background:var(--primary-soft);padding:.5rem .7rem;border-radius:10px">💡 ${t('Trên <b>Chrome máy tính bản mới</b> (máy đủ mạnh), Lexkite dùng được <b>AI có sẵn trong Chrome</b> – miễn phí, không cần khóa. Trình duyệt này chưa hỗ trợ, nên bạn có thể dùng khóa Gemini miễn phí dưới đây (chất lượng chấm tốt hơn).')}</p>
       <p class="small">${t('Lexkite dùng <b>Google Gemini</b> để chấm Writing & Speaking chi tiết theo 4 tiêu chí IELTS. Mỗi người dùng tạo <b>khóa miễn phí</b> của riêng mình (gói miễn phí của Google đủ cho hàng chục bài mỗi ngày).')}</p>
       <ol class="small" style="padding-left:1.1rem;line-height:1.8"><li>${t('Mở {link} và đăng nhập Google.', { link: '<a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a>' })}</li><li>${t('Bấm <b>Create API key</b> → sao chép khóa (bắt đầu bằng “AIza…”).')}</li><li>${t('Dán vào ô dưới đây.')}</li></ol>
-      <input class="input" id="aiK" placeholder="AIza…" autocomplete="off" spellcheck="false">
+      <input class="input" id="aiK" placeholder="AIza… / AQ.…" autocomplete="off" spellcheck="false">
       <p class="tiny muted">🔒 ${t('Khóa chỉ lưu trên trình duyệt này, không đồng bộ lên tài khoản và chỉ gửi tới Google khi bạn bấm chấm bài. Bài làm của bạn được gửi tới Google Gemini để chấm.')}</p>
       <div class="row" style="margin-top:.6rem"><button class="btn primary" id="aiSave">${t('Lưu & kiểm tra')}</button><button class="btn ghost" data-close>${t('Để sau')}</button></div><div id="aiMsg" class="small" style="margin-top:.5rem"></div>`);
     $('#aiSave').onclick = async () => {
       const k = $('#aiK').value.trim();
-      if (!/^AIza[\w-]{20,}$/.test(k)) { $('#aiMsg').textContent = '⚠️ ' + t('Khóa không đúng định dạng (bắt đầu bằng AIza…).'); return; }
+      if (!/^(AIza[\w-]{20,}|AQ\.[\w.-]{20,})$/.test(k)) { $('#aiMsg').textContent = '⚠️ ' + t('Khóa không đúng định dạng (bắt đầu bằng AIza… hoặc AQ.…).'); return; }
       $('#aiMsg').textContent = '⏳ ' + t('Đang kiểm tra khóa…');
       await setKey(k);
       try { await call('Return {"ok": true} as JSON.'); $('#aiMsg').textContent = '✅ ' + t('Khóa hoạt động!'); setTimeout(() => { closeModal(); onSaved && onSaved(); }, 600); }

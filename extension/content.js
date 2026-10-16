@@ -12,7 +12,7 @@
         else if (e.data.op === 'lang') { const l = (e.data.data || {}).lang; if (pickLang(l)) await chrome.storage.local.set({ uiLang: pickLang(l) }); window.postMessage({ lkBridge: 'res', id: e.data.id, ok: true }, location.origin); }
         else if (e.data.op === 'linked') { const d = e.data.data || {}; await chrome.storage.local.set({ linked: { email: String(d.email || '').slice(0, 120), name: String(d.name || '').slice(0, 80), at: Date.now() } }); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { ok: true } }, location.origin); }
         else if (e.data.op === 'aiKeyGet') { const { aiKey } = await chrome.storage.local.get('aiKey'); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { aiKey: aiKey || '' } }, location.origin); }
-        else if (e.data.op === 'aiKeySet') { const k = String((e.data.data || {}).aiKey || ''); if (!k || /^AIza[\w-]{20,}$/.test(k)) await chrome.storage.local.set({ aiKey: k }); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { ok: true } }, location.origin); }
+        else if (e.data.op === 'aiKeySet') { const k = String((e.data.data || {}).aiKey || ''); if (!k || /^(AIza[\w-]{20,}|AQ\.[\w.-]{20,})$/.test(k)) await chrome.storage.local.set({ aiKey: k }); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { ok: true } }, location.origin); }
         else if (e.data.op === 'set') { const d = e.data.data || {}; const put = {}; KEYS.forEach(k => { if (d[k]) put[k] = d[k]; }); await chrome.storage.local.set(put); window.postMessage({ lkBridge: 'res', id: e.data.id, ok: true }, location.origin); }
       } catch (err) { window.postMessage({ lkBridge: 'res', id: e.data.id, error: String(err) }, location.origin); }
     });

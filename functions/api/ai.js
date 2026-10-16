@@ -8,7 +8,7 @@ import { verify, limit } from './sync.js';
 
 const LIMIT_USER = 5, LIMIT_ANON = 3, GLOBAL_DAY = 400, MAX_PROMPT = 14000;
 const WAI_MODEL = '@cf/meta/llama-3.1-8b-instruct-fast';
-const GEMINI = k => `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(k)}`;
+const GEMINI = () => 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent'; // khóa gửi qua header x-goog-api-key (nhận cả kiểu AIza… lẫn AQ.…)
 const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)|https?:\/\/localhost(:\d+)?|capacitor:\/\/localhost|chrome-extension:\/\/[a-z]{32})$/;
 let ready = false;
 
@@ -37,7 +37,7 @@ async function geminiKey(env) {
 async function runModel(env, sys, prompt) {
   const gk = await geminiKey(env);
   if (gk) {
-    const r = await fetch(GEMINI(gk), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ systemInstruction: { parts: [{ text: sys }] }, contents: [{ role: 'user', parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0.2, maxOutputTokens: 4096 } }) });
+    const r = await fetch(GEMINI(), { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': gk }, body: JSON.stringify({ systemInstruction: { parts: [{ text: sys }] }, contents: [{ role: 'user', parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0.2, maxOutputTokens: 4096 } }) });
     if (r.ok) { const j = await r.json(); const out = parseJSON((((j.candidates || [])[0] || {}).content || { parts: [] }).parts.map(p => p.text || '').join('')); if (out) return { out, model: 'gemini-2.5-flash' }; }
   }
   if (!env.AI) throw new Error('no-model');

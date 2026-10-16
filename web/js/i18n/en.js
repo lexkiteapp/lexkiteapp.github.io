@@ -14,7 +14,7 @@
   'Khóa chỉ lưu trên trình duyệt này, không đồng bộ lên tài khoản và chỉ gửi tới Google khi bạn bấm chấm bài. Bài làm của bạn được gửi tới Google Gemini để chấm.': 'Your key is stored only in this browser. It is never synced to your account and is sent to Google only when you request grading. Your answer is sent to Google Gemini for grading.',
   'Lưu & kiểm tra': 'Save & test',
   'Để sau': 'Not now',
-  'Khóa không đúng định dạng (bắt đầu bằng AIza…).': 'Invalid key format (it should start with AIza…).',
+  'Khóa không đúng định dạng (bắt đầu bằng AIza… hoặc AQ.…).': 'Invalid key format (starts with AIza… or AQ.…).',
   'Đang kiểm tra khóa…': 'Checking your key…',
   'Khóa hoạt động!': 'Your key works!',
   'Chưa có khóa AI.': 'No AI key yet.',
