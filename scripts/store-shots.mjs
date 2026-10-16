@@ -9,6 +9,7 @@ import os from 'os';
 
 const OUT = path.resolve(process.argv[2] || 'store-shots');
 const EXT = path.resolve('extension');
+const LOCALE = { en: 'es-ES', pt: 'pt-BR', zh: 'zh-CN' }; // en: trình duyệt tiếng Tây Ban Nha → bảng dịch EN → ES
 const W = 1280, H = 800, sleep = ms => new Promise(r => setTimeout(r, ms));
 fs.mkdirSync(OUT, { recursive: true });
 const ICON = 'data:image/svg+xml;base64,' + fs.readFileSync('web/icons/icon.svg').toString('base64');
@@ -29,6 +30,62 @@ const CAP = {
     ['Cửa sổ tiện ích', 'Việc học mỗi ngày,<br><em>chỉ một cú bấm.</em>', 'Thẻ cần ôn, mục tiêu ngày, tra nhanh và ôn 1 phút.', ['Thấy ngay số thẻ cần ôn', 'Ôn nhanh không rời trang', 'Đồng bộ nhiều thiết bị (tùy chọn)'], ''],
     ['Tab mới', 'Mỗi tab mới,<br><em>thêm một từ.</em>', 'Một thẻ từ chính sổ của bạn mỗi lần mở tab.', ['Chọn từ đúng thời điểm vàng', 'Một chạm: đã nhớ / ôn lại', 'Tắt bất cứ lúc nào'], 'Tab mới'],
     ['Kèm ứng dụng học đầy đủ', 'Nhớ từ vựng<br><em>thật lâu.</em>', 'Lặp lại ngắt quãng FSRS, luyện IELTS & TOEIC – miễn phí.', ['Ôn FSRS như Anki', '6.000+ từ có phát âm', 'Đề luyện có giải thích'], 'Lexkite'],
+  ],
+  es: [
+    ['En cualquier web', 'Doble clic.<br><em>Entiende al instante.</em>', 'Pronunciación, significados y ejemplos justo donde lees.', ['IPA británico y americano + audio', 'Significados por categoría', 'Guarda la frase original'], 'dailyplanet.com/environment'],
+    ['Traduce y aprende gramática', 'Selecciona una frase.<br><em>Entiende su estructura.</em>', 'Traducción al instante con las estructuras gramaticales explicadas.', ['Traduce cualquier selección', 'Gramática explicada', 'Escucha a velocidad normal o lenta'], 'dailyplanet.com/environment'],
+    ['Ventana de la extensión', 'Tu estudio diario,<br><em>a un clic.</em>', 'Tarjetas pendientes, meta diaria, búsqueda rápida y repaso de 1 minuto.', ['Tus tarjetas de hoy de un vistazo', 'Repaso rápido sin salir de la página', 'Sincroniza tus dispositivos (opcional)'], ''],
+    ['Nueva pestaña', 'Una palabra<br><em>en cada pestaña.</em>', 'Una tarjeta de tu propio mazo cada vez que abres una pestaña.', ['Palabras en el momento justo', 'Un toque: la sé / repasar', 'Desactívalo cuando quieras'], 'Nueva pestaña'],
+    ['App de estudio incluida', 'Recuerda palabras<br><em>para siempre.</em>', 'Repetición espaciada FSRS y práctica de IELTS y TOEIC, gratis.', ['Repasos FSRS como Anki', 'Más de 6.000 palabras con audio', 'Exámenes de práctica explicados'], 'Lexkite'],
+  ],
+  pt: [
+    ['Em qualquer site', 'Clique duas vezes.<br><em>Entenda na hora.</em>', 'Pronúncia, significados e exemplos bem onde você lê.', ['IPA britânico e americano + áudio', 'Significados por classe gramatical', 'Salve com a frase original'], 'dailyplanet.com/environment'],
+    ['Traduza e aprenda gramática', 'Selecione uma frase.<br><em>Entenda a estrutura.</em>', 'Tradução instantânea com as estruturas gramaticais explicadas.', ['Traduza qualquer seleção', 'Gramática explicada', 'Ouça em velocidade normal ou lenta'], 'dailyplanet.com/environment'],
+    ['Janela da extensão', 'Seu estudo diário,<br><em>a um clique.</em>', 'Cartões do dia, meta diária, busca rápida e revisão de 1 minuto.', ['Cartões de hoje num relance', 'Revisão rápida sem sair da página', 'Sincronize seus dispositivos (opcional)'], ''],
+    ['Nova guia', 'Uma palavra<br><em>a cada nova guia.</em>', 'Um cartão do seu próprio baralho sempre que abrir uma guia.', ['Palavras no momento certo', 'Um toque: já sei / revisar', 'Desative quando quiser'], 'Nova guia'],
+    ['App de estudo incluído', 'Memorize palavras<br><em>de vez.</em>', 'Repetição espaçada FSRS e prática de IELTS e TOEIC, grátis.', ['Revisões FSRS como no Anki', 'Mais de 6.000 palavras com áudio', 'Simulados com explicações'], 'Lexkite'],
+  ],
+  ja: [
+    ['どのサイトでも', 'ダブルクリックで<br><em>すぐにわかる。</em>', '発音・意味・例文を、読んでいるその場で。', ['英米の発音記号と音声', '品詞ごとの意味', '元の文ごと保存'], 'dailyplanet.com/environment'],
+    ['翻訳と文法', '文を選ぶだけで<br><em>構造まで理解。</em>', '瞬時に翻訳し、文中の文法構造も解説します。', ['選択した文をすぐ翻訳', '文法パターンを解説', '通常・ゆっくり再生'], 'dailyplanet.com/environment'],
+    ['ツールバーのポップアップ', '毎日の学習が<br><em>ワンクリックで。</em>', '今日の復習カード、目標、クイック検索、1分復習。', ['今日のカードがひと目でわかる', 'ページを離れずに復習', '端末間で同期（任意）'], ''],
+    ['新しいタブ', '新しいタブで<br><em>毎回ひとつ単語を。</em>', 'タブを開くたびに、自分の単語帳からカードを表示。', ['最適なタイミングで出題', 'ワンタップで「覚えた／もう一度」', 'いつでもオフにできます'], '新しいタブ'],
+    ['学習アプリ付き', '単語を<br><em>ずっと覚える。</em>', 'FSRS間隔反復とIELTS・TOEIC対策を無料で。', ['Anki同様のFSRS復習', '音声付き6,000語以上', '解説付きの模擬試験'], 'Lexkite'],
+  ],
+  ko: [
+    ['모든 웹사이트에서', '더블클릭으로<br><em>바로 이해하세요.</em>', '읽고 있는 바로 그 자리에서 발음, 뜻, 예문을 확인하세요.', ['영국·미국 발음 기호와 음성', '품사별 뜻', '원래 문장과 함께 저장'], 'dailyplanet.com/environment'],
+    ['번역과 문법', '문장을 선택하면<br><em>구조까지 보입니다.</em>', '즉시 번역하고 문장 속 문법 구조를 설명합니다.', ['선택한 문장 바로 번역', '문법 패턴 설명', '보통·느린 속도로 듣기'], 'dailyplanet.com/environment'],
+    ['툴바 팝업', '매일의 공부를<br><em>클릭 한 번으로.</em>', '오늘 복습할 카드, 목표, 빠른 검색, 1분 복습.', ['오늘의 카드를 한눈에', '페이지를 떠나지 않고 복습', '기기 간 동기화(선택)'], ''],
+    ['새 탭', '새 탭을 열 때마다<br><em>단어 하나씩.</em>', '탭을 열 때마다 내 단어장의 카드를 보여줍니다.', ['딱 맞는 때에 출제', '한 번 탭: 외웠어요 / 다시', '언제든 끌 수 있어요'], '새 탭'],
+    ['학습 앱 포함', '단어를<br><em>오래 기억하세요.</em>', 'FSRS 간격 반복과 IELTS·TOEIC 연습을 무료로.', ['Anki처럼 FSRS 복습', '음성 포함 6,000+ 단어', '해설이 있는 모의고사'], 'Lexkite'],
+  ],
+  zh: [
+    ['任意网页', '双击单词，<br><em>即刻读懂。</em>', '就在你阅读的地方查看发音、释义和例句。', ['英式与美式音标 + 发音', '按词性分类的释义', '连同原句一起保存'], 'dailyplanet.com/environment'],
+    ['翻译与语法', '选中一句话，<br><em>看懂句子结构。</em>', '即时翻译，并讲解句中的语法结构。', ['任意选中内容即时翻译', '语法结构详解', '正常或慢速朗读'], 'dailyplanet.com/environment'],
+    ['工具栏弹窗', '每天的学习，<br><em>一键开始。</em>', '待复习卡片、每日目标、快速查词和 1 分钟复习。', ['今日卡片一目了然', '不离开页面即可复习', '多设备同步（可选）'], ''],
+    ['新标签页', '每开一个标签页，<br><em>学一个单词。</em>', '每次打开标签页，都从你的词库中出一张卡片。', ['在最佳时机复习', '一键：记住了 / 再复习', '随时可以关闭'], '新标签页'],
+    ['附带完整学习应用', '单词<br><em>记得更久。</em>', 'FSRS 间隔重复，外加 IELTS 和 TOEIC 练习，完全免费。', ['像 Anki 一样的 FSRS 复习', '6,000+ 带发音的单词', '带解析的模拟试题'], 'Lexkite'],
+  ],
+  id: [
+    ['Di situs mana pun', 'Klik dua kali.<br><em>Langsung paham.</em>', 'Pelafalan, arti, dan contoh tepat di tempat Anda membaca.', ['IPA Inggris & Amerika + audio', 'Arti per kelas kata', 'Simpan dengan kalimat aslinya'], 'dailyplanet.com/environment'],
+    ['Terjemahkan & pelajari tata bahasa', 'Pilih satu kalimat.<br><em>Pahami strukturnya.</em>', 'Terjemahan instan beserta penjelasan struktur tata bahasanya.', ['Terjemahkan teks apa pun', 'Pola tata bahasa dijelaskan', 'Dengarkan normal atau lambat'], 'dailyplanet.com/environment'],
+    ['Jendela ekstensi', 'Belajar harian,<br><em>cukup satu klik.</em>', 'Kartu jatuh tempo, target harian, cari cepat, dan ulasan 1 menit.', ['Kartu hari ini sekilas', 'Ulas cepat tanpa pindah halaman', 'Sinkron antarperangkat (opsional)'], ''],
+    ['Tab baru', 'Satu kata<br><em>di setiap tab baru.</em>', 'Satu kartu dari koleksi Anda setiap kali membuka tab.', ['Kata muncul di saat yang tepat', 'Sekali ketuk: hafal / ulangi', 'Matikan kapan saja'], 'Tab baru'],
+    ['Termasuk aplikasi belajar', 'Ingat kosakata<br><em>lebih lama.</em>', 'Pengulangan berjarak FSRS plus latihan IELTS & TOEIC, gratis.', ['Ulasan FSRS seperti Anki', '6.000+ kata dengan audio', 'Tes latihan dengan pembahasan'], 'Lexkite'],
+  ],
+  de: [
+    ['Auf jeder Website', 'Doppelklick.<br><em>Sofort verstehen.</em>', 'Aussprache, Bedeutungen und Beispiele direkt beim Lesen.', ['Britische & amerikanische IPA + Audio', 'Bedeutungen nach Wortart', 'Mit dem Originalsatz speichern'], 'dailyplanet.com/environment'],
+    ['Übersetzen & Grammatik', 'Satz markieren.<br><em>Struktur verstehen.</em>', 'Sofortige Übersetzung mit erklärten Grammatikstrukturen.', ['Jede Auswahl übersetzen', 'Grammatikmuster erklärt', 'Normal oder langsam anhören'], 'dailyplanet.com/environment'],
+    ['Erweiterungs-Popup', 'Dein tägliches Lernen,<br><em>ein Klick entfernt.</em>', 'Fällige Karten, Tagesziel, Schnellsuche und 1-Minuten-Wiederholung.', ['Heutige Karten auf einen Blick', 'Wiederholen, ohne die Seite zu verlassen', 'Geräte synchronisieren (optional)'], ''],
+    ['Neuer Tab', 'Ein Wort<br><em>in jedem neuen Tab.</em>', 'Eine Karte aus deinem eigenen Deck bei jedem neuen Tab.', ['Wörter zum richtigen Zeitpunkt', 'Ein Tipp: gewusst / wiederholen', 'Jederzeit abschaltbar'], 'Neuer Tab'],
+    ['Komplette Lern-App inklusive', 'Wörter merken –<br><em>dauerhaft.</em>', 'FSRS-Wiederholung plus IELTS- & TOEIC-Training, kostenlos.', ['FSRS-Wiederholung wie bei Anki', 'Über 6.000 Wörter mit Audio', 'Übungstests mit Erklärungen'], 'Lexkite'],
+  ],
+  fr: [
+    ['Sur tous les sites', 'Double-cliquez.<br><em>Comprenez aussitôt.</em>', 'Prononciation, sens et exemples là où vous lisez.', ['API britannique et américain + audio', 'Sens par nature de mot', 'Enregistrez avec la phrase d’origine'], 'dailyplanet.com/environment'],
+    ['Traduction et grammaire', 'Sélectionnez une phrase.<br><em>Comprenez sa structure.</em>', 'Traduction instantanée et structures grammaticales expliquées.', ['Traduisez toute sélection', 'Structures grammaticales expliquées', 'Écoute normale ou lente'], 'dailyplanet.com/environment'],
+    ['Fenêtre de l’extension', 'Votre étude du jour,<br><em>en un clic.</em>', 'Cartes à revoir, objectif du jour, recherche rapide et révision d’une minute.', ['Les cartes du jour en un coup d’œil', 'Révisez sans quitter la page', 'Synchronisation multi-appareils (option)'], ''],
+    ['Nouvel onglet', 'Un mot<br><em>à chaque onglet.</em>', 'Une carte de votre propre paquet à chaque nouvel onglet.', ['Des mots au bon moment', 'Un geste : je sais / à revoir', 'Désactivable à tout moment'], 'Nouvel onglet'],
+    ['Application complète incluse', 'Retenez les mots<br><em>durablement.</em>', 'Répétition espacée FSRS et entraînement IELTS & TOEIC, gratuit.', ['Révisions FSRS comme Anki', 'Plus de 6 000 mots avec audio', 'Tests blancs corrigés'], 'Lexkite'],
   ],
 };
 
@@ -72,10 +129,11 @@ async function frame(page, lang, i, shot, popup = null) {
 }
 
 async function run(lang) {
+  const locale = LOCALE[lang] || lang;
   const prof = fs.mkdtempSync(path.join(os.tmpdir(), 'lk-'));
   const ctx = await chromium.launchPersistentContext(prof, {
-    channel: 'chromium', headless: true, locale: lang, viewport: { width: 880, height: 660 }, deviceScaleFactor: 2,
-    args: [`--disable-extensions-except=${EXT}`, `--load-extension=${EXT}`, `--lang=${lang}`],
+    channel: 'chromium', headless: true, locale, viewport: { width: 880, height: 660 }, deviceScaleFactor: 2,
+    args: [`--disable-extensions-except=${EXT}`, `--load-extension=${EXT}`, `--lang=${locale}`],
   });
   let [sw] = ctx.serviceWorkers(); if (!sw) sw = await ctx.waitForEvent('serviceworker');
   const id = new URL(sw.url()).host, base = `chrome-extension://${id}/`;
@@ -151,7 +209,9 @@ async function promos(shot) {
   await br.close();
 }
 
-const enShot = await run('en');
-await run('vi');
+// Thị trường: giao diện + chữ quảng cáo + bản dịch theo ngôn ngữ đó; bản en (ảnh chung toàn cầu) minh họa dịch sang tiếng Tây Ban Nha
+const LANGS = (process.env.LANGS || 'en,vi,es,pt,ja,ko,zh,id,de,fr').split(',');
+const enShot = await run(LANGS[0]);
+for (const l of LANGS.slice(1)) await run(l);
 await promos(enShot);
 console.log('✓', fs.readdirSync(OUT).join(' '));
