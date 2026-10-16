@@ -49,23 +49,23 @@ body:before{content:"";position:absolute;inset:0;background-image:radial-gradien
 h1{font-size:46px;line-height:1.08;font-weight:800;letter-spacing:-.03em;margin-top:22px}h1 em{font-style:normal;background:linear-gradient(90deg,#FFB054,#F2553B);-webkit-background-clip:text;background-clip:text;color:transparent}
 p.sub{font-size:19px;line-height:1.5;color:rgba(255,255,255,.78);margin-top:18px}ul{list-style:none;padding:0;margin-top:28px;display:grid;gap:14px}li{display:flex;gap:12px;align-items:center;font-size:17px;font-weight:600}
 li i{flex:none;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#FFB054,#F2553B);display:grid;place-items:center;font-style:normal;font-size:14px;color:#0F3D3E;font-weight:800}
-.win{position:absolute;right:56px;top:96px;width:720px;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 40px 80px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.08)}
+.win{position:absolute;right:48px;top:110px;width:752px;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 40px 80px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.08)}
 .bar{height:38px;background:#eef1f0;display:flex;align-items:center;gap:8px;padding:0 14px}.bar span{width:11px;height:11px;border-radius:50%;background:#ff5f57}.bar span:nth-child(2){background:#febc2e}.bar span:nth-child(3){background:#28c840}
 .bar div{margin-left:14px;flex:1;height:24px;border-radius:7px;background:#fff;color:#5b6b6a;font:500 12.5px system-ui,sans-serif;display:flex;align-items:center;padding:0 12px;gap:8px}.bar div:before{content:"🔒";font-size:10px}
 .win img{display:block;width:100%}
 .pop{position:absolute;right:150px;top:70px;width:380px;border-radius:16px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.1)}.pop img{display:block;width:100%}
-.ghost{position:absolute;right:56px;top:150px;width:700px;height:520px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
+.back{position:absolute;right:48px;top:150px;width:700px;border-radius:14px;overflow:hidden;opacity:.55;filter:blur(1.5px) saturate(.8);box-shadow:0 30px 60px rgba(0,0,0,.4)}.back img{display:block;width:100%}
 .glow{position:absolute;right:120px;bottom:-140px;width:520px;height:320px;background:radial-gradient(closest-side,rgba(242,85,59,.35),transparent);filter:blur(10px)}`;
 
-async function frame(page, lang, i, shot, popup = false) {
+async function frame(page, lang, i, shot, popup = null) {
   const [kick, title, sub, pts, url] = CAP[lang][i];
   const img = 'data:image/png;base64,' + shot.toString('base64');
   const visual = popup
-    ? `<div class="ghost"></div><div class="pop"><img src="${img}"></div>`
+    ? `<div class="back"><img src="data:image/png;base64,${popup.toString('base64')}"></div><div class="pop"><img src="${img}"></div>`
     : `<div class="win"><div class="bar"><span></span><span></span><span></span><div>${url}</div></div><img src="${img}"></div>`;
   await page.setViewportSize({ width: W, height: H });
   await page.setContent(`<!doctype html><html><head><meta charset="utf-8">${FONT}<style>${CSS}</style></head><body><div class="glow"></div>
-    <div class="brand"><img src="${ICON}">lex<b>kite</b></div>
+    <div class="brand"><img src="${ICON}"><span>lex<b>kite</b></span></div>
     <div class="txt"><span class="kick">${kick}</span><h1>${title}</h1><p class="sub">${sub}</p><ul>${pts.map(x => `<li><i>✓</i>${x}</li>`).join('')}</ul></div>${visual}</body></html>`);
   await page.evaluate(() => document.fonts.ready); await sleep(400);
   await page.screenshot({ path: `${OUT}/${lang}-${i + 1}.png`, clip: { x: 0, y: 0, width: W, height: H } });
@@ -74,7 +74,7 @@ async function frame(page, lang, i, shot, popup = false) {
 async function run(lang) {
   const prof = fs.mkdtempSync(path.join(os.tmpdir(), 'lk-'));
   const ctx = await chromium.launchPersistentContext(prof, {
-    channel: 'chromium', headless: true, locale: lang, viewport: { width: 1120, height: 700 }, deviceScaleFactor: 1,
+    channel: 'chromium', headless: true, locale: lang, viewport: { width: 880, height: 600 }, deviceScaleFactor: 2,
     args: [`--disable-extensions-except=${EXT}`, `--load-extension=${EXT}`, `--lang=${lang}`],
   });
   let [sw] = ctx.serviceWorkers(); if (!sw) sw = await ctx.waitForEvent('serviceworker');
@@ -95,28 +95,30 @@ async function run(lang) {
   // 1. Bấm đúp tra từ (tắt nút 🌐 của vùng chọn để ảnh gọn)
   await setSettings({ selectMode: 'off', markKnown: false, markAcademic: false });
   await page.goto('https://news.example.com/cities-forests'); await sleep(2500);
-  await page.dblclick('#w'); await sleep(6000);
+  await page.dblclick('#w'); await sleep(14000); // chờ bảng tra tải xong (nghĩa, ảnh, ví dụ)
   const s1 = await page.screenshot();
   // 2. Bôi đen câu → tự dịch
   await setSettings({ selectMode: 'auto' });
   await page.goto('https://news.example.com/cities-forests'); await sleep(2500);
   const b = await page.locator('#s').boundingBox();
   await page.mouse.move(b.x + 1, b.y + 6); await page.mouse.down(); await page.mouse.move(b.x + b.width - 2, b.y + b.height - 8, { steps: 12 }); await page.mouse.up();
-  await sleep(6000);
+  await sleep(14000);
   const s2 = await page.screenshot();
   // 3. Popup – kích thước thật
   const pop = await ctx.newPage(); await pop.setViewportSize({ width: 380, height: 600 });
   await pop.goto(base + 'popup.html'); await sleep(2500);
   const s3 = await pop.screenshot();
   // 4. Tab mới
-  const nt = await ctx.newPage(); await nt.setViewportSize({ width: 1120, height: 700 });
+  const nt = await ctx.newPage(); await nt.setViewportSize({ width: 880, height: 600 });
   await nt.goto(base + 'newtab.html'); await sleep(2500);
   const s4 = await nt.screenshot();
 
-  const out = await ctx.newPage();
-  await frame(out, lang, 0, s1); await frame(out, lang, 1, s2); await frame(out, lang, 2, s3, true);
-  await frame(out, lang, 3, s4); await frame(out, lang, 4, appShot);
   await ctx.close();
+  // Ghép khung ở trình duyệt riêng tỉ lệ 1× → ảnh ra đúng 1280×800 (ảnh chụp 2× nên vẫn nét)
+  const br = await chromium.launch(), out = await br.newPage({ deviceScaleFactor: 1 });
+  await frame(out, lang, 0, s1); await frame(out, lang, 1, s2); await frame(out, lang, 2, s3, s1);
+  await frame(out, lang, 3, s4); await frame(out, lang, 4, appShot);
+  await br.close();
   return s1;
 }
 
