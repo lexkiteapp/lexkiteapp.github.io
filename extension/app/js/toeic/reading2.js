@@ -114,7 +114,7 @@ Account Executive`,
             { n: 137, q: '(137)', options: ['Our printing plant is located in Hamburg.', 'Our catalog features more than 500 products.', 'After that date, prices may change because of rising paper costs.', 'Thank you for attending our trade show.'], a: 2, cue: 'for 30 days',
               explain: 'Câu trước nói báo giá có hiệu lực 30 ngày; câu (C) giải thích sau thời hạn đó giá có thể thay đổi → mạch lạc. (B) sai vì catalog là của khách.' },
             { n: 138, q: '(138)', options: ['work', 'worked', 'have worked', 'working'], a: 3, cue: 'I look forward to',
-              explain: '"look forward to + V-ing" → "working".' }
+              explain: 'Cụm cố định "look forward to + V-ing" (mong chờ làm gì): "to" ở đây là giới từ nên theo sau là V-ing → "working".' }
           ] } ] },
         { title: 'Article', text:
 `DA LAT (February 9) — Highland Bloom Farms, one of the region's largest flower growers, has begun selling its products directly to consumers through a new online store. Until now, the company had sold its roses and lilies -----(139)----- to wholesalers and hotels.

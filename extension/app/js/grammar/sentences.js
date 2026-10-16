@@ -272,8 +272,8 @@
     quiz: [
       { q: 'The conference will take place ___ 14 March.', options: ['in', 'on', 'at', 'by'], answer: 1, explain: 'Ngày cụ thể dùng on.' },
       { q: 'The figure rose ___ 20% to 30%.', options: ['by', 'at', 'from', 'in'], answer: 2, explain: 'from … to: từ mức này đến mức khác.' },
-      { q: 'Governments should be responsible ___ protecting the environment.', options: ['of', 'for', 'in', 'to'], answer: 1, explain: 'responsible for + V-ing.' },
-      { q: 'Smoking is harmful ___ your health.', options: ['for', 'with', 'to', 'at'], answer: 2, explain: 'harmful to sb/sth.' },
+      { q: 'Governments should be responsible ___ protecting the environment.', options: ['of', 'for', 'in', 'to'], answer: 1, explain: 'be responsible FOR + V-ing (chịu trách nhiệm) → for.' },
+      { q: 'Smoking is harmful ___ your health.', options: ['for', 'with', 'to', 'at'], answer: 2, explain: 'be harmful TO sb/sth (có hại cho) → to.' },
       { q: 'I usually study ___ night when it is quiet.', options: ['in', 'on', 'at', 'during'], answer: 2, explain: 'Cụm cố định: at night.' },
       { q: 'Which sentence is correct?', options: ['She is good in maths.', 'She is interested on art.', 'She is aware of the risks.', 'She is capable to win.'], answer: 2, explain: 'aware of đúng; các câu khác cần good at, interested in, capable of winning.' },
       { q: 'Câu nào đúng ngữ pháp?', options: ['The meeting is in Monday at 10 a.m.', 'The meeting is on Monday in 10 a.m.', 'The meeting is on Monday at 10 a.m.', 'The meeting is at Monday on 10 a.m.'], answer: 2, explain: 'on + thứ/ngày, at + giờ.' },
@@ -603,14 +603,20 @@
       { q: 'Not only ___ expensive, but it is also inefficient.', options: ['the system is', 'is the system', 'does the system', 'the system does'], answer: 1, explain: 'Với động từ be, đảo trực tiếp be lên trước chủ ngữ.' },
       { q: 'It was the teachers ___ organised the charity event.', options: ['which', 'who', 'what', 'whom'], answer: 1, explain: 'Câu chẻ nhấn mạnh người làm chủ ngữ dùng who (hoặc that).' },
       { q: '___ the public needs is reliable information.', options: ['That', 'It', 'What', 'Which'], answer: 2, explain: 'Câu chẻ What…is: What the public needs is…' },
-      { q: 'No sooner ___ the announcement than the shares rose.', options: ['had they made', 'they had made', 'did they make', 'they made'], answer: 0, explain: 'No sooner + had + S + V3 + than.' },
+      { q: 'No sooner ___ the announcement than the shares rose.', options: ['had they made', 'they had made', 'did they make', 'they made'], answer: 0, explain: 'Đảo ngữ No sooner + had + S + V3 + than + S + V2 (vừa mới… thì…) → had they made.' },
       { q: 'Only after the accident ___ the dangers of the road.', options: ['people realised', 'did people realise', 'people did realise', 'realised people'], answer: 1, explain: 'Only after + mốc → đảo ngữ ở mệnh đề chính: did people realise.' },
       { q: 'Câu nào đúng ngữ pháp?', options: ['Never I have seen such a beautiful sunset.', 'Never have I seen such a beautiful sunset.', 'Never I saw such a beautiful sunset.', 'Never have I saw such a beautiful sunset.'], answer: 1, explain: 'Đảo ngữ với Never: Never + trợ động từ + S + V3.' },
       { q: 'Câu nào đúng ngữ pháp?', options: ['It was my mother which taught me to cook.', 'It were my mother who taught me to cook.', 'It was my mother whom taught me to cook.', 'It was my mother who taught me to cook.'], answer: 3, explain: 'Câu chẻ nhấn mạnh người: It was + người + who + V.' },
       { q: 'Phần nào sai? Not only (A) the city is (B) polluted, but it (C) is also (D) overcrowded.', options: ['(A) the city is', '(B) polluted', '(C) is also', '(D) overcrowded'], answer: 0, explain: 'Not only đứng đầu câu cần đảo ngữ → Not only is the city polluted…' },
       { q: 'Phần nào sai? (A) What I need (B) most (C) are a quiet place (D) to study.', options: ['(A) What', '(B) most', '(C) are', '(D) to study'], answer: 2, explain: 'Câu chẻ với What làm chủ ngữ dùng động từ số ít → is.' },
       { q: 'Task 2: Only by investing in public transport ___ reduce traffic congestion.', options: ['governments can', 'do governments can', 'can governments', 'governments could to'], answer: 2, explain: 'Only by + V-ing đứng đầu câu → đảo ngữ: can governments reduce.' },
-      { q: 'Speaking Part 1: "What do you like most about your hometown?" – "___ the people that make it special – they\'re so welcoming."', options: ['It\'s', 'There are', 'They are', 'What is'], answer: 0, explain: 'Câu chẻ: It is + phần nhấn mạnh + that/who …' }
+      { q: 'Speaking Part 1: "What do you like most about your hometown?" – "___ the people that make it special – they\'re so welcoming."', options: ['It\'s', 'There are', 'They are', 'What is'], answer: 0, explain: 'Câu chẻ: It is + phần nhấn mạnh + that/who …' },
+      { q: 'Not until the results were published ___ how serious the problem was.', options: ['we did realise', 'had realised we', 'did we realise', 'we realised'], answer: 2, explain: 'Not until + mốc/mệnh đề đứng đầu câu → mệnh đề chính đảo ngữ: did + S + V nguyên mẫu → did we realise.' },
+      { q: 'Rarely ___ such a dramatic change in public opinion.', options: ['has the country seen', 'the country has seen', 'has seen the country', 'the country saw'], answer: 0, explain: 'Trạng từ phủ định Rarely đứng đầu câu → đảo trợ động từ lên trước chủ ngữ: has the country seen.' },
+      { q: '___ the manager who suggested the new schedule, not the staff.', options: ['There was', 'What was', 'That was', 'It was'], answer: 3, explain: 'Câu chẻ nhấn mạnh chủ ngữ: It was + người + who + V → It was the manager who suggested…' },
+      { q: 'What the city needs most ___ better public transport.', options: ['that is', 'is', 'are', 'it is'], answer: 1, explain: 'Câu chẻ với What: mệnh đề What… làm chủ ngữ số ít → động từ is: What the city needs most is…' },
+      { q: 'Only by investing in renewable energy ___ meet its climate targets.', options: ['the country could be', 'can the country', 'the country can', 'can country'], answer: 1, explain: 'Only by + V-ing đứng đầu câu → mệnh đề chính đảo ngữ: can + S + V → can the country meet.' },
+      { q: 'Under no circumstances ___ leave the laboratory unattended.', options: ['students should', 'students must', 'do students should', 'should students'], answer: 3, explain: 'Under no circumstances (tuyệt đối không) đứng đầu câu → đảo ngữ: should + S + V → should students leave.' }
     ]
   });
 })(typeof self !== 'undefined' ? self : this);

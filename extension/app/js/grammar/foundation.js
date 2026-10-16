@@ -284,8 +284,8 @@
     ],
     quiz: [
       { q: '___ a significant drop in sales in the third quarter.', options: ['It was', 'There was', 'There were', 'It had'], answer: 1, explain: 'Giới thiệu sự tồn tại, a drop số ít → There was.' },
-      { q: '___ me three months to prepare for the exam.', options: ['It took', 'There took', 'I took', 'It takes to'], answer: 0, explain: 'It takes/took + sb + time + to V.' },
-      { q: 'It is important ___ students to get enough sleep.', options: ['to', 'of', 'that', 'for'], answer: 3, explain: 'It is + adj + for sb + to V.' },
+      { q: '___ me three months to prepare for the exam.', options: ['It took', 'There took', 'I took', 'It takes to'], answer: 0, explain: 'Diễn đạt thời gian cần để làm gì: It takes/took + sb + thời gian + to V → It took.' },
+      { q: 'It is important ___ students to get enough sleep.', options: ['to', 'of', 'that', 'for'], answer: 3, explain: 'It is + tính từ + for sb + to V → important for students to get enough sleep.' },
       { q: '___ widely accepted that smoking causes cancer.', options: ['There is', 'This is', 'It is', 'They are'], answer: 2, explain: 'Cấu trúc khách quan It is + V3 + that.' },
       { q: 'There ___ a lot of traffic on the roads this morning.', options: ['were', 'was', 'have', 'had'], answer: 1, explain: 'Traffic không đếm được → was.' },
       { q: '___ used to be a cinema in this street, but it closed.', options: ['There', 'It', 'Here', 'They'], answer: 0, explain: 'There used to be = đã từng có.' },
@@ -293,7 +293,7 @@
       { q: 'Câu nào đúng?', options: ['There have been many changes in my town.', 'It has been many changes in my town.', 'There has many changes in my town.', 'My town have been many changes.'], answer: 0, explain: 'There have been + N số nhiều (hiện tại hoàn thành).' },
       { q: 'Câu nào đúng?', options: ['It is difficult understand his accent.', 'It is difficult to understanding his accent.', 'His accent is difficult to understand it.', 'It is difficult to understand his accent.'], answer: 3, explain: 'It is + adj + to V nguyên mẫu; không lặp it ở cuối.' },
       { q: 'Phần nào sai? "There is (A) several (B) ways to (C) solve this problem (D)."', options: ['There is', 'several', 'to', 'solve this problem'], answer: 0, explain: 'Several ways số nhiều → There are.' },
-      { q: 'Phần nào sai? "It takes (A) about two hours (B) for drive (C) to the coast (D)."', options: ['It takes', 'about two hours', 'for drive', 'to the coast'], answer: 2, explain: 'It takes + time + to V: to drive.' },
+      { q: 'Phần nào sai? "It takes (A) about two hours (B) for drive (C) to the coast (D)."', options: ['It takes', 'about two hours', 'for drive', 'to the coast'], answer: 2, explain: 'It takes + thời gian + to V → phải là "to drive", không dùng "for drive".' },
       { q: 'Phần nào sai? "In the past (A), it had (B) very few cars (C) in my village (D)."', options: ['In the past', 'it had', 'very few cars', 'in my village'], answer: 1, explain: 'Nói "có" dùng there were, không dùng it had.' }
     ]
   });
@@ -405,7 +405,7 @@
       { q: 'Nobody noticed the mistake, ___?', options: ['didn\'t they', 'did he', 'did they', 'noticed they'], answer: 2, explain: 'Nobody mang nghĩa phủ định → đuôi khẳng định, dùng they.' },
       { q: 'I\'m on the shortlist, ___?', options: ['amn\'t I', 'am not I', 'isn\'t it', 'aren\'t I'], answer: 3, explain: 'Ngoại lệ: I am → aren\'t I?' },
       { q: 'My parents never use social media, and ___ my grandparents.', options: ['so do', 'neither do', 'neither don\'t', 'so don\'t'], answer: 1, explain: 'Never là phủ định → neither do.' },
-      { q: 'Let\'s go for a walk after dinner, ___?', options: ['will we', 'don\'t we', 'shall we', 'do we'], answer: 2, explain: 'Let\'s… → shall we?' },
+      { q: 'Let\'s go for a walk after dinner, ___?', options: ['will we', 'don\'t we', 'shall we', 'do we'], answer: 2, explain: 'Câu rủ rê bắt đầu bằng Let\'s… luôn dùng câu hỏi đuôi shall we?' },
       { q: '"I passed the driving test first time." – "___"', options: ['So did I.', 'So I did.', 'Neither did I.', 'So was I.'], answer: 0, explain: 'Đồng ý với câu khẳng định thì quá khứ (passed) → So did I.' },
       { q: 'Câu nào đúng?', options: ['There aren\'t enough seats, aren\'t there?', 'There aren\'t enough seats, are there?', 'There aren\'t enough seats, are they?', 'There aren\'t enough seats, isn\'t it?'], answer: 1, explain: 'Câu chính phủ định, chủ ngữ there → đuôi are there.' },
       { q: 'Câu nào đúng?', options: ['She can speak French, can she?', 'She can speak French, doesn\'t she?', 'She can speak French, can\'t she?', 'She can speak French, isn\'t it?'], answer: 2, explain: 'Khẳng định với can → đuôi can\'t she.' },
@@ -456,13 +456,13 @@
     quiz: [
       { q: '___ forget to bring your passport on the test day.', options: ['Not', 'No', 'Don\'t', 'Doesn\'t'], answer: 2, explain: 'Mệnh lệnh phủ định: Don\'t + V.' },
       { q: 'Let\'s ___ the presentation one more time.', options: ['practise', 'to practise', 'practising', 'practised'], answer: 0, explain: 'Let\'s + V nguyên mẫu.' },
-      { q: 'How about ___ a study group?', options: ['start', 'to start', 'we start', 'starting'], answer: 3, explain: 'How about + V-ing.' },
+      { q: 'How about ___ a study group?', options: ['start', 'to start', 'we start', 'starting'], answer: 3, explain: 'How about + V-ing? (… thì sao?) dùng để gợi ý → starting.' },
       { q: 'Why don\'t we ___ the meeting until Monday?', options: ['postponing', 'postpone', 'to postpone', 'postponed'], answer: 1, explain: 'Why don\'t we + V nguyên mẫu.' },
-      { q: 'The doctor suggested ___ less salt.', options: ['to eat', 'me to eat', 'eating', 'eat'], answer: 2, explain: 'Suggest + V-ing.' },
+      { q: 'The doctor suggested ___ less salt.', options: ['to eat', 'me to eat', 'eating', 'eat'], answer: 2, explain: 'suggest + V-ing (gợi ý làm gì); không dùng suggest sb to V → eating.' },
       { q: 'Let\'s ___ about the results until they are published.', options: ['not worry', 'don\'t worry', 'not to worry', 'no worry'], answer: 0, explain: 'Phủ định của Let\'s là Let\'s not + V.' },
-      { q: 'Câu nào đúng?', options: ['What about visiting the old quarter?', 'What about to visit the old quarter?', 'What about visit the old quarter?', 'What about we visiting the old quarter?'], answer: 0, explain: 'What about + V-ing.' },
+      { q: 'Câu nào đúng?', options: ['What about visiting the old quarter?', 'What about to visit the old quarter?', 'What about visit the old quarter?', 'What about we visiting the old quarter?'], answer: 0, explain: 'What about + V-ing? dùng để gợi ý → What about visiting the old quarter?' },
       { q: 'Câu nào đúng?', options: ['I recommend you to book early.', 'I recommend to book early.', 'I recommend booking early.', 'I recommend book early.'], answer: 2, explain: 'Recommend + V-ing (hoặc recommend that you book).' },
-      { q: 'Câu nào đúng?', options: ['Would you mind to open the window?', 'Would you mind open the window?', 'Would you mind if open the window?', 'Would you mind opening the window?'], answer: 3, explain: 'Would you mind + V-ing.' },
+      { q: 'Câu nào đúng?', options: ['Would you mind to open the window?', 'Would you mind open the window?', 'Would you mind if open the window?', 'Would you mind opening the window?'], answer: 3, explain: 'Would you mind + V-ing? (phiền bạn… được không) → Would you mind opening the window?' },
       { q: 'Phần nào sai? "Please (A) to fill in (B) the form (C) before the interview (D)."', options: ['Please', 'to fill in', 'the form', 'before the interview'], answer: 1, explain: 'Mệnh lệnh dùng V nguyên mẫu: Please fill in…' },
       { q: 'Phần nào sai? "She suggested (A) me (B) to take (C) a gap year (D)."', options: ['She suggested', 'me', 'to take', 'a gap year'], answer: 1, explain: 'Suggest không đi trực tiếp với tân ngữ người: She suggested that I take / She suggested taking a gap year.' },
       { q: 'Phần nào sai? "Don\'t (A) to worry (B), we have (C) plenty of time (D)."', options: ['Don\'t', 'to worry', 'we have', 'plenty of time'], answer: 1, explain: 'Don\'t + V nguyên mẫu: Don\'t worry.' }
@@ -563,15 +563,15 @@
     quiz: [
       { q: 'The results of the experiment were really ___.', options: ['surprised', 'surprise', 'surprising', 'surprisingly'], answer: 2, explain: 'Kết quả (vật) gây ngạc nhiên → surprising.' },
       { q: 'Many employees feel ___ after working twelve-hour shifts.', options: ['exhausted', 'exhausting', 'exhaust', 'exhaustion'], answer: 0, explain: 'Người cảm thấy kiệt sức → exhausted.' },
-      { q: 'Hanoi is famous ___ its street food.', options: ['of', 'with', 'about', 'for'], answer: 3, explain: 'Famous for.' },
-      { q: 'This new phone is very similar ___ the previous model.', options: ['with', 'to', 'as', 'than'], answer: 1, explain: 'Similar to.' },
+      { q: 'Hanoi is famous ___ its street food.', options: ['of', 'with', 'about', 'for'], answer: 3, explain: 'be famous FOR sth = nổi tiếng vì/về → famous for its street food.' },
+      { q: 'This new phone is very similar ___ the previous model.', options: ['with', 'to', 'as', 'than'], answer: 1, explain: 'be similar TO sth = giống với → similar to the previous model.' },
       { q: 'I was ___ by the size of the stadium.', options: ['impressed', 'impressive', 'impressing', 'impression'], answer: 0, explain: 'Người bị ấn tượng → impressed (by).' },
       { q: 'The instructions were so ___ that nobody knew what to do.', options: ['confused', 'confuse', 'confusion', 'confusing'], answer: 3, explain: 'Hướng dẫn gây khó hiểu → confusing.' },
-      { q: 'Câu nào đúng?', options: ['I am worried about the exam.', 'I am worried of the exam.', 'I am worrying about the exam result is bad.', 'I am worry about the exam.'], answer: 0, explain: 'Worried about + N.' },
-      { q: 'Câu nào đúng?', options: ['She is capable to run the company.', 'She is capable for running the company.', 'She is capable of run the company.', 'She is capable of running the company.'], answer: 3, explain: 'Capable of + V-ing.' },
+      { q: 'Câu nào đúng?', options: ['I am worried about the exam.', 'I am worried of the exam.', 'I am worrying about the exam result is bad.', 'I am worry about the exam.'], answer: 0, explain: 'Tính từ -ed chỉ cảm xúc của người: be worried ABOUT + danh từ (lo lắng về) → I am worried about the exam.' },
+      { q: 'Câu nào đúng?', options: ['She is capable to run the company.', 'She is capable for running the company.', 'She is capable of run the company.', 'She is capable of running the company.'], answer: 3, explain: 'be capable OF + V-ing (có khả năng làm gì) → capable of running the company.' },
       { q: 'Câu nào đúng?', options: ['The lecture was so bored that I fell asleep.', 'I was so boring that I fell asleep.', 'The lecture was so boring that I fell asleep.', 'The lecture bored so that I fell asleep.'], answer: 2, explain: 'Bài giảng gây chán → boring.' },
       { q: 'Phần nào sai? "Most visitors (A) were disappointing (B) with (C) the hotel service (D)."', options: ['Most visitors', 'were disappointing', 'with', 'the hotel service'], answer: 1, explain: 'Khách cảm thấy thất vọng → disappointed.' },
-      { q: 'Phần nào sai? "Teachers are (A) responsible to (B) creating (C) a safe environment (D)."', options: ['Teachers are', 'responsible to', 'creating', 'a safe environment'], answer: 1, explain: 'Responsible for + V-ing.' },
+      { q: 'Phần nào sai? "Teachers are (A) responsible to (B) creating (C) a safe environment (D)."', options: ['Teachers are', 'responsible to', 'creating', 'a safe environment'], answer: 1, explain: 'be responsible FOR + V-ing (chịu trách nhiệm) → phần sai là "responsible to".' },
       { q: 'Phần nào sai? "I am interested (A) in learn (B) more about (C) marine biology (D)."', options: ['I am interested', 'in learn', 'more about', 'marine biology'], answer: 1, explain: 'Sau giới từ in cần V-ing: in learning.' }
     ]
   });
@@ -623,14 +623,14 @@
     quiz: [
       { q: 'It was ___ interesting talk that nobody left early.', options: ['so', 'such an', 'such', 'too'], answer: 1, explain: 'An + adj + N số ít → such an.' },
       { q: 'The coffee was ___ hot to drink.', options: ['too', 'so', 'such', 'enough'], answer: 0, explain: 'Quá… để có thể → too + adj + to V.' },
-      { q: 'Are you ___ to join the army?', options: ['enough old', 'old enough', 'too old enough', 'so old'], answer: 1, explain: 'Adj + enough + to V.' },
+      { q: 'Are you ___ to join the army?', options: ['enough old', 'old enough', 'too old enough', 'so old'], answer: 1, explain: 'Tính từ + enough + to V (đủ… để) → old enough. enough đứng SAU tính từ.' },
       { q: 'There were ___ people at the concert that we couldn\'t see the stage.', options: ['such', 'so much', 'too many', 'so many'], answer: 3, explain: 'People đếm được + that → so many.' },
       { q: 'We had ___ terrible weather that the match was cancelled.', options: ['such', 'such a', 'so', 'too'], answer: 0, explain: 'Weather không đếm được → such + adj + N (không có a).' },
       { q: 'The bus was so slow ___ I missed my interview.', options: ['as', 'to', 'that', 'than'], answer: 2, explain: 'So + adj + that + kết quả.' },
-      { q: 'Câu nào đúng?', options: ['There isn\'t money enough for the project.', 'There isn\'t enough of money for the project.', 'There isn\'t enough money for the project.', 'There isn\'t enough the money for the project.'], answer: 2, explain: 'Enough + N.' },
+      { q: 'Câu nào đúng?', options: ['There isn\'t money enough for the project.', 'There isn\'t enough of money for the project.', 'There isn\'t enough money for the project.', 'There isn\'t enough the money for the project.'], answer: 2, explain: 'enough + danh từ (đủ cái gì) → enough money; enough đứng TRƯỚC danh từ, không có of/the.' },
       { q: 'Câu nào đúng?', options: ['The room was too small for us to work in it.', 'The room was so small to work in.', 'The room was too small enough to work in.', 'The room was too small for us to work in.'], answer: 3, explain: 'Too + adj + for sb + to V, không lặp it ở cuối.' },
-      { q: 'Câu nào đúng?', options: ['She speaks such fluent English that people think she is British.', 'She speaks English such fluently.', 'She speaks so fluent English.', 'She speaks English too fluently that people think she is British.'], answer: 0, explain: 'Such + adj + N (fluent English) + that.' },
-      { q: 'Phần nào sai? "It was (A) so (B) a difficult exam (C) that many people failed (D)."', options: ['It was', 'so', 'a difficult exam', 'that many people failed'], answer: 1, explain: 'A + adj + N → such: such a difficult exam.' },
+      { q: 'Câu nào đúng?', options: ['She speaks such fluent English that people think she is British.', 'She speaks English such fluently.', 'She speaks so fluent English.', 'She speaks English too fluently that people think she is British.'], answer: 0, explain: 'such + tính từ + danh từ không đếm được (fluent English) + that → such fluent English that…' },
+      { q: 'Phần nào sai? "It was (A) so (B) a difficult exam (C) that many people failed (D)."', options: ['It was', 'so', 'a difficult exam', 'that many people failed'], answer: 1, explain: 'Trước a + tính từ + danh từ phải dùng such, không dùng so → such a difficult exam. Phần sai là "so".' },
       { q: 'Phần nào sai? "The suitcase (A) was (B) enough light (C) to carry onto the plane (D)."', options: ['The suitcase', 'was', 'enough light', 'to carry onto the plane'], answer: 2, explain: 'Enough đứng sau tính từ: light enough.' },
       { q: 'Phần nào sai? "The traffic (A) was (B) too heavy that (C) we arrived late (D)."', options: ['The traffic', 'was', 'too heavy that', 'we arrived late'], answer: 2, explain: 'Kết quả với that → so heavy that.' }
     ]
@@ -676,7 +676,7 @@
       { q: 'The figures for 2021 were ___ higher than those for 2020.', options: ['slight', 'slightly', 'very much', 'more'], answer: 1, explain: 'Bổ nghĩa cho tính từ so sánh higher → trạng từ slightly.' },
       { q: '___, the cheapest option turned out to be the most reliable.', options: ['Surprising', 'Surprise', 'To surprise', 'Surprisingly'], answer: 3, explain: 'Trạng từ câu thể hiện quan điểm → Surprisingly,' },
       { q: 'I have ___ been to a music festival.', options: ['ever never', 'not never', 'never', 'never not'], answer: 2, explain: 'Sau trợ động từ have: have never been. Không dùng hai phủ định.' },
-      { q: 'Students are ___ tired on Monday mornings.', options: ['often', 'oftenly', 'often are', 'often do'], answer: 0, explain: 'Sau be: are often tired.' },
+      { q: 'Students are ___ tired on Monday mornings.', options: ['often', 'oftenly', 'often are', 'often do'], answer: 0, explain: 'Trạng từ tần suất đứng SAU động từ be và trước động từ thường → are often tired.' },
       { q: '___ speaking, women live longer than men.', options: ['General', 'Generally', 'Generality', 'Generalise'], answer: 1, explain: 'Cụm cố định Generally speaking.' },
       { q: 'Câu nào đúng?', options: ['I like very much reading novels.', 'I very like reading novels.', 'I really like reading novels.', 'I like reading very much novels.'], answer: 2, explain: 'Really đứng trước động từ; very much đặt cuối câu. Không chen giữa V và O.' },
       { q: 'Câu nào đúng?', options: ['She has always been interested in politics.', 'She always has been interested in politics.', 'She has been always interested in politics.', 'Always she has been interested in politics.'], answer: 0, explain: 'Với nhiều trợ động từ, always đứng sau trợ động từ đầu tiên: has always been.' },
