@@ -9,7 +9,7 @@ tags: [toeic, part-7, doc-hieu]
 keyword: "toeic part7 時間配分"
 cover: toeic
 coverAlt: "LexkiteのTOEIC対策画面：7回分の模試、Part別の練習、TOEIC単語（TSL）"
-publishAt: 2026-10-19T18:30:00+07:00
+publishAt: 2026-10-20T19:31:00+09:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

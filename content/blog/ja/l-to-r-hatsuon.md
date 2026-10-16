@@ -9,7 +9,7 @@ tags: [pronunciation, ipa, hatsuon, minimal-pairs]
 keyword: "英語 l と r の発音"
 cover: pron
 coverAlt: "LexkiteのIPA発音ライブラリ。単母音・二重母音・子音が並び、例語つきで1音ずつ練習・採点できる"
-publishAt: 2026-10-17T16:24:00+07:00
+publishAt: 2026-10-18T12:36:00+09:00
 factChecked: 2026-10-16
 author: Lexkite
 status: ready
@@ -137,7 +137,7 @@ l と r と同じく、日本語にない音や区別のない音はいくつか
 
 ![LexkiteのIELTSリスニング練習画面。10回分のテスト、英・米・豪の音声、速度調整、練習・初回リスニング・書き取りのボタンが並ぶ](media:listening "速度を落として書き取りをすると、lとrを聞き違えた箇所がはっきり分かる")
 
-TOEICのリスニング対策と組み合わせる場合は、学習全体の計画を[TOEIC勉強法](/ja/blog/toeic-benkyouhou/)で確認できます。リーディングの問題文を音読して発音を確かめる方法は、[TOEIC Part 5のコツ](/ja/blog/toeic-part5-kotsu/)でも触れています。
+TOEICのリスニング対策と組み合わせる場合は、学習全体の計画を[TOEIC勉強法](/ja/blog/toeic-benkyouhou/)で、*correct* と *collect* のような音の引っかけへの備え方を[TOEIC Part 2のコツ](/ja/blog/toeic-part2-kotsu/)で確認できます。リーディングの問題文を音読して発音を確かめる方法は、[TOEIC Part 5のコツ](/ja/blog/toeic-part5-kotsu/)でも触れています。
 
 {{cta: /#/pron | 発音ライブラリで /l/ と /r/ を練習する}}
 

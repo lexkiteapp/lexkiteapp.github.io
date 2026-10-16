@@ -9,7 +9,7 @@ tags: [ielts, writing, task-2]
 keyword: "struktur writing task 2 ielts"
 cover: write
 coverAlt: "Ruang latihan IELTS Writing Task 2 Lexkite dengan pilihan topik, ide pendukung, kosakata dan kerangka esai"
-publishAt: 2026-11-17T07:03:00+07:00
+publishAt: 2026-10-23T12:30:00+07:00
 factChecked: 2026-10-16
 author: Lexkite
 status: ready

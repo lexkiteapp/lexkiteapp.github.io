@@ -9,7 +9,7 @@ tags: [phat-am, ipa]
 keyword: "âm khó trong tiếng anh với người việt"
 cover: pron
 coverAlt: "Màn hình phát âm trong Lexkite: chọn từng âm IPA, nghe từ ví dụ và luyện có chấm điểm"
-publishAt: 2026-10-27T17:51:00+07:00
+publishAt: 2026-11-13T13:14:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -123,6 +123,8 @@ Nhiều tài liệu gọi /iː/ và /ɪ/ là "i dài" và "i ngắn". Cách gọ
 ## Cách luyện âm khó hiệu quả bằng cặp tối thiểu
 
 Cặp tối thiểu (minimal pairs) là hai từ chỉ khác nhau đúng một âm, như *ship – sheep*. Đây là công cụ tốt nhất cho lỗi kiểu 3, vì nó buộc tai bạn tách hai âm mà não đang gộp làm một. Quy trình nên làm theo thứ tự:
+
+![Màn hình luyện nghe của Lexkite: 10 đề, giọng Anh–Mỹ–Úc, tốc độ chỉnh được, nút Luyện tập, Nghe lần đầu và Chép chính tả](media:listening "Chép chính tả ở tốc độ chậm để lộ ra những cặp âm bạn vẫn đang nghe nhầm")
 
 1. **Nghe – phân biệt**: nghe người bản ngữ đọc ngẫu nhiên một trong hai từ, bạn đoán là từ nào. Chưa đúng trên 90% thì chưa nên luyện nói, vì bạn chưa nghe ra khác biệt.
 2. **Nói từ đơn lẻ**: đọc từng từ, ghi âm, nghe lại và so với mẫu.

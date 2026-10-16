@@ -9,7 +9,7 @@ tags: [toefl, examenes]
 keyword: "nuevo formato toefl 2026"
 cover: toefl
 coverAlt: "Pantalla de preparación TOEFL iBT de Lexkite con el nuevo formato de examen y escala de 1 a 6"
-publishAt: 2026-11-17T15:44:00+07:00
+publishAt: 2026-10-22T12:30:00-06:00
 factChecked: 2026-10-16
 author: Lexkite
 status: ready

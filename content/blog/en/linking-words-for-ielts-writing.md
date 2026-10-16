@@ -9,7 +9,7 @@ tags: [linking-words, writing, ielts, cohesion]
 keyword: "linking words for ielts writing"
 cover: write
 coverAlt: "Lexkite IELTS Writing Task 2 room showing topic prompts, idea suggestions, useful vocabulary and an essay framework"
-publishAt: 2026-10-18T09:11:00+07:00
+publishAt: 2026-10-21T17:12:00+05:30
 factChecked: 2026-10-15
 qualityScore: 94
 author: Lexkite

@@ -9,7 +9,7 @@ tags: [ghi-nho, ebbinghaus]
 keyword: "đường cong quên lãng"
 cover: method
 coverAlt: "“The Lexkite method” mô tả thứ tự các bước trong một buổi học hằng ngày"
-publishAt: 2026-10-17T22:33:00+07:00
+publishAt: 2026-10-19T14:11:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -95,6 +95,8 @@ Lexkite đưa đường cong quên lãng vào cách sắp lịch ôn, để bạ
 {{cta: /#/method | Xem vòng học mỗi ngày dựa trên đường cong quên lãng}}
 
 {{youtube: | Gợi ý video: Mô phỏng đường cong quên lãng khi học 20 từ mới có và không có ôn tập}}
+
+Muốn có sẵn từ để ôn, bạn có thể bắt đầu từ [danh sách từ vựng theo chủ đề](/tu-vung/).
 
 ## Hiểu lầm thường gặp về đường cong quên lãng
 

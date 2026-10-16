@@ -9,7 +9,7 @@ tags: [writing, doan-van]
 keyword: "cách viết đoạn văn tiếng anh"
 cover: write
 coverAlt: "Phòng viết IELTS Task 2 của Lexkite: chọn đề theo chủ đề, gợi ý ý tưởng, từ vựng và khung bài"
-publishAt: 2026-11-06T07:03:00+07:00
+publishAt: 2026-12-08T11:03:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

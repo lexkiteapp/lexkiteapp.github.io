@@ -9,7 +9,7 @@ tags: [ngu-phap, thi]
 keyword: "phân biệt hiện tại hoàn thành và quá khứ đơn"
 cover: grammar
 coverAlt: "Mục ngữ pháp IELTS trong Lexkite: danh sách thì, cấp độ và bài luyện tổng hợp"
-publishAt: 2026-10-18T13:46:00+07:00
+publishAt: 2026-10-20T19:31:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -127,6 +127,8 @@ Bước 5 quan trọng hơn người học nghĩ. Kể chuyện là địa hạt
 ## Ứng dụng khi làm bài IELTS và TOEIC
 
 **IELTS Speaking Part 1.** Câu hỏi về nơi ở, công việc, sở thích rất hợp với hiện tại hoàn thành: *I've lived in Hai Phong all my life*, *I've been into photography since university*. Khi giám khảo hỏi *When did you start…?*, chuyển ngay sang quá khứ đơn. Bài [IELTS Speaking Part 1](/vi/blog/ielts-speaking-part-1/) có thêm cách mở rộng câu trả lời tự nhiên.
+
+![Phòng luyện Speaking của Lexkite: Part 1, 2, 3 theo chủ đề, câu hỏi mẫu, câu trả lời mẫu band 7.5–8 và từ vựng nên dùng](media:speaking "Luyện trả lời câu hỏi Part 1 theo chủ đề, để ý câu hỏi đang dùng thì nào")
 
 **IELTS Writing Task 1.** Biểu đồ có mốc trong quá khứ (1990–2010) gần như luôn mô tả bằng quá khứ đơn: *The number of visitors rose sharply between 1995 and 2005.* Chỉ khi số liệu kéo tới hiện tại mới cân nhắc hiện tại hoàn thành. Xem bài [mô tả line graph trong Task 1](/vi/blog/ielts-writing-task-1-line-graph/) để luyện các động từ xu hướng.
 

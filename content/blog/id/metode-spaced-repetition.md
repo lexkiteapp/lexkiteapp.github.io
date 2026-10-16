@@ -13,7 +13,7 @@ qualityScore: 95
 factChecked: 2026-10-16
 author: Lexkite
 status: ready
-publishAt: 2026-11-15T06:06:00+07:00
+publishAt: 2026-10-22T09:32:00+07:00
 ---
 
 Pernahkah Anda menghafal puluhan kosakata bahasa Inggris dalam satu malam, namun seminggu kemudian hampir semuanya lenyap tanpa bekas? Kebiasaan belajar sistem kebut semalam (SKS) sangat akrab di kalangan pelajar dan profesional di Indonesia. Masalah utamanya bukan karena daya ingat Anda lemah, melainkan karena otak manusia secara biologis dirancang untuk membuang informasi yang tidak diperkuat secara berkala. Untuk mengatasi masalah ini, **metode spaced repetition** hadir sebagai solusi ilmiah yang paling terbukti efektivitasnya di seluruh dunia.
@@ -54,7 +54,7 @@ Untuk menerapkan teknik ini secara mandiri tanpa aplikasi otomatis, Anda bisa me
 | Review Keempat | Hari ke-16 (jeda 9 hari) | Mengenali kata dalam konteks bacaan atau listening |
 | Review Kelima | Hari ke-35 (jeda 19 hari) | Memeriksa reflek pemahaman tanpa bantuan petunjuk |
 
-Kunci dari keberhasilan jadwal ini adalah konsistensi harian. Melakukan review 15 menit setiap hari jauh lebih menghasilkan daripada menumpuk 2 jam belajar di akhir pekan. Ketika Anda melewatkan sesi review, kartu yang jatuh tempo akan menumpuk dan memicu rasa kewalahan (overwhelm) yang sering menjadi penyebab utama pembelajar menyerah di tengah jalan.
+Kunci dari keberhasilan jadwal ini adalah konsistensi harian. Melakukan review 15 menit setiap hari jauh lebih menghasilkan daripada menumpuk 2 jam belajar di akhir pekan. Ketika Anda melewatkan sesi review, kartu yang jatuh tempo akan menumpuk dan memicu rasa kewalahan (overwhelm) yang sering menjadi penyebab utama pembelajar menyerah di tengah jalan. Ulangan harian ini juga menjadi bagian tetap dalam roadmap [belajar IELTS otodidak](/id/blog/belajar-ielts-otodidak/).
 
 Pendekatan bertahap ini sangat krusial saat Anda mempersiapkan ujian resmi seperti IELTS atau TOEFL. Silakan baca panduan lengkap kami tentang [cara belajar vocabulary IELTS](/id/blog/cara-belajar-vocabulary-ielts/) untuk melihat bagaimana teknik ini dipadukan dengan target skor band tinggi.
 

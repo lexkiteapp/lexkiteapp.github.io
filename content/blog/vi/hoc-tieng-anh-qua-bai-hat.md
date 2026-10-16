@@ -9,7 +9,7 @@ tags: [bai-hat, phat-am]
 keyword: "học tiếng anh qua bài hát"
 cover: pron
 coverAlt: "Màn hình phát âm trong Lexkite: chọn từng âm IPA, nghe từ ví dụ và luyện có chấm điểm"
-publishAt: 2026-11-12T15:22:00+07:00
+publishAt: 2026-12-24T12:53:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -94,6 +94,8 @@ Lấy lời bài hát từ nguồn có bản quyền (nhiều nền tảng nghe 
 ### Bước 3: Đối chiếu và phân tích
 
 Kiểm tra chỗ sai. Với mỗi chỗ sai, hỏi: vì sao mình nghe nhầm? Thường là do nối âm (hai từ nghe như một), dạng yếu (*to, of, and* gần như biến mất), hoặc từ chưa biết. Ghi lại 3–5 cụm từ đáng học, kèm dạng chuẩn nếu lời bài hát dùng dạng không chuẩn.
+
+![Kết quả tra từ “resilient” kèm phiên âm UK/US, nghĩa, câu ví dụ và nút lưu thành flashcard](media:dict "Tra từ lạ trong lời bài hát rồi lưu thành flashcard")
 
 ### Bước 4: Đọc lời như nói, rồi hát theo
 

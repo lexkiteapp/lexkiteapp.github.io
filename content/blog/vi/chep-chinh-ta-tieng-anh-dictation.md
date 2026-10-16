@@ -9,7 +9,7 @@ tags: [dictation, listening]
 keyword: "chép chính tả tiếng anh"
 cover: listening
 coverAlt: "Màn hình luyện nghe của Lexkite: chọn đề, chỉnh tốc độ, nghe lần đầu hoặc chép chính tả"
-publishAt: 2026-10-30T14:37:00+07:00
+publishAt: 2026-11-20T17:24:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -105,6 +105,8 @@ Mở [Trò chơi & bài tập](/#/practice), chọn Nghe & chép với nguồn t
 {{cta: /#/listening | Thử chép chính tả một phần nghe ở mức dễ}}
 
 {{youtube: | Gợi ý video: Một buổi chép chính tả 10 phút thực tế, từ nghe lần đầu đến phân loại lỗi}}
+
+Nếu cần thêm từ để kiểm tra tai mình, hãy chọn vài từ trong [từ vựng theo chủ đề](/tu-vung/) rồi tự nghe và viết lại.
 
 ## Câu hỏi thường gặp
 

@@ -6,12 +6,12 @@ import { ROOT, CATEGORIES, plainText, wordCount, readPost, loadPostsAt, briefSlu
 
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/, TAG = /^[a-z0-9-]+$/, YT = /^[\w-]{11}$/;
 const ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})$/, DAY = /^\d{4}-\d{2}-\d{2}$/;
-const RESERVED = new Set(['trang', 'chu-de', 'the', 'page', 'topic', 'tag', 'rss.xml', 'gioi-thieu', 'about', 'topik', 'halaman', 'tentang', 'tema', 'etiqueta', 'pagina', 'acerca-de', 'category']); // /blog/<…>/ không phải bài
+const RESERVED = new Set(['trang', 'chu-de', 'the', 'page', 'topic', 'tag', 'rss.xml', 'gioi-thieu', 'about', 'topik', 'halaman', 'tentang', 'tema', 'etiqueta', 'pagina', 'acerca-de', 'category', 'categoria', 'sobre', 'categorie', 'a-propos', 'kategorie', 'schlagwort', 'seite', 'ueber-uns', 'kategori', 'etiket', 'sayfa', 'hakkinda']); // /blog/<…>/ không phải bài
 const FAQ = FAQ_RE;
 const rel = f => (f && !path.relative(process.cwd(), f).startsWith('..') ? path.relative(process.cwd(), f) : f);
 const len = s => [...String(s ?? '')].length;
 const norm = s => String(s ?? '').normalize('NFC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
-const isCJK = s => /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u.test(s);
+const isCJK = s => /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Thai}]/u.test(s); // ngôn ngữ không tách từ bằng khoảng trắng
 const has = (text, kw) => !!kw && (isCJK(kw) ? norm(kw).split(' ').every(w => norm(text).replace(/\s+/g, '').includes(w)) : (' ' + norm(text) + ' ').includes(' ' + norm(kw) + ' ')); // tiếng Nhật/Trung: so khớp bỏ khoảng trắng
 const words = s => s.match(/[\p{L}\p{N}][\p{L}\p{N}'’.-]*/gu) || [];
 // Bỏ khối code để không bắt nhầm tiêu đề/liên kết bên trong (giữ số dòng)
@@ -126,7 +126,8 @@ export function checkPosts(posts, { all = posts, root = ROOT } = {}) {
   // Liên kết đến: bài không được bài nào trỏ tới là “bài mồ côi” (Google khó thấy, ít được chuyền sức mạnh)
   const live = all.filter(p => p.status !== 'draft'), inbound = new Map();
   for (const p of live) for (const m of new Set([...p.body.matchAll(/\]\(\/(?:[a-z]{2}(?:-[a-z]+)?\/)?blog\/([^/#?)]+)\//g)].map(m => `${p.lang}/${m[1]}`))) inbound.set(m, (inbound.get(m) || 0) + 1);
-  if (live.length >= 10) for (const p of posts) { const n = inbound.get(`${p.lang}/${p.slug}`) || 0; if (n < 3) warnings.push(`${rel(p.file)}: [inbound] chỉ ${n} bài khác trỏ tới (nên ≥ 3) – thêm liên kết từ bài liên quan`); }
+  // ngôn ngữ mới (< 5 bài) chưa đủ bài để trỏ tới → bỏ qua cảnh báo
+  for (const p of posts) { if (live.filter(x => x.lang === p.lang).length < 5) continue; const n = inbound.get(`${p.lang}/${p.slug}`) || 0; if (n < 3) warnings.push(`${rel(p.file)}: [inbound] chỉ ${n} bài khác trỏ tới (nên ≥ 3) – thêm liên kết từ bài liên quan`); }
   return { errors, warnings };
 }
 

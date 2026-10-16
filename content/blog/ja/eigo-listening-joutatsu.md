@@ -9,7 +9,7 @@ tags: [listening, nghe, dictation]
 keyword: "英語 リスニング 上達"
 cover: listening
 coverAlt: "LexkiteのIELTSリスニング練習画面。10回分のテスト、英・米・豪の音声、速度調整、練習・初回リスニング・書き取りのボタンが並ぶ"
-publishAt: 2026-10-20T16:18:00+07:00
+publishAt: 2026-10-21T17:12:00+09:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -115,7 +115,7 @@ qualityScore: 93
 - *can* → /kən/：肯定文の *I can come.* では弱く「クン」。否定の *can't* は母音がはっきり残り、強く読まれやすい。
 - *of* → /əv/ または /ə/：*a lot of people* は「アラタ・ピーポー」のように聞こえることが多い。
 
-*can* と *can't* の区別は、TOEICでも日常会話でも聞き間違えると意味が逆になる要注意ポイントです。音の強さで聞き分ける意識を持ちましょう。個々の子音、たとえば *right* と *light* で迷う場合は、[英語のlとrの発音](/ja/blog/l-to-r-hatsuon/)で舌の位置から確認できます。
+*can* と *can't* の区別は、TOEICでも日常会話でも聞き間違えると意味が逆になる要注意ポイントです（似た音の選択肢で迷わせるTOEICの手口は[TOEIC Part 2のコツ](/ja/blog/toeic-part2-kotsu/)で紹介しています）。音の強さで聞き分ける意識を持ちましょう。個々の子音、たとえば *right* と *light* で迷う場合は、[英語のlとrの発音](/ja/blog/l-to-r-hatsuon/)で舌の位置から確認できます。
 
 ![Lexkiteの間違いノート。語彙・文法・読解・リスニングの分野別にミスがまとめられ、あとで復習できる](media:mistakes "アプリの練習で間違えた問題は分野別にまとまるので、リスニングのミスだけを週末に見直せる")
 

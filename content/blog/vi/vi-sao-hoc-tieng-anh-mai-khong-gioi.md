@@ -9,7 +9,7 @@ tags: [dong-luc, phuong-phap]
 keyword: "học tiếng anh mãi không giỏi"
 cover: method
 coverAlt: "Màn hình phương pháp của Lexkite giải thích đường cong quên lãng và cách cân bằng bốn kỹ năng"
-publishAt: 2026-11-10T12:09:00+07:00
+publishAt: 2026-12-19T10:12:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

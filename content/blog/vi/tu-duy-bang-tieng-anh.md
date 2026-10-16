@@ -9,7 +9,7 @@ tags: [tu-duy, giao-tiep]
 keyword: "tư duy bằng tiếng anh"
 cover: speaking
 coverAlt: "Màn hình Speaking trong Lexkite: chọn Part, xem câu hỏi mẫu, câu trả lời mẫu và từ vựng nên dùng"
-publishAt: 2026-10-31T10:06:00+07:00
+publishAt: 2026-11-23T20:57:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

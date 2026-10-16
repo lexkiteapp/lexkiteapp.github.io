@@ -9,7 +9,7 @@ tags: [paraphrase, writing, reading]
 keyword: "how to paraphrase in ielts"
 cover: write
 coverAlt: "Lexkite IELTS Task 2 Writing room with prompts by topic, idea hints, suggested vocabulary, an essay outline and annotated band 8 samples"
-publishAt: 2026-10-26T22:12:00+07:00
+publishAt: 2026-11-09T15:24:00+05:30
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

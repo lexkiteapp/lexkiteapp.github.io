@@ -9,7 +9,7 @@ tags: [spaced-repetition, memory, flashcards]
 keyword: "spaced repetition for language learning"
 cover: method
 coverAlt: "The Lexkite method page showing a daily study loop of reviews, new words, practice, reading or listening and speaking"
-publishAt: 2026-10-17T07:49:00+07:00
+publishAt: 2026-10-18T12:36:00+05:30
 factChecked: 2026-10-15
 qualityScore: 93
 author: Lexkite

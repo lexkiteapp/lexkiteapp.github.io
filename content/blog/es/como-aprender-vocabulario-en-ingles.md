@@ -22,7 +22,7 @@ Apuntas 40 palabras nuevas en una libreta, al día siguiente recuerdas diez y un
 Antes de los pasos, conviene entender las tres causas más habituales de que el vocabulario no crezca aunque le dediques horas:
 
 - **Demasiadas palabras de golpe.** Una lista de 50 términos sueltos se siente productiva, pero el cerebro no tiene tiempo de fijar ninguno.
-- **Palabras sin contexto.** Memorizar *achieve = lograr* no te dice con qué se combina (*achieve a goal*, *achieve success*) ni cómo suena.
+- **Palabras sin contexto.** Memorizar *achieve = lograr* no te dice con qué se combina (*achieve a goal*, *achieve success*) ni cómo suena. Con los verbos pasa lo mismo: la traducción de *enjoy* no te avisa de que va seguido de *-ing* (lo explicamos en [gerundio o infinitivo en inglés](/es/blog/gerundio-o-infinitivo-en-ingles/)).
 - **Ningún plan de repaso.** Lo que no se recupera de la memoria en los días siguientes se borra. Es lo que describe la curva del olvido de Ebbinghaus: el olvido es rápido al principio y se frena con cada repaso bien espaciado.
 
 Los hispanohablantes tenemos además una ventaja y una trampa propias. La ventaja: miles de palabras del inglés académico vienen del latín y se parecen al español (*information*, *possible*, *society*). La trampa: confiamos tanto en esas semejanzas que caemos en falsos amigos y en una pronunciación "a la española". Lo verás en los pasos 3 y 4.

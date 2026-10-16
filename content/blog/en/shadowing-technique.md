@@ -9,7 +9,7 @@ tags: [shadowing, speaking, listening, pronunciation]
 keyword: "shadowing technique"
 cover: practice-speak
 coverAlt: "Lexkite scored pronunciation practice with a microphone button for the phrase cut down on"
-publishAt: 2026-10-25T06:23:00+07:00
+publishAt: 2026-11-06T12:51:00+05:30
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

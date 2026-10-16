@@ -9,7 +9,7 @@ tags: [pwa, dien-thoai]
 keyword: "app học tiếng anh miễn phí"
 cover: m-home
 coverAlt: "Màn hình “Today” khi mở Lexkite như một ứng dụng trên điện thoại"
-publishAt: 2026-11-11T16:26:00+07:00
+publishAt: 2026-12-22T14:18:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
@@ -115,6 +115,8 @@ Lexkite là app học tiếng Anh miễn phí dạng web, có thể cài lên m�
 {{cta: /#/home | Mở Lexkite trên điện thoại và ôn thẻ hôm nay}}
 
 {{youtube: | Gợi ý video: hướng dẫn cài web app lên màn hình chính iPhone và Android trong một phút}}
+
+Khi muốn có thêm tài liệu để đọc trên điện thoại, bạn có thể xem các bài [từ vựng theo chủ đề](/tu-vung/) ngay trên trình duyệt.
 
 ## Câu hỏi thường gặp
 

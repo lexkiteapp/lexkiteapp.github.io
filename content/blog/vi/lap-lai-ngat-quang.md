@@ -9,7 +9,7 @@ tags: [spaced-repetition, ghi-nho]
 keyword: "lặp lại ngắt quãng"
 cover: method
 coverAlt: "Trang “The Lexkite method”: vòng lặp học khoảng 30 phút mỗi ngày từ ôn thẻ, học từ mới, luyện, đọc/nghe đến nói"
-publishAt: 2026-10-17T07:55:00+07:00
+publishAt: 2026-10-18T12:36:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
