@@ -3,6 +3,10 @@ name = "lexkite"
 pages_build_output_dir = "dist"
 compatibility_date = "2026-10-01"
 
+# Smart Placement: chạy Functions gần máy chủ phụ thuộc (Google Gemini, D1) thay vì gần người dùng – tránh vùng Gemini chưa hỗ trợ (vd. Hồng Kông)
+[placement]
+mode = "smart"
+
 [[d1_databases]]
 binding = "DB"
 database_name = "lexkite-sync"

@@ -176,7 +176,7 @@ const OPS = {
     const list = await gkList(db); if (list.some(x => x.k === key)) return { ok: false, error: 'Khóa này đã có trong danh sách' };
     if (list.length >= 20) return { ok: false, error: 'Tối đa 20 khóa' };
     const r = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash', { headers: { 'x-goog-api-key': key } });
-    if (!r.ok) return { ok: false, error: `Google từ chối khóa (HTTP ${r.status})` };
+    if (!r.ok) { const m = ((await r.json().catch(() => ({}))).error || {}).message || ''; return { ok: false, error: `Google từ chối khóa (HTTP ${r.status})${m ? ': ' + m.slice(0, 160) : ''}${/location/i.test(m) ? ' – máy chủ Cloudflare đang ở vùng Gemini chưa hỗ trợ' : ''}` }; }
     list.push({ k: key, at: Date.now(), by: who.email }); await gkSave(db, list);
     return { ok: true, last4: key.slice(-4), count: list.length };
   },
