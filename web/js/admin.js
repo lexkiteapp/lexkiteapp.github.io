@@ -7,6 +7,11 @@
   const when = t => t ? new Date(t).toLocaleString('vi-VN', { dateStyle: 'short', timeStyle: 'short' }) : '–';
   const bytes = b => b > 1048576 ? (b / 1048576).toFixed(1) + ' MB' : b > 1024 ? (b / 1024).toFixed(1) + ' KB' : (b || 0) + ' B';
   const FLAG = c => c && c.length === 2 && c !== 'XX' ? String.fromCodePoint(...[...c.toUpperCase()].map(x => 127397 + x.charCodeAt(0))) + ' ' + c : '🌐 ?';
+  // Giao diện sáng/tối: Tự động (theo máy) → Sáng → Tối, ghi nhớ trên trình duyệt
+  const THEME = { auto: ['🌗', 'Tự động (theo máy)'], light: ['☀️', 'Sáng'], dark: ['🌙', 'Tối'] };
+  const setTheme = m => { try { localStorage.setItem('lk.admTheme', m); } catch (e) { /* bỏ qua */ } if (m === 'auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme', m); paintTheme(); };
+  const paintTheme = () => { const b = document.getElementById('thm'); if (!b) return; const m = (() => { try { return localStorage.getItem('lk.admTheme') || 'auto'; } catch (e) { return 'auto'; } })(); b.textContent = THEME[m][0] + ' ' + THEME[m][1]; b.setAttribute('aria-label', 'Giao diện: ' + THEME[m][1] + ' – bấm để đổi'); };
+  try { const m = localStorage.getItem('lk.admTheme'); if (m === 'light' || m === 'dark') document.documentElement.setAttribute('data-theme', m); } catch (e) { /* bỏ qua */ }
   let user = null, tab = 'overview';
 
   firebase.initializeApp(FIREBASE_CONFIG);
@@ -52,7 +57,8 @@
   auth.onAuthStateChanged(async u => {
     user = u;
     if (!u) return;
-    $('#me').innerHTML = `${esc(u.email)} <button class="btn ghost sm" id="out">Thoát</button>`;
+    $('#me').innerHTML = `<button class="btn ghost sm theme-btn" id="thm" title="Đổi giao diện sáng/tối"></button>${esc(u.email)} <button class="btn ghost sm" id="out">Thoát</button>`;
+    paintTheme(); $('#thm').onclick = () => { const order = ['auto', 'light', 'dark'], cur = localStorage.getItem('lk.admTheme') || 'auto'; setTheme(order[(order.indexOf(cur) + 1) % 3]); };
     $('#out').onclick = () => auth.signOut().then(() => location.reload());
     try { const h = location.hash.slice(1); await show(VIEWS[h] ? h : 'overview'); $('#tabs').hidden = false; badges(); }
     catch (e) { main.innerHTML = `<div class="card center adm-login"><h2>Không có quyền</h2><p class="muted">${esc(u.email)} chưa được cấp quyền quản trị.</p><button class="btn" onclick="firebase.auth().signOut().then(()=>location.reload())">Đổi tài khoản</button></div>`; }
