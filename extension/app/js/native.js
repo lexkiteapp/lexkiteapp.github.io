@@ -1,7 +1,8 @@
 /* Cầu nối app gốc (Android/iOS qua Capacitor). Chỉ chạy khi mở trong app – web & add-on bỏ qua hoàn toàn.
  * – Nhắc học hằng ngày bằng thông báo cục bộ (không cần máy chủ, miễn phí)
  * – Rung phản hồi (Haptics) thay cho navigator.vibrate
- * – Không dùng service worker trong app (tài nguyên đã nằm sẵn trong gói cài đặt) */
+ * – Không dùng service worker trong app (tài nguyên đã nằm sẵn trong gói cài đặt)
+ * – Widget màn hình chính/khóa: plugin WidgetBridge (mobile/ios/App/App/WidgetBridgePlugin.swift, mobile/android/.../WidgetBridgePlugin.java) */
 (function (g) {
   const Cap = g.Capacitor;
   const native = !!(Cap && Cap.isNativePlatform && Cap.isNativePlatform());
@@ -61,6 +62,41 @@
   new MutationObserver(syncBar).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncBar);
   window.addEventListener('load', syncBar);
+  // Widget màn hình chính/khóa (iOS WidgetKit, Android App Widget): ghi snapshot nhỏ cho widget đọc offline, không gọi mạng.
+  // Gọi từ App.updateChrome (mở app, sau phiên ôn, sau đồng bộ) – gom lại 1,5 giây; ghi ngay khi app xuống nền.
+  let wTimer = 0, wLast = '', wArgs = null;
+  function widgetSnapshot(state, streakN) {
+    const C = g.Core, cards = Object.values((state && state.cards) || {}), end = C.endOfToday();
+    const { total } = C.Cards.dueCount(state.cards, state.settings, state.stats);
+    const due = cards.filter(c => (c.srs.reps > 0 || c.srs.last) && c.srs.due <= end).sort((a, b) => a.srs.due - b.srs.due);
+    const fresh = cards.filter(c => c.srs.reps === 0 && !c.srs.last).sort((a, b) => a.added - b.added);
+    const L = g.I18N ? g.I18N.learnLang() : 'vi', tt = k => (typeof g.t === 'function' ? g.t(k) : k);
+    const gloss = c => { // nghĩa theo ngôn ngữ người học: tiếng Việt → .vi; ngôn ngữ khác → gói nghĩa bản địa, không có thì định nghĩa tiếng Anh
+      let m = L === 'vi' ? c.vi : ((g.App && g.App.nativeGloss && g.App.nativeGloss(c.word)) || (g.I18N && g.I18N.meanLang() === 'vi' ? c.vi : c.def) || '');
+      m = String(m || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+      return m.length > 90 ? m.slice(0, 88).trim() + '…' : m;
+    };
+    const words = [...due, ...fresh].slice(0, 20).map(c => ({ w: c.word, ipa: c.ipa || c.ipaUS || '', m: gloss(c), lv: String(c.level || '').toUpperCase().slice(0, 2), due: c.srs.due || 0 }));
+    return { v: 1, at: Date.now(), due: total, streak: streakN || 0, lang: g.I18N ? g.I18N.lang() : 'vi', rtl: !!(g.I18N && g.I18N.rtl), words,
+      l: { title: tt('Thẻ đến hạn hôm nay'), streak: tt('Chuỗi ngày'), review: tt('Ôn ngay'), done: tt('Hôm nay bạn đã ôn hết!'), none: tt('Không còn thẻ đến hạn'), n: tt('{n} thẻ ôn lại') } };
+  }
+  function widgetFlush() {
+    clearTimeout(wTimer); wTimer = 0;
+    const WB = P.WidgetBridge; if (!WB || !wArgs || !g.Core) return;
+    try {
+      const snap = widgetSnapshot(wArgs[0], wArgs[1]), key = JSON.stringify({ ...snap, at: 0 });
+      if (key === wLast) return; wLast = key; // không đổi gì → khỏi ghi, khỏi làm mới widget (tiết kiệm pin)
+      WB.update({ json: JSON.stringify(snap) }).catch(() => {});
+    } catch (e) { /* bỏ qua */ }
+  }
+  g.VBNative.widget = (state, streakN) => { wArgs = [state, streakN]; clearTimeout(wTimer); wTimer = setTimeout(widgetFlush, 1500); };
+  document.addEventListener('visibilitychange', () => { if (document.hidden && wTimer) widgetFlush(); });
+  // Chạm widget → lexkite://review?w=từ → mở đúng thẻ đó trong phiên ôn (#/review?w=từ)
+  const openDeep = url => { const m = /^lexkite:\/\/review\/?(?:\?w=([^&#]*))?/i.exec(url || ''); if (m) location.hash = '#/review' + (m[1] ? '?w=' + m[1] : ''); };
+  if (P.App) {
+    P.App.addListener('appUrlOpen', e => openDeep(e && e.url));
+    window.addEventListener('load', () => { P.App.getLaunchUrl && P.App.getLaunchUrl().then(r => openDeep(r && r.url)).catch(() => {}); });
+  }
   g.VBNative.scheduleReminder = scheduleReminder;
   window.addEventListener('load', () => setTimeout(() => scheduleReminder({ ask: false }), 3000));
 })(typeof self !== 'undefined' ? self : this);

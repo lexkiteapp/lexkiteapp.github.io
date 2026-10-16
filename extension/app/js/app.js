@@ -111,6 +111,7 @@
       <div class="progress xp thin" style="margin-top:.6rem"><i style="width:${L.into / L.need * 100}%"></i></div>
       <div class="tiny muted" style="margin-top:.3rem">${t('{a}/{b} XP tới cấp {n}', { a: L.into, b: L.need, n: L.level + 1 })}</div>`;
     $('#avatarBtn').innerHTML = avatarInner();
+    if (window.VBNative && VBNative.widget) VBNative.widget(state, st); // widget màn hình chính/khóa (chỉ app gốc)
   }
   const avatarInner = () => state.user && state.user.photoURL ? `<img src="${esc(state.user.photoURL)}" alt="" referrerpolicy="no-referrer">` : esc((state.user && (state.user.displayName || state.user.email) || 'L')[0].toUpperCase());
   const avatarHtml = () => `<span class="avatar">${avatarInner()}</span>`;
