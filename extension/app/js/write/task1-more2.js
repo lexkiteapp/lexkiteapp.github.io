@@ -162,4 +162,97 @@
 
 <<Thân bài 2>> On the eastern side, the car park in the north-east corner [[has been demolished|đã bị phá bỏ]] and a science centre [[has been constructed|đã được xây dựng]] [[in its place|ở vị trí đó]]. The lecture halls in the centre [[have been retained|được giữ lại]], {{but}} the woodland to the south [[has been cleared|đã bị phát quang]], {{and}} the car park [[has been relocated|đã được di dời]] there. {{In short}}, the campus [[now offers|giờ đây có]] more accommodation and teaching facilities, [[at the expense of|với cái giá là mất đi]] its green space.` },
   ]);
+  /* ===== Lô 7 (tự biên soạn – DỮ LIỆU MINH HỌA, không phải số liệu thật): 6 đề đủ 6 dạng ===== */
+  g.TASK1_MORE = g.TASK1_MORE.concat([
+    { id: 'airports', type: 'line', title: 'The line graph shows the number of passengers (in millions) who used three airports in one country between 2000 and 2025.',
+      x: ['2000', '2005', '2010', '2015', '2020', '2025'], unit: 'million',
+      series: [['Northfield', [12, 15, 19, 24, 8, 26]], ['Eastport', [8, 9, 9, 10, 4, 11]], ['Lakeside', [2, 4, 7, 11, 3, 14]]],
+      overview: 'Overall, passenger numbers at all three airports rose over the period despite a sharp fall in 2020; Northfield was the busiest airport throughout, while Lakeside grew the fastest and overtook Eastport from 2015 onwards.' },
+    { id: 'crops', type: 'bar', title: 'The bar chart shows the production of wheat, rice and maize (in millions of tonnes) in four regions of a country in 2023.',
+      x: ['North', 'South', 'East', 'West'], unit: 'million tonnes',
+      series: [['Wheat', [24, 6, 15, 10]], ['Rice', [3, 21, 9, 4]], ['Maize', [8, 12, 18, 5]]],
+      overview: 'Overall, each region specialised in a different crop: the North produced mainly wheat, the South mainly rice and the East mainly maize, and the East had the highest total output, whereas the West produced the least.' },
+    { id: 'homepower', type: 'pie', title: 'The pie charts show how electricity was used in an average household in one country in 1995 and 2025.',
+      pies: [['1995', [['Heating', 38], ['Kitchen appliances', 22], ['Lighting', 20], ['Electronics', 8], ['Other', 12]]], ['2025', [['Heating', 30], ['Kitchen appliances', 19], ['Lighting', 7], ['Electronics', 26], ['Other', 18]]]],
+      overview: 'Overall, heating remained the largest use of household electricity in both years, but the most striking changes were the sharp rise in the share used by electronic devices and the steep fall in the proportion used for lighting.' },
+    { id: 'ageing', type: 'table', title: 'The table shows the population, the percentage of people aged 65 and over, and the average life expectancy in five countries in 2024.',
+      head: ['Country', 'Population (millions)', 'Aged 65+ (%)', 'Life expectancy (years)'],
+      rows: [['Aldoria', 82, 23, 82.4], ['Bresnia', 47, 19, 80.1], ['Calvara', 31, 12, 76.5], ['Dunmore', 12, 27, 84.0], ['Elvany', 6, 8, 71.2]],
+      overview: 'Overall, countries with a higher proportion of older people also tended to have a longer life expectancy; Dunmore had the oldest population and the longest-lived citizens despite its small size, whereas Elvany was the youngest country with the lowest life expectancy.' },
+    { id: 'chocolate', type: 'process', title: 'The diagram shows how chocolate is produced from cocoa beans.',
+      steps: ['Ripe cocoa pods are harvested from cocoa trees', 'The pods are split open and the beans are removed', 'The beans are fermented under banana leaves for about a week', 'The beans are dried in the sun', 'The dried beans are packed into sacks and shipped to factories', 'The beans are roasted and their shells are removed', 'The inner parts (nibs) are ground into a thick liquid called cocoa liquor', 'Sugar and milk are added, and the mixture is poured into moulds to form bars'],
+      overview: 'Overall, chocolate production involves eight stages, starting with the harvesting of cocoa pods and ending with the moulding of chocolate bars; the first five stages take place on the farm, while the final three are carried out in a factory.' },
+    { id: 'mainstreet', type: 'map', title: 'The maps show the area on either side of Main Street in a city in 1990 and today.',
+      maps: [['1990', [['Factory', 1, 1, 2, 2, '#64748b'], ['Warehouses', 1, 3, 2, 1, '#94a3b8'], ['Houses', 3, 1, 2, 1, '#f59e0b'], ['Bus depot', 3, 2, 2, 1, '#0ea5a4'], ['Open land', 3, 3, 2, 1, '#16a34a']]],
+             ['Today', [['Apartments', 1, 1, 2, 1, '#c026d3'], ['Shopping centre', 1, 2, 2, 1, '#e5484d'], ['Park', 1, 3, 2, 1, '#16a34a'], ['Houses', 3, 1, 2, 1, '#f59e0b'], ['Library', 3, 2, 2, 1, '#6d5dfc'], ['Car park', 3, 3, 2, 1, '#94a3b8']]]],
+      overview: 'Overall, the industrial area to the west of Main Street has been completely transformed into a residential, shopping and leisure district, whereas the eastern side has changed less, with the houses remaining but the bus depot and the open land being replaced.' },
+  ]);
+
+  g.MODELS = g.MODELS.concat([
+    { id: 't1-airports', task: 1, ref: 'airports', band: '8.0', words: 178,
+      text: `<<Mở bài>> The line graph [[illustrates|minh họa]] how many passengers used three airports, Northfield, Eastport and Lakeside, [[at five-year intervals|cách nhau năm năm]] between 2000 and 2025.
+
+<<Tổng quan>> {{Overall}}, passenger numbers at all three airports increased over the period, [[despite a sharp fall in 2020|mặc dù giảm mạnh vào năm 2020]]. Northfield was by far the busiest airport throughout, while Lakeside [[recorded the fastest growth|ghi nhận mức tăng nhanh nhất]].
+
+<<Thân bài 1>> Northfield [[handled|tiếp nhận]] 12 million passengers in 2000, and this figure [[rose steadily|tăng đều]] to a peak of 24 million in 2015. {{After}} [[plummeting to|lao dốc xuống]] just 8 million in 2020, it [[recovered strongly|phục hồi mạnh]] to reach 26 million in 2025, the highest figure on the graph.
+
+<<Thân bài 2>> Eastport and Lakeside began the period with much lower numbers, at 8 million and 2 million respectively. Eastport [[remained relatively stable|tương đối ổn định]] at around 9 to 10 million until 2015, {{whereas}} Lakeside grew rapidly and [[overtook|vượt qua]] Eastport in 2015, with 11 million passengers compared with 10 million. {{Both}} airports also [[experienced a dramatic drop|trải qua một đợt sụt giảm mạnh]] in 2020, to 4 million and 3 million, {{before}} recovering. By 2025, Lakeside had [[climbed to|tăng lên]] 14 million, seven times its 2000 level, while Eastport had reached only 11 million.`,
+      pitfalls: ['Bỏ qua điểm bất thường năm 2020: phải nhắc trong tổng quan vì đó là đặc điểm nổi bật nhất của biểu đồ.', 'Liệt kê từng năm của từng sân bay → bài dài và rời rạc; nên nhóm Eastport và Lakeside để so sánh.', 'Dùng sai thì: số liệu quá khứ phải dùng quá khứ đơn (rose, fell), mốc "By 2025" dùng quá khứ hoàn thành (had climbed).', 'Viết "the passengers of Northfield increased" – sai chủ ngữ; đúng là "the number of passengers at Northfield increased".'],
+      vocab: [['rise steadily', 'tăng đều'], ['plummet to', 'lao dốc xuống'], ['recover strongly', 'phục hồi mạnh'], ['reach a peak of', 'đạt đỉnh'], ['remain relatively stable', 'tương đối ổn định'], ['overtake', 'vượt qua'], ['respectively', 'lần lượt'], ['seven times its 2000 level', 'gấp bảy lần mức năm 2000']] },
+
+    { id: 't1-crops', task: 1, ref: 'crops', band: '8.0', words: 210,
+      text: `<<Mở bài>> The bar chart [[compares|so sánh]] the amount of wheat, rice and maize produced in four regions of a country in 2023, [[measured in millions of tonnes|tính bằng triệu tấn]].
+
+<<Tổng quan>> {{Overall}}, each region [[specialised in a different crop|chuyên về một loại cây trồng khác nhau]]: wheat [[dominated|chiếm ưu thế]] in the North, rice in the South and maize in the East. The East had the highest [[total output|tổng sản lượng]], {{whereas}} the West produced the least.
+
+<<Thân bài 1>> The North was [[by far the largest producer of wheat|nhà sản xuất lúa mì lớn nhất, bỏ xa các vùng khác]], with 24 million tonnes, which was four times the amount grown in the South. {{However}}, it produced only 8 million tonnes of maize and a [[negligible|không đáng kể]] 3 million tonnes of rice. {{In contrast}}, the South [[led the way in|dẫn đầu về]] rice production at 21 million tonnes, {{followed by}} 12 million tonnes of maize and just 6 million tonnes of wheat.
+
+<<Thân bài 2>> The East had [[the most balanced output|sản lượng cân bằng nhất]] of the four regions. Maize was its main crop at 18 million tonnes, the highest figure for this crop, and it also produced 15 million tonnes of wheat and 9 million tonnes of rice, giving a total of 42 million tonnes. The West, {{meanwhile}}, [[lagged behind|tụt lại phía sau]] the other regions, producing 10 million tonnes of wheat but only 5 and 4 million tonnes of maize and rice respectively, a total of just 19 million tonnes.`,
+      pitfalls: ['Mô tả từng cột theo thứ tự trên biểu đồ mà không so sánh – Task 1 chấm khả năng "make comparisons".', 'Tổng quan chỉ nói "there are differences" – quá chung; cần nêu đặc điểm cụ thể (mỗi vùng chuyên một cây, vùng nào tổng cao/thấp nhất).', 'Dùng "increase/decrease" cho biểu đồ cột một thời điểm – không có thay đổi theo thời gian nên không dùng từ chỉ xu hướng.', 'Thiếu đơn vị (million tonnes) hoặc viết "24 millions tonnes" – sai: "24 million tonnes".'],
+      vocab: [['by far the largest producer', 'nhà sản xuất lớn nhất, bỏ xa'], ['four times the amount', 'gấp bốn lần lượng'], ['negligible', 'không đáng kể'], ['lead the way in', 'dẫn đầu về'], ['followed by', 'tiếp theo là'], ['lag behind', 'tụt lại phía sau'], ['respectively', 'lần lượt'], ['total output', 'tổng sản lượng']] },
+
+    { id: 't1-homepower', task: 1, ref: 'homepower', band: '8.0', words: 160,
+      text: `<<Mở bài>> The two pie charts [[illustrate|minh họa]] the proportion of electricity used for five purposes in an average household in one country in 1995 and 2025.
+
+<<Tổng quan>> {{Overall}}, heating [[accounted for|chiếm]] the largest share of household electricity in both years. The most [[striking|nổi bật]] changes were [[a sharp rise in|sự tăng mạnh của]] the proportion used by electronic devices and [[a steep fall in|sự giảm mạnh của]] the share used for lighting.
+
+<<Thân bài 1>> In 1995, heating [[made up|chiếm]] 38% of electricity use, followed by kitchen appliances at 22% and lighting at 20%. Electronics [[represented|chiếm]] only 8%, {{while}} other uses accounted for 12%.
+
+<<Thân bài 2>> By 2025, the [[pattern had changed considerably|cơ cấu đã thay đổi đáng kể]]. {{Although}} heating was still the main use, its share had [[dropped to|giảm xuống]] 30%. The proportion used by electronic devices more than tripled to 26%, making them the second largest category, {{whereas}} lighting [[shrank to|thu hẹp còn]] just 7%, [[almost a third of its earlier level|gần bằng một phần ba mức trước đó]]. Kitchen appliances [[saw a slight decline|giảm nhẹ]] to 19%, and the share of other uses [[grew from|tăng từ]] 12% to 18%.`,
+      pitfalls: ['Viết "electronics increased" – biểu đồ tròn cho TỈ LỆ, phải nói "the proportion/share of electricity used by electronics increased".', 'Không nhắc rằng heating vẫn lớn nhất ở cả hai năm – đây là điểm chung quan trọng cho tổng quan.', 'Liệt kê đủ 10 con số rời rạc; nên nhóm theo xu hướng (tăng: electronics, other; giảm: heating, lighting, kitchen).', 'Dùng thì hiện tại cho năm 1995 – phải dùng quá khứ đơn.'],
+      vocab: [['account for', 'chiếm (tỉ lệ)'], ['make up', 'chiếm'], ['the proportion of', 'tỉ lệ của'], ['more than triple', 'tăng hơn gấp ba'], ['shrink to', 'thu hẹp còn'], ['a slight decline', 'sự giảm nhẹ'], ['the second largest category', 'hạng mục lớn thứ hai'], ['striking', 'nổi bật']] },
+
+    { id: 't1-ageing', task: 1, ref: 'ageing', band: '8.0', words: 208,
+      text: `<<Mở bài>> The table [[presents data on|trình bày số liệu về]] the population size, the percentage of people aged 65 or over and average life expectancy in five countries in 2024.
+
+<<Tổng quan>> {{Overall}}, countries with [[a higher proportion of older people|tỉ lệ người cao tuổi cao hơn]] generally had a longer life expectancy. Dunmore had the oldest population and the longest-lived citizens {{despite}} its small size, {{whereas}} Elvany was the youngest country and had the lowest life expectancy.
+
+<<Thân bài 1>> Aldoria was [[the most populous country|quốc gia đông dân nhất]], with 82 million people, [[far more than|nhiều hơn hẳn]] Bresnia, which had 47 million. In both countries, around a fifth of the population was aged 65 or over (23% and 19% respectively), and people could expect to live to just over 80. Calvara, with 31 million inhabitants, had a [[noticeably younger|trẻ hơn rõ rệt]] population, as only 12% of its citizens were over 65, and life expectancy was lower at 76.5 years.
+
+<<Thân bài 2>> The two smallest countries [[stood at opposite ends of the scale|nằm ở hai thái cực]]. Dunmore, with a population of only 12 million, had the highest share of older people at 27%, and its citizens lived the longest, at 84 years on average. {{By contrast}}, in Elvany, which had just 6 million people, only 8% of the population was over 65, and life expectancy was 71.2 years, almost 13 years [[shorter than|ngắn hơn]] in Dunmore.`,
+      pitfalls: ['Chép lại toàn bộ bảng thành câu – nên chọn số liệu nổi bật và so sánh.', 'Không tìm ra mối liên hệ giữa các cột (tỉ lệ người già cao ↔ tuổi thọ cao) – đây là ý tổng quan có giá trị nhất.', 'Viết "Dunmore has the highest people over 65" – thiếu danh từ: "the highest proportion of people aged over 65".', 'Thêm giải thích nguyên nhân (y tế tốt hơn…) – Task 1 chỉ mô tả, không suy đoán.'],
+      vocab: [['the most populous', 'đông dân nhất'], ['life expectancy', 'tuổi thọ trung bình'], ['far more than', 'nhiều hơn hẳn'], ['around a fifth of', 'khoảng một phần năm'], ['stand at opposite ends of the scale', 'nằm ở hai thái cực'], ['by contrast', 'ngược lại'], ['inhabitants', 'cư dân'], ['respectively', 'lần lượt']] },
+
+    { id: 't1-chocolate', task: 1, ref: 'chocolate', band: '8.0', words: 174,
+      text: `<<Mở bài>> The diagram [[illustrates the stages involved in|minh họa các giai đoạn trong]] turning cocoa beans into chocolate.
+
+<<Tổng quan>> {{Overall}}, the process consists of eight stages, beginning with the harvesting of cocoa pods and [[culminating in|kết thúc bằng]] the production of chocolate bars. The first five stages take place on the farm, {{while}} the final three [[are carried out|được thực hiện]] in a factory.
+
+<<Thân bài 1>> {{At the first stage}}, ripe cocoa pods [[are harvested|được thu hoạch]] from cocoa trees. They are then split open so that the beans can be removed. {{Next}}, the beans are covered with banana leaves and [[left to ferment|để lên men]] for about a week, {{after which}} they are spread out and [[dried in the sun|phơi khô dưới nắng]]. {{Once}} they are dry, the beans are packed into sacks and shipped to chocolate factories.
+
+<<Thân bài 2>> {{On arrival}}, the beans are roasted, and their shells [[are removed|được bóc bỏ]]. The inner parts, known as nibs, are {{then}} [[ground into|nghiền thành]] a thick liquid called cocoa liquor. {{In the final stage}}, sugar and milk are added to this liquid, and the mixture is [[poured into moulds|đổ vào khuôn]] to form chocolate bars, which are ready for sale.`,
+      pitfalls: ['Dùng chủ động "farmers harvest the pods" khắp bài – mô tả quy trình nên dùng bị động (are harvested, are roasted).', 'Không có tổng quan (số giai đoạn, điểm đầu – điểm cuối, hai địa điểm) – mất điểm Task Achievement nặng.', 'Chép nguyên nhãn trên sơ đồ; cần biến thành câu hoàn chỉnh và nối bằng từ chỉ trình tự đa dạng.', 'Lặp "then… then… then"; thay bằng Next, After that, Once…, after which, In the final stage.'],
+      vocab: [['consist of', 'gồm có'], ['culminate in', 'kết thúc bằng'], ['be carried out', 'được thực hiện'], ['after which', 'sau đó (mệnh đề quan hệ)'], ['once + mệnh đề', 'một khi, sau khi'], ['on arrival', 'khi được chuyển đến'], ['be ground into', 'được nghiền thành'], ['in the final stage', 'ở giai đoạn cuối']] },
+
+    { id: 't1-mainstreet', task: 1, ref: 'mainstreet', band: '8.0', words: 171,
+      text: `<<Mở bài>> The two maps [[illustrate the changes|minh họa những thay đổi]] that have taken place on either side of Main Street in a city [[since 1990|kể từ năm 1990]].
+
+<<Tổng quan>> {{Overall}}, the industrial area to the west of Main Street [[has been completely transformed|đã được biến đổi hoàn toàn]] into a residential, shopping and leisure district. The eastern side has changed less, {{although}} two of its three sites have been [[put to new uses|chuyển sang mục đích sử dụng mới]].
+
+<<Thân bài 1>> In 1990, the west of the area [[was dominated by|chủ yếu là]] a large factory, which [[occupied|chiếm]] the northern and central parts, with warehouses to the south. Today, both the factory and the warehouses [[have been demolished|đã bị phá bỏ]]. {{In their place}}, an apartment block [[has been built|đã được xây]] in the north, a shopping centre now stands in the middle, and the southern section [[has been converted into|đã được chuyển thành]] a park.
+
+<<Thân bài 2>> On the eastern side of Main Street, the houses in the north [[have remained unchanged|vẫn giữ nguyên]]. {{However}}, the bus depot in the centre has been replaced by a library, and the open land in the south, which was previously undeveloped, [[has been turned into|đã được biến thành]] a car park.`,
+      pitfalls: ['Dùng thì sai: tình trạng hiện tại so với quá khứ nên dùng hiện tại hoàn thành bị động (has been demolished, has been built).', 'Không dùng phương hướng (north, south, to the west of) → người đọc không hình dung được vị trí.', 'Mô tả hai bản đồ riêng rẽ từng cái; nên đối chiếu từng khu vực "trước – sau".', 'Quên nhắc phần không đổi (the houses) – nêu điều giữ nguyên cũng là một so sánh quan trọng.'],
+      vocab: [['be demolished', 'bị phá bỏ'], ['be replaced by', 'được thay thế bằng'], ['be converted into', 'được chuyển đổi thành'], ['remain unchanged', 'giữ nguyên'], ['be dominated by', 'chủ yếu là'], ['in their place', 'ở vị trí của chúng'], ['to the west of', 'ở phía tây của'], ['previously undeveloped', 'trước đây chưa được xây dựng']] },
+  ]);
 })(typeof self !== 'undefined' ? self : this);

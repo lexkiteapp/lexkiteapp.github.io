@@ -306,6 +306,20 @@
    ]
   },
   {
+   "key": "grabcast",
+   "name": "GrabCast (lưu video & đăng social)",
+   "kind": "social",
+   "purpose": "Lưu video trên Drive (storage pool) và lên lịch/đăng video lên các kênh social – Quản trị → Video & Social qua proxy /api/social (functions/api/social.js), CI qua scripts/video/publish-grabcast.mjs. Kết nối/ngắt kênh & Drive chỉ làm trên grabcast.click (workspace Lexkite = 4). Env: secret GRABCAST_API_KEY (Pages + GitHub Actions), GRABCAST_WORKSPACE=4, GRABCAST_API_BASE tùy chọn",
+   "console": "https://grabcast.click/scheduler.html",
+   "free": "Giới hạn khóa API: 60 lượt/phút · 3.000 lượt/ngày",
+   "upgrade": "Backend của chính chủ dự án – nâng hạn mức trên GrabCast",
+   "status": "Đang thiết lập",
+   "match": [
+    "grabcast.click",
+    "grabcast-api-342720596878.us-central1.run.app"
+   ]
+  },
+  {
    "key": "admob",
    "name": "Google AdMob",
    "kind": "ads",

@@ -344,18 +344,27 @@ async function audit(env, req, email, op, ok) {
     await env.DB.prepare('INSERT INTO admin_log (at, email, op, ok, ip, country) VALUES (?, ?, ?, ?, ?, ?)').bind(Date.now(), String(email || '').slice(0, 120), String(op || '').slice(0, 40), ok ? 1 : 0, h, (req.cf && req.cf.country) || '').run(); } catch (e) { /* nhật ký không được làm hỏng thao tác */ }
 }
 
-export async function onRequestPost({ request, env }) {
+// Cổng xác thực quản trị dùng chung (admin.js, social.js): Origin của mình · giới hạn tốc độ theo IP · Firebase ID token + email trong ADMIN_EMAILS.
+// Trả { who } khi hợp lệ, ngược lại { status, error } (người lạ có tài khoản Google thật → ghi nhật ký 'denied').
+export async function adminGate(request, env, bucket = 'adm') {
   // 1) Chỉ nhận từ trang của mình (có Origin lạ → từ chối)  2) Giới hạn tốc độ theo IP: 120 lệnh/phút, lần bị từ chối 10/10 phút
-  const origin = request.headers.get('Origin'); if (origin && !ORIGINS.test(origin)) return json(request, 403, { error: 'origin' });
+  const origin = request.headers.get('Origin'); if (origin && !ORIGINS.test(origin)) return { status: 403, error: 'origin' };
   const ip = ipOf(request);
-  if (await limit('adm:' + ip, 120, 60)) return json(request, 429, { error: 'too-fast' });
+  if (await limit(bucket + ':' + ip, 120, 60)) return { status: 429, error: 'too-fast' };
   const who = await claims((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')).catch(() => null);
   const admins = adminList(env);
   if (!who || !who.email_verified || !admins.includes(String(who.email).toLowerCase())) {
-    if (await limit('admx:' + ip, 10, 600)) return json(request, 429, { error: 'too-many-denied' });
+    if (await limit('admx:' + ip, 10, 600)) return { status: 429, error: 'too-many-denied' };
     if (who && who.email) { try { await setup(env.DB); } catch (e) { /* bỏ qua */ } await audit(env, request, who.email, 'denied', false); } // tài khoản Google thật nhưng không phải admin → ghi lại
-    return json(request, 403, { error: 'forbidden' });
+    return { status: 403, error: 'forbidden' };
   }
+  return { who };
+}
+export { audit as adminAudit, cors as adminCors };
+
+export async function onRequestPost({ request, env }) {
+  const g = await adminGate(request, env); if (!g.who) return json(request, g.status, { error: g.error });
+  const who = g.who;
   let b; try { b = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
   const fn = OPS[b.op]; if (!fn) return json(request, 400, { error: 'op' });
   if (DANGER.has(b.op) && Date.now() / 1000 - (+who.auth_time || 0) > 900) return json(request, 401, { error: 'reauth', message: tx(b, 'Thao tác quan trọng: hãy đăng xuất rồi đăng nhập lại (bảo mật) rồi thử lại.', 'Sensitive action: sign out and sign back in (for security), then try again.') });

@@ -36,7 +36,7 @@ chọn chủ đề → kịch bản (JSON) → kiểm kịch bản → giọng �
 | 7. Dựng & ghép | **Remotion** (React → video) hoặc ffmpeg + SVG rig: nhân vật, biểu cảm đổi theo kịch bản, chớp mắt ngẫu nhiên, nhún nhẹ, zoom cắt cảnh | `video.mp4` 1080×1920 (+ 1920×1080) |
 | 8. Phụ đề karaoke | ASS `\k` theo `words.json`: chữ tiếng Anh sáng dần từng từ, từ khóa tô cam; dòng dịch nhỏ bên dưới (15 ngôn ngữ = 15 bản) | burn-in + file `.srt/.vtt` riêng |
 | 9. Kiểm chất lượng | độ dài, âm lượng, lệch khẩu hình < 80 ms, phụ đề trong vùng an toàn của từng nền tảng, chữ đủ tương phản, không khung đen | báo cáo + ảnh xem trước |
-| 10. Xuất bản | YouTube Data API (khóa OAuth như Chrome Web Store); TikTok/Instagram: tải tay hoặc Meta Business Suite lên lịch (API cần duyệt app); lưu video trên YouTube (miễn phí, không tốn R2) | link video |
+| 10. Xuất bản | **GrabCast** (backend của chính chủ, workspace Lexkite = 4): CI chạy `node scripts/video/publish-grabcast.mjs --file video.mp4 --meta script.json [--at ISO] [--accounts id,id] [--dry-run]` → tải vào kho Drive (pool bulk) → `use` → validate → tạo bài (Idempotency-Key ổn định) → lên lịch; không có `--at` = để nháp. Quản lý tay: **Quản trị → Video & Social** (Drive + cảnh báo 80/90/95%, kênh, bài đăng lên lịch/đăng ngay/hủy lịch/thử lại/hủy, tạo bài, giờ vàng Mỹ 7·8·12·19·20 giờ New York) qua proxy `/api/social` (`functions/api/social.js`, chỉ admin, whitelist endpoint). Kết nối kênh/Drive chỉ làm trên grabcast.click/scheduler.html | link bài đăng trên từng kênh |
 | 11. Nhúng vào app | trang `#/videos` + gắn video vào đúng bài/từ (từ điển, chủ đề, roleplay); phụ đề chạm-để-tra như YouTube học hiện có | người học xem trong app |
 
 ## 3. Định dạng nội dung
@@ -61,6 +61,7 @@ chọn chủ đề → kịch bản (JSON) → kiểm kịch bản → giọng �
 | G4 | Lịch đăng: 1 Short/ngày, 1 bài dài/tuần; đo lượt xem → ưu tiên chủ đề hiệu quả | tự động | $0 |
 
 ## 6. Việc anh cần làm
+- GrabCast: tạo khóa API tại grabcast.click/account.html#api (quyền social:read/write + storage:read/write) → đặt secret `GRABCAST_API_KEY` trên Cloudflare Pages và GitHub Actions; `GRABCAST_WORKSPACE=4` (mặc định sẵn trong code), `GRABCAST_API_BASE` mặc định `https://grabcast-api-342720596878.us-central1.run.app`. Kết nối kênh + Drive trên grabcast.click/scheduler.html (chọn workspace Lexkite). Giới hạn 60 lượt/phút, 3.000/ngày.
 - Duyệt từng lần dùng credit Kling ở G1 (Claude báo số credit dự kiến trước).
 - Tạo khóa OAuth YouTube (giống CWS, Claude mở sẵn trang).
 - Xem & duyệt 5 video đầu.

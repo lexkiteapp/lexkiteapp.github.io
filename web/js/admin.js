@@ -169,6 +169,15 @@
     if (!r.ok) throw new Error(j.error || r.status);
     return j;
   }
+  // GrabCast qua proxy /api/social (khóa chỉ ở máy chủ) – dùng cho tab Video & Social (js/admin-social.js). Lỗi → err.code = mã lỗi máy chủ (not-configured, grabcast-rate, timeout…)
+  async function sapi(method, path, body, opt = {}) {
+    const u = auth.currentUser || user;
+    if (!u) { if (confirm(L('Phiên đăng nhập quản trị đã hết. Đăng nhập lại ngay?'))) await signIn(); throw new Error(L('Phiên đăng nhập đã hết – đăng nhập lại rồi thử lại')); }
+    const r = await fetch('/api/social', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await u.getIdToken() }, body: JSON.stringify({ method, path, query: opt.query, body: body || undefined, idem: opt.idem }) });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) { const m = j.message || j.detail || (j.error && j.error !== 'upstream' ? j.error : '') || 'HTTP ' + r.status, e = new Error(typeof m === 'string' ? m : JSON.stringify(m)); e.code = j.error; e.status = r.status; e.data = j; throw e; }
+    return j;
+  }
   const signIn = () => auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(e => { $('#loginMsg').textContent = e.message; });
   $('#signin').onclick = signIn;
 
@@ -746,6 +755,10 @@
       $('#sadd').onclick = () => form();
       main.querySelectorAll('[data-sid]').forEach(b => b.onclick = () => form(s.rows.find(x => x.id === +b.dataset.sid)));
       main.querySelectorAll('[data-key]').forEach(b => b.onclick = () => keyDialog(gk, () => show('services')));
+    },
+    async social() {
+      main.innerHTML = '';
+      if (window.AdminSocial) AdminSocial.render(main, sapi, L, { esc, num, when, lang: () => LANG }); // js/admin-social.js
     },
     async settings() {
       const c = await api('config'), v = k => esc((c.values[k] || {}).v || '');

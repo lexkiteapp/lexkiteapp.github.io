@@ -117,7 +117,7 @@
       <div class="grid" style="grid-template-columns:minmax(0,1fr) 300px;align-items:start" id="t1Grid">
         <div class="stack">
           <div class="card"><span class="chip lv">${TYPE_VI[d.type]}</span><p style="font-weight:600;margin:.6rem 0 1rem">${esc(d.title)} Summarise the information by selecting and reporting the main features, and make comparisons where relevant.</p>
-            <div class="chart-wrap">${DRAW[d.type](d)}</div></div>
+            <div class="chart-wrap">${DRAW[d.type](d)}</div><div class="tiny muted" style="margin-top:.3rem">ℹ️ ${t('Dữ liệu minh họa (tự biên soạn)')}</div></div>
           <div class="card">
             <textarea class="input" id="t1" style="min-height:260px;font-size:1.02rem;line-height:1.7" placeholder="The ${d.type === 'map' ? 'maps illustrate' : d.type === 'process' ? 'diagram illustrates' : 'chart shows'}…">${esc(drafts[d.id] || '')}</textarea>
             <div class="row between" style="margin-top:.7rem"><div class="row"><b id="wc">${t('{n} từ', { n: 0 })}</b><span class="timer" id="clock" style="font-size:1rem">20:00</span><button class="btn sm" id="tBtn">⏱ ${t('Bấm giờ')}</button></div>
