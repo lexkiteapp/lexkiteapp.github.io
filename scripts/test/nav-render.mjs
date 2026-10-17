@@ -35,7 +35,7 @@ for (const [bn, bt] of Object.entries({ chromium, webkit, firefox })) {
     const tag = `${bn}/${vn}`;
     page.on('pageerror', e => fails.push(`${tag}: lỗi JS ${String(e.message).slice(0, 140)}`));
     await page.goto(BASE + '?sandbox=1&hl=vi#/welcome/setup', { waitUntil: 'networkidle' }).catch(() => {});
-    const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(2000); }
+    const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(2000); await page.waitForFunction(() => !document.querySelector('body>canvas'), null, { timeout: 8000 }).catch(() => {}); } // chờ pháo giấy mừng cài đặt rơi xong
     for (const r of ROUTES) {
       await page.evaluate(h => { location.hash = h; }, '#/' + r); await page.waitForTimeout(500);
       await page.evaluate(() => scrollBy(0, 2500)); await page.waitForTimeout(300); // cuộn xuống giữa/cuối trang rồi mới đi tiếp (đúng tình huống lỗi)
