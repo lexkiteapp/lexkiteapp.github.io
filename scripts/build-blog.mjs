@@ -303,6 +303,7 @@ ${pages > 1 ? `<nav class="pager" aria-label="${t.page}">${n > 1 ? `<a rel="prev
   // RSS 2.0 – 20 bài mới nhất
   const xe = s => esc(s).replace(/'/g, '&apos;');
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/rss.xsl"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
 <title>${xe(C.blogName[lang] || 'Blog')}</title>
