@@ -8,7 +8,7 @@ bash scripts/build-i18n.sh >/dev/null 2>&1  # gộp en/*.js → en.js trước
 if ! curl -s -m 8 "https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=fr&dt=t&q=hello" | grep -q '^\[\['; then
   echo "⚠ i18n-sync: Google Translate đang chặn máy này – để GitHub Action dịch"; node scripts/i18n-qa.mjs | tail -1; exit 0
 fi
-if node scripts/i18n-qa.mjs | grep -q "thiếu [1-9]"; then
+if node scripts/i18n-qa.mjs | grep -qE "thiếu [1-9]|mất tiếng Anh mẫu [1-9]"; then  # khóa mới hoặc bản dịch làm mất tiếng Anh mẫu → dịch lại
   for l in $(grep -v '^#' scripts/i18n-langs.txt); do node --require ./scripts/lib-curl-fetch.cjs scripts/gen-i18n.mjs "$l" >/dev/null 2>&1 || true; done
   node scripts/i18n-fix.mjs >/dev/null
 fi

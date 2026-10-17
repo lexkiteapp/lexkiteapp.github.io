@@ -5237,7 +5237,7 @@
     "ja": "見出し選択（Matching headings）",
     "ko": "제목 연결 (Matching headings)",
     "hi": "शीर्षक मिलान (Matching headings)",
-    "ar": "مطابقة العناوين",
+    "ar": "مطابقة العناوين (Matching headings)",
     "ru": "Matching headings",
     "tr": "Başlık eşleştirme (Matching headings)"
   },
@@ -18254,5 +18254,76 @@
     "ar": "يرجى الانتظار {n} ثانية قبل إرسال بلاغ آخر.",
     "ru": "Подождите {n} с перед следующей отправкой.",
     "tr": "Başka bir bildirim göndermeden önce {n} saniye bekleyin."
+  },
+  "Thì hoàn thành dùng have/has/had + QUÁ KHỨ PHÂN TỪ (V3), không dùng quá khứ đơn (V2): have gone, has eaten, had written.": {
+    "ja": "完了形は have/has/had + 過去分詞で作ります（単純過去形は使いません）：have gone, has eaten, had written。",
+    "ko": "완료 시제는 have/has/had + 과거분사로 만듭니다(단순 과거형은 쓰지 않습니다): have gone, has eaten, had written.",
+    "tr": "Perfect zamanlar basit geçmiş zaman biçimiyle değil, have/has/had + GEÇMİŞ ZAMAN ORTACI (past participle) ile kurulur: have gone, has eaten, had written."
+  },
+  "Trong mệnh đề if/when/unless nói về tương lai, dùng HIỆN TẠI ĐƠN, không dùng will: If it rains tomorrow, we will stay home.": {
+    "ja": "未来のことを表す if/when/unless の節では、will ではなく現在形（PRESENT SIMPLE）を使います：If it rains tomorrow, we will stay home。",
+    "ko": "미래를 나타내는 if/when/unless 절에서는 will이 아니라 현재 시제(PRESENT SIMPLE)를 씁니다: If it rains tomorrow, we will stay home.",
+    "hi": "भविष्य की बात करने वाले if/when/unless उपवाक्य में will नहीं, PRESENT SIMPLE का प्रयोग करें: If it rains tomorrow, we will stay home."
+  },
+  "Tiếng Việt nói “Mặc dù… nhưng…”, còn tiếng Anh chỉ dùng MỘT liên từ: Although it rained, we went out (bỏ “but”).": {
+    "ja": "多くの言語では「～だけれども、しかし～」のように言いますが、英語では接続詞を1つしか使いません：Although it rained, we went out（「but」は付けません）。",
+    "tr": "Birçok dilde “…-e rağmen, ama…” denir, ancak İngilizcede yalnızca TEK bağlaç kullanılır: Although it rained, we went out (“but” kullanılmaz)."
+  },
+  "“Agree / disagree” là ĐỘNG TỪ, không dùng với am/is/are: I agree (không phải I am agree).": {
+    "ja": "「Agree / disagree」は動詞なので、am/is/are と一緒に使いません：I agree（I am agree は誤り）。",
+    "ko": "“Agree / disagree”는 동사이므로 am/is/are와 함께 쓰지 않습니다: I agree (I am agree는 틀림).",
+    "hi": "“Agree / disagree” क्रियाएँ हैं, इसलिए इनके साथ am/is/are का प्रयोग न करें: I agree (I am agree नहीं)।",
+    "tr": "“Agree / disagree” FİİLDİR, bu yüzden am/is/are ile kullanılmaz: I agree (I am agree değil).",
+    "zh": "“Agree / disagree”是动词，不能与 am/is/are 连用：I agree（不是 I am agree）。"
+  },
+  "Tính từ ngắn đã có đuôi -er/-est (better, bigger, easiest) thì KHÔNG thêm more/most: better (không phải more better).": {
+    "ja": "すでに -er/-est の形になっている短い形容詞（better, bigger, easiest）には more/most を付けません：better（more better は誤り）。",
+    "ko": "이미 -er/-est 형태인 짧은 형용사(better, bigger, easiest)에는 more/most를 붙이지 않습니다: better (more better는 틀림).",
+    "hi": "जो छोटे विशेषण पहले से -er/-est रूप में हैं (better, bigger, easiest), उनके साथ more/most नहीं लगाते: better (more better नहीं)।",
+    "tr": "Zaten -er/-est ile biten kısa sıfatlar (better, bigger, easiest) more/most almaz: better (more better değil).",
+    "zh": "已经带 -er/-est 的短形容词（better, bigger, easiest）不再加 more/most：better（不是 more better）。"
+  },
+  "Trong “look forward to”, “to” là GIỚI TỪ nên theo sau là V-ING hoặc danh từ: I look forward to hearing from you.": {
+    "ko": "“look forward to”의 “to”는 전치사이므로 뒤에 -ING 형태나 명사가 옵니다: I look forward to hearing from you."
+  },
+  "Danh từ KHÔNG đếm được (information, advice, equipment, furniture, knowledge, evidence, homework, luggage, feedback) không có dạng số nhiều -s. Dùng “a piece of / some / much”.": {
+    "hi": "अगणनीय (UNCOUNTABLE) संज्ञाओं (information, advice, equipment, furniture, knowledge, evidence, homework, luggage, feedback) का बहुवचन -s नहीं होता। “a piece of / some / much” का प्रयोग करें।",
+    "tr": "Sayılamayan (UNCOUNTABLE) isimler (information, advice, equipment, furniture, knowledge, evidence, homework, luggage, feedback) çoğul -s almaz. “a piece of / some / much” kullanın."
+  },
+  "Đi lần lượt theo các gợi ý trên thẻ đề, ý cuối (“explain…”) là phần quan trọng nhất.": {
+    "ko": "큐카드의 항목을 순서대로 답하세요. 마지막 항목(“explain…”)이 가장 중요합니다."
+  },
+  "“chiếm (tỉ lệ)” trong Task 1: “Gas accounted for 62% of…”.": {
+    "es": "“representar (un porcentaje)” en Task 1: “Gas accounted for 62% of…”.",
+    "pt": "“representar (uma parcela)” na Task 1: “Gas accounted for 62% of…”.",
+    "fr": "« représenter (une part) » dans la Task 1 : « Gas accounted for 62% of… ».",
+    "de": "„einen Anteil ausmachen“ in Task 1: „Gas accounted for 62% of…“.",
+    "id": "“menyumbang (porsi/persentase)” di Task 1: “Gas accounted for 62% of…”.",
+    "th": "“คิดเป็น (สัดส่วน)” ใน Task 1: “Gas accounted for 62% of…”",
+    "zh": "Task 1 中表示“占（比例）”：“Gas accounted for 62% of…”。",
+    "ja": "Task 1 で「（割合を）占める」を表す表現：「Gas accounted for 62% of…」。",
+    "ko": "Task 1에서 ‘(비율을) 차지하다’: “Gas accounted for 62% of…”.",
+    "hi": "Task 1 में “(कुल का) हिस्सा होना”: “Gas accounted for 62% of…”।",
+    "ar": "\"يشكّل (نسبة)\" في Task 1: \"Gas accounted for 62% of…\".",
+    "ru": "«составлять (долю)» в Task 1: «Gas accounted for 62% of…».",
+    "tr": "Task 1'de “(bir pay) oluşturmak”: “Gas accounted for 62% of…”."
+  },
+  "Cụm này lặp ý (return đã có nghĩa “back”; in my opinion = I think). Viết gọn để câu chuyên nghiệp hơn.": {
+    "es": "Esta frase repite una idea (return ya significa “go back”; in my opinion = I think). Hazla más corta para sonar más profesional.",
+    "fr": "Cette expression répète une idée (return signifie déjà « go back » ; in my opinion = I think). Soyez concis pour paraître plus professionnel.",
+    "id": "Frasa ini mengulang makna (return sudah berarti “go back”; in my opinion = I think). Persingkat agar terdengar lebih profesional.",
+    "th": "วลีนี้ซ้ำความหมาย (return มีความหมายว่า “go back” อยู่แล้ว; in my opinion = I think) เขียนให้กระชับเพื่อให้ดูเป็นมืออาชีพมากขึ้น",
+    "hi": "यह वाक्यांश एक ही बात दोहराता है (return का अर्थ पहले से “go back” है; in my opinion = I think)। अधिक पेशेवर लगने के लिए इसे छोटा रखें।",
+    "ar": "هذه العبارة تكرّر المعنى (return تعني أصلًا \"go back\"؛ in my opinion = I think). اختصرها لتبدو أكثر احترافية.",
+    "ru": "Эта фраза повторяет мысль (return уже значит «go back»; in my opinion = I think). Пишите короче — так звучит профессиональнее.",
+    "tr": "Bu ifade aynı anlamı tekrarlıyor (return zaten “go back” demek; in my opinion = I think). Daha profesyonel görünmek için kısaltın.",
+    "ja": "このフレーズは同じ意味を繰り返しています（return だけで「go back」の意味。in my opinion = I think）。簡潔に書くとよりプロらしくなります。"
+  },
+  "Bổ nghĩa cho danh từ đứng trước. Có dấu phẩy = mệnh đề không xác định (không dùng “that”).": {
+    "ja": "直前の名詞を説明します。コンマあり = 非制限用法（「that」は使いません）。"
+  },
+  "Thêm -es sau s, x, z, ch, sh và phụ âm + o (watches, goes).": {
+    "ko": "s, x, z, ch, sh 또는 자음 + o (watches, goes)로 끝나면 -es를 붙입니다.",
+    "tr": "s, x, z, ch, sh veya ünsüz + o (watches, goes) ile biten fiillere -es eklenir."
   }
 }

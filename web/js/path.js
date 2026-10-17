@@ -7,18 +7,18 @@
   const view = App.view;
 
   const STAGES = [
-    { id: 's0', name: t('Chặng 0 · Từ cốt lõi'), band: 'Band 4.0 – 5.0', color: '#64748b', desc: t('Những từ thông dụng nhất tiếng Anh (NGSL) – nền móng cho người mới'),
+    { id: 's0', get name() { return t('Chặng 0 · Từ cốt lõi'); }, band: 'Band 4.0 – 5.0', color: '#64748b', get desc() { return t('Những từ thông dụng nhất tiếng Anh (NGSL) – nền móng cho người mới'); },
       units: ['ngsl1', 'ngsl2', 'ngsl3', 'ngsl4', 'ngsl5'] },
-    { id: 's1', name: t('Chặng 1 · Nền tảng'), band: 'Band 5.5 – 6.0', color: '#16a34a', desc: t('Từ vựng chủ đề quen thuộc trong Speaking Part 1–2'),
+    { id: 's1', get name() { return t('Chặng 1 · Nền tảng'); }, band: 'Band 5.5 – 6.0', color: '#16a34a', get desc() { return t('Từ vựng chủ đề quen thuộc trong Speaking Part 1–2'); },
       units: ['education', 'work', 'health', 'travel', 'society', 'technology', 'food', 'sport'] },
-    { id: 's2', name: t('Chặng 2 · Mở rộng chủ đề'), band: 'Band 6.5', color: '#0ea5a4', desc: t('Chủ đề Writing Task 2 hay gặp và từ mô tả biểu đồ'),
+    { id: 's2', get name() { return t('Chặng 2 · Mở rộng chủ đề'); }, band: 'Band 6.5', color: '#0ea5a4', get desc() { return t('Chủ đề Writing Task 2 hay gặp và từ mô tả biểu đồ'); },
       units: ['environment', 'media', 'urban', 'crime', 'culture', 'consumerism', 'task1', 'describe'] },
-    { id: 's3', name: t('Chặng 3 · Học thuật'), band: 'Band 7.0', color: '#6d5dfc', desc: t('Từ học thuật AWL, từ nối, cách nêu quan điểm'),
+    { id: 's3', get name() { return t('Chặng 3 · Học thuật'); }, band: 'Band 7.0', color: '#6d5dfc', get desc() { return t('Từ học thuật AWL, từ nối, cách nêu quan điểm'); },
       units: ['awl1', 'awl2', 'linking', 'awl3', 'opinion', 'awl4', 'awl5', 'task2', 'phrasal'] },
-    { id: 's4', name: t('Chặng 4 · Tinh hoa'), band: 'Band 7.5+', color: '#c026d3', desc: t('Collocation, thành ngữ và từ học thuật nâng cao'),
+    { id: 's4', get name() { return t('Chặng 4 · Tinh hoa'); }, band: 'Band 7.5+', color: '#c026d3', get desc() { return t('Collocation, thành ngữ và từ học thuật nâng cao'); },
       units: ['collocations', 'idioms', 'awl6', 'science', 'awl7', 'government', 'economy', 'awl8', 'energy', 'awl9', 'wildlife', 'awl10', 'architecture', 'space', 'language'] },
   ];
-  const STEPS = [
+  const STEPS = () => [
     ['learn', '🧠', t('Học từ mới'), t('Giới thiệu từ → trắc nghiệm → tự gõ lại')],
     ['match', '⚡', t('Ghép thẻ'), t('Củng cố nhanh nghĩa – từ')],
     ['listen', '🎧', t('Nghe & chép'), t('Nhận diện âm và chính tả')],
@@ -91,7 +91,7 @@
     modal(`<div class="row nowrap" style="gap:1rem"><div style="font-size:2.6rem;width:70px;height:70px;border-radius:20px;display:grid;place-items:center;background:var(--surface-2)">${tp.emoji}</div>
         <div><div class="tiny muted" style="font-weight:700">${esc(u.stage.name)}</div><h2 style="margin:0">${esc(tp.name)}</h2><div class="small muted">${t('{n} từ · đã học {pct}%', { n: tp.words.length, pct: Math.round(u.pct * 100) })}${u.score ? ' · ' + t('điểm kiểm tra {score}%', { score: u.score }) : ''}</div></div></div>
       <div class="stack" style="margin-top:1.2rem">
-        ${STEPS.map(([m, em, name, d], i) => `<a class="card hover row nowrap" href="#/practice/${m}?src=${encodeURIComponent(src)}${m === 'test' ? `&unit=${id}` : ''}" data-close style="color:var(--text);padding:.9rem 1rem">
+        ${STEPS().map(([m, em, name, d], i) => `<a class="card hover row nowrap" href="#/practice/${m}?src=${encodeURIComponent(src)}${m === 'test' ? `&unit=${id}` : ''}" data-close style="color:var(--text);padding:.9rem 1rem">
           <span style="font-size:1.5rem;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--surface-2)">${em}</span>
           <div class="grow"><b>${i + 1}. ${name}</b><div class="small muted">${d}</div></div><span class="muted">→</span></a>`).join('')}
       </div>

@@ -8,8 +8,8 @@ category: ky-nang
 tags: [job-interview, karriere, speaking, beruf]
 keyword: "vorstellungsgespräch auf englisch"
 cover: speaking
-coverAlt: "Sprechtraining für Vorstellungsgespräche auf Englisch in der Lexkite App"
-publishAt:
+coverAlt: "Lexkite Speaking-Raum: IELTS Part 1/2/3 nach Themen mit Beispielfragen, Musterantworten auf Band 7,5–8 und passendem Wortschatz"
+publishAt: 2026-11-05T07:29:00+01:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -51,7 +51,7 @@ Zählen Sie nicht einfach Adjektive auf (*„I am hardworking, motivated and a t
 
 - *„My greatest strength is analytical problem-solving under pressure. For instance, when our main payment gateway crashed during Black Friday, I coordinated an emergency deployment within 45 minutes, saving approximately 80,000 euros in potential revenue loss.“*
 
-![Interaktives Sprech- und Interviewtraining in Lexkite](media:practice-speak "Sprechmodus zur Vorbereitung auf englische Interviewfragen mit Feedback")
+![Lexkite Ausspracheübung mit Bewertung: die Wendung „cut down on“ per Mikrofon nachsprechen](media:practice-speak "Nachsprechen mit Mikrofon und Bewertung – vorstellungsgespräch auf englisch")
 
 ### 3. „What is your biggest weakness?“
 
@@ -71,7 +71,7 @@ Zeigen Sie Ehrgeiz, aber bleiben Sie realistisch. Das Unternehmen möchte wissen
 
 - *„In five years, I see myself having deepened my expertise in international account management. My goal is to take on greater strategic leadership responsibility and help mentor younger colleagues within the department.“*
 
-![Wiederholungs- und Vokabelbereich in Lexkite](media:review "FSRS-Wiederholungen für starke Action Verbs und Phrasen im Bewerbungsprozess")
+![Lexkite Karteikarten-Wiederholung: Karte „pollution“ mit Emoji, Lautschrift und Umdrehen-Knopf, Fortschrittsleiste](media:review "Wiederholung mit Karteikarten – vorstellungsgespräch auf englisch")
 
 ## Die STAR-Methode für verhaltensbasierte Fragen
 

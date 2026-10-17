@@ -16,18 +16,18 @@
     { key: 'speaking', ic: '🗣️', name: 'Speaking', mins: 8, items: 11, tasks: ['repeat', 'interview'] },
   ];
   const TASKS = {
-    cw: { name: 'Complete the Words', ic: '🔤', desc: t('Điền các chữ cái còn thiếu để hoàn thành từ trong một đoạn văn học thuật ngắn.') },
-    daily: { name: 'Read in Daily Life', ic: '📰', desc: t('Đọc thông báo, email, tờ rơi, tin nhắn đời thường và trả lời câu hỏi trắc nghiệm.') },
-    academic: { name: 'Read an Academic Passage', ic: '🎓', desc: t('Đọc bài học thuật; câu hỏi chi tiết, phủ định, suy luận, từ vựng trong ngữ cảnh và mục đích tu từ.') },
-    response: { name: 'Listen and Choose a Response', ic: '💬', desc: t('Nghe một câu nói ngắn và chọn câu đáp phù hợp nhất.') },
-    conversation: { name: 'Listen to a Conversation', ic: '👥', desc: t('Nghe hội thoại trong môi trường đại học và trả lời câu hỏi.') },
-    announcement: { name: 'Listen to an Announcement', ic: '📢', desc: t('Nghe thông báo trong khuôn viên trường hoặc lớp học.') },
-    talk: { name: 'Listen to an Academic Talk', ic: '🧑‍🏫', desc: t('Nghe bài giảng ngắn; câu hỏi ý chính, chi tiết, mục đích và suy luận.') },
-    sentence: { name: 'Build a Sentence', ic: '🧩', desc: t('Sắp xếp các cụm từ thành câu trả lời đúng ngữ pháp.') },
-    email: { name: 'Write an Email', ic: '📧', desc: t('Viết email theo tình huống, đủ các ý đề yêu cầu (khoảng 7 phút).') },
-    discussion: { name: 'Write for an Academic Discussion', ic: '🗨️', desc: t('Viết bài đóng góp ý kiến vào thảo luận trên diễn đàn lớp học (khoảng 10 phút).') },
-    repeat: { name: 'Listen and Repeat', ic: '🔁', desc: t('Nghe và nhắc lại chính xác từng câu, từ ngắn đến dài.') },
-    interview: { name: 'Take an Interview', ic: '🎙️', desc: t('Trả lời các câu hỏi phỏng vấn, khoảng 45 giây mỗi câu.') },
+    cw: { name: 'Complete the Words', ic: '🔤', get desc() { return t('Điền các chữ cái còn thiếu để hoàn thành từ trong một đoạn văn học thuật ngắn.'); } },
+    daily: { name: 'Read in Daily Life', ic: '📰', get desc() { return t('Đọc thông báo, email, tờ rơi, tin nhắn đời thường và trả lời câu hỏi trắc nghiệm.'); } },
+    academic: { name: 'Read an Academic Passage', ic: '🎓', get desc() { return t('Đọc bài học thuật; câu hỏi chi tiết, phủ định, suy luận, từ vựng trong ngữ cảnh và mục đích tu từ.'); } },
+    response: { name: 'Listen and Choose a Response', ic: '💬', get desc() { return t('Nghe một câu nói ngắn và chọn câu đáp phù hợp nhất.'); } },
+    conversation: { name: 'Listen to a Conversation', ic: '👥', get desc() { return t('Nghe hội thoại trong môi trường đại học và trả lời câu hỏi.'); } },
+    announcement: { name: 'Listen to an Announcement', ic: '📢', get desc() { return t('Nghe thông báo trong khuôn viên trường hoặc lớp học.'); } },
+    talk: { name: 'Listen to an Academic Talk', ic: '🧑‍🏫', get desc() { return t('Nghe bài giảng ngắn; câu hỏi ý chính, chi tiết, mục đích và suy luận.'); } },
+    sentence: { name: 'Build a Sentence', ic: '🧩', get desc() { return t('Sắp xếp các cụm từ thành câu trả lời đúng ngữ pháp.'); } },
+    email: { name: 'Write an Email', ic: '📧', get desc() { return t('Viết email theo tình huống, đủ các ý đề yêu cầu (khoảng 7 phút).'); } },
+    discussion: { name: 'Write for an Academic Discussion', ic: '🗨️', get desc() { return t('Viết bài đóng góp ý kiến vào thảo luận trên diễn đàn lớp học (khoảng 10 phút).'); } },
+    repeat: { name: 'Listen and Repeat', ic: '🔁', get desc() { return t('Nghe và nhắc lại chính xác từng câu, từ ngắn đến dài.'); } },
+    interview: { name: 'Take an Interview', ic: '🎙️', get desc() { return t('Trả lời các câu hỏi phỏng vấn, khoảng 45 giây mỗi câu.'); } },
   };
   const secOf = task => SECTIONS.find(s => s.tasks.includes(task));
   const unitsOf = task => { const s = secOf(task); return s ? D()[s.key].filter(u => u.task === task) : []; };
@@ -90,7 +90,7 @@
     return `<div class="feedback ${pct >= 0.7 ? 'ok' : 'no'}" style="position:static"><b>${t('{a}/{b} câu đúng', { a: right, b: total })} (${Math.round(pct * 100)}%)</b>${objective ? ` · ${t('band ước tính ≈ {b}', { b: bandEst(pct) })}` : ''} · ${t('câu sai đã vào Sổ lỗi sai')}
       <div class="tiny muted" style="margin-top:.3rem">${t('Ước tính tham khảo trên đề tự biên soạn, không phải điểm chính thức của ETS.')}</div></div>`;
   };
-  const log = (kind, task, n, q, answer, given, explain) => { if (App.logMistake) App.logMistake({ kind, q: `TOEFL · ${TASKS[task].name} · ${n}: ${q || ''}`, answer, given: given || t('(bỏ trống)'), explain: explain || '', ref: '' }); };
+  const log = (kind, task, n, q, answer, given, explain) => { if (App.logMistake) App.logMistake({ kind, q: `TOEFL · ${TASKS[task].name} · ${n}: ${q || ''}`, answer, given: given || I18N.tk('(bỏ trống)'), explain: explain || '', ref: '' }); };
   const wc = s => (String(s).match(/[A-Za-z0-9][A-Za-z0-9'’-]*/g) || []).length;
   const mmss = s => `${String(Math.floor(Math.max(0, s) / 60)).padStart(2, '0')}:${String(Math.max(0, s) % 60).padStart(2, '0')}`;
   const store = { get: k => { try { return localStorage.getItem('vb.toefl.' + k) || ''; } catch (e) { return ''; } }, set: (k, v) => { try { localStorage.setItem('vb.toefl.' + k, v); } catch (e) { /* bỏ qua */ } } };

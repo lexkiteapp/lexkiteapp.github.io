@@ -117,7 +117,7 @@
         const b = ev.currentTarget; b.disabled = true;
         const L = I18N.learnLang();
         const vi = L === 'vi' ? await Dict.translateVi(sentence) : await Dict.translateTo(sentence, L);
-        await App.addWord(e, { text: sentence, vi, title: t('Bài đọc: {title}', { title: r.title }) });
+        await App.addWord(e, { text: sentence, vi, title: 'Bài đọc: ' + r.title /* khóa – dịch lúc vẽ (study.js ctxTitle) */ });
         b.textContent = '✓ ' + t('Đã lưu kèm ngữ cảnh');
         $$(`.tw[data-w="${CSS.escape(word)}"]`).forEach(x => x.classList.add('mine'));
         paintCounts();
@@ -141,7 +141,7 @@
         const tw = $(`.tw[data-w="${CSS.escape(k.toLowerCase())}"]`);
         const sentence = tw ? tw.closest('.sent').textContent.replace(/\s+/g, ' ').trim() : '';
         const local = IELTS_DATA.INDEX[k.toLowerCase()];
-        await App.addWord(local || { word: k, topic: 'mine', emoji: r.emoji }, sentence ? { text: sentence, title: t('Bài đọc: {title}', { title: r.title }) } : null, { silent: true });
+        await App.addWord(local || { word: k, topic: 'mine', emoji: r.emoji }, sentence ? { text: sentence, title: 'Bài đọc: ' + r.title /* khóa – dịch lúc vẽ (study.js ctxTitle) */ } : null, { silent: true });
         n++;
       }
       Sfx.win(); toast(t('Đã lưu {n} từ khóa kèm câu ngữ cảnh', { n }));
@@ -181,7 +181,7 @@
         const right = String(q.answer);
         const ok = answers[i] === right;
         if (ok) score++;
-        else if (App.logMistake) App.logMistake({ kind: 'reading', q: `${r.title}: ${q.q}`, answer: q.type === 'tfng' ? right : q.options[+right], given: answers[i] == null ? t('(bỏ trống)') : q.type === 'tfng' ? answers[i] : q.options[+answers[i]], explain: q.explain, ref: r.id });
+        else if (App.logMistake) App.logMistake({ kind: 'reading', q: `${r.title}: ${q.q}`, answer: q.type === 'tfng' ? right : q.options[+right], given: answers[i] == null ? I18N.tk('(bỏ trống)') : q.type === 'tfng' ? answers[i] : q.options[+answers[i]], explain: q.explain, ref: r.id });
         $$('.opts button', item).forEach(b => { if (b.dataset.v === right) b.classList.add('right'); else if (b.classList.contains('sel')) b.classList.add('wrong'); });
         const ex = $('[data-explain]', item); ex.hidden = false; ex.innerHTML = `${ok ? '✅' : '❌'} ${esc(q.explain)}`;
       });

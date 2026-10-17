@@ -8,8 +8,8 @@ category: ngu-phap
 tags: [ngu-phap, thi, grammar, toeic]
 keyword: "현재완료 과거 차이"
 cover: grammar
-coverAlt: "Lexkite 영문법 시제 학습 화면: 현재완료와 단순과거 비교 도표와 예문 분석"
-publishAt: 
+coverAlt: "Lexkite 문법: 12시제를 포함한 단원별 학습 경로, A1–B2 수준과 종합 연습"
+publishAt: 2026-10-28T12:45:00+09:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -44,7 +44,7 @@ qualityScore: 94
 
 문법 기본기가 부족하다고 느껴진다면 [영문법 기초 개념 총정리](/ngu-phap/) 코너를 통해 각 품사와 시제의 기본 뼈대를 먼저 점검하는 것을 권장합니다. 실전 감각을 기르기 위해 [실전 모의 테스트](/#/practice/test)에서 시간제한을 두고 다양한 변형 문제를 직접 풀어보는 훈련이 필요합니다.
 
-![실전 문법 테스트 및 오답 분석 화면](media:practice-test "다양한 시제 문제를 실전 제한시간과 함께 풀고 오답 원인을 점검할 수 있는 테스트 모드 화면")
+![Lexkite 객관식 연습: 네 개의 보기 중 'run out of'의 올바른 뜻 고르기](media:practice-test "표현의 뜻을 고르는 짧은 퀴즈 – 현재완료 과거 차이")
 
 ## 3초 만에 정답을 가르는 결정적 시그널 워드(Signal Words)
 
@@ -110,7 +110,7 @@ qualityScore: 94
 
 공부한 어휘를 잊지 않고 장기기억으로 굳히는 학습법은 [영어 단어 암기법](/ko/blog/yeongdaneo-amgibeop/)을 참조하세요. 내가 자주 헷갈리는 문법 항목은 [나만의 오답 노트](/#/mistakes)에 기록하여 매일 아침 5분씩 주기적으로 점검하는 습관이 중요합니다.
 
-![학습자 오답 노트 및 취약점 분석 화면](media:mistakes "시제 혼동 등 반복적으로 틀리는 문법 취약 유형을 모아 집중 복습할 수 있는 오답 관리 화면")
+![Lexkite 오답 노트: 어휘·문법·독해·듣기별로 오답을 모아 복습](media:mistakes "오답을 모아 복습 – 현재완료 과거 차이")
 
 ## 실전 적용 테스트 (Self-Check 5문항)
 

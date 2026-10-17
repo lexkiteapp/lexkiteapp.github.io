@@ -8,8 +8,8 @@ category: ky-nang
 tags: [job-interview, carriere, speaking, travail]
 keyword: "entretien d'embauche en anglais questions"
 cover: speaking
-coverAlt: "Entraînement oral pour les entretiens d'embauche en anglais dans Lexkite"
-publishAt:
+coverAlt: "Salle d’oral Lexkite : IELTS Part 1/2/3 par thème, questions types, réponses modèles band 7,5–8 et vocabulaire utile"
+publishAt: 2026-11-05T07:29:00+01:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -51,7 +51,7 @@ Ne vous contentez pas d'une liste d'adjectifs creux (*„I am dynamic, motivated
 
 - *„My greatest strength is analytical problem-solving in high-stakes situations. For example, when our primary server crashed during the peak sales week last December, I coordinated an emergency recovery plan within 45 minutes, preventing an estimated 70,000 euros in transaction losses.“*
 
-![Entraînement oral pour les entretiens en anglais dans Lexkite](media:practice-speak "Module d'entraînement oral pour répéter vos réponses aux questions d'embauche")
+![Exercice de prononciation notée Lexkite : répéter « cut down on » au micro](media:practice-speak "Répéter au micro et obtenir une note – entretien d'embauche en anglais questions")
 
 ### 3. „What is your biggest weakness?“
 
@@ -71,7 +71,7 @@ Le recruteur souhaite savoir si votre projet professionnel s'inscrit dans la dur
 
 - *„In five years, I see myself having deepened my strategic expertise in international operations. My goal is to take on broader team leadership responsibilities and contribute to opening new European market segments for the firm.“*
 
-![Système de révision de vocabulaire FSRS dans Lexkite](media:review "Mémorisation des verbes d'action et du vocabulaire professionnel avec FSRS")
+![Révision de flashcards Lexkite : carte « pollution » avec emoji, phonétique et bouton Retourner, barre de progression](media:review "Révision par flashcards – entretien d'embauche en anglais questions")
 
 ## La méthode STAR pour les questions comportementales
 

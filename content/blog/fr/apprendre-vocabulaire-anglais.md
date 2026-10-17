@@ -8,8 +8,8 @@ category: tu-vung
 tags: [vocabulaire, flashcard, ielts, memoire]
 keyword: "apprendre le vocabulaire anglais"
 cover: library
-coverAlt: "Bibliothèque de vocabulaire en anglais dans Lexkite avec 3 000 mots fréquents et répétition espacée"
-publishAt:
+coverAlt: "Bibliothèque de vocabulaire Lexkite de plus de 6 800 mots : vocabulaire de base NGSL, IELTS par thème, Writing, Speaking et TOEIC, niveaux A1–B2"
+publishAt: 2026-10-26T07:19:00+01:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -52,7 +52,7 @@ En anglais, les mots s'associent par affinité naturelle, ce que les linguistes 
 
 Prenez l'habitude d'apprendre chaque mot nouveau au sein d'une phrase modèle courte et évocatrice.
 
-![Mode d'apprentissage actif du vocabulaire dans Lexkite](media:practice-learn "Apprentissage des mots en contexte de phrases authentiques")
+![Fiche d’apprentissage Lexkite sur « come up with » : sens, définition anglaise, exemples, astuce mnémo et erreurs fréquentes](media:practice-learn "Fiche avec exemples et astuce mnémo – apprendre le vocabulaire anglais")
 
 ### 3. La répétition espacée (SRS) et l'algorithme FSRS
 
@@ -60,7 +60,7 @@ La répétition espacée est le moyen le plus efficace de contrecarrer la courbe
 
 L'algorithme moderne FSRS (Free Spaced Repetition Scheduler), intégré dans le [Module de révision](/#/review) de Lexkite, va encore plus loin : il calcule la stabilité mémorielle et la difficulté propre à chaque carte pour vous représenter le mot au moment précis où vous vous apprêtez à l'oublier.
 
-![Révision de vocabulaire par répétition espacée FSRS dans Lexkite](media:review "La révision espacée FSRS calcule le moment exact où revoir chaque mot")
+![Révision de flashcards Lexkite : carte « pollution » avec emoji, phonétique et bouton Retourner, barre de progression](media:review "Révision par flashcards – apprendre le vocabulaire anglais")
 
 ### 4. Le rappel actif (Active Recall)
 

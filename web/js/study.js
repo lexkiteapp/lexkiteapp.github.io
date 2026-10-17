@@ -7,6 +7,13 @@
   const { state, routes } = App;
   const view = App.view;
   const accent = () => state.settings.accent;
+  // Nhãn nguồn của ngữ cảnh (thẻ lưu & đồng bộ KHÓA tiếng Việt, vd. "Bài đọc: <tên bài>") → dịch lúc vẽ
+  const ctxTitle = s => {
+    if (s === 'Câu của tôi') return t('Câu của tôi');
+    let m = /^Bài đọc: ([\s\S]*)$/.exec(s); if (m) return t('Bài đọc: {title}', { title: m[1] });
+    m = /^Bài mẫu Task (\d+)$/.exec(s); if (m) return t('Bài mẫu Task {n}', { n: m[1] });
+    return s;
+  };
   // Phản hồi xúc giác chuẩn Duolingo: đúng = rung ngắn 35ms; sai = rung đôi [50, 40, 50]ms (tôn trọng prefers-reduced-motion & tắt âm)
   const haptic = ok => {
     try {
@@ -184,7 +191,7 @@
             <div class="vi" style="margin:.3rem 0">${esc(mean(c))}</div><div class="wi-native" data-native></div>
             ${c.def && mean(c) !== c.def ? `<div>${esc(c.def)}</div>` : ''}
             ${c.ex ? `<div class="example-box" style="margin-top:.8rem">${highlight(c.ex, c.word)} <button class="icon-btn sm" data-speak-text="${esc(c.ex)}">🔊</button></div>` : ''}
-            ${c.contexts.length ? `<div style="margin-top:.8rem"><b class="small">📌 ${t('Ngữ cảnh của bạn')}</b>${c.contexts.slice(0, 2).map(x => `<div class="ex small" style="margin-top:.3rem">“${highlight(x.text, c.word)}” <button class="ctx-say sm" data-saysent="${esc(x.text)}" title="${t('Nghe cả câu')}">🔊</button>${ytOf(x.source) ? ` <button class="ctx-say sm" data-ytsrc="${esc(x.source)}" title="${t('Xem lại đoạn gốc')}">▶</button>` : ''}${x.title ? ` <span class="muted">— ${esc(x.title === 'Câu của tôi' ? t('Câu của tôi') : x.title)}</span>` : ''}${x.vi && (I18N.meanLang() === 'vi' || I18N.lang() !== 'en') ? `<div style="font-style:normal">${(I18N && I18N.flag ? I18N.flag(I18N.lang() !== 'en' ? I18N.lang() : 'vi') : '🇻🇳')} ${esc(x.vi)}</div>` : ''}</div>`).join('')}</div>` : ''}
+            ${c.contexts.length ? `<div style="margin-top:.8rem"><b class="small">📌 ${t('Ngữ cảnh của bạn')}</b>${c.contexts.slice(0, 2).map(x => `<div class="ex small" style="margin-top:.3rem">“${highlight(x.text, c.word)}” <button class="ctx-say sm" data-saysent="${esc(x.text)}" title="${t('Nghe cả câu')}">🔊</button>${ytOf(x.source) ? ` <button class="ctx-say sm" data-ytsrc="${esc(x.source)}" title="${t('Xem lại đoạn gốc')}">▶</button>` : ''}${x.title ? ` <span class="muted">— ${esc(ctxTitle(x.title))}</span>` : ''}${x.vi && (I18N.meanLang() === 'vi' || I18N.lang() !== 'en') ? `<div style="font-style:normal">${(I18N && I18N.flag ? I18N.flag(I18N.lang() !== 'en' ? I18N.lang() : 'vi') : '🇻🇳')} ${esc(x.vi)}</div>` : ''}</div>`).join('')}</div>` : ''}
             ${(c.sentences || []).length ? `<div style="margin-top:.8rem"><b class="small">💬 ${t('Câu song ngữ')}</b>${c.sentences.map(x => `<div class="small" style="margin-top:.3rem">${highlight(x.en, c.word)}${I18N.meanLang() === 'vi' && x.vi ? `<div class="muted">${esc(x.vi)}</div>` : ''}</div>`).join('')}</div>` : ''}
             ${c.col.length ? `<div class="small" style="margin-top:.8rem">🔗 ${c.col.map(esc).join(' · ')}</div>` : ''}
             ${c.syn.length ? `<div class="small" style="margin-top:.3rem">≈ ${c.syn.map(esc).join(', ')}</div>` : ''}
@@ -343,13 +350,13 @@
 
   // ================= TRUNG TÂM LUYỆN TẬP =================
   const MODES = {
-    learn: { em: '🧠', name: t('Học thông minh'), run: runLearn },
-    mcq: { em: '🧩', name: t('Trắc nghiệm'), run: src => runQuiz(src, 'mcq') },
-    cloze: { em: '✍️', name: t('Điền từ vào câu'), run: src => runQuiz(src, 'cloze') },
-    listen: { em: '🎧', name: t('Nghe & chép'), run: src => runQuiz(src, 'listen') },
-    test: { em: '📝', name: t('Bài kiểm tra'), run: src => runQuiz(src, 'test') },
-    match: { em: '⚡', name: t('Ghép thẻ'), run: runMatch },
-    speak: { em: '🎙️', name: t('Luyện phát âm'), run: runSpeak },
+    learn: { em: '🧠', get name() { return t('Học thông minh'); }, run: runLearn },
+    mcq: { em: '🧩', get name() { return t('Trắc nghiệm'); }, run: src => runQuiz(src, 'mcq') },
+    cloze: { em: '✍️', get name() { return t('Điền từ vào câu'); }, run: src => runQuiz(src, 'cloze') },
+    listen: { em: '🎧', get name() { return t('Nghe & chép'); }, run: src => runQuiz(src, 'listen') },
+    test: { em: '📝', get name() { return t('Bài kiểm tra'); }, run: src => runQuiz(src, 'test') },
+    match: { em: '⚡', get name() { return t('Ghép thẻ'); }, run: runMatch },
+    speak: { em: '🎙️', get name() { return t('Luyện phát âm'); }, run: runSpeak },
   };
 
   routes.practice = function (mode, query) {
@@ -375,7 +382,7 @@
     let answered = false;
     const finish = (ok, given) => {
       if (answered) return; answered = true;
-      if (!ok && App.logMistake) App.logMistake({ kind: 'vocab', q: q.type.startsWith('mcq-en') || q.type === 'type-vi' || q.type === 'type-spell' ? t('Từ tiếng Anh nghĩa là “{vi}”?', { vi: mean(w) }) : q.type === 'type-cloze' && w.ex ? t('Điền từ: {sentence}', { sentence: w.ex.replace(UI.wordRegex(w.word), '___') }) : t('Nghĩa của “{word}”?', { word: w.word }), answer: q.type === 'mcq-vi' ? w.vi : (q.answer || w.word), given: given || '', explain: `${w.word} ${w.ipa || ''} = ${w.vi}`, ref: w.word });
+      if (!ok && App.logMistake) App.logMistake({ kind: 'vocab', q: q.type.startsWith('mcq-en') || q.type === 'type-vi' || q.type === 'type-spell' ? I18N.tk('Từ tiếng Anh nghĩa là “{vi}”?', { vi: mean(w) }) : q.type === 'type-cloze' && w.ex ? I18N.tk('Điền từ: {sentence}', { sentence: w.ex.replace(UI.wordRegex(w.word), '___') }) : I18N.tk('Nghĩa của “{word}”?', { word: w.word }), answer: q.type === 'mcq-vi' ? w.vi : (q.answer || w.word), given: given || '', explain: `${w.word} ${w.ipa || ''} = ${w.vi}`, ref: w.word });
       ok ? Sfx.correct() : Sfx.wrong();
       haptic(ok);
       const fb = $('#fb', box);

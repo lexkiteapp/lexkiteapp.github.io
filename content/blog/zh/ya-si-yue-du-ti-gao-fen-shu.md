@@ -8,8 +8,8 @@ category: ielts
 tags: [ya-si, ielts, yue-du, reading, ti-gao]
 keyword: "雅思阅读技巧"
 cover: reading
-coverAlt: "Lexkite雅思学术类阅读长文精读与段落定位高亮界面"
-publishAt: 
+coverAlt: "Lexkite A2–C1 分级阅读文章，如 “The Rise of Urban Farming”；点按单词即可查词"
+publishAt: 2026-11-01T19:31:00+08:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -31,7 +31,7 @@ qualityScore: 94
 
 掌握这一时间分配的前提，是具备快速定位答案句的能力。在[学术长文泛读与精读平台](/#/read-article)中进行速度与眼球跳跃扫描训练，可以有效提升眼动扫描速率。
 
-![雅思阅读学术长难文精读与生词解析界面](media:read-article "支持段落核心主题句高亮与生词实时查阅的学术阅读学习界面")
+![Lexkite 阅读文章 “The Growing Problem of Space Debris”：关键词高亮与判断题（True/False/Not Given）](media:read-article "关键词高亮的阅读与判断题 – 雅思阅读技巧")
 
 ## 搞定80%题目的底层逻辑：同义替换（Paraphrasing）三级跃迁
 
@@ -66,7 +66,7 @@ qualityScore: 94
 
 大作文的逻辑连贯性同样依赖论证结构的清晰度，两者相辅相成，备考写作可参考[雅思写作 task 2 模板](/zh/blog/ya-si-xie-zuo-task-2-mo-ban/)。同时，听力第三和第四部分的快速定位与阅读定位本质相通，相关技巧见[雅思听力技巧](/zh/blog/ya-si-ting-li-ji-qiao/)。
 
-![雅思阅读全题型真题实训界面](media:practice-test "提供判断题、填空题与标题匹配题全真计时自测的练习界面")
+![Lexkite 选择题练习：从四个选项中选出 “run out of” 的正确含义](media:practice-test "短语含义小测验 – 雅思阅读技巧")
 
 ## 实战定位演练（Self-Check 经典微型真题）
 

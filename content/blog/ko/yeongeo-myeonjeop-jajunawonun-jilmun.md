@@ -8,8 +8,8 @@ category: ky-nang
 tags: [myeonjeop, job-interview, speaking, chwieop]
 keyword: "영어 면접 질문"
 cover: speaking
-coverAlt: "Lexkite 영어 면접 및 인터뷰 스피킹 시뮬레이션 화면: 실시간 음성 채점"
-publishAt: 
+coverAlt: "Lexkite 스피킹 연습실: 주제별 IELTS Part 1/2/3 질문, band 7.5–8 모범 답변과 활용 어휘"
+publishAt: 2026-11-05T07:29:00+09:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -40,7 +40,7 @@ R (Result - 결과): 행동의 결과로 나타난 정량적 성과 (숫자, 백
 
 실전 스피킹 감각을 끌어올리고 싶다면 [면접 스피킹 훈련 모드](/#/speaking)에서 타이머를 켜고 실제 면접관의 질문에 답변하는 시뮬레이션을 진행해 보세요.
 
-![영어 면접 스피킹 인터뷰 연습 화면](media:practice-speak "면접 빈출 질문 음원을 듣고 실시간으로 답변하며 발음과 억양을 피드백 받는 스피킹 훈련 화면")
+![Lexkite 발음 연습: 마이크로 'cut down on'을 말하면 점수를 매겨 줌](media:practice-speak "마이크로 따라 말하고 점수 확인 – 영어 면접 질문")
 
 ## 외국계 기업 빈출 영어 면접 질문 10선과 모범 답변 전략
 
@@ -87,7 +87,7 @@ R (Result - 결과): 행동의 결과로 나타난 정량적 성과 (숫자, 백
 
 면접 합격 후 입사하여 해외 파트너와 원활하게 서신을 주고받는 요령은 [비즈니스 영어 이메일](/ko/blog/business-yeongeo-email-pyohyeon/) 가이드에서 실무 템플릿과 함께 학습하실 수 있습니다. [비즈니스 핵심 표현 모음집](/#/phrases)을 통해 면접에서 자주 쓰이는 프로페셔널한 어휘를 익혀보세요.
 
-![비즈니스 영어 인터뷰 핵심 문장 표현집 화면](media:phrases "면접과 비즈니스 미팅에서 자주 쓰이는 필수 숙어와 상황별 관용구를 카테고리별로 학습하는 표현집 화면")
+![Lexkite 표현 노트: 유용한 표현과 문장 구조를 모으고 Task·band로 태그](media:phrases "표현과 문장 구조 모으기 – 영어 면접 질문")
 
 ## 영어 면접에서 감점을 부르는 3가지 치명적 습관
 

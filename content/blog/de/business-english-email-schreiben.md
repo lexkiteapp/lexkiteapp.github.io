@@ -8,8 +8,8 @@ category: ky-nang
 tags: [business-english, email, beruf, korrespondenz]
 keyword: "business english email schreiben"
 cover: write
-coverAlt: "Schreibtrainer in Lexkite mit interaktiven Vorlagen für geschäftliche E-Mails auf Englisch"
-publishAt:
+coverAlt: "Lexkite Schreibraum für IELTS Writing Task 2: Themen, Ideen, Wortschatz, Gliederung und kommentierte Band‑8‑Musteraufsätze"
+publishAt: 2026-11-03T12:49:00+01:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -58,7 +58,7 @@ Wählen Sie die Anrede passend zum Grad der Formalität:
   *Hi Sarah,* / *Good morning team,*
 - **Vermeiden:** *Dear Sir or Madam* wirkt heute oft unpersönlich und antiquiert. Versuchen Sie stets, den konkreten Namen des Ansprechpartners zu recherchieren.
 
-![Vokabel- und Phrasenbibliothek in der Lexkite App](media:library "Geschäftliche Redewendungen und Formulierungen für formelle E-Mails")
+![Lexkite Vokabelbibliothek mit über 6.800 Wörtern: Kernwortschatz (NGSL), IELTS nach Themen, Writing, Speaking und TOEIC, Stufen A1–B2](media:library "Vokabelsets nach Niveau und Prüfung – business english email schreiben")
 
 ### 3. Der Einstiegssatz (Opening Line)
 
@@ -93,7 +93,7 @@ Schließen Sie die Nachricht mit einer eindeutigen Erwartungshaltung ab:
 - *Sincerely,* (Sehr formell, passend zu *Dear Mr. ...*)
 - *Best,* (Beliebt bei schnellen internen Absprachen)
 
-![Interaktiver Multiple-Choice-Test zu Schreibfertigkeiten](media:practice-test "Praktische Textaufgaben zur richtigen Wortwahl und Höflichkeitsetikette")
+![Lexkite Multiple-Choice-Übung: die richtige Bedeutung von „run out of“ aus vier Antworten wählen](media:practice-test "Kurzes Quiz zur Bedeutung einer Wendung – business english email schreiben")
 
 ## 4 Sofort einsatzbereite Mustervorlagen
 

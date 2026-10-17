@@ -84,6 +84,10 @@ File này gom các **quy trình đã chốt** và **lỗi đã từng mắc** đ
 - Dịch máy không được dịch cụm tiếng Anh mẫu (cấu trúc ngữ pháp, câu ví dụ trong ngoặc kép) → khoá cụm trước khi dịch; `i18n-qa` chặn.
 - Blog: `blog-schedule --verify` trong `npm test` (≤ 1 bài/ngôn ngữ/ngày); kho ít bài tự rải 1–3 ngày/bài, giờ cao điểm địa phương. Slug vĩnh viễn – không dùng tên sách/thương hiệu người khác.
 - Bài của Antigravity: chỉ được thêm liên kết vào bài cũ, không đổi nội dung/ngày đăng; soát alt ảnh với `shots.json`.
+- **Alt/chú thích ảnh hay bị bịa tính năng** (B3 đợt 3: 72/72 sai – "trình soạn email công sở", "thi thử Cambridge", "3.000 từ", "chấm giọng thời gian thực"). Luật: alt mô tả ĐÚNG màn hình theo `shots.json` (dịch sang ngôn ngữ bài), chú thích = mô tả đúng + ngữ cảnh bài (không trùng giữa các bài – blog-check chặn). Bảng alt chuẩn 4 ngôn ngữ: script mẫu trong lịch sử phiên 17/10 (`alts.py`) – mở rộng cho ngôn ngữ mới thay vì để người viết tự đặt.
+- **Gộp nhánh Antigravity:** KHÔNG checkout cả thư mục `content/blog` (nhánh cũ sẽ xoá lịch đã xếp/slug đã đổi ở main). Làm: `git diff <mốc> HEAD -- content/blog | git apply -3`; `briefs.json` gộp theo nội dung (khóa = lang+slug); sau đó kiểm `publishAt` bài cũ không đổi. BOARD/COORDINATION của nhánh họ: không lấy, phiên chính tự ghi nghiệm thu.
+- Ảnh chụp app trong bài: bài đã đăng giữ ảnh giao diện tiếng Anh; bài MỚI (sau khi sửa xong lỗi chữ Việt lọt khi đổi ngôn ngữ 17/10) chụp giao diện đúng ngôn ngữ của bài (`blog-shots.mjs ?hl=<lang>`).
+- **Đổi ngôn ngữ:** cấm gọi `t()` lúc nạp module (dịch lúc vẽ: hàm/getter); dữ liệu lưu giữ KHÓA, không lưu chữ đã dịch; app chờ `I18N.whenReady()` trước khi vẽ. Test `i18n-switch.mjs --scan` chặn.
 
 **Hạ tầng**
 - WAF Cloudflare chạy thật (token riêng `~/.config/lexkite/cf-waf-token`); gói Free: rate limit chỉ "block" (không challenge). Kiểm: `node scripts/cf-waf.mjs verify --live`.

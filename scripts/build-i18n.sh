@@ -6,7 +6,7 @@ cd "$(dirname "$0")/../web/js/i18n" || exit 1
 LAZY="report"
 {
   echo '/* English UI – FILE SINH TỰ ĐỘNG từ js/i18n/en/*.js bằng scripts/build-i18n.sh. Đừng sửa tay. */'
-  for f in core topics writing skills exams study shell toefl ext structs hubs writecheck roleplay handoff call league streak; do cat "en/$f.js"; echo; done
+  for f in core topics writing skills exams study shell toefl ext structs hubs writecheck roleplay handoff call league streak verbs; do cat "en/$f.js"; echo; done
   cat <<'X'
 /* Thống nhất thuật ngữ khi nhiều nhóm dùng chung 1 khóa */
 (function (g) { Object.assign(g.I18N_DICT.en, {

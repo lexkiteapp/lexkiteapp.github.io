@@ -8,8 +8,8 @@ category: ielts
 tags: [si-ji, cet-4, ting-li, listening]
 keyword: "英语四级听力技巧"
 cover: listening
-coverAlt: "Lexkite大学英语四级CET-4全真听力训练与倍速跟读界面"
-publishAt: 
+coverAlt: "Lexkite 雅思听力：10 套 4 部分试题，英美澳口音，可调语速，听写练习"
+publishAt: 2026-11-03T12:49:00+08:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -36,7 +36,7 @@ qualityScore: 94
 
 在日常复习中，背单词不仅要记拼写，更要输入标准发音，否则在听力中会产生“音义脱节”，具体记忆体系见[背单词的方法](/zh/blog/bei-dan-ci-de-fang-fa/)。在[听力专项模拟训练模块](/#/listening)中，你可以通过遮挡字幕的方式专门强化前瞻性预读肌肉记忆。
 
-![大学英语四级真题听力全真模拟练习界面](media:practice-test "提供CET-4真题音频、选项预读计时与即时答案解析的听力测试界面")
+![Lexkite 选择题练习：从四个选项中选出 “run out of” 的正确含义](media:practice-test "短语含义小测验 – 英语四级听力技巧")
 
 ## 破解三大板块的核心出题潜规则
 
@@ -71,7 +71,7 @@ qualityScore: 94
 
 阅读英文原版文章能潜移默化提升对长难句信息密度的适应力，欢迎在[英文泛读图书馆](/#/read-article)中保持每日一篇的学术语感浸润。
 
-![长篇听力材料与文本精读对照界面](media:read-article "支持听力录音原文逐句跟读、段落大意提炼与重点短语收藏的学习界面")
+![Lexkite 阅读文章 “The Growing Problem of Space Debris”：关键词高亮与判断题（True/False/Not Given）](media:read-article "关键词高亮的阅读与判断题 – 英语四级听力技巧")
 
 ## 考前30天提分计划：影子听写与精听四步法
 

@@ -8,8 +8,8 @@ category: ielts
 tags: [ya-si, ielts, xie-zuo, task-2, mo-ban]
 keyword: "雅思写作 task 2 模板"
 cover: write
-coverAlt: "Lexkite雅思大作文Task 2批改与写作结构实时评分界面"
-publishAt: 
+coverAlt: "Lexkite 雅思写作 Task 2 练习室：按主题选题、思路与词汇提示、文章框架、带注释的 8 分范文"
+publishAt: 2026-10-30T21:19:00+08:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -34,7 +34,7 @@ qualityScore: 94
 
 在大作文练习的同时，不可忽视占总分三分之一分量的小作文图表题，可以在[雅思小作文图表练习模块](/#/task1)中练习数据对比和客观描述技巧。
 
-![雅思Task 1图表题与Task 2大作文写作练习界面](media:task1 "涵盖柱状图、折线图与议论文题目的雅思写作全真练习模块界面")
+![Lexkite 雅思写作 Task 1 学术类：线图、柱图、饼图、表格、流程图及 8 分范文](media:task1 "小作文图表类型与范文 – 雅思写作 task 2 模板")
 
 ## 雅思写作 task 2 模板：四段式黄金结构全景拆解
 
@@ -88,7 +88,7 @@ qualityScore: 94
 
 在实战前，建议在[全真模拟模考平台](/#/mock)中限时40分钟进行手速与排版测试，适应真实考场的计时压力。
 
-![雅思全真模拟考试与计时系统界面](media:mock "提供机考全真界面与字数实时统计的雅思模拟考试系统")
+![Lexkite 雅思四项模拟考试：选择听、读、写、说，查看考试记录](media:mock "雅思四项模拟考试 – 雅思写作 task 2 模板")
 
 ## 避开低分套话：高级学术替换表达库
 

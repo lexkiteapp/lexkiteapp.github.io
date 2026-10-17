@@ -8,8 +8,8 @@ category: ngu-phap
 tags: [ngu-phap, shi-tai, grammar, ielts]
 keyword: "现在完成时和一般过去时的区别"
 cover: grammar
-coverAlt: "Lexkite英语语法模块界面：时态对比图解与现在完成时例句解析"
-publishAt: 
+coverAlt: "Lexkite 语法：按章节学习路径，含 12 种时态、A1–B2 级别和综合练习"
+publishAt: 2026-10-26T07:19:00+08:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -44,7 +44,7 @@ qualityScore: 94
 
 词汇的扎实积累是理解语法例句的基石，如果想按科学遗忘曲线记忆高频核心词，可以参阅[背单词的方法](/zh/blog/bei-dan-ci-de-fang-fa/)。在[语法专项练习模块](/#/grammar)中，你可以对照动词不规则过去式与过去分词列表，系统巩固基础形态。
 
-![英语语法时态对比与专项训练界面](media:practice-test "收录高频易错时态辨析题目的英语语法实战测试界面")
+![Lexkite 选择题练习：从四个选项中选出 “run out of” 的正确含义](media:practice-test "短语含义小测验 – 现在完成时和一般过去时的区别")
 
 ## 3秒秒杀标志词：两套截然不同的时间副词系统
 
@@ -70,7 +70,7 @@ qualityScore: 94
 
 如果你在听力材料中抓取不到这些细微的连接词，可以参考[雅思听力技巧](/zh/blog/ya-si-ting-li-ji-qiao/)中分享的弱读与连读定位法，提升对信号词的耳朵敏锐度。在[高频错误归纳本](/#/mistakes)中记录下自己混淆的时间标志词，定期复习避免重复踩坑。
 
-![学习者语法错题复习与归纳界面](media:mistakes "按时态分类整理常见语法错误并提供深度解析的错题本界面")
+![Lexkite 错题本：按词汇、语法、阅读、听力归类错题以便复习](media:mistakes "错题归类复习 – 现在完成时和一般过去时的区别")
 
 ## 中国学生最常犯的3大时态中式英语陷阱
 

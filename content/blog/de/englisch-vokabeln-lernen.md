@@ -8,8 +8,8 @@ category: tu-vung
 tags: [ielts, tu-vung, flashcard]
 keyword: "englisch vokabeln lernen"
 cover: library
-coverAlt: "Vokabelbibliothek in Lexkite mit 3.000 Kernwörtern, Beispielsätzen und FSRS-Wiederholungsplan"
-publishAt:
+coverAlt: "Lexkite Vokabelbibliothek mit über 6.800 Wörtern: Kernwortschatz (NGSL), IELTS nach Themen, Writing, Speaking und TOEIC, Stufen A1–B2"
+publishAt: 2026-10-26T07:19:00+01:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -48,7 +48,7 @@ Wörter treten in natürlichen Sprachen selten alleine auf. Muttersprachler spre
 
 Lernen Sie jedes neue Wort immer eingebettet in einen kurzen, prägnanten Beispielsatz. Notieren Sie typische Adjektiv-Nomen-Paare (*heavy rain*, nicht *strong rain*) oder Verb-Präposition-Kombinationen (*rely on*, *interested in*).
 
-![Interaktive Wortschatzübungen in der Lexkite Lernansicht](media:practice-learn "Wortbedeutung im authentischen Satzkontext aktiv abrufen und vertiefen")
+![Lexkite Lernkarte zu „come up with“: Bedeutung, englische Definition, Beispiele, Merkhilfe und typische Fehler](media:practice-learn "Lernkarte mit Beispielen und Merkhilfe – englisch vokabeln lernen")
 
 ### 3. Spaced Repetition: Den FSRS-Algorithmus nutzen
 
@@ -56,7 +56,7 @@ Verteiltes Wiederholen (Spaced Repetition) ist das wirksamste Werkzeug der Gedä
 
 Die modernste Variante dieses Prinzips ist der FSRS-Algorithmus (Free Spaced Repetition Scheduler), der individuelle Parameter wie Schwierigkeitsgrad, Stabilität und bisherige Abrufgenauigkeit einbezieht. Er erinnert Sie exakt in dem Moment an eine Vokabel, in dem sie kurz davor steht, vergessen zu werden. Im [Wiederholungsbereich](/#/review) übernimmt Lexkite diese Planung vollautomatisch für Sie.
 
-![Wiederholungszyklus in Lexkite mit FSRS-Algorithmus](media:review "FSRS-Wiederholungen: Das System berechnet das optimale Intervall für jede Karte")
+![Lexkite Karteikarten-Wiederholung: Karte „pollution“ mit Emoji, Lautschrift und Umdrehen-Knopf, Fortschrittsleiste](media:review "Wiederholung mit Karteikarten – englisch vokabeln lernen")
 
 ### 4. Mnemotechniken und visuelle Brücken
 

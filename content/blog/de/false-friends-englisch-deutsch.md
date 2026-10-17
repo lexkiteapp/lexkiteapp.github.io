@@ -8,8 +8,8 @@ category: ngu-phap
 tags: [tu-de-nham, tu-vung]
 keyword: "false friends englisch deutsch"
 cover: dict
-coverAlt: "Digitales Wörterbuch in Lexkite mit Beispielsätzen, Lautschrift und Wortvergleichen"
-publishAt:
+coverAlt: "Lexkite Wörterbuch für „resilient“: Aussprache UK/US, Bedeutung, Beispielsatz, Kollokationen, Synonyme und Speichern als Karteikarte"
+publishAt: 2026-10-28T12:45:00+01:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -64,7 +64,7 @@ In der folgenden Tabelle sind die wichtigsten falschen Freunde nach Anwendungsbe
 | **pathetic** | erbärmlich, bemitleidenswert | pathetisch (feierlich/überschwänglich) | *dramatic, pompous, melodramatic* |
 | **undertaker** | Bestatter | Unternehmer | *entrepreneur, business owner* |
 
-![Interaktiver Test zu Grammatik und Wortunterschieden in Lexkite](media:practice-test "Multiple-Choice-Test: Falsche Freunde im Satzkontext sicher erkennen")
+![Lexkite Multiple-Choice-Übung: die richtige Bedeutung von „run out of“ aus vier Antworten wählen](media:practice-test "Kurzes Quiz zur Bedeutung einer Wendung – false friends englisch deutsch")
 
 ## Die 5 gefährlichsten Fälle im Berufsleben
 
@@ -93,7 +93,7 @@ Besonders im Geschäftsenglisch führen falsche Freunde zu kostspieligen Missver
 - **Falsch:** *„He is a successful undertaker in the tech industry.“* (Das bedeutet wörtlich: Er beerdigt verstorbene IT-Fachkräfte).
 - **Richtig:** *„He is a successful entrepreneur / business owner in the tech industry.“*
 
-![Grammatik- und Wortschatzübungen in der Lexkite App](media:grammar "Spezifische Grammatiklektionen helfen, typische muttersprachliche Fehler zu vermeiden")
+![Lexkite Grammatik: Kapitel-Lernpfad mit den 12 Zeitformen, Niveaus A1–B2 und gemischten Übungen](media:grammar "Grammatik-Lernpfad mit Übungen – false friends englisch deutsch")
 
 ## Wie Sie False Friends dauerhaft meistern
 

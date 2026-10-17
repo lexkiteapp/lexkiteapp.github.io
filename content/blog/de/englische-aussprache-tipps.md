@@ -7,8 +7,8 @@ category: phat-am
 tags: [aussprache, pronunciation, tipps, th-laut]
 keyword: "englische aussprache tipps"
 cover: pron
-coverAlt: "Aussprachetrainer in Lexkite mit interaktiven Mundbildern, Wellenform und Audiobeispielen"
-publishAt:
+coverAlt: "Lexkite IPA-Ausspracheübersicht: Vokale, Diphthonge und Konsonanten mit Beispielwörtern und Übung pro Laut"
+publishAt: 2026-10-30T21:19:00+01:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -43,7 +43,7 @@ Im Englischen existieren zwei Varianten des th-Lauts:
 **Die richtige Technik:**
 Platzieren Sie die Zungenspitze ganz leicht zwischen den oberen und unteren Schneidezähnen (oder direkt hinter die oberen Schneidezähne). Blasen Sie die Luft sanft durch die schmale Lücke. Pressen Sie die Zunge nicht zu fest an, sonst blockieren Sie den Luftstrom.
 
-![Interaktives Aussprachetraining in der Lexkite App](media:practice-speak "Sprechübungen mit sofortiger Rückmeldung zu Intonation und Phonemen")
+![Lexkite Ausspracheübung mit Bewertung: die Wendung „cut down on“ per Mikrofon nachsprechen](media:practice-speak "Nachsprechen mit Mikrofon und Bewertung – englische aussprache tipps")
 
 ### 2. W versus V: Rundung statt Unterlippe
 
@@ -86,7 +86,7 @@ Englisch ist eine sogenannte stress-timed Sprache: Zwischen betonten Silben verg
 
 Wer jedes Wort im Satz gleich laut und abgehackt wie im Deutschen betont, klingt roboterhaft. Lassen Sie unbetonte Silben fließen und konzentrieren Sie die Energie auf die inhaltstragenden Schlüsselwörter (Nomen, Hauptverben).
 
-![Sprech- und Konversationsbereich in Lexkite](media:speaking "Flüssiges Sprechen und korrekte Lautbildung im Dialogkontext trainieren")
+![Lexkite Speaking-Raum: IELTS Part 1/2/3 nach Themen mit Beispielfragen, Musterantworten auf Band 7,5–8 und passendem Wortschatz](media:speaking "Speaking-Fragen mit Musterantworten – englische aussprache tipps")
 
 ## Typische Aussprachefehler im Überblick
 

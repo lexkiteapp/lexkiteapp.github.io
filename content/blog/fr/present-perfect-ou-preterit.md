@@ -8,8 +8,8 @@ category: ngu-phap
 tags: [grammaire, temps, verbes-irreguliers]
 keyword: "present perfect ou prétérit"
 cover: grammar
-coverAlt: "Module de grammaire anglaise dans Lexkite avec explications et exercices interactifs"
-publishAt:
+coverAlt: "Grammaire Lexkite : parcours par chapitres avec les 12 temps, niveaux A1–B2 et exercices de synthèse"
+publishAt: 2026-10-28T12:45:00+01:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -67,7 +67,7 @@ Certains adverbes et marqueurs temporels imposent automatiquement le choix de l'
 | **Durée avec point de départ** | *from 2010 to 2015 (action terminée)* | *since 2018, for three years (continue aujourd'hui)* |
 | **Type de question** | *When did you...? At what time did you...?* | *How long have you...? Have you ever...?* |
 
-![Tests à choix multiples pour automatiser la distinction entre les deux temps](media:practice-test "Tests à choix multiples pour automatiser la distinction entre les deux temps")
+![Exercice QCM Lexkite : choisir le bon sens de « run out of » parmi quatre réponses](media:practice-test "Mini-quiz sur le sens d’une expression – present perfect ou prétérit")
 
 ## Les 4 pièges classiques des francophones
 
@@ -88,7 +88,7 @@ En français, une action commencée dans le passé et qui se poursuit s'exprime 
 ### Piège 4 : Oublier les faux amis grammaticaux
 Le vocabulaire et la grammaire s'entremêlent souvent. Pour éviter de confondre des termes d'apparence familière lors de vos exercices écrits, jetez un coup d'œil à notre inventaire des [Faux amis anglais français](/fr/blog/faux-amis-anglais-francais/). Pour retenir les verbes irréguliers sur le long terme, appliquez les méthodes d'[Apprendre le vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/).
 
-![Fiches de révision intelligentes dans l'application Lexkite](media:review "Révision espacée des verbes irréguliers et des structures temporelles")
+![Révision de flashcards Lexkite : carte « pollution » avec emoji, phonétique et bouton Retourner, barre de progression](media:review "Révision par flashcards – present perfect ou prétérit")
 
 ## Auto-évaluation
 

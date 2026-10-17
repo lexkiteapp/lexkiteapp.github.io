@@ -9,7 +9,7 @@
   const RT = () => window.READTESTS || [];
   const round5 = x => Math.round(x * 2) / 2;
   const clock = s => `${String(Math.floor(Math.max(0, s) / 60)).padStart(2, '0')}:${String(Math.floor(Math.max(0, s) % 60)).padStart(2, '0')}`;
-  const SKILLS = [['listening', '🎧', 'Listening', t('~30 phút · 40 câu')], ['reading', '📖', 'Reading', t('60 phút · 40 câu')], ['writing', '✍️', 'Writing', t('60 phút · Task 1 + Task 2')], ['speaking', '🗣️', 'Speaking', t('~12 phút · 3 phần')]];
+  const SKILLS = () => [['listening', '🎧', 'Listening', t('~30 phút · 40 câu')], ['reading', '📖', 'Reading', t('60 phút · 40 câu')], ['writing', '✍️', 'Writing', t('60 phút · Task 1 + Task 2')], ['speaking', '🗣️', 'Speaking', t('~12 phút · 3 phần')]];
   const pick = a => a[Math.floor(Math.random() * a.length)];
 
   // ================= CHẤM WRITING TASK 2 & SPEAKING (ước tính, tham khảo) =================
@@ -74,7 +74,7 @@
       <div class="grid g2">
         <div class="card">
           <h2 style="margin-top:0">⚙️ ${t('Chọn đề')}</h2>
-          <div class="mk-skills">${SKILLS.map(([k, em, n, d]) => `<label class="mk-skill"><input type="checkbox" value="${k}" checked> <span class="em">${em}</span><div><b>${n}</b><div class="tiny muted">${d}</div></div></label>`).join('')}</div>
+          <div class="mk-skills">${SKILLS().map(([k, em, n, d]) => `<label class="mk-skill"><input type="checkbox" value="${k}" checked> <span class="em">${em}</span><div><b>${n}</b><div class="tiny muted">${d}</div></div></label>`).join('')}</div>
           <div class="grid g2" style="margin-top:.8rem">
             <label class="field"><span class="small">${t('Đề Listening')}</span><select class="input" id="mkL">${lt.map(n => `<option value="${n}">Test ${n}</option>`).join('')}</select></label>
             <label class="field"><span class="small">${t('Đề Reading')}</span><select class="input" id="mkR">${rt.length ? `<optgroup label="Academic">${rtA.map(n => `<option value="${n}">Test ${n}</option>`).join('')}</optgroup>${rtG.length ? `<optgroup label="General Training">${rtG.map(n => `<option value="${n}">General ${n - 100}</option>`).join('')}</optgroup>` : ''}` : `<option value="">${t('Đang cập nhật')}</option>`}</select></label>
@@ -86,7 +86,7 @@
         </div>
         <div class="card">
           <h2 style="margin-top:0">📈 ${t('Lịch sử thi thử')}</h2>
-          ${hist.length ? `<div class="mk-hist">${hist.slice(0, 8).map(h => `<div class="row between nowrap"><span class="small">${new Date(h.at).toLocaleDateString(I18N.lang())}</span><span class="row nowrap" style="gap:.3rem">${SKILLS.map(([k, em]) => h.bands[k] != null ? `<span class="chip" title="${k}">${em} ${h.bands[k]}</span>` : '').join('')}</span><b class="mk-ov">${h.overall != null ? h.overall : '—'}</b></div>`).join('')}</div>
+          ${hist.length ? `<div class="mk-hist">${hist.slice(0, 8).map(h => `<div class="row between nowrap"><span class="small">${new Date(h.at).toLocaleDateString(I18N.lang())}</span><span class="row nowrap" style="gap:.3rem">${SKILLS().map(([k, em]) => h.bands[k] != null ? `<span class="chip" title="${k}">${em} ${h.bands[k]}</span>` : '').join('')}</span><b class="mk-ov">${h.overall != null ? h.overall : '—'}</b></div>`).join('')}</div>
             ${hist.length >= 2 ? `<div class="small muted" style="margin-top:.6rem">${t('So với lần đầu:')} ${(() => { const d = (hist[0].overall || 0) - (hist[hist.length - 1].overall || 0); return d > 0 ? `<b style="color:var(--good)">+${d}</b>` : d < 0 ? `<b style="color:var(--again)">${d}</b>` : t('giữ nguyên'); })()}</div>` : ''}`
             : `<p class="muted small">${t('Chưa có bài thi nào. Làm bài đầu tiên để biết band hiện tại của bạn và theo dõi tiến bộ.')}</p>`}
           <h3>📋 ${t('Cấu trúc bài thi')}</h3><ul class="small" style="padding-left:1.1rem;line-height:1.8">
@@ -106,14 +106,14 @@
 
   // ================= CHẠY BÀI THI =================
   function run(query) {
-    const order = (query.get('s') || 'listening,reading,writing,speaking').split(',').filter(k => SKILLS.some(s => s[0] === k));
+    const order = (query.get('s') || 'listening,reading,writing,speaking').split(',').filter(k => SKILLS().some(s => s[0] === k));
     const M = { order, i: 0, bands: {}, detail: {}, lt: +query.get('l') || 1, rt: +query.get('r') || 1, timers: [], player: null, rec: null };
     const clearAll = () => { M.timers.forEach(clearInterval); M.timers = []; if (M.player) M.player.stop(); if (M.rec) M.rec.cancel(); UI.stopSpeak(); };
     document.body.classList.add('bare');
     window.onbeforeunload = () => t('Bạn đang làm bài thi – rời trang sẽ mất kết quả.');
     App.cleanup = () => { clearAll(); document.body.classList.remove('bare'); window.onbeforeunload = null; };
     const bar = (title, right = '') => `<div class="mk-bar"><div class="row nowrap"><img src="icons/icon.svg" alt="" style="width:26px;height:26px;border-radius:7px"><b>Lexkite · IELTS Mock</b><span class="chip">${esc(title)}</span></div><div class="row nowrap">${right}<button class="btn sm ghost" id="mkQuit">${t('Thoát')}</button></div></div>
-      <div class="mk-steps">${M.order.map((k, j) => { const s = SKILLS.find(x => x[0] === k); return `<span class="${j < M.i ? 'done' : j === M.i ? 'on' : ''}">${s[1]} ${s[2]}</span>`; }).join('')}</div>`;
+      <div class="mk-steps">${M.order.map((k, j) => { const s = SKILLS().find(x => x[0] === k); return `<span class="${j < M.i ? 'done' : j === M.i ? 'on' : ''}">${s[1]} ${s[2]}</span>`; }).join('')}</div>`;
     const bindQuit = () => { $('#mkQuit').onclick = () => { if (confirm(t('Thoát bài thi? Kết quả sẽ không được lưu.'))) { App.cleanup(); App.cleanup = null; location.hash = '#/mock'; } }; };
     const countdown = (secs, el, onEnd) => { let left = secs; const t = setInterval(() => { left--; const e = $(el); if (e) { e.textContent = clock(left); e.classList.toggle('warn', left <= 300); } if (left <= 0) { clearInterval(t); onEnd(); } }, 1000); M.timers.push(t); const e = $(el); if (e) e.textContent = clock(left); return () => left; };
     // Lưu tiến độ theo kỹ năng (bài thi ~3 giờ): tải lại trang / app bị tắt vẫn tiếp tục từ kỹ năng đang làm; bài viết lưu nháp liên tục
@@ -122,7 +122,7 @@
     const dropRun = () => { try { localStorage.removeItem(SK); localStorage.removeItem(SK + '.w'); } catch (e) { /* bỏ qua */ } };
     const next = () => { clearAll(); M.i++; window.scrollTo({ top: 0 }); if (M.i >= M.order.length) { dropRun(); finish(); } else { keep(); SECTION[M.order[M.i]](); } };
     const intro = (k, html, go) => {
-      const s = SKILLS.find(x => x[0] === k);
+      const s = SKILLS().find(x => x[0] === k);
       view.innerHTML = `${bar(s[2])}<div class="study-wrap"><div class="card celebrate empty"><div class="em">${s[1]}</div><h2>${s[2]}</h2>${html}<button class="btn primary lg" id="mkStart">${t('Bắt đầu {skill}', { skill: s[2] })}</button></div></div>`;
       bindQuit(); $('#mkStart').onclick = go;
     };
@@ -305,14 +305,14 @@
       hist.unshift({ at: Date.now(), bands: M.bands, overall, lt: M.lt, rt: M.rt });
       await Store.set('mocks', hist.slice(0, 30));
       const L = M.detail.listening, R = M.detail.reading, W = M.detail.writing, S = M.detail.speaking;
-      [L, R].forEach((x, j) => x && Object.entries(x.res).filter(([, r]) => !r.ok).forEach(([n, r]) => App.logMistake && App.logMistake({ kind: j ? 'reading' : 'listening', q: t('Thi thử – câu {n}: {q}', { n, q: r.q }), answer: r.answer, given: r.given || t('(bỏ trống)'), explain: r.cue ? t('Tham khảo: “…{cue}…”', { cue: r.cue }) : '', ref: j ? '' : r.ref })));
+      [L, R].forEach((x, j) => x && Object.entries(x.res).filter(([, r]) => !r.ok).forEach(([n, r]) => App.logMistake && App.logMistake({ kind: j ? 'reading' : 'listening', q: I18N.tk('Thi thử – câu {n}: {q}', { n, q: r.q }), answer: r.answer, given: r.given || I18N.tk('(bỏ trống)'), explain: r.cue ? I18N.tk('Tham khảo: “…{cue}…”', { cue: r.cue }) : '', ref: j ? '' : r.ref })));
       await App.reward({ quizzes: M.order.length, listens: L ? 4 : 0, readings: R ? 3 : 0, writes: W ? 2 : 0, xp: 40 + got.length * 30 });
       if (overall >= 6.5) { Sfx.win(); confetti(160); }
       const sheet = res => `<div class="lsheet">${Object.keys(res).map(Number).sort((a, b) => a - b).map(n => `<div class="${res[n].ok ? 'ok' : 'no'}"><b>${n}</b> ${res[n].ok ? '✓' : '✗'} <span>${esc(res[n].answer)}</span>${!res[n].ok && res[n].given ? `<span class="tiny muted">${t('(bạn: {a})', { a: esc(res[n].given) })}</span>` : ''}</div>`).join('')}</div>`;
       const crit = c => `<div class="mk-crit">${Object.entries(c || {}).map(([k, v]) => `<div><span class="tiny muted">${esc(k)}</span><b>${v}</b></div>`).join('')}</div>`;
       view.innerHTML = `<div class="study-wrap" style="max-width:900px">
         <div class="card celebrate"><div class="em">🏁</div><h2 style="margin-bottom:.2rem">${overall != null ? `Overall Band ${overall}` : t('Kết quả thi thử')}</h2><p class="muted small" style="margin-top:0">${t('Chấm tự động trên đề tự biên soạn – mang tính tham khảo, không thay thế giám khảo.')}</p>
-          <div class="mk-bands">${SKILLS.map(([k, em, n]) => `<div class="${M.order.includes(k) ? '' : 'off'}"><span>${em}</span><b>${M.bands[k] != null ? M.bands[k] : '—'}</b><small>${n}</small></div>`).join('')}</div></div>
+          <div class="mk-bands">${SKILLS().map(([k, em, n]) => `<div class="${M.order.includes(k) ? '' : 'off'}"><span>${em}</span><b>${M.bands[k] != null ? M.bands[k] : '—'}</b><small>${n}</small></div>`).join('')}</div></div>
         ${L ? `<div class="card"><div class="row between"><h3 style="margin:0">🎧 Listening · ${L.raw}/40 → Band ${M.bands.listening}</h3><a class="btn sm" href="#/listening">${t('Luyện lại có lời thoại')}</a></div><details style="margin-top:.5rem"><summary class="small">${t('Bảng đáp án')}</summary>${sheet(L.res)}</details></div>` : ''}
         ${R ? `<div class="card"><div class="row between"><h3 style="margin:0">📖 Reading · ${R.raw}/40 → Band ${M.bands.reading}</h3><a class="btn sm" href="#/mock">${t('Thi đề khác')}</a></div><details style="margin-top:.5rem"><summary class="small">${t('Bảng đáp án')}</summary>${sheet(R.res)}</details></div>` : ''}
         ${R ? (() => { const tsr = RT().find(x => x.test === M.rt), ex = ((window.READ_EXPLAIN || {})[tsr && tsr.id]) || {}, wrong = Object.keys(R.res).map(Number).sort((a, b) => a - b).filter(n => !R.res[n].ok); return wrong.length ? `<div class="card"><details><summary><b>🧑‍🏫 ${t('Chữa {n} câu Reading sai', { n: wrong.length })}</b></summary>${wrong.map(n => `<div class="q-item"><b>${n}. ${esc(R.res[n].q || '')}</b><div class="small">${t('Đáp án:')} <b style="color:var(--good)">${esc(R.res[n].answer)}</b>${R.res[n].given ? ` · ${t('Bạn chọn:')} <span style="color:var(--again)">${esc(R.res[n].given)}</span>` : ''}</div>${QE.explainHtml(ex[n])}</div>`).join('')}</details></div>` : ''; })() : ''}
@@ -335,7 +335,7 @@
     const SECTION = { listening, reading, writing, speaking };
     const saved = (() => { try { const x = JSON.parse(localStorage.getItem(SK) || 'null'); return x && x.i > 0 && x.i < order.length && Date.now() - x.at < 864e5 ? x : null; } catch (e) { return null; } })();
     if (!saved) { dropRun(); SECTION[M.order[0]](); return; }
-    const s0 = SKILLS.find(x => x[0] === order[saved.i]);
+    const s0 = SKILLS().find(x => x[0] === order[saved.i]);
     view.innerHTML = `${bar(s0[2])}<div class="study-wrap"><div class="card celebrate empty"><div class="em">⏯</div><h2>${t('Bạn có bài thi đang làm dở')}</h2><p class="muted">${t('Đã xong {n}/{m} kỹ năng. Tiếp tục từ {skill}?', { n: saved.i, m: order.length, skill: s0[2] })}</p>
       <button class="btn primary lg" id="mkCont">${t('Tiếp tục bài thi')} →</button> <button class="btn" id="mkNew">${t('Làm lại từ đầu')}</button></div></div>`;
     bindQuit();

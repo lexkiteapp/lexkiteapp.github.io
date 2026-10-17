@@ -6,6 +6,7 @@
     "web/js/lib/notes-more.js",
     "web/js/lib/notes-ngsl.js"
   ],
-  "totalJs": 16777216,
-  "contentWarn": 207
+  "totalJs": 17825792,
+  "contentWarn": 207,
+  "_totalJsNote": "17/10: 16→17 MB – thêm Chia động từ + Sửa ngữ pháp (~130 KB) và 13 ngôn ngữ cùng dài thêm; admin-*.js không tính. Nâng tiếp chỉ khi đã rà dữ liệu trùng/thừa."
 }

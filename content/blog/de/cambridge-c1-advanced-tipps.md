@@ -7,8 +7,8 @@ category: ielts
 tags: [cambridge, c1-advanced, cae, pruefung]
 keyword: "cambridge c1 advanced tipps"
 cover: mock
-coverAlt: "Prüfungssimulation für Cambridge C1 Advanced in Lexkite mit Zeiterfassung und Punktzahl"
-publishAt:
+coverAlt: "Lexkite IELTS-Probeprüfung in 4 Fertigkeiten: Listening, Reading, Writing, Speaking auswählen, Testverlauf"
+publishAt: 2026-11-01T19:31:00+01:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -42,7 +42,7 @@ Dieser Prüfungsteil macht 40 Prozent der Gesamtnote aus und entscheidet meist d
 - **Part 3 (Word Formation):** Wandeln Sie das Basiswort in die richtige Wortart um. Achten Sie auf negative Vorsilben (*un-*, *in-*, *dis-*) oder Pluralformen. Ein häufiger Fehler ist das Übersehen von Bedeutungswechseln (z. B. *doubt* -> *undoubtedly*).
 - **Part 4 (Key Word Transformation):** Sie müssen einen Satz so umformulieren, dass er dem ersten gleicht, und dabei ein Schlüsselwort unverändert nutzen. Sie dürfen 3 bis 6 Wörter verwenden (Kurzformen wie *didn't* zählen als zwei Wörter!). Trainieren Sie hierfür Passivkonstruktionen, Inversionen (*No sooner had I...*) und unpersönliche Strukturen.
 
-![Cambridge Leseverständnis und Textanalyse in Lexkite](media:reading "Akademische Lesetexte mit gezieltem Vokabel- und Strukturtraining")
+![Lexkite Lesetexte nach Niveau A2–C1, z. B. „The Rise of Urban Farming“; Wörter antippen zum Nachschlagen](media:reading "Lesetexte nach Niveau mit Wortsuche – cambridge c1 advanced tipps")
 
 ### 2. Reading Parts 5 bis 8: Zeit sparen mit Skimming und Scanning
 
@@ -58,7 +58,7 @@ Im Writing-Teil bewerten die Prüfer vier Kriterien: *Content* (Inhalt vollstän
 - **Essay (Aufgabe 1):** Wählen Sie zwei von drei vorgegebenen Punkten aus und begründen Sie klar, welcher Punkt wichtiger ist. Verwenden Sie formelle Verknüpfungen wie *It is widely acknowledged that...*, *On the contrary*, *Furthermore* oder *A compelling argument can be made that...*.
 - **Part 2 (Wahlaufgabe):** Entscheiden Sie sich für das Format, dessen Konventionen Sie am besten beherrschen. Ein *Report* erfordert Zwischenüberschriften und eine Handlungsempfehlung am Ende (*Recommendations*), während eine *Review* einen lebendigen, beschreibenden Stil verlangt.
 
-![Schreibmodul und Textanalyse in der Lexkite App](media:write "Strukturierte Textvorlagen und Formulierungshilfen für formelle Essays")
+![Lexkite Schreibraum für IELTS Writing Task 2: Themen, Ideen, Wortschatz, Gliederung und kommentierte Band‑8‑Musteraufsätze](media:write "IELTS Task 2: Themen, Gliederung und Musteraufsätze – cambridge c1 advanced tipps")
 
 ### 4. Listening: Ablenkungsmanöver sofort durchschauen
 

@@ -9,35 +9,52 @@
   // ================= SỔ LỖI SAI =================
   // App.logMistake({ kind: 'vocab'|'grammar'|'reading', q, answer, given, explain, ref })
   let mLock = Promise.resolve();
+  // q/given/explain có thể là I18N.tk('khóa', {biến}) → lưu KHÓA (qK…) và dịch lúc vẽ: đổi ngôn ngữ giao diện không còn lẫn chữ cũ.
+  // Vẫn lưu kèm bản đã dịch (q…) cho mã cũ đọc chuỗi.
+  const LZ = ['q', 'given', 'explain'];
+  const tr = (x, f) => (x[f + 'K'] ? t(x[f + 'K'].k, x[f + 'K'].v) : x[f]);
+  // Bản ghi cũ (lưu chữ đã dịch): nhận lại khóa từ mẫu tiếng Việt / tiếng Anh / ngôn ngữ hiện tại
+  const MK = ['{title} – câu {n}: {q}', '{title} – Câu {n}: {q}', 'Test {t} – Câu {n}: {q}', 'Thi thử – câu {n}: {q}', 'Từ tiếng Anh nghĩa là “{vi}”?', 'Điền từ: {sentence}', 'Nghĩa của “{word}”?', '(bỏ trống)', 'Nghe: “…{cue}…”', 'Tham khảo: “…{cue}…”'];
+  const unkey = s => {
+    const D = window.I18N_DICT || {};
+    for (const k of MK) for (const pat of new Set([k, D.en && D.en[k], D[I18N.lang()] && D[I18N.lang()][k]].filter(Boolean))) {
+      const names = []; const re = new RegExp('^' + pat.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\\\{(\w+)\\\}/g, (m, n) => { names.push(n); return '([\\s\\S]*?)'; }) + '$');
+      const m = re.exec(s); if (m) return { k, v: Object.fromEntries(names.map((n, i) => [n, m[i + 1]])) };
+    }
+    return null;
+  };
+  const migrate = list => { let ch = 0; for (const x of list) for (const f of LZ) if (typeof x[f] === 'string' && !x[f + 'K']) { const o = unkey(x[f]); if (o) { x[f + 'K'] = o; ch++; } } return ch; };
   App.logMistake = m => (mLock = mLock.then(async () => {
     const list = await Store.get('mistakes', []);
-    const key = m.kind + '|' + m.q;
+    m = { ...m }; for (const f of LZ) if (m[f] && typeof m[f] === 'object') { m[f + 'K'] = m[f]; m[f] = t(m[f].k, m[f].v); }
+    const key = m.kind + '|' + (m.qK ? m.qK.k + JSON.stringify(m.qK.v) : m.q);
     const old = list.find(x => x.key === key);
     if (old) { old.n = (old.n || 1) + 1; old.at = Date.now(); old.fixed = false; }
     else list.unshift({ ...m, key, n: 1, at: Date.now(), fixed: false });
     await Store.set('mistakes', list.slice(0, 300));
   }));
-  const KIND = { vocab: ['🔤', t('Từ vựng')], grammar: ['📐', t('Ngữ pháp')], reading: ['📖', t('Đọc hiểu')], listening: ['🎧', t('Nghe')] };
+  const KIND = () => ({ vocab: ['🔤', t('Từ vựng')], grammar: ['📐', t('Ngữ pháp')], reading: ['📖', t('Đọc hiểu')], listening: ['🎧', t('Nghe')] });
 
   routes.mistakes = async function (arg, query) {
     const retry = !!(query && query.get && query.get('retry'));
     const list = await Store.get('mistakes', []);
+    if (migrate(list)) await Store.set('mistakes', list);
     const open = list.filter(x => !x.fixed);
     view.innerHTML = `
       <div class="page-head"><div><h1>📕 ${t('Sổ lỗi sai')}</h1><p class="muted">${t('Mọi câu bạn làm sai đều được ghi lại tự động. Ôn lại lỗi sai là cách tăng điểm nhanh nhất – xem lại vì sao sai rồi đánh dấu “Đã hiểu”.')}</p></div>
         <div class="row">${open.length ? (retry ? `<a class="btn" href="#/mistakes">📋 ${t('Xem danh sách')}</a>` : `<a class="btn primary" href="#/mistakes?retry=1">🔁 ${t('Làm lại lỗi sai')}</a>`) : ''}${open.length ? `<a class="btn" href="#/practice/learn?src=forgetting">🧠 ${t('Ôn từ sắp quên')}</a>` : ''}<button class="btn sm" id="clearFixed">${t('Dọn lỗi đã sửa')}</button></div></div>
-      <div class="tabs" style="display:inline-flex;margin-bottom:1rem" id="mTabs"><button class="on" data-k="">${t('Tất cả ({n})', { n: open.length })}</button>${Object.entries(KIND).map(([k, [e, n]]) => `<button data-k="${k}">${e} ${n} (${open.filter(x => x.kind === k).length})</button>`).join('')}</div>
+      <div class="tabs" style="display:inline-flex;margin-bottom:1rem" id="mTabs"><button class="on" data-k="">${t('Tất cả ({n})', { n: open.length })}</button>${Object.entries(KIND()).map(([k, [e, n]]) => `<button data-k="${k}">${e} ${n} (${open.filter(x => x.kind === k).length})</button>`).join('')}</div>
       <div id="mList"></div>`;
     const draw = k => {
       const rows = open.filter(x => !k || x.kind === k);
       if (retry) rows.sort((a, b) => (b.n || 1) - (a.n || 1)); // làm lại: câu sai nhiều lần nhất lên trước
       $('#mList').innerHTML = rows.length ? rows.map((x, i) => `<div class="card" style="margin-bottom:.7rem">
-        <div class="row between"><span class="chip">${KIND[x.kind] ? KIND[x.kind][0] + ' ' + KIND[x.kind][1] : x.kind}</span><span class="tiny muted">${t('sai {n} lần', { n: x.n })} · ${new Date(x.at).toLocaleDateString(I18N.lang())}</span></div>
-        <div style="margin-top:.4rem;font-weight:600">${esc(x.q)}</div>
+        <div class="row between"><span class="chip">${KIND()[x.kind] ? KIND()[x.kind][0] + ' ' + KIND()[x.kind][1] : x.kind}</span><span class="tiny muted">${t('sai {n} lần', { n: x.n })} · ${new Date(x.at).toLocaleDateString(I18N.lang())}</span></div>
+        <div style="margin-top:.4rem;font-weight:600">${esc(tr(x, 'q'))}</div>
         ${retry ? `<div class="row" style="margin-top:.5rem;gap:.4rem" data-rt="${esc(x.key)}">${String(x.answer || '').split(/\s+/).length <= 4 ? `<input class="input" style="flex:1;min-width:0" placeholder="${t('Gõ đáp án của bạn')}" data-in><button class="btn sm primary" data-chk>${t('Kiểm tra')}</button>` : `<button class="btn sm primary" data-show>${t('Hiện đáp án')}</button>`}</div><div data-ans hidden>` : '<div>'}
-        ${x.given ? `<div class="small" style="margin-top:.3rem"><span style="color:var(--again)">✗ ${esc(x.given)}</span></div>` : ''}
+        ${x.given ? `<div class="small" style="margin-top:.3rem"><span style="color:var(--again)">✗ ${esc(tr(x, 'given'))}</span></div>` : ''}
         <div class="small"><span style="color:var(--good)">✓ ${esc(x.answer)}</span></div>
-        ${x.explain ? `<div class="small muted" style="margin-top:.3rem">💡 ${esc(x.explain)}</div>` : ''}
+        ${x.explain ? `<div class="small muted" style="margin-top:.3rem">💡 ${esc(tr(x, 'explain'))}</div>` : ''}
         ${retry ? `<div class="row" style="margin-top:.4rem" data-self><button class="btn sm" data-ok>✅ ${t('Mình làm đúng')}</button><button class="btn sm ghost" data-no>✗ ${t('Vẫn sai')}</button></div>` : ''}</div>
         <div class="row" style="margin-top:.6rem"><button class="btn sm" data-fix="${esc(x.key)}">✓ ${t('Đã hiểu')}</button>
           ${x.kind === 'grammar' && x.ref ? `<a class="btn sm ghost" href="#/grammar/${esc(x.ref)}">📐 ${t('Xem lại bài')}</a>` : ''}
@@ -172,7 +189,7 @@
   }
 
   // ================= TÀI NGUYÊN MIỄN PHÍ CHÍNH THỐNG =================
-  const RES = [
+  const RES = () => [
     ['📝', t('Đề mẫu chính thức IELTS'), 'ielts.org – Sample test questions', 'https://ielts.org/take-a-test/preparation-resources/sample-test-questions', t('Đề mẫu cả 4 kỹ năng từ đơn vị tổ chức thi – dùng để làm quen dạng bài thật.')],
     ['🖥️', t('Làm quen thi trên máy tính'), 'British Council – Computer-delivered IELTS', 'https://www.britishcouncil.vn/thi/ielts/chuan-bi', t('Bài làm quen giao diện thi trên máy (Familiarisation test) và tài liệu ôn miễn phí của Hội đồng Anh.')],
     ['🎓', 'IDP IELTS Prepare', 'ielts.idp.com/prepare', 'https://ielts.idp.com/prepare', t('Bài luyện, mẹo và video miễn phí từ IDP.')],
@@ -187,7 +204,7 @@
   routes.resources = function () {
     view.innerHTML = `
       <div class="page-head"><div><h1>🌐 ${t('Tài nguyên miễn phí chính thống')}</h1><p class="muted">${t('Đã chọn lọc từ các nguồn uy tín, hợp pháp. Mẹo: mở trang và dùng add-on Lexkite để <b>bấm đúp tra từ, bôi đen dịch câu</b> – mọi từ mới tự vào thư viện “Từ trang web”.')}</p></div></div>
-      <div class="grid auto">${RES.map(([em, ti, sub, url, d]) => `<a class="card hover topic-card" href="${url}" target="_blank" rel="noopener" style="color:var(--text)">
+      <div class="grid auto">${RES().map(([em, ti, sub, url, d]) => `<a class="card hover topic-card" href="${url}" target="_blank" rel="noopener" style="color:var(--text)">
         <span class="em">${em}</span><h3>${esc(ti)}</h3><div class="tiny muted" style="font-weight:700">${esc(sub)} ↗</div><div class="muted small">${esc(d)}</div></a>`).join('')}</div>
       <div class="card" style="margin-top:1rem"><h3>📅 ${t('Thói quen “tắm ngôn ngữ” 20 phút/ngày')}</h3>
         <ol style="padding-left:1.2rem;line-height:1.9"><li>${t('Nghe 1 bài BBC 6 Minute English hoặc 1 video TED có phụ đề – tra từ trong phụ đề bằng add-on.')}</li>

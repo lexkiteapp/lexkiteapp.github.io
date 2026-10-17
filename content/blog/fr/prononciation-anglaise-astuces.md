@@ -7,8 +7,8 @@ category: phat-am
 tags: [prononciation, accent, oral, phonetique]
 keyword: "prononciation anglaise astuces"
 cover: pron
-coverAlt: "Entraîneur de prononciation anglaise dans Lexkite avec retour audio et analyse phonétique"
-publishAt:
+coverAlt: "Tableau de prononciation API Lexkite : voyelles, diphtongues et consonnes avec mots exemples et entraînement par son"
+publishAt: 2026-10-30T21:19:00+01:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -42,7 +42,7 @@ Deux erreurs symétriques guettent les francophones :
 
 **La règle d'or :** Mettez votre paume à 5 cm de votre bouche. En disant *hope*, *home* ou *have*, vous devez sentir un souffle d'air tiède sur votre peau. Seules de très rares exceptions possèdent un 'h' muet (*hour*, *honest*, *honor*, *heir*).
 
-![Entraînement de la prononciation avec reconnaissance vocale dans Lexkite](media:practice-speak "Entraînement oral avec analyse en temps réel de votre voix et de vos phonèmes")
+![Exercice de prononciation notée Lexkite : répéter « cut down on » au micro](media:practice-speak "Répéter au micro et obtenir une note – prononciation anglaise astuces")
 
 ### 2. Démystifier le son « TH » (/θ/ et /ð/)
 
@@ -81,7 +81,7 @@ Parler anglais comme un livre écrit en détachant chaque mot donne une voix mon
 
 De plus, les petits mots grammaticaux (*and, of, to, for*) perdent leur voyelle pleine : *cup of tea* devient /kʌp ə tiː/. Entraînez-vous à écouter ces phénomènes dans les enregistrements de notre dossier [Conseils IELTS Listening](/fr/blog/conseils-ielts-listening/). Évitez aussi les confusions lexicales en consultant notre guide sur les [Faux amis anglais français](/fr/blog/faux-amis-anglais-francais/).
 
-![Espace de conversation et de pratique orale de l'anglais](media:speaking "Simulations de dialogues oraux pour travailler le rythme et l'intonation naturelle")
+![Salle d’oral Lexkite : IELTS Part 1/2/3 par thème, questions types, réponses modèles band 7,5–8 et vocabulaire utile](media:speaking "Questions d’oral et réponses modèles – prononciation anglaise astuces")
 
 ## Tableau récapitulatif des paires minimales à pratiquer
 

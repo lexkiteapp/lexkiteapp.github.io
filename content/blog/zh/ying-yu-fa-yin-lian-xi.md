@@ -8,8 +8,8 @@ category: phuong-phap
 tags: [fa-yin, pronunciation, kou-yu, ielts]
 keyword: "英语发音练习"
 cover: pron
-coverAlt: "Lexkite发音练习界面：IPA国际音标嘴型示意图与音频波形对比"
-publishAt: 
+coverAlt: "Lexkite 国际音标发音表：单元音、双元音和辅音，附例词和逐音练习"
+publishAt: 2026-10-28T12:45:00+08:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -31,7 +31,7 @@ qualityScore: 94
 
 在词汇学习时把声音和拼写牢牢绑定，是掌握发音的前提，具体记忆法可参阅[背单词的方法](/zh/blog/bei-dan-ci-de-fang-fa/)。在[音标发音练习模块](/#/pron)中，你可以对照标准母语者音频逐个校准嘴型和气流走向。
 
-![国际音标发音与嘴型示范界面](media:practice-speak "展示IPA音标舌位分布、声带振动与发音嘴型示范的互动练习界面")
+![Lexkite 发音练习：对着麦克风读 “cut down on” 并获得评分](media:practice-speak "对着麦克风跟读并评分 – 英语发音练习")
 
 ## 中国人最易踩坑的4大发音误区及破解绝招
 
@@ -73,7 +73,7 @@ qualityScore: 94
 
 在学术写作中，语法的规范性同样重要，像现在完成时的时间线索就要求对动词词尾准确把握，具体解析可查阅[现在完成时和一般过去时的区别](/zh/blog/xian-zai-wan-cheng-shi-he-yi-ban-guo-qu-shi/)。
 
-![英语口语流利度与场景跟读评测界面](media:speaking "对用户的发音流利度、停顿节奏与母语相似度进行实时评分的口语测试界面")
+![Lexkite 口语练习室：按主题的雅思 Part 1/2/3 题目、7.5–8 分范例回答与推荐词汇](media:speaking "口语题目与范例回答 – 英语发音练习")
 
 ## 影子跟读法（Shadowing）实操4步曲
 

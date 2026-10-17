@@ -8,8 +8,8 @@ category: toeic
 tags: [toeic, lc, part-3, part-4, listening]
 keyword: "토익 lc 공부법"
 cover: listening
-coverAlt: "Lexkite 토익 LC 리스닝 연습 화면: 파트별 음원 재생과 스크립트 대조 기능"
-publishAt: 
+coverAlt: "Lexkite IELTS 듣기: 4파트 모의고사 10회, 영국·미국·호주 발음, 속도 조절, 받아쓰기"
+publishAt: 2026-11-01T19:31:00+09:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -35,7 +35,7 @@ qualityScore: 94
 
 기초 단어 청취에 어려움을 겪고 있다면 [토익 빈출 단어장](/tu-vung/)을 활용하여 LC 빈출 상황별 어휘를 먼저 귀로 익혀두는 것이 필수적입니다. [토익 파트별 실전 LC 모드](/#/toeic)를 통해 실제 시험 음원 속도에 맞추어 스키밍 타이밍을 체득해 보세요.
 
-![토익 LC 실전 문제 풀이 화면](media:toeic "실제 시험과 동일한 타이머와 함께 파트3, 4 스키밍 리듬을 훈련하는 토익 실전 연습 모드")
+![Lexkite 토익 LC+RC: 자동 채점(10–990) 모의고사 7회, 파트별 연습, 토익 어휘](media:toeic "토익 모의고사와 파트별 연습 – 토익 lc 공부법")
 
 ## 호주·영국 발음과 연음 현상을 극복하는 귀 뚫기 비법
 
@@ -68,7 +68,7 @@ qualityScore: 94
 
 RC 파트5와 파트7에서 시간 단축을 돕는 전략은 각각 [토익 파트5 문법](/ko/blog/toeic-part5-munbeop/)과 [토익 파트7 독해](/ko/blog/toeic-part7-dokhae-bibeop/) 가이드를 통해 함께 학습하면 RC와 LC의 시너지 효과를 극대화할 수 있습니다. 체계적인 점수대별 독학 로드맵은 [토익 공부법](/ko/blog/toeic-gongbubeop/)에 상세히 정리되어 있습니다.
 
-![원어민 음성 섀도잉 및 발음 트레이닝 화면](media:practice-speak "원어민 발음 음원을 들으며 억양과 연음을 실시간으로 따라 말하고 교정하는 스피킹 트레이닝 모드 화면")
+![Lexkite 발음 연습: 마이크로 'cut down on'을 말하면 점수를 매겨 줌](media:practice-speak "마이크로 따라 말하고 점수 확인 – 토익 lc 공부법")
 
 ## 파트3·4 단골 출제 상황과 패러프레이징 패턴
 

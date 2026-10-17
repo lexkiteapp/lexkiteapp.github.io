@@ -8,8 +8,8 @@ category: ky-nang
 tags: [shang-wu-ying-yu, business-english, email, you-jian]
 keyword: "商务英语邮件写作"
 cover: write
-coverAlt: "Lexkite商务英文邮件写作编辑器：格式检查与语气优化提示界面"
-publishAt: 
+coverAlt: "Lexkite 雅思写作 Task 2 练习室：按主题选题、思路与词汇提示、文章框架、带注释的 8 分范文"
+publishAt: 2026-11-05T07:29:00+08:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -38,7 +38,7 @@ qualityScore: 94
 
 在日常练习中，可以在[英文书信与邮件写作练习室](/#/write)中直接套用真实商业模板进行句子重组与编辑打磨。
 
-![标准英文商务信函与电子邮件格式练习界面](media:letters "提供求职信、商务备忘录与日常邮件标准格式排版的写作实战界面")
+![Lexkite 雅思培训类 Task 1 书信：正式、半正式、非正式及 8 分范文](media:letters "按语气分类的范文书信 – 商务英语邮件写作")
 
 ## 5大高频外企场景必背地道句型库
 
@@ -74,7 +74,7 @@ qualityScore: 94
 
 日常积累商业词汇搭配有助于摆脱用词贫乏，可查阅[商业与职场核心词汇库](/tu-vung/)。词汇记忆技巧可参考[背单词的方法](/zh/blog/bei-dan-ci-de-fang-fa/)。
 
-![商务核心词汇与职场搭配分类学习界面](media:library "按照职场沟通、市场营销与商务谈判分类整理的高频词汇学习界面")
+![Lexkite 6800+ 词汇库：NGSL 核心词、按主题的雅思词汇、写作、口语与托业，A1–B2 分级](media:library "按级别和考试分类的词汇集 – 商务英语邮件写作")
 
 ## 中国职场人最常犯的3类中式英语扣分点
 

@@ -7,8 +7,8 @@ category: toeic
 tags: [toeic, score, examen, etudiant]
 keyword: "astuces toeic listening reading"
 cover: toeic
-coverAlt: "Simulation d'examen TOEIC Listening and Reading dans l'application Lexkite avec chronomètre"
-publishAt:
+coverAlt: "TOEIC Listening & Reading sur Lexkite : 7 tests blancs corrigés automatiquement (10–990), entraînement par Part, vocabulaire TOEIC"
+publishAt: 2026-11-01T19:31:00+01:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -52,7 +52,7 @@ C'est la règle d'or absolue : **ayez toujours un temps d'avance**.
 - Pendant que le dialogue est diffusé, écoutez activement et cochez mentalement les réponses.
 - Dès que le dialogue se termine et que la voix récite la première question, noircissez rapidement vos cercles sur la grille et passez immédiatement à la lecture du bloc suivant de trois questions. Si vous ne connaissez pas une réponse, choisissez au hasard et ne restez jamais bloqué.
 
-![Tests d'entraînement TOEIC et questions types dans Lexkite](media:practice-test "Entraînement chronométré aux questions de grammaire et de compréhension écrite")
+![Exercice QCM Lexkite : choisir le bon sens de « run out of » parmi quatre réponses](media:practice-test "Mini-quiz sur le sens d’une expression – astuces toeic listening reading")
 
 ### Section Reading : Le combat contre la montre
 
@@ -75,7 +75,7 @@ Les textes croisés (courriels, factures, tableaux d'horaires, avis clients) dem
 - Les questions avec *NOT* ou *EXCEPT* sont chronophages : gardez-les pour la fin du texte.
 - Repérez les mots de liaison et les dates qui permettent de relier l'offre d'emploi d'un premier document au CV du second document.
 
-![Module de compréhension écrite pour textes professionnels](media:reading "Textes professionnels, mémos et courriels d'entreprise au format d'examen")
+![Textes de lecture Lexkite classés A2–C1, par ex. « The Rise of Urban Farming » ; touchez un mot pour le chercher](media:reading "Lectures par niveau, mots à toucher – astuces toeic listening reading")
 
 ## Tableau de gestion du temps pour l'épreuve de Reading
 

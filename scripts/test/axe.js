@@ -13,7 +13,7 @@ for (const f of scripts) { try { w.eval(fs.readFileSync(path.join(WEB, f), 'utf8
 require('./lazyfix.js')(w, fs, path, WEB, errors);
 w.eval(fs.readFileSync(require.resolve('axe-core'), 'utf8'));
 const tick = (ms = 40) => new Promise(r => setTimeout(r, ms));
-const ROUTES = ['#/welcome', '#/home', '#/vocab', '#/review', '#/skills', '#/skill/reading', '#/read/sleep-memory', '#/grammar', '#/models', '#/tests', '#/toeic', '#/me', '#/stats', '#/settings', '#/courses', '#/paraphrase', '#/reflex', '#/contact', '#/phrases', '#/practice/mcq?src=topic:environment'];
+const ROUTES = ['#/welcome', '#/home', '#/vocab', '#/review', '#/skills', '#/skill/reading', '#/read/sleep-memory', '#/grammar', '#/models', '#/tests', '#/toeic', '#/me', '#/stats', '#/settings', '#/courses', '#/paraphrase', '#/reflex', '#/contact', '#/phrases', '#/practice/mcq?src=topic:environment', '#/verb', '#/verb/take', '#/verb/can', '#/fix'];
 const OFF = { 'color-contrast': { enabled: false }, 'region': { enabled: false }, 'landmark-one-main': { enabled: false }, 'page-has-heading-one': { enabled: false } };
 (async () => {
   await tick(300);

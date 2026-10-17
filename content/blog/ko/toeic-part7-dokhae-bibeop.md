@@ -8,8 +8,8 @@ category: toeic
 tags: [toeic, part-7, dokhae, jikan-haibun]
 keyword: "토익 파트7 독해"
 cover: reading
-coverAlt: "Lexkite 토익 RC 파트7 장문 독해 연습 화면: 지문 하이라이트와 문항 연계 표시"
-publishAt: 
+coverAlt: "Lexkite 수준별(A2–C1) 독해 지문 목록, 예: 'The Rise of Urban Farming'; 단어를 누르면 뜻 확인"
+publishAt: 2026-10-30T21:19:00+09:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -31,7 +31,7 @@ qualityScore: 94
 
 파트5의 품사 자리와 기본 문법을 문제당 20초 안에 주파하여 파트7의 시간을 벌어주는 공식은 [토익 파트5 문법](/ko/blog/toeic-part5-munbeop/)에서 확인할 수 있으며, 전반적인 750점 이상 목표의 주간 시간표는 [토익 공부법](/ko/blog/toeic-gongbubeop/)에 체계적으로 수록되어 있습니다. [토익 실전 문제 풀이 모드](/#/toeic)를 활용하면 지문별 스톱워치를 켜고 실전 압박 속에서 시간 배분 훈련을 할 수 있습니다.
 
-![실전 토익 파트7 독해 연습 화면](media:toeic "이중 지문과 삼중 지문을 시간제한 내에 읽고 정답 단서를 찾는 토익 실전 연습 모드 화면")
+![Lexkite 토익 LC+RC: 자동 채점(10–990) 모의고사 7회, 파트별 연습, 토익 어휘](media:toeic "토익 모의고사와 파트별 연습 – 토익 파트7 독해")
 
 ## 질문 먼저 읽고 단서 키워드 스캔하는 3단계 독해법
 
@@ -75,7 +75,7 @@ qualityScore: 94
 
 단어를 외울 때 1대1 뜻만 외우지 말고 반드시 동의어 그룹으로 묶어서 암기해야 하는 이유가 여기에 있습니다. 과학적인 어휘 확장법은 [영어 단어 암기법](/ko/blog/yeongdaneo-amgibeop/) 칼럼에 자세히 소개되어 있습니다. [토익 빈출 어휘집](/tu-vung/)에서 파트7 전용 패러프레이징 단어 목록을 매일 10분씩 눈에 익혀두세요.
 
-![장문 독해 및 어휘 문맥 분석 화면](media:read-article "실제 비즈니스 문서와 이메일 아티클을 읽으며 문맥 속 어휘의 동의어를 찾아내는 독해 훈련 화면")
+![Lexkite 지문 'The Growing Problem of Space Debris': 핵심어 강조와 True/False/Not Given 문제](media:read-article "핵심어 강조 지문과 문제 – 토익 파트7 독해")
 
 ## 이중·삼중 연계 지문 킬러 문항 정복 전략
 

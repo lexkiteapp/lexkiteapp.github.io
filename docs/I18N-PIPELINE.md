@@ -20,6 +20,7 @@ Một khóa chỉ có **một** bản tiếng Anh: không khai báo trùng khóa
 5. Tên riêng & thuật ngữ thi giữ nguyên: Lexkite, IELTS, TOEIC, TOEFL, Band, Part 1, Task 2, Writing Task 2…
 6. Nội dung học (nghĩa từ, giải thích) theo `I18N.learnLang()`; tên bài/chủ đề chưa dịch thì hiện tiếng Anh, **không bao giờ hiện tiếng Việt** ở giao diện ngôn ngữ khác (xem `grammar.js` hàm `TT`).
 7. Không đưa mã nội bộ ra giao diện (p14, gt3, t1-energy…).
+8. **Không gọi `t()` lúc nạp module** (mảng/đối tượng hằng ở đầu file/IIFE): từ điển `<lang>.js` nạp bất đồng bộ, chữ sẽ bị đóng băng tiếng Việt. Dùng hàm/getter: `const L = () => [t('…')]`, `{ get name() { return t('…'); } }`. Dữ liệu lưu (Store/đồng bộ) giữ **khóa** (`I18N.tk('khóa', {biến})`, dịch lúc vẽ), không lưu chữ đã dịch.
 
 ## 3. Kiểm tra tự động (chạy trong ship + Action)
 `node scripts/i18n-qa.mjs` kiểm tra từng ngôn ngữ:
@@ -28,6 +29,8 @@ Một khóa chỉ có **một** bản tiếng Anh: không khai báo trùng khóa
 - không còn chữ tiếng Việt có dấu (lẫn tiếng)
 - không mắc lỗi dịch máy đã biết (danh sách `BAD` trong script – thêm mẫu mới khi phát hiện)
 - `--short`: liệt kê nhãn ngắn chưa có bản dịch tay (mục tiêu: 0; đã đạt 0 ngày 15/10/2026 – tên riêng & thuật ngữ thi như "Writing Task 2" được giữ nguyên)
+
+`node scripts/test/i18n-switch.mjs --scan` (t() lúc nạp module, báo file:dòng) và `i18n-switch.mjs` (dùng app bằng tiếng Việt → đổi sang es/ja/ar, từ điển về muộn → quét chữ tiếng Việt) chạy trong `npm test`.
 
 Khóa thiếu → giao diện tự hiện tiếng Anh (en.js nạp trước), không bao giờ hiện tiếng Việt.
 

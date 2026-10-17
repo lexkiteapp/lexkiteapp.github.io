@@ -8,8 +8,8 @@ category: ky-nang
 tags: [business-english, email, professionnel, travail]
 keyword: "rédiger un mail professionnel en anglais"
 cover: write
-coverAlt: "Module de rédaction d'emails professionnels en anglais dans l'application Lexkite"
-publishAt:
+coverAlt: "Atelier d’écriture Lexkite pour l’IELTS Writing Task 2 : sujets, idées, vocabulaire, plan et copies modèles band 8 annotées"
+publishAt: 2026-11-03T12:49:00+01:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -57,7 +57,7 @@ Adaptez le niveau de formalité à la relation avec votre correspondant :
   *Hi Thomas,* / *Good morning team,*
 - **À éviter absolument :** *Dear Sir/Madam* est devenu désuet et impersonnel. Prenez toujours le temps de trouver le nom de votre interlocuteur.
 
-![Bibliothèque de formules professionnelles dans Lexkite](media:library "Expressions et collocations professionnelles pour vos échanges de courriels")
+![Bibliothèque de vocabulaire Lexkite de plus de 6 800 mots : vocabulaire de base NGSL, IELTS par thème, Writing, Speaking et TOEIC, niveaux A1–B2](media:library "Listes de vocabulaire par niveau et par examen – rédiger un mail professionnel en anglais")
 
 ### 3. La phrase d'ouverture (Opening Line)
 
@@ -92,7 +92,7 @@ Précisez ce que vous attendez de votre correspondant et la date limite éventue
 - *Sincerely,* (très formel, adapté à un courrier officiel)
 - *Best,* (très utilisé entre collègues réguliers)
 
-![Exercices de rédaction et tests interactifs dans Lexkite](media:practice-test "Mises en situation professionnelles pour choisir les tournures polies")
+![Exercice QCM Lexkite : choisir le bon sens de « run out of » parmi quatre réponses](media:practice-test "Mini-quiz sur le sens d’une expression – rédiger un mail professionnel en anglais")
 
 ## 4 Modèles prêts à l'emploi
 

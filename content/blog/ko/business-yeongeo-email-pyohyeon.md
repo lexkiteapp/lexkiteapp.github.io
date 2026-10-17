@@ -8,8 +8,8 @@ category: ky-nang
 tags: [email, business-english, hoesa, jikjang]
 keyword: "비즈니스 영어 이메일"
 cover: write
-coverAlt: "Lexkite 비즈니스 영작문 에디터 화면: 서식 템플릿과 문법 교정 피드백"
-publishAt: 
+coverAlt: "Lexkite IELTS Writing Task 2 작문실: 주제 선택, 아이디어·어휘 제안, 글 구조, 주석이 달린 band 8 모범 답안"
+publishAt: 2026-11-03T12:49:00+09:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready
@@ -39,7 +39,7 @@ qualityScore: 94
 
 영작문 연습과 비즈니스 서식 작성 실습은 [영문 이메일 및 작문 연습실](/#/write)에서 템플릿과 함께 문장 구조를 직접 작성해 보실 수 있습니다.
 
-![비즈니스 영문 레터 및 이메일 서식 작성 화면](media:letters "다양한 업무 상황에 맞춘 공식 비즈니스 서신 템플릿을 확인하고 연습할 수 있는 작문 화면")
+![Lexkite IELTS General Task 1 편지: 격식·준격식·비격식 유형과 band 8 모범 편지](media:letters "유형별 모범 편지 – 비즈니스 영어 이메일")
 
 ## 상황별 필수 비즈니스 영어 이메일 핵심 표현 50선
 
@@ -81,7 +81,7 @@ qualityScore: 94
 
 비즈니스에서 자주 쓰이는 전문 용어와 약어를 정확히 이해하려면 [비즈니스 어휘 도서관](/tu-vung/)을 활용하여 전치사 연어를 함께 외워두어야 실수를 방지할 수 있습니다. 체계적인 어휘 암기 원리는 [영어 단어 암기법](/ko/blog/yeongdaneo-amgibeop/)을 참고하세요.
 
-![업무용 단어 라이브러리와 비즈니스 연어 화면](media:library "직장인을 위한 비즈니스 연어 표현과 이메일 필수 어휘를 CEFR 레벨별로 정리한 라이브러리 화면")
+![Lexkite 6,800단어 이상 어휘 라이브러리: 핵심 어휘(NGSL), 주제별 IELTS, Writing·Speaking·TOEIC, A1–B2 수준](media:library "수준·시험별 단어 세트 – 비즈니스 영어 이메일")
 
 ## 한국인 직장인이 가장 많이 실수하는 치명적 콩글리시 3가지
 

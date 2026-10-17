@@ -91,7 +91,7 @@
     $$('[data-sv]').forEach(b => b.onclick = async () => {
       const c = chunks[+b.dataset.sv]; if (App.inDeck(c.en)) return;
       const sent = (plain(m.text).match(/[^.!?]+[.!?]+/g) || []).find(s => s.includes(c.en)) || '';
-      await App.addWord({ word: c.en, vi: c.vi, pos: 'phrase', ex: sent.trim(), emoji: '🧩', topic: 'phrases' }, sent ? { text: sent.trim(), title: t('Bài mẫu Task {n}', { n: m.task }) } : null, { silent: true });
+      await App.addWord({ word: c.en, vi: c.vi, pos: 'phrase', ex: sent.trim(), emoji: '🧩', topic: 'phrases' }, sent ? { text: sent.trim(), title: 'Bài mẫu Task ' + m.task } : null, { silent: true });
       b.textContent = '✓'; Sfx.correct();
     });
     Core.Store.get('mdone:' + m.id, []).then(markDone);
@@ -108,14 +108,14 @@
       if ($('#annot').classList.contains('hl-mode') || String(getSelection()).trim()) return; // đang tô sáng / bôi đen → để thanh công cụ xử lý
       const ch = e.target.closest('.an-ch, .an-lk'); if (!ch) return;
       const phrase = ch.dataset.ph || ch.textContent.trim();
-      phrasePop(ch, { phrase, vi: I18N.learnLang() === 'vi' ? ch.dataset.vi || '' : '', sentence: sentenceOf(ch), title: t('Bài mẫu Task {n}', { n: m.task }) });
+      phrasePop(ch, { phrase, vi: I18N.learnLang() === 'vi' ? ch.dataset.vi || '' : '', sentence: sentenceOf(ch), title: 'Bài mẫu Task ' + m.task });
     });
     $('#saveAll').onclick = async () => {
       const ps = [...m.text.matchAll(/\[\[([^|\]]+)\|([^\]]+)\]\]/g)];
       let n = 0;
       for (const [, en, vi] of ps) if (!App.inDeck(en)) {
         const sent = (plain(m.text).match(/[^.!?]+[.!?]+/g) || []).find(s => s.includes(en)) || '';
-        await App.addWord({ word: en, vi, pos: 'phrase', ex: sent.trim(), emoji: '🧩', topic: 'phrases' }, sent ? { text: sent.trim(), title: t('Bài mẫu Task {n}', { n: m.task }) } : null, { silent: true }); n++;
+        await App.addWord({ word: en, vi, pos: 'phrase', ex: sent.trim(), emoji: '🧩', topic: 'phrases' }, sent ? { text: sent.trim(), title: 'Bài mẫu Task ' + m.task } : null, { silent: true }); n++;
       }
       Sfx.win(); toast(t('Đã lưu {n} cụm từ vào Sổ cụm từ', { n })); $('#saveAll').disabled = true;
     };
@@ -567,7 +567,7 @@
         const e = seen.get(k) || { en, vi: x[2].trim(), n: 0, sent, task: m.task }; e.n++; seen.set(k, e);
       }
       const top = [...seen.values()].filter(e => !App.inDeck(e.en)).sort((a, b) => b.n - a.n).slice(0, 20);
-      for (const e of top) await App.addWord({ word: e.en, vi: e.vi, pos: 'phrase', ex: e.sent.trim(), emoji: '🧩', topic: 'phrases' }, e.sent ? { text: e.sent.trim(), title: t('Bài mẫu Task {n}', { n: e.task }) } : null, { silent: true });
+      for (const e of top) await App.addWord({ word: e.en, vi: e.vi, pos: 'phrase', ex: e.sent.trim(), emoji: '🧩', topic: 'phrases' }, e.sent ? { text: e.sent.trim(), title: 'Bài mẫu Task ' + e.task } : null, { silent: true });
       toast('🧩 ' + t('Đã thêm {n} cụm vào sổ', { n: top.length }));
       routes.phrases();
     };
