@@ -4,7 +4,7 @@ name: Dựng video mẫu (kiểm end-to-end)
 on:
   workflow_dispatch:
     inputs:
-      script: { description: 'Kịch bản mẫu', required: false, default: 'content/video/samples/sample.json' }
+      script: { description: 'Kịch bản mẫu', required: false, default: 'content/video/samples/spot-the-mistake--how-much-cost.json' }
 permissions:
   contents: read
 jobs:
