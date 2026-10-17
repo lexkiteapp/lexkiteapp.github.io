@@ -40,7 +40,7 @@
       ],
       "auto": true,
       "qa": null,
-      "ready": true
+      "ready": false
     },
     {
       "id": "office-01-night",
@@ -116,7 +116,7 @@
       ],
       "auto": true,
       "qa": null,
-      "ready": true
+      "ready": false
     },
     {
       "id": "school-01-day",
@@ -324,7 +324,7 @@
       ],
       "auto": true,
       "qa": null,
-      "ready": true
+      "ready": false
     },
     {
       "id": "apartment-02-day",
@@ -365,7 +365,7 @@
       ],
       "auto": true,
       "qa": null,
-      "ready": true
+      "ready": false
     },
     {
       "id": "cafe-02-day",
@@ -406,7 +406,7 @@
       ],
       "auto": true,
       "qa": null,
-      "ready": true
+      "ready": false
     },
     {
       "id": "office-02-day",
@@ -447,7 +447,7 @@
       ],
       "auto": true,
       "qa": null,
-      "ready": true
+      "ready": false
     },
     {
       "id": "office-03-day",
@@ -488,7 +488,7 @@
       ],
       "auto": true,
       "qa": null,
-      "ready": true
+      "ready": false
     }
   ],
   "clips": [
@@ -587,7 +587,17 @@
       ],
       "mouth": true,
       "facing": "left",
-      "ready": false
+      "ready": true,
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        541,
+        1518
+      ],
+      "figH": 1518,
+      "w": 992,
+      "h": 1518
     },
     {
       "id": "leo_think_idea",
@@ -615,7 +625,17 @@
       ],
       "mouth": true,
       "facing": "front",
-      "ready": false
+      "ready": true,
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        390,
+        1524
+      ],
+      "figH": 1524,
+      "w": 762,
+      "h": 1524
     },
     {
       "id": "leo_wave_thumbs",
@@ -702,7 +722,17 @@
       ],
       "mouth": true,
       "facing": "front",
-      "ready": false
+      "ready": true,
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        314,
+        1502
+      ],
+      "figH": 1502,
+      "w": 642,
+      "h": 1502
     },
     {
       "id": "ama_idle",
@@ -717,6 +747,54 @@
       "mouth": false,
       "facing": "front",
       "ready": false
+    },
+    {
+      "id": "diane_idle_listen",
+      "who": "diane",
+      "tags": [
+        "idle",
+        "listen"
+      ],
+      "outfit": "office",
+      "mouth": false,
+      "facing": "front",
+      "file": "clips/diane_idle_listen.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "listener"
+      ],
+      "foot": [
+        434,
+        1553
+      ],
+      "figH": 1553,
+      "w": 848,
+      "h": 1554,
+      "ready": true
+    },
+    {
+      "id": "diane_nod_handsonhips",
+      "who": "diane",
+      "tags": [
+        "nod",
+        "handsonhips"
+      ],
+      "outfit": "office",
+      "mouth": false,
+      "facing": "front",
+      "file": "clips/diane_nod_handsonhips.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "listener"
+      ],
+      "foot": [
+        421,
+        1561
+      ],
+      "figH": 1561,
+      "w": 848,
+      "h": 1562,
+      "ready": true
     }
   ],
   "stills": [

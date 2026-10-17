@@ -1755,6 +1755,29 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_ama_shock_headgrab_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/ama_shock_headgrab.mp4",
+     "alpha": "stacked",
+     "sha256": "4046ea351c73feac4e5a7986a71f76762124c3e3852c15766c9452879c3f0339",
+     "bytes": 2195286,
+     "w": 732,
+     "h": 1488,
+     "foot": [
+      259,
+      1488
+     ],
+     "figH": 1488,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [17, 18, 96, 97]",
+      "WARN identity: nghi trôi nhận dạng (tóc ×0.858, áo lệch 243.3) – AI thị giác quyết định FAIL \"identity drift\"",
+      "WARN anat_pose_detect: [đầu] MediaPipe không chạy được (unavailable: libEGL.so.1: cannot open shared object file: No such file or direct) – cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -1832,6 +1855,28 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_ama_shrug_eyeroll_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/ama_shrug_eyeroll.mp4",
+     "alpha": "stacked",
+     "sha256": "b3bff782c0b40de33f0c9ccce1fa5d401e8c5702fb9c9bc29dce36c4aef76059",
+     "bytes": 1369240,
+     "w": 550,
+     "h": 1490,
+     "foot": [
+      215,
+      1490
+     ],
+     "figH": 1490,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [48]",
+      "WARN anat_pose_detect: [đầu] MediaPipe không chạy được (unavailable: libEGL.so.1: cannot open shared object file: No such file or direct) – cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -1975,6 +2020,27 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_ama_wave_thumbs_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/ama_wave_thumbs.mp4",
+     "alpha": "stacked",
+     "sha256": "df55ba480fa8ba3dfa6bfc2720f13548e49649a4e604105c9e97d2203ef082d2",
+     "bytes": 2717000,
+     "w": 642,
+     "h": 1502,
+     "foot": [
+      314,
+      1502
+     ],
+     "figH": 1502,
+     "frames": 121,
+     "status": "WARN",
+     "issues": [
+      "WARN anat_pose_detect: [đầu] MediaPipe không chạy được (unavailable: libEGL.so.1: cannot open shared object file: No such file or direct) – cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -2048,6 +2114,28 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_carlos_surprise_shrug_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/carlos_surprise_shrug.mp4",
+     "alpha": "stacked",
+     "sha256": "87ec6727dc30c8a067daab5cd739531fd3017ab9339d255da7fb57a29879fc2f",
+     "bytes": 2389957,
+     "w": 892,
+     "h": 1536,
+     "foot": [
+      501,
+      1536
+     ],
+     "figH": 1536,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL no_floor_shadow: còn bóng sàn dính ở chân (chạy trim_floor_shadow)",
+      "WARN anat_pose_detect: [đầu] MediaPipe không chạy được (unavailable: libEGL.so.1: cannot open shared object file: No such file or direct) – cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -2121,6 +2209,29 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_carlos_talk_laugh_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/carlos_talk_laugh.mp4",
+     "alpha": "stacked",
+     "sha256": "ea4e64cf35bb2a24d484b5b26a9eadae7fe120bbf055b34acf4ddc6f4f389f08",
+     "bytes": 1946154,
+     "w": 804,
+     "h": 1532,
+     "foot": [
+      529,
+      1532
+     ],
+     "figH": 1532,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "WARN identity: nghi trôi nhận dạng (tóc ×0.973, áo lệch 98.8) – AI thị giác quyết định FAIL \"identity drift\"",
+      "FAIL no_floor_shadow: còn bóng sàn dính ở chân (chạy trim_floor_shadow)",
+      "WARN anat_pose_detect: [đầu] MediaPipe không chạy được (unavailable: libEGL.so.1: cannot open shared object file: No such file or direct) – cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -2193,6 +2304,28 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_carlos_wave_thumbs_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/carlos_wave_thumbs.mp4",
+     "alpha": "stacked",
+     "sha256": "c0fb2b41a7cca0f7036238f0ae2f07a1d9d6363147b45114c3a63ea7b2325742",
+     "bytes": 3010969,
+     "w": 960,
+     "h": 1522,
+     "foot": [
+      499,
+      1521
+     ],
+     "figH": 1521,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL no_floor_shadow: còn bóng sàn dính ở chân (chạy trim_floor_shadow)",
+      "WARN anat_pose_detect: [đầu] MediaPipe không chạy được (unavailable: libEGL.so.1: cannot open shared object file: No such file or direct) – cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -2266,6 +2399,27 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_diane_idle_listen_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/diane_idle_listen.mp4",
+     "alpha": "stacked",
+     "sha256": "a9d4f895056df76fdd892c1b285c0ca49e0b558203306c29eb94b64901bbffa8",
+     "bytes": 1320288,
+     "w": 848,
+     "h": 1554,
+     "foot": [
+      434,
+      1553
+     ],
+     "figH": 1553,
+     "frames": 121,
+     "status": "WARN",
+     "issues": [
+      "WARN anat_pose_detect: [đầu] MediaPipe không chạy được (unavailable: libEGL.so.1: cannot open shared object file: No such file or direct) – cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -2339,6 +2493,27 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_diane_nod_handsonhips_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/diane_nod_handsonhips.mp4",
+     "alpha": "stacked",
+     "sha256": "32a535f3200b034677b7b455c184e7924910bb5ffe84782252e05bc89899afea",
+     "bytes": 1828121,
+     "w": 848,
+     "h": 1562,
+     "foot": [
+      421,
+      1561
+     ],
+     "figH": 1561,
+     "frames": 121,
+     "status": "WARN",
+     "issues": [
+      "WARN anat_pose_detect: [đầu] MediaPipe không chạy được (unavailable: libEGL.so.1: cannot open shared object file: No such file or direct) – cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -2962,6 +3137,27 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_leo_shock_headgrab_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/leo_shock_headgrab.mp4",
+     "alpha": "stacked",
+     "sha256": "8c2b6b20dd14360662d809b3b8a4a6593e3c489a97f0de75a8c96886b74d5282",
+     "bytes": 2452093,
+     "w": 762,
+     "h": 1524,
+     "foot": [
+      390,
+      1524
+     ],
+     "figH": 1524,
+     "frames": 121,
+     "status": "WARN",
+     "issues": [
+      "WARN anat_pose_detect: [đầu] MediaPipe không chạy được (unavailable: libEGL.so.1: cannot open shared object file: No such file or direct) – cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -3178,6 +3374,27 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_leo_talk_point_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/leo_talk_point.mp4",
+     "alpha": "stacked",
+     "sha256": "6ecdcc80b27b672ee8d4663358a5fdc3990c06f4f607a45a87f4d30ad8ae8ea5",
+     "bytes": 2844111,
+     "w": 992,
+     "h": 1518,
+     "foot": [
+      541,
+      1518
+     ],
+     "figH": 1518,
+     "frames": 121,
+     "status": "WARN",
+     "issues": [
+      "WARN anat_pose_detect: [đầu] MediaPipe không chạy được (unavailable: libEGL.so.1: cannot open shared object file: No such file or direct) – cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -3456,6 +3673,28 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_mia_idle_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/mia_idle.mp4",
+     "alpha": "stacked",
+     "sha256": "09711608819fe263dd1d0a148f888ea0ca1555fec598d8404de47a336f898be5",
+     "bytes": 1816091,
+     "w": 598,
+     "h": 1524,
+     "foot": [
+      312,
+      1524
+     ],
+     "figH": 1524,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL no_floor_shadow: còn bóng sàn dính ở chân (chạy trim_floor_shadow)",
+      "WARN anat_pose_detect: [đầu] MediaPipe không chạy được (unavailable: libEGL.so.1: cannot open shared object file: No such file or direct) – cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -3530,6 +3769,28 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_mia_nod_laugh_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/mia_nod_laugh.mp4",
+     "alpha": "stacked",
+     "sha256": "9dbc278d9794bef2cb3fa345b67a2aaaad31ad37b2d1d0fec23830a91c14a060",
+     "bytes": 1899687,
+     "w": 692,
+     "h": 1522,
+     "foot": [
+      349,
+      1521
+     ],
+     "figH": 1521,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL no_floor_shadow: còn bóng sàn dính ở chân (chạy trim_floor_shadow)",
+      "WARN anat_pose_detect: [đầu] MediaPipe không chạy được (unavailable: libEGL.so.1: cannot open shared object file: No such file or direct) – cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -3663,6 +3924,28 @@
      "sha": "e2abb7bda552a483853ab2f31dd94581e86a3c0e28a185784a666c86e36844f2"
     },
     "sheet": "brand/library/_review/clips_mia_shrug_cross_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/mia_shrug_cross.mp4",
+     "alpha": "stacked",
+     "sha256": "16bf6fa13c8a286c2e942c62ae3fe214f51d0860de539486ecc70826e23a9b83",
+     "bytes": 1919319,
+     "w": 914,
+     "h": 1500,
+     "foot": [
+      470,
+      1500
+     ],
+     "figH": 1500,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL no_floor_shadow: còn bóng sàn dính ở chân (chạy trim_floor_shadow)",
+      "WARN anat_pose_detect: [đầu] MediaPipe không chạy được (unavailable: libEGL.so.1: cannot open shared object file: No such file or direct) – cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -3735,6 +4018,28 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_mia_talk_point_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/mia_talk_point.mp4",
+     "alpha": "stacked",
+     "sha256": "abbb8e7af8788774a8df1d86491602bf97f7a0bdc5a1fb1a47e2b9584aee4c4c",
+     "bytes": 2673639,
+     "w": 822,
+     "h": 1526,
+     "foot": [
+      481,
+      1526
+     ],
+     "figH": 1526,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL no_floor_shadow: còn bóng sàn dính ở chân (chạy trim_floor_shadow)",
+      "WARN anat_pose_detect: [đầu] MediaPipe không chạy được (unavailable: libEGL.so.1: cannot open shared object file: No such file or direct) – cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -3873,6 +4178,29 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_mia_wave_thumbs_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/mia_wave_thumbs.mp4",
+     "alpha": "stacked",
+     "sha256": "f8f250faab31e79029550355880d27a2875cd3135388f038ed03e6a74c4ff01a",
+     "bytes": 2123656,
+     "w": 762,
+     "h": 1508,
+     "foot": [
+      407,
+      1508
+     ],
+     "figH": 1508,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [88]",
+      "FAIL no_floor_shadow: còn bóng sàn dính ở chân (chạy trim_floor_shadow)",
+      "WARN anat_pose_detect: [đầu] MediaPipe không chạy được (unavailable: libEGL.so.1: cannot open shared object file: No such file or direct) – cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
