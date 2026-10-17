@@ -151,3 +151,7 @@ Khi bật đăng nhập/AdMob: cập nhật bảng này + nhãn Apple trước k
 5. Báo em khi xong 2 tài khoản → em làm: job TestFlight, ảnh cửa hàng, mô tả cửa hàng 15 ngôn ngữ, nộp bản Internal testing / TestFlight đầu tiên.
 6. Trên Play Console: App content (Privacy policy, Ads = No, App access, Content rating, Target audience 13+, Data safety theo A2, Government/Financial/Health = No) → Internal testing → Production.
 7. Trên App Store Connect: App Privacy (B1), Age rating, Review Notes (B3), Export compliance (đã tự khai), ảnh → Submit for Review.
+
+### Trạng thái phát hành (18/10/2026)
+- **Google Play:** bản 1.0.0 (1406) ở **Internal testing** (danh sách "Lexkite team"); App content đã khai đủ (quảng cáo Không, Data safety khớp chính sách, IARC, 13+). Khóa upload PKCS12 ở `~/.config/lexkite/android-upload.*` + 4 GitHub Secrets. Bước sau: Production → gửi duyệt sau khi anh thử bản nội bộ.
+- **Apple:** App ID `com.lexkite.app`, `com.lexkite.app.widget`, App Group `group.com.lexkite.app` đã tạo; PLA đã chấp nhận 18/10. **DSA (EU): chưa khai, chưa phát hành EU** – tài khoản Individual sẽ phải công khai địa chỉ nhà. Khi chuyển sang Organization (LLC, D-U-N-S 141146874) → khai trader bằng địa chỉ LLC rồi mở EU.
