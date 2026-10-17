@@ -1,0 +1,26 @@
+# Kiểm độ tương phản chữ/nền (WCAG AA) trên Chromium thật, sáng & tối – chạy tay hoặc hằng ngày; kết quả ở artifact contrast-report.
+name: Kiểm tương phản màu
+on:
+  schedule:
+    - cron: '50 1 * * *'   # 08:50 giờ Việt Nam
+  workflow_dispatch:
+    inputs:
+      base: { description: 'URL app (để trống = tự chọn)', required: false, default: '' }
+permissions:
+  contents: read
+jobs:
+  contrast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Kiểm
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
+          npx playwright install --with-deps chromium
+          node scripts/test/contrast.mjs ${{ github.event.inputs.base }}
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: contrast-report, path: contrast-report.json, if-no-files-found: ignore }
