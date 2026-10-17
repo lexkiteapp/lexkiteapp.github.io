@@ -3,6 +3,8 @@
  *   { op: 'pull', have: { cards_0: 'hash', … } } → { docs: { meta: {...}, cards_3: {...} } }  (chỉ trả tài liệu có hash khác)
  *   { op: 'push', docs: { meta: { h, body }, cards_0: { h, body } } } → { ok: true, n }
  * Mỗi người chỉ đọc/ghi được dữ liệu của chính mình (uid lấy từ token đã xác minh chữ ký Google). */
+import { gate } from './_quota.js';
+
 const PROJECT = 'lexkite-app';
 const JWKS_URL = 'https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com';
 const KEY_RE = /^(meta|cards_\d{1,3})$/;
@@ -81,6 +83,8 @@ export async function onRequestPost({ request, env }) {
   try { req = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
   // Mỗi tài khoản: kéo/đẩy mỗi chiều tối đa 1 lần/20 giây (app tự gom 3 phút/lần nên người dùng thường không chạm tới)
   { const w = await limit(`sync:${uid}:${req.op}`, 1, 20); if (w) return json(request, 429, { error: 'too-fast', wait: w }); }
+  // Hạn mức ngày + theo IP + khóa chống lạm dụng (functions/api/_quota.js – đếm ở biên, không tốn lượt ghi D1)
+  { const q = await gate(request, env, 'sync', { who, json }); if (q.res) return q.res; }
   try {
     await setup(env.DB);
     if (req.op === 'pull') {

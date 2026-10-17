@@ -12,7 +12,7 @@
   const b64url = u8 => b64(u8).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
   const unb64url = s => unb64(s.replace(/-/g, '+').replace(/_/g, '/') + '='.repeat((4 - s.length % 4) % 4));
   const pipe = async (u8, T) => new Uint8Array(await new Response(new Blob([u8]).stream().pipeThrough(new T('gzip'))).arrayBuffer());
-  const post = body => fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(async r => ({ ok: r.ok, status: r.status, j: await r.json().catch(() => ({})) }));
+  const post = body => fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Lexkite-Device': UI.dev() }, body: JSON.stringify(body) }).then(async r => { const j = await r.json().catch(() => ({})); if (r.status === 429 && j.error === 'quota') UI.quota(j); return { ok: r.ok, status: r.status, j }; }); // hạn mức: toast giờ mở lại
   const activity = c => Math.max((c.srs && c.srs.last) || 0, c.added || 0, c.mod || 0);
   let timer = 0;
 

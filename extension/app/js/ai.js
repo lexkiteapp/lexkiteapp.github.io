@@ -85,12 +85,12 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
   // AI miễn phí của Lexkite (máy chủ /api/ai): ai cũng chấm được, không cần tự lấy khóa – có hạn mức lượt/ngày
   const PROXY = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '/api/ai' : 'https://lexkite.com/api/ai';
   async function callProxy(prompt) {
-    const h = { 'Content-Type': 'application/json' };
+    const h = { 'Content-Type': 'application/json', 'X-Lexkite-Device': UI.dev() };
     try { if (window.Sync && Sync.user) h.Authorization = 'Bearer ' + await Sync.user.getIdToken(); } catch (e) { /* chưa đăng nhập: hạn mức khách */ }
     const ctrl = new AbortController(), to = setTimeout(() => ctrl.abort(), 60000);
     let r; try { r = await fetch(PROXY, { method: 'POST', headers: h, signal: ctrl.signal, body: JSON.stringify({ prompt, sys: SYS }) }); } finally { clearTimeout(to); }
     const j = await r.json().catch(() => ({}));
-    if (r.status === 429) throw Object.assign(new Error('PROXY_QUOTA'), { signIn: !!j.signIn });
+    if (r.status === 429) throw Object.assign(new Error('PROXY_QUOTA'), { q: j });
     if (!r.ok || !j.out) throw new Error('FAILED');
     j.out._left = j.left; return j.out;
   }
@@ -253,7 +253,7 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
       const showLocal = async note => { const r = await localGrade(inp); out.innerHTML = (note ? `<div class="tip small" style="margin:.6rem 0">${note}</div>` : '') + render(r, inp.kind) + `<div class="row" style="margin-top:.6rem"><button class="btn sm primary" data-k>🤖 ${t('Chấm sâu như giám khảo bằng AI (miễn phí)')}</button></div>`; const k = $('[data-k]', out); if (k) k.onclick = () => keyDialog(go); };
       if (!aiReady) { await showLocal(''); b.disabled = false; b.textContent = '↻ ' + t('Chấm lại'); return; }
       try { try { const r = await grade(inp); out.innerHTML = render(r, inp.kind) + (r._left != null ? `<div class="tiny muted" style="margin-top:.5rem">🎁 ${t('Còn {n} lượt chấm AI miễn phí hôm nay', { n: r._left })}</div>` : ''); b.textContent = '↻ ' + t('Chấm lại'); }
-      catch (e) { if (e.message === 'PROXY_QUOTA') { await showLocal('⏳ ' + (e.signIn ? t('Hết 3 lượt chấm AI miễn phí hôm nay. Đăng nhập để có 5 lượt/ngày, hoặc thêm khóa Gemini riêng để chấm không giới hạn. Dưới đây là kết quả chấm nhanh:') : t('Hết lượt chấm AI miễn phí hôm nay – mai có lượt mới, hoặc thêm khóa Gemini riêng để chấm không giới hạn. Dưới đây là kết quả chấm nhanh:'))); b.disabled = false; return; }
+      catch (e) { if (e.message === 'PROXY_QUOTA') { await showLocal('⏳ ' + esc(UI.quotaText(e.q)) + ' ' + t('Đây là kết quả chấm nhanh theo quy tắc:')); b.disabled = false; return; }
         if (e.message === 'QUOTA' || e.message === 'FAILED' || e.message === 'TIMEOUT') { await showLocal('⚠️ ' + esc(errText(e)) + ' ' + t('Đây là kết quả chấm nhanh theo quy tắc:')); b.disabled = false; return; } throw e; } }
       catch (e) { out.innerHTML = `<div class="small" style="margin-top:.6rem">❌ ${esc(errText(e))} ${e.message === 'BAD_KEY' || e.message === 'NO_KEY' ? `<button class="btn sm" data-k>${t('Nhập khóa')}</button>` : ''}</div>`; const k = $('[data-k]', out); if (k) k.onclick = () => keyDialog(go); }
       b.disabled = false;

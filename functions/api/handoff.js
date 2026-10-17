@@ -5,10 +5,11 @@
  *   POST /api/handoff { op:'get', code }  → { blob } | 404     (đọc xong là xóa)
  * Chống lạm dụng: giới hạn tần suất theo IP (Cache API ở biên), mã 10 ký tự ngẫu nhiên (~10^15 khả năng). */
 import { limit } from './sync.js';
+import { gate } from './_quota.js'; // hạn mức tạo mã theo thiết bị + IP (docs/QUOTAS.md)
 
 const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)|https?:\/\/localhost(:\d+)?|capacitor:\/\/localhost|chrome-extension:\/\/[a-z]{32})$/;
 const TTL = 10 * 60 * 1000, MAX = 1_500_000, ALPHA = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
-const cors = req => { const o = req.headers.get('Origin') || ''; return ORIGINS.test(o) ? { 'Access-Control-Allow-Origin': o, 'Access-Control-Allow-Headers': 'Content-Type', 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Access-Control-Max-Age': '86400', Vary: 'Origin' } : {}; };
+const cors = req => { const o = req.headers.get('Origin') || ''; return ORIGINS.test(o) ? { 'Access-Control-Allow-Origin': o, 'Access-Control-Allow-Headers': 'Content-Type, X-Lexkite-Device', 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Access-Control-Max-Age': '86400', Vary: 'Origin' } : {}; };
 const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...cors(req) } });
 export const newCode = () => { const b = crypto.getRandomValues(new Uint8Array(10)); return [...b].map(x => ALPHA[x % ALPHA.length]).join(''); };
 
@@ -28,6 +29,8 @@ export async function onRequestPost({ request, env }) {
     await setup(db);
     if (req.op === 'put') {
       { const w = await limit(`handoff-put:${ip}`, 6, 600); if (w) return json(request, 429, { error: 'too-fast', wait: w }); }
+      const q = await gate(request, env, 'handoff', { who: null, json }); if (q.res) return q.res;
+      if ((await q.take()).res) return q.res;
       const blob = String(req.blob || '');
       if (!blob || blob.length > MAX || !/^[A-Za-z0-9+/=]+$/.test(blob)) return json(request, 400, { error: 'blob' });
       await db.prepare('DELETE FROM handoff WHERE exp < ?').bind(now).run(); // dọn bản hết hạn (lười, không cần cron)

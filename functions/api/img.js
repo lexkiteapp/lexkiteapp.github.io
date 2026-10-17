@@ -1,6 +1,8 @@
 /* Ảnh minh họa giấy phép mở cho từ vựng: GET /api/img?w=<word>
  * Gọi Openverse 1 lần/từ rồi lưu đệm ở biên Cloudflare (có ảnh: 30 ngày, không có: 7 ngày) → mọi người dùng dùng chung,
  * không vượt hạn mức ẩn danh của Openverse. Chỉ nhận ảnh thực sự liên quan (tiêu đề/thẻ chứa từ), ưu tiên CC0/PD rồi CC BY. */
+import { gate } from './_quota.js';
+
 const H = (body, ttl) => new Response(JSON.stringify(body), { headers: { 'Content-Type': 'application/json', 'Cache-Control': `public, max-age=${ttl}`, 'Access-Control-Allow-Origin': '*' } });
 
 function pick(results, word) {
@@ -43,11 +45,13 @@ async function wiki(word) {
   return { src: ii.thumburl, link: ii.descriptionurl, license: lic, title: strip(d.title || word).slice(0, 60), creator: strip((m.Artist || {}).value).slice(0, 80), via: 'Wikimedia Commons' };
 }
 
-export async function onRequestGet({ request, waitUntil }) {
+export async function onRequestGet({ request, env, waitUntil }) {
   const url = new URL(request.url), word = String(url.searchParams.get('w') || '').toLowerCase().trim().slice(0, 60);
   if (!/^[a-z][a-z' -]*$/.test(word)) return H({ none: true }, 86400);
   const key = new Request(`https://lexkite.com/api/img?w=${encodeURIComponent(word)}&v=5`), cache = caches.default; // v3: Wikipedia trước, Openverse lọc chặt sau → bỏ đệm ảnh lệch nghĩa cũ
   const hit = await cache.match(key); if (hit) return hit;
+  // Chỉ lượt trượt bộ đệm mới gọi Wikipedia/Openverse → mới tính hạn mức (theo IP; 429 không được lưu đệm)
+  { const q = await gate(request, env || {}, 'img', { who: null, json: (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', 'Access-Control-Allow-Origin': '*' } }) }); if (q.res) return q.res; }
   let out = { none: true }, ttl = 7 * 86400;
   // 1) Ảnh đại diện bài Wikipedia đúng khái niệm (society → gia đình, climate → mây…) – thường đúng nghĩa hơn ảnh khớp chữ trong tiêu đề
   try { const c = await wiki(word); if (c) { out = c; ttl = 30 * 86400; } } catch (e) { /* thử Openverse */ }

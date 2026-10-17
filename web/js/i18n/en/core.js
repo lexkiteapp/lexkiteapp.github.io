@@ -194,4 +194,8 @@
   'Phrasal verb, thành ngữ, cách diễn đạt tự nhiên': 'Phrasal verbs, idioms, natural expressions',
   '1.250 từ TOEIC công sở – kinh doanh · TSL 1.2 © Browne & Culligan, CC BY-SA 4.0': '1,250 TOEIC words for office & business · TSL 1.2 © Browne & Culligan, CC BY-SA 4.0',
   '570 họ từ học thuật (Coxhead) – nền tảng cho Reading & Writing band 7+': '570 academic word families (Coxhead) – the foundation for Reading & Writing band 7+',
+  // Hạn mức máy chủ (UI.quotaText – functions/api/_quota.js)
+  'Đã hết lượt miễn phí hôm nay – mở lại lúc {time}.': "You've used today's free limit – it resets at {time}.",
+  'Máy chủ đang bận – thử lại sau ít phút.': 'The server is busy – please try again in a few minutes.',
+  'Đăng nhập để có thêm lượt.': 'Sign in to get more.',
 }); })(typeof self !== 'undefined' ? self : this);

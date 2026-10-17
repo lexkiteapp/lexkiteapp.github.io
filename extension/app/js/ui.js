@@ -361,5 +361,8 @@
     const st = (g.App && g.App.state && g.App.state.settings) || {};
     tts(b.dataset.saysent, st.accent || 'en-GB', (b.dataset.slow || e.shiftKey) ? 0.7 : undefined, { onEnd: () => b.classList.remove('on') });
   }, true);
-  g.UI = { ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, stopSpeak, recognize, stopRecognize, recErrorText, voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
+  // Hạn mức máy chủ (functions/api/_quota.js): mã thiết bị ngẫu nhiên (X-Lexkite-Device) · 429 { error:'quota', msg, resetAt, signIn } → câu báo
+  const dev = () => { try { let d = localStorage.getItem('lk.dev'); if (!d) localStorage.setItem('lk.dev', d = [...crypto.getRandomValues(new Uint8Array(20))].map(b => (b % 36).toString(36)).join('')); return d; } catch (e) { return ''; } };
+  const quotaText = (j = {}) => { const r = j.resetAt, at = r && new Date(r).toLocaleString([], r - Date.now() > 864e5 ? { dateStyle: 'short', timeStyle: 'short' } : { timeStyle: 'short' }); return (j.msg === 'quota.daily' && at ? t('Đã hết lượt miễn phí hôm nay – mở lại lúc {time}.', { time: at }) : t('Máy chủ đang bận – thử lại sau ít phút.')) + (j.signIn ? ' ' + t('Đăng nhập để có thêm lượt.') : ''); };
+  g.UI = { dev, quotaText, quota: j => toast(quotaText(j), 6000), ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, stopSpeak, recognize, stopRecognize, recErrorText, voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
 })(typeof self !== 'undefined' ? self : this);

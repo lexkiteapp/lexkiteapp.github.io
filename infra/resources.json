@@ -15,20 +15,28 @@
     "lexkite",
     "www.lexkite.com",
     "lexkite.pages.dev"
-   ]
+   ],
+   "cap": {
+    "day": 100000,
+    "unit": "request"
+   }
   },
   {
    "key": "d1",
    "name": "Cloudflare D1 (lexkite-sync)",
    "kind": "db",
-   "purpose": "Đồng bộ học tập, người dùng, thống kê, tin nhắn, cấu hình, nhật ký quản trị",
+   "purpose": "Đồng bộ học tập, người dùng, thống kê, tin nhắn, cấu hình, nhật ký quản trị · hạn mức chống lạm dụng (bảng quota_count, quota_config, quota_allow, quota_block, quota_flag, quota_audit – docs/QUOTAS.md); biến môi trường Pages: ADMIN_EMAILS, UNLIMITED_EMAILS (danh sách email không giới hạn, không phải khóa bí mật)",
    "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/workers/d1",
    "free": "5 GB · 5 triệu lượt đọc/ngày · 100.000 lượt ghi/ngày",
    "upgrade": "Workers Paid; hoặc giảm hit_rate thống kê trong Quản trị",
    "status": "Miễn phí",
    "match": [
     "lexkite-sync"
-   ]
+   ],
+   "cap": {
+    "day": 100000,
+    "unit": "write"
+   }
   },
   {
    "key": "audio-worker",
@@ -61,12 +69,16 @@
    "key": "ai",
    "name": "Cloudflare Workers AI",
    "kind": "ai",
-   "purpose": "Dự phòng chấm Writing/Speaking, hội thoại Roleplay công sở (/api/ai kind 'rp': hạn mức riêng 60 lượt/người đăng nhập, 16/khách, trần 1.500/ngày) & duyệt dịch khi Gemini hết hạn mức",
+   "purpose": "Dự phòng chấm Writing/Speaking & hội thoại Roleplay công sở (/api/ai) khi Gemini gần trần; hạn mức theo người ở functions/api/_quota.js (docs/QUOTAS.md), cầu dao giữ < 80% gói miễn phí",
    "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/ai/workers-ai",
    "free": "10.000 neuron/ngày",
    "upgrade": "Workers Paid",
    "status": "Miễn phí",
-   "match": []
+   "match": [],
+   "cap": {
+    "day": 10000,
+    "unit": "neuron"
+   }
   },
   {
    "key": "chrome-prompt-api",
@@ -100,13 +112,17 @@
    "kind": "ai",
    "purpose": "AI chấm bài viết/nói, duyệt bản dịch; nhiều khóa xoay vòng, quản lý ở Quản trị → Dịch vụ",
    "console": "https://aistudio.google.com/apikey",
-   "free": "Hạn mức miễn phí theo khóa (tự xoay khóa khi 429)",
+   "free": "Khoảng 20 lượt/ngày/khóa (gói miễn phí, tự xoay khóa khi 429)",
    "upgrade": "Thêm khóa ở Quản trị hoặc bật trả phí Google AI",
    "status": "Đang dùng",
    "match": [
     "generativelanguage.googleapis.com",
     "aistudio.google.com"
-   ]
+   ],
+   "cap": {
+    "day": 20,
+    "unit": "call/key"
+   }
   },
   {
    "key": "mail",
@@ -121,7 +137,11 @@
     "lexkite-mail",
     "SEB",
     "mail.google.com"
-   ]
+   ],
+   "cap": {
+    "day": 100,
+    "unit": "mail"
+   }
   },
   {
    "key": "turnstile",
@@ -140,14 +160,15 @@
    "key": "cache-internal",
    "name": "Cloudflare Cache API (nội bộ)",
    "kind": "internal",
-   "purpose": "Khóa nội bộ cho giới hạn tần suất & làm nguội khóa Gemini (không phải tên miền thật)",
+   "purpose": "Khóa nội bộ cho giới hạn tần suất & làm nguội khóa Gemini (không phải tên miền thật) · bộ đếm hạn mức/burst (functions/api/_quota.js, docs/QUOTAS.md)",
    "console": "",
    "free": "—",
    "upgrade": "—",
    "status": "Nội bộ",
    "match": [
     "cache.lexkite.internal",
-    "rate.lexkite.internal"
+    "rate.lexkite.internal",
+    "quota.lexkite.internal"
    ]
   },
   {

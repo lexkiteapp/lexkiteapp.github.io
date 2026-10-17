@@ -52,12 +52,12 @@
   const withTimeout = (p, ms) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error('TIMEOUT')), ms))]);
   // ---------- (b) AI miễn phí của Lexkite (/api/ai, kind 'rp') ----------
   async function proxy(sys, prompt) {
-    const h = { 'Content-Type': 'application/json' };
+    const h = { 'Content-Type': 'application/json', 'X-Lexkite-Device': UI.dev() };
     try { if (signedIn()) h.Authorization = 'Bearer ' + await Sync.user.getIdToken(); } catch (e) { /* khách */ }
     const ctrl = new AbortController(), to = setTimeout(() => ctrl.abort(), 30000);
     let r; try { r = await fetch(PROXY, { method: 'POST', headers: h, signal: ctrl.signal, body: JSON.stringify({ prompt, sys, kind: 'rp' }) }); } finally { clearTimeout(to); }
     const j = await r.json().catch(() => ({}));
-    if (r.status === 429) throw Object.assign(new Error('QUOTA'), { signIn: !!j.signIn });
+    if (r.status === 429) { UI.quota(j); throw new Error('QUOTA'); } // toast giờ mở lại + gợi ý đăng nhập (khách)
     if (!r.ok || !j.out) throw new Error('FAILED');
     return j.out;
   }

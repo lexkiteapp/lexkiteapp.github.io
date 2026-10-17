@@ -479,4 +479,6 @@
   "Học bài: {n} →": "Lesson: {n} →",
   "Xong {n} thẻ – tuyệt!": "Done {n} cards – great!",
   "⚡ Ôn nhanh {i}/{n}": "⚡ Quick review {i}/{n}",
+  // ---- js/report-pill.js: nút báo lỗi nổi (phần còn lại ở en/report.js – tải lười) ----
+  'Báo lỗi': 'Report',
 }); })(typeof self !== 'undefined' ? self : this);

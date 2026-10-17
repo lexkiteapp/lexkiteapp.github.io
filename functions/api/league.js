@@ -8,6 +8,7 @@
  *   { op: 'xp', xp }             → cập nhật XP tuần này (chỉ tăng, có trần) → { member, board, last }
  * Hạng: 0 Đồng · 1 Bạc · 2 Vàng · 3 Ngọc bích · 4 Hồng ngọc · 5 Kim cương (tên hiển thị dịch ở app). */
 import { claims, limit } from './sync.js';
+import { gate } from './_quota.js';
 
 const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)|https?:\/\/localhost(:\d+)?|capacitor:\/\/localhost|chrome-extension:\/\/[a-z]{32})$/;
 const GROUP = 30, UP = 7, DOWN = 5, MAX_TIER = 5, MAX_WEEK_XP = 20000;
@@ -74,6 +75,7 @@ export async function onRequestPost({ request, env }) {
   if (!uid) return json(request, 401, { error: 'auth' });
   let req; try { req = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
   { const wait = await limit(`league:${uid}`, 12, 60); if (wait) return json(request, 429, { error: 'too-fast', wait }); }
+  { const q = await gate(request, env, 'league', { who, json }); if (q.res) return q.res; } // hạn mức ngày + IP + khóa (docs/QUOTAS.md)
   const db = env.DB, now = Date.now(), wk = weekOf(now);
   try {
     await setup(db);

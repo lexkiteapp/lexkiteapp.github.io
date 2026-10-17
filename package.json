@@ -5,8 +5,9 @@
   "type": "commonjs",
   "scripts": {
     "build": "bash scripts/build-web.sh",
-    "test": "node scripts/vi-lint.mjs && node scripts/cws-check.mjs && node scripts/i18n-missing.mjs --strict && node scripts/i18n-qa.mjs --strict && node scripts/test/unit.mjs && node scripts/test/social-proxy.mjs && node scripts/test/social-ui.mjs && node scripts/test/studio.mjs && node scripts/test/library.mjs && node scripts/test/video.mjs && node scripts/test/motion.mjs && node scripts/test/smoke.js web && node scripts/test/i18n-leak.js web en,zh,ar --strict && ! node scripts/test/a11y.js web 2>/dev/null | grep -q NOLABEL && node scripts/test/explain-check.mjs && node scripts/test/size-budget.mjs && node scripts/test/infra-check.mjs && node scripts/test/brand-check.mjs && node scripts/test/content-check.mjs && node scripts/test/axe.js web && node scripts/test/crawl.js web",
+    "test": "node scripts/vi-lint.mjs && node scripts/cws-check.mjs && node scripts/i18n-missing.mjs --strict && node scripts/i18n-qa.mjs --strict && node scripts/test/unit.mjs && node scripts/test/social-proxy.mjs && node scripts/test/social-ui.mjs && node scripts/test/studio.mjs && node scripts/test/quota.mjs && node scripts/test/library.mjs && node scripts/test/video.mjs && node scripts/test/motion.mjs && node scripts/test/smoke.js web && node scripts/test/i18n-leak.js web en,zh,ar --strict && ! node scripts/test/a11y.js web 2>/dev/null | grep -q NOLABEL && node scripts/test/explain-check.mjs && node scripts/test/size-budget.mjs && node scripts/test/infra-check.mjs && node scripts/test/brand-check.mjs && node scripts/test/content-check.mjs && node scripts/test/axe.js web && node scripts/test/crawl.js web",
     "test:unit": "node scripts/test/unit.mjs",
+    "test:quota": "node scripts/test/quota.mjs",
     "test:library": "node scripts/test/library.mjs",
     "library": "node scripts/video/library.mjs",
     "test:smoke": "node scripts/test/smoke.js web",

@@ -35,7 +35,7 @@
     if (r.status === 429) {
       const j = await r.json().catch(() => ({}));
       // Chống spam phía máy chủ: gửi quá nhanh → chờ đúng số giây rồi gửi lại (không tạm dừng đồng bộ, không mất dữ liệu)
-      if (j.error === 'too-fast' && tries < 2) { await new Promise(res => setTimeout(res, Math.min(30, (+j.wait || 5) + 1) * 1000)); return api(body, tries + 1); }
+      if ((j.error === 'too-fast' || j.msg === 'quota.burst') && tries < 2) { await new Promise(res => setTimeout(res, Math.min(30, (+j.wait || 5) + 1) * 1000)); return api(body, tries + 1); }
       throw Object.assign(new Error('quota'), { code: 'resource-exhausted' });
     }
     if (!r.ok) throw new Error('sync ' + r.status);

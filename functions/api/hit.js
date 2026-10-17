@@ -7,6 +7,7 @@
  *   { t:'x', vid, ev:{install|update|uninstall:1}, reason }           → ext_events (đếm theo ngày; lý do gỡ = kind 'uninstall:<lý do>')
  * Quốc gia lấy từ Cloudflare (request.cf.country). vid = mã ngẫu nhiên trên máy người dùng, không gắn danh tính. */
 import { limit } from './sync.js';
+import { gate } from './_quota.js';
 
 let ready = false;
 const ok = () => new Response(null, { status: 204, headers: { 'Cache-Control': 'no-store' } });
@@ -39,6 +40,7 @@ export async function setup(db) {
 
 export async function onRequestPost({ request, env }) {
   if (!env.DB || BOT.test(request.headers.get('User-Agent') || '')) return ok();
+  if ((await gate(request, env, 'hit', { who: null })).res) return ok(); // 1 IP gửi dồn dập → bỏ qua im lặng (thống kê không bao giờ làm hỏng app)
   let b; try { b = JSON.parse(await request.text()); } catch (e) { return ok(); }
   try {
     await setup(env.DB);

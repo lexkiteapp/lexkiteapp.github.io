@@ -103,6 +103,7 @@
     'Ngưỡng cảnh báo lỗi JS/24h (mặc định 50)': 'JS error alert threshold per 24h (default 50)', 'Tỉ lệ lấy mẫu thống kê 0.01–1 (mặc định 1 = mọi người; > 30k người/ngày nên đặt 0.1 để giữ D1 miễn phí)': 'Analytics sampling rate 0.01–1 (default 1 = everyone; above 30k users/day set 0.1 to stay on the D1 free tier)',
     'Ghi chú nội bộ cho quản trị': 'Internal admin notes', 'Cài đặt website': 'Website settings', 'Sửa {t} bởi {b}': 'Edited {t} by {b}', 'Lưu cài đặt': 'Save settings', 'Thông báo hiện trên web/app sau tối đa 1 giờ.': 'Banner changes appear on web/app within 1 hour.',
     '{a} khóa xoay vòng · {b} sẵn sàng': '{a} rotating keys · {b} ready', 'Chưa có khóa – AI đang dùng Cloudflare Workers AI': 'No keys yet – AI is running on Cloudflare Workers AI', ' · dùng cho chấm bài viết/nói & duyệt bản dịch': ' · used for writing/speaking grading & translation review', '✓ Đã lưu': '✓ Saved',
+    'Báo lỗi': 'Reports', // tab Báo lỗi (chữ còn lại trong js/admin-reports.js)
   };
   const L = (vi, vars) => {
     let s = LANG === 'en' && Object.prototype.hasOwnProperty.call(EN, vi) ? EN[vi] : vi.split('@@')[0];
@@ -355,6 +356,7 @@
     const del = d.querySelector('#udel'); if (del) del.onclick = () => userDel(u.uid, () => { d.close(); done && done(); });
   }
 
+  const repMod = () => window.AdminReports ? Promise.resolve() : new Promise((y, n) => { const sc = document.createElement('script'); sc.src = 'js/admin-reports.js'; sc.onload = y; sc.onerror = n; document.head.appendChild(sc); }); // Báo lỗi (tải lười)
   const VIEWS = {
     async overview() {
       const [o, a, q, gk, u] = await Promise.all([
@@ -691,6 +693,7 @@
       if ($('#eclr')) $('#eclr').onclick = async () => { if (confirm(L('Xóa toàn bộ nhật ký lỗi?'))) { await api('errorsClear'); show('alerts'); } };
       main.querySelectorAll('[data-h]').forEach(b => b.onclick = async () => { await api('errorsClear', { h: b.dataset.h }); show('alerts'); });
     },
+    async reports() { main.innerHTML = ''; await repMod(); AdminReports.render(main, L, { esc, num, when, lang: () => LANG }); }, // Báo lỗi – js/admin-reports.js (tải lười, tự gọi /api/report)
     async quality() {
       const q = await api('quality'), col = q.score == null ? '' : q.score >= q.standard ? 'var(--good,#15803d)' : 'var(--bad,#dc2626)';
       main.innerHTML = `
@@ -700,6 +703,7 @@
         ${q.url ? `<p class="small"><a href="${esc(q.url)}" target="_blank" rel="noopener">${L('Xem chi tiết lượt rà soát →')}</a></p>` : ''}
         <div id="bcBox" style="margin-top:1rem"></div>
         <p class="small muted">${L('Rà soát tự động mỗi ngày 7h sáng: kiểm thử đầy đủ (chính tả, đa ngôn ngữ 14 thứ tiếng, thuật toán FSRS & đồng bộ, giao diện, trợ năng WCAG, lời giải đề thi, liên kết), kiểm tra kiểu, cú pháp workflow, bản live (trang, API, dữ liệu, âm thanh, phiên bản). Không đạt → email cảnh báo 8h sáng.')}</p></div>`;
+      { const rb = document.createElement('section'); rb.style.marginTop = '1rem'; main.appendChild(rb); repMod().then(() => AdminReports.card(rb, L, { esc, num, lang: () => LANG })).catch(() => {}); } // thẻ chất lượng: báo lỗi người dùng
       // Kiểm nghĩa bản dịch: dịch ngược (tự động sau mỗi lượt dịch) → câu nghi sai → AI xác nhận (bấm nút, gói AI miễn phí)
       const bc = await fetch('/i18n/backcheck.json?x=' + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null);
       if (bc && bc.langs) {
@@ -774,6 +778,11 @@
       main.innerHTML = '';
       if (!window.AdminStudio) await new Promise((y, n) => { const sc = document.createElement('script'); sc.src = 'js/admin-studio.js'; sc.onload = y; sc.onerror = n; document.head.appendChild(sc); }); // tải lười – chỉ khi mở tab
       AdminStudio.render(main, stapi, sapi, L, { esc, lang: () => LANG }); // js/admin-studio.js
+    },
+    async quota() { // Hạn mức & chống lạm dụng – js/admin-quota.js (tải lười, tự gọi /api/quota)
+      main.innerHTML = '';
+      if (!window.AdminQuota) await new Promise((y, n) => { const sc = document.createElement('script'); sc.src = 'js/admin-quota.js'; sc.onload = y; sc.onerror = n; document.head.appendChild(sc); });
+      AdminQuota.render(main, L, { esc, num, when, lang: () => LANG });
     },
     async settings() {
       const c = await api('config'), v = k => esc((c.values[k] || {}).v || '');

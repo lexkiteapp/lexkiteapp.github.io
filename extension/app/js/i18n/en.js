@@ -195,6 +195,10 @@
   'Phrasal verb, thành ngữ, cách diễn đạt tự nhiên': 'Phrasal verbs, idioms, natural expressions',
   '1.250 từ TOEIC công sở – kinh doanh · TSL 1.2 © Browne & Culligan, CC BY-SA 4.0': '1,250 TOEIC words for office & business · TSL 1.2 © Browne & Culligan, CC BY-SA 4.0',
   '570 họ từ học thuật (Coxhead) – nền tảng cho Reading & Writing band 7+': '570 academic word families (Coxhead) – the foundation for Reading & Writing band 7+',
+  // Hạn mức máy chủ (UI.quotaText – functions/api/_quota.js)
+  'Đã hết lượt miễn phí hôm nay – mở lại lúc {time}.': "You've used today's free limit – it resets at {time}.",
+  'Máy chủ đang bận – thử lại sau ít phút.': 'The server is busy – please try again in a few minutes.',
+  'Đăng nhập để có thêm lượt.': 'Sign in to get more.',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* English UI strings – tên & mô tả bộ từ trong js/lib/*.js (qua IELTS_DATA.add) */
@@ -2165,6 +2169,8 @@
   "Học bài: {n} →": "Lesson: {n} →",
   "Xong {n} thẻ – tuyệt!": "Done {n} cards – great!",
   "⚡ Ôn nhanh {i}/{n}": "⚡ Quick review {i}/{n}",
+  // ---- js/report-pill.js: nút báo lỗi nổi (phần còn lại ở en/report.js – tải lười) ----
+  'Báo lỗi': 'Report',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* English UI strings – toefl.js (TOEFL iBT practice, 2026 format) */
@@ -2548,8 +2554,6 @@
   'Đã lập kế hoạch! Kế hoạch hôm nay sẽ theo mục tiêu này.': 'Plan saved! Your daily plan will follow this goal.',
   'Tiếp tục bài đang học': 'Pick up where you left off',
   'Mở lại': 'Continue',
-  'Hết 3 lượt chấm AI miễn phí hôm nay. Đăng nhập để có 5 lượt/ngày, hoặc thêm khóa Gemini riêng để chấm không giới hạn. Dưới đây là kết quả chấm nhanh:': "You've used today's 3 free AI gradings. Sign in for 5 a day, or add your own Gemini key for unlimited grading. Here is a quick rule-based result:",
-  'Hết lượt chấm AI miễn phí hôm nay – mai có lượt mới, hoặc thêm khóa Gemini riêng để chấm không giới hạn. Dưới đây là kết quả chấm nhanh:': "You've used today's free AI gradings – new ones tomorrow, or add your own Gemini key for unlimited grading. Here is a quick rule-based result:",
   'Còn {n} lượt chấm AI miễn phí hôm nay': '{n} free AI gradings left today',
   'AI chấm Writing & Speaking miễn phí của Lexkite': "Lexkite's free AI grading for Writing & Speaking",
   '3 lượt mỗi ngày, đăng nhập được 5 lượt – không cần khóa': '3 a day, 5 when signed in – no key needed',
