@@ -1,0 +1,56 @@
+# Bảo vệ nội dung hằng tuần (miễn phí): kiểm chuỗi băm sổ đăng ký → ghi ảnh chụp băm kho nội dung học (đề, lời giải, từ vựng)
+# → kiểm WAF chống cào thật sự hoạt động → dò bản sao chép qua Brave Search (chỉ khi có secret BRAVE_SEARCH_KEY).
+# Tài liệu: docs/CONTENT-PROTECTION.md · Bộ hồ sơ DMCA: docs/legal/DMCA-KIT.md
+name: Content protection
+on:
+  schedule:
+    - cron: '17 2 * * 0'
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: content-protect
+  cancel-in-progress: false
+jobs:
+  protect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Sổ đăng ký – kiểm chuỗi băm
+        run: node scripts/content-registry.mjs verify
+      - name: Ảnh chụp băm kho nội dung học + commit
+        run: |
+          node scripts/content-registry.mjs snapshot
+          git add content/protection/registry.jsonl
+          git diff --cached --quiet && { echo "· kho nội dung không đổi"; exit 0; }
+          git config user.name "lexkite-bot"; git config user.email "lexkiteapp@users.noreply.github.com"
+          git commit -qm "Registry: ảnh chụp băm kho nội dung học $(date -u +%F) [CF-Pages-Skip]"
+          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
+          exit 1
+      - name: WAF chống cào hoạt động (request thử thật)
+        continue-on-error: true
+        env:
+          LEXKITE_CI_HEADER: ${{ secrets.LEXKITE_CI_HEADER }}
+        run: node scripts/cf-waf.mjs live || echo "::warning::Luật WAF chưa áp/không đúng – chạy node scripts/cf-waf.mjs apply (docs/CONTENT-PROTECTION.md)"
+      - name: Dò bản sao chép
+        id: watch
+        continue-on-error: true
+        env:
+          BRAVE_SEARCH_KEY: ${{ secrets.BRAVE_SEARCH_KEY }}
+        run: |
+          set +e; node scripts/copy-watch.mjs --posts 6 | tee watch.txt; c=${PIPESTATUS[0]}
+          echo "code=$c" >> "$GITHUB_OUTPUT"; [ "$c" = 3 ] && exit 0 || exit $c
+      - name: Báo nghi chép (issue)
+        if: steps.watch.outputs.code == '3'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create content-copy --color B60205 --force >/dev/null 2>&1 || true
+          body=$(printf '%s\n\n%s' "Có trang ngoài chứa nguyên văn câu trong bài Lexkite. Xử lý theo docs/legal/DMCA-KIT.md." "$(cat watch.txt)")
+          n=$(gh issue list --label content-copy --state open --json number -q '.[0].number')
+          if [ -n "$n" ]; then gh issue comment "$n" --body "$body"; else gh issue create --title "Nghi bị chép nội dung" --label content-copy --body "$body"; fi

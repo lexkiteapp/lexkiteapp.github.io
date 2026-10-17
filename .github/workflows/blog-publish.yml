@@ -1,4 +1,6 @@
-# Tự đăng blog: mỗi giờ (phút 7) kiểm bài vừa đến giờ đăng → gọi deploy hook Cloudflare Pages (build lại site) → báo IndexNow.
+# Tự đăng blog: mỗi giờ (phút 7) kiểm bài vừa đến giờ đăng → gọi deploy hook Cloudflare Pages (build lại site) → báo IndexNow
+# → ping WebSub cho RSS từng ngôn ngữ → ghi sổ băm nội dung (content/protection/registry.jsonl, bằng chứng tác quyền) + commit.
+# Commit sổ có [CF-Pages-Skip] (Cloudflare không build lại). Header X-Lexkite-CI (secret LEXKITE_CI_HEADER) để qua WAF – docs/CONTENT-PROTECTION.md.
 # Không có bài đến hạn → không làm gì (không tốn lượt build). Secret cần: CF_PAGES_DEPLOY_HOOK (xem docs/SEO-PLAN.md "Vận hành blog").
 name: Blog publish
 on:
@@ -11,7 +13,7 @@ on:
         type: boolean
         default: false
 permissions:
-  contents: read
+  contents: write
 concurrency:
   group: blog-publish
   cancel-in-progress: false
@@ -45,3 +47,24 @@ jobs:
       - name: IndexNow
         if: steps.due.outputs.count != '0' || inputs.force
         run: node scripts/indexnow.mjs < due.txt
+      - name: WebSub (PubSubHubbub) cho RSS các ngôn ngữ có bài mới
+        if: steps.due.outputs.count != '0' || inputs.force
+        continue-on-error: true
+        run: node scripts/websub-ping.mjs < due.txt
+      - name: Sổ băm nội dung (bằng chứng tác quyền)
+        if: steps.due.outputs.count != '0'
+        continue-on-error: true
+        env:
+          LEXKITE_CI_HEADER: ${{ secrets.LEXKITE_CI_HEADER }}
+        run: node scripts/content-registry.mjs record --wait 600 < due.txt
+      # (chỗ cho bước Wayback của Antigravity: scripts/wayback-snapshot.mjs < due.txt → recordArchive() ghi vào cùng sổ)
+      - name: Commit sổ đăng ký
+        if: steps.due.outputs.count != '0'
+        run: |
+          node scripts/content-registry.mjs verify
+          git add content/protection/registry.jsonl 2>/dev/null || true
+          git diff --cached --quiet && { echo "· sổ không đổi"; exit 0; }
+          git config user.name "lexkite-bot"; git config user.email "lexkiteapp@users.noreply.github.com"
+          git commit -qm "Registry: băm bài vừa đăng $(date -u +%FT%H:%MZ) [CF-Pages-Skip]"
+          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
+          exit 1

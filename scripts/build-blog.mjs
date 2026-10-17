@@ -211,6 +211,7 @@ function layout({ lang, title, desc, url, alt = [], img, imgAlt, type = 'website
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <meta name="robots" content="${robots}">
+<meta name="author" content="Lexkite">
 <link rel="canonical" href="${SITE}${url}">
 ${alt.map(a => `<link rel="alternate" hreflang="${a.lang}" href="${SITE}${a.url}">`).join('\n')}
 <link rel="alternate" type="application/rss+xml" title="${esc(C.blogName[lang] || C.blogName.en)}" href="${SITE}${b}rss.xml">
@@ -323,6 +324,7 @@ ${pages > 1 ? `<nav class="pager" aria-label="${t.page}">${n > 1 ? `<a rel="prev
 <description>${xe(C.blogDesc[lang] || C.blogDesc.en)}</description>
 <language>${lang}</language>
 <atom:link href="${SITE}${b}rss.xml" rel="self" type="application/rss+xml"/>
+<atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
 ${list[0] ? `<lastBuildDate>${new Date(when(list[0])).toUTCString()}</lastBuildDate>\n` : ''}${list.slice(0, 20).map(p => `<item><title>${xe(p.title)}</title><link>${SITE}${postUrl(p)}</link><guid isPermaLink="true">${SITE}${postUrl(p)}</guid><pubDate>${new Date(when(p)).toUTCString()}</pubDate><category>${xe(catName(p.category, p.lang))}</category><description>${xe(p.description)}</description></item>`).join('\n')}
 </channel>
 </rss>

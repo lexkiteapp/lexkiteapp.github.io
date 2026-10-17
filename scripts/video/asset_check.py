@@ -507,8 +507,7 @@ def alpha_flicker(alphas):
 
 
 def floor_shadow(alpha, rgb=None):
-    """Bóng sàn dính = vùng XÁM NHẠT ít bão hoà ở 4 % đáy mặt nạ (không phải giày trắng / viền tối).
-    Trả tỉ lệ điểm "giống bóng" trên tổng điểm mặt nạ ở dải đáy (0..1). Không có màu → cách cũ (bề ngang đáy/mắt cá) chia 4 để cùng thang."""
+    """Bóng sàn dính = điểm bán trong suốt ở 4 % đáy mặt nạ. Trả tỉ lệ trên tổng điểm mặt nạ ở dải đáy (0..1); `rgb` giữ cho tương thích, không dùng."""
     on = alpha > 24
     b = bbox(on)
     if not b:
@@ -516,13 +515,6 @@ def floor_shadow(alpha, rgb=None):
     x0, y0, x1, y1 = b
     hh = y1 - y0 + 1
     band = slice(max(y0, y1 - max(2, int(hh * 0.04))), y1 + 1)
-    if rgb is None:
-        def width(y):
-            xs = np.nonzero(on[y])[0]
-            return (xs.max() - xs.min() + 1) if len(xs) else 0
-        bot = max(width(y) for y in range(band.start, y1 + 1))
-        ankle = max(1, max(width(y) for y in range(y1 - int(hh * 0.10), y1 - int(hh * 0.06) + 1)))
-        return bot / ankle / 4
     # Bóng dính do tách nền: điểm BÁN TRONG SUỐT (alpha 24–200) ở dải đáy – giày/quần luôn đặc (≈250); viền khử răng cưa chỉ 1–2 px nên tỉ lệ thấp.
     a = alpha[band]; m = a > 24
     semi = m & (a < 200)

@@ -384,7 +384,7 @@
    "key": "drive-pool",
    "name": "Kho Drive riêng (Google Drive API, OAuth drive.file)",
    "kind": "storage",
-   "purpose": "Sao lưu nguồn 2 của kho dựng video (bản gốc, clip stacked, bản dựng): chủ dự án nối 1+ Google Drive của mình ở Quản trị → Kho Drive (web/js/admin-drive.js) qua /api/drive (functions/api/drive.js, D1 bảng drives/drive_files/drive_folders/drive_nonce). OAuth Web client trong Google Cloud project của tài khoản chính thức, scope drive.file + openid email (không nhạy cảm), redirect https://lexkite.com/api/drive/callback; refresh token mã hoá AES-GCM trong D1; byte file PUT thẳng vào phiên resumable của Google. CLI/CI: scripts/video/library.mjs (backend drive, sync --backup-only, drive-backup trong library-build.yml). Env Cloudflare Pages: secret GOOGLE_DRIVE_CLIENT_ID, secret GOOGLE_DRIVE_CLIENT_SECRET, secret DRIVE_ENC_KEY (32 byte base64), secret LEXKITE_DRIVE_CLI_KEY (≥ 24 ký tự, trùng với GitHub Actions secret + ~/.config/lexkite/drive-cli-key). Hướng dẫn: docs/ASSET-LIBRARY.md §8.6",
+   "purpose": "Sao lưu nguồn 2 của kho dựng video (bản gốc, clip stacked, bản dựng): chủ dự án nối 1+ Google Drive của mình ở Quản trị → Kho Drive (web/js/admin-drive.js) qua /api/drive (functions/api/drive.js + _drive_files.js, D1 bảng drives/drive_files/drive_folders/drive_nonce/drive_refs/drive_alerts/drive_meta/drive_audit). Trình duyệt file + dọn dẹp thông minh + sổ kho + nhật ký trong admin; ảnh thu nhỏ qua proxy ký /api/drive/thumb (cache Cloudflare). Chia đều theo tỉ lệ đã dùng, bản gốc 2 bản trên 2 Drive, rebalance/repair. Cảnh báo chủ động: health.yml hằng ngày (library.mjs drive-health) + kiểm lười khi mở admin; thư nghiêm trọng qua lexkite-mail (MAIL) → REPORT_NOTIFY_EMAIL, ≤ 1 thư/loại/24 h. OAuth Web client trong Google Cloud project của tài khoản chính thức, scope drive.file + openid email (không nhạy cảm), redirect https://lexkite.com/api/drive/callback; refresh token mã hoá AES-GCM trong D1; byte file PUT thẳng vào phiên resumable của Google. CLI/CI: scripts/video/library.mjs (backend drive, sync --backup-only, drive-backup trong library-build.yml). Env Cloudflare Pages: secret GOOGLE_DRIVE_CLIENT_ID, secret GOOGLE_DRIVE_CLIENT_SECRET, secret DRIVE_ENC_KEY (32 byte base64), secret LEXKITE_DRIVE_CLI_KEY (≥ 24 ký tự, trùng với GitHub Actions secret + ~/.config/lexkite/drive-cli-key). Hướng dẫn: docs/ASSET-LIBRARY.md §8.6",
    "console": "https://console.cloud.google.com/auth/clients",
    "free": "Google Drive API miễn phí (hạn mức theo phút); dung lượng = gói của từng tài khoản Google (15 GB miễn phí/tài khoản)",
    "upgrade": "Nối thêm Drive (tài khoản khác) hoặc Google One cho tài khoản đang nối",
@@ -392,7 +392,24 @@
    "match": [
     "accounts.google.com",
     "oauth2.googleapis.com",
-    "console.cloud.google.com"
+    "console.cloud.google.com",
+    "thumb.lexkite.internal"
+   ]
+  },
+  {
+   "key": "api-keys",
+   "name": "Kho khóa API (Quản trị → Khóa API)",
+   "kind": "ai",
+   "purpose": "Quản lý & xoay vòng khóa nhà cung cấp (Gemini, Groq, OpenRouter, Anthropic, OpenAI, Resend, Brevo, Cloudflare): web/js/admin-keys.js → /api/keys (functions/api/keys.js), kho dùng chung functions/api/_keys.js (ai.js gọi Gemini + Workers AI qua kho). D1 lexkite-sync bảng api_keys (giá trị khóa mã hóa AES-GCM, chỉ trả last4), api_key_events (lỗi theo khóa), key_alerts (cảnh báo, thư qua lexkite-mail ≤ 1/loại/24 h), key_audit (nhật ký); config 'keys:health', 'keys:mail:*'. Env Cloudflare Pages: secret KEYS_ENC_KEY (32 byte base64, openssl rand -base64 32); biến khóa chỉ đọc: GEMINI_KEY, GROQ_API_KEY, OPENROUTER_API_KEY, ANTHROPIC_API_KEY, OPENAI_API_KEY, RESEND_API_KEY, BREVO_API_KEY, CF_AI_TOKEN. Kiểm sức khỏe gọi endpoint miễn phí của từng nhà cung cấp. Hướng dẫn: docs/API-KEYS.md",
+   "console": "https://lexkite.com/admin.html#keys",
+   "free": "Không tốn phí; trần miễn phí ước lượng/khóa/ngày: Gemini 20 · Groq 1.000 · OpenRouter 50 · Resend 100 · Brevo 300",
+   "upgrade": "Thêm khóa (tài khoản khác) hoặc nâng gói ở nhà cung cấp",
+   "status": "Chờ đặt secret KEYS_ENC_KEY",
+   "match": [
+    "api.groq.com",
+    "openrouter.ai",
+    "api.anthropic.com",
+    "api.openai.com"
    ]
   },
   {
@@ -451,6 +468,69 @@
    "upgrade": "—",
    "status": "Đang đăng ký",
    "match": []
+  },
+  {
+   "key": "cf-waf",
+   "name": "Cloudflare WAF + Rate limiting (zone lexkite.com)",
+   "kind": "security",
+   "purpose": "Chống cào nội dung: 2 luật custom (lexkite_scraper_ua chặn UA công cụ/UA trống; lexkite_headless thử thách HeadlessChrome) + 1 luật rate limit (lexkite_content_rl > 40 req/10 s/IP → managed challenge) CHỈ trên trang nội dung tĩnh (/<lang>/blog/, /tu-vung/, /ngu-phap/, /samples/, /speaking/, /viet-thu/, /en/vocabulary|samples|speaking/, /packs/); không bao giờ /api/*, /sw.js, /js/*; miễn cf.client.bot + header X-Lexkite-CI (secret GitHub LEXKITE_CI_HEADER, bản sao ~/.config/lexkite/ci-header). Mã: scripts/cf-waf.mjs (dry-run|perms|apply|verify|live), luật ở scripts/lib/cf-waf-rules.mjs. Token áp luật: ~/.config/lexkite/cf-waf-token (Zone WAF Edit). KHÔNG bật Bot Fight Mode (gói Free không miễn trừ được → chặn CI/add-on). Tài liệu docs/CONTENT-PROTECTION.md",
+   "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/lexkite.com/security/security-rules",
+   "free": "Free: 5 luật custom, 1 luật rate limit (chu kỳ 10 s, biểu thức chỉ path + verified bot)",
+   "upgrade": "Pro 20 USD/tháng khi cần rate limit theo header/host hoặc > 1 luật",
+   "status": "Miễn phí",
+   "match": []
+  },
+  {
+   "key": "indexnow",
+   "name": "IndexNow (Bing, Yandex, Seznam, Naver…)",
+   "kind": "seo",
+   "purpose": "Báo URL bài mới ngay khi đăng (scripts/indexnow.mjs trong blog-publish.yml; kèm trang danh sách blog từng ngôn ngữ). Khóa công khai web/<key>.txt",
+   "console": "https://www.bing.com/indexnow",
+   "free": "Miễn phí, tối đa 10.000 URL/lần",
+   "upgrade": "—",
+   "status": "Đang dùng",
+   "match": [
+    "api.indexnow.org"
+   ]
+  },
+  {
+   "key": "websub",
+   "name": "WebSub hub Google (pubsubhubbub.appspot.com)",
+   "kind": "seo",
+   "purpose": "RSS /<lang>/blog/rss.xml khai báo <atom:link rel=\"hub\">; scripts/websub-ping.mjs báo hub mỗi lần đăng (blog-publish.yml) → bên đăng ký thấy bài sớm, củng cố dấu thời gian đăng trước. (Không dùng Google Indexing API – chỉ cho JobPosting/BroadcastEvent)",
+   "console": "https://pubsubhubbub.appspot.com/",
+   "free": "Miễn phí",
+   "upgrade": "—",
+   "status": "Đang dùng",
+   "match": [
+    "pubsubhubbub.appspot.com"
+   ]
+  },
+  {
+   "key": "content-registry",
+   "name": "Sổ băm nội dung (bằng chứng tác quyền)",
+   "kind": "storage",
+   "purpose": "content/protection/registry.jsonl – chỉ ghi thêm, nối chuỗi băm SHA-256: băm HTML live + nguồn .md mỗi bài khi đăng (blog-publish.yml), ảnh chụp băm kho nội dung học hằng tuần (content-protect.yml), URL bản lưu Wayback (recordArchive() trong scripts/lib/content-registry.mjs, script scripts/wayback-snapshot.mjs của Antigravity). Commit [CF-Pages-Skip] không tốn lượt build. Dùng cho DMCA: docs/legal/DMCA-KIT.md",
+   "console": "https://github.com/lexkiteapp/lexkiteapp.github.io/commits/main/content/protection/registry.jsonl",
+   "free": "Miễn phí (git)",
+   "upgrade": "Tách file theo năm khi > 5 MB",
+   "status": "Đang dùng",
+   "match": [
+    "web.archive.org"
+   ]
+  },
+  {
+   "key": "brave-search",
+   "name": "Brave Search API (tùy chọn)",
+   "kind": "seo",
+   "purpose": "Dò bản sao chép hằng tuần (scripts/copy-watch.mjs trong content-protect.yml): tìm nguyên văn 1 câu đặc trưng/bài. Chỉ chạy khi có secret GitHub BRAVE_SEARCH_KEY; chưa có → in câu để tra tay",
+   "console": "https://api-dashboard.search.brave.com/",
+   "free": "Gói Free ~2.000 truy vấn/tháng, 1/giây (dùng ~25/tháng)",
+   "upgrade": "—",
+   "status": "Chưa bật (chờ khóa)",
+   "match": [
+    "api.search.brave.com"
+   ]
   },
   {
    "key": "claude",

@@ -9,7 +9,9 @@
 //   node scripts/video/library.mjs report
 //   node scripts/video/library.mjs stack [id|all] [--force]    bản stacked cho render (clip_to_layer.py) + ghi brand/library/manifest.json
 //   node scripts/video/library.mjs render-manifest              chỉ ghi lại + kiểm brand/library/manifest.json
-//   node scripts/video/library.mjs drive-backup [dir]          sao lưu bản gốc + bản stacked (dir artifact CI) lên Kho Drive riêng (LEXKITE_DRIVE_CLI_KEY)
+//   node scripts/video/library.mjs drive-backup [dir] [--repair] sao lưu bản gốc (2 bản/2 Drive) + bản stacked (1 bản) lên Kho Drive riêng (LEXKITE_DRIVE_CLI_KEY)
+//   node scripts/video/library.mjs drive-refs | drive-health [--dry-run] | where <id|sha|tên>   tham chiếu dọn dẹp · kiểm sức khoẻ + sửa bản sao · tra vị trí
+//   node scripts/video/library.mjs verify [--deep] [--repair]  (--repair: chép bù bản sao Kho Drive còn thiếu)
 //   node scripts/video/library.mjs vision-cal [--runs N] [--model @cf/...]   hiệu chỉnh AI thị giác trên bộ mẫu scripts/video/vision-calibration.json
 //   CI (.github/workflows/library-build.yml): ci-plan [missing|all|id,…] · ci-build <id> --out dir · ci-apply <dir> [--no-sync]
 // Nguồn chính: repo lexkite-media/library/ (bản web: WebP ≤ 400 KB, MP4 H.264 CRF 20) → https://media.lexkite.com/library/…
@@ -648,6 +650,7 @@ export function writeRenderManifest(m, file = path.join(LIB, 'manifest.json'), e
     }
     if (!c) rm.clips.push(c = { id, who: e.who, tags: e.tags, outfit: OUTFIT[e.who] || 'casual', mouth: (e.roles || []).includes('speaker'), facing: 'front' });
     Object.assign(c, { file: e.id, alpha: 'stacked', roles: e.roles, foot: st.foot, figH: st.figH, w: st.w, h: st.h, ready: true });
+    const dc = driveCopies(st.drive); if (dc.length) c.drive = dc.map(x => ({ driveId: x.driveId, email_masked: x.email_masked || '', fileId: x.fileId })); // tra soát: bản stacked nằm ở Drive nào
     done.add(id);
   }
   for (const c of rm.clips) if (!done.has(c.id)) {
@@ -796,17 +799,23 @@ export async function driveReady(deps = {}) {
   catch { driveState = false; }
   return driveState;
 }
-/** Tải 1 file lên Kho Drive (bỏ qua nếu sha đã có). → {driveId, fileId}. */
-export async function driveUpload(file, { name, folder, sha, mimeType }, deps = {}) {
-  const fetcher = deps.fetcher || fetch, buf = fs.readFileSync(file), sh = sha || sha256(buf);
-  const s0 = await driveApi('upload_session', { name, mime: mimeType || mime(file), size: buf.length, sha256: sh, folder }, deps);
-  if (s0.done) return { driveId: s0.drive_id, fileId: s0.file_id, existed: true };
-  if (!/^https:\/\/www\.googleapis\.com\/upload\//.test(String(s0.upload_url || ''))) throw new Error('Drive không trả phiên tải lên');
-  const chunk = s0.chunk || 8 << 20; let res, off = 0;
-  if (buf.length <= 64 << 20) res = await fetcher(s0.upload_url, { method: 'PUT', headers: { 'Content-Type': mimeType || mime(file) }, body: buf });
+/** Che một phần email (log/CLI/manifest) – khớp maskEmail của functions/api/drive.js. */
+export const maskEmail = e => { const m = String(e || '').match(/^([^@]+)@(.+)$/); if (!m) return ''; const u = m[1]; return (u.length <= 2 ? u[0] + '*' : u.slice(0, 2) + '***' + u.slice(-1)) + '@' + m[2]; };
+/** locations.drive (mới: mảng bản sao [{driveId, email_masked, fileId, sha256, at}] · cũ: {status:'ok', driveId, fileId}) → mảng. */
+export function driveCopies(v) {
+  if (Array.isArray(v)) return v.filter(x => x && x.fileId);
+  if (v && v.fileId && (v.status === 'ok' || v.status == null)) return [{ driveId: v.driveId, fileId: v.fileId, sha256: v.sha256, at: v.at }];
+  return [];
+}
+/** Số bản sao cần: bản gốc approved/reserve → 2 (2 Drive khác nhau), reject → 1. */
+export const driveWant = e => (e.status === 'reject' ? 1 : 2);
+async function putSession(fetcher, url, buf, ct, chunk) {
+  if (!/^https:\/\/www\.googleapis\.com\/upload\//.test(String(url || ''))) throw new Error('Drive không trả phiên tải lên');
+  let res, off = 0;
+  if (buf.length <= 64 << 20) res = await fetcher(url, { method: 'PUT', headers: { 'Content-Type': ct }, body: buf });
   else while (off < buf.length) {
     const end = Math.min(buf.length, off + chunk);
-    res = await fetcher(s0.upload_url, { method: 'PUT', headers: { 'Content-Range': `bytes ${off}-${end - 1}/${buf.length}` }, body: buf.subarray(off, end) });
+    res = await fetcher(url, { method: 'PUT', headers: { 'Content-Range': `bytes ${off}-${end - 1}/${buf.length}` }, body: buf.subarray(off, end) });
     if (res.status === 200 || res.status === 201) break;
     if (res.status !== 308) throw new Error('PUT khúc ' + res.status);
     const rg = res.headers.get('Range'); off = rg && /bytes=0-(\d+)/.test(rg) ? +RegExp.$1 + 1 : end;
@@ -814,15 +823,63 @@ export async function driveUpload(file, { name, folder, sha, mimeType }, deps = 
   if (!res || (res.status !== 200 && res.status !== 201)) throw new Error('PUT Drive ' + (res && res.status));
   const fid = (await res.json().catch(() => ({}))).id;
   if (!fid) throw new Error('Drive không trả id file');
-  await driveApi('complete', { drive_id: s0.drive_id, file_id: fid, sha256: sh }, deps);
-  return { driveId: s0.drive_id, fileId: fid };
+  return fid;
+}
+/** Mọi bản sao 'ok' của 1 sha trên Kho Drive (email đã che). */
+export async function driveWhere(sha, deps = {}) {
+  const j = await driveApi('where', { q: sha, gstate: 'ok' }, deps);
+  return (j.copies || []).filter(c => c.sha256 === sha).map(c => ({ driveId: c.drive_id, email_masked: c.email_masked || '', fileId: c.file_id, sha256: c.sha256, at: today() }));
+}
+/** Tải 1 file lên Kho Drive: máy chủ chọn đủ số bản sao trên các Drive KHÁC NHAU (bỏ qua bản đã có). → {driveId, fileId, copies, want, short?}. */
+export async function driveUpload(file, { name, folder, sha, mimeType, replicas, cls, assetId }, deps = {}) {
+  const fetcher = deps.fetcher || fetch, buf = fs.readFileSync(file), sh = sha || sha256(buf), ct = mimeType || mime(file);
+  const run = process.env.GITHUB_RUN_ID || undefined;
+  const s0 = await driveApi('upload_session', { name, mime: ct, size: buf.length, sha256: sh, folder, replicas, cls, asset_id: assetId, run }, deps);
+  let existed = !!s0.done, first = s0.done ? { driveId: s0.drive_id, fileId: s0.file_id } : null;
+  if (!s0.done) for (const ss of (s0.sessions || [{ drive_id: s0.drive_id, upload_url: s0.upload_url }])) {
+    const fid = await putSession(fetcher, ss.upload_url, buf, ct, s0.chunk || 8 << 20);
+    await driveApi('complete', { drive_id: ss.drive_id, file_id: fid, sha256: sh }, deps);
+    if (!first) first = { driveId: ss.drive_id, fileId: fid };
+  }
+  const copies = await driveWhere(sh, deps).catch(() => []);
+  if (s0.short) log(`⚠ ${name}: chỉ đủ ${s0.want - s0.short}/${s0.want} bản sao (thiếu Drive còn chỗ) – nối thêm Drive hoặc chạy verify --repair sau`);
+  return { ...first, existed, copies, want: s0.want || 1, short: s0.short || 0 };
 }
 const driveFolderOf = rel => 'originals' + (path.posix.dirname(rel) !== '.' ? '/' + path.posix.dirname(rel) : '');
 /** Sao lưu bản gốc 1 mục lên Drive → ghi e.locations.drive. */
 async function driveBackupEntry(e, file, deps) {
-  const r = await driveUpload(file, { name: path.posix.basename(e.file), folder: driveFolderOf(e.file), sha: e.sha256 }, deps);
-  e.locations.drive = { status: 'ok', driveId: r.driveId, fileId: r.fileId, sha256: e.sha256, at: today() };
+  const r = await driveUpload(file, { name: path.posix.basename(e.file), folder: driveFolderOf(e.file), sha: e.sha256, cls: 'original', replicas: driveWant(e), assetId: e.id }, deps);
+  e.locations.drive = r.copies.length ? r.copies : [{ driveId: r.driveId, email_masked: '', fileId: r.fileId, sha256: e.sha256, at: today() }]; // tra soát: tài nguyên → Drive nào
+  delete e.locations.drivePending;
   return r;
+}
+const driveDone = e => { const c = driveCopies(e.locations.drive).filter(x => !x.sha256 || x.sha256 === e.sha256); return c.length >= driveWant(e); };
+/** Đẩy tham chiếu manifest lên máy chủ (drive_refs) – cleanup_scan dùng để tìm file mồ côi / reject cũ. */
+export function driveRefs(m, rm) {
+  const lib = [], man = [];
+  for (const e of m.items) {
+    lib.push({ s: e.sha256, st: e.status }); for (const c of driveCopies(e.locations && e.locations.drive)) lib.push({ s: e.sha256, f: c.fileId, st: e.status });
+    const st = e.variants && e.variants.stacked; if (st) { if (st.sha256) lib.push({ s: st.sha256, st: e.status }); for (const c of driveCopies(st.drive)) lib.push({ f: c.fileId, st: e.status }); }
+  }
+  for (const k of ['rooms', 'clips', 'stills']) for (const x of (rm && rm[k]) || []) { if (x.file) man.push({ n: path.posix.basename(x.file), st: 'approved' }); for (const c of driveCopies(x.drive)) man.push({ f: c.fileId, st: 'approved' }); }
+  return { library: lib, manifest: man };
+}
+export async function pushDriveRefs(m, deps = {}) {
+  let rm = null; try { rm = JSON.parse(fs.readFileSync(path.join(LIB, 'manifest.json'), 'utf8')); } catch { rm = null; }
+  const r = driveRefs(m, rm);
+  const a = await driveApi('refs_sync', { source: 'library', items: r.library }, deps), b = await driveApi('refs_sync', { source: 'manifest', items: r.manifest }, deps);
+  return { library: a.count, manifest: b.count };
+}
+/** Chép bù bản sao thiếu (máy chủ chép Drive → Drive), lặp tới khi xong hoặc không tiến triển. */
+async function driveRepairLoop(deps = {}) {
+  let last = Infinity, total = 0;
+  for (let i = 0; i < 50; i++) {
+    const r = await driveApi('repair', { max_files: 5 }, deps);
+    total += (r.done || []).length; for (const f of r.failed || []) log(`! sửa bản sao ${f.name}: ${f.error}`);
+    if (!r.remaining || r.remaining >= last || !(r.done || []).length) { if ((r.lost_only || []).length) log(`⚠ ${r.lost_only.length} file chỉ còn trên Drive mất kết nối – cần tải lại từ máy/nguồn chính`); log(`Sửa bản sao: chép ${total} · còn thiếu ${r.remaining || 0}`); return r.remaining || 0; }
+    last = r.remaining;
+  }
+  return last;
 }
 /** CI (library-build): sao lưu bản stacked trong <dir> + bản gốc clip (tải từ library/src, kiểm sha) lên Drive. */
 async function cmdDriveBackup(dir, opts) {
@@ -834,10 +891,10 @@ async function cmdDriveBackup(dir, opts) {
     let rj; try { rj = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')); } catch { continue; }
     const e = m.items.find(x => x.id === rj.id), mp4 = path.join(dir, f.replace(/\.json$/, '.mp4'));
     if (!e || rj.alpha !== 'stacked' || !fs.existsSync(mp4)) continue;
-    await one(e.id + ' (stacked)', async () => { const r = await driveUpload(mp4, { name: path.posix.basename(e.id), folder: 'stacked/clips', sha: rj.sha256 }); e.variants = e.variants || {}; e.variants.stacked = { ...(e.variants.stacked || {}), drive: { driveId: r.driveId, fileId: r.fileId } }; return r; });
+    await one(e.id + ' (stacked)', async () => { const r = await driveUpload(mp4, { name: path.posix.basename(e.id), folder: 'stacked/clips', sha: rj.sha256, cls: 'render', replicas: 1, assetId: e.id + '#stacked' }); e.variants = e.variants || {}; e.variants.stacked = { ...(e.variants.stacked || {}), drive: r.copies.length ? r.copies : [{ driveId: r.driveId, email_masked: '', fileId: r.fileId }] }; return r; });
   }
   for (const e of m.items) {
-    if (e.locations.drive && e.locations.drive.status === 'ok' && e.locations.drive.sha256 === e.sha256) { have++; continue; }
+    if (driveDone(e)) { have++; continue; }
     let file = path.join(LIB, e.file);
     if (!fs.existsSync(file) && e.locations.src && e.locations.src.url) { // CI: lấy bản gốc lossless từ nguồn chính, kiểm sha
       const rr = await fetch(e.locations.src.url).catch(() => null), buf = rr && rr.ok ? Buffer.from(await rr.arrayBuffer()) : null;
@@ -849,7 +906,35 @@ async function cmdDriveBackup(dir, opts) {
   }
   saveManifest(m);
   log(`Kho Drive: tải ${up} · đã có ${have} · lỗi ${fail}`);
+  try { const r = await pushDriveRefs(m); log(`Kho Drive: đồng bộ tham chiếu (library ${r.library} · manifest ${r.manifest})`); } catch (err) { log('! đồng bộ tham chiếu Drive: ' + scrub(err.message)); }
+  if (opts.repair) await driveRepairLoop();
   return fail ? 1 : 0;
+}
+
+/** Kiểm sức khoẻ Kho Drive (GitHub Actions hằng ngày – health.yml): quota, token, ngưỡng 80/90 %, thư cảnh báo (máy chủ gửi). Thiếu bản sao → tự sửa. */
+async function cmdDriveHealth(opts) {
+  if (!driveCliKey()) { log('… chưa có LEXKITE_DRIVE_CLI_KEY – bỏ qua kiểm Kho Drive'); return 0; }
+  const r = await driveApi('health');
+  for (const d of r.drives || []) log(`${d.ok ? '✓' : '✗'} Drive #${d.id}: ${d.state}${d.pct != null ? ' · ' + d.pct + '%' : ''}${d.paused ? ' · tự ngừng nhận file' : ''}${d.fails ? ' · lỗi mạng ' + d.fails : ''}`);
+  for (const a of r.alerts || []) log(`${a.level === 'crit' ? '⛔' : '⚠'} ${a.t}${a.p && a.p.email ? ' ' + maskEmail(a.p.email) : ''}${a.p && a.p.pct ? ' ' + a.p.pct + '%' : ''}`);
+  if (r.mailed && r.mailed.length) log(`✉ đã gửi thư: ${r.mailed.join(', ')}`);
+  log(`Bản sao: thiếu ${r.under_replicated || 0} · chỉ 1 bản ${r.single || 0} · chỉ trên Drive mất kết nối ${r.lost_only || 0}`);
+  if (r.under_replicated && !opts.dryRun) await driveRepairLoop();
+  return (r.alerts || []).some(a => a.level === 'crit') ? 2 : 0;
+}
+/** library.mjs where <id|sha|tên> – vị trí mọi bản sao (email che một phần). */
+async function cmdWhere(q) {
+  if (!q) throw new Error('cần <id|sha|tên>');
+  const m = loadManifest(), hits = m.items.filter(e => e.id === q || e.file === q || e.sha256.startsWith(q.toLowerCase()) || path.posix.basename(e.file) === q);
+  const keys = hits.length ? hits.map(e => ({ label: `${e.id} (${e.status})`, q: e.sha256 })) : [{ label: q, q }];
+  let n = 0;
+  for (const k of keys) {
+    log(`• ${k.label}`);
+    const j = await driveApi('where', { q: k.q });
+    for (const c of j.copies || []) { n++; log(`   Drive #${c.drive_id} ${c.email_masked} · ${c.folder || '/'}/${c.name} · ${c.file_id} · ${c.status} · ${c.copies}/${c.want || 1} bản`); }
+    if (!(j.copies || []).length) log('   (không có trên Kho Drive)');
+  }
+  return n ? 0 : 1;
 }
 
 // ---------- sync ----------
@@ -922,12 +1007,11 @@ async function cmdSync(opts) {
   if (!opts.primaryOnly && await driveReady()) { // nguồn phụ ưu tiên: Kho Drive riêng (đã nối trong Quản trị); không có → GrabCast
     let up = 0, have = 0, fail = 0;
     for (const e of m.items) {
-      const dv = e.locations.drive || {};
-      if (dv.status === 'ok' && dv.sha256 === e.sha256) { have++; continue; }
+      if (driveDone(e)) { have++; continue; }
       const file = path.join(LIB, e.file);
       if (!fs.existsSync(file) || opts.dryRun) continue;
-      try { const r = await driveBackupEntry(e, file); if (r.existed) have++; else up++; }
-      catch (err) { fail++; e.locations.drive = { status: 'pending', reason: scrub(err.message).slice(0, 160) }; log(`! ${e.id}: ${scrub(err.message)}`); if (err.code === 'pool_full') { log('⚠ Kho Drive hết chỗ (chừa 5 % / 256 MB) – nối thêm Drive trong Quản trị → Kho Drive'); code = 2; break; } }
+      try { const r = await driveBackupEntry(e, file); if (r.existed && !r.short) have++; else up++; }
+      catch (err) { fail++; e.locations.drivePending = { status: 'pending', reason: scrub(err.message).slice(0, 160) }; if (!Array.isArray(e.locations.drive)) e.locations.drive = driveCopies(e.locations.drive); log(`! ${e.id}: ${scrub(err.message)}`); if (err.code === 'pool_full') { log('⚠ Kho Drive hết chỗ (chừa 5 % / 256 MB) – nối thêm Drive trong Quản trị → Kho Drive'); code = 2; break; } }
       saveManifest(m);
     }
     log(`Nguồn phụ Kho Drive: tải ${up} · đã có ${have} · lỗi ${fail}`);
@@ -979,9 +1063,13 @@ export async function verifyEntry(e, deps) {
       else if (!t || t.sha !== sr.gitSha) gaps.push('src: repo thiếu/khác sha');
     }
   }
-  const b = (e.locations && e.locations.backup) || {}, dv = (e.locations && e.locations.drive) || {};
-  if (dv.status === 'ok') { // Kho Drive: kiểm sha có trong drive_files (list?sha256=…)
-    if (deps.driveHave) { const h = await deps.driveHave(e.sha256); if (!h) gaps.push('backup: Kho Drive không có sha ' + e.sha256.slice(0, 12)); else if (h.size != null && +h.size !== e.bytes) gaps.push(`backup: Drive dung lượng ${h.size} ≠ ${e.bytes}`); }
+  const b = (e.locations && e.locations.backup) || {}, dvc = driveCopies(e.locations && e.locations.drive);
+  if (dvc.length) { // Kho Drive: kiểm sha có trong drive_files (list?sha256=…) + đủ số bản sao (2 Drive khác nhau cho bản gốc approved/reserve)
+    if (deps.driveHave) {
+      const h = await deps.driveHave(e.sha256);
+      if (!h) gaps.push('backup: Kho Drive không có sha ' + e.sha256.slice(0, 12));
+      else { if (h.size != null && +h.size !== e.bytes) gaps.push(`backup: Drive dung lượng ${h.size} ≠ ${e.bytes}`); if (h.copies != null && h.copies < driveWant(e)) gaps.push(`backup: Kho Drive chỉ có ${h.copies}/${driveWant(e)} bản sao`); }
+    }
   } else if (b.status !== 'ok') gaps.push(`backup: ${b.status || 'chưa có'}${b.reason ? ' (' + b.reason + ')' : ''}`);
   else {
     const o = await deps.gcGet(b.objectId);
@@ -1002,7 +1090,7 @@ async function cmdVerify(opts) {
     head: async url => { const r = await fetch(url, { method: 'HEAD' }).catch(() => null); return r && { status: r.status, length: r.headers.get('content-length') }; },
     sha: async url => sha256(Buffer.from(await (await fetch(url)).arrayBuffer())),
     driveHave: await (async () => { // 1 lượt list theo lô sha (≤ 200/lượt) cho mọi mục đã lên Drive
-      const shas = m.items.filter(e => e.locations.drive && e.locations.drive.status === 'ok').map(e => e.sha256), have = {};
+      const shas = m.items.filter(e => driveCopies(e.locations.drive).length).map(e => e.sha256), have = {};
       if (!shas.length || !driveCliKey()) return null;
       for (let i = 0; i < shas.length; i += 200) { const j = await driveApi('list', { sha256: shas.slice(i, i + 200) }).catch(() => null); if (!j) return null; Object.assign(have, j.have || {}); }
       return async sha => have[sha] || null;
@@ -1017,6 +1105,7 @@ async function cmdVerify(opts) {
     if (real.length) { gaps += real.length; counts.gap++; log(`✗ ${e.id}: ${real.join(' · ')}`); } else counts.ok++;
   }
   log(`\nverify: ${counts.ok} mục đủ · ${counts.gap} mục thiếu (${gaps} lỗi) · backup chờ: ${pend.length}`);
+  if (opts.repair && driveCliKey()) { const left = await driveRepairLoop(); if (!left) log('✓ Kho Drive: đủ bản sao'); }
   if (pend.length) log('  ' + OWNER_STEP_GC);
   return gaps ? 1 : 0;
 }
@@ -1118,7 +1207,7 @@ function cmdReport() {
   log(`Thiếu clip vai nghe: ${c.missing.listener.join(', ') || '–'}`);
   log(`Thiếu phòng (${c.missing.rooms.length}/${NEED.rooms.length * 4}): ${c.missing.rooms.join(' ')}`);
   const bk = m.items.reduce((a, e) => ((a[(e.locations.backup || {}).status || 'none'] = (a[(e.locations.backup || {}).status || 'none'] || 0) + 1), a), {});
-  log(`\nSao lưu: chính ${m.items.filter(e => e.locations.primary).length}/${c.counts.approved} approved · GrabCast ${JSON.stringify(bk)} · Kho Drive ${m.items.filter(e => e.locations.drive && e.locations.drive.status === 'ok').length}/${m.items.length}`);
+  log(`\nSao lưu: chính ${m.items.filter(e => e.locations.primary).length}/${c.counts.approved} approved · GrabCast ${JSON.stringify(bk)} · Kho Drive ${m.items.filter(e => driveCopies(e.locations.drive).length).length}/${m.items.length} (đủ bản sao ${m.items.filter(driveDone).length})`);
   const chk = m.items.reduce((a, e) => ((a[(e.check || {}).status || '–'] = (a[(e.check || {}).status || '–'] || 0) + 1), a), {});
   log(`Check: ${JSON.stringify(chk)}`);
   return 0;
@@ -1131,7 +1220,7 @@ function parseArgs(argv) {
     const a = argv[i];
     if (!a.startsWith('--')) { o._.push(a); continue; }
     const k = a.slice(2).replace(/-([a-z])/g, (_, c) => c.toUpperCase());
-    if (['reserve', 'reject', 'trimmed', 'replace', 'ref', 'force', 'noSync', 'dryRun', 'primaryOnly', 'backupOnly', 'deep', 'noVision'].includes(k)) o[k] = true;
+    if (['reserve', 'reject', 'trimmed', 'replace', 'ref', 'force', 'noSync', 'dryRun', 'primaryOnly', 'backupOnly', 'deep', 'noVision', 'repair'].includes(k)) o[k] = true;
     else o[k] = argv[++i];
   }
   if (o.qa != null) o.qa = +o.qa;
@@ -1157,6 +1246,9 @@ async function main() {
       : cmd === 'report' ? cmdReport()
       : cmd === 'stack' ? await cmdStack(o._[0] || 'all', o)
       : cmd === 'drive-backup' ? await cmdDriveBackup(o._[0] || 'out/library', o)
+      : cmd === 'drive-refs' ? (r => { log(`drive_refs: library ${r.library} · manifest ${r.manifest}`); return 0; })(await pushDriveRefs(loadManifest()))
+      : cmd === 'drive-health' ? await cmdDriveHealth(o)
+      : cmd === 'where' ? await cmdWhere(o._[0])
       : cmd === 'vision-cal' ? await cmdVisionCal(o)
       : cmd === 'ci-plan' ? cmdCiPlan(o._[0] || 'missing', o)
       : cmd === 'ci-build' ? await cmdCiBuild(o._[0], o)

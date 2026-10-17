@@ -84,7 +84,14 @@
     const nt = (a.newToday && b.newToday && a.newToday.day === b.newToday.day) ? { day: a.newToday.day, n: Math.max(a.newToday.n, b.newToday.n) } : (a.newToday && a.newToday.day > (b.newToday || {}).day ? a.newToday : b.newToday || a.newToday);
     const ha = Array.isArray(a.hours) ? a.hours : [], hb = Array.isArray(b.hours) ? b.hours : []; // giờ hay học (nhắc thông minh)
     const hours = ha.length || hb.length ? Array.from({ length: 24 }, (_, i) => Math.max(ha[i] || 0, hb[i] || 0)) : undefined;
-    return { days, newToday: nt, ...(hours ? { hours } : {}) };
+    // Đóng băng chuỗi: ngày đã dùng = hợp; lượt còn: cùng tuần → lấy ít hơn (không nhân đôi lượt giữa 2 máy), khác tuần → theo tuần mới hơn
+    const fa = a.freeze, fb = b.freeze; let freeze;
+    if (fa || fb) {
+      const x = fa || {}, y = fb || {}, used = [...new Set([...(x.used || []), ...(y.used || [])])].sort().slice(-60);
+      const left = x.week === y.week ? Math.min(+x.left || 0, +y.left || 0) : ((x.week || '') > (y.week || '') ? +x.left || 0 : +y.left || 0);
+      freeze = { left, week: (x.week || '') > (y.week || '') ? x.week : y.week, used, ...((x.lastSave || y.lastSave) ? { lastSave: (x.lastSave || '') > (y.lastSave || '') ? x.lastSave : y.lastSave } : {}) };
+    }
+    return { days, newToday: nt, ...(hours ? { hours } : {}), ...(freeze ? { freeze } : {}) };
   }
   // Gộp bảng điểm 2 thiết bị: giữ điểm cao nhất của mỗi bài
   const maxMerge = (x = {}, y = {}) => { const o = { ...(x || {}) }; for (const [k, v] of Object.entries(y || {})) o[k] = typeof v === 'number' && typeof o[k] === 'number' ? Math.max(o[k], v) : (o[k] != null ? o[k] : v); return o; };

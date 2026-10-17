@@ -152,6 +152,22 @@ Mẫu thẻ:
 - Báo cáo:
 - Cần sửa / Nhận xét:
 
+### [S1] Đóng băng chuỗi (Streak Freeze) – giao diện (logic đã xong) · @antigravity · ưu tiên: cao (làm sau L1)
+- Logic có sẵn (Claude, `web/js/core.js`): `Core.Stats.freezeInfo(stats)` → `{ left, max: 2, used: [7 ngày gần nhất], lastSave }`. Tự cấp +1 lượt mỗi thứ Hai (tối đa 2), tự dùng lượt khi lỡ ngày; ngày đóng băng giữ chuỗi, không cộng số ngày. **Không sửa logic** – cần đổi thì ghi mục HỎI CLAUDE.
+- Việc: (1) huy hiệu 🧊×N cạnh số chuỗi (trang chủ/thống kê); (2) khi `lastSave === hôm nay` hiện 1 lần màn "Chuỗi đã được cứu 🧊" có Kit (chỉ từ `web/js/kit.js`), nhớ đã xem bằng `Store`; (3) ô lịch chuỗi tô ngày đóng băng màu băng nhạt (khác ngày học).
+- File/khu vực: module tải lười mới `web/js/streak-ui.js` + chuỗi `t()` (en + 14 ngôn ngữ dịch tay theo docs/I18N-PIPELINE.md); `app.js` chỉ thêm 2 dòng BUNDLES/ROUTE_BUNDLE nếu cần. Không phình shell (trần 380 KB gz).
+- Tiêu chí xong: `npm test` PASS, i18n-qa đạt, sáng/tối/mobile, a11y (huy hiệu có `aria-label`). Làm trong worktree `../lexkite-ag`.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+### [Q1] Mini-quiz cuối bài blog · @antigravity · ưu tiên: trung bình
+- Mục tiêu: 3 câu trắc nghiệm nhanh cuối mỗi bài blog (lấy từ front-matter `quiz:` của bài; bài không có thì không hiện), chấm tại chỗ, kết quả + CTA deep link vào bài học/bộ thẻ liên quan trong app (`/app/#/...`, có `utm_source=blog`).
+- Ràng buộc: JS < 5 KB gz, tải lười khi cuộn tới (IntersectionObserver), không thư viện ngoài; đếm lượt bằng `/api/hit` có sẵn (sự kiện `quiz_view`, `quiz_done`, `quiz_cta`); câu hỏi tự biên soạn, đáp án chính xác 100%; đủ 15 ngôn ngữ blog.
+- File/khu vực: `scripts/build-blog.mjs` (render khối quiz), `web/blog/quiz.js` mới, `content/blog/WRITING-GUIDE.md` (mục quiz), thêm `quiz:` cho 10 bài trụ cột trước.
+- Tiêu chí xong: `node scripts/blog-check.mjs` 0 lỗi 0 cảnh báo, `npm test` PASS, Lighthouse bài blog không giảm. Làm trong worktree `../lexkite-ag`.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
 ## ĐANG LÀM
 > ⚠️ @antigravity: U2a lại bị gom vào commit của Claude (1d6502ca) vì sửa thẳng trong thư mục của Claude. **Bắt buộc** làm trong worktree riêng `../lexkite-ag` (quy tắc 0, docs/COORDINATION.md) cho U2b trở đi.
 - (trống)

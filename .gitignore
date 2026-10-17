@@ -51,3 +51,4 @@ brand/library/**/*.svg
 brand/library/**/*.src
 brand/library/_web/
 brand/library/_review/
+brand/library/_cache/

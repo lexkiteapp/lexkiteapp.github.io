@@ -7,7 +7,9 @@
   let LANG = (() => { try { const v = localStorage.getItem('lk.admLang'); if (v === 'vi' || v === 'en') return v; } catch (e) { /* bỏ qua */ } return /^vi/i.test(navigator.language || '') ? 'vi' : 'en'; })();
   const EN = {
     // Thanh trên, đăng nhập, tab
-    'Tổng quan': 'Overview', 'Phân tích': 'Analytics', 'Người dùng': 'Users', 'Hộp thư': 'Inbox', 'Cảnh báo': 'Alerts', 'Chất lượng': 'Quality', 'Dịch vụ & API': 'Services & API', 'Cài đặt': 'Settings', 'Kho Drive': 'Drive storage',
+    'Drive {e} mất kết nối – bấm Kết nối lại': 'Drive {e} disconnected – click Reconnect', 'Drive {e}: Google không phản hồi {n} lần liên tiếp': 'Drive {e}: Google failed {n} times in a row', 'Drive {e}: tải lên lỗi {n} lần liên tiếp': 'Drive {e}: {n} uploads failed in a row',
+    'Drive {e} đã dùng {p}%': 'Drive {e} is {p}% full', 'Toàn kho chỉ còn {g} GB trống': 'Whole pool has only {g} GB free', '{n} file chỉ còn 1 bản sao': '{n} file(s) have only 1 copy', '(+{n} cảnh báo khác)': '(+{n} more)', 'Xem Kho Drive': 'Open Drive storage',
+    'Tổng quan': 'Overview', 'Phân tích': 'Analytics', 'Người dùng': 'Users', 'Hộp thư': 'Inbox', 'Cảnh báo': 'Alerts', 'Chất lượng': 'Quality', 'Dịch vụ & API': 'Services & API', 'Cài đặt': 'Settings', 'Kho Drive': 'Drive storage', 'Khóa API': 'API keys',
     'Trang quản trị Lexkite': 'Lexkite Admin', 'Chỉ tài khoản quản trị được cấp quyền.': 'Authorized admin accounts only.', 'Đăng nhập bằng Google': 'Sign in with Google',
     'Về app': 'Back to app', 'Về trang chủ Lexkite': 'Back to the Lexkite home page', 'Tự động (theo máy)': 'Auto (system)', 'Sáng': 'Light', 'Tối': 'Dark', 'Giao diện: {m} – bấm để đổi': 'Theme: {m} – click to change', 'Đổi giao diện sáng/tối': 'Switch light/dark theme',
     'Đổi ngôn ngữ': 'Change language', 'Ngôn ngữ: Tiếng Việt – bấm để chuyển sang English': 'Language: English – click to switch to Vietnamese', 'Thoát': 'Sign out',
@@ -221,21 +223,35 @@
     user = u;
     if (!u) return;
     renderMe(u);
-    try { const h = location.hash.slice(1); await show(VIEWS[h] ? h : 'overview'); $('#tabs').hidden = false; denied = false; badges(); }
+    try { const h = location.hash.slice(1).split(/[/?]/)[0]; await show(VIEWS[h] ? h : 'overview'); $('#tabs').hidden = false; denied = false; badges(); }
     catch (e) { denied = true; noAccess(u); }
   });
   $('#tabs').onclick = e => { const b = e.target.closest('button[data-tab]'); if (b) show(b.dataset.tab); };
 
-  addEventListener('hashchange', () => { const h = location.hash.slice(1); if (VIEWS[h] && h !== tab && user) show(h); }); // gõ/đổi #tab trên thanh địa chỉ → chuyển tab
+  addEventListener('hashchange', () => { const h = location.hash.slice(1).split(/[/?]/)[0]; if (VIEWS[h] && h !== tab && user) show(h); }); // gõ/đổi #tab trên thanh địa chỉ → chuyển tab
   async function show(t) {
-    stopLive(); tab = t; try { history.replaceState(null, '', '#' + t); } catch (e) { /* bỏ qua */ } document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === t));
+    stopLive(); tab = t; try { const cur = location.hash.slice(1); history.replaceState(null, '', '#' + t + (cur.split(/[/?]/)[0] === t ? cur.slice(t.length) : '')); } catch (e) { /* bỏ qua */ } document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === t));
     main.innerHTML = `<div class="adm-loading-grid"><div class="skeleton-head"></div><div class="skeleton-grid">${'<div class="skeleton-card"></div>'.repeat(8)}</div></div>`;
     await VIEWS[t]();
   }
   async function badges() {
+    driveAlerts();
     const [o, a] = await Promise.all([api('overview'), api('alerts')]);
     $('#inboxN').textContent = o.inbox.open || '';
     $('#alertN').textContent = a.rows.filter(r => !r.ok).length || '';
+  }
+  // Cảnh báo chủ động Kho Drive (functions/api/drive.js op alerts – máy chủ tự kiểm lười khi > 6 h): banner đỏ/vàng trên mọi tab + huy hiệu tab Kho Drive
+  const DRV_T = { conn: 'Drive {e} mất kết nối – bấm Kết nối lại', net: 'Drive {e}: Google không phản hồi {n} lần liên tiếp', upload: 'Drive {e}: tải lên lỗi {n} lần liên tiếp', quota: 'Drive {e} đã dùng {p}%', pool: 'Toàn kho chỉ còn {g} GB trống', replica: '{n} file chỉ còn 1 bản sao' };
+  async function driveAlerts() {
+    let r; try { r = await dapi('alerts'); } catch (e) { return; }
+    const al = r.alerts || [], crit = al.filter(a => a.level === 'crit'), b = $('#drvN');
+    if (b) { b.textContent = al.length ? (crit.length ? '⛔' : '⚠') + al.length : ''; b.className = crit.length ? 'drv-crit' : ''; }
+    let el = $('#drvBanner');
+    if (!al.length) { if (el) el.remove(); return; }
+    if (!el) { el = document.createElement('div'); el.id = 'drvBanner'; el.setAttribute('role', 'alert'); main.parentNode.insertBefore(el, main); }
+    const top = crit[0] || al[0], p = top.p || {};
+    el.className = 'drv-banner ' + (crit.length ? 'crit' : 'warn');
+    el.innerHTML = `<b>${crit.length ? '⛔' : '⚠️'} ${L('Kho Drive')}:</b> ${esc(L(DRV_T[top.t] || DRV_T.conn, { e: p.email || '', n: p.n || '', p: p.pct || '', g: p.gb ?? '' }))}${al.length > 1 ? ' ' + esc(L('(+{n} cảnh báo khác)', { n: al.length - 1 })) : ''} <a href="#drive">${L('Xem Kho Drive')}</a>`;
   }
   const NODATA = () => `<p class="small muted">${L('Chưa có dữ liệu')}</p>`;
   // Biểu đồ 24 cột giờ trong ngày
@@ -793,6 +809,19 @@
       main.innerHTML = '';
       if (!window.AdminDrive) await new Promise((y, n) => { const sc = document.createElement('script'); sc.src = 'js/admin-drive.js'; sc.onload = y; sc.onerror = n; document.head.appendChild(sc); });
       AdminDrive.render(main, dapi, L, { esc, when, lang: () => LANG });
+    },
+    async keys() { // Khóa API (kho khóa nhà cung cấp, mã hóa, xoay vòng) – js/admin-keys.js (tải lười) → /api/keys (functions/api/keys.js)
+      main.innerHTML = '';
+      const kapi = async (op, body = {}) => {
+        const u = auth.currentUser || user; if (!u) throw new Error(L('Phiên đăng nhập đã hết – đăng nhập lại rồi thử lại'));
+        const r = await fetch('/api/keys', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await u.getIdToken() }, body: JSON.stringify({ op, ...body }) });
+        const j = await r.json().catch(() => ({}));
+        if (r.status === 401 && j.error === 'reauth') { if (confirm(L('Cần đăng nhập lại để xác nhận thao tác quan trọng. Đăng nhập lại ngay?'))) { await auth.signOut(); await signIn(); } throw new Error('reauth'); }
+        if (!r.ok) { const e = new Error(j.error || 'HTTP ' + r.status); e.code = j.error; e.status = r.status; throw e; }
+        return j;
+      };
+      if (!window.AdminKeys) await new Promise((y, n) => { const sc = document.createElement('script'); sc.src = 'js/admin-keys.js'; sc.onload = y; sc.onerror = n; document.head.appendChild(sc); });
+      AdminKeys.render(main, kapi, L, { esc, num, when, lang: () => LANG });
     },
     async quota() { // Hạn mức & chống lạm dụng – js/admin-quota.js (tải lười, tự gọi /api/quota)
       main.innerHTML = '';

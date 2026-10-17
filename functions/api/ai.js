@@ -7,6 +7,7 @@
  * Kết quả lưu đệm trong D1 theo hash đề + bài → chấm lại cùng bài không tốn lượt. */
 import { claims } from './sync.js';
 import { gate } from './_quota.js';
+import { candidates, report, poolKeys, resetPool, coolingValue, isUsable, gemFetch, maybeHealth } from './_keys.js';
 
 const MAX_PROMPT = 14000;
 const WAI_MODEL = '@cf/meta/llama-3.1-8b-instruct-fast';
@@ -28,52 +29,48 @@ async function setup(db) {
   ready = true;
 }
 
-// Nhiều khóa Gemini xoay vòng: biến bí mật GEMINI_KEY (nếu có) + danh sách khóa quản trị thêm ở Quản trị (D1 config 'gemini_keys').
-// Khóa bị giới hạn (429/403 hết lượt) → "tạm nghỉ" 1 giờ (Cache API ở biên) → tự dùng khóa kế tiếp; hết khóa → Workers AI.
-let gkCache = { v: [], at: 0 };
-export async function geminiKeys(env) {
-  if (Date.now() - gkCache.at > 120000) {
-    let list = [];
-    try { const rows = (await env.DB.prepare("SELECT k, v FROM config WHERE k IN ('gemini_keys', 'gemini_key')").all()).results || []; for (const r of rows) { if (r.k === 'gemini_keys') { try { list.push(...JSON.parse(r.v).map(x => x.k)); } catch (e) { /* bỏ qua */ } } else if (r.v) list.push(r.v); } } catch (e) { /* chưa có bảng */ }
-    gkCache = { v: [...new Set(list.filter(Boolean))], at: Date.now() };
-  }
-  return [...new Set([env.GEMINI_KEY, ...gkCache.v].filter(Boolean))];
-}
-export const resetGeminiCache = () => { gkCache.at = 0; };
-const coolKey = k => new Request('https://gemini-cool.lexkite.internal/' + k.slice(-10));
-export async function isCooling(k) { try { return !!(await /** @type {any} */ (caches).default.match(coolKey(k))); } catch (e) { return false; } }
-async function cool(k) { try { await /** @type {any} */ (caches).default.put(coolKey(k), new Response('1', { headers: { 'Cache-Control': 'max-age=3600' } })); } catch (e) { /* bỏ qua */ } }
-// Gọi Google Gemini: qua Worker proxy ghim tại Mỹ (env.GEM) nếu có, tránh vùng Gemini chưa hỗ trợ; không có thì gọi thẳng
-export async function gemFetch(env, path, key, body, method = 'POST') {
-  if (env.GEM) return env.GEM.fetch('https://gem.internal/', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ path, method, key, body }) });
-  return fetch('https://generativelanguage.googleapis.com/v1beta/' + path, { method, headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key }, body: method === 'GET' ? undefined : JSON.stringify(body) });
-}
-// Gọi Gemini với khóa xoay vòng (bắt đầu ở vị trí ngẫu nhiên để chia tải); trả { text, key } hoặc null nếu mọi khóa đều lỗi/hết lượt
+// Nhiều khóa Gemini xoay vòng – kho khóa dùng chung functions/api/_keys.js (Quản trị → Khóa API): D1 api_keys (mã hóa) + biến bí mật
+// GEMINI_KEY (chỉ đọc) + danh sách cũ D1 config 'gemini_keys' (tự nhập). Chọn theo trọng số × lượt còn lại, xoay vòng khi hòa;
+// 401/403/khóa sai → dead · 429 → nghỉ tới giờ reset · lỗi mạng 3 lần → nghỉ 15 phút; hết khóa dùng được → Workers AI.
+export async function geminiKeys(env) { return poolKeys(env, 'gemini'); }
+export const resetGeminiCache = () => resetPool();
+export async function isCooling(k) { return coolingValue(k); }
+export { gemFetch };
+// Gọi Gemini với khóa xoay vòng; trả { text, key } hoặc null nếu mọi khóa đều lỗi/hết lượt
 export let gemDiag = '';
 // Mô hình theo thứ tự ưu tiên: Google ngừng cấp 2.5-flash cho khóa mới (2026) → dùng 3.8-flash, 2.5 dự phòng cho khóa cũ
 export const GEM_MODELS = ['gemini-3.8-flash', 'gemini-2.5-flash'];
 export let gemModel = GEM_MODELS[0];
 export async function geminiCall(env, body, model) {
-  const keys = await geminiKeys(env); gemDiag = `keys=${keys.length} gem=${!!env.GEM}`; if (!keys.length) return null;
-  const start = Math.floor(Math.random() * keys.length);
-  for (let n = 0; n < keys.length; n++) {
-    const k = keys[(start + n) % keys.length]; if (await isCooling(k)) continue;
-    let r; try { for (const m of model ? [model] : GEM_MODELS) { r = await gemFetch(env, `models/${m}:generateContent`, k, body); if (r.status !== 404) { gemModel = m; break; } } } catch (e) { continue; }
-    if (!r.ok) gemDiag += ` …${k.slice(-4)}:${r.status}:${(await r.clone().text().catch(() => "")).replace(/\s+/g, " ").slice(0, 400)}`;
-    if (!r.ok) console.log('gemini', k.slice(-4), r.status, (await r.clone().text().catch(() => '')).slice(0, 200)); // xem bằng wrangler pages deployment tail
-    if (r.status === 429 || r.status === 403 || r.status === 401) { await cool(k); continue; } // hết lượt / khóa hỏng → nghỉ 1 giờ, thử khóa khác
-    if (!r.ok) continue;
+  const list = await candidates(env, 'gemini'); gemDiag = `keys=${list.length} gem=${!!env.GEM}`; if (!list.length) return null;
+  for (const c of list) {
+    const k = c.key;
+    let r; try { for (const m of model ? [model] : GEM_MODELS) { r = await gemFetch(env, `models/${m}:generateContent`, k, body); if (r.status !== 404) { gemModel = m; break; } } } catch (e) { await report(env, c.id, 'err', 'net'); continue; }
+    if (!r.ok) {
+      const t = (await r.clone().text().catch(() => '')).slice(0, 600);
+      gemDiag += ` …${k.slice(-4)}:${r.status}:${t.replace(/\s+/g, ' ').slice(0, 400)}`;
+      console.log('gemini', k.slice(-4), r.status, t.slice(0, 200)); // xem bằng wrangler pages deployment tail
+      await report(env, c.id, 'err', r.status, { text: t, retryAfter: r.headers.get('Retry-After') }); // hết lượt / khóa hỏng → kho khóa cho nghỉ/đánh dấu, thử khóa khác
+      continue;
+    }
     const j = await r.json().catch(() => null); const text = j && (((j.candidates || [])[0] || {}).content || { parts: [] }).parts.map(p => p.text || '').join('');
-    if (text) return { text, key: k.slice(-4) };
+    if (text) { await report(env, c.id, 'ok'); return { text, key: k.slice(-4) }; }
   }
   return null;
+}
+// Workers AI (binding env.AI) – dòng 'env:AI' trong kho khóa: hết 10.000 neuron/ngày → nghỉ tới 0 h UTC; lỗi khác → tạm thời
+const waiCode = e => { const m = String((e && e.message) || e); return /4006|neuron|daily free allocation/i.test(m) ? 429 : /3040|capacity|rate/i.test(m) ? 429 : 'net'; };
+async function waiRun(env, input) {
+  if (!isUsable('env:AI')) throw new Error('no-model'); // đang nghỉ (hết neuron hôm nay) → báo bận như cũ
+  try { const res = await env.AI.run(WAI_MODEL, input); await report(env, 'env:AI', 'ok'); return res; }
+  catch (e) { await report(env, 'env:AI', 'err', waiCode(e), { text: /4006|neuron|daily/i.test(String(e && e.message)) ? 'PerDay' : '' }); throw e; }
 }
 
 async function runModel(env, sys, prompt, temp = 0.2, use = { gemini: true, wai: true }) {
   const g = use.gemini && await geminiCall(env, { systemInstruction: { parts: [{ text: sys }] }, contents: [{ role: 'user', parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json', temperature: temp } });
   if (g) { const out = parseJSON(g.text); if (out) return { out, model: gemModel }; }
   if (!env.AI || !use.wai) throw new Error('no-model');
-  const res = await env.AI.run(WAI_MODEL, { messages: [{ role: 'system', content: sys + '\nReply with ONE valid JSON object only, no markdown.' }, { role: 'user', content: prompt }], max_tokens: 2048, temperature: temp, response_format: { type: 'json_object' } });
+  const res = await waiRun(env, { messages: [{ role: 'system', content: sys + '\nReply with ONE valid JSON object only, no markdown.' }, { role: 'user', content: prompt }], max_tokens: 2048, temperature: temp, response_format: { type: 'json_object' } });
   const raw = res && (res.response ?? res.result?.response);
   const out = raw && typeof raw === 'object' ? raw : parseJSON(raw); // chế độ JSON có thể trả sẵn object
   if (!out) throw new Error('bad-json');
@@ -82,7 +79,7 @@ async function runModel(env, sys, prompt, temp = 0.2, use = { gemini: true, wai:
 
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: cors(request) });
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost({ request, env, waitUntil }) {
   if (!env.DB) return json(request, 500, { error: 'no-db' });
   let body; try { body = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
   const prompt = String(body.prompt || ''), sys = String(body.sys || '').slice(0, 4000), rp = body.kind === 'rp';
@@ -90,6 +87,7 @@ export async function onRequestPost({ request, env }) {
   const who = await claims((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')).catch(() => null);
   const q = await gate(request, env, rp ? 'chat' : 'ai', { who, json }); // khóa/burst/hết lượt → 429 { error:'quota', … }
   if (q.res) return q.res;
+  if (waitUntil) await maybeHealth(env, waitUntil); // kiểm sức khỏe khóa lười (> 24 h, chạy nền)
   try {
     await setup(env.DB);
     const h = await sha(sys + '\n' + prompt);

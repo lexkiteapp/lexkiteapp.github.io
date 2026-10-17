@@ -408,3 +408,11 @@ body.adm { background: var(--bg); min-height: 100vh; font-feature-settings: "cv0
 .adm-tabs { min-width: 0; scrollbar-width: none; } .adm-tabs::-webkit-scrollbar { display: none; }
 .adm-tabs button { flex: none; white-space: nowrap; }
 .adm-tabs { order: 3; flex-basis: 100%; } #me { margin-left: auto; } /* tab luôn ở hàng riêng – đủ chỗ cho 9 tab, không cắt chữ */
+
+/* Kho Drive – banner cảnh báo chủ động (admin.js driveAlerts) trên mọi tab */
+.drv-banner { max-width: 1240px; margin: .8rem auto 0; padding: .6rem 1rem; border-radius: 10px; font-size: .9rem; border: 1px solid; }
+.drv-banner.crit { background: #fdecec; border-color: #f3b4b4; color: #8a1c1c; } .drv-banner.warn { background: #fff6e0; border-color: #f3d48a; color: #7a4b00; }
+.drv-banner a { color: inherit; font-weight: 700; margin-left: .4rem; } #drvN.drv-crit { color: #d1343a; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .drv-banner.crit { background: #3a1a1c; border-color: #6b2a2e; color: #fca5a5; } :root:not([data-theme="light"]) .drv-banner.warn { background: #3a2e12; border-color: #6b5420; color: #fde68a; } }
+:root[data-theme="dark"] .drv-banner.crit { background: #3a1a1c; border-color: #6b2a2e; color: #fca5a5; } :root[data-theme="dark"] .drv-banner.warn { background: #3a2e12; border-color: #6b5420; color: #fde68a; }
+@media (max-width: 640px) { .drv-banner { margin: .6rem 16px 0; } }

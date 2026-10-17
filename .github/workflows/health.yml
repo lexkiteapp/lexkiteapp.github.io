@@ -55,10 +55,15 @@ jobs:
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           npx playwright install --with-deps chromium
           npm run test:toeic-read
+      - name: Kho Drive – quota, token, ngưỡng 80/90 %, bản sao (cảnh báo + thư do máy chủ gửi; docs/ASSET-LIBRARY.md §8.6.2)
+        id: drive
+        continue-on-error: true
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/video/library.mjs drive-health
       - name: Báo cáo (issue + email)
         env:
           GH_TOKEN: ${{ github.token }}
-          R: "test=${{ steps.test.outcome }} leak=${{ steps.leak.outcome }} tsc=${{ steps.tsc.outcome }} yaml=${{ steps.yaml.outcome }} live=${{ steps.live.outcome }} e2e=${{ steps.e2e.outcome }} toeicread=${{ steps.toeicread.outcome }}"
+          R: "test=${{ steps.test.outcome }} leak=${{ steps.leak.outcome }} tsc=${{ steps.tsc.outcome }} yaml=${{ steps.yaml.outcome }} live=${{ steps.live.outcome }} e2e=${{ steps.e2e.outcome }} toeicread=${{ steps.toeicread.outcome }} drive=${{ steps.drive.outcome }}"
         run: |
           RUN="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
           BAD=$(echo "$R" | tr ' ' '\n' | grep -v '=success' || true)
