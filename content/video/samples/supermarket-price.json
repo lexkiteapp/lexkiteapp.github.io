@@ -1,5 +1,5 @@
 {
- "_note": "Video thử 18/10: phòng Kling mới supermarket-01 (QA 90) + Mia/Leo (khách mua hàng) – kiểm đứng đúng sàn, cỡ người theo hồ sơ sàn tự động, khớp vai nói/nghe. Dựng trên CI: video-sample.yml với script=content/video/samples/supermarket-price.json",
+ "_note": "Video thử 18/10: phòng Kling mới supermarket-01 (QA 90) + Carlos (thu ngân) & Ama (khách) – Mia/Leo chưa có clip trang phục casual. Kiểm đứng đúng sàn, cỡ người theo hồ sơ sàn tự động, khớp vai nói/nghe. Dựng trên CI: video-sample.yml với script=content/video/samples/supermarket-price.json",
  "topic": "Ask about prices at the supermarket: \"How much is this?\" vs \"How much are these?\"",
  "format": "short",
  "script": {
@@ -8,13 +8,47 @@
   "scene": "supermarket",
   "time": "day",
   "lines": [
-   { "who": "mia", "beat": "hook", "text": "Wait, do I say \"how much is these\"?", "expr": "surprised", "gesture": "" },
-   { "who": "leo", "beat": "explain", "text": "One thing, how much is this. Two or more, how much are these.", "expr": "happy smile", "gesture": "pointing", "punch": true },
-   { "who": "mia", "beat": "example", "text": "Excuse me, how much are these apples?", "expr": "happy smile", "gesture": "" },
-   { "who": "kit", "beat": "tip", "text": "Kit's tip: this is, these are.", "expr": "proud", "gesture": "" },
-   { "who": "mia", "beat": "cta", "text": "Practice this free on lexkite.com", "expr": "happy smile", "gesture": "waving hello" }
+   {
+    "who": "ama",
+    "beat": "hook",
+    "text": "Wait, is it \"how much is these\"?",
+    "expr": "surprised",
+    "gesture": "hands on cheeks"
+   },
+   {
+    "who": "carlos",
+    "beat": "explain",
+    "text": "For one thing, say how much is this. For two or more, how much are these.",
+    "expr": "happy smile",
+    "gesture": "open hands",
+    "punch": true
+   },
+   {
+    "who": "ama",
+    "beat": "example",
+    "text": "Excuse me, how much are these apples?",
+    "expr": "happy smile",
+    "gesture": "thinking"
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: this is, these are.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "cta",
+    "text": "Practice this free on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
   ],
-  "keywords": ["how much is this", "how much are these"],
+  "keywords": [
+   "how much is this",
+   "how much are these"
+  ],
   "caption": "\"How much is this?\" vs \"How much are these?\" #englishtips #supermarket",
   "link": "https://lexkite.com/"
  }
