@@ -1,5 +1,6 @@
 /* 🧠 Khối "Hiểu sâu" của thẻ từ – tải lười cùng js/wordcard.js (giữ khung app nhẹ). Chỉ dùng token màu của style.css. */
 .wn.wc { display: block; padding: 0; background: none; border: 1px solid var(--line); border-radius: 16px; overflow: clip; }
+.wn.wc.wn-tr { display: none; } /* chờ dịch xong mới hiện (người học không phải tiếng Việt) – không được để .wn.wc ghi đè */
 .wc-head { padding: .55rem .9rem; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); background: var(--surface-2); }
 .wc-sec { --g: var(--muted); --gp: 62%; border-top: 1px solid var(--line); }
 .wc-m { --g: var(--gold); --gp: 50%; } .wc-e { --g: var(--again); } .wc-u { --g: var(--accent); } .wc-f { --g: var(--good); }

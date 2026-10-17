@@ -131,6 +131,10 @@ ok($('#result .wc .wc-pair'), 'từ điển: dùng chung khối Hiểu sâu (c�
 
 const real = errors.filter(e => !/Not implemented|navigation|Could not parse CSS/.test(e));
 ok(!real.length, 'không lỗi JS: ' + real.slice(0, 3).join(' | '));
+// CSS: khối Hiểu sâu đang chờ dịch phải ẩn – .wn.wc không được ghi đè .wn.wn-tr (lỗi 17/10: lộ tiếng Việt trên add-on ja/en/ar)
+{ const css = fs.readFileSync(new URL('../../web/css/wordcard.css', import.meta.url), 'utf8');
+  ok(/\.wn\.wc\.wn-tr\s*\{\s*display:\s*none/.test(css), 'CSS: .wn.wc.wn-tr { display: none } (chờ dịch thì ẩn)'); }
+
 if (fails) { console.log(`✗ wordcard-ui: ${fails}/${n} lỗi`); process.exit(1); }
 console.log(`✓ wordcard-ui: ${n} phép kiểm (thẻ từ mới · Hiểu sâu · chip · nút chấm FSRS)`);
 process.exit(0);
