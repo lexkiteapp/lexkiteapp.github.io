@@ -9,8 +9,9 @@
    "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qngEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AagwFLbGluZ0FJX0tvbG9yc19EaVRfSDgwMF8xX0tvbG9ycy12Ml82LXQyaS1vbW5pLXJlZmluZXItdjNfU0dQX1BST0RfYWlfd2ViXzMyNDIxNDg2NjUyMTIzM18zMDQyMGRiMDlkOWZhOGE3NDJhYTcyY2Q4ODBkZTI3OTh4NXVkLnBuZw.origin?x-kcdn-pid=112372",
    "w": 1536,
    "h": 2720,
-   "status": "pending-qa",
-   "note": ""
+   "status": "reject",
+   "note": "khung nhỏ giữa nền trống, không full-bleed",
+   "qa": 50
   },
   {
    "id": "clinic-01-day-9x16",
@@ -19,8 +20,9 @@
    "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qngEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AagwFLbGluZ0FJX0tvbG9yc19EaVRfSDgwMF8xX0tvbG9ycy12Ml82LXQyaS1vbW5pLXJlZmluZXItdjNfU0dQX1BST0RfYWlfd2ViXzMyNDIxNDg1NDUwMDI0MF85OTRhODUyYWZkYjdlOTM5NGJiMWI0OGEwNDNlYmY5NXY0YmthLnBuZw.origin?x-kcdn-pid=112372",
    "w": 1536,
    "h": 2720,
-   "status": "pending-qa",
-   "note": ""
+   "status": "approved",
+   "note": "",
+   "qa": 90
   },
   {
    "id": "supermarket-01-day-9x16",
@@ -29,8 +31,9 @@
    "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qngEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AagwFLbGluZ0FJX0tvbG9yc19EaVRfSDgwMF8xX0tvbG9ycy12Ml82LXQyaS1vbW5pLXJlZmluZXItdjNfU0dQX1BST0RfYWlfd2ViXzMyNDIxNDgxMTUyMjc3NF8yMGZlZmYxYmZhOTI1ODA1MGFkODM4N2Q5MWFjMTE0NXd3OTdyLnBuZw.origin?x-kcdn-pid=112372",
    "w": 1536,
    "h": 2720,
-   "status": "pending-qa",
-   "note": ""
+   "status": "approved",
+   "note": "",
+   "qa": 90
   },
   {
    "id": "restaurant-01-day-9x16",
@@ -39,8 +42,9 @@
    "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qngEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AagwFLbGluZ0FJX0tvbG9yc19EaVRfSDgwMF8xX0tvbG9ycy12Ml82LXQyaS1vbW5pLXJlZmluZXItdjNfU0dQX1BST0RfYWlfd2ViXzMyNDIxNDc5OTMwNjk3NV8wNzcwYjNkMjE3MDJjMDk4ZjBkYzM1YjllMTEyMDZkYndpMzk1LnBuZw.origin?x-kcdn-pid=112372",
    "w": 1536,
    "h": 2720,
-   "status": "pending-qa",
-   "note": ""
+   "status": "reject",
+   "note": "chậu cây tiền cảnh trái + bàn ghế lấn giữa",
+   "qa": 86
   },
   {
    "id": "hotel-lobby-01-day-9x16",
@@ -49,8 +53,9 @@
    "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qngEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AagwFLbGluZ0FJX0tvbG9yc19EaVRfSDgwMF8xX0tvbG9ycy12Ml82LXQyaS1vbW5pLXJlZmluZXItdjNfU0dQX1BST0RfYWlfd2ViXzMyNDIxNDc4NzUwMzg0MF8yN2UyODYxZDdjMzM4MGI0MWJjZDc3YmRiM2NkMjEzOW1rcXluLnBuZw.origin?x-kcdn-pid=112372",
    "w": 1536,
    "h": 2720,
-   "status": "pending-qa",
-   "note": ""
+   "status": "approved",
+   "note": "",
+   "qa": 92
   },
   {
    "id": "airport-checkin-01-day-9x16",
@@ -59,8 +64,9 @@
    "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qngEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AagwFLbGluZ0FJX0tvbG9yc19EaVRfSDgwMF8xX0tvbG9ycy12Ml82LXQyaS1vbW5pLXJlZmluZXItdjNfU0dQX1BST0RfYWlfd2ViXzMyNDIxNDc1NjUyNzMxM18xYWEyNTVhMGEyZGE2YzU4MGExYTVmNWFjNzAwNGE1OXprcmVwLnBuZw.origin?x-kcdn-pid=112372",
    "w": 1536,
    "h": 2720,
-   "status": "pending-qa",
-   "note": ""
+   "status": "reject",
+   "note": "dải nền trống trên/dưới (letterbox)",
+   "qa": 55
   },
   {
    "id": "library-01-day-9x16",
@@ -69,8 +75,9 @@
    "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qngEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AagwFLbGluZ0FJX0tvbG9yc19EaVRfSDgwMF8xX0tvbG9ycy12Ml82LXQyaS1vbW5pLXJlZmluZXItdjNfU0dQX1BST0RfYWlfd2ViXzMyNDIxNDc0NDMxMDMzNl85MDIzYjUxNzNmNDc0ZWUzNzI1NjdlMDAzNTBhZGE4YmdnYWFpLnBuZw.origin?x-kcdn-pid=112372",
    "w": 1536,
    "h": 2720,
-   "status": "pending-qa",
-   "note": ""
+   "status": "approved",
+   "note": "",
+   "qa": 92
   },
   {
    "id": "classroom-01-day-9x16",
@@ -79,8 +86,9 @@
    "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qngEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AagwFLbGluZ0FJX0tvbG9yc19EaVRfSDgwMF8xX0tvbG9ycy12Ml82LXQyaS1vbW5pLXJlZmluZXItdjNfU0dQX1BST0RfYWlfd2ViXzMyNDIxNDcwODUwNzg0M182YjUzMDBkZWEzM2JjMmIzOTlmYjJiOTExMmQ1NDVmY2NnMjdzLnBuZw.origin?x-kcdn-pid=112372",
    "w": 1536,
    "h": 2720,
-   "status": "pending-qa",
-   "note": ""
+   "status": "approved",
+   "note": "",
+   "qa": 90
   },
   {
    "id": "reception-01-day-9x16",
@@ -89,8 +97,9 @@
    "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qngEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AagwFLbGluZ0FJX0tvbG9yc19EaVRfSDgwMF8xX0tvbG9ycy12Ml82LXQyaS1vbW5pLXJlZmluZXItdjNfU0dQX1BST0RfYWlfd2ViXzMyNDIxNDY0OTMxMjgzM182NGQ3NWE0ZTlhMTZjMWRkNTM3YzgwMWM3MGYzMTg1NzE0Y3JjLnBuZw.origin?x-kcdn-pid=112372",
    "w": 1536,
    "h": 2720,
-   "status": "pending-qa",
-   "note": ""
+   "status": "approved",
+   "note": "",
+   "qa": 90
   },
   {
    "id": "meeting-01-day-9x16",
@@ -99,8 +108,9 @@
    "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qngEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AagwFLbGluZ0FJX0tvbG9yc19EaVRfSDgwMF8xX0tvbG9ycy12Ml82LXQyaS1vbW5pLXJlZmluZXItdjNfU0dQX1BST0RfYWlfd2ViXzMyNDIxNDU0OTMxNDI3NV83MDI5ZDdhOTI2ZjZjMTM5ZGQ1YmI5ZTQ3MDkwMzFiYms3NHdrLnBuZw.origin?x-kcdn-pid=112372",
    "w": 1536,
    "h": 2720,
-   "status": "reserve",
-   "note": "bàn giữa phòng + khung kính tiền cảnh – không đạt sàn trống"
+   "status": "reject",
+   "note": "bàn họp lớn chiếm giữa sàn",
+   "qa": 60
   }
  ]
 }

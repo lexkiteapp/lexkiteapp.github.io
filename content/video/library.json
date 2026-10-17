@@ -8685,6 +8685,92 @@
    }
   },
   {
+   "id": "rooms/airport-checkin-01-day-9x16.png",
+   "kind": "room",
+   "tags": [
+    "airport-checkin",
+    "day",
+    "9x16"
+   ],
+   "file": "rooms/airport-checkin-01-day-9x16.png",
+   "sha256": "9a0ee12e0d7001a1f4d008251455a24a64a74b3895b742da55dd0a342a39ef89",
+   "bytes": 4233775,
+   "w": 1536,
+   "h": 2720,
+   "qa": 55,
+   "source": {
+    "from": "../../../../tmp/claude-501/airport-checkin.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    },
+    "drive": [
+     {
+      "driveId": 3,
+      "email_masked": "",
+      "fileId": "1B6LFujSz8UDDddeCwL4LvJnLWcDhkuY2",
+      "sha256": "9a0ee12e0d7001a1f4d008251455a24a64a74b3895b742da55dd0a342a39ef89",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 1536,
+     "h": 2720,
+     "textScore": 0,
+     "brandShare": 0.866,
+     "floorBusy": 0.0141
+    },
+    "suggest": {
+     "floorProfile": {
+      "floor": {
+       "yNear": 2719,
+       "yFar": 1568
+      },
+      "vanish": [
+       762,
+       1234
+      ],
+      "scaleAt": {
+       "yFar": 1568,
+       "hFar": 378,
+       "yNear": 2719,
+       "hNear": 1682
+      },
+      "stand": [
+       {
+        "x": 261,
+        "y": 2258
+       },
+       {
+        "x": 614,
+        "y": 2258
+       },
+       {
+        "x": 967,
+        "y": 2258
+       }
+      ],
+      "light": {
+       "dir": -1,
+       "warmth": 0.41
+      },
+      "confidence": 0.61
+     }
+    }
+   }
+  },
+  {
    "id": "rooms/apartment-01-day-9x16.png",
    "kind": "room",
    "tags": [
@@ -9117,6 +9203,582 @@
    }
   },
   {
+   "id": "rooms/classroom-01-day-9x16.png",
+   "kind": "room",
+   "tags": [
+    "classroom",
+    "day",
+    "9x16"
+   ],
+   "file": "rooms/classroom-01-day-9x16.png",
+   "sha256": "00988c6e6a85552e6cebdb80c7d9ab6301ab118dcd89171d1d161d573e860c33",
+   "bytes": 4833734,
+   "w": 1536,
+   "h": 2720,
+   "qa": 90,
+   "source": {
+    "from": "../../../../tmp/claude-501/classroom.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "status": "approved",
+   "locations": {
+    "primary": {
+     "path": "rooms/classroom-01-day-9x16.webp",
+     "url": "https://media.lexkite.com/library/rooms/classroom-01-day-9x16.webp",
+     "sha256": "f7d53404a55ceeb511a4caf9204a71a1ea278dda1994b1afd6acb938caa0e564",
+     "gitSha": "c42d60bf8ecd62b5e9606cdc3c54391a18a25f70",
+     "bytes": 140792,
+     "srcSha": "00988c6e6a85552e6cebdb80c7d9ab6301ab118dcd89171d1d161d573e860c33",
+     "at": "2026-10-17"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/rooms/classroom-01-day-9x16.png",
+     "url": "https://media.lexkite.com/library/src/rooms/classroom-01-day-9x16.png",
+     "gitSha": "e35a786d108df39e8752d43e1228eb1dd72044a2",
+     "sha256": "00988c6e6a85552e6cebdb80c7d9ab6301ab118dcd89171d1d161d573e860c33",
+     "bytes": 4833734
+    },
+    "drive": [
+     {
+      "driveId": 3,
+      "email_masked": "",
+      "fileId": "1BybxcdcYBwwdkaNyc2fM8IV42StfXY-C",
+      "sha256": "00988c6e6a85552e6cebdb80c7d9ab6301ab118dcd89171d1d161d573e860c33",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 1536,
+     "h": 2720,
+     "textScore": 0.0134,
+     "brandShare": 0.743,
+     "floorBusy": 0
+    },
+    "suggest": {
+     "floorProfile": {
+      "floor": {
+       "yNear": 2719,
+       "yFar": 1111
+      },
+      "vanish": [
+       644,
+       865
+      ],
+      "scaleAt": {
+       "yFar": 1111,
+       "hFar": 278,
+       "yNear": 2719,
+       "hNear": 2101
+      },
+      "stand": [
+       {
+        "x": 261,
+        "y": 2075
+       },
+       {
+        "x": 614,
+        "y": 2075
+       },
+       {
+        "x": 967,
+        "y": 2075
+       }
+      ],
+      "light": {
+       "dir": 1,
+       "warmth": 0.77
+      },
+      "confidence": 0.62
+     }
+    }
+   }
+  },
+  {
+   "id": "rooms/clinic-01-day-9x16.png",
+   "kind": "room",
+   "tags": [
+    "clinic",
+    "day",
+    "9x16"
+   ],
+   "file": "rooms/clinic-01-day-9x16.png",
+   "sha256": "5ed585611e6f224eb71af3978b7c604c5727969798642c1906921512a9f4cd26",
+   "bytes": 5075054,
+   "w": 1536,
+   "h": 2720,
+   "qa": 90,
+   "source": {
+    "from": "../../../../tmp/claude-501/clinic.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "status": "approved",
+   "locations": {
+    "primary": {
+     "path": "rooms/clinic-01-day-9x16.webp",
+     "url": "https://media.lexkite.com/library/rooms/clinic-01-day-9x16.webp",
+     "sha256": "14f26f11086306761fe16f01c95e5a65646052927d72eee923a6164e82246e58",
+     "gitSha": "6eb49e64261b416b1ee4feba4a3d1480a2f35603",
+     "bytes": 181992,
+     "srcSha": "5ed585611e6f224eb71af3978b7c604c5727969798642c1906921512a9f4cd26",
+     "at": "2026-10-17"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/rooms/clinic-01-day-9x16.png",
+     "url": "https://media.lexkite.com/library/src/rooms/clinic-01-day-9x16.png",
+     "gitSha": "7129d5d6a27fa0054147d82e3cfaccb86d3d0af4",
+     "sha256": "5ed585611e6f224eb71af3978b7c604c5727969798642c1906921512a9f4cd26",
+     "bytes": 5075054
+    },
+    "drive": [
+     {
+      "driveId": 3,
+      "email_masked": "",
+      "fileId": "1P721Tew4G6boozmq__za-rJTn-6ZJgPO",
+      "sha256": "5ed585611e6f224eb71af3978b7c604c5727969798642c1906921512a9f4cd26",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 1536,
+     "h": 2720,
+     "textScore": 0.0056,
+     "brandShare": 0.481,
+     "floorBusy": 0.0094
+    },
+    "suggest": {
+     "floorProfile": {
+      "floor": {
+       "yNear": 2719,
+       "yFar": 2068
+      },
+      "vanish": [
+       696,
+       1521
+      ],
+      "scaleAt": {
+       "yFar": 2068,
+       "hFar": 619,
+       "yNear": 2719,
+       "hNear": 1357
+      },
+      "stand": [
+       {
+        "x": 261,
+        "y": 2458
+       },
+       {
+        "x": 920,
+        "y": 2458
+       },
+       {
+        "x": 1196,
+        "y": 2458
+       }
+      ],
+      "light": {
+       "dir": 1,
+       "warmth": 0.43
+      },
+      "confidence": 0.38
+     }
+    }
+   }
+  },
+  {
+   "id": "rooms/hotel-lobby-01-day-9x16.png",
+   "kind": "room",
+   "tags": [
+    "hotel-lobby",
+    "day",
+    "9x16"
+   ],
+   "file": "rooms/hotel-lobby-01-day-9x16.png",
+   "sha256": "f69003605545ca6da2882fadb46db90695bfd60c1d620a84d4b515444fd9f9b8",
+   "bytes": 4855668,
+   "w": 1536,
+   "h": 2720,
+   "qa": 92,
+   "source": {
+    "from": "../../../../tmp/claude-501/hotel-lobby.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "status": "approved",
+   "locations": {
+    "primary": {
+     "path": "rooms/hotel-lobby-01-day-9x16.webp",
+     "url": "https://media.lexkite.com/library/rooms/hotel-lobby-01-day-9x16.webp",
+     "sha256": "b3a970ad1b30655df33bb7a7514d953eb8ae6df784bb30496c11fb0f43be48e5",
+     "gitSha": "df627d44132997a9233bc019fe3f080b3f3a243c",
+     "bytes": 145712,
+     "srcSha": "f69003605545ca6da2882fadb46db90695bfd60c1d620a84d4b515444fd9f9b8",
+     "at": "2026-10-17"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/rooms/hotel-lobby-01-day-9x16.png",
+     "url": "https://media.lexkite.com/library/src/rooms/hotel-lobby-01-day-9x16.png",
+     "gitSha": "6dca165ec182157ee7659798630b4d290e1d4072",
+     "sha256": "f69003605545ca6da2882fadb46db90695bfd60c1d620a84d4b515444fd9f9b8",
+     "bytes": 4855668
+    },
+    "drive": [
+     {
+      "driveId": 3,
+      "email_masked": "",
+      "fileId": "1vwytvDj6n82K95dAiCqg-6UCiluSv12z",
+      "sha256": "f69003605545ca6da2882fadb46db90695bfd60c1d620a84d4b515444fd9f9b8",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 1536,
+     "h": 2720,
+     "textScore": 0,
+     "brandShare": 0.606,
+     "floorBusy": 0.0071
+    },
+    "suggest": {
+     "floorProfile": {
+      "floor": {
+       "yNear": 2719,
+       "yFar": 1454
+      },
+      "vanish": [
+       710,
+       1146
+      ],
+      "scaleAt": {
+       "yFar": 1454,
+       "hFar": 348,
+       "yNear": 2719,
+       "hNear": 1781
+      },
+      "stand": [
+       {
+        "x": 297,
+        "y": 2213
+       },
+       {
+        "x": 614,
+        "y": 2213
+       },
+       {
+        "x": 967,
+        "y": 2213
+       }
+      ],
+      "light": {
+       "dir": 1,
+       "warmth": 0.48
+      },
+      "confidence": 0.47
+     }
+    }
+   }
+  },
+  {
+   "id": "rooms/interview-01-day-9x16.png",
+   "kind": "room",
+   "tags": [
+    "interview",
+    "day",
+    "9x16"
+   ],
+   "file": "rooms/interview-01-day-9x16.png",
+   "sha256": "477c707dede930ed82c6fa1c315702983763cabce0712645e7295537d318d44d",
+   "bytes": 2698396,
+   "w": 1536,
+   "h": 2720,
+   "qa": 50,
+   "source": {
+    "from": "../../../../tmp/claude-501/interview.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    },
+    "drive": [
+     {
+      "driveId": 3,
+      "email_masked": "",
+      "fileId": "1BBxM4hdqNr8bID-WSiYsAfg72jWbAe-A",
+      "sha256": "477c707dede930ed82c6fa1c315702983763cabce0712645e7295537d318d44d",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 1536,
+     "h": 2720,
+     "textScore": 0,
+     "brandShare": 0.883,
+     "floorBusy": 0.0076
+    },
+    "suggest": {
+     "floorProfile": {
+      "floor": {
+       "yNear": 2719,
+       "yFar": 1757
+      },
+      "vanish": [
+       632,
+       1330
+      ],
+      "scaleAt": {
+       "yFar": 1757,
+       "hFar": 483,
+       "yNear": 2719,
+       "hNear": 1573
+      },
+      "stand": [
+       {
+        "x": 261,
+        "y": 2334
+       },
+       {
+        "x": 614,
+        "y": 2334
+       },
+       {
+        "x": 967,
+        "y": 2334
+       }
+      ],
+      "light": {
+       "dir": -1,
+       "warmth": 0.38
+      },
+      "confidence": 0.54
+     }
+    }
+   }
+  },
+  {
+   "id": "rooms/library-01-day-9x16.png",
+   "kind": "room",
+   "tags": [
+    "library",
+    "day",
+    "9x16"
+   ],
+   "file": "rooms/library-01-day-9x16.png",
+   "sha256": "bfa2572aec814c3878df346df607bb14ae6dc14fc264e0dea4acec187b01d00b",
+   "bytes": 5719905,
+   "w": 1536,
+   "h": 2720,
+   "qa": 92,
+   "source": {
+    "from": "../../../../tmp/claude-501/library.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "status": "approved",
+   "locations": {
+    "primary": {
+     "path": "rooms/library-01-day-9x16.webp",
+     "url": "https://media.lexkite.com/library/rooms/library-01-day-9x16.webp",
+     "sha256": "5e116de3bce80e693924408006b8faf1de6f76c21c6a325429f23695a1b3b68e",
+     "gitSha": "a3a3e071ce456e8dc60ddd7150a51191da904232",
+     "bytes": 223664,
+     "srcSha": "bfa2572aec814c3878df346df607bb14ae6dc14fc264e0dea4acec187b01d00b",
+     "at": "2026-10-17"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/rooms/library-01-day-9x16.png",
+     "url": "https://media.lexkite.com/library/src/rooms/library-01-day-9x16.png",
+     "gitSha": "485ebcf1273c84c96cfbc32e90eaf580e9fa8419",
+     "sha256": "bfa2572aec814c3878df346df607bb14ae6dc14fc264e0dea4acec187b01d00b",
+     "bytes": 5719905
+    },
+    "drive": [
+     {
+      "driveId": 3,
+      "email_masked": "",
+      "fileId": "108YjHPLDweHFzrYtpNv1G_8MS3xUdaD7",
+      "sha256": "bfa2572aec814c3878df346df607bb14ae6dc14fc264e0dea4acec187b01d00b",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 1536,
+     "h": 2720,
+     "textScore": 0.0342,
+     "brandShare": 0.547,
+     "floorBusy": 0.0247
+    },
+    "suggest": {
+     "floorProfile": {
+      "floor": {
+       "yNear": 2719,
+       "yFar": 1731
+      },
+      "vanish": [
+       755,
+       1383
+      ],
+      "scaleAt": {
+       "yFar": 1731,
+       "hFar": 393,
+       "yNear": 2719,
+       "hNear": 1513
+      },
+      "stand": [
+       {
+        "x": 567,
+        "y": 2323
+       },
+       {
+        "x": 843,
+        "y": 2323
+       },
+       {
+        "x": 1119,
+        "y": 2323
+       }
+      ],
+      "light": {
+       "dir": -1,
+       "warmth": 0.48
+      },
+      "confidence": 0.63
+     }
+    }
+   }
+  },
+  {
+   "id": "rooms/meeting-01-day-9x16.png",
+   "kind": "room",
+   "tags": [
+    "meeting",
+    "day",
+    "9x16"
+   ],
+   "file": "rooms/meeting-01-day-9x16.png",
+   "sha256": "616c9f8ac6b9495fbfce2066433a5db15d838b21cd917aa8603f697c8f2adf6c",
+   "bytes": 5768992,
+   "w": 1536,
+   "h": 2720,
+   "qa": 60,
+   "source": {
+    "from": "../../../../tmp/claude-501/meeting.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    },
+    "drive": [
+     {
+      "driveId": 3,
+      "email_masked": "",
+      "fileId": "1q_hD4fkygmv775fcBMaQWaNR-BQSW6a4",
+      "sha256": "616c9f8ac6b9495fbfce2066433a5db15d838b21cd917aa8603f697c8f2adf6c",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 1536,
+     "h": 2720,
+     "textScore": 0.0152,
+     "brandShare": 0.576,
+     "floorBusy": 0.0029
+    },
+    "suggest": {
+     "floorProfile": {
+      "floor": {
+       "yNear": 2719,
+       "yFar": 1509
+      },
+      "vanish": [
+       765,
+       1158
+      ],
+      "scaleAt": {
+       "yFar": 1509,
+       "hFar": 397,
+       "yNear": 2719,
+       "hNear": 1769
+      },
+      "stand": [
+       {
+        "x": 261,
+        "y": 2235
+       },
+       {
+        "x": 614,
+        "y": 2235
+       },
+       {
+        "x": 967,
+        "y": 2235
+       }
+      ],
+      "light": {
+       "dir": 1,
+       "warmth": 0.53
+      },
+      "confidence": 0.51
+     }
+    }
+   }
+  },
+  {
    "id": "rooms/office-01-day-9x16.png",
    "kind": "room",
    "tags": [
@@ -9441,6 +10103,294 @@
     "at": "2026-10-17",
     "reason": "duyệt tay 17/10 (soi ảnh): phòng văn phòng 9:16 sạch, lối sàn trống giữa, không chữ lỗi, đúng phong cách – check PASS, chưa ghi điểm qa-log",
     "from": "reserve"
+   }
+  },
+  {
+   "id": "rooms/reception-01-day-9x16.png",
+   "kind": "room",
+   "tags": [
+    "reception",
+    "day",
+    "9x16"
+   ],
+   "file": "rooms/reception-01-day-9x16.png",
+   "sha256": "d319bc074fe5237e277bfd6d5079e566d756c1368bb267eac364b60d263f2a10",
+   "bytes": 4792552,
+   "w": 1536,
+   "h": 2720,
+   "qa": 90,
+   "source": {
+    "from": "../../../../tmp/claude-501/reception.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "status": "approved",
+   "locations": {
+    "primary": {
+     "path": "rooms/reception-01-day-9x16.webp",
+     "url": "https://media.lexkite.com/library/rooms/reception-01-day-9x16.webp",
+     "sha256": "cdb063cc1cfe6706538d3168afd2e009bde54e24c0477b9f5b24a90d27078b6a",
+     "gitSha": "194d97f4fe939101b95d2d1b40d496e5cd00ddae",
+     "bytes": 126844,
+     "srcSha": "d319bc074fe5237e277bfd6d5079e566d756c1368bb267eac364b60d263f2a10",
+     "at": "2026-10-17"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/rooms/reception-01-day-9x16.png",
+     "url": "https://media.lexkite.com/library/src/rooms/reception-01-day-9x16.png",
+     "gitSha": "68ea3b2c5a3feca52b2962c647ca291ff9d131d5",
+     "sha256": "d319bc074fe5237e277bfd6d5079e566d756c1368bb267eac364b60d263f2a10",
+     "bytes": 4792552
+    },
+    "drive": [
+     {
+      "driveId": 3,
+      "email_masked": "",
+      "fileId": "1vp5jjS215sdFsUpzWdw9Kc9_wjibNJC8",
+      "sha256": "d319bc074fe5237e277bfd6d5079e566d756c1368bb267eac364b60d263f2a10",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 1536,
+     "h": 2720,
+     "textScore": 0,
+     "brandShare": 0.473,
+     "floorBusy": 0.0065
+    },
+    "suggest": {
+     "floorProfile": {
+      "floor": {
+       "yNear": 2719,
+       "yFar": 1843
+      },
+      "vanish": [
+       838,
+       1398
+      ],
+      "scaleAt": {
+       "yFar": 1843,
+       "hFar": 503,
+       "yNear": 2719,
+       "hNear": 1496
+      },
+      "stand": [
+       {
+        "x": 273,
+        "y": 2368
+       },
+       {
+        "x": 628,
+        "y": 2368
+       },
+       {
+        "x": 1013,
+        "y": 2368
+       }
+      ],
+      "light": {
+       "dir": 1,
+       "warmth": 0.35
+      },
+      "confidence": 0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "rooms/restaurant-01-day-9x16.png",
+   "kind": "room",
+   "tags": [
+    "restaurant",
+    "day",
+    "9x16"
+   ],
+   "file": "rooms/restaurant-01-day-9x16.png",
+   "sha256": "ff2e20c50bf0c97574b1a0c034288d98c6e3c431e4c139f789c2ccf2ab4ce715",
+   "bytes": 5110032,
+   "w": 1536,
+   "h": 2720,
+   "qa": 86,
+   "source": {
+    "from": "../../../../tmp/claude-501/restaurant.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    },
+    "drive": [
+     {
+      "driveId": 3,
+      "email_masked": "",
+      "fileId": "1I8e6QZt51K8J5JlQaypZhCZSQVPv7D59",
+      "sha256": "ff2e20c50bf0c97574b1a0c034288d98c6e3c431e4c139f789c2ccf2ab4ce715",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 1536,
+     "h": 2720,
+     "textScore": 0,
+     "brandShare": 0.371,
+     "floorBusy": 0.0034
+    },
+    "suggest": {
+     "floorProfile": {
+      "floor": {
+       "yNear": 2719,
+       "yFar": 1428
+      },
+      "vanish": [
+       766,
+       1213
+      ],
+      "scaleAt": {
+       "yFar": 1428,
+       "hFar": 243,
+       "yNear": 2719,
+       "hNear": 1706
+      },
+      "stand": [
+       {
+        "x": 261,
+        "y": 2202
+       },
+       {
+        "x": 614,
+        "y": 2202
+       },
+       {
+        "x": 967,
+        "y": 2202
+       }
+      ],
+      "light": {
+       "dir": 1,
+       "warmth": 0.46
+      },
+      "confidence": 0.64
+     }
+    }
+   }
+  },
+  {
+   "id": "rooms/supermarket-01-day-9x16.png",
+   "kind": "room",
+   "tags": [
+    "supermarket",
+    "day",
+    "9x16"
+   ],
+   "file": "rooms/supermarket-01-day-9x16.png",
+   "sha256": "d428fb4efa3671fa256aa399e6683754e2c9aad43239fb81212e298b367995c8",
+   "bytes": 4887498,
+   "w": 1536,
+   "h": 2720,
+   "qa": 90,
+   "source": {
+    "from": "../../../../tmp/claude-501/supermarket.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "status": "approved",
+   "locations": {
+    "primary": {
+     "path": "rooms/supermarket-01-day-9x16.webp",
+     "url": "https://media.lexkite.com/library/rooms/supermarket-01-day-9x16.webp",
+     "sha256": "d20547757e5907ae18a04f544840d017f10ff66accc656895796c3f667f75102",
+     "gitSha": "c6462329d3533ba82be59edce1060f4f825ea86f",
+     "bytes": 216062,
+     "srcSha": "d428fb4efa3671fa256aa399e6683754e2c9aad43239fb81212e298b367995c8",
+     "at": "2026-10-17"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/rooms/supermarket-01-day-9x16.png",
+     "url": "https://media.lexkite.com/library/src/rooms/supermarket-01-day-9x16.png",
+     "gitSha": "307daa35e8162997d5cfabd71b26aa38d058cd12",
+     "sha256": "d428fb4efa3671fa256aa399e6683754e2c9aad43239fb81212e298b367995c8",
+     "bytes": 4887498
+    },
+    "drive": [
+     {
+      "driveId": 3,
+      "email_masked": "",
+      "fileId": "1sVFU4rrQownvpe0XpRfB9hxWYcuTrQuc",
+      "sha256": "d428fb4efa3671fa256aa399e6683754e2c9aad43239fb81212e298b367995c8",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 1536,
+     "h": 2720,
+     "textScore": 0.0112,
+     "brandShare": 0.668,
+     "floorBusy": 0.0182
+    },
+    "suggest": {
+     "floorProfile": {
+      "floor": {
+       "yNear": 2719,
+       "yFar": 2069
+      },
+      "vanish": [
+       756,
+       1351
+      ],
+      "scaleAt": {
+       "yFar": 2069,
+       "hFar": 813,
+       "yNear": 2719,
+       "hNear": 1550
+      },
+      "stand": [
+       {
+        "x": 567,
+        "y": 2459
+       },
+       {
+        "x": 843,
+        "y": 2459
+       },
+       {
+        "x": 1119,
+        "y": 2459
+       }
+      ],
+      "light": {
+       "dir": 1,
+       "warmth": 0.34
+      },
+      "confidence": 0.5
+     }
+    }
    }
   }
  ]

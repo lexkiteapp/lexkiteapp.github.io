@@ -170,38 +170,44 @@
     },
     {
       "id": "library-01-day",
-      "file": "rooms/library-01-day.png",
+      "file": "rooms/library-01-day-9x16.png",
       "tag": "library",
       "time": "day",
       "floor": {
-        "yNear": 1900,
-        "yFar": 1560
+        "yNear": 1912,
+        "yFar": 1217
       },
       "stand": [
         {
-          "x": 320,
-          "y": 1760
+          "x": 399,
+          "y": 1633
         },
         {
-          "x": 540,
-          "y": 1740
+          "x": 593,
+          "y": 1633
         },
         {
-          "x": 760,
-          "y": 1760
+          "x": 787,
+          "y": 1633
         }
       ],
       "scaleAt": {
-        "yFar": 1560,
-        "hFar": 980,
-        "yNear": 1900,
-        "hNear": 1240
+        "yFar": 1217,
+        "hFar": 276,
+        "yNear": 1912,
+        "hNear": 1064
       },
       "light": {
         "dir": -1,
-        "warmth": 0.25
+        "warmth": 0.48
       },
-      "ready": false
+      "ready": true,
+      "vanish": [
+        531,
+        972
+      ],
+      "auto": true,
+      "qa": 92
     },
     {
       "id": "exam-01-day",
@@ -518,6 +524,211 @@
       ],
       "auto": true,
       "qa": null,
+      "ready": true
+    },
+    {
+      "id": "classroom-01-day",
+      "file": "rooms/classroom-01-day-9x16.png",
+      "tag": "classroom",
+      "time": "day",
+      "floor": {
+        "yNear": 1912,
+        "yFar": 781
+      },
+      "stand": [
+        {
+          "x": 184,
+          "y": 1459
+        },
+        {
+          "x": 432,
+          "y": 1459
+        },
+        {
+          "x": 680,
+          "y": 1459
+        }
+      ],
+      "scaleAt": {
+        "yFar": 781,
+        "hFar": 195,
+        "yNear": 1912,
+        "hNear": 1477
+      },
+      "light": {
+        "dir": 1,
+        "warmth": 0.77
+      },
+      "vanish": [
+        453,
+        608
+      ],
+      "auto": true,
+      "qa": 90,
+      "ready": true
+    },
+    {
+      "id": "clinic-01-day",
+      "file": "rooms/clinic-01-day-9x16.png",
+      "tag": "clinic",
+      "time": "day",
+      "floor": {
+        "yNear": 1912,
+        "yFar": 1454
+      },
+      "stand": [
+        {
+          "x": 184,
+          "y": 1728
+        },
+        {
+          "x": 647,
+          "y": 1728
+        },
+        {
+          "x": 841,
+          "y": 1728
+        }
+      ],
+      "scaleAt": {
+        "yFar": 1454,
+        "hFar": 435,
+        "yNear": 1912,
+        "hNear": 954
+      },
+      "light": {
+        "dir": 1,
+        "warmth": 0.43
+      },
+      "vanish": [
+        489,
+        1069
+      ],
+      "auto": true,
+      "qa": 90,
+      "ready": true
+    },
+    {
+      "id": "hotel-lobby-01-day",
+      "file": "rooms/hotel-lobby-01-day-9x16.png",
+      "tag": "hotel-lobby",
+      "time": "day",
+      "floor": {
+        "yNear": 1912,
+        "yFar": 1022
+      },
+      "stand": [
+        {
+          "x": 209,
+          "y": 1556
+        },
+        {
+          "x": 432,
+          "y": 1556
+        },
+        {
+          "x": 680,
+          "y": 1556
+        }
+      ],
+      "scaleAt": {
+        "yFar": 1022,
+        "hFar": 245,
+        "yNear": 1912,
+        "hNear": 1252
+      },
+      "light": {
+        "dir": 1,
+        "warmth": 0.48
+      },
+      "vanish": [
+        499,
+        806
+      ],
+      "auto": true,
+      "qa": 92,
+      "ready": true
+    },
+    {
+      "id": "reception-01-day",
+      "file": "rooms/reception-01-day-9x16.png",
+      "tag": "reception",
+      "time": "day",
+      "floor": {
+        "yNear": 1912,
+        "yFar": 1296
+      },
+      "stand": [
+        {
+          "x": 192,
+          "y": 1665
+        },
+        {
+          "x": 442,
+          "y": 1665
+        },
+        {
+          "x": 712,
+          "y": 1665
+        }
+      ],
+      "scaleAt": {
+        "yFar": 1296,
+        "hFar": 354,
+        "yNear": 1912,
+        "hNear": 1052
+      },
+      "light": {
+        "dir": 1,
+        "warmth": 0.35
+      },
+      "vanish": [
+        589,
+        983
+      ],
+      "auto": true,
+      "qa": 90,
+      "ready": true
+    },
+    {
+      "id": "supermarket-01-day",
+      "file": "rooms/supermarket-01-day-9x16.png",
+      "tag": "supermarket",
+      "time": "day",
+      "floor": {
+        "yNear": 1912,
+        "yFar": 1455
+      },
+      "stand": [
+        {
+          "x": 399,
+          "y": 1729
+        },
+        {
+          "x": 593,
+          "y": 1729
+        },
+        {
+          "x": 787,
+          "y": 1729
+        }
+      ],
+      "scaleAt": {
+        "yFar": 1455,
+        "hFar": 572,
+        "yNear": 1912,
+        "hNear": 1090
+      },
+      "light": {
+        "dir": 1,
+        "warmth": 0.34
+      },
+      "vanish": [
+        532,
+        950
+      ],
+      "auto": true,
+      "qa": 90,
       "ready": true
     }
   ],
