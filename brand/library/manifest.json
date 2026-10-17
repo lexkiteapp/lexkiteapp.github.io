@@ -115,7 +115,7 @@
         881
       ],
       "auto": true,
-      "qa": null,
+      "qa": 91,
       "ready": true
     },
     {
@@ -323,7 +323,7 @@
         948
       ],
       "auto": true,
-      "qa": null,
+      "qa": 91,
       "ready": true
     },
     {
@@ -364,7 +364,7 @@
         1060
       ],
       "auto": true,
-      "qa": null,
+      "qa": 91,
       "ready": true
     },
     {
@@ -405,7 +405,7 @@
         1024
       ],
       "auto": true,
-      "qa": null,
+      "qa": 91,
       "ready": true
     },
     {
@@ -956,6 +956,174 @@
       "figH": 1554,
       "w": 1114,
       "h": 1562,
+      "ready": true
+    },
+    {
+      "id": "ama_shock_laugh",
+      "who": "ama",
+      "tags": [
+        "shock",
+        "laugh"
+      ],
+      "outfit": "casual",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/ama_shock_laugh.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        483,
+        1496
+      ],
+      "figH": 1496,
+      "w": 666,
+      "h": 1498,
+      "ready": true
+    },
+    {
+      "id": "ama_talk_gesture",
+      "who": "ama",
+      "tags": [
+        "talk",
+        "gesture"
+      ],
+      "outfit": "casual",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/ama_talk_gesture.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        588,
+        1462
+      ],
+      "figH": 1462,
+      "w": 752,
+      "h": 1464,
+      "ready": true
+    },
+    {
+      "id": "ama_think_aha",
+      "who": "ama",
+      "tags": [
+        "think",
+        "aha"
+      ],
+      "outfit": "casual",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/ama_think_aha.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        421,
+        1471
+      ],
+      "figH": 1471,
+      "w": 642,
+      "h": 1474,
+      "ready": true
+    },
+    {
+      "id": "ama_wave_clasp",
+      "who": "ama",
+      "tags": [
+        "wave",
+        "clasp"
+      ],
+      "outfit": "casual",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/ama_wave_clasp.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        409,
+        1449
+      ],
+      "figH": 1449,
+      "w": 846,
+      "h": 1472,
+      "ready": true
+    },
+    {
+      "id": "diane_listen_thumbs",
+      "who": "diane",
+      "tags": [
+        "listen",
+        "thumbs"
+      ],
+      "outfit": "office",
+      "mouth": false,
+      "facing": "front",
+      "file": "clips/diane_listen_thumbs.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "listener"
+      ],
+      "foot": [
+        240,
+        1559
+      ],
+      "figH": 1559,
+      "w": 986,
+      "h": 1562,
+      "ready": true
+    },
+    {
+      "id": "mia_listen_thumbs",
+      "who": "mia",
+      "tags": [
+        "listen",
+        "thumbs"
+      ],
+      "outfit": "office",
+      "mouth": false,
+      "facing": "front",
+      "file": "clips/mia_listen_thumbs.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "listener"
+      ],
+      "foot": [
+        466,
+        1736
+      ],
+      "figH": 1736,
+      "w": 664,
+      "h": 1740,
+      "ready": true
+    },
+    {
+      "id": "mia_think_aha",
+      "who": "mia",
+      "tags": [
+        "think",
+        "aha"
+      ],
+      "outfit": "office",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/mia_think_aha.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        465,
+        1747
+      ],
+      "figH": 1747,
+      "w": 764,
+      "h": 1750,
       "ready": true
     }
   ],

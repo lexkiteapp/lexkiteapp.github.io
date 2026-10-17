@@ -543,7 +543,7 @@ def stacked_layer(path, W, H):
     return {'w': W, 'h': hh, 'foot': [int(cols.mean()) if len(cols) else W // 2, sole], 'figH': sole, 'frames': n}  # figH = đế giày tính từ mép trên khung cắt (như clip_to_layer.py)
 
 
-def check_clip(path, kind='clip', trimmed=False):
+def check_clip(path, kind='clip', trimmed=False, src_size=None):
     C, M, S = [], {}, {}
     pr = ffprobe(path)
     v = next((s for s in pr['streams'] if s['codec_type'] == 'video'), None)
@@ -596,7 +596,16 @@ def check_clip(path, kind='clip', trimmed=False):
     dr = dup_runs(diffs); M['dupRun'] = dr
     C.append(chk('duplicates', dr < T['dup_run'], dr, f"< {T['dup_run']}", f'{dr} khung trùng liên tiếp (đứng hình)'))
     M['cadenceTwos'] = r(cadence_twos(diffs), 2)
-    jf = jerk_frames(frame_diffs2(frames)); M['jerkFrames'] = jf[:10]
+    d2 = frame_diffs2(frames)
+    if stacked and src_size:
+        # Bản stacked = khung CẮT SÁT người (nền đen) → cùng một cử động chiếm phần lớn khung hơn hẳn clip gốc (nền xanh rộng),
+        # nên chênh lệch TB vượt ngưỡng tuyệt đối jerk_abs (chỉnh trên khung gốc) dù chỉ là vung tay/nhắm mắt. Quy về khung gốc:
+        # nhân tỉ lệ diện tích khung cắt / khung gốc (cùng độ phân giải, chỉ cắt) → cổng "smooth" như cổng của clip gốc.
+        # Lỗi do tách nền (mép nhấp nháy, khung mất mặt nạ) đã có cổng riêng alpha_stable/black_frames.
+        sw, sh = src_size
+        ar = min(1.0, (W * vis_h) / max(1, sw * sh)); M['cropArea'] = r(ar, 3)
+        d2 = d2 * ar
+    jf = jerk_frames(d2); M['jerkFrames'] = jf[:10]
     C.append(chk('smooth', not jf, len(jf), 0, f'khung đột biến (giật/nhảy cảnh) tại {jf[:5]}'))
     me = motion_energy(diffs); M['motion'] = r(me, 3)
     if me < T['motion_low']:
@@ -635,12 +644,23 @@ def grab_frames(path, idxs, stacked=False):
     fr = np.frombuffer(raw, np.uint8).reshape(-1, H, W, 3)
     if stacked:
         hh = H // 2
-        return [(f[:hh].copy(), gray(f[hh:hh * 2]) > 128) for f in fr]
+        return [pad_on_bg(f[:hh], gray(f[hh:hh * 2]) > 128) for f in fr]
     out = []
     for f in fr:
         bg, _, _ = border_uniformity(f)
         out.append((f.copy(), fg_mask(f, bg, 36)))
     return out
+
+
+def pad_on_bg(rgb, mask, bg=(128, 128, 128), pad=0.12):
+    """Khung stacked (cắt sát người, nền đen) → ghép lên nền xám trơn + chừa lề 12 % như ảnh gốc.
+    MediaPipe Pose trên tranh 2D cắt sát mép/nền đen hay đặt vai ở tận chân (tỉ lệ đầu/thân lệch 70–520 %) → FAIL giả;
+    trên nền trơn có lề, số đo khớp clip gốc & DNA (ama 0,30–0,34 vs 0,32; mia 0,29–0,31 vs 0,30)."""
+    h, w = mask.shape; P = int(round(h * pad))
+    out = np.empty((h + 2 * P, w + 2 * P, 3), np.uint8); out[:] = bg
+    out[P:P + h, P:P + w] = np.where(mask[..., None], rgb, np.asarray(bg, np.uint8))
+    m = np.zeros(out.shape[:2], bool); m[P:P + h, P:P + w] = mask
+    return out, m
 
 
 def anatomy_block(pairs, who, ref, cast_stroke, labels):
@@ -703,12 +723,13 @@ def main():
     ap.add_argument('--who', help='nhân vật (bật kiểm anatomy & style)'); ap.add_argument('--ref', help='JSON số đo DNA của nhân vật')
     ap.add_argument('--cast-stroke', help='biên nét viền của dàn: lo,hi'); ap.add_argument('--sheet', help='ghi bảng ghép JPG')
     ap.add_argument('--no-anatomy', action='store_true')
+    ap.add_argument('--src-size', help='W,H khung clip gốc (bản stacked: quy cổng smooth về khung gốc)')
     ap.add_argument('--ai-sheet', help='ghi bảng gửi AI thị giác (≤ 768 px, ô 1 = DNA viền xanh lá)'); ap.add_argument('--ai-ref', help='ảnh DNA cho ô 1 của --ai-sheet'); ap.add_argument('--head-sheet', help='ghi bảng cận đầu cho AI (nhận diện)')
     a = ap.parse_args()
     if not os.path.exists(a.file):
         print(json.dumps({'status': 'FAIL', 'checks': [chk('exists', False, None, None, 'không thấy file')], 'metrics': {}, 'suggest': {}})); return
     if a.kind in ('clip', 'stacked'):
-        res = check_clip(a.file, a.kind, a.trimmed)
+        res = check_clip(a.file, a.kind, a.trimmed, [int(x) for x in a.src_size.split(',')] if a.src_size else None)
     elif a.file.lower().endswith('.svg'):
         res = {'status': 'PASS', 'checks': [chk('svg', open(a.file, 'rb').read(200).lstrip().startswith((b'<svg', b'<?xml')), None, None, 'SVG không hợp lệ')], 'metrics': {'bytes': os.path.getsize(a.file)}, 'suggest': {}}
         res['status'] = overall(res['checks'])

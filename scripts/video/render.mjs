@@ -57,7 +57,8 @@ const skip = (s, k, why) => { if (STRICT) throw new Error(`${k}: ${why}`); conso
 const libFile = f => (f ? path.join(LIB, f) : '');
 const exists = f => !!f && fs.existsSync(libFile(f));
 const existsRepo = f => !!f && fs.existsSync(path.join(ROOT, f));
-const manifestOf = () => (fs.existsSync(path.join(LIB, 'manifest.json')) ? JSON.parse(fs.readFileSync(path.join(LIB, 'manifest.json'), 'utf8')) : {});
+// ready:false = chưa approved/chưa lên media.lexkite.com (library.mjs) → bỏ qua cả khi máy có file, để chạy thử = CI (fetch-render chỉ tải mục ready)
+const manifestOf = () => { const m = fs.existsSync(path.join(LIB, 'manifest.json')) ? JSON.parse(fs.readFileSync(path.join(LIB, 'manifest.json'), 'utf8')) : {}; for (const k of ['rooms', 'clips', 'stills']) if (Array.isArray(m[k])) m[k] = m[k].filter(x => x.ready !== false); return m; };
 const HIST = 'out/video/history.json';
 // Lớp motion Remotion (docs/VIDEO-PIPELINE.md §10): scripts/video/remotion (npm ci riêng). VIDEO_ENGINE=ffmpeg → đường ffmpeg cũ (dự phòng).
 const RM = path.join(ROOT, 'scripts/video/remotion'), RM_BIN = path.join(RM, 'node_modules/.bin/remotion');
@@ -87,6 +88,7 @@ const STEPS = {
     s.scriptOrig = s.scriptOrig || s.job.script;
     s.job.script = v.recast ? X.applyCast(s.scriptOrig, v.cast) : s.scriptOrig;
     s.variant = v; s.history = hist.slice(-formats.rules.recent);
+    if (v.recast) console.log(`⚠️⚠️ ĐỔI VAI ${v.cast.from.join('+')} → ${v.cast.to.join('+')}: ${v.recastReason || 'không rõ lý do'}`);
     console.log(`  ${v.format.id} · ${v.setting.id} · ${v.cast.to.join('+') || '—'} · hook ${v.hookStyle.id} · ${v.transition.id} · nhạc ${v.music.id} · end ${v.endCard.id} · theme ${v.theme ? v.theme.id : '—'} · máy ${v.cameraSet.id}${v.relaxed ? ' · ⚠️ chưa đạt luật chống lặp' : ''}`);
   },
   // 3) CỔNG NHẤT QUÁN (VIDEO-PIPELINE §8): chủ đề → bối cảnh + dàn (content/video/casting.json), phòng theo tag (không ngẫu nhiên),
@@ -94,6 +96,12 @@ const STEPS = {
   async cast(s) {
     const gap = readJson('content/video/formats.json').rules.clipSpacing || 3, avoidClips = (s.history || []).slice(-gap).flatMap(h => h.clips || []);
     const st = V.buildStage({ job: s.job, casting: readJson('content/video/casting.json'), manifest: manifestOf(), exists, variant: s.variant || null, avoidClips });
+    // Bối cảnh không có phòng thật (phòng "ảo" virtual-*) → strict: dừng ngay (không lặng lẽ dựng nền gradient)
+    for (const g of st.segs) if (g.room.virtual) {
+      const have = (manifestOf().rooms || []).filter(r => r.tag === g.scene).map(r => `${r.id}${exists(r.file) ? '' : ' (chưa tải)'}`);
+      const msg = `bối cảnh "${g.scene}" (${st.time}) không có phòng thật – phòng của tag: ${have.join(', ') || 'chưa có trong brand/library/manifest.json'} (CI: library.mjs fetch-render)`;
+      if (!ALLOW_STUDIO) throw new Error(msg); console.log('⚠️ ' + msg + ' → nền gradient thương hiệu (chỉ chạy thử)');
+    }
     s.stage = st; s.consistency = V.consistencyVerdict(st.fails);
     if (s.variant) s.variant.fp.clips = st.clips;
     console.log(`  chủ đề ${st.topic} · bối cảnh ${st.segs.map(g => `${g.scene}(${g.room.id})`).join(' → ')} · ${st.time}`);

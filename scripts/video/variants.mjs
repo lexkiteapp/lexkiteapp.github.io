@@ -3,7 +3,7 @@
 //   × kiểu chữ hook × chuyển cảnh × nhạc nền tự tổng hợp (+ hiệu ứng) × end card. Clip hành động chọn theo cảm xúc ở lib.buildStage.
 // Chống lặp: dấu vân tay (8 thành phần chính) không được trùng ≥ 3 thành phần với 30 video gần nhất; giãn cách tối thiểu từng tài nguyên;
 //   thành phần bị kịch bản cố định (chỉ 1 lựa chọn) không tính trùng. Cùng seed + cùng lịch sử → cùng kết quả (tái tạo được).
-import { resolveTopic } from './lib.mjs';
+import { resolveTopic, isSpeakerClip, isListenerClip } from './lib.mjs';
 
 export const MAIN = ['format', 'setting', 'cast', 'hookStyle', 'transition', 'music', 'endCard', 'cameraSet'];
 export function hash32(s) { let h = 0x811c9dc5; for (const c of String(s)) { h ^= c.codePointAt(0); h = Math.imul(h, 0x01000193) >>> 0; } return h >>> 0; }
@@ -11,6 +11,8 @@ export function hash32(s) { let h = 0x811c9dc5; for (const c of String(s)) { h ^
 export function rng(seed) { let a = hash32(seed); return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
 
 export const speakersOf = sc => [...new Set((sc.lines || []).map(l => l.who).filter(w => w && w !== 'kit'))];
+// Kịch bản ghi rõ người nói ở MỌI câu (who) = dàn do người viết chọn → giữ nguyên (không đổi vai để "đa dạng").
+export const explicitCast = sc => { const ls = (sc.lines || []).filter(l => l.text); return ls.length > 0 && ls.every(l => l.who); };
 // Đổi vai được khi lời thoại không gọi tên nhân vật (tránh "Mia" nói mà người đứng là Leo) và kịch bản không khóa (recast:false)
 export function canRecast(sc, casting) {
   if (sc.recast === false) return false;
@@ -23,23 +25,37 @@ const perms = (arr, k) => (k === 0 ? [[]] : arr.flatMap((x, i) => perms(arr.filt
 // Kho lựa chọn cho 1 kịch bản (lọc theo chủ đề, số người nói, bối cảnh, giờ, tháng, tài nguyên có thật)
 export function variantPools({ job, formats, casting, manifest, exists = () => true, existsRepo = () => true, date = new Date() }) {
   const sc = job.script, topic = resolveTopic(job, casting) || casting.fallback, sp = speakersOf(sc), n = sp.length, recast = canRecast(sc, casting);
+  // Chính sách đổi vai: recast:true = cho phép đổi để đa dạng (khi lời thoại không gọi tên) · recast:false = khoá ·
+  // mặc định: kịch bản ghi rõ who từng câu → GIỮ dàn; chỉ đổi khi người được gọi tên không có clip nói dùng được (log to ở render) – không có who → đổi như cũ.
+  const honour = sc.recast !== true && explicitCast(sc);
   const scenes = sc.scene ? [sc.scene] : topic.scenes, times = sc.time ? [sc.time] : ['day', 'night'], month = date.getUTCMonth() + 1;
   const seasons = formats.seasons.filter(s => s.months.includes(month) && (s.id === 'none' || exists(s.file)));
   let rooms = (manifest.rooms || []).filter(r => scenes.includes(r.tag) && times.includes(r.time || 'day') && exists(r.file));
   if (!rooms.length) rooms = scenes.flatMap(tag => times.slice(0, 1).map(time => ({ id: `virtual-${tag}-${time}`, tag, time, virtual: true })));
   const castCache = {};
   // vai có clip nói thật (đúng trang phục của bối cảnh) được ưu tiên – đổi vai sang người chưa có tài nguyên chỉ khi không còn cách nào khác
-  const ready = (who, scene) => (manifest.clips || []).some(c => c.who === who && c.mouth && (c.outfit || 'office') === (sc.outfit || (casting.scenes[scene] || {}).outfit || 'office') && exists(c.file));
+  const ready = (who, scene) => (manifest.clips || []).some(c => c.who === who && isSpeakerClip(c) && (c.outfit || 'office') === (sc.outfit || (casting.scenes[scene] || {}).outfit || 'office') && exists(c.file));
   const castFor = scene => castCache[scene] || (castCache[scene] = (() => {
-    if (!recast) return [{ id: sp.join('+'), who: sp }];
+    const own = { id: sp.join('+'), who: sp };
+    if (!recast) return [own];
+    const missing = sp.filter(w => !ready(w, scene));
+    if (honour && !missing.length) return [own];
     const all = perms(topic.cast.filter(w => ((casting.scenes[scene] || {}).cast || []).includes(w)), n).map(who => ({ id: who.join('+'), who }));
-    const ok = all.filter(c => c.who.every(w => ready(w, scene))); return ok.length ? ok : all;
+    let ok = all.filter(c => c.who.every(w => ready(w, scene)));
+    if (honour) { // chỉ thay người KHÔNG dùng được, giữ người còn lại đúng vị trí
+      const keep = ok.filter(c => c.who.every((w, i) => missing.includes(sp[i]) || w === sp[i]));
+      ok = keep.length ? keep : ok;
+      if (!ok.length) return [own]; // không ai thay được → giữ dàn, cổng nhất quán sẽ báo thiếu clip
+      return ok.map(c => ({ ...c, reason: `${missing.join(', ')} không có clip nói dùng được (trang phục ${sc.outfit || (casting.scenes[scene] || {}).outfit || 'office'}) ở bối cảnh ${scene}` }));
+    }
+    return ok.length ? ok : all;
   })());
   const all = rooms.flatMap(room => seasons.map(s => ({ id: `${room.id}|${s.id}`, room: room.id, scene: room.tag, time: room.time || 'day', season: s.id })));
-  const settings = all.filter(s => castFor(s.scene).length).length ? all.filter(s => castFor(s.scene).length) : all; // bối cảnh không đủ vai hợp lệ → bỏ
+  let settings = all.filter(s => castFor(s.scene).length).length ? all.filter(s => castFor(s.scene).length) : all; // bối cảnh không đủ vai hợp lệ → bỏ
+  if (honour) { const keep = settings.filter(s => castFor(s.scene).some(c => c.id === sp.join('+'))); if (keep.length) settings = keep; } // ưu tiên bối cảnh giữ được dàn của kịch bản
   const fmts = formats.formats.filter(f => (sc.format_id ? f.id === sc.format_id : (f.topics === 'any' || f.topics.includes(topic.id)) && n >= f.cast[0] && n <= f.cast[1]));
   return {
-    topic: topic.id, speakers: sp, recast, settings, castFor,
+    topic: topic.id, speakers: sp, recast, honour, settings, castFor,
     format: fmts.length ? fmts : formats.formats.filter(f => f.topics === 'any'),
     hookStyle: formats.hookStyles, transition: formats.transitions, music: formats.music, sfx: formats.sfx, cameraSet: formats.cameraSets,
     endCard: formats.endCards.filter(e => !e.file || existsRepo(e.file)),
@@ -91,7 +107,7 @@ export function pickVariant({ job, formats, casting, manifest, history = [], see
   const thPool = (formats.themes || []).filter(t => thIds.includes(t.id)).map(t => ({ t, b: back('theme', t.id), r: R() })).sort((x, y) => (y.b - x.b) || (x.r - y.r));
   const theme = thPool.length ? thPool[0].t : null;
   return {
-    seed: String(seed), topic: P.topic, relaxed: best.left > 0, recast: P.recast, choice,
+    seed: String(seed), topic: P.topic, relaxed: best.left > 0, recast: c.cast.who.join('+') !== P.speakers.join('+'), recastReason: c.cast.reason || (P.honour ? null : 'kịch bản cho phép đổi vai (recast:true hoặc không ghi who)'), choice,
     fp: { ...fp(c), theme: theme ? theme.id : null, scene: c.setting.scene, time: c.setting.time, season: c.setting.season, room: c.setting.room },
     format: c.format, setting: c.setting, cast: { from: P.speakers, to: c.cast.who }, hookStyle: c.hookStyle, transition: c.transition, music: c.music,
     sfx: P.sfx[Math.floor(R() * P.sfx.length)], endCard: c.endCard, cameraSet: c.cameraSet, theme,
@@ -123,7 +139,7 @@ export function coverage({ formats, casting, manifest, exists = () => true, exis
   for (const t of [...casting.topics, casting.fallback]) {
     let combos = 0;
     for (let n = 1; n <= Math.min(3, t.cast.length); n++) {
-      const job = { topic: (t.match || [t.id])[0], script: { lines: t.cast.slice(0, n).map(who => ({ who, text: 'x' })) } };
+      const job = { topic: (t.match || [t.id])[0], script: { recast: true, lines: t.cast.slice(0, n).map(who => ({ who, text: 'x' })) } };
       const P = variantPools({ job: { ...job, topic: t.match ? t.match[0] : 'general' }, formats, casting, manifest, exists, existsRepo, date });
       const fm = P.format.filter(f => f.topics === 'any' || f.topics.includes(t.id)).length;
       const castN = P.settings.reduce((a, s) => a + P.castFor(s.scene).length, 0);
@@ -138,8 +154,8 @@ export function coverage({ formats, casting, manifest, exists = () => true, exis
   }
   for (const [tag, sd] of Object.entries(casting.scenes)) for (const who of sd.cast.filter(w => w !== 'kit')) {
     const outfit = sd.outfit || 'office', cl = (manifest.clips || []).filter(c => c.who === who && (c.outfit || 'office') === outfit && exists(c.file));
-    for (const [emo, tags] of Object.entries(emotionTags)) if (!cl.some(c => c.mouth && (c.tags || []).some(x => tags.includes(x)))) missing.add(`clip ${who} (${outfit}) nói + ${emo}: ${tags.join('/')} – cho bối cảnh ${tag}`);
-    if (!cl.some(c => (c.tags || []).some(x => ['idle', 'nod'].includes(x)))) missing.add(`clip ${who} (${outfit}) nghe: idle/nod – cho bối cảnh ${tag}`);
+    for (const [emo, tags] of Object.entries(emotionTags)) if (!cl.some(c => isSpeakerClip(c) && (c.tags || []).some(x => tags.includes(x)))) missing.add(`clip ${who} (${outfit}) nói + ${emo}: ${tags.join('/')} – cho bối cảnh ${tag}`);
+    if (!cl.some(isListenerClip)) missing.add(`clip ${who} (${outfit}) nghe: idle/nod/listen – cho bối cảnh ${tag}`);
   }
   for (const s of formats.seasons) if (s.file && !exists(s.file)) missing.add(`lớp mùa ${s.id}: ${s.file}`);
   for (const e of formats.endCards) if (e.file && !existsRepo(e.file)) missing.add(`end card ${e.id}: ${e.file}`);

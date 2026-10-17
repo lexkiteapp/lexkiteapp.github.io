@@ -42,20 +42,21 @@ jobs:
       - name: Cài kokoro-js + faster-whisper + Rhubarb
         run: |
           npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
-          pip install -q faster-whisper==1.1.1 requests numpy pillow scipy
+          pip install -q faster-whisper==1.1.1 "av>=12,<15" requests numpy pillow scipy
           curl -fsSL -o /tmp/rhubarb.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
           mkdir -p /tmp/rhubarb && unzip -q /tmp/rhubarb.zip -d /tmp/rhubarb
           echo "RHUBARB=$(find /tmp/rhubarb -type f -name rhubarb | head -1)" >> "$GITHUB_ENV"
 
       # ---------- Dây chuyền dựng (mỗi bước đọc/ghi out/video/<job>/state.json; VIDEO_STRICT=1: thiếu công cụ → lỗi, không lặng lẽ bỏ qua) ----------
       - name: Kiểm faster-whisper
-        run: python3 -c "import faster_whisper,sys; print('faster-whisper OK', faster_whisper.__version__, sys.executable)"
+        run: python3 -c "import faster_whisper,av,sys; print('faster-whisper OK', faster_whisper.__version__, 'PyAV', av.__version__, sys.executable)"
       - name: Tải kho dựng (phòng + clip stacked) từ media.lexkite.com
-        run: node scripts/video/library.mjs fetch-render || echo "::warning::Thiếu một phần kho dựng – render dùng phần có sẵn"
+        # mục ready:true trong brand/library/manifest.json = đã approved + đã lên media.lexkite.com → thiếu là lỗi thật
+        run: node scripts/video/library.mjs fetch-render
       - name: Dựng video mẫu (toàn bộ các bước)
         env:
           KOKORO_NODE_PATH: /tmp/kk/node_modules
-          VIDEO_ALLOW_STUDIO: '1' # CI chưa có kho phòng/clip (brand/library không commit) → nền gradient thương hiệu
+          VIDEO_STRICT: '1' # kho thật (fetch-render): thiếu phòng/whisper/Rhubarb/Remotion → lỗi, không lặng lẽ dùng nền gradient / chia đều
         run: node scripts/video/render.mjs --local --script "${{ github.event.inputs.script }}" 2>&1 | tee render.log
       - name: 6 khung chính để duyệt
         if: always()

@@ -6,7 +6,7 @@
     "school":     { "cast": ["ama", "kit"], "roles": { "ama": "student" }, "outfit": "casual" },
     "library":    { "cast": ["ama", "kit"], "roles": { "ama": "student" }, "outfit": "casual" },
     "exam":       { "cast": ["ama", "kit"], "roles": { "ama": "test taker" }, "outfit": "casual" },
-    "cafe":       { "cast": ["carlos", "mia", "leo", "kit"], "roles": { "carlos": "barista", "mia": "customer", "leo": "customer" }, "outfit": "casual" },
+    "cafe":       { "cast": ["carlos", "mia", "leo", "ama", "kit"], "roles": { "carlos": "barista", "mia": "customer", "leo": "customer", "ama": "customer" }, "outfit": "casual" },
     "restaurant": { "cast": ["carlos", "mia", "leo", "kit"], "roles": { "carlos": "server", "mia": "customer", "leo": "customer" }, "outfit": "casual" },
     "home":       { "cast": ["mia", "leo", "kit"], "roles": { "mia": "friend", "leo": "friend" }, "outfit": "casual" },
     "airport":    { "cast": ["carlos", "mia", "leo", "kit"], "roles": { "carlos": "check-in agent", "mia": "traveler", "leo": "traveler" }, "outfit": "travel" }
@@ -14,7 +14,7 @@
   "topics": [
     { "id": "job-interview", "match": ["interview", "hiring", "recruiter", "tell me about yourself", "resume"], "scenes": ["office"], "cast": ["diane", "mia", "leo"] },
     { "id": "ielts-exam", "match": ["ielts", "toefl", "toeic", "exam", "speaking test", "writing task", "band score"], "scenes": ["exam", "library", "school"], "cast": ["ama"] },
-    { "id": "ordering-coffee", "match": ["coffee shop", "ordering coffee", "order coffee", "barista", "cafe", "café", "latte"], "scenes": ["cafe"], "cast": ["carlos", "mia", "leo"] },
+    { "id": "ordering-coffee", "match": ["coffee shop", "ordering coffee", "order coffee", "barista", "cafe", "café", "latte"], "scenes": ["cafe"], "cast": ["carlos", "mia", "leo", "ama"] },
     { "id": "restaurant", "match": ["restaurant", "menu", "order food", "waiter", "the bill", "the check"], "scenes": ["restaurant"], "cast": ["carlos", "mia", "leo"] },
     { "id": "travel", "match": ["airport", "flight", "check-in", "boarding", "passport", "hotel", "travel"], "scenes": ["airport"], "cast": ["carlos", "mia", "leo"] },
     { "id": "office-english", "match": ["email", "etiquette", "meeting", "boss", "colleague", "coworker", "office", "circle back", "deadline", "agree", "small talk", "presentation"], "scenes": ["office"], "cast": ["mia", "leo", "diane"] },

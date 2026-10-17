@@ -66,6 +66,12 @@ let fl = tweak(sc => { sc.lines[1].who = 'carlos'; }); ok(fl.some(f => f.k === '
 fl = tweak(sc => { sc.lines[3].scene = 'cafe'; }); ok(fl.some(f => f.k === 'pacing' && /chuyển cảnh/.test(f.reason)) && fl.some(f => f.k === 'brand'), 'đổi phòng không chuyển cảnh + cafe ngoài chủ đề → lỗi');
 fl = tweak((sc, j) => { j.topic = 'Small talk: spill the tea'; sc.scene = 'home'; sc.lines[3].scene = 'cafe'; sc.lines[3].transition = 'fade'; }); ok(!fl.some(f => /chuyển cảnh/.test(f.reason)), 'đổi phòng có chủ đích (transition) → hợp lệ');
 fl = tweak(sc => { sc.lines[0].text = "That's totally wrong!"; sc.lines[0].expr = 'big laugh'; }); ok(fl.some(f => f.k === 'lipsync' && /biểu cảm/.test(f.reason)), 'câu "sai" mà cười lớn → lỗi biểu cảm');
+{ // luật biểu cảm ↔ câu: chỉ chặn mâu thuẫn thật
+  const C = (text, expr, beat = 'situation') => V.exprConflict({ text, expr, beat });
+  ok(!C('Hi there! What can I get for you today?', 'happy smile', 'hook') && !C('Could I get a large latte, please?', 'happy smile') && !C('Is that wrong?', 'thinking'), 'câu hỏi thân thiện + mặt cười → không lỗi');
+  ok(!!C("That's totally wrong!", 'big laugh') && !!C("I'm so sorry, I lost your file.", 'big laugh') && !!C('This is unacceptable and so rude.', 'happy smile') && !!C('Perfect, great job!', 'sad crying'), 'câu sai/buồn/giận mà cười, câu khen mà mặt buồn → lỗi');
+  ok(!C('Unfortunately, the meeting moved.', 'sad') && !C("Oops, that's wrong!", 'shocked'), 'câu buồn + mặt buồn, câu sai + mặt sốc → hợp');
+}
 fl = tweak(sc => { sc.time = 'night'; }); ok(fl.length === 0 || fl.every(f => f.k !== 'pacing'), 'tối có phòng tối riêng → không lỗi ánh sáng');
 fl = tweak(sc => { sc.outfit = 'travel'; }); ok(fl.some(f => f.k === 'lipsync' && /không có clip/.test(f.reason)), 'không có clip đúng trang phục → người nói thiếu clip miệng');
 const noClips = { ...manifest, clips: manifest.clips.filter(c => !c.mouth || c.id === 'mia_talk_point') };
@@ -81,7 +87,17 @@ ok(formats.music.every(x => !x.file), 'nhạc nền tự tổng hợp (không fi
 const date = new Date('2026-10-17T00:00:00Z');
 const a1 = X.pickVariant({ job: sample, formats, casting, manifest, history: [], seed: 'abc', date }), a2 = X.pickVariant({ job: sample, formats, casting, manifest, history: [], seed: 'abc', date });
 ok(JSON.stringify(a1.fp) === JSON.stringify(a2.fp) && JSON.stringify(X.pickVariant({ job: sample, formats, casting, manifest, history: [], seed: 'abd', date }).fp) !== JSON.stringify(a1.fp), 'cùng seed → cùng tổ hợp; khác seed → khác');
-ok(a1.recast && !X.canRecast({ lines: [{ who: 'mia', text: 'Hi Leo!' }] }, casting), 'đổi vai chỉ khi lời thoại không gọi tên');
+ok(!a1.recast && a1.cast.to.join() === 'mia,leo' && !X.canRecast({ lines: [{ who: 'mia', text: 'Hi Leo!' }] }, casting), 'kịch bản ghi rõ who → giữ dàn; đổi vai chỉ khi lời thoại không gọi tên');
+{ // dàn kịch bản: giữ nguyên khi có clip; recast:true mới đổi để đa dạng; người được gọi tên không có clip nói → đổi riêng người đó + lý do
+  const cafe = { topic: 'Ordering coffee like a local', script: { scene: 'cafe', lines: [{ who: 'carlos', beat: 'hook', text: 'Hi there.' }, { who: 'mia', beat: 'explain', text: 'Say could I get.' }] } };
+  const cm = { ...manifest, clips: [{ id: 'carlos_t', who: 'carlos', outfit: 'casual', mouth: true, tags: ['talk'], file: 'c' }, { id: 'mia_t', who: 'mia', outfit: 'casual', mouth: true, tags: ['talk'], file: 'm' }, { id: 'leo_t', who: 'leo', outfit: 'casual', mouth: true, tags: ['talk'], file: 'l' }] };
+  const keep = [...Array(20)].map((_, i) => X.pickVariant({ job: cafe, formats, casting, manifest: cm, seed: 'k' + i, date }));
+  ok(keep.every(v => !v.recast && v.cast.to.join() === 'carlos,mia' && v.setting.scene === 'cafe'), 'cafe-order: Carlos + Mia ghi rõ → 20 seed đều giữ dàn');
+  const opt = [...Array(20)].map((_, i) => X.pickVariant({ job: { ...cafe, script: { ...cafe.script, recast: true } }, formats, casting, manifest: cm, seed: 'k' + i, date }));
+  ok(opt.some(v => v.recast), 'recast:true → được đổi vai để đa dạng');
+  const noMia = { ...cm, clips: cm.clips.filter(c => c.who !== 'mia') }, rv = X.pickVariant({ job: cafe, formats, casting, manifest: noMia, seed: 'z', date });
+  ok(rv.recast && rv.cast.to[0] === 'carlos' && rv.cast.to[1] === 'leo' && /mia/.test(rv.recastReason), 'người được gọi tên thiếu clip → chỉ thay người đó + lý do');
+}
 ok(X.applyCast(sample.script, { from: ['mia', 'leo'], to: ['leo', 'diane'] }).lines.map(l => l.who).join() === 'leo,diane,diane,leo,kit,leo', 'áp dàn mới, Kit giữ nguyên');
 const topicsQ = ['Don\'t say "I\'m agree"', 'Job interview: tell me about yourself', 'Ordering coffee like a local', 'IELTS speaking part 2', 'Leo explains "spill the tea"', 'At the airport check-in', 'Affect or effect quiz', 'Email etiquette', 'Restaurant: asking for the check'];
 const spk = { 'ielts-exam': ['ama'], 'study-grammar': ['ama'], 'ordering-coffee': ['carlos', 'mia'], restaurant: ['carlos', 'leo'], travel: ['carlos', 'mia'], 'job-interview': ['diane', 'mia'] };

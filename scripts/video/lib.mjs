@@ -178,8 +178,12 @@ export function pacingScore(shots) {
 
 // ---------- CỔNG NHẤT QUÁN bối cảnh – nhân vật – lời thoại ----------
 // Cảm xúc câu → nhóm clip hợp lệ (yêu cầu anh chủ: hỏi → ask/think, sai → shock/facepalm, đúng → thumbs/laugh, giải thích → talk/point)
-export const EMOTION_TAGS = { ask: ['ask', 'think'], wrong: ['shock', 'facepalm', 'headgrab'], right: ['thumbs', 'laugh'], explain: ['talk', 'point'], cta: ['wave', 'thumbs', 'talk'], talk: ['talk', 'point', 'ask'] };
-export const LISTENER_TAGS = ['idle', 'nod'];
+// Thẻ clip phông xanh 17/10: <who>_talk_gesture (nói + vung tay) · wave_clasp (vẫy + chắp tay) · think_aha · shock_laugh · listen_thumbs (nghe)
+export const EMOTION_TAGS = { ask: ['ask', 'think'], wrong: ['shock', 'facepalm', 'headgrab'], right: ['thumbs', 'laugh'], explain: ['talk', 'point', 'gesture'], cta: ['wave', 'thumbs', 'talk'], talk: ['talk', 'point', 'ask', 'gesture'] };
+export const LISTENER_TAGS = ['idle', 'nod', 'listen'];
+// Clip người nói = có cử động miệng: cờ mouth (manifest dựng) hoặc vai "speaker" trong kho (library.json roles); người nghe = thẻ idle/nod/listen hoặc vai "listener"
+export const isSpeakerClip = c => !!c && (c.mouth === true || (c.mouth == null && (c.roles || []).includes('speaker')));
+export const isListenerClip = c => !!c && ((c.tags || []).some(t => LISTENER_TAGS.includes(t)) || ((c.roles || []).includes('listener') && !isSpeakerClip(c)));
 const RX = {
   wrong: /\b(wrong|mistake|incorrect|error|don'?t say|never say|stop saying|oops|wait)\b/i,
   right: /\b(right|correct|perfect|exactly|great|nice|got it|that's it|yes)\b/i,
@@ -193,11 +197,17 @@ export function lineEmotion(l) {
   if (['explain', 'example', 'tip'].includes(l.beat)) return 'explain'; // phần giảng giải: nói + chỉ tay, biểu cảm chỉ là sắc thái
   return exprEmotion([l.expr, l.gesture].join(' ')) || (l.beat === 'situation' ? 'explain' : 'talk');
 }
-// Biểu cảm ghi trong kịch bản trái nghĩa với câu (vd. câu "That's wrong" mà expr "big laugh") → lỗi
-const COMPAT = { wrong: ['wrong', 'ask'], ask: ['ask', 'wrong'], right: ['right'] };
+// Biểu cảm ghi trong kịch bản trái nghĩa với câu → lỗi. Chỉ chặn MÂU THUẪN THẬT:
+//  · câu "sai" (That's wrong!) mà cười lớn/vui · câu buồn/giận (sorry, unfortunately, annoyed…) mà mặt cười · câu "đúng/khen" mà mặt buồn/giận/sốc.
+//  Câu hỏi hợp với mọi sắc thái trung tính–vui (hỏi thân thiện kèm nụ cười: "What can I get for you?" + happy smile) → KHÔNG lỗi.
+const COMPAT = { wrong: ['wrong', 'ask'], ask: ['ask', 'wrong', 'right'], right: ['right'] };
+const MOOD = { sad: /\b(sorry|sad|unfortunately|terrible|awful|disappointed|heartbroken|i miss)\b/i, angry: /\b(angry|annoyed|unacceptable|ridiculous|furious|how dare|so rude)\b/i };
+const EXPR_NEG = /\b(sad|cry|crying|tears?|upset|frown\w*|angry|furious|mad|annoyed|glar\w*|disappointed|grumpy)\b/i;
 export function exprConflict(l) {
   if (l.beat === 'cta') return null;
-  const t = textEmotion(l.text), e = exprEmotion(l.expr);
+  const t = textEmotion(l.text), e = exprEmotion(l.expr), mood = Object.keys(MOOD).find(k => MOOD[k].test(String(l.text || '')));
+  if (mood && e === 'right') return `câu mang ý "${mood}" nhưng biểu cảm "${l.expr}" lại vui/cười`;
+  if (EXPR_NEG.test(String(l.expr || '')) && t === 'right') return `câu mang ý "right" nhưng biểu cảm "${l.expr}" buồn/giận`;
   return t && e && !(COMPAT[t] || [t]).includes(e) ? `câu mang ý "${t}" nhưng biểu cảm "${l.expr}" mang ý "${e}"` : null;
 }
 
@@ -230,11 +240,12 @@ export function pickAsset(manifest, who, { speaking, emotion, outfit, exists = (
   const asClip = c => c && { kind: 'clip', ...c };
   let c;
   if (speaking) { // thứ tự: đúng cảm xúc → nói chung → bất kỳ clip có miệng; ưu tiên clip chưa dùng trong video và không vừa dùng ở video gần đây
-    const cands = [...(EMOTION_TAGS[emotion] || []).flatMap(t => clips.filter(x => x.mouth && hit(x, [t]))), ...clips.filter(x => x.mouth && hit(x, ['talk'])), ...clips.filter(x => x.mouth)];
+    const sp = clips.filter(isSpeakerClip);
+    const cands = [...(EMOTION_TAGS[emotion] || []).flatMap(t => sp.filter(x => hit(x, [t]))), ...sp.filter(x => hit(x, ['talk', 'gesture'])), ...sp];
     c = cands.find(x => !used.has(x.id) && !avoid.has(x.id)) || cands.find(x => !used.has(x.id)) || cands[0];
   }
-  else c = clips.find(x => hit(x, ['idle'])) || clips.find(x => hit(x, LISTENER_TAGS));
-  if (c) return asClip(c);
+  else c = clips.find(x => hit(x, ['idle'])) || clips.find(isListenerClip);
+  if (c) return asClip({ ...c, mouth: isSpeakerClip(c) });
   const s = (manifest.stills || []).find(x => x.who === who && (x.outfit || 'office') === outfit && exists(x.file));
   return s ? { kind: 'still', tags: ['idle'], mouth: false, facing: 'front', ...s } : { kind: 'none', who, outfit, tags: [], mouth: false, facing: 'front' };
 }
@@ -289,7 +300,7 @@ export function buildStage({ job, casting, manifest, exists = () => true, varian
       const nat = a.facing || 'front', flip = flipOf(nat, want), face = flip ? (nat === 'left' ? 'right' : 'left') : nat;
       if (speaking && !a.mouth) F('lipsync', `câu ${i + 1}: ${who} đang nói nhưng không có clip cử động miệng (${a.kind === 'none' ? 'thiếu tài nguyên' : a.kind + ' ' + (a.id || a.file || '')})`);
       if (speaking && a.mouth && !(a.tags || []).some(t => (EMOTION_TAGS[emotion] || []).includes(t))) F('lipsync', `câu ${i + 1}: clip ${a.id} (${(a.tags || []).join('/')}) không khớp cảm xúc "${emotion}" (cần ${EMOTION_TAGS[emotion].join('/')})`);
-      if (!speaking && a.kind === 'clip' && !(a.tags || []).some(t => LISTENER_TAGS.includes(t))) F('lipsync', `câu ${i + 1}: ${who} đang nghe nhưng dùng clip ${a.id} (cần idle/nod)`);
+      if (!speaking && a.kind === 'clip' && !isListenerClip(a)) F('lipsync', `câu ${i + 1}: ${who} đang nghe nhưng dùng clip ${a.id} (cần idle/nod)`);
       if (want !== 'front' && nat !== 'front' && face !== want) F('lipsync', `câu ${i + 1}: ${who} không nhìn về phía người nói`);
       if (a.kind !== 'none') { outfits[who] = outfits[who] || new Set(); outfits[who].add(a.outfit || 'office'); }
       const key = who + '@' + g.scene; if (stands[key] && (stands[key].x !== p.x || stands[key].y !== p.y)) F('pacing', `${who} đổi vị trí đứng giữa các câu`); stands[key] = p;

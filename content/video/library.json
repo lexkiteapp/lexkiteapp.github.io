@@ -2012,7 +2012,16 @@
    ],
    "status": "approved",
    "locations": {
-    "primary": null,
+    "primary": {
+     "path": "clips/ama_shock_laugh.mp4",
+     "url": "https://media.lexkite.com/library/clips/ama_shock_laugh.mp4",
+     "sha256": "aac0f3e230fcfabd5f3874392aacbd2f37e18d5a1c5076d0dc419f284187eb4b",
+     "gitSha": "a5d49739645347e1ec2166695fd5e2693d6da6da",
+     "bytes": 2653416,
+     "srcSha": "b4175ee8a15c5fa8e79552c76b11c11562882c62d11fffd0de1da3a5b37ab7be",
+     "variant": "stacked",
+     "at": "2026-10-17"
+    },
     "backup": {
      "status": "pending"
     },
@@ -2081,13 +2090,15 @@
      ],
      "figH": 1496,
      "frames": 121,
-     "status": "FAIL",
+     "status": "WARN",
      "issues": [
-      "WARN anat_one_person: [đầu] Pose thấy 2 người (kiểm lại thừa người/thừa chi)",
-      "WARN anat_pose_detect: [giữa] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
-      "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 12 % (> 12 %)"
+      "WARN anat_joints: [giữa] khớp bất thường (ước lượng MediaPipe trên tranh 2D – AI thị giác quyết định FAIL) {'r': 1.8}",
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
      ],
-     "at": "2026-10-17"
+     "at": "2026-10-17",
+     "path": "clips/ama_shock_laugh.mp4",
+     "url": "https://media.lexkite.com/library/clips/ama_shock_laugh.mp4",
+     "gitSha": "a5d49739645347e1ec2166695fd5e2693d6da6da"
     }
    }
   },
@@ -2203,7 +2214,16 @@
    ],
    "status": "approved",
    "locations": {
-    "primary": null,
+    "primary": {
+     "path": "clips/ama_talk_gesture.mp4",
+     "url": "https://media.lexkite.com/library/clips/ama_talk_gesture.mp4",
+     "sha256": "86f6fa56cb9d8d2dc3f2422e5a1ac04515c3b754963b27a2b097956bca897376",
+     "gitSha": "679d711d3594eed51aa9849dc5b45e119876b9f0",
+     "bytes": 2853054,
+     "srcSha": "15206bfb51dca5fcb7108c02044deb68b1d96e58335241c4f96ae7df03682992",
+     "variant": "stacked",
+     "at": "2026-10-17"
+    },
     "backup": {
      "status": "pending"
     },
@@ -2271,16 +2291,16 @@
      ],
      "figH": 1462,
      "frames": 121,
-     "status": "FAIL",
+     "status": "WARN",
      "issues": [
-      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [8]",
       "WARN identity: nghi trôi nhận dạng (tóc ×1.029, áo lệch 246.6) – AI thị giác quyết định FAIL \"identity drift\"",
-      "WARN anat_limbs: [đầu] không thấy đủ 2 tay + 2 chân rõ ràng",
-      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
-      "WARN anat_pose_detect: [giữa] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
-      "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 524 % (> 12 %)"
+      "WARN anat_joints: [giữa] khớp bất thường (ước lượng MediaPipe trên tranh 2D – AI thị giác quyết định FAIL) {'arm_l': 2.88}",
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
      ],
-     "at": "2026-10-17"
+     "at": "2026-10-17",
+     "path": "clips/ama_talk_gesture.mp4",
+     "url": "https://media.lexkite.com/library/clips/ama_talk_gesture.mp4",
+     "gitSha": "679d711d3594eed51aa9849dc5b45e119876b9f0"
     }
    }
   },
@@ -2310,7 +2330,16 @@
    ],
    "status": "approved",
    "locations": {
-    "primary": null,
+    "primary": {
+     "path": "clips/ama_think_aha.mp4",
+     "url": "https://media.lexkite.com/library/clips/ama_think_aha.mp4",
+     "sha256": "ab0616a22cbfd675b930c08bf38754b3c3d24e31681b3443dbf1fab36bb4ec1e",
+     "gitSha": "ccb80a7ddc99ca0d756d018ee2ca3713ac61d133",
+     "bytes": 2400636,
+     "srcSha": "e5ba3ea8f8d6f7fac78c0c86b460f584a6d926766df4a5015e1819729025705b",
+     "variant": "stacked",
+     "at": "2026-10-17"
+    },
     "backup": {
      "status": "pending"
     },
@@ -2380,14 +2409,17 @@
      ],
      "figH": 1471,
      "frames": 121,
-     "status": "FAIL",
+     "status": "WARN",
      "issues": [
-      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [16, 17, 77]",
-      "WARN anat_pose_detect: [đầu] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
-      "WARN anat_limbs: [cuối] không thấy đủ 2 tay + 2 chân rõ ràng",
-      "WARN anat_face_detect: [cuối] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+      "WARN anat_one_person: [giữa] Pose thấy 2 người (kiểm lại thừa người/thừa chi)",
+      "WARN anat_joints: [giữa] khớp bất thường (ước lượng MediaPipe trên tranh 2D – AI thị giác quyết định FAIL) {'arm_l': 11.4}",
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+      "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 12"
      ],
-     "at": "2026-10-17"
+     "at": "2026-10-17",
+     "path": "clips/ama_think_aha.mp4",
+     "url": "https://media.lexkite.com/library/clips/ama_think_aha.mp4",
+     "gitSha": "ccb80a7ddc99ca0d756d018ee2ca3713ac61d133"
     }
    }
   },
@@ -2493,7 +2525,16 @@
    ],
    "status": "approved",
    "locations": {
-    "primary": null,
+    "primary": {
+     "path": "clips/ama_wave_clasp.mp4",
+     "url": "https://media.lexkite.com/library/clips/ama_wave_clasp.mp4",
+     "sha256": "73eeb13e7b1a9f4324a6ed87039b72d1357639a543c361aa1223f790aa3814de",
+     "gitSha": "42bdb5ae8681060aedb9b239dc8142bbced3d06b",
+     "bytes": 3040472,
+     "srcSha": "4a9c381edc9f6c69182c677911c3ffec4ed40d6e75f88769881e0a6266b33063",
+     "variant": "stacked",
+     "at": "2026-10-17"
+    },
     "backup": {
      "status": "pending"
     },
@@ -2560,12 +2601,15 @@
      ],
      "figH": 1449,
      "frames": 121,
-     "status": "FAIL",
+     "status": "WARN",
      "issues": [
-      "WARN anat_pose_detect: [giữa] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
-      "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 478 % (> 12 %)"
+      "WARN anat_one_person: [cuối] Pose thấy 2 người (kiểm lại thừa người/thừa chi)",
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
      ],
-     "at": "2026-10-17"
+     "at": "2026-10-17",
+     "path": "clips/ama_wave_clasp.mp4",
+     "url": "https://media.lexkite.com/library/clips/ama_wave_clasp.mp4",
+     "gitSha": "42bdb5ae8681060aedb9b239dc8142bbced3d06b"
     }
    }
   },
@@ -3552,7 +3596,16 @@
    ],
    "status": "approved",
    "locations": {
-    "primary": null,
+    "primary": {
+     "path": "clips/diane_listen_thumbs.mp4",
+     "url": "https://media.lexkite.com/library/clips/diane_listen_thumbs.mp4",
+     "sha256": "0987dd86bcde29ca76bf9dae94dec8b4deead0923abe2be43df4aaee1827caf5",
+     "gitSha": "b1fde9e12787bd597f3dbd20f60cf03f4e3731cd",
+     "bytes": 2212000,
+     "srcSha": "788110ec9e36e355b86fe78b5819f4d68eaabb213737aa544b075b22450b8135",
+     "variant": "stacked",
+     "at": "2026-10-17"
+    },
     "backup": {
      "status": "pending"
     },
@@ -3620,16 +3673,14 @@
      ],
      "figH": 1559,
      "frames": 121,
-     "status": "FAIL",
+     "status": "WARN",
      "issues": [
-      "WARN anat_limbs: [cuối] không thấy đủ 2 tay + 2 chân rõ ràng",
-      "FAIL anat_glasses: [cuối] vùng mắt mất nét gọng kính so với DNA",
-      "WARN anat_pose_detect: [giữa] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
-      "WARN anat_face_detect: [cuối] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
-      "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 71 % (> 12 %)",
       "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 16"
      ],
-     "at": "2026-10-17"
+     "at": "2026-10-17",
+     "path": "clips/diane_listen_thumbs.mp4",
+     "url": "https://media.lexkite.com/library/clips/diane_listen_thumbs.mp4",
+     "gitSha": "b1fde9e12787bd597f3dbd20f60cf03f4e3731cd"
     }
    }
   },
@@ -5107,10 +5158,10 @@
      "frames": 121,
      "status": "FAIL",
      "issues": [
-      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [39, 40]",
-      "WARN anat_pose_detect: [đầu] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
-      "WARN anat_limbs: [cuối] không thấy đủ 2 tay + 2 chân rõ ràng",
-      "WARN anat_face_detect: [giữa] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [40]",
+      "WARN anat_face_detect: [giữa] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+      "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 14 % (> 12 %)",
+      "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 10"
      ],
      "at": "2026-10-17"
     }
@@ -6019,7 +6070,16 @@
    ],
    "status": "approved",
    "locations": {
-    "primary": null,
+    "primary": {
+     "path": "clips/mia_listen_thumbs.mp4",
+     "url": "https://media.lexkite.com/library/clips/mia_listen_thumbs.mp4",
+     "sha256": "526ee6037132b2bd477b6efc1c7fc03b97d50210f9da99176aaa1da4b2589295",
+     "gitSha": "a024e79f8c236e1fc8bb60f91155837e74b1166a",
+     "bytes": 2131535,
+     "srcSha": "be02ac868cb4a3fafd3cba6fdb538458477d7fe83e8035bf99cda216b0ca78f7",
+     "variant": "stacked",
+     "at": "2026-10-17"
+    },
     "backup": {
      "status": "pending"
     },
@@ -6086,15 +6146,14 @@
      ],
      "figH": 1736,
      "frames": 121,
-     "status": "FAIL",
+     "status": "WARN",
      "issues": [
-      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [77]",
-      "WARN anat_one_person: [đầu] Pose thấy 3 người (kiểm lại thừa người/thừa chi)",
-      "WARN anat_limbs: [cuối] không thấy đủ 2 tay + 2 chân rõ ràng",
-      "WARN anat_face_detect: [cuối] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
-      "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 21 % (> 12 %)"
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
      ],
-     "at": "2026-10-17"
+     "at": "2026-10-17",
+     "path": "clips/mia_listen_thumbs.mp4",
+     "url": "https://media.lexkite.com/library/clips/mia_listen_thumbs.mp4",
+     "gitSha": "a024e79f8c236e1fc8bb60f91155837e74b1166a"
     }
    }
   },
@@ -6355,8 +6414,7 @@
      "status": "FAIL",
      "issues": [
       "FAIL feet_still: chân trôi 2.2 % chiều cao khung",
-      "WARN anat_pose_detect: [giữa] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
-      "WARN anat_face_detect: [cuối] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
      ],
      "at": "2026-10-17"
     }
@@ -6658,7 +6716,16 @@
    ],
    "status": "approved",
    "locations": {
-    "primary": null,
+    "primary": {
+     "path": "clips/mia_think_aha.mp4",
+     "url": "https://media.lexkite.com/library/clips/mia_think_aha.mp4",
+     "sha256": "80cf59508f8c0c68c9455904ed147f7de974b16dcddc3c770c250325ac468468",
+     "gitSha": "63dd7e15e3a5de8f6f9fd081677a65ac592922a2",
+     "bytes": 2360131,
+     "srcSha": "d71e532b4486fecff0fa2f11eba617bf469eed7b8f5bd7a0f3622bde8a8380e9",
+     "variant": "stacked",
+     "at": "2026-10-17"
+    },
     "backup": {
      "status": "pending"
     },
@@ -6726,14 +6793,14 @@
      ],
      "figH": 1747,
      "frames": 121,
-     "status": "FAIL",
+     "status": "WARN",
      "issues": [
-      "WARN anat_limbs: [cuối] không thấy đủ 2 tay + 2 chân rõ ràng",
-      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
-      "WARN anat_pose_detect: [giữa] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
-      "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 23 % (> 12 %)"
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
      ],
-     "at": "2026-10-17"
+     "at": "2026-10-17",
+     "path": "clips/mia_think_aha.mp4",
+     "url": "https://media.lexkite.com/library/clips/mia_think_aha.mp4",
+     "gitSha": "63dd7e15e3a5de8f6f9fd081677a65ac592922a2"
     }
    }
   },
@@ -8357,7 +8424,7 @@
    "bytes": 3493432,
    "w": 1536,
    "h": 2720,
-   "qa": null,
+   "qa": 91,
    "note": "phòng Kling 17/10 (chưa chấm qa)",
    "source": {
     "from": "brand/characters/_candidates/rooms/apartment-a.png",
@@ -8365,9 +8432,17 @@
     "prompt": null,
     "date": "2026-10-16"
    },
-   "status": "reserve",
+   "status": "approved",
    "locations": {
-    "primary": null,
+    "primary": {
+     "path": "rooms/apartment-01-day-9x16.webp",
+     "url": "https://media.lexkite.com/library/rooms/apartment-01-day-9x16.webp",
+     "sha256": "6e8531ca8122dd8e6f5ad1c5bb53aa2159c6fe2380dbb66a674434597930eecb",
+     "gitSha": "c308b2385a633993254fe495e24323d8fb76882f",
+     "bytes": 109886,
+     "srcSha": "7e53aa71a4894e52ee41864586751d0c8ace5629d09ac77a2395b6a38ab8434b",
+     "at": "2026-10-17"
+    },
     "backup": {
      "status": "pending"
     },
@@ -8379,7 +8454,14 @@
       "sha256": "7e53aa71a4894e52ee41864586751d0c8ace5629d09ac77a2395b6a38ab8434b",
       "at": "2026-10-17"
      }
-    ]
+    ],
+    "src": {
+     "path": "src/rooms/apartment-01-day-9x16.png",
+     "url": "https://media.lexkite.com/library/src/rooms/apartment-01-day-9x16.png",
+     "gitSha": "2e0247e24c2f089729b842c9d07fee740bfc99da",
+     "sha256": "7e53aa71a4894e52ee41864586751d0c8ace5629d09ac77a2395b6a38ab8434b",
+     "bytes": 3493432
+    }
    },
    "check": {
     "status": "PASS",
@@ -8429,6 +8511,12 @@
       "confidence": 0.66
      }
     }
+   },
+   "waiver": "qa-log 17/10: phòng đủ nội thất cà phê/căn hộ a/b 91 ✓ (trước đây nhập thiếu qa → reserve)",
+   "manualReview": {
+    "at": "2026-10-17",
+    "reason": "qa-log 17/10: phòng đủ nội thất cà phê/căn hộ a/b 91 ✓ (trước đây nhập thiếu qa → reserve)",
+    "from": "reserve"
    }
   },
   {
@@ -8444,7 +8532,7 @@
    "bytes": 3501329,
    "w": 1536,
    "h": 2720,
-   "qa": null,
+   "qa": 91,
    "note": "phòng Kling 17/10 (chưa chấm qa)",
    "source": {
     "from": "brand/characters/_candidates/rooms/apartment-b.png",
@@ -8452,9 +8540,17 @@
     "prompt": null,
     "date": "2026-10-16"
    },
-   "status": "reserve",
+   "status": "approved",
    "locations": {
-    "primary": null,
+    "primary": {
+     "path": "rooms/apartment-02-day-9x16.webp",
+     "url": "https://media.lexkite.com/library/rooms/apartment-02-day-9x16.webp",
+     "sha256": "a954d95be38ba1e1b732c3d46ac1f5a1ee827d8cfc331e680f6908b6e625a1c2",
+     "gitSha": "f75fc4437cb386bd5f35f7f575549977896f8b37",
+     "bytes": 105998,
+     "srcSha": "f45100e65cf0110d107b238e4e05ac6c932e6291f86567605cd13d4e15dff1dc",
+     "at": "2026-10-17"
+    },
     "backup": {
      "status": "pending"
     },
@@ -8466,7 +8562,14 @@
       "sha256": "f45100e65cf0110d107b238e4e05ac6c932e6291f86567605cd13d4e15dff1dc",
       "at": "2026-10-17"
      }
-    ]
+    ],
+    "src": {
+     "path": "src/rooms/apartment-02-day-9x16.png",
+     "url": "https://media.lexkite.com/library/src/rooms/apartment-02-day-9x16.png",
+     "gitSha": "228274ae6c2b4ddf03f06c9410cab18f07c52c35",
+     "sha256": "f45100e65cf0110d107b238e4e05ac6c932e6291f86567605cd13d4e15dff1dc",
+     "bytes": 3501329
+    }
    },
    "check": {
     "status": "PASS",
@@ -8516,6 +8619,12 @@
       "confidence": 0.5
      }
     }
+   },
+   "waiver": "qa-log 17/10: phòng đủ nội thất cà phê/căn hộ a/b 91 ✓ (trước đây nhập thiếu qa → reserve)",
+   "manualReview": {
+    "at": "2026-10-17",
+    "reason": "qa-log 17/10: phòng đủ nội thất cà phê/căn hộ a/b 91 ✓ (trước đây nhập thiếu qa → reserve)",
+    "from": "reserve"
    }
   },
   {
@@ -8531,7 +8640,7 @@
    "bytes": 4092606,
    "w": 1536,
    "h": 2720,
-   "qa": null,
+   "qa": 91,
    "note": "phòng Kling 17/10 (chưa chấm qa)",
    "source": {
     "from": "brand/characters/_candidates/rooms/cafe-a.png",
@@ -8539,9 +8648,17 @@
     "prompt": null,
     "date": "2026-10-16"
    },
-   "status": "reserve",
+   "status": "approved",
    "locations": {
-    "primary": null,
+    "primary": {
+     "path": "rooms/cafe-01-day-9x16.webp",
+     "url": "https://media.lexkite.com/library/rooms/cafe-01-day-9x16.webp",
+     "sha256": "62fbcb4db03a71ddeb78117313bcbe24da850c3e508dbb3bf474b534889eb660",
+     "gitSha": "96cacf3f7190978cc5924ee8b93b53925312bff4",
+     "bytes": 137728,
+     "srcSha": "5eb65bc77afd52cf5f8d1f2cb01c2811333a79b1bbb6b5c28a00d46d9de7a7df",
+     "at": "2026-10-17"
+    },
     "backup": {
      "status": "pending"
     },
@@ -8553,7 +8670,14 @@
       "sha256": "5eb65bc77afd52cf5f8d1f2cb01c2811333a79b1bbb6b5c28a00d46d9de7a7df",
       "at": "2026-10-17"
      }
-    ]
+    ],
+    "src": {
+     "path": "src/rooms/cafe-01-day-9x16.png",
+     "url": "https://media.lexkite.com/library/src/rooms/cafe-01-day-9x16.png",
+     "gitSha": "6a079820a77dfc600627f1cc938e71c35f819ac6",
+     "sha256": "5eb65bc77afd52cf5f8d1f2cb01c2811333a79b1bbb6b5c28a00d46d9de7a7df",
+     "bytes": 4092606
+    }
    },
    "check": {
     "status": "PASS",
@@ -8603,6 +8727,12 @@
       "confidence": 0.65
      }
     }
+   },
+   "waiver": "qa-log 17/10: phòng đủ nội thất cà phê/căn hộ a/b 91 ✓ (trước đây nhập thiếu qa → reserve)",
+   "manualReview": {
+    "at": "2026-10-17",
+    "reason": "qa-log 17/10: phòng đủ nội thất cà phê/căn hộ a/b 91 ✓ (trước đây nhập thiếu qa → reserve)",
+    "from": "reserve"
    }
   },
   {
@@ -8618,7 +8748,7 @@
    "bytes": 3684958,
    "w": 1536,
    "h": 2720,
-   "qa": null,
+   "qa": 91,
    "note": "phòng Kling 17/10 (chưa chấm qa)",
    "source": {
     "from": "brand/characters/_candidates/rooms/cafe-b.png",
@@ -8626,9 +8756,17 @@
     "prompt": null,
     "date": "2026-10-16"
    },
-   "status": "reserve",
+   "status": "approved",
    "locations": {
-    "primary": null,
+    "primary": {
+     "path": "rooms/cafe-02-day-9x16.webp",
+     "url": "https://media.lexkite.com/library/rooms/cafe-02-day-9x16.webp",
+     "sha256": "4cc53ee2311934c10cfb31e93f2e2dbf7d7b3eb3627f58967edd17f6d2b0d809",
+     "gitSha": "2814b1813d9146653e3db649b8d0e83c5c2dd17b",
+     "bytes": 117892,
+     "srcSha": "f57f61907722609e4848a906f1b8b53799220d998d3d45a2e2439f81f264162b",
+     "at": "2026-10-17"
+    },
     "backup": {
      "status": "pending"
     },
@@ -8640,7 +8778,14 @@
       "sha256": "f57f61907722609e4848a906f1b8b53799220d998d3d45a2e2439f81f264162b",
       "at": "2026-10-17"
      }
-    ]
+    ],
+    "src": {
+     "path": "src/rooms/cafe-02-day-9x16.png",
+     "url": "https://media.lexkite.com/library/src/rooms/cafe-02-day-9x16.png",
+     "gitSha": "26e7a44eae45847bf9083ab6a89161bd63c8d952",
+     "sha256": "f57f61907722609e4848a906f1b8b53799220d998d3d45a2e2439f81f264162b",
+     "bytes": 3684958
+    }
    },
    "check": {
     "status": "PASS",
@@ -8690,6 +8835,12 @@
       "confidence": 0.63
      }
     }
+   },
+   "waiver": "qa-log 17/10: phòng đủ nội thất cà phê/căn hộ a/b 91 ✓ (trước đây nhập thiếu qa → reserve)",
+   "manualReview": {
+    "at": "2026-10-17",
+    "reason": "qa-log 17/10: phòng đủ nội thất cà phê/căn hộ a/b 91 ✓ (trước đây nhập thiếu qa → reserve)",
+    "from": "reserve"
    }
   },
   {
@@ -8713,9 +8864,17 @@
     "prompt": null,
     "date": "2026-10-16"
    },
-   "status": "reserve",
+   "status": "approved",
    "locations": {
-    "primary": null,
+    "primary": {
+     "path": "rooms/office-01-day-9x16.webp",
+     "url": "https://media.lexkite.com/library/rooms/office-01-day-9x16.webp",
+     "sha256": "cc2eebfa9a3aae839da2fa84905f59ec774ed4bea276dc08ce1867bcd9b7820c",
+     "gitSha": "97f45709a793eab06a26c749bd90299b3b77b714",
+     "bytes": 131078,
+     "srcSha": "ed84294576f860d806e9044480686d8e4afa1c437522f8bdfe819f178beebfbe",
+     "at": "2026-10-17"
+    },
     "backup": {
      "status": "pending",
      "reason": "pool_full"
@@ -8728,7 +8887,14 @@
       "sha256": "ed84294576f860d806e9044480686d8e4afa1c437522f8bdfe819f178beebfbe",
       "at": "2026-10-17"
      }
-    ]
+    ],
+    "src": {
+     "path": "src/rooms/office-01-day-9x16.png",
+     "url": "https://media.lexkite.com/library/src/rooms/office-01-day-9x16.png",
+     "gitSha": "91e0545b087b0ded743093d7cffd9ce1ab8ab747",
+     "sha256": "ed84294576f860d806e9044480686d8e4afa1c437522f8bdfe819f178beebfbe",
+     "bytes": 4313764
+    }
    },
    "check": {
     "status": "PASS",
@@ -8778,6 +8944,12 @@
       "confidence": 0.55
      }
     }
+   },
+   "waiver": "duyệt tay 17/10 (soi ảnh): phòng văn phòng 9:16 sạch, lối sàn trống giữa, không chữ lỗi, đúng phong cách – check PASS, chưa ghi điểm qa-log",
+   "manualReview": {
+    "at": "2026-10-17",
+    "reason": "duyệt tay 17/10 (soi ảnh): phòng văn phòng 9:16 sạch, lối sàn trống giữa, không chữ lỗi, đúng phong cách – check PASS, chưa ghi điểm qa-log",
+    "from": "reserve"
    }
   },
   {
@@ -8801,9 +8973,17 @@
     "prompt": null,
     "date": "2026-10-16"
    },
-   "status": "reserve",
+   "status": "approved",
    "locations": {
-    "primary": null,
+    "primary": {
+     "path": "rooms/office-02-day-9x16.webp",
+     "url": "https://media.lexkite.com/library/rooms/office-02-day-9x16.webp",
+     "sha256": "b567c58db7e3940d62bda3d9f826d48d4bf8ba050585e1b0982781d3e367c98a",
+     "gitSha": "3b4b981359a4c3a59bfc7944ec2123983249f090",
+     "bytes": 111300,
+     "srcSha": "8b86e3bd1bf6cb2e54f52179e2a076cfe741e7fd09c63c385e597f0c15cd6adc",
+     "at": "2026-10-17"
+    },
     "backup": {
      "status": "pending",
      "reason": "pool_full"
@@ -8816,7 +8996,14 @@
       "sha256": "8b86e3bd1bf6cb2e54f52179e2a076cfe741e7fd09c63c385e597f0c15cd6adc",
       "at": "2026-10-17"
      }
-    ]
+    ],
+    "src": {
+     "path": "src/rooms/office-02-day-9x16.png",
+     "url": "https://media.lexkite.com/library/src/rooms/office-02-day-9x16.png",
+     "gitSha": "e77696394813228e7edffbf2a50c6ce7c5848558",
+     "sha256": "8b86e3bd1bf6cb2e54f52179e2a076cfe741e7fd09c63c385e597f0c15cd6adc",
+     "bytes": 3570369
+    }
    },
    "check": {
     "status": "PASS",
@@ -8866,6 +9053,12 @@
       "confidence": 0.74
      }
     }
+   },
+   "waiver": "duyệt tay 17/10 (soi ảnh): phòng văn phòng 9:16 sạch, lối sàn trống giữa, không chữ lỗi, đúng phong cách – check PASS, chưa ghi điểm qa-log",
+   "manualReview": {
+    "at": "2026-10-17",
+    "reason": "duyệt tay 17/10 (soi ảnh): phòng văn phòng 9:16 sạch, lối sàn trống giữa, không chữ lỗi, đúng phong cách – check PASS, chưa ghi điểm qa-log",
+    "from": "reserve"
    }
   },
   {
@@ -8889,9 +9082,17 @@
     "prompt": null,
     "date": "2026-10-16"
    },
-   "status": "reserve",
+   "status": "approved",
    "locations": {
-    "primary": null,
+    "primary": {
+     "path": "rooms/office-03-day-9x16.webp",
+     "url": "https://media.lexkite.com/library/rooms/office-03-day-9x16.webp",
+     "sha256": "9589c9e01da4b0e20872bf3d3a907bbe6b62509c2b755b2f2d557a132d415622",
+     "gitSha": "52e54443aeefdea92430a7be231c3de939d0919e",
+     "bytes": 128600,
+     "srcSha": "111f20d5740a14e58cbcf850f36ba081243ad39a3a2ddcdcf93505cebd16c3a1",
+     "at": "2026-10-17"
+    },
     "backup": {
      "status": "pending",
      "reason": "pool_full"
@@ -8904,7 +9105,14 @@
       "sha256": "111f20d5740a14e58cbcf850f36ba081243ad39a3a2ddcdcf93505cebd16c3a1",
       "at": "2026-10-17"
      }
-    ]
+    ],
+    "src": {
+     "path": "src/rooms/office-03-day-9x16.png",
+     "url": "https://media.lexkite.com/library/src/rooms/office-03-day-9x16.png",
+     "gitSha": "6a89c9f2c61432ea89430d3b55e7949dde82062e",
+     "sha256": "111f20d5740a14e58cbcf850f36ba081243ad39a3a2ddcdcf93505cebd16c3a1",
+     "bytes": 3720597
+    }
    },
    "check": {
     "status": "PASS",
@@ -8954,6 +9162,12 @@
       "confidence": 0.41
      }
     }
+   },
+   "waiver": "duyệt tay 17/10 (soi ảnh): phòng văn phòng 9:16 sạch, lối sàn trống giữa, không chữ lỗi, đúng phong cách – check PASS, chưa ghi điểm qa-log",
+   "manualReview": {
+    "at": "2026-10-17",
+    "reason": "duyệt tay 17/10 (soi ảnh): phòng văn phòng 9:16 sạch, lối sàn trống giữa, không chữ lỗi, đúng phong cách – check PASS, chưa ghi điểm qa-log",
+    "from": "reserve"
    }
   }
  ]

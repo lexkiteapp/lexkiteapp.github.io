@@ -137,6 +137,7 @@ export function runCheck(file, entry, m, { sheet, kind, aiSheet, headSheet, aiRe
   const args = [path.join(HERE, 'asset_check.py'), file, '--kind', kind || kindArg(entry.kind, file)];
   const r = ratioArg(ratioOf(entry.file)); if (r) args.push('--ratio', r);
   if (entry.trimmed) args.push('--trimmed');
+  if ((kind || kindArg(entry.kind, file)) === 'stacked' && entry.w && entry.h) args.push('--src-size', `${entry.w},${entry.h}`); // cổng smooth quy về khung gốc (asset_check.py)
   if (entry.who && (entry.kind === 'char' || entry.kind === 'clip')) {
     args.push('--who', entry.who);
     const ref = m.refs && m.refs[entry.who]; if (ref) args.push('--ref', JSON.stringify(ref));
@@ -551,10 +552,11 @@ function rembgPython() {
 /** Duyệt tay: cổng tự động (heuristic MediaPipe/khung đột biến) đôi khi báo nhầm trên tranh 2D – người soi khung hình xác nhận thì mở cách ly.
  *  Bắt buộc --waiver "<lý do>"; giữ nguyên issues gốc, ghi manualReview {at, reason}; bản stacked FAIL → WAIVED (render dùng được). */
 function cmdApprove(id, opts) {
-  if (!id || !opts.waiver || String(opts.waiver).trim().length < 8) throw new Error('approve <id> --waiver "<lý do soi tay, ≥ 8 ký tự>"');
-  const m = loadManifest(), key = id.startsWith('clips/') ? id : `clips/${id.replace(/\.mp4$/, '')}.mp4`, e = m.items.find(x => x.id === key);
+  if (!id || !opts.waiver || String(opts.waiver).trim().length < 8) throw new Error('approve <id> --waiver "<lý do soi tay, ≥ 8 ký tự>" [--qa N]');
+  const m = loadManifest(), key = /^(clips|rooms)\//.test(id) ? id : `clips/${id.replace(/\.mp4$/, '')}.mp4`, e = m.items.find(x => x.id === key);
   if (!e) throw new Error('không có ' + key);
   const was = e.status;
+  if (opts.qa != null && !Number.isNaN(opts.qa)) e.qa = opts.qa; // điểm chấm tay (vd. từ content/video/qa-log.md)
   e.status = 'approved'; e.waiver = String(opts.waiver).trim(); e.manualReview = { at: today(), reason: e.waiver, from: was };
   if (e.rejectReason) { e.manualReview.rejectReason = e.rejectReason; delete e.rejectReason; }
   delete e.quarantinedFrom;
@@ -563,6 +565,7 @@ function cmdApprove(id, opts) {
   saveManifest(m);
   const probs = writeRenderManifest(m);
   log(`✓ ${key}: ${was} → approved (duyệt tay: ${e.waiver})${st ? ' · stacked ' + st.status : ''} · manifest dựng ${probs.length ? probs.length + ' vấn đề' : 'OK'}`);
+  if (!e.locations || !e.locations.primary) log('  → chạy library.mjs sync --primary-only để đưa lên media.lexkite.com (chưa lên media = render chưa dùng, ready:false)');
   return 0;
 }
 /** CI dựng video: brand/library không nằm trong git → tải từ nguồn chính (media.lexkite.com) đúng các file manifest dựng cần, kiểm sha256. */
@@ -573,8 +576,9 @@ async function cmdFetchRender() {
   for (const f of [...new Set(want)]) {
     const dest = path.join(LIB, f);
     const e = m.items.find(x => x.id === f || x.file === f || (x.variants && x.variants.stacked && x.variants.stacked.file === f));
-    const p = e && e.locations && e.locations.primary;
-    if (!p || !p.url) { log(`! ${f}: chưa có trên nguồn chính – chạy library.mjs sync`); miss++; continue; }
+    // phòng: ưu tiên bản gốc PNG (library/src/…, đủ nét cho nền 1080×1920) – bản web WebP ≤ 400 KB chỉ dự phòng
+    const p = e && e.locations && ((e.kind === 'room' && e.locations.src) || e.locations.primary);
+    if (!p || !p.url) { log(`! ${f}: chưa có trên nguồn chính (${e ? 'kho ghi ' + e.status : 'không có trong kho'}) – approved + library.mjs sync`); miss++; continue; }
     if (fs.existsSync(dest) && p.sha256 && sha256(fs.readFileSync(dest)) === p.sha256) { ok++; continue; }
     const r = await fetch(p.url), buf = Buffer.from(await r.arrayBuffer());
     if (!r.ok || (p.sha256 && sha256(buf) !== p.sha256)) { log(`✗ ${f}: tải ${p.url} lỗi (${r.status}) hoặc sai sha256`); miss++; continue; }
@@ -688,7 +692,7 @@ async function cmdCiApply(dir, opts) {
 
 /** Ghi brand/library/manifest.json (render.mjs đọc) từ library.json: chỉ clip approved có bản stacked đạt, phòng 9x16 có file + hồ sơ sàn, ảnh tĩnh có file.
  *  Giữ thuộc tính tay (outfit, tags, mouth, facing) của mục cũ cùng id. → danh sách vấn đề (file thiếu, stacked sai). */
-export function writeRenderManifest(m, file = path.join(LIB, 'manifest.json'), exists = f => fs.existsSync(path.join(LIB, f))) {
+export function writeRenderManifest(m, file = path.join(LIB, 'manifest.json'), exists = f => fs.existsSync(path.join(LIB, f)) && onMedia(m, f)) {
   // GỘP vào danh mục có sẵn (render/test dùng làm danh mục thiết kế) – không xoá mục; mục chưa có file → ready:false
   let rm; try { rm = JSON.parse(fs.readFileSync(file, 'utf8')); } catch { rm = { _note: '', rooms: [], clips: [], stills: [] }; }
   rm.rooms = rm.rooms || []; rm.clips = rm.clips || []; rm.stills = rm.stills || [];
@@ -714,7 +718,7 @@ export function writeRenderManifest(m, file = path.join(LIB, 'manifest.json'), e
   const seen = new Set();
   for (const e of m.items.filter(x => x.kind === 'room' && x.status !== 'reject')) {
     const p = parseName(e.file); if (!p || p.ratio !== '9x16') continue;
-    if (!exists(e.file)) { probs.push(`phòng ${e.file}: thiếu file`); continue; }
+    if (!exists(e.file)) { probs.push(`phòng ${e.file}: ${e.status !== 'approved' ? 'kho ghi ' + e.status + ' (chưa duyệt → không lên media)' : 'thiếu file / chưa sync lên media'} → ready:false`); continue; }
     let prof; try { prof = JSON.parse(fs.readFileSync(path.join(LIB, 'rooms', p.room + '.json'), 'utf8')); } catch { probs.push(`phòng ${e.file}: thiếu hồ sơ sàn rooms/${p.room}.json`); continue; }
     const id = `${p.room}-${p.time}`, base = p.room.replace(/-\d+$/, '');
     let r = rm.rooms.find(x => x.id === id);
@@ -722,11 +726,21 @@ export function writeRenderManifest(m, file = path.join(LIB, 'manifest.json'), e
     Object.assign(r, { file: e.file, tag: TAG[base] || base, time: p.time, floor: prof.floor, stand: prof.stand, scaleAt: prof.scaleAt, light: prof.light, vanish: prof.vanish, auto: !prof.manual, qa: e.qa, ready: true });
     seen.add(id);
   }
-  for (const r of rm.rooms) if (!seen.has(r.id)) { r.ready = exists(r.file); if (!r.ready) probs.push(`phòng ${r.file}: thiếu file → render dùng nền màu (ready:false)`); }
+  for (const r of rm.rooms) if (!seen.has(r.id)) { r.ready = exists(r.file) && !m.items.some(x => x.kind === 'room' && x.file === r.file && x.status !== 'approved'); if (!r.ready) probs.push(`phòng ${r.file}: thiếu file → render dùng nền màu (ready:false)`); }
   for (const x of rm.stills) { x.ready = exists(x.file); if (!x.ready) probs.push(`ảnh tĩnh ${x.file}: thiếu file (ready:false)`); }
   rm._note = String(rm._note || '').replace(/\s*\[library\.mjs\].*$/, '') + ' [library.mjs] Mục có file được cập nhật tự động từ content/video/library.json (clip: bản stacked clips/<id>.mp4 + foot/figH/w/h; gốc Kling ở clips/src/ – KHÔNG để clip gốc ở clips/; phòng: hồ sơ sàn tự động rooms/<room>.json, auto:true = chưa chỉnh tay). ready:false = chưa có file, render bỏ qua.';
   fs.writeFileSync(file, JSON.stringify(rm, null, 2) + '\n');
   return probs;
+}
+
+/** Đã có trên nguồn chính (media.lexkite.com) đúng bản đang dùng? clip: bản stacked (primary = stacked, cùng sha); phòng/ảnh: bản web của đúng gốc.
+ *  CI dựng video chỉ có những gì fetch-render tải được từ media → manifest dựng chỉ đánh ready:true cho mục approved đã lên media. */
+export function onMedia(m, f) {
+  const e = m.items.find(x => x.id === f || x.file === f); if (!e) return true; // mục ngoài kho (ảnh tĩnh thiết kế…) → chỉ xét file
+  if (e.status !== 'approved') return false;
+  const p = e.locations && e.locations.primary; if (!p) return false;
+  if (e.kind === 'clip') { const st = e.variants && e.variants.stacked; return !!st && p.path === st.file && (!st.sha256 || p.sha256 === st.sha256); }
+  return p.srcSha === e.sha256;
 }
 
 // ---------- tối ưu bản web ----------
@@ -1019,6 +1033,10 @@ async function cmdSync(opts) {
         continue;
       }
       if (!fs.existsSync(path.join(LIB, e.file))) { log(`! thiếu file gốc ${e.file} – chạy restore`); continue; }
+      if (e.kind === 'room') { // nền video cần bản gốc đủ nét (bản web bị nén ≤ 400 KB) → library/src/ như clip; fetch-render (CI) ưu tiên bản này
+        const b = fs.readFileSync(path.join(LIB, e.file));
+        e.locations.src = { path: 'src/' + e.file, url: CDN + 'src/' + e.file, gitSha: gitBlobSha(b), sha256: e.sha256, bytes: b.length }; push('library/src/' + e.file, b);
+      }
       const p = e.locations.primary, rp = p && remote.files.get('library/' + p.path);
       if (p && p.srcSha === e.sha256 && rp && rp.sha === p.gitSha) { skip++; continue; }
       const o = optimize(e), buf = fs.readFileSync(o.file);
@@ -1033,7 +1051,7 @@ async function cmdSync(opts) {
     }) }, null, 1));
     push('library/index.json', index);
     const rmf = path.join(LIB, 'manifest.json');
-    if (fs.existsSync(rmf)) push('library/manifest.json', fs.readFileSync(rmf));
+    if (fs.existsSync(rmf) && !opts.dryRun) { const probs = writeRenderManifest(m); if (probs.length) log(`manifest dựng: ${probs.length} mục chưa sẵn sàng (ready:false)`); push('library/manifest.json', fs.readFileSync(rmf)); }
     // dọn file library/ trên repo không còn trong manifest (vd. bản gốc cũ nằm nhầm chỗ bản stacked)
     const want = new Set(['library/index.json', 'library/manifest.json', ...blobs.map(x => x.path)]);
     for (const e of m.items) { if (e.status === 'approved' && e.locations.primary) want.add('library/' + e.locations.primary.path); if (e.locations.src) want.add('library/' + e.locations.src.path); }
@@ -1054,7 +1072,7 @@ async function cmdSync(opts) {
       await gh('PATCH', `/git/refs/heads/${MEDIA_BRANCH}`, { sha: c.sha });
       log(`✓ đẩy commit ${c.sha.slice(0, 7)} lên ${MEDIA_REPO}`);
     }
-    saveManifest(m);
+    if (!opts.dryRun) saveManifest(m); // --dry-run: không ghi primary của file chưa đẩy
   }
   if (!opts.primaryOnly && await driveReady()) { // nguồn phụ ưu tiên: Kho Drive riêng (đã nối trong Quản trị); không có → GrabCast
     let up = 0, have = 0, fail = 0;
