@@ -38,7 +38,7 @@ for (const [bn, bt] of Object.entries({ chromium, webkit, firefox })) {
     const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(2000); }
     for (const r of ROUTES) {
       await page.evaluate(h => { location.hash = h; }, '#/' + r); await page.waitForTimeout(500);
-      await page.mouse.wheel(0, 2500); await page.waitForTimeout(300); // cuộn xuống giữa/cuối trang rồi mới đi tiếp (đúng tình huống lỗi)
+      await page.evaluate(() => scrollBy(0, 2500)); await page.waitForTimeout(300); // cuộn xuống giữa/cuối trang rồi mới đi tiếp (đúng tình huống lỗi)
       await settle(page, `${tag} #/${r}`);
     }
     for (let i = 0; i < 5; i++) { await page.goBack().catch(() => {}); await settle(page, `${tag} Back ${i + 1}`); }
