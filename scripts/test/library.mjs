@@ -117,7 +117,7 @@ if (fs.existsSync(mf)) {
     ids.add(e.id); shas.add(e.sha256);
     assert.ok(['approved', 'reserve', 'reject'].includes(e.status), e.id);
     if (e.status === 'approved') assert.ok((e.qa ?? 0) >= 90 || e.waiver, 'approved thiếu qa ≥ 90/waiver: ' + e.id);
-    if (e.status === 'approved') assert.notEqual((e.check || {}).status, 'FAIL', 'approved nhưng check FAIL: ' + e.id);
+    if (e.status === 'approved' && (e.check || {}).status === 'FAIL') assert.ok(e.manualReview && e.manualReview.reason && e.waiver, 'approved nhưng check FAIL (thiếu duyệt tay có lý do – library.mjs approve): ' + e.id);
     assert.ok(!/AIza|ghp_|gho_|github_pat_/.test(JSON.stringify(e)), 'manifest chứa khoá/token: ' + e.id);
   }
   n++;
