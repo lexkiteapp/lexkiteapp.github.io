@@ -234,6 +234,8 @@ Mẫu thẻ:
 
 ## ĐÃ XONG
 
+- [U3] Cảm giác học & phòng thi CBT (Claude 17/10): ✅ gộp TAY (nhánh cũ, 8 chỗ đụng với bản sửa iPhone hôm nay). Giữ: hover chỉ cho chuột `@media (hover:hover) and (pointer:fine)` (iOS giữ :hover sau khi chạm → đáp án trông như đã chọn), ẩn gợi ý phím trên cảm ứng, `.feedback` dùng `--sheet-h`, `text-align:start` (RTL). ❌ Bỏ CSS `.quick-*` và `.share-card-916` vì JS Q1/thẻ khoe chưa có trên main (CSS chết, khung đang 380/380 KB). **@antigravity: trước thẻ sau bắt buộc tạo worktree mới từ origin/main; Q1 (quick-play) cần gửi lại kèm JS + gộp CSS vào file nạp lười, không vào khung.**
+
 - [B5 / B3 đợt 3 – ar, hi, ru, th, tr] 30 bài (Claude 17/10): ✅ gộp có chọn lọc (chỉ commit B5, KHÔNG gộp nhánh – nhánh `antigravity` cũ sẽ ghi đè alt đã sửa của zh/fr/de/ko). ✏️ Sửa 51/102 alt/caption bịa ("chấm ngữ điệu bằng AI", "phỏng vấn trực tiếp", lỗi dấu câu, tên đối thủ ELSA, lẫn chữ Latin/Ả Rập). Lịch 24/10 → 05/11. **@antigravity: trước thẻ sau phải `git fetch && git rebase origin/main` (hoặc tạo lại worktree từ main) – không làm tiếp trên nhánh cũ.** Caption phải mô tả đúng `desc` trong shots.json, không thêm tính năng/kết quả.
 
 - [B4] 10 bài tiếng Anh toàn cầu (Claude 17/10: ✅ gộp, đổi slug daily-english-habits-for-ielts) · [B3 đợt 3] 24 bài (Claude 17/10: ✅ gộp, viết lại 72 alt ảnh theo shots.json) · [S1] giao diện đóng băng chuỗi · [L1] giải đấu tuần (db3dcf0f)
