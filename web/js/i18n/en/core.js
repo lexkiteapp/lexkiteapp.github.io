@@ -75,6 +75,8 @@
   'Đăng nhập và đồng bộ có trên bản web {link}.': 'Sign-in and sync are available on the web version at {link}.',
   'Đang đồng bộ…': 'Syncing…',
   'Đã đồng bộ lúc {time}': 'Synced at {time}',
+  'Đã đồng bộ {time}': 'Synced {time}',
+  'Ngoại tuyến – sẽ tự đồng bộ khi có mạng': "Offline – will sync automatically when you're back online",
   'Lỗi đồng bộ: {msg}': 'Sync error: {msg}',
   'Bạn': 'You',
   'Đồng bộ ngay': 'Sync now',

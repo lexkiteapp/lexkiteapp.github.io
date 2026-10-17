@@ -6,10 +6,10 @@ import jsdom from 'jsdom';
 const { JSDOM } = jsdom;
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 const rd = f => fs.readFileSync(new URL('../../web/' + f, import.meta.url), 'utf8');
-const dom = new JSDOM('<!doctype html><html><head></head><body><main id="view"></main></body></html>', { url: 'https://lexkite.com/#/dict/record?q=private', runScripts: 'outside-only', pretendToBeVisual: true });
+const dom = new JSDOM('<!doctype html><html><head></head><body><nav class="side-foot"></nav><main id="view" class="view"></main></body></html>', { url: 'https://lexkite.com/#/dict/record?q=private', runScripts: 'outside-only', pretendToBeVisual: true });
 const w = dom.window, d = w.document;
 w.localStorage.setItem('vb.uiLang', 'en'); w.localStorage.setItem('lk.vid', 'abcdefgh12345678xyz');
-w.matchMedia = () => ({ matches: false }); w.console.error = () => {};
+const mq = { matches: false, fs: [], addEventListener: (e, f) => { mq.fs.push(f); }, f: () => mq.fs.forEach(f => f()) }; w.matchMedia = () => mq; w.console.error = () => {};
 let sent = [], reply = () => ({ ok: true, id: 'LX-1001', token: 'T'.repeat(24), eta: { kind: 'normal', h: 72 } });
 w.fetch = async (url, init) => { const b = JSON.parse(init.body); sent.push({ url, b, h: init.headers }); return { status: 200, json: async () => reply(b) }; };
 for (const f of ['js/i18n.js', 'js/i18n/en.js', 'js/i18n/en/report.js', 'js/kit.js']) w.eval(rd(f));
@@ -26,6 +26,26 @@ w.console.error('Boom: test error'); w.dispatchEvent(new w.ErrorEvent('error', {
 ok(w.__lkErrs.length === 2 && w.__lkErrs[1].includes('app.js:42'), 'bộ đệm lỗi console ghi lỗi + console.error');
 w.location.hash = '#/practice/flash'; w.dispatchEvent(new w.HashChangeEvent('hashchange'));
 ok(pill.hidden, 'ẩn khi đang luyện tập'); w.location.hash = '#/dict/record?q=private'; w.dispatchEvent(new w.HashChangeEvent('hashchange')); ok(!pill.hidden, 'hiện lại ngoài bài luyện');
+
+// Không che nội dung: nút tròn 44 px, tên đọc được, .view chừa đáy (--fab-space), ẩn khi cuộn xuống/gõ phím/có thanh dính đáy
+const CSS = w.LexReportCSS || '';
+ok(pill.querySelector('.lk-rep-l') && pill.querySelector('.lk-rep-l').textContent === 'Report' && /width:44px;height:44px/.test(CSS), 'nút gọn 44×44 px, nhãn "Report" cho trình đọc màn hình (data-i18n – đổi ngôn ngữ vẫn dịch)');
+ok(d.documentElement.classList.contains('lk-fab') && /--fab-space:\d+px/.test(CSS) && /html\.lk-fab body:not\(\.cbt-mode\):not\(\.bare\) \.view\{padding-bottom:calc\([^}]*var\(--fab-space\)/.test(CSS), 'html.lk-fab + .view padding-bottom có var(--fab-space) → nội dung cuối trang không bị nút che');
+ok(/:has\([^)]*\.learn-bar[^)]*\.grade-bar[^)]*#modal:not\(\[hidden\]\)[^)]*dialog\[open\]/.test(CSS) && /body\.focus \.lk-rep/.test(CSS), 'ẩn khi có thanh "Tiếp tục"/thanh chấm/hộp thoại/màn tập trung');
+const scrollTo = y => { Object.defineProperty(w, 'scrollY', { configurable: true, value: y }); w.dispatchEvent(new w.Event('scroll')); };
+scrollTo(400); ok(pill.classList.contains('off'), 'cuộn xuống → ẩn nút');
+scrollTo(300); ok(!pill.classList.contains('off'), 'cuộn lên → hiện lại');
+scrollTo(0);
+const inp = d.createElement('input'); d.getElementById('view').appendChild(inp); inp.focus();
+ok(pill.classList.contains('kb'), 'đang gõ vào ô nhập → ẩn (không đè ô nhập/bàn phím ảo)');
+inp.blur(); await new Promise(r => setTimeout(r, 5)); ok(!pill.classList.contains('kb'), 'rời ô nhập → hiện lại'); inp.remove();
+w.location.hash = '#/review'; w.dispatchEvent(new w.HashChangeEvent('hashchange'));
+ok(pill.hidden && !d.documentElement.classList.contains('lk-fab'), 'màn ôn tập: ẩn nút và bỏ khoảng chừa đáy');
+w.location.hash = '#/me'; w.dispatchEvent(new w.HashChangeEvent('hashchange'));
+mq.matches = true; mq.f();
+ok(pill.parentNode === d.querySelector('.side-foot') && pill.classList.contains('in-side') && !d.documentElement.classList.contains('lk-fab'), 'máy tính: nút vào chân thanh bên (không nổi trên nội dung)');
+mq.matches = false; mq.f(); ok(pill.parentNode === d.body && d.documentElement.classList.contains('lk-fab'), 'thu nhỏ cửa sổ → nút nổi trở lại');
+w.location.hash = '#/dict/record?q=private'; w.dispatchEvent(new w.HashChangeEvent('hashchange'));
 
 // ---------- Form ----------
 w.eval(rd('js/report.js'));

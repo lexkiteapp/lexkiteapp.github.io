@@ -1,6 +1,6 @@
 /* Học thích ứng (kiểu Mochi IELTS): kiểm tra đầu vào, kế hoạch hôm nay theo điểm yếu, sổ lỗi sai, tài nguyên miễn phí chính thống. */
 (function () {
-  const { $, $$, esc, shuffle, toast, ring } = UI;
+  const { $, $$, esc, toast } = UI;
   const { Store, Golden, SRS, Cards, todayKey } = Core;
   const App = window.App;
   const { state, routes } = App;
@@ -90,61 +90,7 @@
     $('#clearFixed').onclick = async () => { await Store.set('mistakes', (await Store.get('mistakes', [])).filter(x => !x.fixed)); toast(t('Đã dọn')); };
   };
 
-  // ================= KIỂM TRA ĐẦU VÀO =================
-  routes.placement = function () {
-    const lib = IELTS_DATA.TOPICS.filter(t => t.group === 'topics' || t.group === 'awl').flatMap(t => t.words).filter(w => w.vi && w.level);
-    const pickW = (lv, n) => shuffle(lib.filter(w => w.level === lv)).slice(0, n).map(w => ({ kind: 'vocab', lv, w }));
-    const G = (window.GRAMMAR || []);
-    const pickG = (lv, n) => shuffle(G.filter(l => l.level === lv)).slice(0, n).map(l => ({ kind: 'grammar', lv, l, q: l.quiz[Math.floor(Math.random() * l.quiz.length)] }));
-    const qs = shuffle([...pickW('B1', 3), ...pickW('B2', 4), ...pickW('C1', 3), ...pickG('A2', 2), ...pickG('B1', 4), ...pickG('B2', 3), ...pickG('C1', 1)]);
-    const W = { A2: 1, B1: 1.5, B2: 2, C1: 2.6, C2: 3 };
-    let i = 0, got = 0, max = 0;
-    const res = { vocab: [0, 0], grammar: [0, 0] };
-    const next = () => {
-      if (i >= qs.length) return finish();
-      const q = qs[i];
-      let opts, prompt, correct;
-      if (q.kind === 'vocab') {
-        const others = shuffle(lib.filter(x => x.word !== q.w.word && x.vi !== q.w.vi)).slice(0, 3);
-        opts = shuffle([q.w, ...others]).map(x => x.vi); correct = opts.indexOf(q.w.vi);
-        prompt = `<div class="tiny muted">${t('TỪ VỰNG')} · ${q.lv}</div><div class="entry-word" style="margin:.3rem 0">${esc(q.w.word)}</div><div class="muted">${t('Chọn nghĩa đúng')}</div>`;
-      } else {
-        opts = q.q.options; correct = q.q.answer;
-        prompt = `<div class="tiny muted">${t('NGỮ PHÁP')} · ${q.lv}</div><div style="font-size:1.15rem;font-weight:700;margin-top:.4rem">${esc(q.q.q)}</div>`;
-      }
-      view.innerHTML = `<div class="study-wrap"><div class="study-top"><a class="icon-btn" href="#/home">✕</a><div class="progress"><i style="width:${i / qs.length * 100}%"></i></div><span class="small muted">${i + 1}/${qs.length}</span></div>
-        <div class="card q-card">${prompt}</div>
-        <div class="options">${opts.map((o, k) => `<button class="option" data-k="${k}"><span class="kbd">${k + 1}</span>${esc(o)}</button>`).join('')}<button class="option" data-k="-1" style="color:var(--muted)">🤷 ${t('Tôi không biết')}</button></div></div>`;
-      $$('.option').forEach(b => b.onclick = () => {
-        const ok = +b.dataset.k === correct;
-        const w = W[q.lv] || 1.5;
-        max += w; if (ok) got += w;
-        res[q.kind][1]++; if (ok) res[q.kind][0]++;
-        i++; next();
-      });
-    };
-    const finish = async () => {
-      const pct = Math.round(got / Math.max(1, max) * 100);
-      const band = pct >= 88 ? '7.5+' : pct >= 75 ? '7.0' : pct >= 62 ? '6.5' : pct >= 50 ? '6.0' : pct >= 38 ? '5.5' : pct >= 25 ? '5.0' : '4.5';
-      const stage = pct >= 75 ? 's3' : pct >= 50 ? 's2' : pct >= 30 ? 's1' : 's0';
-      const vp = Math.round(res.vocab[0] / Math.max(1, res.vocab[1]) * 100), gp = Math.round(res.grammar[0] / Math.max(1, res.grammar[1]) * 100);
-      state.settings.placement = { band, pct, vocab: vp, grammar: gp, stage, at: Date.now() };
-      await App.saveSettings();
-      App.reward({ quizzes: 1, xp: 20 }); Sfx.win(); confetti();
-      const weak = vp < gp ? t('từ vựng') : t('ngữ pháp');
-      view.innerHTML = `<div class="study-wrap"><div class="card celebrate empty">
-        <div class="em">🎯</div><h2>${t('Trình độ ước tính: Band {band}', { band })}</h2>
-        <div class="row center" style="gap:2rem;margin:1rem 0">${ring(vp, vp + '%', 'var(--primary)')}<div class="small">${t('Từ vựng')}</div>${ring(gp, gp + '%', 'var(--accent)')}<div class="small">${t('Ngữ pháp')}</div></div>
-        <p>${t('Điểm cần ưu tiên: <b>{weak}</b>. Kế hoạch hôm nay trên trang chủ đã được điều chỉnh theo kết quả này.', { weak })}</p>
-        <p class="small muted">${t('Gợi ý bắt đầu lộ trình từ <b>{stage}</b>.', { stage: { s0: t('Chặng 0 · Từ cốt lõi'), s1: t('Chặng 1 · Nền tảng'), s2: t('Chặng 2 · Mở rộng chủ đề'), s3: t('Chặng 3 · Học thuật') }[stage] })} ${t('Kết quả chỉ để tham khảo, không thay thế bài thi thật.')}</p>
-        <div class="row center"><a class="btn primary" href="#/home">${t('Xem kế hoạch hôm nay →')}</a><a class="btn" href="#/path">🗺️ ${t('Lộ trình')}</a></div></div></div>`;
-    };
-    view.innerHTML = `<div class="study-wrap"><div class="card celebrate empty"><div class="em">🧭</div><h2>${t('Kiểm tra đầu vào (5 phút)')}</h2>
-      <p>${t('20 câu từ vựng và ngữ pháp từ A2 đến C1. Lexkite dùng kết quả để <b>ước tính band</b>, tìm <b>điểm yếu</b> và cá nhân hóa kế hoạch học mỗi ngày.')}</p>
-      <p class="small muted">${t('Không biết thì chọn “Tôi không biết” – đừng đoán, kết quả sẽ chính xác hơn.')}</p>
-      <button class="btn primary lg" id="go">${t('Bắt đầu →')}</button></div></div>`;
-    $('#go').onclick = next;
-  };
+  // KIỂM TRA ĐẦU VÀO (#/placement): js/placement.js – tải lười, ước tính thích ứng + khoảng band.
 
   // ================= KẾ HOẠCH HÔM NAY (1 kế hoạch duy nhất, theo kỳ thi) =================
   // Thứ tự ưu tiên: kiểm tra đầu vào → ôn thẻ đến hạn → bài lộ trình kế tiếp → sửa lỗi sai → 1 bài kỹ năng theo kỳ thi (xoay vòng theo ngày).
@@ -157,12 +103,20 @@
     const { total } = Cards.dueCount(state.cards, s, state.stats);
     const gold = Golden.dueNow(state.cards), doneReviews = state.stats.days[todayKey()] || 0;
     if (total || doneReviews) tasks.push({ em: '🔁', t: total ? t('Ôn {n} thẻ', { n: total }) : t('Ôn tập thẻ đến hạn'), sub: gold ? t('{n} thẻ đang ở thời điểm vàng – sắp quên', { n: gold }) : t('Lặp lại ngắt quãng – ưu tiên số 1'), href: '#/review', mins: Math.max(2, Math.ceil(total / 6)), done: !total && doneReviews > 0 });
+    // Sau kiểm tra đầu vào: kỹ năng yếu hơn được ưu tiên ngay sau ôn tập (lộ trình đã mở từ chặng gợi ý – path.js)
+    const pl = s.placement, why = t('Ưu tiên theo bài kiểm tra đầu vào');
+    const weak = !pl ? '' : pl.weak || (pl.vocab != null && pl.grammar != null ? (pl.vocab <= pl.grammar ? 'vocab' : 'grammar') : ''); // bản ghi cũ (v1): % đúng từng kỹ năng
+    if (weak === 'grammar') {
+      const G = window.GRAMMAR || [], gd = g.grammarDone || {}, lv = pl.gCefr === 'A2' || pl.gCefr === 'B1' || pl.gCefr === 'B2' || pl.gCefr === 'C1' ? pl.gCefr : 'B1';
+      const l = G.find(x => gd[x.id] == null && x.level === lv) || G.find(x => gd[x.id] == null);
+      tasks.push({ em: '📐', t: l ? t('Ngữ pháp: {title}', { title: l.title }) : t('Học 1 bài ngữ pháp'), sub: `${lv} · ${why}`, href: l ? '#/grammar/' + l.id : '#/grammar', mins: 10, done: (d.grammar || 0) > 0, focus: 'grammar' });
+    }
     const cur = App.pathCurrent && App.pathCurrent();
-    if (cur) tasks.push({ em: cur.topic.emoji, t: t('Học bài: {name}', { name: cur.topic.name }), sub: `${cur.stage.name} · ${t('đã học {pct}%', { pct: Math.round(cur.pct * 100) })}`, href: '#/path', mins: 8, done: (d.newWords || 0) >= 5 });
+    if (cur) tasks.push({ em: cur.topic.emoji, t: t('Học bài: {name}', { name: cur.topic.name }), sub: weak === 'vocab' ? `${cur.stage.name} · ${why}` : `${cur.stage.name} · ${t('đã học {pct}%', { pct: Math.round(cur.pct * 100) })}`, href: '#/path', mins: 8, done: (d.newWords || 0) >= 5, focus: weak === 'vocab' ? 'vocab' : '' });
     const mistakes = (await Store.get('mistakes', [])).filter(x => !x.fixed).length;
     if (mistakes) tasks.push({ em: '📕', t: t('Làm lại {n} lỗi sai', { n: mistakes }), sub: t('Tự nhớ lại đáp án – sửa lỗi = tăng điểm nhanh nhất'), href: '#/mistakes?retry=1', mins: Math.min(10, 2 + mistakes), done: false });
     const sk = await skillTask(ex, dow, d);
-    if (sk) tasks.push(sk);
+    if (sk && !tasks.some(x => x.href === sk.href)) tasks.push(sk);
     return tasks.slice(0, 5);
   };
   const TOEFL_ROT = [['response', '🎧', 'Listen and Choose a Response'], ['cw', '🧩', 'Complete the Words'], ['email', '📧', 'Write an Email'], ['repeat', '🔁', 'Listen and Repeat'], ['conversation', '👥', 'Listen to a Conversation'], ['daily', '📱', 'Read in Daily Life'], ['sentence', '🧱', 'Build a Sentence'], ['interview', '🎙️', 'Take an Interview'], ['announcement', '📢', 'Listen to an Announcement'], ['academic', '📚', 'Read an Academic Passage'], ['discussion', '💬', 'Write for an Academic Discussion'], ['talk', '🎓', 'Listen to an Academic Talk']];

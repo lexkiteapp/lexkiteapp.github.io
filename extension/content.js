@@ -53,7 +53,7 @@
     'Anh–Mỹ': 'US English', 'Nghe giọng Anh–Anh (phím P)': 'British pronunciation (P key)', 'Nghe giọng Anh–Mỹ': 'American pronunciation', 'Nghe chậm': 'Play slowly',
     '📌 Ngữ cảnh sẽ lưu': '📌 Context to save', '📌 Ngữ cảnh': '📌 Context', 'Nghe cả câu': 'Play sentence', '⏳ Đang dịch câu…': '⏳ Translating sentence…',
     '✓ Đã lưu vào flashcard': '✓ Saved to flashcards', '+ Thêm ngữ cảnh': '+ Add context', '✓ Đã lưu': '✓ Saved', '✓ Đã trong sổ thẻ': '✓ In your deck', '⌨️ A câu trước · S lặp câu · D câu sau': '⌨️ A previous line · S repeat line · D next line', 'Học bài: {n} →': 'Lesson: {n} →', 'Từ học thuật – bấm để tra': 'Academic word – click to look up', '+ Lưu flashcard': '+ Save flashcard',
-    'Chi tiết': 'Details', 'Đóng (Esc)': 'Close (Esc)', '⚠️ Thử lưu lại': '⚠️ Retry saving', 'tên riêng': 'proper noun', 'cụm từ': 'phrase', 'từ': 'word',
+    'Chi tiết': 'Details', 'Cách dùng': 'Usage', 'Giới từ đi kèm, to-V/V-ing, trạng từ, từ dễ nhầm': 'Dependent prepositions, to-V/V-ing, adverbs, confusing words', 'Đóng (Esc)': 'Close (Esc)', '⚠️ Thử lưu lại': '⚠️ Retry saving', 'tên riêng': 'proper noun', 'cụm từ': 'phrase', 'từ': 'word',
     '🔊 Nghe': '🔊 Listen', 'Tra từng từ:': 'Look up each word:', 'Tên riêng (địa danh, người, tổ chức…) – không có trong từ điển phổ thông.': 'Proper noun (place, person, organization…) – not in the general dictionary.',
     'Chưa có trong từ điển – đã dịch tự động.': 'Not in the dictionary yet – machine-translated.', '+ Lưu cụm từ': '+ Save phrase', '+ Lưu từ': '+ Save word',
     'Add-on vừa được cập nhật – hãy tải lại trang.': 'The add-on was just updated – please reload the page.', '⏳ Đang dịch…': '⏳ Translating…',
@@ -480,7 +480,7 @@
         </div>
         <div class="foot">
           <button class="btn p" id="save" ${didSave || (saved && !context) ? 'disabled' : ''}>${didSave ? tx('✓ Đã lưu vào flashcard') : saved ? (context ? tx('+ Thêm ngữ cảnh') : tx('✓ Đã lưu')) : tx('+ Lưu flashcard')}</button>
-          <button class="btn" id="more">${tx('Chi tiết')}</button>
+          <button class="btn" id="more">${tx('Chi tiết')}</button>${/^[a-z][a-z'-]*$/i.test(e.word) ? `<button class="btn" id="usage" title="${tx('Giới từ đi kèm, to-V/V-ing, trạng từ, từ dễ nhầm')}">📘 ${tx('Cách dùng')}</button>` : ''}
           <button class="x" id="close" title="${tx('Đóng (Esc)')}">×</button>
         </div>`);
       const img = b.querySelector('.pic img');
@@ -510,6 +510,7 @@
       b.querySelector('#close').onclick = hide;
       bindNav(b);
       b.querySelector('#more').onclick = () => chrome.runtime.sendMessage({ type: 'openApp', hash: '#/dict/' + encodeURIComponent(e.word) }).catch(() => {});
+      const ub = b.querySelector('#usage'); if (ub) ub.onclick = () => chrome.runtime.sendMessage({ type: 'openApp', hash: '#/usage/' + encodeURIComponent(e.word.toLowerCase()) }).catch(() => {}); // 📘 Cách dùng từ (trang app trong gói add-on, không cần quyền mới)
       b.querySelector('#save').onclick = async ev => {
         const btn = ev.currentTarget;
         btn.disabled = true;

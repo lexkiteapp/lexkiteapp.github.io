@@ -195,4 +195,6 @@
   'AI đang giải thích…': 'AI is explaining…',
   'Đã sao chép bản đã sửa': 'Corrected text copied',
   'Bản đã sửa': 'Corrected text',
+  "Cách dùng & mẫu câu": "Usage & patterns",
+  "Cách dùng “{w}”": "How to use “{w}”",
 }); })(typeof self !== 'undefined' ? self : this);

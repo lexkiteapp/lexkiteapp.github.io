@@ -49,6 +49,7 @@
         + card('#/practice', '⚡', t('Trò chơi từ vựng'), t('Ghép thẻ, gõ từ, nghe – gõ, trắc nghiệm')))
       + sect(t('Tra cứu'), card('#/dict', '🔎', t('Từ điển'), t('Phát âm, nghĩa, ví dụ, lưu thành thẻ'))
         + card('#/verb', '🔤', t('Chia động từ'), t('Mọi thì, bị động, cách đọc -ed/-s'))
+        + card('#/usage', '📘', t('Cách dùng từ'), t('Giới từ đi kèm, to-V/V-ing, trạng từ, từ dễ nhầm'))
         + card('#/phrases', '🧩', t('Cụm từ & cấu trúc'), t('Collocation và cấu trúc ăn điểm')));
   };
 
@@ -143,13 +144,21 @@
 
   // ---------- Tôi ----------
   // Lối vào trang Quản trị: chỉ hiện khi máy chủ xác nhận email là admin (ADMIN_EMAILS) – người khác không thấy
+  // CSS trang Tôi + thẻ tài khoản tải lười (css/me.css) – chờ tối đa 1,5 s để không nháy bố cục, lỗi mạng vẫn vẽ
+  let meCssP = null;
+  App.meCss = () => meCssP || (meCssP = new Promise(res => { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = 'css/me.css'; l.dataset.meCss = 1; l.onload = l.onerror = () => res(); setTimeout(res, 1500); document.head.appendChild(l); }));
   routes.me = async function () {
+    await App.meCss();
     const u = state.user, g = state.game || {}, cards = state.cards || {};
     const L = Game.levelOf(g.xp || 0), streak = App.streak();
     const fi = (window.Core && Core.Stats) ? Core.Stats.freezeInfo(g) : { left: +g.freezes || 0, max: 2 };
     const freezeLeft = fi.left;
     const totalC = Object.keys(cards).length;
-    const masteredC = Object.values(cards).filter(c => c && c.S >= 21).length;
+    // Từ vựng: Đã lưu / Đang học / Đã thuộc (khoảng ôn ≥ 21 ngày – cùng thước đo trang Từ vựng) / Cần ôn hôm nay
+    const deck = Object.values(cards).filter(c => c && c.srs);
+    const masteredC = deck.filter(c => c.srs.interval >= 21).length;
+    const learningC = deck.filter(c => (c.srs.reps > 0 || c.srs.last) && !(c.srs.interval >= 21)).length;
+    const dueC = totalC ? Core.Cards.dueCount(cards, state.settings, state.stats).due : 0;
     const forgettingC = (App.forgetting ? App.forgetting() : []).length;
     const exKey = App.exam ? App.exam() : 'ielts';
     const examObj = EXAMS[exKey] || { ic: '🎓', short: 'IELTS', name: 'IELTS Academic' };
@@ -187,15 +196,14 @@
       + `<div class="card me-head">
           <div class="me-avatar-wrap">
             <span class="avatar lg">${u && u.photoURL ? `<img src="${esc(u.photoURL)}" alt="" referrerpolicy="no-referrer">` : esc(((u && (u.displayName || u.email)) || 'L')[0].toUpperCase())}</span>
-            <span class="me-streak-flame" title="${t('{n} ngày', { n: streak || 0 })}">🔥 ${streak || 0}</span>${freezeLeft ? `<button type="button" class="streak-freeze-badge" data-streak-freeze aria-label="${t('{n} lượt đóng băng chuỗi', { n: freezeLeft })}" title="${t('Đóng băng chuỗi: còn {n}/{max} lượt', { n: freezeLeft, max: fi.max || 2 })}">🧊×${freezeLeft}</button>` : ''}
+            ${streak > 0 ? `<span class="me-streak-flame" role="img" aria-label="${t('Chuỗi {n} ngày', { n: streak })}" title="${t('Chuỗi {n} ngày', { n: streak })}"><span aria-hidden="true">🔥 ${streak}</span></span>` : ''}${freezeLeft ? `<button type="button" class="streak-freeze-badge" data-streak-freeze aria-label="${t('{n} lượt đóng băng chuỗi', { n: freezeLeft })}" title="${t('Đóng băng chuỗi: còn {n}/{max} lượt', { n: freezeLeft, max: fi.max || 2 })}">🧊×${freezeLeft}</button>` : ''}
           </div>
           <div class="me-tx">
             <div class="me-name-row">
-              <b>${esc((u && u.displayName) || t('Bạn'))}</b>
+              <b class="me-name" title="${esc((u && u.displayName) || '')}">${esc(window.Sync && Sync.nice ? Sync.nice((u && u.displayName) || t('Bạn')) : (u && u.displayName) || t('Bạn'))}</b>
               <span class="me-exam-badge">${examObj.ic} ${esc(examObj.short)}</span>
             </div>
-            <div class="me-sub-row">${u ? esc(u.email || '') : t('Đăng nhập để sao lưu & đồng bộ')}</div>
-            <div class="me-title-chip">👑 ${esc(L.title || '')} · ${t('Cấp {n}', { n: L.level || 1 })}</div>
+            <div class="me-title-chip"><span aria-hidden="true">👑</span><span>${esc(L.title || '')}</span><span class="me-lv">${t('Cấp {n}', { n: L.level || 1 })}</span></div>
             <div class="me-xp-container">
               <div class="me-xp-bar"><div class="me-xp-fill" style="width:${xpPct}%"></div></div>
               <div class="me-xp-sub">
@@ -205,34 +213,28 @@
             </div>
           </div>
         </div>
-${window.Sync && Sync.gBtn ? `<div class="card me-acct row between" id="meAcct">${u ? `<div class="grow"><b>☁️ ${esc(u.email || u.displayName || '')}</b><div class="small muted">${Sync.stText() || t('Dữ liệu học được tự động sao lưu và đồng bộ giữa các thiết bị.')}</div></div><div class="row"><button type="button" class="btn sm" data-acct="sync">🔄 ${t('Đồng bộ ngay')}</button><button type="button" class="btn sm ghost" data-acct="out">${t('Đăng xuất')}</button></div>`
-  : `<div class="grow"><b>☁️ ${t('Đăng nhập để không mất dữ liệu')}</b><div class="small muted">${t('Sao lưu flashcard, XP, chuỗi ngày học và học tiếp trên mọi thiết bị.')}</div></div>${Sync.gBtn()}`}</div>` : ''}
+${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" aria-label="${esc(t('Tài khoản & đồng bộ'))}"></section>` : ''}
+        <section class="card me-vocab" aria-labelledby="meVocH">
+          <div class="me-vocab-head"><h2 id="meVocH">📚 ${t('Từ vựng')}</h2>${totalC ? `<a class="me-more" href="#/deck">${t('Sổ từ của tôi')} <span aria-hidden="true">›</span></a>` : ''}</div>
+          ${totalC ? `<ul class="me-stats">
+            <li><a class="me-stat" href="#/deck"><b>${totalC.toLocaleString(I18N.lang())}</b><span>${t('Đã lưu')}</span></a></li>
+            <li><a class="me-stat" href="#/deck"><b>${learningC.toLocaleString(I18N.lang())}</b><span>${t('Đang học')}</span></a></li>
+            <li><a class="me-stat good" href="#/deck"><b>${masteredC.toLocaleString(I18N.lang())}</b><span>${t('Đã thuộc')}</span></a></li>
+            <li><a class="me-stat${dueC ? ' due' : ''}" href="#/review"><b>${dueC.toLocaleString(I18N.lang())}</b><span>${t('Cần ôn hôm nay')}</span></a></li>
+          </ul>` : `<div class="me-empty"><p class="muted small">${t('Lưu từ khi tra cứu hoặc học theo lộ trình – Lexkite nhắc bạn ôn đúng lúc sắp quên.')}</p><a class="btn primary me-cta" href="#/path"><span aria-hidden="true">✨</span> ${t('Bắt đầu học {n} từ đầu tiên', { n: 10 })}</a></div>`}
+        </section>
         <div class="me-bento">
-          <a class="me-card" href="#/library">
-            <div class="me-card-head">
-              <span class="me-card-lbl">📚 ${t('Từ vựng')}</span>
-              <span class="me-card-tag">${masteredC} ${t('Đã thuộc')}</span>
-            </div>
-            <div class="me-card-val">${totalC}</div>
-            <div class="me-card-sub">${t('{n} từ · {k} đã thuộc', { n: totalC, k: masteredC })}</div>
-          </a>
 
           <a class="me-card" href="#/stats">
-            <div class="me-card-head">
-              <span class="me-card-lbl">🔥 ${t('Chuỗi ngày')}</span>
-              <span class="me-card-tag good">${streak > 0 ? streak + 'd' : '–'}</span>
-            </div>
+            <div class="me-card-head"><span class="me-card-lbl">🔥 ${t('Chuỗi ngày')}</span></div>
             <div class="me-card-val">${streak || 0}</div>
             <div class="me-card-sub">${freezeLeft ? '🧊 ' + t('{n}/{max} lượt', { n: freezeLeft, max: fi.max || 2 }) : t('{n} ngày', { n: streak || 0 })}</div>
           </a>
 
           <a class="me-card" href="#/review?src=forgetting">
-            <div class="me-card-head">
-              <span class="me-card-lbl">⏰ ${t('Thời điểm vàng')}</span>
-              <span class="me-card-tag ${forgettingC ? 'warn' : 'good'}">${forgettingC ? forgettingC : '0'}</span>
-            </div>
-            <div class="me-card-val">${forgettingC}</div>
-            <div class="me-card-sub">${forgettingC ? t('{n} từ đang sắp quên', { n: forgettingC }) : t('Đã thuộc')}</div>
+            <div class="me-card-head"><span class="me-card-lbl">⏰ ${t('Thời điểm vàng')}</span></div>
+            <div class="me-card-val${forgettingC ? ' warn' : ''}">${forgettingC}</div>
+            <div class="me-card-sub">${forgettingC ? t('{n} từ đang sắp quên', { n: forgettingC }) : t('Chưa có từ sắp quên')}</div>
           </a>
         </div>
 
@@ -263,6 +265,7 @@ ${window.Sync && Sync.gBtn ? `<div class="card me-acct row between" id="meAcct">
       + row('#/resources', '🌐', t('Tài nguyên miễn phí'))
       + (I18N.lang() === 'vi' ? [['samples', '📄', 'Bài mẫu Writing Task 2'], ['speaking', '🗣️', 'Chủ đề Speaking'], ['tu-vung', '📚', 'Từ vựng theo chủ đề'], ['ngu-phap', '🧠', 'Ngữ pháp tiếng Anh'], ['viet-thu', '✉️', 'Thư mẫu IELTS General']].map(([p, ic, l]) => row('https://lexkite.com/' + p + '/', ic, l, '', true)).join('') : '')
       + `</div></div>`;
+    const acct = view.querySelector('#meAcct'); if (acct) Sync.renderBox(acct); // thẻ tài khoản dùng chung với Cài đặt (sync.js) – tự cập nhật trạng thái
   };
 
   // ---------- Blog (trang tĩnh /blog/ – tạo lúc build): chỉ hiện lối vào khi blog đã có trên máy chủ ----------
@@ -296,7 +299,7 @@ ${window.Sync && Sync.gBtn ? `<div class="card me-acct row between" id="meAcct">
   const TOEFL_SK = { cw: 'reading', daily: 'reading', academic: 'reading', response: 'listening', conversation: 'listening', announcement: 'listening', talk: 'listening', sentence: 'writing', email: 'writing', discussion: 'writing', repeat: 'speaking', interview: 'speaking' };
   App.navOf = (name, arg) => {
     if (!name || name === 'home') return ['home', 'home'];
-    if (['vocab', 'review', 'path', 'library', 'topic', 'deck', 'phrases', 'dict', 'verb'].includes(name)) return ['vocab', name === 'topic' ? 'library' : name === 'verb' ? 'dict' : name];
+    if (['vocab', 'review', 'path', 'library', 'topic', 'deck', 'phrases', 'dict', 'verb', 'usage'].includes(name)) return ['vocab', name === 'topic' ? 'library' : name === 'verb' || name === 'usage' ? 'dict' : name];
     if (name === 'practice') return arg === 'speak' ? ['skills', 'pron'] : ['vocab', 'practice'];
     if (name === 'skill') return ['skills', 'skill-' + arg];
     if (name === 'cbt' && arg && arg.includes(',')) return ['tests', 'tests'];

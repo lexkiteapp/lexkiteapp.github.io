@@ -9,7 +9,8 @@ const AXE = fs.readFileSync(require.resolve('axe-core'), 'utf8');
 let BASE = process.argv[2];
 if (!BASE) BASE = (await fetch('https://lexkite.com/app/').then(r => r.ok).catch(() => false)) ? 'https://lexkite.com/app/' : 'https://lexkite.com/';
 const ROUTES = ['home', 'vocab', 'library', 'review', 'practice', 'skills', 'tests', 'grammar', 'phrases', 'models', 'me', 'stats', 'settings', 'contact',
-  'verb/take', 'fix', 'courses', 'roleplay', 'reflex', 'paraphrase', 'toeic', 'letters', 'goal', 'placement'];
+  'verb/take', 'fix', 'courses', 'roleplay', 'reflex', 'paraphrase', 'toeic', 'letters', 'goal', 'placement', 'usage', 'usage/interested', 'usage/stop', 'usage?c=adv', 'usage/affect-effect',
+  'practice/learn?src=topic:ngsl1', 'practice/mcq?src=topic:ngsl1'];
 const found = new Map();
 const add = (scheme, lang, where, n) => {
   const k = n.target.join(' ') + '|' + where.split('#')[0];
@@ -43,6 +44,16 @@ for (const scheme of ['light', 'dark']) for (const lang of ['vi', 'en']) {
     await scan(page, scheme, lang, '#/' + r);
     if (await toggles(page)) { await page.waitForTimeout(300); await scan(page, scheme, lang, '#/' + r + ' (đã chọn)'); }
   }
+  // Kiểm tra đầu vào: câu hỏi (chưa chọn – không phương án nào được tô) → trả lời hết → trang kết quả (band, vòng kỹ năng, CTA)
+  await page.goto(url('placement'), { waitUntil: 'networkidle' }).catch(() => {}); await page.waitForTimeout(600);
+  if (await page.$('#go')) {
+    await page.click('#go').catch(() => {}); await page.waitForTimeout(500); await scan(page, scheme, lang, '#/placement (câu hỏi)');
+    for (let k = 0; k < 20 && await page.$('.pl-wrap .opt-idk'); k++) { await page.click(k % 2 ? '.pl-wrap .option' : '.pl-wrap .opt-idk').catch(() => {}); await page.waitForTimeout(450); }
+    await page.waitForTimeout(800); await scan(page, scheme, lang, '#/placement (kết quả)');
+  }
+  // Học thông minh: bảng phản hồi đúng/sai sau khi chọn
+  await page.goto(url('practice/mcq?src=topic:ngsl1'), { waitUntil: 'networkidle' }).catch(() => {}); await page.waitForTimeout(700);
+  if (await page.$('.options .option')) { await page.click('.options .option').catch(() => {}); await page.waitForTimeout(500); await scan(page, scheme, lang, '#/practice/mcq (phản hồi)'); }
   // Hộp thoại báo cáo sự cố: mặc định + chọn từng loại
   await page.goto(url('home'), { waitUntil: 'networkidle' }).catch(() => {});
   if (await page.evaluate(() => { if (!window.LexReport) return false; window.LexReport.open({}); return true; }).catch(() => false)) {

@@ -355,4 +355,11 @@
   "Nhận ra paraphrase nhanh là chìa khóa để làm Reading đúng và kịp giờ.": "Spotting paraphrases quickly is the key to accurate, on-time Reading.",
   "Về Reading": "Back to Reading",
   "Đang cập nhật dữ liệu…": "Updating data…",
+  "Cách dùng từ": "Word usage",
+  "Giới từ đi kèm, to-V/V-ing, trạng từ, từ dễ nhầm": "Dependent prepositions, to-V/V-ing, adverbs, confusing words",
+  "Cách dùng": "Usage",
+  "Cần ôn hôm nay": "Due today",
+  "Chưa có từ sắp quên": "No words fading yet",
+  "Bắt đầu học {n} từ đầu tiên": "Start learning your first {n} words",
+  "Lưu từ khi tra cứu hoặc học theo lộ trình – Lexkite nhắc bạn ôn đúng lúc sắp quên.": "Save words as you look them up or follow the learning path – Lexkite reminds you to review just before you forget.",
 }); })(typeof self !== 'undefined' ? self : this);

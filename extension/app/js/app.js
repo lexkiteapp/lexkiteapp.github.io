@@ -211,7 +211,7 @@
   const G = 'js/grammar/', BUNDLES = {
     grammar: [...['tenses', 'verbs', 'sentences', 'foundation', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'check'].map(f => G + f + '.js'), 'js/grammar.js'],
     pron: ['js/pron/sounds.js', 'js/pron/skills.js', 'js/pron.js'],
-    words: ['js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lib/ngsl2.js', 'js/lib/office.js'], // 4 kho từ (~145 KB nén) – không chặn trang đầu, tải khi cần/lúc rảnh
+    words: ['js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lib/ngsl2.js', 'js/lib/office.js', 'js/distract.js'], // 4 kho từ (~145 KB nén) – không chặn trang đầu, tải khi cần/lúc rảnh
     readings: ['js/readings.js', 'js/readings-more.js', 'js/choice-kit.js', 'js/cbt.js', 'js/method.js'], // 30 bài đọc – chỉ tải khi cần (trang chủ tự điền mục "Bài đọc hôm nay")
     voice: ['js/listen/kvoice.js', 'js/listen/audio-index.js'], // danh mục giọng Kokoro: mọi lần phát âm từ/câu dùng giọng chất lượng cao nếu có
     handsfree: ['js/handsfree.js'],
@@ -231,12 +231,14 @@
     league: ['js/league.js'],
     streak: ['js/streak-ui.js'],
     vcore: ['js/verbs-core.js'], verbs: ['js/verbs.js'], fixer: ['js/writecheck-rules.js', 'js/fixer.js'], // 🔤 Chia động từ · ✍️ Sửa ngữ pháp
+    uidx: ['js/usage-index.js'], usage: ['js/i18n/en/usage.js', 'js/choice-kit.js', 'js/usage-core.js', 'js/usage.js'], uP: ['js/usage/prep-adj.js', 'js/usage/prep-verb.js', 'js/usage/prep-noun.js'], uV: ['js/usage/verb.js'], uA: ['js/usage/adv.js'], uS: ['js/usage/struct.js'], uC: ['js/usage/pair.js'], // 📘 Cách dùng từ (dữ liệu theo nhóm, usage.js tự gọi App.need)
+    placement: ['js/placement.js'], // 🧭 Kiểm tra đầu vào thích ứng (ước tính band + khoảng tin cậy)
     wordcard: ['js/wordcard.js'], // 🧠 Khối "Hiểu sâu" của thẻ từ (mẹo nhớ · lỗi sai/đúng · dùng khi thi · họ từ)
     anki: ['js/anki.js'], // 🃏 Xuất/nhập Anki (.apkg/.txt/.csv) – chỉ tải khi mở hộp thoại Anki
   };
-  const ROUTE_BUNDLE = { paraphrase: 'paraphrase', courses: 'courses', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: 'grammar', placement: ['words', 'grammar'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
+  const ROUTE_BUNDLE = { paraphrase: 'paraphrase', courses: 'courses', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: 'grammar', placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
     toefl: ['listening', 'toefl'], 'toefl-p': ['listening', 'toefl'],
-    toeic: ['tsl', 'listening', 'toeic'], 'toeic-r': ['toeic'], 'toeic-sw': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: ['words', 'tsl'], topic: ['words', 'tsl'], practice: ['words', 'tsl'], dict: ['words', 'tsl', 'vcore'], verb: ['vcore', 'verbs'], fix: 'fixer', write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'], home: ['words', 'streak'], vocab: 'words', path: 'words', review: 'words', deck: 'words', stats: ['words', 'streak'], league: 'league'};
+    toeic: ['tsl', 'listening', 'toeic'], 'toeic-r': ['toeic'], 'toeic-sw': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: ['words', 'tsl'], topic: ['words', 'tsl'], practice: ['words', 'tsl'], dict: ['words', 'tsl', 'vcore', 'uidx'], verb: ['vcore', 'verbs', 'uidx'], fix: ['fixer', 'uidx'], usage: ['vcore', 'uidx', 'usage'], write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'], home: ['words', 'streak'], vocab: 'words', path: 'words', review: 'words', deck: 'words', stats: ['words', 'streak'], league: 'league'};
   const bundleP = {};
   // Phần nặng (đề thi, từ vựng, ngữ pháp…) tải từ CDN jsDelivr (miễn phí, không giới hạn băng thông, gắn đúng phiên bản commit)
   // → máy chủ chính chỉ phục vụ phần lõi, chịu được lượng người dùng lớn gấp nhiều lần. CDN lỗi → tự lấy từ máy chủ chính.
@@ -291,7 +293,10 @@
   let backHash = '';
   App.backHref = () => backHash || '#/practice';
   let curHash = '';
+  // Đổi trang trong lúc dữ liệu lần đầu đang nạp (máy chậm, mới mở app) → chờ nạp xong rồi mới vẽ (tránh màn trắng do state.game = null)
+  let dataReady; const dataReadyP = new Promise(r => { dataReady = r; });
   async function route() {
+    if (!state.game) await dataReadyP;
     const { name, arg, query } = parseHash();
     const STUDY = /^#\/(practice\/|review)/;
     if (STUDY.test(location.hash) && curHash && !STUDY.test(curHash)) backHash = /^#\/welcome/.test(curHash) ? '#/home' : curHash;
@@ -881,7 +886,7 @@
             <div class="row" style="margin-top:.8rem">
               ${card ? `<span class="chip ok">✓ ${t('Đã có trong flashcard')}</span>` : `<button class="btn primary" id="quickSave">+ ${t('Lưu flashcard')}</button>`}
               <a class="btn" href="#/practice/speak?w=${encodeURIComponent(e.word)}">🎙️ ${t('Luyện phát âm')}</a>
-              ${window.LK_VERBS && LK_VERBS.verbOf(e) ? `<a class="btn" href="#/verb/${encodeURIComponent(LK_VERBS.verbOf(e))}">🔤 ${t('Chia động từ')}</a>` : ''}
+              ${window.LK_VERBS && LK_VERBS.verbOf(e) ? `<a class="btn" href="#/verb/${encodeURIComponent(LK_VERBS.verbOf(e))}">🔤 ${t('Chia động từ')}</a>` : ''}${window.LK_USAGE_IDX && LK_USAGE_IDX.w[e.word.toLowerCase()] ? `<a class="btn" href="#/usage/${encodeURIComponent(e.word.toLowerCase())}">📘 ${t('Cách dùng')}</a>` : ''}
             </div>
           </div>
           ${pic(e)}
@@ -1721,7 +1726,7 @@
   App.ready = (async function init() {
     if (/[?&]demo=1/.test(location.search)) await seedDemo();
     if (Store.sandbox) setTimeout(() => toast('🧪 ' + t('Chế độ thử nghiệm – dữ liệu tách riêng, không đồng bộ')), 800);
-    await load();
+    try { await load(); } finally { if (!state.game) state.game = await Game.get().catch(() => null); dataReady(); }
     document.addEventListener('error', e => {
       const img = e.target;
       if (img.tagName === 'IMG' && img.parentElement && (img.parentElement.classList.contains('pic') || img.parentElement.classList.contains('em'))) img.parentElement.textContent = '📘';

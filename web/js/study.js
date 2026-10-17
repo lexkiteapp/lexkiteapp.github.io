@@ -39,6 +39,8 @@
   }, true);
   // Người học quốc tế (giao diện es/ja/ar…): thêm nghĩa bằng tiếng mẹ đẻ dưới định nghĩa tiếng Anh
   const nativeFill = (el, word) => { const L = I18N.lang(); if (!el || L === 'vi' || L === 'en' || I18N.meanLang() === 'vi') return; const pk = App.nativeGloss && App.nativeGloss(word); if (pk) { el.textContent = '🌐 ' + pk; return; } (App.loadPack ? App.loadPack() : Promise.resolve()).then(() => App.nativeGloss(word) || Dict.translateTo(word, L)).then(r => { if (r && r.toLowerCase() !== word.toLowerCase() && el.isConnected) el.textContent = '🌐 ' + r; }).catch(() => {}); };
+  const picOk = w => !!w && (window.Distract ? Distract.picOk(w) : !!w.image); // js/distract.js: emoji đúng nghĩa theo từ loại
+  App.picOk = picOk;
   const norm = w => ({ word: w.word, ipa: w.ipa || '', vi: mean(w), ex: w.ex || '', def: w.def || '', pos: w.pos || '', emoji: w.emoji || '📘', image: w.image || '', audio: w.audio || '', level: w.level || '', topic: w.topic || '' });
   function sourceList() {
     const opts = [['deck', '📒 ' + t('Sổ từ của tôi ({n})', { n: Object.keys(state.cards).length })], ['due', '🔁 ' + t('Thẻ đến hạn hôm nay')], ['forgetting', '⚠️ ' + t('Từ sắp quên (độ nhớ < 85%)')], ['phrases', '🧩 ' + t('Cụm từ & cấu trúc của tôi')], ['weak', '🧩 ' + t('Từ hay quên')], ...[1, 2, 3, 4, 5].map(i => [`level:${i}`, '📶 ' + t('Cấp độ nhớ {n}', { n: i })])];
@@ -61,8 +63,12 @@
     return list.map(norm);
   }
   const srcName = src => (sourceList().find(o => o[0] === src) || [0, '📒 ' + t('Sổ từ của tôi')])[1];
+  let libN = null;
+  const libNorm = () => libN && libN.length === TOPICS.length ? libN.list : (libN = { length: TOPICS.length, list: TOPICS.flatMap(t => t.words).filter(x => x.vi || x.def).map(norm) }).list;
   const distractors = (w, list, n, key) => {
     const base = list.length >= n + 1 ? list : TOPICS.flatMap(t => t.words).map(norm);
+    // js/distract.js: cùng từ loại/trình độ/độ dài, không đồng nghĩa/cùng họ; sổ từ + thư viện
+    if (window.Distract) { const out = Distract.pick(w, list.concat(libNorm()), { n, key, mean, seed: Math.random() }); if (out.length >= n) return out; }
     const same = shuffle(base.filter(x => x.word !== w.word && x[key] && x[key] !== w[key] && x.pos === w.pos));
     const any = shuffle(base.filter(x => x.word !== w.word && x[key] && x[key] !== w[key]));
     const out = [];
@@ -370,6 +376,8 @@
     $('#srcSel').onchange = fix; fix();
   };
 
+  // ✕ giữa lượt: hỏi lại trước khi bỏ dở (tiến độ lượt này chưa lưu)
+  const guardExit = busy => { const x = $('.study-top a.icon-btn'); if (x) x.onclick = e => { if (!busy()) return; e.preventDefault(); UI.modal(`<div class="celebrate"><h2>${t('Thoát giữa chừng?')}</h2><p class="muted">${t('Kết quả của lượt này sẽ không được lưu.')}</p><div class="row center"><button class="btn primary" data-close>${t('Làm tiếp')}</button><a class="btn" href="${esc(x.getAttribute('href'))}" data-close>${t('Thoát')}</a></div></div>`); }; };
   function head(title, i, n, extra = '') {
     return `<div class="study-top"><a class="icon-btn" href="${App.backHref()}" title="${t('Thoát')}">✕</a><div class="progress"><i style="width:${i / Math.max(1, n) * 100}%"></i></div><span class="small muted" style="white-space:nowrap">${extra || `${Math.min(i + 1, n)}/${n}`}</span></div>
       <div class="small muted" style="margin:-.4rem 0 .8rem">${title}</div>`;
@@ -389,26 +397,30 @@
       fb.innerHTML = `<div class="sheet ${ok ? 'ok' : 'no'}"><div class="sheet-in">
         <div class="sheet-head">${ok ? ['✅ ' + t('Chính xác!'), '🎉 ' + t('Tuyệt vời!'), '👏 ' + t('Giỏi lắm!')][Math.floor(Math.random() * 3)] : '❌ ' + t('Chưa đúng · Đáp án: {answer}', { answer: esc(q.answer || w.word) })}</div>
         <div class="sheet-word"><button class="sheet-say" data-sayw aria-label="${t('Nghe')}">🔊</button><div style="min-width:0"><div><b class="sw">${esc(w.word)}</b>${w.pos ? ` <span class="sp">(${esc(w.pos)})</span>` : ''}</div>${w.ipa ? `<div class="sipa">${esc(w.ipa)}</div>` : ''}<div class="svi">${esc(mean(w))}</div></div></div>
-        ${w.ex ? `<div class="sheet-ex">${highlight(w.ex, w.word)} <button class="ctx-say sm" data-saysent="${esc(w.ex)}" title="${t('Nghe câu')}">🔊</button><button class="ctx-say sm" data-tr title="${t('Dịch câu')}">🌐</button><div class="sheet-tr" hidden></div></div>` : ''}
-        <button class="btn lg block sheet-next" id="nextQ">${t('Tiếp tục')} ↵</button></div></div>`;
+        ${w.ex ? `<div class="sheet-ex">${highlight(w.ex, w.word)} <button class="ctx-say sm" data-saysent="${esc(w.ex)}" title="${t('Nghe câu')}" aria-label="${t('Nghe câu')}">🔊</button><button class="ctx-say sm" data-tr title="${t('Dịch câu')}" aria-label="${t('Dịch câu')}">🌐</button><div class="sheet-tr" hidden></div></div>` : ''}
+        <button class="btn lg block sheet-next" id="nextQ">${t('Tiếp tục')}<span class="kbd-hint" aria-hidden="true"> ↵</span></button></div></div>`;
+      // chừa đáy đúng chiều cao bảng phản hồi
+      const sh = $('.sheet', fb), wrap = box.closest('.study-wrap'); if (sh && wrap) wrap.style.setProperty('--sheet-h', (sh.offsetHeight || 280) + 'px');
       const tr = $('[data-tr]', fb); if (tr) tr.onclick = async () => { const t = $('.sheet-tr', fb); if (!t.hidden) { t.hidden = true; return; } t.hidden = false; t.textContent = '…'; const L = I18N.learnLang(); t.textContent = L === 'vi' ? await Dict.translateVi(w.ex) : await Dict.translateTo(w.ex, L); };
       $('[data-sayw]', fb).onclick = () => speak(w.word, accent(), w.audio);
       if (!ok || q.type.startsWith('type')) speak(w.word, accent(), w.audio);
-      $('#nextQ').focus();
-      $('#nextQ').onclick = () => onDone(ok, $('#nextQ'));
+      $('#nextQ').focus({ preventScroll: true });
+      let went = false; const t1 = Date.now();
+      $('#nextQ').onclick = () => { if (went || Date.now() - t1 < 250) return; went = true; onDone(ok, $('#nextQ')); };
     };
 
     if (q.type === 'mcq-vi' || q.type === 'mcq-en') {
       const key = q.type === 'mcq-vi' ? 'vi' : 'word';
       const opts = shuffle([w, ...distractors(w, q.list, 3, key)]);
       const prompt = q.type === 'mcq-vi'
-        ? `${pic(w)}<div class="entry-word" style="margin-top:.6rem">${esc(w.word)}</div><div class="row center"><span class="ipa">${esc(w.ipa)}</span>${posChip(w.pos)}<button class="icon-btn sm" data-sayw>🔊</button></div><div class="muted small" style="margin-top:.6rem">${t('Chọn nghĩa đúng')}</div>`
+        ? `${picOk(w) ? pic(w) : ''}<div class="entry-word" style="margin-top:.6rem">${esc(w.word)}</div><div class="row center"><span class="ipa">${esc(w.ipa)}</span>${posChip(w.pos)}<button class="icon-btn sm" data-sayw aria-label="${t('Nghe')}">🔊</button></div><div class="muted small" style="margin-top:.6rem">${t('Chọn nghĩa đúng')}</div>`
         : `<div class="vi" style="font-size:1.5rem">${esc(mean(w))}</div>${posChip(w.pos)}${w.ex ? `<div class="ctx" style="margin:1rem auto 0">“${cloze(w.ex, w.word)}”</div>` : ''}<div class="muted small" style="margin-top:.6rem">${t('Chọn từ tiếng Anh đúng')}</div>`;
       box.innerHTML = `<div class="card q-card">${prompt.replace('class="pic"', 'class="pic" style="width:110px;margin:0 auto"')}</div>
         <div class="options ${key === 'word' ? 'two' : ''}">${opts.map((o, i) => `<button class="option" data-o="${esc(o.word)}"><span class="kbd">${i + 1}</span>${esc(o[key])}</button>`).join('')}</div><div id="fb"></div>`;
       const sw = $('[data-sayw]', box); if (sw) sw.onclick = () => speak(w.word, accent(), w.audio);
+      const shownAt = Date.now();
       const pick = b => {
-        if (answered) return;
+        if (answered || !b || Date.now() - shownAt < 250) return; // chạm đúp từ màn trước
         const ok = b.dataset.o === w.word;
         $$('.option', box).forEach(x => {
           if (x.dataset.o === w.word) {
@@ -431,6 +443,7 @@
       $$('.option', box).forEach(b => b.onclick = () => pick(b));
       document.onkeydown = e => {
         if (answered) { if (e.key === 'Enter') { e.preventDefault(); $('#nextQ') && $('#nextQ').click(); } return; }
+        if (e.ctrlKey || e.metaKey || e.altKey) return;
         const n = +e.key; if (n >= 1 && n <= opts.length) pick($$('.option', box)[n - 1]);
       };
       if (q.type === 'mcq-vi' && state.settings.autoSpeak) speak(w.word, accent(), w.audio);
@@ -518,6 +531,7 @@
     const next = () => {
       if (run.i >= qs.length) return finish();
       view.innerHTML = `<div class="study-wrap">${head(title, run.i, qs.length, `✅ ${run.score}`)}<div id="qbox"></div></div>`;
+      guardExit(() => run.i > 0);
       renderQuestion($('#qbox'), qs[run.i], (ok, el) => {
         if (ok) { run.score++; run.xp += 3; App.reward({ xp: 3 }, el); } else run.wrong.push(qs[run.i].w);
         run.i++; next();
@@ -573,6 +587,7 @@
       const w = queue.shift();
       const doneSteps = [...stage.values()].reduce((a, b) => a + b, 0);
       view.innerHTML = `<div class="study-wrap">${head(title, doneSteps, items.length * 3, `🎯 ${t('{done}/{total} từ', { done: [...stage.values()].filter(v => v === 3).length, total: items.length })}`)}<div id="qbox"></div></div>`;
+      guardExit(() => answered > 0 || introduced.size > 1);
       const st = stage.get(w.word);
       // Lần đầu gặp từ chưa thuộc → giới thiệu từ (hình, âm, nghĩa, ví dụ) trước khi kiểm tra
       if (st === 0 && !introduced.has(w.word) && rank(w) <= 0) {
@@ -582,20 +597,20 @@
         const arr = x => [].concat(x || []).filter(Boolean);
         const col = arr(w.col).slice(0, 4), syn = arr(w.syn).slice(0, 4);
         $('#qbox').innerHTML = `<div class="card wi" id="fi">
-            <div class="wi-top">${w.image || w.emoji ? pic(w).replace('class="pic"', 'class="pic wi-pic"') : ''}
+            <div class="wi-top${picOk(w) ? '' : ' nopic'}">${picOk(w) ? pic(w).replace('class="pic"', 'class="pic wi-pic" aria-hidden="true"') : ''}
               <div class="wi-head"><span class="chip lv">✨ ${t('Từ mới')}</span>
                 <div class="wi-word">${esc(w.word)}</div>
                 <div class="wi-pron"><span class="ipa">${esc(w.ipa || '')}</span>${posChip(w.pos)}${levelChip(w.level)}
                   <button class="fi-btn sm" id="sayI" aria-label="${t('Nghe')}" title="${t('Nghe')}">🔊</button><button class="fi-btn sm" id="slowI" aria-label="${t('Nghe chậm')}" title="${t('Nghe chậm')}">🐢</button></div>
                 <div class="wi-vi vi">${esc(mean(w))}</div><div class="wi-native" data-native></div></div></div>
             ${w.def && w.def !== mean(w) ? `<div class="wi-sec"><span class="wi-lb">📖 ${t('Định nghĩa')}</span><div>${esc(w.def)}</div></div>` : ''}
-            ${w.ex ? `<div class="wi-sec wi-ex"><span class="wi-lb">💬 ${t('Ví dụ')}</span><div class="fi-ex">${highlight(w.ex, w.word)} <button class="ctx-say" data-saysent="${esc(w.ex)}" title="${t('Nghe cả câu')}">🔊</button><button class="ctx-say" data-saysent="${esc(w.ex)}" data-slow="1" title="${t('Nghe chậm')}">🐢</button></div><div class="fi-tr small muted" data-keep-vi id="fiTr"></div></div>` : ''}
+            ${w.ex ? `<div class="wi-sec wi-ex"><span class="wi-lb">💬 ${t('Ví dụ')}</span><div class="fi-ex">${highlight(w.ex, w.word)} <button class="ctx-say" data-saysent="${esc(w.ex)}" title="${t('Nghe cả câu')}" aria-label="${t('Nghe cả câu')}">🔊</button><button class="ctx-say" data-saysent="${esc(w.ex)}" data-slow="1" title="${t('Nghe chậm')}" aria-label="${t('Nghe chậm')}">🐢</button></div><div class="fi-tr small muted" data-keep-vi id="fiTr"></div></div>` : ''}
             ${col.length || syn.length ? `<div class="wi-sec">${App.chipsHtml(col, '🔗', t('Hay đi với'))}${App.chipsHtml(syn, '≈', t('Đồng nghĩa'))}</div>` : ''}
             ${w.note ? `<div class="wi-sec wi-tip">💡 ${esc(w.note)}</div>` : ''}
             ${App.notesHtml(w.word)}
           </div>
-          <button class="btn primary lg block" id="gotIt" style="margin-top:1rem">${t('Tiếp tục')} ↵</button>
-          <div class="center" style="margin-top:.6rem"><button class="linklike" id="known">${t('Mình đã biết từ này')}</button></div>`;
+          <div class="learn-bar"><button class="btn primary lg block" id="gotIt">${t('Tiếp tục')}<span class="kbd-hint" aria-hidden="true"> ↵</span></button>
+          <div class="center"><button class="linklike" id="known">${t('Mình đã biết từ này')}</button></div></div>`;
         nativeFill($('[data-native]'), w.word);
         const ll = I18N.learnLang();
         if (w.ex && ll !== 'en') {
@@ -605,10 +620,12 @@
         $('#sayI').onclick = () => speak(w.word, accent(), w.audio);
         $('#slowI').onclick = () => speak(w.word, accent(), w.audio, true);
         speak(w.word, accent(), w.audio);
-        $('#gotIt').focus();
-        $('#gotIt').onclick = () => { queue.unshift(w); next(); };
+        $('#gotIt').focus({ preventScroll: true });
+        let went = false;
+        $('#gotIt').onclick = () => { if (went) return; went = true; queue.unshift(w); next(); };
         // Đã biết → bỏ khỏi phiên học, lưu thẻ với lịch ôn xa (FSRS: độ ổn định ~30 ngày)
         $('#known').onclick = async () => {
+          if (went) return; went = true;
           stage.set(w.word, 3); knownSkip.add(w.word);
           const entry = INDEX[w.word.toLowerCase()] || w;
           if (!App.inDeck(w.word)) await App.addWord(entry, null, { silent: true });
@@ -618,7 +635,7 @@
           toast('👍 ' + t('Đã đánh dấu “{word}” là từ đã biết – sẽ ôn lại sau ~1 tháng', { word: w.word }));
           next();
         };
-        document.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); $('#gotIt').click(); } else if (e.key === ' ' && e.target === document.body) { e.preventDefault(); flip(); } };
+        document.onkeydown = e => { if (e.key === 'Enter' && !(e.target.closest && e.target.closest('button:not(#gotIt), a, summary, input, textarea'))) { e.preventDefault(); $('#gotIt').click(); } };
         return;
       }
       renderQuestion($('#qbox'), { type: STAGES[st], w, list }, (ok, el) => {
@@ -708,7 +725,7 @@
       const w = items[i];
       view.innerHTML = `<div class="study-wrap">${head(title, i, items.length, `🎯 ${good}`)}
         <div class="card q-card">
-          ${pic(w).replace('class="pic"', 'class="pic" style="width:110px;margin:0 auto 1rem"')}
+          ${picOk(w) ? pic(w).replace('class="pic"', 'class="pic" style="width:110px;margin:0 auto 1rem"') : ''}
           <div class="entry-word">${esc(w.word)}</div>
           <div class="row center"><span class="ipa" id="ipaW" style="font-size:1.1rem">${esc(w.ipa) || (w.ipaUS ? '' : `<span class="muted small">${t('đang tra phiên âm…')}</span>`)}</span><button class="icon-btn" id="model" title="${t('Nghe mẫu')}">🔊</button><button class="icon-btn" id="modelSlow" title="${t('Nghe chậm')}">🐢</button></div>
           <div class="vi" id="viW" style="font-size:1rem;margin-top:.3rem">${esc(mean(w))}</div>

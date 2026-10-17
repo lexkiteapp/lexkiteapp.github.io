@@ -189,7 +189,7 @@
           ${f.transitive ? '' : `<span class="vb-b">${t('Nội động từ')}</span>`}${r.unknown || r.guess ? `<span class="vb-b warn">${t('Chưa có trong danh sách – chia theo quy tắc')}</span>` : ''}</div>
         ${m ? `<p class="vb-mean">${esc(m)}</p>` : ''}</div>
         <div class="vb-ctl"><div class="vb-seg" role="group" aria-label="${t('Giọng Anh – Anh hay Anh – Mỹ')}" id="vbReg">${['UK', 'US'].map(k => `<button type="button" data-r="${k}" aria-pressed="${reg === k}">${k === 'UK' ? '🇬🇧' : '🇺🇸'} ${k}</button>`).join('')}</div>
-        <a class="btn sm" href="#/dict/${encodeURIComponent(full)}">📖 ${t('Tra nghĩa')}</a></div></div>
+        <a class="btn sm" href="#/dict/${encodeURIComponent(full)}">📖 ${t('Tra nghĩa')}</a>${window.LK_USAGE_IDX && LK_USAGE_IDX.w[full] ? `<a class="btn sm" href="#/usage/${encodeURIComponent(full)}">📘 ${t('Cách dùng & mẫu câu')}</a>` : ''}</div></div>
         <div class="vb-forms">${formBox(t('V1 · Nguyên mẫu'), [{ w: r.base }], '')}${formBox(t('V2 · Quá khứ'), f.past, f.rules.ed)}${formBox(t('V3 · Quá khứ phân từ'), f.pp, f.rules.ed)}${formBox('V-ing', f.ing, f.rules.ing)}${formBox(t('V-s/es · Ngôi 3 số ít'), f.s, f.rules.s)}</div>
         ${tags.length ? `<p class="small muted" style="margin:.7rem 0 0">🌍 ${t('UK = cách dùng Anh – Anh, US = Anh – Mỹ. Bảng chia bên dưới theo giọng bạn chọn.')}</p>` : ''}
         <div class="vb-grid2">

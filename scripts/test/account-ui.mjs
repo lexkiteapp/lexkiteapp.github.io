@@ -43,6 +43,7 @@ w.eval(fs.readFileSync('web/js/sync.js', 'utf8'));
 w.eval(fs.readFileSync('web/js/account.js', 'utf8'));
 const Sync = w.Sync;
 const click = el => el.dispatchEvent(new w.MouseEvent('click', { bubbles: true, cancelable: true }));
+const UI_close = () => w.UI.closeModal();
 const key = (k, el = d.activeElement || d.body) => el.dispatchEvent(new w.KeyboardEvent('keydown', { key: k, bubbles: true, cancelable: true }));
 
 // 1) Chưa đăng nhập: nút Google hiện ngay khi vẽ khung (trước khi Firebase sẵn sàng)
@@ -93,8 +94,74 @@ const bad = ax.violations.filter(v => /serious|critical/.test(v.impact));
 ok(!bad.length, 'axe: menu tài khoản không có lỗi nghiêm trọng – ' + bad.map(v => v.id + ' ' + v.nodes.map(x => x.target).join(',')).join('; '));
 key('Escape');
 
+// 2b) Thẻ tài khoản (Cài đặt & trang Tôi – sync.js render): tên/email cắt "…" (đủ giá trị ở title), trạng thái + nút ở hàng riêng, không chồng lấn
+const css = fs.readFileSync('web/css/me.css', 'utf8'); // CSS trang Tôi + thẻ tài khoản (tải lười, ngoài khung app)
+const rule = sel => (css.match(new RegExp('(^|\\n)' + sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*\\{([^}]*)\\}')) || [])[2] || '';
+authCb({ uid: 'u1', displayName: 'KHIEU DINH THONG', email: 'khieudinhthong.very.long.address@example.com', photoURL: '', getIdToken: async () => 'tok' });
+await sleep(30);
+const sb = d.createElement('div'); sb.className = 'card'; d.body.appendChild(sb); Sync.renderBox(sb);
+const ac = sb.querySelector('.acct-card');
+ok(ac && sb.classList.contains('acct-box'), 'thẻ tài khoản: lưới .acct-card trong khung .acct-box (container query)');
+ok(ac && ac.querySelector('.acct-name').textContent === 'Khieu Dinh Thong' && ac.querySelector('.acct-name').title === 'KHIEU DINH THONG', 'tên viết HOA → hiện "Khieu Dinh Thong", title giữ nguyên tên gốc');
+ok(ac && ac.querySelector('.acct-mail').title === 'khieudinhthong.very.long.address@example.com' && ac.querySelector('.acct-mail').getAttribute('dir') === 'ltr', 'email dài: title đầy đủ, dir=ltr (RTL không đảo)');
+ok(/text-overflow:\s*ellipsis/.test(rule('.acct-name, .acct-mail')) && /white-space:\s*nowrap/.test(rule('.acct-name, .acct-mail')) && /min-width:\s*0/.test(rule('.acct-id')), 'CSS: tên/email cắt "…" (ellipsis, nowrap, min-width:0) – không đẩy nút');
+ok(/minmax\(0, 1fr\)/.test(rule('.acct-card')) && /grid-column:\s*1 \/ -1/.test(rule('.acct-act')) && /grid-column:\s*1 \/ -1/.test(rule('.acct-st')), 'CSS: nút & trạng thái ở hàng riêng (grid-column 1/-1) – không đè lên email ở 320–390 px');
+ok(/min-height:\s*44px/.test(rule('.acct-act .btn')) && /flex-wrap:\s*wrap/.test(rule('.acct-act')), 'CSS: nút cao ≥ 44 px, tự xuống hàng khi chữ dài (de/ru)');
+const acts = ac ? ac.querySelector('.acct-act') : null;
+ok(acts && !ac.querySelector('.acct-id').contains(acts) && acts.querySelector('button[data-acct="sync"]') && acts.querySelector('button.btn.ghost.danger[data-acct="out"]'), 'nút Đồng bộ ngay + Đăng xuất (ghost-danger) là <button> trong khối hành động riêng');
+Sync.status = 'ok'; Sync.msg = ''; Sync.lastSync = Date.now() - 10e3; Sync.render();
+ok(/Đã đồng bộ vừa xong/.test(sb.querySelector('.acct-st').textContent) && sb.querySelector('.acct-st').getAttribute('role') === 'status' && sb.querySelector('.acct-st').title, 'trạng thái: "Đã đồng bộ vừa xong" (role=status, giờ chính xác ở title)');
+Sync.lastSync = Date.now() - 5 * 60e3; Sync.render();
+ok(/Đã đồng bộ 5 phút trước/.test(sb.querySelector('.acct-st').textContent), 'trạng thái: "5 phút trước" (Intl.RelativeTimeFormat)');
+const now = Date.now();
+ok(Sync.ago(now - 3 * 3600e3, now) === '3 giờ trước' && Sync.ago(now - 864e5, now) === 'hôm qua', 'Sync.ago: "3 giờ trước", "hôm qua"');
+w.I18N.lang = () => 'en'; ok(Sync.ago(now - 5 * 60e3, now) === '5 minutes ago', 'Sync.ago theo ngôn ngữ giao diện (en: "5 minutes ago")');
+w.I18N.lang = () => 'de'; ok(Sync.ago(now - 2 * 3600e3, now) === 'vor 2 Stunden', 'Sync.ago (de: "vor 2 Stunden")'); w.I18N.lang = () => 'vi';
+ok(Sync.nice('Quyen Khieu') === 'Quyen Khieu' && Sync.nice('NGUYỄN ĐỨC ANH') === 'Nguyễn Đức Anh' && Sync.nice('王小明') === '王小明' && Sync.nice('AN') === 'AN', 'Sync.nice: chỉ đổi tên HOA toàn bộ, giữ dấu, không đụng chữ Hán/tên ngắn');
+Sync.status = 'error'; Sync.msg = 'sync 500'; Sync.render();
+ok(sb.querySelector('.acct-card').dataset.st === 'error' && /Lỗi đồng bộ/.test(sb.querySelector('.acct-st').textContent) && /Thử lại/.test(sb.querySelector('[data-acct="sync"]').textContent), 'lỗi đồng bộ: báo rõ + nút "Thử lại"');
+Object.defineProperty(w.navigator, 'onLine', { configurable: true, get: () => false }); w.dispatchEvent(new w.Event('offline'));
+ok(sb.querySelector('.acct-card').dataset.st === 'offline' && /Ngoại tuyến/.test(sb.querySelector('.acct-st').textContent) && sb.querySelector('[data-acct="sync"]').disabled, 'mất mạng: "Ngoại tuyến – sẽ tự đồng bộ…", nút đồng bộ tạm khóa');
+Object.defineProperty(w.navigator, 'onLine', { configurable: true, get: () => true }); w.dispatchEvent(new w.Event('online'));
+ok(sb.querySelector('.acct-card').dataset.st === 'error', 'có mạng lại → vẽ lại trạng thái');
+Sync.status = 'syncing'; Sync.render();
+ok(sb.querySelector('[data-acct="sync"]').disabled && sb.querySelector('[data-acct="sync"]').getAttribute('aria-busy') === 'true', 'đang đồng bộ: nút khóa, aria-busy');
+Sync.status = 'ok'; Sync.render();
+let nowCalls = 0; const realNow = Sync.now; Sync.now = () => { nowCalls++; };
+click(sb.querySelector('[data-acct="sync"]')); ok(nowCalls === 1, 'bấm "Đồng bộ ngay" trên thẻ → Sync.now'); Sync.now = realNow;
+click(sb.querySelector('[data-acct="out"]')); await sleep(10);
+ok(!d.getElementById('modal').hidden && d.getElementById('acctOutOk'), 'bấm "Đăng xuất" trên thẻ → hộp xác nhận (luồng cũ)');
+UI_close(); sb.remove();
+
+// 2c) Trang Tôi (hubs.js routes.me): thẻ Từ vựng 4 chỉ số / lời mời khi chưa có từ; email không lặp ở hero; thẻ tài khoản dùng chung
+const view = d.createElement('main'); view.id = 'view'; d.body.appendChild(view);
+Object.assign(w.App, { view, routes: {}, state: { cards: {}, settings: {}, stats: {}, game: { xp: 0, days: {} }, user: Sync.user }, streak: () => 0, forgetting: () => [], isAdmin: async () => false, adminUrl: () => '#/admin', legalUrl: () => '/privacy' });
+w.UI.$$ = s => [...d.querySelectorAll(s)];
+w.Core.Stats.freezeInfo = () => ({ left: 0, max: 2 });
+w.Game.levelOf = () => ({ level: 1, title: 'Người mới', into: 0, need: 100 });
+w.Core.Cards.dueCount = map => ({ due: Object.values(map).filter(c => c.srs.due <= Date.now() && c.srs.reps > 0).length, newCount: 0, total: 0 });
+w.eval(fs.readFileSync('web/js/hubs.js', 'utf8'));
+await w.App.routes.me(); await sleep(20);
+ok(d.querySelector('link[data-me-css][href="css/me.css"]'), 'trang Tôi nạp css/me.css (tải lười, không tăng khung app)');
+ok(view.querySelector('.me-empty a.btn.primary[href="#/path"]') && /Bắt đầu học 10 từ đầu tiên/.test(view.querySelector('.me-empty').textContent), 'chưa có từ: lời mời "Bắt đầu học 10 từ đầu tiên" (không còn "0 · 0 từ · 0 đã thuộc")');
+ok(!view.querySelector('.me-card-tag') && !view.querySelector('.me-sub-row') && !view.querySelector('.me-head').textContent.includes('@'), 'hero: không lặp email (chỉ ở thẻ tài khoản), bỏ chip trùng số');
+ok(view.querySelector('.me-name').textContent === 'Khieu Dinh Thong' && !view.querySelector('.me-streak-flame'), 'hero: tên viết hoa → chữ thường đúng; chuỗi 0 ngày không hiện huy hiệu 🔥 0');
+ok(view.querySelector('#meAcct .acct-card .acct-mail') && view.querySelectorAll('.acct-mail').length === 1, 'thẻ tài khoản trên trang Tôi (một chỗ duy nhất có email)');
+const day = 864e5, mk = (w2, iv, reps, due) => [w2, { word: w2, srs: { interval: iv, reps, due, last: reps ? Date.now() - day : 0 } }];
+w.App.state.cards = Object.fromEntries([mk('a', 0, 0, 0), mk('b', 3, 2, Date.now() - 1000), mk('c', 30, 6, Date.now() + 9 * day), mk('d', 25, 5, Date.now() + 5 * day)]);
+w.App.streak = () => 4;
+await w.App.routes.me(); await sleep(20);
+const stats = [...view.querySelectorAll('.me-stats .me-stat')].map(a => a.querySelector('b').textContent + ':' + a.querySelector('span').textContent);
+ok(stats.join('|') === '4:Đã lưu|1:Đang học|2:Đã thuộc|1:Cần ôn hôm nay', 'thẻ Từ vựng: Đã lưu / Đang học / Đã thuộc / Cần ôn hôm nay – ' + stats.join('|'));
+ok(view.querySelector('.me-stat.due[href="#/review"]') && !view.querySelector('.me-empty'), 'có từ cần ôn → ô "Cần ôn hôm nay" nổi bật, mở #/review');
+ok(view.querySelector('.me-streak-flame[aria-label="Chuỗi 4 ngày"]'), 'huy hiệu chuỗi trên avatar có aria-label');
+const ax3 = await w.axe.run(view, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa'] }, rules: { 'color-contrast': { enabled: false } } });
+ok(!ax3.violations.filter(v => /serious|critical/.test(v.impact)).length, 'axe: trang Tôi không có lỗi nghiêm trọng – ' + ax3.violations.map(v => v.id).join(','));
+view.remove();
+
 // 3) Đăng xuất → xác nhận → Sync.signOut
 let outs = 0; Sync.signOut = async () => { outs++; };
+btn = d.getElementById('avatarBtn'); // tài khoản đổi tên ở 2b → nút avatar được vẽ lại
 click(btn); await sleep(10); pop = d.getElementById('acctPop');
 click(pop.querySelector('[data-a="out"]'));
 const modal = d.getElementById('modal');

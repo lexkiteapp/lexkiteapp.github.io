@@ -324,7 +324,19 @@
   Sync.now = () => pullMerge();
 
   function setStatus(s, msg) { Sync.status = s; Sync.msg = msg || ''; render(); if (window.Account) window.Account.refresh(); }
-  Sync.stText = () => ({ idle: '', syncing: '⏳ ' + t('Đang đồng bộ…'), ok: Sync.msg ? esc(Sync.msg) : '✓ ' + t('Đã đồng bộ lúc {time}', { time: new Date(Sync.lastSync || Date.now()).toLocaleTimeString(window.I18N ? I18N.lang() : 'vi-VN', { hour: '2-digit', minute: '2-digit' }) }), error: '⚠️ ' + t('Lỗi đồng bộ: {msg}', { msg: esc(Sync.msg) }) }[Sync.status] || '');
+  // Thời gian tương đối theo ngôn ngữ giao diện ("vừa xong", "5 phút trước", "hôm qua") – Intl.RelativeTimeFormat
+  Sync.ago = (ts, now = Date.now()) => {
+    const s = Math.max(0, Math.round((now - ts) / 1000));
+    if (s < 45) return t('vừa xong');
+    const [n, unit] = s < 3600 ? [Math.max(1, Math.round(s / 60)), 'minute'] : s < 86400 ? [Math.round(s / 3600), 'hour'] : [Math.round(s / 86400), 'day'];
+    const lang = window.I18N ? I18N.lang() : 'vi';
+    try { const r = new Intl.RelativeTimeFormat(lang, { numeric: 'auto' }).format(-n, unit); return r.charAt(0).toLocaleLowerCase(lang) + r.slice(1); } /* giữa câu: "Hôm qua" → "hôm qua" */ catch (e) { return new Date(ts).toLocaleTimeString(lang, { hour: '2-digit', minute: '2-digit' }); }
+  };
+  // Tên Google viết HOA toàn bộ ("KHIEU DINH THONG") → hiện "Khieu Dinh Thong" (chỉ khi hiển thị, không đổi dữ liệu); chữ không phân hoa/thường giữ nguyên
+  Sync.nice = v => { const n = String(v || '').trim(); if (n.length < 4 || n !== n.toUpperCase() || n === n.toLowerCase()) return n; return n.toLowerCase().replace(/(^|[\s'’.-])(\p{L})/gu, (m, a, b) => a + b.toUpperCase()); };
+  // Trạng thái hiển thị: mất mạng (đã đăng nhập) được ưu tiên báo rõ
+  Sync.stKind = () => (Sync.user && navigator.onLine === false ? 'offline' : Sync.status);
+  Sync.stText = () => ({ idle: '', offline: '📴 ' + t('Ngoại tuyến – sẽ tự đồng bộ khi có mạng'), syncing: '⏳ ' + t('Đang đồng bộ…'), ok: Sync.msg ? esc(Sync.msg) : '✓ ' + t('Đã đồng bộ {time}', { time: Sync.ago(Sync.lastSync || Date.now()) }), error: '⚠️ ' + t('Lỗi đồng bộ: {msg}', { msg: esc(Sync.msg) }) }[Sync.stKind()] || '');
 
   // ---------- Nút tài khoản (đầu trang + thanh bên): chưa đăng nhập = nút Google; đã đăng nhập = avatar mở menu (js/account.js, tải lười) ----------
   const GSVG = '<svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>';
@@ -361,26 +373,39 @@
 
   // ---------- Giao diện trong Cài đặt ----------
   Sync.renderBox = el => { box = el; render(); };
+  // Thẻ tài khoản (Cài đặt + trang Tôi): avatar · tên/email (cắt "…", đủ giá trị ở title) · trạng thái · nút – lưới tự xuống hàng, không chồng lấn ở 320 px
+  let agoT = 0;
   function render() {
+    clearTimeout(agoT);
     if (!box || !document.body.contains(box)) return;
+    box.classList.add('acct-box'); if (App && App.meCss) App.meCss(); // CSS thẻ tài khoản nằm ở css/me.css (tải lười)
     if (!supported) {
       box.innerHTML = Store.isExtension ? `<h2>☁️ ${t('Tài khoản & đồng bộ')}</h2><p class="muted small">${t('Tiện ích tự đồng bộ với tài khoản Google qua web app: mở <b>lexkite.com</b> và đăng nhập một lần – từ lưu bằng tiện ích sẽ tự gộp vào tài khoản (và ngược lại) mỗi khi bạn mở web app. Trên máy khác: cài tiện ích + đăng nhập cùng tài khoản trên web app là có đủ dữ liệu.')}</p><a class="btn primary" href="https://lexkite.com/app/#/settings" target="_blank" rel="noopener">☁️ ${t('Mở web app để đăng nhập & đồng bộ')}</a>`
         : `<h2>☁️ ${t('Tài khoản & đồng bộ')}</h2><p class="muted">${t('Đăng nhập và đồng bộ có trên bản web {link}.', { link: '<a href="https://lexkite.com/app/" target="_blank" rel="noopener">lexkite.com</a>' })}</p>`;
       return;
     }
-    const u = Sync.user;
-    const st = Sync.stText();
-    box.innerHTML = u ? `
-      <div class="row between"><div class="row nowrap"><span class="avatar">${Sync.av(u)}</span>
-        <div><b>${esc(u.displayName || t('Bạn'))}</b><div class="small muted">${esc(u.email || '')}</div></div></div>
-        <div class="row"><button class="btn sm" id="syncNow">🔄 ${t('Đồng bộ ngay')}</button><button class="btn sm ghost" id="signOut" data-acct="out">${t('Đăng xuất')}</button></div></div>
-      <div class="small muted">${st || t('Dữ liệu học được tự động sao lưu và đồng bộ giữa các thiết bị.')}</div>`
-      : `<div class="row between"><div><h2 style="margin:0">☁️ ${t('Đăng nhập để không mất dữ liệu')}</h2><p class="muted small">${t('Sao lưu flashcard, XP, chuỗi ngày học và học tiếp trên mọi thiết bị.')}</p></div>
-        ${gBtn('signIn')}</div>
-        ${st ? `<div class="small muted">${st}</div>` : ''}`;
-    const q = s => box.querySelector(s);
-    if (q('#syncNow')) q('#syncNow').onclick = Sync.now;
+    const u = Sync.user, k = Sync.stKind(), st = Sync.stText();
+    const exact = Sync.lastSync ? new Date(Sync.lastSync).toLocaleString(window.I18N ? I18N.lang() : 'vi-VN', { dateStyle: 'medium', timeStyle: 'short' }) : '';
+    if (u) {
+      const name = u.displayName || t('Bạn'), mail = u.email || '';
+      box.innerHTML = `<div class="acct-card" data-st="${k}">
+        <span class="avatar acct-av" aria-hidden="true">${Sync.av(u)}</span>
+        <div class="acct-id"><b class="acct-name" title="${esc(name)}">${esc(Sync.nice(name))}</b>${mail ? `<span class="acct-mail" dir="ltr" title="${esc(mail)}">${esc(mail)}</span>` : ''}</div>
+        <p class="acct-st" role="status" aria-live="polite"${k === 'ok' && exact ? ` title="${esc(exact)}"` : ''}>${st || t('Dữ liệu học được tự động sao lưu và đồng bộ giữa các thiết bị.')}</p>
+        <div class="acct-act"><button type="button" class="btn sm" data-acct="sync"${k === 'syncing' || k === 'offline' ? ' disabled' : ''}${k === 'syncing' ? ' aria-busy="true"' : ''}><span aria-hidden="true">🔄</span> ${k === 'error' ? t('Thử lại') : t('Đồng bộ ngay')}</button><button type="button" class="btn sm ghost danger" data-acct="out"><span aria-hidden="true">↪</span> ${t('Đăng xuất')}</button></div>
+      </div>`;
+      if (k === 'ok' && !Sync.msg) agoT = setTimeout(render, 60e3); // "5 phút trước" tự cập nhật khi thẻ còn trên màn hình
+    } else {
+      box.innerHTML = `<div class="acct-card out" data-st="${k}">
+        <span class="acct-av acct-ic" aria-hidden="true">☁️</span>
+        <div class="acct-id"><h2 class="acct-t">${t('Đăng nhập để không mất dữ liệu')}</h2><span class="small muted">${t('Sao lưu flashcard, XP, chuỗi ngày học và học tiếp trên mọi thiết bị.')}</span></div>
+        ${st ? `<p class="acct-st" role="status">${st}</p>` : ''}
+        <div class="acct-act">${gBtn('signIn')}</div>
+      </div>`;
+    }
   }
+  Sync.render = render;
+  window.addEventListener('online', render); window.addEventListener('offline', render);
 
   // Khởi động trễ để không chặn giao diện
   if (supported) setTimeout(() => init().catch(e => console.warn('firebase', e)), 1200);

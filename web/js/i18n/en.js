@@ -76,6 +76,8 @@
   'Đăng nhập và đồng bộ có trên bản web {link}.': 'Sign-in and sync are available on the web version at {link}.',
   'Đang đồng bộ…': 'Syncing…',
   'Đã đồng bộ lúc {time}': 'Synced at {time}',
+  'Đã đồng bộ {time}': 'Synced {time}',
+  'Ngoại tuyến – sẽ tự đồng bộ khi có mạng': "Offline – will sync automatically when you're back online",
   'Lỗi đồng bộ: {msg}': 'Sync error: {msg}',
   'Bạn': 'You',
   'Đồng bộ ngay': 'Sync now',
@@ -1391,6 +1393,11 @@
   'từ vựng': 'vocabulary',
   'ngữ pháp': 'grammar',
   'Trình độ ước tính: Band {band}': 'Estimated level: Band {band}',
+  'Ước tính từ {n} câu thích ứng: câu khó dần khi bạn trả lời đúng, dễ dần khi bạn sai. Khoảng điểm cho biết độ chắc chắn – làm lại sau vài tuần để cập nhật.': 'Estimated from {n} adaptive questions: they get harder when you answer correctly and easier when you don’t. The range shows how certain the estimate is – retake the test in a few weeks to update it.',
+  'Thoát giữa chừng?': 'Quit now?',
+  'Kết quả của lượt này sẽ không được lưu.': 'Your answers in this round won’t be saved.',
+  'Làm tiếp': 'Keep going',
+  'Ưu tiên theo bài kiểm tra đầu vào': 'Prioritised by your placement test',
   'Điểm cần ưu tiên: <b>{weak}</b>. Kế hoạch hôm nay trên trang chủ đã được điều chỉnh theo kết quả này.': 'Focus area: <b>{weak}</b>. Today’s plan on the home page has been adjusted to these results.',
   'Gợi ý bắt đầu lộ trình từ <b>{stage}</b>.': 'We suggest starting the path at <b>{stage}</b>.',
   'Kết quả chỉ để tham khảo, không thay thế bài thi thật.': 'Results are for reference only and don’t replace a real exam.',
@@ -2745,6 +2752,13 @@
   "Nhận ra paraphrase nhanh là chìa khóa để làm Reading đúng và kịp giờ.": "Spotting paraphrases quickly is the key to accurate, on-time Reading.",
   "Về Reading": "Back to Reading",
   "Đang cập nhật dữ liệu…": "Updating data…",
+  "Cách dùng từ": "Word usage",
+  "Giới từ đi kèm, to-V/V-ing, trạng từ, từ dễ nhầm": "Dependent prepositions, to-V/V-ing, adverbs, confusing words",
+  "Cách dùng": "Usage",
+  "Cần ôn hôm nay": "Due today",
+  "Chưa có từ sắp quên": "No words fading yet",
+  "Bắt đầu học {n} từ đầu tiên": "Start learning your first {n} words",
+  "Lưu từ khi tra cứu hoặc học theo lộ trình – Lexkite nhắc bạn ôn đúng lúc sắp quên.": "Save words as you look them up or follow the learning path – Lexkite reminds you to review just before you forget.",
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* ✍️ Soát lỗi viết trong add-on (extension/writecheck.js, popup, web/js/writecheck-rules.js). Định dạng JSON để service worker đọc được (bản tiếng Anh cho add-on). */
@@ -3205,6 +3219,8 @@
   'AI đang giải thích…': 'AI is explaining…',
   'Đã sao chép bản đã sửa': 'Corrected text copied',
   'Bản đã sửa': 'Corrected text',
+  "Cách dùng & mẫu câu": "Usage & patterns",
+  "Cách dùng “{w}”": "How to use “{w}”",
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* Thống nhất thuật ngữ khi nhiều nhóm dùng chung 1 khóa */

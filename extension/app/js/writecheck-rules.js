@@ -112,7 +112,7 @@
     const s = m.index + m[1].length; return { s, e: m.index + m[0].length, reps: [''] };
   });
   add('dep-prep', /\b(depend|depends|depended|depending|interested|good|famous|responsible|married|different|similar|consist|consists|arrive|arrived|arrives)\s+(of|on|in|at|to|from|with|for|about)\b/gi, T.gr, 'Giới từ đi kèm', PREP, 'dependent-prepositions', m => {
-    const v = m[1].toLowerCase().replace(/(s|ed|ing)$/, '').replace(/^arriv$/, 'arrive'), p = m[2].toLowerCase();
+    const w0 = m[1].toLowerCase(), v = /^(interested|famous|married|responsible|different|similar|good)$/.test(w0) ? w0 : w0.replace(/(s|ed|ing)$/, '').replace(/^arriv$/, 'arrive'), p = m[2].toLowerCase(); // tính từ giữ nguyên (interested, famous, married – không cắt đuôi)
     const OK = { depend: ['on'], interested: ['in'], famous: ['for'], responsible: ['for', 'to'], married: ['to'], different: ['from', 'to'], similar: ['to'], consist: ['of', 'in'], arrive: ['at', 'in'], good: ['at', 'for', 'to', 'with', 'in', 'on', 'about', 'from', 'of'] }[v] || (v === 'depend' ? ['on'] : null);
     if (!OK || OK.includes(p) || v === 'good') return null;
     const s = m.index + m[0].length - m[2].length; return { s, e: m.index + m[0].length, reps: [OK[0]] };

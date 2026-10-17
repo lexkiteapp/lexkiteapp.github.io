@@ -23,6 +23,7 @@ const go = async (h, ms = 60) => { w.location.hash = h; await tick(ms); };
     grammar: (w.GRAMMAR || []).map(x => x.id), topic: w.IELTS_DATA.TOPICS.map(x => x.id), listen: (w.LISTENING || []).map(p => p.id).concat(((w.TOEIC || {}).listening || []).map(p => p.id)),
     'toeic-r': ((w.TOEIC || {}).reading || []).map(x => x.id + '?part=5'), 'listen-test': [...new Set((w.LISTENING || []).map(p => p.test))], 'toeic-test': [...new Set(((w.TOEIC || {}).reading || []).map(x => x.test))],
     write: (w.WRITE_PROMPTS || []).map(p => p.id), ideas: (w.IDEAS || []).map(x => x.topic),
+    usage: w.LK_USAGE_IDX ? [...Object.keys(w.LK_USAGE_IDX.w).filter((x, i) => i % 7 === 0), ...Object.keys(w.LK_USAGE_IDX.id).filter((x, i) => i % 6 === 0), 'blorfing'].map(encodeURIComponent) : [],
     verb: w.LK_VERBS ? ['went', 'be', 'have', 'do', 'can', 'ought to', 'lie', 'lay', 'study', 'panic', 'travel', 'give%20up', 'know', 'blorf', 'quizzes', ...w.LK_VERBS.irregularList().filter((x, i) => i % 4 === 0).map(x => x.base)] : [],
   };
   const bad = []; let n = 0;

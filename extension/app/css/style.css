@@ -277,8 +277,12 @@ html:has(.grade-bar) { scroll-padding-bottom: 6.5rem; }
 .q-card { text-align: center; padding: 2rem 1.5rem; }
 .options { display: grid; gap: .65rem; margin-top: 1rem; }
 .options.two { grid-template-columns: 1fr 1fr; }
-.option { text-align: left; padding: .95rem 1.1rem; border-radius: 14px; border: 2px solid var(--line); border-bottom-width: 4px; background: var(--surface); cursor: pointer; font-weight: 600; transition: border-color .12s, background .12s, transform .06s; display: flex; gap: .7rem; align-items: center; }
-.option:hover { border-color: var(--primary); }
+.option { text-align: start; padding: .95rem 1.1rem; border-radius: 14px; border: 2px solid var(--line); border-bottom-width: 4px; background: var(--surface); cursor: pointer; font-weight: 600; transition: border-color .12s, background .12s, transform .06s; display: flex; gap: .7rem; align-items: center; }
+.option:focus { outline: none; } .option:focus-visible { outline: 3px solid color-mix(in srgb, var(--primary) 70%, transparent); outline-offset: 2px; }
+@media (hover: hover) and (pointer: fine) { .option:hover { border-color: var(--primary); } }
+.option.picked { border-color: var(--primary); background: var(--primary-soft); }
+.opt-idk { color: var(--muted); border-style: dashed; border-bottom-width: 2px; font-weight: 600; }
+@media (hover: none), (pointer: coarse) { .kbd-hint, .options .kbd { display: none; } }
 .option:active { transform: translateY(2px); border-bottom-width: 2px; }
 .option.right { border-color: var(--good); background: var(--good-soft); animation: popBounce .32s cubic-bezier(.34, 1.56, .64, 1); }
 .option.wrong { border-color: var(--again); background: var(--again-soft); animation: shakeWrong .35s ease-in-out; }
@@ -828,7 +832,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; }
 .sheet-ex .ctx-say { background: rgba(255,255,255,.9); border: 0; margin-left: .2rem; }
 .sheet-tr { margin-top: .3rem; opacity: .9; font-style: italic; }
 .sheet-next { margin-top: 1rem; background: #fff !important; color: #111 !important; border: 0 !important; box-shadow: 0 4px 0 rgba(0,0,0,.15); font-weight: 800; }
-.study-wrap:has(.sheet) { padding-bottom: 280px; }
+.study-wrap:has(.sheet) { padding-bottom: calc(var(--sheet-h, 280px) + 1rem); }
 /* Màn hình rộng có thanh bên: căn khung kết quả theo vùng nội dung (không theo cả cửa sổ) để thẳng hàng với thẻ học */
 @media (min-width: 901px) { body:not(.bare) .sheet { left: var(--sidebar); } }
 @keyframes sheetUp { from { transform: translateY(100%); } to { transform: none; } }
@@ -908,7 +912,9 @@ kbd { font-family: ui-monospace, Menlo, monospace; font-size: .75em; padding: .0
 .wi-word { font-size: 2.3rem; font-weight: 800; letter-spacing: -.01em; line-height: 1.15; margin: .25rem 0 .2rem; word-break: break-word; }
 .wi-pron { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
 .wi-pron .ipa { font-size: 1.05rem; }
-.fi-btn.sm { width: 36px; height: 36px; font-size: 1rem; box-shadow: 0 3px 0 var(--line); }
+.fi-btn.sm { position: relative; width: 40px; height: 40px; font-size: 1rem; box-shadow: 0 3px 0 var(--line); }
+.fi-btn.sm::after { content: ""; position: absolute; inset: 50% auto auto 50%; transform: translate(-50%, -50%); width: 44px; height: 44px; }
+.wi-top.nopic { grid-template-columns: 1fr; }
 .wi-vi { font-size: 1.35rem; font-weight: 700; color: var(--good-text); margin-top: .45rem; }
 .wi-sec { margin-top: 1rem; padding-top: .9rem; border-top: 1px dashed var(--line); line-height: 1.6; }
 .wi-lb { display: block; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: .25rem; }
@@ -943,7 +949,11 @@ kbd { font-family: ui-monospace, Menlo, monospace; font-size: .75em; padding: .0
 .pos-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem; } .pos-head .vi { font-size: 1.05rem; }
 .pos-block ol { margin: .4rem 0 0 1.2rem; padding: 0; line-height: 1.6; } .pos-block li { margin: .25rem 0; }
 /* Điện thoại: nút chính của bước học luôn trong tầm tay (không phải cuộn tìm) */
-@media (max-width: 560px) { #gotIt { position: sticky; bottom: calc(72px + env(safe-area-inset-bottom)); z-index: 5; box-shadow: 0 6px 20px rgba(0,0,0,.25); } }
+/* Thanh "Tiếp tục" dính đáy, nằm sau nội dung (không che khi cuộn hết); :hover chỉ cho chuột (iOS giữ :hover chỗ vừa chạm) */
+.learn-bar { position: sticky; bottom: 0; z-index: 5; display: grid; gap: .35rem; margin: 1rem -.75rem 0; padding: .75rem .75rem calc(.6rem + env(safe-area-inset-bottom)); background: linear-gradient(to top, var(--bg) 78%, transparent); }
+.learn-bar .linklike { padding: .55rem 1rem; min-height: 44px; }
+@media (max-width: 900px) { body:not(.focus):not(.bare) .learn-bar { bottom: calc(60px + env(safe-area-inset-bottom)); } }
+html:has(.learn-bar) { scroll-padding-bottom: 140px; } .wi .wc-sec, .wi-sec { scroll-margin-bottom: 140px; }
 /* Điện thoại: các nút trong thẻ chính chia đều 1 hàng, chữ không bị xuống dòng lệch */
 @media (max-width: 560px) {
   .hero-main .row > .btn.lg { flex: 1 1 0; min-width: 0; justify-content: center; padding-left: .6rem; padding-right: .6rem; font-size: .95rem; white-space: nowrap; }
@@ -1128,128 +1138,7 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
 .crumb a { color: var(--muted); }
 .crumb a:hover { color: var(--primary); }
 .page-head:has(> .crumb) { flex-wrap: wrap; }
-/* Trang Tôi (Learner Profile & Hub) */
-.me-head {
-  display: flex; gap: 1.25rem; align-items: flex-start;
-  padding: 1.35rem 1.4rem; border-radius: var(--radius);
-  background: linear-gradient(135deg, color-mix(in srgb, var(--primary-soft) 40%, var(--surface)), var(--surface));
-  border: 1px solid color-mix(in srgb, var(--primary) 20%, var(--line));
-  box-shadow: var(--shadow-sm);
-  margin-bottom: 1.1rem;
-}
-.me-avatar-wrap { position: relative; flex: none; }
-.me-avatar-wrap .avatar.lg {
-  width: 72px; height: 72px; font-size: 1.9rem; font-weight: 800;
-  border-radius: 50%; border: 3px solid var(--surface);
-  box-shadow: 0 4px 16px color-mix(in srgb, var(--primary) 25%, transparent);
-  background: linear-gradient(135deg, var(--primary), var(--primary-2, #ff7a4d));
-  color: #fff; display: flex; align-items: center; justify-content: center;
-}
-.me-streak-flame {
-  position: absolute; bottom: -4px; right: -4px;
-  background: var(--surface); border: 1.5px solid var(--line);
-  font-size: .82rem; font-weight: 800; border-radius: 999px;
-  padding: .1rem .45rem; display: flex; align-items: center; gap: .2rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,.1);
-}
-.me-tx { flex: 1; min-width: 0; }
-.me-name-row { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: .5rem; }
-.me-name-row b { font-size: 1.25rem; font-weight: 800; letter-spacing: -.01em; }
-.me-exam-badge {
-  font-size: .78rem; font-weight: 700; padding: .2rem .65rem; border-radius: 999px;
-  background: var(--surface); border: 1px solid var(--line); color: var(--text);
-  box-shadow: 0 1px 2px rgba(0,0,0,.04);
-}
-.me-sub-row { font-size: .84rem; color: var(--muted); margin: .15rem 0 .45rem; }
-.me-title-chip {
-  display: inline-flex; align-items: center; gap: .35rem; font-size: .8rem; font-weight: 700;
-  color: var(--primary-text); background: var(--primary-soft); padding: .2rem .6rem; border-radius: 8px;
-  margin-bottom: .5rem;
-}
-.me-xp-container { margin-top: .3rem; }
-.me-xp-bar {
-  height: 8px; border-radius: 999px; background: color-mix(in srgb, var(--line) 70%, transparent);
-  overflow: hidden; margin-bottom: .35rem;
-}
-.me-xp-fill {
-  height: 100%; border-radius: 999px;
-  background: linear-gradient(90deg, var(--gold, #f5a524), var(--primary));
-  transition: width .4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.me-xp-sub {
-  display: flex; justify-content: space-between; align-items: center;
-  font-size: .76rem; color: var(--muted); font-weight: 600;
-}
-
-/* Cognitive Brain Bento Matrix */
-.me-bento {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin-bottom: 1.4rem;
-}
-@media (max-width: 600px) {
-  .me-bento { grid-template-columns: 1fr; }
-  .me-head { flex-direction: column; align-items: center; text-align: center; }
-  .me-name-row { justify-content: center; }
-  .me-xp-sub { flex-direction: column; gap: .2rem; }
-}
-.me-card {
-  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm, 14px);
-  padding: .9rem 1rem; display: flex; flex-direction: column; justify-content: space-between;
-  box-shadow: var(--shadow-sm); text-decoration: none; color: inherit;
-  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
-}
-.me-card:hover {
-  transform: translateY(-2px); border-color: color-mix(in srgb, var(--primary) 40%, var(--line));
-  box-shadow: var(--shadow); text-decoration: none;
-}
-.me-card-head { display: flex; justify-content: space-between; align-items: center; gap: .4rem; margin-bottom: .35rem; }
-.me-card-lbl { font-size: max(12px, .78rem); font-weight: 700; color: var(--muted); }
-.me-card-tag { font-size: max(12px, .75rem); font-weight: 700; padding: .12rem .48rem; border-radius: 999px; background: var(--surface-2); color: var(--muted); line-height: 1.3; }
-.me-card-tag.good { background: #dcfce7; color: #15803d; }
-.me-card-tag.warn { background: #fef3c7; color: #b45309; }
-.me-card-val {
-  font-size: 1.55rem; font-weight: 800; line-height: 1.2; letter-spacing: -.02em;
-  font-feature-settings: "tnum"; font-variant-numeric: tabular-nums; color: var(--text);
-}
-.me-card-sub { font-size: max(12px, .75rem); color: var(--muted); margin-top: .25rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.3; }
-
-/* Squircle Icon Navigation Rows */
-.me-row {
-  display: flex; align-items: center; justify-content: space-between; gap: .75rem;
-  padding: .85rem 1.15rem; min-height: 58px;
-  color: var(--text); text-decoration: none; width: 100%;
-  background: none; border: 0; font: inherit; text-align: left; cursor: pointer;
-  transition: background .15s ease;
-}
-.set-list > .me-row { border-top: 1px solid var(--line); }
-.set-list > .me-row:first-child { border-top: 0; }
-.me-row:hover { background: var(--surface-2); text-decoration: none; }
-.me-row-left { display: flex; align-items: center; gap: .9rem; flex: 1; min-width: 0; }
-.me-icon-box {
-  width: 38px; height: 38px; border-radius: 11px; flex: none;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.15rem; background: var(--surface-2); border: 1px solid color-mix(in srgb, var(--line) 60%, transparent);
-  transition: transform .15s ease, background .15s ease;
-}
-.me-row:hover .me-icon-box {
-  background: color-mix(in srgb, var(--primary) 12%, var(--surface-2));
-  transform: scale(1.05);
-}
-.me-row-title { font-size: .95rem; font-weight: 700; color: var(--text); }
-.me-row-right { display: flex; align-items: center; gap: .55rem; flex: none; }
-.me-row .chev { color: var(--muted); font-size: 1.2rem; }
-.me-badge {
-  font-size: max(12px, .75rem); font-weight: 700; padding: .15rem .5rem; border-radius: 999px;
-  background: var(--surface-2); color: var(--muted);
-}
-.pill-count {
-  font-size: max(12px, .75rem); font-weight: 800; padding: .12rem .48rem; border-radius: 999px;
-}
-.pill-count.warn { background: #fee2e2; color: #dc2626; }
-@media (prefers-color-scheme: dark) {
-  .me-card-tag.good { background: #12301d; color: #4ade80; }
-  .me-card-tag.warn { background: #3a2e12; color: #fbbf24; }
-  .pill-count.warn { background: #3a1a1c; color: #f87171; }
-}
+/* Trang Tôi + thẻ tài khoản: css/me.css (tải lười – App.meCss trong hubs.js) */
 @media (max-width: 640px) {
   .top-stats .exam-chip { display: none; } /* điện thoại: đổi kỳ thi ngay trên trang Kỹ năng/Thi thử/Tôi – nhường chỗ cho ô tra từ */
   .hub-grid { grid-template-columns: 1fr; gap: .6rem; }
@@ -1500,7 +1389,6 @@ label.struck { text-decoration: line-through; opacity: .5; }
 .gsi svg { flex: none; } .gsi-s { display: none; } .top-stats .gsi { min-height: 36px; padding: 0 .8rem; }
 button.avatar { border: 0; padding: 0; cursor: pointer; font: inherit; font-weight: 800; }
 .side-acct { margin-top: .6rem; } .side-acct p { margin: 0 0 .4rem; } .side-acct .gsi { width: 100%; }
-.me-acct { margin-top: .75rem; gap: .6rem; }
 @media (max-width: 900px) { .top-stats .gsi { padding: 0 .65rem; gap: .4rem; } .top-stats .gsi-l { display: none; } .top-stats .gsi-s { display: inline; } }
 @media (max-width: 480px) { .top-stats .gsi { width: 36px; padding: 0; } .top-stats .gsi-s { display: none; } } /* 375 px: không đủ chỗ cho chữ → nút G tròn (biến thể biểu tượng của Google), tên đọc qua aria-label */
 /* Chữ màu ngữ nghĩa đặt inline trong chuỗi dịch (không đổi được khoá i18n) → dùng màu chữ đạt tương phản */

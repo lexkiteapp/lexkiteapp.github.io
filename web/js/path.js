@@ -34,16 +34,17 @@
   function unitState() {
     const list = unitsFlat();
     const done = doneMap();
-    let currentFound = false;
-    return list.map((u, i) => {
-      const isDone = !!done[u.topic.id];
-      // Mở khóa nếu bài trước đã xong, hoặc đã học ≥ 80% từ của bài này
-      const prevDone = i === 0 || !!done[list[i - 1].topic.id];
-      const unlocked = isDone || prevDone || learnedPct(u.topic) >= 0.8;
-      let status = isDone ? 'done' : unlocked ? 'open' : 'locked';
-      if (status === 'open' && !currentFound) { status = 'current'; currentFound = true; }
-      return { ...u, i, status, pct: learnedPct(u.topic), score: done[u.topic.id] };
+    // Kiểm tra đầu vào gợi ý chặng bắt đầu → các bài trước chặng đó mở sẵn (không bắt học lại), bài hiện tại = bài đầu của chặng gợi ý
+    const pl = state.settings && state.settings.placement, start = Math.max(0, pl && pl.stage ? list.findIndex(u => u.stage.id === pl.stage) : 0);
+    const out = list.map((u, i) => {
+      const isDone = !!done[u.topic.id], pct = learnedPct(u.topic);
+      // Mở khóa nếu bài trước đã xong, đã học ≥ 80% từ của bài này, hoặc nằm trước/đầu chặng gợi ý
+      const unlocked = isDone || i <= start || !!done[list[i - 1].topic.id] || pct >= 0.8;
+      return { ...u, i, status: isDone ? 'done' : unlocked ? 'open' : 'locked', pct, score: done[u.topic.id] };
     });
+    const cur = out.find(u => u.status === 'open' && u.i >= start) || out.find(u => u.status === 'open');
+    if (cur) cur.status = 'current';
+    return out;
   }
   App.pathCurrent = () => unitState().find(u => u.status === 'current');
 

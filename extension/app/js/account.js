@@ -21,7 +21,7 @@
   const items = () => pop ? [...pop.querySelectorAll('[role=menuitem]')] : [];
   function html() {
     const u = Sync.user || (() => { try { return JSON.parse(localStorage.getItem('lk.acct')) || {}; } catch (e) { return {}; } })(), err = Sync.status === 'error';
-    return `<div class="acct-head"><span class="avatar">${Sync.av(u)}</span><div class="grow"><b>${esc(u.displayName || t('Bạn'))}</b><span class="small muted">${esc(u.email || '')}</span></div></div>
+    return `<div class="acct-head"><span class="avatar">${Sync.av(u)}</span><div class="grow"><b title="${esc(u.displayName || '')}">${esc(Sync.nice ? Sync.nice(u.displayName || t('Bạn')) : u.displayName || t('Bạn'))}</b><span class="small muted" dir="ltr" title="${esc(u.email || '')}">${esc(u.email || '')}</span></div></div>
       <div class="acct-st small" role="status">${Sync.stText() || t('Dữ liệu học được tự động sao lưu và đồng bộ giữa các thiết bị.')}</div>
       <div role="menu" id="acctMenu" aria-label="${esc(t('Tài khoản'))}">
         <button type="button" role="menuitem" data-a="sync"><span aria-hidden="true">🔄</span>${err ? t('Thử lại') : t('Đồng bộ ngay')}</button>

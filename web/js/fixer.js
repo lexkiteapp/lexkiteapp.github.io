@@ -113,7 +113,7 @@
         <div class="fx-orig" translate="no"><s lang="en">${esc(o.trim() || '␣')}</s></div>
         <div class="fx-reps">${x.reps.map((r, k) => `<button type="button" class="btn sm ${k ? '' : 'primary'}" data-rep="${k}" aria-label="${esc(t('Áp dụng: {r}', { r: r || t('(xóa)') }))}"><span lang="en" translate="no">${esc(r || t('(xóa)'))}</span>${x.levels && x.levels[k] ? ` <small>${esc(x.levels[k])}</small>` : ''}</button>`).join('')}</div>
         <p class="fx-why">${esc(t(x.why))}</p>
-        <div class="row" style="gap:.4rem">${x.lesson ? `<a class="btn sm ghost" href="#/grammar/${esc(x.lesson)}">📐 ${lname ? esc(lname) : t('Học bài ngữ pháp liên quan')}</a>` : ''}<button type="button" class="btn sm ghost" id="fxIgn">🙈 ${t('Bỏ qua lỗi này')}</button><button type="button" class="btn sm ghost" id="fxAi">🤖 ${t('Giải thích bằng AI')}</button></div>
+        <div class="row" style="gap:.4rem">${x.lesson ? `<a class="btn sm ghost" href="#/grammar/${esc(x.lesson)}">📐 ${lname ? esc(lname) : t('Học bài ngữ pháp liên quan')}</a>` : ''}${usageOf(x) ? `<a class="btn sm ghost" href="#/usage/${encodeURIComponent(usageOf(x))}">📘 ${t('Cách dùng “{w}”', { w: usageOf(x) })}</a>` : ''}<button type="button" class="btn sm ghost" id="fxIgn">🙈 ${t('Bỏ qua lỗi này')}</button><button type="button" class="btn sm ghost" id="fxAi">🤖 ${t('Giải thích bằng AI')}</button></div>
         <div id="fxAiOut" class="fx-ai" aria-live="polite"></div>
         <div class="fx-nav"><button type="button" class="btn sm" id="fxPrev" ${pos <= 0 ? 'disabled' : ''}>‹ ${t('Lỗi trước')}</button><span class="small muted">${pos + 1}/${vis.length}</span><button type="button" class="btn sm" id="fxNext" ${pos >= vis.length - 1 ? 'disabled' : ''}>${t('Lỗi sau')} ›</button></div></section>`;
       $$('[data-rep]', box).forEach(b => b.onclick = () => apply([{ x, rep: x.reps[+b.dataset.rep] }], true));
@@ -121,6 +121,18 @@
       $('#fxPrev').onclick = () => pick(issues.indexOf(vis[pos - 1]), true);
       $('#fxNext').onclick = () => pick(issues.indexOf(vis[pos + 1]), true);
       $('#fxAi').onclick = () => explainAI(x);
+    }
+    // Lỗi giới từ / mẫu câu → trang "Cách dùng từ" của đúng từ đó (chỉ mục nhỏ LK_USAGE_IDX, tải cùng trang)
+    const USE_RULE = { 'lk:despite-of': 'despite', 'lk:although-but': 'although', 'lk:because-so': 'because', 'lk:other-hand': 'on the other hand', 'lk:since-for': 'since-for', 'lk:look-fwd': 'look forward to' };
+    const USE_SCAN = new Set(['lk:dep-prep', 'lk:discuss-about', 'lk:ger', 'lk:make-to', 'lk:explain-me', 'lk:be-agree', 'lk:modal-to']);
+    function usageOf(x) {
+      const I = window.LK_USAGE_IDX; if (!I) return '';
+      const has = k => I.w[k] || I.id[k];
+      if (USE_RULE[x.rule]) return has(USE_RULE[x.rule]) ? USE_RULE[x.rule] : '';
+      if (!USE_SCAN.has(x.rule)) return '';
+      const inSpan = (text.slice(x.s, x.e).toLowerCase().match(/[a-z]+/g) || []).reverse(), before = (text.slice(Math.max(0, x.s - 40), x.s).toLowerCase().match(/[a-z]+/g) || []).slice(-3).reverse();
+      for (const w of [...inSpan, ...before]) for (const c of [w, w.replace(/ies$/, 'y'), w.replace(/ied$/, 'y'), w.replace(/e?s$/, ''), w.replace(/e?d$/, ''), w.replace(/ing$/, ''), w.replace(/ing$/, 'e'), { made: 'make', went: 'go' }[w] || '']) if (c && c.length > 1 && I.w[c]) return c;
+      return '';
     }
     function pick(i, focusCard) {
       sel = i; draw();
