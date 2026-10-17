@@ -1,0 +1,69 @@
+{
+  "_note": "Video thử 17/10: clip phông xanh mới (Carlos barista + Ama) ghép phòng cà phê – kiểm đứng đúng sàn, khớp vai nói/nghe, grade màu. Dựng trên CI: video-sample.yml với script=content/video/samples/cafe-order.json",
+  "topic": "Order coffee politely: \"Could I get…\" instead of \"Give me…\"",
+  "format": "short",
+  "script": {
+    "title": "Order coffee like a native",
+    "hook": "Stop saying \"Give me a coffee\"",
+    "scene": "cafe",
+    "time": "day",
+    "lines": [
+      {
+        "who": "carlos",
+        "beat": "hook",
+        "text": "Hi there! What can I get for you today?",
+        "expr": "happy smile",
+        "gesture": "waving hello"
+      },
+      {
+        "who": "ama",
+        "beat": "situation",
+        "text": "Um… give me a latte.",
+        "expr": "thinking",
+        "gesture": "thinking"
+      },
+      {
+        "who": "carlos",
+        "beat": "explain",
+        "text": "Try this: could I get a latte, please?",
+        "expr": "happy smile",
+        "gesture": "pointing",
+        "punch": true
+      },
+      {
+        "who": "ama",
+        "beat": "example",
+        "text": "Could I get a large latte, please?",
+        "expr": "happy smile",
+        "gesture": ""
+      },
+      {
+        "who": "carlos",
+        "beat": "react",
+        "text": "Perfect! That sounds so natural.",
+        "expr": "happy smile",
+        "gesture": "thumbs up"
+      },
+      {
+        "who": "kit",
+        "beat": "tip",
+        "text": "Kit's tip: could I get… is polite and friendly.",
+        "expr": "proud",
+        "gesture": ""
+      },
+      {
+        "who": "ama",
+        "beat": "cta",
+        "text": "Practice ordering free on lexkite.com",
+        "expr": "happy smile",
+        "gesture": "waving hello"
+      }
+    ],
+    "keywords": [
+      "Could I get",
+      "please"
+    ],
+    "caption": "Order coffee politely in English ☕ #englishtips #speakenglish",
+    "link": "https://lexkite.com/"
+  }
+}

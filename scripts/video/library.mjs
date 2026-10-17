@@ -7,6 +7,8 @@
 //   node scripts/video/library.mjs verify [--deep]
 //   node scripts/video/library.mjs restore <id|all>
 //   node scripts/video/library.mjs report
+//   node scripts/video/library.mjs fetch-render     tải từ media.lexkite.com mọi phòng/clip/ảnh mà brand/library/manifest.json đang dùng (CI dựng video có kho thật)
+//   node scripts/video/library.mjs approve <id> --waiver "lý do soi tay"   duyệt tay clip bị cổng tự động báo nhầm (giữ nguyên lỗi để tra soát, ghi manualReview)
 //   node scripts/video/library.mjs stack [id|all] [--force]    bản stacked cho render (clip_to_layer.py) + ghi brand/library/manifest.json
 //   node scripts/video/library.mjs render-manifest              chỉ ghi lại + kiểm brand/library/manifest.json
 //   node scripts/video/library.mjs drive-backup [dir] [--repair] sao lưu bản gốc (2 bản/2 Drive) + bản stacked (1 bản) lên Kho Drive riêng (LEXKITE_DRIVE_CLI_KEY)
@@ -545,6 +547,41 @@ function rembgPython() {
   const c = [process.env.LEXKITE_REMBG_PY, path.join(ROOT, '.tools/pyenv/bin/python'), path.join(os.tmpdir(), 'vt12/bin/python'), '/tmp/claude-501/vt12/bin/python', 'python3'].filter(Boolean);
   for (const p of c) if (spawnSync(p, ['-c', 'import rembg, numpy, PIL'], { stdio: 'ignore' }).status === 0) return p;
   throw new Error('thiếu Python có rembg (isnet-anime): .tools/pyenv/bin/pip install "rembg[cpu]" hoặc đặt LEXKITE_REMBG_PY');
+}
+/** Duyệt tay: cổng tự động (heuristic MediaPipe/khung đột biến) đôi khi báo nhầm trên tranh 2D – người soi khung hình xác nhận thì mở cách ly.
+ *  Bắt buộc --waiver "<lý do>"; giữ nguyên issues gốc, ghi manualReview {at, reason}; bản stacked FAIL → WAIVED (render dùng được). */
+function cmdApprove(id, opts) {
+  if (!id || !opts.waiver || String(opts.waiver).trim().length < 8) throw new Error('approve <id> --waiver "<lý do soi tay, ≥ 8 ký tự>"');
+  const m = loadManifest(), key = id.startsWith('clips/') ? id : `clips/${id.replace(/\.mp4$/, '')}.mp4`, e = m.items.find(x => x.id === key);
+  if (!e) throw new Error('không có ' + key);
+  const was = e.status;
+  e.status = 'approved'; e.waiver = String(opts.waiver).trim(); e.manualReview = { at: today(), reason: e.waiver, from: was };
+  if (e.rejectReason) { e.manualReview.rejectReason = e.rejectReason; delete e.rejectReason; }
+  delete e.quarantinedFrom;
+  const st = e.variants && e.variants.stacked;
+  if (st && st.status === 'FAIL') st.status = 'WAIVED';
+  saveManifest(m);
+  const probs = writeRenderManifest(m);
+  log(`✓ ${key}: ${was} → approved (duyệt tay: ${e.waiver})${st ? ' · stacked ' + st.status : ''} · manifest dựng ${probs.length ? probs.length + ' vấn đề' : 'OK'}`);
+  return 0;
+}
+/** CI dựng video: brand/library không nằm trong git → tải từ nguồn chính (media.lexkite.com) đúng các file manifest dựng cần, kiểm sha256. */
+async function cmdFetchRender() {
+  const m = loadManifest(), rm = JSON.parse(fs.readFileSync(path.join(LIB, 'manifest.json'), 'utf8'));
+  const want = [...(rm.clips || []), ...(rm.rooms || []), ...(rm.stills || [])].filter(x => x.ready && x.file).map(x => x.file);
+  let ok = 0, miss = 0;
+  for (const f of [...new Set(want)]) {
+    const dest = path.join(LIB, f);
+    const e = m.items.find(x => x.id === f || x.file === f || (x.variants && x.variants.stacked && x.variants.stacked.file === f));
+    const p = e && e.locations && e.locations.primary;
+    if (!p || !p.url) { log(`! ${f}: chưa có trên nguồn chính – chạy library.mjs sync`); miss++; continue; }
+    if (fs.existsSync(dest) && p.sha256 && sha256(fs.readFileSync(dest)) === p.sha256) { ok++; continue; }
+    const r = await fetch(p.url), buf = Buffer.from(await r.arrayBuffer());
+    if (!r.ok || (p.sha256 && sha256(buf) !== p.sha256)) { log(`✗ ${f}: tải ${p.url} lỗi (${r.status}) hoặc sai sha256`); miss++; continue; }
+    fs.mkdirSync(path.dirname(dest), { recursive: true }); fs.writeFileSync(dest, buf); ok++;
+  }
+  log(`fetch-render: ${ok} file sẵn sàng · ${miss} thiếu`);
+  return miss ? 1 : 0;
 }
 /** Clip phông xanh? – đọc khung đầu thu nhỏ 16×16: 4 góc đều trội xanh lá (G − max(R,B) > 40) → tách bằng chroma_key.py (sạch hơn rembg, không bóng sàn). */
 function isGreenScreen(src) {
@@ -1259,6 +1296,8 @@ async function main() {
       : cmd === 'verify' ? await cmdVerify(o)
       : cmd === 'restore' ? await cmdRestore(o._[0] || 'all')
       : cmd === 'report' ? cmdReport()
+      : cmd === 'approve' ? cmdApprove(o._[0], o)
+      : cmd === 'fetch-render' ? await cmdFetchRender()
       : cmd === 'stack' ? await cmdStack(o._[0] || 'all', o)
       : cmd === 'drive-backup' ? await cmdDriveBackup(o._[0] || 'out/library', o)
       : cmd === 'drive-refs' ? (r => { log(`drive_refs: library ${r.library} · manifest ${r.manifest}`); return 0; })(await pushDriveRefs(loadManifest()))

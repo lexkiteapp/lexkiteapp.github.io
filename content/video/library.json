@@ -402,13 +402,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1SdhaY8ROUIcJixtRIicl-Y2Ac-0sSxBX",
-     "sha256": "96470d64fe1ce7d98ab53e7bbfdded7759ce288daad66ccdbf3ff9e749e6d029",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1uvdM-QNRz3otpUAq-ahCzP_x190h287K",
+      "sha256": "96470d64fe1ce7d98ab53e7bbfdded7759ce288daad66ccdbf3ff9e749e6d029",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -552,13 +554,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1BEZ855_OKuaDEfoFpXistVIQUKR3b623",
-     "sha256": "e1edae45bff8637acce019b379d8d713febf79784e12e079e4eaa39361c108ca",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1TLByr6hH0aNX41LYSoTGSYkm-PU6Csar",
+      "sha256": "e1edae45bff8637acce019b379d8d713febf79784e12e079e4eaa39361c108ca",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -687,13 +691,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1G7Wp4REULwFxITshOgIWtMixTFzMNfec",
-     "sha256": "5cb353ea4ec916a74170089588c3a87d0e470d5528f1c0b1c17980b0013d07bb",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "12dQszxOiEiDIzN6CtJxaeXt0dF2OtkKs",
+      "sha256": "5cb353ea4ec916a74170089588c3a87d0e470d5528f1c0b1c17980b0013d07bb",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -824,13 +830,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1HQrU9cx0z1Hu6lZAy7pQENK0zR8Km8G3",
-     "sha256": "4a813292610c45313e4bf220cca1f2dd5a9a9f8614dbdbaeaeed5703a406bb90",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "183h0ncyiF61S7Q4fHeMbT9zwN42HaIFR",
+      "sha256": "4a813292610c45313e4bf220cca1f2dd5a9a9f8614dbdbaeaeed5703a406bb90",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -956,13 +964,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1QOtdJBd6cqhKyRglrxEEqvVFo0SSQGHs",
-     "sha256": "a24e677642c1ae6f69eff64eedb1b678064958290378fa67a45a48cd9da71e5d",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1w_pRTOQ0rW5KIUeT66qiGa4wE1Hb4WaF",
+      "sha256": "a24e677642c1ae6f69eff64eedb1b678064958290378fa67a45a48cd9da71e5d",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -1089,13 +1099,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "108x4Su4q7vDaDMpCB0PHYviRDt2qX3om",
-     "sha256": "2467074840d4fe1468ab7bd7f02f40798048631a8bba73221cd4973d145d90a4",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1NvcEpd_mRTCDwAUUTepjmLAjj4qnI4qw",
+      "sha256": "2467074840d4fe1468ab7bd7f02f40798048631a8bba73221cd4973d145d90a4",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -1364,13 +1376,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1nw_LvSXsR1oPOphFSeRiJxuHQwdGGNA_",
-     "sha256": "5d7334a6de3b9381ec863d66253c49901ff55f2412a7b56a28940325666b1b6c",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1AYjxAaBFFs-6VR4kQa6WMKBqDXb7qPfo",
+      "sha256": "5d7334a6de3b9381ec863d66253c49901ff55f2412a7b56a28940325666b1b6c",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -1506,13 +1520,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1pUaICjowR1_dWsadopTEIgZ0P8VUZAqQ",
-     "sha256": "bd38fce0c076af99f6c7a39a338aff63aafdcbdf9e32a89cd2ea8f93f57b1ebb",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1UnbfW96nX42HGhtzNTRMI9E2NET-zSyO",
+      "sha256": "bd38fce0c076af99f6c7a39a338aff63aafdcbdf9e32a89cd2ea8f93f57b1ebb",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -1684,6 +1700,133 @@
    "quarantinedFrom": "approved"
   },
   {
+   "id": "clips/ama_listen_thumbs.mp4",
+   "kind": "clip",
+   "who": "ama",
+   "tags": [
+    "listen",
+    "thumbs"
+   ],
+   "file": "clips/src/ama_listen_thumbs.mp4",
+   "sha256": "fa937468a1f39657055aea7f36159958ea16b7dced42d1494eb19dbff6063d38",
+   "bytes": 5750272,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 92,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/ama_listen_thumbs.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "listener"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": {
+     "path": "clips/ama_listen_thumbs.mp4",
+     "url": "https://media.lexkite.com/library/clips/ama_listen_thumbs.mp4",
+     "sha256": "0843f21c7fee4c2bfd6d88a51b3b7f7364ededbb107cf651396e1530b16feddb",
+     "gitSha": "9ef65504b30503b433b0824be6a5ab1619fa2e9b",
+     "bytes": 2655186,
+     "srcSha": "fa937468a1f39657055aea7f36159958ea16b7dced42d1494eb19dbff6063d38",
+     "variant": "stacked",
+     "at": "2026-10-17"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/ama_listen_thumbs.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/ama_listen_thumbs.mp4",
+     "gitSha": "e191035fb5a5e239d1f4cf894c3a14549be8ff22",
+     "sha256": "fa937468a1f39657055aea7f36159958ea16b7dced42d1494eb19dbff6063d38",
+     "bytes": 5750272
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1jecQ6fFJ9bZZfZxmgKCUQawdLNxRG5ed",
+      "sha256": "fa937468a1f39657055aea7f36159958ea16b7dced42d1494eb19dbff6063d38",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN identity: nghi trôi nhận dạng (tóc ×0.969, áo lệch 246.1) – AI thị giác quyết định FAIL \"identity drift\"",
+     "FAIL feet_still: chân trôi 2.2 % chiều cao khung",
+     "WARN anat_joints: [giữa] khớp bất thường (ước lượng MediaPipe trên tranh 2D – AI thị giác quyết định FAIL) {'arm_l': 3.11}",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: chưa có ảnh DNA của ama trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.713,
+     "drift": 4.102,
+     "footWobble": 0.0222,
+     "bgShift": 2,
+     "dupRun": 0,
+     "cadenceTwos": 0.58,
+     "audioPeakDb": -16.8
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của ama trong kho – cần duyệt tay"
+     ],
+     "sha": "fa937468a1f39657055aea7f36159958ea16b7dced42d1494eb19dbff6063d38",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_ama_listen_thumbs_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/ama_listen_thumbs.mp4",
+     "alpha": "stacked",
+     "sha256": "0843f21c7fee4c2bfd6d88a51b3b7f7364ededbb107cf651396e1530b16feddb",
+     "bytes": 2655186,
+     "w": 676,
+     "h": 1510,
+     "foot": [
+      452,
+      1506
+     ],
+     "figH": 1506,
+     "frames": 121,
+     "status": "WAIVED",
+     "issues": [
+      "FAIL feet_still: chân trôi 2.4 % chiều cao khung",
+      "WARN anat_one_person: [đầu] Pose thấy 2 người (kiểm lại thừa người/thừa chi)",
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+      "WARN anat_pose_detect: [giữa] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
+      "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 11"
+     ],
+     "at": "2026-10-17",
+     "path": "clips/ama_listen_thumbs.mp4",
+     "url": "https://media.lexkite.com/library/clips/ama_listen_thumbs.mp4",
+     "gitSha": "9ef65504b30503b433b0824be6a5ab1619fa2e9b"
+    }
+   },
+   "waiver": "chân xê dịch 2,2 % khi gật – nhỏ, vai người nghe; bảng soi sạch",
+   "manualReview": {
+    "at": "2026-10-17",
+    "reason": "chân xê dịch 2,2 % khi gật – nhỏ, vai người nghe; bảng soi sạch",
+    "from": "reject",
+    "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL feet_still: chân trôi 2.2 % chiều cao khung"
+   }
+  },
+  {
    "id": "clips/ama_nod_laugh.mp4",
    "kind": "clip",
    "who": "ama",
@@ -1798,13 +1941,15 @@
      "sha256": "b8dd734c6afa4e5432edb764f7cc3550fbe69d6a65f238e745fb3f1d3f01d041",
      "bytes": 4031895
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1c8wUjiqr2tMTn_A3CoJahl0WZ_cmYnu6",
-     "sha256": "b8dd734c6afa4e5432edb764f7cc3550fbe69d6a65f238e745fb3f1d3f01d041",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1LtLuXT0eIvWB9T51NzkWJSl_xoVyuIPa",
+      "sha256": "b8dd734c6afa4e5432edb764f7cc3550fbe69d6a65f238e745fb3f1d3f01d041",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -1839,6 +1984,111 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_ama_shock_headgrab_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/ama_shock_laugh.mp4",
+   "kind": "clip",
+   "who": "ama",
+   "tags": [
+    "shock",
+    "laugh"
+   ],
+   "file": "clips/src/ama_shock_laugh.mp4",
+   "sha256": "b4175ee8a15c5fa8e79552c76b11c11562882c62d11fffd0de1da3a5b37ab7be",
+   "bytes": 5941822,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 92,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/ama_shock_laugh.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/ama_shock_laugh.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/ama_shock_laugh.mp4",
+     "gitSha": "c55da080c2c219b0002f096cb02ad4a729ce4af3",
+     "sha256": "b4175ee8a15c5fa8e79552c76b11c11562882c62d11fffd0de1da3a5b37ab7be",
+     "bytes": 5941822
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "19dZuA17VQ451XuisRxN1Zb4ZgbxtHCv_",
+      "sha256": "b4175ee8a15c5fa8e79552c76b11c11562882c62d11fffd0de1da3a5b37ab7be",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_one_person: [giữa] Pose thấy 2 người (kiểm lại thừa người/thừa chi)",
+     "WARN anat_joints: [giữa] khớp bất thường (ước lượng MediaPipe trên tranh 2D – AI thị giác quyết định FAIL) {'r': 0.7}",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: chưa có ảnh DNA của ama trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 2.102,
+     "drift": 0.124,
+     "footWobble": 0.0142,
+     "bgShift": 2,
+     "dupRun": 0,
+     "cadenceTwos": 0.37,
+     "audioPeakDb": -9.4
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của ama trong kho – cần duyệt tay"
+     ],
+     "sha": "b4175ee8a15c5fa8e79552c76b11c11562882c62d11fffd0de1da3a5b37ab7be",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_ama_shock_laugh_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/ama_shock_laugh.mp4",
+     "alpha": "stacked",
+     "sha256": "aac0f3e230fcfabd5f3874392aacbd2f37e18d5a1c5076d0dc419f284187eb4b",
+     "bytes": 2653416,
+     "w": 666,
+     "h": 1498,
+     "foot": [
+      483,
+      1496
+     ],
+     "figH": 1496,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "WARN anat_one_person: [đầu] Pose thấy 2 người (kiểm lại thừa người/thừa chi)",
+      "WARN anat_pose_detect: [giữa] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
+      "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 12 % (> 12 %)"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -1881,13 +2131,15 @@
      "sha256": "a78f238bfa08d3c51b9db9190f8c601f4dab320334353581fcbfc8538bc8e55f",
      "bytes": 3037533
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1os8ee3YqpKpf291oa2OguSZfyCfwHl68",
-     "sha256": "a78f238bfa08d3c51b9db9190f8c601f4dab320334353581fcbfc8538bc8e55f",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1MV_WTgO5I3ZyOh2fLjExE7JodWbIBuOU",
+      "sha256": "a78f238bfa08d3c51b9db9190f8c601f4dab320334353581fcbfc8538bc8e55f",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -1923,6 +2175,220 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_ama_shrug_eyeroll_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/ama_talk_gesture.mp4",
+   "kind": "clip",
+   "who": "ama",
+   "tags": [
+    "talk",
+    "gesture"
+   ],
+   "file": "clips/src/ama_talk_gesture.mp4",
+   "sha256": "15206bfb51dca5fcb7108c02044deb68b1d96e58335241c4f96ae7df03682992",
+   "bytes": 5968449,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 92,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/ama_talk_gesture.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/ama_talk_gesture.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/ama_talk_gesture.mp4",
+     "gitSha": "89e83abda383d2fb00148e4333567c2b351abcdf",
+     "sha256": "15206bfb51dca5fcb7108c02044deb68b1d96e58335241c4f96ae7df03682992",
+     "bytes": 5968449
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1__ublRomBoXFRLG72Ed1__2Zg7KwBkNp",
+      "sha256": "15206bfb51dca5fcb7108c02044deb68b1d96e58335241c4f96ae7df03682992",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN identity: nghi trôi nhận dạng (tóc ×0.965, áo lệch 248.2) – AI thị giác quyết định FAIL \"identity drift\"",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: chưa có ảnh DNA của ama trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.884,
+     "drift": 4.136,
+     "footWobble": 0.0105,
+     "bgShift": 3,
+     "dupRun": 0,
+     "cadenceTwos": 0.5,
+     "audioPeakDb": -6.9
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của ama trong kho – cần duyệt tay"
+     ],
+     "sha": "15206bfb51dca5fcb7108c02044deb68b1d96e58335241c4f96ae7df03682992",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_ama_talk_gesture_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/ama_talk_gesture.mp4",
+     "alpha": "stacked",
+     "sha256": "86f6fa56cb9d8d2dc3f2422e5a1ac04515c3b754963b27a2b097956bca897376",
+     "bytes": 2853054,
+     "w": 752,
+     "h": 1464,
+     "foot": [
+      588,
+      1462
+     ],
+     "figH": 1462,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [8]",
+      "WARN identity: nghi trôi nhận dạng (tóc ×1.029, áo lệch 246.6) – AI thị giác quyết định FAIL \"identity drift\"",
+      "WARN anat_limbs: [đầu] không thấy đủ 2 tay + 2 chân rõ ràng",
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+      "WARN anat_pose_detect: [giữa] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
+      "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 524 % (> 12 %)"
+     ],
+     "at": "2026-10-17"
+    }
+   }
+  },
+  {
+   "id": "clips/ama_think_aha.mp4",
+   "kind": "clip",
+   "who": "ama",
+   "tags": [
+    "think",
+    "aha"
+   ],
+   "file": "clips/src/ama_think_aha.mp4",
+   "sha256": "e5ba3ea8f8d6f7fac78c0c86b460f584a6d926766df4a5015e1819729025705b",
+   "bytes": 5543508,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 92,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/ama_think_aha.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/ama_think_aha.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/ama_think_aha.mp4",
+     "gitSha": "968d8b79f0ab746077b47d7e6784c91ceb56768b",
+     "sha256": "e5ba3ea8f8d6f7fac78c0c86b460f584a6d926766df4a5015e1819729025705b",
+     "bytes": 5543508
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1tZi_m0UyMA-WoTy6t4GVnWcEruukvyJP",
+      "sha256": "e5ba3ea8f8d6f7fac78c0c86b460f584a6d926766df4a5015e1819729025705b",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN identity: nghi trôi nhận dạng (tóc ×0.956, áo lệch 247.3) – AI thị giác quyết định FAIL \"identity drift\"",
+     "WARN anat_one_person: [giữa] Pose thấy 2 người (kiểm lại thừa người/thừa chi)",
+     "WARN anat_joints: [cuối] khớp bất thường (ước lượng MediaPipe trên tranh 2D – AI thị giác quyết định FAIL) {'arm_l': 4.24}",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: chưa có ảnh DNA của ama trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.388,
+     "drift": 4.121,
+     "footWobble": 0,
+     "bgShift": 2,
+     "dupRun": 0,
+     "cadenceTwos": 0.62,
+     "audioPeakDb": -10.8
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của ama trong kho – cần duyệt tay"
+     ],
+     "sha": "e5ba3ea8f8d6f7fac78c0c86b460f584a6d926766df4a5015e1819729025705b",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_ama_think_aha_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/ama_think_aha.mp4",
+     "alpha": "stacked",
+     "sha256": "ab0616a22cbfd675b930c08bf38754b3c3d24e31681b3443dbf1fab36bb4ec1e",
+     "bytes": 2400636,
+     "w": 642,
+     "h": 1474,
+     "foot": [
+      421,
+      1471
+     ],
+     "figH": 1471,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [16, 17, 77]",
+      "WARN anat_pose_detect: [đầu] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
+      "WARN anat_limbs: [cuối] không thấy đủ 2 tay + 2 chân rõ ràng",
+      "WARN anat_face_detect: [cuối] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -2002,6 +2468,108 @@
    "quarantinedFrom": "approved"
   },
   {
+   "id": "clips/ama_wave_clasp.mp4",
+   "kind": "clip",
+   "who": "ama",
+   "tags": [
+    "wave",
+    "clasp"
+   ],
+   "file": "clips/src/ama_wave_clasp.mp4",
+   "sha256": "4a9c381edc9f6c69182c677911c3ffec4ed40d6e75f88769881e0a6266b33063",
+   "bytes": 6189008,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 92,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/ama_wave_clasp.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/ama_wave_clasp.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/ama_wave_clasp.mp4",
+     "gitSha": "f4a2b6ff4e63d278a3e29fc95f6ce3e8ff0fc5cb",
+     "sha256": "4a9c381edc9f6c69182c677911c3ffec4ed40d6e75f88769881e0a6266b33063",
+     "bytes": 6189008
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "123cYFih4X25-yh4qangbuA2Lswj_Qnru",
+      "sha256": "4a9c381edc9f6c69182c677911c3ffec4ed40d6e75f88769881e0a6266b33063",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: chưa có ảnh DNA của ama trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 2.275,
+     "drift": 0.145,
+     "footWobble": 0.0105,
+     "bgShift": 4,
+     "dupRun": 0,
+     "cadenceTwos": 0.38,
+     "audioPeakDb": -12.6
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của ama trong kho – cần duyệt tay"
+     ],
+     "sha": "4a9c381edc9f6c69182c677911c3ffec4ed40d6e75f88769881e0a6266b33063",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_ama_wave_clasp_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/ama_wave_clasp.mp4",
+     "alpha": "stacked",
+     "sha256": "73eeb13e7b1a9f4324a6ed87039b72d1357639a543c361aa1223f790aa3814de",
+     "bytes": 3040472,
+     "w": 846,
+     "h": 1472,
+     "foot": [
+      409,
+      1449
+     ],
+     "figH": 1449,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "WARN anat_pose_detect: [giữa] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
+      "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 478 % (> 12 %)"
+     ],
+     "at": "2026-10-17"
+    }
+   }
+  },
+  {
    "id": "clips/ama_wave_thumbs.mp4",
    "kind": "clip",
    "who": "ama",
@@ -2040,13 +2608,15 @@
      "sha256": "bfb0fab589de11779d0c6675c4fb3fcb1eb2207339187c0761d3b1349e7ddb76",
      "bytes": 4760127
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1-IsW_tkeBQ_68usp3NglLClWj3NYE7Fj",
-     "sha256": "bfb0fab589de11779d0c6675c4fb3fcb1eb2207339187c0761d3b1349e7ddb76",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1v83Zc39OGFZt53kLb2R7Y7ezL-d-Y3vj",
+      "sha256": "bfb0fab589de11779d0c6675c4fb3fcb1eb2207339187c0761d3b1349e7ddb76",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -2080,6 +2650,224 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_ama_wave_thumbs_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/carlos_listen_thumbs.mp4",
+   "kind": "clip",
+   "who": "carlos",
+   "tags": [
+    "listen",
+    "thumbs"
+   ],
+   "file": "clips/src/carlos_listen_thumbs.mp4",
+   "sha256": "7d518bb4a99896c8553933581a0f04c803e26af264ee055c02b8f4945c638f9b",
+   "bytes": 3570333,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 92,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/carlos_listen_thumbs.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "listener"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": {
+     "path": "clips/carlos_listen_thumbs.mp4",
+     "url": "https://media.lexkite.com/library/clips/carlos_listen_thumbs.mp4",
+     "sha256": "d10ddd3dac3dfe7deb75582b4361592344e69050843f1b5d4e596e38169f8508",
+     "gitSha": "f4708b880bdfb9a0ccbded06dc85d1e9c972a76b",
+     "bytes": 1439913,
+     "srcSha": "7d518bb4a99896c8553933581a0f04c803e26af264ee055c02b8f4945c638f9b",
+     "variant": "stacked",
+     "at": "2026-10-17"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/carlos_listen_thumbs.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/carlos_listen_thumbs.mp4",
+     "gitSha": "6a066a11ca92c83f22d6a642e665609fcbe32a1f",
+     "sha256": "7d518bb4a99896c8553933581a0f04c803e26af264ee055c02b8f4945c638f9b",
+     "bytes": 3570333
+    },
+    "drivePending": {
+     "status": "pending",
+     "reason": "fetch failed"
+    },
+    "drive": []
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 14",
+     "WARN vision: chưa có ảnh DNA của carlos trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 0.515,
+     "drift": 0.07,
+     "footWobble": 0.0021,
+     "bgShift": 4,
+     "dupRun": 0,
+     "cadenceTwos": 0.92,
+     "audioPeakDb": -12.3
+    },
+    "suggest": {
+     "role": "listener"
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của carlos trong kho – cần duyệt tay"
+     ],
+     "sha": "7d518bb4a99896c8553933581a0f04c803e26af264ee055c02b8f4945c638f9b",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_carlos_listen_thumbs_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/carlos_listen_thumbs.mp4",
+     "alpha": "stacked",
+     "sha256": "d10ddd3dac3dfe7deb75582b4361592344e69050843f1b5d4e596e38169f8508",
+     "bytes": 1439913,
+     "w": 894,
+     "h": 1562,
+     "foot": [
+      158,
+      1558
+     ],
+     "figH": 1558,
+     "frames": 121,
+     "status": "WARN",
+     "issues": [
+      "WARN anat_one_person: [đầu] Pose thấy 2 người (kiểm lại thừa người/thừa chi)",
+      "WARN anat_face_detect: [cuối] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+      "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 14"
+     ],
+     "at": "2026-10-17",
+     "path": "clips/carlos_listen_thumbs.mp4",
+     "url": "https://media.lexkite.com/library/clips/carlos_listen_thumbs.mp4",
+     "gitSha": "f4708b880bdfb9a0ccbded06dc85d1e9c972a76b"
+    }
+   }
+  },
+  {
+   "id": "clips/carlos_shock_laugh.mp4",
+   "kind": "clip",
+   "who": "carlos",
+   "tags": [
+    "shock",
+    "laugh"
+   ],
+   "file": "clips/src/carlos_shock_laugh.mp4",
+   "sha256": "40bf607fc0db460bd9084e799c5d644620e00805360a797953f43d6a853a9e17",
+   "bytes": 4823724,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 92,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/carlos_shock_laugh.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1NkA5wpgoZPg5BVSMnLOjSeGM_FoQ_ChJ",
+      "sha256": "40bf607fc0db460bd9084e799c5d644620e00805360a797953f43d6a853a9e17",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [12, 13]",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 14",
+     "WARN vision: chưa có ảnh DNA của carlos trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.552,
+     "drift": 0.07,
+     "footWobble": 0,
+     "bgShift": 4,
+     "dupRun": 0,
+     "cadenceTwos": 0.53,
+     "audioPeakDb": -11.6
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của carlos trong kho – cần duyệt tay"
+     ],
+     "sha": "40bf607fc0db460bd9084e799c5d644620e00805360a797953f43d6a853a9e17",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_carlos_shock_laugh_mp4.jpg"
+   },
+   "quarantinedFrom": "approved",
+   "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [12, 13]",
+   "variants": {
+    "stacked": {
+     "file": "clips/carlos_shock_laugh.mp4",
+     "alpha": "stacked",
+     "sha256": "ef08997ba85de2b60b7aa5bf9198288389c9ec9925b5943380b2801decd959fe",
+     "bytes": 2153458,
+     "w": 740,
+     "h": 1584,
+     "foot": [
+      154,
+      1581
+     ],
+     "figH": 1581,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [12, 13, 46]",
+      "WARN anat_one_person: [đầu] Pose thấy 2 người (kiểm lại thừa người/thừa chi)",
+      "WARN anat_limbs: [giữa] không thấy đủ 2 tay + 2 chân rõ ràng",
+      "WARN anat_joints: [đầu] khớp bất thường (ước lượng MediaPipe trên tranh 2D – AI thị giác quyết định FAIL) {'arm_r': 0.11}",
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+      "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 14"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -2121,13 +2909,15 @@
      "sha256": "97863b59cdc260294b1126b28eb417f12d94997105b39ce929ac3a6f8394fb4f",
      "bytes": 3601599
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1NPYMq1tOxnNeDBOhsa4UFsSf5zJbd800",
-     "sha256": "97863b59cdc260294b1126b28eb417f12d94997105b39ce929ac3a6f8394fb4f",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1bwgd4RSD3gWnoem_5qCFgDS8R8-Lj6aL",
+      "sha256": "97863b59cdc260294b1126b28eb417f12d94997105b39ce929ac3a6f8394fb4f",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -2160,6 +2950,124 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_carlos_surprise_shrug_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/carlos_talk_gesture.mp4",
+   "kind": "clip",
+   "who": "carlos",
+   "tags": [
+    "talk",
+    "gesture"
+   ],
+   "file": "clips/src/carlos_talk_gesture.mp4",
+   "sha256": "81947673d2c485902c038a5ccf69fd68fb6a52290c467df5398ee898f8d9e254",
+   "bytes": 4474648,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 92,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/carlos_talk_gesture.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": {
+     "path": "clips/carlos_talk_gesture.mp4",
+     "url": "https://media.lexkite.com/library/clips/carlos_talk_gesture.mp4",
+     "sha256": "70664f541039976fd29eb47fbcfcafdfc3d90ffb324dd8d02a18f83693639bd2",
+     "gitSha": "1bf95e3929710fa841c6d2370ec8ba4f32b38a9c",
+     "bytes": 1983255,
+     "srcSha": "81947673d2c485902c038a5ccf69fd68fb6a52290c467df5398ee898f8d9e254",
+     "variant": "stacked",
+     "at": "2026-10-17"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/carlos_talk_gesture.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/carlos_talk_gesture.mp4",
+     "gitSha": "d80825cb6a587f31bea751ffbbb8c674f7f327cb",
+     "sha256": "81947673d2c485902c038a5ccf69fd68fb6a52290c467df5398ee898f8d9e254",
+     "bytes": 4474648
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "13UfUBzLaKBqtI98Cvxmdusg_4nKHHyfj",
+      "sha256": "81947673d2c485902c038a5ccf69fd68fb6a52290c467df5398ee898f8d9e254",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 14",
+     "WARN vision: chưa có ảnh DNA của carlos trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.2,
+     "drift": 0.078,
+     "footWobble": 0,
+     "bgShift": 4,
+     "dupRun": 0,
+     "cadenceTwos": 0.6,
+     "audioPeakDb": -8.6
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của carlos trong kho – cần duyệt tay"
+     ],
+     "sha": "81947673d2c485902c038a5ccf69fd68fb6a52290c467df5398ee898f8d9e254",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_carlos_talk_gesture_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/carlos_talk_gesture.mp4",
+     "alpha": "stacked",
+     "sha256": "70664f541039976fd29eb47fbcfcafdfc3d90ffb324dd8d02a18f83693639bd2",
+     "bytes": 1983255,
+     "w": 948,
+     "h": 1576,
+     "foot": [
+      213,
+      1573
+     ],
+     "figH": 1573,
+     "frames": 121,
+     "status": "WARN",
+     "issues": [
+      "WARN identity: nghi trôi nhận dạng (tóc ×1.024, áo lệch 106.6) – AI thị giác quyết định FAIL \"identity drift\"",
+      "WARN anat_limbs: [giữa] không thấy đủ 2 tay + 2 chân rõ ràng",
+      "WARN anat_joints: [giữa] khớp bất thường (ước lượng MediaPipe trên tranh 2D – AI thị giác quyết định FAIL) {'arm_l': 6.9}",
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+      "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 14"
+     ],
+     "at": "2026-10-17",
+     "path": "clips/carlos_talk_gesture.mp4",
+     "url": "https://media.lexkite.com/library/clips/carlos_talk_gesture.mp4",
+     "gitSha": "1bf95e3929710fa841c6d2370ec8ba4f32b38a9c"
+    }
    }
   },
   {
@@ -2201,13 +3109,15 @@
      "sha256": "cd2ce2bcb3381429e10948557a5d10d42d5c86e82176ad2e99347c3e96afc953",
      "bytes": 3322894
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1jjKr17bzyYUINtGgEZsWDSjykBGnfrj1",
-     "sha256": "cd2ce2bcb3381429e10948557a5d10d42d5c86e82176ad2e99347c3e96afc953",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1WpyiPcmKRFwGcHzCbS5TlbbDEGhObN3b",
+      "sha256": "cd2ce2bcb3381429e10948557a5d10d42d5c86e82176ad2e99347c3e96afc953",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -2240,6 +3150,216 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_carlos_talk_laugh_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/carlos_think_aha.mp4",
+   "kind": "clip",
+   "who": "carlos",
+   "tags": [
+    "think",
+    "aha"
+   ],
+   "file": "clips/src/carlos_think_aha.mp4",
+   "sha256": "8c2bf2289a61170e36870bc1c5ec76a91223e7fd715a016ca6b69e3d7be0542a",
+   "bytes": 4176197,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 92,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/carlos_think_aha.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1tKAx7kTShlDR3Opa49QR4v4gTdrx8soE",
+      "sha256": "8c2bf2289a61170e36870bc1c5ec76a91223e7fd715a016ca6b69e3d7be0542a",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [102]",
+     "WARN identity: nghi trôi nhận dạng (tóc ×1.087, áo lệch 105.8) – AI thị giác quyết định FAIL \"identity drift\"",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 14",
+     "WARN vision: chưa có ảnh DNA của carlos trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.098,
+     "drift": 1.763,
+     "footWobble": 0.0105,
+     "bgShift": 4,
+     "dupRun": 0,
+     "cadenceTwos": 0.73,
+     "audioPeakDb": -10.3
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của carlos trong kho – cần duyệt tay"
+     ],
+     "sha": "8c2bf2289a61170e36870bc1c5ec76a91223e7fd715a016ca6b69e3d7be0542a",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_carlos_think_aha_mp4.jpg"
+   },
+   "quarantinedFrom": "approved",
+   "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [102]",
+   "variants": {
+    "stacked": {
+     "file": "clips/carlos_think_aha.mp4",
+     "alpha": "stacked",
+     "sha256": "4740c1eab285c761917536775a70c36a904dda864610d12eb1138e34ce0ebde6",
+     "bytes": 1810315,
+     "w": 810,
+     "h": 1566,
+     "foot": [
+      265,
+      1563
+     ],
+     "figH": 1563,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [68, 69, 70, 102]",
+      "WARN identity: nghi trôi nhận dạng (tóc ×1.082, áo lệch 258.0) – AI thị giác quyết định FAIL \"identity drift\"",
+      "WARN anat_one_person: [đầu] Pose thấy 2 người (kiểm lại thừa người/thừa chi)",
+      "WARN anat_limbs: [cuối] không thấy đủ 2 tay + 2 chân rõ ràng",
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+      "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 13"
+     ],
+     "at": "2026-10-17"
+    }
+   }
+  },
+  {
+   "id": "clips/carlos_wave_clasp.mp4",
+   "kind": "clip",
+   "who": "carlos",
+   "tags": [
+    "wave",
+    "clasp"
+   ],
+   "file": "clips/src/carlos_wave_clasp.mp4",
+   "sha256": "9b284aeaf36cbc3c8554fda8b7e45f39b648160d1090bcb0aeca3946c2765936",
+   "bytes": 5181861,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 92,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/carlos_wave_clasp.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1OZ_Fy0yn-z32ZNlzhvaSD_Bl7qU5h3xp",
+      "sha256": "9b284aeaf36cbc3c8554fda8b7e45f39b648160d1090bcb0aeca3946c2765936",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [62]",
+     "WARN identity: nghi trôi nhận dạng (tóc ×1.064, áo lệch 255.9) – AI thị giác quyết định FAIL \"identity drift\"",
+     "FAIL feet_still: chân trôi 3.8 % chiều cao khung",
+     "WARN anat_one_person: [giữa] Pose thấy 2 người (kiểm lại thừa người/thừa chi)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 14",
+     "WARN vision: chưa có ảnh DNA của carlos trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 2.272,
+     "drift": 4.265,
+     "footWobble": 0.0385,
+     "bgShift": 4,
+     "dupRun": 0,
+     "cadenceTwos": 0.26,
+     "audioPeakDb": -0.5
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của carlos trong kho – cần duyệt tay"
+     ],
+     "sha": "9b284aeaf36cbc3c8554fda8b7e45f39b648160d1090bcb0aeca3946c2765936",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_carlos_wave_clasp_mp4.jpg"
+   },
+   "quarantinedFrom": "approved",
+   "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [62] | FAIL feet_still: chân trôi 3.8 % chiều cao khung",
+   "variants": {
+    "stacked": {
+     "file": "clips/carlos_wave_clasp.mp4",
+     "alpha": "stacked",
+     "sha256": "430206f42996d15622d79294536e3ce03b55c30b58a233cc940f3da929f63c67",
+     "bytes": 2529455,
+     "w": 970,
+     "h": 1598,
+     "foot": [
+      438,
+      1500
+     ],
+     "figH": 1500,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [62]",
+      "WARN identity: nghi trôi nhận dạng (tóc ×1.04, áo lệch 255.8) – AI thị giác quyết định FAIL \"identity drift\"",
+      "FAIL feet_still: chân trôi 4.3 % chiều cao khung",
+      "WARN anat_one_person: [giữa] Pose thấy 2 người (kiểm lại thừa người/thừa chi)",
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+      "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 13"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -2280,13 +3400,15 @@
      "sha256": "6c2d9cd30a2657fec5efe93a69cdd2018d0025222e02d870911ee82f2adddacb",
      "bytes": 4216471
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1cW8km8M7aeRAOwV5NBRitgxJjHwL3M_s",
-     "sha256": "6c2d9cd30a2657fec5efe93a69cdd2018d0025222e02d870911ee82f2adddacb",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1pPt9rvWgKp_SIp16OhBZfpj5JwADxFhM",
+      "sha256": "6c2d9cd30a2657fec5efe93a69cdd2018d0025222e02d870911ee82f2adddacb",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -2360,13 +3482,15 @@
      "sha256": "86068eb6c29f9bb1016f8d9f083a37127d56870c7acec70f163796be4d0b36e7",
      "bytes": 1951783
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1_GXxZkRBXxOWAJ5pzbNvgQvIPDNN1SCX",
-     "sha256": "86068eb6c29f9bb1016f8d9f083a37127d56870c7acec70f163796be4d0b36e7",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1t-zp2kahQYU1yKBb-dXfIJ-spTDnZfLI",
+      "sha256": "86068eb6c29f9bb1016f8d9f083a37127d56870c7acec70f163796be4d0b36e7",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -2399,6 +3523,114 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_diane_idle_listen_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/diane_listen_thumbs.mp4",
+   "kind": "clip",
+   "who": "diane",
+   "tags": [
+    "listen",
+    "thumbs"
+   ],
+   "file": "clips/src/diane_listen_thumbs.mp4",
+   "sha256": "788110ec9e36e355b86fe78b5819f4d68eaabb213737aa544b075b22450b8135",
+   "bytes": 5044655,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 90,
+   "note": "1,6–2,0 s có tay người lạ thò từ mép phải – chroma_key đã loại (chỉ giữ nhân vật chính)",
+   "source": {
+    "from": "brand/characters/_candidates/ingest/diane_listen_thumbs.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "listener"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/diane_listen_thumbs.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/diane_listen_thumbs.mp4",
+     "gitSha": "2122b714582af74c8ae9ba9d06c55110fbef2b10",
+     "sha256": "788110ec9e36e355b86fe78b5819f4d68eaabb213737aa544b075b22450b8135",
+     "bytes": 5044655
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "14XtA_agPQpXI_gDhtHP9bDBUlSccSD8Y",
+      "sha256": "788110ec9e36e355b86fe78b5819f4d68eaabb213737aa544b075b22450b8135",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [giữa] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 16",
+     "WARN vision: chưa có ảnh DNA của diane trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 0.893,
+     "drift": 0.189,
+     "footWobble": 0.0021,
+     "bgShift": 2,
+     "dupRun": 0,
+     "cadenceTwos": 0.71,
+     "audioPeakDb": -9.2
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của diane trong kho – cần duyệt tay"
+     ],
+     "sha": "788110ec9e36e355b86fe78b5819f4d68eaabb213737aa544b075b22450b8135",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_diane_listen_thumbs_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/diane_listen_thumbs.mp4",
+     "alpha": "stacked",
+     "sha256": "0987dd86bcde29ca76bf9dae94dec8b4deead0923abe2be43df4aaee1827caf5",
+     "bytes": 2212000,
+     "w": 986,
+     "h": 1562,
+     "foot": [
+      240,
+      1559
+     ],
+     "figH": 1559,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "WARN anat_limbs: [cuối] không thấy đủ 2 tay + 2 chân rõ ràng",
+      "FAIL anat_glasses: [cuối] vùng mắt mất nét gọng kính so với DNA",
+      "WARN anat_pose_detect: [giữa] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
+      "WARN anat_face_detect: [cuối] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+      "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 71 % (> 12 %)",
+      "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 16"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -2440,13 +3672,15 @@
      "sha256": "65dfcd7e8fe0be79fa0ed33a66d6d2a1e009be891bcde18055f988a6b967c4c7",
      "bytes": 2808796
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1QpVXZTGn51ySGZAObKhugocII-3Z2cvL",
-     "sha256": "65dfcd7e8fe0be79fa0ed33a66d6d2a1e009be891bcde18055f988a6b967c4c7",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1liyVYPboy__yKBNNTMovGGAI95oHN1ff",
+      "sha256": "65dfcd7e8fe0be79fa0ed33a66d6d2a1e009be891bcde18055f988a6b967c4c7",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -2558,6 +3792,113 @@
    }
   },
   {
+   "id": "clips/diane_shock_laugh.mp4",
+   "kind": "clip",
+   "who": "diane",
+   "tags": [
+    "shock",
+    "laugh"
+   ],
+   "file": "clips/src/diane_shock_laugh.mp4",
+   "sha256": "2ebda19b62b8a7d3b2051b0d7f8309e4b21dd83d993e4a8be4c9f586fcb950a9",
+   "bytes": 5765254,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 90,
+   "note": "chân xê dịch nhẹ giữa clip",
+   "source": {
+    "from": "brand/characters/_candidates/ingest/diane_shock_laugh.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1NgcPPGrNBwGZmR6ifI5YUIUDRfNelvVN",
+      "sha256": "2ebda19b62b8a7d3b2051b0d7f8309e4b21dd83d993e4a8be4c9f586fcb950a9",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [47, 61, 62, 79]",
+     "FAIL feet_still: chân trôi 1.7 % chiều cao khung",
+     "FAIL anat_glasses: [cuối] vùng mắt mất nét gọng kính so với DNA",
+     "WARN anat_face_detect: [giữa] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 15",
+     "WARN vision: chưa có ảnh DNA của diane trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.628,
+     "drift": 0.248,
+     "footWobble": 0.0167,
+     "bgShift": 2,
+     "dupRun": 0,
+     "cadenceTwos": 0.5,
+     "audioPeakDb": -7.5
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của diane trong kho – cần duyệt tay"
+     ],
+     "sha": "2ebda19b62b8a7d3b2051b0d7f8309e4b21dd83d993e4a8be4c9f586fcb950a9",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_diane_shock_laugh_mp4.jpg"
+   },
+   "quarantinedFrom": "approved",
+   "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [47, 61, 62, 79] | FAIL feet_still: chân trôi 1.7 % chiều cao khung | FAIL anat_glasses: [cuối] vùng mắt mất nét gọng kính so với DNA",
+   "variants": {
+    "stacked": {
+     "file": "clips/diane_shock_laugh.mp4",
+     "alpha": "stacked",
+     "sha256": "d389a521721d1f663e6b6f13f6338fd5a907c4400be43d877fc3b331bf1e2236",
+     "bytes": 2642839,
+     "w": 928,
+     "h": 1576,
+     "foot": [
+      548,
+      1549
+     ],
+     "figH": 1549,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [46, 47, 61, 62, 79]",
+      "FAIL feet_still: chân trôi 1.6 % chiều cao khung",
+      "WARN anat_one_person: [đầu] Pose thấy 2 người (kiểm lại thừa người/thừa chi)",
+      "WARN anat_limbs: [đầu] không thấy đủ 2 tay + 2 chân rõ ràng",
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+      "WARN anat_pose_detect: [giữa] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
+      "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 15"
+     ],
+     "at": "2026-10-17"
+    }
+   }
+  },
+  {
    "id": "clips/diane_skeptic_facepalm.mp4",
    "kind": "clip",
    "who": "diane",
@@ -2631,6 +3972,123 @@
    },
    "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL anat_glasses: [cuối] vùng mắt mất nét gọng kính so với DNA",
    "quarantinedFrom": "approved"
+  },
+  {
+   "id": "clips/diane_talk_gesture.mp4",
+   "kind": "clip",
+   "who": "diane",
+   "tags": [
+    "talk",
+    "gesture"
+   ],
+   "file": "clips/src/diane_talk_gesture.mp4",
+   "sha256": "8e2867c9e76e42bae1aa43c78ee8157d7e3b028575d8350d4703375c4d237ec8",
+   "bytes": 4641686,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 92,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/diane_talk_gesture.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": {
+     "path": "clips/diane_talk_gesture.mp4",
+     "url": "https://media.lexkite.com/library/clips/diane_talk_gesture.mp4",
+     "sha256": "1ad5b109eca0a199b4a923a1ca347176e0a67897abc710f5e4eadb3d89c43961",
+     "gitSha": "22855264fa46a9e2f9ab4710c2a3cc80556be0ff",
+     "bytes": 2016959,
+     "srcSha": "8e2867c9e76e42bae1aa43c78ee8157d7e3b028575d8350d4703375c4d237ec8",
+     "variant": "stacked",
+     "at": "2026-10-17"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/diane_talk_gesture.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/diane_talk_gesture.mp4",
+     "gitSha": "abcfdf76a0303b09e9af5e6e8f0f31dbf1215908",
+     "sha256": "8e2867c9e76e42bae1aa43c78ee8157d7e3b028575d8350d4703375c4d237ec8",
+     "bytes": 4641686
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1_HW_s_VigmfVYduZMMlMtu8WE5lCvc4F",
+      "sha256": "8e2867c9e76e42bae1aa43c78ee8157d7e3b028575d8350d4703375c4d237ec8",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [giữa] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 15",
+     "WARN vision: chưa có ảnh DNA của diane trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 0.82,
+     "drift": 0.083,
+     "footWobble": 0.0021,
+     "bgShift": 4,
+     "dupRun": 0,
+     "cadenceTwos": 0.78,
+     "audioPeakDb": -6.1
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của diane trong kho – cần duyệt tay"
+     ],
+     "sha": "8e2867c9e76e42bae1aa43c78ee8157d7e3b028575d8350d4703375c4d237ec8",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_diane_talk_gesture_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/diane_talk_gesture.mp4",
+     "alpha": "stacked",
+     "sha256": "1ad5b109eca0a199b4a923a1ca347176e0a67897abc710f5e4eadb3d89c43961",
+     "bytes": 2016959,
+     "w": 984,
+     "h": 1562,
+     "foot": [
+      256,
+      1560
+     ],
+     "figH": 1560,
+     "frames": 121,
+     "status": "WARN",
+     "issues": [
+      "WARN anat_limbs: [cuối] không thấy đủ 2 tay + 2 chân rõ ràng",
+      "WARN anat_pose_detect: [giữa] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
+      "WARN anat_face_detect: [cuối] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+      "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 15"
+     ],
+     "at": "2026-10-17",
+     "path": "clips/diane_talk_gesture.mp4",
+     "url": "https://media.lexkite.com/library/clips/diane_talk_gesture.mp4",
+     "gitSha": "22855264fa46a9e2f9ab4710c2a3cc80556be0ff"
+    }
+   }
   },
   {
    "id": "clips/diane_talk_point.mp4",
@@ -2707,6 +4165,135 @@
    "quarantinedFrom": "approved"
   },
   {
+   "id": "clips/diane_think_aha.mp4",
+   "kind": "clip",
+   "who": "diane",
+   "tags": [
+    "think",
+    "aha"
+   ],
+   "file": "clips/src/diane_think_aha.mp4",
+   "sha256": "3e7904d3a42fb20a47c483594033e9c239d127e18ec1ac2462bb91db46820b2a",
+   "bytes": 5071058,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 92,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/diane_think_aha.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": {
+     "path": "clips/diane_think_aha.mp4",
+     "url": "https://media.lexkite.com/library/clips/diane_think_aha.mp4",
+     "sha256": "edf8e4b8fb9c80249803bdf8dc44dd69b50ee3f2c41b8cf98e3afc88cf220cce",
+     "gitSha": "b7fbcb820f43fb82fded55d56231569255824453",
+     "bytes": 2244154,
+     "srcSha": "3e7904d3a42fb20a47c483594033e9c239d127e18ec1ac2462bb91db46820b2a",
+     "variant": "stacked",
+     "at": "2026-10-17"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/diane_think_aha.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/diane_think_aha.mp4",
+     "gitSha": "6cb62b124f8842e38af8c63278b8caa5c5336ef9",
+     "sha256": "3e7904d3a42fb20a47c483594033e9c239d127e18ec1ac2462bb91db46820b2a",
+     "bytes": 5071058
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1ubUzof5CDNpRBjoiyCeOQfaPo8Rp2vry",
+      "sha256": "3e7904d3a42fb20a47c483594033e9c239d127e18ec1ac2462bb91db46820b2a",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "FAIL feet_still: chân trôi 1.7 % chiều cao khung",
+     "WARN anat_limbs: [cuối] không thấy đủ 2 tay + 2 chân rõ ràng",
+     "WARN anat_face_detect: [cuối] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 14",
+     "WARN vision: chưa có ảnh DNA của diane trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.258,
+     "drift": 0.105,
+     "footWobble": 0.0167,
+     "bgShift": 2,
+     "dupRun": 0,
+     "cadenceTwos": 0.68,
+     "audioPeakDb": -14.6
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của diane trong kho – cần duyệt tay"
+     ],
+     "sha": "3e7904d3a42fb20a47c483594033e9c239d127e18ec1ac2462bb91db46820b2a",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_diane_think_aha_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/diane_think_aha.mp4",
+     "alpha": "stacked",
+     "sha256": "edf8e4b8fb9c80249803bdf8dc44dd69b50ee3f2c41b8cf98e3afc88cf220cce",
+     "bytes": 2244154,
+     "w": 858,
+     "h": 1572,
+     "foot": [
+      222,
+      1569
+     ],
+     "figH": 1569,
+     "frames": 121,
+     "status": "WAIVED",
+     "issues": [
+      "FAIL feet_still: chân trôi 1.7 % chiều cao khung",
+      "WARN anat_one_person: [giữa] Pose thấy 2 người (kiểm lại thừa người/thừa chi)",
+      "WARN anat_limbs: [đầu] không thấy đủ 2 tay + 2 chân rõ ràng",
+      "FAIL anat_glasses: [cuối] vùng mắt mất nét gọng kính so với DNA",
+      "WARN anat_face_detect: [giữa] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+      "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 50 % (> 12 %)",
+      "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 15"
+     ],
+     "at": "2026-10-17",
+     "path": "clips/diane_think_aha.mp4",
+     "url": "https://media.lexkite.com/library/clips/diane_think_aha.mp4",
+     "gitSha": "b7fbcb820f43fb82fded55d56231569255824453"
+    }
+   },
+   "waiver": "chân xê dịch 1,7 % khi giơ tay – không lộ khi ghép; bảng soi sạch",
+   "manualReview": {
+    "at": "2026-10-17",
+    "reason": "chân xê dịch 1,7 % khi giơ tay – không lộ khi ghép; bảng soi sạch",
+    "from": "reject",
+    "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL feet_still: chân trôi 1.7 % chiều cao khung"
+   }
+  },
+  {
    "id": "clips/diane_think_laugh_v1.mp4",
    "kind": "clip",
    "who": "diane",
@@ -2780,6 +4367,260 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_diane_think_laugh_v1_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/diane_wave_clasp.mp4",
+   "kind": "clip",
+   "who": "diane",
+   "tags": [
+    "wave",
+    "clasp"
+   ],
+   "file": "clips/src/diane_wave_clasp.mp4",
+   "sha256": "20ff86f57fa4641a8385862bc5d5fd5b742378e1b802d27b818697479d0ef428",
+   "bytes": 5559631,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 92,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/diane_wave_clasp.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": {
+     "path": "clips/diane_wave_clasp.mp4",
+     "url": "https://media.lexkite.com/library/clips/diane_wave_clasp.mp4",
+     "sha256": "b5785bbf524f195c63b98aa6dab56c44f68da284dca24cdfd65cf6aeafd084bc",
+     "gitSha": "154288fd3f4cf8b1f2588af853154cc7e53f074c",
+     "bytes": 2540049,
+     "srcSha": "20ff86f57fa4641a8385862bc5d5fd5b742378e1b802d27b818697479d0ef428",
+     "variant": "stacked",
+     "at": "2026-10-17"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/diane_wave_clasp.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/diane_wave_clasp.mp4",
+     "gitSha": "b17cad8270462df30f9e9fc5d863a67a4b5dc580",
+     "sha256": "20ff86f57fa4641a8385862bc5d5fd5b742378e1b802d27b818697479d0ef428",
+     "bytes": 5559631
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1ok13s5bheVQ9d2Q3BtdcAlDp82-CZkpc",
+      "sha256": "20ff86f57fa4641a8385862bc5d5fd5b742378e1b802d27b818697479d0ef428",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_joints: [giữa] khớp bất thường (ước lượng MediaPipe trên tranh 2D – AI thị giác quyết định FAIL) {'l': 1.7}",
+     "FAIL anat_glasses: [giữa] vùng mắt mất nét gọng kính so với DNA",
+     "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 16",
+     "WARN vision: chưa có ảnh DNA của diane trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.671,
+     "drift": 0.131,
+     "footWobble": 0.0105,
+     "bgShift": 2,
+     "dupRun": 0,
+     "cadenceTwos": 0.47,
+     "audioPeakDb": -12
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của diane trong kho – cần duyệt tay"
+     ],
+     "sha": "20ff86f57fa4641a8385862bc5d5fd5b742378e1b802d27b818697479d0ef428",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_diane_wave_clasp_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/diane_wave_clasp.mp4",
+     "alpha": "stacked",
+     "sha256": "b5785bbf524f195c63b98aa6dab56c44f68da284dca24cdfd65cf6aeafd084bc",
+     "bytes": 2540049,
+     "w": 1114,
+     "h": 1562,
+     "foot": [
+      473,
+      1554
+     ],
+     "figH": 1554,
+     "frames": 121,
+     "status": "WAIVED",
+     "issues": [
+      "WARN anat_limbs: [cuối] không thấy đủ 2 tay + 2 chân rõ ràng",
+      "FAIL anat_glasses: [cuối] vùng mắt mất nét gọng kính so với DNA",
+      "WARN anat_pose_detect: [giữa] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
+      "WARN anat_face_detect: [cuối] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+      "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 25 % (> 12 %)",
+      "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 16"
+     ],
+     "at": "2026-10-17",
+     "path": "clips/diane_wave_clasp.mp4",
+     "url": "https://media.lexkite.com/library/clips/diane_wave_clasp.mp4",
+     "gitSha": "154288fd3f4cf8b1f2588af853154cc7e53f074c"
+    }
+   },
+   "waiver": "soi tay: kính đỏ có ở mọi khung trong bảng soi; heuristic gọng kính báo nhầm khi Diane cười híp mắt",
+   "manualReview": {
+    "at": "2026-10-17",
+    "reason": "soi tay: kính đỏ có ở mọi khung trong bảng soi; heuristic gọng kính báo nhầm khi Diane cười híp mắt",
+    "from": "reject",
+    "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL anat_glasses: [giữa] vùng mắt mất nét gọng kính so với DNA"
+   }
+  },
+  {
+   "id": "clips/leo_listen_thumbs.mp4",
+   "kind": "clip",
+   "who": "leo",
+   "tags": [
+    "listen",
+    "thumbs"
+   ],
+   "file": "clips/src/leo_listen_thumbs.mp4",
+   "sha256": "12714b3fcb34a1699f835d31334581df12a1a8ed85e454a6ef0a2e0508b206b2",
+   "bytes": 4445781,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 92,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/leo_listen_thumbs.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "listener"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": {
+     "path": "clips/leo_listen_thumbs.mp4",
+     "url": "https://media.lexkite.com/library/clips/leo_listen_thumbs.mp4",
+     "sha256": "b323e07c2425581d59bacdeb23d5ec30c82778b730b9d51f7806e5b648015f7e",
+     "gitSha": "6408b0b356b3c75a705a6320d0b0d747a1027868",
+     "bytes": 1969761,
+     "srcSha": "12714b3fcb34a1699f835d31334581df12a1a8ed85e454a6ef0a2e0508b206b2",
+     "variant": "stacked",
+     "at": "2026-10-17"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/leo_listen_thumbs.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/leo_listen_thumbs.mp4",
+     "gitSha": "694a168c0792ff2e0ac537bd25fe5952e8616746",
+     "sha256": "12714b3fcb34a1699f835d31334581df12a1a8ed85e454a6ef0a2e0508b206b2",
+     "bytes": 4445781
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1u2ewwww40UwDYecEfuXLDpA-eiVQP5JM",
+      "sha256": "12714b3fcb34a1699f835d31334581df12a1a8ed85e454a6ef0a2e0508b206b2",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_pose_detect: [cuối] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
+     "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 15 % (> 12 %)",
+     "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 11",
+     "WARN vision: chưa có ảnh DNA của leo trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 0.831,
+     "drift": 0.071,
+     "footWobble": 0.0021,
+     "bgShift": 2,
+     "dupRun": 0,
+     "cadenceTwos": 0.81,
+     "audioPeakDb": -13.4
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của leo trong kho – cần duyệt tay"
+     ],
+     "sha": "12714b3fcb34a1699f835d31334581df12a1a8ed85e454a6ef0a2e0508b206b2",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_leo_listen_thumbs_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/leo_listen_thumbs.mp4",
+     "alpha": "stacked",
+     "sha256": "b323e07c2425581d59bacdeb23d5ec30c82778b730b9d51f7806e5b648015f7e",
+     "bytes": 1969761,
+     "w": 776,
+     "h": 1510,
+     "foot": [
+      162,
+      1508
+     ],
+     "figH": 1508,
+     "frames": 121,
+     "status": "WAIVED",
+     "issues": [
+      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [59, 60, 88]",
+      "WARN anat_limbs: [đầu] không thấy đủ 2 tay + 2 chân rõ ràng",
+      "WARN anat_joints: [giữa] khớp bất thường (ước lượng MediaPipe trên tranh 2D – AI thị giác quyết định FAIL) {'l': 10.3}",
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+      "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 80 % (> 12 %)",
+      "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 11"
+     ],
+     "at": "2026-10-17",
+     "path": "clips/leo_listen_thumbs.mp4",
+     "url": "https://media.lexkite.com/library/clips/leo_listen_thumbs.mp4",
+     "gitSha": "6408b0b356b3c75a705a6320d0b0d747a1027868"
+    }
+   },
+   "waiver": "tỉ lệ đầu/thân 15 % là ước lượng MediaPipe trên tranh 2D; soi tay đúng DNA (kính, râu, tóc)",
+   "manualReview": {
+    "at": "2026-10-17",
+    "reason": "tỉ lệ đầu/thân 15 % là ước lượng MediaPipe trên tranh 2D; soi tay đúng DNA (kính, râu, tóc)",
+    "from": "reject",
+    "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 15 % (> 12 %)"
    }
   },
   {
@@ -3126,13 +4967,15 @@
      "sha256": "3de86e6f44ea9922db0ba75f0c4f88608c9ff48662549b5068ba8038e7f84c25",
      "bytes": 4284986
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1Ka-cK9hVO9S6IjOG33Fr7jDSEV7yxruo",
-     "sha256": "3de86e6f44ea9922db0ba75f0c4f88608c9ff48662549b5068ba8038e7f84c25",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1uNrTjGgxS1ru9dRsQwGSXOdPiH2ASxG8",
+      "sha256": "3de86e6f44ea9922db0ba75f0c4f88608c9ff48662549b5068ba8038e7f84c25",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -3165,6 +5008,112 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_leo_shock_headgrab_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/leo_shock_laugh.mp4",
+   "kind": "clip",
+   "who": "leo",
+   "tags": [
+    "shock",
+    "laugh"
+   ],
+   "file": "clips/src/leo_shock_laugh.mp4",
+   "sha256": "aeeb75ec4519a3c22d72bab1805560873ae6892d2af30fe399f3c48b90beeb1f",
+   "bytes": 5283130,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 91,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/leo_shock_laugh.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/leo_shock_laugh.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/leo_shock_laugh.mp4",
+     "gitSha": "2af4e518f2db97c74fea5497d48836997aafbf26",
+     "sha256": "aeeb75ec4519a3c22d72bab1805560873ae6892d2af30fe399f3c48b90beeb1f",
+     "bytes": 5283130
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1Y2oRsJe-SP3-GBcUt8dEyxv1_tHs8utQ",
+      "sha256": "aeeb75ec4519a3c22d72bab1805560873ae6892d2af30fe399f3c48b90beeb1f",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [giữa] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN anat_pose_detect: [cuối] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
+     "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 10",
+     "WARN vision: chưa có ảnh DNA của leo trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 2.264,
+     "drift": 0.189,
+     "footWobble": 0,
+     "bgShift": 3,
+     "dupRun": 0,
+     "cadenceTwos": 0.45,
+     "audioPeakDb": -7.1
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của leo trong kho – cần duyệt tay"
+     ],
+     "sha": "aeeb75ec4519a3c22d72bab1805560873ae6892d2af30fe399f3c48b90beeb1f",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_leo_shock_laugh_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/leo_shock_laugh.mp4",
+     "alpha": "stacked",
+     "sha256": "d7e5af7e2cf45e58a528061cf71f3846cea7e7ac917c984811b443fe20a2e267",
+     "bytes": 2732486,
+     "w": 704,
+     "h": 1510,
+     "foot": [
+      150,
+      1507
+     ],
+     "figH": 1507,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [39, 40]",
+      "WARN anat_pose_detect: [đầu] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
+      "WARN anat_limbs: [cuối] không thấy đủ 2 tay + 2 chân rõ ràng",
+      "WARN anat_face_detect: [giữa] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -3325,6 +5274,111 @@
    }
   },
   {
+   "id": "clips/leo_talk_gesture.mp4",
+   "kind": "clip",
+   "who": "leo",
+   "tags": [
+    "talk",
+    "gesture"
+   ],
+   "file": "clips/src/leo_talk_gesture.mp4",
+   "sha256": "a4d02b3e59674aa5865a1a48a119d28baa3db54091f7666e3d6b18b64740d4b9",
+   "bytes": 5169104,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 92,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/leo_talk_gesture.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1BL8GlMXPDe0xKPFHb9Q_0SKZCO04znuS",
+      "sha256": "a4d02b3e59674aa5865a1a48a119d28baa3db54091f7666e3d6b18b64740d4b9",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [94, 95]",
+     "FAIL feet_still: chân trôi 4.0 % chiều cao khung",
+     "WARN anat_limbs: [cuối] không thấy đủ 2 tay + 2 chân rõ ràng",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 15 % (> 12 %)",
+     "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 11",
+     "WARN vision: chưa có ảnh DNA của leo trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.858,
+     "drift": 0.101,
+     "footWobble": 0.0397,
+     "bgShift": 3,
+     "dupRun": 0,
+     "cadenceTwos": 0.52,
+     "audioPeakDb": -12.7
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của leo trong kho – cần duyệt tay"
+     ],
+     "sha": "a4d02b3e59674aa5865a1a48a119d28baa3db54091f7666e3d6b18b64740d4b9",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_leo_talk_gesture_mp4.jpg"
+   },
+   "quarantinedFrom": "approved",
+   "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [94, 95] | FAIL feet_still: chân trôi 4.0 % chiều cao khung | FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 15 % (> 12 %)",
+   "variants": {
+    "stacked": {
+     "file": "clips/leo_talk_gesture.mp4",
+     "alpha": "stacked",
+     "sha256": "bb032edec167acbb36661bc2af7c35c3e7531b043baa4764d43ff53a254b3fc1",
+     "bytes": 2739117,
+     "w": 872,
+     "h": 1548,
+     "foot": [
+      172,
+      1517
+     ],
+     "figH": 1517,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [8, 45, 46, 77, 94]",
+      "FAIL feet_still: chân trôi 4.2 % chiều cao khung",
+      "WARN anat_pose_detect: [đầu] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
+      "WARN anat_one_person: [giữa] Pose thấy 2 người (kiểm lại thừa người/thừa chi)",
+      "WARN anat_face_detect: [giữa] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
+   }
+  },
+  {
    "id": "clips/leo_talk_point.mp4",
    "kind": "clip",
    "who": "leo",
@@ -3363,13 +5417,15 @@
      "sha256": "d8ec1b1dc7d465be029732e5c004003fbd94a2fea6410a3df4d6a394655e1ba7",
      "bytes": 4296616
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 1,
-     "fileId": "11WoCPbGKSPlbx35FZeHpFs2770VWUMIq",
-     "sha256": "d8ec1b1dc7d465be029732e5c004003fbd94a2fea6410a3df4d6a394655e1ba7",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1zslSOXNjSuyohgJFee4Iz57pQYkKLd-R",
+      "sha256": "d8ec1b1dc7d465be029732e5c004003fbd94a2fea6410a3df4d6a394655e1ba7",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -3402,6 +5458,107 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_leo_talk_point_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/leo_think_aha.mp4",
+   "kind": "clip",
+   "who": "leo",
+   "tags": [
+    "think",
+    "aha"
+   ],
+   "file": "clips/src/leo_think_aha.mp4",
+   "sha256": "83d23730450346de7ec609dcd2fc383e40a37633d711ecdc31650bc00e667782",
+   "bytes": 4487285,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 91,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/leo_think_aha.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1JgCLZZyysbKo7yCD-hYka_UQKcrOhn1q",
+      "sha256": "83d23730450346de7ec609dcd2fc383e40a37633d711ecdc31650bc00e667782",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [71, 72, 73, 84, 85]",
+     "FAIL feet_still: chân trôi 2.5 % chiều cao khung",
+     "WARN anat_face_detect: [giữa] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 11",
+     "WARN vision: chưa có ảnh DNA của leo trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.303,
+     "drift": 0.176,
+     "footWobble": 0.0251,
+     "bgShift": 3,
+     "dupRun": 0,
+     "cadenceTwos": 0.63,
+     "audioPeakDb": -13.1
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của leo trong kho – cần duyệt tay"
+     ],
+     "sha": "83d23730450346de7ec609dcd2fc383e40a37633d711ecdc31650bc00e667782",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_leo_think_aha_mp4.jpg"
+   },
+   "quarantinedFrom": "approved",
+   "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [71, 72, 73, 84, 85] | FAIL feet_still: chân trôi 2.5 % chiều cao khung",
+   "variants": {
+    "stacked": {
+     "file": "clips/leo_think_aha.mp4",
+     "alpha": "stacked",
+     "sha256": "07e9e0f39916ffa04c3065525ecd4ff244f5b6d5820493621973e335864d6073",
+     "bytes": 2117115,
+     "w": 798,
+     "h": 1510,
+     "foot": [
+      216,
+      1508
+     ],
+     "figH": 1508,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [70, 71, 72, 73, 74]",
+      "FAIL feet_still: chân trôi 2.6 % chiều cao khung",
+      "WARN anat_pose_detect: [đầu] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -3477,6 +5634,130 @@
    },
    "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [85, 86] | FAIL anat_palette_dna: [đầu] màu skin lệch DNA ΔE 38",
    "quarantinedFrom": "approved"
+  },
+  {
+   "id": "clips/leo_wave_clasp.mp4",
+   "kind": "clip",
+   "who": "leo",
+   "tags": [
+    "wave",
+    "clasp"
+   ],
+   "file": "clips/src/leo_wave_clasp.mp4",
+   "sha256": "de11bfac4dd6b299fae7d96355b255c2be23421262fb9d8cc4e2f7acbe30c502",
+   "bytes": 4191685,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 92,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/leo_wave_clasp.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": {
+     "path": "clips/leo_wave_clasp.mp4",
+     "url": "https://media.lexkite.com/library/clips/leo_wave_clasp.mp4",
+     "sha256": "92f9758b585a660a5b5aad76fc4bdeed1d372a44fa5fece52b1543ca2bc0f974",
+     "gitSha": "63ae6cb3dbd6bc67318c77b024cbd24016b4c239",
+     "bytes": 1860314,
+     "srcSha": "de11bfac4dd6b299fae7d96355b255c2be23421262fb9d8cc4e2f7acbe30c502",
+     "variant": "stacked",
+     "at": "2026-10-17"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/leo_wave_clasp.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/leo_wave_clasp.mp4",
+     "gitSha": "15adb5275ea062c5d80eddcde44757c99862a9da",
+     "sha256": "de11bfac4dd6b299fae7d96355b255c2be23421262fb9d8cc4e2f7acbe30c502",
+     "bytes": 4191685
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1Mg5OH48paSEplkRH-I6d4xo5V--rrV8r",
+      "sha256": "de11bfac4dd6b299fae7d96355b255c2be23421262fb9d8cc4e2f7acbe30c502",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [giữa] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 14 % (> 12 %)",
+     "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 11",
+     "WARN vision: chưa có ảnh DNA của leo trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.089,
+     "drift": 0.065,
+     "footWobble": 0.0021,
+     "bgShift": 3,
+     "dupRun": 0,
+     "cadenceTwos": 0.6,
+     "audioPeakDb": -13.5
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của leo trong kho – cần duyệt tay"
+     ],
+     "sha": "de11bfac4dd6b299fae7d96355b255c2be23421262fb9d8cc4e2f7acbe30c502",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_leo_wave_clasp_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/leo_wave_clasp.mp4",
+     "alpha": "stacked",
+     "sha256": "92f9758b585a660a5b5aad76fc4bdeed1d372a44fa5fece52b1543ca2bc0f974",
+     "bytes": 1860314,
+     "w": 876,
+     "h": 1508,
+     "foot": [
+      162,
+      1506
+     ],
+     "figH": 1506,
+     "frames": 121,
+     "status": "WARN",
+     "issues": [
+      "WARN anat_limbs: [đầu] không thấy đủ 2 tay + 2 chân rõ ràng",
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+      "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 11"
+     ],
+     "at": "2026-10-17",
+     "path": "clips/leo_wave_clasp.mp4",
+     "url": "https://media.lexkite.com/library/clips/leo_wave_clasp.mp4",
+     "gitSha": "63ae6cb3dbd6bc67318c77b024cbd24016b4c239"
+    }
+   },
+   "waiver": "tỉ lệ đầu/thân 14 % là ước lượng MediaPipe; soi tay đúng DNA",
+   "manualReview": {
+    "at": "2026-10-17",
+    "reason": "tỉ lệ đầu/thân 14 % là ước lượng MediaPipe; soi tay đúng DNA",
+    "from": "reject",
+    "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 14 % (> 12 %)"
+   }
   },
   {
    "id": "clips/leo_wave_thumbs.mp4",
@@ -3669,13 +5950,15 @@
      "sha256": "5647915c2bab290ca82dfc100f09f248b1b4425c64e8d025fb4783b57623e723",
      "bytes": 3625332
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1EcZmFTFVREdxIsKOgjWoGvSwFCAidJVs",
-     "sha256": "5647915c2bab290ca82dfc100f09f248b1b4425c64e8d025fb4783b57623e723",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1PPTAU_u84S1cylqXNIX8FqcQwnpn0ENh",
+      "sha256": "5647915c2bab290ca82dfc100f09f248b1b4425c64e8d025fb4783b57623e723",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -3708,6 +5991,111 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_mia_idle_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/mia_listen_thumbs.mp4",
+   "kind": "clip",
+   "who": "mia",
+   "tags": [
+    "listen",
+    "thumbs"
+   ],
+   "file": "clips/src/mia_listen_thumbs.mp4",
+   "sha256": "be02ac868cb4a3fafd3cba6fdb538458477d7fe83e8035bf99cda216b0ca78f7",
+   "bytes": 4966434,
+   "w": 1080,
+   "h": 1916,
+   "duration": 5.062,
+   "qa": 92,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/mia_listen_thumbs.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "listener"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/mia_listen_thumbs.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/mia_listen_thumbs.mp4",
+     "gitSha": "9e38d15e39b27e7cdf19c840a57f7fa0988dbfd6",
+     "sha256": "be02ac868cb4a3fafd3cba6fdb538458477d7fe83e8035bf99cda216b0ca78f7",
+     "bytes": 4966434
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "13u6h74T6m8uR1gZj6h_-GYMszJFHqOST",
+      "sha256": "be02ac868cb4a3fafd3cba6fdb538458477d7fe83e8035bf99cda216b0ca78f7",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: chưa có ảnh DNA của mia trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1080,
+     "h": 1916,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 0.943,
+     "drift": 0.062,
+     "footWobble": 0.0016,
+     "bgShift": 3,
+     "dupRun": 0,
+     "cadenceTwos": 0.68,
+     "audioPeakDb": -13
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của mia trong kho – cần duyệt tay"
+     ],
+     "sha": "be02ac868cb4a3fafd3cba6fdb538458477d7fe83e8035bf99cda216b0ca78f7",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_mia_listen_thumbs_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/mia_listen_thumbs.mp4",
+     "alpha": "stacked",
+     "sha256": "526ee6037132b2bd477b6efc1c7fc03b97d50210f9da99176aaa1da4b2589295",
+     "bytes": 2131535,
+     "w": 664,
+     "h": 1740,
+     "foot": [
+      466,
+      1736
+     ],
+     "figH": 1736,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [77]",
+      "WARN anat_one_person: [đầu] Pose thấy 3 người (kiểm lại thừa người/thừa chi)",
+      "WARN anat_limbs: [cuối] không thấy đủ 2 tay + 2 chân rõ ràng",
+      "WARN anat_face_detect: [cuối] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+      "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 21 % (> 12 %)"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -3749,13 +6137,15 @@
      "sha256": "7cb58db2d62e33af02bec4a3122bbdafe405b7b7db1443d38118a30642db44c3",
      "bytes": 3442898
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 1,
-     "fileId": "1CsuRhnaxsAB0MraocPx0lrviABWu7qPf",
-     "sha256": "7cb58db2d62e33af02bec4a3122bbdafe405b7b7db1443d38118a30642db44c3",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1RndFmY47Ted5R6btgt3-fSe_MzRjrcDK",
+      "sha256": "7cb58db2d62e33af02bec4a3122bbdafe405b7b7db1443d38118a30642db44c3",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -3823,13 +6213,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1wwKtKlvcY3KUs-2XdhjnioERNbYsk57e",
-     "sha256": "64547799bd6ae1a9b4a4230a8d2c026266bf0483510a2e72c0bb2ce262475ad9",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1YCMCBBuXyybPgXvYO4aE3d7QESdr8OV1",
+      "sha256": "64547799bd6ae1a9b4a4230a8d2c026266bf0483510a2e72c0bb2ce262475ad9",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -3862,6 +6254,112 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_mia_shock_headgrab_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/mia_shock_laugh.mp4",
+   "kind": "clip",
+   "who": "mia",
+   "tags": [
+    "shock",
+    "laugh"
+   ],
+   "file": "clips/src/mia_shock_laugh.mp4",
+   "sha256": "f338274fa4bc02ccd25bfc28afc1c9a54a5339dd3d62475768070aea919766a1",
+   "bytes": 6178499,
+   "w": 1080,
+   "h": 1916,
+   "duration": 5.062,
+   "qa": 92,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/mia_shock_laugh.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/mia_shock_laugh.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/mia_shock_laugh.mp4",
+     "gitSha": "a8f8a30f26b73b8b5cd38159bdc55cfb4c54718e",
+     "sha256": "f338274fa4bc02ccd25bfc28afc1c9a54a5339dd3d62475768070aea919766a1",
+     "bytes": 6178499
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1N0S4gAmrNUzCpcOS35XLssaodiPEejBm",
+      "sha256": "f338274fa4bc02ccd25bfc28afc1c9a54a5339dd3d62475768070aea919766a1",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_one_person: [giữa] Pose thấy 2 người (kiểm lại thừa người/thừa chi)",
+     "WARN anat_joints: [giữa] khớp bất thường (ước lượng MediaPipe trên tranh 2D – AI thị giác quyết định FAIL) {'r': 0.9}",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN anat_pose_detect: [cuối] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
+     "WARN vision: chưa có ảnh DNA của mia trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1080,
+     "h": 1916,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 2.603,
+     "drift": 0.121,
+     "footWobble": 0.0016,
+     "bgShift": 5,
+     "dupRun": 0,
+     "cadenceTwos": 0.5,
+     "audioPeakDb": -14.8
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của mia trong kho – cần duyệt tay"
+     ],
+     "sha": "f338274fa4bc02ccd25bfc28afc1c9a54a5339dd3d62475768070aea919766a1",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_mia_shock_laugh_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/mia_shock_laugh.mp4",
+     "alpha": "stacked",
+     "sha256": "50fdff16d9cf0d72b4191a771c1a644b2e8a4b09515cc85ede2c6b178c16c5fb",
+     "bytes": 2926399,
+     "w": 744,
+     "h": 1762,
+     "foot": [
+      426,
+      1737
+     ],
+     "figH": 1737,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL feet_still: chân trôi 2.2 % chiều cao khung",
+      "WARN anat_pose_detect: [giữa] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
+      "WARN anat_face_detect: [cuối] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -3902,13 +6400,15 @@
      "sha256": "e2abb7bda552a483853ab2f31dd94581e86a3c0e28a185784a666c86e36844f2",
      "bytes": 3248553
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 1,
-     "fileId": "1WxKXLmmHIx5iiI7BAx03I3ILRrUCWQOQ",
-     "sha256": "e2abb7bda552a483853ab2f31dd94581e86a3c0e28a185784a666c86e36844f2",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "17hMNtbaPAx73r2gHtZ8frAPNDymF20wZ",
+      "sha256": "e2abb7bda552a483853ab2f31dd94581e86a3c0e28a185784a666c86e36844f2",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -3936,6 +6436,119 @@
      "sha": "e2abb7bda552a483853ab2f31dd94581e86a3c0e28a185784a666c86e36844f2"
     },
     "sheet": "brand/library/_review/clips_mia_shrug_cross_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/mia_talk_gesture.mp4",
+   "kind": "clip",
+   "who": "mia",
+   "tags": [
+    "talk",
+    "gesture"
+   ],
+   "file": "clips/src/mia_talk_gesture.mp4",
+   "sha256": "9fe54b4fad6a89eae045c2dc6e74b879f128268fe5582da02abe652ec2cdaac3",
+   "bytes": 5980108,
+   "w": 1080,
+   "h": 1916,
+   "duration": 5.062,
+   "qa": 92,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/mia_talk_gesture.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": {
+     "path": "clips/mia_talk_gesture.mp4",
+     "url": "https://media.lexkite.com/library/clips/mia_talk_gesture.mp4",
+     "sha256": "ef4636e2bc76b549fc7c140779c69f5bdeae5dcabc3e201fc11088d339e3edfa",
+     "gitSha": "70bf8c0383de70e1100861c89950e3638202ffb7",
+     "bytes": 2827196,
+     "srcSha": "9fe54b4fad6a89eae045c2dc6e74b879f128268fe5582da02abe652ec2cdaac3",
+     "variant": "stacked",
+     "at": "2026-10-17"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/mia_talk_gesture.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/mia_talk_gesture.mp4",
+     "gitSha": "c4bb1e61630611b4343de899e49107d345183386",
+     "sha256": "9fe54b4fad6a89eae045c2dc6e74b879f128268fe5582da02abe652ec2cdaac3",
+     "bytes": 5980108
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1XjkcDHZsoT6fivz5MEEW3okE85Z5VdH_",
+      "sha256": "9fe54b4fad6a89eae045c2dc6e74b879f128268fe5582da02abe652ec2cdaac3",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: chưa có ảnh DNA của mia trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1080,
+     "h": 1916,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 2.383,
+     "drift": 0.155,
+     "footWobble": 0,
+     "bgShift": 4,
+     "dupRun": 0,
+     "cadenceTwos": 0.38,
+     "audioPeakDb": -9.2
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của mia trong kho – cần duyệt tay"
+     ],
+     "sha": "9fe54b4fad6a89eae045c2dc6e74b879f128268fe5582da02abe652ec2cdaac3",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_mia_talk_gesture_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/mia_talk_gesture.mp4",
+     "alpha": "stacked",
+     "sha256": "ef4636e2bc76b549fc7c140779c69f5bdeae5dcabc3e201fc11088d339e3edfa",
+     "bytes": 2827196,
+     "w": 980,
+     "h": 1754,
+     "foot": [
+      518,
+      1751
+     ],
+     "figH": 1751,
+     "frames": 121,
+     "status": "WARN",
+     "issues": [
+      "WARN anat_limbs: [cuối] không thấy đủ 2 tay + 2 chân rõ ràng"
+     ],
+     "at": "2026-10-17",
+     "path": "clips/mia_talk_gesture.mp4",
+     "url": "https://media.lexkite.com/library/clips/mia_talk_gesture.mp4",
+     "gitSha": "70bf8c0383de70e1100861c89950e3638202ffb7"
+    }
    }
   },
   {
@@ -3976,13 +6589,15 @@
      "sha256": "e37431f9d96b9019c5e8332b4f46243ccd970a88d7ed5b5bb735cf396226dbdf",
      "bytes": 4357444
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1qLVcUJx2bm5nhzKQNE4Dp7cClIjvKatn",
-     "sha256": "e37431f9d96b9019c5e8332b4f46243ccd970a88d7ed5b5bb735cf396226dbdf",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1WBkl4aAEnH0_Er9BePryrZuz96SV8Fkz",
+      "sha256": "e37431f9d96b9019c5e8332b4f46243ccd970a88d7ed5b5bb735cf396226dbdf",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -4018,6 +6633,111 @@
    }
   },
   {
+   "id": "clips/mia_think_aha.mp4",
+   "kind": "clip",
+   "who": "mia",
+   "tags": [
+    "think",
+    "aha"
+   ],
+   "file": "clips/src/mia_think_aha.mp4",
+   "sha256": "d71e532b4486fecff0fa2f11eba617bf469eed7b8f5bd7a0f3622bde8a8380e9",
+   "bytes": 5215744,
+   "w": 1080,
+   "h": 1916,
+   "duration": 5.062,
+   "qa": 92,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/mia_think_aha.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/mia_think_aha.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/mia_think_aha.mp4",
+     "gitSha": "1de51548c086c8e32e0222d380b32d7a81b42665",
+     "sha256": "d71e532b4486fecff0fa2f11eba617bf469eed7b8f5bd7a0f3622bde8a8380e9",
+     "bytes": 5215744
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1nwfZEXHpC8EseK-ExePOb4xYms0N2T-a",
+      "sha256": "d71e532b4486fecff0fa2f11eba617bf469eed7b8f5bd7a0f3622bde8a8380e9",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_one_person: [giữa] Pose thấy 2 người (kiểm lại thừa người/thừa chi)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: chưa có ảnh DNA của mia trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1080,
+     "h": 1916,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.439,
+     "drift": 0.159,
+     "footWobble": 0,
+     "bgShift": 4,
+     "dupRun": 0,
+     "cadenceTwos": 0.68,
+     "audioPeakDb": -13
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của mia trong kho – cần duyệt tay"
+     ],
+     "sha": "d71e532b4486fecff0fa2f11eba617bf469eed7b8f5bd7a0f3622bde8a8380e9",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_mia_think_aha_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/mia_think_aha.mp4",
+     "alpha": "stacked",
+     "sha256": "80cf59508f8c0c68c9455904ed147f7de974b16dcddc3c770c250325ac468468",
+     "bytes": 2360131,
+     "w": 764,
+     "h": 1750,
+     "foot": [
+      465,
+      1747
+     ],
+     "figH": 1747,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "WARN anat_limbs: [cuối] không thấy đủ 2 tay + 2 chân rõ ràng",
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+      "WARN anat_pose_detect: [giữa] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
+      "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 23 % (> 12 %)"
+     ],
+     "at": "2026-10-17"
+    }
+   }
+  },
+  {
    "id": "clips/mia_think_idea.mp4",
    "kind": "clip",
    "who": "mia",
@@ -4049,13 +6769,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 1,
-     "fileId": "1CcHokH0Rtf3uvrFOOBroejabqWy4u6sB",
-     "sha256": "512eb372658f28639ac3b19b876dd4a8d89ee4e72ff1caa4c8e03a9b4c885219",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1SKRzrvIVfopfOdYNrPxG0tQ0DKdfwuUK",
+      "sha256": "512eb372658f28639ac3b19b876dd4a8d89ee4e72ff1caa4c8e03a9b4c885219",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -4088,6 +6810,134 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_mia_think_idea_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/mia_wave_clasp.mp4",
+   "kind": "clip",
+   "who": "mia",
+   "tags": [
+    "wave",
+    "clasp"
+   ],
+   "file": "clips/src/mia_wave_clasp.mp4",
+   "sha256": "423cb4ce067a29d1a0cabb22b539541595428ec0083ed810d0975ab68dcf8993",
+   "bytes": 5606724,
+   "w": 1080,
+   "h": 1916,
+   "duration": 5.062,
+   "qa": 92,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/mia_wave_clasp.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": {
+     "path": "clips/mia_wave_clasp.mp4",
+     "url": "https://media.lexkite.com/library/clips/mia_wave_clasp.mp4",
+     "sha256": "5735070af0c2d6f388e410f05cb48f3e100614012b7b50a42179c819c5d7300a",
+     "gitSha": "2752a750be1b168b0a042955e033359c252c0bfe",
+     "bytes": 2559727,
+     "srcSha": "423cb4ce067a29d1a0cabb22b539541595428ec0083ed810d0975ab68dcf8993",
+     "variant": "stacked",
+     "at": "2026-10-17"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/mia_wave_clasp.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/mia_wave_clasp.mp4",
+     "gitSha": "b3d322cc1b954fcfda5998ebf8a90bf9f8a6e5fd",
+     "sha256": "423cb4ce067a29d1a0cabb22b539541595428ec0083ed810d0975ab68dcf8993",
+     "bytes": 5606724
+    },
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1_EhYC9mS2JGZLZKwcH2fGNtUjhen7JdY",
+      "sha256": "423cb4ce067a29d1a0cabb22b539541595428ec0083ed810d0975ab68dcf8993",
+      "at": "2026-10-17"
+     }
+    ]
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [45]",
+     "WARN anat_one_person: [giữa] Pose thấy 3 người (kiểm lại thừa người/thừa chi)",
+     "WARN anat_limbs: [giữa] không thấy đủ 2 tay + 2 chân rõ ràng",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: chưa có ảnh DNA của mia trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1080,
+     "h": 1916,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.709,
+     "drift": 0.19,
+     "footWobble": 0.0016,
+     "bgShift": 3,
+     "dupRun": 0,
+     "cadenceTwos": 0.46,
+     "audioPeakDb": -14.1
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của mia trong kho – cần duyệt tay"
+     ],
+     "sha": "423cb4ce067a29d1a0cabb22b539541595428ec0083ed810d0975ab68dcf8993",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_mia_wave_clasp_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/mia_wave_clasp.mp4",
+     "alpha": "stacked",
+     "sha256": "5735070af0c2d6f388e410f05cb48f3e100614012b7b50a42179c819c5d7300a",
+     "bytes": 2559727,
+     "w": 854,
+     "h": 1742,
+     "foot": [
+      728,
+      1739
+     ],
+     "figH": 1739,
+     "frames": 121,
+     "status": "WAIVED",
+     "issues": [
+      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [45]",
+      "WARN anat_one_person: [đầu] Pose thấy 2 người (kiểm lại thừa người/thừa chi)",
+      "WARN anat_limbs: [cuối] không thấy đủ 2 tay + 2 chân rõ ràng",
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+      "WARN anat_pose_detect: [giữa] MediaPipe không nhận ra dáng người (tranh 2D) – cần duyệt tay",
+      "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 16 % (> 12 %)"
+     ],
+     "at": "2026-10-17",
+     "path": "clips/mia_wave_clasp.mp4",
+     "url": "https://media.lexkite.com/library/clips/mia_wave_clasp.mp4",
+     "gitSha": "2752a750be1b168b0a042955e033359c252c0bfe"
+    }
+   },
+   "waiver": "soi tay khung 43–47: chỉ là chớp mắt, không giật",
+   "manualReview": {
+    "at": "2026-10-17",
+    "reason": "soi tay khung 43–47: chỉ là chớp mắt, không giật",
+    "from": "reject",
+    "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [45]"
    }
   },
   {
@@ -4128,13 +6978,15 @@
      "sha256": "ad0eac39240608b222702906f75ac14004fef4d7f668962cd2535c707ca006ae",
      "bytes": 3745546
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 1,
-     "fileId": "1UBnVHqn8hH_wq9SsXwR0qhugARb3vG6r",
-     "sha256": "ad0eac39240608b222702906f75ac14004fef4d7f668962cd2535c707ca006ae",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1u_Iq3I9WdWEx12NHJ_7k3XPks05-eEO_",
+      "sha256": "ad0eac39240608b222702906f75ac14004fef4d7f668962cd2535c707ca006ae",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -4195,13 +7047,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "15pLrzT77oLgP0UWw2BBIPcjiGePufKvI",
-     "sha256": "d7216b131e14f146378c13a6e13d62f86ea109fc153f616028e9a0f35196450b",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1-AyF1Wq8ueTVvPBsqP7XFABLNr7cii5F",
+      "sha256": "d7216b131e14f146378c13a6e13d62f86ea109fc153f616028e9a0f35196450b",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -4238,13 +7092,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1OegHVDmLQRzGXcRyWlBc872VFMbDkorV",
-     "sha256": "eeb6208dcc8c944efeadc7616af52dd220c645270d5523aacbff559e14f8fba2",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "17jUoJifPHwkI2FOAufqpjsCCkwFPfMGJ",
+      "sha256": "eeb6208dcc8c944efeadc7616af52dd220c645270d5523aacbff559e14f8fba2",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -4279,13 +7135,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1V7io_8DOo01TbBKQpLQQo4N-u9TcfGsk",
-     "sha256": "43daa6be5b680f9457b0e3fb73807eb54a7af5c14e7a99b8f79dfea20e9071e7",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "18nxpHdzT5iyIoExfn1GKSeWfubQOH9PH",
+      "sha256": "43daa6be5b680f9457b0e3fb73807eb54a7af5c14e7a99b8f79dfea20e9071e7",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -4322,13 +7180,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "15Vr5mq__RBCCVQcAlGZ2TxayFOW5PwkP",
-     "sha256": "2a876b05402bcc8a0a680ada8005d1b84639aaaa01a3e0a388f85d03660208f7",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "12utmdv2hMIcmNjDkvBeQn6x3iQaT0cpO",
+      "sha256": "2a876b05402bcc8a0a680ada8005d1b84639aaaa01a3e0a388f85d03660208f7",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -4363,13 +7223,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "18xwx16Y2HWSAvKsxaEvCpKsDlcUlToFD",
-     "sha256": "5942a3ddbbff2d3f936dce927625ceda7f280e430a26b59c372ef2d30dc66571",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1tHK4AOVbxm-EWDMvsjXe_e6F0J7rfvcb",
+      "sha256": "5942a3ddbbff2d3f936dce927625ceda7f280e430a26b59c372ef2d30dc66571",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -4406,13 +7268,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1Skh_fiCFdAkK4F0uSN99gYlpGgBNj2Hd",
-     "sha256": "6ca37684c65ac4e36d83507abfc86d1587c8c5f4592772c712ca09dd8f76df08",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1Ji72MW9-l1ds4I3ZWZQoq95jGvn1kmch",
+      "sha256": "6ca37684c65ac4e36d83507abfc86d1587c8c5f4592772c712ca09dd8f76df08",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -4447,13 +7311,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1R2MaiIjA9Uxb_agb8hNVHQ6W0dET0CP9",
-     "sha256": "c56ac8e44d954f087f7133f62a0a6d6b4f7b740f5c49ad7041bb3c09e1ddbadf",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1KiOxf_rABgrQ_t30v6AluCoO8KaceNgK",
+      "sha256": "c56ac8e44d954f087f7133f62a0a6d6b4f7b740f5c49ad7041bb3c09e1ddbadf",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -4490,13 +7356,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1KRvWZr6d4UmJtUwM8On8kLUDzdlETlvm",
-     "sha256": "ac7786d84ab637bd3c162b7383e99aba0f1b65c4bae5412890ceccbb083232ac",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "10vz6GoFs42vp3Q3fgpVG5FyifMY_NxOJ",
+      "sha256": "ac7786d84ab637bd3c162b7383e99aba0f1b65c4bae5412890ceccbb083232ac",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -4531,13 +7399,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1Cgmn6Zk9WaV29B7MBwRWfzoO5dLnXryt",
-     "sha256": "440ee04af52bb4317d01ce025aefa40fa515ff56b7a17d2d04d20d6eb251a6e7",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1-O-63-QqipoSNjsQsEHpnG7CjblRLcPa",
+      "sha256": "440ee04af52bb4317d01ce025aefa40fa515ff56b7a17d2d04d20d6eb251a6e7",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -4574,13 +7444,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1AxgEr0jEit4rzZjjuH7M802mK1vLQ05R",
-     "sha256": "b24e2b59c5755e0efeed3b68a7aeab0d33684bbde52534160b72799197a5dcdc",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "136QQ5DITq6LjMxEZ5TPj-LW0P197h4qP",
+      "sha256": "b24e2b59c5755e0efeed3b68a7aeab0d33684bbde52534160b72799197a5dcdc",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -4615,13 +7487,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1q33BhWIcwPGinlO68ho-oiH0uSE2lRVA",
-     "sha256": "992b8bf4ee75710f6962d9f5cf221f84b86ab6d0a23ca52b0a0552b23d2833e2",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1R7lPDe3qipdovQsAAbB2E4YzYy5IzX-N",
+      "sha256": "992b8bf4ee75710f6962d9f5cf221f84b86ab6d0a23ca52b0a0552b23d2833e2",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -4661,13 +7535,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "11FtRYouGT4MGBZGuKzS5JuVefW3193Wl",
-     "sha256": "8b57a1d16d4f8fcdcad5ff338010dbb25fd23eb344547e99ae2ca8a1cbd7a4ba",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1naXjMQSyxveQw4rtfaKeBanhU0wbbkPx",
+      "sha256": "8b57a1d16d4f8fcdcad5ff338010dbb25fd23eb344547e99ae2ca8a1cbd7a4ba",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -4702,13 +7578,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "13mJVJ7rMJa5PbEqCgbt5u_Ynlwkh1NkH",
-     "sha256": "21e38f03acdcaa0f054563fa2b195112b63ca2f3ec0f4eba37bf95760025ba71",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1E9l9aAWmw6Jr9iXhpcEFtY5AAO0FB_op",
+      "sha256": "21e38f03acdcaa0f054563fa2b195112b63ca2f3ec0f4eba37bf95760025ba71",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -4745,13 +7623,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1bWgnhgarMkf88wRtoPGSe31UD8pdfg3P",
-     "sha256": "1b059e5a2a6e027535e17a93c01b312336c47f372eba4cfbb22991bedc9ca26c",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1cH8lTTAA1two3-d05a7ePJ0WgGDAjA8e",
+      "sha256": "1b059e5a2a6e027535e17a93c01b312336c47f372eba4cfbb22991bedc9ca26c",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -4786,13 +7666,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1jm_VtCKfBOGW2eQuAdijOF2GVXpcO3Dr",
-     "sha256": "b4d7b2346ea30d9d7acc4114ea26186219f4350c9c7dfd662bc768baf6936bed",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1XBochQIkHujRKto2HKJ3qwvEF4flaPSU",
+      "sha256": "b4d7b2346ea30d9d7acc4114ea26186219f4350c9c7dfd662bc768baf6936bed",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -4829,13 +7711,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1oL6IHtLAIIhLfd2sgF2_-6Ai_Y6zlgef",
-     "sha256": "f21b29022a3805b653681deb031abf7f4440395d0de4738d72d00d8eba8671a9",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1XlV9UkA0jvauiGYbEGFHD3o98EIlhDSr",
+      "sha256": "f21b29022a3805b653681deb031abf7f4440395d0de4738d72d00d8eba8671a9",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -4870,13 +7754,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1re3mL7CRSbOrTZpvnfhkC8fRvtunKeej",
-     "sha256": "f89c3c11be16eec1fcc082b04d0b38e15061902a0bc423fa92ec8969a94802a7",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1Nz3jy_sJRPjPLRdnND0zoUTPnra2IDIH",
+      "sha256": "f89c3c11be16eec1fcc082b04d0b38e15061902a0bc423fa92ec8969a94802a7",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -4913,13 +7799,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "18KgvkLV3YLEt1EwBwKK5Ezovs0exezvW",
-     "sha256": "287007414216798692373d101bf788a7e2c2b38bb6f217604a61881fa90837b9",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "17ZgUR1Z7usBaTroiVpdl8a8mL9NAGcso",
+      "sha256": "287007414216798692373d101bf788a7e2c2b38bb6f217604a61881fa90837b9",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -4953,7 +7841,16 @@
     "backup": {
      "status": "pending",
      "reason": "pool_full"
-    }
+    },
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1VUpKqJgCWxDqLrgw59cBl4CLVHmcWs9t",
+      "sha256": "8fc96878ecd56ea4f5e9467a72e2f7a88d53c3de20c966800fa3b3de5127a53e",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -4990,13 +7887,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1xhuXlbZT3wOpWxpk2Eiu7cnsgW3KzBxb",
-     "sha256": "cbd9989491c0a43870dd65273658e69becc9ec8307427d69d79cee0e98fe8584",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "169TgjvMYmEre3WnYLSy4ZoXBzJPWj6GN",
+      "sha256": "cbd9989491c0a43870dd65273658e69becc9ec8307427d69d79cee0e98fe8584",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -5031,13 +7930,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1cHdt3OC8HOzx0r33hMmeU2AfWgfK0IWV",
-     "sha256": "e74c01b7c1782d59c6d6b87ab28a70478b44aa7a5f48eddba4abc20b841f3392",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1tJ7_oIVlmm2F77P8enLk31mnh2wPorj2",
+      "sha256": "e74c01b7c1782d59c6d6b87ab28a70478b44aa7a5f48eddba4abc20b841f3392",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -5074,13 +7975,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1JlN_3AMhps4nxrCkgaTLWOJd7tNY5G1w",
-     "sha256": "ee745f0b132c6341b6bd2df33783b68f1448a0e0064b5428241156f8f2f2f3d6",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1ntt3Anz3NJts21sPKjkd4kWNYDPF2mN8",
+      "sha256": "ee745f0b132c6341b6bd2df33783b68f1448a0e0064b5428241156f8f2f2f3d6",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -5115,13 +8018,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "15kVYM5AKcgbvYraxMaD5eACKzt2VU42w",
-     "sha256": "fa5543490c6436c4b128044b1c0305f75b6285ebbaa814ce8738a113471df88b",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1dhLN8_DC44BxnKIYLPw9_uNfClXuJuax",
+      "sha256": "fa5543490c6436c4b128044b1c0305f75b6285ebbaa814ce8738a113471df88b",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -5158,13 +8063,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1XrzZ2bFL1Ja1dKeg6L4YYK4cF1DyCjJx",
-     "sha256": "ec05ef4faf3164614d3b04e259a2751cc289ab67d9d50a0ebd1d9d31987fd3b4",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "16T9biG-R-aWq0lUiVpRejl5PxKu3-5We",
+      "sha256": "ec05ef4faf3164614d3b04e259a2751cc289ab67d9d50a0ebd1d9d31987fd3b4",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -5199,13 +8106,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1ZbMH6SuMqClgk7L4lcwWBMr1kHmxkcQF",
-     "sha256": "ae3b9e71671c6dc746ab1e559dd4e45a2e6147afc497e938c8ea17ae79edf969",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "12nWDjsigLvhl4b28VHYOIGbx81HdeTF6",
+      "sha256": "ae3b9e71671c6dc746ab1e559dd4e45a2e6147afc497e938c8ea17ae79edf969",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -5242,13 +8151,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1XqAl2LtlPd-N5bZC0E7Y9x0N_TL8mJGf",
-     "sha256": "a5075a2a08376315c4b15addec8dca4d3b72d87c1f865eb0273779b01886b4d7",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1dRpSuUxb6gWq8aVjl5zMBdrmQUlWMYD_",
+      "sha256": "a5075a2a08376315c4b15addec8dca4d3b72d87c1f865eb0273779b01886b4d7",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -5283,13 +8194,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1xXALmIK1TiU38Ewu4udh-LiTMn-6p2rM",
-     "sha256": "8fd37c17cab10a62bfc0d311354e8a1bef57a6eff468970c63c33a9918dd0ab3",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1qzhYk3_apXKBWd3Sr1DHTdt5bwNHsMnw",
+      "sha256": "8fd37c17cab10a62bfc0d311354e8a1bef57a6eff468970c63c33a9918dd0ab3",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -5326,13 +8239,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "13w4pGP7u-ctLU2Gqk-3y1AlRaSRgyHYk",
-     "sha256": "dd064d9169f34eb344a799ded6d8fb0bb794ec47b3b0e01bc0425dd3ea214703",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1We2J6XU38CI46Zm1zR6bnSmIttF_0hB5",
+      "sha256": "dd064d9169f34eb344a799ded6d8fb0bb794ec47b3b0e01bc0425dd3ea214703",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -5367,13 +8282,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 1,
-     "fileId": "1P7Ufh639WEX_2xKXjFzCxCm5zulLLljK",
-     "sha256": "a0cd53886c6adec8f7af2203c32cd05a8e90ec1499011d0492e8c41d0f6849f0",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1ymR-WF9ZA035cgOvkvWInFFk3tZLbmSQ",
+      "sha256": "a0cd53886c6adec8f7af2203c32cd05a8e90ec1499011d0492e8c41d0f6849f0",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -5410,13 +8327,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1gdnH3iZTmLM9X-xZTU5OzzTKbeqzYXtu",
-     "sha256": "7e366c2a86c2470b8e61e146d26455476cae60c24cb4cc602729d184785b1c4d",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "15G-rYaZH-ClxgLr3atu5KL3JwUyyYQ7R",
+      "sha256": "7e366c2a86c2470b8e61e146d26455476cae60c24cb4cc602729d184785b1c4d",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -5452,13 +8371,15 @@
     "backup": {
      "status": "pending"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1ll27uOlYLmB7Qt32qm0duMa6-Tob3BpN",
-     "sha256": "7e53aa71a4894e52ee41864586751d0c8ace5629d09ac77a2395b6a38ab8434b",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1eqOpvAMBRqZydDvtQT5cz-JY431uRHia",
+      "sha256": "7e53aa71a4894e52ee41864586751d0c8ace5629d09ac77a2395b6a38ab8434b",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -5537,13 +8458,15 @@
     "backup": {
      "status": "pending"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 1,
-     "fileId": "1Razt7Ky1bETtkoyC1APhLvVttJB18Wto",
-     "sha256": "f45100e65cf0110d107b238e4e05ac6c932e6291f86567605cd13d4e15dff1dc",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1xbWkPXn-q2P3rfJK0jJd4O6DK6mUnXyK",
+      "sha256": "f45100e65cf0110d107b238e4e05ac6c932e6291f86567605cd13d4e15dff1dc",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -5622,13 +8545,15 @@
     "backup": {
      "status": "pending"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1K9uKgqy24gS0rEzePRhf4KQa9PPHASyl",
-     "sha256": "5eb65bc77afd52cf5f8d1f2cb01c2811333a79b1bbb6b5c28a00d46d9de7a7df",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "11Szs_nTyR8LHYhREAjBkK4a5ChF9bWiR",
+      "sha256": "5eb65bc77afd52cf5f8d1f2cb01c2811333a79b1bbb6b5c28a00d46d9de7a7df",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -5707,13 +8632,15 @@
     "backup": {
      "status": "pending"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 1,
-     "fileId": "13VQvO-RXCaZFLI5WJ0HVQSZRlqRtnQfv",
-     "sha256": "f57f61907722609e4848a906f1b8b53799220d998d3d45a2e2439f81f264162b",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "15AD9eSMLttj9PbU7JTHeicChxSSDMlc8",
+      "sha256": "f57f61907722609e4848a906f1b8b53799220d998d3d45a2e2439f81f264162b",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -5793,13 +8720,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 1,
-     "fileId": "1TUd40tjARvskcWDTmPg4kbm--k8Z4Abi",
-     "sha256": "ed84294576f860d806e9044480686d8e4afa1c437522f8bdfe819f178beebfbe",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 2,
+      "email_masked": "",
+      "fileId": "1aejy-YIQt6OB6STnO406xs8ukTc8-Nra",
+      "sha256": "ed84294576f860d806e9044480686d8e4afa1c437522f8bdfe819f178beebfbe",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -5879,13 +8808,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "14hBrXVGrryuTpRtcuRtPTX6u1r70R6JN",
-     "sha256": "8b86e3bd1bf6cb2e54f52179e2a076cfe741e7fd09c63c385e597f0c15cd6adc",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1MtDl77A6TfX-ZiGmm1DNCUlRdyPuc4o9",
+      "sha256": "8b86e3bd1bf6cb2e54f52179e2a076cfe741e7fd09c63c385e597f0c15cd6adc",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",
@@ -5965,13 +8896,15 @@
      "status": "pending",
      "reason": "pool_full"
     },
-    "drive": {
-     "status": "ok",
-     "driveId": 2,
-     "fileId": "1eisWb7sg4-Dk8rC0BgGAMOhAmvxuW0Yi",
-     "sha256": "111f20d5740a14e58cbcf850f36ba081243ad39a3a2ddcdcf93505cebd16c3a1",
-     "at": "2026-10-17"
-    }
+    "drive": [
+     {
+      "driveId": 1,
+      "email_masked": "",
+      "fileId": "1TyqJZi2jzG8Z5_c5VxRRcmXzd0abr0zO",
+      "sha256": "111f20d5740a14e58cbcf850f36ba081243ad39a3a2ddcdcf93505cebd16c3a1",
+      "at": "2026-10-17"
+     }
+    ]
    },
    "check": {
     "status": "PASS",

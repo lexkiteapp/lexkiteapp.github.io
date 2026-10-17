@@ -717,6 +717,246 @@
       "mouth": false,
       "facing": "front",
       "ready": false
+    },
+    {
+      "id": "diane_talk_gesture",
+      "who": "diane",
+      "tags": [
+        "talk",
+        "gesture"
+      ],
+      "outfit": "office",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/diane_talk_gesture.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        256,
+        1560
+      ],
+      "figH": 1560,
+      "w": 984,
+      "h": 1562,
+      "ready": true
+    },
+    {
+      "id": "carlos_listen_thumbs",
+      "who": "carlos",
+      "tags": [
+        "listen",
+        "thumbs"
+      ],
+      "outfit": "casual",
+      "mouth": false,
+      "facing": "front",
+      "file": "clips/carlos_listen_thumbs.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "listener"
+      ],
+      "foot": [
+        158,
+        1558
+      ],
+      "figH": 1558,
+      "w": 894,
+      "h": 1562,
+      "ready": true
+    },
+    {
+      "id": "carlos_talk_gesture",
+      "who": "carlos",
+      "tags": [
+        "talk",
+        "gesture"
+      ],
+      "outfit": "casual",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/carlos_talk_gesture.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        213,
+        1573
+      ],
+      "figH": 1573,
+      "w": 948,
+      "h": 1576,
+      "ready": true
+    },
+    {
+      "id": "mia_talk_gesture",
+      "who": "mia",
+      "tags": [
+        "talk",
+        "gesture"
+      ],
+      "outfit": "office",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/mia_talk_gesture.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        518,
+        1751
+      ],
+      "figH": 1751,
+      "w": 980,
+      "h": 1754,
+      "ready": true
+    },
+    {
+      "id": "mia_wave_clasp",
+      "who": "mia",
+      "tags": [
+        "wave",
+        "clasp"
+      ],
+      "outfit": "office",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/mia_wave_clasp.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        728,
+        1739
+      ],
+      "figH": 1739,
+      "w": 854,
+      "h": 1742,
+      "ready": true
+    },
+    {
+      "id": "ama_listen_thumbs",
+      "who": "ama",
+      "tags": [
+        "listen",
+        "thumbs"
+      ],
+      "outfit": "casual",
+      "mouth": false,
+      "facing": "front",
+      "file": "clips/ama_listen_thumbs.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "listener"
+      ],
+      "foot": [
+        452,
+        1506
+      ],
+      "figH": 1506,
+      "w": 676,
+      "h": 1510,
+      "ready": true
+    },
+    {
+      "id": "diane_think_aha",
+      "who": "diane",
+      "tags": [
+        "think",
+        "aha"
+      ],
+      "outfit": "office",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/diane_think_aha.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        222,
+        1569
+      ],
+      "figH": 1569,
+      "w": 858,
+      "h": 1572,
+      "ready": true
+    },
+    {
+      "id": "leo_listen_thumbs",
+      "who": "leo",
+      "tags": [
+        "listen",
+        "thumbs"
+      ],
+      "outfit": "office",
+      "mouth": false,
+      "facing": "front",
+      "file": "clips/leo_listen_thumbs.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "listener"
+      ],
+      "foot": [
+        162,
+        1508
+      ],
+      "figH": 1508,
+      "w": 776,
+      "h": 1510,
+      "ready": true
+    },
+    {
+      "id": "leo_wave_clasp",
+      "who": "leo",
+      "tags": [
+        "wave",
+        "clasp"
+      ],
+      "outfit": "office",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/leo_wave_clasp.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        162,
+        1506
+      ],
+      "figH": 1506,
+      "w": 876,
+      "h": 1508,
+      "ready": true
+    },
+    {
+      "id": "diane_wave_clasp",
+      "who": "diane",
+      "tags": [
+        "wave",
+        "clasp"
+      ],
+      "outfit": "office",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/diane_wave_clasp.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        473,
+        1554
+      ],
+      "figH": 1554,
+      "w": 1114,
+      "h": 1562,
+      "ready": true
     }
   ],
   "stills": [
