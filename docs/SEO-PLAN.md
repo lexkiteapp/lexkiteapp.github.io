@@ -3,6 +3,8 @@
 Mục tiêu: lexkite.com đứng top tìm kiếm tiếng Việt cho từ khóa học từ vựng / luyện thi IELTS, TOEIC, TOEFL; blog tĩnh nhanh, đúng chuẩn, tự đăng 2–3 bài/ngày, hạ tầng 0 đồng chịu được hàng chục nghìn bài; sau này thêm bản dịch.
 Cập nhật: 15/10/2026. Nhánh: `claude/seo-blog-3eb248` (cha gộp & phát hành).
 
+> Kế hoạch nội dung & nhịp đăng 15 quốc gia (6 tháng): `docs/SEO-GROWTH-PLAN.md`.
+
 ## 0. Kiến trúc tóm tắt
 ```
 content/blog/vi/<slug>.md      bài viết (front matter + Markdown) – nguồn duy nhất
