@@ -33,7 +33,6 @@
   'Vùng an toàn': 'Safe zone',
   '{xp} XP tuần này': '{xp} XP this week',
   'Bảng xếp hạng': 'Leaderboard',
-  'Xem bảng xếp hạng': 'View leaderboard',
 
   // Nickname modal
   'Đổi biệt danh bảng xếp hạng': 'Change leaderboard nickname',

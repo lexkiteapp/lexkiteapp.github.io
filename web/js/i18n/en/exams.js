@@ -234,7 +234,6 @@
   'Đáp án Listening': 'Listening answers',
   'Đáp án Reading': 'Reading answers',
   'Về TOEIC': 'Back to TOEIC',
-  'Listening ({parts}) nghe 1 lần → Reading (Part 5–7) có bấm giờ. Đeo tai nghe và chọn nơi yên tĩnh.': 'Listening ({parts}), played once → timed Reading (Parts 5–7). Use headphones and find a quiet place.',
 
   // ---- rtype.js ----
   'Điền từ (summary/sentence/note/table)': 'Completion (summary/sentence/note/table)',

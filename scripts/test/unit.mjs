@@ -86,4 +86,27 @@ ok((await call(A, { op: 'pull' }, 'https://evil.example')).h.get('Access-Control
   const miss = [...keys].filter(k => !EN[k]); ok(!miss.length, 'soát lỗi viết: thiếu bản tiếng Anh ' + JSON.stringify(miss.slice(0, 5)));
 }
 
-console.log(fails ? `✗ unit: ${fails} lỗi` : '✓ unit: FSRS & API đồng bộ – tất cả đạt'); process.exit(fails ? 1 : 0);
+// ---------- 📦 Xuất Excel .xlsx [X1] (web/js/export.js + AnkiKit.zipWrite) ----------
+{
+  const xc = { console, TextEncoder, TextDecoder, Uint8Array, Uint32Array, DataView, ArrayBuffer, Blob, Response, CompressionStream, DecompressionStream, Date, Math, JSON, String, Number, Object, Array, Promise, Error, Map, Set, RegExp, isNaN };
+  xc.self = xc; vm.createContext(xc);
+  vm.runInContext(fs.readFileSync(new URL('../../web/js/anki.js', import.meta.url), 'utf8'), xc);
+  vm.runInContext(fs.readFileSync(new URL('../../web/js/export.js', import.meta.url), 'utf8'), xc);
+  const { Export, AnkiKit: K } = xc;
+  const cards = [{ word: 'résumé', ipa: '/ˈrez.ə.meɪ/', pos: 'noun', vi: 'sơ yếu lý lịch <b>&</b> "CV"', def: 'a summary', ex: '=SUM(A1) is not a formula', contexts: [{ text: 'Send your résumé\u0007 today' }], level: 'b2', topic: 'mine', srs: { due: Date.UTC(2026, 9, 20, 5), last: 1, reps: 3 } }];
+  const rows = Export.rowsOf(cards);
+  ok(rows.length === 1 && rows[0][0] === 'résumé' && rows[0][8] === 'B2' && rows[0][9] === '2026-10-20' && rows[0][10] === 3, 'X1: rowsOf đúng cột (từ, CEFR, ngày ôn ISO, số lần ôn) ' + JSON.stringify(rows[0]));
+  const bytes = await Export.buildXlsx(Export.HEAD(), rows, 'Sổ từ: a/b');
+  const z = await K.zipOpen(bytes), want = ['[Content_Types].xml', '_rels/.rels', 'xl/workbook.xml', 'xl/_rels/workbook.xml.rels', 'xl/styles.xml', 'xl/worksheets/sheet1.xml'];
+  ok(want.every(n => z.has(n)), 'X1: .xlsx đủ phần OpenXML ' + JSON.stringify(z.names));
+  // CRC32 trong từng local header phải khớp dữ liệu giải nén (Excel báo "file hỏng" nếu sai)
+  const dv = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength); let off = 0, crcOk = 0;
+  while (dv.getUint32(off, true) === 0x04034b50) { const nl = dv.getUint16(off + 26, true), csz = dv.getUint32(off + 18, true), name = new TextDecoder().decode(bytes.subarray(off + 30, off + 30 + nl)); if (K.crc32(await z.get(name)) === dv.getUint32(off + 14, true)) crcOk++; off += 30 + nl + dv.getUint16(off + 28, true) + csz; }
+  ok(crcOk === want.length, `X1: CRC32 khớp ${crcOk}/${want.length} phần`);
+  const sheet = new TextDecoder().decode(await z.get('xl/worksheets/sheet1.xml')), wb = new TextDecoder().decode(await z.get('xl/workbook.xml'));
+  ok(sheet.includes('sơ yếu lý lịch &lt;b&gt;&amp;&lt;/b&gt; &quot;CV&quot;') && !/[\x00-\x08]/.test(sheet), 'X1: ký tự XML được thoát, ký tự điều khiển bị bỏ');
+  ok(/<row r="2">/.test(sheet) && /<c r="K2"><v>3<\/v><\/c>/.test(sheet) && /<autoFilter ref="A1:L2"\/>/.test(sheet), 'X1: 2 dòng, cột số dạng số, có lọc');
+  ok(/<sheet name="Sổ từ  a b"/.test(wb), 'X1: tên trang tính bỏ ký tự cấm của Excel (: / ? * [ ])');
+}
+
+console.log(fails ? `✗ unit: ${fails} lỗi` : '✓ unit: FSRS, API đồng bộ & xuất Excel – tất cả đạt'); process.exit(fails ? 1 : 0);

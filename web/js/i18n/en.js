@@ -5,9 +5,6 @@
   '1.500 thuật ngữ thông dụng của 10 ngành: CNTT, kinh doanh, y khoa, kỹ thuật, luật, marketing, môi trường, du lịch, giáo dục, logistics': '1,500 essential terms across 10 fields: IT, business, medicine, engineering, law, marketing, environment, tourism, education and logistics',
   // ai.js
   'AI trên máy': 'on-device AI',
-  'Bật chấm bài bằng AI': 'Turn on AI grading',
-  'Trên <b>Chrome máy tính bản mới</b> (máy đủ mạnh), Lexkite dùng được <b>AI có sẵn trong Chrome</b> – miễn phí, không cần khóa. Trình duyệt này chưa hỗ trợ, nên bạn có thể dùng khóa Gemini miễn phí dưới đây (chất lượng chấm tốt hơn).': 'On <b>recent desktop Chrome</b> (on capable hardware), Lexkite can use <b>Chrome’s built-in AI</b> – free, no key needed. This browser doesn’t support it yet, so you can use a free Gemini key below instead (it also grades more accurately).',
-  'Lexkite dùng <b>Google Gemini</b> để chấm Writing & Speaking chi tiết theo 4 tiêu chí IELTS. Mỗi người dùng tạo <b>khóa miễn phí</b> của riêng mình (gói miễn phí của Google đủ cho hàng chục bài mỗi ngày).': 'Lexkite uses <b>Google Gemini</b> to grade your Writing & Speaking in detail against the 4 IELTS criteria. Each user creates their own <b>free key</b> (Google’s free tier covers dozens of submissions a day).',
   'Mở {link} và đăng nhập Google.': 'Open {link} and sign in with Google.',
   'Bấm <b>Create API key</b> → sao chép khóa (bắt đầu bằng “AIza…”).': 'Click <b>Create API key</b> → copy the key (it starts with “AIza…”).',
   'Dán vào ô dưới đây.': 'Paste it into the box below.',
@@ -17,7 +14,6 @@
   'Khóa không đúng định dạng (bắt đầu bằng AIza… hoặc AQ.…).': 'Invalid key format (starts with AIza… or AQ.…).',
   'Đang kiểm tra khóa…': 'Checking your key…',
   'Khóa hoạt động!': 'Your key works!',
-  'Chưa có khóa AI.': 'No AI key yet.',
   'Khóa không hợp lệ – kiểm tra lại.': 'Invalid key – please check it.',
   'Đã hết lượt miễn phí trong ngày/phút của khóa này – thử lại sau ít phút.': 'This key has used up its free quota for now – try again in a few minutes.',
   'Không tìm thấy mô hình AI phù hợp.': 'No suitable AI model found.',
@@ -40,11 +36,8 @@
   'Chấm lại': 'Grade again',
   'Nhập khóa': 'Enter key',
   'Sẵn sàng': 'Ready',
-  'Sẽ tự tải khi dùng lần đầu': 'Downloads automatically on first use',
   'Trình duyệt chưa hỗ trợ': 'Not supported in this browser',
   'Chấm bài bằng AI': 'AI grading',
-  'AI có sẵn trong Chrome (miễn phí, không cần khóa):': 'Chrome built-in AI (free, no key needed):',
-  'Dùng khóa Google Gemini miễn phí của bạn để chấm Writing & Speaking chi tiết. Khóa chỉ lưu trên máy này.': 'Use your free Google Gemini key for detailed Writing & Speaking grading. The key is stored on this device only.',
   'Đã có khóa {key}…': 'Key saved: {key}…',
   'Chưa có khóa': 'No key',
   'Đổi khóa': 'Change key',
@@ -76,7 +69,6 @@
   'Mở web app để đăng nhập & đồng bộ': 'Open the web app to sign in & sync',
   'Đăng nhập và đồng bộ có trên bản web {link}.': 'Sign-in and sync are available on the web version at {link}.',
   'Đang đồng bộ…': 'Syncing…',
-  'Đã đồng bộ lúc {time}': 'Synced at {time}',
   'Đã đồng bộ {time}': 'Synced {time}',
   'Ngoại tuyến – sẽ tự đồng bộ khi có mạng': "Offline – will sync automatically when you're back online",
   'Lỗi đồng bộ: {msg}': 'Sync error: {msg}',
@@ -442,7 +434,6 @@
   'Học theo <b>cụm</b> (chunk) giúp nói và viết tự nhiên hơn học từng từ rời. Lưu cụm từ, cấu trúc câu kèm nghĩa theo cụm, cách dùng và câu ví dụ – ôn đúng thời điểm vàng như từ vựng.': 'Learning in <b>chunks</b> makes your speaking and writing more natural than learning single words. Save phrases and sentence structures with their meaning, usage and example sentences – and review them at the perfect moment, just like vocabulary.',
   'Thêm cụm / cấu trúc': 'Add phrase / structure',
   'Học các cụm': 'Study phrases',
-  'Bài mẫu có chú thích cụm từ': 'Model answers with annotated phrases',
   'Chưa có cụm từ nào. Bôi đen một cụm trong bài đọc, bài mẫu hay ví dụ từ điển rồi bấm “🧩 Lưu cụm này”, hoặc thêm thủ công.': 'No phrases yet. Select a phrase in a reading passage, model answer or dictionary example and tap “🧩 Save phrase”, or add one manually.',
 
   // ---- write.js: Writing Lab (Task 2) ----
@@ -589,7 +580,6 @@
   'Viết lại câu đã chọn': 'Rewrite selected sentence',
   'Viết ít nhất 1–2 câu rồi kiểm tra nhé': 'Write at least a sentence or two before checking',
   'Đang kiểm tra…': 'Checking…',
-  'Không phát hiện lỗi ngữ pháp/chính tả. Hãy tập trung vào ý và từ vựng nhé!': 'No grammar or spelling issues found. Now focus on your ideas and vocabulary!',
   'Bỏ qua': 'Dismiss',
   '(xóa)': '(delete)',
   'Không có gợi ý – tự sửa lại câu': 'No suggestions – revise the sentence yourself',
@@ -602,12 +592,11 @@
 }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, {
   'Đang phân tích từ vựng…': 'Analysing vocabulary…', 'Từ vựng quan trọng': 'Key vocabulary',
-  'Muốn AI giải thích ngữ pháp, cấu trúc & cách dùng? Chọn 1 cách miễn phí:': 'Want AI to explain grammar, structure & usage? Pick a free option:',
-  'Dùng khóa Gemini (miễn phí, 1 phút)': 'Use a Gemini key (free, 1 minute)', 'Tải AI của Chrome (~2GB, 1 lần)': 'Download Chrome’s AI (~2 GB, once)', 'AI phản hồi quá lâu – thử lại sau.': 'AI took too long – try again later.',
+'Tải AI của Chrome (~2GB, 1 lần)': 'Download Chrome’s AI (~2 GB, once)', 'AI phản hồi quá lâu – thử lại sau.': 'AI took too long – try again later.',
 }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, {"{n}/{min} từ · {p} đoạn.": "{n}/{min} words · {p} paragraphs.", "Có câu tổng quan (overview).": "Has an overview.", "Thiếu câu tổng quan (overview) – lỗi nặng ở Task 1.": "No overview – a serious weakness in Task 1.", "{k} số liệu được dẫn.": "{k} figures cited.", "Nêu rõ quan điểm.": "Clear position.", "Chưa nêu rõ quan điểm.": "Position not clearly stated.", "Có kết luận.": "Has a conclusion.", "Thiếu đoạn kết luận.": "Missing a conclusion.", "Dùng {n} từ nối khác nhau: {list}.": "Uses {n} different linking words: {list}.", "Dùng {n} từ nối khác nhau.": "Uses {n} different linking words.", "Độ đa dạng từ {p}%, từ học thuật {a}%.": "Lexical variety {p}%, academic words {a}%.", "{c}% câu có cấu trúc phức · {e} lỗi phát hiện.": "{c}% complex sentences · {e} errors found.", "Viết đủ tối thiểu {min} từ – thiếu từ bị trừ điểm Task.": "Write at least {min} words – under-length answers lose Task marks.", "Thêm câu tổng quan bắt đầu bằng “Overall, …” nêu 2 xu hướng/đặc điểm nổi bật nhất.": "Add an overview starting with “Overall, …” stating the 2 most notable trends or features.", "Nêu rõ quan điểm ngay mở bài và nhắc lại ở kết bài.": "State your position in the introduction and restate it in the conclusion.", "Dùng đa dạng từ nối hơn: however, moreover, as a result, for instance, in contrast…": "Use a wider range of linkers: however, moreover, as a result, for instance, in contrast…", "Thêm câu phức: mệnh đề quan hệ (which/who), câu điều kiện, “Although…”, mệnh đề rút gọn V-ing.": "Add complex sentences: relative clauses (which/who), conditionals, “Although…”, participle clauses.", "Thay từ quá cơ bản bằng từ chính xác hơn (xem gợi ý bên dưới).": "Replace very basic words with more precise ones (see suggestions below).", "Dùng thêm từ học thuật (AWL) đã học trong thư viện Lexkite.": "Use more academic (AWL) words from your Lexkite library.", "Ước lượng nhanh theo các chỉ số đo được (độ dài, bố cục, từ nối, từ vựng, câu phức, lỗi ngữ pháp). Để có nhận xét chi tiết như giám khảo, bật chấm bằng AI.": "A quick estimate from measurable features (length, structure, linkers, vocabulary, complex sentences, grammar errors). For examiner-style feedback, turn on AI grading.", "Liên kết ý tốt với nhiều từ nối.": "Ideas are well linked with varied connectors.", "Vốn từ đa dạng, ít lặp từ.": "Varied vocabulary with little repetition.", "Dùng từ học thuật phù hợp.": "Appropriate academic vocabulary.", "Có nhiều câu phức.": "Good use of complex sentences.", "Đủ độ dài yêu cầu.": "Meets the length requirement.", "Từ cơ bản – nên thay để tăng điểm Lexical Resource.": "Basic word – replace it to raise your Lexical Resource score.", "Lexkite – chấm nhanh theo quy tắc": "Lexkite – quick rule-based scoring", "Chấm sâu như giám khảo bằng AI (miễn phí)": "Get examiner-style AI feedback (free)", "Đây là kết quả chấm nhanh theo quy tắc:": "Here is the quick rule-based result:", "Chấm lại": "Re-grade"}); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Trang trọng, học thuật hơn': 'More formal and academic', 'Gọn hơn, bỏ ý thừa': 'More concise', 'Diễn đạt đầy đủ, nhiều cấu trúc hơn': 'Fuller, with richer structures', 'Gợi ý sửa từ AI trên máy': 'Suggestion from on-device AI' }); })(typeof self !== 'undefined' ? self : this);
-(function (g) { Object.assign(g.I18N_DICT.en, { 'Tải về (~2 GB, 1 lần)': 'Download (~2 GB, once)', 'Chấm nhanh & ghi chú từ soạn sẵn': 'Quick scoring & built-in word notes', 'Luôn có': 'Always on', 'AI có sẵn trong Chrome (trên máy, riêng tư)': 'Chrome built-in AI (on-device, private)', 'Gemini – chấm chi tiết như giám khảo': 'Gemini – examiner-style feedback', 'Đã bật': 'On', 'Cần khóa miễn phí': 'Needs a free key', 'AI của Chrome đã sẵn sàng': 'Chrome AI is ready', 'Không tải được – thử lại sau': 'Download failed – try again later',
+(function (g) { Object.assign(g.I18N_DICT.en, { 'Tải về (~2 GB, 1 lần)': 'Download (~2 GB, once)', 'Chấm nhanh & ghi chú từ soạn sẵn': 'Quick scoring & built-in word notes', 'Luôn có': 'Always on', 'AI có sẵn trong Chrome (trên máy, riêng tư)': 'Chrome built-in AI (on-device, private)', 'Gemini – chấm chi tiết như giám khảo': 'Gemini – examiner-style feedback','AI của Chrome đã sẵn sàng': 'Chrome AI is ready', 'Không tải được – thử lại sau': 'Download failed – try again later',
   'Trang trọng': 'Formal', 'Bán trang trọng': 'Semi-formal', 'Thân mật': 'Informal',
   'Không biết tên người nhận: Dear Sir or Madam → Yours faithfully. Biết tên: Dear Mr/Ms + họ → Yours sincerely. Không viết tắt, không dùng từ lóng.': 'Recipient\'s name unknown: Dear Sir or Madam → Yours faithfully. Name known: Dear Mr/Ms + surname → Yours sincerely. No contractions or slang.',
   'Người quen nhưng không thân (hàng xóm, chủ nhà, đồng nghiệp): Dear Mr/Ms + họ → Kind regards / Best regards. Lịch sự nhưng tự nhiên.': 'Someone you know but not closely (neighbour, landlord, colleague): Dear Mr/Ms + surname → Kind regards / Best regards. Polite but natural.',
@@ -620,7 +609,6 @@
   'Chia đoạn rõ: lời chào – mục đích – 3 ý – kết thư (ít nhất 4 đoạn).': 'Clear paragraphs: greeting – purpose – 3 points – closing (at least 4 paragraphs).',
   'Thư trang trọng nên tránh viết tắt (có {n} chỗ như I\'m, can\'t).': 'Formal letters should avoid contractions ({n} found, e.g. I\'m, can\'t).',
   'Không dùng viết tắt – đúng văn phong trang trọng.': 'No contractions – appropriately formal.',
-  'Viết thư (IELTS General)': 'Letters (IELTS General)',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* English UI strings – grammar.js, speaking.js, pron.js, reading.js */
@@ -629,7 +617,6 @@
   'Nghe': 'Listen',
   'Ngữ pháp IELTS': 'IELTS Grammar',
   '{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.': '{n} visual lessons: timelines, color-coded formulas, sentence transformation diagrams, common learner mistakes and instantly graded exercises.',
-  'Luyện tổng hợp {n} câu': 'Mixed practice ({n} questions)',
   'Chương {n}': 'Chapter {n}',
   'Kiểm tra chương': 'Chapter test',
   'Đang cập nhật bài học…': 'Lessons coming soon…',
@@ -1130,7 +1117,6 @@
   'Đáp án Listening': 'Listening answers',
   'Đáp án Reading': 'Reading answers',
   'Về TOEIC': 'Back to TOEIC',
-  'Listening ({parts}) nghe 1 lần → Reading (Part 5–7) có bấm giờ. Đeo tai nghe và chọn nơi yên tĩnh.': 'Listening ({parts}), played once → timed Reading (Parts 5–7). Use headphones and find a quiet place.',
 
   // ---- rtype.js ----
   'Điền từ (summary/sentence/note/table)': 'Completion (summary/sentence/note/table)',
@@ -1415,21 +1401,15 @@
   /* ---------- plan.js: today's plan ---------- */
   'Làm bài kiểm tra đầu vào (5 phút)': 'Take the placement test (5 min)',
   'Để Lexkite cá nhân hóa lộ trình cho bạn': 'So Lexkite can personalize your path',
-  'Ôn {n} thẻ đang đến thời điểm vàng': 'Review {n} cards at their optimal time',
   'Ôn tập thẻ đến hạn': 'Review due cards',
   'Lặp lại ngắt quãng – ưu tiên số 1': 'Spaced repetition – top priority',
-  'Lộ trình: {name}': 'Path: {name}',
   'đã học {pct}%': '{pct}% learned',
   'Ngữ pháp: {title}': 'Grammar: {title}',
-  'Lần trước {pct}% – làm lại cho chắc': 'Last time {pct}% – redo it to lock it in',
-  'Học từng bước + {n} câu luyện tập': 'Step-by-step lesson + {n} practice questions',
   'Nghe: Test {test} · Part {part}': 'Listening: Test {test} · Part {part}',
   'Lần trước {score}/10 – nghe lại có lời thoại': 'Last time {score}/10 – listen again with the transcript',
   '10 câu': '10 questions',
   'Phát âm: {title}': 'Pronunciation: {title}',
   'Khẩu hình → nghe phân biệt → nói & chấm điểm': 'Mouth position → listen and compare → speak and get scored',
-  'Xem lại {n} lỗi sai': 'Review {n} mistakes',
-  'Sửa lỗi = tăng điểm nhanh nhất': 'Fixing mistakes = the fastest score boost',
   'Đọc 1 bài IELTS & lưu từ mới': 'Read 1 IELTS passage & save new words',
   'Ngữ liệu dễ hiểu – học từ trong ngữ cảnh': 'Comprehensible input – learn words in context',
   'Luyện Speaking 1 câu hỏi': 'Practice 1 Speaking question',
@@ -1683,9 +1663,6 @@
   'Thi thử ngay tuần này để đo điểm xuất phát.': 'Take a mock test this week to measure your starting score.',
   'Thi thử đều đặn giúp đo tiến bộ thật và điều chỉnh kế hoạch – điểm hiện tại và chỉ tiêu tuần sẽ tự tính lại sau mỗi lần thi.': 'Regular mock tests measure your real progress and keep your plan on course – your current score and weekly targets are recalculated after each one.',
   'Chọn ngày thi trong tương lai': 'Choose an exam date in the future',
-  'Band IELTS từ 4.0 đến 9.0': 'IELTS band must be between 4.0 and 9.0',
-  'Điểm TOEIC từ 300 đến 990': 'TOEIC score must be between 300 and 990',
-  'Đã lập kế hoạch! Chỉ tiêu tuần hiện trên Trang chủ.': 'Plan created! Your weekly targets now appear on the Home page.',
 }); })(typeof self !== 'undefined' ? self : this);
 /* Từ khó nhớ (leech) */
 (function (g) { Object.assign(g.I18N_DICT.en, {
@@ -1706,7 +1683,7 @@
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Làm lại {n} lỗi sai': 'Retry {n} mistakes', 'Tự nhớ lại đáp án – sửa lỗi = tăng điểm nhanh nhất': 'Recall the answer yourself – fixing mistakes is the fastest way to score higher' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Hoàn tác lần chấm vừa rồi (Z)': 'Undo last grade (Z)', 'Đã hoàn tác – chấm lại thẻ này': 'Undone – grade this card again' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'hoàn tác': 'undo' }); })(typeof self !== 'undefined' ? self : this);
-(function (g) { Object.assign(g.I18N_DICT.en, { 'Mẹo nhớ': 'Mnemonic', 'Lỗi hay gặp': 'Common mistake', 'Cách dùng khi thi': 'Exam usage', 'Họ từ': 'Word family', 'Chế độ Rảnh tay': 'Hands-free mode', 'Xem lại đoạn gốc': 'Replay the original clip' }); })(typeof self !== 'undefined' ? self : this);
+(function (g) { Object.assign(g.I18N_DICT.en, { 'Mẹo nhớ': 'Mnemonic', 'Lỗi hay gặp': 'Common mistake','Họ từ': 'Word family', 'Chế độ Rảnh tay': 'Hands-free mode', 'Xem lại đoạn gốc': 'Replay the original clip' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Hiểu sâu': 'Go deeper', 'Dùng khi thi': 'In the exam', 'Sai': 'Wrong', 'Đúng': 'Right', 'Chấm mức độ nhớ': 'Rate how well you remembered', 'Chạm để nghe · chạm lần nữa để tra nghĩa': 'Tap to hear · tap again to look it up' }); })(typeof self !== 'undefined' ? self : this);
 
 /* English UI strings – web/js/app.js, web/index.html (app shell) */
@@ -1724,7 +1701,6 @@
   'Ngữ pháp': 'Grammar',
   'Thi thử 4 kỹ năng': 'Full mock test',
   'Luyện thi TOEIC': 'TOEIC prep',
-  'Luyện Reading trên máy': 'Computer-based Reading',
   'Reading theo dạng câu hỏi': 'Reading by question type',
   'Tài nguyên miễn phí': 'Free resources',
   'Phương pháp học': 'Study methods',
@@ -1733,9 +1709,7 @@
   'Thư viện phát âm': 'Pronunciation library',
   'Luyện phát âm từ': 'Word pronunciation',
   'Phòng Speaking': 'Speaking room',
-  'Phòng viết Task 2': 'Writing Task 2 room',
   'Writing Task 1': 'Writing Task 1',
-  'Của tôi': 'My stuff',
   'Sổ từ': 'My words',
   'Sổ cụm từ & cấu trúc': 'Phrases & structures',
   'Sổ lỗi sai': 'Mistake log',
@@ -1785,29 +1759,18 @@
   'thẻ cần học hôm nay': 'cards to study today',
   '{n} thẻ ôn lại': '{n} to review',
   '{n} từ mới': '{n} new words',
-  'Mục tiêu ôn tập hôm nay': "Today's review goal",
-  '<b>{n} từ sắp quên</b> (độ nhớ &lt; 85%) – ôn nhanh ngay →': '<b>{n} words fading</b> (recall &lt; 85%): quick review →',
-  'Bắt đầu ôn tập →': 'Start review →',
   'Học thông minh': 'Smart learn',
-  'Chọn bộ từ đầu tiên →': 'Pick your first word set →',
   'Nhiệm vụ hôm nay': "Today's quests",
   '{n} ngày': '{n} days',
-  'Chuỗi học': 'Streak',
-  'Từ trong sổ': 'Saved words',
   'Đã thuộc': 'Mastered',
   'Cấp độ nhớ': 'Memory levels',
   'Vì sao? →': 'Why? →',
   'Tuần này': 'This week',
-  '{n} XP hôm nay': '{n} XP today',
   'Từ của ngày': 'Word of the day',
   'Đã có trong sổ': 'Already saved',
-  'Bài tiếp theo: {name}': 'Next lesson: {name}',
   'Tiếp tục →': 'Continue →',
   'Chế độ luyện tập': 'Practice modes',
-  'Tất cả →': 'See all →',
   'Học tiếp': 'Keep learning',
-  'Gợi ý cho bạn': 'Suggested for you',
-  'Thư viện →': 'Library →',
   'Bài đọc hôm nay': "Today's reading",
   'Tất cả bài đọc →': 'All readings →',
   'Đọc →': 'Read →',
@@ -1826,7 +1789,6 @@
   'Thời điểm vàng là gì?': 'What is golden time?',
   'Đường cong quên lãng: sau 1 ngày bạn quên ~50% từ mới học – ôn đúng lúc giúp nhớ gần như mãi mãi.': 'The forgetting curve: you lose ~50% of new words within a day. Well-timed reviews make them stick almost for good.',
   'Kế hoạch hôm nay': "Today's plan",
-  'cá nhân hóa theo band {band}': 'personalized for band {band}',
   'cá nhân hóa': 'personalized',
 
   // ---- Memory level bars ----
@@ -1899,7 +1861,6 @@
   'Lưu flashcard': 'Save flashcard',
   'Ví dụ': 'Example',
   'Đồng nghĩa:': 'Synonyms:',
-  'Nghĩa tiếng Việt theo từ loại': 'Meanings by part of speech',
   'Định nghĩa': 'Definitions',
   'Định nghĩa bổ sung': 'More definitions',
   'Câu ví dụ song ngữ': 'Bilingual examples',
@@ -2049,7 +2010,6 @@
   'Mở Lexkite để ôn flashcard hôm nay: {url}': "Open Lexkite to review today's flashcards: {url}",
   'Đến giờ ôn từ vựng IELTS!': 'Time for your IELTS vocabulary review!',
   'Lexkite – đến giờ học rồi!': "Lexkite: it's study time!",
-  'Bạn có {n} thẻ cần ôn hôm nay. Giữ chuỗi 🔥{s} ngày nhé!': 'You have {n} cards to review today. Keep your 🔥{s}-day streak going!',
   'Học vài từ mới để giữ chuỗi ngày học nhé': 'Learn a few new words to keep your streak alive',
   'Trình duyệt không hỗ trợ thông báo': "This browser doesn't support notifications",
   'Bạn chưa cho phép thông báo': "You haven't allowed notifications",
@@ -2057,7 +2017,6 @@
   'Thời điểm vàng!': 'Golden time!',
 
   // ---- Welcome & onboarding ----
-  '4.600+ từ IELTS & TOEIC': '4,600+ IELTS & TOEIC words',
   'NGSL, 570 từ học thuật AWL, 1.250 từ TOEIC, chủ đề IELTS, phrasal verb, collocation band 7+': 'NGSL, the 570-word AWL, 1,250 TOEIC words, IELTS topics, phrasal verbs, Band 7+ collocations',
   'Flashcard FSRS như Anki': 'FSRS flashcards, like Anki',
   'Thuật toán ghi nhớ hiện đại nhất nhắc bạn ôn đúng lúc sắp quên': 'A state-of-the-art memory algorithm reminds you right before you forget',
@@ -2075,15 +2034,12 @@
   'Khẩu hình, cặp từ dễ nhầm, trọng âm & ngữ điệu': 'Mouth shapes, minimal pairs, stress & intonation',
   'Thi thử IELTS 4 kỹ năng & TOEIC': 'Full IELTS & TOEIC mock tests',
   'Bấm giờ như thi thật, quy đổi band/điểm, chấm Writing & Speaking bằng AI': 'Timed like the real exam, band/score conversion, AI scoring for Writing & Speaking',
-  'Đã có dữ liệu? Vào app →': 'Already have data? Open the app →',
-  'Dành cho người luyện thi IELTS': 'Built for IELTS learners',
   'Từ vựng vững,': 'Solid vocabulary,',
   'band điểm bứt phá.': 'breakthrough band scores.',
   'Học 15 phút mỗi ngày với flashcard thông minh, trò chơi, bài đọc và luyện phát âm. Mọi từ đều có phiên âm chuẩn Anh–Anh, nghĩa tiếng Việt và câu ví dụ IELTS.': 'Study 15 minutes a day with smart flashcards, games, readings and pronunciation practice. Every word comes with British IPA, a clear meaning and IELTS example sentences.',
   'Bắt đầu miễn phí →': 'Start for free →',
   'Tôi đã có tài khoản': 'I already have an account',
   'Kiểm tra trình độ trước (5 phút) →': 'Take a placement test first (5 min) →',
-  'Miễn phí · Không quảng cáo · Dữ liệu học thuộc về bạn': 'Free · No ads · Your study data belongs to you',
   'Quên': 'Again',
   'Khó': 'Hard',
   'Nhớ': 'Good',
@@ -2139,9 +2095,6 @@
   'Quảng cáo': 'Advertisement',
   'Xong mục tiêu hôm nay rồi! Giỏi quá 🎉': 'Today’s goal done! Amazing 🎉',
   'Học 5 phút với mình để giữ chuỗi nhé!': 'Study 5 minutes with me to keep your streak!',
-  'Hôm nay mình ôn {n} thẻ cùng nhau nhé!': 'Let’s review {n} cards together today!',
-  'Chọn bộ từ đầu tiên cùng mình nhé!': 'Let’s pick your first word set together!',
-  'Chào bạn, mình là Kit! 3 câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.': 'Hi, I’m Kit! Three quick questions and I’ll build a plan just for you.',
   '6.800+ từ IELTS, TOEIC & TOEFL': '6,800+ IELTS, TOEIC & TOEFL words',
   'Âm thanh': 'Sound',
   'Nhắc học': 'Reminders',
@@ -2338,7 +2291,6 @@
   'Add-on vừa được cập nhật – hãy tải lại trang.': 'The add-on was just updated – please reload the page.',
   '⏳ Đang dịch…': '⏳ Translating…',
   '🌐 Dịch đoạn đã chọn': '🌐 Translate selection',
-  'Anh → Việt': 'English → Vietnamese',
   'Không dịch được đoạn này.': 'Could not translate this text.',
   '🧩 Cấu trúc trong đoạn': '🧩 Structures in this text',
   '📐 Học bài ngữ pháp này →': '📐 Learn this grammar lesson →',
@@ -2389,7 +2341,6 @@
   '⏰ Thời điểm vàng!': '⏰ Golden moment!',
   '{n} từ đang ở thời điểm sắp quên – ôn 3 phút để nhớ lâu hơn.': '{n} words are about to be forgotten – review for 3 minutes to remember them longer.',
   'Tra từ “%s” với Lexkite': 'Look up “%s” with Lexkite',
-  'Dịch đoạn đã chọn sang tiếng Việt': 'Translate selection to Vietnamese',
   'Ảnh không đúng – ẩn ảnh này': 'Wrong picture – hide it',
   'Hết lượt AI miễn phí hôm nay – thử lại vào ngày mai.': 'Daily free AI limit reached – try again tomorrow.',
   'AI đang bận – thử lại sau ít phút.': 'AI is busy right now – try again in a few minutes.',
@@ -2478,7 +2429,6 @@
   'Viết luận, AI chấm theo 4 tiêu chí': 'Essays scored by AI on the 4 criteria',
   'Ngân hàng ý tưởng': 'Idea bank',
   'Ý tưởng và từ vựng theo chủ đề': 'Ideas and vocabulary by topic',
-  'Cấu trúc ăn điểm cho bài viết': 'High-scoring structures for writing',
   'Task 1 – Viết thư': 'Task 1 – Letters',
   'Thư trang trọng, bán trang trọng, thân mật': 'Formal, semi-formal and informal letters',
   'Sắp xếp từ thành câu': 'Put the words in order',
@@ -2683,11 +2633,9 @@
   "Học rảnh tay": "Hands-free learning",
   "Nghe rảnh tay": "Hands-free listening",
   "Nghe liên tục, khóa màn hình vẫn học": "Keeps playing, even with the screen locked",
-  "Nghe từ, nghĩa và câu ví dụ liên tục – vừa đi bộ, lái xe hay làm việc nhà. Có thể khóa màn hình, điều khiển bằng tai nghe.": "Hear words, meanings and example sentences non-stop – while walking, driving or doing chores. Lock your screen and control it with your headphones.",
   "Từ trước": "Previous word",
   "Từ tiếp": "Next word",
   "Đọc nghĩa (khi mở màn hình)": "Read meanings (screen on)",
-  "Khóa màn hình vẫn nghe được với các từ có giọng đọc chất lượng cao (Kokoro). Danh sách: {t}": "Words with high-quality (Kokoro) audio keep playing with the screen locked. List: {t}",
   "Chưa có từ nào để nghe.": "No words to play yet.",
   "Từ đến hạn ôn": "Words due for review",
   "Chế độ thì thầm khi luyện nói": "Whisper mode for speaking practice",
@@ -2764,6 +2712,7 @@
   "Chưa có từ sắp quên": "No words fading yet",
   "Bắt đầu học {n} từ đầu tiên": "Start learning your first {n} words",
   "Lưu từ khi tra cứu hoặc học theo lộ trình – Lexkite nhắc bạn ôn đúng lúc sắp quên.": "Save words as you look them up or follow the learning path – Lexkite reminds you to review just before you forget.",
+  "Khoe thành tích": "Share your progress",
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* ✍️ Soát lỗi viết trong add-on (extension/writecheck.js, popup, web/js/writecheck-rules.js). Định dạng JSON để service worker đọc được (bản tiếng Anh cho add-on). */
@@ -2919,7 +2868,6 @@
   'Vùng an toàn': 'Safe zone',
   '{xp} XP tuần này': '{xp} XP this week',
   'Bảng xếp hạng': 'Leaderboard',
-  'Xem bảng xếp hạng': 'View leaderboard',
 
   // Nickname modal
   'Đổi biệt danh bảng xếp hạng': 'Change leaderboard nickname',
@@ -3013,7 +2961,6 @@
   'Nhận thêm lượt:': 'Earn more:',
   'Ngày đóng băng vẫn được tính vào chuỗi nên chuỗi không bị đứt.': 'A freeze day still counts toward your streak, so it never breaks.',
   'Học ngay hôm nay': 'Study today',
-  'Đóng băng chuỗi là gì?': 'What is Streak Freeze?',
   'Đóng băng chuỗi': 'Streak freeze',
   'Tự động bảo vệ:': 'Auto-protect:',
   'Nếu bạn lỡ quên học 1 ngày, hệ thống sẽ tự động dùng 1 lượt đóng băng để giữ chuỗi ngày liên tiếp.': 'If you miss a day of study, 1 streak freeze is automatically used to protect your continuous streak.',
@@ -3021,7 +2968,6 @@
   '{n}/{max} lượt khả dụng': '{n}/{max} freezes available',
   'Ngày đóng băng (chuỗi được bảo toàn)': 'Streak freeze day (streak preserved)',
   'Đóng băng': 'Freeze',
-  'Đang bảo vệ': 'Active',
   'Hết lượt': 'Empty',
   'Chuỗi {n} ngày': '{n}-day streak',
   'Đóng băng chuỗi 🧊': 'Streak freeze 🧊',

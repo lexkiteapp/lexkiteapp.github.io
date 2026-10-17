@@ -183,21 +183,15 @@
   /* ---------- plan.js: today's plan ---------- */
   'Làm bài kiểm tra đầu vào (5 phút)': 'Take the placement test (5 min)',
   'Để Lexkite cá nhân hóa lộ trình cho bạn': 'So Lexkite can personalize your path',
-  'Ôn {n} thẻ đang đến thời điểm vàng': 'Review {n} cards at their optimal time',
   'Ôn tập thẻ đến hạn': 'Review due cards',
   'Lặp lại ngắt quãng – ưu tiên số 1': 'Spaced repetition – top priority',
-  'Lộ trình: {name}': 'Path: {name}',
   'đã học {pct}%': '{pct}% learned',
   'Ngữ pháp: {title}': 'Grammar: {title}',
-  'Lần trước {pct}% – làm lại cho chắc': 'Last time {pct}% – redo it to lock it in',
-  'Học từng bước + {n} câu luyện tập': 'Step-by-step lesson + {n} practice questions',
   'Nghe: Test {test} · Part {part}': 'Listening: Test {test} · Part {part}',
   'Lần trước {score}/10 – nghe lại có lời thoại': 'Last time {score}/10 – listen again with the transcript',
   '10 câu': '10 questions',
   'Phát âm: {title}': 'Pronunciation: {title}',
   'Khẩu hình → nghe phân biệt → nói & chấm điểm': 'Mouth position → listen and compare → speak and get scored',
-  'Xem lại {n} lỗi sai': 'Review {n} mistakes',
-  'Sửa lỗi = tăng điểm nhanh nhất': 'Fixing mistakes = the fastest score boost',
   'Đọc 1 bài IELTS & lưu từ mới': 'Read 1 IELTS passage & save new words',
   'Ngữ liệu dễ hiểu – học từ trong ngữ cảnh': 'Comprehensible input – learn words in context',
   'Luyện Speaking 1 câu hỏi': 'Practice 1 Speaking question',
@@ -451,9 +445,6 @@
   'Thi thử ngay tuần này để đo điểm xuất phát.': 'Take a mock test this week to measure your starting score.',
   'Thi thử đều đặn giúp đo tiến bộ thật và điều chỉnh kế hoạch – điểm hiện tại và chỉ tiêu tuần sẽ tự tính lại sau mỗi lần thi.': 'Regular mock tests measure your real progress and keep your plan on course – your current score and weekly targets are recalculated after each one.',
   'Chọn ngày thi trong tương lai': 'Choose an exam date in the future',
-  'Band IELTS từ 4.0 đến 9.0': 'IELTS band must be between 4.0 and 9.0',
-  'Điểm TOEIC từ 300 đến 990': 'TOEIC score must be between 300 and 990',
-  'Đã lập kế hoạch! Chỉ tiêu tuần hiện trên Trang chủ.': 'Plan created! Your weekly targets now appear on the Home page.',
 }); })(typeof self !== 'undefined' ? self : this);
 /* Từ khó nhớ (leech) */
 (function (g) { Object.assign(g.I18N_DICT.en, {
@@ -474,5 +465,5 @@
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Làm lại {n} lỗi sai': 'Retry {n} mistakes', 'Tự nhớ lại đáp án – sửa lỗi = tăng điểm nhanh nhất': 'Recall the answer yourself – fixing mistakes is the fastest way to score higher' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Hoàn tác lần chấm vừa rồi (Z)': 'Undo last grade (Z)', 'Đã hoàn tác – chấm lại thẻ này': 'Undone – grade this card again' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'hoàn tác': 'undo' }); })(typeof self !== 'undefined' ? self : this);
-(function (g) { Object.assign(g.I18N_DICT.en, { 'Mẹo nhớ': 'Mnemonic', 'Lỗi hay gặp': 'Common mistake', 'Cách dùng khi thi': 'Exam usage', 'Họ từ': 'Word family', 'Chế độ Rảnh tay': 'Hands-free mode', 'Xem lại đoạn gốc': 'Replay the original clip' }); })(typeof self !== 'undefined' ? self : this);
+(function (g) { Object.assign(g.I18N_DICT.en, { 'Mẹo nhớ': 'Mnemonic', 'Lỗi hay gặp': 'Common mistake','Họ từ': 'Word family', 'Chế độ Rảnh tay': 'Hands-free mode', 'Xem lại đoạn gốc': 'Replay the original clip' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Hiểu sâu': 'Go deeper', 'Dùng khi thi': 'In the exam', 'Sai': 'Wrong', 'Đúng': 'Right', 'Chấm mức độ nhớ': 'Rate how well you remembered', 'Chạm để nghe · chạm lần nữa để tra nghĩa': 'Tap to hear · tap again to look it up' }); })(typeof self !== 'undefined' ? self : this);
