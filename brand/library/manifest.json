@@ -40,7 +40,7 @@
       ],
       "auto": true,
       "qa": null,
-      "ready": true
+      "ready": false
     },
     {
       "id": "office-01-night",
@@ -116,7 +116,7 @@
       ],
       "auto": true,
       "qa": null,
-      "ready": true
+      "ready": false
     },
     {
       "id": "school-01-day",
@@ -324,7 +324,7 @@
       ],
       "auto": true,
       "qa": null,
-      "ready": true
+      "ready": false
     },
     {
       "id": "apartment-02-day",
@@ -365,7 +365,7 @@
       ],
       "auto": true,
       "qa": null,
-      "ready": true
+      "ready": false
     },
     {
       "id": "cafe-02-day",
@@ -406,7 +406,7 @@
       ],
       "auto": true,
       "qa": null,
-      "ready": true
+      "ready": false
     },
     {
       "id": "office-02-day",
@@ -447,7 +447,7 @@
       ],
       "auto": true,
       "qa": null,
-      "ready": true
+      "ready": false
     },
     {
       "id": "office-03-day",
@@ -488,7 +488,7 @@
       ],
       "auto": true,
       "qa": null,
-      "ready": true
+      "ready": false
     }
   ],
   "clips": [
@@ -504,7 +504,17 @@
       ],
       "mouth": true,
       "facing": "right",
-      "ready": false
+      "ready": true,
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        462,
+        1526
+      ],
+      "figH": 1526,
+      "w": 822,
+      "h": 1526
     },
     {
       "id": "mia_ask_think",
@@ -560,7 +570,17 @@
       ],
       "mouth": false,
       "facing": "right",
-      "ready": false
+      "ready": true,
+      "roles": [
+        "listener"
+      ],
+      "foot": [
+        344,
+        1521
+      ],
+      "figH": 1521,
+      "w": 692,
+      "h": 1522
     },
     {
       "id": "mia_idle",
@@ -573,7 +593,17 @@
       ],
       "mouth": false,
       "facing": "right",
-      "ready": false
+      "ready": true,
+      "roles": [
+        "listener"
+      ],
+      "foot": [
+        349,
+        1524
+      ],
+      "figH": 1524,
+      "w": 598,
+      "h": 1524
     },
     {
       "id": "leo_talk_point",
@@ -587,7 +617,17 @@
       ],
       "mouth": true,
       "facing": "left",
-      "ready": false
+      "ready": true,
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        521,
+        1518
+      ],
+      "figH": 1518,
+      "w": 992,
+      "h": 1518
     },
     {
       "id": "leo_think_idea",
@@ -615,7 +655,17 @@
       ],
       "mouth": true,
       "facing": "front",
-      "ready": false
+      "ready": true,
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        371,
+        1524
+      ],
+      "figH": 1524,
+      "w": 762,
+      "h": 1524
     },
     {
       "id": "leo_wave_thumbs",
@@ -717,6 +767,150 @@
       "mouth": false,
       "facing": "front",
       "ready": false
+    },
+    {
+      "id": "carlos_surprise_shrug",
+      "who": "carlos",
+      "tags": [
+        "surprise",
+        "shrug"
+      ],
+      "outfit": "casual",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/carlos_surprise_shrug.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        495,
+        1536
+      ],
+      "figH": 1536,
+      "w": 892,
+      "h": 1536,
+      "ready": true
+    },
+    {
+      "id": "carlos_talk_laugh",
+      "who": "carlos",
+      "tags": [
+        "talk",
+        "laugh"
+      ],
+      "outfit": "casual",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/carlos_talk_laugh.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        527,
+        1532
+      ],
+      "figH": 1532,
+      "w": 804,
+      "h": 1532,
+      "ready": true
+    },
+    {
+      "id": "carlos_wave_thumbs",
+      "who": "carlos",
+      "tags": [
+        "wave",
+        "thumbs"
+      ],
+      "outfit": "casual",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/carlos_wave_thumbs.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        499,
+        1521
+      ],
+      "figH": 1521,
+      "w": 960,
+      "h": 1522,
+      "ready": true
+    },
+    {
+      "id": "diane_idle_listen",
+      "who": "diane",
+      "tags": [
+        "idle",
+        "listen"
+      ],
+      "outfit": "office",
+      "mouth": false,
+      "facing": "front",
+      "file": "clips/diane_idle_listen.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "listener"
+      ],
+      "foot": [
+        217,
+        1552
+      ],
+      "figH": 1552,
+      "w": 848,
+      "h": 1554,
+      "ready": true
+    },
+    {
+      "id": "diane_nod_handsonhips",
+      "who": "diane",
+      "tags": [
+        "nod",
+        "handsonhips"
+      ],
+      "outfit": "office",
+      "mouth": false,
+      "facing": "front",
+      "file": "clips/diane_nod_handsonhips.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "listener"
+      ],
+      "foot": [
+        217,
+        1561
+      ],
+      "figH": 1561,
+      "w": 848,
+      "h": 1562,
+      "ready": true
+    },
+    {
+      "id": "mia_shrug_cross",
+      "who": "mia",
+      "tags": [
+        "shrug",
+        "cross"
+      ],
+      "outfit": "office",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/mia_shrug_cross.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        567,
+        1500
+      ],
+      "figH": 1500,
+      "w": 914,
+      "h": 1500,
+      "ready": true
     }
   ],
   "stills": [
