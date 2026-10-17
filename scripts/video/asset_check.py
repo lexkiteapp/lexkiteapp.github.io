@@ -36,7 +36,7 @@ T = {
     'foot': 0.015,              # đáy bbox dao động < 1,5 % chiều cao khung
     'bg_shift': 8.0,            # màu nền mép thay đổi theo thời gian (0–255)
     'flicker': 0.004,           # tỉ lệ điểm alpha bật-tắt-bật giữa 3 khung (trên diện tích mặt nạ)
-    'shadow_ratio': 0.30,       # tỉ lệ điểm xám nhạt ít bão hoà ở 4 % đáy mặt nạ → còn bóng sàn dính
+    'shadow_ratio': 0.18,       # tỉ lệ điểm bán trong suốt ở 4 % đáy mặt nạ → còn bóng sàn dính
     'audio_db': -45.0,          # max_volume > -45 dB = có âm thanh (clip kho phải im lặng)
 }
 BRAND = ['#0F3D3E', '#17595A', '#E5502F', '#F2553B', '#FFB054', '#FFC94A', '#FFD36A', '#FF8FA3', '#FFF7EA', '#FFE7C2', '#2FBF71']
@@ -523,10 +523,10 @@ def floor_shadow(alpha, rgb=None):
         bot = max(width(y) for y in range(band.start, y1 + 1))
         ankle = max(1, max(width(y) for y in range(y1 - int(hh * 0.10), y1 - int(hh * 0.06) + 1)))
         return bot / ankle / 4
-    c = rgb[band].astype(np.int16); m = on[band]
-    mx, mn = c.max(2), c.min(2)
-    shadowish = m & (mx > 110) & (mx < 228) & ((mx - mn) < 22)
-    return float(shadowish.sum()) / max(1, int(m.sum()))
+    # Bóng dính do tách nền: điểm BÁN TRONG SUỐT (alpha 24–200) ở dải đáy – giày/quần luôn đặc (≈250); viền khử răng cưa chỉ 1–2 px nên tỉ lệ thấp.
+    a = alpha[band]; m = a > 24
+    semi = m & (a < 200)
+    return float(semi.sum()) / max(1, int(m.sum()))
 
 
 def stacked_mask_stats(lower):
