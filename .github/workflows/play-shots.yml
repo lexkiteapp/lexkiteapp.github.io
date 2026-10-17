@@ -1,0 +1,29 @@
+# Ảnh Google Play (app Android com.lexkite.app) chụp từ app thật trên lexkite.com (scripts/play-shots.mjs) – lưu vào nhánh "play-shots" để tải về / tải lên Play Console.
+name: Ảnh Google Play
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/play-shots.yml', 'scripts/play-shots.mjs']
+permissions:
+  contents: write
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chụp
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.50.1
+          npx playwright install --with-deps chromium
+          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core >/dev/null
+          node scripts/play-shots.mjs /tmp/play-shots
+      - name: Lưu vào nhánh play-shots
+        run: |
+          cd /tmp/play-shots && git init -q && git checkout -q -b play-shots
+          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
+          git add . && git commit -qm "Ảnh Google Play $(date -u +%F)"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" play-shots
