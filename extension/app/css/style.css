@@ -1011,12 +1011,10 @@ a, button, label, .option, .card.hover, [role="button"] { touch-action: manipula
 .bottom-nav a span { transition: transform .2s cubic-bezier(.2, .9, .3, 1.4); }
 .bottom-nav a.active span { transform: translateY(-2px) scale(1.12); }
 /* Chuyển trang: chỉ vùng nội dung chuyển động, thanh trên/dưới đứng yên */
-#view { view-transition-name: vb-view; }
-::view-transition-old(root), ::view-transition-new(root) { animation: none; }
-::view-transition-old(vb-view) { animation: vbOut .14s ease-in both; }
-::view-transition-new(vb-view) { animation: vbIn .22s cubic-bezier(.2, .8, .2, 1) both; }
-@keyframes vbOut { to { opacity: 0; transform: translateY(-4px); } }
-@keyframes vbIn { from { opacity: 0; transform: translateY(8px); } }
+/* Chuyển trang: chỉ mờ dần (không transform – không tạo khung chứa cho phần tử fixed/hộp thoại trong #view) */
+#view { animation: viewIn .18s ease-out; }
+@keyframes viewIn { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { #view { animation: none; } }
 /* Khung chờ khi tải */
 .skel-page { display: grid; gap: .9rem; padding-top: .4rem; }
 .skel { border-radius: 14px; background: linear-gradient(90deg, var(--surface-2) 25%, var(--surface-3, var(--line)) 50%, var(--surface-2) 75%); background-size: 200% 100%; animation: skel 1.2s ease-in-out infinite; }

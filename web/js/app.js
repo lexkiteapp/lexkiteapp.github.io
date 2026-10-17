@@ -17,8 +17,10 @@
     reading: { emoji: '📖', get name() { return t('Từ bài đọc'); }, get desc() { return t('Lưu khi đọc bài trong Lexkite'); } },
     dict: { emoji: '🔎', get name() { return t('Từ tra từ điển'); }, get desc() { return t('Từ bạn tự tra và lưu'); } },
     library: { emoji: '📚', get name() { return t('Từ thư viện'); }, get desc() { return t('Thêm từ các bộ từ IELTS'); } },
+    anki: { emoji: '🃏', get name() { return t('Từ Anki'); }, get desc() { return t('Nhập từ bộ thẻ Anki'); } },
   };
   function origin(c) {
+    if (c.deck || c.topic === 'anki') return 'anki';
     const ctx = (c.contexts || []).find(x => x.source) || c.contexts[c.contexts.length - 1];
     if (ctx && ctx.source && /youtube\.com|youtu\.be|netflix|vimeo|ted\.com/.test(ctx.source)) return 'youtube';
     if (ctx && ctx.source && /^https?:/.test(ctx.source)) return 'web';
@@ -230,6 +232,7 @@
     streak: ['js/streak-ui.js'],
     vcore: ['js/verbs-core.js'], verbs: ['js/verbs.js'], fixer: ['js/writecheck-rules.js', 'js/fixer.js'], // 🔤 Chia động từ · ✍️ Sửa ngữ pháp
     wordcard: ['js/wordcard.js'], // 🧠 Khối "Hiểu sâu" của thẻ từ (mẹo nhớ · lỗi sai/đúng · dùng khi thi · họ từ)
+    anki: ['js/anki.js'], // 🃏 Xuất/nhập Anki (.apkg/.txt/.csv) – chỉ tải khi mở hộp thoại Anki
   };
   const ROUTE_BUNDLE = { paraphrase: 'paraphrase', courses: 'courses', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: 'grammar', placement: ['words', 'grammar'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
     toefl: ['listening', 'toefl'], 'toefl-p': ['listening', 'toefl'],
@@ -251,6 +254,8 @@
   // Tải song song nhưng chạy đúng thứ tự (async=false); file thiếu được bỏ qua
   App.need = (...names) => Promise.all(names.map(n => bundleP[n] || (bundleP[n] = Promise.all(BUNDLES[n].map(loadScript)))));
   App.loaded = n => !!bundleP[n];
+  App.anki = async (tab, opts) => { try { await App.need('anki'); if (!window.AnkiUI) throw new Error('anki'); await AnkiUI.open(tab, opts || {}); } catch (e) { toast(t('Không tải được – thử lại sau')); } };
+  const ankiAll = () => ({ cards: Object.values(state.cards), name: t('Sổ từ') });
   // Rảnh thì tải trước các module còn lại → chuyển trang tức thì, dùng offline được
   const idle = cb => ('requestIdleCallback' in window ? requestIdleCallback(cb, { timeout: 4000 }) : setTimeout(cb, 2500));
   // Tải sẵn các phần còn lại khi máy rảnh – bỏ qua khi người dùng tiết kiệm dữ liệu, mạng chậm hoặc máy yếu (tải khi cần là đủ)
@@ -654,7 +659,7 @@
     const total = Object.keys(INDEX).length;
     view.innerHTML = `
       <div class="page-head"><div><h1>${t('Thư viện từ vựng')}</h1><p class="muted">${t('{n} từ & cụm từ trong {k} bộ – phiên âm Anh–Anh, cấp độ CEFR, collocation và câu ví dụ IELTS.', { n: total.toLocaleString(I18N.lang()), k: TOPICS.length })}</p></div>
-        <input class="input" id="libQ" placeholder="${t('Lọc bộ từ…')}" style="max-width:240px"></div>
+        <div class="row"><input class="input" id="libQ" placeholder="${t('Lọc bộ từ…')}" style="max-width:240px"><button class="btn sm" id="libAnkiOut">🃏 ${t('Xuất sang Anki')}</button><button class="btn sm" id="libAnkiIn">🃏 ${t('Nhập từ Anki')}</button></div></div>
       <div class="tabs" id="libTabs">
         <button data-g="all" class="${tab === 'all' ? 'on' : ''}">${t('Tất cả')}</button>
         ${GROUPS.map(g => `<button data-g="${g.id}" class="${tab === g.id ? 'on' : ''}">${g.emoji} ${esc(g.name)}</button>`).join('')}
@@ -679,6 +684,8 @@
     };
     $$('#libTabs button').forEach(b => b.onclick = () => { $$('#libTabs button').forEach(x => x.classList.toggle('on', x === b)); history.replaceState(null, '', location.pathname + location.search + `#/library?g=${b.dataset.g}`); draw(); });
     $('#libQ').oninput = draw;
+    $('#libAnkiOut').onclick = () => App.anki('export', ankiAll());
+    $('#libAnkiIn').onclick = () => App.anki('import');
     $('#libBody').onclick = e => { const a = e.target.closest('[data-go-g]'); if (!a) return; e.preventDefault(); const b = $(`#libTabs [data-g="${a.dataset.goG}"]`); if (b) { b.click(); b.scrollIntoView({ inline: 'center', block: 'nearest' }); window.scrollTo(0, 0); } };
     if (!$('#libTabs .on')) { const b = $('#libTabs [data-g="topics"]') || $('#libTabs button'); b.classList.add('on'); }
     draw();
@@ -716,6 +723,7 @@
           <a class="btn" href="#/practice/match?src=topic:${tp.id}">⚡ ${t('Ghép thẻ')}</a>
           <a class="btn" href="#/practice/test?src=topic:${tp.id}">📝 ${t('Kiểm tra')}</a>
           <a class="btn" href="#/handsfree/${tp.id}">🎧 ${t('Nghe rảnh tay')}</a>
+          <button class="btn" id="tpAnki">🃏 ${t('Xuất sang Anki')}</button>
         </div>
       </div>
       ${levels.length > 1 ? `<div class="tabs" id="lvTabs" style="margin-bottom:1rem;display:inline-flex"><button class="on" data-lv="">${t('Tất cả')}</button>${levels.map(l => `<button data-lv="${l}">${l}</button>`).join('')}</div>` : ''}
@@ -745,6 +753,7 @@
     };
     header(); draw();
     $$('#lvTabs button').forEach(b => b.onclick = () => { $$('#lvTabs button').forEach(x => x.classList.toggle('on', x === b)); lv = b.dataset.lv; draw(); });
+    $('#tpAnki').onclick = () => App.anki('export', { cards: tp.words.map(w => state.cards[w.word.toLowerCase()] || w), name: tp.name, progress: false });
     $('#addAll').onclick = async () => {
       const list = missing();
       $('#addAll').disabled = true;
@@ -1036,10 +1045,10 @@
     const list = Object.values(state.cards);
     view.innerHTML = `
       <div class="page-head"><div><h1>${t('Sổ từ của bạn')}</h1><p class="muted">${t('{n} từ · {k} đã thuộc', { n: list.length, k: masteredCount() })}</p></div>
-        <div class="row"><a class="btn sm" href="#/practice/learn?src=deck">🧠 ${t('Học')}</a><a class="btn sm" href="#/practice/test?src=deck">📝 ${t('Kiểm tra')}</a><button class="btn sm" id="shareBtn">🔗 ${t('Chia sẻ bộ thẻ')}</button><button class="btn sm" id="exportBtn">⬇️ ${t('Xuất')}</button><label class="btn sm">⬆️ ${t('Nhập')}<input type="file" id="importFile" accept="application/json" hidden></label><button class="btn sm" id="ankiOut" title="${t('Tạo file nhập thẳng vào Anki (File → Import)')}">🃏 ${t('Xuất sang Anki')}</button><label class="btn sm" title="${t('Nhập file .txt/.tsv/.csv xuất từ Anki (Notes in Plain Text)')}">🃏 ${t('Nhập từ Anki')}<input type="file" id="ankiIn" accept=".txt,.tsv,.csv,text/plain,text/csv" hidden></label></div></div>
+        <div class="row"><a class="btn sm" href="#/practice/learn?src=deck">🧠 ${t('Học')}</a><a class="btn sm" href="#/practice/test?src=deck">📝 ${t('Kiểm tra')}</a><button class="btn sm" id="shareBtn">🔗 ${t('Chia sẻ bộ thẻ')}</button><button class="btn sm" id="exportBtn">⬇️ ${t('Xuất')}</button><label class="btn sm">⬆️ ${t('Nhập')}<input type="file" id="importFile" accept="application/json" hidden></label><button class="btn sm" id="ankiOut">🃏 ${t('Xuất sang Anki')}</button><button class="btn sm" id="ankiIn">🃏 ${t('Nhập từ Anki')}</button></div></div>
       <div class="grid g4" style="margin-bottom:1rem">
         <input class="input" id="filterQ" placeholder="${t('Tìm từ hoặc nghĩa…')}">
-        <select class="input" id="filterTopic"><option value="">${t('Tất cả bộ từ')}</option>${TOPICS.map(t => `<option value="${t.id}">${t.emoji} ${esc(t.name)}</option>`).join('')}<option value="mine">📌 ${t('Từ tự thêm')}</option></select>
+        <select class="input" id="filterTopic"><option value="">${t('Tất cả bộ từ')}</option>${TOPICS.map(t => `<option value="${t.id}">${t.emoji} ${esc(t.name)}</option>`).join('')}<option value="mine">📌 ${t('Từ tự thêm')}</option>${[...new Set(list.map(c => c.deck).filter(Boolean))].sort().map(d => `<option value="deck:${esc(d)}">🃏 ${esc(d)}</option>`).join('')}</select>
         <select class="input" id="filterFrom"><option value="">${t('Mọi nguồn')}</option>${Object.entries(ORIGINS).map(([k, o]) => `<option value="${k}" ${from === k ? 'selected' : ''}>${o.emoji} ${o.name}</option>`).join('')}<option value="forget" ${from === 'forget' ? 'selected' : ''}>⚠️ ${t('Sắp quên')}</option></select>
         <select class="input" id="filterM"><option value="">${t('Mọi mức độ')}</option><option value="0">${t('Chưa học')}</option><option value="1">${t('Đang học')}</option><option value="2">${t('Quen')}</option><option value="3">${t('Đã thuộc')}</option></select>
       </div>
@@ -1048,7 +1057,7 @@
     const draw = () => {
       const q = $('#filterQ').value.trim().toLowerCase(), tp = $('#filterTopic').value, m = $('#filterM').value, fr = $('#filterFrom').value;
       const forgetSet = new Set(forgetting().map(c => c.word));
-      const rows = list.filter(c => (!q || c.word.includes(q) || (c.vi || '').toLowerCase().includes(q)) && (!tp || c.topic === tp) && (m === '' || SRS.mastery(c.srs) === +m)
+      const rows = list.filter(c => (!q || c.word.includes(q) || (c.vi || '').toLowerCase().includes(q)) && (!tp || (tp.startsWith('deck:') ? c.deck === tp.slice(5) : c.topic === tp)) && (m === '' || SRS.mastery(c.srs) === +m)
         && (!fr || (fr === 'forget' ? forgetSet.has(c.word) : origin(c) === fr))).sort((a, b) => fr === 'forget' ? SRS.retention(a.srs) - SRS.retention(b.srs) : b.added - a.added);
       shownRows = rows;
       $('#deckList').innerHTML = rows.length ? rows.slice(0, 400).map(c => `
@@ -1068,45 +1077,13 @@
     $('#exportBtn').onclick = exportData;
     $('#shareBtn').onclick = () => { const tp = $('#filterTopic').value, T = TOPICS.find(x => x.id === tp); shareDeck(T ? T.name : t('Bộ từ của {n}', { n: (state.user && state.user.displayName) || 'Lexkite' }), shownRows); };
     $('#importFile').onchange = importData;
-    $('#ankiOut').onclick = exportAnki;
-    $('#ankiIn').onchange = importAnki;
+    $('#ankiOut').onclick = () => { const tp = $('#filterTopic').value, T = TOPICS.find(x => x.id === tp); App.anki('export', { ...ankiAll(), shown: shownRows, name: T ? T.name : tp.startsWith('deck:') ? tp.slice(5) : t('Sổ từ') }); };
+    $('#ankiIn').onclick = () => App.anki('import');
   };
 
   async function exportData() {
     const blob = new Blob([JSON.stringify({ app: 'ielts-lexi', version: 2, exported: new Date().toISOString(), cards: state.cards, stats: state.stats, game: state.game, settings: state.settings }, null, 2)], { type: 'application/json' });
     download(blob, `ielts-lexi-${todayKey()}.json`);
-  }
-  // ---------- Liên thông Anki ----------
-  // Xuất: file văn bản có header Anki (tab, HTML) – Anki → File → Import nhận ngay thành thẻ Basic, kèm tag chủ đề
-  function exportAnki() {
-    const clean = x => String(x || '').replace(/[\t\r\n]+/g, ' ').trim();
-    const rows = Object.values(state.cards).map(c => {
-      const ctx = (c.contexts || [])[0];
-      const front = `<b>${esc(clean(c.word))}</b>${c.ipa ? `<br><span style="color:#888">${esc(clean(c.ipa))}</span>` : ''}`;
-      const back = [c.vi && `<b>${esc(clean(c.vi))}</b>`, c.def && esc(clean(c.def)), (ctx && ctx.text) ? `<i>${esc(clean(ctx.text))}</i>` : c.ex ? `<i>${esc(clean(c.ex))}</i>` : '', ctx && ctx.vi ? esc(clean(ctx.vi)) : ''].filter(Boolean).join('<br>');
-      const tags = ['lexkite', c.topic || '', c.level || ''].filter(Boolean).map(t => String(t).replace(/\s+/g, '_')).join(' ');
-      return [front, back, tags].join('\t');
-    });
-    const head = '#separator:tab\n#html:true\n#notetype:Basic\n#tags column:3\n';
-    download(new Blob([head + rows.join('\n')], { type: 'text/plain;charset=utf-8' }), `lexkite-anki-${todayKey()}.txt`);
-    toast(t('Đã xuất {n} thẻ – mở Anki → File → Import → chọn file này', { n: rows.length }), 4500);
-  }
-  // Nhập: file "Notes in Plain Text" của Anki (tab) hoặc CSV 2 cột: mặt trước = từ, mặt sau = nghĩa
-  async function importAnki(e) {
-    const f = e.target.files[0]; if (!f) return;
-    const strip = x => String(x || '').replace(/<br\s*\/?>/gi, ' · ').replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/\[sound:[^\]]*\]/g, '').replace(/^"|"$/g, '').trim();
-    const lines = (await f.text()).split(/\r?\n/).filter(l => l.trim() && !l.startsWith('#')).slice(0, 5000);
-    let n = 0, skip = 0;
-    for (const l of lines) {
-      const cols = l.includes('\t') ? l.split('\t') : l.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/);
-      const word = strip(cols[0]).split(' · ')[0].toLowerCase(), vi = strip(cols[1] || '');
-      if (!word || word.length > 60 || !/[a-z]/i.test(word)) { skip++; continue; }
-      if (App.inDeck(word)) { skip++; continue; }
-      const lib = IELTS_DATA.INDEX[word];
-      await addWord(lib ? { ...lib } : { word, vi: vi.slice(0, 200), pos: /\s/.test(word) ? 'phrase' : '', emoji: '🃏', topic: 'anki' }, null, { silent: true }); n++;
-    }
-    e.target.value = '';
-    await load(); toast(`🃏 ${skip ? t('Đã nhập {n} thẻ từ Anki (bỏ qua {k} dòng trùng/không hợp lệ)', { n, k: skip }) : t('Đã nhập {n} thẻ từ Anki', { n })}`, 4500); route();
   }
   async function importData(e) {
     const f = e.target.files[0]; if (!f) return;
@@ -1313,6 +1290,7 @@
       ${sec('data', '💾 ' + t('Dữ liệu'),
         row(t('Chuyển dữ liệu'), `<a class="btn sm" href="#/handoff">${t('📲 Chuyển sang điện thoại (không cần đăng nhập)')}</a>`)
         + row(t('Xuất sao lưu'), `<button type="button" class="btn sm" id="sExport">⬇️ ${t('Xuất sao lưu')}</button>`)
+        + row('🃏 Anki', `<span class="set-btns"><button type="button" class="btn sm" id="sAnkiOut">${t('Xuất sang Anki')}</button><button type="button" class="btn sm" id="sAnkiIn">${t('Nhập từ Anki')}</button></span>`)
         + row(t('Nhập sao lưu'), `<label class="btn sm">⬆️ ${t('Nhập sao lưu')}<input type="file" id="sImport" accept="application/json" hidden></label>`)
         + row(`<span class="danger-t">${t('Xóa toàn bộ dữ liệu học')}</span>`, `<button type="button" class="btn sm danger" id="sReset">${t('Xóa')}</button>`)
         + row(t('Pháp lý & hỗ trợ'), `<span class="set-btns"><a class="btn sm" href="${App.legalUrl('privacy')}">${t('Chính sách quyền riêng tư')}</a><a class="btn sm" href="${App.legalUrl('terms')}">${t('Điều khoản sử dụng')}</a><a class="btn sm" href="#/contact">${t('Liên hệ')}</a></span>`))}
@@ -1359,6 +1337,8 @@
     const p = $('#sPerm'); if (p) p.onclick = async () => { await Notification.requestPermission(); routes.settings(); };
     const ics = $('#sIcs'); if (ics) ics.onclick = () => download(new Blob([makeICS(s.reminderTime)], { type: 'text/calendar' }), 'ielts-lexi-nhac-hoc.ics');
     $('#sExport').onclick = exportData;
+    $('#sAnkiOut').onclick = () => App.anki('export', ankiAll());
+    $('#sAnkiIn').onclick = () => App.anki('import');
     $('#sImport').onchange = importData;
     $('#sReset').onclick = async () => {
       if (!confirm(t('Xóa toàn bộ flashcard, tiến độ, XP và thống kê trên thiết bị này? Không thể hoàn tác.'))) return;
