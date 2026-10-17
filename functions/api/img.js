@@ -45,7 +45,7 @@ async function wiki(word) {
   return { src: ii.thumburl, link: ii.descriptionurl, license: lic, title: strip(d.title || word).slice(0, 60), creator: strip((m.Artist || {}).value).slice(0, 80), via: 'Wikimedia Commons' };
 }
 
-export async function onRequestGet({ request, env, waitUntil }) {
+async function handle({ request, env, waitUntil }) {
   const url = new URL(request.url), word = String(url.searchParams.get('w') || '').toLowerCase().trim().slice(0, 60);
   if (!/^[a-z][a-z' -]*$/.test(word)) return H({ none: true }, 86400);
   const key = new Request(`https://lexkite.com/api/img?w=${encodeURIComponent(word)}&v=5`), cache = caches.default; // v3: Wikipedia trước, Openverse lọc chặt sau → bỏ đệm ảnh lệch nghĩa cũ
@@ -68,4 +68,9 @@ export async function onRequestGet({ request, env, waitUntil }) {
   const res = H(out, ttl);
   waitUntil(cache.put(key, res.clone()));
   return res;
+}
+
+// Lỗi bất ngờ (D1 hạn mức tạm lỗi, mạng biên…) → không trả 500 (máy khách & add-on ghi lỗi console); báo retry, không lưu đệm
+export async function onRequestGet(ctx) {
+  try { return await handle(ctx); } catch (e) { return new Response(JSON.stringify({ none: true, retry: true }), { headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', 'Access-Control-Allow-Origin': '*' } }); }
 }
