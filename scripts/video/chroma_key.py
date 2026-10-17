@@ -55,6 +55,8 @@ def matte(img):
     al = np.clip((d - a.inner) / (a.outer - a.inner), 0, 1)
     x = img.astype(np.float32)
     al = np.maximum(al, (x[..., 1] - np.maximum(x[..., 0], x[..., 2]) <= a.gdom).astype(np.float32))  # không trội xanh lá → không phải phông (lỗi cũ: yếm teal của Ama bị trong suốt 40 %)
+    gd = x[..., 1] - np.maximum(x[..., 0], x[..., 2])
+    al = np.where(gd > np.maximum(22.0, 0.45 * x.max(-1)), 0.0, al)  # xanh lá trội rõ (cả xanh ĐẬM = bóng đổ trên phông, lỗi Mia 17/10) → nền
     solid = al > 0.5
     lab, n = ndi.label(solid)
     if n:
