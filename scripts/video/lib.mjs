@@ -293,7 +293,17 @@ export function assignStands(cast, room) {
 // Chọn clip/ảnh cho 1 nhân vật: người nói → clip có cử động miệng (mouth) + đúng cảm xúc; người nghe → idle/nod. Cùng trang phục (outfit).
 // Hướng: clip có facing front|left|right; lật gương (scaleX −1) CHỈ khi clip ghi mirrorOk:true (nhân vật có chi tiết nhận diện lệch một bên –
 // kẹp tóc Mia, lọn bạc Diane, thẻ đeo – không được lật). want = hướng cần nhìn → ưu tiên clip ¾ đúng hướng, rồi ¾ lật được (mirrorOk), rồi chính diện.
-export const faceRank = (c, want) => { const f = c.facing || 'front'; return !want || want === 'front' || f === want ? 0 : c.mirrorOk && f !== 'front' ? 1 : f === 'front' ? 2 : 3; }; // ¾ lật được hơn chính diện
+// Hướng theo đoạn: Kling không luôn giữ hướng suốt clip → facingSegments [{from,to,facing}] (giây); chỉ đoạn đó mang hướng ¾,
+// phần còn lại coi là chính diện/không rõ. faceOf(c, want) → { facing, seg } của đoạn hợp nhất (seg = null: cả clip).
+export function faceOf(c, want) {
+  const segs = (c.facingSegments || []).filter(x => x.to - x.from >= 0.8);
+  if (!segs.length || !want || want === 'front') return { facing: c.facing || 'front', seg: null };
+  const rank = f => (!want || want === 'front' || f === want ? 0 : c.mirrorOk && f !== 'front' ? 1 : f === 'front' ? 2 : 3);
+  const best = segs.map(x => ({ x, r: rank(x.facing) })).sort((a, b) => a.r - b.r || (b.x.to - b.x.from) - (a.x.to - a.x.from))[0];
+  return best.r <= rank(c.facing || 'front') ? { facing: best.x.facing, seg: { from: best.x.from, to: best.x.to } } : { facing: c.facing || 'front', seg: null };
+}
+export const faceRank0 = (c, want) => { const f = c.facing || 'front'; return !want || want === 'front' || f === want ? 0 : c.mirrorOk && f !== 'front' ? 1 : f === 'front' ? 2 : 3; }; // ¾ lật được hơn chính diện
+export const faceRank = (c, want) => faceRank0({ ...c, facing: faceOf(c, want).facing }, want);
 export function pickAsset(manifest, who, { speaking, emotion, outfit, exists = () => true, used = new Set(), avoid = new Set(), want = null }) {
   const clips = (manifest.clips || []).filter(c => c.who === who && (c.outfit || 'office') === outfit && exists(c.file))
     .map((c, i) => ({ c, i })).sort((a, b) => faceRank(a.c, want) - faceRank(b.c, want) || a.i - b.i).map(x => x.c);
@@ -310,7 +320,7 @@ export function pickAsset(manifest, who, { speaking, emotion, outfit, exists = (
     c = cands.find(x => !used.has(x.id) && !avoid.has(x.id)) || cands.find(x => !used.has(x.id)) || cands[0];
   }
   else c = clips.find(x => hit(x, ['idle'])) || clips.find(isListenerClip);
-  if (c) return asClip({ ...c, mouth: isSpeakerClip(c) });
+  if (c) { const fo = faceOf(c, want); return asClip({ ...c, mouth: isSpeakerClip(c), facing: fo.facing, seg: fo.seg }); }
   const s = (manifest.stills || []).find(x => x.who === who && (x.outfit || 'office') === outfit && exists(x.file));
   return s ? { kind: 'still', tags: ['idle'], mouth: false, facing: 'front', ...s } : { kind: 'none', who, outfit, tags: [], mouth: false, facing: 'front' };
 }

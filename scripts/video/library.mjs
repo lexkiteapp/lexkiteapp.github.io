@@ -708,6 +708,7 @@ export function writeRenderManifest(m, file = path.join(LIB, 'manifest.json'), e
     Object.assign(c, { file: e.id, alpha: 'stacked', roles: e.roles, foot: st.foot, figH: st.figH, w: st.w, h: st.h, ready: true });
     if (e.facing) c.facing = e.facing; // front | left | right (clip ¾); lật gương chỉ khi kho ghi mirrorOk:true
     if (e.mirrorOk != null) c.mirrorOk = !!e.mirrorOk;
+    if (Array.isArray(e.facingSegments)) c.facingSegments = e.facingSegments; else delete c.facingSegments; // hướng theo đoạn [{from,to,facing}] (giây)
     const dc = driveCopies(st.drive); if (dc.length) c.drive = dc.map(x => ({ driveId: x.driveId, email_masked: x.email_masked || '', fileId: x.fileId })); // tra soát: bản stacked nằm ở Drive nào
     done.add(id);
   }

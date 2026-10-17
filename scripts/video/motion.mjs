@@ -273,7 +273,7 @@ export function buildTimeline({ s, words, assets = {}, w = 1080, h = 1920, fps =
   const S = shots.map((sh, k) => {
     const li = sh.line >= 0 ? sh.line : lines.length - 1, sl = stage.lines[li] || { actors: [] }, seg = (stage.segs || []).find(g => li >= g.from && li <= g.to) || null;
     const room = seg && assets.roomOf ? assets.roomOf(seg) : null, grade = gradeFor({ time, hasRoom: !!room });
-    let actors = sh.framing === 'card' ? [] : (sl.actors || []).map(a => { const as = assets.actorOf ? assets.actorOf(a, li) : null; return as ? { who: a.who, role: a.role, x: a.x, y: a.y, h: a.h, flip: !!a.flip, behind: a.behind || null, ...as } : null; }).filter(Boolean);
+    let actors = sh.framing === 'card' ? [] : (sl.actors || []).map(a => { const as = assets.actorOf ? assets.actorOf(a, li) : null; return as ? { who: a.who, role: a.role, x: a.x, y: a.y, h: a.h, flip: !!a.flip, behind: a.behind || null, ...as, seg: (a.asset && a.asset.seg) || null } : null; }).filter(Boolean);
     if (!room && actors.length) actors = studioStage(actors, w, h); // nền studio: không có sàn phòng → dàn lại cỡ vừa khung (không phóng quá to/cắt mép)
     const line = lines[li] || {};
     const film = ['wide', 'two', 'single', 'close'].includes(sh.framing);

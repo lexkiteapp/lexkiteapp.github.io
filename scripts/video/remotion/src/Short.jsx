@@ -106,7 +106,9 @@ const Actor = ({ a, rim, t0, fx, uid }) => {
   const k = a.h / (a.figH || a.ah || 1), w = (a.aw || 600) * k, h = (a.ah || 900) * k, fx0 = a.flip ? (a.aw - a.foot[0]) : a.foot[0];
   const left = a.x - fx0 * k, top = a.y - a.foot[1] * k, dir = (fx && fx.light && fx.light.dir) || a.light || -1;
   const media = a.kind === 'video'
-    ? <Loop durationInFrames={Math.max(1, Math.round((a.dur || 5) * 30))}><OffthreadVideo src={src(a.src)} transparent muted style={{ width: '100%', height: '100%' }} /></Loop>
+    ? (a.seg // chỉ phát đoạn có hướng đúng (facingSegments), lặp đoạn đó
+      ? <Loop durationInFrames={Math.max(1, Math.round((a.seg.to - a.seg.from) * 30))}><OffthreadVideo src={src(a.src)} transparent muted trimBefore={Math.round(a.seg.from * 30)} trimAfter={Math.round(a.seg.to * 30)} style={{ width: '100%', height: '100%' }} /></Loop>
+      : <Loop durationInFrames={Math.max(1, Math.round((a.dur || 5) * 30))}><OffthreadVideo src={src(a.src)} transparent muted style={{ width: '100%', height: '100%' }} /></Loop>)
     : <Img src={src(a.src)} style={{ width: '100%', height: '100%' }} />;
   const ew = a.h * 0.42;
   return (

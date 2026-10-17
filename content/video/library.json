@@ -3059,8 +3059,15 @@
     "reason": "soi tay khung 97–101: tay hạ dần mượt, không giật – cổng smooth báo nhầm; LƯU Ý hướng: 0–2,2 s nhìn/đưa tay sang phải, sau đó đổi sang trái → dùng nhìn nhau chỉ đoạn 0–2,2 s",
     "from": "approved"
    },
-   "facing": "right",
-   "mirrorOk": true
+   "facing": "front",
+   "mirrorOk": true,
+   "facingSegments": [
+    {
+     "from": 0,
+     "to": 2.2,
+     "facing": "right"
+    }
+   ]
   },
   {
    "id": "clips/carlos_shock_laugh.mp4",
