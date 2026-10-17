@@ -1,0 +1,48 @@
+# Thử tách nền PHÔNG XANH cho 1 clip Kling (scripts/video/chroma_key.py) – chạy trên CI để máy anh chủ không phải xử lý nặng.
+# Kết quả (artifact chroma-test): stacked.mp4 + meta.json + ảnh soi mép (ghép lên nền tối/sáng/caro, phóng to vùng tóc/tay/giày).
+name: Thử tách nền phông xanh
+on:
+  workflow_dispatch:
+    inputs:
+      clip_url: { description: 'URL clip mp4 (Kling) nền xanh', required: true }
+permissions:
+  contents: read
+jobs:
+  key:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null && pip install -q numpy pillow scipy
+      - name: Tải clip
+        env: { URL: '${{ github.event.inputs.clip_url }}' }
+        run: |
+          echo "$URL" | grep -Eq '^https://[a-z0-9.-]*(klingai\.com|kling\.ai|lexkite\.com)/' || { echo "URL không được phép"; exit 1; }
+          mkdir -p out && curl -fsSL -o out/src.mp4 "$URL"
+      - name: Tách nền phông xanh → stacked
+        run: python scripts/video/chroma_key.py out/src.mp4 out/stacked.mp4 | tee out/meta.json
+      - name: Ảnh soi mép
+        run: |
+          python - <<'PY'
+          import subprocess, numpy as np
+          from PIL import Image
+          subprocess.run(['ffmpeg','-v','error','-y','-ss','2.2','-i','out/stacked.mp4','-frames:v','1','out/f.png'],check=True)
+          im=np.array(Image.open('out/f.png').convert('RGB')); h=im.shape[0]//2
+          col=im[:h]; a=im[h:,:,0].astype(np.float32)/255
+          def comp(bg):
+            b=np.zeros_like(col,dtype=np.float32)+np.array(bg,np.float32)
+            return (col*a[...,None]+b*(1-a[...,None])).astype(np.uint8)
+          yy,xx=np.mgrid[0:h,0:col.shape[1]]; chk=((yy//16+xx//16)%2*80+120).astype(np.uint8)
+          checker=np.stack([chk]*3,-1).astype(np.float32); cc=(col*a[...,None]+checker*(1-a[...,None])).astype(np.uint8)
+          row=np.concatenate([comp((20,24,32)),comp((250,246,238)),cc],1); Image.fromarray(row).save('out/edges-full.png')
+          crops=[]
+          for (y0,y1) in [(0,int(h*.25)),(int(h*.35),int(h*.6)),(int(h*.82),h)]:
+            c=Image.fromarray(comp((20,24,32))[y0:y1]); crops.append(c.resize((c.width*2,c.height*2),Image.NEAREST))
+          W=max(c.width for c in crops); H=sum(c.height for c in crops); o=Image.new('RGB',(W,H)); y=0
+          for c in crops: o.paste(c,(0,y)); y+=c.height
+          o.save('out/edges-zoom.png')
+          PY
+      - uses: actions/upload-artifact@v4
+        with: { name: chroma-test, path: out/, retention-days: 7 }
