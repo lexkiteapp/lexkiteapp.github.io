@@ -57,7 +57,7 @@ jobs:
               assert re.fullmatch(r'[a-z0-9_]{3,40}', it['id']), it['id']
               assert re.match(r'^https://[a-z0-9.-]*(klingai\.com|kling\.ai|lexkite\.com)/', it['url']), it['id']
               subprocess.run(['curl', '-fsSL', '--retry', '3', '-o', f"{d}/{it['id']}.mp4", it['url']], check=True)
-              x = {'src': f"ingest/{it['id']}.mp4", 'as': f"clips/{it['id']}.mp4", 'qa': it.get('qa')}
+              x = {'src': f"ingest/{it['id']}.mp4", 'as': f"clips/src/{it['id']}.mp4", 'qa': it.get('qa')}
               for k in ('roles', 'note', 'waiver', 'trimmed'):
                   if it.get(k) is not None: x[k] = it[k]
               out.append(x)
@@ -66,10 +66,13 @@ jobs:
           PY
       - name: Nhập kho (cổng kiểm)
         env: { CF_AI_TOKEN: '${{ secrets.CF_AI_TOKEN }}', CF_ACCOUNT_ID: '${{ secrets.CF_ACCOUNT_ID }}' }
-        run: node scripts/video/library.mjs ingest --plan ingest-plan.json --on-fail reject | tee ingest.log
+        run: |
+          node scripts/video/library.mjs ingest --plan ingest-plan.json --on-fail reject | tee ingest.log
+          grep -Eq "Nhập [1-9]" ingest.log || { echo "::error::Không nhập được clip nào – xem ingest.log"; exit 1; }
       - name: Dựng stacked (phông xanh → chroma_key)
         run: |
           for id in $(echo "$IDS" | tr ',' ' '); do node scripts/video/library.mjs stack "clips/$id.mp4" | tee -a ingest.log || true; done
+          grep -Eq "stack: [1-9][0-9]* đạt" ingest.log || { echo "::error::Không dựng được bản stacked nào – xem ingest.log"; exit 1; }
       - name: Gom kết quả
         run: |
           mkdir -p res/brand/library/clips/src res/content/video res/review

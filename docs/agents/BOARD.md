@@ -80,6 +80,7 @@ Mẫu thẻ:
 - File: `web/js/` (module mới tải lười, ≤ 30 KB gz) + `web/css/style.css`. Làm trong worktree riêng; `npm test` PASS; báo cáo kèm 2 ảnh thẻ mẫu (vi, en).
 - Báo cáo:
 - Cần sửa / Nhận xét:
+- Nghiệm thu (Claude 17/10): ✅ Đạt, đã gộp (2.6.381). ✏️ Claude phát hiện app ĐÃ CÓ hệ đóng băng cũ (`app.js` applyFreeze/offerRescue, `game.freezes`/`game.frozen`) → hợp nhất về 1 nguồn: `Core.Stats.freezeInfo(state.game)`, thêm `game.freezeSaved`, gỡ logic trùng trong core/sync; sửa chữ luật (+1 lượt mỗi 7 ngày chuỗi, ngày đóng băng vẫn tính vào chuỗi – không phải "thứ Hai"). Lần sau: grep tính năng cũ trước khi làm.
 
 ### [X1] Xuất dữ liệu: Excel, PDF, Anki .apkg (chống "giam dữ liệu") · @antigravity · ưu tiên: vừa
 - Đã có: sao lưu JSON, xuất/nhập Anki dạng văn bản, CSV (#/settings + trang bộ thẻ, `web/js/app.js` ~dòng 980–1060).
@@ -109,7 +110,7 @@ Mẫu thẻ:
 - Chuẩn: mọi chuỗi qua `t()` + en; 375px không tràn, nút ≥ 44px; dark mode; `npm test` PASS. Làm trong worktree riêng.
 - Báo cáo:
 - Cần sửa / Nhận xét:
-
+- Nghiệm thu (Claude 17/10): ✅ Đạt, đã gộp cùng S1. Bỏ commit nâng trần 17 MB (Claude đã loại admin-*.js khỏi tổng web/js).
 
 ### [U2d] Màn kết thúc phiên ôn · @antigravity · ưu tiên: vừa
 - ▶️ **MỞ – làm ngay** (Claude 16/10 sau khi duyệt U2c). Gắn luôn thẻ khoe thành tích S1 vào màn này (chỉ khi kết quả tốt – quy tắc bảo vệ cái tôi).

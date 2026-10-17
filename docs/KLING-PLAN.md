@@ -61,3 +61,12 @@ Quy tắc: khung đầu tư thế trung tính; chờ ≥ 6 s sau tải ảnh, so
 
 ## Luật thử trước (17/10)
 Mọi hạng mục mới trong bảng phân bổ (ngồi, cầm điện thoại, đưa đồ, bước vào khung, cảnh đôi, phòng mới…) bắt đầu bằng **1 clip thử (25 credit)** → `chroma-batch.yml` → dựng video thật (`video-sample.yml`) với đúng phòng → chấm ≥ 90 rồi mới chạy lô. Hỏng thì sửa prompt/cách ghép và thử lại 1 clip – không bao giờ tạo lô khi chưa có video thử đạt.
+
+## Cảnh ngồi / có bàn ghế – kết quả thử 17/10 (chốt)
+| cách | kết quả | dùng? |
+|---|---|---|
+| A. Ảnh phòng đã duyệt + ảnh nhân vật làm tham chiếu → ảnh ngồi → video | 2/4 ảnh đạt (1 ảnh ngồi lơ lửng); clip thử 5 s: ngồi yên, nói + nhấp cà phê, tay không xuyên bàn ≈ 90; nhân vật nhỏ | ✓ cho cảnh tiếp theo cùng địa điểm |
+| B. Nhân vật + ghế trên phông xanh → ghép vào phòng | ảnh ổn nhưng ghép vẫn rủi ro phối cảnh bàn/ghế | ✗ không dùng cho cảnh ngồi |
+| C. Chỉ ảnh nhân vật, bối cảnh mô tả bằng prompt | 4/4 ảnh ngồi đúng ghế, nhân vật to rõ, không chữ; mỗi ảnh 1 quán khác | ✓ cho cảnh ĐẦU của địa điểm mới |
+
+Quy trình: cảnh đầu = C (chọn ảnh tốt nhất → thành "phòng chuẩn" của địa điểm) → các cảnh sau = A với phòng chuẩn đó (giữ nhất quán) → soi từng ảnh (1 credit/ảnh) → mới tạo video (25 credit). Cảnh ĐỨNG vẫn dùng phông xanh + ghép (kho clip động tác).
