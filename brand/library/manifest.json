@@ -40,7 +40,7 @@
       ],
       "auto": true,
       "qa": null,
-      "ready": true
+      "ready": false
     },
     {
       "id": "office-01-night",
@@ -116,7 +116,7 @@
       ],
       "auto": true,
       "qa": 91,
-      "ready": true
+      "ready": false
     },
     {
       "id": "school-01-day",
@@ -324,7 +324,7 @@
       ],
       "auto": true,
       "qa": 91,
-      "ready": true
+      "ready": false
     },
     {
       "id": "apartment-02-day",
@@ -365,7 +365,7 @@
       ],
       "auto": true,
       "qa": 91,
-      "ready": true
+      "ready": false
     },
     {
       "id": "cafe-02-day",
@@ -406,7 +406,7 @@
       ],
       "auto": true,
       "qa": 91,
-      "ready": true
+      "ready": false
     },
     {
       "id": "office-02-day",
@@ -447,7 +447,7 @@
       ],
       "auto": true,
       "qa": null,
-      "ready": true
+      "ready": false
     },
     {
       "id": "office-03-day",
@@ -488,7 +488,7 @@
       ],
       "auto": true,
       "qa": null,
-      "ready": true
+      "ready": false
     }
   ],
   "clips": [
@@ -740,7 +740,7 @@
       "figH": 1560,
       "w": 984,
       "h": 1562,
-      "ready": true
+      "ready": false
     },
     {
       "id": "carlos_listen_thumbs",
@@ -764,7 +764,7 @@
       "figH": 1558,
       "w": 894,
       "h": 1562,
-      "ready": true
+      "ready": false
     },
     {
       "id": "carlos_talk_gesture",
@@ -788,7 +788,7 @@
       "figH": 1573,
       "w": 948,
       "h": 1576,
-      "ready": true
+      "ready": false
     },
     {
       "id": "mia_talk_gesture",
@@ -812,7 +812,7 @@
       "figH": 1751,
       "w": 980,
       "h": 1754,
-      "ready": true
+      "ready": false
     },
     {
       "id": "mia_wave_clasp",
@@ -836,7 +836,7 @@
       "figH": 1739,
       "w": 854,
       "h": 1742,
-      "ready": true
+      "ready": false
     },
     {
       "id": "ama_listen_thumbs",
@@ -860,7 +860,7 @@
       "figH": 1506,
       "w": 676,
       "h": 1510,
-      "ready": true
+      "ready": false
     },
     {
       "id": "diane_think_aha",
@@ -884,7 +884,7 @@
       "figH": 1569,
       "w": 858,
       "h": 1572,
-      "ready": true
+      "ready": false
     },
     {
       "id": "leo_listen_thumbs",
@@ -908,7 +908,7 @@
       "figH": 1508,
       "w": 776,
       "h": 1510,
-      "ready": true
+      "ready": false
     },
     {
       "id": "leo_wave_clasp",
@@ -932,7 +932,7 @@
       "figH": 1506,
       "w": 876,
       "h": 1508,
-      "ready": true
+      "ready": false
     },
     {
       "id": "diane_wave_clasp",
@@ -956,7 +956,7 @@
       "figH": 1554,
       "w": 1114,
       "h": 1562,
-      "ready": true
+      "ready": false
     },
     {
       "id": "ama_shock_laugh",
@@ -980,7 +980,7 @@
       "figH": 1496,
       "w": 666,
       "h": 1498,
-      "ready": true
+      "ready": false
     },
     {
       "id": "ama_talk_gesture",
@@ -1004,7 +1004,7 @@
       "figH": 1462,
       "w": 752,
       "h": 1464,
-      "ready": true
+      "ready": false
     },
     {
       "id": "ama_think_aha",
@@ -1028,7 +1028,7 @@
       "figH": 1471,
       "w": 642,
       "h": 1474,
-      "ready": true
+      "ready": false
     },
     {
       "id": "ama_wave_clasp",
@@ -1052,7 +1052,7 @@
       "figH": 1449,
       "w": 846,
       "h": 1472,
-      "ready": true
+      "ready": false
     },
     {
       "id": "diane_listen_thumbs",
@@ -1076,7 +1076,7 @@
       "figH": 1559,
       "w": 986,
       "h": 1562,
-      "ready": true
+      "ready": false
     },
     {
       "id": "mia_listen_thumbs",
@@ -1100,7 +1100,7 @@
       "figH": 1736,
       "w": 664,
       "h": 1740,
-      "ready": true
+      "ready": false
     },
     {
       "id": "mia_think_aha",
@@ -1124,7 +1124,7 @@
       "figH": 1747,
       "w": 764,
       "h": 1750,
-      "ready": true
+      "ready": false
     }
   ],
   "stills": [
