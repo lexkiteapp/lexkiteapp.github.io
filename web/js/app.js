@@ -291,7 +291,10 @@
   let backHash = '';
   App.backHref = () => backHash || '#/practice';
   let curHash = '';
+  // Đổi trang trong lúc dữ liệu lần đầu đang nạp (máy chậm, mới mở app) → chờ nạp xong rồi mới vẽ (tránh màn trắng do state.game = null)
+  let dataReady; const dataReadyP = new Promise(r => { dataReady = r; });
   async function route() {
+    if (!state.game) await dataReadyP;
     const { name, arg, query } = parseHash();
     const STUDY = /^#\/(practice\/|review)/;
     if (STUDY.test(location.hash) && curHash && !STUDY.test(curHash)) backHash = /^#\/welcome/.test(curHash) ? '#/home' : curHash;
@@ -1721,7 +1724,7 @@
   App.ready = (async function init() {
     if (/[?&]demo=1/.test(location.search)) await seedDemo();
     if (Store.sandbox) setTimeout(() => toast('🧪 ' + t('Chế độ thử nghiệm – dữ liệu tách riêng, không đồng bộ')), 800);
-    await load();
+    try { await load(); } finally { if (!state.game) state.game = await Game.get().catch(() => null); dataReady(); }
     document.addEventListener('error', e => {
       const img = e.target;
       if (img.tagName === 'IMG' && img.parentElement && (img.parentElement.classList.contains('pic') || img.parentElement.classList.contains('em'))) img.parentElement.textContent = '📘';
