@@ -1,0 +1,106 @@
+{
+ "date": "2026-10-17",
+ "source": "Kling Image 3.0, 2K 9:16, 1 credit/ảnh, prompt khuôn phòng trống (đồ đạc chỉ 2 bên + tường sau)",
+ "items": [
+  {
+   "id": "interview-01-day-9x16",
+   "room": "interview-01",
+   "desc": "small job interview office",
+   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qngEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AagwFLbGluZ0FJX0tvbG9yc19EaVRfSDgwMF8xX0tvbG9ycy12Ml82LXQyaS1vbW5pLXJlZmluZXItdjNfU0dQX1BST0RfYWlfd2ViXzMyNDIxNDg2NjUyMTIzM18zMDQyMGRiMDlkOWZhOGE3NDJhYTcyY2Q4ODBkZTI3OTh4NXVkLnBuZw.origin?x-kcdn-pid=112372",
+   "w": 1536,
+   "h": 2720,
+   "status": "pending-qa",
+   "note": ""
+  },
+  {
+   "id": "clinic-01-day-9x16",
+   "room": "clinic-01",
+   "desc": "medical clinic reception",
+   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qngEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AagwFLbGluZ0FJX0tvbG9yc19EaVRfSDgwMF8xX0tvbG9ycy12Ml82LXQyaS1vbW5pLXJlZmluZXItdjNfU0dQX1BST0RfYWlfd2ViXzMyNDIxNDg1NDUwMDI0MF85OTRhODUyYWZkYjdlOTM5NGJiMWI0OGEwNDNlYmY5NXY0YmthLnBuZw.origin?x-kcdn-pid=112372",
+   "w": 1536,
+   "h": 2720,
+   "status": "pending-qa",
+   "note": ""
+  },
+  {
+   "id": "supermarket-01-day-9x16",
+   "room": "supermarket-01",
+   "desc": "supermarket",
+   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qngEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AagwFLbGluZ0FJX0tvbG9yc19EaVRfSDgwMF8xX0tvbG9ycy12Ml82LXQyaS1vbW5pLXJlZmluZXItdjNfU0dQX1BST0RfYWlfd2ViXzMyNDIxNDgxMTUyMjc3NF8yMGZlZmYxYmZhOTI1ODA1MGFkODM4N2Q5MWFjMTE0NXd3OTdyLnBuZw.origin?x-kcdn-pid=112372",
+   "w": 1536,
+   "h": 2720,
+   "status": "pending-qa",
+   "note": ""
+  },
+  {
+   "id": "restaurant-01-day-9x16",
+   "room": "restaurant-01",
+   "desc": "casual restaurant",
+   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qngEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AagwFLbGluZ0FJX0tvbG9yc19EaVRfSDgwMF8xX0tvbG9ycy12Ml82LXQyaS1vbW5pLXJlZmluZXItdjNfU0dQX1BST0RfYWlfd2ViXzMyNDIxNDc5OTMwNjk3NV8wNzcwYjNkMjE3MDJjMDk4ZjBkYzM1YjllMTEyMDZkYndpMzk1LnBuZw.origin?x-kcdn-pid=112372",
+   "w": 1536,
+   "h": 2720,
+   "status": "pending-qa",
+   "note": ""
+  },
+  {
+   "id": "hotel-lobby-01-day-9x16",
+   "room": "hotel-lobby-01",
+   "desc": "hotel lobby",
+   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qngEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AagwFLbGluZ0FJX0tvbG9yc19EaVRfSDgwMF8xX0tvbG9ycy12Ml82LXQyaS1vbW5pLXJlZmluZXItdjNfU0dQX1BST0RfYWlfd2ViXzMyNDIxNDc4NzUwMzg0MF8yN2UyODYxZDdjMzM4MGI0MWJjZDc3YmRiM2NkMjEzOW1rcXluLnBuZw.origin?x-kcdn-pid=112372",
+   "w": 1536,
+   "h": 2720,
+   "status": "pending-qa",
+   "note": ""
+  },
+  {
+   "id": "airport-checkin-01-day-9x16",
+   "room": "airport-checkin-01",
+   "desc": "airport check-in hall",
+   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qngEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AagwFLbGluZ0FJX0tvbG9yc19EaVRfSDgwMF8xX0tvbG9ycy12Ml82LXQyaS1vbW5pLXJlZmluZXItdjNfU0dQX1BST0RfYWlfd2ViXzMyNDIxNDc1NjUyNzMxM18xYWEyNTVhMGEyZGE2YzU4MGExYTVmNWFjNzAwNGE1OXprcmVwLnBuZw.origin?x-kcdn-pid=112372",
+   "w": 1536,
+   "h": 2720,
+   "status": "pending-qa",
+   "note": ""
+  },
+  {
+   "id": "library-01-day-9x16",
+   "room": "library-01",
+   "desc": "university library",
+   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qngEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AagwFLbGluZ0FJX0tvbG9yc19EaVRfSDgwMF8xX0tvbG9ycy12Ml82LXQyaS1vbW5pLXJlZmluZXItdjNfU0dQX1BST0RfYWlfd2ViXzMyNDIxNDc0NDMxMDMzNl85MDIzYjUxNzNmNDc0ZWUzNzI1NjdlMDAzNTBhZGE4YmdnYWFpLnBuZw.origin?x-kcdn-pid=112372",
+   "w": 1536,
+   "h": 2720,
+   "status": "pending-qa",
+   "note": ""
+  },
+  {
+   "id": "classroom-01-day-9x16",
+   "room": "classroom-01",
+   "desc": "school classroom",
+   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qngEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AagwFLbGluZ0FJX0tvbG9yc19EaVRfSDgwMF8xX0tvbG9ycy12Ml82LXQyaS1vbW5pLXJlZmluZXItdjNfU0dQX1BST0RfYWlfd2ViXzMyNDIxNDcwODUwNzg0M182YjUzMDBkZWEzM2JjMmIzOTlmYjJiOTExMmQ1NDVmY2NnMjdzLnBuZw.origin?x-kcdn-pid=112372",
+   "w": 1536,
+   "h": 2720,
+   "status": "pending-qa",
+   "note": ""
+  },
+  {
+   "id": "reception-01-day-9x16",
+   "room": "reception-01",
+   "desc": "office reception lobby",
+   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qngEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AagwFLbGluZ0FJX0tvbG9yc19EaVRfSDgwMF8xX0tvbG9ycy12Ml82LXQyaS1vbW5pLXJlZmluZXItdjNfU0dQX1BST0RfYWlfd2ViXzMyNDIxNDY0OTMxMjgzM182NGQ3NWE0ZTlhMTZjMWRkNTM3YzgwMWM3MGYzMTg1NzE0Y3JjLnBuZw.origin?x-kcdn-pid=112372",
+   "w": 1536,
+   "h": 2720,
+   "status": "pending-qa",
+   "note": ""
+  },
+  {
+   "id": "meeting-01-day-9x16",
+   "room": "meeting-01",
+   "desc": "glass-walled meeting room",
+   "url": "https://s15-kling.klingai.com/kimg/EMXN1y8qngEKBnVwbG9hZBIOeWxhYi1zdHVudC1zZ3AagwFLbGluZ0FJX0tvbG9yc19EaVRfSDgwMF8xX0tvbG9ycy12Ml82LXQyaS1vbW5pLXJlZmluZXItdjNfU0dQX1BST0RfYWlfd2ViXzMyNDIxNDU0OTMxNDI3NV83MDI5ZDdhOTI2ZjZjMTM5ZGQ1YmI5ZTQ3MDkwMzFiYms3NHdrLnBuZw.origin?x-kcdn-pid=112372",
+   "w": 1536,
+   "h": 2720,
+   "status": "reserve",
+   "note": "bàn giữa phòng + khung kính tiền cảnh – không đạt sàn trống"
+  }
+ ]
+}
