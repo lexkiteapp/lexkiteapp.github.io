@@ -37,3 +37,17 @@ store/chrome/anh-*.zip
 store/chrome/*.mp4
 store/chrome/lexkite-thumb-viral.jpg
 brand/characters/_candidates/
+
+# Video Studio – đầu ra dựng tạm (scripts/video/render.mjs)
+out/video/
+
+# Kho dựng video (scripts/video/library.mjs): file nhị phân gốc ở brand/library/ không commit – nguồn chính lexkite-media/library, sao lưu GrabCast.
+# Manifest content/video/library.json + hồ sơ sàn brand/library/rooms/*.json được commit.
+brand/library/**/*.png
+brand/library/**/*.webp
+brand/library/**/*.jpg
+brand/library/**/*.mp4
+brand/library/**/*.svg
+brand/library/**/*.src
+brand/library/_web/
+brand/library/_review/

@@ -1,0 +1,61 @@
+{
+  "_note": "Lần nhập kho đầu tiên (17/10) từ brand/characters/_candidates theo content/video/qa-log.md. Chạy: node scripts/video/library.mjs ingest --plan scripts/video/library-seed.json --on-fail reject. qa null = log chưa chấm riêng → reserve. waiver = log ghi ✓ dù điểm < 90 (hoặc chỉ có khoảng điểm) → vẫn approved, ghi rõ lý do.",
+  "defaults": { "date": "2026-10-16", "clipSource": "Kling 2.5 Turbo 1080p 5 s (2 hành động/clip)", "imageSource": "Kling Element 2K 3:4" },
+  "items": [
+    { "src": "ama/dna.png", "as": "chars/ama/dna.png", "qa": 94, "ref": true, "note": "ADN Ama #2" },
+    { "src": "leo/dna.png", "as": "chars/leo/dna.png", "qa": 93, "ref": true, "note": "ADN Leo #5" },
+    { "src": "leo/neutral.png", "as": "chars/leo/neutral.png", "qa": 91, "note": "tư thế trung tính làm khung đầu clip" },
+    { "src": "diane/dna.png", "as": "chars/diane/dna.png", "qa": 90, "ref": true, "date": "2026-10-16", "note": "lần 2 (DEEP BROWN SKIN)" },
+    { "src": "diane/neutral.png", "as": "chars/diane/neutral.png", "qa": null, "reserve": true },
+    { "src": "carlos/dna.png", "as": "chars/carlos/dna.png", "qa": 91, "ref": true, "note": "bản giữa: ngón cái, ria, tạp dề" },
+    { "src": "carlos/neutral.png", "as": "chars/carlos/neutral.png", "qa": null, "reserve": true },
+    { "src": "mia/b.png", "as": "chars/mia/neutral.png", "qa": null, "reserve": true, "ref": true, "note": "Mia v4 (Element Lexkite Mia) – chưa chấm riêng; dùng làm ref đo phong cách vì chưa có dna.png gốc" },
+    { "src": "mia/a.png", "as": "chars/mia/gesture-shock.png", "qa": null, "reserve": true },
+
+    { "src": "rooms/office-1.png", "as": "rooms/office-01-day-9x16.png", "qa": null, "reserve": true, "note": "phòng trống thử nghiệm" },
+    { "src": "rooms/office-full-a.png", "as": "rooms/office-02-day-9x16.png", "qa": null, "reserve": true, "note": "phòng đầy đủ nội thất A" },
+    { "src": "rooms/office-full-b.png", "as": "rooms/office-03-day-9x16.png", "qa": null, "reserve": true, "note": "phòng đầy đủ nội thất B" },
+
+    { "glob": "props/office-a/office-*.png", "asDir": "props/office-a/", "qa": null, "reserve": true, "note": "sprite tách từ bảng props/office-a.png (vectorize.py)" },
+    { "glob": "props/office-a/office-*.svg", "asDir": "props/office-a/", "qa": null, "reserve": true, "note": "SVG vtracer từ cùng bảng" },
+
+    { "src": "clips/mia_idle.mp4", "qa": 92, "roles": ["listener"] },
+    { "src": "clips/mia_nod_laugh.mp4", "qa": 91, "roles": ["listener"], "note": "cắt tại ~2,4 s" },
+    { "src": "clips/mia_wave_thumbs.mp4", "qa": 90, "roles": ["speaker"] },
+    { "src": "clips/mia_talk_point.mp4", "qa": 90, "roles": ["speaker"] },
+    { "src": "clips/mia_shrug_cross.mp4", "qa": 90, "roles": ["speaker"] },
+    { "src": "clips/mia_shock_headgrab.mp4", "qa": 84, "reserve": true, "roles": ["speaker"], "note": "84* trong log" },
+    { "src": "clips/mia_think_idea.mp4", "qa": 84, "reserve": true, "roles": ["speaker"], "note": "84* trong log" },
+
+    { "src": "clips/ama_ask_point.mp4", "qa": 88, "waiver": "qa-log: Ama 6 clip 88–91 ✓ (chưa ghi điểm từng clip)", "roles": ["speaker"] },
+    { "src": "clips/ama_nod_laugh.mp4", "qa": 88, "waiver": "qa-log: Ama 6 clip 88–91 ✓ (chưa ghi điểm từng clip)", "roles": ["listener"] },
+    { "src": "clips/ama_shock_headgrab.mp4", "qa": 88, "waiver": "qa-log: Ama 6 clip 88–91 ✓ (chưa ghi điểm từng clip)", "roles": ["speaker"] },
+    { "src": "clips/ama_shrug_eyeroll.mp4", "qa": 88, "waiver": "qa-log: Ama 6 clip 88–91 ✓ (chưa ghi điểm từng clip)", "roles": ["speaker"] },
+    { "src": "clips/ama_think_win.mp4", "qa": 88, "waiver": "qa-log: Ama 6 clip 88–91 ✓ (chưa ghi điểm từng clip)", "roles": ["speaker"] },
+    { "src": "clips/ama_wave_thumbs.mp4", "qa": 88, "waiver": "qa-log: Ama 6 clip 88–91 ✓ (chưa ghi điểm từng clip)", "roles": ["speaker"] },
+
+    { "src": "clips/leo_think_idea.mp4", "qa": 90, "roles": ["speaker"] },
+    { "src": "clips/leo_shock_headgrab.mp4", "qa": 90, "roles": ["speaker"] },
+    { "src": "clips/leo_talk_point.mp4", "qa": 88, "waiver": "qa-log: Leo nói 88 ✓", "roles": ["speaker"] },
+    { "src": "clips/leo_wave_thumbs.mp4", "qa": null, "waiver": "qa-log 17/10: Leo 5 clip đạt (bản làm lại từ ảnh trung tính, chưa ghi điểm)", "roles": ["speaker"], "date": "2026-10-17" },
+    { "src": "clips/leo_shrug_cross.mp4", "qa": null, "waiver": "qa-log 17/10: Leo 5 clip đạt (bản làm lại từ ảnh trung tính, chưa ghi điểm)", "roles": ["speaker"], "date": "2026-10-17" },
+    { "src": "clips/leo_nod_short.mp4", "qa": null, "waiver": "tận dụng clip loại (Leo gật lần 3, cắt 0–1,2 s) – vai nghe", "roles": ["listener"], "trimmed": true, "date": "2026-10-17" },
+
+    { "src": "clips/diane_talk_point.mp4", "qa": 89, "waiver": "qa-log 17/10: Diane nói+chỉ 89 ✓", "roles": ["speaker"], "date": "2026-10-17" },
+    { "src": "clips/diane_skeptic_facepalm.mp4", "qa": 90, "roles": ["speaker"], "date": "2026-10-17" },
+    { "src": "clips/diane_idle_listen.mp4", "qa": null, "waiver": "tận dụng clip loại (suy nghĩ+cười, ít động) – vai nghe/idle", "roles": ["listener"], "date": "2026-10-17" },
+    { "src": "clips/diane_nod_handsonhips.mp4", "qa": null, "waiver": "tận dụng clip loại (gật+ngón cái yếu) – vai nghe", "roles": ["listener"], "date": "2026-10-17" },
+
+    { "src": "clips/carlos_wave_thumbs.mp4", "qa": 91, "roles": ["speaker"], "date": "2026-10-17" },
+    { "src": "clips/carlos_talk_laugh.mp4", "qa": 89, "waiver": "qa-log 17/10: Carlos nói+cười 89 ✓", "roles": ["speaker"], "date": "2026-10-17" },
+    { "src": "clips/carlos_surprise_shrug.mp4", "qa": 88, "waiver": "qa-log 17/10: Carlos ngạc nhiên+nhún vai 88 ✓", "roles": ["speaker"], "date": "2026-10-17" },
+
+    { "src": "clips/rejects/leo_nod.mp4", "as": "clips/leo_nod_v1.mp4", "reject": true, "note": "gần như đứng yên (khung đầu đang giơ tay)" },
+    { "src": "clips/rejects/leo_shrug.mp4", "as": "clips/leo_shrug_v1.mp4", "reject": true, "note": "gần như đứng yên" },
+    { "src": "clips/rejects/leo_wave.mp4", "as": "clips/leo_wave_v1.mp4", "reject": true, "note": "gần như đứng yên" },
+    { "src": "clips/rejects/leo_nod2_morph.mp4", "as": "clips/leo_nod_laugh_v2.mp4", "reject": true, "note": "tóc biến thành buộc đuôi (identity drift)" },
+    { "src": "clips/rejects/leo_nod3_morph.mp4", "as": "clips/leo_nod_laugh_v3.mp4", "reject": true, "note": "tóc biến thành buộc đuôi (identity drift) – 0–1,2 s tận dụng = leo_nod_short" },
+    { "src": "clips/rejects/diane_think_laugh_static.mp4", "as": "clips/diane_think_laugh_v1.mp4", "reject": true, "note": "gần như đứng yên – bản tận dụng = diane_idle_listen" },
+    { "src": "clips/rejects/diane_approve_weak.mp4", "as": "clips/diane_nod_thumbs_v1.mp4", "reject": true, "note": "chuyển động yếu – bản tận dụng = diane_nod_handsonhips" }
+  ]
+}

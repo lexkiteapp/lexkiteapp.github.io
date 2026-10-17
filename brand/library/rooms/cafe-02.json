@@ -1,0 +1,43 @@
+{
+ "_note": "Hồ sơ sàn TỰ ĐỘNG (scripts/video/asset_check.py estimate_floor) – canvas rộng 1080. Sửa tay xong đặt \"manual\": true để không bị ghi đè.",
+ "id": "cafe-02",
+ "manual": false,
+ "confidence": 0.63,
+ "canvas": [
+  1080,
+  1913
+ ],
+ "source": "rooms/cafe-02-day-9x16.png",
+ "floor": {
+  "yNear": 1912,
+  "yFar": 1273
+ },
+ "vanish": [
+  650,
+  1024
+ ],
+ "scaleAt": {
+  "yFar": 1273,
+  "hFar": 281,
+  "yNear": 1912,
+  "hNear": 1005
+ },
+ "stand": [
+  {
+   "x": 268,
+   "y": 1656
+  },
+  {
+   "x": 462,
+   "y": 1656
+  },
+  {
+   "x": 880,
+   "y": 1656
+  }
+ ],
+ "light": {
+  "dir": 1,
+  "warmth": 0.17
+ }
+}

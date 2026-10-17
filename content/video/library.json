@@ -1,0 +1,5481 @@
+{
+ "_note": "Kho dựng video – sinh bởi scripts/video/library.mjs (đừng sửa tay trừ qa/roles/tags). File gốc ở brand/library/<file> (không commit), bản web ở https://media.lexkite.com/library/<web>, bản gốc sao lưu ở GrabCast (backup.objectId). Quy trình: docs/ASSET-LIBRARY.md § \"Lưu trữ & sao lưu\".",
+ "version": 1,
+ "cdn": "https://media.lexkite.com/library/",
+ "refs": {
+  "ama": {
+   "headRatio": 0.32,
+   "strokeW": 1.86,
+   "paletteSig": [
+    [
+     [
+      3.2,
+      8.5,
+      4.8
+     ],
+     0.275
+    ],
+    [
+     [
+      63.2,
+      52.9,
+      40.7
+     ],
+     0.163
+    ],
+    [
+     [
+      27.7,
+      -13.1,
+      -14.1
+     ],
+     0.155
+    ],
+    [
+     [
+      37.2,
+      35.8,
+      31.6
+     ],
+     0.138
+    ],
+    [
+     [
+      99.3,
+      -0.1,
+      0.3
+     ],
+     0.055
+    ],
+    [
+     [
+      72.9,
+      11.1,
+      -5.6
+     ],
+     0.023
+    ],
+    [
+     [
+      48.8,
+      -17.6,
+      -14
+     ],
+     0.022
+    ],
+    [
+     [
+      15.9,
+      -9.1,
+      -10.6
+     ],
+     0.017
+    ]
+   ],
+   "eyeEdges": 0.0498,
+   "noise": 0.69,
+   "from": "chars/ama/dna.png"
+  },
+  "leo": {
+   "headRatio": 0.296,
+   "strokeW": 5.14,
+   "paletteSig": [
+    [
+     [
+      26.9,
+      -13.4,
+      -13.6
+     ],
+     0.25
+    ],
+    [
+     [
+      72.9,
+      10.2,
+      27.2
+     ],
+     0.121
+    ],
+    [
+     [
+      53.6,
+      15.8,
+      24.5
+     ],
+     0.112
+    ],
+    [
+     [
+      72.4,
+      36.2,
+      31.4
+     ],
+     0.078
+    ],
+    [
+     [
+      27.2,
+      37,
+      38.6
+     ],
+     0.061
+    ],
+    [
+     [
+      88.3,
+      1.6,
+      4.9
+     ],
+     0.052
+    ],
+    [
+     [
+      71.5,
+      30.5,
+      72.9
+     ],
+     0.044
+    ],
+    [
+     [
+      54.4,
+      59.6,
+      64.5
+     ],
+     0.026
+    ]
+   ],
+   "eyeEdges": 0.0876,
+   "noise": 1.47,
+   "from": "chars/leo/dna.png"
+  },
+  "diane": {
+   "headRatio": 0.268,
+   "strokeW": 7.15,
+   "paletteSig": [
+    [
+     [
+      17.5,
+      2,
+      -7
+     ],
+     0.322
+    ],
+    [
+     [
+      72.8,
+      21.9,
+      76.3
+     ],
+     0.229
+    ],
+    [
+     [
+      26.1,
+      29.3,
+      34.1
+     ],
+     0.161
+    ],
+    [
+     [
+      0.5,
+      1.7,
+      -4.6
+     ],
+     0.088
+    ],
+    [
+     [
+      86.2,
+      2,
+      3.4
+     ],
+     0.078
+    ],
+    [
+     [
+      16.8,
+      22.4,
+      23.9
+     ],
+     0.021
+    ],
+    [
+     [
+      55.7,
+      -0.3,
+      -2.5
+     ],
+     0.011
+    ],
+    [
+     [
+      51,
+      26.6,
+      57.3
+     ],
+     0.007
+    ]
+   ],
+   "eyeEdges": 0.0291,
+   "noise": 0.3,
+   "from": "chars/diane/dna.png"
+  },
+  "carlos": {
+   "headRatio": 0.267,
+   "strokeW": 8.64,
+   "paletteSig": [
+    [
+     [
+      6.2,
+      1.6,
+      -16.8
+     ],
+     0.381
+    ],
+    [
+     [
+      31.1,
+      1.3,
+      29.2
+     ],
+     0.145
+    ],
+    [
+     [
+      64.7,
+      34.6,
+      47
+     ],
+     0.126
+    ],
+    [
+     [
+      59.7,
+      -9.6,
+      -28.5
+     ],
+     0.1
+    ],
+    [
+     [
+      85.1,
+      2.1,
+      3.2
+     ],
+     0.069
+    ],
+    [
+     [
+      0.6,
+      1.6,
+      -4.4
+     ],
+     0.034
+    ],
+    [
+     [
+      39.9,
+      61.9,
+      46.7
+     ],
+     0.016
+    ],
+    [
+     [
+      99.6,
+      -0.4,
+      0.2
+     ],
+     0.015
+    ]
+   ],
+   "eyeEdges": 0.0865,
+   "noise": 0.3,
+   "from": "chars/carlos/dna.png"
+  },
+  "mia": {
+   "headRatio": 0.302,
+   "strokeW": 10.2,
+   "paletteSig": [
+    [
+     [
+      23.9,
+      -11.2,
+      -14.5
+     ],
+     0.28
+    ],
+    [
+     [
+      50.1,
+      56.1,
+      60.3
+     ],
+     0.243
+    ],
+    [
+     [
+      0.5,
+      2.8,
+      -7.7
+     ],
+     0.167
+    ],
+    [
+     [
+      72.6,
+      31.2,
+      29.9
+     ],
+     0.079
+    ],
+    [
+     [
+      87,
+      1.7,
+      4.4
+     ],
+     0.052
+    ],
+    [
+     [
+      37.4,
+      51.6,
+      48.3
+     ],
+     0.04
+    ],
+    [
+     [
+      13.7,
+      -4.3,
+      -15.3
+     ],
+     0.022
+    ]
+   ],
+   "eyeEdges": 0.0621,
+   "noise": 0.48,
+   "from": "chars/mia/neutral.png"
+  }
+ },
+ "castStroke": [
+  1.86,
+  10.2
+ ],
+ "items": [
+  {
+   "id": "chars/ama/dna.png",
+   "kind": "char",
+   "who": "ama",
+   "tags": [
+    "dna"
+   ],
+   "file": "chars/ama/dna.png",
+   "sha256": "96470d64fe1ce7d98ab53e7bbfdded7759ce288daad66ccdbf3ff9e749e6d029",
+   "bytes": 2571780,
+   "w": 1760,
+   "h": 2336,
+   "qa": 94,
+   "note": "ADN Ama #2",
+   "source": {
+    "from": "brand/characters/_candidates/ama/dna.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "approved",
+   "ref": true,
+   "locations": {
+    "primary": {
+     "path": "chars/ama/dna.webp",
+     "url": "https://media.lexkite.com/library/chars/ama/dna.webp",
+     "sha256": "eac0536d7178fbb05dc9efac1c62cbb12db01040c447c6e2ae7c156797aacc18",
+     "gitSha": "1c959a0363ea954866abc52a5b215624b15a60da",
+     "bytes": 73234,
+     "srcSha": "96470d64fe1ce7d98ab53e7bbfdded7759ce288daad66ccdbf3ff9e749e6d029",
+     "at": "2026-10-17"
+    },
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN anat_face_detect: [ảnh] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1760,
+     "h": 2336,
+     "margins": [
+      0.282,
+      0.061,
+      0.277,
+      0.021
+     ],
+     "bgMad": 2,
+     "textScore": 0,
+     "brandShare": 0.571
+    },
+    "suggest": {
+     "ref": {
+      "headRatio": 0.32,
+      "strokeW": 1.86,
+      "paletteSig": [
+       [
+        [
+         3.2,
+         8.5,
+         4.8
+        ],
+        0.275
+       ],
+       [
+        [
+         63.2,
+         52.9,
+         40.7
+        ],
+        0.163
+       ],
+       [
+        [
+         27.7,
+         -13.1,
+         -14.1
+        ],
+        0.155
+       ],
+       [
+        [
+         37.2,
+         35.8,
+         31.6
+        ],
+        0.138
+       ],
+       [
+        [
+         99.3,
+         -0.1,
+         0.3
+        ],
+        0.055
+       ],
+       [
+        [
+         72.9,
+         11.1,
+         -5.6
+        ],
+        0.023
+       ],
+       [
+        [
+         48.8,
+         -17.6,
+         -14
+        ],
+        0.022
+       ],
+       [
+        [
+         15.9,
+         -9.1,
+         -10.6
+        ],
+        0.017
+       ]
+      ],
+      "eyeEdges": 0.0498,
+      "noise": 0.69
+     }
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "96470d64fe1ce7d98ab53e7bbfdded7759ce288daad66ccdbf3ff9e749e6d029",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/chars_ama_dna_png.jpg"
+   }
+  },
+  {
+   "id": "chars/carlos/dna.png",
+   "kind": "char",
+   "who": "carlos",
+   "tags": [
+    "dna"
+   ],
+   "file": "chars/carlos/dna.png",
+   "sha256": "e1edae45bff8637acce019b379d8d713febf79784e12e079e4eaa39361c108ca",
+   "bytes": 2201240,
+   "w": 1760,
+   "h": 2336,
+   "qa": 91,
+   "note": "bản giữa: ngón cái, ria, tạp dề",
+   "source": {
+    "from": "brand/characters/_candidates/carlos/dna.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "approved",
+   "ref": true,
+   "locations": {
+    "primary": {
+     "path": "chars/carlos/dna.webp",
+     "url": "https://media.lexkite.com/library/chars/carlos/dna.webp",
+     "sha256": "de56192ea8eca365b6024a50c7614b2692e3458f6705e5843f40606b8e45f905",
+     "gitSha": "2143dde02de40c9ccb7108cf002cb72a2b0217a0",
+     "bytes": 52198,
+     "srcSha": "e1edae45bff8637acce019b379d8d713febf79784e12e079e4eaa39361c108ca",
+     "at": "2026-10-17"
+    },
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN anat_face_detect: [ảnh] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1760,
+     "h": 2336,
+     "margins": [
+      0.147,
+      0.034,
+      0.19,
+      0.024
+     ],
+     "bgMad": 1,
+     "textScore": 0.0002,
+     "brandShare": 0.643
+    },
+    "suggest": {
+     "ref": {
+      "headRatio": 0.267,
+      "strokeW": 8.64,
+      "paletteSig": [
+       [
+        [
+         6.2,
+         1.6,
+         -16.8
+        ],
+        0.381
+       ],
+       [
+        [
+         31.1,
+         1.3,
+         29.2
+        ],
+        0.145
+       ],
+       [
+        [
+         64.7,
+         34.6,
+         47
+        ],
+        0.126
+       ],
+       [
+        [
+         59.7,
+         -9.6,
+         -28.5
+        ],
+        0.1
+       ],
+       [
+        [
+         85.1,
+         2.1,
+         3.2
+        ],
+        0.069
+       ],
+       [
+        [
+         0.6,
+         1.6,
+         -4.4
+        ],
+        0.034
+       ],
+       [
+        [
+         39.9,
+         61.9,
+         46.7
+        ],
+        0.016
+       ],
+       [
+        [
+         99.6,
+         -0.4,
+         0.2
+        ],
+        0.015
+       ]
+      ],
+      "eyeEdges": 0.0865,
+      "noise": 0.3
+     }
+    },
+    "vision": {
+     "status": "PASS",
+     "reasons": [],
+     "sha": "e1edae45bff8637acce019b379d8d713febf79784e12e079e4eaa39361c108ca"
+    },
+    "sheet": "brand/library/_review/chars_carlos_dna_png.jpg"
+   }
+  },
+  {
+   "id": "chars/carlos/neutral.png",
+   "kind": "char",
+   "who": "carlos",
+   "tags": [
+    "neutral"
+   ],
+   "file": "chars/carlos/neutral.png",
+   "sha256": "5cb353ea4ec916a74170089588c3a87d0e470d5528f1c0b1c17980b0013d07bb",
+   "bytes": 2055736,
+   "w": 1760,
+   "h": 2336,
+   "qa": null,
+   "source": {
+    "from": "brand/characters/_candidates/carlos/neutral.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN anat_face_detect: [ảnh] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1760,
+     "h": 2336,
+     "margins": [
+      0.186,
+      0.029,
+      0.184,
+      0.021
+     ],
+     "bgMad": 1,
+     "textScore": 0.0002,
+     "brandShare": 0.655
+    },
+    "suggest": {
+     "ref": {
+      "headRatio": 0.259,
+      "strokeW": 4.05,
+      "paletteSig": [
+       [
+        [
+         5.5,
+         2.4,
+         -17.8
+        ],
+        0.388
+       ],
+       [
+        [
+         30.4,
+         2.1,
+         28.2
+        ],
+        0.153
+       ],
+       [
+        [
+         63.6,
+         35.6,
+         45.5
+        ],
+        0.147
+       ],
+       [
+        [
+         57.9,
+         -8.6,
+         -28.9
+        ],
+        0.082
+       ],
+       [
+        [
+         84.6,
+         2.5,
+         3.2
+        ],
+        0.071
+       ],
+       [
+        [
+         0.5,
+         1.7,
+         -4.9
+        ],
+        0.031
+       ],
+       [
+        [
+         39.1,
+         61.8,
+         46.1
+        ],
+        0.012
+       ]
+      ],
+      "eyeEdges": 0.0801,
+      "noise": 0.23
+     }
+    },
+    "vision": {
+     "status": "PASS",
+     "reasons": [],
+     "sha": "5cb353ea4ec916a74170089588c3a87d0e470d5528f1c0b1c17980b0013d07bb"
+    },
+    "sheet": "brand/library/_review/chars_carlos_neutral_png.jpg"
+   }
+  },
+  {
+   "id": "chars/diane/dna.png",
+   "kind": "char",
+   "who": "diane",
+   "tags": [
+    "dna"
+   ],
+   "file": "chars/diane/dna.png",
+   "sha256": "4a813292610c45313e4bf220cca1f2dd5a9a9f8614dbdbaeaeed5703a406bb90",
+   "bytes": 1795078,
+   "w": 1760,
+   "h": 2336,
+   "qa": 90,
+   "note": "lần 2 (DEEP BROWN SKIN)",
+   "source": {
+    "from": "brand/characters/_candidates/diane/dna.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "approved",
+   "ref": true,
+   "locations": {
+    "primary": {
+     "path": "chars/diane/dna.webp",
+     "url": "https://media.lexkite.com/library/chars/diane/dna.webp",
+     "sha256": "b783658eb5fdaf951412b3f64cb96779161086f60e6b4c0e609596d920ea40c5",
+     "gitSha": "2a23255566089d69c35b6bb03bdd79a5edca87ec",
+     "bytes": 49782,
+     "srcSha": "4a813292610c45313e4bf220cca1f2dd5a9a9f8614dbdbaeaeed5703a406bb90",
+     "at": "2026-10-17"
+    },
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 1760,
+     "h": 2336,
+     "margins": [
+      0.213,
+      0.02,
+      0.194,
+      0.022
+     ],
+     "bgMad": 1,
+     "textScore": 0.0002,
+     "brandShare": 0.439
+    },
+    "suggest": {
+     "ref": {
+      "headRatio": 0.268,
+      "strokeW": 7.15,
+      "paletteSig": [
+       [
+        [
+         17.5,
+         2,
+         -7
+        ],
+        0.322
+       ],
+       [
+        [
+         72.8,
+         21.9,
+         76.3
+        ],
+        0.229
+       ],
+       [
+        [
+         26.1,
+         29.3,
+         34.1
+        ],
+        0.161
+       ],
+       [
+        [
+         0.5,
+         1.7,
+         -4.6
+        ],
+        0.088
+       ],
+       [
+        [
+         86.2,
+         2,
+         3.4
+        ],
+        0.078
+       ],
+       [
+        [
+         16.8,
+         22.4,
+         23.9
+        ],
+        0.021
+       ],
+       [
+        [
+         55.7,
+         -0.3,
+         -2.5
+        ],
+        0.011
+       ],
+       [
+        [
+         51,
+         26.6,
+         57.3
+        ],
+        0.007
+       ]
+      ],
+      "eyeEdges": 0.0291,
+      "noise": 0.3
+     }
+    },
+    "vision": {
+     "status": "PASS",
+     "reasons": [],
+     "sha": "4a813292610c45313e4bf220cca1f2dd5a9a9f8614dbdbaeaeed5703a406bb90"
+    }
+   }
+  },
+  {
+   "id": "chars/diane/neutral.png",
+   "kind": "char",
+   "who": "diane",
+   "tags": [
+    "neutral"
+   ],
+   "file": "chars/diane/neutral.png",
+   "sha256": "a24e677642c1ae6f69eff64eedb1b678064958290378fa67a45a48cd9da71e5d",
+   "bytes": 2264931,
+   "w": 1760,
+   "h": 2336,
+   "qa": null,
+   "source": {
+    "from": "brand/characters/_candidates/diane/neutral.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1760,
+     "h": 2336,
+     "margins": [
+      0.157,
+      0.025,
+      0.162,
+      0.022
+     ],
+     "bgMad": 1,
+     "textScore": 0.0002,
+     "brandShare": 0.386
+    },
+    "suggest": {
+     "ref": {
+      "headRatio": 0.282,
+      "strokeW": 6.74,
+      "paletteSig": [
+       [
+        [
+         70.9,
+         23.6,
+         74
+        ],
+        0.283
+       ],
+       [
+        [
+         16.6,
+         2.6,
+         -7
+        ],
+        0.282
+       ],
+       [
+        [
+         25.2,
+         29.3,
+         31.9
+        ],
+        0.166
+       ],
+       [
+        [
+         0.5,
+         1.5,
+         -4
+        ],
+        0.077
+       ],
+       [
+        [
+         85.1,
+         1.7,
+         3.3
+        ],
+        0.068
+       ],
+       [
+        [
+         16.6,
+         21.7,
+         22.8
+        ],
+        0.021
+       ]
+      ],
+      "eyeEdges": 0.0249,
+      "noise": 0.3
+     }
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "a24e677642c1ae6f69eff64eedb1b678064958290378fa67a45a48cd9da71e5d",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/chars_diane_neutral_png.jpg"
+   }
+  },
+  {
+   "id": "chars/leo/dna.png",
+   "kind": "char",
+   "who": "leo",
+   "tags": [
+    "dna"
+   ],
+   "file": "chars/leo/dna.png",
+   "sha256": "2467074840d4fe1468ab7bd7f02f40798048631a8bba73221cd4973d145d90a4",
+   "bytes": 2510146,
+   "w": 1760,
+   "h": 2336,
+   "qa": 93,
+   "note": "ADN Leo #5",
+   "source": {
+    "from": "brand/characters/_candidates/leo/dna.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "approved",
+   "ref": true,
+   "locations": {
+    "primary": {
+     "path": "chars/leo/dna.webp",
+     "url": "https://media.lexkite.com/library/chars/leo/dna.webp",
+     "sha256": "ac576f5480e2aef7936bcc19671dd4e831dd42e0c97bc24e09a9fe5afb4e6122",
+     "gitSha": "bc625b90309b3e7ec97a221def504443f3aaaabb",
+     "bytes": 77060,
+     "srcSha": "2467074840d4fe1468ab7bd7f02f40798048631a8bba73221cd4973d145d90a4",
+     "at": "2026-10-17"
+    },
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN anat_face_detect: [ảnh] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1760,
+     "h": 2336,
+     "margins": [
+      0.205,
+      0.054,
+      0.166,
+      0.031
+     ],
+     "bgMad": 1,
+     "textScore": 0,
+     "brandShare": 0.603
+    },
+    "suggest": {
+     "ref": {
+      "headRatio": 0.296,
+      "strokeW": 5.14,
+      "paletteSig": [
+       [
+        [
+         26.9,
+         -13.4,
+         -13.6
+        ],
+        0.25
+       ],
+       [
+        [
+         72.9,
+         10.2,
+         27.2
+        ],
+        0.121
+       ],
+       [
+        [
+         53.6,
+         15.8,
+         24.5
+        ],
+        0.112
+       ],
+       [
+        [
+         72.4,
+         36.2,
+         31.4
+        ],
+        0.078
+       ],
+       [
+        [
+         27.2,
+         37,
+         38.6
+        ],
+        0.061
+       ],
+       [
+        [
+         88.3,
+         1.6,
+         4.9
+        ],
+        0.052
+       ],
+       [
+        [
+         71.5,
+         30.5,
+         72.9
+        ],
+        0.044
+       ],
+       [
+        [
+         54.4,
+         59.6,
+         64.5
+        ],
+        0.026
+       ]
+      ],
+      "eyeEdges": 0.0876,
+      "noise": 1.47
+     }
+    },
+    "vision": {
+     "status": "PASS",
+     "reasons": [],
+     "sha": "2467074840d4fe1468ab7bd7f02f40798048631a8bba73221cd4973d145d90a4"
+    },
+    "sheet": "brand/library/_review/chars_leo_dna_png.jpg"
+   }
+  },
+  {
+   "id": "chars/leo/neutral.png",
+   "kind": "char",
+   "who": "leo",
+   "tags": [
+    "neutral"
+   ],
+   "file": "chars/leo/neutral.png",
+   "sha256": "088926cba53b5953aa2562b6efefc077ac3e11daf829c3fc770c50385c5e8fd0",
+   "bytes": 2347014,
+   "w": 1760,
+   "h": 2336,
+   "qa": 91,
+   "note": "tư thế trung tính làm khung đầu clip",
+   "source": {
+    "from": "brand/characters/_candidates/leo/neutral.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN anat_face_detect: [ảnh] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "FAIL anat_head_ratio: [trung vị 1 khung] tỉ lệ đầu/thân lệch DNA 15 % (> 12 %)",
+     "WARN anat_palette_dna: [trung vị 1 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 11"
+    ],
+    "metrics": {
+     "w": 1760,
+     "h": 2336,
+     "margins": [
+      0.263,
+      0.051,
+      0.248,
+      0.043
+     ],
+     "bgMad": 1,
+     "textScore": 0.0002,
+     "brandShare": 0.566
+    },
+    "suggest": {
+     "ref": {
+      "headRatio": 0.339,
+      "strokeW": 6.61,
+      "paletteSig": [
+       [
+        [
+         27.5,
+         -12.7,
+         -15
+        ],
+        0.25
+       ],
+       [
+        [
+         70.3,
+         13.8,
+         26.1
+        ],
+        0.108
+       ],
+       [
+        [
+         51.2,
+         19.6,
+         24.7
+        ],
+        0.091
+       ],
+       [
+        [
+         68.2,
+         27.6,
+         68.1
+        ],
+        0.065
+       ],
+       [
+        [
+         33.5,
+         35.7,
+         43.9
+        ],
+        0.054
+       ],
+       [
+        [
+         40.4,
+         26.2,
+         26.6
+        ],
+        0.046
+       ],
+       [
+        [
+         75.7,
+         27.1,
+         27
+        ],
+        0.046
+       ],
+       [
+        [
+         16,
+         -8.3,
+         -11.8
+        ],
+        0.046
+       ]
+      ],
+      "eyeEdges": 0.053,
+      "noise": 0.59
+     }
+    },
+    "vision": {
+     "status": "PASS",
+     "reasons": [],
+     "sha": "088926cba53b5953aa2562b6efefc077ac3e11daf829c3fc770c50385c5e8fd0"
+    },
+    "sheet": "brand/library/_review/chars_leo_neutral_png.jpg"
+   },
+   "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL anat_head_ratio: [ảnh] tỉ lệ đầu/thân lệch DNA 15 % (> 12 %)",
+   "quarantinedFrom": "approved"
+  },
+  {
+   "id": "chars/mia/gesture-shock.png",
+   "kind": "char",
+   "who": "mia",
+   "tags": [
+    "shock"
+   ],
+   "file": "chars/mia/gesture-shock.png",
+   "sha256": "5d7334a6de3b9381ec863d66253c49901ff55f2412a7b56a28940325666b1b6c",
+   "bytes": 2384835,
+   "w": 1760,
+   "h": 2336,
+   "qa": null,
+   "source": {
+    "from": "brand/characters/_candidates/mia/a.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN anat_face_detect: [ảnh] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1760,
+     "h": 2336,
+     "margins": [
+      0.244,
+      0.053,
+      0.219,
+      0.027
+     ],
+     "bgMad": 1,
+     "textScore": 0.0002,
+     "brandShare": 0.723
+    },
+    "suggest": {
+     "ref": {
+      "headRatio": 0.274,
+      "strokeW": 4.19,
+      "paletteSig": [
+       [
+        [
+         22.8,
+         -9.8,
+         -15.5
+        ],
+        0.299
+       ],
+       [
+        [
+         49.2,
+         55.4,
+         59.2
+        ],
+        0.241
+       ],
+       [
+        [
+         0.5,
+         3,
+         -8.1
+        ],
+        0.161
+       ],
+       [
+        [
+         71.7,
+         31.2,
+         28.8
+        ],
+        0.074
+       ],
+       [
+        [
+         85.5,
+         1.8,
+         4
+        ],
+        0.057
+       ],
+       [
+        [
+         37.5,
+         51.3,
+         48.3
+        ],
+        0.045
+       ],
+       [
+        [
+         16.6,
+         2.7,
+         -17
+        ],
+        0.01
+       ],
+       [
+        [
+         75.7,
+         0.3,
+         -9
+        ],
+        0.006
+       ]
+      ],
+      "eyeEdges": 0.0782,
+      "noise": 0.53
+     }
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "5d7334a6de3b9381ec863d66253c49901ff55f2412a7b56a28940325666b1b6c",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/chars_mia_gesture-shock_png.jpg"
+   }
+  },
+  {
+   "id": "chars/mia/neutral.png",
+   "kind": "char",
+   "who": "mia",
+   "tags": [
+    "neutral"
+   ],
+   "file": "chars/mia/neutral.png",
+   "sha256": "bd38fce0c076af99f6c7a39a338aff63aafdcbdf9e32a89cd2ea8f93f57b1ebb",
+   "bytes": 2251048,
+   "w": 1760,
+   "h": 2336,
+   "qa": null,
+   "note": "Mia v4 (Element Lexkite Mia) – chưa chấm riêng; dùng làm ref đo phong cách vì chưa có dna.png gốc",
+   "source": {
+    "from": "brand/characters/_candidates/mia/b.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "ref": true,
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN anat_face_detect: [ảnh] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1760,
+     "h": 2336,
+     "margins": [
+      0.248,
+      0.048,
+      0.215,
+      0.03
+     ],
+     "bgMad": 1,
+     "textScore": 0.0002,
+     "brandShare": 0.734
+    },
+    "suggest": {
+     "ref": {
+      "headRatio": 0.302,
+      "strokeW": 10.2,
+      "paletteSig": [
+       [
+        [
+         23.9,
+         -11.2,
+         -14.5
+        ],
+        0.28
+       ],
+       [
+        [
+         50.1,
+         56.1,
+         60.3
+        ],
+        0.243
+       ],
+       [
+        [
+         0.5,
+         2.8,
+         -7.7
+        ],
+        0.167
+       ],
+       [
+        [
+         72.6,
+         31.2,
+         29.9
+        ],
+        0.079
+       ],
+       [
+        [
+         87,
+         1.7,
+         4.4
+        ],
+        0.052
+       ],
+       [
+        [
+         37.4,
+         51.6,
+         48.3
+        ],
+        0.04
+       ],
+       [
+        [
+         13.7,
+         -4.3,
+         -15.3
+        ],
+        0.022
+       ]
+      ],
+      "eyeEdges": 0.0621,
+      "noise": 0.48
+     }
+    },
+    "vision": {
+     "status": "PASS",
+     "reasons": [],
+     "sha": "bd38fce0c076af99f6c7a39a338aff63aafdcbdf9e32a89cd2ea8f93f57b1ebb"
+    },
+    "sheet": "brand/library/_review/chars_mia_neutral_png.jpg"
+   }
+  },
+  {
+   "id": "clips/ama_ask_point.mp4",
+   "kind": "clip",
+   "who": "ama",
+   "tags": [
+    "ask",
+    "point"
+   ],
+   "file": "clips/src/ama_ask_point.mp4",
+   "sha256": "086f1a5583d75a62a07ff083044f6beb443864c418e50f8537a4e150ba1f1eda",
+   "bytes": 5017013,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 88,
+   "waiver": "qa-log: Ama 6 clip 88–91 ✓ (chưa ghi điểm từng clip)",
+   "source": {
+    "from": "brand/characters/_candidates/clips/ama_ask_point.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "FAIL feet_still: chân trôi 3.3 % chiều cao khung",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 3.322,
+     "drift": 0.096,
+     "footWobble": 0.0326,
+     "bgShift": 2,
+     "dupRun": 0,
+     "cadenceTwos": 0.56,
+     "audioPeakDb": -11.8
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "086f1a5583d75a62a07ff083044f6beb443864c418e50f8537a4e150ba1f1eda",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_ama_ask_point_mp4.jpg"
+   },
+   "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL feet_still: chân trôi 3.3 % chiều cao khung | FAIL anat_palette_dna: [giữa] màu top lệch DNA ΔE 39",
+   "quarantinedFrom": "approved"
+  },
+  {
+   "id": "clips/ama_nod_laugh.mp4",
+   "kind": "clip",
+   "who": "ama",
+   "tags": [
+    "nod",
+    "laugh"
+   ],
+   "file": "clips/src/ama_nod_laugh.mp4",
+   "sha256": "e78ddb292d88c480d1d129d40e5d66c813158bcbf0733200be8baea46ceecddc",
+   "bytes": 4820244,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 88,
+   "waiver": "qa-log: Ama 6 clip 88–91 ✓ (chưa ghi điểm từng clip)",
+   "source": {
+    "from": "brand/characters/_candidates/clips/ama_nod_laugh.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "listener"
+   ],
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "FAIL feet_still: chân trôi 4.0 % chiều cao khung",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 2.98,
+     "drift": 0.085,
+     "footWobble": 0.0397,
+     "bgShift": 2,
+     "dupRun": 1,
+     "cadenceTwos": 0.68,
+     "audioPeakDb": -12.4
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "e78ddb292d88c480d1d129d40e5d66c813158bcbf0733200be8baea46ceecddc",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_ama_nod_laugh_mp4.jpg"
+   },
+   "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL feet_still: chân trôi 4.0 % chiều cao khung | FAIL anat_palette_dna: [giữa] màu top lệch DNA ΔE 39",
+   "quarantinedFrom": "approved"
+  },
+  {
+   "id": "clips/ama_shock_headgrab.mp4",
+   "kind": "clip",
+   "who": "ama",
+   "tags": [
+    "shock",
+    "headgrab"
+   ],
+   "file": "clips/src/ama_shock_headgrab.mp4",
+   "sha256": "b8dd734c6afa4e5432edb764f7cc3550fbe69d6a65f238e745fb3f1d3f01d041",
+   "bytes": 4031895,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 88,
+   "waiver": "qa-log: Ama 6 clip 88–91 ✓ (chưa ghi điểm từng clip)",
+   "source": {
+    "from": "brand/characters/_candidates/clips/ama_shock_headgrab.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    },
+    "src": {
+     "path": "src/clips/src/ama_shock_headgrab.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/ama_shock_headgrab.mp4",
+     "gitSha": "bd4f510883fb866e2496431c3f79e6bdceaeaca7",
+     "sha256": "b8dd734c6afa4e5432edb764f7cc3550fbe69d6a65f238e745fb3f1d3f01d041",
+     "bytes": 4031895
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN identity: nghi trôi nhận dạng (tóc ×0.846, áo lệch 243.2) – AI thị giác quyết định FAIL \"identity drift\"",
+     "WARN anat_joints: [cuối] khớp bất thường (ước lượng MediaPipe trên tranh 2D – AI thị giác quyết định FAIL) {'arm_l': 2.98}",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.065,
+     "drift": 4.054,
+     "footWobble": 0.0013,
+     "bgShift": 2,
+     "dupRun": 0,
+     "cadenceTwos": 0.77,
+     "audioPeakDb": -13.4
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "b8dd734c6afa4e5432edb764f7cc3550fbe69d6a65f238e745fb3f1d3f01d041",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_ama_shock_headgrab_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/ama_shrug_eyeroll.mp4",
+   "kind": "clip",
+   "who": "ama",
+   "tags": [
+    "shrug",
+    "eyeroll"
+   ],
+   "file": "clips/src/ama_shrug_eyeroll.mp4",
+   "sha256": "a78f238bfa08d3c51b9db9190f8c601f4dab320334353581fcbfc8538bc8e55f",
+   "bytes": 3037533,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 88,
+   "waiver": "qa-log: Ama 6 clip 88–91 ✓ (chưa ghi điểm từng clip)",
+   "source": {
+    "from": "brand/characters/_candidates/clips/ama_shrug_eyeroll.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "speaker",
+    "listener"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    },
+    "src": {
+     "path": "src/clips/src/ama_shrug_eyeroll.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/ama_shrug_eyeroll.mp4",
+     "gitSha": "da04f42ea00192a59694e470a57a5ffd154c1932",
+     "sha256": "a78f238bfa08d3c51b9db9190f8c601f4dab320334353581fcbfc8538bc8e55f",
+     "bytes": 3037533
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 0.353,
+     "drift": 0.081,
+     "footWobble": 0,
+     "bgShift": 2,
+     "dupRun": 0,
+     "cadenceTwos": 0.9,
+     "audioPeakDb": -4.1
+    },
+    "suggest": {
+     "role": "listener"
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "a78f238bfa08d3c51b9db9190f8c601f4dab320334353581fcbfc8538bc8e55f",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_ama_shrug_eyeroll_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/ama_think_win.mp4",
+   "kind": "clip",
+   "who": "ama",
+   "tags": [
+    "think",
+    "win"
+   ],
+   "file": "clips/src/ama_think_win.mp4",
+   "sha256": "d8d3bd8a2f8bc1754b978ecb7f5d9934a800dc11b56d46c5bf37fb31b0e136af",
+   "bytes": 4161572,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 88,
+   "waiver": "qa-log: Ama 6 clip 88–91 ✓ (chưa ghi điểm từng clip)",
+   "source": {
+    "from": "brand/characters/_candidates/clips/ama_think_win.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "FAIL feet_still: chân trôi 6.1 % chiều cao khung",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.863,
+     "drift": 0.046,
+     "footWobble": 0.0607,
+     "bgShift": 2,
+     "dupRun": 1,
+     "cadenceTwos": 0.74,
+     "audioPeakDb": -12.5
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "d8d3bd8a2f8bc1754b978ecb7f5d9934a800dc11b56d46c5bf37fb31b0e136af",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_ama_think_win_mp4.jpg"
+   },
+   "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL feet_still: chân trôi 6.1 % chiều cao khung | FAIL anat_palette_dna: [cuối] màu top lệch DNA ΔE 39",
+   "quarantinedFrom": "approved"
+  },
+  {
+   "id": "clips/ama_wave_thumbs.mp4",
+   "kind": "clip",
+   "who": "ama",
+   "tags": [
+    "wave",
+    "thumbs"
+   ],
+   "file": "clips/src/ama_wave_thumbs.mp4",
+   "sha256": "bfb0fab589de11779d0c6675c4fb3fcb1eb2207339187c0761d3b1349e7ddb76",
+   "bytes": 4760127,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 88,
+   "waiver": "qa-log: Ama 6 clip 88–91 ✓ (chưa ghi điểm từng clip)",
+   "source": {
+    "from": "brand/characters/_candidates/clips/ama_wave_thumbs.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    },
+    "src": {
+     "path": "src/clips/src/ama_wave_thumbs.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/ama_wave_thumbs.mp4",
+     "gitSha": "b1c32fa69b38e9587d327614a3e525f0a60de062",
+     "sha256": "bfb0fab589de11779d0c6675c4fb3fcb1eb2207339187c0761d3b1349e7ddb76",
+     "bytes": 4760127
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_joints: [giữa] khớp bất thường (ước lượng MediaPipe trên tranh 2D – AI thị giác quyết định FAIL) {'arm_l': 2.81}",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 2.382,
+     "drift": 0.198,
+     "footWobble": 0,
+     "bgShift": 2,
+     "dupRun": 0,
+     "cadenceTwos": 0.44,
+     "audioPeakDb": -10.7
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "bfb0fab589de11779d0c6675c4fb3fcb1eb2207339187c0761d3b1349e7ddb76",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_ama_wave_thumbs_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/carlos_surprise_shrug.mp4",
+   "kind": "clip",
+   "who": "carlos",
+   "tags": [
+    "surprise",
+    "shrug"
+   ],
+   "file": "clips/src/carlos_surprise_shrug.mp4",
+   "sha256": "97863b59cdc260294b1126b28eb417f12d94997105b39ce929ac3a6f8394fb4f",
+   "bytes": 3601599,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 88,
+   "waiver": "qa-log 17/10: Carlos ngạc nhiên+nhún vai 88 ✓",
+   "source": {
+    "from": "brand/characters/_candidates/clips/carlos_surprise_shrug.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    },
+    "src": {
+     "path": "src/clips/src/carlos_surprise_shrug.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/carlos_surprise_shrug.mp4",
+     "gitSha": "a77730add1024bd24339d0493ce76e1c5ef0939e",
+     "sha256": "97863b59cdc260294b1126b28eb417f12d94997105b39ce929ac3a6f8394fb4f",
+     "bytes": 3601599
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.472,
+     "drift": 0.068,
+     "footWobble": 0,
+     "bgShift": 4,
+     "dupRun": 0,
+     "cadenceTwos": 0.44,
+     "audioPeakDb": -8.9
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "97863b59cdc260294b1126b28eb417f12d94997105b39ce929ac3a6f8394fb4f",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_carlos_surprise_shrug_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/carlos_talk_laugh.mp4",
+   "kind": "clip",
+   "who": "carlos",
+   "tags": [
+    "talk",
+    "laugh"
+   ],
+   "file": "clips/src/carlos_talk_laugh.mp4",
+   "sha256": "cd2ce2bcb3381429e10948557a5d10d42d5c86e82176ad2e99347c3e96afc953",
+   "bytes": 3322894,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 89,
+   "waiver": "qa-log 17/10: Carlos nói+cười 89 ✓",
+   "source": {
+    "from": "brand/characters/_candidates/clips/carlos_talk_laugh.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    },
+    "src": {
+     "path": "src/clips/src/carlos_talk_laugh.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/carlos_talk_laugh.mp4",
+     "gitSha": "8a0cf2e9fac57576d6d15542fd88660c35a3124e",
+     "sha256": "cd2ce2bcb3381429e10948557a5d10d42d5c86e82176ad2e99347c3e96afc953",
+     "bytes": 3322894
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 0.865,
+     "drift": 0.044,
+     "footWobble": 0,
+     "bgShift": 3,
+     "dupRun": 0,
+     "cadenceTwos": 0.68,
+     "audioPeakDb": -3.1
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "cd2ce2bcb3381429e10948557a5d10d42d5c86e82176ad2e99347c3e96afc953",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_carlos_talk_laugh_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/carlos_wave_thumbs.mp4",
+   "kind": "clip",
+   "who": "carlos",
+   "tags": [
+    "wave",
+    "thumbs"
+   ],
+   "file": "clips/src/carlos_wave_thumbs.mp4",
+   "sha256": "6c2d9cd30a2657fec5efe93a69cdd2018d0025222e02d870911ee82f2adddacb",
+   "bytes": 4216471,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 91,
+   "source": {
+    "from": "brand/characters/_candidates/clips/carlos_wave_thumbs.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    },
+    "src": {
+     "path": "src/clips/src/carlos_wave_thumbs.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/carlos_wave_thumbs.mp4",
+     "gitSha": "ab89420c07a9d0eb0e927fe26b306667e242d32f",
+     "sha256": "6c2d9cd30a2657fec5efe93a69cdd2018d0025222e02d870911ee82f2adddacb",
+     "bytes": 4216471
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 2.356,
+     "drift": 0.082,
+     "footWobble": 0,
+     "bgShift": 4,
+     "dupRun": 0,
+     "cadenceTwos": 0.3,
+     "audioPeakDb": -11.4
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "6c2d9cd30a2657fec5efe93a69cdd2018d0025222e02d870911ee82f2adddacb",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_carlos_wave_thumbs_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/diane_idle_listen.mp4",
+   "kind": "clip",
+   "who": "diane",
+   "tags": [
+    "idle",
+    "listen"
+   ],
+   "file": "clips/src/diane_idle_listen.mp4",
+   "sha256": "86068eb6c29f9bb1016f8d9f083a37127d56870c7acec70f163796be4d0b36e7",
+   "bytes": 1951783,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.042,
+   "qa": null,
+   "waiver": "tận dụng clip loại (suy nghĩ+cười, ít động) – vai nghe/idle",
+   "source": {
+    "from": "brand/characters/_candidates/clips/diane_idle_listen.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "listener"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    },
+    "src": {
+     "path": "src/clips/src/diane_idle_listen.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/diane_idle_listen.mp4",
+     "gitSha": "60107faa062498af3af2cd5308c6203983614995",
+     "sha256": "86068eb6c29f9bb1016f8d9f083a37127d56870c7acec70f163796be4d0b36e7",
+     "bytes": 1951783
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.042,
+     "motion": 0.103,
+     "drift": 0.067,
+     "footWobble": 0,
+     "bgShift": 2,
+     "dupRun": 5,
+     "cadenceTwos": 1
+    },
+    "suggest": {
+     "role": "listener"
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "86068eb6c29f9bb1016f8d9f083a37127d56870c7acec70f163796be4d0b36e7",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_diane_idle_listen_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/diane_nod_handsonhips.mp4",
+   "kind": "clip",
+   "who": "diane",
+   "tags": [
+    "nod",
+    "handsonhips"
+   ],
+   "file": "clips/src/diane_nod_handsonhips.mp4",
+   "sha256": "65dfcd7e8fe0be79fa0ed33a66d6d2a1e009be891bcde18055f988a6b967c4c7",
+   "bytes": 2808796,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.042,
+   "qa": null,
+   "waiver": "tận dụng clip loại (gật+ngón cái yếu) – vai nghe",
+   "source": {
+    "from": "brand/characters/_candidates/clips/diane_nod_handsonhips.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "listener"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    },
+    "src": {
+     "path": "src/clips/src/diane_nod_handsonhips.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/diane_nod_handsonhips.mp4",
+     "gitSha": "6485112361bff8c7ec9a5a3e1badea52279202cb",
+     "sha256": "65dfcd7e8fe0be79fa0ed33a66d6d2a1e009be891bcde18055f988a6b967c4c7",
+     "bytes": 2808796
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.042,
+     "motion": 0.452,
+     "drift": 0.133,
+     "footWobble": 0,
+     "bgShift": 1,
+     "dupRun": 0,
+     "cadenceTwos": 0.91
+    },
+    "suggest": {
+     "role": "listener"
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "65dfcd7e8fe0be79fa0ed33a66d6d2a1e009be891bcde18055f988a6b967c4c7",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_diane_nod_handsonhips_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/diane_nod_thumbs_v1.mp4",
+   "kind": "clip",
+   "who": "diane",
+   "tags": [
+    "nod",
+    "thumbs"
+   ],
+   "file": "clips/src/diane_nod_thumbs_v1.mp4",
+   "sha256": "781f9ce6bc16cb95f00e4dba8e8bb38d080a4edab29165a29971c41e21a4dab3",
+   "bytes": 2944280,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": null,
+   "note": "chuyển động yếu – bản tận dụng = diane_nod_handsonhips",
+   "source": {
+    "from": "brand/characters/_candidates/clips/rejects/diane_approve_weak.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "speaker",
+    "listener"
+   ],
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 0.452,
+     "drift": 0.133,
+     "footWobble": 0,
+     "bgShift": 1,
+     "dupRun": 0,
+     "cadenceTwos": 0.91,
+     "audioPeakDb": -11.6
+    },
+    "suggest": {
+     "role": "listener"
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "781f9ce6bc16cb95f00e4dba8e8bb38d080a4edab29165a29971c41e21a4dab3",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_diane_nod_thumbs_v1_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/diane_skeptic_facepalm.mp4",
+   "kind": "clip",
+   "who": "diane",
+   "tags": [
+    "skeptic",
+    "facepalm"
+   ],
+   "file": "clips/src/diane_skeptic_facepalm.mp4",
+   "sha256": "64566b5a03929edf714fbd203d90e080c118ce38d50cffcfcdfda4b455644945",
+   "bytes": 3756207,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 90,
+   "source": {
+    "from": "brand/characters/_candidates/clips/diane_skeptic_facepalm.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "FAIL anat_glasses: [cuối] vùng mắt mất nét gọng kính so với DNA",
+     "WARN anat_face_detect: [giữa] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.073,
+     "drift": 0.072,
+     "footWobble": 0.0021,
+     "bgShift": 2,
+     "dupRun": 0,
+     "cadenceTwos": 0.79,
+     "audioPeakDb": -14.3
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "64566b5a03929edf714fbd203d90e080c118ce38d50cffcfcdfda4b455644945",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_diane_skeptic_facepalm_mp4.jpg"
+   },
+   "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL anat_glasses: [cuối] vùng mắt mất nét gọng kính so với DNA",
+   "quarantinedFrom": "approved"
+  },
+  {
+   "id": "clips/diane_talk_point.mp4",
+   "kind": "clip",
+   "who": "diane",
+   "tags": [
+    "talk",
+    "point"
+   ],
+   "file": "clips/src/diane_talk_point.mp4",
+   "sha256": "5429b504c6ef5511c72f43fbf34425e68f9671fc63ba2647bbedde3423861ab8",
+   "bytes": 3103830,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 89,
+   "waiver": "qa-log 17/10: Diane nói+chỉ 89 ✓",
+   "source": {
+    "from": "brand/characters/_candidates/clips/diane_talk_point.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "FAIL vision: face lỗi; identity drift; character's signature red glasses are missing across all frames"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 0.605,
+     "drift": 0.155,
+     "footWobble": 0,
+     "bgShift": 2,
+     "dupRun": 1,
+     "cadenceTwos": 0.86,
+     "audioPeakDb": -8.4
+    },
+    "vision": {
+     "status": "FAIL",
+     "reasons": [
+      "face lỗi",
+      "identity drift",
+      "character's signature red glasses are missing across all frames"
+     ],
+     "sha": "5429b504c6ef5511c72f43fbf34425e68f9671fc63ba2647bbedde3423861ab8"
+    },
+    "sheet": "brand/library/_review/clips_diane_talk_point_mp4.jpg"
+   },
+   "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL vision: face lỗi; identity drift; character's signature red glasses are missing across all frames",
+   "quarantinedFrom": "approved"
+  },
+  {
+   "id": "clips/diane_think_laugh_v1.mp4",
+   "kind": "clip",
+   "who": "diane",
+   "tags": [
+    "think",
+    "laugh"
+   ],
+   "file": "clips/src/diane_think_laugh_v1.mp4",
+   "sha256": "97ef37abb38b003447590ff7ab31637eeb525cf98f8ab9ee284f2f32764f0c6f",
+   "bytes": 2084116,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": null,
+   "note": "gần như đứng yên – bản tận dụng = diane_idle_listen",
+   "source": {
+    "from": "brand/characters/_candidates/clips/rejects/diane_think_laugh_static.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "speaker",
+    "listener"
+   ],
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 0.103,
+     "drift": 0.067,
+     "footWobble": 0,
+     "bgShift": 2,
+     "dupRun": 5,
+     "cadenceTwos": 1,
+     "audioPeakDb": -5.5
+    },
+    "suggest": {
+     "role": "listener"
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "97ef37abb38b003447590ff7ab31637eeb525cf98f8ab9ee284f2f32764f0c6f",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_diane_think_laugh_v1_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/leo_nod_laugh_v2.mp4",
+   "kind": "clip",
+   "who": "leo",
+   "tags": [
+    "nod",
+    "laugh"
+   ],
+   "file": "clips/src/leo_nod_laugh_v2.mp4",
+   "sha256": "42182bbaf2921aa75fbccce39e7fc16a692042840b90e9f7b7f95377eb971add",
+   "bytes": 2702426,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": null,
+   "note": "tóc biến thành buộc đuôi (identity drift)",
+   "source": {
+    "from": "brand/characters/_candidates/clips/rejects/leo_nod2_morph.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "speaker",
+    "listener"
+   ],
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 14 % (> 12 %)",
+     "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 11",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 0.269,
+     "drift": 0.583,
+     "footWobble": 0,
+     "bgShift": 2,
+     "dupRun": 0,
+     "cadenceTwos": 0.96,
+     "audioPeakDb": -61.1
+    },
+    "suggest": {
+     "role": "listener"
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "42182bbaf2921aa75fbccce39e7fc16a692042840b90e9f7b7f95377eb971add",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_leo_nod_laugh_v2_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/leo_nod_laugh_v3.mp4",
+   "kind": "clip",
+   "who": "leo",
+   "tags": [
+    "nod",
+    "laugh"
+   ],
+   "file": "clips/src/leo_nod_laugh_v3.mp4",
+   "sha256": "994e67c443bdd67feb232342bf8444fd6eb66317af6d63cc379ec78f8a2118b8",
+   "bytes": 2421974,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": null,
+   "note": "tóc biến thành buộc đuôi (identity drift) – 0–1,2 s tận dụng = leo_nod_short",
+   "source": {
+    "from": "brand/characters/_candidates/clips/rejects/leo_nod3_morph.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "speaker",
+    "listener"
+   ],
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 13 % (> 12 %)",
+     "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 10",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 0.242,
+     "drift": 0.749,
+     "footWobble": 0,
+     "bgShift": 2,
+     "dupRun": 0,
+     "cadenceTwos": 0.96,
+     "audioPeakDb": -60.5
+    },
+    "suggest": {
+     "role": "listener"
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "994e67c443bdd67feb232342bf8444fd6eb66317af6d63cc379ec78f8a2118b8",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_leo_nod_laugh_v3_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/leo_nod_short.mp4",
+   "kind": "clip",
+   "who": "leo",
+   "tags": [
+    "nod",
+    "short"
+   ],
+   "file": "clips/src/leo_nod_short.mp4",
+   "sha256": "40a0219f06d151ddfae688cb05d54896c7dd2221bcf209fc70de067faaec7853",
+   "bytes": 430506,
+   "w": 1248,
+   "h": 1656,
+   "duration": 1.208,
+   "qa": null,
+   "waiver": "tận dụng clip loại (Leo gật lần 3, cắt 0–1,2 s) – vai nghe",
+   "trimmed": true,
+   "source": {
+    "from": "brand/characters/_candidates/clips/leo_nod_short.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "listener"
+   ],
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 15 % (> 12 %)",
+     "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 23",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 1.208,
+     "motion": 0.11,
+     "drift": 0.025,
+     "footWobble": 0,
+     "bgShift": 1,
+     "dupRun": 1,
+     "cadenceTwos": 1
+    },
+    "suggest": {
+     "role": "listener"
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "40a0219f06d151ddfae688cb05d54896c7dd2221bcf209fc70de067faaec7853",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_leo_nod_short_mp4.jpg"
+   },
+   "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL anat_head_ratio: [đầu] tỉ lệ đầu/thân lệch DNA 15 % (> 12 %) | FAIL anat_palette_dna: [đầu] màu skin lệch DNA ΔE 38",
+   "quarantinedFrom": "approved"
+  },
+  {
+   "id": "clips/leo_nod_v1.mp4",
+   "kind": "clip",
+   "who": "leo",
+   "tags": [
+    "nod"
+   ],
+   "file": "clips/src/leo_nod_v1.mp4",
+   "sha256": "9e8d8ce525a447546083bdedaf4f37684da8b73e099585b112557ba9e17908ad",
+   "bytes": 3864045,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": null,
+   "note": "gần như đứng yên (khung đầu đang giơ tay)",
+   "source": {
+    "from": "brand/characters/_candidates/clips/rejects/leo_nod.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 0.691,
+     "drift": 0.522,
+     "footWobble": 0,
+     "bgShift": 3,
+     "dupRun": 0,
+     "cadenceTwos": 0.78,
+     "audioPeakDb": -16.3
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "9e8d8ce525a447546083bdedaf4f37684da8b73e099585b112557ba9e17908ad",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_leo_nod_v1_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/leo_shock_headgrab.mp4",
+   "kind": "clip",
+   "who": "leo",
+   "tags": [
+    "shock",
+    "headgrab"
+   ],
+   "file": "clips/src/leo_shock_headgrab.mp4",
+   "sha256": "3de86e6f44ea9922db0ba75f0c4f88608c9ff48662549b5068ba8038e7f84c25",
+   "bytes": 4284986,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 90,
+   "source": {
+    "from": "brand/characters/_candidates/clips/leo_shock_headgrab.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    },
+    "src": {
+     "path": "src/clips/src/leo_shock_headgrab.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/leo_shock_headgrab.mp4",
+     "gitSha": "a93340bf65636254596ef460e20e48411da1fcc7",
+     "sha256": "3de86e6f44ea9922db0ba75f0c4f88608c9ff48662549b5068ba8038e7f84c25",
+     "bytes": 4284986
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.366,
+     "drift": 0.131,
+     "footWobble": 0,
+     "bgShift": 3,
+     "dupRun": 0,
+     "cadenceTwos": 0.64,
+     "audioPeakDb": -7.5
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "3de86e6f44ea9922db0ba75f0c4f88608c9ff48662549b5068ba8038e7f84c25",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_leo_shock_headgrab_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/leo_shrug_cross.mp4",
+   "kind": "clip",
+   "who": "leo",
+   "tags": [
+    "shrug",
+    "cross"
+   ],
+   "file": "clips/src/leo_shrug_cross.mp4",
+   "sha256": "37482689c5ab7a0ece90930a50ae9fe63aa06401c617f1d48c9f02965b3c162e",
+   "bytes": 2844202,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": null,
+   "waiver": "qa-log 17/10: Leo 5 clip đạt (bản làm lại từ ảnh trung tính, chưa ghi điểm)",
+   "source": {
+    "from": "brand/characters/_candidates/clips/leo_shrug_cross.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker",
+    "listener"
+   ],
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [giữa] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 13 % (> 12 %)",
+     "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 10",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 0.496,
+     "drift": 0.085,
+     "footWobble": 0,
+     "bgShift": 2,
+     "dupRun": 1,
+     "cadenceTwos": 0.87,
+     "audioPeakDb": -4.3
+    },
+    "suggest": {
+     "role": "listener"
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "37482689c5ab7a0ece90930a50ae9fe63aa06401c617f1d48c9f02965b3c162e",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_leo_shrug_cross_mp4.jpg"
+   },
+   "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL anat_head_ratio: [đầu] tỉ lệ đầu/thân lệch DNA 14 % (> 12 %)",
+   "quarantinedFrom": "approved"
+  },
+  {
+   "id": "clips/leo_shrug_v1.mp4",
+   "kind": "clip",
+   "who": "leo",
+   "tags": [
+    "shrug"
+   ],
+   "file": "clips/src/leo_shrug_v1.mp4",
+   "sha256": "d81bf4e12dff142d3fe8801486a99fe81078622350e4751b6a40ab995004e678",
+   "bytes": 3252018,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": null,
+   "note": "gần như đứng yên",
+   "source": {
+    "from": "brand/characters/_candidates/clips/rejects/leo_shrug.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "speaker",
+    "listener"
+   ],
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 0.468,
+     "drift": 0.236,
+     "footWobble": 0,
+     "bgShift": 3,
+     "dupRun": 0,
+     "cadenceTwos": 0.82,
+     "audioPeakDb": -10.6
+    },
+    "suggest": {
+     "role": "listener"
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "d81bf4e12dff142d3fe8801486a99fe81078622350e4751b6a40ab995004e678",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_leo_shrug_v1_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/leo_talk_point.mp4",
+   "kind": "clip",
+   "who": "leo",
+   "tags": [
+    "talk",
+    "point"
+   ],
+   "file": "clips/src/leo_talk_point.mp4",
+   "sha256": "d8ec1b1dc7d465be029732e5c004003fbd94a2fea6410a3df4d6a394655e1ba7",
+   "bytes": 4296616,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 88,
+   "waiver": "qa-log: Leo nói 88 ✓",
+   "source": {
+    "from": "brand/characters/_candidates/clips/leo_talk_point.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    },
+    "src": {
+     "path": "src/clips/src/leo_talk_point.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/leo_talk_point.mp4",
+     "gitSha": "2fcf7dfac2a3d9955d996791116dc8f4ba3f9ed2",
+     "sha256": "d8ec1b1dc7d465be029732e5c004003fbd94a2fea6410a3df4d6a394655e1ba7",
+     "bytes": 4296616
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.586,
+     "drift": 0.611,
+     "footWobble": 0,
+     "bgShift": 2,
+     "dupRun": 0,
+     "cadenceTwos": 0.61,
+     "audioPeakDb": -6.6
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "d8ec1b1dc7d465be029732e5c004003fbd94a2fea6410a3df4d6a394655e1ba7",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_leo_talk_point_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/leo_think_idea.mp4",
+   "kind": "clip",
+   "who": "leo",
+   "tags": [
+    "think",
+    "idea"
+   ],
+   "file": "clips/src/leo_think_idea.mp4",
+   "sha256": "94ac2cf88b280f01e7942d8f6b961dc4e0b830986577e5dad2a9d558f40654d5",
+   "bytes": 3802926,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 90,
+   "source": {
+    "from": "brand/characters/_candidates/clips/leo_think_idea.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [85, 86]",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.057,
+     "drift": 0.596,
+     "footWobble": 0,
+     "bgShift": 2,
+     "dupRun": 0,
+     "cadenceTwos": 0.74,
+     "audioPeakDb": -62.4
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "94ac2cf88b280f01e7942d8f6b961dc4e0b830986577e5dad2a9d558f40654d5",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_leo_think_idea_mp4.jpg"
+   },
+   "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [85, 86] | FAIL anat_palette_dna: [đầu] màu skin lệch DNA ΔE 38",
+   "quarantinedFrom": "approved"
+  },
+  {
+   "id": "clips/leo_wave_thumbs.mp4",
+   "kind": "clip",
+   "who": "leo",
+   "tags": [
+    "wave",
+    "thumbs"
+   ],
+   "file": "clips/src/leo_wave_thumbs.mp4",
+   "sha256": "439789ae4b2f460da74bcde3e4da7f70cec7ffdc71929e4ede5a167e5a19e22f",
+   "bytes": 4650193,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": null,
+   "waiver": "qa-log 17/10: Leo 5 clip đạt (bản làm lại từ ảnh trung tính, chưa ghi điểm)",
+   "source": {
+    "from": "brand/characters/_candidates/clips/leo_wave_thumbs.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-17"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "FAIL",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [47]",
+     "WARN anat_joints: [giữa] khớp bất thường (ước lượng MediaPipe trên tranh 2D – AI thị giác quyết định FAIL) {'arm_l': 3.05}",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "FAIL anat_head_ratio: [trung vị 3 khung] tỉ lệ đầu/thân lệch DNA 13 % (> 12 %)",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 2.765,
+     "drift": 0.083,
+     "footWobble": 0,
+     "bgShift": 2,
+     "dupRun": 0,
+     "cadenceTwos": 0.38,
+     "audioPeakDb": -12.7
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "439789ae4b2f460da74bcde3e4da7f70cec7ffdc71929e4ede5a167e5a19e22f",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_leo_wave_thumbs_mp4.jpg"
+   },
+   "rejectReason": "check FAIL (cách ly, chỉ sao lưu): FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [47] | FAIL anat_head_ratio: [đầu] tỉ lệ đầu/thân lệch DNA 16 % (> 12 %) | FAIL anat_palette_dna: [đầu] màu skin lệch DNA ΔE 38",
+   "quarantinedFrom": "approved"
+  },
+  {
+   "id": "clips/leo_wave_v1.mp4",
+   "kind": "clip",
+   "who": "leo",
+   "tags": [
+    "wave"
+   ],
+   "file": "clips/src/leo_wave_v1.mp4",
+   "sha256": "02cba3fd1c9337d9eb5ceca4017159b0c4751bd9350745ecfd9e2cd50e0e1694",
+   "bytes": 3487944,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": null,
+   "note": "gần như đứng yên",
+   "source": {
+    "from": "brand/characters/_candidates/clips/rejects/leo_wave.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "speaker",
+    "listener"
+   ],
+   "status": "reject",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 0.544,
+     "drift": 0.629,
+     "footWobble": 0,
+     "bgShift": 3,
+     "dupRun": 0,
+     "cadenceTwos": 0.8,
+     "audioPeakDb": -6.5
+    },
+    "suggest": {
+     "role": "listener"
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "02cba3fd1c9337d9eb5ceca4017159b0c4751bd9350745ecfd9e2cd50e0e1694",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_leo_wave_v1_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/mia_idle.mp4",
+   "kind": "clip",
+   "who": "mia",
+   "tags": [
+    "idle"
+   ],
+   "file": "clips/src/mia_idle.mp4",
+   "sha256": "5647915c2bab290ca82dfc100f09f248b1b4425c64e8d025fb4783b57623e723",
+   "bytes": 3625332,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 92,
+   "source": {
+    "from": "brand/characters/_candidates/clips/mia_idle.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "listener"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    },
+    "src": {
+     "path": "src/clips/src/mia_idle.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/mia_idle.mp4",
+     "gitSha": "b49a10fb71feb72d60cfa166800486f1f56625fe",
+     "sha256": "5647915c2bab290ca82dfc100f09f248b1b4425c64e8d025fb4783b57623e723",
+     "bytes": 3625332
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 0.719,
+     "drift": 0.135,
+     "footWobble": 0,
+     "bgShift": 2,
+     "dupRun": 0,
+     "cadenceTwos": 0.73,
+     "audioPeakDb": -24
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "5647915c2bab290ca82dfc100f09f248b1b4425c64e8d025fb4783b57623e723",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_mia_idle_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/mia_nod_laugh.mp4",
+   "kind": "clip",
+   "who": "mia",
+   "tags": [
+    "nod",
+    "laugh"
+   ],
+   "file": "clips/src/mia_nod_laugh.mp4",
+   "sha256": "7cb58db2d62e33af02bec4a3122bbdafe405b7b7db1443d38118a30642db44c3",
+   "bytes": 3442898,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 91,
+   "note": "cắt tại ~2,4 s",
+   "source": {
+    "from": "brand/characters/_candidates/clips/mia_nod_laugh.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "listener"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    },
+    "src": {
+     "path": "src/clips/src/mia_nod_laugh.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/mia_nod_laugh.mp4",
+     "gitSha": "2177df3603f1297baaae4c03f38feb30f0fcfc36",
+     "sha256": "7cb58db2d62e33af02bec4a3122bbdafe405b7b7db1443d38118a30642db44c3",
+     "bytes": 3442898
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_joints: [giữa] khớp bất thường (ước lượng MediaPipe trên tranh 2D – AI thị giác quyết định FAIL) {'r': 1.1}",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.145,
+     "drift": 0.089,
+     "footWobble": 0,
+     "bgShift": 3,
+     "dupRun": 0,
+     "cadenceTwos": 0.79,
+     "audioPeakDb": -10
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "7cb58db2d62e33af02bec4a3122bbdafe405b7b7db1443d38118a30642db44c3",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_mia_nod_laugh_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/mia_shock_headgrab.mp4",
+   "kind": "clip",
+   "who": "mia",
+   "tags": [
+    "shock",
+    "headgrab"
+   ],
+   "file": "clips/src/mia_shock_headgrab.mp4",
+   "sha256": "64547799bd6ae1a9b4a4230a8d2c026266bf0483510a2e72c0bb2ce262475ad9",
+   "bytes": 3347592,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 84,
+   "note": "84* trong log",
+   "source": {
+    "from": "brand/characters/_candidates/clips/mia_shock_headgrab.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 0.665,
+     "drift": 0.079,
+     "footWobble": 0,
+     "bgShift": 3,
+     "dupRun": 0,
+     "cadenceTwos": 0.92,
+     "audioPeakDb": -12.8
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "64547799bd6ae1a9b4a4230a8d2c026266bf0483510a2e72c0bb2ce262475ad9",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_mia_shock_headgrab_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/mia_shrug_cross.mp4",
+   "kind": "clip",
+   "who": "mia",
+   "tags": [
+    "shrug",
+    "cross"
+   ],
+   "file": "clips/src/mia_shrug_cross.mp4",
+   "sha256": "e2abb7bda552a483853ab2f31dd94581e86a3c0e28a185784a666c86e36844f2",
+   "bytes": 3248553,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 90,
+   "source": {
+    "from": "brand/characters/_candidates/clips/mia_shrug_cross.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    },
+    "src": {
+     "path": "src/clips/src/mia_shrug_cross.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/mia_shrug_cross.mp4",
+     "gitSha": "ed9db83b1d1a3855f312c7508ca02f548cd1430f",
+     "sha256": "e2abb7bda552a483853ab2f31dd94581e86a3c0e28a185784a666c86e36844f2",
+     "bytes": 3248553
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 0.732,
+     "drift": 0.14,
+     "footWobble": 0,
+     "bgShift": 3,
+     "dupRun": 2,
+     "cadenceTwos": 0.85,
+     "audioPeakDb": -8.6
+    },
+    "vision": {
+     "status": "PASS",
+     "reasons": [],
+     "sha": "e2abb7bda552a483853ab2f31dd94581e86a3c0e28a185784a666c86e36844f2"
+    },
+    "sheet": "brand/library/_review/clips_mia_shrug_cross_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/mia_talk_point.mp4",
+   "kind": "clip",
+   "who": "mia",
+   "tags": [
+    "talk",
+    "point"
+   ],
+   "file": "clips/src/mia_talk_point.mp4",
+   "sha256": "e37431f9d96b9019c5e8332b4f46243ccd970a88d7ed5b5bb735cf396226dbdf",
+   "bytes": 4357444,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 90,
+   "source": {
+    "from": "brand/characters/_candidates/clips/mia_talk_point.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    },
+    "src": {
+     "path": "src/clips/src/mia_talk_point.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/mia_talk_point.mp4",
+     "gitSha": "391fd2617b934b1c180b754c507d60794f7b8c07",
+     "sha256": "e37431f9d96b9019c5e8332b4f46243ccd970a88d7ed5b5bb735cf396226dbdf",
+     "bytes": 4357444
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.927,
+     "drift": 0.124,
+     "footWobble": 0,
+     "bgShift": 3,
+     "dupRun": 0,
+     "cadenceTwos": 0.68,
+     "audioPeakDb": -11.6
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "e37431f9d96b9019c5e8332b4f46243ccd970a88d7ed5b5bb735cf396226dbdf",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_mia_talk_point_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/mia_think_idea.mp4",
+   "kind": "clip",
+   "who": "mia",
+   "tags": [
+    "think",
+    "idea"
+   ],
+   "file": "clips/src/mia_think_idea.mp4",
+   "sha256": "512eb372658f28639ac3b19b876dd4a8d89ee4e72ff1caa4c8e03a9b4c885219",
+   "bytes": 2999541,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 84,
+   "note": "84* trong log",
+   "source": {
+    "from": "brand/characters/_candidates/clips/mia_think_idea.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 0.825,
+     "drift": 0.072,
+     "footWobble": 0,
+     "bgShift": 3,
+     "dupRun": 0,
+     "cadenceTwos": 0.82,
+     "audioPeakDb": -28.6
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "512eb372658f28639ac3b19b876dd4a8d89ee4e72ff1caa4c8e03a9b4c885219",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_mia_think_idea_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/mia_wave_thumbs.mp4",
+   "kind": "clip",
+   "who": "mia",
+   "tags": [
+    "wave",
+    "thumbs"
+   ],
+   "file": "clips/src/mia_wave_thumbs.mp4",
+   "sha256": "ad0eac39240608b222702906f75ac14004fef4d7f668962cd2535c707ca006ae",
+   "bytes": 3745546,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 90,
+   "source": {
+    "from": "brand/characters/_candidates/clips/mia_wave_thumbs.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    },
+    "src": {
+     "path": "src/clips/src/mia_wave_thumbs.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/mia_wave_thumbs.mp4",
+     "gitSha": "c5d72bd93830ab909ba8abfe24fd62b7bf3242bc",
+     "sha256": "ad0eac39240608b222702906f75ac14004fef4d7f668962cd2535c707ca006ae",
+     "bytes": 3745546
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: không có khoá/hạn mức Gemini – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.045,
+     "drift": 0.079,
+     "footWobble": 0,
+     "bgShift": 3,
+     "dupRun": 0,
+     "cadenceTwos": 0.68,
+     "audioPeakDb": -10.2
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "không có khoá/hạn mức Gemini – cần duyệt tay"
+     ],
+     "sha": "ad0eac39240608b222702906f75ac14004fef4d7f668962cd2535c707ca006ae",
+     "at": "2026-10-17"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_mia_wave_thumbs_mp4.jpg"
+   }
+  },
+  {
+   "id": "props/office-a/office-01.png",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-01.png",
+   "sha256": "d7216b131e14f146378c13a6e13d62f86ea109fc153f616028e9a0f35196450b",
+   "bytes": 197614,
+   "w": 633,
+   "h": 320,
+   "qa": null,
+   "note": "sprite tách từ bảng props/office-a.png (vectorize.py)",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-01.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 633,
+     "h": 320,
+     "brandShare": 0.475
+    }
+   }
+  },
+  {
+   "id": "props/office-a/office-01.svg",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-01.svg",
+   "sha256": "eeb6208dcc8c944efeadc7616af52dd220c645270d5523aacbff559e14f8fba2",
+   "bytes": 107475,
+   "qa": null,
+   "note": "SVG vtracer từ cùng bảng",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-01.svg",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {}
+   }
+  },
+  {
+   "id": "props/office-a/office-02.png",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-02.png",
+   "sha256": "43daa6be5b680f9457b0e3fb73807eb54a7af5c14e7a99b8f79dfea20e9071e7",
+   "bytes": 177732,
+   "w": 321,
+   "h": 491,
+   "qa": null,
+   "note": "sprite tách từ bảng props/office-a.png (vectorize.py)",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-02.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 321,
+     "h": 491,
+     "brandShare": 0.453
+    }
+   }
+  },
+  {
+   "id": "props/office-a/office-02.svg",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-02.svg",
+   "sha256": "2a876b05402bcc8a0a680ada8005d1b84639aaaa01a3e0a388f85d03660208f7",
+   "bytes": 29300,
+   "qa": null,
+   "note": "SVG vtracer từ cùng bảng",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-02.svg",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {}
+   }
+  },
+  {
+   "id": "props/office-a/office-03.png",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-03.png",
+   "sha256": "5942a3ddbbff2d3f936dce927625ceda7f280e430a26b59c372ef2d30dc66571",
+   "bytes": 172826,
+   "w": 339,
+   "h": 476,
+   "qa": null,
+   "note": "sprite tách từ bảng props/office-a.png (vectorize.py)",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-03.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 339,
+     "h": 476,
+     "brandShare": 0.483
+    }
+   }
+  },
+  {
+   "id": "props/office-a/office-03.svg",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-03.svg",
+   "sha256": "6ca37684c65ac4e36d83507abfc86d1587c8c5f4592772c712ca09dd8f76df08",
+   "bytes": 100085,
+   "qa": null,
+   "note": "SVG vtracer từ cùng bảng",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-03.svg",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {}
+   }
+  },
+  {
+   "id": "props/office-a/office-04.png",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-04.png",
+   "sha256": "c56ac8e44d954f087f7133f62a0a6d6b4f7b740f5c49ad7041bb3c09e1ddbadf",
+   "bytes": 223266,
+   "w": 358,
+   "h": 466,
+   "qa": null,
+   "note": "sprite tách từ bảng props/office-a.png (vectorize.py)",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-04.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 358,
+     "h": 466,
+     "brandShare": 0.177
+    }
+   }
+  },
+  {
+   "id": "props/office-a/office-04.svg",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-04.svg",
+   "sha256": "ac7786d84ab637bd3c162b7383e99aba0f1b65c4bae5412890ceccbb083232ac",
+   "bytes": 60962,
+   "qa": null,
+   "note": "SVG vtracer từ cùng bảng",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-04.svg",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {}
+   }
+  },
+  {
+   "id": "props/office-a/office-05.png",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-05.png",
+   "sha256": "440ee04af52bb4317d01ce025aefa40fa515ff56b7a17d2d04d20d6eb251a6e7",
+   "bytes": 112472,
+   "w": 211,
+   "h": 473,
+   "qa": null,
+   "note": "sprite tách từ bảng props/office-a.png (vectorize.py)",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-05.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 211,
+     "h": 473,
+     "brandShare": 0.468
+    }
+   }
+  },
+  {
+   "id": "props/office-a/office-05.svg",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-05.svg",
+   "sha256": "b24e2b59c5755e0efeed3b68a7aeab0d33684bbde52534160b72799197a5dcdc",
+   "bytes": 73334,
+   "qa": null,
+   "note": "SVG vtracer từ cùng bảng",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-05.svg",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {}
+   }
+  },
+  {
+   "id": "props/office-a/office-06.png",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-06.png",
+   "sha256": "992b8bf4ee75710f6962d9f5cf221f84b86ab6d0a23ca52b0a0552b23d2833e2",
+   "bytes": 132557,
+   "w": 265,
+   "h": 393,
+   "qa": null,
+   "note": "sprite tách từ bảng props/office-a.png (vectorize.py)",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-06.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-17",
+    "issues": [
+     "WARN palette: bảng màu xa màu thương hiệu"
+    ],
+    "metrics": {
+     "w": 265,
+     "h": 393,
+     "brandShare": 0.023
+    },
+    "sheet": "brand/library/_review/props_office-a_office-06_png.jpg"
+   }
+  },
+  {
+   "id": "props/office-a/office-06.svg",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-06.svg",
+   "sha256": "8b57a1d16d4f8fcdcad5ff338010dbb25fd23eb344547e99ae2ca8a1cbd7a4ba",
+   "bytes": 54314,
+   "qa": null,
+   "note": "SVG vtracer từ cùng bảng",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-06.svg",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {}
+   }
+  },
+  {
+   "id": "props/office-a/office-07.png",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-07.png",
+   "sha256": "21e38f03acdcaa0f054563fa2b195112b63ca2f3ec0f4eba37bf95760025ba71",
+   "bytes": 148515,
+   "w": 401,
+   "h": 364,
+   "qa": null,
+   "note": "sprite tách từ bảng props/office-a.png (vectorize.py)",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-07.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 401,
+     "h": 364,
+     "brandShare": 0.667
+    }
+   }
+  },
+  {
+   "id": "props/office-a/office-07.svg",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-07.svg",
+   "sha256": "1b059e5a2a6e027535e17a93c01b312336c47f372eba4cfbb22991bedc9ca26c",
+   "bytes": 88740,
+   "qa": null,
+   "note": "SVG vtracer từ cùng bảng",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-07.svg",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {}
+   }
+  },
+  {
+   "id": "props/office-a/office-08.png",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-08.png",
+   "sha256": "b4d7b2346ea30d9d7acc4114ea26186219f4350c9c7dfd662bc768baf6936bed",
+   "bytes": 64976,
+   "w": 204,
+   "h": 205,
+   "qa": null,
+   "note": "sprite tách từ bảng props/office-a.png (vectorize.py)",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-08.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 204,
+     "h": 205,
+     "brandShare": 0.66
+    }
+   }
+  },
+  {
+   "id": "props/office-a/office-08.svg",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-08.svg",
+   "sha256": "f21b29022a3805b653681deb031abf7f4440395d0de4738d72d00d8eba8671a9",
+   "bytes": 43320,
+   "qa": null,
+   "note": "SVG vtracer từ cùng bảng",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-08.svg",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {}
+   }
+  },
+  {
+   "id": "props/office-a/office-09.png",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-09.png",
+   "sha256": "f89c3c11be16eec1fcc082b04d0b38e15061902a0bc423fa92ec8969a94802a7",
+   "bytes": 124154,
+   "w": 405,
+   "h": 294,
+   "qa": null,
+   "note": "sprite tách từ bảng props/office-a.png (vectorize.py)",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-09.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 405,
+     "h": 294,
+     "brandShare": 0.435
+    }
+   }
+  },
+  {
+   "id": "props/office-a/office-09.svg",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-09.svg",
+   "sha256": "287007414216798692373d101bf788a7e2c2b38bb6f217604a61881fa90837b9",
+   "bytes": 101171,
+   "qa": null,
+   "note": "SVG vtracer từ cùng bảng",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-09.svg",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {}
+   }
+  },
+  {
+   "id": "props/office-a/office-10.png",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-10.png",
+   "sha256": "8fc96878ecd56ea4f5e9467a72e2f7a88d53c3de20c966800fa3b3de5127a53e",
+   "bytes": 67523,
+   "w": 247,
+   "h": 219,
+   "qa": null,
+   "note": "sprite tách từ bảng props/office-a.png (vectorize.py)",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-10.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 247,
+     "h": 219,
+     "brandShare": 0.594
+    }
+   }
+  },
+  {
+   "id": "props/office-a/office-10.svg",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-10.svg",
+   "sha256": "cbd9989491c0a43870dd65273658e69becc9ec8307427d69d79cee0e98fe8584",
+   "bytes": 25671,
+   "qa": null,
+   "note": "SVG vtracer từ cùng bảng",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-10.svg",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {}
+   }
+  },
+  {
+   "id": "props/office-a/office-11.png",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-11.png",
+   "sha256": "e74c01b7c1782d59c6d6b87ab28a70478b44aa7a5f48eddba4abc20b841f3392",
+   "bytes": 66050,
+   "w": 201,
+   "h": 265,
+   "qa": null,
+   "note": "sprite tách từ bảng props/office-a.png (vectorize.py)",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-11.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 201,
+     "h": 265,
+     "brandShare": 0.524
+    }
+   }
+  },
+  {
+   "id": "props/office-a/office-11.svg",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-11.svg",
+   "sha256": "ee745f0b132c6341b6bd2df33783b68f1448a0e0064b5428241156f8f2f2f3d6",
+   "bytes": 36410,
+   "qa": null,
+   "note": "SVG vtracer từ cùng bảng",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-11.svg",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {}
+   }
+  },
+  {
+   "id": "props/office-a/office-12.png",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-12.png",
+   "sha256": "fa5543490c6436c4b128044b1c0305f75b6285ebbaa814ce8738a113471df88b",
+   "bytes": 88508,
+   "w": 253,
+   "h": 318,
+   "qa": null,
+   "note": "sprite tách từ bảng props/office-a.png (vectorize.py)",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-12.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 253,
+     "h": 318,
+     "brandShare": 0.605
+    }
+   }
+  },
+  {
+   "id": "props/office-a/office-12.svg",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-12.svg",
+   "sha256": "ec05ef4faf3164614d3b04e259a2751cc289ab67d9d50a0ebd1d9d31987fd3b4",
+   "bytes": 35544,
+   "qa": null,
+   "note": "SVG vtracer từ cùng bảng",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-12.svg",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {}
+   }
+  },
+  {
+   "id": "props/office-a/office-13.png",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-13.png",
+   "sha256": "ae3b9e71671c6dc746ab1e559dd4e45a2e6147afc497e938c8ea17ae79edf969",
+   "bytes": 127461,
+   "w": 234,
+   "h": 527,
+   "qa": null,
+   "note": "sprite tách từ bảng props/office-a.png (vectorize.py)",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-13.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 234,
+     "h": 527,
+     "brandShare": 0.422
+    }
+   }
+  },
+  {
+   "id": "props/office-a/office-13.svg",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-13.svg",
+   "sha256": "a5075a2a08376315c4b15addec8dca4d3b72d87c1f865eb0273779b01886b4d7",
+   "bytes": 64375,
+   "qa": null,
+   "note": "SVG vtracer từ cùng bảng",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-13.svg",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {}
+   }
+  },
+  {
+   "id": "props/office-a/office-14.png",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-14.png",
+   "sha256": "8fd37c17cab10a62bfc0d311354e8a1bef57a6eff468970c63c33a9918dd0ab3",
+   "bytes": 192433,
+   "w": 441,
+   "h": 484,
+   "qa": null,
+   "note": "sprite tách từ bảng props/office-a.png (vectorize.py)",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-14.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 441,
+     "h": 484,
+     "brandShare": 0.727
+    }
+   }
+  },
+  {
+   "id": "props/office-a/office-14.svg",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-14.svg",
+   "sha256": "dd064d9169f34eb344a799ded6d8fb0bb794ec47b3b0e01bc0425dd3ea214703",
+   "bytes": 96805,
+   "qa": null,
+   "note": "SVG vtracer từ cùng bảng",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-14.svg",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {}
+   }
+  },
+  {
+   "id": "props/office-a/office-15.png",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-15.png",
+   "sha256": "a0cd53886c6adec8f7af2203c32cd05a8e90ec1499011d0492e8c41d0f6849f0",
+   "bytes": 221563,
+   "w": 597,
+   "h": 391,
+   "qa": null,
+   "note": "sprite tách từ bảng props/office-a.png (vectorize.py)",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-15.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 597,
+     "h": 391,
+     "brandShare": 0.332
+    }
+   }
+  },
+  {
+   "id": "props/office-a/office-15.svg",
+   "kind": "prop",
+   "tags": [
+    "office-a"
+   ],
+   "file": "props/office-a/office-15.svg",
+   "sha256": "7e366c2a86c2470b8e61e146d26455476cae60c24cb4cc602729d184785b1c4d",
+   "bytes": 29459,
+   "qa": null,
+   "note": "SVG vtracer từ cùng bảng",
+   "source": {
+    "from": "brand/characters/_candidates/props/office-a/office-15.svg",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {}
+   }
+  },
+  {
+   "id": "rooms/apartment-01-day-9x16.png",
+   "kind": "room",
+   "tags": [
+    "apartment",
+    "day",
+    "9x16"
+   ],
+   "file": "rooms/apartment-01-day-9x16.png",
+   "sha256": "7e53aa71a4894e52ee41864586751d0c8ace5629d09ac77a2395b6a38ab8434b",
+   "bytes": 3493432,
+   "w": 1536,
+   "h": 2720,
+   "qa": null,
+   "note": "phòng Kling 17/10 (chưa chấm qa)",
+   "source": {
+    "from": "brand/characters/_candidates/rooms/apartment-a.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 1536,
+     "h": 2720,
+     "textScore": 0,
+     "brandShare": 0.53,
+     "floorBusy": 0.0217
+    },
+    "suggest": {
+     "floorProfile": {
+      "floor": {
+       "yNear": 2719,
+       "yFar": 1595
+      },
+      "vanish": [
+       673,
+       1348
+      ],
+      "scaleAt": {
+       "yFar": 1595,
+       "hFar": 279,
+       "yNear": 2719,
+       "hNear": 1553
+      },
+      "stand": [
+       {
+        "x": 261,
+        "y": 2269
+       },
+       {
+        "x": 897,
+        "y": 2269
+       },
+       {
+        "x": 1236,
+        "y": 2269
+       }
+      ],
+      "light": {
+       "dir": 1,
+       "warmth": 0.19
+      },
+      "confidence": 0.66
+     }
+    }
+   }
+  },
+  {
+   "id": "rooms/apartment-02-day-9x16.png",
+   "kind": "room",
+   "tags": [
+    "apartment",
+    "day",
+    "9x16"
+   ],
+   "file": "rooms/apartment-02-day-9x16.png",
+   "sha256": "f45100e65cf0110d107b238e4e05ac6c932e6291f86567605cd13d4e15dff1dc",
+   "bytes": 3501329,
+   "w": 1536,
+   "h": 2720,
+   "qa": null,
+   "note": "phòng Kling 17/10 (chưa chấm qa)",
+   "source": {
+    "from": "brand/characters/_candidates/rooms/apartment-b.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 1536,
+     "h": 2720,
+     "textScore": 0,
+     "brandShare": 0.546,
+     "floorBusy": 0.0113
+    },
+    "suggest": {
+     "floorProfile": {
+      "floor": {
+       "yNear": 2719,
+       "yFar": 2149
+      },
+      "vanish": [
+       820,
+       1507
+      ],
+      "scaleAt": {
+       "yFar": 2149,
+       "hFar": 727,
+       "yNear": 2719,
+       "hNear": 1373
+      },
+      "stand": [
+       {
+        "x": 261,
+        "y": 2491
+       },
+       {
+        "x": 614,
+        "y": 2491
+       },
+       {
+        "x": 967,
+        "y": 2491
+       }
+      ],
+      "light": {
+       "dir": -1,
+       "warmth": 0.2
+      },
+      "confidence": 0.5
+     }
+    }
+   }
+  },
+  {
+   "id": "rooms/cafe-01-day-9x16.png",
+   "kind": "room",
+   "tags": [
+    "cafe",
+    "day",
+    "9x16"
+   ],
+   "file": "rooms/cafe-01-day-9x16.png",
+   "sha256": "5eb65bc77afd52cf5f8d1f2cb01c2811333a79b1bbb6b5c28a00d46d9de7a7df",
+   "bytes": 4092606,
+   "w": 1536,
+   "h": 2720,
+   "qa": null,
+   "note": "phòng Kling 17/10 (chưa chấm qa)",
+   "source": {
+    "from": "brand/characters/_candidates/rooms/cafe-a.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 1536,
+     "h": 2720,
+     "textScore": 0,
+     "brandShare": 0.559,
+     "floorBusy": 0.0068
+    },
+    "suggest": {
+     "floorProfile": {
+      "floor": {
+       "yNear": 2719,
+       "yFar": 1468
+      },
+      "vanish": [
+       827,
+       1253
+      ],
+      "scaleAt": {
+       "yFar": 1468,
+       "hFar": 243,
+       "yNear": 2719,
+       "hNear": 1661
+      },
+      "stand": [
+       {
+        "x": 354,
+        "y": 2218
+       },
+       {
+        "x": 630,
+        "y": 2218
+       },
+       {
+        "x": 984,
+        "y": 2218
+       }
+      ],
+      "light": {
+       "dir": 1,
+       "warmth": 0.2
+      },
+      "confidence": 0.65
+     }
+    }
+   }
+  },
+  {
+   "id": "rooms/cafe-02-day-9x16.png",
+   "kind": "room",
+   "tags": [
+    "cafe",
+    "day",
+    "9x16"
+   ],
+   "file": "rooms/cafe-02-day-9x16.png",
+   "sha256": "f57f61907722609e4848a906f1b8b53799220d998d3d45a2e2439f81f264162b",
+   "bytes": 3684958,
+   "w": 1536,
+   "h": 2720,
+   "qa": null,
+   "note": "phòng Kling 17/10 (chưa chấm qa)",
+   "source": {
+    "from": "brand/characters/_candidates/rooms/cafe-b.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 1536,
+     "h": 2720,
+     "textScore": 0,
+     "brandShare": 0.568,
+     "floorBusy": 0.0076
+    },
+    "suggest": {
+     "floorProfile": {
+      "floor": {
+       "yNear": 2719,
+       "yFar": 1810
+      },
+      "vanish": [
+       924,
+       1456
+      ],
+      "scaleAt": {
+       "yFar": 1810,
+       "hFar": 400,
+       "yNear": 2719,
+       "hNear": 1430
+      },
+      "stand": [
+       {
+        "x": 381,
+        "y": 2355
+       },
+       {
+        "x": 657,
+        "y": 2355
+       },
+       {
+        "x": 1251,
+        "y": 2355
+       }
+      ],
+      "light": {
+       "dir": 1,
+       "warmth": 0.17
+      },
+      "confidence": 0.63
+     }
+    }
+   }
+  },
+  {
+   "id": "rooms/office-01-day-9x16.png",
+   "kind": "room",
+   "tags": [
+    "office",
+    "day",
+    "9x16"
+   ],
+   "file": "rooms/office-01-day-9x16.png",
+   "sha256": "ed84294576f860d806e9044480686d8e4afa1c437522f8bdfe819f178beebfbe",
+   "bytes": 4313764,
+   "w": 1536,
+   "h": 2720,
+   "qa": null,
+   "note": "phòng trống thử nghiệm",
+   "source": {
+    "from": "brand/characters/_candidates/rooms/office-1.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 1536,
+     "h": 2720,
+     "textScore": 0.0077,
+     "brandShare": 0.504,
+     "floorBusy": 0.0202
+    },
+    "suggest": {
+     "floorProfile": {
+      "floor": {
+       "yNear": 2719,
+       "yFar": 1940
+      },
+      "vanish": [
+       846,
+       1586
+      ],
+      "scaleAt": {
+       "yFar": 1940,
+       "hFar": 400,
+       "yNear": 2719,
+       "hNear": 1283
+      },
+      "stand": [
+       {
+        "x": 261,
+        "y": 2407
+       },
+       {
+        "x": 614,
+        "y": 2407
+       },
+       {
+        "x": 967,
+        "y": 2407
+       }
+      ],
+      "light": {
+       "dir": -1,
+       "warmth": 0.28
+      },
+      "confidence": 0.55
+     }
+    }
+   }
+  },
+  {
+   "id": "rooms/office-02-day-9x16.png",
+   "kind": "room",
+   "tags": [
+    "office",
+    "day",
+    "9x16"
+   ],
+   "file": "rooms/office-02-day-9x16.png",
+   "sha256": "8b86e3bd1bf6cb2e54f52179e2a076cfe741e7fd09c63c385e597f0c15cd6adc",
+   "bytes": 3570369,
+   "w": 1536,
+   "h": 2720,
+   "qa": null,
+   "note": "phòng đầy đủ nội thất A",
+   "source": {
+    "from": "brand/characters/_candidates/rooms/office-full-a.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 1536,
+     "h": 2720,
+     "textScore": 0,
+     "brandShare": 0.547,
+     "floorBusy": 0.0222
+    },
+    "suggest": {
+     "floorProfile": {
+      "floor": {
+       "yNear": 2719,
+       "yFar": 1530
+      },
+      "vanish": [
+       718,
+       1338
+      ],
+      "scaleAt": {
+       "yFar": 1530,
+       "hFar": 216,
+       "yNear": 2719,
+       "hNear": 1564
+      },
+      "stand": [
+       {
+        "x": 261,
+        "y": 2243
+       },
+       {
+        "x": 614,
+        "y": 2243
+       },
+       {
+        "x": 1273,
+        "y": 2243
+       }
+      ],
+      "light": {
+       "dir": -1,
+       "warmth": 0.26
+      },
+      "confidence": 0.74
+     }
+    }
+   }
+  },
+  {
+   "id": "rooms/office-03-day-9x16.png",
+   "kind": "room",
+   "tags": [
+    "office",
+    "day",
+    "9x16"
+   ],
+   "file": "rooms/office-03-day-9x16.png",
+   "sha256": "111f20d5740a14e58cbcf850f36ba081243ad39a3a2ddcdcf93505cebd16c3a1",
+   "bytes": 3720597,
+   "w": 1536,
+   "h": 2720,
+   "qa": null,
+   "note": "phòng đầy đủ nội thất B",
+   "source": {
+    "from": "brand/characters/_candidates/rooms/office-full-b.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-16"
+   },
+   "status": "reserve",
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending",
+     "reason": "pool_full"
+    }
+   },
+   "check": {
+    "status": "PASS",
+    "at": "2026-10-17",
+    "issues": [],
+    "metrics": {
+     "w": 1536,
+     "h": 2720,
+     "textScore": 0.0003,
+     "brandShare": 0.564,
+     "floorBusy": 0.0176
+    },
+    "suggest": {
+     "floorProfile": {
+      "floor": {
+       "yNear": 2719,
+       "yFar": 2146
+      },
+      "vanish": [
+       728,
+       1545
+      ],
+      "scaleAt": {
+       "yFar": 2146,
+       "hFar": 680,
+       "yNear": 2719,
+       "hNear": 1329
+      },
+      "stand": [
+       {
+        "x": 416,
+        "y": 2489
+       },
+       {
+        "x": 692,
+        "y": 2489
+       },
+       {
+        "x": 968,
+        "y": 2489
+       }
+      ],
+      "light": {
+       "dir": -1,
+       "warmth": 0.26
+      },
+      "confidence": 0.41
+     }
+    }
+   }
+  }
+ ]
+}

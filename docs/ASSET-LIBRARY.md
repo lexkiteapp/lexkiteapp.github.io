@@ -101,7 +101,7 @@ Bong bóng thoại, mũi tên, khung câu hỏi, dấu ✓/✗, thanh tiến đ�
 
 | Nguồn | Nội dung | Địa chỉ |
 |---|---|---|
-| Chính – repo `lexkiteapp/lexkite-media` thư mục `library/` | bản web của mục **approved**: PNG → WebP ≤ 400 KB, MP4 → H.264 CRF 20 (bỏ tiếng, faststart) + bản `.stacked.mp4` (màu + alpha xếp chồng) nếu có; `library/index.json` (chỉ mục công khai) | `https://media.lexkite.com/library/<file>` (Worker `workers/media`: MP4 có Range, cache 1 ngày) |
+| Chính – repo `lexkiteapp/lexkite-media` thư mục `library/` | mục **approved**: ảnh PNG → WebP ≤ 400 KB; clip = bản **stacked** `clips/<id>.mp4` (màu + mặt nạ, render đọc) + bản gốc lossless `src/clips/src/<id>.mp4`; `library/index.json` (chỉ mục công khai) + `library/manifest.json` (manifest dựng) | `https://media.lexkite.com/library/<file>` (Worker `workers/media`: MP4 có Range, cache 1 ngày) |
 | Phụ – kho GrabCast workspace 4 (`storage_class: bulk`) | **bản gốc** đủ phân giải của MỌI mục (cả reserve/reject) | `locations.backup.objectId` trong manifest |
 
 ### 8.1 Tên chuẩn (sai tên = không nhập)
@@ -159,3 +159,10 @@ Test: `node scripts/test/library.mjs` (trong `npm test`) – tên chuẩn, chố
 - **Chữ & sticker** chỉ dùng bảng màu brand; mỗi theme ≤ 3 màu nhấn; chữ trắng viền mực / mực trên vàng (≥ 4.5:1, kiểm trong `scripts/test/motion.mjs`).
 - **QA tự động** (bước qa, cổng `grade`): mỗi cảnh lấy 1 khung – cháy sáng (Y ≥ 250) và bết tối (Y ≤ 5) mỗi loại < 1%; bão hòa trung bình 0,12–0,62; ΔE (a\*b\*) giữa tông da nhân vật và tông phòng ≤ 38 (lớn hơn = tách lớp, phải sửa ảnh phòng/clip hoặc grade).
 - Tài nguyên mới vào kho phải qua thử trong 3 grade trên (dựng `node scripts/video/stress.mjs`) trước khi duyệt.
+
+### 8.5 Xử lý nặng trên CI – `.github/workflows/library-build.yml` (anh chủ 17/10: máy chỉ upload + sửa code/manifest)
+1. Máy: `ingest` (chép gốc, ghi manifest) → `sync --primary-only` đẩy **bản gốc clip nguyên vẹn** lên `lexkite-media/library/src/clips/src/<id>.mp4` (không xử lý) → commit `content/video/library.json`.
+2. Actions → **library-build** → Run (ids: `missing` | `all` | `mia_idle,leo_talk_point`): `plan` liệt kê clip approved có gốc ở `library/src` mà chưa có stacked → `build` (matrix theo clip, ubuntu, Python 3.12 + rembg isnet-anime + MediaPipe, mô hình được cache) tải gốc (kiểm sha256) → `clip_to_layer.py --stacked` → `asset_check.py --kind stacked` (cùng cổng kỹ thuật/giải phẫu/phong cách như trên máy) → artifact `<id>.{mp4,json,jpg}`.
+3. `publish`: gộp artifact `library-results` → `library.mjs ci-apply` ghi `variants.stacked` (foot/figH/w/h/status) + `brand/library/manifest.json`; có secret **`LEXKITE_MEDIA_TOKEN`** (PAT fine-grained, Contents: write trên `lexkiteapp/lexkite-media`) thì đẩy luôn bản stacked + `library/index.json` + `library/manifest.json` lên CDN; rồi mở PR manifest vào repo chính. Thiếu secret/PR bị chặn: phiên chính tải artifact `library-results` → `node scripts/video/library.mjs ci-apply <thư mục>` (chỉ upload).
+- Nguồn chính của clip = bản **stacked** `https://media.lexkite.com/library/clips/<id>.mp4`; bản gốc lossless `https://media.lexkite.com/library/src/clips/src/<id>.mp4` (CI + `restore` dùng). Ảnh tĩnh vẫn là WebP ≤ 400 KB.
+- AI thị giác (Gemini) không chạy trên CI (khóa ở D1, gói miễn phí chỉ 20 lượt/ngày dùng chung với app) → mục mới gắn `needsManualReview` cho tới khi chạy `check <id>` trên máy lúc còn hạn mức (kết luận AI được giữ lại theo sha).

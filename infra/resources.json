@@ -208,7 +208,7 @@
    "key": "media-worker",
    "name": "Cloudflare Worker lexkite-media (media.lexkite.com)",
    "kind": "cdn",
-   "purpose": "CDN ảnh riêng (blog, ảnh chụp app): đứng trước kho lexkite-media, máy chủ gần người dùng, cache 1 năm",
+   "purpose": "CDN ảnh riêng (blog, ảnh chụp app): đứng trước kho lexkite-media, máy chủ gần người dùng, cache 1 năm. /library/* = kho dựng video (WebP/MP4 có Range/index.json, cache 1 ngày) do scripts/video/library.mjs sync đẩy lên",
    "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/workers/services/view/lexkite-media/production",
    "free": "100.000 lượt/ngày (lượt trúng cache trình duyệt không tính)",
    "upgrade": "Kho gần 1 GB → đổi ORIGIN trong workers/media sang R2 (URL ảnh giữ nguyên)",
@@ -222,7 +222,7 @@
    "key": "media",
    "name": "Kho ảnh blog lexkite-media (GitHub)",
    "kind": "storage",
-   "purpose": "Kho gốc ảnh blog (AVIF/WebP 480/960/1440), phục vụ qua media.lexkite.com",
+   "purpose": "Kho gốc ảnh blog (AVIF/WebP 480/960/1440) + thư mục library/ (nguồn chính kho dựng video: bản web đã tối ưu của tài nguyên approved, manifest content/video/library.json), phục vụ qua media.lexkite.com. scripts/video/library.mjs cảnh báo khi repo ≥ 700 MB, dừng ở 950 MB",
    "console": "https://github.com/lexkiteapp/lexkite-media",
    "free": "Repo ≤ 1 GB khuyến nghị",
    "upgrade": "Cloudflare R2",
@@ -310,7 +310,7 @@
    "key": "grabcast",
    "name": "GrabCast (lưu video & đăng social)",
    "kind": "social",
-   "purpose": "Lưu video trên Drive (storage pool) và lên lịch/đăng video lên các kênh social – Quản trị → Video & Social qua proxy /api/social (functions/api/social.js), CI qua scripts/video/publish-grabcast.mjs. Kết nối/ngắt kênh & Drive chỉ làm trên grabcast.click (workspace Lexkite = 4). Env: secret GRABCAST_API_KEY (Pages + GitHub Actions), GRABCAST_WORKSPACE=4, GRABCAST_API_BASE tùy chọn",
+   "purpose": "Lưu video trên Drive (storage pool) và lên lịch/đăng video lên các kênh social – Quản trị → Video & Social qua proxy /api/social (functions/api/social.js), CI qua scripts/video/publish-grabcast.mjs. Nguồn sao lưu phụ của kho dựng video (scripts/video/library.mjs sync: bản gốc đủ phân giải, cả reserve/reject, storage_class bulk; khóa ~/.config/lexkite/grabcast-key – chỉ trên máy chủ dự án). Kết nối/ngắt kênh & Drive chỉ làm trên grabcast.click (workspace Lexkite = 4). Env: secret GRABCAST_API_KEY (Pages + GitHub Actions), GRABCAST_WORKSPACE=4, GRABCAST_API_BASE tùy chọn",
    "console": "https://grabcast.click/scheduler.html",
    "free": "Giới hạn khóa API: 60 lượt/phút · 3.000 lượt/ngày",
    "upgrade": "Backend của chính chủ dự án – nâng hạn mức trên GrabCast",
@@ -318,6 +318,19 @@
    "match": [
     "grabcast.click",
     "grabcast-api-342720596878.us-central1.run.app"
+   ]
+  },
+  {
+   "key": "video-library",
+   "name": "Kho dựng video brand/library (2 nguồn sao lưu)",
+   "kind": "storage",
+   "purpose": "Tài nguyên nhân vật/clip/phòng/đạo cụ cho render.mjs: gốc ở brand/library/ (không commit), manifest content/video/library.json (commit). Nguồn chính = lexkite-media/library → https://media.lexkite.com/library/…, nguồn phụ = kho GrabCast (bulk). Cổng nhập: scripts/video/asset_check.py (kỹ thuật + MediaPipe Pose/Hands/Face, mô hình tải từ storage.googleapis.com/mediapipe-models vào .tools/mediapipe) + Gemini thị giác (khóa xoay vòng D1 config gemini_keys, chỉ giữ trong bộ nhớ). Xử lý nặng (rembg stacked + cổng kiểm) chạy trên GitHub Actions .github/workflows/library-build.yml – secret LEXKITE_MEDIA_TOKEN (PAT Contents: write trên lexkite-media) để CI tự đẩy lên CDN. Quy trình: docs/ASSET-LIBRARY.md § Lưu trữ & sao lưu",
+   "console": "https://github.com/lexkiteapp/lexkite-media/tree/main/library",
+   "free": "GitHub repo ≤ 1 GB khuyến nghị · GrabCast theo dung lượng Drive đã nối",
+   "upgrade": "Repo media gần 1 GB → ORIGIN workers/media sang R2",
+   "status": "Đang chạy (nguồn phụ GrabCast chờ nối Google Drive)",
+   "match": [
+    "storage.googleapis.com"
    ]
   },
   {

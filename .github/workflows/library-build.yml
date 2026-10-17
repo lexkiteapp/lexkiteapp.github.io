@@ -1,0 +1,101 @@
+# Kho dựng video – xử lý nặng trên GitHub Actions (máy chủ dự án chỉ upload): docs/ASSET-LIBRARY.md § 8.5
+# 1) plan: clip approved đã có bản gốc ở lexkite-media/library/src nhưng chưa có bản stacked
+# 2) build (matrix theo clip): tải gốc (kiểm sha256) → clip_to_layer.py --stacked (rembg isnet-anime, cắt bóng sàn, chống nhấp nháy)
+#    → asset_check.py --kind stacked (kỹ thuật + giải phẫu MediaPipe + phong cách) → artifact <id>.{mp4,json,jpg}
+# 3) publish: gộp artifact → library.mjs ci-apply (ghi content/video/library.json + brand/library/manifest.json, đẩy stacked/index/manifest
+#    lên lexkite-media nếu có secret LEXKITE_MEDIA_TOKEN) → mở PR manifest vào repo chính. Không có secret: phiên chính tải artifact
+#    "library-results" rồi chạy `node scripts/video/library.mjs ci-apply <thư mục>` (chỉ upload).
+name: library-build
+on:
+  workflow_dispatch:
+    inputs:
+      ids:
+        description: 'missing (mặc định) | all | danh sách id phẩy, vd. mia_idle,leo_talk_point'
+        default: missing
+        required: false
+permissions:
+  contents: write
+  pull-requests: write
+concurrency: { group: library-build, cancel-in-progress: false }
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs: { ids: '${{ steps.p.outputs.ids }}', count: '${{ steps.p.outputs.count }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - id: p
+        run: node scripts/video/library.mjs ci-plan "${{ inputs.ids || 'missing' }}"
+  build:
+    needs: plan
+    if: needs.plan.outputs.count != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix: { id: '${{ fromJSON(needs.plan.outputs.ids) }}' }
+    env:
+      U2NET_HOME: /home/runner/.u2net
+      LEXKITE_MP_MODELS: /home/runner/.mediapipe
+      LEXKITE_PY: /home/runner/venv/bin/python
+      LEXKITE_REMBG_PY: /home/runner/venv/bin/python
+      MPLCONFIGDIR: /tmp/mpl
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+      - name: Cache mô hình (rembg isnet-anime, MediaPipe)
+        uses: actions/cache@v4
+        with:
+          path: |
+            /home/runner/.u2net
+            /home/runner/.mediapipe
+          key: library-models-v1
+      - name: Python (numpy, pillow, rembg, mediapipe)
+        run: |
+          python -m venv /home/runner/venv
+          /home/runner/venv/bin/pip install -q numpy pillow "rembg[cpu]" mediapipe
+          mkdir -p "$LEXKITE_MP_MODELS"; cd "$LEXKITE_MP_MODELS"
+          for u in pose_landmarker/pose_landmarker_full/float16/latest/pose_landmarker_full.task hand_landmarker/hand_landmarker/float16/latest/hand_landmarker.task face_landmarker/face_landmarker/float16/latest/face_landmarker.task; do
+            [ -f "$(basename $u)" ] || curl -sfLO "https://storage.googleapis.com/mediapipe-models/$u"
+          done
+      - name: Dựng stacked + cổng kiểm (${{ matrix.id }})
+        run: node scripts/video/library.mjs ci-build "${{ matrix.id }}" --out out/library
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'stk-${{ matrix.id }}', path: out/library/, if-no-files-found: ignore, retention-days: 14 }
+  publish:
+    needs: [plan, build]
+    if: always() && needs.plan.outputs.count != '0'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'stk-*', path: out/library, merge-multiple: true }
+      - uses: actions/upload-artifact@v4
+        with: { name: library-results, path: out/library/, retention-days: 30 }
+      - name: Ghi manifest (+ đẩy lên lexkite-media nếu có secret)
+        env: { GH_MEDIA_TOKEN: '${{ secrets.LEXKITE_MEDIA_TOKEN }}' }
+        run: |
+          if [ -n "$GH_MEDIA_TOKEN" ]; then node scripts/video/library.mjs ci-apply out/library; else
+            echo "::warning::Chưa có secret LEXKITE_MEDIA_TOKEN – chỉ ghi manifest; phiên chính tải artifact library-results rồi chạy library.mjs ci-apply"
+            node scripts/video/library.mjs ci-apply out/library --no-sync; fi
+      - name: PR manifest vào repo chính
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          git diff --quiet -- content/video/library.json brand/library/manifest.json && { echo "manifest không đổi"; exit 0; }
+          br="library-build/${{ github.run_id }}"
+          git config user.name "lexkite-bot"; git config user.email "actions@users.noreply.github.com"
+          git checkout -b "$br"
+          git add content/video/library.json brand/library/manifest.json
+          git commit -q -m "library: bản stacked từ CI library-build #${{ github.run_number }}"
+          git push -q origin "$br"
+          gh pr create --title "library: bản stacked (CI #${{ github.run_number }})" --body "Kết quả workflow library-build: foot/figH/w/h + trạng thái cổng stacked trong content/video/library.json, manifest dựng brand/library/manifest.json. Bảng ghép mục WARN/FAIL: artifact library-results." --base "${{ github.ref_name }}" --head "$br" || echo "::warning::Không mở được PR (quyền Actions) – lấy artifact library-results"
