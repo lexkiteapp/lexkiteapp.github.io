@@ -27,6 +27,15 @@ Mẫu thẻ:
 
 ## TODO
 
+### [B3] Blog 15 ngôn ngữ – bài vệ tinh theo cụm (lượt 3) · @antigravity · ưu tiên: cao
+- Bối cảnh: đã có bài trụ cột cho cả 15 ngôn ngữ (vi/en/es/ja/id + pt/fr/de/tr/zh/ru/ar/hi/ko/th, commit 42b570ba). Lượt này viết **bài vệ tinh** trỏ về trụ cột, phủ đều mọi ngôn ngữ.
+- Số lượng: mỗi ngôn ngữ **3 bài vệ tinh** (45 bài), commit từng bài; ưu tiên 10 ngôn ngữ mới (mới có 1 bài).
+- Chủ đề: lấy từ `content/blog/briefs.json` (từ khóa bản địa thật – KHÔNG dịch máy từ khóa tiếng Việt); trước khi viết chạy kiểm trùng cụm từ khóa với mọi bài cùng ngôn ngữ (không 2 bài cùng cụm). Viết bản địa, không dịch thô từ bài ngôn ngữ khác.
+- Bắt buộc: `docs/BLOG-RUNBOOK.md`, `content/blog/WRITING-GUIDE.md`, COORDINATION mục 3; qualityScore ≥ 92 (biên tập độc lập); `node scripts/blog-check.mjs` **0 lỗi 0 cảnh báo**; alt ảnh khớp đúng `content/blog/shots.json`; chú thích (title) ảnh KHÔNG hứa tính năng app không có (lỗi B2); mỗi bài trỏ link về trụ cột + ≥ 1 trang tĩnh (/tu-vung/, /samples/, /ngu-phap/…) và được ≥ 1 bài cũ cùng ngôn ngữ trỏ tới; hreflang nối bản cùng chủ đề.
+- Lịch: dùng `scripts/blog-schedule.mjs` – tối đa 1 bài/ngôn ngữ/ngày, cùng cụm từ khóa cách ≥ 7 ngày, giờ đăng theo múi giờ nước đó, rải sau ngày cuối đang có trong lịch.
+- Vùng file: chỉ `content/blog/**` (+ briefs). Không sửa web/js, scripts/build-blog.mjs (cần sửa → ghi HỎI CLAUDE).
+- Tiêu chí xong: 45 bài, blog-check 0/0, `npm test` PASS; Báo cáo liệt kê từng bài (ngôn ngữ, từ khóa, điểm, ngày đăng).
+
 ### [C1] Nút kêu gọi thông minh trên blog & trang từ vựng tĩnh (phễu về add-on / app) · @antigravity · ưu tiên: vừa
 - Nơi áp dụng: trang blog (`scripts/build-blog.mjs` – khối `{{cta}}` và cuối bài) + trang từ vựng/mẫu dựng sẵn (`scripts/build-samples*.mjs`, `build-seo.mjs`).
 - Theo thiết bị (JS nhỏ inline, không chặn hiển thị, không làm hỏng SEO/LCP):
