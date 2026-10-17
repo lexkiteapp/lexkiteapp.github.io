@@ -470,3 +470,4 @@
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Hoàn tác lần chấm vừa rồi (Z)': 'Undo last grade (Z)', 'Đã hoàn tác – chấm lại thẻ này': 'Undone – grade this card again' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'hoàn tác': 'undo' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Mẹo nhớ': 'Mnemonic', 'Lỗi hay gặp': 'Common mistake', 'Cách dùng khi thi': 'Exam usage', 'Họ từ': 'Word family', 'Chế độ Rảnh tay': 'Hands-free mode', 'Xem lại đoạn gốc': 'Replay the original clip' }); })(typeof self !== 'undefined' ? self : this);
+(function (g) { Object.assign(g.I18N_DICT.en, { 'Hiểu sâu': 'Go deeper', 'Dùng khi thi': 'In the exam', 'Sai': 'Wrong', 'Đúng': 'Right', 'Chấm mức độ nhớ': 'Rate how well you remembered', 'Chạm để nghe · chạm lần nữa để tra nghĩa': 'Tap to hear · tap again to look it up' }); })(typeof self !== 'undefined' ? self : this);

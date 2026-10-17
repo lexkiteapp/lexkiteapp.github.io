@@ -49,12 +49,12 @@
   }
   async function init() {
     if (!supported || fb) return;
-    await loadScript(SDK + 'firebase-app-compat.js');
-    await loadScript(SDK + 'firebase-auth-compat.js'); // chỉ cần đăng nhập – không tải Firestore SDK (nhẹ hơn ~100 KB)
+    if (!window.firebase) { await loadScript(SDK + 'firebase-app-compat.js'); await loadScript(SDK + 'firebase-auth-compat.js'); } // chỉ cần đăng nhập – không tải Firestore SDK (nhẹ hơn ~100 KB)
     fb = firebase.initializeApp(FIREBASE_CONFIG);
     db = true;
     firebase.auth().onAuthStateChanged(async u => {
       Sync.user = u; Sync.ready = true; App.state.user = u ? { uid: u.uid, displayName: u.displayName, email: u.email, photoURL: u.photoURL } : null;
+      try { if (u) localStorage.setItem('lk.acct', JSON.stringify({ displayName: u.displayName || '', photoURL: u.photoURL || '' })); else localStorage.removeItem('lk.acct'); } catch (e) { /* bỏ qua */ }
       App.updateChrome(); render();
       if (u) { await pullMerge(); if (extReady) extCall('linked', { email: u.email, name: u.displayName || '' }); }
       else nudgeLogin();
@@ -289,6 +289,10 @@
       if (VBNative.signIn) return VBNative.signIn();
       return UI.modal(`<h2>☁️ ${t('Đồng bộ tài khoản')}</h2><p>${t('Đăng nhập Google trong app sẽ có ở bản phát hành chính thức. Hiện tại dữ liệu học được lưu an toàn trên máy này; để đồng bộ giữa các thiết bị, hãy đăng nhập trên lexkite.com.')}</p>`);
     }
+    if (!supported) { // add-on/bản xem trước: đăng nhập trên lexkite.com
+      if (Store.isExtension) return void window.open('https://lexkite.com/#/settings', '_blank', 'noopener');
+      return UI.modal(`<h2>☁️ ${t('Tài khoản & đồng bộ')}</h2><p>${t('Đăng nhập và đồng bộ có trên bản web {link}.', { link: '<a href="https://lexkite.com" target="_blank" rel="noopener">lexkite.com</a>' })}</p>`);
+    }
     try {
       await init();
       const p = new firebase.auth.GoogleAuthProvider();
@@ -308,15 +312,48 @@
       if (Sync.user) return;
       UI.modal(`<div style="text-align:center"><div style="font-size:2.6rem">☁️</div><h2 style="margin:.3rem 0">${t('Bảo vệ {n} thẻ bạn đã học', { n })}</h2>
         <p class="muted">${t('Dữ liệu đang chỉ nằm trên trình duyệt này. Đăng nhập Google để <b>sao lưu tự động</b> và <b>học tiếp trên máy khác, điện thoại, tiện ích Chrome</b> – cùng một tài khoản, không trùng lặp.')}</p>
-        <div class="row center" style="margin-top:1rem"><button class="btn primary lg" id="nudgeIn">${t('Đăng nhập với Google')}</button><button class="btn ghost" data-close>${t('Để sau')}</button></div>
+        <div class="row center" style="margin-top:1rem">${gBtn('nudgeIn')}<button class="btn ghost" data-close>${t('Để sau')}</button></div>
         <p class="tiny muted" style="margin-top:.6rem">${t('Miễn phí · chỉ lưu dữ liệu học của bạn · có thể đăng xuất bất cứ lúc nào')}</p></div>`);
-      const b = document.getElementById('nudgeIn'); if (b) b.onclick = () => { UI.closeModal(); Sync.signIn(); };
     }, 4000);
   }
-  Sync.signOut = async () => { await push(); sentHashes = {}; await firebase.auth().signOut(); toast(t('Đã đăng xuất – dữ liệu vẫn còn trên máy này')); };
+  Sync.signOut = async () => { await push(); sentHashes = {}; await firebase.auth().signOut(); if (extReady) extCall('linked', { email: '', name: '' }); toast(t('Đã đăng xuất – dữ liệu vẫn còn trên máy này')); };
   Sync.now = () => pullMerge();
 
-  function setStatus(s, msg) { Sync.status = s; Sync.msg = msg || ''; render(); }
+  function setStatus(s, msg) { Sync.status = s; Sync.msg = msg || ''; render(); if (window.Account) window.Account.refresh(); }
+  Sync.stText = () => ({ idle: '', syncing: '⏳ ' + t('Đang đồng bộ…'), ok: Sync.msg ? esc(Sync.msg) : '✓ ' + t('Đã đồng bộ lúc {time}', { time: new Date(Sync.lastSync || Date.now()).toLocaleTimeString(window.I18N ? I18N.lang() : 'vi-VN', { hour: '2-digit', minute: '2-digit' }) }), error: '⚠️ ' + t('Lỗi đồng bộ: {msg}', { msg: esc(Sync.msg) }) }[Sync.status] || '');
+
+  // ---------- Nút tài khoản (đầu trang + thanh bên): chưa đăng nhập = nút Google; đã đăng nhập = avatar mở menu (js/account.js, tải lười) ----------
+  const GSVG = '<svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>';
+  // Nút "Đăng nhập với Google" theo hướng dẫn thương hiệu Google (nền trung tính, logo G 4 màu); short = thêm nhãn ngắn cho màn hình nhỏ
+  const gBtn = (id, short) => `<button type="button" class="gsi"${id ? ` id="${id}"` : ''}${short ? ` aria-label="${t('Đăng nhập với Google')}"` : ''} data-acct="in">${GSVG}<span class="gsi-l">${t('Đăng nhập với Google')}</span>${short ? `<span class="gsi-s">${t('Đăng nhập')}</span>` : ''}</button>`;
+  Sync.gBtn = gBtn;
+  Sync.av = u => u.photoURL ? `<img src="${esc(u.photoURL)}" alt="" referrerpolicy="no-referrer">` : esc((u.displayName || u.email || '?')[0].toUpperCase());
+  const remembered = () => { try { return JSON.parse(localStorage.getItem('lk.acct') || 'null'); } catch (e) { return null; } };
+  Sync.chrome = () => {
+    // Firebase chưa sẵn sàng → dùng tài khoản nhớ lần trước (không nháy nút đăng nhập với người đã đăng nhập)
+    const u = Sync.user || (supported && !Sync.ready && remembered()) || null;
+    const lab = u ? t('Tài khoản: {name}', { name: u.displayName || u.email || '' }) : '';
+    const key = (u ? 'u' + (u.photoURL || u.displayName || '') + lab : 'o' + t('Đăng nhập với Google')); // nhãn đã dịch trong khóa → vẽ lại khi từ điển nạp xong/đổi ngôn ngữ
+    const a = document.getElementById('avatarBtn');
+    if (a && a.dataset.k !== key) {
+      a.outerHTML = u ? `<button type="button" class="avatar" id="avatarBtn" data-acct="menu" aria-haspopup="menu" aria-expanded="false" aria-label="${esc(lab)}" title="${esc(lab)}">${Sync.av(u)}</button>` : gBtn('avatarBtn', 1);
+      document.getElementById('avatarBtn').dataset.k = key;
+    }
+    const s = document.getElementById('sideLevel');
+    if (!s) return;
+    if (u) { s.dataset.acct = 'menu'; s.setAttribute('role', 'button'); s.setAttribute('aria-haspopup', 'menu'); s.setAttribute('aria-expanded', 'false'); s.setAttribute('aria-label', lab); }
+    else { delete s.dataset.acct; ['role', 'aria-haspopup', 'aria-expanded', 'aria-label'].forEach(x => s.removeAttribute(x)); }
+    let c = document.getElementById('sideAcct');
+    if (!c) { c = document.createElement('div'); c.id = 'sideAcct'; c.className = 'side-acct'; s.after(c); }
+    if (c.dataset.k !== key) { c.dataset.k = key; c.innerHTML = u ? '' : `<p class="tiny muted">${t('Đăng nhập để sao lưu & đồng bộ')}</p>${gBtn()}`; c.hidden = !!u; }
+  };
+  Sync.ui = (k, el) => (window.Account ? Promise.resolve() : loadScript('js/account.js')).then(() => window.Account[k === 'out' ? 'confirmOut' : 'toggle'](el));
+  document.addEventListener('click', e => {
+    const tg = /** @type {HTMLElement} */ (e.target), el = tg.closest && /** @type {HTMLElement} */ (tg.closest('[data-acct]')); if (!el) return;
+    e.preventDefault(); const k = el.dataset.acct;
+    if (k === 'in') { if (el.closest('#modal')) UI.closeModal(); Sync.signIn(); } else if (k === 'sync') Sync.now(); else Sync.ui(k, el);
+  });
+  document.addEventListener('keydown', e => { const tg = /** @type {HTMLElement} */ (e.target); if (e.key === ' ' && tg.matches && tg.matches('a[data-acct]')) { e.preventDefault(); tg.click(); } });
 
   // ---------- Giao diện trong Cài đặt ----------
   Sync.renderBox = el => { box = el; render(); };
@@ -328,18 +365,16 @@
       return;
     }
     const u = Sync.user;
-    const st = { idle: '', syncing: '⏳ ' + t('Đang đồng bộ…'), ok: '✓ ' + t('Đã đồng bộ lúc {time}', { time: new Date(Sync.lastSync).toLocaleTimeString(window.I18N ? I18N.lang() : 'vi-VN') }), error: '⚠️ ' + t('Lỗi đồng bộ: {msg}', { msg: esc(Sync.msg) }) }[Sync.status];
+    const st = Sync.stText();
     box.innerHTML = u ? `
-      <div class="row between"><div class="row nowrap"><span class="avatar">${u.photoURL ? `<img src="${esc(u.photoURL)}" alt="" referrerpolicy="no-referrer">` : esc((u.displayName || u.email || '?')[0])}</span>
+      <div class="row between"><div class="row nowrap"><span class="avatar">${Sync.av(u)}</span>
         <div><b>${esc(u.displayName || t('Bạn'))}</b><div class="small muted">${esc(u.email || '')}</div></div></div>
-        <div class="row"><button class="btn sm" id="syncNow">🔄 ${t('Đồng bộ ngay')}</button><button class="btn sm ghost" id="signOut">${t('Đăng xuất')}</button></div></div>
+        <div class="row"><button class="btn sm" id="syncNow">🔄 ${t('Đồng bộ ngay')}</button><button class="btn sm ghost" id="signOut" data-acct="out">${t('Đăng xuất')}</button></div></div>
       <div class="small muted">${st || t('Dữ liệu học được tự động sao lưu và đồng bộ giữa các thiết bị.')}</div>`
       : `<div class="row between"><div><h2 style="margin:0">☁️ ${t('Đăng nhập để không mất dữ liệu')}</h2><p class="muted small">${t('Sao lưu flashcard, XP, chuỗi ngày học và học tiếp trên mọi thiết bị.')}</p></div>
-        <button class="btn primary" id="signIn"><svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg> ${t('Đăng nhập với Google')}</button></div>
+        ${gBtn('signIn')}</div>
         ${st ? `<div class="small muted">${st}</div>` : ''}`;
     const q = s => box.querySelector(s);
-    if (q('#signIn')) q('#signIn').onclick = Sync.signIn;
-    if (q('#signOut')) q('#signOut').onclick = Sync.signOut;
     if (q('#syncNow')) q('#syncNow').onclick = Sync.now;
   }
 

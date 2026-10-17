@@ -186,16 +186,15 @@
         <div class="flash-inner">
           <div class="card face front">${front}</div>
           <div class="card face back">
-            <div class="row"><span class="entry-word" style="font-size:1.9rem">${esc(c.word)}</span>${posChip(c.pos)}${levelChip(c.level)}
-              <span class="ipa">${esc(c.ipa)}</span><button class="icon-btn sm" data-say>🔊</button></div>
-            <div class="vi" style="margin:.3rem 0">${esc(mean(c))}</div><div class="wi-native" data-native></div>
-            ${c.def && mean(c) !== c.def ? `<div>${esc(c.def)}</div>` : ''}
-            ${c.ex ? `<div class="example-box" style="margin-top:.8rem">${highlight(c.ex, c.word)} <button class="icon-btn sm" data-speak-text="${esc(c.ex)}">🔊</button></div>` : ''}
-            ${c.contexts.length ? `<div style="margin-top:.8rem"><b class="small">📌 ${t('Ngữ cảnh của bạn')}</b>${c.contexts.slice(0, 2).map(x => `<div class="ex small" style="margin-top:.3rem">“${highlight(x.text, c.word)}” <button class="ctx-say sm" data-saysent="${esc(x.text)}" title="${t('Nghe cả câu')}">🔊</button>${ytOf(x.source) ? ` <button class="ctx-say sm" data-ytsrc="${esc(x.source)}" title="${t('Xem lại đoạn gốc')}">▶</button>` : ''}${x.title ? ` <span class="muted">— ${esc(ctxTitle(x.title))}</span>` : ''}${x.vi && (I18N.meanLang() === 'vi' || I18N.lang() !== 'en') ? `<div style="font-style:normal">${(I18N && I18N.flag ? I18N.flag(I18N.lang() !== 'en' ? I18N.lang() : 'vi') : '🇻🇳')} ${esc(x.vi)}</div>` : ''}</div>`).join('')}</div>` : ''}
-            ${(c.sentences || []).length ? `<div style="margin-top:.8rem"><b class="small">💬 ${t('Câu song ngữ')}</b>${c.sentences.map(x => `<div class="small" style="margin-top:.3rem">${highlight(x.en, c.word)}${I18N.meanLang() === 'vi' && x.vi ? `<div class="muted">${esc(x.vi)}</div>` : ''}</div>`).join('')}</div>` : ''}
-            ${c.col.length ? `<div class="small" style="margin-top:.8rem">🔗 ${c.col.map(esc).join(' · ')}</div>` : ''}
-            ${c.syn.length ? `<div class="small" style="margin-top:.3rem">≈ ${c.syn.map(esc).join(', ')}</div>` : ''}
-            ${c.note ? `<div class="small" style="margin-top:.6rem">📝 ${esc(c.note)}</div>` : ''}
+            <div class="wc-hd"><div class="wc-wrow"><span class="entry-word wc-word">${esc(c.word)}</span><button class="icon-btn sm" data-say aria-label="${t('Nghe')}">🔊</button></div>
+              <div class="wi-pron">${posChip(c.pos)}${levelChip(c.level)}<span class="ipa">${esc(c.ipa)}</span></div>
+              <div class="vi wi-vi">${esc(mean(c))}</div><div class="wi-native" data-native></div></div>
+            ${c.def && mean(c) !== c.def ? `<div class="wi-sec"><span class="wi-lb">📖 ${t('Định nghĩa')}</span><div lang="en">${esc(c.def)}</div></div>` : ''}
+            ${c.ex ? `<div class="wi-sec wi-ex"><span class="wi-lb">💬 ${t('Ví dụ')}</span><div class="fi-ex">${highlight(c.ex, c.word)} <button class="icon-btn sm" data-speak-text="${esc(c.ex)}" aria-label="${t('Nghe cả câu')}">🔊</button></div></div>` : ''}
+            ${c.contexts.length ? `<div class="wi-sec"><span class="wi-lb">📌 ${t('Ngữ cảnh của bạn')}</span>${c.contexts.slice(0, 2).map(x => `<div class="ex small" style="margin-top:.3rem">“${highlight(x.text, c.word)}” <button class="ctx-say sm" data-saysent="${esc(x.text)}" title="${t('Nghe cả câu')}">🔊</button>${ytOf(x.source) ? ` <button class="ctx-say sm" data-ytsrc="${esc(x.source)}" title="${t('Xem lại đoạn gốc')}">▶</button>` : ''}${x.title ? ` <span class="muted">— ${esc(ctxTitle(x.title))}</span>` : ''}${x.vi && (I18N.meanLang() === 'vi' || I18N.lang() !== 'en') ? `<div style="font-style:normal">${(I18N && I18N.flag ? I18N.flag(I18N.lang() !== 'en' ? I18N.lang() : 'vi') : '🇻🇳')} ${esc(x.vi)}</div>` : ''}</div>`).join('')}</div>` : ''}
+            ${(c.sentences || []).length ? `<div class="wi-sec"><span class="wi-lb">💬 ${t('Câu song ngữ')}</span>${c.sentences.map(x => `<div class="small" style="margin-top:.3rem">${highlight(x.en, c.word)}${I18N.meanLang() === 'vi' && x.vi ? `<div class="muted">${esc(x.vi)}</div>` : ''}</div>`).join('')}</div>` : ''}
+            ${c.col.length || c.syn.length ? `<div class="wi-sec">${App.chipsHtml(c.col, '🔗', t('Hay đi với'))}${App.chipsHtml(c.syn, '≈', t('Đồng nghĩa'))}</div>` : ''}
+            ${c.note ? `<div class="wi-sec wi-tip">📝 ${esc(c.note)}</div>` : ''}
             ${App.notesHtml(c.word)}
             ${SRS.retention(c.srs) != null ? `<div class="tiny muted" style="margin-top:.8rem">🧠 ${t('Khả năng còn nhớ trước lần ôn này: <b>{pct}%</b> · đã quên {n} lần', { pct: Math.round(SRS.retention(c.srs) * 100), n: c.srs.lapses })}</div>` : ''}
             ${c.srs.lapses >= 3 ? `<div class="leech" data-leech><b>🐛 ${t('Từ khó nhớ – đã quên {n} lần', { n: c.srs.lapses })}</b>
@@ -209,7 +208,7 @@
           </div>
         </div>
       </div>
-      <div id="actions" style="margin-top:1rem"><button class="btn primary lg block" id="flipBtn">${t('Lật thẻ')}</button></div>
+      <div id="actions" class="grade-bar"><button class="btn primary lg block" id="flipBtn">${t('Lật thẻ')}</button></div>
       <p class="muted tiny center" style="margin-top:1rem">${t('Phím tắt: <span class="kbd">Space</span> lật · <span class="kbd">1</span>–<span class="kbd">4</span> chấm điểm · <span class="kbd">P</span> phát âm')} · <span class="kbd">Z</span> ${t('hoàn tác')}</p>
     </div>`;
     App.bindCommon();
@@ -225,7 +224,7 @@
       flipped = true; Sfx.flip();
       $('#flash').classList.add('flipped');
       const labels = [[t('Quên'), 'g-again'], [t('Khó'), 'g-hard'], [t('Nhớ'), 'g-good'], [t('Dễ'), 'g-easy']];
-      $('#actions').innerHTML = `<div class="grades">${labels.map(([l, cls], i) => `<button class="btn ${cls}" data-grade="${i}">${l}<small>${SRS.preview(c.srs, i)}</small></button>`).join('')}</div>`;
+      $('#actions').innerHTML = `<div class="grades" role="group" aria-label="${t('Chấm mức độ nhớ')}">${labels.map(([l, cls], i) => { const p = SRS.preview(c.srs, i); return `<button class="btn ${cls}" data-grade="${i}" aria-keyshortcuts="${i + 1}" aria-label="${esc(l)} · ${esc(p)} (${i + 1})"><b>${l}</b><small>${p}</small><kbd class="g-k" aria-hidden="true">${i + 1}</kbd></button>`; }).join('')}</div>`;
       $$('[data-grade]').forEach(b => b.onclick = () => grade(+b.dataset.grade, b));
       if (rev || state.settings.autoSpeak) say();
     };
@@ -302,6 +301,7 @@
     $('#toggleRev').onclick = () => { session.reverse = !session.reverse; showCard(); };
     document.onkeydown = e => {
       if (e.target.matches('input, textarea, summary')) return;
+      if ((e.code === 'Space' || e.key === 'Enter') && e.target.closest('.wc-chip, [data-grade], .wn a, .wn button')) return; // chip/nút chấm đang focus → để bàn phím bấm nút
       if (e.code === 'Space' || e.key === 'Enter') { e.preventDefault(); flip(); }
       else if (flipped && /^[1-4]$/.test(e.key)) grade(+e.key - 1, $(`[data-grade="${+e.key - 1}"]`));
       else if (e.key.toLowerCase() === 'p') say();
@@ -590,7 +590,7 @@
                 <div class="wi-vi vi">${esc(mean(w))}</div><div class="wi-native" data-native></div></div></div>
             ${w.def && w.def !== mean(w) ? `<div class="wi-sec"><span class="wi-lb">📖 ${t('Định nghĩa')}</span><div>${esc(w.def)}</div></div>` : ''}
             ${w.ex ? `<div class="wi-sec wi-ex"><span class="wi-lb">💬 ${t('Ví dụ')}</span><div class="fi-ex">${highlight(w.ex, w.word)} <button class="ctx-say" data-saysent="${esc(w.ex)}" title="${t('Nghe cả câu')}">🔊</button><button class="ctx-say" data-saysent="${esc(w.ex)}" data-slow="1" title="${t('Nghe chậm')}">🐢</button></div><div class="fi-tr small muted" data-keep-vi id="fiTr"></div></div>` : ''}
-            ${col.length || syn.length ? `<div class="wi-sec wi-chips">${col.length ? `<span class="wi-lb">🔗 ${t('Hay đi với')}</span>${col.map(x => `<span class="chip">${esc(x)}</span>`).join('')}` : ''}${syn.length ? `<span class="wi-lb" style="margin-left:${col.length ? '.6rem' : '0'}">≈ ${t('Đồng nghĩa')}</span>${syn.map(x => `<span class="chip">${esc(x)}</span>`).join('')}` : ''}</div>` : ''}
+            ${col.length || syn.length ? `<div class="wi-sec">${App.chipsHtml(col, '🔗', t('Hay đi với'))}${App.chipsHtml(syn, '≈', t('Đồng nghĩa'))}</div>` : ''}
             ${w.note ? `<div class="wi-sec wi-tip">💡 ${esc(w.note)}</div>` : ''}
             ${App.notesHtml(w.word)}
           </div>

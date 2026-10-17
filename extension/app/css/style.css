@@ -246,11 +246,23 @@ details summary { cursor: pointer; }
 .face .entry-word { font-size: 2.5rem; }
 .ctx { margin-top: 1rem; font-size: .95rem; color: var(--muted); max-width: 540px; }
 .grades { display: grid; grid-template-columns: repeat(4, 1fr); gap: .6rem; margin-top: 1rem; }
-.grades .btn { flex-direction: column; gap: 0; padding: .65rem; color: #fff; border: 0; }
-.grades .btn small { font-weight: 500; opacity: .92; font-size: .75rem; }
-/* nút chấm điểm giữ màu khi rê chuột (.btn:hover chung đổi nền sáng → chữ trắng trên nền trắng) */
-.g-again, .g-again:hover { background: var(--again); } .g-hard, .g-hard:hover { background: var(--hard); } .g-good, .g-good:hover { background: var(--good); } .g-easy, .g-easy:hover { background: var(--easy); }
-.grades .btn:hover { filter: brightness(1.08); }
+/* Thẻ cao theo nội dung (không cắt chữ, không cuộn trong thẻ): mặt đang hiện nằm trong luồng, mặt kia phủ lên */
+.face.front, .flash.flipped .face.back { position: relative; min-height: 440px; overflow: visible; }
+.flash.flipped .face.front { position: absolute; inset: 0; }
+/* Thanh chấm điểm dính đáy màn hình, nằm SAU thẻ trong luồng → cuộn hết vẫn thấy trọn nội dung */
+.grade-bar { position: sticky; bottom: 0; z-index: 6; margin: 1rem -.75rem 0; padding: .65rem .75rem calc(.65rem + env(safe-area-inset-bottom)); background: linear-gradient(to top, var(--bg) 80%, transparent); }
+.grade-bar .grades { margin-top: 0; }
+html:has(.grade-bar) { scroll-padding-bottom: 6.5rem; }
+/* Nút chấm FSRS: tông nhạt theo nghĩa (đỏ · cam · xanh lá · teal thương hiệu), chữ đậm đạt AA cả sáng/tối */
+.grades .btn { --g: var(--muted); --gp: 62%; position: relative; min-height: 56px; flex-direction: column; gap: 0; padding: .5rem .25rem; line-height: 1.25; border: 1.5px solid color-mix(in srgb, var(--g) 40%, transparent); background: color-mix(in srgb, var(--g) 11%, var(--surface)); color: color-mix(in srgb, var(--g) var(--gp), var(--text)); box-shadow: 0 2px 0 color-mix(in srgb, var(--g) 30%, transparent); transition: transform .12s, background .15s; }
+.grades .btn b { font-size: 1rem; font-weight: 700; }
+.grades .btn small { font-weight: 600; font-size: .74rem; color: var(--muted); }
+.grades .btn:hover { background: color-mix(in srgb, var(--g) 19%, var(--surface)); }
+.grades .btn:active { transform: translateY(2px); box-shadow: none; }
+.grades .btn:focus-visible { outline: 2.5px solid var(--g); outline-offset: 2px; }
+.g-again { --g: var(--again); } .g-hard { --g: var(--hard); --gp: 50%; } .g-good { --g: var(--good); } .g-easy { --g: var(--accent); }
+.g-k { position: absolute; top: .3rem; right: .4rem; font: 600 .62rem/1 var(--font); color: var(--muted); padding: .12rem .28rem; border: 1px solid var(--line); border-radius: 4px; }
+@media (hover: none) { .g-k { display: none; } }
 .mastery { display: inline-flex; gap: 3px; }
 .mastery i { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
 .mastery i.on { background: var(--good); }
@@ -418,7 +430,8 @@ details summary { cursor: pointer; }
   .gsearch input { padding-left: 2.1rem; font-size: .92rem; }
   .search { flex-direction: column; }
   .match-grid { grid-template-columns: repeat(2, 1fr); }
-  .grades .btn { font-size: .88rem; padding: .55rem .2rem; }
+  .grades .btn { font-size: .88rem; padding: .5rem .15rem; } .grades { gap: .4rem; }
+  .face.front, .flash.flipped .face.back { min-height: 380px; } .face { padding: 1.25rem; }
   .big-num { font-size: 2.4rem; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
@@ -964,6 +977,21 @@ button, .btn, .option, .tabs, .bottom-nav { -webkit-user-select: none; user-sele
 .ai-tiers { display: grid; gap: .35rem; margin: .4rem 0 .8rem; } .ai-tiers > div { display: flex; justify-content: space-between; align-items: center; gap: .6rem; padding: .45rem .6rem; border-radius: 10px; background: var(--surface-2); } .ai-tiers b.good { color: var(--good); }
 .wn-slot:empty { display: none; }
 .wn-slot { margin-top: 1rem; }
+/* 🧠 Thẻ từ: chip cụm từ + khối "Hiểu sâu" (web/js/wordcard.js) */
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.wc-hd .wc-wrow { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.wc-hd .wc-word { font-size: 2rem; line-height: 1.15; word-break: break-word; }
+.wc-hd .wi-pron { margin-top: .3rem; } .wc-hd .wi-vi { margin-top: .5rem; }
+.wc-chips { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
+.wc-chips + .wc-chips { margin-top: .55rem; }
+.wc-clb { flex-basis: 100%; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.wc-chip { min-height: 36px; padding: .3rem .75rem; border: 1px solid var(--line); background: var(--surface); color: var(--text); font: 600 .9rem/1.2 var(--font); cursor: pointer; white-space: normal; text-align: left; transition: border-color .15s, background .15s, transform .12s; }
+.wc-chip:hover { border-color: var(--accent); background: var(--accent-soft); }
+.wc-chip:active { transform: scale(.96); }
+.wc-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.wc-pos { font-size: .7rem; font-weight: 600; font-style: italic; color: var(--muted); }
+@media (max-width: 480px) { .wc-hd .wc-word { font-size: 1.75rem; } }
+/* khối Hiểu sâu: css/wordcard.css (tải lười cùng js/wordcard.js) */
 /* App gốc (Capacitor): chừa tai thỏ/thanh trạng thái ở trên & thanh điều hướng ở dưới */
 html.native .topbar, html.native .w-head { padding-top: max(.6rem, env(safe-area-inset-top)); } /* app iOS/Android: đầu trang không đè tai thỏ/thanh trạng thái */
 html.native body { overscroll-behavior: none; }
@@ -1462,3 +1490,12 @@ label.struck { text-decoration: line-through; opacity: .5; }
   .league-tier-ic.lg { width: 52px; height: 52px; font-size: 1.8rem; }
 }
 
+/* Tài khoản (sync.js gBtn/Sync.chrome): nút "Đăng nhập với Google" theo hướng dẫn thương hiệu Google – nền trung tính, viền, logo G 4 màu */
+.gsi { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; min-height: 40px; padding: 0 .95rem; border: 1px solid var(--muted); border-radius: 999px; background: var(--surface); color: var(--text); font: inherit; font-weight: 600; font-size: .9rem; cursor: pointer; white-space: nowrap; flex: none; }
+.gsi:hover { background: var(--surface-2); } .gsi:focus-visible, button.avatar:focus-visible, #sideLevel:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.gsi svg { flex: none; } .gsi-s { display: none; } .top-stats .gsi { min-height: 36px; padding: 0 .8rem; }
+button.avatar { border: 0; padding: 0; cursor: pointer; font: inherit; font-weight: 800; }
+.side-acct { margin-top: .6rem; } .side-acct p { margin: 0 0 .4rem; } .side-acct .gsi { width: 100%; }
+.me-acct { margin-top: .75rem; gap: .6rem; }
+@media (max-width: 900px) { .top-stats .gsi { padding: 0 .65rem; gap: .4rem; } .top-stats .gsi-l { display: none; } .top-stats .gsi-s { display: inline; } }
+@media (max-width: 480px) { .top-stats .gsi { width: 36px; padding: 0; } .top-stats .gsi-s { display: none; } } /* 375 px: không đủ chỗ cho chữ → nút G tròn (biến thể biểu tượng của Google), tên đọc qua aria-label */

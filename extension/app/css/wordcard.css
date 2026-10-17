@@ -1,0 +1,33 @@
+/* 🧠 Khối "Hiểu sâu" của thẻ từ – tải lười cùng js/wordcard.js (giữ khung app nhẹ). Chỉ dùng token màu của style.css. */
+.wn.wc { display: block; padding: 0; background: none; border: 1px solid var(--line); border-radius: 16px; overflow: clip; }
+.wc-head { padding: .55rem .9rem; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); background: var(--surface-2); }
+.wc-sec { --g: var(--muted); --gp: 62%; border-top: 1px solid var(--line); }
+.wc-m { --g: var(--gold); --gp: 50%; } .wc-e { --g: var(--again); } .wc-u { --g: var(--accent); } .wc-f { --g: var(--good); }
+.wc-sec > summary { display: flex; align-items: center; gap: .65rem; min-height: 48px; padding: .45rem .9rem; cursor: pointer; list-style: none; font-weight: 700; }
+.wc-sec > summary::-webkit-details-marker { display: none; }
+.wc-sec > summary:hover { background: color-mix(in srgb, var(--g) 6%, transparent); }
+.wc-sec > summary:focus-visible { outline: 2px solid var(--g); outline-offset: -2px; }
+.wc-ic { width: 32px; height: 32px; flex: none; display: grid; place-items: center; border-radius: 10px; font-size: 1rem; background: color-mix(in srgb, var(--g) 15%, var(--surface)); }
+.wc-lb { flex: 1; }
+.wc-n { min-width: 22px; padding: 0 .4rem; border-radius: 99px; font-size: .72rem; line-height: 20px; text-align: center; color: color-mix(in srgb, var(--g) var(--gp), var(--text)); background: color-mix(in srgb, var(--g) 13%, var(--surface)); }
+.wc-chev { width: 8px; height: 8px; border: solid var(--muted); border-width: 0 2px 2px 0; transform: rotate(45deg); margin: 0 .2rem .2rem; transition: transform .2s; }
+.wc-sec[open] > summary .wc-chev { transform: rotate(-135deg); margin-bottom: -.1rem; }
+.wc-body { padding: .1rem .9rem .9rem calc(.9rem + 32px + .65rem); line-height: 1.6; font-size: .95rem; }
+.wc-sec[open] .wc-body { animation: fade .2s ease-out; }
+.wc-p { margin: 0; }
+.wc-q { font-style: italic; font-weight: 600; color: var(--text); }
+.wc-pairs, .wc-notes, .wc-use { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
+.wc-pair { display: grid; gap: .2rem; padding: .55rem .7rem; border-radius: 12px; background: var(--surface-2); }
+.wc-wrong, .wc-right { display: flex; gap: .5rem; align-items: baseline; }
+.wc-mk { flex: none; width: 18px; height: 18px; border-radius: 50%; display: inline-grid; place-items: center; font-size: .66rem; font-weight: 800; color: var(--surface); transform: translateY(2px); }
+.wc-wrong .wc-mk { background: var(--again); } .wc-right .wc-mk { background: var(--good); }
+.wc-wrong s { color: color-mix(in srgb, var(--again) 62%, var(--text)); text-decoration-thickness: 1.5px; text-decoration-color: color-mix(in srgb, var(--again) 60%, transparent); }
+.wc-right b { color: color-mix(in srgb, var(--good) 62%, var(--text)); }
+.wc-why { font-size: .82rem; color: var(--muted); }
+.wc-notes { margin-top: .6rem; } .wc-pairs + .wc-notes { margin-top: .7rem; }
+.wc-notes li, .wc-use li { position: relative; padding-left: 1rem; font-size: .9rem; }
+.wc-notes li::before { content: ""; position: absolute; left: .2rem; top: .7em; width: 5px; height: 5px; border-radius: 50%; background: var(--g); }
+.wc-use li { padding-left: 0; display: flex; flex-wrap: wrap; gap: .25rem .5rem; align-items: baseline; }
+.wc-tag { padding: .05rem .5rem; border-radius: 6px; font-size: .74rem; font-weight: 700; color: color-mix(in srgb, var(--g) var(--gp), var(--text)); background: color-mix(in srgb, var(--g) 13%, var(--surface)); }
+.wc-ftx { font-size: .85rem; color: var(--muted); }
+@media (max-width: 480px) { .wc-body { padding-left: .9rem; } }

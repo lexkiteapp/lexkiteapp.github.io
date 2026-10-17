@@ -92,7 +92,7 @@ const ActorLight = ({ id, fx, w, h }) => {
     <svg width="0" height="0" style={{ position: 'absolute' }}>
       <filter id={id} x="-2%" y="-2%" width="104%" height="104%" colorInterpolationFilters="sRGB">
         <feColorMatrix in="SourceGraphic" type="matrix" values={`${k(t[0])} 0 0 0 ${a(t[0])}  0 ${k(t[1])} 0 0 ${a(t[1])}  0 0 ${k(t[2])} 0 ${a(t[2])}  0 0 0 1 0`} result="wb" />
-        <feDiffuseLighting in="SourceAlpha" surfaceScale="0" diffuseConstant="0.78" lightingColor={key} result="lit">
+        <feDiffuseLighting in="SourceAlpha" surfaceScale="0" diffuseConstant="0.64" lightingColor={key} result="lit">
           <fePointLight x={dir > 0 ? w * 1.25 : -w * 0.25} y={h * 0.15} z={w * 0.95} />
         </feDiffuseLighting>
         <feComposite in="lit" in2="SourceAlpha" operator="in" result="litIn" />
@@ -114,9 +114,11 @@ const Actor = ({ a, rim, t0, fx, uid }) => {
   return (
     <>
       <div style={{ position: 'absolute', left: a.x - ew / 2 - dir * a.h * 0.05, top: a.y - a.h * 0.03, width: ew, height: a.h * 0.06, borderRadius: '50%', background: 'radial-gradient(closest-side, rgba(20,16,14,.58), rgba(20,16,14,0))', filter: 'blur(5px)' }} />
-      <ActorLight id={uid} fx={fx} w={w} h={h} />
+      <ActorLight id={uid} fx={fx && a.flip && fx.light ? { ...fx, light: { ...fx.light, dir: -(fx.light.dir || -1) } } : fx} w={w} h={h} />
       <div style={{ position: 'absolute', left, top, width: w, height: h, filter: `drop-shadow(${dir * 4}px -2px 3px ${rim}99) drop-shadow(0 0 10px rgba(255,247,234,.18))` }}>
-        <div style={{ width: '100%', height: '100%', transform: a.flip ? 'scaleX(-1)' : undefined, filter: `url(#${uid})` }}>{media}</div>
+        {/* lật gương ở lớp NGOÀI, bộ lọc ánh sáng ở lớp TRONG (lọc trên ảnh chưa lật – lọc SVG trên phần tử scaleX(−1) làm lệch màu đỏ/tối);
+            hướng đèn tính theo ảnh chưa lật */}
+        <div style={{ width: '100%', height: '100%', transform: a.flip ? 'scaleX(-1)' : undefined }}><div style={{ width: '100%', height: '100%', filter: `url(#${uid})` }}>{media}</div></div>
       </div>
     </>
   );

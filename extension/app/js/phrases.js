@@ -398,6 +398,7 @@
     $('[data-save]', pop).onclick = () => { pop.hidden = true; savePhraseDialog(info); };
     if (!info.vi) { const L = I18N.learnLang(); (L === 'vi' ? Dict.translateVi(info.phrase) : Dict.translateTo(info.phrase, L)).then(v => { info.vi = v || ''; const d = $('.vi', pop); if (d && !pop.hidden) d.textContent = info.vi || t('Không dịch được – thử lại sau'); }).catch(() => {}); }
   }
+  App.phrasePop = phrasePop; // dùng chung: chip cụm từ trên thẻ từ (app.js) – tra nghĩa tại chỗ, không rời phiên học
   const NO_LOOKUP = 'input, textarea, select, .cbt, .mk-read, .mk-write, .mk-qs, .sel-pop, .sel-bar, .pop';
   const place = (el, r, below = 8) => {
     el.style.left = Math.max(8, Math.min(innerWidth - el.offsetWidth - 8, r.left + r.width / 2 - el.offsetWidth / 2)) + 'px';
