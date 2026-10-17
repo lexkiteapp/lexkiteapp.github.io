@@ -321,7 +321,7 @@ html:has(.grade-bar) { scroll-padding-bottom: 6.5rem; }
 }
 .blank { display: inline-block; min-width: 90px; border-bottom: 3px solid var(--primary); margin: 0 3px; }
 .big-input { font-size: 1.25rem; text-align: center; padding: .9rem; }
-.xp-float { position: fixed; z-index: 60; font-weight: 800; color: var(--gold); pointer-events: none; animation: xpfloat 1s ease-out forwards; font-size: 1.2rem; }
+.xp-float { position: fixed; z-index: 60; font-weight: 800; color: #3d2600; background: var(--gold); padding: 2px 10px; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,.18); pointer-events: none; animation: xpfloat 1s ease-out forwards; font-size: 1.05rem; }
 @keyframes xpfloat { to { transform: translateY(-60px); opacity: 0; } }
 
 .match-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .7rem; }

@@ -42,7 +42,8 @@ for (const scheme of ['light', 'dark']) for (const lang of ['vi', 'en']) {
   for (const r of ROUTES) {
     await page.goto(url(r), { waitUntil: 'networkidle' }).catch(() => {}); await page.waitForTimeout(900);
     await scan(page, scheme, lang, '#/' + r);
-    if (await toggles(page)) { await page.waitForTimeout(300); await scan(page, scheme, lang, '#/' + r + ' (đã chọn)'); }
+    if (await toggles(page)) { await page.waitForTimeout(1100); // chờ hiệu ứng +XP bay xong (chữ đang mờ dần không phải trạng thái thật)
+      await scan(page, scheme, lang, '#/' + r + ' (đã chọn)'); }
   }
   // Kiểm tra đầu vào: câu hỏi (chưa chọn – không phương án nào được tô) → trả lời hết → trang kết quả (band, vòng kỹ năng, CTA)
   await page.goto(url('placement'), { waitUntil: 'networkidle' }).catch(() => {}); await page.waitForTimeout(600);
