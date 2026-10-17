@@ -64,3 +64,28 @@ File này gom các **quy trình đã chốt** và **lỗi đã từng mắc** đ
 
 ## 10. Tài khoản & dịch vụ
 - Email chính thức: vintagezulilyjewelry@gmail.com (không dùng khieudinhthong cho Google). GrabCast = backend lưu & đăng social của chủ dự án (workspace Lexkite = 4). Wrangler qua file token `~/.config/lexkite/cf-token`; push GitHub qua HTTPS + `gh auth token`.
+
+## 11. Bài học 17/10 (bắt buộc nhớ)
+**Làm việc chung**
+- **Grep tính năng cũ trước khi làm mới.** Streak Freeze bị viết trùng hệ có sẵn (`app.js` applyFreeze, `game.freezes/frozen`) → đã hợp nhất về 1 nguồn `Core.Stats.freezeInfo(state.game)`. Mọi tính năng: tìm từ khóa trong `web/js` trước.
+- **Đừng tin "success" của workflow** – đọc số liệu: lần nhập kho đầu báo xanh nhưng `Nhập 0 · lỗi 20` (sai đường dẫn `clips/src/`). Workflow mới phải tự đỏ khi kết quả = 0.
+- **Thử 1 trước rồi mới chạy lô** áp dụng cả cho script/workflow của mình (không chỉ credit Kling).
+- Lời ghi duyệt tay phải đúng sự thật: soi phóng to rồi mới ghi (vd. kính Diane).
+
+**Video**
+- Phông xanh: `chroma_key.py` = ngưỡng Cb/Cr 8–24 + "G không trội → nhân vật" (giữ teal/ô liu) + "xanh lá trội rõ, kể cả xanh đậm → nền" (bóng đổ trên phông, lỗi Mia) + chỉ giữ nhân vật chính và mảng trong khung bao (tay/vật lạ Kling vẽ thêm ở mép). Luôn soi trên nền magenta (`chroma-batch.yml` xuất bảng soi).
+- Cổng tự động (MediaPipe, khung đột biến, gọng kính) **hay báo nhầm trên tranh 2D** → soi tay khung bị gắn cờ; báo nhầm thì `library.mjs approve <id> --waiver "lý do"` (lưu manualReview), lỗi thật thì để dự phòng.
+- Kho dựng: nhập/kiểm/stacked chạy trên CI (`library-ingest.yml`), máy chỉ `sync` (upload). CI dựng video phải `library.mjs fetch-render` (trước 17/10 CI không có kho → mọi video thử chỉ nền gradient).
+- Cảnh ngồi/bàn ghế: không ghép. Cảnh đầu = ảnh nhân vật + prompt bối cảnh (cách C), các cảnh sau cùng địa điểm = ảnh đó làm tham chiếu (cách A); soi từng ảnh (1 credit) trước khi tạo video. Chi tiết `docs/KLING-PLAN.md`.
+- Kling web: nút Generate hay phải bấm 2 lần; thứ tự ô trong bộ chọn tài sản ĐỔI khi có ảnh mới → zoom xác nhận ô trước khi chọn; lấy link mp4/ảnh qua API `projects-assets/feeds` trong trang.
+- Giọng Việt cho video bài giảng: kiểm **giấy phép thương mại** trước (viXTTS, MMS-TTS cấm thương mại; app có quảng cáo).
+
+**Nội dung & dịch**
+- Dịch máy không được dịch cụm tiếng Anh mẫu (cấu trúc ngữ pháp, câu ví dụ trong ngoặc kép) → khoá cụm trước khi dịch; `i18n-qa` chặn.
+- Blog: `blog-schedule --verify` trong `npm test` (≤ 1 bài/ngôn ngữ/ngày); kho ít bài tự rải 1–3 ngày/bài, giờ cao điểm địa phương. Slug vĩnh viễn – không dùng tên sách/thương hiệu người khác.
+- Bài của Antigravity: chỉ được thêm liên kết vào bài cũ, không đổi nội dung/ngày đăng; soát alt ảnh với `shots.json`.
+
+**Hạ tầng**
+- WAF Cloudflare chạy thật (token riêng `~/.config/lexkite/cf-waf-token`); gói Free: rate limit chỉ "block" (không challenge). Kiểm: `node scripts/cf-waf.mjs verify --live`.
+- Trần `web/js` không tính `admin-*.js`; khung app (shell) theo dõi 380 KB gz – ảnh/icon nén lượng tử được thì nén.
+- Add-on: sửa xong phải chờ `~/lexkite-ext-live` lên đúng phiên bản rồi mới báo.
