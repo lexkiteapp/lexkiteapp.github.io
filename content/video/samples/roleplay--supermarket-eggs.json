@@ -1,0 +1,69 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/roleplay.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Supermarket roleplay: where can I find the eggs?",
+ "format": "short",
+ "template": "roleplay",
+ "script": {
+  "title": "What to say at the supermarket",
+  "hook": "At the supermarket",
+  "scene": "supermarket",
+  "time": "day",
+  "format_id": "repeat-after-me",
+  "template": "roleplay",
+  "lines": [
+   {
+    "who": "ama",
+    "beat": "hook",
+    "text": "Wait, where are the eggs?",
+    "expr": "surprised",
+    "gesture": "hands on cheeks"
+   },
+   {
+    "who": "carlos",
+    "beat": "situation",
+    "text": "Looking for something? I can help.",
+    "expr": "friendly",
+    "gesture": "open hands"
+   },
+   {
+    "who": "ama",
+    "beat": "example",
+    "text": "Yes, please. Where can I find the eggs?",
+    "expr": "curious",
+    "gesture": ""
+   },
+   {
+    "who": "carlos",
+    "beat": "explain",
+    "text": "They're in aisle five, next to the milk.",
+    "expr": "happy smile",
+    "gesture": "",
+    "punch": true
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: excuse me, where can I find… works in any store.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "cta",
+    "text": "Roleplay this free on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "where can I find"
+  ],
+  "caption": "Real English at the supermarket – try this line",
+  "hashtags": [
+   "englishconversation",
+   "roleplay",
+   "learnenglish"
+  ],
+  "link": "https://lexkite.com/"
+ }
+}

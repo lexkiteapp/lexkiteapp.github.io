@@ -1,0 +1,27 @@
+{
+ "topic": "Job interview roleplay: checking in at reception",
+ "scene": "reception",
+ "vars": {
+  "phrase": "I have an interview",
+  "place": "reception",
+  "hookLine": "Um… where do I go?",
+  "staffOpen": "Good morning! Are you here for an interview?",
+  "learnerLine": "Hi, I'm Mia Chen. I have an interview with Ms. Park at ten.",
+  "staffReply": "Thanks, Ms. Chen. Please have a seat. She'll be out in a minute.",
+  "tip": "say your name, who you're meeting, and the time. That's all reception needs."
+ },
+ "lines": {
+  "situation": {
+   "expr": "curious",
+   "gesture": ""
+  },
+  "explain": {
+   "expr": "friendly"
+  }
+ },
+ "hashtags": [
+  "jobinterview",
+  "businessenglish",
+  "englishconversation"
+ ]
+}

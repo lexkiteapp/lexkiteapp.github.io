@@ -1,0 +1,70 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/confusing-pair.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Affect or effect? Grammar in 30 seconds",
+ "format": "short",
+ "template": "confusing-pair",
+ "script": {
+  "title": "Affect or effect? Never mix them up again",
+  "hook": "Affect or effect?",
+  "scene": "library",
+  "time": "day",
+  "format_id": "grammar-60",
+  "template": "confusing-pair",
+  "lines": [
+   {
+    "who": "ama",
+    "beat": "hook",
+    "text": "Affect or effect?",
+    "expr": "thinking",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "situation",
+    "text": "I mix them up in every essay.",
+    "expr": "awkward",
+    "gesture": "hands on cheeks"
+   },
+   {
+    "who": "ama",
+    "beat": "explain",
+    "text": "Affect is the verb: stress can affect your sleep.",
+    "expr": "confident",
+    "gesture": "open hands",
+    "punch": true
+   },
+   {
+    "who": "ama",
+    "beat": "example",
+    "text": "Effect is the noun: the effect of stress is bad sleep.",
+    "expr": "happy smile",
+    "gesture": ""
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: think RAVEN. Remember, affect is a verb, effect is a noun.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "cta",
+    "text": "Practice grammar free on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "affect",
+   "effect"
+  ],
+  "caption": "Stop mixing up affect and effect",
+  "hashtags": [
+   "englishgrammar",
+   "confusingwords",
+   "learnenglish"
+  ],
+  "link": "https://lexkite.com/"
+ }
+}

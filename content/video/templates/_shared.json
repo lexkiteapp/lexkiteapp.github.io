@@ -1,0 +1,66 @@
+{
+ "_note": "Luật chung cho mọi khuôn nội dung video (scripts/video/template.mjs, docs/VIDEO-PIPELINE.md §11). emotions = cảm xúc câu mà lib.lineEmotion SUY TỪ CHỮ (không phải từ expr) → quyết định nhóm clip (lib.EMOTION_TAGS). expr/gesture chỉ được chọn trong từ vựng của đúng cảm xúc đó để không mâu thuẫn (lib.exprConflict).",
+ "emotions": {
+  "wrong": {
+   "cues": "câu có: wait, wrong, mistake, incorrect, error, oops, don't say, never say, stop saying (thắng mọi luật khác)",
+   "clipTags": ["shock", "facepalm", "headgrab"],
+   "expr": ["surprised", "shocked", "awkward"],
+   "gesture": ["", "hands on cheeks", "facepalm", "hands on head"]
+  },
+  "ask": {
+   "cues": "câu kết thúc bằng ? (dấu ? phải là ký tự cuối, KHÔNG nằm trong ngoặc kép) – trừ lời đề nghị lịch sự Could/Can/May I get/have/order … please",
+   "clipTags": ["ask", "think"],
+   "expr": ["thinking", "confused", "curious"],
+   "gesture": ["", "thinking pose", "shrugging"]
+  },
+  "right": {
+   "cues": "câu có: right, correct, perfect, exactly, great, nice, got it, that's it, yes (sau khi đã loại wrong và ?)",
+   "clipTags": ["thumbs", "laugh"],
+   "expr": ["proud", "excited", "happy smile", "big laugh"],
+   "gesture": ["", "thumbs up", "clapping"]
+  },
+  "explain": {
+   "cues": "beat explain/example/tip không có tín hiệu nào ở trên; beat situation không tín hiệu + expr trung tính",
+   "clipTags": ["talk", "point", "gesture"],
+   "expr": ["happy smile", "confident", "friendly", "calm", "deadpan"],
+   "gesture": ["", "open hands", "pointing", "explaining with hands"]
+  },
+  "talk": {
+   "cues": "beat hook không tín hiệu + expr trung tính (KHÔNG smile/happy – sẽ thành right)",
+   "clipTags": ["talk", "point", "ask", "gesture"],
+   "expr": ["confident", "friendly", "calm", "deadpan"],
+   "gesture": ["", "open hands", "pointing", "explaining with hands"]
+  },
+  "cta": {
+   "cues": "beat cta (luôn) – nhân vật nhìn thẳng người xem",
+   "clipTags": ["wave", "thumbs", "talk"],
+   "expr": ["happy smile", "excited"],
+   "gesture": ["waving hello", "thumbs up", ""]
+  }
+ },
+ "kit": { "expr": ["proud", "happy smile", "excited", "thinking"], "gesture": [""] },
+ "keywords": { "min": 1, "max": 3, "maxWords": 4 },
+ "card": { "maxChars": 32 },
+ "caption": { "maxChars": 150, "hashtags": [2, 4] },
+ "cefrLongWords": { "A1": 1, "A2": 2, "B1": 3, "B2": 5, "C1": 8 },
+ "hashtags": { "base": ["learnenglish", "englishtips", "speakenglish", "esl", "englishlearning", "lexkite"] },
+ "writing": {
+  "do": [
+   "Tiếng Anh tự nhiên kiểu Mỹ (US), câu ngắn, có nhịp nói – đọc to thử trước khi duyệt",
+   "1 ý duy nhất / video; từ khóa xuất hiện đúng nguyên văn trong lời thoại để được tô sáng",
+   "Hook = xung đột hoặc tò mò trong ≤ 5 âm tiết–6 từ; nói trong ≤ 2 s",
+   "Câu mẫu dùng được ngay ngoài đời; ví dụ cụ thể (đồ uống, cuộc họp, siêu thị), không chung chung",
+   "Mẹo của Kit mở bằng \"Kit's tip:\" – một quy tắc nhớ được, không lặp lại nguyên câu giải thích",
+   "CTA: \"… free on lexkite.com\" – nhân vật vẫy tay nhìn người xem"
+  ],
+  "dont": [
+   "Không bịa số liệu/phần trăm (\"90% people…\"), không \"studies show\"",
+   "Không hứa hẹn: guaranteed, fluent in 30 days, never forget, #1, best app",
+   "Không nhắc tên app/thương hiệu khác (Duolingo, Babbel…), không lời bài hát/trích dẫn có bản quyền",
+   "Không để dấu ? trong ngoặc kép ở cuối câu (\"…?\" → cảm xúc không nhận ra) – đặt ? ra ngoài hoặc diễn đạt lại",
+   "Không dùng wait/oops/wrong/mistake ngoài câu mang ý sai; không dùng yes/great/nice/right/perfect/exactly ngoài câu mang ý đúng (đổi clip)",
+   "Không ký tự { } \\ (phụ đề ASS lọc mất)",
+   "Không xúc phạm giọng/quốc tịch; \"sai\" là của nhân vật học, không chê người xem"
+  ]
+ }
+}

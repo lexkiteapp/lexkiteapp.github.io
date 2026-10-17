@@ -1,0 +1,71 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/spot-the-mistake.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Supermarket English: spot the mistake in \"How much cost this?\"",
+ "format": "short",
+ "template": "spot-the-mistake",
+ "script": {
+  "title": "Is \"How much cost this?\" correct?",
+  "hook": "\"How much cost\"?",
+  "scene": "supermarket",
+  "time": "day",
+  "format_id": "spot-the-mistake",
+  "template": "spot-the-mistake",
+  "lines": [
+   {
+    "who": "ama",
+    "beat": "hook",
+    "text": "Wait, \"how much cost\"?",
+    "expr": "surprised",
+    "gesture": "hands on cheeks"
+   },
+   {
+    "who": "ama",
+    "beat": "situation",
+    "text": "I asked the cashier, \"How much cost this?\" Was that okay?",
+    "expr": "thinking",
+    "gesture": ""
+   },
+   {
+    "who": "carlos",
+    "beat": "explain",
+    "text": "Close! Just add does: \"How much does this cost?\"",
+    "expr": "confident",
+    "gesture": "open hands",
+    "punch": true
+   },
+   {
+    "who": "carlos",
+    "beat": "example",
+    "text": "For two or more, it's \"How much do these cost?\"",
+    "expr": "happy smile",
+    "gesture": ""
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: in a hurry? Just ask, how much is this?",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "cta",
+    "text": "Fix more mistakes free on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "does this cost"
+  ],
+  "wrong": "How much cost this?",
+  "right": "How much does this cost?",
+  "caption": "Say \"How much does this cost?\", not \"How much cost this?\"",
+  "hashtags": [
+   "commonmistakes",
+   "englishtips",
+   "learnenglish"
+  ],
+  "link": "https://lexkite.com/"
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "id": "roleplay",
+ "name": "Real-life roleplay theo bối cảnh",
+ "goal": "Một lượt giao tiếp thật ở 1 nơi (quán, siêu thị, phỏng vấn, lễ tân…): người học gặp tình huống → nhân viên mở lời → người học dùng câu mẫu → nhân viên đáp (payoff) → Kit giải thích vì sao câu đó hay.",
+ "format_id": "repeat-after-me",
+ "cefr": "A2–B1",
+ "duration": [18, 42],
+ "topicHint": "topic quyết định casting: cafe → \"Cafe roleplay: …\" · supermarket → \"Supermarket roleplay: …\" · office/reception → \"Job interview roleplay: …\" · restaurant → \"Restaurant roleplay: …\" · clinic → \"Doctor's appointment roleplay: …\" · hotel-lobby → \"Hotel front desk roleplay: …\" · airport → \"Airport check-in roleplay: …\" · classroom → \"Class roleplay: …\"",
+ "roles": { "learner": "khách/người học – gặp tình huống, nói câu mẫu, CTA", "staff": "nhân viên/người đối diện – mở lời, đáp lại", "kit": "Kit – vì sao câu mẫu tự nhiên" },
+ "scenes": {
+  "cafe": { "format_id": "cafe-carlos", "roles": { "learner": ["ama"], "staff": ["carlos"] } },
+  "supermarket": { "format_id": "repeat-after-me", "roles": { "learner": ["ama"], "staff": ["carlos"] } },
+  "office": { "format_id": "interview-diane", "roles": { "learner": ["mia"], "staff": ["diane"] } },
+  "reception": { "format_id": "interview-diane", "roles": { "learner": ["mia"], "staff": ["diane"] } },
+  "restaurant": { "format_id": "restaurant-rescue", "roles": { "learner": ["mia", "leo"], "staff": ["carlos"] } },
+  "clinic": { "format_id": "repeat-after-me", "roles": { "learner": ["mia", "leo"], "staff": ["diane"] } },
+  "hotel-lobby": { "format_id": "repeat-after-me", "roles": { "learner": ["mia", "leo"], "staff": ["carlos"] } },
+  "airport": { "format_id": "airport-phrase", "roles": { "learner": ["mia", "leo"], "staff": ["carlos"] } },
+  "classroom": { "format_id": "repeat-after-me", "roles": { "learner": ["ama"], "staff": ["diane"] } }
+ },
+ "vars": {
+  "phrase": { "desc": "câu mẫu chính (từ khóa) – người học sẽ nói", "required": true, "maxWords": 5 },
+  "hookLine": { "desc": "câu mở ≤ 5 âm tiết: người học bối rối/hỏi (vd. For here or… to go?)", "required": true, "maxWords": 5 },
+  "staffOpen": { "desc": "câu mở của nhân viên – Carlos chưa có clip ask → KHÔNG kết thúc bằng ?; Diane có (think_aha)", "required": true },
+  "learnerLine": { "desc": "câu người học nói, chứa phrase", "required": true },
+  "staffReply": { "desc": "câu đáp xác nhận của nhân viên (payoff)", "required": true },
+  "tip": { "desc": "vì sao câu mẫu hay, sau \"Kit's tip:\"", "required": true },
+  "place": { "desc": "nơi chốn cho CTA/caption (the cafe, the supermarket…)", "required": true }
+ },
+ "title": ["Roleplay at {{place}}: \"{{phrase}}\"", "What to say at {{place}}"],
+ "hook": ["At {{place}}", "What do you say?"],
+ "beats": [
+  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["ask", "wrong", "talk"], "maxWords": 5, "maxSec": 1.9, "text": ["{{hookLine}}"], "expr": "confused", "gesture": "" },
+  { "id": "situation", "beat": "situation", "role": "staff", "emotions": ["explain", "talk", "ask"], "maxWords": 12, "text": ["{{staffOpen}}"], "expr": "friendly", "gesture": "open hands" },
+  { "id": "example", "beat": "example", "role": "learner", "emotions": ["explain", "ask", "talk"], "maxWords": 18, "must": ["kw:0"], "text": ["{{learnerLine}}"], "expr": "friendly", "gesture": "" },
+  { "id": "explain", "beat": "explain", "role": "staff", "emotions": ["explain", "right", "ask"], "maxWords": 14, "punch": true, "text": ["{{staffReply}}"], "expr": "happy smile", "gesture": "" },
+  { "id": "tip", "beat": "tip", "role": "kit", "maxWords": 18, "text": ["Kit's tip: {{tip}}"], "expr": "proud", "gesture": "" },
+  { "id": "cta", "beat": "cta", "role": "learner", "emotions": ["cta"], "maxWords": 8, "text": ["Practice real conversations on lexkite.com", "Roleplay this free on lexkite.com"], "expr": "happy smile", "gesture": "waving hello" }
+ ],
+ "keywords": ["{{phrase}}"],
+ "caption": ["What to say at {{place}}: \"{{phrase}}\"", "Real English at {{place}} – try this line"],
+ "hashtags": ["englishconversation", "speakenglish", "roleplay", "learnenglish", "dailyenglish", "jobinterview", "businessenglish"],
+ "writing": {
+  "do": ["Một lượt hỏi–đáp ngắn, đúng vai casting.json (barista, thu ngân, lễ tân, người phỏng vấn…)", "Câu mẫu dùng được nguyên văn ngoài đời", "Nhân viên lịch sự, thân thiện; người học mắc lỗi nhẹ hoặc bối rối ở hook"],
+  "dont": ["Không tên thương hiệu thật (Starbucks, Walmart…) – dùng the cafe, the store", "Carlos chưa có clip ask → câu của Carlos không kết thúc bằng ? (đặt câu hỏi trong ngoặc kép hoặc diễn đạt lại)", "Không giá tiền/số liệu cụ thể dễ sai theo nước"]
+ }
+}

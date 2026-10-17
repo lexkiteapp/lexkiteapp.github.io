@@ -1,0 +1,69 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/phrasal-verb.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Cafe English: run out of",
+ "format": "short",
+ "template": "phrasal-verb",
+ "script": {
+  "title": "\"Run out of\" – what it really means",
+  "hook": "Run out of?",
+  "scene": "cafe",
+  "time": "day",
+  "format_id": "phrasal-30",
+  "template": "phrasal-verb",
+  "lines": [
+   {
+    "who": "carlos",
+    "beat": "hook",
+    "text": "Sorry, we ran out.",
+    "expr": "calm",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "situation",
+    "text": "Ran out? Where did it go?",
+    "expr": "confused",
+    "gesture": ""
+   },
+   {
+    "who": "carlos",
+    "beat": "explain",
+    "text": "Run out of means there's none left. We have no oat milk today.",
+    "expr": "confident",
+    "gesture": "open hands",
+    "punch": true
+   },
+   {
+    "who": "ama",
+    "beat": "example",
+    "text": "Oh no! We've run out of coffee at home too.",
+    "expr": "friendly",
+    "gesture": ""
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: say run out of before the thing: we ran out of milk.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "cta",
+    "text": "Learn more phrasal verbs on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "run out of"
+  ],
+  "caption": "\"Run out of\" in real English – watch till the end",
+  "hashtags": [
+   "phrasalverbs",
+   "englishvocabulary",
+   "speakenglish"
+  ],
+  "link": "https://lexkite.com/"
+ }
+}

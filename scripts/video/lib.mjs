@@ -132,6 +132,39 @@ export function contrast(a, b) {
   const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return Math.round((x + 0.05) / (y + 0.05) * 100) / 100;
 }
 
+// ---------- Cổng tĩnh dùng chung (render.mjs bước qa + scripts/video/template.mjs lint trước khi dựng) ----------
+export const WPS = 2.6, LINE_GAP = 0.3, LEAD = 0.2, END_CARD = 2.2, HOOK_MAX = 2.05;
+export const CAST = ['mia', 'leo', 'ama', 'kit', 'diane', 'carlos'];
+export const COMPETITORS = /\b(duolingo|babbel|busuu|memrise|rosetta\s*stone|cambly|preply|italki|elsa\s*speak|quizlet|cake\s*app|lingoda|mondly|praktika)\b/i;
+// Thời lượng ước tính 1 câu khi chưa có giọng (đúng công thức bước tts khi thiếu Kokoro)
+export const estLineSec = t => +(tokens(t).length / WPS + 0.3).toFixed(2);
+// Tổng thời lượng ước tính (đúng bố cục align: lead + câu + nghỉ + 0,4 s + end card)
+export const estVideoSec = lines => +(LEAD + lines.reduce((a, l) => a + estLineSec(l.text), 0) + LINE_GAP * Math.max(0, lines.length - 1) + 0.4 + END_CARD).toFixed(2);
+// Đếm âm tiết (heuristic tiếng Anh) – để ước lượng câu hook: Kokoro đọc ~4 âm tiết/s; số → ~1,5 âm tiết/chữ số
+export function syllables(w) {
+  const s = norm(w).replace(/'/g, ''); if (!s) return 0;
+  if (/^\d+$/.test(s)) return Math.ceil(s.length * 1.5);
+  if (s.length <= 3) return 1;
+  const m = s.replace(/(?:[^laeiouy]es|[^laeiouy]ed|[^laeiouy]e)$/, '').replace(/^y/, '').match(/[aeiouy]{1,2}/g);
+  return Math.max(1, m ? m.length : 1);
+}
+// Câu hook đọc mất bao lâu (s): 0,45 s khởi + 0,24 s/âm tiết + 0,12 s/quãng ngắt giữa câu (, ; : – … ? !). Hiệu chỉnh theo log video-sample 17/10
+// (hook 5–6 âm tiết đo 1,8–1,9 s; sai số ±0,4 s theo giọng) → cổng render (đo thật) vẫn là chuẩn, đây là cổng sớm.
+export function hookEstSec(t) {
+  const s = String(t || '').trim(), syl = tokens(s).reduce((a, w) => a + syllables(w), 0);
+  const pauses = (s.replace(/[\s"”“'’.!?…]+$/, '').match(/[,;:–—…?!]|\.\.\./g) || []).length;
+  return +(0.45 + 0.24 * syl + 0.12 * pauses).toFixed(2);
+}
+// Cổng brand (render qa): không nhãn hiệu đối thủ ở tiêu đề/caption/lời thoại + chỉ dàn nhân vật Lexkite
+export function brandGate(sc) {
+  const allText = [sc.title, sc.caption, ...(sc.lines || []).map(l => l.text)].join(' ');
+  const bad = (sc.lines || []).filter(l => !CAST.includes(l.who)).map(l => l.who);
+  const m = allText.match(COMPETITORS);
+  return { ok: !m && !bad.length, note: m ? `nhắc nhãn hiệu đối thủ "${m[0]}"` : bad.length ? `nhân vật lạ: ${[...new Set(bad)].join(', ')}` : 'không nhãn hiệu đối thủ, đúng dàn nhân vật' };
+}
+// Cổng CTA (render qa): có câu beat cta nhắc lexkite + link về https://lexkite.com/
+export const ctaGate = sc => { const ok = (sc.lines || []).some(l => l.beat === 'cta' && /lexkite/i.test(l.text)) && /^https:\/\/lexkite\.com\//.test(sc.link || 'https://lexkite.com/'); return { ok, note: ok ? 'CTA về lexkite.com + thẻ cuối' : 'thiếu CTA lexkite' }; };
+
 // ---------- Đo QA (MEDIA-QA-RUBRIC mục C) ----------
 // Đọc tổng kết ffmpeg ebur128 (stderr) → độ to tích hợp I (LUFS); không có tiếng → -Infinity
 export function parseEbur128(txt) {

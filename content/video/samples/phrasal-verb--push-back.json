@@ -1,0 +1,69 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/phrasal-verb.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Phrasal verb at work: push back the meeting",
+ "format": "short",
+ "template": "phrasal-verb",
+ "script": {
+  "title": "\"Push back\" – what it really means",
+  "hook": "Push back?",
+  "scene": "office",
+  "time": "day",
+  "format_id": "phrasal-30",
+  "template": "phrasal-verb",
+  "lines": [
+   {
+    "who": "diane",
+    "beat": "hook",
+    "text": "Let's push it back.",
+    "expr": "calm",
+    "gesture": ""
+   },
+   {
+    "who": "mia",
+    "beat": "situation",
+    "text": "Back? Like, push the table?",
+    "expr": "confused",
+    "gesture": ""
+   },
+   {
+    "who": "mia",
+    "beat": "explain",
+    "text": "Oh! Push back means move it to a later time.",
+    "expr": "confident",
+    "gesture": "open hands",
+    "punch": true
+   },
+   {
+    "who": "diane",
+    "beat": "example",
+    "text": "Can we push the call back to Friday?",
+    "expr": "curious",
+    "gesture": ""
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: push back means later. Move up means earlier.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "mia",
+    "beat": "cta",
+    "text": "Learn more phrasal verbs on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "push back"
+  ],
+  "caption": "\"Push back\" in real English – watch till the end",
+  "hashtags": [
+   "phrasalverbs",
+   "businessenglish",
+   "learnenglish"
+  ],
+  "link": "https://lexkite.com/"
+ }
+}

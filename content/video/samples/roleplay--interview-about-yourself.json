@@ -1,0 +1,69 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/roleplay.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Job interview roleplay: tell me about yourself",
+ "format": "short",
+ "template": "roleplay",
+ "script": {
+  "title": "Tell me about yourself – job interview roleplay",
+  "hook": "Tell me about yourself",
+  "scene": "office",
+  "time": "day",
+  "format_id": "interview-diane",
+  "template": "roleplay",
+  "lines": [
+   {
+    "who": "mia",
+    "beat": "hook",
+    "text": "Talk about… myself?",
+    "expr": "confused",
+    "gesture": ""
+   },
+   {
+    "who": "diane",
+    "beat": "situation",
+    "text": "Let's start easy. Tell me about yourself.",
+    "expr": "friendly",
+    "gesture": "open hands"
+   },
+   {
+    "who": "mia",
+    "beat": "example",
+    "text": "I'm a designer. I've worked on shopping apps for three years, and now I'd love to grow here.",
+    "expr": "friendly",
+    "gesture": ""
+   },
+   {
+    "who": "diane",
+    "beat": "explain",
+    "text": "Nice and clear. So why do you want to join us?",
+    "expr": "curious",
+    "gesture": "",
+    "punch": true
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: present, past, future. Who you are, what you've done, and what you want next.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "mia",
+    "beat": "cta",
+    "text": "Practice real conversations on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "now I'd love to"
+  ],
+  "caption": "How to answer \"Tell me about yourself\" in a job interview",
+  "hashtags": [
+   "jobinterview",
+   "businessenglish",
+   "speakenglish"
+  ],
+  "link": "https://lexkite.com/"
+ }
+}

@@ -1,0 +1,69 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/quiz-ab.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Quiz: \"a hour\" or \"an hour\"?",
+ "format": "short",
+ "template": "quiz-ab",
+ "script": {
+  "title": "Quiz: A hour or an hour?",
+  "hook": "A hour or an hour?",
+  "scene": "classroom",
+  "time": "day",
+  "format_id": "quiz-3s",
+  "template": "quiz-ab",
+  "lines": [
+   {
+    "who": "ama",
+    "beat": "hook",
+    "text": "A hour or an hour?",
+    "expr": "thinking",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "situation",
+    "text": "A: I waited a hour. B: I waited an hour. Three, two, one!",
+    "expr": "confident",
+    "gesture": "explaining with hands"
+   },
+   {
+    "who": "ama",
+    "beat": "explain",
+    "text": "It's B, an hour. The h is silent, so it starts with a vowel sound.",
+    "expr": "happy smile",
+    "gesture": "pointing",
+    "punch": true
+   },
+   {
+    "who": "ama",
+    "beat": "example",
+    "text": "Exactly! An honest answer, but a happy face.",
+    "expr": "big laugh",
+    "gesture": ""
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: listen to the first sound, not the first letter.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "cta",
+    "text": "Take more quizzes free on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "an hour"
+  ],
+  "caption": "Quick quiz: A hour or an hour? Comment A or B!",
+  "hashtags": [
+   "englishquiz",
+   "testyourenglish",
+   "englishgrammar"
+  ],
+  "link": "https://lexkite.com/"
+ }
+}

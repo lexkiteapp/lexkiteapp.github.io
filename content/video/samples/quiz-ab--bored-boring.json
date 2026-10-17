@@ -1,0 +1,69 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/quiz-ab.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Grammar quiz: \"I'm bored\" or \"I'm boring\"?",
+ "format": "short",
+ "template": "quiz-ab",
+ "script": {
+  "title": "Quiz: Bored or boring?",
+  "hook": "Bored or boring?",
+  "scene": "library",
+  "time": "day",
+  "format_id": "quiz-3s",
+  "template": "quiz-ab",
+  "lines": [
+   {
+    "who": "ama",
+    "beat": "hook",
+    "text": "Bored or boring?",
+    "expr": "thinking",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "situation",
+    "text": "A: I'm boring in class. B: I'm bored in class. Three, two, one!",
+    "expr": "confident",
+    "gesture": "explaining with hands"
+   },
+   {
+    "who": "ama",
+    "beat": "explain",
+    "text": "It's B! I'm bored is how you feel. I'm boring means I'm no fun.",
+    "expr": "happy smile",
+    "gesture": "pointing",
+    "punch": true
+   },
+   {
+    "who": "ama",
+    "beat": "example",
+    "text": "Exactly! The class was boring, so I was bored.",
+    "expr": "big laugh",
+    "gesture": ""
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: bored is how you feel. Boring is what makes you feel that way.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "cta",
+    "text": "Take more quizzes free on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "I'm bored"
+  ],
+  "caption": "Quick quiz: Bored or boring? Comment A or B!",
+  "hashtags": [
+   "englishquiz",
+   "grammarquiz",
+   "learnenglish"
+  ],
+  "link": "https://lexkite.com/"
+ }
+}

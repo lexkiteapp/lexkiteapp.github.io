@@ -1,0 +1,44 @@
+{
+ "id": "pronunciation-pair",
+ "name": "Pronunciation minimal pair (ship/sheep…)",
+ "goal": "Cặp tối thiểu → hiểu lầm buồn cười vì phát âm → cách nói từng âm → câu luyện có cả 2 từ → mẹo khẩu hình. Payoff: thẻ so sánh ở beat example.",
+ "format_id": "pronunciation-fix",
+ "cefr": "A2–B1",
+ "duration": [18, 40],
+ "topicHint": "\"Pronunciation: ship vs sheep\" → study-grammar (library/classroom) · \"Cafe English pronunciation: …\" → ordering-coffee",
+ "roles": { "learner": "người phát âm nhầm (Ama)", "coach": "người chỉ cách nói", "kit": "Kit – mẹo khẩu hình" },
+ "scenes": {
+  "library": { "roles": { "learner": ["ama"], "coach": ["ama"] } },
+  "classroom": { "roles": { "learner": ["ama"], "coach": ["ama"] } },
+  "cafe": { "roles": { "learner": ["ama"], "coach": ["carlos"] } }
+ },
+ "vars": {
+  "a": { "desc": "từ 1 (vd. ship)", "required": true, "maxWords": 1 },
+  "b": { "desc": "từ 2 (vd. sheep)", "required": true, "maxWords": 1 },
+  "mixup": { "desc": "câu kể hiểu lầm, kết thúc bằng ?", "required": true },
+  "how": { "desc": "cách nói 2 âm bằng lời thường (short/long, smile, relax)", "required": true },
+  "drill": { "desc": "câu luyện có cả 2 từ", "required": true },
+  "tip": { "desc": "mẹo khẩu hình sau \"Kit's tip:\"", "required": true },
+  "wrongCard": { "desc": "thẻ ❌ (câu nói nhầm)", "required": true },
+  "rightCard": { "desc": "thẻ ✅ (câu đúng)", "required": true }
+ },
+ "title": ["{{a}} or {{b}}? Say it right", "Stop mixing up {{a}} and {{b}}"],
+ "hook": ["{{a}} or {{b}}?"],
+ "beats": [
+  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["wrong"], "maxWords": 5, "maxSec": 1.9, "text": ["Wait, {{a}} or {{b}}?"], "expr": "surprised", "gesture": "hands on cheeks" },
+  { "id": "situation", "beat": "situation", "role": "learner", "emotions": ["ask"], "maxWords": 12, "text": ["{{mixup}}"], "expr": "confused", "gesture": "" },
+  { "id": "explain", "beat": "explain", "role": "coach", "emotions": ["explain"], "maxWords": 16, "punch": true, "must": ["kw:0", "kw:1"], "text": ["{{how}}"], "expr": "confident", "gesture": "explaining with hands" },
+  { "id": "example", "beat": "example", "role": "coach", "emotions": ["explain"], "maxWords": 12, "must": ["kw:0", "kw:1"], "text": ["{{drill}}"], "expr": "friendly", "gesture": "" },
+  { "id": "tip", "beat": "tip", "role": "kit", "maxWords": 16, "text": ["Kit's tip: {{tip}}"], "expr": "proud", "gesture": "" },
+  { "id": "cta", "beat": "cta", "role": "learner", "emotions": ["cta"], "maxWords": 8, "text": ["Practice pronunciation free on lexkite.com"], "expr": "happy smile", "gesture": "waving hello" }
+ ],
+ "keywords": ["{{a}}", "{{b}}"],
+ "wrong": "{{wrongCard}}",
+ "right": "{{rightCard}}",
+ "caption": ["{{a}} vs {{b}} – can you hear the difference?", "Say {{a}} and {{b}} clearly"],
+ "hashtags": ["pronunciation", "englishpronunciation", "speakenglish", "learnenglish", "esl"],
+ "writing": {
+  "do": ["Cặp tối thiểu thật (ship/sheep, live/leave, full/fool, cap/cup)", "Mô tả khẩu hình bằng lời thường (smile, relax, open your mouth)", "Câu luyện ngắn, TTS đọc rõ cả 2 từ – nghe lại bản dựng thử"],
+  "dont": ["Không ký hiệu IPA trong lời thoại (TTS đọc sai) – để IPA ở caption nếu cần", "Không chế giễu giọng/quốc gia nào", "Không viết \"ee\", \"-ed\" rời rạc trong lời thoại (TTS đánh vần)"]
+ }
+}

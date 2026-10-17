@@ -1,0 +1,45 @@
+{
+ "id": "spot-the-mistake",
+ "name": "Spot the mistake (lỗi hay gặp → sửa)",
+ "goal": "Người học nói/viết 1 câu sai phổ biến → nhận ra → sửa → dùng câu đúng. Payoff: dấu ✅ đóng lên câu đúng ở beat explain.",
+ "format_id": "spot-the-mistake",
+ "cefr": "A2–B1",
+ "duration": [18, 40],
+ "topicHint": "topic phải chứa từ khóa casting để ra đúng bối cảnh: \"Grammar: …\" → study-grammar (library/classroom) · \"Supermarket English: …\" → shopping · \"Cafe English: …\" → ordering-coffee",
+ "roles": { "learner": "người mắc lỗi (Ama) – sốc, hỏi, tự sửa", "expert": "người bản xứ sửa giúp (Carlos ở quầy) – chỉ khi có", "kit": "Kit – mẹo nhớ cuối" },
+ "scenes": {
+  "library": { "roles": { "learner": ["ama"], "expert": ["ama"] } },
+  "classroom": { "roles": { "learner": ["ama"], "expert": ["ama"] } },
+  "supermarket": { "roles": { "learner": ["ama"], "expert": ["carlos"] } },
+  "cafe": { "roles": { "learner": ["ama"], "expert": ["carlos"] } }
+ },
+ "vars": {
+  "wrong": { "desc": "câu SAI đầy đủ, đúng như người học hay nói (≤ 6 từ, vừa thẻ ❌)", "required": true, "maxWords": 6 },
+  "wrongShort": { "desc": "2–3 từ lõi của lỗi, đọc trong hook (vd. she don't)", "required": true, "maxWords": 3 },
+  "right": { "desc": "câu ĐÚNG tương ứng (vừa thẻ ✅)", "required": true, "maxWords": 6 },
+  "fix": { "desc": "từ/cụm sửa lỗi – sẽ là từ khóa tô sáng (vd. doesn't)", "required": true, "maxWords": 3 },
+  "rule": { "desc": "quy tắc 1 câu ngắn (vd. with he, she, or it, we use doesn't)", "required": true },
+  "example": { "desc": "câu dùng thật khác câu sai, có chứa fix", "required": true },
+  "tip": { "desc": "mẹo nhớ ngắn sau \"Kit's tip:\"", "required": true },
+  "skill": { "desc": "kỹ năng cho CTA (grammar, everyday English…)", "required": false }
+ },
+ "title": ["Spot the mistake: \"{{wrong}}\"", "Is \"{{wrong}}\" correct?"],
+ "hook": ["\"{{wrongShort}}\"?", "Is \"{{wrongShort}}\" wrong?"],
+ "beats": [
+  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["wrong"], "maxWords": 5, "maxSec": 1.9, "text": ["Wait, \"{{wrongShort}}\"?"], "expr": "surprised", "gesture": "hands on cheeks" },
+  { "id": "situation", "beat": "situation", "role": "learner", "emotions": ["ask"], "maxWords": 14, "text": ["I keep saying \"{{wrong}}.\" Is that okay?"], "expr": "thinking", "gesture": "" },
+  { "id": "explain", "beat": "explain", "role": "expert", "emotions": ["explain", "right"], "maxWords": 16, "punch": true, "must": ["kw:0"], "text": ["Here's the fix: {{rule}}"], "expr": "confident", "gesture": "open hands" },
+  { "id": "example", "beat": "example", "role": "expert", "emotions": ["explain", "right"], "maxWords": 14, "text": ["{{example}}"], "expr": "happy smile", "gesture": "" },
+  { "id": "tip", "beat": "tip", "role": "kit", "maxWords": 16, "text": ["Kit's tip: {{tip}}"], "expr": "proud", "gesture": "" },
+  { "id": "cta", "beat": "cta", "role": "learner", "emotions": ["cta"], "maxWords": 8, "text": ["Practice {{skill}} free on lexkite.com", "Fix more mistakes free on lexkite.com"], "expr": "happy smile", "gesture": "waving hello" }
+ ],
+ "keywords": ["{{fix}}"],
+ "wrong": "{{wrong}}",
+ "right": "{{right}}",
+ "caption": ["Spot the mistake: \"{{wrong}}\" → \"{{right}}\"", "Say \"{{right}}\", not \"{{wrong}}\""],
+ "hashtags": ["englishgrammar", "commonmistakes", "englishtips", "learnenglish", "grammartips"],
+ "writing": {
+  "do": ["Lỗi THẬT, phổ biến với người học (thiếu does, sai thì, sai giới từ…)", "Câu sai và câu đúng chỉ khác đúng chỗ lỗi", "Quy tắc nói bằng lời thường, không thuật ngữ nặng (\"third person singular\" → \"with he, she, or it\")"],
+  "dont": ["Không chế giễu người mắc lỗi", "Không chọn \"lỗi\" mà người bản xứ vẫn nói bình thường trong văn nói (vd. \"less people\") trừ khi nói rõ là trang trọng", "Không để learner nói câu chứa yes/great/nice/right (đổi clip sang right)"]
+ }
+}

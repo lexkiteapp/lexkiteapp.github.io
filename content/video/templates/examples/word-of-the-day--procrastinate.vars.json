@@ -1,0 +1,23 @@
+{
+ "topic": "Vocabulary: word of the day \"procrastinate\"",
+ "scene": "library",
+ "vars": {
+  "word": "procrastinate",
+  "hookLine": "Wait, procrastinate?",
+  "question": "My teacher says I procrastinate. Is that bad?",
+  "meaning": "to keep putting things off",
+  "example": "If I procrastinate, I end up studying all night.",
+  "tip": "it comes from Latin. Cras means tomorrow, so don't push it to tomorrow!"
+ },
+ "lines": {
+  "hook": {
+   "expr": "surprised",
+   "gesture": "hands on cheeks"
+  }
+ },
+ "hashtags": [
+  "wordoftheday",
+  "englishvocabulary",
+  "learnenglish"
+ ]
+}

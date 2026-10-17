@@ -1,0 +1,69 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/word-of-the-day.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Vocabulary: word of the day \"procrastinate\"",
+ "format": "short",
+ "template": "word-of-the-day",
+ "script": {
+  "title": "Word of the day: procrastinate",
+  "hook": "What does procrastinate mean?",
+  "scene": "library",
+  "time": "day",
+  "format_id": "word-of-day",
+  "template": "word-of-the-day",
+  "lines": [
+   {
+    "who": "ama",
+    "beat": "hook",
+    "text": "Wait, procrastinate?",
+    "expr": "surprised",
+    "gesture": "hands on cheeks"
+   },
+   {
+    "who": "ama",
+    "beat": "situation",
+    "text": "My teacher says I procrastinate. Is that bad?",
+    "expr": "confused",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "explain",
+    "text": "Ah, procrastinate means to keep putting things off.",
+    "expr": "confident",
+    "gesture": "open hands",
+    "punch": true
+   },
+   {
+    "who": "ama",
+    "beat": "example",
+    "text": "If I procrastinate, I end up studying all night.",
+    "expr": "friendly",
+    "gesture": ""
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: it comes from Latin. Cras means tomorrow, so don't push it to tomorrow!",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "cta",
+    "text": "Learn a new word every day on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "procrastinate"
+  ],
+  "caption": "Word of the day: \"procrastinate\" = to keep putting things off",
+  "hashtags": [
+   "wordoftheday",
+   "englishvocabulary",
+   "learnenglish"
+  ],
+  "link": "https://lexkite.com/"
+ }
+}

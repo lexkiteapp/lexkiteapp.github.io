@@ -1,0 +1,40 @@
+{
+ "id": "confusing-pair",
+ "name": "Confusing pair (affect/effect, bored/boring…)",
+ "goal": "2 từ dễ nhầm → thú nhận hay nhầm → quy tắc + ví dụ cho từng từ → mẹo nhớ. Payoff: thẻ mẹo (tip-card) ở beat explain.",
+ "format_id": "grammar-60",
+ "cefr": "A2–B1",
+ "duration": [18, 40],
+ "topicHint": "\"Affect or effect? …\" / \"Grammar: … or …\" → study-grammar (library/classroom) · \"Cafe English: … or …\" → ordering-coffee",
+ "roles": { "learner": "người hay nhầm (Ama)", "explainer": "người giải thích từ A", "modeler": "người giải thích từ B", "kit": "Kit – mẹo phân biệt" },
+ "scenes": {
+  "library": { "roles": { "learner": ["ama"], "explainer": ["ama"], "modeler": ["ama"] } },
+  "classroom": { "roles": { "learner": ["ama"], "explainer": ["ama"], "modeler": ["ama"] } },
+  "cafe": { "roles": { "learner": ["ama"], "explainer": ["carlos"], "modeler": ["carlos"] } }
+ },
+ "vars": {
+  "a": { "desc": "từ thứ nhất", "required": true, "maxWords": 2 },
+  "b": { "desc": "từ thứ hai", "required": true, "maxWords": 2 },
+  "confession": { "desc": "câu thú nhận hay nhầm, không có ? (expr awkward → clip shock)", "required": true },
+  "aRule": { "desc": "quy tắc + ví dụ ngắn cho từ A, có chứa A", "required": true },
+  "bRule": { "desc": "quy tắc + ví dụ ngắn cho từ B, có chứa B", "required": true },
+  "tip": { "desc": "mẹo nhớ sau \"Kit's tip:\"", "required": true }
+ },
+ "title": ["{{a}} or {{b}}? Never mix them up again", "{{a}} vs {{b}} in 30 seconds"],
+ "hook": ["{{a}} or {{b}}?"],
+ "beats": [
+  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["ask", "wrong"], "maxWords": 5, "maxSec": 1.9, "text": ["{{a}} or {{b}}?"], "expr": "thinking", "gesture": "" },
+  { "id": "situation", "beat": "situation", "role": "learner", "emotions": ["wrong"], "maxWords": 10, "text": ["{{confession}}"], "expr": "awkward", "gesture": "hands on cheeks" },
+  { "id": "explain", "beat": "explain", "role": "explainer", "emotions": ["explain"], "maxWords": 14, "punch": true, "must": ["kw:0"], "text": ["{{aRule}}"], "expr": "confident", "gesture": "open hands" },
+  { "id": "example", "beat": "example", "role": "modeler", "emotions": ["explain", "right"], "maxWords": 14, "must": ["kw:1"], "text": ["{{bRule}}"], "expr": "happy smile", "gesture": "" },
+  { "id": "tip", "beat": "tip", "role": "kit", "maxWords": 18, "text": ["Kit's tip: {{tip}}"], "expr": "proud", "gesture": "" },
+  { "id": "cta", "beat": "cta", "role": "learner", "emotions": ["cta"], "maxWords": 8, "text": ["Practice word pairs free on lexkite.com", "Practice grammar free on lexkite.com"], "expr": "happy smile", "gesture": "waving hello" }
+ ],
+ "keywords": ["{{a}}", "{{b}}"],
+ "caption": ["{{a}} or {{b}}? Here's the easy way to remember", "Stop mixing up {{a}} and {{b}}"],
+ "hashtags": ["englishgrammar", "confusingwords", "commonmistakes", "learnenglish", "vocabulary"],
+ "writing": {
+  "do": ["Cặp thật sự gây nhầm (từ loại, -ed/-ing, chính tả gần nhau)", "Mỗi từ 1 quy tắc + 1 ví dụ trong cùng câu", "Mẹo nhớ có hình ảnh/viết tắt (RAVEN, -ed = how you feel)"],
+  "dont": ["Không đưa ngoại lệ hiếm vào video 30 s", "Không dùng thuật ngữ khó mà không giải thích (verb/noun được, \"gerund\" thì không)"]
+ }
+}

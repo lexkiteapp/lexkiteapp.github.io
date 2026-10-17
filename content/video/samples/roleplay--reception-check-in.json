@@ -1,0 +1,69 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/roleplay.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Job interview roleplay: checking in at reception",
+ "format": "short",
+ "template": "roleplay",
+ "script": {
+  "title": "Roleplay at reception: \"I have an interview\"",
+  "hook": "What do you say?",
+  "scene": "reception",
+  "time": "day",
+  "format_id": "interview-diane",
+  "template": "roleplay",
+  "lines": [
+   {
+    "who": "mia",
+    "beat": "hook",
+    "text": "Um… where do I go?",
+    "expr": "confused",
+    "gesture": ""
+   },
+   {
+    "who": "diane",
+    "beat": "situation",
+    "text": "Good morning! Are you here for an interview?",
+    "expr": "curious",
+    "gesture": ""
+   },
+   {
+    "who": "mia",
+    "beat": "example",
+    "text": "Hi, I'm Mia Chen. I have an interview with Ms. Park at ten.",
+    "expr": "friendly",
+    "gesture": ""
+   },
+   {
+    "who": "diane",
+    "beat": "explain",
+    "text": "Thanks, Ms. Chen. Please have a seat. She'll be out in a minute.",
+    "expr": "friendly",
+    "gesture": "",
+    "punch": true
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: say your name, who you're meeting, and the time. That's all reception needs.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "mia",
+    "beat": "cta",
+    "text": "Practice real conversations on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "I have an interview"
+  ],
+  "caption": "What to say at reception: \"I have an interview\"",
+  "hashtags": [
+   "jobinterview",
+   "businessenglish",
+   "englishconversation"
+  ],
+  "link": "https://lexkite.com/"
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "id": "ielts-speaking",
+ "name": "IELTS Speaking tip (Part 1)",
+ "goal": "Câu hỏi Part 1 → câu trả lời cụt → câu trả lời mở rộng mẫu → cấu trúc → mẹo. Payoff: thẻ mẹo ở beat explain (nhãn khuôn BAND 7 ANSWER).",
+ "format_id": "ielts-speaking-p1",
+ "cefr": "B1–B2",
+ "duration": [20, 45],
+ "topicHint": "\"IELTS Speaking Part 1: …\" → ielts-exam (library/classroom, Ama)",
+ "roles": { "candidate": "thí sinh (Ama)", "kit": "Kit – công thức trả lời" },
+ "scenes": {
+  "library": { "roles": { "candidate": ["ama"] } },
+  "classroom": { "roles": { "candidate": ["ama"] } }
+ },
+ "vars": {
+  "question": { "desc": "câu hỏi Part 1, ≤ 5 từ, kết thúc bằng ? (không ngoặc kép)", "required": true, "maxWords": 5 },
+  "weak": { "desc": "câu trả lời cụt + phản ứng có oops (→ clip shock)", "required": true },
+  "model": { "desc": "câu trả lời mẫu 2 câu: ý chính + lý do/chi tiết", "required": true },
+  "structure": { "desc": "giải thích cấu trúc (answer, reason, detail)", "required": true },
+  "tip": { "desc": "mẹo sau \"Kit's tip:\"", "required": true },
+  "kw": { "desc": "từ khóa xuất hiện trong câu mẫu (vd. because)", "required": true, "maxWords": 3 }
+ },
+ "title": ["IELTS Speaking Part 1: {{question}}", "Answer \"{{question}}\" like a pro"],
+ "hook": ["{{question}}"],
+ "beats": [
+  { "id": "hook", "beat": "hook", "role": "candidate", "emotions": ["ask"], "maxWords": 5, "maxSec": 1.9, "text": ["{{question}}"], "expr": "thinking", "gesture": "" },
+  { "id": "situation", "beat": "situation", "role": "candidate", "emotions": ["wrong"], "maxWords": 12, "text": ["{{weak}}"], "expr": "awkward", "gesture": "hands on cheeks" },
+  { "id": "explain", "beat": "explain", "role": "candidate", "emotions": ["explain"], "maxWords": 22, "punch": true, "must": ["kw:0"], "text": ["{{model}}"], "expr": "confident", "gesture": "open hands" },
+  { "id": "example", "beat": "example", "role": "candidate", "emotions": ["explain"], "maxWords": 14, "text": ["{{structure}}"], "expr": "friendly", "gesture": "" },
+  { "id": "tip", "beat": "tip", "role": "kit", "maxWords": 18, "text": ["Kit's tip: {{tip}}"], "expr": "proud", "gesture": "" },
+  { "id": "cta", "beat": "cta", "role": "candidate", "emotions": ["cta"], "maxWords": 8, "text": ["Practice IELTS speaking free on lexkite.com"], "expr": "happy smile", "gesture": "waving hello" }
+ ],
+ "keywords": ["{{kw}}"],
+ "caption": ["IELTS Speaking Part 1: how to answer \"{{question}}\"", "Don't give one-word answers in IELTS Speaking"],
+ "hashtags": ["ielts", "ieltsspeaking", "ieltspreparation", "learnenglish", "englishtips"],
+ "writing": {
+  "do": ["Câu hỏi Part 1 thật (hometown, work/study, hobbies, food, weather)", "Câu mẫu tự nhiên, B2, 2 câu – không học thuộc kiểu sách", "Nói rõ cấu trúc answer → reason → detail"],
+  "dont": ["Không hứa band điểm (\"guaranteed band 7\") – nhãn khuôn chỉ là minh hoạ", "Không bịa tiêu chí chấm; chỉ nói điều có trong mô tả công khai (trả lời mở rộng, tự nhiên)", "Không từ vựng \"cao siêu\" gượng ép"]
+ }
+}
