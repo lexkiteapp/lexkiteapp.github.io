@@ -621,21 +621,21 @@ hr#answer{border:0;height:0;margin:0}
         blob = new Blob([r.bytes], { type: 'application/octet-stream' }); file = base + '.apkg'; count = r.count;
       } else if (S.fmt === 'txt') { blob = new Blob([buildAnkiText(items, { deckName })], { type: 'text/plain;charset=utf-8' }); file = base + '.txt'; }
       else { blob = new Blob([buildCsv(items, [T('Từ'), T('Phiên âm'), T('Nghĩa'), T('Định nghĩa (tiếng Anh)'), T('Ví dụ'), T('Nghĩa câu ví dụ'), T('Cụm hay gặp'), 'Tags'])], { type: 'text/csv;charset=utf-8' }); file = base + '.csv'; }
-      download(blob, file);
+      if (!(g.LKFile && LKFile.native())) download(blob, file); // app gốc: không tự mở bảng chia sẻ – người dùng bấm “Gửi sang ứng dụng Anki” ở màn kết quả
       S.result = { blob, file, count, fmt: S.fmt, deck: deckName };
       if (g.Sfx && Sfx.win) try { Sfx.win(); } catch (e) { /* bỏ qua */ }
     } catch (e) { S.error = e; if (msg) msg.textContent = '⚠️ ' + T('Chưa tạo được file. Hãy thử lại.'); go.disabled = false; S.busy = false; return; }
     S.busy = false; draw();
     const h = $('.ak-done h2'); if (h) { h.tabIndex = -1; h.focus(); }
   }
-  const PLAT = () => ({
+  const PLAT = (nat = !!(g.LKFile && LKFile.native())) => ({ // nat: app gốc – không có thư mục Tải về, gửi file qua bảng chia sẻ
     desktop: [T('Mở Anki trên máy tính.'), T('Bấm đúp vào file vừa tải, hoặc chọn File → Import… rồi chọn file.'), T('Bộ thẻ “{d}” xuất hiện trong danh sách – bấm vào để học.', { d: (S.result && S.result.deck) || 'Lexkite' })],
-    android: [T('Cài AnkiDroid (miễn phí trên Google Play).'), T('Mở thông báo tải xuống hoặc ứng dụng Tệp, chạm vào file và chọn AnkiDroid.'), T('Hoặc trong AnkiDroid: ⋮ → Nhập → chọn file.')],
-    ios: [T('Cài AnkiMobile trên App Store.'), T('Mở ứng dụng Tệp → Tải về, chạm vào file → nút Chia sẻ → AnkiMobile.'), T('Chọn Nhập (Import) – bộ thẻ xuất hiện ngay.')],
+    android: [T('Cài AnkiDroid (miễn phí trên Google Play).'), nat ? T('Bấm “Gửi sang ứng dụng Anki” rồi chọn AnkiDroid.') : T('Mở thông báo tải xuống hoặc ứng dụng Tệp, chạm vào file và chọn AnkiDroid.'), T('Hoặc trong AnkiDroid: ⋮ → Nhập → chọn file.')],
+    ios: [T('Cài AnkiMobile trên App Store.'), nat ? T('Bấm “Gửi sang ứng dụng Anki” rồi chọn AnkiMobile.') : T('Mở ứng dụng Tệp → Tải về, chạm vào file → nút Chia sẻ → AnkiMobile.'), T('Chọn Nhập (Import) – bộ thẻ xuất hiện ngay.')],
   });
   function exportDone() {
     const r = S.result, steps = PLAT()[r.fmt === 'apkg' ? S.plat : 'desktop'];
-    const canShare = (() => { try { return !!(navigator.canShare && navigator.canShare({ files: [new File([r.blob], r.file, { type: r.blob.type })] })); } catch (e) { return false; } })();
+    const canShare = !!(g.LKFile && LKFile.canShare(r.blob, r.file)); // web: navigator.canShare · app gốc: luôn có bảng chia sẻ
     const txtSteps = [T('Mở Anki trên máy tính.'), T('Chọn File → Import… rồi chọn file vừa tải.'), T('Kiểm tra kiểu ghi chú Basic và bộ thẻ, rồi bấm Import.')];
     const csvSteps = [T('Mở file bằng Excel hoặc Google Sheets (đã có dòng tiêu đề).'), T('Với Anki: File → Import, chọn dấu phẩy và bỏ qua dòng đầu.')];
     return `<div class="ak-done">${kit('win', 84)}<h2>${T('Đã tạo file!')}</h2><p class="muted" style="margin:0">${T('{n} thẻ · {f}', { n: r.count, f: esc(r.file) })}</p>
@@ -649,7 +649,7 @@ hr#answer{border:0;height:0;margin:0}
   function bindExportDone() {
     const r = S.result;
     $('#akAgain').onclick = () => download(r.blob, r.file);
-    const sh = $('#akShare'); if (sh) sh.onclick = async () => { try { await navigator.share({ files: [new File([r.blob], r.file, { type: r.blob.type })], title: r.file }); } catch (e) { /* người dùng hủy */ } };
+    const sh = $('#akShare'); if (sh) sh.onclick = async () => { try { await LKFile.save(r.blob, r.file, { share: true, title: r.file }); } catch (e) { toast(T('Không tải được – thử lại sau')); } };
     $$('[data-plat]').forEach(b => b.onclick = () => { S.plat = b.dataset.plat; draw(); const x = $(`[data-plat=${S.plat}]`); if (x) x.focus(); });
     $('#akBack').onclick = () => { S.result = null; draw(); };
   }

@@ -44,6 +44,8 @@
   "{n} thẻ · {f}": "{n} cards · {f}",
   "Tải lại": "Download again",
   "Gửi sang ứng dụng Anki": "Send to the Anki app",
+  "Bấm “Gửi sang ứng dụng Anki” rồi chọn AnkiDroid.": "Tap “Send to the Anki app” and choose AnkiDroid.",
+  "Bấm “Gửi sang ứng dụng Anki” rồi chọn AnkiMobile.": "Tap “Send to the Anki app” and choose AnkiMobile.",
   "Mở trong Anki": "Open in Anki",
   "Thiết bị": "Device",
   "Máy tính": "Computer",

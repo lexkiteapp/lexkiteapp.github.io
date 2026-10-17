@@ -22144,5 +22144,35 @@
     "ar": "تم تنزيل النسخة الاحتياطية",
     "ru": "Резервная копия скачана",
     "tr": "Yedek indirildi"
+  },
+  "Bấm “Gửi sang ứng dụng Anki” rồi chọn AnkiDroid.": {
+    "es": "Toca «Enviar a la app Anki» y elige AnkiDroid.",
+    "pt": "Toque em “Enviar para o app Anki” e escolha AnkiDroid.",
+    "fr": "Touchez « Envoyer vers l'app Anki » puis choisissez AnkiDroid.",
+    "de": "Tippe auf „An die Anki-App senden“ und wähle AnkiDroid.",
+    "id": "Ketuk “Kirim ke aplikasi Anki” lalu pilih AnkiDroid.",
+    "th": "แตะ “ส่งไปยังแอป Anki” แล้วเลือก AnkiDroid",
+    "zh": "点按“发送到 Anki 应用”，然后选择 AnkiDroid。",
+    "ja": "「Anki アプリに送る」をタップして AnkiDroid を選択。",
+    "ko": "“Anki 앱으로 보내기”를 누른 뒤 AnkiDroid 앱을 선택하세요.",
+    "hi": "“Anki ऐप में भेजें” पर टैप करें और AnkiDroid चुनें।",
+    "ar": "اضغط على «إرسال إلى تطبيق Anki» ثم اختر AnkiDroid.",
+    "ru": "Нажмите «Отправить в приложение Anki» и выберите AnkiDroid.",
+    "tr": "“Anki uygulamasına gönder” düğmesine dokunun ve AnkiDroid seçin."
+  },
+  "Bấm “Gửi sang ứng dụng Anki” rồi chọn AnkiMobile.": {
+    "es": "Toca «Enviar a la app Anki» y elige AnkiMobile.",
+    "pt": "Toque em “Enviar para o app Anki” e escolha AnkiMobile.",
+    "fr": "Touchez « Envoyer vers l'app Anki » puis choisissez AnkiMobile.",
+    "de": "Tippe auf „An die Anki-App senden“ und wähle AnkiMobile.",
+    "id": "Ketuk “Kirim ke aplikasi Anki” lalu pilih AnkiMobile.",
+    "th": "แตะ “ส่งไปยังแอป Anki” แล้วเลือก AnkiMobile",
+    "zh": "点按“发送到 Anki 应用”，然后选择 AnkiMobile。",
+    "ja": "「Anki アプリに送る」をタップして AnkiMobile を選択。",
+    "ko": "“Anki 앱으로 보내기”를 누른 뒤 AnkiMobile 앱을 선택하세요.",
+    "hi": "“Anki ऐप में भेजें” पर टैप करें और AnkiMobile चुनें।",
+    "ar": "اضغط على «إرسال إلى تطبيق Anki» ثم اختر AnkiMobile.",
+    "ru": "Нажмите «Отправить в приложение Anki» и выберите AnkiMobile.",
+    "tr": "“Anki uygulamasına gönder” düğmesine dokunun ve AnkiMobile seçin."
   }
 }
