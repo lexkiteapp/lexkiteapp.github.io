@@ -149,6 +149,8 @@ ok(!M.gradeVerdict([M.gradeStats(frame(() => [255, 0, 0]))]).ok, 'bão hòa tố
 ok(M.gradeVerdict([{ ...M.gradeStats(frame(() => [15, 61, 62])), grade: 'studio' }]).ok && !M.gradeVerdict([M.gradeStats(frame(() => [15, 61, 62]))]).ok, 'nền studio teal đậm hợp lệ, phòng thật thì không');
 const skinWarm = M.gradeStats(frame((x, y) => (x > 20 && x < 34 && y > 30 && y < 60 ? [224, 172, 140] : [196, 150, 112])), [0.35, 0.3, 0.65, 0.65]);
 const skinTeal = M.gradeStats(frame((x, y) => (x > 20 && x < 34 && y > 30 && y < 60 ? [224, 172, 140] : [20, 110, 130])), [0.35, 0.3, 0.65, 0.65]);
+const uiCard = frame((x, y) => (y > 30 && y < 50 ? [255, 252, 240] : [150, 130, 110])); // thẻ kem + grain chạm Y ≥ 250
+ok(!M.gradeVerdict([M.gradeStats(uiCard)]).ok && M.gradeStats(uiCard, null, [[0, 30 / 96, 1, 50 / 96]]).clipHi === 0, 'QA màu: vùng thẻ/chữ UI (mask) không tính là phòng cháy sáng');
 ok(skinWarm.dE != null && skinWarm.dE < M.GRADE_LIMITS.dEMax, `da trên phòng ấm hòa tông (ΔE ${skinWarm.dE})`);
 ok(skinTeal.dE != null && skinTeal.dE > M.GRADE_LIMITS.dEMax, `da trên phòng lạnh tách lớp (ΔE ${skinTeal.dE})`);
 ok(Math.abs(M.deltaE(M.rgb2lab(255, 255, 255), [100, 0, 0])) < 0.5, 'rgb2lab trắng ≈ L100');

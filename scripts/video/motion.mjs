@@ -241,23 +241,30 @@ export const OVERLAY = { left: 60, right: 140 }; // khối chữ hook/phụ đ�
 const intersects = (a, b) => a[0] < b[2] && b[0] < a[2] && a[1] < b[3] && b[1] < a[3];
 const cx0 = (W = 1080) => OVERLAY.left + (W - OVERLAY.left - OVERLAY.right) / 2;
 export const CAP_FONT = { 'mega-word': 150, 'karaoke-bar': 70 }; // còn lại 92
+export const CAP_MIN = { big: 64, bar: 56 }; // thu cỡ cho vừa nhưng KHÔNG nhỏ hơn mức này
+export const POP_FROM = 0.8, CAP_MIN_PX = 48; // từ bật từ 0,8× (cũ 0,35× → trang ngắn 0,3 s chỉ thấy chữ li ti); cỡ nhìn thấy nhỏ nhất ≥ 48 px
 // 1 trang phụ đề: cỡ chữ (tự thu nhỏ cho vừa 880 px), khoảng cách từ (margin mỗi bên = 0,28 em), viền, độ phóng tối đa từng từ
 // (pop/đang đọc) sao cho khoảng trống nhìn thấy giữa 2 từ luôn ≥ 0,2 em – chữ không dính nhau khi từ đổi màu/phóng ("onFriday?").
 export function captionLayout(p, style, { W = 1080 } = {}) {
   const upper = style === 'bounce-outline' || style === 'mega-word', bar = style === 'karaoke-bar';
   const avail = W - OVERLAY.left - OVERLAY.right - (bar ? 60 : 0), sw = bar ? 0 : style === 'mega-word' ? 16 : 12;
-  let F = CAP_FONT[style] || 92, m = 0, ws = [], rows = [];
-  for (let k = 0; k < 5; k++) {
+  let F = CAP_FONT[style] || 92, m = 0, ws = [], rows = [], breaks = p.breaks || [p.words.length], mc = bar ? 24 : style === 'mega-word' ? 10 : 17;
+  const fmin = CAP_MIN[bar ? 'bar' : 'big'];
+  for (let k = 0; k < 12; k++) {
     m = Math.round(0.28 * F);
     ws = p.words.map(w => textW(upper ? w.w.toUpperCase() : w.w, F) + (w.key ? 48 : 0)); // hộp vàng từ khóa: padding 20 × 2 + bóng 8
-    rows = []; let i = 0; for (const n of (p.breaks || [ws.length])) { rows.push(ws.slice(i, i + n).reduce((a, x) => a + x + 2 * m, 0)); i += n; }
-    const mx = Math.max(...rows); if (mx <= avail) break; F = Math.floor(F * avail / mx * 0.98);
+    rows = []; let i = 0; for (const n of breaks) { rows.push(ws.slice(i, i + n).reduce((a, x) => a + x + 2 * m, 0)); i += n; }
+    const mx = Math.max(...rows); if (mx <= avail) break;
+    if (F > fmin) { F = Math.max(fmin, Math.floor(F * avail / mx * 0.98)); continue; }
+    // đã ở cỡ nhỏ nhất mà vẫn tràn → xuống thêm dòng (không thu chữ li ti)
+    if (mc <= 6 || breaks.length >= p.words.length) break;
+    mc -= 3; breaks = breakLines(p.words.map(w => w.w), { maxChars: mc, maxLines: 3 });
   }
   const minGap = Math.round(0.2 * F), room = 2 * m - sw - minGap;
   const maxS = ws.map(x => (bar ? 1 : +Math.max(1, Math.min(1.12, 1 + room / x)).toFixed(3)));
   const lineH = F * 1.12, grow = (Math.max(...maxS) - 1) * lineH / 2;
   const half = Math.ceil((rows.length * lineH + (bar ? 44 : 0)) / 2 + sw / 2 + grow + (style === 'bounce-outline' ? 14 : 0) + 6);
-  return { font: F, gap: m, stroke: sw, minGap, widths: ws, maxS, rowW: rows, nl: rows.length, half, width: Math.max(...rows) + (bar ? 60 : 0) };
+  return { font: F, gap: m, stroke: sw, minGap, widths: ws, maxS, rowW: rows, nl: rows.length, half, breaks, width: Math.max(...rows) + (bar ? 60 : 0) };
 }
 // Hook (badge + tiêu đề 1–2 dòng): xuống dòng TÍNH SẴN (cân 2 dòng, thu cỡ chữ nếu không vừa) → Remotion vẽ đúng số dòng này.
 export function hookLayout(hook, layout, { W = 1080, H = 1920 } = {}) {
@@ -278,14 +285,26 @@ export function hookLayout(hook, layout, { W = 1080, H = 1920 } = {}) {
   const bottom = Math.ceil(top + rowH + 26 + headH + (P === 'wait-for-it' ? 26 + 82 : 0) + 24); // +24: chữ bật từ dưới lên (translateY 40 × (1 − s))
   let i = 0; const lw = lines.map(n => { const x = wOf(fs, i, i + n); i += n; return x; });
   const width = Math.min(W - OVERLAY.left - OVERLAY.right, Math.max(side + bw(badgeFs), ...lw)), c = cx0(W);
-  return { fs, lines, badgeFs, top, bottom, box: [Math.round(c - width / 2), top - 10, Math.round(c + width / 2), bottom] };
+  const tilt = Math.ceil(bw(badgeFs) * Math.sin(3 * Math.PI / 180) / 2); // badge nghiêng −3°
+  return { fs, lines, badgeFs, top, bottom, box: [Math.round(c - width / 2), top - 10 - tilt, Math.round(c + width / 2), bottom] };
 }
 // Thẻ payoff: hộp ước lượng (nhãn + chữ tự xuống dòng trong 618 px + sticker 130, phóng lò xo ±4 %, tem CORRECT nhô 60 px)
+// Tem "CORRECT" (stamp-correct): nằm TRONG góc phải trên của thẻ, nghiêng 8°, đập từ 1,25× → 1 (Short.jsx dùng đúng STAMP)
+export const STAMP = { text: 'CORRECT', fs: 56, right: 40, top: -46, rot: 8, from: 1.25, padX: 22, padY: 4, border: 8 };
+export const CARD_SCALE_MAX = 1.02; // thẻ bật lò xo nhưng không phình quá 2 % (không tràn vùng an toàn ngang)
+// hộp bao của hình chữ nhật w×h tâm (cx, cy) xoay deg và phóng k
+export const rotBox = (cx, cy, w, h, deg, k = 1) => { const a = Math.abs(deg) * Math.PI / 180, bw = (w * Math.cos(a) + h * Math.sin(a)) * k, bh = (w * Math.sin(a) + h * Math.cos(a)) * k; return [Math.floor(cx - bw / 2), Math.floor(cy - bh / 2), Math.ceil(cx + bw / 2), Math.ceil(cy + bh / 2)]; };
+export function stampBox(cardTop, W = 1080) {
+  const w = textW(STAMP.text, STAMP.fs) + 2 * STAMP.padX + 2 * STAMP.border, h = STAMP.fs * 1.2 + 2 * STAMP.padY + 2 * STAMP.border, right = W - 150 - STAMP.right;
+  return rotBox(right - w / 2, cardTop + STAMP.top + h / 2, w, h, STAMP.rot, STAMP.from);
+}
 export function cardBox(c, layout, { W = 1080, H = 1920 } = {}) {
   const fs = String(c.text).length > 18 ? 64 : 82, avail = W - 70 - 150 - 72 - 12 - 130 - 28;
   let n = 1, cur = 0; for (const w of String(c.text).split(/\s+/)) { const x = textW(w + ' ', fs); if (cur && cur + x > avail) { n++; cur = 0; } cur += x; }
   const inner = Math.max(130, 36 * 1.25 + n * fs * 1.05 + (c.style === 'meter' && c.kind !== 'dont' ? 36 : 0)), h = 30 + 34 + 12 + inner + 18, top = layout.cardY * H, pad = 0.04 * h;
-  return [70, Math.round(top - pad - (c.style === 'stamp-correct' && c.kind !== 'dont' ? 60 : 0)), W - 150, Math.round(top + h + pad)];
+  const cw = (W - 220) * CARD_SCALE_MAX, cx = 70 + (W - 220) / 2, box = [Math.floor(cx - cw / 2), Math.round(top - pad), Math.ceil(cx + cw / 2), Math.round(top + h + pad)];
+  if (c.style === 'stamp-correct' && c.kind !== 'dont') { const sb = stampBox(top, W); return [Math.min(box[0], sb[0]), Math.min(box[1], sb[1]), Math.max(box[2], sb[2]), Math.max(box[3], sb[3])]; }
+  return box;
 }
 export const watermarkBox = wm => [wm.x, wm.y, Math.ceil(wm.x + wm.h * 0.95 + 10 + textW('lexkite', wm.h * 0.92)), wm.y + wm.h];
 // Các lớp chữ đang hiện tại thời điểm t (đúng điều kiện hiện/ẩn của Short.jsx) → [{ id, kind, text, box:[x0,y0,x1,y1] }]
@@ -332,14 +351,16 @@ export function layoutGate(tl, lines = []) {
       }
     }
   }
-  const style = tl.theme && tl.theme.caption;
+  const style = tl.theme && tl.theme.caption, tiny = [];
+  for (const p of tl.pages || []) { const F = p.font || CAP_FONT[style] || 92, k = style === 'karaoke-bar' ? 1 : p.popFrom != null ? p.popFrom : 0.35;
+    if (F * k < CAP_MIN_PX) tiny.push(`trang "${p.words.map(w => w.w).join(' ')}" (${p.start} s): chữ nhỏ nhất ${Math.round(F * k)} px < ${CAP_MIN_PX} px (cỡ ${F} × bật từ ${k})`); }
   lines.forEach((l, i) => {
     const ps = (tl.pages || []).filter(p => p.line === i); if (!ps.length) return;
     const got = renderedCaption(ps, style), want = tokens(l.text).join(' ');
     if (got !== want) joins.push(`câu ${i + 1}: chữ hiện "${got}" ≠ kịch bản "${want}"`);
   });
-  const bad = [...overlaps, ...unsafe, ...joins];
-  return { ok: !bad.length, bad, overlaps, unsafe, joins };
+  const bad = [...overlaps, ...unsafe, ...joins, ...tiny];
+  return { ok: !bad.length, bad, overlaps, unsafe, joins, tiny };
 }
 // Dải dọc cần tránh cho phụ đề trong khoảng [a, b]: hook (đến khi mờ hẳn), thẻ payoff, watermark
 function bandsFor(a, b, { hook, cards, wm }) {
@@ -450,12 +471,12 @@ export function buildTimeline({ s, words, assets = {}, w = 1080, h = 1920, fps =
 
   for (const c of cards) c.box = cardBox(c, layout, { W: w, H: h });
   const watermark = { from: 1.5, fade: 0.5, until: endStart, x: SAFE.left, y: 236, h: 40, opacity: 0.62 };
-  if (intersects(watermarkBox(watermark), hook.box)) watermark.from = r3(Math.max(1.5, hook.end + 0.3)); // bố cục hook sát mép trên → watermark hiện sau hook
+  if (intersects(watermarkBox(watermark), hook.box)) watermark.from = r3(Math.max(1.5, hook.end + 0.34)); // bố cục hook sát mép trên → watermark hiện sau hook
 
   for (const p of pages) {
     const sh = S.find(x => p.start >= x.start && p.start < x.end) || S[0];
     const L = captionLayout(p, theme.caption, { W: w }), nl = L.nl, font = L.font, bands = bandsFor(p.start, p.end, { hook, cards, wm: watermark });
-    Object.assign(p, { font, gap: L.gap, stroke: L.stroke, minGap: L.minGap, half: L.half, width: L.width });
+    Object.assign(p, { breaks: L.breaks, font, gap: L.gap, stroke: L.stroke, minGap: L.minGap, half: L.half, width: L.width, popFrom: theme.caption === 'karaoke-bar' ? 1 : POP_FROM });
     p.words.forEach((x, i) => { x.maxS = L.maxS[i]; });
     if (sh.cam) { // vị trí máy lúc trang hiện (và lúc tắt) – chọn chỗ không đè mặt/thân ở cả 2 thời điểm; không bao giờ đè hook/thẻ/watermark
       const u0 = (p.start - sh.start) / Math.max(0.1, sh.end - sh.start), u1 = (Math.min(p.end, sh.end) - sh.start) / Math.max(0.1, sh.end - sh.start);
@@ -532,9 +553,13 @@ const isSkin = (r, g, b) => { if (!(r > 95 && g > 40 && b > 20 && r > g && r > b
   const cb = 128 - 0.1687 * r - 0.3313 * g + 0.5 * b, cr = 128 + 0.5 * r - 0.4187 * g - 0.0813 * b; return cb >= 77 && cb <= 127 && cr >= 133 && cr <= 180; };
 // frame RGB + hộp diễn viên [x0,y0,x1,y1] (tỉ lệ) → cháy/bết, bão hòa TB, ΔE (chỉ a*b* – lệch "tông", bỏ qua độ sáng) giữa da nhân vật và phòng
 // trắng tuyệt đối (chữ/sticker UI, min kênh ≥ 252) không tính cháy – grade đã hạ highlight nên cảnh thật không chạm 255
-export function gradeStats(f, actorBox = null) {
-  const { w, h, data } = f, n = w * h; let hi = 0, lo = 0, sat = 0; const skin = [0, 0, 0, 0], room = [0, 0, 0, 0];
-  for (let i = 0; i < n; i++) {
+// mask: hộp lớp chữ/thẻ UI (tỉ lệ 0–1, từ overlayBoxes) – bỏ khỏi phép đo: nền kem #FFF7EA của thẻ payoff + grain chạm Y ≥ 250 không phải "phòng cháy sáng"
+// (supermarket-price 17/10: "cháy 1,1 %" toàn nằm trong thẻ ✅)
+export function gradeStats(f, actorBox = null, mask = []) {
+  const { w, h, data } = f; let n = 0, hi = 0, lo = 0, sat = 0; const skin = [0, 0, 0, 0], room = [0, 0, 0, 0];
+  for (let i = 0; i < w * h; i++) {
+    if (mask.length) { const x = (i % w) / w, yy = Math.floor(i / w) / h; if (mask.some(m => x >= m[0] && x <= m[2] && yy >= m[1] && yy <= m[3])) continue; }
+    n++;
     const r = data[i * 3], g = data[i * 3 + 1], b = data[i * 3 + 2], mx = Math.max(r, g, b), mn = Math.min(r, g, b), y = luma(data, i * 3);
     if (y >= 250 && mn < 252) hi++; if (y <= 5) lo++; sat += mx ? (mx - mn) / mx : 0;
     if (actorBox) {
@@ -544,7 +569,7 @@ export function gradeStats(f, actorBox = null) {
   }
   let dE = null;
   if (skin[3] > n * 0.002 && room[3] > n * 0.05) { const a = rgb2lab(skin[0] / skin[3], skin[1] / skin[3], skin[2] / skin[3]), b = rgb2lab(room[0] / room[3], room[1] / room[3], room[2] / room[3]); dE = r3(Math.hypot(a[1] - b[1], a[2] - b[2])); }
-  return { clipHi: r3(hi / n), clipLo: r3(lo / n), sat: r3(sat / n), dE };
+  n = n || 1; return { clipHi: r3(hi / n), clipLo: r3(lo / n), sat: r3(sat / n), dE };
 }
 export const GRADE_LIMITS = { clip: 0.01, satMin: 0.12, satMax: 0.62, satMaxStudio: 0.82, dEMax: 38 };
 export function gradeVerdict(stats) {

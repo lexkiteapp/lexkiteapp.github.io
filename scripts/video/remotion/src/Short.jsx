@@ -48,7 +48,7 @@ function trStyle(type, role, p, W, H, center) {
     case 'zoom-blur': return out ? { transform: `scale(${1 + e * 0.5})`, filter: `blur(${e * 16}px)` } : { opacity: clamp01(e * 1.6), transform: `scale(${1.35 - 0.35 * e})`, filter: `blur(${(1 - e) * 16}px)` };
     case 'swipe-mask': { const x = -0.35 * W + e * 1.7 * W; return out ? { transform: `translateX(${-e * 90}px)` } : { clipPath: `polygon(0 0, ${x + 0.35 * W}px 0, ${x}px ${H}px, 0 ${H}px)` }; }
     case 'circle-reveal': return out ? { transform: `scale(${1 + e * 0.08})` } : { clipPath: `circle(${e * Math.hypot(W, H)}px at ${center[0]}px ${center[1]}px)` };
-    case 'glitch': { const j = (random(`g${Math.round(p * 20)}`) - 0.5) * 36 * Math.sin(p * Math.PI); return out ? { transform: `translateX(${j}px)`, opacity: p < 0.5 ? 1 : 0 } : { transform: `translateX(${-j}px)`, opacity: p >= 0.5 ? 1 : 0, filter: p < 0.75 ? 'saturate(1.6) hue-rotate(-12deg)' : 'none' }; }
+    case 'glitch': { const j = (random(`g${Math.round(p * 20)}`) - 0.5) * 36 * Math.sin(p * Math.PI); return out ? { transform: `translateX(${j}px)`, opacity: p < 0.5 ? 1 : 0 } : { transform: `translateX(${-j}px)`, opacity: p >= 0.5 ? 1 : 0, filter: p < 0.75 ? 'contrast(1.08) brightness(1.04)' : 'none' }; } // không tăng bão hòa / xoay sắc độ: da nâu sẫm (Diane) thành đỏ rực (bandwidth 18/10)
     case 'page-flip': return out ? { transform: `perspective(2400px) rotateY(${-Math.min(1, e * 2) * 90}deg)`, transformOrigin: 'left center', opacity: e < 0.5 ? 1 : 0 } : { transform: `perspective(2400px) rotateY(${Math.max(0, 1 - (e - 0.5) * 2) * 90}deg)`, transformOrigin: 'right center', opacity: e >= 0.5 ? 1 : 0 };
     case 'slide-stack': return out ? { transform: `scale(${1 - 0.08 * e})`, filter: `brightness(${1 - 0.35 * e})` } : { transform: `translateY(${(1 - e) * H}px)`, borderRadius: 48 * (1 - e), boxShadow: '0 -30px 80px rgba(0,0,0,.45)', overflow: 'hidden' };
     case 'light-leak': return out ? {} : { opacity: e };
@@ -220,7 +220,7 @@ const Captions = ({ pages, t, fps, theme, W, H, hidden }) => {
   const style = theme.caption, y = (pg.y != null ? pg.y : theme.layout.capY) * H, big = pg.font || (style === 'mega-word' ? 150 : style === 'karaoke-bar' ? 70 : 92), gap = pg.gap != null ? pg.gap : 12;
   const words = pg.words.map((w, i) => {
     const d = t - w.pop; if (d < 0 && style !== 'karaoke-bar') return null;
-    const s = style === 'karaoke-bar' ? 1 : spring({ frame: Math.max(0, d) * fps, fps, config: { damping: 9, stiffness: 220, mass: 0.6 }, from: 0.35, to: 1 });
+    const s = style === 'karaoke-bar' ? 1 : spring({ frame: Math.max(0, d) * fps, fps, config: { damping: 9, stiffness: 220, mass: 0.6 }, from: pg.popFrom != null ? pg.popFrom : 0.8, to: 1 }); // bật từ ≥ 0,8× – trang ngắn không thành chữ li ti
     const active = t >= w.start && t < w.end + 0.06, said = t >= w.start;
     const txt = style === 'bounce-outline' || style === 'mega-word' ? w.w.toUpperCase() : w.w;
     const color = style === 'karaoke-bar' ? (said ? '#FFC94A' : 'rgba(255,255,255,.88)') : active && !w.key ? '#FFC94A' : '#FFFFFF';
@@ -291,7 +291,7 @@ const Card = ({ c, t, fps, theme, W, H }) => {
   const head = dont ? 'cross' : c.style === 'tip-card' ? 'bulb' : c.style === 'meter' ? 'star' : 'check';
   const accent = dont ? '#E5502F' : '#2FBF71';
   return (
-    <div style={{ position: 'absolute', left: 70, right: 150, top: y, transform: `translateX(${x + shake}px) scale(${dont ? 1 : 0.6 + 0.4 * s}) perspective(1600px) rotateY(${flip}deg)`, opacity: 1 - out, filter: blur ? `blur(${blur}px)` : undefined }}>
+    <div style={{ position: 'absolute', left: 70, right: 150, top: y, transform: `translateX(${x + shake}px) scale(${dont ? 1 : Math.min(1.02, 0.6 + 0.4 * s)}) perspective(1600px) rotateY(${flip}deg)`, opacity: 1 - out, filter: blur ? `blur(${blur}px)` : undefined }}>
       <div style={{ background: '#FFF7EA', borderRadius: 40, padding: '30px 36px 34px', boxShadow: `0 18px 0 ${accent}, 0 30px 60px rgba(0,0,0,.35)`, display: 'flex', alignItems: 'center', gap: 28, border: `6px solid ${accent}` }}>
         <Sticker name={head} size={130} />
         <div style={{ flex: 1 }}>
@@ -300,7 +300,7 @@ const Card = ({ c, t, fps, theme, W, H }) => {
           {c.style === 'meter' && !dont ? <div style={{ marginTop: 14, height: 22, borderRadius: 11, background: '#FFE7C2' }}><div style={{ height: '100%', width: `${100 * clamp01(f / 20)}%`, borderRadius: 11, background: 'linear-gradient(90deg,#E5502F,#FFC94A,#2FBF71)' }} /></div> : null}
         </div>
       </div>
-      {c.style === 'stamp-correct' && !dont ? <div style={{ position: 'absolute', right: -10, top: -60, transform: `rotate(12deg) scale(${spring({ frame: f - 6, fps, from: 2.2, to: 1, config: { damping: 9 } })})`, border: '8px solid #2FBF71', color: '#2FBF71', fontFamily: FONT_H, fontSize: 64, padding: '4px 22px', borderRadius: 16, background: '#FFF7EA' }}>CORRECT</div> : null}
+      {c.style === 'stamp-correct' && !dont ? <div style={{ position: 'absolute', right: 40, top: -46, transform: `rotate(8deg) scale(${Math.min(1.25, spring({ frame: Math.max(0, f - 6), fps, from: 1.25, to: 1, config: { damping: 12 } }))})`, opacity: f < 6 ? 0 : 1, border: '8px solid #2FBF71', color: '#2FBF71', fontFamily: FONT_H, fontSize: 56, lineHeight: 1.2, padding: '4px 22px', borderRadius: 16, background: '#FFF7EA', whiteSpace: 'nowrap' }}>CORRECT</div> : null}
       {!dont && f < 24 ? <Confetti p={f / 24} W={W - 220} H={420} n={26} seed={`k${c.start}`} cx={0.5} cy={0.3} /> : null}
     </div>
   );

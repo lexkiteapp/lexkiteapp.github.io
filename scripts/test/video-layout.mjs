@@ -35,6 +35,25 @@ const formats = J('content/video/formats.json'), themeOf = id => formats.themes.
   ok(hk2.lines.length <= 2 && hk2.box[0] >= M.SAFE.left && hk2.box[2] <= 1080 - M.SAFE.right && hk2.box[1] >= M.SAFE.top - 30, `hook dài: ≤ 2 dòng (${hk2.lines.join('+')}), badge thu cỡ ${hk2.badgeFs}px, trong vùng an toàn`);
 }
 
+// ---------- 1b) Lỗi khung hình 18/10 (bandwidth, she-doesnt) ----------
+{
+  // tem CORRECT cũ: right −10, top −60, xoay 12°, đập từ 2,2× → tràn mép phải; tem mới nằm trong vùng an toàn
+  const top = 0.28 * 1920, oldStamp = M.rotBox(930 + 10 - 200, top - 60 + 50, 400, 100, 12, 2.2), sb = M.stampBox(top);
+  ok(oldStamp[2] > 1080 - M.SAFE.right, 'tem CORRECT kiểu cũ tràn vùng an toàn phải (tái hiện)');
+  ok(sb[2] <= 1080 - M.SAFE.right + 1 && sb[0] >= M.SAFE.left && sb[1] >= M.SAFE.top, `tem CORRECT mới (xoay ${M.STAMP.rot}°, đập ${M.STAMP.from}×) trong vùng an toàn [${sb.join(',')}]`);
+  const cb = M.cardBox({ kind: 'do', style: 'stamp-correct', text: "She doesn't like coffee" }, M.LAYOUTS['lower-third']);
+  ok(cb[1] <= sb[1] && cb[2] >= sb[2] && cb[0] <= 70 - 1, 'hộp thẻ gồm cả tem xoay + phình lò xo 2 %');
+  // chữ phụ đề li ti: props cũ không có popFrom (bật từ 0,35×) → cổng trượt; bố cục mới ≥ 48 px
+  const tiny = { w: 1080, h: 1920, fps: 30, duration: 3, theme: { caption: 'pop-box', layout: M.LAYOUTS['stage-center'] }, hook: null, cards: [], endCard: { start: 2.5 },
+    pages: [{ line: 0, start: 0.2, end: 0.56, y: 0.69, font: 85, breaks: [2], words: [{ w: 'bandwidth' }, { w: 'means' }] }] };
+  ok(M.layoutGate(tiny, []).tiny.length === 1, 'trang 0,36 s bật từ 0,35× ("bandwidth" / "means" li ti) → cổng TRƯỢT');
+  ok(M.layoutGate({ ...tiny, pages: tiny.pages.map(p => ({ ...p, popFrom: M.POP_FROM })) }, []).tiny.length === 0, 'bật từ 0,8× → đạt');
+  ok(M.captionLayout({ breaks: [1], words: [{ w: 'internationalization,' }] }, 'mega-word').font >= M.CAP_MIN.big, 'thu cỡ không nhỏ hơn CAP_MIN');
+  // chuyển cảnh không được đổi màu da (glitch cũ saturate 1.6 + hue-rotate → Diane đỏ rực)
+  const jsx = fs.readFileSync(new URL('scripts/video/remotion/src/Short.jsx', R), 'utf8'), tr = jsx.slice(jsx.indexOf('function trStyle'), jsx.indexOf('const TransitionFx'));
+  ok(!/hue-rotate/.test(tr) && [...tr.matchAll(/saturate\(([\d.]+)\)/g)].every(m => +m[1] <= 1.2), 'chuyển cảnh: không hue-rotate, bão hòa ≤ 1,2 (giữ màu da)');
+}
+
 // ---------- 2) Mọi kịch bản mẫu × mọi theme: timeline mới đạt cổng ----------
 const casting = J('content/video/casting.json');
 const room = { ...V.DEFAULT_ROOM, id: 'office-test', srcW: 1536 };
@@ -56,7 +75,7 @@ for (const f of samples) {
     const tl = M.buildTimeline({ s, words, seed: f + th, assets: { roomOf: () => ({ src: 'room.png', srcW: 1536 }), actorOf: a => ({ src: a.who, kind: 'video', figH: 1500, aw: 800, ah: 1500, foot: [400, 1500] }) } });
     const g = M.layoutGate(JSON.parse(JSON.stringify(tl)), sl); runs++;
     ok(g.ok, `${f} × ${th}: ${g.bad.slice(0, 3).join(' | ')}`);
-    ok(tl.pages.every(p => p.gap != null && p.words.every(w => w.maxS >= 1)), `${f} × ${th}: trang phụ đề có gap/maxS cho Remotion`);
+    ok(tl.pages.every(p => p.gap != null && p.popFrom >= 0.8 && p.words.every(w => w.maxS >= 1)), `${f} × ${th}: trang phụ đề có gap/maxS cho Remotion`);
   }
 }
 ok(casting && runs >= samples.length * 3, `đủ tổ hợp (${runs})`);

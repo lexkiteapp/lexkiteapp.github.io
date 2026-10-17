@@ -245,7 +245,8 @@ const STEPS = {
       const box = sh => { const a = (sh.actors || []).find(x => x.role === 'speaker') || (sh.actors || [])[0]; if (!a) return null;
         const c = sh.cam ? M.camAt(sh.cam, 0.5) : { cx: w / 2, cy: h / 2, z: 1 }, [x0, y0] = M.toScreen(c, a.x - a.h * 0.28, a.y - a.h, w, h), [x1, y1] = M.toScreen(c, a.x + a.h * 0.28, a.y, w, h), cl = x => Math.max(0, Math.min(1, x));
         return [cl(x0 / w), cl(y0 / h), cl(x1 / w), cl(y1 / h)]; };
-      const stats = tl.shots.filter(x => x.framing !== 'card').slice(0, 8).map(x => ({ ...M.gradeStats(framesAt(v, { from: (x.start + x.end) / 2, dur: 0.05, fps: 30, w: 270, h: 480 })[0] || { w: 1, h: 1, data: new Uint8Array(3) }, box(x)), grade: x.grade }));
+      const ui = t => M.overlayBoxes(tl, t).map(b => [b.box[0] / w, b.box[1] / h, b.box[2] / w, b.box[3] / h]); // lớp chữ/thẻ không phải phòng/nhân vật
+      const stats = tl.shots.filter(x => x.framing !== 'card').slice(0, 8).map(x => ({ ...M.gradeStats(framesAt(v, { from: (x.start + x.end) / 2, dur: 0.05, fps: 30, w: 270, h: 480 })[0] || { w: 1, h: 1, data: new Uint8Array(3) }, box(x), ui((x.start + x.end) / 2)), grade: x.grade }));
       const gv = M.gradeVerdict(stats); grade = { stats, ...gv };
       const dEs = stats.map(x => x.dE).filter(x => x != null);
       g('grade', gv.ok, gv.ok ? `cháy/bết < 1% · bão hòa TB ${(stats.reduce((a, x) => a + x.sat, 0) / Math.max(1, stats.length)).toFixed(2)} · ΔE da↔phòng ≤ ${dEs.length ? Math.max(...dEs) : '—'}` : gv.bad.slice(0, 2).join('; '));
