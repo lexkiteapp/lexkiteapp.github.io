@@ -120,7 +120,8 @@ const STEPS = {
     for (const [i, l] of s.lines.entries()) {
       const nn = String(i).padStart(2, '0'), raw = P(`line-${nn}.raw.wav`), voice = voices[l.who] || 'af_heart';
       const a = await tts.generate(String(l.text).replace(/["“”]/g, ''), { voice, speed: 1 }); await a.save(raw);
-      ff(['-i', raw, '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000', '-ac', '1', P(`line-${nn}.wav`)]);
+      // Kokoro chèn ~0,4 s im lặng đầu câu → câu hook dài quá 2 s + nhịp chậm: cắt im lặng đầu, chừa 40 ms
+      ff(['-i', raw, '-af', 'silenceremove=start_periods=1:start_threshold=-50dB,adelay=40:all=1,loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000', '-ac', '1', P(`line-${nn}.wav`)]);
       fs.rmSync(raw, { force: true });
       l.wav = `line-${nn}.wav`; l.voice = voice; l.dur = +probe(P(l.wav)).dur.toFixed(2);
     }

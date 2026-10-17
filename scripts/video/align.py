@@ -21,6 +21,26 @@ def load_audio(path, sr=16000):
     return np.frombuffer(raw, np.int16).astype(np.float32) / 32768.0
 
 
+def snap_onsets(audio, words, sr=16000):
+    """whisper tiny.en hay đặt từ đầu mỗi đoạn (và từ sau quãng nghỉ) bắt đầu từ lúc IM LẶNG (vd. "Wait" 0,0 s trong khi tiếng
+    bắt đầu 0,42 s) → phụ đề bật sớm + đo lệch khẩu hình ~200–300 ms. Dời đầu từ tới khung 10 ms đầu tiên có năng lượng tiếng
+    (RMS > 8 % mức p95 của câu) trong chính khoảng [start, end) của từ; không bao giờ dời quá end − 40 ms."""
+    hop = sr // 100
+    n = len(audio) // hop
+    if n < 3 or not words:
+        return words
+    rms = np.sqrt((audio[:n * hop].reshape(n, hop) ** 2).mean(axis=1))
+    thr = max(1e-3, 0.08 * float(np.percentile(rms, 95)))
+    for w in words:
+        s0, e0 = int(w['start'] * 100), int(w['end'] * 100)
+        voiced = np.nonzero(rms[s0:min(n, e0)] > thr)[0]
+        if len(voiced):
+            t = (s0 + int(voiced[0])) / 100
+            if t > w['start']:
+                w['start'] = round(min(t, w['end'] - 0.04), 3)
+    return words
+
+
 ap = argparse.ArgumentParser()
 ap.add_argument('jobs'); ap.add_argument('--model', default='tiny.en')
 a = ap.parse_args()
@@ -28,9 +48,10 @@ jobs = json.load(open(a.jobs))
 m = WhisperModel(a.model, device='cpu', compute_type='int8')
 out = []
 for j in jobs:
-    segs, _ = m.transcribe(load_audio(j['wav']), language='en', word_timestamps=True, beam_size=1, vad_filter=False,
+    audio = load_audio(j['wav'])
+    segs, _ = m.transcribe(audio, language='en', word_timestamps=True, beam_size=1, vad_filter=False,
                            initial_prompt=j.get('text') or None, condition_on_previous_text=False)
     words = [{'w': w.word.strip(), 'start': round(w.start, 3), 'end': round(w.end, 3), 'p': round(w.probability, 3)}
              for s in segs for w in (s.words or [])]
-    out.append({'wav': j['wav'], 'words': words})
+    out.append({'wav': j['wav'], 'words': snap_onsets(audio, words)})
 json.dump(out, sys.stdout)

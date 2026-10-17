@@ -91,7 +91,7 @@ const Actor = ({ a, rim, t0 }) => {
   const ew = a.h * 0.42;
   return (
     <>
-      <div style={{ position: 'absolute', left: a.x - ew / 2 - dir * a.h * 0.05, top: a.y - a.h * 0.025, width: ew, height: a.h * 0.05, borderRadius: '50%', background: 'radial-gradient(closest-side, rgba(20,16,14,.42), rgba(20,16,14,0))', filter: 'blur(6px)' }} />
+      <div style={{ position: 'absolute', left: a.x - ew / 2 - dir * a.h * 0.05, top: a.y - a.h * 0.03, width: ew, height: a.h * 0.06, borderRadius: '50%', background: 'radial-gradient(closest-side, rgba(20,16,14,.58), rgba(20,16,14,0))', filter: 'blur(5px)' }} />
       <div style={{ position: 'absolute', left, top, width: w, height: h, transform: a.flip ? 'scaleX(-1)' : undefined, filter: `drop-shadow(${-dir * 5}px -2px 4px ${rim}88) drop-shadow(0 0 14px rgba(255,247,234,.28))` }}>{media}</div>
     </>
   );
