@@ -7,7 +7,7 @@
   let LANG = (() => { try { const v = localStorage.getItem('lk.admLang'); if (v === 'vi' || v === 'en') return v; } catch (e) { /* bỏ qua */ } return /^vi/i.test(navigator.language || '') ? 'vi' : 'en'; })();
   const EN = {
     // Thanh trên, đăng nhập, tab
-    'Tổng quan': 'Overview', 'Phân tích': 'Analytics', 'Người dùng': 'Users', 'Hộp thư': 'Inbox', 'Cảnh báo': 'Alerts', 'Chất lượng': 'Quality', 'Dịch vụ & API': 'Services & API', 'Cài đặt': 'Settings',
+    'Tổng quan': 'Overview', 'Phân tích': 'Analytics', 'Người dùng': 'Users', 'Hộp thư': 'Inbox', 'Cảnh báo': 'Alerts', 'Chất lượng': 'Quality', 'Dịch vụ & API': 'Services & API', 'Cài đặt': 'Settings', 'Kho Drive': 'Drive storage',
     'Trang quản trị Lexkite': 'Lexkite Admin', 'Chỉ tài khoản quản trị được cấp quyền.': 'Authorized admin accounts only.', 'Đăng nhập bằng Google': 'Sign in with Google',
     'Về app': 'Back to app', 'Về trang chủ Lexkite': 'Back to the Lexkite home page', 'Tự động (theo máy)': 'Auto (system)', 'Sáng': 'Light', 'Tối': 'Dark', 'Giao diện: {m} – bấm để đổi': 'Theme: {m} – click to change', 'Đổi giao diện sáng/tối': 'Switch light/dark theme',
     'Đổi ngôn ngữ': 'Change language', 'Ngôn ngữ: Tiếng Việt – bấm để chuyển sang English': 'Language: English – click to switch to Vietnamese', 'Thoát': 'Sign out',
@@ -185,6 +185,16 @@
     if (!u) { if (confirm(L('Phiên đăng nhập quản trị đã hết. Đăng nhập lại ngay?'))) await signIn(); throw new Error(L('Phiên đăng nhập đã hết – đăng nhập lại rồi thử lại')); }
     const r = await fetch('/api/studio', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await u.getIdToken() }, body: JSON.stringify({ op, ...body }) });
     const j = await r.json().catch(() => ({}));
+    if (!r.ok) { const e = new Error(j.message || j.error || 'HTTP ' + r.status); e.code = j.error; e.status = r.status; e.data = j; throw e; }
+    return j;
+  }
+  // Kho Drive riêng qua /api/drive (functions/api/drive.js) – tab Kho Drive (js/admin-drive.js, tải lười). Lỗi → err.code + err.data
+  async function dapi(op, body = {}) {
+    const u = auth.currentUser || user;
+    if (!u) { if (confirm(L('Phiên đăng nhập quản trị đã hết. Đăng nhập lại ngay?'))) await signIn(); throw new Error(L('Phiên đăng nhập đã hết – đăng nhập lại rồi thử lại')); }
+    const r = await fetch('/api/drive', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await u.getIdToken() }, body: JSON.stringify({ op, ...body }) });
+    const j = await r.json().catch(() => ({}));
+    if (r.status === 401 && j.error === 'reauth') { if (confirm(L('Cần đăng nhập lại để xác nhận thao tác quan trọng. Đăng nhập lại ngay?'))) { await auth.signOut(); await signIn(); } throw new Error('reauth'); }
     if (!r.ok) { const e = new Error(j.message || j.error || 'HTTP ' + r.status); e.code = j.error; e.status = r.status; e.data = j; throw e; }
     return j;
   }
@@ -778,6 +788,11 @@
       main.innerHTML = '';
       if (!window.AdminStudio) await new Promise((y, n) => { const sc = document.createElement('script'); sc.src = 'js/admin-studio.js'; sc.onload = y; sc.onerror = n; document.head.appendChild(sc); }); // tải lười – chỉ khi mở tab
       AdminStudio.render(main, stapi, sapi, L, { esc, lang: () => LANG }); // js/admin-studio.js
+    },
+    async drive() { // Kho Drive riêng (sao lưu nguồn 2 của kho dựng video) – js/admin-drive.js (tải lười)
+      main.innerHTML = '';
+      if (!window.AdminDrive) await new Promise((y, n) => { const sc = document.createElement('script'); sc.src = 'js/admin-drive.js'; sc.onload = y; sc.onerror = n; document.head.appendChild(sc); });
+      AdminDrive.render(main, dapi, L, { esc, when, lang: () => LANG });
     },
     async quota() { // Hạn mức & chống lạm dụng – js/admin-quota.js (tải lười, tự gọi /api/quota)
       main.innerHTML = '';

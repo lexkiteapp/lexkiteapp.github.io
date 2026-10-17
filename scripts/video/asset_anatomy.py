@@ -302,3 +302,128 @@ def checks(fig, ref=None, who=None, cast_stroke=None):
         C.append(('stroke', lo <= fig['strokeW'] <= hi, fig['strokeW'], f'nét viền {fig["strokeW"]} ngoài biên dàn [{lo:.1f}, {hi:.1f}]', 'WARN'))
     C.append(('flat_2d', fig.get('noise', 0) <= A['noise'], fig.get('noise'), 'không phẳng 2D (kết cấu/nhiễu kiểu ảnh thật)', 'WARN'))
     return C
+
+
+def _fig_mask(rgb):
+    arr = np.asarray(rgb)[..., :3].astype(np.int16)
+    border = np.concatenate([arr[0], arr[-1], arr[:, 0], arr[:, -1]])
+    return np.abs(arr - np.median(border, axis=0)).max(axis=2) > 30
+
+
+def _bbox(m):
+    """Khung người bền với nhiễu: phân vị 0,5–99,5 % toạ độ điểm mặt nạ."""
+    ys, xs = np.nonzero(m)
+    if len(ys) < 200:
+        return None
+    return (int(np.percentile(ys, 0.3)), int(np.percentile(ys, 99.7)), int(np.percentile(xs, 0.5)), int(np.percentile(xs, 99.5)))
+
+
+def body_crop(rgb):
+    """Cắt sát khung người (+4 % lề) để nhân vật to nhất trong ô."""
+    img = np.asarray(rgb)[..., :3]; bb = _bbox(_fig_mask(rgb))
+    if not bb:
+        return img
+    y0, y1, x0, x1 = bb; py, px = int((y1 - y0) * 0.04), int((x1 - x0) * 0.04) + 4
+    return img[max(0, y0 - py):y1 + py, max(0, x0 - px):x1 + px]
+
+
+def head_crop(rgb):
+    """Ô cận đầu (vuông): tìm đỉnh đầu trong dải dọc quanh trục thân (tay giơ cao ngoài dải không làm lệch), cao 17 % khung người."""
+    m = _fig_mask(rgb); img = np.asarray(rgb)[..., :3]; bb = _bbox(m)
+    if not bb:
+        return img
+    top, bot = bb[0], bb[1]; fh = bot - top
+    mid = np.nonzero(m[top + int(fh * 0.4):top + int(fh * 0.7)])[1]
+    bx = int(np.median(mid)) if len(mid) else img.shape[1] // 2
+    w = max(8, int(fh * 0.1)); x0b = max(0, bx - w)
+    band = m[:, x0b:bx + w]
+    rows = np.where(band.sum(1) > max(2, band.shape[1] * 0.03))[0]
+    htop = int(rows[0]) if len(rows) else top
+    hh = max(8, int(fh * 0.17))
+    xs = np.nonzero(m[htop:htop + hh, max(0, bx - 2 * w):bx + 2 * w])[1] + max(0, bx - 2 * w)
+    cx = int(np.median(xs)) if len(xs) else bx
+    hw = (np.percentile(xs, 97) - np.percentile(xs, 3)) if len(xs) else 0  # tóc buộc đuôi/búi lệch sang bên vẫn nằm trong ô
+    side = int(max(hh * 1.6, hw * 1.3))
+    y0 = max(0, htop - side // 10); x0 = max(0, min(img.shape[1] - side, cx - side // 2))
+    return img[y0:y0 + side, x0:x0 + side]
+
+
+def ai_sheet(ref_rgb, tiles, out, max_side=768, max_frames=4):
+    """Bảng gửi AI thị giác (1 ảnh ≤ max_side px, tiết kiệm neuron). Cột 1 (viền xanh lá) = ảnh DNA; cột 2.. = 3–4 khung lấy đều.
+    Hàng trên: toàn thân (tay/chân/dáng); hàng dưới: cận đầu của khung ngay phía trên (tóc, kính, phụ kiện – nhận diện).
+    Không vẽ chữ lên ảnh (tránh AI báo nhầm text_present). ref_rgb có thể None."""
+    from PIL import Image, ImageOps
+    if len(tiles) > max_frames:
+        step = (len(tiles) - 1) / (max_frames - 1)
+        tiles = [tiles[round(i * step)] for i in range(max_frames)]
+    cells = ([('ref', ref_rgb)] if ref_rgb is not None else []) + [('f', t) for t in tiles]
+    cols = len(cells); pad = 4
+    cw = (max_side - pad * (cols + 1)) // cols
+    bh = min(int(cw * 2.2), max_side - cw - pad * 3)
+    sheet = Image.new('RGB', (cols * cw + pad * (cols + 1), bh + cw + pad * 3), (128, 128, 128))
+    for i, (kind, arr) in enumerate(cells):
+        x = pad + i * (cw + pad)
+        for y, h, img in ((pad, bh, body_crop(arr)), (pad * 2 + bh, cw, head_crop(arr))):
+            im = ImageOps.contain(Image.fromarray(np.asarray(img)[..., :3].astype(np.uint8)), (cw - 8, h - 8))
+            if kind == 'ref':
+                sheet.paste((40, 200, 90), (x, y, x + cw, y + h))
+            else:
+                sheet.paste((250, 250, 250), (x, y, x + cw, y + h))
+            sheet.paste(im, (x + (cw - im.width) // 2, y + (h - im.height) // 2))
+    os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
+    sheet.save(out, quality=85)
+    return out
+
+
+def head_sheet(ref_rgb, tiles, out, max_side=768, max_frames=5):
+    """Bảng nhận diện: chỉ cận đầu, lưới 3 cột × 2 hàng (ô 1 viền xanh lá = DNA, 5 khung lấy đều), ô ~250 px để AI thấy rõ tóc/kính/phụ kiện."""
+    from PIL import Image, ImageOps
+    if len(tiles) > max_frames:
+        step = (len(tiles) - 1) / (max_frames - 1)
+        tiles = [tiles[round(i * step)] for i in range(max_frames)]
+    cells = ([('ref', ref_rgb)] if ref_rgb is not None else []) + [('f', t) for t in tiles]
+    cols = 3; rows = (len(cells) + cols - 1) // cols; pad = 4
+    cw = (max_side - pad * (cols + 1)) // cols
+    sheet = Image.new('RGB', (cols * cw + pad * (cols + 1), rows * cw + pad * (rows + 1)), (128, 128, 128))
+    for i, (kind, arr) in enumerate(cells):
+        x, y = pad + (i % cols) * (cw + pad), pad + (i // cols) * (cw + pad)
+        im = ImageOps.contain(Image.fromarray(np.asarray(head_crop(arr))[..., :3].astype(np.uint8)), (cw - 10, cw - 10))
+        sheet.paste((40, 200, 90) if kind == 'ref' else (250, 250, 250), (x, y, x + cw, y + cw))
+        sheet.paste(im, (x + (cw - im.width) // 2, y + (cw - im.height) // 2))
+    os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
+    sheet.save(out, quality=85)
+    return out
+
+
+def _frames_from(path, n=5, strip=0):
+    """5 khung lấy đều từ MP4 (ffmpeg) hoặc ảnh dải nhiều khung (strip = số khung ngang) / ảnh đơn."""
+    from PIL import Image
+    import subprocess, tempfile
+    if path.lower().endswith(('.mp4', '.mov', '.webm')):
+        dur = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', path], capture_output=True, text=True).stdout.strip() or 5)
+        out = []
+        with tempfile.TemporaryDirectory() as td:
+            for i in range(n):
+                t = min(dur - 0.05, dur * (i + 0.5) / n); f = os.path.join(td, f'{i}.png')
+                subprocess.run(['ffmpeg', '-v', 'error', '-y', '-ss', f'{t:.2f}', '-i', path, '-frames:v', '1', f], check=True)
+                out.append(np.asarray(Image.open(f).convert('RGB')))
+        return out
+    im = np.asarray(Image.open(path).convert('RGB'))
+    if strip > 1:
+        w = im.shape[1] // strip
+        tiles = [im[:, i * w:(i + 1) * w] for i in range(strip)]
+        return [tiles[round(i * (strip - 1) / (n - 1))] for i in range(n)] if strip > n else tiles
+    return [im]
+
+
+if __name__ == '__main__':
+    # Bảng AI thị giác riêng (hiệu chỉnh): python asset_anatomy.py --ai-sheet out.jpg --ref dna.png [--strip 16] file
+    import argparse
+    from PIL import Image
+    ap = argparse.ArgumentParser(); ap.add_argument('file'); ap.add_argument('--ai-sheet', required=True); ap.add_argument('--head-sheet'); ap.add_argument('--ref'); ap.add_argument('--strip', type=int, default=0)
+    a = ap.parse_args()
+    ref = np.asarray(Image.open(a.ref).convert('RGB')) if a.ref else None
+    fr = _frames_from(a.file, 5, a.strip)
+    print(ai_sheet(ref, fr, a.ai_sheet))
+    if a.head_sheet:
+        print(head_sheet(ref, fr, a.head_sheet))

@@ -15,6 +15,10 @@
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const ls = { get(k, f) { try { const v = localStorage.getItem(k); return v == null ? f : JSON.parse(v); } catch (e) { return f; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* bỏ qua */ } } };
   const mine = () => (Array.isArray(ls.get(KEY, [])) ? ls.get(KEY, []) : []);
+  // Mốc xử lý dự kiến (máy chủ trả { kind, h } – cấu hình trong Quản trị) → chữ
+  const etaText = e => !e ? '' : e.kind === 'feature' ? t('Đội ngũ sẽ xem xét đề xuất – bạn sẽ được báo nếu tính năng được làm.') : t('Dự kiến xử lý: {t}', { t: e.h < 48 ? t('trong {n} giờ', { n: e.h }) : e.h === 168 ? t('trong 1 tuần') : e.h % 24 === 0 && e.h <= 120 ? t('trong {a}–{b} ngày', { a: e.h / 24 - 1, b: e.h / 24 }) : t('trong {n} ngày', { n: Math.ceil(e.h / 24) }) });
+  const LOCK = 30e3; let lastSent = 0; // chống gửi lặp: khóa nút 30 giây sau mỗi lần gửi
+  const kit = (m, n) => (w.Kit && Kit.svg ? `<span class="lkr-kit" aria-hidden="true">${Kit.svg(m, n)}</span>` : '');
   const when = x => { try { return new Date(x).toLocaleString(I ? I.lang() : undefined, { dateStyle: 'medium', timeStyle: 'short' }); } catch (e) { return new Date(x).toISOString(); } };
 
   // Bản tiếng Anh của module này nằm riêng (js/i18n/en/report.js) để khung app không phình – nạp trước khi vẽ
@@ -39,6 +43,10 @@
 .lkr-st{display:inline-block;padding:.2rem .6rem;border-radius:999px;font-size:.78rem;font-weight:700;background:var(--surface-3,#eee)}.lkr-st.new{background:var(--accent-soft)}.lkr-st.ack,.lkr-st.prog{background:var(--gold-soft)}.lkr-st.fixed{background:var(--good-soft)}.lkr-st.wontfix,.lkr-st.dup{background:var(--surface-3)}
 .lkr-page{max-width:640px;margin:1.2rem auto;display:grid;gap:1rem}.lkr-reply{white-space:pre-wrap;border-left:3px solid var(--primary);padding:.4rem .8rem;background:var(--surface-2);border-radius:0 10px 10px 0}
 .lkr-list{list-style:none;margin:0;padding:0;display:grid;gap:.4rem}.lkr-list a{display:flex;justify-content:space-between;gap:.6rem;padding:.55rem .7rem;border:1px solid var(--line);border-radius:12px;color:inherit;text-decoration:none}
+.lkr-thx{text-align:center;display:grid;justify-items:center;gap:.25rem}.lkr-thx h2{margin:.2rem 0;font-size:1.15rem}.lkr-kit svg{display:block}.lkr-eta{margin:.2rem 0;font-weight:600}
+.lkr-tl{list-style:none;margin:.8rem 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;counter-reset:s}.lkr-tl li{position:relative;padding-top:1.6rem;font-size:.8rem;text-align:center;color:var(--muted)}
+.lkr-tl li::before{counter-increment:s;content:counter(s);position:absolute;top:0;left:50%;transform:translateX(-50%);width:1.3rem;height:1.3rem;border-radius:50%;display:grid;place-items:center;font-size:.72rem;font-weight:800;background:var(--surface-3);color:var(--muted)}
+.lkr-tl li.done::before{content:'✓';background:var(--good-soft);color:var(--text)}.lkr-tl li.cur{color:var(--text)}.lkr-tl li.cur::before{background:var(--primary);color:#fff}.lkr-tl small{display:block}
 .lkr-toast{position:fixed;left:12px;right:12px;bottom:calc(84px + env(safe-area-inset-bottom));max-width:420px;margin:auto;z-index:70;padding:.75rem .9rem;border-radius:14px;background:var(--surface);color:var(--text);border:1px solid var(--line);box-shadow:var(--shadow-lg);display:flex;gap:.6rem;align-items:center;justify-content:space-between}`;
     d.head.appendChild(s);
   }
@@ -128,19 +136,25 @@
       let r; try { r = await post({ op: 'create', cat: (dlg.querySelector('input[name=cat]:checked') || {}).value, msg, notify, email, ctx: await ctxP, errs: (w.__lkErrs || []).slice(-20), shot, hp: dlg.querySelector('input[name=website]').value, ms: Date.now() - ms0 }, true); } catch (x) { r = { _s: 0 }; }
       go.disabled = false; go.textContent = t('Gửi');
       if (!r.ok) { err(r._s === 429 ? t('Bạn gửi hơi nhiều – thử lại sau ít phút.') : r.error === 'email' ? t('Email không hợp lệ.') : r.error === 'short' ? t('Hãy mô tả ít nhất 10 ký tự.') : r.error === 'shot' ? t('Ảnh quá lớn hoặc không đọc được.') : t('Không gửi được. Kiểm tra kết nối rồi thử lại.')); return; }
+      lastSent = Date.now(); ls.set('lk.rpl', lastSent);
       if (r.token) { const a = mine().filter(x => x.t !== r.token); a.push({ t: r.token, id: r.id, at: Date.now(), upd: Date.now(), st: 'new', cat: (dlg.querySelector('input[name=cat]:checked') || {}).value }); ls.set(KEY, a.slice(-20)); }
-      done(r);
+      done(r, notify);
     };
-    function done(r) {
+    function done(r, notify) {
       const link = r.token ? (/^https?:$/.test(location.protocol) && BASE === '' ? location.origin + location.pathname : SITE) + '#/report/' + r.token : '';
-      dlg.innerHTML = `<div class="lkr-done" role="status"><div class="lkr-hd"><h2 id="lkrH">✅ ${esc(t('Cảm ơn bạn!'))}</h2><button type="button" class="lkr-x" data-x aria-label="${esc(t('Đóng'))}">✕</button></div>
-        ${r.id ? `<div><div class="lkr-note">${esc(t('Mã báo lỗi'))}</div><div class="lkr-tid">${esc(r.id)}</div></div>` : ''}
-        ${link ? `<label class="lkr-lb" for="lkrLink">${esc(t('Lưu đường dẫn riêng này để theo dõi trạng thái:'))}</label><div class="lkr-row"><input type="text" id="lkrLink" readonly value="${esc(link)}" style="flex:1"><button type="button" class="btn ghost sm" id="lkrCp">${esc(t('Sao chép'))}</button></div>` : ''}
-        <div class="lkr-act">${r.token ? `<a class="btn ghost" href="#/report/${esc(r.token)}" data-x>${esc(t('Xem trạng thái'))}</a>` : ''}<button type="button" class="btn primary" data-x>${esc(t('Đóng'))}</button></div></div>`;
+      dlg.innerHTML = `<div class="lkr-done" role="status"><div class="lkr-hd"><span></span><button type="button" class="lkr-x" data-x aria-label="${esc(t('Đóng'))}">✕</button></div>
+        <div class="lkr-thx">${kit('cheer', 84)}<h2 id="lkrH">${esc(t('Cảm ơn bạn đã giúp Lexkite tốt hơn!'))}</h2>
+        ${r.id ? `<div class="lkr-note">${esc(t('Mã báo lỗi'))}</div><div class="lkr-tid">${esc(r.id)}</div>` : ''}
+        ${r.eta ? `<p class="lkr-eta">⏱ ${esc(etaText(r.eta))}</p>` : ''}
+        ${notify ? '' : `<p class="lkr-note">${esc(t('Bạn sẽ thấy cập nhật ngay trong app (mục Báo lỗi của tôi).'))}</p>`}</div>
+        ${link ? `<label class="lkr-lb" for="lkrLink">${esc(t('Lưu đường dẫn riêng này để theo dõi trạng thái:'))}</label><div class="lkr-row"><input type="text" id="lkrLink" readonly value="${esc(link)}" style="flex:1"><button type="button" class="btn ghost sm" id="lkrCp">${esc(t('Sao chép liên kết'))}</button></div>` : ''}
+        <div class="lkr-act">${r.token ? `<a class="btn primary" href="#/report/${esc(r.token)}" data-x>${esc(t('Theo dõi tiến độ'))}</a>` : ''}<button type="button" class="btn ghost" data-x>${esc(t('Đóng'))}</button></div></div>`;
       dlg.querySelectorAll('[data-x]').forEach(b => b.addEventListener('click', close));
       const cp = dlg.querySelector('#lkrCp'); if (cp) cp.onclick = async () => { const i = dlg.querySelector('#lkrLink'); try { await navigator.clipboard.writeText(i.value); } catch (e) { i.select(); try { d.execCommand('copy'); } catch (x) { /* bỏ qua */ } } cp.textContent = t('Đã sao chép'); };
       (dlg.querySelector('.btn.primary') || dlg).focus();
     }
+    const lockBtn = () => { const go = $('#lkrGo'), left = Math.ceil((LOCK - (Date.now() - Math.max(lastSent, +ls.get('lk.rpl', 0) || 0))) / 1000); if (!go) return; if (left > 0) { go.disabled = true; err(t('Vui lòng đợi {n} giây trước khi gửi tiếp.', { n: left })); setTimeout(lockBtn, 1000); } else if (go.disabled && go.textContent === t('Gửi')) { go.disabled = false; err(''); } };
+    lockBtn();
     if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
     setTimeout(() => { const m = dlg && dlg.querySelector('#lkrMsg'); if (m) m.focus(); }, 30);
     return dlg;
@@ -152,6 +166,13 @@
   function list() {
     const a = mine().slice().reverse();
     return a.length ? `<ul class="lkr-list">${a.map(x => `<li><a href="#/report/${esc(x.t)}"><span><b>${esc(x.id)}</b> · ${esc(catName(x.cat))}</span>${chip(x.st || 'new')}</a></li>`).join('')}</ul>` : '';
+  }
+  // Dòng thời gian: Đã nhận → Đang xử lý → Đã sửa (kèm phiên bản sửa)
+  function timeline(r) {
+    const lvl = { new: 0, ack: 0, prog: 1, fixed: 2 }[r.status];
+    if (lvl == null) return '';
+    const steps = [[t('Đã nhận'), when(r.at)], [t('Đang xử lý'), ''], [r.fix_ver ? t('Đã sửa trong phiên bản {v}', { v: r.fix_ver }) : t('Đã sửa'), r.fixed_at ? when(r.fixed_at) : '']];
+    return `<ol class="lkr-tl" aria-label="${esc(t('Trạng thái báo lỗi'))}">${steps.map(([l, d], i) => `<li class="${i < lvl ? 'done' : i === lvl ? 'cur' : ''}"${i === lvl ? ' aria-current="step"' : ''}><b>${esc(l)}</b>${d && i <= lvl ? `<small>${esc(d)}</small>` : ''}</li>`).join('')}</ol>`;
   }
   async function page(arg, q) {
     await dict(); style();
@@ -172,6 +193,8 @@
     view.innerHTML = `<div class="lkr-page"><h1>${esc(t('Trạng thái báo lỗi'))}</h1>
       <div class="card"><div class="lkr-row" style="justify-content:space-between"><div class="lkr-tid">${esc(r.id)}</div>${chip(r.status)}</div>
         <p class="muted small">${esc(catName(r.cat))} · ${esc(t('Gửi lúc {d}', { d: when(r.at) }))}${r.upd > r.at ? ' · ' + esc(t('Cập nhật {d}', { d: when(r.upd) })) : ''}</p>
+        ${timeline(r)}
+        ${r.status === 'fixed' ? `<div class="lkr-thx">${kit('win', 64)}<p><b>${esc(t('Cảm ơn bạn đã giúp Lexkite tốt hơn!'))}</b></p></div>` : r.status === 'wontfix' || r.status === 'dup' ? '' : `<p class="lkr-eta">⏱ ${esc(etaText(r.eta))}</p>`}
         ${r.dup ? `<p>${esc(t('Trùng với {id}', { id: r.dup }))}</p>` : ''}
         ${r.reply ? `<div><div class="lkr-lb">${esc(t('Phản hồi từ Lexkite'))}</div><div class="lkr-reply">${esc(r.reply)}</div></div>` : ''}
       </div>
@@ -199,5 +222,5 @@
     return changed;
   }
 
-  w.LexReport = { open, page, poll, _t: { shrink, context, CATS, ST, mine } };
+  w.LexReport = { open, page, poll, _t: { shrink, context, etaText, timeline, CATS, ST, mine } };
 })(window, document);

@@ -5,7 +5,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 # Đồng bộ tại chỗ (rsync ghi file tạm rồi đổi tên, xóa file thừa sau cùng): thư mục app không bao giờ trống,
 # nên Chrome khởi động lại service worker giữa lúc build cũng không gặp lỗi importScripts.
 mkdir -p "$ROOT/extension/app" "$ROOT/extension/icons"
-rsync -a --delete-after --exclude '.*' --exclude 'admin.js' --exclude 'admin-growth.js' --exclude 'admin-social.js' --exclude 'admin-studio.js' --exclude 'admin.css' --exclude 'vendor/jsvectormap' --exclude 'jsvectormap.min.css' "$ROOT/web/index.html" "$ROOT/web/manifest.webmanifest" "$ROOT/web/css" "$ROOT/web/js" "$ROOT/web/icons" "$ROOT/extension/app/"
+rsync -a --delete-after --exclude '.*' --exclude 'admin.js' --exclude 'admin-growth.js' --exclude 'admin-social.js' --exclude 'admin-studio.js' --exclude 'admin-drive.js' --exclude 'admin-reports.js' --exclude 'admin-quota.js' --exclude 'admin-drive.js' --exclude 'admin.css' --exclude 'vendor/jsvectormap' --exclude 'jsvectormap.min.css' "$ROOT/web/index.html" "$ROOT/web/manifest.webmanifest" "$ROOT/web/css" "$ROOT/web/js" "$ROOT/web/icons" "$ROOT/extension/app/"
 perl -0pi -e 's# media="print" onload="this\.media=.all."##; s# onclick="event\.preventDefault\(\);document\.getElementById\(.view.\)\.focus\(\)"##; s#<!--hero-->.*?<!--/hero-->##s; s#\s*<script type="speculationrules">.*?</script>##s' "$ROOT/extension/app/index.html"  # add-on MV3 cấm script nội tuyến – bỏ khung dựng sẵn & speculation rules
 # Chrome Web Store cấm mã tải từ xa: xóa URL thư viện ngoài (Firebase SDK, AdSense, Turnstile, transformers.js) khỏi bản add-on.
 # Các nhánh này vốn đã bị tắt trong add-on (Store.isExtension / CSP), nhưng để nguyên URL thì bản duyệt tự động vẫn gắn cờ.

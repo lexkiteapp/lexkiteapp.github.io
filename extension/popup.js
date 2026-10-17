@@ -20,7 +20,7 @@
     '✍️ Soát lỗi viết': '✍️ Writing check', 'Gạch chân lỗi tiếng Anh khi bạn gõ trên mọi trang · bấm để sửa và xem vì sao sai': 'Underlines English mistakes as you type on any site · tap to fix and see why',
     'Kiểm nâng cao (LanguageTool)': 'Advanced check (LanguageTool)', 'Bật trên {site}': 'On for {site}', 'Trang này không hỗ trợ soát lỗi viết': 'Writing check is not available on this page',
     'Mặc định chữ chỉ được soát ngay trên máy. Kiểm nâng cao gửi chữ trong ô bạn đang gõ tới LanguageTool. Không bao giờ soát ô mật khẩu, email, thẻ thanh toán và trang ngân hàng.': 'By default your text is checked on your device only. Advanced check sends the text of the box you are typing in to LanguageTool. Password, email and payment card fields and banking sites are never checked.',
-    'Mở trên điện thoại (mã QR)': 'Open on phone (QR code)', 'Không tìm thấy “{q}”.': 'No results for “{q}”.', ' Dịch: <b>{vi}</b>': ' Translation: <b>{vi}</b>', 'Chính sách quyền riêng tư': 'Privacy policy', 'Quét bằng camera điện thoại để học:': 'Scan with your phone camera to study:',
+    'Mở trên điện thoại (mã QR)': 'Open on phone (QR code)', 'Báo cáo sự cố': 'Report a problem', 'Không tìm thấy “{q}”.': 'No results for “{q}”.', ' Dịch: <b>{vi}</b>': ' Translation: <b>{vi}</b>', 'Chính sách quyền riêng tư': 'Privacy policy', 'Quét bằng camera điện thoại để học:': 'Scan with your phone camera to study:',
   };
   const tx = (src, vars) => { let s = UI_LANG === 'vi' ? src : (XD[src] || EN[src] || src); if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)); return s; };
   document.documentElement.lang = UI_LANG; document.documentElement.dir = UI_LANG === 'ar' ? 'rtl' : 'ltr';
@@ -90,6 +90,8 @@
     document.querySelectorAll('.pp-say').forEach(b => b.onclick = e => { e.preventDefault(); const c = recent.find(x => x.word === b.dataset.say); speak(b.dataset.say, c && (settings.accent === 'en-US' ? c.audioUS : c.audio)); });
   }
   $('#open').onclick = e => { e.preventDefault(); open('#/home'); };
+  // Báo lỗi: mở form trong trang ứng dụng; chỉ gửi kèm TÊN MIỀN của tab đang xem (không URL đầy đủ, không nội dung trang) – docs/REPORTS.md
+  $('#report').onclick = async e => { e.preventDefault(); let dom = ''; try { const [tab] = await chrome.tabs.query({ active: true, currentWindow: true }); const u = new URL(tab && tab.url || ''); if (/^https?:$/.test(u.protocol)) dom = u.hostname; } catch (x) { /* trang nội bộ Chrome → không có tên miền */ } open('#/report/new' + (dom ? '?d=' + encodeURIComponent(dom) : '')); };
   if ($('#privacy')) $('#privacy').href = 'https://lexkite.com/' + UI_LANG + '/privacy';
   const qrBtn = $('#showQr'); if (qrBtn) qrBtn.onclick = e => { e.preventDefault(); const box = $('#qrBox'); if (!box) return; box.hidden = !box.hidden; if (!box.hidden && !$('#qrSvg').hasChildNodes() && window.LKQR) $('#qrSvg').innerHTML = window.LKQR.svg('https://lexkite.com'); };
   // Trạng thái đồng bộ tài khoản (liên kết qua web app lexkite.com)

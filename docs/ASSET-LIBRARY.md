@@ -96,13 +96,24 @@ Bong bóng thoại, mũi tên, khung câu hỏi, dấu ✓/✗, thanh tiến đ�
 ## 7. Cổng chất lượng (chặn nhập kho)
 - Điểm rubric ≥ 90 (từng ô) · đúng thang đo ±5% · không viền sáng (alpha mép) · màu trong bảng (ΔE ≤ 8 sau gộp) · SVG hợp lệ, ≤ kích thước trần · có `source` + `qa` · không chữ/logo/thương hiệu bên thứ ba · nhân vật chỉ từ Element đã khóa.
 
+### 7.1 AI thị giác (`library.mjs`, chạy trong `check`/`ingest`) – miễn phí trước, Gemini cuối
+- **2 giám khảo, cả hai PASS mới PASS**; một bên FAIL → FAIL; thiếu một bên → `needsManualReview` ("cần duyệt tay"). Không bao giờ tự PASS khi JSON không đọc được.
+  - Chính: Cloudflare Workers AI `@cf/meta/llama-4-scout-17b-16e-instruct` (tài khoản Lexkite, REST `api.cloudflare.com/client/v4/accounts/<id>/ai/run/…`, token `~/.config/lexkite/cf-token` hoặc secret `CLOUDFLARE_API_TOKEN` trên CI) → dự phòng GrabCast vision (chỉ khi có env `GRABCAST_AI_VISION_URL`; kho AI GrabCast hiện loại model vision của Groq) → Gemini.
+  - Kiểm chéo: `@cf/meta/llama-3.2-11b-vision-instruct` → `@cf/google/gemma-3-12b-it` (tài khoản hiện **không** được dùng – lỗi 5018) → Gemini. Không dùng lại nhà cung cấp của giám khảo chính.
+  - **llama-3.2-11b-vision cần chấp nhận giấy phép Meta 1 lần** (gửi prompt `agree` = đồng ý Llama 3.2 Community License + AUP và cam kết không cư trú/đặt trụ sở ở EU). Đây là quyết định pháp lý của chủ dự án – script KHÔNG tự gửi. Chưa đồng ý → kiểm chéo lùi sang Gemini (20 lượt/ngày).
+- Ảnh gửi (≤ 768 px, `scripts/video/asset_anatomy.py` `ai_sheet`/`head_sheet`): (1) bảng toàn thân – cột 1 viền xanh lá = DNA, 4 khung lấy đều, hàng dưới cận đầu; (2) bảng cận đầu 3×2 (DNA + 5 khung). Không vẽ chữ lên ảnh.
+- Prompt: bảng toàn thân → JSON chặt `{hands_ok, limbs_ok, face_ok, extra_people, text_present, style_consistent, issues[]}`; bảng cận đầu → AI chỉ **mô tả từng ô** bằng lựa chọn cố định (vd. Leo `hair_back: "short" | "long hanging"`, Diane `eyes: "red glasses" | "other glasses" | "no glasses"`), **code tự so** với nhận diện DNA trong `IDENTITY` (kính, kẹp tóc, băng đô, ria, lọn tóc bạc…). Câu hỏi có/không kiểu "có buộc đuôi không?" bị model trả sai → không dùng.
+- Cache theo sha256 hai ảnh + phiên bản prompt (`brand/library/_cache/vision.json`, không commit).
+- Hiệu chỉnh: `node scripts/video/library.mjs vision-cal [--runs N] [--model …]` trên `scripts/video/vision-calibration.json`. 17/10 (llama-4-scout): **11/11 đúng** (2 lần chạy ở bước thử: 22/22) – bắt Leo tóc buộc đuôi (v2: 4/5 khung, v3: 2/5 khung), không báo nhầm 7 clip đạt. Hai clip Diane được giao nhãn "mất kính đỏ" thực ra **còn kính ở mọi khung** (đo mật độ điểm đỏ vùng kính ≈ 13‰ ở cả 20 khung, bằng clip đạt; cuối facepalm tay che) – nhãn cũ do bảng ghép 300 px quá nhỏ nên cả Gemini lẫn mắt người nhìn không ra.
+
 ## 8. Lưu trữ & sao lưu (kho dựng `brand/library/` – `scripts/video/library.mjs`)
 **Một nguồn sự thật**: `content/video/library.json` (commit). File gốc ở `brand/library/` (nhị phân không commit – `.gitignore`), có **2 nguồn sao lưu** đồng bộ theo sha256:
 
 | Nguồn | Nội dung | Địa chỉ |
 |---|---|---|
 | Chính – repo `lexkiteapp/lexkite-media` thư mục `library/` | mục **approved**: ảnh PNG → WebP ≤ 400 KB; clip = bản **stacked** `clips/<id>.mp4` (màu + mặt nạ, render đọc) + bản gốc lossless `src/clips/src/<id>.mp4`; `library/index.json` (chỉ mục công khai) + `library/manifest.json` (manifest dựng) | `https://media.lexkite.com/library/<file>` (Worker `workers/media`: MP4 có Range, cache 1 ngày) |
-| Phụ – kho GrabCast workspace 4 (`storage_class: bulk`) | **bản gốc** đủ phân giải của MỌI mục (cả reserve/reject) | `locations.backup.objectId` trong manifest |
+| Phụ – **Kho Drive riêng** (Quản trị → Kho Drive, §8.6) – ưu tiên khi đã nối | **bản gốc** của MỌI mục + bản stacked (CI) | `locations.drive{driveId, fileId, sha256}` |
+| Phụ dự phòng – kho GrabCast workspace 4 (`storage_class: bulk`) – khi chưa nối Drive | **bản gốc** đủ phân giải của MỌI mục (cả reserve/reject) | `locations.backup.objectId` trong manifest |
 
 ### 8.1 Tên chuẩn (sai tên = không nhập)
 - `chars/<who>/{dna,neutral,expr-<tên>,gesture-<tên>}.png`
@@ -145,7 +156,7 @@ Kết quả ghi vào `check` của manifest: PASS/WARN/FAIL + số đo + lý do;
 | | có tiếng (> −45 dB; bản web bỏ tiếng), năng lượng chuyển động thấp → gợi ý vai listener, nghi trôi nhận dạng (tóc mọc thêm/áo đổi màu) | WARN/INFO |
 | Clip stacked | chiều cao chẵn = 2 × khung màu, nửa dưới là mặt nạ (sắc độ < 8, ≥ 85 % điểm 0/255, phủ 2–90 %) – clip gốc khai nhầm stacked = FAIL; người cao ≥ 1000 px; mép alpha nhấp nháy (bật-tắt-bật > 0,4 %), bóng sàn dính (bề ngang đáy/mắt cá ≥ 1,6) | FAIL |
 | Anatomy & style (ảnh + khung đầu/giữa/cuối) | MediaPipe Pose/Hands/Face: 1 người, 2 tay 2 chân, ≤ 2 bàn tay, góc khớp/tỉ lệ đoạn chi (WARN – MediaPipe trên tranh 2D chỉ "khá"; không nhận ra = WARN "cần duyệt tay"); tỉ lệ đầu/thân lệch DNA > 12 % = FAIL; màu da/tóc/áo lệch DNA ΔE > 10 WARN, > 25 FAIL; kính Leo/Diane (mật độ cạnh vùng mắt < 55 % DNA) = FAIL; nét viền ngoài biên dàn ± 45 % và kết cấu ảnh thật = WARN | |
-| AI thị giác | Gemini 3.8 Flash nhận ảnh DNA + bảng ghép 1–6 khung → JSON `{hands_ok, limbs_ok, face_ok, extra_people, text_present, style_consistent, identity_consistent, issues}`; sai bất kỳ = FAIL (đây là chốt "identity drift"); hết khoá/hạn mức → WARN "cần duyệt tay" | FAIL |
+| AI thị giác | §7.1: Workers AI llama-4-scout + kiểm chéo (llama-3.2-vision / Gemini) trên bảng toàn thân + bảng cận đầu ≤ 768 px; sai bất kỳ = FAIL (chốt "identity drift"); thiếu giám khảo / JSON hỏng → WARN "cần duyệt tay" | FAIL |
 
 Test: `node scripts/test/library.mjs` (trong `npm test`) – tên chuẩn, chống trùng, cổng QA, verify với fetch giả, báo cáo phủ, diễn giải AI + `scripts/test/asset_check_test.py` (hàm đo trên ảnh/clip tổng hợp; tự bỏ qua nếu máy không có numpy).
 
@@ -166,3 +177,21 @@ Test: `node scripts/test/library.mjs` (trong `npm test`) – tên chuẩn, chố
 3. `publish`: gộp artifact `library-results` → `library.mjs ci-apply` ghi `variants.stacked` (foot/figH/w/h/status) + `brand/library/manifest.json`; có secret **`LEXKITE_MEDIA_TOKEN`** (PAT fine-grained, Contents: write trên `lexkiteapp/lexkite-media`) thì đẩy luôn bản stacked + `library/index.json` + `library/manifest.json` lên CDN; rồi mở PR manifest vào repo chính. Thiếu secret/PR bị chặn: phiên chính tải artifact `library-results` → `node scripts/video/library.mjs ci-apply <thư mục>` (chỉ upload).
 - Nguồn chính của clip = bản **stacked** `https://media.lexkite.com/library/clips/<id>.mp4`; bản gốc lossless `https://media.lexkite.com/library/src/clips/src/<id>.mp4` (CI + `restore` dùng). Ảnh tĩnh vẫn là WebP ≤ 400 KB.
 - AI thị giác (Gemini) không chạy trên CI (khóa ở D1, gói miễn phí chỉ 20 lượt/ngày dùng chung với app) → mục mới gắn `needsManualReview` cho tới khi chạy `check <id>` trên máy lúc còn hạn mức (kết luận AI được giữ lại theo sha).
+
+### 8.6 Kho Drive riêng – sao lưu nguồn 2 (`functions/api/drive.js`, Quản trị → **Kho Drive**)
+Chủ dự án nối 1 hoặc nhiều Google Drive **của chính mình**; app chỉ có quyền `drive.file` (chỉ thấy/sửa file do Lexkite tạo, không đọc được file khác trong Drive). File nằm ở `Lexkite Library/<thư mục>` (`originals/clips/src`, `originals/chars/<who>`, `stacked/clips`, `renders`).
+- **Chọn Drive**: Drive `status = ok`, trọng số > 0, còn đủ chỗ sau khi chừa **≥ 5 % và ≥ 256 MB**; trong đó lấy Drive có *chỗ trống × trọng số* lớn nhất. `drain` = ngừng nhận file mới (file cũ vẫn tải được). Hết chỗ mọi Drive → `pool_full` (CLI báo nối thêm Drive).
+- **Bảo mật**: OAuth `state` ký HMAC (`DRIVE_ENC_KEY`), hạn 10 phút, gắn email quản trị + cookie phiên HttpOnly (chống CSRF), dùng 1 lần (bảng `drive_nonce`). Refresh token mã hoá AES-GCM (AAD = email) trong D1 `drives`; access token chỉ trong bộ nhớ < 50 phút; không thao tác nào trả/ghi log token. Ngắt kết nối = thu hồi token ở Google + xoá dòng (cần đăng nhập ≤ 15 phút; file trong Drive giữ nguyên). Mọi op ghi `admin_log` (`drive.*`), giới hạn tốc độ theo IP.
+- **Tải lên**: `upload_session {name, mime, size, sha256, folder}` → URL phiên resumable của Google → máy/CI PUT byte trực tiếp (không qua Worker) → `complete {drive_id, file_id, sha256}` (máy chủ kiểm `appProperties.sha256` + dung lượng rồi ghi `drive_files`). Cùng sha256 → bỏ qua. Tải về: `get_link` (chỉ quản trị) → `/api/drive/dl?…` ký 5 phút, stream có Range.
+- **CLI/CI**: `library.mjs sync [--backup-only]` dùng Kho Drive khi có Drive nhận file, không thì GrabCast; `library.mjs drive-backup [dir]` (CI library-build, bước sau ci-apply) sao lưu bản gốc clip (lấy từ `library/src`, kiểm sha) + bản stacked; `verify` kiểm sha trên Kho Drive qua `list {sha256: […]}`. Xác thực bằng `LEXKITE_DRIVE_CLI_KEY` (header `X-Drive-Ts` + `X-Drive-Sig` = HMAC-SHA256(khoá, "<ts>.<sha256 body>"), lệch ≤ 5 phút) – chỉ được `list`, `upload_session`, `complete`. Khôi phục bản gốc từ Drive: Quản trị (get_link) – CLI không có quyền tải.
+- **Cài đặt 1 lần (chủ dự án, tài khoản chính thức)**:
+  1. https://console.cloud.google.com/ → chọn/tạo project Lexkite.
+  2. APIs & Services → Library → "Google Drive API" → **Enable**.
+  3. Google Auth Platform → **Branding**: External, tên "Lexkite", email hỗ trợ, Authorized domain `lexkite.com` (+ link trang chính sách bảo mật của lexkite.com).
+  4. **Data Access** → Add or remove scopes → chỉ `.../auth/drive.file`, `openid`, `.../auth/userinfo.email` (không nhạy cảm → không cần Google thẩm định).
+  5. **Audience** → Test users → thêm email Drive sẽ nối; hoặc **Publish app** (Production) để token không hết hạn sau 7 ngày (chế độ Testing tự thu hồi sau 7 ngày).
+  6. **Clients** → Create client → *Web application* → Authorized redirect URIs: `https://lexkite.com/api/drive/callback` → Create → chép Client ID + Client secret.
+  7. Cloudflare → Pages → lexkite → Settings → Variables and Secrets (Production) → thêm secret `GOOGLE_DRIVE_CLIENT_ID`, `GOOGLE_DRIVE_CLIENT_SECRET`, `DRIVE_ENC_KEY` (`openssl rand -base64 32`) và `LEXKITE_DRIVE_CLI_KEY` (`openssl rand -hex 32`); thêm `LEXKITE_DRIVE_CLI_KEY` cùng giá trị vào GitHub → Settings → Secrets → Actions, và máy: `~/.config/lexkite/drive-cli-key`.
+  8. Triển khai lại Pages → `https://lexkite.com/admin.html#drive` → **Kết nối Google Drive** → chọn tài khoản → đồng ý → quay về danh sách Drive.
+- **Đổi `DRIVE_ENC_KEY`** = mọi token cũ không giải được → phải nối lại từng Drive.
+- Test: `node scripts/test/drive.mjs` (trong `npm test`).

@@ -63,7 +63,7 @@ Tick these categories:
 | Health information | No | |
 | Financial and payment information | No | |
 | Authentication information | **Yes** | The user's own Gemini API key, if they add one; stored only on the device and sent only to Google's Gemini API. (Google sign-in itself happens on lexkite.com, not in the extension.) |
-| Personal communications | No | |
+| Personal communications | **Yes** | Only when the user chooses "Report a problem" in the popup: the category and description they write, an optional screenshot they attach, and their email only if they ask for updates – sent to lexkite.com (/api/report) together with the extension version and the **domain** of the current tab (never the full URL or page content). |
 | Location | No | The extension sends no location; IP addresses are not stored. |
 | Web history | No | The extension does not record visited pages. It stores the title/URL of a page only when the user saves a word from that page (counted under "Website content"). |
 | User activity | **Yes** | Daily anonymous usage counts (number of lookups, saves, popup and new-tab opens) with a random device identifier, plus install/update counts. No clicks, keystrokes or page data. |

@@ -1,0 +1,16 @@
+{
+ "_note": "Bộ mẫu hiệu chỉnh AI thị giác (library.mjs vision-cal). expect = đáp án đúng đã kiểm bằng mắt + đo điểm đỏ vùng kính (17/10). Hai clip Diane được giao nhãn 'mất kính đỏ' nhưng đo cả 20 khung đều còn kính (mật độ điểm đỏ ≈ 13‰ như clip đạt) – nhãn cũ đến từ bảng ghép 300 px quá nhỏ; giữ ở đây với expect PASS + ghi chú.",
+ "samples": [
+  { "id": "leo_nod2_morph", "who": "leo", "file": "brand/library/clips/src/leo_nod_laugh_v2.mp4", "expect": "FAIL", "why": "tóc biến thành buộc đuôi" },
+  { "id": "leo_nod3_morph", "who": "leo", "file": "brand/library/clips/src/leo_nod_laugh_v3.mp4", "expect": "FAIL", "why": "tóc biến thành buộc đuôi" },
+  { "id": "diane_skeptic_facepalm", "who": "diane", "file": "brand/library/clips/src/diane_skeptic_facepalm.mp4", "expect": "PASS", "assigned": "FAIL", "why": "nhãn giao: mất kính đỏ – đo thực tế: còn kính mọi khung (cuối clip tay che)" },
+  { "id": "diane_talk_point", "who": "diane", "file": "brand/library/clips/src/diane_talk_point.mp4", "expect": "PASS", "assigned": "FAIL", "why": "nhãn giao: mất kính đỏ – đo thực tế: còn kính mọi khung" },
+  { "id": "mia_nod_laugh", "who": "mia", "file": "brand/library/clips/src/mia_nod_laugh.mp4", "expect": "PASS" },
+  { "id": "carlos_wave_thumbs", "who": "carlos", "file": "brand/library/clips/src/carlos_wave_thumbs.mp4", "expect": "PASS" },
+  { "id": "leo_talk_point", "who": "leo", "file": "brand/characters/_candidates/clips/leo_talk_point.mp4", "expect": "PASS" },
+  { "id": "leo_shock_headgrab", "who": "leo", "file": "brand/characters/_candidates/clips/leo_shock_headgrab.mp4", "expect": "PASS" },
+  { "id": "diane_nod_handsonhips", "who": "diane", "file": "brand/characters/_candidates/clips/diane_nod_handsonhips.mp4", "expect": "PASS" },
+  { "id": "diane_idle_listen", "who": "diane", "file": "brand/characters/_candidates/clips/diane_idle_listen.mp4", "expect": "PASS" },
+  { "id": "ama_wave_thumbs", "who": "ama", "file": "brand/characters/_candidates/clips/ama_wave_thumbs.mp4", "expect": "PASS" }
+ ]
+}

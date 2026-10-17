@@ -4,7 +4,7 @@ import assert from 'assert/strict';
 import fs from 'fs';
 import path from 'path';
 import { spawnSync } from 'child_process';
-import { parseName, canonical, inferCanonical, stackedRel, writeRenderManifest, emptyManifest, upsertEntry, qaStatus, gitBlobSha, verifyEntry, coverage, repoBudget, visionVerdict, ROOT } from '../video/library.mjs';
+import { parseName, canonical, inferCanonical, stackedRel, writeRenderManifest, emptyManifest, upsertEntry, qaStatus, gitBlobSha, verifyEntry, coverage, repoBudget, visionVerdict, ROOT, parseVision, parseIdentity, runVisionChain, combineVision, judgeSheet, cfVisionProvider, CF_VISION, IDENTITY, IDENTITY_PROMPT } from '../video/library.mjs';
 
 let n = 0;
 const t = (name, fn) => { fn(); n++; };
@@ -50,7 +50,7 @@ t('ngân sách repo media', () => {
   assert.equal(repoBudget(690 << 20, 20 << 20).warn, true);
   assert.equal(repoBudget(940 << 20, 20 << 20).block, true);
 });
-t('AI thị giác: lỗi nào cũng FAIL, không khoá → SKIP', () => {
+t('AI thị giác: lỗi nào cũng FAIL, không có kết quả → SKIP', () => {
   assert.equal(visionVerdict({ hands_ok: true, limbs_ok: true, face_ok: true, extra_people: false, text_present: false, style_consistent: true, identity_consistent: true, issues: [] }).status, 'PASS');
   const v = visionVerdict({ hands_ok: false, limbs_ok: true, face_ok: true, extra_people: false, text_present: true, style_consistent: true, identity_consistent: false, issues: ['6 fingers'] });
   assert.equal(v.status, 'FAIL'); assert.ok(v.reasons.includes('identity drift') && v.reasons.includes('có chữ/watermark'));
@@ -120,6 +120,55 @@ if (fs.existsSync(mf)) {
     if (e.status === 'approved') assert.notEqual((e.check || {}).status, 'FAIL', 'approved nhưng check FAIL: ' + e.id);
     assert.ok(!/AIza|ghp_|gho_|github_pat_/.test(JSON.stringify(e)), 'manifest chứa khoá/token: ' + e.id);
   }
+  n++;
+}
+
+// ---- AI thị giác: schema chặt + chuỗi dự phòng 2 giám khảo (nhà cung cấp giả lập, không mạng) ----
+{
+  const BODY = { hands_ok: true, limbs_ok: true, face_ok: true, extra_people: false, text_present: false, style_consistent: true, issues: [] };
+  const leoCells = hb => ({ cells: hb.map((h, i) => ({ cell: i + 1, hair_back: h, eyes: 'round black glasses', beard: 'beard' })) });
+  assert.deepEqual(parseVision('```json\n' + JSON.stringify(BODY) + '\n```').hands_ok, true);
+  assert.equal(parseVision('{"hands_ok": "yes"}'), null, 'sai kiểu → null');
+  assert.equal(parseVision({ ...BODY, issues: undefined }), null, 'thiếu issues → null');
+  assert.equal(parseVision('không phải JSON'), null);
+  assert.equal(visionVerdict(parseVision('rác')).status, 'SKIP', 'không parse được → cần duyệt tay, không tự PASS');
+  const drift = parseIdentity(leoCells(['short', 'short', 'long hanging', 'long hanging', 'short', 'short']), 'leo');
+  assert.ok(drift.drift.length === 1 && /buộc đuôi/.test(drift.drift[0]), 'Leo buộc đuôi 2/5 khung → drift');
+  assert.equal(parseIdentity(leoCells(['short', 'short', 'short', 'short', 'short', 'short']), 'leo').drift.length, 0);
+  assert.equal(parseIdentity({ cells: [{ cell: 1, eyes: 'red glasses', streak: 'black with a grey streak' }, { cell: 2, eyes: 'no glasses', streak: 'black with a grey streak' }, { cell: 3, eyes: 'red glasses', streak: 'black with a grey streak' }] }, 'diane').drift.length, 0, 'kính bị che 1 khung (min 2) → chưa FAIL');
+  assert.equal(parseIdentity({ cells: [{ cell: 1, eyes: 'maybe' }, { cell: 2, eyes: 'maybe' }] }, 'diane'), null, 'đáp án ngoài lựa chọn → null');
+  assert.ok(Object.keys(IDENTITY).every(w => IDENTITY_PROMPT(w).includes('Choose one of')), 'prompt nhận diện có lựa chọn cho mọi nhân vật');
+
+  const P = (name, fn) => ({ name, run: fn });
+  const calls = [];
+  const lic = P('cloudflare:llama-3.2', async () => { calls.push('l32'); throw Object.assign(new Error('cloudflare:llama-3.2: 403 AiError: Model Agreement'), { code: 5016 }); });
+  const bad = P('grabcast', async () => { calls.push('gc'); return 'xin lỗi tôi không thể'; });
+  const good = (name, body = BODY, head = leoCells(Array(6).fill('short'))) => P(name, async inp => { calls.push(name); return inp.prompt.includes('Choose one of') ? JSON.stringify(head) : JSON.stringify(body); });
+  const input = { who: 'leo', body: { prompt: 'body', b64: 'AA' }, head: { prompt: IDENTITY_PROMPT('leo'), b64: 'BB' } };
+  let r = await runVisionChain(input, {}, [lic, bad, good('gemini')]);
+  assert.ok(r.v && r.provider === 'gemini' && r.license === true && r.tried.length === 2, 'giấy phép 5016 → bỏ qua, JSON sai → nhà kế tiếp');
+  assert.deepEqual(calls, ['l32', 'gc', 'gemini', 'gemini']);
+  r = await runVisionChain(input, {}, [lic, bad]); assert.equal(r.v, null, 'mọi nhà cung cấp hỏng → null');
+  r = await runVisionChain(input, {}, [good('scout'), good('gemini')], ['scout']); assert.equal(r.provider, 'gemini', 'kiểm chéo bỏ nhà cung cấp đã chấm chính');
+  const pass = { v: { ...BODY, identity_consistent: true }, provider: 'a' }, fail = { v: { ...BODY, identity_consistent: false, drift: ['x'] }, provider: 'b' };
+  assert.equal(combineVision(pass, pass).status, 'PASS');
+  assert.equal(combineVision(pass, fail).status, 'FAIL', 'một giám khảo FAIL → FAIL');
+  assert.equal(combineVision(pass, { v: null }).status, 'SKIP', 'thiếu kiểm chéo → cần duyệt tay');
+  assert.equal(combineVision({ v: null }, fail).status, 'FAIL');
+  // judgeSheet đầu-cuối: chính PASS + kiểm chéo thấy buộc đuôi → FAIL; cả hai PASS → PASS; chéo hỏng → SKIP
+  const hb = Buffer.from('body'), hh = Buffer.from('head');
+  let j = await judgeSheet('leo', hb, hh, { primary: [good('scout')], cross: [lic, good('gemini', BODY, leoCells(['short', 'short', 'long hanging', 'short', 'short', 'short']))], cfToken: '', geminiKeys: () => [] }, { cache: false });
+  assert.ok(j.status === 'FAIL' && j.reasons.some(x => /\[gemini\].*buộc đuôi/.test(x)), 'kiểm chéo bắt buộc đuôi 1 khung → FAIL');
+  j = await judgeSheet('leo', hb, hh, { primary: [good('scout')], cross: [good('gemini')] }, { cache: false }); assert.equal(j.status, 'PASS');
+  j = await judgeSheet('leo', hb, hh, { primary: [good('scout')], cross: [lic, bad] }, { cache: false }); assert.ok(j.status === 'SKIP' && /duyệt tay/.test(j.reasons[0]), 'chéo hỏng → cần duyệt tay');
+  // Cloudflare REST: định dạng thân + lỗi giấy phép, token không lọt vào lỗi
+  const sent = [];
+  const fakeFetch = async (url, init) => { sent.push({ url, body: JSON.parse(init.body), auth: init.headers.Authorization }); return url.includes('llama-3.2') ? new Response(JSON.stringify({ success: false, errors: [{ code: 5016, message: 'Model Agreement: submit agree' }] }), { status: 403 }) : new Response(JSON.stringify({ success: true, result: { response: { ok: 1 } } }), { status: 200 }); };
+  const out = await cfVisionProvider(CF_VISION.scout).run({ prompt: 'p', b64: 'QQ==' }, { fetch: fakeFetch, cfToken: 'cf_TOKEN_SECRET_123' });
+  assert.deepEqual(out, { ok: 1 });
+  assert.ok(sent[0].url.endsWith('/ai/run/@cf/meta/llama-4-scout-17b-16e-instruct') && sent[0].body.messages[0].content[1].image_url.url.startsWith('data:image/jpeg;base64,'), 'scout: messages + image_url');
+  let err; try { await cfVisionProvider(CF_VISION.llama32).run({ prompt: 'p', b64: 'QQ==' }, { fetch: fakeFetch, cfToken: 'cf_TOKEN_SECRET_123' }); } catch (e) { err = e; }
+  assert.ok(err && err.code === 5016 && !err.message.includes('cf_TOKEN_SECRET_123') && sent[1].body.image === 'QQ==', 'llama-3.2: image base64 + lỗi 5016');
   n++;
 }
 

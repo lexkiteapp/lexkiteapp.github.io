@@ -5,6 +5,7 @@
 # 3) publish: gộp artifact → library.mjs ci-apply (ghi content/video/library.json + brand/library/manifest.json, đẩy stacked/index/manifest
 #    lên lexkite-media nếu có secret LEXKITE_MEDIA_TOKEN) → mở PR manifest vào repo chính. Không có secret: phiên chính tải artifact
 #    "library-results" rồi chạy `node scripts/video/library.mjs ci-apply <thư mục>` (chỉ upload).
+#    Có secret LEXKITE_DRIVE_CLI_KEY → drive-backup: bản gốc + bản stacked lên Kho Drive riêng (§8.6) trước khi mở PR.
 name: library-build
 on:
   workflow_dispatch:
@@ -88,6 +89,11 @@ jobs:
           if [ -n "$GH_MEDIA_TOKEN" ]; then node scripts/video/library.mjs ci-apply out/library; else
             echo "::warning::Chưa có secret LEXKITE_MEDIA_TOKEN – chỉ ghi manifest; phiên chính tải artifact library-results rồi chạy library.mjs ci-apply"
             node scripts/video/library.mjs ci-apply out/library --no-sync; fi
+      - name: Sao lưu Kho Drive riêng (bản gốc + bản stacked) – chỉ khi có secret
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: |
+          if [ -z "$LEXKITE_DRIVE_CLI_KEY" ]; then echo "Chưa có secret LEXKITE_DRIVE_CLI_KEY – bỏ qua sao lưu Drive (docs/ASSET-LIBRARY.md §8.6)"; exit 0; fi
+          node scripts/video/library.mjs drive-backup out/library || echo "::warning::Sao lưu Kho Drive lỗi một phần – chạy lại library-build hoặc library.mjs sync --backup-only"
       - name: PR manifest vào repo chính
         env: { GH_TOKEN: '${{ github.token }}' }
         run: |

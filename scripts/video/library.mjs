@@ -9,9 +9,11 @@
 //   node scripts/video/library.mjs report
 //   node scripts/video/library.mjs stack [id|all] [--force]    bản stacked cho render (clip_to_layer.py) + ghi brand/library/manifest.json
 //   node scripts/video/library.mjs render-manifest              chỉ ghi lại + kiểm brand/library/manifest.json
+//   node scripts/video/library.mjs drive-backup [dir]          sao lưu bản gốc + bản stacked (dir artifact CI) lên Kho Drive riêng (LEXKITE_DRIVE_CLI_KEY)
+//   node scripts/video/library.mjs vision-cal [--runs N] [--model @cf/...]   hiệu chỉnh AI thị giác trên bộ mẫu scripts/video/vision-calibration.json
 //   CI (.github/workflows/library-build.yml): ci-plan [missing|all|id,…] · ci-build <id> --out dir · ci-apply <dir> [--no-sync]
 // Nguồn chính: repo lexkite-media/library/ (bản web: WebP ≤ 400 KB, MP4 H.264 CRF 20) → https://media.lexkite.com/library/…
-// Nguồn phụ: kho GrabCast (storage_class "bulk", bản gốc đủ phân giải, cả reserve/reject). Khoá/token KHÔNG BAO GIỜ được in hay ghi ra file.
+// Nguồn phụ: Kho Drive riêng (Quản trị → Kho Drive, khi đã nối) – không có thì kho GrabCast (storage_class "bulk"); bản gốc đủ phân giải, cả reserve/reject. Khoá/token KHÔNG BAO GIỜ được in hay ghi ra file.
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
@@ -127,7 +129,7 @@ function probe(file) {
 
 // ---------- kiểm tra kỹ thuật (Python) + AI thị giác ----------
 const kindArg = (kind, rel) => (kind === 'clip' && /\.stacked\.mp4$/.test(rel) ? 'stacked' : kind);
-export function runCheck(file, entry, m, { sheet, kind } = {}) {
+export function runCheck(file, entry, m, { sheet, kind, aiSheet, headSheet, aiRef } = {}) {
   const args = [path.join(HERE, 'asset_check.py'), file, '--kind', kind || kindArg(entry.kind, file)];
   const r = ratioArg(ratioOf(entry.file)); if (r) args.push('--ratio', r);
   if (entry.trimmed) args.push('--trimmed');
@@ -137,6 +139,7 @@ export function runCheck(file, entry, m, { sheet, kind } = {}) {
     if (m.castStroke) args.push('--cast-stroke', m.castStroke.join(','));
   }
   if (sheet) args.push('--sheet', sheet);
+  if (aiSheet) { args.push('--ai-sheet', aiSheet); if (headSheet) args.push('--head-sheet', headSheet); if (aiRef) args.push('--ai-ref', aiRef); } // bảng ≤ 768 px cho AI thị giác
   const p = spawnSync(python(), args, { encoding: 'utf8', env: { ...process.env, MPLCONFIGDIR: path.join(os.tmpdir(), 'lexkite-mpl'), GLOG_minloglevel: '3', TF_CPP_MIN_LOG_LEVEL: '3' }, maxBuffer: 64 << 20 });
   const line = (p.stdout || '').trim().split('\n').filter(l => l.startsWith('{')).pop();
   if (!line) return { status: 'FAIL', checks: [{ name: 'checker', status: 'FAIL', reason: 'asset_check.py lỗi: ' + (p.stderr || '').trim().split('\n').pop() }], metrics: {}, suggest: {} };
@@ -166,21 +169,167 @@ function loadGeminiKeys() {
   secrets.push(...geminiKeys);
   return geminiKeys;
 }
-const VISION_PROMPT = who => `You are a strict QA reviewer for a flat 2D vector cartoon character library (brand: warm palette, teal/orange accents, soft dark-brown outlines).
-Image 1 = reference DNA of the character "${who}" (ground truth for identity and style). Image 2 = contact sheet of frames/poses of the asset under review.
-Check ONLY image 2 against image 1. Answer JSON only:
-{"hands_ok": bool (every visible hand has ≤5 fingers, no fused/extra/missing hands), "limbs_ok": bool (exactly 2 arms and 2 legs, no broken or impossible joints),
- "face_ok": bool (2 eyes, 1 mouth, plausible symmetry, glasses/accessories present if the reference has them), "extra_people": bool, "text_present": bool (any letters, logos or watermarks),
- "style_consistent": bool (same flat 2D style and outline weight as reference, not photographic), "identity_consistent": bool (same hairstyle, hair colour, skin, outfit as reference in every frame),
- "issues": [short strings]}`;
-async function gemini(parts, keys) {
+// ---------- AI thị giác: chuỗi nhà cung cấp miễn phí trước (docs/ASSET-LIBRARY.md §7.1) ----------
+// HAI GIÁM KHẢO, cả hai PASS mới PASS; một bên FAIL → FAIL; thiếu một bên → "cần duyệt tay":
+//   chính  = Workers AI @cf/meta/llama-4-scout-17b-16e-instruct → dự phòng GrabCast vision (chỉ khi có env GRABCAST_AI_VISION_URL) → Gemini
+//   kiểm chéo = Workers AI @cf/meta/llama-3.2-11b-vision-instruct (cần chấp nhận giấy phép Meta 1 lần – lỗi 5016) → @cf/google/gemma-3-12b-it (nếu tài khoản được dùng) → Gemini
+// (giám khảo kiểm chéo không dùng lại nhà cung cấp của giám khảo chính). Token Cloudflare: ~/.config/lexkite/cf-token hoặc CLOUDFLARE_API_TOKEN (CI).
+// Gửi 1 ảnh ≤ 768 px (ô 1 = DNA viền xanh lá + 5 khung), JSON chặt, kiểm schema; không parse được = "cần duyệt tay" (không bao giờ tự PASS). Cache theo sha256 ảnh.
+export const VISION_PROMPT_VER = 'v6';
+export const CF_ACCOUNT = process.env.CLOUDFLARE_ACCOUNT_ID || 'e34e14b7ab35eaf2b3d9d84fcce011f7';
+export const CF_VISION = { llama32: '@cf/meta/llama-3.2-11b-vision-instruct', scout: '@cf/meta/llama-4-scout-17b-16e-instruct', gemma: '@cf/google/gemma-3-12b-it' };
+/** Nhận diện từng nhân vật (từ ảnh DNA + content/video/assets.json). attrs = câu hỏi MÔ TẢ (chọn 1 đáp án) cho TỪNG ô cận đầu; AI chỉ quan sát,
+ *  code tự so với want. min = số khung sai tối thiểu để FAIL (1 cho biến dạng tóc; 2 cho thứ có thể bị tay che như kính).
+ *  Hiệu chỉnh 17/10 (Workers AI llama-4-scout): câu hỏi có/không kiểu "có buộc đuôi không?" bị trả "không" sai; câu mô tả có lựa chọn bắt đúng. */
+export const IDENTITY = {
+  mia: { look: 'Asian-American woman, short glossy black bob haircut with bangs, small yellow hair clip, orange sweater over a white collared shirt, teal trousers, white sneakers', attrs: [
+    { k: 'hair_length', q: 'how long is her hair?', opts: ['chin-length bob', 'long or tied up'], want: 'chin-length bob', min: 1, label: 'tóc dài/buộc (Mia tóc bob)' },
+    { k: 'eyes', q: 'what is on her eyes?', opts: ['no glasses', 'glasses'], want: 'no glasses', min: 2, label: 'mọc thêm kính' }] },
+  leo: { look: 'American man, short messy light-brown hair, short beard, round black glasses, teal cardigan over a yellow t-shirt, beige chinos, orange sneakers', glasses: true, attrs: [
+    { k: 'hair_back', q: 'is there a long section of hair hanging down behind his ear toward his neck (like a ponytail or mullet)?', opts: ['short', 'long hanging'], want: 'short', min: 1, label: 'tóc biến thành buộc đuôi/dài' },
+    { k: 'eyes', q: 'what is on his eyes?', opts: ['round black glasses', 'other glasses', 'no glasses'], want: 'round black glasses', min: 2, label: 'mất/đổi kính' },
+    { k: 'beard', q: 'facial hair?', opts: ['beard', 'no beard'], want: 'beard', min: 2, label: 'mất râu' }] },
+  ama: { look: 'African-American young woman, short natural curly hair with a yellow headband, coral hoodie, teal denim overall skirt, black leggings, white sneakers', attrs: [
+    { k: 'headband', q: 'what is in her hair?', opts: ['yellow headband', 'no headband'], want: 'yellow headband', min: 2, label: 'mất băng đô vàng' },
+    { k: 'eyes', q: 'what is on her eyes?', opts: ['no glasses', 'glasses'], want: 'no glasses', min: 2, label: 'mọc thêm kính' }] },
+  diane: { look: 'Black woman in her fifties, short curly black hair with a grey streak, red-framed glasses, yellow blazer over a cream top, dark trousers, brown loafers', glasses: true, attrs: [
+    { k: 'eyes', q: 'what is on her eyes? (if a hand covers part of the face, judge the visible part)', opts: ['red glasses', 'other glasses', 'no glasses'], want: 'red glasses', min: 2, label: 'mất/đổi kính đỏ' },
+    { k: 'streak', q: 'hair colour?', opts: ['black with a grey streak', 'only black'], want: 'black with a grey streak', min: 2, label: 'mất lọn tóc bạc' }] },
+  carlos: { look: 'Latino man, short curly black hair, black mustache, olive-green henley, navy apron, light-blue jeans, white sneakers', attrs: [
+    { k: 'mustache', q: 'facial hair above the mouth?', opts: ['mustache', 'none'], want: 'mustache', min: 2, label: 'mất ria' },
+    { k: 'eyes', q: 'what is on his eyes?', opts: ['no glasses', 'glasses'], want: 'no glasses', min: 2, label: 'mọc thêm kính' }] },
+};
+export const VISION_PROMPT = who => { const id = IDENTITY[who] || { look: 'see the reference' }; return `You are a careful QA reviewer for a flat 2D cartoon character library.
+The image is a grid with 2 rows. Column 1 (framed in GREEN) is the reference of the character "${who}" (${id.look}). Columns 2+ are frames of ONE animated clip of the same character, in time order.
+Top row = full body of each frame. Bottom row = close-up of the head of the frame directly above it.
+Judge the non-green columns. Only report what you actually see; ignore pose, expression, mild blur and lighting.
+Reply with ONE JSON object and nothing else:
+{"hands_ok": boolean (every visible hand has at most 5 fingers, no fused/extra/missing hands),
+ "limbs_ok": boolean (exactly 2 arms and 2 legs, no broken or impossible joints),
+ "face_ok": boolean (2 eyes, 1 mouth, no melted or distorted face),
+ "extra_people": boolean (more than one person in any column),
+ "text_present": boolean (readable letters, logos or watermarks overlaid on the picture; a small ID badge or name tag worn on the clothes does NOT count),
+ "style_consistent": boolean (same flat 2D cartoon style as column 1, not photographic),
+ "issues": array of short strings naming the column and the problem (empty if none)}`; };
+/** Prompt nhận diện (bảng cận đầu: ô 1 viền xanh lá = DNA, các ô sau = khung clip). AI chỉ trả quan sát từng ô; code tự so (parseIdentity). */
+export const IDENTITY_PROMPT = who => { const id = IDENTITY[who] || { look: '', attrs: [] }; return `These are head close-ups of a cartoon character "${who}" (${id.look}).
+Cell 1 (framed in GREEN) is the reference. Cells 2 to 6 are frames of one animated clip, left to right, top to bottom.
+Describe each cell separately: answer about what is visible in THAT cell only, not what you expect.${id.attrs.map(x => `\n - "${x.k}": ${x.q} Choose one of: ${x.opts.map(o => '"' + o + '"').join(' | ')}`).join('')}
+Reply with ONE JSON object and nothing else:
+{"cells": [{"cell": 1${id.attrs.map(x => `, "${x.k}": "..."`).join('')}}, {"cell": 2, ...}, ... one object per cell]}`; };
+/** → {drift[], cells} hoặc null nếu JSON sai schema. Exported để test. */
+export function parseIdentity(raw, who) {
+  let v = raw;
+  if (typeof v === 'string') { const s = v.replace(/```(?:json)?/gi, ''), a = s.indexOf('{'), b = s.lastIndexOf('}'); if (a < 0 || b <= a) return null; try { v = JSON.parse(s.slice(a, b + 1)); } catch { return null; } }
+  const id = IDENTITY[who]; if (!id || !v || !Array.isArray(v.cells)) return null;
+  const frames = v.cells.filter(c => c && +c.cell !== 1); if (!frames.length) return null;
+  const drift = [];
+  for (const a of id.attrs) {
+    const vals = frames.map(c => String(c[a.k] == null ? '' : c[a.k]).toLowerCase().trim()); if (vals.some(x => !a.opts.includes(x))) return null;
+    const wrong = vals.filter(x => x !== a.want).length;
+    if (wrong >= Math.min(a.min, frames.length)) drift.push(`${a.label} (${wrong}/${frames.length} khung)`);
+  }
+  return { drift };
+}
+const BOOL_KEYS = ['hands_ok', 'limbs_ok', 'face_ok', 'extra_people', 'text_present', 'style_consistent'], OPT_KEYS = ['outfit_consistent', 'identity_consistent'];
+/** Đọc trả lời AI (chuỗi hoặc object, có thể bọc ```json) → object đúng schema hoặc null. Exported để test. */
+export function parseVision(raw) {
+  let v = raw;
+  if (typeof v === 'string') {
+    const s = v.replace(/```(?:json)?/gi, ''), a = s.indexOf('{'), b = s.lastIndexOf('}');
+    if (a < 0 || b <= a) return null;
+    try { v = JSON.parse(s.slice(a, b + 1)); } catch { return null; }
+  }
+  if (!v || typeof v !== 'object' || Array.isArray(v)) return null;
+  for (const k of BOOL_KEYS) if (typeof v[k] !== 'boolean') return null;
+  for (const k of OPT_KEYS) if (k in v && v[k] != null && typeof v[k] !== 'boolean') return null;
+  if (!Array.isArray(v.issues)) return null;
+  const out = {}; for (const k of [...BOOL_KEYS, ...OPT_KEYS]) if (typeof v[k] === 'boolean') out[k] = v[k];
+  out.issues = v.issues.map(x => String(x).slice(0, 160)).slice(0, 8);
+  return out;
+}
+function cfToken() {
+  const t = process.env.CLOUDFLARE_API_TOKEN || (() => { try { return fs.readFileSync(path.join(os.homedir(), '.config/lexkite/cf-token'), 'utf8').trim(); } catch { return ''; } })();
+  if (t) secrets.push(t);
+  return t;
+}
+const visionErr = (provider, status, msg, code) => Object.assign(new Error(`${provider}: ${status} ${scrub(String(msg)).slice(0, 160)}`), { provider, status, code });
+/** Nhà cung cấp Cloudflare Workers AI (REST). deps: {fetch, token}. Trả chuỗi/obj trả lời thô; lỗi → ném (code 5016 = chưa chấp nhận giấy phép). */
+export const cfVisionProvider = model => ({
+  name: 'cloudflare:' + model.split('/').pop(),
+  async run({ prompt, b64 }, deps) {
+    const token = deps.cfToken; if (!token) throw visionErr(this.name, 0, 'thiếu token (~/.config/lexkite/cf-token hoặc CLOUDFLARE_API_TOKEN)', 'no-key');
+    const body = model === CF_VISION.llama32
+      ? { prompt, image: b64, max_tokens: 700, temperature: 0 }
+      : { messages: [{ role: 'user', content: [{ type: 'text', text: prompt }, { type: 'image_url', image_url: { url: 'data:image/jpeg;base64,' + b64 } }] }], max_tokens: 700, temperature: 0, response_format: { type: 'json_object' } };
+    const r = await deps.fetch(`https://api.cloudflare.com/client/v4/accounts/${deps.cfAccount || CF_ACCOUNT}/ai/run/${model}`, { method: 'POST', headers: { Authorization: 'Bearer ' + token, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || j.success === false) { const e0 = (j.errors || [])[0] || {}; throw visionErr(this.name, r.status, e0.message || 'lỗi', e0.code); }
+    const res = j.result || {};
+    return res.response != null ? res.response : ((res.choices || [])[0]?.message?.content ?? null);
+  },
+});
+/** GrabCast vision – chỉ bật khi có env GRABCAST_AI_VISION_URL (POST {prompt, image_b64, mime} với khoá GRABCAST_AI_KEY). */
+export const grabcastVisionProvider = {
+  name: 'grabcast',
+  async run({ prompt, b64 }, deps) {
+    if (!deps.gcVisionUrl || !deps.gcAiKey) throw visionErr('grabcast', 0, 'chưa có endpoint vision', 'not-configured');
+    const r = await deps.fetch(deps.gcVisionUrl, { method: 'POST', headers: { 'X-API-Key': deps.gcAiKey, 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt, image_b64: b64, mime: 'image/jpeg', json: true }) });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) throw visionErr('grabcast', r.status, j.error || j.detail || 'lỗi');
+    return j.text ?? j.output ?? j.result ?? null;
+  },
+};
+export const geminiVisionProvider = {
+  name: 'gemini',
+  async run({ prompt, b64 }, deps) {
+    const keys = deps.geminiKeys ? deps.geminiKeys() : [];
+    if (!keys.length) throw visionErr('gemini', 0, 'không có khoá', 'no-key');
+    const v = await gemini([{ text: prompt }, { inline_data: { mime_type: 'image/jpeg', data: b64 } }], keys, deps.fetch);
+    if (v == null) throw visionErr('gemini', 429, 'hết hạn mức mọi khoá', 'quota');
+    return v;
+  },
+};
+export const PRIMARY_CHAIN = [cfVisionProvider(CF_VISION.scout), grabcastVisionProvider, geminiVisionProvider];
+export const CROSS_CHAIN = [cfVisionProvider(CF_VISION.llama32), cfVisionProvider(CF_VISION.gemma), geminiVisionProvider];
+/** Chạy chuỗi dự phòng: nhà cung cấp lỗi / trả JSON sai schema → thử nhà kế tiếp. → {v, provider, tried[], license?}. v = null nếu tất cả hỏng. Exported để test. */
+/** 1 giám khảo = 2 lượt cùng nhà cung cấp: bảng toàn thân (giải phẫu/trang phục) + bảng cận đầu (nhận diện, code tự so). → v gộp hoặc null. */
+export async function judgeWith(p, input, deps) {
+  const body = parseVision(await p.run(input.body, deps));
+  if (!body) return null;
+  if (!input.head || !(IDENTITY[input.who] || {}).attrs) return body;
+  const id = parseIdentity(await p.run(input.head, deps), input.who);
+  if (!id) return null;
+  body.drift = id.drift;
+  body.identity_consistent = !id.drift.length;
+  if (IDENTITY[input.who].glasses) body.glasses_ok = !id.drift.some(d => /kính/.test(d));
+  return body;
+}
+export async function runVisionChain(input, deps, chain = PRIMARY_CHAIN, skip = []) {
+  const tried = []; let license = false;
+  for (const p of chain) {
+    if (skip.includes(p.name)) continue;
+    try {
+      const v = await judgeWith(p, input, deps);
+      if (v) return { v, provider: p.name, tried, license };
+      tried.push(p.name + ': JSON sai schema');
+    } catch (e) {
+      if (e.code === 5016 || /Model Agreement/i.test(e.message)) license = true;
+      tried.push(e.code === 'not-configured' || e.code === 'no-key' ? `${p.name}: bỏ qua (${scrub(e.message).replace(/^[^:]+: \d+ /, '')})` : scrub(e.message).slice(0, 120));
+    }
+  }
+  return { v: null, provider: null, tried, license };
+}
+const VCACHE = path.join(LIB, '_cache/vision.json');
+const loadVCache = () => { try { return JSON.parse(fs.readFileSync(VCACHE, 'utf8')); } catch { return {}; } };
+async function gemini(parts, keys, fetcher = fetch) {
   for (let n = 0; n < keys.length; n++) {
     const k = keys[(Math.floor(Math.random() * keys.length) + n) % keys.length];
-    const r = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent', {
+    const r = await fetcher('https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent', {
       method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': k },
       body: JSON.stringify({ contents: [{ parts }], generationConfig: { responseMimeType: 'application/json', temperature: 0 } }),
     }).catch(e => ({ ok: false, status: 0, text: async () => String(e) }));
-    if (r.ok) { const j = await r.json(); return JSON.parse(((j.candidates || [])[0]?.content?.parts || []).map(p => p.text || '').join('') || '{}'); }
+    if (r.ok) { const j = await r.json(); return ((j.candidates || [])[0]?.content?.parts || []).map(p => p.text || '').join('') || null; }
     if (![429, 403, 503, 500].includes(r.status)) throw new Error('Gemini ' + r.status + ' ' + scrub((await r.text()).slice(0, 160)));
     if (r.status === 429 || r.status === 503) {
       // hạn mức theo phút → chờ & thử lại; hết hạn mức ngày (gói miễn phí 20 lượt/ngày, "retry in 41m") → bỏ khoá này cho cả lượt chạy
@@ -192,37 +341,57 @@ async function gemini(parts, keys) {
   }
   return null; // hết hạn mức mọi khoá
 }
-/** Đánh giá kết quả AI thị giác → {status, reasons}. Lỗi nào cũng FAIL. Exported để test. */
+/** Đánh giá kết quả AI thị giác → {status, reasons}. Lỗi nào cũng FAIL; null (không có kết quả hợp lệ) = SKIP "cần duyệt tay". Exported để test. */
 export function visionVerdict(v) {
-  if (!v) return { status: 'SKIP', reasons: ['không có khoá/hạn mức Gemini – cần duyệt tay'] };
+  if (!v) return { status: 'SKIP', reasons: ['AI thị giác không trả kết quả hợp lệ – cần duyệt tay'] };
   const bad = [];
-  for (const k of ['hands_ok', 'limbs_ok', 'face_ok', 'style_consistent', 'identity_consistent']) if (v[k] === false) bad.push(k === 'identity_consistent' ? 'identity drift' : k.replace('_ok', ' lỗi').replace('_consistent', ' lệch'));
+  for (const k of ['hands_ok', 'limbs_ok', 'face_ok', 'style_consistent', 'outfit_consistent', 'identity_consistent']) if (v[k] === false) bad.push(k === 'identity_consistent' ? 'identity drift' : k === 'outfit_consistent' ? 'trang phục đổi' : k.replace('_ok', ' lỗi').replace('_consistent', ' lệch'));
   if (v.extra_people) bad.push('thừa người'); if (v.text_present) bad.push('có chữ/watermark');
-  return { status: bad.length ? 'FAIL' : 'PASS', reasons: bad.concat(bad.length ? (v.issues || []).slice(0, 4) : []) };
+  return { status: bad.length ? 'FAIL' : 'PASS', reasons: bad.concat(v.drift || [], bad.length ? (v.issues || []).slice(0, 3) : []) };
 }
-async function visionCheck(entry, sheet, m, file) {
-  if (!entry.who || !sheet || !fs.existsSync(sheet)) return null;
-  const keys = loadGeminiKeys();
-  if (!keys.length) return visionVerdict(null);
-  const refItem = m.items.find(x => x.who === entry.who && x.ref) || m.items.find(x => x.who === entry.who && x.kind === 'char' && /dna/.test(x.file));
-  // ảnh DNA/ref đang nhập: chính nó là chuẩn (vẫn kiểm tay/chân/mặt/chữ)
-  const refFile = (entry.ref || /\/dna\.png$/.test(entry.file || '')) && file ? file : refItem && path.join(LIB, refItem.file);
-  if (!refFile || !fs.existsSync(refFile)) return { status: 'SKIP', reasons: ['chưa có ảnh DNA của ' + entry.who + ' trong kho – cần duyệt tay'] };
-  const small = path.join(os.tmpdir(), `lexkite-ref-${entry.who}.jpg`);
-  spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', refFile, '-vf', 'scale=-2:640', small]);
-  const img = f => ({ inline_data: { mime_type: 'image/jpeg', data: fs.readFileSync(f).toString('base64') } });
-  try {
-    const v = await gemini([{ text: VISION_PROMPT(entry.who) }, img(small), img(sheet)], keys);
-    return { ...visionVerdict(v), raw: v || undefined };
-  } catch (e) { return { status: 'SKIP', reasons: ['Gemini lỗi: ' + scrub(e.message).slice(0, 120) + ' – cần duyệt tay'] }; }
+/** Gộp 2 giám khảo: một bên FAIL → FAIL; cả hai PASS → PASS; còn lại → SKIP "cần duyệt tay". a/b = {v, provider} (v null = không có kết quả). Exported để test. */
+export function combineVision(a, b) {
+  const va = visionVerdict(a && a.v), vb = visionVerdict(b && b.v), tag = (x, v) => v.reasons.map(r => `[${(x && x.provider) || '?'}] ${r}`);
+  if (va.status === 'FAIL' || vb.status === 'FAIL') return { status: 'FAIL', reasons: [...(va.status === 'FAIL' ? tag(a, va) : []), ...(vb.status === 'FAIL' ? tag(b, vb) : [])] };
+  if (va.status === 'PASS' && vb.status === 'PASS') return { status: 'PASS', reasons: [] };
+  return { status: 'SKIP', reasons: ['cần duyệt tay: thiếu ' + (va.status !== 'PASS' ? 'giám khảo chính' : 'giám khảo kiểm chéo') + ' (cả hai PASS mới PASS)'] };
+}
+/** Ảnh DNA dùng làm chuẩn cho mục (ảnh DNA/ref đang nhập: chính nó). */
+function refFileFor(entry, m, file) {
+  if (!entry.who) return null;
+  const refItem = m.items.find(x => x.who === entry.who && x.ref) || m.items.find(x => x.who === entry.who && x.kind === 'char' && /dna/.test(x.file)) || m.items.find(x => x.who === entry.who && x.kind === 'char' && /neutral/.test(x.file) && x.status === 'approved');
+  const f = (entry.ref || /\/dna\.png$/.test(entry.file || '')) && file ? file : refItem && path.join(LIB, refItem.file);
+  return f && fs.existsSync(f) ? f : null;
+}
+async function visionCheck(entry, aiSheet, headSheet, m, deps = {}) {
+  if (!entry.who || !aiSheet || !fs.existsSync(aiSheet)) return null;
+  if (!refFileFor(entry, m, null) && !(entry.ref || /\/(dna|neutral)\.png$/.test(entry.file || ''))) return { status: 'SKIP', reasons: ['chưa có ảnh DNA của ' + entry.who + ' trong kho – cần duyệt tay'] };
+  return judgeSheet(entry.who, fs.readFileSync(aiSheet), headSheet && fs.existsSync(headSheet) ? fs.readFileSync(headSheet) : null, deps);
+}
+/** Chấm bảng toàn thân + bảng cận đầu bằng 2 giám khảo (có cache theo sha256 2 ảnh + phiên bản prompt). */
+export async function judgeSheet(who, buf, head, deps = {}, { cache = true } = {}) {
+  const key = `${VISION_PROMPT_VER}:${who}:${sha256(buf)}:${head ? sha256(head) : '-'}`, store = cache ? loadVCache() : {};
+  if (store[key]) return { ...combineVision(store[key].a, store[key].b), providers: [store[key].a.provider, store[key].b.provider].filter(Boolean).map(x => x + ' (cache)') };
+  const D = { fetch, cfToken: cfToken(), cfAccount: CF_ACCOUNT, gcVisionUrl: process.env.GRABCAST_AI_VISION_URL, gcAiKey: process.env.GRABCAST_AI_KEY || (() => { try { const k = fs.readFileSync(path.join(os.homedir(), '.config/lexkite/grabcast-ai-key'), 'utf8').trim(); secrets.push(k); return k; } catch { return ''; } })(), geminiKeys: loadGeminiKeys, ...deps };
+  const input = { who, body: { prompt: VISION_PROMPT(who), b64: buf.toString('base64') }, head: head ? { prompt: IDENTITY_PROMPT(who), b64: head.toString('base64') } : null };
+  const a = await runVisionChain(input, D, deps.primary || PRIMARY_CHAIN);
+  const b = await runVisionChain(input, D, deps.cross || CROSS_CHAIN, a.provider ? [a.provider] : []);
+  if ((a.license || b.license) && !judgeSheet.warned) { judgeSheet.warned = true; log('ℹ Workers AI llama-3.2-11b-vision chưa chấp nhận giấy phép Meta (lỗi 5016) → giám khảo kiểm chéo lùi sang nhà kế tiếp. Chủ dự án quyết việc gửi prompt "agree" (docs/ASSET-LIBRARY.md §7.1).'); }
+  const out = combineVision(a, b);
+  if (out.status === 'SKIP') out.reasons.push(...[...a.tried, ...b.tried].slice(0, 4));
+  if (cache && a.v && b.v) { store[key] = { a: { v: a.v, provider: a.provider }, b: { v: b.v, provider: b.provider }, at: today() }; try { fs.mkdirSync(path.dirname(VCACHE), { recursive: true }); fs.writeFileSync(VCACHE, JSON.stringify(store, null, 1)); } catch { /* cache không bắt buộc */ } }
+  return { ...out, providers: [a.provider, b.provider], raw: { a: a.v, b: b.v } };
 }
 const reviewPath = id => path.join(LIB, '_review', id.replace(/[/.]/g, '_') + '.jpg');
 /** Chạy toàn bộ cổng cho 1 file; trả {status, check, vision}. Bảng ghép giữ ở brand/library/_review/ nếu WARN/FAIL. */
 async function gate(file, entry, m, { vision = true } = {}) {
   const sheet = reviewPath(entry.id);
-  const res = runCheck(file, entry, m, { sheet });
+  const wantAi = vision && entry.who && (entry.status !== 'reject' || entry.quarantinedFrom); // bỏ AI cho clip loại sẵn (tiết kiệm hạn mức)
+  const aiSheet = sheet.replace(/\.jpg$/, '.ai.jpg'), headSheet = sheet.replace(/\.jpg$/, '.head.jpg');
+  const res = runCheck(file, entry, m, wantAi ? { sheet, aiSheet, headSheet, aiRef: refFileFor(entry, m, file) } : { sheet });
   let vis = null;
-  if (vision && entry.who && res.sheet && (entry.status !== 'reject' || entry.quarantinedFrom)) vis = await visionCheck(entry, res.sheet, m, file); // bỏ AI cho clip loại sẵn (tiết kiệm hạn mức Gemini 20 lượt/ngày)
+  if (wantAi && res.aiSheet) vis = await visionCheck(entry, res.aiSheet, res.headSheet, m);
+  for (const f of [aiSheet, headSheet]) if (fs.existsSync(f)) fs.unlinkSync(f); // kết luận đã cache theo sha256 bảng
   // Gemini hết hạn mức → dùng lại kết luận AI lần trước nếu file không đổi
   const prevVis = entry.check && entry.check.vision;
   if ((!vis || vis.status === 'SKIP') && prevVis && prevVis.status !== 'SKIP' && (!prevVis.sha || prevVis.sha === entry.sha256)) vis = { status: prevVis.status, reasons: prevVis.reasons, reused: prevVis.at || true };
@@ -232,7 +401,7 @@ async function gate(file, entry, m, { vision = true } = {}) {
   else if (vis && vis.status === 'SKIP' && status === 'PASS') status = 'WARN';
   const notPass = (res.checks || []).filter(c => c.status !== 'PASS' && c.status !== 'INFO');
   const check = { status, at: today(), issues: notPass.map(c => `${c.status} ${c.name}: ${c.reason}`), metrics: pickMetrics(res.metrics), suggest: res.suggest && Object.keys(res.suggest).length ? res.suggest : undefined };
-  if (vis) check.vision = { status: vis.status, reasons: vis.reasons, sha: entry.sha256, at: vis.reused ? (vis.reused === true ? undefined : vis.reused) : today() };
+  if (vis) check.vision = { status: vis.status, reasons: vis.reasons, providers: vis.providers, sha: entry.sha256, at: vis.reused ? (vis.reused === true ? undefined : vis.reused) : today() };
   if (vis && vis.status !== 'PASS') check.issues.push(`${vis.status === 'FAIL' ? 'FAIL' : 'WARN'} vision: ${vis.reasons.join('; ')}`);
   if (vis && vis.status === 'SKIP') check.needsManualReview = true;
   if (status === 'PASS' && fs.existsSync(sheet)) fs.unlinkSync(sheet);
@@ -598,6 +767,91 @@ async function gcUpload(e) {
   } catch (err) { await gc('POST', `storage/objects/${encodeURIComponent(oid)}/abort`, { lease: begin.lease }).catch(() => {}); throw err; }
 }
 
+// ---------- Kho Drive riêng (sao lưu nguồn 2 – functions/api/drive.js, docs/ASSET-LIBRARY.md §8.6) ----------
+// Xác thực CLI/CI: LEXKITE_DRIVE_CLI_KEY (env hoặc ~/.config/lexkite/drive-cli-key) → header X-Drive-Ts + X-Drive-Sig = HMAC("<ts>.<sha256 body>").
+// Chỉ được list · upload_session · complete. Byte file PUT thẳng vào phiên resumable của Google (không qua Worker).
+const DRIVE_API = String(process.env.LEXKITE_API_BASE || 'https://lexkite.com').replace(/\/+$/, '') + '/api/drive';
+export function driveCliKey() {
+  const k = process.env.LEXKITE_DRIVE_CLI_KEY || (() => { try { return fs.readFileSync(path.join(os.homedir(), '.config/lexkite/drive-cli-key'), 'utf8').trim(); } catch { return ''; } })();
+  if (k) secrets.push(k);
+  return k;
+}
+/** Header ký cho 1 thân yêu cầu. Exported để test khớp với functions/api/drive.js. */
+export function driveSign(key, bodyText, ts = Math.floor(Date.now() / 1000)) {
+  return { 'X-Drive-Ts': String(ts), 'X-Drive-Sig': crypto.createHmac('sha256', key).update(ts + '.' + sha256(Buffer.from(bodyText))).digest('hex') };
+}
+export async function driveApi(op, body = {}, { fetcher = fetch, key = driveCliKey() } = {}) {
+  if (!key) { const e = new Error('chưa có LEXKITE_DRIVE_CLI_KEY'); e.code = 'no-key'; throw e; }
+  const text = JSON.stringify({ op, ...body });
+  const r = await fetcher(DRIVE_API, { method: 'POST', headers: { 'Content-Type': 'application/json', ...driveSign(key, text) }, body: text });
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) { const e = new Error(scrub(`Drive ${op} → ${r.status} ${j.error || ''}`)); e.code = j.error || r.status; e.status = r.status; throw e; }
+  return j;
+}
+let driveState = null;
+/** Có ít nhất 1 Drive đang nhận file (status ok, trọng số > 0)? Không có khoá/không gọi được → false (lùi về GrabCast). */
+export async function driveReady(deps = {}) {
+  if (driveState !== null && !deps.fresh) return driveState;
+  try { const j = await driveApi('list', {}, deps); driveState = (j.drives || []).some(d => d.status === 'ok' && d.weight > 0); }
+  catch { driveState = false; }
+  return driveState;
+}
+/** Tải 1 file lên Kho Drive (bỏ qua nếu sha đã có). → {driveId, fileId}. */
+export async function driveUpload(file, { name, folder, sha, mimeType }, deps = {}) {
+  const fetcher = deps.fetcher || fetch, buf = fs.readFileSync(file), sh = sha || sha256(buf);
+  const s0 = await driveApi('upload_session', { name, mime: mimeType || mime(file), size: buf.length, sha256: sh, folder }, deps);
+  if (s0.done) return { driveId: s0.drive_id, fileId: s0.file_id, existed: true };
+  if (!/^https:\/\/www\.googleapis\.com\/upload\//.test(String(s0.upload_url || ''))) throw new Error('Drive không trả phiên tải lên');
+  const chunk = s0.chunk || 8 << 20; let res, off = 0;
+  if (buf.length <= 64 << 20) res = await fetcher(s0.upload_url, { method: 'PUT', headers: { 'Content-Type': mimeType || mime(file) }, body: buf });
+  else while (off < buf.length) {
+    const end = Math.min(buf.length, off + chunk);
+    res = await fetcher(s0.upload_url, { method: 'PUT', headers: { 'Content-Range': `bytes ${off}-${end - 1}/${buf.length}` }, body: buf.subarray(off, end) });
+    if (res.status === 200 || res.status === 201) break;
+    if (res.status !== 308) throw new Error('PUT khúc ' + res.status);
+    const rg = res.headers.get('Range'); off = rg && /bytes=0-(\d+)/.test(rg) ? +RegExp.$1 + 1 : end;
+  }
+  if (!res || (res.status !== 200 && res.status !== 201)) throw new Error('PUT Drive ' + (res && res.status));
+  const fid = (await res.json().catch(() => ({}))).id;
+  if (!fid) throw new Error('Drive không trả id file');
+  await driveApi('complete', { drive_id: s0.drive_id, file_id: fid, sha256: sh }, deps);
+  return { driveId: s0.drive_id, fileId: fid };
+}
+const driveFolderOf = rel => 'originals' + (path.posix.dirname(rel) !== '.' ? '/' + path.posix.dirname(rel) : '');
+/** Sao lưu bản gốc 1 mục lên Drive → ghi e.locations.drive. */
+async function driveBackupEntry(e, file, deps) {
+  const r = await driveUpload(file, { name: path.posix.basename(e.file), folder: driveFolderOf(e.file), sha: e.sha256 }, deps);
+  e.locations.drive = { status: 'ok', driveId: r.driveId, fileId: r.fileId, sha256: e.sha256, at: today() };
+  return r;
+}
+/** CI (library-build): sao lưu bản stacked trong <dir> + bản gốc clip (tải từ library/src, kiểm sha) lên Drive. */
+async function cmdDriveBackup(dir, opts) {
+  if (!driveCliKey()) { log('… chưa có LEXKITE_DRIVE_CLI_KEY – bỏ qua sao lưu Drive'); return 0; }
+  if (!(await driveReady())) { log('… Kho Drive chưa nối Drive nào (Quản trị → Kho Drive) – bỏ qua'); return 0; }
+  const m = loadManifest(); let up = 0, have = 0, fail = 0;
+  const one = async (label, fn) => { try { const r = await fn(); if (r && r.existed) have++; else up++; } catch (err) { fail++; log(`! ${label}: ${scrub(err.message)}`); } };
+  if (dir && fs.existsSync(dir)) for (const f of fs.readdirSync(dir, { recursive: true }).filter(x => /\.json$/.test(x))) {
+    let rj; try { rj = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')); } catch { continue; }
+    const e = m.items.find(x => x.id === rj.id), mp4 = path.join(dir, f.replace(/\.json$/, '.mp4'));
+    if (!e || rj.alpha !== 'stacked' || !fs.existsSync(mp4)) continue;
+    await one(e.id + ' (stacked)', async () => { const r = await driveUpload(mp4, { name: path.posix.basename(e.id), folder: 'stacked/clips', sha: rj.sha256 }); e.variants = e.variants || {}; e.variants.stacked = { ...(e.variants.stacked || {}), drive: { driveId: r.driveId, fileId: r.fileId } }; return r; });
+  }
+  for (const e of m.items) {
+    if (e.locations.drive && e.locations.drive.status === 'ok' && e.locations.drive.sha256 === e.sha256) { have++; continue; }
+    let file = path.join(LIB, e.file);
+    if (!fs.existsSync(file) && e.locations.src && e.locations.src.url) { // CI: lấy bản gốc lossless từ nguồn chính, kiểm sha
+      const rr = await fetch(e.locations.src.url).catch(() => null), buf = rr && rr.ok ? Buffer.from(await rr.arrayBuffer()) : null;
+      if (!buf || sha256(buf) !== e.sha256) continue;
+      file = path.join(os.tmpdir(), 'lexkite-drv-' + e.sha256.slice(0, 16)); fs.writeFileSync(file, buf);
+    }
+    if (!fs.existsSync(file)) continue;
+    await one(e.id, () => driveBackupEntry(e, file));
+  }
+  saveManifest(m);
+  log(`Kho Drive: tải ${up} · đã có ${have} · lỗi ${fail}`);
+  return fail ? 1 : 0;
+}
+
 // ---------- sync ----------
 async function cmdSync(opts) {
   const m = loadManifest();
@@ -665,7 +919,20 @@ async function cmdSync(opts) {
     }
     saveManifest(m);
   }
-  if (!opts.primaryOnly) {
+  if (!opts.primaryOnly && await driveReady()) { // nguồn phụ ưu tiên: Kho Drive riêng (đã nối trong Quản trị); không có → GrabCast
+    let up = 0, have = 0, fail = 0;
+    for (const e of m.items) {
+      const dv = e.locations.drive || {};
+      if (dv.status === 'ok' && dv.sha256 === e.sha256) { have++; continue; }
+      const file = path.join(LIB, e.file);
+      if (!fs.existsSync(file) || opts.dryRun) continue;
+      try { const r = await driveBackupEntry(e, file); if (r.existed) have++; else up++; }
+      catch (err) { fail++; e.locations.drive = { status: 'pending', reason: scrub(err.message).slice(0, 160) }; log(`! ${e.id}: ${scrub(err.message)}`); if (err.code === 'pool_full') { log('⚠ Kho Drive hết chỗ (chừa 5 % / 256 MB) – nối thêm Drive trong Quản trị → Kho Drive'); code = 2; break; } }
+      saveManifest(m);
+    }
+    log(`Nguồn phụ Kho Drive: tải ${up} · đã có ${have} · lỗi ${fail}`);
+    saveManifest(m);
+  } else if (!opts.primaryOnly) {
     let up = 0, have = 0, pending = 0, ownerStep = false;
     for (const e of m.items) {
       const bk = e.locations.backup || {};
@@ -712,8 +979,10 @@ export async function verifyEntry(e, deps) {
       else if (!t || t.sha !== sr.gitSha) gaps.push('src: repo thiếu/khác sha');
     }
   }
-  const b = (e.locations && e.locations.backup) || {};
-  if (b.status !== 'ok') gaps.push(`backup: ${b.status || 'chưa có'}${b.reason ? ' (' + b.reason + ')' : ''}`);
+  const b = (e.locations && e.locations.backup) || {}, dv = (e.locations && e.locations.drive) || {};
+  if (dv.status === 'ok') { // Kho Drive: kiểm sha có trong drive_files (list?sha256=…)
+    if (deps.driveHave) { const h = await deps.driveHave(e.sha256); if (!h) gaps.push('backup: Kho Drive không có sha ' + e.sha256.slice(0, 12)); else if (h.size != null && +h.size !== e.bytes) gaps.push(`backup: Drive dung lượng ${h.size} ≠ ${e.bytes}`); }
+  } else if (b.status !== 'ok') gaps.push(`backup: ${b.status || 'chưa có'}${b.reason ? ' (' + b.reason + ')' : ''}`);
   else {
     const o = await deps.gcGet(b.objectId);
     if (!o) gaps.push('backup: không thấy object ' + b.objectId + ' trên GrabCast');
@@ -732,6 +1001,12 @@ async function cmdVerify(opts) {
     tree: remote.files, deep: !!opts.deep,
     head: async url => { const r = await fetch(url, { method: 'HEAD' }).catch(() => null); return r && { status: r.status, length: r.headers.get('content-length') }; },
     sha: async url => sha256(Buffer.from(await (await fetch(url)).arrayBuffer())),
+    driveHave: await (async () => { // 1 lượt list theo lô sha (≤ 200/lượt) cho mọi mục đã lên Drive
+      const shas = m.items.filter(e => e.locations.drive && e.locations.drive.status === 'ok').map(e => e.sha256), have = {};
+      if (!shas.length || !driveCliKey()) return null;
+      for (let i = 0; i < shas.length; i += 200) { const j = await driveApi('list', { sha256: shas.slice(i, i + 200) }).catch(() => null); if (!j) return null; Object.assign(have, j.have || {}); }
+      return async sha => have[sha] || null;
+    })(),
     gcGet: async id => { try { const j = await gc('GET', `storage/objects/${encodeURIComponent(id)}`); return j.object || j; } catch (e) { if (e.status === 404) return null; const l = await gc('GET', 'storage/objects').catch(() => ({ items: [] })); return (l.items || []).find(x => String(x.id) === String(id)) || null; } },
   };
   let gaps = 0; const counts = { ok: 0, gap: 0 }, pend = [];
@@ -782,6 +1057,31 @@ async function cmdRestore(target) {
   return 0;
 }
 
+// ---------- hiệu chỉnh AI thị giác ----------
+async function cmdVisionCal(opts) {
+  const cal = JSON.parse(fs.readFileSync(path.join(HERE, 'vision-calibration.json'), 'utf8')), runs = +(opts.runs || 1);
+  const models = opts.model ? [opts.model] : [CF_VISION.scout, CF_VISION.llama32];
+  const D = { fetch, cfToken: cfToken(), cfAccount: CF_ACCOUNT };
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'lexkite-vcal-')), score = {};
+  for (const smp of cal.samples) {
+    const f = path.join(ROOT, smp.file); if (!fs.existsSync(f)) { log(`… bỏ qua ${smp.id}: thiếu ${smp.file}`); continue; }
+    const ref = ['dna', 'neutral'].map(x => path.join(LIB, `chars/${smp.who}/${x}.png`)).find(x => fs.existsSync(x));
+    const body = path.join(tmp, smp.id + '.jpg'), head = path.join(tmp, smp.id + '.head.jpg');
+    const pr = spawnSync(python(), [path.join(HERE, 'asset_anatomy.py'), f, '--ai-sheet', body, '--head-sheet', head, ...(ref ? ['--ref', ref] : [])], { encoding: 'utf8' });
+    if (pr.status !== 0) { log(`! ${smp.id}: không dựng được bảng`); continue; }
+    const input = { who: smp.who, body: { prompt: VISION_PROMPT(smp.who), b64: fs.readFileSync(body).toString('base64') }, head: { prompt: IDENTITY_PROMPT(smp.who), b64: fs.readFileSync(head).toString('base64') } };
+    for (const model of models) for (let i = 0; i < runs; i++) {
+      const sc = score[model] = score[model] || { ok: 0, n: 0, err: 0 };
+      let st; try { st = visionVerdict(await judgeWith(cfVisionProvider(model), input, D)); } catch (e) { sc.err++; log(`  ${model.split('/').pop()} ${smp.id}: lỗi ${scrub(e.message).slice(0, 100)}`); continue; }
+      sc.n++; if (st.status === smp.expect) sc.ok++;
+      log(`${st.status === smp.expect ? '✓' : '✗'} ${model.split('/').pop()} ${smp.id}: mong ${smp.expect} → ${st.status} ${st.reasons.join('; ').slice(0, 140)}`);
+    }
+  }
+  fs.rmSync(tmp, { recursive: true, force: true });
+  for (const [m, s] of Object.entries(score)) log(`${m}: đúng ${s.ok}/${s.n} (${s.n ? Math.round(100 * s.ok / s.n) : 0} %) · lỗi gọi ${s.err}`);
+  return Object.values(score).some(s => s.n && s.ok < s.n) ? 1 : 0;
+}
+
 // ---------- report ----------
 export const NEED = {
   cast: ['mia', 'leo', 'ama', 'diane', 'carlos'],
@@ -818,7 +1118,7 @@ function cmdReport() {
   log(`Thiếu clip vai nghe: ${c.missing.listener.join(', ') || '–'}`);
   log(`Thiếu phòng (${c.missing.rooms.length}/${NEED.rooms.length * 4}): ${c.missing.rooms.join(' ')}`);
   const bk = m.items.reduce((a, e) => ((a[(e.locations.backup || {}).status || 'none'] = (a[(e.locations.backup || {}).status || 'none'] || 0) + 1), a), {});
-  log(`\nSao lưu: chính ${m.items.filter(e => e.locations.primary).length}/${c.counts.approved} approved · GrabCast ${JSON.stringify(bk)}`);
+  log(`\nSao lưu: chính ${m.items.filter(e => e.locations.primary).length}/${c.counts.approved} approved · GrabCast ${JSON.stringify(bk)} · Kho Drive ${m.items.filter(e => e.locations.drive && e.locations.drive.status === 'ok').length}/${m.items.length}`);
   const chk = m.items.reduce((a, e) => ((a[(e.check || {}).status || '–'] = (a[(e.check || {}).status || '–'] || 0) + 1), a), {});
   log(`Check: ${JSON.stringify(chk)}`);
   return 0;
@@ -856,6 +1156,8 @@ async function main() {
       : cmd === 'restore' ? await cmdRestore(o._[0] || 'all')
       : cmd === 'report' ? cmdReport()
       : cmd === 'stack' ? await cmdStack(o._[0] || 'all', o)
+      : cmd === 'drive-backup' ? await cmdDriveBackup(o._[0] || 'out/library', o)
+      : cmd === 'vision-cal' ? await cmdVisionCal(o)
       : cmd === 'ci-plan' ? cmdCiPlan(o._[0] || 'missing', o)
       : cmd === 'ci-build' ? await cmdCiBuild(o._[0], o)
       : cmd === 'ci-apply' ? await cmdCiApply(o._[0] || 'out/library', o)

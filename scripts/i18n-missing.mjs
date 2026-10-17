@@ -2,6 +2,8 @@
 // Quét t('…'), data-i18n="…" và tên/mô tả bộ từ add(id, 'tên', emoji, 'mô tả', …). In danh sách thiếu; --strict → thoát mã 1 nếu có.
 import fs from 'node:fs'; import path from 'node:path'; import vm from 'node:vm';
 const c = { self: {} }; c.self = c; vm.createContext(c); vm.runInContext(fs.readFileSync('web/js/i18n/en.js', 'utf8'), c);
+// Nhóm tiếng Anh tải lười (LAZY trong scripts/build-i18n.sh – không gộp vào en.js) cũng tính là đã có bản tiếng Anh
+for (const g of ((fs.readFileSync('scripts/build-i18n.sh', 'utf8').match(/^LAZY="([^"]*)"/m) || [])[1] || '').split(/\s+/).filter(Boolean)) vm.runInContext(fs.readFileSync(`web/js/i18n/en/${g}.js`, 'utf8'), c);
 const EN = c.I18N_DICT.en, VI = /[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ]/i;
 const files = []; const walk = d => { for (const f of fs.readdirSync(d)) { const p = path.join(d, f); if (fs.statSync(p).isDirectory()) { if (!/i18n|notes/.test(f)) walk(p); } else if (/\.(js|html)$/.test(p)) files.push(p); } }; walk('web/js'); files.push('web/index.html');
 const miss = new Map(), un = (s, q = "'") => { try { return vm.runInNewContext(q + s + q); } catch (e) { return s; } };

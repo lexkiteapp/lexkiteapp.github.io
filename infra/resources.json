@@ -69,12 +69,14 @@
    "key": "ai",
    "name": "Cloudflare Workers AI",
    "kind": "ai",
-   "purpose": "Dự phòng chấm Writing/Speaking & hội thoại Roleplay công sở (/api/ai) khi Gemini gần trần; hạn mức theo người ở functions/api/_quota.js (docs/QUOTAS.md), cầu dao giữ < 80% gói miễn phí",
+   "purpose": "Dự phòng chấm Writing/Speaking & hội thoại Roleplay công sở (/api/ai) khi Gemini gần trần; hạn mức theo người ở functions/api/_quota.js (docs/QUOTAS.md), cầu dao giữ < 80% gói miễn phí · AI phân loại báo lỗi (functions/api/_triage.js, @cf/meta/llama-4-scout-17b-16e-instruct, binding AI; không có binding → REST api.cloudflare.com với secret CF_AI_TOKEN + CF_ACCOUNT_ID tùy chọn)",
    "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/ai/workers-ai",
    "free": "10.000 neuron/ngày",
    "upgrade": "Workers Paid",
    "status": "Miễn phí",
-   "match": [],
+   "match": [
+    "api.cloudflare.com"
+   ],
    "cap": {
     "day": 10000,
     "unit": "neuron"
@@ -128,7 +130,7 @@
    "key": "mail",
    "name": "Cloudflare Email Routing + Worker lexkite-mail",
    "kind": "mail",
-   "purpose": "support@ / contact@lexkite.com → Gmail chính; form liên hệ; bản tin quản trị 8h (cron 01:00 UTC); duyệt dịch đêm. Gửi mail cho người dùng (bản tin tuần) CHỜ chọn Resend/Brevo",
+   "purpose": "support@ / contact@lexkite.com → Gmail chính; form liên hệ; bản tin quản trị 8h (cron 01:00 UTC); duyệt dịch đêm. Gửi mail cho người dùng (bản tin tuần) CHỜ chọn Resend/Brevo · Báo lỗi (functions/api/report.js): báo quản trị qua /send (Email Routing); thư cho người báo đã đồng ý + REPORT_NOTIFY_EMAIL qua /user = Resend/Brevo xoay vòng theo giờ (secret RESEND_API_KEY, BREVO_API_KEY trên Worker lexkite-mail; chưa đặt → 501, chỉ báo trong app)",
    "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/lexkite.com/email/routing/overview",
    "free": "Email Routing miễn phí (chỉ gửi tới địa chỉ đã xác minh)",
    "upgrade": "Resend 3.000 mail/tháng miễn phí (cần DNS SPF/DKIM) cho mail người dùng",
@@ -136,12 +138,25 @@
    "match": [
     "lexkite-mail",
     "SEB",
-    "mail.google.com"
+    "mail.google.com",
+    "api.resend.com",
+    "api.brevo.com"
    ],
    "cap": {
     "day": 100,
     "unit": "mail"
    }
+  },
+  {
+   "key": "reports",
+   "name": "Báo lỗi người dùng (/api/report)",
+   "kind": "feature",
+   "purpose": "Nút ⚑ Báo lỗi trên web/app/add-on (web/js/report-pill.js → report.js tải lười) → functions/api/report.js. D1 lexkite-sync: bảng reports, report_shots (ảnh ≤ 300 KB, không công khai), report_events; config 'report_notify' (instant|digest|off). Hạn mức _quota.js tính năng 'report'. Env Pages: REPORT_NOTIFY_EMAIL (tùy chọn, email nhận báo lỗi mới; trống = hộp thư Email Routing mặc định), ADMIN_EMAILS (quản trị/giao việc), TURNSTILE_SECRET_KEY (tùy chọn). Quản trị → Báo lỗi (web/js/admin-reports.js). Tài liệu docs/REPORTS.md · AI phân loại P0–P3 + gom trùng theo chữ ký lỗi (functions/api/_triage.js); P0/P1 lỗi → GitHub Issue (api.github.com, secret GH_ISSUES_TOKEN fine-grained Issues: write, label bug-report + claude; đề xuất chỉ khi admin Duyệt → feature-approved); hàng đợi Claude Code: op queue/resolve ký HMAC bằng secret LEXKITE_REPORT_CLI_KEY (scripts/report-cli.mjs; bản sao khóa ở ~/.config/lexkite/report-cli-key); config report_eta (mốc dự kiến)",
+   "console": "https://lexkite.com/admin.html#reports",
+   "free": "D1: 1 dòng + ≤ 4 lượt ghi mỗi báo lỗi; thư theo hạn mức Email Routing / Resend 3.000/tháng / Brevo 300/ngày",
+   "upgrade": "Ảnh nhiều → chuyển report_shots sang R2 riêng tư",
+   "status": "Miễn phí",
+   "match": []
   },
   {
    "key": "turnstile",
@@ -364,6 +379,21 @@
    "upgrade": "—",
    "status": "Chờ đặt secret GH_DISPATCH_TOKEN + STUDIO_CALLBACK_SECRET",
    "match": []
+  },
+  {
+   "key": "drive-pool",
+   "name": "Kho Drive riêng (Google Drive API, OAuth drive.file)",
+   "kind": "storage",
+   "purpose": "Sao lưu nguồn 2 của kho dựng video (bản gốc, clip stacked, bản dựng): chủ dự án nối 1+ Google Drive của mình ở Quản trị → Kho Drive (web/js/admin-drive.js) qua /api/drive (functions/api/drive.js, D1 bảng drives/drive_files/drive_folders/drive_nonce). OAuth Web client trong Google Cloud project của tài khoản chính thức, scope drive.file + openid email (không nhạy cảm), redirect https://lexkite.com/api/drive/callback; refresh token mã hoá AES-GCM trong D1; byte file PUT thẳng vào phiên resumable của Google. CLI/CI: scripts/video/library.mjs (backend drive, sync --backup-only, drive-backup trong library-build.yml). Env Cloudflare Pages: secret GOOGLE_DRIVE_CLIENT_ID, secret GOOGLE_DRIVE_CLIENT_SECRET, secret DRIVE_ENC_KEY (32 byte base64), secret LEXKITE_DRIVE_CLI_KEY (≥ 24 ký tự, trùng với GitHub Actions secret + ~/.config/lexkite/drive-cli-key). Hướng dẫn: docs/ASSET-LIBRARY.md §8.6",
+   "console": "https://console.cloud.google.com/auth/clients",
+   "free": "Google Drive API miễn phí (hạn mức theo phút); dung lượng = gói của từng tài khoản Google (15 GB miễn phí/tài khoản)",
+   "upgrade": "Nối thêm Drive (tài khoản khác) hoặc Google One cho tài khoản đang nối",
+   "status": "Chờ chủ dự án tạo OAuth client + đặt 3 secret",
+   "match": [
+    "accounts.google.com",
+    "oauth2.googleapis.com",
+    "console.cloud.google.com"
+   ]
   },
   {
    "key": "grabcast-ai",

@@ -1,6 +1,9 @@
 #!/bin/bash
 # Gộp từ điển giao diện theo nhóm (web/js/i18n/en/*.js) thành 1 file js/i18n/en.js (1 request, thống nhất thuật ngữ)
 cd "$(dirname "$0")/../web/js/i18n" || exit 1
+# Nhóm tải lười: KHÔNG gộp vào en.js (khung app có ngân sách dung lượng) – module tự nạp js/i18n/en/<nhóm>.js khi mở.
+# i18n-missing.mjs / i18n-qa.mjs đọc danh sách này để kiểm cả các nhóm đó.
+LAZY="report"
 {
   echo '/* English UI – FILE SINH TỰ ĐỘNG từ js/i18n/en/*.js bằng scripts/build-i18n.sh. Đừng sửa tay. */'
   for f in core topics writing skills exams study shell toefl ext structs hubs writecheck roleplay handoff call; do cat "en/$f.js"; echo; done
