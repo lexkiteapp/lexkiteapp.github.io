@@ -134,7 +134,16 @@ const OPS = {
       one(db, 'SELECT COUNT(*) AS open FROM contact_msgs WHERE COALESCE(handled, 0) = 0'),
       one(db, 'SELECT COUNT(*) AS kinds, COALESCE(SUM(n), 0) AS hits FROM errors WHERE last > ?', now - DAY),
     ]);
-    return { users: u, sessions: s, inbox: c, errors24: e };
+    // Thẻ KPI trang Tổng quan (thêm – không đổi trường cũ): người thật hôm nay/7/30 ngày + kỳ trước để tính xu hướng, đang online, phiên tự động đã loại hôm nay, chuỗi 14 ngày
+    const d0 = vday(now - DAY), d14 = vday(now - 13 * DAY), d30 = vday(now - 29 * DAY), d60 = vday(now - 59 * DAY);
+    const [h, on, ex, ser] = await Promise.all([
+      one(db, `SELECT COUNT(DISTINCT CASE WHEN day = ?1 THEN vid END) AS d1, COUNT(DISTINCT CASE WHEN day = ?2 THEN vid END) AS p1, COUNT(DISTINCT CASE WHEN day >= ?3 THEN vid END) AS d7, COUNT(DISTINCT CASE WHEN day >= ?4 AND day < ?3 THEN vid END) AS p7, COUNT(DISTINCT CASE WHEN day >= ?5 THEN vid END) AS d30, COUNT(DISTINCT CASE WHEN day < ?5 THEN vid END) AS p30 FROM sessions WHERE ${H} AND day >= ?6`, d1, d0, d7, d14, d30, d60).catch(() => ({})),
+      one(db, `SELECT COUNT(DISTINCT vid) AS n FROM sessions WHERE ${H} AND last > ?`, now - 5 * 60e3).catch(() => ({})),
+      one(db, `SELECT COUNT(*) AS s FROM sessions WHERE day = ? AND NOT (${H})`, d1).catch(() => ({})),
+      all(db, `SELECT day, COUNT(DISTINCT vid) AS v FROM sessions WHERE ${H} AND day >= ? GROUP BY day ORDER BY day`, d14).catch(() => []),
+    ]);
+    const by = Object.fromEntries(ser.map(r => [r.day, r.v]));
+    return { users: u, sessions: s, inbox: c, errors24: e, humans: h, online: on.n || 0, excluded: ex.s || 0, series: Array.from({ length: 14 }, (_, i) => { const k = vday(now - (13 - i) * DAY); return { day: k, v: by[k] || 0 }; }) };
   },
   async users(db, b, who, env) {
     const f = userWhere(b, env), off = Math.max(0, Math.floor(+b.offset || 0)), now = Date.now();

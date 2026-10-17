@@ -5,12 +5,16 @@
 // Không phụ thuộc gói ngoài; font hệ thống; CSS nội tuyến (< 14 KB/trang), không JS chặn hiển thị.
 
 export const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+// Cắt mô tả meta ≤ n ký tự ở ranh giới từ (Google hiện ~155–160 ký tự; mô tả 200–320 ký tự bị cắt giữa chừng trên kết quả tìm kiếm)
+export const clip = (s, n = 158) => { s = String(s ?? '').replace(/\s+/g, ' ').trim(); if (s.length <= n) return s; const c = s.slice(0, n - 1); return c.slice(0, Math.max(c.lastIndexOf(' '), n * .6)).replace(/[\s,;:–—-]+$/, '') + '…'; };
 export const ld = o => `<script type="application/ld+json">${JSON.stringify(o).replace(/</g, '\\u003c')}</script>`;
 
 // Sắc độ phái sinh dùng trong CSS dưới đây nhưng không nằm ở :root của style.css (link, chữ phụ chế độ tối, nền code, gradient CTA)
 export const EXTRA_TOKENS = ['#B93A1D', '#a3a6bd', '#9fd8cf', '#7fd6cc', '#12807A', '#11132a', '#e8eaf6', '#e3e5ef', '#6b6f85', '#000', '#fff'];
 
 // ---------- CSS gốc của blog (giữ nguyên từng byte – trang blog dựng ra không đổi) ----------
+// CSS footer chung (cũng dùng ở trang pháp lý scripts/build-legal.mjs – trang đó nạp /css/style.css của app nên dùng biến có sẵn ở cả 2 nơi)
+export const FOOT_CSS = `footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px;background:var(--surface);margin-top:40px}footer .bar{display:block;max-width:1080px;margin:0 auto;padding:28px 16px 20px}.flogo{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:18px;color:var(--text);text-decoration:none}.flogo b{color:var(--primary)}.flogo img{border-radius:8px}footer p{margin:.3em 0}.fcols{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:24px}.fbrand p{max-width:34ch}footer h2{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--text);margin:4px 0 8px}footer ul{list-style:none;margin:0;padding:0}footer li{margin:6px 0}footer a{color:var(--muted)}footer a:hover{color:var(--link,var(--primary))}.flangs{display:flex;flex-wrap:wrap;gap:4px 14px;border-top:1px solid var(--line);margin-top:20px;padding-top:14px}.flangs a[aria-current]{color:var(--text);font-weight:700}.ftm{font-size:13px}@media (max-width:720px){.fcols{grid-template-columns:1fr 1fr}.fbrand{grid-column:1/-1}}`;
 export const CSS = `:root{--bg:#f5f6fb;--surface:#fff;--text:#171827;--muted:#4e526b;--line:#e2e4ef;--primary:#CC3F1C;--primary-ink:#fff;--primary-soft:#FFEBE4;--accent:#0D6964;--accent-soft:#DDF1EE;--brand:#0F3D3E;--link:#B93A1D;--r:16px;color-scheme:light dark}
 @media (prefers-color-scheme:dark){:root{--bg:#0f1017;--surface:#181a24;--text:#eceef7;--muted:#a3a6bd;--line:#2b2e3e;--primary:#FF8466;--primary-ink:#1A0E0B;--primary-soft:#3A221C;--accent-soft:#10302f;--brand:#9fd8cf;--link:#FFA582}}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
@@ -45,7 +49,7 @@ a.app{font-weight:600}
 .pager{display:flex;justify-content:space-between;gap:12px;margin:24px 0;font-weight:700}
 .trybox{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;margin:32px 0}.trybox h2{margin:0 0 6px;font-size:20px}.trybox p{margin:0 0 12px;color:var(--muted)}
 [dir=rtl] blockquote{border-left:0;border-right:4px solid var(--primary);border-radius:12px 0 0 12px}[dir=rtl] .toc ol{padding-left:0;padding-right:20px}[dir=rtl] th,[dir=rtl] td{text-align:right}[dir=rtl] .skip:focus{left:auto;right:8px}
-footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px}footer .bar{display:block;padding:20px 16px}footer p{margin:.3em 0}
+${FOOT_CSS}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}`;
 
 // ---------- CSS bổ sung cho trang SEO dựng từ dữ liệu app (chỉ dùng biến màu ở trên + token style.css) ----------
@@ -80,7 +84,40 @@ mark{background:var(--primary-soft);color:inherit;border-radius:4px;padding:0 2p
 // ---------- Khối khung trang (header, footer, breadcrumb) – blog và trang SEO dùng chung ----------
 export const siteHeader = ({ nav, open, home = '/' }) => `<header class="top"><div class="bar"><a class="logo" href="${home}"><img src="/icons/icon.svg" width="32" height="32" alt=""><span>lex<b>kite</b></span></a>
 <nav class="main" aria-label="Lexkite">${nav.map(([h, t, a = '']) => `<a href="${h}"${a}>${t}</a>`).join('')}<a class="btn" href="${open[0]}">${open[1]}</a></nav></div></header>`;
-export const siteFooter = ({ text, links, tm, year }) => `<footer><div class="bar"><p>${text} ${links.map(([h, t]) => `<a href="${h}">${t}</a>`).join(' · ')}</p><p>${tm}</p><p>© ${year} Lexkite</p></div></footer>`;
+// Footer chung cho MỌI trang tĩnh (blog 15 ngôn ngữ, trang SEO, 404, chọn ngôn ngữ blog): thương hiệu · Sản phẩm · Học miễn phí · Thông tin & pháp lý · đổi ngôn ngữ · ©.
+// Trang pháp lý /<lang>/privacy|terms có đủ 15 ngôn ngữ (scripts/build-legal.mjs); #cookies, #delete là mốc trong trang privacy.
+export const LANG_NAMES = { vi: 'Tiếng Việt', en: 'English', es: 'Español', pt: 'Português', fr: 'Français', de: 'Deutsch', id: 'Bahasa Indonesia', th: 'ไทย', zh: '简体中文', ja: '日本語', ko: '한국어', hi: 'हिन्दी', ar: 'العربية', ru: 'Русский', tr: 'Türkçe' };
+//            [Sản phẩm, Học miễn phí, Thông tin, Ứng dụng web, Add-on Chrome, Blog, Từ vựng, Bài mẫu Writing, IELTS Speaking, Ngữ pháp, Giới thiệu, Liên hệ, Quyền riêng tư, Điều khoản, Cookie, Xóa dữ liệu, Ngôn ngữ]
+export const FOOT = {
+  vi: ['Sản phẩm', 'Học miễn phí', 'Thông tin', 'Ứng dụng web', 'Add-on Chrome', 'Blog', 'Từ vựng', 'Bài mẫu Writing', 'IELTS Speaking', 'Ngữ pháp', 'Giới thiệu', 'Liên hệ', 'Quyền riêng tư', 'Điều khoản', 'Cookie & lưu trữ', 'Xóa dữ liệu', 'Ngôn ngữ'],
+  en: ['Product', 'Resources', 'Company', 'Web app', 'Chrome add-on', 'Blog', 'Vocabulary', 'Writing samples', 'IELTS Speaking', 'Grammar', 'About', 'Contact', 'Privacy', 'Terms', 'Cookies & storage', 'Delete my data', 'Language'],
+  es: ['Producto', 'Recursos', 'Empresa', 'App web', 'Extensión de Chrome', 'Blog', 'Vocabulario', 'Ensayos modelo', 'IELTS Speaking', 'Gramática', 'Acerca de', 'Contacto', 'Privacidad', 'Términos', 'Cookies y almacenamiento', 'Eliminar mis datos', 'Idioma'],
+  pt: ['Produto', 'Recursos', 'Empresa', 'App web', 'Extensão do Chrome', 'Blog', 'Vocabulário', 'Redações modelo', 'IELTS Speaking', 'Gramática', 'Sobre', 'Contato', 'Privacidade', 'Termos', 'Cookies e armazenamento', 'Excluir meus dados', 'Idioma'],
+  fr: ['Produit', 'Ressources', 'Entreprise', 'Application web', 'Extension Chrome', 'Blog', 'Vocabulaire', 'Essais modèles', 'IELTS Speaking', 'Grammaire', 'À propos', 'Contact', 'Confidentialité', 'Conditions', 'Cookies et stockage', 'Supprimer mes données', 'Langue'],
+  de: ['Produkt', 'Ressourcen', 'Unternehmen', 'Web-App', 'Chrome-Erweiterung', 'Blog', 'Wortschatz', 'Musteressays', 'IELTS Speaking', 'Grammatik', 'Über uns', 'Kontakt', 'Datenschutz', 'Nutzungsbedingungen', 'Cookies & Speicher', 'Meine Daten löschen', 'Sprache'],
+  id: ['Produk', 'Sumber belajar', 'Perusahaan', 'Aplikasi web', 'Ekstensi Chrome', 'Blog', 'Kosakata', 'Contoh esai', 'IELTS Speaking', 'Tata bahasa', 'Tentang', 'Kontak', 'Privasi', 'Ketentuan', 'Cookie & penyimpanan', 'Hapus data saya', 'Bahasa'],
+  th: ['ผลิตภัณฑ์', 'แหล่งเรียนรู้', 'เกี่ยวกับเรา', 'เว็บแอป', 'ส่วนขยาย Chrome', 'บล็อก', 'คำศัพท์', 'เรียงความตัวอย่าง', 'IELTS Speaking', 'ไวยากรณ์', 'เกี่ยวกับ', 'ติดต่อ', 'ความเป็นส่วนตัว', 'ข้อกำหนด', 'คุกกี้และพื้นที่จัดเก็บ', 'ลบข้อมูลของฉัน', 'ภาษา'],
+  zh: ['产品', '学习资源', '公司', '网页版应用', 'Chrome 扩展', '博客', '词汇', '范文', '雅思口语', '语法', '关于', '联系我们', '隐私政策', '使用条款', 'Cookie 与本地存储', '删除我的数据', '语言'],
+  ja: ['製品', '学習リソース', '運営', 'Web アプリ', 'Chrome 拡張機能', 'ブログ', '語彙', '模範エッセイ', 'IELTS スピーキング', '文法', '概要', 'お問い合わせ', 'プライバシー', '利用規約', 'Cookie とストレージ', 'データの削除', '言語'],
+  ko: ['제품', '학습 자료', '회사', '웹 앱', 'Chrome 확장 프로그램', '블로그', '어휘', '모범 에세이', 'IELTS 스피킹', '문법', '소개', '문의하기', '개인정보처리방침', '이용약관', '쿠키 및 저장소', '내 데이터 삭제', '언어'],
+  hi: ['उत्पाद', 'संसाधन', 'कंपनी', 'वेब ऐप', 'Chrome एक्सटेंशन', 'ब्लॉग', 'शब्दावली', 'नमूना निबंध', 'IELTS स्पीकिंग', 'व्याकरण', 'हमारे बारे में', 'संपर्क करें', 'गोपनीयता', 'शर्तें', 'कुकीज़ और स्टोरेज', 'मेरा डेटा हटाएँ', 'भाषा'],
+  ar: ['المنتج', 'الموارد', 'الشركة', 'تطبيق الويب', 'إضافة Chrome', 'المدونة', 'المفردات', 'مقالات نموذجية', 'محادثة IELTS', 'القواعد', 'من نحن', 'اتصل بنا', 'الخصوصية', 'الشروط', 'ملفات تعريف الارتباط والتخزين', 'حذف بياناتي', 'اللغة'],
+  ru: ['Продукт', 'Материалы', 'Компания', 'Веб-приложение', 'Расширение Chrome', 'Блог', 'Слова', 'Примеры эссе', 'IELTS Speaking', 'Грамматика', 'О нас', 'Контакты', 'Конфиденциальность', 'Условия', 'Cookie и хранилище', 'Удалить мои данные', 'Язык'],
+  tr: ['Ürün', 'Kaynaklar', 'Şirket', 'Web uygulaması', 'Chrome eklentisi', 'Blog', 'Kelime', 'Örnek yazılar', 'IELTS Speaking', 'Dil bilgisi', 'Hakkında', 'İletişim', 'Gizlilik', 'Koşullar', 'Çerezler ve depolama', 'Verilerimi sil', 'Dil'],
+};
+const ABOUT = { vi: 'gioi-thieu', en: 'about', es: 'acerca-de', pt: 'sobre', fr: 'a-propos', de: 'ueber-uns', id: 'tentang', tr: 'hakkinda' };
+export const appHref = lang => lang === 'vi' ? '/' : `/?hl=${lang}`;
+// lang: ngôn ngữ trang; text/tm: câu giới thiệu + ghi chú nhãn hiệu (theo ngôn ngữ); langHref(l): link bản ngôn ngữ l (mặc định trang chủ blog l)
+export const siteFooter = ({ lang = 'en', text = '', tm = '', year = new Date().getFullYear(), extra = [], langHref }) => {
+  const f = FOOT[lang] || FOOT.en, app = appHref(lang), vi = lang === 'vi', lg = `/${lang in LANG_NAMES ? lang : 'en'}`;
+  const col = (h, items) => `<div><h2>${h}</h2><ul>${items.map(([u, n]) => `<li><a href="${u}">${n}</a></li>`).join('')}</ul></div>`;
+  const product = [[app, f[3]], [`${app}#/settings`, f[4]]];
+  const res = [[`${lg}/blog/`, f[5]], [vi ? '/tu-vung/' : '/en/vocabulary/', f[6]], ...(vi ? [['/ngu-phap/', f[9]]] : []), [vi ? '/samples/' : '/en/samples/', f[7]], [vi ? '/speaking/' : '/en/speaking/', f[8]], ...extra];
+  const co = [[`${lg}/blog/${ABOUT[lang] || 'about'}/`, f[10]], [`${app}#/contact`, f[11]], [`${lg}/privacy`, f[12]], [`${lg}/terms`, f[13]], [`${lg}/privacy#cookies`, f[14]], [`${lg}/privacy#delete`, f[15]]];
+  const langs = Object.entries(LANG_NAMES).map(([l, n]) => `<a href="${langHref ? langHref(l) : `/${l}/blog/`}" lang="${l}" hreflang="${l}"${l === lang ? ' aria-current="true"' : ''}>${n}</a>`).join('');
+  return `<footer class="site-foot"><div class="bar"><div class="fcols"><div class="fbrand"><a class="flogo" href="${app}"><img src="/icons/icon.svg" width="28" height="28" alt=""><span>lex<b>kite</b></span></a><p>${text}</p></div>${col(f[0], product)}${col(f[1], res)}${col(f[2], co)}</div>
+<nav class="flangs" aria-label="${f[16]}"><span aria-hidden="true">🌐</span>${langs}</nav><p class="ftm">${tm}</p><p class="ftm">© ${year} Lexkite</p></div></footer>`;
+};
 export const crumbsHtml = items => `<nav class="crumbs" aria-label="Breadcrumb">${items.map(([n, u], i) => i === items.length - 1 ? `<span aria-current="page">${esc(n)}</span>` : `<a href="${u}">${esc(n)}</a>`).join(' › ')}</nav>`;
 export const crumbsLd = (site, items) => ({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map(([name, u], i) => ({ '@type': 'ListItem', position: i + 1, name, item: site + u })) });
 
@@ -143,7 +180,7 @@ ${siteHeader({ nav, open: [t.app, t.open] })}
 ${crumbsHtml(crumbs)}
 ${body}
 </main>
-${siteFooter({ text: t.foot, links: t.links, tm: t.tm, year: new Date().getFullYear() })}
+${siteFooter({ lang, text: t.foot, tm: t.tm, langHref: l => alt && l !== lang && SEO_L[l] ? alt : `/${l}/blog/` })}
 <script>${copyJs(lang)}${UI_JS}</script></body></html>`;
 }
 // Thanh chuyển mục (Từ vựng · Ngữ pháp · Bài mẫu…) trên trang danh sách

@@ -83,6 +83,8 @@ p { margin: .4rem 0; }
 .badge { margin-left: auto; min-width: 22px; height: 20px; padding: 0 6px; border-radius: 10px; background: var(--again); color: #fff; font: 700 11px/20px var(--font); text-align: center; }
 .side-level { margin-top: auto; padding: .9rem; border-radius: 16px; background: linear-gradient(135deg, var(--primary-soft), var(--accent-soft)); }
 .side-level .lv-row { display: flex; align-items: center; gap: .6rem; }
+.side-foot { display: flex; flex-wrap: wrap; gap: .15rem .7rem; padding: .6rem .3rem 0; font-size: .74rem; }
+.side-foot a { color: var(--muted); }
 .avatar { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; color: #fff; background: linear-gradient(135deg, var(--primary), #FFB054); flex: none; overflow: hidden; }
 .avatar img { width: 100%; height: 100%; object-fit: cover; }
 

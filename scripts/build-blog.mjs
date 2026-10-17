@@ -100,11 +100,14 @@ function picture(id, alt, { eager = false, sizes = '(min-width: 760px) 720px, 10
 const imgUrl = (id, w = 1440) => { const m = MEDIA[id]; if (!m) return `${SITE}/og-default.png`; const ww = m.widths.includes(w) ? w : m.widths.at(-1); return `${m.base || MBASE}blog/${id}-${m.hash}-${ww}.webp`.replace(/^\//, SITE + '/'); };
 
 // ---------- Markdown tối giản (đủ cho bài blog, không phụ thuộc gói ngoài) ----------
+// Chỉ cho phép link/ảnh tương đối hoặc http(s)/mailto – chặn javascript:/data:/vbscript: trong Markdown (XSS)
+const safeUrl = u => { const m = /^([a-z][a-z0-9+.-]*):/i.exec(u); return !m || /^(https?|mailto)$/i.test(m[1]) ? u : ''; };
 function inline(s) {
   const codes = [];
   s = esc(s).replace(/`([^`]+)`/g, (m, c) => `\u0000${codes.push(c) - 1}\u0000`);
-  s = s.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+&quot;([^&]*)&quot;)?\)/g, (m, alt, src) => src.startsWith('media:') ? picture(src.slice(6), alt) : `<img src="${src}" alt="${alt}" loading="lazy">`)
+  s = s.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+&quot;([^&]*)&quot;)?\)/g, (m, alt, src) => src.startsWith('media:') ? picture(src.slice(6), alt) : safeUrl(src) ? `<img src="${src}" alt="${alt}" loading="lazy">` : alt)
     .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, t, h) => {
+      if (!safeUrl(h)) return t;
       if (h.startsWith('/blog/')) h = base(CUR) + h.slice(6); // link /blog/<slug>/ trong bài → thư mục ngôn ngữ của bài
       const bm = h.match(/^\/(?:[a-z]{2}(?:-[a-z]+)?\/)?blog\/([^/#?]+)\/$/);
       if (bm && !SEGS.has(bm[1]) && !ABOUTS.has(bm[1]) && !LIVE.has(h)) return t; // bài đích chưa đến giờ đăng → chữ thường, không tạo link 404
@@ -155,7 +158,7 @@ function render(md, lang, cover) {
       flush(); if (m[1]) { videos.push(m[1]); out.push(`<div class="yt" data-id="${m[1]}"><img src="https://i.ytimg.com/vi/${m[1]}/hqdefault.jpg" alt="${esc(m[2] || 'Video')}" width="480" height="360" loading="lazy"><button type="button" aria-label="${T(lang).play}: ${esc(m[2] || '')}"></button></div>`); } else out.push(`<!-- youtube-slot: ${esc(m[2] || '')} -->`);
       i++; continue;
     }
-    if ((m = ln.match(/^\{\{\s*cta:\s*(\S+)\s*\|\s*(.*?)\s*\}\}\s*$/))) { flush(); out.push(`<aside class="cta"><p><strong>${inline(m[2])}</strong></p><a class="btn" href="${esc(m[1])}">${T(lang).open} ${T(lang).dir === 'rtl' ? '←' : '→'}</a></aside>`); i++; continue; }
+    if ((m = ln.match(/^\{\{\s*cta:\s*(\S+)\s*\|\s*(.*?)\s*\}\}\s*$/))) { flush(); out.push(`<aside class="cta"><p><strong>${inline(m[2])}</strong></p><a class="btn" href="${esc(safeUrl(m[1]) || '/')}">${T(lang).open} ${T(lang).dir === 'rtl' ? '←' : '→'}</a></aside>`); i++; continue; }
     if ((m = ln.match(/^!\[([^\]]*)\]\(media:([\w-]+)(?:\s+"([^"]*)")?\)\s*$/))) { flush(); if (m[2] === cover) { i++; continue; } // ảnh trùng ảnh bìa → không lặp lại
       out.push(`<figure>${picture(m[2], m[1])}${m[3] ? `<figcaption>${inline(m[3])}</figcaption>` : ''}</figure>`); i++; continue; }
     if (/^(---|\*\*\*)\s*$/.test(ln)) { flush(); out.push('<hr>'); i++; continue; }
@@ -201,7 +204,7 @@ ${alt.map(a => `<link rel="alternate" hreflang="${a.lang}" href="${SITE}${a.url}
 <link rel="alternate" type="application/rss+xml" title="${esc(C.blogName[lang] || C.blogName.en)}" href="${SITE}${b}rss.xml">
 <meta name="theme-color" content="#0F3D3E">
 <link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/icons/icon-192.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <meta property="og:type" content="${type}">
 <meta property="og:site_name" content="Lexkite">
 <meta property="og:locale" content="${{ vi: 'vi_VN', en: 'en_US', id: 'id_ID', es: 'es_ES', ja: 'ja_JP', ko: 'ko_KR', th: 'th_TH', zh: 'zh_CN', ar: 'ar_AR' }[lang] || lang}">
@@ -220,7 +223,7 @@ ${siteHeader({ nav: [[b, t.blog], [t.nav.words, t.words], [t.nav.samples, t.samp
 <main id="nd">
 ${body}
 </main>
-${siteFooter({ text: t.foot, links: [[`${b}${t.aboutSlug}/`, t.about], [`${b}rss.xml`, t.rss], ['/privacy', 'Privacy']], tm: t.tm, year: new Date(NOW).getFullYear() })}
+${siteFooter({ lang, text: t.foot, tm: t.tm, year: new Date(NOW).getFullYear(), extra: [[`${b}rss.xml`, 'RSS']], langHref: l => (alt.find(a => a.lang === l) || {}).url || `/${l}/blog/` })}
 ${script}
 </body>
 </html>`;

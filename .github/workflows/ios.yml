@@ -7,6 +7,8 @@ on:
     branches: [main]
     paths: ['mobile/**', 'scripts/build-mobile.sh', 'scripts/ios-widget-render.swift', '.github/workflows/ios.yml']
   workflow_dispatch:
+permissions:
+  contents: read
 concurrency:
   group: ios
   cancel-in-progress: true

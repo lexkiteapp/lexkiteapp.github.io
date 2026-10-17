@@ -283,6 +283,12 @@ ${window.Sync && Sync.gBtn ? `<div class="card me-acct row between" id="meAcct">
     const a = e.target.closest && e.target.closest('a[data-blog]'); if (!a || sameSite) return;
     e.preventDefault(); window.open(BLOG, '_blank', 'noopener');
   });
+  // Chân thanh bên (index.html .side-foot): link trang tĩnh theo ngôn ngữ giao diện lúc bấm; add-on/app mở lexkite.com ở tab mới
+  document.addEventListener('click', e => {
+    const a = e.target.closest && e.target.closest('.side-foot a[data-l]'); if (!a) return;
+    const k = a.dataset.l, vi = I18N.lang() === 'vi', u = k === 'privacy' || k === 'terms' ? App.legalUrl(k) : (sameSite ? '' : 'https://lexkite.com') + (k === 'vocab' ? (vi ? '/tu-vung/' : '/en/vocabulary/') : (vi ? '/samples/' : '/en/samples/'));
+    if (sameSite) { a.href = u; return; } e.preventDefault(); window.open(u, '_blank', 'noopener');
+  });
   App.blogLive().then(on => { if (on) document.querySelectorAll('#nav a[data-blog]').forEach(a => { a.hidden = false; a.href = App.blogUrl(); }); });
 
   // ---------- Bản đồ điều hướng: trang → [mục chính, mục con] (đánh dấu menu, đường dẫn "Kỹ năng › Nghe") ----------

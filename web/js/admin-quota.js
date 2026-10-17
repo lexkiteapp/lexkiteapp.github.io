@@ -24,7 +24,7 @@
   }
   function render(box, L, { esc, num, when, lang }) {
     const Q = (vi, vars) => { if (lang() !== 'en' || !Object.prototype.hasOwnProperty.call(EN, vi)) return L(vi, vars); const s = EN[vi]; return vars ? s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? String(vars[k]) : m)) : s; };
-    const tab = document.querySelector('#tabs [data-tab="quota"]'); if (tab) tab.textContent = Q('Hạn mức');
+    const tab = document.querySelector('#tabs [data-tab="quota"] .nav-l'); if (tab) tab.textContent = Q('Hạn mức');
     const NODATA = `<p class="small muted">${Q('Chưa có dữ liệu')}</p>`;
     const till = t => (t ? when(t) : Q('Vô thời hạn'));
     async function act(op, body) { try { await qapi(op, body); await load(); } catch (e) { alert(Q('Lỗi: {e}', { e: e.message })); } }

@@ -81,7 +81,9 @@ export const onRequestOptions = ({ request }) => new Response(null, { status: 20
 
 export async function onRequestPost({ request, env, waitUntil }) {
   if (!env.DB) return json(request, 500, { error: 'no-db' });
+  if (+(request.headers.get('Content-Length') || 0) > 65536) return json(request, 413, { error: 'size' }); // đề ≤ 14 000 + sys ≤ 4 000 ký tự
   let body; try { body = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
+  if (!body || typeof body !== 'object') return json(request, 400, { error: 'json' });
   const prompt = String(body.prompt || ''), sys = String(body.sys || '').slice(0, 4000), rp = body.kind === 'rp';
   if (prompt.length < 40 || prompt.length > MAX_PROMPT) return json(request, 400, { error: 'size' });
   const who = await claims((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')).catch(() => null);

@@ -6,6 +6,8 @@ on:
     branches: [main]
     paths: ['web/**', 'scripts/**', '.github/workflows/ci.yml']
   workflow_dispatch:
+permissions:
+  contents: read
 jobs:
   test:
     runs-on: ubuntu-latest

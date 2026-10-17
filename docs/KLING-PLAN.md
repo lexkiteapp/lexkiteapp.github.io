@@ -70,3 +70,9 @@ Mọi hạng mục mới trong bảng phân bổ (ngồi, cầm điện thoại,
 | C. Chỉ ảnh nhân vật, bối cảnh mô tả bằng prompt | 4/4 ảnh ngồi đúng ghế, nhân vật to rõ, không chữ; mỗi ảnh 1 quán khác | ✓ cho cảnh ĐẦU của địa điểm mới |
 
 Quy trình: cảnh đầu = C (chọn ảnh tốt nhất → thành "phòng chuẩn" của địa điểm) → các cảnh sau = A với phòng chuẩn đó (giữ nhất quán) → soi từng ảnh (1 credit/ảnh) → mới tạo video (25 credit). Cảnh ĐỨNG vẫn dùng phông xanh + ghép (kho clip động tác).
+
+## Chiến lược 2 tầng (17/10 – đã chốt với anh chủ)
+1. **Xương sống = thư viện clip + tự dựng** (chi phí/video ≈ 0, không giới hạn số video): bộ clip phông xanh nhìn ¾ HAI hướng cho mỗi nhân vật (nói · nghe · phản ứng · chào · suy nghĩ), clip chính diện, cảnh ngồi đơn. Mia/Diane cần cả 2 hướng (không lật gương); Ama/Carlos/Leo 1 hướng + lật gương.
+2. **Kho "cảnh đinh" tạo nguyên khối** (tương tác thật, dùng lại nhiều video – như stock footage): gọi đồ ở quầy, ngồi bàn trò chuyện, bắt tay phỏng vấn, kéo vali sân bay, họp nhóm… Không gắn lời thoại cụ thể; gắn nhãn chủ đề/địa điểm/nhân vật để bộ dựng tự chèn. Cách làm cảnh ngồi: ảnh nhân vật + prompt bối cảnh (cách C), các cảnh sau cùng địa điểm dùng ảnh đầu làm tham chiếu (cách A).
+3. **Phân bổ 19.500 credit:** ~62 % thư viện (~480 clip) · ~30 % cảnh đinh (~230 cảnh 5 s) · ~8 % dự phòng làm lại. Mọi loại mới: thử 1 → dựng video thật → đạt ≥ 90 mới chạy lô.
+4. **Tự động hoá:** dựng/kiểm/đăng đã tự động trên CI; khâu tạo clip Kling hiện điều khiển qua Chrome (có kiểm định). Kling API (gói riêng, trả phí) chỉ cân nhắc khi cần mở rộng rất lớn.

@@ -14,7 +14,9 @@ export const onRequestOptions = ({ request }) => new Response(null, { status: 20
 
 export async function onRequestPost({ request, env }) {
   if (!env.DB) return json(request, 500, { error: 'no-db' });
+  if (+(request.headers.get('Content-Length') || 0) > 32768) return json(request, 413, { error: 'too-large' });
   let b; try { b = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
+  if (!b || typeof b !== 'object') return json(request, 400, { error: 'json' });
   const name = String(b.name || '').trim().slice(0, 100), email = String(b.email || '').trim().slice(0, 200), msg = String(b.msg || '').trim().slice(0, 5000), lang = String(b.lang || '').slice(0, 8);
   if (b.hp || Number(b.ms) < 3000) return json(request, 200, { ok: true }); // máy spam: giả vờ thành công
   if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email) || msg.length < 10) return json(request, 400, { error: 'invalid' });

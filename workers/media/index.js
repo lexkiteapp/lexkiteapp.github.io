@@ -16,6 +16,7 @@ export default {
     h.set('Cache-Control', r.ok ? (lib ? `public, max-age=${DAY}` : `public, max-age=${YEAR}, immutable`) : 'public, max-age=600');
     for (const k of ['etag', 'content-range', 'last-modified'].concat(ext === 'json' ? [] : ['content-length'])) if (r.headers.get(k)) h.set(k, r.headers.get(k));
     if (ext === 'mp4') h.set('Accept-Ranges', 'bytes');
+    if (ext === 'svg') h.set('Content-Security-Policy', "default-src 'none'; style-src 'unsafe-inline'; img-src data:; sandbox"); // mở SVG trực tiếp: không chạy script (ảnh <img> không bị ảnh hưởng)
     return new Response(r.body, { status: r.status, headers: h });
   },
 };

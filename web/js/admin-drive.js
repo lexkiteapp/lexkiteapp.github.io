@@ -11,7 +11,7 @@
  * Không bao giờ nhận/hiện token: máy chủ chỉ trả email + số liệu + link ký nội bộ. Chữ tiếng Anh ở bảng EN. */
 (function () {
   const EN = {
-    '🗄️ Kho Drive riêng': '🗄️ Private Drive storage', 'Sao lưu bản gốc, clip và bản dựng của kho tài nguyên vào Google Drive của chính bạn (nguồn sao lưu 2). App chỉ thấy file do nó tạo (quyền drive.file).': 'Back up originals, clips and renders of the asset library to your own Google Drive (backup source 2). The app only sees files it created (drive.file scope).',
+    'Sổ kho': 'Ledger', '🗄️ Kho Drive riêng': '🗄️ Private Drive storage', 'Sao lưu bản gốc, clip và bản dựng của kho tài nguyên vào Google Drive của chính bạn (nguồn sao lưu 2). App chỉ thấy file do nó tạo (quyền drive.file).': 'Back up originals, clips and renders of the asset library to your own Google Drive (backup source 2). The app only sees files it created (drive.file scope).',
     '➕ Kết nối Google Drive': '➕ Connect Google Drive', '🔄 Tải lại': '🔄 Reload', 'Đang mở Google…': 'Opening Google…', 'Tổng dung lượng': 'Total capacity', 'Đã dùng': 'Used', 'Còn trống': 'Free', '{n} Drive': ['{n} Drive', '{n} Drives'],
     'Chưa nối Drive nào. Bấm "Kết nối Google Drive" và đăng nhập tài khoản Google muốn dùng.': 'No Drive connected yet. Click "Connect Google Drive" and sign in with the Google account to use.',
     'Đang nhận file': 'Accepting files', 'Đang rút (không nhận file mới)': 'Draining (no new files)', 'Mất quyền – cần nối lại': 'Access lost – reconnect', '{n} file · {b}': ['{n} file · {b}', '{n} files · {b}'], 'Kiểm tra gần nhất: {t}': 'Last check: {t}',

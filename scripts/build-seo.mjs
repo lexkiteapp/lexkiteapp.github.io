@@ -26,9 +26,14 @@ html = html.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE, logo: `${SITE}icons/icon-512.png` } });
   return `<script type="application/ld+json">${JSON.stringify(d).replace(/</g, '\\u003c')}</script>`;
 });
+// WebSite + Organization (thực thể thương hiệu cho Knowledge Graph / tên trang trên kết quả tìm kiếm). Không khai SearchAction: tra từ dùng hash route, không có URL tìm kiếm crawl được.
+if (!html.includes('"@type":"WebSite"')) html = html.replace('</head>', `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': [
+  { '@type': 'WebSite', '@id': `${SITE}#website`, name: 'Lexkite', url: SITE, inLanguage: ['vi', 'en'], publisher: { '@id': `${SITE}#org` } },
+  { '@type': 'Organization', '@id': `${SITE}#org`, name: 'Lexkite', url: SITE, logo: `${SITE}icons/icon-512.png` }] }).replace(/</g, '\\u003c')}</script>\n</head>`);
 if (!html.includes(`<meta property="og:image" content="${OG}"`)) throw new Error('build-seo: không chèn được thẻ og vào dist/index.html');
 fs.writeFileSync('dist/index.html', html);
 
 const url = (loc, lm, cf, pr) => `  <url><loc>${loc}</loc><lastmod>${lm}</lastmod><changefreq>${cf}</changefreq><priority>${pr}</priority></url>`;
-fs.writeFileSync('dist/sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${url(SITE, gitDate('web/index.html', 'web/js'), 'weekly', '1.0')}\n${url(SITE + 'privacy', gitDate('web/privacy.html'), 'yearly', '0.3')}\n</urlset>\n`);
+fs.writeFileSync('dist/sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${url(SITE, gitDate('web/index.html', 'web/js'), 'weekly', '1.0')}\n${['en', 'vi'].flatMap(l => ['privacy', 'terms'].map(n => url(`${SITE}${l}/${n}`, gitDate(`content/legal/${l}/${n}.html`), 'yearly', '0.3'))).join('\n')}\n</urlset>\n`);
+// /privacy gốc có canonical → /en/privacy (tự chuyển theo ngôn ngữ) nên sitemap chỉ liệt kê bản /<lang>/ thật
 console.log('✓ SEO: trang chủ (canonical, og 1200×630, JSON-LD) + sitemap gốc');

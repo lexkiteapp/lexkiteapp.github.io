@@ -38,7 +38,7 @@
   const PLATS = { web: '🌐 Web', pwa: '📲 PWA', ext: '🧩 Add-on', ios: '🍎 iOS', android: '🤖 Android', app: '📱 App' };
   const ACTS = { create: 'tạo', status: 'đổi trạng thái', reply: 'phản hồi', note: 'ghi chú', assign: 'giao việc', merge: 'gộp vào', merged: 'nhận gộp', mailed: 'đã gửi thư', 'mail-failed': 'gửi thư lỗi', spam: 'spam', 'not-spam': 'bỏ spam', triage: 'phân loại', issue: 'issue', 'issue-failed': 'issue lỗi', idea: 'đề xuất', resolve: 'đã sửa (Claude Code)' };
   const SEVC = { P0: '#dc2626', P1: '#ea580c', P2: '#ca8a04', P3: '#64748b' };
-  const sevChip = v => v ? `<span class="rp-sev" style="--c:${SEVC[v] || '#64748b'}">${v}</span>` : '';
+  const sevChip = v => v ? `<span class="rp-sev" style="--c:${Object.prototype.hasOwnProperty.call(SEVC, v) ? SEVC[v] : '#64748b'}">${Object.prototype.hasOwnProperty.call(SEVC, v) ? v : '?'}</span>` : ''; // chỉ P0–P3 (dữ liệu D1/AI không được chèn HTML)
   let lang = () => 'vi';
   const T = (vi, v) => { let s = lang() === 'en' && Object.prototype.hasOwnProperty.call(EN, vi) ? EN[vi] : vi; if (v) s = s.replace(/\{(\w+)\}/g, (m, k) => (v[k] != null ? String(v[k]) : m)); return s; };
   const stName = k => T((STS.find(x => x[0] === k) || [k, k])[1]);
@@ -201,7 +201,7 @@
         <div class="card kpi"><div class="l">${T('Theo trạng thái')}</div><div class="s">${STS.map(([k, l]) => `<span class="rp-st ${k}">${esc(T(l))} ${num(s.byStatus[k] || 0)}</span>`).join(' ')}</div></div></div>
       <div class="rp-kpis" style="margin-top:.6rem"><div><h4 style="margin:.2rem 0 .4rem">${T('7 ngày qua')}</h4><div class="bars" role="img" aria-label="${esc(s.days7.map(d => d.day + ': ' + d.n).join(', '))}">${s.days7.map(d => `<div title="${esc(d.day)}: ${d.n} ${T('mới')} · ${d.fixed} ${T('đã sửa')}"><i style="height:${Math.max(3, d.n / m7 * 100)}%"></i><small>${esc(d.day.slice(8))}</small></div>`).join('')}</div></div>
         <div><h4 style="margin:.2rem 0 .4rem">${T('Theo khu vực (30 ngày)')}</h4>${s.byArea.length ? s.byArea.slice(0, 8).map(a => `<div class="rp-hbar"><span>${esc(T(AREAS[a.area] || a.area))}</span><span class="b"><i style="width:${a.n / mA * 100}%"></i></span><span>${num(a.n)}</span></div>`).join('') : `<p class="small muted">${T('chưa có')}</p>`}</div></div>`;
-    el.querySelector('a[href="#reports"]').onclick = e => { e.preventDefault(); const b = document.querySelector('#tabs button[data-tab="reports"]'); if (b) b.click(); };
+    el.querySelector('a[href="#reports"]').onclick = e => { e.preventDefault(); const b = document.querySelector('#tabs [data-tab="reports"]'); if (b) b.click(); };
   }
 
   window.AdminReports = { render, card, _t: { T, EN } };

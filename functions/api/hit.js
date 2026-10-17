@@ -93,7 +93,9 @@ async function migrate(db) {
 export async function onRequestPost({ request, env }) {
   if (!env.DB) return ok();
   if ((await gate(request, env, 'hit', { who: null })).res) return ok(); // 1 IP gửi dồn dập → bỏ qua im lặng (thống kê không bao giờ làm hỏng app)
+  if (+(request.headers.get('Content-Length') || 0) > 65536) return ok(); // beacon thật chỉ vài KB
   let b; try { b = JSON.parse(await request.text()); } catch (e) { return ok(); }
+  if (!b || typeof b !== 'object') return ok();
   const auto = automation(request);
   if (auto && b && b.t !== 's') return ok(); // máy tự động: chỉ đếm phiên (để Quản trị hiện "đã loại"), không ghi lỗi JS / add-on
   try {

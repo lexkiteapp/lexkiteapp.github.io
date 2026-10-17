@@ -10,14 +10,24 @@
   <link rel="stylesheet" href="css/admin.css">
 </head>
 <body class="adm">
+  <a class="adm-skip" href="#main" data-l="Bỏ qua tới nội dung">Bỏ qua tới nội dung</a>
   <header class="adm-top">
-    <a class="brand" href="/#/home" title="Về trang chủ Lexkite" style="padding:0;text-decoration:none;color:inherit"><img class="logo" src="icons/icon.svg" alt=""><span class="wordmark">lex<b>kite</b></span></a> <span class="adm-tag">Admin</span>
-    <nav class="adm-tabs" id="tabs" hidden>
-      <button data-tab="overview" class="on" data-l="Tổng quan">Tổng quan</button><button data-tab="analytics" data-l="Phân tích">Phân tích</button><button data-tab="users" data-l="Người dùng">Người dùng</button><button data-tab="inbox"><span data-l="Hộp thư">Hộp thư</span> <b id="inboxN"></b></button><button data-tab="alerts"><span data-l="Cảnh báo">Cảnh báo</span> <b id="alertN"></b></button><button data-tab="reports"><span data-l="Báo lỗi">Báo lỗi</span> <b id="repN"></b></button><button data-tab="quality" data-l="Chất lượng">Chất lượng</button><button data-tab="social" data-l="Video &amp; Social">Video &amp; Social</button><button data-tab="studio" data-l="Video Studio">Video Studio</button><button data-tab="quota" data-l="Hạn mức">Hạn mức</button><button data-tab="drive"><span data-l="Kho Drive">Kho Drive</span> <b id="drvN"></b></button><button data-tab="keys" data-l="Khóa API">Khóa API</button><button data-tab="services" data-l="Dịch vụ &amp; API">Dịch vụ &amp; API</button><button data-tab="settings" data-l="Cài đặt">Cài đặt</button>
-    </nav>
+    <button type="button" class="adm-ibtn adm-burger" id="navBtn" aria-controls="side" aria-expanded="false"><span aria-hidden="true">☰</span><span class="sr-only" data-l="Mở menu">Mở menu</span></button>
+    <a class="brand adm-brand" href="/#/home" title="Về trang chủ Lexkite"><img class="logo" src="icons/icon.svg" alt=""><span class="wordmark">lex<b>kite</b></span></a><span class="adm-tag">Admin</span>
+    <button type="button" class="adm-cmdk" id="cmdk"><span aria-hidden="true">⌕</span><span class="adm-cmdk-t" data-l="Đi tới…">Đi tới…</span><kbd id="cmdkKey">Ctrl K</kbd></button>
     <span class="adm-me" id="me"></span>
   </header>
-  <main class="adm-main" id="main"><div class="card center adm-login"><h2 data-l="Trang quản trị Lexkite">Trang quản trị Lexkite</h2><p class="muted" data-l="Chỉ tài khoản quản trị được cấp quyền.">Chỉ tài khoản quản trị được cấp quyền.</p><button class="btn primary" id="signin" data-l="Đăng nhập bằng Google">Đăng nhập bằng Google</button><p class="small muted" id="loginMsg"></p></div></main>
+  <div class="adm-shell">
+    <aside class="adm-side" id="side" hidden>
+      <nav class="side-nav" id="tabs" aria-label="Admin"></nav>
+    </aside>
+    <div class="side-scrim" id="scrim" hidden></div>
+    <div class="adm-content">
+      <div class="pg-head" id="pgHead"></div>
+      <main class="adm-main" id="main" tabindex="-1"><div class="card center adm-login"><h1 class="adm-login-t" data-l="Trang quản trị Lexkite">Trang quản trị Lexkite</h1><p class="muted" data-l="Chỉ tài khoản quản trị được cấp quyền.">Chỉ tài khoản quản trị được cấp quyền.</p><button class="btn primary" id="signin" data-l="Đăng nhập bằng Google">Đăng nhập bằng Google</button><p class="small muted" id="loginMsg"></p></div></main>
+    </div>
+  </div>
+  <div class="adm-toasts" id="toasts" role="status" aria-live="polite"></div>
   <script src="js/firebase-config.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>

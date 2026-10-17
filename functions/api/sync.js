@@ -21,7 +21,8 @@ const json = (req, status, data) => new Response(JSON.stringify(data), { status,
 
 const b64u = s => Uint8Array.from(atob(s.replace(/-/g, '+').replace(/_/g, '/') + '='.repeat((4 - s.length % 4) % 4)), c => c.charCodeAt(0));
 async function keys(force) {
-  if (jwks && !force && Date.now() - jwksAt < 3600e3) return jwks;
+  // force (kid lạ): tối đa 1 lần tải lại/phút – token rác với kid ngẫu nhiên không biến mỗi yêu cầu thành 1 lượt gọi Google
+  if (jwks && Date.now() - jwksAt < (force ? 60e3 : 3600e3)) return jwks;
   const r = await fetch(JWKS_URL, /** @type {any} */ ({ cf: { cacheTtl: 3600, cacheEverything: true } })); // cf: tùy chọn bộ đệm riêng của Cloudflare
   if (!r.ok) throw new Error('jwks ' + r.status);
   jwks = (await r.json()).keys || []; jwksAt = Date.now();
@@ -43,6 +44,7 @@ export async function claims(token, now = Date.now() / 1000, getKeys = keys) {
   if (!ok) return null;
   if (body.aud !== PROJECT || body.iss !== 'https://securetoken.google.com/' + PROJECT) return null;
   if (!(body.exp > now) || !(body.iat <= now + 300)) return null;
+  if (body.auth_time !== undefined && !(typeof body.auth_time === 'number' && body.auth_time <= now + 300)) return null; // Firebase: auth_time phải ở quá khứ
   if (typeof body.sub !== 'string' || !body.sub || body.sub.length > 128) return null;
   return body;
 }
@@ -81,6 +83,7 @@ export async function onRequestPost({ request, env }) {
   if (+(request.headers.get('Content-Length') || 0) > MAX_TOTAL) return json(request, 413, { error: 'too-large' });
   let req;
   try { req = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
+  if (!req || typeof req !== 'object' || Array.isArray(req)) return json(request, 400, { error: 'json' });
   // Mỗi tài khoản: kéo/đẩy mỗi chiều tối đa 1 lần/20 giây (app tự gom 3 phút/lần nên người dùng thường không chạm tới)
   { const w = await limit(`sync:${uid}:${req.op}`, 1, 20); if (w) return json(request, 429, { error: 'too-fast', wait: w }); }
   // Hạn mức ngày + theo IP + khóa chống lạm dụng (functions/api/_quota.js – đếm ở biên, không tốn lượt ghi D1)
