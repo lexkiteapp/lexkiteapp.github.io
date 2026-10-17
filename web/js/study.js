@@ -444,7 +444,8 @@
       document.onkeydown = e => {
         if (answered) { if (e.key === 'Enter') { e.preventDefault(); $('#nextQ') && $('#nextQ').click(); } return; }
         if (e.ctrlKey || e.metaKey || e.altKey) return;
-        const n = +e.key; if (n >= 1 && n <= opts.length) pick($$('.option', box)[n - 1]);
+        const n = /^[1-9]$/.test(e.key) ? +e.key : /^[a-dA-D]$/.test(e.key) ? e.key.toLowerCase().charCodeAt(0) - 96 : 0;
+        if (n >= 1 && n <= opts.length) pick($$('.option', box)[n - 1]);
       };
       if (q.type === 'mcq-vi' && state.settings.autoSpeak) speak(w.word, accent(), w.audio);
       return;
