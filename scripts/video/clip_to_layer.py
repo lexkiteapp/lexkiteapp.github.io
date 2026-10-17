@@ -53,6 +53,11 @@ if a.stacked:
     sdir = f'{tmp}/stk'; os.makedirs(sdir)
     for k, i in enumerate(seq):
         c = crops[i][:sole].copy()  # mọi thứ dưới đường đế (bóng sàn dính) bị bỏ
+        # xoá cả bóng xám bán trong suốt quanh giày (cùng luật trim_floor_shadow) – không chỉ cắt dưới đế
+        band = slice(max(0, sole - int(0.06 * sole)), sole)
+        mx, mn = c[band][..., :3].max(2).astype(int), c[band][..., :3].min(2).astype(int)
+        grey = (c[band][..., 3] < 235) & (mx > 130) & (mx < 228) & ((mx - mn) < 28)
+        c[band][..., 3][grey] = 0
         fr = np.zeros((hh * 2, ww, 3), np.uint8)
         fr[:c.shape[0], :c.shape[1]] = c[..., :3]
         fr[hh:hh + c.shape[0], :c.shape[1]] = np.repeat(c[..., 3:4], 3, axis=2)
