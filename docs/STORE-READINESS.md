@@ -77,7 +77,12 @@ Mã hóa khi truyền: **Có** (HTTPS). Người dùng yêu cầu xóa được:
 | Personal info → Email address | Có (chỉ khi người dùng tự nhập trong form liên hệ / muốn nhận tin báo lỗi) | Không | Tùy chọn | App functionality (hỗ trợ) | `contact.js`, `report.js` |
 | Audio → Voice or sound recordings | **Không thu thập** (nhận dạng giọng nói trên máy / dịch vụ của hệ điều hành; không gửi lên máy chủ mình) | – | – | – | `speaking.js`, `ui.js` |
 | Personal info → Name, Email, User IDs; App activity → learning data | **Chỉ khi bật đăng nhập trong app** – hiện app chưa có → chưa khai | | | Account management, App functionality | `sync.js`, `functions/api/sync.js` |
-| Device or other IDs | Không (mã khách là số ngẫu nhiên do app tạo; Play coi là "App interactions" kèm định danh – khai "Có liên kết với thiết bị: Không") | | | | |
+| Device or other IDs | Có (mã khách ngẫu nhiên do app tạo + mã thiết bị chống lạm dụng, băm IP) | Không | Bắt buộc | Analytics, Fraud prevention/security | `hit.js`, `_quota`/`report.js` |
+| Personal info → Name | Có (chỉ khi tự nhập trong form liên hệ) | Không | Tùy chọn | App functionality | `contact.js` |
+| Photos and videos → Photos | Có (ảnh chụp màn hình tùy chọn kèm báo lỗi) | Không | Tùy chọn | App functionality | `report.js` |
+| App activity → In-app search history | Có, **xử lý tức thời** (từ tra gửi dịch vụ tra cứu, không lưu) – không hiện trên trang Play | Không | Bắt buộc | App functionality | `dictionary.js` |
+
+**Đã khai trên Play Console 17/10/2026** theo đúng bảng này (Email: Tùy chọn · App functionality; Vị trí gần đúng/Tương tác/Crash/Diagnostics: Bắt buộc · Analytics). Xóa dữ liệu: `https://lexkite.com/en/privacy#delete`. Tài khoản: "My app does not allow users to create an account".
 
 Khi bật đăng nhập/AdMob: cập nhật bảng này + nhãn Apple trước khi phát hành bản đó.
 
