@@ -1,0 +1,72 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/pronunciation-pair.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Pronunciation: ship vs sheep",
+ "format": "short",
+ "template": "pronunciation-pair",
+ "script": {
+  "title": "Ship or sheep? Say it right",
+  "hook": "Ship or sheep?",
+  "scene": "library",
+  "time": "day",
+  "format_id": "pronunciation-fix",
+  "template": "pronunciation-pair",
+  "lines": [
+   {
+    "who": "ama",
+    "beat": "hook",
+    "text": "Wait, ship or sheep?",
+    "expr": "surprised",
+    "gesture": "hands on cheeks"
+   },
+   {
+    "who": "ama",
+    "beat": "situation",
+    "text": "So I just told everyone I'm traveling by sheep?",
+    "expr": "confused",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "explain",
+    "text": "Ship is short and quick. Sheep is long, so stretch it and smile.",
+    "expr": "confident",
+    "gesture": "explaining with hands",
+    "punch": true
+   },
+   {
+    "who": "ama",
+    "beat": "example",
+    "text": "The sheep sleeps on the ship.",
+    "expr": "friendly",
+    "gesture": ""
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: smile for sheep, relax for ship.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "cta",
+    "text": "Practice pronunciation free on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "ship",
+   "sheep"
+  ],
+  "wrong": "I'm traveling by sheep",
+  "right": "I'm traveling by ship",
+  "caption": "Ship vs sheep – can you hear the difference?",
+  "hashtags": [
+   "pronunciation",
+   "englishpronunciation",
+   "speakenglish"
+  ],
+  "link": "https://lexkite.com/"
+ }
+}

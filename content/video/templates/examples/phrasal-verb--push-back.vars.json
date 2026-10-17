@@ -1,0 +1,22 @@
+{
+ "topic": "Phrasal verb at work: push back the meeting",
+ "scene": "office",
+ "vars": {
+  "verb": "push back",
+  "hookLine": "Let's push it back.",
+  "literal": "Back? Like, push the table?",
+  "meaning": "Oh! Push back means move it to a later time.",
+  "example": "Can we push the call back to Friday?",
+  "tip": "push back means later. Move up means earlier."
+ },
+ "lines": {
+  "example": {
+   "expr": "curious"
+  }
+ },
+ "hashtags": [
+  "phrasalverbs",
+  "businessenglish",
+  "learnenglish"
+ ]
+}

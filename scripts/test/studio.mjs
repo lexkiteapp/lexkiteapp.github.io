@@ -65,6 +65,13 @@ r = await call(ADM, { op: 'scriptApprove', id }); ok(r.s === 422 && r.j.error ==
 const long = JSON.parse(JSON.stringify(good)); long.lines[2].text = Array(150).fill('word').join(' ').slice(0, 160); long.lines.splice(3, 0, ...Array(8).fill({ who: 'leo', beat: 'example', text: Array(30).fill('longer').join(' ').slice(0, 159) }));
 ok(!mod.checkScript(mod.normScript(long, { topic: 't' })).ok && /> 60 s/.test(mod.checkScript(mod.normScript(long, { topic: 't' })).errs.join()), 'kịch bản > 60 s bị chặn');
 ok(!mod.checkScript(mod.normScript({ lines: [{ who: 'bob', beat: 'hook', text: 'Hi' }] }, { topic: 't' })).ok, 'nhân vật ngoài dàn bị chặn');
+// Khuôn nội dung (VIDEO-PIPELINE §11): normScript giữ trường render cần (bối cảnh, khuôn hình, thẻ payoff, punch) và bỏ giá trị lạ
+{ const tplJob = JSON.parse((await import('node:fs')).readFileSync(new URL('../../content/video/samples/spot-the-mistake--she-doesnt.json', import.meta.url), 'utf8'));
+  const n = mod.normScript(tplJob.script, { topic: tplJob.topic });
+  ok(n.scene === 'library' && n.time === 'day' && n.format_id === 'spot-the-mistake' && n.template === 'spot-the-mistake' && n.wrong && n.right && n.lines.some(l => l.punch === true), 'normScript giữ scene/time/format_id/template/wrong/right/punch của kịch bản khuôn');
+  ok(mod.checkScript(n).ok, 'kịch bản khuôn qua checkScript sau normScript');
+  const x = mod.normScript({ scene: 'Office<b>', time: 'noon', format_id: '../x', recast: 'yes', lines: [{ who: 'mia', beat: 'hook', text: 'Hi', punch: 'y', transition: 'spin' }] }, { topic: 't' });
+  ok(!('scene' in x) && !('time' in x) && !('format_id' in x) && !('recast' in x) && !('punch' in x.lines[0]) && !('transition' in x.lines[0]), 'normScript bỏ trường tuỳ chọn không hợp lệ'); }
 r = await call(ADM, { op: 'scriptSave', id, script: good }); ok(r.j.check.ok, 'kịch bản tốt hợp lệ ' + JSON.stringify(r.j.check.errs));
 r = await call(ADM, { op: 'scriptApprove', id }); ok(r.s === 200 && r.j.job.status === 'script_ok', 'duyệt → script_ok');
 

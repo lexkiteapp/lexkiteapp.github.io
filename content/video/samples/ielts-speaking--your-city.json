@@ -1,0 +1,69 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/ielts-speaking.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "IELTS Speaking Part 1: do you like your city?",
+ "format": "short",
+ "template": "ielts-speaking",
+ "script": {
+  "title": "IELTS Speaking Part 1: Do you like your city?",
+  "hook": "Do you like your city?",
+  "scene": "library",
+  "time": "day",
+  "format_id": "ielts-speaking-p1",
+  "template": "ielts-speaking",
+  "lines": [
+   {
+    "who": "ama",
+    "beat": "hook",
+    "text": "Do you like your city?",
+    "expr": "thinking",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "situation",
+    "text": "I said, yes. Then… silence. Oops.",
+    "expr": "awkward",
+    "gesture": "hands on cheeks"
+   },
+   {
+    "who": "ama",
+    "beat": "explain",
+    "text": "I really do, because there's always something going on, like the night markets.",
+    "expr": "confident",
+    "gesture": "open hands",
+    "punch": true
+   },
+   {
+    "who": "ama",
+    "beat": "example",
+    "text": "So: a short answer, a reason with because, and one detail.",
+    "expr": "friendly",
+    "gesture": ""
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: answer, reason, example. Two or three sentences is enough for Part 1.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "cta",
+    "text": "Practice IELTS speaking free on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "because"
+  ],
+  "caption": "IELTS Speaking Part 1: how to answer \"Do you like your city?\"",
+  "hashtags": [
+   "ielts",
+   "ieltsspeaking",
+   "learnenglish"
+  ],
+  "link": "https://lexkite.com/"
+ }
+}

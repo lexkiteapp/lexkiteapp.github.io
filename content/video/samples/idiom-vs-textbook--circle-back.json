@@ -1,0 +1,71 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/idiom-vs-textbook.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Office idiom: circle back vs textbook English",
+ "format": "short",
+ "template": "idiom-vs-textbook",
+ "script": {
+  "title": "What natives mean by \"circle back\"",
+  "hook": "\"Circle back\" means what?",
+  "scene": "office",
+  "time": "day",
+  "format_id": "native-vs-textbook",
+  "template": "idiom-vs-textbook",
+  "lines": [
+   {
+    "who": "diane",
+    "beat": "hook",
+    "text": "Let's circle back on this.",
+    "expr": "calm",
+    "gesture": ""
+   },
+   {
+    "who": "mia",
+    "beat": "situation",
+    "text": "So in my textbook, that's: we'll discuss it later?",
+    "expr": "thinking",
+    "gesture": ""
+   },
+   {
+    "who": "mia",
+    "beat": "explain",
+    "text": "Oh, circle back means come back to a topic later.",
+    "expr": "confident",
+    "gesture": "open hands",
+    "punch": true
+   },
+   {
+    "who": "diane",
+    "beat": "example",
+    "text": "Can we circle back to the budget on Monday?",
+    "expr": "curious",
+    "gesture": ""
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: circle back is for work. With friends, just say let's talk later.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "mia",
+    "beat": "cta",
+    "text": "Sound more natural with lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "circle back"
+  ],
+  "wrong": "We'll discuss it later.",
+  "right": "Let's circle back.",
+  "caption": "Do you know \"circle back\"?",
+  "hashtags": [
+   "idioms",
+   "businessenglish",
+   "speakenglish"
+  ],
+  "link": "https://lexkite.com/"
+ }
+}

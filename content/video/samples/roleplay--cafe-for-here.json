@@ -1,0 +1,69 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/roleplay.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Cafe roleplay: \"For here or to go?\"",
+ "format": "short",
+ "template": "roleplay",
+ "script": {
+  "title": "Roleplay at the cafe: \"to go, please\"",
+  "hook": "What do you say?",
+  "scene": "cafe",
+  "time": "day",
+  "format_id": "cafe-carlos",
+  "template": "roleplay",
+  "lines": [
+   {
+    "who": "ama",
+    "beat": "hook",
+    "text": "For here or… to go?",
+    "expr": "confused",
+    "gesture": ""
+   },
+   {
+    "who": "carlos",
+    "beat": "situation",
+    "text": "Drink it here, or take it with you. Your call!",
+    "expr": "friendly",
+    "gesture": "open hands"
+   },
+   {
+    "who": "ama",
+    "beat": "example",
+    "text": "Oh! To go, please. One small latte.",
+    "expr": "friendly",
+    "gesture": ""
+   },
+   {
+    "who": "carlos",
+    "beat": "explain",
+    "text": "One small latte to go. Coming up!",
+    "expr": "happy smile",
+    "gesture": "",
+    "punch": true
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: in the UK, you'll also hear eat in or take away.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "cta",
+    "text": "Practice real conversations on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "to go, please"
+  ],
+  "caption": "What to say at the cafe: \"to go, please\"",
+  "hashtags": [
+   "englishconversation",
+   "dailyenglish",
+   "learnenglish"
+  ],
+  "link": "https://lexkite.com/"
+ }
+}

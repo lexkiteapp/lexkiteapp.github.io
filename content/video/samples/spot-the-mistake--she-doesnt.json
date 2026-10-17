@@ -1,0 +1,71 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/spot-the-mistake.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Grammar: spot the mistake in \"She don't like coffee\"",
+ "format": "short",
+ "template": "spot-the-mistake",
+ "script": {
+  "title": "Is \"She don't like coffee\" correct?",
+  "hook": "\"She don't\"?",
+  "scene": "library",
+  "time": "day",
+  "format_id": "spot-the-mistake",
+  "template": "spot-the-mistake",
+  "lines": [
+   {
+    "who": "ama",
+    "beat": "hook",
+    "text": "Wait, \"she don't\"?",
+    "expr": "surprised",
+    "gesture": "hands on cheeks"
+   },
+   {
+    "who": "ama",
+    "beat": "situation",
+    "text": "I keep saying \"She don't like coffee.\" Is that okay?",
+    "expr": "thinking",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "explain",
+    "text": "Here's the fix: with he, she, or it, we say doesn't, not don't.",
+    "expr": "confident",
+    "gesture": "open hands",
+    "punch": true
+   },
+   {
+    "who": "ama",
+    "beat": "example",
+    "text": "My brother doesn't drink coffee, but he loves tea.",
+    "expr": "happy smile",
+    "gesture": ""
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: he, she, and it take does. I, you, we, and they take do.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "cta",
+    "text": "Fix more mistakes free on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "doesn't"
+  ],
+  "wrong": "She don't like coffee",
+  "right": "She doesn't like coffee",
+  "caption": "Say \"She doesn't like coffee\", not \"She don't like coffee\"",
+  "hashtags": [
+   "englishgrammar",
+   "commonmistakes",
+   "learnenglish"
+  ],
+  "link": "https://lexkite.com/"
+ }
+}

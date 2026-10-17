@@ -1,0 +1,39 @@
+{
+ "id": "phrasal-verb",
+ "name": "Phrasal verb in context",
+ "goal": "Nghe phrasal verb trong câu thật → người học hiểu theo nghĩa đen → nghĩa thật → câu dùng khác. Payoff: checklist ở beat explain.",
+ "format_id": "phrasal-30",
+ "cefr": "B1",
+ "duration": [18, 40],
+ "topicHint": "\"Phrasal verb at work: …\" (có meeting/office/deadline) → office-english · \"Cafe English: …\" → ordering-coffee",
+ "roles": { "opener": "người dùng phrasal verb tự nhiên", "learner": "người hiểu nghĩa đen → hiểu ra", "explainer": "người nói nghĩa", "modeler": "người dùng lại trong câu khác", "kit": "Kit – cặp đối nghĩa/mẹo" },
+ "scenes": {
+  "office": { "roles": { "opener": ["diane"], "learner": ["mia"], "explainer": ["mia"], "modeler": ["diane"] } },
+  "cafe": { "roles": { "opener": ["carlos"], "learner": ["ama"], "explainer": ["carlos"], "modeler": ["ama"] } }
+ },
+ "vars": {
+  "verb": { "desc": "phrasal verb (từ khóa), vd. push back", "required": true, "maxWords": 3 },
+  "hookLine": { "desc": "câu mở ≤ 5 âm tiết có dùng verb (vd. Let's push it back.)", "required": true, "maxWords": 5 },
+  "literal": { "desc": "câu hỏi hiểu theo nghĩa đen, kết thúc bằng ?", "required": true },
+  "meaning": { "desc": "câu giải thích có chứa verb", "required": true },
+  "example": { "desc": "câu dùng verb trong tình huống khác", "required": true },
+  "tip": { "desc": "mẹo sau \"Kit's tip:\" (đối nghĩa, tách/không tách)", "required": true }
+ },
+ "title": ["\"{{verb}}\" – what it really means", "Phrasal verb: {{verb}}"],
+ "hook": ["What does {{verb}} mean?", "{{verb}}?"],
+ "beats": [
+  { "id": "hook", "beat": "hook", "role": "opener", "emotions": ["talk", "explain"], "maxWords": 5, "maxSec": 1.9, "text": ["{{hookLine}}"], "expr": "calm", "gesture": "" },
+  { "id": "situation", "beat": "situation", "role": "learner", "emotions": ["ask"], "maxWords": 10, "text": ["{{literal}}"], "expr": "confused", "gesture": "" },
+  { "id": "explain", "beat": "explain", "role": "explainer", "emotions": ["explain"], "maxWords": 16, "punch": true, "must": ["kw:0"], "text": ["{{meaning}}"], "expr": "confident", "gesture": "open hands" },
+  { "id": "example", "beat": "example", "role": "modeler", "emotions": ["explain", "ask", "right"], "maxWords": 14, "text": ["{{example}}"], "expr": "friendly", "gesture": "" },
+  { "id": "tip", "beat": "tip", "role": "kit", "maxWords": 18, "text": ["Kit's tip: {{tip}}"], "expr": "proud", "gesture": "" },
+  { "id": "cta", "beat": "cta", "role": "learner", "emotions": ["cta"], "maxWords": 8, "text": ["Learn more phrasal verbs on lexkite.com", "Practice phrasal verbs free on lexkite.com"], "expr": "happy smile", "gesture": "waving hello" }
+ ],
+ "keywords": ["{{verb}}"],
+ "caption": ["\"{{verb}}\" in real English – watch till the end", "Phrasal verb of the day: {{verb}}"],
+ "hashtags": ["phrasalverbs", "englishvocabulary", "businessenglish", "learnenglish", "speakenglish"],
+ "writing": {
+  "do": ["Phrasal verb tần suất cao (push back, run out of, follow up, figure out)", "Câu hiểu lầm nghĩa đen phải vui và vô hại", "Ví dụ cho thấy vị trí tân ngữ nếu tách được (push it back)"],
+  "dont": ["Không nhồi 3 nghĩa trong 30 s – 1 nghĩa chính", "Không dùng phrasal verb mang nghĩa thô tục/hai nghĩa"]
+ }
+}

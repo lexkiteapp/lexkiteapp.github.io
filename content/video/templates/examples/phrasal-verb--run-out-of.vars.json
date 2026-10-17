@@ -1,0 +1,17 @@
+{
+ "topic": "Cafe English: run out of",
+ "scene": "cafe",
+ "vars": {
+  "verb": "run out of",
+  "hookLine": "Sorry, we ran out.",
+  "literal": "Ran out? Where did it go?",
+  "meaning": "Run out of means there's none left. We have no oat milk today.",
+  "example": "Oh no! We've run out of coffee at home too.",
+  "tip": "say run out of before the thing: we ran out of milk."
+ },
+ "hashtags": [
+  "phrasalverbs",
+  "englishvocabulary",
+  "speakenglish"
+ ]
+}

@@ -1,0 +1,71 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/idiom-vs-textbook.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Slang at the cafe: \"I'm down\" vs textbook English",
+ "format": "short",
+ "template": "idiom-vs-textbook",
+ "script": {
+  "title": "What natives mean by \"I'm down\"",
+  "hook": "\"I'm down\" means what?",
+  "scene": "cafe",
+  "time": "day",
+  "format_id": "native-vs-textbook",
+  "template": "idiom-vs-textbook",
+  "lines": [
+   {
+    "who": "ama",
+    "beat": "hook",
+    "text": "Wait, \"I'm down\" means sad?",
+    "expr": "surprised",
+    "gesture": "hands on cheeks"
+   },
+   {
+    "who": "ama",
+    "beat": "situation",
+    "text": "My textbook says: I would be happy to join you?",
+    "expr": "thinking",
+    "gesture": ""
+   },
+   {
+    "who": "carlos",
+    "beat": "explain",
+    "text": "That's fine, but I'm down just means I'm in. Super casual.",
+    "expr": "confident",
+    "gesture": "open hands",
+    "punch": true
+   },
+   {
+    "who": "carlos",
+    "beat": "example",
+    "text": "Like this: \"Pizza after work?\" \"I'm down!\"",
+    "expr": "friendly",
+    "gesture": ""
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: I'm down is for friends. At work, say I'd love to.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "cta",
+    "text": "Sound more natural with lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "I'm down"
+  ],
+  "wrong": "I would be happy to join you.",
+  "right": "I'm down!",
+  "caption": "Do you know \"I'm down\"?",
+  "hashtags": [
+   "englishslang",
+   "speakenglish",
+   "learnenglish"
+  ],
+  "link": "https://lexkite.com/"
+ }
+}

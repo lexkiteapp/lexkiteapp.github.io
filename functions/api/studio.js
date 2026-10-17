@@ -97,11 +97,30 @@ export function normScript(sc, job) {
   const str = (v, n) => String(v == null ? '' : v).slice(0, n);
   return {
     title: str(s.title || job.topic, 120), hook: str(s.hook || '', 120),
-    lines: (Array.isArray(s.lines) ? s.lines : []).slice(0, 100).map(l => ({ who: str(l && l.who, 12).toLowerCase(), text: str(l && l.text, 200).trim(), expr: str(l && l.expr, 40), gesture: str(l && l.gesture, 40), beat: BEATS.includes(l && l.beat) ? l.beat : 'situation' })),
+    lines: (Array.isArray(s.lines) ? s.lines : []).slice(0, 100).map(l => ({ who: str(l && l.who, 12).toLowerCase(), text: str(l && l.text, 200).trim(), expr: str(l && l.expr, 40), gesture: str(l && l.gesture, 40), beat: BEATS.includes(l && l.beat) ? l.beat : 'situation', ...lineOpt(l) })),
     keywords: (Array.isArray(s.keywords) ? s.keywords : []).slice(0, 8).map(k => str(k, 40)),
     caption: str(s.caption, 1500), hashtags: (Array.isArray(s.hashtags) ? s.hashtags : []).slice(0, 10).map(h => str(h, 40).replace(/^#/, '')),
     link: /^https:\/\/lexkite\.com\//.test(s.link || '') ? str(s.link, 200) : 'https://lexkite.com/',
+    ...scriptOpt(s),
   };
+}
+// Trường tuỳ chọn mà render.mjs/variants đọc (khuôn nội dung content/video/templates – VIDEO-PIPELINE §11): giữ lại khi hợp lệ, bỏ khi lạ.
+// scene/outfit/format_id/template = id chữ thường · time day|night · recast bool · wrong/right = chữ thẻ payoff ❌/✅ · từng câu: punch, scene, transition fade|wipe
+const OPT_ID = /^[a-z][a-z0-9-]{0,39}$/;
+function scriptOpt(s) {
+  const o = {};
+  for (const k of ['scene', 'outfit', 'format_id', 'template']) if (typeof s[k] === 'string' && OPT_ID.test(s[k])) o[k] = s[k];
+  if (s.time === 'day' || s.time === 'night') o.time = s.time;
+  if (typeof s.recast === 'boolean') o.recast = s.recast;
+  for (const k of ['wrong', 'right']) if (typeof s[k] === 'string' && s[k].trim()) o[k] = s[k].trim().slice(0, 60);
+  return o;
+}
+function lineOpt(l) {
+  const o = {}; if (!l || typeof l !== 'object') return o;
+  if (l.punch === true) o.punch = true;
+  if (typeof l.scene === 'string' && OPT_ID.test(l.scene)) o.scene = l.scene;
+  if (l.transition === 'fade' || l.transition === 'wipe') o.transition = l.transition;
+  return o;
 }
 // Khung kịch bản khi chưa có AI (quản trị sửa tay)
 export const skeleton = job => normScript({ title: job.topic, lines: [

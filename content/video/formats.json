@@ -19,7 +19,7 @@
   },
   { "id": "word-of-day", "name": "Word of the day", "topics": "any", "cast": [1, 3], "labels": { "hook": { "text": "WORD OF THE DAY", "color": "yellow" } }, "camera": { "hook": "push", "explain": "close" }, "hook": { "pattern": "countdown-list", "badge": "WORD OF THE DAY" }, "payoff": { "type": "flip-card", "beat": "explain" }, "themes": ["pop-paper", "pop-teal", "bar-paper"]
   },
-  { "id": "pronunciation-fix", "name": "Lỗi phát âm", "topics": "any", "cast": [1, 3], "labels": { "situation": { "text": "NOT LIKE THIS", "color": "orange" }, "example": { "text": "SAY IT LIKE THIS", "color": "green" } }, "camera": { "example": "push" }, "hook": { "pattern": "mistake-stat", "badge": "90% SAY IT WRONG" }, "payoff": { "type": "compare-cards", "beat": "example" }, "themes": ["bounce-sunset", "pop-sunset", "bar-teal"]
+  { "id": "pronunciation-fix", "name": "Lỗi phát âm", "topics": "any", "cast": [1, 3], "labels": { "situation": { "text": "NOT LIKE THIS", "color": "orange" }, "example": { "text": "SAY IT LIKE THIS", "color": "green" } }, "camera": { "example": "push" }, "hook": { "pattern": "mistake-stat", "badge": "ARE YOU SAYING IT WRONG?" }, "payoff": { "type": "compare-cards", "beat": "example" }, "themes": ["bounce-sunset", "pop-sunset", "bar-teal"]
   },
   { "id": "mini-drama-3", "name": "Mini-drama 3 cảnh", "topics": "any", "cast": [2, 3], "labels": { "hook": { "text": "ACT 1", "color": "teal" }, "explain": { "text": "ACT 2", "color": "teal" }, "tip": { "text": "ACT 3", "color": "teal" } }, "camera": { "hook": "wide", "explain": "pan", "tip": "push" }, "hook": { "pattern": "story-cold-open", "badge": "WATCH WHAT HAPPENS" }, "payoff": { "type": "stamp-correct", "beat": "tip" }, "themes": ["mega-mint", "bounce-mint", "mega-sunset"]
   },
@@ -49,7 +49,7 @@
   },
   { "id": "one-word-upgrade", "name": "One-word upgrade", "topics": "any", "cast": [1, 3], "labels": { "situation": { "text": "BORING", "color": "yellow" }, "example": { "text": "BETTER", "color": "green" } }, "camera": { "situation": "pan", "example": "close" }, "hook": { "pattern": "stop-saying", "badge": "STOP SAYING \"VERY\"" }, "payoff": { "type": "before-after", "beat": "example" }, "themes": ["bar-night", "bounce-night", "mega-night"]
   },
-  { "id": "phrasal-30", "name": "Phrasal verb 30 s", "topics": "any", "cast": [1, 3], "labels": { "explain": { "text": "MEANING", "color": "green" } }, "camera": { "hook": "push", "example": "split" }, "hook": { "pattern": "countdown-list", "badge": "1 PHRASAL VERB, 3 MEANINGS" }, "payoff": { "type": "checklist", "beat": "explain" }, "themes": ["pop-teal", "bar-paper", "pop-paper"]
+  { "id": "phrasal-30", "name": "Phrasal verb 30 s", "topics": "any", "cast": [1, 3], "labels": { "explain": { "text": "MEANING", "color": "green" } }, "camera": { "hook": "push", "example": "split" }, "hook": { "pattern": "countdown-list", "badge": "1 PHRASAL VERB, 30 SECONDS" }, "payoff": { "type": "checklist", "beat": "explain" }, "themes": ["pop-teal", "bar-paper", "pop-paper"]
   },
   { "id": "false-friends", "name": "False friends", "topics": "any", "cast": [1, 3], "labels": { "situation": { "text": "YOU THINK", "color": "orange" }, "example": { "text": "IT MEANS", "color": "green" } }, "camera": { "explain": "close", "example": "push" }, "hook": { "pattern": "mistake-stat", "badge": "IT DOESN'T MEAN THAT" }, "payoff": { "type": "compare-cards", "beat": "example" }, "themes": ["pop-sunset", "bar-teal", "bounce-sunset"]
   },

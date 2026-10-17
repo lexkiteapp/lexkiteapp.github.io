@@ -35,9 +35,7 @@ fs.mkdirSync(DIR, { recursive: true });
 const load = () => (fs.existsSync(STATE) ? JSON.parse(fs.readFileSync(STATE, 'utf8')) : { id: ID, steps: {} });
 const store = s => fs.writeFileSync(STATE, JSON.stringify(s, null, 2));
 const readJson = f => JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8'));
-const W = { short: [1080, 1920], lesson: [1920, 1080] }, WPS = 2.6, FPS = 30, GAP = 0.3, END_CARD = 2.2;
-const COMPETITORS = /\b(duolingo|babbel|busuu|memrise|rosetta\s*stone|cambly|preply|italki|elsa\s*speak|quizlet|cake\s*app|lingoda|mondly|praktika)\b/i;
-const CAST = ['mia', 'leo', 'ama', 'kit', 'diane', 'carlos'];
+const W = { short: [1080, 1920], lesson: [1920, 1080] }, FPS = 30, GAP = V.LINE_GAP, END_CARD = V.END_CARD; // hằng số + cổng tĩnh dùng chung với template.mjs lint (lib.mjs)
 const PY = process.env.PYTHON || 'python3', RHUBARB = process.env.RHUBARB || 'rhubarb';
 
 async function studio(body) {
@@ -110,7 +108,7 @@ const STEPS = {
   // 4) Giọng Kokoro (kokoro-js như audio.yml) – giọng theo content/video/assets.json characters[who].voice (+ casting.json voices cho vai chưa có)
   //    Ra: line-NN.wav (48 kHz mono, loudnorm I=-16 TP=-1.5) + s.lines[i].dur. Thiếu kokoro-js → ước lượng thời lượng (từ / 2,6 + 0,3 s), không có wav.
   async tts(s) {
-    s.lines = s.job.script.lines.map(l => ({ who: l.who, text: l.text, beat: l.beat, punch: !!l.punch, dur: +(V.tokens(l.text).length / WPS + 0.3).toFixed(2), wav: null }));
+    s.lines = s.job.script.lines.map(l => ({ who: l.who, text: l.text, beat: l.beat, punch: !!l.punch, dur: V.estLineSec(l.text), wav: null }));
     const voices = { ...Object.fromEntries(Object.entries(readJson('content/video/assets.json').characters || {}).map(([k, v]) => [k, v.voice])), ...(readJson('content/video/casting.json').voices || {}) };
     const np = process.env.KOKORO_NODE_PATH || process.env.NODE_PATH;
     let KokoroTTS; try { ({ KokoroTTS } = createRequire(np ? np.split(':')[0] + '/' : import.meta.url)('kokoro-js')); } catch (e) { return skip(s, 'tts', 'chưa cài kokoro-js (npm i --prefix /tmp/kk kokoro-js@1, rồi KOKORO_NODE_PATH=/tmp/kk/node_modules)'); }
@@ -225,11 +223,10 @@ const STEPS = {
     g('subs-text', ex.ok, ex.ok ? 'phụ đề khớp kịch bản 100%' : `phụ đề lệch kịch bản ở câu ${ex.bad.map(i => i + 1).join(', ')}`);
     g('subs-safe', safe.ok, `khối phụ đề y ${safe.top}–${safe.bottom} (${safe.rows} dòng)`); g('subs-contrast', ctr >= 4.5, `tương phản tối thiểu ${ctr}:1`);
     g('subs-burned', !!s.burned, s.burned ? 'đã burn-in' : 'chưa burn-in (thiếu libass)');
-    const hookSec = s.lines[0].end - s.lines[0].start, hookText = /,HOOK,/.test(ass); g('hook', hookSec <= 2.05 && hookText, `câu hook ${hookSec.toFixed(1)} s · chữ hook 2 s đầu: ${hookText ? 'có' : 'không'}`);
+    const hookSec = s.lines[0].end - s.lines[0].start, hookText = /,HOOK,/.test(ass); g('hook', hookSec <= V.HOOK_MAX && hookText, `câu hook ${hookSec.toFixed(1)} s · chữ hook 2 s đầu: ${hookText ? 'có' : 'không'}`);
     const pace = V.pacingScore(s.shots || []); g('pacing', pace.bad === 0, `${(s.shots || []).length} cảnh, TB ${pace.avg} s, dài nhất ${pace.max} s`);
-    const allText = [sc.title, sc.caption, ...sc.lines.map(l => l.text)].join(' ');
-    const brandOk = !COMPETITORS.test(allText) && sc.lines.every(l => CAST.includes(l.who)); g('brand', brandOk, brandOk ? 'không nhãn hiệu đối thủ, đúng dàn nhân vật' : 'có nhãn hiệu lạ/nhân vật lạ');
-    const ctaOk = sc.lines.some(l => l.beat === 'cta' && /lexkite/i.test(l.text)) && /^https:\/\/lexkite\.com\//.test(sc.link || 'https://lexkite.com/'); g('cta', ctaOk, ctaOk ? 'CTA về lexkite.com + thẻ cuối' : 'thiếu CTA lexkite');
+    const bg = V.brandGate(sc), brandOk = bg.ok; g('brand', brandOk, bg.note);
+    const cg = V.ctaGate(sc), ctaOk = cg.ok; g('cta', ctaOk, cg.note);
     const cons = s.consistency || { ok: true, zero: [], reasons: [] };
     const vr = s.variant; g('variety', !!vr && !vr.relaxed, vr ? `${vr.format.id} · không trùng ≥ 3 thành phần với ${(s.history || []).length} video gần nhất${vr.relaxed ? ' – CHƯA ĐẠT' : ''}` : 'không có biến thể');
     g('consistency', cons.ok, cons.ok ? 'bối cảnh – nhân vật – lời thoại khớp' : `${cons.reasons.length} lỗi: ${cons.reasons[0]}`);

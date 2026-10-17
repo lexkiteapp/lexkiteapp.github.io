@@ -1,0 +1,40 @@
+{
+ "id": "word-of-the-day",
+ "name": "Word of the day (1 từ/cụm trong ngữ cảnh)",
+ "goal": "Nghe 1 từ trong câu thật → người học thắc mắc → hiểu nghĩa → nghe lại trong câu khác. Payoff: thẻ lật (flip-card) ở beat explain.",
+ "format_id": "word-of-day",
+ "cefr": "B1–B2",
+ "duration": [18, 40],
+ "topicHint": "\"Word of the day for the office: …\" → office-english · \"Vocabulary: word of the day …\" → study-grammar (library/classroom)",
+ "roles": { "opener": "người dùng từ tự nhiên ở câu đầu (Diane ở office) hoặc người học sốc (Ama)", "learner": "người hỏi + hiểu ra + CTA", "modeler": "người nói câu ví dụ thứ hai", "kit": "Kit – mẹo nhớ (gốc từ, hình ảnh)" },
+ "scenes": {
+  "office": { "roles": { "opener": ["diane"], "learner": ["mia"], "modeler": ["diane"] } },
+  "library": { "roles": { "opener": ["ama"], "learner": ["ama"], "modeler": ["ama"] } },
+  "classroom": { "roles": { "opener": ["ama"], "learner": ["ama"], "modeler": ["ama"] } }
+ },
+ "vars": {
+  "word": { "desc": "từ/cụm của hôm nay (từ khóa)", "required": true, "maxWords": 3 },
+  "hookLine": { "desc": "câu mở ≤ 5 âm tiết dùng/nhắc từ (vd. No bandwidth this week. / Wait, procrastinate?)", "required": true, "maxWords": 5 },
+  "question": { "desc": "câu hỏi ngây thơ của người học, kết thúc bằng ?", "required": true },
+  "meaning": { "desc": "nghĩa bằng từ dễ (A2–B1)", "required": true },
+  "example": { "desc": "câu ví dụ khác có chứa từ", "required": true },
+  "tip": { "desc": "mẹo nhớ sau \"Kit's tip:\" (gốc từ, hình ảnh, cặp từ)", "required": true }
+ },
+ "title": ["Word of the day: {{word}}", "What does \"{{word}}\" mean?"],
+ "hook": ["Word of the day", "What does {{word}} mean?"],
+ "beats": [
+  { "id": "hook", "beat": "hook", "role": "opener", "emotions": ["talk", "wrong", "ask"], "maxWords": 5, "maxSec": 1.9, "text": ["{{hookLine}}"], "expr": "deadpan", "gesture": "" },
+  { "id": "situation", "beat": "situation", "role": "learner", "emotions": ["ask"], "maxWords": 12, "text": ["{{question}}"], "expr": "confused", "gesture": "" },
+  { "id": "explain", "beat": "explain", "role": "learner", "emotions": ["explain"], "maxWords": 16, "punch": true, "must": ["kw:0"], "text": ["Oh, so {{word}} means {{meaning}}.", "Ah, {{word}} means {{meaning}}."], "expr": "confident", "gesture": "open hands" },
+  { "id": "example", "beat": "example", "role": "modeler", "emotions": ["explain", "ask", "right"], "maxWords": 14, "must": ["kw:0"], "text": ["{{example}}"], "expr": "friendly", "gesture": "" },
+  { "id": "tip", "beat": "tip", "role": "kit", "maxWords": 18, "text": ["Kit's tip: {{tip}}"], "expr": "proud", "gesture": "" },
+  { "id": "cta", "beat": "cta", "role": "learner", "emotions": ["cta"], "maxWords": 9, "text": ["Learn a new word every day on lexkite.com", "Look up any word free on lexkite.com"], "expr": "happy smile", "gesture": "waving hello" }
+ ],
+ "keywords": ["{{word}}"],
+ "caption": ["Word of the day: \"{{word}}\" = {{meaning}}", "Do you know \"{{word}}\"? It means {{meaning}}"],
+ "hashtags": ["wordoftheday", "englishvocabulary", "vocabulary", "learnenglish", "businessenglish"],
+ "writing": {
+  "do": ["Từ hữu ích, gặp thật (công sở, học tập, đời sống) – B1–B2", "Câu hook dùng từ trong ngữ cảnh khiến người học hiểu lầm nghĩa đen (bandwidth = Wi-Fi?)", "Nghĩa giải thích bằng từ dễ hơn chính từ đó", "Ví dụ thứ hai khác ngữ cảnh câu đầu"],
+  "dont": ["Không định nghĩa vòng (\"procrastinate means to procrastinate\")", "Không chọn từ hiếm/văn chương ít dùng", "Không để câu explain có wait/oops (thành cảm xúc wrong → sai clip)"]
+ }
+}
