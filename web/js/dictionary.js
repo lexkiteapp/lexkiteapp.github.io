@@ -244,7 +244,7 @@
   async function freeImage(word) {
     // Qua proxy /api/img (lưu đệm ở biên Cloudflare, dùng chung mọi người dùng) – tránh hết hạn mức ẩn danh của Openverse
     const base = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com';
-    const r = await fetchJSON(`${base}/api/img?w=${encodeURIComponent(String(word).toLowerCase())}`, 6000);
+    const r = await fetchJSON(`${base}/api/img?w=${encodeURIComponent(String(word).toLowerCase())}`, 12000); // lượt đầu (chưa có đệm) có thể mất vài giây
     if (!r || r.retry) return null; // mạng chậm / nguồn tạm lỗi → thử lại lần sau
     if (r.none || !/^https:\/\//.test(r.src || '')) return false;
     const via = r.via || 'Openverse';
