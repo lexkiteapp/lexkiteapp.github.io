@@ -2047,7 +2047,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "reserve",
    "locations": {
     "primary": null,
     "backup": {
@@ -2104,7 +2104,8 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_ama_shock_headgrab_mp4.jpg"
-   }
+   },
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
   },
   {
    "id": "clips/ama_shock_laugh.mp4",
@@ -2248,7 +2249,7 @@
     "speaker",
     "listener"
    ],
-   "status": "approved",
+   "status": "reserve",
    "locations": {
     "primary": null,
     "backup": {
@@ -2306,7 +2307,8 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_ama_shrug_eyeroll_mp4.jpg"
-   }
+   },
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
   },
   {
    "id": "clips/ama_talk_gesture.mp4",
@@ -2758,7 +2760,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "reserve",
    "locations": {
     "primary": null,
     "backup": {
@@ -2814,7 +2816,8 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_ama_wave_thumbs_mp4.jpg"
-   }
+   },
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
   },
   {
    "id": "clips/carlos_listen_thumbs.mp4",
@@ -3197,7 +3200,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "reserve",
    "locations": {
     "primary": null,
     "backup": {
@@ -3252,7 +3255,8 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_carlos_surprise_shrug_mp4.jpg"
-   }
+   },
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
   },
   {
    "id": "clips/carlos_talk_gesture.mp4",
@@ -3397,7 +3401,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "reserve",
    "locations": {
     "primary": null,
     "backup": {
@@ -3452,7 +3456,8 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_carlos_talk_laugh_mp4.jpg"
-   }
+   },
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
   },
   {
    "id": "clips/carlos_think_aha.mp4",
@@ -3688,7 +3693,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "reserve",
    "locations": {
     "primary": null,
     "backup": {
@@ -3743,7 +3748,8 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_carlos_wave_thumbs_mp4.jpg"
-   }
+   },
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
   },
   {
    "id": "clips/diane_idle_listen.mp4",
@@ -3770,7 +3776,7 @@
    "roles": [
     "listener"
    ],
-   "status": "approved",
+   "status": "reserve",
    "locations": {
     "primary": null,
     "backup": {
@@ -3825,7 +3831,8 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_diane_idle_listen_mp4.jpg"
-   }
+   },
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
   },
   {
    "id": "clips/diane_listen_thumbs.mp4",
@@ -3967,7 +3974,7 @@
    "roles": [
     "listener"
    ],
-   "status": "approved",
+   "status": "reserve",
    "locations": {
     "primary": null,
     "backup": {
@@ -4022,7 +4029,8 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_diane_nod_handsonhips_mp4.jpg"
-   }
+   },
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
   },
   {
    "id": "clips/diane_nod_thumbs_v1.mp4",
@@ -5262,7 +5270,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "reserve",
    "locations": {
     "primary": null,
     "backup": {
@@ -5317,7 +5325,8 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_leo_shock_headgrab_mp4.jpg"
-   }
+   },
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
   },
   {
    "id": "clips/leo_shock_laugh.mp4",
@@ -5712,7 +5721,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "reserve",
    "locations": {
     "primary": null,
     "backup": {
@@ -5767,7 +5776,8 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_leo_talk_point_mp4.jpg"
-   }
+   },
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
   },
   {
    "id": "clips/leo_think_aha.mp4",
@@ -6245,7 +6255,7 @@
    "roles": [
     "listener"
    ],
-   "status": "approved",
+   "status": "reserve",
    "locations": {
     "primary": null,
     "backup": {
@@ -6300,7 +6310,8 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_mia_idle_mp4.jpg"
-   }
+   },
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
   },
   {
    "id": "clips/mia_listen_thumbs.mp4",
@@ -6440,7 +6451,7 @@
    "roles": [
     "listener"
    ],
-   "status": "approved",
+   "status": "reserve",
    "locations": {
     "primary": null,
     "backup": {
@@ -6496,7 +6507,8 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_mia_nod_laugh_mp4.jpg"
-   }
+   },
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
   },
   {
    "id": "clips/mia_shock_headgrab.mp4",
@@ -6702,7 +6714,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "reserve",
    "locations": {
     "primary": null,
     "backup": {
@@ -6752,7 +6764,8 @@
      "sha": "e2abb7bda552a483853ab2f31dd94581e86a3c0e28a185784a666c86e36844f2"
     },
     "sheet": "brand/library/_review/clips_mia_shrug_cross_mp4.jpg"
-   }
+   },
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
   },
   {
    "id": "clips/mia_talk_gesture.mp4",
@@ -6891,7 +6904,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "reserve",
    "locations": {
     "primary": null,
     "backup": {
@@ -6946,7 +6959,8 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_mia_talk_point_mp4.jpg"
-   }
+   },
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
   },
   {
    "id": "clips/mia_think_aha.mp4",
@@ -7289,7 +7303,7 @@
    "roles": [
     "speaker"
    ],
-   "status": "approved",
+   "status": "reserve",
    "locations": {
     "primary": null,
     "backup": {
@@ -7344,7 +7358,8 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_mia_wave_thumbs_mp4.jpg"
-   }
+   },
+   "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
   },
   {
    "id": "props/office-a/office-01.png",
