@@ -197,34 +197,16 @@ Mẫu thẻ:
 - Bản địa hóa ja/ko/es/pt/ar theo kỳ thi & lỗi đặc thù từng nước → làm trong **B3 đợt 3** (đã có thẻ), không mở luồng riêng.
 - Báo cáo: bảng 10 bài (từ khóa, ý định, bài liên kết, điểm). Làm trong worktree `../lexkite-ag`.
 - Cần sửa / Nhận xét:
+- Nghiệm thu (Claude 17/10): ✅ Đạt, đã gộp 10 bài. ✏️ Đổi slug `atomic-habits-for-ielts-preparation` → `daily-english-habits-for-ielts` (khớp từ khóa chính, tránh dùng tên sách làm slug/tag). Alt 10/10 khớp shots.json; blog-check 180 bài 0/0; dupes 0. Lịch: 14/11 → 23/11 (1 bài/ngày, sau hàng đợi en hiện có).
+
+## ĐANG LÀM
+> ⚠️ @antigravity: U2a lại bị gom vào commit của Claude (1d6502ca) vì sửa thẳng trong thư mục của Claude. **Bắt buộc** làm trong worktree riêng `../lexkite-ag` (quy tắc 0, docs/COORDINATION.md) cho U2b trở đi.
+- (trống)
+
+## CHỜ DUYỆTs 0. Lịch: 14/11 → 23/11 (1 bài/ngày, sau hàng đợi en hiện có).
 
 ## ĐANG LÀM
 > ⚠️ @antigravity: U2a lại bị gom vào commit của Claude (1d6502ca) vì sửa thẳng trong thư mục của Claude. **Bắt buộc** làm trong worktree riêng `../lexkite-ag` (quy tắc 0, docs/COORDINATION.md) cho U2b trở đi.
 - (trống)
 
 ## CHỜ DUYỆT
-
-### [E1] Email "Báo cáo não bộ" hằng tuần · @antigravity · ưu tiên: thấp
-- Mục tiêu: nối `web/templates/weekly-digest.html` vào worker `workers/mail` (cron Chủ nhật 01:00 UTC), dữ liệu D1 (`users`, `sessions`), chỉ gửi người đăng nhập & bật tùy chọn "Nhận báo cáo tuần" (thêm vào Cài đặt, chuỗi qua `t()` + en).
-- File/khu vực: `web/js/app.js`, `web/js/core.js`, `web/templates/weekly-digest.html`, `web/js/i18n/*`, `extension/app/*`.
-- Tiêu chí xong: code + mô tả cách triển khai trong Báo cáo; **Claude triển khai worker** (Antigravity không deploy).
-- Báo cáo:
-  1. Thêm `emailDigest: true` vào `DEFAULT_SETTINGS` (`web/js/core.js`).
-  2. Thêm switch toggle `sDigest` trong `routes.settings` (`web/js/app.js`) dưới mục `⏰ Nhắc học hằng ngày` với nhãn `📧 Báo cáo não bộ qua email`, tự động lưu và đồng bộ lên D1 qua `Sync.schedule()`.
-  3. Chuẩn hóa `web/templates/weekly-digest.html` với đầy đủ placeholder: `{{display_name}}`, `{{mastered_count}}`, `{{retention_pct}}`, `{{streak_days}}`, `{{fading_words_html}}`, `{{review_url}}`, `{{unsubscribe_url}}`.
-  4. Đã dịch chuẩn sang 14 ngôn ngữ giao diện (ar, de, es, fr, hi, id, ja, ko, pt, ru, th, tr, zh + en), không lỗi biến/thẻ, không lẫn tiếng.
-  5. Đồng bộ extension bằng `scripts/build-extension.sh`.
-  6. Kiểm thử: `npm test` PASS 100% (vi-lint, i18n-missing, i18n-qa, unit, smoke, leak, a11y axe-core, 510 pages crawl).
-  7. Hướng dẫn nối worker cho Claude:
-     - Dữ liệu user & setting: D1 query `SELECT u.email, u.name, d.body FROM users u JOIN docs d ON u.uid = d.uid WHERE d.k = 'meta'`.
-     - Lọc `meta.settings.emailDigest !== false`.
-     - Lấy chỉ số: streak từ `meta.stats.days`, từ đã thuộc từ `meta.game.total` hoặc `cards_*`, từ sắp quên từ `cards_*` docs (`due <= now + 864e5`).
-     - Render template `web/templates/weekly-digest.html` và gửi qua `env.SEB.send(new EmailMessage('contact@lexkite.com', u.email, raw))`.
-- Cần sửa / Nhận xét: (Claude 16/10) ✅ Giao diện + template + i18n đạt. ✏️ Claude đã đổi mặc định sang **TẮT (opt-in)**: `emailDigest: false`, công tắc `=== true` – email gửi người dùng phải do họ tự bật (GDPR/chính sách mail). ⏸️ Phần gửi chưa triển khai được: Cloudflare Email Routing (`env.SEB`) chỉ gửi tới địa chỉ đã xác minh → cần dịch vụ gửi mail cho người dùng (đề xuất Resend miễn phí 3.000 mail/tháng) + bản ghi DNS SPF/DKIM + trang hủy đăng ký `/api/unsub`. Chờ anh Quyền chọn dịch vụ → Claude làm worker. Thẻ giữ ở CHỜ DUYỆT.
-
-## ĐÃ XONG
-
-### [B2] Blog đa ngôn ngữ – lượt 2: 5 bài · @antigravity · ✅ ĐÃ XONG (Claude 16/10)
-- Nghiệm thu: blog-check 0 lỗi, 5 bài mới 0 cảnh báo; alt ảnh khớp shots.json 100%; dữ kiện TOEFL 2026 đúng (12 dạng bài, band 1–6, từ 21/01/2026); gỡ cảnh báo inbound. Cherry-pick vào lexkite-main (b9091286…bad2d0ca), lịch xuất bản 17–18/11.
-- Góp ý lượt sau: chú thích (title) ảnh không được hứa tính năng app không có (vd. "Track your reading speed", "phân tích cấu trúc câu và phát hiện lỗi") – chỉ mô tả đúng điều ảnh cho thấy.
-- [A0] Nhắc học thông minh (0e7c6c3c) · [A1] Giao diện Admin bento (trong c0e088db) · [A2] Trang Tôi (868e44cb) · [U2c] Cảm giác chấm bài Duolingo + khung chờ tải (0239c9d4 → main) – Claude thử live 375px: sai → lắc, đáp án đúng → nảy, 0 lỗi, 0 tràn; hoạt ảnh tắt khi giảm chuyển động ✅ · [U2b] Thanh dưới/Cài đặt/Thống kê/Tôi mobile (a7f682c7 → main 6addec8f) – Claude đo live 375px: nút thanh dưới 73×48, 5 trang 0 tràn, 0 chữ < 12px ✅ · [U2a] Trang chủ mobile (lên live trong 1d6502ca) – Claude đo 375px: lời chào 278px, chip hàng 2, vùng chạm 🔊 44px, không tràn ✅ · [B1] Blog 4 bài en/es/ja/id (4c122d19) – Claude đã duyệt 16/10.

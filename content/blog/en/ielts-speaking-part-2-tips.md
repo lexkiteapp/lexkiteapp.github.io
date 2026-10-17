@@ -38,7 +38,7 @@ A simple layout:
 - **A detail box:** one sensory detail and one feeling. *Smell of oil; proud – fixed neighbour's bike.*
 - **An ending note:** why it matters now. *Save money; patience.*
 
-Keywords work better than sentences because you will speak more naturally when you build sentences in the moment. Reading out a written sentence usually sounds flat and slows your fluency. The same skill of spotting what a prompt really asks for also helps in reading questions such as [True, False or Not Given](/en/blog/ielts-reading-true-false-not-given/).
+Keywords work better than sentences because you will speak more naturally when you build sentences in the moment. Reading out a written sentence usually sounds flat and slows your fluency. This is also [why memorizing IELTS speaking sample answers](/en/blog/why-memorizing-sample-answers-ruins-ielts-speaking/) hurts candidates: examiners immediately spot unspontaneous delivery. The same skill of spotting what a prompt really asks for also helps in reading questions such as [True, False or Not Given](/en/blog/ielts-reading-true-false-not-given/).
 
 ## A four-step frame for any cue card
 
@@ -49,7 +49,7 @@ Prompts on the card are helpful, but answering them one by one in a rigid order 
 3. **Zoom in on a detail (25–35 seconds).** Pick one moment and describe it closely: what you saw, heard or felt, what someone said.
 4. **Reflect (20–30 seconds).** Explain why it matters, how you feel about it now, or what you would do differently.
 
-The prompts on the card naturally fit into these steps, so you still cover everything, but the result sounds like a person talking rather than a form being filled in. Stories about the past rely heavily on accurate tenses; if you mix up *I learned* and *I have learned*, our [present perfect vs past simple](/en/blog/present-perfect-vs-past-simple/) guide sorts out the difference.
+The prompts on the card naturally fit into these steps, so you still cover everything, but the result sounds like a person talking rather than a form being filled in. You can also apply the Domino Method explained in [how to extend answers in IELTS Speaking](/en/blog/the-domino-effect-in-ielts-speaking/) to keep your momentum going across transitions. Stories about the past rely heavily on accurate tenses; if you mix up *I learned* and *I have learned*, our [present perfect vs past simple](/en/blog/present-perfect-vs-past-simple/) guide sorts out the difference.
 
 ### Sample answer (original, about 1 minute 50 seconds)
 

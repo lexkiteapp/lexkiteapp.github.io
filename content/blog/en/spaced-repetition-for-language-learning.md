@@ -109,7 +109,7 @@ Lexkite runs the schedule for you with the FSRS algorithm, so you only see cards
 ## Common mistakes when starting out
 
 - **Adding too many new cards.** Fifty new cards today means roughly fifty extra reviews tomorrow and more the day after. Start with 10–15 a day and increase only if reviews stay under 20 minutes.
-- **Skipping days, then quitting.** A missed week creates a frightening pile. Do not delete it; review a manageable chunk each day, pause new cards, and the pile clears in a few days.
+- **Skipping days, then quitting.** A missed week creates a frightening pile. Building [daily English habits for IELTS](/en/blog/daily-english-habits-for-ielts/) with habit stacking and streak freezes helps prevent this problem entirely. Do not delete your deck; review a manageable chunk each day, pause new cards, and the pile clears in a few days.
 - **Rating too generously.** Pressing "Good" after a long hesitation tells the scheduler you know the word, so it returns too late.
 - **Cards without context.** Single-word cards with a translation are quick to make but give you nothing to use in a sentence.
 - **Treating the deck as the goal.** Reviews keep words alive; reading, listening, writing and speaking make them useful.

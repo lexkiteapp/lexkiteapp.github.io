@@ -68,9 +68,9 @@ Pay special attention to hedged language in academic passages. *Researchers beli
 
 **Step 1: Read the statement and mark the key idea plus the qualifiers.** Underline the main subject and the limiting words: *only*, *before 1900*, *most*, *increased*.
 
-**Step 2: Locate the relevant part of the passage.** Questions of this type usually follow the order of the text, so the answer to question 3 is normally after the answer to question 2. Scan for names, numbers and dates first, because they do not get paraphrased easily. You can refine your search speed with the proven techniques in [skimming and scanning in IELTS Reading](/en/blog/ielts-reading-skimming-and-scanning/).
+**Step 2: Locate the relevant part of the passage.** Questions of this type usually follow the order of the text, so the answer to question 3 is normally after the answer to question 2. Scan for names, numbers and dates first, because they do not get paraphrased easily. You can refine your search speed with the proven techniques in [skimming and scanning in IELTS Reading](/en/blog/ielts-reading-skimming-and-scanning/) and maintain full paragraph comprehension through [active reading for IELTS](/en/blog/active-reading-strategies-for-ielts/).
 
-**Step 3: Compare meaning, not words.** Read the sentence before and after the matching point as well. Ask: does it confirm, contradict or ignore each part of the statement, including the qualifiers?
+**Step 3: Compare meaning, not words.** Read the sentence before and after the matching point as well. Use the methods in [how to read long sentences in English](/en/blog/sentence-parsing-for-ielts-reading/) to separate parenthetical clauses from the core assertion. Ask: does it confirm, contradict or ignore each part of the statement, including the qualifiers?
 
 **Step 4: Apply the False vs Not Given test and move on.** If it is confirmed, True. If you can underline a contradiction, False. Otherwise, Not Given. Do not spend more than about a minute and a half on one statement; mark your best answer and return if time allows.
 

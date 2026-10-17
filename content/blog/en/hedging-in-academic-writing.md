@@ -33,7 +33,7 @@ Hedging does three jobs:
 
 Writing traditions differ. In some, a strong, unqualified statement signals confidence and authority, and learners carry that habit into English: *Technology destroys family relationships.* In others, writers soften almost every sentence, and the essay ends up with no clear position at all. Learners translating from their first language also tend to use *maybe* at the start of sentences, which sounds conversational in formal English.
 
-Both extremes cost marks in exams like IELTS, where a clear position and precise language are expected. The goal is a confident **thesis** supported by carefully hedged **claims**.
+Both extremes cost marks in exams like IELTS, where a clear position and precise language are expected. Unhedged absolutism is one of the classic [IELTS writing vocabulary traps](/en/blog/the-sophistication-trap-in-ielts-writing/) that depress scores. The goal is a confident **thesis** supported by carefully hedged **claims**.
 
 ## The toolkit for hedging in academic writing
 

@@ -2775,6 +2775,245 @@
    "source": "ielts-speaking-part-1"
   },
   {
+   "slug": "how-to-think-in-english-without-translating",
+   "keyword": "how to think in english",
+   "category": "phuong-phap",
+   "tags": [
+    "thinking-in-english",
+    "fluency",
+    "vocabulary",
+    "habits"
+   ],
+   "shots": [
+    "practice-learn",
+    "dict",
+    "home"
+   ],
+   "routes": [
+    "/#/practice",
+    "/#/home",
+    "/#/dict/resilient"
+   ],
+   "angle": "Stop translating in your head: mental lag explained, 4 daily reflex habits, and a 15-minute routine",
+   "intent": "informational",
+   "lang": "en"
+  },
+  {
+   "slug": "active-reading-strategies-for-ielts",
+   "keyword": "active reading for ielts",
+   "category": "ielts",
+   "tags": [
+    "ielts-reading",
+    "active-reading",
+    "study-techniques",
+    "cbt"
+   ],
+   "shots": [
+    "reading",
+    "read-article",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/reading",
+    "/#/read/space-debris",
+    "/#/practice/test"
+   ],
+   "angle": "Active reading for IELTS Academic: micro-summaries, paragraph signposting, and staying focused across 3 passages",
+   "intent": "informational",
+   "lang": "en"
+  },
+  {
+   "slug": "the-feedback-loop-method-for-ielts",
+   "keyword": "ielts feedback loop",
+   "category": "ielts",
+   "tags": [
+    "ielts-preparation",
+    "feedback-loop",
+    "test-analysis",
+    "study-habits"
+   ],
+   "shots": [
+    "mistakes",
+    "stats",
+    "practice"
+   ],
+   "routes": [
+    "/#/mistakes",
+    "/#/stats",
+    "/#/practice"
+   ],
+   "angle": "Why practice tests fail without a feedback loop: 4-step error analysis protocol and 3 layers of mistakes",
+   "intent": "informational",
+   "lang": "en"
+  },
+  {
+   "slug": "why-memorizing-sample-answers-ruins-ielts-speaking",
+   "keyword": "ielts speaking sample answers",
+   "category": "ielts",
+   "tags": [
+    "ielts-speaking",
+    "fluency",
+    "sample-answers",
+    "collocations"
+   ],
+   "shots": [
+    "speaking",
+    "practice-speak",
+    "phrases"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak",
+    "/#/phrases"
+   ],
+   "angle": "The hidden penalties of memorizing band 9 speaking answers and how to build natural fluency through thematic vocabulary",
+   "intent": "informational",
+   "lang": "en"
+  },
+  {
+   "slug": "the-domino-effect-in-ielts-speaking",
+   "keyword": "extend answers in ielts speaking",
+   "category": "ielts",
+   "tags": [
+    "ielts-speaking",
+    "speaking-strategies",
+    "coherence",
+    "fluency"
+   ],
+   "shots": [
+    "speaking",
+    "phrases",
+    "dict"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/phrases",
+    "/#/dict/resilient"
+   ],
+   "angle": "How to extend answers naturally in IELTS Speaking using the A.R.E.A framework without memorization",
+   "intent": "informational",
+   "lang": "en"
+  },
+  {
+   "slug": "how-to-catch-fast-speech-in-ielts-listening",
+   "keyword": "how to catch fast speech in ielts",
+   "category": "ielts",
+   "tags": [
+    "ielts-listening",
+    "connected-speech",
+    "dictation",
+    "listening-skills"
+   ],
+   "shots": [
+    "listening",
+    "practice-speak",
+    "mistakes"
+   ],
+   "routes": [
+    "/#/listening",
+    "/#/practice/speak",
+    "/#/mistakes"
+   ],
+   "angle": "Catching fast connected speech in IELTS Listening Sections 3 and 4: signpost tracking and targeted dictation",
+   "intent": "informational",
+   "lang": "en"
+  },
+  {
+   "slug": "the-sophistication-trap-in-ielts-writing",
+   "keyword": "ielts writing vocabulary traps",
+   "category": "ielts",
+   "tags": [
+    "ielts-writing",
+    "task-2",
+    "vocabulary",
+    "academic-writing"
+   ],
+   "shots": [
+    "write",
+    "task1",
+    "phrases"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/task1",
+    "/#/phrases"
+   ],
+   "angle": "Why forced high-level vocabulary lowers your Lexical Resource score: precision over pomposity with the PEEL structure",
+   "intent": "informational",
+   "lang": "en"
+  },
+  {
+   "slug": "how-to-break-ielts-band-plateau",
+   "keyword": "how to break ielts plateau",
+   "category": "ielts",
+   "tags": [
+    "ielts-plateau",
+    "study-plan",
+    "band-improvement",
+    "spaced-repetition"
+   ],
+   "shots": [
+    "stats",
+    "placement",
+    "path"
+   ],
+   "routes": [
+    "/#/stats",
+    "/#/placement",
+    "/#/path"
+   ],
+   "angle": "Breaking through the stubborn Band 6.0 to 6.5 plateau: diagnosing hidden bottlenecks and shifting to productive fluency",
+   "intent": "informational",
+   "lang": "en"
+  },
+  {
+   "slug": "sentence-parsing-for-ielts-reading",
+   "keyword": "how to read long sentences in english",
+   "category": "ielts",
+   "tags": [
+    "sentence-parsing",
+    "reading-comprehension",
+    "ielts-reading",
+    "grammar"
+   ],
+   "shots": [
+    "read-article",
+    "grammar",
+    "reading"
+   ],
+   "routes": [
+    "/#/read/space-debris",
+    "/#/grammar",
+    "/#/reading"
+   ],
+   "angle": "Deconstructing 4-line academic sentences in IELTS Reading: core subject-verb isolation, clause pruning, and participle reduction",
+   "intent": "informational",
+   "lang": "en"
+  },
+  {
+   "slug": "daily-english-habits-for-ielts",
+   "keyword": "daily english habits for ielts",
+   "category": "phuong-phap",
+   "tags": [
+    "daily-routine",
+    "ielts-prep",
+    "habit-building"
+   ],
+   "shots": [
+    "home",
+    "stats",
+    "goal"
+   ],
+   "routes": [
+    "/#/home",
+    "/#/stats",
+    "/#/goal"
+   ],
+   "angle": "Building a frictionless 25-minute daily IELTS preparation system using habit stacking, the 2-minute rule, and streak protection",
+   "intent": "informational",
+   "lang": "en"
+  },
+  {
    "slug": "gerundio-o-infinitivo-en-ingles",
    "keyword": "gerundio o infinitivo en inglés",
    "category": "ngu-phap",

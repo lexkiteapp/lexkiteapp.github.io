@@ -135,7 +135,7 @@ Use a 20–40 second clip with a transcript.
 
 Step 4 is the one most learners skip, and it is the most valuable. After a few clips you will see your personal pattern; many learners find that weak forms cause most of their misses.
 
-For a wider plan, see [how to improve English listening](/en/blog/how-to-improve-english-listening/). For exam strategy, our [IELTS listening tips](/en/blog/ielts-listening-tips/) and [TOEIC test format](/en/blog/toeic-test-format/) guides explain how the audio is structured.
+For a wider plan, see [how to improve English listening](/en/blog/how-to-improve-english-listening/) and [how to catch fast speech in IELTS listening](/en/blog/how-to-catch-fast-speech-in-ielts-listening/). For exam strategy, our [IELTS listening tips](/en/blog/ielts-listening-tips/) and [TOEIC test format](/en/blog/toeic-test-format/) guides explain how the audio is structured.
 
 ## Self-check
 

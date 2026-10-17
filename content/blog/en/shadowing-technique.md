@@ -27,7 +27,7 @@ Shadowing works on several skills at once:
 - **Connected speech.** You learn to link words (*turn it off* → *tur-ni-toff*) and use weak forms (*to* as /tə/), which are hard to learn from text.
 - **Intonation.** You absorb how questions, lists and contrasts rise and fall.
 - **Listening.** Because you must keep up, you learn to recognise sound patterns instantly rather than translating word by word.
-- **Fluency.** Your mouth gets used to producing whole chunks at natural speed.
+- **Fluency.** Your mouth gets used to producing whole chunks at natural speed. This directly reinforces [how to think in English without translating](/en/blog/how-to-think-in-english-without-translating/) by eliminating the hesitation gap before you speak.
 
 What shadowing does **not** do well is teach new vocabulary or grammar. It polishes what you can already understand. That is why choosing material matters so much.
 

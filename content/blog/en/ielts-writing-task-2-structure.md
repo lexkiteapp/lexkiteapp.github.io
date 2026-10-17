@@ -37,7 +37,7 @@ Before you plan anything, identify the type. The final sentence of the prompt us
 | Problem–solution | What problems does this cause, and how can they be solved? | Answer both questions with matching ideas |
 | Two-part (direct questions) | Why is this happening? Is it a positive development? | Answer each question directly |
 
-The most common structural error is answering a different question from the one printed. "Discuss both views" without your own opinion leaves the task half done. "Do the advantages outweigh the disadvantages?" answered with "there are advantages and disadvantages" never delivers the verdict that was requested.
+The most common structural error is answering a different question from the one printed. "Discuss both views" without your own opinion leaves the task half done. "Do the advantages outweigh the disadvantages?" answered with "there are advantages and disadvantages" never delivers the verdict that was requested. Similarly, avoid common [IELTS writing vocabulary traps](/en/blog/the-sophistication-trap-in-ielts-writing/) that sacrifice argument clarity for pretentious phrasing.
 
 ## The 4-paragraph IELTS Writing Task 2 structure
 

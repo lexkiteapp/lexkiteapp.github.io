@@ -45,7 +45,7 @@ Remove the AWL words and the sentence loses almost all its meaning. This is why 
 
 | Skill | How the AWL helps |
 |---|---|
-| Reading | Passages and questions are full of AWL words, and paraphrased statements often swap one AWL word for another (*rise* → *increase*, *show* → *indicate*). This matters a lot in tasks like [True/False/Not Given](/en/blog/ielts-reading-true-false-not-given/). |
+| Reading | Passages and questions are full of AWL words, and paraphrased statements often swap one AWL word for another (*rise* → *increase*, *show* → *indicate*). This matters a lot in tasks like [True/False/Not Given](/en/blog/ielts-reading-true-false-not-given/) and when executing [active reading for IELTS](/en/blog/active-reading-strategies-for-ielts/). |
 | Writing | Task 1 and Task 2 reward precise, appropriately formal vocabulary. *Factor*, *trend*, *proportion* and *significant* do a lot of work. |
 | Listening | Part 4 is an academic-style talk, and recognising AWL words by sound helps you follow it. |
 | Speaking | Useful in Part 3 when you discuss abstract issues, less so in the personal questions of Part 1. |

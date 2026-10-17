@@ -27,7 +27,7 @@ In practice that means three things:
 - **A forced, outdated or slightly wrong idiom** draws attention to itself. It can make an otherwise good answer sound rehearsed.
 - **No idioms at all** is not a disaster. Precise word choice, good collocations and the ability to paraphrase carry far more weight.
 
-Think of idioms as seasoning rather than the meal. If your core vocabulary is thin, extra idioms will not hide it. Build the base first with a system like the one in [how to learn IELTS vocabulary](/en/blog/how-to-learn-ielts-vocabulary/), then add idiomatic language on top.
+Think of idioms as seasoning rather than the meal. If your core vocabulary is thin, extra idioms will not hide it. In fact, forcing memorized idioms is one reason [why memorizing IELTS speaking sample answers](/en/blog/why-memorizing-sample-answers-ruins-ielts-speaking/) routinely backfires. Build the base first with a system like the one in [how to learn IELTS vocabulary](/en/blog/how-to-learn-ielts-vocabulary/), then add idiomatic language on top.
 
 ### Idioms, phrasal verbs and collocations are not the same thing
 

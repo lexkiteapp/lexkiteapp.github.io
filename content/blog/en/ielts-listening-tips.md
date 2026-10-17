@@ -117,7 +117,7 @@ Doing one full test after another shows your score but does not tell you what to
 | 3 | Speaker attitude | Pause after each answer and say who agreed and why |
 | 4 | Note completion at speed | Listen once, then again with the transcript to find missed words |
 
-After each exercise, review the transcript. For every missed answer, ask: was it vocabulary, a distractor, spelling, or a sound I did not recognise? That diagnosis is more valuable than the score. Broader listening habits outside the test, such as the five-pass method in [how to improve English listening](/en/blog/how-to-improve-english-listening/) and [shadowing](/en/blog/shadowing-technique/), build the speed that makes Parts 3 and 4 feel manageable.
+After each exercise, review the transcript. For every missed answer, ask: was it vocabulary, a distractor, spelling, or a sound I did not recognise? That diagnosis is more valuable than the score; applying an [IELTS feedback loop](/en/blog/the-feedback-loop-method-for-ielts/) ensures you track these causes across every mock test. Broader listening habits outside the test, such as the five-pass method in [how to improve English listening](/en/blog/how-to-improve-english-listening/) and [shadowing](/en/blog/shadowing-technique/), build the speed that makes Parts 3 and 4 feel manageable.
 
 ## Practise IELTS Listening in Lexkite
 

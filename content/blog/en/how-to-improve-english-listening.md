@@ -24,7 +24,7 @@ This guide explains the two skills behind listening, how to choose material, a f
 Many learners can read a text easily and then fail to follow the same text when it is spoken. There are three usual reasons.
 
 1. **You know the spelling of a word, not its sound.** You may have learned *comfortable* by reading and expect four clear syllables, but speakers say /ˈkʌmftəbl/ in three.
-2. **Connected speech hides word boundaries.** *Did you eat yet?* can become *Jeet yet?* Words join, shrink and change. Our guide to [connected speech in English](/en/blog/connected-speech-in-english/) covers the patterns.
+2. **Connected speech hides word boundaries.** *Did you eat yet?* can become *Jeet yet?* Words join, shrink and change. Our guide to [connected speech in English](/en/blog/connected-speech-in-english/) covers the patterns, and our tutorial on [how to catch fast speech in IELTS listening](/en/blog/how-to-catch-fast-speech-in-ielts-listening/) shows how to apply this under exam conditions.
 3. **Processing speed.** Even when you recognise each word, you may need too long to build meaning. While you are still decoding sentence one, sentence three has started.
 
 Notice that only the first reason is about vocabulary. The other two are about sound and speed, and they need different training.

@@ -17,7 +17,7 @@ qualityScore: 94
 ---
 Building a dependable **ielts self study plan** is the single most decisive factor between candidates who stall at band 5.5 and those who steadily cross band 7.0. Preparing on your own without an expensive prep centre is completely achievable, provided you stop treating preparation as an unstructured collection of random Cambridge practice tests. A true self-study strategy requires an honest diagnostic assessment, a realistic distribution of weekly study hours, systematic vocabulary consolidation, and targeted practice for individual question types across all four test components.
 
-In this comprehensive road map, we examine how to structure your preparation from your current diagnostic baseline to test day, avoid the common traps that cause self-study candidates to plateau, and organise your daily routine for sustainable progress.
+In this comprehensive road map, we examine how to structure your preparation from your current diagnostic baseline to test day, learn [how to break IELTS plateau](/en/blog/how-to-break-ielts-band-plateau/) if your scores stall, and organise your daily routine for sustainable progress.
 
 ## Why Unstructured IELTS Self-Study Fails
 
@@ -66,7 +66,7 @@ Once your comprehension foundation is secure, deconstruct each test paper into i
 
 In the final month before your test date, shift twenty percent of your weekly hours toward full test simulation. Take one complete four-skill mock exam each Saturday morning, adhering exactly to official timing.
 
-Critically, spending two hours analysing errors is twice as valuable as taking another paper. Maintain an error logbook categorised by mistake type:
+Critically, spending two hours analysing errors is twice as valuable as taking another paper. Using a structured [IELTS feedback loop](/en/blog/the-feedback-loop-method-for-ielts/) ensures you systematically diagnose mistakes instead of taking tests blindly. Maintain an error logbook categorised by mistake type:
 1. **Mishearing or spelling error** (e.g., singular vs plural noun in Listening).
 2. **Vocabulary gap** (a keyword in the Reading passage that was unfamiliar).
 3. **Trap distraction** (matching an exact word rather than the underlying paraphrase).
@@ -90,7 +90,7 @@ A common dilemma for self-study candidates is how to allocate time across four s
 | Saturday | Full Timed Simulation | Full 3-skill timed exam (Listening, Reading, Writing Task 1 & 2); log all errors | 180 mins |
 | Sunday | Rest & Light Review | 20 minutes of casual reading or English podcast listening; review error notebook | 30 mins |
 
-Consistency always outperforms cramming. Studying 90 focused minutes six days a week produces significantly higher score gains than attempting an eight-hour marathon session on Sunday.
+Consistency always outperforms cramming. Establishing [daily English habits for IELTS](/en/blog/daily-english-habits-for-ielts/) ensures you sustain momentum without burnout. Studying 90 focused minutes six days a week produces significantly higher score gains than attempting an eight-hour marathon session on Sunday.
 
 ## Self-Study Techniques for the Productive Skills
 

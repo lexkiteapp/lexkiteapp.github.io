@@ -146,7 +146,7 @@ When you learn a new academic word, learn its family at the same time and mark t
 
 ![Lexkite speaking practice for "cut down on" with a microphone button and a pronunciation score](media:practice-speak "Say multi-syllable words into the mic and see whether the stress pattern lands")
 
-Stress is the foundation for sentence rhythm. Once words are right, move on to [connected speech in English](/en/blog/connected-speech-in-english/) and practise whole sentences with the [shadowing technique](/en/blog/shadowing-technique/). For exam speaking, combine this with the strategies in our [IELTS Speaking Part 2 tips](/en/blog/ielts-speaking-part-2-tips/) and the model answers in [Speaking samples](/en/speaking/).
+Stress is the foundation for sentence rhythm. Once words are right, move on to [connected speech in English](/en/blog/connected-speech-in-english/), learn [how to catch fast speech in IELTS listening](/en/blog/how-to-catch-fast-speech-in-ielts-listening/), and practise whole sentences with the [shadowing technique](/en/blog/shadowing-technique/). For exam speaking, combine this with the strategies in our [IELTS Speaking Part 2 tips](/en/blog/ielts-speaking-part-2-tips/) and the model answers in [Speaking samples](/en/speaking/).
 
 {{cta: /#/practice/speak | Practise word stress with your microphone}}
 

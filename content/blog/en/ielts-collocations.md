@@ -31,7 +31,7 @@ In both Writing and Speaking, Lexical Resource is one of four equally weighted c
 
 1. **Precision.** *A sharp decline* tells the reader more than *a big decrease*.
 2. **Naturalness.** Accurate collocations make writing sound fluent even when the vocabulary is not rare.
-3. **Error density.** A Task 2 essay with five mistakes like *raise awareness about* or *give an effect* signals limited control, however advanced the individual words are.
+3. **Error density.** A Task 2 essay with five mistakes like *raise awareness about* or *give an effect* signals limited control, however advanced the individual words are. This is one of the classic [IELTS writing vocabulary traps](/en/blog/the-sophistication-trap-in-ielts-writing/) that cost candidates their target band.
 
 The good news: collocations are learnable in chunks, and because IELTS topics repeat (environment, education, technology, health, work), a few hundred well-chosen pairs go a long way.
 

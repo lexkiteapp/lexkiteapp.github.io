@@ -17,7 +17,7 @@ status: ready
 ---
 If you want to know how to learn IELTS vocabulary so that it is still there on test day, the short answer is this: learn 10–15 words a day at your level, learn each one inside a phrase, test yourself instead of rereading, and bring every word back on a spacing schedule until you have used it in your own sentence. Long word lists copied into a notebook feel productive, but most of those words fade within days because they were never retrieved or used.
 
-The rest of this guide turns that answer into seven concrete steps, a sample 30-minute routine, and a short self-check so you can see where your current method leaks.
+The rest of this guide turns that answer into seven concrete steps, explains [how to break IELTS plateau](/en/blog/how-to-break-ielts-band-plateau/) when vocabulary gaps stall your band score, and provides a sample 30-minute routine with a short self-check.
 
 ## Why IELTS vocabulary disappears so quickly
 
@@ -48,7 +48,7 @@ Write every new word inside a phrase and an example sentence you made yourself. 
 | *reliance* = dependence | *heavy reliance on imported fuel*; "Many island nations have a heavy reliance on imported fuel." |
 | *tackle* = deal with | *tackle a problem / tackle unemployment*; "Governments need long-term plans to tackle youth unemployment." |
 
-The strong entry gives you the preposition, a natural adjective and a ready sentence frame. For a deeper look at word partnerships, read the guide to [IELTS collocations](/en/blog/ielts-collocations/). If a new word has a near-twin that you keep mixing up, study the pair together, as shown in [commonly confused words](/en/blog/commonly-confused-words-in-english/).
+The strong entry gives you the preposition, a natural adjective and a ready sentence frame. For a deeper look at word partnerships, read the guide to [IELTS collocations](/en/blog/ielts-collocations/). Learning these chunks directly also trains [how to think in English without translating](/en/blog/how-to-think-in-english-without-translating/), preventing speech hesitation. If a new word has a near-twin that you keep mixing up, study the pair together, as shown in [commonly confused words](/en/blog/commonly-confused-words-in-english/).
 
 ### Step 4: Say every word out loud
 

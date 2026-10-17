@@ -17,7 +17,7 @@ qualityScore: 93
 ---
 *"Do you work or are you a student?"* It sounds so easy that many candidates never practise it. Then, in the exam room, they say *"I'm a student"* and stop. The examiner moves on, gets another four-word reply, and after a few minutes has heard almost nothing worth assessing.
 
-**IELTS Speaking Part 1** is the warm-up: everyday questions about you, your studies or job, your habits and your likes. The content is never difficult, but this is where the examiner forms a first impression of your English. A strong answer here is not long or clever. It is *just enough*: a direct reply followed by a little extra. This guide shows you exactly how much "a little extra" means, gives you a three-step formula, original model answers on common topics, and the errors that learners from different language backgrounds tend to make.
+**IELTS Speaking Part 1** is the warm-up: everyday questions about you, your studies or job, your habits and your likes. The content is never difficult, but this is where the examiner forms a first impression of your English. Knowing [how to think in English without translating](/en/blog/how-to-think-in-english-without-translating/) helps you respond immediately without long pauses. A strong answer here is not long or clever. It is *just enough*: a direct reply followed by a little extra. This guide shows you exactly how much "a little extra" means, gives you a three-step formula, original model answers on common topics, and the errors that learners from different language backgrounds tend to make.
 
 ## How IELTS Speaking Part 1 works
 
@@ -59,7 +59,7 @@ The better answer uses no rare words. What makes it work is the structure: a cle
 | The future | *I'm hoping to try a proper hiking trip next summer.* |
 | A feeling | *It's one of the few times in the day when I don't look at my phone.* |
 
-You do not need all five for every question. One is enough to stop an answer from sounding cut off.
+You do not need all five for every question. One is enough to stop an answer from sounding cut off. For an advanced look at how to connect these steps into a continuous flow, read our guide on [how to extend answers in IELTS Speaking](/en/blog/the-domino-effect-in-ielts-speaking/).
 
 ## Common topics and model answers
 
@@ -121,8 +121,7 @@ Some problems are universal; others depend on your first language. Check which o
 ![Lexkite IPA pronunciation library with vowels, diphthongs and consonants, example words and per-sound practice](media:pron "Drill the sound you tend to drop or add, such as a final /t/ or /s/, one sound at a time")
 
 ## How to prepare without memorising
-
-The aim is to make the *ideas* and *vocabulary* familiar while leaving the sentences free. A simple method for each common topic:
+The aim is to make the *ideas* and *vocabulary* familiar while leaving the sentences free. Understand [why memorizing IELTS speaking sample answers](/en/blog/why-memorizing-sample-answers-ruins-ielts-speaking/) destroys your fluency score, and apply this simple method for each common topic instead:
 
 1. **Write three facts about yourself** for the topic: where, how often, why. Keep them true where possible – real details are easier to extend.
 2. **Collect five or six useful phrases** that fit those facts, such as *a fairly long commute* or *I'm not much of a morning person*.

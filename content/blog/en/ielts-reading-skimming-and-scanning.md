@@ -55,7 +55,7 @@ Academic essays typically introduce the core problem, historical context, or res
 
 ### 3. Read Only the Topic Sentences of Body Paragraphs
 
-In well-structured academic articles, about 80% of body paragraphs state their main point in the opening one or two sentences. Skim these topic sentences and jot down a one-word mental anchor next to each paragraph (for example, *Methodology*, *Limitation*, *Cost*, *Public Reaction*). If you are preparing an overall revision timetable, integrating this drill into your [IELTS self-study plan](/en/blog/ielts-self-study-plan/) ensures steady progress across all four skills.
+In well-structured academic articles, about 80% of body paragraphs state their main point in the opening one or two sentences. Skim these topic sentences and jot down a one-word mental anchor next to each paragraph (for example, *Methodology*, *Limitation*, *Cost*, *Public Reaction*). For advanced strategies on retaining complex arguments across long sections, see our complete guide to [active reading for IELTS](/en/blog/active-reading-strategies-for-ielts/). If you are preparing an overall revision timetable, integrating this drill into your [IELTS self-study plan](/en/blog/ielts-self-study-plan/) ensures steady progress across all four skills.
 
 ### 4. Decode Question Stems Before Deep Reading
 
@@ -71,7 +71,7 @@ Once you have identified the unchangeable search term, move your index finger or
 
 ### 6. Read Intensively Only Around the Target Zone
 
-Skimming and scanning exist solely to guide you to the correct sentence. Once you find that sentence, switch to slow, intensive reading. Check for subtle qualifiers like *seldom*, *virtually all*, *claimed*, or *initially thought*, which frequently reverse the meaning and serve as traps in [IELTS reading True False Not Given](/en/blog/ielts-reading-true-false-not-given/) questions.
+Skimming and scanning exist solely to guide you to the correct sentence. Once you find that sentence, switch to slow, intensive reading. Apply the surgical techniques in [how to read long sentences in English](/en/blog/sentence-parsing-for-ielts-reading/) to deconstruct embedded relative clauses. Check for subtle qualifiers like *seldom*, *virtually all*, *claimed*, or *initially thought*, which frequently reverse the meaning and serve as traps in [IELTS reading True False Not Given](/en/blog/ielts-reading-true-false-not-given/) questions.
 
 ### 7. Never Get Stuck on a Single Unknown Word
 
