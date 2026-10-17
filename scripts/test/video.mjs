@@ -76,7 +76,7 @@ ok(V.resolveTopic({ topic: 'An example sentence' }, casting).id === 'general' &&
 ok(V.lineEmotion({ text: 'Why do we say that?', beat: 'situation' }) === 'ask' && V.lineEmotion({ text: 'Exactly right', beat: 'situation' }) === 'right' && V.lineEmotion({ text: 'Practice free', beat: 'cta' }) === 'cta', 'cảm xúc câu: hỏi / đúng / CTA');
 
 // 5) Bộ sinh biến thể
-ok(formats.formats.length >= 20 && formats.hookStyles.length === 6 && formats.transitions.length === 6 && formats.cameraSets.length >= 6, '≥ 20 khuôn, 6 kiểu hook, 6 chuyển cảnh, ≥ 6 bộ góc máy');
+ok(formats.formats.length >= 40 && formats.hookStyles.length === 6 && formats.transitions.length >= 12 && formats.cameraSets.length >= 6, '≥ 40 khuôn, 6 kiểu hook, ≥ 12 chuyển cảnh, ≥ 6 bộ góc máy');
 ok(formats.music.every(x => !x.file), 'nhạc nền tự tổng hợp (không file nhạc ngoài)');
 const date = new Date('2026-10-17T00:00:00Z');
 const a1 = X.pickVariant({ job: sample, formats, casting, manifest, history: [], seed: 'abc', date }), a2 = X.pickVariant({ job: sample, formats, casting, manifest, history: [], seed: 'abc', date });

@@ -58,7 +58,8 @@ export function pickVariant({ job, formats, casting, manifest, history = [], see
   const back = (c, v) => { for (let i = recent.length - 1; i >= 0; i--) if (recent[i][c] === v) return recent.length - 1 - i; return Infinity; };
   const gapOf = (c, cand) => Math.min((rules.spacing || {})[c] || 0, pool(c, cand).length - 1);
   const pickLRU = (c, cand, ex = new Set()) => {
-    const arr = pool(c, cand), ok = arr.filter(v => !ex.has(v.id)), list = (ok.length ? ok : arr).map(v => ({ v, r: R(), b: back(c, v.id) }));
+    const arr = pool(c, cand); if (!arr.length) throw new Error(`không có lựa chọn ${c} hợp lệ cho kịch bản (số người nói / bối cảnh / dàn trong casting.json)`);
+    const ok = arr.filter(v => !ex.has(v.id)), list = (ok.length ? ok : arr).map(v => ({ v, r: R(), b: back(c, v.id) }));
     list.sort((x, y) => (y.b - x.b) || (x.r - y.r));
     const top = list.slice(0, Math.max(1, Math.ceil(list.length / 3))); return top[Math.floor(R() * top.length)].v;
   };
@@ -85,11 +86,15 @@ export function pickVariant({ job, formats, casting, manifest, history = [], see
     if (!left) break;
   }
   const c = best.cand;
+  // Theme (kiểu chữ × màu × bố cục) trong bộ ≥ 3 theme của khuôn – lâu chưa dùng trước (ghi vào vân tay, không tính vào luật trùng)
+  const thIds = (c.format.themes || []).length ? c.format.themes : (formats.themes || []).map(t => t.id);
+  const thPool = (formats.themes || []).filter(t => thIds.includes(t.id)).map(t => ({ t, b: back('theme', t.id), r: R() })).sort((x, y) => (y.b - x.b) || (x.r - y.r));
+  const theme = thPool.length ? thPool[0].t : null;
   return {
     seed: String(seed), topic: P.topic, relaxed: best.left > 0, recast: P.recast, choice,
-    fp: { ...fp(c), scene: c.setting.scene, time: c.setting.time, season: c.setting.season, room: c.setting.room },
+    fp: { ...fp(c), theme: theme ? theme.id : null, scene: c.setting.scene, time: c.setting.time, season: c.setting.season, room: c.setting.room },
     format: c.format, setting: c.setting, cast: { from: P.speakers, to: c.cast.who }, hookStyle: c.hookStyle, transition: c.transition, music: c.music,
-    sfx: P.sfx[Math.floor(R() * P.sfx.length)], endCard: c.endCard, cameraSet: c.cameraSet,
+    sfx: P.sfx[Math.floor(R() * P.sfx.length)], endCard: c.endCard, cameraSet: c.cameraSet, theme,
   };
 }
 

@@ -16,6 +16,10 @@ import { createRequire } from 'module';
 import { fileURLToPath } from 'url';
 import * as V from './lib.mjs';
 import * as X from './variants.mjs';
+import * as M from './motion.mjs';
+import * as K from './keyclip.mjs';
+import { music as synthMusic, wav16 } from './synth.mjs';
+import vm from 'vm';
 
 const args = process.argv.slice(2), opt = n => { const i = args.indexOf('--' + n); return i >= 0 ? args[i + 1] : undefined; };
 const die = m => { console.error('✗ render: ' + m); process.exit(1); };
@@ -54,7 +58,13 @@ const libFile = f => (f ? path.join(LIB, f) : '');
 const exists = f => !!f && fs.existsSync(libFile(f));
 const existsRepo = f => !!f && fs.existsSync(path.join(ROOT, f));
 const manifestOf = () => (fs.existsSync(path.join(LIB, 'manifest.json')) ? JSON.parse(fs.readFileSync(path.join(LIB, 'manifest.json'), 'utf8')) : {});
-const HIST = 'out/video/history.json'; // lịch sử dấu vân tay khi chạy trên máy (CI lấy từ Studio: ciJob.recent)
+const HIST = 'out/video/history.json';
+// Lớp motion Remotion (docs/VIDEO-PIPELINE.md §10): scripts/video/remotion (npm ci riêng). VIDEO_ENGINE=ffmpeg → đường ffmpeg cũ (dự phòng).
+const RM = path.join(ROOT, 'scripts/video/remotion'), RM_BIN = path.join(RM, 'node_modules/.bin/remotion');
+const useRemotion = () => process.env.VIDEO_ENGINE !== 'ffmpeg' && fs.existsSync(RM_BIN);
+// CI mẫu chưa có kho phòng/clip: cho phép nền gradient thương hiệu (VIDEO_ALLOW_STUDIO=1); production strict thiếu phòng → lỗi.
+const ALLOW_STUDIO = process.env.VIDEO_ALLOW_STUDIO === '1' || !STRICT;
+const SFX_DIR = path.join(ROOT, 'brand/library/sfx'); // lịch sử dấu vân tay khi chạy trên máy (CI lấy từ Studio: ciJob.recent)
 
 // ---------- Các bước ----------
 const STEPS = {
@@ -77,7 +87,7 @@ const STEPS = {
     s.scriptOrig = s.scriptOrig || s.job.script;
     s.job.script = v.recast ? X.applyCast(s.scriptOrig, v.cast) : s.scriptOrig;
     s.variant = v; s.history = hist.slice(-formats.rules.recent);
-    console.log(`  ${v.format.id} · ${v.setting.id} · ${v.cast.to.join('+') || '—'} · hook ${v.hookStyle.id} · ${v.transition.id} · nhạc ${v.music.id} · end ${v.endCard.id} · máy ${v.cameraSet.id}${v.relaxed ? ' · ⚠️ chưa đạt luật chống lặp' : ''}`);
+    console.log(`  ${v.format.id} · ${v.setting.id} · ${v.cast.to.join('+') || '—'} · hook ${v.hookStyle.id} · ${v.transition.id} · nhạc ${v.music.id} · end ${v.endCard.id} · theme ${v.theme ? v.theme.id : '—'} · máy ${v.cameraSet.id}${v.relaxed ? ' · ⚠️ chưa đạt luật chống lặp' : ''}`);
   },
   // 3) CỔNG NHẤT QUÁN (VIDEO-PIPELINE §8): chủ đề → bối cảnh + dàn (content/video/casting.json), phòng theo tag (không ngẫu nhiên),
   //    clip người nói/nghe theo cảm xúc câu, hướng nhìn, liên tục trang phục/vị trí/ngày-đêm. Lỗi không dừng dựng (để xem trước) nhưng QA chấm 0 + chặn đăng.
@@ -165,7 +175,10 @@ const STEPS = {
     const stage = s.stage || { lines: [], segs: [] };
     // góc máy từng câu theo khuôn/bộ góc máy; chuyển cảnh rõ ràng khi đổi bối cảnh và sau hook
     s.shots = V.planShots(s.lines.map((l, i) => ({ ...l, camera: s.variant ? X.cameraFor(s.variant, l, i) : null, transitionIn: !!(stage.lines[i] && stage.lines[i].transitionIn) || (i === 1 && !!s.variant) })), { endStart: s.endStart, duration: D });
-    buildVoice(s, D);
+    if (useRemotion()) return composeRemotion(s, [w, h], D);
+    if (STRICT) throw new Error('thiếu Remotion: cd scripts/video/remotion && npm ci (VIDEO_ENGINE=ffmpeg để dùng đường cũ)');
+    console.log('⚠️ chưa cài Remotion (scripts/video/remotion) → đường ffmpeg cũ, không có motion graphics'); todo(s, 'remotion');
+    buildVoice(s, D, null);
     const list = [];
     for (const [k, sh] of s.shots.entries()) {
       const f = `shot-${String(k).padStart(2, '0')}.mp4`;
@@ -176,8 +189,8 @@ const STEPS = {
     const assOk = /^\s*\S+\s+ass\s/m.test(execFileSync('ffmpeg', ['-hide_banner', '-filters'], { encoding: 'utf8' }));
     ff(['-i', P('silent.mp4'), '-i', P('voice.wav'), ...(assOk ? ['-vf', `ass=${P('subs.ass')}`] : []), '-map', '0:v', '-map', '1:a', '-r', String(FPS), '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '160k', '-ar', '48000', '-t', String(D), '-movflags', '+faststart', P('video.mp4')]);
     for (const x of fs.readdirSync(DIR)) if (/^shot-\d+\.mp4$|^silent\.mp4$|^voice-mix\.wav$/.test(x)) fs.rmSync(P(x), { force: true });
-    s.video = 'video.mp4'; s.burned = assOk; s.width = w; s.height = h;
-    if (!assOk) console.log('⚠️ ffmpeg không có bộ lọc ass (libass) – chưa burn-in phụ đề');
+    s.video = 'video.mp4'; s.burned = assOk; s.engine = 'ffmpeg'; s.width = w; s.height = h;
+    if (!assOk) console.log('⚠️ ffmpeg không có bộ lọc ass (libass) – chưa burn-in phụ đề (cài Remotion để có phụ đề động)');
   },
   // 9) Cổng QA (docs/MEDIA-QA-RUBRIC.md C) – chấm phần đo được; knowledge & share để người duyệt chấm (null). Lỗi nhất quán → mục tương ứng = 0 + blocked.
   async qa(s) {
@@ -206,10 +219,23 @@ const STEPS = {
     const cons = s.consistency || { ok: true, zero: [], reasons: [] };
     const vr = s.variant; g('variety', !!vr && !vr.relaxed, vr ? `${vr.format.id} · không trùng ≥ 3 thành phần với ${(s.history || []).length} video gần nhất${vr.relaxed ? ' – CHƯA ĐẠT' : ''}` : 'không có biến thể');
     g('consistency', cons.ok, cons.ok ? 'bối cảnh – nhân vật – lời thoại khớp' : `${cons.reasons.length} lỗi: ${cons.reasons[0]}`);
+    // Visual hook 2 s đầu (chữ + chuyển động + tương phản, cổng ≥ 90) và QA màu (cháy/bết < 1%, bão hòa trong biên, ΔE da↔phòng) – chỉ khi dựng bằng Remotion
+    let vh = null, grade = null;
+    if (s.timeline && fs.existsSync(v)) {
+      const tl = JSON.parse(fs.readFileSync(P(s.timeline), 'utf8'));
+      vh = M.visualHookScore({ frames: framesAt(v, { dur: 2 }), tl });
+      g('visual-hook', vh.score >= 90, `${vh.score}/100 (chữ ${vh.text} · chuyển động ${vh.motion} · tương phản ${vh.contrast}) – cổng ≥ 90`);
+      const box = sh => { const a = (sh.actors || []).find(x => x.role === 'speaker') || (sh.actors || [])[0]; return a ? [(a.x - a.h * 0.28) / w, (a.y - a.h) / h, (a.x + a.h * 0.28) / w, a.y / h] : null; };
+      const stats = tl.shots.filter(x => x.framing !== 'card').slice(0, 8).map(x => ({ ...M.gradeStats(framesAt(v, { from: (x.start + x.end) / 2, dur: 0.05, fps: 30, w: 270, h: 480 })[0] || { w: 1, h: 1, data: new Uint8Array(3) }, box(x)), grade: x.grade }));
+      const gv = M.gradeVerdict(stats); grade = { stats, ...gv };
+      const dEs = stats.map(x => x.dE).filter(x => x != null);
+      g('grade', gv.ok, gv.ok ? `cháy/bết < 1% · bão hòa TB ${(stats.reduce((a, x) => a + x.sat, 0) / Math.max(1, stats.length)).toFixed(2)} · ΔE da↔phòng ≤ ${dEs.length ? Math.max(...dEs) : '—'}` : gv.bad.slice(0, 2).join('; '));
+    }
     const scores = { hook: hookText ? V.hookScore(hookSec) : 5, knowledge: null, lipsync: V.lipsyncScore(lipMs), audio: hasAudio ? V.audioScore(lufs) : 0, subs: ex.ok && s.burned && safe.ok && ctr >= 4.5 ? 10 : 0, pacing: pace.score, brand: brandOk ? 10 : 0, cta: ctaOk ? 5 : 0, share: null };
     for (const k of cons.zero) scores[k] = 0; // vi phạm nhất quán → 0 điểm mục tương ứng
     if (vr && vr.relaxed) scores.pacing = 0; // lặp tổ hợp = nhàm → không đạt nhịp/độ mới, chặn đăng
-    s.qa = { scores, gates, blocked: !cons.ok || !!(vr && vr.relaxed), consistency: [...cons.reasons, ...(vr && vr.relaxed ? ['[pacing] tổ hợp trùng ≥ 3 thành phần với video gần đây'] : [])], variant: vr ? vr.fp : null, metrics: { lufs: lufs != null && isFinite(lufs) ? lufs : null, lipsyncMs: lipMs, shots: (s.shots || []).length, pace, align: s.align } };
+    const hookBad = !!vh && vh.score < 90;
+    s.qa = { scores, gates, blocked: !cons.ok || !!(vr && vr.relaxed) || hookBad, consistency: [...cons.reasons, ...(vr && vr.relaxed ? ['[pacing] tổ hợp trùng ≥ 3 thành phần với video gần đây'] : []), ...(hookBad ? [`[hook] visual hook ${vh.score}/100 < 90`] : [])], variant: vr ? vr.fp : null, metrics: { lufs: lufs != null && isFinite(lufs) ? lufs : null, lipsyncMs: lipMs, shots: (s.shots || []).length, pace, align: s.align, engine: s.engine || null, visualHook: vh, grade } };
     s.files = { duration: +dur.toFixed(2), size: fs.existsSync(v) ? fs.statSync(v).size : 0, width: w, height: h, todo: s.todo || [] };
     console.log(gates.map(x => `${x.ok ? '✓' : '✗'} ${x.k}: ${x.note}`).join('\n'));
     if (LOCAL && vr) { const h = (fs.existsSync(HIST) ? JSON.parse(fs.readFileSync(HIST, 'utf8')) : []).filter(x => x.id !== ID); h.push({ id: ID, ...vr.fp }); fs.writeFileSync(HIST, JSON.stringify(h.slice(-200))); }
@@ -226,28 +252,113 @@ const STEPS = {
   },
 };
 
-// Dải âm cả video: từng line-NN.wav đúng mốc + nhạc nền tự tổng hợp (aevalsrc, không bản quyền, ~-30 dBFS ≤ -24 dB) + hiệu ứng (whoosh ở chuyển cảnh, pop ở hook)
-// → trộn → loudnorm 2 lượt về -16 LUFS → voice.wav. Không có giọng → im lặng (không chuẩn hóa nhạc lên -16).
-function buildVoice(s, D) {
-  const ls = s.lines.filter(l => l.wav);
-  if (!ls.length) { ff(['-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=mono', '-t', String(D), P('voice.wav')]); return; }
-  const inputs = ls.flatMap(l => ['-i', P(l.wav)]), parts = ls.map((l, i) => `[${i}:a]adelay=${Math.round(l.start * 1000)}:all=1[a${i}]`), tags = ls.map((_, i) => `[a${i}]`);
-  const v = s.variant, mu = v && v.music && v.music.freqs, fx = v && v.sfx && v.sfx.id !== 'none' ? v.sfx : null;
-  if (mu) { // pad hợp âm + tremolo chậm, vào/ra mềm
-    const ex = mu.map(f => `sin(2*PI*${f}*t)`).join('+');
-    parts.push(`aevalsrc='${(0.05 / mu.length).toFixed(4)}*(${ex})*(0.7+0.3*sin(2*PI*${v.music.trem}*t))':s=48000:d=${D},lowpass=f=2400,afade=t=in:d=0.8,afade=t=out:st=${Math.max(0, D - 1.2).toFixed(2)}:d=1.2[mu]`); tags.push('[mu]');
+// Dải âm cả video (ffmpeg chỉ lo tiếng): giọng từng câu đúng mốc + nhạc nền tự tổng hợp (synth.mjs, không bản quyền) NÉN SIDECHAIN dưới giọng
+// + SFX tự đặt (motion.mjs placeSfx: whoosh ở chuyển cảnh, pop ở chữ/sticker, ding/buzz ở thẻ ✅/❌, riser trước đáp án, bass drop ở hook/sốc)
+// → trộn → loudnorm 2 lượt về -16 LUFS (không có giọng: -20 LUFS để nhạc không bị đẩy lên) → voice.wav.
+function buildVoice(s, D, tl) {
+  const ls = s.lines.filter(l => l.wav), v = s.variant, inputs = [], parts = [], bus = [];
+  let k = 0, voice = null;
+  const vt = ls.map(l => { inputs.push('-i', P(l.wav)); parts.push(`[${k}:a]aresample=48000,adelay=${Math.round(l.start * 1000)}:all=1[a${k}]`); return `[a${k++}]`; });
+  if (vt.length) { parts.push(`${vt.join('')}${vt.length > 1 ? `amix=inputs=${vt.length}:normalize=0:dropout_transition=0,` : ''}apad=whole_dur=${D}[vo]`); voice = 'vo'; }
+  const mid = v && v.music && v.music.id && v.music.id !== 'none' ? v.music.id : null;
+  if (mid) {
+    fs.writeFileSync(P('music.wav'), wav16(synthMusic(mid, D))); inputs.push('-i', P('music.wav'));
+    parts.push(`[${k++}:a]aresample=48000,volume=${voice ? 0.3 : 0.5}[mu0]`);
+    if (voice) { parts.push('[vo]asplit=2[vo1][vsc]', '[mu0][vsc]sidechaincompress=threshold=0.025:ratio=10:attack=12:release=380:makeup=1[mu]'); voice = 'vo1'; } else parts.push('[mu0]anull[mu]');
+    bus.push('[mu]');
   }
-  if (fx) {
-    const ts = (s.shots || []).filter(x => x.transitionIn).map(x => x.start);
-    ts.forEach((t, k) => { parts.push(`anoisesrc=d=0.45:c=pink:a=${fx.whoosh}:r=48000,bandpass=f=1400:width_type=h:w=1800,afade=t=in:d=0.2,afade=t=out:st=0.2:d=0.25,adelay=${Math.max(0, Math.round((t - 0.2) * 1000))}:all=1[w${k}]`); tags.push(`[w${k}]`); });
-    parts.push(`sine=f=880:d=0.12:r=48000,volume=${fx.pop},afade=t=out:st=0.02:d=0.1,adelay=60:all=1[pop]`); tags.push('[pop]');
+  if (voice) bus.push(`[${voice}]`);
+  for (const c of (tl && tl.sfx) || []) {
+    const f = path.join(SFX_DIR, c.id + '.wav'); if (!fs.existsSync(f)) continue;
+    inputs.push('-i', f); parts.push(`[${k++}:a]aresample=48000,volume=${(c.gainDb + 4).toFixed(1)}dB,adelay=${Math.max(0, Math.round(c.t * 1000))}:all=1[x${k}]`); bus.push(`[x${k}]`);
   }
-  const mix = tags.length > 1 ? `${tags.join('')}amix=inputs=${tags.length}:normalize=0:dropout_transition=0[m]` : '[a0]anull[m]';
+  if (!bus.length) { ff(['-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=mono', '-t', String(D), P('voice.wav')]); return; }
+  const mix = bus.length > 1 ? `${bus.join('')}amix=inputs=${bus.length}:normalize=0:dropout_transition=0[m]` : `${bus[0]}anull[m]`;
   ff([...inputs, '-filter_complex', `${parts.join(';')};${mix};[m]apad=whole_dur=${D},atrim=0:${D}[o]`, '-map', '[o]', '-ar', '48000', '-ac', '1', P('voice-mix.wav')]);
-  const m = (ffErr(['-i', P('voice-mix.wav'), '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11:print_format=json', '-f', 'null', '-']).match(/\{[\s\S]*?\}/g) || []).pop();
+  const I = vt.length ? -16 : -20;
+  const m = (ffErr(['-i', P('voice-mix.wav'), '-af', `loudnorm=I=${I}:TP=-1.5:LRA=11:print_format=json`, '-f', 'null', '-']).match(/\{[\s\S]*?\}/g) || []).pop();
   const j = m ? JSON.parse(m) : null;
-  const ln = j ? `loudnorm=I=-16:TP=-1.5:LRA=11:measured_I=${j.input_i}:measured_TP=${j.input_tp}:measured_LRA=${j.input_lra}:measured_thresh=${j.input_thresh}:offset=${j.target_offset}:linear=true` : 'loudnorm=I=-16:TP=-1.5:LRA=11';
+  const ln = j && isFinite(+j.input_i) ? `loudnorm=I=${I}:TP=-1.5:LRA=11:measured_I=${j.input_i}:measured_TP=${j.input_tp}:measured_LRA=${j.input_lra}:measured_thresh=${j.input_thresh}:offset=${j.target_offset}:linear=true` : `loudnorm=I=${I}:TP=-1.5:LRA=11`;
   ff(['-i', P('voice-mix.wav'), '-af', `${ln},aresample=48000`, '-ac', '1', '-t', String(D), P('voice.wav')]);
+}
+
+// ---------- Remotion ----------
+// Kit chỉ lấy từ web/js/kit.js (luật brand): chạy kit.js trong vm → SVG tĩnh cho từng cảm xúc
+function kitSvgs(pub) {
+  const ctx = { self: {} }; vm.runInNewContext(fs.readFileSync(path.join(ROOT, 'web/js/kit.js'), 'utf8'), ctx);
+  const out = {}; for (const m of ['happy', 'win', 'cheer', 'think', 'sad']) { const f = `kit-${m}.svg`; fs.writeFileSync(path.join(pub, f), ctx.self.Kit.svg(m, 512, false).replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ')); out[m] = f; }
+  return out;
+}
+const CACHE = 'out/video/cache';
+// Phòng: file kho → (chạy thử) ảnh phòng tạm → gradient thương hiệu (chỉ khi ALLOW_STUDIO). Strict thiếu phòng = lỗi rõ ràng.
+function prepRoom(s, g, pub) {
+  const r = g.room, time = (s.stage && s.stage.time) || 'day';
+  let f = !r.virtual && r.file && fs.existsSync(libFile(r.file)) ? libFile(r.file) : null;
+  if (!f && opt('bg') && fs.existsSync(opt('bg'))) f = path.resolve(opt('bg'));
+  if (!f && !STRICT) {
+    const rd = path.join(LIB, 'rooms'), lib = fs.existsSync(rd) ? fs.readdirSync(rd).filter(x => x.startsWith(g.scene + '-') && x.includes(`-${time}-`) && /\.(png|jpe?g|webp)$/.test(x)).sort().map(x => path.join(rd, x)) : [];
+    const cands = [...lib, g.scene === 'office' ? path.join(ROOT, 'brand/characters/_candidates/rooms/office-full-a.png') : null];
+    f = cands.find(x => x && fs.existsSync(x)) || null;
+    if (f) { todo(s, 'room-placeholder'); console.log(`⚠️ phòng ${r.id}: chưa có file kho → ảnh tạm ${path.relative(ROOT, f)}`); }
+  }
+  if (!f) {
+    if (!ALLOW_STUDIO) throw new Error(`thiếu ảnh phòng ${r.file || r.id} (bối cảnh ${g.scene}) – strict không thay nền trơn`);
+    console.log(`⚠️ phòng ${r.id}: không có ảnh → nền gradient thương hiệu`); todo(s, 'room'); return null;
+  }
+  const out = `room-${r.id}${path.extname(f)}`; fs.copyFileSync(f, path.join(pub, out)); return { src: out };
+}
+// Nhân vật: clip stacked (kiểm định dạng – sai thì strict FAIL) → webm alpha; ảnh có alpha → png; nền trơn (chạy thử) → keyclip flood-fill
+async function prepActor(s, a, pub) {
+  let file = a.asset && a.asset.kind !== 'none' && a.asset.file ? libFile(a.asset.file) : null, kind = a.asset ? a.asset.kind : 'none';
+  if (file && !fs.existsSync(file)) file = null;
+  if (!file && !STRICT) {
+    const c = [path.join(LIB, `chars/${a.who}/neutral.png`), ...['neutral.png', 'dna.png', 'a-rembg.png'].map(x => path.join(ROOT, `brand/characters/_candidates/${a.who}/${x}`))].find(x => fs.existsSync(x));
+    if (c) { file = c; kind = 'still'; todo(s, 'actor-placeholder'); console.log(`⚠️ ${a.who}: chưa có tài nguyên kho → ảnh tạm ${path.relative(ROOT, c)}`); }
+  }
+  if (!file) { console.log(`⚠️ ${a.who}: không có tài nguyên – bỏ khỏi cảnh`); todo(s, 'actor'); return null; }
+  fs.mkdirSync(CACHE, { recursive: true });
+  const st = fs.statSync(file), still = /\.(png|jpe?g|webp)$/i.test(file), key = X.hash32(`${file}|${st.size}|${st.mtimeMs}|k2`).toString(36);
+  const name = `actor-${a.who}-${key}.${still ? 'png' : 'webm'}`, out = path.join(CACHE, name), meta = out + '.json';
+  if (!fs.existsSync(meta) || !fs.existsSync(out)) {
+    let m;
+    if (kind === 'clip' && a.asset.alpha === 'stacked') {
+      try { m = K.stackedToAlpha(file, out); }
+      catch (e) { if (STRICT) throw e; console.log(`⚠️ ${e.message} → cắt nền tạm bằng keyclip`); todo(s, 'clip-format'); m = await K.keyToAlpha(file, out); }
+    } else if (still && K.hasAlpha(file)) m = K.stillWithAlpha(file, out);
+    else { if (STRICT) throw new Error(`${a.who}: ${path.basename(file)} không có kênh alpha và không phải clip stacked`); m = await K.keyToAlpha(file, out); }
+    fs.writeFileSync(meta, JSON.stringify(m));
+  }
+  const m = JSON.parse(fs.readFileSync(meta, 'utf8')); fs.copyFileSync(out, path.join(pub, name));
+  return { src: name, kind: still ? 'img' : 'video', aw: m.w, ah: m.h, foot: m.foot, figH: m.figH, dur: m.dur || 5 };
+}
+async function composeRemotion(s, [w, h], D) {
+  const pub = P('public'); fs.rmSync(pub, { recursive: true, force: true }); fs.mkdirSync(path.join(pub, 'fonts'), { recursive: true });
+  fs.copyFileSync(path.join(ROOT, 'brand/social/src/fonts/BricolageGrotesque-ExtraBold.ttf'), path.join(pub, 'fonts/display.ttf'));
+  fs.copyFileSync(path.join(ROOT, 'brand/social/src/fonts/BeVietnamPro-ExtraBold.ttf'), path.join(pub, 'fonts/body.ttf'));
+  fs.copyFileSync(path.join(ROOT, 'brand/lexkite-logo-dark.svg'), path.join(pub, 'logo-dark.svg'));
+  fs.writeFileSync(path.join(pub, 'mark-mono.svg'), fs.readFileSync(path.join(ROOT, 'brand/lexkite-mark-mono.svg'), 'utf8').replace(/#0F3D3E/gi, '#FFFFFF'));
+  const kit = kitSvgs(pub), stage = s.stage || { lines: [], segs: [] }, rooms = {}, actors = {};
+  const ak = a => `${a.who}|${(a.asset && a.asset.file) || 'none'}`;
+  for (const g of stage.segs || []) rooms[`${g.scene}|${g.room.id}`] = prepRoom(s, g, pub);
+  for (const sl of stage.lines || []) for (const a of sl.actors || []) if (!(ak(a) in actors)) actors[ak(a)] = await prepActor(s, a, pub);
+  const words = JSON.parse(fs.readFileSync(P('words.json'), 'utf8')), sfxMan = JSON.parse(fs.readFileSync(path.join(SFX_DIR, 'manifest.json'), 'utf8'));
+  const tl = M.buildTimeline({ s, words, w, h, fps: FPS, seed: (s.variant && s.variant.seed) || ID, sfxMap: sfxMan.placement, grain: process.env.VIDEO_GRAIN !== '0',
+    assets: { roomOf: g => rooms[`${g.scene}|${g.room.id}`], actorOf: a => actors[ak(a)], kit } });
+  fs.writeFileSync(P('props.json'), JSON.stringify(tl)); s.timeline = 'props.json';
+  buildVoice(s, D, tl);
+  const args = ['render', 'src/index.jsx', `fmt-${tl.format}`, path.resolve(P('silent.mp4')), `--props=${path.resolve(P('props.json'))}`, `--public-dir=${path.resolve(pub)}`, '--codec=h264', '--crf=18', '--log=error',
+    ...(process.env.REMOTION_BROWSER ? [`--browser-executable=${process.env.REMOTION_BROWSER}`] : []), ...(process.env.REMOTION_CONCURRENCY ? [`--concurrency=${process.env.REMOTION_CONCURRENCY}`] : [])];
+  console.log(`  Remotion fmt-${tl.format} · theme ${tl.theme.id} · ${tl.cuts.map(c => c.type).join(', ')} · ${tl.interrupts.length} ngắt nhịp · ${tl.sfx.length} SFX`);
+  execFileSync(RM_BIN, args, { cwd: RM, stdio: ['ignore', 'inherit', 'inherit'], timeout: 40 * 60 * 1000 });
+  ff(['-i', P('silent.mp4'), '-i', P('voice.wav'), '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '160k', '-ar', '48000', '-t', String(D), '-movflags', '+faststart', P('video.mp4')]);
+  for (const x of ['silent.mp4', 'voice-mix.wav']) fs.rmSync(P(x), { force: true });
+  s.video = 'video.mp4'; s.burned = true; s.engine = 'remotion'; s.width = w; s.height = h;
+}
+// Khung RGB nhỏ từ video (QA visual hook / màu)
+function framesAt(file, { from = 0, dur = 2, fps = 12, w = 216, h = 384 } = {}) {
+  const buf = execFileSync('ffmpeg', ['-v', 'error', '-ss', String(from), '-t', String(dur), '-i', file, '-vf', `fps=${fps},scale=${w}:${h}`, '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], { maxBuffer: 1 << 28 });
+  const n = w * h * 3, out = []; for (let o = 0; o + n <= buf.length; o += n) out.push({ w, h, data: new Uint8Array(buf.buffer, buf.byteOffset + o, n) });
+  return out;
 }
 
 // Lớp nhân vật: clip "stacked" (màu + mặt nạ) hoặc ảnh tĩnh trong suốt (đã cắt bóng sàn dính). Trả null nếu không dùng được (thiếu file / không có alpha).

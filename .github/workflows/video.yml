@@ -32,6 +32,16 @@ jobs:
           python-version: '3.12'
       - name: Cài ffmpeg (libass) + phông DejaVu
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core unzip >/dev/null && ffmpeg -hide_banner -filters | grep -q ' ass '
+      # Lớp motion (docs/VIDEO-PIPELINE.md §10): Remotion – React → MP4, Chrome Headless Shell chạy CPU trên ubuntu (miễn phí theo giấy phép Remotion cho công ty nhỏ)
+      - name: Đệm Remotion (node_modules)
+        uses: actions/cache@v4
+        with:
+          path: scripts/video/remotion/node_modules
+          key: remotion-${{ hashFiles('scripts/video/remotion/package-lock.json') }}-v1
+      - name: Cài Remotion + thư viện cho Chrome Headless Shell
+        run: |
+          sudo apt-get install -y -qq libnss3 libdbus-1-3 libatk1.0-0t64 libatk-bridge2.0-0t64 libgbm1 libasound2t64 libxrandr2 libxkbcommon0 libxfixes3 libxcomposite1 libxdamage1 libpango-1.0-0 libcairo2 libcups2t64 >/dev/null
+          cd scripts/video/remotion && npm ci --no-audit --no-fund >/dev/null && npx remotion browser ensure >/dev/null && echo "Remotion OK"
       # Công cụ nặng – đều miễn phí, chạy CPU: Kokoro (kokoro-js như audio.yml), faster-whisper tiny.en, Rhubarb Lip Sync (bản phát hành), numpy/pillow/scipy (cắt bóng sàn ảnh tĩnh)
       - name: Đệm mô hình (Kokoro ~90 MB, whisper tiny.en ~75 MB)
         uses: actions/cache@v4
@@ -65,10 +75,10 @@ jobs:
         run: node scripts/video/render.mjs --job "$JOB" --step lipsync
       - name: 7 · Phụ đề karaoke ASS + hook + CTA
         run: node scripts/video/render.mjs --job "$JOB" --step karaoke
-      - name: 8 · Ghép video 1080×1920 30 fps (phòng + nhân vật + bóng + máy + nhạc tự tổng hợp + phụ đề burn-in)
+      - name: 8 · Ghép video 1080×1920 30 fps (Remotion – motion graphics, chuyển cảnh, phụ đề động; ffmpeg – giọng + nhạc sidechain + SFX)
         id: compose
         run: node scripts/video/render.mjs --job "$JOB" --step compose
-      - name: 9 · Cổng chất lượng (LUFS, khẩu hình, phụ đề, nhịp, nhất quán, chống lặp)
+      - name: 9 · Cổng chất lượng (LUFS, khẩu hình, phụ đề, nhịp, nhất quán, chống lặp, visual hook ≥ 90, màu)
         run: node scripts/video/render.mjs --job "$JOB" --step qa
       - name: Báo cáo độ phủ tài nguyên (không chặn)
         if: always()
@@ -87,6 +97,7 @@ jobs:
             out/video/${{ github.event.inputs.job_id }}/state.json
             out/video/${{ github.event.inputs.job_id }}/words.json
             out/video/${{ github.event.inputs.job_id }}/visemes.json
+            out/video/${{ github.event.inputs.job_id }}/props.json
           retention-days: 14
       - name: Tải vào kho GrabCast (pool bulk – Studio tự tạo bài & lên lịch)
         id: store

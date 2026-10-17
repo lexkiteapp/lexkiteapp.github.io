@@ -1,0 +1,132 @@
+{
+  "_note": "Kho hiệu ứng âm thanh video (tự tổng hợp, CC0). Tạo lại: node scripts/video/synth.mjs --sfx. Đường dẫn tương đối brand/library/. Tự đặt theo SFX_MAP ở synth.mjs (motion.mjs placeSfx).",
+  "sr": 44100,
+  "items": [
+    {
+      "id": "whoosh",
+      "file": "sfx/whoosh.wav",
+      "dur": 0.55,
+      "gainDb": -14,
+      "desc": "whoosh lọc băng thông quét lên – whip-pan, zoom-blur, kit-fly",
+      "license": "CC0-1.0 (Lexkite tự tổng hợp – scripts/video/synth.mjs)"
+    },
+    {
+      "id": "swoosh",
+      "file": "sfx/swoosh.wav",
+      "dur": 0.35,
+      "gainDb": -15,
+      "desc": "swoosh ngắn sáng – slide-stack, page-flip, swipe",
+      "license": "CC0-1.0 (Lexkite tự tổng hợp – scripts/video/synth.mjs)"
+    },
+    {
+      "id": "pop",
+      "file": "sfx/pop.wav",
+      "dur": 0.12,
+      "gainDb": -18,
+      "desc": "pop bong bóng – chữ/sticker bật ra",
+      "license": "CC0-1.0 (Lexkite tự tổng hợp – scripts/video/synth.mjs)"
+    },
+    {
+      "id": "ding",
+      "file": "sfx/ding.wav",
+      "dur": 0.9,
+      "gainDb": -12,
+      "desc": "ding chuông (2 hài) – lộ đáp án ✅",
+      "license": "CC0-1.0 (Lexkite tự tổng hợp – scripts/video/synth.mjs)"
+    },
+    {
+      "id": "buzz",
+      "file": "sfx/buzz.wav",
+      "dur": 0.35,
+      "gainDb": -16,
+      "desc": "buzz sai (vuông lọc) – thẻ ❌",
+      "license": "CC0-1.0 (Lexkite tự tổng hợp – scripts/video/synth.mjs)"
+    },
+    {
+      "id": "bass-drop",
+      "file": "sfx/bass-drop.wav",
+      "dur": 1.1,
+      "gainDb": -10,
+      "desc": "bass drop (sine quét xuống + sub) – nhịp sốc/hook",
+      "license": "CC0-1.0 (Lexkite tự tổng hợp – scripts/video/synth.mjs)"
+    },
+    {
+      "id": "keys",
+      "file": "sfx/keys.wav",
+      "dur": 0.9,
+      "gainDb": -20,
+      "desc": "gõ phím (8 tick) – chữ hook type-on",
+      "license": "CC0-1.0 (Lexkite tự tổng hợp – scripts/video/synth.mjs)"
+    },
+    {
+      "id": "riser",
+      "file": "sfx/riser.wav",
+      "dur": 1.6,
+      "gainDb": -18,
+      "desc": "riser (nhiễu + sine quét lên) – trước câu trả lời",
+      "license": "CC0-1.0 (Lexkite tự tổng hợp – scripts/video/synth.mjs)"
+    },
+    {
+      "id": "glitch",
+      "file": "sfx/glitch.wav",
+      "dur": 0.3,
+      "gainDb": -18,
+      "desc": "glitch số (bitcrush ngắt quãng) – chuyển cảnh glitch",
+      "license": "CC0-1.0 (Lexkite tự tổng hợp – scripts/video/synth.mjs)"
+    },
+    {
+      "id": "confetti",
+      "file": "sfx/confetti.wav",
+      "dur": 0.8,
+      "gainDb": -15,
+      "desc": "confetti (pop nhỏ ngẫu nhiên + lấp lánh) – chúc mừng",
+      "license": "CC0-1.0 (Lexkite tự tổng hợp – scripts/video/synth.mjs)"
+    },
+    {
+      "id": "tick",
+      "file": "sfx/tick.wav",
+      "dur": 0.08,
+      "gainDb": -20,
+      "desc": "tick đồng hồ – quiz đếm ngược",
+      "license": "CC0-1.0 (Lexkite tự tổng hợp – scripts/video/synth.mjs)"
+    }
+  ],
+  "placement": {
+    "transition": {
+      "whip-pan": "whoosh",
+      "zoom-blur": "whoosh",
+      "swipe-mask": "swoosh",
+      "circle-reveal": "swoosh",
+      "glitch": "glitch",
+      "page-flip": "swoosh",
+      "slide-stack": "swoosh",
+      "light-leak": "whoosh",
+      "match-cut": "pop",
+      "split-screen": "swoosh",
+      "kit-fly": "whoosh",
+      "confetti-burst": "confetti"
+    },
+    "hook": "bass-drop",
+    "shock": "bass-drop",
+    "wordPop": "pop",
+    "sticker": "pop",
+    "reveal": "ding",
+    "wrong": "buzz",
+    "typeOn": "keys",
+    "preReveal": "riser",
+    "quizTick": "tick",
+    "gain": {
+      "whoosh": -14,
+      "swoosh": -15,
+      "pop": -18,
+      "ding": -12,
+      "buzz": -16,
+      "bass-drop": -10,
+      "keys": -20,
+      "riser": -18,
+      "glitch": -18,
+      "confetti": -15,
+      "tick": -20
+    }
+  }
+}

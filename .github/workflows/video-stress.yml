@@ -1,0 +1,99 @@
+# Dựng thử ĐA DẠNG trên CI (không chạy trên máy anh chủ): 12 video song song (matrix) – khác seed × khuôn × chủ đề/bối cảnh × ngày/tối × dàn nhân vật.
+# Mỗi job: scripts/video/stress.mjs --only <i> → artifact stress-<i> (6 khung tóm tắt + report.json + video.mp4 + props/state). Job cuối gom lỗi vào Step Summary.
+# Chạy tay: Actions → "Dựng thử đa dạng (stress)" → Run workflow. Kho phòng/clip chưa có trên CI → nền gradient thương hiệu (VIDEO_ALLOW_STUDIO=1).
+name: Dựng thử đa dạng (stress)
+on:
+  workflow_dispatch:
+    inputs:
+      only: { description: 'Danh sách video (vd. 1,5,11) – để trống = cả 12', required: false, default: '' }
+permissions:
+  contents: read
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        i: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    steps:
+      - name: Bỏ qua nếu không nằm trong danh sách
+        id: pick
+        run: |
+          ONLY="${{ github.event.inputs.only }}"
+          if [ -z "$ONLY" ] || echo ",$ONLY," | grep -q ",${{ matrix.i }},"; then echo "run=1" >> "$GITHUB_OUTPUT"; else echo "run=0" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/checkout@v4
+        if: steps.pick.outputs.run == '1'
+      - uses: actions/setup-node@v4
+        if: steps.pick.outputs.run == '1'
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        if: steps.pick.outputs.run == '1'
+        with:
+          python-version: '3.12'
+      - name: Cài ffmpeg + phông
+        if: steps.pick.outputs.run == '1'
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core unzip >/dev/null
+      - name: Đệm Remotion (node_modules)
+        if: steps.pick.outputs.run == '1'
+        uses: actions/cache@v4
+        with:
+          path: scripts/video/remotion/node_modules
+          key: remotion-${{ hashFiles('scripts/video/remotion/package-lock.json') }}-v1
+      - name: Cài Remotion + thư viện cho Chrome Headless Shell
+        if: steps.pick.outputs.run == '1'
+        run: |
+          sudo apt-get install -y -qq libnss3 libdbus-1-3 libatk1.0-0t64 libatk-bridge2.0-0t64 libgbm1 libasound2t64 libxrandr2 libxkbcommon0 libxfixes3 libxcomposite1 libxdamage1 libpango-1.0-0 libcairo2 libcups2t64 >/dev/null
+          cd scripts/video/remotion && npm ci --no-audit --no-fund >/dev/null && npx remotion browser ensure >/dev/null && echo "Remotion OK"
+      - name: Đệm mô hình (Kokoro, whisper)
+        if: steps.pick.outputs.run == '1'
+        uses: actions/cache@v4
+        with:
+          path: |
+            /tmp/kk/node_modules/@huggingface/transformers/.cache
+            ~/.cache/huggingface
+          key: video-models-kokoro82m-q8-whisper-tiny-en-v1
+      - name: Cài kokoro-js + faster-whisper + Rhubarb
+        if: steps.pick.outputs.run == '1'
+        run: |
+          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          pip install -q faster-whisper==1.1.1 numpy pillow scipy
+          curl -fsSL -o /tmp/rhubarb.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          mkdir -p /tmp/rhubarb && unzip -q /tmp/rhubarb.zip -d /tmp/rhubarb
+          echo "RHUBARB=$(find /tmp/rhubarb -type f -name rhubarb | head -1)" >> "$GITHUB_ENV"
+      - name: Dựng video ${{ matrix.i }}
+        if: steps.pick.outputs.run == '1'
+        env:
+          KOKORO_NODE_PATH: /tmp/kk/node_modules
+          VIDEO_ALLOW_STUDIO: '1'
+        run: node scripts/video/stress.mjs --n 12 --only ${{ matrix.i }} --out out/stress-frames
+      - name: Lưu khung tóm tắt + video
+        if: always() && steps.pick.outputs.run == '1'
+        uses: actions/upload-artifact@v4
+        with:
+          name: stress-${{ matrix.i }}
+          retention-days: 14
+          path: |
+            out/stress-frames/**
+            out/video/stress-*/video.mp4
+            out/video/stress-*/props.json
+            out/video/stress-*/state.json
+  summary:
+    needs: render
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: stress-*
+          path: all
+      - name: Gom lỗi thấy được
+        run: |
+          node -e '
+            const fs=require("fs"),p=require("path"),rows=[];
+            const walk=d=>{for(const e of fs.readdirSync(d,{withFileTypes:true})){const f=p.join(d,e.name);if(e.isDirectory())walk(f);else if(e.name==="report.json")rows.push(...JSON.parse(fs.readFileSync(f,"utf8")));}};
+            if(fs.existsSync("all"))walk("all");
+            const out=["## Dựng thử đa dạng","","| video | khuôn | theme | bối cảnh | hook | vấn đề |","|---|---|---|---|---|---|"];
+            for(const r of rows.sort((a,b)=>a.id.localeCompare(b.id)))out.push(`| ${r.id} | ${r.format||"—"} | ${r.theme||"—"} | ${r.scene||"—"}/${r.time||"—"} | ${r.visualHook??"—"} | ${r.issues.join("<br>").replace(/\|/g,"/")} |`);
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,out.join("\n")+"\n");console.log(out.join("\n"));'

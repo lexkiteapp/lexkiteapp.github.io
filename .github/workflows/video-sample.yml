@@ -21,6 +21,16 @@ jobs:
           python-version: '3.12'
       - name: Cài ffmpeg (libass) + phông DejaVu
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core unzip >/dev/null && ffmpeg -hide_banner -filters | grep -q ' ass '
+      # Lớp motion (docs/VIDEO-PIPELINE.md §10): Remotion – React → MP4, Chrome Headless Shell chạy CPU trên ubuntu (miễn phí theo giấy phép Remotion cho công ty nhỏ)
+      - name: Đệm Remotion (node_modules)
+        uses: actions/cache@v4
+        with:
+          path: scripts/video/remotion/node_modules
+          key: remotion-${{ hashFiles('scripts/video/remotion/package-lock.json') }}-v1
+      - name: Cài Remotion + thư viện cho Chrome Headless Shell
+        run: |
+          sudo apt-get install -y -qq libnss3 libdbus-1-3 libatk1.0-0t64 libatk-bridge2.0-0t64 libgbm1 libasound2t64 libxrandr2 libxkbcommon0 libxfixes3 libxcomposite1 libxdamage1 libpango-1.0-0 libcairo2 libcups2t64 >/dev/null
+          cd scripts/video/remotion && npm ci --no-audit --no-fund >/dev/null && npx remotion browser ensure >/dev/null && echo "Remotion OK"
       # Công cụ nặng – đều miễn phí, chạy CPU: Kokoro (kokoro-js như audio.yml), faster-whisper tiny.en, Rhubarb Lip Sync (bản phát hành), numpy/pillow/scipy (cắt bóng sàn ảnh tĩnh)
       - name: Đệm mô hình (Kokoro ~90 MB, whisper tiny.en ~75 MB)
         uses: actions/cache@v4
@@ -43,7 +53,14 @@ jobs:
       - name: Dựng video mẫu (toàn bộ các bước)
         env:
           KOKORO_NODE_PATH: /tmp/kk/node_modules
+          VIDEO_ALLOW_STUDIO: '1' # CI chưa có kho phòng/clip (brand/library không commit) → nền gradient thương hiệu
         run: node scripts/video/render.mjs --local --script "${{ github.event.inputs.script }}" 2>&1 | tee render.log
+      - name: 6 khung chính để duyệt
+        if: always()
+        run: |
+          V=out/video/local/video.mp4; [ -f "$V" ] || exit 0; mkdir -p out/video/local/frames
+          D=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$V")
+          for t in 0.4 1.2 0.25 0.5 0.75 0.97; do s=$(python3 -c "t=$t; d=$D; print(t if t>=1 or t==0.4 else round(t*d,2))"); ffmpeg -v error -y -ss "$s" -i "$V" -frames:v 1 "out/video/local/frames/f-$s.jpg"; done
       - name: Báo cáo độ phủ tài nguyên
         if: always()
         run: node scripts/video/render.mjs --coverage | tee -a "$GITHUB_STEP_SUMMARY" >/dev/null

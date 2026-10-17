@@ -1,785 +1,234 @@
 {
- "_note": "Khuôn video + kho biến thể cho bộ sinh có seed (scripts/video/variants.mjs, docs/VIDEO-PIPELINE.md §9). Mỗi khuôn: topics (id chủ đề casting.json hoặc \"any\"), cast = [ít nhất, nhiều nhất] số người nói (không tính Kit), labels = nhãn chữ theo phần kịch bản (beat), camera = gợi ý góc máy theo beat. Thành phần chính để chống lặp: format, setting (phòng+giờ+mùa), cast, hookStyle, transition, music, endCard, cameraSet. Nhạc nền/hiệu ứng = tự tổng hợp bằng ffmpeg (không bản quyền).",
+ "_note": "Khuôn video + kho biến thể cho bộ sinh có seed (scripts/video/variants.mjs, docs/VIDEO-PIPELINE.md §9–§10). Mỗi khuôn: topics (id chủ đề casting.json hoặc \"any\"), cast = [ít nhất, nhiều nhất] số người nói (không tính Kit), labels = nhãn chữ theo beat, camera = gợi ý góc máy theo beat, hook = {pattern (HOOK_PATTERNS ở scripts/video/motion.mjs), badge} – kiểu mở 1,5 s đầu (riêng từng khuôn), payoff = {type, beat} – cách “trả thưởng” (thẻ ❌/✅, lộ đáp án…), themes = ≥ 3 id trong themes[] (kiểu chữ × màu × bố cục). Thành phần chính chống lặp: format, setting, cast, hookStyle, transition, music, endCard, cameraSet (+ theme ghi trong vân tay). transitions = 12 chuyển cảnh Remotion (motion.mjs TRANSITIONS; color/d cho đường ffmpeg dự phòng). Nhạc nền = preset tự tổng hợp (scripts/video/synth.mjs MUSIC), SFX = brand/library/sfx/manifest.json – không bản quyền.",
  "formats": [
-  {
-   "id": "dont-say",
-   "name": "Don't say / Say",
-   "topics": "any",
-   "cast": [
-    1,
-    3
-   ],
-   "labels": {
-    "hook": {
-     "text": "DON'T SAY",
-     "color": "orange"
-    },
-    "example": {
-     "text": "SAY",
-     "color": "green"
-    }
-   },
-   "camera": {
-    "hook": "push",
-    "example": "close"
-   }
+  { "id": "dont-say", "name": "Don't say / Say", "topics": "any", "cast": [1, 3], "labels": { "hook": { "text": "DON'T SAY", "color": "orange" }, "example": { "text": "SAY", "color": "green" } }, "camera": { "hook": "push", "example": "close" }, "hook": { "pattern": "stop-saying", "badge": "DON'T SAY THIS" }, "payoff": { "type": "compare-cards", "beat": "example" }, "themes": ["pop-teal", "bar-paper", "pop-paper"]
   },
-  {
-   "id": "pov-office",
-   "name": "POV công sở",
-   "topics": [
-    "office-english",
-    "job-interview"
-   ],
-   "cast": [
-    2,
-    3
-   ],
-   "labels": {
-    "hook": {
-     "text": "POV",
-     "color": "teal"
-    }
-   },
-   "camera": {
-    "hook": "push",
-    "situation": "pan"
-   }
+  { "id": "pov-office", "name": "POV công sở", "topics": ["office-english", "job-interview"], "cast": [2, 3], "labels": { "hook": { "text": "POV", "color": "teal" } }, "camera": { "hook": "push", "situation": "pan" }, "hook": { "pattern": "pov", "badge": "POV: YOUR BOSS ASKS" }, "payoff": { "type": "checklist", "beat": "explain" }, "themes": ["pop-sunset", "bar-teal", "bounce-sunset"]
   },
-  {
-   "id": "native-vs-textbook",
-   "name": "Native vs textbook",
-   "topics": "any",
-   "cast": [
-    1,
-    3
-   ],
-   "labels": {
-    "situation": {
-     "text": "TEXTBOOK",
-     "color": "orange"
-    },
-    "example": {
-     "text": "NATIVE",
-     "color": "green"
-    }
-   },
-   "camera": {
-    "situation": "wide",
-    "example": "split"
-   }
+  { "id": "native-vs-textbook", "name": "Native vs textbook", "topics": "any", "cast": [1, 3], "labels": { "situation": { "text": "TEXTBOOK", "color": "orange" }, "example": { "text": "NATIVE", "color": "green" } }, "camera": { "situation": "wide", "example": "split" }, "hook": { "pattern": "versus", "badge": "TEXTBOOK vs NATIVE" }, "payoff": { "type": "compare-cards", "beat": "example" }, "themes": ["bounce-mint", "mega-sunset", "mega-mint"]
   },
-  {
-   "id": "quiz-3s",
-   "name": "Đố 3 giây",
-   "topics": "any",
-   "cast": [
-    1,
-    3
-   ],
-   "labels": {
-    "hook": {
-     "text": "3-SECOND QUIZ",
-     "color": "yellow"
-    },
-    "explain": {
-     "text": "ANSWER",
-     "color": "green"
-    }
-   },
-   "camera": {
-    "hook": "push",
-    "explain": "close"
-   }
+  { "id": "quiz-3s", "name": "Đố 3 giây", "topics": "any", "cast": [1, 3], "labels": { "hook": { "text": "3-SECOND QUIZ", "color": "yellow" }, "explain": { "text": "ANSWER", "color": "green" } }, "camera": { "hook": "push", "explain": "close" }, "hook": { "pattern": "quiz-timer", "badge": "3-SECOND QUIZ" }, "payoff": { "type": "answer-reveal", "beat": "explain" }, "themes": ["bounce-night", "mega-night", "bar-night"]
   },
-  {
-   "id": "ama-asks-why",
-   "name": "Ama asks why",
-   "topics": [
-    "study-grammar",
-    "ielts-exam"
-   ],
-   "cast": [
-    1,
-    1
-   ],
-   "labels": {
-    "hook": {
-     "text": "WHY?",
-     "color": "yellow"
-    }
-   },
-   "camera": {
-    "hook": "close",
-    "explain": "pan"
-   }
+  { "id": "ama-asks-why", "name": "Ama asks why", "topics": ["study-grammar", "ielts-exam"], "cast": [1, 1], "labels": { "hook": { "text": "WHY?", "color": "yellow" } }, "camera": { "hook": "close", "explain": "pan" }, "hook": { "pattern": "question", "badge": "WHY THOUGH?" }, "payoff": { "type": "tip-card", "beat": "explain" }, "themes": ["bar-paper", "pop-paper", "pop-teal"]
   },
-  {
-   "id": "leo-idiom",
-   "name": "Leo explains idiom",
-   "topics": [
-    "daily-life",
-    "office-english"
-   ],
-   "cast": [
-    2,
-    3
-   ],
-   "labels": {
-    "explain": {
-     "text": "IDIOM",
-     "color": "teal"
-    }
-   },
-   "camera": {
-    "explain": "close"
-   }
+  { "id": "leo-idiom", "name": "Leo explains idiom", "topics": ["daily-life", "office-english"], "cast": [2, 3], "labels": { "explain": { "text": "IDIOM", "color": "teal" } }, "camera": { "explain": "close" }, "hook": { "pattern": "wait-for-it", "badge": "WAIT FOR THE MEANING" }, "payoff": { "type": "flip-card", "beat": "explain" }, "themes": ["bar-teal", "bounce-sunset", "pop-sunset"]
   },
-  {
-   "id": "interview-diane",
-   "name": "Phỏng vấn với Diane",
-   "topics": [
-    "job-interview"
-   ],
-   "cast": [
-    2,
-    3
-   ],
-   "labels": {
-    "hook": {
-     "text": "INTERVIEW",
-     "color": "teal"
-    }
-   },
-   "camera": {
-    "situation": "split",
-    "explain": "close"
-   }
+  { "id": "interview-diane", "name": "Phỏng vấn với Diane", "topics": ["job-interview"], "cast": [2, 3], "labels": { "hook": { "text": "INTERVIEW", "color": "teal" } }, "camera": { "situation": "split", "explain": "close" }, "hook": { "pattern": "secret", "badge": "INTERVIEWERS NOTICE THIS" }, "payoff": { "type": "meter", "beat": "explain" }, "themes": ["mega-sunset", "mega-mint", "bounce-mint"]
   },
-  {
-   "id": "cafe-carlos",
-   "name": "Gọi đồ ở quán Carlos",
-   "topics": [
-    "ordering-coffee",
-    "restaurant"
-   ],
-   "cast": [
-    2,
-    3
-   ],
-   "labels": {
-    "hook": {
-     "text": "ORDER LIKE A LOCAL",
-     "color": "orange"
-    }
-   },
-   "camera": {
-    "situation": "pan",
-    "example": "close"
-   }
+  { "id": "cafe-carlos", "name": "Gọi đồ ở quán Carlos", "topics": ["ordering-coffee", "restaurant"], "cast": [2, 3], "labels": { "hook": { "text": "ORDER LIKE A LOCAL", "color": "orange" } }, "camera": { "situation": "pan", "example": "close" }, "hook": { "pattern": "pov", "badge": "POV: ORDERING COFFEE" }, "payoff": { "type": "before-after", "beat": "example" }, "themes": ["mega-night", "bar-night", "bounce-night"]
   },
-  {
-   "id": "word-of-day",
-   "name": "Word of the day",
-   "topics": "any",
-   "cast": [
-    1,
-    3
-   ],
-   "labels": {
-    "hook": {
-     "text": "WORD OF THE DAY",
-     "color": "yellow"
-    }
-   },
-   "camera": {
-    "hook": "push",
-    "explain": "close"
-   }
+  { "id": "word-of-day", "name": "Word of the day", "topics": "any", "cast": [1, 3], "labels": { "hook": { "text": "WORD OF THE DAY", "color": "yellow" } }, "camera": { "hook": "push", "explain": "close" }, "hook": { "pattern": "countdown-list", "badge": "WORD OF THE DAY" }, "payoff": { "type": "flip-card", "beat": "explain" }, "themes": ["pop-paper", "pop-teal", "bar-paper"]
   },
-  {
-   "id": "pronunciation-fix",
-   "name": "Lỗi phát âm",
-   "topics": "any",
-   "cast": [
-    1,
-    3
-   ],
-   "labels": {
-    "situation": {
-     "text": "NOT LIKE THIS",
-     "color": "orange"
-    },
-    "example": {
-     "text": "SAY IT LIKE THIS",
-     "color": "green"
-    }
-   },
-   "camera": {
-    "example": "push"
-   }
+  { "id": "pronunciation-fix", "name": "Lỗi phát âm", "topics": "any", "cast": [1, 3], "labels": { "situation": { "text": "NOT LIKE THIS", "color": "orange" }, "example": { "text": "SAY IT LIKE THIS", "color": "green" } }, "camera": { "example": "push" }, "hook": { "pattern": "mistake-stat", "badge": "90% SAY IT WRONG" }, "payoff": { "type": "compare-cards", "beat": "example" }, "themes": ["bounce-sunset", "pop-sunset", "bar-teal"]
   },
-  {
-   "id": "mini-drama-3",
-   "name": "Mini-drama 3 cảnh",
-   "topics": "any",
-   "cast": [
-    2,
-    3
-   ],
-   "labels": {
-    "hook": {
-     "text": "ACT 1",
-     "color": "teal"
-    },
-    "explain": {
-     "text": "ACT 2",
-     "color": "teal"
-    },
-    "tip": {
-     "text": "ACT 3",
-     "color": "teal"
-    }
-   },
-   "camera": {
-    "hook": "wide",
-    "explain": "pan",
-    "tip": "push"
-   }
+  { "id": "mini-drama-3", "name": "Mini-drama 3 cảnh", "topics": "any", "cast": [2, 3], "labels": { "hook": { "text": "ACT 1", "color": "teal" }, "explain": { "text": "ACT 2", "color": "teal" }, "tip": { "text": "ACT 3", "color": "teal" } }, "camera": { "hook": "wide", "explain": "pan", "tip": "push" }, "hook": { "pattern": "story-cold-open", "badge": "WATCH WHAT HAPPENS" }, "payoff": { "type": "stamp-correct", "beat": "tip" }, "themes": ["mega-mint", "bounce-mint", "mega-sunset"]
   },
-  {
-   "id": "quiz-abc",
-   "name": "Quiz A/B/C",
-   "topics": "any",
-   "cast": [
-    1,
-    3
-   ],
-   "labels": {
-    "situation": {
-     "text": "A, B OR C?",
-     "color": "yellow"
-    },
-    "explain": {
-     "text": "ANSWER",
-     "color": "green"
-    }
-   },
-   "camera": {
-    "situation": "wide",
-    "explain": "push"
-   }
+  { "id": "quiz-abc", "name": "Quiz A/B/C", "topics": "any", "cast": [1, 3], "labels": { "situation": { "text": "A, B OR C?", "color": "yellow" }, "explain": { "text": "ANSWER", "color": "green" } }, "camera": { "situation": "wide", "explain": "push" }, "hook": { "pattern": "challenge", "badge": "A, B OR C?" }, "payoff": { "type": "answer-reveal", "beat": "explain" }, "themes": ["bar-night", "bounce-night", "mega-night"]
   },
-  {
-   "id": "before-after",
-   "name": "Before / After câu nói",
-   "topics": "any",
-   "cast": [
-    1,
-    3
-   ],
-   "labels": {
-    "situation": {
-     "text": "BEFORE",
-     "color": "orange"
-    },
-    "example": {
-     "text": "AFTER",
-     "color": "green"
-    }
-   },
-   "camera": {
-    "situation": "close",
-    "example": "split"
-   }
+  { "id": "before-after", "name": "Before / After câu nói", "topics": "any", "cast": [1, 3], "labels": { "situation": { "text": "BEFORE", "color": "orange" }, "example": { "text": "AFTER", "color": "green" } }, "camera": { "situation": "close", "example": "split" }, "hook": { "pattern": "versus", "badge": "BEFORE → AFTER" }, "payoff": { "type": "before-after", "beat": "example" }, "themes": ["pop-teal", "bar-paper", "pop-paper"]
   },
-  {
-   "id": "top-3",
-   "name": "Top 3 cụm",
-   "topics": "any",
-   "cast": [
-    1,
-    3
-   ],
-   "labels": {
-    "hook": {
-     "text": "TOP 3",
-     "color": "yellow"
-    },
-    "explain": {
-     "text": "#1",
-     "color": "teal"
-    },
-    "example": {
-     "text": "#2",
-     "color": "teal"
-    },
-    "tip": {
-     "text": "#3",
-     "color": "teal"
-    }
-   },
-   "camera": {
-    "explain": "close",
-    "example": "pan"
-   }
+  { "id": "top-3", "name": "Top 3 cụm", "topics": "any", "cast": [1, 3], "labels": { "hook": { "text": "TOP 3", "color": "yellow" }, "explain": { "text": "#1", "color": "teal" }, "example": { "text": "#2", "color": "teal" }, "tip": { "text": "#3", "color": "teal" } }, "camera": { "explain": "close", "example": "pan" }, "hook": { "pattern": "countdown-list", "badge": "TOP 3 PHRASES" }, "payoff": { "type": "checklist", "beat": "tip" }, "themes": ["pop-sunset", "bar-teal", "bounce-sunset"]
   },
-  {
-   "id": "story-30s",
-   "name": "Story 30 s",
-   "topics": "any",
-   "cast": [
-    1,
-    3
-   ],
-   "labels": {
-    "hook": {
-     "text": "STORY TIME",
-     "color": "teal"
-    }
-   },
-   "camera": {
-    "situation": "dolly",
-    "explain": "pan"
-   }
+  { "id": "story-30s", "name": "Story 30 s", "topics": "any", "cast": [1, 3], "labels": { "hook": { "text": "STORY TIME", "color": "teal" } }, "camera": { "situation": "dolly", "explain": "pan" }, "hook": { "pattern": "story-cold-open", "badge": "STORY TIME" }, "payoff": { "type": "tip-card", "beat": "tip" }, "themes": ["bounce-mint", "mega-sunset", "mega-mint"]
   },
-  {
-   "id": "reaction",
-   "name": "Reaction",
-   "topics": "any",
-   "cast": [
-    2,
-    3
-   ],
-   "labels": {
-    "hook": {
-     "text": "REACTION",
-     "color": "orange"
-    }
-   },
-   "camera": {
-    "hook": "split",
-    "situation": "split"
-   }
+  { "id": "reaction", "name": "Reaction", "topics": "any", "cast": [2, 3], "labels": { "hook": { "text": "REACTION", "color": "orange" } }, "camera": { "hook": "split", "situation": "split" }, "hook": { "pattern": "wait-for-it", "badge": "WAIT FOR HIS FACE" }, "payoff": { "type": "stamp-correct", "beat": "example" }, "themes": ["bounce-night", "mega-night", "bar-night"]
   },
-  {
-   "id": "repeat-after-me",
-   "name": "Thử thách nói theo",
-   "topics": "any",
-   "cast": [
-    1,
-    3
-   ],
-   "labels": {
-    "example": {
-     "text": "YOUR TURN",
-     "color": "green"
-    }
-   },
-   "camera": {
-    "example": "push"
-   }
+  { "id": "repeat-after-me", "name": "Thử thách nói theo", "topics": "any", "cast": [1, 3], "labels": { "example": { "text": "YOUR TURN", "color": "green" } }, "camera": { "example": "push" }, "hook": { "pattern": "challenge", "badge": "SAY IT WITH ME" }, "payoff": { "type": "meter", "beat": "example" }, "themes": ["bar-paper", "pop-paper", "pop-teal"]
   },
-  {
-   "id": "grammar-60",
-   "name": "Ngữ pháp 60 s",
-   "topics": [
-    "study-grammar",
-    "ielts-exam",
-    "office-english"
-   ],
-   "cast": [
-    1,
-    3
-   ],
-   "labels": {
-    "hook": {
-     "text": "GRAMMAR IN 60s",
-     "color": "yellow"
-    }
-   },
-   "camera": {
-    "explain": "close",
-    "example": "wide"
-   }
+  { "id": "grammar-60", "name": "Ngữ pháp 60 s", "topics": ["study-grammar", "ielts-exam", "office-english"], "cast": [1, 3], "labels": { "hook": { "text": "GRAMMAR IN 60s", "color": "yellow" } }, "camera": { "explain": "close", "example": "wide" }, "hook": { "pattern": "quiz-timer", "badge": "GRAMMAR IN 60s" }, "payoff": { "type": "tip-card", "beat": "explain" }, "themes": ["bar-teal", "bounce-sunset", "pop-sunset"]
   },
-  {
-   "id": "email-fix",
-   "name": "Email sửa nhanh",
-   "topics": [
-    "office-english"
-   ],
-   "cast": [
-    1,
-    3
-   ],
-   "labels": {
-    "situation": {
-     "text": "BEFORE SEND",
-     "color": "orange"
-    },
-    "example": {
-     "text": "FIXED",
-     "color": "green"
-    }
-   },
-   "camera": {
-    "situation": "close",
-    "example": "push"
-   }
+  { "id": "email-fix", "name": "Email sửa nhanh", "topics": ["office-english"], "cast": [1, 3], "labels": { "situation": { "text": "BEFORE SEND", "color": "orange" }, "example": { "text": "FIXED", "color": "green" } }, "camera": { "situation": "close", "example": "push" }, "hook": { "pattern": "stop-saying", "badge": "STOP WRITING THIS" }, "payoff": { "type": "before-after", "beat": "example" }, "themes": ["mega-sunset", "mega-mint", "bounce-mint"]
   },
-  {
-   "id": "small-talk",
-   "name": "Small talk",
-   "topics": [
-    "office-english",
-    "daily-life",
-    "ordering-coffee"
-   ],
-   "cast": [
-    2,
-    3
-   ],
-   "labels": {
-    "hook": {
-     "text": "SMALL TALK",
-     "color": "teal"
-    }
-   },
-   "camera": {
-    "situation": "pan",
-    "example": "split"
-   }
+  { "id": "small-talk", "name": "Small talk", "topics": ["office-english", "daily-life", "ordering-coffee"], "cast": [2, 3], "labels": { "hook": { "text": "SMALL TALK", "color": "teal" } }, "camera": { "situation": "pan", "example": "split" }, "hook": { "pattern": "question", "badge": "WHAT DO YOU SAY?" }, "payoff": { "type": "checklist", "beat": "example" }, "themes": ["mega-night", "bar-night", "bounce-night"]
   },
-  {
-   "id": "ielts-band-up",
-   "name": "IELTS band up",
-   "topics": [
-    "ielts-exam"
-   ],
-   "cast": [
-    1,
-    1
-   ],
-   "labels": {
-    "situation": {
-     "text": "BAND 5",
-     "color": "orange"
-    },
-    "example": {
-     "text": "BAND 7+",
-     "color": "green"
-    }
-   },
-   "camera": {
-    "example": "push"
-   }
+  { "id": "ielts-band-up", "name": "IELTS band up", "topics": ["ielts-exam"], "cast": [1, 1], "labels": { "situation": { "text": "BAND 5", "color": "orange" }, "example": { "text": "BAND 7+", "color": "green" } }, "camera": { "example": "push" }, "hook": { "pattern": "mistake-stat", "badge": "BAND 5 vs BAND 7" }, "payoff": { "type": "meter", "beat": "example" }, "themes": ["pop-paper", "pop-teal", "bar-paper"]
   },
-  {
-   "id": "travel-survival",
-   "name": "Sống sót ở sân bay",
-   "topics": [
-    "travel"
-   ],
-   "cast": [
-    1,
-    3
-   ],
-   "labels": {
-    "hook": {
-     "text": "AT THE AIRPORT",
-     "color": "teal"
-    }
-   },
-   "camera": {
-    "situation": "pan",
-    "example": "close"
-   }
+  { "id": "travel-survival", "name": "Sống sót ở sân bay", "topics": ["travel"], "cast": [1, 3], "labels": { "hook": { "text": "AT THE AIRPORT", "color": "teal" } }, "camera": { "situation": "pan", "example": "close" }, "hook": { "pattern": "secret", "badge": "AIRPORT SURVIVAL" }, "payoff": { "type": "tip-card", "beat": "example" }, "themes": ["bounce-sunset", "pop-sunset", "bar-teal"]
+  },
+  { "id": "spot-the-mistake", "name": "Spot the mistake", "topics": "any", "cast": [1, 3], "labels": { "hook": { "text": "MISTAKE?", "color": "orange" }, "explain": { "text": "FIXED", "color": "green" } }, "camera": { "hook": "push", "explain": "close" }, "hook": { "pattern": "challenge", "badge": "SPOT THE MISTAKE" }, "payoff": { "type": "stamp-correct", "beat": "explain" }, "themes": ["mega-mint", "bounce-mint", "mega-sunset"]
+  },
+  { "id": "one-word-upgrade", "name": "One-word upgrade", "topics": "any", "cast": [1, 3], "labels": { "situation": { "text": "BORING", "color": "yellow" }, "example": { "text": "BETTER", "color": "green" } }, "camera": { "situation": "pan", "example": "close" }, "hook": { "pattern": "stop-saying", "badge": "STOP SAYING \"VERY\"" }, "payoff": { "type": "before-after", "beat": "example" }, "themes": ["bar-night", "bounce-night", "mega-night"]
+  },
+  { "id": "phrasal-30", "name": "Phrasal verb 30 s", "topics": "any", "cast": [1, 3], "labels": { "explain": { "text": "MEANING", "color": "green" } }, "camera": { "hook": "push", "example": "split" }, "hook": { "pattern": "countdown-list", "badge": "1 PHRASAL VERB, 3 MEANINGS" }, "payoff": { "type": "checklist", "beat": "explain" }, "themes": ["pop-teal", "bar-paper", "pop-paper"]
+  },
+  { "id": "false-friends", "name": "False friends", "topics": "any", "cast": [1, 3], "labels": { "situation": { "text": "YOU THINK", "color": "orange" }, "example": { "text": "IT MEANS", "color": "green" } }, "camera": { "explain": "close", "example": "push" }, "hook": { "pattern": "mistake-stat", "badge": "IT DOESN'T MEAN THAT" }, "payoff": { "type": "compare-cards", "beat": "example" }, "themes": ["pop-sunset", "bar-teal", "bounce-sunset"]
+  },
+  { "id": "slang-check", "name": "Slang check", "topics": ["daily-life"], "cast": [1, 3], "labels": { "explain": { "text": "SLANG", "color": "orange" } }, "camera": { "hook": "push", "explain": "close" }, "hook": { "pattern": "question", "badge": "DO YOU KNOW THIS SLANG?" }, "payoff": { "type": "flip-card", "beat": "explain" }, "themes": ["bounce-mint", "mega-sunset", "mega-mint"]
+  },
+  { "id": "texting-english", "name": "Texting English", "topics": ["daily-life", "office-english"], "cast": [1, 3], "labels": { "hook": { "text": "NEW MESSAGE", "color": "yellow" } }, "camera": { "situation": "pan", "example": "close" }, "hook": { "pattern": "pov", "badge": "POV: YOU GET THIS TEXT" }, "payoff": { "type": "answer-reveal", "beat": "explain" }, "themes": ["bounce-night", "mega-night", "bar-night"]
+  },
+  { "id": "polite-vs-rude", "name": "Polite vs rude", "topics": "any", "cast": [1, 3], "labels": { "situation": { "text": "RUDE", "color": "orange" }, "example": { "text": "POLITE", "color": "green" } }, "camera": { "hook": "push", "example": "split" }, "hook": { "pattern": "versus", "badge": "RUDE vs POLITE" }, "payoff": { "type": "compare-cards", "beat": "example" }, "themes": ["bar-paper", "pop-paper", "pop-teal"]
+  },
+  { "id": "uk-vs-us", "name": "British vs American", "topics": "any", "cast": [1, 3], "labels": { "situation": { "text": "UK", "color": "orange" }, "example": { "text": "US", "color": "green" } }, "camera": { "explain": "close", "example": "push" }, "hook": { "pattern": "versus", "badge": "UK vs US" }, "payoff": { "type": "compare-cards", "beat": "example" }, "themes": ["bar-teal", "bounce-sunset", "pop-sunset"]
+  },
+  { "id": "idiom-guess", "name": "Guess the idiom", "topics": "any", "cast": [1, 3], "labels": { "hook": { "text": "GUESS", "color": "orange" }, "explain": { "text": "ANSWER", "color": "green" } }, "camera": { "hook": "push", "explain": "close" }, "hook": { "pattern": "quiz-timer", "badge": "GUESS THE IDIOM" }, "payoff": { "type": "answer-reveal", "beat": "explain" }, "themes": ["mega-sunset", "mega-mint", "bounce-mint"]
+  },
+  { "id": "pronounce-levels", "name": "Pronounce it: 3 levels", "topics": "any", "cast": [1, 3], "labels": { "situation": { "text": "LEVEL 1", "color": "yellow" }, "example": { "text": "LEVEL 3", "color": "green" } }, "camera": { "situation": "pan", "example": "close" }, "hook": { "pattern": "countdown-list", "badge": "LEVEL 1 → LEVEL 3" }, "payoff": { "type": "meter", "beat": "example" }, "themes": ["mega-night", "bar-night", "bounce-night"]
+  },
+  { "id": "ielts-speaking-p1", "name": "IELTS Speaking Part 1", "topics": ["ielts-exam"], "cast": [1, 2], "labels": { "explain": { "text": "BAND 7 ANSWER", "color": "green" } }, "camera": { "hook": "push", "example": "split" }, "hook": { "pattern": "question", "badge": "IELTS SPEAKING PART 1" }, "payoff": { "type": "tip-card", "beat": "explain" }, "themes": ["pop-paper", "pop-teal", "bar-paper"]
+  },
+  { "id": "toeic-trap", "name": "TOEIC trap", "topics": ["office-english", "study-grammar"], "cast": [1, 3], "labels": { "hook": { "text": "TRAP", "color": "orange" }, "explain": { "text": "CORRECT", "color": "green" } }, "camera": { "explain": "close", "example": "push" }, "hook": { "pattern": "mistake-stat", "badge": "TOEIC TRAP" }, "payoff": { "type": "stamp-correct", "beat": "explain" }, "themes": ["bounce-sunset", "pop-sunset", "bar-teal"]
+  },
+  { "id": "email-opener", "name": "Email opener", "topics": ["office-english"], "cast": [1, 3], "labels": { "situation": { "text": "OLD", "color": "orange" }, "example": { "text": "NEW", "color": "green" } }, "camera": { "hook": "push", "explain": "close" }, "hook": { "pattern": "stop-saying", "badge": "STOP STARTING EMAILS LIKE THIS" }, "payoff": { "type": "before-after", "beat": "example" }, "themes": ["mega-mint", "bounce-mint", "mega-sunset"]
+  },
+  { "id": "meeting-phrases", "name": "Meeting phrases", "topics": ["office-english", "job-interview"], "cast": [1, 3], "labels": { "explain": { "text": "USE THIS", "color": "yellow" } }, "camera": { "situation": "pan", "example": "close" }, "hook": { "pattern": "pov", "badge": "POV: YOU'RE IN A MEETING" }, "payoff": { "type": "checklist", "beat": "tip" }, "themes": ["bar-night", "bounce-night", "mega-night"]
+  },
+  { "id": "interview-answer", "name": "Interview answer", "topics": ["job-interview"], "cast": [1, 3], "labels": { "situation": { "text": "WEAK", "color": "green" }, "example": { "text": "STRONG", "color": "green" } }, "camera": { "hook": "push", "example": "split" }, "hook": { "pattern": "secret", "badge": "HR WANTS TO HEAR THIS" }, "payoff": { "type": "meter", "beat": "example" }, "themes": ["pop-teal", "bar-paper", "pop-paper"]
+  },
+  { "id": "coffee-levels", "name": "Order coffee: 3 levels", "topics": ["ordering-coffee", "restaurant"], "cast": [1, 3], "labels": { "situation": { "text": "BEGINNER", "color": "teal" }, "example": { "text": "PRO", "color": "green" } }, "camera": { "explain": "close", "example": "push" }, "hook": { "pattern": "countdown-list", "badge": "BEGINNER → PRO" }, "payoff": { "type": "meter", "beat": "example" }, "themes": ["pop-sunset", "bar-teal", "bounce-sunset"]
+  },
+  { "id": "airport-phrase", "name": "Airport phrase", "topics": ["travel"], "cast": [1, 3], "labels": { "hook": { "text": "GATE 12", "color": "orange" } }, "camera": { "hook": "push", "explain": "close" }, "hook": { "pattern": "wait-for-it", "badge": "YOU'LL NEED THIS AT THE GATE" }, "payoff": { "type": "tip-card", "beat": "example" }, "themes": ["bounce-mint", "mega-sunset", "mega-mint"]
+  },
+  { "id": "tense-10s", "name": "Tense in 10 s", "topics": ["study-grammar", "ielts-exam"], "cast": [1, 3], "labels": { "explain": { "text": "TENSE", "color": "yellow" } }, "camera": { "situation": "pan", "example": "close" }, "hook": { "pattern": "quiz-timer", "badge": "WHICH TENSE?" }, "payoff": { "type": "flip-card", "beat": "explain" }, "themes": ["bounce-night", "mega-night", "bar-night"]
+  },
+  { "id": "fill-gap", "name": "Fill the gap", "topics": "any", "cast": [1, 3], "labels": { "hook": { "text": "___?", "color": "green" }, "explain": { "text": "ANSWER", "color": "green" } }, "camera": { "hook": "push", "example": "split" }, "hook": { "pattern": "challenge", "badge": "FILL THE GAP" }, "payoff": { "type": "answer-reveal", "beat": "explain" }, "themes": ["bar-paper", "pop-paper", "pop-teal"]
+  },
+  { "id": "kit-tip", "name": "Kit quick tip", "topics": "any", "cast": [1, 3], "labels": { "tip": { "text": "KIT TIP", "color": "teal" } }, "camera": { "explain": "close", "example": "push" }, "hook": { "pattern": "secret", "badge": "KIT'S SECRET TIP" }, "payoff": { "type": "tip-card", "beat": "tip" }, "themes": ["bar-teal", "bounce-sunset", "pop-sunset"]
+  },
+  { "id": "myth-fact", "name": "Myth vs fact", "topics": "any", "cast": [1, 3], "labels": { "hook": { "text": "MYTH", "color": "orange" }, "explain": { "text": "FACT", "color": "green" } }, "camera": { "hook": "push", "explain": "close" }, "hook": { "pattern": "myth-buster", "badge": "MYTH OR FACT?" }, "payoff": { "type": "stamp-correct", "beat": "explain" }, "themes": ["mega-sunset", "mega-mint", "bounce-mint"]
+  },
+  { "id": "restaurant-rescue", "name": "Restaurant rescue", "topics": ["restaurant", "ordering-coffee"], "cast": [2, 3], "labels": { "situation": { "text": "CONFUSING", "color": "orange" }, "example": { "text": "CLEAR", "color": "green" } }, "camera": { "situation": "pan", "example": "close" }, "hook": { "pattern": "story-cold-open", "badge": "WAITER LOOKED CONFUSED" }, "payoff": { "type": "compare-cards", "beat": "example" }, "themes": ["mega-night", "bar-night", "bounce-night"]
+  },
+  { "id": "small-word-big-diff", "name": "Small word, big difference", "topics": "any", "cast": [1, 3], "labels": { "situation": { "text": "WITHOUT", "color": "orange" }, "example": { "text": "WITH", "color": "green" } }, "camera": { "hook": "push", "example": "split" }, "hook": { "pattern": "wait-for-it", "badge": "ONE WORD CHANGES EVERYTHING" }, "payoff": { "type": "compare-cards", "beat": "example" }, "themes": ["pop-paper", "pop-teal", "bar-paper"]
   }
- ],
+],
  "hookStyles": [
-  {
-   "id": "bold-top"
+  { "id": "bold-top"
   },
-  {
-   "id": "teal-box"
+  { "id": "teal-box"
   },
-  {
-   "id": "yellow-pop"
+  { "id": "yellow-pop"
   },
-  {
-   "id": "stamp"
+  { "id": "stamp"
   },
-  {
-   "id": "two-tone"
+  { "id": "two-tone"
   },
-  {
-   "id": "type-on"
+  { "id": "type-on"
   }
- ],
+],
  "transitions": [
-  {
-   "id": "fade-teal",
-   "color": "0x0F3D3E",
-   "d": 0.3
+  { "id": "whip-pan", "color": "black", "d": 0.36
   },
-  {
-   "id": "fade-black",
-   "color": "black",
-   "d": 0.3
+  { "id": "zoom-blur", "color": "0x0F3D3E", "d": 0.4
   },
-  {
-   "id": "fade-cream",
-   "color": "0xFFF7EA",
-   "d": 0.3
+  { "id": "swipe-mask", "color": "0x0F3D3E", "d": 0.42
   },
-  {
-   "id": "flash-white",
-   "color": "white",
-   "d": 0.12
+  { "id": "circle-reveal", "color": "0x0F3D3E", "d": 0.45
   },
-  {
-   "id": "dip-orange",
-   "color": "0xE5502F",
-   "d": 0.2
+  { "id": "glitch", "color": "black", "d": 0.3
   },
-  {
-   "id": "dip-yellow",
-   "color": "0xFFC94A",
-   "d": 0.2
+  { "id": "page-flip", "color": "0x0F3D3E", "d": 0.5
+  },
+  { "id": "slide-stack", "color": "0x0F3D3E", "d": 0.42
+  },
+  { "id": "light-leak", "color": "0x0F3D3E", "d": 0.55
+  },
+  { "id": "match-cut", "color": "black", "d": 0.2
+  },
+  { "id": "split-screen", "color": "0x0F3D3E", "d": 0.55
+  },
+  { "id": "kit-fly", "color": "0x0F3D3E", "d": 0.6
+  },
+  { "id": "confetti-burst", "color": "0x0F3D3E", "d": 0.6
   }
- ],
+],
  "cameraSets": [
-  {
-   "id": "punchy",
-   "cycle": [
-    "push",
-    "close",
-    "wide",
-    "close"
-   ]
+  { "id": "punchy", "cycle": ["push", "close", "wide", "close"]
   },
-  {
-   "id": "smooth",
-   "cycle": [
-    "pan",
-    "wide",
-    "dolly",
-    "wide"
-   ]
+  { "id": "smooth", "cycle": ["pan", "wide", "dolly", "wide"]
   },
-  {
-   "id": "doc",
-   "cycle": [
-    "wide",
-    "close",
-    "wide",
-    "pan"
-   ]
+  { "id": "doc", "cycle": ["wide", "close", "wide", "pan"]
   },
-  {
-   "id": "split-heavy",
-   "cycle": [
-    "split",
-    "wide",
-    "split",
-    "close"
-   ]
+  { "id": "split-heavy", "cycle": ["split", "wide", "split", "close"]
   },
-  {
-   "id": "zoomy",
-   "cycle": [
-    "push",
-    "dolly",
-    "push",
-    "wide"
-   ]
+  { "id": "zoomy", "cycle": ["push", "dolly", "push", "wide"]
   },
-  {
-   "id": "mixed",
-   "cycle": [
-    "wide",
-    "pan",
-    "close",
-    "split",
-    "dolly"
-   ]
+  { "id": "mixed", "cycle": ["wide", "pan", "close", "split", "dolly"]
   }
- ],
+],
  "music": [
-  {
-   "id": "none"
+  { "id": "lofi-warm"
   },
-  {
-   "id": "pad-c",
-   "freqs": [
-    261.63,
-    329.63,
-    392.0
-   ],
-   "trem": 0.25
+  { "id": "pop-bright"
   },
-  {
-   "id": "pad-a",
-   "freqs": [
-    220.0,
-    277.18,
-    329.63
-   ],
-   "trem": 0.2
+  { "id": "quiz-pulse"
   },
-  {
-   "id": "pad-f",
-   "freqs": [
-    174.61,
-    220.0,
-    261.63
-   ],
-   "trem": 0.33
+  { "id": "chill-keys"
   },
-  {
-   "id": "pad-g",
-   "freqs": [
-    196.0,
-    246.94,
-    293.66
-   ],
-   "trem": 0.5
+  { "id": "night-drive"
   },
-  {
-   "id": "pad-d",
-   "freqs": [
-    146.83,
-    220.0,
-    293.66,
-    349.23
-   ],
-   "trem": 0.15
+  { "id": "upbeat-claps"
   }
- ],
+],
  "sfx": [
-  {
-   "id": "none"
+  { "id": "full", "gain": 0
   },
-  {
-   "id": "soft",
-   "whoosh": 0.35,
-   "pop": 0.25
+  { "id": "soft", "gain": -4
   },
-  {
-   "id": "pop",
-   "whoosh": 0.2,
-   "pop": 0.45
+  { "id": "punchy", "gain": 2
   }
- ],
+],
  "endCards": [
-  {
-   "id": "qr",
-   "file": "brand/social/templates/png/endcard-qr-1080x1920.jpg",
-   "textBaked": true
+  { "id": "qr", "file": "brand/social/templates/png/endcard-qr-1080x1920.jpg", "textBaked": true
   },
-  {
-   "id": "teal-icon",
-   "bg": "0x0F3D3E"
+  { "id": "teal-icon", "bg": "0x0F3D3E"
   },
-  {
-   "id": "cream-icon",
-   "bg": "0xFFF7EA"
+  { "id": "cream-icon", "bg": "0xFFF7EA"
   },
-  {
-   "id": "orange-icon",
-   "bg": "0xE5502F"
+  { "id": "orange-icon", "bg": "0xE5502F"
   },
-  {
-   "id": "room-dim",
-   "bg": "room"
+  { "id": "room-dim", "bg": "room"
   },
-  {
-   "id": "yellow-icon",
-   "bg": "0xFFC94A"
+  { "id": "yellow-icon", "bg": "0xFFC94A"
   }
- ],
+],
  "seasons": [
-  {
-   "id": "none",
-   "months": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12
-   ]
+  { "id": "none", "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
   },
-  {
-   "id": "autumn",
-   "months": [
-    9,
-    10,
-    11
-   ],
-   "file": "overlays/autumn.png"
+  { "id": "autumn", "months": [9, 10, 11], "file": "overlays/autumn.png"
   },
-  {
-   "id": "halloween",
-   "months": [
-    10
-   ],
-   "file": "overlays/halloween.png"
+  { "id": "halloween", "months": [10], "file": "overlays/halloween.png"
   },
-  {
-   "id": "winter",
-   "months": [
-    12,
-    1,
-    2
-   ],
-   "file": "overlays/winter.png"
+  { "id": "winter", "months": [12, 1, 2], "file": "overlays/winter.png"
   },
-  {
-   "id": "christmas",
-   "months": [
-    12
-   ],
-   "file": "overlays/christmas.png"
+  { "id": "christmas", "months": [12], "file": "overlays/christmas.png"
   },
-  {
-   "id": "spring",
-   "months": [
-    3,
-    4,
-    5
-   ],
-   "file": "overlays/spring.png"
+  { "id": "spring", "months": [3, 4, 5], "file": "overlays/spring.png"
   },
-  {
-   "id": "summer",
-   "months": [
-    6,
-    7,
-    8
-   ],
-   "file": "overlays/summer.png"
+  { "id": "summer", "months": [6, 7, 8], "file": "overlays/summer.png"
   }
- ],
+],
  "rules": {
   "recent": 30,
   "maxShared": 2,
-  "spacing": {
-   "format": 3,
-   "setting": 2,
-   "music": 2,
-   "endCard": 1,
-   "hookStyle": 1,
-   "transition": 1,
-   "cameraSet": 1
+  "spacing": { "format": 3, "setting": 2, "music": 2, "endCard": 1, "hookStyle": 1, "transition": 1, "cameraSet": 1
   },
   "clipSpacing": 3
- }
+ },
+ "themes": [
+  { "id": "pop-teal", "caption": "pop-box", "color": "teal-cream", "layout": "stage-center"
+  },
+  { "id": "pop-sunset", "caption": "pop-box", "color": "sunset-pop", "layout": "top-hook"
+  },
+  { "id": "bounce-mint", "caption": "bounce-outline", "color": "mint-fresh", "layout": "stage-center"
+  },
+  { "id": "bounce-night", "caption": "bounce-outline", "color": "night-glow", "layout": "lower-third"
+  },
+  { "id": "bar-paper", "caption": "karaoke-bar", "color": "paper-ink", "layout": "lower-third"
+  },
+  { "id": "bar-teal", "caption": "karaoke-bar", "color": "teal-cream", "layout": "split-card"
+  },
+  { "id": "mega-sunset", "caption": "mega-word", "color": "sunset-pop", "layout": "stage-center"
+  },
+  { "id": "mega-night", "caption": "mega-word", "color": "night-glow", "layout": "top-hook"
+  },
+  { "id": "pop-paper", "caption": "pop-box", "color": "paper-ink", "layout": "split-card"
+  },
+  { "id": "bounce-sunset", "caption": "bounce-outline", "color": "sunset-pop", "layout": "split-card"
+  },
+  { "id": "mega-mint", "caption": "mega-word", "color": "mint-fresh", "layout": "lower-third"
+  },
+  { "id": "bar-night", "caption": "karaoke-bar", "color": "night-glow", "layout": "stage-center"
+  }
+]
 }

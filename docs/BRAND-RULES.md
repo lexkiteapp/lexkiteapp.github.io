@@ -17,3 +17,10 @@ Kit "lưng xanh dương" cũ: **#2F62C0, #244E9E** – `scripts/test/brand-check
 
 ## Đổi thương hiệu
 Sửa ở nguồn (kit.js / icon.svg / logo) → chạy `node scripts/build-social-kit.mjs` → `npm test` → ship. Mọi nơi khác tự cập nhật.
+
+## Watermark video
+- Chỉ dùng **wordmark chữ** "lexkite" (phông Bricolage Grotesque ExtraBold – OFL, `brand/social/src/fonts/`) kèm mark diều nhỏ không nền (`brand/lexkite-mark-mono.svg` đổi màu trắng). **Không** đặt ô vuông app icon lên video.
+- Chữ trắng, độ mờ 55–70% (mặc định 62%), bóng mềm; cao 36–44 px ở khung 1080 (mặc định 40 px).
+- Cố định góc **trên trái** trong vùng an toàn (x = 60, y = 236 – dưới thanh tab của app), không bao giờ nhảy vị trí, không che phụ đề/mặt nhân vật/hook.
+- Hiện dần từ giây **1,5** (sau hook, fade 0,5 s), ẩn ở end card – end card mới hiện logo đầy đủ (`brand/lexkite-logo-dark.svg`) + Kit (chỉ từ `web/js/kit.js`).
+- Nguồn code: `scripts/video/remotion/src/Short.jsx` (Watermark) + `scripts/video/motion.mjs` (`watermark` trong timeline); `scripts/test/motion.mjs` kiểm cỡ/độ mờ/vị trí.
