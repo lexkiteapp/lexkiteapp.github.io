@@ -1755,6 +1755,31 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_ama_shock_headgrab_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/ama_shock_headgrab.mp4",
+     "alpha": "stacked",
+     "sha256": "6ddcc66c4534226746e5628cd907b16afb665ecdecce8386d8695fbab6425d48",
+     "bytes": 2207437,
+     "w": 732,
+     "h": 1488,
+     "foot": [
+      259,
+      1488
+     ],
+     "figH": 1488,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [17, 18, 96, 97]",
+      "WARN identity: nghi trôi nhận dạng (tóc ×0.858, áo lệch 243.3) – AI thị giác quyết định FAIL \"identity drift\"",
+      "WARN anat_one_person: [giữa] Pose thấy 2 người (kiểm lại thừa người/thừa chi)",
+      "WARN anat_limbs: [cuối] không thấy đủ 2 tay + 2 chân rõ ràng",
+      "WARN anat_face_detect: [giữa] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -1832,6 +1857,30 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_ama_shrug_eyeroll_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/ama_shrug_eyeroll.mp4",
+     "alpha": "stacked",
+     "sha256": "2dc21fc9a0a89429bb64160f5ef9ca00a1d40afb9a5bf5d55e367fb5c0e81819",
+     "bytes": 1367526,
+     "w": 550,
+     "h": 1490,
+     "foot": [
+      215,
+      1490
+     ],
+     "figH": 1490,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [48]",
+      "WARN anat_one_person: [đầu] Pose thấy 3 người (kiểm lại thừa người/thừa chi)",
+      "WARN anat_joints: [giữa] khớp bất thường (ước lượng MediaPipe trên tranh 2D – AI thị giác quyết định FAIL) {'arm_l': 2.98}",
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -1975,6 +2024,27 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_ama_wave_thumbs_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/ama_wave_thumbs.mp4",
+     "alpha": "stacked",
+     "sha256": "8edb09af05da8d85585ab2430d4fd71c0d6fb127bc5bb880ee2d6b723ae32dcb",
+     "bytes": 2729937,
+     "w": 642,
+     "h": 1502,
+     "foot": [
+      313,
+      1502
+     ],
+     "figH": 1502,
+     "frames": 121,
+     "status": "WARN",
+     "issues": [
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -2048,6 +2118,29 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_carlos_surprise_shrug_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/carlos_surprise_shrug.mp4",
+     "alpha": "stacked",
+     "sha256": "00d9352b8576eb2d6f2ba42dc7144927fc8fabcb14a4f1ced2483cd5f2818376",
+     "bytes": 2418055,
+     "w": 892,
+     "h": 1536,
+     "foot": [
+      494,
+      1536
+     ],
+     "figH": 1536,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL no_floor_shadow: còn bóng sàn dính ở chân (chạy trim_floor_shadow)",
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+      "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 14"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -2121,6 +2214,30 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_carlos_talk_laugh_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/carlos_talk_laugh.mp4",
+     "alpha": "stacked",
+     "sha256": "695de26b25e7478f439e293a8baa53cf80bb0772e133215038071a38f777595c",
+     "bytes": 1967241,
+     "w": 804,
+     "h": 1532,
+     "foot": [
+      527,
+      1532
+     ],
+     "figH": 1532,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "WARN identity: nghi trôi nhận dạng (tóc ×0.974, áo lệch 98.8) – AI thị giác quyết định FAIL \"identity drift\"",
+      "FAIL no_floor_shadow: còn bóng sàn dính ở chân (chạy trim_floor_shadow)",
+      "WARN anat_face_detect: [giữa] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+      "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 14"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -2193,6 +2310,28 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_carlos_wave_thumbs_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/carlos_wave_thumbs.mp4",
+     "alpha": "stacked",
+     "sha256": "a78ac1b18ee757c3b902e4c11438d601c987976a1e32e2851fc11694a48bc1c6",
+     "bytes": 3044462,
+     "w": 960,
+     "h": 1522,
+     "foot": [
+      499,
+      1521
+     ],
+     "figH": 1521,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL no_floor_shadow: còn bóng sàn dính ở chân (chạy trim_floor_shadow)",
+      "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 14"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -2266,6 +2405,27 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_diane_idle_listen_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/diane_idle_listen.mp4",
+     "alpha": "stacked",
+     "sha256": "e91da1af2cc42e4b021cec3f7c48d313127a87038bbdf6ea9f64b8bc96dcaae2",
+     "bytes": 1316663,
+     "w": 848,
+     "h": 1554,
+     "foot": [
+      217,
+      1552
+     ],
+     "figH": 1552,
+     "frames": 121,
+     "status": "WARN",
+     "issues": [
+      "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 12"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -2339,6 +2499,27 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_diane_nod_handsonhips_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/diane_nod_handsonhips.mp4",
+     "alpha": "stacked",
+     "sha256": "e25d52755a6afa2a0ded0dd90933177ea2055b19cab0bc84eb7a3121b52daba5",
+     "bytes": 1823686,
+     "w": 848,
+     "h": 1562,
+     "foot": [
+      217,
+      1561
+     ],
+     "figH": 1561,
+     "frames": 121,
+     "status": "WARN",
+     "issues": [
+      "WARN anat_palette_dna: [trung vị 3 khung] bảng màu (da/tóc/áo) lệch DNA ΔE 12"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -2962,6 +3143,28 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_leo_shock_headgrab_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/leo_shock_headgrab.mp4",
+     "alpha": "stacked",
+     "sha256": "7e90b4a323f3b4c913e9956a67b650cc98b270727138e5776b0f5c26ddcf7224",
+     "bytes": 2506851,
+     "w": 762,
+     "h": 1524,
+     "foot": [
+      371,
+      1524
+     ],
+     "figH": 1524,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL no_floor_shadow: còn bóng sàn dính ở chân (chạy trim_floor_shadow)",
+      "WARN anat_face_detect: [giữa] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -3178,6 +3381,28 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_leo_talk_point_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/leo_talk_point.mp4",
+     "alpha": "stacked",
+     "sha256": "f27d90932b7c89689b9a3767227d4f4e59b3d9647651cd5b3d8c25b594b512dd",
+     "bytes": 2881884,
+     "w": 992,
+     "h": 1518,
+     "foot": [
+      523,
+      1518
+     ],
+     "figH": 1518,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL no_floor_shadow: còn bóng sàn dính ở chân (chạy trim_floor_shadow)",
+      "WARN anat_face_detect: [giữa] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -3456,6 +3681,27 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_mia_idle_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/mia_idle.mp4",
+     "alpha": "stacked",
+     "sha256": "dea9bf02892e7d41ca8c45d669fb205c2d469be7e66fbbc1413debdc8247ffec",
+     "bytes": 1842571,
+     "w": 598,
+     "h": 1524,
+     "foot": [
+      349,
+      1524
+     ],
+     "figH": 1524,
+     "frames": 121,
+     "status": "WARN",
+     "issues": [
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -3530,6 +3776,27 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_mia_nod_laugh_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/mia_nod_laugh.mp4",
+     "alpha": "stacked",
+     "sha256": "4b922705b115dd4e9e84072239e1d40b98bb5d2c334498608419087c4e9807ff",
+     "bytes": 1924214,
+     "w": 692,
+     "h": 1522,
+     "foot": [
+      344,
+      1521
+     ],
+     "figH": 1521,
+     "frames": 121,
+     "status": "WARN",
+     "issues": [
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -3663,6 +3930,27 @@
      "sha": "e2abb7bda552a483853ab2f31dd94581e86a3c0e28a185784a666c86e36844f2"
     },
     "sheet": "brand/library/_review/clips_mia_shrug_cross_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/mia_shrug_cross.mp4",
+     "alpha": "stacked",
+     "sha256": "3dbacf7e15e8ba14f87a8e88695d4f8077c60126715e869ee49b8c14fb1b1e6f",
+     "bytes": 1944931,
+     "w": 914,
+     "h": 1500,
+     "foot": [
+      567,
+      1500
+     ],
+     "figH": 1500,
+     "frames": 121,
+     "status": "WARN",
+     "issues": [
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -3735,6 +4023,28 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_mia_talk_point_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/mia_talk_point.mp4",
+     "alpha": "stacked",
+     "sha256": "547bf914fd7785d25a41e3b629512509c5e58a0d77b6986aca65c86306cbeb21",
+     "bytes": 2719138,
+     "w": 822,
+     "h": 1526,
+     "foot": [
+      462,
+      1526
+     ],
+     "figH": 1526,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL no_floor_shadow: còn bóng sàn dính ở chân (chạy trim_floor_shadow)",
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
@@ -3873,6 +4183,28 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_mia_wave_thumbs_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/mia_wave_thumbs.mp4",
+     "alpha": "stacked",
+     "sha256": "142d32d09084e8d5e9f69cacfccd4606670c5ae9b4cac25c1bded999abdbb3f8",
+     "bytes": 2144071,
+     "w": 762,
+     "h": 1508,
+     "foot": [
+      491,
+      1508
+     ],
+     "figH": 1508,
+     "frames": 121,
+     "status": "FAIL",
+     "issues": [
+      "FAIL smooth: khung đột biến (giật/nhảy cảnh) tại [88]",
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+     ],
+     "at": "2026-10-17"
+    }
    }
   },
   {
