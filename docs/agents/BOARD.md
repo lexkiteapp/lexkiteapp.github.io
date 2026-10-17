@@ -82,6 +82,7 @@ Mẫu thẻ:
 - File: `web/js/` (module mới tải lười, ≤ 30 KB gz) + `web/css/style.css`. Làm trong worktree riêng; `npm test` PASS; báo cáo kèm 2 ảnh thẻ mẫu (vi, en).
 - Báo cáo:
 - Cần sửa / Nhận xét:
+- Nghiệm thu thẻ khoe (Claude 17/10: ✅ gộp tay 9c63c7c5, không lấy a8c83e50/U2d): viết lại `web/js/share-card.js` (5,6 KB gz, nạp lười `share` + CSS & `js/i18n/en/share.js` nạp khi mở – không thêm CSS vào style.css). ✏️ Bỏ số bịa (`wordsToday || 12`, `weekXp … 150`), ẩn ô = 0, % nhớ chỉ khi ≥ 80; nút ở màn hết phiên ôn chỉ khi ≥ 80% (≥ 5 thẻ) / đạt mục tiêu ngày / chuỗi 3·7·14·30·100; Kit trên đĩa kem (Kit teal không chìm nền tối) + thêm xmlns cho SVG; chữ tự co vừa khung, RTL; tạo sẵn file PNG để `navigator.share({files})` gọi ngay trong cú bấm (Safari iOS), không chia sẻ được → tải ảnh + chép link; giải phóng canvas khi đóng; bỏ `onclick=` nội tuyến (CSP add-on).
 - Nghiệm thu (Claude 17/10): ✅ Đạt, đã gộp (2.6.381). ✏️ Claude phát hiện app ĐÃ CÓ hệ đóng băng cũ (`app.js` applyFreeze/offerRescue, `game.freezes`/`game.frozen`) → hợp nhất về 1 nguồn: `Core.Stats.freezeInfo(state.game)`, thêm `game.freezeSaved`, gỡ logic trùng trong core/sync; sửa chữ luật (+1 lượt mỗi 7 ngày chuỗi, ngày đóng băng vẫn tính vào chuỗi – không phải "thứ Hai"). Lần sau: grep tính năng cũ trước khi làm.
 
 ### [X1] Xuất dữ liệu: Excel, PDF, Anki .apkg (chống "giam dữ liệu") · @antigravity · ưu tiên: vừa
@@ -91,6 +92,7 @@ Mẫu thẻ:
 - `web/js/app.js` do Claude giữ: chỉ thêm hàm xuất ở module mới (vd. `web/js/export.js`) + 1 dòng gọi; ghi vào ĐANG LÀM trước khi sửa. Chuỗi qua `t()` + en; `npm test` PASS.
 - Báo cáo:
 - Cần sửa / Nhận xét:
+- Nghiệm thu (Claude 17/10): ✅ gộp tay d5d2dead – viết lại `web/js/export.js` (6 KB gz, nạp lười `anki`+`xport`): hộp "📦 Dữ liệu của bạn" = Excel .xlsx (dùng lại `AnkiKit.zipWrite` – CRC32 + deflate, có dòng tiêu đề cố định + lọc, unit test giải nén & kiểm CRC) · In/Lưu PDF (CSS in chỉ bật khi `html.lk-print`, `@page` gỡ sau khi in) · Anki · CSV (mở hộp Anki sẵn có – bỏ bản .txt/CSV trùng của Antigravity) · sao lưu JSON (chuyển `exportData` khỏi app.js). Lọc ở #/deck → chọn "Đang lọc"/"Toàn bộ". Khung 380 KB: gỡ 59 khóa en.js không còn dùng + 15 khóa cũ ở 13 ngôn ngữ để vừa trần.
 
 
 ### [W1] Trang "Tiêu chí chấm" IELTS Writing & Speaking (band 4–9) + bài mẫu nhiều mức band · @antigravity (giao diện) + phiên nội dung (chữ) · ưu tiên: vừa
@@ -233,6 +235,8 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét: (Claude 16/10) ✅ Giao diện + template + i18n đạt. ✏️ Claude đã đổi mặc định sang **TẮT (opt-in)**: `emailDigest: false`, công tắc `=== true` – email gửi người dùng phải do họ tự bật (GDPR/chính sách mail). ⏸️ Phần gửi chưa triển khai được: Cloudflare Email Routing (`env.SEB`) chỉ gửi tới địa chỉ đã xác minh → cần dịch vụ gửi mail cho người dùng (đề xuất Resend miễn phí 3.000 mail/tháng) + bản ghi DNS SPF/DKIM + trang hủy đăng ký `/api/unsub`. Chờ anh Quyền chọn dịch vụ → Claude làm worker. Thẻ giữ ở CHỜ DUYỆT.
 
 ## ĐÃ XONG
+
+- [S1] Thẻ khoe thành tích Canvas 9:16/1:1 (Claude 17/10: ✅ gộp tay 9c63c7c5 – viết lại, nạp lười, chỉ số thật, bảo vệ cái tôi; U2d a8c83e50 không gộp) · [X1] Xuất dữ liệu Excel/PDF/Anki·CSV/JSON (Claude 17/10: ✅ gộp tay d5d2dead – dùng lại AnkiKit, bỏ phần trùng). Chi tiết ở 2 thẻ trên.
 
 - [U3] Cảm giác học & phòng thi CBT (Claude 17/10): ✅ gộp TAY (nhánh cũ, 8 chỗ đụng với bản sửa iPhone hôm nay). Giữ: hover chỉ cho chuột `@media (hover:hover) and (pointer:fine)` (iOS giữ :hover sau khi chạm → đáp án trông như đã chọn), ẩn gợi ý phím trên cảm ứng, `.feedback` dùng `--sheet-h`, `text-align:start` (RTL). ❌ Bỏ CSS `.quick-*` và `.share-card-916` vì JS Q1/thẻ khoe chưa có trên main (CSS chết, khung đang 380/380 KB). **@antigravity: trước thẻ sau bắt buộc tạo worktree mới từ origin/main; Q1 (quick-play) cần gửi lại kèm JS + gộp CSS vào file nạp lười, không vào khung.**
 

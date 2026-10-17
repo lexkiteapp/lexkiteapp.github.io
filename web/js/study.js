@@ -126,7 +126,7 @@
       })()}
       <p>${next ? t('Thẻ tiếp theo đến hạn: <b>{date}</b>.', { date: new Date(next.srs.due).toLocaleDateString(I18N.lang()) }) : ''} ${t('Học đều mỗi ngày là bí quyết nhớ lâu.')}</p>
       ${(() => { const soon = Object.values(state.cards).filter(c => c.srs.last && c.srs.due > endOfToday() && c.srs.due <= endOfToday() + 2 * DAY).length; return soon ? `<div class="tip small" style="margin:.6rem 0">⏩ ${t('Sắp thi hoặc muốn học thêm? Ôn trước {n} thẻ đến hạn trong 2 ngày tới.', { n: soon })} <a href="#/review?ahead=2">${t('Ôn trước →')}</a></div>` : ''; })()}
-      <div class="row center"><a class="btn primary" href="#/practice/learn">🧠 ${t('Học thông minh')}</a><a class="btn" href="#/practice/match">⚡ ${t('Ghép thẻ')}</a><a class="btn" href="#/library">${t('Thêm từ mới')}</a></div>
+      <div class="row center"><a class="btn primary" href="#/practice/learn">🧠 ${t('Học thông minh')}</a><a class="btn" href="#/practice/match">⚡ ${t('Ghép thẻ')}</a><a class="btn" href="#/library">${t('Thêm từ mới')}</a>${!nothing && (acc >= 80 && session.done >= 5 || state.stats.days[Core.todayKey()] >= state.settings.dailyGoal || [3, 7, 14, 30, 100].includes(App.streak())) ? `<button type="button" class="btn" data-share="${acc}">✨ ${t('Khoe thành tích')}</button>` : ''}</div>
     </div></div>`;
   }
 
