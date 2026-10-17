@@ -85,17 +85,19 @@ const Confetti = ({ p, W, H, n = 60, seed = 'c', cx = 0.5, cy = 0.45 }) => (
 // Khớp ánh sáng nhân vật ↔ phòng (round 2): cân trắng về màu trung bình của phòng (tint) + đèn chính ấm từ phía cửa sổ (light.dir:
 // 1 = phải, −1 = trái) bằng feDiffuseLighting + fePointLight (sáng dần về phía cửa sổ, tối nhẹ phía kia) + viền sáng (rim) phía cửa sổ.
 const ActorLight = ({ id, fx, w, h }) => {
+  // Đèn chính = dải gradient ngang (feImage) hoà soft-light: phía cửa sổ ấm/sáng (~0,62), phía kia tối nhẹ (~0,40).
+  // KHÔNG dùng feDiffuseLighting: dưới phần tử lật gương (scaleX −1) Chrome lật pháp tuyến → ánh sáng = 0 → nhân vật đỏ/tối (lỗi Carlos ¾ 17/10).
   const t = (fx && fx.tint) || [200, 190, 175], dir = (fx && fx.light && fx.light.dir) || -1, warm = (fx && fx.light && fx.light.warmth) || 0.1;
   const L = (t[0] + t[1] + t[2]) / 3 || 1, k = c => (1 + 0.22 * (c / L - 1)).toFixed(3), a = c => (0.035 * c / 255).toFixed(3);
-  const key = `rgb(255,${Math.round(236 - 40 * warm)},${Math.round(205 - 70 * warm)})`;
+  const key = [255, 236 - 40 * warm, 205 - 70 * warm], c = f => `rgb(${key.map(v => Math.round(v * f)).join(',')})`;
+  const near = c(0.62), far = c(0.42), [c0, c1] = dir > 0 ? [far, near] : [near, far];
+  const img = `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'><defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='0'><stop offset='0' stop-color='${c0}'/><stop offset='1' stop-color='${c1}'/></linearGradient></defs><rect width='100' height='100' fill='url(#g)'/></svg>`)}`;
   return (
     <svg width="0" height="0" style={{ position: 'absolute' }}>
-      <filter id={id} x="-2%" y="-2%" width="104%" height="104%" colorInterpolationFilters="sRGB">
+      <filter id={id} x="0" y="0" width={w} height={h} filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
         <feColorMatrix in="SourceGraphic" type="matrix" values={`${k(t[0])} 0 0 0 ${a(t[0])}  0 ${k(t[1])} 0 0 ${a(t[1])}  0 0 ${k(t[2])} 0 ${a(t[2])}  0 0 0 1 0`} result="wb" />
-        <feDiffuseLighting in="SourceAlpha" surfaceScale="0" diffuseConstant="0.64" lightingColor={key} result="lit">
-          <fePointLight x={dir > 0 ? w * 1.25 : -w * 0.25} y={h * 0.15} z={w * 0.95} />
-        </feDiffuseLighting>
-        <feComposite in="lit" in2="SourceAlpha" operator="in" result="litIn" />
+        <feImage href={img} x="0" y="0" width={w} height={h} preserveAspectRatio="none" result="grad" />
+        <feComposite in="grad" in2="SourceAlpha" operator="in" result="litIn" />
         <feBlend in="litIn" in2="wb" mode="soft-light" result="keyed" />
         <feComposite in="keyed" in2="SourceAlpha" operator="in" />
       </filter>
