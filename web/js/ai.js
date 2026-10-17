@@ -1,5 +1,4 @@
-/* Chấm Writing/Speaking bằng AI (Google Gemini) – mỗi người dùng dùng khóa API miễn phí của riêng mình.
- * Khóa chỉ lưu trên máy (không đồng bộ, không gửi đi đâu ngoài Google). Kết quả lưu đệm để không gọi lại cùng một bài. */
+/* AI chấm bài & giải thích – miễn phí, không cần khóa: /api/ai → AI trong Chrome; khóa Gemini riêng chỉ là tùy chọn (lưu trên máy). */
 (function () {
   const { $, $$, esc, toast, modal, closeModal } = UI;
   const { Store } = Core;
@@ -98,10 +97,10 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
     const key = await getKey();
     if (!key) {
       // Chưa có khóa riêng → AI miễn phí của Lexkite; hết lượt/mất mạng → AI có sẵn trong Chrome (nếu có)
-      try { if (navigator.onLine !== false) return await callProxy(prompt); } catch (e) { const st = await nanoStatus(); if (nanoOk(st)) return callNano(prompt); throw e; }
+      try { if (navigator.onLine !== false) return await callProxy(prompt); } catch (e) { const st = await nanoStatus(); if (nanoOk(st)) return callNano(prompt); throw e.message === 'PROXY_QUOTA' ? e : new Error(navigator.onLine === false ? 'OFFLINE' : 'FAILED'); }
       const st = await nanoStatus();
       if (nanoOk(st)) return callNano(prompt);
-      throw new Error('FAILED');
+      throw new Error('OFFLINE');
     }
     const pref = state.settings.aiModel;
     const found = await discover(key);
@@ -123,11 +122,12 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
         const out = JSON.parse(text.replace(/^```(json)?|```$/g, '').trim());
         out._model = m;
         return out;
-      } catch (e) { clearTimeout(t); if (['BAD_KEY', 'NO_KEY'].includes(e.message)) throw e; if (e.message === 'QUOTA') { const st = await nanoStatus(); if (nanoOk(st)) return callNano(prompt); throw e; } lastErr = e; }
+      } catch (e) { clearTimeout(t); if (e.message === 'BAD_KEY') throw e; if (e.message === 'QUOTA') { lastErr = e; break; } lastErr = e; }
     }
-    // Hết mô hình trên mạng → thử AI trên máy trước khi báo lỗi
+    // Khóa riêng lỗi → AI trên máy → AI miễn phí
     const st = await nanoStatus(); if (nanoOk(st)) return callNano(prompt);
-    throw lastErr || new Error('FAILED');
+    if (navigator.onLine !== false) { try { return await callProxy(prompt); } catch (e) { if (e.message === 'PROXY_QUOTA') throw e; } }
+    throw lastErr && lastErr.message === 'QUOTA' ? lastErr : new Error(navigator.onLine === false ? 'OFFLINE' : 'FAILED');
   }
 
   // kind: 'task1' | 'task2' | 'speaking'; task: đề bài (chuỗi); text: bài làm / bản chữ
@@ -205,9 +205,8 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
 
   // ---------- Hướng dẫn lấy khóa ----------
   function keyDialog(onSaved) {
-    modal(`<h2 style="margin-top:0">🤖 ${t('Bật chấm bài bằng AI')}</h2>
-      <p class="small" style="background:var(--primary-soft);padding:.5rem .7rem;border-radius:10px">💡 ${t('Trên <b>Chrome máy tính bản mới</b> (máy đủ mạnh), Lexkite dùng được <b>AI có sẵn trong Chrome</b> – miễn phí, không cần khóa. Trình duyệt này chưa hỗ trợ, nên bạn có thể dùng khóa Gemini miễn phí dưới đây (chất lượng chấm tốt hơn).')}</p>
-      <p class="small">${t('Lexkite dùng <b>Google Gemini</b> để chấm Writing & Speaking chi tiết theo 4 tiêu chí IELTS. Mỗi người dùng tạo <b>khóa miễn phí</b> của riêng mình (gói miễn phí của Google đủ cho hàng chục bài mỗi ngày).')}</p>
+    modal(`<h2 style="margin-top:0">🔑 ${t('Khóa Gemini riêng (không bắt buộc)')}</h2>
+      <p class="small" style="background:var(--primary-soft);padding:.5rem .7rem;border-radius:10px">💡 ${t('Không bắt buộc – Lexkite đã có AI miễn phí, không cần khóa. Thêm khóa Gemini miễn phí của riêng bạn nếu muốn dùng nhiều lượt hơn mức miễn phí mỗi ngày.')}</p>
       <ol class="small" style="padding-left:1.1rem;line-height:1.8"><li>${t('Mở {link} và đăng nhập Google.', { link: '<a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a>' })}</li><li>${t('Bấm <b>Create API key</b> → sao chép khóa (bắt đầu bằng “AIza…”).')}</li><li>${t('Dán vào ô dưới đây.')}</li></ol>
       <input class="input" id="aiK" placeholder="AIza… / AQ.…" autocomplete="off" spellcheck="false">
       <p class="tiny muted">🔒 ${t('Khóa chỉ lưu trên trình duyệt này, không đồng bộ lên tài khoản và chỉ gửi tới Google khi bạn bấm chấm bài. Bài làm của bạn được gửi tới Google Gemini để chấm.')}</p>
@@ -221,7 +220,7 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
       catch (e) { $('#aiMsg').textContent = '❌ ' + errText(e); if (e.message === 'BAD_KEY') await setKey(''); }
     };
   }
-  const errText = e => ({ NO_KEY: t('Chưa có khóa AI.'), BAD_KEY: t('Khóa không hợp lệ – kiểm tra lại.'), QUOTA: t('Đã hết lượt miễn phí trong ngày/phút của khóa này – thử lại sau ít phút.'), MODEL: t('Không tìm thấy mô hình AI phù hợp.'), TIMEOUT: t('AI phản hồi quá lâu – thử lại sau.') }[e.message] || t('Lỗi: {msg}', { msg: e.message }));
+  const errText = e => e.message === 'PROXY_QUOTA' && UI.quotaText ? UI.quotaText(e.q) : ({ NO_KEY: t('AI đang bận – thử lại sau ít phút.'), FAILED: t('AI đang bận – thử lại sau ít phút.'), OFFLINE: t('AI không dùng được khi ngoại tuyến – kết nối mạng rồi thử lại.'), BAD_KEY: t('Khóa không hợp lệ – kiểm tra lại.'), QUOTA: t('Đã hết lượt miễn phí trong ngày/phút của khóa này – thử lại sau ít phút.'), MODEL: t('Không tìm thấy mô hình AI phù hợp.'), TIMEOUT: t('AI phản hồi quá lâu – thử lại sau.') }[e.message] || t('Lỗi: {msg}', { msg: e.message }));
 
   // ---------- Hiển thị kết quả ----------
   function render(r, kind) {
@@ -250,12 +249,12 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
       const out = $('[data-ai-out]', wrap), b = $('[data-ai]', wrap);
       b.disabled = true; out.innerHTML = '<div class="small muted" style="margin-top:.6rem">⏳ ' + t('AI đang chấm bài (10–30 giây)…') + '</div>';
       nanoProgress = p => { out.innerHTML = `<div class="small muted" style="margin-top:.6rem">⬇️ ${t('Chrome đang tải AI trên máy lần đầu ({pct}%) – chỉ tải một lần…', { pct: Math.round(p * 100) })}</div>`; };
-      const showLocal = async note => { const r = await localGrade(inp); out.innerHTML = (note ? `<div class="tip small" style="margin:.6rem 0">${note}</div>` : '') + render(r, inp.kind) + `<div class="row" style="margin-top:.6rem"><button class="btn sm primary" data-k>🤖 ${t('Chấm sâu như giám khảo bằng AI (miễn phí)')}</button></div>`; const k = $('[data-k]', out); if (k) k.onclick = () => keyDialog(go); };
+      const showLocal = async (note, quota) => { const r = await localGrade(inp); out.innerHTML = (note ? `<div class="tip small" style="margin:.6rem 0">${note}</div>` : '') + render(r, inp.kind) + `<div class="row" style="margin-top:.6rem">${quota ? `<button class="btn sm ghost" data-k>🔑 ${t('Thêm khóa Gemini riêng (không bắt buộc)')}</button>` : `<button class="btn sm primary" data-retry>🤖 ${t('Chấm sâu như giám khảo bằng AI (miễn phí)')}</button>`}</div>`; const k = $('[data-k]', out); if (k) k.onclick = () => keyDialog(go); const rt = $('[data-retry]', out); if (rt) rt.onclick = go; };
       if (!aiReady) { await showLocal(''); b.disabled = false; b.textContent = '↻ ' + t('Chấm lại'); return; }
       try { try { const r = await grade(inp); out.innerHTML = render(r, inp.kind) + (r._left != null ? `<div class="tiny muted" style="margin-top:.5rem">🎁 ${t('Còn {n} lượt chấm AI miễn phí hôm nay', { n: r._left })}</div>` : ''); b.textContent = '↻ ' + t('Chấm lại'); }
-      catch (e) { if (e.message === 'PROXY_QUOTA') { await showLocal('⏳ ' + esc(UI.quotaText(e.q)) + ' ' + t('Đây là kết quả chấm nhanh theo quy tắc:')); b.disabled = false; return; }
-        if (e.message === 'QUOTA' || e.message === 'FAILED' || e.message === 'TIMEOUT') { await showLocal('⚠️ ' + esc(errText(e)) + ' ' + t('Đây là kết quả chấm nhanh theo quy tắc:')); b.disabled = false; return; } throw e; } }
-      catch (e) { out.innerHTML = `<div class="small" style="margin-top:.6rem">❌ ${esc(errText(e))} ${e.message === 'BAD_KEY' || e.message === 'NO_KEY' ? `<button class="btn sm" data-k>${t('Nhập khóa')}</button>` : ''}</div>`; const k = $('[data-k]', out); if (k) k.onclick = () => keyDialog(go); }
+      catch (e) { if (e.message === 'PROXY_QUOTA') { await showLocal('⏳ ' + esc(UI.quotaText(e.q)) + ' ' + t('Đây là kết quả chấm nhanh theo quy tắc:'), true); b.disabled = false; return; }
+        if (['QUOTA', 'FAILED', 'TIMEOUT', 'OFFLINE', 'NO_KEY'].includes(e.message)) { await showLocal('⚠️ ' + esc(errText(e)) + ' ' + t('Đây là kết quả chấm nhanh theo quy tắc:')); b.disabled = false; return; } throw e; } }
+      catch (e) { out.innerHTML = `<div class="small" style="margin-top:.6rem">❌ ${esc(errText(e))} ${e.message === 'BAD_KEY' ? `<button class="btn sm" data-k>${t('Nhập khóa')}</button>` : ''}</div>`; const k = $('[data-k]', out); if (k) k.onclick = () => keyDialog(go); }
       b.disabled = false;
     };
     $('[data-ai]', wrap).onclick = go;

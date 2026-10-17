@@ -14,6 +14,7 @@ Lệnh gom nhanh cho 1 bài: `node scripts/content-registry.mjs evidence https:/
 | Lịch sử git của file nguồn `.md` | `git log --follow --reverse -- content/blog/<lang>/<slug>.md`; link `github.com/lexkiteapp/lexkiteapp.github.io/commits/main/content/blog/<lang>/<slug>.md` | Bản nháp & ngày viết, do GitHub ghi giờ |
 | Mục sổ băm `publish` | Lệnh `evidence` ở trên: `seq`, `at`, `sha256(HTML)`, `sha256(nguồn)`, `hash`, commit | HTML phục vụ lúc đăng; chuỗi băm chứng minh không sửa lùi |
 | Bản lưu Wayback | Mục sổ `archive` (`https://web.archive.org/web/<thời điểm>/…`) | Bên thứ ba độc lập xác nhận trang tồn tại lúc đó |
+| Dấu OpenTimestamps (Bitcoin) | `node scripts/ots.mjs export <seq>` → `lexkite-registry-<seq>.json` + `.ots` (kiểm ở opentimestamps.org hoặc `ots verify`; `docs/CONTENT-PROTECTION.md` §4b) | Khối Bitcoin xác nhận mục sổ (kèm sha256 HTML/nguồn) tồn tại từ thời điểm đó – không ai sửa lùi được |
 | Ngày đăng trên trang | `<time datetime>`, JSON-LD `datePublished`, `article:published_time`, sitemap `lastmod` | Ngày công bố |
 | Lập chỉ mục | GitHub Actions → *Blog publish* → lần chạy đúng giờ (log IndexNow/WebSub); Search Console → Kiểm tra URL → "Thu thập dữ liệu lần đầu" | Máy tìm kiếm biết bài của Lexkite trước |
 | Câu hỏi luyện thi (~2.784) | Mục sổ `dataset` (gốc băm theo commit) + `git log -- web/js/<file>`; danh sách câu canary `content/protection/canaries.json` (Antigravity) | Kho đề có trước; câu canary độc nhất xuất hiện ở bản chép |
@@ -67,7 +68,8 @@ published by Lexkite at https://lexkite.com.
    or am authorized to act on behalf of the owner, of an exclusive right that is allegedly infringed.
 
 Supporting evidence (available on request): version-control history with timestamps, a SHA-256
-hash-chained publication registry, Internet Archive snapshots, and search-engine first-crawl dates.
+hash-chained publication registry with OpenTimestamps (Bitcoin) proofs of existence, Internet Archive
+snapshots, and search-engine first-crawl dates.
 
 Signature: /[Full legal name]/
 Date: [YYYY-MM-DD]

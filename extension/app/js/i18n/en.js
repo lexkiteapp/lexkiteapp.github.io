@@ -210,6 +210,9 @@
   'Đã hết lượt miễn phí hôm nay – mở lại lúc {time}.': "You've used today's free limit – it resets at {time}.",
   'Máy chủ đang bận – thử lại sau ít phút.': 'The server is busy – please try again in a few minutes.',
   'Đăng nhập để có thêm lượt.': 'Sign in to get more.',
+  'Khóa Gemini riêng (không bắt buộc)': 'Your own Gemini key (optional)',
+  'Không bắt buộc – Lexkite đã có AI miễn phí, không cần khóa. Thêm khóa Gemini miễn phí của riêng bạn nếu muốn dùng nhiều lượt hơn mức miễn phí mỗi ngày.': 'Optional – Lexkite already includes free AI, no key needed. Add your own free Gemini key only if you want more uses than the daily free limit.',
+  'Thêm khóa Gemini riêng (không bắt buộc)': 'Add your own Gemini key (optional)',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* English UI strings – tên & mô tả bộ từ trong js/lib/*.js (qua IELTS_DATA.add) */
@@ -2343,11 +2346,7 @@
   'Giải thích nghĩa trong ngữ cảnh, cấu trúc, collocation, ví dụ': 'Explain meaning in context, structure, collocations, examples',
   '🤖 Giải thích sâu': '🤖 Deep explanation',
   '⏳ AI đang phân tích…': '⏳ AI is analyzing…',
-  'Chưa bật AI. Mở Lexkite → Cài đặt → “Chấm bài bằng AI” để thêm khóa Gemini miễn phí của bạn.': 'AI is not enabled. Open Lexkite → Settings → “AI grading” to add your free Gemini key.',
-  'Khóa AI tạm hết lượt miễn phí – thử lại sau ít phút.': 'Your AI key is out of free quota for now – try again in a few minutes.',
-  'Khóa AI không hợp lệ – kiểm tra lại trong Cài đặt.': 'Invalid AI key – check it in Settings.',
   'Không phân tích được lúc này.': 'Could not analyze right now.',
-  '⚙️ Mở Cài đặt': '⚙️ Open Settings',
   'Cụm hay đi kèm:': 'Common collocations:',
   '✓ Đã chép': '✓ Copied',
   'Lexkite cấp {lv}': 'Lexkite level {lv}',
@@ -2392,6 +2391,9 @@
   'Tra từ “%s” với Lexkite': 'Look up “%s” with Lexkite',
   'Dịch đoạn đã chọn sang tiếng Việt': 'Translate selection to Vietnamese',
   'Ảnh không đúng – ẩn ảnh này': 'Wrong picture – hide it',
+  'Hết lượt AI miễn phí hôm nay – thử lại vào ngày mai.': 'Daily free AI limit reached – try again tomorrow.',
+  'AI đang bận – thử lại sau ít phút.': 'AI is busy right now – try again in a few minutes.',
+  'AI không dùng được khi ngoại tuyến – kết nối mạng rồi thử lại.': 'AI is unavailable offline – connect to the internet and try again.',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* Tên & giải thích cấu trúc ngữ pháp (web/js/structures.js) – bảng "Dịch đoạn đã chọn" trên web và add-on. Định dạng JSON để add-on đọc được. */
@@ -2604,6 +2606,7 @@
   'Bấm đúp để tra, bôi đen để dịch cả câu.': "Double-click to look up, highlight to translate a whole sentence.",
   'Học từ vựng & luyện thi tiếng Anh miễn phí – nhớ lâu bằng khoa học.': "Free English vocabulary & exam prep – remember for longer, backed by science.",
   'IELTS, TOEIC, TOEFL là nhãn hiệu của các tổ chức sở hữu. Lexkite là sản phẩm độc lập, không liên kết với các tổ chức này.': "IELTS, TOEIC and TOEFL are trademarks of their respective owners. Lexkite is independent and not affiliated with them.",
+  'Lexkite™ là nhãn hiệu của {owner}.': "Lexkite™ is a trademark of {owner}.",
   'Sản phẩm': "Product",
   'Ứng dụng web': "Web app",
   'Pháp lý & hỗ trợ': "Legal & support",

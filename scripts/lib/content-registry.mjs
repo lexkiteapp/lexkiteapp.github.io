@@ -66,3 +66,38 @@ export function recordDataset({ name, root, files, commit, at }, file = REGISTRY
   if (last && last.root === root) return { skipped: true, entry: last };
   return { skipped: false, entry: appendEntry({ type: 'dataset', at, name, root, files, commit }, file) };
 }
+// Mốc phát hành (add-on lên phiên bản / landing dựng lại): gốc băm git ls-files của mã phát hành.
+// Có phiên bản (add-on) → chỉ ghi khi lên phiên bản; không có (landing) → ghi khi gốc băm đổi.
+export function recordRelease({ name, version, root, files, commit, at }, file = REGISTRY) {
+  if (!/^[a-z][a-z0-9-]{1,30}$/.test(name || '')) throw new Error(`tên phát hành không hợp lệ: ${name}`);
+  if (!/^[0-9a-f]{64}$/.test(root || '')) throw new Error('thiếu gốc băm phát hành');
+  const last = readRegistry(file).filter(e => e.type === 'release' && e.name === name).at(-1);
+  if (last && (version != null ? last.version === version : last.root === root)) return { skipped: true, entry: last };
+  return { skipped: false, entry: appendEntry({ type: 'release', at, name, version, root, files, commit }, file) };
+}
+
+// ---------- OpenTimestamps (bằng chứng tồn tại neo vào Bitcoin, miễn phí – docs/CONTENT-PROTECTION.md §4b) ----------
+// Mỗi mục sổ được đóng dấu: tệp đóng dấu = ĐÚNG dòng JSON của mục trong registry.jsonl (không có \n cuối), bằng chứng lưu
+// content/protection/ots/<hash của mục>.ots (~0,5–5 KB). Lịch công khai chỉ nhận sha256 của tệp – không gửi nội dung.
+// Mục sau nối chuỗi băm mục trước → dấu của 1 mục cũng chứng minh mọi mục trước nó đã tồn tại.
+export const OTS_DIR = 'content/protection/ots';
+export const OTS_TYPES = ['publish', 'release', 'dataset', 'archive'];
+export const otsPath = (e, dir = OTS_DIR) => `${dir}/${e.hash}.ots`;
+export function registryLines(file = REGISTRY) {
+  if (!fs.existsSync(file)) return [];
+  return fs.readFileSync(file, 'utf8').split('\n').filter(l => l.trim());
+}
+// Không bao giờ đóng dấu dữ liệu riêng tư: chỉ loại mục công khai, URL chỉ lexkite.com/web.archive.org/archive.*, không email/khóa
+const PRIVATE_RE = /[\w.+-]+@[\w-]+\.[\w.-]+|secret|token|passw|api[_-]?key|bearer/i;
+export function stampable(e, line = JSON.stringify(e)) {
+  if (!e || !OTS_TYPES.includes(e.type) || !/^[0-9a-f]{64}$/.test(e.hash || '')) return false;
+  if (e.url && !hostOk(e.url)) return false;
+  return !PRIVATE_RE.test(line);
+}
+// Mục chưa có bằng chứng .ots → [{ entry, line, proof }]
+export function otsPending(file = REGISTRY, dir = OTS_DIR, exists = p => fs.existsSync(p)) {
+  return registryLines(file).map(line => ({ entry: JSON.parse(line), line })).filter(({ entry, line }) => stampable(entry, line) && !exists(otsPath(entry, dir))).map(x => ({ ...x, proof: otsPath(x.entry, dir) }));
+}
+// Bằng chứng đã có xác nhận Bitcoin chưa (thẻ attestation trong tệp .ots nhị phân)
+const BTC_TAG = Buffer.from('0588960d73d71901', 'hex'), PENDING_TAG = Buffer.from('83dfe30d2ef90c8e', 'hex');
+export const otsState = buf => (buf.includes(BTC_TAG) ? 'bitcoin' : buf.includes(PENDING_TAG) ? 'pending' : 'unknown');

@@ -1531,6 +1531,7 @@
             <div><span class="brand" style="padding:0"><img class="logo" src="icons/icon.svg" alt=""><span class="wordmark">lex<b>kite</b></span></span><p class="small muted">${t('Học từ vựng & luyện thi tiếng Anh miễn phí – nhớ lâu bằng khoa học.')}</p><p class="tiny muted">${t('IELTS, TOEIC, TOEFL là nhãn hiệu của các tổ chức sở hữu. Lexkite là sản phẩm độc lập, không liên kết với các tổ chức này.')}</p></div>
             <div><b class="small">${t('Sản phẩm')}</b><a href="#/welcome/setup">${t('Ứng dụng web')}</a><a href="#/settings">${t('Add-on Chrome')}</a><a href="#/tests">${t('Thi thử')}</a><a href="${App.blogUrl ? App.blogUrl() : '/vi/blog/'}">${t('Blog học tiếng Anh')}</a></div>
             <div><b class="small">${t('Pháp lý & hỗ trợ')}</b><a href="${App.legalUrl('privacy')}">${t('Chính sách quyền riêng tư')}</a><a href="${App.legalUrl('terms')}">${t('Điều khoản sử dụng')}</a><a href="#/contact">${t('Liên hệ')}</a></div>
+            <p class="tiny muted" style="grid-column:1/-1;margin:0">© ${new Date().getFullYear()} Lexkite · ${t('Lexkite™ là nhãn hiệu của {owner}.', { owner: 'MODIAN LUXURY JEWELRY LLC' })}</p>
           </footer>`);
       }
     } else {
@@ -1572,6 +1573,7 @@
             <div><span class="brand" style="padding:0"><img class="logo" src="icons/icon.svg" alt=""><span class="wordmark">lex<b>kite</b></span></span><p class="small muted">${t('Học từ vựng & luyện thi tiếng Anh miễn phí – nhớ lâu bằng khoa học.')}</p><p class="tiny muted">${t('IELTS, TOEIC, TOEFL là nhãn hiệu của các tổ chức sở hữu. Lexkite là sản phẩm độc lập, không liên kết với các tổ chức này.')}</p></div>
             <div><b class="small">${t('Sản phẩm')}</b><a href="#/welcome/setup">${t('Ứng dụng web')}</a><a href="#/settings">${t('Add-on Chrome')}</a><a href="#/tests">${t('Thi thử')}</a><a href="${App.blogUrl ? App.blogUrl() : '/vi/blog/'}">${t('Blog học tiếng Anh')}</a></div>
             <div><b class="small">${t('Pháp lý & hỗ trợ')}</b><a href="${App.legalUrl('privacy')}">${t('Chính sách quyền riêng tư')}</a><a href="${App.legalUrl('terms')}">${t('Điều khoản sử dụng')}</a><a href="#/contact">${t('Liên hệ')}</a></div>
+            <p class="tiny muted" style="grid-column:1/-1;margin:0">© ${new Date().getFullYear()} Lexkite · ${t('Lexkite™ là nhãn hiệu của {owner}.', { owner: 'MODIAN LUXURY JEWELRY LLC' })}</p>
           </footer>
         </div>`;
     }

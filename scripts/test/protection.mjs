@@ -2,7 +2,8 @@
 // WebSub/copy-watch (hàm thuần) và sổ thật trong repo còn nguyên chuỗi băm. Không gọi mạng.
 import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
 import { buildRules, mergeRules, sameRules, mask, HTML_PREFIXES, DATA_PREFIXES, NEVER, LANGS, RL_DEFAULT, CI_HEADER } from '../lib/cf-waf-rules.mjs';
-import { readRegistry, verifyChain, appendEntry, recordPublish, recordArchive, recordDataset, datasetRoot, sha256, REGISTRY } from '../lib/content-registry.mjs';
+import { readRegistry, verifyChain, appendEntry, recordPublish, recordArchive, recordDataset, recordRelease, datasetRoot, sha256, REGISTRY, OTS_DIR, otsPath, otsPending, stampable, otsState, registryLines } from '../lib/content-registry.mjs';
+import { spawnSync } from 'node:child_process';
 import { feedsFor } from '../websub-ping.mjs';
 import { signature, suspects } from '../copy-watch.mjs';
 
@@ -73,6 +74,51 @@ fs.writeFileSync(F, t1.join('\n') + '\n'); throws(() => appendEntry({ type: 'x' 
 fs.rmSync(tmp, { recursive: true, force: true });
 if (fs.existsSync(REGISTRY)) { const rv = verifyChain(readRegistry()); ok(rv.ok, `sổ thật ${REGISTRY} còn nguyên chuỗi băm${rv.ok ? '' : ` (hỏng mục ${rv.at}: ${rv.why})`}`); }
 
+// ---------- Mốc phát hành + OpenTimestamps ----------
+{
+  const tmp2 = fs.mkdtempSync(path.join(os.tmpdir(), 'lkots-')), G = path.join(tmp2, 'r.jsonl'), D = path.join(tmp2, 'ots');
+  const root = sha256('tree');
+  recordPublish({ url: 'https://lexkite.com/vi/blog/a/', html: '<html>a</html>', source: 'A' }, G);
+  const r1 = recordRelease({ name: 'addon', version: '2.6.411', root, files: 3, commit: 'c' }, G);
+  ok(!r1.skipped && r1.entry.type === 'release' && r1.entry.version === '2.6.411', 'recordRelease: ghi mốc add-on');
+  ok(recordRelease({ name: 'addon', version: '2.6.411', root: sha256('tree-sửa'), files: 3, commit: 'c2' }, G).skipped, 'add-on cùng phiên bản (mã sửa giữa 2 bản) → không ghi');
+  ok(!recordRelease({ name: 'addon', version: '2.6.412', root, files: 3 }, G).skipped, 'add-on lên phiên bản → ghi mục mới');
+  ok(!recordRelease({ name: 'landing', root: sha256('tree2'), files: 32 }, G).skipped && recordRelease({ name: 'landing', root: sha256('tree2'), files: 32 }, G).skipped, 'landing dựng lại (gốc băm đổi) → ghi; không đổi → bỏ qua');
+  throws(() => recordRelease({ name: 'Bad Name', root }, G), 'tên phát hành lạ → lỗi');
+  throws(() => recordRelease({ name: 'addon', root: 'x' }, G), 'thiếu gốc băm → lỗi');
+  const pend = otsPending(G, D);
+  ok(pend.length === 4 && pend.every(t => t.proof === `${D}/${t.entry.hash}.ots` && /\/[0-9a-f]{64}\.ots$/.test(t.proof)), 'OTS: mỗi mục sổ → 1 bằng chứng <thư mục>/<hash mục>.ots');
+  ok(pend.every((t, i) => t.line === registryLines(G)[i] && JSON.parse(t.line).hash === t.entry.hash), 'OTS: tệp đóng dấu = đúng dòng JSON trong sổ (tái tạo được để kiểm)');
+  ok(otsPath({ hash: 'a'.repeat(64) }) === `${OTS_DIR}/${'a'.repeat(64)}.ots` && OTS_DIR === 'content/protection/ots', 'OTS: đường dẫn mặc định content/protection/ots/<sha>.ots');
+  fs.mkdirSync(D, { recursive: true }); fs.writeFileSync(pend[0].proof, Buffer.from('00', 'hex'));
+  ok(otsPending(G, D).length === 3, 'OTS: mục đã có .ots → không đóng dấu lại');
+  ok(!stampable({ type: 'publish', hash: 'a'.repeat(64), url: 'https://copy.example/x' }) && !stampable({ type: 'note', hash: 'a'.repeat(64), email: 'x@y.com' }) && !stampable({ type: 'release', hash: 'a'.repeat(64), name: 'x', by: 'someone@gmail.com' }) && !stampable({ type: 'dataset', hash: 'a'.repeat(64), token: 'abc' }), 'OTS: không bao giờ đóng dấu URL lạ / email / khóa / loại mục lạ');
+  ok(stampable(r1.entry), 'OTS: mục phát hành công khai được đóng dấu');
+  ok(otsState(Buffer.from('aa0588960d73d71901bb', 'hex')) === 'bitcoin' && otsState(Buffer.from('aa83dfe30d2ef90c8ebb', 'hex')) === 'pending' && otsState(Buffer.from('00', 'hex')) === 'unknown', 'OTS: nhận trạng thái bằng chứng (bitcoin / pending)');
+  // thiếu lệnh ots (máy không cài) → chỉ cảnh báo, exit 0, không tạo file
+  const run = spawnSync(process.execPath, ['scripts/ots.mjs', 'stamp', '--file', G, '--dir', D], { encoding: 'utf8', env: { PATH: path.dirname(process.execPath) } });
+  ok(run.status === 0 && /chưa cài opentimestamps-client/.test(run.stdout) && otsPending(G, D).length === 3, 'ots.mjs stamp: thiếu ots → cảnh báo, không lỗi (non-fatal)');
+  fs.rmSync(tmp2, { recursive: true, force: true });
+}
+const step = (yml, name) => { const i = yml.indexOf(`- name: ${name}`); if (i < 0) return ''; const j = yml.indexOf('\n      - ', i + 5); return yml.slice(i, j < 0 ? undefined : j); };
+const bp = fs.readFileSync('.github/workflows/blog-publish.yml', 'utf8'), cp = fs.readFileSync('.github/workflows/content-protect.yml', 'utf8');
+for (const [nm, y] of [['blog-publish', bp], ['content-protect', cp]]) {
+  const st = step(y, 'OpenTimestamps');
+  ok(/opentimestamps-client/.test(st) && /node scripts\/ots\.mjs stamp/.test(st) && /node scripts\/ots\.mjs upgrade/.test(st), `${nm}: bước OpenTimestamps cài client + stamp + upgrade`);
+  ok(/continue-on-error: true/.test(st) && /::warning::/.test(st), `${nm}: bước OTS không chặn (continue-on-error + cảnh báo)`);
+  ok(y.indexOf('- name: OpenTimestamps') < y.indexOf('- name: Commit sổ đăng ký') && /git add [^\n]*content\/protection\/ots/.test(y), `${nm}: OTS chạy trước commit, commit kèm content/protection/ots`);
+}
+ok(bp.indexOf('- name: Sổ băm nội dung') < bp.indexOf('- name: OpenTimestamps'), 'blog-publish: đóng dấu sau khi ghi sổ bài mới');
+ok(/push:[\s\S]*'extension\/manifest\.json'[\s\S]*'content\/landing\/\*\*'/.test(cp) && /release addon/.test(cp) && /release landing/.test(cp), 'content-protect: push add-on lên bản/landing → ghi mốc phát hành');
+ok(/if: github\.event_name != 'push'/.test(step(cp, 'Dò bản sao chép')) && /if: github\.event_name != 'push'/.test(step(cp, 'WAF chống cào')), 'content-protect: lần chạy do push không dò bản sao/WAF');
+ok(!/ots stamp|ots\.mjs stamp/.test(fs.readFileSync('package.json', 'utf8')), 'OTS không chạy cục bộ trong npm test (chỉ CI)');
+if (fs.existsSync(OTS_DIR)) {
+  const hashes = new Set(readRegistry().map(e => e.hash)), fl = fs.readdirSync(OTS_DIR).filter(f => !f.startsWith('.'));
+  ok(fl.every(f => /^[0-9a-f]{64}\.ots$/.test(f) && hashes.has(f.slice(0, 64))), `${OTS_DIR}: mọi bằng chứng ứng với 1 mục sổ (không file lạ)`);
+  ok(fl.every(f => fs.statSync(path.join(OTS_DIR, f)).size < 20e3), `${OTS_DIR}: bằng chứng nhỏ (< 20 KB)`);
+}
+ok(/ots verify/.test(fs.readFileSync('docs/CONTENT-PROTECTION.md', 'utf8')), 'tài liệu hướng dẫn chứng minh bằng ots verify');
+
 // ---------- WebSub, copy-watch, build-blog ----------
 ok(JSON.stringify(feedsFor(['https://lexkite.com/vi/blog/a/', 'https://lexkite.com/vi/blog/b/', 'https://lexkite.com/ja/blog/c/', 'https://lexkite.com/tu-vung/x'])) === JSON.stringify(['https://lexkite.com/ja/blog/rss.xml', 'https://lexkite.com/vi/blog/rss.xml']), 'WebSub: 1 feed/ngôn ngữ, bỏ trang không phải blog');
 const sig = signature('## Tiêu đề\n\nCâu ngắn.\n\nĐây là một câu đủ dài và đặc trưng để tìm bản sao chép của bài viết trên mạng nhé bạn.\n\n- gạch đầu dòng dài dài dài dài dài dài dài dài dài dài dài dài dài\n');
@@ -81,5 +127,5 @@ ok(suspects([{ url: 'https://lexkite.com/vi/blog/a/' }, { url: 'https://media.le
 const bb = fs.readFileSync('scripts/build-blog.mjs', 'utf8');
 ok(bb.includes('rel="hub"') && bb.includes('<meta name="author"') && bb.includes('datePublished') && bb.includes('dateModified') && bb.includes('rel="canonical"') && bb.includes('article:published_time'), 'build-blog: hub RSS, author, datePublished/dateModified, canonical, article:published_time');
 
-console.log(fails ? `✗ protection: ${fails}/${n} lỗi` : `✓ protection: ${n} kiểm tra đạt (WAF, sổ băm, WebSub, copy-watch)`);
+console.log(fails ? `✗ protection: ${fails}/${n} lỗi` : `✓ protection: ${n} kiểm tra đạt (WAF, sổ băm, OpenTimestamps, WebSub, copy-watch)`);
 process.exit(fails ? 1 : 0);

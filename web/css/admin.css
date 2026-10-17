@@ -388,3 +388,15 @@ time[title] { text-decoration: underline dotted color-mix(in srgb, var(--muted) 
 .q-hist { display: flex; gap: 4px; flex-wrap: wrap; }
 .q-hist a { width: 14px; height: 22px; border-radius: 4px; background: var(--good); display: block; }
 .q-hist a.bad { background: var(--again); }
+
+/* Backlink, PR & Thương hiệu (js/admin-backlinks.js) */
+.bw-kpi { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; margin: 0 0 .5rem; }
+.bw-url { max-width: 22rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bw-spark { display: inline-flex; gap: 2px; align-items: flex-end; min-height: 12px; }
+.bw-h { display: inline-block; width: 5px; height: 12px; border-radius: 2px; background: var(--surface-3); }
+.bw-h.ok { background: var(--good); } .bw-h.warn { background: var(--gold); } .bw-h.bad { background: var(--again); } .bw-h.info { background: var(--muted); }
+.bw-box { border: 1px solid var(--line); border-radius: var(--a-r-sm, 8px); padding: .8rem 1rem; margin: .6rem 0; background: var(--surface); }
+.bw-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: .6rem .9rem; }
+.bw-f { display: flex; flex-direction: column; gap: .25rem; font-size: .82rem; font-weight: 600; }
+.bw-f.wide { grid-column: 1 / -1; }
+.bw-play textarea { width: 100%; font: .8rem/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }

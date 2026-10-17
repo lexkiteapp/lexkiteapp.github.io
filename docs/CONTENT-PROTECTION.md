@@ -45,7 +45,26 @@ Bài đến giờ (`blog-due --since 70`, mọi ngôn ngữ) → deploy hook Clo
 - `publish`: `sha256` HTML đang phục vụ thật (lấy qua header CI) + `sha256` nguồn `.md`, `publishedAt`, commit. Ghi lại khi nguồn đổi (cập nhật bài).
 - `dataset` (hằng tuần, `content-protect.yml`): gốc băm `git ls-files -s web/js content` (trừ blog) – phủ đề, lời giải, ngữ pháp, từ vựng (~2.784 câu hỏi).
 - `archive`: URL bản lưu Wayback. **API cho Antigravity:** `import { recordArchive } from './lib/content-registry.mjs'; recordArchive({ url, archiveUrl })` (hoặc CLI `node scripts/content-registry.mjs archive <url> <archiveUrl>`); chèn bước Wayback ở chỗ đánh dấu trong `blog-publish.yml`, trước bước "Commit sổ đăng ký", gửi header CI khi đọc trang lexkite.com.
-- Lệnh: `record [url…]` · `snapshot` · `verify` (cũng trong `npm test`) · `evidence <url>` (gom bằng chứng cho DMCA). Đã ghi sẵn 16 bài đang live + 1 ảnh chụp kho (17/10).
+- `release` (add-on lên phiên bản / landing dựng lại, `content-protect.yml` khi push): gốc băm `git ls-files -s` mã phát hành + phiên bản.
+- Lệnh: `record [url…]` · `snapshot` · `release addon|landing` · `verify` (cũng trong `npm test`) · `evidence <url>` (gom bằng chứng cho DMCA). Đã ghi sẵn 16 bài đang live + 1 ảnh chụp kho (17/10).
+
+## 4b. OpenTimestamps – bằng chứng tồn tại neo vào Bitcoin (miễn phí, `scripts/ots.mjs`)
+- **Cái gì được đóng dấu:** mỗi mục của sổ băm (bài blog mới `publish`, mốc phát hành `release` – add-on lên phiên bản (`extension/manifest.json`) / landing dựng lại, ảnh chụp kho `dataset`, `archive`). Tệp đóng dấu = **đúng dòng JSON** của mục trong `registry.jsonl` (không `\n` cuối). Mục chứa `hash` nối chuỗi → dấu của mục *n* chứng minh mọi mục 1…*n* (và các sha256 HTML/nguồn bên trong) đã tồn tại lúc đó.
+- **Không bao giờ đóng dấu dữ liệu riêng:** chỉ loại mục công khai, URL lexkite.com; dòng có email/khóa/token bị bỏ qua (`stampable()`). Lịch công khai chỉ nhận **SHA-256** (kèm nonce), không nhận nội dung.
+- **Ở đâu:** `content/protection/ots/<hash của mục>.ots` (0,5–5 KB/mục; test chặn file lạ hoặc > 20 KB).
+- **Khi nào (chỉ CI, không chạy trên máy):** `blog-publish.yml` sau bước sổ băm + Wayback (`ots.mjs stamp` + `upgrade`); `content-protect.yml` hằng tuần và khi push đổi `extension/manifest.json`, `content/landing/**`, `scripts/build-landing.mjs`, `scripts/lib/site-layout.mjs` (`content-registry.mjs release addon|landing` → `stamp` → `upgrade` → commit `[CF-Pages-Skip]`). Bước OTS `continue-on-error` + `::warning::` – lịch công khai lỗi không bao giờ chặn đăng bài; lần sau tự thử lại.
+- **Pending → Bitcoin:** `ots stamp` trả bằng chứng *pending* ngay; sau ~1–12 giờ lịch neo vào 1 khối Bitcoin, `ots upgrade` (lần chạy kế tiếp) gắn xác nhận vào tệp. `node scripts/ots.mjs status` đếm bitcoin/pending/thiếu.
+
+**Cách chứng minh (hồ sơ DMCA, tranh chấp):**
+```
+node scripts/ots.mjs export <seq|hash|url> --out bang-chung/   # ghi lexkite-registry-<seq>.json + .ots
+# Cách 1 (không cài gì): mở https://opentimestamps.org → Verify → kéo cả 2 tệp vào → hiện "Bitcoin block #… attests existence as of …"
+# Cách 2: pip install opentimestamps-client
+ots verify -f bang-chung/lexkite-registry-<seq>.json bang-chung/lexkite-registry-<seq>.json.ots   # cần Bitcoin Core để tự kiểm khối
+ots info bang-chung/lexkite-registry-<seq>.json.ots                                                # không có node: đối chiếu merkle root khối ở block explorer
+node scripts/ots.mjs verify <seq>                                                                  # gói 2 lệnh trên
+```
+Kèm theo: `node scripts/content-registry.mjs evidence <url>` (mục sổ + lịch sử git) – bên thứ ba tính lại `sha256` HTML/nguồn, khớp dòng JSON đã đóng dấu, khớp khối Bitcoin → thời điểm tồn tại không thể làm giả.
 
 ## 5. Giám sát bản sao (`content-protect.yml`, Chủ nhật 02:17 UTC)
 Kiểm chuỗi băm → ảnh chụp kho → `cf-waf live` (cảnh báo nếu WAF chưa hoạt động) → `copy-watch.mjs`: 1 câu đặc trưng/bài × 6 bài mới nhất, tìm nguyên văn qua **Brave Search API** (gói Free ~2.000 lượt/tháng – chỉ chạy khi có secret `BRAVE_SEARCH_KEY`) → có trang lạ thì mở issue `content-copy`. Google/Bing không còn API tìm kiếm miễn phí cho dự án mới.

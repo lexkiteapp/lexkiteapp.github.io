@@ -535,6 +535,22 @@
    ]
   },
   {
+   "key": "opentimestamps",
+   "name": "OpenTimestamps (lịch công khai, neo Bitcoin)",
+   "kind": "storage",
+   "purpose": "Bằng chứng tồn tại cho từng mục sổ băm (bài blog mới, mốc phát hành add-on/landing, ảnh chụp kho): scripts/ots.mjs stamp/upgrade trên CI (blog-publish.yml, content-protect.yml; pip opentimestamps-client), chỉ gửi SHA-256 lên lịch công khai a/b.pool.opentimestamps.org, finney.calendar.eternitywall.com; bằng chứng content/protection/ots/<hash>.ots. Lỗi chỉ cảnh báo. Kiểm: node scripts/ots.mjs export <seq> → opentimestamps.org. docs/CONTENT-PROTECTION.md §4b",
+   "console": "https://opentimestamps.org",
+   "free": "Miễn phí (lịch công khai, không tài khoản)",
+   "upgrade": "—",
+   "status": "Đang dùng",
+   "match": [
+    "opentimestamps.org",
+    "a.pool.opentimestamps.org",
+    "b.pool.opentimestamps.org",
+    "finney.calendar.eternitywall.com"
+   ]
+  },
+  {
    "key": "brave-search",
    "name": "Brave Search API (tùy chọn)",
    "kind": "seo",
@@ -545,6 +561,43 @@
    "status": "Chưa bật (chờ khóa)",
    "match": [
     "api.search.brave.com"
+   ]
+  },
+  {
+   "key": "brand-watch",
+   "name": "Backlink, PR & Thương hiệu (theo dõi tự động)",
+   "kind": "seo",
+   "purpose": "Quản trị → Backlink, PR & Thương hiệu (web/js/admin-backlinks.js) + API /api/backlinks (functions/api/backlinks.js, D1 bảng bw_placements, bw_checks, bw_domains, bw_handles; config bw_run/bw_copy/bw_serious/bw_digest_at). GitHub Actions pr-check.yml hằng ngày (scripts/pr-check.mjs): kiểm bài PR/hồ sơ trong content/pr/placements.json (dev.to, Medium, Hashnode, Peerlist, GitHub PR qua api.github.com + raw.githubusercontent.com, SaaSHub, Uneed, AlternativeTo), tên miền na ná trong content/brand/watch.json qua DoH cloudflare-dns.com (NS/A/AAAA/MX), tài khoản mạng xã hội (GitHub API, Bluesky public API, YouTube – nền tảng khác chỉ là danh sách kiểm tay); content-protect.yml gửi kết quả copy-watch (--push-copy). CI ký HMAC bằng secret sẵn có STUDIO_CALLBACK_SECRET (Cloudflare Pages + GitHub Actions); nút Kiểm ngay dùng GH_DISPATCH_TOKEN; thư qua binding MAIL (lexkite-mail → REPORT_NOTIFY_EMAIL): sự cố nghiêm trọng gửi ngay, bản tin tuần. Issue GitHub nhãn brand-watch tự mở/đóng. Admin hiện link hỗ trợ/khiếu nại (dev.to, Medium, GitHub, ICANN Lookup, Google Safe Browsing, Google DMCA, Wayback).",
+   "console": "https://lexkite.com/admin.html#backlinks",
+   "free": "Actions miễn phí (repo công khai) · DoH miễn phí · D1 vài chục dòng/ngày",
+   "upgrade": "—",
+   "status": "Đang dùng (cần STUDIO_CALLBACK_SECRET ở Cloudflare Pages để lưu vào Quản trị)",
+   "match": [
+    "dev.to",
+    "medium.com",
+    "help.medium.com",
+    "lexkite.hashnode.dev",
+    "peerlist.io",
+    "www.saashub.com",
+    "www.uneed.best",
+    "alternativeto.net",
+    "github.com",
+    "support.github.com",
+    "cloudflare-dns.com",
+    "public.api.bsky.app",
+    "bsky.app",
+    "x.com",
+    "www.facebook.com",
+    "www.instagram.com",
+    "www.tiktok.com",
+    "www.youtube.com",
+    "www.threads.net",
+    "www.linkedin.com",
+    "www.pinterest.com",
+    "www.reddit.com",
+    "lookup.icann.org",
+    "safebrowsing.google.com",
+    "reportcontent.google.com"
    ]
   },
   {

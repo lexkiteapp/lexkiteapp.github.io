@@ -1,5 +1,6 @@
 # Tự đăng blog: mỗi giờ (phút 7) kiểm bài vừa đến giờ đăng → gọi deploy hook Cloudflare Pages (build lại site) → báo IndexNow
-# → ping WebSub cho RSS từng ngôn ngữ → ghi sổ băm nội dung (content/protection/registry.jsonl, bằng chứng tác quyền) + commit.
+# → ping WebSub cho RSS từng ngôn ngữ → ghi sổ băm nội dung (content/protection/registry.jsonl, bằng chứng tác quyền)
+# → Wayback → OpenTimestamps (content/protection/ots/<hash>.ots, không chặn) + commit.
 # Commit sổ có [CF-Pages-Skip] (Cloudflare không build lại). Header X-Lexkite-CI (secret LEXKITE_CI_HEADER) để qua WAF – docs/CONTENT-PROTECTION.md.
 # Không có bài đến hạn → không làm gì (không tốn lượt build). Secret cần: CF_PAGES_DEPLOY_HOOK (xem docs/SEO-PLAN.md "Vận hành blog").
 name: Blog publish
@@ -62,11 +63,24 @@ jobs:
         continue-on-error: true
         timeout-minutes: 15
         run: node scripts/wayback-snapshot.mjs < due.txt
+      - uses: actions/setup-python@v5
+        if: steps.due.outputs.count != '0'
+        continue-on-error: true
+        with:
+          python-version: '3.12'
+      - name: OpenTimestamps (dấu thời gian neo Bitcoin, miễn phí – không chặn đăng bài)
+        if: steps.due.outputs.count != '0'
+        continue-on-error: true
+        timeout-minutes: 8
+        run: |
+          python -m pip install --quiet --disable-pip-version-check opentimestamps-client || { echo "::warning::Không cài được opentimestamps-client – bỏ qua đóng dấu, lần sau thử lại"; exit 0; }
+          node scripts/ots.mjs stamp || echo "::warning::ots stamp lỗi – lần chạy sau thử lại"
+          node scripts/ots.mjs upgrade || echo "::warning::ots upgrade lỗi – lần chạy sau thử lại"
       - name: Commit sổ đăng ký
         if: steps.due.outputs.count != '0'
         run: |
           node scripts/content-registry.mjs verify
-          git add content/protection/registry.jsonl 2>/dev/null || true
+          git add content/protection/registry.jsonl content/protection/ots 2>/dev/null || true
           git diff --cached --quiet && { echo "· sổ không đổi"; exit 0; }
           git config user.name "lexkite-bot"; git config user.email "lexkiteapp@users.noreply.github.com"
           git commit -qm "Registry: băm bài vừa đăng $(date -u +%FT%H:%MZ) [CF-Pages-Skip]"

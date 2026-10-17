@@ -22,7 +22,7 @@ const ADM = rd('web/js/admin.js'), AEN = dict(ADM);
   const enBlock = ADM.slice(ADM.indexOf('const EN = {'), ADM.indexOf('const L = ('));
   const miss = [...new Set([...ADM.replace(enBlock, '').matchAll(/'((?:[^'\\\n]|\\.)*)'/g)].map(m => unq(m[1])).filter(k => VI.test(k) && !/[|\\^$]/.test(k)))].filter(k => !(k in AEN) && !/^(lk\.|adm\.)/.test(k));
   ok(!miss.length, 'admin.js: chuỗi tiếng Việt thiếu bản EN: ' + miss.slice(0, 5).join(' | '));
-  for (const [f, fn] of [['admin-quota.js', 'Q'], ['admin-keys.js', 'S'], ['admin-drive.js', 'S'], ['admin-reports.js', 'T'], ['admin-social.js', 'S'], ['admin-studio.js', 'S'], ['admin-growth.js', 'G']]) {
+  for (const [f, fn] of [['admin-quota.js', 'Q'], ['admin-keys.js', 'S'], ['admin-drive.js', 'S'], ['admin-reports.js', 'T'], ['admin-social.js', 'S'], ['admin-studio.js', 'S'], ['admin-growth.js', 'G'], ['admin-backlinks.js', 'B']]) {
     const src = rd('web/js/' + f), EN = dict(src);
     const m2 = [...new Set([...src.matchAll(new RegExp(`\\b(?:${fn}|L)\\(\\s*'((?:[^'\\\\]|\\\\.)*)'`, 'g'))].map(m => unq(m[1])))].filter(k => VI.test(k) && !(k in EN) && !(k in AEN));
     ok(!m2.length, `${f}: khóa tiếng Việt thiếu bản EN: ${m2.slice(0, 3).join(' | ')}`);
@@ -51,6 +51,21 @@ const FX = {
   auditLog: { rows: [{ at: NOW, email: 'admin@example.com', op: 'configSet', ip: 'abc123', country: 'VN', ok: 1 }, { at: NOW - 60e3, email: 'stranger@example.com', op: 'overview', ip: 'ff00', country: 'US', ok: 0 }] },
   services: { rows: [{ id: 1, name: 'Cloudflare Pages', purpose: 'Hosting', account: 'ops@example.com', status: 'active', console: 'https://dash.cloudflare.com', free: '500 builds', secret: '', note: '' }] },
 };
+// Backlink, PR & Thương hiệu (/api/backlinks) – có dữ liệu độc để thử chống XSS
+const EVIL = '<img src=x onerror="window.__pwn=1">';
+const BFX = {
+  list: { configured: { ci: true, dispatch: true, mail: true }, run: { at: NOW - 3600e3, url: 'https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/1' },
+    placements: [
+      { id: 'medium', platform: 'Medium', type: 'article', url: 'https://medium.com/@lexkite/post', account: 'lexkite', status: 'live', expectLink: 'lexkite.com', expectedRel: 'nofollow', notes: '', submittedAt: '2026-10-17', history: [{ at: NOW - DAY, level: 'ok', state: 'ok' }, { at: NOW, level: 'regression', state: 'removed', http: 404 }], last: { at: NOW, http: 404, final: 'https://medium.com/@lexkite/post', link: null, rel: null, noindex: null, title: EVIL, state: 'removed', level: 'regression', reasons: ['removed'], change: NOW } },
+      { id: 'evil', platform: EVIL, type: 'listing', url: 'javascript:alert(1)', account: 'x', status: 'pending', expectLink: 'lexkite.com', expectedRel: 'unknown', notes: EVIL, history: [], last: { at: NOW, http: 200, link: true, rel: 'follow', noindex: false, title: '', state: 'ok', level: 'change', reasons: ['listed'] } },
+      { id: 'devto', platform: 'dev.to', type: 'article', url: 'https://dev.to/u/p', account: 'u', status: 'live', expectLink: 'lexkite.com', expectedRel: 'unknown', notes: '', history: [{ at: NOW, level: 'ok', state: 'ok' }], last: { at: NOW, http: 200, link: true, rel: 'follow', noindex: false, state: 'ok', level: 'ok', reasons: [] } },
+      { id: 'peer', platform: 'Peerlist', type: 'profile', url: 'https://peerlist.io/lexkite', account: 'lexkite', status: 'live', expectLink: 'lexkite.com', expectedRel: 'unknown', notes: '', history: [], last: { at: NOW, http: 403, state: 'blocked', level: 'manual', reasons: ['blocked'] } },
+    ],
+    domains: [{ domain: 'lexkite.net', status: 'ok', ns: true, a: true, aaaa: false, mx: true, mxHosts: ['mx.phish.example'], ips: ['203.0.113.9'], level: 'regression', reasons: ['resolves', 'mx-added'], since: NOW, at: NOW }, { domain: 'lexkite.org', status: 'nx', level: 'ok', reasons: [], at: NOW }],
+    handles: [{ k: 'github:lexkiteapp', platform: 'github', handle: 'lexkiteapp', url: 'https://github.com/lexkiteapp', status: 'owned', notes: '', last: { state: 'ours', level: 'ok', reasons: [] } }, { k: 'x:lexkite', platform: 'x', handle: 'lexkite', url: 'https://x.com/lexkite', status: 'not-yet', notes: '', last: { state: 'unknown', level: 'manual', reasons: ['manual-only'] } }],
+    copy: { at: NOW, configured: true, probes: [{ url: 'https://lexkite.com/en/blog/a/', sentence: 'A distinctive sentence', suspects: [{ url: 'https://copycat.example.net/a', title: EVIL }] }] } },
+  checkNow: { ok: true }, placementSet: { ok: true }, handleSet: { ok: true }, domainAck: { ok: true }, export: { version: 1, placements: [{ id: 'devto' }] },
+};
 const html = rd('web/admin.html').replace(/<script[^>]*><\/script>/g, '').replace(/<link[^>]+>/g, '');
 const vc = new VirtualConsole(); vc.on('jsdomError', e => { if (!/Not implemented|Could not parse CSS/.test(e.message)) console.error('jsdom:', e.message); });
 const dom = new JSDOM(html, { url: 'https://lexkite.com/admin.html#settings', runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole: vc });
@@ -64,6 +79,7 @@ w.fetch = async (url, o = {}) => {
   const res = (j, s = 200) => ({ ok: s < 400, status: s, json: async () => j });
   if (/\/api\/admin/.test(url)) return FX[b.op] ? res(JSON.parse(JSON.stringify(FX[b.op]))) : res({ error: 'op' }, 400);
   if (/\/api\/drive/.test(url)) return res({ alerts: [{ level: 'warn', t: 'replica', p: { n: 17 } }] });
+  if (/\/api\/backlinks/.test(url)) return BFX[b.op] ? res(JSON.parse(JSON.stringify(BFX[b.op]))) : res({ error: 'op' }, 400);
   return res({}, 404);
 };
 const USER = { email: 'admin@example.com', getIdToken: async () => 'tok' };
@@ -74,6 +90,7 @@ w.FIREBASE_CONFIG = {}; w.firebase = { initializeApp() {}, auth: Object.assign((
 const seen = {};
 for (const n of ['AdminDrive', 'AdminKeys', 'AdminQuota', 'AdminSocial', 'AdminStudio']) w[n] = { render(box) { seen[n] = w.location.hash; box.innerHTML = `<div class="card" id="stub-${n}">stub</div>`; } };
 w.AdminReports = { render(box) { box.innerHTML = '<div class="card" id="stub-rep">stub</div>'; }, card(box) { box.innerHTML = '<div class="card">reports card</div>'; } };
+w.eval(rd('web/js/admin-backlinks.js'));
 w.eval(ADM);
 await tick(80);
 const h1 = () => ($('.pg-t') || {}).textContent;
@@ -88,7 +105,7 @@ const leak = where => { const m = visible().match(new RegExp(`[^\\s]*${VI.source
 
 // ---------- 1) Khung + thanh bên ----------
 ok(d.body.classList.contains('adm-in') && !$('#side').hidden, 'đăng nhập → hiện thanh bên');
-ok($$('#tabs .side-g').length === 6 && $$('#tabs a[data-tab]').length === 14, 'thanh bên: 6 nhóm, 14 mục');
+ok($$('#tabs .side-g').length === 6 && $$('#tabs a[data-tab]').length === 15, 'thanh bên: 6 nhóm, 15 mục');
 ok($$('#tabs .side-h').map(x => x.textContent).join('|') === 'Overview|Users|Quality|Content & Video|System', 'tên nhóm EN: ' + $$('#tabs .side-h').map(x => x.textContent).join('|'));
 ok($('#tabs a[data-tab="quota"] .nav-l').textContent === 'Quotas', '"Hạn mức" dịch thành Quotas ở EN');
 ok($('#tabs a[aria-current="page"]').dataset.tab === 'settings' && h1() === 'Settings', 'mở thẳng #settings → mục Cài đặt đang chọn');
@@ -215,10 +232,41 @@ $('#tabs a[data-tab="inbox"]').click(); await tick(40);
 ok($('.err-box [data-retry]'), 'API lỗi → hộp lỗi có nút Thử lại'); FX.inbox = fx;
 $('.err-box [data-retry]').click(); await tick(40); ok(!$('.err-box') && /Hello there/.test($('#main').textContent), 'Thử lại → tải được');
 
+// ---------- Backlink, PR & Thương hiệu ----------
+$('#tabs a[data-tab="backlinks"]').click(); await tick(80);
+{
+  const m = $('#main'), rowsT = () => [...m.querySelectorAll('#bwT tbody tr')];
+  ok(h1() === 'Backlinks, PR & Brand' && rowsT().length === 4, 'tab Backlink: tiêu đề EN + 4 dòng');
+  ok(rowsT()[0].dataset.id === 'medium' && rowsT()[0].classList.contains('bad-row') && /removed \/ 404/.test(rowsT()[0].textContent), 'sự cố lên đầu, tô đỏ, lý do EN');
+  ok(m.querySelectorAll('#bwT .bw-h').length === 3 && /Incidents: 2/.test(m.textContent), 'lịch sử dạng vạch + đếm sự cố (bài + tên miền)');
+  ok(!m.querySelector('#bwT img') && !m.querySelector('a[href^="javascript"]') && !w.__pwn, 'dữ liệu độc không thành HTML, link javascript: bị chặn');
+  ok(m.querySelector('[data-live="evil"]') && m.querySelector('[data-play="peer"]'), 'nút Đánh dấu live (pending đã lên) + Cách xử lý (kiểm tay)');
+  const fl = m.querySelector('#bwFl'); fl.value = 'manual'; fl.dispatchEvent(new w.Event('change')); ok(rowsT().length === 1 && rowsT()[0].dataset.id === 'peer', 'lọc theo kết quả');
+  fl.value = ''; fl.dispatchEvent(new w.Event('change')); input(m.querySelector('#bwFq'), 'dev.to'); ok(rowsT().length === 1, 'ô tìm'); input(m.querySelector('#bwFq'), '');
+  leak('#backlinks');
+  m.querySelector('[data-play="medium"]').click(); await tick();
+  ok(/Appeal/.test(m.querySelector('#bwTpl').value) && m.querySelector('#bwPlay a[href="https://help.medium.com/hc/en-us/requests/new"]'), 'Cách xử lý bài bị gỡ: mẫu khiếu nại + trang hỗ trợ Medium');
+  m.querySelector('[data-cplay]').click(); await tick();
+  const dm = m.querySelector('#bwTpl').value; ok(/DMCA Takedown Notice/.test(dm) && dm.includes('https://copycat.example.net/a') && dm.includes('https://web.archive.org/web/*/https://lexkite.com/en/blog/a/') && /\[Full legal name\]/.test(dm), 'mẫu DMCA điền sẵn URL gốc + Wayback + URL vi phạm, chừa trống tên');
+  m.querySelector('#bwCopy').click(); await tick(); ok(copied === dm, 'sao chép mẫu');
+  m.querySelector('[data-dplay="lexkite.net"]').click(); await tick();
+  ok(/Abuse report/.test(m.querySelector('#bwTpl').value) && /mx\.phish\.example/.test(m.querySelector('#bwTpl').value) && m.querySelector('#bwPlay a[href*="lookup.icann.org"]'), 'tên miền na ná: mẫu báo lạm dụng có MX + ICANN Lookup');
+  leak('#backlinks cách xử lý');
+  m.querySelector('[data-ack="lexkite.net"]').click(); await tick(40); ok(lastCall('domainAck').b.domain === 'lexkite.net', 'Đã xem tên miền');
+  $('#bwNow').click(); await tick(); ok(lastCall('checkNow'), 'Kiểm ngay → checkNow');
+  $('#bwAdd').click(); await tick();
+  const f = $('#bwForm'); f.querySelector('[name=id]').value = 'new-one'; f.querySelector('[name=platform]').value = 'Indie Hackers'; f.querySelector('[name=url]').value = 'https://www.indiehackers.com/product/lexkite'; f.querySelector('[name=account]').value = 'me@gmail.com';
+  f.querySelector('#bwSave').click(); await tick(); ok(/No emails here/.test(f.querySelector('#bwErr').textContent) && !lastCall('placementSet'), 'biểu mẫu: chặn email');
+  f.querySelector('[name=account]').value = 'lexkite'; f.querySelector('#bwSave').click(); await tick(40);
+  const ps = lastCall('placementSet'); ok(ps && ps.b.isNew && ps.b.row.id === 'new-one' && ps.b.row.status === 'pending', 'biểu mẫu: gửi placementSet');
+  $('#main [data-live="evil"]').click(); await tick(40); ok(lastCall('placementSet').b.row.status === 'live' && lastCall('placementSet').b.row.id === 'evil', 'Đánh dấu live');
+  const own = $('#main [data-own="x:lexkite"]'); own.checked = true; own.dispatchEvent(new w.Event('change')); await tick(40); ok(lastCall('handleSet').b.row.status === 'owned', 'tích Đã giữ → handleSet owned');
+}
+
 // ---------- axe (WCAG 2 A/AA) ----------
 w.eval(fs.readFileSync(require.resolve('axe-core'), 'utf8'));
 const OFF = { 'color-contrast': { enabled: false }, region: { enabled: false } };
-for (const t of ['overview', 'settings', 'alerts', 'users']) {
+for (const t of ['overview', 'settings', 'alerts', 'users', 'backlinks']) {
   $(`#tabs a[data-tab="${t}"]`).click(); await tick(60);
   const r = await w.axe.run(d, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'] }, rules: OFF });
   const bad = r.violations.filter(v => v.impact === 'serious' || v.impact === 'critical');

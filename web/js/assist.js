@@ -79,7 +79,7 @@
         out.innerHTML = `<div class="wa-list" style="margin-top:.6rem">${vs.map((v, i) => `<div class="wa-it"><span class="wa-tag" style="background:#2563eb">${esc(v.style || '')}</span><div style="margin:.3rem 0">${esc(v.text)}</div><div class="tiny muted">${esc(v.note || '')}</div><div class="row" style="margin-top:.3rem"><button class="btn sm" data-use="${i}">${t('Dùng câu này')}</button><button class="ctx-say sm" data-saysent="${esc(v.text)}">🔊</button></div></div>`).join('') || `<div class="small muted">${t('Không có kết quả.')}</div>`}</div>`;
         $$('[data-use]', out).forEach(x => x.onclick = () => { const v = vs[+x.dataset.use].text; ta.value = ta.value.slice(0, a) + v + ta.value.slice(b); ta.dispatchEvent(new Event('input', { bubbles: true })); toast(t('Đã thay câu')); });
       } catch (e) {
-        out.innerHTML = `<div class="small" style="margin-top:.6rem">❌ ${esc(AI.errText ? AI.errText(e) : e.message)} ${e.message === 'NO_KEY' ? `<button class="btn sm" data-k>${t('Bật AI')}</button>` : ''}</div>`;
+        out.innerHTML = `<div class="small" style="margin-top:.6rem">❌ ${esc(AI.errText ? AI.errText(e) : e.message)} ${e.message === 'BAD_KEY' ? `<button class="btn sm" data-k>${t('Nhập khóa')}</button>` : ''}</div>`;
         const k = $('[data-k]', out); if (k) k.onclick = () => AI.keyDialog();
       }
     };

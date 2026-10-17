@@ -464,19 +464,18 @@
         const vocab = looks.filter(Boolean);
         out.innerHTML = `${vocab.length ? `<div class="st-box"><b class="small">📚 ${t('Từ vựng quan trọng')}</b>${vocab.map(v => `<div class="st-row"><b>${esc(v.w)}</b> <span class="muted small">${esc(v.ipa)} ${esc(v.pos)}</span><div class="small">${esc(v.vi)}</div></div>`).join('')}</div>` : ''}<div data-ai2></div>`;
         place(pop, info.rect);
-        // 2) Giải thích sâu bằng AI chỉ khi thật sự sẵn sàng (khóa Gemini / AI Chrome đã tải) – không bao giờ treo vì tải ngầm
+        // 2) Giải thích sâu bằng AI miễn phí (không đòi khóa); mất mạng → báo rõ + đề nghị tải AI của Chrome
         const box = $('[data-ai2]', out);
         const run = async () => {
           box.innerHTML = `<div class="small muted">⏳ ${t('AI đang phân tích…')}</div>`;
-          try { box.innerHTML = AI.renderExplain(await AI.explain(info.text, info.sentence)); } catch (e) { box.innerHTML = `<div class="small">❌ ${esc(AI.errText(e))}</div>`; }
+          try { box.innerHTML = AI.renderExplain(await AI.explain(info.text, info.sentence)); } catch (e) { box.innerHTML = `<div class="small">⚠️ ${esc(AI.errText(e))}</div>`; }
           place(pop, info.rect);
         };
         if (!window.AI) { btn.disabled = false; return; }
         const key = await AI.getKey(), st = key ? 'key' : await AI.nanoStatus();
-        if (key || st === 'available') await run();
-        else box.innerHTML = `<div class="tip small" style="margin-top:.5rem">🤖 ${t('Muốn AI giải thích ngữ pháp, cấu trúc & cách dùng? Chọn 1 cách miễn phí:')}
-          <div class="row" style="gap:.4rem;margin-top:.4rem"><button class="btn sm primary" data-k>🔑 ${t('Dùng khóa Gemini (miễn phí, 1 phút)')}</button>${st === 'downloadable' || st === 'downloading' ? `<button class="btn sm" data-dl>⬇️ ${t('Tải AI của Chrome (~2GB, 1 lần)')}</button>` : ''}</div></div>`;
-        const k = $('[data-k]', box); if (k) k.onclick = () => AI.keyDialog(run);
+        if (key || st === 'available' || navigator.onLine !== false) await run();
+        else box.innerHTML = `<div class="tip small" style="margin-top:.5rem">${t('AI không dùng được khi ngoại tuyến – kết nối mạng rồi thử lại.')}
+          ${st === 'downloadable' || st === 'downloading' ? `<div class="row" style="gap:.4rem;margin-top:.4rem"><button class="btn sm" data-dl>⬇️ ${t('Tải AI của Chrome (~2GB, 1 lần)')}</button></div>` : ''}</div>`;
         const dl = $('[data-dl]', box); if (dl) dl.onclick = () => { dl.disabled = true; AI.onNanoProgress && AI.onNanoProgress(p => { dl.textContent = `⬇️ ${Math.round(p * 100)}%`; }); run(); };
         btn.disabled = false;
       };

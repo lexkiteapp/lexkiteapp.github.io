@@ -1,6 +1,7 @@
 /* API trang quản trị (/admin.html). Chỉ email trong biến bí mật ADMIN_EMAILS (Cloudflare Pages) được dùng.
  * POST /api/admin  (Authorization: Bearer <Firebase ID token>)  { op, ... }
- * op: usage · services · serviceSet · serviceDelete · overview · users · usersExport · user · userDelete · inbox · inboxMark · analytics · live · growth · errors · errorsClear · config · configSet · alerts */
+ * op: usage · services · serviceSet · serviceDelete · overview · users · usersExport · user · userDelete · inbox · inboxMark · analytics · live · growth · errors · errorsClear · config · configSet · alerts
+ * (alerts gồm cả Backlink, PR & Thương hiệu – bảng bw_* do functions/api/backlinks.js ghi) */
 import { claims, limit } from './sync.js';
 import { geminiKeys, geminiCall, isCooling, resetGeminiCache, gemFetch } from './ai.js';
 import { setup as hitSetup, dayOf as vday, TZ } from './hit.js';
@@ -348,6 +349,22 @@ const OPS = {
     out.push({ kind: 'inbox', name: tx(b, 'Tin nhắn chưa xử lý', 'Open messages'), ok: !c.n || now - c.oldest < 2 * DAY, conclusion: c.n ? tx(b, `${c.n} tin, cũ nhất ${oldH} giờ`, `${c.n} message(s), oldest ${oldH}h`) : tx(b, 'không có', 'none') });
     const f = await one(db, 'SELECT COUNT(*) AS n FROM contact_msgs WHERE sent = 0 AND at > ?', now - 7 * DAY);
     out.push({ kind: 'mail', name: tx(b, 'Thư chuyển tiếp lỗi (7 ngày)', 'Failed email forwards (7 days)'), ok: !f.n, conclusion: f.n ? tx(b, `${f.n} tin chưa chuyển được vào Gmail – xem Hộp thư`, `${f.n} message(s) not forwarded to Gmail – see Inbox`) : tx(b, 'ổn', 'OK') });
+    // Backlink, PR & Thương hiệu (functions/api/backlinks.js, workflow pr-check.yml): đỏ khi có sự cố, vàng khi có thay đổi cần cập nhật / lâu chưa kiểm
+    try {
+      const P = await all(db, "SELECT last_level AS l, COUNT(*) AS n FROM bw_placements WHERE deleted = 0 AND last_level IS NOT NULL GROUP BY l"), pn = l => (P.find(r => r.l === l) || {}).n || 0;
+      const run = JSON.parse((await one(db, "SELECT v FROM config WHERE k = 'bw_run'")).v || 'null'), BW = '/admin.html#backlinks';
+      if (P.length || run) {
+        const stale = !run || now - run.at > 3 * DAY;
+        out.push({ kind: 'backlink', name: tx(b, 'Backlink & PR', 'Backlinks & PR'), ok: !pn('regression'), warn: !pn('regression') && (pn('change') > 0 || stale), url: BW, at: run ? run.at : 0,
+          conclusion: pn('regression') ? tx(b, `${pn('regression')} mục bị gỡ / mất link / tụt rel`, `${pn('regression')} item(s) removed / link lost / rel downgraded`) : stale ? tx(b, 'quá 3 ngày chưa kiểm', 'not checked for over 3 days') : pn('change') ? tx(b, `${pn('change')} thay đổi cần cập nhật`, `${pn('change')} change(s) to review`) : tx(b, 'ổn', 'OK') });
+        const dn = (await one(db, "SELECT COUNT(*) AS n FROM bw_domains WHERE level = 'regression'")).n || 0, hn = (await one(db, "SELECT COUNT(*) AS n FROM bw_handles WHERE deleted = 0 AND last_level = 'regression'")).n || 0;
+        out.push({ kind: 'brand', name: tx(b, 'Thương hiệu: tên miền na ná & tài khoản', 'Brand: lookalike domains & accounts'), ok: !dn && !hn, url: BW, at: run ? run.at : 0,
+          conclusion: dn || hn ? tx(b, `${dn} tên miền mới phân giải/có MX · ${hn} tài khoản mất`, `${dn} lookalike domain(s) newly resolving/with MX · ${hn} account(s) missing`) : tx(b, 'ổn', 'OK') });
+      }
+      const copy = JSON.parse((await one(db, "SELECT v FROM config WHERE k = 'bw_copy'")).v || 'null');
+      if (copy) { const sus = (copy.probes || []).reduce((a, p) => a + (p.suspects || []).length, 0);
+        out.push({ kind: 'copy', name: tx(b, 'Nghi bị chép nội dung', 'Suspected content copies'), ok: !sus, url: BW, at: copy.at, conclusion: copy.configured === false ? tx(b, 'chưa bật dò tự động (BRAVE_SEARCH_KEY)', 'auto search off (BRAVE_SEARCH_KEY)') : sus ? tx(b, `${sus} trang ngoài chứa nguyên văn`, `${sus} external page(s) with verbatim text`) : tx(b, 'không thấy', 'none found') }); }
+    } catch (e) { /* chưa có bảng bw_* (chưa chạy lần nào) */ }
     const u = await OPS.usage(db, b);
     for (const m of u.meters) out.push({ kind: 'capacity', name: m.name, ok: m.pct < 70, warn: m.pct >= 70 && m.pct < 90, conclusion: tx(b, `${m.pct}% hạn mức miễn phí`, `${m.pct}% of free tier`) });
     return { rows: out };

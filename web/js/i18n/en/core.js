@@ -209,4 +209,7 @@
   'Đã hết lượt miễn phí hôm nay – mở lại lúc {time}.': "You've used today's free limit – it resets at {time}.",
   'Máy chủ đang bận – thử lại sau ít phút.': 'The server is busy – please try again in a few minutes.',
   'Đăng nhập để có thêm lượt.': 'Sign in to get more.',
+  'Khóa Gemini riêng (không bắt buộc)': 'Your own Gemini key (optional)',
+  'Không bắt buộc – Lexkite đã có AI miễn phí, không cần khóa. Thêm khóa Gemini miễn phí của riêng bạn nếu muốn dùng nhiều lượt hơn mức miễn phí mỗi ngày.': 'Optional – Lexkite already includes free AI, no key needed. Add your own free Gemini key only if you want more uses than the daily free limit.',
+  'Thêm khóa Gemini riêng (không bắt buộc)': 'Add your own Gemini key (optional)',
 }); })(typeof self !== 'undefined' ? self : this);

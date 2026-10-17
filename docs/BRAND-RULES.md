@@ -9,6 +9,11 @@
 | Mạng xã hội | `brand/social/` (dựng bằng `scripts/build-social-kit.mjs`) | đọc Kit từ kit.js |
 | Trang trình bày brand | `brand/brand-kit.html` | nạp `../web/js/kit.js` |
 
+## Nhãn hiệu "Lexkite™"
+- Chủ sở hữu: **MODIAN LUXURY JEWELRY LLC** (chưa đăng ký → dùng **™**, không dùng ®).
+- Chỉ gắn ™ ở: (1) lần nhắc nổi bật đầu tiên trong văn bản pháp lý (Điều khoản: "Lexkite™ is operated by…") và điều khoản nhãn hiệu `#trademarks` (`content/legal/{en,vi}/terms.html` → `node scripts/build-legal.mjs`); (2) chân trang: đoạn giới thiệu + dòng "Lexkite™ is a trademark of …" 15 ngôn ngữ – nguồn duy nhất `TM_NOTE`/`tmFirst` trong `scripts/lib/site-layout.mjs` (landing, blog, trang SEO, pháp lý); (3) chân trang chào mừng của app (`t('Lexkite™ là nhãn hiệu của {owner}.')`, bản dịch tay `scripts/i18n-fixed.json`).
+- **Không** đổi logo/wordmark/icon, không thêm ™ vào `<title>`, tiêu đề, nút hay mọi lần nhắc tên trong bài. `brand-check.mjs` kiểm.
+
 ## Bảng màu
 Teal đậm **#0F3D3E** (chủ đạo) · teal phụ #17595A · cam **#E5502F** / #F2553B · vàng cam #FFB054 · vàng #FFC94A / #FFD36A · má hồng #FF8FA3 · kem #FFF7EA / #FFE7C2 · xanh thành công #2FBF71.
 

@@ -164,7 +164,7 @@
         out.innerHTML = `<div class="ai-ex small" translate="no"><p style="margin:.2rem 0">${esc(r.explain || '')}</p>${r.corrected ? `<p style="margin:.3rem 0">✓ <b lang="en">${esc(r.corrected)}</b></p>` : ''}${(r.examples || []).slice(0, 3).map(e => `<div lang="en">• ${esc(e)}</div>`).join('')}${r.tip ? `<p style="margin:.4rem 0 0">💡 ${esc(r.tip)}</p>` : ''}</div>`;
       } catch (e) {
         if (e.message === 'PROXY_QUOTA') UI.quota(e.q);
-        out.innerHTML = `<p class="small">⚠️ ${esc(e.message === 'PROXY_QUOTA' ? UI.quotaText(e.q) : AI.errText(e))}${e.message === 'NO_KEY' || e.message === 'BAD_KEY' ? ` <button type="button" class="btn sm" id="fxKey">${t('Bật AI')}</button>` : ''}</p>`;
+        out.innerHTML = `<p class="small">⚠️ ${esc(e.message === 'PROXY_QUOTA' ? UI.quotaText(e.q) : AI.errText(e))}${e.message === 'BAD_KEY' ? ` <button type="button" class="btn sm" id="fxKey">${t('Nhập khóa')}</button>` : ''}</p>`;
         const k = $('#fxKey'); if (k) k.onclick = () => AI.keyDialog();
       } finally { btn.disabled = false; }
     }

@@ -238,6 +238,23 @@
     if (r) trCache.set(k, r);
     return r;
   }
+  // Dịch đoạn chưa rõ ngôn ngữ → { text, src, tl, same }: nguồn trùng đích → sang tiếng Anh; EN→EN → same; Google lỗi → hint + dự phòng
+  const baseLang = l => String(l || '').toLowerCase().split('-')[0];
+  async function translateAuto(text, tl = 'vi', hint = '') {
+    text = String(text || '').trim();
+    if (!text) return { text: '', src: baseLang(hint), tl };
+    const gtx = async (sl, to) => { const d = await fetchJSON(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${encodeURIComponent(to)}&dj=1&dt=t&q=${encodeURIComponent(text)}`); return d ? { t: (d.sentences || []).map(x => x.trans || '').join('').trim(), src: baseLang(d.src) } : null; };
+    const fallback = async (to, sl) => (sl && sl !== 'auto' ? (await deviceTranslate(text, to, sl)) || (await myMemory(text, to, sl)) : '');
+    const r = await gtx('auto', tl), src = (r && r.src) || baseLang(hint);
+    if (src && src === baseLang(tl)) {
+      if (src === 'en') return { text: '', src, tl, same: true };
+      const r2 = await gtx(src, 'en');
+      return { text: (r2 && r2.t) || (await fallback('en', src)) || '', src, tl: 'en' };
+    }
+    let out = (r && r.t) || (await fallback(tl, src));
+    if (out && tl === 'vi') out = fixVi(out);
+    return { text: out || '', src: src || '', tl };
+  }
 
   // Ảnh minh họa từ Openverse (kho ảnh Creative Commons): ưu tiên CC0/phạm vi công cộng, sau đó giấy phép cho phép dùng thương mại.
   // Trả về { src, credit, link, license } – luôn hiển thị ghi nguồn theo giấy phép.
@@ -451,5 +468,5 @@
     }
     return null;
   }
-  g.Dict = { translateTo, myMemory, ipaGuess, lookup, quick, translateVi, wikiImage, freeImage, sentences, normWord, fixVi, fixDeep };
+  g.Dict = { translateTo, translateAuto, myMemory, ipaGuess, lookup, quick, translateVi, wikiImage, freeImage, sentences, normWord, fixVi, fixDeep };
 })(typeof self !== 'undefined' ? self : this);

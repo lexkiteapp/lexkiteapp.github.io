@@ -324,7 +324,7 @@ Return ONLY JSON: {"score": number (holistic task score on a 0-5 scale, may use 
           <div class="tiny muted" style="margin-top:.4rem">${t('Nhận xét do AI tạo, chỉ để tham khảo – không phải điểm chính thức của ETS.')}</div></div>`;
         App.reward({ xp: 5 });
       } catch (e) {
-        out.innerHTML = `<div class="card small">❌ ${esc(AI.errText ? AI.errText(e) : e.message)} ${e.message === 'BAD_KEY' || e.message === 'NO_KEY' ? `<button class="btn sm" data-k>${t('Nhập khóa')}</button>` : ''}</div>`;
+        out.innerHTML = `<div class="card small">❌ ${esc(AI.errText ? AI.errText(e) : e.message)} ${e.message === 'BAD_KEY' ? `<button class="btn sm" data-k>${t('Nhập khóa')}</button>` : ''}</div>`;
         const k = $('[data-k]', out); if (k) k.onclick = () => AI.keyDialog(go);
       }
       ai.disabled = false;

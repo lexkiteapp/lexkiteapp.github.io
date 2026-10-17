@@ -110,6 +110,27 @@ const ABOUT = { vi: 'gioi-thieu', en: 'about', es: 'acerca-de', pt: 'sobre', fr:
 export const appHref = lang => lang === 'vi' ? '/app/' : `/app/?hl=${lang}`;
 export const landingHref = lang => lang === 'vi' ? '/' : `/${lang}/`;
 // lang: ngôn ngữ trang; text/tm: câu giới thiệu + ghi chú nhãn hiệu (theo ngôn ngữ); langHref(l): link bản ngôn ngữ l (mặc định trang chủ blog l)
+// Ghi chú nhãn hiệu (docs/BRAND-RULES.md § Nhãn hiệu): "Lexkite™" chỉ ở lần nhắc nổi bật đầu tiên + chân trang/pháp lý – không đổi logo/wordmark
+export const TM_OWNER = 'MODIAN LUXURY JEWELRY LLC';
+export const TM_NOTE = {
+  vi: `Lexkite™ là nhãn hiệu của ${TM_OWNER}.`,
+  en: `Lexkite™ is a trademark of ${TM_OWNER}.`,
+  es: `Lexkite™ es una marca de ${TM_OWNER}.`,
+  pt: `Lexkite™ é uma marca de ${TM_OWNER}.`,
+  fr: `Lexkite™ est une marque de ${TM_OWNER}.`,
+  de: `Lexkite™ ist eine Marke der ${TM_OWNER}.`,
+  id: `Lexkite™ adalah merek dagang ${TM_OWNER}.`,
+  th: `Lexkite™ เป็นเครื่องหมายการค้าของ ${TM_OWNER}`,
+  zh: `Lexkite™ 是 ${TM_OWNER} 的商标。`,
+  ja: `Lexkite™ は ${TM_OWNER} の商標です。`,
+  ko: `Lexkite™는 ${TM_OWNER}의 상표입니다.`,
+  hi: `Lexkite™, ${TM_OWNER} का ट्रेडमार्क है।`,
+  ar: `Lexkite™ علامة تجارية لشركة ${TM_OWNER}.`,
+  ru: `Lexkite™ — товарный знак компании ${TM_OWNER}.`,
+  tr: `Lexkite™, ${TM_OWNER} şirketinin ticari markasıdır.`,
+};
+// Lần nhắc đầu trong đoạn giới thiệu chân trang: "Lexkite – …" → "Lexkite™ – …" (không thêm nếu đã có)
+export const tmFirst = s => String(s || '').replace(/Lexkite(?!™)/, 'Lexkite™');
 export const siteFooter = ({ lang = 'en', text = '', tm = '', year = new Date().getFullYear(), extra = [], langHref }) => {
   const f = FOOT[lang] || FOOT.en, app = appHref(lang), vi = lang === 'vi', lg = `/${lang in LANG_NAMES ? lang : 'en'}`;
   const col = (h, items) => `<div><h2>${h}</h2><ul>${items.map(([u, n]) => `<li><a href="${u}">${n}</a></li>`).join('')}</ul></div>`;
@@ -117,8 +138,8 @@ export const siteFooter = ({ lang = 'en', text = '', tm = '', year = new Date().
   const res = [[`${lg}/blog/`, f[5]], [vi ? '/tu-vung/' : '/en/vocabulary/', f[6]], ...(vi ? [['/ngu-phap/', f[9]]] : []), [vi ? '/samples/' : '/en/samples/', f[7]], [vi ? '/speaking/' : '/en/speaking/', f[8]], ...extra];
   const co = [[`${lg}/blog/${ABOUT[lang] || 'about'}/`, f[10]], [`${app}#/contact`, f[11]], [`${lg}/privacy`, f[12]], [`${lg}/terms`, f[13]], [`${lg}/privacy#cookies`, f[14]], [`${lg}/privacy#delete`, f[15]]];
   const langs = Object.entries(LANG_NAMES).map(([l, n]) => `<a href="${langHref ? langHref(l) : `/${l}/blog/`}" lang="${l}" hreflang="${l}"${l === lang ? ' aria-current="true"' : ''}>${n}</a>`).join('');
-  return `<footer class="site-foot"><div class="bar"><div class="fcols"><div class="fbrand"><a class="flogo" href="${landingHref(lang in LANG_NAMES ? lang : 'en')}"><img src="/icons/icon.svg?v=2" width="28" height="28" alt=""><span>lex<b>kite</b></span></a><p>${text}</p></div>${col(f[0], product)}${col(f[1], res)}${col(f[2], co)}</div>
-<nav class="flangs" aria-label="${f[16]}"><span aria-hidden="true">🌐</span>${langs}</nav><p class="ftm">${tm}</p><p class="ftm">© ${year} Lexkite</p></div></footer>`;
+  return `<footer class="site-foot"><div class="bar"><div class="fcols"><div class="fbrand"><a class="flogo" href="${landingHref(lang in LANG_NAMES ? lang : 'en')}"><img src="/icons/icon.svg?v=2" width="28" height="28" alt=""><span>lex<b>kite</b></span></a><p>${tmFirst(text)}</p></div>${col(f[0], product)}${col(f[1], res)}${col(f[2], co)}</div>
+<nav class="flangs" aria-label="${f[16]}"><span aria-hidden="true">🌐</span>${langs}</nav><p class="ftm">${tm}</p><p class="ftm">© ${year} Lexkite · ${TM_NOTE[lang] || TM_NOTE.en}</p></div></footer>`;
 };
 export const crumbsHtml = items => `<nav class="crumbs" aria-label="Breadcrumb">${items.map(([n, u], i) => i === items.length - 1 ? `<span aria-current="page">${esc(n)}</span>` : `<a href="${u}">${esc(n)}</a>`).join(' › ')}</nav>`;
 export const crumbsLd = (site, items) => ({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map(([name, u], i) => ({ '@type': 'ListItem', position: i + 1, name, item: site + u })) });

@@ -187,7 +187,16 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
   }
 });
 
-// ---------- Giải thích sâu bằng AI (Gemini, khóa của chính người dùng – lưu trong chrome.storage.local 'aiKey') ----------
+// ---------- 🤖 Giải thích sâu bằng AI – miễn phí, KHÔNG bắt buộc khóa ----------
+// Thứ tự: (a) AI có sẵn trong Chrome (Gemini Nano, trên máy) nếu ĐÃ tải sẵn – không bao giờ tự tải ngầm ~2 GB
+//         (content.js chạy Nano ngay trong tab rồi gửi kết quả qua msg.local; ở đây thử thêm self.LanguageModel nếu service worker có)
+//         (b) AI miễn phí của Lexkite (POST https://lexkite.com/api/ai, hạn mức theo mã thiết bị ẩn danh – functions/api/_quota.js)
+//         (c) khóa Gemini riêng của người dùng (tùy chọn nâng cao, chrome.storage.local 'aiKey') – khi (b) hết lượt/lỗi
+//         (d) tất cả không được → mã lỗi thân thiện: QUOTA_DAY (hết lượt hôm nay) · BUSY (bận, thử lại sau ít phút) · OFFLINE · FAILED.
+// Không bao giờ trả 'NO_KEY': người dùng không cần khóa. Trả thêm nano: 'downloadable'|'downloading' để bảng đề nghị bật AI trên máy (1 chạm).
+const AI_URL = 'https://lexkite.com/api/ai';
+const AI_SYS = 'You are an expert English teacher helping IELTS/TOEIC learners understand English in context. Be accurate and concise. Return ONLY one valid JSON object matching the requested schema.';
+const NANO_OPTS = { expectedInputs: [{ type: 'text', languages: ['en'] }], expectedOutputs: [{ type: 'text', languages: ['en'] }] };
 async function aiModels(key) {
   const { aiModels: c } = await chrome.storage.local.get('aiModels');
   if (c && c.k === key.slice(-6) && Date.now() - c.at < 3 * 864e5 && c.list && c.list.length) return c.list;
@@ -204,45 +213,93 @@ async function aiModels(key) {
     return out;
   } catch (e) { return base; }
 }
-const EX_PROMPT = (text, sentence, lang) => `Explain the English expression for a ${lang} IELTS/TOEIC learner. Expression: "${text}"${sentence && sentence !== text ? `\nSentence it appears in: "${sentence}"` : ''}
-Return ONLY JSON: {"meaning": string (${lang} meaning in THIS context), "structure": [{"pattern": string, "explain": string (${lang})}] (1-3 items), "grammar": string (${lang}), "collocations": [string] (3-5 natural English collocations), "examples": [{"en": string, "vi": string}] (2 examples), "tip": string (${lang}: how to use it in exams)}`;
-async function aiExplain(text, sentence, targetLang = UI_LANG) {
-  const { aiKey, settings } = await chrome.storage.local.get(['aiKey', 'settings']);
-  const trLang = targetLang === 'en' ? 'vi' : (targetLang.split('-')[0] || 'vi');
-  const langName = XLANG_NAMES[targetLang] || XLANG_NAMES[trLang] || 'Vietnamese';
-  // Không có khóa → AI có sẵn trong Chrome (Gemini Nano, trên máy, miễn phí)
-  const LM = self.LanguageModel;
-  const nano = async () => {
-    const opts = { expectedInputs: [{ type: 'text', languages: ['en'] }], expectedOutputs: [{ type: 'text', languages: ['en'] }] };
-    const av = await LM.availability(opts); if (av !== 'available') return null; // chưa tải sẵn → không tự tải ngầm ~2GB (tránh treo)
-    const LIM = (p, ms) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms))]);
-    const s = await LIM(LM.create(opts), 15000);
-    try {
-      const out = await LIM(s.prompt(EX_PROMPT(text, sentence, 'English') + '\nReturn only JSON.'), 25000);
-      const j = JSON.parse(String(out).replace(/^[^{]*/, '').replace(/[^}]*$/, ''));
-      const slots = [['meaning'], ['grammar'], ['tip']].filter(([k]) => j[k]).map(([k]) => [j, k, j[k]]);
-      (j.structure || []).forEach(x => x.explain && slots.push([x, 'explain', x.explain]));
-      (j.examples || []).forEach(x => x.en && slots.push([x, 'vi', x.en]));
-      const trans = (await (trLang === 'vi' ? Dict.translateVi(slots.map(x => String(x[2]).replace(/\n/g, ' ')).join('\n')) : Dict.translateTo(slots.map(x => String(x[2]).replace(/\n/g, ' ')).join('\n'), trLang))).split('\n');
-      slots.forEach(([o, k], i) => { if (trans[i]) o[k] = trans[i].trim(); });
-      return { result: j };
-    } finally { try { s.destroy(); } catch (e) { /* bỏ qua */ } }
-  };
-  if (!aiKey) { if (LM) { try { const r = await nano(); if (r) return r; } catch (e) { /* không hỗ trợ */ } } return { error: 'NO_KEY' }; }
+const EX_PROMPT = (text, sentence, lang) => `Explain the English expression for a ${lang}-speaking IELTS/TOEIC learner. Expression: "${text}"${sentence && sentence !== text ? `\nSentence it appears in: "${sentence}"` : ''}
+Return ONLY JSON: {"meaning": string (${lang} meaning in THIS context), "structure": [{"pattern": string, "explain": string (${lang})}] (1-3 items), "grammar": string (${lang}), "collocations": [string] (3-5 natural English collocations), "examples": [{"en": string, "vi": string (${lang} translation)}] (2 examples), "tip": string (${lang}: how to use it in exams)}`;
+const parseAiJson = s => { const x = String(s || '').replace(/^```(json)?|```$/g, '').trim(); try { return JSON.parse(x); } catch (e) { const m = x.match(/\{[\s\S]*\}/); return m ? JSON.parse(m[0]) : null; } };
+const okExplain = j => !!(j && typeof j === 'object' && (j.meaning || (j.structure || []).length || j.grammar));
+// Mã thiết bị ngẫu nhiên (không chứa thông tin cá nhân) – hạn mức AI miễn phí cho khách, cùng định dạng mã khách của web (UI.dev)
+async function deviceId() {
+  let d = (await chrome.storage.local.get('lk.dev'))['lk.dev'];
+  if (!/^[a-z0-9]{16,64}$/.test(d || '')) { d = [...crypto.getRandomValues(new Uint8Array(20))].map(b => (b % 36).toString(36)).join(''); await chrome.storage.local.set({ 'lk.dev': d }); }
+  return d;
+}
+async function nanoState() { const LM = self.LanguageModel; if (!LM || !LM.availability) return 'none'; try { return await LM.availability(NANO_OPTS); } catch (e) { return 'none'; } }
+// Kết quả tiếng Anh của AI trên máy → dịch phần giải thích + câu ví dụ sang ngôn ngữ người học (1 lượt dịch gộp)
+async function localizeExplain(j, targetLang) {
+  const tl = String(targetLang || 'vi');
+  (j.examples || []).forEach(x => { if (x && !x.vi) x.vi = ''; });
+  if (tl === 'en') return j;
+  const slots = [['meaning'], ['grammar'], ['tip']].filter(([k]) => j[k]).map(([k]) => [j, k, j[k]]);
+  (j.structure || []).forEach(x => x && x.explain && slots.push([x, 'explain', x.explain]));
+  (j.examples || []).forEach(x => x && x.en && slots.push([x, 'vi', x.en]));
+  if (!slots.length) return j;
+  try {
+    const src = slots.map(x => String(x[2]).replace(/\n/g, ' ')).join('\n');
+    const trans = String((tl === 'vi' ? await Dict.translateVi(src) : await Dict.translateTo(src, tl)) || '').split('\n');
+    slots.forEach(([o, k], i) => { if (trans[i] && trans[i].trim()) o[k] = trans[i].trim(); });
+  } catch (e) { /* giữ bản tiếng Anh */ }
+  return j;
+}
+const NANO_PROMPT = (text, sentence) => `Explain the English expression for an English learner. Expression: "${text}"${sentence && sentence !== text ? `\nSentence it appears in: "${sentence}"` : ''}
+Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), "structure": [{"pattern": string, "explain": string}] (1-3 items), "grammar": string, "collocations": [string] (3-5), "examples": [{"en": string}] (2), "tip": string (how to use it in exams)}`;
+const LIMIT = (p, ms) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms))]);
+async function nanoExplain(text, sentence) {
+  const s = await LIMIT(self.LanguageModel.create(NANO_OPTS), 15000);
+  try { const j = parseAiJson(await LIMIT(s.prompt(NANO_PROMPT(text, sentence)), 30000)); return okExplain(j) ? j : null; }
+  finally { try { s.destroy(); } catch (e) { /* bỏ qua */ } }
+}
+async function serverExplain(text, sentence, langName) {
+  if (navigator.onLine === false) return { error: 'OFFLINE' };
+  let r;
+  try { r = await fetch(AI_URL, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Lexkite-Device': await deviceId() }, signal: AbortSignal.timeout(45000), body: JSON.stringify({ prompt: EX_PROMPT(text, sentence, langName), sys: AI_SYS }) }); }
+  catch (e) { return { error: navigator.onLine === false ? 'OFFLINE' : 'FAILED' }; }
+  const j = await r.json().catch(() => ({}));
+  if (r.status === 429) return { error: j && j.msg === 'quota.daily' ? 'QUOTA_DAY' : 'BUSY' };
+  if (!r.ok || !okExplain(j && j.out)) return { error: r.status === 503 ? 'BUSY' : 'FAILED' };
+  const out = j.out; delete out._model;
+  return { result: out, left: typeof j.left === 'number' ? j.left : null, via: 'server' };
+}
+async function keyExplain(aiKey, text, sentence, langName, pref) {
   const found = await aiModels(aiKey);
-  const models = settings && settings.aiModel ? [settings.aiModel, ...found.filter(m => m !== settings.aiModel)] : found;
+  const models = pref ? [pref, ...found.filter(m => m !== pref)] : found;
   for (const m of models) {
     try {
       const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': aiKey }, signal: AbortSignal.timeout(25000), body: JSON.stringify({ contents: [{ role: 'user', parts: [{ text: EX_PROMPT(text, sentence, langName) }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0.2 } }) });
       if (r.status === 404) { await chrome.storage.local.set({ aiModels: null }); continue; }
+      if (!r.ok) return { error: r.status === 429 ? 'QUOTA' : r.status === 400 || r.status === 403 ? 'BAD_KEY' : 'FAILED' };
       const j = await r.json();
-      if (!r.ok) { if (r.status === 429 && LM) { try { const x = await nano(); if (x) return x; } catch (e) { /* bỏ qua */ } } return { error: r.status === 429 ? 'QUOTA' : r.status === 400 ? 'BAD_KEY' : 'FAILED' }; }
-      const t = ((((j.candidates || [])[0] || {}).content || {}).parts || []).map(p => p.text || '').join('');
-      return { result: JSON.parse(t.replace(/^```(json)?|```$/g, '').trim()) };
+      const out = parseAiJson(((((j.candidates || [])[0] || {}).content || {}).parts || []).map(p => p.text || '').join(''));
+      if (okExplain(out)) return { result: out, via: 'key' };
     } catch (e) { /* thử mẫu tiếp theo */ }
   }
-  if (LM) { try { const x = await nano(); if (x) return x; } catch (e) { /* bỏ qua */ } }
   return { error: 'FAILED' };
+}
+// Bộ nhớ đệm 30 lần giải thích gần nhất – bấm lại cùng đoạn không tốn lượt
+const exKey = (text, sentence, lang) => lang + '|' + text.slice(0, 300) + '|' + String(sentence || '').slice(0, 300);
+async function exCacheGet(k) { try { const { exCache } = await chrome.storage.local.get('exCache'); return (exCache || {})[k] || null; } catch (e) { return null; } }
+async function exCachePut(k, v) { try { const { exCache } = await chrome.storage.local.get('exCache'); const c = exCache || {}; c[k] = v; const ks = Object.keys(c); if (ks.length > 30) ks.slice(0, ks.length - 30).forEach(x => delete c[x]); await chrome.storage.local.set({ exCache: c }); } catch (e) { /* bỏ qua */ } }
+async function aiExplain(text, sentence, targetLang = UI_LANG, local = null) {
+  text = String(text || '').slice(0, 1500); sentence = String(sentence || '').slice(0, 600);
+  const lang = String(targetLang || 'vi'), langName = XLANG_NAMES[lang] || XLANG_NAMES[lang.split('-')[0]] || 'English', k = exKey(text, sentence, lang);
+  // (a) AI trên máy: kết quả content.js đã chạy trong tab, hoặc service worker tự chạy nếu Chrome hỗ trợ ở đây
+  if (local && okExplain(local)) { const result = await localizeExplain(local, lang); await exCachePut(k, { result, via: 'device' }); return { result, via: 'device' }; }
+  const hit = await exCacheGet(k); if (hit && hit.result) return { ...hit, cached: true };
+  const st = await nanoState();
+  if (st === 'available') { try { const j = await nanoExplain(text, sentence); if (j) { const result = await localizeExplain(j, lang); await exCachePut(k, { result, via: 'device' }); return { result, via: 'device' }; } } catch (e) { /* sang AI máy chủ */ } }
+  const nano = st === 'downloadable' || st === 'downloading' ? st : undefined;
+  // (b) AI miễn phí của Lexkite
+  const s = await serverExplain(text, sentence, langName);
+  if (s.result) { await exCachePut(k, { result: s.result, via: 'server' }); return { ...s, nano }; }
+  // (c) khóa Gemini riêng (tùy chọn) – chỉ khi máy chủ không trả lời được
+  const { aiKey, settings } = await chrome.storage.local.get(['aiKey', 'settings']);
+  if (aiKey && s.error !== 'OFFLINE') { const g = await keyExplain(aiKey, text, sentence, langName, settings && settings.aiModel); if (g.result) { await exCachePut(k, { result: g.result, via: 'key' }); return { ...g, nano }; } }
+  // (d) thông báo thân thiện – không bao giờ nhắc nhập khóa
+  return { error: s.error || 'FAILED', nano };
+}
+// Bật AI trên máy (người dùng bấm "Bật AI trên máy") khi content script không gọi được LanguageModel trong tab
+async function nanoEnable() {
+  const LM = self.LanguageModel; if (!LM || !LM.create) return { ok: false };
+  try { const s = await LIMIT(LM.create(NANO_OPTS), 600000); try { s.destroy(); } catch (e) { /* bỏ qua */ } return { ok: true }; } catch (e) { return { ok: false }; }
 }
 
 // Tự đồng bộ nền khi lưu từ mới/ôn thẻ (nếu đã liên kết tài khoản)
@@ -367,9 +424,12 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
           return reply({ tracks: (res && res.result) || [] });
         } catch (e) { return reply({ tracks: [] }); }
       }
-      case 'translate': { // sl 'auto': đoạn chọn không phải tiếng Anh (content.js srcLang) → Google tự nhận ngôn ngữ nguồn, kể cả khi đích là tiếng Anh
-        if (msg.sl === 'auto') return reply({ vi: await Dict.translateTo(String(msg.text || ''), msg.tl || 'vi', 'auto') });
-        return reply({ vi: !msg.tl || msg.tl === 'vi' ? await Dict.translateVi(msg.text) : msg.tl === 'en' ? '' : await Dict.translateTo(msg.text, msg.tl) });
+      case 'translate': { // Bảng "Dịch đoạn đã chọn" → { vi: bản dịch, src: ngôn ngữ nguồn, tl: ngôn ngữ đích thật dùng, same: đã là ngôn ngữ đích }
+        // sl 'auto' (đoạn có chữ ngoài tiếng Anh, vd. lẫn Việt + Anh): Google tự nhận nguồn; nguồn trùng đích → dịch sang tiếng Anh
+        const text = String(msg.text || '').slice(0, 5000), tl = msg.tl || 'vi';
+        if (msg.sl === 'auto') { const r = await Dict.translateAuto(text, tl, msg.hint || ''); return reply({ vi: r.text || '', src: r.src || '', tl: r.tl || tl, same: !!r.same }); }
+        if (tl === 'en') return reply({ vi: '', src: 'en', tl, same: true }); // tiếng Anh → tiếng Anh: không cần dịch
+        return reply({ vi: (tl === 'vi' ? await Dict.translateVi(text) : await Dict.translateTo(text, tl)) || '', src: 'en', tl });
       }
       case 'notes': { // ghi chú học từ soạn sẵn (nằm trong gói add-on, theo chữ cái đầu)
         const w = String(msg.word || '').toLowerCase(), c = /^[a-z]/.test(w) ? w[0] : '_';
@@ -377,7 +437,8 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
         if (!self.__notes[c]) self.__notes[c] = await fetch(chrome.runtime.getURL(`app/js/notes/${c}.json`)).then(r => r.ok ? r.json() : {}).catch(() => ({}));
         return reply({ note: (Object.hasOwn(self.__notes[c], w) && self.__notes[c][w]) || null });
       }
-      case 'explain': return reply(await aiExplain(msg.text, msg.sentence, msg.lang || UI_LANG));
+      case 'explain': return reply(await aiExplain(msg.text, msg.sentence, msg.lang || UI_LANG, msg.local || null));
+      case 'nanoEnable': return reply(await nanoEnable());
       case 'testNotify': await sendReminder(true); return reply({ ok: true });
       case 'logErr': logErr(msg.where || 'cs', msg.m); return reply({ ok: true });
       case 'openApp': await openApp(msg.hash); return reply({ ok: true });

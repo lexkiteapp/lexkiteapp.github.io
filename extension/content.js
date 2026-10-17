@@ -57,14 +57,19 @@
     '🔊 Nghe': '🔊 Listen', 'Tra từng từ:': 'Look up each word:', 'Tên riêng (địa danh, người, tổ chức…) – không có trong từ điển phổ thông.': 'Proper noun (place, person, organization…) – not in the general dictionary.',
     'Chưa có trong từ điển – đã dịch tự động.': 'Not in the dictionary yet – machine-translated.', '+ Lưu cụm từ': '+ Save phrase', '+ Lưu từ': '+ Save word',
     'Add-on vừa được cập nhật – hãy tải lại trang.': 'The add-on was just updated – please reload the page.', '⏳ Đang dịch…': '⏳ Translating…',
-    '🌐 Dịch đoạn đã chọn': '🌐 Translate selection', 'Anh → Việt': 'English → Vietnamese', 'Không dịch được đoạn này.': 'Could not translate this text.',
+    '🌐 Dịch đoạn đã chọn': '🌐 Translate selection', 'Không dịch được đoạn này.': 'Could not translate this text.',
     '🧩 Cấu trúc trong đoạn': '🧩 Structures in this text', '📐 Học bài ngữ pháp này →': '📐 Learn this grammar lesson →', '🐢 Chậm': '🐢 Slow',
     'Giải thích nghĩa trong ngữ cảnh, cấu trúc, collocation, ví dụ': 'Explain meaning in context, structure, collocations, examples', '🤖 Giải thích sâu': '🤖 Deep explanation',
     '⏳ AI đang phân tích…': '⏳ AI is analyzing…',
-    'Chưa bật AI. Mở Lexkite → Cài đặt → “Chấm bài bằng AI” để thêm khóa Gemini miễn phí của bạn.': 'AI is not enabled. Open Lexkite → Settings → “AI grading” to add your free Gemini key.',
-    'Khóa AI tạm hết lượt miễn phí – thử lại sau ít phút.': 'Your AI key is out of free quota for now – try again in a few minutes.',
-    'Khóa AI không hợp lệ – kiểm tra lại trong Cài đặt.': 'Invalid AI key – check it in Settings.', 'Không phân tích được lúc này.': 'Could not analyze right now.',
-    '⚙️ Mở Cài đặt': '⚙️ Open Settings', 'Nghĩa trong ngữ cảnh:': 'Meaning in context:', 'Ngữ pháp:': 'Grammar:', 'Cụm hay đi kèm:': 'Common collocations:',
+    'Hết lượt AI miễn phí hôm nay – thử lại vào ngày mai.': 'Daily free AI limit reached – try again tomorrow.', 'AI đang bận – thử lại sau ít phút.': 'AI is busy right now – try again in a few minutes.',
+    'AI không dùng được khi ngoại tuyến – kết nối mạng rồi thử lại.': 'AI is unavailable offline – connect to the internet and try again.', 'Không phân tích được lúc này.': 'Could not analyze right now.',
+    '⚡ Bật AI trên máy (miễn phí, riêng tư)': '⚡ Enable on-device AI (free, private)', 'Chrome tải AI trên máy một lần (~2 GB) – sau đó dùng được cả khi ngoại tuyến.': 'Chrome downloads the on-device AI once (~2 GB) – after that it works even offline.',
+    '⬇️ Đang tải AI trên máy… {pct}%': '⬇️ Downloading on-device AI… {pct}%', '✓ AI trên máy đã sẵn sàng': '✓ On-device AI is ready', 'Không bật được AI trên máy – thử lại sau.': 'Could not enable on-device AI – try again later.',
+    '💻 AI trên máy – riêng tư, không gửi đi đâu': '💻 On-device AI – private, nothing leaves your device', '🎁 Còn {n} lượt AI miễn phí hôm nay': '🎁 {n} free AI explanations left today',
+    'Ngôn ngữ nhận diện → ngôn ngữ dịch': 'Detected language → translation language', 'Chép bản dịch': 'Copy translation', 'Thử lại': 'Try again',
+    'Đoạn này đã là tiếng Anh – nghe, tra từng từ hoặc xem giải thích sâu bên dưới.': 'This text is already in English – listen to it, look up words or get a deep explanation below.',
+    'Đoạn này đã ở ngôn ngữ của bạn nên được dịch sang tiếng Anh.': 'This text is already in your language, so it was translated into English.',
+    'Nghĩa trong ngữ cảnh:': 'Meaning in context:', 'Ngữ pháp:': 'Grammar:', 'Cụm hay đi kèm:': 'Common collocations:',
     '✓ Đã chép': '✓ Copied', 'Ảnh không đúng – ẩn ảnh này': 'Wrong picture – hide it', 'Lexkite cấp {lv}': 'Lexkite level {lv}', 'mới': 'new', '📒 {n} từ bạn đã học xuất hiện trên trang này': '📒 {n} words you have learned appear on this page',
   };
   // Nghĩa chính: nếu nghĩa tóm tắt quá ngắn/trùng từ gốc thì lấy nghĩa đầu tiên của mục từ
@@ -167,6 +172,21 @@
     .pic .pcredit { position: absolute; left: 3px; bottom: 3px; width: 16px; height: 16px; border-radius: 50%; background: rgba(0,0,0,.6); color: #fff; font: 700 10px/16px -apple-system, "Segoe UI", sans-serif; text-align: center; text-decoration: none; opacity: 0; transition: opacity .15s; }
     .pic:hover .pcredit, .pic .pcredit:focus { opacity: 1; }
     .box { max-height: calc(100vh - 16px); overflow: auto; }
+    /* Bảng dịch đoạn chọn: nút chính = Giải thích sâu, nhóm nghe/chép phụ; xuống dòng khi chữ dài (de, ru…) */
+    .foot { flex-wrap: wrap; } .btn.ic { padding: 7px 9px; } .foot .end { margin-left: auto; }
+    .btn:hover:not([disabled]) { border-color: #c4c8d8; } .btn.p:hover:not([disabled]) { background: #B23412; border-color: #B23412; }
+    .btn:focus-visible, .x:focus-visible, .lw:focus-visible, .st-l:focus-visible, .spk:focus-visible, .back:focus-visible { outline: 2px solid #1F7A72; outline-offset: 2px; }
+    .box:focus { outline: none; }
+    button.chipw { border: 0; font: 600 12.5px/1.6 inherit; font-family: inherit; cursor: pointer; }
+    .lchip { cursor: help; font-weight: 700; letter-spacing: .02em; white-space: nowrap; }
+    .note { margin-top: 6px; padding: 8px 10px; border-radius: 10px; background: #eef6f5; color: #0F3D3E; font-size: 13px; line-height: 1.5; }
+    .note .acts { display: flex; flex-wrap: wrap; gap: 4px 12px; } .note .st-l, .tiny .st-l { margin-top: 6px; }
+    .err { color: #A5300F; font-weight: 600; font-size: 14px; }
+    .tiny { font-size: 11.5px; color: #6b6f85; margin-top: 6px; }
+    .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .dark .note { background: #16302f; color: #d3efeb; } .dark .err { color: #ff9b7a; } .dark .tiny { color: #b4b8cc; }
+    .dark .btn:hover:not([disabled]) { border-color: #565a70; } .dark .btn.p:hover:not([disabled]) { background: #B23412; }
+    .dark .btn:focus-visible, .dark .x:focus-visible, .dark .lw:focus-visible, .dark .st-l:focus-visible { outline-color: #2dd4bf; }
     .f1 { flex: 1; } .mw0 { min-width: 0; } .mt4 { margin-top: 4px; } .mt8 { margin-top: 8px; }
     .sk.w40 { width: 40%; } .sk.w50 { width: 50%; } .sk.w60 { width: 60%; } .sk.w80 { width: 80%; }`;
 
@@ -195,7 +215,7 @@
     // CSS qua adoptedStyleSheets: không bị CSP style-src của trang chặn như thẻ <style>; trình duyệt cũ → thẻ <style>
     let adopted = false;
     try { const sh = new CSSStyleSheet(); sh.replaceSync(CSS); root.adoptedStyleSheets = [sh]; adopted = true; } catch (e) { /* dùng <style> */ }
-    root.innerHTML = H(`${adopted ? '' : `<style>${CSS}</style>`}<div class="box" hidden></div><button class="fab" hidden title="${tx('Dịch với Lexkite')}">🌐</button>`);
+    root.innerHTML = H(`${adopted ? '' : `<style>${CSS}</style>`}<div class="box" hidden></div><button class="fab" hidden title="${tx('Dịch với Lexkite')}" aria-label="${tx('Dịch với Lexkite')}">🌐</button>`);
     parent.appendChild(host);
     root.addEventListener('mousedown', e => e.stopPropagation());
     // Tra tiếp trong chính bảng tra/dịch (định nghĩa, ví dụ, câu ngữ cảnh, bản dịch): bấm đúp 1 từ tiếng Anh → tra lồng (có nút Quay lại);
@@ -204,7 +224,8 @@
     root.addEventListener('dblclick', e => {
       if (e.target.closest('button, a, input, select, textarea')) return;
       const s = inBoxSel(); if (!s) return;
-      const w = s.t.replace(/[^A-Za-z'’-]/g, '').toLowerCase();
+      const t1 = nfc(s.t).trim(); if (!/^[A-Za-z][A-Za-z'’-]*$/.test(t1)) return; // chỉ từ tiếng Anh trọn vẹn (không cắt "thử" thành "th")
+      const w = t1.toLowerCase();
       if (w.length > 1 && w !== (cur && cur.word)) { e.stopPropagation(); show(w, s.range.getBoundingClientRect(), s.range.startContainer && s.range.startContainer.textContent ? s.range.startContainer.textContent.slice(0, 300) : '', {}, 'nested'); }
     });
     root.addEventListener('mouseup', e => {
@@ -217,17 +238,25 @@
   const hide = () => { if (root) box().hidden = true; current = null; hist = []; cur = null; if (onHide) { const f = onHide; onHide = null; f(); } };
   const hideFab = () => { if (root) root.querySelector('.fab').hidden = true; };
 
+  // Đặt bảng cạnh vùng chọn, luôn nằm trọn trong khung nhìn: ưu tiên bên dưới, không đủ chỗ → lật lên trên,
+  // cả hai phía đều thiếu → chọn phía rộng hơn và giới hạn chiều cao (nội dung cuộn trong bảng). Vùng chọn đã cuộn khuất → giữa màn hình.
   function position(rect) {
-    const b = box();
-    const W = Math.min(380, Math.max(240, window.innerWidth - 16));
-    let left = Math.min(Math.max(8, rect.left + rect.width / 2 - W / 2), window.innerWidth - W - 8);
-    let top = rect.bottom + 10;
-    b.style.left = left + 'px';
-    b.style.top = top + 'px';
-    requestAnimationFrame(() => {
-      const h = b.offsetHeight;
-      if (top + h > window.innerHeight - 8) b.style.top = Math.max(8, rect.top - h - 10) + 'px';
-    });
+    const b = box(), vw = window.innerWidth, vh = window.innerHeight, M = 8, G = 10;
+    let r = rect || {};
+    if (!(r.bottom > 0 && r.top < vh) || (!r.width && !r.height && !r.left && !r.top)) r = { left: vw / 2, right: vw / 2, top: vh / 3, bottom: vh / 3, width: 0, height: 0 };
+    const W = Math.min(380, Math.max(240, vw - 2 * M));
+    b.style.left = Math.max(M, Math.min(r.left + (r.width || 0) / 2 - W / 2, vw - W - M)) + 'px';
+    const place = () => {
+      b.style.maxHeight = '';
+      const h = b.offsetHeight, below = vh - r.bottom - G - M, above = r.top - G - M;
+      let top;
+      if (h <= below || below >= above) { top = r.bottom + G; if (h > below) b.style.maxHeight = Math.max(160, below) + 'px'; }
+      else { const hh0 = h > above ? Math.max(160, above) : h; if (h > above) b.style.maxHeight = hh0 + 'px'; top = r.top - G - hh0; }
+      const hh = Math.min(b.offsetHeight || h, vh - 2 * M);
+      b.style.top = Math.max(M, Math.min(top, vh - hh - M)) + 'px';
+    };
+    place();
+    requestAnimationFrame(place);
   }
 
   // Lấy câu chứa từ được chọn → ngữ cảnh.
@@ -415,10 +444,10 @@
     ensureHost();
     hideFab();
     const b = box();
-    b.hidden = false; b.classList.toggle('dark', pageDark(rect));
+    b.hidden = false; b.classList.toggle('dark', pageDark(rect)); b.setAttribute('role', 'dialog'); b.setAttribute('aria-label', word);
     b.innerHTML = H(`<div class="head"><div class="pic">📘</div><div class="f1"><div class="w">${esc(word)}</div><div class="sk w60"></div><div class="sk w40"></div></div></div><div class="body"><div class="sk"></div><div class="sk w80"></div></div>`);
     position(rect);
-    current = word;
+    current = word; trSeq++; // bảng dịch đoạn đang chờ kết quả không được ghi đè bảng tra từ mới
     const st = (await chrome.storage.local.get('settings')).settings || {};
     const accent = st.accent || 'en-GB';
     let e = null, saved = false, ctxVi = '', ctxDone = false, mlW = '', didSave = false, spoke = false, note = null;
@@ -603,13 +632,14 @@
     if (document.caretRangeFromPoint) { const r = document.caretRangeFromPoint(x, y); if (!r) return null; node = r.startContainer; off = r.startOffset; }
     else if (document.caretPositionFromPoint) { const p = document.caretPositionFromPoint(x, y); if (!p) return null; node = p.offsetNode; off = p.offset; }
     if (!node || node.nodeType !== 3) return null;
-    const t = node.nodeValue, W = /[A-Za-z\u00c0-\u024f'’-]/; // gồm chữ Latin có dấu: café, naïve không bị cắt thành "caf", "na"
+    const t = node.nodeValue, W = /[\p{L}\p{M}'’-]/u; // mọi chữ Unicode + dấu tổ hợp: café, naïve, "thử" không bị cắt thành "caf", "na", "th"
     let a = off, b = off;
     if (a > 0 && !W.test(t[a] || '') && W.test(t[a - 1])) { a--; b--; }
     while (a > 0 && W.test(t[a - 1])) a--;
     while (b < t.length && W.test(t[b])) b++;
     let word = t.slice(a, b).replace(/^['’-]+|['’-]+$/g, '');
-    if (!/^[A-Za-z\u00c0-\u024f][A-Za-z\u00c0-\u024f'’-]*$/.test(word) || !/[A-Za-z]/.test(word) || /[×÷]/.test(word) || word.length > 30) return null;
+    // Từ tiếng Việt (Kiểm, thử…) không phải từ tiếng Anh để tra → bỏ qua thay vì tra một mẩu bị cắt
+    if (!/^[A-Za-z\u00c0-\u024f][A-Za-z\u00c0-\u024f'’-]*$/.test(word) || !/[A-Za-z]/.test(word) || VI_ONLY.test(nfc(word)) || /[×÷]/.test(word) || word.length > 30) return null;
     a = t.indexOf(word, a); const range = document.createRange(); range.setStart(node, a); range.setEnd(node, a + word.length);
     return { word: word.toLowerCase().replace(/’/g, "'"), range, rect: range.getBoundingClientRect() };
   }
@@ -623,8 +653,34 @@
   }
 
   // ---------- Dịch câu / đoạn văn: bôi đen → nút 🌐 (hoặc tự dịch) ----------
-  // Đoạn chọn có chữ ngoài tiếng Anh (Latin có dấu, Cyrillic, Ả Rập, Hindi, Thái, CJK, Hàn) → để Google tự nhận ngôn ngữ nguồn thay vì ép "en"
-  const srcLang = t => /[\u00c0-\u024f\u0370-\u04ff\u0590-\u06ff\u0900-\u097f\u0e00-\u0e7f\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]/.test(t) ? 'auto' : 'en';
+  // Đoạn chọn có chữ ngoài tiếng Anh (Latin có dấu, chữ Việt có dấu chồng U+1E00–U+1EFF, Cyrillic, Ả Rập, CJK…) → để Google tự nhận
+  // ngôn ngữ nguồn thay vì ép "en". Luôn chuẩn hóa NFC và dùng lớp Unicode \p{L}\p{M} (không dùng A-Za-z / \u00c0-\u024f: "thử" bị cắt thành "th").
+  const nfc = s => String(s == null ? '' : s).normalize('NFC');
+  const srcLang = t => (/[^\x00-\x7f]/.test(nfc(t).replace(/[\s\p{P}\p{S}\p{N}]/gu, '')) ? 'auto' : 'en');
+  const VI_ONLY = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i; // chữ chỉ tiếng Việt có (â ê ô có cả trong tiếng Pháp)
+  // "Tra từng từ": chỉ từ tiếng Anh (chữ Latin không dấu), bỏ từ chức năng, bỏ mã chữ+số (E2E, v2), giữ từ nối gạch (add-on) và viết tắt (API)
+  const STOP = new Set(("a an the and or but nor so yet if then than as of to in on at by for from with without into onto over under about above below up down out off " +
+    "is am are was were be been being do does did done have has had having not no yes it its this that these those there here i me my mine you your yours he him his she her hers " +
+    "we us our ours they them their theirs what which who whom whose when where why how all any both each few more most other some such only own same too very can could will would " +
+    "shall should may might must just also now s t d ll re ve m don doesn didn isn aren wasn weren won wouldn can't don't doesn't didn't isn't aren't wasn't weren't won't i'm it's that's let's").split(' '));
+  // Âm tiết tiếng Việt viết không dấu hay gặp (khi đoạn chọn có tiếng Việt) – không đưa vào ô tra từ tiếng Anh
+  const VI_ASCII = /^(ngh?|nh|kh)[a-z]|[aeiouy]nh$|^(va|la|cua|cho|mot|cac|nhung|duoc|trong|khong|thi|da|se|dang|voi|ve|tu|tai|neu|nen|roi|nhu|cung|nay|thu|kiem|tra|loi|bai|tieng|viet|nguoi|lam|di|den|ra|vao|nhieu)$/;
+  function lookupWords(text, max = 10) {
+    const s = nfc(text), hasVi = VI_ONLY.test(s), out = [], seen = new Set();
+    const toks = [...s.matchAll(/[\p{L}\p{M}\p{N}]+(?:['’-][\p{L}\p{M}\p{N}]+)*/gu)].map(m => m[0].replace(/’/g, "'"));
+    const viTok = i => i < 0 || i >= toks.length || /[^\x00-\x7f]/.test(toks[i]); // từ có dấu (hoặc đầu/cuối đoạn)
+    for (let i = 0; i < toks.length; i++) {
+      const w = toks[i];
+      if (!/^[A-Za-z]+(?:['-][A-Za-z]+)*$/.test(w)) continue; // có dấu (Kiểm, thử), số, chữ khác hệ → bỏ, không cắt chữ
+      const k = w.toLowerCase();
+      // Đoạn có tiếng Việt: âm tiết không dấu ngắn kẹp giữa hai từ tiếng Việt ("rất quan trọng") là tiếng Việt, không phải từ tiếng Anh
+      if (hasVi && (VI_ASCII.test(k) || (k.length <= 5 && viTok(i - 1) && viTok(i + 1)))) continue;
+      if (k.length < 2 || STOP.has(k) || seen.has(k)) continue;
+      seen.add(k); out.push({ w: k, label: /^[A-Z]{2,}$/.test(w) ? w : k });
+      if (out.length >= max) break;
+    }
+    return out;
+  }
   const isWordish = t => t.length <= 40 && /^[A-Za-z][A-Za-z'\- ]*[A-Za-z]$/.test(t) && t.split(/\s+/).length <= 3;
   const inEditable = el => el && el.closest && el.closest('input, textarea, select, [contenteditable]:not([contenteditable="false"]), [role="textbox"]');
 
@@ -648,76 +704,151 @@
     f.onclick = () => {
       f.hidden = true;
       if (isWordish(info.text)) show(info.text.toLowerCase(), info.rect, info.range ? sentenceAround(info.range) : info.context || '');
-      else translateSelection(info);
+      else translateSelection(info, { focus: true });
     };
   }
 
-  async function translateSelection(info) {
+  // Tên ngôn ngữ theo giao diện (Intl) cho chú thích chip "VI → EN"
+  const langName = l => { try { return new Intl.DisplayNames([UI_LANG === 'zh' ? 'zh-CN' : UI_LANG], { type: 'language' }).of(l) || l; } catch (e) { return l; } };
+  const langCode = l => String(l || '').split('-')[0].toUpperCase();
+  const setLangChip = (el, src, tl, same) => {
+    if (!el) return;
+    el.textContent = same ? langCode(src || tl) : `${src ? langCode(src) : '…'} → ${langCode(tl)}`;
+    el.title = `${tx('Ngôn ngữ nhận diện → ngôn ngữ dịch')}: ${src ? langName(src) : '?'}${same ? '' : ' → ' + langName(tl)}`;
+  };
+  // 🤖 AI có sẵn trong Chrome (Gemini Nano) gọi ngay trong tab: chỉ dùng khi đã tải sẵn ('available'); 'downloadable' → nút bật 1 chạm
+  const NANO_OPTS = { expectedInputs: [{ type: 'text', languages: ['en'] }], expectedOutputs: [{ type: 'text', languages: ['en'] }] };
+  const nanoAPI = () => { try { return window.LanguageModel || null; } catch (e) { return null; } };
+  const nanoState = async () => { const LM = nanoAPI(); if (!LM || !LM.availability) return 'none'; try { return await LM.availability(NANO_OPTS); } catch (e) { return 'none'; } };
+  const LIMIT = (p, ms) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms))]);
+  const NANO_PROMPT = (text, sentence) => `Explain the English expression for an English learner. Expression: "${text}"${sentence && sentence !== text ? `\nSentence it appears in: "${sentence}"` : ''}
+Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), "structure": [{"pattern": string, "explain": string}] (1-3 items), "grammar": string, "collocations": [string] (3-5), "examples": [{"en": string}] (2), "tip": string (how to use it in exams)}`;
+  async function nanoRun(text, sentence) {
+    const sess = await LIMIT(nanoAPI().create(NANO_OPTS), 15000);
+    try { const out = String(await LIMIT(sess.prompt(NANO_PROMPT(text, sentence)), 30000)); const j = JSON.parse(out.replace(/^[^{]*/, '').replace(/[^}]*$/, '')); return j && (j.meaning || j.grammar || (j.structure || []).length) ? j : null; }
+    finally { try { sess.destroy(); } catch (e) { /* bỏ qua */ } }
+  }
+  // Người dùng bấm "Bật AI trên máy": tải mô hình có tiến độ (cần thao tác người dùng → gọi create ngay trong sự kiện bấm)
+  async function enableNano(btn, done) {
+    btn.disabled = true; btn.textContent = tx('⬇️ Đang tải AI trên máy… {pct}%', { pct: 0 });
+    try {
+      const LM = nanoAPI();
+      if (LM && LM.create) { const s = await LM.create({ ...NANO_OPTS, monitor(m) { m.addEventListener('downloadprogress', e => { btn.textContent = tx('⬇️ Đang tải AI trên máy… {pct}%', { pct: Math.round((e.loaded || 0) * 100) }); }); } }); try { s.destroy(); } catch (e) { /* bỏ qua */ } }
+      else { const r = await chrome.runtime.sendMessage({ type: 'nanoEnable' }); if (!r || !r.ok) throw new Error('nano'); }
+      btn.textContent = tx('✓ AI trên máy đã sẵn sàng'); if (done) done();
+    } catch (e) { btn.disabled = false; btn.textContent = tx('Không bật được AI trên máy – thử lại sau.'); }
+  }
+  // Mã lỗi AI (background.js aiExplain) → lời nhắn thân thiện. Không bao giờ nhắc nhập khóa: AI miễn phí không cần khóa.
+  const AI_ERR = { QUOTA_DAY: 'Hết lượt AI miễn phí hôm nay – thử lại vào ngày mai.', BUSY: 'AI đang bận – thử lại sau ít phút.', QUOTA: 'AI đang bận – thử lại sau ít phút.', OFFLINE: 'AI không dùng được khi ngoại tuyến – kết nối mạng rồi thử lại.' };
+
+  let trSeq = 0;
+  async function translateSelection(info, opts = {}) {
     ensureHost();
     hideFab();
-    const b = box();
+    const b = box(), seq = ++trSeq, text = nfc(info.text).replace(/\s+/g, ' ').trim();
+    const live = () => seq === trSeq && !b.hidden;
     b.hidden = false; b.classList.toggle('dark', pageDark(info && info.rect));
+    b.setAttribute('role', 'dialog'); b.setAttribute('aria-label', tx('🌐 Dịch đoạn đã chọn').replace(/^\S+\s+/, '')); b.tabIndex = -1;
     current = info.text;
-    b.innerHTML = H(`<div class="muted">${tx('⏳ Đang dịch…')}</div>`);
-    position(info.rect);
-    let r;
-    try { r = await chrome.runtime.sendMessage({ type: 'translate', text: info.text, tl: ML(), sl: srcLang(info.text) }); }
-    catch (e) { b.innerHTML = H(`<div class="muted">${tx('Add-on vừa được cập nhật – hãy tải lại trang.')}</div>`); return; }
-    if (current !== info.text) return;
-    const vi = (r && r.vi) || '', autoSrc = srcLang(info.text) === 'auto';
-    const words = autoSrc ? [] : info.text.split(/\s+/).filter(x => /[A-Za-z]/.test(x)).map(x => x.replace(/^[^A-Za-z]+|[^A-Za-z'’-]+$/g, ''));
-    const structs = (window.VBStruct ? VBStruct.analyze(info.text, 4) : []);
-    if (structs.length && !GT) { try { GT = ((await chrome.runtime.sendMessage({ type: 'extJson', name: 'grammar-titles' })) || {}).data || {}; } catch (e) { GT = {}; } }
+    const sl = srcLang(text), hint = sl === 'auto' && VI_ONLY.test(text) ? 'vi' : '', tl = ML();
     let sentence = ''; try { sentence = info.range ? sentenceAround(info.range) : ''; } catch (e) { /* bỏ qua */ }
-    const st = (await chrome.storage.local.get('settings')).settings || {};
+    const words = text.split(' ').length > 1 ? lookupWords(text) : [];
+    const st = (await chrome.storage.local.get('settings').catch(() => ({}))).settings || {};
     const accent = st.accent || 'en-GB';
+    if (!live()) return;
     b.innerHTML = H(`
-      <div class="tr-head"><b>${tx('🌐 Dịch đoạn đã chọn')}</b><span class="chip">${autoSrc ? '→ ' + ML().toUpperCase() : ML() === 'vi' ? tx('Anh → Việt') : ML() === 'en' ? 'EN' : 'EN → ' + ML().toUpperCase()}</span><button class="x" id="close" title="${tx('Đóng (Esc)')}">×</button></div>
+      <div class="tr-head"><b>${tx('🌐 Dịch đoạn đã chọn')}</b><span class="chip lchip" id="lang"></span><button class="x" id="close" title="${esc(tx('Đóng (Esc)'))}" aria-label="${esc(tx('Đóng (Esc)'))}">×</button></div>
       <div class="body">
-        <div class="src">${esc(info.text)}</div>
-        ${ML() === 'en' && !autoSrc ? '' : `<div class="tr">${vi ? esc(vi) : tx('Không dịch được đoạn này.')}</div>`}
-        ${words.length > 1 && words.length <= 12 ? `<div class="def mt8"><b>${tx('Tra từng từ:')}</b> ${words.map(x => `<span class="lw chipw" data-w="${esc(x.toLowerCase())}">${esc(x)}</span>`).join(' ')}</div>` : ''}
-        ${structs.length ? `<div class="st"><b>${tx('🧩 Cấu trúc trong đoạn')}</b>${structs.map(x => `<div class="st-i"><div><span class="st-n">${esc(tx(x.name))}</span> <span class="st-m">“${esc(x.match)}”</span></div>${UI_LANG === 'vi' || tx(x.vi) !== x.vi ? `<div class="st-v">${esc(tx(x.vi))}</div>` : ''}<button class="st-l" data-lesson="${esc(x.lesson)}">${GT && GT[x.lesson] ? '📖 ' + tx('Học bài: {n} →', { n: esc(UI_LANG === 'vi' ? GT[x.lesson][0] : GT[x.lesson][1]) }) : tx('📐 Học bài ngữ pháp này →')}</button></div>`).join('')}</div>` : ''}
+        <div class="src"${sl === 'en' ? ' lang="en"' : hint ? ' lang="vi"' : ''}>${esc(text)}</div>
+        <div class="tr" id="tr" aria-live="polite" aria-busy="true"><div class="sk w80"></div><div class="sk w50"></div><span class="sr">${tx('⏳ Đang dịch…')}</span></div>
+        ${words.length ? `<div class="def mt8"><b>${tx('Tra từng từ:')}</b> ${words.map(x => `<button type="button" class="lw chipw" data-w="${esc(x.w)}" lang="en">${esc(x.label)}</button>`).join(' ')}</div>` : ''}
+        <div id="more"></div>
         <div id="aiEx"></div>
       </div>
       <div class="foot">
-        <button class="btn p" id="listen">${tx('🔊 Nghe')}</button>
-        <button class="btn" id="slow">${tx('🐢 Chậm')}</button>
-        <button class="btn" id="deep" title="${tx('Giải thích nghĩa trong ngữ cảnh, cấu trúc, collocation, ví dụ')}">${tx('🤖 Giải thích sâu')}</button>
-        <button class="btn" id="copy">📋</button>
+        <button class="btn p" id="deep" title="${esc(tx('Giải thích nghĩa trong ngữ cảnh, cấu trúc, collocation, ví dụ'))}">${tx('🤖 Giải thích sâu')}</button>
+        <button class="btn" id="listen" title="${esc(tx('Nghe cả câu'))}">${tx('🔊 Nghe')}</button>
+        <button class="btn" id="slow" title="${esc(tx('Nghe chậm'))}">${tx('🐢 Chậm')}</button>
+        <button class="btn ic end" id="copy" title="${esc(tx('Chép bản dịch'))}" aria-label="${esc(tx('Chép bản dịch'))}">📋</button>
       </div>`);
-    b.querySelectorAll('[data-lesson]').forEach(x => x.onclick = () => chrome.runtime.sendMessage({ type: 'openApp', hash: '#/grammar/' + x.dataset.lesson }).catch(() => {}));
-    b.querySelectorAll('.lw[data-w]').forEach(x => x.onclick = ev => { ev.stopPropagation(); const w = x.dataset.w.replace(/[^a-z'-]/g, ''); if (w) show(w, info.rect, sentence || info.text, {}, 'nested'); });
-    b.querySelector('#deep').onclick = async ev => {
-      const btn = ev.currentTarget, out = b.querySelector('#aiEx'); btn.disabled = true;
-      out.innerHTML = H(`<div class="muted mt8">${tx('⏳ AI đang phân tích…')}</div>`);
-      let r; try { r = await chrome.runtime.sendMessage({ type: 'explain', text: info.text, sentence, lang: ML() }); } catch (e) { r = { error: 'FAILED' }; }
-      btn.disabled = false;
-      if (!r || r.error) {
-        const msg = tx({ NO_KEY: 'Chưa bật AI. Mở Lexkite → Cài đặt → “Chấm bài bằng AI” để thêm khóa Gemini miễn phí của bạn.', QUOTA: 'Khóa AI tạm hết lượt miễn phí – thử lại sau ít phút.', BAD_KEY: 'Khóa AI không hợp lệ – kiểm tra lại trong Cài đặt.' }[r && r.error] || 'Không phân tích được lúc này.');
-        out.innerHTML = H(`<div class="def mt8">${esc(msg)} ${r && (r.error === 'NO_KEY' || r.error === 'BAD_KEY') ? `<button class="st-l" id="openSet">${tx('⚙️ Mở Cài đặt')}</button>` : ''}</div>`);
-        const os = out.querySelector('#openSet'); if (os) os.onclick = () => chrome.runtime.sendMessage({ type: 'openApp', hash: '#/settings' }).catch(() => {});
-        return position(info.rect);
+    const $ = q => b.querySelector(q);
+    setLangChip($('#lang'), sl === 'en' ? 'en' : hint, tl);
+    $('#close').onclick = () => { if (window.speechSynthesis) speechSynthesis.cancel(); hide(); };
+    b.querySelectorAll('.lw[data-w]').forEach(x => x.onclick = ev => { ev.stopPropagation(); const w = x.dataset.w.replace(/[^a-z'-]/g, ''); if (w) show(w, info.rect, sentence || text, {}, 'nested'); });
+    ['#deep', '#listen', '#slow', '#copy'].forEach(q => { $(q).disabled = true; });
+    position(info.rect);
+    if (opts.focus) try { b.focus({ preventScroll: true }); } catch (e) { /* bỏ qua */ }
+
+    let r;
+    try { r = await chrome.runtime.sendMessage({ type: 'translate', text, tl, sl, hint }); } catch (e) { r = { dead: true }; }
+    if (!live()) return;
+    r = r || {};
+    const trEl = $('#tr'); trEl.removeAttribute('aria-busy');
+    const vi = String(r.vi || '').trim(), same = !!r.same, src = r.src || (sl === 'en' ? 'en' : hint), tlUsed = r.tl || tl;
+    if (r.dead) { trEl.innerHTML = H(`<div class="err">${tx('Add-on vừa được cập nhật – hãy tải lại trang.')}</div>`); return position(info.rect); }
+    if (same) { setLangChip($('#lang'), src || 'en', tlUsed, true); trEl.innerHTML = H(`<div class="note">${esc(tx('Đoạn này đã là tiếng Anh – nghe, tra từng từ hoặc xem giải thích sâu bên dưới.'))}</div>`); }
+    else if (vi) { setLangChip($('#lang'), src, tlUsed); trEl.innerHTML = H(`<div lang="${esc(tlUsed)}">${esc(vi)}</div>${tlUsed !== tl ? `<div class="note">${esc(tx('Đoạn này đã ở ngôn ngữ của bạn nên được dịch sang tiếng Anh.'))}</div>` : ''}`); }
+    else { // không bao giờ để trống: báo lỗi rõ ràng + thử lại
+      trEl.innerHTML = H(`<div class="err" role="alert">${esc(tx('Không dịch được đoạn này.'))}</div><button class="st-l" id="retry">↻ ${tx('Thử lại')}</button>`);
+      $('#retry').onclick = ev => { ev.stopPropagation(); translateSelection(info, { focus: true }); };
+    }
+    // Phần tiếng Anh để nghe / giải thích: đoạn gốc nếu là tiếng Anh, bản dịch nếu đã dịch sang tiếng Anh
+    const english = src === 'en' || same ? text : (tlUsed === 'en' && vi ? vi : '');
+    for (const q of ['#deep', '#listen', '#slow']) { $(q).disabled = false; $(q).hidden = !english; }
+    $('#copy').disabled = false;
+    const say = rate => speak(english, '', accent, rate);
+    $('#listen').onclick = () => say(.95);
+    $('#slow').onclick = () => say(.6);
+    $('#copy').onclick = async ev => {
+      const btn = ev.currentTarget, val = vi || text; let done = false;
+      try { await navigator.clipboard.writeText(val); done = true; } catch (e) { // trang chặn Clipboard API → cách cũ
+        try { const ta = document.createElement('textarea'); ta.value = val; ta.className = 'sr'; ta.setAttribute('readonly', ''); root.appendChild(ta); ta.select(); done = document.execCommand('copy'); ta.remove(); } catch (x) { /* bỏ qua */ }
       }
-      const x = r.result || {};
-      out.innerHTML = H(`<div class="st ai">
-        <b>${tx('🤖 Giải thích sâu')}</b>
-        ${x.meaning ? `<div class="st-v"><b>${tx('Nghĩa trong ngữ cảnh:')}</b> ${esc(x.meaning)}</div>` : ''}
-        ${(x.structure || []).map(y => `<div class="st-i"><span class="st-n">${esc(y.pattern)}</span><div class="st-v">${esc(y.explain)}</div></div>`).join('')}
-        ${x.grammar ? `<div class="st-v"><b>${tx('Ngữ pháp:')}</b> ${esc(x.grammar)}</div>` : ''}
-        ${(x.collocations || []).length ? `<div class="st-v"><b>${tx('Cụm hay đi kèm:')}</b> ${x.collocations.map(c => `<span class="chipw">${esc(c)}</span>`).join(' ')}</div>` : ''}
-        ${(x.examples || []).map(e => `<div class="ex">“${esc(e.en)}” <button class="spk mini" data-text="${esc(e.en)}">🔊</button><div class="muted">${esc(e.vi)}</div></div>`).join('')}
-        ${x.tip ? `<div class="st-v">💡 ${esc(x.tip)}</div>` : ''}</div>`);
-      out.querySelectorAll('.spk[data-text]').forEach(z => z.onclick = () => speak(z.dataset.text, '', accent, .95));
+      if (!done) return;
+      btn.textContent = '✓'; btn.title = tx('✓ Đã chép'); btn.setAttribute('aria-label', tx('✓ Đã chép'));
+      setTimeout(() => { if (!btn.isConnected) return; btn.textContent = '📋'; btn.title = tx('Chép bản dịch'); btn.setAttribute('aria-label', tx('Chép bản dịch')); }, 1600);
+    };
+    const deep = $('#deep');
+    const runDeep = async () => {
+      const out = $('#aiEx'), sen = english === text ? sentence : ''; deep.disabled = true;
+      out.innerHTML = H(`<div class="tiny mt8" role="status">${tx('⏳ AI đang phân tích…')}</div>`); position(info.rect);
+      const ns = await nanoState(); let x = null;
+      if (ns === 'available') { try { const j = await nanoRun(english, sen); if (j) x = await chrome.runtime.sendMessage({ type: 'explain', text: english, sentence: sen, lang: ML(), local: j }); } catch (e) { x = null; } }
+      if (!x || !x.result) { try { x = await chrome.runtime.sendMessage({ type: 'explain', text: english, sentence: sen, lang: ML() }); } catch (e) { x = { error: 'FAILED' }; } }
+      if (!live()) return;
+      deep.disabled = false; x = x || { error: 'FAILED' };
+      const offer = ns === 'downloadable' || ns === 'downloading' || x.nano === 'downloadable' || x.nano === 'downloading';
+      const nanoBtn = offer ? `<button class="st-l" id="nanoOn" title="${esc(tx('Chrome tải AI trên máy một lần (~2 GB) – sau đó dùng được cả khi ngoại tuyến.'))}">${tx('⚡ Bật AI trên máy (miễn phí, riêng tư)')}</button>` : '';
+      if (!x.result) {
+        const retry = x.error === 'QUOTA_DAY' ? '' : `<button class="st-l" id="aiRetry">↻ ${tx('Thử lại')}</button>`;
+        out.innerHTML = H(`<div class="note mt8" role="status">${esc(tx(AI_ERR[x.error] || 'Không phân tích được lúc này.'))}${retry || nanoBtn ? `<div class="acts">${retry}${nanoBtn}</div>` : ''}</div>`);
+      } else {
+        const y = x.result || {};
+        const via = x.via === 'device' ? tx('💻 AI trên máy – riêng tư, không gửi đi đâu') : typeof x.left === 'number' ? tx('🎁 Còn {n} lượt AI miễn phí hôm nay', { n: x.left }) : '';
+        out.innerHTML = H(`<div class="st ai">
+          <b>${tx('🤖 Giải thích sâu')}</b>
+          ${y.meaning ? `<div class="st-v"><b>${tx('Nghĩa trong ngữ cảnh:')}</b> ${esc(y.meaning)}</div>` : ''}
+          ${(y.structure || []).map(z => `<div class="st-i"><span class="st-n">${esc(z.pattern)}</span><div class="st-v">${esc(z.explain)}</div></div>`).join('')}
+          ${y.grammar ? `<div class="st-v"><b>${tx('Ngữ pháp:')}</b> ${esc(y.grammar)}</div>` : ''}
+          ${(y.collocations || []).length ? `<div class="st-v"><b>${tx('Cụm hay đi kèm:')}</b> ${y.collocations.map(c => `<span class="chipw" lang="en">${esc(c)}</span>`).join(' ')}</div>` : ''}
+          ${(y.examples || []).filter(e => e && e.en).map(e => `<div class="ex"><span lang="en">“${esc(e.en)}”</span> <button class="spk mini" data-text="${esc(e.en)}" aria-label="${esc(tx('Nghe câu ví dụ'))}">🔊</button>${e.vi && e.vi !== e.en ? `<div class="tiny">${esc(e.vi)}</div>` : ''}</div>`).join('')}
+          ${y.tip ? `<div class="st-v">💡 ${esc(y.tip)}</div>` : ''}
+          ${via || nanoBtn ? `<div class="tiny">${esc(via)} ${nanoBtn}</div>` : ''}</div>`);
+        out.querySelectorAll('.spk[data-text]').forEach(z => z.onclick = () => speak(z.dataset.text, '', accent, .95));
+      }
+      const rt = out.querySelector('#aiRetry'); if (rt) rt.onclick = ev => { ev.stopPropagation(); runDeep(); };
+      const nb = out.querySelector('#nanoOn'); if (nb) nb.onclick = ev => { ev.stopPropagation(); enableNano(nb, x.result ? null : runDeep); };
       position(info.rect);
     };
-    const say = rate => speak(info.text, '', accent, rate);
-    b.querySelector('#close').onclick = () => { if (window.speechSynthesis) speechSynthesis.cancel(); hide(); };
-    b.querySelector('#listen').onclick = () => say(.95);
-    b.querySelector('#slow').onclick = () => say(.6);
-    b.querySelector('#copy').onclick = async ev => {
-      try { await navigator.clipboard.writeText(vi); ev.currentTarget.textContent = tx('✓ Đã chép'); } catch (e) { /* trang chặn clipboard */ }
-    };
+    deep.onclick = runDeep;
+    // Cấu trúc ngữ pháp (chỉ phân tích phần tiếng Anh)
+    const structs = english && window.VBStruct ? VBStruct.analyze(english, 4) : [];
+    if (structs.length && !GT) { try { GT = ((await chrome.runtime.sendMessage({ type: 'extJson', name: 'grammar-titles' })) || {}).data || {}; } catch (e) { GT = {}; } }
+    if (!live()) return;
+    if (structs.length) {
+      $('#more').innerHTML = H(`<div class="st"><b>${tx('🧩 Cấu trúc trong đoạn')}</b>${structs.map(x => `<div class="st-i"><div><span class="st-n">${esc(tx(x.name))}</span> <span class="st-m" lang="en">“${esc(x.match)}”</span></div>${UI_LANG === 'vi' || tx(x.vi) !== x.vi ? `<div class="st-v">${esc(tx(x.vi))}</div>` : ''}<button class="st-l" data-lesson="${esc(x.lesson)}">${GT && GT[x.lesson] ? '📖 ' + tx('Học bài: {n} →', { n: esc(UI_LANG === 'vi' ? GT[x.lesson][0] : GT[x.lesson][1]) }) : tx('📐 Học bài ngữ pháp này →')}</button></div>`).join('')}</div>`);
+      b.querySelectorAll('[data-lesson]').forEach(x => x.onclick = () => chrome.runtime.sendMessage({ type: 'openApp', hash: '#/grammar/' + x.dataset.lesson }).catch(() => {}));
+    }
     position(info.rect);
   }
 
@@ -777,7 +908,7 @@
   });
   document.addEventListener('keydown', e => {
     if (!root || !alive()) return; // bản cũ sau khi add-on cập nhật: không bắt phím P/Esc của trang nữa
-    if (e.key === 'Escape') { hide(); hideFab(); return; }
+    if (e.key === 'Escape') { if (!box().hidden) { if (window.speechSynthesis) speechSynthesis.cancel(); hide(); } hideFab(); return; }
     if ((e.key === 'p' || e.key === 'P') && !box().hidden && !inEditable(e.target)) { const sp = root.querySelector('.spk[data-acc]'); if (sp) { e.preventDefault(); sp.click(); } }
   });
   window.addEventListener('scroll', () => { if (root) { hideFab(); } }, { passive: true });

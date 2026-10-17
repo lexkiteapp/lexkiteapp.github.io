@@ -11,18 +11,22 @@ Quy ước cột:
 
 ## ✅ Tiến độ đăng (cập nhật mỗi lần gửi – chỉ gói MIỄN PHÍ, mục tiêu 20 trang)
 
-| # | Trang | Trạng thái | Ngày | Link kiểm tra | Ghi chú |
-|---|---|---|---|---|---|
-| 1 | dev.to | ✅ **Đã đăng** | 17/10/2026 | https://dev.to/zulily_jewelry_vintage_92/building-a-15-language-fsrs-vocabulary-app-in-vanilla-js-and-exporting-real-anki-apkg-files-in-3fl7 | Tên hiển thị Lexkite, logo, khai báo AI-assisted. Username trong link chưa đổi (đổi sẽ đổi link). |
-| 2 | GitHub awesome-fsrs | ⏳ PR chờ duyệt | 17/10/2026 | https://github.com/open-spaced-repetition/awesome-fsrs/pull/80 | Mục Specialized Flashcard. |
-| 3 | SaaSHub | ⏳ Đã gửi, chờ duyệt (1–12 tuần, gói Free) | 17/10/2026 | https://www.saashub.com/lexkite | Ghi là app tương tự Brainscape, Mochi, Readlang. Xác minh bằng email @lexkite.com để lên nhanh hơn (tùy chọn). |
-| 4 | AlternativeTo | ⏳ Đã gửi, hàng chờ miễn phí | 17/10/2026 | alternativeto.net → My submissions | Logo + 4 ảnh giao diện mới, 15 ngôn ngữ; gắn alternative Anki (Memrise có thể chưa lưu). |
-| 5 | Uneed | ⏸ Hồ sơ đã lưu, **chưa ra mắt** | 17/10/2026 | https://www.uneed.best/tool/lexkite | Hàng chờ free kín 5 tháng → không mua gói phí; khi mở ngày free thì Schedule. |
-| 6 | Crunchbase | ✍️ Nháp – chờ anh | 17/10/2026 | crunchbase.com (hồ sơ công ty Lexkite đang sửa) | Còn: trụ sở Sheridan, Wyoming + logo + Save All Edits. |
-| 7 | Product Hunt | ✍️ Tài khoản mới – chờ anh | 17/10/2026 | producthunt.com/my/welcome | Anh điền tên + tích ≥16 tuổi; tài khoản đủ 1 tuần mới launch (sớm nhất ~24/10). |
-| 8 | Medium | ✅ **Đã đăng** (import từ dev.to, canonical về dev.to) | 17/10/2026 | https://medium.com/@vintagezulilyjewelry/building-a-15-language-fsrs-vocabulary-app-in-vanilla-js-and-exporting-real-anki-apkg-fe8adf6601d9 | Tên hiển thị Lexkite + logo; 5 chủ đề. |
-| 9 | Peerlist | ✅ Hồ sơ dự án 100% | 17/10/2026 | https://peerlist.io/lexkite | Logo, ảnh bìa, mô tả, danh mục Productivity/Chrome Extension/Mobile App. Hồ sơ cá nhân cần tên thật nếu muốn ra mắt Launchpad (thứ Hai). |
-| 10 | Hashnode | ✅ **Đã đăng** (canonical về dev.to) | 17/10/2026 | https://lexkite.hashnode.dev | Blog "Lexkite Engineering", hồ sơ Lexkite + logo, thẻ JavaScript/Web Development/PWA. |
+**Nguồn gốc duy nhất:** `content/pr/placements.json` (bảng dưới sinh tự động – không sửa tay; `npm test` chặn khi lệch). Anh cũng sửa/thêm được trong **Quản trị → Backlink, PR & Thương hiệu** (D1) → nút "Xuất JSON" để chép ngược về file. Kiểm tự động hằng ngày: xem mục "Theo dõi tự động" cuối file.
+
+<!-- pr-table:start (sinh tự động từ content/pr/placements.json – sửa JSON rồi chạy: node scripts/pr-check.mjs --table) -->
+| # | Trang | Trạng thái | Ngày | Link kiểm tra | Loại · tài khoản | Ghi chú |
+|---|---|---|---|---|---|---|
+| 1 | dev.to | ✅ Đang hiển thị | 17/10/2026 | https://dev.to/zulily_jewelry_vintage_92/building-a-15-language-fsrs-vocabulary-app-in-vanilla-js-and-exporting-real-anki-apkg-files-in-3fl7 | article · @zulily_jewelry_vintage_92 | Bài gốc (canonical). Tên hiển thị Lexkite, logo, khai báo AI-assisted. Username trong link chưa đổi (đổi sẽ đổi link). |
+| 2 | GitHub awesome-fsrs | ✅ Đang hiển thị | 17/10/2026 | https://github.com/open-spaced-repetition/awesome-fsrs/pull/80 | pr · @lexkiteapp | PR #80 đã merge 17/10/2026 – mục Specialized Flashcard trong README (GitHub gắn nofollow cho link README). |
+| 3 | SaaSHub | ⏳ Chờ duyệt | 17/10/2026 | https://www.saashub.com/lexkite | directory · @lexkite | Đã gửi, chờ duyệt (1–12 tuần, gói Free). App tương tự Brainscape, Mochi, Readlang. Trang có chống bot – thường phải kiểm tay. |
+| 4 | AlternativeTo | ⏳ Chờ duyệt | 17/10/2026 | https://alternativeto.net/software/lexkite/ | directory | Đã gửi, hàng chờ miễn phí (My submissions). URL là trang dự kiến khi được duyệt. Logo + 4 ảnh, 15 ngôn ngữ, gắn alternative Anki. |
+| 5 | Uneed | ⏳ Chờ duyệt | 17/10/2026 | https://www.uneed.best/tool/lexkite | listing · @lexkite | Hồ sơ đã lưu, CHƯA ra mắt (hàng chờ free kín ~5 tháng, không mua gói phí). Trước ra mắt: link nofollow + trang noindex. |
+| 6 | Crunchbase | ✍️ Nháp | 17/10/2026 | — | profile | Nháp – chờ anh: trụ sở Sheridan, Wyoming + logo + Save All Edits. Điền URL hồ sơ khi đã duyệt. |
+| 7 | Product Hunt | ✍️ Nháp | 17/10/2026 | — | profile | Tài khoản mới – chờ anh điền tên + tích ≥16 tuổi; tài khoản đủ 1 tuần mới launch (sớm nhất ~24/10). |
+| 8 | Medium | ✅ Đang hiển thị | 17/10/2026 | https://medium.com/@vintagezulilyjewelry/building-a-15-language-fsrs-vocabulary-app-in-vanilla-js-and-exporting-real-anki-apkg-fe8adf6601d9 | article · @vintagezulilyjewelry | Import từ dev.to, canonical về dev.to. Tên hiển thị Lexkite + logo; 5 chủ đề. Medium hay chặn bot – có thể phải kiểm tay. |
+| 9 | Peerlist | ✅ Đang hiển thị | 17/10/2026 | https://peerlist.io/lexkite | profile · @lexkite | Hồ sơ dự án 100% (logo, ảnh bìa, mô tả, danh mục). Launchpad cần hồ sơ cá nhân tên thật. Trang có chống bot – thường phải kiểm tay. |
+| 10 | Hashnode | ✅ Đang hiển thị | 17/10/2026 | https://lexkite.hashnode.dev/building-a-15-language-fsrs-vocabulary-app-in-vanilla-js-and-exporting-real-anki-apkg-files-in-the-browser | article · @lexkite | Blog "Lexkite Engineering" (lexkite.hashnode.dev), canonical về dev.to; thẻ JavaScript/Web Development/PWA. |
+<!-- pr-table:end -->
 
 Tiếp theo (miễn phí, chưa làm – chỉ trang ỔN ĐỊNH, mình làm chủ hồ sơ/bài): Peerlist, Indie Hackers (trang Product), Hashnode (blog riêng, canonical về dev.to), Medium (import, canonical), LinkedIn Company Page, Viblo (bài thuần kỹ thuật), Microsoft Edge Add-ons, Firefox Add-ons, Educational App Store, TinyLaunch, HackerNoon, GitHub (repo/README giới thiệu), Wellfound (hồ sơ công ty).
 
@@ -153,3 +157,14 @@ Ghi chú thị trường: các nền tảng (a)(c)(f) gần như chỉ tiếng A
 
 ## Nguồn đã kiểm (10/2026)
 Product Hunt (innmind.com launch guide 2026; saascity.io/directories/product-hunt) · news.ycombinator.com/showhn.html; keydiscussions.com 03/2026 · orangebot.ai/blog/betalist-alternatives-2026 · uneed.hc.ferndesk.com (dofollow) · saascity.io/directories/peerlist, /alternativeto, /fazier, /capterra, /g2 · github.com/open-spaced-repetition/awesome-fsrs · support.google.com/business/answer/13763036 · wikidata Help:Editing (notability) · f-droid.org/docs/Inclusion_Policy · support.crunchbase.com/…/115011823988 · educationalappstore.com/developer · voz.vn/help/terms · tinhte.vn thỏa thuận dịch vụ · viblo.asia (phản hồi spam) · redlib …/r/languagelearning/wiki/rules_for_promotion · ppc.land/scaled-content-abuse; relevantaudience.com (spam update 08/2026) · indiehackers.com (free PR sites 2026) · forums.opera.com (duyệt treo).
+
+## Theo dõi tự động (Backlink, PR & Thương hiệu)
+- **Workflow** `.github/workflows/pr-check.yml` (hằng ngày 08:30 giờ VN + chạy tay / nút "Kiểm ngay" trong Quản trị): `scripts/pr-check.mjs --remote`.
+  - Bài/hồ sơ `live`/`pending`: HTTP, URL cuối (chuyển hướng), còn link `lexkite.com` (cả UTM, link bọc), `rel` (nofollow/ugc/sponsored), noindex (meta + `X-Robots-Tag`), tiêu đề, dấu hiệu bị gỡ/bị khóa theo nền tảng; PR GitHub qua API (+ README khi đã merge).
+  - **Sự cố** (đỏ, thoát 1, issue `brand-watch`): live → bị gỡ/404/bị khóa, mất link, `rel` tụt so với mốc (lần kiểm đầu hoặc `expectedRel`), thêm noindex. **Thay đổi** (vàng): pending → đã lên/merge (đổi trạng thái sang live), PR bị đóng, rel nâng lên follow. **Kiểm tay**: 403/challenge/lỗi mạng – không bao giờ coi là bị gỡ.
+  - **Thương hiệu** (`content/brand/watch.json`): tên miền na ná kiểm DNS (DoH `cloudflare-dns.com`: NS/A/AAAA/MX) – báo khi tên miền trước không phân giải nay phân giải, hoặc có MX mới (giữ đỏ tới khi bấm "Đã xem"); tài khoản mạng xã hội – tự kiểm GitHub/Bluesky/YouTube (hồ sơ công khai), nền tảng khác là danh sách để anh tự giữ tên.
+  - **Bản sao chép**: `content-protect.yml` (hằng tuần, `copy-watch.mjs`) gửi kết quả lên cùng tab (`--push-copy`) – không dò trùng lặp.
+- **Lưu & cảnh báo**: kết quả vào D1 (`bw_*`) qua `/api/backlinks` (ký HMAC bằng secret CI sẵn có `STUDIO_CALLBACK_SECRET`) → Quản trị → Cảnh báo có 3 dòng (Backlink & PR · Thương hiệu · Nghi bị chép). Thư (Worker lexkite-mail → `REPORT_NOTIFY_EMAIL`): sự cố nghiêm trọng (bị gỡ, bị khóa, tên miền na ná có MX, tài khoản của mình mất) gửi ngay 1 lần; bản tin tổng hợp mỗi tuần.
+- **Cách xử lý**: mỗi sự cố có nút "Cách xử lý" trong Quản trị – mẫu DMCA điền sẵn (URL gốc + Wayback + URL vi phạm), checklist khiếu nại theo nền tảng, mẫu báo lạm dụng gửi nhà đăng ký tên miền.
+- Không có secret/không đồng bộ được → vẫn chạy bằng file, kết quả ở artifact `pr-check` + issue GitHub.
+

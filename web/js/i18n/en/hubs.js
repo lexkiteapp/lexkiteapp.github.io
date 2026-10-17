@@ -205,6 +205,7 @@
   'Bấm đúp để tra, bôi đen để dịch cả câu.': "Double-click to look up, highlight to translate a whole sentence.",
   'Học từ vựng & luyện thi tiếng Anh miễn phí – nhớ lâu bằng khoa học.': "Free English vocabulary & exam prep – remember for longer, backed by science.",
   'IELTS, TOEIC, TOEFL là nhãn hiệu của các tổ chức sở hữu. Lexkite là sản phẩm độc lập, không liên kết với các tổ chức này.': "IELTS, TOEIC and TOEFL are trademarks of their respective owners. Lexkite is independent and not affiliated with them.",
+  'Lexkite™ là nhãn hiệu của {owner}.': "Lexkite™ is a trademark of {owner}.",
   'Sản phẩm': "Product",
   'Ứng dụng web': "Web app",
   'Pháp lý & hỗ trợ': "Legal & support",

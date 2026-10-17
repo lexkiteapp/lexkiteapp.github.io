@@ -42,3 +42,29 @@ for (const f of ['web/index.html', ...fs.readdirSync('web').filter(d => /^[a-z]{
 }
 if (errs.length) { console.error('✗ brand-check: màu ngoài token thương hiệu ở trang tĩnh:\n  - ' + errs.slice(0, 20).join('\n  - ') + '\n  → chỉ dùng biến/token trong scripts/lib/site-layout.mjs (docs/BRAND-RULES.md)'); process.exit(1); }
 console.log(`✓ brand-check: trang tĩnh chỉ dùng màu token (${allowed.size} màu; ${scanned ? scanned + ' trang dist đã quét' : 'dist chưa dựng/cũ – chỉ kiểm nguồn'})`);
+
+// ---- Nhãn hiệu "Lexkite™" (docs/BRAND-RULES.md § Nhãn hiệu): chân trang 15 ngôn ngữ + điều khoản; không đổi logo/wordmark, không ™ trong <title>, không ® ----
+const { TM_NOTE, TM_OWNER, LANG_NAMES, siteFooter } = await import('../lib/site-layout.mjs');
+const tmErr = [];
+for (const l of Object.keys(LANG_NAMES)) {
+  const n = TM_NOTE[l];
+  if (!n || !n.includes('Lexkite™') || !n.includes(TM_OWNER) || n.includes('®')) tmErr.push(`TM_NOTE.${l} thiếu/sai`);
+  else if (l !== 'en' && n === TM_NOTE.en) tmErr.push(`TM_NOTE.${l} chưa dịch`);
+  const f = siteFooter({ lang: l, text: 'Lexkite – x' });
+  if (!f.includes(n) || !f.includes('<p>Lexkite™ – x</p>')) tmErr.push(`siteFooter(${l}) thiếu dòng nhãn hiệu`);
+}
+for (const f of ['web/index.html', ...Object.keys(LANG_NAMES).filter(l => l !== 'vi').map(l => `web/${l}/index.html`)]) {
+  if (!fs.existsSync(f)) continue;
+  const h = fs.readFileSync(f, 'utf8'), l = f === 'web/index.html' ? 'vi' : f.split('/')[1];
+  if (!h.includes(TM_NOTE[l])) tmErr.push(`${f}: chân trang thiếu "${TM_NOTE[l]}" (chạy node scripts/build-landing.mjs)`);
+  if (/<title>[^<]*[™®]/.test(h)) tmErr.push(`${f}: không gắn ™/® trong <title>`);
+  if (/lex<b>kite<\/b>[™®]|lex<b>kite[™®]/.test(h)) tmErr.push(`${f}: không gắn ™ vào wordmark/logo`);
+}
+for (const l of ['en', 'vi']) {
+  const src = fs.readFileSync(`content/legal/${l}/terms.html`, 'utf8');
+  if (!/<p id="trademarks">[^\n]*MODIAN LUXURY JEWELRY LLC/.test(src) || !/^<p>Lexkite™ /m.test(src)) tmErr.push(`content/legal/${l}/terms.html: thiếu điều khoản nhãn hiệu #trademarks / "Lexkite™" lần nhắc đầu`);
+  if (!fs.readFileSync(`web/${l}/terms.html`, 'utf8').includes('id="trademarks"')) tmErr.push(`web/${l}/terms.html chưa dựng lại (node scripts/build-legal.mjs)`);
+}
+if ((fs.readFileSync('web/js/app.js', 'utf8').match(/t\('Lexkite™ là nhãn hiệu của \{owner\}\.'/g) || []).length < 2) tmErr.push('web/js/app.js: chân trang chào mừng thiếu dòng nhãn hiệu');
+if (tmErr.length) { console.error('✗ brand-check (nhãn hiệu):\n  - ' + tmErr.join('\n  - ')); process.exit(1); }
+console.log(`✓ brand-check: Lexkite™ ở chân trang ${Object.keys(TM_NOTE).length} ngôn ngữ + điều khoản (logo/wordmark/<title> không đổi)`);

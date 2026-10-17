@@ -289,7 +289,7 @@
           const tip = [r.mnemonic, r.parts, r.confuse].filter(Boolean).join(' · ');
           out.innerHTML = `💡 ${esc(tip)}`;
           if (r.mnemonic && !c.note) { await saveNote(r.mnemonic); $('[data-note]', lb).value = c.note; }
-        } catch (e) { out.innerHTML = `${esc(AI.errText ? AI.errText(e) : e.message)} ${e.message === 'NO_KEY' ? `<button class="btn sm" data-k>${t('Bật AI')}</button>` : ''}`; const k = $('[data-k]', out); if (k) k.onclick = () => AI.keyDialog(); }
+        } catch (e) { out.innerHTML = `${esc(AI.errText ? AI.errText(e) : e.message)} ${e.message === 'BAD_KEY' ? `<button class="btn sm" data-k>${t('Nhập khóa')}</button>` : ''}`; const k = $('[data-k]', out); if (k) k.onclick = () => AI.keyDialog(); }
         b.disabled = false;
       };
     }
