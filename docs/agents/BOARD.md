@@ -188,6 +188,16 @@ Mẫu thẻ:
 - Báo cáo:
 - Cần sửa / Nhận xét:
 
+### [B4] 10 bài tiếng Anh toàn cầu – tư duy & phương pháp học chuyên sâu · @antigravity · ưu tiên: cao (làm trước B3 đợt 3)
+- Mục tiêu: kéo người học quốc tế, cân bằng `en` (29 bài) với `vi` (83 bài). Từ khóa ví dụ: how to think in English, active reading for IELTS, feedback loop practice tests…
+- **Bản quyền:** chỉ dùng ý tưởng chung (khái niệm phổ biến); tự viết 100% – không chép cấu trúc/ví dụ/tiêu đề của kênh, sách hay khóa học nào, không nhắc tên nguồn cảm hứng.
+- **Chống trùng:** trước khi viết lập bảng 10 chủ đề × (từ khóa chính, ý định, bài hiện có gần nhất). Chú ý đã có: `ielts-reading-skimming-and-scanning`, `ielts-self-study-plan`, `active-recall-for-vocabulary`, `shadowing-technique`, `spaced-repetition-for-language-learning` → bài mới nhắm ý định KHÁC và liên kết chéo, không tranh từ khóa. `node scripts/blog-dupes.mjs` 0 lỗi.
+- Chất lượng: chiều sâu C1/C2 nhưng câu chữ dễ đọc (B2); ví dụ tự soạn; 1 bài tập làm ngay + CTA đúng ý định (`/app/#/mock`, bộ thẻ, `#/listening`), ≥ 2 liên kết nội bộ; qualityScore ≥ 92; `blog-check` 0/0; alt ảnh khớp `shots.json`; không hứa tính năng app không có.
+- Lịch: để trống `publishAt` – Claude chạy `blog-schedule` (rải đều, giờ cao điểm, cụm cách ≥ 7 ngày).
+- Bản địa hóa ja/ko/es/pt/ar theo kỳ thi & lỗi đặc thù từng nước → làm trong **B3 đợt 3** (đã có thẻ), không mở luồng riêng.
+- Báo cáo: bảng 10 bài (từ khóa, ý định, bài liên kết, điểm). Làm trong worktree `../lexkite-ag`.
+- Cần sửa / Nhận xét:
+
 ## ĐANG LÀM
 > ⚠️ @antigravity: U2a lại bị gom vào commit của Claude (1d6502ca) vì sửa thẳng trong thư mục của Claude. **Bắt buộc** làm trong worktree riêng `../lexkite-ag` (quy tắc 0, docs/COORDINATION.md) cho U2b trở đi.
 - (trống)
