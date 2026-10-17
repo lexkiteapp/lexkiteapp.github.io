@@ -95,3 +95,5 @@ File này gom các **quy trình đã chốt** và **lỗi đã từng mắc** đ
 - WAF Cloudflare chạy thật (token riêng `~/.config/lexkite/cf-waf-token`); gói Free: rate limit chỉ "block" (không challenge). Kiểm: `node scripts/cf-waf.mjs verify --live`.
 - Trần `web/js` không tính `admin-*.js`; khung app (shell) theo dõi 380 KB gz – ảnh/icon nén lượng tử được thì nén.
 - Add-on: sửa xong phải chờ `~/lexkite-ext-live` lên đúng phiên bản rồi mới báo.
+- (17/10) **Thêm nhiều trang route mới → kiểm bot dịch nội dung**: `harvest-content.mjs` quét BFS có giới hạn MAX; thêm ~800 trang `#/usage/<từ>` làm bot hết lượt trước trang Phát âm → `strings.json` mất 1.088 câu, bản dịch sẵn 15 ngôn ngữ co 26%. Đã sửa: hết lượt thì gộp câu cũ, bỏ qua trang từng từ (`/dict/`, `/usage/`). Sau mỗi commit của lexkite-bot "i18n: cập nhật…" xem `--stat` – thấy hàng trăm dòng bị xóa là dấu hiệu mất dịch.
+- (17/10) **Nhánh Antigravity cũ → gộp TAY, không merge**: B5/U3 làm trên nhánh tách từ bản cũ; gộp nguyên sẽ ghi đè bản sửa alt ảnh và bản sửa iPhone (hover chỉ cho chuột, ẩn gợi ý phím trên cảm ứng). Chỉ lấy đúng commit tính năng, giải xung đột giữ bản sửa mới.
