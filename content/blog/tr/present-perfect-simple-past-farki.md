@@ -92,7 +92,7 @@ Buna verilecek en profesyonel yanıt her iki zamanı birbirine bağlar:
 - Önce Present Perfect ile genel tecrübeyi onaylayın: *Yes, I have handled challenging clients on several occasions throughout my career.*  
 - Ardından hemen Simple Past'a geçerek somut olayı anlatın: *For example, last year, a client was unhappy with a delivery deadline, so I organized an emergency meeting and resolved the issue.*
 
-Bu zarif geçiş, konuşmanızdaki dilbilgisi zenginliğini doğrudan gösterir. Konuşma reflekslerinizi hızlandırmak için [İngilizce telaffuz geliştirme](/tr/blog/ingilizce-telaffuz-gelistirme/) tekniklerimizi uygulayabilir, dinleme sınavlarındaki aksanları yakalamak için [IELTS Listening taktikleri](/tr/blog/ielts-listening-taktikleri/) yazımızı inceleyebilirsiniz.
+Bu zarif geçiş, konuşmanızdaki dilbilgisi zenginliğini doğrudan gösterir. Mülakatlarda bu zaman uyumunu sergilemek için [İngilizce iş mülakatı soruları](/tr/blog/ingilizce-is-mulakati-sorulari/) rehberimizi, kompozisyonlarda karmaşık cümle kurmak için [IELTS Writing Task 2 şablon](/tr/blog/ielts-writing-task-2-ornekleri/) kılavuzumuzu, konuşma reflekslerinizi hızlandırmak için [İngilizce telaffuz geliştirme](/tr/blog/ingilizce-telaffuz-gelistirme/) tekniklerimizi uygulayabilir, dinleme sınavlarındaki aksanları yakalamak için [IELTS Listening taktikleri](/tr/blog/ielts-listening-taktikleri/) yazımızı inceleyebilirsiniz.
 
 Zaman yapısı örneklerini unutmamak için günde 10 dakikalık [bilgi kartı seansları](/#/review) yapmayı ihmal etmeyin.
 

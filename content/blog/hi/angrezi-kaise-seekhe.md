@@ -84,8 +84,8 @@ qualityScore: 94
 लक्ष्य: लगभग 1,000 शब्द, 150–200 शब्दों का आसान पैराग्राफ़ समझना, रोज़ 5–7 वाक्यों की diary और जानी-पहचानी बातों पर धीरे-धीरे बातचीत।
 
 - **ग्रामर:** बुनियादी present perfect (*I have never been to Goa*), comparatives और superlatives, modal verbs *can, should, must*, और *a/an/the* के मूल नियम।
-- **लिखना:** हर रात अपने दिन के बारे में 5–7 वाक्य, past tense सही रखते हुए।
-- **बोलना:** घर का काम करते हुए self-talk: *I'm making tea. Now I'm washing the cups.* सुनी हुई छोटी lines को दोहराइए (shadowing)।
+- **लिखना:** हर रात अपने दिन के बारे में 5–7 वाक्य, past tense सही रखते हुए; पेशेवर संवाद के लिए [इंग्लिश में ईमेल कैसे लिखें](/hi/blog/professional-email-writing-in-hindi/) के बुनियादी प्रारूप भी समझें।
+- **बोलना:** घर का काम करते हुए self-talk: *I'm making tea. Now I'm washing the cups.* सुनी हुई छोटी lines को दोहराइए (shadowing); करियर और नौकरी के लिए [इंग्लिश इंटरव्यू की तैयारी](/hi/blog/job-interview-english-questions-hindi/) के तरीके अपनाएं।
 - **सुनना-पढ़ना:** समय बढ़ाइए; ऐसी सामग्री चुनिए जिसका लगभग 80–90% हिस्सा समझ आए।
 
 ## शब्द याद कैसे रहें: रटना नहीं, दोहराव
@@ -142,7 +142,7 @@ Fluency और accuracy में संतुलन कैसे रखें, 
 
 ![Lexkite का IELTS path: band के हिसाब से चरण (Stage 0 – core words…), हर चरण में शब्द, अभ्यास, listening और test](media:path "बुनियाद पक्की होने के बाद exam की तैयारी चरण-दर-चरण आगे बढ़ती है")
 
-कब, कितने घंटे और किस क्रम में तैयारी करें, इसका पूरा प्लान [IELTS की तैयारी कैसे करें](/hi/blog/ielts-ki-taiyari-kaise-kare/) में है।
+कब, कितने घंटे और किस क्रम में तैयारी करें, इसका पूरा प्लान [IELTS की तैयारी कैसे करें](/hi/blog/ielts-ki-taiyari-kaise-kare/) में है, और बोलने की दक्षता के लिए [IELTS Speaking में 7 बैंड लाने](/hi/blog/ielts-speaking-band-7-hindi/) के तरीके भी देखें।
 
 ## ये गलतियाँ आपको फिर से शुरुआत पर ले आती हैं
 

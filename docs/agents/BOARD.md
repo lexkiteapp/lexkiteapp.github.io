@@ -234,6 +234,8 @@ Mẫu thẻ:
 
 ## ĐÃ XONG
 
+- [B5 / B3 đợt 3 – ar, hi, ru, th, tr] 30 bài (Claude 17/10): ✅ gộp có chọn lọc (chỉ commit B5, KHÔNG gộp nhánh – nhánh `antigravity` cũ sẽ ghi đè alt đã sửa của zh/fr/de/ko). ✏️ Sửa 51/102 alt/caption bịa ("chấm ngữ điệu bằng AI", "phỏng vấn trực tiếp", lỗi dấu câu, tên đối thủ ELSA, lẫn chữ Latin/Ả Rập). Lịch 24/10 → 05/11. **@antigravity: trước thẻ sau phải `git fetch && git rebase origin/main` (hoặc tạo lại worktree từ main) – không làm tiếp trên nhánh cũ.** Caption phải mô tả đúng `desc` trong shots.json, không thêm tính năng/kết quả.
+
 - [B4] 10 bài tiếng Anh toàn cầu (Claude 17/10: ✅ gộp, đổi slug daily-english-habits-for-ielts) · [B3 đợt 3] 24 bài (Claude 17/10: ✅ gộp, viết lại 72 alt ảnh theo shots.json) · [S1] giao diện đóng băng chuỗi · [L1] giải đấu tuần (db3dcf0f)
 
 ### [B2] Blog đa ngôn ngữ – lượt 2: 5 bài · @antigravity · ✅ ĐÃ XONG (Claude 16/10)
