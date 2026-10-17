@@ -235,6 +235,7 @@
     placement: ['js/placement.js'], // 🧭 Kiểm tra đầu vào thích ứng (ước tính band + khoảng tin cậy)
     wordcard: ['js/wordcard.js'], // 🧠 Khối "Hiểu sâu" của thẻ từ (mẹo nhớ · lỗi sai/đúng · dùng khi thi · họ từ)
     anki: ['js/anki.js'], // 🃏 Xuất/nhập Anki (.apkg/.txt/.csv) – chỉ tải khi mở hộp thoại Anki
+    share: ['js/lib/qr.js', 'js/share-card.js'], xport: ['js/export.js'],
   };
   const ROUTE_BUNDLE = { paraphrase: 'paraphrase', courses: 'courses', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: 'grammar', placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
     toefl: ['listening', 'toefl'], 'toefl-p': ['listening', 'toefl'],
@@ -258,6 +259,9 @@
   App.loaded = n => !!bundleP[n];
   App.anki = async (tab, opts) => { try { await App.need('anki'); if (!window.AnkiUI) throw new Error('anki'); await AnkiUI.open(tab, opts || {}); } catch (e) { toast(t('Không tải được – thử lại sau')); } };
   const ankiAll = () => ({ cards: Object.values(state.cards), name: t('Sổ từ') });
+  const lazyUI = (b, f) => App.need(...b).then(f).catch(() => toast(t('Không tải được – thử lại sau')));
+  App.xport = o => lazyUI(['anki', 'xport'], () => Export.open(o));
+  document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('[data-share]'); if (b) { e.preventDefault(); lazyUI(['share'], () => ShareCard.open(b.dataset.share)); } });
   // Rảnh thì tải trước các module còn lại → chuyển trang tức thì, dùng offline được
   const idle = cb => ('requestIdleCallback' in window ? requestIdleCallback(cb, { timeout: 4000 }) : setTimeout(cb, 2500));
   // Tải sẵn các phần còn lại khi máy rảnh – bỏ qua khi người dùng tiết kiệm dữ liệu, mạng chậm hoặc máy yếu (tải khi cần là đủ)
@@ -1079,17 +1083,14 @@
     };
     ['filterQ', 'filterTopic', 'filterM', 'filterFrom'].forEach(id => $('#' + id).addEventListener('input', draw));
     draw();
-    $('#exportBtn').onclick = exportData;
+    const dn = () => { const tp = $('#filterTopic').value, T = TOPICS.find(x => x.id === tp); return T ? T.name : tp.startsWith('deck:') ? tp.slice(5) : t('Sổ từ'); };
+    $('#exportBtn').onclick = () => App.xport({ shown: shownRows, name: dn() });
     $('#shareBtn').onclick = () => { const tp = $('#filterTopic').value, T = TOPICS.find(x => x.id === tp); shareDeck(T ? T.name : t('Bộ từ của {n}', { n: (state.user && state.user.displayName) || 'Lexkite' }), shownRows); };
     $('#importFile').onchange = importData;
-    $('#ankiOut').onclick = () => { const tp = $('#filterTopic').value, T = TOPICS.find(x => x.id === tp); App.anki('export', { ...ankiAll(), shown: shownRows, name: T ? T.name : tp.startsWith('deck:') ? tp.slice(5) : t('Sổ từ') }); };
+    $('#ankiOut').onclick = () => App.anki('export', { ...ankiAll(), shown: shownRows, name: dn() });
     $('#ankiIn').onclick = () => App.anki('import');
   };
 
-  async function exportData() {
-    const blob = new Blob([JSON.stringify({ app: 'ielts-lexi', version: 2, exported: new Date().toISOString(), cards: state.cards, stats: state.stats, game: state.game, settings: state.settings }, null, 2)], { type: 'application/json' });
-    download(blob, `ielts-lexi-${todayKey()}.json`);
-  }
   async function importData(e) {
     const f = e.target.files[0]; if (!f) return;
     try {
@@ -1169,7 +1170,7 @@
     const dn = [t('CN'), t('T2'), t('T3'), t('T4'), t('T5'), t('T6'), t('T7')];
 
     view.innerHTML = `
-      <div class="page-head"><div><h1>${t('Tiến độ & huy hiệu')}</h1><p class="muted">${t('Theo dõi hành trình chinh phục IELTS của bạn')}</p></div></div>
+      <div class="page-head"><div><h1>${t('Tiến độ & huy hiệu')}</h1><p class="muted">${t('Theo dõi hành trình chinh phục IELTS của bạn')}</p></div><button type="button" class="btn sm" data-share>✨ ${t('Khoe thành tích')}</button></div>
       <div class="card hero-main" style="display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap">
         <div class="avatar" style="width:72px;height:72px;font-size:1.8rem;background:rgba(255,255,255,.2)">${avatarInner()}</div>
         <div class="grow"><div class="muted">${t('Cấp độ hiện tại')}</div><h2 style="margin:0;color:#fff">${t('Cấp {n}', { n: L.level })} · ${esc(L.title)}</h2>
@@ -1294,7 +1295,7 @@
       ${Store.isExtension ? '' : sec('ext', '🧩 ' + t('Add-on từ điển cho Chrome'), `<div class="set-row"><div class="set-l"><span class="small">${t('Bấm đúp vào bất kỳ từ tiếng Anh nào trên web để xem phiên âm, nghĩa, hình ảnh và <b>lưu vào flashcard kèm câu gốc làm ngữ cảnh</b>. Bôi đen cả câu/đoạn để <b>dịch sang tiếng Việt</b>.')}</span><small>${t('Cài đặt: mở <code>chrome://extensions</code> → bật <i>Developer mode</i> → <i>Load unpacked</i> → chọn thư mục <code>extension</code>.')}</small></div></div>`)}
       ${sec('data', '💾 ' + t('Dữ liệu'),
         row(t('Chuyển dữ liệu'), `<a class="btn sm" href="#/handoff">${t('📲 Chuyển sang điện thoại (không cần đăng nhập)')}</a>`)
-        + row(t('Xuất sao lưu'), `<button type="button" class="btn sm" id="sExport">⬇️ ${t('Xuất sao lưu')}</button>`)
+        + row(t('Xuất sao lưu'), `<button type="button" class="btn sm" id="sExport">📦 Excel · PDF · JSON</button>`)
         + row('🃏 Anki', `<span class="set-btns"><button type="button" class="btn sm" id="sAnkiOut">${t('Xuất sang Anki')}</button><button type="button" class="btn sm" id="sAnkiIn">${t('Nhập từ Anki')}</button></span>`)
         + row(t('Nhập sao lưu'), `<label class="btn sm">⬆️ ${t('Nhập sao lưu')}<input type="file" id="sImport" accept="application/json" hidden></label>`)
         + row(`<span class="danger-t">${t('Xóa toàn bộ dữ liệu học')}</span>`, `<button type="button" class="btn sm danger" id="sReset">${t('Xóa')}</button>`)
@@ -1341,7 +1342,7 @@
     $$('#sMean [data-v]').forEach(b => b.onclick = () => { if (b.dataset.v !== I18N.meanLang()) I18N.setMean(b.dataset.v); });
     const p = $('#sPerm'); if (p) p.onclick = async () => { await Notification.requestPermission(); routes.settings(); };
     const ics = $('#sIcs'); if (ics) ics.onclick = () => download(new Blob([makeICS(s.reminderTime)], { type: 'text/calendar' }), 'ielts-lexi-nhac-hoc.ics');
-    $('#sExport').onclick = exportData;
+    $('#sExport').onclick = () => App.xport();
     $('#sAnkiOut').onclick = () => App.anki('export', ankiAll());
     $('#sAnkiIn').onclick = () => App.anki('import');
     $('#sImport').onchange = importData;

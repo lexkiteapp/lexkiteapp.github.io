@@ -4,7 +4,6 @@
   'Nghe': 'Listen',
   'Ngữ pháp IELTS': 'IELTS Grammar',
   '{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.': '{n} visual lessons: timelines, color-coded formulas, sentence transformation diagrams, common learner mistakes and instantly graded exercises.',
-  'Luyện tổng hợp {n} câu': 'Mixed practice ({n} questions)',
   'Chương {n}': 'Chapter {n}',
   'Kiểm tra chương': 'Chapter test',
   'Đang cập nhật bài học…': 'Lessons coming soon…',

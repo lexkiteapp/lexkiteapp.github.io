@@ -241,6 +241,7 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
         <h3 class="set-h">${t('Việc học')}</h3><div class="set-list">`
       + row('#/goal', '🚩', t('Mục tiêu & kế hoạch'), t('Kỳ thi, điểm mục tiêu, ngày thi'))
       + row('#/stats', '📊', t('Tiến độ & huy hiệu'), t('Chuỗi {n} ngày · {xp} XP', { n: streak || 0, xp: (g.xp || 0).toLocaleString(I18N.lang()) }))
+      + row('#/stats', '✨', t('Khoe thành tích')).replace('<a ', '<a data-share ')
       + row('#/league', '🏆', t('Giải đấu tuần'), t('Bảng xếp hạng 30 người học, thăng hạng mỗi tuần'))
       + row('#/mistakes', '📕', t('Sổ lỗi sai'), t('Làm lại các câu đã sai'), false, openMistakes ? `<span class="pill-count warn">${openMistakes}</span>` : '')
       + `</div><h3 class="set-h">${t('Ứng dụng')}</h3><div class="set-list">`

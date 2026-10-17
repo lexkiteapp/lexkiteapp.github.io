@@ -337,7 +337,7 @@
   Sync.ago = (ts, now = Date.now()) => {
     const s = Math.max(0, Math.round((now - ts) / 1000));
     if (s < 45) return t('vừa xong');
-    const [n, unit] = s < 3600 ? [Math.max(1, Math.round(s / 60)), 'minute'] : s < 86400 ? [Math.round(s / 3600), 'hour'] : [Math.round(s / 86400), 'day'];
+    const [n, unit] = /** @type {[number, Intl.RelativeTimeFormatUnit]} */ (s < 3600 ? [Math.max(1, Math.round(s / 60)), 'minute'] : s < 86400 ? [Math.round(s / 3600), 'hour'] : [Math.round(s / 86400), 'day']);
     const lang = window.I18N ? I18N.lang() : 'vi';
     try { const r = new Intl.RelativeTimeFormat(lang, { numeric: 'auto' }).format(-n, unit); return r.charAt(0).toLocaleLowerCase(lang) + r.slice(1); } /* giữa câu: "Hôm qua" → "hôm qua" */ catch (e) { return new Date(ts).toLocaleTimeString(lang, { hour: '2-digit', minute: '2-digit' }); }
   };

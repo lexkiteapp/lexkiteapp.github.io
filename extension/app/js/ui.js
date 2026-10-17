@@ -67,7 +67,7 @@
     if (!n) return;
     const r = el ? el.getBoundingClientRect() : { left: innerWidth / 2, top: innerHeight / 2, width: 0 };
     const d = document.createElement('div');
-    d.className = 'xp-float'; d.textContent = `+${n} XP`;
+    d.className = 'xp-float'; d.setAttribute('aria-hidden', 'true'); d.textContent = `+${n} XP`;
     d.style.left = (r.left + r.width / 2 - 30) + 'px'; d.style.top = (r.top - 10) + 'px';
     document.body.appendChild(d); setTimeout(() => d.remove(), 1000);
   }
