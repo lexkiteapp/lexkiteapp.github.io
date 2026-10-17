@@ -197,7 +197,7 @@
           <div class="vb-box"><h3>🗣️ ${t('Cách đọc đuôi')}</h3>
             ${f.ed ? `<p class="small" style="margin:0 0 .4rem"><b>-ed</b> <span class="vb-ipa" translate="no">${f.ed.ipa}</span> · ${esc(ED_WHY()[f.ed.why])}${V.endIpa(f.ed.end) ? ` <span class="muted">(${t('âm cuối {s}', { s: V.endIpa(f.ed.end) })})</span>` : ''}</p>` : `<p class="small" style="margin:0 0 .4rem"><b>-ed</b> · ${t('Không có đuôi -ed (dạng bất quy tắc).')}</p>`}
             <p class="small" style="margin:0"><b>-s</b> <span class="vb-ipa" translate="no">${f.sz.ipa}</span> · ${esc(S_WHY()[f.sz.why])}</p>
-            <a class="small" href="#/grammar/ed-s-endings">📐 ${t('Bài học: cách đọc -ed và -s')} →</a></div>
+            <a class="small" style="color:var(--primary-text)" href="#/grammar/ed-s-endings">📐 ${t('Bài học: cách đọc -ed và -s')} →</a></div>
         </div></section>
       <div class="vb-bar"><h2>📚 ${t('Bảng chia theo thì')}</h2><div class="vb-ctl" id="vbVoiceW"></div></div>
       <div class="tabs" role="tablist" id="vbTabs" aria-label="${t('Nhóm thì')}"></div>

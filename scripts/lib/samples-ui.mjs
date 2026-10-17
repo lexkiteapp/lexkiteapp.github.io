@@ -9,7 +9,7 @@ import { esc } from './site-layout.mjs';
 // ---------- Chữ giao diện (vi / en) ----------
 export const S = {
   vi: {
-    prompt: 'Đề bài', task: 'Tình huống', outline: 'Dàn bài', legend: 'Chú thích màu', view: 'Hiển thị',
+    close: 'Đóng', prompt: 'Đề bài', task: 'Tình huống', outline: 'Dàn bài', legend: 'Chú thích màu', view: 'Hiển thị',
     legPh: 'Cụm từ hay – chạm để xem nghĩa', legLn: 'Từ nối', legLb: 'Vai trò của câu',
     tgHl: 'Tô màu', tgGl: 'Hiện nghĩa', print: 'In bài',
     para: (i, n) => `Đoạn ${i}/${n}`, words: 'từ', paras: 'đoạn', phrases: 'cụm từ', links: 'từ nối', min: n => `${n} phút đọc`, minL: 'phút đọc', questions: 'câu hỏi',
@@ -21,7 +21,7 @@ export const S = {
     youShould: 'You should say:',
   },
   en: {
-    prompt: 'Question', task: 'Task', outline: 'Structure', legend: 'Colour key', view: 'Display',
+    close: 'Close', prompt: 'Question', task: 'Task', outline: 'Structure', legend: 'Colour key', view: 'Display',
     legPh: 'High-scoring phrase', legLn: 'Linking word', legLb: 'Sentence role',
     tgHl: 'Highlights', tgGl: '', print: 'Print',
     para: (i, n) => `Paragraph ${i} of ${n}`, words: 'words', paras: 'paragraphs', phrases: 'phrases', links: 'linking words', min: n => `${n} min read`, minL: 'min read', questions: 'questions',
@@ -76,7 +76,7 @@ export const kit = (mood = 'happy', size = 72) => { if (!KIT) { const c = {}; c.
   return KIT.svg(mood, size, false).replace(/\s*role="img"\s*aria-label="[^"]*"/, ' aria-hidden="true" focusable="false"').replace(/<!--[\s\S]*?-->/g, '').replace(/>\s+</g, '><').trim(); };
 
 // Phần đầu trang: dòng nhỏ (kicker) + h1 + mô tả + số liệu (+ Kit trên trang mục lục)
-export const hero2 = ({ kicker = [], h1, lead = '', statsHtml = '', mood = '', cls = '' }) => `<header class="hero hero2${cls ? ' ' + cls : ''}">${kicker.length ? `<p class="kick">${kicker.map(k => `<span>${esc(k)}</span>`).join('<span aria-hidden="true">·</span>')}</p>` : ''}<h1>${h1}</h1>${lead ? `<p class="lead">${lead}</p>` : ''}${statsHtml}${mood ? `<span class="kit">${kit(mood, 96)}</span>` : ''}</header>`;
+export const hero2 = ({ kicker = [], h1, lead = '', statsHtml = '', mood = '', cls = '' }) => `<header class="hero hero2${cls ? ' ' + cls : ''}">${kicker.length ? `<p class="kick">${kicker.map(k => `<span>${esc(k)}</span>`).join('')}</p>` : ''}<h1>${h1}</h1>${lead ? `<p class="lead">${lead}</p>` : ''}${statsHtml}${mood ? `<span class="kit">${kit(mood, 96)}</span>` : ''}</header>`;
 
 // Ô đề bài / tình huống
 export const promptBox = (label, inner, cls = '') => `<section class="prompt${cls ? ' ' + cls : ''}" aria-labelledby="pr-h"><h2 class="k" id="pr-h">${label}</h2>${inner}</section>`;
@@ -120,6 +120,7 @@ export const SMP_CSS = `.smp{--ac2:var(--accent);--tc:var(--ac2)}
 .smp.page{max-width:1080px}.smp.narrow{max-width:820px}
 .smp .hero2{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:22px 22px 20px;margin:4px 0 18px;overflow:hidden}
 .smp .hero2::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,#0F3D3E,#12807A 45%,#FFB054 78%,#E5502F)}
+.smp .kick span{white-space:nowrap}.smp .kick span:not(:last-child)::after{content:"·";margin-left:8px}
 .smp .kick{display:flex;flex-wrap:wrap;gap:4px 8px;margin:4px 0 0;font-size:12.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--ac2)}
 .smp .hero2 h1{font-size:clamp(26px,4vw,38px);line-height:1.2;margin:.25em 0 .15em;letter-spacing:-.02em;max-width:24em}
 .smp .hero2 .lead{color:var(--muted);margin:.2em 0 0;max-width:60ch}
@@ -152,20 +153,32 @@ export const SMP_CSS = `.smp{--ac2:var(--accent);--tc:var(--ac2)}
 .tools button[aria-pressed=true]{background:var(--ac2);border-color:var(--ac2);color:var(--surface)}
 .tools button[aria-pressed]::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;border:1.5px solid currentColor;margin-right:6px;vertical-align:1px}.tools button[aria-pressed=true]::before{background:currentColor}
 .r-intro{--rc:var(--brand)}.r-body{--rc:var(--ac2)}.r-concl{--rc:var(--link)}.r-greet{--rc:var(--muted)}
-.ess2{font-size:18px;line-height:1.85}
-.para{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 20px 14px 24px;margin:0 0 14px;scroll-margin-top:16px}
-.para::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:4px;border-radius:0 4px 4px 0;background:var(--rc)}
-.para-h{display:flex;justify-content:space-between;align-items:center;gap:8px;line-height:1.5;margin-bottom:2px}
-.para .role{font-size:12px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--rc)}.para .pn{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
-.para p{margin:0;overflow-wrap:break-word}.para:target{border-color:var(--rc);box-shadow:0 0 0 3px var(--accent-soft)}
-.smp .lb{font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:1px 8px;margin-right:2px;vertical-align:2px;background:var(--bg);color:var(--muted);border:1px solid var(--line);line-height:1.6;white-space:nowrap}
-.smp .lb-ts{background:var(--accent-soft);color:var(--ac2);border-color:transparent}.smp .lb-ex{background:rgba(255,201,74,.22);color:var(--text);border-color:transparent}.smp .lb-cv{background:rgba(255,143,163,.2);color:var(--text);border-color:transparent}.smp .lb-op{background:var(--primary-soft);color:var(--link);border-color:transparent}
-.smp mark.ph{background:rgba(255,176,84,.24);color:inherit;border-radius:4px;padding:0 2px;box-shadow:inset 0 -2px 0 #E5502F;-webkit-box-decoration-break:clone;box-decoration-break:clone}
-.smp mark.ph[tabindex]{cursor:help}.smp mark.ph:focus-visible{outline:2px solid var(--ac2);outline-offset:1px}
-.smp .ln{color:var(--ac2);font-weight:700}
-.ess2.plain mark.ph{background:none;box-shadow:none;padding:0}.ess2.plain .ln{color:inherit;font-weight:inherit}.ess2.plain .lb{display:none}
+.ess-main>h2{font-size:22px;margin:0 0 14px}.ess-main>h2~h2{margin-top:36px}
+.ess2{font-size:18px;line-height:1.8}
+.para{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 26px 20px 28px;margin:0 0 16px;scroll-margin-top:16px}
+.para::before{content:"";position:absolute;left:-1px;top:18px;width:4px;height:22px;border-radius:0 4px 4px 0;background:var(--rc)}
+.para-h{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:22px;line-height:1;margin:0 0 10px}
+.para .role{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--rc);line-height:1}
+.para .pn{font-size:12px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums;line-height:1;padding:5px 9px;border-radius:999px;background:var(--bg)}
+.para p{margin:0;max-width:68ch;overflow-wrap:break-word}.para:target{border-color:var(--rc);box-shadow:0 0 0 3px var(--accent-soft)}
+.smp .lb{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;border-radius:6px;padding:0 6px;margin-right:3px;vertical-align:2px;background:var(--bg);color:var(--muted);line-height:1.75;white-space:nowrap}
+.smp .lb-ts{background:var(--accent-soft);color:var(--ac2)}.smp .lb-ex{background:rgba(255,201,74,.2);color:var(--text)}.smp .lb-cv{background:rgba(255,143,163,.18);color:var(--text)}.smp .lb-op{background:var(--primary-soft);color:var(--link)}
+.smp mark.ph{background:transparent;color:inherit;border-radius:3px;padding:0;text-decoration:underline;text-decoration-color:var(--primary);text-decoration-color:color-mix(in srgb,var(--primary) 55%,transparent);text-decoration-thickness:2px;text-underline-offset:4px;text-decoration-skip-ink:none;-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-color .15s,text-decoration-color .15s}
+.smp mark.ph[tabindex]{cursor:pointer}.smp mark.ph[tabindex]:hover,.smp mark.ph.on{background:rgba(255,176,84,.22);text-decoration-color:var(--primary)}
+.smp mark.ph:focus{outline:none}.smp mark.ph:focus-visible{outline:2px solid var(--ac2);outline-offset:2px}
+.smp .ln{color:var(--ac2);font-weight:600}
+.ess2.plain mark.ph,.ess2.plain mark.ph:hover{background:none;text-decoration:none}.ess2.plain .ln{color:inherit;font-weight:inherit}.ess2.plain .lb{display:none}
 .ess2.gl-on mark.ph[data-g]::after{content:" · " attr(data-g);font-size:.8em;font-weight:600;color:var(--muted)}
-#glp{position:fixed;z-index:30;max-width:min(300px,calc(100vw - 24px));background:var(--text);color:var(--surface);padding:8px 12px;border-radius:10px;font-size:15px;line-height:1.45;font-weight:600;box-shadow:0 10px 28px rgba(0,0,0,.22);pointer-events:none}
+#glp{position:fixed;z-index:40;margin:0;font-size:15px;line-height:1.45}
+#glp.tip{max-width:min(320px,calc(100vw - 16px));background:var(--text);color:var(--surface);padding:9px 14px;border-radius:12px;font-weight:600;box-shadow:0 14px 34px rgba(15,61,62,.22),0 2px 6px rgba(0,0,0,.12);opacity:0;transform:translateY(4px);transition:opacity .14s ease,transform .14s ease;pointer-events:none}
+#glp.tip.b{transform:translateY(-4px)}#glp.tip.in{opacity:1;transform:none}#glp.tip .gp,#glp.tip .gx{display:none}
+#glp.tip::after{content:"";position:absolute;left:var(--ax,24px);top:100%;margin-left:-7px;border:7px solid transparent;border-top-color:var(--text)}
+#glp.tip.b::after{top:auto;bottom:100%;border-top-color:transparent;border-bottom-color:var(--text)}
+#glp.sheet{left:0;right:0;bottom:0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 14px;align-items:start;background:var(--surface);color:var(--text);border-top:1px solid var(--line);border-radius:20px 20px 0 0;padding:10px 20px calc(20px + env(safe-area-inset-bottom));box-shadow:0 -14px 36px rgba(15,61,62,.2);transform:translateY(100%);transition:transform .2s ease}
+#glp.sheet.in{transform:none}#glp.sheet::before{content:"";grid-column:1/-1;justify-self:center;width:40px;height:4px;border-radius:2px;background:var(--line);margin-bottom:10px}
+#glp.sheet .gp{grid-column:1;font-size:17px;line-height:1.35}#glp.sheet .gg{grid-column:1;color:var(--muted);font-size:16px}
+#glp.sheet .gx{grid-column:2;grid-row:2/span 2;width:40px;height:40px;border-radius:50%;border:0;background:var(--bg);color:var(--text);font:inherit;font-size:22px;line-height:1;cursor:pointer}
+@media (prefers-reduced-motion:reduce){#glp.tip,#glp.sheet,.smp mark.ph{transition:none}}
 .letter{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:8px 22px;box-shadow:0 12px 32px rgba(15,61,62,.07)}
 .letter .para{background:none;border:0;border-radius:0;padding:12px 0 12px 16px;margin:0;border-bottom:1px dashed var(--line)}.letter .para:last-child{border-bottom:0}.letter .para::before{top:14px;bottom:14px}
 @media (min-width:700px){.letter .para{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px}.letter .para-h{display:block;margin:5px 0 0}.letter .pn{display:none}}
@@ -216,24 +229,42 @@ export const SMP_CSS = `.smp{--ac2:var(--accent);--tc:var(--ac2)}
 .vch li:not(.k){background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:2px 10px}.vch .m{color:var(--muted)}
 .smp .cue{background:linear-gradient(var(--surface),var(--surface)) padding-box;border:1px solid var(--line);border-top:4px solid #FFB054;border-radius:var(--r);padding:16px 20px;margin:10px 0;box-shadow:0 12px 32px rgba(15,61,62,.07);font-weight:400}
 .cue .ck{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0}.cue>p{font-size:18.5px;font-weight:700;margin:4px 0 6px}.cue .ys{margin:0;color:var(--muted);font-size:15px}.cue ul{margin:4px 0 0;padding-left:22px}
-@media (max-width:420px){.ess2{font-size:17px}.para{padding:10px 14px 12px 18px}.smp .prompt{padding:14px 16px 14px 20px}.smp .prompt>p{font-size:17px}.letter{padding:6px 14px}.qa{padding:12px 14px}}
+@media (max-width:420px){.ess2{font-size:17px;line-height:1.75}.para{padding:14px 16px 16px 20px}.para::before{top:15px}.para-h{margin-bottom:8px}.smp .prompt{padding:14px 16px 14px 20px}.smp .prompt>p{font-size:17px}.letter{padding:6px 14px}.qa{padding:12px 14px}}
 @media print{header.top,footer,.crumbs,.cta,.cta2,.ext,.save,.pg2,.tools,.filter,.tf,.cats,.skip,.outline,#glp,.smp-doc .grp,.hero2 .kit{display:none!important}
 body{background:#fff;color:#000;font-size:12pt}main{padding:0}.smp .hero2{border:0;padding:0}.smp .hero2::before{display:none}.ess-grid{display:block}.side-box,.para,.prompt,.phr li,.qa,.letter{box-shadow:none;break-inside:avoid;border-color:rgba(0,0,0,.25)}
 .ess2 mark.ph[data-g]::after{content:" (" attr(data-g) ")";font-size:.85em;font-weight:400}}`;
 
-// JS nhỏ (không chặn hiển thị): popover nghĩa cụm từ, bật/tắt tô màu/nghĩa, in, lọc nhóm bằng chip
-export const SMP_JS = `(function(d){var P=d.getElementById('glp'),cur=null;
+// Vị trí tooltip nghĩa cụm từ (hàm thuần – test được, nhúng nguyên văn vào SMP_JS).
+// r: khung dòng đầu của cụm từ; w,h: cỡ tooltip; vw,vh: khung nhìn; top: mép trên được phép (đỉnh đoạn văn → không che nhãn đoạn/tiêu đề mục).
+// Ưu tiên phía trên; thiếu chỗ thì xuống dưới; kẹp trong khung nhìn; ax = vị trí mũi tên (trỏ vào giữa cụm từ).
+export function placeTip(r, w, h, vw, vh, top, gap, m) {
+  gap = gap || 10; m = m || 8;
+  var lim = Math.max(m, top || 0), upY = r.top - gap - h, downY = r.bottom + gap;
+  var fitsUp = upY >= lim, fitsDown = downY + h <= vh - m;
+  var below = !fitsUp && (fitsDown || vh - r.bottom >= r.top - lim);
+  var y = below ? downY : upY; y = Math.max(m, Math.min(y, vh - m - h));
+  var cx = (r.left + r.right) / 2, x = Math.round(Math.max(m, Math.min(cx - w / 2, vw - m - w)));
+  return { x: x, y: Math.round(y), below: below, ax: Math.round(Math.max(14, Math.min(cx - x, w - 14))) };
+}
+
+// JS nhỏ (không chặn hiển thị): nghĩa cụm từ (tooltip trên máy tính / bottom sheet trên điện thoại), bật/tắt tô màu/nghĩa, in, lọc nhóm bằng chip
+export const SMP_JS = `(function(d,w){var P=d.getElementById('glp'),A=d.getElementById('gla'),cur=null,kb=false,mq=w.matchMedia('(max-width:600px)');
+var place=${placeTip.toString()};
 [].forEach.call(d.querySelectorAll('mark.ph[title]'),function(m){m.removeAttribute('title')});
-function hide(){if(P){P.className='sr';}cur=null}
-function show(m){if(!P)return;P.textContent=m.getAttribute('data-g');P.className='';var r=m.getClientRects()[0]||m.getBoundingClientRect(),vw=d.documentElement.clientWidth,w=P.offsetWidth,h=P.offsetHeight,x=Math.max(8,Math.min(r.left,vw-w-8)),y=r.top-h-8;if(y<8)y=r.bottom+8;P.style.left=x+'px';P.style.top=y+'px';cur=m}
-d.addEventListener('click',function(e){var m=e.target.closest('mark.ph[data-g]');if(m){cur===m?hide():show(m);return}hide();
-var b=e.target.closest('[data-cls]');if(b){var on=b.getAttribute('aria-pressed')!=='true',w=d.querySelector('.ess2');b.setAttribute('aria-pressed',on);if(w)w.classList.toggle(b.getAttribute('data-cls'),b.hasAttribute('data-inv')?!on:on);return}
-if(e.target.closest('[data-print]')){window.print();return}
+function hide(){if(!cur)return;cur.classList.remove('on');cur.removeAttribute('aria-describedby');P.classList.remove('in');P.hidden=true;cur=null}
+function show(m){if(!P)return;if(cur)hide();var sheet=mq.matches;P.querySelector('.gp').textContent=m.textContent;P.querySelector('.gg').textContent=m.getAttribute('data-g');P.className=sheet?'sheet':'tip';P.style.left=P.style.top='0px';P.hidden=false;
+if(!sheet){var r=m.getClientRects()[0]||m.getBoundingClientRect(),c=m.closest('p')||m.closest('.para'),t=c?c.getBoundingClientRect().top:0,p=place(r,P.offsetWidth,P.offsetHeight,d.documentElement.clientWidth,w.innerHeight,t);P.style.left=p.x+'px';P.style.top=p.y+'px';P.style.setProperty('--ax',p.ax+'px');P.classList.toggle('b',p.below)}else{P.style.left=P.style.top=''}
+m.classList.add('on');m.setAttribute('aria-describedby','glp');cur=m;if(A)A.textContent=m.textContent+': '+m.getAttribute('data-g');w.requestAnimationFrame(function(){P.classList.add('in')})}
+d.addEventListener('keydown',function(e){kb=true;if(e.key==='Escape'&&cur){var m=cur;hide();if(d.activeElement!==m)m.focus()}else if((e.key==='Enter'||e.key===' ')&&e.target.matches&&e.target.matches('mark.ph[data-g]')){e.preventDefault();cur===e.target?hide():show(e.target)}});
+d.addEventListener('pointerdown',function(){kb=false},true);
+d.addEventListener('click',function(e){if(e.target.closest('.gx')){hide();return}if(P&&P.contains(e.target))return;var m=e.target.closest('mark.ph[data-g]');if(m){cur===m?hide():show(m);return}hide();
+var b=e.target.closest('[data-cls]');if(b){var on=b.getAttribute('aria-pressed')!=='true',x=d.querySelector('.ess2');b.setAttribute('aria-pressed',on);if(x)x.classList.toggle(b.getAttribute('data-cls'),b.hasAttribute('data-inv')?!on:on);return}
+if(e.target.closest('[data-print]')){w.print();return}
 var f=e.target.closest('.tf a');if(f){e.preventDefault();var g=f.getAttribute('data-g');[].forEach.call(d.querySelectorAll('.tf a'),function(a){a.setAttribute('aria-pressed',a===f)});[].forEach.call(d.querySelectorAll('.grp[aria-labelledby^="g-"]'),function(s){s.classList.toggle('off',!!g&&s.getAttribute('aria-labelledby')!==g)})}});
-d.addEventListener('focusin',function(e){var m=e.target.closest&&e.target.closest('mark.ph[data-g]');if(m)show(m)});
-d.addEventListener('focusout',function(e){if(e.target.closest&&e.target.closest('mark.ph[data-g]'))hide()});
-d.addEventListener('keydown',function(e){if(e.key==='Escape')hide()});window.addEventListener('scroll',function(){if(cur)hide()},{passive:true});
-[].forEach.call(d.querySelectorAll('.tf a'),function(a,i){a.setAttribute('role','button');a.setAttribute('aria-pressed',i===0)})})(document);`;
-// Popover (vùng thông báo – trình đọc màn hình đọc nghĩa khi chạm/Tab vào cụm từ) + script
-export const smpTail = () => `<div id="glp" class="sr" role="status" aria-live="polite"></div><script>${SMP_JS}</script>`;
+d.addEventListener('focusin',function(e){var m=e.target.closest&&e.target.closest('mark.ph[data-g]');if(m&&kb)show(m)});
+d.addEventListener('focusout',function(e){if(cur&&e.target===cur&&!mq.matches&&!(P.contains(e.relatedTarget)))hide()});
+w.addEventListener('scroll',function(){if(cur&&!mq.matches)hide()},{passive:true});w.addEventListener('resize',hide);
+[].forEach.call(d.querySelectorAll('.tf a'),function(a,i){a.setAttribute('role','button');a.setAttribute('aria-pressed',i===0)})})(document,window);`;
+// Hộp nghĩa (tooltip/bottom sheet, 1 cái dùng chung) + vùng thông báo cho trình đọc màn hình + script
+export const smpTail = (lang = 'vi') => `<div id="glp" hidden><b class="gp" lang="en"></b><span class="gg"></span><button type="button" class="gx" aria-label="${S[lang].close}">×</button></div><div id="gla" class="sr" role="status" aria-live="polite"></div><script>${SMP_JS}</script>`;
 export const smpHead = () => `<style>${SMP_CSS}</style>`;

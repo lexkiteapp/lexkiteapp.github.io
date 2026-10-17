@@ -2,7 +2,7 @@
 // 1) đơn vị: parseDoc tách vai trò đoạn/câu, cụm từ có nghĩa (vi) / không nghĩa (en), chữ giao diện đủ 2 ngôn ngữ;
 // 2) HTML đã dựng (nếu dist/ mới hơn bộ dựng): trang bài mẫu + mục lục vi/en có đủ khối mới, canonical/hreflang/JSON-LD giữ nguyên.
 import fs from 'node:fs';
-import { S, parseDoc, docStats, docHtml, sideHtml, phraseCards, pager2, typeFilter, SMP_CSS, SMP_JS } from '../lib/samples-ui.mjs';
+import { S, placeTip, parseDoc, docStats, docHtml, sideHtml, phraseCards, pager2, typeFilter, smpTail, SMP_CSS, SMP_JS } from '../lib/samples-ui.mjs';
 let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.error('✗ ' + m); } };
 
 // ---- 1. đơn vị ----
@@ -22,7 +22,21 @@ ok(/<ol class="phr">/.test(phraseCards([['a', 'b']])) && /rel="prev"/.test(pager
 for (const k of Object.keys(S.vi)) ok(k in S.en, `S.en thiếu khóa "${k}"`);
 for (const k of Object.keys(S.en)) ok(k in S.vi, `S.vi thiếu khóa "${k}"`);
 ok(/prefers-color-scheme:dark/.test(SMP_CSS) && /@media print/.test(SMP_CSS) && /prefers-reduced-motion/.test(SMP_CSS), 'CSS: chế độ tối + in + giảm chuyển động');
-ok(SMP_JS.length < 2500, `JS nhỏ (${SMP_JS.length} B < 2.5 KB)`);
+ok(SMP_JS.length < 4096, `JS nhỏ (${SMP_JS.length} B < 4 KB)`);
+// Vị trí tooltip nghĩa: ưu tiên trên, không vượt đỉnh thẻ đoạn (không che tiêu đề "Bài mẫu"), kẹp trong khung nhìn, mũi tên trỏ giữa cụm từ
+const R = (l, t, w = 120, h = 24) => ({ left: l, right: l + w, top: t, bottom: t + h });
+let q = placeTip(R(400, 500), 260, 60, 1280, 900, 300);
+ok(!q.below && q.y + 60 <= 500 && q.y >= 300 && q.x === 330 && q.ax === 130, 'tooltip: đủ chỗ → nằm trên, căn giữa, mũi tên giữa cụm từ');
+q = placeTip(R(400, 320), 260, 60, 1280, 900, 300);
+ok(q.below && q.y >= 344, 'tooltip: dòng đầu đoạn → xuống dưới (không che tiêu đề / nội dung phía trên thẻ đoạn)');
+q = placeTip(R(1200, 500, 60), 300, 60, 1280, 900, 0);
+ok(q.x + 300 <= 1272 && q.ax > 150 && q.ax <= 286, 'tooltip: sát mép phải → kẹp trong khung nhìn, mũi tên vẫn trỏ cụm từ');
+q = placeTip(R(5, 500, 40), 300, 60, 390, 844, 0);
+ok(q.x === 8 && q.ax >= 14 && q.ax < 40, 'tooltip: sát mép trái → kẹp 8px');
+q = placeTip(R(400, 860), 260, 60, 1280, 900, 0);
+ok(!q.below && q.y + 60 <= 900, 'tooltip: cuối màn hình → nằm trên');
+ok(/<div id="glp" hidden>.*class="gx" aria-label="Đóng"/.test(smpTail('vi')) && /aria-label="Close"/.test(smpTail('en')) && /id="gla"[^>]*role="status"/.test(smpTail('vi')), 'hộp nghĩa: nút đóng vi/en + vùng thông báo');
+ok(/max-width:600px/.test(SMP_JS) && /#glp\.sheet/.test(SMP_CSS) && /mark\.ph:focus-visible/.test(SMP_CSS) && !/mark\.ph\{background:rgba/.test(SMP_CSS), 'bottom sheet trên điện thoại, vòng focus chỉ cho bàn phím, cụm từ không tô nền mặc định');
 
 // ---- 2. HTML đã dựng ----
 const src = ['scripts/lib/samples-ui.mjs', 'scripts/build-samples.mjs', 'scripts/build-samples-en.mjs'].map(f => fs.statSync(f).mtimeMs);

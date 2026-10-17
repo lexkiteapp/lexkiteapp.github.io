@@ -178,6 +178,8 @@
   const docText = async d => !d ? '' : d.z ? gunz(d.z) : (d.json || '');
   const docBody = async json => { const z = await gz(json); return z && z.length < json.length ? { z } : { json }; };
 
+  // Chuỗi ổn định (khóa sắp xếp) để so dữ liệu trước/sau khi gộp – thứ tự khóa khác nhau không tính là "đổi"
+  const stable = v => JSON.stringify(v, (k, x) => x && typeof x === 'object' && !Array.isArray(x) ? Object.keys(x).sort().reduce((o, key) => (o[key] = x[key], o), {}) : x);
   async function pullMerge() {
     setStatus('syncing');
     try {
@@ -198,6 +200,7 @@
       }
       await Store.set('lastUid', Sync.user.uid);
       const local = { cards: await Cards.all(), stats: await Core.Stats.get(), game: await Game.get(), settings: await Store.get('settings', {}), deleted: await Store.get('deleted', {}) };
+      const before = stable([local.cards, local.stats, local.game, local.settings]);
       if (docs.meta) {
         let remoteCards = {};
         for (let i = 0; i < (docs.meta.chunks || 0); i++) {
@@ -220,8 +223,9 @@
         if (remote.settings && (remote.settingsAt || 0) > (await Store.get('settingsAt', 0))) { await Store.set('settings', remote.settings); await Store.set('settingsAt', remote.settingsAt); }
         await syncExtension();
         await App.load();
-        // Chỉ vẽ lại các trang tổng quan – không làm gián đoạn bài ôn/luyện đang làm
-        if (/^#\/(home|deck|library|stats|settings|path)?(\?|$)/.test(location.hash || '#/')) App.route();
+        // Chỉ vẽ lại các trang tổng quan khi dữ liệu THẬT SỰ đổi (tránh chớp trắng/giật mỗi lần mở app đã đăng nhập); giữ vị trí cuộn
+        const after = stable([await Cards.all(), await Core.Stats.get(), await Game.get(), await Store.get('settings', {})]);
+        if (after !== before && /^#\/(home|deck|library|stats|settings|path)?(\?|$)/.test(location.hash || '#/')) { const y = scrollY; App.route(); requestAnimationFrame(() => scrollTo(0, y)); }
       }
       if (!docs.meta) { await syncExtension(); await App.load(); }
       if (docs.meta && docs.meta.hs) { const all = await Store.get('pulledHashes', {}); all[Sync.user.uid] = docs.meta.hs; await Store.set('pulledHashes', all); }

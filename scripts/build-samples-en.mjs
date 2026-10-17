@@ -55,7 +55,7 @@ ${ctaBox(`${APP}/model/t2-${p.id}`, '✍️ Practise this question free on Lexki
 ${ctaKit(`${APP}/write/${p.id}`, 'Write your own answer and get instant feedback', 'Start writing', 'Word count, idea prompts and scoring on the 4 IELTS criteria.')}
 ${pager2(prev && [`/en/samples/${prev[0].id}`, short(prev[0].text, 90)], next && [`/en/samples/${next[0].id}`, short(next[0].text, 90)], 'en')}
 ${related(relatedOf(done, done[di], d => d[0].type === p.type, 4), t2Card)}
-${extBox('en')}</article>${smpTail()}`, `Band ${m.band}: ${short(p.text, 50)}`,
+${extBox('en')}</article>${smpTail('en')}`, `Band ${m.band}: ${short(p.text, 50)}`,
       { lr: { learningResourceType: 'Sample essay', wordCount: m.words, timeRequired: `PT${mins(m.words)}M`, teaches: `IELTS Writing Task 2 – ${p.type}`, assesses: `IELTS Band ${m.band}` } }));
   });
   const by = {}; for (const d of done) (by[d[0].type] = by[d[0].type] || []).push(d);
@@ -66,7 +66,7 @@ ${extBox('en')}</article>${smpTail()}`, `Band ${m.band}: ${short(p.text, 50)}`,
 ${sectionNav('en', '/en/samples/')}
 ${filterBox('en')}
 ${typeFilter(types.map(([ty, xs], i) => [`t${i}`, ty, xs.length, typeCls(ty)]), done.length, 'en')}
-${types.map(([ty, xs], i) => group2(`t${i}`, ty, `${xs.length} ${L.items}`, xs.map(t2Card), typeCls(ty))).join('\n')}</div>${smpTail()}`, undefined,
+${types.map(([ty, xs], i) => group2(`t${i}`, ty, `${xs.length} ${L.items}`, xs.map(t2Card), typeCls(ty))).join('\n')}</div>${smpTail('en')}`, undefined,
     { ld: [itemList('IELTS Writing Task 2 sample essays', done.map(([p]) => `${SITE}en/samples/${p.id}`))] }));
 }
 
@@ -99,7 +99,7 @@ ${part(3, '🧠', 'Part 3', b.p3.map((q, k) => qa(q, k + 1)).join(''))}
 ${ctaKit(`${APP}/speaking/p2/${i}`, 'Try Part 2 with a timer', 'Start', '1 minute to prepare, 2 minutes to speak – just like the real test.')}
 ${pager2(prev && [`/en/speaking/${prev[0]}`, name(prev[1])], next && [`/en/speaking/${next[0]}`, name(next[1])], 'en', true)}
 ${related(relatedOf(made, made[i], () => true, 4), spCard)}
-${extBox('en')}</article>${smpTail()}`, name(b),
+${extBox('en')}</article>${smpTail('en')}`, name(b),
       { lr: { learningResourceType: 'Sample answers', teaches: `IELTS Speaking – ${topic || name(b)}`, timeRequired: `PT${mins(nW)}M` } }));
   }
   const nQ = made.reduce((a, [, b]) => a + qs(b).length, 0);
@@ -107,7 +107,7 @@ ${extBox('en')}</article>${smpTail()}`, name(b),
     `<div class="page smp">${hero2({ h1: esc(`${made.length} IELTS Speaking topics`), lead: 'Part 1–3 questions, Part 2 cue cards and original band 8 sample answers.', mood: 'happy', cls: 'has-kit', statsHtml: stats([[made.length, U.statTopics], [nQ, U.statQ], ['Part 1–3', 'IELTS']]) })}
 ${sectionNav('en', '/en/speaking/')}
 ${filterBox('en')}
-${group2('all', 'Topics', `${made.length} ${L.items}`, made.map(spCard))}</div>${smpTail()}`, undefined,
+${group2('all', 'Topics', `${made.length} ${L.items}`, made.map(spCard))}</div>${smpTail('en')}`, undefined,
     { ld: [itemList('IELTS Speaking topics', made.map(([id]) => `${SITE}en/speaking/${id}`))] }));
 }
 
