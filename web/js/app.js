@@ -113,7 +113,7 @@
     $('#sideLevel').innerHTML = `<div class="lv-row">${avatarHtml()}<div class="grow"><b>${esc(name)}</b><div class="tiny muted">${t('Cấp {n}', { n: L.level })} · ${esc(L.title)}</div></div></div>
       <div class="progress xp thin" style="margin-top:.6rem"><i style="width:${L.into / L.need * 100}%"></i></div>
       <div class="tiny muted" style="margin-top:.3rem">${t('{a}/{b} XP tới cấp {n}', { a: L.into, b: L.need, n: L.level + 1 })}</div>`;
-    $('#avatarBtn').innerHTML = avatarInner();
+    if (window.Sync && Sync.chrome) Sync.chrome(); else $('#avatarBtn').innerHTML = avatarInner(); // nút tài khoản đầu trang + thẻ thanh bên (sync.js)
     if (window.VBNative && VBNative.widget) VBNative.widget(state, st); // widget màn hình chính/khóa (chỉ app gốc)
   }
   const avatarInner = () => state.user && state.user.photoURL ? `<img src="${esc(state.user.photoURL)}" alt="" referrerpolicy="no-referrer">` : esc((state.user && (state.user.displayName || state.user.email) || 'L')[0].toUpperCase());
@@ -229,6 +229,7 @@
     league: ['js/league.js'],
     streak: ['js/streak-ui.js'],
     vcore: ['js/verbs-core.js'], verbs: ['js/verbs.js'], fixer: ['js/writecheck-rules.js', 'js/fixer.js'], // 🔤 Chia động từ · ✍️ Sửa ngữ pháp
+    wordcard: ['js/wordcard.js'], // 🧠 Khối "Hiểu sâu" của thẻ từ (mẹo nhớ · lỗi sai/đúng · dùng khi thi · họ từ)
   };
   const ROUTE_BUNDLE = { paraphrase: 'paraphrase', courses: 'courses', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: 'grammar', placement: ['words', 'grammar'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
     toefl: ['listening', 'toefl'], 'toefl-p': ['listening', 'toefl'],
@@ -364,8 +365,15 @@
   const notesCache = {};
   const notesFile = w => { const c = /^[a-z]/.test(w) ? w[0] : '_'; return notesCache[c] || (notesCache[c] = fetch(`js/notes/${c}.json`).then(r => r.ok ? r.json() : {}).catch(() => { delete notesCache[c]; return {}; })); };
   App.notesHtml = word => `<div class="wn-slot" data-notes="${esc(String(word || '').toLowerCase())}"></div>`;
-  const renderNotes = n => { const row = (ic, lb, v) => v ? `<div class="wn-row"><span class="wn-lb">${ic} ${lb}</span><div>${esc(v)}</div></div>` : ''; return `<div class="wn${I18N.learnLang() === 'vi' ? '' : ' wn-tr'}">${row('💡', t('Mẹo nhớ'), n.m)}${row('⚠️', t('Lỗi hay gặp'), n.e)}${row('🎯', t('Cách dùng khi thi'), n.u)}${row('🌳', t('Họ từ'), n.f)}</div>`; };
-  const fillNotes = () => document.querySelectorAll('.wn-slot[data-notes]:not([data-done])').forEach(el => { el.dataset.done = 1; const w = el.dataset.notes; notesFile(w).then(m => { const n = Object.hasOwn(m, w) && m[w]; if (n && el.isConnected) el.innerHTML = renderNotes(n); }); });
+  const fillNotes = () => document.querySelectorAll('.wn-slot[data-notes]:not([data-done])').forEach(el => { el.dataset.done = 1; const w = el.dataset.notes; Promise.all([notesFile(w), App.need('wordcard').then(() => window.WordCard && WordCard.ready)]).then(([m]) => { const n = Object.hasOwn(m, w) && m[w]; if (n && el.isConnected && window.WordCard) el.innerHTML = WordCard.notes(n, w); }).catch(() => {}); });
+  // Chip cụm từ/đồng nghĩa/họ từ: chạm = nghe · chạm lần 2 (hoặc giữ) = tra nghĩa tại chỗ (đang học) / mở từ điển
+  App.chipsHtml = (list, icon, label) => (list || []).length ? `<div class="wc-chips"><span class="wc-clb">${icon} ${label}</span>${list.map(x => `<button type="button" class="chip wc-chip" data-wc-say="${esc(x)}" title="${t('Chạm để nghe · chạm lần nữa để tra nghĩa')}"><span lang="en">${esc(x)}</span></button>`).join('')}</div>` : '';
+  { let last = null, at = 0, lp = 0, held = false;
+    const look = b => { const w = b.dataset.wcSay; if (App.phrasePop && b.closest('.study-wrap')) App.phrasePop(b, { phrase: w }); else location.hash = '#/dict/' + encodeURIComponent(w); };
+    document.addEventListener('pointerdown', e => { const b = e.target.closest && e.target.closest('[data-wc-say]'); clearTimeout(lp); held = false; if (b) lp = setTimeout(() => { held = true; look(b); }, 550); });
+    ['pointerup', 'pointercancel'].forEach(ev => document.addEventListener(ev, () => clearTimeout(lp)));
+    document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('[data-wc-say]'); if (!b) return; e.preventDefault(); if (held) { held = false; return; } if (last === b && Date.now() - at < 5000) { last = null; return look(b); } last = b; at = Date.now(); speak(b.dataset.wcSay, state.settings.accent); });
+  }
   new MutationObserver(() => fillNotes()).observe(view, { childList: true, subtree: true });
   // Gợi ý giọng đọc hay hơn (miễn phí) khi máy chỉ có giọng "robot" – theo đúng hệ điều hành/trình duyệt
   App.voiceTipHtml = accent => {
@@ -870,8 +878,7 @@
           ${pic(e)}
         </div>
         ${e.ex ? `<div class="example-box" style="margin-top:1rem"><div class="small muted">${t('Ví dụ')}</div>${highlight(e.ex, e.word)} <button class="icon-btn sm" data-speak-text="${esc(e.ex)}">🔊</button></div>` : ''}
-        ${e.col.length ? `<div style="margin-top:1rem"><b>🔗 Collocations:</b> ${e.col.map(c => `<span class="chip">${esc(c)}</span>`).join(' ')}</div>` : ''}
-        ${e.syn.length ? `<div style="margin-top:.6rem"><b>≈ ${t('Đồng nghĩa:')}</b> ${e.syn.map(s => `<a class="chip" href="#/dict/${encodeURIComponent(s)}">${esc(s)}</a>`).join(' ')}</div>` : ''}
+        ${App.chipsHtml(e.col, '🔗', t('Hay đi với'))}${App.chipsHtml(e.syn, '≈', t('Đồng nghĩa'))}
         <div id="related"></div>
         <div id="phraseBox"></div>
         ${App.notesHtml(e.word)}
@@ -1590,7 +1597,7 @@
       if (g === 'good' || g === 'easy') { Sfx.correct(); confetti(30); const k = $('#wKit'); if (k && window.Kit) k.innerHTML = Kit.svg('win', 72, true); }
       else Sfx.wrong();
       $('#wBack').hidden = true; $('#wDone').hidden = false; });
-    const login = async () => { if (window.Sync && Sync.signIn) { await Sync.signIn(); if (state.user) finishOnboarding(); } else finishOnboarding(); };
+    const login = loginOnboard;
     $('#loginW').onclick = login; $('#loginH').onclick = login;
     view.querySelectorAll('[data-wjump]').forEach(b => b.onclick = () => document.getElementById(b.dataset.wjump).scrollIntoView({ behavior: 'smooth' }));
     if (App.blogLive) App.blogLive().then(on => { const a = view.querySelector('.w-nav a[data-blog]'); if (on && a) { a.hidden = false; a.href = App.blogUrl(); } });
@@ -1618,6 +1625,7 @@
       view.innerHTML = `<div style="max-width:760px;margin:0 auto" class="stack">
         <div class="row between"><span class="brand" style="padding:0"><img class="logo" src="icons/icon.svg" alt=""><span class="wordmark">lex<b>kite</b></span></span><a class="small" href="#/welcome">← ${t('Quay lại')}</a></div>
         ${window.Kit ? `<div class="kit-greet card" style="background:var(--primary-soft);border:0">${Kit.svg('happy', 58)}<div><div class="kit-say">${t('Chào bạn, mình là Kit! Vài câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.')}</div></div></div>` : ''}
+        ${window.Sync && Sync.gBtn && !state.user && !pick.noAcct ? `<div class="card row between" id="haveAcct"><div><b>${t('Đã có tài khoản?')}</b><div class="small muted">${t('Đăng nhập để khôi phục dữ liệu học của bạn.')}</div></div><div class="row">${Sync.gBtn('setupIn')}<button type="button" class="btn" id="noAcct">${t('Học không cần tài khoản')}</button></div></div>` : ''}
         <div class="card"><h2>🎓 ${t('Bạn đang luyện kỳ thi nào?')}</h2><div class="exam-list">${Object.entries(EX).map(([k, x]) => `<button type="button" class="exam-opt ${k === pick.exam ? 'on' : ''}" data-exam="${k}"><span class="em" aria-hidden="true">${x.ic}</span><span><b>${esc(x.name)}</b></span>${k === pick.exam ? '<span class="tick" aria-hidden="true">✓</span>' : ''}</button>`).join('')}</div></div>
         <div class="card"><h2>🎯 ${tLabel}</h2><div class="tabs" style="display:inline-flex;margin-top:.4rem" id="bandT">${TARGETS[pick.exam].map(b => `<button data-v="${b}" class="${pick.target === b ? 'on' : ''}">${b}</button>`).join('')}</div></div>
         <div class="card"><h2>⏱ ${t('Bạn muốn học với cường độ nào?')}</h2><div class="grid g3" style="margin-top:.6rem">${paces.map(([v, pt, d]) => `<button class="option ${pick.pace === v ? 'right' : ''}" data-pace="${v}" style="flex-direction:column;align-items:flex-start;gap:.2rem"><b>${pt}</b><span class="small muted">${d}</span></button>`).join('')}</div></div>
@@ -1625,6 +1633,7 @@
           <div class="row" style="margin-top:.6rem">${list.map(x => `<button class="chip" data-t="${x.id}" style="border:2px solid ${pick.topics.has(x.id) ? 'var(--primary)' : 'transparent'};cursor:pointer;font-size:.9rem;padding:.4rem .8rem;${pick.topics.has(x.id) ? 'background:var(--primary-soft);color:var(--primary)' : ''}">${x.emoji} ${esc(x.name)}</button>`).join('')}</div></div>
         <button class="btn primary lg block" id="go" ${pick.topics.size ? '' : 'disabled'}>${pick.topics.size ? t('Bắt đầu học ({n} từ)', { n: words }) : t('Bắt đầu học')} →</button>
       </div>`;
+      if ($('#setupIn')) { $('#setupIn').onclick = e => { e.stopPropagation(); loginOnboard(); }; $('#noAcct').onclick = () => { pick.noAcct = 1; $('#haveAcct').remove(); $('[data-exam]').focus(); }; }
       $$('[data-exam]').forEach(b => b.onclick = () => { if (b.dataset.exam !== pick.exam) setExam(b.dataset.exam); });
       $$('#bandT button').forEach(b => b.onclick = () => { pick.target = b.dataset.v; draw(); });
       $$('[data-pace]').forEach(b => b.onclick = () => { pick.pace = +b.dataset.pace; draw(); });
@@ -1641,6 +1650,8 @@
     setExam(pick.exam);
   }
 
+  // Đăng nhập ở màn chào/thiết lập → chờ tài khoản sẵn sàng (≤ 6 s) rồi vào app; dữ liệu cũ tự gộp về (sync.js pullMerge)
+  async function loginOnboard() { if (!window.Sync) return finishOnboarding(); await Sync.signIn(); for (let i = 0; i < 30 && !state.user; i++) await new Promise(r => setTimeout(r, 200)); if (state.user) finishOnboarding(); }
   async function finishOnboarding(celebrate, to = '#/home') {
     state.settings.onboarded = true;
     await saveSettings();
@@ -1780,7 +1791,9 @@
     const send = d => { try { navigator.sendBeacon ? navigator.sendBeacon(BASE + '/api/hit', JSON.stringify(d)) : fetch(BASE + '/api/hit', { method: 'POST', body: JSON.stringify(d), keepalive: true }); } catch (e) { /* bỏ qua */ } };
     // Quy mô lớn: chỉ một tỉ lệ người dùng gửi thống kê phiên (hit_rate do quản trị đặt, ổn định theo vid) – giữ D1/Functions trong gói miễn phí
     let rate = 1; try { rate = Math.min(1, Math.max(0.01, +localStorage.getItem('lk.hr') || 1)); } catch (e) { /* bỏ qua */ }
-    const inSample = (parseInt(vid.slice(0, 6), 36) % 1000) < rate * 1000;
+    // lk.noTrack = máy của quản trị (admin.js tự đặt khi mở trang Quản trị) → không gửi phiên (vẫn báo lỗi JS & nhận thông báo)
+    let noTrack = false; try { noTrack = localStorage.getItem('lk.noTrack') === '1'; } catch (e) { /* bỏ qua */ }
+    const inSample = !noTrack && (parseInt(vid.slice(0, 6), 36) % 1000) < rate * 1000;
     let lastSent = 0, pv = { [path]: 1 }; // pv: lượt xem từng trang kể từ lần gửi trước (máy chủ cộng dồn vào pageviews_day)
     const flush = (force) => {
       if (since) { dur += (Date.now() - since) / 1000; since = document.visibilityState === 'visible' ? Date.now() : 0; }

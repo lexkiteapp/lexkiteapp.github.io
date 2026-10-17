@@ -2,7 +2,9 @@
 // Không cần khóa; lỗi nào cũng in ra và exit 1 → workflow đỏ → bản tin email 8h sáng (workers/mail) báo về.
 import fs from 'fs';
 const B = 'https://lexkite.com', bad = [], ok = [];
-const get = async (u, o = {}) => { for (let k = 0; k < 3; k++) { try { const r = await fetch(u, { redirect: 'follow', ...o, headers: { 'User-Agent': 'lexkite-health' } }); return r; } catch (e) { await new Promise(r => setTimeout(r, 3000)); } } return { ok: false, status: 0, text: async () => '' }; };
+// Header CI (secret LEXKITE_CI_HEADER): qua WAF + thống kê truy cập tự đếm là máy tự động (functions/api/hit.js) – không in giá trị
+const CI = process.env.LEXKITE_CI_HEADER ? { 'X-Lexkite-CI': process.env.LEXKITE_CI_HEADER.trim() } : {};
+const get = async (u, o = {}) => { for (let k = 0; k < 3; k++) { try { const r = await fetch(u, { redirect: 'follow', ...o, headers: { 'User-Agent': 'lexkite-health', ...CI } }); return r; } catch (e) { await new Promise(r => setTimeout(r, 3000)); } } return { ok: false, status: 0, text: async () => '' }; };
 const check = async (name, fn) => { try { const m = await fn(); m === true || m === undefined ? ok.push(name) : bad.push(`${name}: ${m}`); } catch (e) { bad.push(`${name}: ${e.message}`); } };
 const page = (p, must) => check(p, async () => { const r = await get(B + p); if (!r.ok) return 'HTTP ' + r.status; const t = await r.text(); return !must || t.includes(must) || `thiếu "${must}"`; });
 const json = (p, test) => check(p, async () => { const r = await get(B + p); if (!r.ok) return 'HTTP ' + r.status; const j = await r.json(); return test ? test(j) : true; });

@@ -40,6 +40,7 @@ jobs:
       - name: Bản live (lexkite.com + CDN âm thanh)
         id: live
         continue-on-error: true
+        env: { LEXKITE_CI_HEADER: '${{ secrets.LEXKITE_CI_HEADER }}' }
         run: node scripts/test/live-check.mjs
       - name: Đầu-cuối như người dùng thật (Chromium, 15 ngôn ngữ, mobile/desktop, sandbox)
         id: e2e

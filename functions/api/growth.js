@@ -2,7 +2,7 @@
  * Module chỉ có hàm dùng chung (không export onRequest… → không thành route). Mọi phép gộp chạy trong SQL; admin.js đệm 10 phút.
  * Nguồn: sessions (web/app, vid ẩn danh), ext_daily / ext_events (add-on, hit.js t:'x'), users (tài khoản), vid_uid (khách ↔ tài khoản). */
 const DAY = 86400e3;
-const dayStr = t => new Date(t).toISOString().slice(0, 10);
+import { dayOf as dayStr } from './hit.js'; // ngày theo giờ Việt Nam – khớp sessions.day
 // Chỉ bind đúng số tham số câu SQL dùng (?1…?N) – các câu dựng từ mẫu chung không phải câu nào cũng dùng hết
 const fit = (sql, a) => a.slice(0, Math.max(0, ...[...sql.matchAll(/\?(\d+)/g)].map(m => +m[1])));
 const one = async (db, sql, ...a) => (await db.prepare(sql).bind(...fit(sql, a)).first()) || {};
@@ -10,10 +10,10 @@ const all = async (db, sql, ...a) => (await db.prepare(sql).bind(...fit(sql, a))
 const PLATS = ['web', 'pwa', 'ext', 'ios', 'android'];
 
 // Hoạt động theo ngày: khách ẩn danh = phiên web/app ∪ ngày dùng add-on; tài khoản = phiên của các vid đã gắn uid ∪ ngày "seen" gần nhất
-const ACT_V = "SELECT vid AS id, day FROM sessions WHERE day >= ?1 AND vid <> '' UNION SELECT vid AS id, day FROM ext_daily WHERE day >= ?1";
-const ACT_U = "SELECT m.uid AS id, s.day FROM sessions s JOIN vid_uid m ON m.vid = s.vid WHERE s.day >= ?1 UNION SELECT uid AS id, date(seen / 1000, 'unixepoch') AS day FROM users WHERE seen >= ?2";
+const ACT_V = "SELECT vid AS id, day FROM sessions WHERE bot IS NULL AND day >= ?1 AND vid <> '' UNION SELECT vid AS id, day FROM ext_daily WHERE day >= ?1";
+const ACT_U = "SELECT m.uid AS id, s.day FROM sessions s JOIN vid_uid m ON m.vid = s.vid WHERE s.bot IS NULL AND s.day >= ?1 UNION SELECT uid AS id, date(seen / 1000, 'unixepoch') AS day FROM users WHERE seen >= ?2";
 // Nhóm thuần tập: khách = ngày phiên đầu tiên (ret = 0 → máy chưa có lk.vid); tài khoản = ngày đăng ký
-const FIRST_V = "SELECT vid AS id, MIN(day) AS d FROM sessions WHERE ret = 0 AND vid <> '' AND day >= ?1 GROUP BY vid";
+const FIRST_V = "SELECT vid AS id, MIN(day) AS d FROM sessions WHERE bot IS NULL AND ret = 0 AND vid <> '' AND day >= ?1 GROUP BY vid";
 const FIRST_U = "SELECT uid AS id, date(created / 1000, 'unixepoch') AS d FROM users WHERE created >= ?2";
 
 // Quay lại D1 (ngày +1), D2–7, D8–30 theo từng ngày bắt đầu (JS gộp theo kỳ & chỉ tính nhóm đã đủ tuổi)
@@ -42,7 +42,7 @@ export async function growthData(db, P) {
   const actFrom = from < wk0 ? from : wk0, actMs = Date.parse(actFrom + 'T00:00:00Z');
   const [users, newVis, active, ext, extDays, extNow, versions, reasons, funnel, funnelAll, retV, retU, cohV, cohU, habV, habU] = await Promise.all([
     one(db, 'SELECT COUNT(*) AS total, SUM(created >= ?1) AS cur, SUM(created >= ?2 AND created < ?1) AS prev FROM users', curMs, prevMs),
-    one(db, "SELECT COUNT(DISTINCT CASE WHEN day >= ?1 THEN vid END) AS cur, COUNT(DISTINCT CASE WHEN day < ?1 THEN vid END) AS prev FROM sessions WHERE ret = 0 AND vid <> '' AND day >= ?2", cur, prev),
+    one(db, "SELECT COUNT(DISTINCT CASE WHEN day >= ?1 THEN vid END) AS cur, COUNT(DISTINCT CASE WHEN day < ?1 THEN vid END) AS prev FROM sessions WHERE bot IS NULL AND ret = 0 AND vid <> '' AND day >= ?2", cur, prev),
     // DAU theo ngày (2 kỳ) + WAU/MAU tính tại cuối mỗi kỳ
     all(db, `WITH a AS (${ACT_V}) SELECT day, COUNT(*) AS n FROM a WHERE day >= ?2 GROUP BY day
       UNION ALL SELECT 'W', COUNT(DISTINCT CASE WHEN day >= ?3 THEN id END) FROM a UNION ALL SELECT 'M', COUNT(DISTINCT CASE WHEN day >= ?4 THEN id END) FROM a
@@ -55,7 +55,7 @@ export async function growthData(db, P) {
     all(db, "SELECT COALESCE(NULLIF(ver, ''), '?') AS k, COUNT(DISTINCT vid) AS n FROM ext_daily WHERE day >= ?1 GROUP BY k ORDER BY n DESC LIMIT 8", d(6)),
     all(db, "SELECT substr(kind, 11) AS k, SUM(n) AS n FROM ext_events WHERE kind LIKE 'uninstall:%' AND day >= ?1 GROUP BY k ORDER BY n DESC", d(89)),
     // Phễu (kỳ này): Khách → Dùng thử (≥ 2 trang hoặc ≥ 60 giây, hoặc tra từ trong add-on) → Đăng ký → Học đều (≥ 7 ngày sau đăng ký hoặc ≥ 5 lần vào)
-    ...['GROUP BY v.plat', ''].map(g => all(db, `WITH v AS (SELECT vid, COALESCE(NULLIF(plat, ''), 'web') AS plat, MAX(pages >= 2 OR dur >= 60) AS tried FROM sessions WHERE day >= ?1 AND vid <> '' GROUP BY vid, plat
+    ...['GROUP BY v.plat', ''].map(g => all(db, `WITH v AS (SELECT vid, COALESCE(NULLIF(plat, ''), 'web') AS plat, MAX(pages >= 2 OR dur >= 60) AS tried FROM sessions WHERE bot IS NULL AND day >= ?1 AND vid <> '' GROUP BY vid, plat
         UNION ALL SELECT vid, 'ext', MAX(lookup >= 1) FROM ext_daily WHERE day >= ?1 GROUP BY vid),
       r AS (SELECT m.vid, u.uid, (u.seen - u.created >= 604800000 OR u.n >= 5) AS kept FROM vid_uid m JOIN users u ON u.uid = m.uid WHERE u.created >= ?2)
       SELECT ${g ? 'v.plat AS plat,' : ''} COUNT(DISTINCT v.vid) AS visitors, COUNT(DISTINCT CASE WHEN v.tried THEN v.vid END) AS tried, COUNT(DISTINCT r.uid) AS signed, COUNT(DISTINCT CASE WHEN r.kept THEN r.uid END) AS kept

@@ -5,7 +5,9 @@
  *   { t:'e', msg, src, line, path, ver }                              → gộp lỗi giống nhau thành 1 dòng + đếm
  *   { t:'x', vid, day, ev:{lookup,save,popup,newtab}, prev:{day, ev}, ver, lang } → add-on Chrome: 1 lượt/ngày/máy → ext_daily (lấy MAX, gửi lại không cộng trùng)
  *   { t:'x', vid, ev:{install|update|uninstall:1}, reason }           → ext_events (đếm theo ngày; lý do gỡ = kind 'uninstall:<lý do>')
- * Quốc gia lấy từ Cloudflare (request.cf.country). vid = mã ngẫu nhiên trên máy người dùng, không gắn danh tính. */
+ * Quốc gia lấy từ Cloudflare (request.cf.country). vid = mã ngẫu nhiên trên máy người dùng, không gắn danh tính.
+ * Định nghĩa (đồng bộ với Quản trị): khách = vid khác nhau · lượt xem = SUM(pages) · "ngày" = giờ Việt Nam (TZ, UTC+7) ·
+ * máy tự động (CI, bot, máy chủ đám mây) vẫn ghi 1 dòng phiên nhưng có cột bot = loại → Quản trị tách riêng "đã loại", không cộng vào số người thật. */
 import { limit } from './sync.js';
 import { gate } from './_quota.js';
 
@@ -13,12 +15,36 @@ let ready = false;
 const ok = () => new Response(null, { status: 204, headers: { 'Cache-Control': 'no-store' } });
 const cut = (v, n) => String(v == null ? '' : v).slice(0, n);
 const sha = async s => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)))].map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 32);
-const DAY = 86400e3, dayOf = t => new Date(t).toISOString().slice(0, 10);
+const DAY = 86400e3;
+// "Ngày" thống kê = lịch Việt Nam (khán giả chính) – mọi nơi ghi/đọc sessions.day, pageviews_day dùng chung hàm này
+export const TZ = 'Asia/Ho_Chi_Minh', TZ_OFF = 7 * 3600e3;
+export const dayOf = t => new Date(t + TZ_OFF).toISOString().slice(0, 10);
 const VID = /^[a-z0-9]{8,32}$/i, REASONS = ['notuse', 'noisy', 'bugs', 'privacy', 'alt', 'other'];
 const cnt = v => Math.min(Math.max(Math.floor(+v || 0), 0), 5000);
-// Ngày máy khách gửi: chỉ nhận YYYY-MM-DD trong [hôm nay − back ngày, hôm nay] (giờ UTC)
-const okDay = (d, now, back) => /^\d{4}-\d{2}-\d{2}$/.test(d || '') && d <= dayOf(now) && d >= dayOf(now - back * DAY) ? d : '';
-const BOT = /bot|crawl|spider|slurp|lighthouse|headless|playwright|puppeteer|preview/i;
+// Ngày máy khách gửi (giờ địa phương của máy): nhận YYYY-MM-DD trong [hôm nay − back ngày, hôm nay + 1] – múi giờ UTC+8…+14 đã sang ngày mới trước VN
+const okDay = (d, now, back) => /^\d{4}-\d{2}-\d{2}$/.test(d || '') && d <= dayOf(now + DAY) && d >= dayOf(now - back * DAY) ? d : '';
+// Máy tự động: UA bot/công cụ, header CI của mình, bot đã xác minh (Cloudflare), mạng máy chủ đám mây (ASN) – runner GitHub Actions
+// (kể cả Android emulator / iOS Simulator trong android.yml, ios.yml) đi ra Internet qua Azure AS8075.
+export const BOT = /(?<!cu)bot\b|bot\/|crawl|spider|slurp|lighthouse|headless|playwright|puppeteer|selenium|webdriver|phantom|preview|curl\/|wget|python|go-http-client|node-fetch|undici|axios|okhttp|java\/|libwww|httpclient|scrapy|lexkite-bot|^node$|^$/i;
+export const DC_ASN = new Set([
+  8075, 8068, 8069, 8070, 12076,       // Microsoft / Azure (runner GitHub Actions)
+  36459,                               // GitHub
+  16509, 14618, 8987,                  // Amazon AWS
+  15169, 396982, 19527, 36040, 43515,  // Google / Google Cloud (Googlebot dựng JS, Play pre-launch, Firebase Test Lab)
+  714, 6185,                           // Apple (App Review)
+  14061, 16276, 24940, 63949, 20473, 31898, 45102, 132203, 37963, 51167, 9009, 212238, // DigitalOcean, OVH, Hetzner, Linode, Vultr, Oracle, Alibaba, Tencent, Contabo, M247, Datacamp
+]);
+// → null (người thật) | 'ci' | 'ua' | 'bot' | 'dc'
+export function automation(request) {
+  const h = request.headers, cf = request.cf || {};
+  if ((h.get('x-lexkite-ci') || '').trim()) return 'ci';
+  if (BOT.test((h.get('User-Agent') || '').trim())) return 'ua';
+  const bm = cf.botManagement || {};
+  if (bm.verifiedBot || cf.verifiedBotCategory || (bm.score && bm.score < 10)) return 'bot';
+  if (DC_ASN.has(+cf.asn)) return 'dc';
+  return null;
+}
+const NOT_ROUTE = new Set(['admin']); // trang quản trị không phải "trang của người dùng" – không ghi vào lượt xem/đang xem
 
 export async function setup(db) {
   if (ready) return;
@@ -30,32 +56,65 @@ export async function setup(db) {
     db.prepare('CREATE TABLE IF NOT EXISTS ext_daily (day TEXT NOT NULL, vid TEXT NOT NULL, lookup INTEGER, save INTEGER, popup INTEGER, newtab INTEGER, ver TEXT, PRIMARY KEY (day, vid)) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS ext_events (day TEXT NOT NULL, kind TEXT NOT NULL, n INTEGER NOT NULL, PRIMARY KEY (day, kind)) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS vid_uid (vid TEXT PRIMARY KEY, uid TEXT NOT NULL, at INTEGER NOT NULL) WITHOUT ROWID'),
+    db.prepare('CREATE TABLE IF NOT EXISTS hit_meta (k TEXT PRIMARY KEY, at INTEGER) WITHOUT ROWID'),
   ]);
   await db.prepare('ALTER TABLE sessions ADD COLUMN lcp INTEGER').run().catch(() => {}); // LCP thật (ms) – thêm sau
   await db.prepare('ALTER TABLE sessions ADD COLUMN last INTEGER').run().catch(() => {}); // lần cuối nhận tín hiệu (ms) – "đang online"
   await db.prepare('ALTER TABLE sessions ADD COLUMN last_path TEXT').run().catch(() => {}); // trang đang xem lúc gửi gần nhất
   await db.prepare('CREATE INDEX IF NOT EXISTS sessions_last ON sessions (last)').run().catch(() => {});
+  await db.prepare('ALTER TABLE sessions ADD COLUMN bot TEXT').run().catch(() => {}); // loại máy tự động (NULL = người thật)
+  await migrate(db).catch(() => {});
   ready = true;
 }
 
+/* Di chuyển 1 lần (bảng hit_meta giữ dấu; cả lô là 1 giao dịch – dòng dấu bị trùng khóa → cả lô huỷ, không chạy 2 lần):
+ * mig-bot-1: từ 16/10 04:00 UTC (commit 98a98e9a: android.yml/ios.yml chụp màn hình trên emulator mỗi lần push) mỗi lần build
+ *   mở app Capacitor mới cài trên runner GitHub (Mỹ) → 1 phiên giả. Đánh dấu bot = 'ci-app' cho phiên app (android/ios) ngoài VN
+ *   trong khoảng đó, trừ lượt xem home/welcome mà các phiên đó đã cộng vào pageviews_day.
+ * mig-tz-1: sessions.day đổi từ ngày UTC sang ngày giờ Việt Nam (pageviews_day cũ giữ nguyên ngày UTC – không tách lại được). */
+export const CI_APP_FROM = Date.UTC(2026, 9, 16, 4, 0, 0);
+async function migrate(db) {
+  const done = new Set(((await db.prepare('SELECT k FROM hit_meta').all()).results || []).map(r => r.k)), now = Date.now();
+  if (!done.has('mig-bot-1')) {
+    const W = "bot = 'ci-app' AND day = pageviews_day.day";
+    await db.batch([
+      db.prepare("INSERT INTO hit_meta (k, at) VALUES ('mig-bot-1', ?1)").bind(now),
+      db.prepare("UPDATE sessions SET bot = 'ci-app' WHERE bot IS NULL AND plat IN ('android', 'ios') AND COALESCE(country, '') <> 'VN' AND at >= ?1 AND at <= ?2").bind(CI_APP_FROM, now),
+      db.prepare(`UPDATE pageviews_day SET n = MAX(0, n - (SELECT COUNT(*) FROM sessions WHERE ${W} AND path = 'home')) WHERE path = 'home' AND day >= '2026-10-16'`),
+      db.prepare(`UPDATE pageviews_day SET n = MAX(0, n - (SELECT COUNT(*) FROM sessions WHERE ${W} AND last_path = 'welcome')) WHERE path = 'welcome' AND day >= '2026-10-16'`),
+    ]);
+  }
+  if (!done.has('mig-tz-1')) await db.batch([
+    db.prepare("INSERT INTO hit_meta (k, at) VALUES ('mig-tz-1', ?1)").bind(now),
+    db.prepare(`UPDATE sessions SET day = strftime('%Y-%m-%d', (at + ${TZ_OFF}) / 1000, 'unixepoch')`),
+  ]);
+}
+
 export async function onRequestPost({ request, env }) {
-  if (!env.DB || BOT.test(request.headers.get('User-Agent') || '')) return ok();
+  if (!env.DB) return ok();
   if ((await gate(request, env, 'hit', { who: null })).res) return ok(); // 1 IP gửi dồn dập → bỏ qua im lặng (thống kê không bao giờ làm hỏng app)
   let b; try { b = JSON.parse(await request.text()); } catch (e) { return ok(); }
+  const auto = automation(request);
+  if (auto && b && b.t !== 's') return ok(); // máy tự động: chỉ đếm phiên (để Quản trị hiện "đã loại"), không ghi lỗi JS / add-on
   try {
     await setup(env.DB);
     const now = Date.now();
     if (b.t === 's' && /^[a-z0-9]{8,32}$/i.test(b.sid || '')) {
       let ref = cut(b.ref, 200); try { ref = ref ? new URL(ref).hostname.replace(/^www\./, '') : ''; } catch (e) { ref = ''; }
       if (/(^|\.)lexkite\.(com|pages\.dev)$/.test(ref)) ref = '';
-      const day = new Date(now).toISOString().slice(0, 10), route = v => /^[a-z0-9-]{1,40}$/.test(v) ? v : '';
-      const batch = [env.DB.prepare('INSERT INTO sessions (sid, vid, day, at, country, ref, dev, lang, plat, path, dur, pages, ret, lcp, last, last_path) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?4, ?15) ON CONFLICT (sid) DO UPDATE SET dur = ?11, pages = ?12, lcp = COALESCE(lcp, ?14), last = ?4, last_path = ?15')
-        .bind(cut(b.sid, 32), cut(b.vid, 32), day, now, cut(request.cf && request.cf.country, 2) || 'XX', ref, cut(b.dev, 10), cut(b.lang, 8), cut(b.plat, 8), cut(b.path, 60), Math.min(Math.max(+b.dur || 0, 0), 86400), Math.min(+b.pages || 1, 999), b.ret ? 1 : 0, +b.lcp > 0 && +b.lcp < 60000 ? Math.round(+b.lcp) : null, route(cut(b.cur || b.path, 40)) || null)];
-      // Lượt xem theo trang/ngày: chỉ phần tăng thêm từ lần gửi trước (tối đa 20 trang, mỗi trang ≤ 200) – cùng 1 lượt gọi D1
-      if (b.pv && typeof b.pv === 'object') for (const [k, v] of Object.entries(b.pv).slice(0, 20)) {
+      const day = dayOf(now), route = v => /^[a-z0-9-]{1,40}$/.test(v) && !NOT_ROUTE.has(v) ? v : '';
+      // Phiên mở thẳng trang quản trị (#/admin) → coi là nội bộ, đếm riêng như máy tự động
+      const bot = auto || (NOT_ROUTE.has(cut(b.path, 60)) ? 'admin' : null);
+      // ON CONFLICT: COALESCE(bot, ?16) – một khi đã là máy tự động thì giữ nguyên (không "hoá người" ở nhịp gửi sau)
+      const batch = [env.DB.prepare('INSERT INTO sessions (sid, vid, day, at, country, ref, dev, lang, plat, path, dur, pages, ret, lcp, last, last_path, bot) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?4, ?15, ?16) ON CONFLICT (sid) DO UPDATE SET dur = ?11, pages = ?12, lcp = COALESCE(lcp, ?14), last = ?4, last_path = COALESCE(?15, last_path), bot = COALESCE(bot, ?16)')
+        .bind(cut(b.sid, 32), cut(b.vid, 32), day, now, cut(request.cf && request.cf.country, 2) || 'XX', ref, cut(b.dev, 10), cut(b.lang, 8), cut(b.plat, 8), cut(b.path, 60), Math.min(Math.max(+b.dur || 0, 0), 86400), Math.min(Math.max(Math.floor(+b.pages || 1), 1), 999), b.ret ? 1 : 0, +b.lcp > 0 && +b.lcp < 60000 ? Math.round(+b.lcp) : null, route(cut(b.cur || b.path, 40)) || null, bot)];
+      // Lượt xem theo trang/ngày: chỉ phần tăng thêm từ lần gửi trước (tối đa 20 trang, mỗi trang ≤ 200) – cùng 1 lượt gọi D1. Máy tự động: bỏ.
+      if (!bot && b.pv && typeof b.pv === 'object') for (const [k, v] of Object.entries(b.pv).slice(0, 20)) {
         const n = Math.min(Math.floor(+v || 0), 200); if (n > 0 && route(k)) batch.push(env.DB.prepare('INSERT INTO pageviews_day (day, path, n) VALUES (?1, ?2, ?3) ON CONFLICT (day, path) DO UPDATE SET n = n + ?3').bind(day, k, n));
       }
       await env.DB.batch(batch);
+      // Lưu giữ: ~1/500 lượt ghi phiên dọn số liệu quá 400 ngày (Quản trị xem tối đa 365 ngày) – chính sách riêng tư "chỉ giữ khi cần"
+      if (Math.random() < 0.002) await env.DB.batch([env.DB.prepare('DELETE FROM sessions WHERE at < ?').bind(now - 400 * DAY), env.DB.prepare('DELETE FROM pageviews_day WHERE day < ?').bind(dayOf(now - 400 * DAY))]);
     } else if (b.t === 'x' && b.ev && typeof b.ev === 'object') {
       // Add-on Chrome: giới hạn 20 lượt/giờ cho mỗi máy (vid) hoặc mỗi IP (trang gỡ cài đặt) – chỉ ở bộ đệm biên, không lưu IP
       const vid = VID.test(b.vid || '') ? String(b.vid).toLowerCase() : '';

@@ -14617,15 +14617,15 @@
     "tr": "Soru türü"
   },
   "Đúng": {
-    "es": "Correctas",
-    "pt": "Corretas",
-    "fr": "Correctes",
+    "es": "Correcto",
+    "pt": "Correto",
+    "fr": "Correct",
     "de": "Richtig",
     "id": "Benar",
     "th": "ถูก",
     "zh": "正确",
-    "ja": "正解",
-    "ko": "정답",
+    "ja": "正しい",
+    "ko": "맞음",
     "hi": "सही",
     "ar": "صحيح",
     "ru": "Верно",
@@ -18325,5 +18325,38 @@
   "Thêm -es sau s, x, z, ch, sh và phụ âm + o (watches, goes).": {
     "ko": "s, x, z, ch, sh 또는 자음 + o (watches, goes)로 끝나면 -es를 붙입니다.",
     "tr": "s, x, z, ch, sh veya ünsüz + o (watches, goes) ile biten fiillere -es eklenir."
+  },
+  "Hồ sơ": {
+    "zh": "个人资料"
+  },
+  "Hiểu sâu": {
+    "es": "Profundizar",
+    "pt": "Aprofundar",
+    "fr": "Approfondir",
+    "de": "Vertiefen",
+    "id": "Pendalaman",
+    "th": "เจาะลึก",
+    "zh": "深入理解",
+    "ja": "深掘り",
+    "ko": "깊이 알기",
+    "hi": "गहराई से समझें",
+    "ar": "تعمّق",
+    "ru": "Подробнее",
+    "tr": "Derinlemesine"
+  },
+  "Sai": {
+    "es": "Incorrecto",
+    "pt": "Errado",
+    "fr": "Faux",
+    "de": "Falsch",
+    "id": "Salah",
+    "th": "ผิด",
+    "zh": "错误",
+    "ja": "誤り",
+    "ko": "틀림",
+    "hi": "गलत",
+    "ar": "خطأ",
+    "ru": "Неверно",
+    "tr": "Yanlış"
   }
 }

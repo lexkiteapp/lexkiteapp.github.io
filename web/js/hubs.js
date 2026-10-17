@@ -194,7 +194,7 @@
               <b>${esc((u && u.displayName) || t('Bạn'))}</b>
               <span class="me-exam-badge">${examObj.ic} ${esc(examObj.short)}</span>
             </div>
-            <div class="me-sub-row">${u ? esc(u.email || '') : `<a href="#/settings">${t('Đăng nhập để sao lưu & đồng bộ')}</a>`}</div>
+            <div class="me-sub-row">${u ? esc(u.email || '') : t('Đăng nhập để sao lưu & đồng bộ')}</div>
             <div class="me-title-chip">👑 ${esc(L.title || '')} · ${t('Cấp {n}', { n: L.level || 1 })}</div>
             <div class="me-xp-container">
               <div class="me-xp-bar"><div class="me-xp-fill" style="width:${xpPct}%"></div></div>
@@ -205,7 +205,8 @@
             </div>
           </div>
         </div>
-
+${window.Sync && Sync.gBtn ? `<div class="card me-acct row between" id="meAcct">${u ? `<div class="grow"><b>☁️ ${esc(u.email || u.displayName || '')}</b><div class="small muted">${Sync.stText() || t('Dữ liệu học được tự động sao lưu và đồng bộ giữa các thiết bị.')}</div></div><div class="row"><button type="button" class="btn sm" data-acct="sync">🔄 ${t('Đồng bộ ngay')}</button><button type="button" class="btn sm ghost" data-acct="out">${t('Đăng xuất')}</button></div>`
+  : `<div class="grow"><b>☁️ ${t('Đăng nhập để không mất dữ liệu')}</b><div class="small muted">${t('Sao lưu flashcard, XP, chuỗi ngày học và học tiếp trên mọi thiết bị.')}</div></div>${Sync.gBtn()}`}</div>` : ''}
         <div class="me-bento">
           <a class="me-card" href="#/library">
             <div class="me-card-head">
