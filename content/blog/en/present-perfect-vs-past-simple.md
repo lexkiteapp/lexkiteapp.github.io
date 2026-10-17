@@ -14,6 +14,16 @@ factChecked: 2026-10-15
 author: Lexkite
 status: ready
 qualityScore: 93
+coverArt: {mood: think, icon: blocks}
+shots: [
+  {id: s1, route: '#/grammar/present-perfect', crop: main},
+  {id: s2, route: '#/grammar/past-simple', crop: main},
+  {id: s3, route: '#/verb/write', crop: main}
+]
+diagrams: [
+  {id: d1, type: timeline, title: 'Closed and open time frames', span: [-4, 1], now: 'now', events: [{from: -4, to: -2.5, label: 'last summer → past simple'}, {at: -1.6, label: 'in 2019 → past simple'}, {from: -1, to: 0, label: 'this year so far → present perfect'}]},
+  {id: d2, type: boxes, title: 'Present perfect form', parts: [{t: 'I', r: 'subject'}, {t: 'have', r: 'have / has'}, {t: 'written', r: 'past participle (V3)'}, {t: 'three emails', r: 'object'}, {t: 'this morning', r: 'time frame still open'}]}
+]
 ---
 The difference between **present perfect vs past simple** comes down to one question: is the time frame you are talking about still open, or is it finished? Use the past simple (*I visited Rome in 2019*) for actions inside a closed, finished period. Use the present perfect (*I have visited Rome twice*) when the period connects to now, such as "in my life so far", "this week" or "since January". The action itself may be over in both cases; what changes is the window of time you are looking through.
 
@@ -22,6 +32,8 @@ The difference between **present perfect vs past simple** comes down to one ques
 Picture two windows. The first is closed and sits entirely in the past: *yesterday*, *last summer*, *in 2015*, *when I was a child*. Anything you place in that window takes the **past simple**.
 
 The second window is still open; its right-hand edge is the present moment: *today* (while it is still today), *this year*, *ever*, *so far*, *since I moved here*. Events placed in that window take the **present perfect**.
+
+{{diagram: d1 | The closed window ends before now; the open window reaches the present moment}}
 
 Compare:
 
@@ -41,6 +53,8 @@ The difficulty has different roots depending on your first language.
 In every case, the fix is the same: stop asking "is the action finished?" and start asking "is the time frame finished?"
 
 ## Four core uses of the present perfect
+
+{{diagram: d2 | Every present perfect sentence is built from have or has plus the past participle}}
 
 ### 1. Experience up to now
 

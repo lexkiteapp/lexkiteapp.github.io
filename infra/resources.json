@@ -244,7 +244,7 @@
    "key": "media-worker",
    "name": "Cloudflare Worker lexkite-media (media.lexkite.com)",
    "kind": "cdn",
-   "purpose": "CDN ảnh riêng (blog, ảnh chụp app): đứng trước kho lexkite-media, máy chủ gần người dùng, cache 1 năm. /library/* = kho dựng video (WebP/MP4 có Range/index.json, cache 1 ngày) do scripts/video/library.mjs sync đẩy lên",
+   "purpose": "CDN ảnh riêng (blog, ảnh chụp app): đứng trước kho lexkite-media, máy chủ gần người dùng, cache 1 năm. /library/* = kho dựng video (WebP/MP4 có Range/index.json, cache 1 ngày) do scripts/video/library.mjs sync đẩy lên. /blog/p/* = ảnh riêng từng bài: đọc R2 lexkite-blog-media (binding BLOG_MEDIA) trước, không có thì lùi về kho GitHub",
    "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/workers/services/view/lexkite-media/production",
    "free": "100.000 lượt/ngày (lượt trúng cache trình duyệt không tính)",
    "upgrade": "Kho gần 1 GB → đổi ORIGIN trong workers/media sang R2 (URL ảnh giữ nguyên)",
@@ -264,6 +264,20 @@
    "upgrade": "Cloudflare R2",
    "status": "Miễn phí",
    "match": []
+  },
+  {
+   "key": "blog-media-r2",
+   "name": "Cloudflare R2 lexkite-blog-media (ảnh riêng từng bài blog)",
+   "kind": "storage",
+   "purpose": "Ảnh bìa + ảnh chụp app riêng từng bài blog (scripts/blog-images.mjs, workflow .github/workflows/blog-images.yml): tên = mã băm nội dung blog/p/<hash>-<w>.<avif|webp> + <hash>-og.jpg, cache immutable, phục vụ qua Worker lexkite-media (binding BLOG_MEDIA) tại https://media.lexkite.com/blog/p/…. Không nằm trong bản deploy Pages. Sổ: content/blog/media/<lang>.json. Dọn file mồ côi: blog-images.mjs gc (mặc định chỉ liệt kê). Secret CI: R2_ACCESS_KEY_ID + R2_SECRET_ACCESS_KEY (token R2 Object Read & Write chỉ bucket này). Chưa có secret → CI dự phòng đẩy vào repo lexkite-media (LEXKITE_MEDIA_TOKEN)",
+   "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/r2/default/buckets/lexkite-blog-media",
+   "free": "10 GB lưu trữ + 1 triệu thao tác ghi + 10 triệu thao tác đọc/tháng, không tính phí băng thông ra",
+   "upgrade": "> 10 GB: $0,015/GB-tháng (≈ 85 GB ở 100k bài ≈ $1,1/tháng); Worker media > 100k lượt/ngày → Workers Paid $5/tháng hoặc gắn tên miền riêng thẳng vào bucket",
+   "status": "Chờ tạo bucket + secret (docs/BLOG-RUNBOOK.md § Ảnh riêng từng bài)",
+   "match": [
+    "lexkite-blog-media",
+    "e34e14b7ab35eaf2b3d9d84fcce011f7.r2.cloudflarestorage.com"
+   ]
   },
   {
    "key": "gtx",

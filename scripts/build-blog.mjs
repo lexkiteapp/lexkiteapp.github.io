@@ -2,7 +2,8 @@
 // BLOG_DRAFTS=1 xem trước mọi bài). Sinh: bài /blog/<slug>/, danh sách + phân trang, chuyên mục, thẻ, RSS, sitemap-blog.xml.
 // Ảnh: CDN repo lexkite-media (content/blog/config.json → mediaBase); BLOG_MEDIA_LOCAL=1 chép ảnh .media/out vào dist để xem thử.
 import fs from 'node:fs'; import path from 'node:path';
-import { loadPosts, parse, FAQ_RE, isLive, publishTime, wordCount, config, CATEGORIES, ROOT } from './lib/blog-content.mjs';
+import { loadPosts, parse, FAQ_RE, isLive, publishTime, wordCount, config, CATEGORIES, ROOT, loadMedia } from './lib/blog-content.mjs';
+import { specOf, mediaId, diagramHtml } from './lib/blog-images.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
 import { CSS, esc, ld, siteHeader, siteFooter, crumbsHtml, crumbsLd as crumbsLdAt, appHref, landingHref } from './lib/site-layout.mjs';
 
@@ -28,7 +29,7 @@ const copyJs = lang => `<script>document.addEventListener('copy',e=>{const s=win
 const C = config(), SITE = C.site.replace(/\/$/, ''), DEF = C.defaultLang || 'vi', PER = C.postsPerPage || 12;
 const NOW = process.env.BLOG_NOW ? Date.parse(process.env.BLOG_NOW) : Date.now(), DRAFTS = process.env.BLOG_DRAFTS === '1';
 const OUT = process.env.BLOG_OUT || 'dist';
-const MEDIA = fs.existsSync(`${ROOT}/media.json`) ? JSON.parse(fs.readFileSync(`${ROOT}/media.json`, 'utf8')).items : {};
+const MEDIA = loadMedia(ROOT).items; // media.json (ảnh chung) + media/<lang>.json (ảnh riêng từng bài – CI blog-images)
 let MBASE = C.mediaBase;
 if (process.env.BLOG_MEDIA_LOCAL === '1' && fs.existsSync('.media/out/blog')) { fs.cpSync('.media/out/blog', `${OUT}/blog/media`, { recursive: true }); MBASE = '/blog/media/'; }
 
@@ -42,7 +43,8 @@ if (fs.existsSync('scripts/blog-check.mjs') && process.env.BLOG_SKIP_CHECK !== '
 const when = p => publishTime(p) || NOW; // bài chưa xếp lịch (chỉ khi xem trước BLOG_DRAFTS) → coi như đăng lúc build
 const posts = all.filter(p => p.status !== 'draft' && (DRAFTS || isLive(p, NOW))).sort((a, b) => when(b) - when(a) || a.slug.localeCompare(b.slug));
 
-let LIVE = new Set(), CUR = DEF; // CUR: ngôn ngữ của trang đang dựng // URL các bài đã phát hành (gán sau khi có danh sách bài)
+let LIVE = new Set(), CUR = DEF, CURP = null; // CURP: bài đang dựng (giải media:@id, {{diagram: id}})
+ // CUR: ngôn ngữ của trang đang dựng // URL các bài đã phát hành (gán sau khi có danh sách bài)
 // ---------- Chữ giao diện theo ngôn ngữ (bản dịch sau này chỉ cần thêm khóa) ----------
 const COPY = {
   vi: 'Bài viết được biên soạn độc quyền bởi đội ngũ học thuật Lexkite (lexkite.com). Vui lòng ghi rõ nguồn khi trích dẫn.',
@@ -90,14 +92,20 @@ const fmtDate = (t, l) => new Date(t).toLocaleDateString(l === 'vi' ? 'vi-VN' : 
 const iso = t => new Date(t).toISOString();
 
 // ---------- Ảnh: <picture> AVIF + WebP, srcset, width/height (CLS 0) ----------
+// media:@s1 trong bài → ảnh riêng <lang>-<slug>--s1 (sổ media/<lang>.json); tên file ảnh riêng = mã băm nội dung (blog/p/<hash>-<w>.<ext>)
+const rid = id => (id.startsWith('@') && CURP ? mediaId(CURP, id.slice(1)) : id);
+const stem = (id, m) => m.key || `${id}-${m.hash}`;
+// Ảnh bìa: bản riêng của bài (CI đã render) nếu có, không thì ảnh chung `cover:` (alt = coverAlt). Alt bìa riêng = alt tự sinh (đúng ảnh).
+const coverOf = p => { const id = mediaId(p, 'cover'), m = MEDIA[id]; return m ? { id, alt: m.alt } : { id: p.cover, alt: p.coverAlt || p.title }; };
 function picture(id, alt, { eager = false, sizes = '(min-width: 760px) 720px, 100vw' } = {}) {
-  const m = MEDIA[id];
+  id = rid(id); const m = MEDIA[id];
   if (!m) return `<!-- thiếu ảnh ${esc(id)} -->`;
-  const u = (w, f) => `${m.base || MBASE}blog/${id}-${m.hash}-${w}.${f}`.replace('/blog/media/blog/', '/blog/media/');
+  if (!String(alt || '').trim() && m.alt) alt = m.alt; // ![](media:@s1 …) để trống alt → alt tự sinh từ bản ghi chụp
+  const u = (w, f) => `${m.base || MBASE}blog/${stem(id, m)}-${w}.${f}`.replace('/blog/media/blog/', '/blog/media/');
   const set = f => m.widths.map(w => `${u(w, f)} ${w}w`).join(', '), mid = m.widths[Math.min(1, m.widths.length - 1)];
   return `<picture><source type="image/avif" srcset="${set('avif')}" sizes="${sizes}"><source type="image/webp" srcset="${set('webp')}" sizes="${sizes}"><img src="${u(mid, 'webp')}" alt="${esc(alt)}" width="${m.w}" height="${m.h}" ${eager ? 'fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"'}></picture>`;
 }
-const imgUrl = (id, w = 1440) => { const m = MEDIA[id]; if (!m) return `${SITE}/og-default.png`; const ww = m.widths.includes(w) ? w : m.widths.at(-1); return `${m.base || MBASE}blog/${id}-${m.hash}-${ww}.webp`.replace(/^\//, SITE + '/'); };
+const imgUrl = (id, w = 1440) => { const m = MEDIA[id]; if (!m) return `${SITE}/og-default.png`; if (m.og) return `${m.base || MBASE}blog/${m.key}-og.jpg`.replace(/^\//, SITE + '/'); const ww = m.widths.includes(w) ? w : m.widths.at(-1); return `${m.base || MBASE}blog/${stem(id, m)}-${ww}.webp`.replace(/^\//, SITE + '/'); };
 
 // ---------- Markdown tối giản (đủ cho bài blog, không phụ thuộc gói ngoài) ----------
 // Chỉ cho phép link/ảnh tương đối hoặc http(s)/mailto – chặn javascript:/data:/vbscript: trong Markdown (XSS)
@@ -107,7 +115,7 @@ const safeUrl = u => { const m = /^([a-z][a-z0-9+.-]*):/i.exec(u); return !m || 
 function inline(s) {
   const codes = [];
   s = esc(s).replace(/`([^`]+)`/g, (m, c) => `\u0000${codes.push(c) - 1}\u0000`);
-  s = s.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+&quot;([^&]*)&quot;)?\)/g, (m, alt, src) => src.startsWith('media:') ? picture(src.slice(6), alt) : safeUrl(src) ? `<img src="${src}" alt="${alt}" loading="lazy">` : alt)
+  s = s.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+&quot;([^&]*)&quot;)?\)/g, (m, alt, src) => src.startsWith('media:') ? (MEDIA[rid(src.slice(6))] ? picture(src.slice(6), alt) : '') : safeUrl(src) ? `<img src="${src}" alt="${alt}" loading="lazy">` : alt)
     .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, t, h) => {
       if (!safeUrl(h)) return t;
       h = toApp(h);
@@ -162,8 +170,10 @@ function render(md, lang, cover) {
       i++; continue;
     }
     if ((m = ln.match(/^\{\{\s*cta:\s*(\S+)\s*\|\s*(.*?)\s*\}\}\s*$/))) { flush(); out.push(`<aside class="cta"><p><strong>${inline(m[2])}</strong></p><a class="btn" href="${esc(toApp(safeUrl(m[1]) || appHref(lang)))}">${T(lang).open} ${T(lang).dir === 'rtl' ? '←' : '→'}</a></aside>`); i++; continue; }
-    if ((m = ln.match(/^!\[([^\]]*)\]\(media:([\w-]+)(?:\s+"([^"]*)")?\)\s*$/))) { flush(); if (m[2] === cover) { i++; continue; } // ảnh trùng ảnh bìa → không lặp lại
+    if ((m = ln.match(/^!\[([^\]]*)\]\(media:(@?[\w-]+)(?:\s+"([^"]*)")?\)\s*$/))) { flush(); if (m[2] === cover || (m[2].startsWith('@') && !MEDIA[rid(m[2])])) { i++; continue; } // trùng ảnh bìa / ảnh riêng chưa render → bỏ (blog-check chặn trước giờ đăng)
       out.push(`<figure>${picture(m[2], m[1])}${m[3] ? `<figcaption>${inline(m[3])}</figcaption>` : ''}</figure>`); i++; continue; }
+    if ((m = ln.match(/^\{\{\s*diagram:\s*([a-z][a-z0-9-]*)\s*(?:\|\s*(.*?))?\s*\}\}\s*$/))) { // sơ đồ SVG/HTML nhúng (chữ chọn được, máy tìm kiếm đọc được)
+      flush(); const d = CURP && specOf(CURP).diagrams.find(x => x.id === m[1]); out.push(d ? diagramHtml(d, lang, m[2] ? inline(m[2]) : '') : `<!-- thiếu sơ đồ ${esc(m[1])} -->`); i++; continue; }
     if (/^(---|\*\*\*)\s*$/.test(ln)) { flush(); out.push('<hr>'); i++; continue; }
     if (ln.startsWith('>')) { flush(); const buf = []; while (i < lines.length && lines[i].startsWith('>')) buf.push(lines[i++].replace(/^>\s?/, '')); out.push(`<blockquote>${buf.join('\n').split(/\n\s*\n/).map(b => `<p>${inline(b.replace(/\n/g, ' '))}</p>`).join('')}</blockquote>`); continue; }
     if (/^\|.*\|\s*$/.test(ln) && /^\|?[\s:|-]+\|?\s*$/.test(lines[i + 1] || '') && lines[i + 1].includes('-')) {
@@ -233,7 +243,7 @@ ${script}
 }
 const YT_JS = `<script>document.addEventListener('click',e=>{const b=e.target.closest('.yt button');if(!b)return;const d=b.parentNode,f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+d.dataset.id+'?autoplay=1&rel=0';f.title=b.getAttribute('aria-label');f.allow='accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture;fullscreen';f.allowFullscreen=true;d.replaceChildren(f)})</script>`;
 const crumbsLd = items => crumbsLdAt(SITE, items);
-const card = (p, h = 'h2', eager = false) => `<article class="card"><a class="ti" href="${postUrl(p)}"><div class="pic">${picture(p.cover, p.coverAlt || p.title, { eager, sizes: '(min-width: 1080px) 340px, (min-width: 640px) 50vw, 100vw' })}</div><div class="bd"><span class="chip">${esc(catName(p.category, p.lang))}</span><${h}>${esc(p.title)}</${h}><p>${esc(p.description)}</p></div></a></article>`;
+const card = (p, h = 'h2', eager = false) => `<article class="card"><a class="ti" href="${postUrl(p)}"><div class="pic">${picture(coverOf(p).id, coverOf(p).alt, { eager, sizes: '(min-width: 1080px) 340px, (min-width: 640px) 50vw, 100vw' })}</div><div class="bd"><span class="chip">${esc(catName(p.category, p.lang))}</span><${h}>${esc(p.title)}</${h}><p>${esc(p.description)}</p></div></a></article>`;
 
 // ---------- Ghi file ----------
 const written = [], sm = []; // sm: { loc, lastmod, alt }
@@ -246,7 +256,8 @@ const alts = p => { const g = byKey.get(p.translationKey || p.slug) || [p]; if (
 
 // Bài viết
 for (const p of posts) {
-  const t = T(p.lang), { html: rawHtml, toc, faq, videos } = render(p.body, p.lang, p.cover), words = wordCount(p.body), mins = Math.max(1, Math.round(words / 220));
+  CURP = p; const cv = coverOf(p);
+  const t = T(p.lang), { html: rawHtml, toc, faq, videos } = render(p.body, p.lang, cv.id), words = wordCount(p.body), mins = Math.max(1, Math.round(words / 220));
   const pub = when(p), upd = p.updated ? Date.parse(p.updated) : pub;
   const html = embedWatermark(rawHtml, `LK:${p.lang}/${p.slug}:${iso(pub).slice(0, 10).replace(/-/g, '')}`);
   const same = posts.filter(x => x !== p && x.lang === p.lang);
@@ -255,7 +266,7 @@ for (const p of posts) {
   const cat = catName(p.category, p.lang), b = base(p.lang), sg = SEG(p.lang);
   const crumbs = [[t.home, landingHref(p.lang)], [t.blog, b], [cat, `${b}${sg.cat}/${p.category}/`], [p.title, postUrl(p)]];
   const jsonld = [
-    { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, description: p.description, image: [imgUrl(p.cover)], datePublished: iso(pub), dateModified: iso(upd), inLanguage: p.lang, wordCount: words, keywords: [p.keyword, ...(p.tags || [])].join(', '), articleSection: cat, mainEntityOfPage: SITE + postUrl(p), author: { '@type': 'Organization', name: p.author || 'Lexkite', url: `${SITE}${base(p.lang)}${T(p.lang).aboutSlug}/` }, publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: { '@type': 'ImageObject', url: `${SITE}/icons/icon-512.png?v=2`, width: 512, height: 512 } } },
+    { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, description: p.description, image: [imgUrl(cv.id)], datePublished: iso(pub), dateModified: iso(upd), inLanguage: p.lang, wordCount: words, keywords: [p.keyword, ...(p.tags || [])].join(', '), articleSection: cat, mainEntityOfPage: SITE + postUrl(p), author: { '@type': 'Organization', name: p.author || 'Lexkite', url: `${SITE}${base(p.lang)}${T(p.lang).aboutSlug}/` }, publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: { '@type': 'ImageObject', url: `${SITE}/icons/icon-512.png?v=2`, width: 512, height: 512 } } },
     crumbsLd(crumbs),
     ...(faq.length >= 2 ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
   ];
@@ -263,7 +274,7 @@ for (const p of posts) {
 <article class="post">
 <h1>${esc(p.title)}</h1>
 <div class="meta"><a class="chip" href="${b}${sg.cat}/${p.category}/">${esc(cat)}</a><span><time datetime="${iso(pub)}">${fmtDate(pub, p.lang)}</time></span>${upd > pub + 864e5 ? `<span>${t.updated} <time datetime="${iso(upd)}">${fmtDate(upd, p.lang)}</time></span>` : ''}<span>${mins} ${t.min}</span></div>
-<figure class="cover">${picture(p.cover, p.coverAlt || p.title, { eager: true })}</figure>
+<figure class="cover">${picture(cv.id, cv.alt, { eager: true })}</figure>
 ${toc.length >= 3 ? `<details class="toc" open><summary>${t.toc}</summary><ol>${toc.map(h => `<li><a href="#${h.id}">${inline(h.txt)}</a></li>`).join('')}</ol></details>` : ''}
 ${html}
 ${(p.tags || []).some(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2) ? `<div class="tags" aria-label="${t.tags}">${p.tags.filter(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2).map(g => `<a href="${b}${sg.tag}/${g}/">#${esc(g)}</a>`).join('')}</div>` : ''}
@@ -271,11 +282,12 @@ ${(p.tags || []).some(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2) ? `<div class
 <section class="trybox"><h2>${t.try}</h2><p>${t.tryD}</p><a class="btn" href="${appHref(p.lang)}">${t.open} ${t.dir === 'rtl' ? '←' : '→'}</a></section>
 </article>
 ${related.length ? `<section aria-labelledby="rel"><h2 id="rel">${t.related}</h2><div class="grid">${related.map(x => card(x, 'h3')).join('')}</div></section>` : ''}`;
-  write(postUrl(p), layout({ lang: p.lang, title: `${p.title} | Lexkite`, desc: p.description, url: postUrl(p), alt: alts(p), img: imgUrl(p.cover), imgAlt: p.coverAlt, type: 'article', body, jsonld,
+  write(postUrl(p), layout({ lang: p.lang, title: `${p.title} | Lexkite`, desc: p.description, url: postUrl(p), alt: alts(p), img: imgUrl(cv.id), imgAlt: cv.alt, type: 'article', body, jsonld,
     extraHead: `<meta property="article:published_time" content="${iso(pub)}">\n<meta property="article:modified_time" content="${iso(upd)}">\n<meta property="article:section" content="${esc(cat)}">\n${(p.tags || []).map(g => `<meta property="article:tag" content="${esc(g)}">`).join('\n')}\n`,
     script: (videos.length ? YT_JS : '') + copyJs(p.lang) }));
   sm.push({ loc: postUrl(p), lastmod: iso(upd), alt: alts(p) });
 }
+CURP = null;
 
 // Danh sách: /blog/, chuyên mục, thẻ (phân trang)
 const langs = [...new Set(all.filter(p => p.status !== 'draft').map(p => p.lang))]; // ngôn ngữ đã có bài (kể cả chờ lịch) → có /<lang>/blog/ + RSS ngay (noindex khi chưa có bài)
@@ -299,7 +311,7 @@ for (const lang of langs) {
 ${items.length ? `<div class="grid">${items.map((p, i) => card(p, 'h2', n === 1 && i < 2)).join('')}</div>` : `<p>${lang === 'vi' ? 'Bài viết đầu tiên sắp ra mắt.' : 'First posts coming soon.'}</p>`}
 ${pages > 1 ? `<nav class="pager" aria-label="${t.page}">${n > 1 ? `<a rel="prev" href="${n === 2 ? g.u : `${g.u}${sg.page}/${n - 1}/`}">${t.newer}</a>` : '<span></span>'}${n < pages ? `<a rel="next" href="${g.u}trang/${n + 1}/">${t.older}</a>` : ''}</nav>` : ''}`;
       const jsonld = [crumbsLd(crumbs), { '@context': 'https://schema.org', '@type': g.kind === 'all' ? 'Blog' : 'CollectionPage', name: title, description: g.desc, url: SITE + u, inLanguage: lang, ...(g.kind === 'all' ? { publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/' } } : {}), hasPart: items.map(p => ({ '@type': 'BlogPosting', headline: p.title, url: SITE + postUrl(p), datePublished: iso(when(p)) })) }];
-      write(u, layout({ lang, title: `${title} | Lexkite`, desc: g.desc, url: u, body, jsonld, robots: g.noindex || !items.length ? 'noindex,follow' : 'index,follow', img: items[0] ? imgUrl(items[0].cover) : undefined, script: copyJs(lang) }));
+      write(u, layout({ lang, title: `${title} | Lexkite`, desc: g.desc, url: u, body, jsonld, robots: g.noindex || !items.length ? 'noindex,follow' : 'index,follow', img: items[0] ? imgUrl(coverOf(items[0]).id) : undefined, script: copyJs(lang) }));
       if (!g.noindex && items.length) sm.push({ loc: u, lastmod: iso(Math.max(...items.map(p => p.updated ? Date.parse(p.updated) : when(p)))) });
     }
   }

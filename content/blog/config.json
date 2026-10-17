@@ -54,5 +54,20 @@
     "ar": "Asia/Riyadh",
     "ru": "Europe/Moscow",
     "tr": "Europe/Istanbul"
+  },
+  "images": {
+    "_note": "Ảnh riêng từng bài (docs/BLOG-RUNBOOK.md § Ảnh riêng từng bài). enforce=true → bài mới (factChecked ≥ enforceFrom) phải có shots:/ảnh riêng, ảnh phải render xong trước giờ đăng leadHours giờ. covers=true → build dùng ảnh bìa riêng khi CI đã render. budgetKB = trần AVIF ở bản rộng nhất.",
+    "covers": true,
+    "enforce": false,
+    "enforceFrom": "2026-10-20",
+    "leadHours": 36,
+    "budgetKB": 60,
+    "widths": [
+      480,
+      960,
+      1440
+    ],
+    "app": "https://lexkite.com/app/?sandbox=1&demo=1",
+    "bucket": "lexkite-blog-media"
   }
 }

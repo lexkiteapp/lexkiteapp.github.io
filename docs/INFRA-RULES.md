@@ -14,7 +14,8 @@ Repo công khai: sổ chỉ ghi mục đích, bảng điều khiển, hạn mứ
 |---|---|---|---|
 | Web + nội dung học (JSON/JS tải lười) + bản dịch sẵn `web/i18n/content` | Cloudflare Pages | băng thông không giới hạn, 20.000 file/bản | gần 20.000 file → tách nội dung sang R2 |
 | Âm thanh | gốc GitHub Pages `lexkiteapp.github.io/audio` → phục vụ qua `audio.lexkite.com` (Worker `workers/audio`, cache 1 năm, app tự lùi về GitHub nếu lỗi) | GitHub ≤ 1 GB; Worker 100k lượt/ngày | gần 1 GB hoặc > 100k lượt/ngày → R2 + tên miền tùy chỉnh |
-| Ảnh blog | repo `lexkite-media` | ≤ 1 GB | R2 |
+| Ảnh blog (chung) | repo `lexkite-media` | ≤ 1 GB | R2 |
+| Ảnh riêng từng bài blog | R2 `lexkite-blog-media` qua `media.lexkite.com/blog/p/` (dự phòng repo `lexkite-media`) | 10 GB + 1M ghi + 10M đọc/tháng | > 10 GB: $0,015/GB-tháng; Worker > 100k lượt/ngày → Workers Paid |
 | Video | nhúng YouTube (youtube-nocookie) | không giới hạn | — |
 | Dữ liệu người dùng | D1 `lexkite-sync` | 5 GB | Workers Paid |
 

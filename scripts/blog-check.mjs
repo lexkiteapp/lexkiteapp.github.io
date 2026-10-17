@@ -2,7 +2,8 @@
 // Dùng: node scripts/blog-check.mjs [--root content/blog] [file.md …]   (không có file → mọi bài không phải draft)
 // Build gọi: import { checkPosts } from './blog-check.mjs' → { errors: string[], warnings: string[] } (mỗi dòng "file: [luật] thông điệp")
 import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath } from 'node:url';
-import { ROOT, CATEGORIES, plainText, wordCount, readPost, loadPostsAt, briefSlugs, mediaIds, FAQ_RE } from './lib/blog-content.mjs';
+import { ROOT, CATEGORIES, plainText, wordCount, readPost, loadPostsAt, briefSlugs, mediaIds, FAQ_RE, publishTime } from './lib/blog-content.mjs';
+import { specOf, mediaId, wantedItems, altUntruths, appRoutes, routeName, validateItem } from './lib/blog-images.mjs';
 
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/, TAG = /^[a-z0-9-]+$/, YT = /^[\w-]{11}$/;
 const ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})$/, DAY = /^\d{4}-\d{2}-\d{2}$/;
@@ -17,8 +18,11 @@ const words = s => s.match(/[\p{L}\p{N}][\p{L}\p{M}\p{N}'’.-]*/gu) || [];
 // Bỏ khối code để không bắt nhầm tiêu đề/liên kết bên trong (giữ số dòng)
 const noCode = body => body.replace(/```[\s\S]*?```/g, m => m.replace(/[^\n]/g, ''));
 
-export function checkPosts(posts, { all = posts, root = ROOT } = {}) {
-  const errors = [], warnings = [];
+// Cấu hình ảnh riêng từng bài (content/blog/config.json → images): enforce bật = bài mới (factChecked ≥ enforceFrom) BẮT BUỘC có ảnh riêng
+export const imagesConfig = (root = ROOT) => { const f = [path.join(root, 'config.json'), path.join(ROOT, 'config.json')].find(x => fs.existsSync(x)); return { enforce: false, enforceFrom: '9999-12-31', leadHours: 36, budgetKB: 60, covers: true, ...((f && JSON.parse(fs.readFileSync(f, 'utf8')).images) || {}) }; };
+
+export function checkPosts(posts, { all = posts, root = ROOT, now = Date.now() } = {}) {
+  const errors = [], warnings = [], IMG = imagesConfig(root), routes = appRoutes();
   const media = mediaIds(root), briefs = new Set((JSON.parse(fs.readFileSync(path.join(root, 'briefs.json'), 'utf8')).briefs || []).map(b => `${b.lang || 'vi'}/${b.slug}`));
   const slugs = new Set([...all, ...posts].map(p => `${p.lang}/${p.slug}`));
   if (media.fallback) warnings.push(`${rel(path.join(root, 'media.json'))}: [media] chưa có media.json – tạm kiểm id ảnh theo shots.json`);
@@ -68,15 +72,41 @@ export function checkPosts(posts, { all = posts, root = ROOT } = {}) {
     let prev = 1; for (const h of heads) { if (h.lv > prev + 1) E('heading', `nhảy cấp H${prev}→H${h.lv}: "${h.text}"`); prev = h.lv; }
     const wc = wordCount(p.body || ''); if (wc < 1200) E('words', `${wc} từ (cần ≥ 1200)`);
     // Ảnh
-    const imgId = src => (src.match(/^media:([\w-]+)$/) || [])[1];
+    // Ảnh riêng của bài: đặc tả shots/diagrams/coverArt (scripts/lib/blog-images.mjs) – lỗi cú pháp/route không có trong app → lỗi
+    let spec = { shots: [], diagrams: [], errors: [] }; try { spec = specOf(p); } catch (e) { E('spec', e.message); }
+    for (const x of spec.errors) E('spec', x);
+    for (const o of spec.shots) if (o.route && !routes.has(routeName(o.route))) E('spec', `shots ${o.id}: route ${o.route} – trang "${routeName(o.route)}" không có trong app (web/js routes.*)`);
+    const shotIds = new Set(spec.shots.map(o => o.id)), diagIds = new Set(spec.diagrams.map(o => o.id)), usedShots = new Set(), usedDiags = new Set();
+    const imgId = src => (src.match(/^media:(@?[\w-]+)$/) || [])[1];
     for (const m of body.matchAll(/!\[([^\]]*)\]\(\s*([^)\s]+)(?:\s+"([^"]*)")?\s*\)/g)) {
       const id = imgId(m[2]);
-      if (!id) E('image', `ảnh "${m[2]}" phải dùng dạng media:<id>`);
-      else if (!media.ids.has(id)) E('image', `ảnh media:${id} không có trong ${media.fallback ? 'shots.json' : 'media.json'}`);
+      if (!id) { E('image', `ảnh "${m[2]}" phải dùng dạng media:<id> hoặc media:@<id-trong-shots>`); continue; }
+      if (id.startsWith('@')) { // ảnh riêng: alt để trống = tự sinh từ ảnh chụp; viết alt thì không được khẳng định điều không có trên ảnh
+        const local = id.slice(1), rec = media.items?.[mediaId(p, local)];
+        if (!shotIds.has(local)) { E('image', `media:${id} chưa khai báo trong shots: (id ${[...shotIds].join(', ') || 'chưa có'})`); continue; }
+        usedShots.add(local);
+        if (m[1].trim() && len(m[1].trim()) < 10) E('image', `alt ảnh "${m[1]}" quá ngắn (≥ 10 ký tự, hoặc để trống để tự sinh)`);
+        if (rec && m[1].trim()) { const bad = altUntruths(m[1], rec, p.lang); if (bad.length) E('alt-truth', `alt media:${id} khẳng định ${bad.join(', ')} – không có trên ảnh chụp (${rec.cap?.route}); để trống alt hoặc chỉ tả chữ thấy trên màn hình`); }
+        continue;
+      }
+      if (!media.ids.has(id)) E('image', `ảnh media:${id} không có trong ${media.fallback ? 'shots.json' : 'media.json'}`);
       if (len(m[1].trim()) < 10) E('image', `alt ảnh "${m[1]}" quá ngắn (cần ≥ 10 ký tự)`);
     }
-    // Số ảnh: ≥ 2 ảnh thân bài khác ảnh bìa và khác nhau; bài dài (≥ 1.800 từ) nên ≥ 3
-    const bodyImgs = new Set([...body.matchAll(/!\[[^\]]*\]\(\s*media:([\w-]+)/g)].map(m => m[1]).filter(id => id !== p.cover));
+    // Ảnh riêng đã render: bản ghi phải hợp schema + trong trần dung lượng
+    for (const it of wantedItems(p, { covers: IMG.covers !== false })) { const rec = media.items?.[it.id]; if (rec) for (const x of validateItem(it.id, rec, IMG)) E('media', x); }
+    // Số ảnh: ≥ 2 ảnh thân bài khác ảnh bìa và khác nhau (ảnh riêng @ và sơ đồ đều tính); bài dài (≥ 1.800 từ) nên ≥ 3
+    const bodyImgs = new Set([...body.matchAll(/!\[[^\]]*\]\(\s*media:(@?[\w-]+)/g)].map(m => m[1]).filter(id => id !== p.cover));
+    for (const m of body.matchAll(/\{\{\s*diagram:\s*([a-z][a-z0-9-]*)/g)) { bodyImgs.add('diagram:' + m[1]); usedDiags.add(m[1]); }
+    // Bật ảnh riêng (config images.enforce) → bài mới phải có ảnh chụp riêng + đủ 2 hình riêng; ảnh phải render xong trước giờ đăng
+    const scoped = IMG.enforce && !draft && (!p.factChecked || String(p.factChecked) >= IMG.enforceFrom);
+    if (scoped) {
+      if (!spec.shots.length) E('images', 'bài mới cần ≥ 1 ảnh chụp riêng: thêm shots: [{route: \'#/…\'}] vào front matter (gợi ý: node scripts/blog-images.mjs suggest <file>)');
+      if (usedShots.size + usedDiags.size < 2) E('images', `bài mới cần ≥ 2 hình riêng trong thân bài (![](media:@s1 "…") hoặc {{diagram: d1 | …}}), đang có ${usedShots.size + usedDiags.size}`);
+      for (const id of shotIds) if (!usedShots.has(id)) E('images', `shots ${id} khai báo nhưng không dùng trong bài (media:@${id})`);
+      for (const id of diagIds) if (!usedDiags.has(id)) E('images', `diagrams ${id} khai báo nhưng không dùng ({{diagram: ${id} | …}})`);
+      const t = publishTime(p);
+      if (!Number.isNaN(t) && t - now < IMG.leadHours * 3600e3) { const miss = wantedItems(p, { covers: IMG.covers !== false }).filter(it => !media.items?.[it.id] || media.items[it.id].in !== it.in).map(it => it.id.split('--')[1]); if (miss.length) E('images', `đăng lúc ${p.publishAt} nhưng ảnh riêng chưa render: ${miss.join(', ')} – chạy workflow "Blog images" (mode changed)`); }
+    }
     if (bodyImgs.size < 2) E('image', `cần ≥ 2 ảnh trong thân bài (khác ảnh bìa, khác nhau), đang có ${bodyImgs.size}`);
     else if (wc >= 1800 && bodyImgs.size < 3) W('image', `bài dài ${wc} từ nên có ≥ 3 ảnh thân bài (đang ${bodyImgs.size})`);
     if (!p.cover) E('cover', 'thiếu cover'); else if (!media.ids.has(p.cover)) E('cover', `cover "${p.cover}" không có trong ${media.fallback ? 'shots.json' : 'media.json'}`);
@@ -85,6 +115,8 @@ export function checkPosts(posts, { all = posts, root = ROOT } = {}) {
     let yt = 0; const ctas = [];
     for (const m of body.matchAll(/\{\{([\s\S]*?)\}\}/g)) {
       const s = m[1].trim(), y = s.match(/^youtube:\s*([^|]*?)\s*(\|[\s\S]*)?$/), c = s.match(/^cta:\s*(\/\S*)\s*\|\s*(\S[\s\S]*)$/);
+      const dg = s.match(/^diagram:\s*([a-z][a-z0-9-]*)\s*(\|[\s\S]*)?$/);
+      if (dg) { if (!diagIds.has(dg[1])) E('diagram', `{{diagram: ${dg[1]}}} chưa khai báo trong diagrams: (id ${[...diagIds].join(', ') || 'chưa có'})`); continue; }
       if (y) { yt++; if (y[1] && !YT.test(y[1])) E('youtube', `ID YouTube "${y[1]}" không hợp lệ (trống hoặc 11 ký tự)`); }
       else if (c) ctas.push(c[1]);
       else if (/^cta:/.test(s)) E('cta', `sai cú pháp "{{${s}}}" – cần {{cta: /đường-dẫn | chữ nút}}`);
@@ -121,8 +153,8 @@ export function checkPosts(posts, { all = posts, root = ROOT } = {}) {
   }
   // Chú thích ảnh phải viết theo ngữ cảnh từng bài – trùng nguyên văn giữa các bài là lỗi (nội dung rập khuôn)
   const capSeen = new Map();
-  for (const p of all.filter(x => x.status !== 'draft')) for (const m of (p.body || '').matchAll(/!\[[^\]]*\]\(\s*media:[\w-]+\s+"([^"]+)"\s*\)/g)) { const k = `${p.lang}\u0000${m[1].trim().toLowerCase()}`; (capSeen.get(k) || capSeen.set(k, new Set()).get(k)).add(rel(p.file)); }
-  for (const p of posts) for (const m of (p.body || '').matchAll(/!\[[^\]]*\]\(\s*media:[\w-]+\s+"([^"]+)"\s*\)/g)) { const f = capSeen.get(`${p.lang}\u0000${m[1].trim().toLowerCase()}`); if (f && f.size > 1) errors.push(`${rel(p.file)}: [caption] chú thích "${m[1].slice(0, 60)}" trùng ${f.size - 1} bài khác – viết theo ngữ cảnh bài`); }
+  for (const p of all.filter(x => x.status !== 'draft')) for (const m of (p.body || '').matchAll(/!\[[^\]]*\]\(\s*media:@?[\w-]+\s+"([^"]+)"\s*\)/g)) { const k = `${p.lang}\u0000${m[1].trim().toLowerCase()}`; (capSeen.get(k) || capSeen.set(k, new Set()).get(k)).add(rel(p.file)); }
+  for (const p of posts) for (const m of (p.body || '').matchAll(/!\[[^\]]*\]\(\s*media:@?[\w-]+\s+"([^"]+)"\s*\)/g)) { const f = capSeen.get(`${p.lang}\u0000${m[1].trim().toLowerCase()}`); if (f && f.size > 1) errors.push(`${rel(p.file)}: [caption] chú thích "${m[1].slice(0, 60)}" trùng ${f.size - 1} bài khác – viết theo ngữ cảnh bài`); }
   // Liên kết đến: bài không được bài nào trỏ tới là “bài mồ côi” (Google khó thấy, ít được chuyền sức mạnh)
   const live = all.filter(p => p.status !== 'draft'), inbound = new Map();
   for (const p of live) for (const m of new Set([...p.body.matchAll(/\]\(\/(?:[a-z]{2}(?:-[a-z]+)?\/)?blog\/([^/#?)]+)\//g)].map(m => `${p.lang}/${m[1]}`))) inbound.set(m, (inbound.get(m) || 0) + 1);

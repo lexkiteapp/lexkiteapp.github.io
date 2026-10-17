@@ -6,6 +6,27 @@
 - File `content/blog/vi/<slug>.md`, front matter đúng §5. `publishAt:` để TRỐNG (bộ xếp lịch điền). `status: ready`, `factChecked: 2026-10-15`, `author: Lexkite`, `lang: vi`, `translationKey` = slug, `cover` = ảnh đầu tiên của brief, `coverAlt` mô tả đúng màn hình.
 - Tiêu đề 30–65 ký tự, chứa từ khóa chính (có thể viết hoa chữ đầu/tên riêng); mô tả 110–160 ký tự, có từ khóa, hấp dẫn để bấm.
 - Thân bài ≥ 1.200 từ (đếm theo khoảng trắng; nhắm 1.400–1.800), không có H1, ≥ 4 H2, không nhảy cấp tiêu đề; từ khóa chính xuất hiện trong 120 từ đầu và trong ≥ 1 H2.
+- **Ảnh RIÊNG của bài (bắt buộc với bài mới khi `images.enforce` bật – docs/BLOG-RUNBOOK.md § Ảnh riêng từng bài):**
+  - Ảnh bìa riêng tự sinh từ tiêu đề – không cần làm gì (tùy chọn `coverArt: {mood: think, icon: blocks}`; mood: happy|win|cheer|think|sad|sleep, icon: book|target|bulb|blocks|mic|chat|ear|pen). Vẫn giữ `cover`/`coverAlt` (ảnh dự phòng khi chưa render).
+  - `shots:` = các màn hình app ĐÚNG nội dung bài bàn tới (từ đang giảng → `#/dict/<từ>`, bài ngữ pháp → `#/grammar/<id bài học>`, động từ bất quy tắc → `#/verb/<động từ>`, đề/luyện tập cụ thể…). CI chụp giao diện đúng ngôn ngữ bài (`hl=<lang>`, bản sandbox). Route phải có thật trong app (blog-check kiểm). Gợi ý nhanh: `node scripts/blog-images.mjs suggest content/blog/<lang>/<slug>.md` – mở thử route trước khi dùng.
+  - Trong bài: `![](media:@s1 "chú thích theo ngữ cảnh bài")` – **để trống alt** (alt tự sinh từ chữ thật trên ảnh chụp). Nếu tự viết alt: không được có số, cụm trong ngoặc kép, từ tiếng Anh (ở bài ar/hi/th/zh/ja/ko/ru) mà ảnh không có – `[alt-truth]` chặn.
+  - `diagrams:` cho timeline thì / cấu trúc câu / bảng so sánh → `{{diagram: d1 | chú thích}}` (SVG/HTML nhúng, chữ chọn được, tốt cho SEO). Mỗi shot/diagram khai báo phải được dùng; ≥ 2 hình riêng/bài, ≥ 1 ảnh chụp.
+  - Cú pháp (YAML rút gọn, được xuống dòng trong `[ … ]`); mẫu thật: `content/blog/en/present-perfect-vs-past-simple.md`:
+    ```
+    coverArt: {mood: think, icon: blocks}
+    shots: [
+      {id: s1, route: '#/grammar/present-perfect', crop: main},
+      {id: s2, route: '#/grammar/past-simple', crop: main},
+      {id: s3, route: '#/verb/write', crop: main}
+    ]
+    diagrams: [
+      {id: d1, type: timeline, title: 'Closed and open time frames', span: [-4, 1], now: 'now', events: [{from: -4, to: -2.5, label: 'last summer → past simple'}, {at: -1.6, label: 'in 2019 → past simple'}, {from: -1, to: 0, label: 'this year so far → present perfect'}]},
+      {id: d2, type: boxes, title: 'Present perfect form', parts: [{t: 'I', r: 'subject'}, {t: 'have', r: 'have / has'}, {t: 'written', r: 'past participle (V3)'}]},
+      {id: d3, type: compare, title: 'say vs tell', cols: ['say', 'tell'], rows: [['say something', 'tell someone something']]}
+    ]
+    ```
+    Thân bài: `{{diagram: d1 | Cửa sổ đóng kết thúc trước hiện tại…}}`, `![](media:@s1 "Bài học present perfect trong app – công thức have/has + V3")`. Khóa shot: `id, route, lang (auto), device (desktop|mobile), crop (viewport|main|full|{selector: '.card'}|{x,y,w,h}), wait (ms), scroll (CSS selector)`. Không có khóa `alt` trong shots.
+  - Ảnh chụp chung cũ (`media:<id>` trong shots.json) vẫn dùng được làm hình phụ – khi đó áp dụng luật dưới.
 - 2–3 ảnh `![alt cụ thể ≥ 10 ký tự](media:<id> "chú thích")` lấy id trong shots.json; alt/chú thích phải đúng với mô tả `desc` của ảnh, không bịa chi tiết không có trên màn hình.
   - ⚠️ **Lỗi đã gặp (B1, 16/10 – 8/11 ảnh sai)**: gán chú thích theo chủ đề bài thay vì theo ảnh. Vd. ảnh `practice-test` (câu hỏi nghĩa "run out of") ghi thành "đề thi TOEIC có đồng hồ"/"bài tập thì động từ"; `review` (phiên ôn flashcard "pollution") ghi thành "biểu đồ đường cong quên"; `grammar` (khóa ngữ pháp IELTS, 12 thì) ghi thành "mẹo nhận diện từ loại TOEIC".
   - **Tự kiểm trước khi commit**: với mỗi `media:<id>`, mở `desc` trong shots.json, đặt cạnh alt – mọi danh từ trong alt (tên màn hình, từ ví dụ, con số) phải có trong `desc`. Được diễn đạt lại sang ngôn ngữ bài, được nói ảnh giúp gì cho chủ đề ở *chú thích*, nhưng không mô tả nội dung không có trên màn hình.

@@ -2,3 +2,9 @@ name = "lexkite-media"
 main = "index.js"
 compatibility_date = "2026-09-01"
 workers_dev = true
+
+# Ảnh riêng từng bài blog (/blog/p/…) – bỏ dấu # khi đã tạo bucket (docs/BLOG-RUNBOOK.md § Ảnh riêng từng bài):
+#   wrangler r2 bucket create lexkite-blog-media   rồi   wrangler deploy (thư mục workers/media)
+# [[r2_buckets]]
+# binding = "BLOG_MEDIA"
+# bucket_name = "lexkite-blog-media"

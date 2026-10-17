@@ -1,6 +1,7 @@
 // Đọc bài blog: content/blog/<lang>/<slug>.md = front matter (YAML tối giản: key: value, [a, b]) + Markdown.
 // Dùng chung cho build-blog, blog-check, blog-schedule, blog-due – không phụ thuộc gói ngoài.
 import fs from 'node:fs'; import path from 'node:path';
+import { parseFlow, bracketDepth } from './blog-images.mjs';
 export const ROOT = 'content/blog';
 export const CATEGORIES = { 'tu-vung': 'Từ vựng', ielts: 'IELTS', toeic: 'TOEIC', toefl: 'TOEFL', 'phuong-phap': 'Phương pháp học', 'ngu-phap': 'Ngữ pháp & cách dùng', 'phat-am': 'Phát âm', 'ky-nang': 'Kỹ năng tiếng Anh' };
 export const config = () => JSON.parse(fs.readFileSync(path.join(ROOT, 'config.json'), 'utf8'));
@@ -17,11 +18,19 @@ export function parse(src, file = '') {
   src = src.replace(/^﻿/, '').normalize('NFC');
   const m = src.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
   if (!m) throw new Error(`${file}: thiếu front matter (--- … ---)`);
-  const data = {};
-  for (const line of m[1].split(/\r?\n/)) {
+  const data = {}, ls = m[1].split(/\r?\n/);
+  for (let i = 0; i < ls.length; i++) {
+    const line = ls[i];
     if (!line.trim() || line.trim().startsWith('#')) continue;
     const kv = line.match(/^([A-Za-z][\w-]*):\s?(.*)$/);
     if (!kv) throw new Error(`${file}: dòng front matter không hợp lệ: ${line}`);
+    let v = kv[2].trim();
+    // Giá trị flow có object ({…} hoặc [{…}]) – đặc tả ảnh shots/diagrams/coverArt; được viết nhiều dòng tới khi đóng ngoặc
+    if (/^(\{|\[\s*(\{|$))/.test(v)) {
+      while (bracketDepth(v) > 0 && i + 1 < ls.length) v += '\n' + ls[++i];
+      try { data[kv[1]] = parseFlow(v); } catch (e) { throw new Error(`${file}: ${kv[1]}: ${e.message}`); }
+      continue;
+    }
     data[kv[1]] = scalar(kv[2]);
   }
   return { data, body: src.slice(m[0].length), fmLines: m[1] };
@@ -77,10 +86,18 @@ export function loadPostsAt(root = ROOT, { lang } = {}) {
 const readJSON = f => { try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch { return null; } };
 // Thứ tự slug trong briefs.json (dùng cho xếp lịch + kiểm liên kết /blog/<slug>/)
 export const briefSlugs = (root = ROOT) => (readJSON(path.join(root, 'briefs.json'))?.briefs || []).map(b => b.slug);
+// Sổ ảnh: media.json (ảnh chụp dùng chung) + media/*.json (ảnh riêng từng bài, chia theo ngôn ngữ do CI blog-images ghi).
+// Tên file shard tùy ý (<lang>.json, sau này <lang>-<xx>.json khi quá lớn) – mọi file trong media/ đều được gộp.
+export function loadMedia(root = ROOT) {
+  const items = {}, add = o => { if (o) for (const [k, v] of Object.entries(o.media || o.images || o.items || o)) if (!k.startsWith('_') && v && typeof v === 'object') items[k] = v; };
+  const base = readJSON(path.join(root, 'media.json')); add(base);
+  const dir = path.join(root, 'media'); if (fs.existsSync(dir)) for (const f of fs.readdirSync(dir).filter(f => f.endsWith('.json')).sort()) add(readJSON(path.join(dir, f)));
+  return { items, hasBase: !!base };
+}
 // Tập id ảnh hợp lệ: media.json (sổ ảnh đã xử lý) – chưa có thì dùng shots.json (fallback = true)
 export function mediaIds(root = ROOT) {
-  const m = readJSON(path.join(root, 'media.json'));
-  if (m) { const o = m.media || m.images || m.items || m; return { ids: new Set(Object.keys(o).filter(k => !k.startsWith('_') && typeof o[k] === 'object')), fallback: false }; }
+  const { items, hasBase } = loadMedia(root);
+  if (hasBase) return { ids: new Set(Object.keys(items)), fallback: false, items };
   return { ids: new Set(Object.keys(readJSON(path.join(root, 'shots.json'))?.shots || {})), fallback: true };
 }
 // URL tuyệt đối của bài: /<lang>/blog/<slug>/ (mọi ngôn ngữ, kể cả vi; /blog/ chuyển 301 sang /vi/blog/)

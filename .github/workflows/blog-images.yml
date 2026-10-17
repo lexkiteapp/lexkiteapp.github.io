@@ -1,0 +1,117 @@
+# Ảnh RIÊNG từng bài blog (docs/BLOG-RUNBOOK.md § Ảnh riêng từng bài) – mọi việc nặng chạy ở đây, không chạy trên máy anh chủ.
+# Ảnh bìa: mẫu SVG thương hiệu (Kit từ web/js/kit.js) + tiêu đề bản địa → resvg (phông Noto OFL cài trong CI) → AVIF/WebP 480/960/1440 + og JPEG.
+# Ảnh chụp: front matter `shots:` → Playwright mở app thật ?sandbox=1&demo=1&hl=<ngôn ngữ bài> → cắt → AVIF/WebP + bản ghi chữ trên màn hình (alt tự sinh).
+# Tên file = mã băm nội dung (khử trùng, cache vĩnh viễn) → R2 lexkite-blog-media (secret R2_*) hoặc dự phòng repo lexkite-media (LEXKITE_MEDIA_TOKEN).
+# Đẩy ảnh XONG mới commit sổ content/blog/media/<lang>.json ([CF-Pages-Skip]; lần build sau tự dùng ảnh mới).
+# Chế độ: changed (mặc định khi push bài: bài vừa sửa + bài đăng trong 7 ngày) · backfill (lô N bài, tự gọi lô kế tiếp tới khi hết, chạy lại an toàn)
+#         · pilot (1 bài/ngôn ngữ + bài có shots: → chỉ xuất bảng soi artifact, KHÔNG đẩy, KHÔNG commit – soi trước khi chạy lô).
+name: Blog images
+on:
+  push:
+    branches: [main]
+    paths: ['content/blog/*/*.md']
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'changed | backfill | pilot'
+        type: choice
+        options: [changed, backfill, pilot]
+        default: changed
+      limit:
+        description: 'Số bài mỗi lô'
+        default: '40'
+      lang:
+        description: 'Chỉ 1 ngôn ngữ (trống = tất cả)'
+        default: ''
+      posts:
+        description: 'Chỉ các bài (lang/slug,lang/slug) – trống = tự chọn'
+        default: ''
+      chain:
+        description: 'backfill: tự chạy lô kế tiếp'
+        type: boolean
+        default: true
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: blog-images
+  cancel-in-progress: false
+jobs:
+  images:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      MODE: ${{ inputs.mode || 'changed' }}
+      LEXKITE_TOOLS: ${{ github.workspace }}/../tools
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 50 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Lập kế hoạch (mục thiếu/đổi theo mã băm đầu vào)
+        id: plan
+        env:
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          GH_MEDIA_TOKEN: ${{ secrets.LEXKITE_MEDIA_TOKEN }}
+        run: node scripts/blog-images.mjs plan --mode "$MODE" --since "${{ github.event.before }}" --limit "${{ inputs.limit || '40' }}" --lang "${{ inputs.lang }}" --posts "${{ inputs.posts }}"
+      - name: Cài công cụ dựng ảnh + phông Noto (OFL) – chỉ trên CI
+        if: steps.plan.outputs.count != '0'
+        run: |
+          mkdir -p "$LEXKITE_TOOLS" && cd "$LEXKITE_TOOLS" && npm init -y >/dev/null
+          npm i --no-audit --no-fund @resvg/resvg-js@2.6.2 sharp@0.33.5 playwright-core@1.50.1 >/dev/null
+          sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-core fonts-noto-cjk fonts-noto-color-emoji >/dev/null
+          PLAYWRIGHT_BROWSERS_PATH="$LEXKITE_TOOLS/pw" node node_modules/playwright-core/cli.js install --with-deps chromium >/dev/null
+      - name: Dựng ảnh
+        id: render
+        if: steps.plan.outputs.count != '0'
+        run: node scripts/blog-images.mjs render
+      - name: Bảng soi (pilot)
+        if: steps.plan.outputs.count != '0' && env.MODE == 'pilot'
+        run: node scripts/blog-images.mjs sheet
+      - uses: actions/upload-artifact@v4
+        if: steps.plan.outputs.count != '0' && env.MODE == 'pilot'
+        with:
+          name: blog-images-pilot
+          retention-days: 14
+          path: |
+            .media/pilot-sheet.jpg
+            .media/png/
+            .media/updates.json
+      - name: Đẩy ảnh lên CDN rồi ghi sổ
+        id: push
+        if: steps.plan.outputs.count != '0' && env.MODE != 'pilot' && steps.render.outputs.rendered != '0'
+        env:
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          GH_MEDIA_TOKEN: ${{ secrets.LEXKITE_MEDIA_TOKEN }}
+        run: |
+          set +e; node scripts/blog-images.mjs push; c=$?; set -e
+          if [ $c -eq 3 ]; then echo "pushed=0" >> "$GITHUB_OUTPUT"; exit 0; fi
+          [ $c -eq 0 ] || exit $c
+          echo "pushed=1" >> "$GITHUB_OUTPUT"
+      - name: Kiểm sổ ảnh (schema + trần dung lượng)
+        if: steps.push.outputs.pushed == '1'
+        run: node scripts/test/blog-images.mjs --schema-only
+      - name: Commit sổ ảnh
+        if: steps.push.outputs.pushed == '1'
+        run: |
+          git add content/blog/media
+          git diff --cached --quiet && { echo "· sổ không đổi"; exit 0; }
+          git config user.name "lexkite-bot"; git config user.email "lexkiteapp@users.noreply.github.com"
+          git commit -qm "Ảnh riêng blog ($MODE): ${{ steps.render.outputs.rendered }} ảnh [CF-Pages-Skip]"
+          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
+          exit 1
+      - name: Lô kế tiếp (backfill)
+        if: steps.push.outputs.pushed == '1' && env.MODE == 'backfill' && inputs.chain && steps.plan.outputs.remaining != '0'
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          echo "· còn ${{ steps.plan.outputs.remaining }} bài – gọi lô tiếp"
+          gh workflow run blog-images.yml --ref main -f mode=backfill -f limit="${{ inputs.limit }}" -f lang="${{ inputs.lang }}" -f chain=true
+      - name: Build lại site khi bài ĐÃ đăng có ảnh mới (hoặc backfill xong)
+        if: steps.push.outputs.pushed == '1' && (steps.plan.outputs.live != '0' && env.MODE != 'backfill' || env.MODE == 'backfill' && steps.plan.outputs.remaining == '0')
+        env: { CF_PAGES_DEPLOY_HOOK: '${{ secrets.CF_PAGES_DEPLOY_HOOK }}' }
+        run: |
+          if [ -z "$CF_PAGES_DEPLOY_HOOK" ]; then echo "::warning::Thiếu CF_PAGES_DEPLOY_HOOK – ảnh mới hiện ở lần build kế tiếp"; exit 0; fi
+          curl -fsS -X POST "$CF_PAGES_DEPLOY_HOOK" > /dev/null && echo "✓ đã gọi deploy hook"
