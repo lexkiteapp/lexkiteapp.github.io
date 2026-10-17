@@ -23,7 +23,7 @@ async function settle(page, where) {
   ok(!st.vt, `${where}: còn hiệu ứng View Transition treo`);
   ok(st.pts === 0 || st.hits >= st.pts - 1, `${where}: ${st.pts - st.hits}/${st.pts} điểm trong vùng nội dung không trúng phần tử trang`);
   // Dừng hiệu ứng chủ ý (khung chờ lấp lánh, Kit chớp mắt…) để chỉ còn bắt được vẽ lỗi thật
-  await page.evaluate(() => { if (!document.getElementById('navStill')) { const st = document.createElement('style'); st.id = 'navStill'; st.textContent = '*,*::before,*::after{animation-play-state:paused!important;caret-color:transparent!important}'; document.head.appendChild(st); } document.getAnimations().forEach(a => { try { a.pause(); } catch (e) {} }); });
+  await page.evaluate(() => { if (!document.getElementById('navStill')) { const st = document.createElement('style'); st.id = 'navStill'; st.textContent = '*,*::before,*::after{animation-play-state:paused!important;caret-color:transparent!important}#toast,.lkr-toast{visibility:hidden!important}'; document.head.appendChild(st); } document.getAnimations().forEach(a => { try { a.pause(); } catch (e) {} }); });
   const a = await page.screenshot({ type: 'png' }); await page.waitForTimeout(400); const b = await page.screenshot({ type: 'png' });
   ok(a.equals(b), `${where}: màn hình còn nhảy/chưa ổn định sau 1,1 s`);
 }
