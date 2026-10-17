@@ -21,6 +21,7 @@ Quy ước cột:
 | 6 | Crunchbase | ✍️ Nháp – chờ anh | 17/10/2026 | crunchbase.com (hồ sơ công ty Lexkite đang sửa) | Còn: trụ sở Sheridan, Wyoming + logo + Save All Edits. |
 | 7 | Product Hunt | ✍️ Tài khoản mới – chờ anh | 17/10/2026 | producthunt.com/my/welcome | Anh điền tên + tích ≥16 tuổi; tài khoản đủ 1 tuần mới launch (sớm nhất ~24/10). |
 | 8 | Medium | ✅ **Đã đăng** (import từ dev.to, canonical về dev.to) | 17/10/2026 | https://medium.com/@vintagezulilyjewelry/building-a-15-language-fsrs-vocabulary-app-in-vanilla-js-and-exporting-real-anki-apkg-fe8adf6601d9 | Tên hiển thị Lexkite + logo; 5 chủ đề. |
+| 9 | Peerlist | ✅ Hồ sơ dự án 100% | 17/10/2026 | https://peerlist.io/lexkite | Logo, ảnh bìa, mô tả, danh mục Productivity/Chrome Extension/Mobile App. Hồ sơ cá nhân cần tên thật nếu muốn ra mắt Launchpad (thứ Hai). |
 
 Tiếp theo (miễn phí, chưa làm – chỉ trang ỔN ĐỊNH, mình làm chủ hồ sơ/bài): Peerlist, Indie Hackers (trang Product), Hashnode (blog riêng, canonical về dev.to), Medium (import, canonical), LinkedIn Company Page, Viblo (bài thuần kỹ thuật), Microsoft Edge Add-ons, Firefox Add-ons, Educational App Store, TinyLaunch, HackerNoon, GitHub (repo/README giới thiệu), Wellfound (hồ sơ công ty).
 
