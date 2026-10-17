@@ -38,13 +38,13 @@ const page = (lang, name, body, translated, draft) => {
   ${alt}
   <link rel="alternate" hreflang="x-default" href="${SITE}/${name}">
   <meta name="theme-color" content="#0F3D3E">
-  <link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml">
   <link rel="stylesheet" href="/css/style.css">
   <style>${FOOT_CSS}.doc{max-width:760px;margin:0 auto;padding:2.5rem 1.25rem 4rem}.doc h2{margin-top:2rem}.doc li{margin:.35rem 0}.doc table{width:100%;border-collapse:collapse;font-size:.92rem}.doc td,.doc th{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;vertical-align:top}.lg{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.5rem}.lg select{font:inherit;padding:.35rem .5rem;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text)}.tnote{background:var(--line);border-radius:10px;padding:.6rem .8rem;font-size:.85rem}</style>
 </head>
 <body>
   <main class="doc">
-    <div class="lg"><a class="brand" href="/" style="padding:0"><img class="logo" src="/icons/icon.svg" alt=""><span class="wordmark">lex<b>kite</b></span></a>
+    <div class="lg"><a class="brand" href="/" style="padding:0"><img class="logo" src="/icons/icon.svg?v=2" alt=""><span class="wordmark">lex<b>kite</b></span></a>
       <select aria-label="Language" onchange="location.href='/'+this.value+'/${name}'">${opts}</select></div>
 ${translated ? `    <p class="tnote">${translated}</p>\n` : ''}${body.split('\n').filter(Boolean).map(l => '    ' + l).join('\n')}
   </main>
