@@ -58,3 +58,6 @@ Quy tắc: khung đầu tư thế trung tính; chờ ≥ 6 s sau tải ảnh, so
 |---|---|---|
 | Ảnh 2K | | |
 | Clip 5 s 1080p | | |
+
+## Luật thử trước (17/10)
+Mọi hạng mục mới trong bảng phân bổ (ngồi, cầm điện thoại, đưa đồ, bước vào khung, cảnh đôi, phòng mới…) bắt đầu bằng **1 clip thử (25 credit)** → `chroma-batch.yml` → dựng video thật (`video-sample.yml`) với đúng phòng → chấm ≥ 90 rồi mới chạy lô. Hỏng thì sửa prompt/cách ghép và thử lại 1 clip – không bao giờ tạo lô khi chưa có video thử đạt.

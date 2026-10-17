@@ -60,8 +60,8 @@
     const g = state.game, days = activeDays(), d = new Date(); d.setDate(d.getDate() - 1);
     const y = todayKey(d); d.setDate(d.getDate() - 1); const y2 = todayKey(d);
     if ((g.freezes || 0) > 0 && !days.has(y) && days.has(y2)) {
-      state.game = await Game.mutate(gs => { gs.frozen = { ...(gs.frozen || {}), [y]: 1 }; gs.freezes = (gs.freezes || 0) - 1; const ks = Object.keys(gs.frozen).sort(); while (ks.length > 30) delete gs.frozen[ks.shift()]; });
-      setTimeout(() => toast(`🧊 ${t('Hôm qua bạn lỡ học – đã tự dùng 1 lượt đóng băng, chuỗi 🔥{n} ngày vẫn được giữ!', { n: streak() })}`, 4500), 1200);
+      state.game = await Game.mutate(gs => { gs.frozen = { ...(gs.frozen || {}), [y]: 1 }; gs.freezes = (gs.freezes || 0) - 1; gs.freezeSaved = todayKey(); const ks = Object.keys(gs.frozen).sort(); while (ks.length > 30) delete gs.frozen[ks.shift()]; });
+      if (!window.StreakUI) setTimeout(() => toast(`🧊 ${t('Hôm qua bạn lỡ học – đã tự dùng 1 lượt đóng băng, chuỗi 🔥{n} ngày vẫn được giữ!', { n: streak() })}`, 4500), 1200); // có streak-ui → màn "đã cứu chuỗi" thay toast
     }
   }
   // 🛟 Cứu chuỗi: lỡ đúng 1 ngày và đã hết lượt đóng băng → Kit hỏi một lần trong ngày.
@@ -101,7 +101,10 @@
   function updateChrome() {
     if (App.updateExamChip) App.updateExamChip();
     const st = streak();
-    $('#streakPill').textContent = `🔥 ${st}${state.game.freezes ? ' 🧊' + state.game.freezes : ''}`;
+    const fi = (window.Core && Core.Stats && Core.Stats.freezeInfo) ? Core.Stats.freezeInfo(state.game) : { left: +state.game.freezes || 0 };
+    const freezeCount = fi.left;
+    $('#streakPill').textContent = `🔥 ${st}${freezeCount ? ' 🧊' + freezeCount : ''}`;
+    $('#streakPill').setAttribute('aria-label', freezeCount ? t('Chuỗi {n} ngày, {f} lượt đóng băng', { n: st, f: freezeCount }) : t('Chuỗi {n} ngày', { n: st }));
     $('#xpPill').textContent = `⭐ ${state.game.xp.toLocaleString(I18N.lang())}`;
     const { total } = Cards.dueCount(state.cards, state.settings, state.stats);
     $$('[data-due]').forEach(b => { b.hidden = !total; b.textContent = total > 99 ? '99+' : total; });
@@ -223,10 +226,12 @@
     speak: ['js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/speak/samples.js', 'js/speak/more2.js', 'js/speak/more3.js', 'js/speak/more.js', 'js/speaking.js'], // Phòng Speaking: chỉ tải khi mở
     toefl: ['js/choice-kit.js', 'js/qengine.js', 'js/toefl/data1.js', 'js/toefl/data2.js', 'js/toefl/data3.js', 'js/toefl/data4.js', 'js/toefl.js'],
     toeic: ['js/choice-kit.js', 'js/qengine.js', 'js/toeic/reading1.js', 'js/toeic/reading2.js', 'js/toeic/listening1.js', 'js/toeic/listening2.js', 'js/toeic/reading3.js', 'js/toeic/listening3.js', 'js/toeic/reading4.js', 'js/toeic/listening4.js', 'js/toeic/reading5.js', 'js/toeic/listening5.js', 'js/toeic/reading6.js', 'js/toeic/listening6.js', 'js/toeic/reading7.js', 'js/toeic/listening7.js', 'js/toeic/sw1.js', 'js/toeic.js'],
+    league: ['js/league.js'],
+    streak: ['js/streak-ui.js'],
   };
   const ROUTE_BUNDLE = { paraphrase: 'paraphrase', courses: 'courses', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: 'grammar', placement: ['words', 'grammar'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
     toefl: ['listening', 'toefl'], 'toefl-p': ['listening', 'toefl'],
-    toeic: ['tsl', 'listening', 'toeic'], 'toeic-r': ['toeic'], 'toeic-sw': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: ['words', 'tsl'], topic: ['words', 'tsl'], practice: ['words', 'tsl'], dict: ['words', 'tsl'], write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'], home: 'words', vocab: 'words', path: 'words', review: 'words', deck: 'words', stats: 'words'};
+    toeic: ['tsl', 'listening', 'toeic'], 'toeic-r': ['toeic'], 'toeic-sw': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: ['words', 'tsl'], topic: ['words', 'tsl'], practice: ['words', 'tsl'], dict: ['words', 'tsl'], write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'], home: ['words', 'streak'], vocab: 'words', path: 'words', review: 'words', deck: 'words', stats: ['words', 'streak'], league: 'league'};
   const bundleP = {};
   // Phần nặng (đề thi, từ vựng, ngữ pháp…) tải từ CDN jsDelivr (miễn phí, không giới hạn băng thông, gắn đúng phiên bản commit)
   // → máy chủ chính chỉ phục vụ phần lõi, chịu được lượng người dùng lớn gấp nhiều lần. CDN lỗi → tự lấy từ máy chủ chính.
@@ -523,6 +528,7 @@
       </div>
       ${ringsHtml()}
       <section class="card today-card" id="todayPlan" aria-busy="true"><div class="skel skel-l"></div><div class="skel skel-l"></div><div class="skel skel-l"></div></section>
+      <div id="leagueHomeCard"></div>
       ${(() => { const a = App.lastActivity(); return a ? `<a class="card hover hub-card resume" href="${esc(a.href)}"><span class="hub-ic" aria-hidden="true">${a.em}</span><span class="hub-tx"><small>${t('Tiếp tục bài đang học')}</small><b>${esc(a.title)}</b></span><span class="btn sm">${t('Mở lại')} →</span></a>` : ''; })()}
       <a class="quest-line small" href="#/stats?s=quests">🏅 ${t('Nhiệm vụ hôm nay: {a}/{b}', { a: doneQ.length, b: quests.length })} · ${quests.filter(q => !doneQ.includes(q.id)).map(q => q.icon).join(' ')} <span aria-hidden="true">›</span></a>
       <div class="card wotd wotd-sm">
@@ -537,6 +543,10 @@
       ${window.Ads ? Ads.slot('home') : ''}
     `;
     bindCommon();
+    const drawLeague = () => { const el = $('#leagueHomeCard'); if (el && window.League) League.renderHomeCard(el); };
+    if (window.League) drawLeague();
+    else if (App.need) App.need('league').then(drawLeague).catch(() => {});
+    if (window.StreakUI) StreakUI.checkSavedNotice(state.game);
     if (App.todayPlan) App.todayPlan().then(tasks => {
       const el = $('#todayPlan'); if (!el) return;
       el.removeAttribute('aria-busy');
@@ -1137,10 +1147,15 @@
     const start = new Date(end); start.setDate(end.getDate() - 7 * 26 + 1 - ((end.getDay() + 6) % 7 === 6 ? 0 : 0));
     start.setDate(start.getDate() - ((start.getDay() + 6) % 7));
     const cells = [];
+    const usedFreezes = Object.keys(state.game.frozen || {});
     const activity = d => (state.stats.days[d] || 0) + Math.round(((state.game.days[d] || {}).xp || 0) / 10);
     for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
       const key = todayKey(d), v = activity(key);
-      cells.push(`<i class="${v >= 60 ? 'l4' : v >= 30 ? 'l3' : v >= 10 ? 'l2' : v > 0 ? 'l1' : ''}" title="${key}: ${t('{n} lượt ôn, {xp} XP', { n: state.stats.days[key] || 0, xp: (state.game.days[key] || {}).xp || 0 })}"></i>`);
+      if (usedFreezes.includes(key)) {
+        cells.push(`<i class="freeze" title="${key}: 🧊 ${t('Ngày đóng băng (chuỗi được bảo toàn)')}"></i>`);
+      } else {
+        cells.push(`<i class="${v >= 60 ? 'l4' : v >= 30 ? 'l3' : v >= 10 ? 'l2' : v > 0 ? 'l1' : ''}" title="${key}: ${t('{n} lượt ôn, {xp} XP', { n: state.stats.days[key] || 0, xp: (state.game.days[key] || {}).xp || 0 })}"></i>`);
+      }
     }
     // Ôn tập 14 ngày
     const past = Array.from({ length: 14 }, (_, i) => { const d = new Date(Date.now() - (13 - i) * DAY); return { d, n: state.stats.days[todayKey(d)] || 0 }; });
@@ -1169,7 +1184,7 @@
         <div class="grow"><div class="muted">${t('Cấp độ hiện tại')}</div><h2 style="margin:0;color:#fff">${t('Cấp {n}', { n: L.level })} · ${esc(L.title)}</h2>
           <div class="progress" style="margin-top:.6rem"><i style="width:${L.into / L.need * 100}%"></i></div>
           <div class="small muted" style="margin-top:.3rem">${t('{a}/{b} XP tới cấp {n}', { a: L.into, b: L.need, n: L.level + 1 })} · ${t('Tổng {xp} XP', { xp: state.game.xp.toLocaleString(I18N.lang()) })}</div></div>
-        <div style="text-align:center"><div class="big-num">🔥${streak()}</div><div class="muted small">${t('ngày liên tiếp')}</div></div>
+        <div style="text-align:center"><div class="big-num">🔥${streak()}${window.StreakUI ? ' ' + StreakUI.badgeHtml(state.game) : ''}</div><div class="muted small">${t('ngày liên tiếp')}</div></div>
       </div>
 
       <div class="grid g4 stats" style="margin-top:1rem">
@@ -1180,7 +1195,7 @@
       </div>
 
       <div class="card" style="margin-top:1rem">
-        <div class="row between"><h3 style="margin:0">${t('Lịch học 6 tháng')}</h3><span class="row tiny muted">${t('Ít')} <i class="heat" style="display:inline-grid;grid-template-rows:12px"><i></i></i><span style="display:inline-flex;gap:3px"><i style="width:12px;height:12px;border-radius:3px" class="l1"></i></span> ${t('Nhiều')}</span></div>
+        <div class="row between"><h3 style="margin:0">${t('Lịch học 6 tháng')}</h3><span class="row tiny muted" style="gap:.5rem"><span>${t('Ít')} <i class="heat" style="display:inline-grid;grid-template-rows:12px"><i></i></i><span style="display:inline-flex;gap:3px"><i style="width:12px;height:12px;border-radius:3px" class="l1"></i></span> ${t('Nhiều')}</span><span style="display:inline-flex;align-items:center;gap:3px"><i class="freeze" style="width:12px;height:12px;border-radius:3px;display:inline-block"></i> 🧊 ${t('Đóng băng')}</span></span></div>
         <div class="heat" style="margin-top:.8rem">${cells.join('')}</div>
       </div>
 
@@ -1224,6 +1239,7 @@
     const gt = setInterval(() => drawGolden($('#goldenCard')), 30000);
     App.cleanup = () => clearInterval(gt);
     if (/[?&]s=quests/.test(location.hash)) { const q = $('#quests'); if (q) q.scrollIntoView({ block: 'center' }); }
+    if (window.StreakUI) StreakUI.checkSavedNotice(state.game);
   };
 
   // Quyền quản trị: máy chủ xác nhận email nằm trong ADMIN_EMAILS (/api/admin ping) – đệm theo phiên, người khác không bao giờ thấy mục quản trị
@@ -1250,7 +1266,7 @@
       <div class="set-wrap">
       <div class="page-head"><div><h1>${t('Cài đặt')}</h1><p class="muted">${t('Tài khoản, nhắc học, mục tiêu và giao diện')}</p></div></div>
       <nav class="set-nav" aria-label="${t('Cài đặt')}">${NAV.map(([id, ic, l]) => `<button type="button" data-jump="${id}"><span aria-hidden="true">${ic}</span> ${l}</button>`).join('')}</nav>
-      <section class="set-sec" id="set-account"><div class="card stack" id="syncBox"></div></section>
+      <section class="set-sec" id="set-account"><div class="card stack" id="syncBox"></div><div id="leagueSetBox" style="margin-top:.75rem"></div></section>
       <section class="set-sec" id="set-admin" hidden><h3 class="set-h">🛡️ ${t('Quản trị hệ thống')}<span class="chip ok" style="margin-left:.5rem;font-size:.7rem">${t('Chỉ quản trị viên')}</span></h3><div class="adm-grid">${adminTiles()}</div></section>
       ${sec('look', '🎨 ' + t('Giao diện'),
         row('🌐 ' + t('Ngôn ngữ giao diện'), App.langPicker())
@@ -1340,6 +1356,29 @@
       await load(); toast(t('Đã xóa dữ liệu')); routes.settings();
     };
     if (window.Sync) Sync.renderBox($('#syncBox')); else $('#syncBox').hidden = true;
+    const drawLeagueSet = () => {
+      const lb = $('#leagueSetBox');
+      if (!lb) return;
+      let on = '0';
+      try { on = localStorage.getItem('lk.league') || '0'; } catch (e) { /* bỏ qua */ }
+      if (on !== '1' || !window.Sync || !Sync.user) { lb.innerHTML = ''; return; }
+      lb.innerHTML = `<div class="card"><div class="row between wrap" style="gap:.6rem;align-items:center">
+        <div><b>🏆 ${t('Giải đấu tuần')}</b><div class="muted small">${t('Bạn đang tham gia bảng xếp hạng 30 người')}</div></div>
+        <button type="button" class="btn sm ghost danger" id="btnLeaveLeague">${t('Rời bảng xếp hạng')}</button>
+      </div></div>`;
+      const btn = $('#btnLeaveLeague');
+      if (btn) btn.onclick = async () => {
+        if (!confirm(t('Rời bảng xếp hạng tuần này? Điểm XP tuần này sẽ bị xóa khỏi giải đấu.'))) return;
+        try {
+          await Sync.league('leave');
+          toast(t('Đã rời bảng xếp hạng tuần'));
+          routes.settings();
+        } catch (e) {
+          toast(t('Không thể rời bảng xếp hạng: {msg}', { msg: e.message || e }));
+        }
+      };
+    };
+    drawLeagueSet();
   };
 
   function makeICS(time) {

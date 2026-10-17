@@ -27,25 +27,11 @@ ok(r95.interval < r85.interval, 'mục tiêu ghi nhớ 95% → khoảng ngắn h
 const fz = Array.from({ length: 30 }, () => SRS.review({ ...s }, 2, s.due).interval); ok(Math.max(...fz) - Math.min(...fz) <= Math.ceil(r85.interval * 0.2) + 2, 'giãn ngẫu nhiên nhỏ (±5%)');
 const d = new Date(SRS.review({ ...s }, 2, s.due, true).due); ok(d.getHours() === 4, 'hạn ôn đặt lúc 4 giờ sáng (qua ngày mới là ôn được)');
 
-// ---------- Đóng băng chuỗi (Streak Freeze) ----------
+// ---------- Đóng băng chuỗi: freezeInfo đọc từ dữ liệu game (nguồn duy nhất) ----------
 {
-  const { Stats, todayKey } = ctx.Core; const ago = n => { const x = new Date(); x.setDate(x.getDate() - n); return x; }; const k = n => todayKey(ago(n));
-  const mk = (studied, freeze) => ({ days: Object.fromEntries(studied.map(n => [k(n), 5])), newToday: { day: '', n: 0 }, ...(freeze ? { freeze } : {}) });
-  let a = mk([2, 3, 4]); Stats.freezeTick(a); ok(a.freeze.left === 0 && a.freeze.used.includes(k(1)), 'lỡ hôm qua, có 1 lượt → tự dùng lượt');
-  ok(Stats.streak(a) === 3, 'ngày đóng băng giữ chuỗi nhưng không cộng ngày (3)');
-  let b = mk([3, 4, 5]); Stats.freezeTick(b); ok(b.freeze.used.length === 0 && Stats.streak(b) === 0, 'lỡ 2 ngày, chỉ 1 lượt → mất chuỗi, không phí lượt');
-  let c = mk([3, 4], { left: 2, week: 'x', used: [] }); Stats.freezeTick(c); ok(c.freeze.used.length === 2 && Stats.streak(c) === 2, 'lỡ 2 ngày, 2 lượt → giữ chuỗi');
-  let e = mk([1, 2], { left: 2, week: 'old', used: [] }); Stats.freezeTick(e); ok(e.freeze.left === 2 && e.freeze.week !== 'old', 'tuần mới +1 lượt, tối đa 2');
-  let f = mk([], { left: 1, week: 'x', used: [] }); Stats.freezeTick(f); ok(f.freeze.used.length === 0, 'người mới chưa có chuỗi → không dùng lượt');
-  let g = mk([0, 1, 2]); Stats.freezeTick(g); ok(g.freeze.used.length === 0 && Stats.streak(g) === 3, 'học liền mạch → không đụng lượt');
-  // gộp 2 máy (sync.js mergeStats)
-  const src = fs.readFileSync(new URL('../../web/js/sync.js', import.meta.url), 'utf8'); const i = src.indexOf('function mergeStats'); let j = src.indexOf('{', i), dep = 0;
-  for (; j < src.length; j++) { if (src[j] === '{') dep++; else if (src[j] === '}' && !--dep) break; }
-  const mergeStats = new Function('return ' + src.slice(i, j + 1))();
-  const m = mergeStats({ days: {}, freeze: { left: 2, week: '2026-W40', used: ['2026-10-01'] } }, { days: {}, freeze: { left: 1, week: '2026-W40', used: ['2026-10-03'] } });
-  ok(m.freeze.left === 1 && m.freeze.used.length === 2, 'gộp cùng tuần: lấy ít lượt hơn, hợp ngày đã dùng');
-  const m2 = mergeStats({ days: {}, freeze: { left: 0, week: '2026-W40', used: [] } }, { days: {} });
-  ok(m2.freeze.left === 0 && mergeStats({ days: {} }, { days: {} }).freeze === undefined, 'một bên chưa có freeze → giữ bên có; không bên nào → không thêm');
+  const fi = ctx.Core.Stats.freezeInfo({ freezes: 2, frozen: { '2026-10-01': 1, '2026-09-20': 1 }, freezeSaved: '2026-10-02' });
+  ok(fi.left === 2 && fi.max === 2 && fi.used.join() === '2026-09-20,2026-10-01' && fi.lastSave === '2026-10-02', 'freezeInfo đọc game.freezes/frozen/freezeSaved');
+  ok(ctx.Core.Stats.freezeInfo(null).left === 0, 'freezeInfo(null) an toàn');
 }
 
 // ---------- API đồng bộ (functions/api/sync.js) với D1 giả lập ----------

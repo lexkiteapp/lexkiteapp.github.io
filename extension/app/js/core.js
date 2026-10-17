@@ -372,30 +372,8 @@
   };
 
   // ---------- Thống kê & chuỗi ngày ----------
-  const isoWeek = (d0) => { const d = new Date(Date.UTC(d0.getFullYear(), d0.getMonth(), d0.getDate())); const day = d.getUTCDay() || 7; d.setUTCDate(d.getUTCDate() + 4 - day); const y = d.getUTCFullYear(); return y + '-W' + String(Math.ceil(((d.getTime() - Date.UTC(y, 0, 1)) / 864e5 + 1) / 7)).padStart(2, '0'); };
   const Stats = {
-    async get() {
-      const s = await Store.get('stats', { days: {}, newToday: { day: '', n: 0 } });
-      if (Stats.freezeTick(s)) await Store.set('stats', s); // cấp lượt đóng băng tuần mới / tự cứu chuỗi khi lỡ ngày
-      return s;
-    },
-    // Đóng băng chuỗi (Streak Freeze): mỗi tuần (thứ Hai) +1 lượt, giữ tối đa FREEZE_MAX; lỡ ≤ "lượt còn" ngày liền
-    // (tính tới hôm qua) thì tự dùng lượt để giữ chuỗi – ngày đóng băng giữ chuỗi nhưng không cộng số ngày.
-    // s.freeze = { left, week: 'YYYY-Www', used: ['YYYY-MM-DD', …] } (đồng bộ qua sync.js mergeStats).
-    freezeTick(s, now = new Date()) {
-      const FREEZE_MAX = 2, wk = isoWeek(now);
-      let changed = false;
-      if (!s.freeze || typeof s.freeze !== 'object') { s.freeze = { left: 1, week: wk, used: [] }; changed = true; }
-      const f = s.freeze;
-      if (!Array.isArray(f.used)) { f.used = []; changed = true; }
-      if (f.week !== wk) { f.left = Math.min(FREEZE_MAX, (+f.left || 0) + 1); f.week = wk; changed = true; }
-      const has = k => !!(s.days[k] || f.used.includes(k));
-      const d = new Date(now); d.setDate(d.getDate() - 1); // hôm qua
-      const gap = []; while (!has(todayKey(d)) && gap.length <= FREEZE_MAX) { gap.push(todayKey(d)); d.setDate(d.getDate() - 1); }
-      if (gap.length && has(todayKey(d)) && gap.length <= (+f.left || 0)) { f.used.push(...gap); f.left -= gap.length; f.lastSave = todayKey(now); changed = true; }
-      if (f.used.length > 60) { f.used = f.used.sort().slice(-60); changed = true; }
-      return changed;
-    },
+    async get() { return Store.get('stats', { days: {}, newToday: { day: '', n: 0 } }); },
     async logReview(isNew) {
       const s = await Stats.get();
       const k = todayKey();
@@ -420,13 +398,14 @@
     },
     streak(s) {
       let n = 0;
-      const used = (s.freeze && Array.isArray(s.freeze.used)) ? s.freeze.used : [];
       const d = new Date();
       if (!s.days[todayKey(d)]) d.setDate(d.getDate() - 1); // hôm nay chưa học vẫn giữ chuỗi
-      for (;;) { const k = todayKey(d); if (s.days[k]) n++; else if (!used.includes(k)) break; d.setDate(d.getDate() - 1); } // ngày đóng băng: giữ chuỗi, không cộng
+      while (s.days[todayKey(d)]) { n++; d.setDate(d.getDate() - 1); }
       return n;
     },
-    freezeInfo(s) { const f = s && s.freeze || {}; return { left: +f.left || 0, max: 2, used: (f.used || []).slice(-7), lastSave: f.lastSave || '' }; },
+    // Đóng băng chuỗi – NGUỒN DUY NHẤT là dữ liệu game (app.js applyFreeze/offerRescue): game.freezes = lượt còn (tối đa 2, +1 mỗi 7 ngày chuỗi),
+    // game.frozen = { 'YYYY-MM-DD': 1 } ngày được giữ chuỗi, game.freezeSaved = ngày tự dùng lượt gần nhất (giao diện streak-ui.js hiện màn "đã cứu chuỗi").
+    freezeInfo(g) { g = g || {}; return { left: +g.freezes || 0, max: 2, used: Object.keys(g.frozen || {}).sort().slice(-7), lastSave: g.freezeSaved || '' }; },
   };
 
   g.Core = { keyOf, Golden, Store, SRS, Cards, Stats, DEFAULT_SETTINGS, todayKey, startOfToday, endOfToday, DAY, ensurePersist };

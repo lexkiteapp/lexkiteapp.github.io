@@ -144,6 +144,8 @@
   routes.me = async function () {
     const u = state.user, g = state.game || {}, cards = state.cards || {};
     const L = Game.levelOf(g.xp || 0), streak = App.streak();
+    const fi = (window.Core && Core.Stats) ? Core.Stats.freezeInfo(g) : { left: +g.freezes || 0, max: 2 };
+    const freezeLeft = fi.left;
     const totalC = Object.keys(cards).length;
     const masteredC = Object.values(cards).filter(c => c && c.S >= 21).length;
     const forgettingC = (App.forgetting ? App.forgetting() : []).length;
@@ -183,7 +185,7 @@
       + `<div class="card me-head">
           <div class="me-avatar-wrap">
             <span class="avatar lg">${u && u.photoURL ? `<img src="${esc(u.photoURL)}" alt="" referrerpolicy="no-referrer">` : esc(((u && (u.displayName || u.email)) || 'L')[0].toUpperCase())}</span>
-            <span class="me-streak-flame" title="${t('{n} ngày', { n: streak || 0 })}">🔥 ${streak || 0}</span>
+            <span class="me-streak-flame" title="${t('{n} ngày', { n: streak || 0 })}">🔥 ${streak || 0}</span>${freezeLeft ? `<button type="button" class="streak-freeze-badge" data-streak-freeze aria-label="${t('{n} lượt đóng băng chuỗi', { n: freezeLeft })}" title="${t('Đóng băng chuỗi: còn {n}/{max} lượt', { n: freezeLeft, max: fi.max || 2 })}">🧊×${freezeLeft}</button>` : ''}
           </div>
           <div class="me-tx">
             <div class="me-name-row">
@@ -218,7 +220,7 @@
               <span class="me-card-tag good">${streak > 0 ? streak + 'd' : '–'}</span>
             </div>
             <div class="me-card-val">${streak || 0}</div>
-            <div class="me-card-sub">${g.freezes ? '🧊 ' + g.freezes : t('{n} ngày', { n: streak || 0 })}</div>
+            <div class="me-card-sub">${freezeLeft ? '🧊 ' + t('{n}/{max} lượt', { n: freezeLeft, max: fi.max || 2 }) : t('{n} ngày', { n: streak || 0 })}</div>
           </a>
 
           <a class="me-card" href="#/review?src=forgetting">
@@ -234,6 +236,7 @@
         <h3 class="set-h">${t('Việc học')}</h3><div class="set-list">`
       + row('#/goal', '🚩', t('Mục tiêu & kế hoạch'), t('Kỳ thi, điểm mục tiêu, ngày thi'))
       + row('#/stats', '📊', t('Tiến độ & huy hiệu'), t('Chuỗi {n} ngày · {xp} XP', { n: streak || 0, xp: (g.xp || 0).toLocaleString(I18N.lang()) }))
+      + row('#/league', '🏆', t('Giải đấu tuần'), t('Bảng xếp hạng 30 người học, thăng hạng mỗi tuần'))
       + row('#/mistakes', '📕', t('Sổ lỗi sai'), t('Làm lại các câu đã sai'), false, openMistakes ? `<span class="pill-count warn">${openMistakes}</span>` : '')
       + `</div><h3 class="set-h">${t('Ứng dụng')}</h3><div class="set-list">`
       + (isAdmin ? row(App.adminUrl(), '🛡️', t('Quản trị hệ thống'), t('Người dùng, hộp thư, phân tích, chất lượng, Gemini API'), true) : '')
@@ -292,7 +295,7 @@
     if (name === 'toefl-p') return ['skills', 'skill-' + (TOEFL_SK[arg] || 'reading')];
     if (['skills', 'grammar', 'pron', 'toeic', 'toefl'].includes(name)) return ['skills', name];
     if (['tests', 'mock', 'listen-test', 'toeic-test', 'placement'].includes(name)) return ['tests', name === 'placement' ? 'placement' : 'tests'];
-    if (['me', 'goal', 'stats', 'mistakes', 'settings', 'method', 'resources'].includes(name)) return ['me', name];
+    if (['me', 'goal', 'stats', 'league', 'mistakes', 'settings', 'method', 'resources'].includes(name)) return ['me', name];
     return [null, null];
   };
   const TAB = { vocab: ['📚', () => t('Từ vựng')], skills: ['🎯', () => t('Kỹ năng')], tests: ['🏁', () => t('Thi thử')], me: ['👤', () => t('Tôi')] };
