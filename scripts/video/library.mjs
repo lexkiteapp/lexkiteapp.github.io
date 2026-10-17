@@ -546,7 +546,22 @@ function rembgPython() {
   for (const p of c) if (spawnSync(p, ['-c', 'import rembg, numpy, PIL'], { stdio: 'ignore' }).status === 0) return p;
   throw new Error('thiếu Python có rembg (isnet-anime): .tools/pyenv/bin/pip install "rembg[cpu]" hoặc đặt LEXKITE_REMBG_PY');
 }
-/** Tạo bản stacked cho clip (mặc định: mọi clip approved chưa có) bằng clip_to_layer.py, kiểm cổng "stacked", ghi foot/figH/w/h. */
+/** Clip phông xanh? – đọc khung đầu thu nhỏ 16×16: 4 góc đều trội xanh lá (G − max(R,B) > 40) → tách bằng chroma_key.py (sạch hơn rembg, không bóng sàn). */
+function isGreenScreen(src) {
+  try {
+    const raw = execFileSync('ffmpeg', ['-v', 'error', '-i', src, '-frames:v', '1', '-vf', 'scale=16:16', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], { maxBuffer: 1 << 20 });
+    return [0, 15, 240, 255].every(i => raw[i * 3 + 1] - Math.max(raw[i * 3], raw[i * 3 + 2]) > 40);
+  } catch { return false; }
+}
+/** Dựng stacked: phông xanh → chroma_key.py; còn lại → clip_to_layer.py --stacked (rembg). */
+function makeStacked(src, dst, env) {
+  const green = isGreenScreen(src);
+  const args = green ? [path.join(HERE, 'chroma_key.py'), src, dst] : [path.join(HERE, 'clip_to_layer.py'), src, '--stacked', dst];
+  const r = spawnSync(rembgPython(), args, { cwd: ROOT, encoding: 'utf8', env, maxBuffer: 64 << 20 });
+  if (r.status === 0) log(`  ${green ? 'phông xanh → chroma_key' : 'rembg → clip_to_layer'}: ${path.basename(src)}`);
+  return r;
+}
+/** Tạo bản stacked cho clip (mặc định: mọi clip approved chưa có) bằng clip_to_layer.py/chroma_key.py, kiểm cổng "stacked", ghi foot/figH/w/h. */
 async function cmdStack(target, opts) {
   const m = loadManifest();
   const items = m.items.filter(e => e.kind === 'clip' && (target === 'all' ? e.status === 'approved' : e.id === target || e.file === target));
@@ -555,8 +570,8 @@ async function cmdStack(target, opts) {
     const out = path.join(LIB, e.id), src = path.join(LIB, e.file);
     if (!fs.existsSync(src)) { log(`! ${e.id}: thiếu gốc ${e.file}`); bad++; continue; }
     if (!fs.existsSync(out) || opts.force) {
-      const r = spawnSync(rembgPython(), [path.join(HERE, 'clip_to_layer.py'), src, '--stacked', out], { cwd: ROOT, encoding: 'utf8', env: { ...process.env, U2NET_HOME: process.env.U2NET_HOME || (fs.existsSync('/tmp/claude-501/u2net') ? '/tmp/claude-501/u2net' : path.join(os.tmpdir(), 'u2net')) }, maxBuffer: 64 << 20 });
-      if (r.status !== 0) { log(`✗ ${e.id}: clip_to_layer lỗi ${(r.stderr || '').trim().split('\n').pop()}`); bad++; continue; }
+      const r = makeStacked(src, out, { ...process.env, U2NET_HOME: process.env.U2NET_HOME || (fs.existsSync('/tmp/claude-501/u2net') ? '/tmp/claude-501/u2net' : path.join(os.tmpdir(), 'u2net')) });
+      if (r.status !== 0) { log(`✗ ${e.id}: tách nền lỗi ${(r.stderr || '').trim().split('\n').pop()}`); bad++; continue; }
     }
     const res = runCheck(out, { ...e, file: e.id }, m, { kind: 'stacked', sheet: reviewPath(e.id + '.stacked') });
     registerStacked(e, stackedResult(e, out, res));
@@ -605,8 +620,8 @@ async function cmdCiBuild(name, opts) {
     if (!r.ok || sha256(buf) !== e.sha256) throw new Error(`tải gốc ${e.locations.src.path} lỗi (${r.status}) hoặc sai sha256`);
     fs.writeFileSync(src, buf);
   }
-  const r = spawnSync(rembgPython(), [path.join(HERE, 'clip_to_layer.py'), src, '--stacked', dst], { cwd: ROOT, encoding: 'utf8', env: { ...process.env, U2NET_HOME: process.env.U2NET_HOME || path.join(os.homedir(), '.u2net') }, maxBuffer: 64 << 20 });
-  if (r.status !== 0) throw new Error('clip_to_layer lỗi: ' + (r.stderr || '').trim().split('\n').slice(-3).join(' | '));
+  const r = makeStacked(src, dst, { ...process.env, U2NET_HOME: process.env.U2NET_HOME || path.join(os.homedir(), '.u2net') });
+  if (r.status !== 0) throw new Error('tách nền lỗi: ' + (r.stderr || '').trim().split('\n').slice(-3).join(' | '));
   const res = runCheck(dst, { ...e, file: e.id }, m, { kind: 'stacked', sheet: path.join(outDir, name + '.jpg') });
   const result = stackedResult(e, dst, res);
   fs.copyFileSync(dst, path.join(outDir, name + '.mp4'));
