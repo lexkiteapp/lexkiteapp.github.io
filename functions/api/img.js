@@ -63,6 +63,8 @@ export async function onRequestGet({ request, env, waitUntil }) {
       if (x) { const lic = (x.license || '').toUpperCase() + (x.license_version && !/cc0|pdm/i.test(x.license) ? ' ' + x.license_version : ''); out = { src: thumbOf(x), link: x.foreign_landing_url || x.url, license: /pdm/i.test(x.license) ? 'Public Domain' : lic, title: (x.title || word).slice(0, 60), creator: x.creator || '' }; ttl = 30 * 86400; }
     } else ttl = 600; // Openverse bận/giới hạn → thử lại sau 10 phút
   } catch (e) { ttl = 600; }
+  // Nguồn tạm lỗi (không phải "thật sự không có ảnh") → báo retry để máy khách không ghi nhớ "không có ảnh" 6 giờ (add-on/web thử lại ở lần tra sau)
+  if (out.none && ttl === 600) out = { none: true, retry: true };
   const res = H(out, ttl);
   waitUntil(cache.put(key, res.clone()));
   return res;

@@ -22,10 +22,10 @@ const ARTICLE = `<!doctype html><html lang="en"><head><meta charset="utf-8"><tit
 <h1>Why cities are planting forests</h1>
 <p>Urban planners argue that trees are infrastructure. Dense canopies improve the <span id="w">resilience</span> of neighbourhoods during heatwaves.</p>
 <p id="s">Although the initial cost is considerable, the long-term benefits to public health far outweigh the investment.</p>
-<p>A city <span id="n">forest</span> is worth <span id="adv">exactly</span> what people believe it is worth. Green space is <span id="adj">available</span> to everyone.</p>
+<p>A city <span id="n">forest</span> is worth <span id="adv">exactly</span> what people believe it is worth. Green space is <span id="adj">available</span> to everyone. Residents demand <span id="act">action</span> now.</p>
 <p><textarea id="ta" rows="3" cols="60">The committee reached a unanimous decision after a long debate.</textarea></p>
 <p><input id="inp" value="sustainable development goals" size="40"></p></body></html>`;
-const CSP_PAGE = ARTICLE.replace('<title>', '<meta http-equiv="Content-Security-Policy" content="img-src \'self\'"><title>');
+const CSP_PAGE = ARTICLE.replace('<title>', '<meta http-equiv="Content-Security-Policy" content="img-src \'self\'; style-src \'self\'"><title>');
 const DARK = ARTICLE.replace('<style>', '<style>html,body{background:#111418;color:#e6e6e6}');
 const FRAME = `<!doctype html><html><body><h2>Frame host</h2><iframe id="f" src="https://t1.example.com/article" width="900" height="500"></iframe></body></html>`;
 const RTL = `<!doctype html><html dir="rtl" lang="ar"><head><meta charset="utf-8"></head><body style="font:18px sans-serif;padding:40px"><p>هذه فقرة عربية فيها كلمة <span id="w">resilience</span> باللغة الإنجليزية.</p></body></html>`;
@@ -36,7 +36,7 @@ const ctx = await chromium.launchPersistentContext(prof, {
   args: [`--disable-extensions-except=${EXT}`, `--load-extension=${EXT}`, `--lang=${LOCALE}`],
 });
 await ctx.route('https://t1.example.com/**', r => r.fulfill({ contentType: 'text/html', body: ARTICLE }));
-await ctx.route('https://t2.example.com/**', r => r.fulfill({ contentType: 'text/html', body: CSP_PAGE, headers: { 'Content-Security-Policy': "img-src 'self'" } }));
+await ctx.route('https://t2.example.com/**', r => r.fulfill({ contentType: 'text/html', body: CSP_PAGE, headers: { 'Content-Security-Policy': "img-src 'self'; style-src 'self'" } })); // chặn cả ảnh ngoài, data: và <style>/style="" chèn vào
 await ctx.route('https://t3.example.com/**', r => r.fulfill({ contentType: 'text/html', body: FRAME }));
 await ctx.route('https://t5.example.com/**', r => r.fulfill({ contentType: 'text/html', body: DARK }));
 const NOTICE = fs.readFileSync(new URL('./fixtures/notice-card.html', import.meta.url), 'utf8');
@@ -58,8 +58,12 @@ for (const p of ctx.pages()) if (p.url().startsWith(base)) await p.close().catch
 // Đọc bảng tra (shadow root 'open' khi kiểm thử)
 const card = (page, frame) => (frame || page).evaluate(() => {
   const h = document.querySelector('ielts-lexi-popup'), r = h && h.shadowRoot; if (!r) return null;
-  const b = r.querySelector('.box'), f = r.querySelector('.fab'), img = r.querySelector('.pic img'), pic = r.querySelector('.pic');
-  return { visible: !!(b && !b.hidden), text: b ? b.innerText : '', fab: !!(f && !f.hidden), img: img ? img.src.slice(0, 60) : '', letter: pic && pic.classList.contains('ltr'), back: !!r.querySelector('.back, [id=back], .hb'), html: b ? b.innerHTML.length : 0 };
+  const b = r.querySelector('.box'), f = r.querySelector('.fab'), img = r.querySelector('.pic img'), cv = r.querySelector('.pic canvas'), pic = r.querySelector('.pic');
+  // imgOk: ảnh THẬT SỰ hiện (tải xong, có kích thước) hoặc đã vẽ lên canvas (trang CSP chặn ảnh); emptyPos: số tiêu đề từ loại không có nội dung
+  const imgOk = !!((img && img.complete && img.naturalWidth > 0) || cv);
+  const emptyPos = [...r.querySelectorAll('.pg')].filter(g => !g.querySelector('.pdef, .pvi')).length;
+  const styled = b ? getComputedStyle(b).position === 'fixed' : false; // CSS bảng tra có áp dụng (trang CSP style-src)
+  return { visible: !!(b && !b.hidden), text: b ? b.innerText : '', fab: !!(f && !f.hidden), img: img ? img.src.slice(0, 60) : cv ? 'canvas' : '', imgOk, emptyPos, styled, letter: pic && pic.classList.contains('ltr'), back: !!r.querySelector('.back, [id=back], .hb'), html: b ? b.innerHTML.length : 0 };
 });
 // Tương phản WCAG của mọi chữ trong bảng tra (nền = nền không trong suốt gần nhất trong shadow root; trộn alpha với nền .box)
 const contrast = (page, frame) => (frame || page).evaluate(() => {
@@ -120,7 +124,12 @@ else rec('tra lồng trong bảng tra (bấm đúp từ trong định nghĩa)', 
 await hide(pg);
 // danh từ có ảnh, trạng từ không ảnh
 await dbl(pg, '#n'); await sleep(9000); c = await card(pg);
-rec('danh từ "forest": có ảnh minh họa', c && c.img && !c.letter, c && (c.img || 'letter'));
+rec('danh từ "forest": có ảnh minh họa (đã tải xong)', c && c.img && c.imgOk && !c.letter, c && (c.img || 'letter') + (c && !c.imgOk ? ' (chưa tải/ lỗi)' : ''));
+await hide(pg);
+// action: Google có nghĩa Việt cho động từ nhưng không có định nghĩa Anh → trước đây hiện tiêu đề "verb" trống
+await dbl(pg, '#act'); await sleep(9000); c = await card(pg); await shot(pg, 'lookup-action');
+rec('"action": không có tiêu đề từ loại trống', c && c.visible && c.emptyPos === 0, c && `${c.emptyPos} nhóm trống`);
+rec('"action": có ảnh minh họa (đã tải xong)', c && c.imgOk, c && (c.img || 'none'));
 await hide(pg);
 await dbl(pg, '#adv'); await sleep(7000); c = await card(pg);
 rec('trạng từ "exactly": hiện bảng tra', c && c.visible && /exactly/i.test(c.text));
@@ -164,7 +173,8 @@ await hide(pg);
 // ---------- 3. Trang CSP chặn ảnh ngoài, iframe, RTL, giao diện tối ----------
 const p2 = await ctx.newPage(); await p2.goto('https://t2.example.com/csp'); await sleep(2000);
 await dbl(p2, '#n'); await sleep(10000); c = await card(p2); await shot(p2, 'csp-forest');
-rec('trang CSP chặn ảnh: vẫn có ảnh (data:)', c && c.img && (c.img.startsWith('data:') || !c.letter), c && (c.img || 'letter'));
+rec('trang CSP chặn ảnh: vẫn có ảnh (canvas)', c && c.imgOk, c && (c.img || 'none'));
+rec('trang CSP chặn <style>: bảng tra vẫn đúng kiểu (adoptedStyleSheets)', c && c.styled);
 await p2.close();
 const p3 = await ctx.newPage(); await p3.goto('https://t3.example.com/frame'); await sleep(3000);
 const fr = p3.frameLocator('#f');

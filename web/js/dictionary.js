@@ -7,6 +7,7 @@
  *  - MyMemory          : dự phòng khi Google không phản hồi
  */
 (function (g) {
+  const hasT = !!(typeof self !== 'undefined' && self.t);
   const t = (typeof self !== 'undefined' && self.t) || ((s, v) => (v ? s.replace(/\{(\w+)\}/g, (m, k) => (v[k] != null ? v[k] : m)) : s));
   const cache = new Map();
 
@@ -244,10 +245,13 @@
     // Qua proxy /api/img (lưu đệm ở biên Cloudflare, dùng chung mọi người dùng) – tránh hết hạn mức ẩn danh của Openverse
     const base = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com';
     const r = await fetchJSON(`${base}/api/img?w=${encodeURIComponent(String(word).toLowerCase())}`, 6000);
-    if (!r) return null;            // mạng/proxy chậm → null: lần tra sau thử lại
-    if (r.none || !r.src) return false; // thật sự không có ảnh phù hợp
-    return { src: r.src, link: r.link, license: r.license,
-      credit: t('“{title}” – {creator} · {license} · qua Openverse', { title: r.title || word, creator: r.creator || t('không rõ tác giả'), license: r.license }).replace('Openverse', r.via || 'Openverse') };
+    if (!r || r.retry) return null; // mạng chậm / nguồn tạm lỗi → thử lại lần sau
+    if (r.none || !/^https:\/\//.test(r.src || '')) return false;
+    const via = r.via || 'Openverse';
+    // SW add-on không có t() → ghi nguồn trung tính, không lẫn tiếng Việt
+    const credit = hasT ? t('“{title}” – {creator} · {license} · qua Openverse', { title: r.title || word, creator: r.creator || t('không rõ tác giả'), license: r.license }).replace('Openverse', via)
+      : `“${r.title || word}”${r.creator ? ' – ' + r.creator : ''} · ${r.license || ''} · ${via}`;
+    return { src: r.src, link: r.link, license: r.license, credit };
   }
   // Giữ tên cũ cho mã gọi trước đây
   const wikiImage = async word => { const im = await freeImage(word); return im ? im.src : ''; };
@@ -258,7 +262,7 @@
   const POS_SHORT = Object.fromEntries(Object.entries(POS_SHORT_RAW).map(([k, v]) => [k.normalize('NFC'), v]));
 
   // ---------- Bộ nhớ đệm bền (giữ kết quả tra qua các lần mở trang / khởi động lại add-on) ----------
-  const DV = 6; // 6: nguồn ảnh minh họa mới (Wikipedia trước, Openverse lọc chặt) → bản tra cũ có ảnh lệch nghĩa tự tra lại
+  const DV = 7; // 7: bù định nghĩa từ loại Oxford thiếu (action – động từ). 6: nguồn ảnh minh họa mới (Wikipedia trước, Openverse lọc chặt) → bản tra cũ có ảnh lệch nghĩa tự tra lại
   const persist = {
     // _v: phiên bản dữ liệu tra từ – tăng khi đổi cách xử lý (vd. phiên âm theo từ loại) để kết quả cũ trên máy tự tra lại
     async get(w) { try { const x = g.Core ? await g.Core.Store.get('dc2:' + w, null) : null; return x && x._v === DV ? fixDeep(x) : null; } catch (e) { return null; } },
@@ -275,7 +279,8 @@
   };
   const FRESH = 14 * 86400000;
 
-  const normWord = raw => String(raw || '').trim().toLowerCase().replace(/[’]/g, "'").replace(/[^a-z\s'-]/g, '').replace(/\s+/g, ' ');
+  // Giữ chữ Latin có dấu (café, naïve)
+  const normWord = raw => String(raw || '').normalize('NFC').trim().toLowerCase().replace(/[’]/g, "'").replace(/[×÷]/g, '').replace(/[^a-z\u00c0-\u024f\s'-]/g, '').replace(/\s+/g, ' ').trim();
 
   // Phiên âm đúng từ loại chính của mục từ (vd. overall tính từ /ˌəʊvəˈrɔːl/ ≠ danh từ /ˈəʊvərɔːl/)
   const POS_FULL = { n: 'noun', v: 'verb', adj: 'adjective', adv: 'adverb', 'danh từ': 'noun', 'động từ': 'verb', 'tính từ': 'adjective', 'trạng từ': 'adverb' };
@@ -309,7 +314,13 @@
     const anyEx = (gg && gg.defs.flatMap(m => m.defs).find(d => d.ex)) || (fd && fd.meanings.flatMap(m => m.defs).find(d => d.ex));
     const senseVi = gg && gg.senses.length ? gg.senses.map(s => s.terms.slice(0, 3).join(', ')).join('; ') : '';
     const posRaw = ((gg && gg.senses[0] && gg.senses[0].pos) || (gg && gg.defs[0] && gg.defs[0].pos) || (fFirst && fFirst.pos) || '').normalize('NFC').toLowerCase();
-    let oxford = gg ? gg.defs : [];
+    let oxford = gg ? gg.defs.slice() : [];
+    // Từ loại Google có nghĩa Việt nhưng thiếu định nghĩa Anh (action: động từ) → lấy từ dictionaryapi.dev
+    if (fd && fd.meanings && oxford.length && gg) {
+      const key = p => { p = String(p || '').normalize('NFC').toLowerCase(); return POS_SHORT[p] || p; }
+      const have = new Set(oxford.map(m => key(m.pos))), want = new Set((gg.senses || []).map(x => key(x.pos)));
+      fd.meanings.forEach(m => { const k = key(m.pos), defs = (m.defs || []).filter(d => d.def); if (want.has(k) && !have.has(k) && defs.length) { have.add(k); oxford.push({ pos: m.pos, defs: defs.slice(0, 3) }); } });
+    }
     if (local && local.def) {
       const lp = POS_FULL[String(local.pos).toLowerCase()] || local.pos || 'noun';
       const curDef = { def: local.def, ex: local.ex || '' };
@@ -337,7 +348,7 @@
       emoji: (local && local.emoji) || '',
       topic: (local && local.topic) || 'mine',
       image: (img && img.src) || '',
-      imageCredit: img ? { text: img.credit, link: img.link } : null,
+      imageCredit: img ? { text: img.credit, link: img.link || '' } : null,
       senses: gg ? gg.senses : [],
       oxford,
       meanings: fd ? fd.meanings : [],
@@ -389,11 +400,14 @@
       examples ? sentences(word) : [],
     ]);
     const base = gg && gg.base && gg.base !== word ? gg.base : '';
+    if (image && !img && base) { const ib = await freeImage(base).catch(() => null); if (ib || img === null) img = ib; } // actions → ảnh của action
     if (base && (!fd || (!wk && !(local && local.ipa)))) {
       const [fb, wb] = await Promise.all([fd ? fd : fromFreeDict(base), wk ? wk : wiktIPA(base)]);
       fd = fb; wk = wb;
     }
     const hasGoogle = gg && (gg.senses.length || gg.defs.length);
+    // Google không có định nghĩa Anh nào (give up) → Wiktionary/WordNet
+    if (hasGoogle && !fd && !gg.defs.length && !(local && local.def)) { const rd = await rareDefs(word).catch(() => null); if (rd) fd = { ...rd, ipa: '', ipaUS: '' }; }
     if (!local && !fd && !hasGoogle) {
       // Từ hiếm / chuyên ngành: lấy định nghĩa từ Wiktionary hoặc WordNet, nghĩa tiếng Việt từ bản dịch
       fd = await rareDefs(word);

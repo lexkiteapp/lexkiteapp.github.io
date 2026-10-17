@@ -1,7 +1,7 @@
 // 📦 Ngân sách dung lượng & chất lượng nội dung – chặn ship khi app phình to hoặc chất lượng tụt (chạy trong npm test).
 //   1) Khung app (SHELL trong web/sw.js – tải ngay lần đầu, mọi thiết bị): tổng gzip ≤ budget.shellGz
 //   2) Mỗi file dữ liệu tải lười (web/js/**): gzip ≤ budget.fileGz – lớn hơn thì tách lô (data1/data2…) để mạng yếu vẫn mượt
-//   3) Tổng web/js: không vượt budget.totalJs (byte thô)
+//   3) Tổng web/js (trừ admin-*.js – chỉ trang quản trị): không vượt budget.totalJs (byte thô)
 //   4) Cảnh báo content-check không được TĂNG so với mốc (chỉ được giảm; giảm thì tự hạ mốc bằng --update)
 // Dùng: node scripts/test/size-budget.mjs [--update]
 import fs from 'fs';
@@ -17,7 +17,8 @@ let shellGz = 0; for (const u of shell) { const f = path.join('web', u); if (fs.
 if (shellGz > budget.shellGz) errs.push(`Khung app ${kb(shellGz)} gzip > ngân sách ${kb(budget.shellGz)} – chuyển dữ liệu sang tải lười (App lazy) thay vì nạp lúc mở app`);
 // 2) + 3) File JS
 let total = 0; const big = [];
-const walk = d => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) walk(p); else if (p.endsWith('.js')) { total += fs.statSync(p).size; const g = gz(p); if (g > budget.fileGz && !(budget.allowBig || []).includes(p)) big.push(`${p} ${kb(g)}`); } } };
+const walk = d => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) walk(p); else if (p.endsWith('.js')) { if (!/(^|\/)admin-[^/]*\.js$/.test(p)) total += fs.statSync(p).size; // admin-*.js: chỉ trang quản trị, không tải cho người học/add-on
+ const g = gz(p); if (g > budget.fileGz && !(budget.allowBig || []).includes(p)) big.push(`${p} ${kb(g)}`); } } };
 walk('web/js');
 if (big.length) errs.push(`File dữ liệu > ${kb(budget.fileGz)} gzip – tách lô: ${big.join(', ')}`);
 if (total > budget.totalJs) errs.push(`Tổng web/js ${(total / 1048576).toFixed(1)} MB > ${(budget.totalJs / 1048576).toFixed(1)} MB – rà dữ liệu trùng/thừa trước khi thêm`);

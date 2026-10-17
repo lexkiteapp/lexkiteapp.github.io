@@ -245,10 +245,10 @@
     // Qua proxy /api/img (lưu đệm ở biên Cloudflare, dùng chung mọi người dùng) – tránh hết hạn mức ẩn danh của Openverse
     const base = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com';
     const r = await fetchJSON(`${base}/api/img?w=${encodeURIComponent(String(word).toLowerCase())}`, 6000);
-    if (!r || r.retry) return null; // mạng/proxy chậm, hoặc nguồn ảnh tạm lỗi (máy chủ báo retry) → null: lần tra sau thử lại
-    if (r.none || !r.src || !/^https:\/\//.test(r.src)) return false; // thật sự không có ảnh phù hợp
+    if (!r || r.retry) return null; // mạng chậm / nguồn tạm lỗi → thử lại lần sau
+    if (r.none || !/^https:\/\//.test(r.src || '')) return false;
     const via = r.via || 'Openverse';
-    // Service worker add-on không có t() → ghi nguồn trung tính (không lẫn chữ tiếng Việt "qua"/"không rõ tác giả" vào giao diện ngôn ngữ khác)
+    // SW add-on không có t() → ghi nguồn trung tính, không lẫn tiếng Việt
     const credit = hasT ? t('“{title}” – {creator} · {license} · qua Openverse', { title: r.title || word, creator: r.creator || t('không rõ tác giả'), license: r.license }).replace('Openverse', via)
       : `“${r.title || word}”${r.creator ? ' – ' + r.creator : ''} · ${r.license || ''} · ${via}`;
     return { src: r.src, link: r.link, license: r.license, credit };
@@ -262,7 +262,7 @@
   const POS_SHORT = Object.fromEntries(Object.entries(POS_SHORT_RAW).map(([k, v]) => [k.normalize('NFC'), v]));
 
   // ---------- Bộ nhớ đệm bền (giữ kết quả tra qua các lần mở trang / khởi động lại add-on) ----------
-  const DV = 7; // 7: thêm định nghĩa cho từ loại Oxford thiếu (vd. action – động từ) + bỏ bản lưu "không có ảnh" do nguồn ảnh tạm lỗi. 6: 6: nguồn ảnh minh họa mới (Wikipedia trước, Openverse lọc chặt) → bản tra cũ có ảnh lệch nghĩa tự tra lại
+  const DV = 7; // 7: bù định nghĩa từ loại Oxford thiếu (action – động từ). 6: nguồn ảnh minh họa mới (Wikipedia trước, Openverse lọc chặt) → bản tra cũ có ảnh lệch nghĩa tự tra lại
   const persist = {
     // _v: phiên bản dữ liệu tra từ – tăng khi đổi cách xử lý (vd. phiên âm theo từ loại) để kết quả cũ trên máy tự tra lại
     async get(w) { try { const x = g.Core ? await g.Core.Store.get('dc2:' + w, null) : null; return x && x._v === DV ? fixDeep(x) : null; } catch (e) { return null; } },
@@ -279,7 +279,7 @@
   };
   const FRESH = 14 * 86400000;
 
-  // Giữ chữ Latin có dấu (café, naïve, résumé) – trước đây bị cắt thành "caf", "nave"; bỏ × ÷ và ký tự khác
+  // Giữ chữ Latin có dấu (café, naïve)
   const normWord = raw => String(raw || '').normalize('NFC').trim().toLowerCase().replace(/[’]/g, "'").replace(/[×÷]/g, '').replace(/[^a-z\u00c0-\u024f\s'-]/g, '').replace(/\s+/g, ' ').trim();
 
   // Phiên âm đúng từ loại chính của mục từ (vd. overall tính từ /ˌəʊvəˈrɔːl/ ≠ danh từ /ˈəʊvərɔːl/)
@@ -315,10 +315,9 @@
     const senseVi = gg && gg.senses.length ? gg.senses.map(s => s.terms.slice(0, 3).join(', ')).join('; ') : '';
     const posRaw = ((gg && gg.senses[0] && gg.senses[0].pos) || (gg && gg.defs[0] && gg.defs[0].pos) || (fFirst && fFirst.pos) || '').normalize('NFC').toLowerCase();
     let oxford = gg ? gg.defs.slice() : [];
-    // Google có nghĩa Việt cho một từ loại nhưng không có định nghĩa Anh (vd. action: động từ) → lấy định nghĩa từ dictionaryapi.dev,
-    // nếu không bảng tra hiện tiêu đề từ loại trống
+    // Từ loại Google có nghĩa Việt nhưng thiếu định nghĩa Anh (action: động từ) → lấy từ dictionaryapi.dev
     if (fd && fd.meanings && oxford.length && gg) {
-      const key = p => { p = String(p || '').normalize('NFC').toLowerCase(); return POS_SHORT[p] || p; }; // danh từ / noun / n → n
+      const key = p => { p = String(p || '').normalize('NFC').toLowerCase(); return POS_SHORT[p] || p; }
       const have = new Set(oxford.map(m => key(m.pos))), want = new Set((gg.senses || []).map(x => key(x.pos)));
       fd.meanings.forEach(m => { const k = key(m.pos), defs = (m.defs || []).filter(d => d.def); if (want.has(k) && !have.has(k) && defs.length) { have.add(k); oxford.push({ pos: m.pos, defs: defs.slice(0, 3) }); } });
     }
@@ -401,13 +400,13 @@
       examples ? sentences(word) : [],
     ]);
     const base = gg && gg.base && gg.base !== word ? gg.base : '';
-    if (image && !img && base) { const ib = await freeImage(base).catch(() => null); if (ib || img === null) img = ib; } // dạng biến đổi (actions, acted) → ảnh của từ gốc
+    if (image && !img && base) { const ib = await freeImage(base).catch(() => null); if (ib || img === null) img = ib; } // actions → ảnh của action
     if (base && (!fd || (!wk && !(local && local.ipa)))) {
       const [fb, wb] = await Promise.all([fd ? fd : fromFreeDict(base), wk ? wk : wiktIPA(base)]);
       fd = fb; wk = wb;
     }
     const hasGoogle = gg && (gg.senses.length || gg.defs.length);
-    // Google chỉ có nghĩa Việt, không có định nghĩa Anh nào (vd. cụm động từ "give up") → định nghĩa Wiktionary/WordNet cho phần tiếng Anh
+    // Google không có định nghĩa Anh nào (give up) → Wiktionary/WordNet
     if (hasGoogle && !fd && !gg.defs.length && !(local && local.def)) { const rd = await rareDefs(word).catch(() => null); if (rd) fd = { ...rd, ipa: '', ipaUS: '' }; }
     if (!local && !fd && !hasGoogle) {
       // Từ hiếm / chuyên ngành: lấy định nghĩa từ Wiktionary hoặc WordNet, nghĩa tiếng Việt từ bản dịch
