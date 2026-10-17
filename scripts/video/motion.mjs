@@ -310,13 +310,17 @@ export function buildTimeline({ s, words, assets = {}, w = 1080, h = 1920, fps =
   cards.push({ kind: 'do', style: pay.type, start: r3(pl.start), end: r3(Math.min(endStart, pl.end + 0.6)), text: pair.right || (sc.keywords || [])[0] || pl.text, label: ((fmt.labels || {})[pl.beat] || {}).text || (pay.type === 'tip-card' ? 'TIP' : 'SAY') });
   // Thẻ payoff nằm ở khoảng trên đầu (cardY): cảnh nào đang chiếu thẻ mà đầu nhân vật đã lên cao (two/single/close) → chuyển cảnh đó
   // về toàn cảnh đẩy máy nhẹ (thẻ chiếm khoảng trần trống, không đè mặt/thân)
-  //  – chỉ cảnh chứa lúc thẻ bật thành toàn cảnh; thẻ tắt khi cảnh đó hết (cảnh sau được cận lại, không còn thẻ che)
+  //  – thẻ phải hiện ≥ 1,2 s: các cảnh trong 1,2 s đầu của thẻ đổi sang toàn cảnh; cảnh cận/đôi sau đó → thẻ tắt ngay đầu cảnh đó
   for (const c of cards) {
-    const x = S.find(q => q.cam && c.start >= q.start - 0.05 && c.start < q.end); if (!x) continue;
-    const headTop = Math.min(...x.actors.map(a => Math.min(toScreen(x.cam.from, a.x, a.y - a.h, w, h)[1], toScreen(x.cam.to, a.x, a.y - a.h, w, h)[1])));
-    if (x.framing !== 'wide' && headTop < layout.cardY * h + 300) { x.framing = 'wide'; x.focus = null; x.cam = shotCamera({ framing: 'wide', line: x.line }, x.actors, { W: w, H: h }); }
-    const nx = S[S.indexOf(x) + 1]; if (nx && nx.cam && nx.framing !== 'wide' && c.end > x.end) c.end = r3(Math.max(c.start + 1.2, x.end));
+    for (const x of S) {
+      if (!x.cam || x.end <= c.start || x.start >= c.end) continue;
+      const headTop = Math.min(...x.actors.map(a => Math.min(toScreen(x.cam.from, a.x, a.y - a.h, w, h)[1], toScreen(x.cam.to, a.x, a.y - a.h, w, h)[1])));
+      if (x.framing === 'wide' || headTop >= layout.cardY * h + 300) continue;
+      if (x.start < c.start + 1.2) { x.framing = 'wide'; x.focus = null; x.cam = shotCamera({ framing: 'wide', line: x.line }, x.actors, { W: w, H: h }); }
+      else { c.end = r3(x.start); break; }
+    }
   }
+
   for (const p of pages) {
     const sh = S.find(x => p.start >= x.start && p.start < x.end) || S[0], nl = (p.breaks || [1]).length, font = theme.caption === 'karaoke-bar' ? 70 : theme.caption === 'mega-word' ? 150 : 92;
     if (sh.cam) { // vị trí máy lúc trang hiện (và lúc tắt) – chọn chỗ không đè mặt/thân ở cả 2 thời điểm

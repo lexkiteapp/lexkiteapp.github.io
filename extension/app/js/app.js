@@ -1314,7 +1314,8 @@
         row(t('Chuyển dữ liệu'), `<a class="btn sm" href="#/handoff">${t('📲 Chuyển sang điện thoại (không cần đăng nhập)')}</a>`)
         + row(t('Xuất sao lưu'), `<button type="button" class="btn sm" id="sExport">⬇️ ${t('Xuất sao lưu')}</button>`)
         + row(t('Nhập sao lưu'), `<label class="btn sm">⬆️ ${t('Nhập sao lưu')}<input type="file" id="sImport" accept="application/json" hidden></label>`)
-        + row(`<span class="danger-t">${t('Xóa toàn bộ dữ liệu học')}</span>`, `<button type="button" class="btn sm danger" id="sReset">${t('Xóa')}</button>`))}
+        + row(`<span class="danger-t">${t('Xóa toàn bộ dữ liệu học')}</span>`, `<button type="button" class="btn sm danger" id="sReset">${t('Xóa')}</button>`)
+        + row(t('Pháp lý & hỗ trợ'), `<span class="set-btns"><a class="btn sm" href="${App.legalUrl('privacy')}">${t('Chính sách quyền riêng tư')}</a><a class="btn sm" href="${App.legalUrl('terms')}">${t('Điều khoản sử dụng')}</a><a class="btn sm" href="#/contact">${t('Liên hệ')}</a></span>`))}
       </div>`;
     // Mục quản trị: chỉ hiện sau khi máy chủ xác nhận quyền (thêm nút nhảy nhanh vào thanh mục lục)
     App.isAdmin().then(ok => { const sec = $('#set-admin'); if (!ok || !sec) return; sec.hidden = false; const nav = $('.set-nav'); if (nav && !nav.querySelector('[data-jump="admin"]')) { nav.insertAdjacentHTML('afterbegin', `<button type="button" data-jump="admin"><span aria-hidden="true">🛡️</span> ${t('Quản trị')}</button>`); nav.querySelector('[data-jump="admin"]').onclick = () => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }); } });
