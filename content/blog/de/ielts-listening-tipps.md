@@ -70,7 +70,7 @@ Abschnitt 4 ist eine universitäre Vorlesung ohne Pausen zwischendurch. Hier ist
 
 Vermeiden Sie bei wissenschaftlichen Formulierungen auch typische Übersetzungsfallen aus dem Deutschen; prüfen Sie vorab unsere Zusammenstellung über [False Friends Englisch–Deutsch](/de/blog/false-friends-englisch-deutsch/).
 
-![Gezielte Übungen für Hörverständnis und Lückentexte](media:practice-test "Interaktive Übungen helfen beim präzisen Heraushören von Zahlen und Fachbegriffen")
+![Gezielte Übungen für Hörverständnis und Lückentexte](media:practice-test "Multiple-Choice-Übungen festigen Wortschatz und Bedeutungen, die im Listening-Test oft vorkommen")
 
 ## Internationale Akzente meistern: Von British bis Australian
 

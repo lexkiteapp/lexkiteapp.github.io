@@ -28,6 +28,7 @@ Mẫu thẻ:
 ## TODO
 
 ### [B3] Blog 15 ngôn ngữ – bài vệ tinh theo cụm (lượt 3) · @antigravity · ưu tiên: cao
+- ✅ Nghiệm thu đợt 1–2 (Claude 17/10): 21 bài (ar, de, fr, hi, ko, pt, ru, th, tr, zh) – blog-check 0/0, ảnh hợp lệ; đã gộp vào main. Sửa 3 chú thích (de/fr/ru): ảnh trắc nghiệm từ vựng bị mô tả thành "luyện nghe số/ngày" → chú thích phải mô tả đúng ảnh. Làm tiếp đợt 3 cho đủ 45 bài (còn thiếu vi/en/es/ja/id và bù các ngôn ngữ < 3 bài).
 - Bối cảnh: đã có bài trụ cột cho cả 15 ngôn ngữ (vi/en/es/ja/id + pt/fr/de/tr/zh/ru/ar/hi/ko/th, commit 42b570ba). Lượt này viết **bài vệ tinh** trỏ về trụ cột, phủ đều mọi ngôn ngữ.
 - Số lượng: mỗi ngôn ngữ **3 bài vệ tinh** (45 bài), commit từng bài; ưu tiên 10 ngôn ngữ mới (mới có 1 bài).
 - Chủ đề: lấy từ `content/blog/briefs.json` (từ khóa bản địa thật – KHÔNG dịch máy từ khóa tiếng Việt); trước khi viết chạy kiểm trùng cụm từ khóa với mọi bài cùng ngôn ngữ (không 2 bài cùng cụm). Viết bản địa, không dịch thô từ bài ngôn ngữ khác.

@@ -71,7 +71,7 @@ Ces expressions vous indiquent précisément quand l'orateur passe à la questio
 
 La précision des temps verbaux est également déterminante pour comprendre si une expérience est terminée ou toujours d'actualité ; revoyez les nuances entre [present perfect ou prétérit](/fr/blog/present-perfect-ou-preterit/) pour affiner votre perception auditive.
 
-![Exercices interactifs de compréhension et d'écoute ciblée](media:practice-test "Entraînez-vous à repérer rapidement les nombres, dates et noms propres sous pression")
+![Exercices interactifs de compréhension et d'écoute ciblée](media:practice-test "Des QCM de vocabulaire pour consolider les mots fréquents des enregistrements IELTS")
 
 ## Travailler les accents internationaux et la fluidité sonore
 
