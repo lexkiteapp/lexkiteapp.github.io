@@ -40,10 +40,13 @@ const seen = new Set(queue); let n = 0;
 while (queue.length && n < MAX) {
   const r = queue.shift(); n++;
   w.location.hash = r; await tick(140);
-  w.document.querySelectorAll('a[href^="#/"]').forEach(a => { const h = a.getAttribute('href').split('?')[0]; if (!seen.has(h) && !SKIP.test(h) && !/\/(dict)\//.test(h)) { seen.add(h); queue.push(h); } });
+  w.document.querySelectorAll('a[href^="#/"]').forEach(a => { const h = a.getAttribute('href').split('?')[0]; if (!seen.has(h) && !SKIP.test(h) && !/\/(dict|usage)\//.test(h)) { seen.add(h); queue.push(h); } });
   if (n % 200 === 0) process.stderr.write(`… ${n} trang, ${strings.size} câu\n`);
 }
 const VI = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
+// Hết lượt quét (MAX) mà hàng đợi còn trang → KHÔNG được xóa câu cũ (trang chưa tới vẫn còn trong app): gộp với danh sách trước
+const truncated = queue.length > 0;
+if (truncated) { try { for (const x of JSON.parse(fs.readFileSync('content/i18n/strings.json', 'utf8'))) strings.add(x); } catch (e) { /* chưa có danh sách cũ */ } process.stderr.write(`⚠ dừng ở ${n} trang (còn ${queue.length} trong hàng đợi) – giữ câu cũ\n`); }
 const list = [...strings].filter(s => VI.test(s)).sort();
 fs.mkdirSync('content/i18n', { recursive: true });
 fs.writeFileSync('content/i18n/strings.json', JSON.stringify(list, null, 0).replace(/","/g, '",\n"') + '\n');
