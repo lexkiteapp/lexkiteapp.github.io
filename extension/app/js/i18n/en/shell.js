@@ -326,6 +326,7 @@
   'Xuất sao lưu': 'Export backup',
   'Nhập sao lưu': 'Import backup',
   'Xóa toàn bộ dữ liệu học': 'Delete all study data',
+  'Xóa tài khoản': 'Delete account',
   'Sẽ nhắc lúc {time} mỗi ngày': "You'll be reminded at {time} every day",
   'khuyên dùng': 'recommended',
   'Trình duyệt chưa có giọng tiếng Anh': 'No English voices available in this browser',

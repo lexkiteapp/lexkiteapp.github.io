@@ -46,6 +46,59 @@ jobs:
           gh release create android-latest lexkite.apk --prerelease --title "Lexkite Android (bản mới nhất)" \
             --notes "Bản build tự động từ commit ${GITHUB_SHA::7}. Tải lexkite.apk về điện thoại Android → mở file → cho phép cài từ nguồn này → Cài đặt. (Bản thử nghiệm, chưa lên Google Play.)"
 
+  # Bản phát hành Google Play (.aab, ký bằng upload key). Chỉ chạy khi đã có đủ 4 GitHub Secrets (docs/STORE-READINESS.md § Ký Android):
+  # ANDROID_KEYSTORE_BASE64 (file .jks mã hoá base64), ANDROID_KEYSTORE_PASSWORD, ANDROID_KEY_ALIAS, ANDROID_KEY_PASSWORD.
+  # versionCode = 1000 + số lần chạy workflow (luôn tăng), versionName = "version" trong mobile/package.json.
+  # Kết quả: artifact "lexkite-play-aab" → tải về, tải lên Play Console (Kiểm thử nội bộ/kín). Không tự đăng lên Play.
+  aab:
+    runs-on: ubuntu-latest
+    env:
+      HAS_KEY: ${{ secrets.ANDROID_KEYSTORE_BASE64 != '' }}
+    steps:
+      - name: Chưa có khóa ký → bỏ qua
+        if: env.HAS_KEY != 'true'
+        run: echo "::notice::Chưa có secret ANDROID_KEYSTORE_BASE64 – bỏ qua bản .aab (xem docs/STORE-READINESS.md)"
+      - uses: actions/checkout@v4
+        if: env.HAS_KEY == 'true'
+      - uses: actions/setup-node@v4
+        if: env.HAS_KEY == 'true'
+        with:
+          node-version: 22
+      - uses: actions/setup-java@v4
+        if: env.HAS_KEY == 'true'
+        with:
+          distribution: temurin
+          java-version: 21
+      - name: Build web → mobile/www → cap sync
+        if: env.HAS_KEY == 'true'
+        run: |
+          npm ci --prefix mobile --no-audit --no-fund
+          ./scripts/build-mobile.sh
+      - name: Gradle bundleRelease (ký upload key)
+        if: env.HAS_KEY == 'true'
+        working-directory: mobile/android
+        env:
+          KS_B64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          LEXKITE_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          LEXKITE_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          LEXKITE_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          export LEXKITE_KEYSTORE_FILE="$RUNNER_TEMP/upload.jks"
+          printf '%s' "$KS_B64" | base64 -d > "$LEXKITE_KEYSTORE_FILE"
+          export LEXKITE_VERSION_CODE=$((1000 + GITHUB_RUN_NUMBER))
+          export LEXKITE_VERSION_NAME=$(node -p "require('../package.json').version")
+          echo "versionCode=$LEXKITE_VERSION_CODE versionName=$LEXKITE_VERSION_NAME"
+          chmod +x gradlew
+          ./gradlew --no-daemon bundleRelease
+          rm -f "$LEXKITE_KEYSTORE_FILE"
+          cp app/build/outputs/bundle/release/app-release.aab "../../lexkite-$LEXKITE_VERSION_NAME-$LEXKITE_VERSION_CODE.aab"
+      - uses: actions/upload-artifact@v4
+        if: env.HAS_KEY == 'true'
+        with:
+          name: lexkite-play-aab
+          path: lexkite-*.aab
+          retention-days: 30
+
   # Chụp màn hình demo trên Android giả lập (KVM của máy chủ GitHub) – xem nhanh mỗi bản build
   screens:
     needs: apk

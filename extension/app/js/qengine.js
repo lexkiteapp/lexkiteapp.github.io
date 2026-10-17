@@ -58,7 +58,7 @@
     if (gr.type === 'mcq') return `<div class="lq-group">${head}${gr.items.map(it => `<div class="lq-item" data-item="${it.n}"><div><span class="qn">${it.n}</span> ${esc(it.q)}</div>
       <div class="lq-opts">${it.options.map((o, k) => `<label><input type="radio" name="q${it.n}" value="${k}"> <b>${L[k]}</b>${o === L[k] ? '' : ' ' + esc(o)}</label>`).join('')}</div><div class="lq-fb" hidden></div></div>`).join('')}</div>`;
     if (TF[gr.type]) return `<div class="lq-group">${head}${gr.items.map(it => `<div class="lq-item" data-item="${it.n}"><div><span class="qn">${it.n}</span> ${esc(it.text)}</div>
-      <div class="lq-tf">${TF[gr.type].map(v => `<label><input type="radio" name="q${it.n}" value="${v}"> ${v}</label>`).join('')}</div><div class="lq-fb" hidden></div></div>`).join('')}</div>`;
+      <div class="lq-tf">${TF[gr.type].map((v, k) => `<label><input type="radio" name="q${it.n}" value="${v}"> <b>${k + 1}</b> <span>${v}</span></label>`).join('')}</div><div class="lq-fb" hidden></div></div>`).join('')}</div>`;
     if (gr.type === 'match') {
       const box = gr.options.some(o => label(o)) ? `<div class="lq-box">${gr.options.map(o => `<div><b>${esc(code(o))}</b> ${esc(label(o))}</div>`).join('')}</div>` : '';
       return `<div class="lq-group">${head}${box}${gr.items.map(it => `<div class="lq-item lq-row" data-item="${it.n}"><span class="qn">${it.n}</span><span style="flex:1">${esc(it.text)}</span><select data-qn="${it.n}"><option value="">–</option>${gr.options.map(o => `<option>${esc(code(o))}</option>`).join('')}</select><div class="lq-fb" hidden></div></div>`).join('')}</div>`;

@@ -42,7 +42,9 @@
     return r.json();
   }
 
-  const supported = !Store.isExtension && !Store.sandbox && window.FIREBASE_CONFIG && location.protocol.startsWith('http');
+  // App gốc chưa có đăng nhập gốc (VBNative.signIn) → tắt đăng nhập/đồng bộ (không tải Firebase, không mời đăng nhập)
+  const nativeNoAuth = !!(window.VBNative && window.VBNative.is && !window.VBNative.signIn);
+  const supported = !Store.isExtension && !Store.sandbox && window.FIREBASE_CONFIG && location.protocol.startsWith('http') && !nativeNoAuth;
 
   function loadScript(src) {
     return new Promise((res, rej) => { const s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = rej; document.head.appendChild(s); });
@@ -56,6 +58,7 @@
       Sync.user = u; Sync.ready = true; App.state.user = u ? { uid: u.uid, displayName: u.displayName, email: u.email, photoURL: u.photoURL } : null;
       try { if (u) localStorage.setItem('lk.acct', JSON.stringify({ displayName: u.displayName || '', photoURL: u.photoURL || '' })); else localStorage.removeItem('lk.acct'); } catch (e) { /* bỏ qua */ }
       App.updateChrome(); render();
+      if (u && /[?&]delete=account\b/.test(location.hash)) Sync.deleteAccount();
       if (u) { await pullMerge(); if (extReady) extCall('linked', { email: u.email, name: u.displayName || '' }); }
       else nudgeLogin();
     });
@@ -181,6 +184,7 @@
   // Chuỗi ổn định (khóa sắp xếp) để so dữ liệu trước/sau khi gộp – thứ tự khóa khác nhau không tính là "đổi"
   const stable = v => JSON.stringify(v, (k, x) => x && typeof x === 'object' && !Array.isArray(x) ? Object.keys(x).sort().reduce((o, key) => (o[key] = x[key], o), {}) : x);
   async function pullMerge() {
+    if (Sync.deleting) return;
     setStatus('syncing');
     try {
       if (App.need) await App.need('words', 'tsl').catch(() => {});
@@ -238,7 +242,7 @@
   }
 
   async function push() {
-    if (!Sync.user || !db) return;
+    if (!Sync.user || !db || Sync.deleting) return;
     if (Date.now() < await Store.get('syncPausedUntil', 0)) return;
     setStatus('syncing');
     try {
@@ -287,10 +291,10 @@
   const flush = () => { if (Sync.user && dirty) { clearTimeout(timer); timer = null; push(); } };
   document.addEventListener('visibilitychange', () => { if (document.hidden) flush(); });
   window.addEventListener('pagehide', flush);
-  Sync.signIn = async () => {
+  Sync.signIn = async (via = 'google') => {
     // Trong app gốc, Google chặn đăng nhập trong WebView → dùng đăng nhập gốc khi đã cấu hình (VBNative.signIn), chưa có thì giải thích rõ
     if (window.VBNative && VBNative.is) {
-      if (VBNative.signIn) return VBNative.signIn();
+      if (VBNative.signIn) return VBNative.signIn(via);
       return UI.modal(`<h2>☁️ ${t('Đồng bộ tài khoản')}</h2><p>${t('Đăng nhập Google trong app sẽ có ở bản phát hành chính thức. Hiện tại dữ liệu học được lưu an toàn trên máy này; để đồng bộ giữa các thiết bị, hãy đăng nhập trên lexkite.com.')}</p>`);
     }
     if (!supported) { // add-on/bản xem trước: đăng nhập trên lexkite.com
@@ -299,11 +303,12 @@
     }
     try {
       await init();
-      const p = new firebase.auth.GoogleAuthProvider();
-      p.setCustomParameters({ prompt: 'select_account' });
+      const apple = via === 'apple' && appleOn();
+      const p = apple ? new firebase.auth.OAuthProvider('apple.com') : new firebase.auth.GoogleAuthProvider();
+      if (apple) { p.addScope('email'); p.addScope('name'); if (window.I18N) p.setCustomParameters({ locale: I18N.lang() }); } else p.setCustomParameters({ prompt: 'select_account' });
       await firebase.auth().signInWithPopup(p);
     } catch (e) {
-      if (e && e.code === 'auth/popup-blocked') return firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+      if (e && e.code === 'auth/popup-blocked') return firebase.auth().signInWithRedirect(via === 'apple' && appleOn() ? new firebase.auth.OAuthProvider('apple.com') : new firebase.auth.GoogleAuthProvider());
       if (e && e.code !== 'auth/popup-closed-by-user') toast(t('Không đăng nhập được: {msg}', { msg: e.message || e }));
     }
   };
@@ -316,12 +321,16 @@
       if (Sync.user) return;
       UI.modal(`<div style="text-align:center"><div style="font-size:2.6rem">☁️</div><h2 style="margin:.3rem 0">${t('Bảo vệ {n} thẻ bạn đã học', { n })}</h2>
         <p class="muted">${t('Dữ liệu đang chỉ nằm trên trình duyệt này. Đăng nhập Google để <b>sao lưu tự động</b> và <b>học tiếp trên máy khác, điện thoại, tiện ích Chrome</b> – cùng một tài khoản, không trùng lặp.')}</p>
-        <div class="row center" style="margin-top:1rem">${gBtn('nudgeIn')}<button class="btn ghost" data-close>${t('Để sau')}</button></div>
+        <div class="row center" style="margin-top:1rem">${gBtn('nudgeIn')}${aBtn()}<button class="btn ghost" data-close>${t('Để sau')}</button></div>
         <p class="tiny muted" style="margin-top:.6rem">${t('Miễn phí · chỉ lưu dữ liệu học của bạn · có thể đăng xuất bất cứ lúc nào')}</p></div>`);
     }, 4000);
   }
   Sync.signOut = async () => { await push(); sentHashes = {}; await firebase.auth().signOut(); if (extReady) extCall('linked', { email: '', name: '' }); toast(t('Đã đăng xuất – dữ liệu vẫn còn trên máy này')); };
   Sync.now = () => pullMerge();
+  // Xóa tài khoản: web/js/account-delete.js (tải lười), máy chủ functions/api/account.js
+  Sync.api = API;
+  Sync.deleteAccount = () => (window.AccountDelete ? Promise.resolve() : loadScript('js/account-delete.js')).then(() => AccountDelete.open());
+  Sync.afterDelete = async () => { sentHashes = {}; try { localStorage.removeItem('lk.league'); localStorage.removeItem('lk.acct'); } catch (e) { /* bỏ qua */ } try { await firebase.auth().signOut(); } catch (e) { /* tài khoản đã xóa */ } };
 
   function setStatus(s, msg) { Sync.status = s; Sync.msg = msg || ''; render(); if (window.Account) window.Account.refresh(); }
   // Thời gian tương đối theo ngôn ngữ giao diện ("vừa xong", "5 phút trước", "hôm qua") – Intl.RelativeTimeFormat
@@ -343,6 +352,10 @@
   // Nút "Đăng nhập với Google" theo hướng dẫn thương hiệu Google (nền trung tính, logo G 4 màu); short = thêm nhãn ngắn cho màn hình nhỏ
   const gBtn = (id, short) => `<button type="button" class="gsi"${id ? ` id="${id}"` : ''}${short ? ` aria-label="${t('Đăng nhập với Google')}"` : ''} data-acct="in">${GSVG}<span class="gsi-l">${t('Đăng nhập với Google')}</span>${short ? `<span class="gsi-s">${t('Đăng nhập')}</span>` : ''}</button>`;
   Sync.gBtn = gBtn;
+  // Sign in with Apple (App Store 4.8) – bật LK_AUTH.apple trong firebase-config.js (docs/STORE-READINESS.md)
+  const appleOn = () => !!(window.LK_AUTH && LK_AUTH.apple);
+  const aBtn = () => appleOn() ? `<button type="button" class="gsi" data-acct="apple" style="background:#000;color:#fff"><img src="icons/apple.svg" alt="" width="18" height="18"><span class="gsi-l">${t('Đăng nhập với Apple')}</span></button>` : '';
+  Sync.aBtn = aBtn;
   Sync.av = u => u.photoURL ? `<img src="${esc(u.photoURL)}" alt="" referrerpolicy="no-referrer">` : esc((u.displayName || u.email || '?')[0].toUpperCase());
   const remembered = () => { try { return JSON.parse(localStorage.getItem('lk.acct') || 'null'); } catch (e) { return null; } };
   Sync.chrome = () => {
@@ -367,7 +380,7 @@
   document.addEventListener('click', e => {
     const tg = /** @type {HTMLElement} */ (e.target), el = tg.closest && /** @type {HTMLElement} */ (tg.closest('[data-acct]')); if (!el) return;
     e.preventDefault(); const k = el.dataset.acct;
-    if (k === 'in') { if (el.closest('#modal')) UI.closeModal(); Sync.signIn(); } else if (k === 'sync') Sync.now(); else Sync.ui(k, el);
+    if (k === 'in') { if (el.closest('#modal')) UI.closeModal(); Sync.signIn(); } else if (k === 'sync') Sync.now(); else if (k === 'del') Sync.deleteAccount(); else if (k === 'apple') { if (el.closest('#modal')) UI.closeModal(); Sync.signIn('apple'); } else Sync.ui(k, el);
   });
   document.addEventListener('keydown', e => { const tg = /** @type {HTMLElement} */ (e.target); if (e.key === ' ' && tg.matches && tg.matches('a[data-acct]')) { e.preventDefault(); tg.click(); } });
 
@@ -393,6 +406,7 @@
         <div class="acct-id"><b class="acct-name" title="${esc(name)}">${esc(Sync.nice(name))}</b>${mail ? `<span class="acct-mail" dir="ltr" title="${esc(mail)}">${esc(mail)}</span>` : ''}</div>
         <p class="acct-st" role="status" aria-live="polite"${k === 'ok' && exact ? ` title="${esc(exact)}"` : ''}>${st || t('Dữ liệu học được tự động sao lưu và đồng bộ giữa các thiết bị.')}</p>
         <div class="acct-act"><button type="button" class="btn sm" data-acct="sync"${k === 'syncing' || k === 'offline' ? ' disabled' : ''}${k === 'syncing' ? ' aria-busy="true"' : ''}><span aria-hidden="true">🔄</span> ${k === 'error' ? t('Thử lại') : t('Đồng bộ ngay')}</button><button type="button" class="btn sm ghost danger" data-acct="out"><span aria-hidden="true">↪</span> ${t('Đăng xuất')}</button></div>
+        <p class="acct-del small"><button type="button" data-acct="del">${t('Xóa tài khoản')}</button></p>
       </div>`;
       if (k === 'ok' && !Sync.msg) agoT = setTimeout(render, 60e3); // "5 phút trước" tự cập nhật khi thẻ còn trên màn hình
     } else {
@@ -400,7 +414,7 @@
         <span class="acct-av acct-ic" aria-hidden="true">☁️</span>
         <div class="acct-id"><h2 class="acct-t">${t('Đăng nhập để không mất dữ liệu')}</h2><span class="small muted">${t('Sao lưu flashcard, XP, chuỗi ngày học và học tiếp trên mọi thiết bị.')}</span></div>
         ${st ? `<p class="acct-st" role="status">${st}</p>` : ''}
-        <div class="acct-act">${gBtn('signIn')}</div>
+        <div class="acct-act">${gBtn('signIn')}${aBtn()}</div>
       </div>`;
     }
   }

@@ -35,6 +35,8 @@
         id: 1,
         ...(g.App && g.App.kitNudge ? g.App.kitNudge() : { title: tt('Lexkite – đến giờ học rồi!', 'Lexkite – time to study!') + ' 📚', body: tt('Học vài từ mới để giữ chuỗi ngày học nhé', 'Review a few cards to keep your streak') + ' 🔥' }),
         schedule: { on: { hour: hh || 20, minute: mm || 0 }, repeats: true, allowWhileIdle: true },
+        // Android 12+: báo thức chính xác cần quyền đặc biệt → plugin mở màn Cài đặt mỗi lần lên lịch. Nhắc học không cần chính xác đến giây.
+        isExactNotification: false,
         extra: { route: '#/review' },
       }] });
     } catch (e) { /* thiết bị không hỗ trợ */ }

@@ -209,7 +209,8 @@
    "match": [
     "securetoken.google.com",
     "www.googleapis.com",
-    "www.gstatic.com"
+    "www.gstatic.com",
+    "identitytoolkit.googleapis.com"
    ]
   },
   {

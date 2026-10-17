@@ -21319,5 +21319,50 @@
     "ar": "احفظ الكلمات عند البحث عنها أو أثناء اتباع مسار التعلّم – سيذكّرك Lexkite بمراجعتها قبل أن تنساها مباشرة.",
     "ru": "Сохраняйте слова при поиске или на учебном маршруте – Lexkite напомнит повторить их прямо перед тем, как они забудутся.",
     "tr": "Kelimeleri ararken ya da öğrenme yolunu izlerken kaydet – Lexkite unutmadan hemen önce tekrar etmeni hatırlatır."
+  },
+  "Xóa tài khoản": {
+    "es": "Eliminar cuenta",
+    "pt": "Excluir conta",
+    "fr": "Supprimer le compte",
+    "de": "Konto löschen",
+    "id": "Hapus akun",
+    "th": "ลบบัญชี",
+    "zh": "删除账号",
+    "ja": "アカウントを削除",
+    "ko": "계정 삭제",
+    "hi": "खाता हटाएँ",
+    "ar": "حذف الحساب",
+    "ru": "Удалить аккаунт",
+    "tr": "Hesabı sil"
+  },
+  "Xóa vĩnh viễn": {
+    "es": "Eliminar definitivamente",
+    "pt": "Excluir definitivamente",
+    "fr": "Supprimer définitivement",
+    "de": "Endgültig löschen",
+    "id": "Hapus permanen",
+    "th": "ลบถาวร",
+    "zh": "永久删除",
+    "ja": "完全に削除",
+    "ko": "영구 삭제",
+    "hi": "स्थायी रूप से हटाएँ",
+    "ar": "حذف نهائي",
+    "ru": "Удалить навсегда",
+    "tr": "Kalıcı olarak sil"
+  },
+  "Đăng nhập với Apple": {
+    "es": "Iniciar sesión con Apple",
+    "pt": "Iniciar sessão com a Apple",
+    "fr": "Se connecter avec Apple",
+    "de": "Mit Apple anmelden",
+    "id": "Masuk dengan Apple",
+    "th": "ลงชื่อเข้าด้วย Apple",
+    "zh": "通过 Apple 登录",
+    "ja": "Appleでサインイン",
+    "ko": "Apple로 로그인",
+    "hi": "Apple से साइन इन करें",
+    "ar": "تسجيل الدخول باستخدام Apple",
+    "ru": "Вход с Apple",
+    "tr": "Apple ile Giriş Yap"
   }
 }

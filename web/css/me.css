@@ -162,6 +162,8 @@
 .acct-act .btn.danger { border-color: color-mix(in srgb, var(--again-text) 35%, var(--line)); }
 .acct-act .btn.danger:hover { background: var(--again-soft); }
 .acct-act .gsi { flex: 1 1 auto; min-height: 44px; }
+.acct-del { grid-column: 1 / -1; margin: 0; text-align: end; }
+.acct-del button { background: none; border: 0; padding: .5rem 0; min-height: 44px; font: inherit; color: var(--again-text); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .acct-card[data-st="syncing"] [data-acct="sync"] span { display: inline-block; animation: acctspin 1s linear infinite; }
 @keyframes acctspin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .acct-card [data-acct="sync"] span { animation: none; } }

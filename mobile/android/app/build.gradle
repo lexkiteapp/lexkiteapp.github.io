@@ -8,8 +8,10 @@ android {
         applicationId "com.lexkite.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        // Số phiên bản: CI đặt LEXKITE_VERSION_CODE = số lần chạy workflow (luôn tăng – Play từ chối versionCode trùng/nhỏ hơn)
+        // và LEXKITE_VERSION_NAME theo mobile/package.json. Build tay không có biến → 1 / "1.0.0".
+        versionCode((System.getenv("LEXKITE_VERSION_CODE") ?: "1") as Integer)
+        versionName(System.getenv("LEXKITE_VERSION_NAME") ?: "1.0.0")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
@@ -17,8 +19,22 @@ android {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    // Ký bản phát hành (AAB lên Google Play) bằng upload key – chỉ lấy từ biến môi trường do CI giải mã từ GitHub Secrets
+    // (ANDROID_KEYSTORE_BASE64 → file tạm, ANDROID_KEYSTORE_PASSWORD, ANDROID_KEY_ALIAS, ANDROID_KEY_PASSWORD). Không có → bản release không ký.
+    def ks = System.getenv("LEXKITE_KEYSTORE_FILE")
+    signingConfigs {
+        if (ks && file(ks).exists()) {
+            upload {
+                storeFile file(ks)
+                storePassword System.getenv("LEXKITE_KEYSTORE_PASSWORD")
+                keyAlias System.getenv("LEXKITE_KEY_ALIAS")
+                keyPassword System.getenv("LEXKITE_KEY_PASSWORD")
+            }
+        }
+    }
     buildTypes {
         release {
+            if (ks && file(ks).exists()) signingConfig signingConfigs.upload
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

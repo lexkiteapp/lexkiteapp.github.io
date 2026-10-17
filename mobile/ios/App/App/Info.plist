@@ -3,7 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Lexkite dùng micro để luyện phát âm và Speaking – âm thanh được xử lý ngay trên máy.</string>
+	<string>Lexkite uses the microphone only when you tap the mic button to practise pronunciation and IELTS Speaking. Audio is not stored on our servers.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Lexkite turns your speech into text so it can check your pronunciation and Speaking answers. This happens only while you are practising.</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
   <key>CAPACITOR_DEBUG</key>
 	<string>$(CAPACITOR_DEBUG)</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -51,7 +55,7 @@
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
-		<string>armv7</string>
+		<string>arm64</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>

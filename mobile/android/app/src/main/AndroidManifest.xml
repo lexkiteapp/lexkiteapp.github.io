@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -51,8 +52,12 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <!-- Học rảnh tay: phát âm thanh khi tắt màn hình -->
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <!-- Học rảnh tay phát âm thanh bằng <audio> + MediaSession trong WebView – KHÔNG có foreground service gốc.
+         Không khai báo FOREGROUND_SERVICE(_MEDIA_PLAYBACK): Google Play bắt khai báo + video minh họa cho mọi quyền FGS.
+         Nếu sau này thêm service phát nền gốc: thêm lại 2 quyền + <service android:foregroundServiceType="mediaPlayback"> + khai báo trên Play Console. -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- Nhắc học hằng ngày không cần báo thức chính xác (lịch lặp không chính xác, native.js isExactNotification:false).
+         Gỡ quyền SCHEDULE_EXACT_ALARM mà plugin @capacitor/local-notifications tự thêm: tránh bị chuyển tới màn "Báo thức & lời nhắc"
+         và tránh câu hỏi chính sách "exact alarm" trên Google Play. POST_NOTIFICATIONS (Android 13+) do plugin khai báo, app hỏi khi người dùng bật nhắc. -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" tools:node="remove" />
 </manifest>

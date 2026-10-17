@@ -21,6 +21,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      # App Store Connect (từ 28/04/2026) chỉ nhận bản build bằng Xcode 26+ / iOS 26 SDK → build kiểm tra bằng đúng Xcode đó
+      - name: Chọn Xcode 26 (mới nhất có trên máy chủ)
+        run: |
+          X=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          if [ -n "$X" ]; then sudo xcode-select -s "$X/Contents/Developer"; else echo "::warning::Máy chủ chưa có Xcode 26 – bản này KHÔNG nộp App Store được (đổi runs-on: macos-26)"; fi
+          xcodebuild -version
       - name: Build web → mobile/www → cap sync
         run: |
           npm ci --prefix mobile --no-audit --no-fund

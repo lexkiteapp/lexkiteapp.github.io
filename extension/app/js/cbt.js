@@ -59,7 +59,7 @@
         <p class="small muted">${list.some(x => x.q.type === 'tfng') ? t('Các câu True/False/Not Given: chọn TRUE nếu khớp thông tin, FALSE nếu trái ngược, NOT GIVEN nếu bài không đề cập.') : ''}</p>
         ${list.map(({ q, i }) => `<div class="cbt-q ${i === cur ? 'cur' : ''}" id="q${i}">
           <div class="row between"><b>${i + 1}. ${esc(q.q)}</b><label class="tiny" style="white-space:nowrap"><input type="checkbox" data-flag="${i}" ${flag[i] ? 'checked' : ''}> 🚩 ${t('Xem lại')}</label></div>
-          <div class="cbt-opts">${(q.type === 'tfng' ? ['TRUE', 'FALSE', 'NOT GIVEN'] : q.options).map((o, k) => { const v = q.type === 'tfng' ? o : String(k); return `<label class="cbt-opt ${ans[i] === v ? 'sel' : ''}"><input type="radio" name="q${i}" value="${esc(v)}" ${ans[i] === v ? 'checked' : ''}> ${q.type === 'mcq' ? String.fromCharCode(65 + k) + '. ' : ''}${esc(o)}</label>`; }).join('')}</div></div>`).join('')}`;
+          <div class="cbt-opts">${(q.type === 'tfng' ? ['TRUE', 'FALSE', 'NOT GIVEN'] : q.options).map((o, k) => { const v = q.type === 'tfng' ? o : String(k); return `<label class="cbt-opt ${ans[i] === v ? 'sel' : ''}"><input type="radio" name="q${i}" value="${esc(v)}" ${ans[i] === v ? 'checked' : ''}> <b class="cbt-key">${q.type === 'mcq' ? String.fromCharCode(65 + k) : (k + 1)}</b> <span class="cbt-txt">${esc(o)}</span></label>`; }).join('')}</div></div>`).join('')}`;
       $$('#qs input[type=radio]').forEach(inp => inp.onchange = () => { const i = +inp.name.slice(1); ans[i] = inp.value; cur = i; drawQs(); drawNav(); });
       $$('[data-flag]').forEach(c => c.onchange = () => { flag[+c.dataset.flag] = c.checked; drawNav(); });
     };

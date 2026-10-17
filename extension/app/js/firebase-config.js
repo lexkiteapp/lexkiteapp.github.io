@@ -7,3 +7,4 @@ self.FIREBASE_CONFIG = {
   messagingSenderId: '616952943069',
   appId: '1:616952943069:web:ef7e4739914d523802a634',
 };
+self.LK_AUTH = { apple: false }; // Sign in with Apple: chỉ bật khi đã cấu hình Apple trong Firebase (docs/STORE-READINESS.md)
