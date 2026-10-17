@@ -39,7 +39,7 @@ for (const [bn, bt] of Object.entries({ chromium, webkit, firefox })) {
     const tag = `${bn}/${vn}`;
     page.on('pageerror', e => { const m = String(e.message); if (/access control checks/.test(m) && !/lexkite\.com/.test(m)) return; fails.push(`${tag}: lỗi JS ${m.slice(0, 140)}`); }); // WebKit báo CORS của dịch vụ ngoài (app đã bắt lỗi) như lỗi trang
     await page.goto(BASE + '?sandbox=1&hl=vi#/welcome/setup', { waitUntil: 'networkidle' }).catch(() => {});
-    const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(2000); await page.waitForFunction(() => !document.querySelector('body>canvas'), null, { timeout: 8000 }).catch(() => {}); } // chờ pháo giấy mừng cài đặt rơi xong
+    const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(2000); await page.waitForFunction(() => !document.querySelector('body>canvas') && !document.querySelector('#toast.show'), null, { timeout: 8000 }).catch(() => {}); await page.evaluate(() => document.activeElement && document.activeElement.blur && document.activeElement.blur()); } // chờ pháo giấy mừng cài đặt rơi xong
     for (const r of ROUTES) {
       await page.evaluate(h => { location.hash = h; }, '#/' + r); await page.waitForTimeout(500);
       await page.evaluate(() => scrollBy(0, 2500)); await page.waitForTimeout(300); // cuộn xuống giữa/cuối trang rồi mới đi tiếp (đúng tình huống lỗi)
