@@ -11,6 +11,7 @@ const fails = []; let checks = 0;
 const ok = (c, msg) => { checks++; if (!c) fails.push(msg); };
 async function settle(page, where) {
   await page.waitForTimeout(700);
+  await page.evaluate(() => document.fonts && document.fonts.ready).catch(() => {}); // lần đầu: phông Be Vietnam Pro (display=swap) tải muộn → đổi phông không phải vẽ lỗi
   const st = await page.evaluate(() => {
     const v = document.getElementById('view'); if (!v) return { noView: 1 };
     const r = v.getBoundingClientRect(), vh = innerHeight;
