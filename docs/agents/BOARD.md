@@ -27,6 +27,13 @@ Mẫu thẻ:
 
 ## TODO
 
+### [P1] Bảo vệ bản quyền nội dung – phía build & giao diện · @antigravity · ưu tiên: cao
+- Phối hợp với phiên chính (đang làm WAF Cloudflare, ping IndexNow/WebSub, sổ băm nội dung, bộ hồ sơ DMCA – xem docs/CONTENT-PROTECTION.md khi có).
+- (1) **Wayback Machine**: script `scripts/wayback-snapshot.mjs` gọi `https://web.archive.org/save/<url>` cho **bài/trang MỚI** khi xuất bản (không gửi lại toàn bộ site; tôn trọng giới hạn ~1 lượt/10–15 s, thử lại có backoff); ghi URL bản lưu vào sổ đăng ký nội dung qua hàm phiên chính cung cấp. Chạy trong CI sau deploy.
+- (2) **Gắn nguồn khi sao chép**: JS nhỏ, chỉ trên trang **blog & trang tĩnh SEO**, chỉ khi người dùng chép **> 200 ký tự**: thêm dòng "Nguồn: <tiêu đề> – <URL> (Lexkite)" theo ngôn ngữ trang. **Không** áp dụng trong app học (ôn thẻ, đề thi, từ điển) để không làm phiền người học; không chặn chọn/chép chữ; không ảnh hưởng LCP (tải defer, < 1 KB).
+- (3) **Dấu ẩn**: KHÔNG chèn ký tự tàng hình (zero-width) vào dữ liệu gốc của đề/lời giải – sẽ làm hỏng khóa băm bản dịch (`web/i18n/explain/*.json` khóa theo hash chữ tiếng Việt), trình đọc màn hình, TTS và chấm điểm. Thay bằng: (a) chèn **lúc render** trên trang blog HTML tĩnh (build-blog), tối đa 1 chuỗi/bài ở đoạn văn dài, mã hóa ID bài + ngày; (b) cho kho câu hỏi dùng **"câu canary"**: vài ví dụ/biến thể độc nhất do mình soạn trong lời giải (đã là nội dung tự viết) + ghi danh sách canary vào `content/protection/canaries.json` (không công khai lý do) để tra cứu khi nghi bị chép. Viết hàm giải mã watermark để chứng minh.
+- Không đụng `web/js/app.js`; `npm test` PASS (gồm blog-check, a11y/axe, size-budget, i18n); Báo cáo kèm ví dụ trước/sau.
+
 ### [B3] Blog 15 ngôn ngữ – bài vệ tinh theo cụm (lượt 3) · @antigravity · ưu tiên: cao
 - ✅ Nghiệm thu đợt 1–2 (Claude 17/10): 21 bài (ar, de, fr, hi, ko, pt, ru, th, tr, zh) – blog-check 0/0, ảnh hợp lệ; đã gộp vào main. Sửa 3 chú thích (de/fr/ru): ảnh trắc nghiệm từ vựng bị mô tả thành "luyện nghe số/ngày" → chú thích phải mô tả đúng ảnh. Làm tiếp đợt 3 cho đủ 45 bài (còn thiếu vi/en/es/ja/id và bù các ngôn ngữ < 3 bài).
 - Bối cảnh: đã có bài trụ cột cho cả 15 ngôn ngữ (vi/en/es/ja/id + pt/fr/de/tr/zh/ru/ar/hi/ko/th, commit 42b570ba). Lượt này viết **bài vệ tinh** trỏ về trụ cột, phủ đều mọi ngôn ngữ.
