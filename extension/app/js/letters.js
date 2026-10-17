@@ -4,26 +4,26 @@
   const { $, $$, esc, toast } = UI;
   const App = window.App, { routes } = App, view = App.view, Store = Core.Store;
   const L = () => window.GT_LETTERS || [];
-  const TONE = { formal: t('Trang trọng'), 'semi-formal': t('Bán trang trọng'), informal: t('Thân mật') };
-  const TONE_TIP = {
+  const TONE = () => ({ formal: t('Trang trọng'), 'semi-formal': t('Bán trang trọng'), informal: t('Thân mật') });
+  const TONE_TIP = () => ({
     formal: t('Không biết tên người nhận: Dear Sir or Madam → Yours faithfully. Biết tên: Dear Mr/Ms + họ → Yours sincerely. Không viết tắt, không dùng từ lóng.'),
     'semi-formal': t('Người quen nhưng không thân (hàng xóm, chủ nhà, đồng nghiệp): Dear Mr/Ms + họ → Kind regards / Best regards. Lịch sự nhưng tự nhiên.'),
     informal: t('Bạn bè, người thân: Dear/Hi + tên → Best wishes / Love / See you soon. Được dùng viết tắt (I\'m, can\'t) và câu cảm thán.'),
-  };
+  });
   const wc = s => (s.trim().match(/[A-Za-z0-9'’-]+/g) || []).length;
   const tab = (k, label, cur, n) => `<a class="${k === cur ? 'on' : ''}" href="#/letters?tone=${k}" style="padding:.45rem .8rem;border-radius:10px;font-weight:700;text-decoration:none;color:inherit;${k === cur ? 'background:var(--surface);box-shadow:var(--shadow-sm)' : ''}">${label} <span class="tiny muted">${n}</span></a>`;
 
   routes.letters = async function (arg, query) {
     if (arg) return practice(arg);
     let tone = (query && query.get && query.get('tone')) || 'all';
-    if (tone !== 'all' && !TONE[tone]) tone = 'all';
+    if (tone !== 'all' && !TONE()[tone]) tone = 'all';
     const list = L().filter(x => tone === 'all' || x.tone === tone), drafts = await Store.get('letterDrafts', {});
     view.innerHTML = `
       <div class="page-head"><div><h1>✉️ ${t('Viết thư – IELTS General Task 1')}</h1><p class="muted">${t('Viết thư ít nhất 150 từ trong 20 phút. Chọn đề theo giọng văn, viết có đếm từ, tự kiểm lời chào – kết thư và xem bài mẫu band 8 có chú thích.')}</p></div></div>
-      <div class="tabs" style="display:inline-flex;flex-wrap:wrap;margin-bottom:1rem">${tab('all', t('Tất cả'), tone, L().length)}${Object.keys(TONE).map(k => tab(k, TONE[k], tone, L().filter(x => x.tone === k).length)).join('')}</div>
-      ${tone !== 'all' ? `<div class="tip small" style="margin-bottom:1rem">💡 ${TONE_TIP[tone]}</div>` : ''}
+      <div class="tabs" style="display:inline-flex;flex-wrap:wrap;margin-bottom:1rem">${tab('all', t('Tất cả'), tone, L().length)}${Object.keys(TONE()).map(k => tab(k, TONE()[k], tone, L().filter(x => x.tone === k).length)).join('')}</div>
+      ${tone !== 'all' ? `<div class="tip small" style="margin-bottom:1rem">💡 ${TONE_TIP()[tone]}</div>` : ''}
       <div class="grid auto">${list.map(x => `<div class="card">
-        <div class="row between"><span class="chip">${TONE[x.tone] || ''}</span>${drafts[x.id] && drafts[x.id].trim() ? `<span class="chip ok">✍️ ${t('{n} từ', { n: wc(drafts[x.id]) })}</span>` : ''}</div>
+        <div class="row between"><span class="chip">${TONE()[x.tone] || ''}</span>${drafts[x.id] && drafts[x.id].trim() ? `<span class="chip ok">✍️ ${t('{n} từ', { n: wc(drafts[x.id]) })}</span>` : ''}</div>
         <h3 style="margin:.5rem 0 .2rem">${esc(x.titleVi || x.topic)}</h3><div class="small muted">${esc(x.situation.length > 140 ? x.situation.slice(0, 137) + '…' : x.situation)}</div>
         <div class="row" style="margin-top:.7rem"><a class="btn sm primary" href="#/letters/${x.id}">✍️ ${t('Luyện viết')}</a><a class="btn sm" href="#/model/gt-${x.id}">📄 ${t('Bài mẫu')}</a></div></div>`).join('') || `<div class="card muted">${t('Đang cập nhật.')}</div>`}</div>`;
   };
@@ -35,12 +35,12 @@
     view.innerHTML = `
       <a href="#/letters?tone=${x.tone}" class="small">← ${t('Tất cả đề viết thư')}</a>
       <div class="card" style="margin-top:.6rem">
-        <div class="row between"><span class="chip lv">${TONE[x.tone] || ''}</span><span class="chip">IELTS General · Task 1</span></div>
+        <div class="row between"><span class="chip lv">${TONE()[x.tone] || ''}</span><span class="chip">IELTS General · Task 1</span></div>
         <p style="font-weight:600;margin:.8rem 0 .4rem">${esc(x.situation)}</p>
         <p class="small" style="margin:.2rem 0">Write a letter to ${esc(x.to || 'the person')}. In your letter:</p>
         <ul style="margin:.2rem 0 .6rem;padding-left:1.2rem">${x.bullets.map(b => `<li>${esc(b)}</li>`).join('')}</ul>
         <p class="small muted" style="margin:0">Write at least 150 words. You do NOT need to write any addresses. Begin your letter as follows: <b>${esc(x.open)}</b></p>
-        <details style="margin-top:.6rem"><summary class="small"><b>💡 ${t('Giọng văn & lời chào – kết thư')}</b></summary><p class="small" style="margin:.4rem 0 0">${TONE_TIP[x.tone] || ''}</p></details>
+        <details style="margin-top:.6rem"><summary class="small"><b>💡 ${t('Giọng văn & lời chào – kết thư')}</b></summary><p class="small" style="margin:.4rem 0 0">${TONE_TIP()[x.tone] || ''}</p></details>
       </div>
       <div class="card">
         <textarea class="input" id="lt" rows="14" style="font-size:1rem;line-height:1.7" placeholder="${esc(x.open)}">${esc(drafts[id] || '')}</textarea>

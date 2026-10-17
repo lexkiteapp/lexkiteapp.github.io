@@ -116,7 +116,22 @@
       ],
       "auto": true,
       "qa": 91,
-      "ready": true
+      "ready": true,
+      "maskText": [
+        [
+          240,
+          668,
+          804,
+          860
+        ]
+      ],
+      "counter": {
+        "x0": 184,
+        "x1": 840,
+        "top": 1036,
+        "base": 1224,
+        "standY": 1190
+      }
     },
     {
       "id": "school-01-day",
@@ -406,7 +421,22 @@
       ],
       "auto": true,
       "qa": 91,
-      "ready": true
+      "ready": true,
+      "maskText": [
+        [
+          326,
+          664,
+          802,
+          920
+        ]
+      ],
+      "counter": {
+        "x0": 190,
+        "x1": 890,
+        "top": 1036,
+        "base": 1274,
+        "standY": 1240
+      }
     },
     {
       "id": "office-02-day",

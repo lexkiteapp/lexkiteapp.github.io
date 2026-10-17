@@ -82,9 +82,29 @@ const Confetti = ({ p, W, H, n = 60, seed = 'c', cx = 0.5, cy = 0.45 }) => (
 );
 
 // ---------- Cảnh ----------
-const Actor = ({ a, rim, t0 }) => {
-  const k = a.h / (a.figH || a.ah || 1), w = (a.aw || 600) * k, h = (a.ah || 900) * k, fx = a.flip ? (a.aw - a.foot[0]) : a.foot[0];
-  const left = a.x - fx * k, top = a.y - a.foot[1] * k, dir = a.light || -1;
+// Khớp ánh sáng nhân vật ↔ phòng (round 2): cân trắng về màu trung bình của phòng (tint) + đèn chính ấm từ phía cửa sổ (light.dir:
+// 1 = phải, −1 = trái) bằng feDiffuseLighting + fePointLight (sáng dần về phía cửa sổ, tối nhẹ phía kia) + viền sáng (rim) phía cửa sổ.
+const ActorLight = ({ id, fx, w, h }) => {
+  const t = (fx && fx.tint) || [200, 190, 175], dir = (fx && fx.light && fx.light.dir) || -1, warm = (fx && fx.light && fx.light.warmth) || 0.1;
+  const L = (t[0] + t[1] + t[2]) / 3 || 1, k = c => (1 + 0.22 * (c / L - 1)).toFixed(3), a = c => (0.035 * c / 255).toFixed(3);
+  const key = `rgb(255,${Math.round(236 - 40 * warm)},${Math.round(205 - 70 * warm)})`;
+  return (
+    <svg width="0" height="0" style={{ position: 'absolute' }}>
+      <filter id={id} x="-2%" y="-2%" width="104%" height="104%" colorInterpolationFilters="sRGB">
+        <feColorMatrix in="SourceGraphic" type="matrix" values={`${k(t[0])} 0 0 0 ${a(t[0])}  0 ${k(t[1])} 0 0 ${a(t[1])}  0 0 ${k(t[2])} 0 ${a(t[2])}  0 0 0 1 0`} result="wb" />
+        <feDiffuseLighting in="SourceAlpha" surfaceScale="0" diffuseConstant="0.78" lightingColor={key} result="lit">
+          <fePointLight x={dir > 0 ? w * 1.25 : -w * 0.25} y={h * 0.15} z={w * 0.95} />
+        </feDiffuseLighting>
+        <feComposite in="lit" in2="SourceAlpha" operator="in" result="litIn" />
+        <feBlend in="litIn" in2="wb" mode="soft-light" result="keyed" />
+        <feComposite in="keyed" in2="SourceAlpha" operator="in" />
+      </filter>
+    </svg>
+  );
+};
+const Actor = ({ a, rim, t0, fx, uid }) => {
+  const k = a.h / (a.figH || a.ah || 1), w = (a.aw || 600) * k, h = (a.ah || 900) * k, fx0 = a.flip ? (a.aw - a.foot[0]) : a.foot[0];
+  const left = a.x - fx0 * k, top = a.y - a.foot[1] * k, dir = (fx && fx.light && fx.light.dir) || a.light || -1;
   const media = a.kind === 'video'
     ? <Loop durationInFrames={Math.max(1, Math.round((a.dur || 5) * 30))}><OffthreadVideo src={src(a.src)} transparent muted style={{ width: '100%', height: '100%' }} /></Loop>
     : <Img src={src(a.src)} style={{ width: '100%', height: '100%' }} />;
@@ -92,7 +112,10 @@ const Actor = ({ a, rim, t0 }) => {
   return (
     <>
       <div style={{ position: 'absolute', left: a.x - ew / 2 - dir * a.h * 0.05, top: a.y - a.h * 0.03, width: ew, height: a.h * 0.06, borderRadius: '50%', background: 'radial-gradient(closest-side, rgba(20,16,14,.58), rgba(20,16,14,0))', filter: 'blur(5px)' }} />
-      <div style={{ position: 'absolute', left, top, width: w, height: h, transform: a.flip ? 'scaleX(-1)' : undefined, filter: `drop-shadow(${-dir * 5}px -2px 4px ${rim}88) drop-shadow(0 0 14px rgba(255,247,234,.28))` }}>{media}</div>
+      <ActorLight id={uid} fx={fx} w={w} h={h} />
+      <div style={{ position: 'absolute', left, top, width: w, height: h, filter: `drop-shadow(${dir * 4}px -2px 3px ${rim}99) drop-shadow(0 0 10px rgba(255,247,234,.18))` }}>
+        <div style={{ width: '100%', height: '100%', transform: a.flip ? 'scaleX(-1)' : undefined, filter: `url(#${uid})` }}>{media}</div>
+      </div>
     </>
   );
 };
@@ -107,7 +130,19 @@ const Studio = ({ colors, t }) => {
     </AbsoluteFill>
   );
 };
+// Máy kiểu phim: shot.cam (motion.shotCamera) = vùng cắt từ canvas, đẩy máy chậm from → to; punch/rung/nghiêng nhân quanh tâm khung.
+function filmCamera(shot, t, W, H, interrupts) {
+  const len = Math.max(0.1, shot.end - shot.start), u = clamp01((t - shot.start) / len), e = u * u * (3 - 2 * u), A = shot.cam.from, B = shot.cam.to;
+  const z = A.z + (B.z - A.z) * e, cx = A.cx + (B.cx - A.cx) * e, cy = A.cy + (B.cy - A.cy) * e;
+  let m = 1, rot = 0, sx = 0, sy = 0;
+  if (shot.punch) { const d = t - shot.start; if (d >= 0 && d < 0.6) m *= 1 + 0.08 * Math.exp(-d * 7) * (d < 0.05 ? d / 0.05 : 1); }
+  for (const it of interrupts) { const d = t - it.t; if (d >= 0 && d < 0.5) { if (it.kind === 'punch') m *= 1 + 0.05 * Math.exp(-d * 8); if (it.kind === 'tilt') rot += 1.6 * Math.exp(-d * 6) * (it.side === 'left' ? -1 : 1); } }
+  if (shot.shake) { const d = t - shot.start; if (d >= 0 && d < 0.45) { const a = 10 * (1 - d / 0.45); sx = (random(`sx${Math.round(d * 30)}`) - 0.5) * 2 * a; sy = (random(`sy${Math.round(d * 30)}`) - 0.5) * 2 * a; } }
+  const Z = z * m;
+  return { transform: `translate(${W / 2 + sx}px, ${H / 2 + sy}px) rotate(${rot}deg) scale(${Z}) translate(${-cx}px, ${-cy}px)`, transformOrigin: '0 0', center: [W / 2, H / 2] };
+}
 function camera(shot, t, W, H, interrupts) {
+  if (shot.cam) return filmCamera(shot, t, W, H, interrupts);
   const sp = (shot.actors || []).find(a => a.role === 'speaker') || (shot.actors || [])[0];
   const ax = sp ? sp.x : W / 2, ay = sp ? sp.y - sp.h * 0.62 : H * 0.45, top = sp ? sp.y - sp.h * 1.04 : 0;
   const zMax = sp ? Math.max(1, Math.min(1.35, (ay - 250) / Math.max(1, ay - top))) : 1.3; // khung cận vẫn giữ đủ đầu (đỉnh đầu ≥ 250 px)
@@ -134,8 +169,13 @@ const ShotLayer = ({ shot, t, W, H, inCut, outCut, theme, interrupts, cardEnd })
   const stage = (
     <AbsoluteFill style={{ transform: cam.transform, transformOrigin: cam.transformOrigin }}>
       {shot.room ? <Img src={src(shot.room)} style={{ position: 'absolute', width: W, height: H, objectFit: 'cover', filter: `blur(${g.blur}px)`, transform: 'scale(1.03)' }} /> : <Studio colors={theme.colors} t={t} />}
-      {(shot.actors || []).map((a, i) => <Actor key={i} a={a} rim={g.rim} />)}
-      {shot.kit ? <Img src={src(shot.kit)} style={{ position: 'absolute', width: 320, height: 320, left: W - 460, top: 250 + 14 * Math.sin(t * 4), filter: 'drop-shadow(0 24px 30px rgba(0,0,0,.35))' }} /> : null}
+      {shot.room ? ((shot.roomFx && shot.roomFx.maskText) || []).map((r, i) => <RoomPatch key={'m' + i} srcImg={shot.room} r={r} W={W} H={H} blur={14} />) : null}
+      {(shot.actors || []).map((a, i) => (
+        <React.Fragment key={i}>
+          <Actor a={a} rim={g.rim} fx={shot.roomFx} uid={`al-${shot.k}-${i}`} />
+          {a.behind === 'counter' && shot.roomFx && shot.roomFx.counter ? <RoomPatch srcImg={shot.room} r={[shot.roomFx.counter.x0, shot.roomFx.counter.top, shot.roomFx.counter.x1, shot.roomFx.counter.base]} W={W} H={H} blur={g.blur} /> : null}
+        </React.Fragment>
+      ))}
     </AbsoluteFill>
   );
   return (
@@ -146,6 +186,22 @@ const ShotLayer = ({ shot, t, W, H, inCut, outCut, theme, interrupts, cardEnd })
     </AbsoluteFill>
   );
 };
+
+// Mảnh phòng đặt lại đúng chỗ (cùng biến đổi với nền): làm mờ chữ bảng phấn (maskText) / che chân nhân viên sau quầy (counter)
+const RoomPatch = ({ srcImg, r, W, H, blur }) => {
+  const d = (v, c) => c + (v - c) * 1.03, x0 = d(r[0], W / 2), y0 = d(r[1], H / 2), x1 = d(r[2], W / 2), y1 = d(r[3], H / 2); // toạ độ ảnh phòng → khung (nền phóng 1,03 quanh tâm)
+  return (
+    <div style={{ position: 'absolute', inset: 0, clipPath: `inset(${y0}px ${W - x1}px ${H - y1}px ${x0}px round ${blur > 6 ? 16 : 0}px)` }}>
+      <Img src={src(srcImg)} style={{ position: 'absolute', width: W, height: H, objectFit: 'cover', transform: 'scale(1.03)', filter: `blur(${blur}px)` }} />
+    </div>
+  );
+};
+// Kit (linh vật) – lớp riêng: bật lò xo sau khi chuyển cảnh vào xong, thu nhỏ trước chuyển cảnh ra (không mờ theo cảnh)
+const KitLayer = ({ kits, t, fps, W }) => kits.map((k, i) => {
+  if (t < k.start || t > k.end) return null;
+  const s = spring({ frame: (t - k.start) * fps, fps, config: { damping: 11, stiffness: 180 } }), o = clamp01((k.end - t) / 0.2);
+  return <Img key={i} src={src(k.src)} style={{ position: 'absolute', width: 320, height: 320, left: W - 470, top: 250 + 12 * Math.sin(t * 4), transform: `scale(${s * (0.6 + 0.4 * o)})`, opacity: o, filter: 'drop-shadow(0 24px 30px rgba(0,0,0,.35))' }} />;
+});
 
 // ---------- Chữ ----------
 const stroke = (px, c = '#14100E') => ({ WebkitTextStroke: `${px}px ${c}`, paintOrder: 'stroke fill' });
@@ -166,9 +222,10 @@ const Captions = ({ pages, t, fps, theme, W, H, hidden }) => {
     return <span key={i} style={{ display: 'inline-block', margin: '0 12px', transform: `translateY(${lift}px) scale(${s * (active && style !== 'karaoke-bar' ? 1.06 : 1)})`, color }}>{el}</span>;
   });
   const box = style === 'karaoke-bar' ? { background: 'rgba(20,16,14,.74)', borderRadius: 34, padding: '22px 30px' } : {};
+  const rows = []; let k0 = 0; for (const n of (pg.breaks || [words.length])) { rows.push(words.slice(k0, k0 + n)); k0 += n; } // xuống dòng đã tính sẵn (motion.breakLines)
   return (
     <div style={{ position: 'absolute', left: 60, right: 140, top: y, display: 'flex', justifyContent: 'center', transform: 'translateY(-50%)' }}>
-      <div style={{ fontFamily: FONT_H, fontWeight: 800, fontSize: big, lineHeight: 1.12, textAlign: 'center', letterSpacing: -1, ...(style === 'karaoke-bar' ? {} : stroke(style === 'mega-word' ? 16 : 12)), textShadow: '0 8px 24px rgba(0,0,0,.35)', ...box }}>{words}</div>
+      <div style={{ fontFamily: FONT_H, fontWeight: 800, fontSize: big, lineHeight: 1.12, textAlign: 'center', letterSpacing: -1, ...(style === 'karaoke-bar' ? {} : stroke(style === 'mega-word' ? 16 : 12)), textShadow: '0 8px 24px rgba(0,0,0,.35)', ...box }}>{rows.map((r, i) => <div key={i} style={{ whiteSpace: 'nowrap' }}>{r}</div>)}</div>
     </div>
   );
 };
@@ -293,6 +350,7 @@ export const Short = (P) => {
     <AbsoluteFill style={{ background: '#0F3D3E', fontFamily: FONT_H }}>
       <GradeDefs />
       {vis.map(({ sh, inCut, outCut }) => <ShotLayer key={sh.k} shot={sh} t={t} W={W} H={H} inCut={inCut} outCut={outCut} theme={P.theme} interrupts={P.interrupts || []} cardEnd={P.endCard} />)}
+      {!inCard ? <KitLayer kits={P.kits || []} t={t} fps={fps} W={W} /> : null}
       {cut ? <TransitionFx cut={cut} t={t} W={W} H={H} kit={kitArt} accents={P.theme.colors.accents} /> : null}
       {!inCard ? <Interrupts list={P.interrupts || []} t={t} fps={fps} /> : null}
       {!inCard ? (P.cards || []).map((c, i) => <Card key={i} c={c} t={t} fps={fps} theme={P.theme} W={W} H={H} />) : null}

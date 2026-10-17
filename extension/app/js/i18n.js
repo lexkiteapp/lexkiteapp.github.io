@@ -48,6 +48,7 @@
     (root || document).querySelectorAll('[data-i18n]').forEach(el => { const k = el.getAttribute('data-i18n') || el.textContent.trim(); el.textContent = t(k); });
     (root || document).querySelectorAll('[data-i18n-title]').forEach(el => { el.title = t(el.getAttribute('data-i18n-title')); });
     (root || document).querySelectorAll('[data-i18n-placeholder]').forEach(el => { el.placeholder = t(el.getAttribute('data-i18n-placeholder')); });
+    (root || document).querySelectorAll('[data-i18n-aria-label]').forEach(el => { el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria-label'))); });
   }
   function set(l) { if (!SUPPORTED.includes(l)) return; try { localStorage.setItem(KEY, l); } catch (e) { /* bỏ qua */ } location.reload(); }
   // Ngôn ngữ dùng để hiển thị nghĩa/giải thích (người học có thể chọn khác giao diện)
@@ -58,15 +59,18 @@
   const FLAG = { vi: '🇻🇳', en: '🇬🇧', es: '🇪🇸', pt: '🇧🇷', fr: '🇫🇷', de: '🇩🇪', id: '🇮🇩', th: '🇹🇭', zh: '🇨🇳', 'zh-CN': '🇨🇳', 'zh-TW': '🇹🇼', ja: '🇯🇵', ko: '🇰🇷', hi: '🇮🇳', ar: '🇸🇦', ru: '🇷🇺', tr: '🇹🇷' };
   const flag = l => FLAG[l] || FLAG[String(l || '').split('-')[0]] || '🌐';
   g.t = t;
-  g.I18N = { t, apply, set, lang: () => lang, learnLang, meanLang, setMean: m => { try { localStorage.setItem('vb.meanLang', m); } catch (e) { /* bỏ qua */ } location.reload(); }, LANGS, SUPPORTED, rtl: RTL.has(lang), detect, FLAG, flag };
+  g.I18N = { t, apply, set, whenReady: () => Promise.resolve(), tk: (k, v) => ({ k, v }), // tk: khóa + biến để lưu (dịch lúc vẽ bằng t(k, v)), không lưu chữ đã dịch
+     lang: () => lang, learnLang, meanLang, setMean: m => { try { localStorage.setItem('vb.meanLang', m); } catch (e) { /* bỏ qua */ } location.reload(); }, LANGS, SUPPORTED, rtl: RTL.has(lang), detect, FLAG, flag };
   if (g.document) {
     document.documentElement.lang = lang;
     if (RTL.has(lang)) document.documentElement.dir = 'rtl';
     // Nạp file ngôn ngữ trước khi các module khác chạy (dùng createElement thay vì document.write để tối ưu Lighthouse)
     if (lang !== 'vi' && g.document) {
-      const addScript = src => { const s = document.createElement('script'); s.src = src; s.async = false; s.onload = () => { if (g.I18N.apply) g.I18N.apply(); if (g.I18N.meta) g.I18N.meta(); }; document.head.appendChild(s); };
-      addScript('js/i18n/en.js');
-      if (lang !== 'en') addScript(`js/i18n/${lang}.js`);
+      const addScript = src => new Promise(r => { const s = document.createElement('script'); s.src = src; s.async = false; s.onload = () => { if (g.I18N.apply) g.I18N.apply(); if (g.I18N.meta) g.I18N.meta(); r(); }; s.onerror = () => r(); document.head.appendChild(s); });
+      const loaded = Promise.all([addScript('js/i18n/en.js'), lang !== 'en' && addScript(`js/i18n/${lang}.js`)]);
+      // Từ điển nạp bất đồng bộ, có thể SAU các module & DOMContentLoaded → app chờ whenReady() trước lần vẽ đầu (tối đa 6 s),
+      // để không chữ nào bị vẽ/đóng băng bằng khóa tiếng Việt
+      g.I18N.whenReady = () => (D.en && (lang === 'en' || D[lang]) ? Promise.resolve() : Promise.race([loaded, new Promise(r => setTimeout(r, 6000))]));
     }
     // Tiêu đề & mô tả trang theo ngôn ngữ (Google đọc được tiêu đề do JS đặt) – khóa dịch nằm trong từ điển giao diện
     const TITLE = 'Lexkite – Học từ vựng IELTS & TOEIC miễn phí: flashcard FSRS, từ điển, thi thử';

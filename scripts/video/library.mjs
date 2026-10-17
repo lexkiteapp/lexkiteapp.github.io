@@ -706,6 +706,8 @@ export function writeRenderManifest(m, file = path.join(LIB, 'manifest.json'), e
     }
     if (!c) rm.clips.push(c = { id, who: e.who, tags: e.tags, outfit: OUTFIT[e.who] || 'casual', mouth: (e.roles || []).includes('speaker'), facing: 'front' });
     Object.assign(c, { file: e.id, alpha: 'stacked', roles: e.roles, foot: st.foot, figH: st.figH, w: st.w, h: st.h, ready: true });
+    if (e.facing) c.facing = e.facing; // front | left | right (clip ¾); lật gương chỉ khi kho ghi mirrorOk:true
+    if (e.mirrorOk != null) c.mirrorOk = !!e.mirrorOk;
     const dc = driveCopies(st.drive); if (dc.length) c.drive = dc.map(x => ({ driveId: x.driveId, email_masked: x.email_masked || '', fileId: x.fileId })); // tra soát: bản stacked nằm ở Drive nào
     done.add(id);
   }
@@ -723,7 +725,7 @@ export function writeRenderManifest(m, file = path.join(LIB, 'manifest.json'), e
     const id = `${p.room}-${p.time}`, base = p.room.replace(/-\d+$/, '');
     let r = rm.rooms.find(x => x.id === id);
     if (!r) rm.rooms.push(r = { id });
-    Object.assign(r, { file: e.file, tag: TAG[base] || base, time: p.time, floor: prof.floor, stand: prof.stand, scaleAt: prof.scaleAt, light: prof.light, vanish: prof.vanish, auto: !prof.manual, qa: e.qa, ready: true });
+    Object.assign(r, { file: e.file, tag: TAG[base] || base, time: p.time, floor: prof.floor, stand: prof.stand, scaleAt: prof.scaleAt, light: prof.light, vanish: prof.vanish, ...(prof.counter ? { counter: prof.counter } : {}), ...(prof.maskText ? { maskText: prof.maskText } : {}), auto: !prof.manual, qa: e.qa, ready: true });
     seen.add(id);
   }
   for (const r of rm.rooms) if (!seen.has(r.id)) { r.ready = exists(r.file) && !m.items.some(x => x.kind === 'room' && x.file === r.file && x.status !== 'approved'); if (!r.ready) probs.push(`phòng ${r.file}: thiếu file → render dùng nền màu (ready:false)`); }

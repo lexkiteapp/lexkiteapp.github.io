@@ -128,7 +128,11 @@
   add('there-their', /\b(there)\s+(own|house|home|children|parents|family|friends|car|money|life|lives|work|job|opinion|opinions|country|culture)\b/gi, T.gr, 'there / their / they’re', 'THEIR = của họ (their house), THERE = ở đó / there is, THEY’RE = they are.', 'pronouns', m => ({ s: m.index, e: m.index + 5, reps: [cap(m[0], 'their')] }));
   // --- Dấu câu & viết hoa ---
   const PUN = 'Quy tắc trình bày tiếng Anh: không có dấu cách TRƯỚC dấu phẩy/chấm/hỏi/chấm than, luôn có một dấu cách SAU chúng; đầu câu viết hoa.';
-  add('sp-before', /(\S)( +)([,.;:!?])(?=\s|$)/g, T.pu, 'Dấu cách trước dấu câu', PUN, 'punctuation', (m, t) => (m[3] === '.' && /\.\s*$/.test(m[1]) || /[:;]/.test(m[3]) && /[=(]/.test(t[m.index + m[0].length] || '') ? null : { s: m.index + 1, e: m.index + 1 + m[2].length, reps: [''] }));
+  add('sp-before', /(\S)( +)([,.;:!?])(?=\s|$|[A-Za-z])/g, T.pu, 'Dấu cách trước dấu câu', PUN, 'punctuation', (m, t) => {
+    const nx = t[m.index + m[0].length] || '';
+    if (/[A-Za-z]/.test(nx)) return /[,;!?]/.test(m[3]) && /[A-Za-z]/.test(m[1]) ? { s: m.index + 1, e: m.index + m[0].length, reps: [m[3] + ' '] } : null; // "sick ,so" → "sick, so" (bỏ qua ".com", ":)")
+    return m[3] === '.' && /\.\s*$/.test(m[1]) || /[:;]/.test(m[3]) && /[=(]/.test(nx) ? null : { s: m.index + 1, e: m.index + 1 + m[2].length, reps: [''] };
+  });
   add('sp-after', /([a-z]{2,})([,;!?])([A-Za-z]{2,})/g, T.pu, 'Thiếu dấu cách sau dấu câu', PUN, 'punctuation', m => { const s = m.index + m[1].length; return { s, e: s + 1, reps: [m[2] + ' '] }; });
   add('dbl-space', /(\S)( {2,})(?=\S)/g, T.pu, 'Thừa dấu cách', PUN, 'punctuation', m => ({ s: m.index + 1, e: m.index + 1 + m[2].length, reps: [' '] }));
   add('cap-start', /(^|[.!?]\s+|\n\s*)([a-z])([a-z]*)/g, T.pu, 'Viết hoa đầu câu', PUN, 'punctuation', (m, t) => {

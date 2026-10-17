@@ -12,11 +12,11 @@
   const masteryDots = s => UI.masteryDots(s, SRS);
   // Nguồn gốc của từ → các bộ từ cá nhân tự động
   const ORIGINS = {
-    youtube: { emoji: '▶️', name: t('Từ YouTube & video'), desc: t('Lưu khi xem video có phụ đề') },
-    web: { emoji: '🌐', name: t('Từ trang web'), desc: t('Lưu bằng add-on khi đọc báo, blog…') },
-    reading: { emoji: '📖', name: t('Từ bài đọc'), desc: t('Lưu khi đọc bài trong Lexkite') },
-    dict: { emoji: '🔎', name: t('Từ tra từ điển'), desc: t('Từ bạn tự tra và lưu') },
-    library: { emoji: '📚', name: t('Từ thư viện'), desc: t('Thêm từ các bộ từ IELTS') },
+    youtube: { emoji: '▶️', get name() { return t('Từ YouTube & video'); }, get desc() { return t('Lưu khi xem video có phụ đề'); } },
+    web: { emoji: '🌐', get name() { return t('Từ trang web'); }, get desc() { return t('Lưu bằng add-on khi đọc báo, blog…'); } },
+    reading: { emoji: '📖', get name() { return t('Từ bài đọc'); }, get desc() { return t('Lưu khi đọc bài trong Lexkite'); } },
+    dict: { emoji: '🔎', get name() { return t('Từ tra từ điển'); }, get desc() { return t('Từ bạn tự tra và lưu'); } },
+    library: { emoji: '📚', get name() { return t('Từ thư viện'); }, get desc() { return t('Thêm từ các bộ từ IELTS'); } },
   };
   function origin(c) {
     const ctx = (c.contexts || []).find(x => x.source) || c.contexts[c.contexts.length - 1];
@@ -228,10 +228,11 @@
     toeic: ['js/choice-kit.js', 'js/qengine.js', 'js/toeic/reading1.js', 'js/toeic/reading2.js', 'js/toeic/listening1.js', 'js/toeic/listening2.js', 'js/toeic/reading3.js', 'js/toeic/listening3.js', 'js/toeic/reading4.js', 'js/toeic/listening4.js', 'js/toeic/reading5.js', 'js/toeic/listening5.js', 'js/toeic/reading6.js', 'js/toeic/listening6.js', 'js/toeic/reading7.js', 'js/toeic/listening7.js', 'js/toeic/sw1.js', 'js/toeic.js'],
     league: ['js/league.js'],
     streak: ['js/streak-ui.js'],
+    vcore: ['js/verbs-core.js'], verbs: ['js/verbs.js'], fixer: ['js/writecheck-rules.js', 'js/fixer.js'], // 🔤 Chia động từ · ✍️ Sửa ngữ pháp
   };
   const ROUTE_BUNDLE = { paraphrase: 'paraphrase', courses: 'courses', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: 'grammar', placement: ['words', 'grammar'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
     toefl: ['listening', 'toefl'], 'toefl-p': ['listening', 'toefl'],
-    toeic: ['tsl', 'listening', 'toeic'], 'toeic-r': ['toeic'], 'toeic-sw': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: ['words', 'tsl'], topic: ['words', 'tsl'], practice: ['words', 'tsl'], dict: ['words', 'tsl'], write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'], home: ['words', 'streak'], vocab: 'words', path: 'words', review: 'words', deck: 'words', stats: ['words', 'streak'], league: 'league'};
+    toeic: ['tsl', 'listening', 'toeic'], 'toeic-r': ['toeic'], 'toeic-sw': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: ['words', 'tsl'], topic: ['words', 'tsl'], practice: ['words', 'tsl'], dict: ['words', 'tsl', 'vcore'], verb: ['vcore', 'verbs'], fix: 'fixer', write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'], home: ['words', 'streak'], vocab: 'words', path: 'words', review: 'words', deck: 'words', stats: ['words', 'streak'], league: 'league'};
   const bundleP = {};
   // Phần nặng (đề thi, từ vựng, ngữ pháp…) tải từ CDN jsDelivr (miễn phí, không giới hạn băng thông, gắn đúng phiên bản commit)
   // → máy chủ chính chỉ phục vụ phần lõi, chịu được lượng người dùng lớn gấp nhiều lần. CDN lỗi → tự lấy từ máy chủ chính.
@@ -441,8 +442,8 @@
   // ---------- Tìm kiếm toàn cục + gợi ý ----------
   (function search() {
     const input = $('#gq'), box = $('#suggest');
-    if (input && matchMedia('(max-width: 600px)').matches) { input.setAttribute('data-i18n-placeholder', 'Tra từ…'); input.placeholder = t('Tra từ…'); } // màn hẹp: bỏ gợi ý phím tắt (không có bàn phím) để chữ không bị cắt
-    input.setAttribute('aria-label', t('Tra từ'));
+    if (input && matchMedia('(max-width: 600px)').matches) { input.setAttribute('data-i18n-placeholder', 'Tra từ…'); input.placeholder = 'Tra từ…'; } // màn hẹp: bỏ gợi ý phím tắt (không có bàn phím) để chữ không bị cắt
+    input.setAttribute('data-i18n-aria-label', 'Tra từ'); input.setAttribute('aria-label', 'Tra từ'); // khóa gốc – I18N.apply() dịch khi từ điển sẵn sàng (đừng gọi t() lúc nạp module)
     let items = [], idx = -1, timer = null, seq = 0;
     const render = () => {
       box.hidden = !items.length;
@@ -863,6 +864,7 @@
             <div class="row" style="margin-top:.8rem">
               ${card ? `<span class="chip ok">✓ ${t('Đã có trong flashcard')}</span>` : `<button class="btn primary" id="quickSave">+ ${t('Lưu flashcard')}</button>`}
               <a class="btn" href="#/practice/speak?w=${encodeURIComponent(e.word)}">🎙️ ${t('Luyện phát âm')}</a>
+              ${window.LK_VERBS && LK_VERBS.verbOf(e) ? `<a class="btn" href="#/verb/${encodeURIComponent(LK_VERBS.verbOf(e))}">🔤 ${t('Chia động từ')}</a>` : ''}
             </div>
           </div>
           ${pic(e)}
@@ -1744,7 +1746,8 @@
   // Các module khác (study.js, reading.js) đăng ký route rồi mới vẽ trang đầu tiên
   // Chỉ vẽ trang khi mọi module (study, grammar, pron, plan…) đã tải xong
   const boot = async () => {
-    await App.ready;
+    await Promise.all([App.ready, I18N.whenReady && I18N.whenReady()]); // từ điển ngôn ngữ nạp xong rồi mới vẽ (không lẫn tiếng Việt)
+    updateChrome(); // vẽ lại thanh bên/đầu trang: lần vẽ trong load() có thể diễn ra trước khi từ điển nạp xong
     const fresh = !state.settings.onboarded && !Object.keys(state.cards).length && !state.game.xp;
     try { fresh ? localStorage.removeItem('lk.onb') : localStorage.setItem('lk.onb', '1'); } catch (e) { /* bỏ qua */ } // khung dựng sẵn trong index.html chỉ hiện cho người mới
     if (!fresh) document.body.classList.remove('bare');

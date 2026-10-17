@@ -60,6 +60,30 @@ export function markKeywords(words, keywords = []) {
   return words.map((w, i) => ({ ...w, key: key[i] }));
 }
 // Chia mỗi câu thành "trang" 1–3 từ (mega-word: 1 từ): ngắt ở dấu câu hoặc khi quá dài; trang giữ tới trang sau (không nháy trống giữa câu).
+const FUNC = /^(on|in|at|to|of|for|with|a|an|the|and|or|but|is|are|was|so|my|your|our|their|his|her|its|i|we|you|it|this|that|not|no|be|by|from|as|if|than|then|could|would|can|will)$/i;
+// Xuống dòng trong 1 trang: tối đa maxLines dòng ≤ maxChars, cân đều độ dài, không để 1 từ ngắn đứng riêng, ưu tiên ngắt sau dấu câu/trước từ chức năng.
+export function breakLines(ws, { maxChars = 17, maxLines = 3 } = {}) {
+  const L = ws.map(w => w.length), tot = L.reduce((a, b) => a + b, 0) + ws.length - 1;
+  if (tot <= maxChars || ws.length < 2) return [ws.length];
+  let best = null;
+  const rec = (i, acc) => {
+    if (acc.length > maxLines) return;
+    if (i === ws.length) {
+      const lens = acc.map((n, k) => { const st = acc.slice(0, k).reduce((a, b) => a + b, 0); return ws.slice(st, st + n).join(' ').length; });
+      if (lens.some(x => x > maxChars * 1.15)) return;
+      let cost = Math.max(...lens) - Math.min(...lens) + 6 * acc.length;
+      acc.forEach((n, k) => { const st = acc.slice(0, k).reduce((a, b) => a + b, 0), lw = ws.slice(st, st + n);
+        if (n === 1 && lw[0].replace(/\W/g, '').length <= 3) cost += 40; // từ ngắn đứng một mình
+        if (k < acc.length - 1 && FUNC.test(lw[lw.length - 1].replace(/\W/g, ''))) cost += 12; // dòng kết thúc bằng từ chức năng
+        if (k < acc.length - 1 && /[,.!?;:–—]["”']?$/.test(lw[lw.length - 1])) cost -= 5; });
+      if (!best || cost < best.cost) best = { cost, acc: [...acc] };
+      return;
+    }
+    for (let n = 1; i + n <= ws.length; n++) rec(i + n, [...acc, n]);
+  };
+  rec(0, []);
+  return best ? best.acc : [ws.length];
+}
 export function captionPages(words, { style = 'pop-box', maxWords = 3, maxChars = 16, lead = 0.04 } = {}) {
   const mw = style === 'mega-word' ? 1 : style === 'karaoke-bar' ? 6 : maxWords, mc = style === 'karaoke-bar' ? 30 : maxChars;
   const pages = [];
@@ -69,15 +93,23 @@ export function captionPages(words, { style = 'pop-box', maxWords = 3, maxChars 
     const flush = () => { if (cur.length) pages.push({ line: cur[0].line, words: cur }); cur = []; };
     for (const w of ws) {
       const len = cur.reduce((a, x) => a + x.w.length + 1, 0) + w.w.length;
-      if (cur.length && (cur.length >= mw || len > mc)) flush();
+      if (cur.length && (cur.length >= mw || len > mc)) {
+        // ngắt ở ranh giới cụm: từ chức năng cuối trang (on/a/the/to…) chuyển sang trang sau cùng cụm của nó
+        const carry = cur.length > 1 && FUNC.test(cur[cur.length - 1].w) ? cur.pop() : null;
+        flush(); if (carry) cur.push(carry);
+      }
       cur.push(w); if (/[.,!?;:]["”']?$/.test(w.w)) flush();
     }
     flush();
+    // không để trang cuối câu chỉ còn 1 từ ngắn (≤ 3 chữ): gộp vào trang trước nếu vừa (≤ 1,4 × giới hạn ký tự)
+    const mine = pages.filter(p => p.line === ws[0].line), last = mine[mine.length - 1], prev = mine[mine.length - 2];
+    if (mw > 1 && prev && last.words.length === 1 && last.words[0].w.replace(/\W/g, '').length <= 3 && !/[.,!?;:]["”']?$/.test(prev.words[prev.words.length - 1].w)
+      && prev.words.reduce((a, x) => a + x.w.length + 1, 0) + last.words[0].w.length <= mc * 1.4) { prev.words.push(last.words[0]); pages.splice(pages.indexOf(last), 1); }
   }
   return pages.map((p, i) => {
     const nx = pages[i + 1], lastEnd = p.words[p.words.length - 1].end;
     const end = nx && nx.line === p.line ? nx.words[0].start - lead : lastEnd + 0.25;
-    return { line: p.line, start: r3(p.words[0].start - lead), end: r3(nx && nx.line === p.line ? end : Math.max(end, lastEnd)), words: p.words.map(w => ({ w: w.w, key: !!w.key, pop: r3(w.start - lead), start: w.start, end: w.end })) };
+    return { line: p.line, breaks: breakLines(p.words.map(w => w.w), { maxChars: style === 'karaoke-bar' ? 24 : style === 'mega-word' ? 10 : 17 }), start: r3(p.words[0].start - lead), end: r3(nx && nx.line === p.line ? end : Math.max(end, lastEnd)), words: p.words.map(w => ({ w: w.w, key: !!w.key, pop: r3(w.start - lead), start: w.start, end: w.end })) };
   });
 }
 
@@ -102,6 +134,8 @@ export function pickTransitions(shots, { lines = [], stage = null, lead = null, 
     const type = pickFrom[Math.floor(R() * pickFrom.length)] || 'zoom-blur';
     used.push(type);
     const d = TRANSITION_DUR[type], t = b.start;
+    // vào end card: hoà sáng êm (light-leak) và chỉ bắt đầu SAU khi câu CTA đọc xong (b.start = endStart = hết câu cuối + 0,4 s)
+    if (b.framing === 'card') { const dc = 0.6; cuts.push({ i, t: r3(t), type: 'light-leak', d: dc, from: r3(t - 0.1), to: r3(t - 0.1 + dc) }); continue; }
     cuts.push({ i, t: r3(t), type, d, from: r3(t - d / 2), to: r3(t + d / 2) });
   }
   return cuts;
@@ -139,6 +173,57 @@ export function captionY(shot, capY, h = 1920, half = 95) {
   if (!hit(capY)) return capY;
   const maxY = (h - SAFE.bottom - half) / h, c = [0.74, 0.7, 0.78, 0.5, 0.45, 0.4].filter(y => y <= maxY).find(y => !hit(y));
   return c != null ? c : Math.min(maxY, 0.74);
+}
+
+// ---------- Máy quay kiểu phim (round 2) ----------
+// Khung nhìn = vùng cắt của canvas 1080×1920 (cx, cy tâm; z phóng). Giới hạn phóng theo độ phân giải: clip ≤ 1,6 × figH gốc / cao hiển thị,
+// phòng ≤ 2,4 × bề rộng ảnh gốc / 1080. Đầu = y − h, đầu gối = y − 0,30 h, hông = y − 0,48 h, ngực = y − 0,62 h.
+export const CAM = { twoFill: 0.62, singleFill: 0.66, closeFill: 0.5, headroom: 0.1, maxUp: 1.6, roomUp: 2.4 }; // phòng đã làm mờ chiều sâu (DOF, mờ tăng theo z) → cho phóng tới 2,4× ảnh gốc
+export function zoomCap(actors, room, W = 1080) {
+  const caps = [room && room.srcW ? CAM.roomUp * room.srcW / W : 3];
+  for (const a of actors) if (a.figH && a.h) caps.push(CAM.maxUp * a.figH / a.h);
+  return Math.max(1, Math.min(...caps));
+}
+const clampCam = (c, W, H) => { const rw = W / c.z, rh = H / c.z; return { z: c.z, cx: Math.min(Math.max(c.cx, rw / 2), W - rw / 2), cy: Math.min(Math.max(c.cy, rh / 2), H - rh / 2) }; };
+const body = a => ({ l: a.x - 0.22 * a.h, r: a.x + 0.22 * a.h, t: a.y - a.h, b: a.y }); // thân + tay buông (tay vung rộng hơn được phép chạm mép)
+// → { from:{cx,cy,z}, to:{cx,cy,z} } cho 1 cảnh. framing: wide | two | single | close (+ focus = who). Nhân vật khác: hoặc trọn trong khung hoặc ra hẳn ngoài.
+export function shotCamera(shot, actors, { room = null, W = 1080, H = 1920 } = {}) {
+  const wide = { cx: W / 2, cy: H / 2, z: 1 };
+  if (!actors.length || shot.framing === 'wide' || shot.framing === 'card') return { from: wide, to: { ...wide, z: shot.line === 0 ? 1.06 : 1.03 } };
+  const cap = zoomCap(actors, room, W);
+  const frameOn = (as, fill, bottomOf, upTo = 0.1) => {
+    const top = Math.min(...as.map(a => a.y - a.h)), bot = Math.max(...as.map(bottomOf)), l = Math.min(...as.map(a => body(a).l)), r = Math.max(...as.map(a => body(a).r));
+    let z = Math.min(H * fill / (bot - top), W * 0.96 / (r - l), cap); z = Math.max(1, z);
+    const rh = H / z; return { z, cx: (l + r) / 2, cy: top - rh * upTo + rh / 2 };
+  };
+  let c, two = frameOn(actors, CAM.twoFill, a => a.y - 0.3 * a.h, CAM.headroom);
+  const f = actors.find(a => a.who === shot.focus);
+  if (shot.framing === 'two' || !f) c = two;
+  else {
+    c = shot.framing === 'close' ? frameOn([f], CAM.closeFill, a => a.y - 0.6 * a.h, 0.16) : frameOn([f], CAM.singleFill, a => a.y - 0.3 * a.h, CAM.headroom);
+    if (shot.framing === 'close' && c.z < two.z * 1.12) c = { ...c, z: Math.min(cap, two.z * 1.12) };
+    // lệch về phía người kia (khoảng nhìn) 1/6 khung; người chính luôn trọn khung. Người kia không trọn khung → không vẽ ở cảnh này
+    // (góc máy đơn/cận "loại" người kia như quay từ góc khác – không bao giờ để nửa người dính mép)
+    const o = actors.filter(a => a !== f), side = o.length ? (o[0].x > f.x ? 1 : -1) : 0, rw = W / c.z;
+    c.cx = f.x + side * rw / 6;
+    const fb = body(f); if (fb.l < c.cx - rw / 2 || fb.r > c.cx + rw / 2) c.cx = f.x;
+  }
+  const to = clampCam(c, W, H), from = clampCam({ ...to, z: Math.max(1, to.z * (shot.framing === 'close' ? 0.97 : 0.93)) }, W, H); // đẩy máy chậm
+  return { from, to };
+}
+// Vị trí khung nhìn tại tiến độ u (0–1) – Remotion & QA dùng chung
+export const camAt = (cam, u) => { const e = u < 0 ? 0 : u > 1 ? 1 : u * u * (3 - 2 * u); return { cx: cam.from.cx + (cam.to.cx - cam.from.cx) * e, cy: cam.from.cy + (cam.to.cy - cam.from.cy) * e, z: cam.from.z + (cam.to.z - cam.from.z) * e }; };
+export const toScreen = (c, x, y, W = 1080, H = 1920) => [(x - c.cx) * c.z + W / 2, (y - c.cy) * c.z + H / 2];
+// Phụ đề không bao giờ đè mặt/thân (đỉnh đầu → hông): ưu tiên dưới đầu gối, rồi dưới hông, rồi trên đầu; trong vùng an toàn nền tảng.
+export function captionSlot(cam, actors, nLines = 2, { W = 1080, H = 1920, capY = 0.6, font = 92, faceOnly = false } = {}) {
+  const half = (nLines * font * 1.12 + 24) / 2, lo = SAFE.top + 40 + half, hi = H - SAFE.bottom - half;
+  const sc = actors.map(a => { const [, t] = toScreen(cam, a.x, a.y - a.h, W, H), [, hip] = toScreen(cam, a.x, a.y - (faceOnly ? 0.8 : 0.48) * a.h, W, H), [, knee] = toScreen(cam, a.x, a.y - 0.3 * a.h, W, H); return { t, hip, knee }; });
+  if (!sc.length) return Math.min(Math.max(capY * H, lo), hi) / H;
+  const free = y => sc.every(b => y + half < b.t - 8 || y - half > b.hip + 8);
+  const kneeY = Math.max(...sc.map(b => b.knee)) + 16 + half, hipY = Math.max(...sc.map(b => b.hip)) + 16 + half, headY = Math.min(...sc.map(b => b.t)) - 16 - half;
+  for (const y of [kneeY, hipY, headY]) if (y >= lo && y <= hi && free(y)) return y / H;
+  for (let y = hi; y >= lo; y -= 10) if (free(y)) return y / H; // quét từ dưới lên
+  return hi / H;
 }
 
 // ---------- Thẻ so sánh / payoff ----------
@@ -188,17 +273,30 @@ export function buildTimeline({ s, words, assets = {}, w = 1080, h = 1920, fps =
   const S = shots.map((sh, k) => {
     const li = sh.line >= 0 ? sh.line : lines.length - 1, sl = stage.lines[li] || { actors: [] }, seg = (stage.segs || []).find(g => li >= g.from && li <= g.to) || null;
     const room = seg && assets.roomOf ? assets.roomOf(seg) : null, grade = gradeFor({ time, hasRoom: !!room });
-    let actors = sh.framing === 'card' ? [] : (sl.actors || []).map(a => { const as = assets.actorOf ? assets.actorOf(a, li) : null; return as ? { who: a.who, role: a.role, x: a.x, y: a.y, h: a.h, flip: !!a.flip, ...as } : null; }).filter(Boolean);
+    let actors = sh.framing === 'card' ? [] : (sl.actors || []).map(a => { const as = assets.actorOf ? assets.actorOf(a, li) : null; return as ? { who: a.who, role: a.role, x: a.x, y: a.y, h: a.h, flip: !!a.flip, behind: a.behind || null, ...as } : null; }).filter(Boolean);
     if (!room && actors.length) actors = studioStage(actors, w, h); // nền studio: không có sàn phòng → dàn lại cỡ vừa khung (không phóng quá to/cắt mép)
     const line = lines[li] || {};
+    const film = ['wide', 'two', 'single', 'close'].includes(sh.framing);
     return {
-      k, start: sh.start, end: sh.end, line: sh.line, framing: sh.framing, grade, room: room ? room.src : null,
+      k, start: sh.start, end: sh.end, line: sh.line, framing: sh.framing, focus: sh.focus || null, grade, room: room ? room.src : null,
+      roomFx: room ? { light: room.light || null, tint: room.tint || null, maskText: room.maskText || [], counter: room.counter || null, blur: room.blur } : null,
+      cam: film ? shotCamera(sh, actors, { room, W: w, H: h }) : null,
       actors, kit: line.who === 'kit' && sh.framing !== 'card' ? (assets.kit && (assets.kit[line.emotion === 'right' ? 'win' : line.beat === 'tip' ? 'think' : 'happy'] || assets.kit.happy)) || null : null,
-      shake: line.emotion === 'wrong' && sh.start === line.start, punch: k === 0 || (!!line.punch && sh.start === line.start),
+      shake: line.emotion === 'wrong' && sh.start === line.start && sh.framing !== 'close', punch: k === 0 || (!!line.punch && sh.start === line.start && sh.framing !== 'close'),
     };
   });
+  // Cảnh đơn/cận: chỉ vẽ người chính + ai trọn trong khung suốt cảnh (không có nửa người ở mép)
+  const fullIn = (c, a) => { const l = toScreen(c, a.x - 0.22 * a.h, 0, w, h)[0], r = toScreen(c, a.x + 0.22 * a.h, 0, w, h)[0]; return l >= 0 && r <= w; };
+  for (const x of S) if (x.cam && ['single', 'close'].includes(x.framing)) x.actors = x.actors.filter(a => a.who === x.focus || (fullIn(x.cam.from, a) && fullIn(x.cam.to, a)));
+  // Kit (linh vật) = lớp RIÊNG ngoài cảnh: bật lên sau khi chuyển cảnh vào xong, thu lại trước khi chuyển cảnh ra (không mờ "bóng ma" theo cảnh)
+  const kits = [];
+  for (const l of lines.filter(x => x.who === 'kit')) {
+    const inC = cuts.find(c => c.t >= l.start - 0.4 && c.t <= l.start + 0.4), outC = cuts.find(c => c.t > l.start + 0.5 && c.t <= l.end + 0.6);
+    const sh = S.find(x => l.start >= x.start - 0.4 && l.start < x.end) || {};
+    if (sh.kit) kits.push({ src: sh.kit, start: r3(inC ? inC.to : l.start), end: r3(outC ? outC.from : l.end + 0.2) });
+  }
+  S.forEach(x => { x.kit = null; });
   // Phụ đề không che mặt: trang nào rơi vào dải đầu nhân vật (theo cảnh lúc trang hiện, nới 15% cho khung cận) → dời xuống vùng chân/ lên trên đầu
-  for (const p of pages) p.y = captionY(S.find(x => p.start >= x.start && p.start < x.end) || S[0], layout.capY, h);
   // Hook 1,5 s đầu: kiểu theo khuôn, chữ = hook kịch bản
   const hk = HOOK_KIT[fmt.hook.pattern] || HOOK_KIT.question;
   const hook = { pattern: fmt.hook.pattern, badge: fmt.hook.badge, text: String(sc.hook || lines[0].text), start: 0, end: r3(Math.min(Math.max(1.6, lines[0].end), 2.4)), sticker: hk.sticker, sfx: hk.sfx, shake: !!hk.shake };
@@ -210,6 +308,24 @@ export function buildTimeline({ s, words, assets = {}, w = 1080, h = 1920, fps =
     cards.push({ kind: 'dont', style: pay.type, start: r3(Math.max(hook.end - 0.1, wl.start)), end: r3(Math.min(pl.start, wl.end + 1.2)), text: pair.wrong, label: ((fmt.labels || {})[wl.beat] || {}).text || "DON'T SAY" });
   }
   cards.push({ kind: 'do', style: pay.type, start: r3(pl.start), end: r3(Math.min(endStart, pl.end + 0.6)), text: pair.right || (sc.keywords || [])[0] || pl.text, label: ((fmt.labels || {})[pl.beat] || {}).text || (pay.type === 'tip-card' ? 'TIP' : 'SAY') });
+  // Thẻ payoff nằm ở khoảng trên đầu (cardY): cảnh nào đang chiếu thẻ mà đầu nhân vật đã lên cao (two/single/close) → chuyển cảnh đó
+  // về toàn cảnh đẩy máy nhẹ (thẻ chiếm khoảng trần trống, không đè mặt/thân)
+  //  – chỉ cảnh chứa lúc thẻ bật thành toàn cảnh; thẻ tắt khi cảnh đó hết (cảnh sau được cận lại, không còn thẻ che)
+  for (const c of cards) {
+    const x = S.find(q => q.cam && c.start >= q.start - 0.05 && c.start < q.end); if (!x) continue;
+    const headTop = Math.min(...x.actors.map(a => Math.min(toScreen(x.cam.from, a.x, a.y - a.h, w, h)[1], toScreen(x.cam.to, a.x, a.y - a.h, w, h)[1])));
+    if (x.framing !== 'wide' && headTop < layout.cardY * h + 300) { x.framing = 'wide'; x.focus = null; x.cam = shotCamera({ framing: 'wide', line: x.line }, x.actors, { W: w, H: h }); }
+    const nx = S[S.indexOf(x) + 1]; if (nx && nx.cam && nx.framing !== 'wide' && c.end > x.end) c.end = r3(Math.max(c.start + 1.2, x.end));
+  }
+  for (const p of pages) {
+    const sh = S.find(x => p.start >= x.start && p.start < x.end) || S[0], nl = (p.breaks || [1]).length, font = theme.caption === 'karaoke-bar' ? 70 : theme.caption === 'mega-word' ? 150 : 92;
+    if (sh.cam) { // vị trí máy lúc trang hiện (và lúc tắt) – chọn chỗ không đè mặt/thân ở cả 2 thời điểm
+      const u0 = (p.start - sh.start) / Math.max(0.1, sh.end - sh.start), u1 = (Math.min(p.end, sh.end) - sh.start) / Math.max(0.1, sh.end - sh.start);
+      const o = { W: w, H: h, capY: layout.capY, font, faceOnly: sh.framing === 'close' }; // cận: chỉ tránh mặt (thân chiếm hết khung)
+      const y0 = captionSlot(camAt(sh.cam, u0), sh.actors, nl, o), y1 = captionSlot(camAt(sh.cam, u1), sh.actors, nl, o);
+      p.y = r3(Math.max(y0, y1)); p.font = font;
+    } else p.y = captionY(sh, layout.capY, h);
+  }
   // Nhịp: sự kiện hình = cut + hook + thẻ → chèn ngắt nhịp để khoảng trống ≤ 2,6 s
   const visual = [...cuts.map(c => c.t), hook.end, ...cards.map(c => c.start)];
   const interrupts = patternInterrupts(visual, D, { endStart, lines, seed });
@@ -217,7 +333,7 @@ export function buildTimeline({ s, words, assets = {}, w = 1080, h = 1920, fps =
   const sfx = sfxMap ? placeSfx({ cuts, pages, cards, interrupts, hook, shocks, map: sfxMap, endStart, mode: (v.sfx && v.sfx.id) || 'full' }) : [];
   return {
     w, h, fps, durationInFrames: Math.round(D * fps), duration: D, seed: String(seed), format: fmt.id,
-    theme: { ...theme, colors, layout }, grain, hook, pages, cuts, shots: S, cards, interrupts, sfx,
+    theme: { ...theme, colors, layout }, grain, hook, pages, cuts, shots: S, cards, interrupts, sfx, kits,
     progress: { start: 0, end: endStart },
     watermark: { from: 1.5, fade: 0.5, until: endStart, x: SAFE.left, y: 236, h: 40, opacity: 0.62 },
     endCard: { start: endStart, url: 'lexkite.com', cta: 'Practice free', kit: assets.kit ? assets.kit.cheer || assets.kit.happy : null },

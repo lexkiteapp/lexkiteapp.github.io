@@ -10,7 +10,7 @@ import * as V from '../video/lib.mjs';
 import * as X from '../video/variants.mjs';
 let fails = 0; const ok = (c, m) => { if (!c) { fails++; console.log('✗', m); } };
 const R = new URL('../../', import.meta.url), J = f => JSON.parse(fs.readFileSync(new URL(f, R), 'utf8'));
-const formats = J('content/video/formats.json'), sfxMan = J('brand/library/sfx/manifest.json');
+const formats = J('content/video/formats.json'), sfxMan = J('brand/library/sfx/manifest.json'), manifest0 = () => J('brand/library/manifest.json');
 
 // 1) Phụ đề động: trang 1–3 từ, từ khóa, mốc bật
 const words = [...V.evenTiming(V.tokens('Wait, is I\'m agree wrong?'), 0.2, 1.8).map(w => ({ ...w, line: 0 })), ...V.evenTiming(V.tokens('Agree is a verb so we just say I agree.'), 2.1, 4.6).map(w => ({ ...w, line: 1 }))];
@@ -31,7 +31,8 @@ ok(formats.transitions.length >= 12 && formats.transitions.every(t => M.TRANSITI
 const shots = Array.from({ length: 10 }, (_, i) => ({ line: i, start: +(i * 2.2).toFixed(2), end: +((i + 1) * 2.2).toFixed(2), framing: i === 9 ? 'card' : 'wide' }));
 const lines = shots.map((s, i) => ({ start: s.start, end: s.end, beat: ['hook', 'situation', 'explain', 'example', 'tip'][i % 5], emotion: i === 2 ? 'wrong' : null }));
 const cuts = M.pickTransitions(shots, { lines, seed: 's1', lead: 'whip-pan' });
-ok(cuts.length === 9 && cuts.every((c, i) => c.t === shots[i + 1].start && Math.abs(c.to - c.from - c.d) < 1e-6 && Math.abs((c.from + c.to) / 2 - c.t) < 1e-6), 'mỗi cut căn giữa ranh giới cảnh, dài đúng d');
+ok(cuts.length === 9 && cuts.slice(0, 8).every((c, i) => c.t === shots[i + 1].start && Math.abs(c.to - c.from - c.d) < 1e-6 && Math.abs((c.from + c.to) / 2 - c.t) < 1e-6), 'mỗi cut căn giữa ranh giới cảnh, dài đúng d');
+ok(cuts[8].type === 'light-leak' && cuts[8].from >= shots[9].start - 0.1 - 1e-6, 'vào end card: hoà sáng êm, chỉ bắt đầu khi câu CTA đã đọc xong');
 ok(cuts[0].type === 'whip-pan', 'cut đầu dùng chuyển cảnh chủ đạo của biến thể');
 ok(cuts.every((c, i) => !i || c.type !== cuts[i - 1].type), 'không lặp kiểu ở 2 cut liền nhau');
 ok(new Set(cuts.map(c => c.type)).size >= 4, '≥ 4 kiểu chuyển cảnh trong 1 video');
@@ -74,6 +75,43 @@ ok(M.captionY({ actors: [] }, 0.6) === 0.6 && M.captionY({ actors: [{ x: 540, y:
 ok(tl.pages.every(p => p.y > 0.3 && p.y * 1920 <= 1920 - M.SAFE.bottom), 'mọi trang phụ đề có y trong vùng an toàn');
 const ss = M.studioStage([{ x: 800, y: 1760, h: 1240 }, { x: 300, y: 1760, h: 1240 }]);
 ok(ss.every(a => a.h <= 0.5 * 1920 && a.y - a.h >= 600 && a.x - a.h * 0.25 >= 0 && a.x + a.h * 0.25 <= 1080) && ss[1].x < ss[0].x, 'nền studio: nhân vật vừa khung, không cắt mép, giữ thứ tự trái/phải');
+// Round 2: dàn cảnh, máy kiểu phim, phụ đề tránh mặt/thân, xuống dòng, hướng nhìn
+{
+  const room = { ...V.DEFAULT_ROOM, stand: [{ x: 184, y: 1692 }, { x: 432, y: 1692 }, { x: 895, y: 1692 }], scaleAt: { yFar: 1364, hFar: 281, yNear: 1912, hNear: 902 } };
+  const pos = V.stageDialogue(['mia', 'leo'], room);
+  ok(pos.mia.x < pos.leo.x && Math.abs(pos.mia.x - 0.38 * 1080) < 2 && pos.leo.x + 0.24 * pos.leo.h <= 1080 - 40 && pos.mia.y === 1692 && pos.mia.h === V.scaleAt(room, 1692), 'dàn cảnh: trục hội thoại 38/62 %, trên hàng điểm đứng, đúng scaleAt, không sát mép');
+  const far = { ...room, counter: { x0: 184, x1: 840, top: 1036, base: 1224, standY: 1190 } }, near = { ...room, scaleAt: { yFar: 900, hFar: 500, yNear: 1912, hNear: 1300 }, counter: { x0: 300, x1: 1000, top: 1200, base: 1500, standY: 1460 } };
+  const pf = V.stageDialogue(['ama', 'carlos'], far, { roles: { carlos: 'barista' } }), pn = V.stageDialogue(['ama', 'carlos'], near, { roles: { carlos: 'barista' } });
+  ok(!pf.carlos.behind && pn.carlos.behind === 'counter' && pn.carlos.y === 1460 && pn.ama.y > 1500 && pn.carlos.x - 0.24 * pn.carlos.h >= 300, 'barista đứng sau quầy khi phòng cho phép (cỡ người đủ lớn), quầy xa → đứng đôi');
+  const L = [{ start: 0.2, end: 1.9, beat: 'hook', who: 'ama', emotion: 'wrong', listener: 'carlos' }, { start: 2.2, end: 6.3, beat: 'explain', who: 'carlos', emotion: 'explain', listener: 'ama', punch: true }, { start: 6.6, end: 8.4, beat: 'example', who: 'ama', emotion: 'ask', listener: 'carlos' }, { start: 8.7, end: 11, beat: 'tip', who: 'kit' }, { start: 11.3, end: 13.6, beat: 'react', who: 'carlos', emotion: 'right', listener: 'ama' }];
+  const fs2 = V.planFilmShots(L, { endStart: 14, duration: 16 });
+  ok(fs2[0].framing === 'wide' && fs2.some(x => x.framing === 'two') && fs2.some(x => x.framing === 'single') && fs2.some(x => x.framing === 'close'), 'máy: hook toàn → đôi → đơn → cận phản ứng');
+  ok(fs2.every(x => x.framing !== 'close' || x.focus !== L[x.line].who), 'không bao giờ cận người đang nói');
+  ok(fs2.filter(x => x.framing !== 'card').every(x => x.end - x.start >= 0.7 - 1e-6 && x.end - x.start <= 4.05), 'cảnh 0,7–4 s');
+  const act = [{ who: 'ama', x: 410, y: 1656, h: 715, figH: 1500 }, { who: 'carlos', x: 670, y: 1656, h: 715, figH: 1570 }], rm = { srcW: 1536 };
+  for (const fr of ['two', 'single', 'close']) {
+    const c = M.shotCamera({ framing: fr, focus: 'carlos', line: 1 }, act, { room: rm }), cap = M.zoomCap(act, rm);
+    const inside = (cm, a) => { const [l] = M.toScreen(cm, a.x - 0.22 * a.h, 0), [r] = M.toScreen(cm, a.x + 0.22 * a.h, 0); return l >= -1 && r <= 1081 ? 'in' : r <= 0 || l >= 1080 ? 'out' : 'cut'; };
+    ok(c.to.z <= cap + 1e-6 && c.to.z >= c.from.z && (fr !== 'two' || act.every(a => inside(c.to, a) === 'in')), `máy ${fr}: phóng ≤ giới hạn độ phân giải, đẩy máy vào, cảnh đôi trọn cả hai`);
+    if (fr !== 'two') ok(inside(c.to, act[1]) === 'in', `máy ${fr}: người chính trọn khung`);
+  }
+  { const tl2 = M.buildTimeline({ s: { job: { script: { lines: [] } }, lines: [{ who: 'ama', beat: 'hook', text: 'x', start: 0, end: 1 }, { who: 'carlos', beat: 'explain', text: 'y', start: 1.2, end: 3 }], duration: 5, endStart: 3.4,
+      shots: [{ line: 0, start: 0, end: 1.2, framing: 'wide' }, { line: 1, start: 1.2, end: 3.4, framing: 'single', focus: 'carlos' }, { line: -1, start: 3.4, end: 5, framing: 'card' }],
+      stage: { time: 'day', segs: [{ from: 0, to: 1, scene: 'cafe', room: { id: 'r' } }], lines: [0, 1].map(i => ({ actors: act.map(a => ({ ...a, role: a.who === ['ama', 'carlos'][i] ? 'speaker' : 'listener' })) })) } },
+      words: [], assets: { roomOf: () => ({ src: 'r', srcW: 1536 }), actorOf: a => ({ src: a.who, kind: 'video', figH: 1500, aw: 800, ah: 1500, foot: [400, 1500] }) } });
+    const sh1 = tl2.shots[1]; ok(sh1.actors.length >= 1 && sh1.actors.every(a => a.who === 'carlos' || M.toScreen(sh1.cam.to, a.x - 0.22 * a.h, 0)[0] >= 0), 'cảnh đơn: người kia không trọn khung thì không vẽ (không nửa người ở mép)'); }
+  const c2 = M.shotCamera({ framing: 'two', line: 1 }, act, { room: rm }).to, y = M.captionSlot(c2, act, 2) * 1920;
+  ok(act.every(a => { const t = M.toScreen(c2, a.x, a.y - a.h)[1], hip = M.toScreen(c2, a.x, a.y - 0.48 * a.h)[1]; return y + 120 < t || y - 120 > hip; }) && y <= 1920 - M.SAFE.bottom, 'phụ đề cảnh đôi: không đè mặt/thân, trong vùng an toàn');
+  const br = (txt, mc) => { const ws = txt.split(' '), b = M.breakLines(ws, { maxChars: mc }); let k = 0; return b.map(n => { const r = ws.slice(k, k + n); k += n; return r.join(' '); }); };
+  const b1 = br('Practice ordering free on lexkite.com', 17);
+  ok(b1.length <= 3 && !b1.some(l => /^\w{1,3}$/.test(l)) && !/\bon$/.test(b1[0]), 'xuống dòng: không để "on" đứng riêng / cuối dòng, ≤ 3 dòng');
+  const pg = M.captionPages([..."Practice ordering free on lexkite.com".split(' ')].map((w, i) => ({ w, start: i * 0.3, end: i * 0.3 + 0.25, line: 0 })), { style: 'pop-box' });
+  ok(!pg.some(p => p.words.length === 1 && p.words[0].w.length <= 3) && !pg.some((p, i) => i < pg.length - 1 && /^on$/i.test(p.words[p.words.length - 1].w)), 'trang phụ đề: từ chức năng đi cùng cụm sau, không trang 1 từ ngắn');
+  ok(V.faceRank({ facing: 'right' }, 'right') === 0 && V.faceRank({ facing: 'front' }, 'right') === 1 && V.faceRank({ facing: 'left', mirrorOk: true }, 'right') === 2 && V.faceRank({ facing: 'left' }, 'right') === 3, 'hướng nhìn: đúng hướng > chính diện > lật được (mirrorOk) > ngược hướng');
+  const cm = { ...manifest0(), clips: [{ id: 'mia_l', who: 'mia', outfit: 'office', mouth: true, tags: ['talk'], facing: 'left', mirrorOk: true, file: 'a' }, { id: 'leo_l', who: 'leo', outfit: 'office', mouth: false, tags: ['idle'], facing: 'left', file: 'b' }] };
+  const st3 = V.buildStage({ job: { topic: 'Email etiquette', script: { scene: 'office', lines: [{ who: 'mia', beat: 'explain', text: 'Say it like this.' }] } }, casting: J('content/video/casting.json'), manifest: cm });
+  ok(!st3.lines[0].actors.find(a => a.who === 'mia').flip, 'không lật gương nhân vật có chi tiết lệch (casting.characters.mia.mirrorOk=false) dù clip ghi mirrorOk');
+}
 // SFX
 const ids = new Set(sfxMan.items.map(x => x.id));
 ok(tl.sfx.length >= tl.cuts.length && tl.sfx.every(x => ids.has(x.id)), 'SFX đều có trong kho brand/library/sfx');

@@ -1,6 +1,7 @@
 {
   "_note": "Cổng nhất quán bối cảnh – nhân vật – lời thoại (docs/VIDEO-PIPELINE.md §8). scenes: tag bối cảnh → dàn hợp lệ + vai + trang phục mặc định. topics: khớp từ khóa trong chủ đề/tiêu đề (theo thứ tự, mục đầu khớp thắng) → bối cảnh được phép (mục đầu = mặc định) + dàn được phép. Kit (linh vật) hợp lệ mọi nơi, không đứng trên sàn. Sửa file này = đổi luật cho scripts/video/render.mjs.",
   "voices": { "diane": "af_sarah", "carlos": "am_adam", "kit": "af_sky" },
+  "characters": {"_note": "Hướng nhìn & lật gương (round 2): clip ghi facing front|left|right trong kho (library.json → manifest dựng). Lật gương chỉ khi CLIP ghi mirrorOk:true VÀ nhân vật không bị cấm ở đây (chi tiết nhận diện lệch một bên).", "mia": {"mirrorOk": false, "asym": "kẹp tóc vàng bên phải + thẻ đeo"}, "leo": {"mirrorOk": false, "asym": "thẻ đeo lệch"}, "diane": {"mirrorOk": false, "asym": "lọn tóc bạc một bên"}, "carlos": {"asym": "(chưa ghi) – mặc định theo clip mirrorOk"}, "ama": {"asym": "(chưa ghi) – balo một quai, mặc định theo clip mirrorOk"}},
   "scenes": {
     "office":     { "cast": ["mia", "leo", "diane", "kit"], "roles": { "mia": "coworker", "leo": "coworker", "diane": "boss | interviewer" }, "outfit": "office" },
     "school":     { "cast": ["ama", "kit"], "roles": { "ama": "student" }, "outfit": "casual" },

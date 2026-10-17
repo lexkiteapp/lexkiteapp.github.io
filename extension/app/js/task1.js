@@ -105,7 +105,7 @@
   }
   const DRAW = { line: lineChart, bar: barChart, pie: pieCharts, table: tableChart, process: processChart, map: mapChart };
   App.task1 = { SETS, draw: d => DRAW[d.type](d), score: (t, d) => score(t, d) };
-  const TYPE_VI = { line: t('Biểu đồ đường'), bar: t('Biểu đồ cột'), pie: t('Biểu đồ tròn'), table: t('Bảng số liệu'), process: t('Quy trình'), map: t('Bản đồ') };
+  const TYPE_VI = () => ({ line: t('Biểu đồ đường'), bar: t('Biểu đồ cột'), pie: t('Biểu đồ tròn'), table: t('Bảng số liệu'), process: t('Quy trình'), map: t('Bản đồ') });
 
   let timer = null;
   routes.task1 = async function (id) {
@@ -113,10 +113,10 @@
     const drafts = await Store.get('task1Drafts', {});
     view.innerHTML = `
       <div class="page-head"><div><h1>📈 Writing Task 1</h1><p class="muted">${t('Mô tả biểu đồ ≥150 từ trong 20 phút. Đề tự soạn – số liệu giả định để luyện tập.')} <a href="#/write">Task 2 →</a></p></div></div>
-      <div class="tabs" style="margin-bottom:1rem">${SETS.map(x => `<button class="${x.id === d.id ? 'on' : ''}" data-set="${x.id}">${TYPE_VI[x.type]} · ${esc(x.id)}</button>`).join('')}</div>
+      <div class="tabs" style="margin-bottom:1rem">${SETS.map(x => `<button class="${x.id === d.id ? 'on' : ''}" data-set="${x.id}">${TYPE_VI()[x.type]} · ${esc(x.id)}</button>`).join('')}</div>
       <div class="grid" style="grid-template-columns:minmax(0,1fr) 300px;align-items:start" id="t1Grid">
         <div class="stack">
-          <div class="card"><span class="chip lv">${TYPE_VI[d.type]}</span><p style="font-weight:600;margin:.6rem 0 1rem">${esc(d.title)} Summarise the information by selecting and reporting the main features, and make comparisons where relevant.</p>
+          <div class="card"><span class="chip lv">${TYPE_VI()[d.type]}</span><p style="font-weight:600;margin:.6rem 0 1rem">${esc(d.title)} Summarise the information by selecting and reporting the main features, and make comparisons where relevant.</p>
             <div class="chart-wrap">${DRAW[d.type](d)}</div><div class="tiny muted" style="margin-top:.3rem">ℹ️ ${t('Dữ liệu minh họa (tự biên soạn)')}</div></div>
           <div class="card">
             <textarea class="input" id="t1" style="min-height:260px;font-size:1.02rem;line-height:1.7" placeholder="The ${d.type === 'map' ? 'maps illustrate' : d.type === 'process' ? 'diagram illustrates' : 'chart shows'}…">${esc(drafts[d.id] || '')}</textarea>
@@ -129,7 +129,7 @@
           <div class="card"><h3>🧭 ${t('Cấu trúc 4 đoạn')}</h3><ol class="small" style="padding-left:1.1rem;line-height:1.7;margin:.3rem 0"><li>${t('<b>Mở bài:</b> viết lại đề (paraphrase).')}</li><li>${t('<b>Tổng quan:</b> 2 đặc điểm nổi bật nhất, không số liệu.')}</li><li>${t('<b>Thân bài 1:</b> nhóm số liệu thứ nhất + so sánh.')}</li><li>${t('<b>Thân bài 2:</b> nhóm còn lại + so sánh.')}</li></ol>
             ${(window.MODELS || []).some(m => m.id === 't1-' + d.id) ? `<a class="btn sm primary block" href="#/model/t1-${d.id}" style="margin:.4rem 0">📄 ${t('Bài mẫu band 8 có chú thích')}</a>` : ''}
             <details><summary class="small"><b>👀 ${t('Xem câu tổng quan mẫu')}</b></summary><div class="example-box small" style="margin-top:.4rem">${esc(d.overview)}</div></details></div>
-          <div class="card"><h3>💡 ${t('Từ vựng cho {type}', { type: TYPE_VI[d.type].toLowerCase() })}</h3><div class="row" style="margin-top:.4rem">${VOCAB[d.type].map(v => `<button class="chip" data-ins="${esc(v.split(' / ')[0].replace(/ \\(.*\\)/, ''))}" style="border:0;cursor:pointer">${esc(v.replace('(bị động)', t('(bị động)')))}</button>`).join('')}</div><div class="tiny muted" style="margin-top:.4rem">${t('Bấm để chèn vào bài')}</div></div>
+          <div class="card"><h3>💡 ${t('Từ vựng cho {type}', { type: TYPE_VI()[d.type].toLowerCase() })}</h3><div class="row" style="margin-top:.4rem">${VOCAB[d.type].map(v => `<button class="chip" data-ins="${esc(v.split(' / ')[0].replace(/ \\(.*\\)/, ''))}" style="border:0;cursor:pointer">${esc(v.replace('(bị động)', t('(bị động)')))}</button>`).join('')}</div><div class="tiny muted" style="margin-top:.4rem">${t('Bấm để chèn vào bài')}</div></div>
           <div class="card"><h3>⚠️ ${t('Lưu ý')}</h3><ul class="small" style="padding-left:1.1rem;margin:.3rem 0;line-height:1.6"><li>${t('Không nêu ý kiến cá nhân (I think…).')}</li><li>${t('Thì động từ theo mốc thời gian của biểu đồ (quá khứ / hiện tại / dự đoán).')}</li><li>${t('Không cần mô tả mọi con số – chọn số liệu nổi bật.')}</li></ul></div>
         </div>
       </div>`;

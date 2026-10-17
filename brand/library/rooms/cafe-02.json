@@ -1,7 +1,7 @@
 {
- "_note": "Hồ sơ sàn TỰ ĐỘNG (scripts/video/asset_check.py estimate_floor) – canvas rộng 1080. Sửa tay xong đặt \"manual\": true để không bị ghi đè.",
+ "_note": "Hồ sơ sàn TỰ ĐỘNG (scripts/video/asset_check.py estimate_floor) – canvas rộng 1080. Sửa tay xong đặt \"manual\": true để không bị ghi đè. maskText = vùng chữ bảng phấn (toạ độ canvas 1080×1920) làm mờ khi dựng; counter = quầy (x0,x1, mặt quầy top, chân quầy base, standY = chỗ nhân viên đứng sau quầy) – chỉ dùng khi cỡ người ở standY ≥ 600 px (đủ quay cận trung).",
  "id": "cafe-02",
- "manual": false,
+ "manual": true,
  "confidence": 0.63,
  "canvas": [
   1080,
@@ -39,5 +39,20 @@
  "light": {
   "dir": 1,
   "warmth": 0.17
+ },
+ "maskText": [
+  [
+   326,
+   664,
+   802,
+   920
+  ]
+ ],
+ "counter": {
+  "x0": 190,
+  "x1": 890,
+  "top": 1036,
+  "base": 1274,
+  "standY": 1240
  }
 }

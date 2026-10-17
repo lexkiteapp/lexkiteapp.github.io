@@ -108,7 +108,7 @@
       const rows = qs.map((q, i) => {
         const right = String(q.answer), ok = ans[i] === right;
         if (ok) score++;
-        else if (App.logMistake) App.logMistake({ kind: 'reading', q: `${q.r.title}: ${q.q}`, answer: q.type === 'tfng' ? right : q.options[+right], given: ans[i] == null ? t('(bỏ trống)') : q.type === 'tfng' ? ans[i] : q.options[+ans[i]], explain: q.explain, ref: q.r.id });
+        else if (App.logMistake) App.logMistake({ kind: 'reading', q: `${q.r.title}: ${q.q}`, answer: q.type === 'tfng' ? right : q.options[+right], given: ans[i] == null ? I18N.tk('(bỏ trống)') : q.type === 'tfng' ? ans[i] : q.options[+ans[i]], explain: q.explain, ref: q.r.id });
         return { q, i, ok };
       });
       const pct = Math.round(score / qs.length * 100);

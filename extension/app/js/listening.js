@@ -13,11 +13,11 @@
   })));
   const ALL = () => window.LISTENING || [];
   const byId = id => ALL().find(p => p.id === id) || ((window.TOEIC || {}).listening || []).find(p => p.id === id);
-  const TOEIC_PART = { 1: t('Mô tả tranh'), 2: t('Hỏi – đáp'), 3: t('Hội thoại'), 4: t('Bài nói ngắn') };
-  const partName = p => p.exam === 'toeic' || /^tl/.test(p.id) ? 'TOEIC · ' + (TOEIC_PART[p.part] || '') : PART[p.part];
+  const TOEIC_PART = () => ({ 1: t('Mô tả tranh'), 2: t('Hỏi – đáp'), 3: t('Hội thoại'), 4: t('Bài nói ngắn') });
+  const partName = p => p.exam === 'toeic' || /^tl/.test(p.id) ? 'TOEIC · ' + (TOEIC_PART()[p.part] || '') : PART()[p.part];
   const tests = () => [...new Set(ALL().map(p => p.test))].sort((a, b) => a - b);
   const partsOf = n => ALL().filter(p => p.test === n).sort((a, b) => a.part - b.part);
-  const PART = { 1: t('Hội thoại đời sống'), 2: t('Độc thoại xã hội'), 3: t('Thảo luận học thuật'), 4: t('Bài giảng học thuật') };
+  const PART = () => ({ 1: t('Hội thoại đời sống'), 2: t('Độc thoại xã hội'), 3: t('Thảo luận học thuật'), 4: t('Bài giảng học thuật') });
   const ACC = { 'en-GB': '🇬🇧', 'en-US': '🇺🇸', 'en-AU': '🇦🇺' };
   const qNums = p => p.groups.flatMap(g => g.type === 'multi' ? g.n : g.items.map(i => i.n));
 
@@ -174,7 +174,7 @@
       ${all.filter(n => n === cur).map(n => `<div class="card" style="margin-bottom:1rem">
         <div class="row between"><h2 style="margin:0">Test ${n}</h2><div class="row">${best[n] != null ? `<span class="chip ok">Band ${best[n]}</span>` : ''}<a class="btn primary" href="#/listen-test/${n}">⏱ ${t('Thi thử 40 câu')}</a></div></div>
         <div class="grid auto" style="margin-top:.8rem">${partsOf(n).map(p => `<div class="card hover" style="box-shadow:none;border:1px solid var(--line)">
-          <div class="row between"><span class="chip">Part ${p.part} · ${PART[p.part]}</span>${done[p.id] != null ? `<span class="chip ok">✓ ${done[p.id]}/10</span>` : ''}</div>
+          <div class="row between"><span class="chip">Part ${p.part} · ${PART()[p.part]}</span>${done[p.id] != null ? `<span class="chip ok">✓ ${done[p.id]}/10</span>` : ''}</div>
           <h3 style="margin:.5rem 0 .2rem">${esc(p.title)}</h3><div class="small muted">${esc(p.titleVi || '')} · ${esc(p.topic || '')}</div>
           <div class="row" style="margin-top:.4rem">${speakersHtml(p)}</div>
           <div class="row" style="margin-top:.7rem"><a class="btn sm primary" href="#/listen/${p.id}">🎯 ${t('Luyện tập')}</a><a class="btn sm" href="#/listen/${p.id}?mode=exam">⏱ ${t('Nghe 1 lần')}</a><a class="btn sm ghost" href="#/dictation/${p.id}">⌨️ ${t('Chép chính tả')}</a></div></div>`).join('')}</div></div>`).join('')}
@@ -244,7 +244,7 @@
       const right = nums.filter(n => res[n].ok).length;
       QE.mark($('#lQs'), res, '🔎 ' + t('Nghe đoạn có đáp án'), n => hear(n));
       p.groups.forEach(g2 => (g2.items || []).forEach(it => { const el = $(`[data-item="${it.n}"] .lq-fb`, $('#lQs')); if (el && it.explain) el.insertAdjacentHTML('beforeend', `<div class="tiny muted" style="margin-top:.2rem">💡 ${esc(QE.exT(it.explain))}</div>`); }));
-      nums.filter(n => !res[n].ok).forEach(n => App.logMistake && App.logMistake({ kind: 'listening', q: t('{title} – Câu {n}: {q}', { title: p.title, n, q: res[n].q }), answer: res[n].answer, given: res[n].given || t('(bỏ trống)'), explain: res[n].cue ? t('Nghe: “…{cue}…”', { cue: res[n].cue }) : '', ref: p.id }));
+      nums.filter(n => !res[n].ok).forEach(n => App.logMistake && App.logMistake({ kind: 'listening', q: I18N.tk('{title} – Câu {n}: {q}', { title: p.title, n, q: res[n].q }), answer: res[n].answer, given: res[n].given || I18N.tk('(bỏ trống)'), explain: res[n].cue ? I18N.tk('Nghe: “…{cue}…”', { cue: res[n].cue }) : '', ref: p.id }));
       state.game = await Game.mutate(gs => { gs.listenDone = { ...(gs.listenDone || {}), [p.id]: Math.max(right, (gs.listenDone || {})[p.id] || 0) }; });
       await App.reward({ quizzes: 1, listens: 1, perfect: right === nums.length ? 1 : 0, xp: 15 + right * 3 }, $('#lRes'));
       if (right >= 8) { Sfx.win(); confetti(); }
@@ -316,7 +316,7 @@
     async function finish() {
       const nums = Object.keys(results).map(Number).sort((a, b) => a - b);
       const raw = nums.filter(q => results[q].ok).length, band = bandOf(raw);
-      nums.filter(q => !results[q].ok).forEach(q => App.logMistake && App.logMistake({ kind: 'listening', q: t('Test {t} – Câu {n}: {q}', { t: n, n: q, q: results[q].q }), answer: results[q].answer, given: results[q].given || t('(bỏ trống)'), explain: results[q].cue ? t('Nghe: “…{cue}…”', { cue: results[q].cue }) : '', ref: results[q].pid }));
+      nums.filter(q => !results[q].ok).forEach(q => App.logMistake && App.logMistake({ kind: 'listening', q: I18N.tk('Test {t} – Câu {n}: {q}', { t: n, n: q, q: results[q].q }), answer: results[q].answer, given: results[q].given || I18N.tk('(bỏ trống)'), explain: results[q].cue ? I18N.tk('Nghe: “…{cue}…”', { cue: results[q].cue }) : '', ref: results[q].pid }));
       state.game = await Game.mutate(gs => { gs.listenBest = { ...(gs.listenBest || {}), [n]: Math.max(band, (gs.listenBest || {})[n] || 0) }; gs.listenTests = [...(gs.listenTests || []), { n, raw, band, at: Date.now() }].slice(-30); });
       await App.reward({ quizzes: 1, listens: 4, perfect: raw === 40 ? 1 : 0, xp: 40 + raw * 2 });
       if (band >= 7) { Sfx.win(); confetti(160); }

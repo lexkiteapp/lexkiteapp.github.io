@@ -5,26 +5,27 @@
 
   // ---------- Cấp độ ----------
   // Cần 100, 150, 200... XP cho mỗi cấp tiếp theo
-  const LEVEL_TITLES = [t('Người mới'), t('Tập sự'), t('Chăm chỉ'), t('Tiến bộ'), t('Vững vàng'), 'Band 6.0', 'Band 6.5', 'Band 7.0', 'Band 7.5', 'Band 8.0', 'Band 8.5', t('Bậc thầy'), t('Huyền thoại')];
+  const LEVEL_TITLES = () => [t('Người mới'), t('Tập sự'), t('Chăm chỉ'), t('Tiến bộ'), t('Vững vàng'), 'Band 6.0', 'Band 6.5', 'Band 7.0', 'Band 7.5', 'Band 8.0', 'Band 8.5', t('Bậc thầy'), t('Huyền thoại')];
   function levelOf(xp) {
     let lvl = 1, need = 100, rest = xp;
     while (rest >= need) { rest -= need; lvl++; need += 50; }
-    return { level: lvl, into: rest, need, title: LEVEL_TITLES[Math.min(lvl - 1, LEVEL_TITLES.length - 1)] };
+    const L = LEVEL_TITLES();
+    return { level: lvl, into: rest, need, title: L[Math.min(lvl - 1, L.length - 1)] };
   }
 
   // ---------- Nhiệm vụ ngày (đổi theo ngày) ----------
   const QUEST_POOL = [
-    { id: 'review20', icon: '🃏', text: t('Ôn 20 thẻ flashcard'), metric: 'reviews', goal: 20, xp: 30 },
-    { id: 'review40', icon: '🔥', text: t('Ôn 40 thẻ flashcard'), metric: 'reviews', goal: 40, xp: 50 },
-    { id: 'new5', icon: '✨', text: t('Học 5 từ mới'), metric: 'newWords', goal: 5, xp: 25 },
-    { id: 'new10', icon: '🌱', text: t('Học 10 từ mới'), metric: 'newWords', goal: 10, xp: 40 },
-    { id: 'quiz', icon: '🎯', text: t('Hoàn thành 1 bài luyện tập'), metric: 'quizzes', goal: 1, xp: 20 },
-    { id: 'perfect', icon: '💯', text: t('Đạt 100% một bài luyện tập'), metric: 'perfect', goal: 1, xp: 40 },
-    { id: 'match', icon: '⚡', text: t('Chơi Ghép thẻ 2 lần'), metric: 'matches', goal: 2, xp: 25 },
-    { id: 'speak', icon: '🎙️', text: t('Luyện phát âm 10 từ'), metric: 'spoken', goal: 10, xp: 30 },
-    { id: 'read', icon: '📖', text: t('Đọc xong 1 bài đọc'), metric: 'readings', goal: 1, xp: 30 },
-    { id: 'lookup', icon: '🔎', text: t('Tra 5 từ trong từ điển'), metric: 'lookups', goal: 5, xp: 15 },
-    { id: 'xp100', icon: '⭐', text: t('Kiếm 100 XP trong ngày'), metric: 'xp', goal: 100, xp: 30 },
+    { id: 'review20', icon: '🃏', get text() { return t('Ôn 20 thẻ flashcard'); }, metric: 'reviews', goal: 20, xp: 30 },
+    { id: 'review40', icon: '🔥', get text() { return t('Ôn 40 thẻ flashcard'); }, metric: 'reviews', goal: 40, xp: 50 },
+    { id: 'new5', icon: '✨', get text() { return t('Học 5 từ mới'); }, metric: 'newWords', goal: 5, xp: 25 },
+    { id: 'new10', icon: '🌱', get text() { return t('Học 10 từ mới'); }, metric: 'newWords', goal: 10, xp: 40 },
+    { id: 'quiz', icon: '🎯', get text() { return t('Hoàn thành 1 bài luyện tập'); }, metric: 'quizzes', goal: 1, xp: 20 },
+    { id: 'perfect', icon: '💯', get text() { return t('Đạt 100% một bài luyện tập'); }, metric: 'perfect', goal: 1, xp: 40 },
+    { id: 'match', icon: '⚡', get text() { return t('Chơi Ghép thẻ 2 lần'); }, metric: 'matches', goal: 2, xp: 25 },
+    { id: 'speak', icon: '🎙️', get text() { return t('Luyện phát âm 10 từ'); }, metric: 'spoken', goal: 10, xp: 30 },
+    { id: 'read', icon: '📖', get text() { return t('Đọc xong 1 bài đọc'); }, metric: 'readings', goal: 1, xp: 30 },
+    { id: 'lookup', icon: '🔎', get text() { return t('Tra 5 từ trong từ điển'); }, metric: 'lookups', goal: 5, xp: 15 },
+    { id: 'xp100', icon: '⭐', get text() { return t('Kiếm 100 XP trong ngày'); }, metric: 'xp', goal: 100, xp: 30 },
   ];
   function questsFor(day) {
     // Chọn 3 nhiệm vụ cố định theo ngày (luôn có 1 nhiệm vụ ôn tập)
@@ -37,25 +38,25 @@
 
   // ---------- Huy hiệu ----------
   const BADGES = [
-    { id: 'first', icon: '🐣', name: t('Khởi đầu'), desc: t('Ôn thẻ đầu tiên'), test: s => s.total.reviews >= 1 },
-    { id: 'words50', icon: '📗', name: t('Sổ tay 50'), desc: t('Có 50 từ trong sổ'), test: (s, c) => c.cards >= 50 },
-    { id: 'words200', icon: '📚', name: t('Thư viện nhỏ'), desc: t('Có 200 từ trong sổ'), test: (s, c) => c.cards >= 200 },
-    { id: 'words500', icon: '🏛️', name: t('Bách khoa'), desc: t('Có 500 từ trong sổ'), test: (s, c) => c.cards >= 500 },
-    { id: 'master10', icon: '🧠', name: t('Trí nhớ tốt'), desc: t('Thuộc 10 từ'), test: (s, c) => c.mastered >= 10 },
-    { id: 'master100', icon: '🏆', name: t('Trăm từ vững'), desc: t('Thuộc 100 từ'), test: (s, c) => c.mastered >= 100 },
-    { id: 'streak3', icon: '🔥', name: t('Lửa nhỏ'), desc: t('Chuỗi 3 ngày'), test: (s, c) => c.streak >= 3 },
-    { id: 'streak7', icon: '🌋', name: t('Một tuần bền bỉ'), desc: t('Chuỗi 7 ngày'), test: (s, c) => c.streak >= 7 },
-    { id: 'streak30', icon: '💎', name: t('Kim cương'), desc: t('Chuỗi 30 ngày'), test: (s, c) => c.streak >= 30 },
-    { id: 'rev500', icon: '🚀', name: t('Cỗ máy ôn tập'), desc: t('Ôn 500 lượt'), test: s => s.total.reviews >= 500 },
-    { id: 'perfect5', icon: '💯', name: t('Hoàn hảo'), desc: t('5 bài luyện tập đạt 100%'), test: s => s.total.perfect >= 5 },
-    { id: 'speaker', icon: '🎙️', name: t('Phát âm chuẩn'), desc: t('Phát âm đúng 50 từ'), test: s => s.total.spoken >= 50 },
-    { id: 'reader', icon: '📖', name: t('Mọt sách'), desc: t('Đọc xong 5 bài đọc'), test: s => s.total.readings >= 5 },
-    { id: 'speed', icon: '⚡', name: t('Tia chớp'), desc: t('Ghép thẻ dưới 25 giây'), test: s => s.best.match && s.best.match < 25 },
-    { id: 'night', icon: '🦉', name: t('Cú đêm'), desc: t('Học sau 22 giờ trong 5 ngày'), test: s => (s.total.night || 0) >= 5 },
-    { id: 'early', icon: '🐦', name: t('Chim sớm'), desc: t('Học trước 7 giờ sáng trong 5 ngày'), test: s => (s.total.early || 0) >= 5 },
-    { id: 'hunter', icon: '🏹', name: t('Thợ săn từ'), desc: t('Học 50 từ mới trong một ngày'), test: s => Object.values(s.days).some(x => (x.newWords || 0) >= 50) },
-    { id: 'level5', icon: '🎖️', name: t('Cấp 5'), desc: t('Đạt cấp độ 5'), test: s => levelOf(s.xp).level >= 5 },
-    { id: 'level10', icon: '👑', name: t('Cấp 10'), desc: t('Đạt cấp độ 10'), test: s => levelOf(s.xp).level >= 10 },
+    { id: 'first', icon: '🐣', get name() { return t('Khởi đầu'); }, get desc() { return t('Ôn thẻ đầu tiên'); }, test: s => s.total.reviews >= 1 },
+    { id: 'words50', icon: '📗', get name() { return t('Sổ tay 50'); }, get desc() { return t('Có 50 từ trong sổ'); }, test: (s, c) => c.cards >= 50 },
+    { id: 'words200', icon: '📚', get name() { return t('Thư viện nhỏ'); }, get desc() { return t('Có 200 từ trong sổ'); }, test: (s, c) => c.cards >= 200 },
+    { id: 'words500', icon: '🏛️', get name() { return t('Bách khoa'); }, get desc() { return t('Có 500 từ trong sổ'); }, test: (s, c) => c.cards >= 500 },
+    { id: 'master10', icon: '🧠', get name() { return t('Trí nhớ tốt'); }, get desc() { return t('Thuộc 10 từ'); }, test: (s, c) => c.mastered >= 10 },
+    { id: 'master100', icon: '🏆', get name() { return t('Trăm từ vững'); }, get desc() { return t('Thuộc 100 từ'); }, test: (s, c) => c.mastered >= 100 },
+    { id: 'streak3', icon: '🔥', get name() { return t('Lửa nhỏ'); }, get desc() { return t('Chuỗi 3 ngày'); }, test: (s, c) => c.streak >= 3 },
+    { id: 'streak7', icon: '🌋', get name() { return t('Một tuần bền bỉ'); }, get desc() { return t('Chuỗi 7 ngày'); }, test: (s, c) => c.streak >= 7 },
+    { id: 'streak30', icon: '💎', get name() { return t('Kim cương'); }, get desc() { return t('Chuỗi 30 ngày'); }, test: (s, c) => c.streak >= 30 },
+    { id: 'rev500', icon: '🚀', get name() { return t('Cỗ máy ôn tập'); }, get desc() { return t('Ôn 500 lượt'); }, test: s => s.total.reviews >= 500 },
+    { id: 'perfect5', icon: '💯', get name() { return t('Hoàn hảo'); }, get desc() { return t('5 bài luyện tập đạt 100%'); }, test: s => s.total.perfect >= 5 },
+    { id: 'speaker', icon: '🎙️', get name() { return t('Phát âm chuẩn'); }, get desc() { return t('Phát âm đúng 50 từ'); }, test: s => s.total.spoken >= 50 },
+    { id: 'reader', icon: '📖', get name() { return t('Mọt sách'); }, get desc() { return t('Đọc xong 5 bài đọc'); }, test: s => s.total.readings >= 5 },
+    { id: 'speed', icon: '⚡', get name() { return t('Tia chớp'); }, get desc() { return t('Ghép thẻ dưới 25 giây'); }, test: s => s.best.match && s.best.match < 25 },
+    { id: 'night', icon: '🦉', get name() { return t('Cú đêm'); }, get desc() { return t('Học sau 22 giờ trong 5 ngày'); }, test: s => (s.total.night || 0) >= 5 },
+    { id: 'early', icon: '🐦', get name() { return t('Chim sớm'); }, get desc() { return t('Học trước 7 giờ sáng trong 5 ngày'); }, test: s => (s.total.early || 0) >= 5 },
+    { id: 'hunter', icon: '🏹', get name() { return t('Thợ săn từ'); }, get desc() { return t('Học 50 từ mới trong một ngày'); }, test: s => Object.values(s.days).some(x => (x.newWords || 0) >= 50) },
+    { id: 'level5', icon: '🎖️', get name() { return t('Cấp 5'); }, get desc() { return t('Đạt cấp độ 5'); }, test: s => levelOf(s.xp).level >= 5 },
+    { id: 'level10', icon: '👑', get name() { return t('Cấp 10'); }, get desc() { return t('Đạt cấp độ 10'); }, test: s => levelOf(s.xp).level >= 10 },
   ];
 
   const EMPTY = () => ({ xp: 0, days: {}, total: { reviews: 0, newWords: 0, quizzes: 0, perfect: 0, matches: 0, spoken: 0, readings: 0, lookups: 0 }, best: {}, badges: {}, questsDone: {} });

@@ -74,7 +74,10 @@
       }).join('') || `<div class="card empty"><div class="em">📐</div>${t('Đang cập nhật bài học…')}</div>`}</div>`}
       <h3 class="set-h hub-h">📝 ${t('Kiểm tra tổng hợp')}</h3>
       <div class="hub-grid"><a class="card hover hub-card" href="#/grammar/mix"><span class="hub-ic" aria-hidden="true">🔀</span><span class="hub-tx"><b>${t('Đề tổng hợp {n} câu', { n: 20 })}</b><small>${t('Trộn câu hỏi từ các bài đã học (hoặc mọi bài)')}</small></span></a>
-        <a class="card hover hub-card" href="#/grammar/mix?n=40"><span class="hub-ic" aria-hidden="true">🏁</span><span class="hub-tx"><b>${t('Đề tổng hợp {n} câu', { n: 40 })}</b><small>${t('Ôn toàn bộ chương trình – như bài thi cuối khóa')}</small></span></a></div>`;
+        <a class="card hover hub-card" href="#/grammar/mix?n=40"><span class="hub-ic" aria-hidden="true">🏁</span><span class="hub-tx"><b>${t('Đề tổng hợp {n} câu', { n: 40 })}</b><small>${t('Ôn toàn bộ chương trình – như bài thi cuối khóa')}</small></span></a></div>
+      <h3 class="set-h hub-h">🧰 ${t('Công cụ ngữ pháp')}</h3>
+      <div class="hub-grid"><a class="card hover hub-card" href="#/verb"><span class="hub-ic" aria-hidden="true">🔤</span><span class="hub-tx"><b>${t('Chia động từ')}</b><small>${t('Mọi thì, bị động, cách đọc -ed/-s')}</small></span></a>
+        <a class="card hover hub-card" href="#/fix"><span class="hub-ic" aria-hidden="true">✍️</span><span class="hub-tx"><b>${t('Sửa ngữ pháp')}</b><small>${t('Dán đoạn văn – gạch chân lỗi, sửa 1 chạm')}</small></span></a></div>`;
     $$('[data-gt]').forEach(b => b.onclick = () => { try { sessionStorage.setItem('g.tab', b.dataset.gt); } catch (e) { /* bỏ qua */ } routes.grammar(); });
   };
   const levelChip = l => l ? `<span class="chip lv ${esc(l)}">${esc(l)}</span>` : '';

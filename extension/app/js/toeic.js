@@ -6,8 +6,8 @@
   const { state, routes } = App;
   const view = App.view;
   const T = () => window.TOEIC || { reading: [], listening: [] };
-  const L_PART = { 1: t('Mô tả tranh'), 2: t('Hỏi – đáp'), 3: t('Hội thoại'), 4: t('Bài nói ngắn') };
-  const R_PART = { 5: t('Hoàn thành câu'), 6: t('Hoàn thành đoạn văn'), 7: t('Đọc hiểu') };
+  const L_PART = () => ({ 1: t('Mô tả tranh'), 2: t('Hỏi – đáp'), 3: t('Hội thoại'), 4: t('Bài nói ngắn') });
+  const R_PART = () => ({ 5: t('Hoàn thành câu'), 6: t('Hoàn thành đoạn văn'), 7: t('Đọc hiểu') });
   // Đánh dấu dữ liệu TOEIC để trang Luyện nghe hiển thị đúng tên Part
   T().listening.forEach(p => { p.exam = 'toeic'; });
   // Xoay vị trí đáp án 4 lựa chọn theo mẫu cố định → A/B/C/D phân bố đều (chấm theo chỉ số nên vẫn đúng). Part 1 (photo) không xoay vì audio đọc sẵn chữ cái
@@ -53,10 +53,10 @@
       <a class="card hover" href="#/toeic-sw" style="display:block;margin-top:1rem;text-decoration:none;color:inherit"><div class="row between"><div><h3 style="margin:0">🎙️ TOEIC Speaking & Writing</h3><div class="small muted" style="margin-top:.2rem">${t('Nói và viết theo các dạng bài của ETS: bài mẫu, tiêu chí chấm, chấm đọc to tự động.')}</div></div><span class="btn sm primary">${t('Luyện tập')} →</span></div></a>
       <h2 style="margin-top:1.4rem">🎯 ${t('Luyện theo Part')}</h2>${tabs}
       <h3 style="margin:.8rem 0 .4rem">🎧 Listening</h3>
-      <div class="grid auto">${T().listening.filter(p => p.test === cur).map(p => `<div class="card"><span class="chip">Part ${p.part} · ${L_PART[p.part] || ''}</span><h3 style="margin:.5rem 0 .2rem">Test ${p.test} · ${esc(p.title)}</h3><div class="small muted">${App.listening ? t('{n} câu', { n: App.listening.qNums(p).length }) : ''}</div>
+      <div class="grid auto">${T().listening.filter(p => p.test === cur).map(p => `<div class="card"><span class="chip">Part ${p.part} · ${L_PART()[p.part] || ''}</span><h3 style="margin:.5rem 0 .2rem">Test ${p.test} · ${esc(p.title)}</h3><div class="small muted">${App.listening ? t('{n} câu', { n: App.listening.qNums(p).length }) : ''}</div>
         <div class="row" style="margin-top:.6rem"><a class="btn sm primary" href="#/listen/${p.id}">🎯 ${t('Luyện tập')}</a><a class="btn sm" href="#/listen/${p.id}?mode=exam">⏱ ${t('Nghe 1 lần')}</a><a class="btn sm ghost" href="#/dictation/${p.id}">⌨️ ${t('Chép chính tả')}</a></div></div>`).join('') || `<div class="card muted">${t('Đang cập nhật.')}</div>`}</div>
       <h3 style="margin:1rem 0 .4rem">📖 Reading</h3>
-      <div class="grid auto">${T().reading.filter(rt => rt.test === cur).flatMap(rt => rt.parts.map(pt => `<div class="card"><span class="chip">Part ${pt.part} · ${R_PART[pt.part] || ''}</span><h3 style="margin:.5rem 0 .2rem">Test ${rt.test} · ${esc(pt.title)}</h3><div class="small muted">${t('{n} câu', { n: countPart(pt) })}</div>
+      <div class="grid auto">${T().reading.filter(rt => rt.test === cur).flatMap(rt => rt.parts.map(pt => `<div class="card"><span class="chip">Part ${pt.part} · ${R_PART()[pt.part] || ''}</span><h3 style="margin:.5rem 0 .2rem">Test ${rt.test} · ${esc(pt.title)}</h3><div class="small muted">${t('{n} câu', { n: countPart(pt) })}</div>
         <div class="row" style="margin-top:.6rem"><a class="btn sm primary" href="#/toeic-r/${rt.id}?part=${pt.part}">🎯 ${t('Luyện Part {n}', { n: pt.part })}</a></div></div>`)).join('') || `<div class="card muted">${t('Đang cập nhật.')}</div>`}</div>
       <div class="card" style="margin-top:1.2rem"><h3 style="margin-top:0">💡 ${t('Chiến lược TOEIC')}</h3><ul class="small" style="line-height:1.8;padding-left:1.1rem">
         <li>${t('<b>Part 2:</b> nghe kỹ từ để hỏi (When/Where/Who…); cẩn thận đáp án lặp lại âm giống câu hỏi – thường là bẫy.')}</li>
@@ -89,7 +89,7 @@
       units.forEach((u, k) => {
         const root = $(`.toeic-u[data-u="${k}"]`), p = { groups: u.groups }, res = QE.collect(p, root);
         QE.mark(root, res); explainMark(root, u.groups);
-        Object.entries(res).forEach(([n, r]) => { total++; if (r.ok) right++; else if (App.logMistake) App.logMistake({ kind: 'reading', q: `TOEIC ${n}: ${r.q || ''}`, answer: r.answer, given: r.given || t('(bỏ trống)'), explain: (u.groups.flatMap(g => g.items).find(i => i.n === +n) || {}).explain || '', ref: '' }); });
+        Object.entries(res).forEach(([n, r]) => { total++; if (r.ok) right++; else if (App.logMistake) App.logMistake({ kind: 'reading', q: `TOEIC ${n}: ${r.q || ''}`, answer: r.answer, given: r.given || I18N.tk('(bỏ trống)'), explain: (u.groups.flatMap(g => g.items).find(i => i.n === +n) || {}).explain || '', ref: '' }); });
       });
       $('#tSub').disabled = true;
       await App.reward({ quizzes: 1, readings: 1, xp: 10 + right * 2 });
@@ -152,7 +152,7 @@
       const ls = scaled(lr / Math.max(1, lt)), rs = scaled(rr / Math.max(1, rt)), total = ls + rs;
       state.game = await Game.mutate(gs => { gs.toeicBest = { total: Math.max(total, (gs.toeicBest || {}).total || 0), at: Date.now() }; gs.toeicTests = [...(gs.toeicTests || []), { n, ls, rs, total, at: Date.now() }].slice(-20); });
       await App.reward({ quizzes: 2, listens: LP.length, readings: 1, xp: 40 + lr + rr });
-      if (App.logMistake) [...Object.entries(res.L).map(x => ['listening', ...x]), ...Object.entries(res.R).map(x => ['reading', ...x])].filter(([, , r]) => !r.ok).forEach(([kind, q, r]) => App.logMistake({ kind, q: `TOEIC Test ${n} · ${q}: ${r.q || ''}`, answer: r.answer, given: r.given || t('(bỏ trống)'), explain: r.explain || '', ref: '' }));
+      if (App.logMistake) [...Object.entries(res.L).map(x => ['listening', ...x]), ...Object.entries(res.R).map(x => ['reading', ...x])].filter(([, , r]) => !r.ok).forEach(([kind, q, r]) => App.logMistake({ kind, q: `TOEIC Test ${n} · ${q}: ${r.q || ''}`, answer: r.answer, given: r.given || I18N.tk('(bỏ trống)'), explain: r.explain || '', ref: '' }));
       if (total >= 700) { Sfx.win(); confetti(140); }
       const sheet = o => `<div class="lsheet">${Object.keys(o).map(Number).sort((a, b) => a - b).map(q => `<div class="${o[q].ok ? 'ok' : 'no'}"><b>${q}</b> ${o[q].ok ? '✓' : '✗'} <span>${esc(o[q].answer)}</span></div>`).join('')}</div>`;
       view.innerHTML = `<div class="study-wrap" style="max-width:860px"><div class="card celebrate"><div class="em">💼</div><h2>${t('{n}/990 điểm (ước tính)', { n: total })}</h2>
@@ -196,12 +196,12 @@
   // Theo cấu trúc bài thi công khai của ETS; điểm chỉ là ước tính để tự luyện, không phải điểm chính thức.
   const SW = () => window.TOEIC_SW || { speaking: [], writing: [] };
   const SWT = {
-    read: { sec: 'speaking', name: 'Read a Text Aloud', ic: '📢', max: 3, desc: t('Đọc to một đoạn thông báo hoặc quảng cáo: 45 giây chuẩn bị, 45 giây đọc.') },
-    respond: { sec: 'speaking', name: 'Respond to Questions', ic: '💬', max: 3, desc: t('Trả lời 3 câu hỏi về một chủ đề quen thuộc (15, 15 và 30 giây).') },
-    info: { sec: 'speaking', name: 'Respond to Questions Using Information Provided', ic: '📋', max: 3, desc: t('Đọc lịch hoặc bảng thông tin rồi trả lời 3 câu hỏi của người gọi.') },
-    opinion: { sec: 'speaking', name: 'Express an Opinion', ic: '🗣️', max: 5, desc: t('Nêu và bảo vệ ý kiến: 45 giây chuẩn bị, 60 giây nói.') },
-    request: { sec: 'writing', name: 'Respond to a Written Request', ic: '📧', max: 4, desc: t('Trả lời một email công việc trong 10 phút.') },
-    essay: { sec: 'writing', name: 'Write an Opinion Essay', ic: '📝', max: 5, desc: t('Viết bài nêu ý kiến ít nhất 300 từ trong 30 phút.') },
+    read: { sec: 'speaking', name: 'Read a Text Aloud', ic: '📢', max: 3, get desc() { return t('Đọc to một đoạn thông báo hoặc quảng cáo: 45 giây chuẩn bị, 45 giây đọc.'); } },
+    respond: { sec: 'speaking', name: 'Respond to Questions', ic: '💬', max: 3, get desc() { return t('Trả lời 3 câu hỏi về một chủ đề quen thuộc (15, 15 và 30 giây).'); } },
+    info: { sec: 'speaking', name: 'Respond to Questions Using Information Provided', ic: '📋', max: 3, get desc() { return t('Đọc lịch hoặc bảng thông tin rồi trả lời 3 câu hỏi của người gọi.'); } },
+    opinion: { sec: 'speaking', name: 'Express an Opinion', ic: '🗣️', max: 5, get desc() { return t('Nêu và bảo vệ ý kiến: 45 giây chuẩn bị, 60 giây nói.'); } },
+    request: { sec: 'writing', name: 'Respond to a Written Request', ic: '📧', max: 4, get desc() { return t('Trả lời một email công việc trong 10 phút.'); } },
+    essay: { sec: 'writing', name: 'Write an Opinion Essay', ic: '📝', max: 5, get desc() { return t('Viết bài nêu ý kiến ít nhất 300 từ trong 30 phút.'); } },
   };
   const swUnits = k => [...SW().speaking, ...SW().writing].filter(u => u.task === k);
   const mmss = s => `${String(Math.floor(Math.max(0, s) / 60)).padStart(2, '0')}:${String(Math.max(0, s) % 60).padStart(2, '0')}`;

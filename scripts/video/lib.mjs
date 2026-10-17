@@ -169,6 +169,36 @@ export function planShots(lines, { endStart, duration, maxLen = 3.5 }) {
   if (duration > endStart) shots.push({ line: -1, start: r2(endStart), end: r2(duration), framing: 'card', transitionIn: true });
   return shots;
 }
+// Kế hoạch máy kiểu phim (round 2): hook = toàn cảnh (wide) · thoại = trung cảnh đôi (two, đầu gối trở lên) · câu nói tiếp = trung cảnh đơn
+// người nói (single) · nhịp phản ứng (react/đúng/sai) = cận người NGHE (close) ở đuôi câu. KHÔNG BAO GIỜ cận người đang nói (miệng clip Kling
+// không khớp tiếng). Cảnh 0,7–4 s; câu dài tách two → single. lines[i]: {start,end,beat,who,emotion,listener,transitionIn}
+export function planFilmShots(lines, { endStart, duration, maxLen = 3.6 }) {
+  const shots = [], push = (o) => shots.push({ ...o, start: r2(o.start), end: r2(o.end) });
+  let lastSingle = null;
+  lines.forEach((l, i) => {
+    const a = i ? l.start : 0, b = i < lines.length - 1 ? lines[i + 1].start : endStart, len = b - a, base = { line: i, transitionIn: !!l.transitionIn };
+    if (i === 0) { push({ ...base, start: a, end: b, framing: 'wide' }); return; }
+    const sp = l.who && l.who !== 'kit' ? l.who : null, react = !!l.listener && sp && (l.beat === 'react' || ['right', 'wrong'].includes(l.emotion) || (l.punch && len >= 2.6)); // câu "đắt" dài: cận người nghe phản ứng ở đuôi
+    const parts = [];
+    if (!sp) parts.push({ framing: 'wide' }); // Kit nói: toàn cảnh – Kit bay ở khoảng trần trống, không che mặt ai
+    else if (len > 2.4 || i === 1) parts.push({ framing: 'two' }, { framing: 'single', focus: sp });
+    else parts.push(lastSingle === sp ? { framing: 'two' } : { framing: 'single', focus: sp });
+    if (react && len >= 1.9) parts.push({ framing: 'close', focus: l.listener });
+    // độ dài: phần cận ≤ 1,2 s ở cuối; phần còn lại chia đều; phần < 0,75 s thì gộp
+    let segs = parts.length;
+    while (segs > 1 && len / segs < 0.75) segs--;
+    const ps = segs < parts.length && parts[parts.length - 1].framing === 'close' ? [...parts.slice(0, segs - 1), parts[parts.length - 1]].filter(Boolean) : parts.slice(0, segs);
+    const closeLen = ps[ps.length - 1].framing === 'close' ? Math.min(1.2, len * 0.35) : 0, rest = len - closeLen, nr = ps.length - (closeLen ? 1 : 0);
+    let t = a;
+    ps.forEach((x, k) => { const d = x.framing === 'close' ? closeLen : rest / nr; const k2 = Math.max(1, Math.ceil(d / maxLen - 1e-9));
+      for (let j = 0; j < k2; j++) push({ ...base, transitionIn: base.transitionIn && t === a, start: t + j * d / k2, end: t + (j + 1) * d / k2, framing: x.framing, focus: x.focus || null });
+      t += d; if (x.framing === 'single') lastSingle = x.focus; });
+    if (!ps.some(x => x.framing === 'single')) lastSingle = null;
+  });
+  if (shots.length) shots[shots.length - 1].end = r2(endStart);
+  if (duration > endStart) shots.push({ line: -1, start: r2(endStart), end: r2(duration), framing: 'card', transitionIn: true });
+  return shots;
+}
 // Nhịp dựng: cảnh 0,7–4 s (thẻ CTA cuối không tính), mỗi vi phạm −3 điểm
 export function pacingScore(shots) {
   const body = shots.filter(s => s.framing !== 'card'), bad = body.filter(s => s.end - s.start > 4.05 || s.end - s.start < 0.7);
@@ -227,15 +257,44 @@ export function pickRoom(manifest, tag, time, exists = () => true) {
   const c = (manifest.rooms || []).filter(r => r.tag === tag && (r.time || 'day') === time && exists(r.file)).sort((a, b) => a.id.localeCompare(b.id))[0];
   return c ? { ...DEFAULT_ROOM, ...c } : { ...DEFAULT_ROOM, id: `virtual-${tag}-${time}`, tag, time, virtual: true };
 }
-// Điểm đứng: rải đều các điểm stand (trái → phải) theo thứ tự xuất hiện
+// Dàn cảnh hội thoại (round 2, 17/10): 2 người trên TRỤC HỘI THOẠI 38 % / 62 % bề ngang (1 người 50 %, 3 người 25/50/75 %),
+// chân trên hàng điểm đứng của hồ sơ sàn (y của stand), cao = scaleAt(y). Nhân viên (barista/phục vụ/quầy) đứng SAU QUẦY khi phòng có
+// room.counter {x0,x1,top,base,standY} và cỡ người ở đó đủ lớn để quay cận trung (h ≥ counter.minH | 600 px) – không thì đứng đôi giữa sàn.
+// Không bao giờ để người sát mép: thân (±0,3 h) cách mép ≥ 40 px.
+export const STAFF_ROLE = /barista|server|waiter|staff|clerk|agent|receptionist|cashier/i;
+export function stageDialogue(cast, room, { roles = {}, W = 1080, axis = null } = {}) {
+  const n = cast.length, out = {}; if (!n) return out;
+  const xs = axis || (n === 1 ? [0.5] : n === 2 ? [0.38, 0.62] : cast.map((_, j) => 0.25 + 0.5 * j / (n - 1)));
+  const st = room.stand && room.stand.length ? room.stand : DEFAULT_ROOM.stand;
+  const ys = st.map(p => p.y).sort((a, b) => a - b), y0 = ys[Math.floor(ys.length / 2)];
+  const sx = st.map(p => p.x), lo = Math.min(...sx) - 80, hi = Math.max(...sx) + 80;
+  const ct = room.counter, staff = cast.find(w => STAFF_ROLE.test(roles[w] || ''));
+  const counterOk = !!(ct && staff && scaleAt(room, ct.standY) >= (ct.minH || 600));
+  // nhân viên luôn ở phía quầy (trong khoảng x của quầy); khách đứng trước quầy
+  const order = counterOk ? [...cast].sort((a, b) => (a === staff) - (b === staff) || cast.indexOf(a) - cast.indexOf(b)) : cast;
+  order.forEach((who, j) => {
+    const behind = counterOk && who === staff;
+    const y = behind ? ct.standY : counterOk ? Math.max(y0, ct.base + 20) : y0, h = scaleAt(room, y), half = 0.24 * h + 40;
+    let x = Math.round(xs[j] * W);
+    if (behind) x = Math.min(Math.max(x, ct.x0 + half), ct.x1 - half);
+    x = Math.round(Math.min(Math.max(x, Math.max(lo, half)), Math.min(hi, W - half)));
+    out[who] = { x, y, h, ...(behind ? { behind: 'counter' } : {}) };
+  });
+  return out;
+}
+// (cũ) Điểm đứng: rải đều các điểm stand (trái → phải) theo thứ tự xuất hiện
 export function assignStands(cast, room) {
   const st = [...room.stand].sort((a, b) => a.x - b.x), S = st.length, n = cast.length, out = {};
   cast.forEach((who, j) => { const p = st[n === 1 ? Math.floor((S - 1) / 2) : Math.round(j * (S - 1) / Math.max(1, n - 1))]; out[who] = { x: p.x, y: p.y, h: scaleAt(room, p.y) }; });
   return out;
 }
 // Chọn clip/ảnh cho 1 nhân vật: người nói → clip có cử động miệng (mouth) + đúng cảm xúc; người nghe → idle/nod. Cùng trang phục (outfit).
-export function pickAsset(manifest, who, { speaking, emotion, outfit, exists = () => true, used = new Set(), avoid = new Set() }) {
-  const clips = (manifest.clips || []).filter(c => c.who === who && (c.outfit || 'office') === outfit && exists(c.file));
+// Hướng: clip có facing front|left|right; lật gương (scaleX −1) CHỈ khi clip ghi mirrorOk:true (nhân vật có chi tiết nhận diện lệch một bên –
+// kẹp tóc Mia, lọn bạc Diane, thẻ đeo – không được lật). want = hướng cần nhìn → ưu tiên clip đúng hướng, rồi front, rồi lật được.
+export const faceRank = (c, want) => { const f = c.facing || 'front'; return !want || want === 'front' || f === want ? 0 : f === 'front' ? 1 : c.mirrorOk ? 2 : 3; };
+export function pickAsset(manifest, who, { speaking, emotion, outfit, exists = () => true, used = new Set(), avoid = new Set(), want = null }) {
+  const clips = (manifest.clips || []).filter(c => c.who === who && (c.outfit || 'office') === outfit && exists(c.file))
+    .map((c, i) => ({ c, i })).sort((a, b) => faceRank(a.c, want) - faceRank(b.c, want) || a.i - b.i).map(x => x.c);
   const hit = (c, tags) => (c.tags || []).some(t => tags.includes(t));
   const asClip = c => c && { kind: 'clip', ...c };
   let c;
@@ -249,7 +308,7 @@ export function pickAsset(manifest, who, { speaking, emotion, outfit, exists = (
   const s = (manifest.stills || []).find(x => x.who === who && (x.outfit || 'office') === outfit && exists(x.file));
   return s ? { kind: 'still', tags: ['idle'], mouth: false, facing: 'front', ...s } : { kind: 'none', who, outfit, tags: [], mouth: false, facing: 'front' };
 }
-const flipOf = (nat, want) => nat !== 'front' && want !== 'front' && nat !== want;
+const flipOf = (nat, want, ok = true) => ok && nat !== 'front' && want !== 'front' && nat !== want;
 
 // Dựng "sân khấu" cho cả video: bối cảnh từng câu, phòng, vị trí đứng, clip từng người, hướng nhìn + danh sách lỗi nhất quán.
 export function buildStage({ job, casting, manifest, exists = () => true, variant = null, avoidClips = [] }) {
@@ -282,7 +341,7 @@ export function buildStage({ job, casting, manifest, exists = () => true, varian
   // Phòng phải đúng giờ ngày/đêm của kịch bản (liên tục ánh sáng)
   for (const g of segs) {
     if (g.room.time !== time) F('pacing', `phòng ${g.room.id} là ${g.room.time}, kịch bản ${time}`);
-    g.pos = assignStands(g.cast, g.room);
+    g.pos = stageDialogue(g.cast, g.room, { roles: (casting.scenes[g.scene] || {}).roles || {} });
     for (const who of g.cast) { const p = g.pos[who], f = g.room.floor, H = 1920; // luật §0: chân trên vùng sàn ±1% khung, cao đúng scaleAt ±5%
       if (p.y < f.yFar - 0.01 * H || p.y > f.yNear + 0.01 * H) F('pacing', `${who}: chân (y=${p.y}) lệch vùng sàn phòng ${g.room.id}`);
       if (Math.abs(p.h - scaleAt(g.room, p.y)) > 0.05 * scaleAt(g.room, p.y)) F('pacing', `${who}: tỉ lệ sai > 5%`); }
@@ -293,11 +352,14 @@ export function buildStage({ job, casting, manifest, exists = () => true, varian
     const cx = l.who !== 'kit' && g.pos[l.who] ? g.pos[l.who].x : null;
     const conflict = exprConflict(l); if (conflict) F('lipsync', `câu ${i + 1}: ${conflict}`);
     const actors = g.cast.map(who => {
-      const speaking = who === l.who, a = pickAsset(manifest, who, { speaking, emotion, outfit, exists, used, avoid }), p = g.pos[who];
+      const speaking = who === l.who, p = g.pos[who];
+      const others0 = g.cast.filter(x => x !== who).map(x => g.pos[x].x), mean0 = others0.length ? others0.reduce((s, x) => s + x, 0) / others0.length : p.x;
+      const want0 = cx == null ? 'front' : speaking ? (others0.length ? (mean0 > p.x ? 'right' : 'left') : 'front') : cx > p.x ? 'right' : cx < p.x ? 'left' : 'front';
+      const a = pickAsset(manifest, who, { speaking, emotion, outfit, exists, used, avoid, want: want0 });
       if (speaking && a.kind === 'clip') { if (used.has(a.id)) F('pacing', `câu ${i + 1}: clip hành động ${a.id} lặp lại trong cùng video`); used.add(a.id); }
       const others = g.cast.filter(x => x !== who).map(x => g.pos[x].x), mean = others.length ? others.reduce((s, x) => s + x, 0) / others.length : p.x;
       const want = cx == null ? 'front' : speaking ? (others.length ? (mean > p.x ? 'right' : 'left') : 'front') : cx > p.x ? 'right' : cx < p.x ? 'left' : 'front';
-      const nat = a.facing || 'front', flip = flipOf(nat, want), face = flip ? (nat === 'left' ? 'right' : 'left') : nat;
+      const nat = a.facing || 'front', flip = flipOf(nat, want, a.mirrorOk === true && ((casting.characters || {})[who] || {}).mirrorOk !== false), face = flip ? (nat === 'left' ? 'right' : 'left') : nat;
       if (speaking && !a.mouth) F('lipsync', `câu ${i + 1}: ${who} đang nói nhưng không có clip cử động miệng (${a.kind === 'none' ? 'thiếu tài nguyên' : a.kind + ' ' + (a.id || a.file || '')})`);
       if (speaking && a.mouth && !(a.tags || []).some(t => (EMOTION_TAGS[emotion] || []).includes(t))) F('lipsync', `câu ${i + 1}: clip ${a.id} (${(a.tags || []).join('/')}) không khớp cảm xúc "${emotion}" (cần ${EMOTION_TAGS[emotion].join('/')})`);
       if (!speaking && a.kind === 'clip' && !isListenerClip(a)) F('lipsync', `câu ${i + 1}: ${who} đang nghe nhưng dùng clip ${a.id} (cần idle/nod)`);

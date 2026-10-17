@@ -184,7 +184,12 @@ const STEPS = {
     const stage = s.stage || { lines: [], segs: [] };
     // góc máy từng câu theo khuôn/bộ góc máy; chuyển cảnh rõ ràng khi đổi bối cảnh và sau hook
     s.shots = V.planShots(s.lines.map((l, i) => ({ ...l, camera: s.variant ? X.cameraFor(s.variant, l, i) : null, transitionIn: !!(stage.lines[i] && stage.lines[i].transitionIn) || (i === 1 && !!s.variant) })), { endStart: s.endStart, duration: D });
-    if (useRemotion()) return composeRemotion(s, [w, h], D);
+    if (useRemotion()) {
+      // máy kiểu phim (lib.planFilmShots): wide hook → two → single người nói → cận người NGHE ở nhịp phản ứng; không cận người đang nói
+      s.shots = V.planFilmShots(s.lines.map((l, i) => { const sl = stage.lines[i] || { actors: [] }, ls = (sl.actors || []).find(a => a.role === 'listener' && l.who !== 'kit');
+        return { ...l, emotion: sl.emotion, listener: ls ? ls.who : null, transitionIn: !!sl.transitionIn || (i === 1 && !!s.variant) }; }), { endStart: s.endStart, duration: D });
+      return composeRemotion(s, [w, h], D);
+    }
     if (STRICT) throw new Error('thiếu Remotion: cd scripts/video/remotion && npm ci (VIDEO_ENGINE=ffmpeg để dùng đường cũ)');
     console.log('⚠️ chưa cài Remotion (scripts/video/remotion) → đường ffmpeg cũ, không có motion graphics'); todo(s, 'remotion');
     buildVoice(s, D, null);
@@ -314,7 +319,12 @@ function prepRoom(s, g, pub) {
     if (!ALLOW_STUDIO) throw new Error(`thiếu ảnh phòng ${r.file || r.id} (bối cảnh ${g.scene}) – strict không thay nền trơn`);
     console.log(`⚠️ phòng ${r.id}: không có ảnh → nền gradient thương hiệu`); todo(s, 'room'); return null;
   }
-  const out = `room-${r.id}${path.extname(f)}`; fs.copyFileSync(f, path.join(pub, out)); return { src: out };
+  const out = `room-${r.id}${path.extname(f)}`; fs.copyFileSync(f, path.join(pub, out));
+  // khớp ánh sáng: màu trung bình của phòng (cân trắng nhân vật) + bề rộng ảnh gốc (giới hạn phóng máy ≤ 1,6×)
+  let tint = null, srcW = null;
+  try { const px = execFileSync('ffmpeg', ['-v', 'error', '-i', f, '-vf', 'scale=1:1:flags=area', '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-']); tint = [px[0], px[1], px[2]]; } catch {}
+  try { srcW = probe(f).w || null; } catch {}
+  return { src: out, tint, srcW, light: r.light || null, maskText: r.maskText || [], counter: r.counter || null };
 }
 // Nhân vật: clip stacked (kiểm định dạng – sai thì strict FAIL) → webm alpha; ảnh có alpha → png; nền trơn (chạy thử) → keyclip flood-fill
 async function prepActor(s, a, pub) {
@@ -435,7 +445,7 @@ function renderShot(s, sh, next, [W0, H0], out) {
   // Góc máy: wide · close (cận người nói) · push (đẩy vào) · dolly (lùi ra) · pan (lia ngang) · split (chia đôi trên/dưới: người nói | người nghe)
   const sp = actors.find(a => a.role === 'speaker'), ls = actors.find(a => a.role === 'listener');
   const win = (a, z) => { const cw = Math.round(W0 / z / 2) * 2, ch = Math.round(H0 / z / 2) * 2, cx0 = a ? a.x : W0 / 2, cy0 = a ? a.y - a.h * 0.55 : H0 / 2; return { cw, ch, cx: Math.max(0, Math.min(W0 - cw, Math.round(cx0 - cw / 2))), cy: Math.max(0, Math.min(H0 - ch, Math.round(cy0 - ch / 2))) }; };
-  let fr = sh.framing; if (fr === 'split' && !(sp && ls)) fr = 'close';
+  let fr = ({ two: 'push', single: 'push', wide: 'wide' })[sh.framing] || sh.framing; if (fr === 'split' && !(sp && ls)) fr = 'close';
   if (fr === 'close') { const c = win(sp, 1.3); fc.push(`[${cur}]crop=${c.cw}:${c.ch}:${c.cx}:${c.cy},scale=${W0}:${H0}[fr]`); cur = 'fr'; }
   else if (fr === 'push' || fr === 'dolly') {
     const z = fr === 'push' ? `1+0.12*on/${n}` : `1.14-0.12*on/${n}`;
