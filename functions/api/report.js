@@ -249,7 +249,7 @@ async function notifyReporter(env, db, id) {
 
 const OPS = {
   async list(env, db, b) {
-    const { sql, a } = where(b), lim = Math.min(200, Math.max(10, +b.limit || 50)), off = Math.max(0, +b.offset || 0);
+    const { sql, a } = where(b), lim = Math.min(200, Math.max(10, Math.floor(+b.limit) || 50)), off = Math.min(1e6, Math.max(0, Math.floor(+b.offset) || 0)); // số nguyên hữu hạn (nối vào SQL)
     const rows = (await db.prepare(`SELECT ${LIST_COLS} FROM reports${sql} ORDER BY ${b.sort === 'old' ? 'at ASC' : b.sort === 'upd' ? 'upd DESC' : b.sort === 'sev' || b.status === 'ideas' ? (b.status === 'ideas' ? 'people DESC, at ASC' : "COALESCE(sev, 'P9'), people DESC, at ASC") : 'at DESC'} LIMIT ${lim} OFFSET ${off}`).bind(...a).all()).results || [];
     const total = (await db.prepare(`SELECT COUNT(*) AS n FROM reports${sql}`).bind(...a).first() || {}).n || 0;
     const counts = Object.fromEntries(((await db.prepare("SELECT status, COUNT(*) AS n FROM reports WHERE spam = 0 AND sandbox = 0 AND cat != 'idea' GROUP BY status").all()).results || []).map(r => [r.status, r.n]));
@@ -404,7 +404,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
       if (b.op === 'status') return rows[0] ? json(request, 200, pub(rows[0], E)) : json(request, 404, { error: 'not-found' });
       return json(request, 200, { rows: rows.map(r => ({ t: r.tok, ...pub(r, E) })) });
     }
-    const fn = OPS[b.op]; if (!fn) return json(request, 400, { error: 'op' });
+    const fn = Object.hasOwn(OPS, b.op) ? OPS[b.op] : null; if (!fn) return json(request, 400, { error: 'op' }); // hasOwn: 'constructor' → Object(env) sẽ trả cả env
     // Phiên Claude Code (scripts/report-cli.mjs): chỉ 'queue' & 'resolve', ký HMAC-SHA256 bằng LEXKITE_REPORT_CLI_KEY: X-Lexkite-Cli: <ts>.<hex(HMAC(key, ts + '.' + body))>, lệch ≤ 5 phút
     let g;
     const cli = request.headers.get('X-Lexkite-Cli');

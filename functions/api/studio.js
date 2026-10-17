@@ -398,7 +398,7 @@ export async function onRequestPost({ request, env }) {
     const g = await adminGate(request, env, 'std'); if (!g.who) return json(request, g.status, { error: g.error }); who = g.who;
   }
   let b; try { b = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
-  const fn = who ? OPS[b && b.op] : CI[b && b.op]; if (!fn) return json(request, 400, { error: 'op' });
+  const T = who ? OPS : CI, fn = b && typeof b === 'object' && Object.hasOwn(T, b.op) ? T[b.op] : null; if (!fn) return json(request, 400, { error: 'op' });
   try {
     await setup(env.DB);
     const out = await fn(env, env.DB, b, who);

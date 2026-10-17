@@ -83,7 +83,7 @@ export async function onRequestPost({ request, env }) {
   if (!env.DB) return json(request, 500, { error: 'no-db' });
   const g = await adminGate(request, env, 'admq'); if (!g.who) return json(request, g.status, { error: g.error });
   let b; try { b = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
-  const fn = OPS[b && b.op]; if (!fn) return json(request, 400, { error: 'op' });
+  const fn = b && typeof b === 'object' && Object.hasOwn(OPS, b.op) ? OPS[b.op] : null; if (!fn) return json(request, 400, { error: 'op' });
   try {
     await setupQuota(env.DB);
     const out = await fn(env.DB, b, g.who, env);

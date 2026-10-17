@@ -378,7 +378,8 @@ export async function onRequestPost({ request, env }) {
   const g = await adminGate(request, env); if (!g.who) return json(request, g.status, { error: g.error });
   const who = g.who;
   let b; try { b = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
-  const fn = OPS[b.op]; if (!fn) return json(request, 400, { error: 'op' });
+  if (!b || typeof b !== 'object') return json(request, 400, { error: 'json' });
+  const fn = Object.hasOwn(OPS, b.op) ? OPS[b.op] : null; if (!fn) return json(request, 400, { error: 'op' }); // hasOwn: chặn op 'constructor'/'__proto__' (Object(env) → lộ bí mật)
   if (DANGER.has(b.op) && Date.now() / 1000 - (+who.auth_time || 0) > 900) return json(request, 401, { error: 'reauth', message: tx(b, 'Thao tác quan trọng: hãy đăng xuất rồi đăng nhập lại (bảo mật) rồi thử lại.', 'Sensitive action: sign out and sign back in (for security), then try again.') });
   try { await setup(env.DB); const out = await fn(env.DB, b, who, env); if (WRITE.test(b.op)) await audit(env, request, who.email, b.op, true); return json(request, 200, out); }
   catch (e) { return json(request, 500, { error: String(e && e.message || e).slice(0, 200) }); }

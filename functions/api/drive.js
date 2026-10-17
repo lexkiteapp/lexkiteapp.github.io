@@ -387,7 +387,7 @@ export function ledgerQuery(f = {}) {
   if (+f.min > 0) { w.push('f.size >= ?'); a.push(+f.min); }
   if (+f.max > 0) { w.push('f.size <= ?'); a.push(+f.max); }
   const SORT = { name: 'f.name', size: 'f.size', date: dt, copies: 'copies', drive: 'f.drive_id' }, col = SORT[f.sort] || dt, dir = f.dir === 'asc' ? 'ASC' : 'DESC';
-  const lim = Math.min(Math.max(1, +f.limit || 50), 10000), off = Math.max(0, +f.offset || 0);
+  const lim = Math.min(Math.max(1, Math.floor(+f.limit) || 50), 10000), off = Math.min(1e7, Math.max(0, Math.floor(+f.offset) || 0)); // số nguyên hữu hạn (nối vào SQL)
   const from = `FROM drive_files f JOIN drives d ON d.id = f.drive_id WHERE ${w.join(' AND ')}`;
   return {
     sql: `SELECT f.id, f.drive_id, COALESCE(f.email, d.email) AS email, f.file_id, f.sha256, f.name, f.folder, f.mime, f.size, f.status, f.cls, f.want, f.web, f.by_who, f.asset_id, ${dt} AS at, ${COPIES} AS copies, (SELECT r.status FROM drive_refs r WHERE r.src = 'library' AND r.sha = f.sha256 LIMIT 1) AS lib ${from} ORDER BY ${col} ${dir}, f.id ${dir} LIMIT ${lim} OFFSET ${off}`,
@@ -636,7 +636,7 @@ export async function onRequestPost({ request, env }) {
     const g = await adminGate(request, env, 'drv'); if (!g.who) return json(request, g.status, { error: g.error });
     who = g.who;
   }
-  const fn = OPS[b.op]; if (!fn) return json(request, 400, { error: 'op' });
+  const fn = Object.hasOwn(OPS, b.op) ? OPS[b.op] : null; if (!fn) return json(request, 400, { error: 'op' });
   if (!cli && DANGER.has(b.op) && Date.now() / 1000 - (+who.auth_time || 0) > 900) return json(request, 401, { error: 'reauth', message: 'Sensitive action: sign out and sign back in, then try again.' });
   try {
     await setup(env.DB);
