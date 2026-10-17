@@ -77,6 +77,7 @@ File này gom các **quy trình đã chốt** và **lỗi đã từng mắc** đ
 - Cổng tự động (MediaPipe, khung đột biến, gọng kính) **hay báo nhầm trên tranh 2D** → soi tay khung bị gắn cờ; báo nhầm thì `library.mjs approve <id> --waiver "lý do"` (lưu manualReview), lỗi thật thì để dự phòng.
 - Kho dựng: nhập/kiểm/stacked chạy trên CI (`library-ingest.yml`), máy chỉ `sync` (upload). CI dựng video phải `library.mjs fetch-render` (trước 17/10 CI không có kho → mọi video thử chỉ nền gradient).
 - Cảnh ngồi/bàn ghế: không ghép. Cảnh đầu = ảnh nhân vật + prompt bối cảnh (cách C), các cảnh sau cùng địa điểm = ảnh đó làm tham chiếu (cách A); soi từng ảnh (1 credit) trước khi tạo video. Chi tiết `docs/KLING-PLAN.md`.
+- Prompt Kling: không nhắc "người ngoài khung" (Kling vẽ thêm tay/người) – ghi "không người/tay/vật nào khác lọt vào khung"; clip ¾ phải khoá hướng suốt clip (xem `content/video/green-batch.md`).
 - Kling web: nút Generate hay phải bấm 2 lần; thứ tự ô trong bộ chọn tài sản ĐỔI khi có ảnh mới → zoom xác nhận ô trước khi chọn; lấy link mp4/ảnh qua API `projects-assets/feeds` trong trang.
 - Giọng Việt cho video bài giảng: kiểm **giấy phép thương mại** trước (viXTTS, MMS-TTS cấm thương mại; app có quảng cáo).
 

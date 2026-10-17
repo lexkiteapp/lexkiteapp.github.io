@@ -32,3 +32,9 @@ Static locked-off camera, full body always in frame. The cartoon {man|woman|girl
 | clip | trạng thái | điểm |
 |---|---|---|
 | carlos_talk | đã gửi 17/10 – kiểm tách nền trước khi chạy cả lô | |
+
+## Clip nghiêng ¾ (nhìn nhau) – bài học thử 17/10
+- KHÔNG viết "talks to a person off-screen on the right" → Kling vẽ thêm tay/người ở mép (Ama ¾, Diane). Viết: "talks toward the right side of the frame; no other person, hands or objects ever enter the frame".
+- Khoá hướng: "stays in the same three-quarter view facing RIGHT for the whole clip; never turns to face the camera or the left" (Carlos đổi hướng giữa clip khi không khoá).
+- Khung đầu phải nghiêng rõ ~40° (ảnh 3/4 thật, không gần chính diện, không mặt nghiêng hẳn). Nhân vật có chi tiết lệch một bên (Mia kẹp tóc, Diane lọn tóc bạc) cần cả hai hướng – không lật gương.
+- Bộ tách nền đã tự loại mảng rời ở mép (tay lạ), nhưng vẫn soi bảng soi magenta trước khi nhập.
