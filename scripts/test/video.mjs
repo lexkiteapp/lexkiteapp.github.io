@@ -79,6 +79,7 @@ fl = V.buildStage({ job: sample, casting, manifest: noClips }).fails; ok(fl.some
 const vd = V.consistencyVerdict([{ k: 'brand', reason: 'x' }, { k: 'lipsync', reason: 'y' }, { k: 'brand', reason: 'z' }]);
 ok(!vd.ok && vd.zero.join() === 'brand,lipsync' && vd.reasons[0] === '[brand] x', 'lỗi → chấm 0 đúng mục + lý do');
 ok(V.resolveTopic({ topic: 'An example sentence' }, casting).id === 'general' && V.resolveTopic({ topic: 'IELTS exam day' }, casting).id === 'ielts-exam', 'khớp chủ đề theo trọn từ');
+ok(V.lineEmotion({ text: 'Could I get a large latte, please?', beat: 'example' }) === 'explain' && V.lineEmotion({ text: 'Why is it rude?', beat: 'example' }) === 'ask', 'lời đề nghị lịch sự (Could I get…, please?) = nói (talk), không phải hỏi phân vân');
 ok(V.lineEmotion({ text: 'Why do we say that?', beat: 'situation' }) === 'ask' && V.lineEmotion({ text: 'Exactly right', beat: 'situation' }) === 'right' && V.lineEmotion({ text: 'Practice free', beat: 'cta' }) === 'cta', 'cảm xúc câu: hỏi / đúng / CTA');
 
 // 5) Bộ sinh biến thể

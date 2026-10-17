@@ -1,5 +1,5 @@
 {
-  "_note": "Video thử 17/10: clip phông xanh mới (Carlos barista + Ama gọi đồ) ghép phòng cà phê thật – kiểm đứng đúng sàn, khớp vai nói/nghe, grade màu. Dàn ghi rõ who từng câu → render giữ nguyên (không đổi vai). Mỗi câu khớp 1 clip nói khác nhau đang có: Ama shock_laugh (sai) · Carlos talk_gesture (giải thích) · Ama think_aha (hỏi) · Ama wave_clasp (CTA). Dựng trên CI: video-sample.yml với script=content/video/samples/cafe-order.json",
+  "_note": "Video thử 17/10: clip phông xanh mới (Carlos barista + Ama gọi đồ) ghép phòng cà phê thật – kiểm đứng đúng sàn, khớp vai nói/nghe, grade màu. Dàn ghi rõ who từng câu → render giữ nguyên (không đổi vai). Clip: Ama shock_laugh (sai, chính diện) · Carlos q_talk_thumbs (¾ nhìn phải, lật gương → nhìn sang Ama) · Ama q_talk_nod (¾ nhìn phải sang Carlos – lời đề nghị lịch sự = nói) · Ama wave_clasp (CTA nhìn người xem). Dựng trên CI: video-sample.yml với script=content/video/samples/cafe-order.json",
   "topic": "Order coffee politely: \"Could I get…\" instead of \"Give me…\"",
   "format": "short",
   "script": {

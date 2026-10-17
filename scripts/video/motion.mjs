@@ -178,7 +178,7 @@ export function captionY(shot, capY, h = 1920, half = 95) {
 // ---------- Máy quay kiểu phim (round 2) ----------
 // Khung nhìn = vùng cắt của canvas 1080×1920 (cx, cy tâm; z phóng). Giới hạn phóng theo độ phân giải: clip ≤ 1,6 × figH gốc / cao hiển thị,
 // phòng ≤ 2,4 × bề rộng ảnh gốc / 1080. Đầu = y − h, đầu gối = y − 0,30 h, hông = y − 0,48 h, ngực = y − 0,62 h.
-export const CAM = { twoFill: 0.62, singleFill: 0.66, closeFill: 0.5, headroom: 0.1, maxUp: 1.6, roomUp: 2.4 }; // phòng đã làm mờ chiều sâu (DOF, mờ tăng theo z) → cho phóng tới 2,4× ảnh gốc
+export const CAM = { twoFill: 0.62, singleFill: 0.54, closeFill: 0.5, headroom: 0.1, maxUp: 1.6, roomUp: 2.4 }; // phòng đã làm mờ chiều sâu (DOF, mờ tăng theo z) → cho phóng tới 2,4× ảnh gốc
 export function zoomCap(actors, room, W = 1080) {
   const caps = [room && room.srcW ? CAM.roomUp * room.srcW / W : 3];
   for (const a of actors) if (a.figH && a.h) caps.push(CAM.maxUp * a.figH / a.h);

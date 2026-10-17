@@ -213,13 +213,15 @@ export const EMOTION_TAGS = { ask: ['ask', 'think'], wrong: ['shock', 'facepalm'
 export const LISTENER_TAGS = ['idle', 'nod', 'listen'];
 // Clip người nói = có cử động miệng: cờ mouth (manifest dựng) hoặc vai "speaker" trong kho (library.json roles); người nghe = thẻ idle/nod/listen hoặc vai "listener"
 export const isSpeakerClip = c => !!c && (c.mouth === true || (c.mouth == null && (c.roles || []).includes('speaker')));
-export const isListenerClip = c => !!c && ((c.tags || []).some(t => LISTENER_TAGS.includes(t)) || ((c.roles || []).includes('listener') && !isSpeakerClip(c)));
+export const isListenerClip = c => !!c && !isSpeakerClip(c) && ((c.tags || []).some(t => LISTENER_TAGS.includes(t)) || (c.roles || []).includes('listener')); // clip nói (vd. ¾ talk_nod) không dùng làm vai nghe
 const RX = {
   wrong: /\b(wrong|mistake|incorrect|error|don'?t say|never say|stop saying|oops|wait)\b/i,
   right: /\b(right|correct|perfect|exactly|great|nice|got it|that's it|yes)\b/i,
 };
 const EXPR = [['wrong', /shock|surpris|frozen|awkward|jaw|hands on head|facepalm/i], ['ask', /think|confus|tilt|wonder/i], ['right', /laugh|proud|excited|happy|smile|thumbs|clap/i]];
-export const textEmotion = t => (RX.wrong.test(t) ? 'wrong' : /\?\s*$/.test(String(t).trim()) ? 'ask' : RX.right.test(t) ? 'right' : null);
+// Lời đề nghị lịch sự ("Could I get a latte, please?") là NÓI với người kia (clip talk), không phải câu hỏi phân vân (clip ask/think)
+const REQUEST = /\b(could|can|may)\s+(i|we)\s+(get|have|order)\b[^?]*\bplease\b/i;
+export const textEmotion = t => (RX.wrong.test(t) ? 'wrong' : REQUEST.test(t) ? null : /\?\s*$/.test(String(t).trim()) ? 'ask' : RX.right.test(t) ? 'right' : null);
 export const exprEmotion = e => { for (const [k, rx] of EXPR) if (rx.test(String(e || ''))) return k; return null; };
 export function lineEmotion(l) {
   if (l.beat === 'cta') return 'cta';
@@ -358,11 +360,11 @@ export function buildStage({ job, casting, manifest, exists = () => true, varian
     const actors = g.cast.map(who => {
       const speaking = who === l.who, p = g.pos[who];
       const others0 = g.cast.filter(x => x !== who).map(x => g.pos[x].x), mean0 = others0.length ? others0.reduce((s, x) => s + x, 0) / others0.length : p.x;
-      const want0 = cx == null ? 'front' : speaking ? (others0.length ? (mean0 > p.x ? 'right' : 'left') : 'front') : cx > p.x ? 'right' : cx < p.x ? 'left' : 'front';
+      const want0 = cx == null || (speaking && l.beat === 'cta') ? 'front' : speaking ? (others0.length ? (mean0 > p.x ? 'right' : 'left') : 'front') : cx > p.x ? 'right' : cx < p.x ? 'left' : 'front';
       const a = pickAsset(manifest, who, { speaking, emotion, outfit, exists, used, avoid, want: want0 });
       if (speaking && a.kind === 'clip') { if (used.has(a.id)) F('pacing', `câu ${i + 1}: clip hành động ${a.id} lặp lại trong cùng video`); used.add(a.id); }
       const others = g.cast.filter(x => x !== who).map(x => g.pos[x].x), mean = others.length ? others.reduce((s, x) => s + x, 0) / others.length : p.x;
-      const want = cx == null ? 'front' : speaking ? (others.length ? (mean > p.x ? 'right' : 'left') : 'front') : cx > p.x ? 'right' : cx < p.x ? 'left' : 'front';
+      const want = cx == null || (speaking && l.beat === 'cta') ? 'front' : speaking ? (others.length ? (mean > p.x ? 'right' : 'left') : 'front') : cx > p.x ? 'right' : cx < p.x ? 'left' : 'front';
       const nat = a.facing || 'front', flip = flipOf(nat, want, a.mirrorOk === true && ((casting.characters || {})[who] || {}).mirrorOk !== false), face = flip ? (nat === 'left' ? 'right' : 'left') : nat;
       if (speaking && !a.mouth) F('lipsync', `câu ${i + 1}: ${who} đang nói nhưng không có clip cử động miệng (${a.kind === 'none' ? 'thiếu tài nguyên' : a.kind + ' ' + (a.id || a.file || '')})`);
       if (speaking && a.mouth && !(a.tags || []).some(t => (EMOTION_TAGS[emotion] || []).includes(t))) F('lipsync', `câu ${i + 1}: clip ${a.id} (${(a.tags || []).join('/')}) không khớp cảm xúc "${emotion}" (cần ${EMOTION_TAGS[emotion].join('/')})`);
