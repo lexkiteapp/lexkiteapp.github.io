@@ -10,16 +10,24 @@
     "cafe":       { "cast": ["carlos", "mia", "leo", "ama", "kit"], "roles": { "carlos": "barista", "mia": "customer", "leo": "customer", "ama": "customer" }, "outfit": "casual" },
     "restaurant": { "cast": ["carlos", "mia", "leo", "kit"], "roles": { "carlos": "server", "mia": "customer", "leo": "customer" }, "outfit": "casual" },
     "home":       { "cast": ["mia", "leo", "kit"], "roles": { "mia": "friend", "leo": "friend" }, "outfit": "casual" },
-    "airport":    { "cast": ["carlos", "mia", "leo", "kit"], "roles": { "carlos": "check-in agent", "mia": "traveler", "leo": "traveler" }, "outfit": "travel" }
+    "airport":    { "cast": ["carlos", "mia", "leo", "kit"], "roles": { "carlos": "check-in agent", "mia": "traveler", "leo": "traveler" }, "outfit": "travel" },
+    "classroom":  { "cast": ["ama", "diane", "kit"], "roles": { "ama": "student", "diane": "teacher" }, "outfit": "casual" },
+    "clinic":     { "cast": ["diane", "mia", "leo", "kit"], "roles": { "diane": "receptionist", "mia": "patient", "leo": "patient" }, "outfit": "casual" },
+    "hotel-lobby": { "cast": ["carlos", "mia", "leo", "kit"], "roles": { "carlos": "receptionist", "mia": "guest", "leo": "guest" }, "outfit": "travel" },
+    "reception":  { "cast": ["diane", "mia", "leo", "kit"], "roles": { "diane": "receptionist", "mia": "visitor", "leo": "visitor" }, "outfit": "office" },
+    "supermarket": { "cast": ["carlos", "mia", "leo", "ama", "kit"], "roles": { "carlos": "cashier", "mia": "shopper", "leo": "shopper", "ama": "shopper" }, "outfit": "casual" }
   },
   "topics": [
-    { "id": "job-interview", "match": ["interview", "hiring", "recruiter", "tell me about yourself", "resume"], "scenes": ["office"], "cast": ["diane", "mia", "leo"] },
-    { "id": "ielts-exam", "match": ["ielts", "toefl", "toeic", "exam", "speaking test", "writing task", "band score"], "scenes": ["exam", "library", "school"], "cast": ["ama"] },
+    { "id": "job-interview", "match": ["interview", "hiring", "recruiter", "tell me about yourself", "resume"], "scenes": ["office", "reception"], "cast": ["diane", "mia", "leo"] },
+    { "id": "ielts-exam", "match": ["ielts", "toefl", "toeic", "exam", "speaking test", "writing task", "band score"], "scenes": ["exam", "library", "school", "classroom"], "cast": ["ama"] },
     { "id": "ordering-coffee", "match": ["coffee shop", "ordering coffee", "order coffee", "barista", "cafe", "café", "latte"], "scenes": ["cafe"], "cast": ["carlos", "mia", "leo", "ama"] },
     { "id": "restaurant", "match": ["restaurant", "menu", "order food", "waiter", "the bill", "the check"], "scenes": ["restaurant"], "cast": ["carlos", "mia", "leo"] },
+    { "id": "hotel", "match": ["hotel", "front desk", "room key", "reservation", "booking", "check out of"], "scenes": ["hotel-lobby", "reception"], "cast": ["carlos", "mia", "leo"] },
+    { "id": "doctor-visit", "match": ["doctor", "clinic", "appointment", "symptom", "feel sick", "headache", "pharmacy", "hospital"], "scenes": ["clinic"], "cast": ["diane", "mia", "leo"] },
+    { "id": "shopping", "match": ["supermarket", "grocery", "groceries", "cashier", "checkout", "receipt", "discount", "shopping"], "scenes": ["supermarket"], "cast": ["carlos", "mia", "leo", "ama"] },
     { "id": "travel", "match": ["airport", "flight", "check-in", "boarding", "passport", "hotel", "travel"], "scenes": ["airport"], "cast": ["carlos", "mia", "leo"] },
     { "id": "office-english", "match": ["email", "etiquette", "meeting", "boss", "colleague", "coworker", "office", "circle back", "deadline", "agree", "small talk", "presentation"], "scenes": ["office"], "cast": ["mia", "leo", "diane"] },
-    { "id": "study-grammar", "match": ["grammar", "vocabulary", "pronunciation", "spelling", "quiz", "affect or effect", "\"an hour\"", "a university", "homework", "class"], "scenes": ["school", "library"], "cast": ["ama"] },
+    { "id": "study-grammar", "match": ["grammar", "vocabulary", "pronunciation", "spelling", "quiz", "affect or effect", "\"an hour\"", "a university", "homework", "class"], "scenes": ["school", "library", "classroom"], "cast": ["ama"] },
     { "id": "daily-life", "match": ["slang", "idiom", "spill the tea", "how are you", "textbook vs real", "weekend", "friends", "daily"], "scenes": ["home", "cafe"], "cast": ["mia", "leo"] }
   ],
   "fallback": { "id": "general", "scenes": ["office", "home"], "cast": ["mia", "leo"] }
