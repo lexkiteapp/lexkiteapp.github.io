@@ -39,7 +39,7 @@ Câu nhãn hiệu (VI): *IELTS, TOEIC và TOEFL là nhãn hiệu của chủ s�
 - **Links:** web app (UTM §7) · Chrome Web Store / Edge / Firefox (chỉ các kho đã duyệt)
 - **Description (≤ 260 ký tự):**
   `Learn exam vocabulary with FSRS spaced-repetition flashcards (6,800+ words with IPA & audio), take IELTS, TOEIC and TOEFL practice tests with explanations, and look up words anywhere with the Chrome add-on. Free, 15 languages, no sign-up needed.`
-- **Gallery (thứ tự):** `web/og-default.png` (bìa 1200×630 – PH khuyên 1270×760, cắt lại nếu cần) → `store/chrome/screenshots/en-1…en-5.png` → `web/screenshots/mobile-home.png`. Video tùy chọn: short từ kênh YouTube Lexkite.
+- **Gallery (thứ tự):** `web/og-default.png` (bìa 1200×630 – PH khuyên 1270×760, cắt lại nếu cần) → `store/chrome/screenshots/en-1…en-5.png` → `web/screenshots/mobile-light-en-home.jpg`. Video tùy chọn: short từ kênh YouTube Lexkite.
 - **First comment (maker) – anh sửa theo giọng mình:**
 > Hi Product Hunt 👋 I'm [name], the maker of Lexkite.
 > I built it because learning exam vocabulary usually means juggling a word list, a flashcard app, a dictionary tab and a separate site for mock tests. Lexkite puts those in one free place:
@@ -170,7 +170,7 @@ Lưu ý: không đưa email/tên người dùng vào UTM. Canonical trang landin
 | Logo ngang | `brand/social/logo/lexkite-logo-horizontal-on-light.png` / `-on-dark-bg.png` / `.svg` | Nguồn duy nhất theo `docs/BRAND-RULES.md` |
 | Linh vật Kit | `brand/kit-*.svg` (tự xuất từ `web/js/kit.js`) | Không vẽ lại; không dùng Kit xanh dương cũ |
 | Ảnh chụp app (desktop) | `store/chrome/screenshots/en-1…5.png`, `vi-1…5.png` (1280×800) | Add-on & app thật |
-| Ảnh di động | `web/screenshots/mobile-home.png`, `mobile-path.png`, `desktop-home.png` | |
+| Ảnh di động | `web/screenshots/mobile-light-en-home.jpg`, `mobile-path.png`, `desktop-home.png` | |
 | Bìa chia sẻ | `web/og-default.png` (1200×630) | Dùng cho PRLog, LinkedIn, Medium cover |
 | Promo kho add-on | `store/chrome/promo-440x280.png`, `promo-1400x560.png` | Edge/Opera dùng lại |
 | Mạng xã hội | `brand/social/linkedin/` (avatar 400, cover 1584×396), `brand/social/facebook/` (cover vi, link 1200×630), `brand/social/x/` | Dựng bằng `scripts/build-social-kit.mjs` |

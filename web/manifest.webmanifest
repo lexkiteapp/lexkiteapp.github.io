@@ -87,23 +87,23 @@
   ],
   "screenshots": [
     {
-      "src": "screenshots/mobile-home.png",
+      "src": "screenshots/mobile-light-vi-home.jpg",
       "sizes": "780x1688",
-      "type": "image/png",
+      "type": "image/jpeg",
       "form_factor": "narrow",
       "label": "Trang chủ"
     },
     {
-      "src": "screenshots/mobile-path.png",
+      "src": "screenshots/mobile-light-vi-vocab.jpg",
       "sizes": "780x1688",
-      "type": "image/png",
+      "type": "image/jpeg",
       "form_factor": "narrow",
-      "label": "Lộ trình"
+      "label": "Từ vựng"
     },
     {
-      "src": "screenshots/desktop-home.png",
-      "sizes": "1280x800",
-      "type": "image/png",
+      "src": "screenshots/desktop-light-vi-home.jpg",
+      "sizes": "1366x860",
+      "type": "image/jpeg",
       "form_factor": "wide",
       "label": "Lexkite trên máy tính"
     }
