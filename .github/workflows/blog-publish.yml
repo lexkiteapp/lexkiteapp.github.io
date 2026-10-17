@@ -57,7 +57,11 @@ jobs:
         env:
           LEXKITE_CI_HEADER: ${{ secrets.LEXKITE_CI_HEADER }}
         run: node scripts/content-registry.mjs record --wait 600 < due.txt
-      # (chỗ cho bước Wayback của Antigravity: scripts/wayback-snapshot.mjs < due.txt → recordArchive() ghi vào cùng sổ)
+      - name: Wayback Machine (bằng chứng thời gian bên thứ ba)
+        if: steps.due.outputs.count != '0'
+        continue-on-error: true
+        timeout-minutes: 15
+        run: node scripts/wayback-snapshot.mjs < due.txt
       - name: Commit sổ đăng ký
         if: steps.due.outputs.count != '0'
         run: |

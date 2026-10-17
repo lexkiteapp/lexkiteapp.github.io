@@ -22,7 +22,7 @@ export const HEADLESS_UAS = ['headlesschrome', 'phantomjs'];
 // Rate limit: gói Free = 1 luật, chu kỳ 10 s, đếm theo IP (+ colo), biểu thức chỉ được dùng đường dẫn + cf.client.bot.
 // Một lần mở bài blog = 1 request vào đường dẫn nội dung (ảnh ở media.lexkite.com/blog/… – KHÔNG nằm trong phạm vi RL vì không có
 // tiền tố ngôn ngữ; CSS nội tuyến; icon ở /icons/). Người đọc nhanh nhất ~1 trang/giây → 10 req/10 s; 40 chừa dư ×4 cho NAT/CGNAT.
-export const RL_DEFAULT = { period: 10, requests: 40, action: 'managed_challenge' };
+export const RL_DEFAULT = { period: 10, requests: 40, action: 'block' }; // gói Free không cho managed_challenge ở rate limit → chặn 10 s
 
 const q = s => `"${String(s).replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`;
 const path = 'http.request.uri.path';
@@ -55,7 +55,7 @@ export function buildRules({ ciSecret, rl = {} } = {}) {
 
 // Ghép luật của mình vào ruleset hiện có: giữ nguyên luật khác (không có ref lexkite_), thay luật cùng ref, thêm luật mới.
 const CMP = ['ref', 'description', 'action', 'expression', 'enabled', 'ratelimit'];
-export const strip = r => Object.fromEntries(CMP.filter(k => r[k] !== undefined).map(k => [k, k === 'ratelimit' ? Object.fromEntries(Object.entries(r.ratelimit).filter(([x]) => ['characteristics', 'period', 'requests_per_period', 'mitigation_timeout', 'requests_to_origin'].includes(x))) : r[k]]));
+export const strip = r => Object.fromEntries(CMP.filter(k => r[k] !== undefined).map(k => [k, k === 'ratelimit' ? Object.fromEntries(Object.entries(r.ratelimit).filter(([x, v]) => !(x === 'requests_to_origin' && !v) && ['characteristics', 'period', 'requests_per_period', 'mitigation_timeout', 'requests_to_origin'].includes(x))) : r[k]]));
 export function mergeRules(existing = [], ours = []) {
   const mine = new Set(ours.map(r => r.ref));
   const keep = existing.filter(r => !(r.ref && (mine.has(r.ref) || r.ref.startsWith(REF))));

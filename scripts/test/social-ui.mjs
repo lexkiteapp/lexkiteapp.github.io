@@ -58,7 +58,7 @@ const missing = [...keys].filter(k => !(k in T.EN) && !/^grabcast\.click|^<code>
 ok(!missing.length, 'thiếu bản tiếng Anh: ' + missing.join(' | '));
 
 // ---------- 2) Giao diện ----------
-const iso = d => d.toISOString(), soon = new Date(Date.now() + 2 * 864e5);
+const iso = d => d.toISOString(), soon = new Date(Date.now() + 36e5) // +1 giờ: luôn nằm trong tuần đang xem (trước đây +2 ngày → thứ Bảy rơi sang tuần sau);
 const FIX = {
   'storage/stores': { items: [{ id: 1, name: 'Drive A', provider: 'google_drive', used_bytes: 85e9, total_bytes: 100e9 }] },
   accounts: { accounts: [{ id: 11, platform: 'youtube', display_name: 'Lexkite YT', kinds: ['video', 'short'] }, { id: 12, platform: 'instagram', display_name: 'lexkite.ig', username: 'lexkite', limits: { posts_24h: 3, posts_cap: 100 } }, { id: 13, platform: 'tiktok', display_name: 'Lexkite TT' }, { id: 14, platform: 'threads', display_name: 'Lexkite Threads', status: 'needs_reauth', needs_reconnect: true }] },

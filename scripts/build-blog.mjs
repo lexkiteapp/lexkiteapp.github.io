@@ -3,6 +3,26 @@
 // Ảnh: CDN repo lexkite-media (content/blog/config.json → mediaBase); BLOG_MEDIA_LOCAL=1 chép ảnh .media/out vào dist để xem thử.
 import fs from 'node:fs'; import path from 'node:path';
 import { loadPosts, parse, FAQ_RE, isLive, publishTime, wordCount, config, CATEGORIES, ROOT } from './lib/blog-content.mjs';
+import { embedWatermark } from '../content/protection/watermark.mjs';
+
+const COPY_SRC = {
+  vi: 'Nguồn: {title} – {url} (Lexkite)',
+  en: 'Source: {title} – {url} (Lexkite)',
+  es: 'Fuente: {title} – {url} (Lexkite)',
+  pt: 'Fonte: {title} – {url} (Lexkite)',
+  fr: 'Source : {title} – {url} (Lexkite)',
+  de: 'Quelle: {title} – {url} (Lexkite)',
+  id: 'Sumber: {title} – {url} (Lexkite)',
+  th: 'ที่มา: {title} – {url} (Lexkite)',
+  zh: '来源：{title} – {url} (Lexkite)',
+  ja: '出典：{title} – {url} (Lexkite)',
+  ko: '출처: {title} – {url} (Lexkite)',
+  hi: 'स्रोत: {title} – {url} (Lexkite)',
+  ar: 'المصدر: {title} – {url} (Lexkite)',
+  ru: 'Источник: {title} – {url} (Lexkite)',
+  tr: 'Kaynak: {title} – {url} (Lexkite)',
+};
+const copyJs = lang => `<script>document.addEventListener('copy',e=>{const s=window.getSelection();if(!s||s.rangeCount===0)return;const t=s.toString();if(t.length<=200)return;const m="\\n\\n${(COPY_SRC[lang] || COPY_SRC.en).replace(/"/g, '\\"')}".replace('{title}',document.title.replace(/\\s*\\|\\s*Lexkite$/i,'')).replace('{url}',location.href.split('#')[0]);e.clipboardData.setData('text/plain',t+m);e.preventDefault();});</script>`;
 
 const C = config(), SITE = C.site.replace(/\/$/, ''), DEF = C.defaultLang || 'vi', PER = C.postsPerPage || 12;
 const NOW = process.env.BLOG_NOW ? Date.parse(process.env.BLOG_NOW) : Date.now(), DRAFTS = process.env.BLOG_DRAFTS === '1';
@@ -258,8 +278,9 @@ const alts = p => { const g = byKey.get(p.translationKey || p.slug) || [p]; if (
 
 // Bài viết
 for (const p of posts) {
-  const t = T(p.lang), { html, toc, faq, videos } = render(p.body, p.lang, p.cover), words = wordCount(p.body), mins = Math.max(1, Math.round(words / 220));
+  const t = T(p.lang), { html: rawHtml, toc, faq, videos } = render(p.body, p.lang, p.cover), words = wordCount(p.body), mins = Math.max(1, Math.round(words / 220));
   const pub = when(p), upd = p.updated ? Date.parse(p.updated) : pub;
+  const html = embedWatermark(rawHtml, `LK:${p.lang}/${p.slug}:${iso(pub).slice(0, 10).replace(/-/g, '')}`);
   const same = posts.filter(x => x !== p && x.lang === p.lang);
   const score = x => (x.category === p.category ? 3 : 0) + (x.tags || []).filter(g => (p.tags || []).includes(g)).length * 2 + (p.body.includes(`/blog/${x.slug}/`) ? 1 : 0);
   const related = same.map(x => [score(x), x]).filter(([s]) => s > 0).sort((a, b) => b[0] - a[0] || when(b[1]) - when(a[1])).slice(0, 3).map(([, x]) => x);
@@ -284,7 +305,7 @@ ${(p.tags || []).some(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2) ? `<div class
 ${related.length ? `<section aria-labelledby="rel"><h2 id="rel">${t.related}</h2><div class="grid">${related.map(x => card(x, 'h3')).join('')}</div></section>` : ''}`;
   write(postUrl(p), layout({ lang: p.lang, title: `${p.title} | Lexkite`, desc: p.description, url: postUrl(p), alt: alts(p), img: imgUrl(p.cover), imgAlt: p.coverAlt, type: 'article', body, jsonld,
     extraHead: `<meta property="article:published_time" content="${iso(pub)}">\n<meta property="article:modified_time" content="${iso(upd)}">\n<meta property="article:section" content="${esc(cat)}">\n${(p.tags || []).map(g => `<meta property="article:tag" content="${esc(g)}">`).join('\n')}\n`,
-    script: videos.length ? YT_JS : '' }));
+    script: (videos.length ? YT_JS : '') + copyJs(p.lang) }));
   sm.push({ loc: postUrl(p), lastmod: iso(upd), alt: alts(p) });
 }
 
@@ -310,7 +331,7 @@ for (const lang of langs) {
 ${items.length ? `<div class="grid">${items.map((p, i) => card(p, 'h2', n === 1 && i < 2)).join('')}</div>` : `<p>${lang === 'vi' ? 'Bài viết đầu tiên sắp ra mắt.' : 'First posts coming soon.'}</p>`}
 ${pages > 1 ? `<nav class="pager" aria-label="${t.page}">${n > 1 ? `<a rel="prev" href="${n === 2 ? g.u : `${g.u}${sg.page}/${n - 1}/`}">${t.newer}</a>` : '<span></span>'}${n < pages ? `<a rel="next" href="${g.u}trang/${n + 1}/">${t.older}</a>` : ''}</nav>` : ''}`;
       const jsonld = [crumbsLd(crumbs), { '@context': 'https://schema.org', '@type': g.kind === 'all' ? 'Blog' : 'CollectionPage', name: title, description: g.desc, url: SITE + u, inLanguage: lang, ...(g.kind === 'all' ? { publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/' } } : {}), hasPart: items.map(p => ({ '@type': 'BlogPosting', headline: p.title, url: SITE + postUrl(p), datePublished: iso(when(p)) })) }];
-      write(u, layout({ lang, title: `${title} | Lexkite`, desc: g.desc, url: u, body, jsonld, robots: g.noindex || !items.length ? 'noindex,follow' : 'index,follow', img: items[0] ? imgUrl(items[0].cover) : undefined }));
+      write(u, layout({ lang, title: `${title} | Lexkite`, desc: g.desc, url: u, body, jsonld, robots: g.noindex || !items.length ? 'noindex,follow' : 'index,follow', img: items[0] ? imgUrl(items[0].cover) : undefined, script: copyJs(lang) }));
       if (!g.noindex && items.length) sm.push({ loc: u, lastmod: iso(Math.max(...items.map(p => p.updated ? Date.parse(p.updated) : when(p)))) });
     }
   }
@@ -340,6 +361,7 @@ for (const lang of fs.existsSync(`${ROOT}/pages`) ? fs.readdirSync(`${ROOT}/page
   const { data, body } = parse(fs.readFileSync(`${ROOT}/pages/${lang}/${f}`, 'utf8'), f), t = T(lang), u = `${base(lang)}${data.slug || f.slice(0, -3)}/`;
   const crumbs = [[t.home, '/'], [t.blog, base(lang)], [data.title, u]];
   write(u, layout({ lang, title: `${data.title} | Lexkite`, desc: data.description, url: u, body: `${crumbsHtml(crumbs)}<article class="post"><h1>${esc(data.title)}</h1>${render(body, lang).html}</article>`,
+    script: copyJs(lang),
     jsonld: [crumbsLd(crumbs), { '@context': 'https://schema.org', '@type': 'AboutPage', name: data.title, description: data.description, url: SITE + u, inLanguage: lang, about: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: `${SITE}/icons/icon-512.png` } }] }));
   sm.push({ loc: u, lastmod: iso(NOW) });
 }

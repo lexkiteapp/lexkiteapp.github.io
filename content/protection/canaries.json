@@ -1,0 +1,41 @@
+{
+  "_note": "Danh sách các mẫu câu, ví dụ, tên riêng độc nhất (canary tokens) do Lexkite biên soạn trong kho câu hỏi/đề thi để đối soát bản quyền khi phát hiện bên thứ ba sao chép dữ liệu.",
+  "updated": "2026-10-17",
+  "canaries": [
+    {
+      "id": "cnr-tsw-01",
+      "module": "toeic/sw1.js",
+      "task": "tsw-rd1",
+      "token": "Greenfield Market reusable shopping bag bakery deli seafood counters",
+      "context": "Đề đọc to TOEIC Speaking: thông báo siêu thị Greenfield Market với ưu đãi túi tái sử dụng độc quyền biên soạn bởi Lexkite."
+    },
+    {
+      "id": "cnr-tsw-02",
+      "module": "toeic/sw1.js",
+      "task": "tsw-rd3",
+      "token": "Carter and Lee Accounting tax returns payroll or business planning",
+      "context": "Hộp thư thoại văn phòng kế toán Carter and Lee trong bài thi đọc to."
+    },
+    {
+      "id": "cnr-tsw-03",
+      "module": "toeic/sw1.js",
+      "task": "tsw-rd4",
+      "token": "Dr. Amelia Grant Regional Enterprise Centre Small Business Awards",
+      "context": "Bài giới thiệu diễn giả khách mời tiến sĩ Amelia Grant tại lễ trao giải doanh nghiệp nhỏ."
+    },
+    {
+      "id": "cnr-tsw-04",
+      "module": "toeic/sw1.js",
+      "task": "CK_OP",
+      "token": "my sister took a lower-paid job at a start-up and was promoted within a year",
+      "context": "Ví dụ mẫu sửa câu ❌ → ✅ trong tiêu chí chấm phần nêu ý kiến TOEIC Speaking."
+    },
+    {
+      "id": "cnr-tsw-05",
+      "module": "toeic/sw1.js",
+      "task": "CK_INFO",
+      "token": "He's leading two workshops. The first is at 10:45, and the second starts at 2:15.",
+      "context": "Mẫu câu trả lời câu hỏi số 10 trong bài thi TOEIC Speaking dựa trên bảng thông tin."
+    }
+  ]
+}

@@ -33,7 +33,7 @@ ok(rl.ratelimit.requests_per_period >= 30 && rl.ratelimit.requests_per_period ==
 ok(rl.ratelimit.requests_per_period >= 4 * 10, 'ngưỡng ≥ 4× người đọc nhanh nhất (~10 trang/10 s, 1 request nội dung/trang)');
 ok(!/http\.host|http\.request\.headers|user_agent/.test(rl.expression), 'rate limit chỉ dùng path + cf.client.bot (giới hạn gói Free)');
 ok(!rl.expression.includes('starts_with(http.request.uri.path, "/blog/")'), 'rate limit không tính /blog/ trơn (trùng đường ảnh media.lexkite.com/blog/…)');
-ok(rl.action === 'managed_challenge' && rl.ratelimit.mitigation_timeout === 0, 'vượt ngưỡng → managed challenge (không chặn cứng)');
+ok(rl.action === 'block' && rl.ratelimit.mitigation_timeout === 10, 'vượt ngưỡng → chặn 10 s (gói Free không cho challenge)');
 ok(buildRules({ ciSecret: SECRET, rl: { action: 'block' } }).ratelimit[0].ratelimit.mitigation_timeout === 10, 'hành động block → timeout 10 s');
 throws(() => buildRules({ ciSecret: '' }), 'thiếu secret CI → lỗi');
 throws(() => buildRules({ ciSecret: 'short' }), 'secret quá ngắn → lỗi');
