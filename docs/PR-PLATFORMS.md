@@ -21,7 +21,9 @@ Quy ước cột:
 | 6 | Crunchbase | ✍️ Nháp – chờ anh | 17/10/2026 | crunchbase.com (hồ sơ công ty Lexkite đang sửa) | Còn: trụ sở Sheridan, Wyoming + logo + Save All Edits. |
 | 7 | Product Hunt | ✍️ Tài khoản mới – chờ anh | 17/10/2026 | producthunt.com/my/welcome | Anh điền tên + tích ≥16 tuổi; tài khoản đủ 1 tuần mới launch (sớm nhất ~24/10). |
 
-Tiếp theo (miễn phí, chưa làm): Peerlist, Indie Hackers, Microsoft Edge Add-ons, Firefox Add-ons, Hashnode, Medium (import), LinkedIn Company Page, Viblo, Spiderum, Educational App Store, TinyLaunch, Fazier (cần badge – cân nhắc), HackerNoon.
+Tiếp theo (miễn phí, chưa làm – chỉ trang ỔN ĐỊNH, mình làm chủ hồ sơ/bài): Peerlist, Indie Hackers (trang Product), Hashnode (blog riêng, canonical về dev.to), Medium (import, canonical), LinkedIn Company Page, Viblo (bài thuần kỹ thuật), Microsoft Edge Add-ons, Firefox Add-ons, Educational App Store, TinyLaunch, HackerNoon, GitHub (repo/README giới thiệu), Wellfound (hồ sơ công ty).
+
+⛔ **Tránh** (hay xóa bài/khóa tài khoản vì tự quảng bá → mất link, hại uy tín tên miền): Reddit, Hacker News, Quora, Voz, nhóm Facebook, Spiderum, các trang "đăng thông cáo hàng loạt", trang đòi đặt badge/link ngược (Fazier) – trừ khi anh duyệt riêng.
 
 
 ## 0. Thay đổi 2026 cần biết (đã kiểm qua web)
