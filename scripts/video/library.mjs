@@ -854,8 +854,13 @@ export function driveSign(key, bodyText, ts = Math.floor(Date.now() / 1000)) {
 export async function driveApi(op, body = {}, { fetcher = fetch, key = driveCliKey() } = {}) {
   if (!key) { const e = new Error('chưa có LEXKITE_DRIVE_CLI_KEY'); e.code = 'no-key'; throw e; }
   const text = JSON.stringify({ op, ...body });
-  const r = await fetcher(DRIVE_API, { method: 'POST', headers: { 'Content-Type': 'application/json', ...driveSign(key, text) }, body: text });
-  const j = await r.json().catch(() => ({}));
+  let r, j;
+  for (let i = 0; ; i++) { // 429 too-fast (giới hạn 120 lượt/phút/IP của functions/api/drive.js) → chờ rồi thử lại, tối đa 5 lần
+    r = await fetcher(DRIVE_API, { method: 'POST', headers: { 'Content-Type': 'application/json', ...driveSign(key, text) }, body: text }); // ký lại mỗi lần (HMAC có mốc giờ)
+    j = await r.json().catch(() => ({}));
+    if (r.status !== 429 || i >= 4 || fetcher !== fetch) break;
+    await new Promise(res => setTimeout(res, 15000 * (i + 1)));
+  }
   if (!r.ok) { const e = new Error(scrub(`Drive ${op} → ${r.status} ${j.error || ''}`)); e.code = j.error || r.status; e.status = r.status; throw e; }
   return j;
 }
