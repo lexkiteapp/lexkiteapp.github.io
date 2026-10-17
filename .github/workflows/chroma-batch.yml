@@ -1,0 +1,90 @@
+# Tách nền PHÔNG XANH cả lô clip Kling song song (scripts/video/chroma_key.py) → mỗi clip: stacked.mp4 + meta.json + dải 6 khung soi.
+# Job cuối ghép "bảng soi" (sheet.jpg: mỗi hàng 1 clip, 6 khung trên nền magenta – lỗ thủng/viền xanh/bóng sàn lộ ngay) để duyệt nhanh.
+# Dùng: dispatch với clips = JSON [{"id":"carlos_talk","url":"https://…klingai.com/…mp4"}, …] (≤ 40 clip, URL chỉ Kling/lexkite).
+name: Tách nền phông xanh – cả lô
+on:
+  workflow_dispatch:
+    inputs:
+      clips: { description: 'JSON [{"id":"<nhân vật>_<hành động>","url":"https://…mp4"}]', required: true }
+permissions:
+  contents: read
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs: { list: '${{ steps.p.outputs.list }}' }
+    steps:
+      - id: p
+        env: { CLIPS: '${{ github.event.inputs.clips }}' }
+        run: |
+          python3 - <<'PY'
+          import json, os, re, sys
+          L = json.loads(os.environ['CLIPS'])
+          assert isinstance(L, list) and 0 < len(L) <= 40, 'cần 1–40 clip'
+          for c in L:
+              assert re.fullmatch(r'[a-z0-9_]{3,40}', c['id']), f"id sai: {c['id']}"
+              assert re.match(r'^https://[a-z0-9.-]*(klingai\.com|kling\.ai|lexkite\.com)/', c['url']), f"URL không được phép: {c['id']}"
+          assert len({c['id'] for c in L}) == len(L), 'id trùng'
+          open(os.environ['GITHUB_OUTPUT'], 'a').write('list=' + json.dumps([{'id': c['id'], 'url': c['url']} for c in L]) + '\n')
+          PY
+  key:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix: { clip: '${{ fromJSON(needs.plan.outputs.list) }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null && pip install -q numpy pillow scipy
+      - name: Tải clip
+        env: { URL: '${{ matrix.clip.url }}' }
+        run: mkdir -p out && curl -fsSL --retry 3 -o out/src.mp4 "$URL"
+      - name: Tách nền → stacked
+        run: python scripts/video/chroma_key.py out/src.mp4 out/stacked.mp4 | tee out/meta.json
+      - name: Dải 6 khung soi (nền magenta)
+        run: |
+          python - <<'PY'
+          import subprocess, numpy as np
+          from PIL import Image
+          tiles = []
+          for t in (0.3, 1.1, 1.9, 2.7, 3.5, 4.4):
+              subprocess.run(['ffmpeg', '-v', 'error', '-y', '-ss', str(t), '-i', 'out/stacked.mp4', '-frames:v', '1', 'out/t.png'], check=True)
+              im = np.array(Image.open('out/t.png').convert('RGB')).astype(np.float32); h = im.shape[0] // 2
+              a = im[h:, :, :1] / 255; c = im[:h] * a + np.array([255, 0, 255], np.float32) * (1 - a)
+              tiles.append(Image.fromarray(c.astype(np.uint8)).resize((int(im.shape[1] * 300 / h), 300)))
+          W = sum(x.width for x in tiles); s = Image.new('RGB', (W, 300)); x = 0
+          for tl in tiles: s.paste(tl, (x, 0)); x += tl.width
+          s.save('out/strip.jpg', quality=85)
+          PY
+      - uses: actions/upload-artifact@v4
+        with: { name: 'key-${{ matrix.clip.id }}', path: out/, retention-days: 7 }
+  sheet:
+    needs: key
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'key-*', path: all }
+      - run: pip install -q pillow
+      - name: Ghép bảng soi
+        run: |
+          python - <<'PY'
+          import glob, json, os
+          from PIL import Image, ImageDraw
+          rows = []
+          for d in sorted(glob.glob('all/key-*')):
+              cid = d.split('key-', 1)[1]
+              try: s = Image.open(f'{d}/strip.jpg'); m = json.load(open(f'{d}/meta.json'))
+              except Exception as e: print('thiếu', cid, e); continue
+              r = Image.new('RGB', (s.width + 260, 300), (24, 24, 28)); r.paste(s, (260, 0))
+              ImageDraw.Draw(r).text((10, 10), f"{cid}\n{m['w']}x{m['h']} foot {m['foot']}\nframes {m['frames']}", fill=(255, 255, 255))
+              rows.append(r)
+          W = max(r.width for r in rows); out = Image.new('RGB', (W, 300 * len(rows)), (24, 24, 28))
+          for i, r in enumerate(rows): out.paste(r, (0, 300 * i))
+          os.makedirs('sheet', exist_ok=True); out.save('sheet/sheet.jpg', quality=82); print(len(rows), 'clip')
+          PY
+      - uses: actions/upload-artifact@v4
+        with: { name: chroma-sheet, path: sheet/, retention-days: 7 }
