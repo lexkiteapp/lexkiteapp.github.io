@@ -9,6 +9,21 @@ Quy ước cột:
 - **Ưu tiên**: P1 làm ngay · P2 trong tháng · P3 khi có điều kiện · ✗ không làm.
 - Thị trường: VI = Việt Nam, EN = quốc tế tiếng Anh, ALL = 15 ngôn ngữ.
 
+## ✅ Tiến độ đăng (cập nhật mỗi lần gửi – chỉ gói MIỄN PHÍ, mục tiêu 20 trang)
+
+| # | Trang | Trạng thái | Ngày | Link kiểm tra | Ghi chú |
+|---|---|---|---|---|---|
+| 1 | dev.to | ✅ **Đã đăng** | 17/10/2026 | https://dev.to/zulily_jewelry_vintage_92/building-a-15-language-fsrs-vocabulary-app-in-vanilla-js-and-exporting-real-anki-apkg-files-in-3fl7 | Tên hiển thị Lexkite, logo, khai báo AI-assisted. Username trong link chưa đổi (đổi sẽ đổi link). |
+| 2 | GitHub awesome-fsrs | ⏳ PR chờ duyệt | 17/10/2026 | https://github.com/open-spaced-repetition/awesome-fsrs/pull/80 | Mục Specialized Flashcard. |
+| 3 | SaaSHub | ⏳ Đã gửi, chờ duyệt (1–12 tuần, gói Free) | 17/10/2026 | https://www.saashub.com/lexkite | Ghi là app tương tự Brainscape, Mochi, Readlang. Xác minh bằng email @lexkite.com để lên nhanh hơn (tùy chọn). |
+| 4 | AlternativeTo | ⏳ Đã gửi, hàng chờ miễn phí | 17/10/2026 | alternativeto.net → My submissions | Logo + 4 ảnh giao diện mới, 15 ngôn ngữ; gắn alternative Anki (Memrise có thể chưa lưu). |
+| 5 | Uneed | ⏸ Hồ sơ đã lưu, **chưa ra mắt** | 17/10/2026 | https://www.uneed.best/tool/lexkite | Hàng chờ free kín 5 tháng → không mua gói phí; khi mở ngày free thì Schedule. |
+| 6 | Crunchbase | ✍️ Nháp – chờ anh | 17/10/2026 | crunchbase.com (hồ sơ công ty Lexkite đang sửa) | Còn: trụ sở Sheridan, Wyoming + logo + Save All Edits. |
+| 7 | Product Hunt | ✍️ Tài khoản mới – chờ anh | 17/10/2026 | producthunt.com/my/welcome | Anh điền tên + tích ≥16 tuổi; tài khoản đủ 1 tuần mới launch (sớm nhất ~24/10). |
+
+Tiếp theo (miễn phí, chưa làm): Peerlist, Indie Hackers, Microsoft Edge Add-ons, Firefox Add-ons, Hashnode, Medium (import), LinkedIn Company Page, Viblo, Spiderum, Educational App Store, TinyLaunch, Fazier (cần badge – cân nhắc), HackerNoon.
+
+
 ## 0. Thay đổi 2026 cần biết (đã kiểm qua web)
 | Nền tảng | Thay đổi |
 |---|---|
