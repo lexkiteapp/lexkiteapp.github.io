@@ -4,6 +4,7 @@
 import fs from 'node:fs'; import path from 'node:path';
 import { loadPosts, parse, FAQ_RE, isLive, publishTime, wordCount, config, CATEGORIES, ROOT } from './lib/blog-content.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
+import { CSS, esc, ld, siteHeader, siteFooter, crumbsHtml, crumbsLd as crumbsLdAt } from './lib/site-layout.mjs';
 
 const COPY_SRC = {
   vi: 'Nguồn: {title} – {url} (Lexkite)',
@@ -84,11 +85,9 @@ const ABOUTS = new Set(Object.values(L).map(x => x.aboutSlug));
 const SEGS = new Set(Object.values(L).flatMap(x => Object.values(x.seg)));
 const base = l => `/${l}/blog/`; // thư mục theo ngôn ngữ: /vi/blog/, /en/blog/… (/blog/ → 301 sang /vi/blog/ trong _redirects)
 const postUrl = p => `${base(p.lang)}${p.slug}/`;
-const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const slugify = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/gi, 'd').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const fmtDate = (t, l) => new Date(t).toLocaleDateString(l === 'vi' ? 'vi-VN' : l, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Ho_Chi_Minh' });
 const iso = t => new Date(t).toISOString();
-const ld = o => `<script type="application/ld+json">${JSON.stringify(o).replace(/</g, '\\u003c')}</script>`;
 
 // ---------- Ảnh: <picture> AVIF + WebP, srcset, width/height (CLS 0) ----------
 function picture(id, alt, { eager = false, sizes = '(min-width: 760px) 720px, 100vw' } = {}) {
@@ -184,42 +183,7 @@ function render(md, lang, cover) {
 }
 
 // ---------- Khung trang ----------
-const CSS = `:root{--bg:#f5f6fb;--surface:#fff;--text:#171827;--muted:#4e526b;--line:#e2e4ef;--primary:#E5502F;--primary-ink:#fff;--primary-soft:#FFEBE4;--accent:#0D6964;--accent-soft:#DDF1EE;--brand:#0F3D3E;--link:#B93A1D;--r:16px;color-scheme:light dark}
-@media (prefers-color-scheme:dark){:root{--bg:#0f1017;--surface:#181a24;--text:#eceef7;--muted:#a3a6bd;--line:#2b2e3e;--primary:#FF8466;--primary-ink:#1A0E0B;--primary-soft:#3A221C;--accent-soft:#10302f;--brand:#9fd8cf;--link:#FFA582}}
-*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
-a{color:var(--link);text-underline-offset:2px}a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
-.skip{position:absolute;left:-999px;top:0;background:var(--surface);padding:8px 12px;z-index:9}.skip:focus{left:8px}
-header.top{background:var(--surface);border-bottom:1px solid var(--line)}.bar{max-width:1080px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:20px;color:var(--text);text-decoration:none;letter-spacing:-.02em}.logo b{color:var(--primary)}.logo img{border-radius:8px}
-nav.main{display:flex;gap:4px 14px;flex-wrap:wrap;font-weight:600;font-size:15px;margin-left:auto;align-items:center}nav.main a{color:var(--text);text-decoration:none}nav.main a:hover{color:var(--primary)}
-.btn{display:inline-block;background:var(--primary);color:var(--primary-ink)!important;padding:9px 16px;border-radius:999px;font-weight:700;text-decoration:none;font-size:15px}
-main{max-width:1080px;margin:0 auto;padding:20px 16px 40px}
-.crumbs{font-size:14px;color:var(--muted);margin:4px 0 12px}.crumbs a{color:var(--muted)}
-article.post{max-width:740px;margin:0 auto}.post h1{font-size:clamp(28px,4.4vw,40px);line-height:1.2;margin:.2em 0 .4em;letter-spacing:-.02em;color:var(--text)}
-.meta{color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:4px 14px;margin-bottom:18px}.chip{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:2px 10px;border-radius:999px;font-size:13px;font-weight:700;text-decoration:none}
-@media (prefers-color-scheme:dark){.chip{color:#7fd6cc}}
-.post h2{font-size:26px;line-height:1.3;margin:1.8em 0 .5em;letter-spacing:-.01em;scroll-margin-top:16px}.post h3{font-size:20px;margin:1.4em 0 .3em;scroll-margin-top:16px}.post h4{font-size:18px;margin:1.2em 0 .3em}
-.post p,.post li{max-width:70ch}.post img{max-width:100%;height:auto;display:block;border-radius:12px}
-figure{margin:24px 0}figure picture{display:block;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 8px 28px rgba(20,20,60,.08)}figcaption{font-size:14px;color:var(--muted);text-align:center;margin-top:8px}
-.cover{margin:0 0 20px}
-.toc{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 18px;margin:18px 0}.toc summary{font-weight:700;cursor:pointer}.toc ol{margin:8px 0 0;padding-left:20px;font-size:15px;line-height:1.6}
-blockquote{margin:20px 0;padding:10px 18px;background:var(--primary-soft);border-left:4px solid var(--primary);border-radius:0 12px 12px 0}blockquote p{margin:.4em 0}
-.tbl{overflow-x:auto;margin:18px 0}table{border-collapse:collapse;width:100%;font-size:15px;background:var(--surface)}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{background:var(--accent-soft)}
-code{background:var(--accent-soft);padding:1px 5px;border-radius:5px;font-size:.92em}pre{background:#11132a;color:#e8eaf6;padding:14px;border-radius:12px;overflow:auto}pre code{background:none;padding:0}
-a.app{font-weight:600}
-.copy{font-size:13px;color:var(--muted,#6b6f85);border-top:1px solid var(--line,#e3e5ef);padding-top:12px;margin-top:28px}.cta{background:linear-gradient(135deg,#0F3D3E,#12807A);color:#fff;border-radius:var(--r);padding:18px 20px;margin:28px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.cta p{margin:0;max-width:52ch}
-.yt{position:relative;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;margin:24px 0}.yt img,.yt iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}.yt button{position:absolute;inset:0;margin:auto;width:72px;height:50px;border:0;border-radius:14px;background:#E5502F;cursor:pointer}.yt button::after{content:"";position:absolute;left:29px;top:15px;border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff}
-.tags{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0}.tags a{border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:14px;text-decoration:none;color:var(--text);background:var(--surface)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin:18px 0}.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}.card a.ti{color:var(--text);text-decoration:none}.card a.ti:hover h3,.card a.ti:hover h2{color:var(--primary)}
-.card .pic picture{display:block;aspect-ratio:16/10;overflow:hidden}.card .pic img{width:100%;height:100%;object-fit:cover;object-position:top}.card .bd{padding:12px 16px 16px}.card h2,.card h3{font-size:18px;line-height:1.35;margin:6px 0}.card p{font-size:15px;color:var(--muted);margin:0}
-.hero{padding:10px 0 4px}.hero h1{font-size:clamp(28px,4vw,40px);margin:.1em 0;letter-spacing:-.02em}.hero p{color:var(--muted);max-width:70ch;margin:.3em 0 0}
-.cats{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.cats a{padding:5px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);text-decoration:none;color:var(--text);font-weight:600;font-size:15px}.cats a[aria-current]{background:var(--brand);border-color:var(--brand);color:#fff}
-@media (prefers-color-scheme:dark){.cats a[aria-current]{color:#0f1017}}
-.pager{display:flex;justify-content:space-between;gap:12px;margin:24px 0;font-weight:700}
-.trybox{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;margin:32px 0}.trybox h2{margin:0 0 6px;font-size:20px}.trybox p{margin:0 0 12px;color:var(--muted)}
-[dir=rtl] blockquote{border-left:0;border-right:4px solid var(--primary);border-radius:12px 0 0 12px}[dir=rtl] .toc ol{padding-left:0;padding-right:20px}[dir=rtl] th,[dir=rtl] td{text-align:right}[dir=rtl] .skip:focus{left:auto;right:8px}
-footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px}footer .bar{display:block;padding:20px 16px}footer p{margin:.3em 0}
-@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}`;
+
 
 function layout({ lang, title, desc, url, alt = [], img, imgAlt, type = 'website', body, jsonld = [], robots = 'index,follow', extraHead = '', script = '' }) {
   const t = T(lang), b = base(lang);
@@ -252,19 +216,17 @@ ${extraHead}${jsonld.map(ld).join('\n')}
 </head>
 <body>
 <a class="skip" href="#nd">${t.skip}</a>
-<header class="top"><div class="bar"><a class="logo" href="/"><img src="/icons/icon.svg" width="32" height="32" alt=""><span>lex<b>kite</b></span></a>
-<nav class="main" aria-label="Lexkite"><a href="${b}">${t.blog}</a><a href="${t.nav.words}">${t.words}</a><a href="${t.nav.samples}">${t.samples}</a><a class="btn" href="/">${t.open}</a></nav></div></header>
+${siteHeader({ nav: [[b, t.blog], [t.nav.words, t.words], [t.nav.samples, t.samples]], open: ['/', t.open] })}
 <main id="nd">
 ${body}
 </main>
-<footer><div class="bar"><p>${t.foot} <a href="${b}${t.aboutSlug}/">${t.about}</a> · <a href="${b}rss.xml">${t.rss}</a> · <a href="/privacy">Privacy</a></p><p>${t.tm}</p><p>© ${new Date(NOW).getFullYear()} Lexkite</p></div></footer>
+${siteFooter({ text: t.foot, links: [[`${b}${t.aboutSlug}/`, t.about], [`${b}rss.xml`, t.rss], ['/privacy', 'Privacy']], tm: t.tm, year: new Date(NOW).getFullYear() })}
 ${script}
 </body>
 </html>`;
 }
 const YT_JS = `<script>document.addEventListener('click',e=>{const b=e.target.closest('.yt button');if(!b)return;const d=b.parentNode,f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+d.dataset.id+'?autoplay=1&rel=0';f.title=b.getAttribute('aria-label');f.allow='accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture;fullscreen';f.allowFullscreen=true;d.replaceChildren(f)})</script>`;
-const crumbsLd = items => ({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map(([name, u], i) => ({ '@type': 'ListItem', position: i + 1, name, item: SITE + u })) });
-const crumbsHtml = items => `<nav class="crumbs" aria-label="Breadcrumb">${items.map(([n, u], i) => i === items.length - 1 ? `<span aria-current="page">${esc(n)}</span>` : `<a href="${u}">${esc(n)}</a>`).join(' › ')}</nav>`;
+const crumbsLd = items => crumbsLdAt(SITE, items);
 const card = (p, h = 'h2', eager = false) => `<article class="card"><a class="ti" href="${postUrl(p)}"><div class="pic">${picture(p.cover, p.coverAlt || p.title, { eager, sizes: '(min-width: 1080px) 340px, (min-width: 640px) 50vw, 100vw' })}</div><div class="bd"><span class="chip">${esc(catName(p.category, p.lang))}</span><${h}>${esc(p.title)}</${h}><p>${esc(p.description)}</p></div></a></article>`;
 
 // ---------- Ghi file ----------

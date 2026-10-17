@@ -61,6 +61,7 @@ Mẫu thẻ:
 - Làm trong worktree riêng; `npm test` PASS (gồm blog-check, crawl); đo LCP không tăng.
 - Báo cáo:
 - Cần sửa / Nhận xét:
+- 📌 Đổi phạm vi (Claude 17/10): phần **trang tĩnh** (`build-samples*.mjs` – /tu-vung/, /ngu-phap/, /samples/, /speaking/, /viet-thu/, /en/…) Claude đã làm cùng đợt thiết kế lại (CTA mở đúng bộ `/#/topic/<id>`…, gợi ý add-on chỉ Chrome máy tính, ẩn 7 ngày – `scripts/lib/site-layout.mjs`). **C1 giờ chỉ còn phần blog** (`build-blog.mjs`); dùng lại `extBox`/`ctaBox` trong `site-layout.mjs`, không sửa `build-samples*.mjs`.
 
 
 ### [Q1] "Chơi nhanh 15 giây" + trắc nghiệm "Phong cách tiếng Anh của bạn" (xóa ngại, không sợ sai) · @antigravity · ưu tiên: cao
