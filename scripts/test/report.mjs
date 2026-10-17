@@ -92,6 +92,25 @@ ok(R.spamScore('buy viagra now http://a.co http://b.co http://c.co') >= 2 && R.s
 mails.length = 0; ipN = 4;
 const sp = await call(good({ msg: 'Best casino bonus http://a.xyz http://b.xyz http://c.xyz' }));
 ok(sp.s === 200 && sql.prepare('SELECT spam FROM reports WHERE id = ?').get(+sp.j.id.slice(3) - 1000).spam === 1 && !mails.length, 'spam: vẫn lưu, đánh dấu spam, không gửi thư');
+// Lời tục tĩu / đe dọa / link độc / người tái phạm / ảnh xấu
+const AB = await import(new URL('../../functions/api/_abuse.js', import.meta.url));
+const spamOf = x => x.j && x.j.id ? sql.prepare('SELECT spam FROM reports WHERE id = ?').get(+x.j.id.slice(3) - 1000).spam : null;
+ipN = 40; const ab1 = await call(good({ msg: 'địt mẹ mày thằng chó admin, app như lồn' }));
+ok(spamOf(ab1) === 1 && !mails.length, 'chửi bới (≥ 2 từ tục) → ẩn, không thư');
+ipN = 41; const ab2 = await call(good({ msg: 'App đéo chạy được, bấm Lưu không ăn gì cả' }));
+ok(spamOf(ab2) === 0, 'bực mình 1 từ tục nhưng mô tả lỗi thật → vẫn nhận');
+ipN = 42; ok(spamOf(await call(good({ msg: 'Tải bản sửa ở đây nhé http://1.2.3.4/fix.apk' }))) === 1, 'link độc (IP trần + .apk) → ẩn');
+ipN = 43; ok(spamOf(await call(good({ msg: 'Xem lỗi giúp mình bit.ly/abc123 cảm ơn' }))) === 1, 'link rút gọn → ẩn');
+ipN = 44; ok(spamOf(await call(good({ msg: 'I will kill you if this is not fixed' }))) === 1, 'đe dọa → ẩn');
+ipN = 40; await call(good({ msg: 'fuck you stupid devs, shit app' }));
+const nB = sql.prepare('SELECT COUNT(*) AS n FROM reports').get().n, rep = await call(good({ msg: 'Lần này mô tả lỗi bình thường thôi mà' }));
+ok(rep.s === 200 && !rep.j.token && sql.prepare('SELECT COUNT(*) AS n FROM reports').get().n === nB, 'tái phạm (≥ 2 phiếu bị ẩn/7 ngày) → nhận im lặng, không lưu');
+ok(AB.mask('App đéo chạy, fuck') === 'App đ•• chạy, f•••' && AB.defang('x http://evil.xyz/a y https://lexkite.com/b') === 'x hxxp://evil[.]xyz/a y https://lexkite.com/b', 'che từ tục + vô hiệu link khi gửi thư/Issue');
+ok(!AB.moderate('The class assignment shows the wrong IPA for "passage"').hide && !AB.moderate('Từ "sex" bị dịch sai nghĩa').hide && AB.moderate('씨발 병신').hide && AB.moderate('сука блядь').hide, 'không bắt nhầm từ thường; bắt được nhiều ngôn ngữ');
+const TR = await import(new URL('../../functions/api/_triage.js', import.meta.url));
+ok(TR.validate({ severity: 'P2', image_safety: 'sexual' }, { shot: 'x', msg: 'a' }).image_safety === 'sexual' && TR.validate({ severity: 'P2', image_safety: 'lol' }, { shot: 'x', msg: 'a' }).image_safety === 'ok', 'AI soi ảnh: nhãn hợp lệ, nhãn lạ → ok');
+ok(AB.profaneName('fuckboy') && AB.profaneName('Bitch99') && !AB.profaneName('Minh Anh') && !AB.profaneName('Lan.Anh'), 'biệt danh công khai: chặn cả chuỗi con');
+mails.length = 0;
 ipN = 5;
 const sb = await call(good({ msg: 'Testing in sandbox mode, please ignore.', ctx: { route: 'home', plat: 'web', sandbox: true } }));
 ok(sb.s === 200 && !mails.length, 'báo lỗi sandbox → không gửi thư quản trị');

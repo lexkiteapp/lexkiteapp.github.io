@@ -14,6 +14,7 @@ import { claims } from './sync.js';
 import { adminGate, adminAudit } from './admin.js';
 import { gate, DEFAULTS } from './_quota.js';
 import { triage, errSig, createIssue, scrub, SEVS } from './_triage.js';
+import { moderate, mask, defang } from './_abuse.js';
 
 // Ngân sách mặc định cho tính năng 'report' (đăng ký tại đây để không phải sửa _quota.js; quản trị vẫn đè được qua quota_config)
 if (!DEFAULTS.report) DEFAULTS.report = { anon: [2, 6], free: [3, 12], ipx: 2, store: 'd1', providers: ['mail', 'ai'] };
@@ -122,13 +123,13 @@ async function mail(env, path, payload) {
 export function adminMail(row, ctx, env) {
   const to = String(env.REPORT_NOTIFY_EMAIL || '').trim();
   const lines = [
-    `${tid(row.id)} · ${row.cat} · ${row.area}${row.has_shot ? ' · 📎' : ''}`, '', String(row.msg || '').slice(0, 1500), '',
+    `${tid(row.id)} · ${row.cat} · ${row.area}${row.has_shot ? ' · 📎' : ''}`, '', defang(mask(String(row.msg || ''))).slice(0, 1500), '',
     `Route: #/${ctx.route || ''}${ctx.cid ? ' · content: ' + ctx.cid : ''}${ctx.dom ? ' · site: ' + ctx.dom : ''}`,
     `Platform: ${ctx.plat} ${ctx.ver || ''} · UI: ${ctx.lang} · ${ctx.vw || ''}`, `Errors: ${row.nerr || 0}`, '',
     `Admin: ${SITE}/admin.html?r=${row.id}#reports`,
   ];
   if (row.tri) lines.splice(2, 0, `AI (${row.tri.by}${row.tri.confidence ? ' ' + Math.round(row.tri.confidence * 100) + '%' : ''}): ${row.tri.summary_vi || ''}`, row.tri.suggested_fix ? 'Fix: ' + row.tri.suggested_fix : '', '');
-  return { subject: `[Lexkite]${row.sev ? ' [' + row.sev + ']' : ''} ${tid(row.id)} ${row.cat}: ${String(row.msg || '').replace(/\s+/g, ' ').slice(0, 60)}`, text: lines.filter(x => x != null).join('\n'), ...(EMAIL.test(to) ? { to } : {}), ...(row.notify && EMAIL.test(row.email || '') ? { replyTo: row.email } : {}) };
+  return { subject: `[Lexkite]${row.sev ? ' [' + row.sev + ']' : ''} ${tid(row.id)} ${row.cat}: ${defang(mask(String(row.msg || ''))).replace(/\s+/g, ' ').slice(0, 60)}`, text: lines.filter(x => x != null).join('\n'), ...(EMAIL.test(to) ? { to } : {}), ...(row.notify && EMAIL.test(row.email || '') ? { replyTo: row.email } : {}) };
 }
 const ST_TXT = { vi: { new: 'Mới', ack: 'Đã tiếp nhận', prog: 'Đang xử lý', fixed: 'Đã sửa', wontfix: 'Không sửa', dup: 'Trùng lặp' }, en: { new: 'New', ack: 'Acknowledged', prog: 'In progress', fixed: 'Fixed', wontfix: "Won't fix", dup: 'Duplicate' } };
 // Thư cho người báo khi đổi trạng thái / có phản hồi (chỉ khi họ đã đồng ý nhận thư)
@@ -150,6 +151,11 @@ async function after(env, db, q, r) {
   const sameSig = sig ? ((await db.prepare('SELECT COUNT(*) AS n FROM reports WHERE sig = ? AND spam = 0 AND at > ?').bind(sig, now - 7 * DAY).first()) || {}).n || 0 : 0;
   const tri = await triage(env, { msg: r.msg, cat: r.cat, area: r.area, route: r.ctx.route, plat: r.ctx.plat, ver: r.ctx.ver, lang: r.ctx.lang, errs: r.errs, shot: r.shot, similar: sim.n || 0, same: Math.max(0, sameSig - 1), cands, deploy: env.CF_PAGES_COMMIT_SHA ? String(env.CF_PAGES_COMMIT_SHA).slice(0, 10) : '' }, { noAI: r.ctx.sandbox || q.near('ai') });
   if (root) tri.duplicate_of = tid(root.id);
+  // Ảnh 18+/bạo lực/máu me/thù ghét (AI soi) → xóa ảnh ngay, ẩn phiếu, không thư, không Issue
+  if (tri.image_safety && !['ok', 'none'].includes(tri.image_safety)) {
+    await db.batch([db.prepare('DELETE FROM report_shots WHERE rid = ?').bind(r.id), db.prepare('UPDATE reports SET has_shot = 0, spam = 1, sev = ?, ai = ? WHERE id = ?').bind(tri.severity, JSON.stringify(tri), r.id), ev(db, r.id, 'ai', 'shot-removed', tri.image_safety)]);
+    return;
+  }
   const w = [db.prepare(`UPDATE reports SET sev = ?, sig = ?, ai = ?${root ? ", dup_of = ?, status = 'dup'" : ''} WHERE id = ?`).bind(...[tri.severity, sig, JSON.stringify(tri), ...(root ? [root.id] : []), r.id]), ev(db, r.id, 'ai', 'triage', `${tri.severity} · ${tri.by}${root ? ' · dup ' + tid(root.id) : ''}`)];
   if (root) w.push(db.prepare('UPDATE reports SET upd = upd WHERE id = ?').bind(root.id), ev(db, root.id, 'ai', 'merged', tid(r.id) + ' (auto)'));
   if (tri.by === 'ai') w.push(q.use('ai', q.cost || 60));
@@ -196,19 +202,22 @@ async function create(request, env, b, bg) {
   if (!notify) email = '';
   const shot = typeof b.shot === 'string' && b.shot ? b.shot : '';
   if (shot && (shot.length > LIM.shot || !/^data:image\/(jpeg|webp|png);base64,[A-Za-z0-9+/]+=*$/.test(shot))) return json(request, 413, { error: 'shot' });
-  const q = await gate(request, env, 'report', { who: who0, json }); if (q.res) return q.res;
   const who = (await sha('lexkite-report|' + (request.headers.get('CF-Connecting-IP') || ''))).slice(0, 24);
   await setup(db);
+  // Người đã bị ẩn ≥ 2 phiếu (chửi bới/đe dọa/link độc/ảnh xấu) trong 7 ngày → nhận im lặng, không lưu
+  if ((((await db.prepare("SELECT COUNT(*) AS n FROM reports WHERE who = ? AND spam = 1 AND at > ?").bind(who, now - 7 * DAY).first()) || {}).n || 0) >= 2) return json(request, 200, { ok: true });
+  const q = await gate(request, env, 'report', { who: who0, json }); if (q.res) return q.res;
   const n = (await db.prepare('SELECT COUNT(*) AS n FROM reports WHERE who = ? AND at > ?').bind(who, now - 3600e3).first() || {}).n || 0;
   if (n >= LIM.perHour) return json(request, 429, { error: 'rate' });
   if ((await q.take()).res) return q.res;
   const ctx = cleanCtx(b.ctx), errs = (Array.isArray(b.errs) ? b.errs : []).slice(-LIM.errs).map(e => str(e, LIM.err)).filter(Boolean);
-  let spam = spamScore(msg, email) >= 2 ? 1 : 0;
+  const mod = moderate(msg);
+  let spam = mod.hide || spamScore(msg, email) >= 2 ? 1 : 0;
   if (!spam && (await db.prepare('SELECT id FROM reports WHERE who = ? AND msg = ? AND at > ? LIMIT 1').bind(who, msg, now - DAY).first())) spam = 1; // gửi lặp y hệt
   const area = areaOf(ctx.route, ctx.plat, ctx.dom), tok = token();
   const row = await db.prepare('INSERT INTO reports (tok, at, upd, status, cat, area, msg, email, notify, uid, who, lang, plat, ver, route, ctx, errs, has_shot, spam, sandbox) VALUES (?, ?, ?, \'new\', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id')
     .bind(tok, now, now, cat, area, msg, email, notify ? 1 : 0, (who0 && who0.sub) || '', who, ctx.lang, ctx.plat, ctx.ver, ctx.route, JSON.stringify(ctx), JSON.stringify(errs), shot ? 1 : 0, spam, ctx.sandbox ? 1 : 0).first();
-  const id = row.id, w = [ev(db, id, 'reporter', 'create', spam ? 'spam' : '')];
+  const id = row.id, w = [ev(db, id, 'reporter', 'create', spam ? 'spam' + (mod.why.length ? ' · ' + mod.why.join(', ') : '') : '')];
   if (shot) w.push(db.prepare('INSERT INTO report_shots (rid, mime, data) VALUES (?, ?, ?)').bind(id, shot.slice(5, shot.indexOf(';')), shot));
   // Dọn lười (≈1% lượt gửi): xóa báo lỗi > 24 tháng (chính sách quyền riêng tư) – kèm ảnh & lịch sử
   if (Math.random() < 0.01) { const old = now - 730 * DAY; w.push(db.prepare('DELETE FROM report_shots WHERE rid IN (SELECT id FROM reports WHERE at < ?)').bind(old), db.prepare('DELETE FROM report_events WHERE rid IN (SELECT id FROM reports WHERE at < ?)').bind(old), db.prepare('DELETE FROM reports WHERE at < ?').bind(old)); }

@@ -7,6 +7,7 @@
  *   errSig(errs)        → chữ ký lỗi console (bỏ số, URL, chuỗi trong nháy) để gom phiếu trùng
  *   scrub(s)            → xóa email, URL có query, số điện thoại, chuỗi giống token/khóa – dùng cho GitHub Issue (repo công khai)
  *   createIssue(env, r) → GitHub Issue (label bug-report + claude) qua secret GH_ISSUES_TOKEN; thiếu → { error: 'no-gh-token' } */
+import { mask, defang } from './_abuse.js';
 export const MODEL = '@cf/meta/llama-4-scout-17b-16e-instruct';
 export const SEVS = ['P0', 'P1', 'P2', 'P3'];
 const REPO = 'lexkiteapp/lexkiteapp.github.io';
@@ -53,7 +54,8 @@ area is one of: vocab, grammar, pron, reading, listening, writing, speaking, tes
 type is one of: crash, ui, content, translation, audio, sync, account, payment, performance, suggestion, other.
 duplicate_of: the ticket id (LX-…) of a listed similar ticket ONLY if it is clearly the same problem, else "".
 Write summary_vi in Vietnamese (≤ 200 characters). likely_cause and suggested_fix: short, technical, in English, refer to files/areas when obvious; never include personal data.
-Reply with ONE JSON object only: {"severity":"P0|P1|P2|P3","area":"…","type":"…","summary_vi":"…","likely_cause":"…","suggested_fix":"…","duplicate_of":"","needs_human":true|false,"confidence":0.0-1.0}`;
+Reply with ONE JSON object only: {"severity":"P0|P1|P2|P3","area":"…","type":"…","summary_vi":"…","likely_cause":"…","suggested_fix":"…","duplicate_of":"","needs_human":true|false,"confidence":0.0-1.0,"image_safety":"none|ok|sexual|violence|gore|hate|other_unsafe"}
+image_safety: "none" if no screenshot; otherwise judge ONLY the screenshot: sexual/nudity, graphic violence, gore, hate symbols or other content unsafe to show staff → that label, else "ok". A normal app screenshot is "ok".`;
 const TYPES = ['crash', 'ui', 'content', 'translation', 'audio', 'sync', 'account', 'payment', 'performance', 'suggestion', 'other'];
 
 export function prompt(i) {
@@ -73,7 +75,7 @@ export function validate(o, i) {
   const severity = SEVS.includes(o.severity) ? o.severity : null; if (!severity) return null;
   const AREAS = ['vocab', 'grammar', 'pron', 'reading', 'listening', 'writing', 'speaking', 'tests', 'account', 'addon', 'other'];
   const dup = typeof o.duplicate_of === 'string' && (i.cands || []).some(c => c.tid === o.duplicate_of.trim().toUpperCase()) ? o.duplicate_of.trim().toUpperCase() : '';
-  const out = { severity, area: AREAS.includes(o.area) ? o.area : i.area || 'other', type: TYPES.includes(o.type) ? o.type : 'other', summary_vi: cut(o.summary_vi, 300), likely_cause: cut(scrub(o.likely_cause), 500), suggested_fix: cut(scrub(o.suggested_fix), 800), duplicate_of: dup, needs_human: o.needs_human !== false, confidence: Math.max(0, Math.min(1, +o.confidence || 0)) };
+  const out = { severity, area: AREAS.includes(o.area) ? o.area : i.area || 'other', type: TYPES.includes(o.type) ? o.type : 'other', summary_vi: cut(o.summary_vi, 300), likely_cause: cut(scrub(o.likely_cause), 500), suggested_fix: cut(scrub(o.suggested_fix), 800), duplicate_of: dup, needs_human: o.needs_human !== false, image_safety: ['ok', 'sexual', 'violence', 'gore', 'hate', 'other_unsafe'].includes(o.image_safety) ? o.image_safety : (i.shot ? 'ok' : 'none'), confidence: Math.max(0, Math.min(1, +o.confidence || 0)) };
   if (out.severity === 'P0' && rules(i).severity !== 'P0' && !(i.errs || []).length && (i.same || 0) < 3) { out.severity = 'P1'; out.needs_human = true; out.confidence = Math.min(out.confidence, 0.5); out.downgraded = true; }
   if (/ignore (all |the )?(previous|above) instructions|bỏ qua (mọi |các )?(chỉ dẫn|hướng dẫn)|system prompt|you are now/i.test(i.msg || '')) { out.severity = 'P3'; out.needs_human = true; out.injection = true; }
   return out;
@@ -110,14 +112,14 @@ export function issuePayload(r, tri, labels = ['bug-report', 'claude']) {
     `**${tid}** · ${tri.severity} · ${tri.area} · ${tri.type} · ${r.cat}`, '',
     `**Tóm tắt (AI):** ${scrub(tri.summary_vi)}`, '',
     `**Trang:** \`#/${scrub(r.route || '')}\` · **Nền tảng:** ${r.plat || ''} ${String(r.ver || '').replace(/[^\w .()-]/g, '').slice(0, 40)} · **UI:** ${r.lang || ''}`, '',
-    '**Mô tả người dùng (đã làm sạch, rút gọn):**', '> ' + scrub(r.msg || '').slice(0, 600).replace(/\n+/g, '\n> '), '',
+    '**Mô tả người dùng (đã làm sạch, rút gọn):**', '> ' + defang(mask(scrub(r.msg || ''))).slice(0, 600).replace(/\n+/g, '\n> '), '',
     errs ? '**Lỗi console:**\n\n' + errs : '_Không có lỗi console._', '',
     tri.likely_cause ? `**Nguyên nhân có thể:** ${scrub(tri.likely_cause)}` : '', tri.suggested_fix ? `**Đề xuất sửa:** ${scrub(tri.suggested_fix)}` : '', '',
     `Độ tin cậy AI: ${Math.round((tri.confidence || 0) * 100)}% · ${tri.needs_human ? '⚠️ cần người duyệt' : 'có thể tự sửa'}${r.has_shot ? ' · 📎 ảnh chụp: xem trong Quản trị' : ''}`,
     `Quản trị (riêng tư): ${admin}`, '',
     '_Quy trình: docs/REPORTS.md § Claude Code. Chỉ tự sửa lỗi rõ ràng; lỗi liên quan dữ liệu/tài khoản → đề xuất cho admin duyệt. Xong → `node scripts/report-cli.mjs resolve ' + tid + ' "<ghi chú>" <commit>`._',
   ].filter(x => x !== null).join('\n');
-  return { title: `[${tid}][${tri.severity}] ${scrub(tri.summary_vi || r.msg || '').replace(/\s+/g, ' ').slice(0, 90)}`, body, labels };
+  return { title: `[${tid}][${tri.severity}] ${defang(mask(scrub(tri.summary_vi || r.msg || ''))).replace(/\s+/g, ' ').slice(0, 90)}`, body, labels };
 }
 export async function createIssue(env, r, tri, labels) {
   if (!env.GH_ISSUES_TOKEN) return { error: 'no-gh-token' };

@@ -1,7 +1,8 @@
 /* Form liên hệ: POST /api/contact { name, email, msg, lang, hp, ms }
  * → lưu D1 (bảng contact_msgs) → chuyển thư vào support qua Worker lexkite-mail (service binding MAIL).
  * Chống spam: ô bẫy hp, gửi quá nhanh (< 3 s), tối đa 5 tin/giờ mỗi người (IP đã băm, không lưu IP gốc). */
-import { gate } from './_quota.js'; // hạn mức theo IP/thiết bị + cầu dao thư (docs/QUOTAS.md)
+import { gate } from './_quota.js';
+import { moderate, mask, defang } from './_abuse.js'; // chửi bới/đe dọa/link độc → nhận im lặng, không lưu, không chuyển thư // hạn mức theo IP/thiết bị + cầu dao thư (docs/QUOTAS.md)
 
 const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)|https?:\/\/localhost(:\d+)?|capacitor:\/\/localhost|chrome-extension:\/\/[a-z]{32})$/;
 const PER_HOUR = 5;
@@ -31,6 +32,7 @@ export async function onRequestPost({ request, env }) {
       if (!vj.success) return json(request, 403, { error: 'turnstile' });
     } catch (e) { /* bỏ qua lỗi mạng tạm thời tới Cloudflare verify */ }
   }
+  if (moderate(name + '\n' + msg).hide) return json(request, 200, { ok: true });
   const q = await gate(request, env, 'contact', { who: null, json }); if (q.res) return q.res;
   const who = (await sha('lexkite-contact|' + (request.headers.get('CF-Connecting-IP') || ''))).slice(0, 24);
   try {
@@ -42,7 +44,7 @@ export async function onRequestPost({ request, env }) {
     const row = await env.DB.prepare('INSERT INTO contact_msgs (who, at, name, email, msg, lang) VALUES (?, ?, ?, ?, ?, ?) RETURNING id').bind(who, now, name, email, msg, lang).first();
     let sent = false;
     if (env.MAIL && !q.near('mail')) { // gần trần gửi thư/ngày → vẫn lưu tin (Quản trị → Hộp thư), chỉ chưa chuyển thư
-      const text = `${msg}\n\n— ${name || '(no name)'} <${email}>\nLang: ${lang} · #${row.id} · ${new Date(now).toISOString()}`;
+      const text = `${defang(mask(msg))}\n\n— ${mask(name) || '(no name)'} <${email}>\nLang: ${lang} · #${row.id} · ${new Date(now).toISOString()}`;
       const r = await env.MAIL.fetch('https://mail/send', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ subject: `[Lexkite] ${name || email}: ${msg.slice(0, 60)}`, text, replyTo: email, replyName: name }) }).catch(() => null);
       sent = !!(r && r.ok);
       if (sent) await env.DB.batch([env.DB.prepare('UPDATE contact_msgs SET sent = 1 WHERE id = ?').bind(row.id), q.use('mail')]);

@@ -9,6 +9,7 @@
  * Hạng: 0 Đồng · 1 Bạc · 2 Vàng · 3 Ngọc bích · 4 Hồng ngọc · 5 Kim cương (tên hiển thị dịch ở app). */
 import { claims, limit } from './sync.js';
 import { gate } from './_quota.js';
+import { profaneName } from './_abuse.js';
 
 const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)|https?:\/\/localhost(:\d+)?|capacitor:\/\/localhost|chrome-extension:\/\/[a-z]{32})$/;
 const GROUP = 30, UP = 7, DOWN = 5, MAX_TIER = 5, MAX_WEEK_XP = 20000;
@@ -18,7 +19,7 @@ const json = (req, status, data) => new Response(JSON.stringify(data), { status,
 // Tuần bắt đầu thứ Hai 00:00 UTC – chung cho mọi múi giờ (công bằng toàn cầu)
 export function weekOf(ms = Date.now()) { const d = new Date(ms); const day = (d.getUTCDay() + 6) % 7; const mon = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() - day); return { key: new Date(mon).toISOString().slice(0, 10), start: mon, end: mon + 7 * 864e5 }; }
 // Biệt danh: 2–20 ký tự chữ (mọi ngôn ngữ), số, khoảng trắng, . _ - ; chặn dạng email/link
-export function cleanNick(s) { const n = String(s || '').normalize('NFC').replace(/\s+/g, ' ').trim(); return /^[\p{L}\p{N} ._-]{2,20}$/u.test(n) && !/@|https?:|www\./i.test(n) ? n : ''; }
+export function cleanNick(s) { const n = String(s || '').normalize('NFC').replace(/\s+/g, ' ').trim(); if (!/^[\p{L}\p{N} ._-]{2,20}$/u.test(n) || /@|https?:|www\./i.test(n)) return ''; return profaneName(n) ? '' : n; } // biệt danh công khai: 1 từ tục cũng chặn
 
 let ready = false;
 async function setup(db) {
