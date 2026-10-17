@@ -1,0 +1,433 @@
+{
+ "lang": "ja",
+ "results": [
+  {
+   "lang": "ja",
+   "check": "app: trang chủ hiển thị",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "môi trường: gọi được dịch máy (gtx)",
+   "ok": true,
+   "detail": "có"
+  },
+  {
+   "lang": "ja",
+   "check": "app: #/review có nội dung",
+   "ok": true,
+   "detail": "✕\n🎧\n✅ 0 · 29 枚のカードが残っています\n🇬🇧 → 🇯🇵\n📣\nadvocate\n/ˈædvəkeɪt/\nv\n🔊\n意味を推測し、タップして"
+  },
+  {
+   "lang": "ja",
+   "check": "app: #/review không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "app: #/vocab có nội dung",
+   "ok": true,
+   "detail": "📚 単語\n\n新しい単語を学び、忘れる前に復習し、すばやく調べましょう。\n\n🃏\n29 枚のカードを今すぐ確認してください\n忘れる前に復習すると単語がより長く定"
+  },
+  {
+   "lang": "ja",
+   "check": "app: #/vocab không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "app: #/settings có nội dung",
+   "ok": true,
+   "detail": "マイページ\n設定\n\nアカウント、リマインダー、目標、外観\n\n☁️\nアカウント\n🎨\n外観\n🎯\n学習目標\n🔊\nサウンド\n⏰\nリマインダー\n🤖\nAI\n💾\nデ"
+  },
+  {
+   "lang": "ja",
+   "check": "app: #/settings không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "app: #/dict/house có nội dung",
+   "ok": true,
+   "detail": "単語\n英語-ベトナム語辞典\n\nオックスフォード言語の定義 · UK/US IPA · 対訳例 · コロケーション · 関連語\n\n単語を調べる\nhouse\nn\nA"
+  },
+  {
+   "lang": "ja",
+   "check": "app: #/dict/house không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "dữ liệu mẫu: có thẻ trong chrome.storage",
+   "ok": true,
+   "detail": "60"
+  },
+  {
+   "lang": "ja",
+   "check": "content script: gạch chân từ học thuật / đánh dấu từ đã học trên trang",
+   "ok": true,
+   "detail": "12"
+  },
+  {
+   "lang": "ja",
+   "check": "bấm đúp: hiện bảng tra",
+   "ok": true,
+   "detail": "✕\ni\nresilience名詞\n/rɪˈzɪlɪəns/ · /rɪˈzɪljəns/\n🔊 UK\n🔊 US\n🐢\n回復力\n名詞\nthe capacity "
+  },
+  {
+   "lang": "ja",
+   "check": "bấm đúp: đúng từ + phiên âm",
+   "ok": true,
+   "detail": "✕\ni\nresilience名詞\n/rɪˈzɪlɪəns/ · /rɪˈzɪljəns/\n🔊 UK\n🔊 US\n🐢\n回復力\n名詞\nthe capacity to withstand or to recover quickly from "
+  },
+  {
+   "lang": "ja",
+   "check": "bảng tra: không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "tương phản bảng tra (trang sáng) ≥ 4.5:1",
+   "ok": true,
+   "detail": "64 chữ; lỗi: "
+  },
+  {
+   "lang": "ja",
+   "check": "trang sáng → bảng tra sáng",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "bảng tra: không treo \"Đang dịch câu\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "tra lồng trong bảng tra (bấm đúp từ trong định nghĩa)",
+   "ok": true,
+   "detail": "capacity → 📘capacity"
+  },
+  {
+   "lang": "ja",
+   "check": "danh từ \"forest\": có ảnh minh họa (đã tải xong)",
+   "ok": true,
+   "detail": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Aer"
+  },
+  {
+   "lang": "ja",
+   "check": "\"action\": không có tiêu đề từ loại trống",
+   "ok": true,
+   "detail": "0 nhóm trống"
+  },
+  {
+   "lang": "ja",
+   "check": "\"action\": có ảnh minh họa (đã tải xong)",
+   "ok": true,
+   "detail": "https://live.staticflickr.com/2488/3775825809_bae0339293_n.j"
+  },
+  {
+   "lang": "ja",
+   "check": "trạng từ \"exactly\": hiện bảng tra",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "trạng từ \"exactly\": không ảnh, không ô chữ cái",
+   "ok": true,
+   "detail": "none"
+  },
+  {
+   "lang": "ja",
+   "check": "tính từ \"available\": không ảnh lệch nghĩa, không ô chữ cái",
+   "ok": true,
+   "detail": "none"
+  },
+  {
+   "lang": "ja",
+   "check": "bôi đen (chế độ nút 🌐): hiện nút",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "bấm 🌐: hiện bản dịch",
+   "ok": true,
+   "detail": "🌐 選択範囲を翻訳\nEN → JA\n×\nAlthough the initial cost is considerable, the long-term benefits to public health far outweigh the"
+  },
+  {
+   "lang": "ja",
+   "check": "tương phản bản dịch ≥ 4.5:1",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "bản dịch: không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "bôi đen (tự dịch): hiện bản dịch ngay",
+   "ok": true,
+   "detail": "🌐 選択範囲を翻訳\nEN → JA\n×\nAlthough the initial cost is considerable, the long-term be"
+  },
+  {
+   "lang": "ja",
+   "check": "bôi đen (tắt): không hiện gì",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "ô nhập chữ (textarea): bôi đen → nút 🌐",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "tắt \"Bấm đúp để tra\": không hiện bảng",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "trang CSP chặn ảnh: vẫn có ảnh (canvas)",
+   "ok": true,
+   "detail": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Aer"
+  },
+  {
+   "lang": "ja",
+   "check": "trang CSP chặn <style>: bảng tra vẫn đúng kiểu (adoptedStyleSheets)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "trong iframe: bấm đúp tra được",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "trang RTL (Ả Rập): bảng tra hiện",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "máy chế độ tối + trang sáng: bảng tra hiện",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "máy tối + trang sáng → bảng tra SÁNG, tương phản đạt",
+   "ok": true,
+   "detail": "dark=false "
+  },
+  {
+   "lang": "ja",
+   "check": "trang tối → bảng tra TỐI, tương phản đạt",
+   "ok": true,
+   "detail": "dark=true "
+  },
+  {
+   "lang": "ja",
+   "check": "thẻ thông báo (sáng): \"available\" – bảng tra theo nền trang, tương phản ≥ 4.5:1",
+   "ok": true,
+   "detail": "dark=false "
+  },
+  {
+   "lang": "ja",
+   "check": "thẻ thông báo (sáng): tính từ \"available\" không ảnh, không ô chữ cái",
+   "ok": true,
+   "detail": "none"
+  },
+  {
+   "lang": "ja",
+   "check": "thẻ thông báo (sáng): danh từ \"library\" – tương phản ≥ 4.5:1, không ô chữ cái",
+   "ok": true,
+   "detail": "img "
+  },
+  {
+   "lang": "ja",
+   "check": "thẻ thông báo (sáng): ảnh minh họa có alt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "thẻ thông báo (tối): \"available\" – bảng tra theo nền trang, tương phản ≥ 4.5:1",
+   "ok": true,
+   "detail": "dark=true "
+  },
+  {
+   "lang": "ja",
+   "check": "thẻ thông báo (tối): tính từ \"available\" không ảnh, không ô chữ cái",
+   "ok": true,
+   "detail": "none"
+  },
+  {
+   "lang": "ja",
+   "check": "thẻ thông báo (tối): danh từ \"library\" – tương phản ≥ 4.5:1, không ô chữ cái",
+   "ok": true,
+   "detail": "img "
+  },
+  {
+   "lang": "ja",
+   "check": "thẻ thông báo (tối): ảnh minh họa có alt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "popup: hiển thị số thẻ cần ôn",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "popup: không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "popup: nút \"Ôn ngay\" không bị che",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "popup: bấm \"Ôn ngay\" mở ứng dụng",
+   "ok": true,
+   "detail": "chrome-extension://kblfilcmclonmeecilfiflfpingdofca/app/index.html#/review"
+  },
+  {
+   "lang": "ja",
+   "check": "popup: tra nhanh \"house\"",
+   "ok": true,
+   "detail": "house\nn\nA1\n/haʊs/\n🔊\nngôi nhà\nbuilding in which a family, person lives\n+ カードに保存\n"
+  },
+  {
+   "lang": "ja",
+   "check": "popup: đổi \"Khi bôi đen chữ\" → lưu",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "tab mới: có thẻ từ",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "tab mới: không lẫn tiếng Việt (giao diện)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "tab mới: bấm \"Đã nhớ\" sang thẻ khác / cập nhật",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "lexkite.com (chào mừng): bấm đúp có bảng tra (add-on hoặc web)",
+   "ok": true,
+   "detail": "từ=sustainable addon=true web=false"
+  },
+  {
+   "lang": "ja",
+   "check": "lexkite.com: không hiện 2 bảng cùng lúc",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "lexkite.com đang thi (#/mock): add-on khóa tra",
+   "ok": true,
+   "detail": "null"
+  },
+  {
+   "lang": "ja",
+   "check": "soát lỗi viết: mặc định TẮT (không gạch chân)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "soát lỗi viết: textarea có lỗi → gạch chân",
+   "ok": true,
+   "detail": "u=3 u spelling,u grammar,u grammar"
+  },
+  {
+   "lang": "ja",
+   "check": "soát lỗi viết: bấm chữ bị gạch → hộp gợi ý",
+   "ok": true,
+   "detail": "スペル\nよくあるスペルミス\n×\nrecieve\nreceive\n無視\n💡 なぜ？\nこのサイトでオフ"
+  },
+  {
+   "lang": "ja",
+   "check": "soát lỗi viết: \"Vì sao?\" có giải thích",
+   "ok": true,
+   "detail": "この単語のスペルは間違っています。正しいスペルを学びましょう – よくスペルを間違える単語がレビュー カードに追加されます。\nLexkite ルール（オフライン）"
+  },
+  {
+   "lang": "ja",
+   "check": "soát lỗi viết: hộp gợi ý không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "soát lỗi viết: sửa 1 chạm",
+   "ok": true,
+   "detail": "I receive your email and she have a informations about it. "
+  },
+  {
+   "lang": "ja",
+   "check": "soát lỗi viết: lỗi ngữ pháp có gợi ý",
+   "ok": true,
+   "detail": "文法\n主語と動詞の一致\n×\nhave\nhas\n無視\n💡 なぜ？\nこのサイトでオフ"
+  },
+  {
+   "lang": "ja",
+   "check": "soát lỗi viết: ô mật khẩu → không gạch chân",
+   "ok": true,
+   "detail": "u=0"
+  },
+  {
+   "lang": "ja",
+   "check": "soát lỗi viết: contenteditable → gạch chân",
+   "ok": true,
+   "detail": "u=3 u grammar,u grammar,u style"
+  },
+  {
+   "lang": "ja",
+   "check": "errLog của add-on rỗng",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "ja",
+   "check": "không có lỗi console/trang từ add-on",
+   "ok": true,
+   "detail": ""
+  }
+ ],
+ "errors": [],
+ "errLog": []
+}
