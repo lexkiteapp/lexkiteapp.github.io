@@ -25,8 +25,11 @@ async function settle(page, where) {
   ok(st.pts === 0 || st.hits >= st.pts - 1, `${where}: ${st.pts - st.hits}/${st.pts} điểm trong vùng nội dung không trúng phần tử trang`);
   // Dừng hiệu ứng chủ ý (khung chờ lấp lánh, Kit chớp mắt, pháo giấy canvas mừng xong cài đặt…) để chỉ còn bắt được vẽ lỗi thật
   await page.evaluate(() => { if (!document.getElementById('navStill')) { const st = document.createElement('style'); st.id = 'navStill'; st.textContent = '*,*::before,*::after{animation-play-state:paused!important;caret-color:transparent!important}#toast,.lkr-toast,body>canvas[style*="z-index:9999"]{visibility:hidden!important}'; document.head.appendChild(st); } document.getAnimations().forEach(a => { try { a.pause(); } catch (e) {} }); });
+  await page.evaluate(() => { window.__mlog = []; window.__mo && window.__mo.disconnect(); window.__mo = new MutationObserver(ms => { for (const m of ms) { const x = m.target; window.__mlog.push(m.type + ':' + String(x.id || x.className || x.nodeName).slice(0, 40) + (m.attributeName ? '@' + m.attributeName : '')); } }); window.__mo.observe(document.documentElement, { subtree: true, childList: true, attributes: true, characterData: true }); });
   const a = await page.screenshot({ type: 'png' }); await page.waitForTimeout(400); const b = await page.screenshot({ type: 'png' });
-  ok(a.equals(b), `${where}: màn hình còn nhảy/chưa ổn định sau 1,1 s`);
+  let why = '';
+  if (!a.equals(b)) why = await page.evaluate(() => { window.__mo.disconnect(); const run = document.getAnimations().filter(x => x.playState === 'running').map(x => String(x.effect && x.effect.target && (x.effect.target.id || x.effect.target.className) || '').slice(0, 30) + ':' + (x.animationName || x.transitionProperty || '?')); const img = [...document.images].filter(i => !i.complete).map(i => (i.currentSrc || i.src).slice(-40)); return ` · DOM ${[...new Set(window.__mlog)].slice(0, 8).join(', ') || '–'} · anim ${run.slice(0, 5).join(', ') || '–'} · ảnh đang tải ${img.slice(0, 3).join(', ') || '–'} · cuộn ${scrollY}`; }).catch(() => '');
+  ok(a.equals(b), `${where}: màn hình còn nhảy/chưa ổn định sau 1,1 s${why}`);
 }
 for (const [bn, bt] of Object.entries({ chromium, webkit, firefox })) {
   let browser; try { browser = await bt.launch(); } catch (e) { fails.push(`${bn}: không khởi động được (${e.message.split('\n')[0]})`); continue; }
@@ -34,7 +37,7 @@ for (const [bn, bt] of Object.entries({ chromium, webkit, firefox })) {
     if (bn === 'firefox' && vn === 'mobile') continue; // Firefox không hỗ trợ isMobile
     const ctx = await browser.newContext({ ...vp, locale: 'vi' }); const page = await ctx.newPage();
     const tag = `${bn}/${vn}`;
-    page.on('pageerror', e => fails.push(`${tag}: lỗi JS ${String(e.message).slice(0, 140)}`));
+    page.on('pageerror', e => { const m = String(e.message); if (/access control checks/.test(m) && !/lexkite\.com/.test(m)) return; fails.push(`${tag}: lỗi JS ${m.slice(0, 140)}`); }); // WebKit báo CORS của dịch vụ ngoài (app đã bắt lỗi) như lỗi trang
     await page.goto(BASE + '?sandbox=1&hl=vi#/welcome/setup', { waitUntil: 'networkidle' }).catch(() => {});
     const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(2000); await page.waitForFunction(() => !document.querySelector('body>canvas'), null, { timeout: 8000 }).catch(() => {}); } // chờ pháo giấy mừng cài đặt rơi xong
     for (const r of ROUTES) {
