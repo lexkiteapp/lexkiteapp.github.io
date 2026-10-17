@@ -58,7 +58,7 @@ jobs:
         if: steps.pick.outputs.run == '1'
         run: |
           npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
-          pip install -q faster-whisper==1.1.1 "av>=12,<15" numpy pillow scipy
+          pip install -q faster-whisper==1.1.1 av==13.1.0 numpy pillow scipy
           curl -fsSL -o /tmp/rhubarb.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
           mkdir -p /tmp/rhubarb && unzip -q /tmp/rhubarb.zip -d /tmp/rhubarb
           echo "RHUBARB=$(find /tmp/rhubarb -type f -name rhubarb | head -1)" >> "$GITHUB_ENV"

@@ -15,7 +15,7 @@ from faster_whisper import WhisperModel
 
 def load_audio(path, sr=16000):
     """Giải mã bằng ffmpeg → float32 mono 16 kHz (không qua PyAV: faster-whisper 1.1.1 gọi av.open(metadata_errors=…) mà PyAV ≥ 15 đã bỏ
-    → TypeError trên CI; workflow cũng ghim av<15 nhưng đường này không phụ thuộc phiên bản PyAV)."""
+    → TypeError trên CI; workflow cũng ghim av==13.1.0 (có wheel cp312) nhưng đường này không phụ thuộc phiên bản PyAV)."""
     raw = subprocess.run(['ffmpeg', '-v', 'error', '-nostdin', '-i', path, '-ac', '1', '-ar', str(sr), '-f', 's16le', '-'],
                          capture_output=True, check=True).stdout
     return np.frombuffer(raw, np.int16).astype(np.float32) / 32768.0
