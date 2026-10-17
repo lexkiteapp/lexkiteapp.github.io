@@ -1,0 +1,58 @@
+{
+  "title": "Lexkite – Belajar kosakata IELTS & TOEFL gratis, flashcard dan latihan",
+  "description": "Belajar kosakata bahasa Inggris dengan flashcard pintar FSRS, latihan soal IELTS, TOEFL, dan TOEIC lengkap dengan pembahasan, plus koreksi AI. Gratis.",
+  "ogTitle": "Lexkite – kosakata bahasa Inggris yang benar-benar nempel",
+  "ogDescription": "Flashcard pintar, simulasi tes, dan ekstensi Chrome untuk IELTS, TOEFL, dan TOEIC. Gratis dan dalam bahasa Indonesia.",
+  "skip": "Langsung ke konten",
+  "langL": "Bahasa",
+  "nav": { "app": "Buka aplikasi", "blog": "Blog", "vocab": "Kosakata", "samples": "Contoh jawaban", "login": "Masuk", "start": "Mulai" },
+  "hero": {
+    "eyebrow": "Untuk persiapan IELTS, TOEFL, dan TOEIC",
+    "h1a": "Kosakata makin kuat,",
+    "h1b": "skor makin tinggi.",
+    "lead": "Belajar 15 menit sehari dengan flashcard yang tahu kapan kamu hampir lupa. Setiap kata dilengkapi pelafalan (IPA dan audio), arti dalam bahasa Indonesia, dan contoh kalimat gaya ujian.",
+    "cta": "Mulai gratis",
+    "login": "Masuk",
+    "note": "Gratis · Tanpa akun untuk mulai",
+    "placement": "Cek level dulu (5 menit)"
+  },
+  "card": { "meaning": "berkelanjutan" },
+  "trust": ["Fitur belajar utama 100% gratis", "Tidak wajib daftar", "Progres tersimpan di perangkatmu", "Tampilan dalam 15 bahasa"],
+  "featuresH": "Semua yang kamu butuhkan untuk menambah kosakata",
+  "featuresSub": "Satu aplikasi untuk kosakata, keterampilan, dan simulasi tes – di web, bisa dipasang di HP, dan sebagai ekstensi Chrome.",
+  "features": [
+    ["🧠", "Flashcard pintar (FSRS)", "Algoritma memori modern yang sama dengan Anki menjadwalkan setiap ulasan tepat sebelum kamu lupa. Lebih dari 6.800 kata ujian dengan IPA, audio, dan contoh."],
+    ["🏁", "Latihan IELTS, TOEFL & TOEIC", "Simulasi IELTS 4 keterampilan dan TOEIC Listening & Reading dengan timer, plus 12 tipe soal TOEFL iBT format baru – lengkap dengan skor perkiraan dan pembahasan tiap soal."],
+    ["✍️", "Koreksi AI untuk writing & speaking", "Tulis esai atau rekam jawabanmu, lalu dapatkan umpan balik sesuai kriteria ujian dan contoh jawaban untuk dibandingkan. Koreksi AI punya batas harian yang wajar."],
+    ["🧩", "Ekstensi Chrome", "Klik dua kali kata apa pun di situs web untuk melihat artinya, blok kalimat untuk menerjemahkan, dan simpan kata dari subtitle YouTube beserta konteksnya."],
+    ["📐", "Tata bahasa & pelafalan", "77 pelajaran tata bahasa bergambar dengan 1.700 latihan, 44 bunyi bahasa Inggris, dan latihan bicara yang dinilai dengan pengenalan suara."],
+    ["🌐", "Dalam bahasamu, di semua perangkat", "Tampilan dan arti kata dalam bahasa Indonesia. Pasang di HP seperti aplikasi dan tetap bisa mengulang meski offline."]
+  ],
+  "stepsH": "Cara kerjanya",
+  "steps": [
+    ["Pilih ujian dan target", "IELTS, TOEFL, TOEIC, atau bahasa Inggris umum, target skor, dan waktu belajarmu. Pengaturan cuma sekitar dua menit."],
+    ["Belajar sedikit setiap hari", "10–15 menit kata baru dan ulasan. Lexkite mengingatkan di saat yang tepat dan menjaga runtunan harianmu."],
+    ["Latihan dan pantau kemajuan", "Kerjakan simulasi tes, lihat skor perkiraan, dan ulangi kesalahanmu di catatan kesalahan."]
+  ],
+  "resH": "Materi belajar gratis",
+  "resSub": "Tanpa daftar – baca, belajar, dan kembali kapan saja.",
+  "res": {
+    "blog": ["Blog", "Tips ujian, kosakata per topik, dan metode belajar."],
+    "vocab": ["Kosakata per topik", "Daftar kata IELTS, TOEIC, dan TOEFL dengan IPA dan contoh (dalam bahasa Inggris)."],
+    "samples": ["Contoh writing & speaking", "Esai IELTS Writing Task 2 beranotasi dan contoh jawaban Speaking (dalam bahasa Inggris)."]
+  },
+  "faqH": "Pertanyaan yang sering diajukan",
+  "faq": [
+    ["Apakah Lexkite gratis?", "Ya. Flashcard, perpustakaan kata, permainan, tata bahasa, dan simulasi tes gratis tanpa batas. Koreksi AI juga gratis, dengan batas harian agar tetap tersedia untuk semua orang."],
+    ["Ujian apa saja yang didukung?", "IELTS Academic dan General Training, TOEFL iBT, TOEIC Listening & Reading, serta jalur bahasa Inggris umum dari A2 sampai C1. Belum ada simulasi khusus TOEFL ITP, tetapi kosakata dan tata bahasanya tetap membantu untuk tes itu."],
+    ["Apakah perlu membuat akun?", "Tidak. Kamu bisa langsung belajar dan progres tersimpan di perangkat. Masuk dengan Google jika ingin mencadangkan dan menyinkronkan progres antarperangkat."],
+    ["Bagaimana flashcard memilih kata yang diulang?", "Lexkite memakai FSRS, algoritma pengulangan berjarak modern. Setiap kali kamu menilai kartu (Lagi, Sulit, Baik, atau Mudah), algoritma memperkirakan kapan kamu akan lupa dan menjadwalkan ulasan berikutnya tepat sebelum itu."],
+    ["Bisa dipakai di HP?", "Bisa. Lexkite berjalan di browser modern mana pun dan bisa dipasang di layar utama seperti aplikasi. Ulasan tetap jalan saat offline; mencari kata baru butuh internet."],
+    ["Apa fungsi ekstensi Chrome-nya?", "Kamu bisa mencari arti kata di situs mana pun dengan klik dua kali, menerjemahkan kalimat yang diblok, dan menyimpan kata beserta kalimat asalnya, termasuk dari subtitle YouTube. Kata yang disimpan langsung masuk ke flashcard-mu."]
+  ],
+  "finalH": "Mulai tambah kosakatamu hari ini",
+  "finalP": "Tentukan target ujian dalam dua menit dan langsung pelajari kata-kata pertamamu.",
+  "tm": "IELTS, TOEIC, dan TOEFL adalah merek dagang milik pemiliknya masing-masing. Lexkite adalah produk independen dan tidak berafiliasi dengan maupun didukung oleh mereka.",
+  "foot": "Lexkite – kosakata dan latihan IELTS, TOEIC, TOEFL gratis. Materi orisinal, gratis untuk pelajar.",
+  "suggest": ["Halaman ini tersedia dalam bahasa Indonesia.", "Lihat dalam bahasa Indonesia", "Tutup"]
+}

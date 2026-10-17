@@ -8,12 +8,12 @@ const WEB = process.argv[2] || 'web';
 const LANGS = (process.argv[3] || 'en,zh,ar').split(',');
 const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
 const ROUTES = ['#/home', '#/vocab', '#/library', '#/review', '#/practice', '#/path', '#/stats', '#/settings', '#/me', '#/skills', '#/tests', '#/phrases', '#/models', '#/grammar', '#/pron', '#/listening', '#/reading', '#/speaking', '#/write', '#/task1', '#/letters', '#/toeic', '#/toefl', '#/contact', '#/placement', '#/dict/sustainable', '#/topic/ngsl1', '#/topic/office-email', '#/model/t1-travel', '#/handsfree', '#/reflex', '#/courses', '#/course/ielts-writing', '#/paraphrase', '#/verb', '#/verb/went', '#/verb/can', '#/fix', '#/home'];
-const html = fs.readFileSync(path.join(WEB, 'index.html'), 'utf8').replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '');
+const html = fs.readFileSync(path.join(WEB, 'app', 'index.html'), 'utf8').replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '');
 const scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g)].map(m => m[1]);
 const tick = (ms = 40) => new Promise(r => setTimeout(r, ms));
 
 async function run(lang) {
-  const dom = new JSDOM(html.replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, ''), { url: 'http://localhost/index.html?sandbox=1#/home', runScripts: 'outside-only', pretendToBeVisual: true });
+  const dom = new JSDOM(html.replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, ''), { url: 'http://localhost/app/?sandbox=1#/home', runScripts: 'outside-only', pretendToBeVisual: true });
   const w = dom.window, errors = [];
   w.localStorage.setItem('vb.uiLang', lang); w.localStorage.setItem('vb.geo', '-');
   w.scrollTo = () => {}; w.HTMLElement.prototype.scrollIntoView = () => {}; w.matchMedia = () => ({ matches: false });

@@ -9,7 +9,7 @@ Copy each block into the Developer Dashboard (tab **Store listing**). Images: `s
 | Default language | English (add Vietnamese, Spanish, Portuguese (Brazil), Indonesian below) |
 | Official URL | `https://lexkite.com` |
 | Homepage URL | `https://lexkite.com` |
-| Support URL | `https://lexkite.com/#/contact` (email: support@lexkite.com) |
+| Support URL | `https://lexkite.com/app/#/contact` (email: support@lexkite.com) |
 | Privacy policy URL | `https://lexkite.com/privacy` |
 | Mature content | No |
 | Store icon | `extension/icons/icon-128.png` (128×128) |

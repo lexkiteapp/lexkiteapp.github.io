@@ -1,0 +1,136 @@
+{
+  "title": "Lexkite – Ücretsiz IELTS ve TOEFL kelime çalışması, kartlar ve denemeler",
+  "description": "İngilizce kelimeleri FSRS akıllı kartlarla öğrenin, IELTS, TOEFL ve TOEIC sorularını açıklamalarla çözün, yazma ve konuşmada yapay zekâ geri bildirimi alın. Ücretsiz.",
+  "ogTitle": "Lexkite – akılda kalan İngilizce kelimeler",
+  "ogDescription": "Akıllı kartlar, deneme sınavları ve Chrome eklentisiyle IELTS, TOEFL ve TOEIC'e hazırlanın. Ücretsiz ve Türkçe.",
+  "skip": "İçeriğe geç",
+  "langL": "Dil",
+  "nav": {
+    "app": "Uygulamayı aç",
+    "blog": "Blog",
+    "vocab": "Kelimeler",
+    "samples": "Örnek cevaplar",
+    "login": "Giriş yap",
+    "start": "Başla"
+  },
+  "hero": {
+    "eyebrow": "IELTS, TOEFL ve TOEIC hazırlığı için",
+    "h1a": "Kelime bilgin sağlam olsun,",
+    "h1b": "puanın yükselsin.",
+    "lead": "Günde 15 dakika, bir kelimeyi unutmak üzere olduğun anı bilen kartlarla çalış. Her kelimede telaffuz (IPA ve ses), Türkçe anlam ve sınav tarzında örnek cümle var.",
+    "cta": "Ücretsiz başla",
+    "login": "Giriş yap",
+    "note": "Ücretsiz · Başlamak için hesap gerekmez",
+    "placement": "Önce seviyeni öğren (5 dk)"
+  },
+  "card": {
+    "meaning": "sürdürülebilir"
+  },
+  "trust": [
+    "Temel öğrenme %100 ücretsiz",
+    "Üyelik zorunlu değil",
+    "İlerlemen kendi cihazında saklanır",
+    "15 dilde arayüz"
+  ],
+  "featuresH": "Kelime hazineni büyütmek için gereken her şey",
+  "featuresSub": "Kelimeler, beceriler ve deneme sınavları tek uygulamada: web'de, telefona uygulama gibi kurulabilir ve Chrome eklentisi olarak.",
+  "features": [
+    [
+      "🧠",
+      "Akıllı kartlar (FSRS)",
+      "Anki'deki modern hafıza algoritmasının aynısı her tekrarı unutmadan hemen önceye planlar. IPA, ses ve örneklerle 6.800'den fazla sınav kelimesi."
+    ],
+    [
+      "🏁",
+      "IELTS, TOEFL ve TOEIC pratiği",
+      "Süreli IELTS (4 beceri) ve TOEIC Listening & Reading denemeleri, yeni TOEFL iBT'nin 12 görev türünün tamamı – tahmini puan ve her cevabın açıklamasıyla."
+    ],
+    [
+      "✍️",
+      "Yazma ve konuşmada yapay zekâ geri bildirimi",
+      "Bir kompozisyon yaz ya da cevabını kaydet; sınav kriterlerine göre geri bildirim al ve örnek cevaplarla karşılaştır. Yapay zekâ değerlendirmesinin makul bir günlük sınırı var."
+    ],
+    [
+      "🧩",
+      "Chrome eklentisi",
+      "Herhangi bir sayfadaki kelimeye çift tıklayıp anlamını gör, cümleyi seçip çevir, YouTube altyazılarındaki kelimeleri bağlamıyla kaydet."
+    ],
+    [
+      "📐",
+      "Dil bilgisi ve telaffuz",
+      "Görsellerle anlatılan 77 dil bilgisi dersi ve 1.700 alıştırma, İngilizcedeki 44 sesin tamamı ve ses tanımayla puanlanan konuşma pratiği."
+    ],
+    [
+      "🌐",
+      "Türkçe, her cihazda",
+      "Arayüz ve kelime anlamları Türkçe. Telefonuna uygulama gibi kur, internet yokken bile tekrar yapmaya devam et."
+    ]
+  ],
+  "stepsH": "Nasıl çalışır?",
+  "steps": [
+    [
+      "Sınavını ve hedefini seç",
+      "IELTS, TOEFL, TOEIC ya da genel İngilizce; hedef puanını ve günlük süreni belirle. Kurulum yaklaşık iki dakika sürer."
+    ],
+    [
+      "Her gün biraz çalış",
+      "Günde 10–15 dakika yeni kelime ve tekrar. Lexkite doğru anda hatırlatır, serini korumana yardım eder."
+    ],
+    [
+      "Deneme çöz, gelişimini izle",
+      "Deneme sınavlarını çöz, tahmini puanını gör ve yanlışlarını hata defterinde tekrar et."
+    ]
+  ],
+  "resH": "Ücretsiz kaynaklar",
+  "resSub": "Üyelik yok: oku, çalış, istediğin zaman geri dön.",
+  "res": {
+    "blog": [
+      "Blog",
+      "Sınav ipuçları, konulara göre kelimeler ve çalışma yöntemleri."
+    ],
+    "vocab": [
+      "Konulara göre kelimeler",
+      "IPA ve örneklerle IELTS, TOEIC ve TOEFL kelime listeleri (İngilizce)."
+    ],
+    "samples": [
+      "Yazma ve konuşma örnekleri",
+      "Açıklamalı IELTS Writing Task 2 kompozisyonları ve Speaking cevapları (İngilizce)."
+    ]
+  },
+  "faqH": "Sık sorulan sorular",
+  "faq": [
+    [
+      "Lexkite ücretsiz mi?",
+      "Evet. Kartlar, kelime kütüphanesi, oyunlar, dil bilgisi ve deneme sınavları sınırsız ve ücretsiz. Yapay zekâ geri bildirimi de ücretsiz, ancak herkes kullanabilsin diye günlük bir sınırı var."
+    ],
+    [
+      "Hangi sınavlara hazırlanabilirim?",
+      "IELTS Academic ve General Training, TOEFL iBT, TOEIC Listening & Reading ve A2'den C1'e genel İngilizce yolu. YDS ve YÖKDİL için ayrı deneme sınavı yok, ama akademik kelime listesi (AWL) ve dil bilgisi bu sınavlarda da işine yarar."
+    ],
+    [
+      "Hesap açmam gerekiyor mu?",
+      "Hayır. Hemen başlayabilirsin, ilerlemen cihazına kaydedilir. Yedeklemek ve cihazlar arasında eşitlemek istersen Google ile giriş yap."
+    ],
+    [
+      "Kartlar neyi tekrar edeceğime nasıl karar veriyor?",
+      "Lexkite, modern aralıklı tekrar algoritması FSRS'yi kullanır. Bir kartı her değerlendirdiğinde (Tekrar, Zor, İyi veya Kolay) kelimeyi ne zaman unutacağını tahmin eder ve bir sonraki tekrarı hemen öncesine koyar."
+    ],
+    [
+      "Telefonda çalışıyor mu?",
+      "Evet. Lexkite tüm güncel tarayıcılarda çalışır ve ana ekrana uygulama gibi eklenebilir. Tekrarlar çevrimdışı da çalışır; yeni kelime aramak için internet gerekir."
+    ],
+    [
+      "Chrome eklentisi ne işe yarıyor?",
+      "Herhangi bir sitede çift tıklayarak kelimenin anlamına bakabilir, seçtiğin cümleleri çevirebilir ve kelimeyi geçtiği cümleyle birlikte kaydedebilirsin; YouTube altyazılarında da çalışır. Kaydettiğin kelimeler doğrudan kartlarına eklenir."
+    ]
+  ],
+  "finalH": "Kelime hazineni bugün büyütmeye başla",
+  "finalP": "Sınav hedefini iki dakikada belirle ve ilk kelimelerini hemen öğren.",
+  "tm": "IELTS, TOEIC ve TOEFL ilgili sahiplerinin ticari markalarıdır. Lexkite bağımsız bir üründür; bu kuruluşlarla bağlantılı değildir ve onlar tarafından onaylanmamıştır.",
+  "foot": "Lexkite – ücretsiz İngilizce kelime ve IELTS, TOEIC, TOEFL pratiği. Özgün içerik, öğrencilere ücretsiz.",
+  "suggest": [
+    "Bu sayfanın Türkçesi var.",
+    "Türkçe görüntüle",
+    "Kapat"
+  ]
+}

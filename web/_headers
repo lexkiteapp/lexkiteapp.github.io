@@ -14,6 +14,11 @@
   Cache-Control: no-cache
 /index.html
   Cache-Control: no-cache
+# App học ở /app/ (trang / và /<lang>/ là trang giới thiệu tĩnh – HTML mặc định của Pages đã tự kiểm tra bản mới)
+/app/
+  Cache-Control: no-cache
+/app/*
+  Cache-Control: no-cache
 /sw.js
   Cache-Control: no-store
 /js/*

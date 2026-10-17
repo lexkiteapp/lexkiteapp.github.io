@@ -4,6 +4,7 @@ bash "$(dirname "$0")/build-i18n.sh"
 set -euo pipefail
 cd "$(dirname "$0")/.."
 node scripts/build-notes.mjs
+node scripts/build-landing.mjs  # trang giới thiệu tĩnh / + /<lang>/ (app học ở /app/)
 rm -rf dist && cp -R web dist
 rm -rf dist/audio  # âm thanh phục vụ từ CDN riêng lexkiteapp.github.io (workflow pages.yml) → gói Cloudflare nhẹ, trả chỗ cho blog
 # Dùng cache npm riêng (tránh lỗi quyền của ~/.npm)
@@ -12,7 +13,7 @@ FILES=$(cd web && find js css sw.js -type f \( -name '*.js' -o -name '*.css' \) 
 before=$(cd web && cat $FILES | wc -c)
 (cd web && npx -y esbuild@0.24.0 $FILES --minify --charset=utf8 --log-level=warning --outdir=../dist --outbase=. --allow-overwrite)
 # Phiên bản bộ nhớ đệm (service worker) theo NỘI DUNG: ai đẩy code (phiên chính, phiên phụ, bot dịch) cũng tự làm mới cache người dùng
-H=$(cd web && find js css index.html i18n -type f \( -name '*.js' -o -name '*.css' -o -name '*.html' -o -name '*.json' \) | sort | xargs cat | shasum | cut -c1-10)
+H=$(cd web && find js css app/index.html i18n -type f \( -name '*.js' -o -name '*.css' -o -name '*.html' -o -name '*.json' \) | sort | xargs cat | shasum | cut -c1-10)
 perl -0pi -e "s/(lexkite-\d+)(-[0-9a-f]+)?(['\"])/\1-$H\3/" dist/sw.js
 grep -q "lexkite-[0-9]*-$H" dist/sw.js && echo "✓ sw cache: …-$H" || { echo "✗ không gắn được phiên bản cache vào dist/sw.js"; exit 1; }
 after=$(cd dist && cat $FILES | wc -c)

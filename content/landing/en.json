@@ -1,0 +1,137 @@
+{
+  "_note": "Landing copy (base language). Edit here, then run: node scripts/build-landing.mjs. Other languages override these keys in content/landing/<lang>.json; a missing key falls back to this file. Only claim features the app really has.",
+  "title": "Lexkite – Free IELTS, TOEIC & TOEFL vocabulary and practice",
+  "description": "Learn exam vocabulary with smart FSRS flashcards, practise IELTS, TOEIC and TOEFL tests with explanations, and get AI feedback on writing and speaking. Free.",
+  "ogTitle": "Lexkite – learn English vocabulary that sticks",
+  "ogDescription": "Smart flashcards, exam practice and a Chrome add-on for IELTS, TOEIC and TOEFL. Free, in 15 languages.",
+  "skip": "Skip to content",
+  "langL": "Language",
+  "nav": {
+    "app": "Open app",
+    "blog": "Blog",
+    "vocab": "Vocabulary",
+    "samples": "Samples",
+    "login": "Sign in",
+    "start": "Get started"
+  },
+  "hero": {
+    "eyebrow": "For IELTS, TOEIC & TOEFL learners",
+    "h1a": "English vocabulary that sticks,",
+    "h1b": "scores that climb.",
+    "lead": "Study 15 minutes a day with flashcards that know when you are about to forget. Every word comes with IPA, audio and an exam-style example, plus practice tests with clear explanations.",
+    "cta": "Start for free",
+    "login": "Sign in",
+    "note": "Free · No account needed to start",
+    "placement": "Check your level first (5 min)"
+  },
+  "card": {
+    "meaning": "able to continue without harming the environment"
+  },
+  "trust": [
+    "100% free core learning",
+    "No account needed",
+    "Your progress stays on your device",
+    "15 interface languages"
+  ],
+  "featuresH": "Everything you need to build your vocabulary",
+  "featuresSub": "One app for words, skills and mock tests – on the web, as an installable app and as a Chrome add-on.",
+  "features": [
+    [
+      "🧠",
+      "Smart flashcards (FSRS)",
+      "The same modern memory algorithm as Anki schedules each review just before you would forget. 6,800+ exam words with IPA, audio and examples."
+    ],
+    [
+      "🏁",
+      "IELTS, TOEIC & TOEFL practice",
+      "Timed mock tests for IELTS (4 skills) and TOEIC Listening & Reading, plus all 12 task types of the new TOEFL iBT – with estimated scores and an explanation for every answer."
+    ],
+    [
+      "✍️",
+      "AI feedback on writing & speaking",
+      "Write an essay or record an answer and get feedback against exam criteria, with model answers to compare. AI checks have a fair daily limit."
+    ],
+    [
+      "🧩",
+      "Chrome add-on",
+      "Double-click any word on a web page to see its meaning, highlight to translate a sentence, and save words from YouTube subtitles with their context."
+    ],
+    [
+      "📐",
+      "Grammar & pronunciation",
+      "77 visual grammar lessons with 1,700 exercises, a library of the 44 English sounds, and speaking practice scored by speech recognition."
+    ],
+    [
+      "🌐",
+      "In 15 languages",
+      "Use Lexkite in your own language, with word meanings in that language too. Works on your phone and keeps your reviews available offline."
+    ]
+  ],
+  "stepsH": "How it works",
+  "steps": [
+    [
+      "Pick your exam and target",
+      "IELTS, TOEIC, TOEFL or general English, your target score and how much time you have. Setup takes about two minutes."
+    ],
+    [
+      "Learn a little every day",
+      "10–15 minutes of new words and reviews. Lexkite reminds you at the right moment and keeps your streak going."
+    ],
+    [
+      "Practise and track progress",
+      "Take mock tests, see your estimated score, and review the mistakes you made in your Mistake log."
+    ]
+  ],
+  "resH": "Free learning resources",
+  "resSub": "No sign-up needed – read, study and come back any time.",
+  "res": {
+    "blog": [
+      "Blog",
+      "Exam tips, vocabulary by topic and study methods."
+    ],
+    "vocab": [
+      "Vocabulary by topic",
+      "Word lists for IELTS, TOEIC and TOEFL with IPA and examples."
+    ],
+    "samples": [
+      "Writing & speaking samples",
+      "Annotated IELTS Writing Task 2 essays and Speaking answers."
+    ]
+  },
+  "faqH": "Frequently asked questions",
+  "faq": [
+    [
+      "Is Lexkite free?",
+      "Yes. Flashcards, the word library, games, grammar lessons and practice tests are free with no limit. AI feedback on writing and speaking is free too, with a fair daily limit so it stays available for everyone."
+    ],
+    [
+      "Which exams does Lexkite cover?",
+      "IELTS Academic and General Training, TOEIC Listening & Reading and TOEFL iBT, plus a general English path from A2 to C1. You choose your exam and target when you start."
+    ],
+    [
+      "Do I need an account?",
+      "No. You can start learning straight away and your progress is saved on your device. Sign in with Google if you want to back up your progress and sync it across devices."
+    ],
+    [
+      "How do the flashcards decide what I review?",
+      "Lexkite uses FSRS, a modern spaced-repetition algorithm. Each time you rate a card as Again, Hard, Good or Easy it estimates when you would forget the word and schedules the next review just before that."
+    ],
+    [
+      "Does it work on my phone?",
+      "Yes. Lexkite runs in any modern browser and can be installed on your home screen like an app. Your reviews keep working offline; looking up new words needs an internet connection."
+    ],
+    [
+      "What does the Chrome add-on do?",
+      "It lets you look up words on any website with a double-click, translate highlighted sentences and save words with the sentence you found them in, including from YouTube subtitles. Saved words go straight into your flashcards."
+    ]
+  ],
+  "finalH": "Start building your vocabulary today",
+  "finalP": "Set your exam goal in two minutes and learn your first words right away.",
+  "tm": "IELTS, TOEIC and TOEFL are trademarks of their respective owners. Lexkite is an independent product and is not affiliated with or endorsed by them.",
+  "foot": "Lexkite – free vocabulary and IELTS, TOEIC, TOEFL practice. Original learning content, free for learners.",
+  "suggest": [
+    "This page is available in English.",
+    "View in English",
+    "Close"
+  ]
+}

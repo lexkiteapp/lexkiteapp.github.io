@@ -4,7 +4,7 @@
 import fs from 'node:fs'; import path from 'node:path';
 import { loadPosts, parse, FAQ_RE, isLive, publishTime, wordCount, config, CATEGORIES, ROOT } from './lib/blog-content.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
-import { CSS, esc, ld, siteHeader, siteFooter, crumbsHtml, crumbsLd as crumbsLdAt } from './lib/site-layout.mjs';
+import { CSS, esc, ld, siteHeader, siteFooter, crumbsHtml, crumbsLd as crumbsLdAt, appHref, landingHref } from './lib/site-layout.mjs';
 
 const COPY_SRC = {
   vi: 'Nguồn: {title} – {url} (Lexkite)',
@@ -101,6 +101,8 @@ const imgUrl = (id, w = 1440) => { const m = MEDIA[id]; if (!m) return `${SITE}/
 
 // ---------- Markdown tối giản (đủ cho bài blog, không phụ thuộc gói ngoài) ----------
 // Chỉ cho phép link/ảnh tương đối hoặc http(s)/mailto – chặn javascript:/data:/vbscript: trong Markdown (XSS)
+// Liên kết vào app trong bài (viết kiểu cũ /#/…, lexkite.com/#/…, /?hl=xx#/…) → app học ở /app/#/… (trang / giờ là trang giới thiệu)
+export const toApp = h => String(h).replace(/^(?:https:\/\/lexkite\.com)?\/(\?hl=[a-z]{2})?#\//, '/app/$1#/');
 const safeUrl = u => { const m = /^([a-z][a-z0-9+.-]*):/i.exec(u); return !m || /^(https?|mailto)$/i.test(m[1]) ? u : ''; };
 function inline(s) {
   const codes = [];
@@ -108,10 +110,11 @@ function inline(s) {
   s = s.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+&quot;([^&]*)&quot;)?\)/g, (m, alt, src) => src.startsWith('media:') ? picture(src.slice(6), alt) : safeUrl(src) ? `<img src="${src}" alt="${alt}" loading="lazy">` : alt)
     .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, t, h) => {
       if (!safeUrl(h)) return t;
+      h = toApp(h);
       if (h.startsWith('/blog/')) h = base(CUR) + h.slice(6); // link /blog/<slug>/ trong bài → thư mục ngôn ngữ của bài
       const bm = h.match(/^\/(?:[a-z]{2}(?:-[a-z]+)?\/)?blog\/([^/#?]+)\/$/);
       if (bm && !SEGS.has(bm[1]) && !ABOUTS.has(bm[1]) && !LIVE.has(h)) return t; // bài đích chưa đến giờ đăng → chữ thường, không tạo link 404
-      const ext = /^https?:/.test(h) && !h.startsWith(SITE), app = h.startsWith('/#/');
+      const ext = /^https?:/.test(h) && !h.startsWith(SITE), app = h.startsWith('/app/');
       return `<a href="${h}"${ext ? ' rel="noopener" target="_blank"' : ''}${app ? ' class="app"' : ''}>${t}</a>`;
     })
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/(^|[^*\w])\*([^*\s][^*]*)\*/g, '$1<em>$2</em>').replace(/(^|\s)_([^_]+)_(?=\s|[.,;:!?]|$)/g, '$1<em>$2</em>');
@@ -119,8 +122,8 @@ function inline(s) {
 }
 // Liên kết nội bộ thương hiệu (chống cào bài, tăng liên kết về app): chỉ lần xuất hiện ĐẦU, tối đa 3 link/bài, không trong tiêu đề/link sẵn có
 const AUTOLINK = {
-  vi: [['flashcard FSRS', '/#/review'], ['tiện ích Chrome', '/#/settings'], ['ôn thi IELTS', '/'], ['tra từ', '/#/dict'], ['luyện phát âm', '/#/pron']],
-  en: [['FSRS flashcards', '/#/review'], ['Chrome extension', '/#/settings'], ['IELTS preparation', '/'], ['look up words', '/#/dict'], ['pronunciation practice', '/#/pron']],
+  vi: [['flashcard FSRS', '/app/#/review'], ['tiện ích Chrome', '/app/#/settings'], ['ôn thi IELTS', '/'], ['tra từ', '/app/#/dict'], ['luyện phát âm', '/app/#/pron']],
+  en: [['FSRS flashcards', '/app/?hl=en#/review'], ['Chrome extension', '/app/?hl=en#/settings'], ['IELTS preparation', '/en/'], ['look up words', '/app/?hl=en#/dict'], ['pronunciation practice', '/app/?hl=en#/pron']],
 };
 let LINKED = null;
 function autolink(html, lang) {
@@ -158,7 +161,7 @@ function render(md, lang, cover) {
       flush(); if (m[1]) { videos.push(m[1]); out.push(`<div class="yt" data-id="${m[1]}"><img src="https://i.ytimg.com/vi/${m[1]}/hqdefault.jpg" alt="${esc(m[2] || 'Video')}" width="480" height="360" loading="lazy"><button type="button" aria-label="${T(lang).play}: ${esc(m[2] || '')}"></button></div>`); } else out.push(`<!-- youtube-slot: ${esc(m[2] || '')} -->`);
       i++; continue;
     }
-    if ((m = ln.match(/^\{\{\s*cta:\s*(\S+)\s*\|\s*(.*?)\s*\}\}\s*$/))) { flush(); out.push(`<aside class="cta"><p><strong>${inline(m[2])}</strong></p><a class="btn" href="${esc(safeUrl(m[1]) || '/')}">${T(lang).open} ${T(lang).dir === 'rtl' ? '←' : '→'}</a></aside>`); i++; continue; }
+    if ((m = ln.match(/^\{\{\s*cta:\s*(\S+)\s*\|\s*(.*?)\s*\}\}\s*$/))) { flush(); out.push(`<aside class="cta"><p><strong>${inline(m[2])}</strong></p><a class="btn" href="${esc(toApp(safeUrl(m[1]) || appHref(lang)))}">${T(lang).open} ${T(lang).dir === 'rtl' ? '←' : '→'}</a></aside>`); i++; continue; }
     if ((m = ln.match(/^!\[([^\]]*)\]\(media:([\w-]+)(?:\s+"([^"]*)")?\)\s*$/))) { flush(); if (m[2] === cover) { i++; continue; } // ảnh trùng ảnh bìa → không lặp lại
       out.push(`<figure>${picture(m[2], m[1])}${m[3] ? `<figcaption>${inline(m[3])}</figcaption>` : ''}</figure>`); i++; continue; }
     if (/^(---|\*\*\*)\s*$/.test(ln)) { flush(); out.push('<hr>'); i++; continue; }
@@ -219,7 +222,7 @@ ${extraHead}${jsonld.map(ld).join('\n')}
 </head>
 <body>
 <a class="skip" href="#nd">${t.skip}</a>
-${siteHeader({ nav: [[b, t.blog], [t.nav.words, t.words], [t.nav.samples, t.samples]], open: ['/', t.open] })}
+${siteHeader({ nav: [[b, t.blog], [t.nav.words, t.words], [t.nav.samples, t.samples]], open: [appHref(lang), t.open], home: landingHref(lang) })}
 <main id="nd">
 ${body}
 </main>
@@ -250,7 +253,7 @@ for (const p of posts) {
   const score = x => (x.category === p.category ? 3 : 0) + (x.tags || []).filter(g => (p.tags || []).includes(g)).length * 2 + (p.body.includes(`/blog/${x.slug}/`) ? 1 : 0);
   const related = same.map(x => [score(x), x]).filter(([s]) => s > 0).sort((a, b) => b[0] - a[0] || when(b[1]) - when(a[1])).slice(0, 3).map(([, x]) => x);
   const cat = catName(p.category, p.lang), b = base(p.lang), sg = SEG(p.lang);
-  const crumbs = [[t.home, '/'], [t.blog, b], [cat, `${b}${sg.cat}/${p.category}/`], [p.title, postUrl(p)]];
+  const crumbs = [[t.home, landingHref(p.lang)], [t.blog, b], [cat, `${b}${sg.cat}/${p.category}/`], [p.title, postUrl(p)]];
   const jsonld = [
     { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, description: p.description, image: [imgUrl(p.cover)], datePublished: iso(pub), dateModified: iso(upd), inLanguage: p.lang, wordCount: words, keywords: [p.keyword, ...(p.tags || [])].join(', '), articleSection: cat, mainEntityOfPage: SITE + postUrl(p), author: { '@type': 'Organization', name: p.author || 'Lexkite', url: `${SITE}${base(p.lang)}${T(p.lang).aboutSlug}/` }, publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: { '@type': 'ImageObject', url: `${SITE}/icons/icon-512.png?v=2`, width: 512, height: 512 } } },
     crumbsLd(crumbs),
@@ -265,7 +268,7 @@ ${toc.length >= 3 ? `<details class="toc" open><summary>${t.toc}</summary><ol>${
 ${html}
 ${(p.tags || []).some(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2) ? `<div class="tags" aria-label="${t.tags}">${p.tags.filter(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2).map(g => `<a href="${b}${sg.tag}/${g}/">#${esc(g)}</a>`).join('')}</div>` : ''}
 <p class="copy">© ${new Date(pub).getFullYear()} Lexkite · ${COPY[p.lang] || COPY.en}</p>
-<section class="trybox"><h2>${t.try}</h2><p>${t.tryD}</p><a class="btn" href="/">${t.open} ${t.dir === 'rtl' ? '←' : '→'}</a></section>
+<section class="trybox"><h2>${t.try}</h2><p>${t.tryD}</p><a class="btn" href="${appHref(p.lang)}">${t.open} ${t.dir === 'rtl' ? '←' : '→'}</a></section>
 </article>
 ${related.length ? `<section aria-labelledby="rel"><h2 id="rel">${t.related}</h2><div class="grid">${related.map(x => card(x, 'h3')).join('')}</div></section>` : ''}`;
   write(postUrl(p), layout({ lang: p.lang, title: `${p.title} | Lexkite`, desc: p.description, url: postUrl(p), alt: alts(p), img: imgUrl(p.cover), imgAlt: p.coverAlt, type: 'article', body, jsonld,
@@ -288,9 +291,9 @@ for (const lang of langs) {
     const pages = Math.max(1, Math.ceil(g.items.length / PER));
     for (let n = 1; n <= pages; n++) {
       const u = n === 1 ? g.u : `${g.u}${sg.page}/${n}/`, items = g.items.slice((n - 1) * PER, n * PER);
-      const crumbs = [[t.home, '/'], [t.blog, b], ...(g.kind === 'all' ? [] : [[g.h1, g.u]]), ...(n > 1 ? [[`${t.page} ${n}`, u]] : [])];
+      const crumbs = [[t.home, landingHref(lang)], [t.blog, b], ...(g.kind === 'all' ? [] : [[g.h1, g.u]]), ...(n > 1 ? [[`${t.page} ${n}`, u]] : [])];
       const title = n > 1 ? `${g.name} – ${t.page} ${n}` : g.name;
-      const body = `${crumbsHtml(crumbs.length > 1 ? crumbs : [[t.home, '/'], [t.blog, b]])}
+      const body = `${crumbsHtml(crumbs.length > 1 ? crumbs : [[t.home, landingHref(lang)], [t.blog, b]])}
 <section class="hero"><h1>${esc(g.kind === 'all' ? (C.blogName[lang] || 'Blog') : g.h1)}${n > 1 ? ` – ${t.page} ${n}` : ''}</h1><p>${esc(g.desc)}</p></section>
 <nav class="cats" aria-label="${t.cat}"><a href="${b}"${g.kind === 'all' ? ' aria-current="page"' : ''}>${t.all}</a>${Object.keys(CATEGORIES).filter(k => list.some(p => p.category === k)).map(k => [k, catName(k, lang)]).map(([k, v]) => `<a href="${b}${sg.cat}/${k}/"${g.cat === k ? ' aria-current="page"' : ''}>${esc(v)}</a>`).join('')}</nav>
 ${items.length ? `<div class="grid">${items.map((p, i) => card(p, 'h2', n === 1 && i < 2)).join('')}</div>` : `<p>${lang === 'vi' ? 'Bài viết đầu tiên sắp ra mắt.' : 'First posts coming soon.'}</p>`}
@@ -325,7 +328,7 @@ fs.writeFileSync(path.join(OUT, 'blog-langs.json'), JSON.stringify(liveLangs));
 // Trang tĩnh của blog (giới thiệu, quy trình biên tập…): content/blog/pages/<lang>/<slug>.md → /blog/<slug>/
 for (const lang of fs.existsSync(`${ROOT}/pages`) ? fs.readdirSync(`${ROOT}/pages`) : []) for (const f of fs.readdirSync(`${ROOT}/pages/${lang}`).filter(f => f.endsWith('.md'))) {
   const { data, body } = parse(fs.readFileSync(`${ROOT}/pages/${lang}/${f}`, 'utf8'), f), t = T(lang), u = `${base(lang)}${data.slug || f.slice(0, -3)}/`;
-  const crumbs = [[t.home, '/'], [t.blog, base(lang)], [data.title, u]];
+  const crumbs = [[t.home, landingHref(lang)], [t.blog, base(lang)], [data.title, u]];
   write(u, layout({ lang, title: `${data.title} | Lexkite`, desc: data.description, url: u, body: `${crumbsHtml(crumbs)}<article class="post"><h1>${esc(data.title)}</h1>${render(body, lang).html}</article>`,
     script: copyJs(lang),
     jsonld: [crumbsLd(crumbs), { '@context': 'https://schema.org', '@type': 'AboutPage', name: data.title, description: data.description, url: SITE + u, inLanguage: lang, about: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: `${SITE}/icons/icon-512.png?v=2` } }] }));

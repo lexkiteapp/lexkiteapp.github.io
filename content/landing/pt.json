@@ -1,0 +1,58 @@
+{
+  "title": "Lexkite – Vocabulário e simulados grátis para TOEFL, IELTS e TOEIC",
+  "description": "Aprenda vocabulário em inglês com flashcards inteligentes FSRS, pratique TOEFL, IELTS e TOEIC com explicações e receba correções com IA. Grátis.",
+  "ogTitle": "Lexkite – vocabulário em inglês que fica na memória",
+  "ogDescription": "Flashcards inteligentes, simulados e uma extensão para Chrome para TOEFL, IELTS e TOEIC. Grátis e em português.",
+  "skip": "Pular para o conteúdo",
+  "langL": "Idioma",
+  "nav": { "app": "Abrir o app", "blog": "Blog", "vocab": "Vocabulário", "samples": "Exemplos", "login": "Entrar", "start": "Começar" },
+  "hero": {
+    "eyebrow": "Para quem se prepara para TOEFL, IELTS e TOEIC",
+    "h1a": "Vocabulário que fica,",
+    "h1b": "nota que sobe.",
+    "lead": "Estude 15 minutos por dia com flashcards que sabem quando você está prestes a esquecer. Cada palavra tem pronúncia (IPA e áudio), significado em português e um exemplo no estilo da prova.",
+    "cta": "Comece grátis",
+    "login": "Entrar",
+    "note": "Grátis · Não precisa de conta para começar",
+    "placement": "Faça antes o teste de nível (5 min)"
+  },
+  "card": { "meaning": "sustentável" },
+  "trust": ["Aprendizado principal 100% grátis", "Sem cadastro obrigatório", "Seu progresso fica no seu dispositivo", "Interface em 15 idiomas"],
+  "featuresH": "Tudo o que você precisa para ampliar o vocabulário",
+  "featuresSub": "Um só app para palavras, habilidades e simulados: na web, instalado no celular e como extensão do Chrome.",
+  "features": [
+    ["🧠", "Flashcards inteligentes (FSRS)", "O mesmo algoritmo moderno de memória do Anki agenda cada revisão logo antes de você esquecer. Mais de 6.800 palavras de prova com IPA, áudio e exemplos."],
+    ["🏁", "Prática para TOEFL, IELTS e TOEIC", "Os 12 tipos de tarefa do novo TOEFL iBT, simulados cronometrados de IELTS (4 habilidades) e TOEIC Listening & Reading, com nota estimada e explicação de cada resposta."],
+    ["✍️", "Correção com IA de writing e speaking", "Escreva uma redação ou grave sua resposta e receba comentários pelos critérios da prova, com respostas-modelo para comparar. As correções com IA têm um limite diário justo."],
+    ["🧩", "Extensão para Chrome", "Clique duas vezes em qualquer palavra de um site para ver o significado, selecione uma frase para traduzir e salve palavras das legendas do YouTube com o contexto."],
+    ["📐", "Gramática e pronúncia", "77 aulas visuais de gramática com 1.700 exercícios, os 44 sons do inglês e prática de fala avaliada por reconhecimento de voz."],
+    ["🌐", "No seu idioma, em qualquer aparelho", "Interface e significados em português. Instale no celular como um app e continue revisando mesmo sem internet."]
+  ],
+  "stepsH": "Como funciona",
+  "steps": [
+    ["Escolha a prova e a meta", "TOEFL, IELTS, TOEIC ou inglês geral, a nota que você quer e quanto tempo tem por dia. A configuração leva uns dois minutos."],
+    ["Aprenda um pouco todo dia", "10 a 15 minutos de palavras novas e revisões. O Lexkite lembra você na hora certa e mantém sua sequência de dias."],
+    ["Pratique e acompanhe o progresso", "Faça simulados, veja sua nota estimada e revise seus erros no seu registro de erros."]
+  ],
+  "resH": "Materiais gratuitos",
+  "resSub": "Sem cadastro: leia, estude e volte quando quiser.",
+  "res": {
+    "blog": ["Blog", "Dicas de prova, vocabulário por tema e métodos de estudo."],
+    "vocab": ["Vocabulário por tema", "Listas de palavras para IELTS, TOEIC e TOEFL com IPA e exemplos (em inglês)."],
+    "samples": ["Exemplos de writing e speaking", "Redações comentadas de IELTS Writing Task 2 e respostas de Speaking (em inglês)."]
+  },
+  "faqH": "Perguntas frequentes",
+  "faq": [
+    ["O Lexkite é gratuito?", "Sim. Flashcards, biblioteca de palavras, jogos, gramática e simulados são gratuitos e sem limite. A correção com IA também é grátis, com um limite diário para continuar disponível para todos."],
+    ["Para quais provas ele serve?", "TOEFL iBT, IELTS Academic e General Training, TOEIC Listening & Reading e uma trilha de inglês geral do A2 ao C1. Não há simulados específicos de Cambridge ou do TOEFL ITP, mas o vocabulário e a gramática ajudam nessas provas também."],
+    ["Preciso criar uma conta?", "Não. Você começa na hora e seu progresso fica salvo no dispositivo. Entre com o Google se quiser fazer backup e sincronizar entre aparelhos."],
+    ["Como o app escolhe o que revisar?", "O Lexkite usa o FSRS, um algoritmo moderno de repetição espaçada. Cada vez que você avalia um cartão (De novo, Difícil, Bom ou Fácil), ele estima quando você esqueceria a palavra e agenda a próxima revisão logo antes disso."],
+    ["Funciona no celular?", "Sim. Funciona em qualquer navegador moderno e pode ser instalado na tela inicial como um app. As revisões funcionam offline; para pesquisar palavras novas é preciso internet."],
+    ["O que a extensão do Chrome faz?", "Ela permite consultar palavras em qualquer site com dois cliques, traduzir frases selecionadas e salvar palavras junto com a frase em que apareceram, inclusive nas legendas do YouTube. Tudo vai direto para os seus flashcards."]
+  ],
+  "finalH": "Comece hoje a ampliar seu vocabulário",
+  "finalP": "Defina sua meta em dois minutos e aprenda as primeiras palavras logo em seguida.",
+  "tm": "IELTS, TOEIC e TOEFL são marcas registradas de seus respectivos proprietários. O Lexkite é um produto independente, sem vínculo ou endosso dessas organizações.",
+  "foot": "Lexkite – vocabulário e prática gratuita para IELTS, TOEIC e TOEFL. Conteúdo original, gratuito para quem aprende.",
+  "suggest": ["Esta página está disponível em português.", "Ver em português", "Fechar"]
+}

@@ -253,10 +253,10 @@ function scheduleBgSync() {
     try {
       const { linked } = await chrome.storage.local.get('linked');
       if (!linked || !linked.email) return;
-      const tabs = await chrome.tabs.query({ url: ['https://lexkite.com/*', 'https://www.lexkite.com/*', 'https://lexkite.pages.dev/*'] });
+      const tabs = await chrome.tabs.query({ url: ['https://lexkite.com/app/*', 'https://www.lexkite.com/app/*', 'https://lexkite.pages.dev/app/*'] /* chỉ tab app học (trang giới thiệu/blog không đồng bộ) */ });
       if (tabs && tabs.length) return; // Tab đang mở sẽ tự đồng bộ qua cầu nối
       const before = (linked.at || 0);
-      const tab = await chrome.tabs.create({ url: 'https://lexkite.com/#/home', active: false });
+      const tab = await chrome.tabs.create({ url: 'https://lexkite.com/app/#/home', active: false });
       for (let i = 0; i < 20; i++) {
         await new Promise(r => setTimeout(r, 1000));
         const cur = ((await chrome.storage.local.get('linked')).linked || {}).at || 0;
@@ -384,7 +384,7 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
       case 'syncNow': {
         // Trang Lexkite (đã đăng nhập) tự gộp dữ liệu qua cầu nối rồi gửi 'linked' → chờ tín hiệu đó, tối đa 25 giây
         const before = ((await chrome.storage.local.get('linked')).linked || {}).at || 0;
-        const tab = await chrome.tabs.create({ url: 'https://lexkite.com/#/home', active: false });
+        const tab = await chrome.tabs.create({ url: 'https://lexkite.com/app/#/home', active: false });
         let ok = false;
         for (let i = 0; i < 25 && !ok; i++) { await new Promise(r => setTimeout(r, 1000)); ok = (((await chrome.storage.local.get('linked')).linked || {}).at || 0) > before; }
         chrome.tabs.remove(tab.id).catch(() => {});

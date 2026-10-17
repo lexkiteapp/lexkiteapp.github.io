@@ -93,9 +93,9 @@ export function checkPosts(posts, { all = posts, root = ROOT } = {}) {
     if (!yt) W('youtube', 'chưa có slot {{youtube: | …}}');
     // Liên kết (kể cả nút CTA)
     const hrefs = [...[...body.matchAll(/(?<!!)\[[^\]]*\]\(\s*([^)\s]+)(?:\s+"[^"]*")?\s*\)/g)].map(m => m[1]), ...ctas];
-    const internal = hrefs.filter(h => h.startsWith('/') && !h.startsWith('//')), app = internal.filter(h => h.startsWith('/#/'));
+    const internal = hrefs.filter(h => h.startsWith('/') && !h.startsWith('//')), isApp = h => /^\/(app\/(\?hl=[a-z]{2})?)?#\//.test(h), app = internal.filter(isApp); // /#/… (cũ, build tự đổi) hoặc /app/#/…
     if (internal.length < 3) E('links', `cần ≥ 3 liên kết nội bộ, đang có ${internal.length}`);
-        if (app.length - ctas.filter(h => h.startsWith('/#/')).length < 2) E('links', `cần ≥ 2 liên kết vào app (/#/…) trong câu chữ (không tính nút CTA), đang có ${app.length - ctas.filter(h => h.startsWith('/#/')).length}`);
+        if (app.length - ctas.filter(isApp).length < 2) E('links', `cần ≥ 2 liên kết vào app (/app/#/… hoặc /#/…) trong câu chữ (không tính nút CTA), đang có ${app.length - ctas.filter(isApp).length}`);
     const blogOut = new Set(internal.map(h => (h.match(/^\/(?:[a-z]{2}(?:-[a-z]+)?\/)?blog\/([^/#?]+)\//) || [])[1]).filter(x => x && !RESERVED.has(x)));
     if (blogOut.size < 4) E('links', `cần ≥ 4 liên kết tới bài blog khác (khác nhau), đang có ${blogOut.size}`);
     if (!internal.some(h => /^\/(?:[a-z]{2}\/)?(samples|speaking|tu-vung|ngu-phap|viet-thu|vocabulary)\//.test(h))) W('links', 'nên có ≥ 1 liên kết tới trang tĩnh /tu-vung/, /samples/, /ngu-phap/, /speaking/ hoặc /viet-thu/');

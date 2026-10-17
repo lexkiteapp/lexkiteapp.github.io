@@ -209,7 +209,7 @@
   function diffHtml(a, b) {
     // tô màu từ sai/thiếu so với câu mẫu
     const A = norm(a).split(' '), B = b.split(/\s+/);
-    return B.map(w => A.includes(norm(w).split(' ')[0]) ? `<span style="color:var(--good)">${esc(w)}</span>` : `<b style="color:var(--again)">${esc(w)}</b>`).join(' ');
+    return B.map(w => A.includes(norm(w).split(' ')[0]) ? `<span style="color:var(--good-text)">${esc(w)}</span>` : `<b style="color:var(--again-text)">${esc(w)}</b>`).join(' ');
   }
   function lineExercise(m, box, mode) {
     const sents = sentencesOf(m);
@@ -342,7 +342,7 @@
         const s = sents[+l.dataset.i].s, v = l.querySelector('.lin').value.trim(); if (!v) return;
         const exact = norm(v) === norm(s), sc = Math.round(UI.similarity(norm(v), norm(s)) * 100);
         if (exact || sc >= 95) r++;
-        l.querySelector('.lres').innerHTML = exact ? `<b style="color:var(--good)">✅ ${t('Chính xác!')}</b>` : `<b style="color:${sc >= 85 ? 'var(--hard)' : 'var(--again)'}">${t('{n}% khớp', { n: sc })}</b> · ${diffHtml(v, s)}`;
+        l.querySelector('.lres').innerHTML = exact ? `<b style="color:var(--good-text)">✅ ${t('Chính xác!')}</b>` : `<b style="color:${sc >= 85 ? 'var(--hard)' : 'var(--again)'}">${t('{n}% khớp', { n: sc })}</b> · ${diffHtml(v, s)}`;
       });
       finish(m, 'write', r, sents.length, box.firstElementChild);
     };
@@ -552,7 +552,7 @@
         <div class="row"><button class="btn primary" id="addP">＋ ${t('Thêm cụm / cấu trúc')}</button>${list.length >= 4 ? `<a class="btn" href="#/practice/learn?src=phrases">🧠 ${t('Học các cụm')}</a>` : ''}</div></div>
       <a class="card hover hub-card" href="#/models" style="margin-bottom:1rem"><span class="hub-ic" aria-hidden="true">📄</span><span class="hub-tx"><b>${t('Bài mẫu band 8 có đánh dấu cụm từ')}</b><small>${t('Đọc bài mẫu, bấm vào cụm hay để lưu vào sổ này')}</small></span><span class="hub-meta">${models.length ? t('{n} bài', { n: models.length }) : ''} ›</span></a>
       <div class="card" style="margin-top:1rem" id="pList">${list.length ? list.map(c => `<div class="deck-row" style="grid-template-columns:minmax(0,1.2fr) minmax(0,1.6fr) auto">
-          <div style="min-width:0"><b>${esc(c.word)}</b><div class="small" style="color:var(--accent);font-weight:700">${esc(App.meanOf(c))}</div>${c.note ? `<div class="tiny muted">📐 ${esc(c.note)}</div>` : ''}</div>
+          <div style="min-width:0"><b>${esc(c.word)}</b><div class="small" style="color:var(--accent-text);font-weight:700">${esc(App.meanOf(c))}</div>${c.note ? `<div class="tiny muted">📐 ${esc(c.note)}</div>` : ''}</div>
           <div class="small muted hide-sm">${c.contexts[0] ? `“${UI.highlight(c.contexts[0].text.slice(0, 140), c.word)}”` : esc(c.ex || '')}</div>
           <div class="row nowrap" style="gap:.3rem"><button class="icon-btn sm" data-speak="${esc(c.word)}">🔊</button>${App.masteryDots(c.srs)}</div></div>`).join('')
         : `<div class="empty"><div class="em">🧩</div>${t('Chưa có cụm từ nào. Bôi đen một cụm trong bài đọc, bài mẫu hay ví dụ từ điển rồi bấm “🧩 Lưu cụm này”, hoặc thêm thủ công.')}${models.length ? `<div style="margin-top:1rem"><button class="btn primary" id="starter">✨ ${t('Thêm nhanh 20 cụm hay từ bài mẫu')}</button></div>` : ''}</div>`}</div>`;

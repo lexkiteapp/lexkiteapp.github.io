@@ -3,3 +3,7 @@
 /blog/ /blog-lang.html 200
 # bài cũ /blog/<slug> → /vi/blog/<slug> (301, giữ đường dẫn con)
 /blog/* /vi/blog/:splat 301
+# Trang giới thiệu tiếng Việt là "/" (bản ngôn ngữ khác: /<lang>/) – /vi/ không có trang riêng; /vi/blog/… giữ nguyên
+/vi / 301
+/vi/ / 301
+/vi/index.html / 301

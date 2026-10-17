@@ -4,7 +4,7 @@
 // Dùng: node scripts/test/e2e.mjs [base] [langs]   (cần: npx playwright install chromium) – chạy hằng ngày trong health.yml
 import { chromium } from 'playwright';
 import fs from 'fs';
-const BASE = process.argv[2] || 'https://lexkite.com/';
+const BASE = process.argv[2] || 'https://lexkite.com/app/';
 const LANGS = (process.argv[3] || 'vi,en,es,pt,fr,de,id,th,zh,ja,ko,hi,ar,ru,tr').split(',');
 const ROUTES = ['home', 'vocab', 'library', 'review', 'practice', 'practice/learn', 'path', 'stats', 'settings', 'me', 'skills', 'tests', 'phrases', 'models', 'grammar', 'pron',
   'listening', 'reading', 'speaking', 'write', 'task1', 'letters', 'toeic', 'toefl', 'contact', 'placement', 'dict/sustainable', 'topic/ngsl1', 'topic/office-email',

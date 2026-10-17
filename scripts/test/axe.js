@@ -3,9 +3,9 @@
 const { JSDOM } = require('jsdom');
 const fs = require('fs'), path = require('path');
 const WEB = process.argv[2] || 'web';
-const html = fs.readFileSync(path.join(WEB, 'index.html'), 'utf8');
+const html = fs.readFileSync(path.join(WEB, 'app', 'index.html'), 'utf8');
 const scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g)].map(m => m[1]);
-const dom = new JSDOM(html.replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, ''), { url: 'http://localhost/index.html#/home', runScripts: 'outside-only', pretendToBeVisual: true });
+const dom = new JSDOM(html.replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, ''), { url: 'http://localhost/app/#/home', runScripts: 'outside-only', pretendToBeVisual: true });
 const w = dom.window, errors = [];
 w.scrollTo = () => {}; w.HTMLElement.prototype.scrollIntoView = () => {}; w.matchMedia = () => ({ matches: false });
 w.CSS = { escape: s => s }; w.fetch = async () => ({ ok: false, json: async () => ({}) }); w.console.error = () => {};
@@ -23,6 +23,15 @@ const OFF = { 'color-contrast': { enabled: false }, 'region': { enabled: false }
     const res = await w.axe.run(w.document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'] }, rules: OFF });
     for (const v of res.violations) { const a = agg[v.id] = agg[v.id] || { impact: v.impact, help: v.help, n: 0, where: new Set(), ex: v.nodes[0] && v.nodes[0].html.slice(0, 140) }; a.n += v.nodes.length; a.where.add(r); }
   }
+  // Trang giới thiệu tĩnh (/ + /<lang>/, scripts/build-landing.mjs): HTML thuần, không chạy script
+  const LANDS = ['index.html', ...fs.readdirSync(WEB).filter(d => /^[a-z]{2}$/.test(d) && fs.existsSync(path.join(WEB, d, 'index.html'))).map(d => d + '/index.html')];
+  for (const f of LANDS) {
+    const ld = new JSDOM(fs.readFileSync(path.join(WEB, f), 'utf8').replace(/<script id="lk-route">[\s\S]*?<\/script>/, ''), { url: 'http://localhost/' + f.replace('index.html', ''), runScripts: 'outside-only', pretendToBeVisual: true });
+    ld.window.eval(fs.readFileSync(require.resolve('axe-core'), 'utf8'));
+    const res = await ld.window.axe.run(ld.window.document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'] }, rules: { 'color-contrast': { enabled: false } } });
+    for (const v of res.violations) { const a = agg[v.id] = agg[v.id] || { impact: v.impact, help: v.help, n: 0, where: new Set(), ex: v.nodes[0] && v.nodes[0].html.slice(0, 140) }; a.n += v.nodes.length; a.where.add('/' + f.replace('index.html', '')); }
+  }
+  ROUTES.push(...LANDS);
   const list = Object.entries(agg).sort((a, b) => b[1].n - a[1].n);
   for (const [id, a] of list) console.log(`${a.impact.padEnd(8)} ${id} ×${a.n} – ${a.help}\n   ${[...a.where].slice(0, 5).join(' ')}\n   ${a.ex}`);
   const bad = list.filter(([, a]) => a.impact === 'critical' || a.impact === 'serious');

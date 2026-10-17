@@ -82,8 +82,8 @@ mark{background:var(--primary-soft);color:inherit;border-radius:4px;padding:0 2p
 @media (prefers-color-scheme:dark){.wt th,.au,.lb{color:#7fd6cc}.au[aria-pressed=true]{color:#0f1017;background:#7fd6cc}}`;
 
 // ---------- Khối khung trang (header, footer, breadcrumb) – blog và trang SEO dùng chung ----------
-export const siteHeader = ({ nav, open, home = '/' }) => `<header class="top"><div class="bar"><a class="logo" href="${home}"><img src="/icons/icon.svg?v=2" width="32" height="32" alt=""><span>lex<b>kite</b></span></a>
-<nav class="main" aria-label="Lexkite">${nav.map(([h, t, a = '']) => `<a href="${h}"${a}>${t}</a>`).join('')}<a class="btn" href="${open[0]}">${open[1]}</a></nav></div></header>`;
+export const siteHeader = ({ nav, open, home = '/', extra = '' }) => `<header class="top"><div class="bar"><a class="logo" href="${home}"><img src="/icons/icon.svg?v=2" width="32" height="32" alt=""><span>lex<b>kite</b></span></a>
+<nav class="main" aria-label="Lexkite">${nav.map(([h, t, a = '']) => `<a href="${h}"${a}>${t}</a>`).join('')}<a class="btn" href="${open[0]}">${open[1]}</a>${extra}</nav></div></header>`;
 // Footer chung cho MỌI trang tĩnh (blog 15 ngôn ngữ, trang SEO, 404, chọn ngôn ngữ blog): thương hiệu · Sản phẩm · Học miễn phí · Thông tin & pháp lý · đổi ngôn ngữ · ©.
 // Trang pháp lý /<lang>/privacy|terms có đủ 15 ngôn ngữ (scripts/build-legal.mjs); #cookies, #delete là mốc trong trang privacy.
 export const LANG_NAMES = { vi: 'Tiếng Việt', en: 'English', es: 'Español', pt: 'Português', fr: 'Français', de: 'Deutsch', id: 'Bahasa Indonesia', th: 'ไทย', zh: '简体中文', ja: '日本語', ko: '한국어', hi: 'हिन्दी', ar: 'العربية', ru: 'Русский', tr: 'Türkçe' };
@@ -106,7 +106,9 @@ export const FOOT = {
   tr: ['Ürün', 'Kaynaklar', 'Şirket', 'Web uygulaması', 'Chrome eklentisi', 'Blog', 'Kelime', 'Örnek yazılar', 'IELTS Speaking', 'Dil bilgisi', 'Hakkında', 'İletişim', 'Gizlilik', 'Koşullar', 'Çerezler ve depolama', 'Verilerimi sil', 'Dil'],
 };
 const ABOUT = { vi: 'gioi-thieu', en: 'about', es: 'acerca-de', pt: 'sobre', fr: 'a-propos', de: 'ueber-uns', id: 'tentang', tr: 'hakkinda' };
-export const appHref = lang => lang === 'vi' ? '/' : `/?hl=${lang}`;
+// App học nằm ở /app/ (SPA, hash route); / và /<lang>/ là trang giới thiệu tĩnh (scripts/build-landing.mjs)
+export const appHref = lang => lang === 'vi' ? '/app/' : `/app/?hl=${lang}`;
+export const landingHref = lang => lang === 'vi' ? '/' : `/${lang}/`;
 // lang: ngôn ngữ trang; text/tm: câu giới thiệu + ghi chú nhãn hiệu (theo ngôn ngữ); langHref(l): link bản ngôn ngữ l (mặc định trang chủ blog l)
 export const siteFooter = ({ lang = 'en', text = '', tm = '', year = new Date().getFullYear(), extra = [], langHref }) => {
   const f = FOOT[lang] || FOOT.en, app = appHref(lang), vi = lang === 'vi', lg = `/${lang in LANG_NAMES ? lang : 'en'}`;
@@ -115,7 +117,7 @@ export const siteFooter = ({ lang = 'en', text = '', tm = '', year = new Date().
   const res = [[`${lg}/blog/`, f[5]], [vi ? '/tu-vung/' : '/en/vocabulary/', f[6]], ...(vi ? [['/ngu-phap/', f[9]]] : []), [vi ? '/samples/' : '/en/samples/', f[7]], [vi ? '/speaking/' : '/en/speaking/', f[8]], ...extra];
   const co = [[`${lg}/blog/${ABOUT[lang] || 'about'}/`, f[10]], [`${app}#/contact`, f[11]], [`${lg}/privacy`, f[12]], [`${lg}/terms`, f[13]], [`${lg}/privacy#cookies`, f[14]], [`${lg}/privacy#delete`, f[15]]];
   const langs = Object.entries(LANG_NAMES).map(([l, n]) => `<a href="${langHref ? langHref(l) : `/${l}/blog/`}" lang="${l}" hreflang="${l}"${l === lang ? ' aria-current="true"' : ''}>${n}</a>`).join('');
-  return `<footer class="site-foot"><div class="bar"><div class="fcols"><div class="fbrand"><a class="flogo" href="${app}"><img src="/icons/icon.svg?v=2" width="28" height="28" alt=""><span>lex<b>kite</b></span></a><p>${text}</p></div>${col(f[0], product)}${col(f[1], res)}${col(f[2], co)}</div>
+  return `<footer class="site-foot"><div class="bar"><div class="fcols"><div class="fbrand"><a class="flogo" href="${landingHref(lang in LANG_NAMES ? lang : 'en')}"><img src="/icons/icon.svg?v=2" width="28" height="28" alt=""><span>lex<b>kite</b></span></a><p>${text}</p></div>${col(f[0], product)}${col(f[1], res)}${col(f[2], co)}</div>
 <nav class="flangs" aria-label="${f[16]}"><span aria-hidden="true">🌐</span>${langs}</nav><p class="ftm">${tm}</p><p class="ftm">© ${year} Lexkite</p></div></footer>`;
 };
 export const crumbsHtml = items => `<nav class="crumbs" aria-label="Breadcrumb">${items.map(([n, u], i) => i === items.length - 1 ? `<span aria-current="page">${esc(n)}</span>` : `<a href="${u}">${esc(n)}</a>`).join(' › ')}</nav>`;
@@ -124,25 +126,25 @@ export const crumbsLd = (site, items) => ({ '@context': 'https://schema.org', '@
 // ---------- Trang SEO từ dữ liệu app (vi/en) ----------
 export const SEO_L = {
   vi: {
-    home: 'Trang chủ', skip: 'Bỏ qua đến nội dung', open: 'Mở app', app: '/',
+    home: 'Trang chủ', skip: 'Bỏ qua đến nội dung', open: 'Mở app', app: '/app/',
     nav: [['/vi/blog/', 'Blog'], ['/tu-vung/', 'Từ vựng'], ['/ngu-phap/', 'Ngữ pháp'], ['/samples/', 'Bài mẫu'], ['/speaking/', 'Speaking']],
     sections: [['/tu-vung/', 'Từ vựng'], ['/ngu-phap/', 'Ngữ pháp'], ['/samples/', 'Bài mẫu Writing'], ['/speaking/', 'IELTS Speaking'], ['/viet-thu/', 'Thư mẫu IELTS General']],
     foot: 'Lexkite – học từ vựng & luyện thi IELTS, TOEIC, TOEFL miễn phí. Nội dung tự biên soạn, miễn phí cho người học.',
     tm: 'IELTS, TOEIC, TOEFL là nhãn hiệu của chủ sở hữu tương ứng; Lexkite là sản phẩm độc lập.',
-    links: [['/vi/blog/', 'Blog'], ['/', 'Ứng dụng'], ['/vi/privacy', 'Quyền riêng tư'], ['/vi/terms', 'Điều khoản']],
+    links: [['/vi/blog/', 'Blog'], ['/app/', 'Ứng dụng'], ['/vi/privacy', 'Quyền riêng tư'], ['/vi/terms', 'Điều khoản']],
     switchTo: ['English', 'en'], sectionsL: 'Chuyên mục', search: 'Lọc theo tên, chủ đề…', searchL: 'Lọc danh sách', found: n => `${n} kết quả`, none: 'Không có mục nào khớp – thử từ khóa khác.',
-    play: w => `Nghe phát âm “${w}”`, related: 'Có thể bạn quan tâm', ext: ['Tra từ ngay khi đọc web.', 'Cài add-on Lexkite cho Chrome: bấm đúp vào từ bất kỳ để xem nghĩa, phiên âm và lưu vào flashcard.', 'Xem add-on', 'Ẩn'], extHref: '/#/settings',
+    play: w => `Nghe phát âm “${w}”`, related: 'Có thể bạn quan tâm', ext: ['Tra từ ngay khi đọc web.', 'Cài add-on Lexkite cho Chrome: bấm đúp vào từ bất kỳ để xem nghĩa, phiên âm và lưu vào flashcard.', 'Xem add-on', 'Ẩn'], extHref: '/app/#/settings',
     col: { no: '#', word: 'Từ', ipa: 'Phiên âm', mean: 'Nghĩa', ex: 'Ví dụ' }, words: 'từ', sets: 'bộ', lessons: 'bài', items: 'bài',
   },
   en: {
-    home: 'Home', skip: 'Skip to content', open: 'Open app', app: '/?hl=en',
+    home: 'Home', skip: 'Skip to content', open: 'Open app', app: '/app/?hl=en',
     nav: [['/en/blog/', 'Blog'], ['/en/vocabulary/', 'Vocabulary'], ['/en/samples/', 'Samples'], ['/en/speaking/', 'Speaking']],
     sections: [['/en/vocabulary/', 'Vocabulary'], ['/en/samples/', 'Writing samples'], ['/en/speaking/', 'IELTS Speaking']],
     foot: 'Lexkite – free vocabulary and IELTS, TOEIC, TOEFL practice. Original learning content, free for learners.',
     tm: 'IELTS, TOEIC and TOEFL are trademarks of their respective owners; Lexkite is independent.',
-    links: [['/en/blog/', 'Blog'], ['/?hl=en', 'App'], ['/en/privacy', 'Privacy'], ['/en/terms', 'Terms']],
+    links: [['/en/blog/', 'Blog'], ['/app/?hl=en', 'App'], ['/en/privacy', 'Privacy'], ['/en/terms', 'Terms']],
     switchTo: ['Tiếng Việt', 'vi'], sectionsL: 'Sections', search: 'Filter by name or topic…', searchL: 'Filter the list', found: n => `${n} results`, none: 'Nothing matches – try another word.',
-    play: w => `Play pronunciation of “${w}”`, related: 'You may also like', ext: ['Look up words while you read.', 'Get the Lexkite add-on for Chrome: double-click any word for its meaning and IPA, then save it to your flashcards.', 'See the add-on', 'Hide'], extHref: '/?hl=en#/settings',
+    play: w => `Play pronunciation of “${w}”`, related: 'You may also like', ext: ['Look up words while you read.', 'Get the Lexkite add-on for Chrome: double-click any word for its meaning and IPA, then save it to your flashcards.', 'See the add-on', 'Hide'], extHref: '/app/?hl=en#/settings',
     col: { no: '#', word: 'Word', ipa: 'IPA', mean: 'Meaning', ex: 'Example' }, words: 'words', sets: 'sets', lessons: 'lessons', items: 'items',
   },
 };
@@ -175,7 +177,7 @@ export function seoPage({ lang, head, crumbs, body, alt, section }) {
   const nav = t.nav.map(([h, n]) => [h, n, h === section ? ' aria-current="page"' : '']);
   if (alt) nav.push([alt, t.switchTo[0], ` class="lang" lang="${t.switchTo[1]}"`]);
   return `<!doctype html><html lang="${lang}"><head>${head}<style>${CSS}\n${SEO_CSS}</style></head><body><a class="skip" href="#nd">${t.skip}</a>
-${siteHeader({ nav, open: [t.app, t.open] })}
+${siteHeader({ nav, open: [t.app, t.open], home: landingHref(lang) })}
 <main id="nd">
 ${crumbsHtml(crumbs)}
 ${body}

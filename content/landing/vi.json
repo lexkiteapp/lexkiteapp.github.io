@@ -1,0 +1,58 @@
+{
+  "title": "Lexkite – Học từ vựng IELTS, TOEIC miễn phí: flashcard FSRS, thi thử",
+  "description": "Học từ vựng IELTS, TOEIC, TOEFL miễn phí với flashcard FSRS, luyện đề có giải thích chi tiết, chấm Writing & Speaking bằng AI và add-on Chrome tra từ trên mọi trang web.",
+  "ogTitle": "Lexkite – Từ vựng vững, band điểm bứt phá",
+  "ogDescription": "Flashcard FSRS, từ điển song ngữ, luyện 4 kỹ năng và thi thử IELTS/TOEIC có giải thích – miễn phí.",
+  "skip": "Bỏ qua tới nội dung chính",
+  "langL": "Ngôn ngữ",
+  "nav": { "app": "Vào học", "blog": "Blog", "vocab": "Từ vựng", "samples": "Bài mẫu", "login": "Đăng nhập", "start": "Bắt đầu" },
+  "hero": {
+    "eyebrow": "Nền tảng học từ vựng IELTS, TOEIC & tiếng Anh thực chiến",
+    "h1a": "Từ vựng vững,",
+    "h1b": "band điểm bứt phá.",
+    "lead": "Học 15 phút mỗi ngày với flashcard thông minh, trò chơi, bài đọc và luyện phát âm. Mọi từ đều có phiên âm chuẩn Anh–Anh, nghĩa tiếng Việt và câu ví dụ sát đề thi.",
+    "cta": "Bắt đầu miễn phí",
+    "login": "Đăng nhập",
+    "note": "Miễn phí · Không cần tài khoản để bắt đầu",
+    "placement": "Kiểm tra trình độ trước (5 phút)"
+  },
+  "card": { "meaning": "bền vững" },
+  "trust": ["Học cốt lõi miễn phí 100%", "Không bắt buộc tài khoản", "Dữ liệu học lưu trên máy bạn", "Giao diện 15 ngôn ngữ"],
+  "featuresH": "Mọi thứ để vốn từ tăng đều mỗi ngày",
+  "featuresSub": "Một app cho từ vựng, kỹ năng và đề thi thử – dùng trên web, cài như app trên điện thoại, hoặc qua add-on Chrome.",
+  "features": [
+    ["🧠", "Flashcard FSRS như Anki", "Thuật toán ghi nhớ hiện đại nhắc bạn ôn đúng lúc sắp quên. 6.800+ từ IELTS, TOEIC, TOEFL có phiên âm, phát âm và câu ví dụ."],
+    ["🏁", "Luyện đề IELTS, TOEIC & TOEFL", "Thi thử IELTS 4 kỹ năng và TOEIC Listening & Reading bấm giờ như thi thật, đủ 12 dạng bài TOEFL iBT mới – có điểm ước tính và giải thích từng câu."],
+    ["✍️", "Chấm Writing & Speaking bằng AI", "Viết bài hoặc ghi âm câu trả lời, nhận nhận xét theo tiêu chí chấm thi và so với bài mẫu. Lượt chấm AI có giới hạn hằng ngày hợp lý."],
+    ["🧩", "Add-on Chrome", "Bấm đúp tra từ trên mọi trang web, bôi đen để dịch cả câu, lưu từ kèm câu gốc từ phụ đề YouTube."],
+    ["📐", "Ngữ pháp & phát âm", "77 bài ngữ pháp trực quan với 1.700 câu luyện, thư viện 44 âm IPA, luyện nói có chấm điểm bằng nhận dạng giọng nói."],
+    ["🌐", "Học trên mọi thiết bị", "Cài lên màn hình chính như một app, vẫn ôn tập được khi mất mạng. Đăng nhập Google để sao lưu và đồng bộ giữa các máy."]
+  ],
+  "stepsH": "Học với Lexkite thế nào?",
+  "steps": [
+    ["Chọn kỳ thi và mục tiêu", "IELTS, TOEIC, TOEFL hay tiếng Anh nền tảng, band/điểm mục tiêu và thời gian mỗi ngày. Thiết lập mất khoảng 2 phút."],
+    ["Học đều 10–15 phút mỗi ngày", "Từ mới và lượt ôn được xếp sẵn. Lexkite nhắc đúng lúc và giữ chuỗi ngày học của bạn."],
+    ["Luyện đề, theo dõi tiến bộ", "Làm đề thi thử, xem điểm ước tính và ôn lại lỗi sai trong sổ lỗi của riêng bạn."]
+  ],
+  "resH": "Tài liệu học miễn phí",
+  "resSub": "Không cần đăng ký – đọc, học và quay lại bất cứ lúc nào.",
+  "res": {
+    "blog": ["Blog học tiếng Anh", "Mẹo thi, từ vựng theo chủ đề và phương pháp tự học."],
+    "vocab": ["Từ vựng theo chủ đề", "Bộ từ IELTS, TOEIC, TOEFL có phiên âm, nghĩa và ví dụ."],
+    "samples": ["Bài mẫu Writing & Speaking", "Bài mẫu IELTS Writing Task 2 có chú giải và câu trả lời Speaking."]
+  },
+  "faqH": "Câu hỏi thường gặp",
+  "faq": [
+    ["Lexkite có miễn phí không?", "Có. Flashcard, thư viện từ, trò chơi, bài ngữ pháp và đề thi thử đều miễn phí, không giới hạn. Chấm Writing & Speaking bằng AI cũng miễn phí, có giới hạn lượt mỗi ngày để mọi người đều dùng được."],
+    ["Lexkite luyện những kỳ thi nào?", "IELTS Academic và General Training, TOEIC Listening & Reading, TOEFL iBT và lộ trình tiếng Anh nền tảng từ A2 đến C1. Bạn chọn kỳ thi và mục tiêu ngay khi bắt đầu."],
+    ["Có cần tạo tài khoản không?", "Không. Bạn học được ngay, tiến độ lưu trên máy. Đăng nhập bằng Google khi muốn sao lưu và đồng bộ dữ liệu giữa điện thoại và máy tính."],
+    ["Flashcard FSRS chọn từ để ôn như thế nào?", "Mỗi lần bạn chấm thẻ Quên, Khó, Nhớ hoặc Dễ, thuật toán FSRS ước tính lúc bạn sắp quên từ đó và xếp lượt ôn tiếp theo ngay trước thời điểm ấy – ôn ít hơn mà nhớ lâu hơn."],
+    ["Dùng trên điện thoại được không?", "Được. Lexkite chạy trên mọi trình duyệt hiện đại và cài được lên màn hình chính như một app. Ôn tập vẫn chạy khi mất mạng; tra từ mới cần kết nối internet."],
+    ["Add-on Chrome làm được gì?", "Bấm đúp để tra từ trên bất kỳ trang web nào, bôi đen để dịch câu, lưu từ kèm câu gốc – kể cả trong phụ đề YouTube. Từ đã lưu tự vào bộ flashcard của bạn."]
+  ],
+  "finalH": "Bắt đầu xây vốn từ ngay hôm nay",
+  "finalP": "Đặt mục tiêu trong 2 phút và học những từ đầu tiên ngay sau đó.",
+  "tm": "IELTS, TOEIC, TOEFL là nhãn hiệu của các tổ chức sở hữu. Lexkite là sản phẩm độc lập, không liên kết với các tổ chức này.",
+  "foot": "Lexkite – học từ vựng & luyện thi IELTS, TOEIC, TOEFL miễn phí. Nội dung tự biên soạn, miễn phí cho người học.",
+  "suggest": ["Trang này có bản tiếng Việt.", "Xem bằng tiếng Việt", "Đóng"]
+}

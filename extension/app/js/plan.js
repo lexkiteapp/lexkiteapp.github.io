@@ -52,8 +52,8 @@
         <div class="row between"><span class="chip">${KIND()[x.kind] ? KIND()[x.kind][0] + ' ' + KIND()[x.kind][1] : x.kind}</span><span class="tiny muted">${t('sai {n} lần', { n: x.n })} · ${new Date(x.at).toLocaleDateString(I18N.lang())}</span></div>
         <div style="margin-top:.4rem;font-weight:600">${esc(tr(x, 'q'))}</div>
         ${retry ? `<div class="row" style="margin-top:.5rem;gap:.4rem" data-rt="${esc(x.key)}">${String(x.answer || '').split(/\s+/).length <= 4 ? `<input class="input" style="flex:1;min-width:0" placeholder="${t('Gõ đáp án của bạn')}" data-in><button class="btn sm primary" data-chk>${t('Kiểm tra')}</button>` : `<button class="btn sm primary" data-show>${t('Hiện đáp án')}</button>`}</div><div data-ans hidden>` : '<div>'}
-        ${x.given ? `<div class="small" style="margin-top:.3rem"><span style="color:var(--again)">✗ ${esc(tr(x, 'given'))}</span></div>` : ''}
-        <div class="small"><span style="color:var(--good)">✓ ${esc(x.answer)}</span></div>
+        ${x.given ? `<div class="small" style="margin-top:.3rem"><span style="color:var(--again-text)">✗ ${esc(tr(x, 'given'))}</span></div>` : ''}
+        <div class="small"><span style="color:var(--good-text)">✓ ${esc(x.answer)}</span></div>
         ${x.explain ? `<div class="small muted" style="margin-top:.3rem">💡 ${esc(tr(x, 'explain'))}</div>` : ''}
         ${retry ? `<div class="row" style="margin-top:.4rem" data-self><button class="btn sm" data-ok>✅ ${t('Mình làm đúng')}</button><button class="btn sm ghost" data-no>✗ ${t('Vẫn sai')}</button></div>` : ''}</div>
         <div class="row" style="margin-top:.6rem"><button class="btn sm" data-fix="${esc(x.key)}">✓ ${t('Đã hiểu')}</button>

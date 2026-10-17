@@ -27,7 +27,7 @@
       const blob = new Uint8Array(12 + enc.length); blob.set(iv); blob.set(enc, 12);
       const r = await post({ op: 'put', blob: b64(blob) });
       if (!r.ok) throw new Error(r.j.error || r.status);
-      const k = b64url(new Uint8Array(await crypto.subtle.exportKey('raw', key))), link = `https://lexkite.com/#/handoff/${r.j.code}.${k}`;
+      const k = b64url(new Uint8Array(await crypto.subtle.exportKey('raw', key))), link = `https://lexkite.com/app/#/handoff/${r.j.code}.${k}`;
       view.innerHTML = `<div class="card center ho-card">
         <h1>📲 ${t('Chuyển sang thiết bị khác')}</h1>
         <p>${t('Quét mã bằng camera điện thoại (hoặc mở link trên máy kia) để nạp {n} thẻ – không cần đăng nhập.', { n })}</p>

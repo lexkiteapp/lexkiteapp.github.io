@@ -134,7 +134,7 @@ export function adminMail(row, ctx, env) {
 const ST_TXT = { vi: { new: 'Mới', ack: 'Đã tiếp nhận', prog: 'Đang xử lý', fixed: 'Đã sửa', wontfix: 'Không sửa', dup: 'Trùng lặp' }, en: { new: 'New', ack: 'Acknowledged', prog: 'In progress', fixed: 'Fixed', wontfix: "Won't fix", dup: 'Duplicate' } };
 // Thư cho người báo khi đổi trạng thái / có phản hồi (chỉ khi họ đã đồng ý nhận thư)
 export function userMail(row) {
-  const vi = row.lang === 'vi', s = ST_TXT[vi ? 'vi' : 'en'][row.status] || row.status, link = `${SITE}/#/report/${row.tok}`;
+  const vi = row.lang === 'vi', s = ST_TXT[vi ? 'vi' : 'en'][row.status] || row.status, link = `${SITE}/app/#/report/${row.tok}`;
   const text = vi
     ? `Báo lỗi ${tid(row.id)} của bạn: ${s}.${row.reply ? `\n\nPhản hồi từ Lexkite:\n${row.reply}` : ''}${row.dup_of ? `\n\nTrùng với ${tid(row.dup_of)}.` : ''}\n\nXem trạng thái: ${link}\n\n— Lexkite (bạn nhận thư này vì đã chọn nhận cập nhật khi gửi báo lỗi)`
     : `Your report ${tid(row.id)}: ${s}.${row.reply ? `\n\nReply from Lexkite:\n${row.reply}` : ''}${row.dup_of ? `\n\nDuplicate of ${tid(row.dup_of)}.` : ''}\n\nView status: ${link}\n\n— Lexkite (you get this email because you asked for updates when sending the report)`;

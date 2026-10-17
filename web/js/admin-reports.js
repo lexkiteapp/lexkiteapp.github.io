@@ -149,7 +149,7 @@
       document.body.append(dim, dr); document.addEventListener('keydown', esck); dr.focus();
       let r; try { r = await api('get', { id }); } catch (e) { dr.innerHTML = `<p class="bad-t">${esc(T('Lỗi: {e}', { e: e.message }))}</p><button class="btn ghost" id="rpX">${T('Đóng')}</button>`; dr.querySelector('#rpX').onclick = closeDr; return; }
       const c = r.ctx || {}, kv = (k, v) => v ? `<dt>${T(k)}</dt><dd>${v}</dd>` : '';
-      const page = c.route ? `<a href="/#/${esc(c.route)}" target="_blank" rel="noopener">#/${esc(c.route)}</a>` : '';
+      const page = c.route ? `<a href="/app/#/${esc(c.route)}" target="_blank" rel="noopener">#/${esc(c.route)}</a>` : '';
       dr.innerHTML = `<div class="rp-head"><h3><span class="rp-tid">${esc(r.tid)}</span> ${sevChip(r.sev)} <span class="rp-st ${esc(r.status)}">${esc(stName(r.status))}</span></h3><button class="btn ghost sm" id="rpX" aria-label="${T('Đóng')}">✕</button></div>
         <div><h4>${T('Trạng thái')}</h4><div class="rp-sts">${STS.map(([k, l]) => `<button type="button" class="rp-chip" data-set="${k}" aria-pressed="${r.status === k}">${esc(T(l))}</button>`).join('')}</div></div>
         <div><h4>${(CATS[r.cat] || ['❔', r.cat])[0]} ${esc(T((CATS[r.cat] || ['', r.cat])[1]))} · ${esc(T(AREAS[r.area] || r.area || ''))} · ${esc(when(r.at))}</h4><div class="msg">${esc(r.msg)}</div>

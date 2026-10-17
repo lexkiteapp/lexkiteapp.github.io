@@ -2513,6 +2513,8 @@
   'Cách Lexkite giúp bạn nhớ lâu': 'How Lexkite helps you remember',
   'Không tìm thấy trang': 'Page not found',
   'Liên kết có thể đã cũ. Chọn một mục bên dưới để tiếp tục học.': 'The link may be out of date. Pick a section below to keep learning.',
+  'Có phải bạn muốn mở:': 'Did you mean:',
+  'Trang giới thiệu': 'About Lexkite',
   '10 câu, có transcript và giải thích': '10 questions with transcript and explanations',
   'Bài luyện hôm nay theo đúng dạng đề 2026': "Today's task in the real 2026 format",
   'Bắt đầu: {step}': 'Start: {step}',

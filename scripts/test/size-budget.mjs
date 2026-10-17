@@ -12,8 +12,12 @@ const B = 'scripts/test/budget.json', budget = JSON.parse(fs.readFileSync(B, 'ut
 const gz = f => zlib.gzipSync(fs.readFileSync(f), { level: 9 }).length, kb = n => (n / 1024).toFixed(0) + ' KB';
 const errs = [];
 // 1) Khung app
-const sw = fs.readFileSync('web/sw.js', 'utf8'), shell = [...(sw.match(/const SHELL = \[([\s\S]*?)\];/) || [, ''])[1].matchAll(/'([^']+)'/g)].map(m => m[1]).filter(u => u !== './');
+const sw = fs.readFileSync('web/sw.js', 'utf8'), shell = [...(sw.match(/const SHELL = \[([\s\S]*?)\];/) || [, ''])[1].matchAll(/'([^']+)'/g)].map(m => m[1]).filter(u => u !== './').map(u => u.endsWith('/') ? u + 'index.html' : u); // '/app/' = web/app/index.html (app học ở /app/)
 let shellGz = 0; for (const u of shell) { const f = path.join('web', u); if (fs.existsSync(f)) shellGz += gz(f); }
+if (!shell.includes('/app/index.html')) errs.push('SHELL trong web/sw.js thiếu /app/ (trang app học)');
+// 1b) Trang giới thiệu tĩnh (/ + /<lang>/): tách khỏi khung app, phải rất nhẹ (HTML+CSS nội tuyến, không JS nặng)
+const LAND_GZ = budget.landingGz || 16384; let landMax = 0;
+for (const f of ['web/index.html', ...fs.readdirSync('web').filter(d => /^[a-z]{2}$/.test(d) && fs.existsSync(`web/${d}/index.html`)).map(d => `web/${d}/index.html`)]) { const g = gz(f); landMax = Math.max(landMax, g); if (g > LAND_GZ) errs.push(`Trang giới thiệu ${f} ${kb(g)} gzip > ${kb(LAND_GZ)}`); }
 if (shellGz > budget.shellGz) errs.push(`Khung app ${kb(shellGz)} gzip > ngân sách ${kb(budget.shellGz)} – chuyển dữ liệu sang tải lười (App lazy) thay vì nạp lúc mở app`);
 // 2) + 3) File JS
 let total = 0; const big = [];
@@ -26,6 +30,6 @@ if (total > budget.totalJs) errs.push(`Tổng web/js ${(total / 1048576).toFixed
 let warn = -1; try { const out = execFileSync('node', ['scripts/test/content-check.mjs'], { encoding: 'utf8' }); warn = +((out.match(/(\d+) cảnh báo/) || [])[1] ?? -1); } catch (e) { errs.push('content-check lỗi: ' + String(e.stdout || e.message).split('\n').slice(-3).join(' ')); }
 if (warn >= 0 && warn > budget.contentWarn) errs.push(`Cảnh báo nội dung tăng ${budget.contentWarn} → ${warn} – nội dung mới phải đủ phiên âm/ví dụ/lời giải (xem docs/CONTENT-RULES.md)`);
 if (process.argv.includes('--update') || (warn >= 0 && warn < budget.contentWarn)) { if (warn >= 0) budget.contentWarn = warn; fs.writeFileSync(B, JSON.stringify(budget, null, 2) + '\n'); }
-const line = `khung ${kb(shellGz)}/${kb(budget.shellGz)} gz · web/js ${(total / 1048576).toFixed(1)}/${(budget.totalJs / 1048576).toFixed(1)} MB · cảnh báo nội dung ${warn}/${budget.contentWarn}`;
+const line = `khung ${kb(shellGz)}/${kb(budget.shellGz)} gz · giới thiệu ≤ ${kb(landMax)}/${kb(LAND_GZ)} gz · web/js ${(total / 1048576).toFixed(1)}/${(budget.totalJs / 1048576).toFixed(1)} MB · cảnh báo nội dung ${warn}/${budget.contentWarn}`;
 if (errs.length) { console.error('✗ size-budget: ' + line + '\n  - ' + errs.join('\n  - ')); process.exit(1); }
 console.log('✓ size-budget: ' + line);

@@ -10,8 +10,8 @@
   - ⚠️ **Lỗi đã gặp (B1, 16/10 – 8/11 ảnh sai)**: gán chú thích theo chủ đề bài thay vì theo ảnh. Vd. ảnh `practice-test` (câu hỏi nghĩa "run out of") ghi thành "đề thi TOEIC có đồng hồ"/"bài tập thì động từ"; `review` (phiên ôn flashcard "pollution") ghi thành "biểu đồ đường cong quên"; `grammar` (khóa ngữ pháp IELTS, 12 thì) ghi thành "mẹo nhận diện từ loại TOEIC".
   - **Tự kiểm trước khi commit**: với mỗi `media:<id>`, mở `desc` trong shots.json, đặt cạnh alt – mọi danh từ trong alt (tên màn hình, từ ví dụ, con số) phải có trong `desc`. Được diễn đạt lại sang ngôn ngữ bài, được nói ảnh giúp gì cho chủ đề ở *chú thích*, nhưng không mô tả nội dung không có trên màn hình.
   - Không có ảnh hợp chủ đề → thêm shot mới vào shots.json rồi chụp (`blog-shots.mjs`), hoặc dùng ít ảnh hơn (tối thiểu 2) – không "ép" ảnh không liên quan.
-- ≥ 2 liên kết vào app dạng `[chữ](/#/route)` (route trong brief/shots), ≥ 1 liên kết tới bài khác `/vi/blog/<slug>/` (slug có trong briefs.json, chọn bài liên quan thật), có thể thêm trang tĩnh `/samples/`, `/speaking/`, `/tu-vung/`, `/ngu-phap/`, `/viet-thu/`.
-- Đúng 1 hộp `{{cta: /#/route | Lời mời hành động}}` và đúng 1 slot video tùy chọn `{{youtube: | Gợi ý video: …}}` (để trống ID – KHÔNG bịa ID).
+- ≥ 2 liên kết vào app dạng `[chữ](/app/#/route)` (route trong brief/shots), ≥ 1 liên kết tới bài khác `/vi/blog/<slug>/` (slug có trong briefs.json, chọn bài liên quan thật), có thể thêm trang tĩnh `/samples/`, `/speaking/`, `/tu-vung/`, `/ngu-phap/`, `/viet-thu/`.
+- Đúng 1 hộp `{{cta: /app/#/route | Lời mời hành động}}` và đúng 1 slot video tùy chọn `{{youtube: | Gợi ý video: …}}` (để trống ID – KHÔNG bịa ID).
 - Phần `## Câu hỏi thường gặp` với 3–4 câu `### …?`, mỗi câu 1 đoạn trả lời (câu hỏi người học thật sự tìm).
 - Chính tả kiểu bỏ dấu mới: hóa, khỏe, thủy, quý, tòa, họa (KHÔNG hoá, khoẻ, thuỷ, quí, toà, hoạ). Không lỗi gõ, không trộn tiếng Anh khi đã có từ Việt tự nhiên; thuật ngữ thi giữ tiếng Anh (Task 2, band, collocation…).
 
@@ -28,6 +28,6 @@ Mục tiêu: bài hay nhất tiếng Việt cho chủ đề đó – như một 
 - **Phân tích, không liệt kê**: giải thích *vì sao* (logic của tiếng Anh, so sánh với tiếng Việt – nguồn gốc lỗi của người Việt), có cặp câu đúng/sai đối chiếu, bảng tóm tắt, sơ đồ quyết định bằng danh sách.
 - Ví dụ tự đặt, tự nhiên, nhiều ngữ cảnh (đời sống, công việc, học thuật). Đánh dấu mức độ (A2/B1/B2/C1) khi hữu ích.
 - Có mục **“Tự kiểm tra”** (5–8 câu bài tập nhỏ) và **đáp án có giải thích** ngay sau.
-- App chỉ xuất hiện nhẹ ở mục “Luyện thêm” cuối bài (≥ 2 liên kết `/#/…` trong câu chữ + 1 hộp CTA). Không quảng cáo lộ liễu.
+- App chỉ xuất hiện nhẹ ở mục “Luyện thêm” cuối bài (≥ 2 liên kết `/app/#/…` trong câu chữ + 1 hộp CTA). Không quảng cáo lộ liễu.
 - ≥ 4 liên kết tới bài blog khác (bài trong briefs.json) và liên kết bài ngữ pháp/từ vựng tĩnh liên quan (`/ngu-phap/`, `/tu-vung/`…) khi có.
 - Không trích lời bài hát, phụ đề phim, đoạn sách/báo có bản quyền; không bịa tên nghiên cứu, số liệu, tên podcast/kênh cụ thể; thông tin ngôn ngữ phải chuẩn (đối chiếu kiến thức từ điển Oxford/Cambridge, ngữ pháp chuẩn).

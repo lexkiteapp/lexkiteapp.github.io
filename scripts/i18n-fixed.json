@@ -18358,5 +18358,35 @@
     "ar": "خطأ",
     "ru": "Неверно",
     "tr": "Yanlış"
+  },
+  "Trang giới thiệu": {
+    "es": "Acerca de Lexkite",
+    "pt": "Sobre o Lexkite",
+    "fr": "À propos de Lexkite",
+    "de": "Über Lexkite",
+    "id": "Tentang Lexkite",
+    "th": "เกี่ยวกับ Lexkite",
+    "zh": "关于 Lexkite",
+    "ja": "Lexkiteについて",
+    "ko": "Lexkite 소개",
+    "hi": "Lexkite के बारे में",
+    "ar": "عن Lexkite",
+    "ru": "О Lexkite",
+    "tr": "Lexkite hakkında"
+  },
+  "Có phải bạn muốn mở:": {
+    "es": "¿Quisiste decir:",
+    "pt": "Você quis dizer:",
+    "fr": "Vouliez-vous dire :",
+    "de": "Meintest du:",
+    "id": "Maksud Anda:",
+    "th": "คุณหมายถึง:",
+    "zh": "你是不是要找：",
+    "ja": "もしかして：",
+    "ko": "이것을 찾으셨나요:",
+    "hi": "क्या आपका मतलब था:",
+    "ar": "هل تقصد:",
+    "ru": "Возможно, вы имели в виду:",
+    "tr": "Bunu mu demek istediniz:"
   }
 }

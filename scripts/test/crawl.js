@@ -1,9 +1,9 @@
 const { JSDOM } = require('jsdom');
 const fs = require('fs'), path = require('path');
 const WEB = process.argv[2];
-const html = fs.readFileSync(path.join(WEB, 'index.html'), 'utf8');
+const html = fs.readFileSync(path.join(WEB, 'app', 'index.html'), 'utf8');
 const scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g)].map(m => m[1]);
-const dom = new JSDOM(html.replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, ''), { url: 'http://localhost/index.html' + (process.argv[3] || '#/home'), runScripts: 'outside-only', pretendToBeVisual: true });
+const dom = new JSDOM(html.replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, ''), { url: 'http://localhost/app/' + (process.argv[3] || '#/home'), runScripts: 'outside-only', pretendToBeVisual: true });
 const w = dom.window, errors = [];
 w.addEventListener("error", e => errors.push(e.message + " :: " + (e.error && e.error.stack || "").split("\n").slice(0,3).join(" < ")));
 w.console.error = (...a) => errors.push(a.join(' '));
@@ -33,5 +33,20 @@ const go = async (h, ms = 60) => { w.location.hash = h; await tick(ms); };
     else if (txt.length < 40) bad.push(`${r}/${id}: trang trống`);
     if (r === 'listen-test' || r === 'toeic-test') { w.document.body.classList.remove('bare'); w.onbeforeunload = null; }
   }
+  // Trang giới thiệu (/ + /<lang>/): mọi liên kết nội bộ phải tới được – /app/…#/route có thật, file tĩnh có trong web/ hoặc trang dựng lúc build
+  const BUILT = /^\/(?:[a-z]{2}\/blog\/|tu-vung\/|samples\/|speaking\/|ngu-phap\/|viet-thu\/|en\/(?:vocabulary|samples|speaking)\/)/;
+  const LANDS = ['index.html', ...fs.readdirSync(WEB).filter(d => /^[a-z]{2}$/.test(d) && fs.existsSync(path.join(WEB, d, 'index.html'))).map(d => d + '/index.html')];
+  for (const f of LANDS) {
+    const hrefs = [...fs.readFileSync(path.join(WEB, f), 'utf8').matchAll(/href="(\/[^"]*)"/g)].map(m => m[1].replace(/&amp;/g, '&'));
+    for (const h of new Set(hrefs)) {
+      n++;
+      const u = new URL(h, 'http://localhost'), p = u.pathname;
+      if (p === '/app/') { const r = (u.hash.match(/^#\/([a-z0-9-]+)/) || [])[1]; if (u.hash && (!r || !w.App.routes[r])) bad.push(`/${f}: liên kết app tới route không có ${h}`); continue; }
+      if (BUILT.test(p)) continue;
+      const file = path.join(WEB, p.endsWith('/') ? p + 'index.html' : (fs.existsSync(path.join(WEB, p)) ? p : p + '.html'));
+      if (!fs.existsSync(file)) bad.push(`/${f}: liên kết hỏng ${h}`);
+    }
+  }
+  ids.landing = LANDS;
   console.log('PAGES', n, JSON.stringify(Object.fromEntries(Object.entries(ids).map(([k, v]) => [k, v.length]))));
   console.log(bad.slice(0, 30).join('\n') || 'ALL OK'); process.exit(0); })();

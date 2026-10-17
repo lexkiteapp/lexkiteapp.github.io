@@ -2,7 +2,7 @@
 // Dùng: node scripts/test/screens.mjs <thư-mục-ra>   (cần: npx playwright install chromium)
 import { chromium } from 'playwright';
 const OUT = process.argv[2] || 'screens';
-const BASE = 'https://lexkite.com/?sandbox=1&hl=';
+const BASE = 'https://lexkite.com/app/?sandbox=1&hl=';
 const ROUTES = ['home', 'vocab', 'skills', 'skill/listening', 'tests', 'me', 'grammar', 'library', 'settings', 'review'];
 const VIEWS = { mobile: { width: 390, height: 844, isMobile: true, deviceScaleFactor: 2 }, desktop: { width: 1366, height: 860 } };
 const browser = await chromium.launch();

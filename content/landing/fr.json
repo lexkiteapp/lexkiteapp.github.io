@@ -1,0 +1,58 @@
+{
+  "title": "Lexkite – Vocabulaire anglais et entraînement IELTS, TOEIC gratuits",
+  "description": "Apprenez le vocabulaire anglais avec des flashcards intelligentes FSRS, entraînez-vous à l'IELTS, au TOEIC et au TOEFL avec corrigés détaillés et retours par IA. Gratuit.",
+  "ogTitle": "Lexkite – un vocabulaire anglais qui reste",
+  "ogDescription": "Flashcards intelligentes, examens blancs et extension Chrome pour l'IELTS, le TOEIC et le TOEFL. Gratuit et en français.",
+  "skip": "Aller au contenu",
+  "langL": "Langue",
+  "nav": { "app": "Ouvrir l'app", "blog": "Blog", "vocab": "Vocabulaire", "samples": "Modèles", "login": "Se connecter", "start": "Commencer" },
+  "hero": {
+    "eyebrow": "Pour réussir l'IELTS, le TOEIC et le TOEFL",
+    "h1a": "Un vocabulaire qui reste,",
+    "h1b": "un score qui décolle.",
+    "lead": "15 minutes par jour avec des flashcards qui savent quand vous êtes sur le point d'oublier. Chaque mot a sa prononciation (API et audio), sa traduction en français et un exemple tiré du style de l'examen.",
+    "cta": "Commencer gratuitement",
+    "login": "Se connecter",
+    "note": "Gratuit · Aucun compte nécessaire pour commencer",
+    "placement": "Tester d'abord mon niveau (5 min)"
+  },
+  "card": { "meaning": "durable" },
+  "trust": ["Apprentissage de base 100 % gratuit", "Sans inscription obligatoire", "Votre progression reste sur votre appareil", "Interface en 15 langues"],
+  "featuresH": "Tout pour enrichir votre vocabulaire",
+  "featuresSub": "Une seule app pour les mots, les compétences et les examens blancs : sur le web, installable sur mobile et en extension Chrome.",
+  "features": [
+    ["🧠", "Flashcards intelligentes (FSRS)", "Le même algorithme de mémorisation moderne qu'Anki programme chaque révision juste avant l'oubli. Plus de 6 800 mots d'examen avec API, audio et exemples."],
+    ["🏁", "Entraînement IELTS, TOEIC et TOEFL", "Examens blancs chronométrés de l'IELTS (4 compétences) et du TOEIC Listening & Reading, plus les 12 types de tâches du nouveau TOEFL iBT, avec score estimé et corrigé de chaque question."],
+    ["✍️", "Retours IA sur l'écrit et l'oral", "Rédigez un essai ou enregistrez une réponse et recevez un retour selon les critères de l'examen, avec des réponses modèles pour comparer. Les corrections par IA ont une limite quotidienne raisonnable."],
+    ["🧩", "Extension Chrome", "Double-cliquez sur un mot de n'importe quelle page pour voir sa définition, surlignez une phrase pour la traduire et enregistrez des mots depuis les sous-titres YouTube avec leur contexte."],
+    ["📐", "Grammaire et prononciation", "77 leçons de grammaire illustrées et 1 700 exercices, les 44 sons de l'anglais et un entraînement à l'oral évalué par reconnaissance vocale."],
+    ["🌐", "Dans votre langue, sur tous vos écrans", "Interface et traductions en français. Installez-la sur votre téléphone comme une app et continuez vos révisions même hors connexion."]
+  ],
+  "stepsH": "Comment ça marche",
+  "steps": [
+    ["Choisissez votre examen et votre objectif", "IELTS, TOEIC, TOEFL ou anglais général, le score visé et le temps dont vous disposez. La configuration prend environ deux minutes."],
+    ["Apprenez un peu chaque jour", "10 à 15 minutes de nouveaux mots et de révisions. Lexkite vous rappelle au bon moment et entretient votre série de jours."],
+    ["Entraînez-vous et suivez vos progrès", "Passez des examens blancs, consultez votre score estimé et revoyez vos fautes dans votre carnet d'erreurs."]
+  ],
+  "resH": "Ressources gratuites",
+  "resSub": "Sans inscription : lisez, révisez et revenez quand vous voulez.",
+  "res": {
+    "blog": ["Blog", "Conseils d'examen, vocabulaire par thème et méthodes d'apprentissage."],
+    "vocab": ["Vocabulaire par thème", "Listes de mots IELTS, TOEIC et TOEFL avec API et exemples (en anglais)."],
+    "samples": ["Modèles d'écrit et d'oral", "Essais IELTS Writing Task 2 annotés et réponses de Speaking (en anglais)."]
+  },
+  "faqH": "Questions fréquentes",
+  "faq": [
+    ["Lexkite est-il gratuit ?", "Oui. Les flashcards, la bibliothèque de mots, les jeux, la grammaire et les examens blancs sont gratuits et illimités. Les retours par IA sont aussi gratuits, avec une limite quotidienne pour rester accessibles à tous."],
+    ["Quels examens Lexkite prépare-t-il ?", "L'IELTS Academic et General Training, le TOEIC Listening & Reading, le TOEFL iBT et un parcours d'anglais général de A2 à C1. Il n'y a pas d'examens blancs Cambridge (B2 First, C1 Advanced), mais le vocabulaire et la grammaire vous serviront aussi pour ces épreuves."],
+    ["Faut-il créer un compte ?", "Non. Vous commencez tout de suite et votre progression est enregistrée sur votre appareil. Connectez-vous avec Google pour la sauvegarder et la synchroniser entre vos appareils."],
+    ["Comment les flashcards choisissent-elles les révisions ?", "Lexkite utilise FSRS, un algorithme moderne de répétition espacée. À chaque fois que vous notez une carte (À revoir, Difficile, Correct ou Facile), il estime quand vous oublieriez le mot et programme la révision suivante juste avant."],
+    ["Est-ce que ça marche sur mobile ?", "Oui. Lexkite fonctionne dans tout navigateur récent et s'installe sur l'écran d'accueil comme une app. Les révisions fonctionnent hors ligne ; chercher un nouveau mot nécessite une connexion."],
+    ["À quoi sert l'extension Chrome ?", "Elle permet de chercher un mot sur n'importe quel site d'un double-clic, de traduire une phrase surlignée et d'enregistrer un mot avec la phrase où vous l'avez trouvé, y compris dans les sous-titres YouTube. Les mots enregistrés rejoignent directement vos flashcards."]
+  ],
+  "finalH": "Enrichissez votre vocabulaire dès aujourd'hui",
+  "finalP": "Fixez votre objectif en deux minutes et apprenez vos premiers mots dans la foulée.",
+  "tm": "IELTS, TOEIC et TOEFL sont des marques de leurs propriétaires respectifs. Lexkite est un produit indépendant, sans lien ni approbation de leur part.",
+  "foot": "Lexkite – vocabulaire et entraînement gratuits pour l'IELTS, le TOEIC et le TOEFL. Contenu original, gratuit pour les apprenants.",
+  "suggest": ["Cette page existe en français.", "Voir en français", "Fermer"]
+}

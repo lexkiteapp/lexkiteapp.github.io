@@ -2,8 +2,8 @@
   "name": "Lexkite – Học từ vựng IELTS, TOEIC & Tiếng Anh thực chiến",
   "short_name": "Lexkite",
   "description": "Học từ vựng thông minh: flashcard FSRS, tra từ trên YouTube & báo chí, luyện nghe nói rảnh tay, thi thử IELTS & TOEIC 100% miễn phí.",
-  "start_url": "./index.html#/home",
-  "scope": "./",
+  "start_url": "/app/#/home",
+  "scope": "/app/",
   "display": "standalone",
   "background_color": "#F4FBF8",
   "theme_color": "#0F3D3E",
@@ -43,7 +43,7 @@
     {
       "name": "Ôn tập",
       "short_name": "Ôn tập",
-      "url": "./index.html#/review",
+      "url": "/app/#/review",
       "icons": [
         {
           "src": "icons/icon-192.png?v=2",
@@ -54,7 +54,7 @@
     {
       "name": "Tra từ",
       "short_name": "Từ điển",
-      "url": "./index.html#/dict",
+      "url": "/app/#/dict",
       "icons": [
         {
           "src": "icons/icon-192.png?v=2",
@@ -65,7 +65,7 @@
     {
       "name": "Lộ trình",
       "short_name": "Lộ trình",
-      "url": "./index.html#/path",
+      "url": "/app/#/path",
       "icons": [
         {
           "src": "icons/icon-192.png?v=2",
@@ -76,7 +76,7 @@
     {
       "name": "Phòng Speaking",
       "short_name": "Speaking",
-      "url": "./index.html#/speaking",
+      "url": "/app/#/speaking",
       "icons": [
         {
           "src": "icons/icon-192.png?v=2",

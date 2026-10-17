@@ -85,10 +85,10 @@ status: ready                                                # ready | draft
 
 ## Tiêu đề H2
 ![Alt mô tả ảnh](media:review "Chú thích hiển thị dưới ảnh")
-[Mở phần Ôn tập](/#/review)   ← liên kết vào app
+[Mở phần Ôn tập](/app/#/review)   ← liên kết vào app
 [Bài liên quan](/vi/blog/flashcard-fsrs-la-gi/)
 {{youtube: | Gợi ý nội dung video: …}}     ← slot video TÙY CHỌN: id trống = không hiển thị gì; anh tải video lên kênh rồi điền id
-{{cta: /#/practice/learn | Học thử 10 từ đầu tiên}}   ← hộp kêu gọi hành động
+{{cta: /app/#/practice/learn | Học thử 10 từ đầu tiên}}   ← hộp kêu gọi hành động
 
 ## Câu hỏi thường gặp      ← tùy chọn; mỗi H3 là 1 câu hỏi, đoạn sau là trả lời → FAQPage JSON-LD
 ### Câu hỏi…?
@@ -168,3 +168,9 @@ Khi gần 15.000 file (bước tiếp, vẫn miễn phí, làm theo thứ tự):
 | Chặn bài kém (SEO, chính tả, trùng, ảnh, điểm < 85) | mỗi build Cloudflare + `pipeline gate` | ✓ build dừng, site giữ bản cũ |
 | Gợi ý liên kết nội bộ | `node scripts/blog-pipeline.mjs links` | gợi ý, người/AI chèn |
 | Viết bài (brief → chấm điểm) | theo mẫu `content/blog/prompts/` | AI làm theo lô; có thể đặt lịch phiên Claude định kỳ |
+
+## Cấu trúc URL: trang giới thiệu ở `/`, app học ở `/app/` (10/2026)
+- `/` (vi) và `/<lang>/` (14 ngôn ngữ còn lại): **trang giới thiệu tĩnh** dựng bằng `scripts/build-landing.mjs` từ `content/landing/<lang>.json` (en là gốc, khóa thiếu lấy từ en). HTML + CSS nội tuyến (~12 KB gzip), không JS nặng; canonical tự trỏ, 15 hreflang + x-default (`/en/`), JSON-LD Organization/WebSite/WebPage/WebApplication/FAQPage; có trong sitemap (`build-seo.mjs`). Sửa chữ → `node scripts/build-landing.mjs` (npm test chạy `--check`).
+- `/app/` = SPA (web/app/index.html, `<base href="/">` → tài nguyên vẫn ở `/js/`, `/css/`…), `noindex`; mọi route giữ nguyên dạng `/app/#/…`. Liên kết vào app luôn viết `/app/#/…` (trang SEO dùng `appHref(lang)` = `/app/?hl=<lang>`). Blog: `build-blog` tự đổi `/#/…` cũ → `/app/#/…`.
+- Script `#lk-route` đầu trang giới thiệu (trước khi vẽ): `/#/x` → `/app/#/x`; `?hl`/`?sandbox`/`?demo`/`?source=pwa` → app; PWA cài cũ (standalone) và người học cũ (`lk.onb`/`lk.acct`) → `/app/`, trừ khi bấm "Trang giới thiệu" (`/?home=1`, nhớ trong phiên). KHÔNG chuyển theo IP/Accept-Language; gợi ý ngôn ngữ chỉ là dải nhỏ hiện bằng JS, đóng được.
+- Service worker: đăng ký `/sw.js` với scope `/app/`. Bản cài cũ scope `/` tự cập nhật sw.js → chế độ chuyển tiếp (xóa cache khung cũ, giữ `lk-meta`/`lk-audio`, offline mở `/` → `/app/`). Manifest `start_url`/`scope` = `/app/`, `id` giữ `/`. Test: `scripts/test/landing-routing.mjs`.

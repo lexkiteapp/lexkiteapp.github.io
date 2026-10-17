@@ -355,7 +355,7 @@
 
   // ---------- Thanh trên, thanh bên, đầu trang ----------
   const renderMe = u => {
-    $('#me').innerHTML = `<a class="btn ghost sm" href="/#/home" id="home" aria-label="${esc(L('Về app'))}">↩ <span class="lbl">${esc(L('Về app'))}</span></a><button type="button" class="btn ghost sm theme-btn" id="thm" title="${esc(L('Đổi giao diện sáng/tối'))}"></button><button type="button" class="btn ghost sm lang-btn" id="lng"></button><span class="adm-email" title="${esc(u.email)}">${esc(u.email)}</span><button type="button" class="btn ghost sm" id="out">${esc(L('Thoát'))}</button>`;
+    $('#me').innerHTML = `<a class="btn ghost sm" href="/app/#/home" id="home" aria-label="${esc(L('Về app'))}">↩ <span class="lbl">${esc(L('Về app'))}</span></a><button type="button" class="btn ghost sm theme-btn" id="thm" title="${esc(L('Đổi giao diện sáng/tối'))}"></button><button type="button" class="btn ghost sm lang-btn" id="lng"></button><span class="adm-email" title="${esc(u.email)}">${esc(u.email)}</span><button type="button" class="btn ghost sm" id="out">${esc(L('Thoát'))}</button>`;
     paintTheme(); paintStatic();
     $('#thm').onclick = cycleTheme;
     $('#lng').onclick = () => setLang(LANG === 'vi' ? 'en' : 'vi');
@@ -469,7 +469,7 @@
       { g: 'Lệnh', icon: '↻', t: L('Tải lại trang này'), kw: ['reload', 'refresh', 'tai lai'], run: () => show(tab, { force: true }) },
       { g: 'Lệnh', icon: '🌗', t: L('Đổi giao diện sáng/tối'), kw: ['theme', 'dark', 'light', 'giao dien', 'toi', 'sang'], run: cycleTheme },
       { g: 'Lệnh', icon: '🌐', t: LANG === 'vi' ? L('Đổi sang tiếng Anh') : L('Đổi sang tiếng Việt'), kw: ['language', 'english', 'vietnamese', 'ngon ngu'], run: () => setLang(LANG === 'vi' ? 'en' : 'vi') },
-      { g: 'Lệnh', icon: '↩', t: L('Về app'), kw: ['app', 'home'], run: () => { location.href = '/#/home'; } },
+      { g: 'Lệnh', icon: '↩', t: L('Về app'), kw: ['app', 'home'], run: () => { location.href = '/app/#/home'; } },
       { g: 'Lệnh', icon: '⎋', t: L('Thoát'), kw: ['sign out', 'logout', 'thoat'], run: () => auth.signOut().then(() => location.reload()) },
     ];
     return [...pages, ...cmds];

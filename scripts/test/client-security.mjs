@@ -67,7 +67,7 @@ const EVIL = '<img src=x onerror="window.__pwn=1">';
   for (const good of ['https://lexkite.com/', 'http://example.com/a', '/vi/blog/x/', '/#/review', '#faq', 'mailto:support@lexkite.com', 'relative/page']) ok(safeUrl(good) === good, 'build-blog: giữ ' + good);
   ok(/if \(!safeUrl\(h\)\) return t;/.test(src), 'build-blog: link Markdown dùng safeUrl');
   ok(/safeUrl\(src\) \? `<img/.test(src), 'build-blog: ảnh Markdown dùng safeUrl');
-  ok(/href="\$\{esc\(safeUrl\(m\[1\]\) \|\| '\/'\)\}"/.test(src), 'build-blog: CTA dùng safeUrl');
+  ok(/href="\$\{esc\(toApp\(safeUrl\(m\[1\]\) \|\| appHref\(lang\)\)\)\}"/.test(src), 'build-blog: CTA dùng safeUrl (+ toApp: /#/… → /app/#/…)');
 }
 
 console.log(fails ? `✗ client-security: ${fails}/${n} lỗi` : `✓ client-security: ${n} kiểm tra đạt`);

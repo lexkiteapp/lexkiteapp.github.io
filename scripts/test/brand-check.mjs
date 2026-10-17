@@ -18,14 +18,14 @@ const { CSS, SEO_CSS, EXTRA_TOKENS } = await import('../lib/site-layout.mjs');
 const allowed = new Set([...(css.slice(0, rootEnd).match(HEX) || []), ...(fs.readFileSync('docs/BRAND-RULES.md', 'utf8').match(HEX) || []).filter(h => !OLD.test(h)), ...EXTRA_TOKENS].map(norm));
 const off = (txt, where) => { const o = [...new Set((txt.match(HEX) || []).map(norm))].filter(h => !allowed.has(h)); return o.length ? [`${where}: ${o.join(' ')}`] : []; };
 const errs = [...off(CSS + SEO_CSS, 'scripts/lib/site-layout.mjs (CSS)')];
-for (const f of ['scripts/build-blog.mjs', 'scripts/build-samples.mjs', 'scripts/build-samples-en.mjs']) {
+for (const f of ['scripts/build-blog.mjs', 'scripts/build-samples.mjs', 'scripts/build-samples-en.mjs', 'scripts/lib/samples-ui.mjs', 'scripts/build-landing.mjs']) {
   const src = fs.readFileSync(f, 'utf8');
   if (/#5b4cf0/i.test(src)) errs.push(`${f}: tím cũ #5b4cf0`);
   errs.push(...off(src.replace(/&#x?[0-9a-f]+;/gi, ''), f));
 }
 // HTML đã dựng (nếu dist/ mới hơn bộ dựng – dist cũ của lần build trước thì bỏ qua, CI dựng lại trước khi test)
 const DIRS = ['samples', 'speaking', 'tu-vung', 'ngu-phap', 'viet-thu', 'en/samples', 'en/speaking', 'en/vocabulary'].map(d => path.join('dist', d));
-const srcT = Math.max(...['scripts/lib/site-layout.mjs', 'scripts/build-samples.mjs', 'scripts/build-samples-en.mjs'].map(f => fs.statSync(f).mtimeMs));
+const srcT = Math.max(...['scripts/lib/site-layout.mjs', 'scripts/lib/samples-ui.mjs', 'scripts/build-samples.mjs', 'scripts/build-samples-en.mjs'].map(f => fs.statSync(f).mtimeMs));
 let scanned = 0;
 for (const d of DIRS) {
   if (!fs.existsSync(d) || fs.statSync(path.join(d, 'index.html')).mtimeMs < srcT) continue;
@@ -34,6 +34,11 @@ for (const d of DIRS) {
     if (/#5b4cf0/i.test(h)) errs.push(`${d}/${f}: tím cũ #5b4cf0`);
     errs.push(...off(h.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, '').replace(/&#x?[0-9a-f]+;/gi, ''), `${d}/${f}`));
   }
+}
+// Trang giới thiệu đã dựng (web/index.html + web/<lang>/index.html) – Kit SVG lấy từ kit.js (nguồn chuẩn) nên bỏ qua khi quét
+for (const f of ['web/index.html', ...fs.readdirSync('web').filter(d => /^[a-z]{2}$/.test(d) && fs.existsSync(`web/${d}/index.html`)).map(d => `web/${d}/index.html`)]) {
+  const h = fs.readFileSync(f, 'utf8').replace(/<span class="kit">[\s\S]*?<\/svg><\/span>/, '').replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, '');
+  errs.push(...off(h, f)); scanned++;
 }
 if (errs.length) { console.error('✗ brand-check: màu ngoài token thương hiệu ở trang tĩnh:\n  - ' + errs.slice(0, 20).join('\n  - ') + '\n  → chỉ dùng biến/token trong scripts/lib/site-layout.mjs (docs/BRAND-RULES.md)'); process.exit(1); }
 console.log(`✓ brand-check: trang tĩnh chỉ dùng màu token (${allowed.size} màu; ${scanned ? scanned + ' trang dist đã quét' : 'dist chưa dựng/cũ – chỉ kiểm nguồn'})`);

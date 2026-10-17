@@ -5,7 +5,7 @@ import path from 'path';
 const R = JSON.parse(fs.readFileSync('infra/resources.json', 'utf8'));
 const known = new Set([...R.services.flatMap(s => s.match || []), ...R.links.hosts]);
 const miss = new Map(), add = (k, where) => { if (!known.has(k) && !miss.has(k)) miss.set(k, where); };
-const DIRS = ['web/js', 'web/sw.js', 'web/index.html', 'functions', 'workers', 'extension/background.js', 'extension/content.js', 'extension/popup.js', 'extension/newtab.js', 'extension/manifest.json', 'mobile/capacitor.config.json'];
+const DIRS = ['web/js', 'web/sw.js', 'web/app/index.html', 'web/index.html', 'functions', 'workers', 'extension/background.js', 'extension/content.js', 'extension/popup.js', 'extension/newtab.js', 'extension/manifest.json', 'mobile/capacitor.config.json'];
 const walk = p => { if (!fs.existsSync(p)) return []; const st = fs.statSync(p); if (st.isFile()) return [p]; return fs.readdirSync(p).flatMap(f => (/^(i18n|node_modules)$/.test(f) ? [] : walk(path.join(p, f)))); };
 for (const f of DIRS.flatMap(walk).filter(f => /\.(m?js|html|json|toml)$/.test(f))) {
   const s = fs.readFileSync(f, 'utf8');

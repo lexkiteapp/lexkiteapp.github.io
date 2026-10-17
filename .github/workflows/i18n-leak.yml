@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['web/js/**', 'web/index.html', 'scripts/test/i18n-leak.js', '.github/workflows/i18n-leak.yml']
+    paths: ['web/js/**', 'web/app/index.html', 'scripts/test/i18n-leak.js', '.github/workflows/i18n-leak.yml']
 permissions:
   contents: read
 jobs:

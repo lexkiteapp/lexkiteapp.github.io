@@ -18,7 +18,7 @@ const VI0 = VI, VIS = /[âêôăđơưạảấầẩẫậắằẳẵặẹẻ
 const ROUTES = ['#/home', '#/me', '#/vocab', '#/library', '#/review', '#/practice', '#/path', '#/plan', '#/stats', '#/settings', '#/league', '#/goal',
   '#/skills', '#/tests', '#/mistakes', '#/grammar', '#/pron', '#/listening', '#/reading', '#/speaking', '#/write', '#/task1', '#/letters', '#/rtype',
   '#/mock', '#/toeic', '#/toefl', '#/dict/sustainable', '#/topic/education', '#/topic/ngsl1', '#/resources', '#/placement', '#/home'];
-const html = fs.readFileSync(path.join(WEB, 'index.html'), 'utf8').replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '');
+const html = fs.readFileSync(path.join(WEB, 'app', 'index.html'), 'utf8').replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '');
 const scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g)].map(m => m[1]);
 const tick = (ms = 40) => new Promise(r => setTimeout(r, ms));
 const rel = f => path.relative(process.cwd(), path.join(WEB, f));
@@ -33,7 +33,7 @@ const isUI = x => isUI1(x) || isUI1(x.replace(/^[^\p{L}(]+/u, '').replace(/\s*\(
 // Một "trang" jsdom; ls: localStorage mang sang từ phiên trước (đổi ngôn ngữ = tải lại trang, giữ dữ liệu)
 function page(ls) {
   const vc = new VirtualConsole(); // bỏ "Not implemented: navigation" khi I18N.set() gọi location.reload()
-  const dom = new JSDOM(html.replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, ''), { url: 'http://localhost/index.html?sandbox=1#/home', runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole: vc });
+  const dom = new JSDOM(html.replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, ''), { url: 'http://localhost/app/?sandbox=1#/home', runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole: vc });
   const w = dom.window, ctx = dom.getInternalVMContext(), errors = [];
   for (const [k, v] of Object.entries(ls)) w.localStorage.setItem(k, v);
   w.scrollTo = () => {}; w.HTMLElement.prototype.scrollIntoView = () => {}; w.matchMedia = () => ({ matches: false, addEventListener() {}, addListener() {} });

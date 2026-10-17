@@ -102,7 +102,7 @@
     : `<span>${tx('⚠️ Chưa đồng bộ tài khoản – dữ liệu chỉ ở máy này')}</span><a href="#" id="syncNow" class="strong">${tx('☁️ Đồng bộ với Google')}</a>`;
   $('#syncNow').onclick = async e => {
     e.preventDefault();
-    if (!linked || !linked.email) { chrome.tabs.create({ url: 'https://lexkite.com/#/settings' }); return window.close(); }
+    if (!linked || !linked.email) { chrome.tabs.create({ url: 'https://lexkite.com/app/#/settings' }); return window.close(); }
     // Đã liên kết: mở Lexkite ở tab nền để gộp dữ liệu với tài khoản, xong tự đóng – không làm phiền
     const a = $('#syncNow'); a.textContent = tx('⏳ Đang đồng bộ…'); a.style.pointerEvents = 'none';
     const r = await chrome.runtime.sendMessage({ type: 'syncNow' }).catch(() => null);

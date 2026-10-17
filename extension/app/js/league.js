@@ -318,7 +318,7 @@
           <div class="card league-result-banner banner-up" id="leagueLastBanner">
             <div class="row between nowrap" style="align-items:flex-start;gap:.75rem">
               <div>
-                <div style="font-size:1.15rem;font-weight:800;color:var(--good)">🎉 ${t('Chúc mừng! Bạn đã thăng hạng!')}</div>
+                <div style="font-size:1.15rem;font-weight:800;color:var(--good-text)">🎉 ${t('Chúc mừng! Bạn đã thăng hạng!')}</div>
                 <div class="small" style="margin-top:.2rem">
                   ${t('Tuần trước bạn đứng hạng #{rank}/{of} với {xp} XP và đã thăng hạng lên {tier}!', { rank: last.rank, of: last.of, xp: (last.xp || 0).toLocaleString(), tier: lastTierObj.name() })}
                 </div>
@@ -331,7 +331,7 @@
           <div class="card league-result-banner banner-down" id="leagueLastBanner">
             <div class="row between nowrap" style="align-items:flex-start;gap:.75rem">
               <div>
-                <div style="font-size:1.05rem;font-weight:700;color:var(--again)">📉 ${t('Kết quả tuần trước')}</div>
+                <div style="font-size:1.05rem;font-weight:700;color:var(--again-text)">📉 ${t('Kết quả tuần trước')}</div>
                 <div class="small" style="margin-top:.2rem">
                   ${t('Tuần trước bạn đứng hạng #{rank}/{of} với {xp} XP và chuyển xuống {tier}. Tuần này hãy cố gắng hơn nhé!', { rank: last.rank, of: last.of, xp: (last.xp || 0).toLocaleString(), tier: lastTierObj.name() })}
                 </div>
@@ -357,9 +357,9 @@
 
     // Hero tổng quan vị trí cá nhân
     const meZoneText = me.zone === 'up'
-      ? `<span style="color:var(--good);font-weight:700">▲ ${t('Đang trong vùng thăng hạng')} (${t('Top 7')})</span>`
+      ? `<span style="color:var(--good-text);font-weight:700">▲ ${t('Đang trong vùng thăng hạng')} (${t('Top 7')})</span>`
       : me.zone === 'down'
-        ? `<span style="color:var(--again);font-weight:700">▼ ${t('Cần thêm XP để tránh xuống hạng')}</span>`
+        ? `<span style="color:var(--again-text);font-weight:700">▼ ${t('Cần thêm XP để tránh xuống hạng')}</span>`
         : `<span style="color:var(--muted);font-weight:600">● ${t('Vị trí an toàn')}</span>`;
 
     const heroCard = `

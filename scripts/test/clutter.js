@@ -1,8 +1,8 @@
 // Đo độ rối từng trang chính: số nút/chip/liên kết, số chữ, mã nội bộ lộ ra (p14, gt3, t1-…), trang dài
 const { JSDOM } = require('jsdom'); const fs = require('fs'), path = require('path');
-const WEB = process.argv[2], html = fs.readFileSync(path.join(WEB, 'index.html'), 'utf8');
+const WEB = process.argv[2], html = fs.readFileSync(path.join(WEB, 'app', 'index.html'), 'utf8');
 const scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g)].map(m => m[1]);
-const dom = new JSDOM(html.replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, ''), { url: 'http://localhost/index.html#/home', runScripts: 'outside-only', pretendToBeVisual: true });
+const dom = new JSDOM(html.replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, ''), { url: 'http://localhost/app/#/home', runScripts: 'outside-only', pretendToBeVisual: true });
 const w = dom.window, errors = []; w.console.error = (...a) => errors.push(a.join(' ')); w.scrollTo = () => {}; w.HTMLElement.prototype.scrollIntoView = () => {}; w.matchMedia = () => ({ matches: false }); w.CSS = { escape: s => s }; w.fetch = async () => ({ ok: false, json: async () => ({}) });
 for (const f of scripts) { try { w.eval(fs.readFileSync(path.join(WEB, f), 'utf8')); } catch (e) { errors.push(f + ': ' + e.message); } }
 require('./lazyfix.js')(w, fs, path, WEB, errors);

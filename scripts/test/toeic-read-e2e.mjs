@@ -84,7 +84,7 @@ async function run(name, cfg) {
   page.on('console', m => { if (m.type() === 'error' && !/Failed to load resource|favicon|googletagmanager|speechSynthesis/i.test(m.text())) errs.push('console: ' + m.text()); });
   await page.addInitScript(MOCK, cfg);
   await page.clock.install();
-  await page.goto(`${BASE}?sandbox=1&hl=vi#/welcome/setup`, { waitUntil: 'load' });
+  await page.goto(`${BASE}app/?sandbox=1&hl=vi#/welcome/setup`, { waitUntil: 'load' });
   await page.waitForTimeout(1500); const go0 = await page.$('#go'); if (go0) { await go0.click().catch(() => {}); await page.waitForTimeout(1000); }
   await page.evaluate(() => { location.hash = '#/toeic-sw/read?i=0'; });
   await page.waitForSelector('#swGo', { timeout: 15000 });

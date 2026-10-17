@@ -5,7 +5,7 @@
 // - /privacy, /terms (gốc) = bản tiếng Anh + tự chuyển sang ngôn ngữ người dùng đã chọn trong app hoặc của trình duyệt.
 // Dùng: node scripts/build-legal.mjs [--translate]   (--translate: gọi Google Translate cho dòng còn thiếu – chạy trong GitHub Action)
 import fs from 'fs';
-import { siteFooter, FOOT_CSS, SEO_L } from './lib/site-layout.mjs';
+import { siteFooter, FOOT_CSS, SEO_L, landingHref } from './lib/site-layout.mjs';
 const R = new URL('../', import.meta.url), rd = p => fs.readFileSync(new URL(p, R), 'utf8');
 const LANGS = { en: 'English', vi: 'Tiếng Việt', es: 'Español', pt: 'Português', fr: 'Français', de: 'Deutsch', id: 'Bahasa Indonesia', th: 'ไทย', zh: '简体中文', ja: '日本語', ko: '한국어', hi: 'हिन्दी', ar: 'العربية', ru: 'Русский', tr: 'Türkçe' };
 const PAGES = ['privacy', 'terms'], SITE = 'https://lexkite.com';
@@ -25,6 +25,7 @@ async function gtx(line, tl) {
 const keep = s => /^<\/?table>$/.test(s.trim()); // dòng chỉ có cấu trúc, không cần dịch
 
 const page = (lang, name, body, translated, draft) => {
+  body = body.replace(/href="\/#\//g, 'href="/app/#/'); // liên kết vào app (form liên hệ…) – app học ở /app/
   const h1 = (body.match(/<h1>(.*?)<\/h1>/) || [, 'Lexkite'])[1].replace(/<[^>]+>/g, '');
   const alt = Object.keys(LANGS).map(l => `<link rel="alternate" hreflang="${l}" href="${SITE}/${l}/${name}">`).join('\n  ');
   const opts = Object.entries(LANGS).map(([l, n]) => `<option value="${l}"${l === lang ? ' selected' : ''}>${n}</option>`).join('');
@@ -44,7 +45,7 @@ const page = (lang, name, body, translated, draft) => {
 </head>
 <body>
   <main class="doc">
-    <div class="lg"><a class="brand" href="/" style="padding:0"><img class="logo" src="/icons/icon.svg?v=2" alt=""><span class="wordmark">lex<b>kite</b></span></a>
+    <div class="lg"><a class="brand" href="${landingHref(draft ? 'en' : lang)}" style="padding:0"><img class="logo" src="/icons/icon.svg?v=2" alt=""><span class="wordmark">lex<b>kite</b></span></a>
       <select aria-label="Language" onchange="location.href='/'+this.value+'/${name}'">${opts}</select></div>
 ${translated ? `    <p class="tnote">${translated}</p>\n` : ''}${body.split('\n').filter(Boolean).map(l => '    ' + l).join('\n')}
   </main>

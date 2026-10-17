@@ -9,7 +9,7 @@ const check = async (name, fn) => { try { const m = await fn(); m === true || m 
 const page = (p, must) => check(p, async () => { const r = await get(B + p); if (!r.ok) return 'HTTP ' + r.status; const t = await r.text(); return !must || t.includes(must) || `thiếu "${must}"`; });
 const json = (p, test) => check(p, async () => { const r = await get(B + p); if (!r.ok) return 'HTTP ' + r.status; const j = await r.json(); return test ? test(j) : true; });
 
-await page('/', 'lexkite');
+await page('/', 'id="lk-route"'); await page('/en/', 'hreflang="x-default"'); await page('/app/', 'id="view"'); // trang giới thiệu (/, /<lang>/) + app học (/app/)
 await page('/vi/blog/', '<h2'); await page('/en/blog/', 'Lexkite Blog');
 await page('/privacy'); await page('/terms'); await page('/ja/privacy'); await page('/sitemap.xml', '<loc>'); await page('/robots.txt', 'Sitemap');
 await check('sw.js = bản mới nhất', async () => { const live = ((await (await get(B + '/sw.js?x=' + Date.now())).text()).match(/lexkite-\d+/) || [])[0], local = (fs.readFileSync('web/sw.js', 'utf8').match(/lexkite-\d+/) || [])[0]; return live === local || `live ${live} ≠ repo ${local} (deploy Cloudflare kẹt?)`; });

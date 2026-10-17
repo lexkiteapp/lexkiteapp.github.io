@@ -302,6 +302,7 @@
       view.innerHTML = name === 'review' ? skelReview : name === 'home' || !name ? skelHome : skelDefault;
     }, 150);
     if (b.length) { await App.need(...b); clearTimeout(skel); if (my !== routeSeq) return; }
+    if (!routes[name] && ROUTE_ALIAS[name]) { location.replace(location.pathname + location.search + '#/' + [ROUTE_ALIAS[name], arg && encodeURIComponent(arg)].filter(Boolean).join('/') + (query.toString() ? '?' + query : '')); return; } // gõ nhầm quen thuộc (#/wellcom…) → trang đúng
     const fn = routes[name] || (name ? notFound : routes.home);
     // Đánh dấu mục đang mở: thanh dưới theo 5 mục chính, menu bên theo mục con; nhóm chứa trang hiện tại tự mở
     const [tab, item] = App.navOf ? App.navOf(name, arg) : [name, name];
@@ -353,8 +354,15 @@
     try { localStorage.setItem('vb.lastActivity', JSON.stringify({ em: RESUME[name], title, href: location.hash, at: Date.now(), lang: I18N.lang() })); } catch (e) { /* bỏ qua */ }
   }
   App.lastActivity = () => { try { const a = JSON.parse(localStorage.getItem('vb.lastActivity') || 'null'); return a && Date.now() - a.at < 4 * DAY && (a.lang || 'vi') === I18N.lang() ? a : null; /* tiêu đề lưu theo ngôn ngữ lúc học → đổi ngôn ngữ thì không hiện chữ cũ */ } catch (e) { return null; } };
+  // Bí danh/gõ nhầm hay gặp → chuyển thẳng (không hiện trang lỗi). Tên khác lạ → trang "Không tìm thấy" kèm gợi ý gần đúng nhất.
+  const ROUTE_ALIAS = { wellcom: 'welcome', welcom: 'welcome', wellcome: 'welcome', welcomme: 'welcome', start: 'welcome', setup: 'welcome', onboarding: 'welcome', signup: 'welcome', login: 'me', signin: 'me', account: 'me', profile: 'me', hom: 'home', homepage: 'home', today: 'home', dashboard: 'home', learn: 'home', app: 'home', index: 'home', reveiw: 'review', reivew: 'review', revew: 'review', revise: 'review', flashcards: 'review', flashcard: 'review', dictionary: 'dict', lookup: 'dict', search: 'dict', test: 'tests', exam: 'tests', exams: 'tests', setting: 'settings', vocabulary: 'vocab', words: 'vocab', stat: 'stats', progress: 'stats', mistake: 'mistakes', leagues: 'league', grammer: 'grammar', pronunciation: 'pron', contacts: 'contact' };
+  const lev = (a, b) => { const d = Array.from({ length: b.length + 1 }, (_, i) => i); for (let i = 1; i <= a.length; i++) { let p = d[0]; d[0] = i; for (let j = 1; j <= b.length; j++) { const q = d[j]; d[j] = Math.min(d[j] + 1, d[j - 1] + 1, p + (a[i - 1] === b[j - 1] ? 0 : 1)); p = q; } } return d[b.length]; };
+  App.ROUTE_ALIAS = ROUTE_ALIAS;
   function notFound() {
+    const { name } = parseHash(), n = String(name || '').toLowerCase().slice(0, 30);
+    const near = n.length > 2 ? Object.keys(routes).filter(r => r !== 'welcome' && Math.abs(r.length - n.length) <= 2).map(r => [r, lev(n, r)]).filter(x => x[1] <= Math.max(1, Math.floor(n.length / 4))).sort((a, b) => a[1] - b[1])[0] : null;
     view.innerHTML = `<div class="card empty-note" style="max-width:560px;margin:2rem auto;text-align:center"><div style="font-size:2.4rem">🧭</div><h1 style="margin:.3rem 0">${t('Không tìm thấy trang')}</h1><p class="muted">${t('Liên kết có thể đã cũ. Chọn một mục bên dưới để tiếp tục học.')}</p>
+      ${near ? `<p><a class="btn primary sm" href="#/${near[0]}">${t('Có phải bạn muốn mở:')} #/${near[0]}</a></p>` : ''}
       <div class="row center" style="flex-wrap:wrap">${[['home', '🏠', t('Hôm nay')], ['vocab', '📚', t('Từ vựng')], ['skills', '🎯', t('Kỹ năng')], ['tests', '🏁', t('Thi thử')], ['me', '👤', t('Tôi')]].map(([r, ic, l]) => `<a class="btn sm" href="#/${r}">${ic} ${l}</a>`).join('')}</div></div>`;
   }
   // Tải trước gói của trang khi người dùng sắp bấm (rê chuột/chạm vào liên kết) → mở trang gần như tức thì
@@ -677,7 +685,7 @@
           <div class="grid auto">${(cut ? ts.slice(0, 6) : ts).map(topicCard).join('')}</div>`;
       }).join('') || `<div class="card empty"><div class="em">🔍</div>${t('Không tìm thấy bộ từ phù hợp.')}</div>`;
     };
-    $$('#libTabs button').forEach(b => b.onclick = () => { $$('#libTabs button').forEach(x => x.classList.toggle('on', x === b)); history.replaceState(null, '', `#/library?g=${b.dataset.g}`); draw(); });
+    $$('#libTabs button').forEach(b => b.onclick = () => { $$('#libTabs button').forEach(x => x.classList.toggle('on', x === b)); history.replaceState(null, '', location.pathname + location.search + `#/library?g=${b.dataset.g}`); draw(); });
     $('#libQ').oninput = draw;
     $('#libBody').onclick = e => { const a = e.target.closest('[data-go-g]'); if (!a) return; e.preventDefault(); const b = $(`#libTabs [data-g="${a.dataset.goG}"]`); if (b) { b.click(); b.scrollIntoView({ inline: 'center', block: 'nearest' }); window.scrollTo(0, 0); } };
     if (!$('#libTabs .on')) { const b = $('#libTabs [data-g="topics"]') || $('#libTabs button'); b.classList.add('on'); }
@@ -959,7 +967,7 @@
     const re = UI.wordRegex(e.word);
     const lib = Object.values(INDEX).filter(w => /\s/.test(w.word) && re.test(w.word)).slice(0, 10);
     const mine = Object.values(state.cards).filter(c => /\s/.test(c.word) && re.test(c.word) && !lib.some(l => l.word === c.word)).slice(0, 10);
-    const row = (w, own) => `<div class="phr"><b>${esc(w.word)}</b> <span class="small${I18N.learnLang() !== 'vi' && /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i.test(w.vi || '') ? ' tr-wait' : ''}" style="color:var(--accent);font-weight:700">${esc(w.vi || '')}</span>${w.ex ? `<div class="ex small">“${UI.highlight(w.ex, w.word)}”</div>` : ''}${w.note ? `<div class="tiny muted">📐 ${esc(w.note)}</div>` : ''}
+    const row = (w, own) => `<div class="phr"><b>${esc(w.word)}</b> <span class="small${I18N.learnLang() !== 'vi' && /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i.test(w.vi || '') ? ' tr-wait' : ''}" style="color:var(--accent-text);font-weight:700">${esc(w.vi || '')}</span>${w.ex ? `<div class="ex small">“${UI.highlight(w.ex, w.word)}”</div>` : ''}${w.note ? `<div class="tiny muted">📐 ${esc(w.note)}</div>` : ''}
       <div class="row" style="margin-top:.2rem"><button class="icon-btn sm" data-speak="${esc(w.word)}">🔊</button>${own || inDeck(w.word) ? `<span class="chip ok">✓ ${t('Đã lưu')}</span>` : `<button class="btn sm ghost" data-add-seed="${esc(w.word)}">+ ${t('Lưu cụm')}</button>`}</div></div>`;
     el.innerHTML = `<div style="margin-top:1rem"><div class="row between"><h3 style="margin:0">🧩 ${t('Cụm từ & cấu trúc với “{w}”', { w: esc(e.word) })}</h3><button class="btn sm" id="addPhr">＋ ${t('Lưu cụm / cấu trúc của bạn')}</button></div>
       ${lib.length || mine.length ? `<div class="phr-grid">${lib.map(w => row(w, false)).join('')}${mine.map(c => row(c, true)).join('')}</div>` : `<p class="small muted" style="margin:.4rem 0 0">${t('Chưa có cụm nào trong thư viện. Mẹo: <b>bôi đen một cụm trong câu ví dụ</b> phía trên rồi bấm “🧩 Lưu cụm này”.')}</p>`}</div>`;
@@ -1001,7 +1009,7 @@
   async function packDeck(name, cards) {
     const data = JSON.stringify({ v: 1, n: String(name).slice(0, 80), w: cards.slice(0, 300).map(c => [c.word, c.ipa || '', c.pos || '', c.vi || '', c.def || '', (c.ex || '').slice(0, 160)]) });
     const buf = await new Response(new Blob([data]).stream().pipeThrough(new CompressionStream('deflate-raw'))).arrayBuffer();
-    return 'https://lexkite.com/#/deck?share=' + b64u(buf);
+    return 'https://lexkite.com/app/#/deck?share=' + b64u(buf);
   }
   async function unpackDeck(code) {
     const txt = await new Response(new Blob([unb64u(code)]).stream().pipeThrough(new DecompressionStream('deflate-raw'))).text();
@@ -1492,7 +1500,7 @@
   routes.welcome = function (step) {
     document.body.classList.add('bare');
     App.cleanup = () => document.body.classList.remove('bare');
-    if (step === 'setup') return setup();
+    if (step === 'setup' || step === 'login') return setup(step === 'login'); // #/welcome/login (nút Đăng nhập của trang giới thiệu): thiết lập + ô đăng nhập nổi bật
     const feats = [
       ['📚', t('6.800+ từ IELTS, TOEIC & TOEFL'), t('NGSL, 570 từ học thuật AWL, 1.250 từ TOEIC, chủ đề IELTS, phrasal verb, collocation band 7+')],
       ['🧠', t('Flashcard FSRS như Anki'), t('Thuật toán ghi nhớ hiện đại nhất nhắc bạn ôn đúng lúc sắp quên')],
@@ -1605,7 +1613,7 @@
   };
 
   // Thiết lập lần đầu: kỳ thi → mục tiêu theo thang điểm của kỳ thi → cường độ → chủ đề hợp kỳ thi → vào thẳng bài học đầu tiên
-  function setup() {
+  function setup(login) {
     const TARGETS = { ielts: ['5.5', '6.0', '6.5', '7.0', '7.5', '8.0+'], ieltsgt: ['5.5', '6.0', '6.5', '7.0', '7.5', '8.0+'], toeic: ['450', '550', '650', '750', '850', '900+'], toefl: ['3.5', '4.0', '4.5', '5.0', '5.5+'], general: ['A2', 'B1', 'B2', 'C1'] };
     const DEF_T = { ielts: '7.0', ieltsgt: '6.5', toeic: '650', toefl: '4.5', general: 'B1' };
     const TOPIC_GROUPS = { ielts: ['topics', 'writing'], ieltsgt: ['topics', 'speaking'], toeic: ['toeic', 'bsl'], toefl: ['awl', 'nawl', 'topics'], general: ['core', 'topics'] };
@@ -1631,9 +1639,10 @@
         <div class="card"><h2>🎯 ${tLabel}</h2><div class="tabs" style="display:inline-flex;margin-top:.4rem" id="bandT">${TARGETS[pick.exam].map(b => `<button data-v="${b}" class="${pick.target === b ? 'on' : ''}">${b}</button>`).join('')}</div></div>
         <div class="card"><h2>⏱ ${t('Bạn muốn học với cường độ nào?')}</h2><div class="grid g3" style="margin-top:.6rem">${paces.map(([v, pt, d]) => `<button class="option ${pick.pace === v ? 'right' : ''}" data-pace="${v}" style="flex-direction:column;align-items:flex-start;gap:.2rem"><b>${pt}</b><span class="small muted">${d}</span></button>`).join('')}</div></div>
         <div class="card"><h2>📚 ${t('Chọn chủ đề muốn học trước')}</h2><p class="muted small">${t('Chọn 1–5 chủ đề, bạn có thể thêm sau trong Thư viện.')}</p>
-          <div class="row" style="margin-top:.6rem">${list.map(x => `<button class="chip" data-t="${x.id}" style="border:2px solid ${pick.topics.has(x.id) ? 'var(--primary)' : 'transparent'};cursor:pointer;font-size:.9rem;padding:.4rem .8rem;${pick.topics.has(x.id) ? 'background:var(--primary-soft);color:var(--primary)' : ''}">${x.emoji} ${esc(x.name)}</button>`).join('')}</div></div>
+          <div class="row" style="margin-top:.6rem">${list.map(x => `<button class="chip" data-t="${x.id}" style="border:2px solid ${pick.topics.has(x.id) ? 'var(--primary)' : 'transparent'};cursor:pointer;font-size:.9rem;padding:.4rem .8rem;${pick.topics.has(x.id) ? 'background:var(--primary-soft);color:var(--primary-text)' : ''}">${x.emoji} ${esc(x.name)}</button>`).join('')}</div></div>
         <button class="btn primary lg block" id="go" ${pick.topics.size ? '' : 'disabled'}>${pick.topics.size ? t('Bắt đầu học ({n} từ)', { n: words }) : t('Bắt đầu học')} →</button>
       </div>`;
+      if (login && $('#haveAcct') && !pick.shownLogin) { pick.shownLogin = 1; const h = $('#haveAcct'); h.style.outline = '3px solid var(--primary)'; h.scrollIntoView({ block: 'center' }); const b = $('#setupIn'); if (b) b.focus(); }
       if ($('#setupIn')) { $('#setupIn').onclick = e => { e.stopPropagation(); loginOnboard(); }; $('#noAcct').onclick = () => { pick.noAcct = 1; $('#haveAcct').remove(); $('[data-exam]').focus(); }; }
       $$('[data-exam]').forEach(b => b.onclick = () => { if (b.dataset.exam !== pick.exam) setExam(b.dataset.exam); });
       $$('#bandT button').forEach(b => b.onclick = () => { pick.target = b.dataset.v; draw(); });
@@ -1748,7 +1757,7 @@
     if (Store.isExtension && chrome.storage.onChanged) {
       chrome.storage.onChanged.addListener(ch => { if (ch.cards) { state.cards = Object.assign(Object.create(null), ch.cards.newValue || {}); updateChrome(); } });
     }
-    if (!Store.isExtension && !(window.VBNative && VBNative.is) && 'serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => {});
+    if (!Store.isExtension && !(window.VBNative && VBNative.is) && 'serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('/sw.js', { scope: '/app/' }).catch(() => {}); // app ở /app/ (trang / là trang giới thiệu tĩnh) – sw.js gốc tự chuyển bản cài cũ (phạm vi /) sang chế độ chuyển tiếp, xem web/sw.js
     setTimeout(() => App.need('voice').catch(() => {}), 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
     App.offerRescue = offerRescue; applyFreeze().then(() => setTimeout(() => offerRescue().catch(() => {}), 1500)).catch(() => {});
     checkReminder(); setInterval(checkReminder, 60 * 1000);

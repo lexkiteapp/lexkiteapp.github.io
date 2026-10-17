@@ -108,7 +108,7 @@
   };
 
   routes.skill = function (k) {
-    if (!SK[k]) { location.replace('#/skills'); return; }
+    if (!SK[k]) { location.replace(location.pathname + location.search + '#/skills'); return; }
     const ex = App.exam(), mine = (x => k === 'speaking' ? [...(x || []), RP(), CALL()] : k === 'writing' && x ? [...x, FIX()] : x)(itemsFor(k, ex));
     const others = Object.keys(EXAMS).filter(e => e !== ex && e !== 'general' && itemsFor(k, e) && !(e === 'ieltsgt' && ex === 'ielts' && k !== 'writing') && !(e === 'ielts' && ex === 'ieltsgt' && k !== 'writing'));
     view.innerHTML = head(SK[k].ic + ' ' + SK[k].name(), mine ? t('Dạng bài {exam}', { exam: EXAMS[ex].name }) : t('{exam} không thi kỹ năng này – bạn vẫn có thể luyện theo kỳ thi khác bên dưới.', { exam: EXAMS[ex].short }), examBtn())
@@ -286,7 +286,7 @@ ${window.Sync && Sync.gBtn ? `<div class="card me-acct row between" id="meAcct">
   // Chân thanh bên (index.html .side-foot): link trang tĩnh theo ngôn ngữ giao diện lúc bấm; add-on/app mở lexkite.com ở tab mới
   document.addEventListener('click', e => {
     const a = e.target.closest && e.target.closest('.side-foot a[data-l]'); if (!a) return;
-    const k = a.dataset.l, vi = I18N.lang() === 'vi', u = k === 'privacy' || k === 'terms' ? App.legalUrl(k) : (sameSite ? '' : 'https://lexkite.com') + (k === 'vocab' ? (vi ? '/tu-vung/' : '/en/vocabulary/') : (vi ? '/samples/' : '/en/samples/'));
+    const k = a.dataset.l, vi = I18N.lang() === 'vi', u = k === 'privacy' || k === 'terms' ? App.legalUrl(k) : (sameSite ? '' : 'https://lexkite.com') + (k === 'about' ? (vi ? '/' : '/' + I18N.lang() + '/') + '?home=1' : k === 'vocab' ? (vi ? '/tu-vung/' : '/en/vocabulary/') : (vi ? '/samples/' : '/en/samples/')); // about: trang giới thiệu đúng ngôn ngữ, ?home=1 = không tự quay lại app
     if (sameSite) { a.href = u; return; } e.preventDefault(); window.open(u, '_blank', 'noopener');
   });
   App.blogLive().then(on => { if (on) document.querySelectorAll('#nav a[data-blog]').forEach(a => { a.hidden = false; a.href = App.blogUrl(); }); });
