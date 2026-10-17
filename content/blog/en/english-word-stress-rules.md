@@ -9,7 +9,7 @@ tags: [word-stress, pronunciation, ipa, speaking]
 keyword: "word stress rules"
 cover: pron
 coverAlt: "Lexkite IPA pronunciation library with vowels, diphthongs and consonants to practise"
-publishAt: 2026-11-02T11:23:00+05:30
+publishAt: 2026-11-02T19:56:00+05:30
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [ielts, tu-vung, flashcard]
 keyword: "วิธีท่องศัพท์ภาษาอังกฤษ"
 cover: review
 coverAlt: "หน้าจอทบทวนคำศัพท์ด้วยแฟลชการ์ดระบบ Spaced Repetition ใน Lexkite"
-publishAt: 2026-10-20T12:00:00+07:00
+publishAt: 2026-10-24T21:18:00+07:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

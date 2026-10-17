@@ -9,7 +9,7 @@ tags: [bai-hat, phat-am]
 keyword: "học tiếng anh qua bài hát"
 cover: pron
 coverAlt: "Màn hình phát âm trong Lexkite: chọn từng âm IPA, nghe từ ví dụ và luyện có chấm điểm"
-publishAt: 2026-12-24T12:53:00+07:00
+publishAt: 2026-12-24T08:35:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [mat-goc, lo-trinh]
 keyword: "ingilizce nasıl öğrenilir"
 cover: placement
 coverAlt: "Lexkite'ın 5 dakikalık seviye tespit sınavı: A2'den C1'e 20 kelime ve gramer sorusu, sonunda çalışma yolu önerisi"
-publishAt: 2026-10-18T20:43:00+03:00
+publishAt: 2026-10-18T19:11:00+03:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

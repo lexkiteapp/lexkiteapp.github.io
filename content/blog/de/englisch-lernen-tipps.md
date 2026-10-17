@@ -9,7 +9,7 @@ tags: [englisch-lernen, lernplan, wortschatz]
 keyword: "englisch lernen tipps"
 cover: placement
 coverAlt: "Einstufungstest in Lexkite: 20 Fragen zu Wortschatz und Grammatik von A2 bis C1"
-publishAt: 2026-10-18T16:10:00+02:00
+publishAt: 2026-10-18T12:43:00+02:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

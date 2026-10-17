@@ -7,16 +7,20 @@
 //                                      [--reflow]   xếp lại cả bài đã có lịch nhưng chưa đăng theo luật mới
 //                                      [--verify]   chỉ kiểm lịch hiện có (≤ per/ngày/ngôn ngữ, cụm cách ≥ 7 ngày) – lỗi → exit 1
 //                                      [--status]   in lịch sắp tới
+//                                      [--space auto|N] [--horizon 21]  khoảng cách tối thiểu (ngày) giữa 2 bài cùng ngôn ngữ; auto = rải kho bài
+//                                                   của ngôn ngữ đó đều trong ~horizon ngày (1–3 ngày/bài) thay vì dồn vài ngày rồi bỏ trống
+//  • giờ đăng: khung đọc cao điểm địa phương (07–09, 12, 19–21 giờ) thay vì ngẫu nhiên cả ngày
 import fs from 'node:fs'; import path from 'node:path';
 import { checkPosts } from './blog-check.mjs';
 import { ROOT, setField, loadPostsAt, publishTime, config } from './lib/blog-content.mjs';
 
-const opt = { check: true, dry: false, status: false, verify: false, reflow: false, seed: null, from: null, per: 1, root: ROOT, gap: 7 };
+const opt = { check: true, dry: false, status: false, verify: false, reflow: false, seed: null, from: null, per: 1, root: ROOT, gap: 7, space: 'auto', horizon: 21 };
 const a = process.argv.slice(2);
 for (let i = 0; i < a.length; i++) {
   const k = a[i];
   if (k === '--dry') opt.dry = true; else if (k === '--no-check') opt.check = false; else if (k === '--status') opt.status = true;
   else if (k === '--verify') opt.verify = true; else if (k === '--reflow') opt.reflow = true; else if (k === '--root') opt.root = a[++i];
+  else if (k === '--space') opt.space = a[++i]; else if (k === '--horizon') opt.horizon = Number(a[++i]) || 21;
   else if (k === '--lang') opt.lang = a[++i]; else if (k === '--seed') opt.seed = Number(a[++i]); else if (k === '--from') opt.from = a[++i];
   else if (k === '--per') { opt.per = Number(String(a[++i]).split('-').pop()); if (!(opt.per >= 1 && opt.per <= 15)) { console.error('--per phải 1–15'); process.exit(2); } }
   else { console.error(`Tham số lạ: ${k}`); process.exit(2); }
@@ -80,12 +84,15 @@ for (const l of [...new Set(queue.map(p => p.lang))]) {
   const count = new Map(), cdays = new Map();
   const mark = (d, c) => { count.set(d, (count.get(d) || 0) + 1); cdays.set(c, [...(cdays.get(c) || []), d]); };
   for (const p of fixed) mark(localDay(publishTime(p), l), cluster(p));
-  const start = opt.from || addDays(localDay(now, l), 1);
-  for (const p of queue.filter(p => p.lang === l)) {
+  const start = opt.from || addDays(localDay(now, l), 1), mine = queue.filter(p => p.lang === l);
+  const space = opt.space === 'auto' ? Math.max(1, Math.min(3, Math.floor(opt.horizon / Math.max(1, mine.length + fixed.filter(p => publishTime(p) > now).length)))) : Math.max(1, Number(opt.space) || 1);
+  const near = d => [...count.keys()].some(x => (count.get(x) || 0) > 0 && x !== d && Math.abs(diffDays(d, x)) < space);
+  for (const p of mine) {
     let d = start; const c = cluster(p);
-    while ((count.get(d) || 0) >= opt.per || (cdays.get(c) || []).some(x => Math.abs(diffDays(d, x)) < opt.gap)) d = addDays(d, 1);
+    while ((count.get(d) || 0) >= opt.per || near(d) || (cdays.get(c) || []).some(x => Math.abs(diffDays(d, x)) < opt.gap)) d = addDays(d, 1);
     mark(d, c);
-    const iso = `${d}T${String(int(7, 21)).padStart(2, '0')}:${String(int(0, 59)).padStart(2, '0')}:00${fmtOff(offsetMin(d, l))}`;
+    const PEAK = [7, 8, 9, 12, 19, 20, 21];
+    const iso = `${d}T${String(PEAK[int(0, PEAK.length - 1)]).padStart(2, '0')}:${String(int(0, 59)).padStart(2, '0')}:00${fmtOff(offsetMin(d, l))}`;
     rows.push({ p, iso });
   }
 }

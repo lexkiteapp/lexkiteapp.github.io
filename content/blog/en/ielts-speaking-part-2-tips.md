@@ -9,7 +9,7 @@ tags: [ielts, speaking, part-2, cue-card]
 keyword: "ielts speaking part 2"
 cover: speaking
 coverAlt: "Lexkite Speaking room with Part 1, 2 and 3 questions by topic, band 7.5–8 sample answers and useful vocabulary"
-publishAt: 2026-10-26T21:41:00+05:30
+publishAt: 2026-10-26T20:00:00+05:30
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

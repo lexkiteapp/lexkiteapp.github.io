@@ -9,7 +9,7 @@ tags: [writing, general, viet-thu]
 keyword: "ielts general writing task 1"
 cover: letters
 coverAlt: "Màn hình viết thư IELTS General Task 1 trong Lexkite với đề mẫu và thư mẫu"
-publishAt: 2026-11-22T15:32:00+07:00
+publishAt: 2026-11-22T20:23:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [toefl, tu-vung]
 keyword: "từ vựng toefl"
 cover: toefl
 coverAlt: "Mục TOEFL trong Lexkite: bảng cấu trúc đề, Complete the Words, Read in Daily Life, Read an Academic Passage"
-publishAt: 2026-11-11T21:06:00+07:00
+publishAt: 2026-11-11T21:24:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

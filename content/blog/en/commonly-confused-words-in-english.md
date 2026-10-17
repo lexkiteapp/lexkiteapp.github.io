@@ -9,7 +9,7 @@ tags: [vocabulary, confusing-words, grammar, spelling]
 keyword: "commonly confused words"
 cover: dict
 coverAlt: "Lexkite dictionary entry for resilient with UK and US pronunciation, an example sentence, collocations and synonyms"
-publishAt: 2026-10-31T09:12:00+05:30
+publishAt: 2026-10-31T20:36:00+05:30
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

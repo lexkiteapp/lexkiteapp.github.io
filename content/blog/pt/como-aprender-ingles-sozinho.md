@@ -9,7 +9,7 @@ tags: [ingles-do-zero, plano-de-estudos, autodidata]
 keyword: "como aprender inglês sozinho"
 cover: placement
 coverAlt: "Teste de nivelamento do Lexkite com 20 perguntas de vocabulário e gramática do A2 ao C1"
-publishAt: 2026-10-17T10:55:00-03:00
+publishAt: 2026-10-18T19:11:00-03:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

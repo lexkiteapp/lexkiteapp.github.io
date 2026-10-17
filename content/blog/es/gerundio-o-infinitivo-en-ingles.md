@@ -9,7 +9,7 @@ tags: [gerundio, infinitivo, gramatica, errores-comunes]
 keyword: "gerundio o infinitivo en inglés"
 cover: grammar
 coverAlt: "Sección de gramática de Lexkite con la ruta por capítulos, los 12 tiempos verbales y niveles de A1 a B2"
-publishAt: 2026-10-23T10:28:00-06:00
+publishAt: 2026-11-06T12:36:00-06:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

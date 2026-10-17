@@ -9,7 +9,7 @@ tags: [tu-de-nham, tu-vung]
 keyword: "các cặp từ dễ nhầm lẫn trong tiếng anh"
 cover: dict
 coverAlt: "Mục từ “resilient” trong từ điển Anh–Việt của Lexkite với phiên âm, nút nghe, collocation và từ đồng nghĩa"
-publishAt: 2026-10-25T16:05:00+07:00
+publishAt: 2026-10-25T19:50:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

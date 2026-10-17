@@ -9,7 +9,7 @@ tags: [podcast, nghe]
 keyword: "học tiếng anh qua podcast"
 cover: listening
 coverAlt: "Màn hình luyện nghe của Lexkite: chọn đề, chỉnh tốc độ, nghe lần đầu hoặc chép chính tả"
-publishAt: 2026-11-28T10:46:00+07:00
+publishAt: 2026-11-28T08:31:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

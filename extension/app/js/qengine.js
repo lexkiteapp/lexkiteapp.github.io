@@ -72,6 +72,7 @@
 
   // Chọn 2 đáp án: không cho tick quá 2
   function bind(root) {
+    if (g.ChoiceKit && root) g.ChoiceKit.attach(root); // phím A–D/1–4 + gạch đáp án (choice-kit.js)
     $$('input[data-multi]', root).forEach(c => c.addEventListener('change', () => { const same = $$(`input[data-multi="${c.dataset.multi}"]:checked`, root); if (same.length > 2) c.checked = false; }));
     $$('input.gap', root).forEach((inp, k, arr) => inp.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); if (arr[k + 1]) arr[k + 1].focus(); } }));
   }

@@ -9,7 +9,7 @@ tags: [ngu-canh, doc-hieu]
 keyword: "học từ vựng qua ngữ cảnh"
 cover: read-article
 coverAlt: "Bài đọc IELTS trong Lexkite: tô màu từ khóa, tra từ ngay trên bài và làm câu hỏi"
-publishAt: 2026-11-02T11:23:00+07:00
+publishAt: 2026-11-02T12:03:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [ielts, tu-vung, flashcard]
 keyword: "背单词的方法"
 cover: library
 coverAlt: "Lexkite单词库界面：核心词汇NGSL、雅思、托业等分类标签，以及标有A1–B2级别的词汇集"
-publishAt: 2026-10-18T15:21:00+08:00
+publishAt: 2026-10-18T19:57:00+08:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

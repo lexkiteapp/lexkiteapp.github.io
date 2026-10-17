@@ -9,7 +9,7 @@ tags: [speaking, giao-tiep]
 keyword: "cách luyện nói tiếng anh trôi chảy"
 cover: practice-speak
 coverAlt: "Luyện phát âm có chấm điểm trong Lexkite, dùng micro để nói cụm “cut down on”"
-publishAt: 2026-11-29T15:19:00+07:00
+publishAt: 2026-11-29T19:40:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

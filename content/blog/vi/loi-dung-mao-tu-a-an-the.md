@@ -9,7 +9,7 @@ tags: [ngu-phap, mao-tu]
 keyword: "cách dùng mạo từ a an the"
 cover: grammar
 coverAlt: "Màn hình “Grammar” của Lexkite với lộ trình chương, 12 thì và các cấp độ từ A1 đến B2"
-publishAt: 2026-10-21T17:12:00+07:00
+publishAt: 2026-10-21T08:13:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

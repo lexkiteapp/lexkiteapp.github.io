@@ -9,7 +9,7 @@ tags: [mat-goc, lo-trinh]
 keyword: "как выучить английский самостоятельно"
 cover: placement
 coverAlt: "Вступительный тест Lexkite на 5 минут: 20 вопросов по словам и грамматике от A2 до C1 с рекомендацией маршрута"
-publishAt: 2026-10-18T11:47:00+03:00
+publishAt: 2026-10-18T08:51:00+03:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

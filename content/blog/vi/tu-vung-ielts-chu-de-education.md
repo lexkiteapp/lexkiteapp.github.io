@@ -9,7 +9,7 @@ tags: [education, ielts, chu-de]
 keyword: "từ vựng ielts chủ đề education"
 cover: library
 coverAlt: "“Vocabulary library” trong Lexkite: các tab nguồn từ và những bộ từ cốt lõi có nhãn cấp độ"
-publishAt: 2026-10-29T10:53:00+07:00
+publishAt: 2026-10-29T08:20:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

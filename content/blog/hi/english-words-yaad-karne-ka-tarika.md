@@ -9,7 +9,7 @@ tags: [ielts, tu-vung, flashcard, vocabulary]
 keyword: "इंग्लिश वर्ड्स याद करने का तरीका"
 cover: library
 coverAlt: "Lexkite वोकैबुलरी लाइब्रेरी: CEFR लेवल और विषय के आधार पर व्यवस्थित शब्द संग्रह"
-publishAt: 2026-10-19T15:00:00+05:30
+publishAt: 2026-10-21T07:24:00+05:30
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

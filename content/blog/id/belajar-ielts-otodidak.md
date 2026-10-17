@@ -9,7 +9,7 @@ tags: [ielts, belajar-mandiri, roadmap]
 keyword: "belajar ielts otodidak"
 cover: path
 coverAlt: "Halaman jalur IELTS di Lexkite dengan tahap-tahap berdasarkan band, dimulai dari kosakata inti"
-publishAt: 2026-10-24T10:28:00+07:00
+publishAt: 2026-11-06T20:30:00+07:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

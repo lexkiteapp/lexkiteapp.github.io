@@ -9,7 +9,7 @@ tags: [ielts, speaking, part-1]
 keyword: "ielts speaking part 1"
 cover: speaking
 coverAlt: "Lexkite Speaking room with Part 1, 2 and 3 questions by topic, band 7.5–8 sample answers and vocabulary to use"
-publishAt: 2026-11-13T13:14:00+05:30
+publishAt: 2026-11-13T09:41:00+05:30
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

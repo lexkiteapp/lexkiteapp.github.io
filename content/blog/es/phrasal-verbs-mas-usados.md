@@ -9,7 +9,7 @@ tags: [phrasal-verb, speaking, vocabulario]
 keyword: "phrasal verbs más usados"
 cover: practice-learn
 coverAlt: "Tarjeta de aprendizaje de Lexkite que presenta el phrasal verb come up with con definición, ejemplo y truco para recordarlo"
-publishAt: 2026-10-19T19:31:00-06:00
+publishAt: 2026-10-25T08:11:00-06:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

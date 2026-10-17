@@ -9,7 +9,7 @@ tags: [band-descriptors, writing, speaking]
 keyword: "lexical resource ielts"
 cover: write
 coverAlt: "Màn hình luyện Writing Task 2 trong Lexkite với bài mẫu band 8 có chú thích"
-publishAt: 2026-11-30T09:03:00+07:00
+publishAt: 2026-11-30T08:01:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

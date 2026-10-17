@@ -9,7 +9,7 @@ tags: [ngu-phap, thi]
 keyword: "phân biệt hiện tại hoàn thành và quá khứ đơn"
 cover: grammar
 coverAlt: "Mục ngữ pháp IELTS trong Lexkite: danh sách thì, cấp độ và bài luyện tổng hợp"
-publishAt: 2026-10-20T19:31:00+07:00
+publishAt: 2026-10-20T21:21:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [pronunciation, ipa, hatsuon, minimal-pairs]
 keyword: "英語 l と r の発音"
 cover: pron
 coverAlt: "LexkiteのIPA発音ライブラリ。単母音・二重母音・子音が並び、例語つきで1音ずつ練習・採点できる"
-publishAt: 2026-10-18T12:36:00+09:00
+publishAt: 2026-10-19T09:38:00+09:00
 factChecked: 2026-10-16
 author: Lexkite
 status: ready

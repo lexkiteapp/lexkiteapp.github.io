@@ -9,7 +9,7 @@ tags: [ielts, tu-vung, flashcard, kelime-ogrenme]
 keyword: "ingilizce kelime ezberleme"
 cover: library
 coverAlt: "Lexkite kelime kütüphanesi: CEFR seviyelerine ve temalara göre ayrılmış sözcük listeleri"
-publishAt: 2026-10-19T12:00:00+03:00
+publishAt: 2026-10-21T08:22:00+03:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

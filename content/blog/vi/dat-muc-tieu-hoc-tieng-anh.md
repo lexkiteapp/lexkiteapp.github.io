@@ -9,7 +9,7 @@ tags: [muc-tieu, dong-luc]
 keyword: "mục tiêu học tiếng anh"
 cover: goal
 coverAlt: "“Goal & study plan” giúp bạn đặt điểm mục tiêu và ngày thi cho kế hoạch học"
-publishAt: 2026-12-16T17:32:00+07:00
+publishAt: 2026-12-16T21:33:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

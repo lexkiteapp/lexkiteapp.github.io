@@ -46,6 +46,7 @@
         <footer class="cbt-nav" id="nav"></footer>
         <div class="cbt-hlbtn" id="hlBtn" hidden><button class="btn sm primary">🖍 ${t('Tô sáng')}</button></div>
       </div>`;
+    if (window.ChoiceKit) { ChoiceKit.attach($('.cbt'), { key: 'cbt:' + rs.map(r => r.id || r.title).join('|') }); ChoiceKit.split($('.cbt-body'), $('#pass'), 'cbt-split'); }
 
     const drawPassage = () => {
       const r = rs[part];

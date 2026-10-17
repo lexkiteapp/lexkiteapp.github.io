@@ -9,7 +9,7 @@ tags: [gramatica, tiempos-verbales, errores-comunes]
 keyword: "present perfect vs past simple"
 cover: grammar
 coverAlt: "Pantalla de explicaciones gramaticales de Lexkite con ejemplos y reglas de uso"
-publishAt: 2026-10-21T09:32:00-06:00
+publishAt: 2026-10-31T09:29:00-06:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

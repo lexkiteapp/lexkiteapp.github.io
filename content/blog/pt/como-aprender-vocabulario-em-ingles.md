@@ -9,7 +9,7 @@ tags: [ielts, tu-vung, flashcard, vocabulario]
 keyword: "como aprender vocabulário em inglês"
 cover: library
 coverAlt: "Biblioteca de vocabulário do Lexkite com termos organizados por nível e tópicos temáticos"
-publishAt: 2026-10-18T09:00:00-03:00
+publishAt: 2026-10-21T12:09:00-03:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

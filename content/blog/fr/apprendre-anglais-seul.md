@@ -9,7 +9,7 @@ tags: [autodidacte, debutant, methode, plan-apprentissage]
 keyword: "apprendre l'anglais seul"
 cover: placement
 coverAlt: "Test de niveau Lexkite de 5 minutes : 20 questions de vocabulaire et de grammaire de A2 à C1"
-publishAt: 2026-10-18T15:36:00+02:00
+publishAt: 2026-10-18T09:54:00+02:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

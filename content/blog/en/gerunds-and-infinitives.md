@@ -9,7 +9,7 @@ tags: [gerunds, infinitives, english-grammar, verb-patterns]
 keyword: "gerunds and infinitives"
 cover: grammar
 coverAlt: "Lexkite Grammar screen listing chapters by level from A1 to B2 with practice sets"
-publishAt: 2026-11-01T19:16:00+05:30
+publishAt: 2026-11-01T12:17:00+05:30
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

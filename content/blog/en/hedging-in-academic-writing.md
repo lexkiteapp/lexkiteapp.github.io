@@ -9,7 +9,7 @@ tags: [academic-writing, hedging, ielts-writing, modal-verbs]
 keyword: "hedging in academic writing"
 cover: write
 coverAlt: "Lexkite IELTS Writing Task 2 room with topic list, idea prompts, useful vocabulary and essay frame"
-publishAt: 2026-11-05T16:53:00+05:30
+publishAt: 2026-11-05T09:55:00+05:30
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

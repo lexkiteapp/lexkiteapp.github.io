@@ -9,7 +9,7 @@ tags: [grammar, articles, determiners]
 keyword: "a an the rules"
 cover: grammar
 coverAlt: "Lexkite grammar section showing a chapter-by-chapter roadmap from A1 to B2 with practice exercises"
-publishAt: 2026-10-30T09:36:00+05:30
+publishAt: 2026-10-30T07:48:00+05:30
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

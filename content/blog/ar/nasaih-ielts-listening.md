@@ -9,7 +9,7 @@ tags: [listening, ielts, istima, ikhtibar-ielts]
 keyword: "نصائح ielts listening"
 cover: listening
 coverAlt: "شاشة تدريب الاستماع لاختبار الآيلتس في Lexkite مع إمكانية ضبط السرعة واللهجات"
-publishAt: 2026-10-19T23:30:00+03:00
+publishAt: 2026-10-24T20:39:00+03:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

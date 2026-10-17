@@ -9,7 +9,7 @@ tags: [toeic, part-5, ngu-phap, toeic-rc]
 keyword: "토익 파트5"
 cover: toeic
 coverAlt: "Lexkite의 토익 리딩 파트5 및 파트6 연습 모드와 자동 해설 화면"
-publishAt: 2026-10-19T16:00:00+09:00
+publishAt: 2026-10-21T07:03:00+09:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

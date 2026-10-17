@@ -9,7 +9,7 @@ tags: [loi-sai, ngu-phap]
 keyword: "lỗi sai tiếng anh người việt hay mắc"
 cover: mistakes
 coverAlt: "Màn hình “Mistake log”: lỗi được xếp theo kỹ năng để bạn ôn đúng chỗ yếu"
-publishAt: 2026-10-26T21:41:00+07:00
+publishAt: 2026-10-26T07:46:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [toeic, part-2, listening]
 keyword: "toeic part2 コツ"
 cover: toeic
 coverAlt: "LexkiteのTOEIC対策画面：自動採点の模試7回分、Part別練習、TOEIC単語"
-publishAt: 2026-10-24T10:28:00+09:00
+publishAt: 2026-11-06T09:43:00+09:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

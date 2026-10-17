@@ -9,7 +9,7 @@ tags: [health, ielts, chu-de]
 keyword: "từ vựng ielts chủ đề health"
 cover: library
 coverAlt: "Thư viện từ vựng của Lexkite với các tab Từ vựng cốt lõi NGSL, IELTS theo đề, Writing, Speaking và bộ từ có cấp độ A1–B2"
-publishAt: 2026-12-29T19:54:00+07:00
+publishAt: 2026-12-29T07:46:00+07:00
 factChecked: 2026-10-17
 qualityScore: 93
 author: Lexkite

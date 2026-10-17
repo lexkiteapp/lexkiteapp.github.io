@@ -9,7 +9,7 @@ tags: [thi-thu, ielts]
 keyword: "thi thử ielts online"
 cover: mock
 coverAlt: "Mục thi thử IELTS của Lexkite cho chọn Listening, Reading, Writing hoặc Speaking"
-publishAt: 2026-12-01T12:53:00+07:00
+publishAt: 2026-12-01T19:55:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

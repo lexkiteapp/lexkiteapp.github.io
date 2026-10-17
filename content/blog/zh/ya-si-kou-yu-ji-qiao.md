@@ -9,7 +9,7 @@ tags: [speaking, part-2, ielts, kouyu]
 keyword: "雅思口语技巧"
 cover: speaking
 coverAlt: "Lexkite雅思口语模拟考场互动界面与AI即时流利度反馈"
-publishAt: 2026-10-20T11:00:00+08:00
+publishAt: 2026-10-24T07:53:00+08:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

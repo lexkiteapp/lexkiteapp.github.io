@@ -9,7 +9,7 @@ tags: [word-formation, tu-vung]
 keyword: "tiền tố hậu tố trong tiếng anh"
 cover: dict
 coverAlt: "Từ điển “English – Vietnamese dictionary” của Lexkite khi tra “resilient”: phiên âm UK/US, nghĩa và ví dụ"
-publishAt: 2026-12-14T18:58:00+07:00
+publishAt: 2026-12-14T12:19:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

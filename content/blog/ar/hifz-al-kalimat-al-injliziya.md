@@ -9,7 +9,7 @@ tags: [ielts, tu-vung, flashcard, mufradat]
 keyword: "حفظ الكلمات الإنجليزية"
 cover: library
 coverAlt: "مكتبة المفردات في Lexkite مرتبة حسب المستويات الأوروبية والموضوعات العملية"
-publishAt: 2026-10-19T14:00:00+03:00
+publishAt: 2026-10-21T09:34:00+03:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

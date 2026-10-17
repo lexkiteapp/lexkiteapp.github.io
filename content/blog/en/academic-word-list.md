@@ -9,7 +9,7 @@ tags: [awl, ielts, academic-vocabulary, toefl]
 keyword: "academic word list"
 cover: library
 coverAlt: "Lexkite Vocabulary library with tabs for all words, NGSL core vocabulary, IELTS topics, Writing, Speaking and TOEIC"
-publishAt: 2026-10-19T14:11:00+05:30
+publishAt: 2026-10-19T12:55:00+05:30
 factChecked: 2026-10-15
 qualityScore: 93
 author: Lexkite

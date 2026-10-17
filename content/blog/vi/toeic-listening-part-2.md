@@ -9,7 +9,7 @@ tags: [toeic, part-2, listening]
 keyword: "toeic part 2"
 cover: toeic
 coverAlt: "Trang luyện thi TOEIC của Lexkite: thi thử 7 đề chấm tự động quy đổi 10–990, luyện theo Part và từ vựng"
-publishAt: 2026-12-07T09:03:00+07:00
+publishAt: 2026-12-07T12:06:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

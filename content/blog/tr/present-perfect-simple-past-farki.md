@@ -9,7 +9,7 @@ tags: [ngu-phap, thi, ingilizce-zamanlar]
 keyword: "present perfect simple past farkı"
 cover: grammar
 coverAlt: "Lexkite interaktif İngilizce gramer ve zaman kipleri çalışma ekranı"
-publishAt: 2026-10-19T22:00:00+03:00
+publishAt: 2026-10-24T19:43:00+03:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

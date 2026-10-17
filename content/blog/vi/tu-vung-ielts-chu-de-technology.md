@@ -9,7 +9,7 @@ tags: [technology, ielts, chu-de]
 keyword: "từ vựng ielts chủ đề technology"
 cover: library
 coverAlt: "Màn hình “Vocabulary library” của Lexkite với các bộ từ chia theo nguồn và cấp độ A1–B2"
-publishAt: 2026-11-01T19:16:00+07:00
+publishAt: 2026-11-01T20:44:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

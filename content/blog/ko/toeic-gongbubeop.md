@@ -9,7 +9,7 @@ tags: [toeic, lo-trinh]
 keyword: "토익 공부법"
 cover: toeic
 coverAlt: "Lexkite의 토익 Listening + Reading 연습 화면: 자동 채점 모의고사 7회, 파트별 연습, 토익 단어"
-publishAt: 2026-10-18T11:21:00+09:00
+publishAt: 2026-10-18T12:24:00+09:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

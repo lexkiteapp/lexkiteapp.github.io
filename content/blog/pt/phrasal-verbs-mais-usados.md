@@ -9,7 +9,7 @@ tags: [phrasal-verb, speaking, vocabulario]
 keyword: "phrasal verbs mais usados"
 cover: practice-learn
 coverAlt: "Interface do Lexkite mostrando o aprendizado inteligente de phrasal verbs com exemplos práticos"
-publishAt: 2026-10-21T09:00:00-03:00
+publishAt: 2026-10-27T08:32:00-03:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

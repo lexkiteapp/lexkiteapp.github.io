@@ -9,7 +9,7 @@ tags: [tu-de-nham, tu-vung, faux-amis, vocabulaire]
 keyword: "faux amis anglais français"
 cover: dict
 coverAlt: "Dictionnaire interactif Lexkite avec définitions claires et exemples en contexte"
-publishAt: 2026-10-19T10:00:00+02:00
+publishAt: 2026-10-21T09:54:00+02:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

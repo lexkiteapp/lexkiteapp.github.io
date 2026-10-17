@@ -9,7 +9,7 @@ tags: [collocations, ielts, writing, vocabulary]
 keyword: "ielts collocations"
 cover: dict
 coverAlt: "Lexkite dictionary entry for \"resilient\" listing pronunciation, an example sentence, collocations and synonyms"
-publishAt: 2026-10-20T19:31:00+05:30
+publishAt: 2026-10-20T12:06:00+05:30
 factChecked: 2026-10-15
 qualityScore: 93
 author: Lexkite

@@ -9,7 +9,7 @@ tags: [lo-trinh, tu-hoc, ielts, ielts-prep]
 keyword: "ielts की तैयारी कैसे करें"
 cover: path
 coverAlt: "Lexkite का IELTS स्टडी पाथवे: बैंड स्कोर के आधार पर व्यवस्थित चरणबद्ध रोडमैप"
-publishAt: 2026-10-20T09:00:00+05:30
+publishAt: 2026-10-24T09:03:00+05:30
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

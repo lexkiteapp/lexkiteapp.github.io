@@ -9,7 +9,7 @@ tags: [dictation, listening]
 keyword: "chép chính tả tiếng anh"
 cover: listening
 coverAlt: "Màn hình luyện nghe của Lexkite: chọn đề, chỉnh tốc độ, nghe lần đầu hoặc chép chính tả"
-publishAt: 2026-11-20T17:24:00+07:00
+publishAt: 2026-11-20T19:33:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

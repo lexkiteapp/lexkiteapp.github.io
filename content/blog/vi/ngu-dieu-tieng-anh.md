@@ -9,7 +9,7 @@ tags: [ngu-dieu, speaking]
 keyword: "ngữ điệu tiếng anh"
 cover: pron
 coverAlt: "Thư viện phát âm IPA của Lexkite chia nguyên âm đơn, nguyên âm đôi và phụ âm, kèm từ ví dụ"
-publishAt: 2026-11-10T11:51:00+07:00
+publishAt: 2026-11-10T07:46:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

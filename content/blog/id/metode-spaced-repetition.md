@@ -13,7 +13,7 @@ qualityScore: 95
 factChecked: 2026-10-16
 author: Lexkite
 status: ready
-publishAt: 2026-10-22T09:32:00+07:00
+publishAt: 2026-10-31T21:11:00+07:00
 ---
 
 Pernahkah Anda menghafal puluhan kosakata bahasa Inggris dalam satu malam, namun seminggu kemudian hampir semuanya lenyap tanpa bekas? Kebiasaan belajar sistem kebut semalam (SKS) sangat akrab di kalangan pelajar dan profesional di Indonesia. Masalah utamanya bukan karena daya ingat Anda lemah, melainkan karena otak manusia secara biologis dirancang untuk membuang informasi yang tidak diperkuat secara berkala. Untuk mengatasi masalah ini, **metode spaced repetition** hadir sebagai solusi ilmiah yang paling terbukti efektivitasnya di seluruh dunia.

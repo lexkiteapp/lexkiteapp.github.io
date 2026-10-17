@@ -9,7 +9,7 @@ tags: [ielts, speaking, idiom, vocabulary]
 keyword: "idioms for ielts speaking"
 cover: speaking
 coverAlt: "Lexkite Speaking room with Part 1, 2 and 3 questions by topic, band 7.5–8 sample answers and suggested vocabulary"
-publishAt: 2026-11-10T11:51:00+05:30
+publishAt: 2026-11-10T08:44:00+05:30
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

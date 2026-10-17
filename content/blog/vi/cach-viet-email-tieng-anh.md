@@ -9,7 +9,7 @@ tags: [email, writing]
 keyword: "cách viết email tiếng anh"
 cover: letters
 coverAlt: "Mục “Letter writing – IELTS General Task 1” của Lexkite: thư trang trọng, bán trang trọng, thân mật và thư mẫu band 8"
-publishAt: 2026-12-04T17:44:00+07:00
+publishAt: 2026-12-04T07:55:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

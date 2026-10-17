@@ -1398,3 +1398,9 @@ html.native .w-nav a[href="#/settings"] { display: none; } /* trong app không q
 /* 📲 Chuyển dữ liệu bằng mã QR (web/js/handoff.js) */
 .ho-card { max-width: 460px; margin: 0 auto; }
 .ho-qr { width: min(260px, 70vw); aspect-ratio: 1; margin: 1rem auto; padding: 12px; background: #fff; border-radius: 16px; box-shadow: var(--shadow-sm); }
+
+/* ChoiceKit (logic: web/js/choice-kit.js – U3 làm đẹp) */
+label.struck { text-decoration: line-through; opacity: .5; }
+.ck-split { cursor: col-resize; background: var(--line); touch-action: none; }
+.ck-split:hover, .ck-split.drag, .ck-split:focus-visible { background: var(--brand, #14b8a6); outline: none; }
+.cbt-body:has(> .ck-split) .cbt-pass { border-right: 0; }

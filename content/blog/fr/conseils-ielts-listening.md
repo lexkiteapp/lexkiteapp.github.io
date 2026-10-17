@@ -9,7 +9,7 @@ tags: [listening, ielts, comprehension-orale, preparation-examen]
 keyword: "conseils ielts listening"
 cover: listening
 coverAlt: "Module d'entraînement à l'IELTS Listening sur Lexkite avec contrôle de vitesse et accents variés"
-publishAt: 2026-10-19T20:00:00+02:00
+publishAt: 2026-10-24T08:15:00+02:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

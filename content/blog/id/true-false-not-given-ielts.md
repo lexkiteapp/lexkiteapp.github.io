@@ -9,7 +9,7 @@ tags: [reading, ielts, true-false-not-given]
 keyword: "true false not given ielts"
 cover: reading
 coverAlt: "Daftar bacaan IELTS Lexkite per level A2–C1 seperti The Rise of Urban Farming dan Microplastics in the Ocean"
-publishAt: 2026-10-20T19:31:00+07:00
+publishAt: 2026-10-25T07:04:00+07:00
 factChecked: 2026-10-17
 qualityScore: 93
 author: Lexkite

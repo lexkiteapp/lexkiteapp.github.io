@@ -22,6 +22,7 @@
   'Sổ lỗi sai': 'Mistake log',
   'Xem Sổ lỗi sai': 'View mistake log',
   'Tô sáng': 'Highlight',
+  'Kéo để đổi độ rộng cột': 'Drag to resize the columns',
   'Xem lại': 'Review',
   'Lời dẫn': 'Narrator',
   'Đang phát – chỉ nghe 1 lần': 'Playing – you will hear this only once',

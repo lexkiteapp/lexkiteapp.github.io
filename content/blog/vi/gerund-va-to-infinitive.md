@@ -9,7 +9,7 @@ tags: [gerund, ngu-phap]
 keyword: "gerund và to infinitive"
 cover: grammar
 coverAlt: "Trang “Grammar” liệt kê các chương ngữ pháp theo cấp độ, có bài luyện đi kèm"
-publishAt: 2026-10-30T09:36:00+07:00
+publishAt: 2026-10-30T20:39:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

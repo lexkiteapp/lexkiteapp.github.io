@@ -9,7 +9,7 @@ tags: [cau-hoi, giao-tiep]
 keyword: "cách đặt câu hỏi trong tiếng anh"
 cover: grammar
 coverAlt: "Mục ngữ pháp IELTS trong Lexkite: danh sách thì, cấp độ và bài luyện tổng hợp"
-publishAt: 2026-12-28T08:57:00+07:00
+publishAt: 2026-12-28T08:17:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [so-tu, tu-vung]
 keyword: "sổ tay từ vựng"
 cover: library
 coverAlt: "Thư viện từ vựng Lexkite (“Vocabulary library”) gồm hơn 6.800 từ chia thành nhiều bộ theo cấp độ"
-publishAt: 2026-11-07T14:06:00+07:00
+publishAt: 2026-11-07T09:28:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

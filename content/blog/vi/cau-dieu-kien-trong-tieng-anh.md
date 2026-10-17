@@ -9,7 +9,7 @@ tags: [ngu-phap, cau-dieu-kien, thi]
 keyword: "câu điều kiện trong tiếng anh"
 cover: grammar
 coverAlt: "Giao diện lộ trình ngữ pháp IELTS của Lexkite với 12 thì và các cấp độ từ A1 đến B2"
-publishAt: 2026-12-31T21:36:00+07:00
+publishAt: 2026-12-31T07:40:00+07:00
 factChecked: 2026-10-16
 author: Lexkite
 status: ready

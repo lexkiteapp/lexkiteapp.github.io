@@ -9,7 +9,7 @@ tags: [giao-tiep, small-talk]
 keyword: "small talk tiếng anh"
 cover: phrases
 coverAlt: "Sổ cụm từ và cấu trúc trong Lexkite, nơi lưu cụm/câu hay kèm nhãn theo bài thi"
-publishAt: 2026-12-03T18:04:00+07:00
+publishAt: 2026-12-03T12:38:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

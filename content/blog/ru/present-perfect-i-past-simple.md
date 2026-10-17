@@ -9,7 +9,7 @@ tags: [ngu-phap, thi, vremena-angliyskogo]
 keyword: "present perfect и past simple"
 cover: grammar
 coverAlt: "Интерактивный справочник по грамматике английского языка на платформе Lexkite"
-publishAt: 2026-10-19T13:00:00+03:00
+publishAt: 2026-10-21T07:43:00+03:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

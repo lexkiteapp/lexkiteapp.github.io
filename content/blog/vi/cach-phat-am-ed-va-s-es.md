@@ -9,7 +9,7 @@ tags: [phat-am, am-cuoi]
 keyword: "cách phát âm ed và s es"
 cover: pron
 coverAlt: "Bảng âm IPA của Lexkite với nguyên âm, phụ âm và luyện từng âm"
-publishAt: 2026-11-05T16:53:00+07:00
+publishAt: 2026-11-05T21:03:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

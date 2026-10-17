@@ -9,7 +9,7 @@ tags: [ghi-nho, ebbinghaus]
 keyword: "đường cong quên lãng"
 cover: method
 coverAlt: "“The Lexkite method” mô tả thứ tự các bước trong một buổi học hằng ngày"
-publishAt: 2026-10-19T14:11:00+07:00
+publishAt: 2026-10-19T08:48:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

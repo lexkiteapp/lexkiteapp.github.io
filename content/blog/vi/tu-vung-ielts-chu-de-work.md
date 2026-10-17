@@ -9,7 +9,7 @@ tags: [work, ielts, chu-de]
 keyword: "từ vựng ielts chủ đề work"
 cover: library
 coverAlt: "Thư viện từ vựng Lexkite với các tab NGSL, IELTS theo đề, Writing, Speaking, TOEIC và các bộ từ cấp A1–B2"
-publishAt: 2026-12-30T17:37:00+07:00
+publishAt: 2026-12-30T21:07:00+07:00
 factChecked: 2026-10-17
 qualityScore: 93
 author: Lexkite

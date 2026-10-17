@@ -9,7 +9,7 @@ tags: [gerund, ngu-phap, to-infinitive]
 keyword: "gerund dan to infinitive"
 cover: grammar
 coverAlt: "Menu tata bahasa Lexkite dengan jalur bab, 12 tenses, dan level A1–B2"
-publishAt: 2026-10-21T17:12:00+07:00
+publishAt: 2026-10-28T21:15:00+07:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

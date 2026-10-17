@@ -9,7 +9,7 @@ tags: [phat-am, ipa]
 keyword: "âm khó trong tiếng anh với người việt"
 cover: pron
 coverAlt: "Màn hình phát âm trong Lexkite: chọn từng âm IPA, nghe từ ví dụ và luyện có chấm điểm"
-publishAt: 2026-11-13T13:14:00+07:00
+publishAt: 2026-11-13T09:33:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

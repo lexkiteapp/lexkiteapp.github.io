@@ -45,6 +45,10 @@ Mẫu thẻ:
 - Lịch: dùng `scripts/blog-schedule.mjs` – tối đa 1 bài/ngôn ngữ/ngày, cùng cụm từ khóa cách ≥ 7 ngày, giờ đăng theo múi giờ nước đó, rải sau ngày cuối đang có trong lịch.
 - Vùng file: chỉ `content/blog/**` (+ briefs). Không sửa web/js, scripts/build-blog.mjs (cần sửa → ghi HỎI CLAUDE).
 - Tiêu chí xong: 45 bài, blog-check 0/0, `npm test` PASS; Báo cáo liệt kê từng bài (ngôn ngữ, từ khóa, điểm, ngày đăng).
+- **Đợt 3 (anh chủ 17/10 – phủ kín từ khóa từng nước, đăng đều):** 13 ngôn ngữ ngoài vi/en hiện chỉ 3–9 bài → mỗi ngôn ngữ viết thêm **6 bài** (ưu tiên ar, de, fr, hi, ko, ru, th, tr, zh, pt rồi es, id, ja).
+  - Trước khi viết: lập bản đồ từ khóa bản địa cho từng nước trong `content/blog/briefs.json` (tối thiểu 12 từ khóa/ngôn ngữ, chia 3 nhóm: evergreen · luyện thi phổ biến ở nước đó (vd. ko TOEIC, ja TOEIC/英検, de/fr IELTS/Cambridge, hi/ar IELTS, zh 雅思/四六级, tr YDS/YÖKDİL, ru ЕГЭ/IELTS, th TOEIC/IELTS, pt/es TOEFL/IELTS) · giao tiếp/công sở); ghi `intent` (học/thi/tra cứu) và bài trụ cột đích.
+  - **Chuyển đổi:** mỗi bài có 1 bài tập/ví dụ dùng ngay + CTA đúng ý định (luyện đề → `/app/#/mock` hoặc `/#/toeic`; từ vựng → bộ thẻ tương ứng; phát âm → luyện nói) và ≥ 2 liên kết nội bộ tới trụ cột/vệ tinh cùng cụm.
+  - **Lịch:** KHÔNG tự đặt `publishAt` – để trống, Claude chạy `node scripts/blog-schedule.mjs` (tự rải 1–3 ngày/bài theo kho, giờ cao điểm địa phương, cụm cách ≥ 7 ngày). `npm test` giờ chạy `blog-schedule --verify` – trùng ngày là đỏ.
 
 ### [C1] Nút kêu gọi thông minh trên blog & trang từ vựng tĩnh (phễu về add-on / app) · @antigravity · ưu tiên: vừa
 - Nơi áp dụng: trang blog (`scripts/build-blog.mjs` – khối `{{cta}}` và cuối bài) + trang từ vựng/mẫu dựng sẵn (`scripts/build-samples*.mjs`, `build-seo.mjs`).
@@ -166,6 +170,20 @@ Mẫu thẻ:
 - Ràng buộc: JS < 5 KB gz, tải lười khi cuộn tới (IntersectionObserver), không thư viện ngoài; đếm lượt bằng `/api/hit` có sẵn (sự kiện `quiz_view`, `quiz_done`, `quiz_cta`); câu hỏi tự biên soạn, đáp án chính xác 100%; đủ 15 ngôn ngữ blog.
 - File/khu vực: `scripts/build-blog.mjs` (render khối quiz), `web/blog/quiz.js` mới, `content/blog/WRITING-GUIDE.md` (mục quiz), thêm `quiz:` cho 10 bài trụ cột trước.
 - Tiêu chí xong: `node scripts/blog-check.mjs` 0 lỗi 0 cảnh báo, `npm test` PASS, Lighthouse bài blog không giảm. Làm trong worktree `../lexkite-ag`.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+### [U3] Nâng cấp cảm giác học & phòng thi (UI/CSS) · @antigravity · ưu tiên: cao (sau L1, S1)
+- **Đã có sẵn – chỉ làm đẹp, không viết lại logic:** lật thẻ 3D (`study.js` rotateY), 4 nút FSRS đã hiện mốc (`SRS.preview`), phím Space/Enter khi ôn thẻ, cờ 🚩 + lưới số câu trong `cbt.js`, pháo hoa `confetti()` + `Sfx.win()`.
+- Việc của Antigravity (CSS/markup, micro-animation, responsive, sáng/tối):
+  1. Đáp án trắc nghiệm (`qengine.js`, `toeic.js`, `cbt.js`) → thẻ nút 3D có độ lún (`transform`/`box-shadow`, 120 ms), giữ `<input>`/`<button>` thật cho a11y; hiện chữ A–D để người học biết phím tắt.
+  2. Thanh kết quả đáy (bottom sheet): xanh ngọc khi đúng, cam san hô khi sai; dùng token màu trong `style.css`, tương phản ≥ 4.5:1; tôn trọng `prefers-reduced-motion`.
+  3. Lật thẻ: chỉnh perspective/backface cho mượt 60 fps (chỉ `transform`/`opacity`), nút FSRS to dễ bấm trên mobile (≥ 44 px).
+  4. Phòng thi CBT: style cho thanh kéo chia cột (`.cbt-split`), lưới số câu kiểu bento (đã làm: nền xanh · 🚩 vàng · chưa làm: viền đứt), đáp án bị gạch (`.opt.struck`: gạch ngang + mờ 50%).
+  5. Màn kết thúc: vòng tròn điểm chạy số (CSS/SVG), thiết kế thẻ khoe 9:16 (Kit chỉ từ `web/js/kit.js`, watermark chữ "lexkite" mờ, không logo vuông).
+- **Việc của Claude (logic, làm trước để Antigravity có hook):** phím A–D/1–4 + Enter trong `qengine/toeic/cbt`; gạch đáp án bằng chuột phải / nhấn giữ (mobile) + lưu trạng thái cờ/gạch theo lượt thi; kéo chia cột (pointer events, lưu tỉ lệ); xuất thẻ khoe 9:16 ra PNG bằng canvas + QR (module tải lười, không thêm thư viện vào shell).
+- Ràng buộc: khung app ≤ 380 KB gz (đang 363 KB) – phần mới đặt trong CSS/module tải lười; i18n 15 ngôn ngữ cho chữ mới; không âm thanh mới có bản quyền (dùng `Sfx` tự tổng hợp).
+- Tiêu chí xong: `npm test` PASS (axe 0 lỗi nghiêm trọng), ảnh trước/sau mô tả trong Báo cáo, kiểm 375 px + desktop. Làm trong worktree `../lexkite-ag`.
 - Báo cáo:
 - Cần sửa / Nhận xét:
 

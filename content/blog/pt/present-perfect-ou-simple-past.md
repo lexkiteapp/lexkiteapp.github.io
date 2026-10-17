@@ -9,7 +9,7 @@ tags: [ngu-phap, thi, tempos-verbais]
 keyword: "present perfect ou simple past"
 cover: grammar
 coverAlt: "Módulo interativo de gramática do Lexkite com explicações e exercícios sobre tempos verbais"
-publishAt: 2026-10-19T19:00:00-03:00
+publishAt: 2026-10-24T07:45:00-03:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [mat-goc, lo-trinh]
 keyword: "अंग्रेजी कैसे सीखें"
 cover: placement
 coverAlt: "Lexkite का 5 मिनट का placement test: A2 से C1 तक vocabulary और grammar के 20 सवाल, जिसके बाद रोडमैप सुझाया जाता है"
-publishAt: 2026-10-18T11:16:00+05:30
+publishAt: 2026-10-18T20:16:00+05:30
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

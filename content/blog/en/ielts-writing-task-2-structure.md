@@ -9,7 +9,7 @@ tags: [ielts, writing, task-2, essay-structure]
 keyword: "ielts writing task 2 structure"
 cover: write
 coverAlt: "Lexkite IELTS Writing Task 2 room with questions grouped by topic, idea prompts, suggested vocabulary and an essay frame"
-publishAt: 2026-10-24T10:28:00+05:30
+publishAt: 2026-10-24T12:16:00+05:30
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [environment, ielts, chu-de]
 keyword: "từ vựng ielts chủ đề environment"
 cover: library
 coverAlt: "“Vocabulary library” trong Lexkite: các tab nguồn từ và những bộ từ cốt lõi có nhãn cấp độ"
-publishAt: 2026-10-28T08:45:00+07:00
+publishAt: 2026-10-28T07:40:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [reading, ielts]
 keyword: "true false not given"
 cover: reading
 coverAlt: "Kho bài đọc IELTS chia theo cấp độ; chạm vào từ trong bài để tra nghĩa"
-publishAt: 2026-11-15T17:18:00+07:00
+publishAt: 2026-11-15T19:47:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

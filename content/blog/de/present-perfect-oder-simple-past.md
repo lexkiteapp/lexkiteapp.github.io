@@ -9,7 +9,7 @@ tags: [ngu-phap, thi, englische-zeitformen]
 keyword: "present perfect oder simple past"
 cover: grammar
 coverAlt: "Interaktive Grammatikübungen zu englischen Zeitformen auf der Lernplattform Lexkite"
-publishAt: 2026-10-19T21:00:00+02:00
+publishAt: 2026-10-24T20:24:00+02:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [mat-goc, lo-trinh]
 keyword: "học tiếng anh mất gốc"
 cover: placement
 coverAlt: "Trang placement test của Lexkite với câu hỏi từ vựng, ngữ pháp và gợi ý lộ trình"
-publishAt: 2026-12-18T09:55:00+07:00
+publishAt: 2026-12-18T19:17:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

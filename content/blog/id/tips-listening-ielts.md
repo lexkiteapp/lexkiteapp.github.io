@@ -9,7 +9,7 @@ tags: [listening, ielts, pelafalan]
 keyword: "tips listening ielts"
 cover: listening
 coverAlt: "Halaman latihan Listening IELTS di Lexkite dengan 10 tes, 4 Part per tes, pilihan aksen, dan kecepatan audio"
-publishAt: 2026-10-18T12:36:00+07:00
+publishAt: 2026-10-19T12:28:00+07:00
 factChecked: 2026-10-16
 author: Lexkite
 status: ready

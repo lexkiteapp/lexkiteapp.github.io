@@ -9,7 +9,7 @@ tags: [shadowing, speaking, listening, hoehwa]
 keyword: "영어 쉐도잉 방법"
 cover: practice-speak
 coverAlt: "Lexkite의 AI 스피킹 및 발음 피드백 훈련 인터페이스 화면"
-publishAt: 2026-10-20T10:00:00+09:00
+publishAt: 2026-10-24T21:19:00+09:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

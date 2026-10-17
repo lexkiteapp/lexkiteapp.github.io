@@ -9,7 +9,7 @@ tags: [toefl, reading]
 keyword: "complete the words toefl"
 cover: toefl
 coverAlt: "Mục TOEFL trong Lexkite: bảng cấu trúc đề, Complete the Words, Read in Daily Life, Read an Academic Passage"
-publishAt: 2026-12-12T13:14:00+07:00
+publishAt: 2026-12-12T12:02:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

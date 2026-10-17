@@ -9,7 +9,7 @@ tags: [ielts, study-plan, self-study]
 keyword: "ielts self study plan"
 cover: placement
 coverAlt: "Lexkite 5-minute placement test interface with vocabulary and grammar questions"
-publishAt: 2026-11-11T21:06:00+05:30
+publishAt: 2026-11-11T21:01:00+05:30
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

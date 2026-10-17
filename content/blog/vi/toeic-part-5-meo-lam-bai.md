@@ -9,7 +9,7 @@ tags: [toeic, part-5, ngu-phap]
 keyword: "toeic part 5"
 cover: toeic
 coverAlt: "Trang luyện thi TOEIC của Lexkite: thi thử 7 đề chấm tự động quy đổi 10–990, luyện theo Part và từ vựng"
-publishAt: 2026-12-05T18:20:00+07:00
+publishAt: 2026-12-05T07:21:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

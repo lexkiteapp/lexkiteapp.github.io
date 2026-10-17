@@ -9,7 +9,7 @@ tags: [mat-goc, lo-trinh]
 keyword: "تعلم الإنجليزية بنفسك"
 cover: placement
 coverAlt: "اختبار تحديد المستوى في Lexkite: 20 سؤالًا في المفردات والقواعد من A2 إلى C1 مع اقتراح مسار"
-publishAt: 2026-10-18T18:07:00+03:00
+publishAt: 2026-10-18T08:45:00+03:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

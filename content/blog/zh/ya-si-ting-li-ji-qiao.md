@@ -9,7 +9,7 @@ tags: [listening, ielts, ting-li, bei-kao]
 keyword: "雅思听力技巧"
 cover: listening
 coverAlt: "Lexkite雅思听力模拟训练界面：支持多国口音切换与倍速播放"
-publishAt: 2026-10-19T17:00:00+08:00
+publishAt: 2026-10-21T21:48:00+08:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

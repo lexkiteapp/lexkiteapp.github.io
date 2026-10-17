@@ -9,7 +9,7 @@ tags: [thoi-quen, tu-hoc]
 keyword: "học tiếng anh mỗi ngày 15 phút"
 cover: home
 coverAlt: "Trang chủ Lexkite bản tiếng Anh, mục “Today” gom thẻ cần ôn, nhiệm vụ và kế hoạch hôm nay"
-publishAt: 2026-12-17T21:08:00+07:00
+publishAt: 2026-12-17T20:04:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

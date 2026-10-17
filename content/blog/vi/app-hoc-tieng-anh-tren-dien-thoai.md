@@ -9,7 +9,7 @@ tags: [pwa, dien-thoai]
 keyword: "app học tiếng anh miễn phí"
 cover: m-home
 coverAlt: "Màn hình “Today” khi mở Lexkite như một ứng dụng trên điện thoại"
-publishAt: 2026-12-22T14:18:00+07:00
+publishAt: 2026-12-22T12:06:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

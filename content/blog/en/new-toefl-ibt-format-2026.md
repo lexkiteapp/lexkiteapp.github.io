@@ -9,7 +9,7 @@ tags: [toefl, toefl-ibt, test-format, 2026]
 keyword: "new toefl format 2026"
 cover: toefl
 coverAlt: "Lexkite TOEFL iBT practice page for the format used from 21 January 2026, with a test structure table and the new task types"
-publishAt: 2026-10-28T08:45:00+05:30
+publishAt: 2026-10-28T12:44:00+05:30
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

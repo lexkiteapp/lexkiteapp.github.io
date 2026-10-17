@@ -9,7 +9,7 @@ tags: [listening, nghe, dictation]
 keyword: "英語 リスニング 上達"
 cover: listening
 coverAlt: "LexkiteのIELTSリスニング練習画面。10回分のテスト、英・米・豪の音声、速度調整、練習・初回リスニング・書き取りのボタンが並ぶ"
-publishAt: 2026-10-21T17:12:00+09:00
+publishAt: 2026-10-28T07:57:00+09:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

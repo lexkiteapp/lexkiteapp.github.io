@@ -9,7 +9,7 @@ tags: [listening, ielts, hoerverstehen, pruefungsvorbereitung]
 keyword: "ielts listening tipps"
 cover: listening
 coverAlt: "IELTS Hörverständnis-Übungen in Lexkite mit anpassbarer Geschwindigkeit und Akzenten"
-publishAt: 2026-10-19T11:00:00+02:00
+publishAt: 2026-10-21T21:30:00+02:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

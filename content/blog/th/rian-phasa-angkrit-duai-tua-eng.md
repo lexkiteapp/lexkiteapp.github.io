@@ -9,7 +9,7 @@ tags: [mat-goc, lo-trinh]
 keyword: "เรียนภาษาอังกฤษด้วยตัวเอง"
 cover: placement
 coverAlt: "แบบทดสอบวัดระดับ 5 นาทีของ Lexkite มีคำถามคำศัพท์และไวยากรณ์ 20 ข้อ ตั้งแต่ระดับ A2 ถึง C1 พร้อมแนะนำเส้นทางการเรียน"
-publishAt: 2026-10-18T16:17:00+07:00
+publishAt: 2026-10-18T12:44:00+07:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

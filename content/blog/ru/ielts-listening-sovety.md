@@ -9,7 +9,7 @@ tags: [listening, ielts, audirovanie, podgotovka-k-ekzamenu]
 keyword: "ielts listening советы"
 cover: listening
 coverAlt: "Модуль тренировки аудирования IELTS в приложении Lexkite с контролем скорости речи и акцентов"
-publishAt: 2026-10-19T23:00:00+03:00
+publishAt: 2026-10-24T08:41:00+03:00
 factChecked: 2026-10-17
 author: Lexkite
 status: ready

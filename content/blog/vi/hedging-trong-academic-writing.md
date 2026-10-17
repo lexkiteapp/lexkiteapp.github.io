@@ -9,7 +9,7 @@ tags: [academic-writing, hedging]
 keyword: "hedging trong academic writing"
 cover: write
 coverAlt: "Màn hình luyện Writing Task 2 trong Lexkite với bài mẫu band 8 có chú thích"
-publishAt: 2026-12-09T10:14:00+07:00
+publishAt: 2026-12-09T19:21:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

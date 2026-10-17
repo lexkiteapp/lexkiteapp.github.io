@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1, line-graph]
 keyword: "ielts line graph"
 cover: task1
 coverAlt: "Lexkite Academic Writing Task 1 screen with line, bar, pie, table and process charts, a four-paragraph frame and trend vocabulary"
-publishAt: 2026-10-25T16:05:00+05:30
+publishAt: 2026-10-25T12:16:00+05:30
 factChecked: 2026-10-15
 author: Lexkite
 status: ready

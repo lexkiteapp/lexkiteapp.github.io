@@ -9,7 +9,7 @@ tags: [active-recall, ghi-nho]
 keyword: "active recall"
 cover: practice-test
 coverAlt: "Câu trắc nghiệm trong Lexkite: chọn nghĩa đúng của “run out of” trong 4 phương án"
-publishAt: 2026-12-21T12:22:00+07:00
+publishAt: 2026-12-21T08:13:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
