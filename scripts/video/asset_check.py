@@ -36,7 +36,7 @@ T = {
     'foot': 0.015,              # đáy bbox dao động < 1,5 % chiều cao khung
     'bg_shift': 8.0,            # màu nền mép thay đổi theo thời gian (0–255)
     'flicker': 0.004,           # tỉ lệ điểm alpha bật-tắt-bật giữa 3 khung (trên diện tích mặt nạ)
-    'shadow_ratio': 1.6,        # bề ngang mặt nạ ở đáy / ở mắt cá → còn bóng sàn dính
+    'shadow_ratio': 0.30,       # tỉ lệ điểm xám nhạt ít bão hoà ở 4 % đáy mặt nạ → còn bóng sàn dính
     'audio_db': -45.0,          # max_volume > -45 dB = có âm thanh (clip kho phải im lặng)
 }
 BRAND = ['#0F3D3E', '#17595A', '#E5502F', '#F2553B', '#FFB054', '#FFC94A', '#FFD36A', '#FF8FA3', '#FFF7EA', '#FFE7C2', '#2FBF71']
@@ -506,20 +506,27 @@ def alpha_flicker(alphas):
     return float(flip.sum(axis=(1, 2)).mean() / area)
 
 
-def floor_shadow(alpha):
-    """Bóng sàn dính: bề ngang mặt nạ ở 2 % đáy so với ở mắt cá (~8 % trên đáy), kèm alpha bán trong suốt ở đáy."""
+def floor_shadow(alpha, rgb=None):
+    """Bóng sàn dính = vùng XÁM NHẠT ít bão hoà ở 4 % đáy mặt nạ (không phải giày trắng / viền tối).
+    Trả tỉ lệ điểm "giống bóng" trên tổng điểm mặt nạ ở dải đáy (0..1). Không có màu → cách cũ (bề ngang đáy/mắt cá) chia 4 để cùng thang."""
     on = alpha > 24
     b = bbox(on)
     if not b:
         return 0.0
     x0, y0, x1, y1 = b
     hh = y1 - y0 + 1
-    def width(y):
-        xs = np.nonzero(on[y])[0]
-        return (xs.max() - xs.min() + 1) if len(xs) else 0
-    bot = max(width(y) for y in range(max(y0, y1 - max(1, int(hh * 0.02))), y1 + 1))
-    ankle = max(1, max(width(y) for y in range(y1 - int(hh * 0.10), y1 - int(hh * 0.06) + 1)))
-    return bot / ankle
+    band = slice(max(y0, y1 - max(2, int(hh * 0.04))), y1 + 1)
+    if rgb is None:
+        def width(y):
+            xs = np.nonzero(on[y])[0]
+            return (xs.max() - xs.min() + 1) if len(xs) else 0
+        bot = max(width(y) for y in range(band.start, y1 + 1))
+        ankle = max(1, max(width(y) for y in range(y1 - int(hh * 0.10), y1 - int(hh * 0.06) + 1)))
+        return bot / ankle / 4
+    c = rgb[band].astype(np.int16); m = on[band]
+    mx, mn = c.max(2), c.min(2)
+    shadowish = m & (mx > 110) & (mx < 228) & ((mx - mn) < 22)
+    return float(shadowish.sum()) / max(1, int(m.sum()))
 
 
 def stacked_mask_stats(lower):
@@ -618,7 +625,7 @@ def check_clip(path, kind='clip', trimmed=False):
     if stacked:
         fl = alpha_flicker(alphas); M['alphaFlicker'] = r(fl, 5)
         C.append(chk('alpha_stable', fl <= T['flicker'], r(fl, 5), T['flicker'], 'mép alpha nhấp nháy giữa các khung'))
-        sh = max(floor_shadow(al) for al in alphas[:: max(1, len(alphas) // 8)]); M['shadowRatio'] = r(sh, 2)
+        sh = max(floor_shadow(alphas[i], frames[i] if len(frames) == len(alphas) else None) for i in range(0, len(alphas), max(1, len(alphas) // 8))); M['shadowRatio'] = r(sh, 2)
         S['layer'] = stacked_layer(path, W, H)
         C.append(chk('no_floor_shadow', sh < T['shadow_ratio'], r(sh, 2), T['shadow_ratio'], 'còn bóng sàn dính ở chân (chạy trim_floor_shadow)'))
     st = overall([c for c in C if c['status'] != 'INFO'])
@@ -704,6 +711,7 @@ def main():
     ap.add_argument('--who', help='nhân vật (bật kiểm anatomy & style)'); ap.add_argument('--ref', help='JSON số đo DNA của nhân vật')
     ap.add_argument('--cast-stroke', help='biên nét viền của dàn: lo,hi'); ap.add_argument('--sheet', help='ghi bảng ghép JPG')
     ap.add_argument('--no-anatomy', action='store_true')
+    ap.add_argument('--ai-sheet', help='ghi bảng gửi AI thị giác (≤ 768 px, ô 1 = DNA viền xanh lá)'); ap.add_argument('--ai-ref', help='ảnh DNA cho ô 1 của --ai-sheet'); ap.add_argument('--head-sheet', help='ghi bảng cận đầu cho AI (nhận diện)')
     a = ap.parse_args()
     if not os.path.exists(a.file):
         print(json.dumps({'status': 'FAIL', 'checks': [chk('exists', False, None, None, 'không thấy file')], 'metrics': {}, 'suggest': {}})); return
@@ -737,6 +745,14 @@ def main():
     res['status'] = overall([c for c in res['checks'] if c['status'] != 'INFO'])
     if a.sheet and tiles:
         res['sheet'] = contact_sheet(tiles, a.sheet)
+    if a.ai_sheet and tiles:
+        import asset_anatomy as AN
+        ref_rgb = None
+        if a.ai_ref and os.path.exists(a.ai_ref):
+            ref_rgb = np.asarray(Image.open(a.ai_ref).convert('RGB'))
+        res['aiSheet'] = AN.ai_sheet(ref_rgb, tiles, a.ai_sheet)
+        if a.head_sheet:
+            res['headSheet'] = AN.head_sheet(ref_rgb, tiles, a.head_sheet)
     print(json.dumps(res, ensure_ascii=False, default=lambda o: float(o) if isinstance(o, np.floating) else int(o) if isinstance(o, np.integer) else str(o)))
 
 
