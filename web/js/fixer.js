@@ -33,7 +33,7 @@
 .fx-acts{display:grid;gap:.45rem;margin-top:.8rem}
 .fx-card{border-left:4px solid var(--c);animation:fxIn .22s ease}@keyframes fxIn{from{opacity:0;transform:translateY(6px)}}
 .fx-card h3{display:flex;align-items:center;gap:.4rem;margin:0 0 .5rem}.fx-ty{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--c)}
-.fx-orig{font-size:1.05rem}.fx-orig s{color:var(--again);text-decoration-thickness:2px}
+.fx-orig{font-size:1.05rem}.fx-orig s{color:var(--again-text);text-decoration-thickness:2px}
 .fx-reps{display:flex;flex-wrap:wrap;gap:.4rem;margin:.6rem 0}.fx-reps .btn small{opacity:.8;font-weight:600}
 .fx-why{margin:.3rem 0 .6rem;font-size:.92rem}
 .fx-nav{display:flex;justify-content:space-between;gap:.4rem;margin-top:.7rem;flex-wrap:wrap}

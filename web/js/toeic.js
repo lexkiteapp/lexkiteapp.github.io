@@ -383,7 +383,7 @@
       <div id="wOut" style="margin-top:1rem"></div><div id="wAIOut"></div>`;
     const ta = $('#wTxt'); ta.value = swStore.get(u.id);
     let left = u.minutes * 60, started = false, rewarded = false;
-    const paint = () => { const n = wc(ta.value); $('#wCnt').innerHTML = t('{n} từ', { n }) + (n && minW && n < minW ? ` · <span style="color:var(--again)">${t('nên viết ≥ {m} từ', { m: minW })}</span>` : ''); };
+    const paint = () => { const n = wc(ta.value); $('#wCnt').innerHTML = t('{n} từ', { n }) + (n && minW && n < minW ? ` · <span style="color:var(--again-text)">${t('nên viết ≥ {m} từ', { m: minW })}</span>` : ''); };
     ta.addEventListener('input', () => {
       swStore.set(u.id, ta.value); paint();
       if (started) return; started = true;
