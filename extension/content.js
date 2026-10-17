@@ -73,12 +73,14 @@
   let dead = false;
   const alive = () => { try { return !dead && !!chrome.runtime.id; } catch (e) { return false; } };
   document.addEventListener('ielts-lexi-takeover', ev => { if (ev.detail !== chrome.runtime.id) return; // trang web không tắt được add-on
-    dead = true; if (host) host.remove(); });
+    if (root) hide(); dead = true; if (host) host.remove(); });
 
   let host = null, root = null, enabled = true, selectMode = 'icon', current = null, markOn = true, acadOn = true, prefs = {};
   const applySettings = st => { st = st || {}; prefs = st; enabled = st.dblclickOn !== false; selectMode = st.selectMode || 'icon'; markOn = st.markKnown !== false; acadOn = st.markAcademic !== false; };
   chrome.storage.local.get('settings').then(r => applySettings(r.settings));
-  const badImg = new Set(); chrome.storage.local.get('badImg').then(r => (r.badImg || []).forEach(w => badImg.add(w))).catch(() => {}); // từ người dùng đã báo "ảnh không đúng"
+  // Ảnh người dùng đã báo "ảnh không đúng": khóa = từ + URL ảnh (trước đây chỉ theo từ → ẩn vĩnh viễn cả ảnh mới, đúng nghĩa sau khi đổi nguồn ảnh)
+  const badImg = new Set(), imgKey = e => e.word + ' ' + e.image;
+  chrome.storage.local.get('badImg').then(r => (r.badImg || []).forEach(w => { if (/ https:\/\//.test(w)) badImg.add(w); })).catch(() => {});
   chrome.storage.onChanged.addListener(ch => { if (ch.settings) applySettings(ch.settings.newValue); });
 
   // Trusted Types: YouTube và một số trang bắt buộc dùng TrustedHTML cho innerHTML
@@ -161,7 +163,12 @@
     /* ảnh minh họa: nút "Ảnh không đúng" khi rê chuột */
     .pic { position: relative; } .pic .noimg { position: absolute; right: 3px; top: 3px; width: 20px; height: 20px; border-radius: 50%; border: 0; background: rgba(0,0,0,.6); color: #fff; font-size: 11px; line-height: 20px; cursor: pointer; opacity: 0; transition: opacity .15s; padding: 0; }
     .pic:hover .noimg { opacity: 1; }
-    }`;
+    .pic canvas { width: 100%; height: 100%; display: block; }
+    .pic .pcredit { position: absolute; left: 3px; bottom: 3px; width: 16px; height: 16px; border-radius: 50%; background: rgba(0,0,0,.6); color: #fff; font: 700 10px/16px -apple-system, "Segoe UI", sans-serif; text-align: center; text-decoration: none; opacity: 0; transition: opacity .15s; }
+    .pic:hover .pcredit, .pic .pcredit:focus { opacity: 1; }
+    .box { max-height: calc(100vh - 16px); overflow: auto; }
+    .f1 { flex: 1; } .mw0 { min-width: 0; } .mt4 { margin-top: 4px; } .mt8 { margin-top: 8px; }
+    .sk.w40 { width: 40%; } .sk.w50 { width: 50%; } .sk.w60 { width: 60%; } .sk.w80 { width: 80%; }`;
 
   // Trang tối hay sáng? Lấy màu nền thật dưới vị trí bảng tra (đi ngược lên cha tới khi gặp nền không trong suốt)
   const pageDark = rect => {
@@ -185,7 +192,10 @@
     // CSS của trang không được đổi vị trí/hiển thị/màu của phần tử gốc (transform/filter/opacity… làm lệch bảng tra)
     host.style.cssText = 'all:initial !important;position:fixed !important;left:0 !important;top:0 !important;width:0 !important;height:0 !important;display:block !important;z-index:2147483647 !important;transform:none !important;filter:none !important;opacity:1 !important;visibility:visible !important;contain:style !important';
     root = host.attachShadow({ mode: navigator.webdriver ? 'open' : 'closed' }); // 'open' chỉ khi chạy kiểm thử tự động (scripts/test/ext-e2e.mjs)
-    root.innerHTML = H(`<style>${CSS}</style><div class="box" hidden></div><button class="fab" hidden title="${tx('Dịch với Lexkite')}">🌐</button>`);
+    // CSS qua adoptedStyleSheets: không bị CSP style-src của trang chặn như thẻ <style>; trình duyệt cũ → thẻ <style>
+    let adopted = false;
+    try { const sh = new CSSStyleSheet(); sh.replaceSync(CSS); root.adoptedStyleSheets = [sh]; adopted = true; } catch (e) { /* dùng <style> */ }
+    root.innerHTML = H(`${adopted ? '' : `<style>${CSS}</style>`}<div class="box" hidden></div><button class="fab" hidden title="${tx('Dịch với Lexkite')}">🌐</button>`);
     parent.appendChild(host);
     root.addEventListener('mousedown', e => e.stopPropagation());
     // Tra tiếp trong chính bảng tra/dịch (định nghĩa, ví dụ, câu ngữ cảnh, bản dịch): bấm đúp 1 từ tiếng Anh → tra lồng (có nút Quay lại);
@@ -356,9 +366,10 @@
   // Phát âm phản hồi tức thì: audio thật được tải sẵn khi mở khung; chưa phát được sau 0,7s (mạng chậm/trang chặn) → đọc bằng giọng máy
   const audioCache = new Map();
   let playing = null;
+  const cacheAudio = (url, a) => { audioCache.set(url, a); while (audioCache.size > 20) { const k = audioCache.keys().next().value; const old = audioCache.get(k); audioCache.delete(k); if (old !== playing) try { old.src = ''; } catch (e) { /* bỏ qua */ } } }; // giới hạn bộ nhớ trên trang mở lâu
   function preloadAudio(url) {
     if (!url || audioCache.has(url)) return;
-    try { const a = new Audio(); a.preload = 'auto'; a.src = url; audioCache.set(url, a); } catch (e) { /* trang chặn media */ }
+    try { const a = new Audio(); a.preload = 'auto'; a.src = url; cacheAudio(url, a); } catch (e) { /* trang chặn media */ }
   }
   function speak(text, url, accent, rate) {
     const tts = () => {
@@ -378,7 +389,7 @@
     if (playing) { try { playing.pause(); } catch (e) { /* bỏ qua */ } playing = null; }
     if (window.speechSynthesis) speechSynthesis.cancel();
     if (!url) return tts();
-    let a; try { a = audioCache.get(url) || new Audio(url); audioCache.set(url, a); } catch (e) { return tts(); }
+    let a; try { a = audioCache.get(url) || new Audio(url); cacheAudio(url, a); } catch (e) { return tts(); }
     let started = false, gaveUp = false;
     const fb = setTimeout(() => { if (!started) { gaveUp = true; try { a.pause(); } catch (e) { /* bỏ qua */ } tts(); } }, 700);
     a.onplaying = () => { started = true; clearTimeout(fb); if (gaveUp) a.pause(); };
@@ -405,7 +416,7 @@
     hideFab();
     const b = box();
     b.hidden = false; b.classList.toggle('dark', pageDark(rect));
-    b.innerHTML = H(`<div class="head"><div class="pic">📘</div><div style="flex:1"><div class="w">${esc(word)}</div><div class="sk" style="width:60%"></div><div class="sk" style="width:40%"></div></div></div><div class="body"><div class="sk"></div><div class="sk" style="width:80%"></div></div>`);
+    b.innerHTML = H(`<div class="head"><div class="pic">📘</div><div class="f1"><div class="w">${esc(word)}</div><div class="sk w60"></div><div class="sk w40"></div></div></div><div class="body"><div class="sk"></div><div class="sk w80"></div></div>`);
     position(rect);
     current = word;
     const st = (await chrome.storage.local.get('settings')).settings || {};
@@ -413,7 +424,9 @@
     let e = null, saved = false, ctxVi = '', ctxDone = false, mlW = '', didSave = false, spoke = false, note = null;
 
     // Một giọng thống nhất cho lúc tự đọc và nút UK/US: dùng giọng máy tốt nhất; bản ghi âm tình nguyện viên (chất lượng không đều) chỉ dùng khi máy không có giọng đọc
-    const audioFor = acc => !e || window.speechSynthesis ? '' : acc === 'en-US' ? (e.audioUS || e.audio) : (e.audio && !/-us\.mp3$/.test(e.audio) ? e.audio : '');
+    // Máy không có giọng đọc tiếng Anh (Linux/ChromeOS thiếu gói giọng…) → nút UK/US/tự đọc dùng bản ghi âm thay vì im lặng
+    const hasEnVoice = () => { try { return !!window.speechSynthesis && speechSynthesis.getVoices().some(v => /^en/i.test(v.lang)); } catch (x) { return false; } };
+    const audioFor = acc => !e || hasEnVoice() ? '' : acc === 'en-US' ? (e.audioUS || e.audio) : (e.audio && !/-us\.mp3$/.test(e.audio) ? e.audio : '');
     const sayWord = (acc, rate) => speak(e ? e.word : word, rate ? '' : audioFor(acc), acc, rate);
     const paintCtx = () => { ctxDone = true; const el = b.querySelector('.ctxvi'); if (el && current === word) el.textContent = ctxVi ? FLAG(ML()) + ' ' + ctxVi : ''; };
 
@@ -421,13 +434,17 @@
       preloadAudio(audioFor('en-GB')); preloadAudio(audioFor('en-US'));
       // Gom theo từ loại như từ điển lớn: mỗi từ loại = nghĩa Việt + định nghĩa Anh + ví dụ của đúng nghĩa đó
       const POSV = { noun: 'danh từ', verb: 'động từ', adjective: 'tính từ', adverb: 'trạng từ', preposition: 'giới từ', conjunction: 'liên từ', pronoun: 'đại từ', interjection: 'thán từ', determiner: 'từ hạn định', abbreviation: 'viết tắt', phrase: 'cụm từ', 'phrasal verb': 'cụm động từ' };
-      const ABBR = { n: 'noun', v: 'verb', adj: 'adjective', adv: 'adverb', prep: 'preposition', conj: 'conjunction', pron: 'pronoun', det: 'determiner', int: 'interjection', abbr: 'abbreviation', 'phr v': 'phrasal verb', 'phr. v.': 'phrasal verb' };
+      const ABBR = { n: 'noun', v: 'verb', adj: 'adjective', adv: 'adverb', prep: 'preposition', conj: 'conjunction', pron: 'pronoun', det: 'determiner', int: 'interjection', excl: 'interjection', abbr: 'abbreviation', 'phr v': 'phrasal verb', 'phr. v.': 'phrasal verb', 'chữ viết tắt': 'abbreviation', 'tiền tố': 'prefix', 'hậu tố': 'suffix', 'mạo từ': 'article', 'trợ động từ': 'auxiliary verb' };
       // Chuẩn hóa nhãn từ loại (Việt / viết tắt / Anh) về 1 khóa tiếng Anh → không tách 2 nhóm "danh từ" và "n", không lộ tiếng Việt ở giao diện khác
       const toEn = x => { x = String(x || '').normalize('NFC').trim().toLowerCase().replace(/\.$/, ''); const hit = Object.keys(POSV).find(k => POSV[k] === x); return hit || ABBR[x] || x; };
+      // Nhãn từ loại theo ngôn ngữ giao diện (vi: tiếng Việt; en: tiếng Anh; ngôn ngữ khác: từ điển web, thiếu → tiếng Anh). Không bao giờ lộ tiếng Việt ở giao diện khác
+      const posLabel = p => { const v = POSV[p]; const out = UI_LANG === 'vi' ? (v || p) : UI_LANG === 'en' || !v ? p : (XD[v] || p); return UI_LANG !== 'vi' && VI.test(out) ? '' : out; };
       const groups = [], byPos = {};
       const grp = x => byPos[x] || (byPos[x] = groups[groups.push({ pos: x, vi: [], defs: [] }) - 1]);
       (e.senses || []).forEach(x => { grp(toEn(x.pos)).vi = x.terms.slice(0, 4); });
       (e.oxford && e.oxford.length ? e.oxford : e.meanings || []).forEach(m => { const g2 = grp(toEn(m.pos)); if (!g2.defs.length) g2.defs = (m.defs || []).filter(d => d.def).slice(0, 2); });
+      // Từ loại có nghĩa Việt nhưng Oxford thiếu định nghĩa (vd. action – động từ) → bù từ dictionaryapi.dev (chỉ cho nhóm đã có)
+      if (e.oxford && e.oxford.length) (e.meanings || []).forEach(m => { const g2 = byPos[toEn(m.pos)]; if (g2 && !g2.defs.length) g2.defs = (m.defs || []).filter(d => d.def).slice(0, 2); });
       if (e.def) {
         const p = toEn(e.pos || (groups[0] && groups[0].pos) || 'noun');
         const g2 = grp(p);
@@ -437,15 +454,18 @@
           g2.defs = [curDef, ...rest].slice(0, 2);
         }
       }
-      const shown = groups.filter(x => x.vi.length || x.defs.length).slice(0, 3);
+      // Chỉ hiện nhóm có nội dung THẤY ĐƯỢC: nghĩa Việt chỉ hiện ở chế độ tiếng Việt → giao diện khác bỏ nhóm chỉ có nghĩa Việt (tránh tiêu đề "verb" trống)
+      const shown = groups.filter(x => x.defs.length || (x.vi.length && ML() === 'vi')).slice(0, 3);
       const hasEx = shown.some(x => x.defs.some(d => d.ex));
-      const defs = shown.map(x => `<div class="pg"><span class="chip">${esc(UI_LANG === 'vi' ? POSV[x.pos] || x.pos : x.pos)}</span>${x.vi.length && ML() === 'vi' ? `<span class="pvi">${esc(x.vi.join(', '))}</span>` : ''}${x.defs.map(d => `<div class="pdef">${linkify(d.def)}${d.ex ? `<span class="pex">“${linkify(d.ex, e.word)}” <button class="spk mini" data-text="${esc(d.ex)}" title="${tx('Nghe câu ví dụ')}">🔊</button></span>` : ''}</div>`).join('')}</div>`).join('');
+      const defs = shown.map(x => `<div class="pg">${posLabel(x.pos) ? `<span class="chip">${esc(posLabel(x.pos))}</span>` : ''}${x.vi.length && ML() === 'vi' ? `<span class="pvi">${esc(x.vi.join(', '))}</span>` : ''}${x.defs.map(d => `<div class="pdef">${linkify(d.def)}${d.ex ? `<span class="pex">“${linkify(d.ex, e.word)}” <button class="spk mini" data-text="${esc(d.ex)}" title="${tx('Nghe câu ví dụ')}">🔊</button></span>` : ''}</div>`).join('')}</div>`).join('');
       const ctxHtml = context ? linkify(context, word) : '';
+      const showImg = !!(e.image && /^https:\/\//.test(e.image) && !badImg.has(imgKey(e)));
+      const credit = e.imageCredit && e.imageCredit.text && /^https?:\/\//.test(e.imageCredit.link || '') ? e.imageCredit : null;
       b.innerHTML = H(`
         <div class="head">
-          ${e.image && !badImg.has(e.word) ? `<div class="pic"><img src="${esc(e.image)}" alt="${esc(e.word)}" referrerpolicy="no-referrer"><button class="noimg" title="${tx('Ảnh không đúng – ẩn ảnh này')}" aria-label="${tx('Ảnh không đúng – ẩn ảnh này')}">✕</button></div>` : e.emoji ? `<div class="pic">${esc(e.emoji)}</div>` : ''}
-          <div style="min-width:0">
-            <div>${hist.length ? `<button class="back" title="${tx('Quay lại từ trước')}">←</button>` : ''}<span class="w">${esc(e.word)}</span>${e.pos ? `<span class="chip">${esc(UI_LANG === 'vi' ? e.pos : toEn(e.pos))}</span>` : ''}${e.level ? `<span class="chip lv" title="CEFR">${esc(e.level)}</span>` : ''}${saved || didSave ? `<span class="chip inDeck">${tx('✓ Đã trong sổ thẻ')}</span>` : ''}</div>
+          ${showImg ? `<div class="pic"><img src="${esc(e.image)}" alt="${esc(e.word)}" referrerpolicy="no-referrer"><button class="noimg" title="${tx('Ảnh không đúng – ẩn ảnh này')}" aria-label="${tx('Ảnh không đúng – ẩn ảnh này')}">✕</button>${credit ? `<a class="pcredit" href="${esc(credit.link)}" target="_blank" rel="noopener noreferrer" title="${esc(credit.text)}" aria-label="${esc(credit.text)}">i</a>` : ''}</div>` : e.emoji ? `<div class="pic">${esc(e.emoji)}</div>` : ''}
+          <div class="mw0">
+            <div>${hist.length ? `<button class="back" title="${tx('Quay lại từ trước')}">←</button>` : ''}<span class="w">${esc(e.word)}</span>${e.pos && posLabel(toEn(e.pos)) ? `<span class="chip">${esc(UI_LANG === 'vi' ? e.pos : posLabel(toEn(e.pos)))}</span>` : ''}${e.level ? `<span class="chip lv" title="CEFR">${esc(e.level)}</span>` : ''}${saved || didSave ? `<span class="chip inDeck">${tx('✓ Đã trong sổ thẻ')}</span>` : ''}</div>
             <div class="ipa">${esc(e.ipa || '')}${e.ipaUS && e.ipaUS !== e.ipa ? ` · <span title="${tx('Anh–Mỹ')}">${esc(e.ipaUS)}</span>` : ''}</div>
             <div class="spks"><button class="spk" data-acc="en-GB" title="${tx('Nghe giọng Anh–Anh (phím P)')}">🔊 UK</button><button class="spk" data-acc="en-US" title="${tx('Nghe giọng Anh–Mỹ')}">🔊 US</button><button class="spk" data-slow title="${tx('Nghe chậm')}">🐢</button></div>
             <div class="vi">${ML() === 'vi' ? esc(viMain(e, shown)) : esc(mlW)}</div>
@@ -455,8 +475,8 @@
           ${defs || (e.def ? `<div class="def">${linkify(e.def)}</div>` : '')}
           ${note && UI_LANG === 'vi' ? `<div class="wn-x"><div>💡 ${esc(note.m)}</div><div>⚠️ ${esc(note.e)}</div></div>` : ''}
           ${e.ex && !hasEx ? `<div class="ex">“${linkify(e.ex, e.word)}” <button class="spk mini" data-text="${esc(e.ex)}" title="${tx('Nghe câu ví dụ')}">🔊</button></div>` : ''}
-          ${ctxHtml ? `<div class="ctx"><b>${tx('📌 Ngữ cảnh sẽ lưu')}</b> <button class="spk mini" data-text="${esc(context)}" title="${tx('Nghe cả câu')}">🔊</button><button class="spk mini" data-text="${esc(context)}" data-rate="0.65" title="${tx('Nghe chậm')}">🐢</button><br>${ctxHtml}<div class="ctxvi ex" style="margin-top:4px">${ctxVi ? FLAG(ML()) + ' ' + esc(ctxVi) : ML() === 'en' || ctxDone ? '' : tx('⏳ Đang dịch câu…')}</div></div>` : ''}
-          ${e.partial ? '<div class="sk" style="width:50%;margin-top:8px"></div>' : ''}
+          ${ctxHtml ? `<div class="ctx"><b>${tx('📌 Ngữ cảnh sẽ lưu')}</b> <button class="spk mini" data-text="${esc(context)}" title="${tx('Nghe cả câu')}">🔊</button><button class="spk mini" data-text="${esc(context)}" data-rate="0.65" title="${tx('Nghe chậm')}">🐢</button><br>${ctxHtml}<div class="ctxvi ex mt4">${ctxVi ? FLAG(ML()) + ' ' + esc(ctxVi) : ML() === 'en' || ctxDone ? '' : tx('⏳ Đang dịch câu…')}</div></div>` : ''}
+          ${e.partial ? '<div class="sk w50 mt8"></div>' : ''}
         </div>
         <div class="foot">
           <button class="btn p" id="save" ${didSave || (saved && !context) ? 'disabled' : ''}>${didSave ? tx('✓ Đã lưu vào flashcard') : saved ? (context ? tx('+ Thêm ngữ cảnh') : tx('✓ Đã lưu')) : tx('+ Lưu flashcard')}</button>
@@ -464,11 +484,26 @@
           <button class="x" id="close" title="${tx('Đóng (Esc)')}">×</button>
         </div>`);
       const img = b.querySelector('.pic img');
-      // Ảnh bị chặn bởi CSP của trang (vd. google.com chỉ cho ảnh cùng tên miền) → nhờ service worker tải rồi gắn dạng data: URL; vẫn lỗi → chữ cái/emoji
-      const noPic = () => { const p = img.parentElement; if (!p) return; if (e.emoji) p.textContent = e.emoji; else p.remove(); }; // không có ảnh hợp lệ → bỏ hẳn ô ảnh
+      // Ảnh bị chặn bởi CSP của trang (img-src chỉ cho tên miền của trang, nhiều trang chặn cả data:) → service worker tải ảnh,
+      // content script giải mã và VẼ lên <canvas> (vẽ canvas không đi qua img-src nên CSP không chặn được); vẫn lỗi → emoji / bỏ ô ảnh
+      const noPic = () => { const p = img && img.parentElement; if (!p) return; if (e.emoji) p.textContent = e.emoji; else p.remove(); };
       const nb = b.querySelector('.pic .noimg');
-      if (nb) nb.onclick = ev => { ev.stopPropagation(); badImg.add(e.word); try { chrome.storage.local.set({ badImg: [...badImg].slice(-500) }); } catch (x) { /* bỏ qua */ } const p = nb.parentElement; if (e.emoji) p.textContent = e.emoji; else p.remove(); };
-      if (img) img.onerror = () => { if (img.dataset.retried || /^data:/.test(img.src)) return noPic(); img.dataset.retried = 1; chrome.runtime.sendMessage({ type: 'imgData', url: e.image }).then(r => { if (r && r.data) img.src = r.data; else noPic(); }).catch(noPic); };
+      if (nb) nb.onclick = ev => { ev.stopPropagation(); badImg.add(imgKey(e)); try { chrome.storage.local.set({ badImg: [...badImg].slice(-500) }); } catch (x) { /* bỏ qua */ } const p = nb.parentElement; if (e.emoji) p.textContent = e.emoji; else p.remove(); };
+      if (img) img.onerror = () => {
+        if (img.dataset.retried) return noPic(); img.dataset.retried = 1;
+        const want = e.image;
+        chrome.runtime.sendMessage({ type: 'imgData', url: want }).then(async r => {
+          if (!r || !r.data || !img.isConnected || e.image !== want) return noPic();
+          const bin = atob(r.data.slice(r.data.indexOf(',') + 1)), u8 = new Uint8Array(bin.length);
+          for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
+          const bmp = await createImageBitmap(new Blob([u8], { type: (r.data.match(/^data:([^;,]+)/) || [])[1] || 'image/jpeg' }));
+          const cv = document.createElement('canvas'), S = 128, k = Math.max(S / bmp.width, S / bmp.height); // phủ kín ô như object-fit: cover
+          cv.width = S; cv.height = S; cv.setAttribute('role', 'img'); cv.setAttribute('aria-label', e.word);
+          cv.getContext('2d').drawImage(bmp, (S - bmp.width * k) / 2, (S - bmp.height * k) / 2, bmp.width * k, bmp.height * k);
+          if (bmp.close) bmp.close();
+          if (img.isConnected) img.replaceWith(cv);
+        }).catch(noPic);
+      };
       b.querySelectorAll('.spk[data-acc]').forEach(x => x.onclick = () => sayWord(x.dataset.acc));
       b.querySelector('.spk[data-slow]').onclick = () => sayWord(accent, 0.55);
       b.querySelectorAll('.spk[data-text]').forEach(x => x.onclick = () => speak(x.dataset.text, '', accent, +(x.dataset.rate || 0.95)));
@@ -478,9 +513,13 @@
       b.querySelector('#save').onclick = async ev => {
         const btn = ev.currentTarget;
         btn.disabled = true;
-        const { meanings, oxford, senses, found, audioUS, partial, ...entry } = e;
+        // Bấm lưu khi mới có bản tra nhanh (chưa có ảnh/câu ví dụ/âm thanh) → chờ bản đầy đủ (tối đa 8 giây) để thẻ không thiếu trường
+        let src = e;
+        if (src.partial) { try { const r = await Promise.race([full, new Promise(res => setTimeout(res, 8000))]); if (r && r.entry && r.entry.found && r.entry.word === src.word) src = r.entry; } catch (x) { /* dùng bản nhanh */ } }
+        const { meanings, oxford, senses, found, audioUS, partial, _imgTry, _t, _v, ...entry } = src;
+        const okImg = !!(entry.image && !badImg.has(imgKey(src))); // ảnh người dùng đã báo sai không vào thẻ
         try {
-          const r = await chrome.runtime.sendMessage({ type: 'save', entry: { ...entry, audio: audioFor(accent) }, context: context ? { text: context, vi: ctxVi, source: meta.source, title: meta.title } : null });
+          const r = await chrome.runtime.sendMessage({ type: 'save', entry: { ...entry, image: okImg ? entry.image : '', imageCredit: okImg ? entry.imageCredit || null : null, audio: audioFor(accent) }, context: context ? { text: context, vi: ctxVi, source: meta.source, title: meta.title } : null });
           if (!r || r.error) throw new Error(r && r.error);
           didSave = true;
           btn.textContent = tx('✓ Đã lưu vào flashcard');
@@ -492,7 +531,7 @@
 
     // Cụm từ không có trong từ điển: dịch cả cụm, mỗi từ bấm vào tra riêng, vẫn lưu được thành flashcard
     async function renderPhrase(vi) {
-      if (!vi) { try { vi = ((await chrome.runtime.sendMessage({ type: 'translate', text: word, tl: ML() })) || {}).vi || ''; } catch (x) { vi = ''; } }
+      if (!vi) { try { vi = ((await chrome.runtime.sendMessage({ type: 'translate', text: word, tl: ML(), sl: srcLang(word) })) || {}).vi || ''; } catch (x) { vi = ''; } }
       if (current !== word) return;
       const multi = /\s/.test(word);
       // Tên riêng: trong câu gốc viết hoa mà không đứng đầu câu (Switzerland, London…)
@@ -501,13 +540,13 @@
       const proper = !multi && toks.some((t, i) => i > 0 && t.replace(/[^A-Za-z'-]/g, '') === capW && !/[.!?:"“]$/.test(toks[i - 1]));
       const shown = proper ? capW : word;
       b.innerHTML = H(`
-        <div class="head"><div class="pic">${proper ? '📍' : multi ? '💬' : '📘'}</div><div style="min-width:0">
+        <div class="head"><div class="pic">${proper ? '📍' : multi ? '💬' : '📘'}</div><div class="mw0">
           <div>${hist.length ? `<button class="back" title="${tx('Quay lại')}">←</button>` : ''}<span class="w">${esc(shown)}</span><span class="chip">${tx(proper ? 'tên riêng' : multi ? 'cụm từ' : 'từ')}</span></div>
           <div class="spks"><button class="spk" data-say="1">${tx('🔊 Nghe')}</button><button class="spk" data-slow>🐢</button></div>
           <div class="vi">${esc(vi || '—')}</div></div></div>
         <div class="body">
           ${multi ? `<div class="def"><b>${tx('Tra từng từ:')}</b> ${word.split(/\s+/).map(x => `<span class="lw chipw" data-w="${esc(x)}">${esc(x)}</span>`).join(' ')}</div>` : `<div class="def">${proper ? tx('Tên riêng (địa danh, người, tổ chức…) – không có trong từ điển phổ thông.') : tx('Chưa có trong từ điển – đã dịch tự động.')}</div>`}
-          ${context ? `<div class="ctx"><b>${tx('📌 Ngữ cảnh')}</b> <button class="spk mini" data-text="${esc(context)}" title="${tx('Nghe cả câu')}">🔊</button><button class="spk mini" data-text="${esc(context)}" data-rate="0.65" title="${tx('Nghe chậm')}">🐢</button><br>${linkify(context, word)}<div class="ctxvi ex" style="margin-top:4px">${ctxVi ? FLAG(ML()) + ' ' + esc(ctxVi) : ''}</div></div>` : ''}
+          ${context ? `<div class="ctx"><b>${tx('📌 Ngữ cảnh')}</b> <button class="spk mini" data-text="${esc(context)}" title="${tx('Nghe cả câu')}">🔊</button><button class="spk mini" data-text="${esc(context)}" data-rate="0.65" title="${tx('Nghe chậm')}">🐢</button><br>${linkify(context, word)}<div class="ctxvi ex mt4">${ctxVi ? FLAG(ML()) + ' ' + esc(ctxVi) : ''}</div></div>` : ''}
         </div>
         <div class="foot"><button class="btn p" id="save">${multi ? tx('+ Lưu cụm từ') : tx('+ Lưu từ')}</button><button class="x" id="close" title="${tx('Đóng (Esc)')}">×</button></div>`);
       b.querySelector('[data-say]').onclick = () => speak(word, '', accent);
@@ -563,13 +602,13 @@
     if (document.caretRangeFromPoint) { const r = document.caretRangeFromPoint(x, y); if (!r) return null; node = r.startContainer; off = r.startOffset; }
     else if (document.caretPositionFromPoint) { const p = document.caretPositionFromPoint(x, y); if (!p) return null; node = p.offsetNode; off = p.offset; }
     if (!node || node.nodeType !== 3) return null;
-    const t = node.nodeValue, W = /[A-Za-z'’-]/;
+    const t = node.nodeValue, W = /[A-Za-z\u00c0-\u024f'’-]/; // gồm chữ Latin có dấu: café, naïve không bị cắt thành "caf", "na"
     let a = off, b = off;
     if (a > 0 && !W.test(t[a] || '') && W.test(t[a - 1])) { a--; b--; }
     while (a > 0 && W.test(t[a - 1])) a--;
     while (b < t.length && W.test(t[b])) b++;
     let word = t.slice(a, b).replace(/^['’-]+|['’-]+$/g, '');
-    if (!/^[A-Za-z][A-Za-z'’-]*$/.test(word) || word.length > 30) return null;
+    if (!/^[A-Za-z\u00c0-\u024f][A-Za-z\u00c0-\u024f'’-]*$/.test(word) || !/[A-Za-z]/.test(word) || /[×÷]/.test(word) || word.length > 30) return null;
     a = t.indexOf(word, a); const range = document.createRange(); range.setStart(node, a); range.setEnd(node, a + word.length);
     return { word: word.toLowerCase().replace(/’/g, "'"), range, rect: range.getBoundingClientRect() };
   }
@@ -583,6 +622,8 @@
   }
 
   // ---------- Dịch câu / đoạn văn: bôi đen → nút 🌐 (hoặc tự dịch) ----------
+  // Đoạn chọn có chữ ngoài tiếng Anh (Latin có dấu, Cyrillic, Ả Rập, Hindi, Thái, CJK, Hàn) → để Google tự nhận ngôn ngữ nguồn thay vì ép "en"
+  const srcLang = t => /[\u00c0-\u024f\u0370-\u04ff\u0590-\u06ff\u0900-\u097f\u0e00-\u0e7f\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]/.test(t) ? 'auto' : 'en';
   const isWordish = t => t.length <= 40 && /^[A-Za-z][A-Za-z'\- ]*[A-Za-z]$/.test(t) && t.split(/\s+/).length <= 3;
   const inEditable = el => el && el.closest && el.closest('input, textarea, select, [contenteditable]:not([contenteditable="false"]), [role="textbox"]');
 
@@ -619,22 +660,22 @@
     b.innerHTML = H(`<div class="muted">${tx('⏳ Đang dịch…')}</div>`);
     position(info.rect);
     let r;
-    try { r = await chrome.runtime.sendMessage({ type: 'translate', text: info.text, tl: ML() }); }
+    try { r = await chrome.runtime.sendMessage({ type: 'translate', text: info.text, tl: ML(), sl: srcLang(info.text) }); }
     catch (e) { b.innerHTML = H(`<div class="muted">${tx('Add-on vừa được cập nhật – hãy tải lại trang.')}</div>`); return; }
     if (current !== info.text) return;
-    const vi = (r && r.vi) || '';
-    const words = info.text.split(/\s+/).filter(x => /[A-Za-z]/.test(x)).map(x => x.replace(/^[^A-Za-z]+|[^A-Za-z'’-]+$/g, ''));
+    const vi = (r && r.vi) || '', autoSrc = srcLang(info.text) === 'auto';
+    const words = autoSrc ? [] : info.text.split(/\s+/).filter(x => /[A-Za-z]/.test(x)).map(x => x.replace(/^[^A-Za-z]+|[^A-Za-z'’-]+$/g, ''));
     const structs = (window.VBStruct ? VBStruct.analyze(info.text, 4) : []);
     if (structs.length && !GT) { try { GT = ((await chrome.runtime.sendMessage({ type: 'extJson', name: 'grammar-titles' })) || {}).data || {}; } catch (e) { GT = {}; } }
     let sentence = ''; try { sentence = info.range ? sentenceAround(info.range) : ''; } catch (e) { /* bỏ qua */ }
     const st = (await chrome.storage.local.get('settings')).settings || {};
     const accent = st.accent || 'en-GB';
     b.innerHTML = H(`
-      <div class="tr-head"><b>${tx('🌐 Dịch đoạn đã chọn')}</b><span class="chip">${ML() === 'vi' ? tx('Anh → Việt') : ML() === 'en' ? 'EN' : 'EN → ' + ML().toUpperCase()}</span><button class="x" id="close" title="${tx('Đóng (Esc)')}">×</button></div>
+      <div class="tr-head"><b>${tx('🌐 Dịch đoạn đã chọn')}</b><span class="chip">${autoSrc ? '→ ' + ML().toUpperCase() : ML() === 'vi' ? tx('Anh → Việt') : ML() === 'en' ? 'EN' : 'EN → ' + ML().toUpperCase()}</span><button class="x" id="close" title="${tx('Đóng (Esc)')}">×</button></div>
       <div class="body">
         <div class="src">${esc(info.text)}</div>
-        ${ML() === 'en' ? '' : `<div class="tr">${vi ? esc(vi) : tx('Không dịch được đoạn này.')}</div>`}
-        ${words.length > 1 && words.length <= 12 ? `<div class="def" style="margin-top:8px"><b>${tx('Tra từng từ:')}</b> ${words.map(x => `<span class="lw chipw" data-w="${esc(x.toLowerCase())}">${esc(x)}</span>`).join(' ')}</div>` : ''}
+        ${ML() === 'en' && !autoSrc ? '' : `<div class="tr">${vi ? esc(vi) : tx('Không dịch được đoạn này.')}</div>`}
+        ${words.length > 1 && words.length <= 12 ? `<div class="def mt8"><b>${tx('Tra từng từ:')}</b> ${words.map(x => `<span class="lw chipw" data-w="${esc(x.toLowerCase())}">${esc(x)}</span>`).join(' ')}</div>` : ''}
         ${structs.length ? `<div class="st"><b>${tx('🧩 Cấu trúc trong đoạn')}</b>${structs.map(x => `<div class="st-i"><div><span class="st-n">${esc(tx(x.name))}</span> <span class="st-m">“${esc(x.match)}”</span></div>${UI_LANG === 'vi' || tx(x.vi) !== x.vi ? `<div class="st-v">${esc(tx(x.vi))}</div>` : ''}<button class="st-l" data-lesson="${esc(x.lesson)}">${GT && GT[x.lesson] ? '📖 ' + tx('Học bài: {n} →', { n: esc(UI_LANG === 'vi' ? GT[x.lesson][0] : GT[x.lesson][1]) }) : tx('📐 Học bài ngữ pháp này →')}</button></div>`).join('')}</div>` : ''}
         <div id="aiEx"></div>
       </div>
@@ -648,12 +689,12 @@
     b.querySelectorAll('.lw[data-w]').forEach(x => x.onclick = ev => { ev.stopPropagation(); const w = x.dataset.w.replace(/[^a-z'-]/g, ''); if (w) show(w, info.rect, sentence || info.text, {}, 'nested'); });
     b.querySelector('#deep').onclick = async ev => {
       const btn = ev.currentTarget, out = b.querySelector('#aiEx'); btn.disabled = true;
-      out.innerHTML = H(`<div class="muted" style="margin-top:8px">${tx('⏳ AI đang phân tích…')}</div>`);
+      out.innerHTML = H(`<div class="muted mt8">${tx('⏳ AI đang phân tích…')}</div>`);
       let r; try { r = await chrome.runtime.sendMessage({ type: 'explain', text: info.text, sentence, lang: ML() }); } catch (e) { r = { error: 'FAILED' }; }
       btn.disabled = false;
       if (!r || r.error) {
         const msg = tx({ NO_KEY: 'Chưa bật AI. Mở Lexkite → Cài đặt → “Chấm bài bằng AI” để thêm khóa Gemini miễn phí của bạn.', QUOTA: 'Khóa AI tạm hết lượt miễn phí – thử lại sau ít phút.', BAD_KEY: 'Khóa AI không hợp lệ – kiểm tra lại trong Cài đặt.' }[r && r.error] || 'Không phân tích được lúc này.');
-        out.innerHTML = H(`<div class="def" style="margin-top:8px">${esc(msg)} ${r && (r.error === 'NO_KEY' || r.error === 'BAD_KEY') ? `<button class="st-l" id="openSet">${tx('⚙️ Mở Cài đặt')}</button>` : ''}</div>`);
+        out.innerHTML = H(`<div class="def mt8">${esc(msg)} ${r && (r.error === 'NO_KEY' || r.error === 'BAD_KEY') ? `<button class="st-l" id="openSet">${tx('⚙️ Mở Cài đặt')}</button>` : ''}</div>`);
         const os = out.querySelector('#openSet'); if (os) os.onclick = () => chrome.runtime.sendMessage({ type: 'openApp', hash: '#/settings' }).catch(() => {});
         return position(info.rect);
       }
@@ -670,7 +711,7 @@
       position(info.rect);
     };
     const say = rate => speak(info.text, '', accent, rate);
-    b.querySelector('#close').onclick = () => { speechSynthesis.cancel(); hide(); };
+    b.querySelector('#close').onclick = () => { if (window.speechSynthesis) speechSynthesis.cancel(); hide(); };
     b.querySelector('#listen').onclick = () => say(.95);
     b.querySelector('#slow').onclick = () => say(.6);
     b.querySelector('#copy').onclick = async ev => {
@@ -734,7 +775,7 @@
     if (root) { hideFab(); if (!box().hidden) hide(); }
   });
   document.addEventListener('keydown', e => {
-    if (!root) return;
+    if (!root || !alive()) return; // bản cũ sau khi add-on cập nhật: không bắt phím P/Esc của trang nữa
     if (e.key === 'Escape') { hide(); hideFab(); return; }
     if ((e.key === 'p' || e.key === 'P') && !box().hidden && !inEditable(e.target)) { const sp = root.querySelector('.spk[data-acc]'); if (sp) { e.preventDefault(); sp.click(); } }
   });
@@ -935,6 +976,9 @@
     const sel = window.getSelection();
     const range = sel && sel.rangeCount ? sel.getRangeAt(0) : null;
     const rect = range ? range.getBoundingClientRect() : { left: window.innerWidth / 2, top: 80, bottom: 80, width: 0 };
-    show(msg.word.trim().toLowerCase(), rect, range ? sentenceAround(range) : '');
+    const w = String(msg.word || '').replace(/\s+/g, ' ').trim();
+    if (!w) return;
+    if (!isWordish(w)) return translateSelection({ text: w.slice(0, 3000), range, rect });
+    show(w.toLowerCase(), rect, range ? sentenceAround(range) : '');
   });
 })();

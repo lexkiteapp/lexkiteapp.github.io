@@ -367,7 +367,10 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
           return reply({ tracks: (res && res.result) || [] });
         } catch (e) { return reply({ tracks: [] }); }
       }
-      case 'translate': return reply({ vi: !msg.tl || msg.tl === 'vi' ? await Dict.translateVi(msg.text) : msg.tl === 'en' ? '' : await Dict.translateTo(msg.text, msg.tl) });
+      case 'translate': { // sl 'auto': đoạn chọn không phải tiếng Anh (content.js srcLang) → Google tự nhận ngôn ngữ nguồn, kể cả khi đích là tiếng Anh
+        if (msg.sl === 'auto') return reply({ vi: await Dict.translateTo(String(msg.text || ''), msg.tl || 'vi', 'auto') });
+        return reply({ vi: !msg.tl || msg.tl === 'vi' ? await Dict.translateVi(msg.text) : msg.tl === 'en' ? '' : await Dict.translateTo(msg.text, msg.tl) });
+      }
       case 'notes': { // ghi chú học từ soạn sẵn (nằm trong gói add-on, theo chữ cái đầu)
         const w = String(msg.word || '').toLowerCase(), c = /^[a-z]/.test(w) ? w[0] : '_';
         self.__notes = self.__notes || {};

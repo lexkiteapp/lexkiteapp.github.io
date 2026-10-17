@@ -37,6 +37,7 @@ File này gom các **quy trình đã chốt** và **lỗi đã từng mắc** đ
 - Element khoá nhân vật gắn với tài khoản → tài khoản mới phải tạo lại từ `dna.png`.
 - Clip: Kling 2.5 Turbo 1080p 5 s (~25 credit) = **2 hành động/clip, cắt đôi**. Khung đầu = ảnh **tư thế trung tính đúng tỉ lệ DNA**; sau khi tải ảnh chờ ≥ 6 s và soi khung đầu trước khi bấm; prompt có "big clear motion" + nhắc phụ kiện nhận diện (kính, kẹp tóc, băng đô) "in every frame"; tránh hành động gây biến dạng (Leo ngả đầu → tóc buộc đuôi).
 - Clip ít chuyển động → **vai người nghe**, không bỏ. Clip lỗi một đoạn → cắt phần tốt.
+- **Phông xanh (chuẩn cho mọi clip mới):** khung đầu = nhân vật tư thế trung tính trên `#00B140` phẳng, không bóng (`brand/library/chars/<id>/green.png`); tách bằng `scripts/video/chroma_key.py` (ngưỡng Cb/Cr 8–24 + luật "G không trội hơn R,B → chắc chắn nhân vật"). Bài học 17/10: ngưỡng cũ 18–46 làm đồ **teal** (yếm Ama, cardigan Leo, quần Mia) trong suốt ~40 % → tưởng nhầm Kling vẽ sai màu. Luôn soi ảnh đã tách trên nền **magenta** trước khi chấm.
 - Bối cảnh: **phòng vẽ trọn nội thất** (lối trống giữa, phối cảnh 1 điểm, sàn rõ) – không ghép đồ vật rời giữa sàn (`docs/ASSET-LIBRARY.md` §0). Ảnh tham chiếu phong cách gửi bản nhỏ (`rooms/style-ref.jpg`, < 10 MB/lần tải).
 - Kling: nút Generate đôi khi phải bấm 2 lần (lần 1 chỉ "analyze"); settings (tỉ lệ, số ảnh) reset khi tải lại trang.
 

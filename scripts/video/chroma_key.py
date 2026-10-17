@@ -22,8 +22,9 @@ from scipy import ndimage as ndi
 ap = argparse.ArgumentParser()
 ap.add_argument('clip'); ap.add_argument('out')
 ap.add_argument('--fps', type=int, default=24)
-ap.add_argument('--inner', type=float, default=18.0, help='khoảng cách Cb/Cr dưới mức này = chắc chắn nền')
-ap.add_argument('--outer', type=float, default=46.0, help='trên mức này = chắc chắn nhân vật')
+ap.add_argument('--inner', type=float, default=8.0, help='khoảng cách Cb/Cr dưới mức này = chắc chắn nền (phông Kling đồng nhất, nhiễu nén ≈ 1–5)')
+ap.add_argument('--outer', type=float, default=24.0, help='trên mức này = chắc chắn nhân vật')
+ap.add_argument('--gdom', type=float, default=6.0, help='G − max(R,B) ≤ mức này → chắc chắn nhân vật (giữ teal/xanh dương/ô liu)')
 a = ap.parse_args()
 
 tmp = tempfile.mkdtemp()
@@ -52,6 +53,8 @@ def matte(img):
     _, cb, cr = ycbcr(img)
     d = np.hypot(cb - kcb, cr - kcr)
     al = np.clip((d - a.inner) / (a.outer - a.inner), 0, 1)
+    x = img.astype(np.float32)
+    al = np.maximum(al, (x[..., 1] - np.maximum(x[..., 0], x[..., 2]) <= a.gdom).astype(np.float32))  # không trội xanh lá → không phải phông (lỗi cũ: yếm teal của Ama bị trong suốt 40 %)
     solid = al > 0.5
     lab, n = ndi.label(solid)
     if n:
