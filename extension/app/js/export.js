@@ -66,6 +66,7 @@ html.lk-print{background:#fff}#lkPrint .ph{display:flex;justify-content:space-be
     d.head.appendChild(st);
   };
   const stamp = () => iso(Date.now());
+  const ok = r => !r || r === 'saved' || r === 'shared'; // UI.download: web trả undefined; app gốc trả kết quả LKFile (hủy/lỗi → không báo “đã xuất”)
   const slug = s => String(s || 'lexkite').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/gi, 'd').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40) || 'lexkite';
 
   // Bản in A4 → hộp in của trình duyệt có "Lưu thành PDF" (máy tính, Android, iPhone)
@@ -84,7 +85,7 @@ html.lk-print{background:#fff}#lkPrint .ph{display:flex;justify-content:space-be
 
   function backup() {
     const s = (g.App && App.state) || {};
-    g.UI.download(new Blob([JSON.stringify({ app: 'ielts-lexi', version: 2, exported: new Date().toISOString(), cards: s.cards, stats: s.stats, game: s.game, settings: s.settings }, null, 2)], { type: 'application/json' }), `lexkite-backup-${stamp()}.json`);
+    return g.UI.download(new Blob([JSON.stringify({ app: 'ielts-lexi', version: 2, exported: new Date().toISOString(), cards: s.cards, stats: s.stats, game: s.game, settings: s.settings }, null, 2)], { type: 'application/json' }), `lexkite-backup-${stamp()}.json`);
   }
 
   async function open(opts = {}) {
@@ -92,12 +93,13 @@ html.lk-print{background:#fff}#lkPrint .ph{display:flex;justify-content:space-be
     const { modal, closeModal, toast, download, esc } = g.UI, all = Object.values((g.App && App.state && App.state.cards) || {});
     const shown = opts.shown && opts.shown.length && opts.shown.length !== all.length ? opts.shown : null;
     let scope = shown ? 'shown' : 'all';
+    const native = !!(g.VBNative && VBNative.is); // app gốc: WebView không có hộp in (window.print không làm gì) → ẩn In/PDF, dùng Excel/JSON (mở bảng chia sẻ)
     const cards = () => scope === 'shown' ? shown : all, title = () => scope === 'shown' && opts.name ? opts.name : T('Sổ từ của bạn');
     const tile = (id, ic, b, s) => `<button type="button" class="xp-t" id="${id}"${all.length || id === 'xpJson' ? '' : ' disabled'}><span class="ic" aria-hidden="true">${ic}</span><span><b>${b}</b><small>${s}</small></span></button>`;
     const box = modal(`<div class="xp"><div><h2 id="xpTitle">📦 ${T('Dữ liệu của bạn')}</h2><p class="small muted" style="margin:.25rem 0 0">${T('Dữ liệu là của bạn – xuất bất cứ lúc nào, không bị giam giữ.')}</p></div>
       ${shown ? `<div class="xp-scope" role="radiogroup"><label><input type="radio" name="xpS" value="shown" checked> ${T('Đang lọc: {name} ({n})', { name: esc(opts.name || ''), n: shown.length })}</label><label><input type="radio" name="xpS" value="all"> ${T('Toàn bộ sổ từ ({n})', { n: all.length })}</label></div>` : `<p class="small muted" style="margin:0">📚 ${T('{n} từ', { n: all.length })}</p>`}
       <div class="xp-grid">${tile('xpXlsx', '📗', T('Bảng tính Excel (.xlsx)'), T('Từ, phiên âm, nghĩa, ví dụ, ngữ cảnh, cấp CEFR, lịch ôn – mở bằng Excel, Google Sheets, Numbers'))}
-      ${tile('xpPdf', '📄', T('In / Lưu PDF'), T('Danh sách từ khổ A4 – trong hộp in chọn “Lưu thành PDF”'))}
+      ${native ? '' : tile('xpPdf', '📄', T('In / Lưu PDF'), T('Danh sách từ khổ A4 – trong hộp in chọn “Lưu thành PDF”'))}
       ${tile('xpAnki', '🃏', T('Anki · CSV'), T('Gói .apkg, văn bản Anki hoặc CSV'))}
       ${tile('xpJson', '💾', T('Sao lưu đầy đủ (.json)'), T('Mọi thẻ, tiến độ FSRS, chuỗi ngày và XP – nhập lại được ở Cài đặt'))}</div>
       <div class="row end"><button type="button" class="btn ghost" data-close>${T('Đóng')}</button></div></div>`);
@@ -106,13 +108,13 @@ html.lk-print{background:#fff}#lkPrint .ph{display:flex;justify-content:space-be
     const $ = id => box.querySelector('#' + id);
     $('xpXlsx').onclick = async () => {
       const b = $('xpXlsx'); b.disabled = true;
-      try { const cs = cards(), bytes = await buildXlsx(HEAD(), rowsOf(cs), title()); download(new Blob([bytes], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }), `lexkite-${slug(title())}-${stamp()}.xlsx`); toast(T('Đã xuất {n} từ', { n: cs.length })); }
+      try { const cs = cards(), bytes = await buildXlsx(HEAD(), rowsOf(cs), title()); if (ok(await download(new Blob([bytes], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }), `lexkite-${slug(title())}-${stamp()}.xlsx`))) toast(T('Đã xuất {n} từ', { n: cs.length })); }
       catch (e) { toast(T('Không tải được – thử lại sau')); }
       b.disabled = false;
     };
-    $('xpPdf').onclick = () => { const cs = cards(), tt = title(); closeModal(); print(cs, tt); };
+    if ($('xpPdf')) $('xpPdf').onclick = () => { const cs = cards(), tt = title(); closeModal(); print(cs, tt); };
     $('xpAnki').onclick = () => App.anki('export', { cards: all, shown: shown || undefined, name: shown ? opts.name : T('Sổ từ') });
-    $('xpJson').onclick = () => { backup(); toast(T('Đã tải bản sao lưu')); };
+    $('xpJson').onclick = async () => { if (ok(await backup())) toast(T('Đã tải bản sao lưu')); };
   }
 
   g.Export = { open, buildXlsx, rowsOf, HEAD, print, backup };

@@ -1,7 +1,7 @@
 /* ✨ Thẻ khoe thành tích [S1] – ảnh Story 9:16 (1080×1920) & bài đăng 1:1 (1080×1080) vẽ bằng Canvas ngay trên máy.
  * Chỉ dùng số liệu THẬT của người học (chuỗi ngày, thẻ ôn hôm nay, XP 7 ngày, % nhớ của phiên vừa xong, mục tiêu thi).
  * Bảo vệ cái tôi: ô có giá trị 0 bị ẩn, % nhớ chỉ hiện khi ≥ 80%; chưa có gì để khoe → lời động viên, không có thẻ.
- * Kit lấy từ web/js/kit.js (nguồn duy nhất), QR từ js/lib/qr.js. Chia sẻ: navigator.share({files}) → không hỗ trợ thì tải ảnh + chép link.
+ * Kit lấy từ web/js/kit.js (nguồn duy nhất), QR từ js/lib/qr.js. Chia sẻ qua LKFile (js/lib/save-file.js): navigator.share({files}) / bảng chia sẻ app gốc → không hỗ trợ thì tải ảnh + chép link.
  * Nạp lười qua App.need('share') (BUNDLES trong app.js); CSS & bản tiếng Anh (js/i18n/en/share.js) cũng nạp khi mở. */
 (function (g) {
   'use strict';
@@ -109,17 +109,17 @@
       <div class="sc-act"><button type="button" class="btn primary" id="scShare">📤 ${T('Chia sẻ')}</button><button type="button" class="btn" id="scDl">⬇️ ${T('Tải ảnh')}</button><button type="button" class="btn ghost" data-close>${T('Đóng')}</button></div></div>`);
     box.setAttribute('aria-labelledby', 'scTitle');
     const cv = box.querySelector('#scCv'), name = f => `lexkite-${f === 'story' ? 'story' : 'post'}-${new Date().toISOString().slice(0, 10)}.png`;
-    let fmt = 'story', blob = null, file = null, seq = 0;
-    // Vẽ xong là tạo sẵn file ảnh → lúc bấm "Chia sẻ" gọi navigator.share NGAY (Safari iOS đòi thao tác người dùng còn hiệu lực)
-    const draw = async () => { const my = ++seq; blob = file = null; await render(cv, S, fmt === 'story'); const b = await toBlob(cv); if (my !== seq) return; blob = b; try { file = b && new File([b], name(fmt), { type: 'image/png' }); } catch (e) { file = null; } };
+    let fmt = 'story', blob = null, seq = 0;
+    // Vẽ xong là tạo sẵn ảnh → lúc bấm "Chia sẻ" gọi navigator.share NGAY (Safari iOS đòi thao tác người dùng còn hiệu lực)
+    const draw = async () => { const my = ++seq; blob = null; await render(cv, S, fmt === 'story'); const b = await toBlob(cv); if (my !== seq) return; blob = b; };
     box.querySelectorAll('[data-f]').forEach(b => b.onclick = () => { if (fmt === b.dataset.f) return; fmt = b.dataset.f; box.querySelectorAll('[data-f]').forEach(x => x.setAttribute('aria-selected', String(x === b))); draw(); });
     const save = async () => { const b = blob || await toBlob(cv); if (b) download(b, name(fmt)); else toast(T('Không tải được – thử lại sau')); };
     box.querySelector('#scDl').onclick = save;
+    // Web: navigator.share({files}) → không được thì tải ảnh + chép link. App gốc: bảng chia sẻ hệ điều hành (js/lib/save-file.js)
     box.querySelector('#scShare').onclick = async () => {
-      const canFiles = (() => { try { return !!(file && navigator.canShare && navigator.canShare({ files: [file] })); } catch (e) { return false; } })();
-      if (canFiles) { try { await navigator.share({ files: [file], text: shareText() }); return; } catch (e) { if (e && e.name === 'AbortError') return; } }
-      await save(); // máy tính/trình duyệt chưa chia sẻ được ảnh → tải ảnh + chép link để dán kèm
-      try { await navigator.clipboard.writeText(shareText()); toast(T('Đã tải ảnh – link đã được chép, dán kèm khi đăng nhé')); } catch (e) { /* bỏ qua */ }
+      const b = blob || await toBlob(cv); if (!b || !g.LKFile) return save();
+      let r; try { r = await LKFile.save(b, name(fmt), { share: true, title: T('Khoe thành tích'), text: shareText() }); } catch (e) { return toast(T('Không tải được – thử lại sau')); }
+      if (r === 'saved') try { await navigator.clipboard.writeText(shareText()); toast(T('Đã tải ảnh – link đã được chép, dán kèm khi đăng nhé')); } catch (e) { /* bỏ qua */ }
     };
     // Đóng hộp → giải phóng bộ nhớ canvas (Safari iOS giới hạn tổng dung lượng canvas)
     const m = d.getElementById('modal'); if (m && 'MutationObserver' in g) { const mo = new MutationObserver(() => { if (m.hidden || !cv.isConnected) { cv.width = cv.height = 0; mo.disconnect(); } }); mo.observe(m, { attributes: true, attributeFilter: ['hidden'], childList: true, subtree: true }); }

@@ -340,6 +340,7 @@
   const ring = (pct, label, color) => `<div class="ring" style="--p:${Math.round(pct)};${color ? `--c:${color}` : ''}"><b>${label}</b></div>`;
 
   function download(blob, name) {
+    if (g.VBNative && VBNative.is) return (g.LKFile ? Promise.resolve() : App.need('file')).then(() => LKFile.save(blob, name)).catch(() => { toast(t('Không tải được – thử lại sau')); return 'error'; }); // app gốc → js/lib/save-file.js
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob); a.download = name;
     document.body.appendChild(a); a.click(); a.remove();
