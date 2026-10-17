@@ -59,7 +59,13 @@ def matte(img):
     lab, n = ndi.label(solid)
     if n:
         sizes = ndi.sum(solid, lab, range(1, n + 1))
-        keep = np.isin(lab, 1 + np.nonzero(sizes >= max(400, sizes.max() * 0.02))[0])
+        # Chỉ giữ nhân vật chính (mảng lớn nhất) + mảng đủ lớn nằm trong khung bao của nó (nới 4 %) – loại tay/vật lạ thò vào từ mép khung (lỗi Kling 17/10)
+        big = int(np.argmax(sizes)) + 1; sl = ndi.find_objects(lab)
+        ys, xs = sl[big - 1]; py, px = int(img.shape[0] * 0.04), int(img.shape[1] * 0.04)
+        Y0, Y1, X0, X1 = ys.start - py, ys.stop + py, xs.start - px, xs.stop + px
+        ok = [i + 1 for i, s in enumerate(sl) if s is not None and sizes[i] >= max(400, sizes.max() * 0.02)
+              and (i + 1 == big or (s[0].start >= Y0 and s[0].stop <= Y1 and s[1].start >= X0 and s[1].stop <= X1))]
+        keep = np.isin(lab, ok)
         al = al * ndi.binary_dilation(keep, iterations=3)
         al = np.maximum(al, ndi.binary_fill_holes(keep).astype(np.float32) * (al > 0.02))
     return al
