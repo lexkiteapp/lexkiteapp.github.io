@@ -231,27 +231,35 @@ const STEPS = {
     const vr = s.variant; g('variety', !!vr && !vr.relaxed, vr ? `${vr.format.id} · không trùng ≥ 3 thành phần với ${(s.history || []).length} video gần nhất${vr.relaxed ? ' – CHƯA ĐẠT' : ''}` : 'không có biến thể');
     g('consistency', cons.ok, cons.ok ? 'bối cảnh – nhân vật – lời thoại khớp' : `${cons.reasons.length} lỗi: ${cons.reasons[0]}`);
     // Visual hook 2 s đầu (chữ + chuyển động + tương phản, cổng ≥ 90) và QA màu (cháy/bết < 1%, bão hòa trong biên, ΔE da↔phòng) – chỉ khi dựng bằng Remotion
-    let vh = null, grade = null;
+    let vh = null, grade = null, lay = null;
+    // Bố cục chữ (không OCR – đo từ props.json mà Remotion vẽ): không 2 lớp chữ giao nhau, trong vùng an toàn, chữ phụ đề hiện = kịch bản (đúng dấu cách)
+    if (s.timeline && fs.existsSync(P(s.timeline))) {
+      lay = M.layoutGate(JSON.parse(fs.readFileSync(P(s.timeline), 'utf8')), s.lines);
+      g('layout', lay.ok, lay.ok ? 'chữ overlay không chồng nhau · trong vùng an toàn · phụ đề đúng dấu cách' : `${lay.bad.length} lỗi: ${lay.bad.slice(0, 2).join('; ')}`);
+    }
     if (s.timeline && fs.existsSync(v)) {
       const tl = JSON.parse(fs.readFileSync(P(s.timeline), 'utf8'));
       vh = M.visualHookScore({ frames: framesAt(v, { dur: 2 }), tl });
       g('visual-hook', vh.score >= 90, `${vh.score}/100 (chữ ${vh.text} · chuyển động ${vh.motion} · tương phản ${vh.contrast}) – cổng ≥ 90`);
-      const box = sh => { const a = (sh.actors || []).find(x => x.role === 'speaker') || (sh.actors || [])[0]; return a ? [(a.x - a.h * 0.28) / w, (a.y - a.h) / h, (a.x + a.h * 0.28) / w, a.y / h] : null; };
+      // hộp nhân vật theo VỊ TRÍ TRÊN MÀN HÌNH (qua khung máy ở giữa cảnh – trước đây dùng toạ độ canvas nên cảnh đơn/cận đo lệch chỗ)
+      const box = sh => { const a = (sh.actors || []).find(x => x.role === 'speaker') || (sh.actors || [])[0]; if (!a) return null;
+        const c = sh.cam ? M.camAt(sh.cam, 0.5) : { cx: w / 2, cy: h / 2, z: 1 }, [x0, y0] = M.toScreen(c, a.x - a.h * 0.28, a.y - a.h, w, h), [x1, y1] = M.toScreen(c, a.x + a.h * 0.28, a.y, w, h), cl = x => Math.max(0, Math.min(1, x));
+        return [cl(x0 / w), cl(y0 / h), cl(x1 / w), cl(y1 / h)]; };
       const stats = tl.shots.filter(x => x.framing !== 'card').slice(0, 8).map(x => ({ ...M.gradeStats(framesAt(v, { from: (x.start + x.end) / 2, dur: 0.05, fps: 30, w: 270, h: 480 })[0] || { w: 1, h: 1, data: new Uint8Array(3) }, box(x)), grade: x.grade }));
       const gv = M.gradeVerdict(stats); grade = { stats, ...gv };
       const dEs = stats.map(x => x.dE).filter(x => x != null);
       g('grade', gv.ok, gv.ok ? `cháy/bết < 1% · bão hòa TB ${(stats.reduce((a, x) => a + x.sat, 0) / Math.max(1, stats.length)).toFixed(2)} · ΔE da↔phòng ≤ ${dEs.length ? Math.max(...dEs) : '—'}` : gv.bad.slice(0, 2).join('; '));
     }
-    const scores = { hook: hookText ? V.hookScore(hookSec) : 5, knowledge: null, lipsync: V.lipsyncScore(lipMs), audio: hasAudio ? V.audioScore(lufs) : 0, subs: ex.ok && s.burned && safe.ok && ctr >= 4.5 ? 10 : 0, pacing: pace.score, brand: brandOk ? 10 : 0, cta: ctaOk ? 5 : 0, share: null };
+    const scores = { hook: hookText ? V.hookScore(hookSec) : 5, knowledge: null, lipsync: V.lipsyncScore(lipMs), audio: hasAudio ? V.audioScore(lufs) : 0, subs: ex.ok && s.burned && safe.ok && ctr >= 4.5 && (!lay || lay.ok) ? 10 : 0, pacing: pace.score, brand: brandOk ? 10 : 0, cta: ctaOk ? 5 : 0, share: null };
     for (const k of cons.zero) scores[k] = 0; // vi phạm nhất quán → 0 điểm mục tương ứng
     if (vr && vr.relaxed) scores.pacing = 0; // lặp tổ hợp = nhàm → không đạt nhịp/độ mới, chặn đăng
-    const hookBad = !!vh && vh.score < 90;
-    s.qa = { scores, gates, blocked: !cons.ok || !!(vr && vr.relaxed) || hookBad, consistency: [...cons.reasons, ...(vr && vr.relaxed ? ['[pacing] tổ hợp trùng ≥ 3 thành phần với video gần đây'] : []), ...(hookBad ? [`[hook] visual hook ${vh.score}/100 < 90`] : [])], variant: vr ? vr.fp : null, metrics: { lufs: lufs != null && isFinite(lufs) ? lufs : null, lipsyncMs: lipMs, shots: (s.shots || []).length, pace, align: s.align, engine: s.engine || null, visualHook: vh, grade } };
+    const hookBad = !!vh && vh.score < 90, layBad = !!lay && !lay.ok; // chữ chồng chữ / dính chữ = lỗi nhìn thấy → subs 0 + chặn đăng
+    s.qa = { scores, gates, blocked: !cons.ok || !!(vr && vr.relaxed) || hookBad || layBad, consistency: [...cons.reasons, ...(vr && vr.relaxed ? ['[pacing] tổ hợp trùng ≥ 3 thành phần với video gần đây'] : []), ...(hookBad ? [`[hook] visual hook ${vh.score}/100 < 90`] : []), ...(layBad ? lay.bad.slice(0, 5).map(x => `[subs] ${x}`.slice(0, 200)) : [])], variant: vr ? vr.fp : null, metrics: { lufs: lufs != null && isFinite(lufs) ? lufs : null, lipsyncMs: lipMs, shots: (s.shots || []).length, pace, align: s.align, engine: s.engine || null, visualHook: vh, grade, layout: lay ? { ok: lay.ok, overlaps: lay.overlaps.length, unsafe: lay.unsafe.length, joins: lay.joins.length } : null } };
     s.files = { duration: +dur.toFixed(2), size: fs.existsSync(v) ? fs.statSync(v).size : 0, width: w, height: h, todo: s.todo || [] };
     console.log(gates.map(x => `${x.ok ? '✓' : '✗'} ${x.k}: ${x.note}`).join('\n'));
     if (LOCAL && vr) { const h = (fs.existsSync(HIST) ? JSON.parse(fs.readFileSync(HIST, 'utf8')) : []).filter(x => x.id !== ID); h.push({ id: ID, ...vr.fp }); fs.writeFileSync(HIST, JSON.stringify(h.slice(-200))); }
     const known = Object.values(scores).filter(x => x != null).reduce((a, b) => a + b, 0);
-    console.log(`  điểm tự chấm ${known}/75 (+ knowledge 20, share 5 chấm tay)${s.qa.blocked ? ' · CHẶN ĐĂNG (lỗi nhất quán)' : ''}`);
+    console.log(`  điểm tự chấm ${known}/75 (+ knowledge 20, share 5 chấm tay)${s.qa.blocked ? ' · CHẶN ĐĂNG' : ''}`);
   },
   // 10) Gọi lại Studio: files (object_id GrabCast, link xem trước) + điểm QA (+ blocked/consistency). --ok failure → báo lỗi để job quay về script_ok. --local: chỉ in.
   async report(s) {

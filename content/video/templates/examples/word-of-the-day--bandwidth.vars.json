@@ -3,7 +3,7 @@
  "scene": "office",
  "vars": {
   "word": "bandwidth",
-  "hookLine": "No bandwidth this week.",
+  "hookLine": "No bandwidth.",
   "question": "Bandwidth? Like the Wi-Fi?",
   "meaning": "time and energy to take on more work",
   "example": "Do you have the bandwidth to help on Friday?",

@@ -29,7 +29,7 @@
 | Kiến thức đúng 100% (ngữ pháp, nghĩa, phát âm, CEFR) | 20 | LanguageTool + content-check + duyệt |
 | Khớp miệng (lệch < 80 ms) & biểu cảm đúng câu thoại | 15 | có |
 | Âm thanh: −16 LUFS ±1, giọng rõ, không rè, nhạc nền ≤ −24 dB | 10 | có |
-| Phụ đề karaoke: đúng chữ 100%, đúng nhịp, trong vùng an toàn, tương phản ≥ 4.5:1 | 10 | có |
+| Phụ đề karaoke: đúng chữ 100% (cả dấu cách giữa từ khi hiện), đúng nhịp, trong vùng an toàn, không chồng lên chữ hook/thẻ/watermark (cổng `layout`), tương phản ≥ 4.5:1 | 10 | có |
 | Nhịp dựng: cắt cảnh 2–4 s, không khung tĩnh > 4 s | 10 | có |
 | Thương hiệu & pháp lý: đúng nhân vật/màu, không nhãn hiệu đối thủ, không nhạc/ảnh bản quyền | 10 | có (brand-check) |
 | Kêu gọi hành động: link/QR đúng bài trong app | 5 | có |

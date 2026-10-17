@@ -167,12 +167,15 @@ export function studioStage(actors, w = 1080, h = 1920) {
   const n = actors.length, hh = Math.round(h * (n > 2 ? 0.44 : 0.5)), order = [...actors].sort((a, b) => a.x - b.x);
   return actors.map(a => { const k = order.indexOf(a), x = n === 1 ? w / 2 : w * (0.27 + 0.46 * k / (n - 1)); return { ...a, x: Math.round(x), y: Math.round(h * 0.87), h: hh }; });
 }
-export function captionY(shot, capY, h = 1920, half = 95) {
+export function captionY(shot, capY, h = 1920, half = 95, bands = []) {
   const heads = ((shot && shot.actors) || []).map(a => [a.y - a.h * 1.08, a.y - a.h * 0.68]);
-  const hit = y => heads.some(([t, b]) => y * h + half > t && y * h - half < b);
-  if (!hit(capY)) return capY;
-  const maxY = (h - SAFE.bottom - half) / h, c = [0.74, 0.7, 0.78, 0.5, 0.45, 0.4].filter(y => y <= maxY).find(y => !hit(y));
-  return c != null ? c : Math.min(maxY, 0.74);
+  const hit = y => heads.some(([t, b]) => y * h + half > t && y * h - half < b), band = y => bands.some(([t, b]) => y * h + half > t - 12 && y * h - half < b + 12);
+  const maxY = (h - SAFE.bottom - half) / h, minY = (SAFE.top + 40 + half) / h;
+  if (!hit(capY) && !band(capY) && capY <= maxY + 1e-9) return capY;
+  const cs = [0.74, 0.7, 0.78, 0.5, 0.45, 0.4].filter(y => y <= maxY && y >= minY), c = cs.find(y => !hit(y) && !band(y)) ?? cs.find(y => !band(y));
+  if (c != null) return c;
+  for (let y = maxY; y >= minY; y -= 0.005) if (!band(y)) return +y.toFixed(4); // chữ đè chữ tệ hơn chữ đè thân
+  return Math.min(maxY, 0.74);
 }
 
 // ---------- Máy quay kiểu phim (round 2) ----------
@@ -215,15 +218,136 @@ export function shotCamera(shot, actors, { room = null, W = 1080, H = 1920 } = {
 export const camAt = (cam, u) => { const e = u < 0 ? 0 : u > 1 ? 1 : u * u * (3 - 2 * u); return { cx: cam.from.cx + (cam.to.cx - cam.from.cx) * e, cy: cam.from.cy + (cam.to.cy - cam.from.cy) * e, z: cam.from.z + (cam.to.z - cam.from.z) * e }; };
 export const toScreen = (c, x, y, W = 1080, H = 1920) => [(x - c.cx) * c.z + W / 2, (y - c.cy) * c.z + H / 2];
 // Phụ đề không bao giờ đè mặt/thân (đỉnh đầu → hông): ưu tiên dưới đầu gối, rồi dưới hông, rồi trên đầu; trong vùng an toàn nền tảng.
-export function captionSlot(cam, actors, nLines = 2, { W = 1080, H = 1920, capY = 0.6, font = 92, faceOnly = false } = {}) {
-  const half = (nLines * font * 1.12 + 24) / 2, lo = SAFE.top + 40 + half, hi = H - SAFE.bottom - half;
+export function captionSlot(cam, actors, nLines = 2, { W = 1080, H = 1920, capY = 0.6, font = 92, faceOnly = false, half: half0 = null, bands = [] } = {}) {
+  const half = half0 || (nLines * font * 1.12 + 24) / 2, lo = SAFE.top + 40 + half, hi = H - SAFE.bottom - half;
+  const clear = y => bands.every(([t, b]) => y + half < t - 12 || y - half > b + 12); // không đè lớp chữ khác (hook / thẻ / watermark)
   const sc = actors.map(a => { const [, t] = toScreen(cam, a.x, a.y - a.h, W, H), [, hip] = toScreen(cam, a.x, a.y - (faceOnly ? 0.8 : 0.48) * a.h, W, H), [, knee] = toScreen(cam, a.x, a.y - 0.3 * a.h, W, H); return { t, hip, knee }; });
-  if (!sc.length) return Math.min(Math.max(capY * H, lo), hi) / H;
-  const free = y => sc.every(b => y + half < b.t - 8 || y - half > b.hip + 8);
-  const kneeY = Math.max(...sc.map(b => b.knee)) + 16 + half, hipY = Math.max(...sc.map(b => b.hip)) + 16 + half, headY = Math.min(...sc.map(b => b.t)) - 16 - half;
-  for (const y of [kneeY, hipY, headY]) if (y >= lo && y <= hi && free(y)) return y / H;
-  for (let y = hi; y >= lo; y -= 10) if (free(y)) return y / H; // quét từ dưới lên
+  const free = y => clear(y) && sc.every(b => y + half < b.t - 8 || y - half > b.hip + 8);
+  if (!sc.length) { const y0 = Math.min(Math.max(capY * H, lo), hi); if (clear(y0)) return y0 / H; }
+  else {
+    const kneeY = Math.max(...sc.map(b => b.knee)) + 16 + half, hipY = Math.max(...sc.map(b => b.hip)) + 16 + half, headY = Math.min(...sc.map(b => b.t)) - 16 - half;
+    for (const y of [kneeY, hipY, headY]) if (y >= lo && y <= hi && free(y)) return y / H;
+    for (let y = hi; y >= lo; y -= 10) if (free(y)) return y / H; // quét từ dưới lên
+  }
+  for (let y = hi; y >= lo; y -= 10) if (clear(y)) return y / H; // không chỗ trống thân → vùng dưới an toàn, chỉ cần không đè chữ khác
   return hi / H;
+}
+
+// ---------- Bố cục chữ overlay (Remotion Short.jsx dùng đúng các số này; cổng QA "layout" đo lại từ props) ----------
+// Ước lượng bề rộng chữ LexDisplay/LexBody ExtraBold theo em (thiên rộng → hộp ước lượng ≥ hộp thật, cổng an toàn).
+const CW = c => (/[ilI.,:;!'’|]/.test(c) ? 0.32 : /[fjtr()\-"“”?]/.test(c) ? 0.45 : /[MWmw@%]/.test(c) ? 0.95 : /[A-Z]/.test(c) ? 0.72 : /[0-9]/.test(c) ? 0.62 : c === ' ' ? 0.28 : 0.58);
+export const textW = (s, fs) => Math.ceil([...String(s)].reduce((a, c) => a + CW(c), 0) * fs);
+export const OVERLAY = { left: 60, right: 140 }; // khối chữ hook/phụ đề: left 60 → right 140 (căn giữa x = 500)
+const intersects = (a, b) => a[0] < b[2] && b[0] < a[2] && a[1] < b[3] && b[1] < a[3];
+const cx0 = (W = 1080) => OVERLAY.left + (W - OVERLAY.left - OVERLAY.right) / 2;
+export const CAP_FONT = { 'mega-word': 150, 'karaoke-bar': 70 }; // còn lại 92
+// 1 trang phụ đề: cỡ chữ (tự thu nhỏ cho vừa 880 px), khoảng cách từ (margin mỗi bên = 0,28 em), viền, độ phóng tối đa từng từ
+// (pop/đang đọc) sao cho khoảng trống nhìn thấy giữa 2 từ luôn ≥ 0,2 em – chữ không dính nhau khi từ đổi màu/phóng ("onFriday?").
+export function captionLayout(p, style, { W = 1080 } = {}) {
+  const upper = style === 'bounce-outline' || style === 'mega-word', bar = style === 'karaoke-bar';
+  const avail = W - OVERLAY.left - OVERLAY.right - (bar ? 60 : 0), sw = bar ? 0 : style === 'mega-word' ? 16 : 12;
+  let F = CAP_FONT[style] || 92, m = 0, ws = [], rows = [];
+  for (let k = 0; k < 5; k++) {
+    m = Math.round(0.28 * F);
+    ws = p.words.map(w => textW(upper ? w.w.toUpperCase() : w.w, F) + (w.key ? 48 : 0)); // hộp vàng từ khóa: padding 20 × 2 + bóng 8
+    rows = []; let i = 0; for (const n of (p.breaks || [ws.length])) { rows.push(ws.slice(i, i + n).reduce((a, x) => a + x + 2 * m, 0)); i += n; }
+    const mx = Math.max(...rows); if (mx <= avail) break; F = Math.floor(F * avail / mx * 0.98);
+  }
+  const minGap = Math.round(0.2 * F), room = 2 * m - sw - minGap;
+  const maxS = ws.map(x => (bar ? 1 : +Math.max(1, Math.min(1.12, 1 + room / x)).toFixed(3)));
+  const lineH = F * 1.12, grow = (Math.max(...maxS) - 1) * lineH / 2;
+  const half = Math.ceil((rows.length * lineH + (bar ? 44 : 0)) / 2 + sw / 2 + grow + (style === 'bounce-outline' ? 14 : 0) + 6);
+  return { font: F, gap: m, stroke: sw, minGap, widths: ws, maxS, rowW: rows, nl: rows.length, half, width: Math.max(...rows) + (bar ? 60 : 0) };
+}
+// Hook (badge + tiêu đề 1–2 dòng): xuống dòng TÍNH SẴN (cân 2 dòng, thu cỡ chữ nếu không vừa) → Remotion vẽ đúng số dòng này.
+export function hookLayout(hook, layout, { W = 1080, H = 1920 } = {}) {
+  const ws = String(hook.text || '').toUpperCase().split(/\s+/).filter(Boolean), avail = W - OVERLAY.left - OVERLAY.right - 14;
+  const wOf = (f, a, b) => ws.slice(a, b).reduce((s, w) => s + textW(w, f) + 28, 0);
+  let fs = ws.join(' ').length > 22 ? 84 : 100, lines = [ws.length];
+  for (; ; fs -= 6) {
+    if (wOf(fs, 0, ws.length) <= avail) { lines = [ws.length]; break; }
+    let best = null;
+    for (let k = 1; k < ws.length; k++) { const a = wOf(fs, 0, k), b = wOf(fs, k, ws.length); if (a <= avail && b <= avail && (!best || Math.max(a, b) + (FUNC.test(ws[k - 1].replace(/\W/g, '')) ? 40 : 0) < best.c)) best = { k, c: Math.max(a, b) + (FUNC.test(ws[k - 1].replace(/\W/g, '')) ? 40 : 0) }; }
+    if (best) { lines = [best.k, ws.length - best.k]; break; }
+    if (fs <= 60) { lines = [ws.length]; break; }
+  }
+  const P = hook.pattern, side = 120 + 18 + (['quiz-timer', 'challenge'].includes(P) ? 138 : P === 'versus' ? 18 + textW('VS', 96) : P === 'countdown-list' ? 18 + textW('3', 130) : 0);
+  const bw = f => textW(String(hook.badge || '').toUpperCase(), f) + 2 * String(hook.badge || '').length + 60 * f / 46;
+  let badgeFs = 46; while (badgeFs > 28 && side + bw(badgeFs) > W - OVERLAY.left - OVERLAY.right) badgeFs -= 2;
+  const rowH = P === 'countdown-list' ? 156 : 120, top = Math.round(layout.hookY * H), headH = lines.length * fs * 1.04 + 14;
+  const bottom = Math.ceil(top + rowH + 26 + headH + (P === 'wait-for-it' ? 26 + 82 : 0) + 24); // +24: chữ bật từ dưới lên (translateY 40 × (1 − s))
+  let i = 0; const lw = lines.map(n => { const x = wOf(fs, i, i + n); i += n; return x; });
+  const width = Math.min(W - OVERLAY.left - OVERLAY.right, Math.max(side + bw(badgeFs), ...lw)), c = cx0(W);
+  return { fs, lines, badgeFs, top, bottom, box: [Math.round(c - width / 2), top - 10, Math.round(c + width / 2), bottom] };
+}
+// Thẻ payoff: hộp ước lượng (nhãn + chữ tự xuống dòng trong 618 px + sticker 130, phóng lò xo ±4 %, tem CORRECT nhô 60 px)
+export function cardBox(c, layout, { W = 1080, H = 1920 } = {}) {
+  const fs = String(c.text).length > 18 ? 64 : 82, avail = W - 70 - 150 - 72 - 12 - 130 - 28;
+  let n = 1, cur = 0; for (const w of String(c.text).split(/\s+/)) { const x = textW(w + ' ', fs); if (cur && cur + x > avail) { n++; cur = 0; } cur += x; }
+  const inner = Math.max(130, 36 * 1.25 + n * fs * 1.05 + (c.style === 'meter' && c.kind !== 'dont' ? 36 : 0)), h = 30 + 34 + 12 + inner + 18, top = layout.cardY * H, pad = 0.04 * h;
+  return [70, Math.round(top - pad - (c.style === 'stamp-correct' && c.kind !== 'dont' ? 60 : 0)), W - 150, Math.round(top + h + pad)];
+}
+export const watermarkBox = wm => [wm.x, wm.y, Math.ceil(wm.x + wm.h * 0.95 + 10 + textW('lexkite', wm.h * 0.92)), wm.y + wm.h];
+// Các lớp chữ đang hiện tại thời điểm t (đúng điều kiện hiện/ẩn của Short.jsx) → [{ id, kind, text, box:[x0,y0,x1,y1] }]
+export function overlayBoxes(tl, t) {
+  const out = [], W = tl.w || 1080, H = tl.h || 1920, lay = (tl.theme && tl.theme.layout) || LAYOUTS['stage-center'], inCard = tl.endCard && t >= tl.endCard.start;
+  const hk = tl.hook; if (hk && t >= (hk.start || 0) && t <= hk.end + 0.3) out.push({ id: 'hook', kind: 'hook', text: `${hk.badge} · ${hk.text}`, box: hk.box || hookLayout(hk, lay, { W, H }).box });
+  if (!inCard) {
+    const pg = (tl.pages || []).find(p => t >= p.start && t < p.end);
+    if (pg) { const L = pg.gap != null && pg.half && pg.width ? pg : captionLayout(pg, tl.theme && tl.theme.caption, { W }), y = pg.y * H, c = cx0(W);
+      out.push({ id: `page@${pg.start}`, kind: 'caption', text: pg.words.map(w => w.w).join(' '), box: [Math.round(c - L.width / 2), Math.round(y - L.half), Math.round(c + L.width / 2), Math.round(y + L.half)] }); }
+    (tl.cards || []).forEach((c, i) => { if (t >= c.start && t <= c.end + 0.3) out.push({ id: `card${i}`, kind: 'card', text: c.text, box: c.box || cardBox(c, lay, { W, H }) }); });
+  }
+  const wm = tl.watermark; if (wm && t >= wm.from && t <= wm.until) out.push({ id: 'watermark', kind: 'watermark', text: 'lexkite', box: watermarkBox(wm) });
+  return out;
+}
+// Chữ phụ đề "nhìn thấy" của 1 câu dựng lại từ bố cục: 2 từ liền nhau chỉ có dấu cách nếu khe hở thật (sau phóng tối đa) ≥ 0,2 em.
+// props cũ (không có gap/maxS) dùng thông số cũ: margin 12 px, phóng 1,06 × vượt đà lò xo ~1,17 → dính chữ khi từ dài (lỗi "onFriday?").
+export function renderedCaption(pages, style) {
+  return pages.map(p => {
+    const L = p.gap != null ? p : null, F = (L && L.font) || CAP_FONT[style] || 92, upper = style === 'bounce-outline' || style === 'mega-word';
+    const gap = L ? L.gap : 12, sw = L ? L.stroke : style === 'karaoke-bar' ? 0 : style === 'mega-word' ? 16 : 12, minGap = L ? L.minGap : Math.round(0.2 * F);
+    const wd = p.words.map(w => textW(upper ? w.w.toUpperCase() : w.w, F) + (w.key ? 48 : 0)), ms = p.words.map(w => (w.maxS != null ? w.maxS : style === 'karaoke-bar' ? 1 : 1.24));
+    let s = '', k0 = 0; const rows = []; for (const n of (p.breaks || [p.words.length])) { rows.push([k0, k0 + n]); k0 += n; }
+    p.words.forEach((w, i) => {
+      if (i) { const newRow = rows.some(([a]) => a === i), vis = 2 * gap - sw - (ms[i - 1] - 1) * wd[i - 1] / 2 - (ms[i] - 1) * wd[i] / 2; s += newRow || vis >= minGap - 0.5 ? ' ' : ''; }
+      s += w.w;
+    });
+    return s;
+  }).join(' ');
+}
+// CỔNG LAYOUT (bước qa + test): (1) không 2 lớp chữ nào giao nhau ở bất kỳ khung nào trước end card · (2) chữ trong vùng an toàn 9:16
+// (trên 220 px, dưới 420 px, trái 60, phải 140) · (3) chữ phụ đề nhìn thấy của mỗi câu = kịch bản (đúng dấu cách, không dính/thiếu từ).
+export function layoutGate(tl, lines = []) {
+  const W = tl.w || 1080, H = tl.h || 1920, step = 1 / (tl.fps || 30), end = tl.endCard ? tl.endCard.start : tl.duration || 0, S = tl.safe || SAFE;
+  const overlaps = [], unsafe = [], joins = [], seen = new Set();
+  for (let f = 0; f * step < end; f++) {
+    const t = f * step, bs = overlayBoxes(tl, t);
+    for (let i = 0; i < bs.length; i++) {
+      const b = bs[i].box;
+      if ((b[1] < S.top - 1 || b[3] > H - S.bottom + 1 || b[0] < S.left - 1 || b[2] > W - S.right + 1) && !seen.has('s' + bs[i].id)) { seen.add('s' + bs[i].id); unsafe.push(`${t.toFixed(2)} s: ${bs[i].kind} "${String(bs[i].text).slice(0, 40)}" ra ngoài vùng an toàn [${b.join(',')}]`); }
+      for (let j = i + 1; j < bs.length; j++) {
+        const key = bs[i].id + '×' + bs[j].id;
+        if (!seen.has(key) && intersects(b, bs[j].box)) { seen.add(key); overlaps.push(`${t.toFixed(2)} s: ${bs[i].kind} "${String(bs[i].text).slice(0, 40)}" đè ${bs[j].kind} "${String(bs[j].text).slice(0, 40)}"`); }
+      }
+    }
+  }
+  const style = tl.theme && tl.theme.caption;
+  lines.forEach((l, i) => {
+    const ps = (tl.pages || []).filter(p => p.line === i); if (!ps.length) return;
+    const got = renderedCaption(ps, style), want = tokens(l.text).join(' ');
+    if (got !== want) joins.push(`câu ${i + 1}: chữ hiện "${got}" ≠ kịch bản "${want}"`);
+  });
+  const bad = [...overlaps, ...unsafe, ...joins];
+  return { ok: !bad.length, bad, overlaps, unsafe, joins };
+}
+// Dải dọc cần tránh cho phụ đề trong khoảng [a, b]: hook (đến khi mờ hẳn), thẻ payoff, watermark
+function bandsFor(a, b, { hook, cards, wm }) {
+  const out = [];
+  if (hook && a <= hook.end + 0.3 && b >= (hook.start || 0)) out.push([hook.box[1], hook.box[3]]);
+  for (const c of cards) if (a <= c.end + 0.3 && b >= c.start) out.push([c.box[1], c.box[3]]);
+  if (wm && a <= wm.until && b >= wm.from) { const x = watermarkBox(wm); out.push([x[1], x[3]]); }
+  return out;
 }
 
 // ---------- Thẻ so sánh / payoff ----------
@@ -300,14 +424,17 @@ export function buildTimeline({ s, words, assets = {}, w = 1080, h = 1920, fps =
   // Hook 1,5 s đầu: kiểu theo khuôn, chữ = hook kịch bản
   const hk = HOOK_KIT[fmt.hook.pattern] || HOOK_KIT.question;
   const hook = { pattern: fmt.hook.pattern, badge: fmt.hook.badge, text: String(sc.hook || lines[0].text), start: 0, end: r3(Math.min(Math.max(1.6, lines[0].end), 2.4)), sticker: hk.sticker, sfx: hk.sfx, shake: !!hk.shake };
+  Object.assign(hook, hookLayout(hook, layout, { W: w, H: h })); // fs, lines (xuống dòng tính sẵn), badgeFs, box – Short.jsx vẽ đúng bố cục này
   // Thẻ payoff + nhãn khuôn (DON'T SAY/SAY…) – compare-cards: ❌ ở phần đầu, ✅ ở beat payoff
   const pair = comparePair(sc), cards = [];
   const pay = fmt.payoff || { type: 'compare-cards', beat: 'example' }, pl = lines.find(l => l.beat === pay.beat) || lines[Math.min(lines.length - 1, 2)];
   if (['compare-cards', 'before-after', 'stamp-correct'].includes(pay.type) && pair.wrong) {
     const wl = lines.find(l => l.i < pl.i && (l.beat === 'situation' || l.beat === 'hook')) || lines[0];
-    cards.push({ kind: 'dont', style: pay.type, start: r3(Math.max(hook.end - 0.1, wl.start)), end: r3(Math.min(pl.start, wl.end + 1.2)), text: pair.wrong, label: ((fmt.labels || {})[wl.beat] || {}).text || "DON'T SAY" });
+    // thẻ ❌ chỉ vào SAU khi hook mờ hẳn (hook.end + 0,3 s + 1 khung) – thẻ và tiêu đề hook cùng vùng trên, không được chồng nhau
+    const c0 = r3(Math.max(hook.end + 0.34, wl.start)), c1 = r3(Math.max(Math.min(pl.start, wl.end + 1.2), Math.min(pl.start - 0.05, c0 + 1)));
+    if (c1 - c0 >= 0.6) cards.push({ kind: 'dont', style: pay.type, start: c0, end: c1, text: pair.wrong, label: ((fmt.labels || {})[wl.beat] || {}).text || "DON'T SAY" });
   }
-  cards.push({ kind: 'do', style: pay.type, start: r3(pl.start), end: r3(Math.min(endStart, pl.end + 0.6)), text: pair.right || (sc.keywords || [])[0] || pl.text, label: ((fmt.labels || {})[pl.beat] || {}).text || (pay.type === 'tip-card' ? 'TIP' : 'SAY') });
+  cards.push({ kind: 'do', style: pay.type, start: r3(Math.max(pl.start, hook.end + 0.34)), end: r3(Math.min(endStart, pl.end + 0.6)), text: pair.right || (sc.keywords || [])[0] || pl.text, label: ((fmt.labels || {})[pl.beat] || {}).text || (pay.type === 'tip-card' ? 'TIP' : 'SAY') });
   // Thẻ payoff nằm ở khoảng trên đầu (cardY): cảnh nào đang chiếu thẻ mà đầu nhân vật đã lên cao (two/single/close) → chuyển cảnh đó
   // về toàn cảnh đẩy máy nhẹ (thẻ chiếm khoảng trần trống, không đè mặt/thân)
   //  – thẻ phải hiện ≥ 1,2 s: các cảnh trong 1,2 s đầu của thẻ đổi sang toàn cảnh; cảnh cận/đôi sau đó → thẻ tắt ngay đầu cảnh đó
@@ -321,14 +448,22 @@ export function buildTimeline({ s, words, assets = {}, w = 1080, h = 1920, fps =
     }
   }
 
+  for (const c of cards) c.box = cardBox(c, layout, { W: w, H: h });
+  const watermark = { from: 1.5, fade: 0.5, until: endStart, x: SAFE.left, y: 236, h: 40, opacity: 0.62 };
+  if (intersects(watermarkBox(watermark), hook.box)) watermark.from = r3(Math.max(1.5, hook.end + 0.3)); // bố cục hook sát mép trên → watermark hiện sau hook
+
   for (const p of pages) {
-    const sh = S.find(x => p.start >= x.start && p.start < x.end) || S[0], nl = (p.breaks || [1]).length, font = theme.caption === 'karaoke-bar' ? 70 : theme.caption === 'mega-word' ? 150 : 92;
-    if (sh.cam) { // vị trí máy lúc trang hiện (và lúc tắt) – chọn chỗ không đè mặt/thân ở cả 2 thời điểm
+    const sh = S.find(x => p.start >= x.start && p.start < x.end) || S[0];
+    const L = captionLayout(p, theme.caption, { W: w }), nl = L.nl, font = L.font, bands = bandsFor(p.start, p.end, { hook, cards, wm: watermark });
+    Object.assign(p, { font, gap: L.gap, stroke: L.stroke, minGap: L.minGap, half: L.half, width: L.width });
+    p.words.forEach((x, i) => { x.maxS = L.maxS[i]; });
+    if (sh.cam) { // vị trí máy lúc trang hiện (và lúc tắt) – chọn chỗ không đè mặt/thân ở cả 2 thời điểm; không bao giờ đè hook/thẻ/watermark
       const u0 = (p.start - sh.start) / Math.max(0.1, sh.end - sh.start), u1 = (Math.min(p.end, sh.end) - sh.start) / Math.max(0.1, sh.end - sh.start);
-      const o = { W: w, H: h, capY: layout.capY, font, faceOnly: sh.framing === 'close' }; // cận: chỉ tránh mặt (thân chiếm hết khung)
+      const o = { W: w, H: h, capY: layout.capY, font, faceOnly: sh.framing === 'close', half: L.half, bands }; // cận: chỉ tránh mặt (thân chiếm hết khung)
       const y0 = captionSlot(camAt(sh.cam, u0), sh.actors, nl, o), y1 = captionSlot(camAt(sh.cam, u1), sh.actors, nl, o);
-      p.y = r3(Math.max(y0, y1)); p.font = font;
-    } else p.y = captionY(sh, layout.capY, h);
+      const clear = y => bands.every(([t, b]) => y * h + L.half < t - 12 || y * h - L.half > b + 12);
+      p.y = r3(clear(Math.max(y0, y1)) ? Math.max(y0, y1) : clear(y0) ? y0 : y1);
+    } else p.y = captionY(sh, layout.capY, h, L.half, bands);
   }
   // Nhịp: sự kiện hình = cut + hook + thẻ → chèn ngắt nhịp để khoảng trống ≤ 2,6 s
   const visual = [...cuts.map(c => c.t), hook.end, ...cards.map(c => c.start)];
@@ -339,7 +474,7 @@ export function buildTimeline({ s, words, assets = {}, w = 1080, h = 1920, fps =
     w, h, fps, durationInFrames: Math.round(D * fps), duration: D, seed: String(seed), format: fmt.id,
     theme: { ...theme, colors, layout }, grain, hook, pages, cuts, shots: S, cards, interrupts, sfx, kits,
     progress: { start: 0, end: endStart },
-    watermark: { from: 1.5, fade: 0.5, until: endStart, x: SAFE.left, y: 236, h: 40, opacity: 0.62 },
+    watermark,
     endCard: { start: endStart, url: 'lexkite.com', cta: 'Practice free', kit: assets.kit ? assets.kit.cheer || assets.kit.happy : null },
     safe: SAFE,
   };
@@ -391,7 +526,10 @@ export function rgb2lab(r, g, b) {
   return [116 * f(Y) - 16, 500 * (f(X) - f(Y)), 200 * (f(Y) - f(Z))];
 }
 export const deltaE = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]);
-const isSkin = (r, g, b) => r > 95 && g > 40 && b > 20 && r > g && r > b && r - Math.min(g, b) > 15 && Math.abs(r - g) > 15;
+// Da: luật RGB (Peer) + dải YCbCr (Chai–Ngan, Cb 77–127, Cr 133–180) – loại vải vàng/cam bão hòa (áo blazer vàng của Diane trước đây bị đếm là "da"
+// → ΔE da↔phòng 45,6 giả ở office-02 17/10)
+const isSkin = (r, g, b) => { if (!(r > 95 && g > 40 && b > 20 && r > g && r > b && r - Math.min(g, b) > 15 && Math.abs(r - g) > 15)) return false;
+  const cb = 128 - 0.1687 * r - 0.3313 * g + 0.5 * b, cr = 128 + 0.5 * r - 0.4187 * g - 0.0813 * b; return cb >= 77 && cb <= 127 && cr >= 133 && cr <= 180; };
 // frame RGB + hộp diễn viên [x0,y0,x1,y1] (tỉ lệ) → cháy/bết, bão hòa TB, ΔE (chỉ a*b* – lệch "tông", bỏ qua độ sáng) giữa da nhân vật và phòng
 // trắng tuyệt đối (chữ/sticker UI, min kênh ≥ 252) không tính cháy – grade đã hạ highlight nên cảnh thật không chạm 255
 export function gradeStats(f, actorBox = null) {

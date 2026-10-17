@@ -216,7 +216,8 @@ const KeyBox = ({ children, rot = -2 }) => (
 );
 const Captions = ({ pages, t, fps, theme, W, H, hidden }) => {
   const pg = pages.find(p => t >= p.start && t < p.end); if (!pg || hidden) return null;
-  const style = theme.caption, y = (pg.y != null ? pg.y : theme.layout.capY) * H, big = style === 'mega-word' ? 150 : style === 'karaoke-bar' ? 70 : 92;
+  // cỡ chữ / khoảng cách từ / độ phóng tối đa tính sẵn trong timeline (motion.captionLayout) – khe giữa 2 từ luôn ≥ 0,2 em kể cả khi từ đang đọc phóng to
+  const style = theme.caption, y = (pg.y != null ? pg.y : theme.layout.capY) * H, big = pg.font || (style === 'mega-word' ? 150 : style === 'karaoke-bar' ? 70 : 92), gap = pg.gap != null ? pg.gap : 12;
   const words = pg.words.map((w, i) => {
     const d = t - w.pop; if (d < 0 && style !== 'karaoke-bar') return null;
     const s = style === 'karaoke-bar' ? 1 : spring({ frame: Math.max(0, d) * fps, fps, config: { damping: 9, stiffness: 220, mass: 0.6 }, from: 0.35, to: 1 });
@@ -225,7 +226,8 @@ const Captions = ({ pages, t, fps, theme, W, H, hidden }) => {
     const color = style === 'karaoke-bar' ? (said ? '#FFC94A' : 'rgba(255,255,255,.88)') : active && !w.key ? '#FFC94A' : '#FFFFFF';
     const lift = style === 'bounce-outline' && active ? -14 : 0;
     const el = w.key ? <KeyBox rot={i % 2 ? 2 : -2}>{txt}</KeyBox> : txt;
-    return <span key={i} style={{ display: 'inline-block', margin: '0 12px', transform: `translateY(${lift}px) scale(${s * (active && style !== 'karaoke-bar' ? 1.06 : 1)})`, color }}>{el}</span>;
+    const k = Math.min(w.maxS != null ? w.maxS : 1.3, s * (active && style !== 'karaoke-bar' ? 1.06 : 1));
+    return <span key={i} style={{ display: 'inline-block', margin: `0 ${gap}px`, transform: `translateY(${lift}px) scale(${k})`, color }}>{el}</span>;
   });
   const box = style === 'karaoke-bar' ? { background: 'rgba(20,16,14,.74)', borderRadius: 34, padding: '22px 30px' } : {};
   const rows = []; let k0 = 0; for (const n of (pg.breaks || [words.length])) { rows.push(words.slice(k0, k0 + n)); k0 += n; } // xuống dòng đã tính sẵn (motion.breakLines)
@@ -235,14 +237,14 @@ const Captions = ({ pages, t, fps, theme, W, H, hidden }) => {
     </div>
   );
 };
-const Badge = ({ children, bg = '#E5502F', fg = '#FFFFFF', s = 1, rot = -3 }) => (
-  <div style={{ display: 'inline-block', background: bg, color: fg, fontFamily: FONT_B, fontWeight: 800, fontSize: 46, letterSpacing: 2, padding: '12px 30px', borderRadius: 999, transform: `rotate(${rot}deg) scale(${s})`, boxShadow: '0 10px 30px rgba(0,0,0,.3)' }}>{children}</div>
+const Badge = ({ children, bg = '#E5502F', fg = '#FFFFFF', s = 1, rot = -3, fs = 46 }) => (
+  <div style={{ display: 'inline-block', whiteSpace: 'nowrap', background: bg, color: fg, fontFamily: FONT_B, fontWeight: 800, fontSize: fs, letterSpacing: 2, padding: `${Math.round(12 * fs / 46)}px ${Math.round(30 * fs / 46)}px`, borderRadius: 999, transform: `rotate(${rot}deg) scale(${s})`, boxShadow: '0 10px 30px rgba(0,0,0,.3)' }}>{children}</div>
 );
 const HookLayer = ({ hook, t, fps, theme, W, H }) => {
   if (t > hook.end + 0.3) return null;
   const out = clamp01((t - hook.end) / 0.3), f = t * fps, y = theme.layout.hookY * H, acc = theme.colors.accents;
   const pop = d => spring({ frame: Math.max(0, f - d * fps), fps, config: { damping: 15, stiffness: 260, mass: 0.6 } }); // ít vượt đà để chữ hook không chồng nhau
-  const ws = String(hook.text).toUpperCase().split(/\s+/);
+  const ws = String(hook.text).toUpperCase().split(/\s+/).filter(Boolean);
   const typeOn = ['secret', 'story-cold-open', 'pov'].includes(hook.pattern);
   const slam = spring({ frame: f, fps, config: { damping: 8, stiffness: 300 }, from: 2.4, to: 1 });
   const P = hook.pattern;
@@ -256,13 +258,16 @@ const HookLayer = ({ hook, t, fps, theme, W, H }) => {
       <div style={{ position: 'absolute', left: 60, right: 140, top: y, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 26 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
           {sticker}
-          <div style={{ transform: `scale(${['myth-buster', 'stop-saying', 'mistake-stat'].includes(P) ? slam : pop(0)})` }}><Badge bg={badgeBg} fg={badgeFg}>{hook.badge}</Badge></div>
+          <div style={{ transform: `scale(${['myth-buster', 'stop-saying', 'mistake-stat'].includes(P) ? slam : pop(0)})` }}><Badge bg={badgeBg} fg={badgeFg} fs={hook.badgeFs || 46}>{hook.badge}</Badge></div>
           {P === 'quiz-timer' || P === 'challenge' ? <Ring p={clamp01(t / Math.max(1, hook.end))} n={Math.max(1, 3 - Math.floor(t / Math.max(0.5, hook.end / 3)))} /> : null}
           {P === 'versus' ? <div style={{ fontFamily: FONT_H, fontSize: 96, color: '#FFC94A', ...stroke(10), transform: `scale(${slam})` }}>VS</div> : null}
           {P === 'countdown-list' ? <div style={{ fontFamily: FONT_H, fontSize: 130, color: '#FFC94A', ...stroke(12), transform: `scale(${pop(0.15)}) rotate(-6deg)` }}>3</div> : null}
         </div>
-        <div style={{ fontFamily: FONT_H, fontWeight: 800, fontSize: ws.join(' ').length > 22 ? 84 : 100, lineHeight: 1.04, textAlign: 'center', color: '#FFFFFF', ...stroke(14), textShadow: '0 10px 30px rgba(0,0,0,.4)', position: 'relative' }}>
-          {ws.map((x, i) => { const d = typeOn ? i * 0.12 : 0.08 + i * 0.07, s = pop(d), on = t >= d; return <span key={i} style={{ display: 'inline-block', margin: '0 14px', opacity: on ? 1 : 0, transform: typeOn ? 'none' : `translateY(${(1 - s) * 40}px) scale(${0.6 + 0.4 * s})`, color: i === ws.length - 1 ? '#FFC94A' : '#FFFFFF' }}>{x}</span>; })}
+        {/* xuống dòng + cỡ chữ tính sẵn (motion.hookLayout) → khối hook có đáy cố định, phụ đề karaoke xếp dưới đáy đó, không chồng lên */}
+        <div style={{ fontFamily: FONT_H, fontWeight: 800, fontSize: hook.fs || (ws.join(' ').length > 22 ? 84 : 100), lineHeight: 1.04, textAlign: 'center', color: '#FFFFFF', ...stroke(14), textShadow: '0 10px 30px rgba(0,0,0,.4)', position: 'relative' }}>
+          {(() => { const word = (x, i) => { const d = typeOn ? i * 0.12 : 0.08 + i * 0.07, s = pop(d), on = t >= d; return <span key={i} style={{ display: 'inline-block', margin: '0 14px', opacity: on ? 1 : 0, transform: typeOn ? 'none' : `translateY(${(1 - s) * 40}px) scale(${0.6 + 0.4 * s})`, color: i === ws.length - 1 ? '#FFC94A' : '#FFFFFF' }}>{x}</span>; };
+            if (!hook.lines) return ws.map(word);
+            let k = 0; return hook.lines.map((n, r) => { const row = ws.slice(k, k + n).map((x, j) => word(x, k + j)); k += n; return <div key={'r' + r} style={{ whiteSpace: 'nowrap' }}>{row}</div>; }); })()}
           {P === 'stop-saying' ? <div style={{ position: 'absolute', left: '6%', top: '52%', height: 14, width: `${88 * clamp01((t - 0.55) / 0.3)}%`, background: '#E5502F', borderRadius: 8, transform: 'rotate(-4deg)', WebkitTextStroke: 0 }} /> : null}
         </div>
         {P === 'wait-for-it' ? <Badge bg="#0F3D3E" fg="#FFF7EA" rot={2}>WAIT FOR IT{'.'.repeat(1 + (Math.floor(t * 5) % 3))}</Badge> : null}

@@ -14,7 +14,7 @@
  },
  "vars": {
   "word": { "desc": "từ/cụm của hôm nay (từ khóa)", "required": true, "maxWords": 3 },
-  "hookLine": { "desc": "câu mở ≤ 5 âm tiết dùng/nhắc từ (vd. No bandwidth this week. / Wait, procrastinate?)", "required": true, "maxWords": 5 },
+  "hookLine": { "desc": "câu mở ≤ 5 âm tiết dùng/nhắc từ (vd. No bandwidth. / Wait, procrastinate?) – Kokoro đọc chậm câu trầm (deadpan): 'No bandwidth this week.' đo 2,1 s > 2 s", "required": true, "maxWords": 5 },
   "question": { "desc": "câu hỏi ngây thơ của người học, kết thúc bằng ?", "required": true },
   "meaning": { "desc": "nghĩa bằng từ dễ (A2–B1)", "required": true },
   "example": { "desc": "câu ví dụ khác có chứa từ", "required": true },
