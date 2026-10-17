@@ -336,7 +336,7 @@ async function prepActor(s, a, pub) {
   }
   if (!file) { console.log(`⚠️ ${a.who}: không có tài nguyên – bỏ khỏi cảnh`); todo(s, 'actor'); return null; }
   fs.mkdirSync(CACHE, { recursive: true });
-  const st = fs.statSync(file), still = /\.(png|jpe?g|webp)$/i.test(file), key = X.hash32(`${file}|${st.size}|${st.mtimeMs}|k2`).toString(36);
+  const st = fs.statSync(file), still = /\.(png|jpe?g|webp)$/i.test(file), key = X.hash32(`${file}|${st.size}|${st.mtimeMs}|k3`).toString(36);
   const name = `actor-${a.who}-${key}.${still ? 'png' : 'webm'}`, out = path.join(CACHE, name), meta = out + '.json';
   if (!fs.existsSync(meta) || !fs.existsSync(out)) {
     let m;

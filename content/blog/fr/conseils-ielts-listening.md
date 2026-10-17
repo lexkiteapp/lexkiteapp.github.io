@@ -79,7 +79,7 @@ L'IELTS ne se limite pas à l'anglais britannique standard (Received Pronunciati
 
 Les locuteurs australiens ont tendance à modifier les diphtongues (le mot *day* peut presque résonner comme *die*). Dans l'accent américain, le son /t/ entre deux voyelles devient souvent une consonne battue (flap T), transformant *water* en une prononciation proche de *wader*.
 
-Habituez vos oreilles en variant vos sources d'écoute quotidiennes (podcasts de la BBC, de l'ABC australienne et de la CBC canadienne). En complément, consolidez votre rétention de vocabulaire académique grâce aux principes détaillés dans [apprendre le vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/).
+Habituez vos oreilles en variant vos sources d'écoute quotidiennes (podcasts de la BBC, de l'ABC australienne et de la CBC canadienne). Pour comprendre les mécanismes des sons et des liaisons orales, consultez nos [Prononciation anglaise astuces](/fr/blog/prononciation-anglaise-astuces/). Si vous préparez également le test d'ETS pour votre école, découvrez nos [Astuces TOEIC Listening Reading](/fr/blog/toeic-listening-reading-astuces/). En complément, consolidez votre rétention de vocabulaire académique grâce aux principes détaillés dans [apprendre le vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/).
 
 Prenez également le temps d'effectuer des [examens blancs chronométrés](/#/mock) pour développer votre endurance mentale sur la durée totale du test.
 

@@ -79,7 +79,7 @@ ok(ss.every(a => a.h <= 0.5 * 1920 && a.y - a.h >= 600 && a.x - a.h * 0.25 >= 0 
 {
   const room = { ...V.DEFAULT_ROOM, stand: [{ x: 184, y: 1692 }, { x: 432, y: 1692 }, { x: 895, y: 1692 }], scaleAt: { yFar: 1364, hFar: 281, yNear: 1912, hNear: 902 } };
   const pos = V.stageDialogue(['mia', 'leo'], room);
-  ok(pos.mia.x < pos.leo.x && Math.abs(pos.mia.x - 0.38 * 1080) < 2 && pos.leo.x + 0.24 * pos.leo.h <= 1080 - 40 && pos.mia.y === 1692 && pos.mia.h === V.scaleAt(room, 1692), 'dàn cảnh: trục hội thoại 38/62 %, trên hàng điểm đứng, đúng scaleAt, không sát mép');
+  ok(pos.mia.x < pos.leo.x && Math.abs(pos.mia.x - 0.36 * 1080) < 2 && pos.leo.x + 0.24 * pos.leo.h <= 1080 - 40 && pos.mia.y === 1692 && pos.mia.h === V.scaleAt(room, 1692), 'dàn cảnh: trục hội thoại 36/64 %, trên hàng điểm đứng, đúng scaleAt, không sát mép');
   const far = { ...room, counter: { x0: 184, x1: 840, top: 1036, base: 1224, standY: 1190 } }, near = { ...room, scaleAt: { yFar: 900, hFar: 500, yNear: 1912, hNear: 1300 }, counter: { x0: 300, x1: 1000, top: 1200, base: 1500, standY: 1460 } };
   const pf = V.stageDialogue(['ama', 'carlos'], far, { roles: { carlos: 'barista' } }), pn = V.stageDialogue(['ama', 'carlos'], near, { roles: { carlos: 'barista' } });
   ok(!pf.carlos.behind && pn.carlos.behind === 'counter' && pn.carlos.y === 1460 && pn.ama.y > 1500 && pn.carlos.x - 0.24 * pn.carlos.h >= 300, 'barista đứng sau quầy khi phòng cho phép (cỡ người đủ lớn), quầy xa → đứng đôi');
@@ -107,7 +107,7 @@ ok(ss.every(a => a.h <= 0.5 * 1920 && a.y - a.h >= 600 && a.x - a.h * 0.25 >= 0 
   ok(b1.length <= 3 && !b1.some(l => /^\w{1,3}$/.test(l)) && !/\bon$/.test(b1[0]), 'xuống dòng: không để "on" đứng riêng / cuối dòng, ≤ 3 dòng');
   const pg = M.captionPages([..."Practice ordering free on lexkite.com".split(' ')].map((w, i) => ({ w, start: i * 0.3, end: i * 0.3 + 0.25, line: 0 })), { style: 'pop-box' });
   ok(!pg.some(p => p.words.length === 1 && p.words[0].w.length <= 3) && !pg.some((p, i) => i < pg.length - 1 && /^on$/i.test(p.words[p.words.length - 1].w)), 'trang phụ đề: từ chức năng đi cùng cụm sau, không trang 1 từ ngắn');
-  ok(V.faceRank({ facing: 'right' }, 'right') === 0 && V.faceRank({ facing: 'front' }, 'right') === 1 && V.faceRank({ facing: 'left', mirrorOk: true }, 'right') === 2 && V.faceRank({ facing: 'left' }, 'right') === 3, 'hướng nhìn: đúng hướng > chính diện > lật được (mirrorOk) > ngược hướng');
+  ok(V.faceRank({ facing: 'right' }, 'right') === 0 && V.faceRank({ facing: 'left', mirrorOk: true }, 'right') === 1 && V.faceRank({ facing: 'front' }, 'right') === 2 && V.faceRank({ facing: 'left' }, 'right') === 3, 'hướng nhìn: ¾ đúng hướng > ¾ lật được (mirrorOk) > chính diện > ngược hướng không lật được');
   const cm = { ...manifest0(), clips: [{ id: 'mia_l', who: 'mia', outfit: 'office', mouth: true, tags: ['talk'], facing: 'left', mirrorOk: true, file: 'a' }, { id: 'leo_l', who: 'leo', outfit: 'office', mouth: false, tags: ['idle'], facing: 'left', file: 'b' }] };
   const st3 = V.buildStage({ job: { topic: 'Email etiquette', script: { scene: 'office', lines: [{ who: 'mia', beat: 'explain', text: 'Say it like this.' }] } }, casting: J('content/video/casting.json'), manifest: cm });
   ok(!st3.lines[0].actors.find(a => a.who === 'mia').flip, 'không lật gương nhân vật có chi tiết lệch (casting.characters.mia.mirrorOk=false) dù clip ghi mirrorOk');

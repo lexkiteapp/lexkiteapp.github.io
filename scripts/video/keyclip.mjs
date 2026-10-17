@@ -58,13 +58,13 @@ export function grabFrame(file, t = 0.5, scaleH = 0) {
   return { w, h, data: new Uint8Array(buf.buffer, buf.byteOffset, buf.length) };
 }
 // clip stacked → webm VP9 alpha (kiểm định dạng trước: sai → lỗi rõ ràng, không dựng "bóng ma")
-export function stackedToAlpha(file, out, { fps = 24, h = 960 } = {}) {
+export function stackedToAlpha(file, out, { fps = 24, h = 1800 } = {}) { // giữ độ phân giải gốc (≤ 1800) – máy cận cần nét (phóng ≤ 1,6× figH gốc)
   const p = probe(file);
   if (p.h % 2 || p.h < p.w * 0.9) throw new Error(`clip stacked sai định dạng (${p.w}×${p.h}): cao phải = 2× nửa khung, nửa dưới là mặt nạ – ${path.basename(file)}`);
   const f = grabFrame(file, 0.5), m = isStackedMask(f.data, f.w, f.h);
   if (!m.ok) throw new Error(`clip stacked ${path.basename(file)}: nửa dưới không phải mặt nạ alpha (xám ${(m.gray * 100).toFixed(0)}%, đen ${(m.black * 100).toFixed(0)}%, trắng ${(m.white * 100).toFixed(0)}%)`);
   const oh = Math.min(h, p.h / 2), ow = Math.round(p.w * oh / (p.h / 2) / 2) * 2;
-  execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', file, '-filter_complex', `[0:v]fps=${fps},split[a][b];[a]crop=iw:ih/2:0:0[c];[b]crop=iw:ih/2:0:ih/2,format=gray[m];[c][m]alphamerge,scale=${ow}:${oh},format=yuva420p[o]`, '-map', '[o]', '-an', '-c:v', 'libvpx-vp9', '-b:v', '0', '-crf', '32', '-deadline', 'realtime', '-cpu-used', '8', '-auto-alt-ref', '0', out]);
+  execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', file, '-filter_complex', `[0:v]fps=${fps},split[a][b];[a]crop=iw:ih/2:0:0[c];[b]crop=iw:ih/2:0:ih/2,format=gray[m];[c][m]alphamerge,scale=${ow}:${oh},format=yuva420p[o]`, '-map', '[o]', '-an', '-c:v', 'libvpx-vp9', '-b:v', '0', '-crf', '26', '-deadline', 'realtime', '-cpu-used', '8', '-auto-alt-ref', '0', out]);
   const g = grabFrame(file, 0.5); const half = new Uint8Array(g.w * (g.h >> 1)); for (let i = 0; i < half.length; i++) half[i] = g.data[(i + g.w * (g.h >> 1)) * 3];
   const b = alphaBox(half, g.w, g.h >> 1), k = oh / (p.h / 2);
   return { w: ow, h: oh, foot: b ? [Math.round(b.foot[0] * k), Math.round(b.foot[1] * k)] : [ow / 2, oh], figH: b ? Math.round(b.figH * k) : oh };

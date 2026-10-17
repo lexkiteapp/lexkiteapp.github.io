@@ -189,7 +189,7 @@ const body = a => ({ l: a.x - 0.22 * a.h, r: a.x + 0.22 * a.h, t: a.y - a.h, b: 
 // → { from:{cx,cy,z}, to:{cx,cy,z} } cho 1 cảnh. framing: wide | two | single | close (+ focus = who). Nhân vật khác: hoặc trọn trong khung hoặc ra hẳn ngoài.
 export function shotCamera(shot, actors, { room = null, W = 1080, H = 1920 } = {}) {
   const wide = { cx: W / 2, cy: H / 2, z: 1 };
-  if (!actors.length || shot.framing === 'wide' || shot.framing === 'card') return { from: wide, to: { ...wide, z: shot.line === 0 ? 1.06 : 1.03 } };
+  if (!actors.length || shot.framing === 'wide' || shot.framing === 'card') return { from: wide, to: { ...wide, z: shot.line === 0 ? 1.12 : 1.04 } }; // hook: đẩy máy rõ (visual hook – chuyển động)
   const cap = zoomCap(actors, room, W);
   const frameOn = (as, fill, bottomOf, upTo = 0.1) => {
     const top = Math.min(...as.map(a => a.y - a.h)), bot = Math.max(...as.map(bottomOf)), l = Math.min(...as.map(a => body(a).l)), r = Math.max(...as.map(a => body(a).r));

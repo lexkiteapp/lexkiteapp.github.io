@@ -82,6 +82,8 @@ Bei der Aussprache sind es vor allem drei Stellen:
 - **w und v:** Das deutsche „w“ klingt wie ein englisches *v*. Für *w* runden Sie die Lippen wie bei „u“: *west* ist nicht *vest*.
 - **Endlaute:** Im Deutschen werden *b, d, g* am Wortende hart („Rad“ klingt wie „Rat“). Im Englischen unterscheiden sie aber Wörter: *bed* und *bet*, *dog* und *dock*.
 
+Konkrete Übungen und Audio-Analysen finden Sie in unserem Ratgeber [Englische Aussprache Tipps](/de/blog/englische-aussprache-tipps/).
+
 ![Aussprachetraining in Lexkite: Wendung „cut down on“, Mikrofon-Knopf zum Sprechen und Bewertung der Aussprache](media:practice-speak "Laut sprechen, bewerten lassen, wiederholen – so werden Endlaute und th zur Gewohnheit")
 
 ## Baustein 4: Hörverstehen trainieren – auch für Prüfungen
@@ -122,6 +124,7 @@ Ziel: rund 1.000 sicher abrufbare Wörter, kurze Texte mühelos lesen, jeden Abe
 - Lesen und Hören von Material, das Sie zu 80 bis 90 Prozent verstehen.
 - Selbstgespräche beim Kochen oder Pendeln: beschreiben, was Sie gerade tun.
 - Einmal pro Woche ein kurzes Diktat, um Fortschritte beim Hören zu messen.
+- Für den Beruf: Verfassen Sie geschäftliche Nachrichten mit Vorlagen aus [Business English Email schreiben](/de/blog/business-english-email-schreiben/) und trainieren Sie typische Fragen für das [Vorstellungsgespräch auf Englisch](/de/blog/vorstellungsgespraech-englisch-tipps/).
 
 ![Lernpfad „Your IELTS path“ in Lexkite: Etappen nach Band-Stufen, jede Etappe mit Wörtern, Üben, Hören und Test](media:path "Der Etappenplan zeigt, wo Sie stehen und was als Nächstes kommt")
 
@@ -180,8 +183,8 @@ Starten Sie mit dem [5-minütigen Einstufungstest](/#/placement): 20 Fragen zu W
 ### Wie lange dauert es, bis ich wieder fließend Englisch spreche?
 Mit 30 bis 45 Minuten täglich sprechen viele Wiedereinsteiger nach etwa drei Monaten deutlich sicherer über Alltagsthemen. Für entspannte Gespräche über viele Themen braucht es meist mehrere Monate bis ein Jahr, je nachdem, wie viel Sie hören und sprechen.
 
-### Sollte ich gleich mit IELTS oder TOEFL anfangen?
-Nur wenn Sie bereits sicher auf B1 sind. Prüfungstraining setzt eine solide Grundlage voraus. Wer erst die 90 Tage durchläuft und dann zur Prüfungsvorbereitung wechselt, kommt dort meist schneller voran.
+### Sollte ich gleich mit IELTS oder Cambridge C1 anfangen?
+Nur wenn Sie bereits sicher auf B1 sind. Prüfungstraining setzt eine solide Grundlage voraus. Für höhere akademische Abschlüsse lesen Sie unsere gezielten [Cambridge C1 Advanced Tipps](/de/blog/cambridge-c1-advanced-tipps/). Wer erst die 90 Tage durchläuft und dann zur Prüfungsvorbereitung wechselt, kommt dort meist schneller voran.
 
 ### Muss ich die Grammatik aus der Schule komplett wiederholen?
 Nein. Konzentrieren Sie sich auf die Zeitformen und Strukturen, die Sie täglich brauchen, und üben Sie jede davon mit eigenen Sätzen und lautem Sprechen statt mit endlosen Lückentexten.

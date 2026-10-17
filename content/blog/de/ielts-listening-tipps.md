@@ -76,7 +76,7 @@ Vermeiden Sie bei wissenschaftlichen Formulierungen auch typische Übersetzungsf
 
 Im IELTS hören Sie nicht ausschließlich Oxford-Englisch (Received Pronunciation). Die Aufnahmen enthalten authentische Stimmen aus Großbritannien, Australien, Neuseeland, Nordamerika und gelegentlich Südafrika.
 
-Australische Sprecher neigen dazu, Vokale breiter zu ziehen (so kann das Wort *date* fast wie *die-t* klingen). Bei amerikanischen Sprechern werden unbetonte "t"-Laute zwischen Vokalen oft zu einem weichen Schwebelaut abgemildert (*water* klingt wie *wader*). Gewöhnen Sie Ihre Ohren im Alltag an diese Vielfalt, indem Sie Nachrichtensendungen der BBC, ABC (Australian Broadcasting Corporation) und CBC (Canadian Broadcasting Corporation) abwechselnd hören. 
+Australische Sprecher neigen dazu, Vokale breiter zu ziehen (so kann das Wort *date* fast wie *die-t* klingen). Bei amerikanischen Sprechern werden unbetonte "t"-Laute zwischen Vokalen oft zu einem weichen Schwebelaut abgemildert (*water* klingt wie *wader*). Gewöhnen Sie Ihre Ohren im Alltag an diese Vielfalt, indem Sie Nachrichtensendungen der BBC, ABC (Australian Broadcasting Corporation) und CBC (Canadian Broadcasting Corporation) abwechselnd hören. Typische Lautmuster und praktische Sprechübungen finden Sie auch in unseren [Englische Aussprache Tipps](/de/blog/englische-aussprache-tipps/). 
 
 Nutzen Sie realistische [Prüfungssimulationen](/#/mock), um verschiedene Sprechergeschwindigkeiten und Akzente gezielt durchzuspielen.
 
@@ -97,3 +97,7 @@ Ja, das ist sogar ausdrücklich erlaubt und von vielen Prüfern empfohlen (z. B.
 ### Was mache ich, wenn ich eine Antwort komplett verpasst habe?
 
 Raten Sie! Bei IELTS gibt es keine Minuspunkte für falsche Antworten. Wenn Sie ein Wort verpasst haben, lassen Sie die Lücke keinesfalls leer. Überlegen Sie anhand des Satzkontexts, welches Wort logisch passen könnte, tragen Sie eine fundierte Vermutung ein und konzentrieren Sie sich sofort auf die nachfolgende Aufgabe.
+
+### Wie unterscheidet sich der IELTS-Hörtest vom Cambridge C1 Advanced?
+
+Beide Prüfungen stammen von Cambridge Assessment, weisen jedoch Unterschiede auf: Im IELTS hören Sie jeden Abschnitt nur ein einziges Mal, während beim Cambridge CAE jeder Audiotrack zweimal abgespielt wird. Vergleichen Sie die Prüfungsformate in unseren [Cambridge C1 Advanced Tipps](/de/blog/cambridge-c1-advanced-tipps/).

@@ -257,14 +257,14 @@ export function pickRoom(manifest, tag, time, exists = () => true) {
   const c = (manifest.rooms || []).filter(r => r.tag === tag && (r.time || 'day') === time && exists(r.file)).sort((a, b) => a.id.localeCompare(b.id))[0];
   return c ? { ...DEFAULT_ROOM, ...c } : { ...DEFAULT_ROOM, id: `virtual-${tag}-${time}`, tag, time, virtual: true };
 }
-// Dàn cảnh hội thoại (round 2, 17/10): 2 người trên TRỤC HỘI THOẠI 38 % / 62 % bề ngang (1 người 50 %, 3 người 25/50/75 %),
+// Dàn cảnh hội thoại (round 2, 17/10): 2 người trên TRỤC HỘI THOẠI 36 % / 64 % bề ngang (1 người 50 %, 3 người 25/50/75 %),
 // chân trên hàng điểm đứng của hồ sơ sàn (y của stand), cao = scaleAt(y). Nhân viên (barista/phục vụ/quầy) đứng SAU QUẦY khi phòng có
 // room.counter {x0,x1,top,base,standY} và cỡ người ở đó đủ lớn để quay cận trung (h ≥ counter.minH | 600 px) – không thì đứng đôi giữa sàn.
 // Không bao giờ để người sát mép: thân (±0,3 h) cách mép ≥ 40 px.
 export const STAFF_ROLE = /barista|server|waiter|staff|clerk|agent|receptionist|cashier/i;
 export function stageDialogue(cast, room, { roles = {}, W = 1080, axis = null } = {}) {
   const n = cast.length, out = {}; if (!n) return out;
-  const xs = axis || (n === 1 ? [0.5] : n === 2 ? [0.38, 0.62] : cast.map((_, j) => 0.25 + 0.5 * j / (n - 1)));
+  const xs = axis || (n === 1 ? [0.5] : n === 2 ? [0.36, 0.64] : cast.map((_, j) => 0.25 + 0.5 * j / (n - 1)));
   const st = room.stand && room.stand.length ? room.stand : DEFAULT_ROOM.stand;
   const ys = st.map(p => p.y).sort((a, b) => a - b), y0 = ys[Math.floor(ys.length / 2)];
   const sx = st.map(p => p.x), lo = Math.min(...sx) - 80, hi = Math.max(...sx) + 80;
@@ -290,8 +290,8 @@ export function assignStands(cast, room) {
 }
 // Chọn clip/ảnh cho 1 nhân vật: người nói → clip có cử động miệng (mouth) + đúng cảm xúc; người nghe → idle/nod. Cùng trang phục (outfit).
 // Hướng: clip có facing front|left|right; lật gương (scaleX −1) CHỈ khi clip ghi mirrorOk:true (nhân vật có chi tiết nhận diện lệch một bên –
-// kẹp tóc Mia, lọn bạc Diane, thẻ đeo – không được lật). want = hướng cần nhìn → ưu tiên clip đúng hướng, rồi front, rồi lật được.
-export const faceRank = (c, want) => { const f = c.facing || 'front'; return !want || want === 'front' || f === want ? 0 : f === 'front' ? 1 : c.mirrorOk ? 2 : 3; };
+// kẹp tóc Mia, lọn bạc Diane, thẻ đeo – không được lật). want = hướng cần nhìn → ưu tiên clip ¾ đúng hướng, rồi ¾ lật được (mirrorOk), rồi chính diện.
+export const faceRank = (c, want) => { const f = c.facing || 'front'; return !want || want === 'front' || f === want ? 0 : c.mirrorOk && f !== 'front' ? 1 : f === 'front' ? 2 : 3; }; // ¾ lật được hơn chính diện
 export function pickAsset(manifest, who, { speaking, emotion, outfit, exists = () => true, used = new Set(), avoid = new Set(), want = null }) {
   const clips = (manifest.clips || []).filter(c => c.who === who && (c.outfit || 'office') === outfit && exists(c.file))
     .map((c, i) => ({ c, i })).sort((a, b) => faceRank(a.c, want) - faceRank(b.c, want) || a.i - b.i).map(x => x.c);
@@ -300,7 +300,11 @@ export function pickAsset(manifest, who, { speaking, emotion, outfit, exists = (
   let c;
   if (speaking) { // thứ tự: đúng cảm xúc → nói chung → bất kỳ clip có miệng; ưu tiên clip chưa dùng trong video và không vừa dùng ở video gần đây
     const sp = clips.filter(isSpeakerClip);
-    const cands = [...(EMOTION_TAGS[emotion] || []).flatMap(t => sp.filter(x => hit(x, [t]))), ...sp.filter(x => hit(x, ['talk', 'gesture'])), ...sp];
+    // trong nhóm hợp cảm xúc: clip ¾ nhìn đúng phía người nghe (hoặc lật được) được ưu tiên hơn clip chính diện khi 2 người nói với nhau
+    const byFace = arr => arr.map((c, i) => ({ c, i })).sort((a, b) => faceRank(a.c, want) - faceRank(b.c, want) || a.i - b.i).map(x => x.c);
+    const emo = sp.filter(x => hit(x, EMOTION_TAGS[emotion] || [])), tagOrder = x => (EMOTION_TAGS[emotion] || []).findIndex(t => hit(x, [t]));
+    const emoSorted = want && want !== 'front' ? byFace(emo.sort((a, b) => tagOrder(a) - tagOrder(b))) : emo.sort((a, b) => tagOrder(a) - tagOrder(b));
+    const cands = [...emoSorted, ...byFace(sp.filter(x => hit(x, ['talk', 'gesture']))), ...sp];
     c = cands.find(x => !used.has(x.id) && !avoid.has(x.id)) || cands.find(x => !used.has(x.id)) || cands[0];
   }
   else c = clips.find(x => hit(x, ['idle'])) || clips.find(isListenerClip);

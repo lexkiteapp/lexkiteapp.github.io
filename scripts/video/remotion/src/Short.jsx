@@ -135,7 +135,7 @@ function filmCamera(shot, t, W, H, interrupts) {
   const len = Math.max(0.1, shot.end - shot.start), u = clamp01((t - shot.start) / len), e = u * u * (3 - 2 * u), A = shot.cam.from, B = shot.cam.to;
   const z = A.z + (B.z - A.z) * e, cx = A.cx + (B.cx - A.cx) * e, cy = A.cy + (B.cy - A.cy) * e;
   let m = 1, rot = 0, sx = 0, sy = 0;
-  if (shot.punch) { const d = t - shot.start; if (d >= 0 && d < 0.6) m *= 1 + 0.08 * Math.exp(-d * 7) * (d < 0.05 ? d / 0.05 : 1); }
+  if (shot.punch) { const d = t - shot.start, amp = shot.start === 0 ? 0.14 : 0.08; if (d >= 0 && d < 0.6) m *= 1 + amp * Math.exp(-d * 7) * (d < 0.05 ? d / 0.05 : 1); }
   for (const it of interrupts) { const d = t - it.t; if (d >= 0 && d < 0.5) { if (it.kind === 'punch') m *= 1 + 0.05 * Math.exp(-d * 8); if (it.kind === 'tilt') rot += 1.6 * Math.exp(-d * 6) * (it.side === 'left' ? -1 : 1); } }
   if (shot.shake) { const d = t - shot.start; if (d >= 0 && d < 0.45) { const a = 10 * (1 - d / 0.45); sx = (random(`sx${Math.round(d * 30)}`) - 0.5) * 2 * a; sy = (random(`sy${Math.round(d * 30)}`) - 0.5) * 2 * a; } }
   const Z = z * m;

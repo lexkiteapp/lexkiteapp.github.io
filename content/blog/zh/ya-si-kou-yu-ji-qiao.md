@@ -83,7 +83,7 @@ Part 3最大的忌讳是继续使用 *"For me, my mother told me that..."* 这�
 - 探讨利弊权衡（Pros and Cons）：*"While it undeniably stimulates economic prosperity, one cannot overlook the environmental toll it incurs."*
 - 提出因果推导（Cause and Effect）：从表层现象剖析背后的经济驱动、政策导向或文化变迁。
 
-在日常积累论述语料时，查阅[雅思高频话题词汇库](/tu-vung/)能够为你提供充足的论述弹药。
+在日常积累论述语料时，查阅[雅思高频话题词汇库](/tu-vung/)能够为你提供充足的论述弹药。这种多角度宏观思辨的逻辑框架与[雅思写作 task 2 模板](/zh/blog/ya-si-xie-zuo-task-2-mo-ban/)的核心论据推演高度共通，可以互为借鉴。
 
 ## 备考日常训练法：利用影子跟读与AI口语纠错
 

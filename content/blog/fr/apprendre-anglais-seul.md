@@ -62,7 +62,7 @@ L'anglais britannique standard compte environ 44 sons, dont plusieurs n'existent
 - **Voyelles longues et courtes** : /iː/–/ɪ/ (*sheep*–*ship*, *leave*–*live*) et /æ/–/e/ (*bad*–*bed*). Le français n'a qu'un seul « i ».
 - **L'accent tonique** : le français accentue la fin du groupe de mots, l'anglais une syllabe précise de chaque mot (*PHOtograph*, *phoTOgraphy*). Un mauvais accent gêne plus la compréhension qu'une voyelle imparfaite.
 
-La [bibliothèque de sons IPA](/#/pron) regroupe voyelles, diphtongues et consonnes avec des mots d'exemple, et chaque son peut être répété puis noté.
+La [bibliothèque de sons IPA](/#/pron) regroupe voyelles, diphtongues et consonnes avec des mots d'exemple, et chaque son peut être répété puis noté. Pour un entraînement ciblé sur les pièges phonétiques du français, retrouvez nos [Prononciation anglaise astuces](/fr/blog/prononciation-anglaise-astuces/).
 
 ![Bibliothèque de prononciation IPA de Lexkite : voyelles, diphtongues et consonnes, avec des mots d'exemple](media:pron "Choisissez un son de l'alphabet phonétique et répétez-le jusqu'à ce qu'il devienne naturel")
 
@@ -147,7 +147,7 @@ Le plus grand danger, quand on étudie seul, c'est de juger ses progrès « au r
 - Vous posez des questions avec *do/does/did* et *wh-* dans le bon ordre.
 - Vous vous présentez pendant une minute sans préparation.
 
-Si la plupart de ces points sont acquis, vous êtes autour du niveau A2. Vous pouvez alors élargir le vocabulaire par thème, allonger les écoutes et, si votre école ou votre employeur le demande, commencer à préparer un examen comme le TOEIC ou l'IELTS. Pour du vocabulaire classé par thème, consultez aussi notre [page de vocabulaire en anglais](/en/vocabulary/) (page en anglais).
+Si la plupart de ces points sont acquis, vous êtes autour du niveau A2. Vous pouvez alors élargir le vocabulaire par thème, viser un score élevé avec nos [Astuces TOEIC Listening Reading](/fr/blog/toeic-listening-reading-astuces/) ou préparer vos échanges professionnels avec nos guides pour [rédiger un mail professionnel en anglais](/fr/blog/rediger-email-professionnel-anglais/) et réussir un [entretien d'embauche en anglais questions](/fr/blog/entretien-embauche-anglais-questions/). Pour du vocabulaire classé par thème, consultez aussi notre [page de vocabulaire en anglais](/en/vocabulary/) (page en anglais).
 
 ## Autoévaluation
 
