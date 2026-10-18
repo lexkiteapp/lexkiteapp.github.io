@@ -110,7 +110,7 @@
   "syn": [],
   "vi": "thú vị",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "marker": {
   "ipa": "/ˈmɑː(ɹ)kə(ɹ)/",
@@ -693,7 +693,7 @@
   "syn": [],
   "vi": "về mặt chính trị",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "positively": {
   "ipa": "/ˈpɒz.ɪ.tɪv.li/",
@@ -1239,14 +1239,14 @@
   "tries": 1
  },
  "critically": {
-  "ipa": "/ˈkɹɪt.ɪ.kə.li/",
+  "ipa": "/ˈkɹɪtɪkli/",
   "pos": "adverb",
   "def": "in a way that is serious or dangerous; vitally",
-  "ex": "",
+  "ex": "I looked critically at the frayed carpet of the hotel room.",
   "syn": [],
   "vi": "",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "crystal": {
   "ipa": "/ˈkɹɪstəl/",
@@ -1351,14 +1351,18 @@
   "v": 2
  },
  "discourse": {
-  "ipa": "",
+  "ipa": "/dɪsˈkɔː(ɹ)s/",
   "pos": "noun",
   "def": "talk, conversation",
-  "ex": "Accountability is often lacking in political discourse.",
-  "syn": [],
+  "ex": "The preacher gave us a long discourse on duty.",
+  "syn": [
+   "communication",
+   "expression",
+   "dissertation"
+  ],
   "vi": "diễn ngôn, bài diển văn",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "dominant": {
   "ipa": "/ˈdɒmɪnənt/",
@@ -1497,10 +1501,13 @@
   "pos": "adverb",
   "def": "clearly; specifically",
   "ex": "I would like to explicitly emphasize this.",
-  "syn": [],
+  "syn": [
+   "expressly",
+   "unambiguously"
+  ],
   "vi": "rõ ràng",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "fertility": {
   "ipa": "/fə(ɹ)ˈtɪlɪti/",
@@ -1535,11 +1542,11 @@
   "ipa": "",
   "pos": "noun",
   "def": "the development of a plan, system, or proposal",
-  "ex": "Was it Leibniz or Newton who first formulated the theory of calculus?",
+  "ex": "If you liked our old shampoo, you'll love the new kinder, gentler formulation.",
   "syn": [],
   "vi": "công thức",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "founds": {
   "ipa": "/faʊndz/",
@@ -1914,7 +1921,7 @@
   "syn": [],
   "vi": "chọn ngẫu nhiên",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "randomly": {
   "ipa": "/ˈɹændm̩li/",
@@ -2128,9 +2135,9 @@
   "def": "representing a larger quality",
   "ex": "",
   "syn": [],
-  "vi": "tượng trưng",
+  "vi": "",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "technically": {
   "ipa": "/ˈtɛk.nɪˌkəl.i/",
@@ -2921,11 +2928,11 @@
   "ipa": "",
   "pos": "adjective",
   "def": "not in a line",
-  "ex": "In general, little is known about nonlinear second order differential equations.",
+  "ex": "a film with a nonlinear plot",
   "syn": [],
-  "vi": "phi tuyến",
+  "vi": "",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "obscure": {
   "ipa": "/əbˈskjʊə(ɹ)/",
@@ -3433,14 +3440,14 @@
   "tries": 1
  },
  "coefficient": {
-  "ipa": "",
+  "ipa": "/ˌkəʊ.iˈfɪʃn̩t/",
   "pos": "adjective",
   "def": "a number multiplied by a variable in an algebraic expression.",
   "ex": "The quadratic coefficient in this term is questionable.",
   "syn": [],
-  "vi": "hệ số",
+  "vi": "",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "composite": {
   "ipa": "/ˈkɒmpəzɪt/",
@@ -3523,14 +3530,14 @@
   "tries": 1
  },
  "differential": {
-  "ipa": "",
+  "ipa": "[dɪfəˈɹənʃəɫ]",
   "pos": "adjective",
   "def": "difference; diversity",
   "ex": "Differential equations are equations involving derivatives.",
   "syn": [],
-  "vi": "sự khác biệt, vi phân",
+  "vi": "",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "diffusion": {
   "ipa": "/dɪˈfjuː.ʒən/",
@@ -3653,14 +3660,14 @@
   "tries": 1
  },
  "ion": {
-  "ipa": "/ˈaɪən/",
+  "ipa": "/ˈaɪɒn/",
   "pos": "noun",
   "def": "a charged atom",
   "ex": "Lithium ion batteries are used in almost all electric vehicles.",
   "syn": [],
   "vi": "",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "kidney": {
   "ipa": "/ˈkɪdni/",
@@ -3708,9 +3715,9 @@
   "def": "involving many countries",
   "ex": "Global multinational corporations are engaged in environmental violence.",
   "syn": [],
-  "vi": "đa quốc gia",
+  "vi": "",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "niche": {
   "ipa": "/niːʃ/",
@@ -4266,11 +4273,11 @@
   "ipa": "",
   "pos": "adverb",
   "def": "forward",
-  "ex": "From this point onward outdoor footwear is prohibited.",
+  "ex": "The sky faded, and the road snaked onwards.",
   "syn": [],
-  "vi": "trở đi",
+  "vi": "",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "oscillation": {
   "ipa": "/ˌɒ.sɪˈleɪ.ʃən/",
@@ -4440,7 +4447,7 @@
   "syn": [],
   "vi": "",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "confound": {
   "ipa": "/kənˈfaʊnd/",
@@ -5176,12 +5183,12 @@
  },
  "descendent": {
   "ipa": "",
-  "pos": "adjective",
-  "def": "Alternative spelling of descendant.",
+  "pos": "noun",
+  "def": "{a person considered as descended from some ancestor or race}",
   "ex": "",
   "syn": [],
-  "vi": "hậu duệ",
+  "vi": "",
   "v": 2,
-  "tries": 1
+  "tries": 2
  }
 }

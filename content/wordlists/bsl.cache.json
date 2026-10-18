@@ -42,12 +42,12 @@
  "receivable": {
   "ipa": "",
   "pos": "adjective",
-  "def": "Capable of being received, especially of a debt, from the perspective of the creditor.",
-  "ex": "",
+  "def": "A debt owed, usually to a business, from the perspective of that business",
+  "ex": "One man's receivable is another man's payable.",
   "syn": [],
   "vi": "khoản phải thu",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "pre": {
   "ipa": "/ˈpɹi/",
@@ -168,12 +168,12 @@
  "stockmarket": {
   "ipa": "",
   "pos": "noun",
-  "def": "Alternative form of stock market.",
+  "def": "A market for the trading of company stock.",
   "ex": "",
   "syn": [],
   "vi": "thị trường chứng khoán",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "ex": {
   "ipa": "",
@@ -201,7 +201,7 @@
   "syn": [],
   "vi": "người phát hành",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "borrower": {
   "ipa": "/ˈbɔɹəʊə/",
@@ -254,14 +254,14 @@
   "tries": 1
  },
  "coefficient": {
-  "ipa": "",
-  "pos": "adjective",
-  "def": "Cooperating.",
+  "ipa": "/ˌkəʊ.iˈfɪʃn̩t/",
+  "pos": "noun",
+  "def": "A constant by which an algebraic term is multiplied.",
   "ex": "The quadratic coefficient in this term is questionable.",
   "syn": [],
   "vi": "hệ số",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "disclose": {
   "ipa": "/dɪsˈkləʊz/",
@@ -324,12 +324,12 @@
  "payoff": {
   "ipa": "",
   "pos": "noun",
-  "def": "Alternative form of pay-off.",
+  "def": "A payment.",
   "ex": "Tom said that he would not invest in stocks unless there was a definite payoff.",
   "syn": [],
   "vi": "sự đền đáp, sự cho nghĩ phép",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "publicly": {
   "ipa": "/ˈpʌb.lɪ.kli/",
@@ -359,7 +359,7 @@
   "syn": [],
   "vi": "nhà tiếp thị",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "rebel": {
   "ipa": "/ˈɹɛb.əl/",
@@ -462,12 +462,12 @@
  "multinational": {
   "ipa": "",
   "pos": "adjective",
-  "def": "Of, or involving more than two nations (externally between countries or internally in a country).",
+  "def": "A multinational company.",
   "ex": "Global multinational corporations are engaged in environmental violence.",
   "syn": [],
   "vi": "đa quốc gia",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "shrink": {
   "ipa": "/ˈʃɹɪŋk/",
@@ -502,12 +502,14 @@
  "inflow": {
   "ipa": "",
   "pos": "noun",
-  "def": "The act or process of flowing in or into.",
+  "def": "The act or process of flowing in or into",
   "ex": "Volatile aid and investment inflows have limited growth, and poverty remains high.",
-  "syn": [],
+  "syn": [
+   "influx"
+  ],
   "vi": "dòng chảy vào, cửa sông",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "pledge": {
   "ipa": "/plɛd͡ʒ/",
@@ -819,11 +821,11 @@
   "ipa": "",
   "pos": "verb",
   "def": "An amount of money paid out.",
-  "ex": "Layla used what was left of her husband's insurance payout to buy a house in Cairo.",
+  "ex": "Insurance companies everywhere are facing hard times and have become even more tight fisted about payouts.",
   "syn": [],
   "vi": "thanh toán",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "suppress": {
   "ipa": "/səˈpɹɛs/",
@@ -901,7 +903,7 @@
   "syn": [],
   "vi": "trả nợ, sự trả góp",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "offshore": {
   "ipa": "/ɒfˈʃɔː(ɹ)/",
@@ -917,11 +919,11 @@
   "ipa": "",
   "pos": "noun",
   "def": "An open area in a town housing a public market.",
-  "ex": "Diego put his pool table on Facebook Marketplace.",
+  "ex": "Some high-street retailers were slow to enter the new digital marketplace of the Internet.",
   "syn": [],
   "vi": "thị trường",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "proxy": {
   "ipa": "/ˈpɹɒk.si/",
@@ -936,12 +938,12 @@
  "politically": {
   "ipa": "",
   "pos": "adverb",
-  "def": "In a political manner.",
+  "def": "In a political manner",
   "ex": "",
   "syn": [],
   "vi": "về mặt chính trị",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "municipal": {
   "ipa": "/mjuˈnɪsɪpəl/",
@@ -1165,11 +1167,11 @@
   "ipa": "",
   "pos": "noun",
   "def": "One who, or that which, exports: especially a person who or organization that exports or sells goods made in one country for delivery in another country.",
-  "ex": "",
+  "ex": "India is the leading exporter of guar gum, making up nearly 85 per cent of the global production.",
   "syn": [],
   "vi": "nhà xuất khẩu",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "lag": {
   "ipa": "/læɡ/",
@@ -1225,11 +1227,11 @@
   "ipa": "",
   "pos": "noun",
   "def": "The act of issuing, or giving out.",
-  "ex": "",
+  "ex": "the issuance of an order; the issuance of rations",
   "syn": [],
   "vi": "phát hành",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "capitalist": {
   "ipa": "/ˈkæp.ɪ.tə.lɪst/",
@@ -1250,14 +1252,14 @@
   "tries": 1
  },
  "differential": {
-  "ipa": "",
+  "ipa": "[dɪfəˈɹənʃəɫ]",
   "pos": "adjective",
-  "def": "Of or pertaining to a difference.",
+  "def": "The differential gear in an automobile etc",
   "ex": "Differential equations are equations involving derivatives.",
   "syn": [],
   "vi": "sự khác biệt, vi phân",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "amortization": {
   "ipa": "/əˌmɔːtəˈzeɪʃən/",
@@ -1398,12 +1400,12 @@
  "repurchase": {
   "ipa": "",
   "pos": "verb",
-  "def": "To buy back or again; to regain by purchase.",
+  "def": "The act of repurchasing.",
   "ex": "France repurchased the island in 1877 and took control the following year.",
   "syn": [],
   "vi": "mua lại",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "plunge": {
   "ipa": "/plʌnd͡ʒ/",
@@ -1575,11 +1577,13 @@
   "ipa": "",
   "pos": "adjective",
   "def": "Pertaining to an increment.",
-  "ex": "Every time you go through the cycle, you increment the counter by one.",
-  "syn": [],
+  "ex": "Incremental improvement is fine as long as the increments are large enough to see.",
+  "syn": [
+   "gradual"
+  ],
   "vi": "tăng dần",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "fighter": {
   "ipa": "/ˈfaɪ.tə(ɹ)/",
@@ -1622,14 +1626,14 @@
   "tries": 1
  },
  "multiplier": {
-  "ipa": "",
+  "ipa": "[ˈmʌɫ.tɪ.ˌplaɪ.ə(ɹ)]",
   "pos": "noun",
-  "def": "One who multiplies or causes something to increase.",
-  "ex": "",
+  "def": "A number by which another (the multiplicand) is to be multiplied.",
+  "ex": "In the expression 5 × 7, the \"5\" is a multiplier.",
   "syn": [],
   "vi": "phép nhân",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "slowdown": {
   "ipa": "/ˈsloʊˌdaʊn/",
@@ -1694,22 +1698,26 @@
  "outflow": {
   "ipa": "",
   "pos": "noun",
-  "def": "The process of flowing out.",
+  "def": "The process of flowing out",
   "ex": "Engineers monitored the outflow from the dam to prevent flooding downstream.",
-  "syn": [],
+  "syn": [
+   "effluence",
+   "efflux",
+   "effluxion"
+  ],
   "vi": "dòng chảy ra",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "spokesman": {
   "ipa": "",
   "pos": "noun",
-  "def": "One who speaks as the voice of another person or a group of people.",
+  "def": "One who speaks as the voice of a group of people.",
   "ex": "Tom wasn't sure why he was considered the spokesman for the group.",
   "syn": [],
   "vi": "người phát ngôn, người đại diện",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "contingency": {
   "ipa": "/kənˈtɪnd͡ʒənsi/",
@@ -1998,14 +2006,14 @@
   "tries": 1
  },
  "thrive": {
-  "ipa": "",
+  "ipa": "/θɹaɪv/",
   "pos": "verb",
-  "def": "To grow or increase stature; to grow vigorously or luxuriantly; to enjoy a state of excellent health and well-being; to flourish.",
-  "ex": "",
+  "def": "To grow or increase stature; to grow vigorously or luxuriantly, to flourish.",
+  "ex": "Not all animals thrive well in captivity.",
   "syn": [],
   "vi": "phát triển mạnh, lớn lên",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "commander": {
   "ipa": "/kəˈmɑːndə/",
@@ -2045,7 +2053,7 @@
   "syn": [],
   "vi": "người nắm giữ trái phiếu",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "unveil": {
   "ipa": "/ʌnˈveɪl/",
@@ -2270,10 +2278,13 @@
   "pos": "adverb",
   "def": "In an explicit manner.",
   "ex": "I would like to explicitly emphasize this.",
-  "syn": [],
+  "syn": [
+   "expressly",
+   "unambiguously"
+  ],
   "vi": "rõ ràng",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "payback": {
   "ipa": "/ˈpeɪbæk/",
@@ -2381,7 +2392,7 @@
   "syn": [],
   "vi": "về mặt vật chất, thành tựu",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "clash": {
   "ipa": "/ˈklæʃ/",
@@ -2464,14 +2475,14 @@
   "tries": 1
  },
  "alpha": {
-  "ipa": "/ˈæl.fə/",
+  "ipa": "/ˈælfə/",
   "pos": "noun",
-  "def": "The name of the first letter of the Greek alphabet (Α, &nbsp;α), followed by beta. In the Latin alphabet it is the predecessor to A.",
-  "ex": "Alpha particles carry a positive charge.",
+  "def": "The name of the first letter of the Greek alphabet (Α,  α), followed by beta. In the Latin alphabet it is the predecessor to A.",
+  "ex": "I will attempt to make an alpha particle (\"α-particle\") with the Large Hadron Collider.",
   "syn": [],
   "vi": "",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "deflation": {
   "ipa": "/dɪˈfleɪʃən/",
@@ -2521,7 +2532,7 @@
   "syn": [],
   "vi": "tái đầu tư",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "provincial": {
   "ipa": "/pɹəˈvɪn(t)ʃəl/",
@@ -2567,11 +2578,11 @@
   "ipa": "",
   "pos": "noun",
   "def": "In warfare, an agreed end to hostilities for a specific purpose. (Typically only temporary).",
-  "ex": "McKinley demanded an immediate ceasefire in Cuba.",
+  "ex": "The rebels agreed to a ceasefire while the peace talks were underway.",
   "syn": [],
   "vi": "ngừng bắn, chấm dứt chiến tranh",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "handset": {
   "ipa": "/ˈhæn(d)sɛt/",
@@ -2920,12 +2931,12 @@
  "unpopular": {
   "ipa": "",
   "pos": "adjective",
-  "def": "Lacking popularity.",
+  "def": "Lacking popularity",
   "ex": "",
   "syn": [],
   "vi": "không được ưa chuộng",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "quantify": {
   "ipa": "/ˈkwɒn.tɪˌfaɪ/",
@@ -3314,12 +3325,12 @@
  "carmaker": {
   "ipa": "",
   "pos": "noun",
-  "def": "A manufacturer of automobiles.",
+  "def": "A company that manufactures automobiles.",
   "ex": "",
   "syn": [],
   "vi": "hãng sản xuất ô tô",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "discretionary": {
   "ipa": "/dɪˈskɹɛʃən(ə)ɹi/",
@@ -3428,14 +3439,18 @@
   "vi": "cân hắn, đắn đo"
  },
  "mill": {
-  "ipa": "",
+  "ipa": "/mɪl/",
   "pos": "noun",
-  "def": "A grinding apparatus for substances such as grains, seeds, etc. (Some are small and simple, and some are large and complex.)",
-  "ex": "He secured employment at the mill.",
-  "syn": [],
+  "def": "A grinding apparatus for substances such as grains, seeds, etc.",
+  "ex": "Pepper has a stronger flavor when it is ground straight from a mill.",
+  "syn": [
+   "factory",
+   "works",
+   "permille"
+  ],
   "vi": "cối xay, cối xay",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "loser": {
   "ipa": "/luːzə(ɹ)/",
@@ -3480,12 +3495,12 @@
  "counterparty": {
   "ipa": "",
   "pos": "noun",
-  "def": "The other party to a financial transaction.",
+  "def": "The other party to a financial transaction",
   "ex": "We can't leave the counterparty any loopholes.",
   "syn": [],
   "vi": "đối tác",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "overwhelm": {
   "ipa": "/ˌəʊ.vəˈ(h)wɛlm/",
@@ -3759,11 +3774,11 @@
   "ipa": "",
   "pos": "adjective",
   "def": "Causing or liable to cause inflation.",
-  "ex": "When a currency depreciates, that has an inflationary effect on the economy of the country of the currency.",
+  "ex": "The rapid influx of precious metals from the new mines had an inflationary effect on the specie based economy.",
   "syn": [],
   "vi": "lạm phát",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "tort": {
   "ipa": "/tɔːt/",
@@ -3811,7 +3826,7 @@
   "syn": [],
   "vi": "sự tự do hóa",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "buyout": {
   "ipa": "",
@@ -3821,7 +3836,7 @@
   "syn": [],
   "vi": "mua lại",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "remarkably": {
   "ipa": "/ɹɪˈmɑːkəbli/",
@@ -3987,11 +4002,11 @@
   "ipa": "",
   "pos": "adverb",
   "def": "In terms of finance or money.",
-  "ex": "",
+  "ex": "He helped his daughter out financially, paying her rent and utilities, until she recovered from the accident.",
   "syn": [],
   "vi": "tài chính",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "maximization": {
   "ipa": "",
@@ -4001,7 +4016,7 @@
   "syn": [],
   "vi": "tối đa hóa",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "bureaucrat": {
   "ipa": "/ˈbjʊəɹəkɹæt/",
@@ -4104,12 +4119,12 @@
  "proportional": {
   "ipa": "",
   "pos": "adjective",
-  "def": "At a constant ratio (to). Two magnitudes (numbers) are said to be proportional if the second varies in a direct relation arithmetically to the first. Symbol: ∝.",
+  "def": "A proportion.",
   "ex": "Algeria is a country of continental proportions.",
   "syn": [],
   "vi": "tỷ lệ thuận",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "uncover": {
   "ipa": "/ʌnˈkʌvə(ɹ)/",
@@ -4145,11 +4160,15 @@
   "ipa": "",
   "pos": "noun",
   "def": "The act or process of rearranging. See reorganize.",
-  "ex": "The brain constantly reorganizes itself during the learning of a new language.",
-  "syn": [],
+  "ex": "All hope of my promotion went up in smoke after my reorganization plan fell through.",
+  "syn": [
+   "rearrangement",
+   "rearranging",
+   "reordering"
+  ],
   "vi": "tổ chức lại",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "successive": {
   "ipa": "/səkˈsɛsɪv/",
@@ -4185,11 +4204,11 @@
   "ipa": "",
   "pos": "noun",
   "def": "The process of removing constraints, especially government-imposed economic regulation.",
-  "ex": "Therefore, they cannot catalyze deregulation without \"external pressure\".",
+  "ex": "Some say the airline industry has not been profitable since Ronald Reagan began deregulation.",
   "syn": [],
   "vi": "bãi bỏ quy định",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "computerize": {
   "ipa": "",
@@ -4199,7 +4218,7 @@
   "syn": [],
   "vi": "vi tính hóa",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "succession": {
   "ipa": "/səkˈsɛʃ.ən/",
@@ -4299,7 +4318,7 @@
   "syn": [],
   "vi": "nhà hoạch định chính sách",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "technically": {
   "ipa": "/ˈtɛk.nɪˌkəl.i/",
@@ -4312,12 +4331,14 @@
  "utilization": {
   "ipa": "",
   "pos": "noun",
-  "def": "US, Canada, and Oxford British English standard spelling of utilisation.",
+  "def": "The act of using something.",
   "ex": "Pietro decided to utilize the opportunity.",
-  "syn": [],
+  "syn": [
+   "use"
+  ],
   "vi": "sự tận dụng",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "tumble": {
   "ipa": "/ˈtʌmbl̩/",
@@ -4382,12 +4403,12 @@
  "shortfall": {
   "ipa": "",
   "pos": "noun",
-  "def": "An instance of falling short, of not meeting a quota, an obligation, or more generally any expected target.",
-  "ex": "The government's elevated debt levels have limited its capacity to finance any shortfalls.",
+  "def": "An instance of not meeting a quota, debt, or monthly payment on a debt or other obligation, or of having an insufficient amount to cover such obligations.",
+  "ex": "Due to a shortfall in revenue, we will have to make some cuts.",
   "syn": [],
   "vi": "sự thiếu hụt",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "originate": {
   "ipa": "/əˈɹɪd͡ʒɪneɪt/",
@@ -4477,7 +4498,7 @@
   "syn": [],
   "vi": "tái cấp vốn",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "tribal": {
   "ipa": "/ˈtɹaɪbəl/",
@@ -4551,11 +4572,11 @@
   "ipa": "",
   "pos": "noun",
   "def": "A person or company that buys merchandise from manufacturers, importers, or distributors and resells the merchandise to retail businesses and to business and institutional end users.",
-  "ex": "There's been an increase in wholesale prices.",
+  "ex": "Tom is a wholesaler of toys for ferrets.",
   "syn": [],
   "vi": "người bán buôn",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "bilateral": {
   "ipa": "/baɪˈlætəɹəl/",
@@ -4677,7 +4698,7 @@
   "syn": [],
   "vi": "hàng năm hóa",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "turmoil": {
   "ipa": "/ˈtɜːmɔɪl/",
@@ -4723,11 +4744,11 @@
   "ipa": "",
   "pos": "",
   "def": "",
-  "ex": "How much sugar does Algeria consume per capita?",
+  "ex": "Finland has the most saunas per capita.",
   "syn": [],
   "vi": "đầu người",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "tolerate": {
   "ipa": "/ˈtɒl.ə.ɹeɪt/",
@@ -4802,12 +4823,12 @@
  "marketable": {
   "ipa": "",
   "pos": "adjective",
-  "def": "Capable of being marketed.",
-  "ex": "",
+  "def": "Of or pertaining to marketability; capable of being marketed.",
+  "ex": "The quality and scarcity ensured that the product was eminently marketable.",
   "syn": [],
   "vi": "có thể bán được",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "conjunction": {
   "ipa": "/kənˈd͡ʒʌŋk.ʃn̩/",
@@ -5055,17 +5076,17 @@
   "syn": [],
   "vi": "sự kém hiệu quả, bất tài",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "downgrade": {
-  "ipa": "",
+  "ipa": "/ˈdaʊnˌɡɹeɪd/",
   "pos": "noun",
   "def": "A reduction of a rating, as a financial or credit rating.",
   "ex": "Going from Starbucks to instant coffee is a massive downgrade, if you ask me.",
   "syn": [],
   "vi": "hạ cấp, hết thời",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "plead": {
   "ipa": "/pliːd/",
@@ -5101,11 +5122,11 @@
   "ipa": "",
   "pos": "noun",
   "def": "An entity assuming a financial risk.",
-  "ex": "Not every company can afford to underwrite such an expensive event.",
+  "ex": "They were the underwriters of the company's shares, but only on a \"best efforts\" basis.",
   "syn": [],
   "vi": "người bảo lãnh, người bảo đảm",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "newcomer": {
   "ipa": "/ˈnjuːkʌmə/",
@@ -5155,7 +5176,7 @@
   "syn": [],
   "vi": "một cách thích hợp",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "accusation": {
   "ipa": "/ˌæk.jʊˈzeɪ.ʃ(ə)n/",
@@ -5185,17 +5206,17 @@
   "syn": [],
   "vi": "sự mất giá, giãm giá trị",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "outlay": {
   "ipa": "",
   "pos": "noun",
   "def": "A laying out or expending; that which is laid out or expended.",
-  "ex": "The union is prepared to outlay their entire strike fund in these negotiations.",
+  "ex": "Without too much outlay, you could buy a second-hand car.",
   "syn": [],
   "vi": "chi tiêu, bỏ ra",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "precious": {
   "ipa": "/ˈpɹɛʃ.əs/",
@@ -5376,12 +5397,12 @@
  "unpredictable": {
   "ipa": "",
   "pos": "adjective",
-  "def": "Unable to be predicted.",
+  "def": "An unpredictable thing.",
   "ex": "",
   "syn": [],
   "vi": "không thể đoán trước",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "disastrous": {
   "ipa": "/dɪˈzɑː.stɹəs/",
@@ -5481,7 +5502,7 @@
   "syn": [],
   "vi": "nghị sĩ",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "ratify": {
   "ipa": "/ˈɹætɪfaɪ/",
@@ -5545,11 +5566,11 @@
   "ipa": "",
   "pos": "noun",
   "def": "The property of not being in balance.",
-  "ex": "BDSM dynamics can involve exploring power imbalances in a consensual context.",
+  "ex": "The growing imbalances between the rich and poor first lead to more crime.",
   "syn": [],
   "vi": "mất cân bằng",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "bolster": {
   "ipa": "/ˈbɒlstə/",
@@ -5629,7 +5650,7 @@
   "syn": [],
   "vi": "người cải cách, người cải quá",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "unwilling": {
   "ipa": "/ʌnˈwɪlɪŋ/",
@@ -5674,12 +5695,12 @@
  "depositor": {
   "ipa": "",
   "pos": "noun",
-  "def": "A person who makes a deposit, especially a deposit of money in a bank.",
+  "def": "A person who makes a deposit, especially a deposit of money in a bank",
   "ex": "",
   "syn": [],
   "vi": "người gửi tiền",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "clout": {
   "ipa": "/klaʊt/",
@@ -5696,10 +5717,13 @@
   "pos": "adverb",
   "def": "In a collective manner; viewed together as a whole; to be treated as a single unit, rather than the items that make up the collection separately.",
   "ex": "",
-  "syn": [],
+  "syn": [
+   "jointly",
+   "mutually"
+  ],
   "vi": "tập thể",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "conspiracy": {
   "ipa": "/kənˈspɪɹəsi/",
@@ -5759,7 +5783,7 @@
   "syn": [],
   "vi": "trái phép",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "pin": {
   "ipa": "/pɪn/",
@@ -5819,7 +5843,7 @@
   "syn": [],
   "vi": "đầy đủ",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "prosper": {
   "ipa": "/ˈpɹɒspə(ɹ)/",
@@ -5849,17 +5873,17 @@
   "syn": [],
   "vi": "tiểu mục",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "formulation": {
   "ipa": "",
   "pos": "noun",
-  "def": "The act, process, or result of formulating or reducing to a formula. A particular linguistic construction; a turn of phrase.",
-  "ex": "Was it Leibniz or Newton who first formulated the theory of calculus?",
+  "def": "The act, process, or result of formulating or reducing to a formula.",
+  "ex": "If you liked our old shampoo, you'll love the new kinder, gentler formulation.",
   "syn": [],
   "vi": "công thức",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "exert": {
   "ipa": "/ɪɡˈzɜːt/",
@@ -5899,17 +5923,17 @@
   "syn": [],
   "vi": "không thuận lợi",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "proprietorship": {
   "ipa": "",
   "pos": "noun",
-  "def": "The state of being a proprietor; ownership.",
+  "def": "The state of being a proprietor; ownership",
   "ex": "",
   "syn": [],
   "vi": "quyền sở hữu",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "franc": {
   "ipa": "/ˈfɹæŋk/",
@@ -5924,12 +5948,12 @@
  "policyholder": {
   "ipa": "",
   "pos": "noun",
-  "def": "The party to an insurance contract who owns the policy and thus transfers a risk&nbsp;to an insurer (i.e., pays the insurer to take the risk).",
+  "def": "A person who holds an insurance policy, especially the person whose life is insured",
   "ex": "The insurer will indemnify the policyholder against loss of or damage to the motor car.",
   "syn": [],
   "vi": "người mua bảo hiểm",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "supervisory": {
   "ipa": "/ˌsuːpə(ɹ)ˈvaɪzəɹɪ/",
@@ -5963,11 +5987,13 @@
  },
  "neo": {
   "ipa": "/ˈniːəʊ/",
-  "pos": "",
-  "def": "",
+  "pos": "noun",
+  "def": "A newcomer to science fiction; a fan who is extremely new and inexperienced with the genre; a beginner.",
   "ex": "Neo successfully dodged all the shots.",
   "syn": [],
-  "vi": ""
+  "vi": "tân",
+  "v": 2,
+  "tries": 1
  },
  "reinvestment": {
   "ipa": "",
@@ -5977,7 +6003,7 @@
   "syn": [],
   "vi": "tái đầu tư",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "scratch": {
   "ipa": "/skɹæt͡ʃ/",
@@ -6223,7 +6249,7 @@
   "syn": [],
   "vi": "thẻ điểm",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "ounce": {
   "ipa": "/aʊns/",
@@ -6298,12 +6324,16 @@
  "restate": {
   "ipa": "",
   "pos": "verb",
-  "def": "to state again (without changing)",
+  "def": "To state again (without changing)",
   "ex": "I heard you restate what I said, but I'm not sure whether you agree with me.",
-  "syn": [],
+  "syn": [
+   "rephrase",
+   "reword",
+   "reiterate"
+  ],
   "vi": "trình bày lại",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "rightly": {
   "ipa": "/ˈɹaɪtli/",
@@ -6346,14 +6376,14 @@
   "tries": 1
  },
  "dismantle": {
-  "ipa": "",
+  "ipa": "[dɪsˈmæntʰəɫ]",
   "pos": "verb",
-  "def": "To take apart; to disassemble; to take to pieces.",
+  "def": "To divest, strip of dress or covering.",
   "ex": "",
   "syn": [],
   "vi": "tháo dỡ, cất đi",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "duly": {
   "ipa": "/ˈdʒuːli/",
@@ -6368,12 +6398,12 @@
  "reformist": {
   "ipa": "",
   "pos": "noun",
-  "def": "Advocating reform of an institution or body.",
+  "def": "One who advocates reform (of an institution).",
   "ex": "Reformist prison systems try and encourage learning the teachings of stoicism because it lowers reoffending rates a lot.",
   "syn": [],
   "vi": "người theo chủ nghĩa cải cách",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "imminent": {
   "ipa": "/ˈɪmɪnənt/",
@@ -6418,12 +6448,12 @@
  "unrelated": {
   "ipa": "",
   "pos": "adjective",
-  "def": "Not connected or associated.",
-  "ex": "",
+  "def": "Not connected or associated",
+  "ex": "The holiday started with two unrelated mishaps.",
   "syn": [],
   "vi": "không liên quan",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "clarity": {
   "ipa": "/ˈklæɹ.ɪ.ti/",
@@ -6476,14 +6506,16 @@
   "tries": 1
  },
  "specialization": {
-  "ipa": "",
+  "ipa": "/ˌspɛʃəlɪˈzeɪʃn̩/",
   "pos": "noun",
   "def": "The act or process of specializing.",
-  "ex": "",
-  "syn": [],
+  "ex": "A triangle is a specialization of a polygon to one with exactly three sides.",
+  "syn": [
+   "particularization"
+  ],
   "vi": "chuyên môn hóa",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "globally": {
   "ipa": "/ˈɡləʊbəli/",
@@ -6506,14 +6538,14 @@
   "tries": 1
  },
  "dash": {
-  "ipa": "/ˈdæʃ/",
+  "ipa": "/dæʃ/",
   "pos": "noun",
-  "def": "",
-  "ex": "",
+  "def": "Any of the following symbols: ‒ (figure dash), – (en dash), — (em dash), or ― (horizontal bar).",
+  "ex": "Add a dash of vinegar.",
   "syn": [],
-  "vi": "dấu gạch ngang",
+  "vi": "dấu gạch ngang, chạm",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "rein": {
   "ipa": "/ɹeɪn/",
@@ -6533,7 +6565,7 @@
   "syn": [],
   "vi": "sa thải, cho giải ngủ",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "empowerment": {
   "ipa": "/ɪmˈpaʊ.əɹ.mənt/",
@@ -6593,7 +6625,7 @@
   "syn": [],
   "vi": "có thể thực thi được",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "dub": {
   "ipa": "/dʌb/",
@@ -6620,10 +6652,13 @@
   "pos": "adjective",
   "def": "Not physically secured; not fastened; not attached.",
   "ex": "Tom seized an unsecured bus at night and took it for a joyride until early morning.",
-  "syn": [],
+  "syn": [
+   "free",
+   "loose"
+  ],
   "vi": "không được bảo đảm",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "blast": {
   "ipa": "/blɑːst/",
@@ -6729,11 +6764,11 @@
   "ipa": "",
   "pos": "noun",
   "def": "The process of altering the relative value of a currency or other standard of exchange.",
-  "ex": "The yen was revalued upward against the U.S. dollar from a rate of 360 yen against the dollar to 308 yen on December 18, 1971.",
+  "ex": "After the new party took power, the government declared a revaluation of the currency in an attempt to limit runaway inflation.",
   "syn": [],
   "vi": "đánh giá lại",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "swell": {
   "ipa": "/swɛl/",
@@ -6876,12 +6911,12 @@
  "severely": {
   "ipa": "",
   "pos": "adverb",
-  "def": "In a severe manner; with severity.",
+  "def": "In a severe manner.",
   "ex": "",
   "syn": [],
   "vi": "nghiêm khắc",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "grim": {
   "ipa": "/ɡɹɪm/",
@@ -6901,7 +6936,7 @@
   "syn": [],
   "vi": "quan hệ",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "brutal": {
   "ipa": "/ˈbɹuːtəl/",
@@ -6929,9 +6964,9 @@
   "def": "One who has, or attempts to acquire, a monopoly on something.",
   "ex": "",
   "syn": [],
-  "vi": "người độc quyền",
+  "vi": "",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "disposition": {
   "ipa": "/ˌdɪs.pəˈzɪʃ.ən/",
@@ -6966,12 +7001,12 @@
  "worksheet": {
   "ipa": "",
   "pos": "noun",
-  "def": "A sheet of paper or computerized document on which problems are worked out or solved and the answers are recorded.",
+  "def": "A sheet of paper or computerized document on which problems are worked out or solved and answers recorded.",
   "ex": "The reward for finishing your worksheet early is another worksheet.",
   "syn": [],
-  "vi": "bảng tính",
+  "vi": "",
   "v": 2,
-  "tries": 1
+  "tries": 2
  },
  "intercept": {
   "ipa": "/ɪntəˈsɛpt/",
@@ -7150,6 +7185,19 @@
   "ex": "Forests are massive sponges of carbon dioxide.",
   "syn": [],
   "vi": "dioxit",
+  "v": 2,
+  "tries": 1
+ },
+ "micro": {
+  "ipa": "/ˈmaɪ.kɹoʊ/",
+  "pos": "noun",
+  "def": "(gaming slang) micromanagement",
+  "ex": "A 25-year-old man's recommended dietary allowance of iron is 8 micro-grams.",
+  "syn": [
+   "PC",
+   "micro"
+  ],
+  "vi": "vi mô",
   "v": 2,
   "tries": 1
  }
