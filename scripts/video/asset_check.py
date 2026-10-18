@@ -683,20 +683,23 @@ def anatomy_block(pairs, who, ref, cast_stroke, labels):
     hr = [f.get('headRatio') for f in figs.values() if f.get('headRatio')]
     if hr:
         agg['headRatio'] = float(np.median(hr))
+    ee = [f.get('eyeEdges') for f in figs.values() if f.get('eyeEdges') is not None]
+    if ee:  # gọng kính: trung vị – 1 khung nhắm/nheo mắt cười (kính vẫn đeo) không làm FAIL
+        agg['eyeEdges'] = float(np.median(ee))
     if ref and ref.get('paletteSig'):
         ds = sorted(((AN.palette_distance(ref['paletteSig'], f.get('paletteSig')) or 0), k) for k, f in figs.items())
         if ds:
             agg['paletteSig'] = figs[ds[len(ds) // 2][1]].get('paletteSig')
     for lab, fig in figs.items():
         for name, ok, val, reason, lvl in AN.checks(fig, ref, who, cast_stroke):
-            if name in ('head_ratio', 'palette_dna'):
+            if name in ('head_ratio', 'palette_dna', 'glasses'):
                 continue
             c = chk('anat_' + name, ok, val, None, f'[{lab}] {reason}', lvl)
             prev = merged.get(c['name'])
             if not prev or rank[c['status']] > rank[prev['status']]:
                 merged[c['name']] = c
     for name, ok, val, reason, lvl in AN.checks(agg, ref, who, cast_stroke):
-        if name in ('head_ratio', 'palette_dna'):
+        if name in ('head_ratio', 'palette_dna', 'glasses'):
             merged['anat_' + name] = chk('anat_' + name, ok, val, None, f'[trung vị {len(figs)} khung] {reason}', lvl)
     return list(merged.values()), figs
 
