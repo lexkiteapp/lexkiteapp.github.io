@@ -103,6 +103,7 @@ jobs:
           retention-days: 14
       - name: Tải vào kho GrabCast (pool bulk – Studio tự tạo bài & lên lịch)
         id: store
+        continue-on-error: true # kho đầy/API lỗi không làm hỏng lần dựng: video vẫn vào Studio để chấm (artifact), đăng cần tải kho lại
         env:
           GRABCAST_API_KEY: ${{ secrets.GRABCAST_API_KEY }}
         run: |
