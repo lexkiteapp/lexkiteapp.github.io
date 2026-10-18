@@ -505,6 +505,144 @@
    "eyeEdges": 0.0543,
    "noise": 0.23,
    "from": "chars/mia/green-casual.png"
+  },
+  "carlos@travel": {
+   "headRatio": 0.272,
+   "strokeW": 2.72,
+   "paletteSig": [
+    [
+     [
+      5.7,
+      7.1,
+      -23.1
+     ],
+     0.342
+    ],
+    [
+     [
+      53.8,
+      5.8,
+      34.1
+     ],
+     0.25
+    ],
+    [
+     [
+      99.5,
+      -0.2,
+      0.3
+     ],
+     0.105
+    ],
+    [
+     [
+      64,
+      37.5,
+      46.2
+     ],
+     0.101
+    ],
+    [
+     [
+      1.2,
+      4,
+      -11.4
+     ],
+     0.058
+    ],
+    [
+     [
+      39.4,
+      63.1,
+      47.3
+     ],
+     0.015
+    ],
+    [
+     [
+      53.6,
+      1.9,
+      -32.5
+     ],
+     0.007
+    ]
+   ],
+   "eyeEdges": 0.0756,
+   "noise": 0.3,
+   "from": "chars/carlos/green-travel.png"
+  },
+  "mia@travel": {
+   "headRatio": 0.303,
+   "strokeW": 7.15,
+   "paletteSig": [
+    [
+     [
+      22.4,
+      6.1,
+      -33.9
+     ],
+     0.28
+    ],
+    [
+     [
+      0.8,
+      5,
+      -13.4
+     ],
+     0.161
+    ],
+    [
+     [
+      99.8,
+      -0.1,
+      0.2
+     ],
+     0.154
+    ],
+    [
+     [
+      70.6,
+      21.7,
+      74.9
+     ],
+     0.15
+    ],
+    [
+     [
+      72.1,
+      30.5,
+      27.3
+     ],
+     0.083
+    ],
+    [
+     [
+      37.1,
+      -40.4,
+      32.9
+     ],
+     0.044
+    ],
+    [
+     [
+      76.2,
+      2.1,
+      -8
+     ],
+     0.011
+    ],
+    [
+     [
+      17.8,
+      3.5,
+      -16.8
+     ],
+     0.01
+    ]
+   ],
+   "eyeEdges": 0.0516,
+   "noise": 0.34,
+   "from": "chars/mia/green-travel.png"
   }
  },
  "castStroke": [
@@ -809,6 +947,131 @@
      "sha": "e1edae45bff8637acce019b379d8d713febf79784e12e079e4eaa39361c108ca"
     },
     "sheet": "brand/library/_review/chars_carlos_dna_png.jpg"
+   }
+  },
+  {
+   "id": "chars/carlos/green-travel.png",
+   "kind": "char",
+   "who": "carlos",
+   "tags": [
+    "green-travel"
+   ],
+   "file": "chars/carlos/green-travel.png",
+   "sha256": "6ef721c6fdafdd771229c6d4cf8f2da9b340144ee1cf2cec33f23b9e0d86223a",
+   "bytes": 1589054,
+   "w": 1760,
+   "h": 2336,
+   "qa": 92,
+   "source": {
+    "from": "../../../../tmp/claude-501/carlos-gt.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-18"
+   },
+   "status": "approved",
+   "ref": true,
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-18",
+    "issues": [
+     "WARN anat_face_detect: [ảnh] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: AI thị giác không trả kết quả hợp lệ – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1760,
+     "h": 2336,
+     "margins": [
+      0.223,
+      0.025,
+      0.193,
+      0.031
+     ],
+     "bgMad": 1,
+     "textScore": 0,
+     "brandShare": 0.586
+    },
+    "suggest": {
+     "ref": {
+      "headRatio": 0.272,
+      "strokeW": 2.72,
+      "paletteSig": [
+       [
+        [
+         5.7,
+         7.1,
+         -23.1
+        ],
+        0.342
+       ],
+       [
+        [
+         53.8,
+         5.8,
+         34.1
+        ],
+        0.25
+       ],
+       [
+        [
+         99.5,
+         -0.2,
+         0.3
+        ],
+        0.105
+       ],
+       [
+        [
+         64,
+         37.5,
+         46.2
+        ],
+        0.101
+       ],
+       [
+        [
+         1.2,
+         4,
+         -11.4
+        ],
+        0.058
+       ],
+       [
+        [
+         39.4,
+         63.1,
+         47.3
+        ],
+        0.015
+       ],
+       [
+        [
+         53.6,
+         1.9,
+         -32.5
+        ],
+        0.007
+       ]
+      ],
+      "eyeEdges": 0.0756,
+      "noise": 0.3
+     }
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "AI thị giác không trả kết quả hợp lệ – cần duyệt tay"
+     ],
+     "sha": "6ef721c6fdafdd771229c6d4cf8f2da9b340144ee1cf2cec33f23b9e0d86223a",
+     "at": "2026-10-18"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/chars_carlos_green-travel_png.jpg"
    }
   },
   {
@@ -1933,6 +2196,139 @@
      "at": "2026-10-18"
     },
     "sheet": "brand/library/_review/chars_mia_green-casual_png.jpg"
+   }
+  },
+  {
+   "id": "chars/mia/green-travel.png",
+   "kind": "char",
+   "who": "mia",
+   "tags": [
+    "green-travel"
+   ],
+   "file": "chars/mia/green-travel.png",
+   "sha256": "af589e7ec788dc6b0e35c990368d7da5e5098ca546f9a6998664f070786c5c3c",
+   "bytes": 1770007,
+   "w": 1536,
+   "h": 2720,
+   "qa": 92,
+   "source": {
+    "from": "../../../../tmp/claude-501/mia-gt.png",
+    "tool": "Kling",
+    "prompt": null,
+    "date": "2026-10-18"
+   },
+   "status": "approved",
+   "ref": true,
+   "locations": {
+    "primary": null,
+    "backup": {
+     "status": "pending"
+    }
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-18",
+    "issues": [
+     "WARN anat_face_detect: [ảnh] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1536,
+     "h": 2720,
+     "margins": [
+      0.199,
+      0.047,
+      0.179,
+      0.028
+     ],
+     "bgMad": 1,
+     "textScore": 0,
+     "brandShare": 0.634
+    },
+    "suggest": {
+     "ref": {
+      "headRatio": 0.303,
+      "strokeW": 7.15,
+      "paletteSig": [
+       [
+        [
+         22.4,
+         6.1,
+         -33.9
+        ],
+        0.28
+       ],
+       [
+        [
+         0.8,
+         5,
+         -13.4
+        ],
+        0.161
+       ],
+       [
+        [
+         99.8,
+         -0.1,
+         0.2
+        ],
+        0.154
+       ],
+       [
+        [
+         70.6,
+         21.7,
+         74.9
+        ],
+        0.15
+       ],
+       [
+        [
+         72.1,
+         30.5,
+         27.3
+        ],
+        0.083
+       ],
+       [
+        [
+         37.1,
+         -40.4,
+         32.9
+        ],
+        0.044
+       ],
+       [
+        [
+         76.2,
+         2.1,
+         -8
+        ],
+        0.011
+       ],
+       [
+        [
+         17.8,
+         3.5,
+         -16.8
+        ],
+        0.01
+       ]
+      ],
+      "eyeEdges": 0.0516,
+      "noise": 0.34
+     }
+    },
+    "vision": {
+     "status": "PASS",
+     "reasons": [],
+     "providers": [
+      "cloudflare:llama-4-scout-17b-16e-instruct",
+      "gemini"
+     ],
+     "sha": "af589e7ec788dc6b0e35c990368d7da5e5098ca546f9a6998664f070786c5c3c",
+     "at": "2026-10-18"
+    },
+    "sheet": "brand/library/_review/chars_mia_green-travel_png.jpg"
    }
   },
   {

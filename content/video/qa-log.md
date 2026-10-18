@@ -32,3 +32,7 @@
 ## 18/10/2026 – Trang phục mới (casual/travel) cho kịch bản nhập vai
 - `chars/diane/green-casual.png` – Kling Image 3.0 từ `chars/diane/green.png` (2 ảnh, 2 credit): chọn ảnh cardigan teal dệt kim + quần jean navy + giày trắng. Nhận diện giữ đúng (tóc xoăn lọn bạc, kính đỏ, khuyên vàng, đồng hồ). Bỏ ảnh blazer xanh mint (sát màu phông). Soi tách nền magenta (luật chroma_key): áo teal giữ nguyên. **QA 92 – approved.**
 - Clip thử `diane_talk_gesture_casual` (Kling 2.5 Turbo 1080p 5 s, 25 credit) – chờ kết quả, dựng thử trên CI trước khi làm lô.
+- `chars/mia/green-casual.png` (áo khoác jean + áo coral + jean đen) QA 92 · `chars/mia/green-travel.png` (áo phao vàng mù tạt + áo trắng + jean xanh) QA 92 – lần 1 lấy ảnh công sở làm tham chiếu thì Kling giữ dây thẻ + quần teal → lấy ảnh casual làm tham chiếu là sạch.
+- `chars/carlos/green-travel.png` (bomber navy + áo trắng + kaki) QA 92 – AI giám khảo báo "mất ria/identity drift" do so với DNA tạp dề; soi tay 3 mặt cạnh nhau: ria + mặt giữ đúng → nhập --no-vision (ảnh gốc trang phục mới).
+- Clip Diane casual: talk_gesture (0–1,7 s), listen_thumbs (5 s), q_talk_nod ¾ trái (0–4,2 s) – QA 91. Video thử lớp học 75/75. Lô Mia casual 4 clip QA 92 (chân trôi ≤ 0,6 %).
+- Bài học Kling: prompt "From the waist down she stays completely still like a statue… knees straight, hips level" giữ chân đứng yên cả 5 s (trước đó đổi trụ chân sau ~2 s). Kling hay ra hướng ¾ TRÁI dù ghi phải → dùng clip facing:left.
