@@ -1425,6 +1425,30 @@
           "facing": "right"
         }
       ]
+    },
+    {
+      "id": "diane_talk_gesture_casual",
+      "who": "diane",
+      "tags": [
+        "talk",
+        "gesture"
+      ],
+      "outfit": "casual",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/diane_talk_gesture_casual.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        396,
+        1558
+      ],
+      "figH": 1558,
+      "w": 1216,
+      "h": 1560,
+      "ready": true
     }
   ],
   "stills": [

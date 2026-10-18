@@ -4734,6 +4734,121 @@
    "quarantinedFrom": "approved"
   },
   {
+   "id": "clips/diane_talk_gesture_casual.mp4",
+   "kind": "clip",
+   "who": "diane",
+   "tags": [
+    "talk",
+    "gesture",
+    "casual"
+   ],
+   "file": "clips/src/diane_talk_gesture_casual.mp4",
+   "sha256": "a87a1081a647a98c11c2bfc6af334fb38b9a3433de843f44cc417bee80091d49",
+   "bytes": 1344306,
+   "w": 1248,
+   "h": 1656,
+   "duration": 1.708,
+   "qa": 91,
+   "note": "lần 2: lấy 0–1,7 s (nói + dang tay, chân đứng yên, trước lúc chớp mắt 1,8 s)",
+   "trimmed": true,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/diane_talk_gesture_casual.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-18"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": {
+     "path": "clips/diane_talk_gesture_casual.mp4",
+     "url": "https://media.lexkite.com/library/clips/diane_talk_gesture_casual.mp4",
+     "sha256": "d2069055581a80165261be5fe6c3052e3c928b573169e4fc077b2dfe2d2189b5",
+     "gitSha": "f8b0b313d1ba3c2cbbb695201ccb201485228391",
+     "bytes": 707282,
+     "srcSha": "a87a1081a647a98c11c2bfc6af334fb38b9a3433de843f44cc417bee80091d49",
+     "variant": "stacked",
+     "at": "2026-10-18"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/diane_talk_gesture_casual.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/diane_talk_gesture_casual.mp4",
+     "gitSha": "b13e33fc2a1c5c31e321760864114874016a74f3",
+     "sha256": "a87a1081a647a98c11c2bfc6af334fb38b9a3433de843f44cc417bee80091d49",
+     "bytes": 1344306
+    },
+    "drive": [
+     {
+      "driveId": 3,
+      "email_masked": "",
+      "fileId": "1fjzNiNMnmg3omeif5kZGVEEigh6STDAq",
+      "sha256": "a87a1081a647a98c11c2bfc6af334fb38b9a3433de843f44cc417bee80091d49",
+      "at": "2026-10-18"
+     }
+    ]
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-18",
+    "issues": [
+     "WARN anat_face_detect: [giữa] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: chưa có ảnh DNA của diane trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 1.708,
+     "motion": 0.758,
+     "drift": 0.045,
+     "footWobble": 0,
+     "bgShift": 3,
+     "dupRun": 0,
+     "cadenceTwos": 0.72
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của diane trong kho – cần duyệt tay"
+     ],
+     "sha": "a87a1081a647a98c11c2bfc6af334fb38b9a3433de843f44cc417bee80091d49",
+     "at": "2026-10-18"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_diane_talk_gesture_casual_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/diane_talk_gesture_casual.mp4",
+     "alpha": "stacked",
+     "sha256": "d2069055581a80165261be5fe6c3052e3c928b573169e4fc077b2dfe2d2189b5",
+     "bytes": 707282,
+     "w": 1216,
+     "h": 1560,
+     "foot": [
+      396,
+      1558
+     ],
+     "figH": 1558,
+     "frames": 41,
+     "status": "WARN",
+     "issues": [
+      "WARN identity: nghi trôi nhận dạng (tóc ×1.012, áo lệch 270.2) – AI thị giác quyết định FAIL \"identity drift\"",
+      "WARN anat_face_detect: [giữa] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+     ],
+     "at": "2026-10-18",
+     "path": "clips/diane_talk_gesture_casual.mp4",
+     "url": "https://media.lexkite.com/library/clips/diane_talk_gesture_casual.mp4",
+     "gitSha": "f8b0b313d1ba3c2cbbb695201ccb201485228391"
+    }
+   }
+  },
+  {
    "id": "clips/diane_talk_gesture.mp4",
    "kind": "clip",
    "who": "diane",
