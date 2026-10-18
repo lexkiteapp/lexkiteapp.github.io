@@ -27,6 +27,7 @@
     { "id": "shopping", "match": ["supermarket", "grocery", "groceries", "cashier", "checkout", "receipt", "discount", "shopping"], "scenes": ["supermarket"], "cast": ["carlos", "mia", "leo", "ama"] },
     { "id": "travel", "match": ["airport", "flight", "check-in", "boarding", "passport", "hotel", "travel"], "scenes": ["airport"], "cast": ["carlos", "mia", "leo"] },
     { "id": "office-english", "match": ["email", "etiquette", "meeting", "boss", "colleague", "coworker", "office", "circle back", "deadline", "agree", "small talk", "presentation"], "scenes": ["office"], "cast": ["mia", "leo", "diane"] },
+    { "id": "classroom-english", "match": ["classroom english", "teacher", "say that again", "in class"], "scenes": ["classroom"], "cast": ["ama", "diane"] },
     { "id": "study-grammar", "match": ["grammar", "vocabulary", "pronunciation", "spelling", "quiz", "affect or effect", "\"an hour\"", "a university", "homework", "class"], "scenes": ["school", "library", "classroom"], "cast": ["ama"] },
     { "id": "daily-life", "match": ["slang", "idiom", "spill the tea", "how are you", "textbook vs real", "weekend", "friends", "daily"], "scenes": ["home", "cafe"], "cast": ["mia", "leo"] }
   ],

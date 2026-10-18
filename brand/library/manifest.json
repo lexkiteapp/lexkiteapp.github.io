@@ -1473,6 +1473,32 @@
       "w": 888,
       "h": 1558,
       "ready": true
+    },
+    {
+      "id": "diane_q_talk_nod_casual",
+      "who": "diane",
+      "tags": [
+        "q",
+        "talk",
+        "nod"
+      ],
+      "outfit": "casual",
+      "mouth": true,
+      "facing": "left",
+      "file": "clips/diane_q_talk_nod_casual.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        452,
+        1573
+      ],
+      "figH": 1573,
+      "w": 630,
+      "h": 1582,
+      "ready": true,
+      "mirrorOk": false
     }
   ],
   "stills": [

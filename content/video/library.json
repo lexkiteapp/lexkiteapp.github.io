@@ -4666,6 +4666,125 @@
    }
   },
   {
+   "id": "clips/diane_q_talk_nod_casual.mp4",
+   "kind": "clip",
+   "who": "diane",
+   "tags": [
+    "q",
+    "talk",
+    "nod",
+    "casual"
+   ],
+   "file": "clips/src/diane_q_talk_nod_casual.mp4",
+   "sha256": "bf8fd8f394036e12aabf5aaf13d926fc92a9f05f0d552e5506a45eee02c371d1",
+   "bytes": 3762479,
+   "w": 1248,
+   "h": 1656,
+   "duration": 4.208,
+   "qa": 91,
+   "note": "¾ trái nói + gật; lấy 0–4,2 s (4,5 s đổi chân)",
+   "trimmed": true,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/diane_q_talk_nod_casual.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-18"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "facing": "left",
+   "mirrorOk": false,
+   "locations": {
+    "primary": {
+     "path": "clips/diane_q_talk_nod_casual.mp4",
+     "url": "https://media.lexkite.com/library/clips/diane_q_talk_nod_casual.mp4",
+     "sha256": "03553bd39dca6ef7786bcf1dc2beab0ef69d90deb0917da7c036bfeda9a50e02",
+     "gitSha": "27018606e08cbfced9cd8d6bf113436cbd408559",
+     "bytes": 1723498,
+     "srcSha": "bf8fd8f394036e12aabf5aaf13d926fc92a9f05f0d552e5506a45eee02c371d1",
+     "variant": "stacked",
+     "at": "2026-10-18"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/diane_q_talk_nod_casual.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/diane_q_talk_nod_casual.mp4",
+     "gitSha": "2bf6a6fce92448bb17484a7f5343e0dab02d1eae",
+     "sha256": "bf8fd8f394036e12aabf5aaf13d926fc92a9f05f0d552e5506a45eee02c371d1",
+     "bytes": 3762479
+    },
+    "drive": [
+     {
+      "driveId": 3,
+      "email_masked": "",
+      "fileId": "1kSzwpUBJn87SumoSDReLYE94km9SgZ58",
+      "sha256": "bf8fd8f394036e12aabf5aaf13d926fc92a9f05f0d552e5506a45eee02c371d1",
+      "at": "2026-10-18"
+     }
+    ]
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-18",
+    "issues": [
+     "WARN identity: nghi trôi nhận dạng (tóc ×0.994, áo lệch 271.4) – AI thị giác quyết định FAIL \"identity drift\"",
+     "WARN anat_joints: [giữa] khớp bất thường (ước lượng MediaPipe trên tranh 2D – AI thị giác quyết định FAIL) {'arm_r': 2.72}",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: chưa có ảnh DNA của diane trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 4.208,
+     "motion": 1.261,
+     "drift": 4.523,
+     "footWobble": 0.0105,
+     "bgShift": 4,
+     "dupRun": 0,
+     "cadenceTwos": 0.62
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của diane trong kho – cần duyệt tay"
+     ],
+     "sha": "bf8fd8f394036e12aabf5aaf13d926fc92a9f05f0d552e5506a45eee02c371d1",
+     "at": "2026-10-18"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_diane_q_talk_nod_casual_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/diane_q_talk_nod_casual.mp4",
+     "alpha": "stacked",
+     "sha256": "03553bd39dca6ef7786bcf1dc2beab0ef69d90deb0917da7c036bfeda9a50e02",
+     "bytes": 1723498,
+     "w": 630,
+     "h": 1582,
+     "foot": [
+      452,
+      1573
+     ],
+     "figH": 1573,
+     "frames": 101,
+     "status": "WARN",
+     "issues": [
+      "WARN anat_face_detect: [giữa] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+     ],
+     "at": "2026-10-18",
+     "path": "clips/diane_q_talk_nod_casual.mp4",
+     "url": "https://media.lexkite.com/library/clips/diane_q_talk_nod_casual.mp4",
+     "gitSha": "27018606e08cbfced9cd8d6bf113436cbd408559"
+    }
+   }
+  },
+  {
    "id": "clips/diane_shock_laugh.mp4",
    "kind": "clip",
    "who": "diane",

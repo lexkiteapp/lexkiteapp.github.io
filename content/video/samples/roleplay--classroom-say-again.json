@@ -1,0 +1,68 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/roleplay.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Classroom English roleplay: asking the teacher to say that again",
+ "format": "short",
+ "template": "roleplay",
+ "script": {
+  "title": "What to say at class",
+  "hook": "At class",
+  "scene": "classroom",
+  "time": "day",
+  "format_id": "repeat-after-me",
+  "template": "roleplay",
+  "lines": [
+   {
+    "who": "ama",
+    "beat": "hook",
+    "text": "Wait… what did she say?",
+    "expr": "surprised",
+    "gesture": ""
+   },
+   {
+    "who": "diane",
+    "beat": "situation",
+    "text": "For homework, read pages forty to fifty-two.",
+    "expr": "friendly",
+    "gesture": "open hands"
+   },
+   {
+    "who": "ama",
+    "beat": "example",
+    "text": "Sorry, could you say that again, please?",
+    "expr": "curious",
+    "gesture": ""
+   },
+   {
+    "who": "diane",
+    "beat": "explain",
+    "text": "Of course! Pages forty to fifty-two.",
+    "expr": "happy smile",
+    "gesture": "",
+    "punch": true
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: add please. Teachers are happy to repeat.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "cta",
+    "text": "Roleplay this free on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "say that again"
+  ],
+  "caption": "Real English at class – try this line",
+  "hashtags": [
+   "englishconversation",
+   "speakenglish"
+  ],
+  "link": "https://lexkite.com/"
+ }
+}
