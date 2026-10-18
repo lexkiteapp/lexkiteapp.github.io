@@ -9626,7 +9626,14 @@
       "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
       "WARN anat_stroke: [đầu] nét viền 0.58 ngoài biên dàn [1.0, 14.8]"
      ],
-     "at": "2026-10-18"
+     "at": "2026-10-18",
+     "drive": [
+      {
+       "driveId": 3,
+       "email_masked": "",
+       "fileId": "1Om2c8LQxkXAQe9JNj9DEmsKBrafoMqRG"
+      }
+     ]
     }
    }
   },
