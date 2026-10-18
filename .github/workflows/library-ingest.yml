@@ -3,7 +3,7 @@
 #   → library.mjs stack (phông xanh tự dùng chroma_key.py, còn lại rembg) → artifact "ingest-results":
 #      content/video/library.json · brand/library/manifest.json · brand/library/clips/{src/,}<id>.mp4 · _review/*.jpg
 #   Phiên chính: tải artifact, chép đè vào repo, chạy `node scripts/video/library.mjs sync` (chỉ upload) rồi commit manifest.
-# plan = JSON {"date":"YYYY-MM-DD","source":"…","items":[{"id":"carlos_g_talk","url":"https://…klingai.com/…mp4","qa":92,"roles":["listener"]?,"note":"…"?}]}
+# plan = JSON {"date":"YYYY-MM-DD","source":"…","items":[{"id":"carlos_g_talk","url":"https://…klingai.com/…mp4","qa":92,"roles":["listener"]?,"note":"…"?,"cut":[0,2.3]?}]}
 name: library-ingest
 on:
   workflow_dispatch:
@@ -57,6 +57,11 @@ jobs:
               assert re.fullmatch(r'[a-z0-9_]{3,40}', it['id']), it['id']
               assert re.match(r'^https://[a-z0-9.-]*(klingai\.com|kling\.ai|lexkite\.com)/', it['url']), it['id']
               subprocess.run(['curl', '-fsSL', '--retry', '3', '-o', f"{d}/{it['id']}.mp4", it['url']], check=True)
+              if it.get('cut'):  # "cut": [từ_giây, đến_giây] – chỉ lấy đoạn tốt của clip Kling (vd. nửa đầu đứng yên chân)
+                  a, b = float(it['cut'][0]), float(it['cut'][1]); assert 0 <= a < b <= 10, it['id']
+                  src = f"{d}/{it['id']}.mp4"; tmp = src + '.cut.mp4'
+                  subprocess.run(['ffmpeg', '-v', 'error', '-y', '-ss', str(a), '-to', str(b), '-i', src, '-an', '-c:v', 'libx264', '-crf', '14', '-preset', 'slow', '-pix_fmt', 'yuv420p', tmp], check=True)
+                  os.replace(tmp, src); it['trimmed'] = True
               x = {'src': f"ingest/{it['id']}.mp4", 'as': f"clips/src/{it['id']}.mp4", 'qa': it.get('qa')}
               for k in ('roles', 'note', 'waiver', 'trimmed'):
                   if it.get(k) is not None: x[k] = it[k]
