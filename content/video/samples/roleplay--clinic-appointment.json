@@ -1,0 +1,68 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/roleplay.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Doctor visit roleplay: making an appointment at the clinic",
+ "format": "short",
+ "template": "roleplay",
+ "script": {
+  "title": "Roleplay at the clinic: \"make an appointment\"",
+  "hook": "What do you say?",
+  "scene": "clinic",
+  "time": "day",
+  "format_id": "repeat-after-me",
+  "template": "roleplay",
+  "lines": [
+   {
+    "who": "mia",
+    "beat": "hook",
+    "text": "Um… how do I book?",
+    "expr": "confused",
+    "gesture": ""
+   },
+   {
+    "who": "diane",
+    "beat": "situation",
+    "text": "Hello! Welcome to the clinic.",
+    "expr": "friendly",
+    "gesture": "open hands"
+   },
+   {
+    "who": "mia",
+    "beat": "example",
+    "text": "Hi, I'd like to make an appointment, please. I have a sore throat.",
+    "expr": "friendly",
+    "gesture": ""
+   },
+   {
+    "who": "diane",
+    "beat": "explain",
+    "text": "Sure. Tomorrow at nine works. See you then!",
+    "expr": "happy smile",
+    "gesture": "",
+    "punch": true
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: say I'd like to, then why you need the doctor.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "mia",
+    "beat": "cta",
+    "text": "Practice real conversations on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "make an appointment"
+  ],
+  "caption": "What to say at the clinic: \"make an appointment\"",
+  "hashtags": [
+   "englishconversation",
+   "speakenglish"
+  ],
+  "link": "https://lexkite.com/"
+ }
+}

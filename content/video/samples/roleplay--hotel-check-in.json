@@ -1,0 +1,68 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/roleplay.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Hotel roleplay: checking in at the front desk",
+ "format": "short",
+ "template": "roleplay",
+ "script": {
+  "title": "Roleplay at the hotel: \"I have a reservation\"",
+  "hook": "What do you say?",
+  "scene": "hotel-lobby",
+  "time": "day",
+  "format_id": "repeat-after-me",
+  "template": "roleplay",
+  "lines": [
+   {
+    "who": "mia",
+    "beat": "hook",
+    "text": "Um… what do I say?",
+    "expr": "confused",
+    "gesture": ""
+   },
+   {
+    "who": "carlos",
+    "beat": "situation",
+    "text": "Good evening! Welcome to the hotel.",
+    "expr": "friendly",
+    "gesture": "open hands"
+   },
+   {
+    "who": "mia",
+    "beat": "example",
+    "text": "Hi, I have a reservation under Mia Chen.",
+    "expr": "friendly",
+    "gesture": ""
+   },
+   {
+    "who": "carlos",
+    "beat": "explain",
+    "text": "Thank you, Ms. Chen. Here's your room key. Room 512.",
+    "expr": "happy smile",
+    "gesture": "",
+    "punch": true
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: say I have a reservation under, then your name.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "mia",
+    "beat": "cta",
+    "text": "Practice real conversations on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "I have a reservation"
+  ],
+  "caption": "What to say at the hotel: \"I have a reservation\"",
+  "hashtags": [
+   "englishconversation",
+   "speakenglish"
+  ],
+  "link": "https://lexkite.com/"
+ }
+}

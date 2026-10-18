@@ -1,0 +1,17 @@
+{
+ "topic": "Hotel roleplay: checking in at the front desk",
+ "scene": "hotel-lobby",
+ "vars": {
+  "phrase": "I have a reservation",
+  "place": "the hotel",
+  "hookLine": "Um… what do I say?",
+  "staffOpen": "Good evening! Welcome to the hotel.",
+  "learnerLine": "Hi, I have a reservation under Mia Chen.",
+  "staffReply": "Thank you, Ms. Chen. Here's your room key. Room 512.",
+  "tip": "say I have a reservation under, then your name."
+ },
+ "hashtags": [
+  "englishconversation",
+  "speakenglish"
+ ]
+}
