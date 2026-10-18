@@ -168,7 +168,7 @@ const normSettings = s => ({
   auto: !!(s && s.auto),
   manualFirst: Math.max(0, Math.min(50, Math.round(+((s && s.manualFirst) ?? 5)) || 0)),
   dailyQuota: Math.max(1, Math.min(10, Math.round(+((s && s.dailyQuota) ?? 1)) || 1)),
-  backlog: Math.max(1, Math.min(20, Math.round(+((s && s.backlog) ?? 3)) || 3)), // video tự động chờ duyệt tối đa (rendering/rendered/qa_fail) – đủ thì CI ngừng tạo thêm
+  backlog: Math.max(1, Math.min(20, Math.round(+((s && s.backlog) ?? 3)) || 3)), // video tự động chờ duyệt tối đa (script_ok lỗi dựng/rendering/rendered/qa_fail) – đủ thì CI ngừng tạo thêm
   platforms: (Array.isArray(s && s.platforms) ? s.platforms : []).map(x => String(x).toLowerCase().replace(/[^a-z]/g, '')).filter(Boolean).slice(0, 10),
   accounts: (Array.isArray(s && s.accounts) ? s.accounts : []).map(x => String(x)).filter(x => /^[A-Za-z0-9_-]{1,100}$/.test(x)).slice(0, 20),
 });
@@ -380,12 +380,18 @@ const CI = {
   async ciCreate(env, db, b) {
     const src = String(b.source || ''); if (!/^[a-z0-9-]{1,40}--[a-z0-9-]{1,60}$/.test(src)) throw new Bad(400, 'source');
     const dup = await db.prepare('SELECT id, status FROM video_jobs WHERE files_json LIKE ?').bind(`%"source":"${src}"%`).first();
-    if (dup) return { exists: true, job: { id: dup.id, status: dup.status } };
+    if (dup) {
+      // dựng lỗi (CI trả về script_ok) → cho dựng lại tối đa 2 lần, không tính hạn mức
+      let d = await getJob(db, dup.id), tries = +((d.files || {}).retries || 0);
+      if (d.status !== 'script_ok' || tries >= 2) return { exists: true, job: { id: d.id, status: d.status } };
+      d = await save(db, d, { status: 'rendering', error: null, files: { ...d.files, retries: tries + 1, dispatched: Date.now() } });
+      return { retry: tries + 1, job: { id: d.id, status: d.status } };
+    }
     const st = await getSettings(db), force = b.force === true;
     if (!force && !st.auto) throw new Bad(409, 'auto-off');
     const n = async sql => +(((await db.prepare(sql).bind(Date.now() - DAY).first()) || {}).n || 0);
     if (!force && await n(`SELECT COUNT(*) AS n FROM video_jobs WHERE created > ? AND files_json LIKE '%"source":"%'`) >= st.dailyQuota) throw new Bad(409, 'quota', { quota: st.dailyQuota });
-    const pending = +(((await db.prepare(`SELECT COUNT(*) AS n FROM video_jobs WHERE status IN ('rendering', 'rendered', 'qa_fail') AND created > ? AND files_json LIKE '%"source":"%'`).bind(Date.now() - 30 * DAY).first()) || {}).n || 0);
+    const pending = +(((await db.prepare(`SELECT COUNT(*) AS n FROM video_jobs WHERE status IN ('script_ok', 'rendering', 'rendered', 'qa_fail') AND created > ? AND files_json LIKE '%"source":"%'`).bind(Date.now() - 30 * DAY).first()) || {}).n || 0);
     if (!force && pending >= st.backlog) throw new Bad(409, 'backlog', { pending, backlog: st.backlog });
     const sc = b.script && typeof b.script === 'object' ? b.script : null;
     const check = checkScript(sc, 'short'); if (!check.ok) throw new Bad(422, 'script-invalid', { errs: check.errs });

@@ -73,11 +73,11 @@ async function main(a) {
     if (r.status === 409) { summary(`⏸ Studio chưa nhận thêm: ${r.error}${r.error === 'backlog' ? ` (${r.pending}/${r.backlog} video đang chờ duyệt – vào Quản trị → Video Studio chấm)` : r.error === 'auto-off' ? ' (bật công tắc Tự động trong Video Studio, hoặc chạy tay với force)' : r.error === 'quota' ? ` (đã đủ ${r.quota}/ngày)` : ''}`); break; }
     if (r.status !== 200 || !r.job) { summary(`✗ ciCreate ${x.source}: HTTP ${r.status} ${r.error || ''} ${(r.errs || []).join(' · ')}`); return 1; }
     await dispatch(r.job.id);
-    summary(`▶ ${x.source} → job ${r.job.id} (${p.out.topic}) – đã gọi video.yml`); made++;
+    summary(`▶ ${x.source} → job ${r.job.id} (${p.out.topic})${r.retry ? ` – dựng lại lần ${r.retry}` : ''} – đã gọi video.yml`); made++;
   }
   if (skipped.length) summary(`⚠️ bỏ qua vì trượt lint: ${skipped.join(' · ')}`);
   if (!made) summary('Không tạo job mới' + (list.length ? ' (kho đã dùng hết hoặc Studio đang chặn)' : ''));
-  const left = list.length; summary(`Kho: ${left} kịch bản (đã dùng được Studio đánh dấu, không tạo lại).`);
+  summary(`Kho: ${bank().length} kịch bản (nguồn đã có job trong Studio không tạo lại).`);
   return skipped.length && !made ? 1 : 0;
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

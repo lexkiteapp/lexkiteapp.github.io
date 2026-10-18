@@ -42,7 +42,8 @@ async function gc(method, p, body, extra = {}) {
 const pick = (o, ...ks) => { for (const k of ks) if (o && o[k] != null && o[k] !== '') return o[k]; return undefined; };
 const list = j => (Array.isArray(j) ? j : (j && (j.items || j.data || j.results || j.accounts)) || []);
 
-const begin = { filename: path.basename(FILE), size: stat.size, content_type: /\.webm$/i.test(FILE) ? 'video/webm' : /\.mov$/i.test(FILE) ? 'video/quicktime' : 'video/mp4', pool: 'bulk', sha256: sha };
+// API kho GrabCast (18/10/2026) bắt buộc `name` (tên hiển thị trong Drive) – giữ `filename` cho bản cũ
+const begin = { name: `lexkite-${(process.env.JOB || path.basename(FILE, path.extname(FILE))).replace(/[^A-Za-z0-9_-]/g, '')}-${sha.slice(0, 8)}${path.extname(FILE) || '.mp4'}`, filename: path.basename(FILE), size: stat.size, content_type: /\.webm$/i.test(FILE) ? 'video/webm' : /\.mov$/i.test(FILE) ? 'video/quicktime' : 'video/mp4', pool: 'bulk', sha256: sha };
 const post = media_ids => ({ ...(m.title ? { title: String(m.title).slice(0, 200) } : {}), caption, ...(m.first_comment ? { first_comment: m.first_comment } : {}), link: m.link || 'https://lexkite.com/', media_ids, targets: [] });
 const kindFor = a => { const k = a && (a.kinds || a.supported_kinds || a.post_kinds); return Array.isArray(k) && k.length ? String(k[0]) : 'video'; };
 // Khóa chống trùng: cùng video + cùng kênh + cùng giờ → chạy lại workflow không tạo bài đôi

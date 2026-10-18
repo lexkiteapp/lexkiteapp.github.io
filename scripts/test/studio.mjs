@@ -159,6 +159,10 @@ r = await ac('quiz-ab--y'); ok(r.s === 409 && r.j.error === 'auto-off', 'tắt T
 r = await ac('quiz-ab--y', { force: true }); ok(r.s === 200 && r.j.job.status === 'rendering', 'force → tạo job ở rendering');
 g = (await call(ADM, { op: 'get', id: r.j.job.id })).j.job; ok(g.files.source === 'quiz-ab--y' && g.script.lines.length === autoSc.lines.length && g.status === 'rendering', 'job tự động giữ nguồn + kịch bản');
 r = await ac('quiz-ab--y', { force: true }); ok(r.s === 200 && r.j.exists, 'trùng nguồn → exists, không tạo lại');
+const yid = g.id; await ci({ op: 'ciResult', id: yid, ok: false, error: 'grabcast 422' });
+r = await ac('quiz-ab--y'); ok(r.s === 200 && r.j.retry === 1 && r.j.job.status === 'rendering', 'dựng lỗi → dựng lại lần 1');
+await ci({ op: 'ciResult', id: yid, ok: false, error: 'x' }); r = await ac('quiz-ab--y'); ok(r.j.retry === 2, 'dựng lại lần 2');
+await ci({ op: 'ciResult', id: yid, ok: false, error: 'x' }); r = await ac('quiz-ab--y'); ok(r.j.exists && r.j.job.status === 'script_ok', 'quá 2 lần → thôi');
 await call(ADM, { op: 'settingsSet', settings: { auto: true, dailyQuota: 1 } });
 r = await ac('quiz-ab--z'); ok(r.s === 409 && r.j.error === 'quota', 'đủ hạn mức/ngày → dừng');
 await call(ADM, { op: 'settingsSet', settings: { dailyQuota: 10, backlog: 1 } });
