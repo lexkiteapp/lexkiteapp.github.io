@@ -585,7 +585,8 @@ async function cmdFetchRender() {
     const p = e && e.locations && ((e.kind === 'room' && e.locations.src) || e.locations.primary);
     if (!p || !p.url) { log(`! ${f}: chưa có trên nguồn chính (${e ? 'kho ghi ' + e.status : 'không có trong kho'}) – approved + library.mjs sync`); miss++; continue; }
     if (fs.existsSync(dest) && p.sha256 && sha256(fs.readFileSync(dest)) === p.sha256) { ok++; continue; }
-    const r = await fetch(p.url), buf = Buffer.from(await r.arrayBuffer());
+    // ?v=<sha> = khoá đệm riêng mỗi phiên bản: file cắt lại giữ tên cũ, trạm CDN khác (máy CI ở Mỹ) còn đệm bản cũ 24 h → sai sha256 (18/10)
+    const r = await fetch(p.sha256 ? `${p.url}?v=${p.sha256.slice(0, 12)}` : p.url), buf = Buffer.from(await r.arrayBuffer());
     if (!r.ok || (p.sha256 && sha256(buf) !== p.sha256)) { log(`✗ ${f}: tải ${p.url} lỗi (${r.status}) hoặc sai sha256`); miss++; continue; }
     fs.mkdirSync(path.dirname(dest), { recursive: true }); fs.writeFileSync(dest, buf); ok++;
   }
