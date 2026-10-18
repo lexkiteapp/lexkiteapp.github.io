@@ -1739,6 +1739,32 @@
       "w": 750,
       "h": 1756,
       "ready": true
+    },
+    {
+      "id": "carlos_q_talk_nod_travel",
+      "who": "carlos",
+      "tags": [
+        "q",
+        "talk",
+        "nod"
+      ],
+      "outfit": "travel",
+      "mouth": true,
+      "facing": "left",
+      "file": "clips/carlos_q_talk_nod_travel.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        533,
+        1595
+      ],
+      "figH": 1595,
+      "w": 826,
+      "h": 1598,
+      "ready": true,
+      "mirrorOk": true
     }
   ],
   "stills": [
