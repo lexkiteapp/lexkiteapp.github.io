@@ -1449,6 +1449,30 @@
       "w": 1216,
       "h": 1560,
       "ready": true
+    },
+    {
+      "id": "diane_listen_thumbs_casual",
+      "who": "diane",
+      "tags": [
+        "listen",
+        "thumbs"
+      ],
+      "outfit": "casual",
+      "mouth": false,
+      "facing": "front",
+      "file": "clips/diane_listen_thumbs_casual.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "listener"
+      ],
+      "foot": [
+        176,
+        1547
+      ],
+      "figH": 1547,
+      "w": 888,
+      "h": 1558,
+      "ready": true
     }
   ],
   "stills": [

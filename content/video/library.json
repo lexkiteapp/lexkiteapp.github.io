@@ -4278,6 +4278,120 @@
    "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
   },
   {
+   "id": "clips/diane_listen_thumbs_casual.mp4",
+   "kind": "clip",
+   "who": "diane",
+   "tags": [
+    "listen",
+    "thumbs",
+    "casual"
+   ],
+   "file": "clips/src/diane_listen_thumbs_casual.mp4",
+   "sha256": "fa6dfa5da7c09ede70242c0c14ea239f50330e926ec10dc5cf9220b12cb3b71e",
+   "bytes": 4764536,
+   "w": 1248,
+   "h": 1656,
+   "duration": 5.062,
+   "qa": 91,
+   "note": "nghe gật đầu → giơ ngón cái (cười nhắm mắt cuối clip, kính vẫn đeo)",
+   "source": {
+    "from": "brand/characters/_candidates/ingest/diane_listen_thumbs_casual.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-18"
+   },
+   "roles": [
+    "listener"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": {
+     "path": "clips/diane_listen_thumbs_casual.mp4",
+     "url": "https://media.lexkite.com/library/clips/diane_listen_thumbs_casual.mp4",
+     "sha256": "53e2f2294eac50b54f1dc27eb4bab511f31ec812eaa73974558929d6a45d7fc5",
+     "gitSha": "2cd7811cdde45402c6aa05ca4a69ca642baa2f8a",
+     "bytes": 2141975,
+     "srcSha": "fa6dfa5da7c09ede70242c0c14ea239f50330e926ec10dc5cf9220b12cb3b71e",
+     "variant": "stacked",
+     "at": "2026-10-18"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/diane_listen_thumbs_casual.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/diane_listen_thumbs_casual.mp4",
+     "gitSha": "8c17b6efcbb4b2070a14b30d2e7945de3aac1374",
+     "sha256": "fa6dfa5da7c09ede70242c0c14ea239f50330e926ec10dc5cf9220b12cb3b71e",
+     "bytes": 4764536
+    },
+    "drive": [
+     {
+      "driveId": 3,
+      "email_masked": "",
+      "fileId": "12Cu-cap58sMwDRpUtGXkOHZg6ddMXqvr",
+      "sha256": "fa6dfa5da7c09ede70242c0c14ea239f50330e926ec10dc5cf9220b12cb3b71e",
+      "at": "2026-10-18"
+     }
+    ]
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-18",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN vision: chưa có ảnh DNA của diane trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1248,
+     "h": 1656,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 0.951,
+     "drift": 0.062,
+     "footWobble": 0.0063,
+     "bgShift": 4,
+     "dupRun": 0,
+     "cadenceTwos": 0.74,
+     "audioPeakDb": -8.9
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của diane trong kho – cần duyệt tay"
+     ],
+     "sha": "fa6dfa5da7c09ede70242c0c14ea239f50330e926ec10dc5cf9220b12cb3b71e",
+     "at": "2026-10-18"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_diane_listen_thumbs_casual_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/diane_listen_thumbs_casual.mp4",
+     "alpha": "stacked",
+     "sha256": "53e2f2294eac50b54f1dc27eb4bab511f31ec812eaa73974558929d6a45d7fc5",
+     "bytes": 2141975,
+     "w": 888,
+     "h": 1558,
+     "foot": [
+      176,
+      1547
+     ],
+     "figH": 1547,
+     "frames": 121,
+     "status": "WARN",
+     "issues": [
+      "WARN identity: nghi trôi nhận dạng (tóc ×0.982, áo lệch 269.1) – AI thị giác quyết định FAIL \"identity drift\""
+     ],
+     "at": "2026-10-18",
+     "path": "clips/diane_listen_thumbs_casual.mp4",
+     "url": "https://media.lexkite.com/library/clips/diane_listen_thumbs_casual.mp4",
+     "gitSha": "2cd7811cdde45402c6aa05ca4a69ca642baa2f8a"
+    }
+   }
+  },
+  {
    "id": "clips/diane_listen_thumbs.mp4",
    "kind": "clip",
    "who": "diane",
