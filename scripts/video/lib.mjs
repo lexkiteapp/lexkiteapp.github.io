@@ -139,7 +139,7 @@ export function contrast(a, b) {
 // ---------- Cổng tĩnh dùng chung (render.mjs bước qa + scripts/video/template.mjs lint trước khi dựng) ----------
 // Giọng Kokoro chậm cho người học: đo CI 18/10 – Kokoro đọc ~17 ký tự/s ở tốc độ 1 (~15,5 ở 0,9 → phụ đề 15–27 ký tự/s, trượt cổng)
 // → TTS_SPEED 0,82 (~14 ký tự/s tiếng, phụ đề ≤ 13 nhờ hiện sớm/ở lại); câu dày chữ chậm tới 0,74 (lineSpeed); bước tts đo lại và đọc chậm hơn nếu vẫn nhanh.
-export const TTS_SPEED = 0.82, KOKORO_CPS = 17.2, SPEECH_CPS = 13.6;
+export const TTS_SPEED = 0.82, KOKORO_CPS = 17.2, SPEECH_CPS = 13, TTS_MIN = 0.7;
 export const WPS = +(2.6 * TTS_SPEED).toFixed(3), LINE_GAP = 0.3, LEAD = 0.2, END_CARD = 2.2, HOOK_MAX = +(2.05 / TTS_SPEED).toFixed(2);
 export const CAST = ['mia', 'leo', 'ama', 'kit', 'diane', 'carlos'];
 export const COMPETITORS = /\b(duolingo|babbel|busuu|memrise|rosetta\s*stone|cambly|preply|italki|elsa\s*speak|quizlet|cake\s*app|lingoda|mondly|praktika)\b/i;

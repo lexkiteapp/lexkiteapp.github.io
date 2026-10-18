@@ -380,6 +380,7 @@ export const Short = (P) => {
       {!inCard ? (P.cards || []).map((c, i) => <Card key={i} c={c} t={t} fps={fps} theme={P.theme} W={W} H={H} />) : null}
       {!inCard ? <Captions pages={P.pages || []} t={t} fps={fps} theme={P.theme} W={W} H={H} /> : null}
       <HookLayer hook={P.hook} t={t} fps={fps} theme={P.theme} W={W} H={H} />
+      {t < 0.45 ? <AbsoluteFill style={{ background: '#0B2627', opacity: 0.32 * (1 - easeIO(clamp01(t / 0.45))), pointerEvents: 'none' }} /> : null /* calm: mở màn sáng dần 0,45 s (kiểu phim) */}
       <Progress t={t} pr={P.progress} W={W} />
       <Watermark wm={P.watermark} t={t} />
       {P.grain ? <Grain frame={frame} W={W} H={H} /> : null}

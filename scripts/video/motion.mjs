@@ -100,7 +100,7 @@ export function breakLines(ws, { maxChars = 30, maxLines = 2 } = {}) {
 export const SUB = { minWords: 3, maxWords: 7, lineChars: 22, lines: 2, lead: 0.1, linger: 0.5, gap: 2 / 30, minDur: 1.2, cps: 13, cpsMax: 15 };
 export const CAP_MIN_WORDS = SUB.minWords;
 const pageText = ws => ws.map(w => w.w).join(' ');
-export function captionPages(words, { style = 'pop-box', lineEnd = null } = {}) {
+export function captionPages(words, { style = 'pop-box', lineEnd = null, lineStart = null } = {}) {
   const maxC = SUB.lineChars * SUB.lines, pages = [];
   const byLine = {}; for (const w of words) (byLine[w.line] = byLine[w.line] || []).push(w);
   for (const ws of Object.values(byLine)) {
@@ -130,13 +130,14 @@ export function captionPages(words, { style = 'pop-box', lineEnd = null } = {}) 
   pages.sort((x, y) => x.words[0].start - y.words[0].start);
   // giờ hiện
   const out = pages.map((p, i) => { const last = !pages[i + 1] || pages[i + 1].line !== p.line, s1 = p.words[p.words.length - 1].end, le = lineEnd ? lineEnd(p.line) : null;
-    return { line: p.line, s0: p.words[0].start, s1: last && le != null ? Math.max(s1, le - 0.12) : s1, words: p.words }; }); // whisper hay cắt sớm đuôi từ cuối → lấy đuôi giọng thật
+    const first = !i || pages[i - 1].line !== p.line, ls = lineStart ? lineStart(p.line) : null;
+    return { line: p.line, s0: first && ls != null ? Math.min(p.words[0].start, ls + 0.04) : p.words[0].start, s1: last && le != null ? Math.max(s1, le - 0.12) : s1, words: p.words }; }); // whisper hay cắt sớm đuôi từ cuối → lấy đuôi giọng thật
   out.forEach((p, i) => { const prev = out[i - 1]; p.start = Math.min(p.s0, Math.max(p.s0 - SUB.lead, prev ? prev.s1 + 0.001 : 0)); });
   out.forEach((p, i) => { const nx = out[i + 1], cap = nx ? nx.start - SUB.gap : Infinity; p.end = Math.min(cap, Math.max(p.s1 + Math.min(SUB.linger, 0.25), Math.min(p.s1 + SUB.linger, p.start + SUB.minDur))); });
   // cân tốc độ đọc giữa 2 trang của cùng 1 câu: dời ranh (≤ 0,25 s sớm / 0,15 s muộn so với tiếng) để 2 trang cùng ký tự/s
   for (let i = 0; i + 1 < out.length; i++) { const A = out[i], B = out[i + 1]; if (A.line !== B.line) continue;
     const cA = pageText(A.words).length, cB = pageText(B.words).length, want = A.start + (B.end - A.start) * cA / (cA + cB);
-    let bs = Math.min(B.s0 + 0.25, Math.max(B.s0 - 0.25, want)); bs = Math.max(bs, Math.min(B.s0 + 0.25, A.start + SUB.minDur + SUB.gap)); bs = Math.min(bs, Math.max(B.s0 - 0.25, B.end - SUB.minDur)); B.start = Math.max(bs, A.start + 0.6); A.end = B.start - SUB.gap; }
+    let bs = Math.min(B.s0 + 0.4, Math.max(B.s0 - 0.3, want)); bs = Math.max(bs, Math.min(B.s0 + 0.4, A.start + SUB.minDur + SUB.gap)); bs = Math.min(bs, Math.max(B.s0 - 0.3, B.end - SUB.minDur)); /* mốc whisper tiny lệch ±0,3 s */ B.start = Math.max(bs, A.start + 0.6); A.end = B.start - SUB.gap; }
   // trang cuối câu còn < 1,2 s: trang câu sau bỏ phần "hiện sớm" (≤ 0,1 s) để trang này ở lâu hơn
   out.forEach((p, i) => { const nx = out[i + 1]; if (!nx || nx.line === p.line || p.end - p.start >= SUB.minDur) return;
     nx.start = Math.max(nx.start, Math.min(nx.s0, p.start + SUB.minDur + SUB.gap)); p.end = Math.min(p.s1 + SUB.linger, nx.start - SUB.gap); });
@@ -571,7 +572,7 @@ export function buildTimeline({ s, words, assets = {}, w = 1080, h = 1920, fps =
   const theme = v.theme || { id: 'pop-teal', caption: 'pop-box', color: 'teal-cream', layout: 'stage-center' };
   const sc = s.job.script, lines = s.lines.map((l, i) => ({ i, who: l.who, beat: l.beat, text: l.text, start: l.start, end: l.end, punch: !!l.punch, emotion: (s.stage && s.stage.lines[i] && s.stage.lines[i].emotion) || null }));
   const D = s.duration, endStart = s.endStart, layout = LAYOUTS[theme.layout] || LAYOUTS['stage-center'], colors = COLOR_THEMES[theme.color] || COLOR_THEMES['teal-cream'];
-  const pages = captionPages(markKeywords(words, sc.keywords || []), { style: theme.caption, lineEnd: i => (s.lines[i] || {}).end });
+  const pages = captionPages(markKeywords(words, sc.keywords || []), { style: theme.caption, lineEnd: i => (s.lines[i] || {}).end, lineStart: i => (s.lines[i] || {}).start }); // tiếng thật bắt đầu ở line.start + 40 ms (whisper hay đặt từ đầu muộn)
   const shots = (s.shots || []).map(x => ({ ...x }));
   const cuts = pickTransitions(shots, { lines, stage: s.stage, lead: v.transition && v.transition.id, seed, pool: TRANSITIONS });
   const stage = s.stage || { lines: [], segs: [], time: 'day' };
