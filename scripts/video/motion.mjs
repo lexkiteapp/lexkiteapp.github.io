@@ -608,13 +608,14 @@ export function textEdgeDensity(f, region = [0.05, 0.1, 0.95, 0.45]) { // tỉ l
   let e = 0, n = 0; for (let y = y0; y < y1; y++) for (let x = x0 + 1; x < x1; x++) { n++; if (Math.abs(Y[y * w + x] - Y[y * w + x - 1]) > 60) e++; }
   return n ? e / n : 0;
 }
-// Nhịp chuyển động (QA metric): MSE độ sáng khung liên tiếp trong hộp [x0,y0,x1,y1] (tỉ lệ). stutter = khung lặp (MSE < 0,6) kẹp giữa 2 bước có
-// chuyển động (> 3) – dấu hiệu 24→30 fps giữ khung (nhịp 2-1-1-1) hoặc clip "on twos". Bản dựng 17/10: stutterRate 0,4; mục tiêu < 0,1.
+// Nhịp chuyển động (QA metric): MSE độ sáng khung liên tiếp trong hộp [x0,y0,x1,y1] (tỉ lệ). Dấu hiệu 24→30 fps giữ khung (nhịp 2-1-1-1)
+// hoặc clip "on twos": bước khung lõm xen kẽ. stutterRate = số lõm / số bước có chuyển động.
 export function cadenceStats(frames, box = [0, 0, 1, 1]) {
   const F = frames.map(f => (f.Y ? f : frameStats(f))), d = [];
   for (let k = 1; k < F.length; k++) { const { w, h } = F[k], a = F[k - 1].Y, b = F[k].Y, x0 = Math.floor(box[0] * w), x1 = Math.ceil(box[2] * w), y0 = Math.floor(box[1] * h), y1 = Math.ceil(box[3] * h); let s = 0, n = 0;
     for (let y = y0; y < y1; y++) for (let x = x0; x < x1; x++) { const e = a[y * w + x] - b[y * w + x]; s += e * e; n++; } d.push(n ? s / n : 0); }
-  let moving = 0, repeats = 0, stutters = 0; d.forEach((x, i) => { if (x > 3) moving++; if (x < 0.6) { repeats++; if (i > 0 && i < d.length - 1 && d[i - 1] > 3 && d[i + 1] > 3) stutters++; } });
+  // stutter = "lõm": bước khung nhỏ hơn một nửa cả 2 bước kề (khung nhân vật đứng lại trong khi máy vẫn đẩy) – bền với chuyển động máy
+  let moving = 0, repeats = 0, stutters = 0; d.forEach((x, i) => { if (x > 3) moving++; if (x < 0.6) repeats++; if (i > 0 && i < d.length - 1 && Math.min(d[i - 1], d[i + 1]) > 3 && x < 0.5 * Math.min(d[i - 1], d[i + 1])) stutters++; });
   return { frames: F.length, moving, repeats, stutters };
 }
 export function lumaSpread(frames) { // p95 − p5 của độ sáng (0–255)
