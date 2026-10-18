@@ -202,33 +202,53 @@ export function planShots(lines, { endStart, duration, maxLen = 3.5 }) {
   if (duration > endStart) shots.push({ line: -1, start: r2(endStart), end: r2(duration), framing: 'card', transitionIn: true });
   return shots;
 }
-// Kế hoạch máy kiểu phim (round 2): hook = toàn cảnh (wide) · thoại = trung cảnh đôi (two, đầu gối trở lên) · câu nói tiếp = trung cảnh đơn
-// người nói (single) · nhịp phản ứng (react/đúng/sai) = cận người NGHE (close) ở đuôi câu. KHÔNG BAO GIỜ cận người đang nói (miệng clip Kling
-// không khớp tiếng). Cảnh 0,7–4 s; câu dài tách two → single. lines[i]: {start,end,beat,who,emotion,listener,transitionIn}
+// Kế hoạch máy kiểu phim (round 3 – "video-polish" 18/10): mặc định trung cảnh đôi (two, cowboy: đầu → đùi) và trung cảnh đơn người nói
+// (single) – mặt to, đọc được; toàn cảnh (wide) CHỈ là cảnh thiết lập ngắn (≤ 1,2 s) khi đổi bối cảnh (sceneChange). Hook = trung cảnh đôi đẩy máy
+// (motion.shotCamera hạ khung cho đầu nằm dưới chữ hook). Kit nói = trung cảnh đôi (Kit bay ở góc trên). Nhịp phản ứng (react/đúng/sai) = cận
+// người NGHE (close) ở đuôi câu. KHÔNG BAO GIỜ cận người đang nói (miệng clip Kling không khớp tiếng). Cảnh 0,7–4 s.
+// Không "jump cut": 2 cảnh liền nhau cùng khung + cùng người → gộp thành 1 cảnh liên tục nếu ≤ maxLen và cùng bối cảnh (đổi clip giữa cảnh
+// = hoà 5 khung trong Short.jsx), không thì đổi khung cảnh sau (đôi ↔ đơn). lines[i]: {start,end,beat,who,emotion,listener,transitionIn,sceneChange}
+export const ESTABLISH = 1.2;
 export function planFilmShots(lines, { endStart, duration, maxLen = 3.6 }) {
   const shots = [], push = (o) => shots.push({ ...o, start: r2(o.start), end: r2(o.end) });
   let lastSingle = null;
   lines.forEach((l, i) => {
-    const a = i ? l.start : 0, b = i < lines.length - 1 ? lines[i + 1].start : endStart, len = b - a, base = { line: i, transitionIn: !!l.transitionIn };
-    if (i === 0) { push({ ...base, start: a, end: b, framing: 'wide' }); return; }
-    const sp = l.who && l.who !== 'kit' ? l.who : null, react = !!l.listener && sp && (l.beat === 'react' || ['right', 'wrong'].includes(l.emotion) || (l.punch && len >= 2.6)); // câu "đắt" dài: cận người nghe phản ứng ở đuôi
-    const parts = [];
-    if (!sp) parts.push({ framing: 'wide' }); // Kit nói: toàn cảnh – Kit bay ở khoảng trần trống, không che mặt ai
+    const a = i ? l.start : 0, b = i < lines.length - 1 ? lines[i + 1].start : endStart, base = { line: i, transitionIn: !!l.transitionIn };
+    const sp = l.who && l.who !== 'kit' ? l.who : null, react = !!l.listener && sp && (l.beat === 'react' || ['right', 'wrong'].includes(l.emotion) || (l.punch && b - a >= 2.6)); // câu "đắt" dài: cận người nghe phản ứng ở đuôi
+    let t0 = a;
+    if (l.sceneChange && i > 0 && b - a >= 2) { const d = Math.min(ESTABLISH, Math.max(0.75, (b - a) * 0.35)); push({ ...base, start: a, end: a + d, framing: 'wide', speaker: sp }); t0 = a + d; base.transitionIn = false; }
+    const len = b - t0, parts = [];
+    if (i === 0 || !sp) parts.push({ framing: 'two' }); // hook / Kit nói: trung cảnh đôi
     else if (len > 2.4 || i === 1) parts.push({ framing: 'two' }, { framing: 'single', focus: sp });
     else parts.push(lastSingle === sp ? { framing: 'two' } : { framing: 'single', focus: sp });
-    if (react && len >= 1.9) parts.push({ framing: 'close', focus: l.listener });
+    if (react && i > 0 && len >= 1.9) parts.push({ framing: 'close', focus: l.listener });
     // độ dài: phần cận ≤ 1,2 s ở cuối; phần còn lại chia đều; phần < 0,75 s thì gộp
     let segs = parts.length;
     while (segs > 1 && len / segs < 0.75) segs--;
     const ps = segs < parts.length && parts[parts.length - 1].framing === 'close' ? [...parts.slice(0, segs - 1), parts[parts.length - 1]].filter(Boolean) : parts.slice(0, segs);
     const closeLen = ps[ps.length - 1].framing === 'close' ? Math.min(1.2, len * 0.35) : 0, rest = len - closeLen, nr = ps.length - (closeLen ? 1 : 0);
-    let t = a;
-    ps.forEach((x, k) => { const d = x.framing === 'close' ? closeLen : rest / nr; const k2 = Math.max(1, Math.ceil(d / maxLen - 1e-9));
-      for (let j = 0; j < k2; j++) push({ ...base, transitionIn: base.transitionIn && t === a, start: t + j * d / k2, end: t + (j + 1) * d / k2, framing: x.framing, focus: x.focus || null });
+    let t = t0;
+    ps.forEach((x) => { const d = x.framing === 'close' ? closeLen : rest / nr; const k2 = Math.max(1, Math.ceil(d / maxLen - 1e-9));
+      for (let j = 0; j < k2; j++) push({ ...base, transitionIn: base.transitionIn && t === t0 && !j, start: t + j * d / k2, end: t + (j + 1) * d / k2, framing: x.framing, focus: x.focus || null, speaker: sp });
       t += d; if (x.framing === 'single') lastSingle = x.focus; });
     if (!ps.some(x => x.framing === 'single')) lastSingle = null;
   });
   if (shots.length) shots[shots.length - 1].end = r2(endStart);
+  // chống jump cut
+  const same = (x, y) => x.framing === y.framing && (x.focus || null) === (y.focus || null);
+  for (let k = 1; k < shots.length; k++) {
+    const x = shots[k - 1], y = shots[k];
+    if (!same(x, y)) continue;
+    const lx = lines[x.lines ? x.lines[x.lines.length - 1] : x.line] || {}, ly = lines[y.line] || {};
+    const mergeOk = y.end - x.start <= maxLen + 1e-9 && !ly.sceneChange && !y.transitionIn && lx.who !== 'kit' && ly.who !== 'kit' && y.line !== x.line;
+    if (mergeOk) { x.lines = [...(x.lines || [x.line]), y.line]; x.end = y.end; shots.splice(k, 1); k--; continue; }
+    const human = j => (lines[j] && lines[j].who && lines[j].who !== 'kit' ? lines[j].who : null);
+    let sp = y.speaker || (lines[y.line] || {}).listener || null; // Kit nói: cận đơn người nghe gần nhất (người vừa nói / sắp nói)
+    for (let d = 1; !sp && d < lines.length; d++) sp = human(y.line - d) || human(y.line + d);
+    if (y.framing === 'single' || y.framing === 'close') { y.framing = 'two'; y.focus = null; }
+    else if (sp) { y.framing = 'single'; y.focus = sp; }
+    else if (y.framing === 'wide') y.framing = 'two';
+  }
   if (duration > endStart) shots.push({ line: -1, start: r2(endStart), end: r2(duration), framing: 'card', transitionIn: true });
   return shots;
 }

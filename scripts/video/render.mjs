@@ -11,6 +11,7 @@
 //   bóng tiếp xúc, đẩy máy câu "đắt", cắt cảnh 2–4 s) 1080×1920 30 fps → cổng QA (MEDIA-QA-RUBRIC C) → gọi lại Studio. Không bao giờ in bí mật. Không dùng nhạc nền.
 import fs from 'fs';
 import path from 'path';
+import os from 'os';
 import { execFileSync, spawnSync } from 'child_process';
 import { createRequire } from 'module';
 import { fileURLToPath } from 'url';
@@ -185,7 +186,7 @@ const STEPS = {
     if (useRemotion()) {
       // máy kiểu phim (lib.planFilmShots): wide hook → two → single người nói → cận người NGHE ở nhịp phản ứng; không cận người đang nói
       s.shots = V.planFilmShots(s.lines.map((l, i) => { const sl = stage.lines[i] || { actors: [] }, ls = (sl.actors || []).find(a => a.role === 'listener' && l.who !== 'kit');
-        return { ...l, emotion: sl.emotion, listener: ls ? ls.who : null, transitionIn: !!sl.transitionIn || (i === 1 && !!s.variant) }; }), { endStart: s.endStart, duration: D });
+        return { ...l, emotion: sl.emotion, listener: ls ? ls.who : null, transitionIn: !!sl.transitionIn || (i === 1 && !!s.variant), sceneChange: !!sl.transitionIn && i > 0 }; }), { endStart: s.endStart, duration: D });
       return composeRemotion(s, [w, h], D);
     }
     if (STRICT) throw new Error('thiếu Remotion: cd scripts/video/remotion && npm ci (VIDEO_ENGINE=ffmpeg để dùng đường cũ)');
@@ -231,7 +232,7 @@ const STEPS = {
     const vr = s.variant; g('variety', !!vr && !vr.relaxed, vr ? `${vr.format.id} · không trùng ≥ 3 thành phần với ${(s.history || []).length} video gần nhất${vr.relaxed ? ' – CHƯA ĐẠT' : ''}` : 'không có biến thể');
     g('consistency', cons.ok, cons.ok ? 'bối cảnh – nhân vật – lời thoại khớp' : `${cons.reasons.length} lỗi: ${cons.reasons[0]}`);
     // Visual hook 2 s đầu (chữ + chuyển động + tương phản, cổng ≥ 90) và QA màu (cháy/bết < 1%, bão hòa trong biên, ΔE da↔phòng) – chỉ khi dựng bằng Remotion
-    let vh = null, grade = null, lay = null;
+    let vh = null, grade = null, lay = null, cadence = null;
     // Bố cục chữ (không OCR – đo từ props.json mà Remotion vẽ): không 2 lớp chữ giao nhau, trong vùng an toàn, chữ phụ đề hiện = kịch bản (đúng dấu cách)
     if (s.timeline && fs.existsSync(P(s.timeline))) {
       lay = M.layoutGate(JSON.parse(fs.readFileSync(P(s.timeline), 'utf8')), s.lines);
@@ -248,6 +249,11 @@ const STEPS = {
       const ui = t => M.overlayBoxes(tl, t).map(b => [b.box[0] / w, b.box[1] / h, b.box[2] / w, b.box[3] / h]); // lớp chữ/thẻ không phải phòng/nhân vật
       const stats = tl.shots.filter(x => x.framing !== 'card').slice(0, 8).map(x => ({ ...M.gradeStats(framesAt(v, { from: (x.start + x.end) / 2, dur: 0.05, fps: 30, w: 270, h: 480 })[0] || { w: 1, h: 1, data: new Uint8Array(3) }, box(x), ui((x.start + x.end) / 2)), grade: x.grade }));
       const gv = M.gradeVerdict(stats); grade = { stats, ...gv };
+      // nhịp chuyển động nhân vật (metric, không chặn): khung lặp kẹp giữa 2 bước có chuyển động trong hộp nhân vật của các cảnh đơn/đôi
+      cadence = tl.shots.filter(x => x.cam && ['single', 'two'].includes(x.framing) && x.end - x.start >= 1).slice(0, 6).map(x => {
+        const b = box(x); if (!b) return null; const fr = framesAt(v, { from: x.start + 0.15, dur: Math.min(2, x.end - x.start - 0.3), fps: 30, w: 270, h: 480 });
+        return M.cadenceStats(fr, b);
+      }).filter(Boolean);
       const dEs = stats.map(x => x.dE).filter(x => x != null);
       g('grade', gv.ok, gv.ok ? `cháy/bết < 1% · bão hòa TB ${(stats.reduce((a, x) => a + x.sat, 0) / Math.max(1, stats.length)).toFixed(2)} · ΔE da↔phòng ≤ ${dEs.length ? Math.max(...dEs) : '—'}` : gv.bad.slice(0, 2).join('; '));
     }
@@ -255,7 +261,7 @@ const STEPS = {
     for (const k of cons.zero) scores[k] = 0; // vi phạm nhất quán → 0 điểm mục tương ứng
     if (vr && vr.relaxed) scores.pacing = 0; // lặp tổ hợp = nhàm → không đạt nhịp/độ mới, chặn đăng
     const hookBad = !!vh && vh.score < 90, layBad = !!lay && !lay.ok; // chữ chồng chữ / dính chữ = lỗi nhìn thấy → subs 0 + chặn đăng
-    s.qa = { scores, gates, blocked: !cons.ok || !!(vr && vr.relaxed) || hookBad || layBad, consistency: [...cons.reasons, ...(vr && vr.relaxed ? ['[pacing] tổ hợp trùng ≥ 3 thành phần với video gần đây'] : []), ...(hookBad ? [`[hook] visual hook ${vh.score}/100 < 90`] : []), ...(layBad ? lay.bad.slice(0, 5).map(x => `[subs] ${x}`.slice(0, 200)) : [])], variant: vr ? vr.fp : null, metrics: { lufs: lufs != null && isFinite(lufs) ? lufs : null, lipsyncMs: lipMs, shots: (s.shots || []).length, pace, align: s.align, engine: s.engine || null, visualHook: vh, grade, layout: lay ? { ok: lay.ok, overlaps: lay.overlaps.length, unsafe: lay.unsafe.length, joins: lay.joins.length } : null } };
+    s.qa = { scores, gates, blocked: !cons.ok || !!(vr && vr.relaxed) || hookBad || layBad, consistency: [...cons.reasons, ...(vr && vr.relaxed ? ['[pacing] tổ hợp trùng ≥ 3 thành phần với video gần đây'] : []), ...(hookBad ? [`[hook] visual hook ${vh.score}/100 < 90`] : []), ...(layBad ? lay.bad.slice(0, 5).map(x => `[subs] ${x}`.slice(0, 200)) : [])], variant: vr ? vr.fp : null, metrics: { lufs: lufs != null && isFinite(lufs) ? lufs : null, lipsyncMs: lipMs, shots: (s.shots || []).length, pace, align: s.align, engine: s.engine || null, visualHook: vh, grade, cadence: cadence && { shots: cadence, stutterRate: +(cadence.reduce((a, c) => a + c.stutters, 0) / Math.max(1, cadence.reduce((a, c) => a + c.moving, 0))).toFixed(3) }, layout: lay ? { ok: lay.ok, overlaps: lay.overlaps.length, unsafe: lay.unsafe.length, joins: lay.joins.length } : null } };
     s.files = { duration: +dur.toFixed(2), size: fs.existsSync(v) ? fs.statSync(v).size : 0, width: w, height: h, todo: s.todo || [] };
     console.log(gates.map(x => `${x.ok ? '✓' : '✗'} ${x.k}: ${x.note}`).join('\n'));
     if (LOCAL && vr) { const h = (fs.existsSync(HIST) ? JSON.parse(fs.readFileSync(HIST, 'utf8')) : []).filter(x => x.id !== ID); h.push({ id: ID, ...vr.fp }); fs.writeFileSync(HIST, JSON.stringify(h.slice(-200))); }
@@ -342,19 +348,19 @@ async function prepActor(s, a, pub) {
   }
   if (!file) { console.log(`⚠️ ${a.who}: không có tài nguyên – bỏ khỏi cảnh`); todo(s, 'actor'); return null; }
   fs.mkdirSync(CACHE, { recursive: true });
-  const st = fs.statSync(file), still = /\.(png|jpe?g|webp)$/i.test(file), key = X.hash32(`${file}|${st.size}|${st.mtimeMs}|k3`).toString(36);
+  const st = fs.statSync(file), still = /\.(png|jpe?g|webp)$/i.test(file), key = X.hash32(`${file}|${st.size}|${st.mtimeMs}|k4`).toString(36);
   const name = `actor-${a.who}-${key}.${still ? 'png' : 'webm'}`, out = path.join(CACHE, name), meta = out + '.json';
   if (!fs.existsSync(meta) || !fs.existsSync(out)) {
     let m;
     if (kind === 'clip' && a.asset.alpha === 'stacked') {
-      try { m = K.stackedToAlpha(file, out); }
+      try { m = await K.stackedToAlpha(file, out); } // 30 fps: bỏ khung lặp "on twos" + nội suy chuyển động (keyclip.mjs)
       catch (e) { if (STRICT) throw e; console.log(`⚠️ ${e.message} → cắt nền tạm bằng keyclip`); todo(s, 'clip-format'); m = await K.keyToAlpha(file, out); }
     } else if (still && K.hasAlpha(file)) m = K.stillWithAlpha(file, out);
     else { if (STRICT) throw new Error(`${a.who}: ${path.basename(file)} không có kênh alpha và không phải clip stacked`); m = await K.keyToAlpha(file, out); }
     fs.writeFileSync(meta, JSON.stringify(m));
   }
   const m = JSON.parse(fs.readFileSync(meta, 'utf8')); fs.copyFileSync(out, path.join(pub, name));
-  return { src: name, kind: still ? 'img' : 'video', aw: m.w, ah: m.h, foot: m.foot, figH: m.figH, dur: m.dur || 5 };
+  return { src: name, kind: still ? 'img' : 'video', aw: m.w, ah: m.h, foot: m.foot, figH: m.figH, dur: m.dur || 5, fps: m.fps || 24 };
 }
 async function composeRemotion(s, [w, h], D) {
   const pub = P('public'); fs.rmSync(pub, { recursive: true, force: true }); fs.mkdirSync(path.join(pub, 'fonts'), { recursive: true });
@@ -365,7 +371,10 @@ async function composeRemotion(s, [w, h], D) {
   const kit = kitSvgs(pub), stage = s.stage || { lines: [], segs: [] }, rooms = {}, actors = {};
   const ak = a => `${a.who}|${(a.asset && a.asset.file) || 'none'}`;
   for (const g of stage.segs || []) rooms[`${g.scene}|${g.room.id}`] = prepRoom(s, g, pub);
-  for (const sl of stage.lines || []) for (const a of sl.actors || []) if (!(ak(a) in actors)) actors[ak(a)] = await prepActor(s, a, pub);
+  // clip nhân vật chuẩn bị SONG SONG (nội suy chuyển động ~30–60 s/clip, đơn luồng) – tối đa = số nhân CPU
+  const todoA = []; for (const sl of stage.lines || []) for (const a of sl.actors || []) if (!todoA.some(x => ak(x) === ak(a))) todoA.push(a);
+  const lim = Math.max(1, Math.min(6, os.cpus().length)); let qi = 0;
+  await Promise.all(Array.from({ length: lim }, async () => { while (qi < todoA.length) { const a = todoA[qi++]; actors[ak(a)] = await prepActor(s, a, pub); } }));
   const words = JSON.parse(fs.readFileSync(P('words.json'), 'utf8')), sfxMan = JSON.parse(fs.readFileSync(path.join(SFX_DIR, 'manifest.json'), 'utf8'));
   const tl = M.buildTimeline({ s, words, w, h, fps: FPS, seed: (s.variant && s.variant.seed) || ID, sfxMap: sfxMan.placement, grain: process.env.VIDEO_GRAIN !== '0',
     assets: { roomOf: g => rooms[`${g.scene}|${g.room.id}`], actorOf: a => actors[ak(a)], kit } });

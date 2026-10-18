@@ -17,12 +17,15 @@ const words = [...V.evenTiming(V.tokens('Wait, is I\'m agree wrong?'), 0.2, 1.8)
 const mk = M.markKeywords(words, ['I agree', 'verb']);
 ok(mk.filter(w => w.key).map(w => V.norm(w.w)).join(' ') === 'verb i agree', 'đánh dấu từ khóa theo cụm liên tiếp');
 const pages = M.captionPages(mk, { style: 'pop-box' });
-ok(pages.every(p => p.words.length >= 1 && p.words.length <= 3), 'pop-box: mỗi trang 1–3 từ');
-ok(pages[0].words[0].w === 'Wait,' && pages[0].words.length === 1, 'ngắt trang ở dấu phẩy');
+ok(pages.every(p => p.words.length >= 2 && p.words.length <= 3), 'pop-box: mỗi trang 2–3 từ (không trang 1 từ)');
+ok(pages[0].words[0].w === 'Wait,' && pages[0].words.length >= 2, 'trang 1 từ ở dấu phẩy ("Wait,") gộp với cụm sau');
+{ const oh = M.captionPages(V.evenTiming(V.tokens('Oh, so heads-up means a short warning about something coming soon.'), 0, 4).map(w => ({ ...w, line: 0 })), { style: 'karaoke-bar' });
+  ok(oh.every(p => p.words.length >= 2) && oh[0].words[0].w === 'Oh,', 'karaoke: "Oh," không đứng một mình (lỗi heads-up 18/10)');
+  ok(M.captionPages([{ w: 'Wow!', start: 0, end: 0.4, line: 0 }], { style: 'pop-box' }).length === 1, 'câu chỉ 1 từ → được 1 trang 1 từ'); }
 ok(pages.every(p => p.words.every(w => Math.abs(w.pop - (w.start - 0.04)) < 1e-6 && w.pop >= p.start - 1e-6)), 'mỗi từ bật trước mốc đọc 40 ms và không sớm hơn trang');
 ok(pages.every((p, i) => !pages[i + 1] || pages[i + 1].line !== p.line || p.end <= pages[i + 1].start + 1e-6), 'trang không chồng nhau trong cùng câu');
 ok(pages.every((p, i) => !pages[i + 1] || pages[i + 1].line !== p.line || pages[i + 1].start - p.end < 0.05), 'không nháy trống giữa các trang của 1 câu');
-ok(M.captionPages(mk, { style: 'mega-word' }).every(p => p.words.length === 1), 'mega-word: 1 từ / trang');
+ok(M.captionPages(mk, { style: 'mega-word' }).every(p => p.words.length >= 2 && p.words.length <= 3), 'mega-word: 2–3 từ / trang');
 ok(M.captionPages(mk, { style: 'karaoke-bar' }).length < pages.length, 'karaoke-bar: trang dài hơn');
 
 // 2) Chuyển cảnh
@@ -85,13 +88,18 @@ ok(ss.every(a => a.h <= 0.5 * 1920 && a.y - a.h >= 600 && a.x - a.h * 0.25 >= 0 
   ok(!pf.carlos.behind && pn.carlos.behind === 'counter' && pn.carlos.y === 1460 && pn.ama.y > 1500 && pn.carlos.x - 0.24 * pn.carlos.h >= 300, 'barista đứng sau quầy khi phòng cho phép (cỡ người đủ lớn), quầy xa → đứng đôi');
   const L = [{ start: 0.2, end: 1.9, beat: 'hook', who: 'ama', emotion: 'wrong', listener: 'carlos' }, { start: 2.2, end: 6.3, beat: 'explain', who: 'carlos', emotion: 'explain', listener: 'ama', punch: true }, { start: 6.6, end: 8.4, beat: 'example', who: 'ama', emotion: 'ask', listener: 'carlos' }, { start: 8.7, end: 11, beat: 'tip', who: 'kit' }, { start: 11.3, end: 13.6, beat: 'react', who: 'carlos', emotion: 'right', listener: 'ama' }];
   const fs2 = V.planFilmShots(L, { endStart: 14, duration: 16 });
-  ok(fs2[0].framing === 'wide' && fs2.some(x => x.framing === 'two') && fs2.some(x => x.framing === 'single') && fs2.some(x => x.framing === 'close'), 'máy: hook toàn → đôi → đơn → cận phản ứng');
+  ok(fs2[0].framing === 'two' && !fs2.some(x => x.framing === 'wide') && fs2.some(x => x.framing === 'single') && fs2.some(x => x.framing === 'close'), 'máy: hook trung cảnh đôi → đơn → cận phản ứng, không toàn cảnh khi không đổi bối cảnh');
+  ok(fs2.every((x, i) => !i || x.framing === 'card' || x.framing !== fs2[i - 1].framing || (x.focus || null) !== (fs2[i - 1].focus || null)), 'không jump cut (2 cảnh liền cùng khung + cùng người)');
+  const fs3 = V.planFilmShots(L.map((l, i) => ({ ...l, sceneChange: i === 2 })), { endStart: 14, duration: 16 }), est = fs3.find(x => x.line === 2);
+  ok(est.framing === 'wide' && est.end - est.start <= V.ESTABLISH + 1e-6 && fs3.filter(x => x.framing === 'wide').length === 1, 'toàn cảnh chỉ là cảnh thiết lập ngắn (≤ 1,2 s) khi đổi bối cảnh');
+  const fs4 = V.planFilmShots([{ start: 0.2, end: 1.9, beat: 'hook', who: 'ama', listener: 'carlos' }, { start: 2.2, end: 3.4, beat: 'explain', who: 'carlos', listener: 'ama', transitionIn: true }, { start: 3.6, end: 4.6, beat: 'example', who: 'ama', listener: 'carlos' }, { start: 4.8, end: 6, beat: 'example', who: 'carlos', listener: 'ama' }], { endStart: 6.4, duration: 8 });
+  ok(fs4.every((x, i) => !i || x.framing === 'card' || x.framing !== fs4[i - 1].framing || (x.focus || null) !== (fs4[i - 1].focus || null)), 'chống jump cut: cảnh trùng khung được gộp hoặc đổi khung');
   ok(fs2.every(x => x.framing !== 'close' || x.focus !== L[x.line].who), 'không bao giờ cận người đang nói');
   ok(fs2.filter(x => x.framing !== 'card').every(x => x.end - x.start >= 0.7 - 1e-6 && x.end - x.start <= 4.05), 'cảnh 0,7–4 s');
   const act = [{ who: 'ama', x: 410, y: 1656, h: 715, figH: 1500 }, { who: 'carlos', x: 670, y: 1656, h: 715, figH: 1570 }], rm = { srcW: 1536 };
   for (const fr of ['two', 'single', 'close']) {
     const c = M.shotCamera({ framing: fr, focus: 'carlos', line: 1 }, act, { room: rm }), cap = M.zoomCap(act, rm);
-    const inside = (cm, a) => { const [l] = M.toScreen(cm, a.x - 0.22 * a.h, 0), [r] = M.toScreen(cm, a.x + 0.22 * a.h, 0); return l >= -1 && r <= 1081 ? 'in' : r <= 0 || l >= 1080 ? 'out' : 'cut'; };
+    const hw = fr === 'two' ? M.CAM.twoHalfW : 0.22, inside = (cm, a) => { const [l] = M.toScreen(cm, a.x - hw * a.h, 0), [r] = M.toScreen(cm, a.x + hw * a.h, 0); return l >= -1 && r <= 1081 ? 'in' : r <= 0 || l >= 1080 ? 'out' : 'cut'; };
     ok(c.to.z <= cap + 1e-6 && c.to.z >= c.from.z && (fr !== 'two' || act.every(a => inside(c.to, a) === 'in')), `máy ${fr}: phóng ≤ giới hạn độ phân giải, đẩy máy vào, cảnh đôi trọn cả hai`);
     if (fr !== 'two') ok(inside(c.to, act[1]) === 'in', `máy ${fr}: người chính trọn khung`);
   }
@@ -166,6 +174,41 @@ const bx = K.alphaBox(al, kw, kh); ok(bx && bx.y1 === 54 && bx.figH === 44 && Ma
 const st2 = new Uint8Array(kw * kh * 3); for (let i = 0; i < kw * kh; i++) { const y = Math.floor(i / kw), v = y >= kh / 2 ? (i % kw > 10 && i % kw < 30 ? 255 : 0) : 128; st2.set(y >= kh / 2 ? [v, v, v] : [200, 90, 60], i * 3); }
 ok(K.isStackedMask(st2, kw, kh).ok, 'clip stacked đúng: nửa dưới là mặt nạ');
 ok(!K.isStackedMask(img, kw, kh).ok, 'clip thường (nửa dưới có màu) → bị từ chối, không dựng bóng ma');
+
+// 7b) Round 3 (video-polish): nhịp 30 fps (bỏ khung lặp + nội suy), cỡ nhân vật, phụ đề cố định, hook không lặp, đồng hồ clip
+{
+  const f = v => new Uint8Array(16).fill(v), fr = [f(0), f(1), f(40), f(41), f(90), f(90), f(90), f(90), f(90), f(140)]; // 1,3: lặp "on twos" · 5–8: đứng yên
+  const keep = K.uniqueFrames(fr, { thr: 2, maxRun: 3 });
+  ok(JSON.stringify(keep) === JSON.stringify([0, 2, 4, 8, 9]), `bỏ khung lặp "on twos", đứng yên giữ ≥ 1/4 khung, luôn giữ khung cuối (${keep})`);
+  const hold = K.holdFrames([0, 2, 4], [10, 500], { srcFps: 24, fps: 30, n: 8 });
+  ok(JSON.stringify(hold) === JSON.stringify([3, 4]), `khoảng vung tay quá nhanh → khung gốc gần nhất, không nội suy "bóng ma" (${hold})`);
+  ok(K.dropExpr(5, [0, 2, 4]) === "select='not(eq(n,1)+eq(n,3))'," && K.dropExpr(3, [0, 1, 2]) === '', 'biểu thức bỏ khung');
+  ok(/\[yl\]\[m\]mergeplanes=0x001010:yuv444p/.test(K.alphaGraph({ ow: 10, oh: 20 })) && (K.alphaGraph({ ow: 10, oh: 20 }).match(/minterpolate/g) || []).length === 2, 'mặt nạ đi chung mặt Y với màu qua minterpolate (vector giống hệt → mép alpha khớp)');
+  // nhân vật to: phòng thật office-01-day (h 653 @ y 1692) – trung cảnh đôi/đơn: người cao 60–85 % khung, mặt dưới hook, trên phụ đề
+  const act = [{ who: 'diane', x: 389, y: 1692, h: 653, figH: 1547 }, { who: 'mia', x: 691, y: 1692, h: 653, figH: 1727 }];
+  for (const fr of ['two', 'single']) { const c = M.shotCamera({ framing: fr, focus: 'mia', line: 2 }, act, { room: { srcW: 1536 }, topLimit: 700, capTop: 1300 }).to, pct = 653 * c.z / 1920;
+    ok(pct >= 0.6 && pct <= 0.85, `máy ${fr}: người cao ${(pct * 100).toFixed(0)} % khung (60–85 %)`);
+    ok(act.every(a => { const fb = M.faceBox(a), t = M.toScreen(c, fb[0], fb[1])[1], b = M.toScreen(c, fb[2], fb[3])[1]; return (fr !== 'two' && a.who !== 'mia') || (t >= 700 && b <= 1300); }), `máy ${fr}: mặt nằm giữa đáy hook (700) và đỉnh phụ đề (1300)`); }
+  const sc = { hook: 'Word of the day', keywords: ['heads-up'], lines: [] }, fmtW = formats.formats.find(x => x.id === 'word-of-day');
+  ok(M.hookTitle(sc, fmtW, [{ text: 'Quick heads-up.' }]) === 'heads-up', 'hook không lặp huy hiệu: "WORD OF THE DAY" + tiêu đề = từ khóa');
+  ok(!M.isQuiz(fmtW) && M.isQuiz(formats.formats.find(x => x.id === 'quiz-3s')) && M.isQuiz(formats.formats.find(x => x.id === 'quiz-abc')), 'đồng hồ đếm chỉ ở khuôn đố');
+  const lines2 = [{ who: 'diane', beat: 'hook', text: 'Quick heads-up.', start: 0.2, end: 1.4 }, { who: 'mia', beat: 'situation', text: 'Heads up?', start: 1.7, end: 2.6 }, { who: 'mia', beat: 'explain', text: 'Oh, so heads-up means a short warning.', start: 2.9, end: 5.6 }];
+  const actors2 = i => act.map(a => ({ ...a, role: a.who === lines2[i].who ? 'speaker' : 'listener', asset: { file: `${a.who}-${a.who === 'diane' ? (i === 0 ? 'x' : 'y') : 'z'}` } }));
+  const s2 = { job: { script: { hook: 'Word of the day', keywords: ['heads-up'], lines: lines2 } }, lines: lines2, duration: 8, endStart: 6, stage: { time: 'day', segs: [{ from: 0, to: 2, scene: 'office', room: { id: 'r' } }], lines: [0, 1, 2].map(i => ({ actors: actors2(i) })) },
+    variant: { format: fmtW, theme: formats.themes.find(t => t.caption === 'karaoke-bar'), transition: { id: 'zoom-blur' }, sfx: { id: 'full' }, setting: { time: 'day' } } };
+  s2.shots = V.planFilmShots(lines2.map((l, i) => ({ ...l, listener: l.who === 'mia' ? 'diane' : 'mia', transitionIn: i === 1 })), { endStart: 6, duration: 8 });
+  const w2 = lines2.flatMap((l, i) => V.evenTiming(V.tokens(l.text), l.start, l.end).map(w => ({ ...w, line: i })));
+  const tl2 = M.buildTimeline({ s: s2, words: w2, assets: { roomOf: () => ({ src: 'r', srcW: 1536 }), actorOf: a => ({ src: a.asset.file, kind: 'video', figH: 1547, aw: 984, ah: 1562, foot: [453, 1558], dur: 4.8 }) } });
+  ok(tl2.hook.text === 'heads-up' && tl2.hook.countdown === false, `hook: "${tl2.hook.text}", không số đếm ở khuôn không phải đố`);
+  ok(new Set(tl2.pages.map(p => Math.round(p.y * 1920 + p.half))).size === 1 && tl2.pages.every(p => p.y * 1920 + p.half <= 1920 - M.SAFE.bottom), 'phụ đề canh 1 đường đáy cố định, trên vùng UI nền tảng');
+  ok(tl2.pages.every(p => p.words.length >= 2 || lines2[p.line].text.split(' ').length === 1), 'không trang phụ đề 1 từ');
+  const t0 = who => tl2.shots.filter(x => x.actors.length).map(x => (x.actors.find(a => a.who === who) || {}).t0).filter(x => x != null);
+  ok(new Set(t0('mia')).size === 1 && t0('mia')[0] === 0, 'đồng hồ clip: cùng clip qua các câu liên tiếp → chạy liền (không nhảy tư thế)');
+  ok(new Set(t0('diane')).size === 2 && t0('diane').includes(+(1.7 - M.CLIP_LEAD).toFixed(3)), 'đổi clip → clip mới bắt đầu từ khung 0 ngay trước câu (tư thế gốc chung)');
+  ok(M.layoutGate(JSON.parse(JSON.stringify(tl2)), lines2).ok, 'cổng layout (gồm: chữ không đè mặt, phụ đề 1 vị trí) đạt: ' + M.layoutGate(JSON.parse(JSON.stringify(tl2)), lines2).bad.slice(0, 2).join(' | '));
+  const bad = JSON.parse(JSON.stringify(tl2)); bad.pages[1].y -= 0.2;
+  ok(M.layoutGate(bad, lines2).capJumps.length === 1, 'cổng layout bắt phụ đề nhảy vị trí');
+}
 
 // 8) Thư viện khuôn
 ok(formats.formats.length >= 40, `≥ 40 khuôn (${formats.formats.length})`);

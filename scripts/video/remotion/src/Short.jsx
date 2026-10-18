@@ -2,7 +2,7 @@
 // Lớp (dưới → trên): cảnh [nền (DOF) + bóng + nhân vật (rim/light-wrap) + Kit] → grade chung (feComponentTransfer) + vignette + bloom
 //   → chuyển cảnh (12 kiểu) → ngắt nhịp → thẻ payoff ❌/✅ → phụ đề động → hook 1,5 s → thanh tiến độ → watermark chữ → end card → grain.
 import React, { useEffect, useState } from 'react';
-import { AbsoluteFill, Img, OffthreadVideo, Loop, staticFile, useCurrentFrame, useVideoConfig, interpolate, spring, Easing, random, delayRender, continueRender } from 'remotion';
+import { AbsoluteFill, Img, OffthreadVideo, Freeze, staticFile, useCurrentFrame, useVideoConfig, interpolate, spring, Easing, random, delayRender, continueRender } from 'remotion';
 import { Sticker, PAL } from './Stickers.jsx';
 
 const FONT_H = 'LexDisplay', FONT_B = 'LexBody';
@@ -104,24 +104,41 @@ const ActorLight = ({ id, fx, w, h }) => {
     </svg>
   );
 };
-const Actor = ({ a, rim, t0, fx, uid }) => {
-  const k = a.h / (a.figH || a.ah || 1), w = (a.aw || 600) * k, h = (a.ah || 900) * k, fx0 = a.flip ? (a.aw - a.foot[0]) : a.foot[0];
-  const left = a.x - fx0 * k, top = a.y - a.foot[1] * k, dir = (fx && fx.light && fx.light.dir) || a.light || -1;
-  const media = a.kind === 'video'
-    ? (a.seg // chỉ phát đoạn có hướng đúng (facingSegments), lặp đoạn đó
-      ? <Loop durationInFrames={Math.max(1, Math.round((a.seg.to - a.seg.from) * 30))}><OffthreadVideo src={src(a.src)} transparent muted trimBefore={Math.round(a.seg.from * 30)} trimAfter={Math.round(a.seg.to * 30)} style={{ width: '100%', height: '100%' }} /></Loop>
-      : <Loop durationInFrames={Math.max(1, Math.round((a.dur || 5) * 30))}><OffthreadVideo src={src(a.src)} transparent muted style={{ width: '100%', height: '100%' }} /></Loop>)
-    : <Img src={src(a.src)} style={{ width: '100%', height: '100%' }} />;
-  const ew = a.h * 0.42;
+// Thời gian clip (round 3): đồng hồ riêng mỗi chuỗi clip (a.t0 – motion.buildTimeline), phát QUA LẠI (ping-pong) trong đoạn [from, to]
+// → không bao giờ nhảy tư thế khi lặp (Loop cũ quay về khung 0 giữa cảnh) và clip mới luôn vào từ khung 0 (tư thế gốc chung của clip Kling).
+// <Freeze frame> chọn đúng khung cần hiện của OffthreadVideo (trích khung chính xác từng khung khi render).
+const clipFrame = (c, t, fps) => {
+  const from = c.seg ? c.seg.from : 0, to = c.seg ? c.seg.to : (c.dur || 5), L = Math.max(1 / fps, to - from - 1 / fps);
+  const lt = Math.max(0, t - (c.t0 || 0)), u = lt % (2 * L), pos = u <= L ? u : 2 * L - u;
+  return Math.round((from + pos) * fps);
+};
+const ActorClip = ({ c, a, t, fps, rim, dir, fx, uid, opacity = 1 }) => {
+  const k = a.h / (c.figH || c.ah || 1), w = (c.aw || 600) * k, h = (c.ah || 900) * k, fx0 = a.flip ? (c.aw - c.foot[0]) : c.foot[0];
+  const left = a.x - fx0 * k, top = a.y - c.foot[1] * k;
+  const media = c.kind === 'video'
+    ? <Freeze frame={clipFrame(c, t, fps)}><OffthreadVideo src={src(c.src)} transparent muted style={{ width: '100%', height: '100%' }} /></Freeze>
+    : <Img src={src(c.src)} style={{ width: '100%', height: '100%' }} />;
   return (
     <>
-      <div style={{ position: 'absolute', left: a.x - ew / 2 - dir * a.h * 0.05, top: a.y - a.h * 0.03, width: ew, height: a.h * 0.06, borderRadius: '50%', background: 'radial-gradient(closest-side, rgba(20,16,14,.58), rgba(20,16,14,0))', filter: 'blur(5px)' }} />
       <ActorLight id={uid} fx={fx && a.flip && fx.light ? { ...fx, light: { ...fx.light, dir: -(fx.light.dir || -1) } } : fx} w={w} h={h} />
-      <div style={{ position: 'absolute', left, top, width: w, height: h, filter: `drop-shadow(${dir * 4}px -2px 3px ${rim}99) drop-shadow(0 0 10px rgba(255,247,234,.18))` }}>
+      <div style={{ position: 'absolute', left, top, width: w, height: h, opacity, filter: `drop-shadow(${dir * 4}px -2px 3px ${rim}99) drop-shadow(0 0 10px rgba(255,247,234,.18))` }}>
         {/* lật gương ở lớp NGOÀI, bộ lọc ánh sáng ở lớp TRONG (lọc trên ảnh chưa lật – lọc SVG trên phần tử scaleX(−1) làm lệch màu đỏ/tối);
             hướng đèn tính theo ảnh chưa lật */}
         <div style={{ width: '100%', height: '100%', transform: a.flip ? 'scaleX(-1)' : undefined }}><div style={{ width: '100%', height: '100%', filter: `url(#${uid})` }}>{media}</div></div>
       </div>
+    </>
+  );
+};
+const XFADE = 5; // khung – đổi clip giữa 1 cảnh liên tục (motion.CLIP_XFADE)
+const Actor = ({ a, rim, t, fps, fx, uid }) => {
+  const dir = (fx && fx.light && fx.light.dir) || a.light || -1, ew = a.h * 0.42;
+  const clips = [a, ...(a.alt || [])]; let i = 0; while (i + 1 < clips.length && t >= clips[i + 1].at) i++;
+  const e = i > 0 ? clamp01((t - clips[i].at) / (XFADE / fps)) : 1;
+  return (
+    <>
+      <div style={{ position: 'absolute', left: a.x - ew / 2 - dir * a.h * 0.05, top: a.y - a.h * 0.03, width: ew, height: a.h * 0.06, borderRadius: '50%', background: 'radial-gradient(closest-side, rgba(20,16,14,.58), rgba(20,16,14,0))', filter: 'blur(5px)' }} />
+      {e < 1 ? <ActorClip c={clips[i - 1]} a={a} t={t} fps={fps} rim={rim} dir={dir} fx={fx} uid={uid + 'p'} opacity={Math.min(1, 2 * (1 - e))} /> : null}
+      <ActorClip c={clips[i]} a={a} t={t} fps={fps} rim={rim} dir={dir} fx={fx} uid={uid} opacity={Math.min(1, 2 * e)} />
     </>
   );
 };
@@ -166,7 +183,7 @@ function camera(shot, t, W, H, interrupts) {
   if (shot.shake) { const d = t - shot.start; if (d >= 0 && d < 0.45) { const a = 16 * (1 - d / 0.45); sx = (random(`sx${Math.round(d * 30)}`) - 0.5) * 2 * a; sy = (random(`sy${Math.round(d * 30)}`) - 0.5) * 2 * a; } }
   return { transform: `translate(${tx + sx}px, ${sy}px) rotate(${rot}deg) scale(${z})`, transformOrigin: `${ax}px ${ay}px`, center: [ax, ay] };
 }
-const ShotLayer = ({ shot, t, W, H, inCut, outCut, theme, interrupts, cardEnd }) => {
+const ShotLayer = ({ shot, t, fps, W, H, inCut, outCut, theme, interrupts, cardEnd }) => {
   const g = GRADES[shot.grade] || GRADES.studio, cam = camera(shot, t, W, H, interrupts);
   let st = {};
   if (inCut && t < inCut.to) st = trStyle(inCut.type, 'in', (t - inCut.from) / inCut.d, W, H, cam.center);
@@ -178,7 +195,7 @@ const ShotLayer = ({ shot, t, W, H, inCut, outCut, theme, interrupts, cardEnd })
       {shot.room ? ((shot.roomFx && shot.roomFx.maskText) || []).map((r, i) => <RoomPatch key={'m' + i} srcImg={shot.room} r={r} W={W} H={H} blur={14} />) : null}
       {(shot.actors || []).map((a, i) => (
         <React.Fragment key={i}>
-          <Actor a={a} rim={g.rim} fx={shot.roomFx} uid={`al-${shot.k}-${i}`} />
+          <Actor a={a} rim={g.rim} t={t} fps={fps} fx={shot.roomFx} uid={`al-${shot.k}-${i}`} />
           {a.behind === 'counter' && shot.roomFx && shot.roomFx.counter ? <RoomPatch srcImg={shot.room} r={[shot.roomFx.counter.x0, shot.roomFx.counter.top, shot.roomFx.counter.x1, shot.roomFx.counter.base]} W={W} H={H} blur={g.blur} /> : null}
         </React.Fragment>
       ))}
@@ -242,7 +259,7 @@ const Badge = ({ children, bg = '#E5502F', fg = '#FFFFFF', s = 1, rot = -3, fs =
 );
 const HookLayer = ({ hook, t, fps, theme, W, H }) => {
   if (t > hook.end + 0.3) return null;
-  const out = clamp01((t - hook.end) / 0.3), f = t * fps, y = theme.layout.hookY * H, acc = theme.colors.accents;
+  const out = clamp01((t - hook.end) / 0.3), f = t * fps, y = hook.top != null ? hook.top : theme.layout.hookY * H, acc = theme.colors.accents, cd = hook.countdown !== false;
   const pop = d => spring({ frame: Math.max(0, f - d * fps), fps, config: { damping: 15, stiffness: 260, mass: 0.6 } }); // ít vượt đà để chữ hook không chồng nhau
   const ws = String(hook.text).toUpperCase().split(/\s+/).filter(Boolean);
   const typeOn = ['secret', 'story-cold-open', 'pov'].includes(hook.pattern);
@@ -259,9 +276,9 @@ const HookLayer = ({ hook, t, fps, theme, W, H }) => {
         <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
           {sticker}
           <div style={{ transform: `scale(${['myth-buster', 'stop-saying', 'mistake-stat'].includes(P) ? slam : pop(0)})` }}><Badge bg={badgeBg} fg={badgeFg} fs={hook.badgeFs || 46}>{hook.badge}</Badge></div>
-          {P === 'quiz-timer' || P === 'challenge' ? <Ring p={clamp01(t / Math.max(1, hook.end))} n={Math.max(1, 3 - Math.floor(t / Math.max(0.5, hook.end / 3)))} /> : null}
+          {cd && (P === 'quiz-timer' || P === 'challenge') ? <Ring p={clamp01(t / Math.max(1, hook.end))} n={Math.max(1, 3 - Math.floor(t / Math.max(0.5, hook.end / 3)))} /> : null}
           {P === 'versus' ? <div style={{ fontFamily: FONT_H, fontSize: 96, color: '#FFC94A', ...stroke(10), transform: `scale(${slam})` }}>VS</div> : null}
-          {P === 'countdown-list' ? <div style={{ fontFamily: FONT_H, fontSize: 130, color: '#FFC94A', ...stroke(12), transform: `scale(${pop(0.15)}) rotate(-6deg)` }}>3</div> : null}
+          {cd && P === 'countdown-list' ? <div style={{ fontFamily: FONT_H, fontSize: 130, color: '#FFC94A', ...stroke(12), transform: `scale(${pop(0.15)}) rotate(-6deg)` }}>3</div> : null}
         </div>
         {/* xuống dòng + cỡ chữ tính sẵn (motion.hookLayout) → khối hook có đáy cố định, phụ đề karaoke xếp dưới đáy đó, không chồng lên */}
         <div style={{ fontFamily: FONT_H, fontWeight: 800, fontSize: hook.fs || (ws.join(' ').length > 22 ? 84 : 100), lineHeight: 1.04, textAlign: 'center', color: '#FFFFFF', ...stroke(14), textShadow: '0 10px 30px rgba(0,0,0,.4)', position: 'relative' }}>
@@ -283,7 +300,7 @@ const Ring = ({ p, n }) => (
 const Card = ({ c, t, fps, theme, W, H }) => {
   if (t < c.start || t > c.end + 0.3) return null;
   const f = (t - c.start) * fps, s = spring({ frame: f, fps, config: { damping: 11, stiffness: 200 } }), out = clamp01((t - c.end) / 0.3);
-  const dont = c.kind === 'dont', y = theme.layout.cardY * H;
+  const dont = c.kind === 'dont', y = c.top != null ? c.top : theme.layout.cardY * H;
   const shake = dont && f < 10 ? Math.sin(f * 2.2) * 14 * (1 - f / 10) : 0;
   const flip = c.style === 'flip-card' && !dont ? interpolate(f, [0, 10], [90, 0], { extrapolateRight: 'clamp' }) : 0;
   const blur = c.style === 'answer-reveal' && !dont ? interpolate(f, [0, 12], [18, 0], { extrapolateRight: 'clamp' }) : 0;
@@ -344,7 +361,7 @@ const Interrupts = ({ list, t, fps }) => list.map((it, i) => {
   if (it.kind === 'flash') return d < 0.12 ? <AbsoluteFill key={i} style={{ background: '#FFF7EA', opacity: 0.38 * (1 - d / 0.12) }} /> : null;
   if (it.kind !== 'sticker') return null;
   const s = spring({ frame: d * fps, fps, config: { damping: 8, stiffness: 260 } }), o = 1 - clamp01((d - 0.85) / 0.25);
-  return <div key={i} style={{ position: 'absolute', top: 760, [it.side]: it.side === 'right' ? 170 : 80, opacity: o, transform: `scale(${s}) rotate(${it.side === 'left' ? -12 : 12}deg)` }}><Sticker name={it.sticker} size={180} /></div>;
+  return <div key={i} style={{ position: 'absolute', top: it.y != null ? it.y : 760, [it.side]: it.side === 'right' ? 170 : 80, opacity: o, transform: `scale(${s}) rotate(${it.side === 'left' ? -12 : 12}deg)` }}><Sticker name={it.sticker} size={180} /></div>;
 });
 
 export const Short = (P) => {
@@ -360,7 +377,7 @@ export const Short = (P) => {
   return (
     <AbsoluteFill style={{ background: '#0F3D3E', fontFamily: FONT_H }}>
       <GradeDefs />
-      {vis.map(({ sh, inCut, outCut }) => <ShotLayer key={sh.k} shot={sh} t={t} W={W} H={H} inCut={inCut} outCut={outCut} theme={P.theme} interrupts={P.interrupts || []} cardEnd={P.endCard} />)}
+      {vis.map(({ sh, inCut, outCut }) => <ShotLayer key={sh.k} shot={sh} t={t} fps={fps} W={W} H={H} inCut={inCut} outCut={outCut} theme={P.theme} interrupts={P.interrupts || []} cardEnd={P.endCard} />)}
       {!inCard ? <KitLayer kits={P.kits || []} t={t} fps={fps} W={W} /> : null}
       {cut ? <TransitionFx cut={cut} t={t} W={W} H={H} kit={kitArt} accents={P.theme.colors.accents} /> : null}
       {!inCard ? <Interrupts list={P.interrupts || []} t={t} fps={fps} /> : null}
