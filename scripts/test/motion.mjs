@@ -206,6 +206,9 @@ ok(!K.isStackedMask(img, kw, kh).ok, 'clip thường (nửa dưới có màu) �
   ok(new Set(t0('mia')).size === 1 && t0('mia')[0] === 0, 'đồng hồ clip: cùng clip qua các câu liên tiếp → chạy liền (không nhảy tư thế)');
   ok(new Set(t0('diane')).size === 2 && t0('diane').includes(+(1.7 - M.CLIP_LEAD).toFixed(3)), 'đổi clip → clip mới bắt đầu từ khung 0 ngay trước câu (tư thế gốc chung)');
   ok(M.layoutGate(JSON.parse(JSON.stringify(tl2)), lines2).ok, 'cổng layout (gồm: chữ không đè mặt, phụ đề 1 vị trí) đạt: ' + M.layoutGate(JSON.parse(JSON.stringify(tl2)), lines2).bad.slice(0, 2).join(' | '));
+  const sx = d => M.placeSfx({ cuts: tl2.cuts, pages: tl2.pages, cards: tl2.cards, hook: tl2.hook, map: sfxMan.placement, endStart: 6, dry: d });
+  const wet = sx(false), dry = sx(true), pops = a => a.filter(e => e.id === 'pop');
+  ok(pops(dry).length < pops(wet).length && dry.filter(e => e.id === 'whoosh').every(e => e.gainDb <= sfxMan.placement.gain.whoosh - 4) && pops(dry).every((e, i, a) => !i || e.t - a[i - 1].t >= 0.6), 'không nhạc nền: pop thưa (≥ 0,6 s, chỉ từ khóa), whoosh nhỏ hơn');
   const bad = JSON.parse(JSON.stringify(tl2)); bad.pages[1].y -= 0.2;
   ok(M.layoutGate(bad, lines2).capJumps.length === 1, 'cổng layout bắt phụ đề nhảy vị trí');
 }

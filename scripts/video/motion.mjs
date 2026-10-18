@@ -431,20 +431,23 @@ export function comparePair(sc) {
 }
 
 // ---------- SFX tự đặt ----------
-export function placeSfx({ cuts = [], pages = [], cards = [], interrupts = [], hook = null, shocks = [], map, endStart, mode = 'full' }) {
-  const ev = [], add = (t, key, prio = 1) => { const id = typeof key === 'string' && map[key] ? map[key] : key; if (t >= 0 && id) ev.push({ t: r3(t), id, gainDb: (map.gain[id] ?? -16) + (mode === 'soft' ? -4 : mode === 'punchy' ? 2 : 0), prio }); };
+// dry = không nhạc nền (quyết định chủ 18/10: chỉ giọng + SFX): SFX không còn nền nhạc che → bớt dày + nhỏ hơn: pop chữ chỉ ở TỪ KHÓA
+// (không pop đầu mỗi trang), whoosh/swoosh −4 dB, pop/tick/keys −3 dB, khoảng tối thiểu giữa 2 pop 0,6 s; nhấn (ding/buzz/bass) giữ nguyên.
+export const DRY_TRIM = { whoosh: -4, swoosh: -4, pop: -3, tick: -3, keys: -3, glitch: -3, confetti: -2 };
+export function placeSfx({ cuts = [], pages = [], cards = [], interrupts = [], hook = null, shocks = [], map, endStart, mode = 'full', dry = false }) {
+  const ev = [], add = (t, key, prio = 1) => { const id = typeof key === 'string' && map[key] ? map[key] : key; if (t >= 0 && id) ev.push({ t: r3(t), id, gainDb: (map.gain[id] ?? -16) + (mode === 'soft' ? -4 : mode === 'punchy' ? 2 : 0) + (dry ? DRY_TRIM[id] || 0 : 0), prio }); };
   if (hook) { add(0.02, 'hook', 3); if (hook.sfx && hook.sfx !== 'hook') add(hook.sfx === 'preReveal' ? 0.3 : 0.15, hook.sfx, 2); }
   for (const c of cuts) { const id = map.transition[c.type]; add(c.t - (id === 'whoosh' ? 0.22 : id === 'swoosh' ? 0.12 : 0.02), id, 2); }
   for (const c of cards) { if (c.kind === 'dont') add(c.start + 0.05, 'wrong', 3); else { if (c.start > 1.8) add(c.start - 1.45, 'preReveal', 1); add(c.start + 0.05, 'reveal', 3); } }
   for (const s of shocks) add(s, 'shock', 2);
   for (const p of interrupts) if (p.kind === 'sticker') add(p.t, 'sticker', 1);
   // pop chữ: từ khóa + từ đầu mỗi trang (tối đa 1 pop / 0,35 s để không rối tai)
-  for (const p of pages) p.words.forEach((w, j) => { if (w.key || j === 0) add(w.pop, 'wordPop', w.key ? 1 : 0); });
+  for (const p of pages) p.words.forEach((w, j) => { if (w.key || (j === 0 && !dry)) add(w.pop, 'wordPop', w.key ? 1 : 0); });
   ev.sort((a, b) => a.t - b.t || b.prio - a.prio);
   const out = [];
   for (const e of ev) {
     if (e.t > endStart + 2) continue;
-    const near = out.find(x => Math.abs(x.t - e.t) < (e.id === 'pop' || x.id === 'pop' ? 0.35 : 0.15));
+    const near = out.find(x => Math.abs(x.t - e.t) < (e.id === 'pop' || x.id === 'pop' ? (dry ? 0.6 : 0.35) : 0.15));
     if (near) { if (e.prio > near.prio) Object.assign(near, e); continue; }
     if (e.id === 'bass-drop' && out.some(x => x.id === 'bass-drop' && e.t - x.t < 3)) continue;
     out.push({ ...e });
@@ -578,7 +581,7 @@ export function buildTimeline({ s, words, assets = {}, w = 1080, h = 1920, fps =
     if (pick) Object.assign(it, pick); else { it.kind = 'flash'; it.sticker = null; } // không có chỗ trống → đổi sang chớp sáng (không che mặt)
   }
   const shocks = lines.filter(l => l.emotion === 'wrong' && l.start > 1).map(l => l.start);
-  const sfx = sfxMap ? placeSfx({ cuts, pages, cards, interrupts, hook, shocks, map: sfxMap, endStart, mode: (v.sfx && v.sfx.id) || 'full' }) : [];
+  const sfx = sfxMap ? placeSfx({ cuts, pages, cards, interrupts, hook, shocks, map: sfxMap, endStart, mode: (v.sfx && v.sfx.id) || 'full', dry: !v.music || !v.music.id || v.music.id === 'none' }) : [];
   return {
     w, h, fps, durationInFrames: Math.round(D * fps), duration: D, seed: String(seed), format: fmt.id,
     theme: { ...theme, colors, layout }, grain, hook, pages, cuts, shots: S, cards, interrupts, sfx, kits,
