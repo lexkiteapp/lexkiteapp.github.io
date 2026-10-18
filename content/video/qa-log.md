@@ -28,3 +28,7 @@
 - Tận dụng clip loại (không phí credit): Leo gật lần 3 → cắt 0–1,2 s trước khi tóc biến dạng = "leo_nod_short" (gật nhanh khi nghe); Diane suy nghĩ+cười (chuyển động nhẹ) → "diane_idle_listen" (đứng nghe/idle – Diane còn thiếu idle); Diane gật+ngón cái yếu → "diane_nod_handsonhips" (nửa đầu gật nghe, nửa sau chống hông tự tin). Clip "ít chuyển động" vẫn có giá trị làm vai NGƯỜI NGHE.
 - Luật tiết kiệm: (1) Leo tránh hành động ngả đầu ra sau; (2) prompt luôn có "big clear motion"; (3) mỗi clip mới phải ghi trước vai nói/nghe dự kiến – clip ít động gán vai nghe thay vì loại.
 - 17/10 phòng đủ nội thất (9:16, tham chiếu style-ref): phố NY a 90 / b 91 · phỏng vấn a/b 92 · siêu thị a 91 / b 92 · sân bay b 90 (a ✗ biển chữ vô nghĩa "ꟽA8d") · phòng họp a 92 (b ✗ bàn chắn giữa sàn) · thư viện a/b 93 · căn hộ a/b 91 · cà phê a/b 91. Sảnh khách sạn chưa ra (bấm tạo không nhận) → làm lại.
+
+## 18/10/2026 – Trang phục mới (casual/travel) cho kịch bản nhập vai
+- `chars/diane/green-casual.png` – Kling Image 3.0 từ `chars/diane/green.png` (2 ảnh, 2 credit): chọn ảnh cardigan teal dệt kim + quần jean navy + giày trắng. Nhận diện giữ đúng (tóc xoăn lọn bạc, kính đỏ, khuyên vàng, đồng hồ). Bỏ ảnh blazer xanh mint (sát màu phông). Soi tách nền magenta (luật chroma_key): áo teal giữ nguyên. **QA 92 – approved.**
+- Clip thử `diane_talk_gesture_casual` (Kling 2.5 Turbo 1080p 5 s, 25 credit) – chờ kết quả, dựng thử trên CI trước khi làm lô.

@@ -704,7 +704,9 @@ export function writeRenderManifest(m, file = path.join(LIB, 'manifest.json'), e
       if (st && st.status === 'FAIL') probs.push(`clip ${e.id}: bản stacked FAIL (${(st.issues || []).filter(x => x.startsWith('FAIL')).join(' | ')})`);
       continue;
     }
-    if (!c) rm.clips.push(c = { id, who: e.who, tags: e.tags, outfit: OUTFIT[e.who] || 'casual', mouth: (e.roles || []).includes('speaker'), facing: 'front' });
+    const outfitTag = (/_(casual|travel|office)$/.exec(id) || [])[1]; // clip trang phục khác mặc định: <who>_<action>_<outfit>.mp4 (vd. diane_talk_gesture_casual)
+    if (!c) rm.clips.push(c = { id, who: e.who, tags: (e.tags || []).filter(x => x !== outfitTag), outfit: e.outfit || outfitTag || OUTFIT[e.who] || 'casual', mouth: (e.roles || []).includes('speaker'), facing: 'front' });
+    else if (e.outfit || outfitTag) c.outfit = e.outfit || outfitTag;
     Object.assign(c, { file: e.id, alpha: 'stacked', roles: e.roles, foot: st.foot, figH: st.figH, w: st.w, h: st.h, ready: true });
     if (e.facing) c.facing = e.facing; // front | left | right (clip ¾); lật gương chỉ khi kho ghi mirrorOk:true
     if (e.mirrorOk != null) c.mirrorOk = !!e.mirrorOk;
