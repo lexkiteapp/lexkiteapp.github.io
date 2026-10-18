@@ -50,7 +50,7 @@
    {
     "who": "mia",
     "beat": "cta",
-    "text": "Sound more natural with lexkite.com",
+    "text": "Save useful phrases on lexkite.com",
     "expr": "happy smile",
     "gesture": "waving hello"
    }
@@ -66,6 +66,7 @@
    "businessenglish",
    "speakenglish"
   ],
-  "link": "https://lexkite.com/"
+  "area": "phrases",
+  "link": "https://lexkite.com/app/#/phrases"
  }
 }

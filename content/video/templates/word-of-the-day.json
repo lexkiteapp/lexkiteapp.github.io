@@ -1,5 +1,6 @@
 {
  "id": "word-of-the-day",
+ "area": "dictionary",
  "name": "Word of the day (1 từ/cụm trong ngữ cảnh)",
  "goal": "Nghe 1 từ trong câu thật → người học thắc mắc → hiểu nghĩa → nghe lại trong câu khác. Payoff: thẻ lật (flip-card) ở beat explain.",
  "format_id": "word-of-day",

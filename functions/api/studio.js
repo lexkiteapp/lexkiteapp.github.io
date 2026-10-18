@@ -105,11 +105,11 @@ export function normScript(sc, job) {
   };
 }
 // Trường tuỳ chọn mà render.mjs/variants đọc (khuôn nội dung content/video/templates – VIDEO-PIPELINE §11): giữ lại khi hợp lệ, bỏ khi lạ.
-// scene/outfit/format_id/template = id chữ thường · time day|night · recast bool · wrong/right = chữ thẻ payoff ❌/✅ · từng câu: punch, scene, transition fade|wipe
+// scene/outfit/format_id/template/area = id chữ thường (area = khu vực app, content/video/ecosystem.json) · time day|night · recast bool · wrong/right = chữ thẻ payoff ❌/✅ · từng câu: punch, scene, transition fade|wipe
 const OPT_ID = /^[a-z][a-z0-9-]{0,39}$/;
 function scriptOpt(s) {
   const o = {};
-  for (const k of ['scene', 'outfit', 'format_id', 'template']) if (typeof s[k] === 'string' && OPT_ID.test(s[k])) o[k] = s[k];
+  for (const k of ['scene', 'outfit', 'format_id', 'template', 'area']) if (typeof s[k] === 'string' && OPT_ID.test(s[k])) o[k] = s[k];
   if (s.time === 'day' || s.time === 'night') o.time = s.time;
   if (typeof s.recast === 'boolean') o.recast = s.recast;
   for (const k of ['wrong', 'right']) if (typeof s[k] === 'string' && s[k].trim()) o[k] = s[k].trim().slice(0, 60);
@@ -242,6 +242,11 @@ const hex = async s => [...new Uint8Array(await crypto.subtle.digest('SHA-256', 
 async function takenSlots(db) { return ((await db.prepare("SELECT schedule_at FROM video_jobs WHERE status IN ('scheduled', 'published') AND schedule_at > ?").bind(Date.now() - 2 * DAY).all()).results || []).map(r => +r.schedule_at); }
 async function doneCount(db) { return +((await db.prepare("SELECT COUNT(*) AS n FROM video_jobs WHERE status IN ('scheduled', 'published')").first()) || {}).n || 0; }
 
+// Chữ bài đăng: caption + link sâu đúng tính năng (script.link – Shorts/TikTok/Reels bỏ qua trường link nên phải nằm trong chữ) + hashtag
+export function postCaption(sc, topic = '') {
+  const cap = String(sc.caption || sc.title || topic || ''), link = /^https:\/\/lexkite\.com\//.test(sc.link || '') && !cap.includes(sc.link) ? sc.link : '';
+  return [cap, link, (sc.hashtags || []).map(h => '#' + h).join(' ')].filter(Boolean).join('\n\n').slice(0, 2200);
+}
 // Đăng: kho (object đã tải lên từ CI) → use (media_id) → validate → tạo bài (Idempotency-Key ổn định) → lên lịch khung trống kế tiếp
 export async function publishJob(env, db, job, { at, accounts, auto = false } = {}) {
   const st = await getSettings(db);
@@ -260,7 +265,7 @@ export async function publishJob(env, db, job, { at, accounts, auto = false } = 
     else if (st.platforms.length) acc = acc.filter(a => st.platforms.includes(String(pick(a, 'platform', 'provider') || '').toLowerCase().replace(/[^a-z]/g, '')));
     if (!acc.length) throw new Bad(409, 'no-accounts');
     const kind = a => { const k = a && (a.kinds || a.supported_kinds || a.post_kinds); return Array.isArray(k) && k.length ? String(k[0]) : 'video'; };
-    const caption = [sc.caption || sc.title || job.topic, (sc.hashtags || []).map(h => '#' + h).join(' ')].filter(Boolean).join('\n\n').slice(0, 2200);
+    const caption = postCaption(sc, job.topic);
     const payload = { title: String(sc.title || job.topic).slice(0, 200), caption, link: sc.link || 'https://lexkite.com/', media_ids: [mediaId], targets: acc.map(a => ({ account_id: a.id, kind: kind(a), options: {} })) };
     const v = await gc(env, 'POST', 'validate', payload), errs = [...(v.errors || []), ...(v.problems || []), ...((v.targets || []).flatMap(t => [...(t.errors || []), ...(t.problems || [])]))].filter(x => !/warn/.test(String((x && x.level) || '')));
     if (v.valid === false || v.ok === false || errs.length) throw new Bad(422, 'validate', { message: JSON.stringify(errs.length ? errs : v).slice(0, 400) });

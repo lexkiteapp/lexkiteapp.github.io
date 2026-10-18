@@ -50,7 +50,7 @@
    {
     "who": "ama",
     "beat": "cta",
-    "text": "Take more quizzes free on lexkite.com",
+    "text": "Check your level on lexkite.com",
     "expr": "happy smile",
     "gesture": "waving hello"
    }
@@ -64,6 +64,7 @@
    "testyourenglish",
    "englishgrammar"
   ],
-  "link": "https://lexkite.com/"
+  "area": "placement",
+  "link": "https://lexkite.com/app/#/placement"
  }
 }

@@ -1,0 +1,33 @@
+{
+ "topic": "IELTS Writing Task 1: the chart is about",
+ "scene": "library",
+ "seed": "iw-illustrates",
+ "vars": {
+  "task": "Task 1",
+  "phrase": "The chart illustrates",
+  "basicShort": "The chart is about",
+  "hookLine": "\"The chart is about\"?",
+  "basic": "I always start my report with: The chart is about phone sales.",
+  "rule": "For Task 1, start with The chart illustrates, then say what and when.",
+  "better": "Perfect: The chart illustrates phone sales in three countries over ten years.",
+  "basicCard": "The chart is about…",
+  "betterCard": "The chart illustrates…",
+  "tip": "shows and compares work too. Just don't copy the question word for word."
+ },
+ "lines": {
+  "hook": {
+   "expr": "thinking"
+  },
+  "situation": {
+   "expr": "calm"
+  },
+  "example": {
+   "expr": "happy smile"
+  }
+ },
+ "hashtags": [
+  "ieltswriting",
+  "ieltspreparation",
+  "academicenglish"
+ ]
+}

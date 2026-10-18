@@ -50,7 +50,7 @@
    {
     "who": "mia",
     "beat": "cta",
-    "text": "Practice real conversations on lexkite.com",
+    "text": "Roleplay this free on lexkite.com",
     "expr": "happy smile",
     "gesture": "waving hello"
    }
@@ -64,6 +64,7 @@
    "businessenglish",
    "englishconversation"
   ],
-  "link": "https://lexkite.com/"
+  "area": "roleplay",
+  "link": "https://lexkite.com/app/#/roleplay"
  }
 }

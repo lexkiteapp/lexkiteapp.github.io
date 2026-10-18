@@ -1,0 +1,24 @@
+{
+ "topic": "Vocabulary in class: make a photo or take a photo?",
+ "scene": "classroom",
+ "seed": "col-photo",
+ "vars": {
+  "wrongColl": "make a photo",
+  "rightColl": "take a photo",
+  "hookLine": "Don't say \"make a photo.\"",
+  "question": "In my language we make photos. Why not in English?",
+  "rule": "We take a photo, take a picture, and take a selfie.",
+  "example": "Let's take a photo by the window. The light is lovely.",
+  "tip": "you take a photo, but you make a video."
+ },
+ "lines": {
+  "situation": {
+   "expr": "confused"
+  }
+ },
+ "hashtags": [
+  "collocations",
+  "vocabulary",
+  "englishtips"
+ ]
+}

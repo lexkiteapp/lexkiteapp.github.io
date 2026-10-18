@@ -1,0 +1,19 @@
+{
+ "topic": "Cafe English: stop saying very good",
+ "scene": "cafe",
+ "seed": "up-delicious",
+ "vars": {
+  "weak": "very good",
+  "strong": "delicious",
+  "hookLine": "Stop saying \"very good.\"",
+  "boring": "This cake is very good. The coffee is very good too.",
+  "upgrade": "For food, say delicious. It means it tastes very good.",
+  "better": "Our banana bread is delicious today.",
+  "tip": "very good weather is lovely. Very good news is wonderful."
+ },
+ "hashtags": [
+  "vocabulary",
+  "speakenglish",
+  "englishtips"
+ ]
+}

@@ -1,0 +1,45 @@
+{
+ "id": "collocation",
+ "area": "phrases",
+ "name": "Collocation – Don't say / Say (make vs do, strong coffee…)",
+ "goal": "Cụm từ ghép sai người học hay dịch thẳng (make homework) → thắc mắc → cặp từ đúng + quy tắc nhóm → câu dùng thật → mẹo. Payoff: thẻ so sánh DON'T SAY ❌ / SAY ✅ ở beat example.",
+ "format_id": "dont-say",
+ "cefr": "A2–B1",
+ "duration": [18, 40],
+ "topicHint": "\"Vocabulary: make or do homework?\" → study-grammar (library) · \"Vocabulary in class: …\" (có in class/teacher) → classroom-english (classroom, Diane giải thích) · \"Cafe English: strong coffee\" → ordering-coffee (cafe) · \"Office English: make a decision\" (có office/meeting) → office-english (office)",
+ "roles": { "learner": "người nói cụm sai + thắc mắc + CTA", "explainer": "người nói cụm đúng + quy tắc", "modeler": "người dùng cụm đúng trong câu thật", "kit": "Kit – mẹo nhóm từ (do = việc, make = tạo ra…)" },
+ "scenes": {
+  "library": { "roles": { "learner": ["ama"], "explainer": ["ama"], "modeler": ["ama"] } },
+  "classroom": { "roles": { "learner": ["ama"], "explainer": ["diane"], "modeler": ["diane"] } },
+  "cafe": { "roles": { "learner": ["ama"], "explainer": ["carlos"], "modeler": ["carlos"] } },
+  "office": { "roles": { "learner": ["mia"], "explainer": ["diane"], "modeler": ["diane"] } }
+ },
+ "vars": {
+  "wrongColl": { "desc": "cụm sai người học hay nói (make homework) – thẻ ❌ ≤ 32 ký tự", "required": true, "maxWords": 4 },
+  "rightColl": { "desc": "cụm đúng (từ khóa, do homework) – thẻ ✅ ≤ 32 ký tự; phải xuất hiện NGUYÊN VĂN trong câu explain", "required": true, "maxWords": 4 },
+  "hookLine": { "desc": "câu mở ≤ 5 âm tiết. Ama (library/school/cafe): Don't say \"make homework.\" (→ clip sốc). Mia (office, không có clip sốc): câu hỏi kết thúc bằng ? (Do a decision?)", "required": true, "maxWords": 5 },
+  "question": { "desc": "thắc mắc của người học. Ama: kết thúc bằng ? (clip think). Mia ở office: câu kể KHÔNG có ? (Mia đã dùng clip think ở hook)", "required": true },
+  "rule": { "desc": "câu giải thích có chứa NGUYÊN VĂN rightColl + quy tắc nhóm (We do homework, chores, and tasks.)", "required": true },
+  "example": { "desc": "câu thật dùng cụm đúng (dạng chia được: do my homework). Diane ở office: câu hỏi kết thúc bằng ? (clip think). Không dùng right/great/yes nếu người nói đã cười ở hook", "required": true },
+  "tip": { "desc": "mẹo nhóm từ sau \"Kit's tip:\" (do = tasks, make = create…)", "required": true }
+ },
+ "title": ["Don't say \"{{wrongColl}}\"", "{{wrongColl}} or {{rightColl}}?"],
+ "hook": ["Don't say \"{{wrongColl}}\"", "Not \"{{wrongColl}}\"!"],
+ "beats": [
+  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["wrong", "ask"], "maxWords": 5, "maxSec": 1.9, "text": ["{{hookLine}}"], "expr": "surprised", "gesture": "hands on cheeks" },
+  { "id": "situation", "beat": "situation", "role": "learner", "emotions": ["ask", "explain"], "maxWords": 12, "text": ["{{question}}"], "expr": "confused", "gesture": "" },
+  { "id": "explain", "beat": "explain", "role": "explainer", "emotions": ["explain"], "maxWords": 16, "punch": true, "must": ["kw:0"], "text": ["{{rule}}"], "expr": "confident", "gesture": "open hands" },
+  { "id": "example", "beat": "example", "role": "modeler", "emotions": ["explain", "ask", "right"], "maxWords": 14, "text": ["{{example}}"], "expr": "friendly", "gesture": "" },
+  { "id": "tip", "beat": "tip", "role": "kit", "maxWords": 18, "text": ["Kit's tip: {{tip}}"], "expr": "proud", "gesture": "" },
+  { "id": "cta", "beat": "cta", "role": "learner", "emotions": ["cta"], "maxWords": 8, "text": ["Learn word partners free on lexkite.com", "Practice collocations free on lexkite.com", "Save useful phrases on lexkite.com"], "expr": "happy smile", "gesture": "waving hello" }
+ ],
+ "keywords": ["{{rightColl}}"],
+ "wrong": "{{wrongColl}}",
+ "right": "{{rightColl}}",
+ "caption": ["Say \"{{rightColl}}\", not \"{{wrongColl}}\"", "English word partners: {{rightColl}}. Did you know?"],
+ "hashtags": ["collocations", "englishvocabulary", "commonmistakes", "vocabulary", "businessenglish", "learnenglish"],
+ "writing": {
+  "do": ["Lỗi ghép từ THẬT do dịch thẳng từ tiếng mẹ đẻ (make homework, do a mistake, powerful coffee, make a photo)", "Cụm đúng là cách nói chuẩn Mỹ phổ biến nhất; nêu nhóm từ cùng quy tắc (do homework, chores, the dishes)", "Câu explain chứa nguyên văn cụm đúng (từ khóa được tô sáng)", "Mẹo của Kit là quy tắc nhóm dễ nhớ, không lặp lại câu explain"],
+  "dont": ["Không chọn cụm mà Anh/Mỹ khác nhau gây tranh cãi (take a decision là Anh – nếu dùng phải nói rõ)", "Không chê người nói cụm sai; \"don't say\" chỉ ở hook", "Không dùng wait/oops/wrong ở explain/example (đổi clip sang sốc)"]
+ }
+}

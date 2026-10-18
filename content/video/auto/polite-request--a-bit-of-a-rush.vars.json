@@ -1,0 +1,26 @@
+{
+ "topic": "Supermarket English: hurry up or I'm in a bit of a rush?",
+ "scene": "supermarket",
+ "seed": "pr-rush",
+ "vars": {
+  "phrase": "bit of a rush",
+  "hookLine": "Is \"hurry up\" rude?",
+  "direct": "Hurry up, please. I'm late.",
+  "why": "Hurry up sounds bossy. Say sorry, I'm in a bit of a rush.",
+  "polite": "Sorry, I'm in a bit of a rush today.",
+  "directCard": "Hurry up, please.",
+  "politeCard": "Sorry, I'm in a bit of a rush.",
+  "tip": "start with excuse me. People are happier to help you."
+ },
+ "lines": {
+  "example": {
+   "expr": "friendly"
+  }
+ },
+ "hashtags": [
+  "politeenglish",
+  "everydayenglish",
+  "esl"
+ ],
+ "title": "\"Hurry up\"? Try \"I'm in a bit of a rush\""
+}

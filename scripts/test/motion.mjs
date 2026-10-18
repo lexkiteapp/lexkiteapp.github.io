@@ -134,7 +134,7 @@ ok(sfxMan.items.length >= 7 && sfxMan.items.every(x => fs.existsSync(new URL('br
 ok(['whoosh', 'pop', 'ding', 'swoosh', 'bass-drop', 'keys', 'riser'].every(x => ids.has(x)), 'đủ whoosh/pop/ding/swoosh/bass drop/keys/riser');
 const sfxSig = Object.fromEntries(Object.entries(S.SFX).map(([k, d]) => [k, d.make().length]));
 ok(Object.entries(sfxSig).every(([k, n]) => Math.abs(n / S.SR - S.SFX[k].dur) < 0.01), 'SFX tổng hợp đúng thời lượng');
-ok(formats.music.every(m => S.MUSIC[m.id]), 'mọi nhạc nền trong formats.json là preset tự tổng hợp');
+ok(formats.music.every(m => m.id === 'none' || S.MUSIC[m.id]), 'nhạc nền trong formats.json: none (không nhạc – chọn 18/10) hoặc preset tự tổng hợp');
 const mu = S.music('lofi-warm', 3); ok(mu.length === 3 * S.SR && mu.reduce((a, x) => Math.max(a, Math.abs(x)), 0) <= 0.71, 'nhạc nền đúng dài, không vỡ tiếng');
 
 // 5) Visual hook metric (khung tổng hợp)

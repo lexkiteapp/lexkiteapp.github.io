@@ -50,7 +50,7 @@
    {
     "who": "ama",
     "beat": "cta",
-    "text": "Learn a new word every day on lexkite.com",
+    "text": "Look up any word on lexkite.com",
     "expr": "happy smile",
     "gesture": "waving hello"
    }
@@ -64,6 +64,7 @@
    "englishvocabulary",
    "learnenglish"
   ],
-  "link": "https://lexkite.com/"
+  "area": "dictionary",
+  "link": "https://lexkite.com/app/#/dict"
  }
 }

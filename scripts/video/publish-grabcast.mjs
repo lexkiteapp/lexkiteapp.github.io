@@ -21,7 +21,9 @@ if (!KEY && !DRY) die('thiếu env GRABCAST_API_KEY (secret của repo)');
 const raw = META ? JSON.parse(fs.readFileSync(META, 'utf8')) : {}, m = raw.publish || raw.social || raw;
 const stat = fs.statSync(FILE), sha = crypto.createHash('sha256').update(fs.readFileSync(FILE)).digest('hex');
 const hashtags = Array.isArray(m.hashtags) ? m.hashtags.map(h => '#' + String(h).replace(/^#/, '')).join(' ') : '';
-const caption = [m.caption || m.description || raw.caption || '', hashtags].filter(Boolean).join('\n\n').trim();
+const cap0 = m.caption || m.description || raw.caption || '', link = m.link || raw.link || ((raw.script || {}).link) || '';
+// link sâu đúng tính năng (script.link) nằm trong chữ bài – nền tảng video ngắn bỏ qua trường link
+const caption = [cap0, /^https:\/\/lexkite\.com\//.test(link) && !cap0.includes(link) ? link : '', hashtags].filter(Boolean).join('\n\n').trim();
 if (!caption && !STORE_ONLY) die('meta thiếu caption/description');
 const scrub = s => (KEY ? String(s).split(KEY).join('***') : String(s));
 
@@ -45,7 +47,7 @@ const list = j => (Array.isArray(j) ? j : (j && (j.items || j.data || j.results 
 const MIME = /\.webm$/i.test(FILE) ? 'video/webm' : /\.mov$/i.test(FILE) ? 'video/quicktime' : 'video/mp4';
 // API kho GrabCast (18/10/2026) bắt buộc name + mime + size (tên hiển thị trong Drive) – giữ `filename` cho bản cũ
 const begin = { name: `lexkite-${(process.env.JOB || path.basename(FILE, path.extname(FILE))).replace(/[^A-Za-z0-9_-]/g, '')}-${sha.slice(0, 8)}${path.extname(FILE) || '.mp4'}`, filename: path.basename(FILE), size: stat.size, mime: MIME, content_type: MIME, pool: 'bulk', sha256: sha };
-const post = media_ids => ({ ...(m.title ? { title: String(m.title).slice(0, 200) } : {}), caption, ...(m.first_comment ? { first_comment: m.first_comment } : {}), link: m.link || 'https://lexkite.com/', media_ids, targets: [] });
+const post = media_ids => ({ ...(m.title ? { title: String(m.title).slice(0, 200) } : {}), caption, ...(m.first_comment ? { first_comment: m.first_comment } : {}), link: /^https:\/\/lexkite\.com\//.test(link) ? link : 'https://lexkite.com/', media_ids, targets: [] });
 const kindFor = a => { const k = a && (a.kinds || a.supported_kinds || a.post_kinds); return Array.isArray(k) && k.length ? String(k[0]) : 'video'; };
 // Khóa chống trùng: cùng video + cùng kênh + cùng giờ → chạy lại workflow không tạo bài đôi
 const idemFor = ids => crypto.createHash('sha256').update([sha, ids.join(','), AT || 'draft'].join('|')).digest('hex').slice(0, 40);

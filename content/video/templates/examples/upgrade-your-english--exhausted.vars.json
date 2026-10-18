@@ -1,0 +1,23 @@
+{
+ "topic": "Vocabulary: stop saying very tired",
+ "scene": "library",
+ "vars": {
+  "weak": "very tired",
+  "strong": "exhausted",
+  "hookLine": "Stop saying \"very tired.\"",
+  "boring": "After work, I'm very tired. Very, very tired. Is that boring?",
+  "upgrade": "Try exhausted. It means very, very tired.",
+  "better": "After work, I'm exhausted. I just want my bed.",
+  "tip": "very hungry becomes starving. Very scared becomes terrified."
+ },
+ "lines": {
+  "situation": {
+   "expr": "thinking"
+  }
+ },
+ "hashtags": [
+  "vocabulary",
+  "englishvocabulary",
+  "learnenglish"
+ ]
+}

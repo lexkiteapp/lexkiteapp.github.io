@@ -5,6 +5,7 @@
 //   node scripts/video/template.mjs build [--check]                                     → sinh lại content/video/samples/<id>--<slug>.json từ templates/examples/*.vars.json
 //   node scripts/video/template.mjs check-templates                                     → kiểm chính các file khuôn (schema, cảnh/vai, biến, từ vựng)
 //   node scripts/video/template.mjs coverage                                            → khuôn × bối cảnh nào đang bị chặn vì thiếu phòng/clip (danh sách clip cần tạo)
+//   node scripts/video/template.mjs ecosystem                                           → mỗi khu vực app (content/video/ecosystem.json): khuôn + số kịch bản kho, cờ khu vực 0 video
 // Cổng tĩnh = những gì render.mjs sẽ chấm mà KHÔNG cần dựng: kiểm kịch bản Studio (studio.checkScript), brand/CTA (lib.brandGate/ctaGate), hook ước lượng,
 //   thời lượng, phụ đề (vùng an toàn + khớp chữ ASS), biến thể (variants.pickVariant – đúng như bước variant) + cổng nhất quán (lib.buildStage – như bước cast)
 //   trên kho dựng CI (brand/library/manifest.json, chỉ mục ready). Không đụng ffmpeg/TTS/Remotion – chạy trong vài trăm ms.
@@ -15,7 +16,7 @@ import * as V from './lib.mjs';
 import * as X from './variants.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const TPL_DIR = path.join(ROOT, 'content/video/templates'), EX_DIR = path.join(TPL_DIR, 'examples'), SAMPLES = path.join(ROOT, 'content/video/samples');
+const ECO_FILE = path.join(ROOT, 'content/video/ecosystem.json'), TPL_DIR = path.join(ROOT, 'content/video/templates'), EX_DIR = path.join(TPL_DIR, 'examples'), SAMPLES = path.join(ROOT, 'content/video/samples');
 const readJson = f => JSON.parse(fs.readFileSync(path.isAbsolute(f) ? f : path.join(ROOT, f), 'utf8'));
 const rel = f => path.relative(ROOT, path.resolve(f)).split(path.sep).join('/');
 const { checkScript, BEATS } = await import(pathToFileURL(path.join(ROOT, 'functions/api/studio.js')).href);
@@ -29,7 +30,29 @@ export function ciManifest(m = readJson('brand/library/manifest.json')) {
   const out = { ...m }; for (const k of ['rooms', 'clips', 'stills']) out[k] = (m[k] || []).filter(x => x.ready !== false); return out;
 }
 export function loadCtx() {
-  return { casting: readJson('content/video/casting.json'), formats: readJson('content/video/formats.json'), manifest: ciManifest(), shared: readJson(path.join(TPL_DIR, '_shared.json')) };
+  return { casting: readJson('content/video/casting.json'), formats: readJson('content/video/formats.json'), manifest: ciManifest(), shared: readJson(path.join(TPL_DIR, '_shared.json')), ecosystem: loadEcosystem() };
+}
+// ---------- Hệ sinh thái: khu vực app → link sâu + CTA (content/video/ecosystem.json) ----------
+export const loadEcosystem = () => readJson(ECO_FILE);
+export const areaOf = (id, eco = loadEcosystem()) => (eco.areas || []).find(a => a.id === id) || null;
+const HOME = 'https://lexkite.com/', normCta = t => String(t).toLowerCase().replace(/[^a-z0-9.]+/g, ' ').trim();
+// Kiểm chính ecosystem.json: link https://lexkite.com/…, route /app/#/<r> có routes.<r> trong web/js, trang công khai có bản build (dist/) hoặc script build sinh ra, CTA ≤ 6 từ + lexkite.com
+let routeSrc = null;
+const appRoutes = () => routeSrc || (routeSrc = (function walk(d) { return fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : e.name.endsWith('.js') ? [fs.readFileSync(path.join(d, e.name), 'utf8')] : []); })(path.join(ROOT, 'web/js')).join('\n'));
+const hasRoute = r => new RegExp(`routes(?:\\.${r.replace(/-/g, '_')}|\\[['"]${r}['"]\\])\\s*=`).test(appRoutes());
+export function checkEcosystem(eco = loadEcosystem()) {
+  const errs = [], ids = new Set(), E = (a, m) => errs.push(`ecosystem ${a.id || '?'}: ${m}`);
+  for (const a of eco.areas || []) {
+    if (!/^[a-z][a-z0-9-]{1,30}$/.test(a.id || '')) E(a, 'id phải a-z0-9-'); if (ids.has(a.id)) E(a, 'id trùng'); ids.add(a.id);
+    if (!a.label) E(a, 'thiếu label');
+    const m = /^https:\/\/lexkite\.com\/(.*)$/.exec(a.link || ''); if (!m) { E(a, `link "${a.link}" phải bắt đầu https://lexkite.com/`); continue; }
+    const app = /^app\/#\/([a-z][a-z0-9-]*)/.exec(m[1]);
+    if (app) { if (!hasRoute(app[1])) E(a, `route #/${app[1]} không có routes.${app[1]} trong web/js`); }
+    else if (!/^[a-z0-9/-]+\/$/.test(m[1]) || !(fs.existsSync(path.join(ROOT, 'dist', m[1], 'index.html')) || fs.readdirSync(path.join(ROOT, 'scripts')).some(f => /^build-.*\.mjs$/.test(f) && fs.readFileSync(path.join(ROOT, 'scripts', f), 'utf8').includes(`'${m[1]}'`)))) E(a, `trang công khai /${m[1]} không có bản build (dist/${m[1]}index.html) hay script build sinh ra`);
+    if (a.route && !hasRoute(a.route)) E(a, `route "${a.route}" không có trong web/js`);
+    if (!/lexkite\.com/i.test(a.cta || '') || V.tokens(a.cta).length > 6) E(a, `cta "${a.cta}" phải ≤ 6 từ và chứa lexkite.com`);
+  }
+  return errs;
 }
 export function loadTemplate(idOrFile) {
   const f = /[\\/]|\.json$/.test(idOrFile) ? path.resolve(idOrFile) : path.join(TPL_DIR, `${idOrFile}.json`);
@@ -50,11 +73,13 @@ function subT(pat, vars, where, defs = {}) {
 const pick = (arr, seed, key, vars = null) => { const all = Array.isArray(arr) ? arr : [arr], ok = vars ? all.filter(p => varsIn(p).every(k => vars[k] != null && vars[k] !== '')) : all, list = ok.length ? ok : all; return list[X.hash32(`${seed}|${key}`) % list.length]; };
 
 // vars.json: { topic, scene?, time?, cast?: {vai: who}, vars: {…}, lines?: {beatId: "câu" | {text, expr, gesture}}, title?, hook?, caption?, hashtags?, keywords?, wrong?, right?, seed?, note? }
-export function fill(tpl, v) {
+export function fill(tpl, v, eco = loadEcosystem()) {
   if (!v || !v.topic) throw new Error('vars: thiếu "topic" (chủ đề – quyết định bối cảnh/dàn qua casting.json topics)');
   const scene = v.scene || Object.keys(tpl.scenes)[0], sd = tpl.scenes[scene];
   if (!sd) throw new Error(`khuôn ${tpl.id} không cho bối cảnh "${scene}" (được: ${Object.keys(tpl.scenes).join(', ')})`);
   const vars = { ...(v.vars || {}) }, seed = v.seed || v.topic, ov = v.lines || {}, D = tpl.vars || {};
+  // khu vực app (vars "area" ghi đè khuôn) → link sâu; thiếu/lạ → giữ trang chủ, lint báo lỗi area
+  const areaId = v.area || tpl.area, area = areaId ? areaOf(areaId, eco) : null, generic = new Set((eco.genericCta || []).map(normCta));
   // biến bắt buộc chỉ bị đòi khi có mẫu câu dùng tới (beat bị vars.lines ghi đè chữ thì không cần)
   const sub = (p, vs, where) => subT(p, vs, where, D);
   for (const [k, d] of Object.entries(D)) if (vars[k] != null && d.maxWords && V.tokens(vars[k]).length > d.maxWords) throw new Error(`vars.${k} "${vars[k]}" dài ${V.tokens(vars[k]).length} từ > ${d.maxWords}`);
@@ -65,7 +90,8 @@ export function fill(tpl, v) {
     const o = ov[b.id];
     if (o === null || (b.optional && o == null)) continue; // beat tuỳ chọn: chỉ có khi vars.lines ghi
     const oo = typeof o === 'string' ? { text: o } : o || {};
-    const text = oo.text != null ? sub(oo.text, vars, `lines.${b.id}`) : sub(pick(b.text, seed, b.id, vars), vars, `beat ${b.id}`);
+    let text = oo.text != null ? sub(oo.text, vars, `lines.${b.id}`) : sub(pick(b.text, seed, b.id, vars), vars, `beat ${b.id}`);
+    if (b.beat === 'cta' && oo.text == null && area && generic.has(normCta(text))) text = area.cta; // CTA chung chung → CTA đúng khu vực
     const line = { who: oo.who || whoOf(b.role), beat: b.beat, text: capFirst(text), expr: oo.expr != null ? oo.expr : b.expr || '', gesture: oo.gesture != null ? oo.gesture : b.gesture || '' };
     if (b.punch || oo.punch) line.punch = true;
     lines.push(line);
@@ -76,7 +102,7 @@ export function fill(tpl, v) {
     title: s('title', tpl.title), hook: s('hook', tpl.hook), scene, time: v.time || 'day', format_id: v.format_id || sd.format_id || tpl.format_id, template: tpl.id,
     lines, keywords: (v.keywords || tpl.keywords || []).map(k => sub(k, vars, 'keywords')),
     ...(v.wrong || tpl.wrong ? { wrong: s('wrong', tpl.wrong) } : {}), ...(v.right || tpl.right ? { right: s('right', tpl.right) } : {}),
-    caption: s('caption', tpl.caption), hashtags: tags, link: 'https://lexkite.com/',
+    caption: s('caption', tpl.caption), hashtags: tags, ...(areaId ? { area: areaId } : {}), link: area ? area.link : HOME,
   };
   return { _note: `Sinh tự động từ content/video/templates/${tpl.id}.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.${v.note ? ' ' + v.note : ''}`, topic: v.topic, format: 'short', template: tpl.id, script };
 }
@@ -158,6 +184,11 @@ export function preflight(raw, ctx = loadCtx(), { tpl: tplIn = undefined, seed =
   // 7) Luật khuôn nội dung
   const tid = tplIn === undefined ? sc0.template || raw.template : tplIn && tplIn.id;
   const tpl = tplIn || (tid ? (() => { try { return loadTemplate(tid); } catch (e) { g('template', false, e.message); return null; } })() : null);
+  // 8) Khu vực app: area (script/vars > khuôn) phải có trong ecosystem.json và link = link sâu của khu vực
+  const aid = sc0.area || (tpl && tpl.area);
+  if (aid) { const a = areaOf(aid, ctx.ecosystem || loadEcosystem()); g('area', a && sc0.link === a.link, !a ? `area "${aid}" không có trong content/video/ecosystem.json (được: ${((ctx.ecosystem || loadEcosystem()).areas || []).map(x => x.id).join(', ')})` : sc0.link === a.link ? `${aid} → ${a.link}` : `link "${sc0.link || ''}" ≠ link khu vực ${aid} (${a.link}) – chạy lại fill/build`); }
+  else if (tpl) g('area', false, `khuôn ${tpl.id} thiếu "area" (khu vực app trong content/video/ecosystem.json) → video chỉ dẫn về trang chủ`);
+  else if (tid) g('area', false, 'kịch bản gắn khuôn nhưng không có area');
   if (tpl) templateRules(tpl, job, sc0, stage, shared, g, est);
   else if (!tid) g('template', true, 'không gắn khuôn nội dung (chỉ cổng chung)', 'warn');
   return { gates, stage, variant: v, est };
@@ -224,6 +255,8 @@ const stable = o => JSON.stringify(o, null, 1) + '\n';
 export function checkTemplate(tpl, ctx = loadCtx()) {
   const errs = [], E = m => errs.push(`${tpl.id || '?'}: ${m}`), { casting, formats, shared } = ctx;
   for (const k of ['id', 'name', 'goal', 'beats', 'scenes', 'title', 'hook', 'caption', 'hashtags', 'writing']) if (tpl[k] == null) E(`thiếu trường "${k}"`);
+  if (!tpl.area) E('thiếu "area" (khu vực app trong content/video/ecosystem.json – link sâu + CTA của video)');
+  else if (!areaOf(tpl.area, ctx.ecosystem || loadEcosystem())) E(`area "${tpl.area}" không có trong content/video/ecosystem.json`);
   if (!tpl.beats || !tpl.scenes) return errs;
   const fids = new Set([tpl.format_id, ...Object.values(tpl.scenes).map(s => s.format_id)].filter(Boolean));
   for (const f of fids) if (!formats.formats.some(x => x.id === f)) E(`format_id "${f}" không có trong formats.json`);
@@ -281,6 +314,21 @@ export function coverage(ctx = loadCtx()) {
   return { rows, need: [...need].map(([clip, s]) => ({ clip, unblocks: [...s].sort() })).sort((a, b) => b.unblocks.length - a.unblocks.length) };
 }
 
+// ---------- ecosystem: khu vực app × khuôn × số kịch bản trong kho (auto + ví dụ) ----------
+export const BANK_DIRS = [path.join(ROOT, 'content/video/auto'), EX_DIR];
+export function ecosystemCoverage(eco = loadEcosystem(), dirs = BANK_DIRS) {
+  const tpls = listTemplates(), byId = Object.fromEntries(tpls.map(t => [t.id, t])), seen = new Set(), scripts = {}, stray = [];
+  for (const d of dirs) if (fs.existsSync(d)) for (const f of fs.readdirSync(d).filter(f => f.endsWith('.vars.json')).sort()) {
+    const src = f.replace(/\.vars\.json$/, ''); if (seen.has(src)) continue; seen.add(src);
+    let v = {}; try { v = readJson(path.join(d, f)); } catch (e) { /* lint báo */ }
+    const a = v.area || (byId[src.split('--')[0]] || {}).area;
+    if (a) scripts[a] = (scripts[a] || 0) + 1; else stray.push(src);
+  }
+  const rows = (eco.areas || []).map(a => ({ id: a.id, label: a.label, link: a.link, templates: tpls.filter(t => t.area === a.id).map(t => t.id), scripts: scripts[a.id] || 0 }));
+  const known = new Set(rows.map(r => r.id));
+  return { rows, zero: rows.filter(r => !r.scripts).map(r => r.id), noArea: tpls.filter(t => !t.area).map(t => t.id), unknown: [...new Set(tpls.map(t => t.area).filter(a => a && !known.has(a)))], stray };
+}
+
 // ---------- CLI ----------
 async function main(argv) {
   const [cmd, ...a] = argv, opt = n => { const i = a.indexOf('--' + n); return i >= 0 ? a[i + 1] : undefined; };
@@ -317,7 +365,17 @@ async function main(argv) {
     if (c.need.length) { console.log('\nClip cần tạo (mở khoá nhiều khuôn nhất trước):'); for (const n of c.need) console.log(`  · ${n.clip} → ${n.unblocks.join(', ')}`); }
     return 0;
   }
-  console.log(fs.readFileSync(fileURLToPath(import.meta.url), 'utf8').split('\n').filter(l => l.startsWith('//')).slice(0, 8).join('\n'));
+  if (cmd === 'ecosystem') {
+    const errs = checkEcosystem(), c = ecosystemCoverage();
+    for (const r of c.rows) console.log(`${r.scripts ? '✓' : '✗'} ${r.id.padEnd(14)} ${String(r.scripts).padStart(3)} kịch bản · ${r.templates.join(', ') || '—'} · ${r.link}`);
+    if (c.noArea.length) console.log(`✗ khuôn thiếu area: ${c.noArea.join(', ')}`);
+    if (c.unknown.length) console.log(`✗ area lạ (không có trong ecosystem.json): ${c.unknown.join(', ')}`);
+    if (c.stray.length) console.log(`✗ kịch bản kho không xác định được area: ${c.stray.join(', ')}`);
+    errs.forEach(e => console.log('✗ ' + e));
+    console.log(`\n${c.rows.length - c.zero.length}/${c.rows.length} khu vực có video${c.zero.length ? ` · CHƯA CÓ: ${c.zero.join(', ')}` : ''}`);
+    return errs.length || c.noArea.length || c.unknown.length ? 1 : 0;
+  }
+  console.log(fs.readFileSync(fileURLToPath(import.meta.url), 'utf8').split('\n').filter(l => l.startsWith('//')).slice(0, 9).join('\n'));
   return cmd ? 1 : 0;
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
