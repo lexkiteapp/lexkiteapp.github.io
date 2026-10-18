@@ -1691,6 +1691,54 @@
       "w": 740,
       "h": 1572,
       "ready": true
+    },
+    {
+      "id": "mia_talk_gesture_travel",
+      "who": "mia",
+      "tags": [
+        "talk",
+        "gesture"
+      ],
+      "outfit": "travel",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/mia_talk_gesture_travel.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        642,
+        1747
+      ],
+      "figH": 1747,
+      "w": 820,
+      "h": 1750,
+      "ready": true
+    },
+    {
+      "id": "mia_think_aha_travel",
+      "who": "mia",
+      "tags": [
+        "think",
+        "aha"
+      ],
+      "outfit": "travel",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/mia_think_aha_travel.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        490,
+        1753
+      ],
+      "figH": 1753,
+      "w": 750,
+      "h": 1756,
+      "ready": true
     }
   ],
   "stills": [
