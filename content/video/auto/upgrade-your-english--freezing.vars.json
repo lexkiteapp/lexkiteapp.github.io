@@ -1,0 +1,19 @@
+{
+ "topic": "Vocabulary in class: stop saying very cold",
+ "scene": "classroom",
+ "seed": "up-freezing",
+ "vars": {
+  "weak": "very cold",
+  "strong": "freezing",
+  "hookLine": "Stop saying \"very cold.\"",
+  "boring": "It's very cold in here. My hands are very cold.",
+  "upgrade": "Try freezing. It means very, very cold.",
+  "better": "It's freezing in here. Let's close the window.",
+  "tip": "very hot becomes boiling. Very wet becomes soaked."
+ },
+ "hashtags": [
+  "englishvocabulary",
+  "wordsmatter",
+  "speakenglish"
+ ]
+}

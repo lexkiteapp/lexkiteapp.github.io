@@ -1,0 +1,45 @@
+{
+ "id": "upgrade-your-english",
+ "area": "paraphrase",
+ "name": "Upgrade your English – \"very + adj\" → 1 từ mạnh",
+ "goal": "Người học lặp \"very + tính từ\" → nhận ra câu nhạt → 1 từ mạnh thay thế + nghĩa → câu dùng lại → Kit thêm 1 cặp cùng kiểu. Payoff: BORING → BETTER (before-after) ở beat example.",
+ "format_id": "one-word-upgrade",
+ "cefr": "B1–B2",
+ "duration": [18, 40],
+ "topicHint": "\"Vocabulary: stop saying very tired\" → study-grammar (library/classroom) · \"Cafe English: …\" → ordering-coffee (cafe) · \"Office English: …\" (có office/meeting/email) → office-english (office)",
+ "roles": { "learner": "người nói \"very …\" + CTA", "explainer": "người đưa từ mạnh + nghĩa", "modeler": "người nói lại câu với từ mạnh", "kit": "Kit – thêm 1 cặp very … → từ mạnh" },
+ "scenes": {
+  "library": { "roles": { "learner": ["ama"], "explainer": ["ama"], "modeler": ["ama"] } },
+  "classroom": { "roles": { "learner": ["ama"], "explainer": ["diane"], "modeler": ["diane"] } },
+  "cafe": { "roles": { "learner": ["ama"], "explainer": ["carlos"], "modeler": ["carlos"] } },
+  "office": { "roles": { "learner": ["mia"], "explainer": ["diane"], "modeler": ["diane"] } }
+ },
+ "vars": {
+  "weak": { "desc": "cụm nhạt \"very + tính từ\" (very tired) – thẻ BORING ≤ 32 ký tự", "required": true, "maxWords": 3 },
+  "strong": { "desc": "1 từ mạnh thay thế (từ khóa, exhausted) – thẻ BETTER", "required": true, "maxWords": 2 },
+  "hookLine": { "desc": "câu mở ≤ 5 âm tiết. Ama: Stop saying \"very tired.\" (→ clip sốc). Mia ở office (không có clip sốc): câu hỏi Still saying \"very important\"? (dấu ? ngoài ngoặc kép)", "required": true, "maxWords": 5 },
+  "boring": { "desc": "câu nhạt người học hay nói, có chứa weak. Ở library: thêm câu hỏi cuối (… Is that boring?) để dùng clip think; nơi khác: câu kể", "required": true },
+  "upgrade": { "desc": "câu đưa từ mạnh, chứa NGUYÊN VĂN strong + nghĩa (Try exhausted. It means very, very tired.)", "required": true },
+  "better": { "desc": "câu nói lại với từ mạnh (chứa strong), cùng tình huống câu nhạt", "required": true },
+  "tip": { "desc": "1 cặp cùng kiểu sau \"Kit's tip:\" (very hungry becomes starving) – không lặp lại cặp chính", "required": true }
+ },
+ "title": ["Stop saying \"{{weak}}\"", "Say \"{{strong}}\", not \"{{weak}}\""],
+ "hook": ["Stop saying \"{{weak}}\"", "Upgrade \"{{weak}}\""],
+ "beats": [
+  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["wrong", "ask"], "maxWords": 5, "maxSec": 1.9, "text": ["{{hookLine}}"], "expr": "surprised", "gesture": "" },
+  { "id": "situation", "beat": "situation", "role": "learner", "emotions": ["explain", "ask"], "maxWords": 14, "text": ["{{boring}}"], "expr": "calm", "gesture": "" },
+  { "id": "explain", "beat": "explain", "role": "explainer", "emotions": ["explain"], "maxWords": 14, "punch": true, "must": ["kw:0"], "text": ["{{upgrade}}"], "expr": "confident", "gesture": "open hands" },
+  { "id": "example", "beat": "example", "role": "modeler", "emotions": ["explain", "right", "ask"], "maxWords": 14, "must": ["kw:0"], "text": ["{{better}}"], "expr": "friendly", "gesture": "" },
+  { "id": "tip", "beat": "tip", "role": "kit", "maxWords": 18, "text": ["Kit's tip: {{tip}}"], "expr": "proud", "gesture": "" },
+  { "id": "cta", "beat": "cta", "role": "learner", "emotions": ["cta"], "maxWords": 8, "text": ["Find stronger words free on lexkite.com", "Upgrade your vocabulary free on lexkite.com", "Practice paraphrasing on lexkite.com"], "expr": "happy smile", "gesture": "waving hello" }
+ ],
+ "keywords": ["{{strong}}"],
+ "wrong": "{{weak}}",
+ "right": "{{strong}}",
+ "caption": ["\"{{weak}}\" → \"{{strong}}\". One word, more power", "Upgrade your English: say \"{{strong}}\" instead of \"{{weak}}\""],
+ "hashtags": ["vocabulary", "englishvocabulary", "ieltsvocabulary", "wordsmatter", "learnenglish"],
+ "writing": {
+  "do": ["Cặp \"very + tính từ\" → 1 từ mạnh có nghĩa SÁT (very tired → exhausted, very cold → freezing, very important → crucial)", "Câu nhạt và câu nâng cấp cùng tình huống – chỉ khác đúng từ đó", "Từ mạnh B1–B2, dùng được cả nói lẫn viết; nói rõ nếu chỉ hợp văn nói", "Kit tặng thêm 1 cặp cùng kiểu (người xem lưu video)"],
+  "dont": ["Không nói \"very\" là sai – chỉ là nhạt/lặp; tránh wrong/mistake ngoài hook", "Không dùng \"very\" với từ mạnh (very exhausted, very freezing) trong lời thoại", "Không chọn từ hiếm/văn chương (fatigued, frigid…)"]
+ }
+}

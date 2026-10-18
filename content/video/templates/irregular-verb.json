@@ -1,0 +1,42 @@
+{
+ "id": "irregular-verb",
+ "area": "verbs",
+ "name": "Irregular verb fill-the-gap (goed or went?)",
+ "goal": "Dạng sai \"có quy tắc hoá\" người học hay nói (goed, buyed) → điền chỗ trống + đếm 3-2-1 → đáp án + 3 dạng động từ → câu dùng thật → mẹo nhớ. Payoff: lộ đáp án (answer-reveal) ở beat explain.",
+ "format_id": "fill-gap",
+ "cefr": "A2–B1",
+ "duration": [18, 40],
+ "topicHint": "\"Grammar quiz: irregular verbs …\" → study-grammar (library) · \"Irregular verbs in class: …\" (có in class/teacher) → classroom-english (classroom, Diane đọc câu đố)",
+ "roles": { "learner": "người đặt câu hỏi (hook) + CTA (Ama)", "host": "người đọc câu có chỗ trống + đếm ngược", "revealer": "người công bố đáp án + 3 dạng", "modeler": "người dùng dạng đúng trong câu thật", "kit": "Kit – mẹo nhớ nhóm động từ" },
+ "scenes": {
+  "library": { "roles": { "learner": ["ama"], "host": ["ama"], "revealer": ["ama"], "modeler": ["ama"] } },
+  "classroom": { "roles": { "learner": ["ama"], "host": ["diane"], "revealer": ["diane"], "modeler": ["ama"] } }
+ },
+ "vars": {
+  "wrongForm": { "desc": "dạng sai người học hay nói (goed, buyed, teached) – 1 từ", "required": true, "maxWords": 1 },
+  "answer": { "desc": "dạng đúng điền vào chỗ trống (từ khóa) – went, bought, eaten", "required": true, "maxWords": 1 },
+  "forms": { "desc": "3 dạng V1, V2, V3 viết thường, cách bằng dấu phẩy (go, went, gone) – vừa thẻ ✅ ≤ 32 ký tự", "required": true, "maxWords": 4 },
+  "gap": { "desc": "câu có chỗ trống, đọc chữ \"blank\" thay cho ___ (giọng đọc không đọc được gạch dưới): Yesterday I blank to the gym.", "required": true, "maxWords": 9 },
+  "example": { "desc": "câu thật dùng dạng đúng (chứa answer). Ở library/school mở bằng Yes!/Perfect! (→ clip cười, Ama hết clip giảng); ở classroom có thể câu thường", "required": true },
+  "tip": { "desc": "mẹo nhớ sau \"Kit's tip:\" (nhóm vần: buy, bought / bring, brought / think, thought), không lặp nguyên câu đáp án", "required": true }
+ },
+ "title": ["{{wrongForm}} or {{answer}}? Irregular verb quiz", "Irregular verbs: {{forms}}"],
+ "hook": ["{{wrongForm}} or {{answer}}?", "{{wrongForm}}? Or {{answer}}?"],
+ "beats": [
+  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["ask"], "maxWords": 5, "maxSec": 1.9, "text": ["{{wrongForm}} or {{answer}}?"], "expr": "thinking", "gesture": "" },
+  { "id": "situation", "beat": "situation", "role": "host", "emotions": ["explain", "talk"], "maxWords": 16, "text": ["Fill the blank: {{gap}} Three, two, one!", "Quick, fill the blank: {{gap}} Three, two, one!"], "expr": "confident", "gesture": "explaining with hands" },
+  { "id": "explain", "beat": "explain", "role": "revealer", "emotions": ["explain"], "maxWords": 12, "punch": true, "must": ["kw:0"], "text": ["It's {{answer}}: {{forms}}.", "The answer is {{answer}}: {{forms}}."], "expr": "confident", "gesture": "pointing" },
+  { "id": "example", "beat": "example", "role": "modeler", "emotions": ["right", "explain"], "maxWords": 14, "must": ["kw:0"], "text": ["{{example}}"], "expr": "happy smile", "gesture": "" },
+  { "id": "tip", "beat": "tip", "role": "kit", "maxWords": 18, "text": ["Kit's tip: {{tip}}"], "expr": "proud", "gesture": "" },
+  { "id": "cta", "beat": "cta", "role": "learner", "emotions": ["cta"], "maxWords": 8, "text": ["Practice irregular verbs free on lexkite.com", "Learn all three forms free on lexkite.com", "Conjugate any verb on lexkite.com"], "expr": "happy smile", "gesture": "waving hello" }
+ ],
+ "keywords": ["{{answer}}"],
+ "wrong": "{{wrongForm}}",
+ "right": "{{forms}}",
+ "caption": ["{{wrongForm}} or {{answer}}? Answer before the reveal!", "Irregular verb check: {{forms}}. Did you get it?"],
+ "hashtags": ["irregularverbs", "englishgrammar", "englishquiz", "grammarquiz", "learnenglish"],
+ "writing": {
+  "do": ["Động từ bất quy tắc thông dụng A2–B1 (go, buy, teach, eat, bring, think…) – dạng sai là lỗi THẬT do \"thêm -ed\"", "Câu chỗ trống chỉ có 1 đáp án (có mốc thời gian: yesterday, last night, have never…)", "Đáp án đọc đủ 3 dạng (V1, V2, V3) – người xem nhớ cả bộ", "Mẹo của Kit gom nhóm vần giống nhau (buy/bought, bring/brought, think/thought)"],
+  "dont": ["Không dùng động từ có 2 dạng đều đúng ở Mỹ (learned/learnt, dreamed/dreamt…) – gây tranh cãi", "Không viết ___ trong lời thoại (giọng đọc bỏ qua) – nói \"blank\"", "Không dùng wait/wrong/mistake trong câu đáp án (đổi clip sang sốc); câu situation không kết thúc bằng ?"]
+ }
+}

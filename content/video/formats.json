@@ -146,20 +146,7 @@
   { "id": "mixed", "cycle": ["wide", "pan", "close", "split", "dolly"]
   }
 ],
- "music": [
-  { "id": "lofi-warm"
-  },
-  { "id": "pop-bright"
-  },
-  { "id": "quiz-pulse"
-  },
-  { "id": "chill-keys"
-  },
-  { "id": "night-drive"
-  },
-  { "id": "upbeat-claps"
-  }
-],
+ "music": [{ "id": "none", "_note": "18/10/2026 anh chọn: không nhạc nền (nhạc tổng hợp nghe rẻ) – chỉ giọng + hiệu ứng (sfx). Muốn bật lại: thêm id nhạc của synth.mjs" }],
  "sfx": [
   { "id": "full", "gain": 0
   },

@@ -1,5 +1,6 @@
 {
  "id": "quiz-ab",
+ "area": "placement",
  "name": "Quiz \"A or B?\" + đếm ngược 3 giây",
  "goal": "Câu đố 2 lựa chọn → đọc A/B + đếm ngược 3-2-1 (người xem tự trả lời) → đáp án + lý do → ví dụ → mẹo. Payoff: lộ đáp án (answer-reveal) ở beat explain; vòng đếm quiz-timer ở hook.",
  "format_id": "quiz-3s",

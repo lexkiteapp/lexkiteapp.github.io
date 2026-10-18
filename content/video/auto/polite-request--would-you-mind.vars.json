@@ -1,0 +1,25 @@
+{
+ "topic": "Office English: would you mind checking my slides before the meeting?",
+ "scene": "office",
+ "seed": "pr-mind",
+ "vars": {
+  "phrase": "Would you mind",
+  "hookLine": "Is \"check this\" rude?",
+  "direct": "Check my slides before the meeting.",
+  "why": "It sounds like a command. Try Would you mind, then a verb with ing.",
+  "polite": "Would you mind checking my slides before the meeting?",
+  "directCard": "Check my slides.",
+  "politeCard": "Would you mind checking them?",
+  "tip": "would you mind is extra polite. Save it for bigger favors."
+ },
+ "lines": {
+  "example": {
+   "expr": "curious"
+  }
+ },
+ "hashtags": [
+  "politeenglish",
+  "businessenglish",
+  "speakenglish"
+ ]
+}

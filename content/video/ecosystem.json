@@ -1,0 +1,34 @@
+{
+ "_note": "Bản đồ hệ sinh thái Lexkite cho video (docs/VIDEO-PIPELINE.md §11–12). Mỗi khuôn (templates/*.json \"area\", vars có thể ghi đè \"area\") → script.link = link sâu đúng tính năng + CTA nói của khu vực khi CTA khuôn là câu chung chung (genericCta). link: trang công khai nếu có (kiểm: dist/<đường dẫn>index.html hoặc scripts/build-*.mjs sinh ra), không thì /app/#/<route> (route kiểm = routes.<route> trong web/js). cta ≤ 6 từ, phải chứa lexkite.com (ctaGate). Thêm khu vực: thêm vào đây + chạy node scripts/video/template.mjs ecosystem.",
+ "areas": [
+  { "id": "dictionary", "label": "Dictionary", "link": "https://lexkite.com/app/#/dict", "route": "dict", "cta": "Look up any word on lexkite.com" },
+  { "id": "vocab-review", "label": "Flashcard review (SRS)", "link": "https://lexkite.com/app/#/review", "route": "review", "cta": "Review your words on lexkite.com" },
+  { "id": "grammar", "label": "Grammar lessons", "link": "https://lexkite.com/app/#/grammar", "route": "grammar", "cta": "Practice grammar free on lexkite.com" },
+  { "id": "grammar-check", "label": "Grammar checker", "link": "https://lexkite.com/app/#/fix", "route": "fix", "cta": "Check your grammar on lexkite.com" },
+  { "id": "verbs", "label": "Verb conjugation", "link": "https://lexkite.com/app/#/verb", "route": "verb", "cta": "Conjugate any verb on lexkite.com" },
+  { "id": "phrases", "label": "Phrases & collocations", "link": "https://lexkite.com/app/#/phrases", "route": "phrases", "cta": "Save useful phrases on lexkite.com" },
+  { "id": "word-usage", "label": "Confusing words (word usage)", "link": "https://lexkite.com/app/#/usage?c=pair", "route": "usage", "cta": "Compare tricky words on lexkite.com" },
+  { "id": "paraphrase", "label": "Paraphrase trainer", "link": "https://lexkite.com/app/#/paraphrase", "route": "paraphrase", "cta": "Practice paraphrasing on lexkite.com" },
+  { "id": "pronunciation", "label": "Pronunciation (IPA, minimal pairs)", "link": "https://lexkite.com/app/#/pron", "route": "pron", "cta": "Practice pronunciation free on lexkite.com" },
+  { "id": "speaking", "label": "IELTS Speaking topics & practice", "link": "https://lexkite.com/en/speaking/", "route": "speaking", "cta": "Practice IELTS speaking on lexkite.com" },
+  { "id": "roleplay", "label": "Voice roleplay", "link": "https://lexkite.com/app/#/roleplay", "route": "roleplay", "cta": "Roleplay this free on lexkite.com" },
+  { "id": "listening", "label": "Listening & dictation", "link": "https://lexkite.com/app/#/listening", "route": "listening", "cta": "Train your listening on lexkite.com" },
+  { "id": "reading", "label": "Reading practice", "link": "https://lexkite.com/app/#/reading", "route": "reading", "cta": "Practice reading free on lexkite.com" },
+  { "id": "writing-ielts", "label": "IELTS Writing Task 2 samples & lab", "link": "https://lexkite.com/en/samples/", "route": "write", "cta": "See model essays on lexkite.com" },
+  { "id": "ielts", "label": "IELTS full mock test", "link": "https://lexkite.com/app/#/mock", "route": "mock", "cta": "Try an IELTS mock on lexkite.com" },
+  { "id": "toefl", "label": "TOEFL practice", "link": "https://lexkite.com/app/#/toefl", "route": "toefl", "cta": "Practice TOEFL free on lexkite.com" },
+  { "id": "toeic", "label": "TOEIC practice", "link": "https://lexkite.com/app/#/toeic", "route": "toeic", "cta": "Practice TOEIC free on lexkite.com" },
+  { "id": "placement", "label": "Placement test", "link": "https://lexkite.com/app/#/placement", "route": "placement", "cta": "Check your level on lexkite.com" }
+ ],
+ "genericCta": [
+  "Learn real English free on lexkite.com",
+  "Sound more natural with lexkite.com",
+  "Learn English free on lexkite.com",
+  "Learn more on lexkite.com",
+  "Practice free on lexkite.com",
+  "Take more quizzes free on lexkite.com",
+  "Test yourself free on lexkite.com",
+  "Learn a new word every day on lexkite.com",
+  "Practice real conversations on lexkite.com"
+ ]
+}

@@ -1,5 +1,6 @@
 {
  "id": "pronunciation-pair",
+ "area": "pronunciation",
  "name": "Pronunciation minimal pair (ship/sheep…)",
  "goal": "Cặp tối thiểu → hiểu lầm buồn cười vì phát âm → cách nói từng âm → câu luyện có cả 2 từ → mẹo khẩu hình. Payoff: thẻ so sánh ở beat example.",
  "format_id": "pronunciation-fix",

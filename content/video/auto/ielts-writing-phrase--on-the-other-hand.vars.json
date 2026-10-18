@@ -1,0 +1,33 @@
+{
+ "topic": "IELTS Writing Task 2: starting with but",
+ "scene": "classroom",
+ "seed": "iw-other-hand",
+ "vars": {
+  "task": "Task 2",
+  "phrase": "On the other hand",
+  "basicShort": "But",
+  "hookLine": "\"But\" at the start?",
+  "basic": "My essay says: Cities are exciting. But they are expensive.",
+  "rule": "In essays, start the contrast with On the other hand, plus a comma.",
+  "better": "Great: On the other hand, city life can be very expensive.",
+  "basicCard": "But they are expensive.",
+  "betterCard": "On the other hand, …",
+  "tip": "use however for a quick contrast. Save on the other hand for a new idea."
+ },
+ "lines": {
+  "hook": {
+   "expr": "thinking"
+  },
+  "situation": {
+   "expr": "calm"
+  },
+  "example": {
+   "expr": "happy smile"
+  }
+ },
+ "hashtags": [
+  "ielts",
+  "ieltspreparation",
+  "academicenglish"
+ ]
+}

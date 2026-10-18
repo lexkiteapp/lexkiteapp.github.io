@@ -1,5 +1,6 @@
 {
  "id": "spot-the-mistake",
+ "area": "grammar",
  "name": "Spot the mistake (lỗi hay gặp → sửa)",
  "goal": "Người học nói/viết 1 câu sai phổ biến → nhận ra → sửa → dùng câu đúng. Payoff: dấu ✅ đóng lên câu đúng ở beat explain.",
  "format_id": "spot-the-mistake",

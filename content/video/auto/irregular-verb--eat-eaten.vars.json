@@ -1,0 +1,23 @@
+{
+ "topic": "Grammar quiz: ate or eaten?",
+ "scene": "library",
+ "seed": "iv-eaten",
+ "vars": {
+  "wrongForm": "ate",
+  "answer": "eaten",
+  "forms": "eat, ate, eaten",
+  "gap": "I have never blank sushi before.",
+  "example": "Yes! I've eaten sushi twice, and I loved it.",
+  "tip": "after have or has, use the third form: have eaten, has gone."
+ },
+ "lines": {
+  "example": {
+   "expr": "big laugh"
+  }
+ },
+ "hashtags": [
+  "irregularverbs",
+  "englishquiz",
+  "esl"
+ ]
+}

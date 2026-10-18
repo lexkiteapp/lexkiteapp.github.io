@@ -1,0 +1,44 @@
+{
+ "id": "three-words",
+ "area": "vocab-review",
+ "name": "3 words for <topic> – bộ 3 từ theo chủ đề (top 3)",
+ "goal": "Người học chỉ biết 1 từ chung chung → xin thêm → 3 từ đúng sắc thái (#1, #2, Kit nói #3) mỗi từ 1 nghĩa ngắn. Payoff: checklist 3 từ ở beat tip (#3).",
+ "format_id": "top-3",
+ "cefr": "A2–B1",
+ "duration": [20, 40],
+ "topicHint": "\"Vocabulary: 3 words for rain\" → study-grammar (library) · \"Cafe English: 3 words for coffee\" → ordering-coffee (cafe) · \"Vocabulary in class: …\" (có in class/teacher) → classroom-english (classroom, Diane đọc #1 #2)",
+ "roles": { "learner": "người mở chủ đề + chỉ biết 1 từ + CTA", "explainer": "người đọc từ #1", "modeler": "người đọc từ #2", "kit": "Kit – từ #3 (checklist)" },
+ "scenes": {
+  "library": { "roles": { "learner": ["ama"], "explainer": ["ama"], "modeler": ["ama"] } },
+  "cafe": { "roles": { "learner": ["ama"], "explainer": ["carlos"], "modeler": ["carlos"] } },
+  "classroom": { "roles": { "learner": ["ama"], "explainer": ["diane"], "modeler": ["diane"] } }
+ },
+ "vars": {
+  "topicWord": { "desc": "chủ đề ngắn sau \"words for\" (rain, coffee, happy)", "required": true, "maxWords": 2 },
+  "basic": { "desc": "từ chung chung người học hay dùng (rainy, good, happy)", "required": true, "maxWords": 2 },
+  "hookLine": { "desc": "câu mở ≤ 5 âm tiết. Có người khác đọc #1 #2 (cafe/classroom): Three words for coffee. (expr confident → clip giảng). Chỉ Ama (library): có wait → clip sốc (Wait, only \"rainy\"?) + lines.hook.expr surprised – vì Ama chỉ có 2 clip giảng cho #1 #2", "required": true, "maxWords": 5 },
+  "w1": { "desc": "từ #1 (từ khóa)", "required": true, "maxWords": 2 },
+  "s1": { "desc": "nghĩa/ví dụ ngắn cho #1 (Light, soft rain.)", "required": true },
+  "w2": { "desc": "từ #2 (từ khóa)", "required": true, "maxWords": 2 },
+  "s2": { "desc": "nghĩa/ví dụ ngắn cho #2", "required": true },
+  "w3": { "desc": "từ #3 (từ khóa, Kit nói)", "required": true, "maxWords": 2 },
+  "s3": { "desc": "nghĩa/ví dụ ngắn cho #3", "required": true }
+ },
+ "title": ["3 words for {{topicWord}} (not just \"{{basic}}\")", "Stop saying \"{{basic}}\": 3 better words"],
+ "hook": ["3 words for {{topicWord}}", "Not just \"{{basic}}\""],
+ "beats": [
+  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["talk", "wrong", "ask"], "maxWords": 5, "maxSec": 1.9, "text": ["{{hookLine}}"], "expr": "confident", "gesture": "" },
+  { "id": "situation", "beat": "situation", "role": "learner", "emotions": ["ask"], "maxWords": 12, "text": ["I only ever say {{basic}}. What else is there?", "I always say {{basic}}. What else can I say?"], "expr": "curious", "gesture": "" },
+  { "id": "explain", "beat": "explain", "role": "explainer", "emotions": ["explain"], "maxWords": 12, "punch": true, "must": ["kw:0"], "text": ["First, {{w1}}. {{s1}}"], "expr": "confident", "gesture": "open hands" },
+  { "id": "example", "beat": "example", "role": "modeler", "emotions": ["explain", "right"], "maxWords": 12, "must": ["kw:1"], "text": ["Second, {{w2}}. {{s2}}", "Next, {{w2}}. {{s2}}"], "expr": "friendly", "gesture": "" },
+  { "id": "tip", "beat": "tip", "role": "kit", "maxWords": 18, "must": ["kw:2"], "text": ["Kit's tip: number three, {{w3}}. {{s3}}", "Kit's tip: and third, {{w3}}. {{s3}}"], "expr": "proud", "gesture": "" },
+  { "id": "cta", "beat": "cta", "role": "learner", "emotions": ["cta"], "maxWords": 8, "text": ["Review new words free on lexkite.com", "Save these words free on lexkite.com", "Review your words on lexkite.com"], "expr": "happy smile", "gesture": "waving hello" }
+ ],
+ "keywords": ["{{w1}}", "{{w2}}", "{{w3}}"],
+ "caption": ["3 words for {{topicWord}}: {{w1}}, {{w2}}, {{w3}}. Which one is new?", "Not just \"{{basic}}\": try {{w1}}, {{w2}}, {{w3}}"],
+ "hashtags": ["vocabulary", "englishvocabulary", "newwords", "wordoftheday", "learnenglish"],
+ "writing": {
+  "do": ["3 từ cùng chủ đề nhưng KHÁC sắc thái rõ ràng (drizzle < shower < downpour; glad < thrilled; relieved)", "Mỗi từ 1 nghĩa ≤ 6 từ, dùng từ dễ hơn chính từ đó", "Xếp từ dễ → khó hoặc nhẹ → mạnh; từ #3 (Kit) đáng nhớ nhất", "Caption hỏi \"which one is new?\" để người xem bình luận"],
+  "dont": ["Không mở bằng \"Number one\" (cổng claims coi là hứa hẹn #1) – dùng First / Second / third", "Không chọn 3 từ đồng nghĩa hoàn toàn (không học được gì)", "Không từ hiếm/văn chương hoặc tiếng lóng thô", "Câu situation phải kết thúc bằng ? (clip think); câu #1/#2 không có wait/wrong/oops"]
+ }
+}

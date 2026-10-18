@@ -1,0 +1,45 @@
+{
+ "id": "polite-request",
+ "area": "roleplay",
+ "name": "Polite vs direct – câu cộc lốc → lời nhờ lịch sự",
+ "goal": "Câu mệnh lệnh nghe cộc (Give me…, Send me…) → giải thích vì sao nghe \"bossy\" + cụm lịch sự → nói lại lịch sự → mẹo Kit. Payoff: thẻ RUDE ❌ / POLITE ✅ ở beat example.",
+ "format_id": "polite-vs-rude",
+ "cefr": "A2–B1",
+ "duration": [18, 40],
+ "topicHint": "\"Cafe English: …\" → ordering-coffee (cafe) · \"Office English: polite requests …\" (có office/email/meeting) → office-english (office) · \"Supermarket English: …\" → shopping (supermarket)",
+ "roles": { "learner": "người nói câu cộc + CTA", "explainer": "người giải thích + đưa cụm lịch sự", "modeler": "người nói bản lịch sự", "kit": "Kit – mẹo làm mềm câu (please, sorry, could)" },
+ "scenes": {
+  "cafe": { "roles": { "learner": ["ama"], "explainer": ["carlos"], "modeler": ["ama"] } },
+  "supermarket": { "roles": { "learner": ["ama"], "explainer": ["carlos"], "modeler": ["ama"] } },
+  "office": { "roles": { "learner": ["mia"], "explainer": ["diane"], "modeler": ["diane"] } }
+ },
+ "vars": {
+  "phrase": { "desc": "cụm lịch sự (từ khóa) – Could I get, Could you, Would you mind, bit of a rush (≤ 4 từ – giới hạn từ khóa)", "required": true, "maxWords": 4 },
+  "hookLine": { "desc": "câu mở ≤ 5 âm tiết, thường là câu hỏi (Is \"give me\" rude?) – dấu ? ngoài ngoặc kép", "required": true, "maxWords": 5 },
+  "direct": { "desc": "câu cộc người học hay nói (Give me a large latte.) – câu kể, không ?", "required": true },
+  "why": { "desc": "vì sao nghe cộc + cụm lịch sự, chứa NGUYÊN VĂN phrase", "required": true },
+  "polite": { "desc": "câu lịch sự hoàn chỉnh chứa phrase. Ama: Could/Can I get/have … please? (lời đề nghị → clip giảng). Diane ở office: Could you …? (→ clip think)", "required": true },
+  "directCard": { "desc": "thẻ RUDE (≤ 32 ký tự)", "required": true },
+  "politeCard": { "desc": "thẻ POLITE (≤ 32 ký tự)", "required": true },
+  "tip": { "desc": "mẹo làm mềm câu sau \"Kit's tip:\"", "required": true }
+ },
+ "title": ["Too direct? Say \"{{phrase}}\"", "Rude or polite: \"{{directCard}}\""],
+ "hook": ["Rude or polite?", "Too direct?"],
+ "beats": [
+  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["ask", "wrong"], "maxWords": 5, "maxSec": 1.9, "text": ["{{hookLine}}"], "expr": "thinking", "gesture": "" },
+  { "id": "situation", "beat": "situation", "role": "learner", "emotions": ["explain", "talk"], "maxWords": 10, "text": ["{{direct}}"], "expr": "deadpan", "gesture": "" },
+  { "id": "explain", "beat": "explain", "role": "explainer", "emotions": ["explain"], "maxWords": 16, "punch": true, "must": ["kw:0"], "text": ["{{why}}"], "expr": "friendly", "gesture": "open hands" },
+  { "id": "example", "beat": "example", "role": "modeler", "emotions": ["explain", "ask", "right"], "maxWords": 14, "must": ["kw:0"], "text": ["{{polite}}"], "expr": "happy smile", "gesture": "" },
+  { "id": "tip", "beat": "tip", "role": "kit", "maxWords": 18, "text": ["Kit's tip: {{tip}}"], "expr": "proud", "gesture": "" },
+  { "id": "cta", "beat": "cta", "role": "learner", "emotions": ["cta"], "maxWords": 8, "text": ["Learn polite English free on lexkite.com", "Practice real phrases free on lexkite.com", "Roleplay this free on lexkite.com"], "expr": "happy smile", "gesture": "waving hello" }
+ ],
+ "keywords": ["{{phrase}}"],
+ "wrong": "{{directCard}}",
+ "right": "{{politeCard}}",
+ "caption": ["Direct: \"{{directCard}}\" · Polite: \"{{politeCard}}\"", "Sound friendly, not bossy: use \"{{phrase}}\""],
+ "hashtags": ["politeenglish", "englishphrases", "everydayenglish", "businessenglish", "speakenglish", "learnenglish"],
+ "writing": {
+  "do": ["Câu cộc là câu ĐÚNG ngữ pháp nhưng nghe ra lệnh (Give me…, Send me…, Hurry up) – giải thích bằng \"sounds bossy / too direct\"", "Bản lịch sự dùng được ngay ở quán, siêu thị, công sở; chỉ thêm cụm làm mềm (Could I get, Could you, Would you mind, Sorry…)", "Câu explain chứa nguyên văn cụm lịch sự (từ khóa)"],
+  "dont": ["Không gọi câu cộc là \"wrong/mistake\" (đổi clip sang sốc) – nó chỉ quá thẳng", "Không lịch sự quá mức (I was wondering if you could possibly…) cho tình huống đời thường", "Không nói người bản xứ \"never\" nói câu thẳng – với bạn thân vẫn được"]
+ }
+}

@@ -1,5 +1,6 @@
 {
  "id": "roleplay",
+ "area": "roleplay",
  "name": "Real-life roleplay theo bối cảnh",
  "goal": "Một lượt giao tiếp thật ở 1 nơi (quán, siêu thị, phỏng vấn, lễ tân…): người học gặp tình huống → nhân viên mở lời → người học dùng câu mẫu → nhân viên đáp (payoff) → Kit giải thích vì sao câu đó hay.",
  "format_id": "repeat-after-me",

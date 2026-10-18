@@ -1,0 +1,72 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/upgrade-your-english.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Vocabulary: stop saying very tired",
+ "format": "short",
+ "template": "upgrade-your-english",
+ "script": {
+  "title": "Stop saying \"very tired\"",
+  "hook": "Upgrade \"very tired\"",
+  "scene": "library",
+  "time": "day",
+  "format_id": "one-word-upgrade",
+  "template": "upgrade-your-english",
+  "lines": [
+   {
+    "who": "ama",
+    "beat": "hook",
+    "text": "Stop saying \"very tired.\"",
+    "expr": "surprised",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "situation",
+    "text": "After work, I'm very tired. Very, very tired. Is that boring?",
+    "expr": "thinking",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "explain",
+    "text": "Try exhausted. It means very, very tired.",
+    "expr": "confident",
+    "gesture": "open hands",
+    "punch": true
+   },
+   {
+    "who": "ama",
+    "beat": "example",
+    "text": "After work, I'm exhausted. I just want my bed.",
+    "expr": "friendly",
+    "gesture": ""
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: very hungry becomes starving. Very scared becomes terrified.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "cta",
+    "text": "Practice paraphrasing on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "exhausted"
+  ],
+  "wrong": "very tired",
+  "right": "exhausted",
+  "caption": "\"Very tired\" → \"exhausted\". One word, more power",
+  "hashtags": [
+   "vocabulary",
+   "englishvocabulary",
+   "learnenglish"
+  ],
+  "area": "paraphrase",
+  "link": "https://lexkite.com/app/#/paraphrase"
+ }
+}

@@ -1,0 +1,23 @@
+{
+ "topic": "Grammar quiz: buyed or bought?",
+ "scene": "library",
+ "seed": "iv-buy",
+ "vars": {
+  "wrongForm": "buyed",
+  "answer": "bought",
+  "forms": "buy, bought, bought",
+  "gap": "Last week I blank new running shoes.",
+  "example": "Perfect! I bought these shoes on sale last week.",
+  "tip": "buy, bring, and think all end the same way: bought, brought, thought."
+ },
+ "lines": {
+  "example": {
+   "expr": "big laugh"
+  }
+ },
+ "hashtags": [
+  "irregularverbs",
+  "englishgrammar",
+  "learnenglish"
+ ]
+}
