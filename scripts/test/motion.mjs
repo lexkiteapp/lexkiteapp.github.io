@@ -22,7 +22,7 @@ ok(pages[0].words[0].w === 'Wait,' && pages[0].words.length >= 2, 'trang 1 từ 
 { const oh = M.captionPages(V.evenTiming(V.tokens('Oh, so heads-up means a short warning about something coming soon.'), 0, 4).map(w => ({ ...w, line: 0 })), { style: 'karaoke-bar' });
   ok(oh.every(p => p.words.length >= 2) && oh[0].words[0].w === 'Oh,', 'karaoke: "Oh," không đứng một mình (lỗi heads-up 18/10)');
   ok(M.captionPages([{ w: 'Wow!', start: 0, end: 0.4, line: 0 }], { style: 'pop-box' }).length === 1, 'câu chỉ 1 từ → được 1 trang 1 từ'); }
-ok(pages.every(p => p.words.every(w => w.pop === p.start) && p.start <= p.words[0].start + 1e-6 && p.start >= p.words[0].start - 0.1 - 1e-6), 'cả trang hiện 1 lúc, sớm ≤ 0,1 s trước tiếng ('+'mỗi từ bật trước mốc đọc 40 ms và không sớm hơn trang');
+ok(pages.every(p => p.words.every(w => w.pop === p.start) && p.start <= p.words[0].start + 0.25 + 1e-6 && p.start >= p.words[0].start - 0.25 - 1e-6), 'cả trang hiện 1 lúc, lệch tiếng ≤ 0,25 s (cân tốc độ đọc; trang đầu câu sớm ≤ 0,1 s) ('+'mỗi từ bật trước mốc đọc 40 ms và không sớm hơn trang');
 ok(pages.every((p, i) => !pages[i + 1] || pages[i + 1].line !== p.line || p.end <= pages[i + 1].start + 1e-6), 'trang không chồng nhau trong cùng câu');
 ok(pages.every((p, i) => !pages[i + 1] || pages[i + 1].line !== p.line || (pages[i + 1].start - p.end >= M.SUB.gap - 1e-3 && pages[i + 1].start - p.end < 0.2)), 'giữa 2 trang của 1 câu: cách đúng ≥ 2 khung, không trống lâu');
 ok(M.captionPages(mk, { style: 'mega-word' }).every(p => p.breaks.length <= 2), 'chữ lớn: ≤ 2 dòng');

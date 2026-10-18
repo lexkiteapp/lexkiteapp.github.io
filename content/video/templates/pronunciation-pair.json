@@ -26,7 +26,7 @@
  "title": ["{{a}} or {{b}}? Say it right", "Stop mixing up {{a}} and {{b}}"],
  "hook": ["{{a}} or {{b}}?"],
  "beats": [
-  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["wrong"], "maxWords": 5, "maxSec": 2.15, "text": ["Wait, {{a}} or {{b}}?"], "expr": "surprised", "gesture": "hands on cheeks" },
+  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["wrong"], "maxWords": 5, "maxSec": 2.35, "text": ["Wait, {{a}} or {{b}}?"], "expr": "surprised", "gesture": "hands on cheeks" },
   { "id": "situation", "beat": "situation", "role": "learner", "emotions": ["ask"], "maxWords": 12, "text": ["{{mixup}}"], "expr": "confused", "gesture": "" },
   { "id": "explain", "beat": "explain", "role": "coach", "emotions": ["explain"], "maxWords": 16, "punch": true, "must": ["kw:0", "kw:1"], "text": ["{{how}}"], "expr": "confident", "gesture": "explaining with hands" },
   { "id": "example", "beat": "example", "role": "coach", "emotions": ["explain"], "maxWords": 12, "must": ["kw:0", "kw:1"], "text": ["{{drill}}"], "expr": "friendly", "gesture": "" },

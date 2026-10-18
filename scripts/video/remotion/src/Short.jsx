@@ -157,7 +157,7 @@ const Studio = ({ colors, t }) => {
 };
 // Máy kiểu phim: shot.cam (motion.shotCamera) = vùng cắt từ canvas, đẩy máy chậm from → to; punch/rung/nghiêng nhân quanh tâm khung.
 function filmCamera(shot, t, W, H, interrupts) {
-  const len = Math.max(0.1, shot.end - shot.start), u = clamp01((t - shot.start) / len), e = u * u * (3 - 2 * u), A = shot.cam.from, B = shot.cam.to;
+  const len = Math.max(0.1, shot.cam.dur || shot.end - shot.start), u = clamp01((t - shot.start) / len), e = u * u * (3 - 2 * u), A = shot.cam.from, B = shot.cam.to;
   const z = A.z + (B.z - A.z) * e, cx = A.cx + (B.cx - A.cx) * e, cy = A.cy + (B.cy - A.cy) * e;
   let m = 1, rot = 0, sx = 0, sy = 0;
   if (shot.punch) { const d = t - shot.start, amp = shot.start === 0 ? 0.14 : 0.08; if (d >= 0 && d < 0.6) m *= 1 + amp * Math.exp(-d * 7) * (d < 0.05 ? d / 0.05 : 1); }
@@ -261,7 +261,7 @@ const HookLayer = ({ hook, t, fps, theme, W, H }) => {
   if (t > hook.end + 0.3) return null;
   const out = clamp01((t - hook.end) / 0.3), f = t * fps, y = hook.top != null ? hook.top : theme.layout.hookY * H, acc = theme.colors.accents, cd = hook.countdown !== false;
   // calm: hook hiện NGUYÊN KHỐI 1 lần (mờ + trượt lên 24 px trong 0,35 s, không nảy, không từng chữ); huy hiệu/sticker đứng yên
-  const ein = ramp(t, 0.05, 0.35), pop = () => 1; void f;
+  const ein = ramp(t, 0.05, 0.45), pop = () => 1; void f;
   const ws = String(hook.text).toUpperCase().split(/\s+/).filter(Boolean);
   const slam = 1;
   const P = hook.pattern;
@@ -270,7 +270,7 @@ const HookLayer = ({ hook, t, fps, theme, W, H }) => {
   const badgeFg = badgeBg === '#FFC94A' ? '#14100E' : '#FFFFFF';
   const sticker = <Sticker name={hook.sticker} size={120} style={{ transform: 'rotate(-8deg)' }} />;
   return (
-    <AbsoluteFill style={{ opacity: Math.min(ein, 1 - out), transform: `translateY(${24 * (1 - ein) - out * 20}px)` }}>
+    <AbsoluteFill style={{ opacity: Math.min(ein, 1 - out), transform: `translateY(${40 * (1 - ein) - out * 20}px)` }}>
       {P === 'story-cold-open' ? <><div style={{ position: 'absolute', left: 0, right: 0, top: 0, height: 130 * pop(0), background: '#14100E' }} /><div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: 130 * pop(0), background: '#14100E' }} /></> : null}
       <div style={{ position: 'absolute', left: 60, right: 140, top: y, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 26 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>

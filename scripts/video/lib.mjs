@@ -137,15 +137,16 @@ export function contrast(a, b) {
 }
 
 // ---------- Cổng tĩnh dùng chung (render.mjs bước qa + scripts/video/template.mjs lint trước khi dựng) ----------
-// Giọng Kokoro đọc chậm 10 % cho người học (TTS_SPEED 0,9): tốc độ ước tính / ngưỡng câu hook co giãn theo – ước lượng sớm (lint khuôn) = đo thật lúc dựng.
-export const TTS_SPEED = 0.9;
+// Giọng Kokoro chậm cho người học: đo CI 18/10 – Kokoro đọc ~17 ký tự/s ở tốc độ 1 (~15,5 ở 0,9 → phụ đề 15–27 ký tự/s, trượt cổng)
+// → TTS_SPEED 0,82 (~14 ký tự/s tiếng, phụ đề ≤ 13 nhờ hiện sớm/ở lại); câu dày chữ chậm tới 0,74 (lineSpeed); bước tts đo lại và đọc chậm hơn nếu vẫn nhanh.
+export const TTS_SPEED = 0.82, KOKORO_CPS = 17.2, SPEECH_CPS = 13.6;
 export const WPS = +(2.6 * TTS_SPEED).toFixed(3), LINE_GAP = 0.3, LEAD = 0.2, END_CARD = 2.2, HOOK_MAX = +(2.05 / TTS_SPEED).toFixed(2);
 export const CAST = ['mia', 'leo', 'ama', 'kit', 'diane', 'carlos'];
 export const COMPETITORS = /\b(duolingo|babbel|busuu|memrise|rosetta\s*stone|cambly|preply|italki|elsa\s*speak|quizlet|cake\s*app|lingoda|mondly|praktika)\b/i;
 // Thời lượng ước tính 1 câu khi chưa có giọng (đúng công thức bước tts khi thiếu Kokoro)
 // Câu nhiều chữ dài (≈ > 12,5 ký tự/s ở tốc độ chuẩn) → đọc chậm thêm (≥ 0,8) để phụ đề ≤ 13 ký tự/s – sửa bằng NHỊP, không rút giờ hiện chữ
-export const lineSpeed = t => { const n = tokens(t).length || 1, cps = String(t).length / (n / WPS); return +Math.max(0.8, Math.min(TTS_SPEED, TTS_SPEED * 12.5 / cps)).toFixed(3); };
-export const estLineSec = t => +(tokens(t).length / (2.6 * lineSpeed(t)) + 0.3).toFixed(2);
+export const lineSpeed = t => +(String(t).length > 50 ? TTS_SPEED * 0.95 : TTS_SPEED).toFixed(3); // câu dài (> 50 ký tự): chậm thêm 5 %
+export const estLineSec = t => +(String(t).length / (KOKORO_CPS * lineSpeed(t)) + 0.35).toFixed(2);
 // Tổng thời lượng ước tính (đúng bố cục align: lead + câu + nghỉ + 0,4 s + end card)
 export const estVideoSec = lines => +(LEAD + lines.reduce((a, l) => a + estLineSec(l.text), 0) + lineGaps(lines).reduce((a, g) => a + g, 0) + 0.4 + END_CARD).toFixed(2);
 // Đếm âm tiết (heuristic tiếng Anh) – để ước lượng câu hook: Kokoro đọc ~4 âm tiết/s; số → ~1,5 âm tiết/chữ số

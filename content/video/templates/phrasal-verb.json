@@ -23,7 +23,7 @@
  "title": ["\"{{verb}}\" – what it really means", "Phrasal verb: {{verb}}"],
  "hook": ["What does {{verb}} mean?", "{{verb}}?"],
  "beats": [
-  { "id": "hook", "beat": "hook", "role": "opener", "emotions": ["talk", "explain"], "maxWords": 5, "maxSec": 2.15, "text": ["{{hookLine}}"], "expr": "calm", "gesture": "" },
+  { "id": "hook", "beat": "hook", "role": "opener", "emotions": ["talk", "explain"], "maxWords": 5, "maxSec": 2.35, "text": ["{{hookLine}}"], "expr": "calm", "gesture": "" },
   { "id": "situation", "beat": "situation", "role": "learner", "emotions": ["ask"], "maxWords": 10, "text": ["{{literal}}"], "expr": "confused", "gesture": "" },
   { "id": "explain", "beat": "explain", "role": "explainer", "emotions": ["explain"], "maxWords": 16, "punch": true, "must": ["kw:0"], "text": ["{{meaning}}"], "expr": "confident", "gesture": "open hands" },
   { "id": "example", "beat": "example", "role": "modeler", "emotions": ["explain", "ask", "right"], "maxWords": 14, "text": ["{{example}}"], "expr": "friendly", "gesture": "" },

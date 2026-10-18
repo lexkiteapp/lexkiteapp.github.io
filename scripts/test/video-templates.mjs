@@ -54,9 +54,9 @@ ok(T.capFirst('"affect or effect?"') === '"Affect or effect?"' && T.capFirst('pu
 ok(JSON.stringify(T.fill(T.loadTemplate('spot-the-mistake'), J('content/video/templates/examples/spot-the-mistake--she-doesnt.vars.json'))) === JSON.stringify(base), 'fill tất định');
 
 // 5) Ước lượng hook khớp số đo CI 17/10 (Kokoro: 1,8–1,9 s cho hook 5–6 âm tiết) + hằng số dùng chung với render
-ok(Math.abs(V.hookEstSec('Wait, is "I\'m agree" wrong?') - 1.8 / V.TTS_SPEED) <= 0.25 && Math.abs(V.hookEstSec('Wait, is "give me" rude?') - 1.9 / V.TTS_SPEED) <= 0.25, 'hookEstSec sát số đo thật (đo ở tốc độ 1, giọng nay chậm TTS_SPEED)');
+ok(Math.abs(V.hookEstSec('Wait, is "I\'m agree" wrong?') - 1.8 / V.TTS_SPEED) <= 0.25 / V.TTS_SPEED && Math.abs(V.hookEstSec('Wait, is "give me" rude?') - 1.9 / V.TTS_SPEED) <= 0.25 / V.TTS_SPEED, 'hookEstSec sát số đo thật (đo ở tốc độ 1, giọng nay chậm TTS_SPEED)');
 ok(V.syllables('procrastinate') === 4 && V.syllables('coffee') === 2 && V.syllables('the') === 1, 'đếm âm tiết');
-{ const t13 = 'one two three four five six seven eight nine ten eleven twelve thirteen'; ok(V.estLineSec(t13) === +(13 / (2.6 * V.lineSpeed(t13)) + 0.3).toFixed(2) && V.lineSpeed(t13) <= V.TTS_SPEED && V.lineSpeed(t13) >= 0.8 && V.HOOK_MAX === +(2.05 / V.TTS_SPEED).toFixed(2), 'ước lượng câu = công thức bước tts (tốc độ giọng theo câu)'); }
+{ const t13 = 'one two three four five six seven eight nine ten eleven twelve thirteen'; ok(V.estLineSec(t13) === +(t13.length / (V.KOKORO_CPS * V.lineSpeed(t13)) + 0.35).toFixed(2) && V.lineSpeed(t13) <= V.TTS_SPEED && V.lineSpeed(t13) >= 0.72 && V.HOOK_MAX === +(2.05 / V.TTS_SPEED).toFixed(2), 'ước lượng câu = công thức bước tts (tốc độ giọng theo câu)'); }
 ok(V.brandGate({ title: 't', lines: [{ who: 'bob', text: 'hi' }] }).ok === false && V.ctaGate({ lines: [{ beat: 'cta', text: 'lexkite.com' }] }).ok, 'cổng brand/CTA dùng chung');
 
 // 6) Kho video tự động (scripts/video/auto.mjs, §12): mọi kịch bản qua cổng tĩnh, tên nguồn hợp lệ, xen kẽ khuôn

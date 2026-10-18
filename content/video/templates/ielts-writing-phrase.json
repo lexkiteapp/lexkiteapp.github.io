@@ -27,7 +27,7 @@
  "title": ["IELTS Writing {{task}}: \"{{phrase}}\"", "Upgrade your IELTS {{task}} sentence"],
  "hook": ["Still writing \"{{basicShort}}\"?", "IELTS {{task}} phrase"],
  "beats": [
-  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["wrong", "ask"], "maxWords": 5, "maxSec": 2.15, "text": ["{{hookLine}}"], "expr": "surprised", "gesture": "" },
+  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["wrong", "ask"], "maxWords": 5, "maxSec": 2.35, "text": ["{{hookLine}}"], "expr": "surprised", "gesture": "" },
   { "id": "situation", "beat": "situation", "role": "learner", "emotions": ["ask", "explain"], "maxWords": 16, "text": ["{{basic}}"], "expr": "thinking", "gesture": "" },
   { "id": "explain", "beat": "explain", "role": "learner", "emotions": ["explain"], "maxWords": 16, "punch": true, "must": ["kw:0"], "text": ["{{rule}}"], "expr": "confident", "gesture": "open hands" },
   { "id": "example", "beat": "example", "role": "learner", "emotions": ["explain", "right"], "maxWords": 16, "must": ["kw:0"], "text": ["{{better}}"], "expr": "confident", "gesture": "" },

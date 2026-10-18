@@ -118,13 +118,20 @@ const STEPS = {
     if (!tts) return skip(s, 'tts', 'không tải được mô hình Kokoro');
     for (const [i, l] of s.lines.entries()) {
       const nn = String(i).padStart(2, '0'), raw = P(`line-${nn}.raw.wav`), voice = voices[l.who] || 'af_heart';
-      const a = await tts.generate(String(l.text).replace(/["“”]/g, ''), { voice, speed: V.lineSpeed(l.text) }); await a.save(raw);
-      // Kokoro chèn ~0,4 s im lặng đầu câu → câu hook dài quá 2 s + nhịp chậm: cắt im lặng đầu, chừa 40 ms
-      ff(['-i', raw, '-af', 'silenceremove=start_periods=1:start_threshold=-50dB,adelay=40:all=1,loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000', '-ac', '1', P(`line-${nn}.wav`)]);
+      // tốc độ đọc cho người học: đo ký tự/s thật của câu (cắt im lặng 2 đầu); nhanh hơn SPEECH_CPS → đọc lại chậm hơn (≥ 0,72) – phụ đề ≤ 13–15 ký tự/s
+      let speed = V.lineSpeed(l.text);
+      for (let k = 0; k < 2; k++) {
+        const a = await tts.generate(String(l.text).replace(/["“”]/g, ''), { voice, speed }); await a.save(raw);
+        // Kokoro chèn ~0,4 s im lặng đầu câu → câu hook dài quá 2 s + nhịp chậm: cắt im lặng đầu (chừa 40 ms) và cuối (chừa 120 ms)
+        ff(['-i', raw, '-af', 'silenceremove=start_periods=1:start_threshold=-50dB,areverse,silenceremove=start_periods=1:start_threshold=-50dB,areverse,adelay=40:all=1,apad=pad_dur=0.12,loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000', '-ac', '1', P(`line-${nn}.wav`)]);
+        const d = probe(P(`line-${nn}.wav`)).dur, cps = String(l.text).length / Math.max(0.4, d - 0.16);
+        if (cps <= V.SPEECH_CPS * 1.06 || speed <= 0.72 || k) { l.speed = speed; l.cps = +cps.toFixed(1); break; }
+        speed = +Math.max(0.72, speed * V.SPEECH_CPS / cps).toFixed(3);
+      }
       fs.rmSync(raw, { force: true });
       l.wav = `line-${nn}.wav`; l.voice = voice; l.dur = +probe(P(l.wav)).dur.toFixed(2);
     }
-    console.log(`  ${s.lines.length} câu · ${s.lines.reduce((a, l) => a + l.dur, 0).toFixed(1)} s giọng`);
+    console.log(`  ${s.lines.length} câu · ${s.lines.reduce((a, l) => a + l.dur, 0).toFixed(1)} s giọng · tốc độ ${s.lines.map(l => l.speed).join('/')} · ký tự/s ${s.lines.map(l => l.cps).join('/')}`);
   },
   // 5) Mốc từng từ: faster-whisper tiny.en (word_timestamps, CPU) trên line-NN.wav → khớp ngược về từ kịch bản (lib.matchWords). Dự phòng: chia đều.
   //    Ra: words.json = [{ line, w, start, end }] (giây, tính từ đầu video) + s.lines[i].start/end + s.duration (gồm thẻ CTA cuối).

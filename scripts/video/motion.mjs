@@ -100,7 +100,7 @@ export function breakLines(ws, { maxChars = 30, maxLines = 2 } = {}) {
 export const SUB = { minWords: 3, maxWords: 7, lineChars: 22, lines: 2, lead: 0.1, linger: 0.5, gap: 2 / 30, minDur: 1.2, cps: 13, cpsMax: 15 };
 export const CAP_MIN_WORDS = SUB.minWords;
 const pageText = ws => ws.map(w => w.w).join(' ');
-export function captionPages(words, { style = 'pop-box' } = {}) {
+export function captionPages(words, { style = 'pop-box', lineEnd = null } = {}) {
   const maxC = SUB.lineChars * SUB.lines, pages = [];
   const byLine = {}; for (const w of words) (byLine[w.line] = byLine[w.line] || []).push(w);
   for (const ws of Object.values(byLine)) {
@@ -129,9 +129,14 @@ export function captionPages(words, { style = 'pop-box' } = {}) {
   }
   pages.sort((x, y) => x.words[0].start - y.words[0].start);
   // giờ hiện
-  const out = pages.map(p => ({ line: p.line, s0: p.words[0].start, s1: p.words[p.words.length - 1].end, words: p.words }));
+  const out = pages.map((p, i) => { const last = !pages[i + 1] || pages[i + 1].line !== p.line, s1 = p.words[p.words.length - 1].end, le = lineEnd ? lineEnd(p.line) : null;
+    return { line: p.line, s0: p.words[0].start, s1: last && le != null ? Math.max(s1, le - 0.12) : s1, words: p.words }; }); // whisper hay cắt sớm đuôi từ cuối → lấy đuôi giọng thật
   out.forEach((p, i) => { const prev = out[i - 1]; p.start = Math.min(p.s0, Math.max(p.s0 - SUB.lead, prev ? prev.s1 + 0.001 : 0)); });
   out.forEach((p, i) => { const nx = out[i + 1], cap = nx ? nx.start - SUB.gap : Infinity; p.end = Math.min(cap, Math.max(p.s1 + Math.min(SUB.linger, 0.25), Math.min(p.s1 + SUB.linger, p.start + SUB.minDur))); });
+  // cân tốc độ đọc giữa 2 trang của cùng 1 câu: dời ranh (≤ 0,25 s sớm / 0,15 s muộn so với tiếng) để 2 trang cùng ký tự/s
+  for (let i = 0; i + 1 < out.length; i++) { const A = out[i], B = out[i + 1]; if (A.line !== B.line) continue;
+    const cA = pageText(A.words).length, cB = pageText(B.words).length, want = A.start + (B.end - A.start) * cA / (cA + cB);
+    let bs = Math.min(B.s0 + 0.25, Math.max(B.s0 - 0.25, want)); bs = Math.max(bs, Math.min(B.s0 + 0.25, A.start + SUB.minDur + SUB.gap)); bs = Math.min(bs, Math.max(B.s0 - 0.25, B.end - SUB.minDur)); B.start = Math.max(bs, A.start + 0.6); A.end = B.start - SUB.gap; }
   // trang cuối câu còn < 1,2 s: trang câu sau bỏ phần "hiện sớm" (≤ 0,1 s) để trang này ở lâu hơn
   out.forEach((p, i) => { const nx = out[i + 1]; if (!nx || nx.line === p.line || p.end - p.start >= SUB.minDur) return;
     nx.start = Math.max(nx.start, Math.min(nx.s0, p.start + SUB.minDur + SUB.gap)); p.end = Math.min(p.s1 + SUB.linger, nx.start - SUB.gap); });
@@ -426,7 +431,7 @@ export function layoutGate(tl, lines = []) {
   const faces = [];
   for (let f = 0; f * step < end; f++) {
     const t = f * step, sh = (tl.shots || []).find(x => t >= x.start && t < x.end && x.cam && (x.actors || []).length); if (!sh) continue;
-    const c = camAt(sh.cam, (t - sh.start) / Math.max(0.1, sh.end - sh.start));
+    const c = camAt(sh.cam, (t - sh.start) / Math.max(0.1, sh.cam.dur || sh.end - sh.start));
     const fs = sh.actors.map(a => { const fb = faceBox(a), p0 = toScreen(c, fb[0], fb[1], W, H), p1 = toScreen(c, fb[2], fb[3], W, H); return { who: a.who, box: [p0[0], p0[1], p1[0], p1[1]] }; });
     for (const o of overlayBoxes(tl, t)) {
       if (o.kind === 'watermark' || (o.kind === 'hook' && t > tl.hook.end) || (o.kind === 'card' && (tl.cards || []).some(cd => o.text === cd.text && t > cd.end))) continue;
@@ -566,7 +571,7 @@ export function buildTimeline({ s, words, assets = {}, w = 1080, h = 1920, fps =
   const theme = v.theme || { id: 'pop-teal', caption: 'pop-box', color: 'teal-cream', layout: 'stage-center' };
   const sc = s.job.script, lines = s.lines.map((l, i) => ({ i, who: l.who, beat: l.beat, text: l.text, start: l.start, end: l.end, punch: !!l.punch, emotion: (s.stage && s.stage.lines[i] && s.stage.lines[i].emotion) || null }));
   const D = s.duration, endStart = s.endStart, layout = LAYOUTS[theme.layout] || LAYOUTS['stage-center'], colors = COLOR_THEMES[theme.color] || COLOR_THEMES['teal-cream'];
-  const pages = captionPages(markKeywords(words, sc.keywords || []), { style: theme.caption });
+  const pages = captionPages(markKeywords(words, sc.keywords || []), { style: theme.caption, lineEnd: i => (s.lines[i] || {}).end });
   const shots = (s.shots || []).map(x => ({ ...x }));
   const cuts = pickTransitions(shots, { lines, stage: s.stage, lead: v.transition && v.transition.id, seed, pool: TRANSITIONS });
   const stage = s.stage || { lines: [], segs: [], time: 'day' };
@@ -646,12 +651,14 @@ export function buildTimeline({ s, words, assets = {}, w = 1080, h = 1920, fps =
       shake: false, punch: false, // calm: không rung / giật zoom
     };
   });
+  // Hook (cảnh đầu): đẩy máy 4 % gói trong 2,4 s đầu rồi đứng yên – chuyển động êm cho 2 s mở màn (cổng visual-hook), không giật
+  if (S[0] && S[0].cam && S[0].actors.length) { const c = S[0].cam; S[0].cam = { ...c, from: { ...c.to, z: Math.max(1, c.to.z * 0.96) }, dur: Math.min(2.4, S[0].end - S[0].start) }; }
   // Cảnh đơn/cận: chỉ vẽ người chính + ai trọn trong khung suốt cảnh (không có nửa người ở mép)
   const fullIn = (c, a) => { const l = toScreen(c, a.x - 0.22 * a.h, 0, w, h)[0], r = toScreen(c, a.x + 0.22 * a.h, 0, w, h)[0]; return l >= 0 && r <= w; };
   for (const x of S) if (x.cam && ['single', 'close'].includes(x.framing)) x.actors = x.actors.filter(a => a.who === x.focus || (fullIn(x.cam.from, a) && fullIn(x.cam.to, a)));
 
   // Thẻ vẫn đè mặt (phòng người đứng cao – máy không hạ đủ): cảnh vào sau ≥ 0,8 s của thẻ → thẻ tắt ngay đầu cảnh đó; sớm hơn → cảnh đó lùi về toàn cảnh
-  const faceHit = (x, box, a, b) => x.cam && x.actors.some(ac => [a, b].some(t => { const c = camAt(x.cam, (t - x.start) / Math.max(0.1, x.end - x.start)), fb = faceBox(ac), p0 = toScreen(c, fb[0], fb[1], w, h), p1 = toScreen(c, fb[2], fb[3], w, h); return intersects(box, [p0[0], p0[1], p1[0], p1[1]]); }));
+  const faceHit = (x, box, a, b) => x.cam && x.actors.some(ac => [a, b].some(t => { const c = camAt(x.cam, (t - x.start) / Math.max(0.1, x.cam.dur || x.end - x.start)), fb = faceBox(ac), p0 = toScreen(c, fb[0], fb[1], w, h), p1 = toScreen(c, fb[2], fb[3], w, h); return intersects(box, [p0[0], p0[1], p1[0], p1[1]]); }));
   for (const c of cards) for (const x of S) {
     if (x.end <= c.start || x.start >= c.end || !faceHit(x, c.box, Math.max(x.start, c.start), Math.min(x.end, c.end))) continue;
     if (x.start >= c.start + 0.8) { c.end = r3(x.start); break; }

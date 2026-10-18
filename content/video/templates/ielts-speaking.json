@@ -23,7 +23,7 @@
  "title": ["IELTS Speaking Part 1: {{question}}", "Answer \"{{question}}\" like a pro"],
  "hook": ["{{question}}"],
  "beats": [
-  { "id": "hook", "beat": "hook", "role": "candidate", "emotions": ["ask"], "maxWords": 5, "maxSec": 2.15, "text": ["{{question}}"], "expr": "thinking", "gesture": "" },
+  { "id": "hook", "beat": "hook", "role": "candidate", "emotions": ["ask"], "maxWords": 5, "maxSec": 2.35, "text": ["{{question}}"], "expr": "thinking", "gesture": "" },
   { "id": "situation", "beat": "situation", "role": "candidate", "emotions": ["wrong"], "maxWords": 12, "text": ["{{weak}}"], "expr": "awkward", "gesture": "hands on cheeks" },
   { "id": "explain", "beat": "explain", "role": "candidate", "emotions": ["explain"], "maxWords": 22, "punch": true, "must": ["kw:0"], "text": ["{{model}}"], "expr": "confident", "gesture": "open hands" },
   { "id": "example", "beat": "example", "role": "candidate", "emotions": ["explain"], "maxWords": 14, "text": ["{{structure}}"], "expr": "friendly", "gesture": "" },

@@ -24,7 +24,7 @@
  "title": ["{{a}} or {{b}}? Never mix them up again", "{{a}} vs {{b}} in 30 seconds"],
  "hook": ["{{a}} or {{b}}?"],
  "beats": [
-  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["ask", "wrong"], "maxWords": 5, "maxSec": 2.15, "text": ["{{a}} or {{b}}?"], "expr": "thinking", "gesture": "" },
+  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["ask", "wrong"], "maxWords": 5, "maxSec": 2.35, "text": ["{{a}} or {{b}}?"], "expr": "thinking", "gesture": "" },
   { "id": "situation", "beat": "situation", "role": "learner", "emotions": ["wrong"], "maxWords": 10, "text": ["{{confession}}"], "expr": "awkward", "gesture": "hands on cheeks" },
   { "id": "explain", "beat": "explain", "role": "explainer", "emotions": ["explain"], "maxWords": 14, "punch": true, "must": ["kw:0"], "text": ["{{aRule}}"], "expr": "confident", "gesture": "open hands" },
   { "id": "example", "beat": "example", "role": "modeler", "emotions": ["explain", "right"], "maxWords": 14, "must": ["kw:1"], "text": ["{{bRule}}"], "expr": "happy smile", "gesture": "" },
