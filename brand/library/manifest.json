@@ -1571,6 +1571,30 @@
       "w": 690,
       "h": 1772,
       "ready": true
+    },
+    {
+      "id": "mia_think_aha_casual",
+      "who": "mia",
+      "tags": [
+        "think",
+        "aha"
+      ],
+      "outfit": "casual",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/mia_think_aha_casual.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        458,
+        1747
+      ],
+      "figH": 1747,
+      "w": 764,
+      "h": 1750,
+      "ready": true
     }
   ],
   "stills": [

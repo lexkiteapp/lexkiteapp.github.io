@@ -8414,6 +8414,120 @@
    "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
   },
   {
+   "id": "clips/mia_think_aha_casual.mp4",
+   "kind": "clip",
+   "who": "mia",
+   "tags": [
+    "think",
+    "aha",
+    "casual"
+   ],
+   "file": "clips/src/mia_think_aha_casual.mp4",
+   "sha256": "cf569168a9fd841971249b830b22ae97b16ad91f13f908ba64bb4810f1f12ad0",
+   "bytes": 2506841,
+   "w": 1080,
+   "h": 1916,
+   "duration": 2.958,
+   "qa": 91,
+   "note": "lấy 2,1–5 s (aha + nói); khung 47 tay trái nhảy",
+   "trimmed": true,
+   "source": {
+    "from": "brand/characters/_candidates/ingest/mia_think_aha_casual.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-18"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": {
+     "path": "clips/mia_think_aha_casual.mp4",
+     "url": "https://media.lexkite.com/library/clips/mia_think_aha_casual.mp4",
+     "sha256": "2cc88b67815c2e42e07e82c8036030316ec47d51403dd287dc5fd243cd06d828",
+     "gitSha": "3311b44a513afa046a3ff4dfa387ab8a6ae51c16",
+     "bytes": 1435508,
+     "srcSha": "cf569168a9fd841971249b830b22ae97b16ad91f13f908ba64bb4810f1f12ad0",
+     "variant": "stacked",
+     "at": "2026-10-18"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/mia_think_aha_casual.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/mia_think_aha_casual.mp4",
+     "gitSha": "722dbf63de266794b2f4c1746e88e6c6a6d80e4f",
+     "sha256": "cf569168a9fd841971249b830b22ae97b16ad91f13f908ba64bb4810f1f12ad0",
+     "bytes": 2506841
+    },
+    "drive": [
+     {
+      "driveId": 3,
+      "email_masked": "",
+      "fileId": "13EZzC5-X-Wlyy0td8EW_n53GVtBItsbw",
+      "sha256": "cf569168a9fd841971249b830b22ae97b16ad91f13f908ba64bb4810f1f12ad0",
+      "at": "2026-10-18"
+     }
+    ]
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-18",
+    "issues": [
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: chưa có ảnh DNA của mia trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1080,
+     "h": 1916,
+     "fps": 24,
+     "duration": 2.958,
+     "motion": 1.855,
+     "drift": 0.112,
+     "footWobble": 0,
+     "bgShift": 3,
+     "dupRun": 1,
+     "cadenceTwos": 0.4
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của mia trong kho – cần duyệt tay"
+     ],
+     "sha": "cf569168a9fd841971249b830b22ae97b16ad91f13f908ba64bb4810f1f12ad0",
+     "at": "2026-10-18"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_mia_think_aha_casual_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/mia_think_aha_casual.mp4",
+     "alpha": "stacked",
+     "sha256": "2cc88b67815c2e42e07e82c8036030316ec47d51403dd287dc5fd243cd06d828",
+     "bytes": 1435508,
+     "w": 764,
+     "h": 1750,
+     "foot": [
+      458,
+      1747
+     ],
+     "figH": 1747,
+     "frames": 71,
+     "status": "WARN",
+     "issues": [
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+     ],
+     "at": "2026-10-18",
+     "path": "clips/mia_think_aha_casual.mp4",
+     "url": "https://media.lexkite.com/library/clips/mia_think_aha_casual.mp4",
+     "gitSha": "3311b44a513afa046a3ff4dfa387ab8a6ae51c16"
+    }
+   }
+  },
+  {
    "id": "clips/mia_think_aha.mp4",
    "kind": "clip",
    "who": "mia",
