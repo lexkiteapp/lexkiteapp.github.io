@@ -448,7 +448,7 @@ async function ingestOne(src, opt, m) {
     w: pr.w || undefined, h: pr.h || undefined, duration: pn.kind === 'clip' ? pr.duration : undefined,
     qa: opt.qa ?? null, waiver: opt.waiver || undefined, note: opt.note || undefined, trimmed: opt.trimmed || undefined,
     source: { from: path.relative(ROOT, abs), tool: opt.source || (pn.kind === 'clip' ? 'Kling 2.5 Turbo' : 'Kling'), prompt: opt.prompt || null, date: opt.date || st.mtime.toISOString().slice(0, 10) },
-    roles: pn.kind === 'clip' ? (opt.roles || ['speaker']) : undefined, status, ref: opt.ref || undefined,
+    roles: pn.kind === 'clip' ? (opt.roles || ['speaker']) : undefined, status, ref: opt.ref || undefined, facing: pn.kind === 'clip' && opt.facing ? opt.facing : undefined, mirrorOk: pn.kind === 'clip' && opt.mirrorOk != null ? !!opt.mirrorOk : undefined,
     locations: { primary: null, backup: { status: 'pending' } },
   };
   // cổng kỹ thuật: chạy trên file gốc trước khi chép
@@ -495,7 +495,7 @@ async function cmdIngest(args, opts) {
   if (opts.plan) {
     const plan = JSON.parse(fs.readFileSync(opts.plan, 'utf8')), d = plan.defaults || {};
     for (const it of plan.items) {
-      const base = { qa: it.qa ?? null, reserve: !!it.reserve, reject: !!it.reject, waiver: it.waiver, roles: it.roles, trimmed: it.trimmed, note: it.note, ref: it.ref, date: it.date || d.date, onFail: opts.onFail, vision: opts.vision, replace: opts.replace };
+      const base = { qa: it.qa ?? null, reserve: !!it.reserve, reject: !!it.reject, waiver: it.waiver, roles: it.roles, trimmed: it.trimmed, note: it.note, facing: it.facing, mirrorOk: it.mirrorOk, ref: it.ref, date: it.date || d.date, onFail: opts.onFail, vision: opts.vision, replace: opts.replace };
       if (it.glob) {
         const dir = path.join(CAND, path.dirname(it.glob)), re = new RegExp('^' + path.basename(it.glob).replace(/\./g, '\\.').replace(/\*/g, '.*') + '$');
         for (const f of fs.readdirSync(dir).filter(f => re.test(f)).sort()) jobs.push([path.join(path.dirname(it.glob), f), { ...base, as: it.asDir + f }]);
