@@ -63,7 +63,7 @@ jobs:
                   subprocess.run(['ffmpeg', '-v', 'error', '-y', '-ss', str(a), '-to', str(b), '-i', src, '-an', '-c:v', 'libx264', '-crf', '14', '-preset', 'slow', '-pix_fmt', 'yuv420p', tmp], check=True)
                   os.replace(tmp, src); it['trimmed'] = True
               x = {'src': f"ingest/{it['id']}.mp4", 'as': f"clips/src/{it['id']}.mp4", 'qa': it.get('qa')}
-              for k in ('roles', 'note', 'waiver', 'trimmed', 'facing', 'mirrorOk'):
+              for k in ('roles', 'note', 'waiver', 'trimmed', 'facing', 'mirrorOk', 'replace'):
                   if it.get(k) is not None: x[k] = it[k]
               out.append(x)
           json.dump({'defaults': {'date': P.get('date'), 'clipSource': P.get('source', 'Kling 2.5 Turbo 1080p 5 s phông xanh')}, 'items': out}, open('ingest-plan.json', 'w'), ensure_ascii=False, indent=1)

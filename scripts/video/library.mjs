@@ -495,7 +495,7 @@ async function cmdIngest(args, opts) {
   if (opts.plan) {
     const plan = JSON.parse(fs.readFileSync(opts.plan, 'utf8')), d = plan.defaults || {};
     for (const it of plan.items) {
-      const base = { qa: it.qa ?? null, reserve: !!it.reserve, reject: !!it.reject, waiver: it.waiver, roles: it.roles, trimmed: it.trimmed, note: it.note, facing: it.facing, mirrorOk: it.mirrorOk, ref: it.ref, date: it.date || d.date, onFail: opts.onFail, vision: opts.vision, replace: opts.replace };
+      const base = { qa: it.qa ?? null, reserve: !!it.reserve, reject: !!it.reject, waiver: it.waiver, roles: it.roles, trimmed: it.trimmed, note: it.note, facing: it.facing, mirrorOk: it.mirrorOk, ref: it.ref, date: it.date || d.date, onFail: opts.onFail, vision: opts.vision, replace: opts.replace || !!it.replace };
       if (it.glob) {
         const dir = path.join(CAND, path.dirname(it.glob)), re = new RegExp('^' + path.basename(it.glob).replace(/\./g, '\\.').replace(/\*/g, '.*') + '$');
         for (const f of fs.readdirSync(dir).filter(f => re.test(f)).sort()) jobs.push([path.join(path.dirname(it.glob), f), { ...base, as: it.asDir + f }]);
