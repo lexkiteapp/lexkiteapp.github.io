@@ -9610,23 +9610,29 @@
     "stacked": {
      "file": "clips/mia_wave_clasp_travel.mp4",
      "alpha": "stacked",
-     "sha256": "d9ff0d9644b5594615e9ec3556e3d56fac2bcb0c1e680e46a9a76763fa76a27e",
-     "bytes": 641750,
-     "w": 770,
-     "h": 1750,
+     "sha256": "f614ecf5c5740776a520c51e0fab04167e1e617de00b64ee6861b4011947997d",
+     "bytes": 645373,
+     "w": 762,
+     "h": 1746,
      "foot": [
-      314,
-      1747
+      309,
+      1743
      ],
-     "figH": 1747,
+     "figH": 1743,
      "frames": 38,
-     "status": "FAIL",
+     "status": "WARN",
      "issues": [
-      "FAIL no_floor_shadow: còn bóng sàn dính ở chân (chạy trim_floor_shadow)",
-      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
-      "WARN anat_stroke: [đầu] nét viền 0.58 ngoài biên dàn [1.0, 14.8]"
+      "WARN anat_limbs: [giữa] không thấy đủ 2 tay + 2 chân rõ ràng",
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
      ],
-     "at": "2026-10-18"
+     "at": "2026-10-18",
+     "drive": [
+      {
+       "driveId": 3,
+       "email_masked": "",
+       "fileId": "16YVfo8lODoH9nQQxvl6hsk4aBJcnLeJx"
+      }
+     ]
     }
    }
   },
