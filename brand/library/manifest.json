@@ -1595,6 +1595,102 @@
       "w": 764,
       "h": 1750,
       "ready": true
+    },
+    {
+      "id": "mia_wave_clasp_travel",
+      "who": "mia",
+      "tags": [
+        "wave",
+        "clasp"
+      ],
+      "outfit": "travel",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/mia_wave_clasp_travel.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        694,
+        1749
+      ],
+      "figH": 1749,
+      "w": 806,
+      "h": 1752,
+      "ready": true
+    },
+    {
+      "id": "mia_listen_thumbs_travel",
+      "who": "mia",
+      "tags": [
+        "listen",
+        "thumbs"
+      ],
+      "outfit": "travel",
+      "mouth": false,
+      "facing": "front",
+      "file": "clips/mia_listen_thumbs_travel.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "listener"
+      ],
+      "foot": [
+        559,
+        1759
+      ],
+      "figH": 1759,
+      "w": 662,
+      "h": 1762,
+      "ready": true
+    },
+    {
+      "id": "carlos_talk_gesture_travel",
+      "who": "carlos",
+      "tags": [
+        "talk",
+        "gesture"
+      ],
+      "outfit": "travel",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/carlos_talk_gesture_travel.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        330,
+        1576
+      ],
+      "figH": 1576,
+      "w": 934,
+      "h": 1588,
+      "ready": true
+    },
+    {
+      "id": "carlos_listen_thumbs_travel",
+      "who": "carlos",
+      "tags": [
+        "listen",
+        "thumbs"
+      ],
+      "outfit": "travel",
+      "mouth": false,
+      "facing": "front",
+      "file": "clips/carlos_listen_thumbs_travel.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "listener"
+      ],
+      "foot": [
+        195,
+        1570
+      ],
+      "figH": 1570,
+      "w": 740,
+      "h": 1572,
+      "ready": true
     }
   ],
   "stills": [
