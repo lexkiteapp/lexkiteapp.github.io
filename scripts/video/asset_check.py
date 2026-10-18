@@ -278,7 +278,8 @@ def check_image(path, kind, ratio=None):
     if ratio is None:
         ratio = {'char': '3:4', 'room': '9:16'}.get(kind)
     if ratio:
-        C.append(chk('ratio', ratio_ok(w, h, parse_ratio(ratio)), r(w / h), ratio, f'tỉ lệ {w}×{h} ≠ {ratio}'))
+        oks = [ratio_ok(w, h, parse_ratio(x)) for x in str(ratio).split('|')]  # "3:4|9:16" = chấp nhận một trong các tỉ lệ
+        C.append(chk('ratio', any(oks), r(w / h), ratio, f'tỉ lệ {w}×{h} ≠ {ratio}'))
     if kind in ('char', 'room'):
         mn = T['char_min_short'] if kind == 'char' else T['room_min_short']
         C.append(chk('size', min(w, h) >= mn, min(w, h), mn, f'cạnh ngắn {min(w, h)} px < {mn} (chưa phải bản 2K gốc)'))

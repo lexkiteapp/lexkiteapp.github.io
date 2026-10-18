@@ -39,7 +39,7 @@ const OWNER_STEP_GC = 'Chủ dự án: mở https://grabcast.click/scheduler.htm
 
 // ---------- tên chuẩn ----------
 const RX = {
-  char: /^chars\/([a-z]+)\/(dna|neutral|expr-[a-z0-9]+(?:-[a-z0-9]+)*|gesture-[a-z0-9]+(?:-[a-z0-9]+)*)\.png$/,
+  char: /^chars\/([a-z]+)\/(dna|neutral|green(?:-casual|-travel)?|expr-[a-z0-9]+(?:-[a-z0-9]+)*|gesture-[a-z0-9]+(?:-[a-z0-9]+)*)\.png$/,
   clip: /^clips\/(src\/)?([a-z]+)_([a-z0-9]+(?:_[a-z0-9]+)*?)(?:_v(\d+))?\.mp4$/,
   room: /^rooms\/([a-z0-9]+(?:-[a-z0-9]+)*?)-(day|night|dusk)-(9x16|16x9|3x4|1x1)\.png$/,
   prop: /^props\/([a-z0-9]+(?:-[a-z0-9]+)*)\/([a-z0-9]+(?:-[a-z0-9]+)*)\.(png|svg)$/,
@@ -135,12 +135,13 @@ function probe(file) {
 const kindArg = (kind, rel) => (kind === 'clip' && /\.stacked\.mp4$/.test(rel) ? 'stacked' : kind);
 export function runCheck(file, entry, m, { sheet, kind, aiSheet, headSheet, aiRef } = {}) {
   const args = [path.join(HERE, 'asset_check.py'), file, '--kind', kind || kindArg(entry.kind, file)];
-  const r = ratioArg(ratioOf(entry.file)); if (r) args.push('--ratio', r);
+  const r = ratioArg(ratioOf(entry.file)) || (entry.kind === 'char' && /\/green(-[a-z]+)?\.png$/.test(entry.file) ? '3:4|9:16' : undefined); if (r) args.push('--ratio', r); // khung đầu phông xanh: 3:4 hoặc 9:16
   if (entry.trimmed) args.push('--trimmed');
   if ((kind || kindArg(entry.kind, file)) === 'stacked' && entry.w && entry.h) args.push('--src-size', `${entry.w},${entry.h}`); // cổng smooth quy về khung gốc (asset_check.py)
   if (entry.who && (entry.kind === 'char' || entry.kind === 'clip')) {
     args.push('--who', entry.who);
-    const ref = m.refs && m.refs[entry.who]; if (ref) args.push('--ref', JSON.stringify(ref));
+    const ok = refKey(entry.who, entry.file), newOutfitBase = ok !== entry.who && !(m.refs || {})[ok] && entry.kind === 'char'; // ảnh gốc của trang phục mới: chưa có tham chiếu → không so bảng màu với trang phục cũ
+    const ref = !newOutfitBase && m.refs && (m.refs[ok] || m.refs[entry.who]); if (ref) args.push('--ref', JSON.stringify(ref));
     if (m.castStroke) args.push('--cast-stroke', m.castStroke.join(','));
   }
   if (sheet) args.push('--sheet', sheet);
@@ -419,6 +420,10 @@ function pickMetrics(mt = {}) {
 }
 
 // ---------- ingest ----------
+// Tham chiếu DNA theo trang phục: ảnh chars/<who>/green-<outfit>.png (nhập --ref) → m.refs['<who>@<outfit>']; clip <who>_<action>_<outfit>.mp4 dùng tham chiếu đó (bảng màu áo đổi theo trang phục).
+const OUTFIT_RX = /(?:_|\/green-)(casual|travel)(?:_v\d+)?(?:\.stacked)?\.(?:mp4|png)$/;
+export const outfitOfFile = rel => (OUTFIT_RX.exec(String(rel || '')) || [])[1] || null;
+const refKey = (who, rel) => { const o = outfitOfFile(rel); return o ? `${who}@${o}` : who; };
 function refreshRefs(m) {
   const sw = Object.values(m.refs || {}).map(r => r.strokeW).filter(Boolean);
   m.castStroke = sw.length ? [Math.min(...sw), Math.max(...sw)].map(v => +v.toFixed(2)) : null;
@@ -459,7 +464,7 @@ async function ingestOne(src, opt, m) {
   fs.copyFileSync(abs, dest);
   if (pn.kind === 'room' && check.suggest && check.suggest.floorProfile) writeFloorProfile(pn, entry, check.suggest.floorProfile);
   if (pn.kind === 'room') setTimeout(() => writeRenderManifest(m), 0);
-  if (opt.ref && pn.kind === 'char' && check.suggest && check.suggest.ref) { m.refs[pn.who] = { ...check.suggest.ref, from: rel }; refreshRefs(m); }
+  if (opt.ref && pn.kind === 'char' && check.suggest && check.suggest.ref) { m.refs[refKey(pn.who, rel)] = { ...check.suggest.ref, from: rel }; refreshRefs(m); }
   return upsertEntry(m, entry, { replace: opt.replace });
 }
 function tagsFor(pn) {
@@ -527,7 +532,7 @@ async function cmdCheck(target, opts) {
     if (!fs.existsSync(f)) { rows.push([e.id, 'MISSING', 'file gốc chưa có ở brand/library (chạy restore)']); continue; }
     e.check = await gate(f, e, m, { vision: opts.vision !== false });
     if (e.kind === 'room' && e.check.suggest && e.check.suggest.floorProfile) writeFloorProfile(parseName(e.file), e, e.check.suggest.floorProfile);
-    if (e.ref && e.kind === 'char' && e.check.suggest && e.check.suggest.ref) { m.refs[e.who] = { ...e.check.suggest.ref, from: e.file }; refreshRefs(m); }
+    if (e.ref && e.kind === 'char' && e.check.suggest && e.check.suggest.ref) { m.refs[refKey(e.who, e.file)] = { ...e.check.suggest.ref, from: e.file }; refreshRefs(m); }
     // FAIL → cách ly (reject, nhớ trạng thái cũ); lần sau qua cổng → trả lại trạng thái cũ
     if (e.check.status === 'FAIL' && e.status !== 'reject') { e.quarantinedFrom = e.status; e.status = 'reject'; e.rejectReason = 'check FAIL (cách ly): ' + e.check.issues.filter(s => s.startsWith('FAIL')).join(' | '); }
     else if (e.check.status !== 'FAIL' && e.quarantinedFrom) { e.status = e.quarantinedFrom; delete e.quarantinedFrom; delete e.rejectReason; }
