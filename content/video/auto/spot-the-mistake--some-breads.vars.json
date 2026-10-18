@@ -1,0 +1,20 @@
+{
+ "topic": "Supermarket English: spot the mistake in \"I need some breads\"",
+ "scene": "supermarket",
+ "seed": "stm-breads",
+ "vars": {
+  "wrong": "I need some breads",
+  "wrongShort": "some breads",
+  "right": "I need some bread",
+  "fix": "some bread",
+  "rule": "bread has no plural. Say some bread, or two loaves of bread.",
+  "example": "So, some bread, some milk, and a few bananas.",
+  "tip": "bread, milk, rice, and water don't take an s. Count the bag or loaf.",
+  "skill": "everyday English"
+ },
+ "hashtags": [
+  "commonmistakes",
+  "englishtips",
+  "learnenglish"
+ ]
+}

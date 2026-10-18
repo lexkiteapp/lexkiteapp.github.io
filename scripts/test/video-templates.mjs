@@ -5,6 +5,7 @@
 import fs from 'fs';
 import * as V from '../video/lib.mjs';
 import * as T from '../video/template.mjs';
+import * as A from '../video/auto.mjs';
 let fails = 0; const ok = (c, m) => { if (!c) { fails++; console.log('✗', m); } };
 const R = new URL('../../', import.meta.url), J = f => JSON.parse(fs.readFileSync(new URL(f, R), 'utf8'));
 const ctx = T.loadCtx(), tpls = T.listTemplates();
@@ -58,5 +59,11 @@ ok(V.syllables('procrastinate') === 4 && V.syllables('coffee') === 2 && V.syllab
 ok(V.estLineSec('one two three four five six seven eight nine ten eleven twelve thirteen') === 5.3 && V.HOOK_MAX === 2.05, 'ước lượng câu = công thức bước tts');
 ok(V.brandGate({ title: 't', lines: [{ who: 'bob', text: 'hi' }] }).ok === false && V.ctaGate({ lines: [{ beat: 'cta', text: 'lexkite.com' }] }).ok, 'cổng brand/CTA dùng chung');
 
+// 6) Kho video tự động (scripts/video/auto.mjs, §12): mọi kịch bản qua cổng tĩnh, tên nguồn hợp lệ, xen kẽ khuôn
+const bk = A.bank();
+for (const x of bk) { const p = A.prepare(x, ctx); ok(p.ok, `kho tự động ${x.source}: ${(p.errs || []).slice(0, 2).join(' | ')}`); }
+ok(bk.length >= 2 && bk[0].template !== bk[1].template, 'kho tự động xen kẽ khuôn');
+ok(new Set(bk.map(x => x.source)).size === bk.length, 'kho tự động không trùng nguồn');
+
 if (fails) { console.log(`✗ video-templates: ${fails} lỗi`); process.exit(1); }
-console.log(`✓ video-templates: ${tpls.length} khuôn · ${exs.length} ví dụ qua cổng tĩnh · bắt đúng 13 kiểu lỗi`);
+console.log(`✓ video-templates: ${tpls.length} khuôn · ${exs.length} ví dụ qua cổng tĩnh · bắt đúng 13 kiểu lỗi · kho tự động ${bk.length}`);

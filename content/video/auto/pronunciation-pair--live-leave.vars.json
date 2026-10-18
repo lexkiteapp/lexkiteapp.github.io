@@ -1,0 +1,20 @@
+{
+ "topic": "Pronunciation: live vs leave",
+ "scene": "classroom",
+ "seed": "pp-live-leave",
+ "vars": {
+  "a": "live",
+  "b": "leave",
+  "mixup": "So I told my host family I want to leave here?",
+  "how": "Live is short and relaxed. Leave is long, so smile and stretch it.",
+  "drill": "I live near school, but I leave home early.",
+  "tip": "relax your lips for live, smile wide for leave.",
+  "wrongCard": "I want to leave here",
+  "rightCard": "I want to live here"
+ },
+ "hashtags": [
+  "pronunciation",
+  "englishpronunciation",
+  "esl"
+ ]
+}

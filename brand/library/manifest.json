@@ -1612,13 +1612,13 @@
         "speaker"
       ],
       "foot": [
-        694,
-        1749
+        309,
+        1743
       ],
-      "figH": 1749,
-      "w": 806,
-      "h": 1752,
-      "ready": false
+      "figH": 1743,
+      "w": 762,
+      "h": 1746,
+      "ready": true
     },
     {
       "id": "mia_listen_thumbs_travel",
@@ -1761,7 +1761,7 @@
         1590
       ],
       "figH": 1590,
-      "w": 812,
+      "w": 806,
       "h": 1594,
       "ready": true,
       "mirrorOk": true

@@ -3963,9 +3963,9 @@
     "primary": {
      "path": "clips/carlos_q_talk_nod_travel.mp4",
      "url": "https://media.lexkite.com/library/clips/carlos_q_talk_nod_travel.mp4",
-     "sha256": "1c22ca0fcabd757118bcd1d07e0b014fb9e527269eb63ee3fa1a315bb1556c9e",
-     "gitSha": "449032eb12fb1207d8aed66dfd2c5512ffadb79d",
-     "bytes": 967532,
+     "sha256": "037550c9f13695ec2b6d411381efbadb7303d73b18e02e0f830c292610dda8a5",
+     "gitSha": "ac5b09fb9a958a59747ac4b7da4b257ed5479bab",
+     "bytes": 944842,
      "srcSha": "796d98028ec915979d8773acf479337bedf889660c7893b5bbfa8ec41ab4f967",
      "variant": "stacked",
      "at": "2026-10-18"
@@ -4024,9 +4024,9 @@
     "stacked": {
      "file": "clips/carlos_q_talk_nod_travel.mp4",
      "alpha": "stacked",
-     "sha256": "1c22ca0fcabd757118bcd1d07e0b014fb9e527269eb63ee3fa1a315bb1556c9e",
-     "bytes": 967532,
-     "w": 812,
+     "sha256": "037550c9f13695ec2b6d411381efbadb7303d73b18e02e0f830c292610dda8a5",
+     "bytes": 944842,
+     "w": 806,
      "h": 1594,
      "foot": [
       484,
@@ -4041,7 +4041,7 @@
      "at": "2026-10-18",
      "path": "clips/carlos_q_talk_nod_travel.mp4",
      "url": "https://media.lexkite.com/library/clips/carlos_q_talk_nod_travel.mp4",
-     "gitSha": "449032eb12fb1207d8aed66dfd2c5512ffadb79d"
+     "gitSha": "ac5b09fb9a958a59747ac4b7da4b257ed5479bab"
     }
    },
    "trimmed": true
@@ -9553,7 +9553,16 @@
    ],
    "status": "approved",
    "locations": {
-    "primary": null,
+    "primary": {
+     "path": "clips/mia_wave_clasp_travel.mp4",
+     "url": "https://media.lexkite.com/library/clips/mia_wave_clasp_travel.mp4",
+     "sha256": "096da744f5a39bc80337fd0641c406462e7646b03023b452bbbd34709f70cb88",
+     "gitSha": "c16e3ed5edbbadae0f4378e5ae691c90ce094f75",
+     "bytes": 640076,
+     "srcSha": "7999c6b514af69c41702ff05b890776dee6f528e82cceee8c1c8ce2a51bd8d92",
+     "variant": "stacked",
+     "at": "2026-10-18"
+    },
     "backup": {
      "status": "pending"
     },
@@ -9610,23 +9619,25 @@
     "stacked": {
      "file": "clips/mia_wave_clasp_travel.mp4",
      "alpha": "stacked",
-     "sha256": "d9ff0d9644b5594615e9ec3556e3d56fac2bcb0c1e680e46a9a76763fa76a27e",
-     "bytes": 641750,
-     "w": 770,
-     "h": 1750,
+     "sha256": "096da744f5a39bc80337fd0641c406462e7646b03023b452bbbd34709f70cb88",
+     "bytes": 640076,
+     "w": 762,
+     "h": 1746,
      "foot": [
-      314,
-      1747
+      309,
+      1743
      ],
-     "figH": 1747,
+     "figH": 1743,
      "frames": 38,
-     "status": "FAIL",
+     "status": "WARN",
      "issues": [
-      "FAIL no_floor_shadow: còn bóng sàn dính ở chân (chạy trim_floor_shadow)",
-      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
-      "WARN anat_stroke: [đầu] nét viền 0.58 ngoài biên dàn [1.0, 14.8]"
+      "WARN anat_limbs: [giữa] không thấy đủ 2 tay + 2 chân rõ ràng",
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
      ],
-     "at": "2026-10-18"
+     "at": "2026-10-18",
+     "path": "clips/mia_wave_clasp_travel.mp4",
+     "url": "https://media.lexkite.com/library/clips/mia_wave_clasp_travel.mp4",
+     "gitSha": "c16e3ed5edbbadae0f4378e5ae691c90ce094f75"
     }
    }
   },

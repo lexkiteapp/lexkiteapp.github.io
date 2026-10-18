@@ -1,0 +1,37 @@
+# Video tự động hằng ngày (docs/VIDEO-PIPELINE.md §12): kho kịch bản khuôn → lint → Studio ciCreate → video.yml (dựng + QA + tải kho GrabCast).
+# Studio chặn: trùng nguồn · công tắc Tự động tắt · hạn mức/ngày · tồn đọng chờ duyệt. Đăng công khai vẫn theo luật Studio (chấm tay knowledge/share, N video đầu duyệt tay).
+name: Video tự động (hằng ngày)
+on:
+  schedule:
+    - cron: '17 23 * * *' # 06:17 giờ VN – video xong trước giờ vàng New York 7·8 giờ
+  workflow_dispatch:
+    inputs:
+      n: { description: 'Số video tạo lần này (1–5)', required: false, default: '1' }
+      only: { description: 'Chỉ chạy 1 kịch bản (<khuôn>--<slug>), để trống = kế tiếp', required: false, default: '' }
+      force: { description: 'Bỏ qua công tắc Tự động/hạn mức/tồn đọng (chạy tay)', type: boolean, default: false }
+permissions:
+  contents: read
+  actions: write # gọi video.yml (workflow_dispatch bằng GITHUB_TOKEN)
+concurrency: { group: video-auto, cancel-in-progress: false }
+jobs:
+  pick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Kiểm kho kịch bản (cổng tĩnh)
+        continue-on-error: true
+        run: node scripts/video/auto.mjs --check | tail -40
+      - name: Tạo job Studio + gọi dựng
+        env:
+          STUDIO_CALLBACK_SECRET: ${{ secrets.STUDIO_CALLBACK_SECRET }}
+          GITHUB_TOKEN: ${{ github.token }}
+          N: ${{ inputs.n || '1' }}
+          ONLY: ${{ inputs.only }}
+          FORCE: ${{ inputs.force && '--force' || '' }}
+        run: |
+          echo "$N" | grep -Eq '^[1-5]$' || { echo "n không hợp lệ"; exit 1; }
+          [ -z "$ONLY" ] || echo "$ONLY" | grep -Eq '^[a-z0-9-]{1,40}--[a-z0-9-]{1,60}$' || { echo "only không hợp lệ"; exit 1; }
+          node scripts/video/auto.mjs --n "$N" ${ONLY:+--only "$ONLY"} $FORCE

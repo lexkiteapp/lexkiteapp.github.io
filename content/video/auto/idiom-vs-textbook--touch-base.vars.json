@@ -1,0 +1,25 @@
+{
+ "topic": "Office idiom: \"touch base\" vs textbook English",
+ "scene": "office",
+ "seed": "iv-touch-base",
+ "vars": {
+  "idiom": "touch base",
+  "hookLine": "Let's touch base.",
+  "textbook": "My textbook says: can we talk again soon?",
+  "meaning": "Touch base just means a quick check-in. Short and friendly.",
+  "native": "Can we touch base after lunch about the slides?",
+  "tip": "touch base is for work. With friends, just say catch up.",
+  "textbookCard": "Can we talk again soon?",
+  "nativeCard": "Let's touch base later."
+ },
+ "lines": {
+  "example": {
+   "expr": "curious"
+  }
+ },
+ "hashtags": [
+  "idioms",
+  "businessenglish",
+  "speakenglish"
+ ]
+}

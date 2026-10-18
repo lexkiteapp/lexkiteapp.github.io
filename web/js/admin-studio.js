@@ -23,7 +23,7 @@
     'Tải lên GrabCast, tạo bài và lên lịch lúc {d}?': 'Upload to GrabCast, create the post and schedule it at {d}?', 'khung trống kế tiếp': 'the next free slot', 'Lên lịch': 'Schedule', 'Hủy lịch': 'Unschedule', 'Hủy lịch bài này? Bài trở về "Đã tải lên".': 'Unschedule this post? It goes back to "Uploaded".',
     '🗑️ Xóa job': '🗑️ Delete job', 'Xóa job này?': 'Delete this job?', '✓ Xong': '✓ Done', 'Lịch: {d}': 'Scheduled: {d}',
     // Cài đặt
-    'Hạn mức/ngày': 'Daily quota', 'Duyệt tay N video đầu': 'Manually review first N videos', 'Nền tảng (để trống = mọi kênh)': 'Platforms (empty = all channels)', 'Kênh mặc định': 'Default accounts', 'Lưu cài đặt': 'Save settings',
+    'Hạn mức/ngày': 'Daily quota', 'Duyệt tay N video đầu': 'Manually review first N videos', 'Video tự động chờ duyệt tối đa': 'Max auto videos awaiting review', 'Nền tảng (để trống = mọi kênh)': 'Platforms (empty = all channels)', 'Kênh mặc định': 'Default accounts', 'Lưu cài đặt': 'Save settings',
     'Bật chế độ tự động? Kịch bản AI hợp lệ sẽ tự dựng; video QA ≥ 90 tự lên lịch đăng công khai (sau {n} video duyệt tay).': 'Turn on auto mode? Valid AI scripts render automatically; videos with QA ≥ 90 get scheduled publicly (after {n} manually reviewed).',
     // Lỗi
     'Thiếu cấu hình: {k}': 'Not configured: {k}', 'Sai luồng: {a} → {b}': 'Not allowed: {a} → {b}', 'Kịch bản chưa hợp lệ': 'Script is not valid', 'Điểm QA dưới 90': 'QA score below 90', 'Chưa có file video trong kho (bước dựng chưa tải lên GrabCast)': 'No video file in storage yet (render did not upload to GrabCast)',
@@ -109,12 +109,12 @@
     async function settings(st) {
       const el = box.querySelector('#stuSetBox'); el.hidden = false;
       const acc = await sapi('GET', 'accounts').then(arr).catch(() => []);
-      el.innerHTML = `<h3 style="margin:0">${S('⚙️ Cài đặt')}</h3><div class="stu-form stu-dlg" style="width:auto"><label>${S('Hạn mức/ngày')}<input type="number" min="1" max="10" id="sq" value="${st.dailyQuota}"></label><label>${S('Duyệt tay N video đầu')}<input type="number" min="0" max="50" id="sm" value="${st.manualFirst}"></label>
+      el.innerHTML = `<h3 style="margin:0">${S('⚙️ Cài đặt')}</h3><div class="stu-form stu-dlg" style="width:auto"><label>${S('Hạn mức/ngày')}<input type="number" min="1" max="10" id="sq" value="${st.dailyQuota}"></label><label>${S('Duyệt tay N video đầu')}<input type="number" min="0" max="50" id="sm" value="${st.manualFirst}"></label><label>${S('Video tự động chờ duyệt tối đa')}<input type="number" min="1" max="20" id="sb" value="${st.backlog || 3}"></label>
         <label style="grid-column:1/-1">${S('Nền tảng (để trống = mọi kênh)')}<input id="sp" value="${esc(st.platforms.join(', '))}" placeholder="youtube, tiktok, instagram, facebook"></label></div>
         ${acc.length ? `<p class="small" style="margin:.6rem 0 .2rem"><b>${S('Kênh mặc định')}</b></p><div class="stu-times">${acc.map(a => `<label class="chip-f"><input type="checkbox" value="${esc(String(a.id))}" ${st.accounts.includes(String(a.id)) ? 'checked' : ''}> ${esc(pick(a, 'name', 'username', 'display_name') || a.id)} <small>${esc(pick(a, 'platform', 'provider') || '')}</small></label>`).join('')}</div>` : ''}
         <div class="stu-btns"><button class="btn primary sm" id="ssave">${S('Lưu cài đặt')}</button></div><p class="stu-msg" id="smsg"></p>`;
       el.querySelector('#ssave').onclick = async () => {
-        try { await stapi('settingsSet', { settings: { dailyQuota: +el.querySelector('#sq').value, manualFirst: +el.querySelector('#sm').value, platforms: el.querySelector('#sp').value.split(',').map(x => x.trim()).filter(Boolean), accounts: [...el.querySelectorAll('.stu-times input:checked')].map(i => i.value) } }); el.querySelector('#smsg').textContent = S('✓ Xong'); }
+        try { await stapi('settingsSet', { settings: { dailyQuota: +el.querySelector('#sq').value, manualFirst: +el.querySelector('#sm').value, backlog: +el.querySelector('#sb').value, platforms: el.querySelector('#sp').value.split(',').map(x => x.trim()).filter(Boolean), accounts: [...el.querySelectorAll('.stu-times input:checked')].map(i => i.value) } }); el.querySelector('#smsg').textContent = S('✓ Xong'); }
         catch (e) { el.querySelector('#smsg').textContent = errMsg(e); }
       };
       el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });

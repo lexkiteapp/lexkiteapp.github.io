@@ -1,0 +1,18 @@
+{
+ "topic": "Grammar: say or tell?",
+ "scene": "classroom",
+ "seed": "cp-say-tell",
+ "vars": {
+  "a": "say",
+  "b": "tell",
+  "confession": "I keep saying, she said me the news. Oops.",
+  "aRule": "Use say for the words: she said hello to everyone.",
+  "bRule": "Use tell with a person: she told me the news.",
+  "tip": "you tell someone something, but you just say something."
+ },
+ "hashtags": [
+  "englishgrammar",
+  "commonmistakes",
+  "learnenglish"
+ ]
+}

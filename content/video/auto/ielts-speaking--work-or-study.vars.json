@@ -1,0 +1,18 @@
+{
+ "topic": "IELTS Speaking Part 1: do you work or study?",
+ "scene": "classroom",
+ "seed": "ielts-work-study",
+ "vars": {
+  "question": "Do you work or study?",
+  "weak": "I just said, study. Then nothing. Oops.",
+  "model": "I'm studying marketing at the moment. I really enjoy it, because every class feels practical.",
+  "structure": "So: answer the question, say how you feel, then add a reason.",
+  "tip": "for things happening now, use I'm studying or I'm working.",
+  "kw": "at the moment"
+ },
+ "hashtags": [
+  "ielts",
+  "ieltsspeaking",
+  "ieltspreparation"
+ ]
+}

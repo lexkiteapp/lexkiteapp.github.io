@@ -1,0 +1,28 @@
+{
+ "topic": "Cafe roleplay: \"Can I pay by card?\"",
+ "scene": "cafe",
+ "seed": "rp-card",
+ "vars": {
+  "phrase": "pay by card",
+  "place": "the cafe",
+  "hookLine": "Wait… do you take cards?",
+  "staffOpen": "Cash or card is fine. One cappuccino coming up.",
+  "learnerLine": "Can I pay by card, please?",
+  "staffReply": "Of course. Just tap it here. Have a good one!",
+  "tip": "pay by card, but pay in cash. Notice by and in."
+ },
+ "lines": {
+  "hook": {
+   "expr": "surprised",
+   "gesture": "hands on cheeks"
+  },
+  "example": {
+   "expr": "curious"
+  }
+ },
+ "hashtags": [
+  "englishconversation",
+  "dailyenglish",
+  "learnenglish"
+ ]
+}

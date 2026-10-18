@@ -1,0 +1,20 @@
+{
+ "topic": "Cafe English pronunciation: cup vs cap",
+ "scene": "cafe",
+ "seed": "pp-cup-cap",
+ "vars": {
+  "a": "cup",
+  "b": "cap",
+  "mixup": "So I just ordered a cap of coffee?",
+  "how": "For cup, keep your mouth small and relaxed. For cap, open it wide.",
+  "drill": "Put your cap down and pick up your cup.",
+  "tip": "cup sounds like a lazy grunt. Cap needs a wide open mouth.",
+  "wrongCard": "A cap of coffee, please",
+  "rightCard": "A cup of coffee, please"
+ },
+ "hashtags": [
+  "pronunciation",
+  "speakenglish",
+  "learnenglish"
+ ]
+}

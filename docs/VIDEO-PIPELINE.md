@@ -176,3 +176,16 @@ Mục tiêu: mọi thể loại video ra kịch bản **cùng một cấu trúc 
 - **Test**: `scripts/test/video-templates.mjs` (trong `npm test`, < 1 s): khuôn hợp lệ, ví dụ ↔ sample đồng bộ, mọi sample khuôn qua cổng tĩnh và người nói đều có clip thật, cổng bắt đúng 13 kiểu lỗi, ước lượng hook sát số đo CI.
 - **Studio**: `normScript` (functions/api/studio.js) giữ các trường tuỳ chọn hợp lệ `scene, time, outfit, format_id, template, recast, wrong, right` + từng câu `punch, scene, transition` → dán/lưu kịch bản sinh từ khuôn qua `scriptSave` không mất bối cảnh/khuôn hình. Bước tiếp (chưa làm, cần i18n 15 ngôn ngữ cho UI): ô chọn khuôn trong Quản trị → Video Studio + `scriptGen` gửi `writing`/beats của khuôn vào prompt Gemini rồi chạy `lint` phía máy chủ (template.mjs import được trong Worker nếu bỏ phần CLI/fs).
 - **Quy trình thêm video mới**: chọn khuôn → chép 1 file vars ví dụ → sửa nội dung (đọc to, kiểm `writing.dont`) → `node scripts/video/template.mjs build` → `lint content/video/samples/<file>` → dựng thử trên CI `video-sample.yml` (script = đường dẫn sample) → chấm MEDIA-QA-RUBRIC ≥ 90.
+
+## 12. Video tự động hằng ngày (kho kịch bản khuôn → Studio → dựng → duyệt → đăng)
+```
+video-auto.yml (06:17 VN hằng ngày) → scripts/video/auto.mjs: kho kịch bản → fill + lint (cổng tĩnh §11)
+  → POST /api/studio ciCreate (secret CI) → job script_ok → rendering → gọi video.yml (GITHUB_TOKEN, actions: write)
+  → video.yml: dựng + QA máy (75 điểm) + tải kho GrabCast → ciResult → job "rendered" (chờ chấm tay knowledge 20 + share 5)
+  → admin chấm trong Quản trị → Video Studio → qa_ok (≥ 90) → 📤 đăng / lên lịch giờ vàng New York
+```
+- **Kho kịch bản**: `content/video/auto/<khuôn>--<slug>.vars.json` (viết riêng cho kênh) + `content/video/templates/examples/*.vars.json` (ví dụ đã dựng mẫu 75/75). Thứ tự: xen kẽ khuôn, mỗi ngày bắt đầu từ khuôn khác (không 2 video cùng thể loại liền nhau). Tên file = **nguồn** (khóa chống trùng: Studio lưu `files.source`; nguồn đã có job thì không tạo lại – muốn dựng lại thì xoá job đó trong Studio).
+- **Studio chặn** (`ciCreate`, functions/api/studio.js): trùng nguồn → bỏ qua sang mục kế · công tắc **Tự động** tắt → dừng (`auto-off`) · đủ **hạn mức/ngày** (`dailyQuota`) · **tồn đọng** video tự động chưa chấm (rendering/rendered/qa_fail, 30 ngày) ≥ `backlog` (mặc định 3, sửa ở ⚙️ Cài đặt) → dừng để không dồn video chưa duyệt. Chạy tay `force: true` bỏ qua 3 chặn sau.
+- **Đăng**: không đổi luật §7 – video tự động vẫn cần chấm tay knowledge/share; N video đầu (mặc định 5) duyệt tay trước khi tự lên lịch.
+- **Lệnh**: `node scripts/video/auto.mjs --check` (lint cả kho, trong `npm test` qua `scripts/test/video-templates.mjs`) · `--dry-run` · chạy tay trên CI: Actions → "Video tự động (hằng ngày)" → `n`, `only`, `force`.
+- **Thêm video vào kho**: chép 1 vars ví dụ → sửa nội dung theo `writing.do/dont` của khuôn → `node scripts/video/auto.mjs --check` → commit. Kho cạn → job không tạo thêm (báo trong Summary của run).

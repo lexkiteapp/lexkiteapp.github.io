@@ -1,0 +1,23 @@
+{
+ "topic": "Phrasal verb at work: figure out before the deadline",
+ "scene": "office",
+ "seed": "pv-figure-out",
+ "vars": {
+  "verb": "figure out",
+  "hookLine": "We'll figure it out.",
+  "literal": "Figure? Like drawing a picture?",
+  "meaning": "Figure out means find the answer. We'll figure out the problem together.",
+  "example": "Can you help me figure out this new printer?",
+  "tip": "with it, put it in the middle: figure it out, not figure out it."
+ },
+ "lines": {
+  "example": {
+   "expr": "curious"
+  }
+ },
+ "hashtags": [
+  "phrasalverbs",
+  "businessenglish",
+  "speakenglish"
+ ]
+}

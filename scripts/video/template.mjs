@@ -43,7 +43,8 @@ const VAR = /\{\{\s*([a-zA-Z0-9_]+)\s*\}\}/g;
 export const capFirst = t => String(t).replace(/^([\s"“'‘(]*)([a-z])/, (_, a, b) => a + b.toUpperCase()); // biến chữ thường ở đầu câu ("affect or effect?") → viết hoa
 export const varsIn = s => [...String(s || '').matchAll(VAR)].map(m => m[1]);
 function subT(pat, vars, where, defs = {}) {
-  return String(pat).replace(VAR, (_, k) => { if (vars[k] == null || vars[k] === '') throw new Error(`${where}: thiếu biến {{${k}}}${defs[k] && defs[k].desc ? ' – ' + defs[k].desc : ''}`); return String(vars[k]); });
+  return String(pat).replace(VAR, (_, k) => { if (vars[k] == null || vars[k] === '') throw new Error(`${where}: thiếu biến {{${k}}}${defs[k] && defs[k].desc ? ' – ' + defs[k].desc : ''}`); return String(vars[k]); })
+    .replace(/([?!])[.,](?=["”’]|\s|$)/g, '$1').replace(/([?!]["”’])[.,]/g, '$1'); // biến kết thúc bằng ?/! trong mẫu "{{wrong}}." → không ra "?."
 }
 // Chọn 1 mẫu câu theo seed (ổn định, đa dạng giữa các video); bỏ mẫu cần biến tuỳ chọn chưa có
 const pick = (arr, seed, key, vars = null) => { const all = Array.isArray(arr) ? arr : [arr], ok = vars ? all.filter(p => varsIn(p).every(k => vars[k] != null && vars[k] !== '')) : all, list = ok.length ? ok : all; return list[X.hash32(`${seed}|${key}`) % list.length]; };

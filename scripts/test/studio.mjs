@@ -1,5 +1,6 @@
 // Test Video Studio (functions/api/studio.js): cổng quản trị, chuyển trạng thái, thiếu cấu hình, bí mật gọi lại CI, chọn khung giờ đăng, không lộ khóa.
 // Chạy: node scripts/test/studio.mjs  (không cần mạng – D1 giả bằng node:sqlite, fetch & env giả lập)
+import fs from 'node:fs';
 import { webcrypto } from 'node:crypto';
 import { DatabaseSync } from 'node:sqlite';
 let fails = 0; const ok = (c, m) => { if (!c) { fails++; console.log('✗', m); } };
@@ -147,6 +148,24 @@ const id4 = await mk('needs recent'); r = await ci({ op: 'ciJob', id: id4 }); ok
 r = await call(ADM, { op: 'createFromQueue', n: 5 }); ok(r.s === 200 && r.j.jobs.length === 2 && r.j.left === 0, 'tạo job từ queue.json');
 r = await call(ADM, { op: 'createFromQueue', n: 5 }); ok(r.j.jobs.length === 0, 'không tạo trùng chủ đề');
 r = await call(ADM, { op: 'list' }); ok(r.j.counts.scheduled === 1 && r.j.counts.uploaded === 1 && r.j.done === 1, 'đếm theo trạng thái');
+
+// 8b) Video tự động – ciCreate (scripts/video/auto.mjs)
+const autoSc = JSON.parse(fs.readFileSync(new URL('../../content/video/samples/quiz-ab--an-hour.json', import.meta.url), 'utf8')).script;
+const ac = (source, extra = {}) => ci({ op: 'ciCreate', source, topic: 'Auto ' + source, script: autoSc, ...extra });
+ok((await call(ADM, { op: 'ciCreate', source: 'quiz-ab--x', script: autoSc })).s === 400, 'quản trị không gọi thẳng ciCreate');
+ok((await ci({ op: 'ciCreate', source: 'bad source', script: autoSc })).s === 400, 'nguồn sai dạng → 400');
+await call(ADM, { op: 'settingsSet', settings: { auto: false, dailyQuota: 2, backlog: 2 } });
+r = await ac('quiz-ab--y'); ok(r.s === 409 && r.j.error === 'auto-off', 'tắt Tự động → ciCreate dừng');
+r = await ac('quiz-ab--y', { force: true }); ok(r.s === 200 && r.j.job.status === 'rendering', 'force → tạo job ở rendering');
+g = (await call(ADM, { op: 'get', id: r.j.job.id })).j.job; ok(g.files.source === 'quiz-ab--y' && g.script.lines.length === autoSc.lines.length && g.status === 'rendering', 'job tự động giữ nguồn + kịch bản');
+r = await ac('quiz-ab--y', { force: true }); ok(r.s === 200 && r.j.exists, 'trùng nguồn → exists, không tạo lại');
+await call(ADM, { op: 'settingsSet', settings: { auto: true, dailyQuota: 1 } });
+r = await ac('quiz-ab--z'); ok(r.s === 409 && r.j.error === 'quota', 'đủ hạn mức/ngày → dừng');
+await call(ADM, { op: 'settingsSet', settings: { dailyQuota: 10, backlog: 1 } });
+r = await ac('quiz-ab--z'); ok(r.s === 409 && r.j.error === 'backlog' && r.j.pending === 1, 'tồn đọng chờ duyệt ≥ backlog → dừng');
+await call(ADM, { op: 'settingsSet', settings: { backlog: 5 } });
+r = await ac('quiz-ab--z'); ok(r.s === 200 && r.j.job.status === 'rendering', 'còn chỗ → tạo job');
+r = await ci({ op: 'ciCreate', source: 'quiz-ab--bad', script: { lines: [] } }); ok(r.s === 422, 'kịch bản sai → 422, không tạo');
 
 // 9) Chọn khung giờ (thuần)
 const jan = Date.UTC(2027, 0, 11, 5), jul = Date.UTC(2027, 6, 12, 5); // 00:00 / 01:00 New York

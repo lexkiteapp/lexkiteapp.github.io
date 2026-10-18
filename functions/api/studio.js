@@ -2,7 +2,7 @@
  * POST /api/studio
  *   1) Quản trị viên (Authorization: Bearer <Firebase ID token>, cùng cổng adminGate với /api/admin)  { op, ... }
  *      op: list · get · create · createFromQueue · jobDelete · scriptGen · scriptSave · scriptApprove · render · qaSet · publish · schedule · unschedule · sync · slots · settings · settingsSet · assets
- *   2) GitHub Actions video.yml (header X-Studio-Secret = secret STUDIO_CALLBACK_SECRET)  { op: 'ciJob' | 'ciResult', id, ... }
+ *   2) GitHub Actions video.yml (header X-Studio-Secret = secret STUDIO_CALLBACK_SECRET)  { op: 'ciJob' | 'ciResult', id, ... } · video-auto.yml { op: 'ciCreate', source, topic, script, force? }
  * Trạng thái: idea → script → script_ok → rendering → rendered → qa_ok / qa_fail → uploaded → scheduled → published (TRANS bên dưới).
  * Bí mật (chỉ ở máy chủ, không bao giờ trả về/ghi log): GH_DISPATCH_TOKEN (chạy video.yml), STUDIO_CALLBACK_SECRET (CI gọi lại), GRABCAST_API_KEY (đăng bài).
  * Thiếu bí mật nào → 503 { error: 'not-configured', need: '<TÊN>' } để giao diện hiện hướng dẫn. */
@@ -163,11 +163,12 @@ export function nextSlots({ now = Date.now(), taken = [], n = 5, quota = 1, lead
 }
 
 // ---------- Cài đặt (config 'studio') ----------
-export const DEFAULTS = { auto: false, manualFirst: 5, dailyQuota: 1, platforms: [], accounts: [] };
+export const DEFAULTS = { auto: false, manualFirst: 5, dailyQuota: 1, backlog: 3, platforms: [], accounts: [] };
 const normSettings = s => ({
   auto: !!(s && s.auto),
   manualFirst: Math.max(0, Math.min(50, Math.round(+((s && s.manualFirst) ?? 5)) || 0)),
   dailyQuota: Math.max(1, Math.min(10, Math.round(+((s && s.dailyQuota) ?? 1)) || 1)),
+  backlog: Math.max(1, Math.min(20, Math.round(+((s && s.backlog) ?? 3)) || 3)), // video tự động chờ duyệt tối đa (rendering/rendered/qa_fail) – đủ thì CI ngừng tạo thêm
   platforms: (Array.isArray(s && s.platforms) ? s.platforms : []).map(x => String(x).toLowerCase().replace(/[^a-z]/g, '')).filter(Boolean).slice(0, 10),
   accounts: (Array.isArray(s && s.accounts) ? s.accounts : []).map(x => String(x)).filter(x => /^[A-Za-z0-9_-]{1,100}$/.test(x)).slice(0, 20),
 });
@@ -374,6 +375,26 @@ async function secretOk(env, given) {
   const [a, b] = await Promise.all([hex('studio|' + want), hex('studio|' + given)]); let d = 0; for (let i = 0; i < a.length; i++) d |= a.charCodeAt(i) ^ b.charCodeAt(i); return d === 0; // so sánh băm, thời gian không đổi
 }
 const CI = {
+  // video-auto.yml (theo lịch): tạo job từ kịch bản khuôn đã qua lint (scripts/video/auto.mjs) → script_ok → rendering; CI tự gọi video.yml.
+  // Chặn: trùng nguồn (vars file) · công tắc Tự động tắt · đủ hạn mức/ngày · tồn đọng chờ duyệt ≥ backlog. force (chạy tay) bỏ qua 3 chặn sau.
+  async ciCreate(env, db, b) {
+    const src = String(b.source || ''); if (!/^[a-z0-9-]{1,40}--[a-z0-9-]{1,60}$/.test(src)) throw new Bad(400, 'source');
+    const dup = await db.prepare('SELECT id, status FROM video_jobs WHERE files_json LIKE ?').bind(`%"source":"${src}"%`).first();
+    if (dup) return { exists: true, job: { id: dup.id, status: dup.status } };
+    const st = await getSettings(db), force = b.force === true;
+    if (!force && !st.auto) throw new Bad(409, 'auto-off');
+    const n = async sql => +(((await db.prepare(sql).bind(Date.now() - DAY).first()) || {}).n || 0);
+    if (!force && await n(`SELECT COUNT(*) AS n FROM video_jobs WHERE created > ? AND files_json LIKE '%"source":"%'`) >= st.dailyQuota) throw new Bad(409, 'quota', { quota: st.dailyQuota });
+    const pending = +(((await db.prepare(`SELECT COUNT(*) AS n FROM video_jobs WHERE status IN ('rendering', 'rendered', 'qa_fail') AND created > ? AND files_json LIKE '%"source":"%'`).bind(Date.now() - 30 * DAY).first()) || {}).n || 0);
+    if (!force && pending >= st.backlog) throw new Bad(409, 'backlog', { pending, backlog: st.backlog });
+    const sc = b.script && typeof b.script === 'object' ? b.script : null;
+    const check = checkScript(sc, 'short'); if (!check.ok) throw new Bad(422, 'script-invalid', { errs: check.errs });
+    let j = await insertJob(db, { topic: b.topic || sc.title, format: 'short', lang: 'en' }, 'ci:auto');
+    j = await save(db, j, { status: 'script', script: normScript(sc, j), files: { source: src, auto: Date.now() } });
+    j = await save(db, j, { status: 'script_ok' });
+    j = await save(db, j, { status: 'rendering', files: { ...j.files, dispatched: Date.now() } });
+    return { job: { id: j.id, status: j.status } };
+  },
   async ciJob(env, db, b) {
     const j = await getJob(db, b.id); if (!j) throw new Bad(404, 'not-found');
     // dấu vân tay biến thể của 30 video gần nhất → bộ sinh chống lặp (scripts/video/variants.mjs)

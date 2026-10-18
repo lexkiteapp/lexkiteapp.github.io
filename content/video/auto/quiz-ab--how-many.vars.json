@@ -1,0 +1,19 @@
+{
+ "topic": "Grammar quiz: \"how much people\" or \"how many people\"?",
+ "scene": "classroom",
+ "seed": "q-how-many",
+ "vars": {
+  "question": "Much or many?",
+  "optionA": "How much people came?",
+  "optionB": "How many people came?",
+  "answer": "It's B, how many. You can count people, so use many.",
+  "example": "Exactly! How many friends, but how much time.",
+  "tip": "can you count it? Many. Can't count it? Much.",
+  "kw": "how many"
+ },
+ "hashtags": [
+  "englishquiz",
+  "testyourenglish",
+  "learnenglish"
+ ]
+}
