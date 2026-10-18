@@ -87,6 +87,12 @@ als = [matte(f) for f in rgbs]
 # bóng đổ chỉ có ở khung đầu (ảnh tham chiếu Kling) thành viền xám alpha ~0,5 – lỗi mia_wave_clasp_travel 18/10 FAIL no_floor_shadow)
 W3 = lambda i, n: slice(max(0, min(i - 1, n - 3)), max(0, min(i - 1, n - 3)) + 3)
 als = [np.median(np.stack(als[W3(i, len(als))]), axis=0) for i in range(len(als))]
+# …nhưng trung vị không được "mượn" thân từ khung bên cạnh: điểm xanh lá trội rõ TRONG CHÍNH khung đó luôn là nền
+# (khung đầu Kling đổi tư thế → tay/thân khung 1–2 phủ lên vùng phông của khung 0 → hiện mảng xanh, lỗi mia_wave_clasp_travel 18/10)
+def hard_bg(img):
+    x = img.astype(np.float32); gd = x[..., 1] - np.maximum(x[..., 0], x[..., 2])
+    return gd > np.maximum(22.0, 0.45 * x.max(-1))
+als = [np.where(hard_bg(f), 0.0, al) for f, al in zip(rgbs, als)]
 refined = []
 for al in als:
     m = Image.fromarray((al * 255).astype(np.uint8))

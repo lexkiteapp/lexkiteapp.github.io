@@ -37,6 +37,8 @@ T = {
     'bg_shift': 8.0,            # màu nền mép thay đổi theo thời gian (0–255)
     'flicker': 0.004,           # tỉ lệ điểm alpha bật-tắt-bật giữa 3 khung (trên diện tích mặt nạ)
     'shadow_ratio': 0.18,       # tỉ lệ điểm bán trong suốt ở 4 % đáy mặt nạ → còn bóng sàn dính
+    'green_fringe': 0.025,      # khung xấu nhất: > 2,5 % điểm đặc màu phông xanh = mảng phông lọt (lỗi Mia 18/10: 3,4 %); kho đạt 18/10 ≤ 1,8 % (viền tóc/tay, áo teal)
+    'green_fringe_warn': 0.015,
     'audio_db': -45.0,          # max_volume > -45 dB = có âm thanh (clip kho phải im lặng)
 }
 BRAND = ['#0F3D3E', '#17595A', '#E5502F', '#F2553B', '#FFB054', '#FFC94A', '#FFD36A', '#FF8FA3', '#FFF7EA', '#FFE7C2', '#2FBF71']
@@ -526,6 +528,15 @@ def alpha_flicker(alphas):
     return float(flip.sum(axis=(1, 2)).mean() / area)
 
 
+def green_fringe(alpha, rgb):
+    """Tỉ lệ điểm ĐẶC (alpha > 128) màu xanh phông (G − max(R,B) > 45 và G > 60) trên tổng điểm đặc – phông xanh lọt qua mặt nạ (áo teal G≈B không tính)."""
+    on = alpha > 128
+    if not on.any():
+        return 0.0
+    x = rgb.astype(np.int16); gd = x[..., 1] - np.maximum(x[..., 0], x[..., 2])
+    return float((on & (gd > 45) & (x[..., 1] > 60)).sum()) / float(on.sum())
+
+
 def floor_shadow(alpha, rgb=None):
     """Bóng sàn dính = điểm bán trong suốt ở 4 % đáy mặt nạ. Trả tỉ lệ trên tổng điểm mặt nạ ở dải đáy (0..1); `rgb` giữ cho tương thích, không dùng."""
     on = alpha > 24
@@ -649,6 +660,11 @@ def check_clip(path, kind='clip', trimmed=False, src_size=None):
         sh = max(floor_shadow(alphas[i], frames[i] if len(frames) == len(alphas) else None) for i in range(0, len(alphas), max(1, len(alphas) // 8))); M['shadowRatio'] = r(sh, 2)
         S['layer'] = stacked_layer(path, W, H)
         C.append(chk('no_floor_shadow', sh < T['shadow_ratio'], r(sh, 2), T['shadow_ratio'], 'còn bóng sàn dính ở chân (chạy trim_floor_shadow)'))
+        if len(frames) == len(alphas):  # mảng phông xanh lọt vào vùng đặc của mặt nạ (khung nào cũng phải sạch – lỗi khung đầu mia_wave_clasp_travel 18/10)
+            gf = max(green_fringe(alphas[i], frames[i]) for i in range(len(alphas))); M['greenFringe'] = r(gf, 4)
+            C.append(chk('no_green_fringe', gf <= T['green_fringe'], r(gf, 4), T['green_fringe'], 'còn mảng phông xanh trong vùng nhân vật (chroma_key)'))
+            if gf <= T['green_fringe']:
+                C.append(chk('green_edge', gf <= T['green_fringe_warn'], r(gf, 4), T['green_fringe_warn'], 'viền xanh ở mép tóc/tay – soi khung xấu nhất', 'WARN'))
     st = overall([c for c in C if c['status'] != 'INFO'])
     return {'status': st, 'checks': C, 'metrics': M, 'suggest': S}
 
