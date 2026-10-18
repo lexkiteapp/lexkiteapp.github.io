@@ -58,6 +58,11 @@ if a.stacked:
         mx, mn = c[band][..., :3].max(2).astype(int), c[band][..., :3].min(2).astype(int)
         grey = (c[band][..., 3] < 235) & (mx > 130) & (mx < 228) & ((mx - mn) < 28)
         c[band][..., 3][grey] = 0
+        # bóng đổ tối bán trong suốt bám dọc chân/giày (đèn hắt lên phông xanh – rembg giữ ở alpha ~120): nửa dưới dáng, alpha 10–200, gần đen → bỏ.
+        # Viền nét của nhân vật cũng đen nhưng alpha ≥ 240 nên không bị đụng (mia_wave_clasp_travel 18/10: FAIL no_floor_shadow)
+        lo = slice(int(0.55 * sole), sole)
+        al, mxl = c[lo][..., 3].astype(int), c[lo][..., :3].max(2).astype(int)
+        c[lo][..., 3][(al > 10) & (al < 200) & (mxl < 70)] = 0
         fr = np.zeros((hh * 2, ww, 3), np.uint8)
         fr[:c.shape[0], :c.shape[1]] = c[..., :3]
         fr[hh:hh + c.shape[0], :c.shape[1]] = np.repeat(c[..., 3:4], 3, axis=2)
