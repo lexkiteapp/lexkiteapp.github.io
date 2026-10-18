@@ -58,12 +58,12 @@ const formats = J('content/video/formats.json'), themeOf = id => formats.themes.
 const casting = J('content/video/casting.json');
 const room = { ...V.DEFAULT_ROOM, id: 'office-test', srcW: 1536 };
 const samples = fs.readdirSync(new URL('content/video/samples/', R)).filter(f => f.endsWith('.json'));
-let runs = 0;
+let runs = 0, maxCps = 0;
 for (const f of samples) {
   const job = J(`content/video/samples/${f}`), sc = job.script || job;
   const fmt = formats.formats.find(x => x.id === sc.format_id) || formats.formats[0];
   const sl = sc.lines.map(l => ({ ...l, dur: l.beat === 'hook' ? V.hookEstSec(l.text) : V.estLineSec(l.text) }));
-  const lay = V.layoutLines(sl.map(l => l.dur), { lead: V.LEAD, gap: V.LINE_GAP }); sl.forEach((l, i) => Object.assign(l, lay[i]));
+  const lay = V.layoutLines(sl.map(l => l.dur), { lead: V.LEAD, gap: V.LINE_GAP, gaps: V.lineGaps(sl) }); sl.forEach((l, i) => Object.assign(l, lay[i]));
   const endStart = +(sl[sl.length - 1].end + 0.4).toFixed(2), duration = +(endStart + V.END_CARD).toFixed(2);
   const cast = [...new Set(sl.map(l => l.who).filter(w => w !== 'kit'))], pos = V.stageDialogue(cast, room);
   const stageLines = sl.map(l => ({ emotion: V.lineEmotion(l), actors: cast.map(who => ({ who, role: who === l.who ? 'speaker' : 'listener', ...pos[who] })) }));
@@ -76,8 +76,10 @@ for (const f of samples) {
     const g = M.layoutGate(JSON.parse(JSON.stringify(tl)), sl); runs++;
     ok(g.ok, `${f} × ${th}: ${g.bad.slice(0, 3).join(' | ')}`);
     ok(tl.pages.every(p => p.gap != null && p.popFrom >= 0.8 && p.words.every(w => w.maxS >= 1)), `${f} × ${th}: trang phụ đề có gap/maxS cho Remotion`);
+    const cg = M.calmGate(JSON.parse(JSON.stringify(tl))); ok(cg.ok, `${f} × ${th}: calm – ${cg.bad.slice(0, 3).join(' | ')}`); maxCps = Math.max(maxCps, cg.subs.maxCps);
   }
 }
 ok(casting && runs >= samples.length * 3, `đủ tổ hợp (${runs})`);
+ok(maxCps <= 15, `tốc độ đọc phụ đề tối đa ${maxCps} ký tự/s ≤ 15`);
 if (fails) { console.log(`✗ video-layout: ${fails} lỗi`); process.exit(1); }
-console.log(`✓ video-layout: cổng bắt lỗi hook↔karaoke + "onFriday?" cũ; ${runs} tổ hợp mẫu × theme không chữ chồng chữ, trong vùng an toàn, đúng dấu cách`);
+console.log(`✓ video-layout: cổng bắt lỗi hook↔karaoke + "onFriday?" cũ; ${runs} tổ hợp mẫu × theme không chữ chồng chữ, trong vùng an toàn, đúng dấu cách; dựng calm (≤ 3 cắt/10 s, 1 lớp phủ/lúc, phụ đề ≤ ${maxCps} ký tự/s)`);

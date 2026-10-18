@@ -23,7 +23,7 @@
  "title": ["{{wrongForm}} or {{answer}}? Irregular verb quiz", "Irregular verbs: {{forms}}"],
  "hook": ["{{wrongForm}} or {{answer}}?", "{{wrongForm}}? Or {{answer}}?"],
  "beats": [
-  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["ask"], "maxWords": 5, "maxSec": 1.9, "text": ["{{wrongForm}} or {{answer}}?"], "expr": "thinking", "gesture": "" },
+  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["ask"], "maxWords": 5, "maxSec": 2.15, "text": ["{{wrongForm}} or {{answer}}?"], "expr": "thinking", "gesture": "" },
   { "id": "situation", "beat": "situation", "role": "host", "emotions": ["explain", "talk"], "maxWords": 16, "text": ["Fill the blank: {{gap}} Three, two, one!", "Quick, fill the blank: {{gap}} Three, two, one!"], "expr": "confident", "gesture": "explaining with hands" },
   { "id": "explain", "beat": "explain", "role": "revealer", "emotions": ["explain"], "maxWords": 12, "punch": true, "must": ["kw:0"], "text": ["It's {{answer}}: {{forms}}.", "The answer is {{answer}}: {{forms}}."], "expr": "confident", "gesture": "pointing" },
   { "id": "example", "beat": "example", "role": "modeler", "emotions": ["right", "explain"], "maxWords": 14, "must": ["kw:0"], "text": ["{{example}}"], "expr": "happy smile", "gesture": "" },

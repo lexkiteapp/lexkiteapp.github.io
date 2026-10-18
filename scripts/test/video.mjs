@@ -51,7 +51,8 @@ ok(V.lipsyncOffset(lw, null) === null, 'không có khẩu hình → chưa đo');
 const shots = V.planShots([{ start: 0.2, end: 1.9, beat: 'hook' }, { start: 2.2, end: 10, beat: 'explain', camera: 'pan' }, { start: 10.3, end: 12, beat: 'cta', transitionIn: true }], { endStart: 12.4, duration: 14.6 });
 ok(shots[0].framing === 'push' && shots[1].framing === 'pan' && shots.filter(s => s.line === 1).length === 3 && shots.at(-1).framing === 'card', 'cắt cảnh: hook đẩy máy, câu dài chia nhỏ, góc máy theo câu, thẻ CTA cuối');
 ok(shots.find(s => s.line === 2).transitionIn && shots.every((s, i) => !i || Math.abs(s.start - shots[i - 1].end) < 0.011), 'cảnh nối liền, có chuyển cảnh');
-ok(V.pacingScore(shots).bad === 0 && V.pacingScore([{ start: 0, end: 6, framing: 'wide' }]).score === 7, 'điểm nhịp dựng (cảnh > 4 s bị trừ)');
+{ const fs = V.planFilmShots([{ start: 0.2, end: 1.9, beat: 'hook', who: 'mia' }, { start: 2.3, end: 3.4, who: 'leo' }, { start: 3.8, end: 6.8, who: 'mia' }, { start: 7.2, end: 8.4, who: 'leo' }, { start: 8.8, end: 12, who: 'kit', beat: 'tip' }], { endStart: 12.4, duration: 14.6 });
+  ok(V.pacingScore(fs).bad === 0 && V.pacingScore([{ start: 0, end: 9, framing: 'wide' }]).score === 7 && V.pacingScore([0, 1, 2, 3, 4, 5].map(i => ({ start: i * 2, end: i * 2 + 2, framing: 'two' }))).bad >= 1, 'điểm nhịp calm (cảnh 2–8 s, ≤ 3 cắt/10 s)'); }
 ok(V.hookScore(1.9) === 15 && V.hookScore(2.8) === 10 && V.hookScore(4) === 5, 'điểm hook');
 
 // 4) Cổng nhất quán bối cảnh – nhân vật – lời thoại

@@ -31,7 +31,7 @@
  "title": ["Roleplay at {{place}}: \"{{phrase}}\"", "What to say at {{place}}"],
  "hook": ["At {{place}}", "What do you say?"],
  "beats": [
-  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["ask", "wrong", "talk"], "maxWords": 5, "maxSec": 1.9, "text": ["{{hookLine}}"], "expr": "confused", "gesture": "" },
+  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["ask", "wrong", "talk"], "maxWords": 5, "maxSec": 2.15, "text": ["{{hookLine}}"], "expr": "confused", "gesture": "" },
   { "id": "situation", "beat": "situation", "role": "staff", "emotions": ["explain", "talk", "ask"], "maxWords": 12, "text": ["{{staffOpen}}"], "expr": "friendly", "gesture": "open hands" },
   { "id": "example", "beat": "example", "role": "learner", "emotions": ["explain", "ask", "talk"], "maxWords": 18, "must": ["kw:0"], "text": ["{{learnerLine}}"], "expr": "friendly", "gesture": "" },
   { "id": "explain", "beat": "explain", "role": "staff", "emotions": ["explain", "right", "ask"], "maxWords": 14, "punch": true, "text": ["{{staffReply}}"], "expr": "happy smile", "gesture": "" },

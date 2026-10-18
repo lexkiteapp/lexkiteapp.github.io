@@ -47,9 +47,13 @@ export function matchWords(scriptWords, asr, dur) {
 }
 
 // Đặt các câu nối tiếp trên trục thời gian video: câu i bắt đầu sau câu trước + khoảng nghỉ gap
-export function layoutLines(durs, { lead = 0.2, gap = 0.3 } = {}) {
-  let t = lead; return durs.map(d => { const o = { start: r2(t), end: r2(t + d) }; t += d + gap; return o; });
+export function layoutLines(durs, { lead = 0.2, gap = 0.3, gaps = null } = {}) {
+  let t = lead; return durs.map((d, i) => { const o = { start: r2(t), end: r2(t + d) }; t += d + (gaps && gaps[i] != null ? gaps[i] : gap); return o; });
 }
+// Nhịp cho người học (video-calm 18/10, chuẩn phim): nghỉ tự nhiên giữa các câu – đổi người nói 0,42 s, cùng người 0,25 s, trước câu "đắt"
+// (punch / đáp án) 0,6 s. gaps[i] = khoảng nghỉ SAU câu i.
+export const PAUSE = { speaker: 0.42, same: 0.25, key: 0.6 };
+export const lineGaps = lines => lines.map((l, i) => { const n = lines[i + 1]; if (!n) return 0; if (n.punch || ['reveal', 'answer', 'payoff'].includes(n.beat)) return PAUSE.key; return n.who === l.who ? PAUSE.same : PAUSE.speaker; });
 
 // ---------- Phụ đề karaoke ASS ----------
 export const BRAND = { orange: '#E5502F', teal: '#0F3D3E', yellow: '#FFC94A', cream: '#FFF7EA', white: '#FFFFFF', ink: '#14100E', green: '#2FBF71' };
@@ -133,13 +137,17 @@ export function contrast(a, b) {
 }
 
 // ---------- Cổng tĩnh dùng chung (render.mjs bước qa + scripts/video/template.mjs lint trước khi dựng) ----------
-export const WPS = 2.6, LINE_GAP = 0.3, LEAD = 0.2, END_CARD = 2.2, HOOK_MAX = 2.05;
+// Giọng Kokoro đọc chậm 10 % cho người học (TTS_SPEED 0,9): tốc độ ước tính / ngưỡng câu hook co giãn theo – ước lượng sớm (lint khuôn) = đo thật lúc dựng.
+export const TTS_SPEED = 0.9;
+export const WPS = +(2.6 * TTS_SPEED).toFixed(3), LINE_GAP = 0.3, LEAD = 0.2, END_CARD = 2.2, HOOK_MAX = +(2.05 / TTS_SPEED).toFixed(2);
 export const CAST = ['mia', 'leo', 'ama', 'kit', 'diane', 'carlos'];
 export const COMPETITORS = /\b(duolingo|babbel|busuu|memrise|rosetta\s*stone|cambly|preply|italki|elsa\s*speak|quizlet|cake\s*app|lingoda|mondly|praktika)\b/i;
 // Thời lượng ước tính 1 câu khi chưa có giọng (đúng công thức bước tts khi thiếu Kokoro)
-export const estLineSec = t => +(tokens(t).length / WPS + 0.3).toFixed(2);
+// Câu nhiều chữ dài (≈ > 12,5 ký tự/s ở tốc độ chuẩn) → đọc chậm thêm (≥ 0,8) để phụ đề ≤ 13 ký tự/s – sửa bằng NHỊP, không rút giờ hiện chữ
+export const lineSpeed = t => { const n = tokens(t).length || 1, cps = String(t).length / (n / WPS); return +Math.max(0.8, Math.min(TTS_SPEED, TTS_SPEED * 12.5 / cps)).toFixed(3); };
+export const estLineSec = t => +(tokens(t).length / (2.6 * lineSpeed(t)) + 0.3).toFixed(2);
 // Tổng thời lượng ước tính (đúng bố cục align: lead + câu + nghỉ + 0,4 s + end card)
-export const estVideoSec = lines => +(LEAD + lines.reduce((a, l) => a + estLineSec(l.text), 0) + LINE_GAP * Math.max(0, lines.length - 1) + 0.4 + END_CARD).toFixed(2);
+export const estVideoSec = lines => +(LEAD + lines.reduce((a, l) => a + estLineSec(l.text), 0) + lineGaps(lines).reduce((a, g) => a + g, 0) + 0.4 + END_CARD).toFixed(2);
 // Đếm âm tiết (heuristic tiếng Anh) – để ước lượng câu hook: Kokoro đọc ~4 âm tiết/s; số → ~1,5 âm tiết/chữ số
 export function syllables(w) {
   const s = norm(w).replace(/'/g, ''); if (!s) return 0;
@@ -153,7 +161,7 @@ export function syllables(w) {
 export function hookEstSec(t) {
   const s = String(t || '').trim(), syl = tokens(s).reduce((a, w) => a + syllables(w), 0);
   const pauses = (s.replace(/[\s"”“'’.!?…]+$/, '').match(/[,;:–—…?!]|\.\.\./g) || []).length;
-  return +(0.45 + 0.24 * syl + 0.12 * pauses).toFixed(2);
+  return +((0.45 + 0.24 * syl + 0.12 * pauses) / TTS_SPEED).toFixed(2);
 }
 // Cổng brand (render qa): không nhãn hiệu đối thủ ở tiêu đề/caption/lời thoại + chỉ dàn nhân vật Lexkite
 export function brandGate(sc) {
@@ -202,61 +210,52 @@ export function planShots(lines, { endStart, duration, maxLen = 3.5 }) {
   if (duration > endStart) shots.push({ line: -1, start: r2(endStart), end: r2(duration), framing: 'card', transitionIn: true });
   return shots;
 }
-// Kế hoạch máy kiểu phim (round 3 – "video-polish" 18/10): mặc định trung cảnh đôi (two, cowboy: đầu → đùi) và trung cảnh đơn người nói
-// (single) – mặt to, đọc được; toàn cảnh (wide) CHỈ là cảnh thiết lập ngắn (≤ 1,2 s) khi đổi bối cảnh (sceneChange). Hook = trung cảnh đôi đẩy máy
-// (motion.shotCamera hạ khung cho đầu nằm dưới chữ hook). Kit nói = trung cảnh đôi (Kit bay ở góc trên). Nhịp phản ứng (react/đúng/sai) = cận
-// người NGHE (close) ở đuôi câu. KHÔNG BAO GIỜ cận người đang nói (miệng clip Kling không khớp tiếng). Cảnh 0,7–4 s.
-// Không "jump cut": 2 cảnh liền nhau cùng khung + cùng người → gộp thành 1 cảnh liên tục nếu ≤ maxLen và cùng bối cảnh (đổi clip giữa cảnh
-// = hoà 5 khung trong Short.jsx), không thì đổi khung cảnh sau (đôi ↔ đơn). lines[i]: {start,end,beat,who,emotion,listener,transitionIn,sceneChange}
-export const ESTABLISH = 1.2;
-export function planFilmShots(lines, { endStart, duration, maxLen = 3.6 }) {
-  const shots = [], push = (o) => shots.push({ ...o, start: r2(o.start), end: r2(o.end) });
-  let lastSingle = null;
+// Kế hoạch máy "calm" (video-calm 18/10 – dựng kiểu kênh giáo dục cao cấp): CHỈ cắt ở ranh giới câu (không bao giờ giữa câu), ưu tiên khi đổi người
+// nói; cảnh ≥ SHOT.min (gộp câu ngắn vào 1 cảnh), ≤ ~3 cắt / 10 s. Khung theo người nói: trao đổi qua lại / Kit / hook = trung cảnh đôi (two);
+// 1 người giải thích dài (≥ SHOT.solo) = trung cảnh đơn người đó (single). Không cận, không toàn cảnh (đổi bối cảnh = cắt mềm, motion.pickTransitions).
+// 2 cảnh liền cùng khung + cùng người (jump cut) → đổi khung cảnh sau. lines[i]: {start,end,beat,who,listener,transitionIn,sceneChange}
+export const SHOT = { min: 2.5, max: 7.5, solo: 3, cutsPer10: 3 };
+export const ESTABLISH = 0; // (round 3) – không còn cảnh thiết lập toàn cảnh
+export function planFilmShots(lines, { endStart, duration } = {}) {
+  const G = [];
   lines.forEach((l, i) => {
-    const a = i ? l.start : 0, b = i < lines.length - 1 ? lines[i + 1].start : endStart, base = { line: i, transitionIn: !!l.transitionIn };
-    const sp = l.who && l.who !== 'kit' ? l.who : null, react = !!l.listener && sp && (l.beat === 'react' || ['right', 'wrong'].includes(l.emotion) || (l.punch && b - a >= 2.6)); // câu "đắt" dài: cận người nghe phản ứng ở đuôi
-    let t0 = a;
-    if (l.sceneChange && i > 0 && b - a >= 2) { const d = Math.min(ESTABLISH, Math.max(0.75, (b - a) * 0.35)); push({ ...base, start: a, end: a + d, framing: 'wide', speaker: sp }); t0 = a + d; base.transitionIn = false; }
-    const len = b - t0, parts = [];
-    if (i === 0 || !sp) parts.push({ framing: 'two' }); // hook / Kit nói: trung cảnh đôi
-    else if (len > 2.4 || i === 1) parts.push({ framing: 'two' }, { framing: 'single', focus: sp });
-    else parts.push(lastSingle === sp ? { framing: 'two' } : { framing: 'single', focus: sp });
-    if (react && i > 0 && len >= 1.9) parts.push({ framing: 'close', focus: l.listener });
-    // độ dài: phần cận ≤ 1,2 s ở cuối; phần còn lại chia đều; phần < 0,75 s thì gộp
-    let segs = parts.length;
-    while (segs > 1 && len / segs < 0.75) segs--;
-    const ps = segs < parts.length && parts[parts.length - 1].framing === 'close' ? [...parts.slice(0, segs - 1), parts[parts.length - 1]].filter(Boolean) : parts.slice(0, segs);
-    const closeLen = ps[ps.length - 1].framing === 'close' ? Math.min(1.2, len * 0.35) : 0, rest = len - closeLen, nr = ps.length - (closeLen ? 1 : 0);
-    let t = t0;
-    ps.forEach((x) => { const d = x.framing === 'close' ? closeLen : rest / nr; const k2 = Math.max(1, Math.ceil(d / maxLen - 1e-9));
-      for (let j = 0; j < k2; j++) push({ ...base, transitionIn: base.transitionIn && t === t0 && !j, start: t + j * d / k2, end: t + (j + 1) * d / k2, framing: x.framing, focus: x.focus || null, speaker: sp });
-      t += d; if (x.framing === 'single') lastSingle = x.focus; });
-    if (!ps.some(x => x.framing === 'single')) lastSingle = null;
+    const a = i ? l.start : 0, b = i < lines.length - 1 ? lines[i + 1].start : endStart, g = G[G.length - 1];
+    const prevWho = g ? lines[g.lines[g.lines.length - 1]].who : null;
+    const cut = !g || (i > 0 && l.sceneChange) || (g.end - g.start >= SHOT.min && (l.who !== prevWho || b - g.start > SHOT.max));
+    if (cut) G.push({ start: a, end: b, lines: [i] }); else { g.end = b; g.lines.push(i); }
   });
-  if (shots.length) shots[shots.length - 1].end = r2(endStart);
-  // chống jump cut
-  const same = (x, y) => x.framing === y.framing && (x.focus || null) === (y.focus || null);
-  for (let k = 1; k < shots.length; k++) {
-    const x = shots[k - 1], y = shots[k];
-    if (!same(x, y)) continue;
-    const lx = lines[x.lines ? x.lines[x.lines.length - 1] : x.line] || {}, ly = lines[y.line] || {};
-    const mergeOk = y.end - x.start <= maxLen + 1e-9 && !ly.sceneChange && !y.transitionIn && lx.who !== 'kit' && ly.who !== 'kit' && y.line !== x.line;
-    if (mergeOk) { x.lines = [...(x.lines || [x.line]), y.line]; x.end = y.end; shots.splice(k, 1); k--; continue; }
-    const human = j => (lines[j] && lines[j].who && lines[j].who !== 'kit' ? lines[j].who : null);
-    let sp = y.speaker || (lines[y.line] || {}).listener || null; // Kit nói: cận đơn người nghe gần nhất (người vừa nói / sắp nói)
-    for (let d = 1; !sp && d < lines.length; d++) sp = human(y.line - d) || human(y.line + d);
-    if (y.framing === 'single' || y.framing === 'close') { y.framing = 'two'; y.focus = null; }
-    else if (sp) { y.framing = 'single'; y.focus = sp; }
-    else if (y.framing === 'wide') y.framing = 'two';
+  // cảnh cuối ngắn → gộp vào cảnh trước (không đổi bối cảnh)
+  for (let k = G.length - 1; k > 0; k--) if (G[k].end - G[k].start < SHOT.min && !lines[G[k].lines[0]].sceneChange) { G[k - 1].end = G[k].end; G[k - 1].lines.push(...G[k].lines); G.splice(k, 1); }
+  // mật độ cắt ≤ SHOT.cutsPer10: gộp cặp cảnh liền kề ngắn nhất (≤ SHOT.max, không qua ranh đổi bối cảnh) tới khi đạt
+  const span = (G.length ? G[G.length - 1].end - G[0].start : 0) || 1;
+  while (G.length > 1 && (G.length - 1) / span * 10 > SHOT.cutsPer10) {
+    let best = -1; for (let k = 1; k < G.length; k++) { if (lines[G[k].lines[0]].sceneChange) continue; const len = G[k].end - G[k - 1].start; if (best < 0 || len < G[best].end - G[best - 1].start) best = k; }
+    if (best < 0) break; G[best - 1].end = G[best].end; G[best - 1].lines.push(...G[best].lines); G.splice(best, 1);
   }
+  const shots = G.map((g, k) => {
+    const hum = g.lines.map(i => lines[i].who).filter(w => w && w !== 'kit'), who = [...new Set(hum)];
+    const time = w => g.lines.filter(i => lines[i].who === w).reduce((s, i) => s + (lines[i].end - lines[i].start), 0);
+    const main = who.sort((x, y) => time(y) - time(x))[0] || null, kit = g.lines.some(i => lines[i].who === 'kit');
+    const single = k > 0 && !kit && who.length === 1 && g.end - g.start >= SHOT.solo;
+    return { line: g.lines[0], ...(g.lines.length > 1 ? { lines: g.lines } : {}), start: r2(g.start), end: r2(g.end), framing: single ? 'single' : 'two', focus: single ? main : null, speaker: main, transitionIn: !!lines[g.lines[0]].transitionIn, sceneChange: k > 0 && !!lines[g.lines[0]].sceneChange };
+  });
+  for (let k = 1; k < shots.length; k++) { const x = shots[k - 1], y = shots[k];
+    if (x.framing !== y.framing || x.focus !== y.focus) continue;
+    const kitIn = g => (g.lines || [g.line]).some(i => (lines[i] || {}).who === 'kit');
+    if (y.framing === 'single') { y.framing = 'two'; y.focus = null; }
+    else if (x.speaker && !kitIn(x) && k > 1) { x.framing = 'single'; x.focus = x.speaker; }
+    else if (y.speaker) { y.framing = 'single'; y.focus = y.speaker; } }
+  if (shots.length) shots[shots.length - 1].end = r2(endStart);
   if (duration > endStart) shots.push({ line: -1, start: r2(endStart), end: r2(duration), framing: 'card', transitionIn: true });
   return shots;
 }
 // Nhịp dựng: cảnh 0,7–4 s (thẻ CTA cuối không tính), mỗi vi phạm −3 điểm
+// Nhịp dựng (calm): cảnh 2–8 s (thẻ CTA cuối không tính; ranh giới câu nên có thể < SHOT.min khi đổi bối cảnh), ≤ 3 cắt / 10 s; mỗi vi phạm −3 điểm
 export function pacingScore(shots) {
-  const body = shots.filter(s => s.framing !== 'card'), bad = body.filter(s => s.end - s.start > 4.05 || s.end - s.start < 0.7);
-  const lens = body.map(s => s.end - s.start);
-  return { score: Math.max(0, 10 - 3 * bad.length), bad: bad.length, avg: lens.length ? r2(lens.reduce((a, b) => a + b, 0) / lens.length) : 0, max: lens.length ? r2(Math.max(...lens)) : 0 };
+  const body = shots.filter(s => s.framing !== 'card'), bad = body.filter(s => s.end - s.start > 8.05 || s.end - s.start < 1.95);
+  const lens = body.map(s => s.end - s.start), span = body.length ? body[body.length - 1].end - body[0].start : 0, cuts = Math.max(0, body.length - 1);
+  const dense = span > 0 && cuts / span * 10 > SHOT.cutsPer10 + 1e-9 ? 1 : 0;
+  return { score: Math.max(0, 10 - 3 * (bad.length + dense)), bad: bad.length + dense, avg: lens.length ? r2(lens.reduce((a, b) => a + b, 0) / lens.length) : 0, max: lens.length ? r2(Math.max(...lens)) : 0, min: lens.length ? r2(Math.min(...lens)) : 0, cutsPer10: span ? r2(cuts / span * 10) : 0 };
 }
 
 // ---------- CỔNG NHẤT QUÁN bối cảnh – nhân vật – lời thoại ----------

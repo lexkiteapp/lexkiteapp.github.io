@@ -27,7 +27,7 @@
  "title": ["3 words for {{topicWord}} (not just \"{{basic}}\")", "Stop saying \"{{basic}}\": 3 better words"],
  "hook": ["3 words for {{topicWord}}", "Not just \"{{basic}}\""],
  "beats": [
-  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["talk", "wrong", "ask"], "maxWords": 5, "maxSec": 1.9, "text": ["{{hookLine}}"], "expr": "confident", "gesture": "" },
+  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["talk", "wrong", "ask"], "maxWords": 5, "maxSec": 2.15, "text": ["{{hookLine}}"], "expr": "confident", "gesture": "" },
   { "id": "situation", "beat": "situation", "role": "learner", "emotions": ["ask"], "maxWords": 12, "text": ["I only ever say {{basic}}. What else is there?", "I always say {{basic}}. What else can I say?"], "expr": "curious", "gesture": "" },
   { "id": "explain", "beat": "explain", "role": "explainer", "emotions": ["explain"], "maxWords": 12, "punch": true, "must": ["kw:0"], "text": ["First, {{w1}}. {{s1}}"], "expr": "confident", "gesture": "open hands" },
   { "id": "example", "beat": "example", "role": "modeler", "emotions": ["explain", "right"], "maxWords": 12, "must": ["kw:1"], "text": ["Second, {{w2}}. {{s2}}", "Next, {{w2}}. {{s2}}"], "expr": "friendly", "gesture": "" },

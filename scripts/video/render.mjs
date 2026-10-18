@@ -118,7 +118,7 @@ const STEPS = {
     if (!tts) return skip(s, 'tts', 'không tải được mô hình Kokoro');
     for (const [i, l] of s.lines.entries()) {
       const nn = String(i).padStart(2, '0'), raw = P(`line-${nn}.raw.wav`), voice = voices[l.who] || 'af_heart';
-      const a = await tts.generate(String(l.text).replace(/["“”]/g, ''), { voice, speed: 1 }); await a.save(raw);
+      const a = await tts.generate(String(l.text).replace(/["“”]/g, ''), { voice, speed: V.lineSpeed(l.text) }); await a.save(raw);
       // Kokoro chèn ~0,4 s im lặng đầu câu → câu hook dài quá 2 s + nhịp chậm: cắt im lặng đầu, chừa 40 ms
       ff(['-i', raw, '-af', 'silenceremove=start_periods=1:start_threshold=-50dB,adelay=40:all=1,loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000', '-ac', '1', P(`line-${nn}.wav`)]);
       fs.rmSync(raw, { force: true });
@@ -129,7 +129,7 @@ const STEPS = {
   // 5) Mốc từng từ: faster-whisper tiny.en (word_timestamps, CPU) trên line-NN.wav → khớp ngược về từ kịch bản (lib.matchWords). Dự phòng: chia đều.
   //    Ra: words.json = [{ line, w, start, end }] (giây, tính từ đầu video) + s.lines[i].start/end + s.duration (gồm thẻ CTA cuối).
   async align(s) {
-    const lay = V.layoutLines(s.lines.map(l => l.dur), { gap: GAP });
+    const lay = V.layoutLines(s.lines.map(l => l.dur), { gap: GAP, gaps: V.lineGaps(s.lines) }); // nghỉ tự nhiên: đổi người 0,42 s · cùng người 0,25 s · trước câu đắt 0,6 s
     s.lines.forEach((l, i) => Object.assign(l, lay[i]));
     let asr = null;
     const wavs = s.lines.filter(l => l.wav);
@@ -232,10 +232,12 @@ const STEPS = {
     const vr = s.variant; g('variety', !!vr && !vr.relaxed, vr ? `${vr.format.id} · không trùng ≥ 3 thành phần với ${(s.history || []).length} video gần nhất${vr.relaxed ? ' – CHƯA ĐẠT' : ''}` : 'không có biến thể');
     g('consistency', cons.ok, cons.ok ? 'bối cảnh – nhân vật – lời thoại khớp' : `${cons.reasons.length} lỗi: ${cons.reasons[0]}`);
     // Visual hook 2 s đầu (chữ + chuyển động + tương phản, cổng ≥ 90) và QA màu (cháy/bết < 1%, bão hòa trong biên, ΔE da↔phòng) – chỉ khi dựng bằng Remotion
-    let vh = null, grade = null, lay = null, cadence = null;
+    let vh = null, grade = null, lay = null, cadence = null, calm = null;
     // Bố cục chữ (không OCR – đo từ props.json mà Remotion vẽ): không 2 lớp chữ giao nhau, trong vùng an toàn, chữ phụ đề hiện = kịch bản (đúng dấu cách)
     if (s.timeline && fs.existsSync(P(s.timeline))) {
       lay = M.layoutGate(JSON.parse(fs.readFileSync(P(s.timeline), 'utf8')), s.lines);
+      calm = M.calmGate(JSON.parse(fs.readFileSync(P(s.timeline), 'utf8')));
+      g('calm', calm.ok, calm.ok ? `${calm.cutsPer10} cắt/10 s · ${calm.soft} chuyển mềm · 1 lớp phủ/lúc · phụ đề cả trang · tốc độ đọc tối đa ${calm.subs.maxCps} ký tự/s (TB ${calm.subs.medCps}) · trang ngắn nhất ${calm.subs.minDur} s` : `${calm.bad.length} lỗi: ${calm.bad.slice(0, 2).join('; ')}`);
       g('layout', lay.ok, lay.ok ? 'chữ overlay không chồng nhau · trong vùng an toàn · phụ đề đúng dấu cách' : `${lay.bad.length} lỗi: ${lay.bad.slice(0, 2).join('; ')}`);
     }
     if (s.timeline && fs.existsSync(v)) {
@@ -259,9 +261,10 @@ const STEPS = {
     }
     const scores = { hook: hookText ? V.hookScore(hookSec) : 5, knowledge: null, lipsync: V.lipsyncScore(lipMs), audio: hasAudio ? V.audioScore(lufs) : 0, subs: ex.ok && s.burned && safe.ok && ctr >= 4.5 && (!lay || lay.ok) ? 10 : 0, pacing: pace.score, brand: brandOk ? 10 : 0, cta: ctaOk ? 5 : 0, share: null };
     for (const k of cons.zero) scores[k] = 0; // vi phạm nhất quán → 0 điểm mục tương ứng
-    if (vr && vr.relaxed) scores.pacing = 0; // lặp tổ hợp = nhàm → không đạt nhịp/độ mới, chặn đăng
-    const hookBad = !!vh && vh.score < 90, layBad = !!lay && !lay.ok; // chữ chồng chữ / dính chữ = lỗi nhìn thấy → subs 0 + chặn đăng
-    s.qa = { scores, gates, blocked: !cons.ok || !!(vr && vr.relaxed) || hookBad || layBad, consistency: [...cons.reasons, ...(vr && vr.relaxed ? ['[pacing] tổ hợp trùng ≥ 3 thành phần với video gần đây'] : []), ...(hookBad ? [`[hook] visual hook ${vh.score}/100 < 90`] : []), ...(layBad ? lay.bad.slice(0, 5).map(x => `[subs] ${x}`.slice(0, 200)) : [])], variant: vr ? vr.fp : null, metrics: { lufs: lufs != null && isFinite(lufs) ? lufs : null, lipsyncMs: lipMs, shots: (s.shots || []).length, pace, align: s.align, engine: s.engine || null, visualHook: vh, grade, cadence: cadence && { shots: cadence, stutterRate: +(cadence.reduce((a, c) => a + c.stutters, 0) / Math.max(1, cadence.reduce((a, c) => a + c.moving, 0))).toFixed(3) }, layout: lay ? { ok: lay.ok, overlaps: lay.overlaps.length, unsafe: lay.unsafe.length, joins: lay.joins.length } : null } };
+    if (vr && vr.relaxed) scores.pacing = 0;
+    if (calm && !calm.ok) scores.pacing = 0; // dựng vội / phụ đề quá nhanh = nhịp hỏng // lặp tổ hợp = nhàm → không đạt nhịp/độ mới, chặn đăng
+    const hookBad = !!vh && vh.score < 90, layBad = !!lay && !lay.ok, calmBad = !!calm && !calm.ok; // chữ chồng chữ / dính chữ = lỗi nhìn thấy → subs 0 + chặn đăng
+    s.qa = { scores, gates, blocked: !cons.ok || !!(vr && vr.relaxed) || hookBad || layBad || calmBad, consistency: [...cons.reasons, ...(vr && vr.relaxed ? ['[pacing] tổ hợp trùng ≥ 3 thành phần với video gần đây'] : []), ...(hookBad ? [`[hook] visual hook ${vh.score}/100 < 90`] : []), ...(layBad ? lay.bad.slice(0, 5).map(x => `[subs] ${x}`.slice(0, 200)) : []), ...(calmBad ? calm.bad.slice(0, 5).map(x => `[pacing] ${x}`.slice(0, 200)) : [])], variant: vr ? vr.fp : null, metrics: { lufs: lufs != null && isFinite(lufs) ? lufs : null, lipsyncMs: lipMs, shots: (s.shots || []).length, pace, align: s.align, engine: s.engine || null, visualHook: vh, grade, calm: calm && { ok: calm.ok, cutsPer10: calm.cutsPer10, soft: calm.soft, subs: calm.subs }, cadence: cadence && { shots: cadence, stutterRate: +(cadence.reduce((a, c) => a + c.stutters, 0) / Math.max(1, cadence.reduce((a, c) => a + c.moving, 0))).toFixed(3) }, layout: lay ? { ok: lay.ok, overlaps: lay.overlaps.length, unsafe: lay.unsafe.length, joins: lay.joins.length } : null } };
     s.files = { duration: +dur.toFixed(2), size: fs.existsSync(v) ? fs.statSync(v).size : 0, width: w, height: h, todo: s.todo || [] };
     console.log(gates.map(x => `${x.ok ? '✓' : '✗'} ${x.k}: ${x.note}`).join('\n'));
     if (LOCAL && vr) { const h = (fs.existsSync(HIST) ? JSON.parse(fs.readFileSync(HIST, 'utf8')) : []).filter(x => x.id !== ID); h.push({ id: ID, ...vr.fp }); fs.writeFileSync(HIST, JSON.stringify(h.slice(-200))); }

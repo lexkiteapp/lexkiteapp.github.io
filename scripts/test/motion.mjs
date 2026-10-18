@@ -17,23 +17,26 @@ const words = [...V.evenTiming(V.tokens('Wait, is I\'m agree wrong?'), 0.2, 1.8)
 const mk = M.markKeywords(words, ['I agree', 'verb']);
 ok(mk.filter(w => w.key).map(w => V.norm(w.w)).join(' ') === 'verb i agree', 'đánh dấu từ khóa theo cụm liên tiếp');
 const pages = M.captionPages(mk, { style: 'pop-box' });
-ok(pages.every(p => p.words.length >= 2 && p.words.length <= 3), 'pop-box: mỗi trang 2–3 từ (không trang 1 từ)');
+ok(pages.every(p => p.words.length >= 2 && p.words.length <= 8), 'trang 3–7 từ (2 từ chỉ khi trọn câu; gộp tới 8 khi trang ngắn không đủ giờ đọc)');
 ok(pages[0].words[0].w === 'Wait,' && pages[0].words.length >= 2, 'trang 1 từ ở dấu phẩy ("Wait,") gộp với cụm sau');
 { const oh = M.captionPages(V.evenTiming(V.tokens('Oh, so heads-up means a short warning about something coming soon.'), 0, 4).map(w => ({ ...w, line: 0 })), { style: 'karaoke-bar' });
   ok(oh.every(p => p.words.length >= 2) && oh[0].words[0].w === 'Oh,', 'karaoke: "Oh," không đứng một mình (lỗi heads-up 18/10)');
   ok(M.captionPages([{ w: 'Wow!', start: 0, end: 0.4, line: 0 }], { style: 'pop-box' }).length === 1, 'câu chỉ 1 từ → được 1 trang 1 từ'); }
-ok(pages.every(p => p.words.every(w => Math.abs(w.pop - (w.start - 0.04)) < 1e-6 && w.pop >= p.start - 1e-6)), 'mỗi từ bật trước mốc đọc 40 ms và không sớm hơn trang');
+ok(pages.every(p => p.words.every(w => w.pop === p.start) && p.start <= p.words[0].start + 1e-6 && p.start >= p.words[0].start - 0.1 - 1e-6), 'cả trang hiện 1 lúc, sớm ≤ 0,1 s trước tiếng ('+'mỗi từ bật trước mốc đọc 40 ms và không sớm hơn trang');
 ok(pages.every((p, i) => !pages[i + 1] || pages[i + 1].line !== p.line || p.end <= pages[i + 1].start + 1e-6), 'trang không chồng nhau trong cùng câu');
-ok(pages.every((p, i) => !pages[i + 1] || pages[i + 1].line !== p.line || pages[i + 1].start - p.end < 0.05), 'không nháy trống giữa các trang của 1 câu');
-ok(M.captionPages(mk, { style: 'mega-word' }).every(p => p.words.length >= 2 && p.words.length <= 3), 'mega-word: 2–3 từ / trang');
-ok(M.captionPages(mk, { style: 'karaoke-bar' }).length < pages.length, 'karaoke-bar: trang dài hơn');
+ok(pages.every((p, i) => !pages[i + 1] || pages[i + 1].line !== p.line || (pages[i + 1].start - p.end >= M.SUB.gap - 1e-3 && pages[i + 1].start - p.end < 0.2)), 'giữa 2 trang của 1 câu: cách đúng ≥ 2 khung, không trống lâu');
+ok(M.captionPages(mk, { style: 'mega-word' }).every(p => p.breaks.length <= 2), 'chữ lớn: ≤ 2 dòng');
+{ const ss = M.subStats(pages); ok(ss.minGap >= M.SUB.gap - 1e-3 && ss.maxCps <= M.SUB.cpsMax, `phụ đề: cách ≥ 2 khung, ≤ 15 ký tự/s (${ss.maxCps})`); }
+{ const ws = V.tokens('Can you give me a heads-up before the client call?'), b = M.breakLines(ws, { maxChars: 30 }); let k = 0; const rows = b.map(n => { const r = ws.slice(k, k + n).join(' '); k += n; return r; });
+  ok(rows.length === 2 && !/\b(a|the|before|to)$/i.test(rows[0]), `xuống dòng ở ranh cụm, không tách mạo từ/giới từ khỏi danh từ (${rows.join(' / ')})`);
+  ok(M.breakCost(['run', 'out', 'of'], 1) >= 30 && M.breakCost(['the', 'client'], 1) >= 40 && M.breakCost(['soon.', 'Then'], 1) < 0, 'không tách cụm động từ / mạo từ + danh từ; ngắt tốt ở cuối câu'); }
 
 // 2) Chuyển cảnh
 ok(M.TRANSITIONS.length >= 12 && new Set(M.TRANSITIONS).size === M.TRANSITIONS.length, '≥ 12 chuyển cảnh khác nhau');
 ok(formats.transitions.length >= 12 && formats.transitions.every(t => M.TRANSITIONS.includes(t.id) && t.d === M.TRANSITION_DUR[t.id]), 'formats.json transitions khớp thư viện Remotion (id + thời lượng)');
 const shots = Array.from({ length: 10 }, (_, i) => ({ line: i, start: +(i * 2.2).toFixed(2), end: +((i + 1) * 2.2).toFixed(2), framing: i === 9 ? 'card' : 'wide' }));
 const lines = shots.map((s, i) => ({ start: s.start, end: s.end, beat: ['hook', 'situation', 'explain', 'example', 'tip'][i % 5], emotion: i === 2 ? 'wrong' : null }));
-const cuts = M.pickTransitions(shots, { lines, seed: 's1', lead: 'whip-pan' });
+const cuts = M.pickTransitions(shots, { lines, seed: 's1', lead: 'whip-pan', calm: false }); // kiểu cũ (cách điệu) – vẫn giữ code
 ok(cuts.length === 9 && cuts.slice(0, 8).every((c, i) => c.t === shots[i + 1].start && Math.abs(c.to - c.from - c.d) < 1e-6 && Math.abs((c.from + c.to) / 2 - c.t) < 1e-6), 'mỗi cut căn giữa ranh giới cảnh, dài đúng d');
 ok(cuts[8].type === 'light-leak' && cuts[8].from >= shots[9].start - 0.1 - 1e-6, 'vào end card: hoà sáng êm, chỉ bắt đầu khi câu CTA đã đọc xong');
 ok(cuts[0].type === 'whip-pan', 'cut đầu dùng chuyển cảnh chủ đạo của biến thể');
@@ -41,9 +44,11 @@ ok(cuts.every((c, i) => !i || c.type !== cuts[i - 1].type), 'không lặp kiểu
 ok(new Set(cuts.map(c => c.type)).size >= 4, '≥ 4 kiểu chuyển cảnh trong 1 video');
 ok(['confetti-burst', 'light-leak', 'circle-reveal'].includes(cuts[8].type), 'vào end card = chuyển cảnh ăn mừng');
 ok(cuts.every((c, i) => c.from >= shots[i].start && c.to <= shots[i + 1].end), 'chuyển cảnh nằm gọn trong 2 cảnh kề');
-let all = new Set(); for (let k = 0; k < 60; k++) M.pickTransitions(shots, { lines, seed: 'k' + k }).forEach(c => all.add(c.type));
+let all = new Set(); for (let k = 0; k < 60; k++) M.pickTransitions(shots, { lines, seed: 'k' + k, calm: false }).forEach(c => all.add(c.type));
 ok(all.size === 12, `60 seed dùng đủ 12 chuyển cảnh (được ${all.size})`);
-ok(JSON.stringify(M.pickTransitions(shots, { lines, seed: 'z' })) === JSON.stringify(M.pickTransitions(shots, { lines, seed: 'z' })), 'tất định theo seed');
+ok(JSON.stringify(M.pickTransitions(shots, { lines, seed: 'z', calm: false })) === JSON.stringify(M.pickTransitions(shots, { lines, seed: 'z', calm: false })), 'tất định theo seed');
+{ const cc = M.pickTransitions(shots, { lines, seed: 's1', lead: 'whip-pan' }), soft = cc.filter(c => c.type !== 'cut');
+  ok(soft.length === 2 && cc[0].type === 'crossfade' && cc[8].type === 'crossfade' && cc.slice(1, 8).every(c => c.type === 'cut' && c.d === 0), 'calm: cắt thẳng; chỉ hook → thân và vào end card hoà mềm'); }
 
 // 3) Ngắt nhịp: khoảng trống giữa 2 sự kiện hình ≤ 2,6 s
 const ev = [1.6, 6.5, 12.9];
@@ -59,7 +64,7 @@ const sl = sample.script.lines.map((l, i) => ({ ...l, dur: 1.8 }));
 const lay = V.layoutLines(sl.map(l => l.dur), { gap: 0.3 }); sl.forEach((l, i) => Object.assign(l, lay[i]));
 const endStart = +(sl[sl.length - 1].end + 0.4).toFixed(2), duration = +(endStart + 2.2).toFixed(2);
 const st = { job: sample, lines: sl, duration, endStart, stage: { time: 'day', segs: [], lines: sl.map(l => ({ emotion: V.lineEmotion(l), actors: [] })) } };
-st.shots = V.planShots(sl, { endStart, duration });
+st.shots = V.planFilmShots(sl, { endStart, duration });
 st.variant = { format: formats.formats[0], theme: formats.themes.find(t => t.id === formats.formats[0].themes[0]), transition: { id: 'zoom-blur' }, sfx: { id: 'full' }, setting: { time: 'day' } };
 const sw = sl.flatMap((l, i) => V.evenTiming(V.tokens(l.text), l.start, l.end).map(w => ({ ...w, line: i })));
 const tl = M.buildTimeline({ s: st, words: sw, seed: 'demo', sfxMap: sfxMan.placement });
@@ -70,7 +75,7 @@ ok(tl.cards.every(c => c.end > c.start), 'thẻ có thời lượng dương');
 ok(tl.watermark.from === 1.5 && tl.watermark.h >= 36 && tl.watermark.h <= 44 && tl.watermark.x >= tl.safe.left && tl.watermark.y >= tl.safe.top && tl.watermark.until === endStart, 'watermark chữ: hiện từ 1,5 s, cao 36–44 px, trong vùng an toàn, ẩn ở end card');
 ok(tl.watermark.opacity >= 0.55 && tl.watermark.opacity <= 0.7, 'watermark mờ 55–70%');
 ok(tl.watermark.y + tl.watermark.h < tl.theme.layout.hookY * 1920, 'watermark không đè hook');
-ok(M.maxVisualGap([...tl.cuts.map(c => c.t), tl.hook.end, ...tl.cards.map(c => c.start), ...tl.interrupts.map(p => p.t)], endStart) <= 2.6 + 1e-6, 'video mẫu: sự kiện hình mỗi ≤ 2,6 s');
+ok(tl.interrupts.length === 0 && tl.shots.every(x => !x.punch && !x.shake), 'calm: không chèn ngắt nhịp / giật zoom / rung');
 ok(tl.theme.colors.accents.length <= 3, 'tối đa 3 màu nhấn mỗi khung');
 const shotA = { actors: [{ x: 540, y: 1760, h: 1000 }] };
 ok(M.captionY(shotA, 0.6) !== 0.6 && M.captionY(shotA, 0.6) * 1920 + 95 <= 1920 - M.SAFE.bottom, 'phụ đề tránh dải mặt nhân vật, vẫn trong vùng an toàn dưới');
@@ -88,14 +93,17 @@ ok(ss.every(a => a.h <= 0.5 * 1920 && a.y - a.h >= 600 && a.x - a.h * 0.25 >= 0 
   ok(!pf.carlos.behind && pn.carlos.behind === 'counter' && pn.carlos.y === 1460 && pn.ama.y > 1500 && pn.carlos.x - 0.24 * pn.carlos.h >= 300, 'barista đứng sau quầy khi phòng cho phép (cỡ người đủ lớn), quầy xa → đứng đôi');
   const L = [{ start: 0.2, end: 1.9, beat: 'hook', who: 'ama', emotion: 'wrong', listener: 'carlos' }, { start: 2.2, end: 6.3, beat: 'explain', who: 'carlos', emotion: 'explain', listener: 'ama', punch: true }, { start: 6.6, end: 8.4, beat: 'example', who: 'ama', emotion: 'ask', listener: 'carlos' }, { start: 8.7, end: 11, beat: 'tip', who: 'kit' }, { start: 11.3, end: 13.6, beat: 'react', who: 'carlos', emotion: 'right', listener: 'ama' }];
   const fs2 = V.planFilmShots(L, { endStart: 14, duration: 16 });
-  ok(fs2[0].framing === 'two' && !fs2.some(x => x.framing === 'wide') && fs2.some(x => x.framing === 'single') && fs2.some(x => x.framing === 'close'), 'máy: hook trung cảnh đôi → đơn → cận phản ứng, không toàn cảnh khi không đổi bối cảnh');
+  const body2 = fs2.filter(x => x.framing !== 'card');
+  ok(fs2[0].framing === 'two' && !fs2.some(x => ['wide', 'close'].includes(x.framing)) && fs2.some(x => x.framing === 'single'), 'máy calm: hook trung cảnh đôi, có cảnh đơn người nói, không cận/toàn');
+  ok(body2.slice(1).every(x => (x.lines || [x.line]).length >= 1 && L.some(l => Math.abs(l.start - x.start) < 0.011)), 'chỉ cắt ở đầu câu (không giữa câu)');
+  ok((body2.length - 1) / (body2[body2.length - 1].end - body2[0].start) * 10 <= V.SHOT.cutsPer10 + 1e-9, 'mật độ cắt ≤ 3 / 10 s');
   ok(fs2.every((x, i) => !i || x.framing === 'card' || x.framing !== fs2[i - 1].framing || (x.focus || null) !== (fs2[i - 1].focus || null)), 'không jump cut (2 cảnh liền cùng khung + cùng người)');
   const fs3 = V.planFilmShots(L.map((l, i) => ({ ...l, sceneChange: i === 2 })), { endStart: 14, duration: 16 }), est = fs3.find(x => x.line === 2);
-  ok(est.framing === 'wide' && est.end - est.start <= V.ESTABLISH + 1e-6 && fs3.filter(x => x.framing === 'wide').length === 1, 'toàn cảnh chỉ là cảnh thiết lập ngắn (≤ 1,2 s) khi đổi bối cảnh');
+  ok(est && est.start === L[2].start && est.sceneChange && !fs3.some(x => x.framing === 'wide'), 'đổi bối cảnh = luôn cắt ở đầu câu đó (chuyển mềm), không cảnh toàn');
   const fs4 = V.planFilmShots([{ start: 0.2, end: 1.9, beat: 'hook', who: 'ama', listener: 'carlos' }, { start: 2.2, end: 3.4, beat: 'explain', who: 'carlos', listener: 'ama', transitionIn: true }, { start: 3.6, end: 4.6, beat: 'example', who: 'ama', listener: 'carlos' }, { start: 4.8, end: 6, beat: 'example', who: 'carlos', listener: 'ama' }], { endStart: 6.4, duration: 8 });
   ok(fs4.every((x, i) => !i || x.framing === 'card' || x.framing !== fs4[i - 1].framing || (x.focus || null) !== (fs4[i - 1].focus || null)), 'chống jump cut: cảnh trùng khung được gộp hoặc đổi khung');
   ok(fs2.every(x => x.framing !== 'close' || x.focus !== L[x.line].who), 'không bao giờ cận người đang nói');
-  ok(fs2.filter(x => x.framing !== 'card').every(x => x.end - x.start >= 0.7 - 1e-6 && x.end - x.start <= 4.05), 'cảnh 0,7–4 s');
+  ok(body2.every(x => x.end - x.start >= V.SHOT.min - 1e-6 && x.end - x.start <= 8.05), 'cảnh ≥ 2,5 s (gộp câu ngắn), ≤ 8 s');
   const act = [{ who: 'ama', x: 410, y: 1656, h: 715, figH: 1500 }, { who: 'carlos', x: 670, y: 1656, h: 715, figH: 1570 }], rm = { srcW: 1536 };
   for (const fr of ['two', 'single', 'close']) {
     const c = M.shotCamera({ framing: fr, focus: 'carlos', line: 1 }, act, { room: rm }), cap = M.zoomCap(act, rm);
@@ -124,10 +132,9 @@ ok(ss.every(a => a.h <= 0.5 * 1920 && a.y - a.h >= 600 && a.x - a.h * 0.25 >= 0 
 }
 // SFX
 const ids = new Set(sfxMan.items.map(x => x.id));
-ok(tl.sfx.length >= tl.cuts.length && tl.sfx.every(x => ids.has(x.id)), 'SFX đều có trong kho brand/library/sfx');
-ok(tl.sfx.some(x => x.id === 'bass-drop' && x.t < 0.1), 'bass drop ở hook');
-ok(tl.sfx.some(x => x.id === 'ding') && tl.sfx.some(x => x.id === 'buzz'), 'ding ở ✅, buzz ở ❌');
-ok(tl.cuts.every(c => tl.sfx.some(x => Math.abs(x.t - c.t) < 0.4)), 'mỗi chuyển cảnh có SFX');
+ok(tl.sfx.every(x => ids.has(x.id)), 'SFX đều có trong kho brand/library/sfx');
+ok(tl.sfx.filter(x => x.id === 'whoosh').length === tl.cuts.filter(c => c.type !== 'cut').length && tl.cuts.filter(c => c.type === 'cut').every(c => !tl.sfx.some(x => Math.abs(x.t - c.t) < 0.15)), 'calm: whoosh nhẹ chỉ ở chuyển cảnh mềm, cắt thẳng không tiếng');
+ok(tl.sfx.filter(x => x.id === 'pop').length === tl.cards.length && tl.sfx.every(x => x.gainDb <= -20) && !tl.sfx.some(x => ['bass-drop', 'buzz', 'ding', 'riser', 'keys'].includes(x.id)), 'calm: 1 pop nhẹ khi thẻ vào, không bass/buzz/ding/riser, không tiếng theo từ');
 ok(tl.sfx.every((x, i) => !i || x.t >= tl.sfx[i - 1].t), 'SFX theo thứ tự thời gian');
 const pops = tl.sfx.filter(x => x.id === 'pop').map(x => x.t); ok(pops.every((t, i) => !i || t - pops[i - 1] >= 0.35 - 1e-6), 'pop cách nhau ≥ 0,35 s (không rối tai)');
 ok(sfxMan.items.length >= 7 && sfxMan.items.every(x => fs.existsSync(new URL('brand/library/' + x.file, R)) && /CC0/.test(x.license)), 'kho SFX đủ file + giấy phép CC0');
@@ -202,13 +209,12 @@ ok(!K.isStackedMask(img, kw, kh).ok, 'clip thường (nửa dưới có màu) �
   ok(tl2.hook.text === 'heads-up' && tl2.hook.countdown === false, `hook: "${tl2.hook.text}", không số đếm ở khuôn không phải đố`);
   ok(new Set(tl2.pages.map(p => Math.round(p.y * 1920 + p.half))).size === 1 && tl2.pages.every(p => p.y * 1920 + p.half <= 1920 - M.SAFE.bottom), 'phụ đề canh 1 đường đáy cố định, trên vùng UI nền tảng');
   ok(tl2.pages.every(p => p.words.length >= 2 || lines2[p.line].text.split(' ').length === 1), 'không trang phụ đề 1 từ');
-  const t0 = who => tl2.shots.filter(x => x.actors.length).map(x => (x.actors.find(a => a.who === who) || {}).t0).filter(x => x != null);
+  const t0 = who => tl2.shots.filter(x => x.actors.length).flatMap(x => x.actors.filter(a => a.who === who).flatMap(a => [a.t0, ...(a.alt || []).map(b => b.t0)]));
   ok(new Set(t0('mia')).size === 1 && t0('mia')[0] === 0, 'đồng hồ clip: cùng clip qua các câu liên tiếp → chạy liền (không nhảy tư thế)');
   ok(new Set(t0('diane')).size === 2 && t0('diane').includes(+(1.7 - M.CLIP_LEAD).toFixed(3)), 'đổi clip → clip mới bắt đầu từ khung 0 ngay trước câu (tư thế gốc chung)');
+  ok(tl2.shots.some(x => x.actors.some(a => a.who === 'diane' && (a.alt || []).some(b => b.at === 1.7))), 'cảnh calm gộp 2 câu: diane đổi clip GIỮA cảnh → hoà 5 khung (alt)');
   ok(M.layoutGate(JSON.parse(JSON.stringify(tl2)), lines2).ok, 'cổng layout (gồm: chữ không đè mặt, phụ đề 1 vị trí) đạt: ' + M.layoutGate(JSON.parse(JSON.stringify(tl2)), lines2).bad.slice(0, 2).join(' | '));
-  const sx = d => M.placeSfx({ cuts: tl2.cuts, pages: tl2.pages, cards: tl2.cards, hook: tl2.hook, map: sfxMan.placement, endStart: 6, dry: d });
-  const wet = sx(false), dry = sx(true), pops = a => a.filter(e => e.id === 'pop');
-  ok(pops(dry).length < pops(wet).length && dry.filter(e => e.id === 'whoosh').every(e => e.gainDb <= sfxMan.placement.gain.whoosh - 4) && pops(dry).every((e, i, a) => !i || e.t - a[i - 1].t >= 0.6), 'không nhạc nền: pop thưa (≥ 0,6 s, chỉ từ khóa), whoosh nhỏ hơn');
+  ok(M.calmGate(JSON.parse(JSON.stringify(tl2))).ok, 'cổng calm đạt: ' + M.calmGate(JSON.parse(JSON.stringify(tl2))).bad.slice(0, 2).join(' | '));
   const bad = JSON.parse(JSON.stringify(tl2)); bad.pages[1].y -= 0.2;
   ok(M.layoutGate(bad, lines2).capJumps.length === 1, 'cổng layout bắt phụ đề nhảy vị trí');
 }

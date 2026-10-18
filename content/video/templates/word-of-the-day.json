@@ -24,7 +24,7 @@
  "title": ["Word of the day: {{word}}", "What does \"{{word}}\" mean?"],
  "hook": ["Word of the day", "What does {{word}} mean?"],
  "beats": [
-  { "id": "hook", "beat": "hook", "role": "opener", "emotions": ["talk", "wrong", "ask"], "maxWords": 5, "maxSec": 1.9, "text": ["{{hookLine}}"], "expr": "deadpan", "gesture": "" },
+  { "id": "hook", "beat": "hook", "role": "opener", "emotions": ["talk", "wrong", "ask"], "maxWords": 5, "maxSec": 2.15, "text": ["{{hookLine}}"], "expr": "deadpan", "gesture": "" },
   { "id": "situation", "beat": "situation", "role": "learner", "emotions": ["ask"], "maxWords": 12, "text": ["{{question}}"], "expr": "confused", "gesture": "" },
   { "id": "explain", "beat": "explain", "role": "learner", "emotions": ["explain"], "maxWords": 16, "punch": true, "must": ["kw:0"], "text": ["Oh, so {{word}} means {{meaning}}.", "Ah, {{word}} means {{meaning}}."], "expr": "confident", "gesture": "open hands" },
   { "id": "example", "beat": "example", "role": "modeler", "emotions": ["explain", "ask", "right"], "maxWords": 14, "must": ["kw:0"], "text": ["{{example}}"], "expr": "friendly", "gesture": "" },

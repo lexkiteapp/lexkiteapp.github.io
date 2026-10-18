@@ -27,7 +27,7 @@
  "title": ["Spot the mistake: \"{{wrong}}\"", "Is \"{{wrong}}\" correct?"],
  "hook": ["\"{{wrongShort}}\"?", "Is \"{{wrongShort}}\" wrong?"],
  "beats": [
-  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["wrong"], "maxWords": 5, "maxSec": 1.9, "text": ["Wait, \"{{wrongShort}}\"?"], "expr": "surprised", "gesture": "hands on cheeks" },
+  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["wrong"], "maxWords": 5, "maxSec": 2.15, "text": ["Wait, \"{{wrongShort}}\"?"], "expr": "surprised", "gesture": "hands on cheeks" },
   { "id": "situation", "beat": "situation", "role": "learner", "emotions": ["ask"], "maxWords": 14, "text": ["I keep saying \"{{wrong}}.\" Is that okay?"], "expr": "thinking", "gesture": "" },
   { "id": "explain", "beat": "explain", "role": "expert", "emotions": ["explain", "right"], "maxWords": 16, "punch": true, "must": ["kw:0"], "text": ["Here's the fix: {{rule}}"], "expr": "confident", "gesture": "open hands" },
   { "id": "example", "beat": "example", "role": "expert", "emotions": ["explain", "right"], "maxWords": 14, "text": ["{{example}}"], "expr": "happy smile", "gesture": "" },

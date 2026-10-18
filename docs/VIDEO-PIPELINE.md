@@ -155,6 +155,14 @@ Mục tiêu: không "râu ông nọ cắm cằm bà kia". Luật nằm trong `co
 - **Phụ đề**: trang ≥ 2 từ (trừ câu 1 từ) – "Oh," gộp với cụm sau; **canh 1 đường đáy cố định** (1/3 dưới, ngay trên vùng UI 420 px); chữ khổng lồ ≤ 2 dòng. Thẻ payoff lên cao (y 300, dưới watermark), hook sát dưới watermark.
 - **Hook**: tiêu đề trùng huy hiệu → dùng từ khóa ("WORD OF THE DAY" + "HEADS-UP"); số/vòng đếm chỉ ở khuôn đố (`motion.isQuiz`).
 - **Cổng layout thêm**: chữ (phụ đề, thẻ, hook – trừ lúc mờ đi) không đè mặt nhân vật; phụ đề không nhảy vị trí.
+**Calm – dựng kiểu kênh giáo dục cao cấp (nhánh video-calm 18/10, theo phản hồi "chồng chữ, bật lung tung, nhanh, chóng mặt")**:
+- **Cắt**: chỉ ở ranh câu (ưu tiên đổi người nói), cảnh ≥ 2,5 s (gộp câu ngắn), ≤ 3 cắt/10 s (`lib.planFilmShots`, `SHOT`). Cắt thẳng; chỉ ranh phần (hook → thân, đổi bối cảnh, vào end card) hoà mềm 0,4–0,6 s (`motion.pickTransitions` calm). 12 kiểu cách điệu giữ code (`calm:false`) nhưng không chọn mặc định.
+- **Máy**: đẩy rất chậm ≤ 3 %/cảnh (`CAM.push`), không punch/rung/nghiêng, không ngắt nhịp (sticker/flash). Khung theo người nói: trao đổi = đôi, 1 người nói dài = đơn.
+- **Phụ đề chuẩn phim** (`SUB`): trang 3–7 từ, ≤ 2 dòng, ngắt ở ranh cụm/mệnh đề (`breakCost`: không tách mạo từ/giới từ + danh từ, động từ + tiểu từ, tên riêng); hiện CẢ TRANG (mờ-lên 130 ms), từ đang đọc chỉ đổi màu; sớm ≤ 0,1 s, ở lại ≤ 0,5 s, cách ≥ 2 khung, ≥ 1,2 s/trang; ≤ 13 ký tự/s (cứng 15). Cỡ chữ chung cả video. Dòng ~22 ký tự (không phải 32–38: khổ 9:16 + chữ ≥ 60 px để đọc trên điện thoại).
+- **Nhịp đọc**: giọng Kokoro 0,9× (câu nhiều chữ dài tới 0,8×, `lib.lineSpeed`), nghỉ 0,42 s đổi người / 0,25 s cùng người / 0,6 s trước câu đắt (`lib.PAUSE`, `lineGaps`); ước lượng lint khuôn dùng cùng công thức (`estLineSec`, `hookEstSec`, `HOOK_MAX`, maxSec hook khuôn 2,15 s).
+- **Hook** hiện nguyên khối 1 lần (mờ + trượt 24 px); **thẻ/Kit** mờ + trượt nhẹ, không lật/nảy/rung/confetti; **1 lớp phủ/lúc** ngoài phụ đề, không đè cắt (vào ≥ 0,3 s sau cắt, tắt ≥ 0,2 s trước cắt kế), Kit ≤ 1 lần (`scheduleOverlays`). End card: phóng nhẹ, không confetti.
+- **SFX**: whoosh nhẹ ở chuyển mềm, 1 pop nhẹ khi thẻ vào, tick chỉ khuôn đố; không gì theo từ.
+- **Cổng `calm`** (bước qa, chặn đăng): ≤ 3 cắt/10 s · cảnh ≥ 2 s · chuyển mềm ≤ 3 · ≤ 1 lớp phủ/lúc · lớp phủ không đè cắt · phụ đề hiện cả trang · ≤ 15 ký tự/s · ≥ 1,2 s/trang (trừ câu ≤ 2 từ) · cách ≥ 2 khung. QA ghi `metrics.calm.subs.maxCps/medCps`.
 **Dựng thử đa dạng**: `node scripts/video/stress.mjs --n 12` → `brand/characters/_candidates/stress/<id>.jpg` (6 khung) + `report.json` (cổng trượt, todo, cảnh báo).
 
 ## 11. Khuôn nội dung (template) – kịch bản đồng đều, giữ chân người xem

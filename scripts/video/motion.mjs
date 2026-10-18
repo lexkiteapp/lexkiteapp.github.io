@@ -61,8 +61,20 @@ export function markKeywords(words, keywords = []) {
 }
 // Chia mỗi câu thành "trang" 2–3 từ (karaoke: tới 6): ngắt ở dấu câu hoặc khi quá dài; trang giữ tới trang sau (không nháy trống giữa câu).
 const FUNC = /^(on|in|at|to|of|for|with|a|an|the|and|or|but|is|are|was|so|my|your|our|their|his|her|its|i|we|you|it|this|that|not|no|be|by|from|as|if|than|then|could|would|can|will)$/i;
-// Xuống dòng trong 1 trang: tối đa maxLines dòng ≤ maxChars, cân đều độ dài, không để 1 từ ngắn đứng riêng, ưu tiên ngắt sau dấu câu/trước từ chức năng.
-export function breakLines(ws, { maxChars = 17, maxLines = 3 } = {}) {
+// Không ngắt ngay SAU từ này (mạo từ/giới từ/sở hữu + danh từ, "to" + động từ) và không ngắt ngay TRƯỚC tiểu từ của cụm động từ (push back, run out…)
+const NOBREAK_AFTER = /^(because|and|but|or|so|if|when|that|which|a|an|the|to|of|for|with|at|on|in|from|by|before|after|about|like|than|into|during|without|until|my|your|our|their|his|her|its|this|that|these|those|some|any|no|very|so|too|more|most|i|we|you|they|he|she|it|can|could|would|will|should|do|does|did|don't|doesn't|is|are|was|were|be|not)$/i;
+const PARTICLE = /^(up|down|out|off|in|on|back|over|away|around|through|about)[.,!?;:]?$/i;
+const clean = w => String(w).replace(/^["“'‘(]+|["”'’).,!?;:…]+$/g, '');
+// cost ngắt giữa ws[k-1] | ws[k] (dòng hoặc trang): 0 = ranh câu/mệnh đề tốt, lớn = cụm không được tách
+export function breakCost(ws, k) {
+  const a = ws[k - 1], b = ws[k]; if (!a || !b) return 0;
+  if (/[.!?…]["”']?$/.test(a)) return -20; if (/[,;:–—]["”']?$/.test(a)) return -6;
+  let c = 0; if (NOBREAK_AFTER.test(clean(a))) c += 40; else if (/^(a|an|the|to|of|for|with|at|on|in|from|before|after|about|and|but|or|because|when|if|that|which|who)$/i.test(clean(b))) c -= 8; /* ngắt TRƯỚC mạo từ/giới từ/liên từ = ranh cụm */ if (PARTICLE.test(b) && !/[,.;:!?]$/.test(a)) c += 30;
+  if (/^[A-Z]/.test(clean(a)) && /^[A-Z]/.test(clean(b)) && k > 1) c += 30; // tên riêng nhiều chữ
+  return c;
+}
+// Xuống dòng trong 1 trang: tối đa maxLines dòng ≤ maxChars, ngắt ở ranh cụm/mệnh đề (breakCost), cân độ dài; từ dài hơn giới hạn được đứng riêng.
+export function breakLines(ws, { maxChars = 30, maxLines = 2 } = {}) {
   const L = ws.map(w => w.length), tot = L.reduce((a, b) => a + b, 0) + ws.length - 1;
   if (tot <= maxChars || ws.length < 2) return [ws.length];
   let best = null;
@@ -70,62 +82,83 @@ export function breakLines(ws, { maxChars = 17, maxLines = 3 } = {}) {
     if (acc.length > maxLines) return;
     if (i === ws.length) {
       const lens = acc.map((n, k) => { const st = acc.slice(0, k).reduce((a, b) => a + b, 0); return ws.slice(st, st + n).join(' ').length; });
-      if (lens.some((x, k) => x > maxChars * 1.15 && acc[k] > 1)) return; // từ dài hơn giới hạn được đứng riêng 1 dòng
-      let cost = Math.max(...lens) - Math.min(...lens) + 6 * acc.length;
-      acc.forEach((n, k) => { const st = acc.slice(0, k).reduce((a, b) => a + b, 0), lw = ws.slice(st, st + n);
-        if (n === 1 && lw[0].replace(/\W/g, '').length <= 3) cost += 40; // từ ngắn đứng một mình
-        if (k < acc.length - 1 && FUNC.test(lw[lw.length - 1].replace(/\W/g, ''))) cost += 12; // dòng kết thúc bằng từ chức năng
-        if (k < acc.length - 1 && /[,.!?;:–—]["”']?$/.test(lw[lw.length - 1])) cost -= 5; });
+      if (lens.some((x, k) => x > maxChars * 1.15 && acc[k] > 1)) return;
+      let cost = 0.4 * (Math.max(...lens) - Math.min(...lens)) + 6 * acc.length; let st = 0;
+      acc.forEach((n, k) => { st += n; if (k < acc.length - 1) cost += breakCost(ws, st); if (n === 1 && clean(ws[st - 1]).length <= 3) cost += 40; });
       if (!best || cost < best.cost) best = { cost, acc: [...acc] };
       return;
     }
     for (let n = 1; i + n <= ws.length; n++) rec(i + n, [...acc, n]);
   };
   rec(0, []);
-  return best ? best.acc : [ws.length];
+  return best ? best.acc : maxLines < Math.min(4, ws.length) ? breakLines(ws, { maxChars, maxLines: maxLines + 1 }) : [ws.length];
 }
-// Trang 2–3 từ (round 3): KHÔNG có trang 1 từ ("Oh,") trừ khi cả câu chỉ 1 từ – trang 1 từ gộp vào trang sau (hoặc trước), quá dài thì chia lại 2 trang ≥ 2 từ.
-export const CAP_MIN_WORDS = 2;
-export function captionPages(words, { style = 'pop-box', maxWords = 3, maxChars = 16, lead = 0.04 } = {}) {
-  const mw = style === 'mega-word' ? 3 : style === 'karaoke-bar' ? 6 : maxWords, mc = style === 'karaoke-bar' ? 30 : style === 'mega-word' ? 14 : maxChars;
-  const pages = [], chars = ws => ws.reduce((a, x) => a + x.w.length + 1, 0) - 1;
+// ---------- Phụ đề chuẩn phim (video-calm 18/10, Netflix/BBC chỉnh cho người học) ----------
+// Trang 3–7 từ (câu < 3 từ = 1 trang), ≤ 2 dòng × ~30 ký tự, ngắt ở ranh cụm/mệnh đề; hiện CẢ TRANG một lúc (mờ-lên 130 ms), từ đang đọc chỉ đổi màu.
+// Giờ hiện: sớm ≤ 0,1 s trước tiếng, ở lại ≤ 0,5 s sau tiếng (không lấn trang sau), cách trang sau ≥ 2 khung, cố gắng ≥ 1,2 s/trang.
+// Tốc độ đọc ≤ 13 ký tự/s (cứng 15) – vượt thì sửa NHỊP (giọng chậm + nghỉ, lib.TTS_SPEED/PAUSE), không rút giờ hiện.
+export const SUB = { minWords: 3, maxWords: 7, lineChars: 22, lines: 2, lead: 0.1, linger: 0.5, gap: 2 / 30, minDur: 1.2, cps: 13, cpsMax: 15 };
+export const CAP_MIN_WORDS = SUB.minWords;
+const pageText = ws => ws.map(w => w.w).join(' ');
+export function captionPages(words, { style = 'pop-box' } = {}) {
+  const maxC = SUB.lineChars * SUB.lines, pages = [];
   const byLine = {}; for (const w of words) (byLine[w.line] = byLine[w.line] || []).push(w);
   for (const ws of Object.values(byLine)) {
-    let cur = []; const lp = [];
-    const flush = () => { if (cur.length) lp.push({ line: cur[0].line, words: cur }); cur = []; };
-    for (const w of ws) {
-      const len = cur.reduce((a, x) => a + x.w.length + 1, 0) + w.w.length;
-      if (cur.length && (cur.length >= mw || len > mc)) {
-        // ngắt ở ranh giới cụm: từ chức năng cuối trang (on/a/the/to…) chuyển sang trang sau cùng cụm của nó
-        const carry = cur.length > 1 && FUNC.test(cur[cur.length - 1].w) ? cur.pop() : null;
-        flush(); if (carry) cur.push(carry);
-      }
-      cur.push(w); if (/[.,!?;:]["”']?$/.test(w.w)) flush();
+    const t = ws.map(w => w.w), lp = [];
+    // chia tham lam: thêm từ tới khi đầy (7 từ / 2 dòng); ngắt ưu tiên ở điểm có breakCost thấp trong cửa sổ [minWords, hiện tại]
+    let i = 0;
+    while (i < ws.length) {
+      let j = i; while (j < ws.length && j - i < SUB.maxWords && pageText(ws.slice(i, j + 1)).length <= maxC) j++;
+      if (j >= ws.length) { lp.push(ws.slice(i)); break; }
+      let best = j, bc = Infinity;
+      for (let k = Math.min(j, i + 2); k <= j; k++) { if (k - i < SUB.minWords && !/[.!?…]["”']?$/.test(t[k - 1])) continue; /* trang 2 từ chỉ khi trọn câu ("Heads up?") */ const c = breakCost(t, k) - (k - i) * 0.5 + (ws.length - k < SUB.minWords ? 50 : 0); if (c < bc) { bc = c; best = k; } }
+      lp.push(ws.slice(i, best)); i = best;
     }
-    flush();
-    // trang 1 từ → gộp (ưu tiên trang sau: "Oh," + "so heads-up"); vượt giới hạn → chia lại thành 2 trang cân ký tự, mỗi trang ≥ 2 từ
-    for (let guard = 0; ws.length >= CAP_MIN_WORDS && guard < 50; guard++) {
-      const k = lp.findIndex(p => p.words.length < CAP_MIN_WORDS); if (k < 0) break;
-      const endP = /[.,!?;:…]["”']?$/.test(lp[k].words[0].w); // từ lẻ kết thúc mệnh đề ("please.") → về trang trước; mở câu ("Oh," đầu câu) → sang trang sau
-      const j = (endP && k > 0) || k + 1 >= lp.length ? k - 1 : k + 1; if (j < 0) break;
-      const a = Math.min(k, j), all = [...lp[a].words, ...lp[a + 1].words];
-      if (all.length <= mw && chars(all) <= mc * 1.15) { lp.splice(a, 2, { line: all[0].line, words: all }); continue; }
-      let best = null; for (let c = CAP_MIN_WORDS; c <= all.length - CAP_MIN_WORDS; c++) { const x = all.slice(0, c), y = all.slice(c), cost = Math.abs(chars(x) - chars(y)) + 30 * (Math.max(0, x.length - mw) + Math.max(0, y.length - mw)) + (FUNC.test(x[x.length - 1].w) ? 8 : 0) - (/[.,!?;:]["”']?$/.test(x[x.length - 1].w) ? 6 : 0); if (!best || cost < best.cost) best = { cost, c }; }
-      if (!best) { lp.splice(a, 2, { line: all[0].line, words: all }); continue; }
-      lp.splice(a, 2, { line: all[0].line, words: all.slice(0, best.c) }, { line: all[0].line, words: all.slice(best.c) });
+    // trang < 3 từ (không phải cả câu) → gộp vào trang kề nếu vừa 2 dòng
+    const span = p => p[p.length - 1].end - p[0].start; // trang giữa câu nói < 1 s (không kịp đọc 1,2 s) cũng gộp
+    for (let k = 0; k < lp.length && lp.length > 1; k++) if ((lp[k].length < SUB.minWords && !(lp[k].length === 2 && /[.!?…]["”']?$/.test(lp[k][1].w))) || span(lp[k]) + (k < lp.length - 1 ? 0 : 0.3) < SUB.minDur) {
+      const endP = /[.!?…,;:]["”']?$/.test(lp[k][lp[k].length - 1].w), j = (endP && k > 0) || k + 1 >= lp.length ? k - 1 : k + 1, a = Math.min(k, j), all = [...lp[a], ...lp[a + 1]];
+      if (pageText(all).length <= maxC * 1.1 && all.length <= SUB.maxWords + 1) { lp.splice(a, 2, all); k = -1; continue; }
+      // quá dài để gộp → chia lại 2 trang: điểm ngắt tốt nhất mà cả 2 trang vừa 2 dòng và đủ giờ đọc
+      const tw = all.map(x => x.w); let best = null;
+      for (let c = 2; c <= all.length - 2; c++) { const x = all.slice(0, c), y = all.slice(c); if (pageText(x).length > maxC || pageText(y).length > maxC) continue;
+        const pen = Math.max(0, SUB.minDur - span(x)) * 200 + Math.max(0, SUB.minDur - 0.3 - span(y)) * 200 + breakCost(tw, c); if (!best || pen < best.pen) best = { pen, c }; }
+      if (best && best.c !== lp[a].length) { lp.splice(a, 2, all.slice(0, best.c), all.slice(best.c)); if (k > a + 1) k = -1; }
     }
-    pages.push(...lp);
+    for (const p of lp) pages.push({ line: p[0].line, words: p });
   }
-  return pages.map((p, i) => {
-    const nx = pages[i + 1], lastEnd = p.words[p.words.length - 1].end;
-    const end = nx && nx.line === p.line ? nx.words[0].start - lead : lastEnd + 0.25;
-    return { line: p.line, breaks: breakLines(p.words.map(w => w.w), { maxChars: style === 'karaoke-bar' ? 24 : style === 'mega-word' ? 14 : 17, maxLines: style === 'mega-word' ? 2 : 3 }), start: r3(p.words[0].start - lead), end: r3(nx && nx.line === p.line ? end : Math.max(end, lastEnd)), words: p.words.map(w => ({ w: w.w, key: !!w.key, pop: r3(w.start - lead), start: w.start, end: w.end })) };
-  });
+  pages.sort((x, y) => x.words[0].start - y.words[0].start);
+  // giờ hiện
+  const out = pages.map(p => ({ line: p.line, s0: p.words[0].start, s1: p.words[p.words.length - 1].end, words: p.words }));
+  out.forEach((p, i) => { const prev = out[i - 1]; p.start = Math.min(p.s0, Math.max(p.s0 - SUB.lead, prev ? prev.s1 + 0.001 : 0)); });
+  out.forEach((p, i) => { const nx = out[i + 1], cap = nx ? nx.start - SUB.gap : Infinity; p.end = Math.min(cap, Math.max(p.s1 + Math.min(SUB.linger, 0.25), Math.min(p.s1 + SUB.linger, p.start + SUB.minDur))); });
+  // trang cuối câu còn < 1,2 s: trang câu sau bỏ phần "hiện sớm" (≤ 0,1 s) để trang này ở lâu hơn
+  out.forEach((p, i) => { const nx = out[i + 1]; if (!nx || nx.line === p.line || p.end - p.start >= SUB.minDur) return;
+    nx.start = Math.max(nx.start, Math.min(nx.s0, p.start + SUB.minDur + SUB.gap)); p.end = Math.min(p.s1 + SUB.linger, nx.start - SUB.gap); });
+  return out.map(p => ({ line: p.line, breaks: breakLines(p.words.map(w => w.w), { maxChars: style === 'mega-word' ? 18 : SUB.lineChars, maxLines: SUB.lines }), start: r3(p.start), end: r3(p.end),
+    words: p.words.map(w => ({ w: w.w, key: !!w.key, pop: r3(p.start), start: w.start, end: w.end })) }));
+}
+// Thống kê phụ đề (QA): ký tự/giây từng trang, giờ hiện; trang ngắn chỉ được miễn khi cả câu ≤ 2 từ (thán từ "Wow!")
+export function subStats(pages) {
+  const byLine = {}; for (const p of pages) byLine[p.line] = (byLine[p.line] || 0) + p.words.length;
+  const st = pages.map(p => { const txt = pageText(p.words), d = Math.max(0.001, p.end - p.start); return { text: txt, dur: r3(d), cps: +(txt.length / d).toFixed(1), exempt: byLine[p.line] <= 2 }; });
+  const cs = st.map(x => x.cps).sort((a, b) => a - b), gaps = pages.slice(1).map((p, i) => p.start - pages[i].end);
+  return { pages: st, maxCps: cs.length ? cs[cs.length - 1] : 0, medCps: cs.length ? cs[cs.length >> 1] : 0, minDur: st.length ? Math.min(...st.map(x => x.dur)) : 0, minGap: gaps.length ? r3(Math.min(...gaps)) : null,
+    tooFast: st.filter(x => x.cps > SUB.cpsMax), tooShort: st.filter(x => x.dur < SUB.minDur - 1e-3 && !x.exempt) };
 }
 
 // ---------- Chuyển cảnh ----------
 // cut i = giữa shot i và i+1. Chọn theo ngữ cảnh + bộ của biến thể; không lặp kiểu ở 2 cut liền nhau; luôn ≥ 4 kiểu khác nhau nếu ≥ 4 cut.
-export function pickTransitions(shots, { lines = [], stage = null, lead = null, seed = 'x', pool = TRANSITIONS } = {}) {
+// Dựng "calm" (mặc định, video-calm 18/10): cắt THẲNG ở mọi ranh cảnh; chỉ ranh PHẦN (hook → thân, đổi bối cảnh, thân → end card) mới hoà mềm
+// (crossfade 0,4 s / vào end card 0,6 s) – tối đa SOFT_MAX chuyển cảnh mềm/video. 12 kiểu cách điệu cũ vẫn giữ (calm:false) nhưng không chọn mặc định.
+export const CALM_TRANSITIONS = ['cut', 'crossfade'], SOFT_MAX = 3;
+Object.assign(TRANSITION_DUR, { cut: 0, crossfade: 0.4 });
+export function pickTransitions(shots, { lines = [], stage = null, lead = null, seed = 'x', pool = TRANSITIONS, calm = true } = {}) {
+  if (calm) return shots.slice(0, -1).map((a, i) => {
+    const b = shots[i + 1], t = r3(b.start), soft = b.framing === 'card' || i === 0 || !!b.sceneChange;
+    if (!soft) return { i, t, type: 'cut', d: 0, from: t, to: t };
+    const d = b.framing === 'card' ? 0.6 : 0.4; return b.framing === 'card' ? { i, t, type: 'crossfade', d, from: r3(t - 0.1), to: r3(t - 0.1 + d) } : { i, t, type: 'crossfade', d, from: r3(t - d / 2), to: r3(t + d / 2) };
+  });
   const R = rng('tr|' + seed), cuts = [], used = [];
   for (let i = 0; i < shots.length - 1; i++) {
     const a = shots[i], b = shots[i + 1], la = lines[a.line] || {}, lb = lines[b.line] || {};
@@ -194,7 +227,7 @@ export function captionY(shot, capY, h = 1920, half = 95, bands = []) {
 // Round 3 (video-polish 18/10): nhân vật to, mặt đọc được – trung cảnh đôi cowboy (đầu → đùi, tay ngoài được chạm mép: nửa rộng 0,17 h),
 // toàn cảnh chỉ còn là cảnh thiết lập ngắn và vẫn ~56 % cao khung (cả người, chân chạm sàn). Mặt LUÔN nằm giữa đáy lớp chữ phía trên
 // (hook/thẻ/Kit – topLimit) và đỉnh dải phụ đề cố định (capTop): hạ khung trước, không đủ chỗ thì giảm phóng.
-export const CAM = { twoFill: 0.66, singleFill: 0.54, closeFill: 0.5, wideFill: 0.56, headroom: 0.25, maxUp: 1.6, roomUp: 2.4, twoHalfW: 0.17, face: 0.24, faceGap: 24 };
+export const CAM = { twoFill: 0.66, singleFill: 0.54, closeFill: 0.5, wideFill: 0.56, headroom: 0.25, maxUp: 1.6, roomUp: 2.4, twoHalfW: 0.17, face: 0.24, faceGap: 24, push: 0.97 }; // push: đẩy máy rất chậm ≤ 3 % / cảnh (calm)
 export function zoomCap(actors, room, W = 1080) {
   const caps = [room && room.srcW ? CAM.roomUp * room.srcW / W : 3];
   for (const a of actors) if (a.figH && a.h) caps.push(CAM.maxUp * a.figH / a.h);
@@ -208,7 +241,7 @@ export const faceBox = a => [a.x - 0.12 * a.h, a.y - a.h, a.x + 0.12 * a.h, a.y 
 // topLimit: đáy (px màn hình) lớp chữ phía trên đang hiện trong cảnh (hook/thẻ/Kit) · capTop: đỉnh dải phụ đề cố định.
 export function shotCamera(shot, actors, { room = null, W = 1080, H = 1920, topLimit = 0, capTop = H } = {}) {
   const wide = { cx: W / 2, cy: H / 2, z: 1 };
-  if (!actors.length || shot.framing === 'card') return { from: wide, to: { ...wide, z: shot.line === 0 ? 1.12 : 1.04 } }; // hook: đẩy máy rõ (visual hook – chuyển động)
+  if (!actors.length || shot.framing === 'card') return { from: wide, to: { ...wide, z: 1.03 } }; // hook: đẩy máy rõ (visual hook – chuyển động)
   const cap = zoomCap(actors, room, W);
   const frameOn = (as, fill, bottomOf, upTo = 0.1, hw = 0.22) => {
     const top = Math.min(...as.map(a => a.y - a.h)), bot = Math.max(...as.map(bottomOf)), l = Math.min(...as.map(a => body(a, hw).l)), r = Math.max(...as.map(a => body(a, hw).r));
@@ -230,7 +263,7 @@ export function shotCamera(shot, actors, { room = null, W = 1080, H = 1920, topL
     const fb = body(f); if (fb.l < c.cx - rw / 2 || fb.r > c.cx + rw / 2) c.cx = f.x;
   }
   // đặt mặt giữa topLimit và capTop (cả đầu cảnh – phóng nhỏ hơn – lẫn cuối cảnh); thiếu chỗ → giảm phóng từng 3 %
-  const pushK = shot.framing === 'close' ? 0.97 : 0.93, lo = topLimit ? topLimit + CAM.faceGap : 0, hi = capTop - CAM.faceGap;
+  const pushK = CAM.push, lo = topLimit ? topLimit + CAM.faceGap : 0, hi = capTop - CAM.faceGap;
   const vis = cm => actors.filter(a => { if (shot.framing === 'two' || shot.framing === 'wide' || !f) return true; if (a === f) return true; const rw = W / cm.z, b = body(a); return b.l >= cm.cx - rw / 2 && b.r <= cm.cx + rw / 2; });
   const fits = cm => vis(cm).every(a => { const fb = faceBox(a), t = (fb[1] - cm.cy) * cm.z + H / 2, ch = (fb[3] - cm.cy) * cm.z + H / 2; return t >= lo - 0.5 && ch <= hi + 0.5; });
   // đẩy máy chậm (from phóng nhỏ hơn); nếu đẩy máy làm mặt lọt ra ngoài dải cho phép (phòng có người đứng cao) → máy trượt ngang nhẹ thay vì đẩy
@@ -279,27 +312,27 @@ export const OVERLAY = { left: 60, right: 140 }; // khối chữ hook/phụ đ�
 const intersects = (a, b) => a[0] < b[2] && b[0] < a[2] && a[1] < b[3] && b[1] < a[3];
 const cx0 = (W = 1080) => OVERLAY.left + (W - OVERLAY.left - OVERLAY.right) / 2;
 export const CAP_FONT = { 'mega-word': 150, 'karaoke-bar': 70 }; // còn lại 92
-export const CAP_MIN = { big: 64, bar: 56 }; // thu cỡ cho vừa nhưng KHÔNG nhỏ hơn mức này
+export const CAP_MIN = { big: 60, bar: 56 }; // thu cỡ cho vừa nhưng KHÔNG nhỏ hơn mức này
 export const POP_FROM = 0.8, CAP_MIN_PX = 48; // từ bật từ 0,8× (cũ 0,35× → trang ngắn 0,3 s chỉ thấy chữ li ti); cỡ nhìn thấy nhỏ nhất ≥ 48 px
 // 1 trang phụ đề: cỡ chữ (tự thu nhỏ cho vừa 880 px), khoảng cách từ (margin mỗi bên = 0,28 em), viền, độ phóng tối đa từng từ
 // (pop/đang đọc) sao cho khoảng trống nhìn thấy giữa 2 từ luôn ≥ 0,2 em – chữ không dính nhau khi từ đổi màu/phóng ("onFriday?").
-export function captionLayout(p, style, { W = 1080 } = {}) {
+export function captionLayout(p, style, { W = 1080, font = null } = {}) {
   const upper = style === 'bounce-outline' || style === 'mega-word', bar = style === 'karaoke-bar';
   const avail = W - OVERLAY.left - OVERLAY.right - (bar ? 60 : 0), sw = bar ? 0 : style === 'mega-word' ? 16 : 12;
-  let F = CAP_FONT[style] || 92, m = 0, ws = [], rows = [], breaks = p.breaks || [p.words.length], mc = bar ? 24 : style === 'mega-word' ? 14 : 17;
+  let F = font || CAP_FONT[style] || 92, m = 0, ws = [], rows = [], breaks = p.breaks || [p.words.length], mc = SUB.lineChars; // calm: cỡ chữ chung cả video (font) – không đổi cỡ giữa các trang
   const fmin = CAP_MIN[bar ? 'bar' : 'big'];
   for (let k = 0; k < 12; k++) {
-    m = Math.round(0.28 * F);
+    m = Math.max(Math.round(0.2 * F), Math.ceil((0.2 * F + sw) / 2) + 1); // calm: không phóng từ → khoảng cách chữ thường (0,4 em giữa 2 từ)
     ws = p.words.map(w => textW(upper ? w.w.toUpperCase() : w.w, F) + (w.key ? 48 : 0)); // hộp vàng từ khóa: padding 20 × 2 + bóng 8
     rows = []; let i = 0; for (const n of breaks) { rows.push(ws.slice(i, i + n).reduce((a, x) => a + x + 2 * m, 0)); i += n; }
     const mx = Math.max(...rows); if (mx <= avail) break;
-    if (F > fmin) { F = Math.max(fmin, Math.floor(F * avail / mx * 0.98)); continue; }
+    if (F > fmin && !font) { F = Math.max(fmin, Math.floor(F * avail / mx * 0.98)); continue; }
     // đã ở cỡ nhỏ nhất mà vẫn tràn → xuống thêm dòng (không thu chữ li ti)
     if (mc <= 6 || breaks.length >= p.words.length) break;
-    mc -= 3; breaks = breakLines(p.words.map(w => w.w), { maxChars: mc, maxLines: style === 'mega-word' ? 2 : 3 }); // chữ khổng lồ: tối đa 2 dòng
+    mc -= 2; breaks = breakLines(p.words.map(w => w.w), { maxChars: mc, maxLines: mc >= SUB.lineChars - 6 ? 2 : 3 }); // ưu tiên 2 dòng, 3 dòng chỉ khi bất khả
   }
   const minGap = Math.round(0.2 * F), room = 2 * m - sw - minGap;
-  const maxS = ws.map(x => (bar ? 1 : +Math.max(1, Math.min(1.12, 1 + room / x)).toFixed(3)));
+  const maxS = ws.map(() => 1); void room; // calm: từ đang đọc chỉ đổi màu, không phóng
   const lineH = F * 1.12, grow = (Math.max(...maxS) - 1) * lineH / 2;
   const half = Math.ceil((rows.length * lineH + (bar ? 44 : 0)) / 2 + sw / 2 + grow + (style === 'bounce-outline' ? 14 : 0) + 6);
   return { font: F, gap: m, stroke: sw, minGap, widths: ws, maxS, rowW: rows, nl: rows.length, half, breaks, width: Math.max(...rows) + (bar ? 60 : 0) };
@@ -434,7 +467,16 @@ export function comparePair(sc) {
 // dry = không nhạc nền (quyết định chủ 18/10: chỉ giọng + SFX): SFX không còn nền nhạc che → bớt dày + nhỏ hơn: pop chữ chỉ ở TỪ KHÓA
 // (không pop đầu mỗi trang), whoosh/swoosh −4 dB, pop/tick/keys −3 dB, khoảng tối thiểu giữa 2 pop 0,6 s; nhấn (ding/buzz/bass) giữ nguyên.
 export const DRY_TRIM = { whoosh: -4, swoosh: -4, pop: -3, tick: -3, keys: -3, glitch: -3, confetti: -2 };
-export function placeSfx({ cuts = [], pages = [], cards = [], interrupts = [], hook = null, shocks = [], map, endStart, mode = 'full', dry = false }) {
+// calm (mặc định của buildTimeline): ÍT tiếng – whoosh nhẹ chỉ ở chuyển cảnh mềm (ranh phần), 1 pop nhẹ khi thẻ vào; tick đồng hồ chỉ khuôn đố; không gì theo từ.
+export const CALM_SFX = { whoosh: -24, pop: -24, tick: -22 };
+export function placeSfx({ cuts = [], pages = [], cards = [], interrupts = [], hook = null, shocks = [], map, endStart, mode = 'full', dry = false, calm = false }) {
+  if (calm) {
+    const out = [];
+    for (const c of cuts) if (c.type !== 'cut' && c.t <= endStart + 0.1) out.push({ t: r3(Math.max(0, c.from - 0.05)), id: 'whoosh', gainDb: CALM_SFX.whoosh });
+    for (const c of cards) out.push({ t: r3(c.start + 0.03), id: 'pop', gainDb: CALM_SFX.pop });
+    if (hook && hook.countdown && hook.sfx === 'quizTick') out.push({ t: 0.15, id: map.quizTick || 'tick', gainDb: CALM_SFX.tick });
+    return out.sort((a, b) => a.t - b.t);
+  }
   const ev = [], add = (t, key, prio = 1) => { const id = typeof key === 'string' && map[key] ? map[key] : key; if (t >= 0 && id) ev.push({ t: r3(t), id, gainDb: (map.gain[id] ?? -16) + (mode === 'soft' ? -4 : mode === 'punchy' ? 2 : 0) + (dry ? DRY_TRIM[id] || 0 : 0), prio }); };
   if (hook) { add(0.02, 'hook', 3); if (hook.sfx && hook.sfx !== 'hook') add(hook.sfx === 'preReveal' ? 0.3 : 0.15, hook.sfx, 2); }
   for (const c of cuts) { const id = map.transition[c.type]; add(c.t - (id === 'whoosh' ? 0.22 : id === 'swoosh' ? 0.12 : 0.02), id, 2); }
@@ -453,6 +495,49 @@ export function placeSfx({ cuts = [], pages = [], cards = [], interrupts = [], h
     out.push({ ...e });
   }
   return out.map(({ prio, ...e }) => e);
+}
+
+// ---------- Calm (video-calm 18/10): lịch lớp phủ + cổng ----------
+export const OVL = { afterCut: 0.3, beforeCut: 0.2, fade: 0.3, minCard: 1.0 };
+const cutWin = c => [c.from, c.to];
+export function scheduleOverlays({ hook, cards, kits, cuts, endStart }) {
+  const fit = (o, minLen) => { // dời o vào trong 1 cảnh: không cắt nào trong [start − 0,3, end + mờ + 0,2]
+    for (let k = 0; k < 6; k++) {
+      const c = cuts.find(x => cutWin(x)[1] > o.start - OVL.afterCut + 1e-6 && cutWin(x)[0] < o.end + OVL.fade + OVL.beforeCut - 1e-6); if (!c) return true;
+      if (cutWin(c)[0] <= o.start + 0.6) o.start = r3(cutWin(c)[1] + OVL.afterCut); else o.end = r3(cutWin(c)[0] - OVL.beforeCut - OVL.fade);
+      if (o.end - o.start < minLen) return false;
+    }
+    return o.end - o.start >= minLen;
+  };
+  cards.sort((a, b) => a.start - b.start);
+  for (let i = cards.length - 1; i >= 0; i--) { const c = cards[i]; c.end = r3(Math.min(c.end, endStart - OVL.fade - OVL.beforeCut)); if (!fit(c, OVL.minCard) && c.kind === 'dont') cards.splice(i, 1); }
+  for (let i = 1; i < cards.length; i++) if (cards[i - 1].end + OVL.fade + 0.2 > cards[i].start) { cards[i - 1].end = r3(cards[i].start - OVL.fade - 0.2); if (cards[i - 1].end - cards[i - 1].start < OVL.minCard && cards[i - 1].kind === 'dont') { cards.splice(i - 1, 1); i--; } }
+  for (let i = kits.length - 1; i >= 0; i--) { const k = kits[i];
+    for (const c of cards) if (k.start < c.end + OVL.fade + 0.2 && c.start < k.end + OVL.fade + 0.2) k.start = r3(c.end + OVL.fade + 0.2);
+    if (!fit(k, 1.2)) kits.splice(i, 1); }
+  if (kits.length > 1) kits.splice(1); // Kit hiện tối đa 1 lần (câu mẹo)
+}
+// Cổng CALM (bước qa + test): cắt ≤ 3/10 s · cảnh ≥ 2 s · chuyển cảnh mềm ≤ SOFT_MAX và chỉ kiểu calm · ≤ 1 lớp phủ (hook/thẻ/Kit/sticker) cùng lúc ·
+// lớp phủ không đè cắt (±0,3/0,2 s) · phụ đề hiện cả trang · tốc độ đọc ≤ 15 ký tự/s, ≥ 1,2 s/trang (trừ câu thán từ ≤ 2 từ), cách nhau ≥ 2 khung.
+export function calmGate(tl) {
+  const bad = [], body = (tl.shots || []).filter(x => x.framing !== 'card'), end = tl.endCard ? tl.endCard.start : tl.duration;
+  const cuts = (tl.cuts || []).filter(c => c.t < end - 1e-6), span = body.length ? body[body.length - 1].end - body[0].start : 0;
+  if (span && cuts.length / span * 10 > 3 + 1e-9) bad.push(`${cuts.length} cắt / ${span.toFixed(1)} s = ${(cuts.length / span * 10).toFixed(1)} cắt/10 s > 3`);
+  for (const x of body) if (x.end - x.start < 1.95) bad.push(`cảnh ${x.k} dài ${(x.end - x.start).toFixed(2)} s < 2 s`);
+  const soft = (tl.cuts || []).filter(c => c.type !== 'cut');
+  if (soft.length > SOFT_MAX || soft.some(c => !CALM_TRANSITIONS.includes(c.type))) bad.push(`chuyển cảnh cách điệu: ${soft.map(c => c.type).join(', ')}`);
+  const ovl = [...(tl.hook ? [{ id: 'hook', a: tl.hook.start || 0, b: tl.hook.end + 0.3 }] : []), ...(tl.cards || []).map((c, i) => ({ id: 'card' + i, a: c.start, b: c.end + 0.3 })),
+    ...(tl.kits || []).map((k, i) => ({ id: 'kit' + i, a: k.start, b: k.end + 0.2 })), ...(tl.interrupts || []).filter(x => x.kind === 'sticker').map((x, i) => ({ id: 'sticker' + i, a: x.t, b: x.t + 1.1 }))];
+  for (let i = 0; i < ovl.length; i++) for (let j = i + 1; j < ovl.length; j++) if (ovl[i].a < ovl[j].b - 1e-6 && ovl[j].a < ovl[i].b - 1e-6) bad.push(`2 lớp phủ cùng lúc: ${ovl[i].id} × ${ovl[j].id}`);
+  for (const o of ovl.filter(x => x.id !== 'hook')) for (const c of tl.cuts || []) if (c.to > o.a - 0.3 + 1e-6 && c.from < o.b + 0.2 - 1e-6) bad.push(`${o.id} [${o.a}–${o.b}] đè cắt ${c.t} s`);
+  if ((tl.kits || []).length > 1) bad.push(`Kit hiện ${tl.kits.length} lần`);
+  for (const p of tl.pages || []) if (p.words.some(w => Math.abs(w.pop - p.start) > 1e-3)) { bad.push(`phụ đề "${p.words.map(w => w.w).join(' ').slice(0, 30)}" hiện từng từ`); break; }
+  const ss = subStats(tl.pages || []);
+  for (const x of ss.tooFast) bad.push(`phụ đề "${x.text.slice(0, 30)}" ${x.cps} ký tự/s > ${SUB.cpsMax}`);
+  for (const x of ss.tooShort) bad.push(`phụ đề "${x.text.slice(0, 30)}" hiện ${x.dur} s < ${SUB.minDur} s`);
+  if (ss.minGap != null && ss.minGap < SUB.gap - 1e-3 && ss.minGap > -1e-3) bad.push(`2 trang phụ đề cách ${ss.minGap} s < 2 khung (nháy)`);
+  if (ss.minGap != null && ss.minGap < -1e-3) bad.push('2 trang phụ đề chồng giờ');
+  return { ok: !bad.length, bad, subs: { maxCps: ss.maxCps, medCps: ss.medCps, minDur: ss.minDur, minGap: ss.minGap }, cutsPer10: span ? +(cuts.length / span * 10).toFixed(2) : 0, soft: soft.length };
 }
 
 // ---------- Round 3 (video-polish): hằng số bố cục + hook ----------
@@ -508,9 +593,10 @@ export function buildTimeline({ s, words, assets = {}, w = 1080, h = 1920, fps =
   if (intersects(watermarkBox(watermark), hook.box)) watermark.from = r3(Math.max(1.5, hook.end + 0.34)); // bố cục hook sát mép trên → watermark hiện sau hook
 
   // Phụ đề: 1 VỊ TRÍ CỐ ĐỊNH cả video (dải 1/3 dưới, ngay trên vùng UI nền tảng) – không nhảy lên giữa khung theo từng cảnh
+  const capFont = Math.min(...pages.map(p => captionLayout(p, theme.caption, { W: w }).font), CAP_FONT[theme.caption] || 92);
   for (const p of pages) {
-    const L = captionLayout(p, theme.caption, { W: w });
-    Object.assign(p, { breaks: L.breaks, font: L.font, gap: L.gap, stroke: L.stroke, minGap: L.minGap, half: L.half, width: L.width, popFrom: theme.caption === 'karaoke-bar' ? 1 : POP_FROM });
+    const L = captionLayout(p, theme.caption, { W: w, font: isFinite(capFont) ? capFont : null });
+    Object.assign(p, { breaks: L.breaks, font: L.font, gap: L.gap, stroke: L.stroke, minGap: L.minGap, half: L.half, width: L.width, popFrom: 1 }); // cả trang hiện một lúc (không bật từng từ)
     p.words.forEach((x, i) => { x.maxS = L.maxS[i]; });
   }
   // canh ĐÁY cố định (như phụ đề phim): trang 1 dòng / 2 dòng cùng 1 đường đáy, chỉ cao thêm lên trên
@@ -526,6 +612,9 @@ export function buildTimeline({ s, words, assets = {}, w = 1080, h = 1920, fps =
     const inC = cuts.find(c => c.t >= l.start - 0.4 && c.t <= l.start + 0.4), outC = cuts.find(c => c.t > l.start + 0.5 && c.t <= l.end + 0.6);
     const art = kitArt(l); if (art) kits.push({ src: art, start: r3(inC ? inC.to : l.start), end: r3(outC ? outC.from : l.end + 0.2), box: KIT_BOX(w) });
   }
+  // Lớp phủ "calm": MỘT lớp tại một thời điểm ngoài phụ đề (hook → thẻ ❌ → thẻ ✅ → Kit), không đè chuyển cảnh: vào ≥ 0,3 s sau cắt, tắt hẳn (kể cả mờ
+  // 0,3 s) ≥ 0,2 s trước cắt kế. Thẻ quá ngắn (< 1 s) thì bỏ thẻ ❌; thẻ ✅ ưu tiên, Kit nhường (dời/bỏ).
+  scheduleOverlays({ hook, cards, kits, cuts, endStart });
   // lớp chữ/hình phía trên đang hiện ≥ 0,2 s trong cảnh (không tính lúc đang mờ đi) → đáy của chúng = giới hạn trên cho mặt nhân vật
   const tops = [{ a: hook.start || 0, b: hook.end, y: hook.box[3] }, ...cards.map(c => ({ a: c.start, b: c.end, y: c.box[3] })), ...kits.map(k => ({ a: k.start, b: k.end, y: k.box[3] }))];
   const topFor = (a, b) => Math.max(0, ...tops.filter(o => Math.min(b, o.b) - Math.max(a, o.a) >= 0.2).map(o => o.y));
@@ -554,7 +643,7 @@ export function buildTimeline({ s, words, assets = {}, w = 1080, h = 1920, fps =
       roomFx: room ? { light: room.light || null, tint: room.tint || null, maskText: room.maskText || [], counter: room.counter || null, blur: room.blur } : null,
       cam: film ? shotCamera(sh, actors, { room, W: w, H: h, topLimit: topFor(sh.start, sh.end), capTop: capTopFor(sh.start, sh.end) }) : null,
       actors, kit: null,
-      shake: line.emotion === 'wrong' && sh.start === line.start && sh.framing !== 'close', punch: k === 0 || (!!line.punch && sh.start === line.start && sh.framing !== 'close'),
+      shake: false, punch: false, // calm: không rung / giật zoom
     };
   });
   // Cảnh đơn/cận: chỉ vẽ người chính + ai trọn trong khung suốt cảnh (không có nửa người ở mép)
@@ -569,9 +658,11 @@ export function buildTimeline({ s, words, assets = {}, w = 1080, h = 1920, fps =
     const sh = shots[x.k], cam = shotCamera({ ...sh, framing: 'wide' }, x.actors, { W: w, H: h, topLimit: topFor(x.start, x.end), capTop: capTopFor(x.start, x.end) });
     if (!faceHit({ ...x, cam }, c.box, Math.max(x.start, c.start), Math.min(x.end, c.end))) Object.assign(x, { framing: 'wide', focus: null, cam });
   }
+  scheduleOverlays({ hook, cards, kits, cuts, endStart }); // lần 2: sau khi thẻ bị tắt sớm vì đè mặt
+  for (const c of cards) c.box = cardBox(c, layout, { W: w, H: h });
   // Nhịp: sự kiện hình = cut + hook + thẻ → chèn ngắt nhịp để khoảng trống ≤ 2,6 s; sticker đặt ở chỗ không che mặt / chữ
   const visual = [...cuts.map(c => c.t), hook.end, ...cards.map(c => c.start)];
-  const interrupts = patternInterrupts(visual, D, { endStart, lines, seed });
+  const interrupts = []; void visual; // calm: không chèn ngắt nhịp (punch/sticker/flash/tilt) – patternInterrupts giữ cho kiểu cũ
   for (const it of interrupts) if (it.kind === 'sticker') {
     const sh = S.find(x => it.t >= x.start && it.t < x.end), busy = [...overlayBoxes({ w, h, hook, cards, pages, watermark, theme: { caption: theme.caption, layout } }, it.t).map(b => b.box)];
     if (sh && sh.cam) for (const a of sh.actors) for (const u of [0, 0.5, 1]) { const c = camAt(sh.cam, Math.min(1, Math.max(0, (it.t - sh.start + u * 1.1) / Math.max(0.1, sh.end - sh.start)))), fb = faceBox(a), p0 = toScreen(c, fb[0], fb[1], w, h), p1 = toScreen(c, fb[2], fb[3], w, h); busy.push([p0[0] - 20, p0[1] - 20, p1[0] + 20, p1[1] + 20]); }
@@ -581,7 +672,7 @@ export function buildTimeline({ s, words, assets = {}, w = 1080, h = 1920, fps =
     if (pick) Object.assign(it, pick); else { it.kind = 'flash'; it.sticker = null; } // không có chỗ trống → đổi sang chớp sáng (không che mặt)
   }
   const shocks = lines.filter(l => l.emotion === 'wrong' && l.start > 1).map(l => l.start);
-  const sfx = sfxMap ? placeSfx({ cuts, pages, cards, interrupts, hook, shocks, map: sfxMap, endStart, mode: (v.sfx && v.sfx.id) || 'full', dry: !v.music || !v.music.id || v.music.id === 'none' }) : [];
+  const sfx = sfxMap ? placeSfx({ cuts, pages, cards, interrupts, hook, shocks, map: sfxMap, endStart, calm: true, mode: (v.sfx && v.sfx.id) || 'full', dry: !v.music || !v.music.id || v.music.id === 'none' }) : [];
   return {
     w, h, fps, durationInFrames: Math.round(D * fps), duration: D, seed: String(seed), format: fmt.id,
     theme: { ...theme, colors, layout }, grain, hook, pages, cuts, shots: S, cards, interrupts, sfx, kits,

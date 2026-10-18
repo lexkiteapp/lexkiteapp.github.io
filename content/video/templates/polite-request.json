@@ -26,7 +26,7 @@
  "title": ["Too direct? Say \"{{phrase}}\"", "Rude or polite: \"{{directCard}}\""],
  "hook": ["Rude or polite?", "Too direct?"],
  "beats": [
-  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["ask", "wrong"], "maxWords": 5, "maxSec": 1.9, "text": ["{{hookLine}}"], "expr": "thinking", "gesture": "" },
+  { "id": "hook", "beat": "hook", "role": "learner", "emotions": ["ask", "wrong"], "maxWords": 5, "maxSec": 2.15, "text": ["{{hookLine}}"], "expr": "thinking", "gesture": "" },
   { "id": "situation", "beat": "situation", "role": "learner", "emotions": ["explain", "talk"], "maxWords": 10, "text": ["{{direct}}"], "expr": "deadpan", "gesture": "" },
   { "id": "explain", "beat": "explain", "role": "explainer", "emotions": ["explain"], "maxWords": 16, "punch": true, "must": ["kw:0"], "text": ["{{why}}"], "expr": "friendly", "gesture": "open hands" },
   { "id": "example", "beat": "example", "role": "modeler", "emotions": ["explain", "ask", "right"], "maxWords": 14, "must": ["kw:0"], "text": ["{{polite}}"], "expr": "happy smile", "gesture": "" },

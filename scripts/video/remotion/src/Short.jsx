@@ -56,6 +56,8 @@ function trStyle(type, role, p, W, H, center) {
     case 'split-screen': { const a = e < 0.5 ? ease(e * 2) * 50 : 50 + ease((e - 0.5) * 2) * 50; return out ? { transform: e < 0.5 ? `translateY(${-ease(e * 2) * H * 0.25}px)` : `translateY(${-H * 0.25}px)` } : { clipPath: `inset(${100 - a}% 0 0 0)` }; }
     case 'kit-fly': return out ? {} : { clipPath: `inset(0 ${(1 - e) * 100}% 0 0)` };
     case 'confetti-burst': return out ? {} : { opacity: clamp01(e * 2.2), transform: `scale(${1.06 - 0.06 * e})` };
+    case 'cut': return {};
+    case 'crossfade': return out ? {} : { opacity: e }; // calm: hoà mềm ở ranh phần
     default: return out ? {} : { opacity: e };
   }
 }
@@ -220,37 +222,35 @@ const RoomPatch = ({ srcImg, r, W, H, blur }) => {
   );
 };
 // Kit (linh vật) – lớp riêng: bật lò xo sau khi chuyển cảnh vào xong, thu nhỏ trước chuyển cảnh ra (không mờ theo cảnh)
+// calm: hiện/ẩn bằng mờ + trượt nhẹ 24 px (0,3 s, không nảy), nhún ±4 px rất chậm
+const easeIO = Easing.bezier(0.33, 0, 0.2, 1), ramp = (t, a, d) => easeIO(clamp01((t - a) / d));
 const KitLayer = ({ kits, t, fps, W }) => kits.map((k, i) => {
-  if (t < k.start || t > k.end) return null;
-  const s = spring({ frame: (t - k.start) * fps, fps, config: { damping: 11, stiffness: 180 } }), o = clamp01((k.end - t) / 0.2);
-  return <Img key={i} src={src(k.src)} style={{ position: 'absolute', width: 320, height: 320, left: W - 470, top: 250 + 12 * Math.sin(t * 4), transform: `scale(${s * (0.6 + 0.4 * o)})`, opacity: o, filter: 'drop-shadow(0 24px 30px rgba(0,0,0,.35))' }} />;
+  if (t < k.start || t > k.end + 0.2) return null;
+  const e = ramp(t, k.start, 0.3), o = Math.min(e, 1 - clamp01((t - k.end) / 0.2));
+  return <Img key={i} src={src(k.src)} style={{ position: 'absolute', width: 320, height: 320, left: W - 470, top: 250 + 4 * Math.sin(t * 1.6) + 24 * (1 - e), opacity: o, filter: 'drop-shadow(0 24px 30px rgba(0,0,0,.35))' }} />;
 });
 
 // ---------- Chữ ----------
 const stroke = (px, c = '#14100E') => ({ WebkitTextStroke: `${px}px ${c}`, paintOrder: 'stroke fill' });
 const KeyBox = ({ children, rot = -2 }) => (
-  <span style={{ display: 'inline-block', background: '#FFC94A', color: '#14100E', padding: '2px 20px 6px', borderRadius: 18, transform: `rotate(${rot}deg)`, boxShadow: '8px 8px 0 #E5502F', WebkitTextStroke: 0 }}>{children}</span>
+  <span style={{ display: 'inline-block', background: '#FFC94A', color: '#14100E', padding: '2px 20px 6px', borderRadius: 18, transform: `rotate(${rot}deg)`, boxShadow: '6px 6px 0 #E5502F', WebkitTextStroke: 0 }}>{children}</span>
 );
+// calm: CẢ TRANG hiện một lúc (mờ + nhích lên 14 px trong 130 ms), tắt mờ 100 ms; từ đang đọc chỉ ĐỔI MÀU (không phóng, không hiện từng từ)
 const Captions = ({ pages, t, fps, theme, W, H, hidden }) => {
   const pg = pages.find(p => t >= p.start && t < p.end); if (!pg || hidden) return null;
-  // cỡ chữ / khoảng cách từ / độ phóng tối đa tính sẵn trong timeline (motion.captionLayout) – khe giữa 2 từ luôn ≥ 0,2 em kể cả khi từ đang đọc phóng to
-  const style = theme.caption, y = (pg.y != null ? pg.y : theme.layout.capY) * H, big = pg.font || (style === 'mega-word' ? 150 : style === 'karaoke-bar' ? 70 : 92), gap = pg.gap != null ? pg.gap : 12;
+  const style = theme.caption, y = (pg.y != null ? pg.y : theme.layout.capY) * H, big = pg.font || 72, gap = pg.gap != null ? pg.gap : 12;
+  const e = ramp(t, pg.start, 0.13), o = Math.min(e, clamp01((pg.end - t) / 0.1));
   const words = pg.words.map((w, i) => {
-    const d = t - w.pop; if (d < 0 && style !== 'karaoke-bar') return null;
-    const s = style === 'karaoke-bar' ? 1 : spring({ frame: Math.max(0, d) * fps, fps, config: { damping: 9, stiffness: 220, mass: 0.6 }, from: pg.popFrom != null ? pg.popFrom : 0.8, to: 1 }); // bật từ ≥ 0,8× – trang ngắn không thành chữ li ti
     const active = t >= w.start && t < w.end + 0.06, said = t >= w.start;
     const txt = style === 'bounce-outline' || style === 'mega-word' ? w.w.toUpperCase() : w.w;
     const color = style === 'karaoke-bar' ? (said ? '#FFC94A' : 'rgba(255,255,255,.88)') : active && !w.key ? '#FFC94A' : '#FFFFFF';
-    const lift = style === 'bounce-outline' && active ? -14 : 0;
-    const el = w.key ? <KeyBox rot={i % 2 ? 2 : -2}>{txt}</KeyBox> : txt;
-    const k = Math.min(w.maxS != null ? w.maxS : 1.3, s * (active && style !== 'karaoke-bar' ? 1.06 : 1));
-    return <span key={i} style={{ display: 'inline-block', margin: `0 ${gap}px`, transform: `translateY(${lift}px) scale(${k})`, color }}>{el}</span>;
+    return <span key={i} style={{ display: 'inline-block', margin: `0 ${gap}px`, color }}>{w.key ? <KeyBox rot={0}>{txt}</KeyBox> : txt}</span>;
   });
   const box = style === 'karaoke-bar' ? { background: 'rgba(20,16,14,.74)', borderRadius: 34, padding: '22px 30px' } : {};
-  const rows = []; let k0 = 0; for (const n of (pg.breaks || [words.length])) { rows.push(words.slice(k0, k0 + n)); k0 += n; } // xuống dòng đã tính sẵn (motion.breakLines)
+  const rows = []; let k0 = 0; for (const n of (pg.breaks || [words.length])) { rows.push(words.slice(k0, k0 + n)); k0 += n; }
   return (
-    <div style={{ position: 'absolute', left: 60, right: 140, top: y, display: 'flex', justifyContent: 'center', transform: 'translateY(-50%)' }}>
-      <div style={{ fontFamily: FONT_H, fontWeight: 800, fontSize: big, lineHeight: 1.12, textAlign: 'center', letterSpacing: -1, ...(style === 'karaoke-bar' ? {} : stroke(style === 'mega-word' ? 16 : 12)), textShadow: '0 8px 24px rgba(0,0,0,.35)', ...box }}>{rows.map((r, i) => <div key={i} style={{ whiteSpace: 'nowrap' }}>{r}</div>)}</div>
+    <div style={{ position: 'absolute', left: 60, right: 140, top: y, display: 'flex', justifyContent: 'center', transform: `translateY(calc(-50% + ${14 * (1 - e)}px))`, opacity: o }}>
+      <div style={{ fontFamily: FONT_H, fontWeight: 800, fontSize: big, lineHeight: 1.12, textAlign: 'center', letterSpacing: -0.5, ...(style === 'karaoke-bar' ? {} : stroke(style === 'mega-word' ? 16 : 12)), textShadow: '0 6px 18px rgba(0,0,0,.35)', ...box }}>{rows.map((r, i) => <div key={i} style={{ whiteSpace: 'nowrap' }}>{r}</div>)}</div>
     </div>
   );
 };
@@ -260,17 +260,17 @@ const Badge = ({ children, bg = '#E5502F', fg = '#FFFFFF', s = 1, rot = -3, fs =
 const HookLayer = ({ hook, t, fps, theme, W, H }) => {
   if (t > hook.end + 0.3) return null;
   const out = clamp01((t - hook.end) / 0.3), f = t * fps, y = hook.top != null ? hook.top : theme.layout.hookY * H, acc = theme.colors.accents, cd = hook.countdown !== false;
-  const pop = d => spring({ frame: Math.max(0, f - d * fps), fps, config: { damping: 15, stiffness: 260, mass: 0.6 } }); // ít vượt đà để chữ hook không chồng nhau
+  // calm: hook hiện NGUYÊN KHỐI 1 lần (mờ + trượt lên 24 px trong 0,35 s, không nảy, không từng chữ); huy hiệu/sticker đứng yên
+  const ein = ramp(t, 0.05, 0.35), pop = () => 1; void f;
   const ws = String(hook.text).toUpperCase().split(/\s+/).filter(Boolean);
-  const typeOn = ['secret', 'story-cold-open', 'pov'].includes(hook.pattern);
-  const slam = spring({ frame: f, fps, config: { damping: 8, stiffness: 300 }, from: 2.4, to: 1 });
+  const slam = 1;
   const P = hook.pattern;
   // badge chữ đậm: cam/trắng (tương phản ≥ 4.5 với chữ mực trên vàng; trắng trên cam dùng cỡ lớn ≥ 3:1)
   const badgeBg = ['stop-saying', 'mistake-stat', 'myth-buster'].includes(P) ? '#E5502F' : P === 'versus' ? '#0F3D3E' : '#FFC94A';
   const badgeFg = badgeBg === '#FFC94A' ? '#14100E' : '#FFFFFF';
-  const sticker = <Sticker name={hook.sticker} size={120} style={{ transform: `scale(${pop(0.25)}) rotate(${P === 'question' ? Math.sin(t * 9) * 10 : -8}deg)` }} />;
+  const sticker = <Sticker name={hook.sticker} size={120} style={{ transform: 'rotate(-8deg)' }} />;
   return (
-    <AbsoluteFill style={{ opacity: 1 - out, transform: `translateY(${-out * 60}px)` }}>
+    <AbsoluteFill style={{ opacity: Math.min(ein, 1 - out), transform: `translateY(${24 * (1 - ein) - out * 20}px)` }}>
       {P === 'story-cold-open' ? <><div style={{ position: 'absolute', left: 0, right: 0, top: 0, height: 130 * pop(0), background: '#14100E' }} /><div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: 130 * pop(0), background: '#14100E' }} /></> : null}
       <div style={{ position: 'absolute', left: 60, right: 140, top: y, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 26 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
@@ -282,7 +282,7 @@ const HookLayer = ({ hook, t, fps, theme, W, H }) => {
         </div>
         {/* xuống dòng + cỡ chữ tính sẵn (motion.hookLayout) → khối hook có đáy cố định, phụ đề karaoke xếp dưới đáy đó, không chồng lên */}
         <div style={{ fontFamily: FONT_H, fontWeight: 800, fontSize: hook.fs || (ws.join(' ').length > 22 ? 84 : 100), lineHeight: 1.04, textAlign: 'center', color: '#FFFFFF', ...stroke(14), textShadow: '0 10px 30px rgba(0,0,0,.4)', position: 'relative' }}>
-          {(() => { const word = (x, i) => { const d = typeOn ? i * 0.12 : 0.08 + i * 0.07, s = pop(d), on = t >= d; return <span key={i} style={{ display: 'inline-block', margin: '0 14px', opacity: on ? 1 : 0, transform: typeOn ? 'none' : `translateY(${(1 - s) * 40}px) scale(${0.6 + 0.4 * s})`, color: i === ws.length - 1 ? '#FFC94A' : '#FFFFFF' }}>{x}</span>; };
+          {(() => { const word = (x, i) => <span key={i} style={{ display: 'inline-block', margin: '0 14px', color: i === ws.length - 1 ? '#FFC94A' : '#FFFFFF' }}>{x}</span>;
             if (!hook.lines) return ws.map(word);
             let k = 0; return hook.lines.map((n, r) => { const row = ws.slice(k, k + n).map((x, j) => word(x, k + j)); k += n; return <div key={'r' + r} style={{ whiteSpace: 'nowrap' }}>{row}</div>; }); })()}
           {P === 'stop-saying' ? <div style={{ position: 'absolute', left: '6%', top: '52%', height: 14, width: `${88 * clamp01((t - 0.55) / 0.3)}%`, background: '#E5502F', borderRadius: 8, transform: 'rotate(-4deg)', WebkitTextStroke: 0 }} /> : null}
@@ -299,16 +299,14 @@ const Ring = ({ p, n }) => (
 // ---------- Thẻ payoff ----------
 const Card = ({ c, t, fps, theme, W, H }) => {
   if (t < c.start || t > c.end + 0.3) return null;
-  const f = (t - c.start) * fps, s = spring({ frame: f, fps, config: { damping: 11, stiffness: 200 } }), out = clamp01((t - c.end) / 0.3);
+  // calm: thẻ vào bằng mờ + trượt xuống 30 px (0,3 s, không lật/nảy/rung), ra mờ 0,3 s; tem CORRECT hiện mờ (không đập)
+  const f = (t - c.start) * fps, e = ramp(t, c.start, 0.3), out = clamp01((t - c.end) / 0.3);
   const dont = c.kind === 'dont', y = c.top != null ? c.top : theme.layout.cardY * H;
-  const shake = dont && f < 10 ? Math.sin(f * 2.2) * 14 * (1 - f / 10) : 0;
-  const flip = c.style === 'flip-card' && !dont ? interpolate(f, [0, 10], [90, 0], { extrapolateRight: 'clamp' }) : 0;
-  const blur = c.style === 'answer-reveal' && !dont ? interpolate(f, [0, 12], [18, 0], { extrapolateRight: 'clamp' }) : 0;
-  const x = dont ? interpolate(s, [0, 1], [-W, 0]) : 0;
+  const blur = c.style === 'answer-reveal' && !dont ? 8 * (1 - ramp(t, c.start, 0.4)) : 0;
   const head = dont ? 'cross' : c.style === 'tip-card' ? 'bulb' : c.style === 'meter' ? 'star' : 'check';
   const accent = dont ? '#E5502F' : '#2FBF71';
   return (
-    <div style={{ position: 'absolute', left: 70, right: 150, top: y, transform: `translateX(${x + shake}px) scale(${dont ? 1 : Math.min(1.02, 0.6 + 0.4 * s)}) perspective(1600px) rotateY(${flip}deg)`, opacity: 1 - out, filter: blur ? `blur(${blur}px)` : undefined }}>
+    <div style={{ position: 'absolute', left: 70, right: 150, top: y, transform: `translateY(${-30 * (1 - e)}px)`, opacity: Math.min(e, 1 - out), filter: blur ? `blur(${blur}px)` : undefined }}>
       <div style={{ background: '#FFF7EA', borderRadius: 40, padding: '30px 36px 34px', boxShadow: `0 18px 0 ${accent}, 0 30px 60px rgba(0,0,0,.35)`, display: 'flex', alignItems: 'center', gap: 28, border: `6px solid ${accent}` }}>
         <Sticker name={head} size={130} />
         <div style={{ flex: 1 }}>
@@ -317,8 +315,7 @@ const Card = ({ c, t, fps, theme, W, H }) => {
           {c.style === 'meter' && !dont ? <div style={{ marginTop: 14, height: 22, borderRadius: 11, background: '#FFE7C2' }}><div style={{ height: '100%', width: `${100 * clamp01(f / 20)}%`, borderRadius: 11, background: 'linear-gradient(90deg,#E5502F,#FFC94A,#2FBF71)' }} /></div> : null}
         </div>
       </div>
-      {c.style === 'stamp-correct' && !dont ? <div style={{ position: 'absolute', right: 40, top: -46, transform: `rotate(8deg) scale(${Math.min(1.25, spring({ frame: Math.max(0, f - 6), fps, from: 1.25, to: 1, config: { damping: 12 } }))})`, opacity: f < 6 ? 0 : 1, border: '8px solid #2FBF71', color: '#2FBF71', fontFamily: FONT_H, fontSize: 56, lineHeight: 1.2, padding: '4px 22px', borderRadius: 16, background: '#FFF7EA', whiteSpace: 'nowrap' }}>CORRECT</div> : null}
-      {!dont && f < 24 ? <Confetti p={f / 24} W={W - 220} H={420} n={26} seed={`k${c.start}`} cx={0.5} cy={0.3} /> : null}
+      {c.style === 'stamp-correct' && !dont ? <div style={{ position: 'absolute', right: 40, top: -46, transform: 'rotate(8deg)', opacity: f < 6 ? 0 : 1, border: '8px solid #2FBF71', color: '#2FBF71', fontFamily: FONT_H, fontSize: 56, lineHeight: 1.2, padding: '4px 22px', borderRadius: 16, background: '#FFF7EA', whiteSpace: 'nowrap' }}>CORRECT</div> : null}
     </div>
   );
 };
@@ -336,17 +333,16 @@ const Watermark = ({ wm, t }) => {
   );
 };
 const EndCard = ({ t, start, theme, W, H, url, cta, kit }) => {
-  const f = (t - start) * 30, s = spring({ frame: f, fps: 30, config: { damping: 10 } });
+  const s = ramp(t, start, 0.5); // calm: phóng nhẹ 0,96 → 1 (không nảy, không confetti), Kit nhún chậm ±6 px
   return (
     <AbsoluteFill style={{ background: 'radial-gradient(110% 70% at 50% 30%, #17595A 0%, #0F3D3E 60%, #0B2627 100%)', alignItems: 'center', justifyContent: 'center' }}>
       <AbsoluteFill style={{ background: 'radial-gradient(45% 30% at 50% 38%, rgba(255,176,84,.35), transparent 70%)' }} />
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 40, transform: `scale(${0.7 + 0.3 * s})`, marginTop: -160 }}>
-        {kit ? <Img src={src(kit)} style={{ width: 360, height: 360, transform: `translateY(${-Math.abs(Math.sin(t * 5)) * 26}px)` }} /> : null}
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 40, transform: `scale(${0.96 + 0.04 * s})`, opacity: s, marginTop: -160 }}>
+        {kit ? <Img src={src(kit)} style={{ width: 360, height: 360, transform: `translateY(${Math.sin(t * 2) * 6}px)` }} /> : null}
         <Img src={staticFile('logo-dark.svg')} style={{ width: 640 }} />
         <div style={{ fontFamily: FONT_H, fontWeight: 800, fontSize: 72, color: '#FFF7EA' }}>{cta}</div>
         <div style={{ fontFamily: FONT_H, fontWeight: 800, fontSize: 84, color: '#14100E', background: '#FFC94A', padding: '10px 44px', borderRadius: 999, boxShadow: '0 12px 0 #E5502F' }}>{url}</div>
       </div>
-      {f < 30 ? <Confetti p={f / 30} W={W} H={H} n={60} seed="end" cy={0.35} /> : null}
     </AbsoluteFill>
   );
 };
