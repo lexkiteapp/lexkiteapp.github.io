@@ -83,7 +83,10 @@ def despill(img, al):
 
 
 als = [matte(f) for f in rgbs]
-als = [np.median(np.stack(als[max(0, i - 1):i + 2]), axis=0) for i in range(len(als))]  # ổn định theo thời gian
+# ổn định theo thời gian: trung vị 3 khung LIỀN NHAU, ở 2 đầu clip dời cửa sổ vào trong (không lấy trung vị 2 khung = trung bình →
+# bóng đổ chỉ có ở khung đầu (ảnh tham chiếu Kling) thành viền xám alpha ~0,5 – lỗi mia_wave_clasp_travel 18/10 FAIL no_floor_shadow)
+W3 = lambda i, n: slice(max(0, min(i - 1, n - 3)), max(0, min(i - 1, n - 3)) + 3)
+als = [np.median(np.stack(als[W3(i, len(als))]), axis=0) for i in range(len(als))]
 refined = []
 for al in als:
     m = Image.fromarray((al * 255).astype(np.uint8))
