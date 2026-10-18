@@ -585,9 +585,16 @@ async function cmdFetchRender() {
     const p = e && e.locations && ((e.kind === 'room' && e.locations.src) || e.locations.primary);
     if (!p || !p.url) { log(`! ${f}: chưa có trên nguồn chính (${e ? 'kho ghi ' + e.status : 'không có trong kho'}) – approved + library.mjs sync`); miss++; continue; }
     if (fs.existsSync(dest) && p.sha256 && sha256(fs.readFileSync(dest)) === p.sha256) { ok++; continue; }
-    // ?v=<sha> = khoá đệm riêng mỗi phiên bản: file cắt lại giữ tên cũ, trạm CDN khác (máy CI ở Mỹ) còn đệm bản cũ 24 h → sai sha256 (18/10)
-    const r = await fetch(p.sha256 ? `${p.url}?v=${p.sha256.slice(0, 12)}` : p.url), buf = Buffer.from(await r.arrayBuffer());
-    if (!r.ok || (p.sha256 && sha256(buf) !== p.sha256)) { log(`✗ ${f}: tải ${p.url} lỗi (${r.status}) hoặc sai sha256`); miss++; continue; }
+    // CDN media.lexkite.com có trạm còn đệm bản cũ (file cắt lại giữ tên; đệm bỏ qua query) → sai sha256 trên máy CI (18/10).
+    // Dự phòng bất biến: blob git theo gitSha (API GitHub, repo công khai; có GITHUB_TOKEN thì gắn để khỏi giới hạn lượt).
+    const tries = [p.url, ...(p.gitSha ? [`https://api.github.com/repos/lexkiteapp/lexkite-media/git/blobs/${p.gitSha}`] : [])];
+    let buf = null, st = 0;
+    for (const u of tries) {
+      const api = u.startsWith('https://api.github.com/'), h = api ? { Accept: 'application/vnd.github.raw', 'User-Agent': 'lexkite-fetch-render', ...(process.env.GITHUB_TOKEN ? { Authorization: 'Bearer ' + process.env.GITHUB_TOKEN } : {}) } : {};
+      const r = await fetch(u, { headers: h }).catch(() => null); st = r ? r.status : 0; if (!r || !r.ok) continue;
+      const b = Buffer.from(await r.arrayBuffer()); if (!p.sha256 || sha256(b) === p.sha256) { buf = b; if (api) log(`  ${f}: CDN còn bản cũ → lấy blob git ${p.gitSha.slice(0, 8)}`); break; }
+    }
+    if (!buf) { log(`✗ ${f}: tải ${p.url} lỗi (${st}) hoặc sai sha256 (đã thử cả blob git)`); miss++; continue; }
     fs.mkdirSync(path.dirname(dest), { recursive: true }); fs.writeFileSync(dest, buf); ok++;
   }
   log(`fetch-render: ${ok} file sẵn sàng · ${miss} thiếu`);

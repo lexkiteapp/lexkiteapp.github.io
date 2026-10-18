@@ -60,6 +60,7 @@ jobs:
 
       # ---------- Dây chuyền dựng (mỗi bước đọc/ghi out/video/<job>/state.json; VIDEO_STRICT=1: thiếu công cụ → lỗi, không lặng lẽ bỏ qua) ----------
       - name: 0 · Tải kho dựng (phòng + clip stacked đã approved trên media.lexkite.com)
+        env: { GITHUB_TOKEN: '${{ github.token }}' } # dự phòng tải blob git khi CDN còn bản cũ
         run: node scripts/video/library.mjs fetch-render
       - name: 1 · Lấy kịch bản đã duyệt (+ dấu vân tay 30 video gần nhất)
         run: node scripts/video/render.mjs --job "$JOB" --step fetch

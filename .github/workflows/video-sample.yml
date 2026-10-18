@@ -52,6 +52,7 @@ jobs:
         run: python3 -c "import faster_whisper,av,sys; print('faster-whisper OK', faster_whisper.__version__, 'PyAV', av.__version__, sys.executable)"
       - name: Tải kho dựng (phòng + clip stacked) từ media.lexkite.com
         # mục ready:true trong brand/library/manifest.json = đã approved + đã lên media.lexkite.com → thiếu là lỗi thật
+        env: { GITHUB_TOKEN: '${{ github.token }}' } # dự phòng tải blob git khi CDN còn bản cũ
         run: node scripts/video/library.mjs fetch-render
       - name: Dựng video mẫu (toàn bộ các bước)
         env:
