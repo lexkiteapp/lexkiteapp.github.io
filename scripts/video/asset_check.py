@@ -483,12 +483,31 @@ def identity_drift(frames, masks):
 
 
 def foot_wobble(masks):
-    """Biên độ dao động đáy bbox tiền cảnh (tỉ lệ chiều cao khung) – chân phải giữ yên."""
+    """Biên độ dao động đáy chân (tỉ lệ chiều cao khung) – chân phải giữ yên.
+    Đo RIÊNG từng chân (trái/phải tách tại tâm vùng bàn chân khung đầu): nhấc 1 chân lên trong khi chân kia
+    vẫn chạm đất làm đáy bbox chung không đổi nên trước đây lọt (lỗi Diane 18/10, giây 2,3)."""
     h = masks.shape[1]
     bots = [bbox(m)[3] for m in masks if bbox(m)]
     if len(bots) < 2:
         return 0.0
-    return float((np.percentile(bots, 98) - np.percentile(bots, 2)) / h)
+    whole = float((np.percentile(bots, 98) - np.percentile(bots, 2)) / h)
+    first = next((m for m in masks if bbox(m)), None)
+    x0, y0, x1, y1 = bbox(first)
+    zone = first[max(y0, y1 - int(0.08 * (y1 - y0))):y1 + 1, :]
+    cols = np.where(zone.any(axis=0))[0]
+    if len(cols) < 4:
+        return whole
+    cx = int(np.median(cols))
+    sides = []
+    for a, b in ((x0, cx), (cx, x1 + 1)):
+        bs = []
+        for m in masks:
+            rows = np.where(m[:, a:b].any(axis=1))[0]
+            if len(rows):
+                bs.append(rows[-1])
+        if len(bs) >= 2:
+            sides.append(float((np.percentile(bs, 98) - np.percentile(bs, 2)) / h))
+    return max([whole] + sides)
 
 
 def bg_shift(frames):
