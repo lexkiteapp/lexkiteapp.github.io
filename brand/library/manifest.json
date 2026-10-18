@@ -1499,6 +1499,78 @@
       "h": 1582,
       "ready": true,
       "mirrorOk": false
+    },
+    {
+      "id": "mia_talk_gesture_casual",
+      "who": "mia",
+      "tags": [
+        "talk",
+        "gesture"
+      ],
+      "outfit": "casual",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/mia_talk_gesture_casual.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        633,
+        1776
+      ],
+      "figH": 1776,
+      "w": 842,
+      "h": 1778,
+      "ready": true
+    },
+    {
+      "id": "mia_wave_clasp_casual",
+      "who": "mia",
+      "tags": [
+        "wave",
+        "clasp"
+      ],
+      "outfit": "casual",
+      "mouth": true,
+      "facing": "front",
+      "file": "clips/mia_wave_clasp_casual.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "speaker"
+      ],
+      "foot": [
+        536,
+        1763
+      ],
+      "figH": 1763,
+      "w": 750,
+      "h": 1772,
+      "ready": true
+    },
+    {
+      "id": "mia_listen_thumbs_casual",
+      "who": "mia",
+      "tags": [
+        "listen",
+        "thumbs"
+      ],
+      "outfit": "casual",
+      "mouth": false,
+      "facing": "front",
+      "file": "clips/mia_listen_thumbs_casual.mp4",
+      "alpha": "stacked",
+      "roles": [
+        "listener"
+      ],
+      "foot": [
+        473,
+        1768
+      ],
+      "figH": 1768,
+      "w": 690,
+      "h": 1772,
+      "ready": true
     }
   ],
   "stills": [

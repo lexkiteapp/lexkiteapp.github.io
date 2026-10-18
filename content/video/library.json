@@ -971,10 +971,27 @@
    "status": "approved",
    "ref": true,
    "locations": {
-    "primary": null,
+    "primary": {
+     "path": "chars/carlos/green-travel.webp",
+     "url": "https://media.lexkite.com/library/chars/carlos/green-travel.webp",
+     "sha256": "8803e43d3b6b82874f758588fe45f87dcdcf09f7fbc1cfc67e168b4e64da8716",
+     "gitSha": "deeae37b856b7f264c8a919f591545d10ba28f54",
+     "bytes": 51456,
+     "srcSha": "6ef721c6fdafdd771229c6d4cf8f2da9b340144ee1cf2cec33f23b9e0d86223a",
+     "at": "2026-10-18"
+    },
     "backup": {
      "status": "pending"
-    }
+    },
+    "drive": [
+     {
+      "driveId": 3,
+      "email_masked": "",
+      "fileId": "10Va5J71pjMawc4wgj4X3uQdA6AhX3MnX",
+      "sha256": "6ef721c6fdafdd771229c6d4cf8f2da9b340144ee1cf2cec33f23b9e0d86223a",
+      "at": "2026-10-18"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -2220,10 +2237,27 @@
    "status": "approved",
    "ref": true,
    "locations": {
-    "primary": null,
+    "primary": {
+     "path": "chars/mia/green-travel.webp",
+     "url": "https://media.lexkite.com/library/chars/mia/green-travel.webp",
+     "sha256": "2ad386bb3e827830009b721ceb95d2709dfa06424153f37745af042d97a21bea",
+     "gitSha": "e90563e071432f613ead38053ac63da5e5bb42c5",
+     "bytes": 55790,
+     "srcSha": "af589e7ec788dc6b0e35c990368d7da5e5098ca546f9a6998664f070786c5c3c",
+     "at": "2026-10-18"
+    },
     "backup": {
      "status": "pending"
-    }
+    },
+    "drive": [
+     {
+      "driveId": 3,
+      "email_masked": "",
+      "fileId": "19iYJ80gLNwr_ou5SzoDKlTmzRBhugAxw",
+      "sha256": "af589e7ec788dc6b0e35c990368d7da5e5098ca546f9a6998664f070786c5c3c",
+      "at": "2026-10-18"
+     }
+    ]
    },
    "check": {
     "status": "WARN",
@@ -7501,6 +7535,121 @@
    "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
   },
   {
+   "id": "clips/mia_listen_thumbs_casual.mp4",
+   "kind": "clip",
+   "who": "mia",
+   "tags": [
+    "listen",
+    "thumbs",
+    "casual"
+   ],
+   "file": "clips/src/mia_listen_thumbs_casual.mp4",
+   "sha256": "b57bb8082319c22d0d9ac9ee7b8d8f71ffc8b6cbf79ef2ffe95e55f2ada5c4e6",
+   "bytes": 4350689,
+   "w": 1080,
+   "h": 1916,
+   "duration": 5.062,
+   "qa": 92,
+   "note": "nghe gật → ngón cái",
+   "source": {
+    "from": "brand/characters/_candidates/ingest/mia_listen_thumbs_casual.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-18"
+   },
+   "roles": [
+    "listener"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": {
+     "path": "clips/mia_listen_thumbs_casual.mp4",
+     "url": "https://media.lexkite.com/library/clips/mia_listen_thumbs_casual.mp4",
+     "sha256": "eb638b00e1e73922743046ad8fbce17743a70fe66054bdd552d53f95b2c139fc",
+     "gitSha": "95a50714a912667ae170d3b3df37079bb20d7920",
+     "bytes": 1888368,
+     "srcSha": "b57bb8082319c22d0d9ac9ee7b8d8f71ffc8b6cbf79ef2ffe95e55f2ada5c4e6",
+     "variant": "stacked",
+     "at": "2026-10-18"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/mia_listen_thumbs_casual.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/mia_listen_thumbs_casual.mp4",
+     "gitSha": "b1370fa2ddbe1f19357442f1022696ba7a2d6490",
+     "sha256": "b57bb8082319c22d0d9ac9ee7b8d8f71ffc8b6cbf79ef2ffe95e55f2ada5c4e6",
+     "bytes": 4350689
+    },
+    "drive": [
+     {
+      "driveId": 3,
+      "email_masked": "",
+      "fileId": "1nLpZRqTCHntb-cIUbDbwSBbz8jaMpRqP",
+      "sha256": "b57bb8082319c22d0d9ac9ee7b8d8f71ffc8b6cbf79ef2ffe95e55f2ada5c4e6",
+      "at": "2026-10-18"
+     }
+    ]
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-18",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: chưa có ảnh DNA của mia trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1080,
+     "h": 1916,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.048,
+     "drift": 0.1,
+     "footWobble": 0.0016,
+     "bgShift": 2,
+     "dupRun": 0,
+     "cadenceTwos": 0.65,
+     "audioPeakDb": -11
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của mia trong kho – cần duyệt tay"
+     ],
+     "sha": "b57bb8082319c22d0d9ac9ee7b8d8f71ffc8b6cbf79ef2ffe95e55f2ada5c4e6",
+     "at": "2026-10-18"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_mia_listen_thumbs_casual_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/mia_listen_thumbs_casual.mp4",
+     "alpha": "stacked",
+     "sha256": "eb638b00e1e73922743046ad8fbce17743a70fe66054bdd552d53f95b2c139fc",
+     "bytes": 1888368,
+     "w": 690,
+     "h": 1772,
+     "foot": [
+      473,
+      1768
+     ],
+     "figH": 1768,
+     "frames": 121,
+     "status": "WARN",
+     "issues": [
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+     ],
+     "at": "2026-10-18",
+     "path": "clips/mia_listen_thumbs_casual.mp4",
+     "url": "https://media.lexkite.com/library/clips/mia_listen_thumbs_casual.mp4",
+     "gitSha": "95a50714a912667ae170d3b3df37079bb20d7920"
+    }
+   }
+  },
+  {
    "id": "clips/mia_listen_thumbs.mp4",
    "kind": "clip",
    "who": "mia",
@@ -7955,6 +8104,121 @@
    "reserveReason": "17/10: clip đời cũ (rembg) chưa từng có bản stacked – đã thay bằng bộ phông xanh; giữ làm tham chiếu/dự phòng"
   },
   {
+   "id": "clips/mia_talk_gesture_casual.mp4",
+   "kind": "clip",
+   "who": "mia",
+   "tags": [
+    "talk",
+    "gesture",
+    "casual"
+   ],
+   "file": "clips/src/mia_talk_gesture_casual.mp4",
+   "sha256": "abbbeb7cda95924587da5d55ac1d599f6ba153ea71993ee778b92143d2807310",
+   "bytes": 5423279,
+   "w": 1080,
+   "h": 1916,
+   "duration": 5.062,
+   "qa": 92,
+   "note": "nói + cử chỉ → gật",
+   "source": {
+    "from": "brand/characters/_candidates/ingest/mia_talk_gesture_casual.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-18"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": {
+     "path": "clips/mia_talk_gesture_casual.mp4",
+     "url": "https://media.lexkite.com/library/clips/mia_talk_gesture_casual.mp4",
+     "sha256": "e6d9ef4209c90c8b26ab5c7e4ddd06fdaea781afb87d9b2a1a7ee5552f8f4836",
+     "gitSha": "73afc1b604fba4ad0299b9a3e145777b7f85d55c",
+     "bytes": 2772134,
+     "srcSha": "abbbeb7cda95924587da5d55ac1d599f6ba153ea71993ee778b92143d2807310",
+     "variant": "stacked",
+     "at": "2026-10-18"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/mia_talk_gesture_casual.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/mia_talk_gesture_casual.mp4",
+     "gitSha": "001aae7ce244942a4e3e092c3917e65a6b7085a1",
+     "sha256": "abbbeb7cda95924587da5d55ac1d599f6ba153ea71993ee778b92143d2807310",
+     "bytes": 5423279
+    },
+    "drive": [
+     {
+      "driveId": 3,
+      "email_masked": "",
+      "fileId": "1ruLU5oBQNSP5HiNPuXiSYHVpWoisicV6",
+      "sha256": "abbbeb7cda95924587da5d55ac1d599f6ba153ea71993ee778b92143d2807310",
+      "at": "2026-10-18"
+     }
+    ]
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-18",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: chưa có ảnh DNA của mia trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1080,
+     "h": 1916,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 2.1,
+     "drift": 0.095,
+     "footWobble": 0.0016,
+     "bgShift": 2,
+     "dupRun": 0,
+     "cadenceTwos": 0.47,
+     "audioPeakDb": -9
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của mia trong kho – cần duyệt tay"
+     ],
+     "sha": "abbbeb7cda95924587da5d55ac1d599f6ba153ea71993ee778b92143d2807310",
+     "at": "2026-10-18"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_mia_talk_gesture_casual_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/mia_talk_gesture_casual.mp4",
+     "alpha": "stacked",
+     "sha256": "e6d9ef4209c90c8b26ab5c7e4ddd06fdaea781afb87d9b2a1a7ee5552f8f4836",
+     "bytes": 2772134,
+     "w": 842,
+     "h": 1778,
+     "foot": [
+      633,
+      1776
+     ],
+     "figH": 1776,
+     "frames": 121,
+     "status": "WARN",
+     "issues": [
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+     ],
+     "at": "2026-10-18",
+     "path": "clips/mia_talk_gesture_casual.mp4",
+     "url": "https://media.lexkite.com/library/clips/mia_talk_gesture_casual.mp4",
+     "gitSha": "73afc1b604fba4ad0299b9a3e145777b7f85d55c"
+    }
+   }
+  },
+  {
    "id": "clips/mia_talk_gesture.mp4",
    "kind": "clip",
    "who": "mia",
@@ -8336,6 +8600,121 @@
     },
     "needsManualReview": true,
     "sheet": "brand/library/_review/clips_mia_think_idea_mp4.jpg"
+   }
+  },
+  {
+   "id": "clips/mia_wave_clasp_casual.mp4",
+   "kind": "clip",
+   "who": "mia",
+   "tags": [
+    "wave",
+    "clasp",
+    "casual"
+   ],
+   "file": "clips/src/mia_wave_clasp_casual.mp4",
+   "sha256": "217889e608f2dfb608f8f5b51b6f2b9bc55f4180d3dec78c3febdc803a5ef572",
+   "bytes": 5093200,
+   "w": 1080,
+   "h": 1916,
+   "duration": 5.062,
+   "qa": 92,
+   "note": "vẫy chào → chắp tay",
+   "source": {
+    "from": "brand/characters/_candidates/ingest/mia_wave_clasp_casual.mp4",
+    "tool": "Kling 2.5 Turbo",
+    "prompt": null,
+    "date": "2026-10-18"
+   },
+   "roles": [
+    "speaker"
+   ],
+   "status": "approved",
+   "locations": {
+    "primary": {
+     "path": "clips/mia_wave_clasp_casual.mp4",
+     "url": "https://media.lexkite.com/library/clips/mia_wave_clasp_casual.mp4",
+     "sha256": "1b0906b6c896d4e2bd68a8a49c4d9853c31cdd26a03d1cbed0c0b553e59da98b",
+     "gitSha": "39ec969b51083715ad0aae2b172feeac5741f1f3",
+     "bytes": 2312727,
+     "srcSha": "217889e608f2dfb608f8f5b51b6f2b9bc55f4180d3dec78c3febdc803a5ef572",
+     "variant": "stacked",
+     "at": "2026-10-18"
+    },
+    "backup": {
+     "status": "pending"
+    },
+    "src": {
+     "path": "src/clips/src/mia_wave_clasp_casual.mp4",
+     "url": "https://media.lexkite.com/library/src/clips/src/mia_wave_clasp_casual.mp4",
+     "gitSha": "d1c2a398ca5ea9b8ab7c30714712e564ac61c103",
+     "sha256": "217889e608f2dfb608f8f5b51b6f2b9bc55f4180d3dec78c3febdc803a5ef572",
+     "bytes": 5093200
+    },
+    "drive": [
+     {
+      "driveId": 3,
+      "email_masked": "",
+      "fileId": "1Oo4u99k-AUjdtaDezbVmQ9XX28a1RUI8",
+      "sha256": "217889e608f2dfb608f8f5b51b6f2b9bc55f4180d3dec78c3febdc803a5ef572",
+      "at": "2026-10-18"
+     }
+    ]
+   },
+   "check": {
+    "status": "WARN",
+    "at": "2026-10-18",
+    "issues": [
+     "WARN audio: có âm thanh trong clip (kho dựng cần im lặng – bản web sẽ bỏ tiếng)",
+     "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay",
+     "WARN vision: chưa có ảnh DNA của mia trong kho – cần duyệt tay"
+    ],
+    "metrics": {
+     "w": 1080,
+     "h": 1916,
+     "fps": 24,
+     "duration": 5.062,
+     "motion": 1.821,
+     "drift": 0.104,
+     "footWobble": 0,
+     "bgShift": 3,
+     "dupRun": 0,
+     "cadenceTwos": 0.47,
+     "audioPeakDb": -23.9
+    },
+    "vision": {
+     "status": "SKIP",
+     "reasons": [
+      "chưa có ảnh DNA của mia trong kho – cần duyệt tay"
+     ],
+     "sha": "217889e608f2dfb608f8f5b51b6f2b9bc55f4180d3dec78c3febdc803a5ef572",
+     "at": "2026-10-18"
+    },
+    "needsManualReview": true,
+    "sheet": "brand/library/_review/clips_mia_wave_clasp_casual_mp4.jpg"
+   },
+   "variants": {
+    "stacked": {
+     "file": "clips/mia_wave_clasp_casual.mp4",
+     "alpha": "stacked",
+     "sha256": "1b0906b6c896d4e2bd68a8a49c4d9853c31cdd26a03d1cbed0c0b553e59da98b",
+     "bytes": 2312727,
+     "w": 750,
+     "h": 1772,
+     "foot": [
+      536,
+      1763
+     ],
+     "figH": 1763,
+     "frames": 121,
+     "status": "WARN",
+     "issues": [
+      "WARN anat_face_detect: [đầu] FaceMesh không nhận ra mặt (tranh 2D) – mắt/miệng cần duyệt tay"
+     ],
+     "at": "2026-10-18",
+     "path": "clips/mia_wave_clasp_casual.mp4",
+     "url": "https://media.lexkite.com/library/clips/mia_wave_clasp_casual.mp4",
+     "gitSha": "39ec969b51083715ad0aae2b172feeac5741f1f3"
+    }
    }
   },
   {
