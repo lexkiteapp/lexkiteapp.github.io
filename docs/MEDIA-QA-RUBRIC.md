@@ -47,3 +47,15 @@
 
 ## E. Sau đăng (vòng lặp cải thiện)
 Mỗi tuần: so sánh tỉ lệ xem hết, lưu, chia sẻ, nhấp link, người dùng mới theo từng format → format điểm thấp bị giảm tỉ trọng trong hàng đợi, format thắng được nhân bản.
+
+## D. Thang "điện ảnh" 7 mặt (19/10/2026 – mục tiêu ngang kênh học tiếng Anh hoạt hình hàng đầu; mặt nào < 90 → không đăng)
+| Mặt | 90 nghĩa là | Mốc hiện tại (latte bản điềm đạm 18/10) |
+|---|---|---|
+| 1. Hình ảnh – nhân vật trong bối cảnh | nhân vật ở TRONG cảnh: chung ánh sáng/bóng, chạm đồ vật, nhìn nhau (eyeline), không viền cắt dán | 55 |
+| 2. Diễn xuất – chuyển động | cử chỉ/biểu cảm khớp nghĩa câu, khớp miệng (lip sync) theo giọng, không khựng/nhảy tư thế | 40 |
+| 3. Giọng – âm thanh | giọng tự nhiên ở tốc độ ~0,9×, có tiếng không gian theo bối cảnh (quán, văn phòng…), SFX tinh tế, −16 LUFS | 50 |
+| 4. Dựng – nhịp | cắt theo lượt nói, shot ≥ 2,5 s, máy quay thật (dolly/pan mềm), ≤ 2 chuyển cảnh kiểu | 70 |
+| 5. Phụ đề – chữ | ≤ 13–15 ký tự/s, ≥ 1,2 s/trang, kiểu chữ & bố cục đồng bộ thương hiệu | 75 |
+| 6. Nội dung – kịch bản | đúng 100 %, hữu ích, có 1 khoảnh khắc hài/bất ngờ ≤ 3 s đầu | 75 |
+| 7. Hook – thương hiệu | hook ≤ 2 s gây tò mò thật, thumbnail riêng, màn kết sạch | 65 |
+Hướng nâng (đang thử): shot điện ảnh Kling từ khung đầu dựng bằng kho (nhân vật + phòng) → Kling Lip Sync theo giọng → Remotion chỉ phụ đề/thẻ/màn kết.
