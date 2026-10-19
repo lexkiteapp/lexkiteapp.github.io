@@ -1,0 +1,12 @@
+{
+ "_note": "Bản chuyển thể cine của sample khuôn polite-request (pilot latte 19/10). Planner đọc sample gốc (source) để lấy bối cảnh/từ khóa/wrong/right/caption, rồi dùng danh sách shot dưới đây thay cho chuyển thể mặc định. Câu < 2 s đã được kéo bằng thán từ NGAY TRONG KỊCH BẢN ('Hey.', 'A large one.', 'Oh! Sorry.') – đúng luật §13. Shot hook im lặng là lựa chọn của pilot: cổng opening sẽ báo (hook phải có tiếng ngay) – giữ để đối chiếu, bản sau cho Ama nói hook.",
+ "source": "content/video/samples/polite-request--could-i-get.json",
+ "shots": [
+  { "beat": "hook", "blocking": "two-shot-counter", "variant": "a", "speaker": "ama", "listener": "carlos", "silent": true, "maxSec": 2.0, "hook": "Is “give me” rude?" },
+  { "beat": "situation", "blocking": "mcu-customer", "variant": "a", "speaker": "ama", "text": "Hey. Give me a latte. A large one.", "expr": "deadpan", "card": "wrong", "cardText": "Too direct" },
+  { "beat": "explain", "blocking": "ms-barista", "variant": "a", "speaker": "carlos", "text": "That sounds a bit bossy. Try: could I get a latte, please?", "expr": "friendly" },
+  { "beat": "example", "blocking": "mcu-customer", "variant": "a", "speaker": "ama", "text": "Oh! Sorry. Could I get a latte, please?", "expr": "happy smile", "card": "right", "cardText": "Could I get…, please?" },
+  { "beat": "payoff", "blocking": "two-shot-counter", "variant": "b", "speaker": "carlos", "listener": "ama", "text": "Here you go. One latte, nice and warm.", "expr": "friendly", "motionHint": "{speakerName} hands a latte in a cup across the counter to {listenerName}, who takes it happily." }
+ ],
+ "endcard": { "tip": "Kit’s tip: add “please”.\nIt makes any request softer.", "cta": "Roleplay this free on lexkite.com" }
+}

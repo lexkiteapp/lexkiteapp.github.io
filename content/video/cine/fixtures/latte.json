@@ -1,0 +1,21 @@
+{
+ "_note": "Bộ cache pilot latte (19/10) cho driver local-cache (scripts/video/cine/providers/local-cache.mjs): chạy TOÀN BỘ dây chuyền cine không cần khoá Kling. File nhị phân KHÔNG commit – nằm ở dir (gitignored; chép từ scratchpad pilot / brand/library/cine của máy chủ dự án). frames: 4 ảnh Kling Image 3.0 của mỗi khung đầu (thứ tự = lần sinh). videos: shot → ảnh khung đầu đã dùng + clip 2.5 Turbo gốc (có tiếng nền Kling tự sinh). lipsync: clip sau Lip Sync (giọng Kling TTS, tiếng gốc tắt) – tts lấy từ rãnh tiếng của clip này. faces: mặt Kling nhận diện trong shot 2 người (hộp chuẩn hoá trên khung 0 – driver cắt ra face_image; KHÔNG ghi ai là ai: pipeline phải tự chọn bằng so khớp ref).",
+ "dir": "brand/library/cine/fixtures/latte",
+ "frames": {
+  "two-shot-counter#a": ["img2s-1.png", "img2s-3.png", "img2s-4.png", "img2s-2.png"],
+  "two-shot-counter#b": ["img2s-2.png", "img2s-1.png", "img2s-3.png", "img2s-4.png"],
+  "mcu-customer#a": ["amacu-1.png", "amacu-2.png", "amacu-3.png", "amacu-4.png"],
+  "ms-barista#a": ["carcu-1.png", "carcu-2.png", "carcu-3.png", "carcu-4.png"]
+ },
+ "videos": {
+  "s01": { "frame": "img2s-1.png", "file": "v1.mp4" },
+  "s02": { "frame": "amacu-4.png", "file": "v2.mp4" },
+  "s03": { "frame": "carcu-2.png", "file": "v3.mp4" },
+  "s04": { "frame": "amacu-4.png", "file": "v4.mp4" },
+  "s05": { "frame": "img2s-2.png", "file": "v5.mp4" }
+ },
+ "lipsync": { "s02": "v2l.mp4", "s03": "v3l.mp4", "s04": "v4l.mp4", "s05": "v5l.mp4" },
+ "faces": {
+  "s05": [ { "faceId": "0", "box": [0.08, 0.28, 0.46, 0.44] }, { "faceId": "1", "box": [0.47, 0.08, 0.95, 0.25] } ]
+ }
+}

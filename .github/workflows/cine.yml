@@ -1,0 +1,109 @@
+# Video ĐIỆN ẢNH (chế độ cine) A→Z – docs/VIDEO-PIPELINE.md §13. Chạy tay: Actions → "Video cine (Kling)" → script, budget, dry_run.
+# Khung đầu Kling Image (ảnh tham chiếu) → cổng tỉ lệ/trang phục/AI thị giác (sinh lại ≤ max_tries) → Kling 2.5 Turbo → TTS giọng cố định → Lip Sync
+# → màn kết dựng riêng → ghép (PIL + ffmpeg, không cần libass) → cổng 1–7 + LUFS → artifact (+ báo Studio nếu có job_id).
+# Bí mật: KLING_API_KEY hoặc KLING_ACCESS_KEY + KLING_SECRET_KEY (bắt buộc với driver kling) · CF_AI_TOKEN + CF_ACCOUNT_ID / GEMINI_KEYS (AI thị giác; thiếu → "cần duyệt tay")
+#         · STUDIO_CALLBACK_SECRET (chỉ khi có job_id). Không in khoá: driver che mọi khoá trong log (scrub).
+# Mặc định dry_run = true: chỉ lập shot list + ước credit (không gọi Kling, không tốn credit).
+name: Video cine (Kling)
+on:
+  workflow_dispatch:
+    inputs:
+      script: { description: 'Kịch bản cine (content/video/cine/scripts/*.json) hoặc sample khuôn (content/video/samples/*.json)', required: true, default: 'content/video/cine/scripts/polite-request--could-i-get.json' }
+      budget: { description: 'Trần credit Kling cho video này (dừng khi vượt; chạy lại tiếp tục từ cache)', required: true, default: '250' }
+      dry_run: { description: 'Chỉ lập kế hoạch + ước credit (không gọi Kling)', type: boolean, default: true }
+      driver: { description: 'kling (thật) | local-cache (bộ pilot – chỉ chạy được khi có file fixture)', type: choice, options: [kling, local-cache], default: kling }
+      max_tries: { description: 'Số lượt sinh lại tối đa cho 1 khung đầu trượt cổng', required: false, default: '3' }
+      job_id: { description: '(tuỳ chọn) mã job Video Studio để báo kết quả (ciResult)', required: false, default: '' }
+permissions:
+  contents: read
+concurrency:
+  group: cine-${{ github.event.inputs.script }}
+  cancel-in-progress: false
+env:
+  SCRIPT: ${{ github.event.inputs.script }}
+  BUDGET: ${{ github.event.inputs.budget }}
+  DRIVER: ${{ github.event.inputs.driver }}
+  TRIES: ${{ github.event.inputs.max_tries }}
+  JOB: ${{ github.event.inputs.job_id }}
+  OUT: out/cine/run
+  CINE_CACHE: out/cine/_cache
+  LEXKITE_PY: /home/runner/venv/bin/python
+  LEXKITE_MP_MODELS: /home/runner/.mediapipe
+  STUDIO_API: https://lexkite.com/api/studio
+jobs:
+  cine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Kiểm tham số
+        run: |
+          echo "$SCRIPT" | grep -Eq '^content/video/(cine/scripts|samples)/[a-z0-9_.-]+\.json$' || { echo "::error::script không hợp lệ"; exit 1; }
+          echo "$BUDGET" | grep -Eq '^[0-9]{1,4}$' && [ "$BUDGET" -le 2000 ] || { echo "::error::budget phải là số 0–2000"; exit 1; }
+          echo "$TRIES" | grep -Eq '^[1-5]$' || { echo "::error::max_tries 1–5"; exit 1; }
+          [ -z "$JOB" ] || echo "$JOB" | grep -Eq '^[A-Za-z0-9_-]{1,40}$' || { echo "::error::job_id không hợp lệ"; exit 1; }
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: ffmpeg + rsvg (Kit SVG → PNG cho màn kết)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg librsvg2-bin >/dev/null && ffmpeg -version | head -1
+      - name: Cache mô hình MediaPipe
+        uses: actions/cache@v4
+        with: { path: /home/runner/.mediapipe, key: cine-models-v1 }
+      - name: Python (numpy, pillow, mediapipe) + mô hình (pose, face, bộ dò người EfficientDet-Lite2)
+        run: |
+          python -m venv /home/runner/venv
+          /home/runner/venv/bin/pip install -q numpy pillow mediapipe
+          mkdir -p "$LEXKITE_MP_MODELS"; cd "$LEXKITE_MP_MODELS"
+          for u in pose_landmarker/pose_landmarker_full/float16/latest/pose_landmarker_full.task face_landmarker/face_landmarker/float16/latest/face_landmarker.task object_detector/efficientdet_lite2/float32/latest/efficientdet_lite2.tflite; do
+            [ -f "$(basename $u)" ] || curl -sfLO "https://storage.googleapis.com/mediapipe-models/$u"
+          done
+          ls -la
+      # Cache tài sản theo băm nội dung (prompt + ảnh tham chiếu + tham số + lượt): chạy lại = tiếp tục, chỉ sinh lại shot trượt cổng; file Kling bị xoá sau 30 ngày nên giữ ở đây
+      - name: Cache tài sản cine
+        uses: actions/cache@v4
+        with:
+          path: out/cine/_cache
+          key: cine-assets-${{ hashFiles(github.event.inputs.script) }}-${{ github.run_id }}
+          restore-keys: |
+            cine-assets-${{ hashFiles(github.event.inputs.script) }}-
+            cine-assets-
+      - name: Dây chuyền cine
+        id: cine
+        env:
+          KLING_API_KEY: ${{ secrets.KLING_API_KEY }}
+          KLING_ACCESS_KEY: ${{ secrets.KLING_ACCESS_KEY }}
+          KLING_SECRET_KEY: ${{ secrets.KLING_SECRET_KEY }}
+          CF_AI_TOKEN: ${{ secrets.CF_AI_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          GEMINI_KEYS: ${{ secrets.GEMINI_KEYS }}
+          STUDIO_CALLBACK_SECRET: ${{ secrets.STUDIO_CALLBACK_SECRET }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -o pipefail
+          A=(--script "$SCRIPT" --driver "$DRIVER" --budget "$BUDGET" --max-tries "$TRIES" --out "$OUT")
+          [ "${{ github.event.inputs.dry_run }}" = "true" ] && A+=(--dry-run)
+          [ -n "$JOB" ] && A+=(--job "$JOB")
+          node scripts/video/cine/cine.mjs "${A[@]}"
+      - name: Lưu kết quả (artifact 14 ngày)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cine-${{ github.run_id }}
+          path: |
+            out/cine/run/video.mp4
+            out/cine/run/manifest.json
+            out/cine/run/plan.json
+            out/cine/run/qa.json
+            out/cine/run/events.json
+            out/cine/run/endcard.png
+            out/cine/run/assemble-spec.json
+          if-no-files-found: ignore
+          retention-days: 14
+      - name: Báo lỗi về Studio
+        if: failure() && github.event.inputs.job_id != ''
+        env:
+          STUDIO_CALLBACK_SECRET: ${{ secrets.STUDIO_CALLBACK_SECRET }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: node scripts/video/cine/cine.mjs --report-failure --job "$JOB" --out "$OUT"

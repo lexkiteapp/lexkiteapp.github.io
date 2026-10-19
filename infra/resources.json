@@ -396,6 +396,21 @@
    "match": []
   },
   {
+   "key": "kling-api",
+   "name": "Kling AI API (video điện ảnh – chế độ cine)",
+   "kind": "video",
+   "purpose": "Dây chuyền video cine (docs/VIDEO-PIPELINE.md §13, scripts/video/cine/, .github/workflows/cine.yml): Kling Image 3.0 Omni (khung đầu từ ảnh tham chiếu) → Kling 2.5 Turbo image-to-video → TTS + Face Recognition + Advanced Lip Sync. Máy chủ api-singapore.klingai.com (KLING_API_BASE ghi đè); kết quả tải về từ CDN Kling (bị xoá sau 30 ngày → cache out/cine/_cache trong Actions). GitHub Actions secrets: KLING_API_KEY hoặc KLING_ACCESS_KEY + KLING_SECRET_KEY (JWT HS256). Mô hình MediaPipe cho cổng QA (pose, face, efficientdet_lite2) tải từ storage.googleapis.com/mediapipe-models. Trần credit mỗi video (--budget) + dry-run ước credit (content/video/cine/pricing.json)",
+   "console": "https://kling.ai/document-api/guides/get-started/quick-start.md",
+   "free": "Không có gói miễn phí API – trả theo đơn vị (bảng giá https://kling.ai/document-api/pricing/base/video.md); ước ~161 credit / video latte 22 s",
+   "upgrade": "Mua gói đơn vị API trên Kling Developer khi dùng thật",
+   "status": "Chờ chủ dự án tạo khoá API + điền klingVoiceId (Peppy, Michael) trong content/video/cine/cast.json",
+   "match": [
+    "api-singapore.klingai.com",
+    "api.klingai.com",
+    "kling.ai"
+   ]
+  },
+  {
    "key": "drive-pool",
    "name": "Kho Drive riêng (Google Drive API, OAuth drive.file)",
    "kind": "storage",

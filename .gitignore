@@ -54,3 +54,6 @@ brand/library/_review/
 brand/library/_cache/
 *.local.md
 out/play/
+
+# Video cine (scripts/video/cine/cine.mjs) – đầu ra + cache tài sản sinh (băm nội dung)
+out/cine/

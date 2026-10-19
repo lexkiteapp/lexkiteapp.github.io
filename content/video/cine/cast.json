@@ -1,0 +1,29 @@
+{
+ "_note": "CAST BIBLE chế độ cine (docs/VIDEO-PIPELINE.md §13). Mỗi nhân vật: ảnh tham chiếu nền trơn (gửi kèm MỌI lần sinh khung đầu), mô tả ngoại hình (prompt), lớp tuổi + hệ số chiều cao (cổng tỉ lệ), giọng Kling CỐ ĐỊNH + cảm xúc mặc định / bảng ánh xạ expr → cảm xúc, thán từ tự nhiên dùng để kéo câu < 2 s (chỉ qua kịch bản, ghi rõ trong shot list). klingVoiceId = mã giọng API (Kling Voice Guide) – null = chưa điền (driver kling dừng có báo, cần chủ dự án điền). Kling TTS API không có tham số cảm xúc (chỉ web): emotion ghi vào manifest, API dùng voice_speed.",
+ "version": 1,
+ "proportionTol": 0.08,
+ "characters": {
+  "ama": {
+   "name": "Ama",
+   "ref": "content/video/cine/refs/ama.png",
+   "look": "teenage African-American girl, short natural curly black hair with a mustard-yellow headband, coral-pink hoodie, teal denim overall skirt, black leggings, white sneakers, small brown backpack",
+   "ageClass": "teen",
+   "heightFactor": 0.85,
+   "voice": { "provider": "kling", "name": "Peppy", "klingVoiceId": null, "language": "en", "speed": 0.95 },
+   "emotion": { "default": "neutral", "map": { "thinking": "neutral", "deadpan": "neutral", "happy smile": "happy", "friendly": "happy", "proud": "happy", "surprised": "surprised", "sorry": "sad" } },
+   "interjections": ["Hey.", "Oh!", "Okay,", "Hmm,"],
+   "identity": { "paletteMaxDE": 22, "sleeveMaxDE": 16 }
+  },
+  "carlos": {
+   "name": "Carlos",
+   "ref": "content/video/cine/refs/carlos.png",
+   "look": "Latino man in his thirties, short curly black hair, black mustache, olive-green henley shirt with rolled sleeves, navy apron, light-blue jeans, white sneakers",
+   "ageClass": "adult",
+   "heightFactor": 1.0,
+   "voice": { "provider": "kling", "name": "Michael", "klingVoiceId": null, "language": "en", "speed": 0.95 },
+   "emotion": { "default": "happy", "map": { "friendly": "happy", "deadpan": "neutral", "explain": "neutral", "surprised": "surprised" } },
+   "interjections": ["Sure.", "Oh,", "Okay,", "Well,"],
+   "identity": { "paletteMaxDE": 22, "sleeveMaxDE": 16 }
+  }
+ }
+}

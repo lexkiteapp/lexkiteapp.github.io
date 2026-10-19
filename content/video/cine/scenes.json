@@ -1,0 +1,33 @@
+{
+ "_note": "SCENE BIBLE chế độ cine (docs/VIDEO-PIPELINE.md §13). Mỗi bối cảnh: ảnh phòng tham chiếu, phong cách, vai → vị trí trong khung 2 người (roles), quầy (counter.atAdult = mặt quầy cao bằng bao nhiêu phần chiều cao người lớn – 0,52 ≈ hông), tiếng nền, các blocking preset (prompt khung đầu + prompt chuyển động). {customer}/{barista} = mô tả nhân vật từ cast.json, {ratio} = % chiều cao teen/người lớn, <<<image_N>>> do planner gắn theo thứ tự ảnh tham chiếu. faceZone = vùng mặt dự kiến (tỉ lệ khung) khi bộ dò không bắt được mặt hoạt hình (cổng bố cục ghi measured:false).",
+ "version": 1,
+ "scenes": {
+  "cafe": {
+   "room": "content/video/cine/refs/cafe.jpg",
+   "look": "cozy cafe interior: warm wooden counter, espresso machine, chalkboard menus, pendant lamps, warm afternoon window light",
+   "style": "flat 2D cartoon illustration, clean dark outlines, soft cel shading, exactly the same art style as the character references",
+   "negative": "no text overlays, no captions, no logos, no extra people, no readable gibberish writing on signs",
+   "roles": { "customer": "left", "barista": "right", "cashier": "right", "server": "right" },
+   "staffRoles": ["barista", "cashier", "server"],
+   "counter": { "atAdult": 0.52, "tol": 0.12 },
+   "ambience": { "source": "shots", "gainDb": -22, "highpass": 150, "lowpass": 9000 },
+   "blocking": {
+    "two-shot-counter": {
+     "framing": "two-shot", "people": 2, "faceZone": null,
+     "prompt": "Vertical 9:16 wide two-shot inside the cafe of <<<room>>>. {customer} (<<<customer>>>) stands on the LEFT in front of the wooden counter, full body visible with both feet on the floor, looking up at {barista} (<<<barista>>>), who stands BEHIND the counter on the RIGHT. Correct real-world scale: the counter top reaches {barista}'s hip; {customerName} is about {ratio}% of {barista}'s height. Both wear exactly the outfits of their references. {style}. Leave the top 15% and bottom 25% of the frame calm (space for captions).",
+     "motion": "{speakerName} talks naturally with small hand gestures while {listenerName} listens and reacts; subtle idle breathing; very slow gentle push-in. Keep both characters' outfits and proportions. No new people, no text appearing."
+    },
+    "mcu-customer": {
+     "framing": "MCU", "people": 1, "subject": "customer", "refFrom": "two-shot-counter", "faceZone": [0.15, 0.06, 0.85, 0.42],
+     "prompt": "Vertical 9:16 medium close-up of {customer} (<<<customer>>>) standing at the cafe counter, three-quarter view facing right toward the barista off-screen, same cafe, lighting and art style as <<<frame>>>. Head and shoulders to waist, face in the upper half, mouth clearly visible. {style}.",
+     "motion": "{speakerName} speaks to someone off-screen right with natural expression ({emotion}), small head movements and one hand gesture; static camera with a very slight drift. No new people, no text."
+    },
+    "ms-barista": {
+     "framing": "MS", "people": 1, "subject": "barista", "refFrom": "two-shot-counter", "faceZone": [0.1, 0.05, 0.75, 0.38],
+     "prompt": "Vertical 9:16 medium shot of {barista} (<<<barista>>>) behind the wooden cafe counter next to the espresso machine, facing left toward the customer off-screen, same cafe, lighting and art style as <<<frame>>>. Waist up, face in the upper half, mouth clearly visible. {style}.",
+     "motion": "{speakerName} explains kindly to someone off-screen left with an open-hand gesture ({emotion}); static camera with a very slight drift. No new people, no text."
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "_note": "Bảng giá dùng cho trần ngân sách + dry-run (docs/VIDEO-PIPELINE.md §13). credits = credit Kling (đơn vị chủ dự án theo dõi, đo trong pilot 19/10 trên web: Image 3.0 1/ảnh, 2.5 Turbo 25/5 s, Lip Sync 5/5 s); usd = bảng giá API https://kling.ai/document-api/pricing/base/video.md và /image.md (2.5 Turbo 1080p 0,07 USD/s, Lip Sync 0,07 USD/5 s, Face Recognition + TTS 0,007 USD/lượt, Image 3.0 Omni 0,028 USD/ảnh). Cập nhật khi Kling đổi giá.",
+ "image":   { "credits": 1,  "usd": 0.028, "per": "image" },
+ "video":   { "credits": 25, "usd": 0.35,  "per": "5s" },
+ "tts":     { "credits": 0,  "usd": 0.007, "per": "call" },
+ "faces":   { "credits": 0,  "usd": 0.007, "per": "call" },
+ "lipsync": { "credits": 5,  "usd": 0.07,  "per": "5s" },
+ "vision":  { "credits": 0,  "usd": 0,     "per": "call" },
+ "retryReserve": 0.35
+}
