@@ -167,14 +167,20 @@ Mẫu thẻ:
 ## ĐANG LÀM
 > ⚠️ @antigravity: U2a lại bị gom vào commit của Claude (1d6502ca) vì sửa thẳng trong thư mục của Claude. **Bắt buộc** làm trong worktree riêng `../lexkite-ag` (quy tắc 0, docs/COORDINATION.md) cho U2b trở đi.
 
+## CHỜ DUYỆT
+
 ### [G0] Tách i18n tải lười theo từng ngôn ngữ (hạ tầng UI/UX) · @antigravity · ưu tiên: cao
 - Mục tiêu: Tách các nhóm chuỗi tải lười (LAZY) khỏi `web/js/i18n/<lang>.js` thành các file con `web/js/i18n/<lang>/<nhóm>.js` cho 13 ngôn ngữ ngoài `en`. Cập nhật `scripts/build-i18n.sh` và `scripts/gen-i18n.mjs`. Cập nhật loader nạp bundle động theo ngôn ngữ (`app.js`, các module tự nạp và `lazyfix.js`). Gỡ `ru.js` khỏi `allowBig` trong `scripts/test/budget.json`.
-- File/khu vực: `scripts/build-i18n.sh`, `scripts/gen-i18n.mjs`, `scripts/i18n-qa.mjs`, `scripts/i18n-fix.mjs`, `scripts/test/lazyfix.js`, `scripts/test/usage.mjs`, `scripts/test/budget.json`, `web/js/app.js`, `web/js/account-delete.js`, `web/js/anki.js`, `web/js/export.js`, `web/js/report.js`, `web/js/share-card.js`, `web/js/i18n/**`.
+- File/khu vực: `scripts/build-i18n.sh`, `scripts/gen-i18n.mjs`, `scripts/i18n-qa.mjs`, `scripts/i18n-fix.mjs`, `scripts/test/lazyfix.js`, `scripts/test/usage.mjs`, `scripts/test/ext-selection.mjs`, `scripts/test/budget.json`, `web/js/app.js`, `web/js/i18n.js`, `web/js/account-delete.js`, `web/js/anki.js`, `web/js/export.js`, `web/js/report.js`, `web/js/share-card.js`, `web/js/i18n/**`.
 - Tiêu chí xong: `node scripts/test/size-budget.mjs` đạt (gỡ `ru.js` khỏi `allowBig`), `node scripts/test/i18n-single.mjs`, `node scripts/i18n-qa.mjs --strict`, `node scripts/test/i18n-switch.mjs web`, full `npm test` PASS 100%.
-- Báo cáo: (đang triển khai)
+- Báo cáo:
+  - Commit: `7c897a40` (nhánh `antigravity` trong worktree `../lexkite-ag`).
+  - Đã tạo `scripts/split-i18n.mjs` tách 14 nhóm chuỗi tải lười (`report`, `anki`, `usage`, `account`, `extpanel`, `share`, `export`, `criteria`, `notices`, `pathx`, `rpbasic`, `resources`, `qtips`, `quick`) cho 13 ngôn ngữ thành 182 file `web/js/i18n/<lang>/<nhóm>.js`. Tích hợp tự động vào `scripts/build-i18n.sh`.
+  - Cập nhật `scripts/gen-i18n.mjs`, `scripts/i18n-fix.mjs`, `scripts/i18n-qa.mjs` hỗ trợ cả file core và file nhóm lười. Dọn sạch 71 khóa mồ côi không dùng.
+  - Cập nhật loader: `web/js/i18n.js` (cờ `coreDone`), `web/js/app.js` (tự động nạp file nhóm của ngôn ngữ khi nạp tiếng Anh), các module độc lập (`account-delete.js`, `anki.js`, `export.js`, `report.js`, `share-card.js`), và `scripts/test/lazyfix.js`, `scripts/test/usage.mjs`, `scripts/test/ext-selection.mjs`.
+  - Kích thước: Gỡ hoàn toàn `ru.js` khỏi `allowBig` trong `budget.json`. File `ru.js` giảm mạnh từ 160.1 KB gz xuống **116.3 KB gz**, `hi.js` từ 159.8 KB gz xuống **116.1 KB gz**! Tất cả các file i18n đơn lẻ đều ≤ 116.3 KB gz (trần 160 KB). Khung app giữ 376 KB gz / trần 380 KB gz.
+  - Kiểm thử: Toàn bộ kiểm thử i18n (`i18n-single`, `i18n-qa --strict`, `i18n-missing --strict`, `i18n-switch web`, `i18n-leak`) và `npm test` **PASS 100%** (1274 trang crawl, 46 màn hình axe a11y, native-auth...).
 - Cần sửa / Nhận xét:
-
-## CHỜ DUYỆT
 
 ### [E1] Email "Báo cáo não bộ" hằng tuần · @antigravity · ưu tiên: thấp
 - Mục tiêu: nối `web/templates/weekly-digest.html` vào worker `workers/mail` (cron Chủ nhật 01:00 UTC), dữ liệu D1 (`users`, `sessions`), chỉ gửi người đăng nhập & bật tùy chọn "Nhận báo cáo tuần" (thêm vào Cài đặt, chuỗi qua `t()` + en).
