@@ -104,6 +104,14 @@
     P.App.addListener('appUrlOpen', e => openDeep(e && e.url));
     window.addEventListener('load', () => { P.App.getLaunchUrl && P.App.getLaunchUrl().then(r => openDeep(r && r.url)).catch(() => {}); });
   }
+  // window.open(url ngoài) trong WKWebView của Capacitor iOS KHÔNG làm gì (đã kiểm E2E: Chính sách, Điều khoản, blog, lexkite.com…).
+  // Chuyển trang chính sang url ngoài → Capacitor chặn lại và mở bằng trình duyệt hệ thống, app giữ nguyên trang đang xem.
+  const wOpen = g.open;
+  g.open = function (u) {
+    const s = String(u || '');
+    if (/^https?:\/\//i.test(s) && !/^https?:\/\/localhost[:/]/i.test(s)) { location.href = s; return null; }
+    return wOpen ? wOpen.apply(this, arguments) : null;
+  };
   g.VBNative.scheduleReminder = scheduleReminder;
   g.VBNative.openDeep = openDeep; // kiểm thử E2E (simctl openurl bị hộp "Mở bằng Lexkite?" của hệ thống chặn)
   window.addEventListener('load', () => setTimeout(() => scheduleReminder({ ask: false }), 3000));

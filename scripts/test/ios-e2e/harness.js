@@ -319,7 +319,7 @@
         const r = await host('checksafari', {}, 30000); await sleep(2500);
         emit({ type: 'info', key: 'extlink', href, opened: opened.slice(o0), safari: r, hash: location.hash });
         if (W.__e2eMark !== mark) add('extlink', 'App tải lại khi bấm liên kết Chính sách (' + href + ')');
-        if (!/running/.test(r || '')) add('extlink', 'Bấm "Chính sách quyền riêng tư" không mở Safari (' + (opened.slice(o0)[0] || href) + ')');
+        if (r !== 'running') add('extlink', 'Bấm "Chính sách quyền riêng tư" không mở Safari (' + (opened.slice(o0)[0] || href) + ')');
         for (let i = issues.length - 1; i >= 0; i--) if (issues[i].kind === 'window.open') issues.splice(i, 1); // mở trang ngoài là đúng ý
         await shot('extlink'); return;
       }
@@ -352,7 +352,7 @@
         await visit('dict/sustainable', 'share-src', { shot: false });
         const b = [...document.querySelectorAll('#view button, #view a')].filter(x => vis(x) && /share|chia sẻ|📤/i.test((x.innerText || '') + (x.getAttribute('aria-label') || '') + (x.title || ''))).at(0);
         if (b) { const n0 = nativeCalls.length; b.click(); await sleep(3500); emit({ type: 'info', key: 'share', calls: nativeCalls.slice(n0) }); await shot('share'); closeModal(); }
-        else { const r = await (P().Share ? P().Share.share({ title: 'Lexkite', text: 'test', url: 'https://lexkite.com/' }).then(() => 'ok', e => 'err ' + e.message) : Promise.resolve('no plugin')); emit({ type: 'info', key: 'share', direct: r, note: 'không có nút chia sẻ trên trang từ' }); await sleep(2500); await shot('share'); }
+        else { const sleepR = ms => new Promise(r => setTimeout(() => r('đang mở bảng chia sẻ (chờ người dùng)'), ms)); const r = await Promise.race([P().Share ? P().Share.share({ title: 'Lexkite', text: 'test', url: 'https://lexkite.com/' }).then(() => 'ok', e => 'err ' + e.message) : Promise.resolve('no plugin'), sleepR(3000)]); emit({ type: 'info', key: 'share', direct: r, note: 'không có nút chia sẻ trên trang từ' }); await sleep(2500); await shot('share'); }
         return relaunchNext();
       }
       case 'realnotify': {
