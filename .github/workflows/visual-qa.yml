@@ -1,0 +1,29 @@
+# 👁 Soát giao diện tự động (tràn chữ, nút đè chữ, chữ ép cột, tương phản tối, RTL…) – phục vụ thư mục web/ của chính commit (không cần deploy).
+# Chỉ lưu báo cáo + vài ảnh cắt làm artifact 5 ngày (không commit ảnh). Chạy tay hoặc hằng tuần.
+name: Visual QA
+on:
+  workflow_dispatch:
+    inputs:
+      quick: { description: 'Chỉ 375px es/ar (nhanh)', required: false, default: '0' }
+  schedule:
+    - cron: '20 3 * * 1'   # thứ Hai 10:20 giờ Việt Nam
+permissions:
+  contents: read
+jobs:
+  vqa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Soát
+        env: { VQA_QUICK: "${{ github.event.inputs.quick || '0' }}" }
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
+          npx playwright install --with-deps chromium
+          (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
+          node scripts/test/visual-qa.mjs http://localhost:8080 vqa-out
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: visual-qa, path: vqa-out, retention-days: 5 }

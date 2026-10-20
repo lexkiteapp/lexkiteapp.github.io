@@ -961,6 +961,21 @@ kbd { font-family: ui-monospace, Menlo, monospace; font-size: .75em; padding: .0
 .forecast > div { display: flex; flex-direction: column; align-items: center; gap: .15rem; min-width: 32px; }
 .forecast i { width: 18px; border-radius: 5px 5px 2px 2px; background: color-mix(in srgb, var(--primary) 70%, transparent); }
 .forecast b { font-size: .8rem; } .forecast span { font-size: .7rem; color: var(--muted); }
+/* Màn kết thúc phiên ôn [U2d] */
+.rev-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; margin: .9rem auto; max-width: 480px; }
+.rev-pill { flex: 1 1 88px; max-width: 150px; padding: .55rem .4rem; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; text-align: center; }
+.rev-pill b { display: block; font-size: 1.2rem; line-height: 1.25; overflow-wrap: anywhere; }
+.rev-pill span { display: block; }
+.rev-goal { color: var(--good-text); font-weight: 700; margin: -.3rem 0 .5rem; }
+.rev-hardest, .rev-perfect { max-width: 440px; margin: .8rem auto; text-align: start; }
+.rev-hardest { background: var(--surface-2); border: 1px solid var(--line); border-radius: 14px; padding: .75rem .95rem; }
+.rev-hard-head { display: flex; align-items: center; justify-content: space-between; gap: .5rem; flex-wrap: wrap; margin-bottom: .25rem; }
+.rev-hard-head .btn { min-height: 44px; min-width: 44px; }
+.rev-hard-word { font-size: 1.15rem; overflow-wrap: anywhere; }
+.rev-hard-mean { margin-top: .2rem; line-height: 1.4; }
+.rev-hard-more { margin-top: .5rem; padding-top: .45rem; border-top: 1px dashed var(--line); display: flex; flex-wrap: wrap; gap: .3rem; align-items: center; }
+.rev-perfect { background: color-mix(in srgb, var(--good) 12%, transparent); border-color: color-mix(in srgb, var(--good) 45%, transparent); color: var(--text); }
+.rev-next { max-width: 440px; margin: .9rem auto .5rem; }
 /* Thẻ giới thiệu từ mới (Học thông minh) */
 .wi { padding: 1.4rem 1.5rem; border-radius: 22px; }
 .wi-top { display: grid; grid-template-columns: auto 1fr; gap: 1.2rem; align-items: center; }
