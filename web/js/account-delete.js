@@ -21,6 +21,8 @@
     return u.getIdToken(true);
   };
 
+  const isApple = () => ((Sync.user && Sync.user.providerData) || []).some(p => p.providerId === 'apple.com');
+
   async function call(token) {
     const r = await fetch(Sync.api.replace('/api/sync', '/api/account'), { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token }, body: JSON.stringify({ op: 'delete', confirm: 'DELETE' }) });
     const j = await r.json().catch(() => ({}));
@@ -31,6 +33,14 @@
     const u = Sync.user;
     Sync.deleting = true;
     try {
+      // App iOS, tài khoản Sign in with Apple: đăng nhập lại để có mã ủy quyền mới → thu hồi token Apple trước khi xóa (yêu cầu của Apple).
+      // Thu hồi lỗi (Firebase chưa cấu hình khóa Apple) không chặn việc xóa tài khoản.
+      if (Sync.native && w.NativeAuth && NativeAuth.provider() === 'apple') {
+        setMsg(t('Để bảo mật, hãy đăng nhập lại một lần nữa để xác nhận.'));
+        await reauth();
+        await NativeAuth.revokeApple().catch(e => console.warn('apple revoke', e));
+        setMsg(t('Đang xóa…'));
+      }
       let res = await call(await u.getIdToken());
       if (res.error === 'reauth') { setMsg(t('Để bảo mật, hãy đăng nhập lại một lần nữa để xác nhận.')); res = await call(await reauth()); }
       if (!res.ok) throw new Error(res.error || 'server');
@@ -55,7 +65,7 @@
         <li>${t('Hồ sơ tài khoản (tên, email) và tài khoản đăng nhập Lexkite')}</li>
         <li>${t('Dữ liệu bảng xếp hạng')}</li>
       </ul>
-      <p class="small muted">${t('Báo lỗi bạn đã gửi được giữ lại ở dạng ẩn danh (gỡ email và tài khoản). Tài khoản Google của bạn không bị ảnh hưởng.')}</p>
+      <p class="small muted">${isApple() ? t('Báo lỗi bạn đã gửi được giữ lại ở dạng ẩn danh (gỡ email và tài khoản). Tài khoản Apple của bạn không bị ảnh hưởng.') : t('Báo lỗi bạn đã gửi được giữ lại ở dạng ẩn danh (gỡ email và tài khoản). Tài khoản Google của bạn không bị ảnh hưởng.')}</p>
       <label class="row" style="gap:.5rem;align-items:flex-start;margin:.7rem 0 .3rem;min-height:44px"><input type="checkbox" id="adWipe" style="margin-top:.2rem"> <span>${t('Xóa cả dữ liệu học trên máy này')}</span></label>
       <label class="row" style="gap:.5rem;align-items:flex-start;margin:.3rem 0;min-height:44px"><input type="checkbox" id="adSure" style="margin-top:.2rem"> <span><b>${t('Tôi hiểu thao tác này không thể hoàn tác')}</b></span></label>
       <p id="adMsg" class="small" role="status" aria-live="polite" style="min-height:1.2em;margin:.3rem 0"></p>

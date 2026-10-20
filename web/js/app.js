@@ -1606,7 +1606,7 @@
       else Sfx.wrong();
       $('#wBack').hidden = true; $('#wDone').hidden = false; });
     const login = loginOnboard;
-    $('#loginW').onclick = login; $('#loginH').onclick = login;
+    for (const b of [$('#loginW'), $('#loginH')]) if (b) { if (window.Sync && Sync.can === false) b.remove(); else b.onclick = login; }
     view.querySelectorAll('[data-wjump]').forEach(b => b.onclick = () => document.getElementById(b.dataset.wjump).scrollIntoView({ behavior: 'smooth' }));
     if (App.blogLive) App.blogLive().then(on => { const a = view.querySelector('.w-nav a[data-blog]'); if (on && a) { a.hidden = false; a.href = App.blogUrl(); } });
   };

@@ -13,7 +13,7 @@ Một bộ mã duy nhất cho web, add-on và app, nên sửa một chỗ là c�
 | Nút Back Android: đóng hộp thoại → lùi trang → ở trang chủ thì thu nhỏ app (không thoát mất trạng thái) | ✅ |
 | Chạy offline: toàn bộ app nằm trong gói cài đặt | ✅ |
 | Cập nhật: `./scripts/build-mobile.sh` build lại web rồi đồng bộ vào android/ios | ✅ |
-| Đăng nhập Google trong app | ⏳ cần anh tạo cấu hình Firebase (bước 4) |
+| Đăng nhập trong app: Google (iOS + Android) + Sign in with Apple (iOS) bằng SDK gốc | ✅ mã sẵn – tự bật khi có file cấu hình Firebase (bước 4) |
 
 ## Cài thử app Android ngay (không cần cài gì trên máy tính)
 Mỗi lần cập nhật, GitHub tự build file cài đặt (`.github/workflows/android.yml`, miễn phí):
@@ -42,12 +42,13 @@ Mỗi lần cập nhật, GitHub tự build file cài đặt (`.github/workflows
 - Phát hành lên App Store: cần **Apple Developer Program 99 USD/năm**.
 - Lưu ý: Apple từ chối app chỉ là trang web bọc lại. Lexkite có thông báo nhắc học trên máy, chạy offline và rung phản hồi, nên đáp ứng yêu cầu "có tính năng của app gốc".
 
-### 4. Bật đăng nhập Google trong app (để đồng bộ giữa app – web – add-on)
-Google chặn đăng nhập trong khung web của app, nên phải dùng đăng nhập gốc (miễn phí):
-1. Firebase Console → dự án **lexkite-app** → *Add app* → Android, package name `com.lexkite.app`. Thêm luôn iOS với bundle ID `com.lexkite.app`.
-2. Tải `google-services.json` (Android) và `GoogleService-Info.plist` (iOS) về thư mục `mobile/`, rồi nhắn em. Em sẽ cài plugin đăng nhập gốc và nối với hệ thống đồng bộ sẵn có.
-
-Trong lúc chưa có bước 4, app vẫn học bình thường và lưu dữ liệu trên máy. Đồng bộ đa thiết bị thì đăng nhập trên lexkite.com.
+### 4. Đăng nhập trong app (Google + Apple, đồng bộ app – web – add-on)
+Google chặn OAuth trong WebView → app dùng SDK gốc qua plugin `@capacitor-firebase/authentication` (`web/js/native-auth.js`): SDK Firebase gốc giữ phiên, cấp ID token của dự án **lexkite-app** → `/api/sync`, `/api/account` dùng như web. Không tải Firebase JS SDK trong app.
+- iOS: nút "Đăng nhập" → bảng chọn **Tiếp tục với Apple** (trên) / **Tiếp tục với Google** (App Store 4.8). Android: **Tiếp tục với Google**.
+- Xóa tài khoản trong app: đăng nhập lại đúng tài khoản; tài khoản Apple được thu hồi token Apple trước khi xóa.
+- **Tự bật theo file cấu hình** (`scripts/mobile-auth-config.mjs` trong `build-mobile.sh`): `mobile/ios/App/App/GoogleService-Info.plist` (build phase "Firebase config" chép vào app + tự thêm URL scheme `REVERSED_CLIENT_ID`) và `mobile/android/app/google-services.json`. Thiếu file → đăng nhập trong app tắt, app vẫn chạy (không văng).
+- Bản APK debug trên CI ký bằng khóa debug ngẫu nhiên → Google Sign-In Android chỉ thử được bằng bản Play (Kiểm thử nội bộ) sau khi đăng ký SHA của khóa Play App Signing.
+- Các bước 👤 (Firebase/Apple/Play Console): `docs/STORE-READINESS.md` § B2.
 
 ## Widget màn hình chính / khóa
 - **iOS** (`ios/App/LexkiteWidget/`, WidgetKit): nhỏ, vừa, màn hình khóa (accessoryRectangular, accessoryInline – iOS 16+). Target do `ruby scripts/ios-add-widget.rb` thêm vào `App.xcodeproj` (chạy lại an toàn).

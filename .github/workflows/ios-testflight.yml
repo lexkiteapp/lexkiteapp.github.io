@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       version: { description: 'Phiên bản hiển thị (MARKETING_VERSION)', required: false, default: '1.0' }
+      upload: { description: 'Tải lên TestFlight (bỏ chọn = chỉ archive + kiểm ký/entitlements)', type: boolean, required: false, default: true }
 permissions:
   contents: read
 concurrency: { group: ios-testflight, cancel-in-progress: false }
@@ -44,7 +45,15 @@ jobs:
             DEVELOPMENT_TEAM="$TEAM" CODE_SIGN_STYLE=Automatic MARKETING_VERSION="${VER:-1.0}" CURRENT_PROJECT_VERSION="$GITHUB_RUN_NUMBER" \
             archive | tail -60
           test -d "$RUNNER_TEMP/Lexkite.xcarchive"
+      - name: Kiểm entitlements bản archive (Sign in with Apple, App Groups)
+        run: |
+          APP="$RUNNER_TEMP/Lexkite.xcarchive/Products/Applications/App.app"
+          codesign -d --entitlements :- "$APP" > "$RUNNER_TEMP/ent.plist" 2>/dev/null; cat "$RUNNER_TEMP/ent.plist"
+          grep -q 'com.apple.developer.applesignin' "$RUNNER_TEMP/ent.plist" || { echo "::error::Bản ký thiếu Sign in with Apple – bật capability cho App ID com.lexkite.app"; exit 1; }
+          security cms -D -i "$APP/embedded.mobileprovision" 2>/dev/null | grep -A3 -E 'applesignin|application-groups' || true
+          [ -f "$APP/GoogleService-Info.plist" ] && echo "✓ Có GoogleService-Info.plist – đăng nhập gốc BẬT" >> "$GITHUB_STEP_SUMMARY" || echo "⚠ Chưa có GoogleService-Info.plist – đăng nhập trong app TẮT" >> "$GITHUB_STEP_SUMMARY"
       - name: Export + tải lên App Store Connect (TestFlight)
+        if: inputs.upload
         env: { KID: '${{ secrets.ASC_KEY_ID }}', ISS: '${{ secrets.ASC_ISSUER_ID }}' }
         run: |
           cat > "$RUNNER_TEMP/ExportOptions.plist" <<EOF

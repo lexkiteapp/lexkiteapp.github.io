@@ -6,6 +6,7 @@
   'Hồ sơ tài khoản (tên, email) và tài khoản đăng nhập Lexkite': "Your account record (name, email) and your Lexkite sign-in account",
   'Dữ liệu bảng xếp hạng': "Your leaderboard data",
   'Báo lỗi bạn đã gửi được giữ lại ở dạng ẩn danh (gỡ email và tài khoản). Tài khoản Google của bạn không bị ảnh hưởng.': "Problem reports you sent are kept anonymously (your email and account are removed). Your Google account is not affected.",
+  'Báo lỗi bạn đã gửi được giữ lại ở dạng ẩn danh (gỡ email và tài khoản). Tài khoản Apple của bạn không bị ảnh hưởng.': "Problem reports you sent are kept anonymously (your email and account are removed). Your Apple Account is not affected.",
   'Xóa cả dữ liệu học trên máy này': "Also delete study data on this device",
   'Tôi hiểu thao tác này không thể hoàn tác': "I understand this cannot be undone",
   'Xóa vĩnh viễn': "Delete permanently",

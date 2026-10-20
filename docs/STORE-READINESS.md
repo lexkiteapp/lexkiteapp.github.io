@@ -94,7 +94,7 @@ Khi bật đăng nhập/AdMob: cập nhật bảng này + nhãn Apple trước k
 |---|---|---|---|
 | ✅ | 4.2 Minimum functionality (app bọc web) | Có tính năng gốc thật | **Widget màn hình chính + màn hình khóa (WidgetKit)**, thông báo nhắc học cục bộ (chạm mở thẳng phiên ôn), Haptics, đọc phát âm bằng TTS gốc, học rảnh tay phát âm thanh khi khóa màn hình (điều khiển trên màn hình khóa/tai nghe qua MediaSession), chạy **offline** (toàn bộ app trong gói), deep link `lexkite://review`, **bảng chia sẻ gốc** (`@capacitor/share` + `@capacitor/filesystem`, `web/js/lib/save-file.js`): thẻ thành tích PNG, Excel .xlsx, sao lưu JSON, Anki .apkg/CSV ghi vào bộ nhớ đệm rồi mở share sheet iOS/Android (Lưu vào Tệp/Drive, gửi AnkiDroid/AnkiMobile…); In/PDF ẩn trong app vì WebView không có hộp in. ⚠️ Gợi ý thêm (🛠, nhỏ): App Shortcuts (nhấn giữ icon → "Ôn ngay"), Spotlight. Ghi rõ các tính năng gốc trong Review Notes. |
 | ✅ | 2.5.2 Không tải mã thực thi | `www/` **đóng gói sẵn** (`scripts/build-mobile.sh`), không `server.url`, không service worker; iOS không tải Firebase SDK | Chỉ tải **dữ liệu** (âm thanh audio.lexkite.com, nội dung JSON, API). ⚠️ Khi bật đăng nhập trong app: đóng gói Firebase SDK vào `www/js/vendor/` (đừng tải từ gstatic) – hoặc dùng plugin gốc. |
-| ✅ | 4.8 Sign in with Apple | **Hiện không bắt buộc**: app iOS chưa có đăng nhập (chỉ trên web) | Bắt buộc **ngay khi** app iOS có "Đăng nhập Google". Đã chuẩn bị: web Firebase Apple provider sau cờ `LK_AUTH.apple`. Cho app gốc nên dùng `@capacitor-firebase/authentication` (Google + Apple gốc, 1 plugin) + capability "Sign in with Apple". Các bước 👤 ở B2. |
+| ✅ | 4.8 Sign in with Apple | App iOS có Google **và** Apple (SDK gốc, `web/js/native-auth.js`), nút Apple trên cùng, cùng cỡ; entitlement `com.apple.developer.applesignin` đã có trong bản ký (CI kiểm) | Bật thật khi có `GoogleService-Info.plist` + Apple provider trong Firebase – các bước 👤 ở B2. |
 | ✅ | 5.1.1(v) Xóa tài khoản trong app | Đã làm | Như mục A. |
 | ✅ | Privacy manifest | `App/PrivacyInfo.xcprivacy` (UserDefaults CA92.1 + 1C8F.1 App Group, NSPrivacyTracking=false, dữ liệu thu thập), widget có manifest riêng; Capacitor có manifest riêng | |
 | ✅ | Info.plist | Micro + Speech Recognition (mới thêm), không cần Camera/Ảnh/Vị trí | ⚠️ 🛠 Mô tả quyền hiện chỉ tiếng Anh; nên thêm `vi.lproj/InfoPlist.strings` (+ ngôn ngữ khác) – cần sửa project Xcode, làm khi có máy build. |
@@ -115,16 +115,22 @@ Khi bật đăng nhập/AdMob: cập nhật bảng này + nhãn Apple trước k
 - Data Linked to You: Email Address (App Functionality – chỉ khi người dùng tự nhập để được trả lời).
 - Khi bật đăng nhập trong app: thêm Name, Email, User ID (Linked, App Functionality) và chuyển dữ liệu học/tương tác sang Linked; sửa `PrivacyInfo.xcprivacy` theo ghi chú trong file.
 
-### B2. 👤 Sign in with Apple (chỉ cần khi bật đăng nhập trong app iOS)
-1. developer.apple.com → Certificates, IDs & Profiles → Identifiers → `com.lexkite.app` → bật **Sign In with Apple**.
-2. Identifiers → **Services IDs** → tạo `com.lexkite.web` → bật Sign In with Apple → Configure: Primary App ID `com.lexkite.app`; Domains: `lexkite-app.firebaseapp.com`, `lexkite.com`; Return URL: `https://lexkite-app.firebaseapp.com/__/auth/handler`.
-3. Keys → tạo key có **Sign in with Apple** → tải file `.p8` (chỉ tải được 1 lần), ghi Key ID + Team ID.
-4. Firebase Console → dự án **lexkite-app** → Authentication → Sign-in method → **Apple** → Enable: Services ID `com.lexkite.web`, Team ID, Key ID, dán nội dung `.p8`. Kiểm Authorized domains có `lexkite.com`.
-5. Apple → Email relay: thêm `noreply@lexkite-app.firebaseapp.com` / domain gửi mail của mình (để email "Hide my email" nhận được thư báo lỗi).
-6. Nhắn em: em đổi `LK_AUTH.apple = true` (web), cài plugin đăng nhập gốc cho app (Google + Apple) và bật capability trên Xcode.
+### B2. 👤 Đăng nhập trong app (Google + Apple) – việc anh chủ làm trên console
+Mã, entitlement, plugin, CI đã xong (`web/js/native-auth.js`, `scripts/mobile-auth-config.mjs`). Capability **Sign In with Apple** của App ID `com.lexkite.app` đã được Xcode (ký tự động qua API key) bật – bản archive CI có `com.apple.developer.applesignin`.
+1. **Apple Developer → Keys → +**: tên `Lexkite Sign in with Apple`, tích **Sign in with Apple** → Configure → Primary App ID `com.lexkite.app` → Save → Continue → Register → **Download** file `AuthKey_XXXX.p8` (chỉ tải 1 lần), ghi **Key ID**. Team ID = `B285J68262`.
+2. **Firebase Console → lexkite-app → Authentication → Sign-in method → Add new provider → Apple → Enable**. Services ID: để trống được (chỉ cần cho web/Android). Mục *OAuth code flow configuration*: Apple team ID `B285J68262`, Key ID (bước 1), dán nội dung file `.p8` → Save. (Cần để thu hồi token Apple khi người dùng xóa tài khoản.)
+3. **Firebase → Project settings → General → Add app → iOS**: Bundle ID `com.lexkite.app`, App nickname `Lexkite iOS`, App Store ID `6824714708` → Register app → **Download GoogleService-Info.plist** → bỏ qua các bước còn lại (Next → Continue to console).
+4. **Firebase → Add app → Android**: package `com.lexkite.app`, nickname `Lexkite Android` → Register (SHA thêm ở bước 5).
+5. **SHA của Android** (Firebase → Project settings → app Android → *Add fingerprint*, thêm cả 4 dòng):
+   - Khóa ký của Play (người dùng cài từ Play): **Play Console → Lexkite → Test and release → App integrity → App signing** → "App signing key certificate": SHA-1 và SHA-256.
+   - Upload key: cùng trang, "Upload key certificate": SHA-1 và SHA-256.
+6. Sau bước 5 → **Download google-services.json** (tải SAU khi thêm SHA để file có OAuth client Android).
+7. Gửi em 2 file (hoặc chép vào `mobile/ios/App/App/GoogleService-Info.plist` và `mobile/android/app/google-services.json`). File cấu hình Firebase không phải bí mật (khóa API bị giới hạn theo app); em commit, build CI kiểm (`mobile-auth-config.mjs` chặn file sai dự án/thiếu client), rồi TestFlight/Play nội bộ.
+8. **App Store Connect → App Privacy**: thêm Name, Email Address, User ID (Linked to user, App Functionality); Product Interaction → Linked (khớp `PrivacyInfo.xcprivacy`). Play Console → Data safety: thêm Name, Email, User IDs (Account management, App functionality) – khớp `lexkite.com/privacy`.
+9. (Tùy chọn) Apple → Sign in with Apple for Email Communication: thêm domain gửi mail để email "Hide My Email" nhận được thư.
 
 ### B3. Review Notes (dán vào App Store Connect)
-> Lexkite is a free English vocabulary and IELTS/TOEIC/TOEFL practice app. No login is required – every feature works without an account. Native features: Home Screen & Lock Screen widgets (long-press Home Screen → add "Lexkite"), daily study reminders (local notifications; Settings → Daily reminder), offline use, haptic feedback, native text-to-speech, and hands-free audio study that keeps playing with the screen locked (Menu → Hands-free, lock-screen controls) – this is why the app declares the "audio" background mode. The microphone and speech recognition are used only when the user taps the mic button in Speaking/Pronunciation practice. The app does not track users and shows no ads.
+> Lexkite is a free English vocabulary and IELTS/TOEIC/TOEFL practice app. No login is required – every feature works without an account. Signing in (Sign in with Apple or Google) is optional and only syncs progress across devices; account deletion is in-app: Settings → Account card → Delete account. Native features: Home Screen & Lock Screen widgets (long-press Home Screen → add "Lexkite"), daily study reminders (local notifications; Settings → Daily reminder), offline use, haptic feedback, native text-to-speech, and hands-free audio study that keeps playing with the screen locked (Menu → Hands-free, lock-screen controls) – this is why the app declares the "audio" background mode. The microphone and speech recognition are used only when the user taps the mic button in Speaking/Pronunciation practice. The app does not track users and shows no ads.
 
 ---
 

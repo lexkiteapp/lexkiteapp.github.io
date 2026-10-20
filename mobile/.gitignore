@@ -10,3 +10,4 @@ android/app/src/main/assets/capacitor.*
 ios/App/App/public/
 ios/App/App/capacitor.config.json
 android/app/src/main/res/xml/config.xml
+ios/App/CapApp-SPM/symlinks/
