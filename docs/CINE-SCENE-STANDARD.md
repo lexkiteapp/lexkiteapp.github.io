@@ -36,3 +36,11 @@ Phụ đề đúng nguyên văn, ≤ 15 ký tự/giây, chuyển trang không nh
 
 ## 6. Giọng & khẩu hình
 Kokoro trên nhánh `rhubarb-adhoc` (lines.json) → Rhubarb → `vis3/`. Mỗi cảnh viết **toàn bộ câu thoại cho 6–8 bài ngay từ đầu** (1 lượt TTS).
+
+## 7. 5 mẫu bài mới (templates) – cách dùng trong builder
+Spec + ví dụ: `content/video/cine/templates.md`. Builder chuẩn: `brand/library/cine/hotel/tools/` (`lesson5.py` + `tpl_styles.py` + `qa5.py` + `mkgap.py`); 5 bài mẫu `lessons/hotel_tpl_{choose,gap,ladder,mistake,pov}.py`, locale `content/video/cine/locales/hotel_tpl_<tên>.<lang>.json`. Bài cũ không đổi (mặc định `HOOK_KIND='contrast'`).
+- **Biến trong file bài:** `HOOK_KIND` (contrast | question | pov – qa5 đòi thẻ hook ≤ 2 s), `QA = dict(template=…)` (luật riêng từng mẫu trong qa5), `CAPSTYLE = {shot_id: (style, sub)}` (phụ đề dạng Gap/Strike, `('Karaoke', i)` = tô vàng từ thứ i, `(None, None)` = tắt phụ đề khi nghe), `ALLSHOTS_OV` (thẻ trên mọi shot, vd. Pov), vị trí `CHOICE_Y / LADDER_Y / HOOK_Y / POV_Y / BADGE_Y` theo mặt của bank.
+- **Overlay:** tuple trong `ov` có thêm phần tử thứ 5 = `sub` (trạng thái); cùng style + nội dung trên các shot liền nhau tự nối thành 1 thẻ (không chớp), đổi `sub` = đổi trạng thái ngay khung đó.
+- **Fill the gap:** `mkgap.py <src> <new> <từ> <t0> <t1>` → wav có 0,6 s im + cue X (cắt từ đầu cue Rhubarb tới khoảng lặng sau từ), thêm dòng `derived` vào `ci/lines.json`.
+- **Bài học khách sạn:** mặt Ama MCU xuống tới y 1061 → Ladder y 1066 (3 câu đều trên CU); mặt Daniel OTS lên tới y 297 → chip POV y 232; Hook trên toàn cảnh đặt y 900 (mặt người ở 324–873).
+- **Chỉ tiếng Anh (quyết định chủ 20/10 – mặc định cho bài mới):** `lesson5.py en <bài>` hoặc locale có `"english_only": true` → không dòng bản ngữ ở Sub/Hook/Ring/Recap/Gap/Strike (Sub 1 dòng chữ to 58), nhãn tiếng Anh ngắn, CTA tiếng Anh; `lines` trong locale có thể bỏ trống. Ra `out/cine-<bài>-en.mp4`. Song ngữ (`vi` …) vẫn chạy như cũ.
