@@ -44,3 +44,7 @@ QA: B phải gần chính diện (≤ 20°); vai Ama ở tiền cảnh OB chấp
 
 ## Thứ tự làm
 Thêm 5 style vào lesson5.py + cờ HOOK_KIND vào qa5 → dựng 5 ví dụ khách sạn trên CI → chấm MEDIA-QA-RUBRIC ≥ 90 → nhân sang mọi bank (mỗi cảnh: 1 bài/mẫu). Thoại mới chỉ cần TTS: câu hỏi T1, câu ladder T3, câu POV T5 (thêm vào lines.json 1 lượt cho cả 6 cảnh).
+
+## T6 Anchor-explainer (bàn tin kiểu BBC – kho `brand/library/cine/anchor`, 20/10)
+Ama + Carlos ngồi bàn studio giải thích **1 điểm học** thẳng vào máy; B-roll lấy từ kho cảnh theo chủ đề bằng id `bank:clip` (vd. `hotel:h04_ots_ama_talk_a`): nhân vật cảnh nói câu ví dụ khi kho có shot nói sạch, nếu không thì người dẫn nói trên B-roll câm (miệng nhân vật cảnh giữ X). Khung: hook ≤ 5 từ 1,6–2 s trên toàn cảnh (mảng tường y 318–700) → người dẫn đặt vấn đề → B-roll ví dụ (sai/đúng) → vòng "Comment 👇" 3 s trên 2 shot người dẫn nghe → lộ đáp án ≥ 1,8 s bằng thẻ `Card` (✗/✓ hoặc nhãn AT/ON/IN, hiện dần từng dòng) → câu mẫu → 0,85× karaoke → recap 2,5 s → loop về khung 0. Đổi góc CU / 2 người / B-roll mỗi 2,5–5 s, không lặp clip liền nhau (assert + qa5 `template='anchor'`), 20–35 s, chỉ tiếng Anh.
+Bài: `anchor/tools/lessons/anchor_{hotel,airport,cafe,restaurant,saytell}.py` (chung `_anchor_common.py`), dựng `anchor/tools/build.sh <topic>` → `out/cine-anchor-<topic>-en.mp4` + `out/covers/`.
