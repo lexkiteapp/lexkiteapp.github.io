@@ -1,0 +1,26 @@
+{
+ "lang": "vi",
+ "dir": "ltr",
+ "font": "BeVietnamPro-ExtraBold",
+ "name": "Tiếng Việt",
+ "lesson_file": "airport_bags",
+ "lesson": "airport-bags",
+ "goal": "Gửi hành lý ở sân bay",
+ "lines": {
+  "m_bags": "Mời người tiếp theo! Em có gửi hành lý không?",
+  "a_howmany": "Em được gửi mấy kiện hành lý ạ?",
+  "m_onebag": "Em được gửi miễn phí một kiện.",
+  "a_heavy": "Vali này có quá cân không ạ?",
+  "m_fine": "Không sao đâu. Chưa tới năm mươi pound.",
+  "a_slow_heavy": "Vali này có quá cân không ạ?",
+  "a_nowyou_bags": "Đến lượt bạn! Hỏi về hành lý nhé.",
+  "a_thanks_air": "Em cảm ơn chị nhiều ạ!"
+ },
+ "repeat": "Nói theo nhé",
+ "yourturn": "Hỏi được gửi mấy kiện",
+ "recap": "= hỏi về hành lý ký gửi",
+ "cta": "Đóng vai hội thoại này miễn phí trên",
+ "why": "“My bag is how much kilo?” sai trật tự câu. Hỏi thế này:",
+ "wrong": "sai câu",
+ "right": "đúng, tự nhiên"
+}

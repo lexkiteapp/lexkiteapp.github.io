@@ -1,0 +1,20 @@
+{
+ "lesson": "cafe-quiz-polite",
+ "lang": "vi",
+ "dir": "ltr",
+ "font": "BeVietnamPro-ExtraBold",
+ "name": "Tiếng Việt",
+ "goal": "Câu nào lịch sự?",
+ "hook": "A hay B: câu nào lịch sự?",
+ "lines": {
+  "c_hi": "Chào cháu! Cháu muốn uống gì?",
+  "a_giveme": "Này! Đưa tôi một ly latte.",
+  "a_could": "À! Cho cháu một ly latte được không ạ?",
+  "a_slow": "Cho cháu một ly latte được không ạ?"
+ },
+ "why": "Đáp án B. “Give me…” nghe như ra lệnh; “Could I get…, please?” là cách hỏi lịch sự.",
+ "order": "ra lệnh",
+ "polite": "lịch sự",
+ "think": "Bình luận A hay B!",
+ "cta": "Đóng vai hội thoại này miễn phí trên"
+}
