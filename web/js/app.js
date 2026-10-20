@@ -254,11 +254,16 @@
   const loadOne = src => new Promise(res => { const s = document.createElement('script'); s.src = src; s.async = false; s.onload = () => res(true); s.onerror = () => res(false); document.head.appendChild(s); });
   const loadScript = async src => {
     const viaCdn = CDN && !cdnDown && CDN.files.includes(src);
-    if (viaCdn && await loadOne(CDN.base + src)) return;
-    if (viaCdn) cdnDown = true; // CDN lỗi → từ giờ dùng máy chủ chính cho các file còn lại (giữ đúng thứ tự)
-    if (await loadOne(src)) return;
-    // Đang triển khai bản mới (Cloudflare chưa đồng bộ hết máy chủ) → file tạm trả trang lỗi HTML: chờ 1,5 s rồi thử lại 1 lần, bỏ qua bộ đệm
-    await new Promise(r => setTimeout(r, 1500)); await loadOne(src + (src.includes('?') ? '&' : '?') + 'r=' + Date.now());
+    if (viaCdn && await loadOne(CDN.base + src)) {}
+    else {
+      if (viaCdn) cdnDown = true; // CDN lỗi → từ giờ dùng máy chủ chính cho các file còn lại (giữ đúng thứ tự)
+      if (!await loadOne(src)) {
+        // Đang triển khai bản mới (Cloudflare chưa đồng bộ hết máy chủ) → file tạm trả trang lỗi HTML: chờ 1,5 s rồi thử lại 1 lần, bỏ qua bộ đệm
+        await new Promise(r => setTimeout(r, 1500)); await loadOne(src + (src.includes('?') ? '&' : '?') + 'r=' + Date.now());
+      }
+    }
+    const m = src.match(/^js\/i18n\/en\/([^/]+)\.js$/);
+    if (m && window.I18N) { const l = I18N.lang(); if (l !== 'en' && l !== 'vi') await loadOne(`js/i18n/${l}/${m[1]}.js`); }
   };
   // Tải song song nhưng chạy đúng thứ tự (async=false); file thiếu được bỏ qua
   App.need = (...names) => Promise.all(names.map(n => bundleP[n] || (bundleP[n] = Promise.all(BUNDLES[n].map(loadScript)))));

@@ -17,3 +17,4 @@ LAZY="report anki usage account extpanel share export criteria notices pathx rpb
 X
 } > en.js
 node ../../../scripts/gen-hero.mjs >/dev/null  # khung trang chào mừng dựng sẵn (LCP nhanh)
+node ../../../scripts/split-i18n.mjs >/dev/null # tách nhóm tải lười cho 13 ngôn ngữ ngoài en

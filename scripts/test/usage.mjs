@@ -230,7 +230,7 @@ const missing = keys.filter(k => D.I18N_DICT.en[k] === undefined);
 ok(!missing.length, 'mọi chuỗi giao diện có bản tiếng Anh: ' + missing.slice(0, 5).join(' | '));
 ok(['Cách dùng', 'Cách dùng & mẫu câu', 'Cách dùng “{w}”', 'Giới từ đi kèm, to-V/V-ing, trạng từ, từ dễ nhầm'].every(k => D.I18N_DICT.en[k]), 'chuỗi ở từ điển/chia động từ/sửa ngữ pháp/hub có bản tiếng Anh');
 const F = JSON.parse(fs.readFileSync('scripts/i18n-fixed.json', 'utf8')), LANGS = ['es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
-const noFix = keys.filter(k => D.I18N_DICT.en[k] && !(F[k] && LANGS.every(l => F[k][l])) && !LANGS.every(l => { const c = {}; try { new Function('self', fs.readFileSync(`web/js/i18n/${l}.js`, 'utf8'))(c); } catch (e) { return false; } return c.I18N_DICT[l][k]; }));
+const noFix = keys.filter(k => D.I18N_DICT.en[k] && !(F[k] && LANGS.every(l => F[k][l])) && !LANGS.every(l => { const c = {}; try { new Function('self', fs.readFileSync(`web/js/i18n/${l}.js`, 'utf8'))(c); const uf = `web/js/i18n/${l}/usage.js`; if (fs.existsSync(uf)) new Function('self', fs.readFileSync(uf, 'utf8'))(c); } catch (e) { return false; } return c.I18N_DICT[l][k]; }));
 ok(!noFix.length, 'mọi chuỗi có bản dịch 13 ngôn ngữ: ' + noFix.slice(0, 5).join(' | '));
 
 console.log(fails ? `✗ usage: ${fails}/${n} kiểm tra lỗi` : `✓ usage: ${n} kiểm tra – dữ liệu ${total.p.items} cụm giới từ (${total.p.entries} từ), ${total.v.entries} động từ, ${total.a.entries} trạng từ, ${total.s.entries} cấu trúc, ${total.c.entries} cặp dễ nhầm`);
