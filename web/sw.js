@@ -4,11 +4,11 @@
  * không bao giờ trả app cũ ở "/", chỉ khi MẤT MẠNG mở "/" hoặc "/index.html" (PWA cài cũ có start_url "/index.html#/home",
  * iOS không cập nhật start_url) thì chuyển hướng sang /app/ (đã có trong cache của /app/) → vẫn học offline được.
  * Dữ liệu học (IndexedDB, localStorage) thuộc nguồn lexkite.com, không phụ thuộc phạm vi SW → không mất. Test: scripts/test/landing-routing.mjs */
-const CACHE = 'lexkite-20261020140204';
+const CACHE = 'lexkite-20261020140958';
 const APP = '/app/';
 const LEGACY = new URL(self.registration.scope).pathname === '/';
 // Chỉ phần lõi (các file trong app/index.html) – phần nặng tải khi cần từ CDN và được lưu lại lúc dùng
-const SHELL = ['/app/', '/css/style.css', '/js/heal.js', '/js/native.js', '/js/ads-config.js', '/js/ads.js', '/js/kit.js', '/js/i18n.js', '/js/data.js', '/js/lexis.js', '/js/structures.js', '/js/core.js', '/js/dictionary.js', '/js/game.js', '/js/ui.js', '/js/app.js', '/js/study.js', '/js/reading.js', '/js/path.js', '/js/plan.js', '/js/hubs.js', '/js/phrases.js', '/js/ai.js', '/js/assist.js', '/js/firebase-config.js', '/js/sync.js', '/js/i18n/en.js', '/manifest.webmanifest', '/icons/icon.svg', '/icons/icon-192.png', '/icons/icon-512.png'];
+const SHELL = ['/app/', '/css/style.css', '/js/heal.js', '/js/native.js', '/js/ads-config.js', '/js/ads.js', '/js/kit.js', '/js/i18n.js', '/js/data.js', '/js/lexis.js', '/js/core.js', '/js/dictionary.js', '/js/game.js', '/js/ui.js', '/js/app.js', '/js/study.js', '/js/reading.js', '/js/path.js', '/js/plan.js', '/js/hubs.js', '/js/phrases.js', '/js/ai.js', '/js/assist.js', '/js/firebase-config.js', '/js/sync.js', '/js/i18n/en.js', '/manifest.webmanifest', '/icons/icon.svg', '/icons/icon-192.png', '/icons/icon-512.png'];
 const KEEP = k => k === CACHE || k === 'lk-meta' || k === AUDIO; // dữ liệu người dùng & cache dùng chung – không bao giờ xóa khi dọn
 
 self.addEventListener('install', e => {

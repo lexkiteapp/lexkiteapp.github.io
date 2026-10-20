@@ -154,9 +154,10 @@ ${Object.entries(byG).map(([k, xs]) => group(k, GROUP[k] || k, `${xs.length} ${L
   const { G, UNITS } = loadGrammar();
   const unitOf = id => UNITS.find(u => u.id === id) || { id, name: id, emoji: '', desc: '' };
   fs.mkdirSync('dist/ngu-phap', { recursive: true });
+  const hlEx = s => esc(s).replace(/\[\[(.+?)\]\]/g, "<b>$1</b>"); // [[…]] = cấu trúc mục tiêu
   const blk = b => {
-    if (b.type === 'formula') return `<h2>Công thức</h2><div class="tbl"><table class="fx"><tbody>${b.rows.map(r => `<tr><th scope="row">${esc(r.label || '')}</th><td>${r.parts.map(p => esc(p.t)).join(' + ')}${r.ex ? `<br><i class="ex">${esc(r.ex)}</i>` : ''}</td></tr>`).join('')}</tbody></table></div>`;
-    if (b.type === 'uses') return `<h2>Cách dùng</h2><ol class="uses">${b.items.map(u => `<li><b>${esc(u.title)}</b>${u.ex ? `<br><i>${esc(u.ex)}</i>` : ''}${u.vi ? ` – ${esc(u.vi)}` : ''}</li>`).join('')}</ol>`;
+    if (b.type === 'formula') return `<h2>Công thức</h2><div class="tbl"><table class="fx"><tbody>${b.rows.map(r => `<tr><th scope="row">${esc(r.label || '')}</th><td>${r.parts.map(p => esc(p.t)).join(' + ')}${r.ex ? `<br><i class="ex">${hlEx(r.ex)}</i>` : ''}</td></tr>`).join('')}</tbody></table></div>`;
+    if (b.type === 'uses') return `<h2>Cách dùng</h2><ol class="uses">${b.items.map(u => `<li><b>${esc(u.title)}</b>${u.ex ? `<br><i>${hlEx(u.ex)}</i>` : ''}${u.vi ? ` – ${esc(u.vi)}` : ''}</li>`).join('')}</ol>`;
     if (b.type === 'signals') return `<h2>Dấu hiệu nhận biết</h2><p class="sig">${b.words.map(w => `<span class="chip">${esc(w)}</span>`).join(' ')}</p>`;
     if (b.type === 'table') return `<div class="tbl"><table>${b.head ? `<thead><tr>${b.head.map(h => `<th scope="col">${esc(h)}</th>`).join('')}</tr></thead>` : ''}<tbody>${(b.rows || []).map(r => `<tr>${r.map(x => `<td>${esc(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
     if (b.type === 'tip') return `<div class="tip">💡 ${esc(b.text)}</div>`;

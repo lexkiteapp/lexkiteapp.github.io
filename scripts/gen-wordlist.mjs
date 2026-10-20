@@ -110,7 +110,9 @@ const VI = /[À-ỹđĐ]/u;
  // mọi chữ Latin có dấu (gồm dấu kép ố, ắ, ữ…) – nghĩa tiếng Việt hầu như luôn có dấu
 // Sửa tay sau khi duyệt (content/wordlists/<id>.fix.json): { "từ": "nghĩa đúng" } hoặc "-" để loại từ (thuật ngữ lệch ngữ cảnh, nghĩa máy dịch sai)
 const FIX = (() => { try { return JSON.parse(rd(`content/wordlists/${ID}.fix.json`)); } catch (e) { return {}; } })();
-const EDIT = (() => { try { return JSON.parse(rd(`content/wordlists/${ID}.edit.json`)); } catch (e) { return {}; } })(); // sửa tay: { "từ": { def, ex, pos, vi } }
+const EDIT = (() => { try { return JSON.parse(rd(`content/wordlists/${ID}.edit.json`)); } catch (e) { return {}; } })(); // sửa tay: { "từ": { def, ex, pos, vi, level? } }
+// Cấp độ CEFR theo danh sách công khai Oxford 3000/5000 (từ + từ loại → cấp), chỉ các từ của nawl/bsl. Từ ngoài danh sách giữ mặc định L.level(i)
+const CEFR = (() => { try { return JSON.parse(rd('content/wordlists/cefr-oxford.json')); } catch (e) { return {}; } })();
 const cleanDef = d => String(d).replace(/\.mw-parser-output[^}]*\}/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&\w+;/g, '').replace(/\s+/g, ' ').replace(/\s+([.,;])/g, '$1').trim();
 const good = [], bad = [];
 LIST.forEach((x, i) => {
@@ -121,7 +123,7 @@ LIST.forEach((x, i) => {
   if (why) { bad.push(x.word + ' – ' + why); return; }
   const ipa = ('/' + e.ipa.replace(/^[\/\[]|[\/\]]$/g, '') + '/').replace(/ɹ/g, 'r').replace(/ɫ/g, 'l').replace(/\.(?=\S)/g, '').replace(/ɛ/g, 'e').replace(/ɝ/g, 'ɜː').replace(/ɚ/g, 'ə').replace(/oʊ/g, 'əʊ').replace(/ɾ/g, 't').replace(/d͡ʒ/g, 'dʒ').replace(/t͡ʃ/g, 'tʃ'); // ô phiên âm là giọng Anh – Wiktionary hay lẫn dạng Mỹ
   const viMain = FIX[x.word] || String(e.vi).split(/,\s*/)[0].trim(); // chỉ giữ nghĩa thông dụng chính – nghĩa phụ từ dữ liệu từ điển hay lệch/lặp
-  good.push([x.word, ipa.replace(/[\u032F\u02D1\u0329\u0306]/g, ''), ed.pos || SHORT[e.pos], ed.vi || viMain, def, (ed.ex || hasWord(x.word, ex) || hasForm(x.word, ex)) ? ex : '', '', e.syn.join('|'), L.level(i), '']);
+  good.push([x.word, ipa.replace(/[\u032F\u02D1\u0329\u0306]/g, ''), ed.pos || SHORT[e.pos], ed.vi || viMain, def, (ed.ex || hasWord(x.word, ex) || hasForm(x.word, ex)) ? ex : '', '', e.syn.join('|'), ed.level || (CEFR[x.word.toLowerCase()] || {})[ed.pos || SHORT[e.pos]] || L.level(i), '']);
 });
 const q = s => "'" + String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'") + "'";
 let js = `/* ${L.head}. Phiên âm: Wiktionary (CC BY-SA); định nghĩa tiếng Anh, câu ví dụ, nghĩa tiếng Việt: Lexkite tự biên soạn (content/wordlists/<id>.edit.json).\n * FILE SINH TỰ ĐỘNG bởi scripts/gen-wordlist.mjs – đừng sửa tay. Row: [word, ipa, pos, vi, def, ex, col, syn, level, emoji] */\n(function (g) {\n  const add = g.IELTS_DATA.add;\n`;
