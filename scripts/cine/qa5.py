@@ -69,7 +69,8 @@ for o in tl['overlays']:
         print(f'  {o["style"]:8s} {o["text"].replace(chr(10), " ")[:44]:44s} {o["t"]} speech during: {conflict or "none"}', 'OK' if (allowed or not conflict) else 'FAIL')
         if conflict and not allowed: fails.append('conflict:' + o['style'])
 print('== HOOK (first 2 s) + TEMPLATE RULES (content/video/cine/templates.md)')
-HK = tl.get('hook_kind') or 'contrast'; LEGACY = tl.get('hook_kind') is None and not tl.get('viral')   # legacy lesson (no HOOK_KIND, made before the 2 s hook rule, e.g. cafe latte): report only; hs = {'contrast': ('Contrast',), 'question': ('VHook', 'Hook', 'Choice', 'Gap', 'Ladder', 'Strike'), 'pov': ('VHook', 'Pov',)}[HK]
+HK = tl.get('hook_kind') or 'contrast'; LEGACY = tl.get('hook_kind') is None and not tl.get('viral'); hs = {'contrast': ('Contrast',), 'question': ('VHook', 'Hook', 'Choice', 'Gap', 'Ladder', 'Strike'), 'pov': ('VHook', 'Pov',)}[HK]
+# LEGACY = lesson without HOOK_KIND made before the 2 s hook rule (e.g. cafe latte): hook rule reported only
 first = min([o['t'][0] for o in tl['overlays'] if o['style'] in hs] or [99]); print(f'  HOOK_KIND={HK}: {"/".join(hs)} at {first:.2f} s', 'OK' if first <= 2.0 else ('WARN (legacy lesson without HOOK_KIND, not counted)' if LEGACY else 'FAIL')); first <= 2.0 or LEGACY or fails.append('hook')
 Q = tl.get('qa', {}); TP = Q.get('template'); words = lambda t: re.findall(r"[a-z0-9']+", t.lower())
 def rule(ok, msg): print('  ' + msg, 'OK' if ok else 'FAIL'); ok or fails.append('tpl:' + msg[:30])
