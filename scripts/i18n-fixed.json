@@ -22174,5 +22174,20 @@
     "ar": "اضغط على «إرسال إلى تطبيق Anki» ثم اختر AnkiMobile.",
     "ru": "Нажмите «Отправить в приложение Anki» и выберите AnkiMobile.",
     "tr": "“Anki uygulamasına gönder” düğmesine dokunun ve AnkiMobile seçin."
+  },
+  "{wl} tuần · cần lên {gap} cấp CEFR": {
+    "es": "{wl} semanas · subir {gap} nivel(es) MCER",
+    "pt": "{wl} semanas · subir {gap} nível(is) do QECR",
+    "fr": "{wl} semaines · {gap} niveau(x) CECRL à gagner",
+    "de": "{wl} Wochen · {gap} GER-Stufe(n) aufsteigen",
+    "id": "{wl} minggu · naik {gap} level CEFR",
+    "th": "{wl} สัปดาห์ · ต้องขึ้นอีก {gap} ระดับ CEFR",
+    "zh": "{wl} 周 · 需提升 {gap} 个 CEFR 等级",
+    "ja": "{wl}週間 · CEFRであと{gap}レベル",
+    "ko": "{wl}주 · CEFR {gap}단계 올리기",
+    "hi": "{wl} सप्ताह · CEFR के {gap} स्तर ऊपर जाना है",
+    "ar": "{wl} أسابيع · الارتقاء {gap} مستوى في CEFR",
+    "ru": "{wl} нед. · подняться на {gap} ур. CEFR",
+    "tr": "{wl} hafta · CEFR’de {gap} seviye yükselmek"
   }
 }
