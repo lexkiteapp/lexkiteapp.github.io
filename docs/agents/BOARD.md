@@ -95,15 +95,6 @@ Mẫu thẻ:
 - Nghiệm thu (Claude 17/10): ✅ gộp tay d5d2dead – viết lại `web/js/export.js` (6 KB gz, nạp lười `anki`+`xport`): hộp "📦 Dữ liệu của bạn" = Excel .xlsx (dùng lại `AnkiKit.zipWrite` – CRC32 + deflate, có dòng tiêu đề cố định + lọc, unit test giải nén & kiểm CRC) · In/Lưu PDF (CSS in chỉ bật khi `html.lk-print`, `@page` gỡ sau khi in) · Anki · CSV (mở hộp Anki sẵn có – bỏ bản .txt/CSV trùng của Antigravity) · sao lưu JSON (chuyển `exportData` khỏi app.js). Lọc ở #/deck → chọn "Đang lọc"/"Toàn bộ". Khung 380 KB: gỡ 59 khóa en.js không còn dùng + 15 khóa cũ ở 13 ngôn ngữ để vừa trần.
 
 
-### [W1] Trang "Tiêu chí chấm" IELTS Writing & Speaking (band 4–9) + bài mẫu nhiều mức band · @antigravity (giao diện) + phiên nội dung (chữ) · ưu tiên: vừa
-- Mục tiêu: người học hiểu vì sao bài được band X và cần làm gì để lên band – chuẩn CONTENT-RULES §2.
-- Nội dung (tự diễn đạt, KHÔNG chép band descriptors chính thức của IELTS): 4 tiêu chí Writing (Task Response/Achievement, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy) và 4 tiêu chí Speaking (Fluency & Coherence, Lexical Resource, Grammatical Range & Accuracy, Pronunciation) × band 4–9; mỗi đề mẫu có 3 bài ở band 5 / 6.5 / 8 kèm nhận xét theo tiêu chí.
-- Giao diện: trang `#/criteria` (tab Writing/Speaking, bảng band co giãn trên mobile, chuyển bài mẫu theo band), liên kết từ #/write, #/speaking và màn kết quả chấm AI.
-- Chuẩn: chuỗi qua `t()` + en; dữ liệu tải lười (BUNDLES), ≤ 160 KB gzip; 375px không tràn; `npm test` PASS. Làm trong worktree riêng.
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
-
 ### [L1] Bảng xếp hạng tuần – giao diện (máy chủ đã xong) · @antigravity · ưu tiên: cao
 - API (Claude làm, đã chạy): `Sync.league('me'|'join'|'leave'|'xp', {nick})` → `{ member:{nick,tier,xp}, board:[{rank,nick,xp,me,zone:'up'|'down'|''}], week:{key,start,end}, last:{rank,of,xp,move,tier}|null, rules:{group:30,up:7,down:5,maxTier:5} }`. XP tự gửi khi chuyển trang (≤ 1 lần/5 phút) sau khi người dùng tham gia. Mã: `functions/api/league.js`, `web/js/sync.js`.
 - Việc: thẻ "🏆 Giải đấu tuần" ở #/home (dưới thẻ hôm nay) + trang `#/league`:
@@ -126,18 +117,6 @@ Mẫu thẻ:
 ### [U2e] App iOS/Android – kiểm tra ảnh demo CI & sửa giao diện riêng app · @antigravity · ưu tiên: vừa
 - Xem artifact `lexkite-ios-screenshots` / `lexkite-android-screenshots` của workflow ios.yml / android.yml (lần chạy mới nhất) → sửa lỗi giao diện riêng app (safe-area dưới/trên, thanh dưới chồng home indicator, bàn phím che ô nhập, chế độ tối hệ thống). Selector dùng `html.native`.
 - File: `web/css/style.css`. Báo cáo kèm tên ảnh đã kiểm.
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
-### [N1] Thông báo người dùng (chọn từng người / hàng loạt) – form đẹp có thương hiệu · @antigravity · ưu tiên: cao
-- Mục tiêu: tab Quản trị mới **"📣 Thông báo"** + hộp thông báo trong app người học.
-  - **Soạn thông báo** (dialog/trang chuẩn đẹp): tiêu đề, nội dung (markdown nhẹ: đậm, link, xuống dòng), loại (ℹ️ Tin · 🎉 Sự kiện · ⚠️ Quan trọng), ảnh banner tùy chọn (URL https), nút hành động (nhãn + link `/#/…` hoặc https), hẹn giờ gửi, ngày hết hạn, **xem trước** đúng như người học thấy (logo Lexkite, màu thương hiệu #0F3D3E/#E5502F, sáng/tối).
-  - **Người nhận**: tất cả · chọn từng người (tìm & tick từ danh sách Người dùng, nút "Gửi thông báo" ngay trên dòng user và khi tick nhiều dòng) · theo bộ lọc (nền tảng, ngôn ngữ giao diện, không hoạt động > N ngày, mới đăng ký 7 ngày).
-  - **Lịch sử**: danh sách đã gửi, số người nhận / đã xem / đã bấm nút, thu hồi.
-  - **Phía app** (người học): biểu tượng 🔔 trên thanh trên cùng có chấm đỏ số chưa đọc, ngăn thông báo (danh sách, đánh dấu đã đọc), thông báo "⚠️ Quan trọng" hiện hộp nổi 1 lần. Người chưa đăng nhập chỉ nhận thông báo "tất cả". Chuỗi giao diện app qua `t()` + en (15 ngôn ngữ do pipeline dịch); nội dung thông báo hiển thị nguyên văn admin soạn (admin tự chọn ngôn ngữ đích: tất cả / chỉ vi / chỉ en …).
-- API (Antigravity viết, Claude duyệt bảo mật): D1 `notices (id, at, by, title, body, kind, img, cta_label, cta_url, target TEXT JSON, send_at, expire_at, lang, revoked)`, `notice_reads (id, uid, read_at, clicked)`; admin ops trong `functions/api/admin.js`: `noticeCreate`, `noticeList`, `noticeRevoke`, `noticeStats` (đi qua cơ chế auth + nhật ký sẵn có, thêm vào `WRITE`); endpoint công khai `functions/api/notices.js`: GET (kèm Firebase token nếu có) trả thông báo hợp lệ cho người đó, POST đánh dấu đọc/bấm. Escape mọi nội dung khi hiển thị (chống XSS), giới hạn độ dài, rate limit bằng `limit()` có sẵn.
-- File/khu vực: `web/js/admin.js` (tab mới + nút trên dòng user), `web/css/admin.css`, `web/admin.html` (tab), `functions/api/admin.js` (ops mới), `functions/api/notices.js` (mới), `web/js/app.js` + `web/css/style.css` (chuông & ngăn thông báo), `web/js/i18n/en/*.js`. **Claude không sửa các file này khi thẻ ĐANG LÀM.**
-- Tiêu chí xong: `npm test` PASS; `tsc` (tsconfig.check.json) PASS; thử: gửi 1 user, gửi hàng loạt theo bộ lọc, hẹn giờ, thu hồi, người học thấy chuông + đọc; ảnh chụp mô tả trong Báo cáo. Email/push để sau (chờ dịch vụ mail – xem E1).
 - Báo cáo:
 - Cần sửa / Nhận xét:
 
@@ -236,6 +215,8 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét: (Claude 16/10) ✅ Giao diện + template + i18n đạt. ✏️ Claude đã đổi mặc định sang **TẮT (opt-in)**: `emailDigest: false`, công tắc `=== true` – email gửi người dùng phải do họ tự bật (GDPR/chính sách mail). ⏸️ Phần gửi chưa triển khai được: Cloudflare Email Routing (`env.SEB`) chỉ gửi tới địa chỉ đã xác minh → cần dịch vụ gửi mail cho người dùng (đề xuất Resend miễn phí 3.000 mail/tháng) + bản ghi DNS SPF/DKIM + trang hủy đăng ký `/api/unsub`. Chờ anh Quyền chọn dịch vụ → Claude làm worker. Thẻ giữ ở CHỜ DUYỆT.
 
 ## ĐÃ XONG
+- [W1 Tiêu chí chấm IELTS Writing & Speaking] (Claude 20/10): ✅ gộp `3bb6268c` (bỏ BOARD/COORDINATION). ✏️ Viết lại nội dung band 4–9 theo bảng mô tả band công khai IELTS (diễn giải, bỏ câu bịa "như người bản ngữ", "chính xác tuyệt đối" ở band 8, FC 7 nhầm sang mô tả band 8/9), sửa nhận xét bài mẫu dẫn lỗi không có thật, bài cao nhất chấm 8.0 khớp nhãn; thêm 193 khóa tiếng Anh (trước đó ngôn ngữ khác hiện tiếng Việt); `#/criteria?skill=` chạy được; chỉ lấy khóa i18n của commit (bỏ 156 khóa thừa).
+- [N1 Chuông thông báo người học] (Claude 20/10): ✅ gộp `988a24c7` lên khung mới (chuông ở `web/app/index.html`, tab admin trong NAV). 🔒 Sửa XSS: tiêu đề/nhãn/link/ảnh chèn thô vào innerHTML → thoát HTML + chỉ cho link `#/…`/`https://`; token lấy từ `Sync.user` (bản cũ dùng `state.user` không tồn tại → tin nhắm riêng không bao giờ tới); POST kiểm id có thật (chặn spam bảng), giới hạn thân 1 KB; target chỉ giữ trường hợp lệ (≤ 500 uid); lỗi 500 không lộ thông điệp nội bộ; a11y (Esc, aria-expanded, số chưa đọc trong nhãn); test bảo mật thêm vào api-security/notices.
 - [B5 cụm Thổ Nhĩ Kỳ – tr, 3 bài] (Claude 20/10): ✅ gộp có chọn lọc (`git diff 440cfab1 964ad42f -- content/blog`, bỏ BOARD/COORDINATION của nhánh). ✏️ Sửa 2 lỗi cổng caption-truth + 7 alt/caption/câu nói quá (practice-test 'gramer/zaman kipleri' ×2, coverAlt yokdil 'deneme sınavı YÖKDİL', review 'FSRS… unutmadan', reading/grammar gán YÖKDİL + 'bağlaçlar', thư viện 'phrasal verb setleri', CTA 'YÖKDİL deneme testleri', '%40 bağlaç'). Lịch 22/23/25-10.
 - [B5 cụm Hindi – hi, 3 bài] (Claude 20/10): ✅ gộp cùng lượt. ✏️ Sửa 4 lỗi cổng (practice-test/dict 'व्याकरण', mock 'समयबद्ध' + TOEFL trên màn IELTS) + 8 caption/câu nói quá (practice-learn 'व्याकरण के नियम', speak 'प्रवाह/तुरंत फीडबैक', dict 'TOEFL AWL', '70% trong 24 giờ', CTA 'मॉक टेस्ट' ở #/toefl, '100+ वाक्य' ở #/phrases). Lịch 22/23/25-10.
 - [B5 cụm Bồ Đào Nha – pt, 8 bài] (Claude 20/10): ✅ gộp có chọn lọc (`git show 13dae318 -- content/blog | git apply -3`, bỏ BOARD/COORDINATION). ✏️ Sửa 9 lỗi cổng (mock/practice-test 'cronometrado', practice-test 'gramática/tempos verbais', library 'expressões idiomáticas', 3 ảnh IELTS trong bài TOEFL) + ~25 alt/caption/câu nói quá (phòng viết 'sugestões/correção instantânea', 'pontuação automatizada', speaking 'conversação', /samples/ gọi là 'banco de frases'). **Viết lại phần cấu trúc bài TOEFL** (Antigravity tả đề 2023: 4 task Speaking, Integrated Writing, 0–120 → đề mới 21/01/2026: ~1,5 giờ, thích ứng, thang 1–6, 12 dạng task). Sửa anchor kiểu slug ('dicas ielts listening'…) thành câu tự nhiên ở 10 bài pt.

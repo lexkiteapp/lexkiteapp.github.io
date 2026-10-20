@@ -159,6 +159,17 @@
    "match": []
   },
   {
+   "key": "notices",
+   "name": "Thông báo người học (/api/notices)",
+   "kind": "feature",
+   "purpose": "Chuông 🔔 trên thanh trên cùng của app (web/js/notices.js tải lười) ← functions/api/notices.js (GET danh sách theo ngôn ngữ/đối tượng, POST đánh dấu đã đọc/bấm – cần Firebase ID token). Quản trị soạn/hẹn giờ/thu hồi ở tab 📣 Thông báo (web/js/admin-notices.js → /api/admin op notice*). D1 lexkite-sync: bảng notices, notice_reads (CREATE TABLE IF NOT EXISTS khi gọi lần đầu).",
+   "console": "https://lexkite.com/admin.html#notices",
+   "free": "D1: 1 lượt đọc mỗi lần mở app, 1 lượt ghi mỗi thông báo đã đọc; giới hạn 120 GET/30 POST mỗi phút mỗi IP",
+   "upgrade": "Nhiều người dùng → đệm GET theo ngôn ngữ trong Cache API",
+   "status": "Miễn phí",
+   "match": []
+  },
+  {
    "key": "turnstile",
    "name": "Cloudflare Turnstile",
    "kind": "security",

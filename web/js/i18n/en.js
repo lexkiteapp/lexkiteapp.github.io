@@ -2155,6 +2155,8 @@
   "⚡ Ôn nhanh {i}/{n}": "⚡ Quick review {i}/{n}",
   // ---- js/report-pill.js: nút báo lỗi nổi (phần còn lại ở en/report.js – tải lười) ----
   'Báo lỗi': 'Report',
+  // ---- nút chuông 🔔 trên thanh trên cùng (phần còn lại ở en/notices.js – tải lười) ----
+  'Thông báo': 'Notifications',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* English UI strings – toefl.js (TOEFL iBT practice, 2026 format) */

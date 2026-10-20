@@ -94,6 +94,17 @@ ok((await run(ADMIN, req('/api/admin', { op: 'usage' }, { token: ADM, origin: 'h
 ok((await run(ADMIN, req('/api/admin', { op: 'usage' }, { token: await tok({ email_verified: false }) }))).s === 403, 'admin: email chưa xác minh → 403');
 ok((await run(STUDIO, req('/api/studio', { op: 'ciJob', id: 'x' }, { headers: { 'X-Studio-Secret': 'wrong' } }))).s === 403, 'studio CI: sai secret → 403');
 
+// [N1] Thông báo: chỉ admin được soạn; link CTA/ảnh lạ bị chặn; đối tượng chỉ giữ trường đã biết; người lạ không đánh dấu tin bịa
+const NOTI = await import(new URL('../../functions/api/notices.js', import.meta.url));
+ok((await run(ADMIN, req('/api/admin', { op: 'noticeCreate', title: 'x', body: 'y' }, { token: USER }))).s === 403, 'notices: tài khoản thường soạn thông báo → 403');
+ok((await run(ADMIN, req('/api/admin', { op: 'noticeCreate', title: 'x', body: 'y', cta_label: 'Go', cta_url: 'javascript:alert(1)' }, { token: ADM }))).j.error === 'cta-url-invalid', 'notices: cta javascript: → bị chặn');
+ok((await run(ADMIN, req('/api/admin', { op: 'noticeCreate', title: 'x', body: 'y', img: 'http://evil.example/a.png' }, { token: ADM }))).j.error === 'img-invalid', 'notices: ảnh http:// → bị chặn');
+{ const r = await run(ADMIN, req('/api/admin', { op: 'noticeCreate', title: 'x', body: 'y', target: { type: 'filter', plat: 'web', evil: '<script>', inactiveDays: 'DROP' } }, { token: ADM }));
+  const row = r.j.id && await DB.prepare('SELECT target FROM notices WHERE id = ?').bind(r.j.id).first();
+  ok(row && row.target === JSON.stringify({ type: 'filter', plat: 'web' }), 'notices: target chỉ giữ trường hợp lệ'); }
+ok((await run(NOTI, req('/api/notices', { id: 'n_khong_co_that' }, { token: USER }))).s === 404, 'notices: đánh dấu id không tồn tại → 404 (không spam bảng)');
+ok((await run(NOTI, req('/api/notices', 'x'.repeat(5000), { token: USER }))).s === 413, 'notices: thân quá lớn → 413');
+
 // ---------- 3) Thân yêu cầu null / quá lớn ----------
 ok((await run(S, req('/api/sync', 'null', { token: USER }))).s === 400, 'sync: thân null → 400 (không ném lỗi)');
 ok((await run(ADMIN, req('/api/admin', 'null', { token: ADM }))).s === 400, 'admin: thân null → 400');

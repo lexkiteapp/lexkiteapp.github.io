@@ -31,6 +31,8 @@ async function setup(db) {
     db.prepare('CREATE TABLE IF NOT EXISTS config (k TEXT PRIMARY KEY, v TEXT, at INTEGER, by TEXT) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS users (uid TEXT PRIMARY KEY, email TEXT, name TEXT, created INTEGER NOT NULL, seen INTEGER NOT NULL, plat TEXT, n INTEGER DEFAULT 1) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS contact_msgs (id INTEGER PRIMARY KEY AUTOINCREMENT, who TEXT NOT NULL, at INTEGER NOT NULL, name TEXT, email TEXT, msg TEXT, lang TEXT, sent INTEGER DEFAULT 0)'),
+    db.prepare('CREATE TABLE IF NOT EXISTS notices (id TEXT PRIMARY KEY, at INTEGER NOT NULL, by TEXT, title TEXT NOT NULL, body TEXT NOT NULL, kind TEXT NOT NULL DEFAULT \'info\', img TEXT, cta_label TEXT, cta_url TEXT, target TEXT, send_at INTEGER, expire_at INTEGER, lang TEXT, revoked INTEGER DEFAULT 0) WITHOUT ROWID'),
+    db.prepare('CREATE TABLE IF NOT EXISTS notice_reads (id TEXT NOT NULL, uid TEXT NOT NULL, read_at INTEGER NOT NULL, clicked INTEGER DEFAULT 0, PRIMARY KEY (id, uid)) WITHOUT ROWID'),
   ]);
   await db.prepare('ALTER TABLE contact_msgs ADD COLUMN handled INTEGER DEFAULT 0').run().catch(() => {});
   ready = true;
@@ -369,12 +371,93 @@ const OPS = {
     for (const m of u.meters) out.push({ kind: 'capacity', name: m.name, ok: m.pct < 70, warn: m.pct >= 70 && m.pct < 90, conclusion: tx(b, `${m.pct}% hạn mức miễn phí`, `${m.pct}% of free tier`) });
     return { rows: out };
   },
+  async noticeCreate(db, b, who) {
+    const title = String(b.title || '').trim().slice(0, 200);
+    if (!title) return { error: 'title-required' };
+    const body = String(b.body || '').trim().slice(0, 4000);
+    if (!body) return { error: 'body-required' };
+    const kind = /^(info|event|important)$/.test(b.kind) ? b.kind : 'info';
+    const img = String(b.img || '').trim().slice(0, 500);
+    if (img && !/^https:\/\//i.test(img)) return { error: 'img-invalid' };
+    const cta_label = String(b.cta_label || '').trim().slice(0, 60);
+    const cta_url = String(b.cta_url || '').trim().slice(0, 500);
+    if (cta_url && !/^(#\/|\/#\/|https:\/\/)/i.test(cta_url)) return { error: 'cta-url-invalid' };
+    // Đối tượng nhận: chỉ giữ đúng các trường đã biết (không lưu JSON tùy ý)
+    let tg = b.target;
+    if (typeof tg === 'string') { try { tg = JSON.parse(tg); } catch (e) { tg = null; } }
+    let target = { type: 'all' };
+    if (tg && tg.type === 'users') {
+      const uids = [...new Set((Array.isArray(tg.uids) ? tg.uids : []).map(u => String(u || '').trim()).filter(u => /^[A-Za-z0-9_-]{6,128}$/.test(u)))];
+      if (!uids.length) return { error: 'target-empty' };
+      if (uids.length > 500) return { error: 'target-too-many' };
+      target = { type: 'users', uids };
+    } else if (tg && tg.type === 'filter') {
+      target = { type: 'filter' };
+      if (/^[a-z]{2,12}$/.test(tg.plat || '')) target.plat = tg.plat;
+      const d = k => { const v = Math.round(+tg[k]); if (v > 0 && v <= 3650) target[k] = v; };
+      d('inactiveDays'); d('newDays');
+    }
+    target = JSON.stringify(target);
+    const now = Date.now();
+    const ts = v => (Number.isFinite(+v) && +v > 0 ? Math.round(+v) : null);
+    const send_at = ts(b.send_at) || now;
+    const expire_at = ts(b.expire_at);
+    const lang0 = String(b.lang || 'all').trim().toLowerCase().slice(0, 10), lang = /^[a-z]{2,3}(-[a-z0-9]{2,4})?$/.test(lang0) ? lang0 : 'all';
+    if (expire_at && expire_at <= send_at) return { error: 'expire-before-send' };
+    const id = 'n_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 8);
+    const by = String(who && who.email || '').slice(0, 120);
+
+    await db.prepare(
+      'INSERT INTO notices (id, at, by, title, body, kind, img, cta_label, cta_url, target, send_at, expire_at, lang, revoked) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)'
+    ).bind(id, now, by, title, body, kind, img || null, cta_label || null, cta_url || null, target, send_at, expire_at, lang).run();
+
+    return { ok: true, id };
+  },
+  async noticeList(db, b) {
+    const lim = Math.min(100, Math.max(1, +b.limit || 30));
+    const off = Math.max(0, +b.offset || 0);
+    const rows = await all(db, `
+      SELECT n.*,
+        (SELECT COUNT(*) FROM notice_reads r WHERE r.id = n.id) AS reads,
+        (SELECT COUNT(*) FROM notice_reads r WHERE r.id = n.id AND r.clicked = 1) AS clicks
+      FROM notices n
+      ORDER BY n.at DESC
+      LIMIT ? OFFSET ?
+    `, lim, off);
+
+    const totalRow = await one(db, 'SELECT COUNT(*) AS total FROM notices');
+    const total = +totalRow.total || 0;
+    return {
+      rows: rows.map(r => {
+        let tgt = { type: 'all' };
+        try { tgt = JSON.parse(r.target || '{}'); } catch (e) {}
+        return { ...r, target: tgt };
+      }),
+      total,
+      limit: lim,
+      offset: off
+    };
+  },
+  async noticeRevoke(db, b) {
+    const id = String(b.id || '').trim().slice(0, 60);
+    if (!id) return { error: 'id-required' };
+    await db.prepare('UPDATE notices SET revoked = 1 WHERE id = ?').bind(id).run();
+    return { ok: true, id };
+  },
+  async noticeStats(db) {
+    const now = Date.now();
+    const total = +((await one(db, 'SELECT COUNT(*) AS c FROM notices')).c || 0);
+    const active = +((await one(db, 'SELECT COUNT(*) AS c FROM notices WHERE revoked = 0 AND (expire_at IS NULL OR expire_at > ?)', now)).c || 0);
+    const reads = +((await one(db, 'SELECT COUNT(*) AS c FROM notice_reads')).c || 0);
+    const clicks = +((await one(db, 'SELECT COUNT(*) AS c FROM notice_reads WHERE clicked = 1')).c || 0);
+    return { total, active, reads, clicks };
+  },
 };
 
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: cors(request) });
 
 // Thao tác ghi/xóa (ghi nhật ký) · thao tác nguy hiểm (phải vừa đăng nhập ≤ 15 phút – chống token bị đánh cắp dùng lại)
-const WRITE = /Set$|Delete$|Remove$|Clear$|Mark$|Approve$|^inboxReply$|^judge$|^review$|^usersExport$/; // (xuất danh sách người dùng cũng ghi nhật ký)
+const WRITE = /Set$|Delete$|Remove$|Clear$|Mark$|Approve$|^inboxReply$|^judge$|^review$|^usersExport$|^noticeCreate$|^noticeRevoke$/; // (xuất danh sách người dùng cũng ghi nhật ký)
 const DANGER = new Set(['userDelete', 'serviceDelete', 'errorsClear', 'geminiDelete', 'geminiRemove']);
 const ipOf = req => req.headers.get('CF-Connecting-IP') || '?';
 async function audit(env, req, email, op, ok) {

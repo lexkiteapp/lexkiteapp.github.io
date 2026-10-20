@@ -112,6 +112,10 @@ p { margin: .4rem 0; }
 .icon-btn.sm { width: 30px; height: 30px; font-size: .85rem; }
 .icon-btn::after { content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); min-width: 44px; min-height: 44px; width: max(100%, 44px); height: max(100%, 44px); }
 
+/* Chuông thông báo (Notices) */
+.notif-btn { position: relative; }
+.notif-badge { position: absolute; top: -3px; right: -3px; background: var(--primary, #E5502F); color: #fff; font-size: .62rem; font-weight: 800; line-height: 1; min-width: 16px; height: 16px; padding: 0 4px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 0 0 2px var(--surface); pointer-events: none; z-index: 2; }
+
 .view { width: 100%; max-width: 1080px; margin: 0 auto; padding: 1.6rem 1.6rem 5rem; outline: none; animation: fade .25s ease-out; }
 @keyframes fade { from { opacity: 0; transform: translateY(6px); } }
 .bottom-nav { display: none; }
