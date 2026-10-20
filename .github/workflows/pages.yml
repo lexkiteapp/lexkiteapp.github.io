@@ -5,6 +5,11 @@ on:
   push:
     branches: [main]
     paths: ['web/audio/**', '.github/workflows/pages.yml']
+  # Lượt audio.yml commit bằng GITHUB_TOKEN KHÔNG kích hoạt sự kiện push → phải nối bằng workflow_run,
+  # nếu không file mới nằm trong repo nhưng 404 trên CDN (lỗi 16–20/10: ~9.300 file thiếu).
+  workflow_run:
+    workflows: ['Tạo giọng đọc Kokoro']
+    types: [completed]
   workflow_dispatch:
 permissions:
   contents: read
@@ -34,3 +39,11 @@ jobs:
           path: ghp
       - id: deployment
         uses: actions/deploy-pages@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Kiểm mọi file giọng đọc app tham chiếu đã có trên Pages + mẫu qua audio.lexkite.com
+        run: |
+          node scripts/audio-cdn-check.mjs --local
+          node scripts/audio-cdn-check.mjs --base https://lexkiteapp.github.io/audio/l/ --concurrency 24 --retries 6
+          node scripts/audio-cdn-check.mjs --sample 150 --concurrency 6 --retries 4
