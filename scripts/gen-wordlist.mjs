@@ -119,7 +119,7 @@ LIST.forEach((x, i) => {
   const ed = EDIT[x.word] || {}; const def = cleanDef(ed.def || e.def || ''), ex = ed.ex || (e.ex && !SENSITIVE.test(e.ex) ? e.ex : '');
   const why = !ed.def ? 'chờ biên soạn định nghĩa (CONTENT-RULES: định nghĩa tự viết)' : !e.ipa ? 'thiếu phiên âm' : !e.vi || e.vi.toLowerCase() === x.word.toLowerCase() ? 'thiếu nghĩa' : !VI.test(e.vi) && e.vi.split(' ').length < 2 ? 'nghĩa không phải tiếng Việt' : !def ? 'thiếu định nghĩa' : !ed.def && BADDEF.test(def) ? 'định nghĩa lệch nghĩa (mã ngôn ngữ/dạng khác…) – cần sửa tay' : OLDTONE.test(e.vi) ? 'kiểu bỏ dấu cũ' : !SHORT[e.pos] ? 'từ loại lạ' : '';
   if (why) { bad.push(x.word + ' – ' + why); return; }
-  const ipa = ('/' + e.ipa.replace(/^[\/\[]|[\/\]]$/g, '') + '/').replace(/ɹ/g, 'r').replace(/ɫ/g, 'l').replace(/\.(?=\S)/g, '').replace(/ɛ/g, 'e').replace(/ɝ/g, 'ɜː').replace(/ɚ/g, 'ə');
+  const ipa = ('/' + e.ipa.replace(/^[\/\[]|[\/\]]$/g, '') + '/').replace(/ɹ/g, 'r').replace(/ɫ/g, 'l').replace(/\.(?=\S)/g, '').replace(/ɛ/g, 'e').replace(/ɝ/g, 'ɜː').replace(/ɚ/g, 'ə').replace(/oʊ/g, 'əʊ').replace(/ɾ/g, 't').replace(/d͡ʒ/g, 'dʒ').replace(/t͡ʃ/g, 'tʃ'); // ô phiên âm là giọng Anh – Wiktionary hay lẫn dạng Mỹ
   const viMain = FIX[x.word] || String(e.vi).split(/,\s*/)[0].trim(); // chỉ giữ nghĩa thông dụng chính – nghĩa phụ từ dữ liệu từ điển hay lệch/lặp
   good.push([x.word, ipa.replace(/[\u032F\u02D1\u0329\u0306]/g, ''), ed.pos || SHORT[e.pos], ed.vi || viMain, def, (ed.ex || hasWord(x.word, ex) || hasForm(x.word, ex)) ? ex : '', '', e.syn.join('|'), L.level(i), '']);
 });
