@@ -1,5 +1,8 @@
 # Phương pháp & pipeline chuẩn Lexkite (tổng hợp bài học – đọc đầu mỗi phiên)
 
+> **BẮT BUỘC trước mọi việc tốn credit:** đọc và làm đúng `docs/CREDIT-RULES.md` (0 credit trước · phiếu phân tích · dry-run script · thử 1 cái · hỏng 2 lần dừng · trần credit).
+
+
 File này gom các **quy trình đã chốt** và **lỗi đã từng mắc** để mọi phiên/agent làm đúng ngay từ đầu. Chi tiết nằm ở file gốc được dẫn link.
 
 ## 1. Điều phối nhiều luồng

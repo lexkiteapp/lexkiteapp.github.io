@@ -1,5 +1,7 @@
 # 📋 Bảng giao việc Claude ⇄ Antigravity
 
+> Mọi việc tốn credit/dịch vụ trả phí: bắt buộc theo `docs/CREDIT-RULES.md`.
+
 Quy trình (không cần người chuyển lời) – **2 chiều, linh hoạt**:
 - Anh Quyền giao **Claude** → Claude chia thẻ TODO cho Antigravity, duyệt, commit.
 - Anh Quyền giao **Antigravity trực tiếp** → Antigravity ghi thẻ vào **HỎI CLAUDE** (yêu cầu của anh + kế hoạch + file định sửa) và commit; Claude trả lời ngay trong thẻ ở vòng kế tiếp (✅ đồng ý / ✏️ cần chỉnh / ⚠️ file đang có người giữ). Việc nhỏ, rõ ràng, chỉ đụng vùng của Antigravity thì Antigravity cứ làm, ghi thẻ vào CHỜ DUYỆT để Claude duyệt sau.

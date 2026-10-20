@@ -1,5 +1,7 @@
 # Khuôn chuẩn 1 cảnh footage điện ảnh (làm 1 lần, không làm lại)
 
+> Bắt buộc: `docs/CREDIT-RULES.md` trước khi tiêu bất kỳ credit nào.
+
 Rút ra từ quán cà phê (15 clip) và sân bay (pilot 66 + bộ 249 + bổ sung 54 = 369 credit, 3 lượt). Cảnh mới **chạy đúng 1 lượt theo file này**; ngân sách ≈ 16 ảnh + 15 clip ≈ **390 credit**, dự phòng 10 %.
 
 ## 1. Danh sách clip BẮT BUỘC (đủ cho mọi mẫu bài: sai→sửa, A/B, series, luyện nói)
