@@ -1,6 +1,6 @@
 # Tự build app iOS cho Simulator trên máy macOS của GitHub – miễn phí cho repo công khai, không cần ký (chưa có Apple Developer).
 # Mục đích: bắt lỗi build sớm (Capacitor/SPM/Info.plist). Kết quả: lexkite-ios-sim.zip (App.app) để kéo thả vào Simulator.
-# Khi có tài khoản Apple Developer: thêm bước ký (match/App Store Connect API key) + archive → TestFlight.
+# Bản ký + TestFlight: .github/workflows/ios-testflight.yml (App Store Connect API key, secret ASC_*).
 name: Build iOS (simulator)
 on:
   push:

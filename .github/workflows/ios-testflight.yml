@@ -1,0 +1,68 @@
+# Ký + tải bản iOS lên TestFlight (App Store Connect app 6824714708, Bundle ID com.lexkite.app, team B285J68262).
+# Ký tự động bằng App Store Connect API key (Admin) – Xcode tạo chứng chỉ phân phối/hồ sơ trên đám mây, không cần .p12/match.
+# Secret: ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_P8 (nội dung AuthKey_*.p8 – không bao giờ in ra log). Chạy tay: Actions → "iOS → TestFlight".
+name: iOS → TestFlight
+on:
+  workflow_dispatch:
+    inputs:
+      version: { description: 'Phiên bản hiển thị (MARKETING_VERSION)', required: false, default: '1.0' }
+permissions:
+  contents: read
+concurrency: { group: ios-testflight, cancel-in-progress: false }
+jobs:
+  upload:
+    runs-on: macos-15
+    timeout-minutes: 60
+    env:
+      TEAM: B285J68262
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      # App Store Connect chỉ nhận bản build bằng Xcode 26+ / iOS 26 SDK
+      - name: Chọn Xcode 26
+        run: |
+          X=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          [ -n "$X" ] || { echo "::error::Máy chủ chưa có Xcode 26 – App Store Connect sẽ từ chối bản build"; exit 1; }
+          sudo xcode-select -s "$X/Contents/Developer"; xcodebuild -version
+      - name: Build web → mobile/www → cap sync
+        run: |
+          npm ci --prefix mobile --no-audit --no-fund
+          ./scripts/build-mobile.sh
+      - name: Khoá App Store Connect API
+        env: { ASC_KEY_P8: '${{ secrets.ASC_KEY_P8 }}' }
+        run: |
+          [ -n "$ASC_KEY_P8" ] || { echo "::error::Thiếu secret ASC_KEY_P8"; exit 1; }
+          printf '%s' "$ASC_KEY_P8" > "$RUNNER_TEMP/AuthKey.p8"; chmod 600 "$RUNNER_TEMP/AuthKey.p8"
+      - name: Archive (Release, ký tự động qua API key)
+        working-directory: mobile/ios/App
+        env: { KID: '${{ secrets.ASC_KEY_ID }}', ISS: '${{ secrets.ASC_ISSUER_ID }}', VER: '${{ inputs.version }}' }
+        run: |
+          xcodebuild -project App.xcodeproj -scheme App -configuration Release -destination 'generic/platform=iOS' \
+            -archivePath "$RUNNER_TEMP/Lexkite.xcarchive" -allowProvisioningUpdates \
+            -authenticationKeyPath "$RUNNER_TEMP/AuthKey.p8" -authenticationKeyID "$KID" -authenticationKeyIssuerID "$ISS" \
+            DEVELOPMENT_TEAM="$TEAM" CODE_SIGN_STYLE=Automatic MARKETING_VERSION="${VER:-1.0}" CURRENT_PROJECT_VERSION="$GITHUB_RUN_NUMBER" \
+            archive | tail -60
+          test -d "$RUNNER_TEMP/Lexkite.xcarchive"
+      - name: Export + tải lên App Store Connect (TestFlight)
+        env: { KID: '${{ secrets.ASC_KEY_ID }}', ISS: '${{ secrets.ASC_ISSUER_ID }}' }
+        run: |
+          cat > "$RUNNER_TEMP/ExportOptions.plist" <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict>
+            <key>method</key><string>app-store-connect</string>
+            <key>destination</key><string>upload</string>
+            <key>teamID</key><string>$TEAM</string>
+            <key>signingStyle</key><string>automatic</string>
+            <key>manageAppVersionAndBuildNumber</key><false/>
+            <key>uploadSymbols</key><true/>
+          </dict></plist>
+          EOF
+          xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/Lexkite.xcarchive" -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist" \
+            -exportPath "$RUNNER_TEMP/export" -allowProvisioningUpdates \
+            -authenticationKeyPath "$RUNNER_TEMP/AuthKey.p8" -authenticationKeyID "$KID" -authenticationKeyIssuerID "$ISS" | tail -40
+          echo "✓ Đã tải build $GITHUB_RUN_NUMBER lên App Store Connect – chờ Apple xử lý (5–30 phút) rồi hiện ở TestFlight" >> "$GITHUB_STEP_SUMMARY"
+      - name: Xoá khoá
+        if: always()
+        run: rm -f "$RUNNER_TEMP/AuthKey.p8"
