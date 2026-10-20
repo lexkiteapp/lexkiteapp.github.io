@@ -1,0 +1,120 @@
+# Ảnh App Store (iPhone 6.9" 1320×2868 + iPad 13" 2064×2752) chụp từ app iOS GỐC trên Simulator, đóng khung + chữ giống ảnh Google Play
+# (scripts/ios-shots.mjs, chữ dùng chung scripts/lib/app-shots-copy.mjs). Kết quả: artifact "lexkite-appstore-shots" + nhánh mồ côi "ios-shots".
+# Tùy chọn đẩy nội dung niêm yết + ảnh lên App Store Connect (scripts/asc-upload.mjs, secret ASC_*): asc = dry-run | upload.
+# KHÔNG bao giờ bấm "Submit for Review", không đổi giá/phân phối/độ tuổi – anh chủ tự bấm (docs/STORE-READINESS.md § B).
+name: iOS → ảnh App Store
+on:
+  push:
+    branches: [ios-appstore]   # nhánh làm việc của bản 1.0 (push = chỉ chụp ảnh, không đụng App Store Connect)
+    paths: ['.github/workflows/ios-shots.yml', 'scripts/ios-shots.mjs', 'scripts/ios-shots-inject.js', 'scripts/lib/app-shots-copy.mjs']
+  workflow_dispatch:
+    inputs:
+      capture: { description: 'Chụp ảnh mới trên Simulator (false = dùng ảnh ở nhánh ios-shots)', type: boolean, default: true }
+      asc: { description: 'App Store Connect: none | dry-run | upload (chữ + ảnh, chỉ bản 1.0 đang Prepare for Submission)', type: choice, options: [none, dry-run, upload], default: none }
+      langs: { description: 'Ngôn ngữ ảnh (có chữ trong scripts/lib/app-shots-copy.mjs)', default: 'en,vi' }
+permissions:
+  contents: write
+concurrency: { group: ios-shots, cancel-in-progress: false }
+jobs:
+  shots:
+    if: github.event_name == 'push' || inputs.capture
+    runs-on: macos-15
+    timeout-minutes: 75
+    env:
+      LANGS: ${{ inputs.langs || 'en,vi' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chọn Xcode 26
+        run: |
+          X=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          [ -n "$X" ] && sudo xcode-select -s "$X/Contents/Developer"; xcodebuild -version
+      - name: Build web → mobile/www (+ script điều khiển chỉ cho bản chụp ảnh) → cap copy
+        run: |
+          npm ci --prefix mobile --no-audit --no-fund
+          ./scripts/build-mobile.sh
+          cp scripts/ios-shots-inject.js mobile/www/shots-inject.js
+          perl -0pi -e 's#<head>#<head><script src="shots-inject.js"></script>#' mobile/www/index.html
+          grep -q shots-inject mobile/www/index.html
+          cd mobile && npx cap copy ios
+      - name: xcodebuild (iphonesimulator, không ký)
+        working-directory: mobile/ios/App
+        run: |
+          xcodebuild -project App.xcodeproj -scheme App -configuration Debug -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath build CODE_SIGNING_ALLOWED=NO build | tail -20
+          test -d build/Build/Products/Debug-iphonesimulator/App.app
+      - name: Chọn máy giả lập (iPhone Pro Max 6.9", iPad Pro 13")
+        run: |
+          python3 - <<'PY' | tee devs.txt
+          import json, subprocess
+          j = json.loads(subprocess.check_output(['xcrun', 'simctl', 'list', '-j', 'runtimes']))
+          rts = [r for r in j['runtimes'] if r.get('platform') == 'iOS' and r.get('isAvailable')]
+          rt = sorted(rts, key=lambda r: [int(x) for x in r['version'].split('.')])[-1]
+          types = [t['name'] + '|' + t['identifier'] for t in rt.get('supportedDeviceTypes', [])]
+          def pick(prefs):
+              for p in prefs:
+                  for t in types:
+                      if t.split('|')[0] == p: return t.split('|')[1]
+              raise SystemExit('Không có máy ' + ' / '.join(prefs) + ' cho ' + rt['name'])
+          print('iphone-69', pick(['iPhone 17 Pro Max', 'iPhone 16 Pro Max']), rt['identifier'])
+          print('ipad-13', pick(['iPad Pro 13-inch (M5)', 'iPad Pro 13-inch (M4)']), rt['identifier'])
+          PY
+      - name: Chụp app gốc trên Simulator
+        run: |
+          node scripts/ios-shots.mjs plan | tee plan.txt
+          APP=mobile/ios/App/build/Build/Products/Debug-iphonesimulator/App.app
+          while read -u 3 DEV TYPE RT; do
+            D=$(xcrun simctl create "shots-$DEV" "$TYPE" "$RT"); xcrun simctl boot "$D"; xcrun simctl bootstatus "$D" -b >/dev/null
+            xcrun simctl status_bar "$D" override --time 9:41 --dataNetwork wifi --wifiMode active --wifiBars 3 \
+              --cellularMode active --cellularBars 4 --batteryState charged --batteryLevel 100
+            for L in ${LANGS//,/ }; do
+              mkdir -p "ios-raw/$DEV/$L"; xcrun simctl ui "$D" appearance light
+              xcrun simctl uninstall "$D" com.lexkite.app || true; xcrun simctl install "$D" "$APP"
+              xcrun simctl launch "$D" com.lexkite.app; sleep 15
+              xcrun simctl openurl "$D" "lexkite://go/home?hl=$L"; sleep 15
+              while read -u 4 N ROUTE FLIP DARK WAIT; do
+                xcrun simctl ui "$D" appearance $([ "$DARK" = 1 ] && echo dark || echo light); sleep 2
+                Q=""; [ "$FLIP" = 1 ] && Q="?flip=1"
+                xcrun simctl openurl "$D" "lexkite://go/$ROUTE$Q"; sleep "$WAIT"; [ "$FLIP" = 1 ] && sleep 3
+                xcrun simctl io "$D" screenshot "ios-raw/$DEV/$L/$N.png"
+                echo "· $DEV $L $N #/$ROUTE $(sips -g pixelWidth -g pixelHeight "ios-raw/$DEV/$L/$N.png" | awk '/pixel/{printf "%s ", $2}')"
+              done 4< plan.txt
+            done
+            xcrun simctl shutdown "$D"
+          done 3< devs.txt
+      - name: Đóng khung + chữ (Playwright Chromium)
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.50.1
+          npx playwright install chromium
+          node scripts/ios-shots.mjs frame ios-raw ios-shots
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: lexkite-appstore-raw, path: ios-raw/ }
+      - uses: actions/upload-artifact@v4
+        with: { name: lexkite-appstore-shots, path: ios-shots/ }
+      - name: Lưu vào nhánh ios-shots
+        run: |
+          cd ios-shots && git init -q && git checkout -q -b ios-shots
+          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
+          git add . && git commit -qm "Ảnh App Store $(date -u +%F) ($GITHUB_SHA)"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ios-shots
+          echo "✓ Ảnh App Store: nhánh ios-shots + artifact lexkite-appstore-shots" >> "$GITHUB_STEP_SUMMARY"
+
+  asc:
+    needs: shots
+    if: always() && github.event_name == 'workflow_dispatch' && inputs.asc != 'none' && (needs.shots.result == 'success' || needs.shots.result == 'skipped')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with: { ref: ios-shots, path: store/apple/screenshots }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: App Store Connect (${{ inputs.asc }})
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+        run: node scripts/asc-upload.mjs ${{ inputs.asc == 'dry-run' && '--dry-run' || '' }} --shots store/apple/screenshots | tee -a "$GITHUB_STEP_SUMMARY"
