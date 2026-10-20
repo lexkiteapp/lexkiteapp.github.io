@@ -20,7 +20,7 @@ Hook ✗/✓ hoặc câu hỏi ≤5 từ · 1 ý/clip · thẻ "Screenshot/Save 
 
 ## 4. HÀNG ĐỢI VÒNG LẶP (làm lần lượt từ trên xuống; xong đánh ✅ + commit)
 1. ⏳ Hoàn thiện pilot bản tin khách sạn 100/100 (agent đang chạy) → nếu đạt: chốt template `news`.
-2. ☐ **Chuyển builder lên GitHub Actions** (workflow `cine-render.yml`): lấy footage từ repo riêng `lexkite-footage`, dựng + qa5/qa_news, xuất mp4 + bìa làm artifact/R2; Mac không render nữa.
+2. ✅ **Builder trên GitHub Actions** (21/10): workflow `cine-render` (`.github/workflows/cine-render.yml`, builder `scripts/cine/`). Chạy: Actions → cine-render → Run workflow (scene `hotel|cafe|airport|restaurant|anchor`, lessons `hotel_tpl_choose,hotel_1:vi` hoặc `all`, lang `en`, viral bật, outsuf `-v3`) hoặc API `POST /repos/lexkiteapp/lexkiteapp.github.io/actions/workflows/cine-render.yml/dispatches`. Ra artifact `cine-<scene>-<số>` (mp4 + bìa + log qa5/timeline, giữ 14 ngày); job đỏ nếu qa5 có FAIL. Footage lấy sparse từ `lexkite-footage` qua deploy key chỉ-đọc (secret `FOOTAGE_DEPLOY_KEY`). Kiểm 21/10: hotel_tpl_choose en v3 22,21 s + hotel_1 vi 33,92 s + cafe latte vi 32,42 s = trùng độ dài bản Mac, qa5 ALL PASS. Tin `news` (qa_news) thêm sau khi pilot chốt.
 3. ☐ **Bộ sinh kịch bản tự động (0 token):** từ dữ liệu web (`content/wordlists`, `web/js/grammar/*`, `grammar/l1/*`, ecosystem.json, scenes/*.md) → lesson spec theo template; luật kiểm (English đúng, CEFR, ≤15 cps, không trùng ý: sổ `content/video/cine/used.json`). Ý tưởng mới (tuỳ chọn) qua Gemini miễn phí + cùng cổng kiểm.
 4. ☐ **Bản đồ phủ chủ đề:** mỗi khu vực web (ecosystem.json) × CEFR → ≥ 5 clip/khu vực; ưu tiên khu vực chưa có clip; CTA deep link đúng bài.
 5. ☐ Dựng lại toàn bộ bài 4 cảnh theo English-only + v3 (trên CI).

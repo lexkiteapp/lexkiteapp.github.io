@@ -403,5 +403,5 @@ if VIRAL:   # upload cover: frame with the big hook text
 json.dump(dict(lesson=LESSON, safe=SAFE, viral=VIRAL, avoid=globals().get('AVOID', {}), beats=globals().get('BEATS', {}), end=END, punch=PUNCH, sfx=[[os.path.basename(a), round(b, 3)] for a, b in SFX], endcard_boxes=[[int(v) for v in b] for b in ENDBOX], total=round(TOTAL, 3), scene=round(SCENE, 3),
                shots=[dict(id=s['id'], clip=s['clip'], t0=round(s['t0'], 3), dur=round(s['dur'], 3), frames=[s['frames'][0], s['frames'][-1]], vis=s.get('vis', s['mp4'][:-4] + '.vis.json'),
                            lines=[dict(who=w, id=l['id'], at=round(l['at'], 3), dur=round(l['dur'], 3), tempo=l['tempo']) for w, l in s['lines']], mouths=[[c, w] for c, w, _ in s['mouths']]) for s in S],
-               overlays=BOX, hook_kind=globals().get('HOOK_KIND', 'contrast'), qa=globals().get('QA', {})), open(f'{OUT}/timeline.json', 'w'), indent=1, ensure_ascii=False)
+               overlays=BOX, hook_kind=globals().get('HOOK_KIND'), qa=globals().get('QA', {})), open(f'{OUT}/timeline.json', 'w'), indent=1, ensure_ascii=False)
 print(out, round(TOTAL, 2))
