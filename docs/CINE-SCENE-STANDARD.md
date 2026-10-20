@@ -28,6 +28,8 @@ Nhân vật: **A** = khách (Ama), **B** = người phục vụ của cảnh. Lu
 ## 3. Soát TRƯỚC khi chi 25 credit cho clip
 Khung đầu: đúng tỉ lệ, đúng 180°, đủ đạo cụ & cùng mẫu với các khung khác, đúng số tay, không chữ/logo, mặt đủ to (≥ 160 px) để ghép khẩu hình. Sai 1 mục → tạo lại ảnh (1 credit), không tạo clip.
 
+**Soát tư thế / logic (bắt buộc, cả khung đầu lẫn từng clip – lỗi nhà hàng 20/10: Ama ngồi trên mép bàn, giày gác lên ghế, mọi ảnh cắt từ master đều dính):** người ngồi thì mông trên mặt ghế, lưng tựa ghế, chân buông xuống sàn; KHÔNG ai ngồi/đứng trên bàn, quầy, ghế; không gác chân lên đồ; bàn ghế đúng tỉ lệ với người; không ai đi xuyên người/vật; đạo cụ đúng số lượng. Prompt phải viết thẳng: "X sits on a wooden chair at the table, her back against the chair back, both feet on the floor, hands resting on the tabletop" + "nobody sits on the table, no feet on chairs or furniture, no one walks through another person". Ảnh cắt/OTS sinh từ 1 master thừa hưởng lỗi của master → soát master trước. Khung đầu sai 2 lần liên tiếp → DỪNG, báo chủ, không thử tiếp. Ghi kết quả soát vào `qa_notes.json` (trường `logic`).
+
 ## 4. Sau khi có clip (0 credit, tự động)
 `interp24.py` (bỏ giật "vẽ cách khung") → lấy bộ miệng + đường bám (gợi ý vùng miệng, tránh mắt chớp) → soi từng khung chỗ tay/đạo cụ, ghi **đoạn dùng được** vào `bank.json` → chấm MEDIA-QA-RUBRIC, < 90 thì dùng clip dự phòng.
 
