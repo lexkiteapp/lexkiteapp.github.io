@@ -126,6 +126,41 @@ async function hint(file, langs, local = {}) {
   ok(!rd('web/index.html').includes('class="lhint"'), 'gợi ý: không có sẵn trong HTML (bot thấy trang sạch)');
 }
 
+// ---------- 3b) Nút đổi ngôn ngữ đầu trang (web/js/lang-menu.js – dùng chung mọi trang tĩnh + app) ----------
+{
+  const { landingHref, LANG_NAMES, seoPage } = await import('../lib/site-layout.mjs');
+  for (const l of LANGS) {
+    const doc = new JSDOM(rd(fileOf(l))).window.document, sw = doc.querySelectorAll('header [data-lsw]'), b = doc.querySelector('[data-lsw] button'), m = doc.querySelector('[data-lsw] [role=menu]');
+    const items = [...doc.querySelectorAll('[data-lsw] [role=menuitem]')];
+    ok(sw.length === 1 && b && b.getAttribute('aria-haspopup') === 'true' && b.getAttribute('aria-expanded') === 'false' && b.getAttribute('aria-controls') === m.id && m.hidden, `${fileOf(l)}: nút đổi ngôn ngữ (aria-haspopup/expanded/controls, menu ẩn sẵn)`);
+    ok(b && b.textContent.trim() === l.toUpperCase() && b.getAttribute('aria-label').endsWith(LANG_NAMES[l]) && !/Language/.test(l === 'en' ? '' : b.getAttribute('aria-label')), `${fileOf(l)}: nút hiện mã ${l.toUpperCase()}, nhãn đúng ngôn ngữ trang`);
+    ok(items.length === LANGS.length && items.every(a => a.getAttribute('href') === landingHref(a.lang) && a.getAttribute('hreflang') === a.lang && a.textContent === LANG_NAMES[a.lang]) && items.filter(a => a.hasAttribute('aria-current')).map(a => a.lang).join() === l && items.find(a => a.lang === 'ar').getAttribute('dir') === 'rtl', `${fileOf(l)}: 15 ngôn ngữ tên bản địa, lang/hreflang, trỏ trang chủ từng ngôn ngữ, đánh dấu ngôn ngữ hiện tại, ar RTL`);
+  }
+  // Hành vi bàn phím/chuột chạy thật trong jsdom (trang ar để thử RTL); KHÔNG tự chuyển trang theo lựa chọn đã nhớ
+  const html = rd('web/ar/index.html').replace(/<script id="lk-route">[\s\S]*?<\/script>/, '');
+  const dom = new JSDOM(html, { url: 'https://lexkite.com/ar/', runScripts: 'dangerously', beforeParse(w) { w.localStorage.setItem('vb.uiLang', 'ja'); w.localStorage.setItem('lk.lhint', '1'); } });
+  await new Promise(r => setTimeout(r, 10));
+  const w = dom.window, d = w.document, b = d.querySelector('[data-lsw] button'), m = d.getElementById(b.getAttribute('aria-controls')), key = (el, k) => el.dispatchEvent(new w.KeyboardEvent('keydown', { key: k, bubbles: true, cancelable: true }));
+  ok(w.location.href === 'https://lexkite.com/ar/', 'đổi ngôn ngữ: lựa chọn đã nhớ (vb.uiLang=ja) không tự chuyển trang /ar/');
+  b.click(); ok(!m.hidden && b.getAttribute('aria-expanded') === 'true' && d.activeElement.lang === 'ar', 'đổi ngôn ngữ: bấm nút → mở menu, focus mục đang chọn');
+  key(m, 'ArrowDown'); ok(d.activeElement.lang === 'ru', 'đổi ngôn ngữ: ↓ sang mục kế');
+  key(m, 'End'); ok(d.activeElement.lang === 'tr', 'đổi ngôn ngữ: End → mục cuối'); key(m, 'ArrowDown'); ok(d.activeElement.lang === 'vi', 'đổi ngôn ngữ: ↓ ở cuối quay về đầu');
+  key(m, 'e'); ok(d.activeElement.lang === 'en', 'đổi ngôn ngữ: gõ chữ cái nhảy tới mục (English)');
+  key(m, 'Escape'); ok(m.hidden && b.getAttribute('aria-expanded') === 'false' && d.activeElement === b, 'đổi ngôn ngữ: Esc đóng menu, trả focus về nút');
+  key(b, 'ArrowUp'); ok(!m.hidden && d.activeElement.lang === 'tr', 'đổi ngôn ngữ: ↑ trên nút mở menu ở mục cuối');
+  d.body.click(); ok(m.hidden, 'đổi ngôn ngữ: bấm ra ngoài đóng menu');
+  b.click(); const ko = m.querySelector('[lang=ko]'); ko.addEventListener('click', e => e.preventDefault()); ko.click();
+  ok(w.localStorage.getItem('vb.uiLang') === 'ko' && m.hidden, 'đổi ngôn ngữ: chọn → nhớ vb.uiLang (cùng khóa app), đóng menu');
+  // 404 + trang pháp lý + trang SEO cũng có nút; ánh xạ trang tương đương
+  const nf = new JSDOM(rd('web/404.html')).window.document;
+  ok(nf.querySelectorAll('[data-lsw] [role=menuitem]').length === LANGS.length && nf.querySelector('[data-lsw] [lang=ja]').getAttribute('href') === '/ja/', '404: nút đổi ngôn ngữ → trang chủ từng ngôn ngữ');
+  const lg = new JSDOM(rd('web/de/terms.html')).window.document;
+  ok(lg.querySelector('[data-lsw] [lang=ko]').getAttribute('href') === '/ko/terms' && lg.querySelector('[data-lsw] [aria-current]').lang === 'de' && !lg.querySelector('select'), 'pháp lý: nút đổi ngôn ngữ → cùng trang ở ngôn ngữ kia (/ko/terms)');
+  const sp = new JSDOM(seoPage({ lang: 'vi', head: '', crumbs: [['Trang chủ', '/'], ['Speaking', '/speaking/'], ['X', '/speaking/x']], body: '', alt: '/en/speaking/x', section: '/speaking/' })).window.document;
+  const href = l => sp.querySelector(`header [data-lsw] [lang=${l}]`).getAttribute('href');
+  ok(href('vi') === '/speaking/x' && href('en') === '/en/speaking/x' && href('ja') === '/ja/' && sp.querySelector(`footer [lang=en]`).getAttribute('href') === '/en/speaking/x', 'trang SEO: vi ↔ en theo hreflang, ngôn ngữ khác → trang chủ ngôn ngữ đó (header = chân trang)');
+}
+
 // ---------- 4) Service worker: di chuyển bản cài cũ ----------
 const SW = rd('web/sw.js');
 async function sw(scope, { cache = {}, online = true } = {}) {

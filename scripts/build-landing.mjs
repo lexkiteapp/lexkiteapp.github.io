@@ -8,7 +8,7 @@
 // Nội dung: content/landing/<lang>.json (en là gốc – khóa thiếu lấy từ en; vi viết riêng). Nhãn nhỏ dùng lại bản dịch app (web/js/i18n/<lang>.js).
 // Dùng: node scripts/build-landing.mjs [--check]   (--check: không ghi, báo lỗi nếu file trong web/ chưa dựng lại – chạy trong npm test)
 import fs from 'node:fs';
-import { CSS, esc, ld, siteHeader, siteFooter, LANG_NAMES, appHref, landingHref } from './lib/site-layout.mjs';
+import { CSS, esc, ld, siteHeader, siteFooter, LANG_NAMES, appHref, landingHref, langSwitch, LSW_CSS, LSW_JS } from './lib/site-layout.mjs';
 
 const R = new URL('../', import.meta.url), SITE = 'https://lexkite.com';
 export const LANGS = Object.keys(LANG_NAMES); // vi, en, es, pt, fr, de, id, th, zh, ja, ko, hi, ar, ru, tr
@@ -63,12 +63,10 @@ const LCSS = `[hidden]{display:none!important}main{padding-top:8px}.lh{display:g
 .res{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:18px 0 0}.res a{display:block;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;text-decoration:none;color:var(--text)}.res a:hover{border-color:var(--primary)}.res b{display:block;font-size:19px;margin-bottom:4px}.res span{color:var(--muted);font-size:16px}
 .faq details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:4px 18px;margin:10px 0}.faq summary{cursor:pointer;font-weight:700;padding:12px 0;font-size:17px}.faq details p{margin:0 0 14px;color:var(--muted)}
 .final{background:linear-gradient(135deg,#0F3D3E,#12807A);color:#fff;border-radius:24px;padding:34px 28px;text-align:center;margin:40px 0 0}.final h2{margin:0 0 8px;font-size:clamp(24px,3.2vw,32px)}.final p{margin:0 auto 18px;max-width:56ch;opacity:.92}.final .btn{background:#fff;color:#0F3D3E!important}
-.lsw{position:relative}.lsw summary{list-style:none;cursor:pointer;border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:14px;font-weight:700}.lsw summary::-webkit-details-marker{display:none}
-.lsw ul{position:absolute;right:0;top:calc(100% + 6px);z-index:5;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 30px rgba(20,20,60,.14);list-style:none;margin:0;padding:6px;min-width:190px;max-height:70vh;overflow:auto}.lsw li a{display:block;padding:6px 12px;border-radius:8px;color:var(--text);text-decoration:none;font-weight:600}.lsw li a:hover,.lsw li a[aria-current]{background:var(--accent-soft)}
-[dir=rtl] .skip:not(:focus){left:auto;right:-999px}[dir=rtl] .lsw ul{right:auto;left:0}[dir=rtl] .kit{right:auto;left:-6px}@media (max-width:600px){[dir=rtl] .kit{left:0}}
+[dir=rtl] .skip:not(:focus){left:auto;right:-999px}[dir=rtl] .kit{right:auto;left:-6px}@media (max-width:600px){[dir=rtl] .kit{left:0}}
 .lhint{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;max-width:640px;margin:0 auto;display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 30px rgba(20,20,60,.18);padding:10px 12px 10px 16px;font-size:15px}.lhint span{flex:1}.lhint .btn{padding:6px 14px;font-size:14px;white-space:nowrap}.lhint button{background:none;border:0;font-size:22px;line-height:1;color:var(--muted);cursor:pointer;padding:4px 8px}
 @media (max-width:900px){nav.main{flex-wrap:nowrap}nav.main .hm{display:none}.lh{grid-template-columns:1fr;gap:44px}.demo{max-width:440px;margin:0 auto;width:100%}.feat,.res{grid-template-columns:1fr 1fr}}
-@media (max-width:600px){nav.main a:not(.btn){display:none}nav.main{gap:8px}header.top .bar{flex-wrap:nowrap}.feat,.res,.steps{grid-template-columns:1fr}.lh{padding-top:12px}.lead{font-size:17px}.final{padding:28px 18px}.kit{top:-28px;right:0;width:64px;height:64px}}
+@media (max-width:600px){nav.main>a:not(.btn){display:none}nav.main{gap:8px}header.top .bar{flex-wrap:nowrap}.feat,.res,.steps{grid-template-columns:1fr}.lh{padding-top:12px}.lead{font-size:17px}.final{padding:28px 18px}.kit{top:-28px;right:0;width:64px;height:64px}}
 @media (prefers-color-scheme:dark){.eyebrow,.fc mark,.gr .ok{color:#7fd6cc}.final .btn{color:#0F3D3E!important}.steps li::before{color:#0f1017}}`;
 
 export function render(lang) {
@@ -78,7 +76,6 @@ export function render(lang) {
   const enOnly = vi || lang === 'en' ? '' : ' hreflang="en"';
   const alt = LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${pageUrl(l)}">`).join('\n') + `\n<link rel="alternate" hreflang="x-default" href="${pageUrl('en')}">`;
   const nav = [[app, esc(c.nav.app)], [blog, esc(c.nav.blog)], [vocab, esc(c.nav.vocab), ` class="hm"${enOnly}`], [samples, esc(c.nav.samples), ` class="hm"${enOnly}`], [login, esc(c.nav.login)]];
-  const lsw = `<details class="lsw"><summary aria-label="${esc(c.langL)}"><span aria-hidden="true">🌐</span> ${lang.toUpperCase()}</summary><ul>${LANGS.map(l => `<li><a href="${landingHref(l)}" lang="${l}" hreflang="${l}"${l === lang ? ' aria-current="page"' : ''}>${LANG_NAMES[l]}</a></li>`).join('')}</ul></details>`;
   const grades = ['Quên', 'Khó', 'Nhớ', 'Dễ'].map((k, i) => `<span${i === 2 ? ' class="ok"' : ''}>${esc(ui(lang, k))}</span>`).join('');
   const faqLd = { '@type': 'FAQPage', mainEntity: c.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
   const graph = { '@context': 'https://schema.org', '@graph': [
@@ -111,7 +108,7 @@ ${LCSS}</style>
 </head>
 <body>
 <a class="skip" href="#nd">${esc(c.skip)}</a>
-${siteHeader({ nav, open: [start, esc(c.nav.start)], home: landingHref(lang), extra: lsw })}
+${siteHeader({ nav, open: [start, esc(c.nav.start)], home: landingHref(lang), lang, langHref: landingHref, label: c.langL })}
 <main id="nd">
 <section class="lh" aria-labelledby="h1">
 <div>
@@ -147,6 +144,10 @@ ${siteFooter({ lang, text: esc(c.foot), tm: esc(c.tm), langHref: landingHref })}
 }
 
 export const fileOf = l => l === 'vi' ? 'web/index.html' : `web/${l}/index.html`;
+// Trang 404 (web/404.html, viết tay, song ngữ vi/en): chèn nút đổi ngôn ngữ góc trên (→ trang chủ từng ngôn ngữ) vào giữa <!--lsw--><!--/lsw-->.
+// Trang dùng token màu riêng (--card/--fg/--coral) → ánh xạ sang token của khối lsw dùng chung.
+export const render404 = html => html.replace(/<!--lsw-->[\s\S]*?<!--\/lsw-->/, () => `<!--lsw--><style>.top{position:absolute;top:12px;inset-inline-end:16px;--surface:var(--card);--text:var(--fg);--primary:var(--coral);--accent-soft:var(--line)}.top .lsw-m{display:block}${LSW_CSS}</style>
+  <div class="top">${langSwitch({ lang: 'vi', label: 'Ngôn ngữ · Language' })}</div><script>${LSW_JS}</script><!--/lsw-->`);
 if (process.argv[1] && import.meta.url === new URL(process.argv[1], 'file://').href) {
   const check = process.argv.includes('--check'), stale = [];
   for (const l of LANGS) {
@@ -154,6 +155,7 @@ if (process.argv[1] && import.meta.url === new URL(process.argv[1], 'file://').h
     if (check) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== html) stale.push(fileOf(l)); continue; }
     fs.mkdirSync(new URL('.', f), { recursive: true }); fs.writeFileSync(f, html);
   }
+  { const f = new URL('web/404.html', R), cur = fs.readFileSync(f, 'utf8'), html = render404(cur); if (check) { if (html !== cur) stale.push('web/404.html'); } else fs.writeFileSync(f, html); }
   if (stale.length) { console.error(`✗ build-landing: ${stale.length} trang giới thiệu chưa dựng lại (${stale.slice(0, 4).join(', ')}…) → node scripts/build-landing.mjs`); process.exit(1); }
   console.log(`✓ build-landing: ${LANGS.length} trang giới thiệu ${check ? 'khớp nguồn' : 'đã dựng'} (/ + /<lang>/)` + (check ? '' : ` · ${(Buffer.byteLength(render('vi')) / 1024).toFixed(1)} KB/trang`));
 }

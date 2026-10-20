@@ -5,7 +5,7 @@
 // - /privacy, /terms (gốc) = bản tiếng Anh + tự chuyển sang ngôn ngữ người dùng đã chọn trong app hoặc của trình duyệt.
 // Dùng: node scripts/build-legal.mjs [--translate]   (--translate: gọi Google Translate cho dòng còn thiếu – chạy trong GitHub Action)
 import fs from 'fs';
-import { siteFooter, FOOT_CSS, SEO_L, landingHref } from './lib/site-layout.mjs';
+import { siteFooter, FOOT_CSS, SEO_L, landingHref, langSwitch, FOOT } from './lib/site-layout.mjs';
 const R = new URL('../', import.meta.url), rd = p => fs.readFileSync(new URL(p, R), 'utf8');
 const LANGS = { en: 'English', vi: 'Tiếng Việt', es: 'Español', pt: 'Português', fr: 'Français', de: 'Deutsch', id: 'Bahasa Indonesia', th: 'ไทย', zh: '简体中文', ja: '日本語', ko: '한국어', hi: 'हिन्दी', ar: 'العربية', ru: 'Русский', tr: 'Türkçe' };
 const PAGES = ['privacy', 'terms'], SITE = 'https://lexkite.com';
@@ -28,7 +28,6 @@ const page = (lang, name, body, translated, draft) => {
   body = body.replace(/href="\/#\//g, 'href="/app/#/'); // liên kết vào app (form liên hệ…) – app học ở /app/
   const h1 = (body.match(/<h1>(.*?)<\/h1>/) || [, 'Lexkite'])[1].replace(/<[^>]+>/g, '');
   const alt = Object.keys(LANGS).map(l => `<link rel="alternate" hreflang="${l}" href="${SITE}/${l}/${name}">`).join('\n  ');
-  const opts = Object.entries(LANGS).map(([l, n]) => `<option value="${l}"${l === lang ? ' selected' : ''}>${n}</option>`).join('');
   return `<!doctype html>
 <html lang="${draft ? 'en' : lang}"${lang === 'ar' && !draft ? ' dir="rtl"' : ''}>
 <head>
@@ -41,12 +40,12 @@ const page = (lang, name, body, translated, draft) => {
   <meta name="theme-color" content="#0F3D3E">
   <link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml">
   <link rel="stylesheet" href="/css/style.css">
-  <style>${FOOT_CSS}.doc{max-width:760px;margin:0 auto;padding:2.5rem 1.25rem 4rem}.doc h2{margin-top:2rem}.doc li{margin:.35rem 0}.doc table{width:100%;border-collapse:collapse;font-size:.92rem}.doc td,.doc th{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;vertical-align:top}.lg{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.5rem}.lg select{font:inherit;padding:.35rem .5rem;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text)}.tnote{background:var(--line);border-radius:10px;padding:.6rem .8rem;font-size:.85rem}</style>
+  <style>${FOOT_CSS}.doc{max-width:760px;margin:0 auto;padding:2.5rem 1.25rem 4rem}.doc h2{margin-top:2rem}.doc li{margin:.35rem 0}.doc table{width:100%;border-collapse:collapse;font-size:.92rem}.doc td,.doc th{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;vertical-align:top}.lg{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.5rem}.tnote{background:var(--line);border-radius:10px;padding:.6rem .8rem;font-size:.85rem}</style>
 </head>
 <body>
   <main class="doc">
     <div class="lg"><a class="brand" href="${landingHref(draft ? 'en' : lang)}" style="padding:0"><img class="logo" src="/icons/icon.svg?v=2" alt=""><span class="wordmark">lex<b>kite</b></span></a>
-      <select aria-label="Language" onchange="location.href='/'+this.value+'/${name}'">${opts}</select></div>
+      ${langSwitch({ lang, langHref: l => `/${l}/${name}`, label: FOOT[draft ? 'en' : lang][16] })}</div>
 ${translated ? `    <p class="tnote">${translated}</p>\n` : ''}${body.split('\n').filter(Boolean).map(l => '    ' + l).join('\n')}
   </main>
 ${siteFooter({ lang: draft ? 'en' : lang, text: SEO_L[lang === 'vi' && !draft ? 'vi' : 'en'].foot, tm: SEO_L[lang === 'vi' && !draft ? 'vi' : 'en'].tm, langHref: l => `/${l}/${name}` }).replace('<footer class="site-foot">', `<footer class="site-foot"${draft && lang !== 'en' ? ' lang="en"' : ''}>`)}

@@ -50,7 +50,8 @@
     (root || document).querySelectorAll('[data-i18n-placeholder]').forEach(el => { el.placeholder = t(el.getAttribute('data-i18n-placeholder')); });
     (root || document).querySelectorAll('[data-i18n-aria-label]').forEach(el => { el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria-label'))); });
   }
-  function set(l) { if (!SUPPORTED.includes(l)) return; try { localStorage.setItem(KEY, l); } catch (e) { /* bỏ qua */ } location.reload(); }
+  // Lưu rồi tải lại, bỏ ?hl (ưu tiên hơn lựa chọn đã lưu → đổi ngược)
+  function set(l) { if (!SUPPORTED.includes(l)) return; try { localStorage.setItem(KEY, l); } catch (e) { /* bỏ qua */ } const u = new URL(location.href); if (u.searchParams.has('hl')) { u.searchParams.delete('hl'); location.replace(u.href); } else location.reload(); }
   // Ngôn ngữ dùng để hiển thị nghĩa/giải thích (người học có thể chọn khác giao diện)
   const learnLang = () => { const l = read('vb.learnLang'); return l && SUPPORTED.includes(l) ? l : lang; };
   // Ngôn ngữ của NGHĨA TỪ: 'vi' (nghĩa tiếng Việt) hoặc 'en' (định nghĩa tiếng Anh, kiểu từ điển Oxford Learner's).

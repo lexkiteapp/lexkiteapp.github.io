@@ -201,8 +201,11 @@ function render(md, lang, cover) {
 // ---------- Khung trang ----------
 
 
-function layout({ lang, title, desc, url, alt = [], img, imgAlt, type = 'website', body, jsonld = [], robots = 'index,follow', extraHead = '', script = '' }) {
-  const t = T(lang), b = base(lang);
+// Nút đổi ngôn ngữ + danh sách chân trang: bản dịch của trang (alt = hreflang) → to(l) (chuyên mục cùng mã, trang giới thiệu) → blog ngôn ngữ đó → trang chủ ngôn ngữ đó
+const BLOG_LANGS = new Set([DEF, ...all.filter(p => p.status !== 'draft').map(p => p.lang)]); // ngôn ngữ có /<lang>/blog/ (xem vòng danh sách bên dưới)
+const parentOf = l => BLOG_LANGS.has(l) ? base(l) : landingHref(l);
+function layout({ lang, title, desc, url, alt = [], to = () => null, img, imgAlt, type = 'website', body, jsonld = [], robots = 'index,follow', extraHead = '', script = '' }) {
+  const t = T(lang), b = base(lang), langHref = l => l === lang ? url : (alt.find(a => a.lang === l) || {}).url || to(l) || parentOf(l);
   return `<!doctype html>
 <html lang="${lang}" dir="${T(lang).dir || 'ltr'}">
 <head>
@@ -232,11 +235,11 @@ ${extraHead}${jsonld.map(ld).join('\n')}
 </head>
 <body>
 <a class="skip" href="#nd">${t.skip}</a>
-${siteHeader({ nav: [[b, t.blog], [t.nav.words, t.words], [t.nav.samples, t.samples]], open: [appHref(lang), t.open], home: landingHref(lang) })}
+${siteHeader({ nav: [[b, t.blog], [t.nav.words, t.words], [t.nav.samples, t.samples]], open: [appHref(lang), t.open], home: landingHref(lang), lang, langHref })}
 <main id="nd">
 ${body}
 </main>
-${siteFooter({ lang, text: t.foot, tm: t.tm, year: new Date(NOW).getFullYear(), extra: [[`${b}rss.xml`, 'RSS']], langHref: l => (alt.find(a => a.lang === l) || {}).url || `/${l}/blog/` })}
+${siteFooter({ lang, text: t.foot, tm: t.tm, year: new Date(NOW).getFullYear(), extra: [[`${b}rss.xml`, 'RSS']], langHref })}
 ${script}
 </body>
 </html>`;
@@ -311,7 +314,7 @@ for (const lang of langs) {
 ${items.length ? `<div class="grid">${items.map((p, i) => card(p, 'h2', n === 1 && i < 2)).join('')}</div>` : `<p>${lang === 'vi' ? 'Bài viết đầu tiên sắp ra mắt.' : 'First posts coming soon.'}</p>`}
 ${pages > 1 ? `<nav class="pager" aria-label="${t.page}">${n > 1 ? `<a rel="prev" href="${n === 2 ? g.u : `${g.u}${sg.page}/${n - 1}/`}">${t.newer}</a>` : '<span></span>'}${n < pages ? `<a rel="next" href="${g.u}trang/${n + 1}/">${t.older}</a>` : ''}</nav>` : ''}`;
       const jsonld = [crumbsLd(crumbs), { '@context': 'https://schema.org', '@type': g.kind === 'all' ? 'Blog' : 'CollectionPage', name: title, description: g.desc, url: SITE + u, inLanguage: lang, ...(g.kind === 'all' ? { publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/' } } : {}), hasPart: items.map(p => ({ '@type': 'BlogPosting', headline: p.title, url: SITE + postUrl(p), datePublished: iso(when(p)) })) }];
-      write(u, layout({ lang, title: `${title} | Lexkite`, desc: g.desc, url: u, body, jsonld, robots: g.noindex || !items.length ? 'noindex,follow' : 'index,follow', img: items[0] ? imgUrl(coverOf(items[0]).id) : undefined, script: copyJs(lang) }));
+      write(u, layout({ lang, title: `${title} | Lexkite`, desc: g.desc, url: u, body, jsonld, to: g.kind === 'cat' ? l => posts.some(p => p.lang === l && p.category === g.cat) ? `${base(l)}${SEG(l).cat}/${g.cat}/` : null : undefined, robots: g.noindex || !items.length ? 'noindex,follow' : 'index,follow', img: items[0] ? imgUrl(coverOf(items[0]).id) : undefined, script: copyJs(lang) }));
       if (!g.noindex && items.length) sm.push({ loc: u, lastmod: iso(Math.max(...items.map(p => p.updated ? Date.parse(p.updated) : when(p)))) });
     }
   }
@@ -338,10 +341,13 @@ ${list[0] ? `<lastBuildDate>${new Date(when(list[0])).toUTCString()}</lastBuildD
 fs.writeFileSync(path.join(OUT, 'blog-langs.json'), JSON.stringify(liveLangs));
 
 // Trang tĩnh của blog (giới thiệu, quy trình biên tập…): content/blog/pages/<lang>/<slug>.md → /blog/<slug>/
-for (const lang of fs.existsSync(`${ROOT}/pages`) ? fs.readdirSync(`${ROOT}/pages`) : []) for (const f of fs.readdirSync(`${ROOT}/pages/${lang}`).filter(f => f.endsWith('.md'))) {
-  const { data, body } = parse(fs.readFileSync(`${ROOT}/pages/${lang}/${f}`, 'utf8'), f), t = T(lang), u = `${base(lang)}${data.slug || f.slice(0, -3)}/`;
+// Bản các ngôn ngữ của cùng một trang: khóa translationKey (mặc định 'about' – mỗi ngôn ngữ hiện có đúng 1 trang giới thiệu) → nút đổi ngôn ngữ
+const PAGES = (fs.existsSync(`${ROOT}/pages`) ? fs.readdirSync(`${ROOT}/pages`) : []).flatMap(lang => fs.readdirSync(`${ROOT}/pages/${lang}`).filter(f => f.endsWith('.md')).map(f => {
+  const { data, body } = parse(fs.readFileSync(`${ROOT}/pages/${lang}/${f}`, 'utf8'), f); return { lang, f, data, body, key: data.translationKey || 'about', u: `${base(lang)}${data.slug || f.slice(0, -3)}/` }; }));
+for (const { lang, data, body, key, u } of PAGES) {
+  const t = T(lang);
   const crumbs = [[t.home, landingHref(lang)], [t.blog, base(lang)], [data.title, u]];
-  write(u, layout({ lang, title: `${data.title} | Lexkite`, desc: data.description, url: u, body: `${crumbsHtml(crumbs)}<article class="post"><h1>${esc(data.title)}</h1>${render(body, lang).html}</article>`,
+  write(u, layout({ lang, title: `${data.title} | Lexkite`, desc: data.description, url: u, to: l => (PAGES.find(x => x.key === key && x.lang === l) || {}).u, body: `${crumbsHtml(crumbs)}<article class="post"><h1>${esc(data.title)}</h1>${render(body, lang).html}</article>`,
     script: copyJs(lang),
     jsonld: [crumbsLd(crumbs), { '@context': 'https://schema.org', '@type': 'AboutPage', name: data.title, description: data.description, url: SITE + u, inLanguage: lang, about: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: `${SITE}/icons/icon-512.png?v=2` } }] }));
   sm.push({ loc: u, lastmod: iso(NOW) });

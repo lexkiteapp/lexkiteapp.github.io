@@ -127,8 +127,9 @@
     if (t === 'auto') document.documentElement.removeAttribute('data-theme');
     else document.documentElement.setAttribute('data-theme', t);
   }
-  // Đổi ngôn ngữ giao diện từ mọi trang (nút 🌐 đầu trang) – lựa chọn được lưu, ưu tiên hơn tự nhận diện theo quốc gia/trình duyệt
-  if ($('#langBtn')) $('#langBtn').onclick = () => modal(`<h2>🌐 ${t('Ngôn ngữ giao diện')}</h2><div class="lang-grid" data-lang-pick translate="no">${I18N.SUPPORTED.map(l => `<button type="button" class="btn ${I18N.lang() === l ? 'primary' : ''}" data-v="${l}" lang="${l}">${I18N.LANGS[l][1]}</button>`).join('')}</div>`);
+  // Nút 🌐 đầu trang (mọi trang): menu ngôn ngữ js/lang-menu.js (tải lười lần bấm đầu, dùng chung trang tĩnh); chọn → I18N.set như Cài đặt
+  if ($('#langMenu')) { const cur = I18N.lang(); $('#langCode').textContent = cur.toUpperCase(); $('#langMenu').innerHTML = I18N.SUPPORTED.map(l => `<li role="none"><button type="button" role="menuitemradio" aria-checked="${l === cur}" data-v="${l}" lang="${l}" dir="${l === 'ar' ? 'rtl' : 'ltr'}">${I18N.LANGS[l][1]}</button></li>`).join('');
+    $('#langBtn').onclick = () => App.need('lsw').then(() => { if (window.LkLangMenu) { LkLangMenu($('#langBtn').parentNode); $('#langBtn').click(); } }); }
   $('#themeBtn').onclick = () => {
     const order = ['auto', 'light', 'dark'];
     state.settings.theme = order[(order.indexOf(state.settings.theme) + 1) % 3];
@@ -235,7 +236,7 @@
     placement: ['js/placement.js'], // 🧭 Kiểm tra đầu vào thích ứng (ước tính band + khoảng tin cậy)
     wordcard: ['js/wordcard.js'], // 🧠 Khối "Hiểu sâu" của thẻ từ (mẹo nhớ · lỗi sai/đúng · dùng khi thi · họ từ)
     anki: ['js/lib/save-file.js', 'js/anki.js'], // 🃏 Xuất/nhập Anki (.apkg/.txt/.csv) – chỉ tải khi mở hộp thoại Anki
-    share: ['js/lib/qr.js', 'js/lib/save-file.js', 'js/share-card.js'], xport: ['js/export.js'], file: ['js/lib/save-file.js'],
+    share: ['js/lib/qr.js', 'js/lib/save-file.js', 'js/share-card.js'], xport: ['js/export.js'], file: ['js/lib/save-file.js'], lsw: ['js/lang-menu.js'],
   };
   const ROUTE_BUNDLE = { paraphrase: 'paraphrase', courses: 'courses', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: 'grammar', placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
     toefl: ['listening', 'toefl'], 'toefl-p': ['listening', 'toefl'],
