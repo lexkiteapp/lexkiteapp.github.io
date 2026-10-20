@@ -106,7 +106,7 @@ qualityScore: 92
 
 無料のLexkiteアプリでは、ここまでの7ステップを1つの流れで実践できます。まず[単語ライブラリ](/#/library)で、中核語彙（NGSL）、IELTS、TOEICなど、目的とレベルに合った単語セットを選びます。次に[スマート学習](/#/practice/learn)で新しい単語を意味・例文・覚え方のヒントとともに学び、[フラッシュカードの復習](/#/review)で忘れかけた単語を自動的に復習します。
 
-TOEICのスコアアップが目的なら、単語学習を全体の計画にどう組み込むかを[TOEIC勉強法](/ja/blog/toeic-benkyouhou/)で解説しています。Part 5の語彙・文法問題対策には[TOEIC Part 5のコツ](/ja/blog/toeic-part5-kotsu/)、長文読解の時間不足には[TOEIC Part 7の時間配分](/ja/blog/toeic-part7-jikan-haibun/)もどうぞ。また、動詞の活用や過去分詞の用法に迷ったら[現在完了と過去形の違いの完全解説](/ja/blog/genzai-kanryou-kakokei-chigai/)も役立ちます。
+TOEICのスコアアップが目的なら、単語学習を全体の計画にどう組み込むかを[TOEIC勉強法](/ja/blog/toeic-benkyouhou/)で解説しています。Part 5の語彙・文法問題対策には[TOEIC Part 5のコツ](/ja/blog/toeic-part5-kotsu/)、長文読解の時間不足には[TOEIC Part 7の時間配分](/ja/blog/toeic-part7-jikan-haibun/)もどうぞ。さらに上位資格を目指すなら[英検準1級対策の勉強法](/ja/blog/eiken-jun-1-kyu-taisaku/)、覚えた語彙を実務で生かすなら[ビジネス英語メールの書き方](/ja/blog/business-eigo-mail-kakikata/)や[英語面接質問対策](/ja/blog/eigo-mensetsu-shitsumon-taisaku/)も合わせて確認してみてください。また、動詞の活用や過去分詞の用法に迷ったら[現在完了と過去形の違いの完全解説](/ja/blog/genzai-kanryou-kakokei-chigai/)も役立ちます。
 
 {{cta: /#/library | 単語セットを選んで今日の10語を始める}}
 

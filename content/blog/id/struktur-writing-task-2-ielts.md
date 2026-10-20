@@ -127,7 +127,7 @@ Kosa kata penting dari topik pendidikan, lingkungan, atau teknologi yang baru An
 
 ![Sesi review flashcard kosakata Lexkite menampilkan kata pollution dengan transkripsi fonetik dan progress bar](media:review "Ulangi kosakata topik lingkungan dan sosial melalui flashcard berkala sebelum jadwal ujian tiba")
 
-Anda juga dapat membandingkan draf tulisan Anda dengan kumpulan contoh esai beraneka topik di [pustaka model esai ujian](/samples/) untuk memahami standar penilaian penguji.
+Anda juga dapat membandingkan draf tulisan Anda dengan kumpulan contoh esai beraneka topik di [pustaka model esai ujian](/samples/) untuk memahami standar penilaian penguji. Jika Anda juga perlu mengasah kemampuan menulis korespondensi kantor profesional, pelajari panduan lengkap [cara menulis email bahasa Inggris formal](/id/blog/cara-menulis-email-bahasa-inggris-bisnis/).
 
 {{cta: /#/write | Latih struktur esai Task 2 di Lexkite}}
 

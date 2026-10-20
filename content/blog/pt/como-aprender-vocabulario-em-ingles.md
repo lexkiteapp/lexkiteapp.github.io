@@ -47,7 +47,7 @@ O quarto passo é a recuperação ativa (active recall). Ao olhar para a frente 
 
 ## Passo 5 e 6: Prática de listening e leitura contextualizada
 
-O quinto passo é expor seus ouvidos às palavras recém-aprendidas na velocidade natural de nativos. Muitas vezes, você reconhece uma palavra escrita perfeitamente, mas não consegue captá-la quando falada com reduções e conexões sonoras. Se o seu foco envolve testes como o IELTS ou TOEFL, consulte nossas orientações sobre [dicas ielts listening](/pt/blog/dicas-ielts-listening/) para treinar a percepção auditiva de sotaques variados e evitar pegadinhas de soletração.
+O quinto passo é expor seus ouvidos às palavras recém-aprendidas na velocidade natural de nativos. Muitas vezes, você reconhece uma palavra escrita perfeitamente, mas não consegue captá-la quando falada com reduções e conexões sonoras. Se o seu foco envolve testes como o IELTS ou TOEFL, consulte nossas [dicas de IELTS Listening](/pt/blog/dicas-ielts-listening/) para treinar a percepção auditiva de sotaques variados e evitar pegadinhas de soletração.
 
 O sexto passo envolve leitura extensiva focada em reconhecimento contextual. Ler notícias curtas, artigos de opinião e diálogos do dia a dia permite reencontrar termos em situações naturais, consolidando o significado implícito e o tom de formalidade. Se você encontrar expressões idiomáticas ou verbos compostos, não tente traduzi-los ao pé da letra; consulte guias sobre [phrasal verbs mais usados](/pt/blog/phrasal-verbs-mais-usados/) para compreender a lógica do idioma de forma natural.
 
@@ -67,7 +67,7 @@ Outro recurso poderoso é o agrupamento temático por emoções ou narrativas pe
 
 O passo final que diferencia estudantes estagnados daqueles que atingem fluência prática é a produção ativa. Uma palavra só pertence verdadeiramente ao seu vocabulário quando você a utiliza espontaneamente para expressar uma ideia própria. Todas as noites, escolha três palavras aprendidas durante o dia e escreva um parágrafo curto sobre sua rotina, sua opinião sobre um tema atual ou uma mensagem de trabalho fictícia.
 
-Grave também a si mesmo pronunciando essas frases no gravador do celular. Escute a gravação prestando atenção à clareza das consoantes finais e ao ritmo das sentenças. Quando você aplica o vocabulário em uma conversa real ou em uma redação, o cérebro recebe o sinal de que aquela informação é vital para a sua sobrevivência social e profissional, garantindo fixação permanente.
+Grave também a si mesmo pronunciando essas frases no gravador do celular. Escute a gravação prestando atenção à clareza das consoantes finais e ao ritmo das sentenças. Quando você aplica o vocabulário em uma conversa real ou em uma redação, o cérebro recebe o sinal de que aquela informação é vital para a sua sobrevivência social e profissional, garantindo fixação permanente. Se o seu objetivo for vestibular ou provas nacionais, confira nossas [dicas de inglês para o ENEM](/pt/blog/ingles-para-o-enem-dicas/) para driblar falsos amigos, ou prepare-se para o mercado de trabalho com nossas [perguntas de entrevista de emprego em inglês](/pt/blog/entrevista-de-emprego-em-ingles-perguntas/).
 
 {{youtube: | Ideia de vídeo: O método de 7 passos para memorizar 15 palavras novas em inglês todos os dias}}
 

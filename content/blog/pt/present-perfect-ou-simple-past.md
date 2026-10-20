@@ -80,7 +80,7 @@ Um recrutador frequentemente pergunta: *Have you ever managed a remote team?* (V
 - Comece com o Present Perfect para declarar a experiência acumulada: *Yes, I have managed remote teams on several occasions.*
 - Em seguida, mude para o Simple Past para relatar o caso concreto: *In my last job at XYZ Tech, I led a squad of seven developers across three countries.*
 
-Essa alternância fluida entre visão geral de experiência e detalhe histórico é exatamente o que os avaliadores buscam para conceder notas acima de 7.0 em proficiência. Para aprimorar sua fala com expressões naturais do cotidiano corporativo, leia nosso artigo sobre [phrasal verbs mais usados](/pt/blog/phrasal-verbs-mais-usados/). E se você pretende prestar o exame acadêmico, veja também nossas [dicas ielts listening](/pt/blog/dicas-ielts-listening/) para captar essas nuances sonoras nos áudios de teste.
+Essa alternância fluida entre visão geral de experiência e detalhe histórico é exatamente o que os avaliadores buscam para conceder notas acima de 7.0 em proficiência. Para aprimorar sua fala com expressões naturais do cotidiano corporativo, leia nosso artigo sobre [phrasal verbs mais usados](/pt/blog/phrasal-verbs-mais-usados/). E se você pretende prestar o exame acadêmico, veja também nossas [dicas de IELTS Listening](/pt/blog/dicas-ielts-listening/) para captar essas nuances sonoras nos áudios de teste.
 
 Consolide a memória muscular do idioma realizando [sessões diárias de revisão](/#/review) de 10 minutos.
 

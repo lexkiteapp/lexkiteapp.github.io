@@ -127,7 +127,7 @@ Para entrenar el acento, prueba la [práctica de pronunciación con puntuación]
 
 ## Cuándo evitar los phrasal verbs al escribir
 
-En conversación, los phrasal verbs son tu mejor aliado: suenan naturales y cercanos. En el Speaking de IELTS, por ejemplo, frases como *I ended up studying engineering* o *I'm trying to cut down on coffee* encajan perfectamente. Pero en un ensayo académico (como el Writing Task 2 de IELTS) o en una carta formal, algunos resultan demasiado coloquiales.
+En conversación, los phrasal verbs son tu mejor aliado: suenan naturales y cercanos. En el Speaking de IELTS, por ejemplo, frases como *I ended up studying engineering* o *I'm trying to cut down on coffee* encajan perfectamente. Pero en un ensayo académico (como detallamos en nuestros [consejos para IELTS Writing Task 2](/es/blog/consejos-ielts-writing-task-2/)) o al redactar correspondencia profesional (aprende [cómo escribir un email formal en inglés](/es/blog/como-escribir-un-email-formal-en-ingles/)), algunos resultan demasiado coloquiales. Asimismo, al preparar las respuestas para una [entrevista de trabajo en inglés](/es/blog/entrevista-de-trabajo-en-ingles-preguntas/), conviene alternar phrasal verbs con verbos de acción formales.
 
 | Phrasal verb (informal) | Alternativa más formal |
 |---|---|

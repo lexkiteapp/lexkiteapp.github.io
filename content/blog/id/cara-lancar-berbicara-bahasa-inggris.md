@@ -149,7 +149,7 @@ Untuk latihan bertopik, [ruang latihan Speaking](/#/speaking) membagi pertanyaan
 
 ![Ruang latihan Speaking Lexkite dengan Part 1, 2, 3 per topik, contoh pertanyaan, jawaban contoh band 7.5–8, dan kosakata yang disarankan](media:speaking "Bandingkan rekamanmu dengan jawaban contoh untuk melihat cara membuka dan menyambung ide")
 
-Frasa penghubung dan kata yang sulit diucapkan bisa dilatih terpisah di [latihan pelafalan dengan penilaian](/#/practice/speak). Kalau ingin mencoba suasana ujian, pilih bagian Speaking di [simulasi IELTS](/#/mock). Saat berpindah dari bicara ke menulis, kerangka argumen yang sama dipakai di [struktur Writing Task 2 IELTS](/id/blog/struktur-writing-task-2-ielts/), dan contoh jawaban per topik tersedia di [bank soal IELTS Speaking (berbahasa Inggris)](/en/speaking/).
+Frasa penghubung dan kata yang sulit diucapkan bisa dilatih terpisah di [latihan pelafalan dengan penilaian](/#/practice/speak). Kalau ingin mencoba suasana ujian, pelajari strategi lengkap di [tips IELTS Speaking band 7](/id/blog/tips-ielts-speaking-band-7/) atau pilih bagian Speaking di [simulasi IELTS](/#/mock). Jika fokusmu adalah persiapan karir profesional, praktikkan metode STAR pada [pertanyaan interview bahasa Inggris dan jawabannya](/id/blog/pertanyaan-interview-bahasa-inggris/). Saat berpindah dari bicara ke menulis, kerangka argumen yang sama dipakai di [struktur Writing Task 2 IELTS](/id/blog/struktur-writing-task-2-ielts/), dan contoh jawaban per topik tersedia di [bank soal IELTS Speaking (berbahasa Inggris)](/en/speaking/).
 
 {{cta: /#/speaking | Pilih satu topik dan coba teknik 4/3/2 sekarang}}
 

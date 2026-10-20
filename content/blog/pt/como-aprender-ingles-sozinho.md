@@ -135,7 +135,7 @@ Séries e músicas são ótimas para manter a motivação, mas no começo funcio
 2. Trechos curtos repetidos (dois ou três minutos) rendem mais que um episódio inteiro assistido no automático.
 3. Anote no máximo cinco expressões por sessão e coloque-as na revisão.
 
-Se o seu objetivo inclui uma prova – IELTS ou TOEFL para estudar fora, ou um certificado para o trabalho –, o listening de prova exige técnicas próprias: ler as perguntas antes, perceber quando o falante muda de ideia e escrever números e nomes sem erro. Reunimos isso em [dicas de IELTS Listening](/pt/blog/dicas-ielts-listening/), útil até para quem ainda vai escolher a prova. Mas deixe os simulados para depois do plano de 90 dias: com uma base A2 você aproveita muito mais.
+Se o seu objetivo inclui uma prova – IELTS ou TOEFL para estudar fora, ou um certificado para o trabalho –, o listening de prova exige técnicas próprias: ler as perguntas antes, perceber quando o falante muda de ideia e escrever números e nomes sem erro. Reunimos isso nas [dicas de IELTS Listening](/pt/blog/dicas-ielts-listening/), útil até para quem ainda vai escolher a prova. Mas deixe os simulados para depois do plano de 90 dias: com uma base A2 você aproveita muito mais.
 
 ![Tela de listening IELTS do Lexkite com 10 testes de 4 partes, sotaques britânico, americano e australiano e velocidade ajustável](media:listening "Quando a base estiver firme, áudios com sotaques variados e velocidade ajustável preparam para a prova")
 
@@ -161,7 +161,7 @@ Depois de uns 90 dias de estudo regular, confira se você consegue:
 - Fazer perguntas com *Do/Does/Did* e com *Wh-* na ordem certa.
 - Se apresentar por cerca de um minuto sem preparar nada.
 
-Se a maior parte for verdade, você está por volta do A2 e pronto para a próxima etapa: vocabulário por temas, áudios mais longos e, se precisar, a preparação para uma prova.
+Se a maior parte for verdade, você está por volta do A2 e pronto para a próxima etapa: vocabulário por temas, áudios mais longos e, se precisar, a preparação para uma prova: veja nossas [dicas de inglês para o ENEM](/pt/blog/ingles-para-o-enem-dicas/), o guia [como se preparar para o TOEFL iBT](/pt/blog/toefl-ibt-como-funciona-preparacao/) ou, se o foco é o mercado de trabalho, as [perguntas de entrevista de emprego em inglês](/pt/blog/entrevista-de-emprego-em-ingles-perguntas/).
 
 ## Comece hoje no Lexkite
 

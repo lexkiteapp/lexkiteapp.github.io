@@ -117,6 +117,8 @@ TOEIC Listening & Readingテストは全200問、約2時間です。リスニン
 
 {{cta: /#/goal | TOEICの目標を設定して週間プランを作る}}
 
+また、TOEICスコアの向上だけでなく、実際の業務でのアウトプットを目指す方は[ビジネス英語メールの書き方](/ja/blog/business-eigo-mail-kakikata/)、外資系やグローバル転職を視野に入れている方は[英語面接質問対策](/ja/blog/eigo-mensetsu-shitsumon-taisaku/)も合わせて確認しておくと実践力が身につきます。4技能をバランスよく伸ばす資格試験としては[英検準1級対策の勉強法](/ja/blog/eiken-jun-1-kyu-taisaku/)へのステップアップもおすすめです。
+
 {{youtube: | 動画のアイデア：社会人が1日60分のTOEIC学習を3ステップでどう組み立てるか、Lexkiteの画面を使って実演}}
 
 ## よくある質問
