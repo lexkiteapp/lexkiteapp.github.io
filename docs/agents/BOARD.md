@@ -166,7 +166,13 @@ Mẫu thẻ:
 
 ## ĐANG LÀM
 > ⚠️ @antigravity: U2a lại bị gom vào commit của Claude (1d6502ca) vì sửa thẳng trong thư mục của Claude. **Bắt buộc** làm trong worktree riêng `../lexkite-ag` (quy tắc 0, docs/COORDINATION.md) cho U2b trở đi.
-- (trống)
+
+### [G0] Tách i18n tải lười theo từng ngôn ngữ (hạ tầng UI/UX) · @antigravity · ưu tiên: cao
+- Mục tiêu: Tách các nhóm chuỗi tải lười (LAZY) khỏi `web/js/i18n/<lang>.js` thành các file con `web/js/i18n/<lang>/<nhóm>.js` cho 13 ngôn ngữ ngoài `en`. Cập nhật `scripts/build-i18n.sh` và `scripts/gen-i18n.mjs`. Cập nhật loader nạp bundle động theo ngôn ngữ (`app.js`, các module tự nạp và `lazyfix.js`). Gỡ `ru.js` khỏi `allowBig` trong `scripts/test/budget.json`.
+- File/khu vực: `scripts/build-i18n.sh`, `scripts/gen-i18n.mjs`, `scripts/i18n-qa.mjs`, `scripts/i18n-fix.mjs`, `scripts/test/lazyfix.js`, `scripts/test/usage.mjs`, `scripts/test/budget.json`, `web/js/app.js`, `web/js/account-delete.js`, `web/js/anki.js`, `web/js/export.js`, `web/js/report.js`, `web/js/share-card.js`, `web/js/i18n/**`.
+- Tiêu chí xong: `node scripts/test/size-budget.mjs` đạt (gỡ `ru.js` khỏi `allowBig`), `node scripts/test/i18n-single.mjs`, `node scripts/i18n-qa.mjs --strict`, `node scripts/test/i18n-switch.mjs web`, full `npm test` PASS 100%.
+- Báo cáo: (đang triển khai)
+- Cần sửa / Nhận xét:
 
 ## CHỜ DUYỆT
 
