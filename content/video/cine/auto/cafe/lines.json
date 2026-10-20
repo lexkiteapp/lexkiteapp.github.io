@@ -1,0 +1,64 @@
+{
+ "lines": [
+  {
+   "id": "gc_fdd526d1",
+   "who": "ama",
+   "text": "Could I possibly have a latte?"
+  },
+  {
+   "id": "gc_38fc10c2",
+   "who": "ama",
+   "text": "Can I have a latte, please?"
+  },
+  {
+   "id": "gc_2c862c87",
+   "who": "ama",
+   "text": "A latte, please."
+  },
+  {
+   "id": "gc_ed03b365",
+   "who": "carlos",
+   "text": "Your latte is ready. That's four fifty."
+  },
+  {
+   "id": "gc_33513ec0",
+   "who": "carlos",
+   "text": "What can I get you?"
+  },
+  {
+   "id": "gc_a17f71dc",
+   "who": "ama",
+   "text": "Can I have two cookie, please?"
+  },
+  {
+   "id": "gc_24557598",
+   "who": "ama",
+   "text": "Can I have two cookies, please?"
+  },
+  {
+   "id": "gc_6fd05312",
+   "who": "carlos",
+   "text": "Would you like anything to eat?"
+  },
+  {
+   "id": "gc_2a10ea55",
+   "who": "ama",
+   "text": "Yes, a croissant, please."
+  },
+  {
+   "id": "gc_4373850c",
+   "who": "carlos",
+   "text": "Great choice. Coming right up."
+  },
+  {
+   "id": "gc_0087eca9",
+   "who": "ama",
+   "text": "Could I get a latte, please?"
+  },
+  {
+   "id": "gc_6cec4253",
+   "who": "carlos",
+   "text": "Sure! Coming right up."
+  }
+ ]
+}

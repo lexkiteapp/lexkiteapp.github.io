@@ -1,0 +1,297 @@
+{
+ "version": 1,
+ "points": {
+  "is breakfast included": {
+   "id": "hotel_tpl_mistake",
+   "scene": "manual",
+   "template": "manual",
+   "area": "",
+   "cefr": "A2",
+   "status": "manual"
+  },
+  "late checkout": {
+   "id": "hotel_tpl_gap",
+   "scene": "manual",
+   "template": "manual",
+   "area": "",
+   "cefr": "A2",
+   "status": "manual"
+  },
+  "polite neutral casual late checkout": {
+   "id": "hotel_tpl_ladder",
+   "scene": "manual",
+   "template": "manual",
+   "area": "",
+   "cefr": "A2",
+   "status": "manual"
+  },
+  "breakfast ends at ten": {
+   "id": "hotel_tpl_choose",
+   "scene": "manual",
+   "template": "manual",
+   "area": "",
+   "cefr": "A2",
+   "status": "manual"
+  },
+  "i have a reservation under": {
+   "id": "hotel_tpl_pov",
+   "scene": "manual",
+   "template": "manual",
+   "area": "",
+   "cefr": "A2",
+   "status": "manual"
+  },
+  "pay in cash": {
+   "id": "cafe pay",
+   "scene": "manual",
+   "template": "manual",
+   "area": "",
+   "cefr": "A2",
+   "status": "manual"
+  },
+  "i'd like a latte": {
+   "id": "cafe idlike",
+   "scene": "manual",
+   "template": "manual",
+   "area": "",
+   "cefr": "A2",
+   "status": "manual"
+  },
+  "window seat": {
+   "id": "airport_checkin",
+   "scene": "manual",
+   "template": "manual",
+   "area": "",
+   "cefr": "A2",
+   "status": "manual"
+  },
+  "i'm allergic to nuts": {
+   "id": "restaurant_3",
+   "scene": "manual",
+   "template": "manual",
+   "area": "",
+   "cefr": "A2",
+   "status": "manual"
+  },
+  "yes it's my first visit": {
+   "id": "auto_hotel_series_d53800",
+   "point": "Yes, it's my first visit.",
+   "status": "generated",
+   "template": "series",
+   "area": "roleplay",
+   "cefr": "A2",
+   "scene": "hotel",
+   "est": 18.9,
+   "series": "Hotel English #6"
+  },
+  "pay separately": {
+   "id": "auto_restaurant_fix_fe9f7d",
+   "point": "pay separately",
+   "status": "generated",
+   "template": "fix",
+   "area": "grammar",
+   "cefr": "A2",
+   "scene": "restaurant",
+   "est": 22.6,
+   "series": "Restaurant English #1"
+  },
+  "word seat": {
+   "id": "auto_airport_gap_0f13c2",
+   "point": "word seat",
+   "status": "generated",
+   "template": "gap",
+   "area": "vocab-review",
+   "cefr": "A1",
+   "scene": "airport",
+   "est": 21.4,
+   "series": "Airport English #1"
+  },
+  "polite request a latte": {
+   "id": "auto_cafe_ladder_23332f",
+   "point": "polite request a latte",
+   "status": "generated",
+   "template": "ladder",
+   "area": "phrases",
+   "cefr": "A2",
+   "scene": "cafe",
+   "est": 20.1,
+   "series": "Café English #1"
+  },
+  "could i get an extra towel": {
+   "id": "auto_hotel_speak_bf125a",
+   "point": "could i get an extra towel",
+   "status": "generated",
+   "template": "speak",
+   "area": "pronunciation",
+   "cefr": "A1",
+   "scene": "hotel",
+   "est": 22.3,
+   "series": "Hotel English #7"
+  },
+  "polite could we get the bill": {
+   "id": "auto_restaurant_quiz_34018e",
+   "point": "polite: could we get the bill",
+   "status": "generated",
+   "template": "quiz",
+   "area": "paraphrase",
+   "cefr": "A2",
+   "scene": "restaurant",
+   "est": 21.0,
+   "series": "Restaurant English #2"
+  },
+  "bags to check": {
+   "id": "auto_airport_pov_99dfe2",
+   "point": "bags to check",
+   "status": "generated",
+   "template": "pov",
+   "area": "roleplay",
+   "cefr": "A2",
+   "scene": "airport",
+   "est": 18.9,
+   "series": "Airport English #2"
+  },
+  "listen price fifty": {
+   "id": "auto_cafe_choose_3df65a",
+   "point": "listen price fifty",
+   "status": "generated",
+   "template": "choose",
+   "area": "listening",
+   "cefr": "A2",
+   "scene": "cafe",
+   "est": 22.6,
+   "series": "Café English #2"
+  },
+  "what time does": {
+   "id": "auto_hotel_fix_771182",
+   "point": "what time does",
+   "status": "generated",
+   "template": "fix",
+   "area": "grammar",
+   "cefr": "A2",
+   "scene": "hotel",
+   "est": 22.4,
+   "series": "Hotel English #8"
+  },
+  "two people": {
+   "id": "auto_restaurant_mistake_ad8b8a",
+   "point": "two people",
+   "status": "generated",
+   "template": "mistake",
+   "area": "grammar-check",
+   "cefr": "A2",
+   "scene": "restaurant",
+   "est": 22.5,
+   "series": "Restaurant English #3"
+  },
+  "polite request a window seat": {
+   "id": "auto_airport_ladder_8e0d40",
+   "point": "polite request a window seat",
+   "status": "generated",
+   "template": "ladder",
+   "area": "phrases",
+   "cefr": "A2",
+   "scene": "airport",
+   "est": 20.2,
+   "series": "Airport English #3"
+  },
+  "plural after two": {
+   "id": "auto_cafe_mistake_f03f29",
+   "point": "plural after two",
+   "status": "generated",
+   "template": "mistake",
+   "area": "grammar-check",
+   "cefr": "A2",
+   "scene": "cafe",
+   "est": 22.3,
+   "series": "Café English #3"
+  },
+  "polite could i get more": {
+   "id": "auto_hotel_quiz_3e3a2b",
+   "point": "polite: could I get more",
+   "status": "generated",
+   "template": "quiz",
+   "area": "paraphrase",
+   "cefr": "A2",
+   "scene": "hotel",
+   "est": 22.0,
+   "series": "Hotel English #9"
+  },
+  "ready to order": {
+   "id": "auto_restaurant_pov_f12918",
+   "point": "ready to order",
+   "status": "generated",
+   "template": "pov",
+   "area": "roleplay",
+   "cefr": "A2",
+   "scene": "restaurant",
+   "est": 19.3,
+   "series": "Restaurant English #4"
+  },
+  "listen gate fourteen": {
+   "id": "auto_airport_choose_6d1d79",
+   "point": "listen gate fourteen",
+   "status": "generated",
+   "template": "choose",
+   "area": "listening",
+   "cefr": "A2",
+   "scene": "airport",
+   "est": 22.4,
+   "series": "Airport English #4"
+  },
+  "yes a croissant please": {
+   "id": "auto_cafe_series_f4edee",
+   "point": "Yes, a croissant, please.",
+   "status": "generated",
+   "template": "series",
+   "area": "roleplay",
+   "cefr": "A2",
+   "scene": "cafe",
+   "est": 19.0,
+   "series": "Café English #4"
+  },
+  "word towel": {
+   "id": "auto_hotel_gap_73cde7",
+   "point": "word towel",
+   "status": "generated",
+   "template": "gap",
+   "area": "vocab-review",
+   "cefr": "A1",
+   "scene": "hotel",
+   "est": 21.4,
+   "series": "Hotel English #10"
+  },
+  "could i get the menu": {
+   "id": "auto_restaurant_speak_1abd19",
+   "point": "could i get the menu",
+   "status": "generated",
+   "template": "speak",
+   "area": "pronunciation",
+   "cefr": "A1",
+   "scene": "restaurant",
+   "est": 21.0,
+   "series": "Restaurant English #5"
+  },
+  "on board": {
+   "id": "auto_airport_mistake_c1d428",
+   "point": "on board",
+   "status": "generated",
+   "template": "mistake",
+   "area": "grammar-check",
+   "cefr": "A2",
+   "scene": "airport",
+   "est": 22.4,
+   "series": "Airport English #5"
+  },
+  "could i get a latte": {
+   "id": "auto_cafe_speak_a2cae0",
+   "point": "could i get a latte",
+   "status": "generated",
+   "template": "speak",
+   "area": "pronunciation",
+   "cefr": "A1",
+   "scene": "cafe",
+   "est": 20.3,
+   "series": "Café English #5"
+  }
+ }
+}

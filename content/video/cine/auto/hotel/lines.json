@@ -1,0 +1,65 @@
+{
+ "lines": [
+  {
+   "id": "gh_f13cfff8",
+   "who": "daniel",
+   "text": "Is this your first time in London?"
+  },
+  {
+   "id": "gh_17ffba18",
+   "who": "ama",
+   "text": "Yes, it's my first visit."
+  },
+  {
+   "id": "gh_9932c7f5",
+   "who": "daniel",
+   "text": "Welcome! Enjoy your stay."
+  },
+  {
+   "id": "gh_983d0cbe",
+   "who": "ama",
+   "text": "Could I get an extra towel, please?"
+  },
+  {
+   "id": "gh_011de6f8",
+   "who": "daniel",
+   "text": "Of course. No problem at all."
+  },
+  {
+   "id": "gh_4b09ffb2",
+   "who": "daniel",
+   "text": "Hello. Can I help you?"
+  },
+  {
+   "id": "gh_f3dd8081",
+   "who": "ama",
+   "text": "What time is breakfast finish?"
+  },
+  {
+   "id": "gh_2dda9d24",
+   "who": "ama",
+   "text": "What time does breakfast finish?"
+  },
+  {
+   "id": "gh_3c039bef",
+   "who": "ama",
+   "text": "Could I get some more towels, please?"
+  },
+  {
+   "id": "gh_20c439f8",
+   "who": "ama",
+   "text": "Could I have an extra towel?"
+  },
+  {
+   "id": "gh_20c439f8_gap",
+   "who": "ama",
+   "text": "Could I have an extra towel?",
+   "derived": "auto-gap",
+   "gap": {
+    "src": "gh_20c439f8",
+    "word": "towel",
+    "prefix": "Could I have an extra"
+   }
+  }
+ ]
+}

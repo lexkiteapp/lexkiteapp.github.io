@@ -16,8 +16,8 @@ def _words_line(dr, l, fe, special, wfn):
     return out
 def st_choice(im, dr, txt, sub):
     q, *opts, ans = txt.split('|'); fq = ImageFont.truetype(FONT_EN, 48); fo = ImageFont.truetype(FONT_EN, 44)
-    lq = wrapw(dr, q, fq, MAXW - 64); assert len(lq) <= 2 and len(opts) == 3, txt
-    y0 = globals().get('CHOICE_Y', 1040); pad = 26; h = pad + 60 * len(lq) + 18 + 3 * 96 + 2 * 18 + pad; x0 = SAFE['x0']
+    lq = wrapw(dr, q, fq, MAXW - 64); assert len(lq) <= 2 and len(opts) in (2, 3), txt   # 3 = listen & choose, 2 = A/B quiz
+    y0 = globals().get('CHOICE_Y', 1040); pad = 26; h = pad + 60 * len(lq) + 18 + len(opts) * 96 + (len(opts) - 1) * 18 + pad; x0 = SAFE['x0']
     dr.rounded_rectangle([x0, y0, x0 + MAXW, y0 + h], radius=30, fill=CREAM, outline=INK, width=5); y = y0 + pad
     for l in lq: dr.text((CX - dr.textlength(l, font=fq) / 2, y), l, font=fq, fill=INK); y += 60
     y += 18
