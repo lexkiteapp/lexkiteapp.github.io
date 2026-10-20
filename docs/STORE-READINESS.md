@@ -103,17 +103,51 @@ Khi bật đăng nhập/AdMob: cập nhật bảng này + nhãn Apple trước k
 | ✅ | UIBackgroundModes `audio` | Dùng thật cho Học rảnh tay (`#/handsfree`) | Ghi trong Review Notes cách thử, kẻo bị hỏi 2.5.4. |
 | ✅ | Icon & Launch screen | AppIcon 1024 (không alpha), LaunchScreen.storyboard + splash sáng/tối | |
 | ⚠️ | iPad | `TARGETED_DEVICE_FAMILY = 1,2`, xoay đủ 4 hướng | App phải dùng tốt trên iPad (giao diện web có bố cục rộng ≥ 900 px ✅). Bắt buộc ảnh iPad 13" (2064×2752). Nếu không muốn làm ảnh iPad → đổi sang chỉ iPhone (1). |
-| ❌ | Xcode 26 | CI đã chuyển sang chọn Xcode 26 (nếu máy chủ có) | 🛠 sau khi ship xem log bước "Chọn Xcode 26"; nếu cảnh báo "chưa có" → đổi `runs-on: macos-26`. |
-| ❌ | Ký + TestFlight | Chưa có | 👤 sau khi có tài khoản: tạo App ID `com.lexkite.app` + `com.lexkite.app.widget`, App Group `group.com.lexkite.app` (bật cho cả 2), App Store Connect API key (.p8, Issuer ID, Key ID) → nhắn em thêm job archive + upload TestFlight trên CI (cần `CURRENT_PROJECT_VERSION` tăng mỗi bản – sẽ lấy theo số lần chạy). Hoặc dùng Xcode Cloud (miễn phí 25 giờ/tháng). |
-| ⚠️ | Age rating | | 👤 Bảng hỏi mới của Apple: không bạo lực/tình dục; có **nội dung người dùng tạo** hạn chế (biệt danh bảng xếp hạng có lọc) và **AI chatbot** (Roleplay) → dự kiến **13+**. Khớp chính sách: không dành cho dưới 13. |
-| ❌ | Ảnh App Store | Chưa có | 🛠 iPhone 6.9" (1320×2868 hoặc 1290×2796) ≥ 3 ảnh; iPad 13" (2064×2752) nếu giữ iPad. |
+| ✅ | Xcode 26 | `ios-testflight.yml` + `ios-shots.yml` chọn Xcode 26 trên macos-15 | Bản build TestFlight dựng bằng Xcode 26 / iOS 26 SDK. |
+| ✅ | Ký + TestFlight | `.github/workflows/ios-testflight.yml` (API key ASC_*, ký tự động) | Bản 1.0 đã lên TestFlight. Bản mới: chạy lại workflow (build number = số lần chạy). |
+| ⚠️ | Age rating | Câu trả lời sẵn: `store/apple/LISTING.md` § Age rating | 👤 bấm theo bảng (mọi mục None/No vì bản iOS không có đăng nhập → không có bảng xếp hạng/biệt danh) rồi **Override → 13+** cho khớp chính sách (không dành cho dưới 13) + Play 13+ + AI Roleplay. Script KHÔNG đụng mục này. |
+| ⚠️ | Ảnh App Store | Pipeline xong, ảnh thử ở nhánh `ios-shots` – chụp lại sau khi sửa lỗi app ở B4; iPhone 6.9" 1320×2868 + iPad 13" 2064×2752, 7 ảnh × en/vi, chụp từ app GỐC trên Simulator (`ios-shots.yml` → nhánh `ios-shots`) | Cùng 7 màn hình + chữ như ảnh Google Play (`scripts/lib/app-shots-copy.mjs`). Ngôn ngữ khác dùng ảnh en-US. |
 | ✅ | Demo account | Không cần | Ghi "No login required" trong Review Notes. |
 
 ### B1. Nhãn quyền riêng tư App Store (App Privacy)
+Bảng đầy đủ, đối chiếu từng dòng chính sách mục 2: **`store/apple/LISTING.md` § App Privacy** (cập nhật 20/10/2026 – bản cũ thiếu Name, Photos, Device ID, Search History, Other Diagnostic Data so với Play Data safety). `PrivacyInfo.xcprivacy` đã sửa khớp (có hiệu lực từ build TestFlight kế tiếp).
 - Data Used to Track You: **None**.
-- Data Not Linked to You: Product Interaction (Analytics), Performance Data (Analytics), Crash Data (Analytics), Coarse Location (Analytics – quốc gia từ IP), Other User Content (App Functionality – văn bản gửi chấm AI/Roleplay, báo lỗi), Customer Support (App Functionality).
-- Data Linked to You: Email Address (App Functionality – chỉ khi người dùng tự nhập để được trả lời).
-- Khi bật đăng nhập trong app: thêm Name, Email, User ID (Linked, App Functionality) và chuyển dữ liệu học/tương tác sang Linked; sửa `PrivacyInfo.xcprivacy` theo ghi chú trong file.
+- Data Linked to You (App Functionality, đều tùy chọn): Name, Email Address, Customer Support, Photos or Videos (form liên hệ / báo lỗi).
+- Data Not Linked to You: Other User Content, Search History (App Functionality); Device ID (Analytics + App Functionality); Product Interaction, Coarse Location, Crash Data, Performance Data (Analytics); Other Diagnostic Data (Analytics + App Functionality).
+- Khi bật đăng nhập trong app: thêm User ID (Linked) và chuyển dữ liệu học/tương tác sang Linked; sửa `PrivacyInfo.xcprivacy` + Play Data safety cùng lúc.
+
+#### B1a. Bấm từng bước – App Privacy (không có API công khai, phải làm trên web)
+App Store Connect → Apps → **Lexkite: English Vocabulary** → (thanh trái) **App Privacy**.
+1. **Privacy Policy** → Edit → `https://lexkite.com/en/privacy` → Save. (Privacy Choices URL: để trống.)
+2. **Data Collection** → Get Started (hoặc Edit) → "Do you or your third-party partners collect data from this app?" → **Yes, we collect data from this app** → Next.
+3. Tick đúng 12 ô (để trống mọi ô khác):
+   - Contact Info: ☑ **Name** ☑ **Email Address**
+   - Identifiers: ☑ **Device ID** (KHÔNG tick User ID)
+   - Usage Data: ☑ **Product Interaction**
+   - Diagnostics: ☑ **Crash Data** ☑ **Performance Data** ☑ **Other Diagnostic Data**
+   - Location: ☑ **Coarse Location** (KHÔNG tick Precise)
+   - Search History: ☑ **Search History**
+   - User Content: ☑ **Photos or Videos** ☑ **Customer Support** ☑ **Other User Content** (KHÔNG tick Audio Data, Emails or Text Messages, Gameplay Content)
+   → Save.
+4. Với MỖI loại, bấm "Set Up <loại>" và trả lời 3 câu (Purposes → Linked to user? → Used for tracking?):
+
+   | Loại | Purposes (tick) | Linked to the user? | Tracking? |
+   |---|---|---|---|
+   | Name | App Functionality | **Yes** | No |
+   | Email Address | App Functionality | **Yes** | No |
+   | Customer Support | App Functionality | **Yes** | No |
+   | Photos or Videos | App Functionality | **Yes** | No |
+   | Other User Content | App Functionality | No | No |
+   | Search History | App Functionality | No | No |
+   | Device ID | Analytics + App Functionality | No | No |
+   | Product Interaction | Analytics | No | No |
+   | Coarse Location | Analytics | No | No |
+   | Crash Data | Analytics | No | No |
+   | Performance Data | Analytics | No | No |
+   | Other Diagnostic Data | Analytics + App Functionality | No | No |
+
+   (Không tick Third-Party Advertising, Developer's Advertising or Marketing, Product Personalization, Other Purposes ở bất kỳ loại nào.)
+5. Xem lại trang tóm tắt: "Data Used to Track You" **trống**; "Data Linked to You" = Contact Info (Name, Email), User Content (Photos or Videos, Customer Support); "Data Not Linked to You" = phần còn lại → bấm **Publish** (góc trên phải).
 
 ### B2. 👤 Đăng nhập trong app (Google + Apple) – việc anh chủ làm trên console
 Mã, entitlement, plugin, CI đã xong (`web/js/native-auth.js`, `scripts/mobile-auth-config.mjs`). Capability **Sign In with Apple** của App ID `com.lexkite.app` đã được Xcode (ký tự động qua API key) bật – bản archive CI có `com.apple.developer.applesignin`.
@@ -131,6 +165,31 @@ Mã, entitlement, plugin, CI đã xong (`web/js/native-auth.js`, `scripts/mobile
 
 ### B3. Review Notes (dán vào App Store Connect)
 > Lexkite is a free English vocabulary and IELTS/TOEIC/TOEFL practice app. No login is required – every feature works without an account. Signing in (Sign in with Apple or Google) is optional and only syncs progress across devices; account deletion is in-app: Settings → Account card → Delete account. Native features: Home Screen & Lock Screen widgets (long-press Home Screen → add "Lexkite"), daily study reminders (local notifications; Settings → Daily reminder), offline use, haptic feedback, native text-to-speech, and hands-free audio study that keeps playing with the screen locked (Menu → Hands-free, lock-screen controls) – this is why the app declares the "audio" background mode. The microphone and speech recognition are used only when the user taps the mic button in Speaking/Pronunciation practice. The app does not track users and shows no ads.
+
+### B3. Review Notes
+Nguồn: `reviewNotes` trong `store/apple/listing.json` (script `asc-upload.mjs` tự đẩy lên; bản đọc được ở cuối `store/apple/LISTING.md`). Bỏ chữ "free", mô tả đúng thanh tab (Today, Vocabulary, Skills, Tests, Me), cách tới từng tính năng gốc và lý do khai background mode "audio".
+
+### B4. Nộp bản 1.0 – trạng thái & các bước anh chủ bấm
+**Đã chuẩn bị (🛠):** niêm yết 15 ngôn ngữ (+ es-MX) `store/apple/listing.json` / `LISTING.md` (kiểm giới hạn ký tự + luật Apple trong `npm test`), ảnh iPhone/iPad, `scripts/asc-upload.mjs` (JWT ES256, idempotent, `--dry-run`) chạy trong workflow **iOS → ảnh App Store** (`asc = dry-run | upload`). Script chỉ ghi chữ, danh mục (Education / Reference), bản quyền, ghi chú duyệt và ảnh của bản 1.0 khi đang *Prepare for Submission*; không nộp, không đổi giá/phân phối/độ tuổi/App Privacy.
+
+**Trạng thái 20/10/2026:** ✅ đã đẩy thật lên App Store Connect (bản 1.0, Prepare for Submission): danh mục Education/Reference, tên + phụ đề + URL chính sách 16 ngôn ngữ, mô tả/từ khóa/quảng bá/URL hỗ trợ & marketing, bản quyền, ghi chú duyệt (demo account = không). Chạy lại = "đã đổi 0" phần chữ (idempotent). ⏸ **Ảnh CHƯA đẩy** – chờ sửa 3 lỗi app dưới đây rồi chụp lại.
+
+**Cài đặt nộp duyệt qua API** (`node scripts/asc-upload.mjs --only settings`, workflow `only = settings`): quyền nội dung = USES_THIRD_PARTY_CONTENT, bảng độ tuổi (mọi mục None/No) + `ageRatingOverrideV2 = THIRTEEN_PLUS`, giá Free (gốc USA), quốc gia: 148/175 mở, tắt EU-27, availableInNewTerritories = false, liên hệ người duyệt (Quyen / Khieu Dinh / support@lexkite.com; số điện thoại CHỈ qua secret `ASC_REVIEW_PHONE`, không lưu repo), phát hành MANUAL. Không chọn build, không nộp. Dry-run 20/10: 6 mục sẽ đổi, mọi khóa độ tuổi có trong API. **Chỉ chạy thật khi anh chủ đồng ý trực tiếp** (cam kết quyền nội dung, độ tuổi, giá/quốc gia là khai báo của chủ tài khoản).
+
+**❌ Lỗi app phải sửa trước khi nộp (thấy trên ảnh Simulator, nhánh `ios-shots`; vùng `web/js` – báo phiên chính):**
+1. **Đăng nhập Google vẫn hiện trong app gốc** dù `nativeNoAuth` đã tắt đồng bộ: nút "Tôi đã có tài khoản" ở màn chào (`app.js` ~1550, `#loginW`), nút G ở thanh trên, "Sign in with Google" ở thanh bên iPad; bấm vào ra hộp "sẽ có ở bản phát hành chính thức" (`sync.js` ~298) = tính năng "sắp có" → rủi ro Apple 2.1 + 4.8 (đăng nhập bên thứ ba mà không có Sign in with Apple). Sửa: ẩn mọi lối đăng nhập khi `nativeNoAuth`.
+2. **Vùng an toàn trên cùng**: trang ôn thẻ (`#/review`, iPhone) và thanh trên iPad đè lên thanh trạng thái (giờ/pin) – thiếu `env(safe-area-inset-top)` ở các bố cục đó.
+3. Gợi ý phím tắt ("Shortcuts: Space flip…") hiện trên cảm ứng ở trang ôn thẻ (Simulator báo hover) – nên ẩn khi `VBNative.is`.
+Sau khi sửa + build TestFlight mới: chạy **iOS → ảnh App Store** với `capture = true`, `asc = upload`, `only = all` (hoặc `only = shots`), soi ảnh ở nhánh `ios-shots` trước.
+
+**👤 Anh chủ bấm trên App Store Connect (app 6824714708):**
+1. (Sau khi sửa lỗi app ở trên) Actions → **iOS → ảnh App Store** → Run workflow `capture = true`, `asc = upload` → xem Summary "✓ đã đổi …" và ảnh trên App Store Connect.
+2. App Information: kiểm Name/Subtitle/Category đã có; **Content Rights** → "Yes, contains third-party content" + "I have the necessary rights"; **Age Rating** → Edit theo bảng trong LISTING.md, Override **13+**.
+3. **App Privacy** → Get Started → khai đúng bảng § App Privacy (12 loại, Tracking = No) → Publish. Privacy Policy URL `https://lexkite.com/en/privacy`.
+4. **Pricing and Availability**: Free; quốc gia: tất cả **trừ EU** cho tới khi khai DSA trader (xem Trạng thái phát hành bên dưới).
+5. Bản iOS 1.0 → **Build**: chọn build TestFlight mới nhất (nên chạy lại `ios-testflight.yml` trước để có `PrivacyInfo.xcprivacy` mới); Export compliance đã tự khai (`ITSAppUsesNonExemptEncryption = false`).
+6. **App Review Information**: bỏ tick "Sign-in required"; điền họ tên, số điện thoại, email liên hệ (support@lexkite.com); Notes đã có.
+7. Version Release: chọn **Manually release** (an toàn cho bản đầu) → **Add for Review → Submit for Review**.
 
 ---
 
@@ -156,7 +215,7 @@ Mã, entitlement, plugin, CI đã xong (`web/js/native-auth.js`, `scripts/mobile
 4. Tạo upload key + secrets (A1).
 5. Báo em khi xong 2 tài khoản → em làm: job TestFlight, ảnh cửa hàng, mô tả cửa hàng 15 ngôn ngữ, nộp bản Internal testing / TestFlight đầu tiên.
 6. Trên Play Console: App content (Privacy policy, Ads = No, App access, Content rating, Target audience 13+, Data safety theo A2, Government/Financial/Health = No) → Internal testing → Production.
-7. Trên App Store Connect: App Privacy (B1), Age rating, Review Notes (B3), Export compliance (đã tự khai), ảnh → Submit for Review.
+7. Trên App Store Connect: làm theo **B4** (chữ + ảnh đã đẩy bằng script; anh chủ khai App Privacy, Age rating, giá/quốc gia, liên hệ duyệt → Submit for Review).
 
 ### Trạng thái phát hành (18/10/2026)
 - **Google Play:** bản 1.0.0 (1406) ở **Internal testing** (danh sách "Lexkite team"); App content đã khai đủ (quảng cáo Không, Data safety khớp chính sách, IARC, 13+). Khóa upload PKCS12 ở `~/.config/lexkite/android-upload.*` + 4 GitHub Secrets. Bước sau: Production → gửi duyệt sau khi anh thử bản nội bộ.
