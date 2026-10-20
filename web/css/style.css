@@ -1465,3 +1465,13 @@ button.avatar { border: 0; padding: 0; cursor: pointer; font: inherit; font-weig
 [style*="color:var(--again)"], [style*="color: var(--again)"] { color: var(--again-text) !important; }
 [style*="color:var(--good)"], [style*="color: var(--good)"] { color: var(--good-text) !important; }
 [style*="color:var(--accent)"], [style*="color: var(--accent)"] { color: var(--accent-text) !important; }
+.wi-acc { display: inline-flex; align-items: center; gap: .3rem; padding: .1rem .25rem .1rem .55rem; border-radius: 999px; background: var(--surface-2); }
+.gmix { margin: .4rem auto .8rem; max-width: 360px; }
+.gmix-bar { display: flex; height: 10px; border-radius: 999px; overflow: hidden; background: var(--surface-2); }
+.gmix-leg { display: flex; flex-wrap: wrap; justify-content: center; gap: .3rem .9rem; margin-top: .45rem; font-size: .85rem; color: var(--text); }
+.gmix-leg span { display: inline-flex; align-items: center; gap: .3rem; }
+.gmix-leg i { width: .7rem; height: .7rem; border-radius: 3px; display: inline-block; }
+.gm-again { background: var(--again); } .gm-hard { background: var(--hard); } .gm-good { background: var(--good); } .gm-easy { background: var(--accent); }
+.lv-filter { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; margin-top: .8rem; }
+.lv-filter .chip { cursor: pointer; min-height: 32px; font: inherit; font-size: .85rem; border: 1px solid var(--line); }
+.lv-filter .chip.on { background: var(--primary); color: var(--primary-ink); border-color: var(--primary); }

@@ -412,6 +412,8 @@
   App.cleanups = []; App.onCleanup = fn => { if (typeof fn === 'function') App.cleanups.push(fn); };
   App.packs = {};
   App.nativeGloss = w => { const p = App.packs[I18N.lang()], e = p && p[String(w || '').toLowerCase()]; return e ? e[0] : ''; };
+  // Nghĩa tiếng mẹ đẻ: gói → dịch lúc chạy
+  App.nativeFill = (el, word) => { const L = I18N.lang(); if (!el || L === 'vi' || L === 'en' || I18N.meanLang() === 'vi') return; const pk = App.nativeGloss(word); if (pk) { el.textContent = '🌐 ' + pk; return; } App.loadPack().then(() => App.nativeGloss(word) || (window.Dict && Dict.translateTo(word, L))).then(r => { if (r && r.toLowerCase() !== word.toLowerCase() && el.isConnected) el.textContent = '🌐 ' + r; }).catch(() => {}); };
   App.loadPack = () => {
     const L = I18N.lang(); if (L === 'vi' || L === 'en' || App.packs[L]) return Promise.resolve(App.packs[L]);
     const base = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com';
@@ -652,11 +654,11 @@
   }
   App.modeTiles = modeTiles;
 
-  function topicCard(tp) {
+  function topicCard(tp, lvf) {
     const n = tp.words.filter(w => inDeck(w.word)).length;
     const pct = n / tp.words.length * 100;
     const lv = [...new Set(tp.words.map(w => w.level).filter(Boolean))].sort().join(' · ');
-    return `<a class="card hover topic-card" href="#/topic/${tp.id}" style="color:var(--text)">
+    return `<a class="card hover topic-card" href="#/topic/${tp.id}${typeof lvf === 'string' && lvf ? '?lv=' + lvf : ''}" style="color:var(--text)">
       <div class="row between nowrap"><span class="em">${tp.emoji}</span>${ring(pct, `${n}/${tp.words.length}`, pct === 100 ? 'var(--good)' : '')}</div>
       <h3>${esc(tp.name)}</h3>
       <div class="muted small clamp2">${esc(tp.desc)}</div>
@@ -671,6 +673,7 @@
     const ex = App.exam ? App.exam() : 'ielts';
     const tab = query.get('g') || (Object.keys(state.cards).length >= 10 ? 'mine' : ({ toeic: 'toeic', toefl: 'exam', general: 'core' })[ex] || 'topics');
     const total = Object.keys(INDEX).length;
+    const LV0 = /^[ABC][12]$/.test(query.get('lv') || '') ? query.get('lv') : '';
     view.innerHTML = `
       <div class="page-head"><div><h1>${t('Thư viện từ vựng')}</h1><p class="muted">${t('{n} từ & cụm từ trong {k} bộ – phiên âm Anh–Anh, cấp độ CEFR, collocation và câu ví dụ IELTS.', { n: total.toLocaleString(I18N.lang()), k: TOPICS.length })}</p></div>
         <div class="row"><input class="input" id="libQ" placeholder="${t('Lọc bộ từ…')}" style="max-width:240px"><button class="btn sm" id="libAnkiOut">🃏 ${t('Xuất sang Anki')}</button><button class="btn sm" id="libAnkiIn">🃏 ${t('Nhập từ Anki')}</button></div></div>
@@ -679,11 +682,16 @@
         ${GROUPS.map(g => `<button data-g="${g.id}" class="${tab === g.id ? 'on' : ''}">${g.emoji} ${esc(g.name)}</button>`).join('')}
         <button data-g="mine" class="${tab === 'mine' ? 'on' : ''}">📌 ${t('Đang học')}</button>
       </div>
-      <div id="libBody" style="margin-top:1.2rem"></div>`;
+      <div class="lv-filter" role="group" aria-label="${t('Cấp độ CEFR')}"><span class="small muted">📶 ${t('Cấp độ CEFR')}</span>${['', 'A1', 'A2', 'B1', 'B2', 'C1', 'C2'].map(l => `<button type="button" class="chip${l === LV0 ? ' on' : ''}" data-lvf="${l}" aria-pressed="${l === LV0}">${l || t('Tất cả')}</button>`).join('')}</div>
+      <div id="libBody" style="margin-top:1rem"></div>`;
+    let lvf = LV0;
+    // ≥5 từ (hoặc ≥30%) ở cấp đó
+    const hasLv = tp => { if (!lvf) return true; const n = tp.words.filter(w => w.level === lvf).length; return n >= 5 || n >= tp.words.length * 0.3 && n > 0; };
     const draw = () => {
       const q = $('#libQ').value.trim().toLowerCase();
       const g = $('#libTabs .on').dataset.g;
-      const match = t => (!q || t.name.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q) || t.words.some(w => w.word.toLowerCase() === q));
+      const match = t => hasLv(t) && (!q || t.name.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q) || t.words.some(w => w.word.toLowerCase() === q));
+      const topicCard = tp => App.topicCard(tp, lvf);
       const groups = g === 'all' ? GROUPS : g === 'mine' ? [{ id: 'mine', name: t('Bộ từ đang học'), emoji: '📌', desc: '' }] : GROUPS.filter(x => x.id === g);
       $('#libBody').innerHTML = groups.map(gr => {
         const ts = TOPICS.filter(t => (gr.id === 'mine' ? t.words.some(w => inDeck(w.word)) : t.group === gr.id) && match(t));
@@ -696,7 +704,9 @@
           <div class="grid auto">${(cut ? ts.slice(0, 6) : ts).map(topicCard).join('')}</div>`;
       }).join('') || `<div class="card empty"><div class="em">🔍</div>${t('Không tìm thấy bộ từ phù hợp.')}</div>`;
     };
-    $$('#libTabs button').forEach(b => b.onclick = () => { $$('#libTabs button').forEach(x => x.classList.toggle('on', x === b)); history.replaceState(null, '', location.pathname + location.search + `#/library?g=${b.dataset.g}`); draw(); });
+    const syncUrl = () => history.replaceState(null, '', location.pathname + location.search + `#/library?g=${$('#libTabs .on').dataset.g}${lvf ? '&lv=' + lvf : ''}`);
+    $$('#libTabs button').forEach(b => b.onclick = () => { $$('#libTabs button').forEach(x => x.classList.toggle('on', x === b)); syncUrl(); draw(); });
+    $$('[data-lvf]').forEach(b => b.onclick = () => { lvf = b.dataset.lvf; $$('[data-lvf]').forEach(x => { const on = x === b; x.classList.toggle('on', on); x.setAttribute('aria-pressed', on); }); syncUrl(); draw(); });
     $('#libQ').oninput = draw;
     $('#libAnkiOut').onclick = () => App.anki('export', ankiAll());
     $('#libAnkiIn').onclick = () => App.anki('import');
@@ -719,12 +729,14 @@
   }
   App.personalCollections = personalCollections;
 
-  routes.topic = function (id) {
+  routes.topic = function (id, query) {
     const tp = topicOf(id);
     if (!tp) return routes.library('', new URLSearchParams());
     const levels = [...new Set(tp.words.map(w => w.level).filter(Boolean))].sort();
     const missing = () => tp.words.filter(w => !inDeck(w.word));
     const gname = (GROUPS.find(g => g.id === tp.group) || {}).name || '';
+    const q0 = query && query.get && query.get('lv');
+    let lv = levels.length > 1 && levels.includes(q0) ? q0 : '';
     view.innerHTML = `
       <a href="#/library?g=${tp.group}" class="small">← ${esc(gname)}</a>
       <div class="card" style="margin:.7rem 0 1rem;display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap">
@@ -740,7 +752,7 @@
           <button class="btn" id="tpAnki">🃏 ${t('Xuất sang Anki')}</button>
         </div>
       </div>
-      ${levels.length > 1 ? `<div class="tabs" id="lvTabs" style="margin-bottom:1rem;display:inline-flex"><button class="on" data-lv="">${t('Tất cả')}</button>${levels.map(l => `<button data-lv="${l}">${l}</button>`).join('')}</div>` : ''}
+      ${levels.length > 1 ? `<div class="tabs" id="lvTabs" role="group" aria-label="${t('Cấp độ CEFR')}" style="margin-bottom:1rem;display:inline-flex"><button class="${lv ? '' : 'on'}" data-lv="">${t('Tất cả')}</button>${levels.map(l => `<button class="${l === lv ? 'on' : ''}" data-lv="${l}">${l} <span class="muted tiny">${tp.words.filter(w => w.level === l).length}</span></button>`).join('')}</div>` : ''}
       <div class="card" id="wordList"></div>`;
     const header = () => {
       const m = missing().length;
@@ -749,7 +761,6 @@
       b.textContent = m ? `+ ${t('Thêm {n} từ vào flashcard', { n: m })}` : `✓ ${t('Đã thêm toàn bộ')}`;
       b.disabled = !m;
     };
-    let lv = '';
     const draw = () => {
       $('#wordList').innerHTML = tp.words.filter(w => !lv || w.level === lv).map(w => `
         <div class="word-row">
@@ -886,12 +897,12 @@
           <div>
             <div class="row"><span class="entry-word">${esc(e.word)}</span>${posChip(e.pos)}${levelChip(e.level)}</div>
             <div class="pron">
-              <span><b class="small">🇬🇧 UK</b> <span class="ipa">${esc(e.ipa || '—')}</span><button class="icon-btn sm" data-speak="${esc(e.word)}" data-accent="en-GB" data-url="${esc(e.audio && /-uk/.test(e.audio) ? e.audio : '')}">🔊</button></span>
-              <span><b class="small">🇺🇸 US</b> <span class="ipa">${esc(e.ipaUS || '—')}</span><button class="icon-btn sm" data-speak="${esc(e.word)}" data-accent="en-US" data-url="${esc(e.audioUS || '')}">🔊</button></span>
-              <span><b class="small">🐢 ${t('Chậm')}</b><button class="icon-btn sm" data-slow="${esc(e.word)}" title="${t('Nghe chậm')}">🔊</button></span>
+              <span><b class="small">🇬🇧 UK</b> <span class="ipa">${esc(e.ipa || '—')}</span><button class="icon-btn sm" data-speak="${esc(e.word)}" data-accent="en-GB" data-url="${esc(e.audio && /-uk/.test(e.audio) ? e.audio : '')}" aria-label="${t('Nghe giọng Anh–Anh')}">🔊</button></span>
+              <span><b class="small">🇺🇸 US</b> <span class="ipa">${esc(e.ipaUS || '—')}</span><button class="icon-btn sm" data-speak="${esc(e.word)}" data-accent="en-US" data-url="${esc(e.audioUS || '')}" aria-label="${t('Nghe giọng Anh–Mỹ')}">🔊</button></span>
+              <span><b class="small">🐢 ${t('Chậm')}</b><button class="icon-btn sm" data-slow="${esc(e.word)}" title="${t('Nghe chậm')}" aria-label="${t('Nghe chậm')}">🔊</button></span>
             </div>
-            ${I18N.meanLang() === 'en' ? '' : `<div class="vi">${esc(e.vi)}</div>`}
-            ${e.def ? `<div style="margin-top:.4rem">${esc(e.def)}</div>` : ''}
+            ${I18N.meanLang() === 'en' ? '<div class="vi wi-native" data-dnative></div>' : `<div class="vi">${esc(e.vi)}</div>`}
+            ${e.def ? `<div style="margin-top:.4rem" lang="en">${esc(e.def)}</div>` : ''}
             <div class="row" style="margin-top:.8rem">
               ${card ? `<span class="chip ok">✓ ${t('Đã có trong flashcard')}</span>` : `<button class="btn primary" id="quickSave">+ ${t('Lưu flashcard')}</button>`}
               <a class="btn" href="#/practice/speak?w=${encodeURIComponent(e.word)}">🎙️ ${t('Luyện phát âm')}</a>
@@ -900,7 +911,7 @@
           </div>
           ${pic(e)}
         </div>
-        ${e.ex ? `<div class="example-box" style="margin-top:1rem"><div class="small muted">${t('Ví dụ')}</div>${highlight(e.ex, e.word)} <button class="icon-btn sm" data-speak-text="${esc(e.ex)}">🔊</button></div>` : ''}
+        ${e.ex ? `<div class="example-box" style="margin-top:1rem"><div class="small muted">${t('Ví dụ')}</div>${highlight(e.ex, e.word)} <button class="icon-btn sm" data-speak-text="${esc(e.ex)}" aria-label="${t('Nghe cả câu')}">🔊</button></div>` : ''}
         ${App.chipsHtml(e.col, '🔗', t('Hay đi với'))}${App.chipsHtml(e.syn, '≈', t('Đồng nghĩa'))}
         <div id="related"></div>
         <div id="phraseBox"></div>
@@ -924,7 +935,7 @@
 
       ${(e.sentences || []).length ? `<div class="card" style="margin-top:1rem">
         <h3>💬 ${t('Câu ví dụ song ngữ')}</h3>
-        ${e.sentences.map(s => `<div class="meaning"><div>${highlight(s.en, e.word)} <button class="icon-btn sm" data-speak-text="${esc(s.en)}">🔊</button></div><div class="muted small">${esc(s.vi)} <span class="chip">${s.auto ? t('Oxford · dịch máy') : 'Tatoeba'}</span></div>
+        ${e.sentences.map(s => `<div class="meaning"><div>${highlight(s.en, e.word)} <button class="icon-btn sm" data-speak-text="${esc(s.en)}" aria-label="${t('Nghe cả câu')}">🔊</button></div><div class="muted small">${esc(s.vi)} <span class="chip">${s.auto ? t('Oxford · dịch máy') : 'Tatoeba'}</span></div>
           <button class="btn sm ghost" data-use-sent="${esc(s.en)}">📌 ${t('Dùng làm ngữ cảnh')}</button></div>`).join('')}
       </div>` : ''}
 
@@ -940,6 +951,7 @@
         </div>
       </div>`;
     bindCommon();
+    App.nativeFill($('#result [data-dnative]'), e.word);
     if (!spoke && state.settings.autoSpeak) { spoke = true; speak(e.word, state.settings.accent, state.settings.accent === 'en-US' ? e.audioUS : e.audio); }
     if (final) { loadRelated(e); drawPhrases(e); }
     if (keep) { $('#ctx').value = keep; }
