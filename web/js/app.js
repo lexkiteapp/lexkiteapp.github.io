@@ -426,7 +426,7 @@
     const save = () => { try { const ks = Object.keys(mem); if (ks.length > 4000) ks.slice(0, ks.length - 4000).forEach(k => delete mem[k]); localStorage.setItem(KEY, JSON.stringify(mem)); } catch (e) { /* đầy bộ nhớ */ } };
     let timer = 0, busy = false;
     // Bản dịch SẴN do CI tạo (scripts/gen-content-i18n.mjs, CDN) → hiện ngay đúng ngôn ngữ; chỉ câu chưa có mới dịch máy lúc chạy
-    let pre = null; const preP = fetch((/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com') + '/i18n/content/' + to + '.json')
+    let pre = null; const preP = fetch((/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) || (window.VBNative && VBNative.is) ? '' : 'https://lexkite.com') + '/i18n/content/' + to + '.json') // app gốc: file nằm sẵn trong gói (www/i18n/content) → dùng được khi offline
       .then(r => (r.ok ? r.json() : {})).catch(() => ({})).then(j => (pre = j || {}));
     const got = k => mem[k] || (pre && pre[k]) || ''; // bản dịch sẵn không ghi vào localStorage (giữ bộ nhớ máy nhẹ)
     async function pass() {

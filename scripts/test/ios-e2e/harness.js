@@ -217,8 +217,9 @@
     switch (s.k) {
       case 'launch': {
         await sleep(1500);
+        const ping = await of('https://lexkite.com/api/config', { cache: 'no-store' }).then(r => r.status, e => 'ERR ' + (e && e.message)); // mạng của máy giả lập (CI đôi khi chập chờn)
         const a = audit('launch');
-        emit({ type: 'info', key: 'launch', path: location.pathname, hash: location.hash, ua: navigator.userAgent, w: innerWidth, h: innerHeight, dpr: devicePixelRatio, safe: a.safe, platform: Cap && Cap.getPlatform && Cap.getPlatform(),
+        emit({ type: 'info', key: 'launch', ping, path: location.pathname, hash: location.hash, ua: navigator.userAgent, w: innerWidth, h: innerHeight, dpr: devicePixelRatio, safe: a.safe, platform: Cap && Cap.getPlatform && Cap.getPlatform(),
           sw: 'serviceWorker' in navigator, speech: typeof (W.SpeechRecognition || W.webkitSpeechRecognition), gum: !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia), synth: 'speechSynthesis' in W, plugins: Object.keys(P()), ipad: IPAD });
         await shot('launch');
         if (!inApp()) { add('launch', 'Mở app lần đầu hiện TRANG GIỚI THIỆU web (' + location.pathname + ') thay vì app học – người dùng phải bấm "Bắt đầu"'); }

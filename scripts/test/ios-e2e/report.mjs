@@ -27,7 +27,7 @@ md += `Phương pháp: harness chạy **bên trong WKWebView thật** của app 
 md += `**${order.length - nFail}/${order.length} bước PASS** · ${nFail} FAIL · chạy xong: ${tags.map(t => `${t}=${R[t].done ? 'có' : 'KHÔNG'} (mở lại ${R[t].relaunches}, crash ${R[t].crashes.length})`).join(', ')}\n\n`;
 md += `Bỏ qua ${ciNoise} lỗi mạng tới dịch vụ chặn IP máy CI: ${[...BLOCKED].join(', ') || '–'} (trên máy thật vẫn gọi được)\n\n`;
 md += `Loại lỗi: ${Object.entries(kinds).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${k} ${n}`).join(' · ') || '–'}\n\n`;
-for (const t of tags) { const l = info(t).launch; if (l) md += `- ${t}: mở app tại \`${l.path}${l.hash}\` · ${l.w}×${l.h}@${l.dpr} · safe ${JSON.stringify(l.safe)} · SpeechRecognition=${l.speech} · getUserMedia=${l.gum} · plugins: ${(l.plugins || []).join(', ')}\n`; }
+for (const t of tags) { const l = info(t).launch; if (l) md += `- ${t}: mạng giả lập lúc mở app (lexkite.com/api/config) = ${l.ping}${/ERR/.test(l.ping) ? ' ⚠️ MẠNG CI LỖI – lỗi tải/dịch của máy này có thể do mạng' : ''} · mở app tại \`${l.path}${l.hash}\` · ${l.w}×${l.h}@${l.dpr} · safe ${JSON.stringify(l.safe)} · SpeechRecognition=${l.speech} · getUserMedia=${l.gum} · plugins: ${(l.plugins || []).join(', ')}\n`; }
 md += `\n| Nhóm | Bước | ${tags.join(' | ')} | Lỗi |\n|---|---|${tags.map(() => '---').join('|')}|---|\n`;
 for (const s of order) {
   const all = []; for (const t of tags) for (const i of steps[s][t] || []) all.push(`[${t}] ${i.kind}: ${i.msg}`);
