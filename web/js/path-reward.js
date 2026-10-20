@@ -56,7 +56,7 @@
       const sec = document.createElement('section');
       sec.className = 'path-reward'; sec.setAttribute('aria-label', t('Tiến độ bài'));
       sec.innerHTML = `<div class="pr-stats">${sk ? `<span>🔥 ${t('{n} ngày liên tiếp', { n: sk })}</span>` : ''}<span>⚡ ${t('+{xp} XP hôm nay', { xp })}</span><span>${c.unit.topic.emoji} ${t('{done}/{total} bước', { done: nOk, total: c.steps.length })}</span></div>
-        <h3 style="margin:.2rem 0 .5rem">${esc(c.unit.topic.name)}</h3>
+        ${c.title ? `<h2 style="margin:.2rem 0 .3rem;text-align:center">${esc(c.title)}</h2>` : ''}<h3 style="margin:.2rem 0 .5rem">${esc(c.unit.topic.name)}</h3>
         <ol class="pr-steps">${c.steps.map(x => `<li><a class="${x.ok ? 'ok' : ''}" href="${x.href}"><span aria-hidden="true">${x.ok ? '✅' : x.em}</span>${esc(x.name)}${x.ok ? `<span class="sr-only"> – ${t('Đã hoàn thành')}</span>` : ''}</a></li>`).join('')}</ol>
         ${nx ? `<a class="btn primary lg block" href="${nx.href}">${nx.same ? t('Bước tiếp theo: {step}', { step: esc(nx.name) }) : `${nx.emoji} ${t('Bài mới đã mở: {name}', { name: esc(nx.name) })}`} →</a>` : `<p class="center">🏆 ${t('Bạn đã hoàn thành toàn bộ lộ trình!')}</p>`}
         ${remNudge()}`;
