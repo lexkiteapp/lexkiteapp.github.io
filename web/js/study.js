@@ -57,12 +57,14 @@
     else if (src === 'phrases') list = cards.filter(c => App.isPhrase && App.isPhrase(c));
     else if (src && src.startsWith('level:')) list = cards.filter(c => SRS.level5(c.srs) === +src.slice(6));
     else if (src && src.startsWith('origin:')) list = cards.filter(c => App.origin(c) === src.slice(7));
-    else if (src && src.startsWith('topic:')) { const t = TOPICS.find(x => x.id === src.slice(6)); list = t ? t.words : []; }
+    else if (src && src.startsWith('topic:')) { const t = App.topicOf(src.slice(6)); list = t ? t.words : []; } // gồm bài con lộ trình (ngsl1.3 – path.js)
     else list = cards;
     if (list.length < 4 && (!src || src === 'deck')) list = shuffle(TOPICS.filter(t => t.group === 'topics').flatMap(t => t.words)).slice(0, 120);
     return list.map(norm);
   }
-  const srcName = src => (sourceList().find(o => o[0] === src) || [0, '📒 ' + t('Sổ từ của tôi')])[1];
+  const srcName = src => { const o = sourceList().find(o => o[0] === src), tp = !o && /^topic:/.test(src || '') && App.topicOf(src.slice(6)); return o ? o[1] : tp ? `${tp.emoji} ${tp.name}` : '📒 ' + t('Sổ từ của tôi'); };
+  // Báo hoàn thành lượt (lộ trình ghi bước đã xong + màn thưởng cuối bài – path.js)
+  const practiceDone = detail => window.dispatchEvent(new CustomEvent('lexkite:practice-done', { detail }));
   let libN = null;
   const libNorm = () => libN && libN.length === TOPICS.length ? libN.list : (libN = { length: TOPICS.length, list: TOPICS.flatMap(t => t.words).filter(x => x.vi || x.def).map(norm) }).list;
   const distractors = (w, list, n, key) => {
@@ -572,6 +574,7 @@
         <div class="row center" style="margin-top:1rem">${unit ? `<a class="btn primary" href="#/path">🗺️ ${t('Về lộ trình')}</a><button class="btn" id="again">${t('Làm lại')}</button>` : `<button class="btn primary" id="again">${t('Làm lượt mới')}</button><a class="btn" href="#/practice?src=${encodeURIComponent(src)}">${t('Đổi chế độ')}</a>`}</div>
       </div></div>`;
       if (unitPassed) unitPassed.then(first => { if (first) { confetti(160); Sfx.win(); } });
+      practiceDone({ mode, src, pct, wait: unitPassed });
       $('#again').onclick = () => runQuiz(src, mode);
       const aw = $('#addWrong');
       if (aw) aw.onclick = async () => { for (const w of run.wrong) if (!App.inDeck(w.word)) await App.addWord(INDEX[w.word.toLowerCase()] || w, null, { silent: true }); toast(t('Đã thêm vào flashcard')); aw.disabled = true; };
@@ -673,6 +676,7 @@
         <div class="row center" style="margin-top:.6rem"><button class="btn" id="again">${t('Học 8 từ tiếp theo')}</button><a class="btn" href="#/practice/match?src=${encodeURIComponent(src)}">⚡ ${t('Ghép thẻ')}</a></div>
       </div></div>`;
       $('#again').onclick = () => runLearn(src);
+      practiceDone({ mode: 'learn', src, items });
       const al = $('#addLearned');
       if (al) al.onclick = async () => { for (const w of notIn) await App.addWord(INDEX[w.word.toLowerCase()] || w, null, { silent: true }); al.disabled = true; al.textContent = '✓ ' + t('Đã thêm'); Sfx.win(); };
     };
@@ -722,6 +726,7 @@
         <div class="row center" style="margin-top:1.2rem"><button class="btn primary" id="again">${t('Chơi lại')}</button><a class="btn" href="#/practice?src=${encodeURIComponent(src)}">${t('Chế độ khác')}</a></div>
       </div></div>`;
       $('#again').onclick = () => runMatch(src);
+      practiceDone({ mode: 'match', src, pct: 100 });
     }
   }
 
