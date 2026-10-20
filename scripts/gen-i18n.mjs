@@ -16,6 +16,8 @@ if (!/^[a-z]{2}(-[A-Z]{2})?$/.test(lang || '') || lang === 'en' || lang === 'vi'
 const DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), '../web/js/i18n');
 const load = f => { const ctx = { self: {} }; ctx.self = ctx; vm.createContext(ctx); vm.runInContext(fs.readFileSync(f, 'utf8'), ctx); return ctx.I18N_DICT || {}; };
 const EN = load(path.join(DIR, 'en.js')).en;
+// + nhóm tải lười (LAZY trong scripts/build-i18n.sh, vd. en/criteria.js) – i18n-qa đòi đủ bản dịch cho cả các nhóm này
+for (const g of ((fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), 'build-i18n.sh'), 'utf8').match(/^LAZY="([^"]*)"/m) || [])[1] || '').split(/\s+/).filter(Boolean)) Object.assign(EN, load(path.join(DIR, 'en', `${g}.js`)).en || {});
 const outFile = path.join(DIR, `${lang}.js`);
 const old = fs.existsSync(outFile) ? (load(outFile)[lang] || {}) : {};
 
