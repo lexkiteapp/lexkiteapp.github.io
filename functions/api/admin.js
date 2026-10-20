@@ -30,11 +30,16 @@ async function setup(db) {
     db.prepare('CREATE TABLE IF NOT EXISTS i18n_judge (h TEXT PRIMARY KEY, lang TEXT, ok INTEGER, note TEXT, at INTEGER) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS config (k TEXT PRIMARY KEY, v TEXT, at INTEGER, by TEXT) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS users (uid TEXT PRIMARY KEY, email TEXT, name TEXT, created INTEGER NOT NULL, seen INTEGER NOT NULL, plat TEXT, n INTEGER DEFAULT 1) WITHOUT ROWID'),
+    db.prepare('CREATE TABLE IF NOT EXISTS user_backups (id INTEGER PRIMARY KEY AUTOINCREMENT, uid TEXT NOT NULL, at INTEGER NOT NULL, by TEXT, reason TEXT, docs TEXT NOT NULL)'),
     db.prepare('CREATE TABLE IF NOT EXISTS contact_msgs (id INTEGER PRIMARY KEY AUTOINCREMENT, who TEXT NOT NULL, at INTEGER NOT NULL, name TEXT, email TEXT, msg TEXT, lang TEXT, sent INTEGER DEFAULT 0)'),
     db.prepare('CREATE TABLE IF NOT EXISTS notices (id TEXT PRIMARY KEY, at INTEGER NOT NULL, by TEXT, title TEXT NOT NULL, body TEXT NOT NULL, kind TEXT NOT NULL DEFAULT \'info\', img TEXT, cta_label TEXT, cta_url TEXT, target TEXT, send_at INTEGER, expire_at INTEGER, lang TEXT, revoked INTEGER DEFAULT 0) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS notice_reads (id TEXT NOT NULL, uid TEXT NOT NULL, read_at INTEGER NOT NULL, clicked INTEGER DEFAULT 0, PRIMARY KEY (id, uid)) WITHOUT ROWID'),
   ]);
   await db.prepare('ALTER TABLE contact_msgs ADD COLUMN handled INTEGER DEFAULT 0').run().catch(() => {});
+  await db.prepare('ALTER TABLE users ADD COLUMN blocked INTEGER DEFAULT 0').run().catch(() => {});
+  await db.prepare('ALTER TABLE users ADD COLUMN tags TEXT').run().catch(() => {});
+  await db.prepare('ALTER TABLE users ADD COLUMN notes TEXT').run().catch(() => {});
+  await db.prepare('CREATE INDEX IF NOT EXISTS idx_user_backups_uid ON user_backups (uid, at)').run().catch(() => {});
   ready = true;
 }
 
@@ -151,7 +156,7 @@ const OPS = {
   async users(db, b, who, env) {
     const f = userWhere(b, env), off = Math.max(0, Math.floor(+b.offset || 0)), now = Date.now();
     const [rows, cnt, k, plats] = await Promise.all([
-      all(db, `SELECT uid, email, name, created, seen, plat, n FROM users${f.sql} ORDER BY ${f.order} LIMIT 50 OFFSET ${off}`, ...f.args),
+      all(db, `SELECT uid, email, name, created, seen, plat, n, COALESCE(blocked, 0) AS blocked, tags FROM users${f.sql} ORDER BY ${f.order} LIMIT 50 OFFSET ${off}`, ...f.args),
       one(db, `SELECT COUNT(*) AS n FROM users${f.sql}`, ...f.args),
       one(db, 'SELECT COUNT(*) AS total, SUM(seen > ?1) AS act1, SUM(seen > ?2) AS act7, SUM(seen > ?3) AS act30, SUM(created > ?2) AS new7 FROM users', now - DAY, now - 7 * DAY, now - 30 * DAY),
       all(db, "SELECT COALESCE(plat, '') AS k, COUNT(*) AS n FROM users GROUP BY k ORDER BY n DESC"),
@@ -160,12 +165,14 @@ const OPS = {
   },
   async usersExport(db, b, who, env) {
     const f = userWhere(b, env);
-    const rows = await all(db, `SELECT email, name, plat, created, seen, n FROM users${f.sql} ORDER BY ${f.order} LIMIT 5000`, ...f.args);
+    const rows = await all(db, `SELECT email, name, plat, created, seen, n, COALESCE(blocked, 0) AS blocked, tags FROM users${f.sql} ORDER BY ${f.order} LIMIT 5000`, ...f.args);
     return { rows: rows.map(r => ({ ...r, isAdmin: isAdm(f.admins, r.email) })) };
   },
   async user(db, b, who, env) {
     const u = await one(db, 'SELECT * FROM users WHERE uid = ?', String(b.uid));
     const docs = await all(db, 'SELECT k, LENGTH(body) AS bytes, updated FROM docs WHERE uid = ? ORDER BY k', String(b.uid));
+    const backups = await all(db, 'SELECT id, at, by, reason, LENGTH(docs) AS bytes FROM user_backups WHERE uid = ? ORDER BY at DESC LIMIT 10', String(b.uid)).catch(() => []);
+    let tags = []; try { tags = JSON.parse(u.tags || '[]'); } catch (e) { tags = []; }
     // Số liệu học tập từ tài liệu "meta" (đã gồm thống kê & điểm thưởng) – chỉ đọc 1 tài liệu nhỏ
     let learn = null;
     const m = await one(db, "SELECT body FROM docs WHERE uid = ? AND k = 'meta'", String(b.uid));
@@ -178,11 +185,101 @@ const OPS = {
         learn = { xp: g.xp || 0, studyDays: days.length, lastStudy: days[days.length - 1] || '', streak, reviews: tot.reviews || 0, newWords: tot.newWords || 0, quizzes: tot.quizzes || 0, readings: tot.readings || 0, spoken: tot.spoken || 0, badges: Object.keys(g.badges || {}).length, chunks: top.chunks || 0 };
       }
     }
-    return { user: { ...u, isAdmin: isAdm(adminList(env), u.email) }, docs, learn };
+    return { user: { ...u, tags, notes: u.notes || '', blocked: +u.blocked ? 1 : 0, isAdmin: isAdm(adminList(env), u.email) }, docs, learn, backups };
+  },
+  async userTag(db, b) {
+    const uid = String(b.uid || '').trim();
+    if (!uid || uid.length > 128) throw new Error('uid-required');
+    let tags = Array.isArray(b.tags) ? b.tags.slice(0, 50).map(t => typeof t === 'string' ? t.trim() : '').filter(Boolean).slice(0, 10) : [];
+    tags = tags.map(t => t.slice(0, 30));
+    const notes = String(b.notes || '').slice(0, 2000);
+    await db.prepare('UPDATE users SET tags = ?, notes = ? WHERE uid = ?').bind(JSON.stringify(tags), notes, uid).run();
+    return { ok: true, tags, notes };
+  },
+  async userBlock(db, b) {
+    const uid = String(b.uid || '').trim();
+    if (!uid || uid.length > 128) throw new Error('uid-required');
+    const u = await one(db, 'SELECT email FROM users WHERE uid = ?', uid);
+    if (!u) throw new Error('user-not-found');
+    if (b.confirm !== (u.email || uid)) throw new Error('confirm');
+    const blocked = b.blocked === true || b.blocked === 1 ? 1 : 0;
+    await db.prepare('UPDATE users SET blocked = ? WHERE uid = ?').bind(blocked, uid).run();
+    return { ok: true, uid, blocked };
+  },
+  async userReset(db, b, who) {
+    const uid = String(b.uid || '').trim();
+    if (!uid || uid.length > 128) throw new Error('uid-required');
+    const u = await one(db, 'SELECT email FROM users WHERE uid = ?', uid);
+    if (!u) throw new Error('user-not-found');
+    if (b.confirm !== (u.email || uid)) throw new Error('confirm');
+    const now = Date.now();
+    const docs = await all(db, 'SELECT k, h, body, updated FROM docs WHERE uid = ?', uid);
+    if (docs.length) {
+      await db.prepare('INSERT INTO user_backups (uid, at, by, reason, docs) VALUES (?, ?, ?, ?, ?)')
+        .bind(uid, now, String(who && who.email || 'admin'), 'reset_progress', JSON.stringify(docs)).run();
+    }
+    const t30 = now - 30 * 86400000;
+    await db.prepare('DELETE FROM user_backups WHERE at < ?').bind(t30).run().catch(() => {});
+    await db.prepare('DELETE FROM docs WHERE uid = ?').bind(uid).run();
+    return { ok: true, uid, backedUp: docs.length };
+  },
+  async userRestore(db, b, who) {
+    const uid = String(b.uid || '').trim();
+    const backupId = +b.backupId;
+    if (!uid || uid.length > 128 || !Number.isSafeInteger(backupId) || backupId < 1) throw new Error('params-required');
+    const u = await one(db, 'SELECT email FROM users WHERE uid = ?', uid);
+    if (!u) throw new Error('user-not-found');
+    if (b.confirm !== (u.email || uid)) throw new Error('confirm');
+    const bk = await one(db, 'SELECT docs FROM user_backups WHERE id = ? AND uid = ?', backupId, uid);
+    if (!bk || !bk.docs) throw new Error('backup-not-found');
+    let docs = [];
+    try { docs = JSON.parse(bk.docs); } catch (e) { throw new Error('corrupt-backup'); }
+    if (!Array.isArray(docs)) throw new Error('invalid-backup');
+    const now = Date.now();
+    const batch = [db.prepare('DELETE FROM docs WHERE uid = ?').bind(uid)];
+    const stmt = db.prepare('INSERT INTO docs (uid, k, h, body, updated) VALUES (?1, ?2, ?3, ?4, ?5)');
+    for (const d of docs) {
+      if (d.k && d.h && d.body) {
+        batch.push(stmt.bind(uid, d.k, d.h, d.body, d.updated || now));
+      }
+    }
+    await db.batch(batch);
+    return { ok: true, uid, restored: docs.length };
+  },
+  async userExportData(db, b, who) {
+    const uid = String(b.uid || '').trim();
+    if (!uid || uid.length > 128) throw new Error('uid-required');
+    const u = await one(db, 'SELECT * FROM users WHERE uid = ?', uid);
+    if (!u || !u.uid) throw new Error('user-not-found');
+    const docs = await all(db, 'SELECT k, h, body, updated FROM docs WHERE uid = ?', uid);
+    const parsedDocs = {};
+    for (const d of docs) {
+      try { parsedDocs[d.k] = { ...d, parsed: JSON.parse(d.body) }; } catch (e) { parsedDocs[d.k] = d; }
+    }
+    const reads = await all(db, 'SELECT id, read_at, clicked FROM notice_reads WHERE uid = ?', uid).catch(() => []);
+    const backups = await all(db, 'SELECT id, at, by, reason, LENGTH(docs) AS bytes FROM user_backups WHERE uid = ?', uid).catch(() => []);
+    let tags = []; try { tags = JSON.parse(u.tags || '[]'); } catch (e) { tags = []; }
+    return {
+      export_info: {
+        service: 'Lexkite',
+        exported_at: new Date().toISOString(),
+        requested_by: (who && who.email) || 'admin',
+        standard: 'GDPR Article 15 & 20 Right of Access and Portability',
+      },
+      user: { ...u, tags },
+      documents: parsedDocs,
+      notice_history: reads,
+      backup_history: backups
+    };
   },
   async userDelete(db, b) { // xóa dữ liệu đồng bộ theo yêu cầu của người dùng (GDPR) – tài khoản Google không bị ảnh hưởng
     const uid = String(b.uid || ''); if (!uid || b.confirm !== uid) throw new Error('confirm');
-    await db.batch([db.prepare('DELETE FROM docs WHERE uid = ?').bind(uid), db.prepare('DELETE FROM users WHERE uid = ?').bind(uid)]);
+    await db.batch([
+      db.prepare('DELETE FROM docs WHERE uid = ?').bind(uid),
+      db.prepare('DELETE FROM user_backups WHERE uid = ?').bind(uid),
+      db.prepare('DELETE FROM notice_reads WHERE uid = ?').bind(uid),
+      db.prepare('DELETE FROM users WHERE uid = ?').bind(uid)
+    ]);
     return { ok: true };
   },
   async inbox(db, b) {
@@ -457,8 +554,8 @@ const OPS = {
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: cors(request) });
 
 // Thao tác ghi/xóa (ghi nhật ký) · thao tác nguy hiểm (phải vừa đăng nhập ≤ 15 phút – chống token bị đánh cắp dùng lại)
-const WRITE = /Set$|Delete$|Remove$|Clear$|Mark$|Approve$|^inboxReply$|^judge$|^review$|^usersExport$|^noticeCreate$|^noticeRevoke$/; // (xuất danh sách người dùng cũng ghi nhật ký)
-const DANGER = new Set(['userDelete', 'serviceDelete', 'errorsClear', 'geminiDelete', 'geminiRemove']);
+const WRITE = /Set$|Delete$|Remove$|Clear$|Mark$|Approve$|^inboxReply$|^judge$|^review$|^usersExport$|^noticeCreate$|^noticeRevoke$|^userTag$|^userBlock$|^userReset$|^userRestore$|^userExportData$/; // (xuất danh sách người dùng cũng ghi nhật ký)
+const DANGER = new Set(['userDelete', 'serviceDelete', 'errorsClear', 'geminiDelete', 'geminiRemove', 'userBlock', 'userReset', 'userRestore', 'userExportData']);
 const ipOf = req => req.headers.get('CF-Connecting-IP') || '?';
 async function audit(env, req, email, op, ok) {
   try { const h = [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode('lexkite-adm|' + ipOf(req))))].slice(0, 6).map(x => x.toString(16).padStart(2, '0')).join('');

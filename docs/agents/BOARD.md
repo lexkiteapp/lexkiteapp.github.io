@@ -120,14 +120,6 @@ Mẫu thẻ:
 - Báo cáo:
 - Cần sửa / Nhận xét:
 
-### [N2] Thao tác quản lý tài khoản người học · @antigravity · ưu tiên: vừa (làm sau N1)
-- Mục tiêu: trong dialog **Chi tiết** người dùng thêm: 🔄 **Đặt lại tiến độ học** (xóa thẻ/XP/streak – tự sao lưu bản trước vào D1 `user_backups` 30 ngày, có nút khôi phục), ⛔ **Khóa / mở khóa đồng bộ** (cờ `users.blocked`, `/api/sync` trả 403 kèm thông báo lịch sự), 🏷️ **Gắn nhãn** (tester, VIP, hỗ trợ…) + 📝 **ghi chú nội bộ**, 📣 **Gửi thông báo** (mở form N1 điền sẵn người nhận), ⬇ **Xuất dữ liệu người dùng** (JSON – quyền GDPR).
-- Bảo mật: các thao tác xóa/khóa/đặt lại vào `DANGER` (phải đăng nhập ≤ 15 phút) + nhật ký; xác nhận bằng gõ email người dùng.
-- File/khu vực: `web/js/admin.js`, `web/css/admin.css`, `functions/api/admin.js`, `functions/api/sync.js` (chỉ phần kiểm tra cờ blocked – báo Claude trong Báo cáo).
-- Tiêu chí xong: như N1 + thử khôi phục bản sao lưu thành công.
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
 ### [N3] Cài đặt nâng cao cho tài khoản quản trị · @antigravity · ưu tiên: thấp (làm sau N2)
 - Mục tiêu: trong tab Cài đặt thêm khối **"🛡️ Tài khoản quản trị"**: tab mặc định khi mở, ngôn ngữ & giao diện mặc định (đồng bộ theo email admin, lưu D1 `config` khóa `adm_pref:<email>`), chọn **loại cảnh báo nhận qua email** (lỗi JS, workflow, hộp thư, chất lượng, bản dịch), ngưỡng cảnh báo, **tự đăng xuất sau N phút không thao tác**, xuất nhật ký quản trị CSV, danh sách phiên/thiết bị gần đây của admin (từ `admin_log`).
 - File/khu vực: `web/js/admin.js`, `web/css/admin.css`, `functions/api/admin.js`, `workers/mail/index.js` (chỉ phần đọc lựa chọn loại cảnh báo – Claude triển khai worker).
@@ -215,6 +207,7 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét: (Claude 16/10) ✅ Giao diện + template + i18n đạt. ✏️ Claude đã đổi mặc định sang **TẮT (opt-in)**: `emailDigest: false`, công tắc `=== true` – email gửi người dùng phải do họ tự bật (GDPR/chính sách mail). ⏸️ Phần gửi chưa triển khai được: Cloudflare Email Routing (`env.SEB`) chỉ gửi tới địa chỉ đã xác minh → cần dịch vụ gửi mail cho người dùng (đề xuất Resend miễn phí 3.000 mail/tháng) + bản ghi DNS SPF/DKIM + trang hủy đăng ký `/api/unsub`. Chờ anh Quyền chọn dịch vụ → Claude làm worker. Thẻ giữ ở CHỜ DUYỆT.
 
 ## ĐÃ XONG
+- [N2 Quản lý tài khoản người học] (Claude 20/10): ✅ gộp `89c18da3` (bỏ docs của nhánh). 🔒 Sửa: tự xóa tài khoản (`/api/account`) và admin xóa nay dọn cả `user_backups` + `notice_reads` (trước đó bản sao lưu dữ liệu học còn lại sau khi người dùng xóa tài khoản – vi phạm 5.1.1(v)/GDPR); `userExportData` vào `DANGER`; xác nhận theo email hoặc uid (tài khoản không email); kiểm tra kiểu nhãn/uid/backupId; `/api/sync` trả `{error:'blocked'}` (bỏ câu tiếng Việt cứng). ✏️ `scripts/test/user-mgmt.mjs` cũ chỉ tự chạy lại SQL, không gọi API → viết lại gọi API thật (cổng admin, reauth, khóa có hiệu lực ở kéo/đẩy, khôi phục đúng chủ, nhật ký, xóa sạch); unit.mjs thêm ca khóa đồng bộ. ⏭ Máy khách chưa báo riêng lỗi 'blocked' cho người học (chỉ thấy đồng bộ lỗi).
 - [W1 Tiêu chí chấm IELTS Writing & Speaking] (Claude 20/10): ✅ gộp `3bb6268c` (bỏ BOARD/COORDINATION). ✏️ Viết lại nội dung band 4–9 theo bảng mô tả band công khai IELTS (diễn giải, bỏ câu bịa "như người bản ngữ", "chính xác tuyệt đối" ở band 8, FC 7 nhầm sang mô tả band 8/9), sửa nhận xét bài mẫu dẫn lỗi không có thật, bài cao nhất chấm 8.0 khớp nhãn; thêm 193 khóa tiếng Anh (trước đó ngôn ngữ khác hiện tiếng Việt); `#/criteria?skill=` chạy được; chỉ lấy khóa i18n của commit (bỏ 156 khóa thừa).
 - [N1 Chuông thông báo người học] (Claude 20/10): ✅ gộp `988a24c7` lên khung mới (chuông ở `web/app/index.html`, tab admin trong NAV). 🔒 Sửa XSS: tiêu đề/nhãn/link/ảnh chèn thô vào innerHTML → thoát HTML + chỉ cho link `#/…`/`https://`; token lấy từ `Sync.user` (bản cũ dùng `state.user` không tồn tại → tin nhắm riêng không bao giờ tới); POST kiểm id có thật (chặn spam bảng), giới hạn thân 1 KB; target chỉ giữ trường hợp lệ (≤ 500 uid); lỗi 500 không lộ thông điệp nội bộ; a11y (Esc, aria-expanded, số chưa đọc trong nhãn); test bảo mật thêm vào api-security/notices.
 - [B5 cụm Thổ Nhĩ Kỳ – tr, 3 bài] (Claude 20/10): ✅ gộp có chọn lọc (`git diff 440cfab1 964ad42f -- content/blog`, bỏ BOARD/COORDINATION của nhánh). ✏️ Sửa 2 lỗi cổng caption-truth + 7 alt/caption/câu nói quá (practice-test 'gramer/zaman kipleri' ×2, coverAlt yokdil 'deneme sınavı YÖKDİL', review 'FSRS… unutmadan', reading/grammar gán YÖKDİL + 'bağlaçlar', thư viện 'phrasal verb setleri', CTA 'YÖKDİL deneme testleri', '%40 bağlaç'). Lịch 22/23/25-10.

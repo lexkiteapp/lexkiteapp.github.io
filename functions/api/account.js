@@ -24,6 +24,8 @@ export const DELETE_SQL = [
   'DELETE FROM league_week WHERE uid = ?1',
   'DELETE FROM league_member WHERE uid = ?1',
   'DELETE FROM vid_uid WHERE uid = ?1',
+  'DELETE FROM user_backups WHERE uid = ?1',
+  'DELETE FROM notice_reads WHERE uid = ?1',
   "UPDATE reports SET uid = '', email = '', notify = 0 WHERE uid = ?1",
   'DELETE FROM users WHERE uid = ?1',
 ];

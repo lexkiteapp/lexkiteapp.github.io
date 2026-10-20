@@ -29,7 +29,7 @@ assert.equal((await body(await handle(req({ op: 'delete' }), { DB: mkDb() }, dep
 { const db = mkDb(['league_week', 'league_member']); const r = await body(await handle(req({ op: 'delete', confirm: 'DELETE' }), { DB: db }, deps({ sub: 'u1', auth_time: NOW - 60 })));
   assert.equal(r.status, 200); assert.equal(r.ok, true); assert.equal(r.firebase, 'deleted');
   const tables = db.ran.map(([s]) => s.match(/(?:FROM|UPDATE) (\w+)/)[1]);
-  assert.deepEqual(tables, ['docs', 'vid_uid', 'reports', 'users'], 'xóa đủ bảng, bỏ qua bảng chưa tạo');
+  assert.deepEqual(tables, ['docs', 'vid_uid', 'user_backups', 'notice_reads', 'reports', 'users'], 'xóa đủ bảng, bỏ qua bảng chưa tạo');
   assert.ok(db.ran.every(([, a]) => a[0] === 'u1'), 'chỉ xóa đúng uid của token');
   assert.match(db.ran.find(([s]) => /reports/.test(s))[0], /SET uid = '', email = '', notify = 0/, 'báo lỗi: gỡ uid/email, không xóa nội dung'); }
 { const db = mkDb(); const r = await body(await handle(req({ op: 'delete', confirm: 'DELETE' }), { DB: db }, deps({ sub: 'u2', auth_time: NOW }, { fbDelete: async () => 'client' })));
