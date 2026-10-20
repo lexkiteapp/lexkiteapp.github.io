@@ -96,7 +96,7 @@ qualityScore: 94
 3. **주어 없는 문장과 "Sorry"의 남발:**  
    업무상 약간의 지연이나 일정 변경에 지나치게 *I am sorry*를 반복하면 업무 미숙으로 비칠 수 있습니다. 대신 감사의 표현인 *Thank you for your patience*나 *Thank you for your understanding*으로 전환하는 것이 훨씬 당당하고 성숙한 비즈니스 태도입니다.
 
-문법적인 실수를 줄이고 정확한 문장을 구성하기 위해서는 토익 파트5의 문장 성분 판별법을 익혀두는 것이 큰 도움이 됩니다. 상세한 품사 자리 공식은 [토익 파트5 문법](/ko/blog/toeic-part5-munbeop/)에서 확인할 수 있으며, 전반적인 수험 및 비즈니스 영어 로드맵은 [토익 공부법](/ko/blog/toeic-gongbubeop/)을 참조하세요.
+문법적인 실수를 줄이고 정확한 문장을 구성하기 위해서는 토익 파트5의 문장 성분 판별법을 익혀두는 것이 큰 도움이 됩니다. 상세한 품사 자리 공식은 [토익 파트5 문법](/ko/blog/toeic-part5-munbeop/)에서 확인할 수 있으며, 전반적인 수험 및 비즈니스 영어 로드맵은 [토익 공부법](/ko/blog/toeic-gongbubeop/)을 참조하세요. 격식 있는 영문 보고서나 학술 에세이 작성 템플릿이 필요하다면 [토플 라이팅 템플릿](/ko/blog/toefl-ibt-writing-template/)을 함께 활용해 보시기 바랍니다.
 
 ## 실전 비즈니스 이메일 템플릿 2선 (Self-Check)
 

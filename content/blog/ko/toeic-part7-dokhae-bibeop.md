@@ -124,7 +124,7 @@ Regular dining operations will resume on Thursday, October 23, featuring an expa
 - **정답:** (B) Normal cafeteria service will restart.  
 - **해설:** 두 번째 단락의 *Regular dining operations will resume on Thursday, October 23*에서 *resume*(재개되다)이 보기 (B)의 *restart*로 동의어 전환되었습니다.
 
-독해 지문을 빠르게 읽고도 문맥이 입으로 바로 튀어나오지 않는다면 [영어 쉐도잉 방법](/ko/blog/yeongeo-shadowing-bangbeop/)을 통해 문장 구조의 직독직해 리듬감을 체화해 보시기 바랍니다. 실전 시험에서 시간을 단축하려면 [장문 독해 훈련 모드](/#/reading)에서 꾸준히 속독 훈련을 반복해야 합니다.
+독해 지문을 빠르게 읽고도 문맥이 입으로 바로 튀어나오지 않는다면 [영어 쉐도잉 방법](/ko/blog/yeongeo-shadowing-bangbeop/)을 통해 문장 구조의 직독직해 리듬감을 체화해 보시기 바랍니다. 긴 학술 지문 독해와 논리적 에세이 전개 능력을 함께 기르고 싶다면 [토플 라이팅 템플릿](/ko/blog/toefl-ibt-writing-template/) 가이드를 참고하세요. 실전 시험에서 시간을 단축하려면 [장문 독해 훈련 모드](/#/reading)에서 꾸준히 속독 훈련을 반복해야 합니다.
 
 {{youtube: | 영상 아이디어: 토익 파트7 독해 55분 컷 시간 단축 비법과 패러프레이징 함정 파헤치기}}
 

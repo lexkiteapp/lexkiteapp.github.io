@@ -5119,7 +5119,7 @@
    "pillar": "toeic-gongbubeop"
   },
   {
-   "slug": "toefl-ib-writing-templete",
+   "slug": "toefl-ibt-writing-template",
    "keyword": "토플 라이팅 템플릿",
    "category": "toefl",
    "tags": [
@@ -5139,7 +5139,7 @@
    "angle": "개정 토플 iBT 라이팅 Academic Discussion 및 통합형 고득점 템플릿과 논리적 전개 전략",
    "intent": "thi",
    "lang": "ko",
-   "cluster": "toefl-ib-writing-templete",
+   "cluster": "toefl-ibt-writing-template",
    "role": "satellite",
    "pillar": "toeic-gongbubeop"
   },
