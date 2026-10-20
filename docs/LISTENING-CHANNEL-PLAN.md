@@ -22,3 +22,6 @@ Thay ảnh tĩnh bằng **kho clip Kling không tiếng** của 2 nhân vật (A
 - **Dựng chuyên nghiệp (luật tự động):** đổi góc mỗi 4–8 s theo câu thoại (người nói = cận/đôi, chèn cảnh người nghe gật/cười), không lặp cùng clip liền nhau, không cắt giữa từ, B-roll khi có câu kể, thẻ từ vựng góc dưới, chương có tiêu đề, tóm tắt cuối.
 - **Chi phí:** dựng kho 1 lần ≈ 700–750 credit + ~200K token (gồm cả dây chuyền); sau đó mỗi tập 0 credit, 0 token, chạy GitHub Actions.
 - Luật kho chung: khuôn docs/CINE-SCENE-STANDARD.md + kiểm tư thế/logic từng khung đầu (memory kling-prompt-clarity).
+
+## Đã làm (20/10): kho người dẫn bàn studio (bối cảnh 1/2)
+`brand/library/cine/anchor/` – 14 clip (356 credit), bank.json có đoạn dùng được + ghi chú tư thế từng clip; 5 short thử nghiệm mẫu T6 (`content/video/cine/templates.md`). Bối cảnh 2 (bàn quán cà phê ấm) + OTS từng người chưa làm.
