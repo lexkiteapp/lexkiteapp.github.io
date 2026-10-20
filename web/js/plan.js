@@ -111,8 +111,9 @@
       const l = G.find(x => gd[x.id] == null && x.level === lv) || G.find(x => gd[x.id] == null);
       tasks.push({ em: '📐', t: l ? t('Ngữ pháp: {title}', { title: l.title }) : t('Học 1 bài ngữ pháp'), sub: `${lv} · ${why}`, href: l ? '#/grammar/' + l.id : '#/grammar', mins: 10, done: (d.grammar || 0) > 0, focus: 'grammar' });
     }
-    const cur = App.pathCurrent && App.pathCurrent();
-    if (cur) tasks.push({ em: cur.topic.emoji, t: t('Học bài: {name}', { name: cur.topic.name }), sub: weak === 'vocab' ? `${cur.stage.name} · ${why}` : `${cur.stage.name} · ${t('đã học {pct}%', { pct: Math.round(cur.pct * 100) })}`, href: '#/path', mins: 8, done: (d.newWords || 0) >= 5, focus: weak === 'vocab' ? 'vocab' : '' });
+    // Bài lộ trình: vào thẳng bước kế tiếp (học 8 từ mới / kiểm tra bài) – 1 chạm là học, không qua bản đồ
+    const pn = App.pathNext ? await App.pathNext() : null, cur = pn && pn.unit;
+    if (cur) tasks.push({ em: cur.topic.emoji, t: t('Học bài: {name}', { name: cur.topic.name }), sub: weak === 'vocab' ? `${cur.stage.name} · ${why}` : `${cur.stage.name} · ${t('đã học {pct}%', { pct: Math.round(cur.pct * 100) })}`, href: pn.href, mins: 8, done: (d.newWords || 0) >= 5, focus: weak === 'vocab' ? 'vocab' : '' });
     const mistakes = (await Store.get('mistakes', [])).filter(x => !x.fixed).length;
     if (mistakes) tasks.push({ em: '📕', t: t('Làm lại {n} lỗi sai', { n: mistakes }), sub: t('Tự nhớ lại đáp án – sửa lỗi = tăng điểm nhanh nhất'), href: '#/mistakes?retry=1', mins: Math.min(10, 2 + mistakes), done: false });
     const sk = await skillTask(ex, dow, d);

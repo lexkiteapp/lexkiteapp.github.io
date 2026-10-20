@@ -220,7 +220,7 @@
     handoff: ['js/lib/qr.js', 'js/handoff.js'], // 📲 chuyển dữ liệu bằng mã QR, không cần đăng nhập (mã hóa trên máy)
     roleplay: ['js/roleplay/data-a.js', 'js/roleplay/data-b.js', 'js/roleplay.js'], // Roleplay for Work: 10 kịch bản công sở
     call: ['js/call/calls.js', 'js/call.js'], // Call Mia: cuộc gọi luyện nói có kịch bản
-    courses: ['js/courses.js'],
+    courses: ['js/courses.js'], goal: ['js/goal.js'], // Mục tiêu & kế hoạch: tải lười (khung app chạm trần 380 KB)
     paraphrase: ['js/lib/paraphrase-data.js', 'js/paraphrase.js'],
     listening: ['js/choice-kit.js', 'js/qengine.js', ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => `js/listen/test${n}.js`), 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/listening.js'],
     writing: ['js/write/task2-more.js', 'js/write/task1-more.js', 'js/write/task1-more2.js', 'js/write/ideas.js', 'js/write.js', 'js/task1.js', 'js/models.js', 'js/write/models2.js', 'js/write/models3.js', 'js/write/models4.js', 'js/write/models5.js', 'js/write/gt-letters.js', 'js/letters.js', 'js/ideas.js'],
@@ -238,7 +238,7 @@
     anki: ['js/lib/save-file.js', 'js/anki.js'], // 🃏 Xuất/nhập Anki (.apkg/.txt/.csv) – chỉ tải khi mở hộp thoại Anki
     share: ['js/lib/qr.js', 'js/lib/save-file.js', 'js/share-card.js'], xport: ['js/export.js'], file: ['js/lib/save-file.js'], lsw: ['js/lang-menu.js'],
   };
-  const ROUTE_BUNDLE = { paraphrase: 'paraphrase', courses: 'courses', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: 'grammar', placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
+  const ROUTE_BUNDLE = { paraphrase: 'paraphrase', courses: 'courses', goal: 'goal', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: 'grammar', placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
     toefl: ['listening', 'toefl'], 'toefl-p': ['listening', 'toefl'],
     toeic: ['tsl', 'listening', 'toeic'], 'toeic-r': ['toeic'], 'toeic-sw': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: ['words', 'tsl'], topic: ['words', 'tsl'], practice: ['words', 'tsl'], dict: ['words', 'tsl', 'vcore', 'uidx'], verb: ['vcore', 'verbs', 'uidx'], fix: ['fixer', 'uidx'], usage: ['vcore', 'uidx', 'usage'], write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'], home: ['words', 'streak'], vocab: 'words', path: 'words', review: 'words', deck: 'words', stats: ['words', 'streak'], league: 'league'};
   const bundleP = {};
@@ -539,7 +539,7 @@
     const ex = App.exam ? App.exam() : 'ielts', X = (App.EXAMS || {})[ex] || { ic: '🎓', short: 'IELTS' };
     const g = state.settings.goal;
     const left = g && g.date ? Math.ceil((new Date(g.date) - now) / DAY) : null;
-    const chip = g && g.target ? `<a class="goal-chip" href="#/goal">${X.ic} ${esc(X.short)} ${esc(String(g.target))}${left > 0 ? ' · ' + t('còn {n} ngày', { n: left }) : ''}</a>` : `<a class="goal-chip" href="#/goal">🚩 ${t('Đặt mục tiêu')}</a>`;
+    const chip = g && g.target ? `<a class="goal-chip" href="#/goal">${X.ic} ${esc(X.short)} ${esc(g.exam === 'general' ? ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'][g.target - 1] || '' : String(g.target))}${left > 0 ? ' · ' + t('còn {n} ngày', { n: left }) : ''}</a>` : `<a class="goal-chip" href="#/goal">🚩 ${t('Đặt mục tiêu')}</a>`;
     const late = h >= 19 && !todayReviews && cards.length;
     const seed = allWords(), w = seed[Math.floor(Date.now() / DAY) % seed.length];
     const quests = Game.questsFor(k), doneQ = state.game.questsDone[k] || [];
@@ -550,8 +550,8 @@
         <div class="grow"><div class="muted small">${greet}${name ? ', ' + esc(name) : ''}</div><div class="kit-say" id="kitSay">${late ? t('Học 5 phút với mình để giữ chuỗi nhé!') : t('Đây là kế hoạch của bạn hôm nay')}</div></div>
         ${chip}
       </div>
-      ${ringsHtml()}
       <section class="card today-card" id="todayPlan" aria-busy="true"><div class="skel skel-l"></div><div class="skel skel-l"></div><div class="skel skel-l"></div></section>
+      ${ringsHtml()}
       <div id="leagueHomeCard"></div>
       ${(() => { const a = App.lastActivity(); return a ? `<a class="card hover hub-card resume" href="${esc(a.href)}"><span class="hub-ic" aria-hidden="true">${a.em}</span><span class="hub-tx"><small>${t('Tiếp tục bài đang học')}</small><b>${esc(a.title)}</b></span><span class="btn sm">${t('Mở lại')} →</span></a>` : ''; })()}
       <a class="quest-line small" href="#/stats?s=quests">🏅 ${t('Nhiệm vụ hôm nay: {a}/{b}', { a: doneQ.length, b: quests.length })} · ${quests.filter(q => !doneQ.includes(q.id)).map(q => q.icon).join(' ')} <span aria-hidden="true">›</span></a>
@@ -581,9 +581,10 @@
         const ks = $('#kitSay'); if (ks) ks.textContent = t('Xong mục tiêu hôm nay rồi! Giỏi quá 🎉');
         return;
       }
+      // Kiểu Duolingo/Busuu: 1 hành động chính ngay dưới tiêu đề (luôn trên màn hình đầu), danh sách việc bên dưới
       el.innerHTML = `<div class="row between nowrap"><div><h2 style="margin:0">${t('Kế hoạch hôm nay')}</h2><div class="muted small">${t('{a}/{b} việc', { a: n, b: tasks.length })}${mins ? ' · ≈ ' + t('{m} phút', { m: mins }) : ''}</div></div>${ring(Math.round(n / tasks.length * 100), n + '/' + tasks.length, 'var(--primary)')}</div>
-        <div class="plan">${tasks.map(x => `<a class="plan-item ${x.done ? 'done' : ''} ${x === next ? 'next' : ''}" href="${x.href}"><span class="pi-em" aria-hidden="true">${x.done ? '✅' : x.em}</span><div class="grow"><b>${esc(x.t)}</b><div class="small muted">${esc(x.sub || '')}</div></div>${x.mins && !x.done ? `<span class="pi-min">${t('{m} phút', { m: x.mins })}</span>` : ''}</a>`).join('')}</div>
-        <a class="btn primary lg block" href="${next.href}" style="margin-top:.9rem">${n ? t('Tiếp tục: {step}', { step: esc(next.t) }) : t('Bắt đầu: {step}', { step: esc(next.t) })} →</a>`;
+        <a class="btn primary lg block today-cta" href="${next.href}">${n ? t('Tiếp tục: {step}', { step: esc(next.t) }) : t('Bắt đầu: {step}', { step: esc(next.t) })} →</a>
+        <div class="plan">${tasks.map(x => `<a class="plan-item ${x.done ? 'done' : ''} ${x === next ? 'next' : ''}" href="${x.href}"${x === next ? ' aria-current="step"' : ''}><span class="pi-em" aria-hidden="true">${x.done ? '✅' : x.em}</span><div class="grow"><b>${esc(x.t)}</b><div class="small muted">${esc(x.sub || '')}</div></div>${x.mins && !x.done ? `<span class="pi-min">${t('{m} phút', { m: x.mins })}</span>` : ''}</a>`).join('')}</div>`;
     });
   };
 

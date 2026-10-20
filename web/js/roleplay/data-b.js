@@ -117,7 +117,7 @@
         h: ['Yes. My sister is getting married. I booked my flights already.', 'Yes – my sister\'s getting married, and the whole family will be there.', 'Yes – my sister\'s getting married abroad, so the dates aren\'t really flexible, I\'m afraid.'],
         br: [['married|wedding|family|sister|brother', 'Oh, congratulations to your family!']] },
       { a: ['I understand. But who will do your work?', 'I see. But who will cover your work while you\'re away?', 'Of course. The question is how we cover your work that week.'],
-        h: ['Anna can help with my tasks. I talked to her and she said yes.', 'I\'ve already spoken to Anna – she\'s happy to cover my daily tasks.', 'I\'ve already spoken to Anna, and she\'s agreed to cover the day-to-day. I\'ll also finish the monthly report before I go.'] },
+        h: ['Anna can help with my tasks. I talked to her and she said yes.', 'I\'ve already spoken to Anna – she\'s happy to cover my daily tasks.', 'I\'ve already spoken to Anna, and she\'s agreed to cover the day-to-day. I\'ll also wrap up my open tasks before I go.'] },
       { a: ['Good. What about the client report?', 'Good. And what about the client report due that week?', 'Great. And the client report that\'s due that Thursday?'],
         h: ['I will finish it before I go. I will send it to you on the ninth.', 'I\'ll finish it early and send it to you on the ninth for review.', 'I\'ll bring it forward and have it on your desk by the ninth, so you\'ve got time to review it.'],
         br: [['early|before|ninth|finish', 'Perfect, that solves my biggest worry.']] },

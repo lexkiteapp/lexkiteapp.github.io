@@ -169,7 +169,7 @@ const curU = w.App.pathCurrent();
 ok(curU && curU.stage.id === 's2', 'lộ trình mở từ chặng gợi ý (s2): ' + (curU && curU.topic.id));
 w.App.state.settings.placement = { ...pl, weak: 'vocab', stage: 's0' };
 plan = await w.App.todayPlan();
-ok(plan.some(x => x.focus === 'vocab' && /path/.test(x.href)) && !plan.some(x => x.focus === 'grammar'), 'kỹ năng yếu từ vựng → bài lộ trình được đánh dấu ưu tiên');
+ok(plan.some(x => x.focus === 'vocab' && /^#\/practice\/(learn|test)\?src=topic/.test(x.href)) && !plan.some(x => x.focus === 'grammar'), 'kỹ năng yếu từ vựng → bài lộ trình được đánh dấu ưu tiên');
 w.App.state.settings.placement = { band: '6.0', pct: 55, vocab: 40, grammar: 70, stage: 's1', at: 1 }; // bản ghi cũ (v1)
 plan = await w.App.todayPlan();
 ok(plan.some(x => x.focus === 'vocab') && w.App.pathCurrent().stage.id === 's1', 'bản ghi cũ (v1) vẫn điều chỉnh kế hoạch + lộ trình');

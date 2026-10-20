@@ -50,7 +50,7 @@
     await prep();
     const ex = App.exam ? App.exam() : 'ielts', list = COURSES.slice().sort((a, b) => (b.exam === ex) - (a.exam === ex));
     view.innerHTML = `<div class="page-head"><div><h1>📚 ${t('Khóa học')}</h1><p class="muted">${t('Lộ trình học theo chương – tự đánh dấu hoàn thành khi bạn đạt yêu cầu, luôn biết bài tiếp theo.')}</p></div></div>
-      <div class="grid auto">${list.map(c => { const s = build(c); return `<a class="card hover course-card" href="#/course/${c.id}"><div class="row between nowrap"><span class="em">${c.em}</span><b class="course-pct">${s.pct}%</b></div><h3>${esc(c.t())}</h3><div class="muted small">${esc(c.d())}</div><div class="progress course-bar"><i style="width:${s.pct}%"></i></div><div class="small">${s.next ? `${t('Tiếp tục')}: <b>${esc(s.next.t)}</b>` : `✓ ${t('Đã hoàn thành khóa học')}`}</div></a>`; }).join('')}</div>`;
+      <div class="grid auto">${list.map(c => { const s = build(c); return `<a class="card hover course-card" href="#/course/${c.id}"><div class="row between nowrap"><span class="em">${c.em}</span><b class="course-pct">${s.pct}%</b></div><h3>${esc(c.t())}</h3><div class="muted small">${esc(c.d())}</div><div class="progress course-bar"><i style="width:${s.pct}%"></i></div><div class="small">${s.next ? `${t('Tiếp tục')}: <b>${esc(s.next.t)}</b>` : s.items.length ? `✓ ${t('Đã hoàn thành khóa học')}` : `<span class="muted">${t('Đang cập nhật')}</span>`}</div></a>`; }).join('')}</div>`;
   };
 
   routes.course = async function (id) {
@@ -60,7 +60,7 @@
     const s = build(c);
     view.innerHTML = `<a class="small" href="#/courses">← ${t('Khóa học')}</a>
       <div class="card course-head"><div class="row between"><div><h1 style="margin:.2rem 0">${c.em} ${esc(c.t())}</h1><p class="muted small" style="margin:0">${esc(c.d())}</p></div>${UI.ring(s.pct, `${s.n}/${s.items.length}`, 'var(--good)')}</div>
-        ${s.next ? `<a class="btn primary lg block" href="${s.next.href}" style="margin-top:1rem">${t('Tiếp tục bài học')}: ${esc(s.next.t)} →</a>` : `<div class="feedback ok" style="position:static;margin-top:1rem">🎉 ${t('Đã hoàn thành khóa học')}</div>`}</div>
+        ${s.next ? `<a class="btn primary lg block" href="${s.next.href}" style="margin-top:1rem">${t('Tiếp tục bài học')}: ${esc(s.next.t)} →</a>` : s.items.length ? `<div class="feedback ok" style="position:static;margin-top:1rem">🎉 ${t('Đã hoàn thành khóa học')}</div>` : `<div class="card empty" style="margin-top:1rem"><div class="em">🛠️</div>${t('Đang cập nhật')} · <a href="#/courses">${t('Khóa học')}</a></div>`}</div>
       ${s.units.map((u, k) => { const dn = u.items.filter(i => i.done()).length, open = s.next && u.items.includes(s.next); return `<details class="g-chap course-unit" ${open ? 'open' : ''}><summary><span class="g-tx"><b>${t('Chương {n}', { n: k + 1 })} · ${esc(u.t)}</b><small>${dn}/${u.items.length}</small></span></summary><div class="g-list">${u.items.map(i => `<a class="g-row ${i.done() ? 'done' : ''} ${i === s.next ? 'next' : ''}" href="${i.href}"><span class="em" aria-hidden="true">${i.done() ? '✅' : i.em}</span><span class="g-tx"><b>${esc(i.t)}</b></span>${i === s.next ? `<span class="chip lv">${t('Tiếp theo')}</span>` : ''}</a>`).join('')}</div></details>`; }).join('')}`;
   };
 })();
