@@ -152,7 +152,7 @@
           if (M.player && M.player.playing && !confirm(t('Phần nghe chưa phát xong. Vẫn chuyển tiếp?'))) return;
           Object.assign(res, Object.fromEntries(Object.entries(QE.collect(p, $('#lQs'))).map(([n, r]) => [n, { ...r, ref: p.id }])));
           if (k < parts.length - 1) { clearAll(); part(k + 1); window.scrollTo({ top: 0 }); }
-          else { const raw = Object.values(res).filter(r => r.ok).length; M.bands.listening = QE.bandOf(raw, 'listening'); M.detail.listening = { raw, res }; next(); }
+          else { if (window.QT) QT.record('il', res); const raw = Object.values(res).filter(r => r.ok).length; M.bands.listening = QE.bandOf(raw, 'listening'); M.detail.listening = { raw, res }; next(); }
         };
       }
     }
@@ -189,6 +189,7 @@
         const submit = () => {
           const res = {};
           tst.passages.forEach((p, k) => Object.assign(res, Object.fromEntries(Object.entries(QE.collect(p, $(`.mk-qp[data-p="${k}"]`))).map(([n, r]) => [n, { ...r, ref: tst.id + ':' + p.n }]))));
+          if (window.QT) QT.record('ir', res, $('#mkQs'));
           const raw = Object.values(res).filter(r => r.ok).length;
           M.bands.reading = QE.bandOf(raw, tst.gt ? 'reading-gt' : 'reading'); M.detail.reading = { raw, res, t: tst.id };
           next();
@@ -316,6 +317,7 @@
         ${L ? `<div class="card"><div class="row between"><h3 style="margin:0">🎧 Listening · ${L.raw}/40 → Band ${M.bands.listening}</h3><a class="btn sm" href="#/listening">${t('Luyện lại có lời thoại')}</a></div><details style="margin-top:.5rem"><summary class="small">${t('Bảng đáp án')}</summary>${sheet(L.res)}</details></div>` : ''}
         ${R ? `<div class="card"><div class="row between"><h3 style="margin:0">📖 Reading · ${R.raw}/40 → Band ${M.bands.reading}</h3><a class="btn sm" href="#/mock">${t('Thi đề khác')}</a></div><details style="margin-top:.5rem"><summary class="small">${t('Bảng đáp án')}</summary>${sheet(R.res)}</details></div>` : ''}
         ${R ? (() => { const tsr = RT().find(x => x.test === M.rt), ex = ((window.READ_EXPLAIN || {})[tsr && tsr.id]) || {}, wrong = Object.keys(R.res).map(Number).sort((a, b) => a - b).filter(n => !R.res[n].ok); return wrong.length ? `<div class="card"><details><summary><b>🧑‍🏫 ${t('Chữa {n} câu Reading sai', { n: wrong.length })}</b></summary>${wrong.map(n => `<div class="q-item"><b>${n}. ${esc(R.res[n].q || '')}</b><div class="small">${t('Đáp án:')} <b style="color:var(--good-text)">${esc(R.res[n].answer)}</b>${R.res[n].given ? ` · ${t('Bạn chọn:')} <span style="color:var(--again-text)">${esc(R.res[n].given)}</span>` : ''}</div>${QE.explainHtml(ex[n])}</div>`).join('')}</details></div>` : ''; })() : ''}
+        ${window.QT ? (L ? QT.summary(L.res, 'Listening') : '') + (R ? QT.summary(R.res, 'Reading') : '') : ''}
         ${W ? `<div class="card"><h3 style="margin-top:0">✍️ Writing → Band ${M.bands.writing}</h3>
           <div class="grid g2"><div><b>Task 1 · ${t('{n} từ', { n: W.s1.words })} · ~${W.s1.band}</b><ul class="small">${W.s1.notes.map(n => `<li>${n}</li>`).join('')}</ul><a class="btn sm ghost" href="#/model/t1-${esc(W.d)}">📄 ${t('Bài mẫu Task 1 (nếu có)')}</a></div>
           <div><b>Task 2 · ${t('{n} từ', { n: W.s2.words })} · ~${W.s2.band}</b>${crit(W.s2.crit)}<ul class="small">${W.s2.notes.map(n => `<li>${esc(n)}</li>`).join('')}</ul><a class="btn sm ghost" href="#/write/${esc(W.p)}">✍️ ${t('Mở đề trong Phòng viết')}</a></div></div></div>` : ''}

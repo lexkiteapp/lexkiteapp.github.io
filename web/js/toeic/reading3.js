@@ -47,7 +47,7 @@
         { n: 120, q: 'The new policy allows employees to work from home ------- two days per week.', options: ['until', 'within', 'up to', 'as of'], a: 2, cue: 'two days per week',
           explain: '"up to + số lượng" = tối đa, lên đến → được làm việc tại nhà tối đa hai ngày mỗi tuần. "until" chỉ mốc thời gian; "within" = trong vòng (khoảng thời gian); "as of" = kể từ (ngày nào).' },
         { n: 121, q: 'Neither of the candidates ------- the experience required for the senior accountant position.', options: ['has', 'are', 'having', 'to have'], a: 0, cue: 'Neither of the candidates',
-          explain: 'Theo văn phong trang trọng (chuẩn TOEIC), "Neither of + danh từ số nhiều" đi với động từ số ít → "has". "having/to have" không phải động từ chia, câu sẽ thiếu động từ chính.' },
+          explain: 'Theo văn phong trang trọng (chuẩn TOEIC), "Neither of + danh từ số nhiều" đi với động từ số ít → "has". "are" sai vì động từ số nhiều không hợp với "Neither of", và "are the experience" vô nghĩa (ở đây cần động từ mang nghĩa sở hữu như "has", không phải động từ to be). "having/to have" không phải động từ chia, câu sẽ thiếu động từ chính.' },
         { n: 122, q: 'Please keep your receipt, as it will be needed for any returns or -------.', options: ['exchanging', 'exchanged', 'exchangeable', 'exchanges'], a: 3, cue: 'any returns or',
           explain: 'Cấu trúc song song với "or": "returns" là danh từ số nhiều → "exchanges" (việc đổi hàng). "exchanging/exchanged" là dạng động từ; "exchangeable" là tính từ.' },
         { n: 123, q: 'The company picnic will be held in the gymnasium ------- it rains on Saturday.', options: ['unless', 'whereas', 'if', 'so'], a: 2, cue: 'it rains on Saturday',

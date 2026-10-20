@@ -32,26 +32,27 @@
   function collect(p, root) {
     const res = {};
     p.groups.forEach((gr, gi) => {
+      const kind = g.QT ? g.QT.kindOf(gr) : gr.type; // dạng câu chi tiết (qtips.js) – thống kê tiến bộ theo dạng
       if (gr.type === 'multi') {
         const picked = $$(`[data-multi="${gi}"]:checked`, root).map(x => x.value);
         const correct = picked.filter(x => gr.a.includes(x));
-        gr.n.forEach((n, k) => { res[n] = { ok: k < correct.length, given: picked.join(', '), answer: gr.a.join(', '), cue: gr.cue, q: gr.q, type: 'multi', alts: gr.a }; });
+        gr.n.forEach((n, k) => { res[n] = { ok: k < correct.length, given: picked.join(', '), answer: gr.a.join(', '), cue: gr.cue, q: gr.q, type: 'multi', kind, alts: gr.a }; });
         return;
       }
       gr.items.forEach(it => {
         const el = $(`[data-qn="${it.n}"]`, root);
-        if (gr.type === 'mcq') { const v = $(`input[name="q${it.n}"]:checked`, root); const given = v ? +v.value : null; res[it.n] = { ok: given === it.a, given: given == null ? '' : L[given], answer: L[it.a] + '. ' + it.options[it.a], cue: it.cue, q: it.q, type: 'mcq', alts: [String(it.a)], stm: gr.photo ? it.options : null }; }
-        else if (TF[gr.type]) { const v = $(`input[name="q${it.n}"]:checked`, root); const given = v ? v.value : ''; res[it.n] = { ok: given === it.a, given, answer: it.a, cue: it.cue, q: it.text, type: gr.type, alts: [it.a] }; }
-        else if (gr.type === 'match') { const v = el ? el.value : ''; const opt = gr.options.find(o => code(o) === it.a); res[it.n] = { ok: v === it.a, given: v, answer: it.a + (opt && label(opt) ? ' – ' + label(opt) : ''), cue: it.cue, q: it.text, type: 'match', alts: [it.a] }; }
-        else { const v = el ? el.value.trim() : ''; const r = gradeGap(it, gr.limit, v); res[it.n] = { ok: r.ok, over: r.over, given: v, answer: it.a[0], cue: it.cue, q: it.text, type: 'gap', alts: it.a, limit: gr.limit }; }
+        if (gr.type === 'mcq') { const v = $(`input[name="q${it.n}"]:checked`, root); const given = v ? +v.value : null; res[it.n] = { ok: given === it.a, given: given == null ? '' : L[given], answer: L[it.a] + '. ' + it.options[it.a], cue: it.cue, q: it.q, type: 'mcq', kind, alts: [String(it.a)], stm: gr.photo ? it.options : null }; }
+        else if (TF[gr.type]) { const v = $(`input[name="q${it.n}"]:checked`, root); const given = v ? v.value : ''; res[it.n] = { ok: given === it.a, given, answer: it.a, cue: it.cue, q: it.text, type: gr.type, kind, alts: [it.a] }; }
+        else if (gr.type === 'match') { const v = el ? el.value : ''; const opt = gr.options.find(o => code(o) === it.a); res[it.n] = { ok: v === it.a, given: v, answer: it.a + (opt && label(opt) ? ' – ' + label(opt) : ''), cue: it.cue, q: it.text, type: 'match', kind, alts: [it.a] }; }
+        else { const v = el ? el.value.trim() : ''; const r = gradeGap(it, gr.limit, v); res[it.n] = { ok: r.ok, over: r.over, given: v, answer: it.a[0], cue: it.cue, q: it.text, type: 'gap', kind, alts: it.a, limit: gr.limit }; }
       });
     });
     return res;
   }
 
   // ---------- Hiển thị ----------
-  function groupHtml(gr, gi) {
-    const head = `<div class="lq-instr">${gr.title ? `<b>${esc(gr.title)}</b><br>` : ''}<i>${esc(gr.instr)}</i></div>`;
+  function groupHtml(gr, gi, tips) {
+    const head = `<div class="lq-instr">${gr.title ? `<b>${esc(gr.title)}</b><br>` : ''}<i>${esc(gr.instr)}</i></div>${tips && g.QT ? g.QT.box(g.QT.kindOf(gr)) : ''}`;
     // TOEIC Part 1 (photo): ảnh + chỉ chữ (A)–(D); 4 câu mô tả chỉ nghe, hiện lại sau khi nộp (mark)
     if (gr.type === 'mcq' && gr.photo) return `<div class="lq-group">${head}${gr.items.map(it => `<div class="lq-item" data-item="${it.n}"><div><span class="qn">${it.n}</span> ${esc(it.q)}</div>
       <img class="lq-photo" src="${esc((/^https?:/.test(location.protocol) ? "" : "https://lexkite.com/") + it.img)}" alt="${esc(t('Ảnh câu {n}', { n: it.n }))}" loading="lazy" style="display:block;max-width:100%;height:auto;border-radius:12px;margin:.4rem 0">
@@ -69,10 +70,11 @@
     const cls = gr.type === 'table' ? 'lq-table' : 'lq-notes';
     return `<div class="lq-group">${head}<div class="${cls}">${gr.items.map(it => `<div class="lq-item lq-gap" data-item="${it.n}">${esc(it.text).replace('___', `<span class="qn">${it.n}</span><input class="gap" data-qn="${it.n}" autocomplete="off" spellcheck="false" size="12">`)}<div class="lq-fb" hidden></div></div>`).join('')}</div></div>`;
   }
-  const questionsHtml = p => `<div class="lq">${p.groups.map(groupHtml).join('')}</div>`;
+  const questionsHtml = p => `<div class="lq">${p.groups.map((gr, gi) => groupHtml(gr, gi, p.tips)).join('')}</div>`; // p.tips: hiện ô mẹo theo dạng câu (chế độ luyện)
 
   // Chọn 2 đáp án: không cho tick quá 2
   function bind(root) {
+    if (root && root.dataset) root.dataset.qeT0 = Date.now(); // mốc thời gian làm bài (QT.record tính giây/câu – ước tính)
     if (g.ChoiceKit && root) g.ChoiceKit.attach(root); // phím A–D/1–4 + gạch đáp án (choice-kit.js)
     $$('input[data-multi]', root).forEach(c => c.addEventListener('change', () => { const same = $$(`input[data-multi="${c.dataset.multi}"]:checked`, root); if (same.length > 2) c.checked = false; }));
     $$('input.gap', root).forEach((inp, k, arr) => inp.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); if (arr[k + 1]) arr[k + 1].focus(); } }));
@@ -96,12 +98,12 @@
   const TYPE_NAME = () => ({ mcq: t('Trắc nghiệm'), multi: t('Chọn 2 đáp án'), match: t('Nối thông tin'), tfng: 'TRUE / FALSE / NOT GIVEN', ynng: 'YES / NO / NOT GIVEN', gap: t('Điền từ') });
   function stats(root, res) {
     const by = {};
-    Object.entries(res).forEach(([n, r]) => { const k = r.type || 'gap'; (by[k] = by[k] || { ok: 0, all: 0, wrong: [] }).all++; if (r.ok) by[k].ok++; else by[k].wrong.push(n); });
+    Object.entries(res).forEach(([n, r]) => { const k = (g.QT && r.kind) || r.type || 'gap'; (by[k] = by[k] || { ok: 0, all: 0, wrong: [] }).all++; if (r.ok) by[k].ok++; else by[k].wrong.push(n); });
     if (Object.keys(by).length < 1) return;
     const old = root.querySelector('.qe-stats'); if (old) old.remove();
     const wrongN = Object.values(res).filter(r => !r.ok).length;
     root.insertAdjacentHTML('afterbegin', `<div class="card qe-stats"><div class="row between" style="gap:.5rem;flex-wrap:wrap"><b>📊 ${t('Kết quả theo dạng câu hỏi')}</b>${wrongN ? `<button type="button" class="btn sm primary" data-retake>↻ ${t('Làm lại {n} câu sai', { n: wrongN })}</button>` : ''}</div>
-      <table class="qe-tbl"><tr><th>${t('Dạng câu hỏi')}</th><th>${t('Đúng')}</th><th>%</th><th>${t('Câu sai')}</th></tr>${Object.entries(by).map(([k, v]) => `<tr><td>${esc(TYPE_NAME()[k] || k)}</td><td>${v.ok}/${v.all}</td><td><span class="qe-pct ${v.ok / v.all >= 0.75 ? 'ok' : v.ok / v.all >= 0.5 ? 'mid' : 'no'}">${Math.round(v.ok / v.all * 100)}%</span></td><td>${v.wrong.map(n => `<button type="button" class="qe-n" data-goq="${n}">${n}</button>`).join(' ') || '–'}</td></tr>`).join('')}</table></div>`);
+      <table class="qe-tbl"><tr><th>${t('Dạng câu hỏi')}</th><th>${t('Đúng')}</th><th>%</th><th>${t('Câu sai')}</th></tr>${Object.entries(by).map(([k, v]) => `<tr><td translate="no">${esc((g.QT && g.QT.NAME[k]) || TYPE_NAME()[k] || k)}</td><td>${v.ok}/${v.all}</td><td><span class="qe-pct ${v.ok / v.all >= 0.75 ? 'ok' : v.ok / v.all >= 0.5 ? 'mid' : 'no'}">${Math.round(v.ok / v.all * 100)}%</span></td><td>${v.wrong.map(n => `<button type="button" class="qe-n" data-goq="${n}">${n}</button>`).join(' ') || '–'}</td></tr>`).join('')}</table>${g.QT ? `<div class="tiny" style="margin-top:.5rem"><a href="#/qstats">📊 ${t('Xem tiến bộ theo kỹ năng và dạng câu hỏi')} →</a></div>` : ''}</div>`);
     $$('[data-goq]', root).forEach(b => b.onclick = () => { const el = itemOf(root, b.dataset.goq); if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); el.classList.add('qe-flash'); setTimeout(() => el.classList.remove('qe-flash'), 1200); } });
     const rb = $('[data-retake]', root); if (rb) rb.onclick = () => retake(root, res);
   }

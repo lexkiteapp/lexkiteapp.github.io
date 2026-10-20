@@ -120,9 +120,11 @@
     const cur = sets.includes(+((query && query.get && query.get('s')) || 0)) ? +query.get('s') : sets[0];
     const units = perPage && sets.length > 1 ? all.filter(u => (u.set || 1) === cur) : all;
     const players = [], timers = [];
+    pageT0 = Date.now();
     App.cleanup = () => { players.forEach(p => p && p.stop()); timers.forEach(clearInterval); stopRec(); UI.stopSpeak(); if (UI.stopRecognize) UI.stopRecognize(); };
     view.innerHTML = `<a href="#/toefl" class="small">← TOEFL iBT</a>
       <div class="page-head" style="margin-top:.4rem"><div><div class="tiny muted">${sec.ic} ${sec.name}</div><h1 style="margin:.2rem 0">${T.ic} ${esc(T.name)}</h1><p class="muted small" style="margin:0">${T.desc}</p></div></div>
+      ${window.QT ? QT.box(task === 'sentence' ? 'sentenceB' : task, true) : ''}
       <div class="row" style="margin-bottom:1rem">${sec.tasks.map(k => `<a class="btn sm ${k === task ? 'primary' : ''}" href="#/toefl-p/${k}">${TASKS[k].ic} ${esc(TASKS[k].name)}</a>`).join('')}</div>
       ${perPage && sets.length > 1 ? `<div class="tabs" style="display:inline-flex;margin-bottom:1rem">${sets.map(n => `<a class="${n === cur ? 'on' : ''}" href="#/toefl-p/${task}?s=${n}" style="padding:.45rem .9rem;border-radius:10px;font-weight:700;text-decoration:none;color:inherit;${n === cur ? 'background:var(--surface);box-shadow:var(--shadow-sm)' : ''}">${t('Bộ {n}', { n })}</a>`).join('')}</div>` : ''}
       <div id="tfBody"></div>`;
@@ -160,7 +162,9 @@
     };
   }
 
+  let pageT0 = 0; // mốc mở trang luyện → giây/câu (ước tính)
   async function finish(task, right, total, stat) {
+    if (window.QT) { const sk = { reading: 'fr', listening: 'fl', writing: 'fw' }[secOf(task).key]; if (sk) await QT.recordRaw(sk, task === 'sentence' ? 'sentenceB' : task, right, total, pageT0 ? Math.min(10800, Math.round((Date.now() - pageT0) / 1000)) : 0); }
     await App.reward({ quizzes: 1, [stat]: 1, xp: 10 + right * 2 });
     await saveBest(task, total ? right / total : 0);
     const r = $('#tRes'); if (!r) return;
