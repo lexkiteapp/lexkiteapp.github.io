@@ -106,7 +106,7 @@ Khi bật đăng nhập/AdMob: cập nhật bảng này + nhãn Apple trước k
 | ✅ | Xcode 26 | `ios-testflight.yml` + `ios-shots.yml` chọn Xcode 26 trên macos-15 | Bản build TestFlight dựng bằng Xcode 26 / iOS 26 SDK. |
 | ✅ | Ký + TestFlight | `.github/workflows/ios-testflight.yml` (API key ASC_*, ký tự động) | Bản 1.0 đã lên TestFlight. Bản mới: chạy lại workflow (build number = số lần chạy). |
 | ⚠️ | Age rating | Câu trả lời sẵn: `store/apple/LISTING.md` § Age rating | 👤 bấm theo bảng (mọi mục None/No vì bản iOS không có đăng nhập → không có bảng xếp hạng/biệt danh) rồi **Override → 13+** cho khớp chính sách (không dành cho dưới 13) + Play 13+ + AI Roleplay. Script KHÔNG đụng mục này. |
-| ✅ | Ảnh App Store | iPhone 6.9" 1320×2868 + iPad 13" 2064×2752, 7 ảnh × en/vi, chụp từ app GỐC trên Simulator (`ios-shots.yml` → nhánh `ios-shots`) | Cùng 7 màn hình + chữ như ảnh Google Play (`scripts/lib/app-shots-copy.mjs`). Ngôn ngữ khác dùng ảnh en-US. |
+| ⚠️ | Ảnh App Store | Pipeline xong, ảnh thử ở nhánh `ios-shots` – chụp lại sau khi sửa lỗi app ở B4; iPhone 6.9" 1320×2868 + iPad 13" 2064×2752, 7 ảnh × en/vi, chụp từ app GỐC trên Simulator (`ios-shots.yml` → nhánh `ios-shots`) | Cùng 7 màn hình + chữ như ảnh Google Play (`scripts/lib/app-shots-copy.mjs`). Ngôn ngữ khác dùng ảnh en-US. |
 | ✅ | Demo account | Không cần | Ghi "No login required" trong Review Notes. |
 
 ### B1. Nhãn quyền riêng tư App Store (App Privacy)
@@ -130,8 +130,16 @@ Nguồn: `reviewNotes` trong `store/apple/listing.json` (script `asc-upload.mjs`
 ### B4. Nộp bản 1.0 – trạng thái & các bước anh chủ bấm
 **Đã chuẩn bị (🛠):** niêm yết 15 ngôn ngữ (+ es-MX) `store/apple/listing.json` / `LISTING.md` (kiểm giới hạn ký tự + luật Apple trong `npm test`), ảnh iPhone/iPad, `scripts/asc-upload.mjs` (JWT ES256, idempotent, `--dry-run`) chạy trong workflow **iOS → ảnh App Store** (`asc = dry-run | upload`). Script chỉ ghi chữ, danh mục (Education / Reference), bản quyền, ghi chú duyệt và ảnh của bản 1.0 khi đang *Prepare for Submission*; không nộp, không đổi giá/phân phối/độ tuổi/App Privacy.
 
+**Trạng thái 20/10/2026:** ✅ đã đẩy thật lên App Store Connect (bản 1.0, Prepare for Submission): danh mục Education/Reference, tên + phụ đề + URL chính sách 16 ngôn ngữ, mô tả/từ khóa/quảng bá/URL hỗ trợ & marketing, bản quyền, ghi chú duyệt (demo account = không). Chạy lại = "đã đổi 0" phần chữ (idempotent). ⏸ **Ảnh CHƯA đẩy** – chờ sửa 3 lỗi app dưới đây rồi chụp lại.
+
+**❌ Lỗi app phải sửa trước khi nộp (thấy trên ảnh Simulator, nhánh `ios-shots`; vùng `web/js` – báo phiên chính):**
+1. **Đăng nhập Google vẫn hiện trong app gốc** dù `nativeNoAuth` đã tắt đồng bộ: nút "Tôi đã có tài khoản" ở màn chào (`app.js` ~1550, `#loginW`), nút G ở thanh trên, "Sign in with Google" ở thanh bên iPad; bấm vào ra hộp "sẽ có ở bản phát hành chính thức" (`sync.js` ~298) = tính năng "sắp có" → rủi ro Apple 2.1 + 4.8 (đăng nhập bên thứ ba mà không có Sign in with Apple). Sửa: ẩn mọi lối đăng nhập khi `nativeNoAuth`.
+2. **Vùng an toàn trên cùng**: trang ôn thẻ (`#/review`, iPhone) và thanh trên iPad đè lên thanh trạng thái (giờ/pin) – thiếu `env(safe-area-inset-top)` ở các bố cục đó.
+3. Gợi ý phím tắt ("Shortcuts: Space flip…") hiện trên cảm ứng ở trang ôn thẻ (Simulator báo hover) – nên ẩn khi `VBNative.is`.
+Sau khi sửa + build TestFlight mới: chạy **iOS → ảnh App Store** với `capture = true`, `asc = upload`, `only = all` (hoặc `only = shots`), soi ảnh ở nhánh `ios-shots` trước.
+
 **👤 Anh chủ bấm trên App Store Connect (app 6824714708):**
-1. Actions → **iOS → ảnh App Store** → Run workflow: `capture = false`, `asc = upload` (nếu em chưa chạy) → xem Summary "✓ đã đổi …".
+1. (Sau khi sửa lỗi app ở trên) Actions → **iOS → ảnh App Store** → Run workflow `capture = true`, `asc = upload` → xem Summary "✓ đã đổi …" và ảnh trên App Store Connect.
 2. App Information: kiểm Name/Subtitle/Category đã có; **Content Rights** → "Yes, contains third-party content" + "I have the necessary rights"; **Age Rating** → Edit theo bảng trong LISTING.md, Override **13+**.
 3. **App Privacy** → Get Started → khai đúng bảng § App Privacy (12 loại, Tracking = No) → Publish. Privacy Policy URL `https://lexkite.com/en/privacy`.
 4. **Pricing and Availability**: Free; quốc gia: tất cả **trừ EU** cho tới khi khai DSA trader (xem Trạng thái phát hành bên dưới).
