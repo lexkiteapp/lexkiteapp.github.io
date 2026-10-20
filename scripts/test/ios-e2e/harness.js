@@ -10,6 +10,7 @@
   try { Object.defineProperty(navigator, 'webdriver', { get: () => true }); } catch (e) { /* tắt thống kê truy cập của app khi kiểm thử */ }
   const Cap = W.Capacitor, P = () => (W.Capacitor && W.Capacitor.Plugins) || {};
   const now = () => Date.now();
+  const inApp = () => !!document.getElementById('view'); // app gốc: app học nằm ở www/index.html (gốc), không phải /app/
   const sleep = ms => new Promise(r => setTimeout(r, ms));
   const st = (() => { try { return JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { return null; } })() || { i: 0, n: 0 };
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) { /* bỏ qua */ } };
@@ -101,7 +102,7 @@
     const v = document.getElementById('view');
     const modal = document.getElementById('modal'), modalOpen = modal && !modal.hidden;
     out.text = v ? (v.innerText || '').trim().length : (document.body.innerText || '').trim().length;
-    if (!v && !/\/app\//.test(location.pathname)) add('page', 'Không ở trong app: ' + location.href);
+    if (!v) add('page', 'Không ở trong app: ' + location.href);
     if (out.text < 20 && !modalOpen) add('blank', 'Màn hình trống/gần trống (' + out.text + ' ký tự)');
     const sw = document.documentElement.scrollWidth, iw = innerWidth;
     if (sw > iw + 2) {
@@ -200,7 +201,7 @@
       await sleep(900);
       for (let i = before; i < issues.length; i++) issues[i].msg = '[bấm "' + lab + '"] ' + issues[i].msg;
       const m = document.getElementById('modal'); if (m && !m.hidden) { audit(route + ' › ' + lab); closeModal(); await sleep(200); }
-      if (location.hash !== startHash || !/\/app\//.test(location.pathname)) { if (!/\/app\//.test(location.pathname)) return; location.hash = startHash; await settle(4000); }
+      if (location.hash !== startHash || !inApp()) { if (!inApp()) return; location.hash = startHash; await settle(4000); }
     }
   }
   const btnByText = re => [...document.querySelectorAll('#view button, #view a, #view [role=button]')].filter(b => vis(b) && re.test((b.innerText || '') + ' ' + (b.getAttribute('aria-label') || ''))).at(0);
@@ -212,12 +213,12 @@
         emit({ type: 'info', key: 'launch', path: location.pathname, hash: location.hash, ua: navigator.userAgent, w: innerWidth, h: innerHeight, dpr: devicePixelRatio, safe: a.safe, platform: Cap && Cap.getPlatform && Cap.getPlatform(),
           sw: 'serviceWorker' in navigator, speech: typeof (W.SpeechRecognition || W.webkitSpeechRecognition), gum: !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia), synth: 'speechSynthesis' in W, plugins: Object.keys(P()), ipad: IPAD });
         await shot('launch');
-        if (!/\/app\//.test(location.pathname)) { add('launch', 'Mở app lần đầu hiện TRANG GIỚI THIỆU web (' + location.pathname + ') thay vì app học – người dùng phải bấm "Bắt đầu"'); }
+        if (!inApp()) { add('launch', 'Mở app lần đầu hiện TRANG GIỚI THIỆU web (' + location.pathname + ') thay vì app học – người dùng phải bấm "Bắt đầu"'); }
         return;
       }
       case 'toapp': {
-        if (/\/app\//.test(location.pathname)) return;
-        st.i++; st.inStep = null; save(); location.href = '/app/index.html#/home'; await sleep(15000); add('flow', 'Không vào được /app/ từ trang giới thiệu'); return;
+        if (inApp()) return;
+        st.i++; st.inStep = null; save(); location.href = '/index.html#/home'; await sleep(15000); add('flow', 'Không vào được /app/ từ trang giới thiệu'); return;
       }
       case 'lang': {
         if (W.I18N.lang() === s.l) return;
