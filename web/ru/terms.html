@@ -25,12 +25,12 @@
   <meta name="theme-color" content="#0F3D3E">
   <link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml">
   <link rel="stylesheet" href="/css/style.css">
-  <style>footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px;background:var(--surface);margin-top:40px}footer .bar{display:block;max-width:1080px;margin:0 auto;padding:28px 16px 20px}.flogo{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:18px;color:var(--text);text-decoration:none}.flogo b{color:var(--primary)}.flogo img{border-radius:8px}footer p{margin:.3em 0}.fcols{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:24px}.fbrand p{max-width:34ch}footer h2{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--text);margin:4px 0 8px}footer ul{list-style:none;margin:0;padding:0}footer li{margin:6px 0}footer a{color:var(--muted)}footer a:hover{color:var(--link,var(--primary))}.flangs{display:flex;flex-wrap:wrap;gap:4px 14px;border-top:1px solid var(--line);margin-top:20px;padding-top:14px}.flangs a[aria-current]{color:var(--text);font-weight:700}.ftm{font-size:13px}@media (max-width:720px){.fcols{grid-template-columns:1fr 1fr}.fbrand{grid-column:1/-1}}.doc{max-width:760px;margin:0 auto;padding:2.5rem 1.25rem 4rem}.doc h2{margin-top:2rem}.doc li{margin:.35rem 0}.doc table{width:100%;border-collapse:collapse;font-size:.92rem}.doc td,.doc th{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;vertical-align:top}.lg{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.5rem}.lg select{font:inherit;padding:.35rem .5rem;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text)}.tnote{background:var(--line);border-radius:10px;padding:.6rem .8rem;font-size:.85rem}</style>
+  <style>footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px;background:var(--surface);margin-top:40px}footer .bar{display:block;max-width:1080px;margin:0 auto;padding:28px 16px 20px}.flogo{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:18px;color:var(--text);text-decoration:none}.flogo b{color:var(--primary)}.flogo img{border-radius:8px}footer p{margin:.3em 0}.fcols{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:24px}.fbrand p{max-width:34ch}footer h2{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--text);margin:4px 0 8px}footer ul{list-style:none;margin:0;padding:0}footer li{margin:6px 0}footer a{color:var(--muted)}footer a:hover{color:var(--link,var(--primary))}.flangs{display:flex;flex-wrap:wrap;gap:4px 14px;border-top:1px solid var(--line);margin-top:20px;padding-top:14px}.flangs a[aria-current]{color:var(--text);font-weight:700}.ftm{font-size:13px}@media (max-width:720px){.fcols{grid-template-columns:1fr 1fr}.fbrand{grid-column:1/-1}}.doc{max-width:760px;margin:0 auto;padding:2.5rem 1.25rem 4rem}.doc h2{margin-top:2rem}.doc li{margin:.35rem 0}.doc table{width:100%;border-collapse:collapse;font-size:.92rem}.doc td,.doc th{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;vertical-align:top}.lg{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.5rem}.tnote{background:var(--line);border-radius:10px;padding:.6rem .8rem;font-size:.85rem}</style>
 </head>
 <body>
   <main class="doc">
     <div class="lg"><a class="brand" href="/en/" style="padding:0"><img class="logo" src="/icons/icon.svg?v=2" alt=""><span class="wordmark">lex<b>kite</b></span></a>
-      <select aria-label="Language" onchange="location.href='/'+this.value+'/terms'"><option value="en">English</option><option value="vi">Tiếng Việt</option><option value="es">Español</option><option value="pt">Português</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="id">Bahasa Indonesia</option><option value="th">ไทย</option><option value="zh">简体中文</option><option value="ja">日本語</option><option value="ko">한국어</option><option value="hi">हिन्दी</option><option value="ar">العربية</option><option value="ru" selected>Русский</option><option value="tr">Türkçe</option></select></div>
+      <div class="lsw" data-lsw><button type="button" class="lsw-b" aria-haspopup="true" aria-expanded="false" aria-controls="lsw-m" aria-label="Language: Русский"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.6 2.6 4 6 4 9.5s-1.4 6.9-4 9.5c-2.6-2.6-4-6-4-9.5s1.4-6.9 4-9.5z"/></svg><span class="lsw-c">RU</span></button><ul class="lsw-m" id="lsw-m" role="menu" aria-label="Language" translate="no" hidden><li role="none"><a role="menuitem" href="/vi/terms" lang="vi" hreflang="vi">Tiếng Việt</a></li><li role="none"><a role="menuitem" href="/en/terms" lang="en" hreflang="en">English</a></li><li role="none"><a role="menuitem" href="/es/terms" lang="es" hreflang="es">Español</a></li><li role="none"><a role="menuitem" href="/pt/terms" lang="pt" hreflang="pt">Português</a></li><li role="none"><a role="menuitem" href="/fr/terms" lang="fr" hreflang="fr">Français</a></li><li role="none"><a role="menuitem" href="/de/terms" lang="de" hreflang="de">Deutsch</a></li><li role="none"><a role="menuitem" href="/id/terms" lang="id" hreflang="id">Bahasa Indonesia</a></li><li role="none"><a role="menuitem" href="/th/terms" lang="th" hreflang="th">ไทย</a></li><li role="none"><a role="menuitem" href="/zh/terms" lang="zh" hreflang="zh">简体中文</a></li><li role="none"><a role="menuitem" href="/ja/terms" lang="ja" hreflang="ja">日本語</a></li><li role="none"><a role="menuitem" href="/ko/terms" lang="ko" hreflang="ko">한국어</a></li><li role="none"><a role="menuitem" href="/hi/terms" lang="hi" hreflang="hi">हिन्दी</a></li><li role="none"><a role="menuitem" href="/ar/terms" lang="ar" hreflang="ar" dir="rtl">العربية</a></li><li role="none"><a role="menuitem" href="/ru/terms" lang="ru" hreflang="ru" aria-current="page">Русский</a></li><li role="none"><a role="menuitem" href="/tr/terms" lang="tr" hreflang="tr">Türkçe</a></li></ul></div></div>
     <h1>Terms of Use</h1>
     <p class="muted">Applies to the Lexkite web app (lexkite.com), the Lexkite iOS/Android apps and the “Lexkite” browser extension. Effective date: October 17, 2026. See also our <a href="privacy">Privacy Policy</a>.</p>
     <p class="tnote">These terms were prepared from a template. They are not legal advice and do not replace review by a qualified lawyer.</p>
@@ -72,5 +72,40 @@
   </main>
 <footer class="site-foot" lang="en"><div class="bar"><div class="fcols"><div class="fbrand"><a class="flogo" href="/en/"><img src="/icons/icon.svg?v=2" width="28" height="28" alt=""><span>lex<b>kite</b></span></a><p>Lexkite™ – free vocabulary and IELTS, TOEIC, TOEFL practice. Original learning content, free for learners.</p></div><div><h2>Product</h2><ul><li><a href="/app/?hl=en">Web app</a></li><li><a href="/app/?hl=en#/settings">Chrome add-on</a></li></ul></div><div><h2>Resources</h2><ul><li><a href="/en/blog/">Blog</a></li><li><a href="/en/vocabulary/">Vocabulary</a></li><li><a href="/en/samples/">Writing samples</a></li><li><a href="/en/speaking/">IELTS Speaking</a></li></ul></div><div><h2>Company</h2><ul><li><a href="/en/blog/about/">About</a></li><li><a href="/app/?hl=en#/contact">Contact</a></li><li><a href="/en/privacy">Privacy</a></li><li><a href="/en/terms">Terms</a></li><li><a href="/en/privacy#cookies">Cookies & storage</a></li><li><a href="/en/privacy#delete">Delete my data</a></li></ul></div></div>
 <nav class="flangs" aria-label="Language"><span aria-hidden="true">🌐</span><a href="/vi/terms" lang="vi" hreflang="vi">Tiếng Việt</a><a href="/en/terms" lang="en" hreflang="en" aria-current="true">English</a><a href="/es/terms" lang="es" hreflang="es">Español</a><a href="/pt/terms" lang="pt" hreflang="pt">Português</a><a href="/fr/terms" lang="fr" hreflang="fr">Français</a><a href="/de/terms" lang="de" hreflang="de">Deutsch</a><a href="/id/terms" lang="id" hreflang="id">Bahasa Indonesia</a><a href="/th/terms" lang="th" hreflang="th">ไทย</a><a href="/zh/terms" lang="zh" hreflang="zh">简体中文</a><a href="/ja/terms" lang="ja" hreflang="ja">日本語</a><a href="/ko/terms" lang="ko" hreflang="ko">한국어</a><a href="/hi/terms" lang="hi" hreflang="hi">हिन्दी</a><a href="/ar/terms" lang="ar" hreflang="ar">العربية</a><a href="/ru/terms" lang="ru" hreflang="ru">Русский</a><a href="/tr/terms" lang="tr" hreflang="tr">Türkçe</a></nav><p class="ftm">IELTS, TOEIC and TOEFL are trademarks of their respective owners; Lexkite is independent.</p><p class="ftm">© 2026 Lexkite · Lexkite™ is a trademark of MODIAN LUXURY JEWELRY LLC.</p></div></footer>
+<script>(function (w, d) {
+function init(r) {
+var b = r.querySelector('[aria-haspopup]'), m = r.querySelector('[role=menu]');
+if (r.lsw || !b || !m) return; r.lsw = 1;
+var all = function () { return [].slice.call(m.querySelectorAll('[role^=menuitem]')); };
+var go = function (a, i) { if (a[i]) a[i].focus(); };
+var close = function (f) { if (m.hidden) return; m.hidden = true; b.setAttribute('aria-expanded', 'false'); if (f) b.focus(); };
+var open = function (last) {
+var a = all(), i = 0, q;
+m.hidden = false; b.setAttribute('aria-expanded', 'true');
+m.classList.remove('lsw-s'); q = m.getBoundingClientRect(); if (q.left < 0 || q.right > d.documentElement.clientWidth) m.classList.add('lsw-s');
+a.forEach(function (x, k) { if (x.getAttribute('aria-current') || x.getAttribute('aria-checked') == 'true') i = k; });
+go(a, last ? a.length - 1 : i);
+};
+b.onclick = function () { if (m.hidden) open(); else close(); };
+b.onkeydown = function (e) { if (/^Arrow(Up|Down)$/.test(e.key)) { e.preventDefault(); open(e.key == 'ArrowUp'); } };
+m.onkeydown = function (e) {
+var a = all(), n = a.length, i = a.indexOf(d.activeElement), k = e.key, j;
+if (k == 'Escape') { e.preventDefault(); close(1); } else if (k == 'Tab') close();
+else if (/^(Arrow(Up|Down)|Home|End)$/.test(k)) { e.preventDefault(); go(a, k == 'Home' ? 0 : k == 'End' ? n - 1 : (i + (k == 'ArrowDown' ? 1 : n - 1)) % n); }
+else if (k == ' ' && a[i] && a[i].href) { e.preventDefault(); a[i].click(); }
+else if (k.length == 1 && !e.ctrlKey && !e.metaKey && !e.altKey) for (j = 1; j <= n; j++) if (!a[(i + j) % n].textContent.toLowerCase().indexOf(k.toLowerCase())) { go(a, (i + j) % n); break; }
+};
+m.onclick = function (e) {
+var a = e.target.closest('[role^=menuitem]'); if (!a) return;
+try { localStorage.setItem('vb.uiLang', a.lang); } catch (x) {  }
+close(1);
+};
+d.addEventListener('click', function (e) { if (!r.contains(e.target)) close(); });
+r.addEventListener('focusout', function (e) { if (e.relatedTarget && !r.contains(e.relatedTarget)) close(); });
+}
+var run = function () { [].forEach.call(d.querySelectorAll('[data-lsw]'), init); };
+w.LkLangMenu = init;
+if (d.readyState == 'loading') d.addEventListener('DOMContentLoaded', run); else run();
+})(window, document);</script>
 </body>
 </html>

@@ -4,6 +4,11 @@
 // docs/BRAND-RULES.md) + các sắc độ phái sinh khai báo trong EXTRA_TOKENS – scripts/test/brand-check.mjs chặn màu ngoài bảng.
 // Không phụ thuộc gói ngoài; font hệ thống; CSS nội tuyến (< 14 KB/trang), không JS chặn hiển thị.
 
+import fs from 'node:fs';
+// ---------- Nút đổi ngôn ngữ đầu trang (mọi trang tĩnh) – nguồn DUY NHẤT dùng chung với app: web/js/lang-menu.js + khối /* lsw */ trong web/css/style.css ----------
+const rdWeb = p => fs.readFileSync(new URL(`../../web/${p}`, import.meta.url), 'utf8');
+export const LSW_CSS = (rdWeb('css/style.css').match(/\/\* lsw [^*]*\*\/\n([\s\S]*?)\/\* \/lsw \*\//) || [, ''])[1].replace(/\n/g, '');
+export const LSW_JS = rdWeb('js/lang-menu.js').replace(/\/\*[\s\S]*?\*\//g, '').split('\n').map(l => l.trim().replace(/\s\/\/ [^'"]*$/, '')).filter(l => l && !l.startsWith('//')).join('\n');
 export const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 // Cắt mô tả meta ≤ n ký tự ở ranh giới từ (Google hiện ~155–160 ký tự; mô tả 200–320 ký tự bị cắt giữa chừng trên kết quả tìm kiếm)
 export const clip = (s, n = 158) => { s = String(s ?? '').replace(/\s+/g, ' ').trim(); if (s.length <= n) return s; const c = s.slice(0, n - 1); return c.slice(0, Math.max(c.lastIndexOf(' '), n * .6)).replace(/[\s,;:–—-]+$/, '') + '…'; };
@@ -49,6 +54,7 @@ a.app{font-weight:600}
 .pager{display:flex;justify-content:space-between;gap:12px;margin:24px 0;font-weight:700}
 .trybox{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;margin:32px 0}.trybox h2{margin:0 0 6px;font-size:20px}.trybox p{margin:0 0 12px;color:var(--muted)}
 [dir=rtl] blockquote{border-left:0;border-right:4px solid var(--primary);border-radius:12px 0 0 12px}[dir=rtl] .toc ol{padding-left:0;padding-right:20px}[dir=rtl] th,[dir=rtl] td{text-align:right}[dir=rtl] .skip:focus{left:auto;right:8px}
+${LSW_CSS}
 ${FOOT_CSS}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}`;
 
@@ -82,8 +88,17 @@ mark{background:var(--primary-soft);color:inherit;border-radius:4px;padding:0 2p
 @media (prefers-color-scheme:dark){.wt th,.au,.lb{color:#7fd6cc}.au[aria-pressed=true]{color:#0f1017;background:#7fd6cc}}`;
 
 // ---------- Khối khung trang (header, footer, breadcrumb) – blog và trang SEO dùng chung ----------
-export const siteHeader = ({ nav, open, home = '/', extra = '' }) => `<header class="top"><div class="bar"><a class="logo" href="${home}"><img src="/icons/icon.svg?v=2" width="32" height="32" alt=""><span>lex<b>kite</b></span></a>
-<nav class="main" aria-label="Lexkite">${nav.map(([h, t, a = '']) => `<a href="${h}"${a}>${t}</a>`).join('')}<a class="btn" href="${open[0]}">${open[1]}</a>${extra}</nav></div></header>`;
+// lang + langHref(l): thêm nút đổi ngôn ngữ (langSwitch) cuối thanh điều hướng
+export const siteHeader = ({ nav, open, home = '/', extra = '', lang, langHref, label }) => `<header class="top"><div class="bar"><a class="logo" href="${home}"><img src="/icons/icon.svg?v=2" width="32" height="32" alt=""><span>lex<b>kite</b></span></a>
+<nav class="main" aria-label="Lexkite">${nav.map(([h, t, a = '']) => `<a href="${h}"${a}>${t}</a>`).join('')}<a class="btn" href="${open[0]}">${open[1]}</a>${extra}${lang ? langSwitch({ lang, langHref, label }) : ''}</nav></div></header>`;
+export const GLOBE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.6 2.6 4 6 4 9.5s-1.4 6.9-4 9.5c-2.6-2.6-4-6-4-9.5s1.4-6.9 4-9.5z"/></svg>';
+// Nút 🌐 + mã ngôn ngữ → menu 15 ngôn ngữ (tên bản địa, lang/hreflang từng mục). langHref(l) = trang TƯƠNG ĐƯƠNG bằng ngôn ngữ l
+// (cùng ánh xạ với hreflang của trang), không có thì trang cha gần nhất (blog ngôn ngữ đó → trang chủ ngôn ngữ đó). Không JS: menu ẩn,
+// danh sách ngôn ngữ ở chân trang vẫn dùng được. label: chữ "Ngôn ngữ" theo ngôn ngữ trang (mặc định FOOT[lang][16]).
+export const langSwitch = ({ lang, langHref = landingHref, label }) => {
+  const L = esc(label || (FOOT[lang] || FOOT.en)[16]), cur = lang in LANG_NAMES ? lang : 'en';
+  return `<div class="lsw" data-lsw><button type="button" class="lsw-b" aria-haspopup="true" aria-expanded="false" aria-controls="lsw-m" aria-label="${L}: ${LANG_NAMES[cur]}">${GLOBE}<span class="lsw-c">${cur.toUpperCase()}</span></button><ul class="lsw-m" id="lsw-m" role="menu" aria-label="${L}" translate="no" hidden>${Object.entries(LANG_NAMES).map(([l, n]) => `<li role="none"><a role="menuitem" href="${langHref(l)}" lang="${l}" hreflang="${l}"${l === 'ar' ? ' dir="rtl"' : ''}${l === cur ? ' aria-current="page"' : ''}>${n}</a></li>`).join('')}</ul></div>`;
+};
 // Footer chung cho MỌI trang tĩnh (blog 15 ngôn ngữ, trang SEO, 404, chọn ngôn ngữ blog): thương hiệu · Sản phẩm · Học miễn phí · Thông tin & pháp lý · đổi ngôn ngữ · ©.
 // Trang pháp lý /<lang>/privacy|terms có đủ 15 ngôn ngữ (scripts/build-legal.mjs); #cookies, #delete là mốc trong trang privacy.
 export const LANG_NAMES = { vi: 'Tiếng Việt', en: 'English', es: 'Español', pt: 'Português', fr: 'Français', de: 'Deutsch', id: 'Bahasa Indonesia', th: 'ไทย', zh: '简体中文', ja: '日本語', ko: '한국어', hi: 'हिन्दी', ar: 'العربية', ru: 'Русский', tr: 'Türkçe' };
@@ -139,7 +154,8 @@ export const siteFooter = ({ lang = 'en', text = '', tm = '', year = new Date().
   const co = [[`${lg}/blog/${ABOUT[lang] || 'about'}/`, f[10]], [`${app}#/contact`, f[11]], [`${lg}/privacy`, f[12]], [`${lg}/terms`, f[13]], [`${lg}/privacy#cookies`, f[14]], [`${lg}/privacy#delete`, f[15]]];
   const langs = Object.entries(LANG_NAMES).map(([l, n]) => `<a href="${langHref ? langHref(l) : `/${l}/blog/`}" lang="${l}" hreflang="${l}"${l === lang ? ' aria-current="true"' : ''}>${n}</a>`).join('');
   return `<footer class="site-foot"><div class="bar"><div class="fcols"><div class="fbrand"><a class="flogo" href="${landingHref(lang in LANG_NAMES ? lang : 'en')}"><img src="/icons/icon.svg?v=2" width="28" height="28" alt=""><span>lex<b>kite</b></span></a><p>${tmFirst(text)}</p></div>${col(f[0], product)}${col(f[1], res)}${col(f[2], co)}</div>
-<nav class="flangs" aria-label="${f[16]}"><span aria-hidden="true">🌐</span>${langs}</nav><p class="ftm">${tm}</p><p class="ftm">© ${year} Lexkite · ${TM_NOTE[lang] || TM_NOTE.en}</p></div></footer>`;
+<nav class="flangs" aria-label="${f[16]}"><span aria-hidden="true">🌐</span>${langs}</nav><p class="ftm">${tm}</p><p class="ftm">© ${year} Lexkite · ${TM_NOTE[lang] || TM_NOTE.en}</p></div></footer>
+<script>${LSW_JS}</script>`;
 };
 export const crumbsHtml = items => `<nav class="crumbs" aria-label="Breadcrumb">${items.map(([n, u], i) => i === items.length - 1 ? `<span aria-current="page">${esc(n)}</span>` : `<a href="${u}">${esc(n)}</a>`).join(' › ')}</nav>`;
 export const crumbsLd = (site, items) => ({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map(([name, u], i) => ({ '@type': 'ListItem', position: i + 1, name, item: site + u })) });
@@ -196,14 +212,15 @@ export const extBox = lang => { const t = SEO_L[lang]; return `<div class="ext" 
 export function seoPage({ lang, head, crumbs, body, alt, section }) {
   const t = SEO_L[lang];
   const nav = t.nav.map(([h, n]) => [h, n, h === section ? ' aria-current="page"' : '']);
-  if (alt) nav.push([alt, t.switchTo[0], ` class="lang" lang="${t.switchTo[1]}"`]);
+  // Đổi ngôn ngữ: chính trang này (mục cuối breadcrumb) · bản vi↔en (alt, cũng là hreflang) · ngôn ngữ khác → trang chủ ngôn ngữ đó
+  const self = crumbs[crumbs.length - 1][1], langHref = l => l === lang ? self : alt && l === t.switchTo[1] ? alt : landingHref(l);
   return `<!doctype html><html lang="${lang}"><head>${head}<style>${CSS}\n${SEO_CSS}</style></head><body><a class="skip" href="#nd">${t.skip}</a>
-${siteHeader({ nav, open: [t.app, t.open], home: landingHref(lang) })}
+${siteHeader({ nav, open: [t.app, t.open], home: landingHref(lang), lang, langHref })}
 <main id="nd">
 ${crumbsHtml(crumbs)}
 ${body}
 </main>
-${siteFooter({ lang, text: t.foot, tm: t.tm, langHref: l => alt && l !== lang && SEO_L[l] ? alt : `/${l}/blog/` })}
+${siteFooter({ lang, text: t.foot, tm: t.tm, langHref })}
 <script>${copyJs(lang)}${UI_JS}</script></body></html>`;
 }
 // Thanh chuyển mục (Từ vựng · Ngữ pháp · Bài mẫu…) trên trang danh sách
