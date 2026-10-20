@@ -186,7 +186,7 @@
           <p class="muted" style="max-width:520px;margin:0 auto 1.5rem">
             ${t('Đăng nhập với Google để tham gia giải đấu tuần. Mỗi tuần bạn sẽ được xếp vào một nhóm 30 người học có cùng trình độ để thi đua nhận XP, leo từ Hạng Đồng lên Hạng Kim Cương!')}
           </p>
-          <div class="grid g3" style="max-width:620px;margin:0 auto 1.8rem;text-align:left;gap:.8rem">
+          <div class="grid g3" style="max-width:620px;margin:0 auto 1.8rem;text-align:start;gap:.8rem">
             <div class="card sub-card">
               <div style="font-size:1.5rem">🥇</div>
               <b>${t('Thăng hạng')}</b>
