@@ -7,6 +7,8 @@
 //   node scripts/asc-upload.mjs --check [--write-md]       kiểm giới hạn ký tự + luật Apple (offline); --write-md sinh lại phần ngôn ngữ trong LISTING.md
 //   node scripts/asc-upload.mjs --dry-run [--shots dir]    đọc App Store Connect, in những gì SẼ đổi (không ghi)
 //   node scripts/asc-upload.mjs [--shots dir] [--only text|shots]
+//   node scripts/asc-upload.mjs --only settings [--dry-run]   quyền nội dung, độ tuổi, giá Free, quốc gia (trừ EU-27), liên hệ duyệt, phát hành thủ công
+//     (listing.json → settings; số điện thoại liên hệ CHỈ lấy từ env ASC_REVIEW_PHONE lúc chạy – không lưu trong repo công khai)
 // Khóa: ASC_KEY_ID, ASC_ISSUER_ID + ASC_KEY_P8 (nội dung .p8) hoặc ASC_KEY_PATH (đường dẫn .p8). Khóa/JWT không bao giờ được in ra.
 import fs from 'fs';
 import path from 'path';
@@ -215,6 +217,80 @@ async function syncShots(vl) {
   if (pending.length) console.log(`  ⚠ ${pending.length} ảnh vẫn đang xử lý – xem lại trên App Store Connect sau vài phút`);
 }
 
+// ---------- Cài đặt nộp duyệt (CHỈ khi --only settings) ----------
+// Không chọn build, không nộp. Mỗi bước độc lập: lỗi 1 bước không chặn bước khác.
+const EU27 = ['AUT', 'BEL', 'BGR', 'HRV', 'CYP', 'CZE', 'DNK', 'EST', 'FIN', 'FRA', 'DEU', 'GRC', 'HUN', 'IRL', 'ITA', 'LVA', 'LTU', 'LUX', 'MLT', 'NLD', 'POL', 'PRT', 'ROU', 'SVK', 'SVN', 'ESP', 'SWE'];
+const manual = [];
+async function step(name, fn) { try { await fn(); } catch (e) { errors.push(`${name}: ${e.message}`); console.error(`  ✗ ${name}: ${e.message}`); } }
+async function all(p) { const out = [], inc = []; for (let next = p; next;) { const r = await get(next); out.push(...r.data); inc.push(...(r.included || [])); next = r.links?.next ? r.links.next.replace(API, '') : null; } return { data: out, included: inc }; }
+async function syncSettings(app, ver) {
+  const S = L.settings;
+  await step('content rights', async () => {
+    if (app.attributes.contentRightsDeclaration === S.contentRightsDeclaration) return console.log(`  = content rights ${S.contentRightsDeclaration}`);
+    await write(`content rights → ${S.contentRightsDeclaration}`, 'PATCH', `/v1/apps/${app.id}`, { data: { type: 'apps', id: app.id, attributes: { contentRightsDeclaration: S.contentRightsDeclaration } } });
+  });
+  await step('age rating', async () => {
+    const info = (await get(`/v1/apps/${app.id}/appInfos`)).data.find(i => !['READY_FOR_DISTRIBUTION', 'READY_FOR_SALE', 'REPLACED_WITH_NEW_INFO'].includes(i.attributes.state || i.attributes.appStoreState));
+    const d = (await get(`/v1/appInfos/${info.id}/ageRatingDeclaration`)).data, have = d.attributes || {};
+    // Chỉ gửi khóa API hiện có (tên khóa đổi theo bảng hỏi của Apple); khóa không có → anh chủ bấm tay
+    const missing = Object.keys(S.ageRating).filter(k => !(k in have));
+    if (missing.length) { manual.push(`Age rating: ${missing.join(', ')}`); console.log(`  ⚠ age rating: API không có khóa ${missing.join(', ')} – bấm tay`); }
+    const dd = Object.fromEntries(Object.entries(S.ageRating).filter(([k, v]) => k in have && have[k] !== v));
+    if (!Object.keys(dd).length) return console.log('  = age rating');
+    await write(`age rating: ${Object.entries(dd).map(([k, v]) => `${k}=${v}`).join(', ')}`, 'PATCH', `/v1/ageRatingDeclarations/${d.id}`, { data: { type: 'ageRatingDeclarations', id: d.id, attributes: dd } });
+  });
+  await step('price', async () => {
+    let free = false;
+    try {
+      const mp = await get(`/v1/appPriceSchedules/${app.id}/manualPrices?include=appPricePoint&limit=50`);
+      const pts = (mp.included || []).filter(x => x.type === 'appPricePoints');
+      free = mp.data.length > 0 && pts.length > 0 && pts.every(p => Number(p.attributes.customerPrice) === 0);
+    } catch (e) { if (!/404/.test(e.message)) throw e; }
+    if (free) return console.log('  = giá Free');
+    const pp = (await all(`/v1/apps/${app.id}/appPricePoints?filter[territory]=${S.baseTerritory}&limit=200`)).data.find(p => Number(p.attributes.customerPrice) === 0);
+    if (!pp) throw new Error('không thấy mức giá 0 cho ' + S.baseTerritory);
+    const tmp = '${p0}';
+    await write(`giá → Free (lãnh thổ gốc ${S.baseTerritory})`, 'POST', '/v1/appPriceSchedules', {
+      data: { type: 'appPriceSchedules', relationships: { app: { data: { type: 'apps', id: app.id } }, baseTerritory: { data: { type: 'territories', id: S.baseTerritory } }, manualPrices: { data: [{ type: 'appPrices', id: tmp }] } } },
+      included: [{ type: 'appPrices', id: tmp, attributes: { startDate: null }, relationships: { appPricePoint: { data: { type: 'appPricePoints', id: pp.id } } } }] });
+  });
+  await step('availability', async () => {
+    const terrs = (await all('/v1/territories?limit=200')).data.map(t => t.id);
+    const want = Object.fromEntries(terrs.map(t => [t, !EU27.includes(t)]));
+    let av = null; try { av = (await get(`/v1/apps/${app.id}/appAvailabilityV2`)).data; } catch (e) { if (!/404/.test(e.message)) throw e; }
+    if (!av) {
+      const inc = terrs.map(t => ({ type: 'territoryAvailabilities', id: '${' + t + '}', attributes: { available: want[t] }, relationships: { territory: { data: { type: 'territories', id: t } } } }));
+      return write(`quốc gia: tạo – ${terrs.filter(t => want[t]).length}/${terrs.length} mở (trừ EU-27), availableInNewTerritories=${S.availableInNewTerritories}`, 'POST', '/v2/appAvailabilities', {
+        data: { type: 'appAvailabilities', attributes: { availableInNewTerritories: S.availableInNewTerritories }, relationships: { app: { data: { type: 'apps', id: app.id } }, territoryAvailabilities: { data: inc.map(i => ({ type: i.type, id: i.id })) } } }, included: inc });
+    }
+    const ta = (await all(`/v2/appAvailabilities/${av.id}/territoryAvailabilities?include=territory&limit=200`)).data;
+    let n = 0;
+    for (const x of ta) {
+      const t = x.relationships?.territory?.data?.id;
+      if (!t || !(t in want) || x.attributes.available === want[t]) continue;
+      n++; await write(`quốc gia ${t}: available → ${want[t]}`, 'PATCH', `/v1/territoryAvailabilities/${x.id}`, { data: { type: 'territoryAvailabilities', id: x.id, attributes: { available: want[t] } } });
+    }
+    if (av.attributes.availableInNewTerritories !== S.availableInNewTerritories) manual.push(`Availability: "available in new territories" đang ${av.attributes.availableInNewTerritories}, muốn ${S.availableInNewTerritories}`);
+    if (!n) console.log(`  = quốc gia (${ta.filter(x => x.attributes.available).length} mở, EU-27 tắt)`);
+  });
+  await step('review contact', async () => {
+    let rd = null; try { rd = (await get(`/v1/appStoreVersions/${ver.id}/appStoreReviewDetail`)).data; } catch (e) { if (!/404/.test(e.message)) throw e; }
+    const phone = (process.env.ASC_REVIEW_PHONE || '').trim();
+    if (!phone) manual.push('App Review: số điện thoại liên hệ (đặt ASC_REVIEW_PHONE)');
+    const want = { ...S.reviewContact, demoAccountRequired: false, ...(phone ? { contactPhone: phone } : {}) };
+    const label = k => (k === 'contactPhone' ? 'contactPhone (ẩn)' : k);
+    if (!rd) return write(`review detail: tạo ${Object.keys(want).map(label).join(', ')}`, 'POST', '/v1/appStoreReviewDetails', { data: { type: 'appStoreReviewDetails', attributes: { ...want, notes: L.reviewNotes }, relationships: { appStoreVersion: { data: { type: 'appStoreVersions', id: ver.id } } } } });
+    const d = diff(rd.attributes, want);
+    if (!Object.keys(d).length) return console.log('  = liên hệ người duyệt');
+    await write(`review detail: ${Object.keys(d).map(label).join(', ')}`, 'PATCH', `/v1/appStoreReviewDetails/${rd.id}`, { data: { type: 'appStoreReviewDetails', id: rd.id, attributes: d } });
+  });
+  await step('release type', async () => {
+    if (ver.attributes.releaseType === S.releaseType) return console.log(`  = phát hành ${S.releaseType}`);
+    await write(`phát hành → ${S.releaseType}`, 'PATCH', `/v1/appStoreVersions/${ver.id}`, { data: { type: 'appStoreVersions', id: ver.id, attributes: { releaseType: S.releaseType } } });
+  });
+  if (manual.length) console.log('ℹ Còn bấm tay:\n  - ' + manual.join('\n  - '));
+}
+
 async function main() {
   const { errs, warns } = check();
   warns.forEach(w => console.warn('⚠ ' + w));
@@ -238,8 +314,11 @@ async function main() {
   console.log(`App ${app.attributes.name} (${app.attributes.bundleId}) · bản ${L.version}: ${state}${DRY ? ' · DRY-RUN' : ''}`);
   if (!EDITABLE.includes(state) && !(ver.attributes.appStoreState && EDITABLE.includes(ver.attributes.appStoreState))) throw new Error(`bản ${L.version} đang ${state} – script chỉ sửa khi PREPARE_FOR_SUBMISSION`);
   let vl = (await get(`/v1/appStoreVersions/${ver.id}/appStoreVersionLocalizations?limit=200`)).data;
-  if (ONLY !== 'shots') { console.log('— Chữ niêm yết'); vl = await syncText(app, ver); }
-  if (ONLY !== 'text') { console.log('— Ảnh chụp'); await syncShots(vl); }
+  if (ONLY === 'settings') { console.log('— Cài đặt nộp duyệt (không chọn build, không nộp)'); await syncSettings(app, ver); }
+  else {
+    if (ONLY !== 'shots') { console.log('— Chữ niêm yết'); vl = await syncText(app, ver); }
+    if (ONLY !== 'text') { console.log('— Ảnh chụp'); await syncShots(vl); }
+  }
   console.log(`${errors.length ? '✗' : '✓'} ${DRY ? 'sẽ đổi' : 'đã đổi'} ${changes.length} mục${errors.length ? `, ${errors.length} lỗi:\n  ` + errors.join('\n  ') : ''}`);
   console.log('ℹ Không nộp duyệt. Anh chủ tự điền: App Privacy, Age Rating, Pricing/Availability, thông tin liên hệ người duyệt, chọn build → Submit for Review.');
   if (errors.length) process.exit(1);

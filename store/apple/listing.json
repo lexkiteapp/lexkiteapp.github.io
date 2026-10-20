@@ -173,5 +173,42 @@
     "vi": [
       "vi"
     ]
+  },
+  "settings": {
+    "_note": "Chạy: node scripts/asc-upload.mjs --only settings [--dry-run]. Quốc gia: mọi lãnh thổ trừ EU-27 (EU27 trong script). Số điện thoại liên hệ chỉ qua env ASC_REVIEW_PHONE (không lưu ở đây).",
+    "contentRightsDeclaration": "USES_THIRD_PARTY_CONTENT",
+    "ageRating": {
+      "alcoholTobaccoOrDrugUseOrReferences": "NONE",
+      "contests": "NONE",
+      "gamblingSimulated": "NONE",
+      "gunsOrOtherWeapons": "NONE",
+      "horrorOrFearThemes": "NONE",
+      "matureOrSuggestiveThemes": "NONE",
+      "medicalOrTreatmentInformation": "NONE",
+      "profanityOrCrudeHumor": "NONE",
+      "sexualContentGraphicAndNudity": "NONE",
+      "sexualContentOrNudity": "NONE",
+      "violenceCartoonOrFantasy": "NONE",
+      "violenceRealistic": "NONE",
+      "violenceRealisticProlongedGraphicOrSadistic": "NONE",
+      "gambling": false,
+      "lootBox": false,
+      "unrestrictedWebAccess": false,
+      "messagingAndChat": false,
+      "parentalControls": false,
+      "ageAssurance": false,
+      "userGeneratedContent": false,
+      "advertising": false,
+      "healthOrWellnessTopics": false,
+      "ageRatingOverrideV2": "THIRTEEN_PLUS"
+    },
+    "baseTerritory": "USA",
+    "availableInNewTerritories": false,
+    "reviewContact": {
+      "contactFirstName": "Quyen",
+      "contactLastName": "Khieu Dinh",
+      "contactEmail": "support@lexkite.com"
+    },
+    "releaseType": "MANUAL"
   }
 }
