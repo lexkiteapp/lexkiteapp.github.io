@@ -456,4 +456,9 @@
   'Báo lỗi': 'Report',
   // ---- nút chuông 🔔 trên thanh trên cùng (phần còn lại ở en/notices.js – tải lười) ----
   'Thông báo': 'Notifications',
+  // ---- ⚡ Chơi nhanh / 🎯 Phong cách tiếng Anh: lối vào ở #/home & trang giới thiệu (phần còn lại ở en/quick.js – tải lười) ----
+  'Chơi nhanh 15 giây': '15-second Quick Play',
+  '4 câu cực ngắn · Không sợ sai, giữ phản xạ': '4 bite-sized questions · No pressure, just reflexes',
+  'Chơi ngay': 'Play now',
+  'Phong cách tiếng Anh của bạn (1 phút) →': 'Your English style (1 minute) →',
 }); })(typeof self !== 'undefined' ? self : this);
