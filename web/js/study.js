@@ -171,7 +171,7 @@
     const listenMode = !typeMode && !rev && !isNew && c.srs.reps >= 1 && Math.random() < 0.15;
     const front = listenMode ? `
         <button class="listen-big" data-say aria-label="${t('Nghe')}">🔊</button>
-        <div class="muted small" style="margin-top:1rem">${t('Nghe từ, nhớ lại nghĩa rồi chạm để lật')} <span class="kbd">Space</span> · <span class="kbd">P</span> ${t('nghe lại')}</div>` : typeMode ? `
+        <div class="muted small" style="margin-top:1rem">${t('Nghe từ, nhớ lại nghĩa rồi chạm để lật')} <span class="kbd kbd-hint">Space</span> · <span class="kbd kbd-hint">P</span> ${t('nghe lại')}</div>` : typeMode ? `
         ${pic(c)}
         <div class="vi" style="font-size:1.5rem">${esc(mean(c))}</div>${posChip(c.pos)}
         ${c.ex ? `<div class="ctx">“${cloze(c.ex, c.word)}”</div>` : ''}
@@ -186,7 +186,7 @@
         <div class="entry-word">${esc(c.word)}</div>
         <div class="row center"><span class="ipa">${esc(c.ipa)}</span>${posChip(c.pos)}<button class="icon-btn sm" data-say aria-label="${t('Nghe')}">🔊</button></div>
         ${ctx ? `<div class="ctx">📌 “${highlight(ctx.text, c.word)}”</div>` : ''}
-        <div class="muted small" style="margin-top:1rem">${t('Đoán nghĩa, rồi chạm để lật')} <span class="kbd">Space</span></div>`;
+        <div class="muted small" style="margin-top:1rem">${t('Đoán nghĩa, rồi chạm để lật')} <span class="kbd kbd-hint">Space</span></div>`;
 
     view.innerHTML = `<div class="study-wrap">
       <div class="study-top">
@@ -227,7 +227,7 @@
         </div>
       </div>
       <div id="actions" class="grade-bar"><button class="btn primary lg block" id="flipBtn">${t('Lật thẻ')}</button></div>
-      <p class="muted tiny center" style="margin-top:1rem">${t('Phím tắt: <span class="kbd">Space</span> lật · <span class="kbd">1</span>–<span class="kbd">4</span> chấm điểm · <span class="kbd">P</span> phát âm')} · <span class="kbd">Z</span> ${t('hoàn tác')}</p>
+      <p class="muted tiny center kbd-hint" style="margin-top:1rem">${t('Phím tắt: <span class="kbd">Space</span> lật · <span class="kbd">1</span>–<span class="kbd">4</span> chấm điểm · <span class="kbd">P</span> phát âm')} · <span class="kbd">Z</span> ${t('hoàn tác')}</p>
     </div>`;
     App.bindCommon();
     const say = () => speak(c.word, accent(), c.audio);

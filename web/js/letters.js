@@ -24,7 +24,7 @@
       ${tone !== 'all' ? `<div class="tip small" style="margin-bottom:1rem">💡 ${TONE_TIP()[tone]}</div>` : ''}
       <div class="grid auto">${list.map(x => `<div class="card">
         <div class="row between"><span class="chip">${TONE()[x.tone] || ''}</span>${drafts[x.id] && drafts[x.id].trim() ? `<span class="chip ok">✍️ ${t('{n} từ', { n: wc(drafts[x.id]) })}</span>` : ''}</div>
-        <h3 style="margin:.5rem 0 .2rem">${esc(x.titleVi || x.topic)}</h3><div class="small muted">${esc(x.situation.length > 140 ? x.situation.slice(0, 137) + '…' : x.situation)}</div>
+        <h3 style="margin:.5rem 0 .2rem">${esc(x.titleVi ? (I18N.lang() === "vi" ? x.titleVi : t(x.titleVi)) : x.topic)}</h3><div class="small muted">${esc(x.situation.length > 140 ? x.situation.slice(0, 137) + '…' : x.situation)}</div>
         <div class="row" style="margin-top:.7rem"><a class="btn sm primary" href="#/letters/${x.id}">✍️ ${t('Luyện viết')}</a><a class="btn sm" href="#/model/gt-${x.id}">📄 ${t('Bài mẫu')}</a></div></div>`).join('') || `<div class="card muted">${t('Đang cập nhật.')}</div>`}</div>`;
   };
 

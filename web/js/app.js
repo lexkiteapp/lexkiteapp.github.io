@@ -432,7 +432,7 @@
     const save = () => { try { const ks = Object.keys(mem); if (ks.length > 4000) ks.slice(0, ks.length - 4000).forEach(k => delete mem[k]); localStorage.setItem(KEY, JSON.stringify(mem)); } catch (e) { /* đầy bộ nhớ */ } };
     let timer = 0, busy = false;
     // Bản dịch SẴN do CI tạo (scripts/gen-content-i18n.mjs, CDN) → hiện ngay đúng ngôn ngữ; chỉ câu chưa có mới dịch máy lúc chạy
-    let pre = null; const preP = fetch((/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com') + '/i18n/content/' + to + '.json')
+    let pre = null; const preP = fetch((/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) || (window.VBNative && VBNative.is) ? '' : 'https://lexkite.com') + '/i18n/content/' + to + '.json') // app gốc: file nằm sẵn trong gói (www/i18n/content) → dùng được khi offline
       .then(r => (r.ok ? r.json() : {})).catch(() => ({})).then(j => (pre = j || {}));
     const got = k => mem[k] || (pre && pre[k]) || ''; // bản dịch sẵn không ghi vào localStorage (giữ bộ nhớ máy nhẹ)
     async function pass() {
@@ -811,7 +811,8 @@
       <p class="small muted" style="margin-top:1rem">${t('Hoặc email trực tiếp')}: <a href="mailto:support@lexkite.com">support@lexkite.com</a></p>`;
     // Cloudflare Turnstile: tải ngầm khi mở form liên hệ (bảo vệ chống bot)
     const siteKey = window.TURNSTILE_SITE_KEY || '0x4AAAAAAAMmZ7O1jJgQv8iY';
-    if (!window.turnstile && !document.getElementById('cf-turnstile-script')) {
+    const noTs = !!(window.VBNative && VBNative.is); // app gốc (capacitor://localhost): Turnstile báo lỗi 400020 & hiện khung lỗi → bỏ; máy chủ chỉ xác minh khi có token, vẫn chặn spam bằng ô bẫy/thời gian/hạn mức
+    if (!noTs && !window.turnstile && !document.getElementById('cf-turnstile-script')) {
       const s = document.createElement('script'); s.id = 'cf-turnstile-script';
       s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
       s.async = true; s.defer = true; document.head.appendChild(s);
@@ -829,7 +830,7 @@
         } catch (e) { /* bỏ qua nếu không render được */ }
       }
     };
-    if (window.turnstile) renderTurnstile();
+    if (noTs) { /* không dùng Turnstile */ } else if (window.turnstile) renderTurnstile();
     else { let c = 0; const iv = setInterval(() => { c++; if (window.turnstile) { clearInterval(iv); renderTurnstile(); } else if (c > 15) clearInterval(iv); }, 300); }
 
     const f = $('#ctForm'), out = $('#ctMsg');
@@ -1708,7 +1709,7 @@
 
   // ---------- Cài app (PWA) & trạng thái mạng ----------
   let installEvt = null;
-  const isStandalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+  const isStandalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true || !!(window.VBNative && VBNative.is); // app gốc iOS/Android = đã cài → không mời "Cài app"/"Thêm vào MH chính"
   const isIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent) && !/crios|fxios/i.test(navigator.userAgent);
   function showInstallBtn() {
     if (Store.isExtension || isStandalone() || $('#installBtn')) return;

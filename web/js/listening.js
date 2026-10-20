@@ -176,7 +176,7 @@
         <div class="row between"><h2 style="margin:0">Test ${n}</h2><div class="row">${best[n] != null ? `<span class="chip ok">Band ${best[n]}</span>` : ''}<a class="btn primary" href="#/listen-test/${n}">⏱ ${t('Thi thử 40 câu')}</a></div></div>
         <div class="grid auto" style="margin-top:.8rem">${partsOf(n).map(p => `<div class="card hover" style="box-shadow:none;border:1px solid var(--line)">
           <div class="row between"><span class="chip">Part ${p.part} · ${PART()[p.part]}</span>${done[p.id] != null ? `<span class="chip ok">✓ ${done[p.id]}/10</span>` : ''}</div>
-          <h3 style="margin:.5rem 0 .2rem">${esc(p.title)}</h3><div class="small muted">${esc(p.titleVi || '')} · ${esc(p.topic || '')}</div>
+          <h3 style="margin:.5rem 0 .2rem">${esc(p.title)}</h3><div class="small muted">${p.titleVi && I18N.lang() === 'vi' ? esc(p.titleVi) + ' · ' : ''}${esc(p.topic || '')}</div>
           <div class="row" style="margin-top:.4rem">${speakersHtml(p)}</div>
           <div class="row" style="margin-top:.7rem"><a class="btn sm primary" href="#/listen/${p.id}">🎯 ${t('Luyện tập')}</a><a class="btn sm" href="#/listen/${p.id}?mode=exam">⏱ ${t('Nghe 1 lần')}</a><a class="btn sm ghost" href="#/dictation/${p.id}">⌨️ ${t('Chép chính tả')}</a></div></div>`).join('')}</div></div>`).join('')}
       <div class="card"><h3>💡 ${t('Mẹo làm bài Listening')}</h3><ul class="small">
@@ -384,7 +384,7 @@
           <details class="dict-tr" id="dTr"><summary>📜 ${t('Transcript & bản dịch')}</summary><div id="dTrBody" class="small"></div></details>
           <div class="row between" style="margin-top:.6rem"><div class="row"><button class="btn primary" id="dChk">${t('Kiểm tra')}</button><button class="btn ghost" id="dAns">${t('Đáp án')}</button><button class="btn ghost" id="dClr">${t('Xóa hết')}</button></div>
             <label class="md-sw"><input type="checkbox" id="dAuto" ${auto ? 'checked' : ''}><span></span>${t('Tự động phát lại câu')}</label></div>
-          <div class="tiny muted" style="margin-top:.6rem">${t('Phím tắt: <kbd>Space</kbd>/<kbd>Tab</kbd> sang ô sau · <kbd>Enter</kbd> kiểm tra / câu tiếp · <kbd>\\</kbd> nghe lại · <kbd>Shift</kbd>+<kbd>←</kbd>/<kbd>→</kbd> đổi câu · <kbd>Backspace</kbd> ở ô trống để về ô trước')}</div></div></div>`;
+          <div class="tiny muted kbd-hint" style="margin-top:.6rem">${t('Phím tắt: <kbd>Space</kbd>/<kbd>Tab</kbd> sang ô sau · <kbd>Enter</kbd> kiểm tra / câu tiếp · <kbd>\\</kbd> nghe lại · <kbd>Shift</kbd>+<kbd>←</kbd>/<kbd>→</kbd> đổi câu · <kbd>Backspace</kbd> ở ô trống để về ô trước')}</div></div></div>`;
       const hs = $$('.dict-h');
       $('#dPlay').onclick = () => say(l); $('#dSlow').onclick = () => say(l, true);
       $('#dTr').ontoggle = async () => {
