@@ -71,7 +71,7 @@ Yeni kelimeleri pekiştirmek için [öğrenme modunu](/#/practice/learn) kullana
 
 IELTS, TOEFL veya YDS gibi akademik ve profesyonel sınavlara hazırlanan adaylar için kelime bilgisi, okuma ve yazma puanlarının en az yüzde 25'ini belirler. Sınav metinlerinde doğrudan anlamı sorulan kelimeler yerine, parçada geçen bir cümlenin soru kökünde başka sözcüklerle yeniden ifade edilmesi (paraphrasing) esastır.
 
-Bu nedenle, her yeni akademik kelimeyi en az iki güçlü eşanlamlısı (synonym) ve zıt anlamlısı (antonym) ile birlikte çalışmalısınız. Örneğin, "decrease" fiilini öğrenirken yanına "decline", "diminish" ve zıttı olan "surge", "escalate" sözcüklerini eklemek, hem IELTS Writing Task 1 grafik analizlerinde hem de Reading eşleştirme sorularında size çok ciddi hız kazandıracaktır.
+Bu nedenle, her yeni akademik kelimeyi en az iki güçlü eşanlamlısı (synonym) ve zıt anlamlısı (antonym) ile birlikte çalışmalısınız. Özellikle günlük konuşma ve sınavlarda puan kazandıran deyimsel fiiller için [İngilizce Phrasal Verbs En Çok Kullanılanlar](/tr/blog/ingilizce-phrasal-verbs-en-cok-kullanilanlar/) listemizi rehber edinebilirsiniz. Akademik sınav odaklı hazırlık yapanlar için ise alan bazlı kelime çalışma yöntemlerini [YÖKDİL Hazırlık Taktikleri](/tr/blog/yokdil-hazirlik-taktikleri/) sayfamızda derledik. Örneğin, "decrease" fiilini öğrenirken yanına "decline", "diminish" ve zıttı olan "surge", "escalate" sözcüklerini eklemek, hem sınav grafik analizlerinde hem de Reading eşleştirme sorularında size çok ciddi hız kazandıracaktır.
 
 ## Adım 7: Kendi cümlelerinizle üretime geçmek
 

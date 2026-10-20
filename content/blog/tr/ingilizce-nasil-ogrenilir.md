@@ -119,7 +119,7 @@ Ayın sonunda şöyle bir paragrafı rahatça söyleyebilmelisiniz: *My name is 
 
 Hedef: dört temel zamanda basit cümleler kurmak, soru sormak, yavaş diyalogları anlamak.
 
-- Geniş zamanın tamamı (*he/she/it* ile *-s*), şimdiki zaman, düzenli fiiller ve en sık 30 düzensiz fiille geçmiş zaman, *will* ve *be going to*.
+- Geniş zamanın tamamı (*he/she/it* ile *-s*), şimdiki zaman, düzenli fiiller ve en sık 30 düzensiz fiille geçmiş zaman, *will* ve *be going to*. Tüm zamanların formüllerini ve mantığını bir arada görmek için [İngilizce Zamanlar Tablosu](/tr/blog/ingilizce-zamanlar-tablosu/) rehberimize başvurabilirsiniz.
 - *Do you…? Did you…? What/Where/When…?* soruları.
 - Günde 10–15 yeni kelime ve düzenli tekrar; en düşük seviyeden okuma kitapları.
 
@@ -151,13 +151,13 @@ Yalnızca 20 dakikanız varsa kelime tekrarını ve dinleme–okumayı koruyun. 
 
 **Kaynak değiştirip durmak.** Beş uygulama, üç kanal ve iki kurs aynı anda yürümez. Her beceri için tek bir ana kaynak seçin ve bitirin. "Bu kaynak yetmiyor" hissi çoğu zaman doğal sıkılmadır, kaynağın sorunu değil.
 
-**Türkçeden kelime kelime çevirmek.** *Kendine iyi bak* demek istediğinizde "look well to yourself" gibi bir cümle kurmak yerine hazır ifadeyi öğrenin: *Take care.* Tek tek kelimeler yerine bütün kalıpları ezberleyin.
+**Türkçeden kelime kelime çevirmek.** *Kendine iyi bak* demek istediğinizde "look well to yourself" gibi bir cümle kurmak yerine hazır ifadeyi öğrenin: *Take care.* Günlük konuşmada ve sınavlarda en sık çıkan kalıpları [İngilizce Phrasal Verbs En Çok Kullanılanlar](/tr/blog/ingilizce-phrasal-verbs-en-cok-kullanilanlar/) listesinden öğrenebilirsiniz.
 
 **Hedefi çok uzağa koymak.** "Üç ayda akıcı konuşacağım" hedefi gerçekle çarpışınca motivasyon çöker. Ölçülebilir hedefler koyun: kaç kelime, kaç gün üst üste, kaç cümle.
 
 **İlerlemeyi hisle ölçmek.** "Hiç ilerlemiyorum" hissi her haftaya uğrar. Kendinizi başkalarıyla değil, 30 gün önceki hâlinizle karşılaştırın.
 
-**Hemen sınava atlamak.** IELTS ya da YDS sorularıyla çalışmaya temel oturmadan başlamak, hem zor hem de cesaret kırıcıdır.
+**Hemen sınava atlamak.** IELTS ya da YDS sorularıyla çalışmaya temel oturmadan başlamak, hem zor hem de cesaret kırıcıdır. Ancak akademik bir kariyer veya lisansüstü eğitim için sınava hazırlanıyorsanız, alan odaklı taktikler için [YÖKDİL Hazırlık Taktikleri](/tr/blog/yokdil-hazirlik-taktikleri/) kılavuzumuzdan yararlanabilirsiniz.
 
 ## Kendinizi test edin
 

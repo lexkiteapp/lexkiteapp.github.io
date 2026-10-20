@@ -97,7 +97,7 @@ III numaralı cümle de çevre ve enerji ile ilgilidir; ancak parçanın dar oda
 
 ![IELTS gramer yol haritası ekranı](media:grammar "Gramer yol haritasında 12 zaman, A1–B2 seviyeleri ve karma alıştırmalar")
 
-İngilizce sınavlarında soru çözerken genel dinleme ve anlama mantığını desteklemek için [IELTS listening taktikleri](/tr/blog/ielts-listening-taktikleri/) yazımızı okuyabilir ve kelime haznenizi genişletmek için [İngilizce kelime ezberleme](/tr/blog/ingilizce-kelime-ezberleme/) tekniklerini uygulayabilirsiniz. Gelecekte yurt dışı yazışmaları planlıyorsanız [İngilizce iş maili nasıl yazılır](/tr/blog/ingilizce-is-maili-nasil-yazilir/) rehberimiz de faydalı olacaktır.
+İngilizce sınavlarında soru çözerken genel dinleme ve anlama mantığını desteklemek için [IELTS listening taktikleri](/tr/blog/ielts-listening-taktikleri/) yazımızı okuyabilir ve kelime haznenizi genişletmek için [İngilizce kelime ezberleme](/tr/blog/ingilizce-kelime-ezberleme/) tekniklerini uygulayabilirsiniz. YDS yerine alan bazlı bir akademik dil sınavına hazırlanmayı düşünüyorsanız [YÖKDİL Hazırlık Taktikleri](/tr/blog/yokdil-hazirlik-taktikleri/) kılavuzumuza göz atabilirsiniz. Gelecekte yurt dışı yazışmaları planlıyorsanız [İngilizce iş maili nasıl yazılır](/tr/blog/ingilizce-is-maili-nasil-yazilir/) rehberimiz de faydalı olacaktır.
 
 ## YDS İçin 180 Dakikalık İdeal Zaman Yönetimi Planı
 
