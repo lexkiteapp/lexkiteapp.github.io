@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "soundFile": "/home/runner/work/lexkiteapp.github.io/lexkiteapp.github.io/cine/wav/c_nopro.wav",
+    "duration": 1.14
+  },
+  "mouthCues": [
+    { "start": 0.00, "end": 0.04, "value": "X" },
+    { "start": 0.04, "end": 0.24, "value": "F" },
+    { "start": 0.24, "end": 0.31, "value": "C" },
+    { "start": 0.31, "end": 0.38, "value": "E" },
+    { "start": 0.38, "end": 0.54, "value": "A" },
+    { "start": 0.54, "end": 0.60, "value": "B" },
+    { "start": 0.60, "end": 0.66, "value": "D" },
+    { "start": 0.66, "end": 0.74, "value": "A" },
+    { "start": 0.74, "end": 0.86, "value": "H" },
+    { "start": 0.86, "end": 0.93, "value": "C" },
+    { "start": 0.93, "end": 1.05, "value": "A" },
+    { "start": 1.05, "end": 1.14, "value": "X" }
+  ]
+}

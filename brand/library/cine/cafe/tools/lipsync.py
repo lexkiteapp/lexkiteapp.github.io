@@ -20,7 +20,7 @@ class Mouth:
         # change-extent mask: every pixel where ANY frame's mouth differs from the rest frame (jaw drop, tongue, teeth),
         # limited to a big ellipse -> the swap always fully covers Kling's own mouth (no ghost of the original)
         big = np.zeros((self.rh, self.rw), np.uint8); cv2.ellipse(big, (int(cx), int(cy)), (int(ax * 1.7), int(ay * 2.0)), 0, 0, 360, 1, -1)
-        cc = np.load(f'{d}/cc.npy') if os.path.exists(f'{d}/cc.npy') else np.ones(len(self.C)); good = cc >= 0.8
+        cc = np.load(f'{d}/cc.npy') if os.path.exists(f'{d}/cc.npy') else np.ones(len(self.C)); good = cc >= self.m.get('cc_ok', 0.8)
         d = np.abs(self.C[good].astype(np.int16) - self.C[0].astype(np.int16)).max(3) > 45
         ext = ((d.sum(0) >= 3) & (big > 0)).astype(np.uint8)
         ext = cv2.dilate(cv2.morphologyEx(ext, cv2.MORPH_CLOSE, np.ones((9, 9), np.uint8)), np.ones((9, 9), np.uint8))

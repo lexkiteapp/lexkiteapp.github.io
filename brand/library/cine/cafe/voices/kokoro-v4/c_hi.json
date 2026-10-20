@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "soundFile": "/home/runner/work/lexkiteapp.github.io/lexkiteapp.github.io/cine/wav/c_hi.wav",
+    "duration": 1.29
+  },
+  "mouthCues": [
+    { "start": 0.00, "end": 0.04, "value": "X" },
+    { "start": 0.04, "end": 0.21, "value": "D" },
+    { "start": 0.21, "end": 0.28, "value": "B" },
+    { "start": 0.28, "end": 0.42, "value": "F" },
+    { "start": 0.42, "end": 0.77, "value": "C" },
+    { "start": 0.77, "end": 0.84, "value": "B" },
+    { "start": 0.84, "end": 1.19, "value": "F" },
+    { "start": 1.19, "end": 1.29, "value": "X" }
+  ]
+}

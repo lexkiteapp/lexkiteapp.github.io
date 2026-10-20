@@ -19,9 +19,37 @@ fx0, fy0, fx1, fy1 = box; s = 0.5
 S = np.diag([s, s, 1.]); T = np.array([[1, 0, -fx0], [0, 1, -fy0], [0, 0, 1.]])
 def g(I): return cv2.GaussianBlur(cv2.cvtColor(cv2.resize(I[fy0:fy1, fx0:fx1], None, fx=s, fy=s, interpolation=cv2.INTER_AREA), cv2.COLOR_BGR2GRAY).astype(np.float32), (5, 5), 0)
 G = [g(F) for F in FR]
+ORB = os.environ.get('TRACK') == 'orb'   # large head motion: per-frame ORB+RANSAC similarity as the ECC start (no drift chaining)
+if ORB:
+    orb = cv2.ORB_create(1500); gray = [cv2.cvtColor(F, cv2.COLOR_BGR2GRAY) for F in FR]
+    m0 = np.zeros(gray[0].shape, np.uint8); m0[fy0:fy1, fx0:fx1] = 255; k0, d0 = orb.detectAndCompute(gray[0], m0)
+    bf = cv2.BFMatcher(cv2.NORM_HAMMING); INIT = []
+    for gI in gray:
+        mi = np.zeros(gI.shape, np.uint8); mi[max(0, fy0 - 150):fy1 + 150, max(0, fx0 - 150):fx1 + 150] = 255; ki, di = orb.detectAndCompute(gI, mi); A = None
+        if di is not None and len(ki) > 8:
+            mt = [a for a, b in (p for p in bf.knnMatch(d0, di, k=2) if len(p) == 2) if a.distance < 0.75 * b.distance]
+            if len(mt) >= 8:
+                A, inl = cv2.estimateAffinePartial2D(np.float32([k0[m.queryIdx].pt for m in mt]), np.float32([ki[m.trainIdx].pt for m in mt]), method=cv2.RANSAC, ransacReprojThreshold=4)
+        INIT.append(A if A is not None else (INIT[-1] if INIT else np.eye(2, 3)))
+CHAIN = os.environ.get('TRACK') == 'chain'   # big head motion: frame-to-frame ECC (small steps) composed -> init for frame0 ECC
+if CHAIN:
+    INIT = [np.eye(2, 3)]; ORB = True; crit = (cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 100, 1e-5)
+    for i in range(1, len(FR)):
+        P = np.vstack([INIT[-1], [0, 0, 1]])   # frame0 -> frame i-1 ; template = frame i-1 crop at the moved face position
+        c = P @ np.array([(fx0 + fx1) / 2, (fy0 + fy1) / 2, 1]); bx0, by0 = int(c[0] - (fx1 - fx0) / 2), int(c[1] - (fy1 - fy0) / 2)
+        bx0 = int(np.clip(bx0, 0, W - (fx1 - fx0))); by0 = int(np.clip(by0, 0, H - (fy1 - fy0)))
+        tA = cv2.GaussianBlur(cv2.cvtColor(FR[i - 1][by0:by0 + fy1 - fy0, bx0:bx0 + fx1 - fx0], cv2.COLOR_BGR2GRAY).astype(np.float32), (5, 5), 0)
+        tB = cv2.GaussianBlur(cv2.cvtColor(FR[i][by0:by0 + fy1 - fy0, bx0:bx0 + fx1 - fx0], cv2.COLOR_BGR2GRAY).astype(np.float32), (5, 5), 0)
+        D = np.eye(2, 3, dtype=np.float32)
+        try: _, D = cv2.findTransformECC(tA, tB, D, cv2.MOTION_AFFINE, crit, None, 5)
+        except cv2.error: pass
+        Tb = np.array([[1, 0, -bx0], [0, 1, -by0], [0, 0, 1.]]); step = np.linalg.inv(Tb) @ np.vstack([D, [0, 0, 1]]) @ Tb   # frame i-1 -> frame i
+        INIT.append((step @ P)[:2])
 def track(mask):
     M = np.eye(2, 3, dtype=np.float32); Ms, ccs = [], []
-    for gi in G:
+    for gi_i, gi in enumerate(G):
+        if ORB:   # full-frame init -> scaled crop coords (inverse of the mapping below)
+            Mi = np.vstack([INIT[gi_i], [0, 0, 1]]); M = (S @ T @ Mi @ np.linalg.inv(T) @ np.linalg.inv(S))[:2].astype(np.float32)
         try: cc, M = cv2.findTransformECC(G[0], gi, M, cv2.MOTION_AFFINE, (cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 100, 1e-5), mask, 5)
         except cv2.error: cc = -1
         Fm = np.linalg.inv(T) @ np.linalg.inv(S) @ np.vstack([M, [0, 0, 1]]) @ S @ T
@@ -89,7 +117,7 @@ for i, cr in enumerate(C):
     om = (dark | teeth).astype(np.uint8); ys, xs = np.nonzero(om)
     feat.append((dark.sum() + teeth.sum(), teeth.sum(), (xs.max() - xs.min() + 1) if len(xs) else 0, (ys.max() - ys.min() + 1) if len(ys) else 0))
 feat = np.array(feat, float); open_ = feat[:, 0]; ht = feat[:, 3]
-ok = cc > max(0.80, np.percentile(cc, 10) - 0.02)                             # drop badly tracked / occluded frames
+CCMIN = float(os.environ.get('CCMIN', '0.80')); ok = cc > max(CCMIN, np.percentile(cc, 10) - 0.02)   # drop badly tracked / occluded frames (CCMIN lower for expressive faces)
 o = (open_ - np.percentile(open_[ok], 3)) / max(1, np.percentile(open_[ok], 97) - np.percentile(open_[ok], 3))
 w = feat[:, 2] / max(1, np.percentile(feat[ok, 2], 95)); tt = feat[:, 1] / max(1, feat[:, 0].max())
 asp = ht / np.maximum(feat[:, 2], 1)                                          # tall/narrow = rounded
@@ -117,6 +145,6 @@ info = dict(clip=os.path.basename(clip), who=who, frames=N, size=[W, H], face_bo
             track=dict(cc_min=round(float(cc.min()), 3), cc_mean=round(float(cc.mean()), 3), jitter_px_rms=round(jit, 2),
                        mouth_x=[round(float(traj[:, 0].min()), 1), round(float(traj[:, 0].max()), 1)], mouth_y=[round(float(traj[:, 1].min()), 1), round(float(traj[:, 1].max()), 1)],
                        scale=[round(float(min(np.sqrt(abs(np.linalg.det(mm[:, :2]))) for mm in MR)), 3), round(float(max(np.sqrt(abs(np.linalg.det(mm[:, :2]))) for mm in MR)), 3)]),
-            openness=[round(float(x), 3) for x in o], ok_frames=int(ok.sum()), mouth_activity=round(talk, 3))
+            openness=[round(float(x), 3) for x in o], ok_frames=int(ok.sum()), cc_ok=CCMIN, mouth_activity=round(talk, 3))
 json.dump(info, open(f'{od}/mouth.json', 'w'))
 print(who, os.path.basename(clip), 'mouth', info['mouth_box'], 'cc %.3f/%.3f' % (cc.min(), cc.mean()), 'jit %.2f' % jit, 'act %.2f' % talk, info['visemes'])

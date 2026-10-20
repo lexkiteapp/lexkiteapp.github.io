@@ -1,0 +1,18 @@
+{
+  "metadata": {
+    "soundFile": "/home/runner/work/lexkiteapp.github.io/lexkiteapp.github.io/cine/wav/a_idcookie.wav",
+    "duration": 1.40
+  },
+  "mouthCues": [
+    { "start": 0.00, "end": 0.04, "value": "X" },
+    { "start": 0.04, "end": 0.11, "value": "C" },
+    { "start": 0.11, "end": 0.17, "value": "B" },
+    { "start": 0.17, "end": 0.24, "value": "H" },
+    { "start": 0.24, "end": 0.31, "value": "C" },
+    { "start": 0.31, "end": 0.52, "value": "F" },
+    { "start": 0.52, "end": 0.73, "value": "B" },
+    { "start": 0.73, "end": 0.81, "value": "A" },
+    { "start": 0.81, "end": 1.32, "value": "B" },
+    { "start": 1.32, "end": 1.40, "value": "X" }
+  ]
+}

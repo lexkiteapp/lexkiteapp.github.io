@@ -1,0 +1,13 @@
+{
+  "metadata": {
+    "soundFile": "/home/runner/work/lexkiteapp.github.io/lexkiteapp.github.io/cine/wav/a_togo.wav",
+    "duration": 1.08
+  },
+  "mouthCues": [
+    { "start": 0.00, "end": 0.13, "value": "F" },
+    { "start": 0.13, "end": 0.34, "value": "E" },
+    { "start": 0.34, "end": 0.45, "value": "A" },
+    { "start": 0.45, "end": 1.00, "value": "B" },
+    { "start": 1.00, "end": 1.08, "value": "X" }
+  ]
+}

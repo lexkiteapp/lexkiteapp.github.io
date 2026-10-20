@@ -81,7 +81,7 @@ Les locuteurs australiens ont tendance à modifier les diphtongues (le mot *day*
 
 Habituez vos oreilles en variant vos sources d'écoute quotidiennes (podcasts de la BBC, de l'ABC australienne et de la CBC canadienne). Pour comprendre les mécanismes des sons et des liaisons orales, consultez nos [Prononciation anglaise astuces](/fr/blog/prononciation-anglaise-astuces/). Si vous préparez également le test d'ETS pour votre école, découvrez nos [Astuces TOEIC Listening Reading](/fr/blog/toeic-listening-reading-astuces/). En complément, consolidez votre rétention de vocabulaire académique grâce aux principes détaillés dans [apprendre le vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/).
 
-Prenez également le temps d'effectuer des [examens blancs chronométrés](/#/mock) pour développer votre endurance mentale sur la durée totale du test.
+Prenez également le temps d'effectuer des [examens blancs chronométrés](/#/mock) pour développer votre endurance mentale sur la durée totale du test. Préparez également l'épreuve écrite avec notre guide [IELTS Writing Task 2 structure](/fr/blog/ielts-writing-task-2-plan/) et comparez les formats d'examen avec notre dossier de [préparation Cambridge B2 First et C1](/fr/blog/cambridge-english-b2-c1/).
 
 ## L'art du Shadowing pour affûter la mémoire auditive immédiate
 

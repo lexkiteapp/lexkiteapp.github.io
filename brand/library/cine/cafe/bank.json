@@ -8,7 +8,8 @@
    "voice": {
     "engine": "kokoro-js@1 Kokoro-82M q8 (free, CI)",
     "voice": "af_bella",
-    "why": "young female US; same as content/video/assets.json characters.ama"
+    "speed": 0.9,
+    "why": "kept (assets.json): af_heart scored similar but is Mia's voice; af_nicole is breathy/older (F0 147 Hz). Native speed 0.9 instead of atempo; extra atempo only when a caption would exceed 14.8 cps (floor 0.85)."
    },
    "ref": "frames/ref-ama.png"
   },
@@ -16,8 +17,9 @@
    "desc": "adult barista, black curly hair faded sides, mustache, olive henley, navy apron, light jeans",
    "voice": {
     "engine": "kokoro-js@1 Kokoro-82M q8 (free, CI)",
-    "voice": "am_adam",
-    "why": "warm male US; same as content/video/casting.json voices.carlos"
+    "voice": "am_fenrir",
+    "speed": 0.9,
+    "why": "A/B on CI: am_adam (current casting) is flat (pitch std 2.5-2.7 st, Kokoro grade F+); am_michael is Leo's voice; am_fenrir most expressive (4.4 st, range 13 st). Suggest updating content/video/casting.json carlos -> am_fenrir."
    },
    "ref": "frames/ref-carlos.png"
   }
@@ -1330,6 +1332,169 @@
     "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/1e30a136-b665-480d-a955-fd6206e30e40-HtU21t1wKgBBz3t8BFFNDQ-output.mp4?x-kcdn-pid=112372"
    },
    "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
+  },
+  {
+   "id": "c13_ots_carlos_varied",
+   "file": "clips/c13_ots_carlos_varied.mp4",
+   "first_frame": "frames/carcu2.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "Abr8lnzt84z2-u8R_R_Qm-JAwuOT73eamJgK1koPRj4pNIyBWJ3MfDE9HTJFkb5ovBYXnb3g"
+   },
+   "source": {
+    "kind": "urlWithoutWatermark",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/40448081-3b45-4634-b285-66ac70617d2f-7KBfEQVVkK2HF4k0U54RCA-output.mp4?x-kcdn-pid=112372"
+   },
+   "framing": "ots",
+   "speakers": [
+    "carlos"
+   ],
+   "listeners": [
+    "ama"
+   ],
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     0.5
+    ]
+   ],
+   "tags": [
+    "varied-mouths",
+    "explain",
+    "gesture"
+   ],
+   "post": {
+    "watermark_crop": null,
+    "board_blur": true
+   },
+   "mouths": {
+    "carlos": {
+     "mouth_set": "meta/c13_ots_carlos_varied/carlos/sprites/",
+     "track": "meta/c13_ots_carlos_varied/carlos/track.npy",
+     "mouth_box": [
+      620,
+      417,
+      750,
+      475
+     ],
+     "visemes": {
+      "A": 98,
+      "B": 82,
+      "C": 44,
+      "D": 16,
+      "E": 73,
+      "F": 41,
+      "G": 82,
+      "H": 44,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.44,
+      "cc_mean": 0.676,
+      "jitter_px_rms": 2.86,
+      "mouth_x": [
+       685.0,
+       755.3
+      ],
+      "mouth_y": [
+       434.6,
+       454.6
+      ],
+      "scale": [
+       0.976,
+       1.302
+      ]
+     },
+     "usable_for_swap": false
+    }
+   },
+   "qa": "PARTIAL: varied mouth shapes really present (wide open, rounded O, smile), but Carlos turns his head in 3D after ~0.5 s -> 2D face tracking (ECC, chained ECC, ORB, LK all tried) fails (rigid-band NCC < 0.45 after frame 12) -> harvested A-H set is misaligned, NOT used for lip sync. Carlos lines stay off-face (over Ama listening, mouth closed)."
+  },
+  {
+   "id": "c14_entrance",
+   "file": "clips/c14_entrance.mp4",
+   "first_frame": "frames/entrance.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "Afqi-_Yq1L1o1tYDUbx41_fptr3lSAEqIW29snVFIvlobm3YzkEhqQ5z9id2Qfq5YvxFwS1J"
+   },
+   "source": {
+    "kind": "urlWithoutWatermark",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/403a4c85-1f39-45d8-b84c-70e75fd80080-NW_M5ctydq-9aMU5fuSTUw-output.mp4?x-kcdn-pid=112372"
+   },
+   "framing": "establishing",
+   "speakers": [],
+   "listeners": [
+    "ama",
+    "carlos"
+   ],
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     1.0,
+     5.0
+    ]
+   ],
+   "tags": [
+    "enter",
+    "walk-in",
+    "greeting-wave",
+    "wide"
+   ],
+   "post": {
+    "watermark_crop": null,
+    "board_blur": false
+   },
+   "mouths": {},
+   "qa": "PASS: Ama enters from the glass door (screen-left) and walks right to the counter; Carlos behind the counter (screen-right) looks up, waves; no cups; generated without audio (Kling audio price unknown -> room-tone bed reused; no footsteps)"
+  },
+  {
+   "id": "c15_insert_handover",
+   "file": "clips/c15_insert_handover.mp4",
+   "first_frame": "frames/insert.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "ASgkZTPbqLQ0_C358X0Jyxcurld6-PMzVcXRG0Fx6MLElGjNOs1BMFFlBlzl3kYdfSEtDUGq"
+   },
+   "source": {
+    "kind": "urlWithoutWatermark",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/c1ebc3ce-77e0-4cf6-994b-8da1c7b73136-kk7JKd2fav3CV71AhomS1A-output.mp4?x-kcdn-pid=112372"
+   },
+   "framing": "insert",
+   "speakers": [],
+   "listeners": [
+    "ama",
+    "carlos"
+   ],
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     3.6
+    ]
+   ],
+   "tags": [
+    "handover",
+    "latte",
+    "hands",
+    "close-up"
+   ],
+   "post": {
+    "watermark_crop": null,
+    "board_blur": false
+   },
+   "mouths": {},
+   "qa": "PASS: real close-up: Carlos (tan hand, olive sleeve, right) slides ONE white cup left, Ama (brown hand, coral sleeve, left) takes and lifts it; no faces. After ~3.8 s the cup drifts up toward Carlos side - use 0-3.6 s."
   }
  ],
  "rejected": [
@@ -1367,5 +1532,199 @@
   "safe_zone": "1080x1920: text only inside x[60,940] y[230,1500] (top 220 / bottom 420 / right 140 reserved for platform UI)",
   "captions": "<=2 lines, verbatim, -0.1/+0.4 s around speech, <=15 cps",
   "cards": "never the same sentence as the caption on screen"
- }
+ },
+ "lessons": [
+  {
+   "id": "cafe-could-i-get",
+   "cefr": "A2",
+   "goal": "Ordering politely",
+   "pattern": "Could I get ___, please?",
+   "area": "roleplay",
+   "out": "cine-cafe-v4-latte.mp4",
+   "link": "https://lexkite.com/app/#/roleplay",
+   "cta": "Roleplay this free on lexkite.com",
+   "duration": 30.792,
+   "shots": [
+    [
+     "enter",
+     "c14_entrance"
+    ],
+    [
+     "mistake",
+     "c05_ots_ama_talk_a"
+    ],
+    [
+     "why",
+     "c06_ots_ama_talk_b"
+    ],
+    [
+     "oops",
+     "c07_ots_ama_react"
+    ],
+    [
+     "fix",
+     "c05_ots_ama_talk_a"
+    ],
+    [
+     "repeat",
+     "c06_ots_ama_talk_b"
+    ],
+    [
+     "pattern",
+     "c10_ama_mcu_talk"
+    ],
+    [
+     "yourturn",
+     "c10_ama_mcu_talk"
+    ],
+    [
+     "insert",
+     "c15_insert_handover"
+    ],
+    [
+     "nod",
+     "c08_ots_carlos_react"
+    ]
+   ],
+   "qa": "qa4.py ALL PASS"
+  },
+  {
+   "id": "cafe-for-here-or-to-go",
+   "cefr": "A2",
+   "goal": "Answering \u201cFor here or to go?\u201d",
+   "pattern": "For here, please. / To go, please.",
+   "area": "roleplay",
+   "out": "cine-cafe-forhere.mp4",
+   "link": "https://lexkite.com/app/#/roleplay",
+   "cta": "Roleplay this free on lexkite.com",
+   "duration": 22.417,
+   "shots": [
+    [
+     "enter",
+     "c14_entrance"
+    ],
+    [
+     "order",
+     "c05_ots_ama_talk_a"
+    ],
+    [
+     "question",
+     "c06_ots_ama_talk_b"
+    ],
+    [
+     "answer",
+     "c06_ots_ama_talk_b"
+    ],
+    [
+     "meaning",
+     "c10_ama_mcu_talk"
+    ],
+    [
+     "yourturn",
+     "c10_ama_mcu_talk"
+    ],
+    [
+     "insert",
+     "c15_insert_handover"
+    ],
+    [
+     "nod",
+     "c08_ots_carlos_react"
+    ]
+   ],
+   "qa": "qa4.py ALL PASS"
+  },
+  {
+   "id": "cafe-can-i-pay-by",
+   "cefr": "A2",
+   "goal": "Paying",
+   "pattern": "Can I pay by ___? (card / phone) \u00b7 Can I pay in cash?",
+   "area": "roleplay",
+   "out": "cine-cafe-paycard.mp4",
+   "link": "https://lexkite.com/app/#/roleplay",
+   "cta": "Roleplay this free on lexkite.com",
+   "duration": 22.083,
+   "shots": [
+    [
+     "price",
+     "c06_ots_ama_talk_b"
+    ],
+    [
+     "ask",
+     "c05_ots_ama_talk_a"
+    ],
+    [
+     "pattern",
+     "c10_ama_mcu_talk"
+    ],
+    [
+     "yourturn",
+     "c10_ama_mcu_talk"
+    ],
+    [
+     "insert",
+     "c15_insert_handover"
+    ],
+    [
+     "nod",
+     "c08_ots_carlos_react"
+    ]
+   ],
+   "qa": "qa4.py ALL PASS"
+  },
+  {
+   "id": "cafe-id-like",
+   "cefr": "A2",
+   "goal": "Polite ordering",
+   "pattern": "I'd like a ___, please.",
+   "area": "roleplay",
+   "out": "cine-cafe-idlike.mp4",
+   "link": "https://lexkite.com/app/#/roleplay",
+   "cta": "Roleplay this free on lexkite.com",
+   "duration": 29.875,
+   "shots": [
+    [
+     "enter",
+     "c14_entrance"
+    ],
+    [
+     "mistake",
+     "c05_ots_ama_talk_a"
+    ],
+    [
+     "why",
+     "c06_ots_ama_talk_b"
+    ],
+    [
+     "oops",
+     "c07_ots_ama_react"
+    ],
+    [
+     "fix",
+     "c05_ots_ama_talk_a"
+    ],
+    [
+     "repeat",
+     "c06_ots_ama_talk_b"
+    ],
+    [
+     "pattern",
+     "c10_ama_mcu_talk"
+    ],
+    [
+     "yourturn",
+     "c10_ama_mcu_talk"
+    ],
+    [
+     "insert",
+     "c15_insert_handover"
+    ],
+    [
+     "nod",
+     "c08_ots_carlos_react"
+    ]
+   ],
+   "qa": "qa4.py ALL PASS"
+  }
+ ]
 }

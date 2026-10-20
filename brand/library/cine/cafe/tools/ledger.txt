@@ -15,3 +15,19 @@ video c10_ama_mcu_talk amamcu.png 25 AWWqlCPO83-GZUJMbUxEoTzfv9KTx8Pvj-4n6I-fYOZ
 REJECT c12_closing: Ama leaves without the latte, cup+bottle appear on counter, odd brown object in her hand (prop continuity)
 video c12b_closing c09_last.png 25 AWF2puup1FG-dt39R-d_HZHdoqHoqBGhkQPIGhkP5OnpanHcIaonGcVZUBiR0hk7aBtz_B_s
 end 2026-10-20T00:23:00Z balance 16880 spent 308 (2 image x4 = 8, 12 video x25 = 300; 1 rejected: c12_closing) cap 330
+== step A (cap 90) start 2026-10-20T01:46:18Z balance 16880
+img carcu2 4 AQiiFt9uR_Ufk5WtTqFmmvv-cOOjLcO-Vcu1ywiX7AIN_wkqTTi2G6BZAPYzQrjudG3X2QQR
+img entrance 4 AS_eCTBBg8gyNXlRz_TvfzORZ8ijNLXnd4-P3Khle79srg8s1uJfWbdZzT7amHL5pb2Ksl0n
+img insert 4 AUt6XlzxRbmFQuIWwqWlUb5CAfkE33YOZkMo2QuzsLnIhKS1qm0NpSgvOBUYSzfHVLFG5WZT
+video c13_ots_carlos_varied carcu2.png 25 Abr8lnzt84z2-u8R_R_Qm-JAwuOT73eamJgK1koPRj4pNIyBWJ3MfDE9HTJFkb5ovBYXnb3g
+video c14_entrance entrance.png 25 Afqi-_Yq1L1o1tYDUbx41_fptr3lSAEqIW29snVFIvlobm3YzkEhqQ5z9id2Qfq5YvxFwS1J
+video c15_insert_handover insert.png 25 ASgkZTPbqLQ0_C358X0Jyxcurld6-PMzVcXRG0Fx6MLElGjNOs1BMFFlBlzl3kYdfSEtDUGq
+== step A end: 2 img? no: 3 img x4 = 12, 3 video x25 = 75 -> 87 (cap 90)
+== step A end 2026-10-20T02:05:15Z balance 
+
+
+
+
+
+
+16793

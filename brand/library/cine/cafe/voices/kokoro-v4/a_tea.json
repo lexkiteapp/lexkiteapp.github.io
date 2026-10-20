@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "soundFile": "/home/runner/work/lexkiteapp.github.io/lexkiteapp.github.io/cine/wav/a_tea.wav",
+    "duration": 1.37
+  },
+  "mouthCues": [
+    { "start": 0.00, "end": 0.13, "value": "B" },
+    { "start": 0.13, "end": 0.27, "value": "C" },
+    { "start": 0.27, "end": 0.34, "value": "B" },
+    { "start": 0.34, "end": 0.41, "value": "C" },
+    { "start": 0.41, "end": 0.69, "value": "B" },
+    { "start": 0.69, "end": 0.78, "value": "A" },
+    { "start": 0.78, "end": 1.29, "value": "B" },
+    { "start": 1.29, "end": 1.37, "value": "X" }
+  ]
+}

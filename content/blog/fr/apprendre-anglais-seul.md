@@ -68,7 +68,7 @@ La [bibliothèque de sons IPA](/#/pron) regroupe voyelles, diphtongues et conson
 
 ### Vocabulaire et grammaire minimale
 
-Une dizaine de mots nouveaux par jour parmi les plus fréquents : pronoms, verbes de base (*be, have, do, go, like, want, need*), maison, famille, travail, nourriture, nombres, heures. Pour la méthode complète – choisir ses mots, les apprendre en contexte, les réviser au bon moment –, lisez notre guide pour [apprendre le vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/).
+Une dizaine de mots nouveaux par jour parmi les plus fréquents : pronoms, verbes de base (*be, have, do, go, like, want, need*), maison, famille, travail, nourriture, nombres, heures. Pour la méthode complète – choisir ses mots, les apprendre en contexte, les réviser au bon moment –, lisez notre guide pour [apprendre le vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/) et découvrez notre sélection des [phrasal verbs anglais indispensables](/fr/blog/phrasal-verbs-anglais-essentiels/).
 
 Côté grammaire, le strict minimum : le verbe *to be* (*I am, she is, they are*), ses formes affirmative, négative et interrogative, et le présent simple avec *I/you/we/they*.
 
@@ -147,7 +147,7 @@ Le plus grand danger, quand on étudie seul, c'est de juger ses progrès « au r
 - Vous posez des questions avec *do/does/did* et *wh-* dans le bon ordre.
 - Vous vous présentez pendant une minute sans préparation.
 
-Si la plupart de ces points sont acquis, vous êtes autour du niveau A2. Vous pouvez alors élargir le vocabulaire par thème, viser un score élevé avec nos [Astuces TOEIC Listening Reading](/fr/blog/toeic-listening-reading-astuces/) ou préparer vos échanges professionnels avec nos guides pour [rédiger un mail professionnel en anglais](/fr/blog/rediger-email-professionnel-anglais/) et réussir un [entretien d'embauche en anglais questions](/fr/blog/entretien-embauche-anglais-questions/). Pour du vocabulaire classé par thème, consultez aussi notre [page de vocabulaire en anglais](/en/vocabulary/) (page en anglais).
+Si la plupart de ces points sont acquis, vous êtes autour du niveau A2. Vous pouvez alors élargir le vocabulaire par thème, viser un score élevé avec nos [Astuces TOEIC Listening Reading](/fr/blog/toeic-listening-reading-astuces/), structurer une dissertation avec la méthode [IELTS Writing Task 2 structure](/fr/blog/ielts-writing-task-2-plan/) ou préparer les diplômes européens avec notre guide de [préparation Cambridge B2 First et C1](/fr/blog/cambridge-english-b2-c1/). Pour vos échanges professionnels, consultez nos guides pour [rédiger un mail professionnel en anglais](/fr/blog/rediger-email-professionnel-anglais/) et réussir un [entretien d'embauche en anglais questions](/fr/blog/entretien-embauche-anglais-questions/). Pour du vocabulaire classé par thème, consultez aussi notre [page de vocabulaire en anglais](/en/vocabulary/) (page en anglais).
 
 ## Autoévaluation
 

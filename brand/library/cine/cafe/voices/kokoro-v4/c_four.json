@@ -1,0 +1,18 @@
+{
+  "metadata": {
+    "soundFile": "/home/runner/work/lexkiteapp.github.io/lexkiteapp.github.io/cine/wav/c_four.wav",
+    "duration": 1.53
+  },
+  "mouthCues": [
+    { "start": 0.00, "end": 0.04, "value": "X" },
+    { "start": 0.04, "end": 0.29, "value": "B" },
+    { "start": 0.29, "end": 0.36, "value": "G" },
+    { "start": 0.36, "end": 0.43, "value": "E" },
+    { "start": 0.43, "end": 0.50, "value": "B" },
+    { "start": 0.50, "end": 0.71, "value": "D" },
+    { "start": 0.71, "end": 0.85, "value": "E" },
+    { "start": 0.85, "end": 0.93, "value": "A" },
+    { "start": 0.93, "end": 1.44, "value": "B" },
+    { "start": 1.44, "end": 1.53, "value": "X" }
+  ]
+}

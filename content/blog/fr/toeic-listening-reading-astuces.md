@@ -135,7 +135,7 @@ Entraînez-vous dans les conditions réelles du test grâce à notre [Mode d'ent
 Non ! Il n'y a aucune pénalité pour les mauvaises réponses. Par conséquent, ne laissez jamais une case vide sur votre grille. Si le temps imparti arrive à son terme, cochez une lettre au hasard sur toutes les questions restantes.
 
 ### Quel niveau CECRL correspond à un score de 785 points au TOEIC ?
-785 points correspond exactement au niveau B2 (utilisateur indépendant avancé) sur l'échelle européenne du CECRL. C'est le niveau standard exigé par la majorité des écoles d'ingénieurs et universités françaises. À partir de 945 points, vous atteignez le niveau C1.
+785 points correspond exactement au niveau B2 (utilisateur indépendant avancé) sur l'échelle européenne du CECRL. C'est le niveau standard exigé par la majorité des écoles d'ingénieurs et universités françaises (pour valider ce niveau à vie, comparez avec notre guide de [préparation Cambridge B2 First et C1](/fr/blog/cambridge-english-b2-c1/)). À partir de 945 points, vous atteignez le niveau C1.
 
 ### Peut-on écrire sur le livret de test pendant l'examen officiel ?
 Non, le règlement officiel d'ETS interdit formellement d'annoter ou de souligner sur le livret papier. Tout marquage doit être fait directement sur la feuille de réponses. Entraînez-vous donc chez vous sans surligner les textes.
