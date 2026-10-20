@@ -83,3 +83,5 @@ jobs:
           cat e2e-out/report.md >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
         with: { name: ios-e2e-report, path: e2e-out/, retention-days: 30 }
+      - uses: actions/upload-artifact@v4
+        with: { name: ios-e2e-summary, path: "e2e-out/report.md\ne2e-out/*/results.json\ne2e-out/*/syslog.txt\ne2e-out/*/app-std*.txt", retention-days: 30 }

@@ -44,13 +44,19 @@ function launch() {
 }
 const events = [], shots = [];
 let off = 0, lastEv = Date.now(), done = false, relaunches = 0;
+// ảnh JPEG thu nhỏ (cạnh dài 1400 px) → artifact nhẹ, tải về nhanh
+function shotTo(file) {
+  const png = file.replace(/\.jpg$/, '.png'); const r = simq('io', U, 'screenshot', '--type=png', png);
+  try { execFileSync('sips', ['-s', 'format', 'jpeg', '-s', 'formatOptions', '72', '-Z', '1400', png, '--out', file], { stdio: 'ignore' }); fs.unlinkSync(png); } catch (e) { /* giữ PNG */ }
+  return r;
+}
 const ack = (id, v) => fs.writeFileSync(path.join(E2E, 'ack-' + id), String(v || 'ok'));
 async function handle(ev) {
   events.push(ev);
   if (ev.type === 'shot') {
-    const file = `${String(shots.length + 1).padStart(3, '0')}-${String(ev.name).replace(/[^\w.-]+/g, '_').slice(0, 60)}.png`;
+    const file = `${String(shots.length + 1).padStart(3, '0')}-${String(ev.name).replace(/[^\w.-]+/g, '_').slice(0, 60)}.jpg`;
     await sleep(250);
-    const r = simq('io', U, 'screenshot', '--type=png', path.join(OUT, 'shots', file));
+    const r = shotTo(path.join(OUT, 'shots', file));
     shots.push({ file, name: ev.name, step: ev.step, lang: ev.lang, ok: !/^ERR/.test(r) });
     ack(ev.id);
   } else if (ev.type === 'host') {
@@ -78,7 +84,7 @@ while (!done && Date.now() < deadline) {
   if (Date.now() - lastEv > 45000) {
     relaunches++; log('Không có sự kiện 45 s → mở lại app (lần ' + relaunches + ')');
     if (relaunches > 12) { log('Quá nhiều lần mở lại – dừng'); break; }
-    simq('io', U, 'screenshot', '--type=png', path.join(OUT, 'shots', `stall-${relaunches}.png`)); shots.push({ file: `stall-${relaunches}.png`, name: 'stall ' + relaunches, step: (events.filter(e => e.type === 'begin').at(-1) || {}).step });
+    shotTo(path.join(OUT, 'shots', `stall-${relaunches}.jpg`)); shots.push({ file: `stall-${relaunches}.jpg`, name: 'stall ' + relaunches, step: (events.filter(e => e.type === 'begin').at(-1) || {}).step });
     launch(); lastEv = Date.now();
   }
 }
@@ -86,7 +92,13 @@ while (!done && Date.now() < deadline) {
 const crashes = [];
 try { const dir = path.join(process.env.HOME, 'Library/Logs/DiagnosticReports'); for (const f of fs.readdirSync(dir)) if (/^App[-_]/.test(f) && fs.statSync(path.join(dir, f)).mtimeMs > Date.now() - MIN * 60000 - 600000) { crashes.push(f); fs.copyFileSync(path.join(dir, f), path.join(OUT, f)); } } catch (e) { /* không có */ }
 ls.kill();
-const res = { tag: TAG, device: dev.name, runtime: dev.rt, done, launches, relaunches, crashes, events, shots };
+// Chẩn đoán mạng của máy CI (để phân biệt lỗi app với dịch vụ ngoài chặn IP máy chủ / đang sập)
+const netdiag = {};
+for (const u of ['https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=vi&dt=t&q=sustainable', 'https://api.dictionaryapi.dev/api/v2/entries/en/sustainable', 'https://api.datamuse.com/sug?s=resil&max=3', 'https://lexkite.com/api/config', 'https://audio.lexkite.com/']) {
+  try { netdiag[u.replace(/\?.*/, '')] = execFileSync('curl', ['-s', '-o', '/dev/null', '-m', '15', '-w', '%{http_code}', '-H', 'Origin: capacitor://localhost', u], { encoding: 'utf8' }); } catch (e) { netdiag[u] = 'ERR'; }
+}
+log('Mạng CI:', JSON.stringify(netdiag));
+const res = { tag: TAG, netdiag, device: dev.name, runtime: dev.rt, done, launches, relaunches, crashes, events, shots };
 fs.writeFileSync(path.join(OUT, 'results.json'), JSON.stringify(res, null, 1));
 log(`Xong: done=${done} sự kiện=${events.length} ảnh=${shots.length} mở lại=${relaunches} crash=${crashes.length}`);
 simq('shutdown', U);

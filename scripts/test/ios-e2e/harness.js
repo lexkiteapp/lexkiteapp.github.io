@@ -40,7 +40,7 @@
   // ---------- thu lỗi ----------
   const issues = []; // lỗi trong bước hiện tại
   const add = (kind, msg, extra) => { const m = String(msg || '').slice(0, 400); if (issues.some(x => x.kind === kind && x.msg === m)) return; issues.push({ kind, msg: m, ...(extra || {}) }); };
-  const IGN = /ResizeObserver loop|E2E\|/;
+  const IGN = /ResizeObserver loop|E2E\||e2e\/(ack-|events)/; // e2e/ack-*: harness dò file báo xong (plugin Filesystem tự ghi console.error khi chưa có)
   W.addEventListener('error', e => {
     const tg = e.target;
     if (tg && tg !== W && (tg.src || tg.href)) { add('resource', (tg.tagName || '') + ' ' + (tg.currentSrc || tg.src || tg.href)); return; }
@@ -53,7 +53,7 @@
   const of = W.fetch;
   if (of) W.fetch = function (input, init) {
     const url = String(input && input.url || input), t0 = now();
-    return of.apply(this, arguments).then(r => { net.push({ url, status: r.status, ms: now() - t0 }); if (!r.ok && r.status !== 0 && r.type !== 'opaque') add('http', r.status + ' ' + url); return r; },
+    return of.apply(this, arguments).then(r => { net.push({ url, status: r.status, ms: now() - t0 }); if (net.length > 400) net.shift(); if (!r.ok && r.status !== 0 && r.type !== 'opaque') add('http', r.status + ' ' + url); return r; },
       err => { net.push({ url, err: String(err && err.message || err) }); add('fetch-fail', url + ' – ' + (err && err.message || err)); throw err; });
   };
   const XO = XMLHttpRequest.prototype.open, XS = XMLHttpRequest.prototype.send;
@@ -62,7 +62,7 @@
   const opened = [];
   const WO = W.open; W.open = function (u, tg) { opened.push(String(u)); add('window.open', String(u) + ' target=' + (tg || '')); return WO ? WO.apply(this, arguments) : null; };
   const MP = HTMLMediaElement.prototype.play;
-  HTMLMediaElement.prototype.play = function () { const src = this.currentSrc || this.src; const p = MP.apply(this, arguments); if (p && p.catch) p.catch(e => add('media.play', (e && e.name) + ': ' + (e && e.message) + ' ' + String(src).slice(-80))); return p; };
+  HTMLMediaElement.prototype.play = function () { const src = this.currentSrc || this.src; const p = MP.apply(this, arguments); if (p && p.catch) p.catch(e => e && e.name !== 'AbortError' && add('media.play', (e && e.name) + ': ' + (e && e.message) + ' ' + String(src).slice(-80))); return p; };
   // Gọi plugin gốc: ghi lại; Share/thông báo bị CHẶN trong vòng chính (hộp hệ thống sẽ che màn hình) – có bước gọi thật riêng ở cuối
   const nativeCalls = [];
   let stubNative = true;
@@ -90,7 +90,7 @@
   wrapPlugins();
 
   // ---------- kiểm tra 1 màn hình ----------
-  const VI = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
+  const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i; // chỉ chữ riêng tiếng Việt (bỏ â ê ô – có trong pt/fr)
   const PLACEHOLDER = /(coming soon|arrives with the official|official release|sắp ra mắt|chưa hỗ trợ trong app|not available in the app|not supported in this app)/i;
   const vis = el => { if (!el) return false; const r = el.getBoundingClientRect(); if (r.width < 2 || r.height < 2) return false; const cs = getComputedStyle(el); return cs.visibility !== 'hidden' && cs.display !== 'none' && +cs.opacity > 0.05; };
   function safeInsets() {
@@ -104,7 +104,8 @@
     out.text = v ? (v.innerText || '').trim().length : (document.body.innerText || '').trim().length;
     if (!v) add('page', 'Không ở trong app: ' + location.href);
     if (out.text < 20 && !modalOpen) add('blank', 'Màn hình trống/gần trống (' + out.text + ' ký tự)');
-    const sw = document.documentElement.scrollWidth, iw = innerWidth;
+    const vv = W.visualViewport; if (vv && vv.scale > 1.02) add('zoom', `Trang bị phóng to ${vv.scale.toFixed(2)}× (iOS tự zoom khi chạm ô nhập chữ < 16px) – phải chụm tay mới thu lại`);
+    const sw = document.documentElement.scrollWidth, iw = document.documentElement.clientWidth;
     if (sw > iw + 2) {
       const wide = [...document.querySelectorAll('#view *, .topbar *, .bottom-nav *')].filter(e => { const r = e.getBoundingClientRect(); return r.right > iw + 2 && r.width > 0 && vis(e); }).slice(0, 3).map(e => e.tagName.toLowerCase() + (e.id ? '#' + e.id : '') + (e.className && typeof e.className === 'string' ? '.' + e.className.trim().split(/\s+/).slice(0, 2).join('.') : '') + ' r=' + Math.round(e.getBoundingClientRect().right));
       add('overflow-x', `Trang rộng ${sw}px > màn hình ${iw}px: ${wide.join(' | ')}`);
@@ -113,6 +114,10 @@
     const ins = safeInsets(); out.safe = ins;
     const tb = document.querySelector('.topbar');
     if (tb && vis(tb) && scrollY < 5) { const kids = [...tb.querySelectorAll('input,button,a')].filter(vis); const minTop = Math.min(...kids.map(k => k.getBoundingClientRect().top)); if (kids.length && minTop < ins.top - 1) add('safe-area', `Thanh trên (${Math.round(minTop)}px) nằm dưới tai thỏ/thanh trạng thái (vùng an toàn ${ins.top}px)`); }
+    if (ins.top > 0 && scrollY < 5) { // trang toàn màn (ôn thẻ/thi – thanh trên ẩn) hoặc cột trái iPad: nội dung không được nằm dưới thanh trạng thái
+      const under = [...document.querySelectorAll('#view *, .sidebar *')].filter(e => { if (!vis(e) || e.children.length) return false; const r = e.getBoundingClientRect(); return r.top < ins.top - 1 && r.bottom > 2 && r.height < 200 && ((e.innerText || '').trim() || /^(BUTTON|IMG|SVG|INPUT)$/i.test(e.tagName)); }).slice(0, 3);
+      if (under.length) add('safe-area', `Nội dung nằm dưới thanh trạng thái/tai thỏ (vùng an toàn ${ins.top}px): ` + under.map(e => e.tagName.toLowerCase() + '"' + (e.innerText || '').trim().slice(0, 20) + '"@' + Math.round(e.getBoundingClientRect().top)).join(' | '));
+    }
     const bn = document.getElementById('bnav');
     if (bn && vis(bn)) { const items = [...bn.querySelectorAll('a,button')].filter(vis); const maxB = Math.max(...items.map(k => k.getBoundingClientRect().bottom)); if (items.length && maxB > innerHeight - ins.bottom + 1) add('safe-area', `Thanh dưới (${Math.round(maxB)}px) đè lên vạch Home (giới hạn ${innerHeight - ins.bottom}px)`); }
     // chữ chưa dịch (giao diện không phải tiếng Việt mà còn chữ Việt)
@@ -169,7 +174,7 @@
     for (const r of MAIN) S.push({ k: 'route', r, probe: true });
     S.push({ k: 'subpages' });
     S.push({ k: 'search' }); S.push({ k: 'review' }); S.push({ k: 'practice' }); S.push({ k: 'placement' }); S.push({ k: 'tts' }); S.push({ k: 'speakcheck' });
-    S.push({ k: 'deeplink' });
+    S.push({ k: 'deeplink' }); S.push({ k: 'extlink' });
     S.push({ k: 'offline' });
     S.push({ k: 'dark' });
     for (const l of LANGS) { S.push({ k: 'lang', l }); S.push({ k: 'langcheck', l }); }
@@ -300,6 +305,18 @@
         if (!/#\/review/.test(location.hash)) add('deeplink', 'lexkite://review?w=… không mở trang ôn tập (hash=' + location.hash + ')');
         audit('deeplink'); await shot('deeplink'); return;
       }
+      case 'extlink': {
+        // liên kết trang tĩnh (/privacy): không được làm app tải lại/về trang chủ (bước bị đánh dấu "stall" nếu trang tải lại)
+        await visit('settings', 'settings', { shot: false });
+        const mark = Math.random(); W.__e2eMark = mark;
+        let a = [...document.querySelectorAll('a[href="/privacy"], a[href^="/privacy"]')][0];
+        const tmp = !a; if (tmp) { a = document.createElement('a'); a.href = '/privacy'; a.textContent = 'privacy'; document.getElementById('view').appendChild(a); }
+        a.click(); await sleep(3500);
+        if (W.__e2eMark !== mark) add('extlink', 'Trang bị tải lại khi bấm /privacy');
+        emit({ type: 'info', key: 'extlink', found: !tmp, hash: location.hash, path: location.pathname });
+        if (tmp) a.remove();
+        await shot('extlink'); return;
+      }
       case 'offline': {
         // Giả lập mất mạng TRONG trang (máy chủ CI không tắt mạng được): fetch/XHR ra ngoài lỗi, navigator.onLine=false, phát sự kiện offline
         const realFetch = W.fetch; W.fetch = function (u) { const s = String(u && u.url || u); if (/^https?:/.test(s)) return Promise.reject(new TypeError('Load failed (offline-sim)')); return realFetch.apply(this, arguments); };
@@ -362,7 +379,7 @@
     const S = plan();
     while (st.i < S.length) {
       const s = S[st.i]; const name = stepName(s);
-      if (s.k === 'done') { emit({ type: 'done', visited: [...visited] }); st.i = S.length; save(); return; }
+      if (s.k === 'done') { const hosts = {}; for (const n of net) { const h = (/^\w+:\/\/([^/]+)/.exec(n.url) || [, 'local'])[1]; const o = hosts[h] = hosts[h] || { ok: 0, fail: 0, codes: {} }; if (n.err) o.fail++; else { o.ok++; o.codes[n.status] = (o.codes[n.status] || 0) + 1; } } emit({ type: 'info', key: 'net', hosts }); emit({ type: 'done', visited: [...visited] }); st.i = S.length; save(); return; }
       cur.step = name; st.inStep = st.i; st.lastLoc = location.pathname + location.hash; save();
       emit({ type: 'begin', step: name });
       try { await runStep(s); } catch (e) { add('harness', 'Lỗi kịch bản: ' + (e && e.message)); }
