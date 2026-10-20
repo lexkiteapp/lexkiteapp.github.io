@@ -158,7 +158,7 @@
       if (App.logMistake) [...Object.entries(res.L).map(x => ['listening', ...x]), ...Object.entries(res.R).map(x => ['reading', ...x])].filter(([, , r]) => !r.ok).forEach(([kind, q, r]) => App.logMistake({ kind, q: `TOEIC Test ${n} · ${q}: ${r.q || ''}`, answer: r.answer, given: r.given || I18N.tk('(bỏ trống)'), explain: r.explain || '', ref: '' }));
       if (total >= 700) { Sfx.win(); confetti(140); }
       const sheet = o => `<div class="lsheet">${Object.keys(o).map(Number).sort((a, b) => a - b).map(q => `<div class="${o[q].ok ? 'ok' : 'no'}"><b>${q}</b> ${o[q].ok ? '✓' : '✗'} <span>${esc(o[q].answer)}</span></div>`).join('')}</div>`;
-      view.innerHTML = `<div class="study-wrap" style="max-width:860px"><div class="card celebrate"><div class="em">💼</div><h2>${t('{n}/990 điểm (ước tính)', { n: total })}</h2>
+      view.innerHTML = `<div class="study-wrap" style="max-width:860px"><div class="card celebrate"><div class="em">${window.Kit ? Kit.svg(total >= 700 ? 'win' : total >= 450 ? 'happy' : 'think', 80, true) : '💼'}</div><h2>${t('{n}/990 điểm (ước tính)', { n: total })}</h2>
         <div class="mk-bands" style="grid-template-columns:repeat(2,minmax(0,1fr))"><div><span>🎧</span><b>${ls}</b><small>Listening · ${lr}/${lt}</small></div><div><span>📖</span><b>${rs}</b><small>Reading · ${rr}/${rt}</small></div></div>
         <p class="small muted" style="margin-top:.8rem">${t('Quy đổi ước tính trên đề tự biên soạn – chỉ để tham khảo, không phải thang điểm chính thức của ETS.')}</p></div>
         ${(() => { // Tỉ lệ đúng theo từng Part → chỉ ra Part yếu nhất để luyện
