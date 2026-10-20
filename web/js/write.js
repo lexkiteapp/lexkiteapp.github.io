@@ -65,7 +65,7 @@
     const p = PROMPTS.find(x => x.id === (arg || draft.prompt)) || PROMPTS[0];
     const topic = App.topicOf(p.topic);
     view.innerHTML = `
-      <div class="page-head"><div><h1>✍️ ${t('Phòng viết')}</h1><p class="muted"><a href="#/task1">📈 ${t('Chuyển sang Task 1 (biểu đồ) →')}</a><br>${t('Viết bài IELTS Task 2 rồi nhận <b>phân tích từ vựng tức thì</b>: từ học thuật, từ nối, collocation, từ bị lặp và gợi ý thay thế. Bài viết chỉ lưu trên máy bạn.')}</p></div></div>
+      <div class="page-head"><div><h1>✍️ ${t('Phòng viết')}</h1><p class="muted"><a href="#/task1">📈 ${t('Chuyển sang Task 1 (biểu đồ) →')}</a> · <a href="#/criteria?skill=writing">📊 ${t('Tiêu chí chấm band 4–9')}</a><br>${t('Viết bài IELTS Task 2 rồi nhận <b>phân tích từ vựng tức thì</b>: từ học thuật, từ nối, collocation, từ bị lặp và gợi ý thay thế. Bài viết chỉ lưu trên máy bạn.')}</p></div></div>
       <div class="grid" style="grid-template-columns:minmax(0,1fr) 300px;align-items:start" id="wGrid">
         <div class="stack">
           <div class="card">
