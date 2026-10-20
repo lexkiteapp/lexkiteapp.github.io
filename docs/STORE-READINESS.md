@@ -123,7 +123,7 @@ Mã, entitlement, plugin, CI đã xong (`web/js/native-auth.js`, `scripts/mobile
 4. **Firebase → Add app → Android**: package `com.lexkite.app`, nickname `Lexkite Android` → Register (SHA thêm ở bước 5).
 5. **SHA của Android** (Firebase → Project settings → app Android → *Add fingerprint*, thêm cả 4 dòng):
    - Khóa ký của Play (người dùng cài từ Play): **Play Console → Lexkite → Test and release → App integrity → App signing** → "App signing key certificate": SHA-1 và SHA-256.
-   - Upload key: cùng trang, "Upload key certificate": SHA-1 và SHA-256 (CI `android.yml` job `aab` cũng in 2 dòng này ở Summary).
+   - Upload key: cùng trang, "Upload key certificate": SHA-1 và SHA-256.
 6. Sau bước 5 → **Download google-services.json** (tải SAU khi thêm SHA để file có OAuth client Android).
 7. Gửi em 2 file (hoặc chép vào `mobile/ios/App/App/GoogleService-Info.plist` và `mobile/android/app/google-services.json`). File cấu hình Firebase không phải bí mật (khóa API bị giới hạn theo app); em commit, build CI kiểm (`mobile-auth-config.mjs` chặn file sai dự án/thiếu client), rồi TestFlight/Play nội bộ.
 8. **App Store Connect → App Privacy**: thêm Name, Email Address, User ID (Linked to user, App Functionality); Product Interaction → Linked (khớp `PrivacyInfo.xcprivacy`). Play Console → Data safety: thêm Name, Email, User IDs (Account management, App functionality) – khớp `lexkite.com/privacy`.

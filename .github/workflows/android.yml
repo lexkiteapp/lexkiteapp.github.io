@@ -91,7 +91,7 @@ jobs:
           export LEXKITE_VERSION_NAME=$(node -p "require('../package.json').version")
           echo "versionCode=$LEXKITE_VERSION_CODE versionName=$LEXKITE_VERSION_NAME"
           # Vân tay upload key (công khai, không phải bí mật) → đăng ký SHA-1/SHA-256 trong Firebase cho Google Sign-In
-          keytool -list -v -keystore "$LEXKITE_KEYSTORE_FILE" -alias "$LEXKITE_KEY_ALIAS" -storepass "$LEXKITE_KEYSTORE_PASSWORD" 2>/dev/null | grep -E '^\s*SHA(1|256):' | sed 's/^ */upload key /' | tee -a "$GITHUB_STEP_SUMMARY" || true
+          keytool -list -v -keystore "$LEXKITE_KEYSTORE_FILE" -storepass "$LEXKITE_KEYSTORE_PASSWORD" 2>/dev/null | grep -E '^\s*SHA(1|256):' | sed 's/^ */upload key /' | tee -a "$GITHUB_STEP_SUMMARY" || true
           chmod +x gradlew
           ./gradlew --no-daemon bundleRelease
           rm -f "$LEXKITE_KEYSTORE_FILE"
