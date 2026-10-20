@@ -104,15 +104,7 @@
     P.App.addListener('appUrlOpen', e => openDeep(e && e.url));
     window.addEventListener('load', () => { P.App.getLaunchUrl && P.App.getLaunchUrl().then(r => openDeep(r && r.url)).catch(() => {}); });
   }
-  // Liên kết tới trang web tĩnh (/privacy, /terms, /blog/, /samples/…): Capacitor trả chính app cho mọi đường dẫn không đuôi
-  // → bấm là app tải lại về trang chủ, không bao giờ tới trang cần xem. Mở bản trên lexkite.com (WebView chuyển sang Safari); "/" và "/app/…" = về trang trong app.
-  document.addEventListener('click', e => {
-    const a = e.target.closest && e.target.closest('a[href]'); if (!a || e.defaultPrevented) return;
-    const h = a.getAttribute('href') || ''; if (!/^\/(?!\/)/.test(h)) return;
-    e.preventDefault();
-    if (/^\/(\?|#|$)|^\/app\/?(\?|#|$)/.test(h)) { const m = /#\/.*/.exec(h); location.hash = m ? m[0] : '#/home'; return; }
-    location.href = 'https://lexkite.com' + h;
-  }, true);
   g.VBNative.scheduleReminder = scheduleReminder;
+  g.VBNative.openDeep = openDeep; // kiểm thử E2E (simctl openurl bị hộp "Mở bằng Lexkite?" của hệ thống chặn)
   window.addEventListener('load', () => setTimeout(() => scheduleReminder({ ask: false }), 3000));
 })(typeof self !== 'undefined' ? self : this);

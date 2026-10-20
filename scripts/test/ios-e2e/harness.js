@@ -66,6 +66,9 @@
   // Gọi plugin gốc: ghi lại; Share/thông báo bị CHẶN trong vòng chính (hộp hệ thống sẽ che màn hình) – có bước gọi thật riêng ở cuối
   const nativeCalls = [];
   let stubNative = true;
+  // navigator.share (Web Share của WKWebView) mở bảng chia sẻ hệ thống che màn hình → cũng chặn trong vòng chính
+  const NS = navigator.share && navigator.share.bind(navigator);
+  if (NS) try { Object.defineProperty(navigator, 'share', { configurable: true, value: o => { nativeCalls.push({ plugin: 'navigator', method: 'share', arg: JSON.stringify(o || {}).slice(0, 160), step: cur.step, stubbed: stubNative }); return stubNative ? Promise.resolve() : NS(o); } }); } catch (e) { /* bỏ qua */ }
   function wrapPlugins() {
     const ps = P(); const spec = { TextToSpeech: ['speak'], Share: ['share', 'canShare'], LocalNotifications: ['requestPermissions', 'schedule', 'checkPermissions'], Filesystem: ['writeFile'], Haptics: ['vibrate', 'impact'], StatusBar: ['setStyle'] };
     for (const [pn, ms] of Object.entries(spec)) {
@@ -154,7 +157,7 @@
     }
   }
   const closeModal = () => { const m = document.getElementById('modal'); if (m && !m.hidden) { try { if (W.UI && W.UI.closeModal) W.UI.closeModal(); else m.hidden = true; } catch (e) { m.hidden = true; } } };
-  const DANGER = /(delete|remove|reset|erase|clear|sign|log ?out|google|apple|account|export|import|backup|restore|report|contact|send|submit|buy|upgrade|premium|install|download|xóa|đăng|xuất|nhập|gửi|tải|báo lỗi|privacy|terms|blog|uninstall|copy)/i;
+  const DANGER = /(delete|remove|reset|erase|clear|sign|log ?out|google|apple|account|export|import|backup|restore|report|contact|send|submit|buy|upgrade|premium|install|download|share|chia sẻ|xóa|đăng|xuất|nhập|gửi|tải|báo lỗi|privacy|terms|blog|uninstall|copy)/i;
   const clickables = () => [...document.querySelectorAll('#view button:not([disabled]), #view [role=button], #view .chip, #view [data-v]')].filter(b => vis(b) && !b.closest('a[href]:not([href^="#"])')).filter(b => !DANGER.test((b.innerText || '') + ' ' + (b.getAttribute('aria-label') || '') + ' ' + (b.id || '')));
 
   // ---------- kịch bản ----------
@@ -301,20 +304,23 @@
       }
       case 'deeplink': {
         await visit('home', 'home', { shot: false });
-        await host('openurl', { url: 'lexkite://review?w=sustainable' }); await sleep(2500);
-        if (!/#\/review/.test(location.hash)) add('deeplink', 'lexkite://review?w=… không mở trang ôn tập (hash=' + location.hash + ')');
+        // simctl openurl lexkite://… luôn hiện hộp hệ thống "Mở bằng Lexkite?" (không bấm được khi chạy tự động) → kiểm đường xử lý JS của appUrlOpen
+        if (!(W.VBNative && W.VBNative.openDeep)) add('deeplink', 'VBNative.openDeep không có');
+        else { W.VBNative.openDeep('lexkite://review?w=sustainable'); await settle(5000); if (!/#\/review\?w=sustainable/.test(location.hash)) add('deeplink', 'lexkite://review?w=… không mở trang ôn tập (hash=' + location.hash + ')'); }
         audit('deeplink'); await shot('deeplink'); return;
       }
       case 'extlink': {
         // liên kết trang tĩnh (/privacy): không được làm app tải lại/về trang chủ (bước bị đánh dấu "stall" nếu trang tải lại)
         await visit('settings', 'settings', { shot: false });
         const mark = Math.random(); W.__e2eMark = mark;
-        let a = [...document.querySelectorAll('a[href="/privacy"], a[href^="/privacy"]')][0];
-        const tmp = !a; if (tmp) { a = document.createElement('a'); a.href = '/privacy'; a.textContent = 'privacy'; document.getElementById('view').appendChild(a); }
-        a.click(); await sleep(3500);
-        if (W.__e2eMark !== mark) add('extlink', 'Trang bị tải lại khi bấm /privacy');
-        emit({ type: 'info', key: 'extlink', found: !tmp, hash: location.hash, path: location.pathname });
-        if (tmp) a.remove();
+        const a = document.querySelector('.side-foot a[data-l="privacy"]') || [...document.querySelectorAll('#view a[href*="/privacy"]')][0];
+        if (!a) { add('extlink', 'Không thấy liên kết Chính sách quyền riêng tư'); return; }
+        const o0 = opened.length, href = a.getAttribute('href'); a.click(); await sleep(1500);
+        const r = await host('checksafari', {}, 30000); await sleep(2500);
+        emit({ type: 'info', key: 'extlink', href, opened: opened.slice(o0), safari: r, hash: location.hash });
+        if (W.__e2eMark !== mark) add('extlink', 'App tải lại khi bấm liên kết Chính sách (' + href + ')');
+        if (!/running/.test(r || '')) add('extlink', 'Bấm "Chính sách quyền riêng tư" không mở Safari (' + (opened.slice(o0)[0] || href) + ')');
+        for (let i = issues.length - 1; i >= 0; i--) if (issues[i].kind === 'window.open') issues.splice(i, 1); // mở trang ngoài là đúng ý
         await shot('extlink'); return;
       }
       case 'offline': {

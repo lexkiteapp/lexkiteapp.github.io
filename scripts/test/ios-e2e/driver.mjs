@@ -64,6 +64,10 @@ async function handle(ev) {
     if (ev.cmd === 'appearance') { simq('ui', U, 'appearance', ev.mode); ack(ev.id); }
     else if (ev.cmd === 'openurl') { const r = simq('openurl', U, ev.url); ack(ev.id, r.slice(0, 200) || 'ok'); }
     else if (ev.cmd === 'relaunch') { await sleep(500); launch(); }
+    else if (ev.cmd === 'checksafari') { // liên kết ngoài phải mở Safari → kiểm tiến trình Safari rồi đưa app về trước
+      await sleep(2500); const l = simq('spawn', U, 'launchctl', 'list'); const on = /mobilesafari/i.test(l);
+      shotTo(path.join(OUT, 'shots', `${String(shots.length + 1).padStart(3, '0')}-safari.jpg`)); shots.push({ file: `${String(shots.length + 1).padStart(3, '0')}-safari.jpg`, name: 'safari', step: ev.step });
+      ack(ev.id, on ? 'running' : 'not-running'); simq('launch', U, BUNDLE); }
   } else if (ev.type === 'step') {
     const n = (ev.issues || []).length; log((n ? '✗ ' : '✓ ') + ev.step + (n ? ' – ' + ev.issues.map(i => i.kind + ': ' + i.msg).join(' | ').slice(0, 300) : ''));
   } else if (ev.type === 'done') { done = true; }

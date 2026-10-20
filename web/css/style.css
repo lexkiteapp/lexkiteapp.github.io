@@ -1051,7 +1051,6 @@ button, .btn, .option, .tabs, .bottom-nav { -webkit-user-select: none; user-sele
 html.native .topbar, html.native .w-head { padding-top: max(.6rem, calc(env(safe-area-inset-top) + .35rem)); } /* app iOS/Android: đầu trang không đè tai thỏ/thanh trạng thái */
 html.native .sidebar { padding-top: max(1.1rem, calc(env(safe-area-inset-top) + .5rem)); padding-left: max(.9rem, env(safe-area-inset-left)); } /* iPad/Mac: logo cột trái không đè thanh trạng thái */
 /* Trang toàn màn (ôn thẻ, thi…: ẩn thanh trên) – chừa tai thỏ/Dynamic Island; trình duyệt thường env() = 0 nên không đổi */
-body.focus .view { padding-top: calc(1rem + env(safe-area-inset-top)); }
 body.bare .view { padding-top: calc(2rem + env(safe-area-inset-top)); }
 /* iOS (Safari & app): ô nhập chữ < 16px → chạm vào là trang tự phóng to và không thu lại (ô tra từ .92rem trên điện thoại) */
 @supports (-webkit-touch-callout: none) { input:not([type=checkbox]):not([type=radio]):not([type=range]), select, textarea { font-size: max(16px, 1em); } }html.native body { overscroll-behavior: none; }
@@ -1281,7 +1280,7 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
 /* Chế độ tập trung khi ôn thẻ/luyện: ẩn menu bên, thanh trên và thanh dưới */
 body.focus .sidebar, body.focus .topbar, body.focus .bottom-nav { display: none; }
 body.focus .shell { grid-template-columns: 1fr; }
-body.focus .view { padding-top: 1rem; }
+body.focus .view { padding-top: calc(1rem + env(safe-area-inset-top)); } /* chừa tai thỏ/thanh trạng thái (thanh trên ẩn) */
 
 .contact-form { display: flex; flex-direction: column; gap: 1rem; position: relative; }
 .contact-form label { display: flex; flex-direction: column; gap: .35rem; font-weight: 600; font-size: .92rem; }
