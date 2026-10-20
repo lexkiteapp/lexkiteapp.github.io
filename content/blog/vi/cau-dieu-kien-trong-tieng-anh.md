@@ -14,6 +14,26 @@ factChecked: 2026-10-16
 author: Lexkite
 status: ready
 qualityScore: 94
+quiz: [
+  {
+    q: "Chọn động từ thích hợp: 'If I _____ you, I would accept that job offer immediately.'",
+    options: ["am", "was", "were", "had been"],
+    answer: 2,
+    explain: "Câu điều kiện loại 2 giả định trái với thực tế ở hiện tại, mệnh đề If chuẩn tắc dùng 'were' cho mọi ngôi."
+  },
+  {
+    q: "Điền dạng đúng của động từ: 'If they had left earlier, they _____ the flight yesterday.'",
+    options: ["wouldn't miss", "wouldn't have missed", "won't miss", "hadn't missed"],
+    answer: 1,
+    explain: "Câu điều kiện loại 3 giả định trái với quá khứ: If + had V3/ed, S + would/could have V3/ed."
+  },
+  {
+    q: "Dạng đảo ngữ trang trọng của 'If you should need any assistance, please let me know' là gì?",
+    options: ["Had you needed any assistance, please let me know.", "Should you need any assistance, please let me know.", "Were you to need any assistance, please let me know.", "Do you need any assistance, please let me know."],
+    answer: 1,
+    explain: "Đảo ngữ của 'If + S + should + V' là đưa 'Should' lên đầu câu và bỏ 'If': Should + S + V (nguyên thể). 'Were you to…' là đảo ngữ của 'If you were to…', không phải của câu gốc."
+  }
+]
 ---
 
 Khi nói về những tình huống giả định, dự định trong tương lai hay tiếc nuối trong quá khứ, người bản ngữ luôn sử dụng các cấu trúc điều kiện để diễn đạt chính xác mức độ khả thi. Nắm vững bản chất của **câu điều kiện trong tiếng anh** không chỉ giúp bạn chấm dứt thói quen học vẹt công thức mà còn giúp nâng cao độ chính xác về ngữ pháp trong bài thi IELTS hay giao tiếp thường nhật.

@@ -13,6 +13,26 @@ publishAt: 2026-11-15T19:47:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
+quiz: [
+  {
+    q: "Khi nào một nhận định trong dạng bài True/False/Not Given được kết luận là FALSE?",
+    options: ["Khi bài đọc hoàn toàn không đề cập đến chi tiết đó.", "Khi nhận định mâu thuẫn trực tiếp hoặc bị phủ định bởi thông tin trong bài đọc.", "Khi nhận định đúng với thực tế bên ngoài nhưng dài hơn bài đọc.", "Khi từ vựng trong câu phát biểu không giống với từ vựng bài đọc."],
+    answer: 1,
+    explain: "Đáp án là FALSE khi bài đọc có cung cấp thông tin và thông tin đó mâu thuẫn trực tiếp hoặc phủ định câu phát biểu."
+  },
+  {
+    q: "Bài đọc: 'Only a few bird species migrate south in winter.' Câu phát biểu: 'Most bird species migrate south in winter.' Đáp án là gì?",
+    options: ["TRUE", "FALSE", "NOT GIVEN", "POSSIBLE"],
+    answer: 1,
+    explain: "Bài đọc nói 'only a few' (chỉ một số ít loài), câu phát biểu lại nói 'most' (đa số). Hai từ chỉ mức độ mâu thuẫn trực tiếp, nên đáp án là FALSE."
+  },
+  {
+    q: "Bài đọc: 'The new library was built in 2020.' Câu phát biểu: 'The new library is the largest building in town.' Đáp án là gì?",
+    options: ["TRUE", "FALSE", "NOT GIVEN", "INCORRECT"],
+    answer: 2,
+    explain: "Bài đọc chỉ nêu năm xây dựng (2020), hoàn toàn không có dữ liệu so sánh kích thước với các tòa nhà khác trong thị trấn, nên đáp án là NOT GIVEN."
+  }
+]
 ---
 Có một kiểu câu hỏi khiến rất nhiều bạn đọc hiểu bài khá tốt mà vẫn mất điểm: **True False Not Given**. Bạn đọc đoạn văn, thấy câu phát biểu "nghe có vẻ sai", chọn False – rồi đáp án lại là Not Given. Lý do không nằm ở vốn từ, mà ở chỗ ta chưa nắm luật chơi. Dạng bài này không hỏi bạn nghĩ gì về thế giới, nó chỉ hỏi: **bài đọc nói gì**. Khi hiểu đúng điều đó, tỉ lệ đúng tăng lên rõ rệt mà không cần học thêm từ nào.
 

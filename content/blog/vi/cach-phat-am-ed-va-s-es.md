@@ -13,6 +13,26 @@ publishAt: 2026-11-05T21:03:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
+quiz: [
+  {
+    q: "Đuôi '-ed' trong từ 'decided' được phát âm là gì?",
+    options: ["/t/", "/d/", "/ɪd/", "/eɪd/"],
+    answer: 2,
+    explain: "Từ 'decide' có âm tận cùng là /d/. Động từ có âm kết thúc là /t/ hoặc /d/ khi thêm '-ed' sẽ phát âm là /ɪd/."
+  },
+  {
+    q: "Từ nào dưới đây có đuôi '-ed' được phát âm là /t/?",
+    options: ["played", "cleaned", "watched", "opened"],
+    answer: 2,
+    explain: "'watch' kết thúc bằng âm vô thanh /tʃ/, do đó đuôi '-ed' đọc là /t/. Các từ còn lại kết thúc bằng âm hữu thanh nên đọc là /d/."
+  },
+  {
+    q: "Đuôi '-s/-es' trong từ nào dưới đây được phát âm là /ɪz/?",
+    options: ["books", "pens", "watches", "cats"],
+    answer: 2,
+    explain: "'watch' kết thúc bằng âm xuýt /tʃ/, nên khi thêm '-es' sẽ phát âm thành âm tiết riêng /ɪz/ (watches /wɒtʃɪz/)."
+  }
+]
 ---
 Cách phát âm ed và s es được quyết định bởi **âm cuối** của từ gốc, không phải chữ cái cuối. Với đuôi *-ed*: đọc /ɪd/ sau âm /t/ hoặc /d/, đọc /t/ sau âm vô thanh, đọc /d/ sau âm hữu thanh. Với đuôi *-s/-es*: đọc /ɪz/ sau các âm "xuýt" như /s z ʃ ʒ tʃ dʒ/, đọc /s/ sau âm vô thanh, đọc /z/ sau âm hữu thanh. Hai bộ quy tắc thực chất dựa trên cùng một nguyên lý.
 

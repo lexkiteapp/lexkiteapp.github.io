@@ -13,6 +13,26 @@ publishAt: 2026-10-23T19:07:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
+quiz: [
+  {
+    q: "Chọn phrasal verb mang nghĩa 'hoãn lại': 'They decided to _____ the meeting until next Friday.'",
+    options: ["put on", "put off", "put out", "put up"],
+    answer: 1,
+    explain: "'Put off' nghĩa là hoãn lại (postpone). 'Put on' là mặc vào/bật lên, 'put out' là dập tắt lửa."
+  },
+  {
+    q: "Điền cụm động từ thích hợp: 'I cannot _____ this noise any longer, it gives me a headache.'",
+    options: ["come up with", "run out of", "put up with", "look down on"],
+    answer: 2,
+    explain: "'Put up with' có nghĩa là chịu đựng (tolerate) một điều phiền toái."
+  },
+  {
+    q: "Cụm 'turn down an invitation' có nghĩa tương đương với từ nào dưới đây?",
+    options: ["accept", "decline", "postpone", "confirm"],
+    answer: 1,
+    explain: "'Turn down' đồng nghĩa với 'decline' hoặc 'reject' (từ chối một lời mời/đề xuất)."
+  }
+]
 ---
 *Give up*, *give in*, *give out*, *give away*… Cùng một động từ, chỉ đổi một chữ nhỏ phía sau mà nghĩa chạy đi bốn hướng. Không ngạc nhiên khi nhiều người học coi phrasal verb là "nỗi ám ảnh" và cố học thuộc từng cụm như một từ mới hoàn toàn. Tin tốt là các tiểu từ như *up*, *out*, *off* không ngẫu nhiên. Mỗi tiểu từ mang một vài ý nghĩa lặp đi lặp lại. Nắm được chúng, bạn học phrasal verb thông dụng nhanh hơn và đoán nghĩa cụm mới dễ hơn.
 

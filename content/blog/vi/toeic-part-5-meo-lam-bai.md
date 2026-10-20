@@ -13,6 +13,26 @@ publishAt: 2026-12-05T07:21:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
+quiz: [
+  {
+    q: "Khi bốn lựa chọn có cùng gốc từ nhưng khác hậu tố (decide, decision, decisive, decisively), đây là dạng câu hỏi gì?",
+    options: ["Câu hỏi từ loại (Parts of speech)", "Câu hỏi thì của động từ (Tenses)", "Câu hỏi giới từ (Prepositions)", "Câu hỏi từ vựng ngữ nghĩa (Vocabulary)"],
+    answer: 0,
+    explain: "Dạng cùng gốc từ khác đuôi là câu hỏi từ loại. Bạn chỉ cần xét vị trí ngữ pháp trước và sau chỗ trống mà không cần dịch hết câu."
+  },
+  {
+    q: "Điền từ thích hợp: 'The manager reviewed the financial proposal _____ before the meeting.'",
+    options: ["careful", "carefully", "carefulness", "care"],
+    answer: 1,
+    explain: "Chỗ trống đứng sau tân ngữ 'the financial proposal' để bổ nghĩa cho động từ 'reviewed', cần một trạng từ chỉ cách thức (-ly: carefully)."
+  },
+  {
+    q: "Thời gian lý tưởng để giải quyết trọn vẹn 30 câu TOEIC Part 5 là bao lâu?",
+    options: ["Khoảng 25–30 phút", "Khoảng 10–12 phút (trung bình 20–25 giây/câu)", "Khoảng 45 phút", "Càng lâu càng tốt"],
+    answer: 1,
+    explain: "Khoảng 20 giây mỗi câu (10–12 phút cho 30 câu) giúp bạn dư thời gian cho Part 6 và 54 câu đọc hiểu ở Part 7 trong 75 phút của phần Reading."
+  }
+]
 ---
 Ba mươi câu, mỗi câu một chỗ trống, bốn lựa chọn. Nhìn qua thì **TOEIC Part 5** có vẻ là phần nhẹ nhàng nhất của Reading. Nhưng chính ở đây, rất nhiều thí sinh đánh mất thời gian quý giá: đọc cả câu, dịch từng chữ, cân nhắc mãi giữa hai đáp án, để rồi vào Part 7 với chưa đầy 45 phút cho 54 câu đọc hiểu.
 

@@ -13,6 +13,26 @@ publishAt: 2026-10-20T21:21:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
+quiz: [
+  {
+    q: "Điền vào chỗ trống: 'I _____ to Japan in 2021, but I _____ there since then.'",
+    options: ["went / haven't been", "have gone / didn't go", "went / didn't go", "have been / haven't been"],
+    answer: 0,
+    explain: "'in 2021' là mốc thời gian đã khép lại trong quá khứ nên dùng quá khứ đơn (went). 'since then' kéo dài tới hiện tại nên dùng hiện tại hoàn thành (haven't been)."
+  },
+  {
+    q: "Câu nào dưới đây thể hiện sự việc đã xảy ra nhưng để lại kết quả trực tiếp ở hiện tại?",
+    options: ["I lost my wallet yesterday, but found it this morning.", "I have lost my key, so I cannot enter the house now.", "He had lost his phone before taking the bus.", "She was losing her voice during the seminar."],
+    answer: 1,
+    explain: "Hiện tại hoàn thành 'have lost' nhấn mạnh hệ quả ở hiện tại: hiện tại tôi đang không có chìa khóa để vào nhà."
+  },
+  {
+    q: "Vì sao câu 'Shakespeare has written Romeo and Juliet' không tự nhiên trong tiếng Anh?",
+    options: ["Vì Shakespeare là danh từ số ít.", "Vì Romeo and Juliet là tác phẩm kịch.", "Vì Shakespeare đã qua đời, khung thời gian sáng tác đã đóng nên phải dùng quá khứ đơn (wrote).", "Vì 'write' là động từ trạng thái."],
+    answer: 2,
+    explain: "Với người đã mất, toàn bộ hành động nằm trong khung thời gian quá khứ đã khép lại, bắt buộc dùng quá khứ đơn (Shakespeare wrote...)."
+  }
+]
 ---
 Muốn phân biệt hiện tại hoàn thành và quá khứ đơn, hãy hỏi một câu duy nhất: người nói đang nhìn sự việc từ **hiện tại** hay đặt nó vào **một khoảng thời gian đã khép lại**? Quá khứ đơn (*I lost my keys yesterday*) kể một chuyện thuộc về "lúc đó". Hiện tại hoàn thành (*I've lost my keys*) nói về một chuyện đã xảy ra nhưng người nói quan tâm tới hệ quả **bây giờ**: tôi đang không có chìa khóa.
 

@@ -139,14 +139,6 @@ Mẫu thẻ:
 - Báo cáo:
 - Cần sửa / Nhận xét:
 
-### [Q1] Mini-quiz cuối bài blog · @antigravity · ưu tiên: trung bình
-- Mục tiêu: 3 câu trắc nghiệm nhanh cuối mỗi bài blog (lấy từ front-matter `quiz:` của bài; bài không có thì không hiện), chấm tại chỗ, kết quả + CTA deep link vào bài học/bộ thẻ liên quan trong app (`/app/#/...`, có `utm_source=blog`).
-- Ràng buộc: JS < 5 KB gz, tải lười khi cuộn tới (IntersectionObserver), không thư viện ngoài; đếm lượt bằng `/api/hit` có sẵn (sự kiện `quiz_view`, `quiz_done`, `quiz_cta`); câu hỏi tự biên soạn, đáp án chính xác 100%; đủ 15 ngôn ngữ blog.
-- File/khu vực: `scripts/build-blog.mjs` (render khối quiz), `web/blog/quiz.js` mới, `content/blog/WRITING-GUIDE.md` (mục quiz), thêm `quiz:` cho 10 bài trụ cột trước.
-- Tiêu chí xong: `node scripts/blog-check.mjs` 0 lỗi 0 cảnh báo, `npm test` PASS, Lighthouse bài blog không giảm. Làm trong worktree `../lexkite-ag`.
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
 ### [B4] 10 bài tiếng Anh toàn cầu – tư duy & phương pháp học chuyên sâu · @antigravity · ưu tiên: cao (làm trước B3 đợt 3)
 - Mục tiêu: kéo người học quốc tế, cân bằng `en` (29 bài) với `vi` (83 bài). Từ khóa ví dụ: how to think in English, active reading for IELTS, feedback loop practice tests…
 - **Bản quyền:** chỉ dùng ý tưởng chung (khái niệm phổ biến); tự viết 100% – không chép cấu trúc/ví dụ/tiêu đề của kênh, sách hay khóa học nào, không nhắc tên nguồn cảm hứng.
@@ -191,6 +183,10 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét: (Claude 16/10) ✅ Giao diện + template + i18n đạt. ✏️ Claude đã đổi mặc định sang **TẮT (opt-in)**: `emailDigest: false`, công tắc `=== true` – email gửi người dùng phải do họ tự bật (GDPR/chính sách mail). ⏸️ Phần gửi chưa triển khai được: Cloudflare Email Routing (`env.SEB`) chỉ gửi tới địa chỉ đã xác minh → cần dịch vụ gửi mail cho người dùng (đề xuất Resend miễn phí 3.000 mail/tháng) + bản ghi DNS SPF/DKIM + trang hủy đăng ký `/api/unsub`. Chờ anh Quyền chọn dịch vụ → Claude làm worker. Thẻ giữ ở CHỜ DUYỆT.
 
 ## ĐÃ XONG
+
+### [W1] Nâng cấp giao diện #/criteria · @antigravity · ✅ ĐÃ XONG (Claude 20/10)
+- Báo cáo: 742bf655 – thẻ bento theo tiêu chí, thanh band màu, Kit, đếm số từ, sao chép bài mẫu, nghe bài mẫu Speaking.
+- Cần sửa / Nhận xét: (Claude 20/10) ✅ gộp tay, giữ nguyên nội dung đã viết lại theo bảng mô tả band (13d13847). ✏️ thanh điểm 4 tiêu chí thiếu `.join('')` → in dấu phẩy giữa các dòng; "(N words)"/"Copy" cứng tiếng Anh → `t('{n} từ')` + khóa `Sao chép` (dịch tay 13 ngôn ngữ); nhãn "IELTS Band Descriptors" trùng tiêu đề tiếng Anh → "IELTS Writing · Speaking"; nghe bài mẫu theo giọng người dùng chọn (trước cố định en-US); Kit `aria-hidden`.
 
 ### [U3] Nâng cấp cảm giác học & phòng thi (UI/CSS) · @antigravity · ✅ ĐÃ XONG (Claude 20/10)
 - **Đã có sẵn – chỉ làm đẹp, không viết lại logic:** lật thẻ 3D (`study.js` rotateY), 4 nút FSRS đã hiện mốc (`SRS.preview`), phím Space/Enter khi ôn thẻ, cờ 🚩 + lưới số câu trong `cbt.js`, pháo hoa `confetti()` + `Sfx.win()`.

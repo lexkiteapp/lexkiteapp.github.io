@@ -124,6 +124,12 @@ NOW = Date.UTC(2026, 9, 17, 16, 30); // 23:30 VN; Nhật đã sang 18/10
 await hit({ t: 'x', vid: 'extjpaaaaaa', day: '2026-10-18', ev: { lookup: 3 } }, { ip: '5.5.5.5' });
 ok(!!sql.prepare("SELECT 1 FROM ext_daily WHERE vid = 'extjpaaaaaa' AND day = '2026-10-18'").get(), 'ngày add-on +1 (múi giờ phía đông) được nhận');
 
+// ---------- 7) Mini-quiz blog: chỉ nhận tên sự kiện cho phép ----------
+await hit({ t: 'q', ev: 'quiz_done' }, { ip: '6.6.6.6' });
+await hit({ t: 'q', ev: 'drop table' }, { ip: '6.6.6.6' });
+ok(!!sql.prepare("SELECT 1 FROM ext_events WHERE kind = 'blog:quiz_done'").get(), 'quiz_done blog được đếm');
+ok(!sql.prepare("SELECT 1 FROM ext_events WHERE kind LIKE 'blog:drop%'").get(), 'sự kiện quiz lạ bị bỏ');
+
 Date.now = realNow;
 console.log(fails ? `✗ analytics: ${fails}/${n} lỗi` : `✓ analytics: ${n} kiểm tra đạt (loại bot/CI/quản trị, gộp sid, ngày giờ VN, % quốc gia, di chuyển dữ liệu)`);
 process.exit(fails ? 1 : 0);

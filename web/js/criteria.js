@@ -631,18 +631,32 @@
   let curSkill = 'writing'; // 'writing' | 'speaking'
   let curBandFilter = 'all'; // 'all' | '5' | '6' | '7' | '8' | '9'
   let curModelBand = '6.5'; // '5.0' | '6.5' | '8.0'
+  const wc = s => (String(s || '').trim().match(/\S+/g) || []).length;
+  const critMeta = {
+    tr: { color: 'var(--accent, #0ea5e9)', bg: 'var(--accent-soft)' },
+    cc: { color: 'var(--primary)', bg: 'var(--primary-soft)' },
+    lr: { color: '#d97706', bg: 'rgba(217, 119, 6, .12)' },
+    gra: { color: 'var(--good)', bg: 'var(--good-soft)' },
+    fc: { color: 'var(--accent, #0ea5e9)', bg: 'var(--accent-soft)' },
+    pr: { color: 'var(--primary)', bg: 'var(--primary-soft)' }
+  };
 
   function renderPage() {
     const d = DATA[curSkill];
     const isW = curSkill === 'writing';
+    const curModel = d.models[curModelBand] || d.models['6.5'];
 
     view.innerHTML = `
       <div class="page-head">
-        <div class="row between" style="flex-wrap:wrap;gap:.8rem">
-          <div>
-            <h1>📊 ${t('Tiêu chí chấm IELTS')}</h1>
-            <p class="muted">${t('Nắm vững 4 tiêu chí chấm Writing & Speaking từ band 4–9 và cách nâng band bài thi thực tế.')}</p>
-            <p class="tiny muted" style="margin:.3rem 0 0">${t('Diễn giải từ bảng mô tả band công khai của IELTS, không phải văn bản chính thức – bản gốc xem tại ielts.org.')}</p>
+        <div class="row between" style="flex-wrap:wrap;gap:.8rem;align-items:center">
+          <div class="row" style="gap:.9rem;align-items:center">
+            ${window.Kit ? `<div class="kit-cele" style="flex-shrink:0" aria-hidden="true">${Kit.svg('think', 64, true)}</div>` : ''}
+            <div>
+              <div class="tiny muted" style="font-weight:700;text-transform:uppercase;letter-spacing:.05em">IELTS Writing · Speaking</div>
+              <h1 style="margin:.15rem 0 .25rem">📊 ${t('Tiêu chí chấm IELTS')}</h1>
+              <p class="muted small" style="margin:0">${t('Nắm vững 4 tiêu chí chấm Writing & Speaking từ band 4–9 và cách nâng band bài thi thực tế.')}</p>
+              <p class="tiny muted" style="margin:.25rem 0 0">${t('Diễn giải từ bảng mô tả band công khai của IELTS, không phải văn bản chính thức – bản gốc xem tại ielts.org.')}</p>
+            </div>
           </div>
           <div class="row" style="gap:.5rem">
             <a href="#/write" class="btn sm ghost">✍️ ${t('Phòng viết')}</a>
@@ -652,16 +666,16 @@
       </div>
 
       <!-- Skill Switcher Tabs -->
-      <div class="card" style="margin-bottom:1.2rem;padding:.6rem .8rem">
-        <div class="row between" style="flex-wrap:wrap;gap:.6rem">
-          <div class="row" style="gap:.4rem" id="skillTabs">
-            <button class="btn sm ${isW ? 'primary' : 'ghost'}" data-skill="writing">✍️ ${t('IELTS Writing')}</button>
-            <button class="btn sm ${!isW ? 'primary' : 'ghost'}" data-skill="speaking">🗣️ ${t('IELTS Speaking')}</button>
+      <div class="card" style="margin-bottom:1.2rem;padding:.7rem .9rem;box-shadow:var(--shadow-sm);border-radius:14px">
+        <div class="row between" style="flex-wrap:wrap;gap:.8rem;align-items:center">
+          <div class="row" style="gap:.5rem" id="skillTabs">
+            <button class="btn sm ${isW ? 'primary' : 'ghost'}" data-skill="writing" style="font-weight:700;border-radius:10px">✍️ ${t('IELTS Writing')}</button>
+            <button class="btn sm ${!isW ? 'primary' : 'ghost'}" data-skill="speaking" style="font-weight:700;border-radius:10px">🗣️ ${t('IELTS Speaking')}</button>
           </div>
-          <div class="row" style="gap:.4rem;align-items:center">
+          <div class="row" style="gap:.45rem;align-items:center;flex-wrap:wrap">
             <span class="tiny muted"><b>${t('Lọc band:')}</b></span>
-            <div class="row" id="bandFilters" style="gap:.25rem">
-              ${['all', '4', '5', '6', '7', '8', '9'].map(b => `<button class="chip ${curBandFilter === b ? 'active' : ''}" data-band="${b}" style="cursor:pointer;padding:.2rem .55rem;font-weight:600;font-size:.82rem">${b === 'all' ? t('Tất cả') : 'Band ' + b}</button>`).join('')}
+            <div class="row" id="bandFilters" style="gap:.3rem;flex-wrap:wrap">
+              ${['all', '4', '5', '6', '7', '8', '9'].map(b => `<button class="chip ${curBandFilter === b ? 'active' : ''}" data-band="${b}" style="cursor:pointer;padding:.25rem .6rem;font-weight:700;font-size:.82rem;border-radius:8px;${curBandFilter === b ? 'background:var(--primary);color:#fff;border-color:var(--primary)' : ''}">${b === 'all' ? t('Tất cả') : 'Band ' + b}</button>`).join('')}
             </div>
           </div>
         </div>
@@ -675,90 +689,111 @@
         </div>
 
         <div class="grid" style="grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:1rem" id="criteriaGrid">
-          ${d.criteria.map(c => `
-            <div class="card" style="display:flex;flex-direction:column;justify-content:space-between;border-top:3px solid var(--primary)">
+          ${d.criteria.map(c => {
+            const cm = critMeta[c.id] || { color: 'var(--primary)', bg: 'var(--primary-soft)' };
+            return `
+            <div class="card" style="display:flex;flex-direction:column;justify-content:space-between;border-top:4px solid ${cm.color};border-radius:14px;box-shadow:var(--shadow-sm)">
               <div>
-                <div class="row between" style="margin-bottom:.5rem">
-                  <span style="font-size:1.4rem">${c.icon}</span>
-                  <span class="chip lv" style="font-weight:700">${c.short} · 25%</span>
+                <div class="row between" style="margin-bottom:.5rem;align-items:center">
+                  <span style="font-size:1.5rem">${c.icon}</span>
+                  <span class="chip" style="font-weight:800;background:${cm.bg};color:${cm.color};border:1px solid ${cm.color}">${c.short} · 25%</span>
                 </div>
-                <h3 style="font-size:1.05rem;margin:0 0 .4rem">${esc(c.name)}</h3>
+                <h3 style="font-size:1.08rem;margin:0 0 .4rem;color:var(--text)">${esc(c.name)}</h3>
                 <p class="small muted" style="margin:0 0 .8rem;line-height:1.55">${esc(t(c.desc))}</p>
               </div>
 
               <!-- Bands summary -->
-              <div class="stack" style="gap:.5rem;border-top:1px dashed var(--line);padding-top:.7rem">
-                ${Object.entries(c.bands).filter(([b]) => curBandFilter === 'all' || curBandFilter === b).map(([b, item]) => `
-                  <div style="background:var(--surface-2);border-radius:var(--radius-sm);padding:.5rem .7rem">
-                    <div class="row between" style="margin-bottom:.2rem">
-                      <b style="font-size:.86rem;color:var(--primary)">Band ${b}</b>
-                      <span class="tiny muted">${esc(t(item.summary))}</span>
+              <div class="stack" style="gap:.55rem;border-top:1px dashed var(--line);padding-top:.75rem">
+                ${Object.entries(c.bands).filter(([b]) => curBandFilter === 'all' || curBandFilter === b).map(([b, item]) => {
+                  const bNum = +b;
+                  const bCol = bNum >= 8 ? 'var(--accent)' : bNum >= 6.5 ? 'var(--good)' : 'var(--hard, #d97706)';
+                  return `
+                  <div style="background:var(--surface-2);border-radius:10px;padding:.55rem .75rem;border-left:3px solid ${bCol}">
+                    <div class="row between" style="margin-bottom:.25rem;align-items:center">
+                      <b style="font-size:.88rem;color:${bCol}">Band ${b}</b>
+                      <span class="tiny muted" style="font-weight:600">${esc(t(item.summary))}</span>
                     </div>
-                    <p class="tiny" style="margin:.2rem 0;line-height:1.5">${esc(t(item.details))}</p>
-                    <div class="tiny" style="color:var(--again);font-style:italic">⚠️ ${t('Bẫy cần tránh:')} ${esc(t(item.pitfall))}</div>
+                    <p class="tiny" style="margin:.25rem 0;line-height:1.52;color:var(--text)">${esc(t(item.details))}</p>
+                    <div class="tiny" style="color:var(--again);font-weight:500;margin-top:.25rem">⚠️ ${t('Bẫy cần tránh:')} ${esc(t(item.pitfall))}</div>
                   </div>
-                `).join('')}
+                  `;
+                }).join('')}
               </div>
             </div>
-          `).join('')}
+            `;
+          }).join('')}
         </div>
 
         <!-- Multi-Band Model Comparison Section -->
-        <div class="card" style="margin-top:1rem;border:1px solid var(--line);padding:1.4rem">
-          <div class="row between" style="flex-wrap:wrap;gap:.8rem;border-bottom:1px solid var(--line);padding-bottom:1rem;margin-bottom:1.2rem">
+        <div class="card" style="margin-top:1rem;border:1px solid var(--line);border-radius:16px;padding:1.4rem;box-shadow:var(--shadow-sm)">
+          <div class="row between" style="flex-wrap:wrap;gap:.8rem;border-bottom:1px solid var(--line);padding-bottom:1rem;margin-bottom:1.2rem;align-items:center">
             <div>
-              <div class="chip" style="background:var(--accent-soft);color:var(--accent);font-weight:700;margin-bottom:.4rem">
+              <div class="chip" style="background:var(--accent-soft);color:var(--accent);font-weight:800;margin-bottom:.4rem;border:1px solid var(--accent)">
                 ${t('Đề mẫu & bài mẫu theo 3 mức band')}
               </div>
               <h2 style="font-size:1.25rem;margin:0">${esc(d.prompt.topic)} · <span class="muted" style="font-weight:400">${esc(t(d.prompt.type))}</span></h2>
             </div>
             <!-- Band Switcher -->
             <div class="row" style="gap:.4rem" id="modelBandTabs">
-              ${['5.0', '6.5', '8.0'].map(b => `
-                <button class="btn sm ${curModelBand === b ? 'primary' : 'ghost'}" data-mband="${b}" style="font-weight:700">
+              ${['5.0', '6.5', '8.0'].map(b => {
+                const on = curModelBand === b;
+                const bCol = b === '8.0' ? 'var(--accent)' : b === '6.5' ? 'var(--good)' : 'var(--hard, #d97706)';
+                return `
+                <button class="btn sm ${on ? 'primary' : 'ghost'}" data-mband="${b}" style="font-weight:800;border-radius:10px;${on ? `background:${bCol};border-color:${bCol}` : ''}">
                   Band ${b}
                 </button>
-              `).join('')}
+                `;
+              }).join('')}
             </div>
           </div>
 
-          <p class="small" style="font-weight:600;font-size:1.02rem;background:var(--surface-2);padding:.8rem 1rem;border-radius:var(--radius-sm);border-left:4px solid var(--primary);margin:0 0 1.2rem">
+          <p class="small" style="font-weight:600;font-size:1.02rem;background:var(--surface-2);padding:.85rem 1.1rem;border-radius:12px;border-left:4px solid var(--primary);margin:0 0 1.2rem;line-height:1.6">
             📌 ${esc(d.prompt.text)}
           </p>
 
           <!-- Model Content & Critique Grid -->
           <div class="grid" style="grid-template-columns:minmax(0, 1.4fr) minmax(0, 1fr);gap:1.2rem" id="modelGrid">
             <!-- Essay / Transcript -->
-            <div style="background:var(--surface-2);padding:1.2rem;border-radius:var(--radius);border:1px solid var(--line)">
-              <div class="row between" style="margin-bottom:.8rem">
-                <span class="small muted"><b>${isW ? t('Nội dung bài viết') : t('Bản ghi âm lời nói (Transcript)')}</b></span>
-                <span class="chip lv" style="background:var(--primary);color:#fff;font-weight:700">${d.models[curModelBand].band}</span>
+            <div style="background:var(--surface-2);padding:1.2rem;border-radius:14px;border:1px solid var(--line);display:flex;flex-direction:column">
+              <div class="row between" style="margin-bottom:.8rem;align-items:center;flex-wrap:wrap;gap:.4rem">
+                <div class="row" style="gap:.4rem;align-items:center">
+                  <span class="small muted"><b>${isW ? t('Nội dung bài viết') : t('Bản ghi âm lời nói (Transcript)')}</b></span>
+                  <span class="tiny muted">(${t('{n} từ', { n: wc(isW ? curModel.essay : curModel.transcript) })})</span>
+                </div>
+                <div class="row" style="gap:.4rem;align-items:center">
+                  <span class="chip lv" style="background:var(--primary);color:#fff;font-weight:800">${curModel.band}</span>
+                  <button class="btn sm ghost" id="crCopy" style="padding:.25rem .5rem" title="${t('Sao chép')}" aria-label="${t('Sao chép')}">📋</button>
+                  ${!isW ? `<button class="btn sm primary" id="crTts" style="padding:.25rem .6rem">🔊 ${t('Phát âm')}</button>` : ''}
+                </div>
               </div>
-              <div style="font-size:1rem;line-height:1.75;white-space:pre-wrap;font-family:var(--font);color:var(--text)">
-${esc(isW ? d.models[curModelBand].essay : d.models[curModelBand].transcript)}
+              <div style="font-size:1rem;line-height:1.8;white-space:pre-wrap;font-family:var(--font);color:var(--text);flex:1;background:var(--surface);padding:1rem;border-radius:10px;border:1px solid var(--line)">
+${esc(isW ? curModel.essay : curModel.transcript)}
               </div>
             </div>
 
             <!-- Detailed Feedback per Criteria -->
             <div class="stack" style="gap:.8rem">
-              <div class="card" style="padding:1rem;background:var(--surface);box-shadow:var(--shadow-sm)">
-                <h3 style="font-size:1.05rem;margin:0 0 .6rem">🔍 ${t('Phân tích điểm số 4 tiêu chí')}</h3>
-                <div class="stack" style="gap:.5rem">
-                  ${Object.entries(d.models[curModelBand].scores).map(([k, score]) => `
+              <div class="card" style="padding:1.1rem;background:var(--surface);border-radius:14px;box-shadow:var(--shadow-sm);border:1px solid var(--line)">
+                <h3 style="font-size:1.05rem;margin:0 0 .7rem">🔍 ${t('Phân tích điểm số 4 tiêu chí')}</h3>
+                <div class="stack" style="gap:.6rem">
+                  ${Object.entries(curModel.scores).map(([k, score]) => {
+                    const bCol = score >= 8 ? 'var(--accent)' : score >= 6.5 ? 'var(--good)' : 'var(--hard, #d97706)';
+                    return `
                     <div style="display:grid;grid-template-columns:85px minmax(0,1fr) 40px;align-items:center;gap:.6rem">
-                      <span class="tiny"><b>${k.toUpperCase()}</b></span>
-                      <div class="sbar" style="background:var(--surface-3);height:8px;border-radius:4px;overflow:hidden">
-                        <i style="display:block;height:100%;width:${(score / 9) * 100}%;background:var(--primary);border-radius:4px"></i>
+                      <span class="tiny" style="font-weight:700">${k.toUpperCase()}</span>
+                      <div class="sbar" style="background:var(--surface-3);height:10px;border-radius:5px;overflow:hidden">
+                        <i style="display:block;height:100%;width:${(score / 9) * 100}%;background:${bCol};border-radius:5px;transition:width .25s ease"></i>
                       </div>
-                      <span class="tiny" style="font-weight:700;text-align:right">${score}</span>
+                      <span class="tiny" style="font-weight:800;text-align:right;color:${bCol}">${score}</span>
                     </div>
-                  `).join('')}
+                    `;
+                  }).join('')}
                 </div>
               </div>
 
               <div class="stack" style="gap:.6rem">
-                ${d.models[curModelBand].critique.map(c => `
-                  <div style="background:var(--surface-2);border-radius:var(--radius-sm);padding:.7rem .9rem;border-left:3px solid var(--primary)">
+                ${curModel.critique.map(c => `
+                  <div style="background:var(--surface-2);border-radius:10px;padding:.75rem .95rem;border-left:3.5px solid var(--primary)">
                     <b class="small" style="color:var(--primary)">${esc(t(c.title))}</b>
                     <p class="tiny" style="margin:.3rem 0 0;line-height:1.55;color:var(--text)">${esc(t(c.text))}</p>
                   </div>
@@ -769,18 +804,18 @@ ${esc(isW ? d.models[curModelBand].essay : d.models[curModelBand].transcript)}
         </div>
 
         <!-- Roadmap: How to jump bands -->
-        <div class="card" style="padding:1.4rem;background:linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%)">
+        <div class="card" style="padding:1.4rem;border-radius:16px;background:linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%);box-shadow:var(--shadow-sm)">
           <h2 style="font-size:1.25rem;margin:0 0 1rem">🚀 ${t('Lộ trình bứt phá Band điểm')}</h2>
           <div class="grid" style="grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:1rem">
             ${d.jumpTips.map(j => `
-              <div class="card" style="background:var(--surface);border:1px solid var(--line);padding:1.1rem">
-                <div class="row between" style="margin-bottom:.6rem">
-                  <span class="chip" style="background:var(--primary-soft);color:var(--primary);font-weight:700">Band ${j.from} ➔ Band ${j.to}</span>
-                  <span class="tiny muted">✨ ${t('Bước nhảy vọt')}</span>
+              <div class="card" style="background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.15rem;box-shadow:var(--shadow-sm)">
+                <div class="row between" style="margin-bottom:.65rem;align-items:center">
+                  <span class="chip" style="background:var(--primary-soft);color:var(--primary);font-weight:800;border:1px solid var(--primary)">Band ${j.from} ➔ Band ${j.to}</span>
+                  <span class="tiny muted" style="font-weight:600">✨ ${t('Bước nhảy vọt')}</span>
                 </div>
-                <h3 style="font-size:1.02rem;margin:0 0 .7rem">${esc(t(j.title))}</h3>
-                <ul class="small" style="padding-left:1.2rem;margin:0;line-height:1.65">
-                  ${j.steps.map(s => `<li style="margin-bottom:.4rem">${esc(t(s))}</li>`).join('')}
+                <h3 style="font-size:1.02rem;margin:0 0 .75rem;color:var(--text)">${esc(t(j.title))}</h3>
+                <ul class="small" style="padding-left:1.2rem;margin:0;line-height:1.7">
+                  ${j.steps.map(s => `<li style="margin-bottom:.45rem">${esc(t(s))}</li>`).join('')}
                 </ul>
               </div>
             `).join('')}
@@ -788,13 +823,13 @@ ${esc(isW ? d.models[curModelBand].essay : d.models[curModelBand].transcript)}
         </div>
 
         <!-- Action Call Buttons -->
-        <div class="card" style="text-align:center;padding:1.8rem 1rem">
+        <div class="card" style="text-align:center;padding:1.8rem 1rem;border-radius:16px">
           <h3 style="font-size:1.2rem;margin:0 0 .5rem">💡 ${t('Sẵn sàng áp dụng tiêu chí vào thực chiến?')}</h3>
           <p class="muted small" style="margin:0 0 1.2rem">${t('Áp dụng ngay: luyện viết Task 2 hoặc luyện nói với đồng hồ bấm giờ như khi thi.')}</p>
           <div class="row" style="justify-content:center;gap:.8rem;flex-wrap:wrap">
-            <a href="#/write" class="btn primary">✍️ ${t('Thực hành viết Task 2 ngay')}</a>
-            <a href="#/speaking" class="btn">🗣️ ${t('Luyện nói Speaking ngay')}</a>
-            <a href="#/task1" class="btn ghost">📈 ${t('Luyện Task 1 (biểu đồ)')}</a>
+            <a href="#/write" class="btn primary" style="font-weight:700">✍️ ${t('Thực hành viết Task 2 ngay')}</a>
+            <a href="#/speaking" class="btn" style="font-weight:700">🗣️ ${t('Luyện nói Speaking ngay')}</a>
+            <a href="#/task1" class="btn ghost" style="font-weight:700">📈 ${t('Luyện Task 1 (biểu đồ)')}</a>
           </div>
         </div>
       </div>
@@ -828,6 +863,27 @@ ${esc(isW ? d.models[curModelBand].essay : d.models[curModelBand].transcript)}
         renderPage();
       };
     });
+
+    const copyBtn = $('#crCopy');
+    if (copyBtn) {
+      copyBtn.onclick = () => {
+        const txt = isW ? curModel.essay : curModel.transcript;
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(txt).then(() => {
+            copyBtn.textContent = '✅';
+            setTimeout(() => { copyBtn.textContent = '📋'; }, 1600);
+          }).catch(() => {});
+        }
+      };
+    }
+
+    const ttsBtn = $('#crTts');
+    if (ttsBtn) {
+      ttsBtn.onclick = () => {
+        const txt = curModel.transcript;
+        if (typeof UI !== 'undefined' && UI.tts) UI.tts(txt, (typeof state !== 'undefined' && state.settings && state.settings.accent) || 'en-GB', 0.95);
+      };
+    }
   }
 
   // Khởi tạo route

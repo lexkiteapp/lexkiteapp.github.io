@@ -23239,5 +23239,20 @@
     "ar": "بدّل المسار أو تابع عدة مسارات معًا",
     "ru": "Смените курс или проходите несколько сразу",
     "tr": "Yol değiştir ya da aynı anda birkaçını takip et"
+  },
+  "Sao chép": {
+    "es": "Copiar",
+    "pt": "Copiar",
+    "fr": "Copier",
+    "de": "Kopieren",
+    "id": "Salin",
+    "th": "คัดลอก",
+    "zh": "复制",
+    "ja": "コピー",
+    "ko": "복사",
+    "hi": "कॉपी करें",
+    "ar": "نسخ",
+    "ru": "Копировать",
+    "tr": "Kopyala"
   }
 }

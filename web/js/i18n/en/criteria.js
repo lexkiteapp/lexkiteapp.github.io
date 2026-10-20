@@ -3,6 +3,7 @@
   const D = g.I18N_DICT = g.I18N_DICT || {};
   D.en = Object.assign(D.en || {}, {
     'Tiêu chí chấm IELTS': 'IELTS Band Descriptors & Criteria',
+    'Sao chép': 'Copy',
     'Nắm vững 4 tiêu chí chấm Writing & Speaking từ band 4–9 và cách nâng band bài thi thực tế.': 'Understand the 4 Writing and Speaking criteria from band 4 to 9, and how to raise your band.',
     'Diễn giải từ bảng mô tả band công khai của IELTS, không phải văn bản chính thức – bản gốc xem tại ielts.org.': 'A plain-language paraphrase of the public IELTS band descriptors, not the official text – see the originals at ielts.org.',
     'IELTS Writing': 'IELTS Writing',
