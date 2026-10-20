@@ -285,7 +285,7 @@
             {
               "id": "lr",
               "title": "Lexical Resource: 8.0",
-              "text": "Từ ít thông dụng dùng chính xác, đúng văn phong học thuật: pervasive integration, cognitive overload, emancipation from drudgery, harness … judiciously."
+              "text": "Từ ít thông dụng dùng chính xác, đúng văn phong học thuật: pervasive integration, cognitive overload, emancipation from drudgery, judiciously."
             },
             {
               "id": "gra",
