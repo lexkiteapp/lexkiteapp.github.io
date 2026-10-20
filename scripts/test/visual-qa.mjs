@@ -67,6 +67,54 @@ function detect(opt) {
   return out;
 }
 
+// ---- Trạng thái tương tác (sheet đáp án, modal, toast, xp, nhắc cài đặt, tra từ khi bôi đen) × chế độ thường / body.focus / RTL
+const STATES = [
+  ['practice/learn', 'answer'], ['review', 'answer'], ['home', 'modal'], ['home', 'toast'], ['home', 'xp'], ['home', 'nudge'], ['dict/hello', 'select'],
+  ['home', 'focus-modal'], ['home', 'focus-toast'],
+];
+async function act(page, kind) {
+  await page.evaluate(async kind => {
+    const W = window, U = W.UI || {}, wait = ms => new Promise(r => setTimeout(r, ms)), vis = e => e && e.getBoundingClientRect().width > 0;
+    if (kind.startsWith('focus-')) { document.body.classList.add('focus'); kind = kind.slice(6); }
+    if (kind === 'answer') for (let i = 0; i < 3 && !document.querySelector('.sheet'); i++) { const b = [...document.querySelectorAll('#view .option, #view .choice, #view [data-opt], #view .btn.primary')].find(vis); if (!b) break; b.click(); await wait(500); }
+    if (kind === 'modal' && U.modal) U.modal('<h3>Ngày bị khoá · Locked day</h3><p>Hoàn thành ngày trước để mở khoá ngày này. Complete the previous day first to unlock.</p><button class="btn primary">OK</button>');
+    if (kind === 'toast' && U.toast) U.toast('Đã lưu vào bộ thẻ của bạn · Saved to your deck — a longer notification text to check wrapping', 15000);
+    if (kind === 'xp' && U.xpFloat) U.xpFloat(10, [...document.querySelectorAll('#view .btn')].find(vis));
+    if (kind === 'nudge' && W.App && W.App.installNudge) try { W.App.installNudge(); } catch (e) {}
+    if (kind === 'select') { const el = [...document.querySelectorAll('#view .ex, #view p, #view li')].find(e => vis(e) && e.textContent.trim().length > 12); if (el) { const r = document.createRange(); r.selectNodeContents(el.firstChild || el); getSelection().removeAllRanges(); getSelection().addRange(r); const b = el.getBoundingClientRect(); el.dispatchEvent(new MouseEvent('mouseup', { bubbles: true, clientX: b.left + 10, clientY: b.top + 5 })); document.dispatchEvent(new Event('selectionchange')); } }
+  }, kind).catch(() => {});
+  await page.waitForTimeout(700);
+}
+// Máy dò lớp phủ cố định: lệch tâm so với cột nội dung/màn hình, che nội dung không cuộn tới được, đè thanh điều hướng dưới, tràn mép
+function overlays() {
+  const out = [], W = innerWidth, H = innerHeight, view = document.getElementById('view'), vr = view && view.getBoundingClientRect();
+  const sel = e => e.tagName.toLowerCase() + [...e.classList].slice(0, 2).map(c => '.' + c).join('') + (e.id ? '#' + e.id : '');
+  const add = (t, e, r) => out.push({ t, k: (document.body.classList.contains('focus') ? 'body.focus ' : '') + sel(e), x: (e.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 50), r: [r.left, r.top, r.width, r.height].map(Math.round) });
+  const nav = document.querySelector('.bottom-nav'), nr = nav && getComputedStyle(nav).display !== 'none' && nav.getBoundingClientRect();
+  scrollTo(0, 1e6);
+  for (const e of document.querySelectorAll('body *')) {
+    const cs = getComputedStyle(e); if (cs.position !== 'fixed' || cs.visibility === 'hidden' || +cs.opacity === 0) continue;
+    if (e.closest('.topbar,.sidebar,.bottom-nav') || e.parentElement.closest('[style*="fixed"]')) continue;
+    const r = e.getBoundingClientRect(); if (r.width < 40 || r.height < 16 || r.bottom <= 0 || r.top >= H) continue;
+    if (r.width >= W - 2 && r.height >= H - 2) continue; // màn phủ toàn trang (nền modal)
+    const c = (r.left + r.right) / 2;
+    if (r.left < -1 || r.right > W + 1) add('ovl-offscreen', e, r);
+    else if (!e.matches('.sel-bar,.sel-pop,.xp-float,[class*="tip"]') && vr && Math.abs(c - (vr.left + vr.right) / 2) > 8 && Math.abs(c - W / 2) > 8 && r.width > W * 0.3) add('ovl-offcentre', e, r);
+    if (nr && nr.height && e !== nav && r.bottom > nr.top + 2 && r.top < nr.bottom && r.right > nr.left && r.left < nr.right && +cs.zIndex < +getComputedStyle(nav).zIndex + 1 && r.top > nr.top - 200) add('ovl-on-nav', e, r);
+    if (view && r.bottom >= H - 2 && r.top > H * 0.3) for (const b of view.querySelectorAll('button,a[href],input,.option')) { if (e.contains(b)) continue; const br = b.getBoundingClientRect(); if (br.width < 2 || br.top < r.top || br.top > H) continue; const hit = document.elementFromPoint(br.left + br.width / 2, br.top + Math.min(br.height / 2, 6)); if (hit && e.contains(hit)) { add('ovl-covers', e, r); break; } }
+  }
+  scrollTo(0, 0);
+  return out;
+}
+async function runStates(browser, c) {
+  const { ctx, page } = await openCombo(browser, c);
+  for (const [route, kind] of STATES) {
+    try { await visit(page, c, route); await act(page, kind); pages++; rec(c, route + ' [' + kind + ']', await page.evaluate(overlays)); }
+    catch (e) { errs.push(`${tagOf(c)} ${route}[${kind}]: ${String(e.message).split('\n')[0].slice(0, 100)}`); }
+  }
+  await ctx.close();
+}
+
 const groups = new Map(); let pages = 0; const errs = [];
 const tagOf = c => `${c.v}${VPS[c.v].width}-${c.s}-${c.l}`;
 function rec(c, route, list) { for (const it of list) { const key = it.t + ' | ' + it.k; let g = groups.get(key); if (!g) groups.set(key, g = { t: it.t, k: it.k, n: 0, where: new Set(), ex: null }); g.n++; g.where.add(tagOf(c) + ' #/' + route); if (!g.ex) g.ex = { c, route, x: it.x, r: it.r }; } }
@@ -105,15 +153,17 @@ async function runCombo(browser, c) {
 }
 
 const browser = await chromium.launch();
-const queue = [...combos]; await Promise.all([0, 1, 2].map(async () => { while (queue.length) await runCombo(browser, queue.shift()); }));
+const stateCombos = []; for (const v of QUICK ? ['m', 'd'] : ['m', 't', 'd']) for (const l of ['en', 'ar']) stateCombos.push({ v, s: 'light', l });
+const queue = [...combos, ...stateCombos.map(c => ({ ...c, states: 1 }))]; await Promise.all([0, 1, 2].map(async () => { while (queue.length) { const c = queue.shift(); await (c.states ? runStates : runCombo)(browser, c); } }));
 
 // ---- Báo cáo + ảnh cắt cho nhóm lỗi đầu bảng
-const order = ['hscroll', 'squeezed', 'btn-overlap', 'overflow-x', 'ellipsis-no-title', 'rtl-text-left', 'rtl-arrow', 'contrast-dark', 'contrast-light', 'tap<32', 'tap<40'];
+const order = ['ovl-offcentre', 'ovl-offscreen', 'ovl-covers', 'ovl-on-nav', 'hscroll', 'squeezed', 'btn-overlap', 'overflow-x', 'ellipsis-no-title', 'rtl-text-left', 'rtl-arrow', 'contrast-dark', 'contrast-light', 'tap<32', 'tap<40'];
 const list = [...groups.values()].sort((a, b) => order.indexOf(a.t) - order.indexOf(b.t) || b.where.size - a.where.size);
 const byType = {}; for (const g of list) byType[g.t] = (byType[g.t] || 0) + 1;
 const SHOTS = +(process.env.VQA_SHOTS || 12); let si = 0;
 for (const g of list.filter(g => !g.t.startsWith('tap')).slice(0, SHOTS)) {
   const { c, route, r } = g.ex; if (!r[2]) continue;
+  if (g.t.startsWith('ovl')) { try { const [rt, kd] = route.split(' ['); const { ctx, page } = await openCombo(browser, c); await visit(page, c, rt); await act(page, kd.slice(0, -1)); g.shot = `shots/${String(++si).padStart(2, '0')}-${g.t}.jpg`; await page.screenshot({ path: `${OUT}/${g.shot}`, type: 'jpeg', quality: 50 }); await ctx.close(); } catch (e) { errs.push('shot: ' + e.message.split('\n')[0]); } continue; }
   try { const { ctx, page } = await openCombo(browser, c); await visit(page, c, route);
     const pad = 60, clip = { x: Math.max(0, r[0] - pad), y: Math.max(0, r[1] - pad), width: Math.min(VPS[c.v].width, r[2] + pad * 2), height: Math.min(700, r[3] + pad * 2) };
     await page.evaluate(([x, y, w, h]) => { const d = document.createElement('div'); d.style.cssText = `position:absolute;left:${x}px;top:${y}px;width:${w}px;height:${h}px;outline:3px solid #f0f;z-index:99999;pointer-events:none`; document.body.appendChild(d); }, r);
