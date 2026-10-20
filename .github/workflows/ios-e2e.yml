@@ -8,7 +8,7 @@ on:
     inputs:
       minutes: { description: 'Giới hạn phút mỗi máy', required: false, default: '35' }
   push:
-    branches: [main, 'ios-e2e-wip']
+    branches: [main, 'ios-e2e-wip']  # ios-e2e-wip: nhánh thử của workflow – bỏ khi gộp
     paths: ['web/js/**', 'web/css/**', 'web/app/**', 'web/index.html', 'mobile/**', 'scripts/build-mobile.sh', 'scripts/test/ios-e2e/**', '.github/workflows/ios-e2e.yml']
 permissions:
   contents: read

@@ -1053,7 +1053,7 @@ html.native .sidebar { padding-top: max(1.1rem, calc(env(safe-area-inset-top) + 
 /* Trang toàn màn (ôn thẻ, thi…: ẩn thanh trên) – chừa tai thỏ/Dynamic Island; trình duyệt thường env() = 0 nên không đổi */
 body.bare .view { padding-top: calc(2rem + env(safe-area-inset-top)); }
 /* iOS (Safari & app): ô nhập chữ < 16px → chạm vào là trang tự phóng to và không thu lại (ô tra từ .92rem trên điện thoại) */
-@supports (-webkit-touch-callout: none) { input:not([type=checkbox]):not([type=radio]):not([type=range]), select, textarea { font-size: max(16px, 1em); } }html.native body { overscroll-behavior: none; }
+@supports (-webkit-touch-callout: none) { input:not([type=checkbox]):not([type=radio]):not([type=range]), select, textarea { font-size: max(16px, 1em) !important; } } /* !important: thắng các quy tắc riêng như .dr textarea.dr-in { font: inherit } */html.native body { overscroll-behavior: none; }
 html:not([lang="vi"]) .vi-only { display: none !important; }
 /* ===== Mượt như app gốc ===== */
 html { -webkit-tap-highlight-color: transparent; }
