@@ -203,6 +203,7 @@
 				504EC3001FED79650016851F /* Sources */,
 				504EC3011FED79650016851F /* Frameworks */,
 				504EC3021FED79650016851F /* Resources */,
+				7F1A2B3C4D5E6F7081920A1B /* Firebase config */,
 				EF102F9BF05E57A4E3B2A4C9 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
@@ -312,6 +313,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7F1A2B3C4D5E6F7081920A1B /* Firebase config */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Firebase config";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Native sign-in (@capacitor-firebase/authentication): bundle GoogleService-Info.plist only when it exists.\n# Without it the plugin stays unconfigured and the web layer keeps sign-in off (scripts/mobile-auth-config.mjs).\nSRC=\"${SRCROOT}/App/GoogleService-Info.plist\"\nif [ -f \"$SRC\" ]; then\n  cp \"$SRC\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleService-Info.plist\"\n  echo \"Firebase: GoogleService-Info.plist bundled\"\nelse\n  echo \"Firebase: GoogleService-Info.plist not found - native sign-in disabled\"\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2449FEF78AB77CFD2750E042 /* Sources */ = {

@@ -9,6 +9,19 @@
   "ios": {
     "contentInset": "never"
   },
+  "experimental": {
+    "ios": {
+      "spm": {
+        "swiftToolsVersion": "6.1",
+        "packageOptions": {
+          "@capacitor-firebase/authentication": { "symlink": true }
+        },
+        "packageTraits": {
+          "@capacitor-firebase/authentication": ["Google"]
+        }
+      }
+    }
+  },
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 600,
@@ -17,6 +30,10 @@
     },
     "LocalNotifications": {
       "iconColor": "#E5502F"
+    },
+    "FirebaseAuthentication": {
+      "skipNativeAuth": false,
+      "providers": ["google.com", "apple.com"]
     }
   }
 }

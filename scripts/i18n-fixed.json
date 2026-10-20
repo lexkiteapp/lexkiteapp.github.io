@@ -22174,5 +22174,50 @@
     "ar": "اضغط على «إرسال إلى تطبيق Anki» ثم اختر AnkiMobile.",
     "ru": "Нажмите «Отправить в приложение Anki» и выберите AnkiMobile.",
     "tr": "“Anki uygulamasına gönder” düğmesine dokunun ve AnkiMobile seçin."
+  },
+  "Tiếp tục với Google": {
+    "es": "Continuar con Google",
+    "pt": "Continuar com o Google",
+    "fr": "Continuer avec Google",
+    "de": "Weiter mit Google",
+    "id": "Lanjutkan dengan Google",
+    "th": "ดำเนินการต่อด้วย Google",
+    "zh": "使用 Google 账号继续",
+    "ja": "Google で続行",
+    "ko": "Google 계정으로 계속하기",
+    "hi": "Google के साथ जारी रखें",
+    "ar": "المتابعة باستخدام Google",
+    "ru": "Продолжить с Google",
+    "tr": "Google ile devam et"
+  },
+  "Tiếp tục với Apple": {
+    "es": "Continuar con Apple",
+    "pt": "Continuar com a Apple",
+    "fr": "Continuer avec Apple",
+    "de": "Mit Apple fortfahren",
+    "id": "Lanjutkan dengan Apple",
+    "th": "ดำเนินการต่อด้วย Apple",
+    "zh": "通过 Apple 继续",
+    "ja": "Appleで続ける",
+    "ko": "Apple로 계속하기",
+    "hi": "Apple से जारी रखें",
+    "ar": "المتابعة باستخدام Apple",
+    "ru": "Продолжить с Apple",
+    "tr": "Apple ile Devam Et"
+  },
+  "Báo lỗi bạn đã gửi được giữ lại ở dạng ẩn danh (gỡ email và tài khoản). Tài khoản Apple của bạn không bị ảnh hưởng.": {
+    "es": "Los informes de problemas que enviaste se conservan de forma anónima (se eliminan tu correo y tu cuenta). Tu cuenta de Apple no se ve afectada.",
+    "pt": "Os relatórios de problemas que você enviou são mantidos de forma anônima (seu e-mail e sua conta são removidos). Sua conta Apple não é afetada.",
+    "fr": "Les signalements de problèmes que vous avez envoyés sont conservés de façon anonyme (votre e-mail et votre compte sont retirés). Votre compte Apple n'est pas concerné.",
+    "de": "Gesendete Problemmeldungen bleiben anonym erhalten (E-Mail und Konto werden entfernt). Dein Apple-Konto ist nicht betroffen.",
+    "id": "Laporan masalah yang Anda kirim disimpan secara anonim (email dan akun Anda dihapus). Akun Apple Anda tidak terpengaruh.",
+    "th": "รายงานปัญหาที่คุณส่งจะถูกเก็บไว้แบบไม่ระบุตัวตน (ลบอีเมลและบัญชีออก) บัญชี Apple ของคุณจะไม่ได้รับผลกระทบ",
+    "zh": "你提交的问题报告将以匿名方式保留（移除你的邮箱和账号）。你的 Apple 账号不受影响。",
+    "ja": "送信済みの問題報告は匿名化して保持されます（メールアドレスとアカウントは削除）。Apple アカウントには影響しません。",
+    "ko": "보내신 문제 신고는 익명으로 보관됩니다(이메일과 계정 정보 삭제). Apple 계정에는 영향이 없습니다.",
+    "hi": "आपकी भेजी गई समस्या रिपोर्टें गुमनाम रूप में रखी जाती हैं (आपका ईमेल और खाता हटा दिया जाता है)। आपके Apple खाते पर कोई असर नहीं पड़ता।",
+    "ar": "تُحفظ بلاغات المشكلات التي أرسلتها دون هوية (يُزال بريدك الإلكتروني وحسابك). لا يتأثر حسابك في Apple.",
+    "ru": "Отправленные вами сообщения о проблемах сохраняются анонимно (email и аккаунт удаляются). Ваш аккаунт Apple не затрагивается.",
+    "tr": "Gönderdiğiniz sorun bildirimleri anonim olarak saklanır (e-postanız ve hesabınız kaldırılır). Apple hesabınız etkilenmez."
   }
 }

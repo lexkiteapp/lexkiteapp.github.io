@@ -62,6 +62,8 @@
   'Dữ liệu đang chỉ nằm trên trình duyệt này. Đăng nhập Google để <b>sao lưu tự động</b> và <b>học tiếp trên máy khác, điện thoại, tiện ích Chrome</b> – cùng một tài khoản, không trùng lặp.': 'Your data lives only in this browser right now. Sign in with Google for <b>automatic backups</b> and to <b>keep learning on other computers, your phone and the Chrome extension</b> – one account, no duplicates.',
   'Đăng nhập với Google': 'Sign in with Google',
   'Đăng nhập với Apple': 'Sign in with Apple',
+  'Tiếp tục với Google': 'Continue with Google',
+  'Tiếp tục với Apple': 'Continue with Apple',
   'Miễn phí · chỉ lưu dữ liệu học của bạn · có thể đăng xuất bất cứ lúc nào': 'Free · stores only your study data · sign out anytime',
   'Đã đăng xuất – dữ liệu vẫn còn trên máy này': 'Signed out – your data is still on this device',
   'Tài khoản & đồng bộ': 'Account & sync',
@@ -2081,7 +2083,6 @@
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Nghĩa theo từ loại': 'Meanings by part of speech', 'Nguồn: Oxford Languages (qua Google), Wiktionary': 'Sources: Oxford Languages (via Google), Wiktionary' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Tuần này của bạn': 'Your week', 'so với cả tuần trước': 'vs. all of last week', 'Lượt ôn': 'Reviews', 'Bài luyện': 'Quizzes', 'Ngày học': 'Days active' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, { 'Cài Lexkite như một app': 'Install Lexkite as an app', 'Mở nhanh từ màn hình chính, toàn màn hình, học được cả khi offline': 'Open from your home screen, full screen, works offline', 'Cài ngay – miễn phí': 'Install now – free', 'Đóng': 'Close' }); })(typeof self !== 'undefined' ? self : this);
-(function (g) { Object.assign(g.I18N_DICT.en, { 'Đồng bộ tài khoản': 'Account sync', 'Đăng nhập Google trong app sẽ có ở bản phát hành chính thức. Hiện tại dữ liệu học được lưu an toàn trên máy này; để đồng bộ giữa các thiết bị, hãy đăng nhập trên lexkite.com.': 'Google sign-in inside the app arrives with the official release. Your progress is saved safely on this device for now; to sync across devices, sign in at lexkite.com.' }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, {
   'Giọng hiện tại chưa tự nhiên. Mở Lexkite bằng <b>Microsoft Edge</b> để dùng giọng <b>Natural</b> (rất giống người thật, miễn phí).': 'This voice sounds robotic. Open Lexkite in <b>Microsoft Edge</b> to use its free <b>Natural</b> voices (very human-like).',
   'Tải giọng chất lượng cao miễn phí: <b>Cài đặt → Trợ năng → Nội dung được đọc → Giọng nói → English</b> → chọn giọng có chữ <b>Nâng cao/Premium</b>, rồi mở lại Lexkite.': 'Get free high-quality voices: <b>Settings → Accessibility → Spoken Content → Voices → English</b> → pick an <b>Enhanced/Premium</b> voice, then reopen Lexkite.',
