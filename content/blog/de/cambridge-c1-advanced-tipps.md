@@ -127,7 +127,7 @@ Bereiten Sie sich systematisch auf die Prüfung vor. Absolvieren Sie eine vollst
 ## Häufig gestellte Fragen
 
 ### Wie lange ist das Cambridge C1 Advanced Zertifikat gültig?
-Im Gegensatz zu IELTS und TOEFL, die nach zwei Jahren ihre offizielle Gültigkeit verlieren, ist das Cambridge English Certificate ein Leben lang gültig. Manche Universitäten oder Arbeitgeber fordern jedoch, dass der Test nicht älter als zwei oder drei Jahre sein sollte.
+Im Gegensatz zu IELTS und TOEFL, die nach zwei Jahren ihre offizielle Gültigkeit verlieren (siehe unseren detaillierten Vergleich [TOEFL oder IELTS](/de/blog/toefl-oder-ielts-vergleich/)), ist das Cambridge English Certificate ein Leben lang gültig. Manche Universitäten oder Arbeitgeber fordern jedoch, dass der Test nicht älter als zwei oder drei Jahre sein sollte.
 
 ### Was passiert, wenn ich im Cambridge C1 durchfalle?
 Wenn Sie knapp unter der C1-Bestehensgrenze (180 Punkte) bleiben, aber mindestens 160 Punkte erreichen, stellt Cambridge Ihnen offiziell ein B2-Zertifikat aus. Sie gehen also selbst bei verfehltem C1-Ziel meist nicht mit leeren Händen nach Hause.

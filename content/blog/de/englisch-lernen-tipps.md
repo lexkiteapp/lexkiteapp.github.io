@@ -113,7 +113,7 @@ Ziel: Lautschrift lesen können, die drei Aussprachestellen von oben im Griff ha
 
 Ziel: über Vergangenes und Zukünftiges sprechen, Fragen korrekt stellen, langsame Gespräche verstehen.
 
-- Simple Past mit den häufigsten unregelmäßigen Verben, dann Present Perfect mit *for/since*.
+- Simple Past mit den häufigsten unregelmäßigen Verben, dann Present Perfect mit *for/since*. Eine vollständige Tabelle aller 12 Zeitformen finden Sie in unserer [Englische Zeiten Übersicht](/de/blog/englische-zeiten-uebersicht/).
 - Fragen mit Hilfsverb: *Do you…? Did you…? Have you ever…?* – und keine deutsche Wortstellung wie *Yesterday went I to the cinema* (richtig: *Yesterday I went to the cinema*).
 - 10 bis 15 neue Wörter pro Tag, alte Karten nach Plan wiederholen.
 
@@ -124,7 +124,7 @@ Ziel: rund 1.000 sicher abrufbare Wörter, kurze Texte mühelos lesen, jeden Abe
 - Lesen und Hören von Material, das Sie zu 80 bis 90 Prozent verstehen.
 - Selbstgespräche beim Kochen oder Pendeln: beschreiben, was Sie gerade tun.
 - Einmal pro Woche ein kurzes Diktat, um Fortschritte beim Hören zu messen.
-- Für den Beruf: Verfassen Sie geschäftliche Nachrichten mit Vorlagen aus [Business English Email schreiben](/de/blog/business-english-email-schreiben/) und trainieren Sie typische Fragen für das [Vorstellungsgespräch auf Englisch](/de/blog/vorstellungsgespraech-englisch-tipps/).
+- Für den Beruf: Verfassen Sie geschäftliche Nachrichten mit Vorlagen aus [Business English Email schreiben](/de/blog/business-english-email-schreiben/), optimieren Sie akademische Aufsätze mit [IELTS Writing Task 2 Tipps](/de/blog/ielts-writing-task-2-tipps/) und trainieren Sie typische Fragen für das [Vorstellungsgespräch auf Englisch](/de/blog/vorstellungsgespraech-englisch-tipps/).
 
 ![Lernpfad „Your IELTS path“ in Lexkite: Etappen nach Band-Stufen, jede Etappe mit Wörtern, Üben, Hören und Test](media:path "Der Etappenplan zeigt, wo Sie stehen und was als Nächstes kommt")
 
@@ -184,7 +184,7 @@ Starten Sie mit dem [5-minütigen Einstufungstest](/#/placement): 20 Fragen zu W
 Mit 30 bis 45 Minuten täglich sprechen viele Wiedereinsteiger nach etwa drei Monaten deutlich sicherer über Alltagsthemen. Für entspannte Gespräche über viele Themen braucht es meist mehrere Monate bis ein Jahr, je nachdem, wie viel Sie hören und sprechen.
 
 ### Sollte ich gleich mit IELTS oder Cambridge C1 anfangen?
-Nur wenn Sie bereits sicher auf B1 sind. Prüfungstraining setzt eine solide Grundlage voraus. Für höhere akademische Abschlüsse lesen Sie unsere gezielten [Cambridge C1 Advanced Tipps](/de/blog/cambridge-c1-advanced-tipps/). Wer erst die 90 Tage durchläuft und dann zur Prüfungsvorbereitung wechselt, kommt dort meist schneller voran.
+Nur wenn Sie bereits sicher auf B1 sind. Prüfungstraining setzt eine solide Grundlage voraus. Für höhere akademische Abschlüsse lesen Sie unsere gezielten [Cambridge C1 Advanced Tipps](/de/blog/cambridge-c1-advanced-tipps/) sowie unseren Vergleich [TOEFL oder IELTS](/de/blog/toefl-oder-ielts-vergleich/). Wer erst die 90 Tage durchläuft und dann zur Prüfungsvorbereitung wechselt, kommt dort meist schneller voran.
 
 ### Muss ich die Grammatik aus der Schule komplett wiederholen?
 Nein. Konzentrieren Sie sich auf die Zeitformen und Strukturen, die Sie täglich brauchen, und üben Sie jede davon mit eigenen Sätzen und lautem Sprechen statt mit endlosen Lückentexten.

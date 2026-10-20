@@ -31,7 +31,7 @@ Betrachten Sie dieses klassische Beispielpaar:
 - *I lost my key.* (Simple Past: „Ich habe meinen Schlüssel vorhin verloren. Das ist ein vergangener Fakt. Vielleicht habe ich ihn inzwischen längst wiedergefunden“).
 - *I have lost my key.* (Present Perfect: „Ich habe meinen Schlüssel verloren – und stehe genau jetzt vor verschlossener Tür und komme nicht hinein“).
 
-Wenn Sie Ihre Sprachkenntnisse von Grund auf strukturieren möchten, werfen Sie einen Blick auf unsere [Englisch lernen Tipps](/de/blog/englisch-lernen-tipps/) sowie unsere [Englische Aussprache Tipps](/de/blog/englische-aussprache-tipps/) zur sauberen Lautbildung. In unserer [Grammatikübersicht](/ngu-phap/) finden Sie zudem nützliche Tabellen zu unregelmäßigen Verben.
+Wenn Sie Ihre Sprachkenntnisse von Grund auf strukturieren möchten, werfen Sie einen Blick auf unsere [Englisch lernen Tipps](/de/blog/englisch-lernen-tipps/) sowie unsere [Englische Aussprache Tipps](/de/blog/englische-aussprache-tipps/) zur sauberen Lautbildung. In unserer [Grammatikübersicht](/ngu-phap/) finden Sie zudem nützliche Tabellen zu unregelmäßigen Verben oder verschaffen Sie sich im großen Leitfaden [Englische Zeiten Übersicht](/de/blog/englische-zeiten-uebersicht/) einen Gesamtüberblick über alle 12 Zeitformen.
 
 ## Entscheidende Signalwörter für Present Perfect oder Simple Past
 

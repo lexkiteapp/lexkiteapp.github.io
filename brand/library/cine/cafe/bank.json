@@ -63,12 +63,7 @@
     "gesture"
    ],
    "post": {
-    "watermark_crop": [
-     25,
-     0,
-     1030,
-     1832
-    ],
+    "watermark_crop": null,
     "board_blur": true
    },
    "mouths": {
@@ -179,7 +174,12 @@
      "usable_for_swap": true
     }
    },
-   "qa": "PASS: 180 ok (Ama L facing R, Carlos R facing L, eyelines meet), outfits match refs, no props; chalkboard text needs board_blur"
+   "qa": "PASS: 180 ok (Ama L facing R, Carlos R facing L, eyelines meet), outfits match refs, no props; chalkboard text needs board_blur",
+   "source": {
+    "kind": "kling urlWithoutWatermark (query_tasks works[].urlWithoutWatermark; signed CDN URL, may expire -> re-query by generationId)",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/b9b2e599-7000-4976-a598-8c7d75a5dacc-qRyI__hAw4DLI1F9G_EBVw-output.mp4?x-kcdn-pid=112372"
+   },
+   "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
   },
   {
    "id": "c02_master_talk_b",
@@ -216,12 +216,7 @@
     "shrug"
    ],
    "post": {
-    "watermark_crop": [
-     25,
-     0,
-     1030,
-     1832
-    ],
+    "watermark_crop": null,
     "board_blur": true
    },
    "mouths": {
@@ -332,7 +327,12 @@
      "usable_for_swap": true
     }
    },
-   "qa": "PASS: 180 ok; different board/lean variant of the master; board_blur required"
+   "qa": "PASS: 180 ok; different board/lean variant of the master; board_blur required",
+   "source": {
+    "kind": "kling urlWithoutWatermark (query_tasks works[].urlWithoutWatermark; signed CDN URL, may expire -> re-query by generationId)",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/dee808f5-31dc-4b5f-badd-24cc8195cff2-DscBTIun2V8ubXoLDAVXfw-output.mp4?x-kcdn-pid=112372"
+   },
+   "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
   },
   {
    "id": "c03_ots_carlos_talk_a",
@@ -369,12 +369,7 @@
     "gesture"
    ],
    "post": {
-    "watermark_crop": [
-     25,
-     0,
-     1030,
-     1832
-    ],
+    "watermark_crop": null,
     "board_blur": true
    },
    "mouths": {
@@ -432,7 +427,12 @@
      "usable_for_swap": true
     }
    },
-   "qa": "PASS: OTS past Ama (fg L, back), Carlos R facing L; head motion large -> local track refine needed (done)"
+   "qa": "PASS: OTS past Ama (fg L, back), Carlos R facing L; head motion large -> local track refine needed (done)",
+   "source": {
+    "kind": "kling urlWithoutWatermark (query_tasks works[].urlWithoutWatermark; signed CDN URL, may expire -> re-query by generationId)",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/c60a8b14-930b-45b4-8501-34f932d24942-YvSFtQtsdYgS5-OPm5ClTQ-output.mp4?x-kcdn-pid=112372"
+   },
+   "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
   },
   {
    "id": "c04_ots_carlos_talk_b",
@@ -470,12 +470,7 @@
     "open-palm"
    ],
    "post": {
-    "watermark_crop": [
-     25,
-     0,
-     1030,
-     1832
-    ],
+    "watermark_crop": null,
     "board_blur": true
    },
    "mouths": {
@@ -533,7 +528,12 @@
      "usable_for_swap": true
     }
    },
-   "qa": "PASS: same setup as c08; track cc lower (0.61 min) - check swap"
+   "qa": "PASS: same setup as c08; track cc lower (0.61 min) - check swap",
+   "source": {
+    "kind": "kling urlWithoutWatermark (query_tasks works[].urlWithoutWatermark; signed CDN URL, may expire -> re-query by generationId)",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/ded1b596-1d41-4673-b92f-33292c704e2d-CN8EHa05CYYlQPmZFSfMAw-output.mp4?x-kcdn-pid=112372"
+   },
+   "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
   },
   {
    "id": "c05_ots_ama_talk_a",
@@ -569,12 +569,7 @@
     "hand-gesture"
    ],
    "post": {
-    "watermark_crop": [
-     25,
-     0,
-     1030,
-     1832
-    ],
+    "watermark_crop": null,
     "board_blur": false
    },
    "mouths": {
@@ -632,7 +627,12 @@
      "usable_for_swap": true
     }
    },
-   "qa": "PASS: OTS past Carlos (fg R, back, behind counter), Ama L facing R up; first frame regenerated (old blk OTS-onto-Ama had Carlos on the customer side)"
+   "qa": "PASS: OTS past Carlos (fg R, back, behind counter), Ama L facing R up; first frame regenerated (old blk OTS-onto-Ama had Carlos on the customer side)",
+   "source": {
+    "kind": "kling urlWithoutWatermark (query_tasks works[].urlWithoutWatermark; signed CDN URL, may expire -> re-query by generationId)",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/98dfb3e4-bce9-45a4-b8f4-6db7abd8bc90-XSBn54A_ssxYws3LfjxzWQ-output.mp4?x-kcdn-pid=112372"
+   },
+   "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
   },
   {
    "id": "c06_ots_ama_talk_b",
@@ -669,12 +669,7 @@
     "warm-smile"
    ],
    "post": {
-    "watermark_crop": [
-     25,
-     0,
-     1030,
-     1832
-    ],
+    "watermark_crop": null,
     "board_blur": false
    },
    "mouths": {
@@ -732,7 +727,12 @@
      "usable_for_swap": true
     }
    },
-   "qa": "PASS | F sprite (frame 19) smeared -> F mapped to E."
+   "qa": "PASS | F sprite (frame 19) smeared -> F mapped to E.",
+   "source": {
+    "kind": "kling urlWithoutWatermark (query_tasks works[].urlWithoutWatermark; signed CDN URL, may expire -> re-query by generationId)",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/b85eeb06-9fae-4fb6-b913-2ee524298994-3iZQb3KuoelZOY_o9ZKZYA-output.mp4?x-kcdn-pid=112372"
+   },
+   "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
   },
   {
    "id": "c07_ots_ama_react",
@@ -768,12 +768,7 @@
     "blush"
    ],
    "post": {
-    "watermark_crop": [
-     25,
-     0,
-     1030,
-     1832
-    ],
+    "watermark_crop": null,
     "board_blur": false
    },
    "mouths": {
@@ -831,7 +826,12 @@
      "usable_for_swap": false
     }
    },
-   "qa": "PASS (silent): hand covers mouth -> no swap possible/needed; tracking unusable (occlusion)"
+   "qa": "PASS (silent): hand covers mouth -> no swap possible/needed; tracking unusable (occlusion)",
+   "source": {
+    "kind": "kling urlWithoutWatermark (query_tasks works[].urlWithoutWatermark; signed CDN URL, may expire -> re-query by generationId)",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/1b2f745a-cbca-47d5-aa7c-c6ccead102aa-ngk6PlZqkIqKsnYYNwdZpw-output.mp4?x-kcdn-pid=112372"
+   },
+   "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
   },
   {
    "id": "c08_ots_carlos_react",
@@ -866,12 +866,7 @@
     "reassure"
    ],
    "post": {
-    "watermark_crop": [
-     25,
-     0,
-     1030,
-     1832
-    ],
+    "watermark_crop": null,
     "board_blur": true
    },
    "mouths": {
@@ -929,7 +924,12 @@
      "usable_for_swap": false
     }
    },
-   "qa": "PASS 0-3 s; after 3.5 s expression turns odd (wide-eyed) - avoid"
+   "qa": "PASS 0-3 s; after 3.5 s expression turns odd (wide-eyed) - avoid",
+   "source": {
+    "kind": "kling urlWithoutWatermark (query_tasks works[].urlWithoutWatermark; signed CDN URL, may expire -> re-query by generationId)",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/18aa3b1a-1ece-4f00-b3c5-ff158c4b41ad-B50jMgR5avzSRbs6JlloPg-output.mp4?x-kcdn-pid=112372"
+   },
+   "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
   },
   {
    "id": "c09_handover",
@@ -966,12 +966,7 @@
     "thank-you-nod"
    ],
    "post": {
-    "watermark_crop": [
-     25,
-     0,
-     1030,
-     1832
-    ],
+    "watermark_crop": null,
     "board_blur": true
    },
    "mouths": {
@@ -1082,7 +1077,12 @@
      "usable_for_swap": false
     }
    },
-   "qa": "PASS with note: Carlos takes the cup from the machine top (set dressing in every counter shot) -> Ama ends holding it in both hands; Ama holds an open grin (silent) 0.5-4 s; head-turn makes mouth tracking unreliable | v2 uses an INSERT crop (470,545,540,960) of frames 22-108: hands + cup only (no faces -> no silent-grin issue)."
+   "qa": "PASS with note: Carlos takes the cup from the machine top (set dressing in every counter shot) -> Ama ends holding it in both hands; Ama holds an open grin (silent) 0.5-4 s; head-turn makes mouth tracking unreliable | v2 uses an INSERT crop (470,545,540,960) of frames 22-108: hands + cup only (no faces -> no silent-grin issue).",
+   "source": {
+    "kind": "kling urlWithoutWatermark (query_tasks works[].urlWithoutWatermark; signed CDN URL, may expire -> re-query by generationId)",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/f467a540-a852-44b9-95af-c366ff5fff92-70oemJarAlB_sWqvXWd0uQ-output.mp4?x-kcdn-pid=112372"
+   },
+   "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
   },
   {
    "id": "c10_ama_mcu_talk",
@@ -1118,12 +1118,7 @@
     "hand-gesture"
    ],
    "post": {
-    "watermark_crop": [
-     25,
-     0,
-     1030,
-     1832
-    ],
+    "watermark_crop": null,
     "board_blur": false
    },
    "mouths": {
@@ -1181,7 +1176,12 @@
      "usable_for_swap": true
     }
    },
-   "qa": "PASS: front-facing MCU from new kling-image-v3_0 frame (watermark cropped before i2v); no cup (use BEFORE hand-over)"
+   "qa": "PASS: front-facing MCU from new kling-image-v3_0 frame (watermark cropped before i2v); no cup (use BEFORE hand-over)",
+   "source": {
+    "kind": "kling urlWithoutWatermark (query_tasks works[].urlWithoutWatermark; signed CDN URL, may expire -> re-query by generationId)",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/3daac115-3e7a-444e-9a7f-030424d0ba4c-6KnD-EiMZjxrwpSMm-awHA-output.mp4?x-kcdn-pid=112372"
+   },
+   "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
   },
   {
    "id": "c12b_closing",
@@ -1213,12 +1213,7 @@
     "holds-latte"
    ],
    "post": {
-    "watermark_crop": [
-     25,
-     0,
-     1030,
-     1832
-    ],
+    "watermark_crop": null,
     "board_blur": true
    },
    "mouths": {
@@ -1329,7 +1324,12 @@
      "usable_for_swap": false
     }
    },
-   "qa": "PASS: starts on c09 last frame (prop continuity: Ama keeps the latte), exits L; replaces c12 (REJECTED: Ama left without the latte, cup+bottle appeared on counter, odd object in hand) | v2: NOT USED - after the wave Ama turns/walks in a way the owner judged wrong for the 180 rule; frames 0-56 face right but 3/4-profile mouth swap shows edge artifacts. Keep for reference only."
+   "qa": "PASS: starts on c09 last frame (prop continuity: Ama keeps the latte), exits L; replaces c12 (REJECTED: Ama left without the latte, cup+bottle appeared on counter, odd object in hand) | v2: NOT USED - after the wave Ama turns/walks in a way the owner judged wrong for the 180 rule; frames 0-56 face right but 3/4-profile mouth swap shows edge artifacts. Keep for reference only.",
+   "source": {
+    "kind": "kling urlWithoutWatermark (query_tasks works[].urlWithoutWatermark; signed CDN URL, may expire -> re-query by generationId)",
+    "url": "https://v15-kling.klingai.com/bs2/upload-ylab-stunt-sgp/1e30a136-b665-480d-a955-fd6206e30e40-HtU21t1wKgBBz3t8BFFNDQ-output.mp4?x-kcdn-pid=112372"
+   },
+   "geometry_check": "frame diff vs watermarked copy outside the watermark area 0.5-0.65/255 (codec noise) -> tracks/sprites reused unchanged"
   }
  ],
  "rejected": [
@@ -1349,5 +1349,23 @@
   "switch": "hard (no blend frames)",
   "mask": "ellipse + change-extent mask from well-tracked frames, connected to the mouth only",
   "listener": "mouth held at X"
+ },
+ "lesson_meta": {
+  "note": "every sample/video built from this bank carries lesson metadata for A1->B2 sequencing",
+  "example": {
+   "id": "cafe-could-i-get",
+   "cefr": "A2",
+   "goal": "Ordering politely",
+   "pattern": "Could I get ___, please?",
+   "area": "roleplay",
+   "link": "https://lexkite.com/app/#/roleplay",
+   "cta": "Roleplay this free on lexkite.com",
+   "video": "out/cine-cafe-sample-v3.mp4"
+  }
+ },
+ "layout_rules": {
+  "safe_zone": "1080x1920: text only inside x[60,940] y[230,1500] (top 220 / bottom 420 / right 140 reserved for platform UI)",
+  "captions": "<=2 lines, verbatim, -0.1/+0.4 s around speech, <=15 cps",
+  "cards": "never the same sentence as the caption on screen"
  }
 }

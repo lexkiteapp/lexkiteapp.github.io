@@ -78,7 +78,7 @@ Im IELTS hören Sie nicht ausschließlich Oxford-Englisch (Received Pronunciatio
 
 Australische Sprecher neigen dazu, Vokale breiter zu ziehen (so kann das Wort *date* fast wie *die-t* klingen). Bei amerikanischen Sprechern werden unbetonte "t"-Laute zwischen Vokalen oft zu einem weichen Schwebelaut abgemildert (*water* klingt wie *wader*). Gewöhnen Sie Ihre Ohren im Alltag an diese Vielfalt, indem Sie Nachrichtensendungen der BBC, ABC (Australian Broadcasting Corporation) und CBC (Canadian Broadcasting Corporation) abwechselnd hören. Typische Lautmuster und praktische Sprechübungen finden Sie auch in unseren [Englische Aussprache Tipps](/de/blog/englische-aussprache-tipps/). 
 
-Nutzen Sie realistische [Prüfungssimulationen](/#/mock), um verschiedene Sprechergeschwindigkeiten und Akzente gezielt durchzuspielen.
+Nutzen Sie realistische [Prüfungssimulationen](/#/mock), um verschiedene Sprechergeschwindigkeiten und Akzente gezielt durchzuspielen. Vergleichen Sie zudem die Anforderungen im großen Leitfaden [TOEFL oder IELTS](/de/blog/toefl-oder-ielts-vergleich/) und bereiten Sie den schriftlichen Teil mit unseren [IELTS Writing Task 2 Tipps](/de/blog/ielts-writing-task-2-tipps/) vor.
 
 {{youtube: | Video-Idee: Die 5 häufigsten Ablenkungsfallen im IELTS Listening und wie man sie sofort erkennt}}
 

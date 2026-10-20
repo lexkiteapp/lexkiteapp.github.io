@@ -2,7 +2,7 @@
 # Visemes come from Rhubarb JSON (run on CI). Sprites = aligned mouth crops harvested from the SAME clip (bank meta).
 import cv2, numpy as np, json, os
 FPS = 24
-WM_CROP = (25, 0, 1030, 1832)          # x, y, w, h : removes the Kling watermark (y >= 1838), keeps 9:16
+WM_CROP = (0, 0, 1080, 1916)           # watermark-free originals (urlWithoutWatermark): full frame; 1916-px clips -> 1920 (+0.2 %)
 def load_meta(d):
     m = json.load(open(f'{d}/mouth.json')); z = np.load(f'{d}/crops.npz')
     return m, np.load(f'{d}/track.npy'), z['crops'], z['roi']
