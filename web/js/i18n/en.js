@@ -2399,7 +2399,7 @@
   'Giao tiếp & nền tảng, chưa thi chứng chỉ': 'Everyday English & foundations, no exam yet',
   'Học từ mới, ôn đúng lúc sắp quên và tra cứu nhanh.': 'Learn new words, review right before you forget, look things up fast.',
   'Ôn {n} thẻ hôm nay': 'Review {n} cards today',
-  'Không còn thẻ cần ôn – học từ mới nhé': 'All caught up – time for new words',
+  'Không còn thẻ cần ôn – học từ mới nhé': 'No cards to review – time for new words!',
   'Ôn đúng lúc sắp quên giúp nhớ lâu gấp nhiều lần': 'Reviewing just before you forget makes words stick for much longer',
   'Học & ôn': 'Learn & review',
   'Tra cứu': 'Look up',

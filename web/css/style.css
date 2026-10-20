@@ -1479,3 +1479,8 @@ button.avatar { border: 0; padding: 0; cursor: pointer; font: inherit; font-weig
 .lv-filter { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; margin-top: .8rem; }
 .lv-filter .chip { cursor: pointer; min-height: 32px; font: inherit; font-size: .85rem; border: 1px solid var(--line); }
 .lv-filter .chip.on { background: var(--primary); color: var(--primary-ink); border-color: var(--primary); }
+/* Thẻ "hub-hero": nút dài (es/de/ru…) không được ép cột chữ – điện thoại thì nút xuống dòng, rộng hết thẻ */
+.hub-hero { flex-wrap: wrap; }
+.hub-hero .hub-tx { flex: 1 1 14rem; }
+.hub-hero > .btn { flex: none; margin-left: auto; white-space: nowrap; }
+@media (max-width: 560px) { .hub-hero > .btn { flex: 1 1 100%; justify-content: center; text-align: center; } }
