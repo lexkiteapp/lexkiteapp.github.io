@@ -1438,11 +1438,6 @@ label.struck { text-decoration: line-through; opacity: .5; }
 .gsi { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; min-height: 40px; padding: 0 .95rem; border: 1px solid var(--muted); border-radius: 999px; background: var(--surface); color: var(--text); font: inherit; font-weight: 600; font-size: .9rem; cursor: pointer; white-space: nowrap; flex: none; }
 .gsi:hover { background: var(--surface-2); } .gsi:focus-visible, button.avatar:focus-visible, #sideLevel:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 .gsi svg { flex: none; } .gsi-s { display: none; } .top-stats .gsi { min-height: 36px; padding: 0 .8rem; }
-/* Nút Sign in with Apple theo HIG của Apple: nền đen chữ trắng (giao diện tối: nền trắng chữ đen), logo Apple, cao ≥ 44 px trong app */
-.gsi.apple { background: #000; color: #fff; border-color: #000; } .gsi.apple:hover { background: #1d1d1f; }
-:root[data-theme="dark"] .gsi.apple { background: #fff; color: #000; border-color: #fff; } :root[data-theme="dark"] .gsi.apple img { filter: invert(1); }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .gsi.apple { background: #fff; color: #000; border-color: #fff; } :root:not([data-theme="light"]) .gsi.apple img { filter: invert(1); } }
-.signin-btns { gap: .6rem; margin: 1rem 0 .8rem; } .signin-btns .gsi { width: 100%; min-height: 48px; font-size: 1rem; }
 button.avatar { border: 0; padding: 0; cursor: pointer; font: inherit; font-weight: 800; }
 .side-acct { margin-top: .6rem; } .side-acct p { margin: 0 0 .4rem; } .side-acct .gsi { width: 100%; }
 @media (max-width: 900px) { .top-stats .gsi { padding: 0 .65rem; gap: .4rem; } .top-stats .gsi-l { display: none; } .top-stats .gsi-s { display: inline; } }

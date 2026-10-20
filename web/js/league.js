@@ -209,7 +209,8 @@
           </button>
         </div>`;
       const btn = $('#leagueSignInBtn');
-      if (btn) btn.onclick = () => window.Sync.signIn();
+      if (btn && window.Sync.can === false) btn.outerHTML = `<p class="muted">${t('Đăng nhập và đồng bộ có trên bản web {link}.', { link: '<a href="https://lexkite.com/app/" target="_blank" rel="noopener">lexkite.com</a>' })}</p>`; // app gốc chưa cấu hình đăng nhập
+      else if (btn) btn.onclick = () => window.Sync.signIn();
       return;
     }
 

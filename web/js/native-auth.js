@@ -25,8 +25,29 @@
     emit(r.user);
     return cur;
   }
+  // Đăng nhập từ giao diện: lỗi thật → báo; người dùng hủy → im lặng
+  const run = via => signIn(via).catch(e => {
+    if (cancelled(e)) return null;
+    console.warn('native sign-in', e); UI.toast(t('Không đăng nhập được: {msg}', { msg: (e && e.message) || e })); return null;
+  });
+  // iOS, chưa chọn nhà cung cấp → bảng chọn "Tiếp tục với Apple" (trên) + "Tiếp tục với Google", cùng cỡ (App Store 4.8).
+  // Promise xong khi đăng nhập xong hoặc đóng bảng (màn thiết lập chờ kết quả này).
+  let picking = null;
+  const choose = () => picking || (picking = new Promise(res => {
+    if (w.App && App.meCss) App.meCss();
+    const box = UI.modal(`<h2>☁️ ${t('Tài khoản & đồng bộ')}</h2><p class="muted small">${t('Sao lưu flashcard, XP, chuỗi ngày học và học tiếp trên mọi thiết bị.')}</p>
+      <div class="stack signin-btns">${w.Sync.authBtns()}</div>
+      <p class="tiny muted">${t('Miễn phí · chỉ lưu dữ liệu học của bạn · có thể đăng xuất bất cứ lúc nào')}</p>`);
+    const m = document.getElementById('modal');
+    const ob = new MutationObserver(() => { if (m.hidden) { ob.disconnect(); res(null); } });
+    ob.observe(m, { attributes: true, attributeFilter: ['hidden'] });
+    (box || m).querySelectorAll('.signin-btns [data-acct]').forEach(b => b.addEventListener('click', e => {
+      e.preventDefault(); e.stopPropagation(); ob.disconnect(); UI.closeModal(); res(run(b.dataset.acct === 'apple' ? 'apple' : 'google'));
+    }));
+  }).finally(() => { picking = null; }));
   const NativeAuth = {
     ok: !!FA,
+    ui: via => !via && w.VBNative.platform === 'ios' ? choose() : run(via || 'google'),
     cancelled,
     current: () => cur,
     provider,
