@@ -89,7 +89,7 @@ qualityScore: 94
    - 常见中式写法：*I know it.* / *I have known.*（听起来非常粗鲁，像在说“我早就知道了还用你说”）  
    - 地道得体表达：*Well noted with thanks.* / *Thank you for bringing this to our attention.*
 
-写作逻辑的连贯严谨不仅在职场邮件中至关重要，在学术大作文中也是拿高分的核心所在，详细论述结构见[雅思写作 task 2 模板](/zh/blog/ya-si-xie-zuo-task-2-mo-ban/)。同时，口语交流中的小对话逻辑也与邮件沟通相辅相成，具体可参考[雅思口语技巧](/zh/blog/ya-si-kou-yu-ji-qiao/)。
+写作逻辑的连贯严谨不仅在职场邮件中至关重要，在学术大作文中也是拿高分的核心所在，详细论述结构见[雅思写作 task 2 模板](/zh/blog/ya-si-xie-zuo-task-2-mo-ban/)。同时，在职场邮件与交流中善用[英语常用动词短语](/zh/blog/ying-yu-dong-ci-duan-yu-phrasal-verbs/)能让用词更地道自然。如果你正在筹备跨国求职，还可以参考[英文面试常见问题及回答技巧](/zh/blog/ying-yu-mian-shi-chang-jian-wen-ti/)与[雅思口语技巧](/zh/blog/ya-si-kou-yu-ji-qiao/)全面提升职场竞争力。
 
 ## 经典邮件模板实战剖析（Self-Check）
 
