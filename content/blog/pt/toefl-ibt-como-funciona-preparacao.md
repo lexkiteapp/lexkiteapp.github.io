@@ -15,16 +15,18 @@ author: Lexkite
 status: ready
 qualityScore: 94
 ---
-O TOEFL iBT (*Test of English as a Foreign Language - Internet-Based Test*), administrado pela Educational Testing Service (ETS), é um dos exames de proficiência em língua inglesa mais reconhecidos e prestigiados do planeta. Aceito por mais de 12.000 universidades e instituições em mais de 160 países — incluindo os cobiçados programas de graduação e pós-graduação nos Estados Unidos, Canadá, Europa e Ásia —, ele avalia a sua capacidade real de interagir em um ambiente acadêmico universitário de língua inglesa. Se o seu objetivo é conquistar uma bolsa no exterior ou imigrar, saber exatamente **como se preparar para o toefl ibt** com método e estratégia é o divisor de águas entre a aprovação e a frustração.
+O TOEFL iBT (*Test of English as a Foreign Language - Internet-Based Test*), administrado pela Educational Testing Service (ETS), é um dos exames de proficiência em língua inglesa mais reconhecidos e prestigiados do planeta. Aceito por mais de 13.500 instituições em mais de 160 países — incluindo os cobiçados programas de graduação e pós-graduação nos Estados Unidos, Canadá, Europa e Ásia —, ele avalia a sua capacidade real de interagir em um ambiente acadêmico universitário de língua inglesa. Se o seu objetivo é conquistar uma bolsa no exterior ou imigrar, saber exatamente **como se preparar para o toefl ibt** com método e estratégia é o divisor de águas entre a aprovação e a frustração.
 
 
-Em 21 de janeiro de 2026, o exame mudou de forma significativa: ficou mais curto (cerca de 1,5 hora), passou a ser adaptativo — a dificuldade se ajusta às suas respostas — e adotou uma escala de 1 a 6 por seção, com a nota geral calculada pela média das quatro seções. Durante um período de transição, o boletim também mostra uma pontuação equivalente na escala tradicional de 0 a 120, e muitas universidades ainda publicam exigências como "100 ou mais". Por isso, confirme com cada instituição qual escala ela aceita e monte um plano que equilibre vocabulário, velocidade de leitura e precisão na escrita.
+Em 21 de janeiro de 2026, o exame mudou de forma significativa: ficou mais curto (as quatro seções somam cerca de 1,5 hora de tempo-base, e a ETS recomenda reservar cerca de 2 horas no total, contando as instruções), o Reading e o Listening passaram a ser adaptativos em duas etapas — o desempenho na primeira parte define a dificuldade da segunda — e a nota passou para uma escala de 1 a 6, em intervalos de 0,5, por seção.
+
+A nota geral é a média das quatro seções, arredondada para a meia banda mais próxima. Até janeiro de 2028, o boletim também mostra o nível CEFR e uma pontuação comparável na escala tradicional de 0 a 120, e muitas universidades ainda publicam exigências como "100 ou mais". Por isso, confirme com cada instituição qual escala ela aceita e monte um plano que equilibre vocabulário, velocidade de leitura e precisão na escrita.
 
 (TOEFL é marca registrada da ETS. O Lexkite não tem vínculo com a ETS, e os exemplos deste artigo foram escritos por nós. Para inscrição e regras oficiais de pontuação, consulte sempre o site da ETS.)
 
 ## O novo formato do TOEFL iBT: o que mudou na prova
 
-A prova continua 100% no computador e avalia quatro habilidades. Como o teste é adaptativo, o número de questões e o tempo podem variar um pouco de um candidato para outro; trate os valores abaixo como aproximados:
+A prova continua 100% no computador e avalia quatro habilidades. Como parte do teste é adaptativa, o número de questões e o tempo podem variar um pouco de um candidato para outro; trate os valores abaixo como aproximados:
 
 | Seção | Questões (aprox.) | Tempo (aprox.) | Tipos de tarefa |
 |---|---|---|---|
@@ -63,7 +65,7 @@ No Speaking, você grava suas respostas em um microfone conectado ao computador,
 ### 4. Writing: frases, e-mail e discussão acadêmica
 - **Build a Sentence:** organize blocos de palavras em uma frase gramaticalmente correta (*the lab / until six / is open / on Fridays* → *The lab is open until six on Fridays.*). Revise a ordem das palavras em afirmações e perguntas.
 - **Write an Email:** responda a uma situação em cerca de 7 minutos, cobrindo todos os pontos pedidos. Perde-se mais nota esquecendo um ponto do que usando vocabulário simples — veja [como escrever um e-mail formal em inglês](/pt/blog/como-escrever-email-em-ingles-formal/).
-- **Academic Discussion:** leia a pergunta do professor e as postagens de dois colegas, assuma uma posição e acrescente uma ideia nova com argumentos claros. Veja mais dicas de argumentação nas [dicas de IELTS Writing Task 2](/pt/blog/dicas-ielts-writing-task-2/).
+- **Academic Discussion:** leia a pergunta do professor e as postagens de colegas, assuma uma posição e acrescente uma ideia nova com argumentos claros. Veja mais dicas de argumentação nas [dicas de IELTS Writing Task 2](/pt/blog/dicas-ielts-writing-task-2/).
 
 ![Textos de leitura IELTS do Lexkite por nível, de A2 a C1, com toque na palavra para consultar o dicionário](media:reading "Ler textos IELTS de níveis variados e consultar palavras com um toque ajuda no Read an Academic Passage do TOEFL")
 
@@ -73,10 +75,10 @@ Muitos estudantes ficam em dúvida sobre qual exame prestar. Ambas as certifica�
 
 | Característica | TOEFL iBT (formato 2026) | IELTS Academic |
 |---|---|---|
-| Formato de Prova | 100% digital, adaptativo | Opção em papel ou no computador |
-| Escala de Notas | 1 a 6 por seção (com equivalente 0–120 na transição) | Bandas de 0 a 9 |
+| Formato de Prova | 100% digital; Reading e Listening adaptativos | Opção em papel ou no computador |
+| Escala de Notas | 1 a 6 por seção (com equivalente 0–120 até jan./2028) | Bandas de 0 a 9 |
 | Speaking | Gravado no microfone (repetição de frases e entrevista) | Entrevista presencial com examinador (11 a 14 min) |
-| Duração Total | Cerca de 1,5 hora | Cerca de 2 horas e 45 minutos |
+| Duração Total | Cerca de 1,5 hora de seções (reserve ~2 horas) | Cerca de 2 horas e 45 minutos |
 
 Se você digita bem e prefere gravar respostas em vez de conversar com uma pessoa ao vivo, o TOEFL iBT costuma ser uma escolha confortável.
 
@@ -96,10 +98,13 @@ Para construir a resistência necessária, divida seus estudos ao longo de 2 mes
 ## Perguntas frequentes
 
 ### Qual pontuação no TOEFL iBT preciso para universidades no exterior?
-Depende da instituição. Muitas universidades concorridas ainda publicam exigências na escala de 0 a 120 — frequentemente 100 ou mais —, enquanto outros programas pedem entre 80 e 90. Como a nota agora sai na escala de 1 a 6 (com equivalente 0–120 durante a transição), confira na página de admissão de cada instituição qual nota ela aceita e como interpreta a nova escala.
+Depende da instituição. Muitas universidades concorridas ainda publicam exigências na escala de 0 a 120 — frequentemente 100 ou mais —, enquanto outros programas pedem entre 80 e 90. Como a nota agora sai na escala de 1 a 6 (com equivalente 0–120 até janeiro de 2028), confira na página de admissão de cada instituição qual nota ela aceita e como interpreta a nova escala.
 
 ### Posso fazer o TOEFL iBT em casa?
-Sim. A ETS oferece a modalidade *TOEFL iBT Home Edition*, feita no seu computador com monitoramento remoto ao vivo (*proctoring*). O formato e a escala de notas são os mesmos da prova em centro de testes; confira os requisitos técnicos e as regras de ambiente no site da ETS antes de se inscrever.
+Sim. A ETS oferece a modalidade *TOEFL iBT Home Edition*, feita no seu computador com monitoramento remoto ao vivo por um fiscal humano (*proctoring*). Confira os requisitos técnicos e as regras de ambiente no site da ETS antes de se inscrever.
+
+### Qual nota do TOEFL iBT corresponde a cada nível CEFR?
+Na tabela oficial da ETS, 3–3,5 corresponde a B1, 4–4,5 a B2, 5–5,5 a C1 e 6 a C2, tanto na nota geral quanto em cada seção. Se o programa pede B2, por exemplo, mire em pelo menos 4 em todas as seções.
 
 ### As anotações feitas durante a prova contam nota?
 Não. As anotações servem apenas para você; a nota considera somente as respostas registradas no sistema e os áudios gravados no microfone.
