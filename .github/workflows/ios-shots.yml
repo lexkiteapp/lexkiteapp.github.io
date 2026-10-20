@@ -11,6 +11,7 @@ on:
     inputs:
       capture: { description: 'Chụp ảnh mới trên Simulator (false = dùng ảnh ở nhánh ios-shots)', type: boolean, default: true }
       asc: { description: 'App Store Connect: none | dry-run | upload (chữ + ảnh, chỉ bản 1.0 đang Prepare for Submission)', type: choice, options: [none, dry-run, upload], default: none }
+      only: { description: 'Phần đẩy lên App Store Connect', type: choice, options: [all, text, shots], default: all }
       langs: { description: 'Ngôn ngữ ảnh (có chữ trong scripts/lib/app-shots-copy.mjs)', default: 'en,vi' }
 permissions:
   contents: write
@@ -131,4 +132,4 @@ jobs:
           ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
           ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
           ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
-        run: node scripts/asc-upload.mjs ${{ inputs.asc == 'dry-run' && '--dry-run' || '' }} --shots store/apple/screenshots | tee -a "$GITHUB_STEP_SUMMARY"
+        run: node scripts/asc-upload.mjs ${{ inputs.asc == 'dry-run' && '--dry-run' || '' }} --shots store/apple/screenshots --only ${{ inputs.only || 'all' }} | tee -a "$GITHUB_STEP_SUMMARY"
