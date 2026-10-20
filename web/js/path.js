@@ -10,7 +10,7 @@
   // CEFR theo bảng quy đổi IELTS ↔ CEFR của Cambridge (B1 ≈ 4.0–5.0, B2 ≈ 5.5–6.5, C1 ≈ 7.0–8.0); "cando" = mục tiêu đầu ra của chặng.
   const STAGES = [
     { id: 's0', get name() { return t('Chặng 0 · Từ cốt lõi'); }, band: 'Band 4.0 – 5.0', cefr: 'A1 – B1', color: '#17595A', get desc() { return t('Những từ thông dụng nhất tiếng Anh (NGSL) – nền móng cho người mới'); },
-      get cando() { return t('Hiểu và dùng các từ thông dụng nhất trong hội thoại và bài đọc hằng ngày'); }, units: ['ngsl1', 'ngsl2', 'ngsl3', 'ngsl4', 'ngsl5'] },
+      get cando() { return t('Hiểu và dùng các từ thông dụng nhất trong hội thoại và bài đọc hằng ngày'); }, get units() { return CORE.flatMap(subIds); } },
     { id: 's1', get name() { return t('Chặng 1 · Nền tảng'); }, band: 'Band 5.5 – 6.0', cefr: 'B1 – B2', color: '#1E7A4C', get desc() { return t('Từ vựng chủ đề quen thuộc trong Speaking Part 1–2'); },
       get cando() { return t('Nói và viết về chủ đề quen thuộc: học tập, công việc, sức khỏe, du lịch'); }, units: ['education', 'work', 'health', 'travel', 'society', 'technology', 'food', 'sport'] },
     { id: 's2', get name() { return t('Chặng 2 · Mở rộng chủ đề'); }, band: 'Band 6.5', cefr: 'B2', color: '#B7472A', get desc() { return t('Chủ đề Writing Task 2 hay gặp và từ mô tả biểu đồ'); },
@@ -20,6 +20,21 @@
     { id: 's4', get name() { return t('Chặng 4 · Tinh hoa'); }, band: 'Band 7.5+', cefr: 'C1 – C2', color: '#A8324F', get desc() { return t('Collocation, thành ngữ và từ học thuật nâng cao'); },
       get cando() { return t('Diễn đạt tự nhiên và chính xác với collocation, thành ngữ'); }, units: ['collocations', 'idioms', 'awl6', 'science', 'awl7', 'government', 'economy', 'awl8', 'energy', 'awl9', 'wildlife', 'awl10', 'architecture', 'space', 'language'] },
   ];
+  // Chặng 0: 5 bộ NGSL × 281 từ chia thành bài con ~19 từ (id "ngsl1.3") – thắng sớm như các chặng sau (12–60 từ/bài).
+  // Bài cũ (unitDone/pathSteps của "ngsl1") vẫn được tính cho mọi bài con → không mất tiến độ, không cần ghi lại dữ liệu.
+  const CORE = ['ngsl1', 'ngsl2', 'ngsl3', 'ngsl4', 'ngsl5'], PART = 20, SUB = {};
+  const parts = tp => Math.ceil(tp.words.length / PART);
+  const subIds = p => { const tp = App.topicOf(p); return tp ? Array.from({ length: parts(tp) }, (_, k) => p + '.' + (k + 1)) : []; };
+  const parentOf = id => String(id).split('.')[0];
+  App.subTopic = id => {
+    const m = /^(ngsl[1-5])\.(\d+)$/.exec(id || ''), tp = m && App.topicOf(m[1]);
+    if (!tp || SUB[id]) return SUB[id];
+    const n = parts(tp), k = +m[2] - 1; if (k < 0 || k >= n) return;
+    const a = Math.round(k * tp.words.length / n), b = Math.round((k + 1) * tp.words.length / n);
+    const base = CORE.slice(0, CORE.indexOf(m[1])).reduce((s, p) => s + ((App.topicOf(p) || {}).words || []).length, 0);
+    const words = tp.words.slice(a, b);
+    return (SUB[id] = { id, emoji: tp.emoji, group: tp.group, parent: m[1], words, get name() { return t('Từ cốt lõi {a}–{b}', { a: base + a + 1, b: base + b }); }, get desc() { return words.slice(0, 4).map(w => w.word).join(' · ') + ' …'; } });
+  };
   const STEPS = () => [
     ['learn', '🧠', t('Học từ mới'), t('Giới thiệu từ → trắc nghiệm → tự gõ lại')],
     ['match', '⚡', t('Ghép thẻ'), t('Củng cố nhanh nghĩa – từ')],
@@ -28,7 +43,7 @@
   ];
 
   const unitsFlat = () => STAGES.flatMap(s => s.units.map(u => ({ stage: s, topic: App.topicOf(u) })).filter(x => x.topic));
-  const doneMap = () => (state.game.unitDone || {});
+  const doneMap = () => { const d = state.game.unitDone || {}; return new Proxy(d, { get: (o, k) => o[k] || o[parentOf(k)] }); };
   function learnedPct(t) {
     const n = t.words.filter(w => { const c = state.cards[w.word.toLowerCase()]; return c && c.srs.last; }).length;
     return n / t.words.length;
@@ -50,16 +65,12 @@
   }
   App.pathCurrent = () => unitState().find(u => u.status === 'current');
 
-  // Bước đã làm trong từng bài (Ghép thẻ, Nghe & chép) – ghi khi mở bước đó từ bất kỳ đâu (#/practice/<bước>?src=topic:<bài>).
-  // "Học từ mới" xong khi đã học ≥ 80% số từ; "Kiểm tra bài" xong khi đạt ≥ 80% (unitDone).
+  // Bước Ghép thẻ/Nghe ghi khi HOÀN THÀNH lượt (study.js → 'lexkite:practice-done' → path-reward.js), bản ghi cũ giữ nguyên.
   let REC = null;
   const recLoad = () => REC ? Promise.resolve(REC) : Core.Store.get('pathSteps', {}).then(v => (REC = v || {})).catch(() => (REC = {}));
-  window.addEventListener('hashchange', () => {
-    const m = /^#\/practice\/(match|listen)\?(?:.*&)?src=topic(?::|%3A)([\w-]+)/.exec(location.hash);
-    if (!m || !STAGES.some(s => s.units.includes(m[2]))) return;
-    recLoad().then(r => { const a = r[m[2]] || []; if (a.includes(m[1])) return; r[m[2]] = [...a, m[1]]; return Core.Store.set('pathSteps', r); }).catch(() => {});
-  });
-  const stepDone = (u, m) => m === 'learn' ? u.pct >= 0.8 : m === 'test' ? u.status === 'done' : ((REC || {})[u.topic.id] || []).includes(m);
+  const recOf = id => [...((REC || {})[id] || []), ...((REC || {})[parentOf(id)] || [])];
+  window.addEventListener('lexkite:practice-done', e => { const d = e.detail || {}, m = /^topic:(.+)$/.exec(d.src || ''); if (m && STAGES.some(s => s.units.includes(m[1]))) App.need('pathx').then(() => PathReward.done(d, m[1], { recLoad, recOf, unitState, STEPS, stepDone, stepHref, nextStep })).catch(() => {}); });
+  const stepDone = (u, m) => m === 'learn' ? u.pct >= 0.8 : m === 'test' ? u.status === 'done' : recOf(u.topic.id).includes(m);
   const stepHref = (id, m) => `#/practice/${m}?src=${encodeURIComponent('topic:' + id)}${m === 'test' ? `&unit=${id}` : ''}`;
   // Bước kế tiếp của bài hiện tại: học từ mới (mỗi lượt 8 từ) tới khi thuộc ≥ 80% → kiểm tra bài để mở bài sau
   const nextStep = u => (u.pct < 0.8 ? 'learn' : 'test');
@@ -68,6 +79,8 @@
   routes.path = async function () {
     await recLoad();
     const us = unitState();
+    // Kho từ chưa tải được (mất mạng/CDN lỗi) → trạng thái trống có nút thử lại, không vẽ bản đồ rỗng/NaN%
+    if (!us.length) { view.innerHTML = `<div class="card empty"><div class="em" aria-hidden="true">🗺️</div><h2>${t('Không tải được – thử lại sau')}</h2><button class="btn primary" id="pathRetry">${t('Thử lại')}</button></div>`; $('#pathRetry').onclick = () => App.need('words').then(() => routes.path()).catch(() => {}); return; }
     const doneN = us.filter(u => u.status === 'done').length;
     const ielts = /^ielts/.test(App.exam ? App.exam() : 'ielts');
     const cur = us.find(u => u.status === 'current'), stName = m => (STEPS().find(x => x[0] === m) || [])[2];
@@ -81,7 +94,7 @@
           const su = us.filter(u => u.stage.id === st.id);
           const sd = su.filter(u => u.status === 'done').length;
           return `<div class="stage-banner" style="--sc:${st.color}">
-              <div><div class="tiny stage-lv">${ielts ? `${st.cefr} · ${st.band}` : `CEFR ${st.cefr}`}</div><h2 style="margin:.1rem 0;color:#fff">${st.name}</h2><div class="small" style="opacity:.92">${st.desc}</div><div class="small stage-cando">🎯 ${st.cando}</div></div>
+              <div><div class="tiny stage-lv">${ielts ? `${st.cefr} · ${st.band}` : `CEFR ${st.cefr}`}</div><h2 style="margin:.1rem 0;color:#fff">${st.name}</h2><div class="small" style="opacity:.92">${st.desc}</div><div class="small stage-cando">🎯 ${st.cando}</div>${st.id === 's0' ? `<a class="chip stage-rp" href="#/roleplay">🎭 ${t('Luyện nói: tình huống hằng ngày')}</a>` : ''}</div>
               <div class="stage-count">${sd}/${su.length}</div></div>
             <div class="nodes">${su.map(u => {
               const off = Math.round(Math.sin(idx++ * 0.9) * 90);

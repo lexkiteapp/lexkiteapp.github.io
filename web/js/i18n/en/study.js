@@ -476,3 +476,8 @@
   'Mục tiêu: nhận ra, hiểu và dùng được {n} từ về “{name}”.': 'Goal: recognise, understand and use {n} words about “{name}”.',
   '{wl} tuần · cần lên {gap} cấp CEFR': '{wl} weeks · {gap} CEFR level(s) to go',
 }); })(typeof self !== 'undefined' ? self : this);
+/* Lộ trình: bài con chặng 0 */
+(function (g) { Object.assign(g.I18N_DICT.en, {
+  "Từ cốt lõi {a}–{b}": "Core words {a}–{b}",
+  "Luyện nói: tình huống hằng ngày": "Speaking practice: everyday situations",
+}); })(typeof self !== 'undefined' ? self : this);

@@ -490,6 +490,7 @@ body.bare .view { padding-top: 2rem; }
 @media (max-width: 480px) { .node-wrap { transform: none !important; } }
 .stage-lv { opacity: .9; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
 .stage-cando { margin-top: .45rem; padding-top: .45rem; border-top: 1px solid rgba(255,255,255,.22); font-weight: 600; }
+.stage-rp { display: inline-flex; align-items: center; min-height: 44px; margin-top: .5rem; background: var(--surface); color: var(--text); text-decoration: none; font-weight: 700; }
 .node-wrap.cur { margin-top: 1.5rem; }
 .path-cta { max-width: 640px; margin: .2rem auto 0; }
 .unit-goal { margin: .9rem 0 0; padding: .55rem .8rem; border-radius: 12px; background: var(--surface-2); }
