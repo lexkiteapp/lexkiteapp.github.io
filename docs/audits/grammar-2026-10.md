@@ -103,3 +103,55 @@ Bộ chấm tự luận (`grammar.js` `dnorm2`): chấp nhận "2,000" = "2000" 
 - `structures.js`, `fixer.js`, `paraphrase.js`, `grammar/check.js` (bộ luật nhận diện) chưa soát sâu.
 - Ví dụ trong bài chưa có tô sáng cấu trúc trong câu (dữ liệu chưa đánh dấu) – cần thêm trường đánh dấu cho từng ví dụ.
 - Lỗi hay gặp chưa phân theo tiếng mẹ đẻ ngoài tiếng Việt.
+(→ cả 3 mục đã xử lý ở Lượt 2 bên dưới.)
+
+## Lượt 2 (20/10/2026)
+
+### Tô sáng cấu trúc trong ví dụ
+- 775 ví dụ (uses/formula/ielts, 7 file `web/js/grammar/*.js`) đánh dấu tay `[[…]]` quanh phần cấu trúc mục tiêu (cụm động từ, liên từ, mạo từ, giới từ…); câu không có cấu trúc rõ thì để nguyên.
+- `grammar.js` `prepHL()` tách 1 lần: `ex` = chữ thuần (đọc TTS, bài xếp câu, lưu câu – không lộ `[[`), `exm` = bản đánh dấu → `<mark class="g-hl">` (nền teal nhạt + gạch chân, không chỉ dựa vào màu; `forced-colors` dùng Mark/MarkText). `scripts/build-samples.mjs` (trang SEO /ngu-phap/) đổi `[[…]]` thành `<b>`.
+
+### Lỗi hay gặp theo tiếng mẹ đẻ
+- `web/js/grammar/l1/<lang>.js` (14 ngôn ngữ ≠ en, 125 ghi chú ✗/✓, 1,6–2,9 KB/file): giải thích viết tay bằng chính ngôn ngữ đó (không dịch máy, `translate="no"`), tải lười theo `I18N.lang()` khi mở bài; bài không có ghi chú / giao diện en → không hiện gì.
+- Chọn theo giao thoa có thật: mạo từ (vi, id, th, zh, ja, ko, hi, ru, tr; ar/es/pt/fr: thừa *the* với danh từ chung), present perfect + since/for (es, pt, fr, de, ru, tr), số nhiều sau số đếm (vi, id, th, zh, ja, ko, tr), -s ngôi 3 & hệ từ *be* (vi, id, th, zh, ja, ko, ar, ru, tr), trật tự SVO (ja, ko, hi, tr, de), *although…but / because…so* (vi, id, th, zh), he/she (id, th, zh, tr), *must not ≠ don't have to* (de), *isn't it* (hi), đại từ lặp trong mệnh đề quan hệ (ar), giới từ (es, pt, fr, ru, vi, id, hi).
+- Hiện ở cuối "Xem toàn bài" và bước "Bắt lỗi".
+
+### Soát bộ luật nhận diện (sửa)
+| File | Luật | Trước | Sau | Lý do |
+|---|---|---|---|---|
+| structures.js | V3 (bị động/HTHT) | `${W}ed` khớp red, need, indeed, hundred | loại các từ -ed không phải phân từ | "It is indeed…" bị nhận là bị động; "I have red hair" là HTHT |
+| structures.js | So sánh nhất | `the ${W}est` | loại interest, west, rest, test, request, forest… | "the interest rate" bị nhận là so sánh nhất |
+| structures.js | Càng… càng | `the …er … the …er` (không cần dấu phẩy) | bắt buộc `, the`; loại danh từ -er (number, other, water…) | "The number of students rose, but the number of teachers fell" bị nhận là "càng… càng" |
+| structures.js | So sánh hơn | loại rather/other/whether | thêm ever, never, either, over, under, after, together, order, number | "-er than" giả |
+| structures.js | So/such … that | tối đa 2 từ ở giữa | 1–4 từ | "such a long flight that" không bắt được |
+| structures.js | Used to | mọi "is used to" | be/get used to + V-ing/danh từ; S + used to + V | "Water is used to cool…" (= được dùng để) bị giải thích là "quen với" |
+| structures.js | Đạt đỉnh | reach + bất kỳ từ | peak at · reach/hit (a/its) (record) peak/high/low | "reach a decision" bị nhận là số liệu |
+| structures.js | Make/let + O + V | make + 2 từ bất kỳ | tân ngữ là đại từ/người, loại a/the/tính từ | "made a decision", "makes it difficult" bị nhận là sai khiến |
+| structures.js | Hedging | may/tend to/seem to | loại "May + số" (tháng); thêm tends/seems/appears/likely | "in May 2015" bị nhận là rào đón; "It seems to…" (ngôi 3) không bắt được |
+| structures.js | Từ nối kết quả | bài adverbial-clauses | bài purpose-result | bài có As a result/therefore |
+| grammar/check.js | future-in-past | mọi `would` | was/were going to/about to · was to have · said/thought… would | câu điều kiện được chấm là "tương lai trong quá khứ" |
+| grammar/check.js | reason-contrast | có `as`, `since` trơn | bỏ (mơ hồ thời gian); thêm because, now that, "As …," | gần như câu nào cũng đạt |
+| grammar/check.js | conjunctions | and/or/so bất kỳ | `, but/so/yet/or/nor` · either…or · neither…nor · both…and · not only · although/because/unless/whereas/whether | câu đơn có "and" đã đạt |
+| grammar/check.js | ed-s-endings | mọi từ -ed/-es/-ing | S + V-ed / V-es | câu bất kỳ đều đạt |
+| grammar/check.js | word-formation | hậu tố -al/-ly/-en, tiền tố re/in/im… | hậu tố dài (-tion, -ment, -ness, -ous…) + un/dis/mis/over/under | gần như mọi từ đều khớp |
+| grammar/check.js | reference-substitution | `one` trơn | this/these/such + N · the former/latter · do so · that of · N + one(s) | "one" (số đếm) đạt |
+| grammar/check.js | emphasis-variety | do/does/did + bất kỳ (cả "Do you…?") | S + do/does/did + V (loại câu hỏi, not) | câu hỏi thường đạt "nhấn mạnh" |
+| grammar/check.js | present-simple | `\w+ \w+s` (vd. "this is") | loại is/was/has/its/his/this/us/as | câu bất kỳ đạt |
+| grammar/check.js | present-perfect | `'s + V3` | 's chỉ + been/gone/got/had/done… | "He's tired" đạt HTHT |
+| grammar/check.js | comparatives | `\w+er than` gồm rather than | loại rather/other/…; thêm "the second largest", "The more …, the" | "rather than" đạt so sánh hơn |
+| writecheck-rules.js (Sửa ngữ pháp) | more-er | 26 tính từ | + 36 tính từ (taller, greater, tallest…) | "more taller" không bị bắt |
+| paraphrase.js | lọc dữ liệu | dùng cả 902 cặp | bỏ cặp có "___", ghép rời "… / …", gần như chép lại câu hỏi (≥ 60% từ khóa trùng); phương án nhiễu không trùng câu hỏi | "a single, ___ species ≈ a single, domesticated species" lộ đáp án; "when hives are close together ≈ when hives are placed close together" không phải paraphrase |
+
+Hồi quy: 782 ví dụ của bài vẫn đạt bộ nhận diện 455/782 (trước 457); các câu thử sai (is indeed, the interest rate, made a decision, in May 2015, is used to cool, the number… the number…) không còn bị nhận.
+
+### Giao diện & trợ năng
+- CSS mới nạp cùng gói grammar (không thêm vào `style.css` của khung app). `structures.js` chuyển khỏi khung app sang tải lười (gói `struct` + đầu gói grammar; bảng "Dịch đoạn đã chọn" tự `App.need('struct')`) → khung app giảm ~5 KB gz.
+- Chế độ tối: mảnh công thức (`.fp`) và sơ đồ (`.fstep`) có màu tối riêng cho cả `data-theme="dark"` lẫn `prefers-color-scheme` (trước: nền sáng chói / chỉ lọc độ sáng khi chọn tối thủ công).
+- Thang chữ: tiêu đề khối 1.05rem, dòng 1.6; ví dụ không in nghiêng; bảng: cuộn ngang trong khung `tabindex=0`, `role=region`, nhãn = tiêu đề cột, `min-width` 440px.
+- 375px: lề khối nhỏ hơn, h1 hero 1.4rem, mảnh công thức gọn.
+- Bước "Bắt lỗi": ✗/✓ có nhãn Sai/Đúng, câu tiếng Anh `lang="en"`, đáp án hiện có `aria-live`.
+
+### Còn lại (Lượt 2)
+- `writecheck-rules.js`: lời giải "because … so" nói "Tiếng Việt nói…" (hiện cả cho người học ngôn ngữ khác) – cần khóa trung tính + bản en.
+- `check.js` vẫn rộng ở nouns, punctuation, verb-types, articles (khó nhận diện bằng biểu thức chính quy).
+- Dữ liệu paraphrase còn vài cặp không tương đương (vd. "harmful ≈ many may starve") – soát tay ở `scripts/gen-paraphrase.mjs`.
