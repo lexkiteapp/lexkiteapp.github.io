@@ -22204,5 +22204,50 @@
     "ar": "{wl} أسابيع · الارتقاء {gap} مستوى في CEFR",
     "ru": "{wl} нед. · подняться на {gap} ур. CEFR",
     "tr": "{wl} hafta · CEFR’de {gap} seviye yükselmek"
+  },
+  "Nghe giọng Anh–Anh": {
+    "es": "Pronunciación británica",
+    "pt": "Pronúncia britânica",
+    "fr": "Prononciation britannique",
+    "de": "Britische Aussprache",
+    "id": "Pelafalan Inggris (UK)",
+    "th": "สำเนียงอังกฤษ (UK)",
+    "zh": "英式发音",
+    "ja": "イギリス英語の発音",
+    "ko": "영국식 발음",
+    "hi": "ब्रिटिश उच्चारण",
+    "ar": "النطق البريطاني",
+    "ru": "Британское произношение",
+    "tr": "İngiliz telaffuzu"
+  },
+  "Phân bố mức độ nhớ": {
+    "es": "Cuánto recordaste",
+    "pt": "Quanto você lembrou",
+    "fr": "Votre niveau de mémorisation",
+    "de": "Wie gut du dich erinnert hast",
+    "id": "Seberapa baik kamu ingat",
+    "th": "ระดับการจำของคุณ",
+    "zh": "记忆程度分布",
+    "ja": "記憶度の内訳",
+    "ko": "기억 정도 분포",
+    "hi": "आपको कितना याद रहा",
+    "ar": "مدى تذكّرك",
+    "ru": "Насколько хорошо вы запомнили",
+    "tr": "Ne kadar iyi hatırladın"
+  },
+  "Cấp độ CEFR": {
+    "es": "Nivel MCER",
+    "pt": "Nível QECR",
+    "fr": "Niveau CECRL",
+    "de": "GER-Niveau",
+    "id": "Level CEFR",
+    "th": "ระดับ CEFR",
+    "zh": "CEFR 等级",
+    "ja": "CEFRレベル",
+    "ko": "CEFR 레벨",
+    "hi": "CEFR स्तर",
+    "ar": "مستوى CEFR",
+    "ru": "Уровень CEFR",
+    "tr": "CEFR seviyesi"
   }
 }

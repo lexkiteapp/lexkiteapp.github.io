@@ -475,4 +475,7 @@
   'Diễn đạt tự nhiên và chính xác với collocation, thành ngữ': 'Express yourself naturally and precisely with collocations and idioms',
   'Mục tiêu: nhận ra, hiểu và dùng được {n} từ về “{name}”.': 'Goal: recognise, understand and use {n} words about “{name}”.',
   '{wl} tuần · cần lên {gap} cấp CEFR': '{wl} weeks · {gap} CEFR level(s) to go',
+  'Nghe giọng Anh–Anh': 'British pronunciation',
+  'Phân bố mức độ nhớ': 'How well you remembered',
+  'Cấp độ CEFR': 'CEFR level',
 }); })(typeof self !== 'undefined' ? self : this);
