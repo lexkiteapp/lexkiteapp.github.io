@@ -10,12 +10,13 @@
   const EN = {
     // Khung, thanh bên, đăng nhập
     'Bỏ qua tới nội dung': 'Skip to content', 'Mở menu': 'Open menu', 'Đóng menu': 'Close menu', 'Đi tới…': 'Go to…', 'Điều hướng quản trị': 'Admin navigation',
-    'Tổng quan': 'Overview', 'Phân tích': 'Analytics', 'Người dùng': 'Users', 'Hộp thư': 'Inbox', 'Cảnh báo': 'Alerts', 'Báo lỗi': 'Reports', 'Chất lượng': 'Quality', 'Nội dung & Video': 'Content & Video',
+    'Tổng quan': 'Overview', 'Phân tích': 'Analytics', 'Người dùng': 'Users', 'Hộp thư': 'Inbox', 'Thông báo': 'Notices', 'Cảnh báo': 'Alerts', 'Báo lỗi': 'Reports', 'Chất lượng': 'Quality', 'Nội dung & Video': 'Content & Video',
     'Video & Social': 'Video & Social', 'Video Studio': 'Video Studio', 'Hệ thống': 'System', 'Hạn mức': 'Quotas', 'Kho Drive': 'Drive storage', 'Khóa API': 'API keys', 'Dịch vụ & API': 'Services & API', 'Cài đặt': 'Settings',
     'Sức khỏe hệ thống, người thật và tác vụ tự động trên một màn hình.': 'System health, real people and automated jobs on one screen.',
     'Lưu lượng trực tiếp, nguồn truy cập, thói quen sử dụng và tăng trưởng.': 'Live traffic, sources, usage habits and growth.',
     'Tài khoản đã đồng bộ: tìm, lọc, xem chi tiết, xuất CSV, xóa dữ liệu theo yêu cầu.': 'Synced accounts: search, filter, inspect, export CSV, delete data on request.',
     'Tin nhắn từ form Liên hệ – trả lời và đánh dấu đã xử lý.': 'Messages from the Contact form – reply and mark as handled.',
+    'Gửi thông báo tới chuông 🔔 của người học: soạn, hẹn giờ, chọn đối tượng, thu hồi, xem lượt đọc.': 'Send notices to learners\' 🔔 bell: compose, schedule, target, revoke, view reads.',
     'Tác vụ tự động, lỗi JavaScript từ người dùng và nhật ký quản trị.': 'Automated jobs, JavaScript errors from users and the admin audit log.',
     'Báo lỗi từ người dùng: phân loại, giao việc, phản hồi.': 'User bug reports: triage, assign, reply.',
     'Điểm rà soát tự động hằng ngày và kiểm nghĩa bản dịch.': 'Daily automated review score and translation meaning checks.',
@@ -98,6 +99,27 @@
     '📚 Học tập': '📚 Learning', 'Chuỗi ngày': 'Streak', 'Ngày đã học': 'Study days', 'Lượt ôn': 'Reviews', 'Từ mới': 'New words', 'Bài luyện': 'Quizzes', 'Bài đọc': 'Readings', 'Từ đã nói': 'Words spoken', 'Huy hiệu': 'Badges',
     'Ngày học gần nhất: {d}': 'Last study day: {d}', '🗂️ Tài liệu đồng bộ': '🗂️ Synced documents', 'Phần': 'Part', 'Dung lượng': 'Size', 'Cập nhật': 'Updated', '({n} gói thẻ)': ['({n} card pack)', '({n} card packs)'], 'Không có dữ liệu đồng bộ': 'No synced data',
     '🗑 Xóa dữ liệu': '🗑 Delete data', '✉️ Gửi email': '✉️ Email', 'Chi tiết người dùng': 'User details',
+    'Bị khóa đồng bộ': 'Sync blocked', 'Bị khóa': 'Blocked', 'Nhãn & Ghi chú nội bộ': 'Tags & Internal notes', 'Nhập nhãn mới…': 'New tag…', '+ Thêm nhãn': '+ Add tag', 'Xóa nhãn': 'Remove tag', 'Gợi ý:': 'Suggestions:',
+    'Bản sao lưu tiến độ (30 ngày)': 'Progress backups (30 days)', '{n} bản lưu': ['{n} backup', '{n} backups'], 'Thời gian': 'Time', 'Người sao lưu': 'Created by', '↩️ Khôi phục': '↩️ Restore', 'Xuất JSON (GDPR)': 'Export JSON (GDPR)',
+    'Khóa đồng bộ': 'Block sync', 'Mở khóa đồng bộ': 'Unblock sync', 'Đặt lại tiến độ': 'Reset progress', 'Khóa tài khoản': 'Block account', 'Mở khóa': 'Unblock', 'Khôi phục': 'Restore',
+    'Tài khoản này đang bị khóa đồng bộ. /api/sync sẽ trả 403 khi kéo/đẩy dữ liệu.': 'This account is blocked from syncing. /api/sync will return 403 when pulling/pushing data.',
+    '(chưa gắn nhãn)': '(no tags yet)', 'hỗ trợ': 'support', 'giáo viên': 'teacher',
+    'Ghi chú riêng của admin về người dùng này (chỉ admin thấy)…': 'Private admin notes about this user (visible to admins only)…',
+    'Chưa có bản sao lưu nào. Hệ thống tự động sao lưu dữ liệu trước khi Đặt lại tiến độ.': 'No backups yet. The system automatically creates a backup before resetting progress.',
+    'Gửi thông báo': 'Send notice', 'Gửi': 'Send',
+    '✅ Mở khóa đồng bộ': '✅ Unblock sync', '⛔ Khóa đồng bộ': '⛔ Block sync', '🗑 Xóa vĩnh viễn': '🗑 Delete permanently',
+    'Đã lưu nhãn và ghi chú nội bộ': 'Saved tags and internal notes', 'Lỗi lưu nhãn: {e}': 'Failed to save tags: {e}',
+    'Đã xuất toàn bộ dữ liệu GDPR': 'Exported all GDPR data', 'Lỗi xuất dữ liệu: {e}': 'Export error: {e}',
+    'Khóa đồng bộ tài khoản?': 'Block sync for this account?', 'Mở khóa đồng bộ tài khoản?': 'Unblock sync for this account?',
+    'Khi bị khóa, tài khoản {e} sẽ không thể đồng bộ dữ liệu học tập lên máy chủ.': 'When blocked, {e} cannot sync learning data to the server.',
+    'Mở khóa cho phép tài khoản {e} tiếp tục đồng bộ bình thường.': 'Unblocking allows {e} to resume normal syncing.',
+    'Đã khóa đồng bộ {e}': 'Blocked sync for {e}', 'Đã mở khóa đồng bộ {e}': 'Unblocked sync for {e}', 'Lỗi: {e}': 'Error: {e}',
+    'Đặt lại tiến độ học tập?': 'Reset learning progress?',
+    'Toàn bộ thẻ ôn tập, XP, chuỗi ngày của {e} sẽ bị xóa về 0. Hệ thống sẽ tự động lưu 1 bản sao lưu trong 30 ngày.': 'All study cards, XP, and streak of {e} will be reset to 0. The system will automatically save a backup for 30 days.',
+    'Đã đặt lại tiến độ và tạo bản sao lưu ({n} tài liệu)': 'Reset progress and created a backup ({n} documents)',
+    'Lỗi đặt lại: {e}': 'Reset error: {e}', 'Khôi phục tiến độ học tập?': 'Restore learning progress?',
+    'Khôi phục toàn bộ dữ liệu của {e} từ bản sao lưu lúc {t}. Dữ liệu hiện tại sẽ bị ghi đè.': 'Restore all data of {e} from the backup at {t}. Current data will be overwritten.',
+    'Đã khôi phục thành công {n} tài liệu': 'Successfully restored {n} documents', 'Lỗi khôi phục: {e}': 'Restore error: {e}',
     '🔎 Tìm email, tên hoặc UID': '🔎 Search email, name or UID', 'Tìm người dùng': 'Search users', 'Vai trò': 'Role', 'Trạng thái': 'Status', 'Hoạt động 7 ngày': 'Active (7 days)', 'Ngủ đông >30 ngày': 'Dormant >30 days', 'Mới 7 ngày': 'New (7 days)',
     'Sắp xếp': 'Sort', 'Mới nhất': 'Newest', 'Tải CSV theo bộ lọc hiện tại (tối đa 5.000 dòng)': 'Download CSV for the current filter (max 5,000 rows)',
     'Tổng người dùng': 'Total users', 'tài khoản đã đồng bộ': 'synced accounts', 'Hoạt động hôm nay': 'Active today', '24 giờ qua': 'last 24 hours', 'Hoạt động 7 / 30 ngày': 'Active 7 / 30 days', '{p}% còn hoạt động trong tháng': '{p}% active this month',
@@ -637,16 +659,221 @@
   async function userDialog(uid, done) {
     const d = modal(`<div class="key-box"><p class="muted">${L('Đang tải…')}</p></div>`, 'u-dlg', L('Chi tiết người dùng'));
     let r; try { r = await api('user', { uid }); } catch (e) { d.querySelector('.key-box').innerHTML = `<p class="bad-t">✗ ${esc(e.message)}</p><div class="dlg-act"><button type="button" class="btn" data-close>${L('Đóng')}</button></div>`; return; }
-    const u = r.user || {}, docs = r.docs || [], total = docs.reduce((a, x) => a + (x.bytes || 0), 0), LR = r.learn;
-    const cards = docs.filter(x => /^cards_/.test(x.k)), other = docs.filter(x => !/^cards_/.test(x.k));
+    const u = r.user || {}, docs = r.docs || [], backups = r.backups || [];
+    let LR = r.learn, tags = Array.isArray(u.tags) ? [...u.tags] : [];
     const fact = (k, v) => `<div><dt>${k}</dt><dd>${v}</dd></div>`;
-    d.querySelector('.key-box').innerHTML = `<div class="row between"><div class="u-who"><span class="u-av big" aria-hidden="true">${esc((u.name || u.email || '?').trim().charAt(0).toUpperCase())}</span><span><h3 style="margin:0">${esc(u.name || L('(không tên)'))} ${rolePill(u.isAdmin)}</h3><span class="small muted">${esc(u.email || '')}</span></span></div><button type="button" class="icon-x" data-close aria-label="${L('Đóng')}">✕</button></div>
-      <dl class="u-facts">${fact('UID', copyBtn(u.uid || uid))}${fact(L('Nền tảng'), `${platIcon(u.plat)} ${esc(platName(u.plat))}`)}${fact(L('Ngày tạo'), rel(u.created))}${fact(L('Hoạt động gần nhất'), rel(u.seen))}${fact(L('Số lần vào (đồng bộ)'), num(u.n))}${fact(L('Dữ liệu đồng bộ'), L('{b} · {n} phần', { b: bytes(total), n: docs.length }))}</dl>
-      ${LR ? `<h4 class="u-h">${L('📚 Học tập')}</h4><div class="u-stats">${[['⭐', 'XP', num(LR.xp)], ['🔥', L('Chuỗi ngày'), num(LR.streak)], ['📅', L('Ngày đã học'), num(LR.studyDays)], ['🃏', L('Lượt ôn'), num(LR.reviews)], ['🌱', L('Từ mới'), num(LR.newWords)], ['🎯', L('Bài luyện'), num(LR.quizzes)], ['📖', L('Bài đọc'), num(LR.readings)], ['🎙️', L('Từ đã nói'), num(LR.spoken)], ['🏅', L('Huy hiệu'), num(LR.badges)]].map(([i, k, v]) => `<div><span>${i} ${k}</span><b>${v}</b></div>`).join('')}</div>${LR.lastStudy ? `<p class="tiny muted">${L('Ngày học gần nhất: {d}', { d: esc(LR.lastStudy) })}</p>` : ''}` : ''}
-      <h4 class="u-h">${L('🗂️ Tài liệu đồng bộ')}</h4>
-      <div class="tbl-wrap u-docs"><table class="tbl sticky"><thead><tr><th scope="col">${L('Phần')}</th><th scope="col" class="num">${L('Dung lượng')}</th><th scope="col">${L('Cập nhật')}</th></tr></thead><tbody>${other.map(x => `<tr><td><code>${esc(x.k)}</code></td><td class="num">${bytes(x.bytes)}</td><td class="small">${rel(x.updated)}</td></tr>`).join('')}${cards.length ? `<tr><td><code>cards_*</code> <span class="small muted">${L('({n} gói thẻ)', { n: cards.length })}</span></td><td class="num">${bytes(cards.reduce((a, x) => a + x.bytes, 0))}</td><td class="small">${rel(Math.max(...cards.map(x => x.updated)))}</td></tr>` : ''}${docs.length ? '' : `<tr><td colspan="3">${emptyState(L('Không có dữ liệu đồng bộ'))}</td></tr>`}</tbody></table></div>
-      <div class="row between" style="margin-top:1rem;gap:.5rem;flex-wrap:wrap">${docs.length || u.uid ? `<button type="button" class="btn ghost sm danger" id="udel">${L('🗑 Xóa dữ liệu')}</button>` : '<span></span>'}<span class="row" style="gap:.5rem">${u.email ? `<a class="btn sm" href="mailto:${esc(u.email)}">${L('✉️ Gửi email')}</a>` : ''}<button type="button" class="btn sm" data-close>${L('Đóng')}</button></span></div>`;
-    const del = d.querySelector('#udel'); if (del) del.onclick = () => userDel(u.uid, u.email, () => { closeDlg(d); done && done(); });
+
+    const render = () => {
+      const total = docs.reduce((a, x) => a + (x.bytes || 0), 0);
+      const cards = docs.filter(x => /^cards_/.test(x.k)), other = docs.filter(x => !/^cards_/.test(x.k));
+      d.querySelector('.key-box').innerHTML = `
+        <div class="row between">
+          <div class="u-who">
+            <span class="u-av big" aria-hidden="true">${esc((u.name || u.email || '?').trim().charAt(0).toUpperCase())}</span>
+            <span>
+              <h3 style="margin:0">${esc(u.name || L('(không tên)'))} ${rolePill(u.isAdmin)} ${u.blocked ? `<span class="chip bad">⛔ ${L('Bị khóa đồng bộ')}</span>` : ''}</h3>
+              <span class="small muted">${esc(u.email || '')}</span>
+            </span>
+          </div>
+          <button type="button" class="icon-x" data-close aria-label="${L('Đóng')}">✕</button>
+        </div>
+
+        ${u.blocked ? `<div class="u-blocked-banner"><span>⛔</span><span>${L('Tài khoản này đang bị khóa đồng bộ. /api/sync sẽ trả 403 khi kéo/đẩy dữ liệu.')}</span></div>` : ''}
+
+        <dl class="u-facts">
+          ${fact('UID', copyBtn(u.uid || uid))}
+          ${fact(L('Nền tảng'), `${platIcon(u.plat)} ${esc(platName(u.plat))}`)}
+          ${fact(L('Ngày tạo'), rel(u.created))}
+          ${fact(L('Hoạt động gần nhất'), rel(u.seen))}
+          ${fact(L('Số lần vào (đồng bộ)'), num(u.n))}
+          ${fact(L('Dữ liệu đồng bộ'), L('{b} · {n} phần', { b: bytes(total), n: docs.length }))}
+        </dl>
+
+        <div class="u-section">
+          <div class="u-h"><span>🏷️ ${L('Nhãn & Ghi chú nội bộ')}</span> <button type="button" class="btn sm primary" id="uSaveTags">${L('Lưu')}</button></div>
+          <div class="u-tag-chips" id="uTagList">
+            ${tags.map((t, i) => `<span class="u-tag-chip"><span>${esc(t)}</span><button type="button" data-rmtag="${i}" aria-label="${L('Xóa nhãn')}">✕</button></span>`).join('') || `<span class="small muted">${L('(chưa gắn nhãn)')}</span>`}
+          </div>
+          <div class="row" style="gap:.4rem;align-items:center;margin:.4rem 0">
+            <input type="text" id="uNewTag" placeholder="${L('Nhập nhãn mới…')}" style="max-width:180px;font-size:.8rem;padding:.25rem .5rem" maxlength="30">
+            <button type="button" class="btn sm" id="uAddTag">${L('+ Thêm nhãn')}</button>
+          </div>
+          <div class="u-tag-quick">
+            <span class="tiny muted" style="align-self:center">${L('Gợi ý:')}</span>
+            ${['VIP', 'tester', 'support', 'teacher'].map(t => `<button type="button" class="btn ghost sm" data-qtag="${esc(t)}">+ ${esc(t)}</button>`).join('')}
+          </div>
+          <textarea class="u-notes-txt" id="uNotes" placeholder="${L('Ghi chú riêng của admin về người dùng này (chỉ admin thấy)…')}" maxlength="2000">${esc(u.notes || '')}</textarea>
+        </div>
+
+        ${LR ? `<div class="u-section"><h4 class="u-h" style="margin-top:0">${L('📚 Học tập')}</h4><div class="u-stats">${[['⭐', 'XP', num(LR.xp)], ['🔥', L('Chuỗi ngày'), num(LR.streak)], ['📅', L('Ngày đã học'), num(LR.studyDays)], ['🃏', L('Lượt ôn'), num(LR.reviews)], ['🌱', L('Từ mới'), num(LR.newWords)], ['🎯', L('Bài luyện'), num(LR.quizzes)], ['📖', L('Bài đọc'), num(LR.readings)], ['🎙️', L('Từ đã nói'), num(LR.spoken)], ['🏅', L('Huy hiệu'), num(LR.badges)]].map(([i, k, v]) => `<div><span>${i} ${k}</span><b>${v}</b></div>`).join('')}</div>${LR.lastStudy ? `<p class="tiny muted" style="margin-top:.4rem">${L('Ngày học gần nhất: {d}', { d: esc(LR.lastStudy) })}</p>` : ''}</div>` : ''}
+
+        <div class="u-section">
+          <h4 class="u-h" style="margin-top:0">${L('🗂️ Tài liệu đồng bộ')}</h4>
+          <div class="tbl-wrap u-docs"><table class="tbl sticky"><thead><tr><th scope="col">${L('Phần')}</th><th scope="col" class="num">${L('Dung lượng')}</th><th scope="col">${L('Cập nhật')}</th></tr></thead><tbody>${other.map(x => `<tr><td><code>${esc(x.k)}</code></td><td class="num">${bytes(x.bytes)}</td><td class="small">${rel(x.updated)}</td></tr>`).join('')}${cards.length ? `<tr><td><code>cards_*</code> <span class="small muted">${L('({n} gói thẻ)', { n: cards.length })}</span></td><td class="num">${bytes(cards.reduce((a, x) => a + x.bytes, 0))}</td><td class="small">${rel(Math.max(...cards.map(x => x.updated)))}</td></tr>` : ''}${docs.length ? '' : `<tr><td colspan="3">${emptyState(L('Không có dữ liệu đồng bộ'))}</td></tr>`}</tbody></table></div>
+        </div>
+
+        <div class="u-section">
+          <h4 class="u-h" style="margin-top:0"><span>📦 ${L('Bản sao lưu tiến độ (30 ngày)')}</span> <span class="tiny muted">${L('{n} bản lưu', { n: backups.length })}</span></h4>
+          ${backups.length ? `<div class="tbl-wrap u-backups"><table class="tbl sticky"><thead><tr><th scope="col">${L('Thời gian')}</th><th scope="col">${L('Người sao lưu')}</th><th scope="col" class="num">${L('Dung lượng')}</th><th scope="col"><span class="sr-only">${L('Khôi phục')}</span></th></tr></thead><tbody>${backups.map(bk => `<tr><td class="small">${rel(bk.at)}<br><span class="tiny muted">${when(bk.at)}</span></td><td class="small">${esc(bk.by || 'admin')}</td><td class="num small">${bytes(bk.bytes || 0)}</td><td class="nowrap"><button type="button" class="btn ghost sm" data-restore="${bk.id}" data-at="${bk.at}">${L('↩️ Khôi phục')}</button></td></tr>`).join('')}</tbody></table></div>` : `<p class="tiny muted">${L('Chưa có bản sao lưu nào. Hệ thống tự động sao lưu dữ liệu trước khi Đặt lại tiến độ.')}</p>`}
+        </div>
+
+        <div class="u-act-bar">
+          <div class="u-act-group">
+            <button type="button" class="btn sm" id="uNotif">📣 ${L('Gửi thông báo')}</button>
+            <button type="button" class="btn sm" id="uExport">⬇ ${L('Xuất JSON (GDPR)')}</button>
+            ${u.email ? `<a class="btn sm" href="mailto:${esc(u.email)}">${L('✉️ Gửi email')}</a>` : ''}
+          </div>
+          <div class="u-act-group">
+            <button type="button" class="btn sm ${u.blocked ? 'primary' : 'ghost danger'}" id="uBlock">${u.blocked ? L('✅ Mở khóa đồng bộ') : L('⛔ Khóa đồng bộ')}</button>
+            <button type="button" class="btn ghost sm danger" id="uReset">🔄 ${L('Đặt lại tiến độ')}</button>
+            ${docs.length || u.uid ? `<button type="button" class="btn ghost sm danger" id="udel">${L('🗑 Xóa vĩnh viễn')}</button>` : ''}
+          </div>
+        </div>`;
+
+      // Xóa nhãn
+      d.querySelectorAll('[data-rmtag]').forEach(b => {
+        b.onclick = () => { tags.splice(+b.dataset.rmtag, 1); render(); };
+      });
+      // Gợi ý nhãn
+      d.querySelectorAll('[data-qtag]').forEach(b => {
+        b.onclick = () => {
+          const t = b.dataset.qtag;
+          if (t && !tags.includes(t) && tags.length < 10) { tags.push(t); render(); }
+        };
+      });
+      // Thêm nhãn mới
+      const addTag = () => {
+        const inp = d.querySelector('#uNewTag');
+        const v = inp ? inp.value.trim().slice(0, 30) : '';
+        if (v && !tags.includes(v) && tags.length < 10) { tags.push(v); render(); }
+      };
+      const addBtn = d.querySelector('#uAddTag'); if (addBtn) addBtn.onclick = addTag;
+      const tagInp = d.querySelector('#uNewTag'); if (tagInp) tagInp.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); addTag(); } };
+
+      // Lưu nhãn & ghi chú
+      const saveBtn = d.querySelector('#uSaveTags');
+      if (saveBtn) saveBtn.onclick = async () => {
+        saveBtn.disabled = true;
+        const notes = (d.querySelector('#uNotes') || {}).value || '';
+        try {
+          await api('userTag', { uid: u.uid, tags, notes });
+          u.tags = tags; u.notes = notes;
+          toast(L('Đã lưu nhãn và ghi chú nội bộ'));
+          done && done();
+        } catch (e) {
+          toast(L('Lỗi lưu nhãn: {e}', { e: e.message }), 'bad');
+        }
+        saveBtn.disabled = false;
+      };
+
+      // Gửi thông báo
+      const notifBtn = d.querySelector('#uNotif');
+      if (notifBtn) notifBtn.onclick = () => {
+        try { sessionStorage.setItem('adm.targetUser', JSON.stringify({ uid: u.uid, email: u.email || u.name || '' })); } catch (e) { /* bỏ qua */ }
+        closeDlg(d);
+        show('notices');
+      };
+
+      // Xuất JSON GDPR
+      const expBtn = d.querySelector('#uExport');
+      if (expBtn) expBtn.onclick = async () => {
+        expBtn.disabled = true; expBtn.textContent = L('⏳ Đang xuất…');
+        try {
+          const data = await api('userExportData', { uid: u.uid });
+          const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json;charset=utf-8' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a'); a.href = url;
+          a.download = `lexkite-user-${u.uid.slice(0, 12)}-${new Date().toISOString().slice(0, 10)}.json`;
+          document.body.appendChild(a); a.click(); a.remove();
+          setTimeout(() => URL.revokeObjectURL(url), 1000);
+          toast(L('Đã xuất toàn bộ dữ liệu GDPR'));
+        } catch (e) {
+          toast(L('Lỗi xuất dữ liệu: {e}', { e: e.message }), 'bad');
+        }
+        expBtn.disabled = false; expBtn.textContent = `⬇ ${L('Xuất JSON (GDPR)')}`;
+      };
+
+      // Khóa / Mở khóa
+      const blockBtn = d.querySelector('#uBlock');
+      if (blockBtn) blockBtn.onclick = async () => {
+        const blk = !u.blocked;
+        const ok = await confirmDlg({
+          title: blk ? L('Khóa đồng bộ tài khoản?') : L('Mở khóa đồng bộ tài khoản?'),
+          body: blk ? L('Khi bị khóa, tài khoản {e} sẽ không thể đồng bộ dữ liệu học tập lên máy chủ.', { e: u.email || u.uid }) : L('Mở khóa cho phép tài khoản {e} tiếp tục đồng bộ bình thường.', { e: u.email || u.uid }),
+          typed: u.email || u.uid,
+          ok: blk ? L('Khóa tài khoản') : L('Mở khóa'),
+          danger: blk
+        });
+        if (!ok) return;
+        try {
+          await api('userBlock', { uid: u.uid, blocked: blk ? 1 : 0, confirm: u.email || u.uid });
+          u.blocked = blk ? 1 : 0;
+          toast(blk ? L('Đã khóa đồng bộ {e}', { e: u.email || u.uid }) : L('Đã mở khóa đồng bộ {e}', { e: u.email || u.uid }));
+          render();
+          done && done();
+        } catch (e) {
+          if (e.message !== 'reauth') toast(L('Lỗi: {e}', { e: e.message }), 'bad');
+        }
+      };
+
+      // Đặt lại tiến độ học
+      const rstBtn = d.querySelector('#uReset');
+      if (rstBtn) rstBtn.onclick = async () => {
+        const ok = await confirmDlg({
+          title: L('Đặt lại tiến độ học tập?'),
+          body: L('Toàn bộ thẻ ôn tập, XP, chuỗi ngày của {e} sẽ bị xóa về 0. Hệ thống sẽ tự động lưu 1 bản sao lưu trong 30 ngày.', { e: u.email || u.uid }),
+          typed: u.email || u.uid,
+          ok: L('Đặt lại tiến độ'),
+          danger: true
+        });
+        if (!ok) return;
+        try {
+          const res = await api('userReset', { uid: u.uid, confirm: u.email || u.uid });
+          toast(L('Đã đặt lại tiến độ và tạo bản sao lưu ({n} tài liệu)', { n: res.backedUp || 0 }));
+          const fresh = await api('user', { uid: u.uid });
+          docs.length = 0; docs.push(...(fresh.docs || []));
+          backups.length = 0; backups.push(...(fresh.backups || []));
+          LR = fresh.learn;
+          render();
+          done && done();
+        } catch (e) {
+          if (e.message !== 'reauth') toast(L('Lỗi đặt lại: {e}', { e: e.message }), 'bad');
+        }
+      };
+
+      // Khôi phục bản sao lưu
+      d.querySelectorAll('[data-restore]').forEach(btn => {
+        btn.onclick = async () => {
+          const bId = +btn.dataset.restore, atStr = when(+btn.dataset.at);
+          const ok = await confirmDlg({
+            title: L('Khôi phục tiến độ học tập?'),
+            body: L('Khôi phục toàn bộ dữ liệu của {e} từ bản sao lưu lúc {t}. Dữ liệu hiện tại sẽ bị ghi đè.', { e: u.email || u.uid, t: atStr }),
+            typed: u.email || u.uid,
+            ok: L('Khôi phục'),
+            danger: true
+          });
+          if (!ok) return;
+          try {
+            const res = await api('userRestore', { uid: u.uid, backupId: bId, confirm: u.email || u.uid });
+            toast(L('Đã khôi phục thành công {n} tài liệu', { n: res.restored || 0 }));
+            const fresh = await api('user', { uid: u.uid });
+            docs.length = 0; docs.push(...(fresh.docs || []));
+            backups.length = 0; backups.push(...(fresh.backups || []));
+            LR = fresh.learn;
+            render();
+            done && done();
+          } catch (e) {
+            if (e.message !== 'reauth') toast(L('Lỗi khôi phục: {e}', { e: e.message }), 'bad');
+          }
+        };
+      });
+
+      // Xóa vĩnh viễn
+      const del = d.querySelector('#udel');
+      if (del) del.onclick = () => userDel(u.uid, u.email, () => { closeDlg(d); done && done(); });
+    };
+
+    render();
   }
 
   // ---------- Cài đặt: định nghĩa trường (mặc định, kiểu, giới hạn) – khóa khớp CONFIG_KEYS của functions/api/admin.js ----------
@@ -819,11 +1046,14 @@
           ${tile({ l: L('Mới 7 ngày'), v: num(k.new7), s: L('tài khoản đăng ký mới') })}
           <div class="kstat"><span class="tile-l">${L('Theo nền tảng')}</span><div class="u-plats">${(r.plats || []).map(p => `<span class="chip">${platIcon(p.k)} ${esc(platName(p.k))} · <b>${num(p.n)}</b></span>`).join('') || '<span class="small muted">–</span>'}</div></div>`;
         $('#uTable').innerHTML = `<table class="tbl u-tbl"><thead><tr><th scope="col">${L('Người dùng')}</th><th scope="col">${L('Vai trò')}</th><th scope="col">${L('Nền tảng')}</th><th scope="col">${L('Ngày tạo')}</th><th scope="col">${L('Hoạt động gần nhất')}</th><th scope="col" class="num">${L('Lần vào')}</th><th scope="col"><span class="sr-only">${L('Thao tác')}</span></th></tr></thead><tbody>
-          ${(r.rows || []).map(u => `<tr><td><div class="u-who"><span class="u-av" aria-hidden="true">${esc((u.name || u.email || '?').trim().charAt(0).toUpperCase())}</span><span><b>${esc(u.name || L('(không tên)'))}</b><br><span class="small muted">${esc(u.email || u.uid)}</span></span></div></td>
+          ${(r.rows || []).map(u => {
+            const utags = (Array.isArray(u.tags) ? u.tags : (() => { try { return JSON.parse(u.tags || '[]'); } catch (e) { return []; } })());
+            return `<tr><td><div class="u-who"><span class="u-av" aria-hidden="true">${esc((u.name || u.email || '?').trim().charAt(0).toUpperCase())}</span><span><b>${esc(u.name || L('(không tên)'))}</b> ${u.blocked ? `<span class="chip bad sm">⛔ ${L('Bị khóa')}</span>` : ''}<br><span class="small muted">${esc(u.email || u.uid)}</span>${utags.length ? `<div style="display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.2rem">${utags.map(t => `<span class="chip sm">${esc(t)}</span>`).join('')}</div>` : ''}</span></div></td>
             <td>${rolePill(u.isAdmin)}</td>
             <td class="nowrap">${platIcon(u.plat)} ${esc(platName(u.plat))}</td><td class="small nowrap">${rel(u.created)}</td>
             <td class="small nowrap"><span class="dot ${Date.now() - u.seen < 7 * 864e5 ? 'ok' : Date.now() - u.seen > 30 * 864e5 ? '' : 'warn'}"></span>${rel(u.seen)}</td><td class="num">${num(u.n)}</td>
-            <td class="nowrap"><button type="button" class="btn ghost sm" data-uid="${esc(u.uid)}">${L('Chi tiết')}</button> <button type="button" class="btn ghost sm" data-notif="${esc(u.uid)}" data-em="${esc(u.email || u.name || '')}" title="${L('Gửi thông báo')}">📣 ${L('Gửi')}</button> <button type="button" class="btn ghost sm danger" data-del="${esc(u.uid)}" data-em="${esc(u.email || '')}">${L('Xóa dữ liệu')}</button></td></tr>`).join('') || `<tr><td colspan="7">${emptyState(L('Không có người dùng khớp bộ lọc'), L('Thử bỏ bớt bộ lọc hoặc từ khóa.'))}</td></tr>`}</tbody></table>`;
+            <td class="nowrap"><button type="button" class="btn ghost sm" data-uid="${esc(u.uid)}">${L('Chi tiết')}</button> <button type="button" class="btn ghost sm" data-notif="${esc(u.uid)}" data-em="${esc(u.email || u.name || '')}" title="${L('Gửi thông báo')}">📣 ${L('Gửi')}</button> <button type="button" class="btn ghost sm danger" data-del="${esc(u.uid)}" data-em="${esc(u.email || '')}">${L('Xóa dữ liệu')}</button></td></tr>`;
+          }).join('') || `<tr><td colspan="7">${emptyState(L('Không có người dùng khớp bộ lọc'), L('Thử bỏ bớt bộ lọc hoặc từ khóa.'))}</td></tr>`}</tbody></table>`;
         const from = r.filtered ? f.offset + 1 : 0, to = Math.min(f.offset + 50, r.filtered);
         $('#uPager').innerHTML = `<span>${num(from)}–${num(to)} / ${num(r.filtered)}${r.filtered !== tot ? L(' (lọc từ {n})', { n: num(tot) }) : ''}</span><span><button type="button" class="btn sm" id="uprev" ${f.offset ? '' : 'disabled'}>${L('← Trước')}</button> <button type="button" class="btn sm" id="unext" ${to < r.filtered ? '' : 'disabled'}>${L('Sau →')}</button></span>`;
         $('#uprev').onclick = () => { f.offset = Math.max(0, f.offset - 50); load(); };

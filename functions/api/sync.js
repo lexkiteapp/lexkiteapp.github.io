@@ -68,6 +68,7 @@ export async function limit(key, max, windowSec) {
 async function setup(db) {
   if (ready) return;
   await db.prepare('CREATE TABLE IF NOT EXISTS users (uid TEXT PRIMARY KEY, email TEXT, name TEXT, created INTEGER NOT NULL, seen INTEGER NOT NULL, plat TEXT, n INTEGER DEFAULT 1) WITHOUT ROWID').run();
+  await db.prepare('ALTER TABLE users ADD COLUMN blocked INTEGER DEFAULT 0').run().catch(() => {});
   await db.prepare('CREATE TABLE IF NOT EXISTS vid_uid (vid TEXT PRIMARY KEY, uid TEXT NOT NULL, at INTEGER NOT NULL) WITHOUT ROWID').run();
   await db.prepare('CREATE TABLE IF NOT EXISTS docs (uid TEXT NOT NULL, k TEXT NOT NULL, h TEXT NOT NULL, body TEXT NOT NULL, updated INTEGER NOT NULL, PRIMARY KEY (uid, k)) WITHOUT ROWID').run();
   ready = true;
@@ -90,6 +91,9 @@ export async function onRequestPost({ request, env }) {
   { const q = await gate(request, env, 'sync', { who, json }); if (q.res) return q.res; }
   try {
     await setup(env.DB);
+    // Tài khoản bị quản trị khóa đồng bộ (users.blocked) → 403 'blocked' cho cả kéo lẫn đẩy. Xóa tài khoản (/api/account) KHÔNG bị chặn (App Store 5.1.1(v)).
+    const blk = await env.DB.prepare('SELECT blocked FROM users WHERE uid = ?').bind(uid).first().catch(() => null);
+    if (blk && +blk.blocked) return json(request, 403, { error: 'blocked' });
     if (req.op === 'pull') {
       // Sổ người dùng cho trang quản trị (nền tảng: app iOS = capacitor://localhost, app Android = https://localhost): chỉ ghi khi lần thấy trước đã hơn 1 giờ (tiết kiệm lượt ghi D1)
       const o = request.headers.get('Origin') || '', plat = /^chrome-extension:/.test(o) ? 'ext' : /^capacitor:/.test(o) ? 'ios' : o === 'https://localhost' ? 'android' : 'web', now = Date.now();

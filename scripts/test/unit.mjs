@@ -38,7 +38,7 @@ const d = new Date(SRS.review({ ...s }, 2, s.due, true).due); ok(d.getHours() ==
 const { DatabaseSync } = await import('node:sqlite');
 const mod = await import(new URL('../../functions/api/sync.js', import.meta.url));
 const sql = new DatabaseSync(':memory:');
-const DB = { prepare(q) { const st = { args: [], bind(...a) { return { ...st, args: a }; }, async run() { sql.prepare(q).run(...this.args); return {}; }, async all() { return { results: sql.prepare(q).all(...this.args) }; } }; return st; }, async batch(list) { for (const x of list) await x.run(); } };
+const DB = { prepare(q) { const st = { args: [], bind(...a) { return { ...st, args: a }; }, async run() { sql.prepare(q).run(...this.args); return {}; }, async all() { return { results: sql.prepare(q).all(...this.args) }; }, async first() { return sql.prepare(q).get(...this.args) ?? null; } }; return st; }, async batch(list) { for (const x of list) await x.run(); } };
 const kp = await webcrypto.subtle.generateKey({ name: 'RSASSA-PKCS1-v1_5', modulusLength: 2048, publicExponent: new Uint8Array([1, 0, 1]), hash: 'SHA-256' }, true, ['sign', 'verify']);
 const jwk = { ...(await webcrypto.subtle.exportKey('jwk', kp.publicKey)), kid: 'k1' };
 const b64u = b => Buffer.from(b).toString('base64url'), sec = Math.floor(Date.now() / 1000);
@@ -54,6 +54,14 @@ r = await call(A, { op: 'pull', have: { cards_0: 'c1' } }); ok(Object.keys(r.j.d
 ok(Object.keys((await call(B, { op: 'pull', have: {} })).j.docs).length === 0, 'người khác không đọc được dữ liệu');
 ok((await call(A, { op: 'push', docs: { '../x': { h: 'a', body: '{}' } } })).s === 400, 'chặn khóa lạ');
 ok((await call(A, { op: 'pull' }, 'https://evil.example')).h.get('Access-Control-Allow-Origin') === null, 'CORS chặn trang lạ');
+// [N2] Quản trị khóa đồng bộ (users.blocked) → kéo/đẩy đều 403 'blocked'; người khác không bị ảnh hưởng; mở khóa → đồng bộ lại
+sql.prepare('UPDATE users SET blocked = 1 WHERE uid = ?').run('bob');
+{ const p1 = await call(B, { op: 'pull', have: {} }), p2 = await call(B, { op: 'push', docs: { meta: { h: 'x', body: '{}' } } });
+  ok(p1.s === 403 && p1.j.error === 'blocked' && p2.s === 403, 'tài khoản bị khóa → kéo/đẩy 403 blocked');
+  ok(!sql.prepare("SELECT 1 FROM docs WHERE uid = 'bob'").get(), 'tài khoản bị khóa không ghi được dữ liệu');
+  ok((await call(A, { op: 'pull', have: {} })).s === 200, 'khóa 1 người không ảnh hưởng người khác'); }
+sql.prepare('UPDATE users SET blocked = 0 WHERE uid = ?').run('bob');
+ok((await call(B, { op: 'pull', have: {} })).s === 200, 'mở khóa → đồng bộ lại bình thường');
 
 // Lời giải dịch sẵn (QE.exT): đổi chữ cái đáp án theo vị trí đã xoay, dùng bản dịch khi có, giữ bản gốc khi chưa có
 {
