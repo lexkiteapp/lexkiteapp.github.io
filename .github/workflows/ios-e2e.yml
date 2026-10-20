@@ -1,0 +1,85 @@
+# Kiểm thử app iOS từng tính năng trên Simulator (iPhone + iPad) – bắt lỗi trước khi lên TestFlight.
+# build (không ký, Xcode 26) → chèn harness kiểm thử vào bản giả lập → mỗi máy chạy kịch bản trong WKWebView thật
+# (scripts/test/ios-e2e/harness.js + driver.mjs) → report.html (ảnh từng màn) + tóm tắt PASS/FAIL.
+# Bản phát hành KHÔNG có harness (ios-testflight.yml build riêng từ build-mobile.sh).
+name: iOS E2E (simulator)
+on:
+  workflow_dispatch:
+    inputs:
+      minutes: { description: 'Giới hạn phút mỗi máy', required: false, default: '35' }
+  push:
+    branches: [main, 'ios-e2e-wip']
+    paths: ['web/js/**', 'web/css/**', 'web/app/**', 'web/index.html', 'mobile/**', 'scripts/build-mobile.sh', 'scripts/test/ios-e2e/**', '.github/workflows/ios-e2e.yml']
+permissions:
+  contents: read
+concurrency:
+  group: ios-e2e
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chọn Xcode 26
+        run: |
+          X=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          [ -n "$X" ] && sudo xcode-select -s "$X/Contents/Developer"; xcodebuild -version
+      - name: Build web → mobile/www → cap sync → chèn harness
+        run: |
+          npm ci --prefix mobile --no-audit --no-fund
+          ./scripts/build-mobile.sh
+          bash scripts/test/ios-e2e/inject.sh
+      - name: xcodebuild (iphonesimulator, không ký)
+        working-directory: mobile/ios/App
+        run: |
+          set -o pipefail
+          xcodebuild -project App.xcodeproj -scheme App -configuration Debug -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO build | tail -30
+          cd build/Build/Products/Debug-iphonesimulator && zip -qry "$GITHUB_WORKSPACE/app-e2e.zip" App.app
+      - uses: actions/upload-artifact@v4
+        with: { name: app-e2e, path: app-e2e.zip, retention-days: 3 }
+  test:
+    needs: build
+    runs-on: macos-15
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { tag: iphone, device: 'iPhone 1' }
+          - { tag: ipad, device: 'iPad Pro' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chọn Xcode 26
+        run: |
+          X=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          [ -n "$X" ] && sudo xcode-select -s "$X/Contents/Developer"; xcrun simctl list runtimes | tail -5
+      - uses: actions/download-artifact@v4
+        with: { name: app-e2e }
+      - name: Chạy kịch bản trên ${{ matrix.tag }}
+        run: |
+          unzip -q app-e2e.zip -d "$RUNNER_TEMP/app"
+          node scripts/test/ios-e2e/driver.mjs --app "$RUNNER_TEMP/app/App.app" --device '${{ matrix.device }}' --tag ${{ matrix.tag }} --out e2e-out --minutes ${{ github.event.inputs.minutes || '35' }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'e2e-${{ matrix.tag }}', path: e2e-out/, retention-days: 14 }
+  report:
+    needs: test
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'e2e-*', path: e2e-out, merge-multiple: true }
+      - name: Báo cáo
+        run: |
+          node scripts/test/ios-e2e/report.mjs e2e-out > /dev/null
+          cat e2e-out/report.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with: { name: ios-e2e-report, path: e2e-out/, retention-days: 30 }
