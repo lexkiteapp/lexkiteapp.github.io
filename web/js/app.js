@@ -231,6 +231,7 @@
     toeic: ['js/choice-kit.js', 'js/qengine.js', 'js/toeic/reading1.js', 'js/toeic/reading2.js', 'js/toeic/listening1.js', 'js/toeic/listening2.js', 'js/toeic/reading3.js', 'js/toeic/listening3.js', 'js/toeic/reading4.js', 'js/toeic/listening4.js', 'js/toeic/reading5.js', 'js/toeic/listening5.js', 'js/toeic/reading6.js', 'js/toeic/listening6.js', 'js/toeic/reading7.js', 'js/toeic/listening7.js', 'js/toeic/sw1.js', 'js/toeic.js'],
     league: ['js/league.js'],
     criteria: ['js/i18n/en/criteria.js', 'js/criteria.js'],
+    resources: ['js/i18n/en/resources.js', 'js/resources.js'], // 🌐 Tài nguyên miễn phí (tách khỏi khung)
     pathx: ['js/i18n/en/pathx.js', 'js/path-reward.js'], // 🏁 Màn thưởng cuối bước lộ trình (path.js gọi khi xong lượt)
     notices: ['js/i18n/en/notices.js', 'js/notices.js'], // 🔔 Chuông thông báo người học (tải lười sau khi vẽ trang) // 📋 Tiêu chí chấm IELTS Writing & Speaking
     streak: ['js/streak-ui.js'],
@@ -243,7 +244,7 @@
   };
   const ROUTE_BUNDLE = { paraphrase: 'paraphrase', courses: 'courses', goal: 'goal', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: 'grammar', placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
     toefl: ['listening', 'toefl'], 'toefl-p': ['listening', 'toefl'],
-    toeic: ['tsl', 'listening', 'toeic'], 'toeic-r': ['toeic'], 'toeic-sw': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: ['words', 'tsl'], topic: ['words', 'tsl'], practice: ['words', 'tsl'], dict: ['words', 'tsl', 'vcore', 'uidx'], verb: ['vcore', 'verbs', 'uidx'], fix: ['fixer', 'uidx'], usage: ['vcore', 'uidx', 'usage'], write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'], home: ['words', 'streak'], vocab: 'words', path: 'words', review: 'words', deck: 'words', stats: ['words', 'streak'], league: 'league', criteria: 'criteria'};
+    toeic: ['tsl', 'listening', 'toeic'], 'toeic-r': ['toeic'], 'toeic-sw': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: ['words', 'tsl'], topic: ['words', 'tsl'], practice: ['words', 'tsl'], dict: ['words', 'tsl', 'vcore', 'uidx'], verb: ['vcore', 'verbs', 'uidx'], fix: ['fixer', 'uidx'], usage: ['vcore', 'uidx', 'usage'], write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'], home: ['words', 'streak'], vocab: 'words', path: 'words', review: 'words', deck: 'words', stats: ['words', 'streak'], league: 'league', criteria: 'criteria', resources: 'resources'};
   const bundleP = {};
   // Phần nặng (đề thi, từ vựng, ngữ pháp…) tải từ CDN jsDelivr (miễn phí, không giới hạn băng thông, gắn đúng phiên bản commit)
   // → máy chủ chính chỉ phục vụ phần lõi, chịu được lượng người dùng lớn gấp nhiều lần. CDN lỗi → tự lấy từ máy chủ chính.
