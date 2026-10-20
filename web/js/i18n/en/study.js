@@ -484,3 +484,12 @@
   "Từ cốt lõi {a}–{b}": "Core words {a}–{b}",
   "Luyện nói: tình huống hằng ngày": "Speaking practice: everyday situations",
 }); })(typeof self !== 'undefined' ? self : this);
+(function (g) { Object.assign(g.I18N_DICT.en, {
+  "Kết quả phiên ôn": "Review session results",
+  "Hoàn thành mục tiêu ngày": "Daily goal reached",
+  "Từ cần chú ý nhất:": "Word to watch most:",
+  "Nghe phát âm": "Listen to pronunciation",
+  "Từ vừa quên khác:": "Other missed words:",
+  "Phiên ôn xuất sắc!": "Flawless review!",
+  "Bạn không quên từ nào trong phiên này.": "You didn't forget a single word in this session.",
+}); })(typeof self !== 'undefined' ? self : this);

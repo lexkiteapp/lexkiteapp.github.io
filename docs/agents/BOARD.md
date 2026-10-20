@@ -98,13 +98,6 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét:
 - Nghiệm thu (Claude 17/10): ✅ Đạt, đã gộp cùng S1. Bỏ commit nâng trần 17 MB (Claude đã loại admin-*.js khỏi tổng web/js).
 
-### [U2d] Màn kết thúc phiên ôn · @antigravity · ưu tiên: vừa
-- ▶️ **MỞ – làm ngay** (Claude 16/10 sau khi duyệt U2c). Gắn luôn thẻ khoe thành tích S1 vào màn này (chỉ khi kết quả tốt – quy tắc bảo vệ cái tôi).
-- Tổng kết: số thẻ, % đúng, XP nhận, chuỗi ngày (+1 khi giữ được), từ khó nhất phiên; Kit ăn mừng; nút chính "Học tiếp" + phụ "Về trang chủ"; chia sẻ thành tích (Web Share API, có fallback copy).
-- File: `web/js/study.js` (phần màn kết thúc), `web/css/style.css`, `web/js/i18n/en/*.js`.
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
 ### [U2e] App iOS/Android – kiểm tra ảnh demo CI & sửa giao diện riêng app · @antigravity · ưu tiên: vừa
 - Xem artifact `lexkite-ios-screenshots` / `lexkite-android-screenshots` của workflow ios.yml / android.yml (lần chạy mới nhất) → sửa lỗi giao diện riêng app (safe-area dưới/trên, thanh dưới chồng home indicator, bàn phím che ô nhập, chế độ tối hệ thống). Selector dùng `html.native`.
 - File: `web/css/style.css`. Báo cáo kèm tên ảnh đã kiểm.
@@ -198,6 +191,10 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét: (Claude 16/10) ✅ Giao diện + template + i18n đạt. ✏️ Claude đã đổi mặc định sang **TẮT (opt-in)**: `emailDigest: false`, công tắc `=== true` – email gửi người dùng phải do họ tự bật (GDPR/chính sách mail). ⏸️ Phần gửi chưa triển khai được: Cloudflare Email Routing (`env.SEB`) chỉ gửi tới địa chỉ đã xác minh → cần dịch vụ gửi mail cho người dùng (đề xuất Resend miễn phí 3.000 mail/tháng) + bản ghi DNS SPF/DKIM + trang hủy đăng ký `/api/unsub`. Chờ anh Quyền chọn dịch vụ → Claude làm worker. Thẻ giữ ở CHỜ DUYỆT.
 
 ## ĐÃ XONG
+
+### [U2d] Màn kết thúc phiên ôn · @antigravity · ✅ ĐÃ XONG (Claude 20/10)
+- Nghiệm thu (Claude 20/10: ✅ gộp tay 51cae892 + test, KHÔNG merge cả nhánh): gộp vào màn tổng kết sẵn có (phân bố Quên/Khó/Nhớ/Dễ + thời gian + hoàn tác) – 1 màn duy nhất. Lấy: ô thống kê, Kit đổi tâm trạng theo kết quả, hộp "Từ cần chú ý nhất" (lapses cao nhất, 🔊 + Tra từ, các từ quên khác), lời khen khi không quên từ nào, `scripts/test/review-done.mjs` (thêm vào npm test). ✏️ Sửa: bỏ "+1" cạnh chuỗi (hiện mỗi phiên dù chuỗi không đổi) → dòng "🎯 Hoàn thành mục tiêu ngày"; bỏ nút chính "Ôn tiếp (n thẻ)" trùng link "Ôn trước" → 1 nút chính "Học tiếp →" về kế hoạch hôm nay (cùng nhịp "Hoàn thành Ngày N"); bỏ màu cứng #17595a/var(--good-bg) không tồn tại (tối không đọc được) → color-mix theo --good; nút 🔊/Tra từ ≥ 44px; khóa en khai 2 lần (en.js sửa tay + en/study.js) → chỉ en/study.js + build-i18n; dịch tay đủ 13 ngôn ngữ cho cả câu khen.
+
 - [Q1] Chơi nhanh 15 giây & Phong cách tiếng Anh (Claude 20/10): ✅ gộp tay c0d535e0 (`web/js/quick.js` nạp lười `quick`, CSS trong module, `#/quick` + `#/style`; lối vào: thẻ ⚡ ở #/home, link 🎯 ở trang giới thiệu). ✏️ Sửa: bản dịch 13 ngôn ngữ chỉ là chép tiếng Anh → dịch thật 73 khóa; 3 khóa thẻ #/home nằm ở nhóm lười (người dùng en thấy tiếng Việt) → chuyển sang `en/shell.js`; hết giờ trong lúc xem phản hồi vẽ câu hỏi đè lên kết quả → cờ `done`; đồng hồ không trừ thời gian xem đáp án; phương án nhiễu dùng `Distract.pick`, loại nghĩa trùng/chứa nhau; `Game.addXp`/`Sfx.levelUp` không tồn tại → `App.reward({xp})` (≤ 8 XP/lượt, chống cày); bỏ số liệu bịa ("tiết kiệm 80%", "77 chủ đề", "30 bài", "100+") → gợi ý là liên kết thật; hòa điểm → hệ chọn gần nhất; h1/aria-label/role group, `text-align:start`, `prefers-reduced-motion`; test quick-ui viết lại (4 câu, hết giờ, 6 câu phong cách).
 - [N2 Quản lý tài khoản người học] (Claude 20/10): ✅ gộp `89c18da3` (bỏ docs của nhánh). 🔒 Sửa: tự xóa tài khoản (`/api/account`) và admin xóa nay dọn cả `user_backups` + `notice_reads` (trước đó bản sao lưu dữ liệu học còn lại sau khi người dùng xóa tài khoản – vi phạm 5.1.1(v)/GDPR); `userExportData` vào `DANGER`; xác nhận theo email hoặc uid (tài khoản không email); kiểm tra kiểu nhãn/uid/backupId; `/api/sync` trả `{error:'blocked'}` (bỏ câu tiếng Việt cứng). ✏️ `scripts/test/user-mgmt.mjs` cũ chỉ tự chạy lại SQL, không gọi API → viết lại gọi API thật (cổng admin, reauth, khóa có hiệu lực ở kéo/đẩy, khôi phục đúng chủ, nhật ký, xóa sạch); unit.mjs thêm ca khóa đồng bộ. ⏭ Máy khách chưa báo riêng lỗi 'blocked' cho người học (chỉ thấy đồng bộ lỗi).
 - [W1 Tiêu chí chấm IELTS Writing & Speaking] (Claude 20/10): ✅ gộp `3bb6268c` (bỏ BOARD/COORDINATION). ✏️ Viết lại nội dung band 4–9 theo bảng mô tả band công khai IELTS (diễn giải, bỏ câu bịa "như người bản ngữ", "chính xác tuyệt đối" ở band 8, FC 7 nhầm sang mô tả band 8/9), sửa nhận xét bài mẫu dẫn lỗi không có thật, bài cao nhất chấm 8.0 khớp nhãn; thêm 193 khóa tiếng Anh (trước đó ngôn ngữ khác hiện tiếng Việt); `#/criteria?skill=` chạy được; chỉ lấy khóa i18n của commit (bỏ 156 khóa thừa).

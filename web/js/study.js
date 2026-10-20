@@ -111,16 +111,39 @@
     showCard();
   };
 
+  // Từ khó nhất phiên [U2d]: trong các từ bấm "Quên", chọn từ có số lần quên (lapses) cao nhất
+  function hardestOf(missed) {
+    const list = [...new Set(missed || [])], card = w => state.cards[String(w).toLowerCase()] || state.cards[w] || null;
+    if (!list.length) return null;
+    let w = list[0], c = card(w);
+    list.slice(1).forEach(x => { const cx = card(x); if (((cx && cx.srs.lapses) || 0) > ((c && c.srs.lapses) || 0)) { w = x; c = cx; } });
+    return { w, c, others: list.filter(x => x !== w) };
+  }
+
   function reviewDone(nothing) {
     const next = Object.values(state.cards).filter(c => c.srs.due > endOfToday()).sort((a, b) => a.srs.due - b.srs.due)[0];
     if (!nothing) { Sfx.win(); confetti(); }
     const acc = session.done ? Math.round((session.done - session.again) / session.done * 100) : 0;
-    view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate">
-      <div class="em kit-cele">${window.Kit ? Kit.svg('win', 120) : (nothing ? '🎉' : '🏆')}</div>
+    const streak = App.streak(), hitGoal = (state.stats.days[Core.todayKey()] || 0) >= (state.settings.dailyGoal || 10);
+    const mood = nothing || acc >= 90 ? 'win' : acc >= 60 ? 'happy' : 'cheer';
+    const soon = Object.values(state.cards).filter(c => c.srs.last && c.srs.due > endOfToday() && c.srs.due <= endOfToday() + 2 * DAY).length;
+    const H = nothing ? null : hardestOf(session.missed);
+    const pill = (v, l, col) => `<div class="rev-pill"><b${col ? ` style="color:var(${col})"` : ''}>${v}</b><span class="tiny muted">${l}</span></div>`;
+    view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate rev-done">
+      <div class="em kit-cele" aria-hidden="true">${window.Kit ? Kit.svg(mood, 120) : (nothing ? '🎉' : '🏆')}</div>
       <h2>${nothing ? t('Hôm nay bạn đã ôn hết!') : t('Hoàn thành {n} lượt ôn!', { n: session.done })}</h2>
-      ${nothing ? '' : `<div class="row center" style="gap:1.5rem;margin:1rem 0"><div><b style="font-size:1.6rem;color:var(--gold)">+${session.xp}</b><div class="tiny muted">XP</div></div><div><b style="font-size:1.6rem;color:var(--good-text)">${acc}%</b><div class="tiny muted">${t('Nhớ ngay')}</div></div><div><b style="font-size:1.6rem">🔥${App.streak()}</b><div class="tiny muted">${t('Chuỗi ngày')}</div></div><div><b style="font-size:1.6rem">⏱ ${t('{m} phút', { m: Math.max(1, Math.round((Date.now() - (session.t0 || Date.now())) / 6e4)) })}</b><div class="tiny muted">${t('Thời gian')}</div></div></div>
-      ${gradeMix(session.g)}`}
-      ${(session.missed || []).length ? `<div style="margin:.6rem 0"><div class="small muted">🔁 ${t('Từ vừa quên – xem lại 1 lần nữa:')}</div><div class="row center" style="gap:.35rem;margin-top:.3rem">${session.missed.slice(0, 12).map(w => `<a class="chip" href="#/dict/${encodeURIComponent(w)}">${esc(w)}</a>`).join('')}</div></div>` : ''}
+      ${nothing ? '' : `<div class="rev-stats" role="group" aria-label="${t('Kết quả phiên ôn')}">
+        ${pill('+' + session.xp, 'XP', '--gold')}${pill(acc + '%', t('Nhớ ngay'), '--good-text')}${pill('🔥 ' + streak, t('Chuỗi ngày'))}${pill('⏱ ' + t('{m} phút', { m: Math.max(1, Math.round((Date.now() - (session.t0 || Date.now())) / 6e4)) }), t('Thời gian'))}
+      </div>
+      ${hitGoal ? `<div class="rev-goal small">🎯 ${t('Hoàn thành mục tiêu ngày')}</div>` : ''}
+      ${gradeMix(session.g)}
+      ${H ? `<div class="rev-hardest">
+        <div class="rev-hard-head"><span class="small muted">${t('Từ cần chú ý nhất:')}</span>
+          <span class="row nowrap" style="gap:.35rem"><button type="button" class="btn sm ghost" data-say-hard aria-label="${t('Nghe phát âm')}">🔊</button><a class="btn sm ghost" href="#/dict/${encodeURIComponent(H.w)}">${t('Tra từ')} →</a></span></div>
+        <div><b class="rev-hard-word">${esc(H.w)}</b>${H.c && H.c.ipa ? ` <span class="ipa">/${esc(String(H.c.ipa).replace(/^\/|\/$/g, ''))}/</span>` : ''}</div>
+        ${H.c && mean(H.c) ? `<div class="rev-hard-mean small muted">${esc(mean(H.c))}</div>` : ''}
+        ${H.others.length ? `<div class="rev-hard-more"><span class="tiny muted">${t('Từ vừa quên khác:')}</span> ${H.others.slice(0, 10).map(w => `<a class="chip" href="#/dict/${encodeURIComponent(w)}">${esc(w)}</a>`).join('')}</div>` : ''}
+      </div>` : `<div class="tip rev-perfect">🌟 <b>${t('Phiên ôn xuất sắc!')}</b> ${t('Bạn không quên từ nào trong phiên này.')}</div>`}`}
       ${(() => { // Dự báo 7 ngày tới (như Anki): biết trước khối lượng, chủ động sắp xếp thời gian
         const day0 = endOfToday(), n = [0, 0, 0, 0, 0, 0, 0];
         Object.values(state.cards).forEach(c => { const d = Math.floor((c.srs.due - day0) / 864e5); if (c.srs.last && d >= 0 && d < 7) n[d]++; });
@@ -128,9 +151,12 @@
         return n.some(Boolean) ? `<div class="forecast" title="${t('Số thẻ đến hạn 7 ngày tới')}">${n.map((x, i) => `<div><i style="height:${Math.round(x / mx * 44) + 2}px"></i><b>${x}</b><span>${i === 0 ? t('Mai') : new Date(day0 + (i + 0.5) * 864e5).toLocaleDateString(I18N.lang(), { weekday: 'short' })}</span></div>`).join('')}</div>` : '';
       })()}
       <p>${next ? t('Thẻ tiếp theo đến hạn: <b>{date}</b>.', { date: new Date(next.srs.due).toLocaleDateString(I18N.lang()) }) : ''} ${t('Học đều mỗi ngày là bí quyết nhớ lâu.')}</p>
-      ${(() => { const soon = Object.values(state.cards).filter(c => c.srs.last && c.srs.due > endOfToday() && c.srs.due <= endOfToday() + 2 * DAY).length; return soon ? `<div class="tip small" style="margin:.6rem 0">⏩ ${t('Sắp thi hoặc muốn học thêm? Ôn trước {n} thẻ đến hạn trong 2 ngày tới.', { n: soon })} <a href="#/review?ahead=2">${t('Ôn trước →')}</a></div>` : ''; })()}
-      <div class="row center"><a class="btn primary" href="#/practice/learn">🧠 ${t('Học thông minh')}</a><a class="btn" href="#/practice/match">⚡ ${t('Ghép thẻ')}</a><a class="btn" href="#/library">${t('Thêm từ mới')}</a>${!nothing && (acc >= 80 && session.done >= 5 || state.stats.days[Core.todayKey()] >= state.settings.dailyGoal || [3, 7, 14, 30, 100].includes(App.streak())) ? `<button type="button" class="btn" data-share="${acc}">✨ ${t('Khoe thành tích')}</button>` : ''}</div>
+      ${soon ? `<div class="tip small" style="margin:.6rem 0">⏩ ${t('Sắp thi hoặc muốn học thêm? Ôn trước {n} thẻ đến hạn trong 2 ngày tới.', { n: soon })} <a href="#/review?ahead=2">${t('Ôn trước →')}</a></div>` : ''}
+      <a class="btn primary lg block rev-next" href="#/home">${t('Học tiếp')} →</a>
+      <div class="row center rev-more"><a class="btn" href="#/practice/learn">🧠 ${t('Học thông minh')}</a><a class="btn" href="#/practice/match">⚡ ${t('Ghép thẻ')}</a>${!nothing && (acc >= 80 && session.done >= 5 || hitGoal || [3, 7, 14, 30, 100].includes(streak)) ? `<button type="button" class="btn" data-share="${acc}">✨ ${t('Khoe thành tích')}</button>` : ''}</div>
     </div></div>`;
+    const hs = view.querySelector('[data-say-hard]');
+    if (hs && H) hs.onclick = () => speak(H.w, accent(), H.c ? H.c.audio : '');
   }
 
   // Phân bố 4 mức chấm của phiên
