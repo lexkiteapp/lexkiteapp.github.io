@@ -1,5 +1,6 @@
 // CHỈ dùng cho bản build chụp ảnh App Store (.github/workflows/ios-shots.yml chép file này vào mobile/www) – KHÔNG có trong app phát hành.
-// Điều khiển app gốc trên Simulator bằng deep link: xcrun simctl openurl <máy> "lexkite://go/<route>[?hl=xx][&flip=1]"
+// Điều khiển app gốc trên Simulator: workflow ghi lệnh "<số thứ tự> <route>[?hl=xx][&flip=1]" vào máy chủ nhỏ http://127.0.0.1:8765/cmd,
+// script này hỏi mỗi giây (không dùng simctl openurl vì iOS hiện hộp "Open in Lexkite?" chặn deep link).
 //   hl=xx  → nạp lại app với ?sandbox=1&demo=1&hl=xx (dữ liệu mẫu tách riêng, giống ảnh Google Play)
 //   flip=1 → lật thẻ ôn (#flipBtn) để hiện các nút chấm FSRS
 (function () {
@@ -24,6 +25,15 @@
     setTimeout(function () { scrollTo(0, 0); }, 1500);
     if (q.get('flip')) setTimeout(function () { var b = document.getElementById('flipBtn'); if (b) b.click(); }, 2500);
   }
+  // Kênh lệnh qua localhost (bản chụp ảnh bật NSAllowsLocalNetworking); số thứ tự giữ qua lần nạp lại bằng sessionStorage
+  setInterval(function () {
+    fetch('http://127.0.0.1:8765/cmd?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.text(); }).then(function (t) {
+      var m = /^(\d+) (\S+)/.exec((t || '').trim()); if (!m) return;
+      var last = sessionStorage.getItem('lkShotSeq');
+      if (last === m[1]) return;
+      sessionStorage.setItem('lkShotSeq', m[1]); go('lexkite://go/' + m[2]);
+    }).catch(function () { /* máy chủ chưa chạy */ });
+  }, 1000);
   (function hook() {
     var A = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.App;
     if (!A) { setTimeout(hook, 300); return; }

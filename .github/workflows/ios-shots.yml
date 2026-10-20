@@ -37,6 +37,9 @@ jobs:
           cp scripts/ios-shots-inject.js mobile/www/shots-inject.js
           perl -0pi -e 's#<head>#<head><script src="shots-inject.js"></script>#' mobile/www/index.html
           grep -q shots-inject mobile/www/index.html
+          # chỉ bản chụp ảnh: cho WebView gọi máy chủ lệnh http://127.0.0.1 (không commit, không có trong bản phát hành)
+          /usr/libexec/PlistBuddy -c 'Add :NSAppTransportSecurity dict' mobile/ios/App/App/Info.plist 2>/dev/null || true
+          /usr/libexec/PlistBuddy -c 'Add :NSAppTransportSecurity:NSAllowsLocalNetworking bool true' mobile/ios/App/App/Info.plist
           cd mobile && npx cap copy ios
       - name: xcodebuild (iphonesimulator, không ký)
         working-directory: mobile/ios/App
@@ -63,6 +66,17 @@ jobs:
       - name: Chụp app gốc trên Simulator
         run: |
           node scripts/ios-shots.mjs plan | tee plan.txt
+          # máy chủ lệnh cho scripts/ios-shots-inject.js
+          echo "0 none" > ctl.txt
+          python3 -c '
+          import http.server
+          class H(http.server.BaseHTTPRequestHandler):
+              def do_GET(self):
+                  b = open("ctl.txt", "rb").read(); self.send_response(200)
+                  self.send_header("Access-Control-Allow-Origin", "*"); self.send_header("Cache-Control", "no-store"); self.end_headers(); self.wfile.write(b)
+              def log_message(self, *a): pass
+          http.server.HTTPServer(("127.0.0.1", 8765), H).serve_forever()' &
+          SEQ=0; cmd() { SEQ=$((SEQ+1)); echo "$SEQ $1" > ctl.txt; }
           APP=mobile/ios/App/build/Build/Products/Debug-iphonesimulator/App.app
           while read -u 3 DEV TYPE RT; do
             D=$(xcrun simctl create "shots-$DEV" "$TYPE" "$RT"); xcrun simctl boot "$D"; xcrun simctl bootstatus "$D" -b >/dev/null
@@ -72,11 +86,11 @@ jobs:
               mkdir -p "ios-raw/$DEV/$L"; xcrun simctl ui "$D" appearance light
               xcrun simctl uninstall "$D" com.lexkite.app || true; xcrun simctl install "$D" "$APP"
               xcrun simctl launch "$D" com.lexkite.app; sleep 15
-              xcrun simctl openurl "$D" "lexkite://go/home?hl=$L"; sleep 15
+              cmd "home?hl=$L"; sleep 15
               while read -u 4 N ROUTE FLIP DARK WAIT; do
                 xcrun simctl ui "$D" appearance $([ "$DARK" = 1 ] && echo dark || echo light); sleep 2
                 Q=""; [ "$FLIP" = 1 ] && Q="?flip=1"
-                xcrun simctl openurl "$D" "lexkite://go/$ROUTE$Q"; sleep "$WAIT"; [ "$FLIP" = 1 ] && sleep 3
+                cmd "$ROUTE$Q"; sleep "$WAIT"; [ "$FLIP" = 1 ] && sleep 3
                 xcrun simctl io "$D" screenshot "ios-raw/$DEV/$L/$N.png"
                 echo "· $DEV $L $N #/$ROUTE $(sips -g pixelWidth -g pixelHeight "ios-raw/$DEV/$L/$N.png" | awk '/pixel/{printf "%s ", $2}')"
               done 4< plan.txt

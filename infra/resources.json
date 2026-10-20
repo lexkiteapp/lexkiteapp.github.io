@@ -455,12 +455,14 @@
    "key": "apple",
    "name": "Apple Developer",
    "kind": "store",
-   "purpose": "Phát hành app iOS",
-   "console": "https://developer.apple.com/account",
+   "purpose": "Phát hành app iOS (TestFlight qua ios-testflight.yml; niêm yết + ảnh qua App Store Connect API: scripts/asc-upload.mjs)",
+   "console": "https://appstoreconnect.apple.com/apps/6824714708",
    "free": "99 USD/năm",
    "upgrade": "—",
-   "status": "Chưa đăng ký",
-   "match": []
+   "status": "Đang dùng – app com.lexkite.app trên TestFlight, bản 1.0 chuẩn bị nộp duyệt",
+   "match": [
+    "api.appstoreconnect.apple.com"
+   ]
   },
   {
    "key": "play",
