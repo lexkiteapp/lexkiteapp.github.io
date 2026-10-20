@@ -331,4 +331,5 @@
   "Tốc độ: {w} từ/phút": "Pace: {w} words per minute",
   "Ngắt quãng dài: {n} lần": "Long pauses: {n}",
   "Từ bị bỏ sót hoặc đọc chưa rõ:": "Words missed or unclear:",
+  'Đề thật của ETS: Speaking 11 câu (khoảng 20 phút), Writing 8 câu (khoảng 60 phút), mỗi phần thang điểm 0–200. Ứng dụng chưa có dạng bài mô tả tranh (Speaking câu 3–4, Writing câu 1–5).': 'The real ETS test: Speaking has 11 questions (about 20 minutes) and Writing has 8 questions (about 60 minutes), each scored 0–200. The app does not yet include the picture-description tasks (Speaking questions 3–4, Writing questions 1–5).',
 }); })(typeof self !== 'undefined' ? self : this);

@@ -19,7 +19,8 @@
 
   // ---------- Chấm ----------
   const norm = s => String(s || '').toLowerCase().replace(/[’‘`]/g, "'").replace(/[£$€]/g, '').replace(/(\d),(\d{3})/g, '$1$2').replace(/[.,!?;:"“”()]/g, ' ').replace(/\s+/g, ' ').trim().replace(/^(the|a|an) /, '');
-  const words = s => norm(s).split(' ').filter(Boolean).length;
+  // Số có dấu ngăn (7.45, 3.50, 10:30, 1/11) tính là MỘT số khi đếm giới hạn từ, như quy ước IELTS
+  const words = s => norm(String(s || '').replace(/(\d)[.:/](\d)/g, '$1$2')).split(' ').filter(Boolean).length;
   function gradeGap(it, limit, given) {
     if (!given || !given.trim()) return { ok: false, empty: true };
     const over = limit && words(given) > limit;
@@ -135,9 +136,9 @@
 
   // Quy đổi điểm thô → band (thang công bố phổ biến, chỉ tham khảo)
   const BAND = {
-    listening: [[39, 9], [37, 8.5], [35, 8], [32, 7.5], [30, 7], [26, 6.5], [23, 6], [18, 5.5], [16, 5], [13, 4.5], [10, 4], [8, 3.5], [6, 3], [4, 2.5], [0, 0]],
-    'reading-gt': [[40, 9], [39, 8.5], [37, 8], [36, 7.5], [34, 7], [32, 6.5], [30, 6], [27, 5.5], [23, 5], [19, 4.5], [15, 4], [12, 3.5], [9, 3], [6, 2.5], [0, 0]], // General Training (khắt khe hơn Academic)
-    reading: [[39, 9], [37, 8.5], [35, 8], [33, 7.5], [30, 7], [27, 6.5], [23, 6], [19, 5.5], [15, 5], [13, 4.5], [10, 4], [8, 3.5], [6, 3], [4, 2.5], [0, 0]],
+    listening: [[39, 9], [37, 8.5], [35, 8], [32, 7.5], [30, 7], [26, 6.5], [23, 6], [18, 5.5], [16, 5], [13, 4.5], [10, 4], [8, 3.5], [6, 3], [4, 2.5], [3, 2], [1, 1], [0, 0]],
+    'reading-gt': [[40, 9], [39, 8.5], [37, 8], [36, 7.5], [34, 7], [32, 6.5], [30, 6], [27, 5.5], [23, 5], [19, 4.5], [15, 4], [12, 3.5], [9, 3], [6, 2.5], [3, 2], [1, 1], [0, 0]], // General Training (khắt khe hơn Academic)
+    reading: [[39, 9], [37, 8.5], [35, 8], [33, 7.5], [30, 7], [27, 6.5], [23, 6], [19, 5.5], [15, 5], [13, 4.5], [10, 4], [8, 3.5], [6, 3], [4, 2.5], [3, 2], [1, 1], [0, 0]],
   };
   const bandOf = (raw, skill = 'listening') => (BAND[skill].find(([m]) => raw >= m) || [0, 0])[1];
   // Điểm tổng IELTS: trung bình 4 kỹ năng, .25 làm tròn lên .5, .75 làm tròn lên số nguyên
