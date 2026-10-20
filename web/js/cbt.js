@@ -117,7 +117,7 @@
       document.body.classList.remove('cbt-mode');
       if (pct >= 80) { Sfx.win(); confetti(); }
       view.innerHTML = `<div class="study-wrap" style="max-width:820px">
-        <div class="card celebrate"><div class="em">${timeUp ? '⏰' : '🏁'}</div><h2>${timeUp ? t('Hết giờ!') : t('Đã nộp bài')} · ${t('{a}/{b} câu đúng', { a: score, b: qs.length })}</h2>
+        <div class="card celebrate"><div class="em">${window.Kit ? Kit.svg(pct >= 80 ? 'win' : pct >= 50 ? 'happy' : 'think', 80, true) : (timeUp ? '⏰' : '🏁')}</div><h2>${timeUp ? t('Hết giờ!') : t('Đã nộp bài')} · ${t('{a}/{b} câu đúng', { a: score, b: qs.length })}</h2>
           <div class="score-ring" style="--p:${pct};--c:${pct >= 70 ? 'var(--good)' : pct >= 50 ? 'var(--hard)' : 'var(--again)'}"><b>${pct}%</b></div>
           <p class="muted">${t('Thời gian làm: {m} phút {s} giây · +{xp} XP · câu sai đã được ghi vào <a href="#/mistakes">Sổ lỗi sai</a>', { m: Math.floor(used / 60), s: used % 60, xp: 15 + score * 4 })}</p></div>
         <div class="card" style="margin-top:1rem"><h3>${t('Đáp án & giải thích')}</h3>${rows.map(({ q, i, ok }) => `<div class="q-item"><b>${ok ? '✅' : '❌'} ${i + 1}. ${esc(q.q)}</b>

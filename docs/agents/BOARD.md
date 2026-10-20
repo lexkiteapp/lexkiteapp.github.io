@@ -133,20 +133,6 @@ Mẫu thẻ:
 - Báo cáo:
 - Cần sửa / Nhận xét:
 
-### [U3] Nâng cấp cảm giác học & phòng thi (UI/CSS) · @antigravity · ưu tiên: cao (sau L1, S1)
-- **Đã có sẵn – chỉ làm đẹp, không viết lại logic:** lật thẻ 3D (`study.js` rotateY), 4 nút FSRS đã hiện mốc (`SRS.preview`), phím Space/Enter khi ôn thẻ, cờ 🚩 + lưới số câu trong `cbt.js`, pháo hoa `confetti()` + `Sfx.win()`.
-- Việc của Antigravity (CSS/markup, micro-animation, responsive, sáng/tối):
-  1. Đáp án trắc nghiệm (`qengine.js`, `toeic.js`, `cbt.js`) → thẻ nút 3D có độ lún (`transform`/`box-shadow`, 120 ms), giữ `<input>`/`<button>` thật cho a11y; hiện chữ A–D để người học biết phím tắt.
-  2. Thanh kết quả đáy (bottom sheet): xanh ngọc khi đúng, cam san hô khi sai; dùng token màu trong `style.css`, tương phản ≥ 4.5:1; tôn trọng `prefers-reduced-motion`.
-  3. Lật thẻ: chỉnh perspective/backface cho mượt 60 fps (chỉ `transform`/`opacity`), nút FSRS to dễ bấm trên mobile (≥ 44 px).
-  4. Phòng thi CBT: style cho thanh kéo chia cột (`.cbt-split`), lưới số câu kiểu bento (đã làm: nền xanh · 🚩 vàng · chưa làm: viền đứt), đáp án bị gạch (`.opt.struck`: gạch ngang + mờ 50%).
-  5. Màn kết thúc: vòng tròn điểm chạy số (CSS/SVG), thiết kế thẻ khoe 9:16 (Kit chỉ từ `web/js/kit.js`, watermark chữ "lexkite" mờ, không logo vuông).
-- **Việc của Claude (logic, làm trước để Antigravity có hook):** phím A–D/1–4 + Enter trong `qengine/toeic/cbt`; gạch đáp án bằng chuột phải / nhấn giữ (mobile) + lưu trạng thái cờ/gạch theo lượt thi; kéo chia cột (pointer events, lưu tỉ lệ); xuất thẻ khoe 9:16 ra PNG bằng canvas + QR (module tải lười, không thêm thư viện vào shell).
-- Ràng buộc: khung app ≤ 380 KB gz (đang 363 KB) – phần mới đặt trong CSS/module tải lười; i18n 15 ngôn ngữ cho chữ mới; không âm thanh mới có bản quyền (dùng `Sfx` tự tổng hợp).
-- Tiêu chí xong: `npm test` PASS (axe 0 lỗi nghiêm trọng), ảnh trước/sau mô tả trong Báo cáo, kiểm 375 px + desktop. Làm trong worktree `../lexkite-ag`.
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
 ### [B4] 10 bài tiếng Anh toàn cầu – tư duy & phương pháp học chuyên sâu · @antigravity · ưu tiên: cao (làm trước B3 đợt 3)
 - Mục tiêu: kéo người học quốc tế, cân bằng `en` (29 bài) với `vi` (83 bài). Từ khóa ví dụ: how to think in English, active reading for IELTS, feedback loop practice tests…
 - **Bản quyền:** chỉ dùng ý tưởng chung (khái niệm phổ biến); tự viết 100% – không chép cấu trúc/ví dụ/tiêu đề của kênh, sách hay khóa học nào, không nhắc tên nguồn cảm hứng.
@@ -191,6 +177,20 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét: (Claude 16/10) ✅ Giao diện + template + i18n đạt. ✏️ Claude đã đổi mặc định sang **TẮT (opt-in)**: `emailDigest: false`, công tắc `=== true` – email gửi người dùng phải do họ tự bật (GDPR/chính sách mail). ⏸️ Phần gửi chưa triển khai được: Cloudflare Email Routing (`env.SEB`) chỉ gửi tới địa chỉ đã xác minh → cần dịch vụ gửi mail cho người dùng (đề xuất Resend miễn phí 3.000 mail/tháng) + bản ghi DNS SPF/DKIM + trang hủy đăng ký `/api/unsub`. Chờ anh Quyền chọn dịch vụ → Claude làm worker. Thẻ giữ ở CHỜ DUYỆT.
 
 ## ĐÃ XONG
+
+### [U3] Nâng cấp cảm giác học & phòng thi (UI/CSS) · @antigravity · ✅ ĐÃ XONG (Claude 20/10)
+- **Đã có sẵn – chỉ làm đẹp, không viết lại logic:** lật thẻ 3D (`study.js` rotateY), 4 nút FSRS đã hiện mốc (`SRS.preview`), phím Space/Enter khi ôn thẻ, cờ 🚩 + lưới số câu trong `cbt.js`, pháo hoa `confetti()` + `Sfx.win()`.
+- Việc của Antigravity (CSS/markup, micro-animation, responsive, sáng/tối):
+  1. Đáp án trắc nghiệm (`qengine.js`, `toeic.js`, `cbt.js`) → thẻ nút 3D có độ lún (`transform`/`box-shadow`, 120 ms), giữ `<input>`/`<button>` thật cho a11y; hiện chữ A–D để người học biết phím tắt.
+  2. Thanh kết quả đáy (bottom sheet): xanh ngọc khi đúng, cam san hô khi sai; dùng token màu trong `style.css`, tương phản ≥ 4.5:1; tôn trọng `prefers-reduced-motion`.
+  3. Lật thẻ: chỉnh perspective/backface cho mượt 60 fps (chỉ `transform`/`opacity`), nút FSRS to dễ bấm trên mobile (≥ 44 px).
+  4. Phòng thi CBT: style cho thanh kéo chia cột (`.cbt-split`), lưới số câu kiểu bento (đã làm: nền xanh · 🚩 vàng · chưa làm: viền đứt), đáp án bị gạch (`.opt.struck`: gạch ngang + mờ 50%).
+  5. Màn kết thúc: vòng tròn điểm chạy số (CSS/SVG), thiết kế thẻ khoe 9:16 (Kit chỉ từ `web/js/kit.js`, watermark chữ "lexkite" mờ, không logo vuông).
+- **Việc của Claude (logic, làm trước để Antigravity có hook):** phím A–D/1–4 + Enter trong `qengine/toeic/cbt`; gạch đáp án bằng chuột phải / nhấn giữ (mobile) + lưu trạng thái cờ/gạch theo lượt thi; kéo chia cột (pointer events, lưu tỉ lệ); xuất thẻ khoe 9:16 ra PNG bằng canvas + QR (module tải lười, không thêm thư viện vào shell).
+- Ràng buộc: khung app ≤ 380 KB gz (đang 363 KB) – phần mới đặt trong CSS/module tải lười; i18n 15 ngôn ngữ cho chữ mới; không âm thanh mới có bản quyền (dùng `Sfx` tự tổng hợp).
+- Tiêu chí xong: `npm test` PASS (axe 0 lỗi nghiêm trọng), ảnh trước/sau mô tả trong Báo cáo, kiểm 375 px + desktop. Làm trong worktree `../lexkite-ag`.
+- Báo cáo:
+- Cần sửa / Nhận xét: (Claude 20/10) gộp TAY 767aa772 lên main mới: đáp án 3D có bóng lún (option/cbt-opt/lq/q-item), feedback dạng bottom sheet (chữ --good-text/--again-text), lật thẻ GPU, nút FSRS viền đáy 3.5px, thanh kéo CBT 2 vạch, số câu nổi khi hover, Kit thay emoji ở màn kết thúc CBT/TOEIC. Sửa thêm: hover vòng điểm chỉ cho chuột, label lq-opts/lq-tf `position:relative` (input ẩn không làm cuộn trang khi focus), bỏ class `kit-cele` chết. Không có "bento grid" trong commit (đã có từ trước). Khung 376/380 KB gz.
 
 ### [U2d] Màn kết thúc phiên ôn · @antigravity · ✅ ĐÃ XONG (Claude 20/10)
 - Nghiệm thu (Claude 20/10: ✅ gộp tay 51cae892 + test, KHÔNG merge cả nhánh): gộp vào màn tổng kết sẵn có (phân bố Quên/Khó/Nhớ/Dễ + thời gian + hoàn tác) – 1 màn duy nhất. Lấy: ô thống kê, Kit đổi tâm trạng theo kết quả, hộp "Từ cần chú ý nhất" (lapses cao nhất, 🔊 + Tra từ, các từ quên khác), lời khen khi không quên từ nào, `scripts/test/review-done.mjs` (thêm vào npm test). ✏️ Sửa: bỏ "+1" cạnh chuỗi (hiện mỗi phiên dù chuỗi không đổi) → dòng "🎯 Hoàn thành mục tiêu ngày"; bỏ nút chính "Ôn tiếp (n thẻ)" trùng link "Ôn trước" → 1 nút chính "Học tiếp →" về kế hoạch hôm nay (cùng nhịp "Hoàn thành Ngày N"); bỏ màu cứng #17595a/var(--good-bg) không tồn tại (tối không đọc được) → color-mix theo --good; nút 🔊/Tra từ ≥ 44px; khóa en khai 2 lần (en.js sửa tay + en/study.js) → chỉ en/study.js + build-i18n; dịch tay đủ 13 ngôn ngữ cho cả câu khen.
