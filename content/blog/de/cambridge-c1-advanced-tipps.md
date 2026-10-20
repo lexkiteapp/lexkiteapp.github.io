@@ -42,7 +42,7 @@ Dieser Prüfungsteil macht 40 Prozent der Gesamtnote aus und entscheidet meist d
 - **Part 3 (Word Formation):** Wandeln Sie das Basiswort in die richtige Wortart um. Achten Sie auf negative Vorsilben (*un-*, *in-*, *dis-*) oder Pluralformen. Ein häufiger Fehler ist das Übersehen von Bedeutungswechseln (z. B. *doubt* -> *undoubtedly*).
 - **Part 4 (Key Word Transformation):** Sie müssen einen Satz so umformulieren, dass er dem ersten gleicht, und dabei ein Schlüsselwort unverändert nutzen. Sie dürfen 3 bis 6 Wörter verwenden (Kurzformen wie *didn't* zählen als zwei Wörter!). Trainieren Sie hierfür Passivkonstruktionen, Inversionen (*No sooner had I...*) und unpersönliche Strukturen.
 
-![Lexkite Lesetexte nach Niveau A2–C1, z. B. „The Rise of Urban Farming“; Wörter antippen zum Nachschlagen](media:reading "Lesetexte nach Niveau mit Wortsuche – cambridge c1 advanced tipps")
+![Lexkite Lesetexte nach Niveau A2–C1, z. B. „The Rise of Urban Farming“; Wörter antippen zum Nachschlagen](media:reading "IELTS-Lesetexte nach Niveau mit Wortsuche – cambridge c1 advanced tipps")
 
 ### 2. Reading Parts 5 bis 8: Zeit sparen mit Skimming und Scanning
 

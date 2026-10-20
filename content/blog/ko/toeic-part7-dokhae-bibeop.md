@@ -75,7 +75,7 @@ qualityScore: 94
 
 단어를 외울 때 1대1 뜻만 외우지 말고 반드시 동의어 그룹으로 묶어서 암기해야 하는 이유가 여기에 있습니다. 과학적인 어휘 확장법은 [영어 단어 암기법](/ko/blog/yeongdaneo-amgibeop/) 칼럼에 자세히 소개되어 있습니다. [토익 빈출 어휘집](/tu-vung/)에서 파트7 전용 패러프레이징 단어 목록을 매일 10분씩 눈에 익혀두세요.
 
-![Lexkite 지문 'The Growing Problem of Space Debris': 핵심어 강조와 True/False/Not Given 문제](media:read-article "핵심어 강조 지문과 문제 – 토익 파트7 독해")
+![Lexkite 지문 'The Growing Problem of Space Debris': 핵심어 강조와 True/False/Not Given 문제](media:read-article "IELTS 지문의 핵심어 강조와 문제 – 토익 파트7 독해")
 
 ## 이중·삼중 연계 지문 킬러 문항 정복 전략
 

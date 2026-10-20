@@ -181,7 +181,7 @@ If you scored 7 or 8, you have the concept. If not, reread the section on open a
 
 The [grammar section](/#/grammar) follows a chapter roadmap through the 12 tenses at A1–B2 level, with mixed exercises at the end of each chapter so you meet both tenses side by side. Then use [multiple-choice tests](/#/practice/test) to build speed. Any sentence you get wrong lands in your [mistake log](/#/mistakes) for later review.
 
-![Lexkite multiple-choice question offering four options with one correct answer to select](media:practice-test "Answer timed multiple-choice items to make the open or closed time frame decision automatic")
+![Lexkite multiple-choice question offering four options with one correct answer to select](media:practice-test "Answer quick multiple-choice items on phrase meanings to keep the vocabulary from this lesson fresh")
 
 ![Lexkite mistake log sorting errors into vocabulary, grammar, reading and listening](media:mistakes "Tense errors collect under Grammar, so you can revisit only the sentences you actually got wrong")
 

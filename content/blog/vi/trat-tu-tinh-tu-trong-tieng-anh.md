@@ -154,7 +154,7 @@ Trật tự tính từ trở thành phản xạ khi bạn dùng nó trong bài v
 
 Lý thuyết về tính từ và các chương ngữ pháp liên quan nằm trong mục [Ngữ pháp IELTS](/#/grammar). Sau khi ôn, làm thêm vài vòng [bài kiểm tra trắc nghiệm](/#/practice/test) để giữ nhịp luyện.
 
-![Bài kiểm tra trắc nghiệm của Lexkite với cụm “run out of” và bốn đáp án](media:practice-test "Làm trắc nghiệm để chọn đúng thứ tự tính từ trước danh từ")
+![Bài kiểm tra trắc nghiệm của Lexkite với cụm “run out of” và bốn đáp án](media:practice-test "Làm trắc nghiệm nghĩa cụm từ như “run out of” để ôn từ vựng")
 
 {{cta: /#/write | Viết một đoạn mô tả và tự soát tính từ}}
 

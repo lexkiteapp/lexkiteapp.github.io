@@ -65,7 +65,7 @@ Altıncı adım, öğrenilen kelimeleri geniş çaplı okuma (extensive reading)
 
 Yeni kelimeleri pekiştirmek için [öğrenme modunu](/#/practice/learn) kullanarak dinleme ve yazma alıştırmalarıyla reflekslerinizi sınayın.
 
-![İnteraktif kelime alıştırmaları ve yazma pratiği](media:practice-learn "Kelimeyi sadece okumak yetmez; yazarak ve cümle içinde kullanarak aktif hafızaya geçirin")
+![Lexkite akıllı öğrenme kartı: 'come up with' anlamı, örnekler ve hatırlama ipucu](media:practice-learn "Yeni bir ifade anlamı, örnek cümlesi ve sık yapılan hatasıyla birlikte tanıtılır")
 
 ## Sınavlara hazırlananlar için özel kelime taktikleri
 

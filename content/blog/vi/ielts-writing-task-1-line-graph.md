@@ -65,7 +65,7 @@ Hãy để ý: overview có hai đặc điểm (hai xu hướng ngược chiều
 
 Toàn bài khoảng 170 từ – vừa đủ, mọi câu đều có nhiệm vụ. Để ý các từ nối như *by contrast, while, shortly after that*; cách [dùng từ nối đúng chức năng, không lạm dụng](/vi/blog/tu-noi-trong-ielts-writing/) được phân tích riêng.
 
-![Phòng viết IELTS Task 2 của Lexkite: chọn đề theo chủ đề, gợi ý ý tưởng, từ vựng và khung bài](media:write "Mở phòng Writing để xem đề line graph và gợi ý ý tưởng")
+![Phòng viết IELTS Task 2 của Lexkite: chọn đề theo chủ đề, gợi ý ý tưởng, từ vựng và khung bài](media:write "Phòng viết Task 2 có gợi ý ý tưởng và khung bài khi bạn chuyển sang bài luận")
 
 ## Từ vựng mô tả xu hướng cho line graph
 

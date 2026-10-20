@@ -71,7 +71,7 @@ The imaginary data:
 
 That is just over 150 words, which meets the minimum; in the exam, aim for roughly 160–190 so that a miscount never leaves you short. Notice what the overview does *not* contain: no figures, no years except implicitly, just the big picture.
 
-![Lexkite phrase notebook storing trend sentences such as a steady rise and a sharp fall, with a Task 1 label](media:phrases "Collect trend sentences from model reports in a Task 1 list, then rotate them so you never repeat the same verb")
+![Lexkite phrase notebook for saving useful phrases and sentences, tagged by Task and band](media:phrases "Collect trend sentences from model reports in a Task 1 list, then rotate them so the same verb does not appear twice")
 
 ### A two-sentence overview formula
 

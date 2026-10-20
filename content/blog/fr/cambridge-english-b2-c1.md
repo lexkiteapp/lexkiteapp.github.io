@@ -49,7 +49,7 @@ C'est l'épreuve la plus technique. Elle comporte 7 parties au B2 (8 au C1) :
 
 Entraînez votre vitesse de lecture sur des textes académiques variés dans notre [module de lecture progressive](/#/reading).
 
-![Module de lecture progressive sur Lexkite](media:reading "Lisez des articles de niveau B2 et C1 pour renforcer votre vitesse de lecture et votre compréhension des nuances")
+![Textes de lecture IELTS classés par niveau sur Lexkite](media:reading "Lisez des articles de niveau B2 et C1 pour renforcer votre vitesse de lecture et votre compréhension des nuances")
 
 ### 2. Writing (1h20 au B2 / 1h30 au C1)
 - **Partie 1 (Obligatoire) :** Rédaction d'un essai argumenté (*Essay*) de 140 à 190 mots (B2) ou 220 à 260 mots (C1). Les techniques méthodologiques de structuration sont identiques à celles présentées dans notre guide [IELTS Writing Task 2 structure](/fr/blog/ielts-writing-task-2-plan/).

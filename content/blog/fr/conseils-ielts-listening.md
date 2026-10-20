@@ -43,7 +43,7 @@ Si vous écrivez *Tuesday* dès que vous entendez le mot, vous perdez le point. 
 
 Méfiez-vous également des pièges de vocabulaire et des traductions littérales ; notre inventaire des [faux amis anglais-français](/fr/blog/faux-amis-anglais-francais/) vous aidera à éviter les confusions de sens les plus pernicieuses.
 
-![Simulation d'épreuve blanche IELTS sur Lexkite](media:mock "Les simulations chronométrées permettent de s'habituer au rythme intensif et d'éviter les moments de panique")
+![Simulation d'épreuve blanche IELTS sur Lexkite](media:mock "Les examens blancs complets permettent de s'habituer au rythme de l'épreuve et d'éviter les moments de panique")
 
 ## Section 1 & 2 : Situations du quotidien, orthographe et plans
 
@@ -71,7 +71,7 @@ Ces expressions vous indiquent précisément quand l'orateur passe à la questio
 
 La précision des temps verbaux est également déterminante pour comprendre si une expérience est terminée ou toujours d'actualité ; revoyez les nuances entre [present perfect ou prétérit](/fr/blog/present-perfect-ou-preterit/) pour affiner votre perception auditive.
 
-![Exercices interactifs de compréhension et d'écoute ciblée](media:practice-test "Des QCM de vocabulaire pour consolider les mots fréquents des enregistrements IELTS")
+![Exercice QCM Lexkite : choisir le bon sens de « run out of »](media:practice-test "Des QCM de vocabulaire pour consolider les mots fréquents des enregistrements IELTS")
 
 ## Travailler les accents internationaux et la fluidité sonore
 

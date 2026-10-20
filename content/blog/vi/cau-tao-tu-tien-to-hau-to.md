@@ -101,7 +101,7 @@ Hai lưu ý quan trọng:
 
 Quy luật: *-tion, -sion, -ic, -ity* thường nhấn vào âm tiết **ngay trước** hậu tố. Khi học một họ từ, hãy học luôn trọng âm từng thành viên. Bài [quy tắc đánh trọng âm tiếng Anh](/vi/blog/quy-tac-danh-trong-am-tieng-anh/) phân tích kỹ nhóm quy luật này.
 
-![Thư viện phát âm IPA của Lexkite chia nguyên âm đơn, nguyên âm đôi và phụ âm, kèm từ ví dụ](media:pron "Chọn một âm IPA để nghe trọng âm dịch chuyển khi thêm hậu tố")
+![Thư viện phát âm IPA của Lexkite chia nguyên âm đơn, nguyên âm đôi và phụ âm, kèm từ ví dụ](media:pron "Chọn một âm IPA và nghe từ ví dụ để đọc đúng từ gốc trước khi thêm hậu tố")
 
 ## Gốc từ Latin và Hy Lạp thông dụng
 

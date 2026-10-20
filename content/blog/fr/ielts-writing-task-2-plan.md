@@ -57,7 +57,7 @@ Oubliez les plans complexes en cinq ou six sections qui vous font perdre un temp
 
 Pour enrichir votre palette de synonymes et de vocabulaire formel, explorez régulièrement notre [bibliothèque de vocabulaire](/#/library).
 
-![Bibliothèque de vocabulaire Lexkite](media:library "Enrichissez vos dissertations avec du vocabulaire académique formel et des collocations classées par thème")
+![Bibliothèque de vocabulaire Lexkite](media:library "Enrichissez vos dissertations avec les listes de vocabulaire par niveau, dont un onglet Writing")
 
 ## Les connecteurs logiques indispensables pour le Band 7+
 

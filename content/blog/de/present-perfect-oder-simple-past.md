@@ -48,7 +48,7 @@ Besonders instruktiv ist der Ausdruck *this morning*. Sprechen Sie um 16 Uhr üb
 
 Das gezielte Erkennen dieser Signalwörter können Sie direkt in unserem interaktiven [Grammatikmodul](/#/grammar) trainieren.
 
-![Interaktive Grammatik-Tests auf Lexkite](media:practice-test "Multiple-Choice-Übungen zur schnellen Unterscheidung von Present Perfect und Simple Past")
+![Multiple-Choice-Test auf Lexkite: die Bedeutung von „run out of“ wählen](media:practice-test "Kurze Multiple-Choice-Quizze prüfen, ob Sie die Bedeutung gelernter Wendungen sicher abrufen")
 
 ## Die 4 häufigsten Fehler deutscher Muttersprachler
 
@@ -89,7 +89,7 @@ Um neue Vokabeln und Kollokationen dauerhaft zu speichern, nutzen Sie die erprob
 
 Verankern Sie diese Satzbaumuster durch regelmäßige Einheiten in unserer [Karteikarten-Wiederholung](/#/review).
 
-![Karteikarten-Wiederholung für grammatikalische Strukturen](media:review "Tägliche Wiederholungen mit Beispielsätzen verankern die richtige Zeitform im Sprachgefühl")
+![Karteikarten-Wiederholung in Lexkite: Karte „pollution“ mit Lautschrift und Umdrehen-Knopf](media:review "Tägliche Kartenwiederholung: erst das Wort abrufen, dann die Karte umdrehen")
 
 ## Übungsaufgaben mit ausführlichen Erklärungen
 

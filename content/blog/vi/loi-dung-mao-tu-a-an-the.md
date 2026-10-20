@@ -155,7 +155,7 @@ Mạo từ được củng cố nhờ gặp lặp lại trong văn bản thật.
 
 Sau đó, ôn chương mạo từ trong [Ngữ pháp IELTS](/#/grammar) và làm vài lượt [bài kiểm tra trắc nghiệm](/#/practice/test). Lý thuyết đầy đủ, có thêm các trường hợp đặc biệt, nằm ở trang [mạo từ](/ngu-phap/articles).
 
-![Câu trắc nghiệm trong Lexkite: chọn nghĩa đúng của “run out of” trong 4 phương án](media:practice-test "Làm trắc nghiệm chọn a, an, the hoặc không mạo từ cho từng câu")
+![Câu trắc nghiệm trong Lexkite: chọn nghĩa đúng của “run out of” trong 4 phương án](media:practice-test "Làm trắc nghiệm nghĩa cụm từ để ôn từ vựng sau mỗi buổi học")
 
 {{cta: /#/grammar | Ôn chương mạo từ trong Lexkite}}
 

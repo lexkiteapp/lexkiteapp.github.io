@@ -125,7 +125,7 @@ Không có nghĩa là cấm hoàn toàn. Những cụm như *carry out*, *rely o
 
 Phrasal verb dùng nhiều nhất ở Speaking; xem thêm cách nói tự nhiên ở bài [idiom trong IELTS Speaking](/vi/blog/idiom-ielts-speaking/). Các [bài nói mẫu IELTS theo chủ đề](/speaking/) cũng là nguồn tốt để thấy phrasal verb được dùng trong ngữ cảnh.
 
-![Thư viện phát âm IPA của Lexkite chia nguyên âm đơn, nguyên âm đôi và phụ âm, kèm từ ví dụ](media:pron "Chọn âm IPA để luyện đọc đúng phrasal verb có âm nối")
+![Thư viện phát âm IPA của Lexkite chia nguyên âm đơn, nguyên âm đôi và phụ âm, kèm từ ví dụ](media:pron "Chọn âm IPA khó trong phrasal verb để luyện riêng từng âm")
 
 ## Câu hỏi thường gặp
 

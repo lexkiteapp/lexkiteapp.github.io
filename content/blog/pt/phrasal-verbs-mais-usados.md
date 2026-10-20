@@ -51,7 +51,7 @@ A partícula *off* remete à ideia de desconexão, cancelamento ou afastamento f
 - *Take off:* decolar (avião) ou tirar uma peça de roupa.
 - *Cut off:* interromper uma conversa ou cortar o fornecimento de energia.
 
-![Biblioteca de vocabulário e expressões idiomáticas no Lexkite](media:library "Explore coleções temáticas de phrasal verbs e expressões idiomáticas organizadas por frequência de uso")
+![Biblioteca de vocabulário do Lexkite com conjuntos por nível (A1–B2) e por exame](media:library "Explore conjuntos de palavras por nível, do vocabulário essencial NGSL às listas do IELTS e do TOEIC")
 
 ## Os 30 phrasal verbs mais usados no cotidiano e nos negócios
 
@@ -113,7 +113,7 @@ Uma das dúvidas mais comuns entre falantes de português é saber onde colocar 
 
 No [treinador de conversação e fala do Lexkite](/#/practice/speak), você pode gravar suas próprias frases e receber retorno imediato da inteligência artificial sobre a colocação natural do pronome e a entonação correta.
 
-![Treino de fala e fluência com reconhecimento de voz no Lexkite](media:practice-speak "Treine a pronúncia em voz alta e o ritmo natural dos phrasal verbs na prática de conversação interativa")
+![Treino de pronúncia do Lexkite: a expressão cut down on, botão de microfone e nota pela voz](media:practice-speak "Diga cut down on em voz alta no microfone e veja a nota da sua pronúncia")
 
 ## Quando usar e quando evitar phrasal verbs em exames oficiais (IELTS / TOEFL)
 

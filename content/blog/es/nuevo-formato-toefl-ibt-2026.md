@@ -96,13 +96,13 @@ Para tener éxito ante este nuevo paradigma evaluativo, modifica tu rutina con e
 
 En Lexkite hemos implementado un módulo específico diseñado alrededor de las especificaciones del examen actualizado:
 
-![Pantalla de preparación TOEFL iBT de Lexkite con el nuevo formato de examen y escala de 1 a 6](media:toefl "El panel de control permite familiarizarse con la estructura de 12 tareas y el cálculo de bandas estimadas")
+![Pantalla de preparación TOEFL iBT de Lexkite con el nuevo formato de examen y escala de 1 a 6](media:toefl "El panel resume la estructura del nuevo examen y la escala de bandas de 1 a 6")
 
 Puedes acceder directamente al centro de [entrenamiento TOEFL iBT](/#/toefl) para poner a prueba tu nivel en las tareas interactivas de *Complete the Words* y *Build a Sentence* con explicaciones inmediatas. 
 
 Para ejercitar la lectura ágil sin cansancio visual, dispones además de una selección de textos en la sección de [práctica de lectura](/#/reading) con función de consulta táctil de términos:
 
-![Biblioteca de lecturas en inglés de Lexkite clasificadas de A2 a C1 con función de tocar para traducir](media:reading "Entrenar la lectura rápida con textos de divulgación permite afrontar las tareas académicas del examen")
+![Lecturas IELTS de Lexkite clasificadas de A2 a C1, con función de tocar para traducir](media:reading "Entrenar la lectura rápida con textos de divulgación permite afrontar las tareas académicas del examen")
 
 Cada vez que cometas una equivocación en ortografía o concordancia gramatical, el ejercicio se guarda automáticamente en tu [registro de errores](/#/mistakes) para que lo vuelvas a intentar periódicamente:
 

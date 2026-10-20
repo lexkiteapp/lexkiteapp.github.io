@@ -75,7 +75,7 @@ Les textes croisés (courriels, factures, tableaux d'horaires, avis clients) dem
 - Les questions avec *NOT* ou *EXCEPT* sont chronophages : gardez-les pour la fin du texte.
 - Repérez les mots de liaison et les dates qui permettent de relier l'offre d'emploi d'un premier document au CV du second document.
 
-![Textes de lecture Lexkite classés A2–C1, par ex. « The Rise of Urban Farming » ; touchez un mot pour le chercher](media:reading "Lectures par niveau, mots à toucher – astuces toeic listening reading")
+![Textes de lecture Lexkite classés A2–C1, par ex. « The Rise of Urban Farming » ; touchez un mot pour le chercher](media:reading "Lectures IELTS par niveau, mots à toucher – astuces toeic listening reading")
 
 ## Tableau de gestion du temps pour l'épreuve de Reading
 

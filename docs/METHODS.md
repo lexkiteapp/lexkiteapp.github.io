@@ -28,7 +28,7 @@ File này gom các **quy trình đã chốt** và **lỗi đã từng mắc** đ
 
 ## 5. Blog SEO (15 ngôn ngữ)
 - `docs/BLOG-RUNBOOK.md`, `content/blog/WRITING-GUIDE.md`; `node scripts/blog-check.mjs` **0 lỗi 0 cảnh báo**; qualityScore ≥ 92.
-- **Alt ảnh phải khớp `content/blog/shots.json`**; chú thích ảnh **không hứa tính năng app không có** (lỗi B1/B2).
+- **Alt ảnh phải khớp `content/blog/shots.json`**; chú thích ảnh **không hứa tính năng app không có** (lỗi B1/B2). Tự động hóa (20/10): cổng `[caption-truth]` – `content/blog/shot-facts.json` + `scripts/blog-captions.mjs` (`--ai` chạy tay), luật ở `docs/CONTENT-RULES.md` §8.
 - **Ảnh riêng từng bài** (17/10): bìa tự sinh + `shots:`/`diagrams:` trong front matter, dựng trên CI `blog-images.yml` (pilot → backfill), lưu R2 theo mã băm; alt ảnh chụp tự sinh từ chữ trên màn hình, `[alt-truth]` chặn alt bịa. Chi tiết `docs/BLOG-RUNBOOK.md` § Ảnh riêng từng bài.
 - Cụm trụ cột + vệ tinh; từ khóa bản địa thật (không dịch máy); cơ cấu: evergreen ≥ 1/3, luyện thi ≥ 1/3, giao tiếp/công sở.
 - Lịch: ≤ 1 bài/ngôn ngữ/ngày, cùng cụm từ khóa cách ≥ 7 ngày, giờ địa phương.

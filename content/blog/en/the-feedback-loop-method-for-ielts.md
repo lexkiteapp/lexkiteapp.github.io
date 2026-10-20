@@ -60,7 +60,7 @@ Did you understand all the words, hear every sound clearly, and still choose the
 - **Root Cause:** Faulty test logic and confirmation bias.
 - **Remedy:** Force yourself to write down the exact sentence from the text that disproves your chosen option, alongside the exact sentence that proves the key.
 
-![Lexkite Stats screen showing level XP streak and 6-month study heatmap](media:stats "Track your error reduction and review consistency on the study heatmap")
+![Lexkite Stats screen showing level XP streak and 6-month study heatmap](media:stats "Track your review consistency and daily streak on the study heatmap")
 
 ## The 4 Steps of the IELTS Feedback Loop Protocol
 

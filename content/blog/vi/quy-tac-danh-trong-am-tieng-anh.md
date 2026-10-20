@@ -183,7 +183,7 @@ Khi gặp từ mới, tra trong [từ điển Anh–Việt](/#/dict/photography)
 
 Sau đó, luyện nói với phần [Luyện phát âm có chấm điểm](/#/practice/speak): đọc từ hoặc cụm, hệ thống chấm theo giọng nói của bạn. Muốn luyện riêng từng âm trước, mở [thư viện phát âm IPA](/#/pron).
 
-![Bài nói thử cụm “cut down on”: bấm micro, đọc to và xem điểm phát âm](media:practice-speak "Nói từng từ nhiều âm tiết vào micro và xem trọng âm đúng chưa")
+![Bài nói thử cụm “cut down on”: bấm micro, đọc to và xem điểm phát âm](media:practice-speak "Nói từng từ nhiều âm tiết vào micro và xem điểm phát âm")
 
 {{cta: /#/practice/speak | Luyện nhấn đúng trọng âm với micro}}
 

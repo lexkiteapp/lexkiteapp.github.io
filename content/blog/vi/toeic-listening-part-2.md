@@ -121,7 +121,7 @@ Quy tắc kinh nghiệm: **nếu một đáp án lặp lại âm của câu hỏ
 2. Sau khi nộp bài, nghe lại các câu sai và ghi lại loại bẫy.
 3. Để luyện tai rộng hơn, dùng mục [Luyện nghe](/#/listening) với chế độ chép chính tả. Bạn có thể nghe nhiều giọng Anh, Mỹ, Úc và chỉnh tốc độ chậm lại khi mới bắt đầu.
 
-![Màn hình luyện nghe của Lexkite: chọn đề, chỉnh tốc độ, nghe lần đầu hoặc chép chính tả](media:listening "Chọn Part 2 và đề nghe, chỉnh tốc độ để rèn tai")
+![Màn hình luyện nghe IELTS của Lexkite: chọn đề, chỉnh tốc độ, nghe lần đầu hoặc chép chính tả](media:listening "Chọn đề nghe IELTS, chỉnh tốc độ chậm để rèn tai trước khi luyện Part 2 TOEIC")
 
 4. Lưu những cặp từ dễ nhầm (*contract/contact*, *lunch/launch*) thành flashcard để ôn mỗi ngày. Từ vựng công sở hay xuất hiện trong Part 2 cũng có trong [bộ từ TOEIC trên trang từ vựng](/tu-vung/).
 

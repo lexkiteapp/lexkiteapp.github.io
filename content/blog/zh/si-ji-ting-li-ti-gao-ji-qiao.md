@@ -71,7 +71,7 @@ qualityScore: 94
 
 阅读英文原版文章能潜移默化提升对长难句信息密度的适应力，欢迎在[英文泛读图书馆](/#/read-article)中保持每日一篇的学术语感浸润。
 
-![Lexkite 阅读文章 “The Growing Problem of Space Debris”：关键词高亮与判断题（True/False/Not Given）](media:read-article "关键词高亮的阅读与判断题 – 英语四级听力技巧")
+![Lexkite 雅思阅读文章 “The Growing Problem of Space Debris”：关键词高亮与判断题（True/False/Not Given）](media:read-article "关键词高亮的阅读与判断题 – 英语四级听力技巧")
 
 ## 考前30天提分计划：影子听写与精听四步法
 

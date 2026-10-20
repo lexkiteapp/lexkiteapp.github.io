@@ -66,7 +66,7 @@ One speaker gives an announcement, voicemail, tour introduction or short present
 
 **Tip:** the first sentence usually reveals the purpose and the speaker's role, which answers at least one question. Many learners find fast natural speech the hardest part; our guide to [connected speech](/en/blog/connected-speech-in-english/) explains why words seem to disappear in real recordings.
 
-![Lexkite listening practice with selectable tests, adjustable playback speed and a dictation mode](media:listening "Slow the playback speed for Part 3 and Part 4 style audio at first, then return to normal speed once you can follow")
+![Lexkite IELTS listening practice with selectable tests, adjustable playback speed and a dictation mode](media:listening "Slow the playback speed for Part 3 and Part 4 style audio at first, then return to normal speed once you can follow")
 
 ## Reading: Parts 5–7
 

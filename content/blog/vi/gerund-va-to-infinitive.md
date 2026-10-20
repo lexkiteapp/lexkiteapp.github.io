@@ -170,7 +170,7 @@ Cách bền nhất để nhớ dạng theo sau là học động từ như một
 
 Khi đã học xong một nhóm, ôn chương liên quan trong [Ngữ pháp IELTS](/#/grammar) rồi làm [bài kiểm tra trắc nghiệm](/#/practice/test) để kiểm tra tốc độ.
 
-![Câu trắc nghiệm trong Lexkite: chọn nghĩa đúng của “run out of” trong 4 phương án](media:practice-test "Làm trắc nghiệm để chọn đúng giữa V-ing và to V trong câu")
+![Câu trắc nghiệm trong Lexkite: chọn nghĩa đúng của “run out of” trong 4 phương án](media:practice-test "Làm trắc nghiệm nghĩa cụm từ để kiểm tra từ vựng trước khi luyện mẫu câu")
 
 {{cta: /#/grammar | Ôn chương gerund và to infinitive}}
 

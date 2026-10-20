@@ -176,7 +176,7 @@ Kalau kamu salah di nomor 1 atau 6, berarti kamu memilih tenses berdasarkan "kej
 
 Memahami aturan baru setengah jalan; sisanya adalah bertemu cukup banyak kalimat sampai refleksmu memilih tenses yang benar. Di Lexkite, bab tenses di menu [Grammar](/#/grammar) punya jalur dari present simple sampai present perfect, dan setiap pelajaran dilengkapi soal latihan. Setelah itu, kerjakan beberapa putaran [kuis pilihan ganda](/#/practice/test) untuk melatih kecepatan mengenali bentuk.
 
-![Soal pilihan ganda di Lexkite: memilih arti yang benar untuk “run out of” dari empat opsi](media:practice-test "Kuis singkat untuk melatih refleks memilih tenses dan kosakata dengan cepat")
+![Soal pilihan ganda di Lexkite: memilih arti yang benar untuk “run out of” dari empat opsi](media:practice-test "Kuis singkat untuk melatih refleks memilih arti kosakata dengan cepat")
 
 Soal yang salah sebaiknya masuk ke [Mistake log](/#/mistakes) supaya kamu mengulang titik lemahnya saja, bukan mengerjakan ulang seluruh latihan. Jadwalkan pengulangan kalimat-kalimat yang keliru itu dengan [metode spaced repetition](/id/blog/metode-spaced-repetition/) agar polanya benar-benar menempel.
 
