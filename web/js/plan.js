@@ -93,7 +93,7 @@
   // KIỂM TRA ĐẦU VÀO (#/placement): js/placement.js – tải lười, ước tính thích ứng + khoảng band.
 
   // ================= KẾ HOẠCH HÔM NAY (1 kế hoạch duy nhất, theo kỳ thi) =================
-  // Thứ tự ưu tiên: kiểm tra đầu vào → ôn thẻ đến hạn → bài lộ trình kế tiếp → sửa lỗi sai → 1 bài kỹ năng theo kỳ thi (xoay vòng theo ngày).
+  // Thứ tự ưu tiên: Ngày N của lộ trình (gồm ôn nhanh từ đến hạn) → kiểm tra đầu vào (nhảy cóc) → ôn thẻ đến hạn → sửa lỗi sai → 1 bài kỹ năng theo kỳ thi (xoay vòng theo ngày).
   // Không tải gói nặng ở trang chủ: dữ liệu có sẵn thì gợi ý đúng bài, chưa có thì dẫn tới trang danh sách.
   App.todayPlan = async function () {
     const s = state.settings, g = state.game, d = g.days[todayKey()] || {};
@@ -111,9 +111,11 @@
       const l = G.find(x => gd[x.id] == null && x.level === lv) || G.find(x => gd[x.id] == null);
       tasks.push({ em: '📐', t: l ? t('Ngữ pháp: {title}', { title: l.title }) : t('Học 1 bài ngữ pháp'), sub: `${lv} · ${why}`, href: l ? '#/grammar/' + l.id : '#/grammar', mins: 10, done: (d.grammar || 0) > 0, focus: 'grammar' });
     }
-    // Bài lộ trình: vào thẳng bước kế tiếp (học 8 từ mới / kiểm tra bài) – 1 chạm là học, không qua bản đồ
-    const pn = App.pathNext ? await App.pathNext() : null, cur = pn && pn.unit;
-    if (cur) tasks.push({ em: cur.topic.emoji, t: t('Học bài: {name}', { name: cur.topic.name }), sub: weak === 'vocab' ? `${cur.stage.name} · ${why}` : `${cur.stage.name} · ${t('đã học {pct}%', { pct: Math.round(cur.pct * 100) })}`, href: pn.href, mins: 8, done: (d.newWords || 0) >= 5, focus: weak === 'vocab' ? 'vocab' : '' });
+    // Lộ trình theo NGÀY (path-day.js, tải lười): "Ngày N" = 1 buổi 5–10 phút trộn nhiều dạng bài – việc chính, đứng ĐẦU kế hoạch (nút lớn "Bắt đầu Ngày N")
+    const dt = await App.need('pathx').then(() => window.DayPath && DayPath.todayTask()).catch(() => null);
+    if (dt) tasks.unshift({ ...dt, sub: weak === 'vocab' ? `${dt.sub} · ${why}` : dt.sub, focus: weak === 'vocab' ? 'vocab' : '' });
+    else { const pn = App.pathNext ? await App.pathNext() : null, cur = pn && pn.unit; // dự phòng: không tải được gói lộ trình theo ngày
+      if (cur) tasks.push({ em: cur.topic.emoji, t: t('Học bài: {name}', { name: cur.topic.name }), sub: `${cur.stage.name} · ${t('đã học {pct}%', { pct: Math.round(cur.pct * 100) })}`, href: pn.href, mins: 8, done: (d.newWords || 0) >= 5, focus: weak === 'vocab' ? 'vocab' : '' }); }
     const mistakes = (await Store.get('mistakes', [])).filter(x => !x.fixed).length;
     if (mistakes) tasks.push({ em: '📕', t: t('Làm lại {n} lỗi sai', { n: mistakes }), sub: t('Tự nhớ lại đáp án – sửa lỗi = tăng điểm nhanh nhất'), href: '#/mistakes?retry=1', mins: Math.min(10, 2 + mistakes), done: false });
     const sk = await skillTask(ex, dow, d);

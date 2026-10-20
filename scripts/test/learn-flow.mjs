@@ -169,12 +169,49 @@ const curU = w.App.pathCurrent();
 ok(curU && curU.stage.id === 's2', 'lộ trình mở từ chặng gợi ý (s2): ' + (curU && curU.topic.id));
 w.App.state.settings.placement = { ...pl, weak: 'vocab', stage: 's0' };
 plan = await w.App.todayPlan();
-ok(plan.some(x => x.focus === 'vocab' && /^#\/practice\/(learn|test)\?src=topic/.test(x.href)) && !plan.some(x => x.focus === 'grammar'), 'kỹ năng yếu từ vựng → bài lộ trình được đánh dấu ưu tiên');
+ok(plan.some(x => x.focus === 'vocab' && /^#\/day\/\d+$/.test(x.href)) && !plan.some(x => x.focus === 'grammar'), 'kỹ năng yếu từ vựng → “Ngày N” của lộ trình được đánh dấu ưu tiên');
 w.App.state.settings.placement = { band: '6.0', pct: 55, vocab: 40, grammar: 70, stage: 's1', at: 1 }; // bản ghi cũ (v1)
 plan = await w.App.todayPlan();
 ok(plan.some(x => x.focus === 'vocab') && w.App.pathCurrent().stage.id === 's1', 'bản ghi cũ (v1) vẫn điều chỉnh kế hoạch + lộ trình');
 delete w.App.state.settings.placement;
 ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCurrent().i === 0, 'chưa làm kiểm tra → nhắc làm, lộ trình từ bài đầu');
+
+// ===== 6) Lộ trình theo NGÀY (path-day.js): dễ → khó, đứng đầu kế hoạch, giữ tiến độ cũ =====
+{
+  const DP = w.DayPath; ok(DP && w.App.PathAPI, 'nạp path-day.js (gói pathx)');
+  let ds = await DP.days();
+  ok(ds.length > 200 && ds[0].id === 'ngsl1.1~1' && ds[0].topic.words.length >= 5 && ds[0].topic.words.length <= 8, 'Ngày 1 = 5–8 từ đầu của bài đầu: ' + ds.length + ' ngày');
+  const p1 = DP.plan(ds[0]).map(s => s.k), p4 = DP.plan(ds[3]).map(s => s.k), big = ds.find(d => d.unit.stage.id === 's3' && d.j < d.of), pa = DP.plan(big).map(s => s.k);
+  ok(p1.join() === 'learn,match,mcq', 'Ngày 1 chỉ nhận diện (thắng sớm): ' + p1);
+  ok(p4.indexOf('learn') < p4.indexOf('match') && p4.indexOf('match') < p4.indexOf('cloze') && p4.includes('listen'), 'Ngày 4: học → ghép → nghe → điền câu: ' + p4);
+  ok(pa.some(k => /^(use|gram|exam)$/.test(k)) && pa.includes('cloze'), 'ngày chặng học thuật có collocation/ngữ pháp/đề thi: ' + pa);
+  const lastDay = ds.find(d => d.j === d.of && d.unit.status !== 'done');
+  ok(DP.plan(lastDay).pop().k === 'test', 'ngày cuối bài kết thúc bằng kiểm tra cuối bài');
+  w.App.state.settings.placement = { ...pl, stage: 's2' };
+  ds = await DP.days(); const c2 = ds.find(d => d.status === 'current');
+  ok(c2 && c2.unit.stage.id === 's2' && ds[0].status === 'skip', 'kiểm tra đầu vào → nhảy tới Ngày đầu chặng s2 (' + (c2 && c2.n) + ')');
+  delete w.App.state.settings.placement;
+  // tiến độ cũ: bài đã qua (unitDone) → mọi ngày của bài tính là xong
+  w.App.state.game.unitDone = { ...(w.App.state.game.unitDone || {}), ngsl1: 90 };
+  ds = await DP.days();
+  ok(ds.filter(d => d.id.startsWith('ngsl1.')).every(d => d.done) && ds.find(d => d.status === 'current').id.startsWith('ngsl2.'), 'bài cũ đã qua → các ngày của bài đó xong, Ngày hiện tại ở bài kế');
+  delete w.App.state.game.unitDone.ngsl1;
+  plan = await w.App.todayPlan();
+  ok(plan[0].day === 1 && plan[0].href === '#/day/1', 'kế hoạch hôm nay: “Ngày 1” đứng đầu (nút lớn Bắt đầu Ngày 1)');
+  await go('#/home', 400);
+  ok(/Ngày 1|Day 1/.test(($('.today-cta') || {}).textContent || ''), 'nút chính trang chủ: ' + (($('.today-cta') || {}).textContent || '').trim());
+  await go('#/day/1', 400);
+  ok($$('.day-steps li').length === 3 && $('.day-hero') && $('[role=progressbar]'), 'trang #/day/1: 3 hoạt động + thanh tiến độ');
+  click($('.day-steps a')); await tick(50);
+  ok(w.localStorage.getItem('vb.daySess') === 'ngsl1.1~1', 'bấm hoạt động → giữ phiên Ngày 1');
+  w.dispatchEvent(new w.CustomEvent('lexkite:practice-done', { detail: { mode: 'match', src: 'topic:ngsl1.1~1', pct: 100 } })); await tick(200);
+  const rec = await w.Core.Store.get('pathDays', {});
+  ok(rec['ngsl1.1~1'] && rec['ngsl1.1~1'].s.includes('match'), 'xong Ghép thẻ → ghi bước của Ngày 1');
+  await go('#/practice/mcq?src=topic:ngsl1.1~1', 400);
+  ok($('.day-bar') && /1\/3/.test($('.day-bar').textContent), 'thanh tiến độ buổi học trên trang bài tập: ' + (($('.day-bar') || {}).textContent || '').trim());
+  await go('#/path', 400);
+  ok($$('.node[data-day]').length > 20 && $('.node.current[aria-current=step]') && /Ngày 1|Day 1/.test($('.path-cta').textContent), 'bản đồ: nút Ngày + Ngày hiện tại + CTA: ' + $$('.node[data-day]').length + ' ' + !!$('.node.current') + ' ' + (($('.path-cta') || {}).textContent || ''));
+}
 
 const real = errors.filter(e => !/Not implemented|navigation|Could not parse CSS/.test(e));
 ok(!real.length, 'không lỗi JS: ' + real.slice(0, 3).join(' | '));

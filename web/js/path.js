@@ -25,8 +25,16 @@
   const CORE = ['ngsl1', 'ngsl2', 'ngsl3', 'ngsl4', 'ngsl5'], PART = 20, SUB = {};
   const parts = tp => Math.ceil(tp.words.length / PART);
   const subIds = p => { const tp = App.topicOf(p); return tp ? Array.from({ length: parts(tp) }, (_, k) => p + '.' + (k + 1)) : []; };
-  const parentOf = id => String(id).split('.')[0];
+  const parentOf = id => String(id).split(/[.~]/)[0];
+  // Mỗi Ngày học 6–8 từ mới (người mới ít từ hơn): chặng 0 → 7, chặng sau → 8 (cố định → id ngày không đổi giữa các phiên bản)
+  const DAY_SIZE = { s0: 7 }, dayParts = (tp, st) => Math.max(1, Math.round(tp.words.length / (DAY_SIZE[st] || 8)));
+  App.dayParts = dayParts;
   App.subTopic = id => {
+    const dm = /^(.+)~(\d+)$/.exec(id || '');
+    if (dm) { if (SUB[id]) return SUB[id]; const tp = App.topicOf(dm[1]), st = tp && STAGES.find(s => s.units.includes(dm[1])); if (!tp || !st) return;
+      const n = dayParts(tp, st.id), k = +dm[2] - 1; if (k < 0 || k >= n) return;
+      const words = tp.words.slice(Math.round(k * tp.words.length / n), Math.round((k + 1) * tp.words.length / n));
+      return (SUB[id] = { id, emoji: tp.emoji, group: tp.group, parent: dm[1], day: k + 1, days: n, words, get name() { return tp.name + ' · ' + (k + 1) + '/' + n; }, get desc() { return words.slice(0, 4).map(w => w.word).join(' · ') + ' …'; } }); }
     const m = /^(ngsl[1-5])\.(\d+)$/.exec(id || ''), tp = m && App.topicOf(m[1]);
     if (!tp || SUB[id]) return SUB[id];
     const n = parts(tp), k = +m[2] - 1; if (k < 0 || k >= n) return;
@@ -69,71 +77,22 @@
   let REC = null;
   const recLoad = () => REC ? Promise.resolve(REC) : Core.Store.get('pathSteps', {}).then(v => (REC = v || {})).catch(() => (REC = {}));
   const recOf = id => [...((REC || {})[id] || []), ...((REC || {})[parentOf(id)] || [])];
-  window.addEventListener('lexkite:practice-done', e => { const d = e.detail || {}, m = /^topic:(.+)$/.exec(d.src || ''); if (m && STAGES.some(s => s.units.includes(m[1]))) App.need('pathx').then(() => PathReward.done(d, m[1], { recLoad, recOf, unitState, STEPS, stepDone, stepHref, nextStep })).catch(() => {}); });
+  window.addEventListener('lexkite:practice-done', e => { const d = e.detail || {}, m = /^topic:(.+)$/.exec(d.src || '');
+    if ((m && m[1].includes('~')) || sess()) return App.need('pathx').then(() => DayPath.done(d)).catch(() => {}); // buổi học theo Ngày
+    if (m && STAGES.some(s => s.units.includes(m[1]))) App.need('pathx').then(() => PathReward.done(d, m[1], { recLoad, recOf, unitState, STEPS, stepDone, stepHref, nextStep })).catch(() => {}); });
   const stepDone = (u, m) => m === 'learn' ? u.pct >= 0.8 : m === 'test' ? u.status === 'done' : recOf(u.topic.id).includes(m);
   const stepHref = (id, m) => `#/practice/${m}?src=${encodeURIComponent('topic:' + id)}${m === 'test' ? `&unit=${id}` : ''}`;
   // Bước kế tiếp của bài hiện tại: học từ mới (mỗi lượt 8 từ) tới khi thuộc ≥ 80% → kiểm tra bài để mở bài sau
   const nextStep = u => (u.pct < 0.8 ? 'learn' : 'test');
   App.pathNext = async () => { await recLoad(); const u = App.pathCurrent(); return u && { unit: u, step: nextStep(u), href: stepHref(u.topic.id, nextStep(u)) }; };
 
-  routes.path = async function () {
-    await recLoad();
-    const us = unitState();
-    // Kho từ chưa tải được (mất mạng/CDN lỗi) → trạng thái trống có nút thử lại, không vẽ bản đồ rỗng/NaN%
-    if (!us.length) { view.innerHTML = `<div class="card empty"><div class="em" aria-hidden="true">🗺️</div><h2>${t('Không tải được – thử lại sau')}</h2><button class="btn primary" id="pathRetry">${t('Thử lại')}</button></div>`; $('#pathRetry').onclick = () => App.need('words').then(() => routes.path()).catch(() => {}); return; }
-    const doneN = us.filter(u => u.status === 'done').length;
-    const ielts = /^ielts/.test(App.exam ? App.exam() : 'ielts');
-    const cur = us.find(u => u.status === 'current'), stName = m => (STEPS().find(x => x[0] === m) || [])[2];
-    let idx = 0;
-    view.innerHTML = `
-      <div class="page-head"><div><h1>${ielts ? t('Lộ trình chinh phục IELTS') : t('Lộ trình từ vựng')}</h1><p class="muted">${t('{done}/{total} bài hoàn thành · Học theo vòng: giới thiệu → luyện → nghe → kiểm tra, rồi ôn lại đúng thời điểm vàng.', { done: doneN, total: us.length })}</p></div>
-        <div class="row">${ring(doneN / us.length * 100, `${Math.round(doneN / us.length * 100)}%`, 'var(--good)')}</div></div>
-      ${cur ? `<a class="btn primary lg block path-cta" href="${stepHref(cur.topic.id, nextStep(cur))}">${cur.topic.emoji} ${t('Tiếp tục: {step}', { step: esc(cur.topic.name + ' · ' + stName(nextStep(cur))) })} →</a>` : ''}
-      <div class="path">
-        ${STAGES.map(st => {
-          const su = us.filter(u => u.stage.id === st.id);
-          const sd = su.filter(u => u.status === 'done').length;
-          return `<div class="stage-banner" style="--sc:${st.color}">
-              <div><div class="tiny stage-lv">${ielts ? `${st.cefr} · ${st.band}` : `CEFR ${st.cefr}`}</div><h2 style="margin:.1rem 0;color:#fff">${st.name}</h2><div class="small" style="opacity:.92">${st.desc}</div><div class="small stage-cando">🎯 ${st.cando}</div>${st.id === 's0' ? `<a class="chip stage-rp" href="#/roleplay">🎭 ${t('Luyện nói: tình huống hằng ngày')}</a>` : ''}</div>
-              <div class="stage-count">${sd}/${su.length}</div></div>
-            <div class="nodes">${su.map(u => {
-              const off = Math.round(Math.sin(idx++ * 0.9) * 90);
-              const p = Math.round(u.pct * 100);
-              const stt = u.status === 'locked' ? t('Bài này đang khóa') : u.status === 'done' ? t('Đã hoàn thành') : u.status === 'current' ? t('Tiếp theo') : t('đã học {pct}%', { pct: p });
-              return `<div class="node-wrap${u.status === 'current' ? ' cur' : ''}" style="transform:translateX(${off}px)">
-                ${u.status === 'current' ? `<div class="node-tip" aria-hidden="true">${t('BẮT ĐẦU')}</div>` : ''}
-                <button class="node ${u.status}" data-unit="${u.topic.id}" style="--sc:${st.color};--p:${p}" aria-label="${esc(u.topic.name + ' – ' + stt)}"${u.status === 'current' ? ' aria-current="step"' : ''}>
-                  <span aria-hidden="true">${u.status === 'locked' ? '🔒' : u.status === 'done' ? '⭐' : u.topic.emoji}</span></button>
-                <div class="node-label" aria-hidden="true">${esc(u.topic.name)}</div>
-              </div>`;
-            }).join('')}</div>`;
-        }).join('')}
-      </div>`;
-    $$('[data-unit]').forEach(b => b.onclick = () => openUnit(b.dataset.unit));
-    const cn = $('.node.current');
-    if (cn && !location.hash.includes('?')) setTimeout(() => cn.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' }), 150);
-  };
-
-  function openUnit(id) {
-    const u = unitState().find(x => x.topic.id === id);
-    if (!u) return;
-    if (u.status === 'locked') {
-      modal(`<div class="celebrate"><div class="em">🔒</div><h2>${t('Bài này đang khóa')}</h2><p class="muted">${t('Hoàn thành bài trước (kiểm tra đạt ≥ 80%) hoặc học ≥ 80% số từ của bài này để mở khóa.')}</p>
-        <div class="row center"><a class="btn" href="#/topic/${id}" data-close>${t('Xem trước bộ từ')}</a><button class="btn primary" data-close>${t('Đã hiểu')}</button></div></div>`);
-      return;
-    }
-    const tp = u.topic, nx = u.status === 'done' ? '' : nextStep(u), nxName = nx && (STEPS().find(x => x[0] === nx) || [])[2];
-    modal(`<div class="row nowrap" style="gap:1rem"><div aria-hidden="true" style="font-size:2.6rem;width:70px;height:70px;border-radius:20px;display:grid;place-items:center;background:var(--surface-2)">${tp.emoji}</div>
-        <div><div class="tiny muted" style="font-weight:700">${esc(u.stage.name)}</div><h2 style="margin:0">${esc(tp.name)}</h2><div class="small muted">${t('{n} từ · đã học {pct}%', { n: tp.words.length, pct: Math.round(u.pct * 100) })}${u.score ? ' · ' + t('điểm kiểm tra {score}%', { score: u.score }) : ''}</div></div></div>
-      <p class="small unit-goal">🎯 ${t('Mục tiêu: nhận ra, hiểu và dùng được {n} từ về “{name}”.', { n: tp.words.length, name: esc(tp.name) })}</p>
-      <div class="stack unit-steps">
-        ${STEPS().map(([m, em, name, d], i) => { const ok = stepDone(u, m), isNx = m === nx; return `<a class="card hover row nowrap unit-step${isNx ? ' next' : ''}" href="${stepHref(id, m)}" data-close>
-          <span class="us-em" aria-hidden="true">${ok ? '✅' : em}</span>
-          <div class="grow"><b>${i + 1}. ${name}</b><div class="small muted">${d}</div></div>${isNx ? `<span class="chip lv">${t('Tiếp theo')}</span>` : ok ? `<span class="sr-only">${t('Đã hoàn thành')}</span>` : '<span class="muted" aria-hidden="true">→</span>'}</a>`; }).join('')}
-      </div>
-      ${nx ? `<a class="btn primary lg block" href="${stepHref(id, nx)}" data-close style="margin-top:1rem">${t('Bắt đầu: {step}', { step: esc(nxName) })} →</a>` : ''}
-      <div class="row between" style="margin-top:1rem"><a class="btn sm ghost" href="#/topic/${id}" data-close>📚 ${t('Xem danh sách từ')}</a><button class="btn sm" data-close>${t('Đóng')}</button></div>`);
-  }
+  // Bản đồ lộ trình theo NGÀY (Ngày 1, 2, 3…) + trang buổi học #/day/N: path-day.js (tải lười, gói 'pathx' – khung app không phình)
+  App.PathAPI = { STAGES, unitState, learnedPct, recLoad, recOf, STEPS, stepDone, stepHref, nextStep };
+  const lazy = n => async (...a) => { await App.need('pathx'); return window.DayPath[n](...a); };
+  routes.path = lazy('map'); routes.day = lazy('page');
+  // Thanh tiến độ buổi học (Ngày N · 3/6) trên các trang bài tập khi đang học dở 1 ngày
+  const sess = () => { try { return localStorage.getItem('vb.daySess'); } catch (e) { return null; } };
+  App.afterRoute = name => { if (sess() && !/^(day|path|home|welcome)$/.test(name || 'home')) App.need('pathx').then(() => window.DayPath && DayPath.bar(name)).catch(() => {}); };
 
   // Ghi nhận hoàn thành bài (gọi từ bài kiểm tra)
   App.completeUnit = async (id, pct) => {
