@@ -1,0 +1,18 @@
+{
+ "lang": "en",
+ "dir": "ltr",
+ "font": "BeVietnamPro-ExtraBold",
+ "name": "English",
+ "lesson_file": "restaurant_5",
+ "english_only": true,
+ "goal": "Asking for the bill",
+ "why": "In a restaurant it's “the bill”.",
+ "wrong": "wrong word",
+ "right": "natural",
+ "recap": "",
+ "lines": {},
+ "repeat": "Repeat after me",
+ "yourturn": "Your turn",
+ "ab": "Which one is right?",
+ "cta": "Role-play this conversation free on"
+}

@@ -1,0 +1,18 @@
+{
+ "lang": "en",
+ "dir": "ltr",
+ "font": "BeVietnamPro-ExtraBold",
+ "name": "English",
+ "lesson_file": "restaurant_6",
+ "english_only": true,
+ "goal": "Splitting the bill",
+ "why": "pay + separately (‑ly).",
+ "wrong": "no ‑ly",
+ "right": "right",
+ "recap": "",
+ "lines": {},
+ "repeat": "Repeat after me",
+ "yourturn": "Your turn",
+ "ab": "Which one is right?",
+ "cta": "Role-play this conversation free on"
+}
