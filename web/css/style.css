@@ -891,7 +891,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
 .sheet-next { margin-top: 1rem; background: #fff !important; color: #111 !important; border: 0 !important; box-shadow: 0 4px 0 rgba(0,0,0,.15); font-weight: 800; }
 .study-wrap:has(.sheet) { padding-bottom: calc(var(--sheet-h, 280px) + 1rem); }
 /* Màn hình rộng có thanh bên: căn khung kết quả theo vùng nội dung (không theo cả cửa sổ) để thẳng hàng với thẻ học */
-@media (min-width: 901px) { body:not(.bare) .sheet { left: var(--sidebar); } }
+@media (min-width: 901px) { body:not(.bare):not(.focus) .sheet { left: var(--sidebar); } }
 @keyframes sheetUp { from { transform: translateY(100%); } to { transform: none; } }
 
 /* ===== Chấm bằng AI ===== */
@@ -1056,7 +1056,7 @@ button, .btn, .option, .tabs, .bottom-nav { -webkit-user-select: none; user-sele
 [dir="rtl"] .md-prompt { border-right-color: var(--primary); }
 [dir="rtl"] .g-mistake { border-left: 1px solid var(--line); border-right: 4px solid var(--again); border-radius: 14px 0 0 14px; }
 [dir="rtl"] .pscore, [dir="rtl"] .mk-ov { text-align: left; }
-@media (min-width: 901px) { [dir="rtl"] body:not(.bare) .sheet { left: 0; right: var(--sidebar); } }
+@media (min-width: 901px) { [dir="rtl"] body:not(.bare):not(.focus) .sheet { left: 0; right: var(--sidebar); } }
 /* Nội dung học tiếng Anh luôn trái → phải, kể cả khi giao diện là tiếng Ả Rập */
 [dir="rtl"] .entry-word, [dir="rtl"] .wi-word, [dir="rtl"] .ipa, [dir="rtl"] .ex, [dir="rtl"] .fi-ex, [dir="rtl"] .ctx, [dir="rtl"] .mk-pass, [dir="rtl"] .toeic-pass, [dir="rtl"] textarea, [dir="rtl"] .lq-item { direction: ltr; unicode-bidi: isolate; }
 .wi-native { font-size: 1.05rem; font-weight: 600; color: var(--text); margin-top: .2rem; } .wi-native:empty { display: none; }
@@ -1513,3 +1513,5 @@ button.avatar { border: 0; padding: 0; cursor: pointer; font: inherit; font-weig
   .crumb a, button.linkish, .w-foot a, .row > a.small, .grid > a.small { display: inline-flex; align-items: center; min-height: 40px; }
   .crumb a { margin-block: -10px; }
 }
+/* Thanh kết quả (.sheet) cố định đáy: chừa chỗ để cuộn thấy hết đáp án phía dưới, không bị che */
+body:has(.sheet) .view { padding-bottom: calc(18rem + env(safe-area-inset-bottom)); }
