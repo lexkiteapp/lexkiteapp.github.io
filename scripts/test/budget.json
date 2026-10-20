@@ -6,7 +6,7 @@
     "web/js/lib/notes-more.js",
     "web/js/lib/notes-ngsl.js"
   ],
-  "totalJs": 17825792,
+  "totalJs": 17930650,
   "contentWarn": 207,
-  "_totalJsNote": "17/10: 16→17 MB – thêm Chia động từ + Sửa ngữ pháp (~130 KB) và 13 ngôn ngữ cùng dài thêm; admin-*.js không tính. Nâng tiếp chỉ khi đã rà dữ liệu trùng/thừa."
+  "_totalJsNote": "17/10: 16→17 MB – thêm Chia động từ + Sửa ngữ pháp (~130 KB) và 13 ngôn ngữ cùng dài thêm; admin-*.js không tính. Nâng tiếp chỉ khi đã rà dữ liệu trùng/thừa. 20/10: 17→17,1 MB – nút đổi ngôn ngữ mọi trang (lang-menu.js 2,4 KB) + dữ liệu tăng ~8 KB; đã rà: notes-*.js và i18n/*/structs.js tưởng không tham chiếu thực ra nạp động theo tên ghép, không phải thừa."
 }
