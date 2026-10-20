@@ -116,6 +116,39 @@ Bảng đầy đủ, đối chiếu từng dòng chính sách mục 2: **`store/
 - Data Not Linked to You: Other User Content, Search History (App Functionality); Device ID (Analytics + App Functionality); Product Interaction, Coarse Location, Crash Data, Performance Data (Analytics); Other Diagnostic Data (Analytics + App Functionality).
 - Khi bật đăng nhập trong app: thêm User ID (Linked) và chuyển dữ liệu học/tương tác sang Linked; sửa `PrivacyInfo.xcprivacy` + Play Data safety cùng lúc.
 
+#### B1a. Bấm từng bước – App Privacy (không có API công khai, phải làm trên web)
+App Store Connect → Apps → **Lexkite: English Vocabulary** → (thanh trái) **App Privacy**.
+1. **Privacy Policy** → Edit → `https://lexkite.com/en/privacy` → Save. (Privacy Choices URL: để trống.)
+2. **Data Collection** → Get Started (hoặc Edit) → "Do you or your third-party partners collect data from this app?" → **Yes, we collect data from this app** → Next.
+3. Tick đúng 12 ô (để trống mọi ô khác):
+   - Contact Info: ☑ **Name** ☑ **Email Address**
+   - Identifiers: ☑ **Device ID** (KHÔNG tick User ID)
+   - Usage Data: ☑ **Product Interaction**
+   - Diagnostics: ☑ **Crash Data** ☑ **Performance Data** ☑ **Other Diagnostic Data**
+   - Location: ☑ **Coarse Location** (KHÔNG tick Precise)
+   - Search History: ☑ **Search History**
+   - User Content: ☑ **Photos or Videos** ☑ **Customer Support** ☑ **Other User Content** (KHÔNG tick Audio Data, Emails or Text Messages, Gameplay Content)
+   → Save.
+4. Với MỖI loại, bấm "Set Up <loại>" và trả lời 3 câu (Purposes → Linked to user? → Used for tracking?):
+
+   | Loại | Purposes (tick) | Linked to the user? | Tracking? |
+   |---|---|---|---|
+   | Name | App Functionality | **Yes** | No |
+   | Email Address | App Functionality | **Yes** | No |
+   | Customer Support | App Functionality | **Yes** | No |
+   | Photos or Videos | App Functionality | **Yes** | No |
+   | Other User Content | App Functionality | No | No |
+   | Search History | App Functionality | No | No |
+   | Device ID | Analytics + App Functionality | No | No |
+   | Product Interaction | Analytics | No | No |
+   | Coarse Location | Analytics | No | No |
+   | Crash Data | Analytics | No | No |
+   | Performance Data | Analytics | No | No |
+   | Other Diagnostic Data | Analytics + App Functionality | No | No |
+
+   (Không tick Third-Party Advertising, Developer's Advertising or Marketing, Product Personalization, Other Purposes ở bất kỳ loại nào.)
+5. Xem lại trang tóm tắt: "Data Used to Track You" **trống**; "Data Linked to You" = Contact Info (Name, Email), User Content (Photos or Videos, Customer Support); "Data Not Linked to You" = phần còn lại → bấm **Publish** (góc trên phải).
+
 ### B2. 👤 Sign in with Apple (chỉ cần khi bật đăng nhập trong app iOS)
 1. developer.apple.com → Certificates, IDs & Profiles → Identifiers → `com.lexkite.app` → bật **Sign In with Apple**.
 2. Identifiers → **Services IDs** → tạo `com.lexkite.web` → bật Sign In with Apple → Configure: Primary App ID `com.lexkite.app`; Domains: `lexkite-app.firebaseapp.com`, `lexkite.com`; Return URL: `https://lexkite-app.firebaseapp.com/__/auth/handler`.
@@ -131,6 +164,8 @@ Nguồn: `reviewNotes` trong `store/apple/listing.json` (script `asc-upload.mjs`
 **Đã chuẩn bị (🛠):** niêm yết 15 ngôn ngữ (+ es-MX) `store/apple/listing.json` / `LISTING.md` (kiểm giới hạn ký tự + luật Apple trong `npm test`), ảnh iPhone/iPad, `scripts/asc-upload.mjs` (JWT ES256, idempotent, `--dry-run`) chạy trong workflow **iOS → ảnh App Store** (`asc = dry-run | upload`). Script chỉ ghi chữ, danh mục (Education / Reference), bản quyền, ghi chú duyệt và ảnh của bản 1.0 khi đang *Prepare for Submission*; không nộp, không đổi giá/phân phối/độ tuổi/App Privacy.
 
 **Trạng thái 20/10/2026:** ✅ đã đẩy thật lên App Store Connect (bản 1.0, Prepare for Submission): danh mục Education/Reference, tên + phụ đề + URL chính sách 16 ngôn ngữ, mô tả/từ khóa/quảng bá/URL hỗ trợ & marketing, bản quyền, ghi chú duyệt (demo account = không). Chạy lại = "đã đổi 0" phần chữ (idempotent). ⏸ **Ảnh CHƯA đẩy** – chờ sửa 3 lỗi app dưới đây rồi chụp lại.
+
+**Cài đặt nộp duyệt qua API** (`node scripts/asc-upload.mjs --only settings`, workflow `only = settings`): quyền nội dung = USES_THIRD_PARTY_CONTENT, bảng độ tuổi (mọi mục None/No) + `ageRatingOverrideV2 = THIRTEEN_PLUS`, giá Free (gốc USA), quốc gia: 148/175 mở, tắt EU-27, availableInNewTerritories = false, liên hệ người duyệt (Quyen / Khieu Dinh / support@lexkite.com; số điện thoại CHỈ qua secret `ASC_REVIEW_PHONE`, không lưu repo), phát hành MANUAL. Không chọn build, không nộp. Dry-run 20/10: 6 mục sẽ đổi, mọi khóa độ tuổi có trong API. **Chỉ chạy thật khi anh chủ đồng ý trực tiếp** (cam kết quyền nội dung, độ tuổi, giá/quốc gia là khai báo của chủ tài khoản).
 
 **❌ Lỗi app phải sửa trước khi nộp (thấy trên ảnh Simulator, nhánh `ios-shots`; vùng `web/js` – báo phiên chính):**
 1. **Đăng nhập Google vẫn hiện trong app gốc** dù `nativeNoAuth` đã tắt đồng bộ: nút "Tôi đã có tài khoản" ở màn chào (`app.js` ~1550, `#loginW`), nút G ở thanh trên, "Sign in with Google" ở thanh bên iPad; bấm vào ra hộp "sẽ có ở bản phát hành chính thức" (`sync.js` ~298) = tính năng "sắp có" → rủi ro Apple 2.1 + 4.8 (đăng nhập bên thứ ba mà không có Sign in with Apple). Sửa: ẩn mọi lối đăng nhập khi `nativeNoAuth`.
