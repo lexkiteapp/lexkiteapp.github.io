@@ -1503,8 +1503,9 @@ button.avatar { border: 0; padding: 0; cursor: pointer; font: inherit; font-weig
 /* Visual QA (scripts/test/visual-qa.mjs): chữ vàng đủ tương phản, highlight trong ví dụ, vùng chạm ≥ 40px trên màn cảm ứng (không đổi bố cục chữ) */
 .ex mark { color: var(--text); }
 .btn { max-width: 100%; }
-.dp-unit h3, .pos-block .ex { overflow-wrap: anywhere; min-width: 0; }
-@media (max-width: 560px) { .btn { white-space: normal; text-align: center; } .dp-unit h3 { flex-wrap: wrap; } }
+.dp-unit h3, .pos-block .ex { overflow-wrap: anywhere; min-width: 0; } .pos-block .ex { max-width: 100%; }
+@media (max-width: 560px) { .btn { white-space: normal; text-align: center; } }
+.dp-unit > h3 { flex: 1 1 12rem; } /* tên đơn vị dài (de/ru/es) không bị nút + thanh tiến độ ép thành cột */
 @media (pointer: coarse) {
   .btn.sm, .lsw-b, .top-stats .gsi, .goal-chip { min-height: 40px; }
   .top-stats .lsw-b, .top-stats .gsi { min-width: 40px; }
