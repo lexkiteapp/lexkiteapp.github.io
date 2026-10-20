@@ -34,7 +34,7 @@
         ['Nghề nghiệp', 'a/an', 'She is an engineer.'],
         ['Âm /juː/ bắt đầu', 'a', 'a university, a European country'],
         ['h câm', 'an', 'an honest answer, an hour'],
-        ['Tên nước có Republic/Kingdom/States', 'the', 'the UK, the USA, the Philippines'],
+        ['Tên nước có Republic/Kingdom/States hoặc ở dạng số nhiều', 'the', 'the UK, the USA, the Philippines'],
         ['Tên nước thông thường', 'Ø', 'Vietnam, Japan, France'],
         ['Khái niệm chung (không đếm được)', 'Ø', 'Pollution affects health.']
       ] },
@@ -97,7 +97,7 @@
     ],
     quiz: [
       { q: 'We need more ___ before making a decision.', options: ['informations', 'information', 'an information', 'many information'], answer: 1, explain: '“information” không đếm được, không thêm -s, không dùng an/many. "informations" thêm -s sai; "an information" và "many information" dùng sai với danh từ không đếm được.' },
-      { q: 'Only ___ students passed, so the teacher was disappointed.', options: ['a few', 'few', 'a little', 'little'], answer: 1, explain: '“few” mang nghĩa tiêu cực (rất ít), phù hợp với việc giáo viên thất vọng; students đếm được.' },
+      { q: 'Very ___ students passed, so the teacher was disappointed.', options: ['a few', 'few', 'a little', 'little'], answer: 1, explain: '“few” mang nghĩa tiêu cực (rất ít), phù hợp với việc giáo viên thất vọng; students đếm được.' },
       { q: 'The chart shows the ___ of water used by each sector.', options: ['number', 'amount', 'many', 'few'], answer: 1, explain: 'water là danh từ không đếm được → the amount of. number dùng cho danh từ đếm được; many và few cũng chỉ đi với danh từ đếm được và không đứng sau the… of.' },
       { q: 'There is ___ traffic in the city centre during rush hour.', options: ['many', 'a lot of', 'a few', 'several'], answer: 1, explain: '“traffic” không đếm được; a lot of dùng được cho cả hai loại. many, a few và several chỉ đi với danh từ đếm được số nhiều.' },
       { q: 'Choose the correct sentence.', options: ['They bought new furnitures.', 'They bought a new furniture.', 'They bought some new furniture.', 'They bought many new furniture.'], answer: 2, explain: '“furniture” không đếm được, đi với some; không có dạng số nhiều. "furnitures" thêm -s sai; "a furniture" và "many furniture" dùng sai với danh từ không đếm được.' },
@@ -105,7 +105,7 @@
       { q: 'Câu nào đúng ngữ pháp?', options: ['She gave me some useful advices.', 'She gave me a useful advice.', 'She gave me some useful advice.', 'She gave me many useful advice.'], answer: 2, explain: 'advice là danh từ không đếm được: không thêm -s, không dùng a/many; dùng some. "advices" thêm -s sai; "a useful advice" và "many useful advice" dùng sai với danh từ không đếm được.' },
       { q: 'Câu nào đúng ngữ pháp?', options: ['There is too much traffic in the city centre.', 'There are too many traffics in the city centre.', 'There is too many traffic in the city centre.', 'There are too much traffic in the city centre.'], answer: 0, explain: 'traffic không đếm được → too much + động từ số ít is. "traffics" sai; "too many traffic" dùng many với danh từ không đếm được; "are too much" sai hòa hợp.' },
       { q: 'Phần nào sai? We need (A) more (B) informations (C) about the course (D) before we decide.', options: ['(A) more', '(B) informations', '(C) about', '(D) before'], answer: 1, explain: 'information không đếm được nên không thêm -s → more information; phần sai là (B). more, about và before đều đúng.' },
-      { q: 'Phần nào sai? Only (A) a little students (B) attended the lecture (C) because of (D) the heavy rain.', options: ['(A) a little', '(B) attended', '(C) because of', '(D) the'], answer: 0, explain: 'students đếm được → dùng a few (hoặc few), không dùng a little. attended, because of và the đều đúng.' },
+      { q: 'Phần nào sai? Only (A) a little students (B) attended the lecture (C) because of (D) the heavy rain.', options: ['(A) a little', '(B) attended', '(C) because of', '(D) the'], answer: 0, explain: 'students đếm được → dùng a few, không dùng a little. attended, because of và the đều đúng.' },
       { q: 'Task 1: The ___ of plastic waste produced in the country doubled between 2000 and 2020.', options: ['number', 'amount', 'many', 'few'], answer: 1, explain: 'waste (rác thải) không đếm được → the amount of. number dùng cho danh từ đếm được; many và few không đứng sau the… of và cũng chỉ dùng cho danh từ đếm được.' },
       { q: 'Speaking Part 1: "Do you have many friends?" – "Not many, but I have ___ close friends I can really trust."', options: ['a little', 'much', 'little', 'a few'], answer: 3, explain: 'friends đếm được, nghĩa tích cực "có một vài" → a few. a little và little dùng cho danh từ không đếm được; much cũng dùng cho không đếm được.' }
     ]
@@ -200,7 +200,7 @@
         ['expensive', 'more expensive', 'the most expensive'],
         ['good / well', 'better', 'the best'],
         ['bad / badly', 'worse', 'the worst'],
-        ['far', 'further / farther', 'the furthest'],
+        ['far', 'further / farther', 'the furthest / farthest'],
         ['little (lượng)', 'less', 'the least']
       ] },
       { type: 'signals', words: ['slightly', 'marginally', 'a little', 'much', 'far', 'considerably', 'significantly', 'substantially', 'twice as … as', 'three times as … as', 'by far the …'] },
@@ -267,7 +267,7 @@
       { type: 'mistake', wrong: 'Children can benefit a lot by playing sports.', right: 'Children can benefit a lot from playing sports.', why: '“benefit” đi với from.' },
       { type: 'mistake', wrong: 'This trend has a big influence to young people.', right: 'This trend has a big influence on young people.', why: 'influence/impact/effect + on.' },
       { type: 'mistake', wrong: 'We discussed about the problem in class.', right: 'We discussed the problem in class.', why: '“discuss” là ngoại động từ, không cần about (giống emphasise, mention).' },
-      { type: 'ielts', text: 'Task 1: phân biệt rõ “rose by 5%” (tăng thêm 5 điểm) và “rose to 5%” (tăng lên mức 5%). Một giới từ sai có thể làm sai lệch toàn bộ số liệu.', ex: 'In 2000, the figure stood at 20%; it then increased by 15% to reach 35% in 2010.' }
+      { type: 'ielts', text: 'Task 1: phân biệt rõ “rose by 5%” (tăng thêm 5 điểm) và “rose to 5%” (tăng lên mức 5%). Một giới từ sai có thể làm sai lệch toàn bộ số liệu.', ex: 'In 2000, the figure stood at 20%; it then increased by 15 percentage points to reach 35% in 2010.' }
     ],
     quiz: [
       { q: 'The conference will take place ___ 14 March.', options: ['in', 'on', 'at', 'by'], answer: 1, explain: 'Ngày cụ thể dùng on → on 14 March. in dùng cho tháng/năm; at dùng cho giờ; by nghĩa là "trước/không muộn hơn", sai nghĩa.' },
@@ -603,9 +603,9 @@
       { q: 'Not only ___ expensive, but it is also inefficient.', options: ['the system is', 'is the system', 'does the system', 'the system does'], answer: 1, explain: 'Với động từ be, đảo trực tiếp be lên trước chủ ngữ. "the system is" không đảo; "does the system" sai vì động từ là be; "the system does" sai.' },
       { q: 'It was the teachers ___ organised the charity event.', options: ['which', 'who', 'what', 'whom'], answer: 1, explain: 'Câu chẻ nhấn mạnh người làm chủ ngữ dùng who (hoặc that). which chỉ vật; what không dùng trong câu chẻ; whom không làm chủ ngữ.' },
       { q: '___ the public needs is reliable information.', options: ['That', 'It', 'What', 'Which'], answer: 2, explain: 'Câu chẻ What… is: What the public needs is… That, It, Which không mở đầu được mệnh đề danh từ thiếu tân ngữ làm chủ ngữ.' },
-      { q: 'No sooner ___ the announcement than the shares rose.', options: ['had they made', 'they had made', 'did they make', 'they made'], answer: 0, explain: 'Đảo ngữ No sooner + had + S + V3 + than + S + V2 (vừa mới… thì…) → had they made. "they had made" và "they made" không đảo ngữ; "did they make" sai thì (No sooner đi với had + V3).' },
+      { q: 'No sooner ___ the announcement than the shares rose.', options: ['had they made', 'they had made', 'had made they', 'they made'], answer: 0, explain: 'Đảo ngữ No sooner + had + S + V3 + than + S + V2 (vừa mới… thì…) → had they made. "they had made" và "they made" không đảo ngữ; "had made they" đảo sai vị trí (chỉ đảo trợ động từ had lên trước chủ ngữ).' },
       { q: 'Only after the accident ___ the dangers of the road.', options: ['people realised', 'did people realise', 'people did realise', 'realised people'], answer: 1, explain: 'Only after + mốc → đảo ngữ ở mệnh đề chính: did people realise. "people realised" và "people did realise" không đảo; "realised people" đảo sai (phải đảo trợ động từ).' },
-      { q: 'Câu nào đúng ngữ pháp?', options: ['Never I have seen such a beautiful sunset.', 'Never have I seen such a beautiful sunset.', 'Never I saw such a beautiful sunset.', 'Never have I saw such a beautiful sunset.'], answer: 1, explain: 'Đảo ngữ với Never: Never + have + S + V3 → Never have I seen. Hai câu đầu không đảo; câu cuối dùng sai V3 (saw).' },
+      { q: 'Câu nào đúng ngữ pháp?', options: ['Never I have seen such a beautiful sunset.', 'Never have I seen such a beautiful sunset.', 'Never I saw such a beautiful sunset.', 'Never have I saw such a beautiful sunset.'], answer: 1, explain: 'Đảo ngữ với Never: Never + have + S + V3 → Never have I seen. Câu 1 và câu 3 không đảo ngữ; câu cuối dùng sai V3 (saw).' },
       { q: 'Câu nào đúng ngữ pháp?', options: ['It was my mother which taught me to cook.', 'It were my mother who taught me to cook.', 'It was my mother whom taught me to cook.', 'It was my mother who taught me to cook.'], answer: 3, explain: 'Câu chẻ nhấn mạnh người: It was + người + who + V. which chỉ vật; "It were" sai hòa hợp; whom không làm chủ ngữ.' },
       { q: 'Phần nào sai? Not only (A) the city is (B) polluted, but it (C) is also (D) overcrowded.', options: ['(A) the city is', '(B) polluted', '(C) is also', '(D) overcrowded'], answer: 0, explain: 'Not only đứng đầu câu cần đảo ngữ → Not only is the city polluted… polluted, is also và overcrowded đều đúng.' },
       { q: 'Phần nào sai? (A) What I need (B) most (C) are a quiet place (D) to study.', options: ['(A) What', '(B) most', '(C) are', '(D) to study'], answer: 2, explain: 'Câu chẻ với What làm chủ ngữ dùng động từ số ít → is. What, most và to study đều đúng.' },

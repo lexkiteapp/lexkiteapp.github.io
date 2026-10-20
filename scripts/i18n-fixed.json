@@ -22174,5 +22174,20 @@
     "ar": "اضغط على «إرسال إلى تطبيق Anki» ثم اختر AnkiMobile.",
     "ru": "Нажмите «Отправить в приложение Anki» и выберите AnkiMobile.",
     "tr": "“Anki uygulamasına gönder” düğmesine dokunun ve AnkiMobile seçin."
+  },
+  "Tóm tắt bài học": {
+    "es": "Resumen de la lección",
+    "pt": "Resumo da lição",
+    "fr": "Récap de la leçon",
+    "de": "Lektionsübersicht",
+    "id": "Ringkasan pelajaran",
+    "th": "สรุปบทเรียน",
+    "zh": "本课小结",
+    "ja": "レッスンのまとめ",
+    "ko": "레슨 요약",
+    "hi": "पाठ का सारांश",
+    "ar": "ملخص الدرس",
+    "ru": "Итоги урока",
+    "tr": "Ders özeti"
   }
 }

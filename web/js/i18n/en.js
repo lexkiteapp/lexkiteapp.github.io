@@ -660,6 +660,7 @@
   'Kiểm tra': 'Check',
   'Đáp án: <b>{a}</b>': 'Answer: <b>{a}</b>',
   'Bài tập tự luận ({n} câu)': 'Written exercises ({n} questions)',
+  'Tóm tắt bài học': 'Lesson recap',
   'Các dạng bài quen thuộc trong đề thi: chia động từ, viết lại câu, nối câu, tìm lỗi sai. Gõ đáp án rồi bấm Kiểm tra (hoặc Enter).': 'Common exam formats: verb forms, sentence rewriting, combining sentences and error spotting. Type your answer, then press Check (or Enter).',
   'Ngữ pháp': 'Grammar',
   'Học từng bước': 'Step by step',

@@ -48,7 +48,7 @@
         { title: 'glass (thủy tinh, không đếm được) → glasses (kính đeo mắt / cốc)', ex: 'She cannot read the timetable without her glasses.', vi: 'Cô ấy không đọc được bảng giờ nếu không đeo kính.' },
         { title: 'Một danh từ – hai dạng số nhiều, hai nghĩa: cloth → cloths (mảnh vải lau) / clothes (quần áo); penny → pennies (đồng xu) / pence (giá tiền)', ex: 'Wipe the table with one of the clean cloths.', vi: 'Hãy lau bàn bằng một trong những mảnh vải sạch.' },
         { title: 'species, series, means: số ít và số nhiều cùng một dạng – nhìn từ hạn định để chia động từ', ex: 'This species is found only on two small islands.', vi: 'Loài này chỉ được tìm thấy trên hai hòn đảo nhỏ.' },
-        { title: 'Danh từ luôn số nhiều → động từ số nhiều; muốn đếm thì dùng a pair of', ex: 'The goods were damaged during shipping.', vi: 'Hàng hóa bị hư hỏng trong quá trình vận chuyển.' },
+        { title: 'Danh từ luôn số nhiều → động từ số nhiều; muốn đếm đồ vật hai phần (trousers, scissors, glasses…) thì dùng a pair of', ex: 'The goods were damaged during shipping.', vi: 'Hàng hóa bị hư hỏng trong quá trình vận chuyển.' },
         { title: 'Phenomena, criteria là số nhiều – đi với these / are', ex: 'These phenomena are difficult to explain.', vi: 'Những hiện tượng này rất khó giải thích.' }
       ] },
       { type: 'tip', text: 'Y đứng sau NGUYÊN ÂM (a, e, i, o, u) thì giữ nguyên: key → keys, journey → journeys, toy → toys. Tên riêng cũng giữ y: the Kennedys.' },
@@ -271,7 +271,7 @@
         { title: 'Farther / further: cả hai chỉ khoảng cách; chỉ further mang nghĩa "thêm, hơn nữa"', ex: 'For further information, please contact the front desk.', vi: 'Để biết thêm thông tin, vui lòng liên hệ quầy lễ tân.' },
         { title: 'Elder / eldest: chỉ dùng cho anh chị em trong gia đình và đứng trước danh từ; older dùng mọi trường hợp (có than)', ex: 'My elder sister is three years older than me.', vi: 'Chị gái tôi lớn hơn tôi ba tuổi.' },
         { title: 'Less + N không đếm được; fewer + N đếm được số nhiều', ex: 'People today spend less time reading books.', vi: 'Ngày nay mọi người dành ít thời gian đọc sách hơn.' },
-        { title: 'The same (+ N) as; similar to; different from', ex: 'My answer was the same as yours.', vi: 'Câu trả lời của tôi giống của bạn.' },
+        { title: 'The same (+ N) as; similar to; different from (Anh–Anh còn dùng different to, Anh–Mỹ dùng cả different than)', ex: 'My answer was the same as yours.', vi: 'Câu trả lời của tôi giống của bạn.' },
         { title: 'So sánh nhất + ever (từng) / in + nơi chốn / of + nhóm', ex: 'It was the most exciting match I have ever watched.', vi: 'Đó là trận đấu hấp dẫn nhất tôi từng xem.' },
         { title: 'Số lần + so sánh hơn + than (Task 1)', ex: 'Coffee consumption in 2022 was three times higher than in 2000.', vi: 'Lượng cà phê tiêu thụ năm 2022 cao gấp ba lần năm 2000.' }
       ] },
@@ -294,7 +294,7 @@
     ],
     quiz: [
       { q: 'This laptop is ___ my old one.', options: ['as lighter as', 'as light as', 'lighter as', 'the lightest than'], answer: 1, explain: 'So sánh bằng: as + tính từ nguyên mẫu + as → as light as. "as lighter as" sai dạng; "lighter as" sai từ so sánh; "the lightest than" trộn hai cấu trúc.' },
-      { q: 'The number of tourists in July was ___ in March.', options: ['twice more as', 'two times many than', 'twice as many as', 'double as many'], answer: 2, explain: 'Gấp đôi với danh từ đếm được: twice as many… as… "twice more as" và "two times many than" sai cấu trúc; "double as many" không dùng như vậy.' },
+      { q: 'The museum had ___ visitors in July as in March.', options: ['twice more', 'two times many', 'twice as many', 'double as many'], answer: 2, explain: 'Gấp đôi với danh từ đếm được: twice as many… as… "twice more" và "two times many" sai cấu trúc; "double as many" không dùng như vậy.' },
       { q: '___ you start, the sooner you will finish.', options: ['Earlier', 'The earliest', 'As earlier', 'The earlier'], answer: 3, explain: 'Càng…càng: The + so sánh hơn …, the + so sánh hơn … Earlier thiếu the; The earliest là so sánh nhất; "As earlier" sai cấu trúc.' },
       { q: 'Please let me know if you need ___ help.', options: ['further', 'farther', 'farthest', 'more far'], answer: 0, explain: 'Nghĩa "thêm, hơn nữa" chỉ dùng further → further help. farther/farthest chỉ khoảng cách; "more far" sai dạng.' },
       { q: 'The second test was ___ more difficult than the first.', options: ['very', 'too', 'much', 'most'], answer: 2, explain: 'Nhấn mạnh so sánh hơn dùng much → much more difficult. very và too không đứng trước so sánh hơn; most là so sánh nhất.' },

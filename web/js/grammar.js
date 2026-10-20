@@ -39,6 +39,8 @@
   const chapterOf = id => { const c = CHAPTERS.find(c => c.ids.includes(id)); if (c) return c; const l = (window.GRAMMAR || []).find(x => x.id === id); return CHAPTERS.find(c => c.n === UNIT_FALLBACK[l && l.unit]) || CHAPTERS[6]; };
   const lessonsOf = c => { const all = window.GRAMMAR || []; const listed = c.ids.map(id => all.find(x => x.id === id)).filter(Boolean); const extra = all.filter(x => !CHAPTERS.some(cc => cc.ids.includes(x.id)) && chapterOf(x.id) === c); return [...listed, ...extra]; };
   const done = () => state.game.grammarDone || {};
+  // Tên bài theo ngôn ngữ giao diện: tiếng Việt → tên Việt; ngôn ngữ khác → tên đã dịch, chưa dịch thì tên tiếng Anh (không lẫn tiếng Việt)
+  const TTL = x => I18N.lang() === 'vi' ? x.title : (t(x.title) !== x.title ? t(x.title) : x.en);
   const sayBtn = s => `<button class="icon-btn sm" data-speak-text="${esc(s)}" title="${t('Nghe')}">🔊</button>`;
 
   routes.grammar = function (id) {
@@ -106,7 +108,7 @@
   const signals = b => `<div class="g-block"><h3>🚦 ${t('Dấu hiệu nhận biết')}</h3><div class="row">${b.words.map(w => `<span class="chip lv">${esc(w)}</span>`).join('')}</div></div>`;
   const table = b => `<div class="g-block" style="overflow-x:auto"><table class="gtable"><thead><tr>${b.head.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${b.rows.map(r => `<tr>${r.map(c => `<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   const tip = b => `<div class="g-tip">💡 ${esc(b.text)}</div>`;
-  const mistake = b => `<div class="g-mistake"><div><span class="bad">✗</span> <s>${esc(b.wrong)}</s></div><div><span class="good">✓</span> <b>${esc(b.right)}</b> ${sayBtn(b.right)}</div><div class="small muted">${esc(b.why)}</div></div>`;
+  const mistake = b => `<div class="g-mistake"><div><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <s lang="en">${esc(b.wrong)}</s></div><div><span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en">${esc(b.right)}</b> ${sayBtn(b.right)}</div><div class="small muted">${esc(b.why)}</div></div>`;
   const ielts = b => `<div class="g-ielts"><b>🎓 ${t('Trong IELTS:')}</b> ${esc(b.text)}${b.ex ? `<div class="ex" style="margin-top:.3rem">“${esc(b.ex)}” ${sayBtn(b.ex)}</div>` : ''}</div>`;
   const diagram = b => `<div class="g-visual"><div class="flow">${b.steps.map(s => `<div class="fstep ${esc(s.c || '')}">${esc(s.t)}</div>`).join('')}</div>${b.caption ? `<div class="small muted center">${esc(b.caption)}</div>` : ''}</div>`;
   const scale = b => `<div class="g-visual"><div class="scale">${b.items.slice().sort((x, y) => y.v - x.v).map(i => `<div class="srow"><b>${esc(i.t)}</b><div class="sbar"><i style="width:${i.v}%;background:hsl(${i.v * 1.2},70%,48%)"></i></div><span class="tiny muted">${i.v}%</span></div>`).join('')}</div>${b.caption ? `<div class="small muted center">${esc(b.caption)}</div>` : ''}</div>`;
@@ -161,7 +163,7 @@
   // ---------- Bài tập (dùng chung cho cả 2 chế độ) ----------
   function quizHtml(x) {
     return `<div class="card" id="gQuiz"><h2>✏️ ${t('Luyện tập ({n} câu)', { n: x.quiz.length })}</h2>
-      ${x.quiz.map((q, k) => `<div class="q-item" data-q="${k}"><b>${k + 1}. ${esc(q.q)}</b><div class="opts">${q.options.map((o, j) => `<button data-v="${j}">${esc(o)}</button>`).join('')}</div><div class="small" data-explain hidden style="margin-top:.4rem"></div></div>`).join('')}
+      ${x.quiz.map((q, k) => `<div class="q-item" data-q="${k}" role="group" aria-labelledby="gq${k}"><b id="gq${k}" lang="en">${k + 1}. ${esc(q.q)}</b><div class="opts" lang="en">${q.options.map((o, j) => `<button data-v="${j}">${esc(o)}</button>`).join('')}</div><div class="small" data-explain hidden aria-live="polite" style="margin-top:.4rem"></div></div>`).join('')}
       <div id="gRes" style="margin-top:1rem"></div></div>`;
   }
   function bindQuiz(x, next, again) {
@@ -176,7 +178,7 @@
       if (!ok) btn.classList.add('wrong');
       ok ? Sfx.correct() : Sfx.wrong();
       if (!ok && App.logMistake) App.logMistake({ kind: 'grammar', q: q.q, answer: q.options[q.answer], given: q.options[+btn.dataset.v], explain: q.explain, ref: x.id });
-      const ex = $('[data-explain]', item); ex.hidden = false; ex.innerHTML = `${ok ? '✅' : '❌'} ${esc(q.explain)}`;
+      const ex = $('[data-explain]', item); ex.hidden = false; ex.innerHTML = ok ? `✅ ${esc(q.explain)}` : `❌ ${t('Bạn chọn:')} <s>${esc(q.options[+btn.dataset.v])}</s> · ${t('Đáp án: <b>{a}</b>', { a: esc(q.options[q.answer]) })}<div>${esc(q.explain)}</div>`;
       const nextItem = item.nextElementSibling; if (nextItem && nextItem.classList.contains('q-item')) setTimeout(() => nextItem.scrollIntoView({ behavior: 'smooth', block: 'center' }), 500);
       if (answered === x.quiz.length) {
         const pct = Math.round(right / x.quiz.length * 100);
@@ -185,18 +187,26 @@
         if (pct >= 80) { Sfx.win(); confetti(); }
         $('#gRes').innerHTML = `<div class="feedback ${pct >= 80 ? 'ok' : 'no'}" style="position:static"><b>${t('{right}/{total} câu đúng ({pct}%)', { right, total: x.quiz.length, pct })}</b> · +${10 + right * 3} XP
           ${pct < 80 ? `<div class="small">${t('Xem lại phần công thức và lỗi hay gặp rồi làm lại nhé. Câu sai đã vào Sổ lỗi sai.')}</div>` : ''}
-          <div class="row" style="margin-top:.6rem"><button class="btn sm" id="gAgain">↺ ${t('Làm lại')}</button>${next ? `<a class="btn sm primary" href="#/grammar/${next.id}">${t('Bài tiếp theo')} →</a>` : ''}</div></div>`;
+          <div class="row" style="margin-top:.6rem"><button class="btn sm" id="gAgain">↺ ${t('Làm lại')}</button>${right < x.quiz.length ? `<a class="btn sm" href="#/mistakes">📒 ${t('Sổ lỗi sai')}</a>` : ''}${next ? `<a class="btn sm primary" href="#/grammar/${next.id}">${t('Bài tiếp theo')} →</a>` : ''}</div></div>${recapHtml(x)}`;
         $('#gRes').scrollIntoView({ behavior: 'smooth', block: 'center' });
         $('#gAgain').onclick = again;
       }
     }));
+  }
+  // Tóm tắt cuối bài: ý chính → công thức → lỗi hay gặp (gặp lại ngay sau khi luyện giúp nhớ lâu)
+  function recapHtml(x) {
+    const f = (x.blocks.find(b => b.type === 'formula') || { rows: [] }).rows[0], m = x.blocks.find(b => b.type === 'mistake');
+    return `<div class="g-recap" role="note"><h3>🧠 ${t('Tóm tắt bài học')}</h3><div class="small">${esc(x.summary)}</div>
+      ${f ? `<div class="frow" style="margin-top:.5rem"><div class="fparts">${f.parts.map(p => `<span class="fp ${esc(p.c || '')}">${esc(p.t)}</span>`).join('<span class="fplus">+</span>')}</div>${f.ex ? `<div class="fex" lang="en">➜ ${esc(f.ex)}</div>` : ''}</div>` : ''}
+      ${m ? `<div class="small" style="margin-top:.4rem"><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <s lang="en">${esc(m.wrong)}</s> → <span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en">${esc(m.right)}</b></div>` : ''}</div>`;
   }
   // ---------- Bài tập tự luận: chia động từ, dạng từ, điền từ, viết lại câu, nối câu, tìm lỗi sai ----------
   const dkind = k => { const K = { verb: '🔤 ' + t('Chia động từ'), form: '🧬 ' + t('Dạng đúng của từ'), fill: '✏️ ' + t('Điền từ'), rewrite: '🔁 ' + t('Viết lại câu'), combine: '🔗 ' + t('Nối câu'), error: '🕵️ ' + t('Tìm lỗi sai') }; return K[k] || K.fill; };
   const dnorm = s => ' ' + String(s || '').toLowerCase().replace(/[’‘`]/g, "'").replace(/won't/g, 'will not').replace(/can't|can not/g, 'cannot').replace(/n't\b/g, ' not').replace(/'re\b/g, ' are').replace(/'ve\b/g, ' have').replace(/'ll\b/g, ' will').replace(/'m\b/g, ' am')
     .replace(/[.,!?;:"“”()]/g, ' ').replace(/\s+/g, ' ').trim() + ' ';
   // Chuẩn hóa thêm: chính tả Anh–Mỹ (-ize/-ise), "per cent"/"percent" → "%"
-  const dnorm2 = s => dnorm(s).replace(/(\w)iz(e|ed|es|ing|ation|ations)\b/g, '$1is$2').replace(/(\d)\s*(?:per cent|percent)\b/g, '$1%').replace(/\s+%/g, '%');
+  // + "2,000" = "2000" (dấu phân cách hàng nghìn), "three-fold" = "threefold" (gạch nối tùy chọn)
+  const dnorm2 = s => dnorm(String(s || '').replace(/(\d),(?=\d{3}\b)/g, '$1').replace(/([a-z])-(?=[a-z])/gi, '$1')).replace(/(\w)iz(e|ed|es|ing|ation|ations)\b/g, '$1is$2').replace(/(\d)\s*(?:per cent|percent)\b/g, '$1%').replace(/\s+%/g, '%');
   // Câu người học có thể viết tắt 'd (would/had) và 's (is/has/sở hữu) → thử mọi cách hiểu
   function variants(given) {
     let out = [given.replace(/[’‘`]/g, "'")];
@@ -208,11 +218,11 @@
   const drillsOf = x => x.drills || [];
   function drillItem(d, k) {
     const head = `<span class="chip" style="font-size:.75rem">${dkind(d.t)}</span>`;
-    if (d.t === 'error') return `<div class="q-item dr" data-d="${k}">${head}<div class="dr-q" style="margin:.5rem 0;font-size:1.05rem;line-height:2">${d.parts.map((p, j) => `<button class="dr-part" data-j="${j}"><u>${esc(p)}</u><sub>${'ABCD'[j] || j + 1}</sub></button>`).join(' ')}</div><div class="small muted">${t('Bấm vào phần sai.')}</div><div class="small" data-fb hidden></div></div>`;
+    if (d.t === 'error') return `<div class="q-item dr" data-d="${k}">${head}<div class="dr-q" style="margin:.5rem 0;font-size:1.05rem;line-height:2">${d.parts.map((p, j) => `<button class="dr-part" data-j="${j}"><u>${esc(p)}</u><sub>${'ABCD'[j] || j + 1}</sub></button>`).join(' ')}</div><div class="small muted">${t('Bấm vào phần sai.')}</div><div class="small" data-fb hidden aria-live="polite"></div></div>`;
     const long = d.t === 'rewrite' || d.t === 'combine';
     const q = long ? `<div style="margin:.5rem 0">${esc(d.q)}${d.hint ? ` <span class="muted small">(${esc(d.hint)})</span>` : ''}</div><textarea class="dr-in" rows="2" spellcheck="false" placeholder="${t('Viết câu của bạn…')}">${esc(d.start ? d.start + ' ' : '')}</textarea>`
-      : `<div style="margin:.5rem 0;line-height:2.2">${esc(d.q).replace('___', '<input class="dr-in gap" size="14" autocomplete="off" spellcheck="false">')}</div>`;
-    return `<div class="q-item dr" data-d="${k}">${head}${q}<div class="row" style="margin-top:.4rem"><button class="btn sm primary dr-chk">${t('Kiểm tra')}</button></div><div class="small" data-fb hidden></div></div>`;
+      : `<div style="margin:.5rem 0;line-height:2.2">${esc(d.q).replace('___', `<input class="dr-in gap" size="14" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="${esc(t('Điền từ'))}">`)}</div>`;
+    return `<div class="q-item dr" data-d="${k}">${head}${q}<div class="row" style="margin-top:.4rem"><button class="btn sm primary dr-chk">${t('Kiểm tra')}</button></div><div class="small" data-fb hidden aria-live="polite"></div></div>`;
   }
   // Chấm 1 câu, trả về true/false (null nếu chưa làm)
   function gradeDrill(item, d, picked) {
@@ -263,9 +273,9 @@
       }
     });
   }
-  const heroHtml = (x, unit) => `<div class="card hero-main" style="margin:.7rem 0 1rem;background:linear-gradient(135deg, ${unit.color}, #1e1b4b 160%)">
-      <div class="row nowrap"><div style="font-size:3rem">${x.emoji}</div><div><div class="muted small">${t('Chương {n}', { n: chapterOf(x.id).n })} · ${esc(t(chapterOf(x.id).name))} · ${esc(x.level)}</div>
-        <h1 style="margin:0;color:#fff">${esc(x.title)}</h1><div style="opacity:.9;font-weight:700">${esc(x.en)}</div></div></div>
+  const heroHtml = (x, unit) => `<div class="card hero-main g-hero" style="margin:.7rem 0 1rem;--uc:${unit.color}">
+      <div class="row nowrap"><div style="font-size:3rem" aria-hidden="true">${x.emoji}</div><div><div class="muted small">${t('Chương {n}', { n: chapterOf(x.id).n })} · ${esc(t(chapterOf(x.id).name))} · ${esc(x.level)}</div>
+        <h1 style="margin:0;color:#fff">${esc(TTL(x))}</h1>${TTL(x) !== x.en ? `<div style="opacity:.9;font-weight:700" lang="en">${esc(x.en)}</div>` : ''}</div></div>
       <p style="margin:.6rem 0 0;opacity:.95">${esc(x.summary)}</p></div>`;
 
   function lesson(id, query) {
@@ -312,7 +322,7 @@
       <div style="margin-top:1rem">${quizHtml(x)}</div>
       ${drillsOf(x).length ? `<div style="margin-top:1rem">${drillsHtml(x)}</div>` : ''}
       <div style="margin-top:1rem">${challengeHtml(x)}</div>
-      <div class="row between" style="margin-top:1rem">${prev ? `<a class="btn" href="#/grammar/${prev.id}?view=full">← ${esc(prev.title)}</a>` : '<span></span>'}${next ? `<a class="btn primary" href="#/grammar/${next.id}?view=full">${esc(next.title)} →</a>` : `<a class="btn primary" href="#/grammar">${t('Hoàn thành chủ điểm')} 🎉</a>`}</div>`;
+      <div class="row between" style="margin-top:1rem">${prev ? `<a class="btn" href="#/grammar/${prev.id}?view=full">← ${esc(TTL(prev))}</a>` : '<span></span>'}${next ? `<a class="btn primary" href="#/grammar/${next.id}?view=full">${esc(TTL(next))} →</a>` : `<a class="btn primary" href="#/grammar">${t('Hoàn thành chủ điểm')} 🎉</a>`}</div>`;
     App.bindCommon();
     bindQuiz(x, next, () => lessonFull(id));
     if (drillsOf(x).length) bindDrills(x);
@@ -380,8 +390,8 @@
       const st = steps[cur]; gateOk = !st.gate;
       view.innerHTML = `
         <div class="row between"><a href="#/grammar" class="small">← ${t('Ngữ pháp')}</a><a class="btn sm ghost" href="#/grammar/${x.id}?view=full">📖 ${t('Xem toàn bài')}</a></div>
-        ${cur === 0 ? heroHtml(x, unit) : `<div class="row nowrap" style="margin:.7rem 0"><span style="font-size:1.8rem">${x.emoji}</span><div><b>${esc(x.title)}</b><div class="tiny muted">${esc(x.en)}</div></div></div>`}
-        <div class="steps">${steps.map((s, k) => `<button class="stepdot ${k === cur ? 'on' : ''} ${k < cur ? 'done' : ''}" data-step="${k}" title="${esc(s.name)}"><span>${k < cur ? '✓' : s.em}</span><small>${esc(s.name)}</small></button>`).join('')}</div>
+        ${cur === 0 ? heroHtml(x, unit) : `<div class="row nowrap" style="margin:.7rem 0"><span style="font-size:1.8rem" aria-hidden="true">${x.emoji}</span><div><b>${esc(TTL(x))}</b>${TTL(x) !== x.en ? `<div class="tiny muted" lang="en">${esc(x.en)}</div>` : ''}</div></div>`}
+        <div class="steps">${steps.map((s, k) => `<button class="stepdot ${k === cur ? 'on' : ''} ${k < cur ? 'done' : ''}" data-step="${k}" title="${esc(s.name)}" ${k === cur ? 'aria-current="step"' : ''}><span>${k < cur ? '✓' : s.em}</span><small>${esc(s.name)}</small></button>`).join('')}</div>
         <div class="step-body">${st.html()}</div>
         ${cur < steps.length - 1 ? `<div class="row between" style="margin-top:1rem">${cur > 0 ? `<button class="btn" id="sPrev">← ${t('Quay lại')}</button>` : '<span></span>'}<button class="btn primary lg" id="sNext" ${gateOk ? '' : 'disabled'}>${t('Tiếp tục')} →</button></div>` : `<div class="row" style="margin-top:1rem"><button class="btn" id="sPrev">← ${t('Quay lại')}</button></div>`}`;
       App.bindCommon();

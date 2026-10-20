@@ -514,7 +514,7 @@ body.offline .topbar::after { content: "📴 Ngoại tuyến"; position: absolut
 .flabel { font-weight: 800; font-size: .85rem; color: var(--muted); margin-bottom: .3rem; }
 .fparts { display: flex; flex-wrap: wrap; gap: .3rem; align-items: center; }
 .fp { display: inline-block; padding: .25rem .6rem; border-radius: 8px; font-weight: 800; font-size: .92rem; background: var(--surface-2); }
-.fp.subj { background: #dbeafe; color: #1d4ed8; } .fp.verb { background: #dcfce7; color: #15803d; } .fp.aux { background: #ede9fe; color: #E5502F; }
+.fp.subj { background: #dbeafe; color: #1d4ed8; } .fp.verb { background: #dcfce7; color: #15803d; } .fp.aux { background: #ffedd5; color: #b03718; }
 .fp.obj { background: #fef3c7; color: #b45309; } .fp.neg { background: #fee2e2; color: #b91c1c; } .fp.adv, .fp.time { background: #e0f2fe; color: #0369a1; }
 .fplus { color: var(--muted); font-weight: 800; }
 .fex { margin-top: .35rem; font-style: italic; }
@@ -525,6 +525,10 @@ body.offline .topbar::after { content: "📴 Ngoại tuyến"; position: absolut
 .g-mistake { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--again); border-radius: 0 14px 14px 0; padding: .8rem 1rem; }
 .g-mistake .bad { color: var(--again-text); font-weight: 800; } .g-mistake .good { color: var(--good-text); font-weight: 800; }
 .g-ielts { background: var(--primary-soft); border-radius: 14px; padding: .9rem 1.1rem; }
+.g-recap { margin-top: .9rem; background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 0 14px 14px 0; padding: .8rem 1rem; } .g-recap h3 { margin: 0 0 .3rem; font-size: 1rem; }
+.g-recap .bad { color: var(--again-text); font-weight: 800; } .g-recap .good { color: var(--good-text); font-weight: 800; }
+.g-hero { border-top: 4px solid var(--uc, transparent); } .gtable td:first-child { font-weight: 700; } .gtable tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--surface-2) 55%, transparent); }
+[dir="rtl"] .g-recap { border-left: 1px solid var(--line); border-right: 4px solid var(--accent); border-radius: 14px 0 0 14px; }
 .flow { display: flex; flex-direction: column; align-items: center; gap: .45rem; }
 .fstep { padding: .6rem 1rem; border-radius: 12px; background: var(--surface-2); font-weight: 700; text-align: center; max-width: 560px; }
 .fstep.active { background: #dbeafe; color: #1e3a8a; } .fstep.passive, .fstep.result { background: #dcfce7; color: #14532d; }
