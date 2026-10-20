@@ -99,9 +99,9 @@ function overlays() {
     if (r.width >= W - 2 && r.height >= H - 2) continue; // màn phủ toàn trang (nền modal)
     const c = (r.left + r.right) / 2;
     if (r.left < -1 || r.right > W + 1) add('ovl-offscreen', e, r);
-    else if (vr && Math.abs(c - (vr.left + vr.right) / 2) > 8 && Math.abs(c - W / 2) > 8 && r.width > W * 0.3) add('ovl-offcentre', e, r);
+    else if (!e.matches('.sel-bar,.sel-pop,.xp-float,[class*="tip"]') && vr && Math.abs(c - (vr.left + vr.right) / 2) > 8 && Math.abs(c - W / 2) > 8 && r.width > W * 0.3) add('ovl-offcentre', e, r);
     if (nr && nr.height && e !== nav && r.bottom > nr.top + 2 && r.top < nr.bottom && r.right > nr.left && r.left < nr.right && +cs.zIndex < +getComputedStyle(nav).zIndex + 1 && r.top > nr.top - 200) add('ovl-on-nav', e, r);
-    if (view && r.bottom >= H - 2 && r.top > H * 0.3) for (const b of view.querySelectorAll('button,a[href],input,.option')) { const br = b.getBoundingClientRect(); if (br.width < 2 || br.top < r.top || br.top > H) continue; const hit = document.elementFromPoint(br.left + br.width / 2, br.top + Math.min(br.height / 2, 6)); if (hit && e.contains(hit)) { add('ovl-covers', e, r); break; } }
+    if (view && r.bottom >= H - 2 && r.top > H * 0.3) for (const b of view.querySelectorAll('button,a[href],input,.option')) { if (e.contains(b)) continue; const br = b.getBoundingClientRect(); if (br.width < 2 || br.top < r.top || br.top > H) continue; const hit = document.elementFromPoint(br.left + br.width / 2, br.top + Math.min(br.height / 2, 6)); if (hit && e.contains(hit)) { add('ovl-covers', e, r); break; } }
   }
   scrollTo(0, 0);
   return out;
