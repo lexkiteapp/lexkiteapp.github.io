@@ -1,0 +1,18 @@
+{
+  "metadata": {
+    "soundFile": "/home/runner/work/lexkiteapp.github.io/lexkiteapp.github.io/cine/wav/k05_ama_muffin.wav",
+    "duration": 1.50
+  },
+  "mouthCues": [
+    { "start": 0.00, "end": 0.09, "value": "B" },
+    { "start": 0.09, "end": 0.23, "value": "C" },
+    { "start": 0.23, "end": 0.44, "value": "B" },
+    { "start": 0.44, "end": 0.52, "value": "A" },
+    { "start": 0.52, "end": 0.59, "value": "C" },
+    { "start": 0.59, "end": 0.73, "value": "G" },
+    { "start": 0.73, "end": 0.87, "value": "C" },
+    { "start": 0.87, "end": 0.95, "value": "A" },
+    { "start": 0.95, "end": 1.42, "value": "B" },
+    { "start": 1.42, "end": 1.50, "value": "X" }
+  ]
+}

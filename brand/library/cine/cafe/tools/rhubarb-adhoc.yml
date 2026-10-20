@@ -1,4 +1,4 @@
-# Ad-hoc: Rhubarb Lip Sync 1.13.0 (Linux) trên mọi cine/wav/*.wav của nhánh này → artifact JSON viseme. Không đụng main.
+# Ad-hoc (cine bank, nhánh riêng – không đụng main): Kokoro TTS cho cine/tts/lines.json (nếu có) → Rhubarb Lip Sync 1.13.0 (Linux) trên mọi cine/wav/*.wav → artifact (wav + JSON viseme).
 name: rhubarb-adhoc
 on:
   workflow_dispatch:
@@ -7,9 +7,23 @@ on:
 jobs:
   rhubarb:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Model cache (Kokoro ~90 MB)
+        uses: actions/cache@v4
+        with:
+          path: /tmp/kk/node_modules/@huggingface/transformers/.cache
+          key: video-models-kokoro82m-q8-adhoc-v1
+      - name: Kokoro TTS
+        if: hashFiles('cine/tts/lines.json') != ''
+        env: { KOKORO_NODE_PATH: /tmp/kk/node_modules }
+        run: |
+          sudo apt-get install -y -qq ffmpeg >/dev/null
+          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          node cine/tts/tts.mjs
       - name: Rhubarb
         run: |
           curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
@@ -19,7 +33,7 @@ jobs:
           for w in cine/wav/*.wav; do
             b=$(basename "$w" .wav); d=(); [ -f "cine/wav/$b.txt" ] && d=(-d "cine/wav/$b.txt")
             "$R" -q --extendedShapes GHX -f json "${d[@]}" -o "out/$b.json" "$w" || "$R" -q -r phonetic --extendedShapes GHX -f json "${d[@]}" -o "out/$b.json" "$w"
-            echo "$b: $(grep -c '"value"' out/$b.json) cues"
+            cp "$w" out/; echo "$b: $(grep -c '"value"' out/$b.json) cues"
           done
       - uses: actions/upload-artifact@v4
         with: { name: visemes, path: out/ }

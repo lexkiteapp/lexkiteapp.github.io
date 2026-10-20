@@ -13,6 +13,7 @@ while True:
     ok, F = cap.read()
     if not ok: break
     FR.append(F)
+if len(sys.argv) > 6: FR = FR[:int(sys.argv[6])]   # usable range only (e.g. before a head turn)
 N = len(FR); H, W = FR[0].shape[:2]
 fx0, fy0, fx1, fy1 = box; s = 0.5
 S = np.diag([s, s, 1.]); T = np.array([[1, 0, -fx0], [0, 1, -fy0], [0, 0, 1.]])

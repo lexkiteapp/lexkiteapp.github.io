@@ -1,6 +1,6 @@
 # Zero-credit mouth swap + clean-up for one bank clip -> shot frames (BGR, 1080x1920, 24 fps)
 # Visemes come from Rhubarb JSON (run on CI). Sprites = aligned mouth crops harvested from the SAME clip (bank meta).
-import cv2, numpy as np, json
+import cv2, numpy as np, json, os
 FPS = 24
 WM_CROP = (25, 0, 1030, 1832)          # x, y, w, h : removes the Kling watermark (y >= 1838), keeps 9:16
 def load_meta(d):
@@ -20,12 +20,13 @@ class Mouth:
         # change-extent mask: every pixel where ANY frame's mouth differs from the rest frame (jaw drop, tongue, teeth),
         # limited to a big ellipse -> the swap always fully covers Kling's own mouth (no ghost of the original)
         big = np.zeros((self.rh, self.rw), np.uint8); cv2.ellipse(big, (int(cx), int(cy)), (int(ax * 1.7), int(ay * 2.0)), 0, 0, 360, 1, -1)
-        d = np.abs(self.C.astype(np.int16) - self.C[0].astype(np.int16)).max(3) > 45
+        cc = np.load(f'{d}/cc.npy') if os.path.exists(f'{d}/cc.npy') else np.ones(len(self.C)); good = cc >= 0.8
+        d = np.abs(self.C[good].astype(np.int16) - self.C[0].astype(np.int16)).max(3) > 45
         ext = ((d.sum(0) >= 3) & (big > 0)).astype(np.uint8)
         ext = cv2.dilate(cv2.morphologyEx(ext, cv2.MORPH_CLOSE, np.ones((9, 9), np.uint8)), np.ones((9, 9), np.uint8))
         n, lab, st, _ = cv2.connectedComponentsWithStats(ext); keep = np.zeros_like(ext)
         for j in range(1, n):
-            if st[j, cv2.CC_STAT_AREA] > 0.15 * E.sum() or E[lab == j].any(): keep[lab == j] = 1
+            if (E[lab == j] > 0.5).any(): keep[lab == j] = 1   # only change regions connected to the mouth itself
         self.E = cv2.GaussianBlur(np.maximum(E, keep.astype(np.float32)), (0, 0), 3.5)
         R = np.zeros((self.rh, self.rw), np.uint8); cv2.ellipse(R, (int(cx), int(cy)), (int(ax * 1.45), int(ay * 1.6)), 0, 0, 360, 1, -1)
         cv2.ellipse(R, (int(cx), int(cy)), (int(ax * 1.1), int(ay * 1.15)), 0, 0, 360, 0, -1); self.ring = R > 0
@@ -61,27 +62,31 @@ def board_blur(F):
     keep = cv2.erode(keep, np.ones((3, 3), np.uint8)); a = cv2.GaussianBlur(keep.astype(np.float32), (0, 0), 3)[..., None]
     B = cv2.GaussianBlur(top, (0, 0), 12)
     out = F.copy(); out[:int(H * 0.45)] = (top * (1 - a) + B * a).astype(np.uint8); return out
-def finish(F):
-    x, y, w, h = WM_CROP; return cv2.resize(F[y:y + h, x:x + w], (1080, 1920), interpolation=cv2.INTER_LANCZOS4)
-def render(clip, n_frames, f_in=0, speakers=(), boards=False):
-    """speakers: list of dicts {mouth: Mouth, cues: [...], lead: s, w_in: s, w_out: s, delay: 0.04}; cues=None => forced closed (X)."""
+def finish(F, crop=None):
+    x, y, w, h = crop or WM_CROP; return cv2.resize(F[y:y + h, x:x + w], (1080, 1920), interpolation=cv2.INTER_LANCZOS4)
+DELAY = -0.005   # shape chosen at the frame's display start + 5 ms -> onset error within about -36..+5 ms at 24 fps
+def viseme_at(lines, t, delay=None):
+    delay = DELAY if delay is None else delay
+    """lines: [{cues, at (shot time of wav start), tempo}] -> Rhubarb shape at shot time t (X outside speech)."""
+    for ln in lines:
+        ta = (t - ln['at'] - delay) * ln.get('tempo', 1.0)
+        if 0 <= ta <= ln['cues'][-1]['end']: return cues_at(ln['cues'], ta)
+    return 'X'
+def render(clip, frames, speakers=(), boards=False, crop=None):
+    """frames: list of source frame indices (any order: reverse/holds ok). speakers: [{mouth, lines}] ; lines=[] => mouth held closed (X).
+    Hard switch between shapes on frame boundaries (no half-blend frames)."""
     cap = cv2.VideoCapture(clip); FR = []
     while True:
         ok, F = cap.read()
         if not ok: break
         FR.append(F)
     out, log = [], []
-    prev = {}
-    for f in range(n_frames):
-        i = min(f_in + f, len(FR) - 1); F = FR[i]; rec = {}
+    for f, i in enumerate(frames):
+        i = min(i, len(FR) - 1); F = FR[i]; rec = {}
         for k, sp in enumerate(speakers):
-            mo = sp['mouth']; t = f / FPS
-            ta = (t - sp.get('lead', 0) - sp.get('delay', 0.04)) * sp.get('tempo', 1.0) + sp.get('w_in', 0)
-            v = 'X' if sp.get('cues') is None or ta < sp.get('w_in', 0) or ta > sp.get('w_out', 1e9) else cues_at(sp['cues'], ta)
-            s = mo.spr[v]
-            if k in prev and prev[k] != v: s = 0.5 * (mo.spr[prev[k]] + s)   # 1 blended transition frame per viseme change
-            prev[k] = v
-            F = mo.apply(F, i, s); rec[k] = v
+            mo = sp['mouth']; v = viseme_at(sp['lines'], f / FPS); F = mo.apply(F, i, mo.spr[v]); rec[k] = v
+            core = mo.E > 0.9; al = mo.aligned(F, i).astype(np.float32)   # pixel check: does the frame really show the sprite?
+            rec['r%d' % k] = round(float(np.abs(al[core] - mo.spr[v][core]).mean()), 2)
         if boards: F = board_blur(F)
-        out.append(finish(F)); log.append(rec)
+        out.append(finish(F, crop)); log.append(rec)
     return out, log

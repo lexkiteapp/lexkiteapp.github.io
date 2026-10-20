@@ -1,0 +1,11 @@
+{"voices": {"ama": "af_bella", "carlos": "am_adam"},
+ "lines": [
+  {"id": "k01_ama_giveme", "who": "ama", "text": "Hey! Give me a latte."},
+  {"id": "k02_car_order", "who": "carlos", "text": "Hmm, that sounds like an order."},
+  {"id": "k03_car_try", "who": "carlos", "text": "Try: Could I get a latte, please?"},
+  {"id": "k04_ama_could", "who": "ama", "text": "Oh! Could I get a latte, please?"},
+  {"id": "k05_ama_muffin", "who": "ama", "text": "Could I get a muffin, please?"},
+  {"id": "k06_ama_bill", "who": "ama", "text": "Could I get the bill, please?"},
+  {"id": "k07_ama_tea", "who": "ama", "text": "Could I get a tea, please?"},
+  {"id": "k08_ama_thanks", "who": "ama", "text": "Thanks!"}
+ ]}

@@ -5,12 +5,20 @@
  "characters": {
   "ama": {
    "desc": "teen girl, curly hair, yellow headband, coral hoodie, teal denim overall dress, brown backpack, white sneakers",
-   "voice": "Kling TTS Peppy",
+   "voice": {
+    "engine": "kokoro-js@1 Kokoro-82M q8 (free, CI)",
+    "voice": "af_bella",
+    "why": "young female US; same as content/video/assets.json characters.ama"
+   },
    "ref": "frames/ref-ama.png"
   },
   "carlos": {
    "desc": "adult barista, black curly hair faded sides, mustache, olive henley, navy apron, light jeans",
-   "voice": "Kling TTS Michael",
+   "voice": {
+    "engine": "kokoro-js@1 Kokoro-82M q8 (free, CI)",
+    "voice": "am_adam",
+    "why": "warm male US; same as content/video/casting.json voices.carlos"
+   },
    "ref": "frames/ref-carlos.png"
   }
  },
@@ -699,7 +707,7 @@
       "C": 72,
       "D": 109,
       "E": 80,
-      "F": 19,
+      "F": 80,
       "G": 40,
       "H": 72,
       "X": 0
@@ -724,7 +732,7 @@
      "usable_for_swap": true
     }
    },
-   "qa": "PASS"
+   "qa": "PASS | F sprite (frame 19) smeared -> F mapped to E."
   },
   {
    "id": "c07_ots_ama_react",
@@ -1074,7 +1082,7 @@
      "usable_for_swap": false
     }
    },
-   "qa": "PASS with note: Carlos takes the cup from the machine top (set dressing in every counter shot) -> Ama ends holding it in both hands; Ama holds an open grin (silent) 0.5-4 s; head-turn makes mouth tracking unreliable"
+   "qa": "PASS with note: Carlos takes the cup from the machine top (set dressing in every counter shot) -> Ama ends holding it in both hands; Ama holds an open grin (silent) 0.5-4 s; head-turn makes mouth tracking unreliable | v2 uses an INSERT crop (470,545,540,960) of frames 22-108: hands + cup only (no faces -> no silent-grin issue)."
   },
   {
    "id": "c10_ama_mcu_talk",
@@ -1197,12 +1205,7 @@
    },
    "fps": 24,
    "frames": 121,
-   "usable_segments": [
-    [
-     0.0,
-     5.0
-    ]
-   ],
+   "usable_segments": [],
    "tags": [
     "goodbye",
     "wave",
@@ -1225,49 +1228,49 @@
      "track": "meta/c12b_closing/ama/track.npy",
      "track_raw": "meta/c12b_closing/ama/track_raw.npy",
      "mouth_box": [
-      347,
-      658,
-      472,
-      771
+      399,
+      682,
+      436,
+      757
      ],
      "face_box": [
-      180,
-      550,
-      460,
-      780
+      300,
+      560,
+      500,
+      800
      ],
      "sprite_roi": [
-      291,
-      602,
-      237,
-      225
+      366,
+      649,
+      103,
+      141
      ],
      "visemes": {
-      "A": 16,
+      "A": 7,
       "B": 54,
-      "C": 26,
-      "D": 25,
-      "E": 41,
-      "F": 14,
+      "C": 10,
+      "D": 8,
+      "E": 42,
+      "F": 32,
       "G": 54,
-      "H": 26,
+      "H": 10,
       "X": 0
      },
      "track_quality": {
-      "cc_min": -1.0,
-      "cc_mean": -0.071,
-      "jitter_px_rms": 211.6,
+      "cc_min": 0.8,
+      "cc_mean": 0.899,
+      "jitter_px_rms": 2.52,
       "mouth_x": [
-       391.7,
-       1582.9
+       401.6,
+       444.2
       ],
       "mouth_y": [
-       -2479.9,
-       2449.1
+       705.2,
+       736.3
       ],
       "scale": [
-       0.976,
-       4.862
+       0.727,
+       1.117
       ]
      },
      "usable_for_swap": false
@@ -1326,7 +1329,7 @@
      "usable_for_swap": false
     }
    },
-   "qa": "PASS: starts on c09 last frame (prop continuity: Ama keeps the latte), exits L; replaces c12 (REJECTED: Ama left without the latte, cup+bottle appeared on counter, odd object in hand)"
+   "qa": "PASS: starts on c09 last frame (prop continuity: Ama keeps the latte), exits L; replaces c12 (REJECTED: Ama left without the latte, cup+bottle appeared on counter, odd object in hand) | v2: NOT USED - after the wave Ama turns/walks in a way the owner judged wrong for the 180 rule; frames 0-56 face right but 3/4-profile mouth swap shows edge artifacts. Keep for reference only."
   }
  ],
  "rejected": [
@@ -1339,5 +1342,12 @@
    "id": "blk-6/blk-8 (old OTS-onto-Ama first frames)",
    "why": "Carlos standing on the customer side of the counter (blk-8 also in jeans, full body) -> regenerated otsama.png"
   }
- ]
+ ],
+ "voice_rule": "One voice per character per video. Legacy Kling TTS lines (l1-l3: Peppy/Michael) must not be mixed with Kokoro lines; v2+ uses Kokoro only, playback atempo 0.87 (0.84 on long lines to keep <=15 cps); visemes time-scaled.",
+ "lipsync": {
+  "delay_ms": -5,
+  "switch": "hard (no blend frames)",
+  "mask": "ellipse + change-extent mask from well-tracked frames, connected to the mouth only",
+  "listener": "mouth held at X"
+ }
 }
