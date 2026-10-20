@@ -38,7 +38,7 @@
     host.insertAdjacentHTML('beforeend', `<iframe class="ctx-yt" src="https://www.youtube-nocookie.com/embed/${y.id}?start=${s0}&end=${s0 + 8}&autoplay=1&rel=0&playsinline=1" allow="autoplay; encrypted-media" title="YouTube"></iframe>`);
   }, true);
   // Người học quốc tế (giao diện es/ja/ar…): thêm nghĩa bằng tiếng mẹ đẻ dưới định nghĩa tiếng Anh
-  const nativeFill = (el, word) => { const L = I18N.lang(); if (!el || L === 'vi' || L === 'en' || I18N.meanLang() === 'vi') return; const pk = App.nativeGloss && App.nativeGloss(word); if (pk) { el.textContent = '🌐 ' + pk; return; } (App.loadPack ? App.loadPack() : Promise.resolve()).then(() => App.nativeGloss(word) || Dict.translateTo(word, L)).then(r => { if (r && r.toLowerCase() !== word.toLowerCase() && el.isConnected) el.textContent = '🌐 ' + r; }).catch(() => {}); };
+  const nativeFill = (el, word) => App.nativeFill(el, word);
   const picOk = w => !!w && (window.Distract ? Distract.picOk(w) : !!w.image); // js/distract.js: emoji đúng nghĩa theo từ loại
   App.picOk = picOk;
   const norm = w => ({ word: w.word, ipa: w.ipa || '', vi: mean(w), ex: w.ex || '', def: w.def || '', pos: w.pos || '', emoji: w.emoji || '📘', image: w.image || '', audio: w.audio || '', level: w.level || '', topic: w.topic || '' });
@@ -100,7 +100,7 @@
       view.innerHTML = `<div class="study-wrap"><div class="card empty"><div class="em">🃏</div><h2>${t('Chưa có flashcard nào')}</h2><p>${t('Thêm từ từ thư viện hoặc tra từ điển để bắt đầu.')}</p><div class="row center"><a class="btn primary" href="#/library">${t('Mở thư viện')}</a><a class="btn" href="#/dict">${t('Tra từ')}</a></div></div></div>`;
       return;
     }
-    session = { queue: buildQueue(ahead), done: 0, again: 0, missed: [], total: 0, xp: 0, reverse: !!session && session.reverse };
+    session = { queue: buildQueue(ahead), done: 0, again: 0, missed: [], total: 0, xp: 0, g: [0, 0, 0, 0], t0: Date.now(), reverse: !!session && session.reverse };
     // Từ widget màn hình chính/khóa (#/review?w=từ): đưa đúng thẻ đang hiện lên đầu phiên ôn
     const pin = query && query.get && String(query.get('w') || '').toLowerCase();
     if (pin && state.cards[pin]) session.queue = [pin, ...session.queue.filter(k => k !== pin)];
@@ -116,7 +116,8 @@
     view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate">
       <div class="em kit-cele">${window.Kit ? Kit.svg('win', 120) : (nothing ? '🎉' : '🏆')}</div>
       <h2>${nothing ? t('Hôm nay bạn đã ôn hết!') : t('Hoàn thành {n} lượt ôn!', { n: session.done })}</h2>
-      ${nothing ? '' : `<div class="row center" style="gap:1.5rem;margin:1rem 0"><div><b style="font-size:1.6rem;color:var(--gold)">+${session.xp}</b><div class="tiny muted">XP</div></div><div><b style="font-size:1.6rem;color:var(--good-text)">${acc}%</b><div class="tiny muted">${t('Nhớ ngay')}</div></div><div><b style="font-size:1.6rem">🔥${App.streak()}</b><div class="tiny muted">${t('Chuỗi ngày')}</div></div></div>`}
+      ${nothing ? '' : `<div class="row center" style="gap:1.5rem;margin:1rem 0"><div><b style="font-size:1.6rem;color:var(--gold)">+${session.xp}</b><div class="tiny muted">XP</div></div><div><b style="font-size:1.6rem;color:var(--good-text)">${acc}%</b><div class="tiny muted">${t('Nhớ ngay')}</div></div><div><b style="font-size:1.6rem">🔥${App.streak()}</b><div class="tiny muted">${t('Chuỗi ngày')}</div></div><div><b style="font-size:1.6rem">⏱ ${t('{m} phút', { m: Math.max(1, Math.round((Date.now() - (session.t0 || Date.now())) / 6e4)) })}</b><div class="tiny muted">${t('Thời gian')}</div></div></div>
+      ${gradeMix(session.g)}`}
       ${(session.missed || []).length ? `<div style="margin:.6rem 0"><div class="small muted">🔁 ${t('Từ vừa quên – xem lại 1 lần nữa:')}</div><div class="row center" style="gap:.35rem;margin-top:.3rem">${session.missed.slice(0, 12).map(w => `<a class="chip" href="#/dict/${encodeURIComponent(w)}">${esc(w)}</a>`).join('')}</div></div>` : ''}
       ${(() => { // Dự báo 7 ngày tới (như Anki): biết trước khối lượng, chủ động sắp xếp thời gian
         const day0 = endOfToday(), n = [0, 0, 0, 0, 0, 0, 0];
@@ -130,10 +131,19 @@
     </div></div>`;
   }
 
+  // Phân bố 4 mức chấm của phiên
+  function gradeMix(g) {
+    const n = (g || []).reduce((a, b) => a + b, 0); if (!n) return '';
+    const L = [[t('Quên'), 'again'], [t('Khó'), 'hard'], [t('Nhớ'), 'good'], [t('Dễ'), 'easy']];
+    return `<figure class="gmix" aria-label="${t('Phân bố mức độ nhớ')}"><div class="gmix-bar" aria-hidden="true">${L.map(([, k], i) => g[i] ? `<i class="gm-${k}" style="flex:${g[i]}"></i>` : '').join('')}</div>
+      <figcaption class="gmix-leg">${L.map(([l, k], i) => `<span><i class="gm-${k}" aria-hidden="true"></i>${esc(l)} <b>${g[i]}</b></span>`).join('')}</figcaption></figure>`;
+  }
+
   async function undo() {
     const L = session.last; if (!L) return; session.last = null;
     const c0 = state.cards[L.key]; if (c0) { c0.srs = L.srs; await Cards.update(c0); state.cards[L.key] = c0; }
     Object.assign(session, { queue: L.queue, done: L.done, again: L.again, missed: L.missed, xp: Math.max(0, session.xp - L.xp) });
+    if (session.g && session.g[L.g] > 0) session.g[L.g]--;
     // gỡ lượt ôn & XP vừa cộng
     const st = await Stats.get(), k = Core.todayKey(); st.days[k] = Math.max(0, (st.days[k] || 1) - 1); if (L.wasNew && st.newToday && st.newToday.day === k) st.newToday.n = Math.max(0, st.newToday.n - 1); await Core.Store.set('stats', st); state.stats = st;
     state.game = await Game.mutate(gs => { gs.xp = Math.max(0, (gs.xp || 0) - L.xp); const d = gs.days[k] || {}; d.xp = Math.max(0, (d.xp || 0) - L.xp); d.reviews = Math.max(0, (d.reviews || 0) - 1); if (L.wasNew) d.newWords = Math.max(0, (d.newWords || 0) - 1); if (gs.total) { gs.total.reviews = Math.max(0, (gs.total.reviews || 0) - 1); if (L.wasNew) gs.total.newWords = Math.max(0, (gs.total.newWords || 0) - 1); } });
@@ -172,16 +182,16 @@
         <div class="muted small" style="margin-top:1rem">${t('Nhớ lại từ tiếng Anh, rồi chạm để lật')}</div>` : `
         ${pic(c)}
         <div class="entry-word">${esc(c.word)}</div>
-        <div class="row center"><span class="ipa">${esc(c.ipa)}</span>${posChip(c.pos)}<button class="icon-btn sm" data-say>🔊</button></div>
+        <div class="row center"><span class="ipa">${esc(c.ipa)}</span>${posChip(c.pos)}<button class="icon-btn sm" data-say aria-label="${t('Nghe')}">🔊</button></div>
         ${ctx ? `<div class="ctx">📌 “${highlight(ctx.text, c.word)}”</div>` : ''}
         <div class="muted small" style="margin-top:1rem">${t('Đoán nghĩa, rồi chạm để lật')} <span class="kbd">Space</span></div>`;
 
     view.innerHTML = `<div class="study-wrap">
       <div class="study-top">
-        <a class="icon-btn" href="${App.backHref().replace(/^#\/practice$/, "#/home")}" title="${t('Thoát')}">✕</a>
-        ${session.last ? `<button class="icon-btn" id="undoBtn" title="${t('Hoàn tác lần chấm vừa rồi (Z)')}">↶</button>` : ''}
+        <a class="icon-btn" href="${App.backHref().replace(/^#\/practice$/, "#/home")}" title="${t('Thoát')}" aria-label="${t('Thoát')}">✕</a>
+        ${session.last ? `<button class="icon-btn" id="undoBtn" title="${t('Hoàn tác lần chấm vừa rồi (Z)')}" aria-label="${t('Hoàn tác lần chấm vừa rồi (Z)')}" aria-keyshortcuts="Z">↶</button>` : ''}
         <a class="icon-btn" href="#/handsfree/session" title="${t('Chế độ Rảnh tay')}" aria-label="${t('Chế độ Rảnh tay')}">🎧</a>
-        <div class="progress"><i style="width:${pct}%"></i></div>
+        <div class="progress" role="progressbar" aria-label="${t('Tiến độ')}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(pct)}"><i style="width:${pct}%"></i></div>
         <span class="small muted" style="white-space:nowrap" title="${t('Thẻ đang ở bước học (1–10 phút) sẽ quay lại trong phiên')}">✅ ${session.done} · ${t('<b>{n}</b> thẻ còn lại', { n: new Set(session.queue).size })}</span>
       </div>
       <div class="row between small" style="margin-bottom:.6rem">
@@ -193,7 +203,7 @@
           <div class="card face front">${front}</div>
           <div class="card face back">
             <div class="wc-hd"><div class="wc-wrow"><span class="entry-word wc-word">${esc(c.word)}</span><button class="icon-btn sm" data-say aria-label="${t('Nghe')}">🔊</button></div>
-              <div class="wi-pron">${posChip(c.pos)}${levelChip(c.level)}<span class="ipa">${esc(c.ipa)}</span></div>
+              <div class="wi-pron">${posChip(c.pos)}${levelChip(c.level)}${c.ipaUS && c.ipaUS !== c.ipa ? `<span class="wi-acc">🇬🇧 <span class="ipa">${esc(c.ipa)}</span><button class="icon-btn sm" data-say-acc="en-GB" aria-label="${t('Nghe giọng Anh–Anh')}">🔊</button></span><span class="wi-acc">🇺🇸 <span class="ipa">${esc(c.ipaUS)}</span><button class="icon-btn sm" data-say-acc="en-US" aria-label="${t('Nghe giọng Anh–Mỹ')}">🔊</button></span>` : `<span class="ipa">${esc(c.ipa)}</span>`}</div>
               <div class="vi wi-vi">${esc(mean(c))}</div><div class="wi-native" data-native></div></div>
             ${c.def && mean(c) !== c.def ? `<div class="wi-sec"><span class="wi-lb">📖 ${t('Định nghĩa')}</span><div lang="en">${esc(c.def)}</div></div>` : ''}
             ${c.ex ? `<div class="wi-sec wi-ex"><span class="wi-lb">💬 ${t('Ví dụ')}</span><div class="fi-ex">${highlight(c.ex, c.word)} <button class="icon-btn sm" data-speak-text="${esc(c.ex)}" aria-label="${t('Nghe cả câu')}">🔊</button></div></div>` : ''}
@@ -220,6 +230,8 @@
     App.bindCommon();
     const say = () => speak(c.word, accent(), c.audio);
     $$('[data-say]').forEach(b => b.onclick = e => { e.stopPropagation(); say(); });
+    // Nghe riêng giọng UK/US
+    $$('[data-say-acc]').forEach(b => b.onclick = e => { e.stopPropagation(); const a = b.dataset.sayAcc, u = c.audio || '', us = /-us\.mp3$/.test(u); speak(c.word, a, a === 'en-US' ? (us ? u : '') : (us ? '' : u)); });
     if (listenMode) setTimeout(say, 250);
     nativeFill($('.back [data-native]'), c.word);
     // Tìm sẵn bản ghi giọng người thật cho 3 thẻ kế tiếp (chạy ngầm, lưu vào thẻ) → thay dần giọng máy bằng giọng thật
@@ -329,6 +341,7 @@
       state.stats = await Stats.logReview(wasNew);
       const xp = g === 0 ? 2 : wasNew ? 8 : 5;
       session.xp += xp; snap.xp = xp; session.last = snap;
+      if (session.g) session.g[g]++;
       g === 0 ? Sfx.wrong() : Sfx.correct();
       haptic(g > 0);
       const fc = $('#flash');
