@@ -239,6 +239,7 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
         </div>
 
         <h3 class="set-h">${t('Việc học')}</h3><div class="set-list">`
+      + row('#/tracks', '🧭', t('Gói học'), t('Đổi gói hoặc học nhiều gói cùng lúc'))
       + row('#/goal', '🚩', t('Mục tiêu & kế hoạch'), t('Kỳ thi, điểm mục tiêu, ngày thi'))
       + row('#/stats', '📊', t('Tiến độ & huy hiệu'), t('Chuỗi {n} ngày · {xp} XP', { n: streak || 0, xp: (g.xp || 0).toLocaleString(I18N.lang()) }))
       + row('#/stats', '✨', t('Khoe thành tích')).replace('<a ', '<a data-share ')

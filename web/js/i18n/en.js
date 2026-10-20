@@ -2380,6 +2380,8 @@
 
 /* English UI strings – web/js/hubs.js (5 main sections, exam picker, hub pages, breadcrumbs) */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
+    "Gói học": "Learning tracks",
+    "Đổi gói hoặc học nhiều gói cùng lúc": "Switch tracks or follow several at once",
   'Hôm nay': 'Today',
   'Từ vựng': 'Vocabulary',
   'Kỹ năng': 'Skills',

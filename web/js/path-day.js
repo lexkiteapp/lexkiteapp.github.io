@@ -15,30 +15,31 @@
   const today = () => (state.game.days || {})[Core.todayKey()] || {};
 
   // ---------- Danh sách ngày (thứ tự toàn lộ trình) + trạng thái ----------
-  function days() {
-    const us = P().unitState(), out = [];
+  // Gói học (tracks.js): mỗi gói có chặng riêng; khóa bản ghi "gói:bộ~N" (gói nhận tiến độ cũ giữ khóa "bộ~N")
+  const TK = () => g.Tracks;
+  function days(tr) {
+    tr = tr || TK().cur();
+    const sid = TK().start(tr), us = P().unitState(tr.id === 'ielts' ? null : tr.stages, sid), out = [], leg = TK().isLegacy(tr), old = TK().readsOld(tr);
     for (const u of us) {
-      const n = App.dayParts(u.topic, u.stage.id);
+      const n = App.dayN(u.topic.id);
       for (let j = 1; j <= n; j++) {
         const id = u.topic.id + '~' + j, tp = App.topicOf(id); if (!tp) continue;
-        const r = REC[id] || {};
-        out.push({ n: out.length + 1, id, j, of: n, unit: u, topic: tp, rec: r, done: u.status === 'done' || !!r.done || (!REC[id] && tp.words.every(learned)) }); // tiến độ cũ: đã học hết từ của ngày (chưa có bản ghi ngày)
+        const key = TK().key(tr, id), r = REC[key] || (old && REC[id]) || {};
+        out.push({ n: out.length + 1, id, key, tr, j, of: n, unit: u, topic: tp, rec: r, done: u.status === 'done' || !!r.done || (leg && !REC[key] && tp.words.every(learned)) }); // tiến độ cũ: đã học hết từ của ngày (chưa có bản ghi ngày)
       }
     }
-    // Kiểm tra đầu vào → ngày bắt đầu = ngày đầu của chặng gợi ý; ngày trước đó "đã nhảy qua" (vẫn mở để học lại)
-    const pl = state.settings && state.settings.placement, st = pl && pl.stage ? out.findIndex(d => d.unit.stage.id === pl.stage) : 0, start = Math.max(0, st);
+    // Kiểm tra đầu vào / trình độ chọn → ngày bắt đầu = ngày đầu của chặng gợi ý; ngày trước đó "đã nhảy qua" (vẫn mở để học lại)
+    const st = sid ? out.findIndex(d => d.unit.stage.id === sid) : 0, start = Math.max(0, st);
     const cur = out.find(d => !d.done && d.n - 1 >= start) || out.find(d => !d.done);
     for (const d of out) d.status = d.done ? 'done' : d === cur ? 'current' : cur && d.n < cur.n ? 'skip' : 'locked';
     return out;
   }
 
   // ---------- Các hoạt động của 1 ngày: dễ → khó, đổi theo trình độ chặng ----------
-  const RP = ['neighbour', 'cafe', 'shop', 'directions', 'hotel', 'doctor'];
-  const UC = ['struct', 'pair', 'prep', 'verb'];
   function plan(d) {
-    const tier = { s0: 0, s1: 1 }[d.unit.stage.id] ?? 2, src = encodeURIComponent('topic:' + d.id), ex = App.exam ? App.exam() : 'ielts';
+    const tr = d.tr || TK().cur(), tier = TK().tierOf(tr, d.unit.stage), src = encodeURIComponent('topic:' + d.id), lis = tr.id === 'ielts' || tr.id === 'comm';
     const S = (k, em, name, sub, mins, extra) => ({ k, em, name, sub, mins, href: `#/practice/${k}?src=${src}`, mode: k, ...extra });
-    const X = (k, em, name, sub, mins, href, c) => ({ k, em, name, sub, mins, href, ext: c });
+    const X = (k, em, name, sub, mins, href, c) => ({ k, em, name, sub, mins, href, ext: c, tap: !c }); // tap: trang không cộng điểm → xong khi mở
     const ST = P().STEPS(), sub = k => (ST.find(x => x[0] === k) || [])[3];
     const out = [];
     const due = Core.Cards.dueCount(state.cards, state.settings, state.stats).total;
@@ -48,27 +49,13 @@
     const early = tier === 0 && d.n <= 3; // 3 ngày đầu cho người mới: chỉ nhận diện (thắng sớm), chưa bắt gõ/nghe chép
     if (early) out.push(S('mcq', '🧩', t('Trắc nghiệm'), t('Chọn nghĩa đúng của từ vừa học'), 1));
     else {
-      if (tier < 2) out.push(S('listen', '🎧', t('Nghe & chép'), sub('listen'), 2));
+      if (lis && tier < 2) out.push(S('listen', '🎧', t('Nghe & chép'), sub('listen'), 2));
       out.push(S('cloze', '✍️', t('Điền từ vào câu'), t('Dùng từ trong câu'), 2));
-      if (tier === 2) out.push(S('listen', '🎧', t('Nghe & chép'), sub('listen'), 2));
+      if (lis && tier === 2) out.push(S('listen', '🎧', t('Nghe & chép'), sub('listen'), 2));
     }
-    // Phần cuối buổi: xoay vòng theo ngày; chặng cao có nội dung học thuật (collocation, cấu trúc, ngữ pháp sắc thái, câu kiểu đề thi)
-    const r = d.n % 3, last = d.j === d.of && d.unit.status !== 'done'; // ngày cuối bài: kiểm tra cuối bài thay cho phần thưởng → buổi vẫn ≤ 10 phút
-    if (!last) {
-    if (tier === 0) {
-      if (d.n === 3 || (!early && r === 1)) out.push(S('speak', '🎙️', t('Luyện phát âm'), t('Nghe rồi nói lại'), 1));
-      else if (!early && r === 0) out.push(X('rp', '🎭', t('Hội thoại ngắn'), t('Dùng từ vừa học trong tình huống thật'), 3, '#/roleplay/' + RP[Math.floor(d.n / 3) % RP.length], 'spoken'));
-      else if (!early && d.n > 6) out.push(X('gram', '📐', t('Ngữ pháp nhanh'), t('{n} câu ngữ pháp ngắn', { n: 5 }), 2, '#/grammar/mix?n=5', 'grammar'));
-    } else if (tier === 1) {
-      out.push(r === 0 ? X('gram', '📐', t('Ngữ pháp nhanh'), t('{n} câu ngữ pháp ngắn', { n: 6 }), 2, '#/grammar/mix?n=6', 'grammar')
-        : r === 1 ? S('speak', '🎙️', t('Luyện phát âm'), t('Nghe rồi nói lại'), 1)
-          : X('rp', '🎭', t('Hội thoại ngắn'), t('Dùng từ vừa học trong tình huống thật'), 3, '#/roleplay', 'spoken'));
-    } else {
-      out.push(r === 0 ? X('gram', '📐', t('Ngữ pháp nhanh'), t('{n} câu ngữ pháp ngắn', { n: 8 }), 3, '#/grammar/mix?n=8', 'grammar')
-        : r === 1 && ex === 'toefl' ? X('exam', '🧩', 'TOEFL · Complete the Words', t('Câu hỏi kiểu đề thi, có giải thích ngay'), 3, '#/toefl-p/cw', 'quizzes')
-          : X('use', '🏗️', t('Collocation & cấu trúc học thuật'), t('Câu hỏi kiểu đề thi, có giải thích ngay'), 3, '#/usage?c=' + UC[Math.floor(d.n / 3) % UC.length], 'xp'));
-    }
-    }
+    // Phần cuối buổi = kỹ năng riêng của gói (hội thoại, dạng câu đề thi, email…); ngày cuối bài: kiểm tra cuối bài thay thế → buổi vẫn ≤ 10 phút
+    const last = d.j === d.of && d.unit.status !== 'done';
+    if (!last) out.push(...TK().skill(tr, d, tier, X));
     if (last) out.push({ ...S('test', '🏁', t('Kiểm tra bài'), sub('test'), 3), href: P().stepHref(d.unit.topic.id, 'test'), src: 'topic:' + d.unit.topic.id });
     for (const s of out) s.ok = s.k === 'test' ? d.unit.status === 'done' : d.done || (d.rec.s || []).includes(s.k);
     return out;
@@ -82,7 +69,7 @@
     ls('dayExt', null); return mark(x.id, x.k);
   }
   function mark(id, k) {
-    const r = REC[id] = REC[id] || {}; r.s = r.s || [];
+    const r = REC[id] = REC[id] || {}; r.s = r.s || []; // id = khóa ngày theo gói (d.key)
     if (!r.s.includes(k)) r.s.push(k);
     save(); return true;
   }
@@ -91,12 +78,12 @@
     const st = plan(d);
     // chỉ tính các bước làm thật trong buổi (bản ghi), không thưởng lại cho ngày cũ được tính xong từ tiến độ trước đây
     if (d.rec.done || !(d.rec.s || []).length || !st.every(s => s.k === 'test' ? s.ok : (d.rec.s || []).includes(s.k))) return false;
-    REC[d.id] = { ...REC[d.id], done: Date.now() }; await save();
+    REC[d.key] = { ...d.rec, ...REC[d.key], done: Date.now() }; await save();
     ls('daySess', null);
     try { await App.reward({ xp: 15 }); } catch (e) { /* bỏ qua */ }
     return true;
   }
-  const find = id => days().find(d => d.id === id);
+  const find = id => id && days().find(d => d.id === id);
 
   function css() {
     if (document.getElementById('pdCss')) return;
@@ -116,23 +103,23 @@
 
   // ---------- Bản đồ: chặng (gập/mở) → bài (tiến độ x/y ngày) → nút Ngày ----------
   async function map() {
-    await load(); settleExt(); css();
+    await load(); const tr = TK().cur(); await TK().ready(tr); settleExt(); css();
     const view = App.view, ds = days();
     if (!ds.length) { view.innerHTML = `<div class="card empty"><div class="em" aria-hidden="true">🗺️</div><h2>${t('Không tải được – thử lại sau')}</h2><button class="btn primary" id="pathRetry">${t('Thử lại')}</button></div>`; $('#pathRetry').onclick = () => App.need('words').then(map).catch(() => {}); return; }
-    const ielts = /^ielts/.test(App.exam ? App.exam() : 'ielts'), cur = ds.find(d => d.status === 'current'), nDone = ds.filter(d => d.done).length;
+    const ielts = tr.id === 'ielts', cur = ds.find(d => d.status === 'current'), nDone = ds.filter(d => d.done).length;
     const curSt = cur ? cur.unit.stage.id : 's0';
-    view.innerHTML = `<div class="page-head"><div><h1>${ielts ? t('Lộ trình chinh phục IELTS') : t('Lộ trình từ vựng')}</h1><p class="muted">${t('Đã xong {a}/{b} ngày · mỗi ngày 5–10 phút, dễ trước khó sau.', { a: nDone, b: ds.length })}</p></div>
-      <div class="row">${ring(nDone / ds.length * 100, `${Math.round(nDone / ds.length * 100)}%`, 'var(--good)')}</div></div>
+    view.innerHTML = `<div class="page-head"><div><h1>${ielts ? t('Lộ trình chinh phục IELTS') : tr.em + ' ' + esc(tr.name)}</h1><p class="muted">${t('Đã xong {a}/{b} ngày · mỗi ngày 5–10 phút, dễ trước khó sau.', { a: nDone, b: ds.length })}</p></div>
+      <div class="row">${ring(nDone / ds.length * 100, `${Math.round(nDone / ds.length * 100)}%`, 'var(--good)')}</div></div>${TK().switcher('path')}
       ${cur ? `<a class="btn primary lg block path-cta" href="#/day/${cur.n}">${(cur.rec.s || []).length ? t('Tiếp tục Ngày {n}', { n: cur.n }) : t('Bắt đầu Ngày {n}', { n: cur.n })} · ${esc(cur.unit.topic.name)} →</a>` : `<p class="center">🏆 ${t('Bạn đã hoàn thành toàn bộ lộ trình!')}</p>`}
-      <div class="path">${P().STAGES.map(st => {
+      <div class="path">${tr.stages.map(st => {
         const sd = ds.filter(d => d.unit.stage.id === st.id), k = sd.filter(d => d.done).length;
         return `<details class="dp-stage" data-st="${st.id}"${st.id === curSt ? ' open' : ''}><summary class="stage-banner" style="--sc:${st.color};cursor:pointer">
-          <div><div class="tiny stage-lv">${ielts ? `${st.cefr} · ${st.band}` : `CEFR ${st.cefr}`}</div><h2 style="margin:.1rem 0;color:#fff">${st.name}</h2><div class="small" style="opacity:.92">${st.desc}</div><div class="small stage-cando">🎯 ${st.cando}</div>${st.id === 's0' ? `<a class="chip stage-rp" href="#/roleplay">🎭 ${t('Luyện nói: tình huống hằng ngày')}</a>` : ''}</div>
+          <div><div class="tiny stage-lv">${ielts ? `${st.cefr} · ${st.band}` : `CEFR ${st.cefr}`}</div><h2 style="margin:.1rem 0;color:#fff">${st.name}</h2><div class="small" style="opacity:.92">${st.desc}</div><div class="small stage-cando">🎯 ${st.cando}</div>${st.id === 's0' || st.id === 'comm1' ? `<a class="chip stage-rp" href="#/roleplay">🎭 ${t('Luyện nói: tình huống hằng ngày')}</a>` : ''}</div>
           <div class="stage-count">${k}/${sd.length}</div></summary><div class="dp-body"></div></details>`;
       }).join('')}</div>`;
     const fill = el => {
       const body = el.querySelector('.dp-body'); if (body.childElementCount) return;
-      const st = P().STAGES.find(s => s.id === el.dataset.st), sd = ds.filter(d => d.unit.stage.id === st.id);
+      const st = tr.stages.find(s => s.id === el.dataset.st), sd = ds.filter(d => d.unit.stage.id === st.id);
       const units = [...new Set(sd.map(d => d.unit))];
       let idx = 0;
       body.innerHTML = units.map(u => {
@@ -166,7 +153,7 @@
 
   // ---------- Trang buổi học #/day/N ----------
   async function page(arg) {
-    await load(); settleExt(); css();
+    await load(); await TK().ready(TK().cur()); settleExt(); css();
     const view = App.view, ds = days();
     const d = ds[(+arg || (ds.find(x => x.status === 'current') || ds[0] || {}).n) - 1];
     if (!d) { location.hash = '#/path'; return; }
@@ -174,7 +161,7 @@
     await finishIf(d);
     const st = plan(d), okN = st.filter(s => s.ok).length, nx = st.find(s => !s.ok), stage = d.unit.stage;
     view.innerHTML = `<div class="page-head"><div class="day-hero" style="--sc:${stage.color}"><div class="dh-n" aria-hidden="true">${d.n}</div>
-        <div><div class="tiny muted" style="font-weight:700">${esc(stage.name)} · CEFR ${stage.cefr}</div><h1 style="margin:.1rem 0">${t('Ngày {n}', { n: d.n })}: ${esc(d.unit.topic.name)}</h1>
+        <div><div class="tiny muted" style="font-weight:700">${d.tr.em} ${esc(d.tr.name)} · ${esc(stage.name)}${stage.band === '' ? '' : ' · CEFR ' + stage.cefr}</div><h1 style="margin:.1rem 0">${t('Ngày {n}', { n: d.n })}: ${esc(d.unit.topic.name)}</h1>
         <div class="small muted">${t('Hôm nay học {n} từ mới · ≈ {m} phút', { n: d.topic.words.length, m: minsOf(st) })}</div></div></div></div>
       <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="${st.length}" aria-valuenow="${okN}" aria-label="${esc(t('{a}/{b} hoạt động', { a: okN, b: st.length }))}"><i style="width:${okN / st.length * 100}%"></i></div>
       <p class="small muted" style="margin:.4rem 0 0">${t('{a}/{b} hoạt động', { a: okN, b: st.length })} · ${t('Dễ trước, khó sau: nhận diện → ghép → nghe → dùng trong câu → nói.')}</p>
@@ -187,13 +174,14 @@
     $$('[data-step]', view).forEach(a => a.addEventListener('click', () => {
       ls('daySess', d.id);
       const s = st.find(x => x.k === a.dataset.step);
-      if (s && s.ext) ls('dayExt', JSON.stringify({ id: d.id, k: s.k, c: s.ext, base: today()[s.ext] || 0, day: Core.todayKey() }));
+      if (s && s.tap && !s.ok) { mark(d.key, s.k); finishIf(find(d.id)); }
+      else if (s && s.ext) ls('dayExt', JSON.stringify({ id: d.key, k: s.k, c: s.ext, base: today()[s.ext] || 0, day: Core.todayKey() }));
     }));
   }
 
   // ---------- Thanh tiến độ buổi học trên trang bài tập ----------
   async function bar() {
-    await load();
+    await load(); await TK().ready(TK().cur());
     if (settleExt()) { const d0 = find(ls('daySess')); if (d0) await finishIf(d0); }
     const d = find(ls('daySess')); if (!d || d.done) { ls('daySess', null); return; }
     const view = App.view; if (view.querySelector('.day-bar')) return;
@@ -221,7 +209,7 @@
       state.cards = await Core.Cards.all();
     }
     if (det.wait) await det.wait.catch(() => {});
-    if (s.k !== 'test') mark(d.id, s.k);
+    if (s.k !== 'test') mark(d.key, s.k);
     d = find(d.id); const fin = await finishIf(d);
     const st2 = plan(d), nx = st2.find(x => !x.ok), ds = days(), next = ds[d.n];
     PathReward.show({ unit: { topic: { name: t('Ngày {n}', { n: d.n }) + ': ' + d.unit.topic.name, emoji: '📅' } },
@@ -230,19 +218,19 @@
       title: fin ? '🎉 ' + t('Hoàn thành Ngày {n}!', { n: d.n }) : '' });
     // Nút bước kế tiếp trong buổi: giữ phiên + bộ đếm cho bước ngoài bộ luyện
     const cta = App.view.querySelector('.path-reward .btn.primary');
-    if (cta && nx) cta.addEventListener('click', () => { ls('daySess', d.id); if (nx.ext) ls('dayExt', JSON.stringify({ id: d.id, k: nx.k, c: nx.ext, base: today()[nx.ext] || 0, day: Core.todayKey() })); });
+    if (cta && nx) cta.addEventListener('click', () => { ls('daySess', d.id); if (nx.tap) mark(d.key, nx.k); else if (nx.ext) ls('dayExt', JSON.stringify({ id: d.key, k: nx.k, c: nx.ext, base: today()[nx.ext] || 0, day: Core.todayKey() })); });
   }
 
   // ---------- Kế hoạch hôm nay: "Ngày N" là việc chính (plan.js) ----------
   async function todayTask() {
-    await load(); settleExt();
+    await load(); const tr = TK().cur(); await TK().ready(tr); settleExt();
     const ds = days(), k = Core.todayKey();
     const doneToday = ds.filter(d => d.rec.done && Core.todayKey(new Date(d.rec.done)) === k).pop();
     const cur = ds.find(d => d.status === 'current');
     const d = doneToday && (!cur || !(cur.rec.s || []).length) ? doneToday : cur; if (!d) return null;
     const st = plan(d), okN = st.filter(s => s.ok).length;
-    return { em: '📅', day: d.n, started: okN > 0, t: t('Ngày {n}', { n: d.n }) + ': ' + d.unit.topic.name, sub: `${d.unit.stage.name} · ${t('{a}/{b} hoạt động', { a: okN, b: st.length })}`, href: '#/day/' + d.n, mins: minsOf(st), done: d.done, unit: d.unit };
+    return { em: tr.em, day: d.n, track: tr.name, sw: TK().switcher('home'), started: okN > 0, t: t('Ngày {n}', { n: d.n }) + ': ' + d.unit.topic.name, sub: `${tr.name} · ${d.unit.stage.name} · ${t('{a}/{b} hoạt động', { a: okN, b: st.length })}`, href: '#/day/' + d.n, mins: minsOf(st), done: d.done, unit: d.unit };
   }
 
-  g.DayPath = { days: () => load().then(days), plan, map, page, bar, done, todayTask };
+  g.DayPath = { days: () => load().then(() => days()), daysOf: tr => load().then(() => days(tr)), plan, map, page, bar, done, todayTask, tracks: (...a) => TK().page(...a) };
 })(self);
