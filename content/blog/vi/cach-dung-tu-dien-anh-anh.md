@@ -56,7 +56,7 @@ Một mục từ chứa nhiều thông tin hơn bạn nghĩ. Đi lần lượt t
 
 Hầu hết từ điển learner's ghi IPA cả giọng Anh và giọng Mỹ, kèm file nghe. Ví dụ *suggest*: giọng Anh thường là /səˈdʒest/, giọng Mỹ thường là /səɡˈdʒest/. Dấu ˈ đặt trước âm tiết mang trọng âm. Nếu chưa đọc được ký hiệu, xem bài [cách đọc phiên âm IPA](/vi/blog/cach-doc-phien-am-ipa/); còn khác biệt hai giọng có trong bài [Anh–Anh và Anh–Mỹ khác nhau thế nào](/vi/blog/anh-anh-va-anh-my-khac-nhau/).
 
-![Bảng âm IPA của Lexkite với nguyên âm, phụ âm và luyện từng âm](media:pron "Xem phiên âm và trọng âm của từ ngay trong bảng âm IPA")
+![Bảng âm IPA của Lexkite với nguyên âm, phụ âm và luyện từng âm](media:pron "Nghe từ ví dụ của từng âm IPA để đọc đúng phiên âm khi tra từ")
 
 ### Từ loại và nhãn ngữ pháp
 

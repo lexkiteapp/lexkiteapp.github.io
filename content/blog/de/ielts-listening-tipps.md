@@ -58,7 +58,7 @@ Rechtschreibung ist im IELTS gnadenlos: Jeder Buchstabierfehler führt zu null P
 
 Abschnitt 2 ist ein Monolog zu einem allgemeinen gesellschaftlichen Thema (z. B. Führung durch ein Museum oder Erklärung einer Campingplatz-Anlage). Häufig begegnen Ihnen hier Lagepläne und Karten (Map Labelling). Merken Sie sich Orientierungsbegriffe wie *in the top right corner*, *adjacent to*, *opposite*, *clockwise* und *just past the intersection*. Nutzen Sie auch unsere [thematischen Vokabellisten](/tu-vung/), um Ihren Wortschatz für Wegbeschreibungen systematisch zu erweitern.
 
-![Simulation eines vollständigen IELTS-Prüfungstests](media:mock "Prüfungssimulationen unter realistischen Zeitbedingungen bauen Routine und Prüfungsruhe auf")
+![Simulation eines vollständigen IELTS-Prüfungstests](media:mock "Probetests in allen vier Teilen bauen Routine und Prüfungsruhe auf; der Verlauf zeigt Ihre Fortschritte")
 
 ## Abschnitt 3 & 4: Akademische Diskussionen und Vorlesungen
 
@@ -70,7 +70,7 @@ Abschnitt 4 ist eine universitäre Vorlesung ohne Pausen zwischendurch. Hier ist
 
 Vermeiden Sie bei wissenschaftlichen Formulierungen auch typische Übersetzungsfallen aus dem Deutschen; prüfen Sie vorab unsere Zusammenstellung über [False Friends Englisch–Deutsch](/de/blog/false-friends-englisch-deutsch/).
 
-![Gezielte Übungen für Hörverständnis und Lückentexte](media:practice-test "Multiple-Choice-Übungen festigen Wortschatz und Bedeutungen, die im Listening-Test oft vorkommen")
+![Lexkite Multiple-Choice-Übung: die richtige Bedeutung von „run out of“ wählen](media:practice-test "Multiple-Choice-Übungen festigen Wortschatz und Bedeutungen, die im Listening-Test oft vorkommen")
 
 ## Internationale Akzente meistern: Von British bis Australian
 

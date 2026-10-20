@@ -144,7 +144,7 @@ When you learn a new academic word, learn its family at the same time and mark t
 4. **Practise in phrases.** Stress in isolation is easier than in a sentence. Say *an e-co-NO-mic po-LI-cy*, not just the single word.
 5. **Get feedback.** Record yourself, or use [scored pronunciation practice](/#/practice/speak): you say a word or phrase into the microphone and the app scores it against your voice. If you need to fix individual sounds first, start with the [IPA library](/#/pron).
 
-![Lexkite speaking practice for "cut down on" with a microphone button and a pronunciation score](media:practice-speak "Say multi-syllable words into the mic and see whether the stress pattern lands")
+![Lexkite speaking practice for "cut down on" with a microphone button and a pronunciation score](media:practice-speak "Say multi-syllable words into the mic and check your pronunciation score")
 
 Stress is the foundation for sentence rhythm. Once words are right, move on to [connected speech in English](/en/blog/connected-speech-in-english/), learn [how to catch fast speech in IELTS listening](/en/blog/how-to-catch-fast-speech-in-ielts-listening/), and practise whole sentences with the [shadowing technique](/en/blog/shadowing-technique/). For exam speaking, combine this with the strategies in our [IELTS Speaking Part 2 tips](/en/blog/ielts-speaking-part-2-tips/) and the model answers in [Speaking samples](/en/speaking/).
 

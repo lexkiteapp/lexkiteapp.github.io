@@ -104,7 +104,7 @@ Cần danh sách từ chia nhóm cho chặng 1? Hãy mở [bộ từ TOEIC chia 
 2. Vào [Luyện thi TOEIC](/#/toeic) để học từ vựng TOEIC (TSL), luyện từng Part và làm đề thi thử có chấm tự động, điểm quy đổi chỉ mang tính ước lượng (10–990).
 3. Nếu vốn từ thông dụng còn mỏng, hãy học thêm Chặng 0 – Từ cốt lõi trong [Lộ trình học](/#/path). Dù lộ trình này được thiết kế cho IELTS, các từ cốt lõi ở chặng đầu cũng là nền cho TOEIC.
 
-![Trang lộ trình của Lexkite sắp xếp việc học theo chặng và band mục tiêu](media:path "Lộ trình theo chương giúp bạn lập kế hoạch tự học TOEIC từng tuần")
+![Trang lộ trình IELTS của Lexkite sắp xếp việc học theo chặng và band mục tiêu](media:path "Lộ trình IELTS chia chặng là mẫu để bạn tự chia kế hoạch TOEIC theo tuần")
 
 4. Mỗi ngày bắt đầu bằng ôn các thẻ đến hạn, rồi mới đến bài luyện trong lịch tuần.
 

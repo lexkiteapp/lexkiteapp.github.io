@@ -53,7 +53,7 @@ O sexto passo envolve leitura extensiva focada em reconhecimento contextual. Ler
 
 Para organizar suas tarefas e manter um ritmo sustentável ao longo dos meses, acompanhe seu progresso na [trilha de estudos](/#/path), que divide metas semanais em pequenas vitórias diárias.
 
-![Exercícios práticos de fixação e escrita](media:practice-learn "A prática guiada com exercícios de digitação reforça a retenção ortográfica e o uso em contexto")
+![Cartão de aprendizagem do Lexkite para «come up with»: significado, exemplos e dica de memória](media:practice-learn "A prática guiada com exercícios de digitação reforça a retenção ortográfica e o uso em contexto")
 
 ## Técnicas mnemônicas e associações visuais para termos difíceis
 

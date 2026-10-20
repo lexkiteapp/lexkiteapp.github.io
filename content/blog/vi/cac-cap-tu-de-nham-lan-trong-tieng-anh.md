@@ -24,7 +24,7 @@ Tiếng Anh vay mượn rất nhiều từ tiếng Latin và tiếng Pháp qua n
 
 Với người Việt, còn một nguyên nhân nữa: ta thường học từ qua nghĩa tiếng Việt. "Mượn" dịch được cả *borrow* lẫn *lend*; "nói" dịch được *say, tell, speak, talk*. Khi hai từ tiếng Anh dùng chung một nghĩa tiếng Việt trong sổ tay, não không có lý do gì để phân biệt chúng. Giải pháp là học từ kèm **cấu trúc câu** và **ví dụ**, không chỉ kèm nghĩa. Với các từ chỉ cảm xúc, nhầm lẫn còn nằm ở mức độ mạnh yếu, xem [từ vựng tiếng Anh về cảm xúc](/vi/blog/tu-vung-tieng-anh-ve-cam-xuc/).
 
-![Sổ lỗi sai (“Mistake log”) trong Lexkite phân nhóm các câu từng làm sai](media:mistakes "Mỗi lần nhầm cặp từ, ghi vào “Mistake log” để khỏi nhầm lại")
+![Sổ lỗi sai (“Mistake log”) trong Lexkite phân nhóm các câu từng làm sai](media:mistakes "Mỗi lần nhầm cặp từ, ghi vào “Mistake log” để ôn lại cho chắc")
 
 ## Nhóm 1: viết hoặc đọc gần giống nhau
 

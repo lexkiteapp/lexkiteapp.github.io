@@ -71,7 +71,7 @@ Cümle tamamlama sorularında boş bırakılan kısım ile verilen kısım aras�
 - **Zaman Uyumu:** Yan cümlecik geçmiş zaman (*Past Simple*) ile kurulmuşsa, ana cümlenin geniş zaman (*Present Simple*) veya gelecek zaman (*Future*) olması mantıksal bir istisna yoksa kural dışıdır.
 - **Referans Kelimeler (Zamirler):** Şıklarda geçen *they, this, these, such, its, their* gibi referans sözcüklerinin soru kökünde bir karşılığı olmalıdır. Örneğin şıkta *"these measures"* (bu önlemler) geçiyorsa, soru kökünde önceden sıralanmış önlemler veya yasalar bulunmalıdır.
 
-![Okuma ve anlama ekranı](media:reading "Akademik okuma modülünde seviyelere göre ayrılmış metinler ve anlık sözlük desteği")
+![IELTS okuma metinleri ekranı: A2–C1 seviyeleri](media:reading "Akademik okuma modülünde seviyelere göre ayrılmış metinler ve anlık sözlük desteği")
 
 Akademik okuma becerinizi güçlendirmek için [akademik okuma bölümü](/#/reading) içeriklerini düzenli okuyabilir, ayrıca YDS öncesi çalışma alışkanlığı kazanmak adına [İngilizce nasıl öğrenilir](/tr/blog/ingilizce-nasil-ogrenilir/) rehberimizi rehber edinebilirsiniz.
 
@@ -95,7 +95,7 @@ Paragrafta akışı bozan cümleyi bulurken yalnızca cümlenin genel konusuna b
 
 III numaralı cümle de çevre ve enerji ile ilgilidir; ancak parçanın dar odak noktası olan "kutup ayıları" temasından tamamen sapmıştır. Ayrıca cümleler arasındaki *However, Therefore, On the other hand* gibi geçiş köprülerinin mantıksal sırasını kontrol edin.
 
-![İngilizce gramer konu ağacı](media:grammar "Gramer yol haritasında 12 zaman, A1–B2 seviyeleri ve karma alıştırmalar")
+![IELTS gramer yol haritası ekranı](media:grammar "Gramer yol haritasında 12 zaman, A1–B2 seviyeleri ve karma alıştırmalar")
 
 İngilizce sınavlarında soru çözerken genel dinleme ve anlama mantığını desteklemek için [IELTS listening taktikleri](/tr/blog/ielts-listening-taktikleri/) yazımızı okuyabilir ve kelime haznenizi genişletmek için [İngilizce kelime ezberleme](/tr/blog/ingilizce-kelime-ezberleme/) tekniklerini uygulayabilirsiniz. Gelecekte yurt dışı yazışmaları planlıyorsanız [İngilizce iş maili nasıl yazılır](/tr/blog/ingilizce-is-maili-nasil-yazilir/) rehberimiz de faydalı olacaktır.
 

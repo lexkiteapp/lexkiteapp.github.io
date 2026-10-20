@@ -101,7 +101,7 @@ Bài tập 15 phút mỗi ngày:
 4. Mở lại bài, làm phần câu hỏi. Với mỗi câu, ghi chú bạn đã **quét** từ khóa nào để định vị.
 5. Gặp từ khóa học thuật lạ, chạm vào để tra và lưu vào sổ từ, sau đó ôn bằng flashcard.
 
-![Trang đọc có từ khóa tô màu, chạm để tra nghĩa và câu hỏi True/False/Not Given](media:read-article "Đọc bài có từ khóa tô màu để luyện skimming và scanning theo giờ")
+![Trang đọc có từ khóa tô màu, chạm để tra nghĩa và câu hỏi True/False/Not Given](media:read-article "Đọc bài có từ khóa tô màu để luyện skimming và scanning")
 
 Một mẹo nhỏ: danh sách từ khóa ở bên phải bài đọc là "bài tập scanning" có sẵn. Chọn một từ trong danh sách, rồi thử tìm nó trong bài nhanh nhất có thể. Làm 5 từ liên tiếp, bạn sẽ thấy mắt quen dần việc nhảy cụm.
 

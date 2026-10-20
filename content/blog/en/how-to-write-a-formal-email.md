@@ -200,7 +200,7 @@ Work emails and IELTS General Training letters share many skills: choosing a lev
 
 Keep good opening lines, requests and closings in your [Phrases & structures notebook](/#/phrases), labelled by formality, so you can reuse them.
 
-![Lexkite Phrases & structures screen for saving phrases and tagging them](media:phrases "Tag each saved email phrase as formal, semi-formal or informal")
+![Lexkite Phrases & structures screen for saving phrases and tagging them](media:phrases "Save each useful email phrase once so you can reuse it in the next message")
 
 If you are not sure whether a word suits a formal email, look it up in the [dictionary](/#/dict/appreciate) and check its example sentences and collocations. For longer formal writing, the [band 8 sample essays](/en/samples/) show the same neutral register at essay length, and [hedging in academic writing](/en/blog/hedging-in-academic-writing/) and [linking words for IELTS writing](/en/blog/linking-words-for-ielts-writing/) show how to sound precise and well organised.
 

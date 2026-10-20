@@ -125,7 +125,7 @@ After each exercise, review the transcript. For every missed answer, ask: was it
 2. Work through each part in stages: Practice mode to answer the questions, a single uninterrupted listen as in the real test, then Dictation to write down exactly what you hear, which is excellent for spelling and plurals.
 3. When you can handle each part on its own, sit a [full mock test](/#/mock) and use the attempt history to compare scores over time.
 
-![Lexkite four-skill IELTS mock test page with test selection, attempt history and the test structure](media:mock "Once each part feels comfortable, take a full timed mock and track your scores across attempts")
+![Lexkite four-skill IELTS mock test page with test selection, attempt history and the test structure](media:mock "Once each part feels comfortable, take a full mock and track your scores across attempts")
 
 {{cta: /#/listening | Practise one IELTS Listening part now}}
 

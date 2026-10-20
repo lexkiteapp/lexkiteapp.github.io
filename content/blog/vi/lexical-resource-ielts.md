@@ -88,7 +88,7 @@ Trước khi dùng một từ mới trong bài, hãy tra lại: từ này đi v�
 
 Từ đã học mà không được gặp lại sẽ rơi khỏi trí nhớ chỉ sau vài ngày. Ôn theo lịch ngắt quãng giúp bạn giữ được vốn từ đủ lâu để nó "chảy" ra khi viết và nói. Đây là lý do flashcard với thuật toán lập lịch như FSRS hiệu quả hơn việc đọc lại sổ tay.
 
-![Phiên ôn flashcard trong Lexkite với thẻ từ “pollution”, phiên âm và nút “Flip”](media:review "Thẻ flashcard quay lại đúng lịch giúp từ học thuật không bị quên")
+![Phiên ôn flashcard trong Lexkite với thẻ từ “pollution”, phiên âm và nút “Flip”](media:review "Thẻ flashcard quay lại đúng lịch để bạn ôn từ học thuật trước khi kịp quên")
 
 ### 6. Viết, rồi tự soát lỗi từ vựng
 

@@ -122,7 +122,7 @@ Thời gian tiết kiệm ở đây chính là thời gian bạn có thêm cho [
 3. Nộp bài và đọc giải thích. Với mỗi câu sai, ghi lại nó thuộc nhóm nào trong bốn nhóm trên.
 4. Nếu sai nhiều ở thì hoặc từ loại, mở [Ngữ pháp](/#/grammar) để ôn lại chủ điểm đó trước khi luyện đề tiếp.
 
-![Trang “Grammar” liệt kê các chương ngữ pháp theo cấp độ, có bài luyện đi kèm](media:grammar "Học ngữ pháp theo chương để làm Part 5 nhanh và có lý do rõ")
+![Trang ngữ pháp IELTS của Lexkite liệt kê các chương theo cấp độ, có bài luyện đi kèm](media:grammar "Học ngữ pháp theo chương để làm Part 5 nhanh và có lý do rõ")
 
 5. Các cụm từ vựng gặp trong đề, hãy lưu thành flashcard để ôn mỗi ngày. Muốn có sẵn danh sách, xem [từ vựng TOEIC chia theo nhóm chủ đề](/vi/blog/tu-vung-toeic-theo-chu-de/).
 

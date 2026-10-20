@@ -57,7 +57,7 @@ Bu sinyalleri refleks haline getirmek için [gramer modülümüzü](/#/grammar) 
 
 İlk cümlede Present Perfect geçmişten bugüne uzanan köprüyü kurarken, ikinci cümlede Simple Past bu durumun tamamen geçmişte kalan bir anı olduğunu vurgular.
 
-![İnteraktif gramer testleri ve çoktan seçmeli sorular](media:practice-test "Zaman kiplerini doğru ayırt etmek için hazırlanan çoktan seçmeli pratik testler")
+![Çoktan seçmeli test: 'run out of' ifadesinin doğru anlamını dört seçenek arasından bulma](media:practice-test "Kısa çoktan seçmeli testler, öğrendiğiniz ifadelerin anlamını hatırlayıp hatırlamadığınızı gösterir")
 
 ## Türk öğrencilerin en sık yaptığı 4 ölümcül hata
 
@@ -96,7 +96,7 @@ Bu zarif geçiş, konuşmanızdaki dilbilgisi zenginliğini doğrudan gösterir.
 
 Zaman yapısı örneklerini unutmamak için günde 10 dakikalık [bilgi kartı seansları](/#/review) yapmayı ihmal etmeyin.
 
-![Aralıklı tekrar ile gramer kalıplarını pekiştirme](media:review "Zaman yapılarını ve istisnaları unutmadan önce hatırlatan bilgi kartı seansları")
+![Aralıklı tekrar bilgi kartı: 'pollution' kartı, fonetik yazılış ve kartı çevirme düğmesi](media:review "Kelimeleri unutmadan önce yeniden karşınıza getiren bilgi kartı seansları")
 
 ## Kendinizi test edin: Cevaplı ve açıklamalı alıştırmalar
 

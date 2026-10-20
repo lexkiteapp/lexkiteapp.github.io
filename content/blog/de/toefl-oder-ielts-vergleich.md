@@ -77,7 +77,7 @@ Dies ist für viele Lerner der entscheidende Scheideweg:
 
 Testen Sie Ihre Fähigkeiten vorab unter Realbedingungen mit unseren vollständigen [4-Skills IELTS Probetests](/#/mock) sowie dem flexiblen [Multiple-Choice-Testmodul](/#/practice/test).
 
-![Probetest-Modul auf Lexkite](media:mock "Probetests unter realistischen Bedingungen decken persönliche Stärken und Zeitmanagement-Probleme frühzeitig auf")
+![IELTS-Probetest-Modul auf Lexkite für alle vier Fertigkeiten](media:mock "Probetests unter realistischen Bedingungen decken persönliche Stärken und Zeitmanagement-Probleme frühzeitig auf")
 
 ![Multiple-Choice-Fragen auf Lexkite](media:practice-test "Kurze Multiple-Choice-Quizze trainieren Wortschatz, der in beiden Prüfungen gebraucht wird")
 

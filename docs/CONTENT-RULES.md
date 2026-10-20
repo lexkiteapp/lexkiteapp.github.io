@@ -43,3 +43,13 @@
 ## 7. Nợ chất lượng hiện tại (ưu tiên trả dần)
 - ~2.800 từ NGSL thiếu ví dụ/phiên âm trong dữ liệu (cảnh báo `thiếu ví dụ`, `thiếu phiên âm`).
 - `notes-more.js` (314 KB gz), `notes-ngsl.js` (291 KB gz) vượt ngân sách file → tách theo chữ cái/lô khi sửa tới.
+
+## 8. Alt & chú thích ảnh blog – cổng "caption truth" (bắt buộc)
+Ảnh chụp app dùng chung trong bài blog (`![alt](media:<id> "chú thích")`) chỉ được nói điều **màn hình thật sự có** – sự thật là `desc` trong `content/blog/shots.json`.
+- **Alt** = tả đúng màn hình (dịch `desc` sang ngôn ngữ bài, rút gọn được). **Chú thích** = mô tả đúng + cách dùng màn hình đó cho chủ đề bài; không thêm tính năng, chế độ, kết quả.
+- **Cấm** (lỗi, chặn build): bấm giờ/đếm ngược (trừ trò Ghép thẻ), "thời gian thực", "không bao giờ quên", "bảo đảm", "không lặp lại lỗi", AI chấm/chữa, tên app khác (ELSA, Duolingo…); ngữ pháp/dạng đề/thi thử trên màn hình từ vựng (`practice-test` chỉ là trắc nghiệm nghĩa "run out of", `review` chỉ là thẻ "pollution"); collocation/phrasal verb trên thư viện; nối âm/trọng âm/ngữ điệu trên thư viện IPA & màn luyện phát âm; viết/lỗi sai trên trang tiến độ; Task 1/biểu đồ trên phòng viết Task 2.
+- **Kỳ thi:** màn hình IELTS (`listening`, `reading`, `read-article`, `grammar`, `write`, `speaking`, `mock`, `path`, `letters`, `task1`) dùng trong bài TOEIC/TOEFL/Cambridge/ЕГЭ/YDS/CET… → alt hoặc chú thích **phải ghi "IELTS"**; alt không được gán kỳ thi khác cho màn hình (vd gọi `practice-test` là "đề TOEIC"). Chú thích kiểu đuôi "– <từ khóa bài>" nhắc kỳ thi khác thì phải ghi rõ IELTS.
+- **Dữ liệu:** `content/blog/shot-facts.json` – mỗi ảnh có `features`, `notFeatures` (+ `_default` cho mọi ảnh), `altNotFeatures`, `exam`, `anchors`; mỗi khái niệm có từ khóa đủ 15 ngôn ngữ (vi en es pt fr de id th zh ja ko hi ar ru tr). Gặp kiểu bịa mới → **thêm từ khóa vào khái niệm** (hoặc khái niệm mới + gắn vào ảnh) và thêm caption sai nguyên văn vào `scripts/test/blog-captions.mjs`, đừng chỉ sửa tay.
+- **Kiểm:** `node scripts/blog-captions.mjs [file.md…] [--warn]` (nhanh); luật chạy sẵn trong `blog-check` (`[caption-truth]`, `[caption-exam]`; cảnh báo khi alt không có thuật ngữ nào của màn hình) và `npm test` (`scripts/test/blog-captions.mjs`: hồi quy + toàn kho 0 lỗi).
+- **Ý kiến thứ hai (tay, không trong npm test):** `node scripts/blog-captions.mjs content/blog/<lang>/*.md --ai` – Gemini (khóa xoay vòng của dự án) so alt/caption với `desc`; kết quả phải duyệt tay rồi sửa theo `shots.json`.
+- Ghi chú: app thật có đồng hồ trong bài thi thử (`mock.js`) và nút bấm giờ 40 phút trong phòng viết (`write.js`), nhưng ảnh chụp không thể hiện → caption không nói "bấm giờ". Muốn cho phép thì chuyển `timer` sang `features` của ảnh đó trong `shot-facts.json`.

@@ -57,7 +57,7 @@ Vergessen Sie komplizierte Aufsatzmodelle mit fünf oder sechs kurzen Absätzen.
 
 Um Ihren Wortschatz gezielt für akademische Essays aufzubauen, empfiehlt sich ein regelmäßiger Blick in unsere [Wortschatz-Bibliothek](/#/library), die nach Themenbereichen sortiert ist.
 
-![Wortschatz-Bibliothek auf Lexkite](media:library "In der Wortschatz-Bibliothek finden Sie anspruchsvolle akademische Vokabeln und Kollokationen für Ihren Essay")
+![Wortschatz-Bibliothek auf Lexkite](media:library "In der Wortschatz-Bibliothek finden Sie Wortsets nach Niveau, darunter einen eigenen Writing-Tab für Ihren Essay")
 
 ## Unverzichtbare Linking Words und akademische Phrasen
 

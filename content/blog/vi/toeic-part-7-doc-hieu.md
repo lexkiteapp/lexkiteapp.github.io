@@ -44,7 +44,7 @@ Văn bản đơn đứng trước, văn bản kép và ba đứng sau. Vì vậy
 
 Đây là dạng phổ biến nhất. Cách làm: xác định từ khóa trong câu hỏi (tên riêng, con số, ngày tháng), quét văn bản tìm từ đó hoặc từ đồng nghĩa, rồi đọc kỹ câu chứa nó.
 
-![Trang đọc có từ khóa tô màu, chạm để tra nghĩa và câu hỏi True/False/Not Given](media:read-article "Câu hỏi chi tiết nằm ngay cạnh bài đọc để bạn dò từng thông tin")
+![Bài đọc IELTS có từ khóa tô màu, chạm để tra nghĩa và câu hỏi True/False/Not Given](media:read-article "Câu hỏi chi tiết nằm ngay cạnh bài đọc để bạn dò từng thông tin")
 
 **Lưu ý:** đáp án đúng thường được diễn đạt lại (paraphrase). Văn bản viết *The store will close at 6 p.m. instead of 9 p.m.*, đáp án có thể là *Its hours will be shortened*. Khả năng nhận ra cách nói gián tiếp này cũng là chìa khóa của [Part 2 trong phần nghe](/vi/blog/toeic-listening-part-2/).
 

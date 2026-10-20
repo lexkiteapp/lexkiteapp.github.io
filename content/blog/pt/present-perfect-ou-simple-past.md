@@ -48,7 +48,7 @@ Observe com atenção a expressão *this morning*. Se agora são 16h, a manhã �
 
 Treine o reconhecimento automático desses marcadores no [módulo de gramática](/#/grammar) para eliminar dúvidas antes de fazer qualquer teste formal.
 
-![Sessão de prática e testes rápidos no Lexkite](media:practice-test "Exercícios interativos de múltipla escolha para testar o uso de tempos verbais em tempo real")
+![Sessão de prática e testes rápidos no Lexkite](media:practice-test "Exercícios rápidos de múltipla escolha para conferir o sentido de expressões como run out of")
 
 ## Os 4 erros mais comuns cometidos por brasileiros
 
@@ -84,7 +84,7 @@ Essa alternância fluida entre visão geral de experiência e detalhe histórico
 
 Consolide a memória muscular do idioma realizando [sessões diárias de revisão](/#/review) de 10 minutos.
 
-![Revisão de regras gramaticais em flashcards](media:review "Pratique frases modelo com repetição espaçada para fixar a estrutura natural dos verbos")
+![Revisão de flashcards no Lexkite: cartão da palavra pollution com fonética e botão para virar](media:review "Lembre a palavra antes de virar o cartão; a repetição espaçada traz cada cartão de volta na hora certa")
 
 ## Exercícios práticos com gabarito comentado
 

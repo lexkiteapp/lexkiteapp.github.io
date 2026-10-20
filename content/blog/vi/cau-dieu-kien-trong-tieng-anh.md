@@ -121,11 +121,11 @@ Ngữ pháp chỉ thực sự trở thành phản xạ tự nhiên khi bạn đ�
 
 Đầu tiên, bạn hãy truy cập mục [lộ trình ngữ pháp](/#/grammar) để xem sơ đồ 12 thì và hệ thống phân cấp câu từ cơ bản đến nâng cao. Sau đó, tại khu vực [trò chơi và bài tập](/#/practice), hãy thử sức với các bài tập trắc nghiệm và điền từ để củng cố khả năng nhận biết mệnh đề điều kiện:
 
-![Giao diện bài kiểm tra trắc nghiệm của Lexkite yêu cầu chọn nghĩa đúng cho cụm run out of](media:practice-test "Luyện tập qua bài kiểm tra trắc nghiệm giúp củng cố phản xạ chia động từ trong câu điều kiện")
+![Giao diện bài kiểm tra trắc nghiệm của Lexkite yêu cầu chọn nghĩa đúng cho cụm run out of](media:practice-test "Làm trắc nghiệm nghĩa của cụm từ để ôn nhanh từ vựng gặp trong bài")
 
 Mỗi khi bắt gặp một liên từ hoặc cấu trúc mới trong lúc đọc tài liệu, bạn có thể tra cứu tức thì trên [từ điển Anh–Việt](/#/dict) của app để lưu lại kèm ví dụ thực tế:
 
-![Từ điển Anh–Việt của Lexkite tra từ resilient hiển thị phiên âm UK và US, ví dụ, collocation và nút lưu flashcard](media:dict "Tra nhanh nghĩa, ví dụ và collocation của từ mới gặp trong câu điều kiện, rồi lưu thành flashcard")
+![Từ điển Anh–Việt của Lexkite tra từ resilient hiển thị phiên âm UK và US, ví dụ, collocation và nút lưu flashcard](media:dict "Tra nhanh nghĩa, ví dụ và collocation của từ mới gặp trong câu ví dụ, rồi lưu thành flashcard")
 
 Bạn cũng có thể xem thêm kho bài học tại chuyên trang [ngữ pháp tiếng Anh](/ngu-phap/) để hệ thống hóa kiến thức bài bản mỗi ngày.
 

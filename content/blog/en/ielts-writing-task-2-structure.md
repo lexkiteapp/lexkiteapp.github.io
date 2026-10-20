@@ -140,11 +140,11 @@ Identify the question type and the main structural problem in each case.
 
 Structure becomes automatic only through repetition with feedback.
 
-![Lexkite Mistake log grouping errors by vocabulary, grammar, reading and listening](media:mistakes "Log the article, verb-form and plural slips you find in the final five-minute check, so the same errors stop reappearing")
+![Lexkite Mistake log grouping errors by vocabulary, grammar, reading and listening](media:mistakes "Log the article, verb-form and plural slips you find in the final five-minute check, so you can review them before the next essay")
 
 In the [Writing room](/#/write) you can choose a Task 2 question by topic, read idea prompts and suggested vocabulary, and write inside a paragraph frame before comparing your essay with an annotated band 8 sample. When a model answer uses a pattern you like, store it in [Phrases & structures](/#/phrases) and tag it for Task 2. For full exam conditions, the [IELTS mock test](/#/mock) lets you time the whole Writing paper.
 
-![IELTS mock test page in Lexkite where the Writing paper can be chosen, with a history of earlier attempts](media:mock "Run a timed Writing mock to see whether your five-minute plan survives a 60-minute limit")
+![IELTS mock test page in Lexkite where the Writing paper can be chosen, with a history of earlier attempts](media:mock "Run a Writing mock to see whether your five-minute plan holds up across a full paper")
 
 More model essays sorted by question type are on our [IELTS Task 2 samples page](/en/samples/). To upgrade the language inside the frame, pair this guide with [IELTS collocations](/en/blog/ielts-collocations/) and the [Academic Word List](/en/blog/academic-word-list/). And because Task 1 shares the same hour, read the [IELTS line graph guide](/en/blog/ielts-writing-task-1-line-graph/) as well.
 

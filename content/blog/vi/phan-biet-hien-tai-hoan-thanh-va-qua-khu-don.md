@@ -166,7 +166,7 @@ Nếu sai câu 1 hoặc 6, bạn đang chọn thì theo "chuyện đã xảy ra"
 
 Hiểu quy tắc chỉ là nửa đường; phần còn lại là gặp đủ nhiều câu để phản xạ tự chọn đúng thì. Trong Lexkite, chương các thì ở mục [Ngữ pháp IELTS](/#/grammar) có lộ trình từ hiện tại đơn tới hoàn thành, mỗi bài kèm câu luyện. Sau đó, làm vài vòng [bài kiểm tra trắc nghiệm](/#/practice/test) để luyện tốc độ nhận diện.
 
-![Câu trắc nghiệm trong Lexkite: chọn nghĩa đúng của “run out of” trong 4 phương án](media:practice-test "Làm trắc nghiệm để chọn đúng giữa hiện tại hoàn thành và quá khứ đơn")
+![Câu trắc nghiệm trong Lexkite: chọn nghĩa đúng của “run out of” trong 4 phương án](media:practice-test "Làm trắc nghiệm bốn đáp án để ôn nghĩa cụm từ đã học")
 
 Câu nào sai, hãy đưa vào [Sổ lỗi sai](/#/mistakes) để ôn lại đúng chỗ yếu, thay vì làm lại cả bài. Cách tận dụng sổ lỗi được hướng dẫn chi tiết trong bài [sổ lỗi sai tiếng Anh](/vi/blog/so-loi-sai-tieng-anh/).
 

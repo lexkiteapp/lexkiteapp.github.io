@@ -160,7 +160,7 @@ Für ein fundiertes Fundament empfehlen wir Ihnen außerdem unseren Grundlagenar
 
 Gezieltes Üben mit direktem Feedback erhalten Sie in unserem interaktiven [Grammatik-Testmodul](/#/practice/test).
 
-![Interaktive Multiple-Choice-Übungen auf Lexkite](media:practice-test "Gezielte Multiple-Choice-Fragen helfen dabei, die passende Zeitform im Satzgefüge blitzschnell zu bestimmen")
+![Interaktive Multiple-Choice-Übungen auf Lexkite](media:practice-test "Kurze Multiple-Choice-Fragen zur Bedeutung von Wendungen wie „run out of“ festigen den Wortschatz, den Sie in Beispielsätzen brauchen")
 
 {{youtube: | Alle 12 englischen Zeitformen im Überblick mit Bildung und Beispielen}}
 

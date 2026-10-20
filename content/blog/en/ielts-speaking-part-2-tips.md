@@ -117,7 +117,7 @@ Which preparation note is more useful, and why?
 
 The [Speaking room](/#/speaking) groups Part 1, 2 and 3 questions by topic, with band 7.5–8 sample answers and vocabulary worth using. A useful routine: read the card, set a one-minute timer for notes, speak for two minutes while recording yourself, and only then compare with the sample answer. Note any phrase you wish you had used, then practise saying it aloud in [pronunciation practice](/#/practice/speak) until it feels natural. Full timed conditions are available in the [IELTS mock test](/#/mock).
 
-![Lexkite IELTS mock test page where the Speaking module can be selected, with past attempts listed](media:mock "Sit a Speaking mock to rehearse the shift from Part 1 small talk to a timed cue card and Part 3 discussion")
+![Lexkite IELTS mock test page where the Speaking module can be selected, with past attempts listed](media:mock "Sit a Speaking mock to rehearse the shift from Part 1 small talk to the cue card and Part 3 discussion")
 
 Repeating a model answer aloud after the audio, known as [shadowing](/en/blog/shadowing-technique/), is a good way to absorb rhythm and phrasing. To widen your topic vocabulary, read [how to learn IELTS vocabulary](/en/blog/how-to-learn-ielts-vocabulary/) and browse the [IELTS Speaking question bank](/en/speaking/).
 

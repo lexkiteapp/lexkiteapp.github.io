@@ -153,7 +153,7 @@ Cách tốt nhất để luyện ngữ điệu là nói với những câu hỏi
 
 Với từng cụm ngắn, dùng [Luyện phát âm có chấm điểm](/#/practice/speak) để kiểm tra độ rõ; còn [thư viện phát âm IPA](/#/pron) giúp bạn củng cố các âm riêng lẻ trước khi ghép thành câu.
 
-![Luyện phát âm có chấm điểm trong Lexkite, dùng micro để nói cụm “cut down on”](media:practice-speak "Nói lại câu mẫu vào micro để so ngữ điệu với giọng chuẩn")
+![Luyện phát âm có chấm điểm trong Lexkite, dùng micro để nói cụm “cut down on”](media:practice-speak "Nói lại cụm từ vào micro và xem điểm phát âm theo giọng nói")
 
 {{cta: /#/speaking | Luyện ngữ điệu với câu hỏi Speaking thật}}
 

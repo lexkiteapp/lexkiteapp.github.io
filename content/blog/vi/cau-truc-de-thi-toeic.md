@@ -87,7 +87,7 @@ Phần dài nhất, gồm đoạn đơn (một văn bản), đoạn kép (hai v�
 
 Vì Listening chạy theo audio, nên chiến thuật thời gian chủ yếu nằm ở Reading. Một cách chia phổ biến:
 
-![Màn hình luyện nghe của Lexkite: chọn đề, chỉnh tốc độ, nghe lần đầu hoặc chép chính tả](media:listening "Chỉnh tốc độ chậm lại khi mới bắt đầu, tăng dần khi quen")
+![Màn hình luyện nghe IELTS của Lexkite: chọn đề, chỉnh tốc độ, nghe lần đầu hoặc chép chính tả](media:listening "Chỉnh tốc độ chậm lại khi mới bắt đầu, tăng dần khi quen")
 
 | Part | Số câu | Thời gian gợi ý |
 |---|---|---|

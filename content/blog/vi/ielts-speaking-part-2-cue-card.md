@@ -102,7 +102,7 @@ Trong [Phòng luyện Speaking](/#/speaking), bạn có thể chọn Part 2 theo
 4. Đọc câu trả lời mẫu band 7.5–8 và phần từ vựng nên dùng. Chọn 3 cụm muốn đưa vào lần nói sau.
 5. Nói lại cùng đề lần thứ hai. Lần hai gần như luôn trôi chảy hơn hẳn.
 
-![Trang thi thử IELTS bốn kỹ năng trong Lexkite với cấu trúc bài thi và lịch sử các lần thi](media:mock "Thi thử từng kỹ năng trong điều kiện có giờ")
+![Trang thi thử IELTS bốn kỹ năng trong Lexkite với cấu trúc bài thi và lịch sử các lần thi](media:mock "Thi thử từng kỹ năng rồi xem lại lịch sử các lần thi")
 
 Khi đã luyện riêng Part 2 được một thời gian, hãy vào [Thi thử IELTS](/#/mock) và chọn Speaking để quen nhịp chuyển từ Part 1 sang Part 2 rồi Part 3. Cách tổ chức một buổi thi thử nghiêm túc có trong bài [thi thử IELTS online và học từ lỗi sai](/vi/blog/thi-thu-ielts-online/). Bạn cũng có thể đọc thêm câu hỏi và gợi ý theo chủ đề tại trang [luyện IELTS Speaking](/speaking/).
 

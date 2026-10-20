@@ -4,6 +4,7 @@
 import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath } from 'node:url';
 import { ROOT, CATEGORIES, plainText, wordCount, readPost, loadPostsAt, briefSlugs, mediaIds, FAQ_RE, publishTime } from './lib/blog-content.mjs';
 import { specOf, mediaId, wantedItems, altUntruths, appRoutes, routeName, validateItem } from './lib/blog-images.mjs';
+import { loadFacts, postExams, captionIssues } from './lib/blog-captions.mjs';
 
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/, TAG = /^[a-z0-9-]+$/, YT = /^[\w-]{11}$/;
 const ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})$/, DAY = /^\d{4}-\d{2}-\d{2}$/;
@@ -22,7 +23,7 @@ const noCode = body => body.replace(/```[\s\S]*?```/g, m => m.replace(/[^\n]/g, 
 export const imagesConfig = (root = ROOT) => { const f = [path.join(root, 'config.json'), path.join(ROOT, 'config.json')].find(x => fs.existsSync(x)); return { enforce: false, enforceFrom: '9999-12-31', leadHours: 36, budgetKB: 60, covers: true, ...((f && JSON.parse(fs.readFileSync(f, 'utf8')).images) || {}) }; };
 
 export function checkPosts(posts, { all = posts, root = ROOT, now = Date.now() } = {}) {
-  const errors = [], warnings = [], IMG = imagesConfig(root), routes = appRoutes();
+  const errors = [], warnings = [], IMG = imagesConfig(root), routes = appRoutes(), FACTS = loadFacts(root);
   const media = mediaIds(root), briefs = new Set((JSON.parse(fs.readFileSync(path.join(root, 'briefs.json'), 'utf8')).briefs || []).map(b => `${b.lang || 'vi'}/${b.slug}`));
   const slugs = new Set([...all, ...posts].map(p => `${p.lang}/${p.slug}`));
   if (media.fallback) warnings.push(`${rel(path.join(root, 'media.json'))}: [media] chưa có media.json – tạm kiểm id ảnh theo shots.json`);
@@ -78,6 +79,7 @@ export function checkPosts(posts, { all = posts, root = ROOT, now = Date.now() }
     for (const o of spec.shots) if (o.route && !routes.has(routeName(o.route))) E('spec', `shots ${o.id}: route ${o.route} – trang "${routeName(o.route)}" không có trong app (web/js routes.*)`);
     const shotIds = new Set(spec.shots.map(o => o.id)), diagIds = new Set(spec.diagrams.map(o => o.id)), usedShots = new Set(), usedDiags = new Set();
     const imgId = src => (src.match(/^media:(@?[\w-]+)$/) || [])[1];
+    let pex; // kỳ thi bài nói tới (tính khi gặp ảnh dùng chung đầu tiên)
     for (const m of body.matchAll(/!\[([^\]]*)\]\(\s*([^)\s]+)(?:\s+"([^"]*)")?\s*\)/g)) {
       const id = imgId(m[2]);
       if (!id) { E('image', `ảnh "${m[2]}" phải dùng dạng media:<id> hoặc media:@<id-trong-shots>`); continue; }
@@ -91,6 +93,8 @@ export function checkPosts(posts, { all = posts, root = ROOT, now = Date.now() }
       }
       if (!media.ids.has(id)) E('image', `ảnh media:${id} không có trong ${media.fallback ? 'shots.json' : 'media.json'}`);
       if (len(m[1].trim()) < 10) E('image', `alt ảnh "${m[1]}" quá ngắn (cần ≥ 10 ký tự)`);
+      // Caption truth (content/blog/shot-facts.json): alt/chú thích không bịa tính năng, không hứa quá, đúng kỳ thi của màn hình
+      if (FACTS) for (const x of captionIssues(FACTS, { id, lang: p.lang, alt: m[1], caption: m[3] || '', postExams: pex ??= postExams(FACTS, p), keyword: kw })) (x.level === 'error' ? E : W)(x.rule, x.msg);
     }
     // Ảnh riêng đã render: bản ghi phải hợp schema + trong trần dung lượng
     for (const it of wantedItems(p, { covers: IMG.covers !== false })) { const rec = media.items?.[it.id]; if (rec) for (const x of validateItem(it.id, rec, IMG)) E('media', x); }

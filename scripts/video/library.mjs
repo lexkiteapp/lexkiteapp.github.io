@@ -154,7 +154,7 @@ export function runCheck(file, entry, m, { sheet, kind, aiSheet, headSheet, aiRe
 
 let geminiKeys = null;
 /** Khoá Gemini xoay vòng của dự án: env GEMINI_KEYS (phẩy) hoặc D1 config 'gemini_keys' qua wrangler + ~/.config/lexkite/cf-token. Chỉ giữ trong bộ nhớ. */
-function loadGeminiKeys() {
+export function loadGeminiKeys() {
   if (geminiKeys) return geminiKeys;
   geminiKeys = (process.env.GEMINI_KEYS || '').split(',').map(s => s.trim()).filter(Boolean);
   const tokFile = path.join(os.homedir(), '.config/lexkite/cf-token');
@@ -328,7 +328,7 @@ export async function runVisionChain(input, deps, chain = PRIMARY_CHAIN, skip = 
 }
 const VCACHE = path.join(LIB, '_cache/vision.json');
 const loadVCache = () => { try { return JSON.parse(fs.readFileSync(VCACHE, 'utf8')); } catch { return {}; } };
-async function gemini(parts, keys, fetcher = fetch) {
+export async function gemini(parts, keys, fetcher = fetch) {
   for (let n = 0; n < keys.length; n++) {
     const k = keys[(Math.floor(Math.random() * keys.length) + n) % keys.length];
     const r = await fetcher('https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent', {

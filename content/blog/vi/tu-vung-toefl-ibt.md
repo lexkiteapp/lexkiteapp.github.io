@@ -38,7 +38,7 @@ Phần Reading của [định dạng TOEFL iBT 2026](/vi/blog/toefl-ibt-dinh-dan
 
 Academic Word List (AWL) của Coxhead (2000) gồm 570 họ từ xuất hiện thường xuyên trong văn bản học thuật thuộc nhiều ngành: *analyse, concept, establish, factor, significant, structure, theory, vary*. Những từ này không thuộc riêng ngành nào, nên dù bài đọc nói về sinh học hay lịch sử, bạn vẫn gặp chúng. Xem danh sách và cách học trong bài [Academic Word List (AWL)](/vi/blog/academic-word-list-awl/).
 
-![Màn hình chọn bài đọc của Lexkite với các chủ đề như làm việc bốn ngày một tuần và vi nhựa đại dương](media:reading "Chọn bài đọc học thuật để gặp từ TOEFL dùng chung trong ngữ cảnh")
+![Màn hình chọn bài đọc IELTS của Lexkite với các chủ đề như làm việc bốn ngày một tuần và vi nhựa đại dương](media:reading "Chọn bài đọc học thuật để gặp từ TOEFL dùng chung trong ngữ cảnh")
 
 Mẹo học AWL cho TOEFL: học theo **họ từ**. *Vary, variable, variation, various, variety* cùng một gốc; nắm gốc rồi, bạn dễ đoán được phần đuôi khi làm Complete the Words.
 

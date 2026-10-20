@@ -61,7 +61,7 @@ Bố cục chuẩn:
 
 Mỗi đoạn không chỉ "đáp" mà nên **mở rộng** bằng một chi tiết cụ thể: thời gian, lý do, hậu quả, đề nghị. Đó là điều tạo nên sự khác biệt giữa bài đủ ý và bài phát triển ý tốt. Nối các chi tiết trong đoạn bằng [từ nối đúng chức năng](/vi/blog/tu-noi-trong-ielts-writing/) như *as, so, alternatively* giúp thư mạch lạc hơn.
 
-![Màn hình luyện Writing Task 2 trong Lexkite với bài mẫu band 8 có chú thích](media:write "Phòng viết nêu rõ ba gạch đầu dòng để mỗi ý thành một đoạn thư")
+![Màn hình luyện Writing Task 2 trong Lexkite với bài mẫu band 8 có chú thích](media:write "Phòng viết Task 2 có khung bài và bài mẫu band 8 để học cách chia mỗi ý thành một đoạn")
 
 ### Ví dụ thư bán trang trọng (tự viết)
 

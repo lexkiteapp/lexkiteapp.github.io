@@ -61,7 +61,7 @@ Part 7の文書は、メール、社内通知、広告、記事、請求書、�
 
 注意したいのは、正解の選択肢が本文の言い換え（パラフレーズ）になっている点です。本文が *The cafeteria will stay open until 8 p.m. on weekdays.* なら、正解は *Its operating hours will be extended.* のような形で出てきます。本文と同じ単語を探すだけでは正解にたどり着けません。
 
-![Lexkiteの読解画面：本文のキーワードが色分けされ、右側にキーワード一覧とTrue/False/Not Givenの設問がある](media:read-article "本文と設問を並べて読み、言い換えに気づく練習をする")
+![LexkiteのIELTS読解画面：本文のキーワードが色分けされ、右側にキーワード一覧とTrue/False/Not Givenの設問がある](media:read-article "本文と設問を並べて読み、言い換えに気づく練習をする")
 
 ### NOT問題・推測問題
 

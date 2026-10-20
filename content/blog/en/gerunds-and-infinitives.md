@@ -155,7 +155,7 @@ Memorising long alphabetical lists rarely works. Learn verbs in meaning groups a
 | Continuing | keep, carry on, practise, risk | gerund |
 | Changing meaning | remember, forget, stop, try, regret, go on, need | both |
 
-![Lexkite timed Match game pairing English words such as privacy and perspective with their meanings](media:practice-match "A timed matching round works for verb groups too: pair each verb with its pattern")
+![Lexkite timed Match game pairing English words such as privacy and perspective with their meanings](media:practice-match "A timed matching round is a quick warm-up: pair each word with its meaning first")
 
 Then **test yourself**: cover the right column and say the pattern aloud. Retrieval beats rereading, as explained in our post on [active recall for vocabulary](/en/blog/active-recall-for-vocabulary/), and the sentences stick better when you review them on a spacing schedule like the one described in [spaced repetition for language learning](/en/blog/spaced-repetition-for-language-learning/).
 
@@ -189,7 +189,7 @@ If you missed 4 or 6, look at your own writing for the same pattern. These two e
 
 Rules become automatic only when you meet them in real sentences many times. Learn each verb as a chunk with its pattern, for example *avoid doing sth* or *refuse to do sth*, rather than as a single word. Lexkite's [Grammar section](/#/grammar) organises chapters by level with mixed practice sets, so you can revise verb patterns next to related topics such as modal verbs.
 
-![Lexkite multiple-choice question asking for the meaning of "run out of" from four options](media:practice-test "Timed multiple-choice questions show whether a verb pattern is automatic yet")
+![Lexkite multiple-choice question asking for the meaning of "run out of" from four options](media:practice-test "Short multiple-choice questions show whether a phrase's meaning comes back automatically")
 
 After revising a group, run a quick [multiple-choice test](/#/practice/test) to check your speed. Speed matters: in a speaking exam you will not have time to think "is *admit* in the gerund list?". The pattern has to come out by itself.
 
