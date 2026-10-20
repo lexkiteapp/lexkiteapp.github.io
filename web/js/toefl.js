@@ -55,9 +55,9 @@
         <div class="card hero-main" style="background:linear-gradient(135deg,#0F3D3E,#1F7A72)">
           <h2 style="color:#fff;margin:0">🆕 ${t('Định dạng mới từ 21/01/2026')}</h2>
           <ul style="color:#ede9fe;margin:.5rem 0 0;padding-left:1.1rem;line-height:1.7" class="small">
-            <li>${t('Bài thi ngắn hơn (khoảng 1,5 giờ) và <b>thích ứng</b>: độ khó thay đổi theo câu trả lời của bạn.')}</li>
-            <li>${t('Điểm mỗi kỹ năng và điểm tổng theo <b>thang band 1–6</b> (bước 0,5); điểm tổng là trung bình 4 kỹ năng.')}</li>
-            <li>${t('Trong giai đoạn chuyển tiếp, phiếu điểm vẫn ghi thêm điểm tương đương <b>thang 0–120</b>.')}</li>
+            <li>${t('Bài thi ngắn hơn (khoảng 1,5 giờ làm bài); Reading và Listening <b>thích ứng</b>: độ khó thay đổi theo câu trả lời của bạn.')}</li>
+            <li>${t('Điểm mỗi kỹ năng và điểm tổng theo <b>thang band 1–6</b> (bước 0,5); điểm tổng là trung bình 4 kỹ năng, làm tròn tới 0,5 gần nhất.')}</li>
+            <li>${t('Trong 2 năm đầu (tới tháng 1/2028), phiếu điểm ghi thêm điểm tương đương <b>thang 0–120</b>.')}</li>
           </ul>
         </div>
         <div class="card">
@@ -65,7 +65,7 @@
           <table class="tx-table"><thead><tr><th>${t('Phần')}</th><th>${t('Số câu')}</th><th>${t('Thời gian')}</th></tr></thead><tbody>
             ${SECTIONS.map(s => `<tr><td>${s.ic} ${s.name}</td><td>~${s.items}</td><td class="muted">${t('khoảng {m} phút', { m: s.mins })}</td></tr>`).join('')}
           </tbody></table>
-          <div class="tiny muted">${t('Số câu và thời gian là con số tham khảo do ETS công bố; vì đề thích ứng nên có thể thay đổi.')}</div>
+          <div class="tiny muted">${t('Số câu và thời gian là con số tham khảo do ETS công bố (tổng ~90 phút làm bài, nên dành khoảng 2 giờ cho cả buổi thi); vì Reading và Listening thích ứng nên có thể thay đổi.')}</div>
         </div>
       </div>
       ${SECTIONS.map(s => `<h2 style="margin-top:1.4rem">${s.ic} ${s.name}</h2>

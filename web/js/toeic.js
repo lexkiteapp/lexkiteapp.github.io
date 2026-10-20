@@ -256,6 +256,7 @@
     if (!SWT[task]) {
       view.innerHTML = `<a href="#/toeic" class="small">← TOEIC</a>
         <div class="page-head" style="margin-top:.4rem"><div><h1>🎙️ TOEIC Speaking & Writing</h1><p class="muted">${t('Nói và viết theo các dạng bài của ETS: bài mẫu, tiêu chí chấm, chấm đọc to tự động.')}</p></div></div>
+        <div class="card small" style="margin-bottom:1rem">🗂️ ${t('Đề thật của ETS: Speaking 11 câu (khoảng 20 phút), Writing 8 câu (khoảng 60 phút), mỗi phần thang điểm 0–200. Ứng dụng chưa có dạng bài mô tả tranh (Speaking câu 3–4, Writing câu 1–5).')}</div>
         <div class="grid g2">${['speaking', 'writing'].map(sec => `<div class="card"><h2 style="margin-top:0">${sec === 'speaking' ? '🗣️ Speaking' : '✍️ Writing'}</h2>
           ${Object.entries(SWT).filter(([, v]) => v.sec === sec).map(([k, v]) => `<div style="margin:.8rem 0;padding-top:.6rem;border-top:1px solid var(--line)"><div class="row between"><b>${v.ic} ${esc(v.name)}</b><span class="chip">${swUnits(k).length}</span></div>
             <div class="small muted" style="margin:.2rem 0 .4rem">${v.desc}</div><a class="btn sm primary" href="#/toeic-sw/${k}">🎯 ${t('Luyện tập')}</a></div>`).join('')}</div>`).join('')}</div>`;
