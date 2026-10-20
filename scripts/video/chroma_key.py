@@ -119,5 +119,5 @@ rows = np.where(mid.max(1) > 60)[0]
 sole = int(rows.max()) if len(rows) else hh
 cols = np.where(mid[max(0, sole - 12):sole + 1].max(0) > 60)[0]
 # foot x = giữa 2 chiếc giày (trung bình cột bị lệch khi 1 chân nhấc)
-print(json.dumps({'alpha': 'stacked', 'source': 'chroma', 'w': int(ww), 'h': int(hh), 'foot': [int((cols.min() + cols.max()) // 2) if len(cols) else ww // 2, sole],
+print(json.dumps({'alpha': 'stacked', 'source': 'chroma', 'x0': int(x0), 'y0': int(y0), 'w': int(ww), 'h': int(hh), 'foot': [int((cols.min() + cols.max()) // 2) if len(cols) else ww // 2, sole],
                   'figH': sole, 'frames': len(rgbs), 'key': [int(v) for v in kc]}))
