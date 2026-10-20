@@ -115,7 +115,7 @@
     const bar = (title, right = '') => `<div class="mk-bar"><div class="row nowrap"><img src="icons/icon.svg" alt="" style="width:26px;height:26px;border-radius:7px"><b>Lexkite · IELTS Mock</b><span class="chip">${esc(title)}</span></div><div class="row nowrap">${right}<button class="btn sm ghost" id="mkQuit">${t('Thoát')}</button></div></div>
       <div class="mk-steps">${M.order.map((k, j) => { const s = SKILLS().find(x => x[0] === k); return `<span class="${j < M.i ? 'done' : j === M.i ? 'on' : ''}">${s[1]} ${s[2]}</span>`; }).join('')}</div>`;
     const bindQuit = () => { $('#mkQuit').onclick = () => { if (confirm(t('Thoát bài thi? Kết quả sẽ không được lưu.'))) { App.cleanup(); App.cleanup = null; location.hash = '#/mock'; } }; };
-    const countdown = (secs, el, onEnd) => { let left = secs; const t = setInterval(() => { left--; const e = $(el); if (e) { e.textContent = clock(left); e.classList.toggle('warn', left <= 300); } if (left <= 0) { clearInterval(t); onEnd(); } }, 1000); M.timers.push(t); const e = $(el); if (e) e.textContent = clock(left); return () => left; };
+    const countdown = (secs, el, onEnd) => { let left = secs; const t = setInterval(() => { left--; const e = $(el); if (e) { e.textContent = clock(left); e.classList.toggle('warn', left <= 300); } if ([600, 300, 60].includes(left) && secs > left + 5) toast('⏰ ' + t('Còn {n} phút', { n: left / 60 })); if (left <= 0) { clearInterval(t); onEnd(); } }, 1000); M.timers.push(t); const e = $(el); if (e) e.textContent = clock(left); return () => left; };
     // Lưu tiến độ theo kỹ năng (bài thi ~3 giờ): tải lại trang / app bị tắt vẫn tiếp tục từ kỹ năng đang làm; bài viết lưu nháp liên tục
     const SK = 'lk.mockRun.' + order.join(',') + '.' + M.lt + '.' + M.rt;
     const keep = () => { try { localStorage.setItem(SK, JSON.stringify({ i: M.i, bands: M.bands, detail: M.detail, at: Date.now() })); } catch (e) { /* bỏ qua */ } };
@@ -133,7 +133,7 @@
       intro('listening', `<p class="muted">${t('Test {n} · 4 phần · 40 câu. Mỗi phần có 30 giây đọc câu hỏi, sau đó nghe <b>một lần</b>. Đáp án được lưu khi chuyển phần.', { n: M.lt })}</p>`, () => part(0));
       function part(k) {
         const p = parts[k];
-        view.innerHTML = `${bar('Listening', `<span class="mk-clock" id="mkClock">00:30</span>`)}
+        view.innerHTML = `${bar('Listening', `<span class="mk-clock" id="mkClock" role="timer" aria-live="off">00:30</span>`)}
           <div class="card lplayer"><b id="mkState">⏳ ${t('Đọc câu hỏi Part {n}', { n: p.part })}</b><button class="btn sm ghost" id="mkSkip">${t('Nghe ngay')}</button><span class="lnow small muted" id="lNow"></span></div>
           <div class="card" id="lQs"><div class="tiny muted">Part ${p.part} · ${t('Câu {a}–{b}', { a: App.listening.qNums(p)[0], b: App.listening.qNums(p).slice(-1)[0] })}</div>${QE.questionsHtml(p)}
           <div class="row" style="margin-top:1rem"><button class="btn primary" id="mkNext" disabled>${k < parts.length - 1 ? t('Sang phần tiếp') + ' →' : t('Kết thúc Listening') + ' →'}</button></div></div>`;
@@ -163,12 +163,12 @@
       intro('reading', `<p class="muted">${t('3 bài đọc · 40 câu · <b>60 phút</b>. Chuyển qua lại giữa các bài bằng thanh phía dưới. Bôi đen chữ rồi bấm “Tô sáng” để đánh dấu.')}</p>`, start);
       function start() {
         let cur = 0;
-        view.innerHTML = `${bar('Reading', `<span class="mk-clock" id="mkClock">60:00</span>`)}
+        view.innerHTML = `${bar('Reading', `<span class="mk-clock" id="mkClock" role="timer" aria-live="off">60:00</span>`)}
           <div class="mk-read">
             <div class="card mk-pass" id="mkPass"></div>
             <div class="card mk-qs" id="mkQs">${tst.passages.map((p, k) => `<div class="mk-qp" data-p="${k}" ${k ? 'hidden' : ''}><div class="tiny muted">Reading Passage ${p.n} · ${t('Câu {a}–{b}', { a: QE.numsOf(p)[0], b: QE.numsOf(p).slice(-1)[0] })}</div>${QE.questionsHtml(p)}</div>`).join('')}</div>
           </div>
-          <div class="mk-nav"><div class="row">${tst.passages.map((p, k) => `<button class="btn sm ${k ? '' : 'primary'}" data-go="${k}">Passage ${p.n}</button>`).join('')}<button class="btn sm" id="mkHl">🖍 ${t('Tô sáng')}</button></div><div class="mk-qmap" id="mkMap">${tst.passages.flatMap((p, k) => QE.numsOf(p).map(q => `<button data-q="${q}" data-pk="${k}">${q}</button>`)).join('')}</div><button class="btn primary" id="mkSubmit">${t('Nộp bài Reading')}</button></div>`;
+          <div class="mk-nav"><div class="row">${tst.passages.map((p, k) => `<button class="btn sm ${k ? '' : 'primary'}" data-go="${k}">Passage ${p.n}</button>`).join('')}<button class="btn sm" id="mkHl">🖍 ${t('Tô sáng')}</button></div><div class="mk-qmap" id="mkMap">${tst.passages.flatMap((p, k) => QE.numsOf(p).map(q => `<button data-q="${q}" data-pk="${k}" aria-label="${esc(t('Câu {n}', { n: q }))}" aria-pressed="false">${q}</button>`)).join('')}</div><button class="btn primary" id="mkSubmit">${t('Nộp bài Reading')}</button></div>`;
         bindQuit(); QE.bind($('#mkQs'));
         const show = k => {
           cur = k; const p = tst.passages[k];
@@ -183,7 +183,7 @@
         $('#mkHl').onclick = () => { const s = getSelection(); if (!s.rangeCount || s.isCollapsed || !$('#mkPass').contains(s.anchorNode)) return toast(t('Bôi đen chữ trong bài đọc trước')); try { const m = document.createElement('mark'); s.getRangeAt(0).surroundContents(m); s.removeAllRanges(); } catch (e) { toast(t('Chỉ tô sáng trong một đoạn văn')); } };
         show(0);
         // Dãy số câu như máy thi thật: tô màu câu đã làm, bấm để chuyển bài & nhảy tới câu
-        const paintMap = () => $$('#mkMap [data-q]').forEach(b => b.classList.toggle('on', QE.answered($('#mkQs'), b.dataset.q)));
+        const paintMap = () => $$('#mkMap [data-q]').forEach(b => { const on = QE.answered($('#mkQs'), b.dataset.q); b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
         $('#mkQs').addEventListener('change', paintMap); $('#mkQs').addEventListener('input', paintMap); paintMap();
         $$('#mkMap [data-q]').forEach(b => b.onclick = () => { const k = +b.dataset.pk; if (k !== cur) $(`[data-go="${k}"]`).click(); const el = QE.itemOf($('#mkQs'), b.dataset.q); if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); el.classList.add('tx-flash'); setTimeout(() => el.classList.remove('tx-flash'), 1200); } });
         const submit = () => {
@@ -206,7 +206,7 @@
       const d = pick(App.task1.SETS), p = pick(window.WRITE_PROMPTS || []);
       intro('writing', `<p class="muted">${t('<b>60 phút</b> cho cả 2 task. Task 1 ≥150 từ (nên dành 20 phút), Task 2 ≥250 từ (40 phút). Task 2 chiếm 2/3 điểm Writing.')}</p>`, start);
       function start() {
-        view.innerHTML = `${bar('Writing', `<span class="mk-clock" id="mkClock">60:00</span>`)}
+        view.innerHTML = `${bar('Writing', `<span class="mk-clock" id="mkClock" role="timer" aria-live="off">60:00</span>`)}
           <div class="tabs" style="display:inline-flex;margin-bottom:.8rem" id="mkTabs"><button class="on" data-t="1">Task 1 · ${t('{n} từ', { n: '<span id="w1">0</span>' })}</button><button data-t="2">Task 2 · ${t('{n} từ', { n: '<span id="w2">0</span>' })}</button></div>
           <div class="mk-write" data-task="1"><div class="card"><b>Writing Task 1${gl ? ' · General' : ''}</b>${gl ? `<p>${esc(gl.situation)}</p><p class="small" style="margin:.2rem 0">Write a letter to ${esc(gl.to || 'the person')}. In your letter:</p><ul style="margin:.2rem 0;padding-left:1.2rem">${gl.bullets.map(x => `<li>${esc(x)}</li>`).join('')}</ul><p class="small muted">Write at least 150 words. You do NOT need to write any addresses. Begin your letter as follows: <b>${esc(gl.open)}</b></p>` : `<p class="small">${esc(d.title)} Summarise the information by selecting and reporting the main features, and make comparisons where relevant.</p><div class="t1chart">${App.task1.draw(d)}</div>`}</div>
             <div class="card"><textarea class="input mk-ta" id="t1" placeholder="${t('Viết ít nhất 150 từ…')}" spellcheck="false"></textarea></div></div>
@@ -265,7 +265,7 @@
       function ask(k) {
         if (k >= Q.length) { const sc = scoreSpeaking(answers); M.bands.speaking = sc.band || null; M.detail.speaking = { sc, answers }; return next(); }
         const q = Q[k], max = q.part === 2 ? 120 : q.part === 1 ? 45 : 75;
-        view.innerHTML = `${bar('Speaking', `<span class="mk-clock" id="mkClock"></span>`)}
+        view.innerHTML = `${bar('Speaking', `<span class="mk-clock" id="mkClock" role="timer" aria-live="off"></span>`)}
           <div class="study-wrap"><div class="card"><div class="tiny muted">Part ${q.part} · ${t('câu {i}/{n}', { i: k + 1, n: Q.length })}</div>
             <div class="mk-examiner">👩‍🏫 <span>${q.part === 2 ? 'Now I\'d like you to talk about a topic for one to two minutes. You have one minute to prepare.' : esc(q.q)}</span></div>
             ${q.part === 2 ? `<div class="mk-cue"><b>${esc(q.q)}</b><div class="small">You should say:</div><ul class="small">${q.points.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div><textarea class="input" rows="3" placeholder="${t('Ghi chú nhanh trong 1 phút chuẩn bị (không bắt buộc)')}"></textarea>` : ''}
