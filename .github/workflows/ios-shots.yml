@@ -132,4 +132,4 @@ jobs:
           ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
           ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
           ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
-        run: node scripts/asc-upload.mjs ${{ inputs.asc == 'dry-run' && '--dry-run' || '' }} --shots store/apple/screenshots --only ${{ inputs.only || 'all' }} | tee -a "$GITHUB_STEP_SUMMARY"
+        run: set -o pipefail; node scripts/asc-upload.mjs ${{ inputs.asc == 'dry-run' && '--dry-run' || '' }} --shots store/apple/screenshots --only ${{ inputs.only || 'all' }} | tee -a "$GITHUB_STEP_SUMMARY"

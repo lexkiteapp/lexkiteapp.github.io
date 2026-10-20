@@ -144,7 +144,9 @@ async function syncText(app, ver) {
       const wantA = { name: v.name, subtitle: v.subtitle, privacyPolicyUrl: v.privacyPolicyUrl };
       if (!a) await write(`${loc}: tạo appInfoLocalization`, 'POST', '/v1/appInfoLocalizations', { data: { type: 'appInfoLocalizations', attributes: { locale: loc, ...wantA }, relationships: { appInfo: { data: { type: 'appInfos', id: info.id } } } } });
       else { const d = diff(a.attributes, wantA); if (Object.keys(d).length) await write(`${loc}: appInfo ${Object.keys(d).join(', ')}`, 'PATCH', `/v1/appInfoLocalizations/${a.id}`, { data: { type: 'appInfoLocalizations', id: a.id, attributes: d } }); }
-      const b = vl.find(x => x.attributes.locale === loc);
+      let b = vl.find(x => x.attributes.locale === loc);
+      // Tạo appInfoLocalization xong, Apple tự tạo appStoreVersionLocalization rỗng cùng ngôn ngữ → đọc lại rồi PATCH (tránh 409)
+      if (!b && !a && !DRY) { vl.splice(0, vl.length, ...(await get(`/v1/appStoreVersions/${ver.id}/appStoreVersionLocalizations?limit=200`)).data); b = vl.find(x => x.attributes.locale === loc); }
       const wantB = { description: v.description, keywords: v.keywords, promotionalText: v.promotionalText, supportUrl: v.supportUrl, marketingUrl: v.marketingUrl };
       if (!b) {
         const r = await write(`${loc}: tạo appStoreVersionLocalization`, 'POST', '/v1/appStoreVersionLocalizations', { data: { type: 'appStoreVersionLocalizations', attributes: { locale: loc, ...wantB }, relationships: { appStoreVersion: { data: { type: 'appStoreVersions', id: ver.id } } } } });
