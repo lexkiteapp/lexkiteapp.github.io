@@ -107,7 +107,7 @@
   display: flex; align-items: center; justify-content: space-between; gap: .75rem;
   padding: .85rem 1.15rem; min-height: 58px;
   color: var(--text); text-decoration: none; width: 100%;
-  background: none; border: 0; font: inherit; text-align: left; cursor: pointer;
+  background: none; border: 0; font: inherit; text-align: start; cursor: pointer;
   transition: background .15s ease;
 }
 .set-list > .me-row { border-top: 1px solid var(--line); }

@@ -38,7 +38,7 @@
 .fx-why{margin:.3rem 0 .6rem;font-size:.92rem}
 .fx-nav{display:flex;justify-content:space-between;gap:.4rem;margin-top:.7rem;flex-wrap:wrap}
 .fx-list{list-style:none;margin:0;display:grid;gap:.35rem;max-height:420px;overflow:auto;padding:.1rem}
-.fx-it{display:flex;align-items:center;gap:.55rem;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:.5rem .7rem;cursor:pointer;color:var(--text);transition:border-color .15s,background .15s,transform .15s}
+.fx-it{display:flex;align-items:center;gap:.55rem;width:100%;text-align:start;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:.5rem .7rem;cursor:pointer;color:var(--text);transition:border-color .15s,background .15s,transform .15s}
 .fx-it:hover{border-color:var(--c)}.fx-it.on{border-color:var(--c);background:color-mix(in srgb,var(--c) 9%,var(--surface))}.fx-it:active{transform:scale(.99)}
 .fx-it span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.88rem}.fx-it s{color:var(--muted)}
 .fx-ok{text-align:center;padding:1.2rem .5rem}.fx-ai{margin-top:.6rem}

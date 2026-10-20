@@ -22,7 +22,7 @@
       .qk-top { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-bottom: 1.1rem; }
       .qk-progress-wrap { flex: 1; height: 10px; background: var(--surface-2, rgba(0,0,0,.08)); border-radius: 999px; overflow: hidden; position: relative; }
       .qk-progress-bar { height: 100%; background: linear-gradient(90deg, var(--primary, #E5502F), var(--accent, #17595A)); border-radius: 999px; transition: width .3s ease; }
-      .qk-timer-pill { display: inline-flex; align-items: center; gap: .3rem; font-weight: 800; font-size: .95rem; color: var(--primary, #E5502F); padding: .25rem .6rem; background: var(--surface-2, rgba(0,0,0,.06)); border-radius: 999px; white-space: nowrap; }
+      .qk-timer-pill { display: inline-flex; align-items: center; gap: .3rem; font-weight: 800; font-size: .95rem; color: var(--primary-text, #B03718); padding: .25rem .6rem; background: var(--surface-2, rgba(0,0,0,.06)); border-radius: 999px; white-space: nowrap; }
       .qk-card { background: var(--surface, #fff); border: 1px solid var(--line, rgba(0,0,0,.08)); border-radius: 22px; padding: 1.6rem 1.25rem; text-align: center; box-shadow: var(--shadow, 0 4px 16px rgba(0,0,0,.06)); margin-bottom: 1.1rem; }
       .qk-badge { display: inline-flex; align-items: center; gap: .35rem; padding: .25rem .75rem; border-radius: 999px; font-size: .78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; background: var(--surface-2, rgba(0,0,0,.06)); color: var(--muted, #666); margin-bottom: .6rem; }
       .qk-word { font-size: 1.9rem; font-weight: 800; color: var(--text, #111); margin-bottom: .35rem; line-height: 1.25; }

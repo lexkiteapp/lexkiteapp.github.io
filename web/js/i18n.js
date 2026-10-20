@@ -40,6 +40,7 @@
   function t(src, vars) {
     let s = lang === 'vi' ? src : ((D[lang] && D[lang][src]) || (D.en && D.en[src]) || src);
     if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m));
+    if (RTL.has(lang) && typeof s === 'string') s = s.replace(/ →$/, ' ←').replace(/^← /, '→ '); // mũi tên "tiếp/quay lại" quay theo chiều đọc RTL
     return s;
   }
   // Dịch các phần tử tĩnh trong HTML: <span data-i18n>Ôn tập</span>, data-i18n-title, data-i18n-placeholder
