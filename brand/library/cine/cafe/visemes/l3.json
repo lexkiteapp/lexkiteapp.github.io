@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "soundFile": "/home/runner/work/lexkiteapp.github.io/lexkiteapp.github.io/cine/wav/l3.wav",
+    "duration": 3.55
+  },
+  "mouthCues": [
+    { "start": 0.00, "end": 0.22, "value": "X" },
+    { "start": 0.22, "end": 0.37, "value": "B" },
+    { "start": 0.37, "end": 0.44, "value": "E" },
+    { "start": 0.44, "end": 0.51, "value": "F" },
+    { "start": 0.51, "end": 0.93, "value": "X" },
+    { "start": 0.93, "end": 1.06, "value": "B" },
+    { "start": 1.06, "end": 1.13, "value": "D" },
+    { "start": 1.13, "end": 1.48, "value": "B" },
+    { "start": 1.48, "end": 1.92, "value": "X" },
+    { "start": 1.92, "end": 2.21, "value": "B" },
+    { "start": 2.21, "end": 2.28, "value": "C" },
+    { "start": 2.28, "end": 2.35, "value": "D" },
+    { "start": 2.35, "end": 2.42, "value": "B" },
+    { "start": 2.42, "end": 2.51, "value": "A" },
+    { "start": 2.51, "end": 2.58, "value": "E" },
+    { "start": 2.58, "end": 2.65, "value": "B" },
+    { "start": 2.65, "end": 2.86, "value": "C" },
+    { "start": 2.86, "end": 2.94, "value": "A" },
+    { "start": 2.94, "end": 3.31, "value": "F" },
+    { "start": 3.31, "end": 3.52, "value": "B" },
+    { "start": 3.52, "end": 3.55, "value": "X" }
+  ]
+}

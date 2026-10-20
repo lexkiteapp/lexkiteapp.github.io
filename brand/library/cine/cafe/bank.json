@@ -1,0 +1,1343 @@
+{
+ "scene": "cafe",
+ "version": 1,
+ "created": "2026-10-20",
+ "characters": {
+  "ama": {
+   "desc": "teen girl, curly hair, yellow headband, coral hoodie, teal denim overall dress, brown backpack, white sneakers",
+   "voice": "Kling TTS Peppy",
+   "ref": "frames/ref-ama.png"
+  },
+  "carlos": {
+   "desc": "adult barista, black curly hair faded sides, mustache, olive henley, navy apron, light jeans",
+   "voice": "Kling TTS Michael",
+   "ref": "frames/ref-carlos.png"
+  }
+ },
+ "rules": {
+  "axis_180": "Ama always screen-LEFT facing RIGHT; Carlos screen-RIGHT facing LEFT, always BEHIND the counter",
+  "props": "latte exists only from c09 onward (taken from the machine top); c10 MCU has no cup -> place before c09"
+ },
+ "viseme_set": "Rhubarb A-F,X (+G->B, H->C fallbacks); sprites are aligned crops of THIS clip (frame0 coords of sprite_roi); X = frame 0",
+ "clips": [
+  {
+   "id": "c01_master_talk_a",
+   "file": "clips/c01_master_talk_a.mp4",
+   "first_frame": "frames/blk-1.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "AXJFlplIgQqr0HwekaitrkJ_kr5Kve_rOvdGMh-oUs0Xpo_hewk7fXXzF8RLPg4h-poq5FMI"
+   },
+   "framing": "master",
+   "speakers": [
+    "ama",
+    "carlos"
+   ],
+   "listeners": [],
+   "facing": {
+    "ama": "screen-left, facing right",
+    "carlos": "screen-right, facing left"
+   },
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     5.0
+    ]
+   ],
+   "tags": [
+    "conversation",
+    "friendly",
+    "alternate-speakers",
+    "gesture"
+   ],
+   "post": {
+    "watermark_crop": [
+     25,
+     0,
+     1030,
+     1832
+    ],
+    "board_blur": true
+   },
+   "mouths": {
+    "ama": {
+     "mouth_set": "meta/c01_master_talk_a/ama/sprites/",
+     "crops": "meta/c01_master_talk_a/ama/crops.npz",
+     "track": "meta/c01_master_talk_a/ama/track.npy",
+     "track_raw": "meta/c01_master_talk_a/ama/track_raw.npy",
+     "mouth_box": [
+      346,
+      697,
+      398,
+      727
+     ],
+     "face_box": [
+      110,
+      560,
+      400,
+      870
+     ],
+     "sprite_roi": [
+      323,
+      674,
+      98,
+      76
+     ],
+     "visemes": {
+      "A": 12,
+      "B": 18,
+      "C": 27,
+      "D": 81,
+      "E": 45,
+      "F": 76,
+      "G": 18,
+      "H": 27,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.346,
+      "cc_mean": 0.965,
+      "jitter_px_rms": 5.72,
+      "mouth_x": [
+       355.8,
+       405.8
+      ],
+      "mouth_y": [
+       632.7,
+       730.3
+      ],
+      "scale": [
+       0.538,
+       1.545
+      ]
+     },
+     "usable_for_swap": true
+    },
+    "carlos": {
+     "mouth_set": "meta/c01_master_talk_a/carlos/sprites/",
+     "crops": "meta/c01_master_talk_a/carlos/crops.npz",
+     "track": "meta/c01_master_talk_a/carlos/track.npy",
+     "track_raw": "meta/c01_master_talk_a/carlos/track_raw.npy",
+     "mouth_box": [
+      645,
+      381,
+      735,
+      449
+     ],
+     "face_box": [
+      590,
+      240,
+      770,
+      500
+     ],
+     "sprite_roi": [
+      605,
+      341,
+      170,
+      148
+     ],
+     "visemes": {
+      "A": 105,
+      "B": 34,
+      "C": 18,
+      "D": 111,
+      "E": 101,
+      "F": 117,
+      "G": 34,
+      "H": 18,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.701,
+      "cc_mean": 0.925,
+      "jitter_px_rms": 0.74,
+      "mouth_x": [
+       668.5,
+       691.4
+      ],
+      "mouth_y": [
+       399.0,
+       421.7
+      ],
+      "scale": [
+       0.977,
+       1.05
+      ]
+     },
+     "usable_for_swap": true
+    }
+   },
+   "qa": "PASS: 180 ok (Ama L facing R, Carlos R facing L, eyelines meet), outfits match refs, no props; chalkboard text needs board_blur"
+  },
+  {
+   "id": "c02_master_talk_b",
+   "file": "clips/c02_master_talk_b.mp4",
+   "first_frame": "frames/blk-9.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "AQstxRSrVjInOHzey7ZqAaU_aQHphl67itRqFwllmoz44GFTTjXedQg9HDC9NzYT5vjXBg3L"
+   },
+   "framing": "master",
+   "speakers": [
+    "carlos",
+    "ama"
+   ],
+   "listeners": [],
+   "facing": {
+    "ama": "screen-left, facing right",
+    "carlos": "screen-right, facing left"
+   },
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     5.0
+    ]
+   ],
+   "tags": [
+    "conversation",
+    "carlos-leans",
+    "nod",
+    "shrug"
+   ],
+   "post": {
+    "watermark_crop": [
+     25,
+     0,
+     1030,
+     1832
+    ],
+    "board_blur": true
+   },
+   "mouths": {
+    "ama": {
+     "mouth_set": "meta/c02_master_talk_b/ama/sprites/",
+     "crops": "meta/c02_master_talk_b/ama/crops.npz",
+     "track": "meta/c02_master_talk_b/ama/track.npy",
+     "track_raw": "meta/c02_master_talk_b/ama/track_raw.npy",
+     "mouth_box": [
+      304,
+      750,
+      359,
+      778
+     ],
+     "face_box": [
+      150,
+      560,
+      440,
+      860
+     ],
+     "sprite_roi": [
+      280,
+      726,
+      103,
+      76
+     ],
+     "visemes": {
+      "A": 8,
+      "B": 53,
+      "C": 49,
+      "D": 62,
+      "E": 11,
+      "F": 51,
+      "G": 53,
+      "H": 49,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": -1.0,
+      "cc_mean": 0.943,
+      "jitter_px_rms": 2.01,
+      "mouth_x": [
+       330.1,
+       366.0
+      ],
+      "mouth_y": [
+       751.9,
+       773.2
+      ],
+      "scale": [
+       0.907,
+       1.055
+      ]
+     },
+     "usable_for_swap": true
+    },
+    "carlos": {
+     "mouth_set": "meta/c02_master_talk_b/carlos/sprites/",
+     "crops": "meta/c02_master_talk_b/carlos/crops.npz",
+     "track": "meta/c02_master_talk_b/carlos/track.npy",
+     "track_raw": "meta/c02_master_talk_b/carlos/track_raw.npy",
+     "mouth_box": [
+      621,
+      547,
+      708,
+      622
+     ],
+     "face_box": [
+      575,
+      420,
+      770,
+      660
+     ],
+     "sprite_roi": [
+      582,
+      508,
+      165,
+      153
+     ],
+     "visemes": {
+      "A": 15,
+      "B": 48,
+      "C": 66,
+      "D": 31,
+      "E": 65,
+      "F": 36,
+      "G": 48,
+      "H": 66,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.825,
+      "cc_mean": 0.904,
+      "jitter_px_rms": 1.16,
+      "mouth_x": [
+       641.5,
+       676.8
+      ],
+      "mouth_y": [
+       570.6,
+       603.2
+      ],
+      "scale": [
+       0.961,
+       1.053
+      ]
+     },
+     "usable_for_swap": true
+    }
+   },
+   "qa": "PASS: 180 ok; different board/lean variant of the master; board_blur required"
+  },
+  {
+   "id": "c03_ots_carlos_talk_a",
+   "file": "clips/c03_ots_carlos_talk_a.mp4",
+   "first_frame": "frames/blk-2.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "AWcIwQBIulhEhC7t-OhLY71oJ6d1cR59GNpJJCI15GUwK56eJAP9HXH4WQRePyp7-UHzuDfr"
+   },
+   "framing": "ots",
+   "speakers": [
+    "carlos"
+   ],
+   "listeners": [
+    "ama"
+   ],
+   "facing": {
+    "ama": "screen-left, facing right",
+    "carlos": "screen-right, facing left"
+   },
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     5.0
+    ]
+   ],
+   "tags": [
+    "explain",
+    "kind",
+    "gesture"
+   ],
+   "post": {
+    "watermark_crop": [
+     25,
+     0,
+     1030,
+     1832
+    ],
+    "board_blur": true
+   },
+   "mouths": {
+    "carlos": {
+     "mouth_set": "meta/c03_ots_carlos_talk_a/carlos/sprites/",
+     "crops": "meta/c03_ots_carlos_talk_a/carlos/crops.npz",
+     "track": "meta/c03_ots_carlos_talk_a/carlos/track.npy",
+     "track_raw": "meta/c03_ots_carlos_talk_a/carlos/track_raw.npy",
+     "mouth_box": [
+      629,
+      378,
+      735,
+      450
+     ],
+     "face_box": [
+      580,
+      200,
+      830,
+      480
+     ],
+     "sprite_roi": [
+      582,
+      331,
+      200,
+      166
+     ],
+     "visemes": {
+      "A": 20,
+      "B": 1,
+      "C": 74,
+      "D": 17,
+      "E": 18,
+      "F": 19,
+      "G": 1,
+      "H": 74,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.609,
+      "cc_mean": 0.827,
+      "jitter_px_rms": 2.21,
+      "mouth_x": [
+       670.9,
+       729.1
+      ],
+      "mouth_y": [
+       397.2,
+       435.5
+      ],
+      "scale": [
+       0.903,
+       1.049
+      ]
+     },
+     "usable_for_swap": true
+    }
+   },
+   "qa": "PASS: OTS past Ama (fg L, back), Carlos R facing L; head motion large -> local track refine needed (done)"
+  },
+  {
+   "id": "c04_ots_carlos_talk_b",
+   "file": "clips/c04_ots_carlos_talk_b.mp4",
+   "first_frame": "frames/blk-4.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "AW2zo6GRatcsLw2QXXCyGPlc8dfsVtA_UZRhGrqGXTMAtvMZucXSuxt8fb8c1W-ijqjnLJX_"
+   },
+   "framing": "ots",
+   "speakers": [
+    "carlos"
+   ],
+   "listeners": [
+    "ama"
+   ],
+   "facing": {
+    "ama": "screen-left, facing right",
+    "carlos": "screen-right, facing left"
+   },
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     5.0
+    ]
+   ],
+   "tags": [
+    "teasing",
+    "raised-eyebrow",
+    "smile",
+    "open-palm"
+   ],
+   "post": {
+    "watermark_crop": [
+     25,
+     0,
+     1030,
+     1832
+    ],
+    "board_blur": true
+   },
+   "mouths": {
+    "carlos": {
+     "mouth_set": "meta/c04_ots_carlos_talk_b/carlos/sprites/",
+     "crops": "meta/c04_ots_carlos_talk_b/carlos/crops.npz",
+     "track": "meta/c04_ots_carlos_talk_b/carlos/track.npy",
+     "track_raw": "meta/c04_ots_carlos_talk_b/carlos/track_raw.npy",
+     "mouth_box": [
+      664,
+      447,
+      756,
+      507
+     ],
+     "face_box": [
+      560,
+      200,
+      840,
+      520
+     ],
+     "sprite_roi": [
+      623,
+      406,
+      174,
+      142
+     ],
+     "visemes": {
+      "A": 36,
+      "B": 91,
+      "C": 67,
+      "D": 9,
+      "E": 12,
+      "F": 5,
+      "G": 91,
+      "H": 67,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.613,
+      "cc_mean": 0.778,
+      "jitter_px_rms": 1.64,
+      "mouth_x": [
+       707.9,
+       784.9
+      ],
+      "mouth_y": [
+       449.8,
+       487.9
+      ],
+      "scale": [
+       0.966,
+       1.088
+      ]
+     },
+     "usable_for_swap": true
+    }
+   },
+   "qa": "PASS: same setup as c08; track cc lower (0.61 min) - check swap"
+  },
+  {
+   "id": "c05_ots_ama_talk_a",
+   "file": "clips/c05_ots_ama_talk_a.mp4",
+   "first_frame": "frames/otsama.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "AdT82HBaEx-7TUP7DeaohLofn1_XmlxN6MhqTROu_uqea9Hly589J_3QEnprZFB8CmfTOv_J"
+   },
+   "framing": "ots",
+   "speakers": [
+    "ama"
+   ],
+   "listeners": [
+    "carlos"
+   ],
+   "facing": {
+    "ama": "screen-left, facing right",
+    "carlos": "screen-right, facing left"
+   },
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     5.0
+    ]
+   ],
+   "tags": [
+    "confident",
+    "hand-gesture"
+   ],
+   "post": {
+    "watermark_crop": [
+     25,
+     0,
+     1030,
+     1832
+    ],
+    "board_blur": false
+   },
+   "mouths": {
+    "ama": {
+     "mouth_set": "meta/c05_ots_ama_talk_a/ama/sprites/",
+     "crops": "meta/c05_ots_ama_talk_a/ama/crops.npz",
+     "track": "meta/c05_ots_ama_talk_a/ama/track.npy",
+     "track_raw": "meta/c05_ots_ama_talk_a/ama/track_raw.npy",
+     "mouth_box": [
+      398,
+      1062,
+      468,
+      1104
+     ],
+     "face_box": [
+      240,
+      880,
+      520,
+      1170
+     ],
+     "sprite_roi": [
+      367,
+      1031,
+      132,
+      104
+     ],
+     "visemes": {
+      "A": 23,
+      "B": 33,
+      "C": 11,
+      "D": 111,
+      "E": 20,
+      "F": 21,
+      "G": 33,
+      "H": 11,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.561,
+      "cc_mean": 0.897,
+      "jitter_px_rms": 2.77,
+      "mouth_x": [
+       433.0,
+       507.8
+      ],
+      "mouth_y": [
+       1079.7,
+       1112.9
+      ],
+      "scale": [
+       0.948,
+       1.164
+      ]
+     },
+     "usable_for_swap": true
+    }
+   },
+   "qa": "PASS: OTS past Carlos (fg R, back, behind counter), Ama L facing R up; first frame regenerated (old blk OTS-onto-Ama had Carlos on the customer side)"
+  },
+  {
+   "id": "c06_ots_ama_talk_b",
+   "file": "clips/c06_ots_ama_talk_b.mp4",
+   "first_frame": "frames/otsama.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "AVQxfF6haVo8DWbttLy12rJapGFvNBqdMAtaiQTEcC7dN4fU_aks7__9gSJG64qVSEafbKAE"
+   },
+   "framing": "ots",
+   "speakers": [
+    "ama"
+   ],
+   "listeners": [
+    "carlos"
+   ],
+   "facing": {
+    "ama": "screen-left, facing right",
+    "carlos": "screen-right, facing left"
+   },
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     5.0
+    ]
+   ],
+   "tags": [
+    "polite",
+    "hands-together",
+    "warm-smile"
+   ],
+   "post": {
+    "watermark_crop": [
+     25,
+     0,
+     1030,
+     1832
+    ],
+    "board_blur": false
+   },
+   "mouths": {
+    "ama": {
+     "mouth_set": "meta/c06_ots_ama_talk_b/ama/sprites/",
+     "crops": "meta/c06_ots_ama_talk_b/ama/crops.npz",
+     "track": "meta/c06_ots_ama_talk_b/ama/track.npy",
+     "track_raw": "meta/c06_ots_ama_talk_b/ama/track_raw.npy",
+     "mouth_box": [
+      403,
+      1062,
+      470,
+      1099
+     ],
+     "face_box": [
+      240,
+      880,
+      520,
+      1170
+     ],
+     "sprite_roi": [
+      373,
+      1032,
+      127,
+      97
+     ],
+     "visemes": {
+      "A": 74,
+      "B": 40,
+      "C": 72,
+      "D": 109,
+      "E": 80,
+      "F": 19,
+      "G": 40,
+      "H": 72,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.796,
+      "cc_mean": 0.946,
+      "jitter_px_rms": 2.11,
+      "mouth_x": [
+       432.1,
+       465.1
+      ],
+      "mouth_y": [
+       1072.9,
+       1109.6
+      ],
+      "scale": [
+       0.869,
+       1.352
+      ]
+     },
+     "usable_for_swap": true
+    }
+   },
+   "qa": "PASS"
+  },
+  {
+   "id": "c07_ots_ama_react",
+   "file": "clips/c07_ots_ama_react.mp4",
+   "first_frame": "frames/otsama.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "AVVYq5LRYKU5g-26Lm1r-3g9I-6J09W7sMDRwNGOH6EsJpD4ZzxFna2dZCRUkmLkg-QtbiDA"
+   },
+   "framing": "react",
+   "speakers": [],
+   "listeners": [
+    "ama"
+   ],
+   "facing": {
+    "ama": "screen-left, facing right",
+    "carlos": "screen-right, facing left"
+   },
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.8,
+     3.2
+    ]
+   ],
+   "tags": [
+    "realize-mistake",
+    "embarrassed-laugh",
+    "hand-over-mouth",
+    "blush"
+   ],
+   "post": {
+    "watermark_crop": [
+     25,
+     0,
+     1030,
+     1832
+    ],
+    "board_blur": false
+   },
+   "mouths": {
+    "ama": {
+     "mouth_set": "meta/c07_ots_ama_react/ama/sprites/",
+     "crops": "meta/c07_ots_ama_react/ama/crops.npz",
+     "track": "meta/c07_ots_ama_react/ama/track.npy",
+     "track_raw": "meta/c07_ots_ama_react/ama/track_raw.npy",
+     "mouth_box": [
+      347,
+      1009,
+      501,
+      1125
+     ],
+     "face_box": [
+      240,
+      880,
+      520,
+      1170
+     ],
+     "sprite_roi": [
+      278,
+      940,
+      292,
+      254
+     ],
+     "visemes": {
+      "A": 87,
+      "B": 3,
+      "C": 8,
+      "D": 11,
+      "E": 1,
+      "F": 27,
+      "G": 3,
+      "H": 8,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": -1.0,
+      "cc_mean": 0.436,
+      "jitter_px_rms": 10.32,
+      "mouth_x": [
+       424.5,
+       721.2
+      ],
+      "mouth_y": [
+       1035.5,
+       1227.4
+      ],
+      "scale": [
+       0.982,
+       1.958
+      ]
+     },
+     "usable_for_swap": false
+    }
+   },
+   "qa": "PASS (silent): hand covers mouth -> no swap possible/needed; tracking unusable (occlusion)"
+  },
+  {
+   "id": "c08_ots_carlos_react",
+   "file": "clips/c08_ots_carlos_react.mp4",
+   "first_frame": "frames/blk-4.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "AbZkG_zNQTszfidzWymyCQ_JPaF-XClsnzxCoyKJO64j8Vh81CdIcal-YyokIr1-mvJT9PJI"
+   },
+   "framing": "react",
+   "speakers": [],
+   "listeners": [
+    "carlos"
+   ],
+   "facing": {
+    "ama": "screen-left, facing right",
+    "carlos": "screen-right, facing left"
+   },
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     3.0
+    ]
+   ],
+   "tags": [
+    "kind-smile",
+    "nod",
+    "reassure"
+   ],
+   "post": {
+    "watermark_crop": [
+     25,
+     0,
+     1030,
+     1832
+    ],
+    "board_blur": true
+   },
+   "mouths": {
+    "carlos": {
+     "mouth_set": "meta/c08_ots_carlos_react/carlos/sprites/",
+     "crops": "meta/c08_ots_carlos_react/carlos/crops.npz",
+     "track": "meta/c08_ots_carlos_react/carlos/track.npy",
+     "track_raw": "meta/c08_ots_carlos_react/carlos/track_raw.npy",
+     "mouth_box": [
+      612,
+      398,
+      766,
+      516
+     ],
+     "face_box": [
+      560,
+      200,
+      840,
+      520
+     ],
+     "sprite_roi": [
+      543,
+      329,
+      292,
+      256
+     ],
+     "visemes": {
+      "A": 28,
+      "B": 67,
+      "C": 67,
+      "D": 18,
+      "E": 67,
+      "F": 65,
+      "G": 67,
+      "H": 67,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.702,
+      "cc_mean": 0.829,
+      "jitter_px_rms": 3.39,
+      "mouth_x": [
+       663.3,
+       802.0
+      ],
+      "mouth_y": [
+       420.6,
+       469.1
+      ],
+      "scale": [
+       0.927,
+       1.072
+      ]
+     },
+     "usable_for_swap": false
+    }
+   },
+   "qa": "PASS 0-3 s; after 3.5 s expression turns odd (wide-eyed) - avoid"
+  },
+  {
+   "id": "c09_handover",
+   "file": "clips/c09_handover.mp4",
+   "first_frame": "frames/blk-3.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "AaR6sct2KFEcv5JU_kqKYN9U4ljxqtf3gi6-rhwnq-JelgyhJs51XffuZ-ci6J-asytxIbP4"
+   },
+   "framing": "action",
+   "speakers": [],
+   "listeners": [
+    "ama",
+    "carlos"
+   ],
+   "facing": {
+    "ama": "screen-left, facing right",
+    "carlos": "screen-right, facing left"
+   },
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     5.0
+    ]
+   ],
+   "tags": [
+    "handover",
+    "latte",
+    "slide-cup",
+    "thank-you-nod"
+   ],
+   "post": {
+    "watermark_crop": [
+     25,
+     0,
+     1030,
+     1832
+    ],
+    "board_blur": true
+   },
+   "mouths": {
+    "ama": {
+     "mouth_set": "meta/c09_handover/ama/sprites/",
+     "crops": "meta/c09_handover/ama/crops.npz",
+     "track": "meta/c09_handover/ama/track.npy",
+     "track_raw": "meta/c09_handover/ama/track_raw.npy",
+     "mouth_box": [
+      350,
+      665,
+      444,
+      785
+     ],
+     "face_box": [
+      150,
+      560,
+      440,
+      860
+     ],
+     "sprite_roi": [
+      296,
+      611,
+      202,
+      228
+     ],
+     "visemes": {
+      "A": 14,
+      "B": 86,
+      "C": 72,
+      "D": 89,
+      "E": 107,
+      "F": 10,
+      "G": 86,
+      "H": 72,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": -1.0,
+      "cc_mean": 0.627,
+      "jitter_px_rms": 6.21,
+      "mouth_x": [
+       394.3,
+       484.5
+      ],
+      "mouth_y": [
+       664.1,
+       774.0
+      ],
+      "scale": [
+       0.752,
+       1.116
+      ]
+     },
+     "usable_for_swap": false
+    },
+    "carlos": {
+     "mouth_set": "meta/c09_handover/carlos/sprites/",
+     "crops": "meta/c09_handover/carlos/crops.npz",
+     "track": "meta/c09_handover/carlos/track.npy",
+     "track_raw": "meta/c09_handover/carlos/track_raw.npy",
+     "mouth_box": [
+      592,
+      380,
+      736,
+      500
+     ],
+     "face_box": [
+      540,
+      220,
+      800,
+      520
+     ],
+     "sprite_roi": [
+      528,
+      316,
+      272,
+      248
+     ],
+     "visemes": {
+      "A": 12,
+      "B": 116,
+      "C": 9,
+      "D": 68,
+      "E": 45,
+      "F": 42,
+      "G": 116,
+      "H": 9,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": -1.0,
+      "cc_mean": 0.821,
+      "jitter_px_rms": 7.61,
+      "mouth_x": [
+       661.6,
+       961.7
+      ],
+      "mouth_y": [
+       378.1,
+       441.9
+      ],
+      "scale": [
+       0.97,
+       2.285
+      ]
+     },
+     "usable_for_swap": false
+    }
+   },
+   "qa": "PASS with note: Carlos takes the cup from the machine top (set dressing in every counter shot) -> Ama ends holding it in both hands; Ama holds an open grin (silent) 0.5-4 s; head-turn makes mouth tracking unreliable"
+  },
+  {
+   "id": "c10_ama_mcu_talk",
+   "file": "clips/c10_ama_mcu_talk.mp4",
+   "first_frame": "frames/amamcu.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "AWWqlCPO83-GZUJMbUxEoTzfv9KTx8Pvj-4n6I-fYOZ5QBI285L5TvdIpYMCKZnQGI-3Mo3h"
+   },
+   "framing": "mcu",
+   "speakers": [
+    "ama"
+   ],
+   "listeners": [],
+   "facing": {
+    "ama": "centre, facing camera"
+   },
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     5.0
+    ]
+   ],
+   "tags": [
+    "direct-to-camera",
+    "explain",
+    "tip",
+    "nod",
+    "hand-gesture"
+   ],
+   "post": {
+    "watermark_crop": [
+     25,
+     0,
+     1030,
+     1832
+    ],
+    "board_blur": false
+   },
+   "mouths": {
+    "ama": {
+     "mouth_set": "meta/c10_ama_mcu_talk/ama/sprites/",
+     "crops": "meta/c10_ama_mcu_talk/ama/crops.npz",
+     "track": "meta/c10_ama_mcu_talk/ama/track.npy",
+     "track_raw": "meta/c10_ama_mcu_talk/ama/track_raw.npy",
+     "mouth_box": [
+      559,
+      959,
+      741,
+      1016
+     ],
+     "face_box": [
+      300,
+      560,
+      980,
+      1200
+     ],
+     "sprite_roi": [
+      478,
+      878,
+      344,
+      219
+     ],
+     "visemes": {
+      "A": 114,
+      "B": 21,
+      "C": 11,
+      "D": 110,
+      "E": 62,
+      "F": 83,
+      "G": 21,
+      "H": 11,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.836,
+      "cc_mean": 0.966,
+      "jitter_px_rms": 3.19,
+      "mouth_x": [
+       641.9,
+       682.9
+      ],
+      "mouth_y": [
+       983.2,
+       1039.6
+      ],
+      "scale": [
+       0.892,
+       1.078
+      ]
+     },
+     "usable_for_swap": true
+    }
+   },
+   "qa": "PASS: front-facing MCU from new kling-image-v3_0 frame (watermark cropped before i2v); no cup (use BEFORE hand-over)"
+  },
+  {
+   "id": "c12b_closing",
+   "file": "clips/c12b_closing.mp4",
+   "first_frame": "frames/c09_last.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 5,
+    "resolution": "1080p",
+    "generationId": "AWF2puup1FG-dt39R-d_HZHdoqHoqBGhkQPIGhkP5OnpanHcIaonGcVZUBiR0hk7aBtz_B_s"
+   },
+   "framing": "master",
+   "speakers": [],
+   "listeners": [
+    "ama",
+    "carlos"
+   ],
+   "facing": {
+    "ama": "screen-left, facing right",
+    "carlos": "screen-right, facing left"
+   },
+   "fps": 24,
+   "frames": 121,
+   "usable_segments": [
+    [
+     0.0,
+     5.0
+    ]
+   ],
+   "tags": [
+    "goodbye",
+    "wave",
+    "walk-out-left",
+    "holds-latte"
+   ],
+   "post": {
+    "watermark_crop": [
+     25,
+     0,
+     1030,
+     1832
+    ],
+    "board_blur": true
+   },
+   "mouths": {
+    "ama": {
+     "mouth_set": "meta/c12b_closing/ama/sprites/",
+     "crops": "meta/c12b_closing/ama/crops.npz",
+     "track": "meta/c12b_closing/ama/track.npy",
+     "track_raw": "meta/c12b_closing/ama/track_raw.npy",
+     "mouth_box": [
+      347,
+      658,
+      472,
+      771
+     ],
+     "face_box": [
+      180,
+      550,
+      460,
+      780
+     ],
+     "sprite_roi": [
+      291,
+      602,
+      237,
+      225
+     ],
+     "visemes": {
+      "A": 16,
+      "B": 54,
+      "C": 26,
+      "D": 25,
+      "E": 41,
+      "F": 14,
+      "G": 54,
+      "H": 26,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": -1.0,
+      "cc_mean": -0.071,
+      "jitter_px_rms": 211.6,
+      "mouth_x": [
+       391.7,
+       1582.9
+      ],
+      "mouth_y": [
+       -2479.9,
+       2449.1
+      ],
+      "scale": [
+       0.976,
+       4.862
+      ]
+     },
+     "usable_for_swap": false
+    },
+    "carlos": {
+     "mouth_set": "meta/c12b_closing/carlos/sprites/",
+     "crops": "meta/c12b_closing/carlos/crops.npz",
+     "track": "meta/c12b_closing/carlos/track.npy",
+     "track_raw": "meta/c12b_closing/carlos/track_raw.npy",
+     "mouth_box": [
+      692,
+      285,
+      755,
+      335
+     ],
+     "face_box": [
+      540,
+      40,
+      820,
+      330
+     ],
+     "sprite_roi": [
+      664,
+      257,
+      119,
+      106
+     ],
+     "visemes": {
+      "A": 77,
+      "B": 22,
+      "C": 59,
+      "D": 30,
+      "E": 11,
+      "F": 23,
+      "G": 22,
+      "H": 59,
+      "X": 0
+     },
+     "track_quality": {
+      "cc_min": 0.787,
+      "cc_mean": 0.953,
+      "jitter_px_rms": 1.27,
+      "mouth_x": [
+       724.0,
+       753.7
+      ],
+      "mouth_y": [
+       302.5,
+       332.2
+      ],
+      "scale": [
+       0.926,
+       1.002
+      ]
+     },
+     "usable_for_swap": false
+    }
+   },
+   "qa": "PASS: starts on c09 last frame (prop continuity: Ama keeps the latte), exits L; replaces c12 (REJECTED: Ama left without the latte, cup+bottle appeared on counter, odd object in hand)"
+  }
+ ],
+ "rejected": [
+  {
+   "id": "c12_closing",
+   "generationId": "AbBKcEo1t92U77dIuf2zZ802jGP4gS-pdH9bYBtfrzuL8-gmu-ZFNRDSCciZvu9txX7Vr0bW",
+   "why": "prop continuity: Ama left without the latte; cup + bottle appeared on the counter; odd brown object in her hand"
+  },
+  {
+   "id": "blk-6/blk-8 (old OTS-onto-Ama first frames)",
+   "why": "Carlos standing on the customer side of the counter (blk-8 also in jeans, full body) -> regenerated otsama.png"
+  }
+ ]
+}

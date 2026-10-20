@@ -1,0 +1,17 @@
+start 2026-10-19T23:54:30Z balance 17188 cap 330
+img otsama 4 AQDraC7uOYvKWn7a7yylvYQ5bO_7jhYeH3XpGbYuXWsA0C9lnx2CIutMZAJpKiZZ7TS7JcD2
+img amamcu 4 AURtaNi4bt394bf-fxbyVd3mvGQUJUAXFBpFkQEnE2dA8k5NcaZZp8g4TdmyOnSPI3OtWlcU
+video c01_master_talk_a blk-1.png 25 AXJFlplIgQqr0HwekaitrkJ_kr5Kve_rOvdGMh-oUs0Xpo_hewk7fXXzF8RLPg4h-poq5FMI
+video c02_master_talk_b blk-9.png 25 AQstxRSrVjInOHzey7ZqAaU_aQHphl67itRqFwllmoz44GFTTjXedQg9HDC9NzYT5vjXBg3L
+video c03_ots_carlos_talk_a blk-2.png 25 AWcIwQBIulhEhC7t-OhLY71oJ6d1cR59GNpJJCI15GUwK56eJAP9HXH4WQRePyp7-UHzuDfr
+video c04_ots_carlos_talk_b blk-4.png 25 AW2zo6GRatcsLw2QXXCyGPlc8dfsVtA_UZRhGrqGXTMAtvMZucXSuxt8fb8c1W-ijqjnLJX_
+video c08_ots_carlos_react blk-4.png 25 AbZkG_zNQTszfidzWymyCQ_JPaF-XClsnzxCoyKJO64j8Vh81CdIcal-YyokIr1-mvJT9PJI
+video c09_handover blk-3.png 25 AaR6sct2KFEcv5JU_kqKYN9U4ljxqtf3gi6-rhwnq-JelgyhJs51XffuZ-ci6J-asytxIbP4
+video c12_closing blk-10.png 25 AbBKcEo1t92U77dIuf2zZ802jGP4gS-pdH9bYBtfrzuL8-gmu-ZFNRDSCciZvu9txX7Vr0bW
+video c05_ots_ama_talk_a otsama.png 25 AdT82HBaEx-7TUP7DeaohLofn1_XmlxN6MhqTROu_uqea9Hly589J_3QEnprZFB8CmfTOv_J
+video c06_ots_ama_talk_b otsama.png 25 AVQxfF6haVo8DWbttLy12rJapGFvNBqdMAtaiQTEcC7dN4fU_aks7__9gSJG64qVSEafbKAE
+video c07_ots_ama_react otsama.png 25 AVVYq5LRYKU5g-26Lm1r-3g9I-6J09W7sMDRwNGOH6EsJpD4ZzxFna2dZCRUkmLkg-QtbiDA
+video c10_ama_mcu_talk amamcu.png 25 AWWqlCPO83-GZUJMbUxEoTzfv9KTx8Pvj-4n6I-fYOZ5QBI285L5TvdIpYMCKZnQGI-3Mo3h
+REJECT c12_closing: Ama leaves without the latte, cup+bottle appear on counter, odd brown object in her hand (prop continuity)
+video c12b_closing c09_last.png 25 AWF2puup1FG-dt39R-d_HZHdoqHoqBGhkQPIGhkP5OnpanHcIaonGcVZUBiR0hk7aBtz_B_s
+end 2026-10-20T00:23:00Z balance 16880 spent 308 (2 image x4 = 8, 12 video x25 = 300; 1 rejected: c12_closing) cap 330

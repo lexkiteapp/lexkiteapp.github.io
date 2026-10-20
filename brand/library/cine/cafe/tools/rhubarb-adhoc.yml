@@ -1,0 +1,25 @@
+# Ad-hoc: Rhubarb Lip Sync 1.13.0 (Linux) trên mọi cine/wav/*.wav của nhánh này → artifact JSON viseme. Không đụng main.
+name: rhubarb-adhoc
+on:
+  workflow_dispatch:
+  push:
+    branches: [rhubarb-adhoc]
+jobs:
+  rhubarb:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rhubarb
+        run: |
+          curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
+          R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"
+          mkdir -p out
+          for w in cine/wav/*.wav; do
+            b=$(basename "$w" .wav); d=(); [ -f "cine/wav/$b.txt" ] && d=(-d "cine/wav/$b.txt")
+            "$R" -q --extendedShapes GHX -f json "${d[@]}" -o "out/$b.json" "$w" || "$R" -q -r phonetic --extendedShapes GHX -f json "${d[@]}" -o "out/$b.json" "$w"
+            echo "$b: $(grep -c '"value"' out/$b.json) cues"
+          done
+      - uses: actions/upload-artifact@v4
+        with: { name: visemes, path: out/ }
