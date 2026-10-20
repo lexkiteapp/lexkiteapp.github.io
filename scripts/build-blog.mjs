@@ -245,7 +245,18 @@ ${script}
 </html>`;
 }
 const YT_JS = `<script>document.addEventListener('click',e=>{const b=e.target.closest('.yt button');if(!b)return;const d=b.parentNode,f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+d.dataset.id+'?autoplay=1&rel=0';f.title=b.getAttribute('aria-label');f.allow='accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture;fullscreen';f.allowFullscreen=true;d.replaceChildren(f)})</script>`;
+const QUIZ_JS = `<script>(function(){var q=document.querySelector('.blog-quiz');if(!q)return;var l=function(){if(window._LK_QZ_S)return;window._LK_QZ_S=1;var s=document.createElement('script');s.src='/blog/quiz.js';s.defer=true;document.body.appendChild(s)};if('IntersectionObserver' in window){var o=new IntersectionObserver(function(es){for(var i=0;i<es.length;i++)if(es[i].isIntersecting){o.disconnect();l();break}},{rootMargin:'300px'});o.observe(q)}else{l()}})();</script>`;
 const crumbsLd = items => crumbsLdAt(SITE, items);
+// Mini-quiz cuối bài: dựng sẵn khối <details> đáp án (đọc được khi không có JS, crawler thấy nội dung); quiz.js thay bằng bản tương tác.
+const QZ_I = (() => { const m = /\n  const I = (\{[\s\S]*?\n  \});/.exec(fs.readFileSync('web/blog/quiz.js', 'utf8')); return m ? Function(`return ${m[1]}`)() : {}; })();
+const quizBlock = p => {
+  const items = Array.isArray(p.quiz) ? p.quiz : (p.quiz && p.quiz.items) || [], cta = !Array.isArray(p.quiz) && p.quiz && p.quiz.cta;
+  if (cta && !/^\/(?!\/)/.test(cta.url || '')) throw new Error(`quiz ${p.lang}/${p.slug}: cta.url phải là đường dẫn trong site (/app/#/…)`);
+  items.forEach((q, i) => { if (!q || !q.q || !Array.isArray(q.options) || q.options.length < 2 || !(q.answer >= 0 && q.answer < q.options.length)) throw new Error(`quiz ${p.lang}/${p.slug} câu ${i + 1}: thiếu q/options hoặc answer ngoài phạm vi`); });
+  if (!items.length) return '';
+  const L = QZ_I[p.lang] || QZ_I.en || [];
+  return `<section class="blog-quiz" aria-label="${esc(L[0] || 'Quiz')}" data-quiz="${esc(JSON.stringify(cta ? { items, cta } : items))}" data-lang="${p.lang}" data-app="${esc(appHref(p.lang))}"><details class="toc"><summary>🧠 ${esc(L[0] || 'Quiz')} · ${esc(L[11] || '')}</summary><ol>${items.map(q => `<li><p><strong>${esc(q.q)}</strong></p><p>${q.options.map((o, i) => i === q.answer ? `<strong>✓ ${esc(o)}</strong>` : esc(o)).join(' · ')}</p>${q.explain ? `<p>${esc(q.explain)}</p>` : ''}</li>`).join('')}</ol></details></section>\n`;
+};
 const card = (p, h = 'h2', eager = false) => `<article class="card"><a class="ti" href="${postUrl(p)}"><div class="pic">${picture(coverOf(p).id, coverOf(p).alt, { eager, sizes: '(min-width: 1080px) 340px, (min-width: 640px) 50vw, 100vw' })}</div><div class="bd"><span class="chip">${esc(catName(p.category, p.lang))}</span><${h}>${esc(p.title)}</${h}><p>${esc(p.description)}</p></div></a></article>`;
 
 // ---------- Ghi file ----------
@@ -273,6 +284,7 @@ for (const p of posts) {
     crumbsLd(crumbs),
     ...(faq.length >= 2 ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
   ];
+  const quizHtml = p.quiz ? quizBlock(p) : '';
   const body = `${crumbsHtml(crumbs)}
 <article class="post">
 <h1>${esc(p.title)}</h1>
@@ -280,14 +292,14 @@ for (const p of posts) {
 <figure class="cover">${picture(cv.id, cv.alt, { eager: true })}</figure>
 ${toc.length >= 3 ? `<details class="toc" open><summary>${t.toc}</summary><ol>${toc.map(h => `<li><a href="#${h.id}">${inline(h.txt)}</a></li>`).join('')}</ol></details>` : ''}
 ${html}
-${(p.tags || []).some(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2) ? `<div class="tags" aria-label="${t.tags}">${p.tags.filter(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2).map(g => `<a href="${b}${sg.tag}/${g}/">#${esc(g)}</a>`).join('')}</div>` : ''}
+${quizHtml}${(p.tags || []).some(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2) ? `<div class="tags" aria-label="${t.tags}">${p.tags.filter(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2).map(g => `<a href="${b}${sg.tag}/${g}/">#${esc(g)}</a>`).join('')}</div>` : ''}
 <p class="copy">© ${new Date(pub).getFullYear()} Lexkite · ${COPY[p.lang] || COPY.en}</p>
 <section class="trybox"><h2>${t.try}</h2><p>${t.tryD}</p><a class="btn" href="${appHref(p.lang)}">${t.open} ${t.dir === 'rtl' ? '←' : '→'}</a></section>
 </article>
 ${related.length ? `<section aria-labelledby="rel"><h2 id="rel">${t.related}</h2><div class="grid">${related.map(x => card(x, 'h3')).join('')}</div></section>` : ''}`;
   write(postUrl(p), layout({ lang: p.lang, title: `${p.title} | Lexkite`, desc: p.description, url: postUrl(p), alt: alts(p), img: imgUrl(cv.id), imgAlt: cv.alt, type: 'article', body, jsonld,
     extraHead: `<meta property="article:published_time" content="${iso(pub)}">\n<meta property="article:modified_time" content="${iso(upd)}">\n<meta property="article:section" content="${esc(cat)}">\n${(p.tags || []).map(g => `<meta property="article:tag" content="${esc(g)}">`).join('\n')}\n`,
-    script: (videos.length ? YT_JS : '') + copyJs(p.lang) }));
+    script: (videos.length ? YT_JS : '') + (p.quiz ? QUIZ_JS : '') + copyJs(p.lang) }));
   sm.push({ loc: postUrl(p), lastmod: iso(upd), alt: alts(p) });
 }
 CURP = null;
@@ -367,4 +379,8 @@ ${part.map(e => `  <url><loc>${SITE}${e.loc}</loc><lastmod>${e.lastmod}</lastmod
   fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(path.join(OUT, `sitemap-blog-${lang}${k ? `-${k + 1}` : ''}.xml`), x);
 } }
 const queued = all.filter(p => p.status !== 'draft' && !isLive(p, NOW)).length;
+if (fs.existsSync('web/blog/quiz.js')) {
+  fs.mkdirSync(path.join(OUT, 'blog'), { recursive: true });
+  fs.copyFileSync('web/blog/quiz.js', path.join(OUT, 'blog', 'quiz.js'));
+}
 console.log(`✓ Blog: ${posts.length} bài phát hành, ${queued} bài chờ lịch · ${written.length} trang · RSS · ${sm.length} URL sitemap`);

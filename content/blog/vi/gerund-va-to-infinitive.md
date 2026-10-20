@@ -13,6 +13,26 @@ publishAt: 2026-10-30T20:39:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
+quiz: [
+  {
+    q: "Chọn dạng đúng của động từ: 'Please remember _____ the door before leaving the office.'",
+    options: ["to lock", "locking", "lock", "locked"],
+    answer: 0,
+    explain: "'Remember to V' chỉ việc cần nhớ phải làm trong tương lai (trách nhiệm/mục tiêu), còn 'remember V-ing' là nhớ lại kỷ niệm đã làm trong quá khứ."
+  },
+  {
+    q: "Điền vào chỗ trống: 'We are really looking forward to _____ you at the conference.'",
+    options: ["see", "seeing", "seen", "saw"],
+    answer: 1,
+    explain: "Trong cụm 'look forward to', 'to' là giới từ. Sau giới từ bắt buộc dùng danh từ hoặc danh động từ V-ing (seeing)."
+  },
+  {
+    q: "Câu nào dưới đây có nghĩa là 'ông ấy đã từ bỏ thói quen hút thuốc'?",
+    options: ["He stopped to smoke.", "He stopped smoking.", "He stopped smoke.", "He remembered to smoke."],
+    answer: 1,
+    explain: "'Stop V-ing' nghĩa là dừng hẳn một hành động hay thói quen. Còn 'stop to V' là dừng việc đang làm lại để làm một việc khác."
+  }
+]
 ---
 Chọn giữa gerund và to infinitive (V-ing hay to V) không hoàn toàn là chuyện học thuộc. Có một xu hướng rất rõ: **to V** thường hướng về phía trước – điều chưa xảy ra, một mục tiêu, một ý định (*I want to travel*). **V-ing** thường nói về chính hoạt động đó – điều đang diễn ra, đã trải qua hoặc được nhìn như một sự việc chung (*I enjoy travelling*). Nắm xu hướng này, bạn đoán đúng phần lớn trường hợp và nhớ ngoại lệ dễ hơn.
 

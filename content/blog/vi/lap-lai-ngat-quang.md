@@ -13,6 +13,26 @@ publishAt: 2026-10-18T07:45:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
+quiz: [
+  {
+    q: "Nguyên lý cốt lõi của phương pháp Lặp lại ngắt quãng (Spaced Repetition) là gì?",
+    options: ["Đọc đi đọc lại một từ 50 lần liên tiếp trong một buổi.", "Ôn lại kiến thức với khoảng cách thời gian giãn dần khi trí nhớ chuẩn bị mờ đi.", "Chỉ học dồn bài vào đêm trước ngày thi.", "Học từ mới liên tục và không cần ôn lại từ cũ."],
+    answer: 1,
+    explain: "Lặp lại ngắt quãng dựa trên việc ôn tập đúng lúc sắp quên, mỗi lần truy hồi thành công sẽ giúp kéo giãn khoảng cách cho lần ôn kế tiếp."
+  },
+  {
+    q: "Thời điểm ôn tập mang lại hiệu quả ghi nhớ dài hạn mạnh mẽ nhất là khi nào?",
+    options: ["Ngay 5 giây sau khi vừa đọc xong từ.", "Khi bạn vẫn nhớ như in 100% chi tiết.", "Khi thông tin bắt đầu mờ nhạt và não phải nỗ lực chủ động gợi nhớ (active recall).", "Sau vài năm không ôn luyện."],
+    answer: 2,
+    explain: "Ôn đúng lúc thông tin bắt đầu mờ mà vẫn cố nhớ ra được (chủ động gợi nhớ) giúp trí nhớ bền hơn so với ôn khi còn nhớ rõ – đây là ý tưởng nền tảng của lặp lại ngắt quãng."
+  },
+  {
+    q: "Điểm khác biệt chính của thuật toán FSRS so với lịch ôn cố định trong bài (ngày 2, 4, 8, 16…) là gì?",
+    options: ["Chỉ cho phép học tối đa 10 từ/ngày.", "Bắt buộc trả phí theo số lượng từ.", "Ước lượng độ khó và độ ổn định trí nhớ riêng cho từng từ để chọn ngày ôn tiếp theo.", "Tự động xóa từ nếu bạn trả lời sai."],
+    answer: 2,
+    explain: "FSRS ước lượng độ khó (Difficulty) và độ ổn định (Stability) của trí nhớ cho từng thẻ, rồi chọn ngày ôn tiếp theo khi khả năng còn nhớ giảm xuống mức đặt trước – thay vì dùng cùng một lịch cho mọi từ."
+  }
+]
 ---
 Hãy nghĩ về cách bạn nhớ số điện thoại của người thân. Bạn không ngồi đọc nó 100 lần trong một buổi tối. Bạn bấm nó hôm nay, vài hôm sau bấm lại, rồi tuần sau, tháng sau… và đến một lúc nó nằm yên trong đầu. Lặp lại ngắt quãng chính là biến quá trình tự nhiên đó thành một phương pháp có chủ đích để học từ vựng, công thức hay bất kỳ thứ gì cần nhớ lâu.
 

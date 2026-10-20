@@ -13,6 +13,26 @@ publishAt: 2026-10-25T19:50:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
+quiz: [
+  {
+    q: "Chọn từ thích hợp: 'The new tax policy will directly _____ small businesses.'",
+    options: ["affect", "effect", "effective", "efficiency"],
+    answer: 0,
+    explain: "'Affect' là động từ mang nghĩa 'tác động, ảnh hưởng đến'. Còn 'effect' thường là danh từ mang nghĩa 'kết quả, hiệu ứng'."
+  },
+  {
+    q: "Điền vào chỗ trống: 'The sun _____ in the east, and the teacher asked them to _____ their hands.'",
+    options: ["raises / rise", "rises / raise", "rises / rise", "raises / raise"],
+    answer: 1,
+    explain: "'Rise' là nội động từ (tự mọc lên, không cần tân ngữ). 'Raise' là ngoại động từ (nâng cái gì đó lên, cần tân ngữ: raise their hands)."
+  },
+  {
+    q: "Chọn từ thích hợp: 'Buying a fuel-efficient car is a very _____ choice for commuters.'",
+    options: ["economic", "economical", "economy", "economics"],
+    answer: 1,
+    explain: "'Economical' có nghĩa là tiết kiệm tiền bạc/nhiên liệu. Còn 'economic' liên quan đến nền kinh tế nói chung."
+  }
+]
 ---
 Các cặp từ dễ nhầm lẫn trong tiếng Anh thường rơi vào bốn nhóm: viết gần giống nhau (*affect/effect*), cùng gốc nhưng khác hậu tố (*economic/economical*), khác nhau về ngữ pháp (*rise/raise*, *say/tell*), và cùng một nghĩa tiếng Việt nhưng khác cách dùng (*alone/lonely*). Biết cặp từ thuộc nhóm nào, bạn sẽ biết cần chú ý vào đâu: chính tả, sắc thái, cấu trúc câu hay ngữ cảnh.
 

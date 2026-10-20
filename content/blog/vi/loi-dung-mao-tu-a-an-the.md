@@ -13,6 +13,26 @@ publishAt: 2026-10-21T08:13:00+07:00
 factChecked: 2026-10-15
 author: Lexkite
 status: ready
+quiz: [
+  {
+    q: "Điền mạo từ thích hợp: 'I saw _____ accident yesterday. _____ car crashed into a tree.'",
+    options: ["an / The", "a / The", "the / A", "an / A"],
+    answer: 0,
+    explain: "'accident' bắt đầu bằng nguyên âm /æ/ nhắc lần đầu nên dùng 'an'. 'Car' ở câu sau đã xác định trong vụ tai nạn nên dùng 'The'."
+  },
+  {
+    q: "Câu nào dưới đây dùng đúng mạo từ khi nói về một loài nói chung?",
+    options: ["The dogs are loyal animals.", "Dogs are loyal animals.", "A dogs are loyal animals.", "Dog are loyal animals."],
+    answer: 1,
+    explain: "Khi nói chung về một loài/thể loại, tiếng Anh dùng danh từ đếm được số nhiều không có mạo từ (zero article): 'Dogs are loyal animals'."
+  },
+  {
+    q: "Điền mạo từ vào chỗ trống: 'She is studying at _____ university, and she plays _____ piano very well.'",
+    options: ["an / the", "a / the", "a / Ø", "an / Ø"],
+    answer: 1,
+    explain: "'University' phát âm bắt đầu bằng bán phụ âm /j/ nên dùng 'a'. Với nhạc cụ khi nói về việc chơi đàn/kèn, tiếng Anh dùng 'the' (play the piano)."
+  }
+]
 ---
 Cách dùng mạo từ a an the xoay quanh hai câu hỏi: danh từ này **đếm được hay không**, và người nghe **đã biết** mình đang nói tới cái nào chưa. *A/an* giới thiệu một thứ "một cái nào đó" mà người nghe chưa xác định được; *the* chỉ thứ cả hai bên cùng xác định được; còn khi nói chung chung về cả một loại, tiếng Anh thường không dùng mạo từ nào.
 

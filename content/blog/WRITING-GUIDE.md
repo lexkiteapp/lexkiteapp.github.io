@@ -33,6 +33,32 @@
   - Không có ảnh hợp chủ đề → thêm shot mới vào shots.json rồi chụp (`blog-shots.mjs`), hoặc dùng ít ảnh hơn (tối thiểu 2) – không "ép" ảnh không liên quan.
 - ≥ 2 liên kết vào app dạng `[chữ](/app/#/route)` (route trong brief/shots), ≥ 1 liên kết tới bài khác `/vi/blog/<slug>/` (slug có trong briefs.json, chọn bài liên quan thật), có thể thêm trang tĩnh `/samples/`, `/speaking/`, `/tu-vung/`, `/ngu-phap/`, `/viet-thu/`.
 - Đúng 1 hộp `{{cta: /app/#/route | Lời mời hành động}}` và đúng 1 slot video tùy chọn `{{youtube: | Gợi ý video: …}}` (để trống ID – KHÔNG bịa ID).
+- **Mini-quiz cuối bài (`quiz:` trong front-matter):** 3 câu trắc nghiệm nhanh, chấm tại chỗ, có giải thích và nút mở app.
+  - Cú pháp chuẩn trong front matter (`[...]` hoặc `{ items: [...], cta: {...} }`):
+    ```yaml
+    quiz: [
+      {
+        q: "Which tense is used for an action completed at an unspecified time in the past?",
+        options: ["Past simple", "Present perfect", "Past continuous", "Past perfect"],
+        answer: 1,
+        explain: "Present perfect connects a past action with the present without specifying the exact time."
+      },
+      {
+        q: "She has lived in London _____ five years.",
+        options: ["since", "for", "during", "from"],
+        answer: 1,
+        explain: "'For' is used with a period of time (duration), while 'since' marks a starting point."
+      },
+      {
+        q: "Which sentence is grammatically correct?",
+        options: ["I saw him yesterday.", "I have seen him yesterday.", "I had seen him yesterday.", "I am seeing him yesterday."],
+        answer: 0,
+        explain: "Past simple ('saw') is required because the specific past time 'yesterday' is stated."
+      }
+    ]
+    ```
+  - Lưu ý: `answer` là chỉ số 0-indexed (0 = A, 1 = B, 2 = C, 3 = D). Câu hỏi & giải thích tự biên soạn 100%, chuẩn xác, bám sát nội dung bài.
+  - Viết câu hỏi/giải thích bằng **ngôn ngữ của bài** (câu ví dụ tiếng Anh giữ nguyên); mỗi câu **chỉ 1 đáp án đúng không cãi được** (tránh cặp mơ hồ kiểu many ↔ all); số liệu/mốc thời gian phải khớp thân bài; **không nói về tính năng app** ngoài những gì bài đã viết (luật caption-truth). `cta.url` chỉ là đường dẫn trong site (`/app/#/route`). Quiz.js nạp lười, khi không có JS hiện khối "Xem đáp án"; sự kiện gửi `/api/hit` `{t:'q', ev}` chỉ đếm quiz_view/quiz_done/quiz_cta, không gửi bài/định danh.
 - Phần `## Câu hỏi thường gặp` với 3–4 câu `### …?`, mỗi câu 1 đoạn trả lời (câu hỏi người học thật sự tìm).
 - Chính tả kiểu bỏ dấu mới: hóa, khỏe, thủy, quý, tòa, họa (KHÔNG hoá, khoẻ, thuỷ, quí, toà, hoạ). Không lỗi gõ, không trộn tiếng Anh khi đã có từ Việt tự nhiên; thuật ngữ thi giữ tiếng Anh (Task 2, band, collocation…).
 
