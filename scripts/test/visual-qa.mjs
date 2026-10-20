@@ -35,7 +35,7 @@ function detect(opt) {
     if (/^(INPUT|TEXTAREA|SELECT|SVG|CANVAS|PRE|CODE|IMG|VIDEO|IFRAME|OPTION)$/.test(e.tagName)) continue;
     const r = vis(e); if (!r || r.bottom < 0) continue;
     const cs = getComputedStyle(e), tx = own(e);
-    if (tx && cs.display !== 'inline' && cs.overflowX !== 'auto' && cs.overflowX !== 'scroll' && e.scrollWidth > e.clientWidth + 2 && e.clientWidth > 0 && !scrollerOf(e.parentElement)) {
+    if (tx && [...tx].length > 2 && cs.display !== 'inline' && cs.overflowX !== 'auto' && cs.overflowX !== 'scroll' && e.scrollWidth > e.clientWidth + 2 && e.clientWidth > 0 && !scrollerOf(e.parentElement)) {
       if (cs.textOverflow === 'ellipsis') { if (!e.closest('[title],[aria-label]')) add('ellipsis-no-title', e, r); }
       else add('overflow-x', e, r);
     }
@@ -44,15 +44,14 @@ function detect(opt) {
       if (words >= 4 && lines >= 3 && words / lines <= 2 && pw > 200 && r.width < pw * 0.45) add('squeezed', e, r);
     }
     if (opt.rtl && tx && cs.display !== 'inline') {
-      if (cs.textAlign === 'left' && r.width > 120) add('rtl-text-left', e, r);
-      if (/[→›❯»➜➔]/.test(tx) && cs.transform === 'none' && !e.closest('[dir="ltr"]')) add('rtl-arrow', e, r);
+      if (cs.textAlign === 'left' && cs.direction === 'rtl' && r.width > 120) add('rtl-text-left', e, r);
+      if ((/[\u0600-\u06FF][^\u0600-\u06FF]*[→➜➔]\s*$/.test(tx) || /^\s*[←⬅][^]*[\u0600-\u06FF]/.test(tx)) && cs.direction === 'rtl') add('rtl-arrow', e, r);
     }
   }
   const clickables = [...root.querySelectorAll('button,a[href],.btn,[role=button],input[type=checkbox],input[type=radio],select')].filter(e => vis(e) && !e.closest('[aria-hidden="true"]'));
   for (const b of clickables) { // nút/link đè lên chữ của phần tử anh em
     const br = b.getBoundingClientRect(), gp = (b.parentElement && b.parentElement.parentElement) || root;
-    if (getComputedStyle(b).position === 'fixed') continue;
-    for (const t of gp.querySelectorAll('*')) {
+    let fx = false; for (let p = b; p && p !== root; p = p.parentElement) { const ps = getComputedStyle(p).position; if (ps === 'fixed' || ps === 'sticky') { fx = true; break; } } if (!fx && gp !== root) for (const t of gp.querySelectorAll('*')) {
       if (t === b || t.contains(b) || b.contains(t) || !own(t) || t.closest('button,a,.btn,[role=button]')) continue;
       const tr = vis(t); if (!tr) continue;
       const ix = Math.min(br.right, tr.right) - Math.max(br.left, tr.left), iy = Math.min(br.bottom, tr.bottom) - Math.max(br.top, tr.top);
@@ -61,7 +60,8 @@ function detect(opt) {
     if (opt.mobile) { // vùng chạm nhỏ (bỏ link nằm trong đoạn văn)
       const cs = getComputedStyle(b); if (cs.display === 'inline' && b.closest('p,li,small,span,label')) continue;
       if (/^(checkbox|radio)$/.test(b.type) && b.closest('label')) continue;
-      if (Math.min(br.width, br.height) < 40 && br.top < document.documentElement.scrollHeight) add(Math.min(br.width, br.height) < 32 ? 'tap<32' : 'tap<40', b, br);
+      const af = getComputedStyle(b, '::after'), ext = af.content !== 'none' && af.position === 'absolute' ? Math.min(parseFloat(af.minWidth) || 0, parseFloat(af.minHeight) || 0) : 0, m = Math.max(Math.min(br.width, br.height), ext);
+      if (m < 40) add(m < 32 ? 'tap<32' : 'tap<40', b, br);
     }
   }
   return out;
