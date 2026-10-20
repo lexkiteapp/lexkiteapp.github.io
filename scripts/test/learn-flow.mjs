@@ -182,9 +182,9 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   let ds = await DP.days();
   ok(ds.length > 200 && ds[0].id === 'ngsl1.1~1' && ds[0].topic.words.length >= 5 && ds[0].topic.words.length <= 8, 'Ngày 1 = 5–8 từ đầu của bài đầu: ' + ds.length + ' ngày');
   const p1 = DP.plan(ds[0]).map(s => s.k), p4 = DP.plan(ds[3]).map(s => s.k), big = ds.find(d => d.unit.stage.id === 's3' && d.j < d.of), pa = DP.plan(big).map(s => s.k);
-  ok(p1.join() === 'learn,match,mcq', 'Ngày 1 chỉ nhận diện (thắng sớm): ' + p1);
+  ok(p1.slice(0, 3).join() === 'learn,match,mcq' && p1.length === 4 && p1[3] === 'rt', 'Ngày 1 (gói IELTS): nhận diện (thắng sớm) + 1 dạng câu Reading: ' + p1);
   ok(p4.indexOf('learn') < p4.indexOf('match') && p4.indexOf('match') < p4.indexOf('cloze') && p4.includes('listen'), 'Ngày 4: học → ghép → nghe → điền câu: ' + p4);
-  ok(pa.some(k => /^(use|gram|exam)$/.test(k)) && pa.includes('cloze'), 'ngày chặng học thuật có collocation/ngữ pháp/đề thi: ' + pa);
+  ok(pa.some(k => /^(use|gram|rt|il|is|iw|mock)$/.test(k)) && pa.includes('cloze'), 'ngày chặng học thuật có collocation/ngữ pháp/đề thi: ' + pa);
   const lastDay = ds.find(d => d.j === d.of && d.unit.status !== 'done');
   ok(DP.plan(lastDay).pop().k === 'test', 'ngày cuối bài kết thúc bằng kiểm tra cuối bài');
   w.App.state.settings.placement = { ...pl, stage: 's2' };
@@ -201,16 +201,100 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   await go('#/home', 400);
   ok(/Ngày 1|Day 1/.test(($('.today-cta') || {}).textContent || ''), 'nút chính trang chủ: ' + (($('.today-cta') || {}).textContent || '').trim());
   await go('#/day/1', 400);
-  ok($$('.day-steps li').length === 3 && $('.day-hero') && $('[role=progressbar]'), 'trang #/day/1: 3 hoạt động + thanh tiến độ');
+  ok($$('.day-steps li').length === 4 && $('.day-hero') && $('[role=progressbar]'), 'trang #/day/1: 4 hoạt động + thanh tiến độ');
   click($('.day-steps a')); await tick(50);
   ok(w.localStorage.getItem('vb.daySess') === 'ngsl1.1~1', 'bấm hoạt động → giữ phiên Ngày 1');
   w.dispatchEvent(new w.CustomEvent('lexkite:practice-done', { detail: { mode: 'match', src: 'topic:ngsl1.1~1', pct: 100 } })); await tick(200);
   const rec = await w.Core.Store.get('pathDays', {});
   ok(rec['ngsl1.1~1'] && rec['ngsl1.1~1'].s.includes('match'), 'xong Ghép thẻ → ghi bước của Ngày 1');
   await go('#/practice/mcq?src=topic:ngsl1.1~1', 400);
-  ok($('.day-bar') && /1\/3/.test($('.day-bar').textContent), 'thanh tiến độ buổi học trên trang bài tập: ' + (($('.day-bar') || {}).textContent || '').trim());
+  ok($('.day-bar') && /1\/4/.test($('.day-bar').textContent), 'thanh tiến độ buổi học trên trang bài tập: ' + (($('.day-bar') || {}).textContent || '').trim());
   await go('#/path', 400);
   ok($$('.node[data-day]').length > 20 && $('.node.current[aria-current=step]') && /Ngày 1|Day 1/.test($('.path-cta').textContent), 'bản đồ: nút Ngày + Ngày hiện tại + CTA: ' + $$('.node[data-day]').length + ' ' + !!$('.node.current') + ' ' + (($('.path-cta') || {}).textContent || ''));
+}
+
+// ===== 7) Gói học (tracks.js): 5 gói × công thức Ngày 1–3 hợp lệ + nội dung có thật, chuyển dữ liệu cũ, đổi gói giữ tiến độ =====
+{
+  const TK = w.Tracks, DP = w.DayPath, S = w.App.state; ok(TK && TK.IDS.length === 5, 'nạp tracks.js: 5 gói học');
+  delete S.settings.placement;
+  // Nội dung đích của mọi bước (đọc thẳng file dữ liệu – không cần nạp từng gói)
+  const src = (...fs) => fs.map(f => fs0(f)).join('\n'), fs0 = f => { try { return fs.readFileSync(path.join(WEB, 'js', f), 'utf8'); } catch (e) { return ''; } };
+  const dir = d => fs.readdirSync(path.join(WEB, 'js', d)).map(f => d + '/' + f);
+  const C = { roleplay: src(...dir('roleplay')), call: src('call/calls.js'), listen: src(...dir('listen'), ...dir('toeic')), task1: src('task1.js'), write: src('write.js'), letters: src('write/gt-letters.js'),
+    rtype: src('rtype.js'), toefl: src('toefl.js'), toeic: src('toeic.js'), treading: src(...dir('toeic')), grammar: src(...dir('grammar')) };
+  const has = (txt, id) => new RegExp(`id: '${id}'|T\\('${id}'`).test(txt);
+  const exists = h => { const [, r, a = '', q = ''] = /^#\/([a-z0-9-]+)\/?([^?]*)\??(.*)$/.exec(h) || [];
+    if (r === 'practice') { const id = decodeURIComponent(new URLSearchParams(q).get('src') || '').replace(/^topic:/, ''); return id === 'due' || (w.App.topicOf(id) || { words: [] }).words.length >= 3; }
+    if (r === 'roleplay' || r === 'call' || r === 'task1' || r === 'write' || r === 'letters') return has(C[r], a);
+    if (r === 'listen') return has(C.listen, a);
+    if (r === 'rtype') return new RegExp(`\\b${a}: `).test(C.rtype);
+    if (r === 'toefl-p') return new RegExp(`\\b${a}: \\{ name`).test(C.toefl);
+    if (r === 'toeic-sw') return new RegExp(`\\b${a}: \\{ sec`).test(C.toeic);
+    if (r === 'toeic-r') return has(C.treading, a) && /^part=[5-7]$/.test(q);
+    if (r === 'toeic-test') return +a >= 1 && +a <= 7;
+    if (r === 'speaking') return /^p[1-3]$/.test(a);
+    if (r === 'grammar') return a === 'mix' || has(C.grammar, a);
+    return ['mock', 'qstats', 'pron', 'usage'].includes(r); };
+  const CORE = ['review', 'learn', 'match', 'mcq', 'listen', 'cloze', 'test'], first3 = {};
+  const combos = [['comm'], ['ielts', 'ac'], ['ielts', 'gt'], ['toeic', 'lr'], ['toeic', 'sw'], ['toefl'], ['work']];
+  for (const [id, v] of combos) {
+    await TK.use(id, v); await TK.ready(TK.TR[id]);
+    const ds = await DP.daysOf(TK.TR[id]), nm = id + (v ? '/' + v : '');
+    ok(ds.length >= 40 && TK.TR[id].stages.every(st => ds.some(d => d.unit.stage === st)), `${nm}: lộ trình đủ chặng, ${ds.length} ngày`);
+    ok(TK.TR[id].stages.every((st, i, a) => !i || id === 'ielts' || st.lo >= a[i - 1].lo), `${nm}: chặng CEFR tăng dần`);
+    const p3 = ds.slice(0, 3).map(d => DP.plan(d).filter(x => x.k !== 'review'));
+    ok(p3.every(st => st[0].k === 'learn' && st[1].k === 'match' && (st.some(x => !CORE.includes(x.k)) || st[st.length - 1].k === 'test')) && p3.slice(0, 2).every(st => st.some(x => !CORE.includes(x.k))), `${nm}: Ngày 1–3 = từ mới → ghép thẻ (dễ) → kỹ năng riêng của gói: ` + p3.map(st => st.map(x => x.k).join('+')).join(' | '));
+    ok(p3.every(st => st.reduce((a, x) => a + x.mins, 0) <= 12), `${nm}: Ngày 1–3 ≤ 12 phút`);
+    first3[nm] = p3.map(st => st.filter(x => !CORE.includes(x.k)).map(x => x.href).join()).join('|');
+    const bad = ds.slice(0, 60).flatMap(d => DP.plan(d)).filter(x => !exists(x.href)).map(x => x.href);
+    ok(!bad.length, `${nm}: mọi bước của 60 ngày đầu trỏ tới nội dung có thật` + (bad.length ? ' – thiếu: ' + [...new Set(bad)].slice(0, 5).join(', ') : ''));
+    ok(DP.plan(ds.find(d => d.j === d.of && d.unit.status !== 'done')).pop().k === 'test', `${nm}: ngày cuối bài = kiểm tra cuối bài (kiểm tra vượt)`);
+  }
+  { const f = Object.entries(first3).filter(([k]) => k !== 'ielts/gt').map(x => x[1]); ok(new Set(f).size === f.length, 'mỗi gói (và TOEIC L&R/S&W) có Ngày 1–3 riêng'); }
+  ok(/rtype|listen\/t1p|speaking/.test(first3['ielts/ac']) && /letters|task1|write|rtype/.test(first3['ielts/ac'] + first3['ielts/gt']), 'IELTS: dạng câu Reading/Listening/Speaking');
+  ok(/listen\/tl1p1/.test(first3['toeic/lr']) && /toeic-sw\/read/.test(first3['toeic/sw']), 'TOEIC L&R mở đầu Part 1, S&W mở đầu Read a Text Aloud');
+  ok(/toefl-p\/cw.*toefl-p\/response.*toefl-p\/sentence/.test(first3.toefl), 'TOEFL 2026: Complete the Words → Listen and Choose → Build a Sentence');
+  ok(/roleplay\/cafe/.test(first3.comm) && /call\/first-day/.test(first3.work), 'Giao tiếp: hội thoại quán cà phê; Công sở: cuộc gọi ngày đầu đi làm');
+  // mỗi gói một trình độ riêng
+  await TK.setLevel('work', 'work3'); ok((await DP.daysOf(TK.TR.work)).find(d => d.status === 'current').unit.stage.id === 'work3' && TK.start(TK.TR.comm) !== 'work3', 'gói Công sở bắt đầu chặng 3, gói khác không đổi');
+  S.settings.placement = { v: 2, band: '6.0', vCefr: 'B2', gCefr: 'B1', stage: 's1', at: Date.now() + 5 };
+  ok(TK.start(TK.TR.toeic) === 'toeic3' && TK.start(TK.TR.comm) === 'comm4' && TK.start(TK.TR.ielts) === 's1', 'kiểm tra đầu vào (mới hơn) → chặng theo CEFR của từng gói: ' + TK.start(TK.TR.toeic));
+  delete S.settings.placement;
+  // đổi gói giữ tiến độ từng gói
+  await TK.use('comm'); let dc = (await DP.daysOf(TK.TR.comm))[0];
+  w.localStorage.setItem('vb.daySess', dc.id);
+  w.dispatchEvent(new w.CustomEvent('lexkite:practice-done', { detail: { mode: 'match', src: 'topic:' + dc.id, pct: 100 } })); await tick(200);
+  await TK.use('toeic', 'lr'); await TK.use('comm');
+  dc = (await DP.daysOf(TK.TR.comm))[0];
+  ok((dc.rec.s || []).includes('match') && dc.key !== dc.id, 'Giao tiếp: đổi sang TOEIC rồi quay lại vẫn giữ bước đã xong của Ngày 1 (khóa riêng ' + dc.key + ')');
+  ok(TK.cfg().on.includes('toeic') && TK.cfg().on.includes('comm') && TK.cfg().cur === 'comm', 'theo dõi nhiều gói cùng lúc');
+  await go('#/home', 500); await go('#/path', 600);
+  ok($$('.trk-sw a').length >= TK.cfg().on.length + 1 && $('.trk-sw a[aria-current]') && /Giao tiếp|Everyday/.test($('#view h1').textContent), 'đầu lộ trình: thanh đổi gói + tên gói đang học');
+  await go('#/tracks', 500);
+  ok($$('.trk-card').length === 5 && $('.trk-card.on') && $$('[data-unf]').length >= 1, 'trang Gói học: 5 gói, gói đang học, bỏ theo dõi');
+  await go('#/tracks?use=toefl&to=home', 400);
+  ok(TK.cfg().cur === 'toefl' && S.settings.exam === 'toefl' && w.location.hash === '#/home', 'đổi gói qua thanh đổi gói → kỳ thi (goal.js) theo gói');
+  plan = await w.App.todayPlan();
+  ok(plan[0].track === 'TOEFL 2026' && plan[0].sw && /Ngày|Day/.test(plan[0].t), 'Hôm nay: “Ngày N · TOEFL 2026” + thanh đổi gói');
+  await go('#/home', 500);
+  ok(/TOEFL 2026/.test(($('.today-cta') || {}).textContent || '') && $('#todayPlan .trk-sw'), 'nút chính trang chủ ghi tên gói: ' + (($('.today-cta') || {}).textContent || '').trim());
+  // chuyển dữ liệu người dùng cũ: kỳ thi → gói; giữ XP/chuỗi/bản ghi ngày cũ
+  const xp0 = S.game.xp, rec0 = await w.Core.Store.get('pathDays', {});
+  for (const [ex, id] of [['general', 'comm'], ['ieltsgt', 'ielts'], ['toeic', 'toeic'], ['toefl', 'toefl'], ['ielts', 'ielts']]) {
+    delete S.settings.tracks; S.settings.exam = ex;
+    const c = TK.cfg(); ok(c.cur === id && c.legacy === id && (ex !== 'ieltsgt' || c.v.ielts === 'gt'), `người dùng cũ (${ex}) → gói ${id}`);
+  }
+  const ds = await DP.daysOf(TK.TR.ielts);
+  ok(S.game.xp === xp0 && ds[0].key === ds[0].id && (ds[0].rec.s || []).includes('match') && JSON.stringify(await w.Core.Store.get('pathDays', {})) === JSON.stringify(rec0), 'chuyển dữ liệu: giữ XP + bản ghi Ngày cũ (khóa cũ) cho gói nhận tiến độ');
+  // thiết lập lần đầu: mục tiêu (5 gói) → trình độ → Ngày 1
+  delete S.settings.tracks;
+  await go('#/welcome/setup', 900);
+  ok($$('.trk-opt[data-track]').length === 5 && $$('.trk-opt[aria-pressed=true]').length === 1, 'thiết lập: “Mục tiêu của bạn là gì?” 5 gói');
+  click($('[data-track=work]')); await tick(600);
+  click($('[data-lv=work2]')); await tick(100);
+  ok($('[data-lv=work2][aria-pressed=true]') && /Day 1|Ngày 1/.test($('#go').textContent), 'chọn gói Công sở + trình độ → nút Bắt đầu Ngày 1');
+  click($('#go')); await tick(1500);
+  ok(S.settings.tracks.cur === 'work' && S.settings.tracks.lv.work.s === 'work2' && S.settings.exam === 'general' && /^#\/day/.test(w.location.hash), 'thiết lập xong → gói Công sở, chặng 2, vào Ngày 1 của gói: ' + w.location.hash);
 }
 
 const real = errors.filter(e => !/Not implemented|navigation|Could not parse CSS/.test(e));

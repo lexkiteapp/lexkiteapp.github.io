@@ -233,7 +233,7 @@
     league: ['js/league.js'],
     criteria: ['js/i18n/en/criteria.js', 'js/criteria.js'],
     resources: ['js/i18n/en/resources.js', 'js/resources.js'], // 🌐 Tài nguyên miễn phí (tách khỏi khung)
-    pathx: ['js/i18n/en/pathx.js', 'js/path-reward.js', 'js/path-day.js'], // 🏁 Màn thưởng cuối bước lộ trình (path.js gọi khi xong lượt)
+    pathx: ['js/i18n/en/pathx.js', 'js/path-reward.js', 'js/tracks.js', 'js/path-day.js'], // 🏁 Màn thưởng cuối bước lộ trình (path.js gọi khi xong lượt)
     notices: ['js/i18n/en/notices.js', 'js/notices.js'], // 🔔 Chuông thông báo người học (tải lười sau khi vẽ trang) // 📋 Tiêu chí chấm IELTS Writing & Speaking
     streak: ['js/streak-ui.js'], struct: ['js/structures.js'], // 🧩 nhận diện cấu trúc (tải lười, ra khỏi khung app 20/10)
     vcore: ['js/verbs-core.js'], verbs: ['js/verbs.js'], fixer: ['js/writecheck-rules.js', 'js/fixer.js'], // 🔤 Chia động từ · ✍️ Sửa ngữ pháp
@@ -591,7 +591,7 @@
       }
       // Kiểu Duolingo/Busuu: 1 hành động chính ngay dưới tiêu đề (luôn trên màn hình đầu), danh sách việc bên dưới
       el.innerHTML = `<div class="row between nowrap"><div><h2 style="margin:0">${t('Kế hoạch hôm nay')}</h2><div class="muted small">${t('{a}/{b} việc', { a: n, b: tasks.length })}${mins ? ' · ≈ ' + t('{m} phút', { m: mins }) : ''}</div></div>${ring(Math.round(n / tasks.length * 100), n + '/' + tasks.length, 'var(--primary)')}</div>
-        <a class="btn primary lg block today-cta" href="${next.href}">${next.day ? (next.started ? t('Tiếp tục Ngày {n}', { n: next.day }) : t('Bắt đầu Ngày {n}', { n: next.day })) + ' · ≈ ' + t('{m} phút', { m: next.mins }) : n ? t('Tiếp tục: {step}', { step: esc(next.t) }) : t('Bắt đầu: {step}', { step: esc(next.t) })} →</a>
+        <a class="btn primary lg block today-cta" href="${next.href}">${next.day ? (next.started ? t('Tiếp tục Ngày {n}', { n: next.day }) : t('Bắt đầu Ngày {n}', { n: next.day })) + (next.track ? ' · ' + esc(next.track) : '') + ' · ≈ ' + t('{m} phút', { m: next.mins }) : n ? t('Tiếp tục: {step}', { step: esc(next.t) }) : t('Bắt đầu: {step}', { step: esc(next.t) })} →</a>${next.sw || ''}
         <div class="plan">${tasks.map(x => `<a class="plan-item ${x.done ? 'done' : ''} ${x === next ? 'next' : ''}" href="${x.href}"${x === next ? ' aria-current="step"' : ''}><span class="pi-em" aria-hidden="true">${x.done ? '✅' : x.em}</span><div class="grow"><b>${esc(x.t)}</b><div class="small muted">${esc(x.sub || '')}</div></div>${x.mins && !x.done ? `<span class="pi-min">${t('{m} phút', { m: x.mins })}</span>` : ''}</a>`).join('')}</div>`;
     });
   };
@@ -1615,49 +1615,49 @@
     if (App.blogLive) App.blogLive().then(on => { const a = view.querySelector('.w-nav a[data-blog]'); if (on && a) { a.hidden = false; a.href = App.blogUrl(); } });
   };
 
-  // Thiết lập lần đầu: kỳ thi → mục tiêu theo thang điểm của kỳ thi → cường độ → chủ đề hợp kỳ thi → vào thẳng bài học đầu tiên
+  // Thiết lập lần đầu: mục tiêu (gói học – tracks.js) → điểm mục tiêu theo kỳ thi của gói → cường độ → trình độ / kiểm tra đầu vào → vào thẳng Ngày 1
   function setup(login) {
     const TARGETS = { ielts: ['5.5', '6.0', '6.5', '7.0', '7.5', '8.0+'], ieltsgt: ['5.5', '6.0', '6.5', '7.0', '7.5', '8.0+'], toeic: ['450', '550', '650', '750', '850', '900+'], toefl: ['3.5', '4.0', '4.5', '5.0', '5.5+'], general: ['A2', 'B1', 'B2', 'C1'] };
     const DEF_T = { ielts: '7.0', ieltsgt: '6.5', toeic: '650', toefl: '4.5', general: 'B1' };
     const TOPIC_GROUPS = { ielts: ['topics', 'writing'], ieltsgt: ['topics', 'speaking'], toeic: ['toeic', 'bsl'], toefl: ['awl', 'nawl', 'topics'], general: ['core', 'topics'] };
-    const EX = App.EXAMS || {};
-    const pick = { exam: (App.exam && state.settings.exam) || 'ielts', target: '', pace: 20, topics: new Set() };
+    const pick = { exam: (App.exam && state.settings.exam) || 'ielts', target: '', pace: 20, topics: new Set(), v: {}, lv: '' };
     const paces = [[10, '🐢 ' + t('Nhẹ nhàng'), t('5 phút/ngày · 5 từ mới')], [20, '🚶 ' + t('Đều đặn'), t('10–15 phút/ngày · 10 từ mới')], [40, '🚀 ' + t('Tăng tốc'), t('25 phút/ngày · 20 từ mới')]];
     const topicsFor = ex => TOPICS.filter(x => TOPIC_GROUPS[ex].includes(x.group)).slice(0, 15);
     const setExam = async ex => {
-      pick.exam = ex; pick.target = DEF_T[ex];
+      if (!App.loaded('pathx')) await App.need('pathx').catch(() => {});
+      const TK = window.Tracks; if (TK) { if (TR_ID) pick.track = TR_ID; else pick.track = pick.track || TK.EX2T[ex] || 'ielts'; TR_ID = ''; ex = TK.pickExam(pick); }
+      if (ex !== pick.exam || !pick.target) pick.target = DEF_T[ex];
+      pick.exam = ex;
       if (!App.loaded('words')) await App.need('words').catch(() => {});
       if ((ex === 'toeic' || ex === 'toefl') && !App.loaded('tsl')) { await App.need('tsl').catch(() => {}); }
       const list = topicsFor(ex); pick.topics = new Set(list.slice(0, 3).map(x => x.id));
       draw();
     };
+    let TR_ID = '';
     const draw = () => {
-      const list = topicsFor(pick.exam), words = TOPICS.filter(x => pick.topics.has(x.id)).reduce((a, x) => a + x.words.length, 0);
       const tLabel = pick.exam === 'toeic' ? t('Điểm TOEIC mục tiêu?') : pick.exam === 'toefl' ? t('Band TOEFL mục tiêu?') : pick.exam === 'general' ? t('Trình độ bạn muốn đạt?') : t('Band mục tiêu của bạn?');
       view.innerHTML = `<div style="max-width:760px;margin:0 auto" class="stack">
         <div class="row between"><span class="brand" style="padding:0"><img class="logo" src="icons/icon.svg" alt=""><span class="wordmark">lex<b>kite</b></span></span><a class="small" href="#/welcome">← ${t('Quay lại')}</a></div>
         ${window.Kit ? `<div class="kit-greet card" style="background:var(--primary-soft);border:0">${Kit.svg('happy', 58)}<div><div class="kit-say">${t('Chào bạn, mình là Kit! Vài câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.')}</div></div></div>` : ''}
         ${window.Sync && Sync.gBtn && !state.user && !pick.noAcct ? `<div class="card row between" id="haveAcct"><div><b>${t('Đã có tài khoản?')}</b><div class="small muted">${t('Đăng nhập để khôi phục dữ liệu học của bạn.')}</div></div><div class="row">${Sync.gBtn('setupIn')}<button type="button" class="btn" id="noAcct">${t('Học không cần tài khoản')}</button></div></div>` : ''}
-        <div class="card"><h2>🎓 ${t('Bạn đang luyện kỳ thi nào?')}</h2><div class="exam-list">${Object.entries(EX).map(([k, x]) => `<button type="button" class="exam-opt ${k === pick.exam ? 'on' : ''}" data-exam="${k}"><span class="em" aria-hidden="true">${x.ic}</span><span><b>${esc(x.name)}</b></span>${k === pick.exam ? '<span class="tick" aria-hidden="true">✓</span>' : ''}</button>`).join('')}</div></div>
+        ${window.Tracks ? Tracks.setupCards(pick) : ''}
         <div class="card"><h2>🎯 ${tLabel}</h2><div class="tabs" style="display:inline-flex;margin-top:.4rem" id="bandT">${TARGETS[pick.exam].map(b => `<button data-v="${b}" class="${pick.target === b ? 'on' : ''}">${b}</button>`).join('')}</div></div>
         <div class="card"><h2>⏱ ${t('Bạn muốn học với cường độ nào?')}</h2><div class="grid g3" style="margin-top:.6rem">${paces.map(([v, pt, d]) => `<button class="option ${pick.pace === v ? 'right' : ''}" data-pace="${v}" style="flex-direction:column;align-items:flex-start;gap:.2rem"><b>${pt}</b><span class="small muted">${d}</span></button>`).join('')}</div></div>
-        <div class="card"><h2>📚 ${t('Chọn chủ đề muốn học trước')}</h2><p class="muted small">${t('Chọn 1–5 chủ đề, bạn có thể thêm sau trong Thư viện.')}</p>
-          <div class="row" style="margin-top:.6rem">${list.map(x => `<button class="chip" data-t="${x.id}" style="border:2px solid ${pick.topics.has(x.id) ? 'var(--primary)' : 'transparent'};cursor:pointer;font-size:.9rem;padding:.4rem .8rem;${pick.topics.has(x.id) ? 'background:var(--primary-soft);color:var(--primary-text)' : ''}">${x.emoji} ${esc(x.name)}</button>`).join('')}</div></div>
-        <button class="btn primary lg block" id="go" ${pick.topics.size ? '' : 'disabled'}>${pick.topics.size ? t('Bắt đầu học ({n} từ)', { n: words }) : t('Bắt đầu học')} →</button>
+        <button class="btn primary lg block" id="go">${t('Bắt đầu Ngày {n}', { n: 1 })} →</button>
       </div>`;
       if (login && $('#haveAcct') && !pick.shownLogin) { pick.shownLogin = 1; const h = $('#haveAcct'); h.style.outline = '3px solid var(--primary)'; h.scrollIntoView({ block: 'center' }); const b = $('#setupIn'); if (b) b.focus(); }
       if ($('#setupIn')) { $('#setupIn').onclick = e => { e.stopPropagation(); loginOnboard(); }; $('#noAcct').onclick = () => { pick.noAcct = 1; $('#haveAcct').remove(); $('[data-exam]').focus(); }; }
-      $$('[data-exam]').forEach(b => b.onclick = () => { if (b.dataset.exam !== pick.exam) setExam(b.dataset.exam); });
+      if (window.Tracks) Tracks.bindSetup(view, pick, id => { TR_ID = id; setExam(pick.exam); }, draw);
       $$('#bandT button').forEach(b => b.onclick = () => { pick.target = b.dataset.v; draw(); });
       $$('[data-pace]').forEach(b => b.onclick = () => { pick.pace = +b.dataset.pace; draw(); });
-      $$('[data-t]').forEach(b => b.onclick = () => { const id = b.dataset.t; pick.topics.has(id) ? pick.topics.delete(id) : pick.topics.size < 5 && pick.topics.add(id); draw(); });
       $('#go').onclick = async () => {
         $('#go').disabled = true; $('#go').textContent = '⏳ ' + t('Đang chuẩn bị bộ thẻ…');
         Object.assign(state.settings, { exam: pick.exam, examTarget: pick.target, dailyGoal: pick.pace, dailyNew: pick.pace === 10 ? 5 : pick.pace === 20 ? 10 : 20 });
         if (/^ielts/.test(pick.exam)) state.settings.targetBand = pick.target;
+        const to = window.Tracks ? await Tracks.startSetup(pick) : '#/review';
         await saveSettings();
-        for (const id of pick.topics) for (const w of topicOf(id).words) if (!inDeck(w.word)) await addWord(w, null, { silent: true });
-        await finishOnboarding(true, '#/review'); // vào thẳng bài học đầu tiên (từ mới của chủ đề vừa chọn)
+        for (const id of pick.topics) for (const w of topicOf(id).words) if (!inDeck(w.word)) await addWord(w, null, { silent: true }); // bộ thẻ ôn ban đầu hợp mục tiêu
+        await finishOnboarding(true, to); // vào thẳng Ngày 1 của gói (hoặc bài kiểm tra đầu vào)
       };
     };
     setExam(pick.exam);

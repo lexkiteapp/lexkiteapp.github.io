@@ -4,9 +4,11 @@
   "fileGz": 163840,
   "allowBig": [
     "web/js/lib/notes-more.js",
-    "web/js/lib/notes-ngsl.js"
+    "web/js/lib/notes-ngsl.js",
+    "web/js/i18n/ru.js"
   ],
   "totalJs": 19700000,
   "contentWarn": 15,
-  "_totalJsNote": "17/10: 16→17 MB – thêm Chia động từ + Sửa ngữ pháp (~130 KB) và 13 ngôn ngữ cùng dài thêm; admin-*.js không tính. Nâng tiếp chỉ khi đã rà dữ liệu trùng/thừa. 20/10: 17→17,1 MB – nút đổi ngôn ngữ mọi trang (lang-menu.js 2,4 KB) + dữ liệu tăng ~8 KB; đã rà: notes-*.js và i18n/*/structs.js tưởng không tham chiếu thực ra nạp động theo tên ghép, không phải thừa. 20/10 (tối): 17,1→18,2 MB – gộp [W1] Tiêu chí chấm IELTS (criteria.js 53 KB + 190 khóa nội dung band 4–9, mỗi ngôn ngữ ~60–70 KB khi bot dịch xong) và [N1] chuông thông báo (notices.js 12 KB); cả hai tải lười, khung app không đổi. Đã rà: chỉ lấy khóa của 2 commit (bỏ 156 khóa thừa từ nhánh Antigravity), không trùng khóa en/*.js. 20/10 (đêm): 18,2→18,8 MB – nâng cấp nội dung lượt 2: mẹo theo dạng câu (qtips.js) + #/qstats, 125 ghi chú lỗi L1 ngữ pháp (grammar/l1/*.js), 6 roleplay A1–A2, IPA Mỹ cho mọi mục; tất cả tải lười, khung app giảm 380→374 KB."
+  "_totalJsNote": "17/10: 16→17 MB – thêm Chia động từ + Sửa ngữ pháp (~130 KB) và 13 ngôn ngữ cùng dài thêm; admin-*.js không tính. Nâng tiếp chỉ khi đã rà dữ liệu trùng/thừa. 20/10: 17→17,1 MB – nút đổi ngôn ngữ mọi trang (lang-menu.js 2,4 KB) + dữ liệu tăng ~8 KB; đã rà: notes-*.js và i18n/*/structs.js tưởng không tham chiếu thực ra nạp động theo tên ghép, không phải thừa. 20/10 (tối): 17,1→18,2 MB – gộp [W1] Tiêu chí chấm IELTS (criteria.js 53 KB + 190 khóa nội dung band 4–9, mỗi ngôn ngữ ~60–70 KB khi bot dịch xong) và [N1] chuông thông báo (notices.js 12 KB); cả hai tải lười, khung app không đổi. Đã rà: chỉ lấy khóa của 2 commit (bỏ 156 khóa thừa từ nhánh Antigravity), không trùng khóa en/*.js. 20/10 (đêm): 18,2→18,8 MB – nâng cấp nội dung lượt 2: mẹo theo dạng câu (qtips.js) + #/qstats, 125 ghi chú lỗi L1 ngữ pháp (grammar/l1/*.js), 6 roleplay A1–A2, IPA Mỹ cho mọi mục; tất cả tải lười, khung app giảm 380→374 KB.",
+  "_allowBigNote": " 20/10: web/js/i18n/ru.js (~160 KB gz) – ngôn ngữ ≠ en nạp TOÀN BỘ chuỗi trong 1 file; việc cần làm: tách theo nhóm lười (LAZY) cho từng ngôn ngữ như en/."
 }

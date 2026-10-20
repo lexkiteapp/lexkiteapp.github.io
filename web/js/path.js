@@ -29,10 +29,12 @@
   // Mỗi Ngày học 6–8 từ mới (người mới ít từ hơn): chặng 0 → 7, chặng sau → 8 (cố định → id ngày không đổi giữa các phiên bản)
   const DAY_SIZE = { s0: 7 }, dayParts = (tp, st) => Math.max(1, Math.round(tp.words.length / (DAY_SIZE[st] || 8)));
   App.dayParts = dayParts;
+  // Số ngày của 1 bộ từ – cố định theo bộ (không theo gói học) → id ngày "bộ~N" giống nhau ở mọi gói (tracks.js)
+  App.dayN = id => { const tp = App.topicOf(id), st = STAGES.find(s => s.units.includes(id)); return tp ? dayParts(tp, st && st.id) : 0; };
   App.subTopic = id => {
     const dm = /^(.+)~(\d+)$/.exec(id || '');
-    if (dm) { if (SUB[id]) return SUB[id]; const tp = App.topicOf(dm[1]), st = tp && STAGES.find(s => s.units.includes(dm[1])); if (!tp || !st) return;
-      const n = dayParts(tp, st.id), k = +dm[2] - 1; if (k < 0 || k >= n) return;
+    if (dm) { if (SUB[id]) return SUB[id]; const tp = App.topicOf(dm[1]); if (!tp) return;
+      const n = App.dayN(dm[1]), k = +dm[2] - 1; if (k < 0 || k >= n) return;
       const words = tp.words.slice(Math.round(k * tp.words.length / n), Math.round((k + 1) * tp.words.length / n));
       return (SUB[id] = { id, emoji: tp.emoji, group: tp.group, parent: dm[1], day: k + 1, days: n, words, get name() { return tp.name + ' · ' + (k + 1) + '/' + n; }, get desc() { return words.slice(0, 4).map(w => w.word).join(' · ') + ' …'; } }); }
     const m = /^(ngsl[1-5])\.(\d+)$/.exec(id || ''), tp = m && App.topicOf(m[1]);
@@ -56,11 +58,11 @@
     const n = t.words.filter(w => { const c = state.cards[w.word.toLowerCase()]; return c && c.srs.last; }).length;
     return n / t.words.length;
   }
-  function unitState() {
-    const list = unitsFlat();
+  function unitState(S, stg) { // S/stg: chặng + chặng bắt đầu của gói học khác (tracks.js); mặc định lộ trình IELTS gốc
+    const list = S ? S.flatMap(s => s.units.map(u => ({ stage: s, topic: App.topicOf(u) })).filter(x => x.topic)) : unitsFlat();
     const done = doneMap();
     // Kiểm tra đầu vào gợi ý chặng bắt đầu → các bài trước chặng đó mở sẵn (không bắt học lại), bài hiện tại = bài đầu của chặng gợi ý
-    const pl = state.settings && state.settings.placement, start = Math.max(0, pl && pl.stage ? list.findIndex(u => u.stage.id === pl.stage) : 0);
+    const pl = state.settings && state.settings.placement, ps = stg !== undefined ? stg : pl && pl.stage, start = Math.max(0, ps ? list.findIndex(u => u.stage.id === ps) : 0);
     const out = list.map((u, i) => {
       const isDone = !!done[u.topic.id], pct = learnedPct(u.topic);
       // Mở khóa nếu bài trước đã xong, đã học ≥ 80% từ của bài này, hoặc nằm trước/đầu chặng gợi ý
@@ -89,10 +91,10 @@
   // Bản đồ lộ trình theo NGÀY (Ngày 1, 2, 3…) + trang buổi học #/day/N: path-day.js (tải lười, gói 'pathx' – khung app không phình)
   App.PathAPI = { STAGES, unitState, learnedPct, recLoad, recOf, STEPS, stepDone, stepHref, nextStep };
   const lazy = n => async (...a) => { await App.need('pathx'); return window.DayPath[n](...a); };
-  routes.path = lazy('map'); routes.day = lazy('page');
+  routes.path = lazy('map'); routes.day = lazy('page'); routes.tracks = lazy('tracks'); // 🧭 Gói học (tracks.js)
   // Thanh tiến độ buổi học (Ngày N · 3/6) trên các trang bài tập khi đang học dở 1 ngày
   const sess = () => { try { return localStorage.getItem('vb.daySess'); } catch (e) { return null; } };
-  App.afterRoute = name => { if (sess() && !/^(day|path|home|welcome)$/.test(name || 'home')) App.need('pathx').then(() => window.DayPath && DayPath.bar(name)).catch(() => {}); };
+  App.afterRoute = name => { if (sess() && !/^(day|path|home|welcome|tracks)$/.test(name || 'home')) App.need('pathx').then(() => window.DayPath && DayPath.bar(name)).catch(() => {}); };
 
   // Ghi nhận hoàn thành bài (gọi từ bài kiểm tra)
   App.completeUnit = async (id, pct) => {
