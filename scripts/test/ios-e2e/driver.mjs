@@ -65,7 +65,8 @@ async function handle(ev) {
     else if (ev.cmd === 'openurl') { const r = simq('openurl', U, ev.url); ack(ev.id, r.slice(0, 200) || 'ok'); }
     else if (ev.cmd === 'relaunch') { await sleep(500); launch(); }
     else if (ev.cmd === 'checksafari') { // liên kết ngoài phải mở Safari → kiểm tiến trình Safari rồi đưa app về trước
-      let on = false; for (let k = 0; k < 5 && !on; k++) { await sleep(2000); on = /mobilesafari/i.test(simq('spawn', U, 'launchctl', 'list')); } // Safari khởi động chậm trên máy CI
+      let on = false; for (let k = 0; k < 20 && !on; k++) { await sleep(2000); on = /mobilesafari/i.test(simq('spawn', U, 'launchctl', 'list')); } // Safari lần đầu khởi động rất chậm trên máy CI (> 10 s)
+      await sleep(on ? 3000 : 0);
       shotTo(path.join(OUT, 'shots', `${String(shots.length + 1).padStart(3, '0')}-safari.jpg`)); shots.push({ file: `${String(shots.length + 1).padStart(3, '0')}-safari.jpg`, name: 'safari', step: ev.step });
       ack(ev.id, on ? 'running' : 'not-running'); simq('launch', U, BUNDLE); }
   } else if (ev.type === 'step') {

@@ -316,11 +316,12 @@
         const mark = Math.random(); W.__e2eMark = mark;
         const a = document.querySelector('.side-foot a[data-l="privacy"]') || [...document.querySelectorAll('#view a[href*="/privacy"]')][0];
         if (!a) { add('extlink', 'Không thấy liên kết Chính sách quyền riêng tư'); return; }
+        let hid = false; const onVis = () => { if (document.hidden) hid = true; }; document.addEventListener('visibilitychange', onVis); // app xuống nền = Safari đã lên trước
         const o0 = opened.length, href = a.getAttribute('href'); a.click(); await sleep(1500);
-        const r = await host('checksafari', {}, 30000); await sleep(2500);
-        emit({ type: 'info', key: 'extlink', href, opened: opened.slice(o0), safari: r, hash: location.hash });
+        const r = await host('checksafari', {}, 70000); await sleep(2500); document.removeEventListener('visibilitychange', onVis);
+        emit({ type: 'info', key: 'extlink', href, opened: opened.slice(o0), safari: r, appHidden: hid, hash: location.hash });
         if (W.__e2eMark !== mark) add('extlink', 'App tải lại khi bấm liên kết Chính sách (' + href + ')');
-        if (r !== 'running') add('extlink', 'Bấm "Chính sách quyền riêng tư" không mở Safari (' + (opened.slice(o0)[0] || href) + ')');
+        if (r !== 'running' && !hid) add('extlink', 'Bấm "Chính sách quyền riêng tư" không mở Safari (' + (opened.slice(o0)[0] || href) + ')');
         for (let i = issues.length - 1; i >= 0; i--) if (issues[i].kind === 'window.open') issues.splice(i, 1); // mở trang ngoài là đúng ý
         await shot('extlink'); return;
       }
