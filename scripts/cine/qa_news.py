@@ -258,4 +258,10 @@ print(f'  noise floor in speech pauses (90th pct of {len(pz)} x 10 ms) {nf_:.1f}
 if nf_ > -50: fails.append('noise')
 print('  total %.2f s' % tl['total'], 'OK' if tl['total'] <= 40 else 'FAIL')
 if tl['total'] > 40: fails.append('total>40s')   # was printed only, never counted
+_bgt = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../content/video/cine/news/bg_topics.json')))['domains']; _lm = tl['lesson']
+_txt = ' '.join([_lm.get('goal_en', ''), ' '.join(_lm.get('series') or []), _lm.get('hook_text', '')]).lower()
+_dh = [d for d, v in _bgt.items() if any(re.search(r'\b' + re.escape(k), _txt) for k in v['keywords'])]
+_bad = [d for d in _dh if _lm.get('bg') not in _bgt[d]['bg']]
+print(f"== BG TOPIC: bg {_lm.get('bg')} domains {_dh or '-'}", 'OK' if not _bad else f'FAIL (needs {[_bgt[d]["bg"] for d in _bad]})')
+if _bad: fails.append('bg-topic')
 print('== RESULT:', 'ALL PASS' if not fails else f'{len(fails)} FAIL(s): {fails}')

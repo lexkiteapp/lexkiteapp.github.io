@@ -2,7 +2,7 @@
 # Ama = STANDING clips ga2_* (README-standing.md; ga2_react = non-speaking only). Shape (owner 21/10): two-shot hook (Ama, <= 5 words, 1.6-2.0 s) -> 4-6 alternating singles (Ama left / Carlos right, size alternates per host,
 # J-cut audio lead 0.15 s) each carrying ONE card state (label / x / v) -> two-shot recap (Save card 2.5 s) -> CTA single + comment ring ->
 # 1.0 s loop back to the hook frame. All text comes from the curated banks in gen_news.py; timings from the real wavs.
-META = dict(id=SPEC['id'], out=f"cine-{SPEC['id'].replace('_', '-')}-en.mp4", cefr=SPEC['cefr'], goal_en=SPEC['point'], area=SPEC['area'])
+META = dict(bg=SPEC['bg'], series=SPEC['series'], hook_text=SPEC['hook']['card'], id=SPEC['id'], out=f"cine-{SPEC['id'].replace('_', '-')}-en.mp4", cefr=SPEC['cefr'], goal_en=SPEC['point'], area=SPEC['area'])
 QA = dict(template='news'); AMB = f'{TL}/amb_studio.wav'; AMB_DB = -40; BG = SPEC['bg']
 NW = lambda x_: len(re.findall(r"[A-Za-z0-9']+", x_)); need = lambda x_: max(1.2, 0.4 + 0.28 * NW(x_))
 def at_for(line, lo, hi, br):   # lead-in so the shot lasts lo..hi s
@@ -17,7 +17,7 @@ assert 1.6 <= h['dur'] <= 2.0 + 1 / FPS, ('hook length', h['dur'])
 if a_ + hs0 > 0.22: SFX.append(('whoosh.wav', 0.0))   # very short hook line: broadcast whoosh on frame 0 (no dead air)
 START['ga2_talk_smile'] = 24 + h['n']
 im, box, fs = hook_card(hk['card'], ''); ov('VHook', hk['card'] + '|', 0, h['dur'], box, 'hook', fs=fs, img=im)
-CL = {'ama': ['ga2_talk', 'ga2_explain', 'ga2_talk_smile'], 'carlos': ['gc_talk', 'gc_explain', 'gc_talk_smile']}; use = {'ama': 0, 'carlos': 0}
+CL = {'ama': ['ga2_talk', 'ga2_talk_smile'], 'carlos': ['gc_talk', 'gc_talk_smile']}; use = {'ama': 0, 'carlos': 0}   # lead 21/10: no *_explain (gesturing hands float over the card/caption zone)
 LISTEN = {'ama': 'ga2_listen', 'carlos': 'gc_listen'}; OTHER = {'ama': 'carlos', 'carlos': 'ama'}; BEATS = SPEC['beats']; nb = len(BEATS)
 # length from the real wavs (TTS first): short lessons get listener reaction cutaways (single of the other host, the card stays up) -> >= 21 s, never padded silence
 rc_line = SPEC['recap']['line']; RC_D = max(2.95, talk_dur(rc_line, 0.07, 0.5))
@@ -32,7 +32,7 @@ print('news layout: estimate %.2f s, reaction cutaways %s' % (est, {k: round(v, 
 prev = None
 for i, b in enumerate(BEATS):
     who = b['who']; k = use[who]; use[who] += 1
-    sh = shot(f'b{i + 1}', CL[who][k % 3], who, ('mcu', 'wide')[k % 2], BG, line=b['line'], at=0.07 if i == 0 or S[-1]['who'] == who else -0.15)   # no J-cut out of the speaker's own reaction shot
+    sh = shot(f'b{i + 1}', CL[who][k % len(CL[who])], who, ('mcu', 'wide')[k % 2], BG, line=b['line'], at=0.07 if i == 0 or S[-1]['who'] == who else -0.15)   # no J-cut out of the speaker's own reaction shot
     c = b.get('card')
     if c:
         t0 = sh['t0'] + max(0.0, sh['lines'][0]['at'])
