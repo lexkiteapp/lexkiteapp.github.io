@@ -18,19 +18,15 @@
     "hotel",
     "restaurant"
    ],
-   "generated": 11,
-   "rendered": 2,
+   "generated": 9,
+   "rendered": 9,
    "by_cefr": {
     "A1": {
-     "generated": 10,
-     "rendered": 2
-    },
-    "B2": {
-     "generated": 1,
-     "rendered": 0
+     "generated": 9,
+     "rendered": 9
     }
    },
-   "gap": 3
+   "gap": 0
   },
   "grammar": {
    "label": "Grammar lessons",
@@ -41,14 +37,14 @@
     "restaurant"
    ],
    "generated": 12,
-   "rendered": 2,
+   "rendered": 12,
    "by_cefr": {
     "A2": {
      "generated": 12,
-     "rendered": 2
+     "rendered": 12
     }
    },
-   "gap": 3
+   "gap": 0
   },
   "grammar-check": {
    "label": "Grammar checker",
@@ -59,14 +55,14 @@
     "restaurant"
    ],
    "generated": 14,
-   "rendered": 3,
+   "rendered": 13,
    "by_cefr": {
     "A2": {
      "generated": 14,
-     "rendered": 3
+     "rendered": 13
     }
    },
-   "gap": 2
+   "gap": 0
   },
   "verbs": {
    "label": "Verb conjugation",
@@ -85,18 +81,18 @@
     "restaurant"
    ],
    "generated": 10,
-   "rendered": 2,
+   "rendered": 8,
    "by_cefr": {
     "A2": {
      "generated": 9,
-     "rendered": 2
+     "rendered": 7
     },
     "B2": {
      "generated": 1,
-     "rendered": 0
+     "rendered": 1
     }
    },
-   "gap": 3
+   "gap": 0
   },
   "word-usage": {
    "label": "Confusing words (word usage)",
@@ -107,14 +103,14 @@
     "restaurant"
    ],
    "generated": 5,
-   "rendered": 0,
+   "rendered": 5,
    "by_cefr": {
     "A2": {
      "generated": 5,
-     "rendered": 0
+     "rendered": 5
     }
    },
-   "gap": 5
+   "gap": 0
   },
   "paraphrase": {
    "label": "Paraphrase trainer",
@@ -125,14 +121,14 @@
     "restaurant"
    ],
    "generated": 5,
-   "rendered": 2,
+   "rendered": 5,
    "by_cefr": {
     "A2": {
      "generated": 5,
-     "rendered": 2
+     "rendered": 5
     }
    },
-   "gap": 3
+   "gap": 0
   },
   "pronunciation": {
    "label": "Pronunciation (IPA, minimal pairs)",
@@ -142,15 +138,15 @@
     "hotel",
     "restaurant"
    ],
-   "generated": 5,
-   "rendered": 3,
+   "generated": 6,
+   "rendered": 6,
    "by_cefr": {
     "A1": {
-     "generated": 5,
-     "rendered": 3
+     "generated": 6,
+     "rendered": 6
     }
    },
-   "gap": 2
+   "gap": 0
   },
   "speaking": {
    "label": "IELTS Speaking topics & practice",
@@ -161,14 +157,14 @@
     "restaurant"
    ],
    "generated": 7,
-   "rendered": 0,
+   "rendered": 7,
    "by_cefr": {
     "A1": {
      "generated": 7,
-     "rendered": 0
+     "rendered": 7
     }
    },
-   "gap": 5
+   "gap": 0
   },
   "roleplay": {
    "label": "Voice roleplay",
@@ -179,18 +175,18 @@
     "restaurant"
    ],
    "generated": 23,
-   "rendered": 4,
+   "rendered": 23,
    "by_cefr": {
     "A2": {
      "generated": 21,
-     "rendered": 4
+     "rendered": 21
     },
     "B1": {
      "generated": 2,
-     "rendered": 0
+     "rendered": 2
     }
    },
-   "gap": 1
+   "gap": 0
   },
   "listening": {
    "label": "Listening & dictation",
@@ -200,15 +196,15 @@
     "hotel",
     "restaurant"
    ],
-   "generated": 8,
-   "rendered": 2,
+   "generated": 9,
+   "rendered": 7,
    "by_cefr": {
     "A2": {
-     "generated": 8,
-     "rendered": 2
+     "generated": 9,
+     "rendered": 7
     }
    },
-   "gap": 3
+   "gap": 0
   },
   "reading": {
    "label": "Reading practice",
@@ -259,18 +255,7 @@
    "gap": null
   }
  },
- "gaps_rendered_below_5": {
-  "vocab-review": 3,
-  "grammar": 3,
-  "grammar-check": 2,
-  "phrases": 3,
-  "word-usage": 5,
-  "paraphrase": 3,
-  "pronunciation": 2,
-  "speaking": 5,
-  "roleplay": 1,
-  "listening": 3
- },
+ "gaps_rendered_below_5": {},
  "areas_no_scene_fits": [
   "dictionary",
   "verbs",

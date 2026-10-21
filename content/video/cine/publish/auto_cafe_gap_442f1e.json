@@ -1,0 +1,74 @@
+{
+ "id": "auto_cafe_gap_442f1e",
+ "scene": "cafe",
+ "template": "gap",
+ "area": "vocab-review",
+ "cefr": "A1",
+ "point": "word latte",
+ "series": "Café English #9",
+ "title": "One word is missing: \"Could I have a ___?\"",
+ "description": "Fill in the missing word, then say the full sentence: \"Could I have a latte?\"\nComment your answer below and follow for daily English (Café English #9).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_gap_442f1e#/review",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#coffeeshopenglish",
+  "#englishvocabulary",
+  "#fillintheblank",
+  "#travelenglish",
+  "#esl"
+ ],
+ "video": "out/cine-auto-cafe-gap-442f1e-en-v3.mp4",
+ "cover": "out/covers/cine-auto-cafe-gap-442f1e-en-v3.jpg",
+ "ci_artifact": "cine-cafe-15",
+ "run": "15",
+ "platforms": {
+  "tiktok": {
+   "title": "One word is missing: \"Could I have a ___?\"",
+   "caption": "Fill in the missing word, then say the full sentence: \"Could I have a latte?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_gap_442f1e#/review",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_gap_442f1e#/review",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#englishvocabulary",
+    "#fillintheblank",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Fill in the missing word, then say the full sentence: \"Could I have a latte?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_gap_442f1e#/review\n#learnenglish #englishtips #coffeeshopenglish #englishvocabulary #fillintheblank #travelenglish"
+  },
+  "reels": {
+   "title": "One word is missing: \"Could I have a ___?\"",
+   "caption": "Fill in the missing word, then say the full sentence: \"Could I have a latte?\"\nComment your answer below and follow for daily English (Café English #9).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_gap_442f1e#/review",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_gap_442f1e#/review",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#englishvocabulary",
+    "#fillintheblank",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Fill in the missing word, then say the full sentence: \"Could I have a latte?\"\nComment your answer below and follow for daily English (Café English #9).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_gap_442f1e#/review\n#learnenglish #englishtips #coffeeshopenglish #englishvocabulary #fillintheblank #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "One word is missing: \"Could I have a ___?\" #shorts",
+   "caption": "Fill in the missing word, then say the full sentence: \"Could I have a latte?\"\nComment your answer below and follow for daily English (Café English #9).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_gap_442f1e#/review",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_gap_442f1e#/review",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#englishvocabulary"
+   ],
+   "caption_with_tags": "Fill in the missing word, then say the full sentence: \"Could I have a latte?\"\nComment your answer below and follow for daily English (Café English #9).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_gap_442f1e#/review\n#shorts #learnenglish #englishtips #coffeeshopenglish #englishvocabulary"
+  }
+ },
+ "slot": {
+  "date": "2026-11-04",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

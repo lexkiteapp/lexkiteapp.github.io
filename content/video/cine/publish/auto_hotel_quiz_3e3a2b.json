@@ -1,0 +1,74 @@
+{
+ "id": "auto_hotel_quiz_3e3a2b",
+ "scene": "hotel",
+ "template": "quiz",
+ "area": "paraphrase",
+ "cefr": "A2",
+ "point": "polite: could I get more",
+ "series": "Hotel English #9",
+ "title": "Which sounds polite? Hotel English quiz",
+ "description": "Which one would you say at the hotel? Model answer: \"Could I get some more towels, please?\"\nComment your answer below and follow for daily English (Hotel English #9).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_quiz_3e3a2b#/paraphrase",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#hotelenglish",
+  "#englishquiz",
+  "#speakpolitely",
+  "#travelenglish",
+  "#esl"
+ ],
+ "video": "out/cine-auto-hotel-quiz-3e3a2b-en-v3.mp4",
+ "cover": "out/covers/cine-auto-hotel-quiz-3e3a2b-en-v3.jpg",
+ "ci_artifact": "cine-hotel-11-14",
+ "run": "11-14",
+ "platforms": {
+  "tiktok": {
+   "title": "Which sounds polite? Hotel English quiz",
+   "caption": "Which one would you say at the hotel? Model answer: \"Could I get some more towels, please?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_quiz_3e3a2b#/paraphrase",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_quiz_3e3a2b#/paraphrase",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#englishquiz",
+    "#speakpolitely",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Which one would you say at the hotel? Model answer: \"Could I get some more towels, please?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_quiz_3e3a2b#/paraphrase\n#learnenglish #englishtips #hotelenglish #englishquiz #speakpolitely #travelenglish"
+  },
+  "reels": {
+   "title": "Which sounds polite? Hotel English quiz",
+   "caption": "Which one would you say at the hotel? Model answer: \"Could I get some more towels, please?\"\nComment your answer below and follow for daily English (Hotel English #9).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_quiz_3e3a2b#/paraphrase",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_quiz_3e3a2b#/paraphrase",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#englishquiz",
+    "#speakpolitely",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Which one would you say at the hotel? Model answer: \"Could I get some more towels, please?\"\nComment your answer below and follow for daily English (Hotel English #9).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_quiz_3e3a2b#/paraphrase\n#learnenglish #englishtips #hotelenglish #englishquiz #speakpolitely #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Which sounds polite? Hotel English quiz #shorts",
+   "caption": "Which one would you say at the hotel? Model answer: \"Could I get some more towels, please?\"\nComment your answer below and follow for daily English (Hotel English #9).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_quiz_3e3a2b#/paraphrase",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_quiz_3e3a2b#/paraphrase",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#englishquiz"
+   ],
+   "caption_with_tags": "Which one would you say at the hotel? Model answer: \"Could I get some more towels, please?\"\nComment your answer below and follow for daily English (Hotel English #9).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_quiz_3e3a2b#/paraphrase\n#shorts #learnenglish #englishtips #hotelenglish #englishquiz"
+  }
+ },
+ "slot": {
+  "date": "2026-10-28",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

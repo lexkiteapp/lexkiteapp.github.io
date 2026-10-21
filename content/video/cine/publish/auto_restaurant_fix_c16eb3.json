@@ -1,0 +1,74 @@
+{
+ "id": "auto_restaurant_fix_c16eb3",
+ "scene": "restaurant",
+ "template": "fix",
+ "area": "grammar",
+ "cefr": "A2",
+ "point": "an before a vowel",
+ "series": "Restaurant English #6",
+ "title": "Stop saying \"I'll have a orange juice.\"",
+ "description": "Not \"a\". Say: \"I'll have an orange juice.\"\nComment your answer below and follow for daily English (Restaurant English #6).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_c16eb3#/grammar",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#restaurantenglish",
+  "#commonmistakes",
+  "#englishgrammar",
+  "#travelenglish",
+  "#esl"
+ ],
+ "video": "out/cine-auto-restaurant-fix-c16eb3-en-v3.mp4",
+ "cover": "out/covers/cine-auto-restaurant-fix-c16eb3-en-v3.jpg",
+ "ci_artifact": "cine-restaurant-21",
+ "run": "21",
+ "platforms": {
+  "tiktok": {
+   "title": "Stop saying \"I'll have a orange juice.\"",
+   "caption": "Not \"a\". Say: \"I'll have an orange juice.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_c16eb3#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_c16eb3#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Not \"a\". Say: \"I'll have an orange juice.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_c16eb3#/grammar\n#learnenglish #englishtips #restaurantenglish #commonmistakes #englishgrammar #travelenglish"
+  },
+  "reels": {
+   "title": "Stop saying \"I'll have a orange juice.\"",
+   "caption": "Not \"a\". Say: \"I'll have an orange juice.\"\nComment your answer below and follow for daily English (Restaurant English #6).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_c16eb3#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_c16eb3#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Not \"a\". Say: \"I'll have an orange juice.\"\nComment your answer below and follow for daily English (Restaurant English #6).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_c16eb3#/grammar\n#learnenglish #englishtips #restaurantenglish #commonmistakes #englishgrammar #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Stop saying \"I'll have a orange juice.\" #shorts",
+   "caption": "Not \"a\". Say: \"I'll have an orange juice.\"\nComment your answer below and follow for daily English (Restaurant English #6).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_c16eb3#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_c16eb3#/grammar",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#commonmistakes"
+   ],
+   "caption_with_tags": "Not \"a\". Say: \"I'll have an orange juice.\"\nComment your answer below and follow for daily English (Restaurant English #6).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_c16eb3#/grammar\n#shorts #learnenglish #englishtips #restaurantenglish #commonmistakes"
+  }
+ },
+ "slot": {
+  "date": "2026-11-16",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

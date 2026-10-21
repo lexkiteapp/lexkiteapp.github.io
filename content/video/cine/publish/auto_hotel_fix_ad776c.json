@@ -1,0 +1,74 @@
+{
+ "id": "auto_hotel_fix_ad776c",
+ "scene": "hotel",
+ "template": "fix",
+ "area": "grammar",
+ "cefr": "A2",
+ "point": "it doesn't have",
+ "series": "Hotel English #14",
+ "title": "Stop saying \"The shower don't have hot water.\"",
+ "description": "Not \"don't\". Say: \"The shower doesn't have hot water.\"\nComment your answer below and follow for daily English (Hotel English #14).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_fix_ad776c#/grammar",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#hotelenglish",
+  "#commonmistakes",
+  "#englishgrammar",
+  "#travelenglish",
+  "#esl"
+ ],
+ "video": "out/cine-auto-hotel-fix-ad776c-en-v3.mp4",
+ "cover": "out/covers/cine-auto-hotel-fix-ad776c-en-v3.jpg",
+ "ci_artifact": "cine-hotel-19",
+ "run": "19",
+ "platforms": {
+  "tiktok": {
+   "title": "Stop saying \"The shower don't have hot water.\"",
+   "caption": "Not \"don't\". Say: \"The shower doesn't have hot water.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_fix_ad776c#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_fix_ad776c#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Not \"don't\". Say: \"The shower doesn't have hot water.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_fix_ad776c#/grammar\n#learnenglish #englishtips #hotelenglish #commonmistakes #englishgrammar #travelenglish"
+  },
+  "reels": {
+   "title": "Stop saying \"The shower don't have hot water.\"",
+   "caption": "Not \"don't\". Say: \"The shower doesn't have hot water.\"\nComment your answer below and follow for daily English (Hotel English #14).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_fix_ad776c#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_fix_ad776c#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Not \"don't\". Say: \"The shower doesn't have hot water.\"\nComment your answer below and follow for daily English (Hotel English #14).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_fix_ad776c#/grammar\n#learnenglish #englishtips #hotelenglish #commonmistakes #englishgrammar #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Stop saying \"The shower don't have hot water.\" #shorts",
+   "caption": "Not \"don't\". Say: \"The shower doesn't have hot water.\"\nComment your answer below and follow for daily English (Hotel English #14).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_fix_ad776c#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_fix_ad776c#/grammar",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#commonmistakes"
+   ],
+   "caption_with_tags": "Not \"don't\". Say: \"The shower doesn't have hot water.\"\nComment your answer below and follow for daily English (Hotel English #14).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_fix_ad776c#/grammar\n#shorts #learnenglish #englishtips #hotelenglish #commonmistakes"
+  }
+ },
+ "slot": {
+  "date": "2026-11-09",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

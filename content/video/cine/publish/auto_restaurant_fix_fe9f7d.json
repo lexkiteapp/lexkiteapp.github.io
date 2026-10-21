@@ -1,0 +1,74 @@
+{
+ "id": "auto_restaurant_fix_fe9f7d",
+ "scene": "restaurant",
+ "template": "fix",
+ "area": "grammar",
+ "cefr": "A2",
+ "point": "pay separately",
+ "series": "Restaurant English #1",
+ "title": "Stop saying \"Can we pay separate, please?\"",
+ "description": "Not \"separate\". Say: \"Can we pay separately, please?\"\nComment your answer below and follow for daily English (Restaurant English #1).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_fe9f7d#/grammar",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#restaurantenglish",
+  "#commonmistakes",
+  "#englishgrammar",
+  "#travelenglish",
+  "#esl"
+ ],
+ "video": "out/cine-auto-restaurant-fix-fe9f7d-en-v3.mp4",
+ "cover": "out/covers/cine-auto-restaurant-fix-fe9f7d-en-v3.jpg",
+ "ci_artifact": "cine-restaurant-11-14",
+ "run": "11-14",
+ "platforms": {
+  "tiktok": {
+   "title": "Stop saying \"Can we pay separate, please?\"",
+   "caption": "Not \"separate\". Say: \"Can we pay separately, please?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_fe9f7d#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_fe9f7d#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Not \"separate\". Say: \"Can we pay separately, please?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_fe9f7d#/grammar\n#learnenglish #englishtips #restaurantenglish #commonmistakes #englishgrammar #travelenglish"
+  },
+  "reels": {
+   "title": "Stop saying \"Can we pay separate, please?\"",
+   "caption": "Not \"separate\". Say: \"Can we pay separately, please?\"\nComment your answer below and follow for daily English (Restaurant English #1).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_fe9f7d#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_fe9f7d#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Not \"separate\". Say: \"Can we pay separately, please?\"\nComment your answer below and follow for daily English (Restaurant English #1).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_fe9f7d#/grammar\n#learnenglish #englishtips #restaurantenglish #commonmistakes #englishgrammar #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Stop saying \"Can we pay separate, please?\" #shorts",
+   "caption": "Not \"separate\". Say: \"Can we pay separately, please?\"\nComment your answer below and follow for daily English (Restaurant English #1).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_fe9f7d#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_fe9f7d#/grammar",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#commonmistakes"
+   ],
+   "caption_with_tags": "Not \"separate\". Say: \"Can we pay separately, please?\"\nComment your answer below and follow for daily English (Restaurant English #1).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_fe9f7d#/grammar\n#shorts #learnenglish #englishtips #restaurantenglish #commonmistakes"
+  }
+ },
+ "slot": {
+  "date": "2026-11-28",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

@@ -1,0 +1,74 @@
+{
+ "id": "auto_airport_choose_6d1d79",
+ "scene": "airport",
+ "template": "choose",
+ "area": "listening",
+ "cefr": "A2",
+ "point": "listen gate fourteen",
+ "series": "Airport English #4",
+ "title": "Which gate? Listen once and choose!",
+ "description": "Listen once at the airport and pick the right answer. Answer: \"Boarding is at gate fourteen.\"\nComment your answer below and follow for daily English (Airport English #4).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_choose_6d1d79#/listening",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#airportenglish",
+  "#listeningpractice",
+  "#englishlistening",
+  "#travelenglish",
+  "#esl"
+ ],
+ "video": "out/cine-auto-airport-choose-6d1d79-en-v3.mp4",
+ "cover": "out/covers/cine-auto-airport-choose-6d1d79-en-v3.jpg",
+ "ci_artifact": "cine-airport-11-14",
+ "run": "11-14",
+ "platforms": {
+  "tiktok": {
+   "title": "Which gate? Listen once and choose!",
+   "caption": "Listen once at the airport and pick the right answer. Answer: \"Boarding is at gate fourteen.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_choose_6d1d79#/listening",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_choose_6d1d79#/listening",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#listeningpractice",
+    "#englishlistening",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Listen once at the airport and pick the right answer. Answer: \"Boarding is at gate fourteen.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_choose_6d1d79#/listening\n#learnenglish #englishtips #airportenglish #listeningpractice #englishlistening #travelenglish"
+  },
+  "reels": {
+   "title": "Which gate? Listen once and choose!",
+   "caption": "Listen once at the airport and pick the right answer. Answer: \"Boarding is at gate fourteen.\"\nComment your answer below and follow for daily English (Airport English #4).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_choose_6d1d79#/listening",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_choose_6d1d79#/listening",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#listeningpractice",
+    "#englishlistening",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Listen once at the airport and pick the right answer. Answer: \"Boarding is at gate fourteen.\"\nComment your answer below and follow for daily English (Airport English #4).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_choose_6d1d79#/listening\n#learnenglish #englishtips #airportenglish #listeningpractice #englishlistening #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Which gate? Listen once and choose! #shorts",
+   "caption": "Listen once at the airport and pick the right answer. Answer: \"Boarding is at gate fourteen.\"\nComment your answer below and follow for daily English (Airport English #4).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_choose_6d1d79#/listening",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_choose_6d1d79#/listening",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#listeningpractice"
+   ],
+   "caption_with_tags": "Listen once at the airport and pick the right answer. Answer: \"Boarding is at gate fourteen.\"\nComment your answer below and follow for daily English (Airport English #4).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_choose_6d1d79#/listening\n#shorts #learnenglish #englishtips #airportenglish #listeningpractice"
+  }
+ },
+ "slot": {
+  "date": "2026-11-19",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

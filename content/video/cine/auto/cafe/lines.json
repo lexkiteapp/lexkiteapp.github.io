@@ -297,6 +297,36 @@
    "id": "gc_b9e41deb",
    "who": "ama",
    "text": "No, I don't have one."
+  },
+  {
+   "id": "gc_302ee6c9",
+   "who": "carlos",
+   "text": "Where would you like to sit?"
+  },
+  {
+   "id": "gc_9e4f3e09",
+   "who": "ama",
+   "text": "Can we sit in the window, please?"
+  },
+  {
+   "id": "gc_128b881a",
+   "who": "ama",
+   "text": "Can we sit by the window, please?"
+  },
+  {
+   "id": "gc_b0df18f8",
+   "who": "ama",
+   "text": "She like coffee."
+  },
+  {
+   "id": "gc_4e4e88d0",
+   "who": "ama",
+   "text": "She likes coffee."
+  },
+  {
+   "id": "gc_d388d901",
+   "who": "carlos",
+   "text": "I have a latte here for Sam. Is that you?"
   }
  ]
 }

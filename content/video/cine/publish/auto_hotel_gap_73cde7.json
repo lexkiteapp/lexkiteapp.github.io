@@ -1,0 +1,74 @@
+{
+ "id": "auto_hotel_gap_73cde7",
+ "scene": "hotel",
+ "template": "gap",
+ "area": "vocab-review",
+ "cefr": "A1",
+ "point": "word towel",
+ "series": "Hotel English #10",
+ "title": "One word is missing: \"Could I have an extra ___?\"",
+ "description": "Fill in the missing word, then say the full sentence: \"Could I have an extra towel?\"\nComment your answer below and follow for daily English (Hotel English #10).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_gap_73cde7#/review",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#hotelenglish",
+  "#englishvocabulary",
+  "#fillintheblank",
+  "#travelenglish",
+  "#esl"
+ ],
+ "video": "out/cine-auto-hotel-gap-73cde7-en-v3.mp4",
+ "cover": "out/covers/cine-auto-hotel-gap-73cde7-en-v3.jpg",
+ "ci_artifact": "cine-hotel-11-14",
+ "run": "11-14",
+ "platforms": {
+  "tiktok": {
+   "title": "One word is missing: \"Could I have an extra ___?\"",
+   "caption": "Fill in the missing word, then say the full sentence: \"Could I have an extra towel?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_gap_73cde7#/review",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_gap_73cde7#/review",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#englishvocabulary",
+    "#fillintheblank",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Fill in the missing word, then say the full sentence: \"Could I have an extra towel?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_gap_73cde7#/review\n#learnenglish #englishtips #hotelenglish #englishvocabulary #fillintheblank #travelenglish"
+  },
+  "reels": {
+   "title": "One word is missing: \"Could I have an extra ___?\"",
+   "caption": "Fill in the missing word, then say the full sentence: \"Could I have an extra towel?\"\nComment your answer below and follow for daily English (Hotel English #10).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_gap_73cde7#/review",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_gap_73cde7#/review",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#englishvocabulary",
+    "#fillintheblank",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Fill in the missing word, then say the full sentence: \"Could I have an extra towel?\"\nComment your answer below and follow for daily English (Hotel English #10).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_gap_73cde7#/review\n#learnenglish #englishtips #hotelenglish #englishvocabulary #fillintheblank #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "One word is missing: \"Could I have an extra ___?\" #shorts",
+   "caption": "Fill in the missing word, then say the full sentence: \"Could I have an extra towel?\"\nComment your answer below and follow for daily English (Hotel English #10).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_gap_73cde7#/review",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_gap_73cde7#/review",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#englishvocabulary"
+   ],
+   "caption_with_tags": "Fill in the missing word, then say the full sentence: \"Could I have an extra towel?\"\nComment your answer below and follow for daily English (Hotel English #10).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_gap_73cde7#/review\n#shorts #learnenglish #englishtips #hotelenglish #englishvocabulary"
+  }
+ },
+ "slot": {
+  "date": "2026-10-25",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

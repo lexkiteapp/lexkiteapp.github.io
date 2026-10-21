@@ -1,0 +1,74 @@
+{
+ "id": "auto_restaurant_gap_482015",
+ "scene": "restaurant",
+ "template": "gap",
+ "area": "vocab-review",
+ "cefr": "A1",
+ "point": "word water",
+ "series": "Restaurant English #17",
+ "title": "One word is missing: \"Could I have some ___?\"",
+ "description": "Fill in the missing word, then say the full sentence: \"Could I have some water?\"\nComment your answer below and follow for daily English (Restaurant English #17).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_gap_482015#/review",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#restaurantenglish",
+  "#englishvocabulary",
+  "#fillintheblank",
+  "#travelenglish",
+  "#esl"
+ ],
+ "video": "out/cine-auto-restaurant-gap-482015-en-v3.mp4",
+ "cover": "out/covers/cine-auto-restaurant-gap-482015-en-v3.jpg",
+ "ci_artifact": "cine-restaurant-21",
+ "run": "21",
+ "platforms": {
+  "tiktok": {
+   "title": "One word is missing: \"Could I have some ___?\"",
+   "caption": "Fill in the missing word, then say the full sentence: \"Could I have some water?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_gap_482015#/review",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_gap_482015#/review",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#englishvocabulary",
+    "#fillintheblank",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Fill in the missing word, then say the full sentence: \"Could I have some water?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_gap_482015#/review\n#learnenglish #englishtips #restaurantenglish #englishvocabulary #fillintheblank #travelenglish"
+  },
+  "reels": {
+   "title": "One word is missing: \"Could I have some ___?\"",
+   "caption": "Fill in the missing word, then say the full sentence: \"Could I have some water?\"\nComment your answer below and follow for daily English (Restaurant English #17).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_gap_482015#/review",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_gap_482015#/review",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#englishvocabulary",
+    "#fillintheblank",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Fill in the missing word, then say the full sentence: \"Could I have some water?\"\nComment your answer below and follow for daily English (Restaurant English #17).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_gap_482015#/review\n#learnenglish #englishtips #restaurantenglish #englishvocabulary #fillintheblank #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "One word is missing: \"Could I have some ___?\" #shorts",
+   "caption": "Fill in the missing word, then say the full sentence: \"Could I have some water?\"\nComment your answer below and follow for daily English (Restaurant English #17).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_gap_482015#/review",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_gap_482015#/review",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#englishvocabulary"
+   ],
+   "caption_with_tags": "Fill in the missing word, then say the full sentence: \"Could I have some water?\"\nComment your answer below and follow for daily English (Restaurant English #17).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_gap_482015#/review\n#shorts #learnenglish #englishtips #restaurantenglish #englishvocabulary"
+  }
+ },
+ "slot": {
+  "date": "2026-11-08",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}
