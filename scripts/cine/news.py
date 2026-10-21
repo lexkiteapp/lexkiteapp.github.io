@@ -18,7 +18,7 @@ FB = f'{ROOT}/brand/social/src/fonts/BeVietnamPro-ExtraBold.ttf'; FH = f'{ROOT}/
 TEAL, TEAL2, ORANGE, YEL, INK, CREAM = (15, 61, 62), (23, 89, 90), (229, 80, 47), (255, 201, 74), (34, 36, 44), (255, 247, 236)
 # hosts: face centre + face width in source px (1080x1920 after lipsync.finish), alpha fade line (source y) below the hands / above the seat
 HOST = {'ama': dict(eye=(615, 613)), 'carlos': dict(eye=(557, 686))}   # eye line in source px (1080x1920 after lipsync.finish)
-FRAME = {('ama', 'mcu'): (1.30, 640), ('ama', 'wide'): (1.22, 650), ('carlos', 'mcu'): (1.75, 640), ('carlos', 'wide'): (1.65, 650)}   # v4 (owner 21/10): chest-up, equal face height (Carlos face = 0.74 x Ama in source), equal eye line
+FRAME = {('ama', 'mcu'): (1.30, 640), ('ama', 'wide'): (1.22, 650), ('carlos', 'mcu'): (1.26, 640), ('carlos', 'wide'): (1.19, 650)}   # owner 22/10: singles = medium shot, face 18 % (mcu) / 17 % (wide) of frame height   # v4 (owner 21/10): chest-up, equal face height (Carlos face = 0.74 x Ama in source), equal eye line
 def font(p, s): return ImageFont.truetype(p, s)
 def speech(k): nx = [x for x in CUES[k] if x['value'] != 'X']; return nx[0]['start'], nx[-1]['end']
 def wdur(k): return float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f'{N}/vis3/{k}.wav']))
@@ -215,10 +215,11 @@ def host_frames(s, clip, who, lines, raw):
     tops = [int(np.argmax((m[:, 300:800] > 0.5).any(1))) for m in al[::4]]; top = HAIR.setdefault(clip, int(np.median(tops)))
     return fr, al, log, top
 HAIR = {}
-SIDE = {('ama', 'mcu'): 500, ('ama', 'wide'): 490, ('carlos', 'mcu'): 580, ('carlos', 'wide'): 590, ('ama', 'two'): 250, ('carlos', 'two'): 870}   # 180-degree rule: Ama screen-left, Carlos screen-right
+SIDE = {('ama', 'mcu'): 360, ('ama', 'wide'): 380, ('carlos', 'mcu'): 720, ('carlos', 'wide'): 700,   # rule of thirds
+        ('ama', 'two'): 250, ('carlos', 'two'): 870}   # 180-degree rule: Ama screen-left, Carlos screen-right
 FRAME.update({('ama', 'two'): (1.22, 660), ('carlos', 'two'): (0.98, 700)})   # owner 22/10: two-shot = medium-wide (face ~14 % of frame height, hosts apart, more background) behind a news desk
 DESK_Y = 1500   # two-shot: desk top edge; hosts must continue >= 40 px below it (Carlos's seat stays hidden behind the desk)
-VBOT = lambda frame: DESK_Y + 40 if frame == 'two' else 1920   # lowest frame row that must still show the host's body
+VBOT = lambda frame: DESK_Y + 40   # every shot: the news desk hides the cut; hosts continue >= 40 px below its top edge   # lowest frame row that must still show the host's body
 FACEH = {'ama': 370, 'carlos': 274}; SEAT = {'ama': 1660, 'carlos': 1560}
 # standing Ama (green/README-standing.md, ga2_*): head 1.31x Carlos in source -> layer x0.765 of Carlos's scale = equal head size, eye line ~ Carlos; no seat
 HOST['ama_s'] = dict(eye=(530, 680)); FACEH['ama_s'] = 358; SEAT['ama_s'] = 1916
@@ -351,8 +352,8 @@ for s in S:
             bgb = cv2.GaussianBlur(B, (0, 0), 12); f = f * (1 - 0.35 * band) + bgb * 0.35 * band
             a3 = a[..., None]; B = f * a3 + B * (1 - a3); xs = int(np.clip(ox, 80, 1000)); VB = VBOT('two' if s['other'] else s['frame']); bot.append(float(a[VB - 8:VB, xs - 60:xs + 60].mean())); AL.append(a)
         QC.append(dict(t=round(t, 3), fringe=max(FRs), flick=0.0, bottom=min(bot)))
-        if s['other']:   # two-shot: news desk in front of both hosts + gap between their silhouettes (above the desk)
-            B = B * (1 - DESK[1]) + DESK[0] * DESK[1]
+        B = B * (1 - DESK[1]) + DESK[0] * DESK[1]   # news desk in front of the host(s)
+        if s['other']:   # two-shot: gap between the silhouettes (above the desk)
             if j % 4 == 0 and len(AL) == 2:
                 g_ = []
                 for y_ in range(300, DESK_Y, 12):

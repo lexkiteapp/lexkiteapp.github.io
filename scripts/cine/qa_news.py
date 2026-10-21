@@ -216,6 +216,10 @@ if TP == 'news':
     tw_ = [x for x in tl['shots'] if x.get('other')]; hh_ = [v / 1920 for x in tw_ for v in x.get('faceh', {}).values()]
     rule(bool(hh_) and all(0.125 <= v <= 0.155 for v in hh_) and all(abs(v - hh_[0]) < 0.01 for v in hh_), f'two-shot = medium-wide: face height {min(hh_ or [0]):.3f}-{max(hh_ or [0]):.3f} of frame (0.125-0.155), equal for both hosts')
     qc_ = json.load(open(f'{RD}/qc.json')); rule(qc_.get('two_gap_min', -1) >= 16, f"two-shot: visible gap between the hosts (min {qc_.get('two_gap_min', -1)} px >= 16)")
+    sg_ = [(x['id'], v / 1920) for x in tl['shots'] if not x.get('other') for v in x.get('faceh', {}).values()]
+    rule(all(0.165 <= v <= 0.195 for _, v in sg_), f"singles = medium shot: face height {min(v for _, v in sg_):.3f}-{max(v for _, v in sg_):.3f} of frame (0.165-0.195)")
+    rule(all(min(v[4] - (HOST_TOP.get(c[:3], 200) * v[0]) for c, v in x['xfs'].items()) >= 0.10 * 1920 for x in tl['shots'] if not x.get('other')), 'singles headroom >= 10 %')
+    rule(all((x['xfs'][x['clip']][3] <= 400) if x['who'] == 'ama' else (x['xfs'][x['clip']][3] >= 680) for x in tl['shots'] if not x.get('other')), 'singles on the thirds (Ama x <= 400, Carlos x >= 680)')
     rule(all(min(v[4] - (HOST_TOP.get(c[:3], 200) * v[0]) for c, v in x['xfs'].items()) >= 0.08 * 1920 for x in tw_), 'two-shot headroom >= 8 %')
     qc = json.load(open(f'{RD}/qc.json')); rule(qc['bottom_min'] > 0.9, f"host body continues below the frame bottom on every frame (min alpha {qc['bottom_min']:.2f})")
     rule(qc['fringe_max'] <= 0.025, f"edge green fringe max {qc['fringe_max']:.3f} (<= 0.025), edge flicker mean {qc['flicker_mean']:.3f}")
