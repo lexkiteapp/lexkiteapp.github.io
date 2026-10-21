@@ -31,7 +31,7 @@ SCENES = {
       A1='r24_ots_ama_talk', A2='r24_ots_ama_talk', MCU='r06_ama_mcu_talk', OOPS='r27_ama_react', THX='r28_ama_thanks'),
    range=dict(MASTER=(0, 120), B1=(0, 75), B2=(0, 46), BREACT=(0, 89), A1=(12, 86), MCU=(52, 89), OOPS=(20, 48), THX=(52, 100)), prop=('r11_bill', 2, 1.6, 'slide.wav', 4),
    who=dict(B1='B', B2='B', BREACT='B', A1='ama', MCU='ama', OOPS='ama', THX='ama'),
-   ladder_clip='A1', vhook_box=(60, 236, 940, 631), avoid=[[108, 862, 422, 1227], [0, 1189, 535, 1920], [659, 655, 984, 964], [544, 933, 1080, 1920]], ladder_y=1130, hook_y=1130, choice_y=1000, ring=('B1', 830), ring_tpl='MASTER', ring_solo=True),  # 22/10: no shot has a free band for Ring + Choice/Ladder together (run 31-32) -> ring hold on the wide master, Ring alone (card back on ring_b)
+   ladder_clip='A1', vhook_box=(60, 236, 940, 631), avoid=[[108, 862, 422, 1227], [0, 1189, 535, 1920], [659, 655, 984, 964], [544, 933, 1080, 1920]], ladder_y=1130, hook_y=1130, choice_y=1000, ring=('B1', 830), ring_tpl='MASTER', ring_one=True),  # 22/10 (run 31-33): OTS/react shots have no band for Ring + Choice/Ladder; on the wide master the card goes top and Ring below the faces, but a 3 s Ring runs into ring_b (card back at y 1000) -> one 3 s master hold, no ring_b (qa5: Ring = 3.0 s)
  'airport': dict(B='mei', name='Airport', pov="POV: you're at check-in", clips=dict(MASTER='b01_master_talk', B1='a01_ots_mei_talk', B2='a03_ots_mei_talk_b', BREACT='a08_mei_pass',
       A1='a02_ots_ama_talk', A2='a04_ots_ama_talk_b', MCU='a07_ama_mcu_talk', OOPS='a06_ama_react', THX='a09_ama_thanks'),
    range=dict(OOPS=(0, 50)), prop=('i01_passport', 0, 1.6, None, 0),
@@ -312,7 +312,7 @@ def build(scene, tpl, area, point, a, n):
         if not all(opt_fits(o) for o in a['opts']): raise Gate('choice option too wide at 52 px')
         if a['key'] not in norm(a['opts']['ABC'.index(a['ans'])]).split(' '): raise Gate('answer key not verbatim in the answer option (qa5)')
         X.prop(); X.hold('setup', 'B1', 1.6, f'[{CH}]'); X.talk('listen', 'B1', 'B', kl, ov=f'[{CH}]')
-        X.hold('ring', S.get('ring_tpl', rc_clip), 1.5, ('[' if S.get('ring_solo') else f'[{CH}, ') + f"('Ring', 0.0, 3.0, 'Comment A, B or C 👇|')]"); X.hold('ring_b', 'B2' if rc_clip != 'B2' else 'BREACT', 1.5, f'[{CH}]')
+        X.hold('ring', S.get('ring_tpl', rc_clip), 3.0 if S.get('ring_one') else 1.5, f"[{CH}, ('Ring', 0.0, 3.0, 'Comment A, B or C 👇|')]"); S.get('ring_one') or X.hold('ring_b', 'B2' if rc_clip != 'B2' else 'BREACT', 1.5, f'[{CH}]')
         X.hold('reveal', 'BREACT', 2.0, "[('Choice', 0.0, None, Q, 1)]"); X.talk('replay', 'B2', 'B', kl, opt=True); X.talk('slow', 'B1', 'B', kl, tempo=0.85); X.raw("PUNCH['slow'] = 0.0"); X.hold('react2', 'BREACT', 1.2, pad=True)
         recap = a['recap']; pattern = a['q']; goal = f"Listening: {a['thing']}"; cefr_txt = [a['line']]
     elif tpl == 'quiz':
@@ -321,7 +321,7 @@ def build(scene, tpl, area, point, a, n):
             if len(o) > 26 or not opt_fits(o): raise Gate('quiz option too long')
         X.head += [f'Q = {q!r}', "QA = dict(template='quiz')", f"RING_EXTRA['ring'] = {rc_y}"]; CH = "('Choice', 0.0, None, Q, 0)"
         hook = 'Polite or *rude?*|?' if 'polite' in a['q'].lower() else 'Which one is *correct?*|?'
-        X.prop(); X.hold('setup', 'B1', 2.0, f'[{CH}]'); X.hold('ring', S.get('ring_tpl', rc_clip), 1.5, ('[' if S.get('ring_solo') else f'[{CH}, ') + f"('Ring', 0.0, 3.0, 'Comment A or B 👇|')]"); X.hold('ring_b', 'B2' if rc_clip != 'B2' else 'BREACT', 1.5, f'[{CH}]')
+        X.prop(); X.hold('setup', 'B1', 2.0, f'[{CH}]'); X.hold('ring', S.get('ring_tpl', rc_clip), 3.0 if S.get('ring_one') else 1.5, f"[{CH}, ('Ring', 0.0, 3.0, 'Comment A or B 👇|')]"); S.get('ring_one') or X.hold('ring_b', 'B2' if rc_clip != 'B2' else 'BREACT', 1.5, f'[{CH}]')
         X.hold('reveal', 'BREACT', 2.0, "[('Choice', 0.0, None, Q, 1)]"); X.talk('right', 'MCU', 'A', kl); X.talk('reply', 'B1', 'B', kr, opt=True); X.talk('slow', 'MCU', 'A', kl, tempo=0.85); X.raw("PUNCH['slow'] = 0.0"); X.hold('react2', 'BREACT', 1.2, pad=True)
         recap = a['line']; pattern = a['line']; goal = 'Polite or rude?' if 'polite' in a['q'].lower() else 'Which is correct?'; cefr_txt = [a['a'], a['b'], a['line']]
     elif tpl == 'gap':
@@ -341,7 +341,7 @@ def build(scene, tpl, area, point, a, n):
         hook = '3 ways. Which are *YOU?*|?'
         X.prop()
         for j, (sid, k) in enumerate(zip(('polite', 'neutral', 'casual'), ks)): X.talk(sid, S.get('ladder_clip', 'MCU'), 'A', k, ov=f"[('Ladder', 0.0, None, LAD, {j + 1})]")
-        X.raw("PUNCH['neutral'] = 0.0"); X.hold('ring', S.get('ring_tpl', 'BREACT'), 1.5, ('[' if S.get('ring_solo') else "[('Ladder', 0.0, None, LAD, 3), ") + "('Ring', 0.0, 3.0, 'Which would YOU say? Comment 👇|')]"); X.hold('ring_b', 'B2', 1.5, "[('Ladder', 0.0, None, LAD, 3)]")
+        X.raw("PUNCH['neutral'] = 0.0"); X.hold('ring', S.get('ring_tpl', 'BREACT'), 3.0 if S.get('ring_one') else 1.5, f"[('Ladder', 0.0, None, LAD, 3), ('Ring', 0.0, 3.0, 'Which would YOU say? Comment 👇|')]"); S.get('ring_one') or X.hold('ring_b', 'B2', 1.5, "[('Ladder', 0.0, None, LAD, 3)]")
         X.talk('slow', 'MCU', 'A', ks[0], tempo=0.85); X.raw("PUNCH['slow'] = 0.0"); X.hold('react2', 'BREACT', 1.2, pad=True)
         recap = next(t for t in a['lad'] + [a['lad'][-1]] if len(words(t)) <= 7); pattern = 'Could I possibly have ___?'; goal = 'Polite, neutral, casual'; cefr_txt = a['lad']
     elif tpl == 'pov':
