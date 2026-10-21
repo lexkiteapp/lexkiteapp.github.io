@@ -76,222 +76,242 @@
   "yes it's my first visit": {
    "id": "auto_hotel_series_d53800",
    "point": "Yes, it's my first visit.",
-   "status": "generated",
+   "status": "rendered",
    "template": "series",
    "area": "roleplay",
    "cefr": "A2",
    "scene": "hotel",
    "est": 18.6,
-   "series": "Hotel English #6"
+   "series": "Hotel English #6",
+   "run": "11-14"
   },
   "pay separately": {
    "id": "auto_restaurant_fix_fe9f7d",
    "point": "pay separately",
-   "status": "generated",
+   "status": "rendered",
    "template": "fix",
    "area": "grammar",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.6,
-   "series": "Restaurant English #1"
+   "series": "Restaurant English #1",
+   "run": "11-14"
   },
   "word seat": {
    "id": "auto_airport_gap_0f13c2",
    "point": "word seat",
-   "status": "generated",
+   "status": "rendered",
    "template": "gap",
    "area": "vocab-review",
    "cefr": "A1",
    "scene": "airport",
    "est": 18.6,
-   "series": "Airport English #1"
+   "series": "Airport English #1",
+   "run": "11-14"
   },
   "polite request a latte": {
    "id": "auto_cafe_ladder_23332f",
    "point": "polite request a latte",
-   "status": "generated",
+   "status": "rendered",
    "template": "ladder",
    "area": "phrases",
    "cefr": "A2",
    "scene": "cafe",
    "est": 18.6,
-   "series": "Café English #1"
+   "series": "Café English #1",
+   "run": "11-14"
   },
   "could i get an extra towel": {
    "id": "auto_hotel_speak_bf125a",
    "point": "could i get an extra towel",
-   "status": "generated",
+   "status": "rendered",
    "template": "speak",
    "area": "pronunciation",
    "cefr": "A1",
    "scene": "hotel",
    "est": 18.6,
-   "series": "Hotel English #7"
+   "series": "Hotel English #7",
+   "run": "11-14"
   },
   "polite could we get the bill": {
    "id": "auto_restaurant_quiz_34018e",
    "point": "polite: could we get the bill",
-   "status": "generated",
+   "status": "rendered",
    "template": "quiz",
    "area": "paraphrase",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.6,
-   "series": "Restaurant English #2"
+   "series": "Restaurant English #2",
+   "run": "11-14"
   },
   "bags to check": {
    "id": "auto_airport_pov_99dfe2",
    "point": "bags to check",
-   "status": "generated",
+   "status": "rendered",
    "template": "pov",
    "area": "roleplay",
    "cefr": "A2",
    "scene": "airport",
    "est": 18.6,
-   "series": "Airport English #2"
+   "series": "Airport English #2",
+   "run": "11-14"
   },
   "listen price fifty": {
    "id": "auto_cafe_choose_3df65a",
    "point": "listen price fifty",
-   "status": "generated",
+   "status": "rendered",
    "template": "choose",
    "area": "listening",
    "cefr": "A2",
    "scene": "cafe",
    "est": 18.6,
-   "series": "Café English #2"
+   "series": "Café English #2",
+   "run": "11-14"
   },
   "what time does": {
    "id": "auto_hotel_fix_771182",
    "point": "what time does",
-   "status": "generated",
+   "status": "rendered",
    "template": "fix",
    "area": "grammar",
    "cefr": "A2",
    "scene": "hotel",
    "est": 18.6,
-   "series": "Hotel English #8"
+   "series": "Hotel English #8",
+   "run": "11-14"
   },
   "two people": {
    "id": "auto_restaurant_mistake_ad8b8a",
    "point": "two people",
-   "status": "generated",
+   "status": "rendered",
    "template": "mistake",
    "area": "grammar-check",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.6,
-   "series": "Restaurant English #3"
+   "series": "Restaurant English #3",
+   "run": "11-14"
   },
   "polite request a window seat": {
    "id": "auto_airport_ladder_8e0d40",
    "point": "polite request a window seat",
-   "status": "generated",
+   "status": "rendered",
    "template": "ladder",
    "area": "phrases",
    "cefr": "A2",
    "scene": "airport",
    "est": 18.6,
-   "series": "Airport English #3"
+   "series": "Airport English #3",
+   "run": "11-14"
   },
   "plural after two": {
    "id": "auto_cafe_mistake_f03f29",
    "point": "plural after two",
-   "status": "generated",
+   "status": "rendered",
    "template": "mistake",
    "area": "grammar-check",
    "cefr": "A2",
    "scene": "cafe",
    "est": 18.6,
-   "series": "Café English #3"
+   "series": "Café English #3",
+   "run": "11-14"
   },
   "polite could i get more": {
    "id": "auto_hotel_quiz_3e3a2b",
    "point": "polite: could I get more",
-   "status": "generated",
+   "status": "rendered",
    "template": "quiz",
    "area": "paraphrase",
    "cefr": "A2",
    "scene": "hotel",
    "est": 18.6,
-   "series": "Hotel English #9"
+   "series": "Hotel English #9",
+   "run": "11-14"
   },
   "ready to order": {
    "id": "auto_restaurant_pov_f12918",
    "point": "ready to order",
-   "status": "generated",
+   "status": "rendered",
    "template": "pov",
    "area": "roleplay",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.6,
-   "series": "Restaurant English #4"
+   "series": "Restaurant English #4",
+   "run": "11-14"
   },
   "listen gate fourteen": {
    "id": "auto_airport_choose_6d1d79",
    "point": "listen gate fourteen",
-   "status": "generated",
+   "status": "rendered",
    "template": "choose",
    "area": "listening",
    "cefr": "A2",
    "scene": "airport",
    "est": 18.6,
-   "series": "Airport English #4"
+   "series": "Airport English #4",
+   "run": "11-14"
   },
   "yes a croissant please": {
    "id": "auto_cafe_series_f4edee",
    "point": "Yes, a croissant, please.",
-   "status": "generated",
+   "status": "rendered",
    "template": "series",
    "area": "roleplay",
    "cefr": "A2",
    "scene": "cafe",
    "est": 18.6,
-   "series": "Café English #4"
+   "series": "Café English #4",
+   "run": "11-14"
   },
   "word towel": {
    "id": "auto_hotel_gap_73cde7",
    "point": "word towel",
-   "status": "generated",
+   "status": "rendered",
    "template": "gap",
    "area": "vocab-review",
    "cefr": "A1",
    "scene": "hotel",
    "est": 18.6,
-   "series": "Hotel English #10"
+   "series": "Hotel English #10",
+   "run": "11-14"
   },
   "could i get the menu": {
    "id": "auto_restaurant_speak_1abd19",
    "point": "could i get the menu",
-   "status": "generated",
+   "status": "rendered",
    "template": "speak",
    "area": "pronunciation",
    "cefr": "A1",
    "scene": "restaurant",
    "est": 18.6,
-   "series": "Restaurant English #5"
+   "series": "Restaurant English #5",
+   "run": "11-14"
   },
   "on board": {
    "id": "auto_airport_mistake_c1d428",
    "point": "on board",
-   "status": "generated",
+   "status": "rendered",
    "template": "mistake",
    "area": "grammar-check",
    "cefr": "A2",
    "scene": "airport",
    "est": 18.6,
-   "series": "Airport English #5"
+   "series": "Airport English #5",
+   "run": "11-14"
   },
   "could i get a latte": {
    "id": "auto_cafe_speak_a2cae0",
    "point": "could i get a latte",
-   "status": "generated",
+   "status": "rendered",
    "template": "speak",
    "area": "pronunciation",
    "cefr": "A1",
    "scene": "cafe",
    "est": 18.6,
-   "series": "Café English #5"
+   "series": "Café English #5",
+   "run": "11-14"
   }
  }
 }

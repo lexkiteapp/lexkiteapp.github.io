@@ -19,14 +19,14 @@
     "restaurant"
    ],
    "generated": 2,
-   "rendered": 0,
+   "rendered": 2,
    "by_cefr": {
     "A1": {
      "generated": 2,
-     "rendered": 0
+     "rendered": 2
     }
    },
-   "gap": 5
+   "gap": 3
   },
   "grammar": {
    "label": "Grammar lessons",
@@ -37,14 +37,14 @@
     "restaurant"
    ],
    "generated": 2,
-   "rendered": 0,
+   "rendered": 2,
    "by_cefr": {
     "A2": {
      "generated": 2,
-     "rendered": 0
+     "rendered": 2
     }
    },
-   "gap": 5
+   "gap": 3
   },
   "grammar-check": {
    "label": "Grammar checker",
@@ -55,14 +55,14 @@
     "restaurant"
    ],
    "generated": 3,
-   "rendered": 0,
+   "rendered": 3,
    "by_cefr": {
     "A2": {
      "generated": 3,
-     "rendered": 0
+     "rendered": 3
     }
    },
-   "gap": 5
+   "gap": 2
   },
   "verbs": {
    "label": "Verb conjugation",
@@ -81,14 +81,14 @@
     "restaurant"
    ],
    "generated": 2,
-   "rendered": 0,
+   "rendered": 2,
    "by_cefr": {
     "A2": {
      "generated": 2,
-     "rendered": 0
+     "rendered": 2
     }
    },
-   "gap": 5
+   "gap": 3
   },
   "word-usage": {
    "label": "Confusing words (word usage)",
@@ -108,14 +108,14 @@
     "restaurant"
    ],
    "generated": 2,
-   "rendered": 0,
+   "rendered": 2,
    "by_cefr": {
     "A2": {
      "generated": 2,
-     "rendered": 0
+     "rendered": 2
     }
    },
-   "gap": 5
+   "gap": 3
   },
   "pronunciation": {
    "label": "Pronunciation (IPA, minimal pairs)",
@@ -126,14 +126,14 @@
     "restaurant"
    ],
    "generated": 3,
-   "rendered": 0,
+   "rendered": 3,
    "by_cefr": {
     "A1": {
      "generated": 3,
-     "rendered": 0
+     "rendered": 3
     }
    },
-   "gap": 5
+   "gap": 2
   },
   "speaking": {
    "label": "IELTS Speaking topics & practice",
@@ -157,14 +157,14 @@
     "restaurant"
    ],
    "generated": 4,
-   "rendered": 0,
+   "rendered": 4,
    "by_cefr": {
     "A2": {
      "generated": 4,
-     "rendered": 0
+     "rendered": 4
     }
    },
-   "gap": 5
+   "gap": 1
   },
   "listening": {
    "label": "Listening & dictation",
@@ -175,14 +175,14 @@
     "restaurant"
    ],
    "generated": 2,
-   "rendered": 0,
+   "rendered": 2,
    "by_cefr": {
     "A2": {
      "generated": 2,
-     "rendered": 0
+     "rendered": 2
     }
    },
-   "gap": 5
+   "gap": 3
   },
   "reading": {
    "label": "Reading practice",
@@ -234,16 +234,16 @@
   }
  },
  "gaps_rendered_below_5": {
-  "vocab-review": 5,
-  "grammar": 5,
-  "grammar-check": 5,
-  "phrases": 5,
+  "vocab-review": 3,
+  "grammar": 3,
+  "grammar-check": 2,
+  "phrases": 3,
   "word-usage": 5,
-  "paraphrase": 5,
-  "pronunciation": 5,
+  "paraphrase": 3,
+  "pronunciation": 2,
   "speaking": 5,
-  "roleplay": 5,
-  "listening": 5
+  "roleplay": 1,
+  "listening": 3
  },
  "areas_no_scene_fits": [
   "dictionary",
