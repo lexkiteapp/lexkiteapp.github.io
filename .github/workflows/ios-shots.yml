@@ -11,7 +11,9 @@ on:
     inputs:
       capture: { description: 'Chụp ảnh mới trên Simulator (false = dùng ảnh ở nhánh ios-shots)', type: boolean, default: true }
       asc: { description: 'App Store Connect: none | dry-run | upload (chữ + ảnh, chỉ bản 1.0 đang Prepare for Submission)', type: choice, options: [none, dry-run, upload], default: none }
-      only: { description: 'Phần đẩy lên App Store Connect', type: choice, options: [all, text, shots, settings], default: all }
+      only: { description: 'Phần đẩy lên App Store Connect', type: choice, options: [all, text, shots, settings, review], default: all }
+      build: { description: 'only=review: số build gắn vào bản 1.0 (trống = VALID mới nhất)', required: false, default: '' }
+      submit: { description: 'only=review: GỬI DUYỆT thật (chỉ khi App Privacy đã Publish + anh chủ đồng ý)', type: boolean, default: false }
       langs: { description: 'Ngôn ngữ ảnh (có chữ trong scripts/lib/app-shots-copy.mjs)', default: 'en,vi' }
 permissions:
   contents: write
@@ -132,5 +134,7 @@ jobs:
           ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
           ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
           ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+          ASC_BUILD: ${{ inputs.build }}
+          ASC_SUBMIT: ${{ inputs.submit && 'yes' || 'no' }}
           ASC_REVIEW_PHONE: ${{ secrets.ASC_REVIEW_PHONE }}   # số liên hệ người duyệt – chỉ ở secret, không ở repo
         run: set -o pipefail; node scripts/asc-upload.mjs ${{ inputs.asc == 'dry-run' && '--dry-run' || '' }} --shots store/apple/screenshots --only ${{ inputs.only || 'all' }} | tee -a "$GITHUB_STEP_SUMMARY"

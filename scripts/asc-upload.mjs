@@ -8,6 +8,8 @@
 //   node scripts/asc-upload.mjs --dry-run [--shots dir]    đọc App Store Connect, in những gì SẼ đổi (không ghi)
 //   node scripts/asc-upload.mjs [--shots dir] [--only text|shots]
 //   node scripts/asc-upload.mjs --only settings [--dry-run]   quyền nội dung, độ tuổi, giá Free, quốc gia (trừ EU-27), liên hệ duyệt, phát hành thủ công
+//   node scripts/asc-upload.mjs --only review [--dry-run]   gắn build VALID mới nhất (ASC_BUILD = số build, tuỳ chọn) vào bản 1.0, tạo/thử
+//     reviewSubmission + item (Apple kiểm hồ sơ, in lỗi thiếu). CHỈ bấm Submit khi env ASC_SUBMIT=yes (anh chủ đồng ý + App Privacy đã Publish).
 //     (listing.json → settings; số điện thoại liên hệ CHỈ lấy từ env ASC_REVIEW_PHONE lúc chạy – không lưu trong repo công khai)
 // Khóa: ASC_KEY_ID, ASC_ISSUER_ID + ASC_KEY_P8 (nội dung .p8) hoặc ASC_KEY_PATH (đường dẫn .p8). Khóa/JWT không bao giờ được in ra.
 import fs from 'fs';
@@ -111,7 +113,7 @@ async function api(method, p, body) {
     if (r.status === 429 && attempt < 4) { await new Promise(s => setTimeout(s, 3000 * (attempt + 1))); continue; }
     const txt = await r.text();
     if (!r.ok) {
-      let detail = txt.slice(0, 600); try { detail = JSON.parse(txt).errors.map(e => `${e.code}: ${e.detail || e.title}`).join(' | '); } catch { /* giữ nguyên */ }
+      let detail = txt.slice(0, 600); try { detail = JSON.parse(txt).errors.map(e => `${e.code}: ${e.detail || e.title}` + (e.meta?.associatedErrors ? ' ' + JSON.stringify(e.meta.associatedErrors).slice(0, 2500) : '')).join(' | '); } catch { /* giữ nguyên */ }
       throw new Error(`${method} ${p.split('?')[0]} → ${r.status} ${detail}`);
     }
     return txt ? JSON.parse(txt) : {};
@@ -223,6 +225,31 @@ const EU27 = ['AUT', 'BEL', 'BGR', 'HRV', 'CYP', 'CZE', 'DNK', 'EST', 'FIN', 'FR
 const manual = [];
 async function step(name, fn) { try { await fn(); } catch (e) { errors.push(`${name}: ${e.message}`); console.error(`  ✗ ${name}: ${e.message}`); } }
 async function all(p) { const out = [], inc = []; for (let next = p; next;) { const r = await get(next); out.push(...r.data); inc.push(...(r.included || [])); next = r.links?.next ? r.links.next.replace(API, '') : null; } return { data: out, included: inc }; }
+async function syncReview(app, ver) {
+  // 1) build: VALID mới nhất (hoặc ASC_BUILD) của đúng phiên bản → gắn vào appStoreVersion
+  const want = (process.env.ASC_BUILD || '').trim();
+  const builds = (await get(`/v1/builds?filter[app]=${app.id}&filter[preReleaseVersion.version]=${L.version}&sort=-uploadedDate&limit=10`)).data;
+  builds.forEach(b => console.log(`  · build ${b.attributes.version} ${b.attributes.processingState}${b.attributes.expired ? ' (expired)' : ''} ${b.attributes.uploadedDate}`));
+  const pick = builds.find(b => b.attributes.processingState === 'VALID' && !b.attributes.expired && (!want || b.attributes.version === want));
+  if (!pick) { errors.push(`không có build VALID${want ? ' số ' + want : ''}`); return; }
+  let cur = null; try { cur = (await get(`/v1/appStoreVersions/${ver.id}/build`)).data; } catch (e) { if (!/404/.test(e.message)) throw e; }
+  if (cur?.id === pick.id) console.log(`  = build ${pick.attributes.version} đã gắn`);
+  else await write(`version: build ${cur?.attributes?.version || '–'} → ${pick.attributes.version}`, 'PATCH', `/v1/appStoreVersions/${ver.id}/relationships/build`, { data: { type: 'builds', id: pick.id } });
+  if (DRY) return;
+  // 2) reviewSubmission đang mở (READY_FOR_REVIEW) hoặc tạo mới; thêm item = Apple kiểm hồ sơ (thiếu gì → lỗi 409 kèm danh sách)
+  const subs = (await get(`/v1/reviewSubmissions?filter[app]=${app.id}&filter[platform]=IOS&include=items&limit=20`)).data;
+  subs.forEach(x => console.log(`  · reviewSubmission ${x.id.slice(0, 8)} ${x.attributes.state}`));
+  if (subs.some(x => ['WAITING_FOR_REVIEW', 'IN_REVIEW', 'UNRESOLVED_ISSUES'].includes(x.attributes.state))) { console.log('  = đã có lượt duyệt đang chạy – không làm gì'); return; }
+  let sub = subs.find(x => x.attributes.state === 'READY_FOR_REVIEW');
+  if (!sub) sub = (await write('reviewSubmission: tạo (IOS)', 'POST', '/v1/reviewSubmissions', { data: { type: 'reviewSubmissions', attributes: { platform: 'IOS' }, relationships: { app: { data: { type: 'apps', id: app.id } } } } })).data;
+  const items = (await get(`/v1/reviewSubmissions/${sub.id}/items?include=appStoreVersion`)).data;
+  if (items.some(i => i.relationships?.appStoreVersion?.data?.id === ver.id)) console.log('  = item bản 1.0 đã có trong submission');
+  else await write('reviewSubmissionItem: thêm bản ' + L.version + ' (Apple kiểm hồ sơ)', 'POST', '/v1/reviewSubmissionItems', { data: { type: 'reviewSubmissionItems', relationships: { reviewSubmission: { data: { type: 'reviewSubmissions', id: sub.id } }, appStoreVersion: { data: { type: 'appStoreVersions', id: ver.id } } } } });
+  console.log('  ✓ hồ sơ hợp lệ theo Apple (item đã vào submission)');
+  if (process.env.ASC_SUBMIT !== 'yes') { console.log('  ⏸ chưa Submit (ASC_SUBMIT != yes)'); return; }
+  await write('reviewSubmission: SUBMIT for Review', 'PATCH', `/v1/reviewSubmissions/${sub.id}`, { data: { type: 'reviewSubmissions', id: sub.id, attributes: { submitted: true } } });
+  console.log('  ✓ ĐÃ GỬI DUYỆT');
+}
 async function syncSettings(app, ver) {
   const S = L.settings;
   await step('content rights', async () => {
@@ -314,7 +341,8 @@ async function main() {
   console.log(`App ${app.attributes.name} (${app.attributes.bundleId}) · bản ${L.version}: ${state}${DRY ? ' · DRY-RUN' : ''}`);
   if (!EDITABLE.includes(state) && !(ver.attributes.appStoreState && EDITABLE.includes(ver.attributes.appStoreState))) throw new Error(`bản ${L.version} đang ${state} – script chỉ sửa khi PREPARE_FOR_SUBMISSION`);
   let vl = (await get(`/v1/appStoreVersions/${ver.id}/appStoreVersionLocalizations?limit=200`)).data;
-  if (ONLY === 'settings') { console.log('— Cài đặt nộp duyệt (không chọn build, không nộp)'); await syncSettings(app, ver); }
+  if (ONLY === 'review') { console.log('— Build + hồ sơ duyệt'); await step('review', () => syncReview(app, ver)); }
+  else if (ONLY === 'settings') { console.log('— Cài đặt nộp duyệt (không chọn build, không nộp)'); await syncSettings(app, ver); }
   else {
     if (ONLY !== 'shots') { console.log('— Chữ niêm yết'); vl = await syncText(app, ver); }
     if (ONLY !== 'text') { console.log('— Ảnh chụp'); await syncShots(vl); }
