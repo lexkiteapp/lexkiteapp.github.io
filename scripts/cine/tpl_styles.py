@@ -52,10 +52,10 @@ def st_gap(im, dr, txt, sub):
     return [int(box[0] - 7), int(box[1]), int(box[2] + 7), int(box[3])]
 LADDER_LABELS = (('POLITE', (15, 61, 62, 255)), ('NEUTRAL', (90, 96, 110, 255)), ('CASUAL', (229, 80, 47, 255)))
 def st_ladder(im, dr, txt, sub):
-    ss = txt.split('|'); y0 = globals().get('LADDER_Y', 980); fl = ImageFont.truetype(FONT_EN, 30 if not MF(0) else 36); fs = ImageFont.truetype(FONT_EN, MF(42)); x0 = SAFE['x0']; y = y0; LW = 150 if not MF(0) else 186; LH = fs.size + 10
+    ss = txt.split('|'); y0 = globals().get('LADDER_Y', 980); fl = ImageFont.truetype(FONT_EN, 30 if not MF(0) else 32); fs = ImageFont.truetype(FONT_EN, 42 if not MF(0) else 44); x0 = SAFE['x0']; y = y0; LW = 150 if not MF(0) else 160; LH = fs.size + 6   # ladder keeps 112 px rows (2 lines): 52 px made rows 154 px -> Ring/face clashes (lô 2)
     rh = globals().get('LADDER_ROW', 132); gp = 16 if rh >= 132 else 10   # auto lessons: compact rows (112) so 3 steps fit under an MCU face with 24 px clearance
     for j in range(int(sub or 1)):
-        ls = wrapw(dr, ss[j], fs, MAXW - LW - 70); assert len(ls) <= 2, ss[j]; rj = max(rh, LH * len(ls) + 30)   # row grows for a 2-line step (big text)
+        ls = wrapw(dr, ss[j], fs, MAXW - LW - 70); assert len(ls) <= 2, ss[j]; rj = max(rh, LH * len(ls) + 12)   # row grows for a 2-line step (big text)
         dr.rounded_rectangle([x0, y, x0 + MAXW, y + rj], radius=26, fill=CREAM, outline=INK, width=4)
         lab, col = LADDER_LABELS[j]; dr.rounded_rectangle([x0 + 14, y + 14, x0 + 14 + LW, y + rj - 14], radius=20, fill=col)
         dr.text((x0 + 14 + LW / 2 - dr.textlength(lab, font=fl) / 2, y + rj / 2 - fl.size * 0.6), lab, font=fl, fill=WHITE)

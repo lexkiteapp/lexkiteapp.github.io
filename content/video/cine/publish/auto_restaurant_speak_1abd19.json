@@ -1,0 +1,74 @@
+{
+ "id": "auto_restaurant_speak_1abd19",
+ "scene": "restaurant",
+ "template": "speak",
+ "area": "pronunciation",
+ "cefr": "A1",
+ "point": "could i get the menu",
+ "series": "Restaurant English #5",
+ "title": "Say this at the restaurant: \"Could I get the menu, please?\"",
+ "description": "Say it out loud with Ama at the restaurant: \"Could I get the menu, please?\"\nComment your answer below and follow for daily English (Restaurant English #5).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_1abd19#/pron",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#restaurantenglish",
+  "#speakenglish",
+  "#pronunciation",
+  "#travelenglish",
+  "#esl"
+ ],
+ "video": "out/cine-auto-restaurant-speak-1abd19-en-v3.mp4",
+ "cover": "out/covers/cine-auto-restaurant-speak-1abd19-en-v3.jpg",
+ "ci_artifact": "cine-restaurant-11-14",
+ "run": "11-14",
+ "platforms": {
+  "tiktok": {
+   "title": "Say this at the restaurant: \"Could I get the menu, please?\"",
+   "caption": "Say it out loud with Ama at the restaurant: \"Could I get the menu, please?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_1abd19#/pron",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_1abd19#/pron",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#speakenglish",
+    "#pronunciation",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Say it out loud with Ama at the restaurant: \"Could I get the menu, please?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_1abd19#/pron\n#learnenglish #englishtips #restaurantenglish #speakenglish #pronunciation #travelenglish"
+  },
+  "reels": {
+   "title": "Say this at the restaurant: \"Could I get the menu, please?\"",
+   "caption": "Say it out loud with Ama at the restaurant: \"Could I get the menu, please?\"\nComment your answer below and follow for daily English (Restaurant English #5).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_1abd19#/pron",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_1abd19#/pron",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#speakenglish",
+    "#pronunciation",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Say it out loud with Ama at the restaurant: \"Could I get the menu, please?\"\nComment your answer below and follow for daily English (Restaurant English #5).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_1abd19#/pron\n#learnenglish #englishtips #restaurantenglish #speakenglish #pronunciation #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Say this at the restaurant: \"Could I get the menu, please?\"",
+   "caption": "Say it out loud with Ama at the restaurant: \"Could I get the menu, please?\"\nComment your answer below and follow for daily English (Restaurant English #5).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_1abd19#/pron",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_1abd19#/pron",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#speakenglish"
+   ],
+   "caption_with_tags": "Say it out loud with Ama at the restaurant: \"Could I get the menu, please?\"\nComment your answer below and follow for daily English (Restaurant English #5).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_1abd19#/pron\n#shorts #learnenglish #englishtips #restaurantenglish #speakenglish"
+  }
+ },
+ "slot": {
+  "date": "2026-10-31",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

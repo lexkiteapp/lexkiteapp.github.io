@@ -1,0 +1,237 @@
+{
+ "updated": "2026-10-21",
+ "per_day": 2,
+ "slots": [
+  "11:30",
+  "20:00"
+ ],
+ "tz": "Asia/Ho_Chi_Minh",
+ "rule": "2/day, scenes rotate, never the same scene twice in a row",
+ "platforms": [
+  "tiktok",
+  "reels",
+  "shorts"
+ ],
+ "posts": [
+  {
+   "n": 1,
+   "date": "2026-10-22",
+   "time": "11:30",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "auto_cafe_choose_3df65a",
+   "scene": "cafe",
+   "template": "choose",
+   "title": "How much is the latte? Listen once and choose!",
+   "pack": "content/video/cine/publish/auto_cafe_choose_3df65a.json"
+  },
+  {
+   "n": 2,
+   "date": "2026-10-22",
+   "time": "20:00",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "auto_hotel_fix_771182",
+   "scene": "hotel",
+   "template": "fix",
+   "title": "Don't say \"is\" here. Say \"does\"",
+   "pack": "content/video/cine/publish/auto_hotel_fix_771182.json"
+  },
+  {
+   "n": 3,
+   "date": "2026-10-23",
+   "time": "11:30",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "auto_airport_choose_6d1d79",
+   "scene": "airport",
+   "template": "choose",
+   "title": "Which gate? Listen once and choose!",
+   "pack": "content/video/cine/publish/auto_airport_choose_6d1d79.json"
+  },
+  {
+   "n": 4,
+   "date": "2026-10-23",
+   "time": "20:00",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "auto_restaurant_fix_fe9f7d",
+   "scene": "restaurant",
+   "template": "fix",
+   "title": "Don't say \"separate\" here. Say \"separately\"",
+   "pack": "content/video/cine/publish/auto_restaurant_fix_fe9f7d.json"
+  },
+  {
+   "n": 5,
+   "date": "2026-10-24",
+   "time": "11:30",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "auto_cafe_ladder_23332f",
+   "scene": "cafe",
+   "template": "ladder",
+   "title": "3 ways to ask for a latte in English",
+   "pack": "content/video/cine/publish/auto_cafe_ladder_23332f.json"
+  },
+  {
+   "n": 6,
+   "date": "2026-10-24",
+   "time": "20:00",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "auto_hotel_gap_73cde7",
+   "scene": "hotel",
+   "template": "gap",
+   "title": "One word is missing: \"Could I have an extra ___?\"",
+   "pack": "content/video/cine/publish/auto_hotel_gap_73cde7.json"
+  },
+  {
+   "n": 7,
+   "date": "2026-10-25",
+   "time": "11:30",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "auto_airport_gap_0f13c2",
+   "scene": "airport",
+   "template": "gap",
+   "title": "One word is missing: \"Could I have a window ___?\"",
+   "pack": "content/video/cine/publish/auto_airport_gap_0f13c2.json"
+  },
+  {
+   "n": 8,
+   "date": "2026-10-25",
+   "time": "20:00",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "auto_restaurant_mistake_ad8b8a",
+   "scene": "restaurant",
+   "template": "mistake",
+   "title": "Spot the mistake: \"A table for two persons, please.\"",
+   "pack": "content/video/cine/publish/auto_restaurant_mistake_ad8b8a.json"
+  },
+  {
+   "n": 9,
+   "date": "2026-10-26",
+   "time": "11:30",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "auto_cafe_mistake_f03f29",
+   "scene": "cafe",
+   "template": "mistake",
+   "title": "Spot the mistake: \"Can I have two cookie, please?\"",
+   "pack": "content/video/cine/publish/auto_cafe_mistake_f03f29.json"
+  },
+  {
+   "n": 10,
+   "date": "2026-10-26",
+   "time": "20:00",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "auto_hotel_quiz_3e3a2b",
+   "scene": "hotel",
+   "template": "quiz",
+   "title": "Which sounds polite? Hotel English quiz",
+   "pack": "content/video/cine/publish/auto_hotel_quiz_3e3a2b.json"
+  },
+  {
+   "n": 11,
+   "date": "2026-10-27",
+   "time": "11:30",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "auto_airport_ladder_8e0d40",
+   "scene": "airport",
+   "template": "ladder",
+   "title": "3 ways to ask for a window seat in English",
+   "pack": "content/video/cine/publish/auto_airport_ladder_8e0d40.json"
+  },
+  {
+   "n": 12,
+   "date": "2026-10-27",
+   "time": "20:00",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "auto_restaurant_pov_f12918",
+   "scene": "restaurant",
+   "template": "pov",
+   "title": "POV: \"Are you ready to order?\" What do you say?",
+   "pack": "content/video/cine/publish/auto_restaurant_pov_f12918.json"
+  },
+  {
+   "n": 13,
+   "date": "2026-10-28",
+   "time": "11:30",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "auto_cafe_series_f4edee",
+   "scene": "cafe",
+   "template": "series",
+   "title": "\"Would you like anything to eat?\" How would you answer?",
+   "pack": "content/video/cine/publish/auto_cafe_series_f4edee.json"
+  },
+  {
+   "n": 14,
+   "date": "2026-10-28",
+   "time": "20:00",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "auto_hotel_series_d53800",
+   "scene": "hotel",
+   "template": "series",
+   "title": "\"Is this your first time in London?\" How would you answer?",
+   "pack": "content/video/cine/publish/auto_hotel_series_d53800.json"
+  },
+  {
+   "n": 15,
+   "date": "2026-10-29",
+   "time": "11:30",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "auto_airport_mistake_c1d428",
+   "scene": "airport",
+   "template": "mistake",
+   "title": "Spot the mistake: \"Can I take this bag in board?\"",
+   "pack": "content/video/cine/publish/auto_airport_mistake_c1d428.json"
+  },
+  {
+   "n": 16,
+   "date": "2026-10-29",
+   "time": "20:00",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "auto_restaurant_quiz_34018e",
+   "scene": "restaurant",
+   "template": "quiz",
+   "title": "Which sounds polite? \"Bill!\" or \"Could we get the bill?\"",
+   "pack": "content/video/cine/publish/auto_restaurant_quiz_34018e.json"
+  },
+  {
+   "n": 17,
+   "date": "2026-10-30",
+   "time": "11:30",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "auto_cafe_speak_a2cae0",
+   "scene": "cafe",
+   "template": "speak",
+   "title": "Say this at the coffee shop: \"Could I get a latte, please?\"",
+   "pack": "content/video/cine/publish/auto_cafe_speak_a2cae0.json"
+  },
+  {
+   "n": 18,
+   "date": "2026-10-30",
+   "time": "20:00",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "auto_hotel_speak_bf125a",
+   "scene": "hotel",
+   "template": "speak",
+   "title": "Say this at the hotel: \"Could I get an extra towel, please?\"",
+   "pack": "content/video/cine/publish/auto_hotel_speak_bf125a.json"
+  },
+  {
+   "n": 19,
+   "date": "2026-10-31",
+   "time": "11:30",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "auto_airport_pov_99dfe2",
+   "scene": "airport",
+   "template": "pov",
+   "title": "POV: \"Do you have any bags to check?\" What do you say?",
+   "pack": "content/video/cine/publish/auto_airport_pov_99dfe2.json"
+  },
+  {
+   "n": 20,
+   "date": "2026-10-31",
+   "time": "20:00",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "auto_restaurant_speak_1abd19",
+   "scene": "restaurant",
+   "template": "speak",
+   "title": "Say this at the restaurant: \"Could I get the menu, please?\"",
+   "pack": "content/video/cine/publish/auto_restaurant_speak_1abd19.json"
+  }
+ ]
+}
