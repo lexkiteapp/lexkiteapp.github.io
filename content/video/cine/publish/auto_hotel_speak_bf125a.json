@@ -17,8 +17,9 @@
   "#travelenglish",
   "#esl"
  ],
- "video": "out/cine-auto-hotel-speak-bf125a-en-v3.mp4",
- "cover": "out/covers/cine-auto-hotel-speak-bf125a-en-v3.jpg",
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/hotel/auto_hotel_speak_bf125a/cine-auto-hotel-speak-bf125a-en-v3.mp4",
+ "cover": "shorts/hotel/auto_hotel_speak_bf125a/cine-auto-hotel-speak-bf125a-en-v3.jpg",
  "ci_artifact": "cine-hotel-11-14",
  "run": "11-14",
  "platforms": {

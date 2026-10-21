@@ -17,8 +17,9 @@
   "#travelenglish",
   "#esl"
  ],
- "video": "out/cine-auto-cafe-speak-4cbd1a-en-v3.mp4",
- "cover": "out/covers/cine-auto-cafe-speak-4cbd1a-en-v3.jpg",
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/cafe/auto_cafe_speak_4cbd1a/cine-auto-cafe-speak-4cbd1a-en-v3.mp4",
+ "cover": "shorts/cafe/auto_cafe_speak_4cbd1a/cine-auto-cafe-speak-4cbd1a-en-v3.jpg",
  "ci_artifact": "cine-cafe-16",
  "run": "16",
  "platforms": {

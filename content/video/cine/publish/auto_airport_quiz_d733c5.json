@@ -17,8 +17,9 @@
   "#travelenglish",
   "#esl"
  ],
- "video": "out/cine-auto-airport-quiz-d733c5-en-v3.mp4",
- "cover": "out/covers/cine-auto-airport-quiz-d733c5-en-v3.jpg",
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/airport/auto_airport_quiz_d733c5/cine-auto-airport-quiz-d733c5-en-v3.mp4",
+ "cover": "shorts/airport/auto_airport_quiz_d733c5/cine-auto-airport-quiz-d733c5-en-v3.jpg",
  "ci_artifact": "cine-airport-18",
  "run": "18",
  "platforms": {

@@ -17,8 +17,9 @@
   "#travelenglish",
   "#esl"
  ],
- "video": "out/cine-auto-cafe-quiz-8215eb-en-v3.mp4",
- "cover": "out/covers/cine-auto-cafe-quiz-8215eb-en-v3.jpg",
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/cafe/auto_cafe_quiz_8215eb/cine-auto-cafe-quiz-8215eb-en-v3.mp4",
+ "cover": "shorts/cafe/auto_cafe_quiz_8215eb/cine-auto-cafe-quiz-8215eb-en-v3.jpg",
  "ci_artifact": "cine-cafe-16",
  "run": "16",
  "platforms": {

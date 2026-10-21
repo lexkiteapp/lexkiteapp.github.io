@@ -17,8 +17,9 @@
   "#travelenglish",
   "#esl"
  ],
- "video": "out/cine-auto-restaurant-mistake-2f135b-en-v3.mp4",
- "cover": "out/covers/cine-auto-restaurant-mistake-2f135b-en-v3.jpg",
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/restaurant/auto_restaurant_mistake_2f135b/cine-auto-restaurant-mistake-2f135b-en-v3.mp4",
+ "cover": "shorts/restaurant/auto_restaurant_mistake_2f135b/cine-auto-restaurant-mistake-2f135b-en-v3.jpg",
  "ci_artifact": "cine-restaurant-21",
  "run": "21",
  "platforms": {

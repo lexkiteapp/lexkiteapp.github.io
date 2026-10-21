@@ -17,8 +17,9 @@
   "#travelenglish",
   "#esl"
  ],
- "video": "out/cine-auto-airport-gap-608579-en-v3.mp4",
- "cover": "out/covers/cine-auto-airport-gap-608579-en-v3.jpg",
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/airport/auto_airport_gap_608579/cine-auto-airport-gap-608579-en-v3.mp4",
+ "cover": "shorts/airport/auto_airport_gap_608579/cine-auto-airport-gap-608579-en-v3.jpg",
  "ci_artifact": "cine-airport-17",
  "run": "17",
  "platforms": {

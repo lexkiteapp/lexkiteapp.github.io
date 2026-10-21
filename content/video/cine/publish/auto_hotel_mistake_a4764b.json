@@ -17,8 +17,9 @@
   "#travelenglish",
   "#esl"
  ],
- "video": "out/cine-auto-hotel-mistake-a4764b-en-v3.mp4",
- "cover": "out/covers/cine-auto-hotel-mistake-a4764b-en-v3.jpg",
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/hotel/auto_hotel_mistake_a4764b/cine-auto-hotel-mistake-a4764b-en-v3.mp4",
+ "cover": "shorts/hotel/auto_hotel_mistake_a4764b/cine-auto-hotel-mistake-a4764b-en-v3.jpg",
  "ci_artifact": "cine-hotel-19",
  "run": "19",
  "platforms": {

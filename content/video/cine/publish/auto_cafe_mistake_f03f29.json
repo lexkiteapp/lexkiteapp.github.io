@@ -17,8 +17,9 @@
   "#travelenglish",
   "#esl"
  ],
- "video": "out/cine-auto-cafe-mistake-f03f29-en-v3.mp4",
- "cover": "out/covers/cine-auto-cafe-mistake-f03f29-en-v3.jpg",
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/cafe/auto_cafe_mistake_f03f29/cine-auto-cafe-mistake-f03f29-en-v3.mp4",
+ "cover": "shorts/cafe/auto_cafe_mistake_f03f29/cine-auto-cafe-mistake-f03f29-en-v3.jpg",
  "ci_artifact": "cine-cafe-11-14",
  "run": "11-14",
  "platforms": {

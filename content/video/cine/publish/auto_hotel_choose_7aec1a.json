@@ -17,8 +17,9 @@
   "#travelenglish",
   "#esl"
  ],
- "video": "out/cine-auto-hotel-choose-7aec1a-en-v3.mp4",
- "cover": "out/covers/cine-auto-hotel-choose-7aec1a-en-v3.jpg",
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/hotel/auto_hotel_choose_7aec1a/cine-auto-hotel-choose-7aec1a-en-v3.mp4",
+ "cover": "shorts/hotel/auto_hotel_choose_7aec1a/cine-auto-hotel-choose-7aec1a-en-v3.jpg",
  "ci_artifact": "cine-hotel-19",
  "run": "19",
  "platforms": {

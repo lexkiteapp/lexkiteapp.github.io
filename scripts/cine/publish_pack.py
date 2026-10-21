@@ -6,7 +6,7 @@
 For every ledger point with status 'rendered' (content/video/cine/used.json, set by gen_lessons.py --mark-rendered after qa5 ALL PASS):
   content/video/cine/publish/<id>.json  title (<= 60 chars, hook-style, built only from the lesson's own text), description (2-3 lines +
   "Practice free on lexkite.com" + feature deep link with per-platform UTM), 5-8 hashtags, TikTok/Reels/Shorts variants, video + cover path
-  (CI artifact cine-<scene>-<run>), posting slot.
+  (CI artifact cine-<scene>-<run>), posting slot. Video/cover paths point into the durable store (private repo lexkiteapp/lexkite-shorts, scripts/cine/store_shorts.py).
   content/video/cine/publish/calendar.json  2 posts/day, scenes rotate (never the same scene twice in a row), templates spread.
 Posting itself needs the owner's accounts (not automated here).
 """
@@ -90,7 +90,8 @@ def main():
                              caption_with_tags='\n'.join(d + ['Practice free on lexkite.com', link, ' '.join(tg)]))
         packs[lid] = dict(id=lid, scene=sc, template=x['tpl'], area=x['meta']['area'], cefr=x['meta']['cefr'], point=x['point'], series=x['series'],
                           title=ti, description='\n'.join(dl + ['Practice free on lexkite.com', utm(eco['link'], 'social', sc, lid)]), hashtags=tags(sc, x, 7),
-                          video=f'out/{name}.mp4', cover=f'out/covers/{name}.jpg', ci_artifact=art, run=p.get('run'), platforms=plats)
+                          store='github:lexkiteapp/lexkite-shorts', video=f'shorts/{sc}/{lid}/{name}.mp4', cover=f'shorts/{sc}/{lid}/{name}.jpg', ci_artifact=art,   # durable copy (store_shorts.py); artifact expires after 14 days
+                           run=p.get('run'), platforms=plats)
     # calendar: 2/day, never the same scene twice in a row, rotate templates inside each scene
     Q = {}
     for lid, pk in packs.items(): Q.setdefault(pk['scene'], []).append(pk)
