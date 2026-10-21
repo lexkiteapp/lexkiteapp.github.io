@@ -628,7 +628,7 @@
       "key": "footage-backup",
       "name": "GitHub repo riêng tư lexkiteapp/lexkite-footage",
       "kind": "storage",
-      "purpose": "Sao lưu kho footage điện ảnh (brand/library/cine: clip Kling không watermark, dl24, bộ miệng/đường bám, giọng, bank.json, công cụ dựng bài) – không nằm trong repo công khai. Chạy scripts/footage-backup.sh sau mỗi lần thêm cảnh/bài.",
+      "purpose": "Sao lưu kho footage điện ảnh (brand/library/cine: clip Kling không watermark, dl24, bộ miệng/đường bám, giọng, bank.json, công cụ dựng bài) – không nằm trong repo công khai. Chạy scripts/footage-backup.sh sau mỗi lần thêm cảnh/bài. CI dựng bài: .github/workflows/cine-render.yml (builder scripts/cine/) clone sparse theo cảnh qua deploy key CHỈ-ĐỌC 'cine-render CI' (khóa công khai trên lexkite-footage, khóa riêng = secret FOOTAGE_DEPLOY_KEY của repo công khai; đổi khóa: tạo cặp mới, thay cả hai).",
       "console": "https://github.com/lexkiteapp/lexkite-footage",
       "free": "Repo riêng tư miễn phí (khuyến nghị < 5 GB; file < 100 MB)",
       "upgrade": "Vượt ~5 GB: chuyển sang R2 (10 GB miễn phí)",

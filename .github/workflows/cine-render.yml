@@ -1,0 +1,114 @@
+# Dựng video điện ảnh (cine) trên CI – Mac không render nữa (docs/VIDEO-SYSTEM-PLAN.md mục 2, docs/CINE-SCENE-STANDARD.md "Dựng trên CI").
+# Footage chỉ nằm ở repo RIÊNG TƯ lexkiteapp/lexkite-footage: lấy bằng deploy key chỉ-đọc (secret FOOTAGE_DEPLOY_KEY), sparse theo cảnh.
+# Builder: scripts/cine/ (lesson5 + tpl_styles + qa5 + lipsync + foley). 0 credit.
+name: cine-render
+on:
+  workflow_dispatch:
+    inputs:
+      scene:
+        description: 'Kho cảnh (hotel | cafe | airport | restaurant | anchor)'
+        required: true
+        default: hotel
+      lessons:
+        description: "Danh sách bài, phẩy ngăn cách ('hotel_tpl_choose,hotel_1:vi' – ':lang' ghi đè ngôn ngữ) hoặc 'all'"
+        required: true
+        default: all
+      lang:
+        description: 'Ngôn ngữ mặc định (locale content/video/cine/locales/<bài>.<lang>.json)'
+        required: false
+        default: en
+      viral:
+        description: 'Viral bật = luật mặc định của lesson5 (tiếng Anh + bài có VIRAL_HOOK → viral; ngôn ngữ khác → bản thường); tắt = ép bản thường'
+        type: boolean
+        default: true
+      outsuf:
+        description: 'Hậu tố tên file bản viral'
+        required: false
+        default: '-v3'
+permissions:
+  contents: read
+concurrency:
+  group: cine-render-${{ github.event.inputs.scene }}
+  cancel-in-progress: false
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      CINE_THREADS: '0'            # CI: dùng hết nhân
+      CINE_ROOT: ${{ github.workspace }}
+      CINE_OUT: ${{ github.workspace }}/out
+      CINE_LIB: ${{ github.workspace }}/footage
+      OUTSUF: ${{ github.event.inputs.outsuf }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: scripts/cine/requirements.txt
+      - name: Cài thư viện + ffmpeg
+        run: |
+          pip install -q -r scripts/cine/requirements.txt
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          ffmpeg -hide_banner -version | head -1
+      - name: Lấy footage (repo riêng tư, sparse theo cảnh)
+        env:
+          KEY: ${{ secrets.FOOTAGE_DEPLOY_KEY }}
+          SCENE: ${{ github.event.inputs.scene }}
+        run: |
+          [ -n "$KEY" ] || { echo "::error::thiếu secret FOOTAGE_DEPLOY_KEY"; exit 1; }
+          case "$SCENE" in *[!a-z0-9_-]*|'') echo "::error::scene không hợp lệ"; exit 1;; esac
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
+          git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
+          EXTRA=""; [ "$SCENE" = anchor ] && EXTRA="cafe hotel airport restaurant"   # anchor: B-roll 'bank:clip' từ 4 kho
+          git -C footage sparse-checkout set "$SCENE" hotel/tools/end hotel/tools/foley $EXTRA
+          git -C footage checkout -q
+          rm -f ~/.ssh/footage
+          du -sh footage
+      - name: Dựng + QA
+        env:
+          SCENE: ${{ github.event.inputs.scene }}
+          LESSONS: ${{ github.event.inputs.lessons }}
+          LANG_DEF: ${{ github.event.inputs.lang }}
+        run: |
+          set -o pipefail
+          [ "${{ github.event.inputs.viral }}" = true ] || export VIRAL=0
+          export CINE_SCENE_DIR="$(bash scripts/cine/prep_scene.sh footage "$SCENE")"
+          mkdir -p out/qa
+          if [ "$LESSONS" = all ]; then
+            LESSONS=$(cd "$CINE_SCENE_DIR/lessons" && ls *.py | grep -v '^_' | sed 's/\.py$//' | paste -sd, -)
+          fi
+          fail=0; n=0
+          for item in ${LESSONS//,/ }; do
+            lid=${item%%:*}; lang=$LANG_DEF; [ "$item" != "$lid" ] && lang=${item#*:}
+            case "$lid$lang" in *[!a-z0-9_]*) echo "::error::tên bài không hợp lệ: $item"; fail=1; continue;; esac
+            if [ ! -f "content/video/cine/locales/$lid.$lang.json" ]; then echo "::warning::bỏ qua $lid ($lang): chưa có locale"; continue; fi
+            echo "::group::$lid ($lang)"; n=$((n+1))
+            if python scripts/cine/lesson5.py "$lang" "$lid" 2>&1 | tee "out/qa/build_${lid}_${lang}.log"; then
+              rd=$(ls -td "$CINE_SCENE_DIR"/render5_${lid}_${lang}* | head -1)
+              cp "$rd/timeline.json" "out/qa/timeline_$(basename "$rd").json"
+              python scripts/cine/qa5.py "$(basename "$rd")" > "out/qa/qa_$(basename "$rd").log" 2>&1 || fail=1
+              tail -1 "out/qa/qa_$(basename "$rd").log"
+              grep -E 'FAIL' "out/qa/qa_$(basename "$rd").log" | head -20 || true
+            else fail=1; fi
+            echo "::endgroup::"
+          done
+          echo "## cine-render: $SCENE" >> $GITHUB_STEP_SUMMARY
+          for f in out/*.mp4; do [ -f "$f" ] && echo "- $(basename "$f"): $(ffprobe -v error -show_entries format=duration -of csv=p=0 "$f") s" >> $GITHUB_STEP_SUMMARY; done
+          for f in out/qa/qa_*.log; do [ -f "$f" ] && echo "- $(basename "$f"): $(tail -1 "$f")" >> $GITHUB_STEP_SUMMARY; done
+          [ $n -gt 0 ] || { echo "::error::không dựng bài nào"; exit 1; }
+          exit $fail
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cine-${{ github.event.inputs.scene }}-${{ github.run_number }}
+          path: |
+            out/*.mp4
+            out/covers/*.jpg
+            out/qa/
+          retention-days: 14
+          if-no-files-found: warn
