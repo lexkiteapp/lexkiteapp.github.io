@@ -18,12 +18,16 @@
     "hotel",
     "restaurant"
    ],
-   "generated": 2,
+   "generated": 11,
    "rendered": 2,
    "by_cefr": {
     "A1": {
-     "generated": 2,
+     "generated": 10,
      "rendered": 2
+    },
+    "B2": {
+     "generated": 1,
+     "rendered": 0
     }
    },
    "gap": 3
@@ -36,11 +40,11 @@
     "hotel",
     "restaurant"
    ],
-   "generated": 2,
+   "generated": 12,
    "rendered": 2,
    "by_cefr": {
     "A2": {
-     "generated": 2,
+     "generated": 12,
      "rendered": 2
     }
    },
@@ -54,11 +58,11 @@
     "hotel",
     "restaurant"
    ],
-   "generated": 3,
+   "generated": 14,
    "rendered": 3,
    "by_cefr": {
     "A2": {
-     "generated": 3,
+     "generated": 14,
      "rendered": 3
     }
    },
@@ -80,12 +84,16 @@
     "hotel",
     "restaurant"
    ],
-   "generated": 2,
+   "generated": 10,
    "rendered": 2,
    "by_cefr": {
     "A2": {
-     "generated": 2,
+     "generated": 9,
      "rendered": 2
+    },
+    "B2": {
+     "generated": 1,
+     "rendered": 0
     }
    },
    "gap": 3
@@ -93,25 +101,34 @@
   "word-usage": {
    "label": "Confusing words (word usage)",
    "scenes": [
-    "airport"
+    "airport",
+    "cafe",
+    "hotel",
+    "restaurant"
    ],
-   "generated": 0,
+   "generated": 5,
    "rendered": 0,
-   "by_cefr": {},
+   "by_cefr": {
+    "A2": {
+     "generated": 5,
+     "rendered": 0
+    }
+   },
    "gap": 5
   },
   "paraphrase": {
    "label": "Paraphrase trainer",
    "scenes": [
+    "airport",
     "cafe",
     "hotel",
     "restaurant"
    ],
-   "generated": 2,
+   "generated": 5,
    "rendered": 2,
    "by_cefr": {
     "A2": {
-     "generated": 2,
+     "generated": 5,
      "rendered": 2
     }
    },
@@ -125,11 +142,11 @@
     "hotel",
     "restaurant"
    ],
-   "generated": 3,
+   "generated": 5,
    "rendered": 3,
    "by_cefr": {
     "A1": {
-     "generated": 3,
+     "generated": 5,
      "rendered": 3
     }
    },
@@ -143,9 +160,14 @@
     "hotel",
     "restaurant"
    ],
-   "generated": 0,
+   "generated": 7,
    "rendered": 0,
-   "by_cefr": {},
+   "by_cefr": {
+    "A1": {
+     "generated": 7,
+     "rendered": 0
+    }
+   },
    "gap": 5
   },
   "roleplay": {
@@ -156,12 +178,16 @@
     "hotel",
     "restaurant"
    ],
-   "generated": 4,
+   "generated": 23,
    "rendered": 4,
    "by_cefr": {
     "A2": {
-     "generated": 4,
+     "generated": 21,
      "rendered": 4
+    },
+    "B1": {
+     "generated": 2,
+     "rendered": 0
     }
    },
    "gap": 1
@@ -174,11 +200,11 @@
     "hotel",
     "restaurant"
    ],
-   "generated": 2,
+   "generated": 8,
    "rendered": 2,
    "by_cefr": {
     "A2": {
-     "generated": 2,
+     "generated": 8,
      "rendered": 2
     }
    },

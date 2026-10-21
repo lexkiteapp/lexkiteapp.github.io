@@ -41,11 +41,6 @@
    "text": "What time does breakfast finish?"
   },
   {
-   "id": "gh_3c039bef",
-   "who": "ama",
-   "text": "Could I get some more towels, please?"
-  },
-  {
    "id": "gh_20c439f8",
    "who": "ama",
    "text": "Could I have an extra towel?"
@@ -60,6 +55,253 @@
     "word": "towel",
     "prefix": "Could I have an extra"
    }
+  },
+  {
+   "id": "gh_06628b9a",
+   "who": "daniel",
+   "text": "How was your flight?"
+  },
+  {
+   "id": "gh_87bca716",
+   "who": "ama",
+   "text": "Long, but it was okay. Thanks!"
+  },
+  {
+   "id": "gh_ad37a57c",
+   "who": "daniel",
+   "text": "Glad you made it safely."
+  },
+  {
+   "id": "gh_58025bf7",
+   "who": "ama",
+   "text": "Could you call a taxi for me?"
+  },
+  {
+   "id": "gh_09d41601",
+   "who": "daniel",
+   "text": "Of course. It'll be here soon."
+  },
+  {
+   "id": "gh_64daecd8",
+   "who": "daniel",
+   "text": "The pool is open from seven until nine."
+  },
+  {
+   "id": "gh_b9f9113b",
+   "who": "ama",
+   "text": "My room is on the fifth floor."
+  },
+  {
+   "id": "gh_cf402839",
+   "who": "daniel",
+   "text": "Is everything okay?"
+  },
+  {
+   "id": "gh_0557a08e",
+   "who": "ama",
+   "text": "The shower don't have hot water."
+  },
+  {
+   "id": "gh_f4c15c47",
+   "who": "ama",
+   "text": "The shower doesn't have hot water."
+  },
+  {
+   "id": "gh_155f683c",
+   "who": "daniel",
+   "text": "How many nights are you staying?"
+  },
+  {
+   "id": "gh_994e9ebe",
+   "who": "ama",
+   "text": "I'm staying for three nights."
+  },
+  {
+   "id": "gh_e2465f02",
+   "who": "daniel",
+   "text": "Good evening. How can I help?"
+  },
+  {
+   "id": "gh_ed4cc426",
+   "who": "ama",
+   "text": "The air conditioning doesn't working."
+  },
+  {
+   "id": "gh_84991c11",
+   "who": "ama",
+   "text": "The air conditioning isn't working."
+  },
+  {
+   "id": "gh_14aa6596",
+   "who": "ama",
+   "text": "Could I possibly have an extra towel?"
+  },
+  {
+   "id": "gh_5df95b6e",
+   "who": "ama",
+   "text": "Can I have an extra towel, please?"
+  },
+  {
+   "id": "gh_d1d34361",
+   "who": "ama",
+   "text": "An extra towel, please."
+  },
+  {
+   "id": "gh_66a21663",
+   "who": "ama",
+   "text": "Could I have a wake-up call?"
+  },
+  {
+   "id": "gh_66a21663_gap",
+   "who": "ama",
+   "text": "Could I have a wake-up call?",
+   "derived": "auto-gap",
+   "gap": {
+    "src": "gh_66a21663",
+    "word": "call",
+    "prefix": "Could I have a wake-up"
+   }
+  },
+  {
+   "id": "gh_5b45b52a",
+   "who": "daniel",
+   "text": "How would you like to pay today?"
+  },
+  {
+   "id": "gh_00e7525a",
+   "who": "ama",
+   "text": "I'd like to pay by card."
+  },
+  {
+   "id": "gh_bfa83a8b",
+   "who": "ama",
+   "text": "Is there a pharmacy near here?"
+  },
+  {
+   "id": "gh_26bbce69",
+   "who": "daniel",
+   "text": "Yes, there's one on the corner."
+  },
+  {
+   "id": "gh_f33cfb0a",
+   "who": "daniel",
+   "text": "How long are you staying?"
+  },
+  {
+   "id": "gh_4afe3cea",
+   "who": "ama",
+   "text": "I'm staying during three nights."
+  },
+  {
+   "id": "gh_85ff4c12",
+   "who": "ama",
+   "text": "Could I change rooms, please?"
+  },
+  {
+   "id": "gh_fd32c116",
+   "who": "ama",
+   "text": "Could I possibly have a wake-up call?"
+  },
+  {
+   "id": "gh_2068e588",
+   "who": "ama",
+   "text": "Can I have a wake-up call, please?"
+  },
+  {
+   "id": "gh_ddb0682b",
+   "who": "ama",
+   "text": "A wake-up call, please."
+  },
+  {
+   "id": "gh_6d158713",
+   "who": "ama",
+   "text": "Could I have another pillow?"
+  },
+  {
+   "id": "gh_6d158713_gap",
+   "who": "ama",
+   "text": "Could I have another pillow?",
+   "derived": "auto-gap",
+   "gap": {
+    "src": "gh_6d158713",
+    "word": "pillow",
+    "prefix": "Could I have another"
+   }
+  },
+  {
+   "id": "gh_998750b1",
+   "who": "daniel",
+   "text": "Did you enjoy your stay?"
+  },
+  {
+   "id": "gh_662d401b",
+   "who": "ama",
+   "text": "Yes, we loved it. Thank you!"
+  },
+  {
+   "id": "gh_56f8f683",
+   "who": "daniel",
+   "text": "Come back anytime!"
+  },
+  {
+   "id": "gh_8d204a0f",
+   "who": "daniel",
+   "text": "Is everything okay with the room?"
+  },
+  {
+   "id": "gh_361c5443",
+   "who": "ama",
+   "text": "Can I have two towel, please?"
+  },
+  {
+   "id": "gh_0cedbb85",
+   "who": "ama",
+   "text": "Can I have two towels, please?"
+  },
+  {
+   "id": "gh_c6e76824",
+   "who": "daniel",
+   "text": "Can I see your ID, please?"
+  },
+  {
+   "id": "gh_76f93355",
+   "who": "ama",
+   "text": "Sure, here's my passport."
+  },
+  {
+   "id": "gh_8c52be13",
+   "who": "daniel",
+   "text": "How was your night?"
+  },
+  {
+   "id": "gh_4c3a9e01",
+   "who": "ama",
+   "text": "I didn't sleep good."
+  },
+  {
+   "id": "gh_6525ca40",
+   "who": "ama",
+   "text": "I didn't sleep well."
+  },
+  {
+   "id": "gh_ab71f3cd",
+   "who": "daniel",
+   "text": "Can I help you?"
+  },
+  {
+   "id": "gh_22a0fcff",
+   "who": "ama",
+   "text": "I left my key into the room."
+  },
+  {
+   "id": "gh_7aa606ad",
+   "who": "ama",
+   "text": "I left my key in the room."
+  },
+  {
+   "id": "gh_3c039bef",
+   "who": "ama",
+   "text": "Could I get some more towels, please?"
   }
  ]
 }

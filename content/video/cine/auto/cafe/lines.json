@@ -59,6 +59,244 @@
    "id": "gc_6cec4253",
    "who": "carlos",
    "text": "Sure! Coming right up."
+  },
+  {
+   "id": "gc_f87a6218",
+   "who": "ama",
+   "text": "Could I possibly have a cappuccino?"
+  },
+  {
+   "id": "gc_7e3106ba",
+   "who": "ama",
+   "text": "Can I have a cappuccino, please?"
+  },
+  {
+   "id": "gc_9f13b2f7",
+   "who": "ama",
+   "text": "A cappuccino, please."
+  },
+  {
+   "id": "gc_14a8d69d",
+   "who": "carlos",
+   "text": "What can I get you today?"
+  },
+  {
+   "id": "gc_d8140206",
+   "who": "ama",
+   "text": "I'd like a coffee with milks."
+  },
+  {
+   "id": "gc_c76ffddb",
+   "who": "ama",
+   "text": "I'd like a coffee with milk."
+  },
+  {
+   "id": "gc_78bbb4eb",
+   "who": "ama",
+   "text": "Could I have a latte?"
+  },
+  {
+   "id": "gc_78bbb4eb_gap",
+   "who": "ama",
+   "text": "Could I have a latte?",
+   "derived": "auto-gap",
+   "gap": {
+    "src": "gc_78bbb4eb",
+    "word": "latte",
+    "prefix": "Could I have a"
+   }
+  },
+  {
+   "id": "gc_e83d946c",
+   "who": "ama",
+   "text": "Could I get the Wi-Fi password?"
+  },
+  {
+   "id": "gc_72adc351",
+   "who": "carlos",
+   "text": "Sure, it's on your receipt."
+  },
+  {
+   "id": "gc_19f92e3a",
+   "who": "carlos",
+   "text": "Anything else for you?"
+  },
+  {
+   "id": "gc_095caa4d",
+   "who": "ama",
+   "text": "How much is it cost?"
+  },
+  {
+   "id": "gc_d15f47a7",
+   "who": "ama",
+   "text": "How much does it cost?"
+  },
+  {
+   "id": "gc_2c97c9f9",
+   "who": "ama",
+   "text": "Excuse me, can I sit here?"
+  },
+  {
+   "id": "gc_da1c3ace",
+   "who": "carlos",
+   "text": "Did you have a good weekend?"
+  },
+  {
+   "id": "gc_27be6f19",
+   "who": "ama",
+   "text": "Yes, it was great. And you?"
+  },
+  {
+   "id": "gc_69b0adef",
+   "who": "carlos",
+   "text": "Pretty good, thanks!"
+  },
+  {
+   "id": "gc_60da62e7",
+   "who": "ama",
+   "text": "Could I possibly have a hot chocolate?"
+  },
+  {
+   "id": "gc_809454f9",
+   "who": "ama",
+   "text": "Can I have a hot chocolate, please?"
+  },
+  {
+   "id": "gc_de9642e3",
+   "who": "ama",
+   "text": "A hot chocolate, please."
+  },
+  {
+   "id": "gc_fa38010b",
+   "who": "carlos",
+   "text": "That comes to six dollars and eighty cents."
+  },
+  {
+   "id": "gc_f7b7cba0",
+   "who": "carlos",
+   "text": "Where are you sitting?"
+  },
+  {
+   "id": "gc_aec25641",
+   "who": "ama",
+   "text": "We're sitting in the window."
+  },
+  {
+   "id": "gc_b5dfa666",
+   "who": "ama",
+   "text": "We're sitting by the window."
+  },
+  {
+   "id": "gc_423b991e",
+   "who": "carlos",
+   "text": "Would you like room for milk?"
+  },
+  {
+   "id": "gc_9f12e9dd",
+   "who": "ama",
+   "text": "Yes, just a little, please."
+  },
+  {
+   "id": "gc_5bafa9ef",
+   "who": "carlos",
+   "text": "You got it."
+  },
+  {
+   "id": "gc_3236b46b",
+   "who": "ama",
+   "text": "Can I get this to go?"
+  },
+  {
+   "id": "gc_fc2de680",
+   "who": "carlos",
+   "text": "Of course! Here you go."
+  },
+  {
+   "id": "gc_c35be20c",
+   "who": "carlos",
+   "text": "How was your coffee?"
+  },
+  {
+   "id": "gc_dc21e3f2",
+   "who": "ama",
+   "text": "It was very delicious, thanks."
+  },
+  {
+   "id": "gc_59362a3b",
+   "who": "ama",
+   "text": "It was really delicious, thanks."
+  },
+  {
+   "id": "gc_d93fe160",
+   "who": "ama",
+   "text": "Could I have a cappuccino?"
+  },
+  {
+   "id": "gc_d93fe160_gap",
+   "who": "ama",
+   "text": "Could I have a cappuccino?",
+   "derived": "auto-gap",
+   "gap": {
+    "src": "gc_d93fe160",
+    "word": "cappuccino",
+    "prefix": "Could I have a"
+   }
+  },
+  {
+   "id": "gc_e5f21677",
+   "who": "ama",
+   "text": "Could I get a refill, please?"
+  },
+  {
+   "id": "gc_135ba281",
+   "who": "ama",
+   "text": "Could I have a hot chocolate?"
+  },
+  {
+   "id": "gc_135ba281_gap",
+   "who": "ama",
+   "text": "Could I have a hot chocolate?",
+   "derived": "auto-gap",
+   "gap": {
+    "src": "gc_135ba281",
+    "word": "chocolate",
+    "prefix": "Could I have a hot"
+   }
+  },
+  {
+   "id": "gc_44ef0868",
+   "who": "carlos",
+   "text": "Did you order already?"
+  },
+  {
+   "id": "gc_bc075f02",
+   "who": "ama",
+   "text": "Yes, I order a latte."
+  },
+  {
+   "id": "gc_ffe15edd",
+   "who": "ama",
+   "text": "Yes, I ordered a latte."
+  },
+  {
+   "id": "gc_6ed79425",
+   "who": "carlos",
+   "text": "Your large iced coffee is ready over there."
+  },
+  {
+   "id": "gc_10e69257",
+   "who": "carlos",
+   "text": "Do you have a reward card?"
+  },
+  {
+   "id": "gc_eb72f0e4",
+   "who": "ama",
+   "text": "No, I don't have it."
+  },
+  {
+   "id": "gc_b9e41deb",
+   "who": "ama",
+   "text": "No, I don't have one."
   }
  ]
 }

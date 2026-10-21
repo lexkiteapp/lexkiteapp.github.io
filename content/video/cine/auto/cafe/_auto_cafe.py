@@ -12,6 +12,7 @@ MCU = 'c10_ama_mcu_talk'
 OOPS = 'c07_ots_ama_react'
 THX = 'c06_ots_ama_talk_b'
 BW = 'carlos'; FD = D + '/foley/'; CONTRAST_Y = 900; BADGE_Y = 240; CHOICE_Y = 1040; HOOK_Y = 250; LADDER_Y = 250; POV_Y = 232
+CARD_MIN_FS = 52   # 22/10: every card/chip text >= 52 px (tpl_styles MF), cards grow; place.py + qa5 keep the no-overlap rules
 RING_EXTRA = {'ring': 1080}; FOOT_EXTRA = {}; LADDER_ROW = 112; RING_MINH = 160; CHOICE_ROW = 86; CHOICE_PAD = 20   # compact cards: fit between big faces and the caption band
 SERIES_SHOTS = ('loop',); SERIES_ALIGN = 'left'; SERIES_Y = 240   # default spots only: lesson5's placer (place.py) moves any card off faces / other cards
 VHOOK_BOX = (60, 236, 520, 442); AVOID = {MASTER: [[83, 479, 478, 883], [0, 810, 612, 1920], [550, 181, 792, 504], [470, 466, 872, 1920]]}

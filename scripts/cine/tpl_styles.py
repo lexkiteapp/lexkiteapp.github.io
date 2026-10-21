@@ -1,5 +1,6 @@
 # Overlay styles for the 5 template lessons (spec: content/video/cine/templates.md). exec'd inside lesson5.py (uses its globals).
 # Each fn(im, dr, txt, sub) draws on the 1080x1920 RGBA layer and returns the bbox [x0, y0, x1, y1].
+MF = lambda n: max(n, globals().get('CARD_MIN_FS', 0))   # auto lessons: CARD_MIN_FS = 52 (owner 22/10: cards too small on phones)
 TPL_CAP_FS = globals().get('TPL_CAP_FS', 66 if VIRAL else 52)   # Gap/Strike caption size (viral: bigger, CapCut-like)
 INK = (42, 43, 51, 255); CREAM = (255, 247, 234, 248); GOLD = (255, 201, 74, 255); WHITE = (255, 255, 255, 255); STROKE = (20, 24, 32, 255)
 def _tick(dr, cx, cy, r, col, w=8): dr.line([cx - r, cy, cx - r * 0.3, cy + r * 0.7, cx + r, cy - r * 0.7], fill=col, width=w, joint='curve')
@@ -15,18 +16,18 @@ def _words_line(dr, l, fe, special, wfn):
     for w, wd in zip(ws, wid): out.append((w, x, wd)); x += wd + sp
     return out
 def st_choice(im, dr, txt, sub):
-    q, *opts, ans = txt.split('|'); fq = ImageFont.truetype(FONT_EN, 48); fo = ImageFont.truetype(FONT_EN, 44)
+    q, *opts, ans = txt.split('|'); fq = ImageFont.truetype(FONT_EN, MF(48)); fo = ImageFont.truetype(FONT_EN, MF(44)); QL = fq.size + 12
     lq = wrapw(dr, q, fq, MAXW - 64); assert len(lq) <= 2 and len(opts) in (2, 3), txt   # 3 = listen & choose, 2 = A/B quiz
-    y0 = globals().get('CHOICE_Y', 1040); pad = globals().get('CHOICE_PAD', 26); OR = globals().get('CHOICE_ROW', 96); h = pad + 60 * len(lq) + 18 + len(opts) * OR + (len(opts) - 1) * 18 + pad; x0 = SAFE['x0']   # auto lessons: compact rows
+    y0 = globals().get('CHOICE_Y', 1040); pad = globals().get('CHOICE_PAD', 26); OR = globals().get('CHOICE_ROW', 96); h = pad + QL * len(lq) + 18 + len(opts) * OR + (len(opts) - 1) * 18 + pad; x0 = SAFE['x0']   # auto lessons: compact rows
     dr.rounded_rectangle([x0, y0, x0 + MAXW, y0 + h], radius=30, fill=CREAM, outline=INK, width=5); y = y0 + pad
-    for l in lq: dr.text((CX - dr.textlength(l, font=fq) / 2, y), l, font=fq, fill=INK); y += 60
+    for l in lq: dr.text((CX - dr.textlength(l, font=fq) / 2, y), l, font=fq, fill=INK); y += QL
     y += 18
     for j, o in enumerate(opts):
         L_ = 'ABC'[j]; ok = L_ == ans; lay = Image.new('RGBA', im.size, (0, 0, 0, 0)); d2 = ImageDraw.Draw(lay); rx0, rx1 = x0 + 22, x0 + MAXW - 22
         q_ = (OR - 96) // 2   # vertical shift for compact rows
         if sub and ok: d2.rounded_rectangle([rx0, y, rx1, y + OR], radius=24, fill=(225, 245, 232, 255), outline=(23, 120, 70, 255), width=5)
-        d2.rounded_rectangle([rx0 + 12, y + 12 + q_, rx0 + 84, y + 84 + q_], radius=20, fill=GOLD); fl = ImageFont.truetype(FONT_EN, 44)
-        d2.text((rx0 + 48 - d2.textlength(L_, font=fl) / 2, y + 16 + q_), L_, font=fl, fill=(15, 61, 62, 255)); d2.text((rx0 + 108, y + 18 + q_), o, font=fo, fill=INK)
+        d2.rounded_rectangle([rx0 + 12, y + 12 + q_, rx0 + 84, y + 84 + q_], radius=20, fill=GOLD); fl = ImageFont.truetype(FONT_EN, MF(44))
+        d2.text((rx0 + 48 - d2.textlength(L_, font=fl) / 2, y + 16 + q_ - (fl.size - 44) // 2), L_, font=fl, fill=(15, 61, 62, 255)); d2.text((rx0 + 108, y + 18 + q_ - (fo.size - 44) // 2), o, font=fo, fill=INK)
         if sub and ok: _tick(d2, rx1 - 50, y + OR / 2, 22, (23, 120, 70, 255))
         if sub and not ok: a = np.asarray(lay).copy(); a[..., 3] = (a[..., 3] * 0.45).astype(np.uint8); lay = Image.fromarray(a)
         im.alpha_composite(lay); y += OR + 18
@@ -51,19 +52,20 @@ def st_gap(im, dr, txt, sub):
     return [int(box[0] - 7), int(box[1]), int(box[2] + 7), int(box[3])]
 LADDER_LABELS = (('POLITE', (15, 61, 62, 255)), ('NEUTRAL', (90, 96, 110, 255)), ('CASUAL', (229, 80, 47, 255)))
 def st_ladder(im, dr, txt, sub):
-    ss = txt.split('|'); y0 = globals().get('LADDER_Y', 980); fl = ImageFont.truetype(FONT_EN, 30); fs = ImageFont.truetype(FONT_EN, 42); x0 = SAFE['x0']; y = y0
+    ss = txt.split('|'); y0 = globals().get('LADDER_Y', 980); fl = ImageFont.truetype(FONT_EN, 30 if not MF(0) else 36); fs = ImageFont.truetype(FONT_EN, MF(42)); x0 = SAFE['x0']; y = y0; LW = 150 if not MF(0) else 186; LH = fs.size + 10
     rh = globals().get('LADDER_ROW', 132); gp = 16 if rh >= 132 else 10   # auto lessons: compact rows (112) so 3 steps fit under an MCU face with 24 px clearance
     for j in range(int(sub or 1)):
-        dr.rounded_rectangle([x0, y, x0 + MAXW, y + rh], radius=26, fill=CREAM, outline=INK, width=4)
-        lab, col = LADDER_LABELS[j]; dr.rounded_rectangle([x0 + 14, y + 14, x0 + 164, y + rh - 14], radius=20, fill=col)
-        dr.text((x0 + 89 - dr.textlength(lab, font=fl) / 2, y + rh / 2 - 18), lab, font=fl, fill=WHITE)
-        ls = wrapw(dr, ss[j], fs, MAXW - 220); assert len(ls) <= 2, ss[j]; yy = y + rh / 2 - 26 * len(ls)
-        for l in ls: dr.text((x0 + 190, yy), l, font=fs, fill=INK); yy += 52
-        y += rh + gp
+        ls = wrapw(dr, ss[j], fs, MAXW - LW - 70); assert len(ls) <= 2, ss[j]; rj = max(rh, LH * len(ls) + 30)   # row grows for a 2-line step (big text)
+        dr.rounded_rectangle([x0, y, x0 + MAXW, y + rj], radius=26, fill=CREAM, outline=INK, width=4)
+        lab, col = LADDER_LABELS[j]; dr.rounded_rectangle([x0 + 14, y + 14, x0 + 14 + LW, y + rj - 14], radius=20, fill=col)
+        dr.text((x0 + 14 + LW / 2 - dr.textlength(lab, font=fl) / 2, y + rj / 2 - fl.size * 0.6), lab, font=fl, fill=WHITE)
+        yy = y + rj / 2 - LH * len(ls) / 2 - 4
+        for l in ls: dr.text((x0 + LW + 40, yy), l, font=fs, fill=INK); yy += LH
+        y += rj + gp
     return [x0, y0, x0 + MAXW, y - gp]
 def st_strike(im, dr, txt, sub):
     global CUR_FS
-    en, nat = txt.split('||'); wrong, right = STRIKE; fe = ImageFont.truetype(FONT_EN, TPL_CAP_FS); CUR_FS = TPL_CAP_FS; fn = fnat(40); fr = ImageFont.truetype(FONT_EN, 46); sub = sub or 0
+    en, nat = txt.split('||'); wrong, right = STRIKE; fe = ImageFont.truetype(FONT_EN, TPL_CAP_FS); CUR_FS = TPL_CAP_FS; fn = fnat(40); fr = ImageFont.truetype(FONT_EN, MF(46)); sub = sub or 0
     le, ln, y, yN, yb = _sub_layout(dr, en, nat if sub == 2 else '', fe, fn); box = [1080, y, 0, yb]
     for l in le:
         for w, x, wd in _words_line(dr, l, fe, wrong, lambda w: dr.textlength(w, font=fe)):
@@ -71,7 +73,7 @@ def st_strike(im, dr, txt, sub):
             dr.text((x, y), w, font=fe, fill=WHITE, stroke_width=7, stroke_fill=STROKE)
             if hit and sub == 2:
                 ww = dr.textlength(wrong, font=fe); dr.line([x - 4, y + fe.size * 0.73, x + ww + 4, y + fe.size * 0.73], fill=(229, 80, 47, 255), width=6)
-                rw = dr.textlength(right, font=fr); rx = x + ww / 2 - rw / 2; ry = y - 8 - 58
+                rw = dr.textlength(right, font=fr); rx = x + ww / 2 - rw / 2; ry = y - 8 - fr.size - 12
                 dr.text((rx, ry), right, font=fr, fill=(60, 200, 120, 255), stroke_width=7, stroke_fill=STROKE); box[1] = min(box[1], ry); box[0] = min(box[0], rx); box[2] = max(box[2], rx + rw)
         y += fe.size + 16
     y += 10
@@ -79,14 +81,14 @@ def st_strike(im, dr, txt, sub):
         w = dr.textlength(l, font=fn); dr.text((CX - w / 2, y), l, font=fn, fill=(255, 231, 194, 255), stroke_width=6, stroke_fill=STROKE); y += 54
     box = [int(box[0] - 7), int(box[1]), int(box[2] + 7), int(box[3])]
     if sub == 1:   # sticker (no emoji: the fonts have none)
-        fh = ImageFont.truetype(FONT_H, 46); t = 'Spot the mistake!'; w = dr.textlength(t, font=fh); hy = globals().get('HOOK_Y', 330)
-        dr.rounded_rectangle([CX - w / 2 - 34, hy, CX + w / 2 + 34, hy + 86], radius=28, fill=GOLD, outline=INK, width=5); dr.text((CX - w / 2, hy + 14), t, font=fh, fill=(15, 61, 62, 255))
-        box = [int(min(box[0], CX - w / 2 - 34)), hy, int(max(box[2], CX + w / 2 + 34)), box[3]]
+        fh = ImageFont.truetype(FONT_H, MF(46)); t = 'Spot the mistake!'; w = dr.textlength(t, font=fh); hy = globals().get('HOOK_Y', 330)
+        dr.rounded_rectangle([CX - w / 2 - 34, hy, CX + w / 2 + 34, hy + fh.size + 40], radius=28, fill=GOLD, outline=INK, width=5); dr.text((CX - w / 2, hy + 14), t, font=fh, fill=(15, 61, 62, 255))
+        box = [int(min(box[0], CX - w / 2 - 34)), hy, int(max(box[2], CX + w / 2 + 34)), max(box[3], hy + fh.size + 40)]
     return box
 def st_pov(im, dr, txt, sub):
-    f = ImageFont.truetype(FONT_H, 44); x0, y0 = SAFE['x0'], globals().get('POV_Y', 240); w = dr.textlength(txt, font=f)
-    dr.rounded_rectangle([x0, y0, x0 + w + 56, y0 + 62], radius=30, fill=(20, 24, 32, 200)); dr.text((x0 + 28, y0 + 3), txt, font=f, fill=WHITE)
-    return [x0, y0, int(x0 + w + 56), y0 + 62]
+    f = ImageFont.truetype(FONT_H, MF(44)); x0, y0 = SAFE['x0'], globals().get('POV_Y', 240); w = dr.textlength(txt, font=f); ph = f.size + 18
+    dr.rounded_rectangle([x0, y0, x0 + w + 56, y0 + ph], radius=ph // 2, fill=(20, 24, 32, 200)); dr.text((x0 + 28, y0 + 3), txt, font=f, fill=WHITE)
+    return [x0, y0, int(x0 + w + 56), y0 + ph]
 TPL_STYLES = dict(Choice=st_choice, Gap=st_gap, Ladder=st_ladder, Strike=st_strike, Pov=st_pov)
 
 def st_card(im, dr, txt, sub):

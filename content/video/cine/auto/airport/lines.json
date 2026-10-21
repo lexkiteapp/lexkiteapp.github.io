@@ -65,6 +65,248 @@
    "id": "ga_d0245482",
    "who": "ama",
    "text": "Can I take this bag on board?"
+  },
+  {
+   "id": "ga_66f03121",
+   "who": "ama",
+   "text": "Could I have a luggage tag?"
+  },
+  {
+   "id": "ga_66f03121_gap",
+   "who": "ama",
+   "text": "Could I have a luggage tag?",
+   "derived": "auto-gap",
+   "gap": {
+    "src": "ga_66f03121",
+    "word": "tag",
+    "prefix": "Could I have a luggage"
+   }
+  },
+  {
+   "id": "ga_009fc97e",
+   "who": "mei",
+   "text": "Did you pack this bag yourself?"
+  },
+  {
+   "id": "ga_238c76fe",
+   "who": "ama",
+   "text": "Yes, I packed it myself."
+  },
+  {
+   "id": "ga_2586cdfa",
+   "who": "ama",
+   "text": "Could I possibly have an aisle seat?"
+  },
+  {
+   "id": "ga_8ca48b19",
+   "who": "ama",
+   "text": "Can I have an aisle seat, please?"
+  },
+  {
+   "id": "ga_7199c868",
+   "who": "ama",
+   "text": "An aisle seat, please."
+  },
+  {
+   "id": "ga_90bc5e17",
+   "who": "ama",
+   "text": "I'm flying to London today."
+  },
+  {
+   "id": "ga_90767c86",
+   "who": "mei",
+   "text": "Is this your final destination?"
+  },
+  {
+   "id": "ga_66c9c1d3",
+   "who": "ama",
+   "text": "No, I have a connecting flight."
+  },
+  {
+   "id": "ga_492b6ac7",
+   "who": "mei",
+   "text": "Okay. Your bag goes all the way."
+  },
+  {
+   "id": "ga_93a6d6e0",
+   "who": "ama",
+   "text": "Is this the line for check-in?"
+  },
+  {
+   "id": "ga_3c62e5c2",
+   "who": "mei",
+   "text": "Yes, it is. You're in the right place."
+  },
+  {
+   "id": "ga_0fda71d9",
+   "who": "mei",
+   "text": "How many bags are you checking?"
+  },
+  {
+   "id": "ga_689c0d45",
+   "who": "ama",
+   "text": "I have two luggages."
+  },
+  {
+   "id": "ga_e051638d",
+   "who": "ama",
+   "text": "I have two bags."
+  },
+  {
+   "id": "ga_74a11cb7",
+   "who": "mei",
+   "text": "Do you have a seat preference?"
+  },
+  {
+   "id": "ga_f22de9b6",
+   "who": "ama",
+   "text": "Can I sit next of the window?"
+  },
+  {
+   "id": "ga_ae04a51b",
+   "who": "ama",
+   "text": "Can I sit next to the window?"
+  },
+  {
+   "id": "ga_1dc07a2c",
+   "who": "ama",
+   "text": "Could I have a printed ticket?"
+  },
+  {
+   "id": "ga_1dc07a2c_gap",
+   "who": "ama",
+   "text": "Could I have a printed ticket?",
+   "derived": "auto-gap",
+   "gap": {
+    "src": "ga_1dc07a2c",
+    "word": "ticket",
+    "prefix": "Could I have a printed"
+   }
+  },
+  {
+   "id": "ga_02ea221d",
+   "who": "mei",
+   "text": "Where are you flying today?"
+  },
+  {
+   "id": "ga_01ca73c0",
+   "who": "ama",
+   "text": "I'm flying to Denver today."
+  },
+  {
+   "id": "ga_23c16b37",
+   "who": "ama",
+   "text": "My flight leaves at six."
+  },
+  {
+   "id": "ga_6facd79f",
+   "who": "mei",
+   "text": "Boarding starts at ten forty. Please be early."
+  },
+  {
+   "id": "ga_0cad5fc9",
+   "who": "mei",
+   "text": "Any liquids in your bag?"
+  },
+  {
+   "id": "ga_362ae2fb",
+   "who": "ama",
+   "text": "No, I don't have some liquids."
+  },
+  {
+   "id": "ga_cb8b0673",
+   "who": "ama",
+   "text": "No, I don't have any liquids."
+  },
+  {
+   "id": "ga_950580ac",
+   "who": "mei",
+   "text": "Where are you headed today?"
+  },
+  {
+   "id": "ga_c0f4ad32",
+   "who": "ama",
+   "text": "To Seattle, for a work trip."
+  },
+  {
+   "id": "ga_93dbc92e",
+   "who": "mei",
+   "text": "Nice. Have a safe flight!"
+  },
+  {
+   "id": "ga_9dad9a68",
+   "who": "mei",
+   "text": "How was your stay?"
+  },
+  {
+   "id": "ga_c75ec19a",
+   "who": "ama",
+   "text": "Great. I arrived to Boston on Monday."
+  },
+  {
+   "id": "ga_326ed2a3",
+   "who": "ama",
+   "text": "Great. I arrived in Boston on Monday."
+  },
+  {
+   "id": "ga_1c67497f",
+   "who": "ama",
+   "text": "Could I possibly have a luggage tag?"
+  },
+  {
+   "id": "ga_c5476dec",
+   "who": "ama",
+   "text": "Can I have a luggage tag, please?"
+  },
+  {
+   "id": "ga_851a4fee",
+   "who": "ama",
+   "text": "A luggage tag, please."
+  },
+  {
+   "id": "ga_103fca3f",
+   "who": "ama",
+   "text": "Excuse me, I lost my ticket."
+  },
+  {
+   "id": "ga_763d1aea",
+   "who": "mei",
+   "text": "Would you like a window or aisle seat?"
+  },
+  {
+   "id": "ga_d0f38642",
+   "who": "ama",
+   "text": "An aisle seat would be great."
+  },
+  {
+   "id": "ga_a1ad9b33",
+   "who": "mei",
+   "text": "Is anyone traveling with you?"
+  },
+  {
+   "id": "ga_ab1143a2",
+   "who": "ama",
+   "text": "Yes, my sister is with me."
+  },
+  {
+   "id": "ga_74d6f3f7",
+   "who": "mei",
+   "text": "Great. I can seat you together."
+  },
+  {
+   "id": "ga_ce29ea03",
+   "who": "mei",
+   "text": "When is your return flight?"
+  },
+  {
+   "id": "ga_25e464f2",
+   "who": "ama",
+   "text": "I'm coming back in Sunday."
+  },
+  {
+   "id": "ga_15e91bee",
+   "who": "ama",
+   "text": "I'm coming back on Sunday."
   }
  ]
 }

@@ -173,13 +173,13 @@ def png(style, txt, k, sub=None):
             y += int(fs * 1.1)
         box[3] = y + 6
     elif style == 'Series':   # series chip, top-right ("Hotel English #3")
-        f = ImageFont.truetype(FONT_EN, 34); w = dr.textlength(txt, font=f); y0 = globals().get('SERIES_Y', 240); x1 = SAFE['x1'] if globals().get('SERIES_ALIGN', 'right') == 'right' else SAFE['x0'] + w + 44
-        dr.rounded_rectangle([x1 - w - 44, y0, x1, y0 + 58], radius=29, fill=(15, 61, 62, 230)); dr.text((x1 - w - 22, y0 + 7), txt, font=f, fill=(255, 247, 234, 255)); box = [x1 - w - 44, y0, x1, y0 + 58]
+        f = ImageFont.truetype(FONT_EN, max(34, globals().get('CARD_MIN_FS', 0) - 8)); ch = f.size + 24; w = dr.textlength(txt, font=f); y0 = globals().get('SERIES_Y', 240); x1 = SAFE['x1'] if globals().get('SERIES_ALIGN', 'right') == 'right' else SAFE['x0'] + w + 44
+        dr.rounded_rectangle([x1 - w - 44, y0, x1, y0 + ch], radius=ch // 2, fill=(15, 61, 62, 230)); dr.text((x1 - w - 22, y0 + 7), txt, font=f, fill=(255, 247, 234, 255)); box = [x1 - w - 44, y0, x1, y0 + ch]
     elif style == 'Follow':   # last 0.6 s instead of the logo end card: small corner chip (bottom-right)
-        a_, b_ = txt.split('|'); f1 = ImageFont.truetype(FONT_EN, 36); f2 = ImageFont.truetype(FONT_EN, 42); x1 = SAFE['x1']; yb = SAFE['y1'] - 10
-        w2 = dr.textlength(b_, font=f2); dr.rounded_rectangle([x1 - w2 - 48, yb - 68, x1, yb], radius=34, fill=(255, 201, 74, 255)); dr.text((x1 - w2 - 24, yb - 62), b_, font=f2, fill=(15, 61, 62, 255))
-        w1 = dr.textlength(a_, font=f1); dr.rounded_rectangle([x1 - w1 - 44, yb - 140, x1, yb - 80], radius=30, fill=(15, 61, 62, 235)); dr.text((x1 - w1 - 22, yb - 133), a_, font=f1, fill=(255, 247, 234, 255))
-        box = [x1 - max(w1 + 44, w2 + 48), yb - 140, x1, yb]
+        a_, b_ = txt.split('|'); mf = globals().get('CARD_MIN_FS', 0); f1 = ImageFont.truetype(FONT_EN, max(36, mf - 8)); f2 = ImageFont.truetype(FONT_EN, max(42, mf)); x1 = SAFE['x1']; yb = SAFE['y1'] - 10; h2 = f2.size + 26; h1 = f1.size + 24
+        w2 = dr.textlength(b_, font=f2); dr.rounded_rectangle([x1 - w2 - 48, yb - h2, x1, yb], radius=h2 // 2, fill=(255, 201, 74, 255)); dr.text((x1 - w2 - 24, yb - h2 + 6), b_, font=f2, fill=(15, 61, 62, 255))
+        w1 = dr.textlength(a_, font=f1); t1 = yb - h2 - 12 - h1; dr.rounded_rectangle([x1 - w1 - 44, t1, x1, t1 + h1], radius=h1 // 2, fill=(15, 61, 62, 235)); dr.text((x1 - w1 - 22, t1 + 7), a_, font=f1, fill=(255, 247, 234, 255))
+        box = [x1 - max(w1 + 44, w2 + 48), t1, x1, yb]
     elif style in ('Sub', 'Karaoke'):
         en, nat = txt.split('||'); fe = ImageFont.truetype(FONT_EN, 52 if nat else 58); fn = fnat(40); LH = 68 if nat else 76
         le = wrapw(dr, en, fe, MAXW - 40); ln = wrapw(dr, nat, fn, MAXW - 40, True) if nat else []; assert len(le) <= 2 and len(ln) <= 2, txt

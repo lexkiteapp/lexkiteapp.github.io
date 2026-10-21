@@ -54,6 +54,243 @@
    "id": "gr_a98b5360",
    "who": "ama",
    "text": "Could I get the menu, please?"
+  },
+  {
+   "id": "gr_38c8127f",
+   "who": "priya",
+   "text": "Anything to drink?"
+  },
+  {
+   "id": "gr_ecf56ff3",
+   "who": "ama",
+   "text": "I'll have a orange juice."
+  },
+  {
+   "id": "gr_c13cb82a",
+   "who": "ama",
+   "text": "I'll have an orange juice."
+  },
+  {
+   "id": "gr_a68c9ef5",
+   "who": "priya",
+   "text": "Good evening! Welcome."
+  },
+  {
+   "id": "gr_c78e5a3e",
+   "who": "ama",
+   "text": "Could I look the menu, please?"
+  },
+  {
+   "id": "gr_1931d413",
+   "who": "ama",
+   "text": "Could I see the menu, please?"
+  },
+  {
+   "id": "gr_96be58b6",
+   "who": "ama",
+   "text": "Could I have the menu?"
+  },
+  {
+   "id": "gr_96be58b6_gap",
+   "who": "ama",
+   "text": "Could I have the menu?",
+   "derived": "auto-gap",
+   "gap": {
+    "src": "gr_96be58b6",
+    "word": "menu",
+    "prefix": "Could I have the"
+   }
+  },
+  {
+   "id": "gr_1941b55b",
+   "who": "ama",
+   "text": "Could we see the dessert menu?"
+  },
+  {
+   "id": "gr_5f72f24e",
+   "who": "priya",
+   "text": "Of course. Here you are."
+  },
+  {
+   "id": "gr_a6007e11",
+   "who": "priya",
+   "text": "Can I get you anything to drink?"
+  },
+  {
+   "id": "gr_0c52abf6",
+   "who": "ama",
+   "text": "Just water for now, thanks."
+  },
+  {
+   "id": "gr_936dc8f3",
+   "who": "priya",
+   "text": "Sure, I'll be right back."
+  },
+  {
+   "id": "gr_518c7de4",
+   "who": "priya",
+   "text": "Today's soup is tomato, and it's very good."
+  },
+  {
+   "id": "gr_f27da4d6",
+   "who": "priya",
+   "text": "Do you have a reservation?"
+  },
+  {
+   "id": "gr_f6c301c7",
+   "who": "ama",
+   "text": "Yes, a table for two at seven."
+  },
+  {
+   "id": "gr_ffa5abec",
+   "who": "ama",
+   "text": "Could I possibly have the menu?"
+  },
+  {
+   "id": "gr_cbc03eb0",
+   "who": "ama",
+   "text": "Can I have the menu, please?"
+  },
+  {
+   "id": "gr_35bf3016",
+   "who": "ama",
+   "text": "The menu, please."
+  },
+  {
+   "id": "gr_894f6b76",
+   "who": "priya",
+   "text": "Are you still working on that?"
+  },
+  {
+   "id": "gr_e4ec1697",
+   "who": "ama",
+   "text": "No, I'm finish, thank you."
+  },
+  {
+   "id": "gr_494c4ae4",
+   "who": "ama",
+   "text": "No, I'm finished, thank you."
+  },
+  {
+   "id": "gr_ce9ebdb1",
+   "who": "priya",
+   "text": "Can I get you anything else?"
+  },
+  {
+   "id": "gr_a79c222c",
+   "who": "ama",
+   "text": "Can you bring me other napkin?"
+  },
+  {
+   "id": "gr_9b615299",
+   "who": "ama",
+   "text": "Can you bring me another napkin?"
+  },
+  {
+   "id": "gr_6904c632",
+   "who": "priya",
+   "text": "Is this your first time here?"
+  },
+  {
+   "id": "gr_fba92ca7",
+   "who": "ama",
+   "text": "Yes, a friend recommended it."
+  },
+  {
+   "id": "gr_d421246d",
+   "who": "priya",
+   "text": "Great! You picked a good night."
+  },
+  {
+   "id": "gr_684e4bc9",
+   "who": "ama",
+   "text": "Could I have some water?"
+  },
+  {
+   "id": "gr_684e4bc9_gap",
+   "who": "ama",
+   "text": "Could I have some water?",
+   "derived": "auto-gap",
+   "gap": {
+    "src": "gr_684e4bc9",
+    "word": "water",
+    "prefix": "Could I have some"
+   }
+  },
+  {
+   "id": "gr_831806f9",
+   "who": "priya",
+   "text": "How would you like your steak?"
+  },
+  {
+   "id": "gr_9183f45a",
+   "who": "ama",
+   "text": "Medium rare, please. Thank you."
+  },
+  {
+   "id": "gr_babfe829",
+   "who": "priya",
+   "text": "Your table will be ready in fifteen minutes."
+  },
+  {
+   "id": "gr_9bce545d",
+   "who": "ama",
+   "text": "Could I possibly have some water?"
+  },
+  {
+   "id": "gr_3bca1e70",
+   "who": "ama",
+   "text": "Can I have some water, please?"
+  },
+  {
+   "id": "gr_1e5fb095",
+   "who": "ama",
+   "text": "Some water, please."
+  },
+  {
+   "id": "gr_1478fd42",
+   "who": "priya",
+   "text": "Would you like anything for dessert?"
+  },
+  {
+   "id": "gr_43ad2c9c",
+   "who": "ama",
+   "text": "No, thanks. I'm really full."
+  },
+  {
+   "id": "gr_343cab6b",
+   "who": "ama",
+   "text": "Excuse me, we ordered a while ago."
+  },
+  {
+   "id": "gr_ab987eb7",
+   "who": "priya",
+   "text": "I'm so sorry. I'll check now."
+  },
+  {
+   "id": "gr_fef3ff3a",
+   "who": "priya",
+   "text": "How is everything tasting?"
+  },
+  {
+   "id": "gr_5c336f04",
+   "who": "ama",
+   "text": "Delicious, thanks. Can I get more bread?"
+  },
+  {
+   "id": "gr_db0943b8",
+   "who": "priya",
+   "text": "Of course. Coming right up."
+  },
+  {
+   "id": "gr_76bc42bc",
+   "who": "ama",
+   "text": "Could I get some water, please?"
+  },
+  {
+   "id": "gr_073dbba9",
+   "who": "ama",
+   "text": "Could I get some more bread, please?"
   }
  ]
 }
