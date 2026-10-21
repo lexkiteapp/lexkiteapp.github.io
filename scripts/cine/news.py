@@ -23,12 +23,15 @@ def font(p, s): return ImageFont.truetype(p, s)
 def speech(k): nx = [x for x in CUES[k] if x['value'] != 'X']; return nx[0]['start'], nx[-1]['end']
 def wdur(k): return float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f'{N}/vis3/{k}.wav']))
 S, OV, SFX = [], [], []
-def shot(id, clip, who, frame, bg, line=None, dur=None, at=0.07, breath=0.45, frames=None, raw=False, other=None):
+def line_tempo(line):   # caption reading speed <= 15 cps -> slow the line (>= 0.84x; news_voice.py re-synthesises lines that would need more)
+    s0, s1 = speech(line); need = len(TEXT[line]) / 14.0 - 0.5
+    return 1.0 if need <= s1 - s0 else max(0.84, round((s1 - s0) / need - 0.005, 3))
+def talk_dur(line, at, breath=0.45, tempo=None): return at + speech(line)[1] / (tempo or line_tempo(line)) + breath
+def shot(id, clip, who, frame, bg, line=None, dur=None, at=0.07, breath=0.45, frames=None, raw=False, other=None, tempo=None):
     """talk shot (line) = at + speech end + breath; hold shot = dur. frames: source indices (ping-pong through the clip by default)."""
-    tempo = 1.0
     if line:
-        s0, s1 = speech(line); need = len(TEXT[line]) / 14.0 - 0.5   # caption reading speed <= 15 cps -> slow the line (>= 0.86x) like lesson5
-        tempo = 1.0 if need <= s1 - s0 else max(0.84, round((s1 - s0) / need - 0.005, 3)); dur = at + s1 / tempo + breath
+        tempo = tempo or line_tempo(line); dur = talk_dur(line, at, breath, tempo)
+    tempo = tempo or 1.0
     n = int(round(dur * FPS)); t0 = sum(x['dur'] for x in S)
     if frames is None:
         st = START.get(clip, 0); st = 0 if st + n > 121 else st; assert n <= 121, ('shot longer than the clip', id)
@@ -207,6 +210,7 @@ def host_frames(s, clip, who, lines, raw):
     for i in s['frames']:
         m = finish_mask(MM[min(i, len(MM) - 1)]).astype(np.float32) / 255
         low = m[1250:]; low = cv2.morphologyEx(low, cv2.MORPH_OPEN, np.ones((9, 9), np.uint8)); m[1250:] = low   # thin seat/bench specks
+        if clip.startswith('ga2'): m[1400:] = cv2.morphologyEx(m[1400:], cv2.MORPH_CLOSE, np.ones((1, 49), np.uint8))   # standing Ama: close the <= 48 px gap between hands/legs (kfull is black there) so the torso stays opaque to the frame bottom
         al.append(m * ramp)
     tops = [int(np.argmax((m[:, 300:800] > 0.5).any(1))) for m in al[::4]]; top = HAIR.setdefault(clip, int(np.median(tops)))
     return fr, al, log, top
@@ -305,6 +309,16 @@ for s in S:
     for clip, who, lines, raw, frame in HS:
         fr, al, log, top = host_frames(s, clip, who, lines, raw); gk = GK(clip, who); xf = place(s['id'], gk, frame, top); s['xfs'][clip] = list(xf); s.setdefault('faceh', {})[who] = round(FACEH[gk] * xf[0]); s.setdefault('lowsrc', {})[who] = round(xf[2] + (1920 - xf[4]) / xf[0]); s.setdefault('lowlim', {})[who] = SEAT[gk]; _fb = json.load(open(f'{TL}/meta/{clip}/{who}/mouth.json'))['face_box'] if not raw else ([380, 170, 850, 850] if who == 'ama' else [395, 480, 720, 865]); s.setdefault('faceboxes', []).append([(_fb[0] - xf[1]) * xf[0] + xf[3], (_fb[1] - xf[2]) * xf[0] + xf[4], (_fb[2] - xf[1]) * xf[0] + xf[3], (_fb[3] - xf[2]) * xf[0] + xf[4]]); R_.append((fr, al, xf, who)); logs.append(log)
         if not raw: s['mouths'].append([clip, who])
+    def _band(al, xf, dy):   # worst mean alpha (over the shot's frames) of the torso band at frame rows 1900..1958 (= 2 % below the bottom), mapped back to source rows
+        sc, ex, sy, ox, oy = xf; rows = np.clip((sy + (np.arange(1900, 1960, 4) - oy - dy) / sc).astype(int), 0, 1919); c0, c1 = int(ex - 60 / sc), int(ex + 60 / sc)
+        return min(float(m[rows, c0:c1].mean()) for m in al[::2])
+    DY = 0
+    while DY < 160 and min(_band(al, xf, DY) for fr, al, xf, who in R_) < 0.95: DY += 8   # whole composition down (both hosts: equal heads + eye line kept)
+    if DY:
+        print('bottom anchor: shot', s['id'], 'shifted down', DY, 'px')
+        R_ = [(fr, al, xf[:4] + (xf[4] + DY,), who) for fr, al, xf, who in R_]; s['xfs'] = {c: v[:4] + [v[4] + DY] for c, v in s['xfs'].items()}
+        s['faceboxes'] = [[b[0], b[1] + DY, b[2], b[3] + DY] for b in s['faceboxes']]; s['lowsrc'] = {w: round(v - DY / s['xfs'][c][0]) for (w, v), c in zip(s['lowsrc'].items(), s['xfs'])}
+    s['bottom_dy'] = DY
     k_ = 0; merged = [dict() for _ in range(s['n'])]
     for (clip, who, lines, raw, frame), log in zip(HS, logs):
         if raw: continue
