@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       scene:
-        description: 'Kho cảnh (hotel | cafe | airport | restaurant | anchor)'
+        description: 'Kho cảnh (hotel | cafe | airport | restaurant | anchor); nhiều cảnh phẩy ngăn (cafe,restaurant) – bài auto_<cảnh>_… tự về đúng cảnh'
         required: true
         default: hotel
       lessons:
@@ -58,14 +58,14 @@ jobs:
           SCENE: ${{ github.event.inputs.scene }}
         run: |
           [ -n "$KEY" ] || { echo "::error::thiếu secret FOOTAGE_DEPLOY_KEY"; exit 1; }
-          case "$SCENE" in *[!a-z0-9_-]*|'') echo "::error::scene không hợp lệ"; exit 1;; esac
+          case "$SCENE" in *[!a-z0-9_,-]*|'') echo "::error::scene không hợp lệ"; exit 1;; esac
           mkdir -p ~/.ssh && chmod 700 ~/.ssh
           printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
           ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
           git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
-          EXTRA=""; [ "$SCENE" = anchor ] && EXTRA="cafe hotel airport restaurant"   # anchor: B-roll 'bank:clip' từ 4 kho
-          git -C footage sparse-checkout set "$SCENE" hotel/tools/end hotel/tools/foley $EXTRA
+          EXTRA=""; case ",$SCENE," in *,anchor,*) EXTRA="cafe hotel airport restaurant";; esac   # anchor: B-roll 'bank:clip' từ 4 kho
+          git -C footage sparse-checkout set ${SCENE//,/ } hotel/tools/end hotel/tools/foley $EXTRA
           git -C footage checkout -q
           rm -f ~/.ssh/footage
           du -sh footage
@@ -94,28 +94,32 @@ jobs:
         run: |
           set -o pipefail
           [ "${{ github.event.inputs.viral }}" = true ] || export VIRAL=0
-          export CINE_SCENE_DIR="$(bash scripts/cine/prep_scene.sh footage "$SCENE")"
-          mkdir -p out/qa
-          [ -f "content/video/cine/auto/$SCENE/lines.json" ] && python scripts/cine/auto_voice.py "$CINE_SCENE_DIR" "$SCENE"
-          if [ "$LESSONS" = auto ]; then
-            LESSONS=$(cd "content/video/cine/auto/$SCENE" && ls *.py | grep -v '^_' | sed 's/\.py$//' | paste -sd, -)
-          elif [ "$LESSONS" = all ]; then
-            LESSONS=$(cd "$CINE_SCENE_DIR/lessons" && ls *.py | grep -v '^_' | sed 's/\.py$//' | paste -sd, -)
-          fi
+          mkdir -p out/qa; : > out/passed.txt
           fail=0; n=0
-          for item in ${LESSONS//,/ }; do
-            lid=${item%%:*}; lang=$LANG_DEF; [ "$item" != "$lid" ] && lang=${item#*:}
-            case "$lid$lang" in *[!a-z0-9_]*) echo "::error::tên bài không hợp lệ: $item"; fail=1; continue;; esac
-            if [ ! -f "content/video/cine/locales/$lid.$lang.json" ]; then echo "::warning::bỏ qua $lid ($lang): chưa có locale"; continue; fi
-            echo "::group::$lid ($lang)"; n=$((n+1))
-            if python scripts/cine/lesson5.py "$lang" "$lid" 2>&1 | tee "out/qa/build_${lid}_${lang}.log"; then
-              rd=$(ls -td "$CINE_SCENE_DIR"/render5_${lid}_${lang}* | head -1)
-              cp "$rd/timeline.json" "out/qa/timeline_$(basename "$rd").json"
-              python scripts/cine/qa5.py "$(basename "$rd")" > "out/qa/qa_$(basename "$rd").log" 2>&1 || fail=1
-              tail -1 "out/qa/qa_$(basename "$rd").log"
-              grep -E 'FAIL' "out/qa/qa_$(basename "$rd").log" | head -20 || true
-            else fail=1; fi
-            echo "::endgroup::"
+          for SC in ${SCENE//,/ }; do
+            export CINE_SCENE_DIR="$(bash scripts/cine/prep_scene.sh footage "$SC")"
+            [ -f "content/video/cine/auto/$SC/lines.json" ] && python scripts/cine/auto_voice.py "$CINE_SCENE_DIR" "$SC"
+            L="$LESSONS"
+            if [ "$L" = auto ]; then
+              L=$(cd "content/video/cine/auto/$SC" && ls *.py | grep -v '^_' | sed 's/\.py$//' | paste -sd, -)
+            elif [ "$L" = all ]; then
+              L=$(cd "$CINE_SCENE_DIR/lessons" && ls *.py | grep -v '^_' | sed 's/\.py$//' | paste -sd, -)
+            fi
+            for item in ${L//,/ }; do
+              lid=${item%%:*}; lang=$LANG_DEF; [ "$item" != "$lid" ] && lang=${item#*:}
+              case "$lid$lang" in *[!a-z0-9_]*) echo "::error::tên bài không hợp lệ: $item"; fail=1; continue;; esac
+              case "$lid" in auto_*) own=${lid#auto_}; own=${own%%_*}; [ "$own" = "$SC" ] || continue;; *) [ "$SC" = "${SCENE%%,*}" ] || continue;; esac   # mỗi bài dựng đúng 1 lần, ở cảnh của nó
+              if [ ! -f "content/video/cine/locales/$lid.$lang.json" ]; then echo "::warning::bỏ qua $lid ($lang): chưa có locale"; continue; fi
+              echo "::group::$SC/$lid ($lang)"; n=$((n+1))
+              if python scripts/cine/lesson5.py "$lang" "$lid" 2>&1 | tee "out/qa/build_${lid}_${lang}.log"; then
+                rd=$(ls -td "$CINE_SCENE_DIR"/render5_${lid}_${lang}* | head -1); rb=$(basename "$rd")
+                cp "$rd/timeline.json" "out/qa/timeline_$rb.json"
+                if python scripts/cine/qa5.py "$rb" > "out/qa/qa_$rb.log" 2>&1; then echo "$SC $lid $rb" >> out/passed.txt; else fail=1; fi
+                tail -1 "out/qa/qa_$rb.log"
+                grep -E 'FAIL' "out/qa/qa_$rb.log" | head -20 || true
+              else fail=1; fi
+              echo "::endgroup::"
+            done
           done
           echo "## cine-render: $SCENE" >> $GITHUB_STEP_SUMMARY
           for f in out/*.mp4; do [ -f "$f" ] && echo "- $(basename "$f"): $(ffprobe -v error -show_entries format=duration -of csv=p=0 "$f") s" >> $GITHUB_STEP_SUMMARY; done
@@ -137,6 +141,21 @@ jobs:
                   rows.append(np.hstack(fr))
               cv2.imwrite(f'out/qa/sheet_{k // 5 + 1}.jpg', np.vstack(rows), [cv2.IMWRITE_JPEG_QUALITY, 70])
           PY
+      - name: Lưu bền bài ĐẠT (repo riêng tư lexkiteapp/lexkite-shorts, shorts/<cảnh>/<bài>/)
+        if: always()
+        env:
+          KEY: ${{ secrets.SHORTS_DEPLOY_KEY }}
+        run: |
+          [ -s out/passed.txt ] || { echo "không có bài đạt để lưu"; exit 0; }
+          [ -n "$KEY" ] || { echo "::warning::thiếu secret SHORTS_DEPLOY_KEY – chỉ còn artifact 14 ngày"; exit 0; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/shorts && chmod 600 ~/.ssh/shorts
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes"
+          git clone -q --depth 1 --filter=blob:none --sparse git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
+          python scripts/cine/store_shorts.py out /tmp/shorts "${{ github.run_number }}" "${{ github.sha }}"
+          cd /tmp/shorts; git add --sparse -A shorts; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "cine-render #${{ github.run_number }} (${{ github.event.inputs.scene }})" || exit 0
+          for k in 1 2 3 4; do git push -q origin HEAD:main && break; git pull -q --rebase origin main; done
+          rm -f ~/.ssh/shorts
       - uses: actions/upload-artifact@v4
         if: always()
         with:
