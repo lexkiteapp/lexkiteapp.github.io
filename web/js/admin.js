@@ -22,6 +22,7 @@
     'Điểm rà soát tự động hằng ngày và kiểm nghĩa bản dịch.': 'Daily automated review score and translation meaning checks.',
     'Soạn bài, lịch đăng và kênh mạng xã hội (GrabCast).': 'Compose posts, schedule and manage social channels (GrabCast).',
     'Dây chuyền sản xuất video tự động từ kịch bản tới lên lịch.': 'Automated video production pipeline from script to schedule.',
+    'Thư viện video': 'Video library', 'Xem mọi short đã dựng (kho riêng lexkite-shorts), lọc, phát thử, chép nội dung đăng và thống kê độ phủ, QA, credit.': 'Browse every rendered short (private lexkite-shorts store): filter, play, copy post text, and coverage, QA and credit statistics.',
     'Backlink, PR & Thương hiệu': 'Backlinks, PR & Brand', 'Bài PR, hồ sơ trỏ về lexkite.com, tên miền na ná, tài khoản mạng xã hội, bản sao chép – tự kiểm hằng ngày.': 'PR posts and profiles linking to lexkite.com, lookalike domains, social accounts, content copies – checked daily.',
     'Hạn mức theo tính năng, cầu dao nhà cung cấp, khóa và danh sách không giới hạn.': 'Per-feature quotas, provider breakers, blocks and the unlimited list.',
     'Kho Google Drive riêng: dung lượng, bản sao, duyệt file, sổ kho.': 'Private Google Drive pool: capacity, replicas, file browser, ledger.',
@@ -201,7 +202,7 @@
     ['Tổng quan', [['overview', '📊', 'Tổng quan', 'Sức khỏe hệ thống, người thật và tác vụ tự động trên một màn hình.'], ['analytics', '📈', 'Phân tích', 'Lưu lượng trực tiếp, nguồn truy cập, thói quen sử dụng và tăng trưởng.']]],
     ['Người dùng', [['users', '👥', 'Người dùng', 'Tài khoản đã đồng bộ: tìm, lọc, xem chi tiết, xuất CSV, xóa dữ liệu theo yêu cầu.'], ['inbox', '📬', 'Hộp thư', 'Tin nhắn từ form Liên hệ – trả lời và đánh dấu đã xử lý.', 'inboxN'], ['notices', '📣', 'Thông báo', 'Gửi thông báo tới chuông 🔔 của người học: soạn, hẹn giờ, chọn đối tượng, thu hồi, xem lượt đọc.', 'notN']]],
     ['Chất lượng', [['alerts', '🚨', 'Cảnh báo', 'Tác vụ tự động, lỗi JavaScript từ người dùng và nhật ký quản trị.', 'alertN'], ['reports', '🐞', 'Báo lỗi', 'Báo lỗi từ người dùng: phân loại, giao việc, phản hồi.', 'repN'], ['quality', '🛡️', 'Chất lượng', 'Điểm rà soát tự động hằng ngày và kiểm nghĩa bản dịch.']]],
-    ['Nội dung & Video', [['social', '📣', 'Video & Social', 'Soạn bài, lịch đăng và kênh mạng xã hội (GrabCast).'], ['studio', '🎞️', 'Video Studio', 'Dây chuyền sản xuất video tự động từ kịch bản tới lên lịch.'], ['backlinks', '🔗', 'Backlink, PR & Thương hiệu', 'Bài PR, hồ sơ trỏ về lexkite.com, tên miền na ná, tài khoản mạng xã hội, bản sao chép – tự kiểm hằng ngày.']]],
+    ['Nội dung & Video', [['social', '📣', 'Video & Social', 'Soạn bài, lịch đăng và kênh mạng xã hội (GrabCast).'], ['studio', '🎞️', 'Video Studio', 'Dây chuyền sản xuất video tự động từ kịch bản tới lên lịch.'], ['video', '🎬', 'Thư viện video', 'Xem mọi short đã dựng (kho riêng lexkite-shorts), lọc, phát thử, chép nội dung đăng và thống kê độ phủ, QA, credit.'], ['backlinks', '🔗', 'Backlink, PR & Thương hiệu', 'Bài PR, hồ sơ trỏ về lexkite.com, tên miền na ná, tài khoản mạng xã hội, bản sao chép – tự kiểm hằng ngày.']]],
     ['Hệ thống', [['quota', '⚖️', 'Hạn mức', 'Hạn mức theo tính năng, cầu dao nhà cung cấp, khóa và danh sách không giới hạn.'], ['drive', '🗄️', 'Kho Drive', 'Kho Google Drive riêng: dung lượng, bản sao, duyệt file, sổ kho.', 'drvN'], ['keys', '🔑', 'Khóa API', 'Kho khóa nhà cung cấp AI & thư – mã hóa, xoay vòng, kiểm tra.'], ['services', '🧩', 'Dịch vụ & API', 'Dịch vụ đang dùng, tài khoản, gói miễn phí và dung lượng.']]],
     ['', [['settings', '⚙️', 'Cài đặt', 'Thông báo đầu trang, giới hạn AI, giám sát và lấy mẫu thống kê.']]],
   ];
@@ -363,6 +364,13 @@
     const r = await fetch('/api/studio', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ op, ...body }) });
     const j = await r.json().catch(() => ({}));
     if (!r.ok) { const e = new Error(j.message || j.error || 'HTTP ' + r.status); e.code = j.error; e.status = r.status; e.data = j; throw e; }
+    return j;
+  }
+  // Thư viện video qua /api/admin-shorts – tab 🎬 Thư viện video (functions/api/admin-shorts.js)
+  async function vapi(op, body = {}) {
+    const r = await fetch('/api/admin-shorts', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ op, ...body }) });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) { const e = new Error(j.error || 'HTTP ' + r.status); e.code = j.error; e.status = r.status; throw e; }
     return j;
   }
   // Backlink, PR & Thương hiệu qua /api/backlinks – tab Backlink, PR & Thương hiệu. Lỗi → err.code + err.data
@@ -1220,6 +1228,10 @@
     async studio() {
       await lazy('AdminStudio', 'js/admin-studio.js'); main.innerHTML = '';
       AdminStudio.render(main, stapi, sapi, L, { esc, lang: () => LANG }); // js/admin-studio.js
+    },
+    async video() { // Thư viện video – js/admin-video.js (tải lười) → /api/admin-shorts
+      await lazy('AdminVideo', 'js/admin-video.js'); main.innerHTML = '';
+      AdminVideo.render(main, vapi, L, { esc, lang: () => LANG, toast });
     },
     async backlinks() { // Backlink, PR & Thương hiệu – js/admin-backlinks.js (tải lười) → /api/backlinks (functions/api/backlinks.js)
       await lazy('AdminBacklinks', 'js/admin-backlinks.js'); main.innerHTML = '';

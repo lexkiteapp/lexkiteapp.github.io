@@ -642,7 +642,7 @@
       "key": "cine-shorts-store",
       "name": "GitHub repo riêng tư lexkiteapp/lexkite-shorts (video short đã dựng)",
       "kind": "storage",
-      "purpose": "Kho bền cho video short tự động: mỗi bài qa5 ALL PASS của workflow .github/workflows/cine-render.yml (mp4 + bìa jpg + log qa + timeline + meta.json) lưu tại shorts/<cảnh>/<bài>/ bằng scripts/cine/store_shorts.py; bản dựng mới cùng bài ghi đè (lịch sử git giữ bản cũ). Artifact CI chỉ giữ 14 ngày. Ghi qua deploy key GHI riêng 'cine-render (lexkiteapp.github.io CI) write' (khóa riêng = secret SHORTS_DEPLOY_KEY của repo công khai; KHÔNG dùng lại FOOTAGE_DEPLOY_KEY chỉ-đọc). Chọn repo thay R2 vì token Cloudflare cục bộ không có quyền R2/tạo token (22/10).",
+      "purpose": "Kho bền cho video short tự động: mỗi bài qa5 ALL PASS của workflow .github/workflows/cine-render.yml (mp4 + bìa jpg + log qa + timeline + meta.json) lưu tại shorts/<cảnh>/<bài>/ bằng scripts/cine/store_shorts.py; bản dựng mới cùng bài ghi đè (lịch sử git giữ bản cũ). Artifact CI chỉ giữ 14 ngày. Ghi qua deploy key GHI riêng 'cine-render (lexkiteapp.github.io CI) write' (khóa riêng = secret SHORTS_DEPLOY_KEY của repo công khai; KHÔNG dùng lại FOOTAGE_DEPLOY_KEY chỉ-đọc). Chọn repo thay R2 vì token Cloudflare cục bộ không có quyền R2/tạo token (22/10). Manifest shorts/index.json (scripts/cine/shorts_index.py, store_shorts.py cập nhật mỗi lần lưu) → Quản trị → 🎬 Thư viện video (web/js/admin-video.js) qua Pages Function /api/admin-shorts (functions/api/admin-shorts.js, adminGate): đọc manifest + phát bìa/mp4 (HTTP Range, URL ký HMAC ≤ 2 giờ) từ api.github.com/raw.githubusercontent.com bằng secret Cloudflare Pages SHORTS_READ_TOKEN = PAT fine-grained CHỈ repo lexkite-shorts, Contents: Read-only (chủ tạo, docs/SHORTS-ACCESS.md). Thiếu secret → manifest gói sẵn functions/api/_shorts_data.js (kèm coverage, lịch đăng, tóm tắt credit content/video/cine/credits.json), không media.",
       "console": "https://github.com/lexkiteapp/lexkite-shorts",
       "free": "Repo riêng tư miễn phí (khuyến nghị < 5 GB; file < 100 MB; mỗi short ~10–25 MB)",
       "upgrade": "Gần ~4 GB: chuyển sang R2 riêng tư lexkite-shorts (10 GB miễn phí) – cần token R2 Object Read & Write tạo trên dashboard",
@@ -650,7 +650,10 @@
       "match": [
         "lexkite-shorts",
         "SHORTS_DEPLOY_KEY",
-        "store_shorts.py"
+        "store_shorts.py",
+        "SHORTS_READ_TOKEN",
+        "admin-shorts",
+        "shorts_index.py"
       ]
     }
   ],

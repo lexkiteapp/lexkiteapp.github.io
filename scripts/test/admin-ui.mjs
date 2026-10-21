@@ -22,7 +22,7 @@ const ADM = rd('web/js/admin.js'), AEN = dict(ADM);
   const enBlock = ADM.slice(ADM.indexOf('const EN = {'), ADM.indexOf('const L = ('));
   const miss = [...new Set([...ADM.replace(enBlock, '').matchAll(/'((?:[^'\\\n]|\\.)*)'/g)].map(m => unq(m[1])).filter(k => VI.test(k) && !/[|\\^$]/.test(k)))].filter(k => !(k in AEN) && !/^(lk\.|adm\.)/.test(k));
   ok(!miss.length, 'admin.js: chuỗi tiếng Việt thiếu bản EN: ' + miss.slice(0, 5).join(' | '));
-  for (const [f, fn] of [['admin-quota.js', 'Q'], ['admin-keys.js', 'S'], ['admin-drive.js', 'S'], ['admin-reports.js', 'T'], ['admin-social.js', 'S'], ['admin-studio.js', 'S'], ['admin-growth.js', 'G'], ['admin-backlinks.js', 'B']]) {
+  for (const [f, fn] of [['admin-quota.js', 'Q'], ['admin-keys.js', 'S'], ['admin-drive.js', 'S'], ['admin-reports.js', 'T'], ['admin-social.js', 'S'], ['admin-studio.js', 'S'], ['admin-growth.js', 'G'], ['admin-backlinks.js', 'B'], ['admin-video.js', 'V']]) {
     const src = rd('web/js/' + f), EN = dict(src);
     const m2 = [...new Set([...src.matchAll(new RegExp(`\\b(?:${fn}|L)\\(\\s*'((?:[^'\\\\]|\\\\.)*)'`, 'g'))].map(m => unq(m[1])))].filter(k => VI.test(k) && !(k in EN) && !(k in AEN));
     ok(!m2.length, `${f}: khóa tiếng Việt thiếu bản EN: ${m2.slice(0, 3).join(' | ')}`);
@@ -66,6 +66,11 @@ const BFX = {
     copy: { at: NOW, configured: true, probes: [{ url: 'https://lexkite.com/en/blog/a/', sentence: 'A distinctive sentence', suspects: [{ url: 'https://copycat.example.net/a', title: EVIL }] }] } },
   checkNow: { ok: true }, placementSet: { ok: true }, handleSet: { ok: true }, domainAck: { ok: true }, export: { version: 1, placements: [{ id: 'devto' }] },
 };
+// Thư viện video (/api/admin-shorts) – manifest gói sẵn (chưa có token: không bìa/video) + 1 mục độc thử chống XSS
+const VIT = (id, o = {}) => ({ id, lesson: id, scene: 'cafe', format: 'scene', template: 'choose', area: 'listening', cefr: 'A2', point: 'listen ' + id, title: 'Title ' + id, description: 'Desc ' + id, hashtags: ['#a', '#b'], duration: 21.5, qa: { status: 'pass', result: 'ALL PASS', ok: 30, fail: 0, lipsync_ms: 35, cps_max: 14.2 }, created: '2026-10-20T05:00:00Z', bytes: 8e6, video: `shorts/cafe/${id}/v.mp4`, cover: `shorts/cafe/${id}/v.jpg`, slot: { n: 1, date: '2099-01-01', time: '11:30', tz: 'Asia/Ho_Chi_Minh' }, ...o });
+const VFX = { items: [VIT('a1'), VIT('n1', { scene: 'anchor', format: 'news', template: 'news', area: 'grammar', cefr: 'B1', created: '2026-10-21T05:00:00Z', slot: null }), VIT('x1', { title: EVIL, point: EVIL, qa: { status: 'fail' } })],
+  source: 'bundle', media: false, updated: '2026-10-21T00:00:00Z', coverage: { target_per_area: 5, areas: { listening: { label: 'Listening' }, grammar: { label: 'Grammar' }, dictionary: { label: 'Dictionary' } } },
+  calendar: { posts: [{ n: 1, date: '2099-01-01', time: '11:30', id: 'a1', scene: 'cafe', template: 'choose' }] }, credits: { total: 100, banks: { cafe: { total: 100, img_cr: 20, video_cr: 80 } } }, covers: {} };
 const html = rd('web/admin.html').replace(/<script[^>]*><\/script>/g, '').replace(/<link[^>]+>/g, '');
 const vc = new VirtualConsole(); vc.on('jsdomError', e => { if (!/Not implemented|Could not parse CSS/.test(e.message)) console.error('jsdom:', e.message); });
 const dom = new JSDOM(html, { url: 'https://lexkite.com/admin.html#settings', runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole: vc });
@@ -77,6 +82,7 @@ const calls = [];
 w.fetch = async (url, o = {}) => {
   const b = o.body ? JSON.parse(o.body) : {}; calls.push({ url: String(url), b });
   const res = (j, s = 200) => ({ ok: s < 400, status: s, json: async () => j });
+  if (/\/api\/admin-shorts/.test(url)) return b.op === 'list' ? res(JSON.parse(JSON.stringify(VFX))) : res({ error: 'needs-token' }, 503);
   if (/\/api\/admin/.test(url)) return FX[b.op] ? res(JSON.parse(JSON.stringify(FX[b.op]))) : res({ error: 'op' }, 400);
   if (/\/api\/drive/.test(url)) return res({ alerts: [{ level: 'warn', t: 'replica', p: { n: 17 } }] });
   if (/\/api\/backlinks/.test(url)) return BFX[b.op] ? res(JSON.parse(JSON.stringify(BFX[b.op]))) : res({ error: 'op' }, 400);
@@ -90,7 +96,7 @@ w.FIREBASE_CONFIG = {}; w.firebase = { initializeApp() {}, auth: Object.assign((
 const seen = {};
 for (const n of ['AdminDrive', 'AdminKeys', 'AdminQuota', 'AdminSocial', 'AdminStudio']) w[n] = { render(box) { seen[n] = w.location.hash; box.innerHTML = `<div class="card" id="stub-${n}">stub</div>`; } };
 w.AdminReports = { render(box) { box.innerHTML = '<div class="card" id="stub-rep">stub</div>'; }, card(box) { box.innerHTML = '<div class="card">reports card</div>'; } };
-w.eval(rd('web/js/admin-backlinks.js'));
+w.eval(rd('web/js/admin-backlinks.js')); w.eval(rd('web/js/admin-video.js'));
 w.eval(ADM);
 await tick(80);
 const h1 = () => ($('.pg-t') || {}).textContent;
@@ -105,7 +111,7 @@ const leak = where => { const m = visible().match(new RegExp(`[^\\s]*${VI.source
 
 // ---------- 1) Khung + thanh bên ----------
 ok(d.body.classList.contains('adm-in') && !$('#side').hidden, 'đăng nhập → hiện thanh bên');
-ok($$('#tabs .side-g').length === 6 && $$('#tabs a[data-tab]').length === 16, 'thanh bên: 6 nhóm, 16 mục');
+ok($$('#tabs .side-g').length === 6 && $$('#tabs a[data-tab]').length === 17, 'thanh bên: 6 nhóm, 17 mục');
 ok($$('#tabs .side-h').map(x => x.textContent).join('|') === 'Overview|Users|Quality|Content & Video|System', 'tên nhóm EN: ' + $$('#tabs .side-h').map(x => x.textContent).join('|'));
 ok($('#tabs a[data-tab="quota"] .nav-l').textContent === 'Quotas', '"Hạn mức" dịch thành Quotas ở EN');
 ok($('#tabs a[aria-current="page"]').dataset.tab === 'settings' && h1() === 'Settings', 'mở thẳng #settings → mục Cài đặt đang chọn');
@@ -233,6 +239,25 @@ ok($('.err-box [data-retry]'), 'API lỗi → hộp lỗi có nút Thử lại')
 $('.err-box [data-retry]').click(); await tick(40); ok(!$('.err-box') && /Hello there/.test($('#main').textContent), 'Thử lại → tải được');
 
 // ---------- Backlink, PR & Thương hiệu ----------
+$('#tabs a[data-tab="video"]').click(); await tick(80);
+{
+  const m = $('#main'), cards = () => m.querySelectorAll('.vid-card');
+  ok(h1() === 'Video library' && cards().length === 3, 'tab Thư viện video: tiêu đề EN + 3 thẻ (' + cards().length + ')');
+  ok(!w.__pwn && !m.querySelector('.vid-grid img') && /Needs token/.test(m.textContent) && /SHORTS_READ_TOKEN/.test(m.textContent), 'chưa có token: không bìa, hiện "cần token", dữ liệu độc không thành HTML');
+  const sel = k => m.querySelector(`select[data-f="${k}"]`), ch = (el, v) => { el.value = v; el.dispatchEvent(new w.Event('change')); };
+  ch(sel('format'), 'news'); ok(cards().length === 1 && cards()[0].dataset.id === 'n1', 'lọc định dạng bản tin'); ch(sel('format'), '');
+  ch(sel('status'), 'fail'); ok(cards().length === 1 && cards()[0].dataset.id === 'x1', 'lọc QA chưa đạt'); ch(sel('status'), 'none'); ok(cards().length === 1, 'lọc chưa xếp lịch'); ch(sel('status'), '');
+  input(m.querySelector('#vid-q'), 'listen a1'); ok(cards().length === 1, 'tìm theo điểm học'); input(m.querySelector('#vid-q'), '');
+  const fr = m.querySelector('[data-f="from"]'); ch(fr, '2026-10-21'); ok(cards().length === 1, 'lọc theo ngày'); ch(fr, '');
+  leak('#video');
+  cards()[0].click(); await tick(40);
+  const dl = d.querySelector('dialog.vid-dlg'); ok(dl && /ALL PASS/.test(dl.textContent) && !dl.querySelector('video') && /SHORTS_READ_TOKEN/.test(dl.textContent), 'mở modal: QA + chưa tải video khi chưa có token');
+  dl.querySelector('[data-c="hashtags"]').click(); await tick(); ok(copied === '#a #b', 'chép hashtag');
+  leak('#video modal'); dl.querySelector('[data-x]').click(); ok(!d.querySelector('dialog.vid-dlg'), 'đóng modal');
+  m.querySelector('[data-t="stats"]').click(); await tick();
+  ok(m.querySelector('.vid-svg') && m.querySelectorAll('.vid-cov .none').length === 1 && m.querySelectorAll('.vid-cov .gap').length === 2 && /67%/.test(m.textContent), 'thống kê: biểu đồ SVG, độ phủ (thiếu/chưa có), tỉ lệ QA');
+  leak('#video thống kê'); m.querySelector('[data-t="lib"]').click();
+}
 $('#tabs a[data-tab="backlinks"]').click(); await tick(80);
 {
   const m = $('#main'), rowsT = () => [...m.querySelectorAll('#bwT tbody tr')];

@@ -136,5 +136,55 @@ for (const f of [{ offset: 'abc' }, { offset: 'Infinity', limit: 'NaN' }, { offs
   ok(t.status === 404 || !(new URL('https://media.lexkite.com/../etc/x.svg').pathname.includes('..')), 'media: không đi ngược thư mục');
   globalThis.fetch = savedFetch; }
 
+// ---------- /api/admin-shorts (thư viện video quản trị): cổng quản trị, URL ký, chỉ shorts/*.mp4|jpg, HTTP Range ----------
+{ const SH = await import(new URL('../../functions/api/admin-shorts.js', import.meta.url));
+  const TOKEN = 'github_pat_SECRET_shorts_0006', SENV = { ...ENV, SHORTS_READ_TOKEN: TOKEN };
+  const savedFetch = globalThis.fetch, BLOB = new Uint8Array(1000).map((_, i) => i % 251); let upCalls = [], honorRange = true;
+  globalThis.fetch = async (url, o = {}) => {
+    const u = String(url);
+    if (u.startsWith('https://api.github.com/repos/lexkiteapp/lexkite-shorts/contents/shorts/index.json')) return new Response(JSON.stringify({ items: [{ id: 'a', cover: 'shorts/cafe/x_1/cine-x-1-en-v3.jpg', video: 'shorts/cafe/x_1/cine-x-1-en-v3.mp4' }] }), { status: 200 });
+    if (u.startsWith('https://raw.githubusercontent.com/lexkiteapp/lexkite-shorts/main/shorts/')) {
+      upCalls.push({ u, auth: (o.headers || {}).Authorization });
+      if (u.includes('missing')) return new Response('nf', { status: 404 });
+      const m = /^bytes=(\d+)-(\d*)$/.exec((o.headers || {}).Range || '');
+      if (m && honorRange) { const a = +m[1], z = m[2] ? +m[2] : BLOB.length - 1; return new Response(BLOB.slice(a, z + 1), { status: 206, headers: { 'Content-Range': `bytes ${a}-${z}/${BLOB.length}`, 'Content-Length': String(z - a + 1) } }); }
+      return new Response(BLOB, { status: 200, headers: { 'Content-Length': String(BLOB.length) } });
+    }
+    return savedFetch(url, o);
+  };
+  const leakT = t => t.includes(TOKEN) || leaks(t);
+  for (const [who, r] of [['không token', req('/api/admin-shorts', { op: 'list' })], ['người học', req('/api/admin-shorts', { op: 'list' }, { token: USER })], ['origin lạ', req('/api/admin-shorts', { op: 'list' }, { token: ADM, origin: 'https://evil.example' })]]) {
+    const x = await run(SH, r, SENV); ok(x.s === 403 && !leakT(x.text), `admin-shorts list (${who}) → 403 (${x.s})`);
+  }
+  const L1 = await run(SH, req('/api/admin-shorts', { op: 'list' }, { token: ADM }), SENV);
+  ok(L1.s === 200 && L1.j.media === true && L1.j.source === 'repo' && !leakT(L1.text) && /^\/api\/admin-shorts\?p=/.test(Object.values(L1.j.covers || {})[0] || ''), 'admin-shorts list (quản trị) → manifest repo + URL bìa ký, không lộ token');
+  const L0 = await run(SH, req('/api/admin-shorts', { op: 'list' }, { token: ADM }), ENV);
+  ok(L0.s === 200 && L0.j.media === false && L0.j.source === 'bundle' && Array.isArray(L0.j.items) && !Object.keys(L0.j.covers || {}).length, 'admin-shorts không có SHORTS_READ_TOKEN → manifest gói sẵn, không media');
+  for (const p of ['../secret.mp4', 'shorts/../../etc/passwd.mp4', 'shorts/cafe/x_1/..%2fa.mp4', 'shorts/cafe/x_1/a.json', 'README.md', 'other/cafe/x_1/a.mp4', 'shorts/cafe/a.mp4', '/shorts/cafe/x_1/a.mp4', 'shorts/Cafe/x_1/a.mp4', 'shorts/cafe/x_1/a.mp4?x=1', 'shorts/cafe/x_1/a.mp4\n'])
+    ok((await run(SH, req('/api/admin-shorts', { op: 'sign', path: p }, { token: ADM }), SENV)).s === 400, `admin-shorts sign chặn đường dẫn '${JSON.stringify(p)}'`);
+  for (const op of ['constructor', '__proto__', 'toString', 'x']) ok((await run(SH, req('/api/admin-shorts', { op }, { token: ADM }), SENV)).s === 400, `admin-shorts op '${op}' → 400`);
+  const P = 'shorts/cafe/x_1/cine-x-1-en-v3.mp4', sg = await run(SH, req('/api/admin-shorts', { op: 'sign', path: P }, { token: ADM }), SENV);
+  ok(sg.s === 200 && /^\/api\/admin-shorts\?p=shorts%2Fcafe/.test(sg.j.url) && !leakT(sg.text), 'admin-shorts sign → URL ký');
+  ok((await run(SH, req('/api/admin-shorts', { op: 'sign', path: P }, { token: ADM }), ENV)).s === 503, 'sign khi chưa có token → 503');
+  const get = async (url, headers = {}, env = SENV) => { const res = await SH.onRequestGet({ request: new Request('https://lexkite.com' + url, { headers: { 'CF-Connecting-IP': '10.8.0.' + (ipN++ % 250), ...headers } }), env }); return { s: res.status, h: res.headers, b: new Uint8Array(await res.arrayBuffer()) }; };
+  const U = sg.j.url, uq = new URL('https://x' + U).searchParams;
+  let g = await get(U); ok(g.s === 200 && g.b.length === 1000 && g.h.get('Content-Type') === 'video/mp4' && g.h.get('Accept-Ranges') === 'bytes' && /private/.test(g.h.get('Cache-Control')) && g.h.get('X-Content-Type-Options') === 'nosniff', 'GET ký đúng → 200 video/mp4');
+  ok(upCalls.at(-1).auth === 'token ' + TOKEN && upCalls.at(-1).u.endsWith('/main/' + P), 'GET gọi raw.githubusercontent bằng token máy chủ, đúng đường dẫn');
+  g = await get(U, { Range: 'bytes=10-19' }); ok(g.s === 206 && g.b.length === 10 && g.b[0] === 10 && g.h.get('Content-Range') === 'bytes 10-19/1000', 'Range chuyển tiếp → 206');
+  honorRange = false;
+  g = await get(U, { Range: 'bytes=990-' }); ok(g.s === 206 && g.b.length === 10 && g.h.get('Content-Range') === 'bytes 990-999/1000', 'nguồn bỏ qua Range → tự cắt 206');
+  g = await get(U, { Range: 'bytes=-5' }); ok(g.s === 206 && g.b.length === 5 && g.b[0] === 995 % 251, 'Range hậu tố bytes=-5');
+  g = await get(U, { Range: 'bytes=5000-' }); ok(g.s === 416 && g.h.get('Content-Range') === 'bytes */1000', 'Range vượt kích thước → 416');
+  ok((await get(U, { Range: 'items=0-1' })).s === 416 && (await get(U, { Range: 'bytes=0-1,5-9' })).s === 416, 'Range sai dạng/nhiều đoạn → 416');
+  honorRange = true; const n0 = upCalls.length;
+  ok((await get(U.replace(/s=[^&]+/, 's=' + 'A'.repeat(43)))).s === 403, 'chữ ký sai → 403');
+  ok((await get(U.replace(/e=\d+/, 'e=' + (+uq.get('e') + 1)))).s === 403, 'sửa hạn → 403');
+  ok((await get(U.replace(/p=[^&]+/, 'p=' + encodeURIComponent('shorts/cafe/x_1/other.mp4')))).s === 403, 'đổi file giữ chữ ký → 403');
+  ok((await get(U.replace(/p=[^&]+/, 'p=' + encodeURIComponent('shorts/../README.md')))).s === 400, 'GET đường dẫn ngoài shorts/ → 400');
+  ok((await get(`/api/admin-shorts?p=${encodeURIComponent(P)}&e=${Math.floor(Date.now() / 1000) + 99999}&s=x`)).s === 403, 'hạn quá xa → 403');
+  ok((await get(U, {}, ENV)).s === 503, 'GET khi chưa có token → 503');
+  ok(upCalls.length === n0, 'yêu cầu bị từ chối không gọi tới GitHub');
+  globalThis.fetch = savedFetch; }
+
 console.log(`api-security: ${n - fails}/${n} ok`);
 if (fails) process.exit(1);

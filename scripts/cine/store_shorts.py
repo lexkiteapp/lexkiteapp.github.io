@@ -7,12 +7,16 @@ store_shorts.py <out-dir> <shorts-checkout> <run-number> [sha]
   without passed.txt (backfill from old artifacts) = every qa_<render>.log whose last line is '== RESULT: ALL PASS'.
 Layout: shorts/<scene>/<lesson-id>/<cine-…>.mp4 + .jpg + qa.log + timeline.json + meta.json. A newer passed render of the
 same lesson/lang/suffix overwrites the older one (git history keeps it). Prints one line per stored render.
+Also refreshes shorts/index.json (manifest for the admin 🎬 Video tab, scripts/cine/shorts_index.py).
 """
-import glob, json, os, re, shutil, subprocess, sys
+import datetime, glob, json, os, re, shutil, subprocess, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import shorts_index
 
 out, repo, run = sys.argv[1], sys.argv[2], int(sys.argv[3]); sha = sys.argv[4] if len(sys.argv) > 4 else ''
 SCENES = ('hotel', 'cafe', 'airport', 'restaurant', 'anchor', 'news')
-rows = []
+rows, entries, cal = [], [], shorts_index._calendar()
+now = datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
 if os.path.exists(f'{out}/passed.txt'):
     rows = [l.split() for l in open(f'{out}/passed.txt') if l.strip()]
 else:
@@ -37,7 +41,11 @@ for sc, lid, rb in rows:
     except Exception: dur = None
     mp = f'{d}/meta.json'; meta = json.load(open(mp)) if os.path.exists(mp) else {}
     meta.update(scene=sc, lesson=lid)
-    meta.setdefault('renders', {})[base] = dict(run=run, sha=sha, duration=dur, bytes=os.path.getsize(mp4), qa='ALL PASS',
+    meta.setdefault('renders', {})[base] = dict(run=run, sha=sha, duration=dur, bytes=os.path.getsize(mp4), qa='ALL PASS', created=now,
                                               video=f'shorts/{sc}/{lid}/{base}.mp4', cover=f'shorts/{sc}/{lid}/{base}.jpg' if os.path.exists(cov) else None)
     json.dump(meta, open(mp, 'w'), indent=1, ensure_ascii=False)
+    qp = f'{d}/{base}.qa.log'; r = meta['renders'][base]
+    entries.append(shorts_index.entry(sc, lid, base, r, open(qp, errors='replace').read() if os.path.exists(qp) else '', now,
+                                      {r['cover']: os.path.getsize(f'{d}/{base}.jpg')} if r['cover'] else {}, cal))
     print(f'stored {sc}/{lid}/{base} (run {run}, {os.path.getsize(mp4) // 1000} kB)')
+if entries: print('index', shorts_index.update(repo, entries), len(entries))
