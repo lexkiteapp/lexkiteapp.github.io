@@ -15,8 +15,8 @@ const langs = fs.readFileSync(new URL('./i18n-langs.txt', import.meta.url), 'utf
 const fixed = JSON.parse(fs.readFileSync(new URL('./i18n-fixed.json', import.meta.url), 'utf8'));
 const load = f => { const g = {}; new Function('self', fs.readFileSync(new URL(f, root), 'utf8'))(g); return g.I18N_DICT; };
 const EN = load('en.js').en;
-// Nhóm tiếng Anh tải lười (LAZY trong scripts/build-i18n.sh, vd. en/report.js) – không nằm trong en.js nhưng vẫn phải đủ bản dịch
-for (const g of ((fs.readFileSync(new URL('./build-i18n.sh', import.meta.url), 'utf8').match(/^LAZY="([^"]*)"/m) || [])[1] || '').split(/\s+/).filter(Boolean)) Object.assign(EN, load(`en/${g}.js`).en);
+const lazyGroups = ((fs.readFileSync(new URL('./build-i18n.sh', import.meta.url), 'utf8').match(/^LAZY="([^"]*)"/m) || [])[1] || '').split(/\s+/).filter(Boolean);
+for (const g of lazyGroups) Object.assign(EN, load(`en/${g}.js`).en);
 const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i; // chỉ chữ riêng của tiếng Việt (â ê ô cũng có trong tiếng Pháp/Bồ Đào Nha)
 const BAD = /\b(Currículo|Currículum|Lebenslauf|CV)\b|简历|이력서|बायोडाटा|Резюме|Mirar hacia arriba|Olhe para cima|Schau nach oben|抬头看|見上げ|올려다|ऊपर देखो|Посмотрите вверх|Yukarıya bak|Lihatlah ke atas|มองขึ้น/;
 const vars = s => (String(s).match(/\{[a-zA-Z0-9_]+\}/g) || []).sort().join(',');
@@ -24,7 +24,14 @@ const tags = s => (String(s).match(/<\/?[a-z]+/gi) || []).map(x => x.toLowerCase
 const short = k => String(EN[k]).trim().split(/\s+/).length <= 3 && !/[{<]/.test(EN[k]) && /[a-z]/i.test(EN[k]) && !/^[A-Z0-9 &–-]+$/.test(EN[k]) && !/IELTS|TOEIC|TOEFL|Part|Task/.test(EN[k]); // tên riêng/thuật ngữ thi giữ nguyên tiếng Anh
 let errors = 0; const report = [];
 for (const l of langs) {
-  let D; try { D = load(l + '.js')[l] || {}; } catch (e) { report.push(`✗ ${l}: không đọc được (${e.message})`); errors++; continue; }
+  let D;
+  try {
+    D = load(l + '.js')[l] || {};
+    for (const g of lazyGroups) {
+      const gf = `${l}/${g}.js`;
+      if (fs.existsSync(new URL(gf, root))) Object.assign(D, load(gf)[l] || {});
+    }
+  } catch (e) { report.push(`✗ ${l}: không đọc được (${e.message})`); errors++; continue; }
   const miss = [], mix = [], bad = [], ph = [], eng = [];
   for (const k of Object.keys(EN)) {
     const v = D[k];

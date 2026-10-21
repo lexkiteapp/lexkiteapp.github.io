@@ -23,7 +23,11 @@
 
   // Bản tiếng Anh của module này nằm riêng (js/i18n/en/report.js) để khung app không phình – nạp trước khi vẽ
   let dictP;
-  const dict = () => dictP || (dictP = (!I || I.lang() === 'vi' || (w.I18N_DICT && I18N_DICT.en && I18N_DICT.en['Báo cáo sự cố'])) ? Promise.resolve() : new Promise(r => { const s = d.createElement('script'); s.src = 'js/i18n/en/report.js'; s.onload = s.onerror = () => r(); d.head.appendChild(s); }));
+  const have = l => w.I18N_DICT && w.I18N_DICT[l] && w.I18N_DICT[l]['Báo cáo sự cố'];
+  const dict = () => dictP || (dictP = (!I || I.lang() === 'vi' || (have('en') && (I.lang() === 'en' || have(I.lang())))) ? Promise.resolve() : new Promise(r => {
+    const l = I.lang(), loadOne = src => new Promise(res => { const s = d.createElement('script'); s.src = src; s.onload = s.onerror = () => res(); d.head.appendChild(s); });
+    loadOne('js/i18n/en/report.js').then(() => (l !== 'en' && l !== 'vi' ? loadOne(`js/i18n/${l}/report.js`) : null)).then(r);
+  }));
 
   let css = false;
   function style() {

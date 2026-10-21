@@ -505,7 +505,11 @@ hr#answer{border:0;height:0;margin:0}
   const { $, $$, esc, toast, modal, closeModal, download } = g.UI;
   const T = (k, v) => g.t(k, v);
   let dictP = null;
-  const dict = () => dictP || (dictP = (!g.I18N || I18N.lang() === 'vi' || (g.I18N_DICT && I18N_DICT.en && I18N_DICT.en['Gói Anki (.apkg)'])) ? Promise.resolve() : new Promise(r => { const s = document.createElement('script'); s.src = 'js/i18n/en/anki.js'; s.onload = s.onerror = () => r(); document.head.appendChild(s); }));
+  const have = l => g.I18N_DICT && g.I18N_DICT[l] && g.I18N_DICT[l]['Gói Anki (.apkg)'];
+  const dict = () => dictP || (dictP = (!g.I18N || I18N.lang() === 'vi' || (have('en') && (I18N.lang() === 'en' || have(I18N.lang())))) ? Promise.resolve() : new Promise(r => {
+    const l = I18N.lang(), loadOne = src => new Promise(res => { const s = document.createElement('script'); s.src = src; s.onload = s.onerror = () => res(); document.head.appendChild(s); });
+    loadOne('js/i18n/en/anki.js').then(() => (l !== 'en' && l !== 'vi' ? loadOne(`js/i18n/${l}/anki.js`) : null)).then(r);
+  }));
   const css = () => {
     if (document.getElementById('ak-css')) return;
     const st = document.createElement('style'); st.id = 'ak-css';
