@@ -160,9 +160,39 @@ Mẫu thẻ:
 
 ## ĐANG LÀM
 > ⚠️ @antigravity: U2a lại bị gom vào commit của Claude (1d6502ca) vì sửa thẳng trong thư mục của Claude. **Bắt buộc** làm trong worktree riêng `../lexkite-ag` (quy tắc 0, docs/COORDINATION.md) cho U2b trở đi.
-- (trống)
 
 ## CHỜ DUYỆT
+
+### [G1] Nâng cấp phòng thi CBT: Bút dạ quang 3 màu, Ghi chú, Gạch loại trừ, Cờ xem lại & Pacing Engine · @antigravity · ưu tiên: cao
+- Mục tiêu: Hiện thực hóa GĐ 1 kế hoạch UI/UX top 1 (CBT Simulator):
+  1. Bút dạ quang 3 màu (vàng, xanh lá, hồng) + Ghi chú dán (Sticky Note) trên cả bài đọc & câu hỏi + Bỏ tô sáng trực quan.
+  2. Nút gạch phương án loại trừ trực quan (Strike icon <s>S</s>) trên từng đáp án + phím tắt Alt+A-D / Alt+1-4.
+  3. Cờ xem lại câu hỏi trực quan (phím tắt F) + Bộ lọc câu hỏi ở thanh điều hướng (Tất cả, Chưa làm, Cần xem lại 🚩).
+  4. Pacing Engine thời gian thực (ước tính tốc độ trung bình, cảnh báo nhịp độ xanh/vàng/đỏ, thời gian hoàn thành dự kiến – ghi rõ "ước tính").
+- File/khu vực: `web/js/cbt.js`, `web/js/choice-kit.js`, `web/js/i18n/en/exams.js`, `scripts/i18n-fixed.json`, `web/js/i18n/*`.
+- Tiêu chí xong: Bundle `readings` tải lười, khung app không tăng (≤ 380 KB gz); chuỗi mới qua `t()` đủ 15 ngôn ngữ; phím tắt không xung đột khi gõ text; a11y đầy đủ; npm test PASS 100%.
+- Báo cáo:
+  - Commit: `39e21405` (nhánh `antigravity` trong worktree `../lexkite-ag`).
+  - **Highlighter 3 màu & Ghi chú**: Thanh toolbar nổi `#hlBar` cho phép chọn 3 màu bút dạ quang (🟡 Vàng - Từ khóa, 🟢 Xanh lá - Bằng chứng, 🌸 Hồng - Bẫy), tạo Sticky Note `📝` gắn liền với đoạn trích (click để đọc/sửa/xóa), nút 🗑️ Xóa highlight. Nhớ trạng thái highlight theo từng passage (`passHl[r.id]`) khi đổi part.
+  - **Gạch loại trừ trực quan**: Nút `<s>S</s>` trên từng đáp án `.cbt-opt`, click là gạch/bỏ gạch mà không chọn radio; hỗ trợ phím tắt `Alt+1-4` / `Alt+A-D`.
+  - **Cờ xem lại & Bộ lọc**: Nút cờ `cbt-flag-btn` to rõ ở từng câu; phím tắt `F` toggle cờ câu đang xem; thanh lọc ở chân trang: `Tất cả`, `Chưa làm ({n})`, `🚩 Xem lại ({n})` giúp thí sinh rà soát nhanh.
+  - **Pacing Engine thời gian thực**: Chip `cbt-pacing-chip` trên header (`Đúng tiến độ`, `Hơi chậm`, `Chậm ~{m}p`), kèm popover chi tiết: Nhịp độ chuẩn, Tốc độ thực tế, Tiến độ, Dự kiến hoàn thành (dư/thiếu phút), ghi rõ chú thích "*Các chỉ số mang tính ước tính nhằm hỗ trợ phân bổ thời gian thi.".
+  - **Ngân sách & Hiệu năng**: CSS đóng gói trong `cbt.js` qua `ensureCss()` nên khung app giữ nguyên **377 KB/380 KB gz**, web/js **18.5/18.8 MB**.
+  - **Đa ngôn ngữ & Kiểm thử**: Đủ 15 ngôn ngữ; `npm test` **PASS 100%** (1274 trang crawl ALL OK, 46 màn hình a11y axe-core ALL OK, smoke test ALL OK, native-auth ALL OK).
+- Cần sửa / Nhận xét:
+
+### [G0] Tách i18n tải lười theo từng ngôn ngữ (hạ tầng UI/UX) · @antigravity · ưu tiên: cao
+- Mục tiêu: Tách các nhóm chuỗi tải lười (LAZY) khỏi `web/js/i18n/<lang>.js` thành các file con `web/js/i18n/<lang>/<nhóm>.js` cho 13 ngôn ngữ ngoài `en`. Cập nhật `scripts/build-i18n.sh` và `scripts/gen-i18n.mjs`. Cập nhật loader nạp bundle động theo ngôn ngữ (`app.js`, các module tự nạp và `lazyfix.js`). Gỡ `ru.js` khỏi `allowBig` trong `scripts/test/budget.json`.
+- File/khu vực: `scripts/build-i18n.sh`, `scripts/gen-i18n.mjs`, `scripts/i18n-qa.mjs`, `scripts/i18n-fix.mjs`, `scripts/test/lazyfix.js`, `scripts/test/usage.mjs`, `scripts/test/ext-selection.mjs`, `scripts/test/budget.json`, `web/js/app.js`, `web/js/i18n.js`, `web/js/account-delete.js`, `web/js/anki.js`, `web/js/export.js`, `web/js/report.js`, `web/js/share-card.js`, `web/js/i18n/**`.
+- Tiêu chí xong: `node scripts/test/size-budget.mjs` đạt (gỡ `ru.js` khỏi `allowBig`), `node scripts/test/i18n-single.mjs`, `node scripts/i18n-qa.mjs --strict`, `node scripts/test/i18n-switch.mjs web`, full `npm test` PASS 100%.
+- Báo cáo:
+  - Commit: `7c897a40` (nhánh `antigravity` trong worktree `../lexkite-ag`).
+  - Đã tạo `scripts/split-i18n.mjs` tách 14 nhóm chuỗi tải lười (`report`, `anki`, `usage`, `account`, `extpanel`, `share`, `export`, `criteria`, `notices`, `pathx`, `rpbasic`, `resources`, `qtips`, `quick`) cho 13 ngôn ngữ thành 182 file `web/js/i18n/<lang>/<nhóm>.js`. Tích hợp tự động vào `scripts/build-i18n.sh`.
+  - Cập nhật `scripts/gen-i18n.mjs`, `scripts/i18n-fix.mjs`, `scripts/i18n-qa.mjs` hỗ trợ cả file core và file nhóm lười. Dọn sạch 71 khóa mồ côi không dùng.
+  - Cập nhật loader: `web/js/i18n.js` (cờ `coreDone`), `web/js/app.js` (tự động nạp file nhóm của ngôn ngữ khi nạp tiếng Anh), các module độc lập (`account-delete.js`, `anki.js`, `export.js`, `report.js`, `share-card.js`), và `scripts/test/lazyfix.js`, `scripts/test/usage.mjs`, `scripts/test/ext-selection.mjs`.
+  - Kích thước: Gỡ hoàn toàn `ru.js` khỏi `allowBig` trong `budget.json`. File `ru.js` giảm mạnh từ 160.1 KB gz xuống **116.3 KB gz**, `hi.js` từ 159.8 KB gz xuống **116.1 KB gz**! Tất cả các file i18n đơn lẻ đều ≤ 116.3 KB gz (trần 160 KB). Khung app giữ 376 KB gz / trần 380 KB gz.
+  - Kiểm thử: Toàn bộ kiểm thử i18n (`i18n-single`, `i18n-qa --strict`, `i18n-missing --strict`, `i18n-switch web`, `i18n-leak`) và `npm test` **PASS 100%** (1274 trang crawl, 46 màn hình axe a11y, native-auth...).
+- Cần sửa / Nhận xét:
 
 ### [E1] Email "Báo cáo não bộ" hằng tuần · @antigravity · ưu tiên: thấp
 - Mục tiêu: nối `web/templates/weekly-digest.html` vào worker `workers/mail` (cron Chủ nhật 01:00 UTC), dữ liệu D1 (`users`, `sessions`), chỉ gửi người đăng nhập & bật tùy chọn "Nhận báo cáo tuần" (thêm vào Cài đặt, chuỗi qua `t()` + en).

@@ -1,5 +1,60 @@
 {
   "_note": "Bản dịch tay cho nhãn ngắn dễ bị dịch máy sai nghĩa. scripts/i18n-fix.mjs áp vào web/js/i18n/<lang>.js sau mỗi lần dịch tự động.",
+  "Ghi chú": {
+    "es": "Nota", "pt": "Nota", "fr": "Note", "de": "Notiz", "id": "Catatan",
+    "th": "บันทึก", "zh": "笔记", "ja": "メモ", "ko": "메모", "hi": "नोट",
+    "ar": "ملاحظة", "ru": "Заметка", "tr": "Not"
+  },
+  "Thêm ghi chú": {
+    "es": "Añadir nota", "pt": "Adicionar nota", "fr": "Ajouter une note", "de": "Notiz hinzufügen", "id": "Tambah catatan",
+    "th": "เพิ่มบันทึก", "zh": "添加笔记", "ja": "メモを追加", "ko": "메모 추가", "hi": "नोट जोड़ें",
+    "ar": "إضافة ملاحظة", "ru": "Добавить заметку", "tr": "Not ekle"
+  },
+  "Bỏ tô sáng": {
+    "es": "Quitar resaltado", "pt": "Remover destaque", "fr": "Effacer le surlignage", "de": "Hervorhebung löschen", "id": "Hapus sorotan",
+    "th": "ลบไฮไลต์", "zh": "清除高亮", "ja": "ハイライトを消去", "ko": "강조 지우기", "hi": "हाइलाइट हटाएं",
+    "ar": "إزالة التمييز", "ru": "Убрать выделение", "tr": "Vurguyu kaldır"
+  },
+  "Gạch loại trừ": {
+    "es": "Tachar", "pt": "Tachar", "fr": "Barrer", "de": "Durchstreichen", "id": "Coret",
+    "th": "ขีดฆ่า", "zh": "划掉排除", "ja": "消去", "ko": "취소선", "hi": "काटें",
+    "ar": "شطب", "ru": "Вычеркнуть", "tr": "Üstünü çiz"
+  },
+  "Tô sáng vàng": {
+    "es": "Resaltar amarillo", "pt": "Destaque amarelo", "fr": "Surlignage jaune", "de": "Gelb hervorheben", "id": "Sorotan kuning",
+    "th": "ไฮไลต์สีเหลือง", "zh": "黄色高亮", "ja": "黄色ハイライト", "ko": "노란색 강조", "hi": "पीला हाइलाइट",
+    "ar": "تمييز أصفر", "ru": "Желтый маркер", "tr": "Sarı vurgu"
+  },
+  "Tô sáng xanh": {
+    "es": "Resaltar verde", "pt": "Destaque verde", "fr": "Surlignage vert", "de": "Grün hervorheben", "id": "Sorotan hijau",
+    "th": "ไฮไลต์สีเขียว", "zh": "绿色高亮", "ja": "緑色ハイライト", "ko": "초록색 강조", "hi": "हरा हाइलाइट",
+    "ar": "تمييز أخضر", "ru": "Зеленый маркер", "tr": "Yeşil vurgu"
+  },
+  "Tô sáng hồng": {
+    "es": "Resaltar rosa", "pt": "Destaque rosa", "fr": "Surlignage rose", "de": "Rosa hervorheben", "id": "Sorotan merah muda",
+    "th": "ไฮไลต์สีชมพู", "zh": "粉色高亮", "ja": "ピンクハイライト", "ko": "분홍색 강조", "hi": "गुलाबी हाइलाइट",
+    "ar": "تمييز وردي", "ru": "Розовый маркер", "tr": "Pembe vurgu"
+  },
+  "Nhịp độ chuẩn": {
+    "es": "Ritmo objetivo", "pt": "Ritmo ideal", "fr": "Rythme cible", "de": "Zieltempo", "id": "Target kecepatan",
+    "th": "ความเร็วเป้าหมาย", "zh": "目标配速", "ja": "目標ペース", "ko": "목표 페이스", "hi": "लक्ष्य गति",
+    "ar": "السرعة المستهدفة", "ru": "Целевой темп", "tr": "Hedef tempo"
+  },
+  "Tốc độ thực tế": {
+    "es": "Velocidad actual", "pt": "Velocidade real", "fr": "Vitesse réelle", "de": "Aktuelles Tempo", "id": "Kecepatan aktual",
+    "th": "ความเร็วจริง", "zh": "实际速度", "ja": "実際のペース", "ko": "실제 속도", "hi": "वास्तविक गति",
+    "ar": "السرعة الفعلية", "ru": "Фактический темп", "tr": "Gerçek hız"
+  },
+  "Dự kiến hoàn thành": {
+    "es": "Finalización estimada", "pt": "Conclusão estimada", "fr": "Fin estimée", "de": "Voraussichtlicher Abschluss", "id": "Perkiraan selesai",
+    "th": "ประมาณเวลาเสร็จ", "zh": "预计完成", "ja": "完了見込み", "ko": "예상 완료", "hi": "अनुमानित पूर्णता",
+    "ar": "الوقت المقدر للإكمال", "ru": "Ожидаемое завершение", "tr": "Tahmini tamamlanma"
+  },
+  "s / câu": {
+    "es": "s / preg.", "pt": "s / quest.", "fr": "s / quest.", "de": "Sek. / Frage", "id": "dtk / soal",
+    "th": "วิ / ข้อ", "zh": "秒 / 题", "ja": "秒 / 問", "ko": "초 / 문제", "hi": "से / प्रश्न",
+    "ar": "ث / سؤال", "ru": "сек. / вопр.", "tr": "sn / soru"
+  },
   "Hôm nay": {
     "es": "Hoy",
     "pt": "Hoje",
@@ -23254,5 +23309,95 @@
     "ar": "نسخ",
     "ru": "Копировать",
     "tr": "Kopyala"
+  },
+  "Công cụ tô sáng & ghi chú": {
+    "es": "Herramientas de resaltado y notas", "pt": "Ferramentas de destaque e notas", "fr": "Outils de surlignage et de notes", "de": "Markier- und Notizwerkzeuge", "id": "Alat sorot & catatan",
+    "th": "เครื่องมือไฮไลต์และบันทึก", "zh": "高亮与笔记工具", "ja": "ハイライトとメモのツール", "ko": "강조 및 메모 도구", "hi": "हाइलाइट और नोट टूल",
+    "ar": "أدوات التمييز والملاحظات", "ru": "Выделение и заметки", "tr": "Vurgulama ve not araçları"
+  },
+  "Tô sáng vàng (Từ khóa)": {
+    "es": "Resaltado amarillo (palabras clave)", "pt": "Destaque amarelo (palavras-chave)", "fr": "Surlignage jaune (mots-clés)", "de": "Gelb markieren (Schlüsselwörter)", "id": "Sorot kuning (kata kunci)",
+    "th": "ไฮไลต์สีเหลือง (คำสำคัญ)", "zh": "黄色高亮（关键词）", "ja": "黄色ハイライト（キーワード）", "ko": "노란색 강조 (키워드)", "hi": "पीला हाइलाइट (मुख्य शब्द)",
+    "ar": "تمييز أصفر (كلمات مفتاحية)", "ru": "Жёлтое выделение (ключевые слова)", "tr": "Sarı vurgu (anahtar kelimeler)"
+  },
+  "Tô sáng xanh (Bằng chứng)": {
+    "es": "Resaltado verde (evidencia)", "pt": "Destaque verde (evidência)", "fr": "Surlignage vert (preuves)", "de": "Grün markieren (Belege)", "id": "Sorot hijau (bukti)",
+    "th": "ไฮไลต์สีเขียว (หลักฐาน)", "zh": "绿色高亮（证据）", "ja": "緑色ハイライト（根拠）", "ko": "초록색 강조 (근거)", "hi": "हरा हाइलाइट (प्रमाण)",
+    "ar": "تمييز أخضر (دليل)", "ru": "Зелёное выделение (доказательства)", "tr": "Yeşil vurgu (kanıt)"
+  },
+  "Tô sáng hồng (Bẫy/Mâu thuẫn)": {
+    "es": "Resaltado rosa (trampas)", "pt": "Destaque rosa (armadilhas)", "fr": "Surlignage rose (pièges)", "de": "Rosa markieren (Fallen)", "id": "Sorot merah muda (jebakan)",
+    "th": "ไฮไลต์สีชมพู (กับดัก)", "zh": "粉色高亮（陷阱）", "ja": "ピンクハイライト（ひっかけ）", "ko": "분홍색 강조 (함정)", "hi": "गुलाबी हाइलाइट (जाल)",
+    "ar": "تمييز وردي (فخاخ)", "ru": "Розовое выделение (ловушки)", "tr": "Pembe vurgu (tuzaklar)"
+  },
+  "Nhập ghi chú của bạn:": {
+    "es": "Escribe tu nota:", "pt": "Escreva sua nota:", "fr": "Saisissez votre note :", "de": "Notiz eingeben:", "id": "Tulis catatan Anda:",
+    "th": "พิมพ์บันทึกของคุณ:", "zh": "输入你的笔记：", "ja": "メモを入力：", "ko": "메모를 입력하세요:", "hi": "अपना नोट लिखें:",
+    "ar": "اكتب ملاحظتك:", "ru": "Введите заметку:", "tr": "Notunuzu yazın:"
+  },
+  "Ghi chú: {n}": {
+    "es": "Nota: {n}", "pt": "Nota: {n}", "fr": "Note : {n}", "de": "Notiz: {n}", "id": "Catatan: {n}",
+    "th": "บันทึก: {n}", "zh": "笔记：{n}", "ja": "メモ：{n}", "ko": "메모: {n}", "hi": "नोट: {n}",
+    "ar": "ملاحظة: {n}", "ru": "Заметка: {n}", "tr": "Not: {n}"
+  },
+  "Gạch loại trừ (Alt+{k})": {
+    "es": "Tachar (Alt+{k})", "pt": "Tachar (Alt+{k})", "fr": "Barrer (Alt+{k})", "de": "Durchstreichen (Alt+{k})", "id": "Coret (Alt+{k})",
+    "th": "ขีดฆ่า (Alt+{k})", "zh": "划掉排除 (Alt+{k})", "ja": "消去線 (Alt+{k})", "ko": "지우기 선 (Alt+{k})", "hi": "काटें (Alt+{k})",
+    "ar": "شطب (Alt+{k})", "ru": "Зачеркнуть (Alt+{k})", "tr": "Üstünü çiz (Alt+{k})"
+  },
+  "Đánh dấu để xem lại sau (Phím F)": {
+    "es": "Marcar para revisar (tecla F)", "pt": "Marcar para revisar (tecla F)", "fr": "Marquer pour revoir (touche F)", "de": "Zum Überprüfen markieren (Taste F)", "id": "Tandai untuk ditinjau (tombol F)",
+    "th": "ปักธงเพื่อทบทวน (ปุ่ม F)", "zh": "标记以便复查（F 键）", "ja": "見直し用にフラグ（Fキー）", "ko": "검토 표시 (F 키)", "hi": "समीक्षा के लिए चिह्नित करें (F कुंजी)",
+    "ar": "وضع علامة للمراجعة (المفتاح F)", "ru": "Отметить для проверки (клавиша F)", "tr": "İncelemek için işaretle (F tuşu)"
+  },
+  "Chưa làm ({n})": {
+    "es": "Sin responder ({n})", "pt": "Sem resposta ({n})", "fr": "Sans réponse ({n})", "de": "Unbeantwortet ({n})", "id": "Belum dijawab ({n})",
+    "th": "ยังไม่ตอบ ({n})", "zh": "未作答 ({n})", "ja": "未回答 ({n})", "ko": "미답 ({n})", "hi": "अनुत्तरित ({n})",
+    "ar": "بلا إجابة ({n})", "ru": "Без ответа ({n})", "tr": "Cevapsız ({n})"
+  },
+  "Xem lại ({n})": {
+    "es": "Marcadas ({n})", "pt": "Marcadas ({n})", "fr": "Marquées ({n})", "de": "Markiert ({n})", "id": "Ditandai ({n})",
+    "th": "ปักธง ({n})", "zh": "已标记 ({n})", "ja": "フラグ付き ({n})", "ko": "표시됨 ({n})", "hi": "चिह्नित ({n})",
+    "ar": "معلَّمة ({n})", "ru": "Отмечено ({n})", "tr": "İşaretli ({n})"
+  },
+  "Đúng tiến độ (ước tính)": {
+    "es": "A buen ritmo (est.)", "pt": "No ritmo (est.)", "fr": "Dans les temps (est.)", "de": "Im Plan (geschätzt)", "id": "Sesuai jadwal (perkiraan)",
+    "th": "ตรงเวลา (ประมาณ)", "zh": "进度正常（估算）", "ja": "順調（推定）", "ko": "정상 속도 (추정)", "hi": "समय पर (अनुमान)",
+    "ar": "في الموعد (تقديري)", "ru": "По графику (оценка)", "tr": "Zamanında (tahmini)"
+  },
+  "Hơi chậm (ước tính)": {
+    "es": "Algo atrasado (est.)", "pt": "Um pouco atrasado (est.)", "fr": "Léger retard (est.)", "de": "Etwas im Verzug (geschätzt)", "id": "Sedikit terlambat (perkiraan)",
+    "th": "ช้าเล็กน้อย (ประมาณ)", "zh": "稍慢（估算）", "ja": "やや遅れ（推定）", "ko": "약간 느림 (추정)", "hi": "थोड़ा पीछे (अनुमान)",
+    "ar": "متأخر قليلًا (تقديري)", "ru": "Немного отстаёте (оценка)", "tr": "Biraz geride (tahmini)"
+  },
+  "Chậm ~{m}p (ước tính)": {
+    "es": "~{m} min de retraso (est.)", "pt": "~{m} min de atraso (est.)", "fr": "~{m} min de retard (est.)", "de": "~{m} Min. im Verzug (geschätzt)", "id": "Terlambat ~{m} mnt (perkiraan)",
+    "th": "ช้า ~{m} นาที (ประมาณ)", "zh": "慢约 {m} 分钟（估算）", "ja": "約{m}分遅れ（推定）", "ko": "~{m}분 늦음 (추정)", "hi": "~{m} मिनट पीछे (अनुमान)",
+    "ar": "متأخر ~{m} د (تقديري)", "ru": "Отставание ~{m} мин (оценка)", "tr": "~{m} dk geride (tahmini)"
+  },
+  "Ước tính nhịp độ làm bài (bấm để xem chi tiết)": {
+    "es": "Ritmo estimado del examen (toca para ver detalles)", "pt": "Ritmo estimado da prova (toque para ver detalhes)", "fr": "Rythme estimé de l’épreuve (touchez pour les détails)", "de": "Geschätztes Prüfungstempo (für Details tippen)", "id": "Perkiraan kecepatan ujian (ketuk untuk detail)",
+    "th": "ประมาณจังหวะการทำข้อสอบ (แตะเพื่อดูรายละเอียด)", "zh": "考试节奏估算（点按查看详情）", "ja": "試験ペースの推定（タップで詳細）", "ko": "시험 속도 추정 (눌러서 자세히 보기)", "hi": "परीक्षा की अनुमानित गति (विवरण के लिए टैप करें)",
+    "ar": "الوتيرة التقديرية للاختبار (اضغط للتفاصيل)", "ru": "Оценка темпа экзамена (нажмите для подробностей)", "tr": "Tahmini sınav hızı (ayrıntılar için dokunun)"
+  },
+  "Ước tính nhịp độ làm bài": {
+    "es": "Ritmo estimado del examen", "pt": "Ritmo estimado da prova", "fr": "Rythme estimé de l’épreuve", "de": "Geschätztes Prüfungstempo", "id": "Perkiraan kecepatan ujian",
+    "th": "ประมาณจังหวะการทำข้อสอบ", "zh": "考试节奏估算", "ja": "試験ペースの推定", "ko": "시험 속도 추정", "hi": "परीक्षा की अनुमानित गति",
+    "ar": "الوتيرة التقديرية للاختبار", "ru": "Оценка темпа экзамена", "tr": "Tahmini sınav hızı"
+  },
+  "Dư khoảng {m} phút (ước tính)": {
+    "es": "~{m} min de margen (est.)", "pt": "~{m} min de folga (est.)", "fr": "~{m} min d’avance (est.)", "de": "~{m} Min. Vorsprung (geschätzt)", "id": "Lebih cepat ~{m} mnt (perkiraan)",
+    "th": "เหลือเวลา ~{m} นาที (ประมาณ)", "zh": "约富余 {m} 分钟（估算）", "ja": "約{m}分の余裕（推定）", "ko": "~{m}분 여유 (추정)", "hi": "~{m} मिनट आगे (अनुमान)",
+    "ar": "متقدم ~{m} د (تقديري)", "ru": "Запас ~{m} мин (оценка)", "tr": "~{m} dk önde (tahmini)"
+  },
+  "Thiếu khoảng {m} phút (ước tính)": {
+    "es": "Faltan ~{m} min (est.)", "pt": "Faltam ~{m} min (est.)", "fr": "Il manque ~{m} min (est.)", "de": "Es fehlen ~{m} Min. (geschätzt)", "id": "Kurang ~{m} mnt (perkiraan)",
+    "th": "ขาดเวลา ~{m} นาที (ประมาณ)", "zh": "约缺 {m} 分钟（估算）", "ja": "約{m}分不足（推定）", "ko": "~{m}분 부족 (추정)", "hi": "~{m} मिनट कम (अनुमान)",
+    "ar": "ينقصك ~{m} د (تقديري)", "ru": "Не хватает ~{m} мин (оценка)", "tr": "~{m} dk eksik (tahmini)"
+  },
+  "Các chỉ số mang tính ước tính nhằm hỗ trợ phân bổ thời gian thi.": {
+    "es": "Todas las cifras son estimaciones para ayudarte a repartir el tiempo del examen.", "pt": "Todos os números são estimativas para ajudar a distribuir o tempo da prova.", "fr": "Tous les chiffres sont des estimations pour vous aider à répartir votre temps.", "de": "Alle Werte sind Schätzungen, die bei der Zeiteinteilung helfen sollen.", "id": "Semua angka adalah perkiraan untuk membantu membagi waktu ujian.",
+    "th": "ตัวเลขทั้งหมดเป็นการประมาณเพื่อช่วยจัดสรรเวลาสอบ", "zh": "所有数据均为估算，仅帮助你分配考试时间。", "ja": "数値はすべて推定値で、時間配分の目安です。", "ko": "모든 수치는 시험 시간 배분을 돕기 위한 추정치입니다.", "hi": "सभी आंकड़े अनुमान हैं, जो परीक्षा का समय बाँटने में मदद के लिए हैं।",
+    "ar": "جميع الأرقام تقديرية للمساعدة في توزيع وقت الاختبار.", "ru": "Все показатели приблизительные и помогают распределить время.", "tr": "Tüm değerler, sınav süresini planlamana yardımcı olacak tahminlerdir."
   }
 }

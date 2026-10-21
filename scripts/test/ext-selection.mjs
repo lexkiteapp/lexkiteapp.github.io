@@ -16,7 +16,12 @@ const rd = f => fs.readFileSync(new URL('../../' + f, import.meta.url), 'utf8');
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const MIXED = 'Kiểm thử add-on (E2E): Some jobs were not successful';
 const LANGS = ['es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
-const loadDict = l => { const g = {}; new Function('self', rd(`web/js/i18n/${l}.js`))(g); return g.I18N_DICT[l]; };
+const loadDict = l => {
+  const g = {};
+  new Function('self', rd(`web/js/i18n/${l}.js`))(g);
+  try { new Function('self', rd(`web/js/i18n/${l}/extpanel.js`))(g); } catch (e) {}
+  return g.I18N_DICT[l];
+};
 
 // ---------- 1) Bảng dịch trong trang (content.js) ----------
 async function page(uiLang, opts = {}) {
