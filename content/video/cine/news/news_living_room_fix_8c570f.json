@@ -1,0 +1,81 @@
+{
+ "id": "news_living_room_fix_8c570f",
+ "template": "fix",
+ "bg": "living_room",
+ "area": "grammar-check",
+ "cefr": "A1",
+ "point": "L1 mistake: I really like it, not I very like it",
+ "hook": {
+  "card": "VERY LIKE?",
+  "line": "n_8c570f_h"
+ },
+ "series": [
+  "COMMON MISTAKES",
+  "very vs really"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_8c570f_1",
+   "card": {
+    "kind": "x",
+    "text": "I very like it.",
+    "sub": null,
+    "label": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_8c570f_2",
+   "card": {
+    "kind": "v",
+    "text": "I really like it.",
+    "sub": "very can't go before a verb",
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_8c570f_3",
+   "card": {
+    "kind": "p",
+    "text": "I like it a lot.",
+    "sub": null,
+    "label": "EXAMPLE"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_8c570f_4",
+   "card": {
+    "kind": "v",
+    "text": "very good / very nice",
+    "sub": "very + adjective",
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_8c570f_5",
+   "card": {
+    "kind": "p",
+    "text": "really like / very good",
+    "sub": null,
+    "label": "RULE"
+   }
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_8c570f_r",
+  "rows": [
+   "I really like it.",
+   "I like it a lot.",
+   "really like / very good"
+  ]
+ },
+ "end_line": "n_8c570f_e",
+ "link": "https://lexkite.com/app/#/fix",
+ "cta": "Check your grammar on lexkite.com",
+ "est": 23.5
+}

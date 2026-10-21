@@ -1,0 +1,76 @@
+{
+ "id": "news_metro_station_three_4b67fc",
+ "template": "three",
+ "bg": "metro_station",
+ "area": "listening",
+ "cefr": "A2",
+ "point": "subway directions: which line, transfer, how many stops",
+ "hook": {
+  "card": "SUBWAY LOST?",
+  "line": "n_4b67fc_h"
+ },
+ "series": [
+  "CITY ENGLISH",
+  "Subway questions"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_4b67fc_1",
+   "card": {
+    "kind": "p",
+    "text": "Which line goes downtown?",
+    "sub": "line = subway route",
+    "label": "#1"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_4b67fc_2",
+   "card": null
+  },
+  {
+   "who": "ama",
+   "line": "n_4b67fc_3",
+   "card": {
+    "kind": "p",
+    "text": "Where do I transfer?",
+    "sub": "transfer = change trains",
+    "label": "#2"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_4b67fc_4",
+   "card": null
+  },
+  {
+   "who": "ama",
+   "line": "n_4b67fc_5",
+   "card": {
+    "kind": "p",
+    "text": "How many stops is it?",
+    "sub": "stop = station on the way",
+    "label": "#3"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_4b67fc_6",
+   "card": null
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_4b67fc_r",
+  "rows": [
+   "Which line goes downtown?",
+   "Where do I transfer?",
+   "How many stops is it?"
+  ]
+ },
+ "end_line": "n_4b67fc_e",
+ "link": "https://lexkite.com/app/#/listening",
+ "cta": "Train your listening on lexkite.com",
+ "est": 20.9
+}

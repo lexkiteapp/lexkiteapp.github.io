@@ -1,0 +1,81 @@
+{
+ "id": "news_supermarket_fix_155f6a",
+ "template": "fix",
+ "bg": "supermarket",
+ "area": "grammar",
+ "cefr": "A1",
+ "point": "questions with does: how much does it cost",
+ "hook": {
+  "card": "HOW MUCH?",
+  "line": "n_155f6a_h"
+ },
+ "series": [
+  "SHOPPING ENGLISH",
+  "Asking prices"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_155f6a_1",
+   "card": {
+    "kind": "x",
+    "text": "How much it cost?",
+    "sub": null,
+    "label": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_155f6a_2",
+   "card": {
+    "kind": "v",
+    "text": "How much does it cost?",
+    "sub": "questions need does",
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_155f6a_3",
+   "card": {
+    "kind": "v",
+    "text": "How much do these cost?",
+    "sub": "plural: do",
+    "label": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_155f6a_4",
+   "card": {
+    "kind": "v",
+    "text": "How much is it?",
+    "sub": "short and natural",
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_155f6a_5",
+   "card": {
+    "kind": "p",
+    "text": "does it / do they",
+    "sub": null,
+    "label": "RULE"
+   }
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_155f6a_r",
+  "rows": [
+   "How much does it cost?",
+   "How much do these cost?",
+   "How much is it?"
+  ]
+ },
+ "end_line": "n_155f6a_e",
+ "link": "https://lexkite.com/app/#/grammar",
+ "cta": "Practice grammar free on lexkite.com",
+ "est": 23.5
+}

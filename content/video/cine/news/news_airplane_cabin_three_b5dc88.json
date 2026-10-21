@@ -1,0 +1,76 @@
+{
+ "id": "news_airplane_cabin_three_b5dc88",
+ "template": "three",
+ "bg": "airplane_cabin",
+ "area": "phrases",
+ "cefr": "A2",
+ "point": "on the plane: could I get, mind switching seats, overhead bin",
+ "hook": {
+  "card": "FLYING SOON?",
+  "line": "n_b5dc88_h"
+ },
+ "series": [
+  "TRAVEL ENGLISH",
+  "On the plane"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_b5dc88_1",
+   "card": {
+    "kind": "p",
+    "text": "Could I get some water?",
+    "sub": "ask the flight attendant",
+    "label": "#1"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_b5dc88_2",
+   "card": null
+  },
+  {
+   "who": "ama",
+   "line": "n_b5dc88_3",
+   "card": {
+    "kind": "p",
+    "text": "Would you mind switching?",
+    "sub": "Would you mind + verb-ing?",
+    "label": "#2"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_b5dc88_4",
+   "card": null
+  },
+  {
+   "who": "ama",
+   "line": "n_b5dc88_5",
+   "card": {
+    "kind": "p",
+    "text": "Is there room up there?",
+    "sub": "overhead bin = bag space",
+    "label": "#3"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_b5dc88_6",
+   "card": null
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_b5dc88_r",
+  "rows": [
+   "Could I get some water?",
+   "Would you mind switching seats?",
+   "Is there room in the overhead bin?"
+  ]
+ },
+ "end_line": "n_b5dc88_e",
+ "link": "https://lexkite.com/app/#/phrases",
+ "cta": "Save useful phrases on lexkite.com",
+ "est": 24.0
+}

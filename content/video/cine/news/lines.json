@@ -1,0 +1,1004 @@
+{
+ "voices": {
+  "ama": "af_bella",
+  "carlos": "am_fenrir"
+ },
+ "speed": 0.92,
+ "lines": [
+  {
+   "id": "n_3c01b9_h",
+   "who": "ama",
+   "text": "Need help at the hotel?"
+  },
+  {
+   "id": "n_3c01b9_1",
+   "who": "ama",
+   "text": "Could I get a late checkout?"
+  },
+  {
+   "id": "n_3c01b9_2",
+   "who": "carlos",
+   "text": "Sure, until noon is fine."
+  },
+  {
+   "id": "n_3c01b9_3",
+   "who": "ama",
+   "text": "The Wi-Fi isn't working in my room."
+  },
+  {
+   "id": "n_3c01b9_4",
+   "who": "carlos",
+   "text": "Sorry about that. I'll reset it."
+  },
+  {
+   "id": "n_3c01b9_5",
+   "who": "ama",
+   "text": "Could I get some extra towels?"
+  },
+  {
+   "id": "n_3c01b9_6",
+   "who": "carlos",
+   "text": "Of course. I'll send some up."
+  },
+  {
+   "id": "n_3c01b9_r",
+   "who": "carlos",
+   "text": "Save these three phrases."
+  },
+  {
+   "id": "n_3c01b9_e",
+   "who": "ama",
+   "text": "Practice it free on Lexkite."
+  },
+  {
+   "id": "n_e0b1b7_h",
+   "who": "ama",
+   "text": "Ordering coffee today?"
+  },
+  {
+   "id": "n_e0b1b7_1",
+   "who": "ama",
+   "text": "Can I get a medium latte, please?"
+  },
+  {
+   "id": "n_e0b1b7_2",
+   "who": "carlos",
+   "text": "Sure. Anything else?"
+  },
+  {
+   "id": "n_e0b1b7_3",
+   "who": "ama",
+   "text": "Could I get that to go?"
+  },
+  {
+   "id": "n_e0b1b7_4",
+   "who": "carlos",
+   "text": "No problem."
+  },
+  {
+   "id": "n_e0b1b7_5",
+   "who": "ama",
+   "text": "Can I pay by card?"
+  },
+  {
+   "id": "n_e0b1b7_6",
+   "who": "carlos",
+   "text": "Yes, just tap here."
+  },
+  {
+   "id": "n_e0b1b7_r",
+   "who": "carlos",
+   "text": "Save these three phrases."
+  },
+  {
+   "id": "n_e0b1b7_e",
+   "who": "ama",
+   "text": "Try the full lesson on Lexkite."
+  },
+  {
+   "id": "n_974c28_h",
+   "who": "ama",
+   "text": "Feeling sick today?"
+  },
+  {
+   "id": "n_974c28_1",
+   "who": "ama",
+   "text": "I need something for a headache."
+  },
+  {
+   "id": "n_974c28_2",
+   "who": "carlos",
+   "text": "Try this. It works fast."
+  },
+  {
+   "id": "n_974c28_3",
+   "who": "ama",
+   "text": "Do I need a prescription for this?"
+  },
+  {
+   "id": "n_974c28_4",
+   "who": "carlos",
+   "text": "No, you can buy it here."
+  },
+  {
+   "id": "n_974c28_5",
+   "who": "ama",
+   "text": "How often should I take it?"
+  },
+  {
+   "id": "n_974c28_6",
+   "who": "carlos",
+   "text": "Every six hours, with food."
+  },
+  {
+   "id": "n_974c28_r",
+   "who": "carlos",
+   "text": "Save these three phrases."
+  },
+  {
+   "id": "n_974c28_e",
+   "who": "ama",
+   "text": "More free practice on Lexkite."
+  },
+  {
+   "id": "n_4b67fc_h",
+   "who": "ama",
+   "text": "Lost on the subway?"
+  },
+  {
+   "id": "n_4b67fc_1",
+   "who": "ama",
+   "text": "Which line goes downtown?"
+  },
+  {
+   "id": "n_4b67fc_2",
+   "who": "carlos",
+   "text": "Take the red line."
+  },
+  {
+   "id": "n_4b67fc_3",
+   "who": "ama",
+   "text": "Where do I transfer?"
+  },
+  {
+   "id": "n_4b67fc_4",
+   "who": "carlos",
+   "text": "At Central Station."
+  },
+  {
+   "id": "n_4b67fc_5",
+   "who": "ama",
+   "text": "How many stops is it?"
+  },
+  {
+   "id": "n_4b67fc_6",
+   "who": "carlos",
+   "text": "It's about five stops."
+  },
+  {
+   "id": "n_4b67fc_r",
+   "who": "carlos",
+   "text": "Save these three phrases."
+  },
+  {
+   "id": "n_4b67fc_e",
+   "who": "ama",
+   "text": "Practice it free on Lexkite."
+  },
+  {
+   "id": "n_b5dc88_h",
+   "who": "ama",
+   "text": "Flying somewhere soon?"
+  },
+  {
+   "id": "n_b5dc88_1",
+   "who": "ama",
+   "text": "Could I get some water, please?"
+  },
+  {
+   "id": "n_b5dc88_2",
+   "who": "carlos",
+   "text": "Sure, here you go."
+  },
+  {
+   "id": "n_b5dc88_3",
+   "who": "ama",
+   "text": "Would you mind switching seats?"
+  },
+  {
+   "id": "n_b5dc88_4",
+   "who": "carlos",
+   "text": "Not at all. Go ahead."
+  },
+  {
+   "id": "n_b5dc88_5",
+   "who": "ama",
+   "text": "Is there room in the overhead bin?"
+  },
+  {
+   "id": "n_b5dc88_6",
+   "who": "carlos",
+   "text": "Yes, right above you."
+  },
+  {
+   "id": "n_b5dc88_r",
+   "who": "carlos",
+   "text": "Save these three phrases."
+  },
+  {
+   "id": "n_b5dc88_e",
+   "who": "ama",
+   "text": "Try the full lesson on Lexkite."
+  },
+  {
+   "id": "n_15d51e_h",
+   "who": "ama",
+   "text": "Going to the bank?"
+  },
+  {
+   "id": "n_15d51e_1",
+   "who": "ama",
+   "text": "I'd like to open a checking account."
+  },
+  {
+   "id": "n_15d51e_2",
+   "who": "carlos",
+   "text": "Great. Do you have ID?"
+  },
+  {
+   "id": "n_15d51e_3",
+   "who": "ama",
+   "text": "Can I withdraw some cash here?"
+  },
+  {
+   "id": "n_15d51e_4",
+   "who": "carlos",
+   "text": "Sure, how much?"
+  },
+  {
+   "id": "n_15d51e_5",
+   "who": "ama",
+   "text": "Is there a fee for that?"
+  },
+  {
+   "id": "n_15d51e_6",
+   "who": "carlos",
+   "text": "No, it's free for you."
+  },
+  {
+   "id": "n_15d51e_r",
+   "who": "carlos",
+   "text": "Save these three phrases."
+  },
+  {
+   "id": "n_15d51e_e",
+   "who": "ama",
+   "text": "More free practice on Lexkite."
+  },
+  {
+   "id": "n_2df2cf_h",
+   "who": "ama",
+   "text": "IELTS Speaking test soon?"
+  },
+  {
+   "id": "n_2df2cf_1",
+   "who": "ama",
+   "text": "That's an interesting question."
+  },
+  {
+   "id": "n_2df2cf_2",
+   "who": "carlos",
+   "text": "Then answer, don't pause."
+  },
+  {
+   "id": "n_2df2cf_3",
+   "who": "ama",
+   "text": "To be honest, I prefer the city."
+  },
+  {
+   "id": "n_2df2cf_4",
+   "who": "carlos",
+   "text": "Good, now add a reason."
+  },
+  {
+   "id": "n_2df2cf_5",
+   "who": "ama",
+   "text": "For example, there's more to do."
+  },
+  {
+   "id": "n_2df2cf_6",
+   "who": "carlos",
+   "text": "That makes your answer longer."
+  },
+  {
+   "id": "n_2df2cf_r",
+   "who": "carlos",
+   "text": "Save these three phrases."
+  },
+  {
+   "id": "n_2df2cf_e",
+   "who": "ama",
+   "text": "Practice it free on Lexkite."
+  },
+  {
+   "id": "n_0f9226_h",
+   "who": "ama",
+   "text": "Do you say this?"
+  },
+  {
+   "id": "n_0f9226_1",
+   "who": "ama",
+   "text": "A lot of learners say: I am agree."
+  },
+  {
+   "id": "n_0f9226_2",
+   "who": "carlos",
+   "text": "Just say: I agree."
+  },
+  {
+   "id": "n_0f9226_3",
+   "who": "ama",
+   "text": "I agree with you."
+  },
+  {
+   "id": "n_0f9226_4",
+   "who": "carlos",
+   "text": "I don't agree with that."
+  },
+  {
+   "id": "n_0f9226_5",
+   "who": "ama",
+   "text": "So no am before agree."
+  },
+  {
+   "id": "n_0f9226_r",
+   "who": "carlos",
+   "text": "Screenshot this one."
+  },
+  {
+   "id": "n_0f9226_e",
+   "who": "ama",
+   "text": "Try the full lesson on Lexkite."
+  },
+  {
+   "id": "n_5d50a6_h",
+   "who": "ama",
+   "text": "Stop saying this at work."
+  },
+  {
+   "id": "n_5d50a6_1",
+   "who": "ama",
+   "text": "People often say: let's discuss about the plan."
+  },
+  {
+   "id": "n_5d50a6_2",
+   "who": "carlos",
+   "text": "Say: let's discuss the plan."
+  },
+  {
+   "id": "n_5d50a6_3",
+   "who": "ama",
+   "text": "We need to discuss the budget."
+  },
+  {
+   "id": "n_5d50a6_4",
+   "who": "carlos",
+   "text": "But you can talk about the budget."
+  },
+  {
+   "id": "n_5d50a6_5",
+   "who": "ama",
+   "text": "Discuss something, talk about something."
+  },
+  {
+   "id": "n_5d50a6_r",
+   "who": "carlos",
+   "text": "Screenshot this one."
+  },
+  {
+   "id": "n_5d50a6_e",
+   "who": "ama",
+   "text": "More free practice on Lexkite."
+  },
+  {
+   "id": "n_155f6a_h",
+   "who": "ama",
+   "text": "How much is this?"
+  },
+  {
+   "id": "n_155f6a_1",
+   "who": "ama",
+   "text": "Many learners ask: how much it cost?"
+  },
+  {
+   "id": "n_155f6a_2",
+   "who": "carlos",
+   "text": "Say: how much does it cost?"
+  },
+  {
+   "id": "n_155f6a_3",
+   "who": "ama",
+   "text": "How much do these apples cost?"
+  },
+  {
+   "id": "n_155f6a_4",
+   "who": "carlos",
+   "text": "Or just say: how much is it?"
+  },
+  {
+   "id": "n_155f6a_5",
+   "who": "ama",
+   "text": "Does for it, do for they."
+  },
+  {
+   "id": "n_155f6a_r",
+   "who": "carlos",
+   "text": "Screenshot this one."
+  },
+  {
+   "id": "n_155f6a_e",
+   "who": "ama",
+   "text": "Practice it free on Lexkite."
+  },
+  {
+   "id": "n_ee2b2c_h",
+   "who": "ama",
+   "text": "She said me? No."
+  },
+  {
+   "id": "n_ee2b2c_1",
+   "who": "ama",
+   "text": "People often say: she said me the news."
+  },
+  {
+   "id": "n_ee2b2c_2",
+   "who": "carlos",
+   "text": "Say: she told me the news."
+  },
+  {
+   "id": "n_ee2b2c_3",
+   "who": "ama",
+   "text": "She said that it was late."
+  },
+  {
+   "id": "n_ee2b2c_4",
+   "who": "carlos",
+   "text": "He told me to wait here."
+  },
+  {
+   "id": "n_ee2b2c_5",
+   "who": "ama",
+   "text": "Tell someone, say something."
+  },
+  {
+   "id": "n_ee2b2c_r",
+   "who": "carlos",
+   "text": "Screenshot this one."
+  },
+  {
+   "id": "n_ee2b2c_e",
+   "who": "ama",
+   "text": "Try the full lesson on Lexkite."
+  },
+  {
+   "id": "n_a59145_h",
+   "who": "ama",
+   "text": "One word is missing."
+  },
+  {
+   "id": "n_a59145_1",
+   "who": "ama",
+   "text": "Many people say: I'm looking a book."
+  },
+  {
+   "id": "n_a59145_2",
+   "who": "carlos",
+   "text": "Say: I'm looking for a book."
+  },
+  {
+   "id": "n_a59145_3",
+   "who": "ama",
+   "text": "Can I help you find something?"
+  },
+  {
+   "id": "n_a59145_4",
+   "who": "carlos",
+   "text": "Yes, I'm looking for a cookbook."
+  },
+  {
+   "id": "n_a59145_5",
+   "who": "ama",
+   "text": "Look at it, look for it."
+  },
+  {
+   "id": "n_a59145_r",
+   "who": "carlos",
+   "text": "Screenshot this one."
+  },
+  {
+   "id": "n_a59145_e",
+   "who": "ama",
+   "text": "More free practice on Lexkite."
+  },
+  {
+   "id": "n_8c570f_h",
+   "who": "ama",
+   "text": "Do you say very like?"
+  },
+  {
+   "id": "n_8c570f_1",
+   "who": "ama",
+   "text": "A lot of learners say: I very like it."
+  },
+  {
+   "id": "n_8c570f_2",
+   "who": "carlos",
+   "text": "Say: I really like it."
+  },
+  {
+   "id": "n_8c570f_3",
+   "who": "ama",
+   "text": "Or: I like it a lot."
+  },
+  {
+   "id": "n_8c570f_4",
+   "who": "carlos",
+   "text": "Very goes with adjectives: very good."
+  },
+  {
+   "id": "n_8c570f_5",
+   "who": "ama",
+   "text": "Really before verbs, very before adjectives."
+  },
+  {
+   "id": "n_8c570f_r",
+   "who": "carlos",
+   "text": "Screenshot this one."
+  },
+  {
+   "id": "n_8c570f_e",
+   "who": "ama",
+   "text": "Practice it free on Lexkite."
+  },
+  {
+   "id": "n_a76472_h",
+   "who": "ama",
+   "text": "Make or do?"
+  },
+  {
+   "id": "n_a76472_1",
+   "who": "ama",
+   "text": "Option A: I do yoga every morning."
+  },
+  {
+   "id": "n_a76472_2",
+   "who": "carlos",
+   "text": "Option B: I make yoga every morning."
+  },
+  {
+   "id": "n_a76472_3",
+   "who": "ama",
+   "text": "Which one is right? Comment below."
+  },
+  {
+   "id": "n_a76472_4",
+   "who": "carlos",
+   "text": "It's A. I do yoga every morning."
+  },
+  {
+   "id": "n_a76472_5",
+   "who": "ama",
+   "text": "You also do homework and do the dishes."
+  },
+  {
+   "id": "n_a76472_r",
+   "who": "carlos",
+   "text": "Save this for later."
+  },
+  {
+   "id": "n_a76472_e",
+   "who": "ama",
+   "text": "Try the full lesson on Lexkite."
+  },
+  {
+   "id": "n_a30db6_h",
+   "who": "ama",
+   "text": "Dinner: make or do?"
+  },
+  {
+   "id": "n_a30db6_1",
+   "who": "ama",
+   "text": "Option A: I'll do dinner tonight."
+  },
+  {
+   "id": "n_a30db6_2",
+   "who": "carlos",
+   "text": "Option B: I'll make dinner tonight."
+  },
+  {
+   "id": "n_a30db6_3",
+   "who": "ama",
+   "text": "Which one sounds natural? Comment below."
+  },
+  {
+   "id": "n_a30db6_4",
+   "who": "carlos",
+   "text": "It's B. I'll make dinner tonight."
+  },
+  {
+   "id": "n_a30db6_5",
+   "who": "ama",
+   "text": "You also make coffee and make a cake."
+  },
+  {
+   "id": "n_a30db6_r",
+   "who": "carlos",
+   "text": "Save this for later."
+  },
+  {
+   "id": "n_a30db6_e",
+   "who": "ama",
+   "text": "More free practice on Lexkite."
+  },
+  {
+   "id": "n_b20f1c_h",
+   "who": "ama",
+   "text": "Try on it? Hmm."
+  },
+  {
+   "id": "n_b20f1c_1",
+   "who": "ama",
+   "text": "Option A: Can I try on it?"
+  },
+  {
+   "id": "n_b20f1c_2",
+   "who": "carlos",
+   "text": "Option B: Can I try it on?"
+  },
+  {
+   "id": "n_b20f1c_3",
+   "who": "ama",
+   "text": "Which one is right? Comment below."
+  },
+  {
+   "id": "n_b20f1c_4",
+   "who": "carlos",
+   "text": "It's B. Can I try it on?"
+  },
+  {
+   "id": "n_b20f1c_5",
+   "who": "ama",
+   "text": "Can I try on this jacket? Also fine."
+  },
+  {
+   "id": "n_b20f1c_r",
+   "who": "carlos",
+   "text": "Save this for later."
+  },
+  {
+   "id": "n_b20f1c_e",
+   "who": "ama",
+   "text": "Practice it free on Lexkite."
+  },
+  {
+   "id": "n_a843c0_h",
+   "who": "ama",
+   "text": "Borrow or lend?"
+  },
+  {
+   "id": "n_a843c0_1",
+   "who": "ama",
+   "text": "Option A: Can I borrow your pen?"
+  },
+  {
+   "id": "n_a843c0_2",
+   "who": "carlos",
+   "text": "Option B: Can I lend your pen?"
+  },
+  {
+   "id": "n_a843c0_3",
+   "who": "ama",
+   "text": "Which one is right? Comment below."
+  },
+  {
+   "id": "n_a843c0_4",
+   "who": "carlos",
+   "text": "It's A. Can I borrow your pen?"
+  },
+  {
+   "id": "n_a843c0_5",
+   "who": "ama",
+   "text": "Or ask: can you lend me your pen?"
+  },
+  {
+   "id": "n_a843c0_r",
+   "who": "carlos",
+   "text": "Save this for later."
+  },
+  {
+   "id": "n_a843c0_e",
+   "who": "ama",
+   "text": "Try the full lesson on Lexkite."
+  },
+  {
+   "id": "n_4828ed_h",
+   "who": "ama",
+   "text": "Taxi: in or on?"
+  },
+  {
+   "id": "n_4828ed_1",
+   "who": "ama",
+   "text": "Option A: I got in the taxi."
+  },
+  {
+   "id": "n_4828ed_2",
+   "who": "carlos",
+   "text": "Option B: I got on the taxi."
+  },
+  {
+   "id": "n_4828ed_3",
+   "who": "ama",
+   "text": "Which one is right? Comment below."
+  },
+  {
+   "id": "n_4828ed_4",
+   "who": "carlos",
+   "text": "It's A. I got in the taxi."
+  },
+  {
+   "id": "n_4828ed_5",
+   "who": "ama",
+   "text": "But you get on a bus or a train."
+  },
+  {
+   "id": "n_4828ed_r",
+   "who": "carlos",
+   "text": "Save this for later."
+  },
+  {
+   "id": "n_4828ed_e",
+   "who": "ama",
+   "text": "More free practice on Lexkite."
+  },
+  {
+   "id": "n_18caee_h",
+   "who": "ama",
+   "text": "In or on? Quick test."
+  },
+  {
+   "id": "n_18caee_1",
+   "who": "ama",
+   "text": "Option A: I run in the morning."
+  },
+  {
+   "id": "n_18caee_2",
+   "who": "carlos",
+   "text": "Option B: I run on the morning."
+  },
+  {
+   "id": "n_18caee_3",
+   "who": "ama",
+   "text": "Which one is right? Comment below."
+  },
+  {
+   "id": "n_18caee_4",
+   "who": "carlos",
+   "text": "It's A. I run in the morning."
+  },
+  {
+   "id": "n_18caee_5",
+   "who": "ama",
+   "text": "But we say on Monday morning."
+  },
+  {
+   "id": "n_18caee_r",
+   "who": "carlos",
+   "text": "Save this for later."
+  },
+  {
+   "id": "n_18caee_e",
+   "who": "ama",
+   "text": "Practice it free on Lexkite."
+  },
+  {
+   "id": "n_7b5d0d_h",
+   "who": "ama",
+   "text": "Need to see a doctor?"
+  },
+  {
+   "id": "n_7b5d0d_1",
+   "who": "ama",
+   "text": "Polite: I'd like an appointment, please."
+  },
+  {
+   "id": "n_7b5d0d_2",
+   "who": "carlos",
+   "text": "Neutral: Can I book a visit?"
+  },
+  {
+   "id": "n_7b5d0d_3",
+   "who": "ama",
+   "text": "Casual: Can I see a doctor today?"
+  },
+  {
+   "id": "n_7b5d0d_4",
+   "who": "carlos",
+   "text": "On the phone, the first one is best."
+  },
+  {
+   "id": "n_7b5d0d_5",
+   "who": "ama",
+   "text": "The others are fine in person too."
+  },
+  {
+   "id": "n_7b5d0d_r",
+   "who": "carlos",
+   "text": "Save all three."
+  },
+  {
+   "id": "n_7b5d0d_e",
+   "who": "ama",
+   "text": "Try the full lesson on Lexkite."
+  },
+  {
+   "id": "n_0b506e_h",
+   "who": "ama",
+   "text": "How do you say no?"
+  },
+  {
+   "id": "n_0b506e_1",
+   "who": "ama",
+   "text": "Polite: I'd love to, but I can't."
+  },
+  {
+   "id": "n_0b506e_2",
+   "who": "carlos",
+   "text": "Neutral: Sorry, I can't make it."
+  },
+  {
+   "id": "n_0b506e_3",
+   "who": "ama",
+   "text": "Casual: Can't tonight. Maybe next time!"
+  },
+  {
+   "id": "n_0b506e_4",
+   "who": "carlos",
+   "text": "Use the first one with your boss."
+  },
+  {
+   "id": "n_0b506e_5",
+   "who": "ama",
+   "text": "Save the casual one for friends."
+  },
+  {
+   "id": "n_0b506e_r",
+   "who": "carlos",
+   "text": "Save all three."
+  },
+  {
+   "id": "n_0b506e_e",
+   "who": "ama",
+   "text": "More free practice on Lexkite."
+  },
+  {
+   "id": "n_23140c_h",
+   "who": "ama",
+   "text": "How do you disagree?"
+  },
+  {
+   "id": "n_23140c_1",
+   "who": "ama",
+   "text": "Polite: I see your point, but I'm not sure."
+  },
+  {
+   "id": "n_23140c_2",
+   "who": "carlos",
+   "text": "Neutral: I'm not sure about that."
+  },
+  {
+   "id": "n_23140c_3",
+   "who": "ama",
+   "text": "Casual: Hmm, I don't think so."
+  },
+  {
+   "id": "n_23140c_4",
+   "who": "carlos",
+   "text": "In meetings, start with the first one."
+  },
+  {
+   "id": "n_23140c_5",
+   "who": "ama",
+   "text": "With close coworkers, the others are fine."
+  },
+  {
+   "id": "n_23140c_r",
+   "who": "carlos",
+   "text": "Save all three."
+  },
+  {
+   "id": "n_23140c_e",
+   "who": "ama",
+   "text": "Practice it free on Lexkite."
+  },
+  {
+   "id": "n_0ea920_h",
+   "who": "ama",
+   "text": "Need some help?"
+  },
+  {
+   "id": "n_0ea920_1",
+   "who": "ama",
+   "text": "Polite: Would you mind helping me out?"
+  },
+  {
+   "id": "n_0ea920_2",
+   "who": "carlos",
+   "text": "Neutral: Could you help me, please?"
+  },
+  {
+   "id": "n_0ea920_3",
+   "who": "ama",
+   "text": "Casual: Can you give me a hand?"
+  },
+  {
+   "id": "n_0ea920_4",
+   "who": "carlos",
+   "text": "With strangers, use the first two."
+  },
+  {
+   "id": "n_0ea920_5",
+   "who": "ama",
+   "text": "Give me a hand is great with friends."
+  },
+  {
+   "id": "n_0ea920_r",
+   "who": "carlos",
+   "text": "Save all three."
+  },
+  {
+   "id": "n_0ea920_e",
+   "who": "ama",
+   "text": "Try the full lesson on Lexkite."
+  },
+  {
+   "id": "n_9ad922_h",
+   "who": "ama",
+   "text": "Are you ready to order?"
+  },
+  {
+   "id": "n_9ad922_1",
+   "who": "ama",
+   "text": "You're at a restaurant. The server asks: ready to order?"
+  },
+  {
+   "id": "n_9ad922_2",
+   "who": "carlos",
+   "text": "Say: I'll have the salmon, please."
+  },
+  {
+   "id": "n_9ad922_3",
+   "who": "ama",
+   "text": "Or: Could I get the pasta, please?"
+  },
+  {
+   "id": "n_9ad922_4",
+   "who": "carlos",
+   "text": "Don't say: I want salmon."
+  },
+  {
+   "id": "n_9ad922_5",
+   "who": "ama",
+   "text": "I want can sound a little rude here."
+  },
+  {
+   "id": "n_9ad922_r",
+   "who": "carlos",
+   "text": "Save these answers."
+  },
+  {
+   "id": "n_9ad922_e",
+   "who": "ama",
+   "text": "More free practice on Lexkite."
+  }
+ ]
+}

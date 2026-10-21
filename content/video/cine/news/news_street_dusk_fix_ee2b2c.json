@@ -1,0 +1,81 @@
+{
+ "id": "news_street_dusk_fix_ee2b2c",
+ "template": "fix",
+ "bg": "street_dusk",
+ "area": "word-usage",
+ "cefr": "A2",
+ "point": "say vs tell: she told me, not she said me",
+ "hook": {
+  "card": "SAID ME?",
+  "line": "n_ee2b2c_h"
+ },
+ "series": [
+  "WORD FIX",
+  "say vs tell"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_ee2b2c_1",
+   "card": {
+    "kind": "x",
+    "text": "She said me the news.",
+    "sub": null,
+    "label": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_ee2b2c_2",
+   "card": {
+    "kind": "v",
+    "text": "She told me the news.",
+    "sub": "tell + person",
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_ee2b2c_3",
+   "card": {
+    "kind": "v",
+    "text": "She said it was late.",
+    "sub": "say + what",
+    "label": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_ee2b2c_4",
+   "card": {
+    "kind": "p",
+    "text": "He told me to wait.",
+    "sub": null,
+    "label": "EXAMPLE"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_ee2b2c_5",
+   "card": {
+    "kind": "p",
+    "text": "tell me / say it",
+    "sub": null,
+    "label": "RULE"
+   }
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_ee2b2c_r",
+  "rows": [
+   "She told me the news.",
+   "She said it was late.",
+   "tell me / say it"
+  ]
+ },
+ "end_line": "n_ee2b2c_e",
+ "link": "https://lexkite.com/app/#/usage?c=pair",
+ "cta": "Compare tricky words on lexkite.com",
+ "est": 23.1
+}

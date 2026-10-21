@@ -1,0 +1,81 @@
+{
+ "id": "news_library_ab_a843c0",
+ "template": "ab",
+ "bg": "library",
+ "area": "word-usage",
+ "cefr": "A2",
+ "point": "borrow vs lend",
+ "hook": {
+  "card": "BORROW OR LEND?",
+  "line": "n_a843c0_h"
+ },
+ "series": [
+  "WORD CHECK",
+  "borrow vs lend"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_a843c0_1",
+   "card": {
+    "kind": "p",
+    "text": "Can I borrow your pen?",
+    "sub": null,
+    "label": "A"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_a843c0_2",
+   "card": {
+    "kind": "p",
+    "text": "Can I lend your pen?",
+    "sub": null,
+    "label": "B"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_a843c0_3",
+   "card": {
+    "kind": "p",
+    "text": "A or B?",
+    "sub": null,
+    "label": "COMMENT"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_a843c0_4",
+   "card": {
+    "kind": "v",
+    "text": "Can I borrow your pen?",
+    "sub": "borrow = take for a while",
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_a843c0_5",
+   "card": {
+    "kind": "v",
+    "text": "Can you lend me your pen?",
+    "sub": "lend = give for a while",
+    "label": null
+   }
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_a843c0_r",
+  "rows": [
+   "Can I borrow your pen?",
+   "Can you lend me your pen?",
+   "borrow from / lend to"
+  ]
+ },
+ "end_line": "n_a843c0_e",
+ "link": "https://lexkite.com/app/#/usage?c=pair",
+ "cta": "Compare tricky words on lexkite.com",
+ "est": 25.0
+}

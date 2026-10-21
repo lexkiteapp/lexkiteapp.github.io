@@ -1,0 +1,81 @@
+{
+ "id": "news_park_ab_18caee",
+ "template": "ab",
+ "bg": "park",
+ "area": "grammar",
+ "cefr": "A1",
+ "point": "in the morning, on Monday",
+ "hook": {
+  "card": "IN OR ON?",
+  "line": "n_18caee_h"
+ },
+ "series": [
+  "PREPOSITIONS",
+  "time words"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_18caee_1",
+   "card": {
+    "kind": "p",
+    "text": "I run in the morning.",
+    "sub": null,
+    "label": "A"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_18caee_2",
+   "card": {
+    "kind": "p",
+    "text": "I run on the morning.",
+    "sub": null,
+    "label": "B"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_18caee_3",
+   "card": {
+    "kind": "p",
+    "text": "A or B?",
+    "sub": null,
+    "label": "COMMENT"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_18caee_4",
+   "card": {
+    "kind": "v",
+    "text": "I run in the morning.",
+    "sub": "in + parts of the day",
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_18caee_5",
+   "card": {
+    "kind": "v",
+    "text": "on Monday morning",
+    "sub": "on + days",
+    "label": null
+   }
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_18caee_r",
+  "rows": [
+   "in the morning",
+   "on Monday",
+   "on Monday morning"
+  ]
+ },
+ "end_line": "n_18caee_e",
+ "link": "https://lexkite.com/app/#/grammar",
+ "cta": "Practice grammar free on lexkite.com",
+ "est": 23.9
+}

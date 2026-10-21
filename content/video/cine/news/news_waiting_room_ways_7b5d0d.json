@@ -1,0 +1,81 @@
+{
+ "id": "news_waiting_room_ways_7b5d0d",
+ "template": "ways",
+ "bg": "waiting_room",
+ "area": "speaking",
+ "cefr": "A2",
+ "point": "booking a doctor's appointment: polite to casual",
+ "hook": {
+  "card": "SEE A DOCTOR?",
+  "line": "n_7b5d0d_h"
+ },
+ "series": [
+  "HEALTH ENGLISH",
+  "3 ways to ask"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_7b5d0d_1",
+   "card": {
+    "kind": "p",
+    "text": "I'd like an appointment.",
+    "sub": null,
+    "label": "POLITE"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_7b5d0d_2",
+   "card": {
+    "kind": "p",
+    "text": "Can I book a visit?",
+    "sub": null,
+    "label": "NEUTRAL"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_7b5d0d_3",
+   "card": {
+    "kind": "p",
+    "text": "Can I see a doctor today?",
+    "sub": null,
+    "label": "CASUAL"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_7b5d0d_4",
+   "card": {
+    "kind": "p",
+    "text": "polite = phone, front desk",
+    "sub": null,
+    "label": "TIP"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_7b5d0d_5",
+   "card": {
+    "kind": "p",
+    "text": "neutral, casual = also OK",
+    "sub": null,
+    "label": "TIP"
+   }
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_7b5d0d_r",
+  "rows": [
+   "I'd like to make an appointment.",
+   "Can I book a visit?",
+   "Can I see a doctor today?"
+  ]
+ },
+ "end_line": "n_7b5d0d_e",
+ "link": "https://lexkite.com/en/speaking/",
+ "cta": "Practice IELTS speaking on lexkite.com",
+ "est": 24.6
+}

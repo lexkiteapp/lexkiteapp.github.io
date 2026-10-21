@@ -1,0 +1,81 @@
+{
+ "id": "news_restaurant_night_pov_9ad922",
+ "template": "pov",
+ "bg": "restaurant_night",
+ "area": "roleplay",
+ "cefr": "A2",
+ "point": "ordering food politely: I'll have",
+ "hook": {
+  "card": "READY TO ORDER?",
+  "line": "n_9ad922_h"
+ },
+ "series": [
+  "RESTAURANT ENGLISH",
+  "Ordering food"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_9ad922_1",
+   "card": {
+    "kind": "p",
+    "text": "Ready to order?",
+    "sub": null,
+    "label": "POV"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_9ad922_2",
+   "card": {
+    "kind": "v",
+    "text": "I'll have the salmon, please.",
+    "sub": "I'll have + [dish]",
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_9ad922_3",
+   "card": {
+    "kind": "v",
+    "text": "Could I get the pasta?",
+    "sub": "also polite",
+    "label": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_9ad922_4",
+   "card": {
+    "kind": "x",
+    "text": "I want salmon.",
+    "sub": null,
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_9ad922_5",
+   "card": {
+    "kind": "p",
+    "text": "I want = too direct",
+    "sub": null,
+    "label": "WHY"
+   }
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_9ad922_r",
+  "rows": [
+   "I'll have the salmon, please.",
+   "Could I get the pasta?",
+   "not: I want salmon."
+  ]
+ },
+ "end_line": "n_9ad922_e",
+ "link": "https://lexkite.com/app/#/roleplay",
+ "cta": "Roleplay this free on lexkite.com",
+ "est": 25.0
+}

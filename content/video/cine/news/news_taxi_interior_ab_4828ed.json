@@ -1,0 +1,81 @@
+{
+ "id": "news_taxi_interior_ab_4828ed",
+ "template": "ab",
+ "bg": "taxi_interior",
+ "area": "grammar",
+ "cefr": "A2",
+ "point": "get in a taxi, get on a bus",
+ "hook": {
+  "card": "IN OR ON?",
+  "line": "n_4828ed_h"
+ },
+ "series": [
+  "PREPOSITIONS",
+  "in vs on"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_4828ed_1",
+   "card": {
+    "kind": "p",
+    "text": "I got in the taxi.",
+    "sub": null,
+    "label": "A"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_4828ed_2",
+   "card": {
+    "kind": "p",
+    "text": "I got on the taxi.",
+    "sub": null,
+    "label": "B"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_4828ed_3",
+   "card": {
+    "kind": "p",
+    "text": "A or B?",
+    "sub": null,
+    "label": "COMMENT"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_4828ed_4",
+   "card": {
+    "kind": "v",
+    "text": "I got in the taxi.",
+    "sub": "in = small vehicle, cars",
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_4828ed_5",
+   "card": {
+    "kind": "v",
+    "text": "get on a bus / a train",
+    "sub": "on = big vehicles",
+    "label": null
+   }
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_4828ed_r",
+  "rows": [
+   "get in a taxi / a car",
+   "get on a bus / a train",
+   "get on a plane"
+  ]
+ },
+ "end_line": "n_4828ed_e",
+ "link": "https://lexkite.com/app/#/grammar",
+ "cta": "Practice grammar free on lexkite.com",
+ "est": 25.0
+}

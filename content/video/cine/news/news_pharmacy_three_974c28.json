@@ -1,0 +1,76 @@
+{
+ "id": "news_pharmacy_three_974c28",
+ "template": "three",
+ "bg": "pharmacy",
+ "area": "roleplay",
+ "cefr": "A2",
+ "point": "pharmacy phrases: something for, prescription, how often",
+ "hook": {
+  "card": "AT THE PHARMACY?",
+  "line": "n_974c28_h"
+ },
+ "series": [
+  "HEALTH ENGLISH",
+  "At the pharmacy"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_974c28_1",
+   "card": {
+    "kind": "p",
+    "text": "I need something for...",
+    "sub": "+ a headache / a cough",
+    "label": "#1"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_974c28_2",
+   "card": null
+  },
+  {
+   "who": "ama",
+   "line": "n_974c28_3",
+   "card": {
+    "kind": "p",
+    "text": "Do I need a prescription?",
+    "sub": "a doctor's note for medicine",
+    "label": "#2"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_974c28_4",
+   "card": null
+  },
+  {
+   "who": "ama",
+   "line": "n_974c28_5",
+   "card": {
+    "kind": "p",
+    "text": "How often should I take it?",
+    "sub": "ask about the dose",
+    "label": "#3"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_974c28_6",
+   "card": null
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_974c28_r",
+  "rows": [
+   "I need something for a headache.",
+   "Do I need a prescription?",
+   "How often should I take it?"
+  ]
+ },
+ "end_line": "n_974c28_e",
+ "link": "https://lexkite.com/app/#/roleplay",
+ "cta": "Roleplay this free on lexkite.com",
+ "est": 25.2
+}

@@ -1,0 +1,81 @@
+{
+ "id": "news_meeting_room_fix_5d50a6",
+ "template": "fix",
+ "bg": "meeting_room",
+ "area": "grammar-check",
+ "cefr": "B1",
+ "point": "discuss + object, no about",
+ "hook": {
+  "card": "STOP SAYING THIS",
+  "line": "n_5d50a6_h"
+ },
+ "series": [
+  "WORK ENGLISH",
+  "discuss"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_5d50a6_1",
+   "card": {
+    "kind": "x",
+    "text": "Let's discuss about it.",
+    "sub": null,
+    "label": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_5d50a6_2",
+   "card": {
+    "kind": "v",
+    "text": "Let's discuss the plan.",
+    "sub": "discuss needs no about",
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_5d50a6_3",
+   "card": {
+    "kind": "p",
+    "text": "discuss the budget",
+    "sub": null,
+    "label": "EXAMPLE"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_5d50a6_4",
+   "card": {
+    "kind": "v",
+    "text": "talk about the budget",
+    "sub": "talk + about is fine",
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_5d50a6_5",
+   "card": {
+    "kind": "p",
+    "text": "discuss it / talk about it",
+    "sub": null,
+    "label": "RULE"
+   }
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_5d50a6_r",
+  "rows": [
+   "Let's discuss the plan.",
+   "talk about the plan",
+   "discuss it / talk about it"
+  ]
+ },
+ "end_line": "n_5d50a6_e",
+ "link": "https://lexkite.com/app/#/fix",
+ "cta": "Check your grammar on lexkite.com",
+ "est": 23.1
+}

@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       scene:
-        description: 'Kho cảnh (hotel | cafe | airport | restaurant | anchor); nhiều cảnh phẩy ngăn (cafe,restaurant) – bài auto_<cảnh>_… tự về đúng cảnh'
+        description: 'Kho cảnh (hotel | cafe | airport | restaurant | anchor | news = bản tin, bài content/video/cine/news/*.json); nhiều cảnh phẩy ngăn (cafe,restaurant) – bài auto_<cảnh>_… tự về đúng cảnh'
         required: true
         default: hotel
       lessons:
@@ -32,6 +32,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   render:
+    if: github.event.inputs.scene != 'news'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -173,5 +174,178 @@ jobs:
             out/*.mp4
             out/covers/*.jpg
             out/qa/
+          retention-days: 14
+          if-no-files-found: warn
+
+  # ---------------------------------------------------------------- scene=news: news-anchor shorts (scripts/cine/news.py + news_tpl.py + qa_news.py)
+  news-plan:
+    if: github.event.inputs.scene == 'news'
+    runs-on: ubuntu-latest
+    outputs:
+      shards: ${{ steps.p.outputs.shards }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: p
+        env: { LESSONS: '${{ github.event.inputs.lessons }}' }
+        run: |
+          python3 - <<'PY'
+          import glob, json, os, re
+          L = os.environ['LESSONS'].strip()
+          ids = sorted(os.path.basename(f)[:-5] for f in glob.glob('content/video/cine/news/news_*.json')) if L in ('all', 'auto') else [x.split(':')[0] for x in L.split(',') if x]
+          assert ids and all(re.fullmatch(r'[a-z0-9_]+', i) and os.path.exists(f'content/video/cine/news/{i}.json') for i in ids), ids
+          sh = [','.join(ids[k:k + 6]) for k in range(0, len(ids), 6)]   # 6 lessons per job = 1 contact sheet per 6 lessons
+          open(os.environ['GITHUB_OUTPUT'], 'a').write('shards=' + json.dumps(sh) + '\n'); print(sh)
+          PY
+  news-depth:
+    needs: news-plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Lấy footage news (anchor/green + anchor/bg + meta, sparse)
+        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
+        run: |
+          [ -n "$KEY" ] || { echo "::error::thiếu secret FOOTAGE_DEPLOY_KEY"; exit 1; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
+          git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
+          git -C footage sparse-checkout set --no-cone '/anchor/green/kfull/' '/anchor/green/kmask/' '/anchor/bg/' '/anchor/tools/meta/g*/' '/anchor/tools/dl24/g*.json' \
+            '/anchor/tools/fonts/' '/anchor/tools/foley/' '/anchor/tools/amb_studio.wav' '/anchor/news/depth/'
+          git -C footage checkout -q; rm -f ~/.ssh/footage; du -sh footage
+      - uses: actions/cache/restore@v4
+        with: { path: depth, key: 'news-depth-v1-${{ github.run_id }}', restore-keys: 'news-depth-v1-' }
+      - name: Depth-Anything-V2-Small cho nền còn thiếu (CPU, 0 credit)
+        run: |
+          mkdir -p depth; cp -n footage/anchor/news/depth/*.png depth/ 2>/dev/null || true
+          miss=$(python3 -c "import json,os;print(sum(not os.path.exists('depth/'+e['topic']+'.depth.png') for e in json.load(open('footage/anchor/bg/index.json'))['items']))")
+          echo "thiếu $miss bản đồ sâu"
+          if [ "$miss" != 0 ]; then
+            pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.5.1 && pip install -q transformers==4.46.3 pillow==11.0.0 opencv-python-headless==4.10.0.84 numpy==2.1.3
+            python3 scripts/cine/news_depth.py footage depth
+          fi
+      - uses: actions/cache/save@v4
+        with: { path: depth, key: 'news-depth-v1-${{ github.run_id }}' }
+      - uses: actions/upload-artifact@v4
+        with: { name: 'news-depth-${{ github.run_number }}', path: depth/, retention-days: 30 }
+  news:
+    needs: [news-plan, news-depth]
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: ${{ fromJSON(needs.news-plan.outputs.shards) }}
+    env:
+      CINE_ROOT: ${{ github.workspace }}
+      CINE_OUT: ${{ github.workspace }}/out
+      CINE_LIB: ${{ github.workspace }}/footage
+      NEWS_DIR: ${{ github.workspace }}/newswork
+      NEWS_DEPTH: ${{ github.workspace }}/depth
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: scripts/cine/requirements.txt
+      - name: Cài thư viện + ffmpeg
+        run: |
+          pip install -q -r scripts/cine/requirements.txt scipy==1.14.1 faster-whisper==1.0.3
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+      - name: Lấy footage news (anchor/green + anchor/bg + meta, sparse)
+        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
+        run: |
+          [ -n "$KEY" ] || { echo "::error::thiếu secret FOOTAGE_DEPLOY_KEY"; exit 1; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
+          git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
+          git -C footage sparse-checkout set --no-cone '/anchor/green/kfull/' '/anchor/green/kmask/' '/anchor/bg/' '/anchor/tools/meta/g*/' '/anchor/tools/dl24/g*.json' \
+            '/anchor/tools/fonts/' '/anchor/tools/foley/' '/anchor/tools/amb_studio.wav' '/anchor/news/depth/'
+          git -C footage checkout -q; rm -f ~/.ssh/footage; du -sh footage
+      - uses: actions/cache/restore@v4
+        with: { path: depth, key: 'news-depth-v1-${{ github.run_id }}', restore-keys: 'news-depth-v1-', fail-on-cache-miss: true }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Đệm mô hình Kokoro (~90 MB)
+        uses: actions/cache@v4
+        with:
+          path: /tmp/kk/node_modules/@huggingface/transformers/.cache
+          key: video-models-kokoro82m-q8-cine-v1
+      - name: Cài kokoro-js + Rhubarb
+        run: |
+          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
+          R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"; echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
+      - name: Giọng (Kokoro + Rhubarb + faster-whisper mốc từ)
+        env: { SHARD: '${{ matrix.shard }}' }
+        run: |
+          mkdir -p "$NEWS_DIR"/ci "$NEWS_DIR"/lessons out/qa out/voices
+          cp content/video/cine/news/lines.json "$NEWS_DIR/ci/lines.json"
+          for i in ${SHARD//,/ }; do cp "content/video/cine/news/$i.json" "$NEWS_DIR/lessons/"; done
+          python scripts/cine/news_voice.py "$NEWS_DIR" "$SHARD"
+          cp "$NEWS_DIR"/vis3/* out/voices/
+      - name: Dựng + qa_news
+        env: { SHARD: '${{ matrix.shard }}' }
+        run: |
+          : > out/passed.txt; fail=0
+          for lid in ${SHARD//,/ }; do
+            echo "::group::news/$lid"; rb="render5_${lid}_en"
+            if python scripts/cine/news.py "$lid" 2>&1 | tee "out/qa/build_${lid}_en.log"; then
+              cp "$NEWS_DIR/$rb/timeline.json" "out/qa/timeline_$rb.json"; cp "$NEWS_DIR/$rb/qc.json" "out/qa/qc_$rb.json"
+              if (cd "$NEWS_DIR" && python "$CINE_ROOT/scripts/cine/qa_news.py" "$rb") > "out/qa/qa_$rb.log" 2>&1; then :; fi
+              tail -1 "out/qa/qa_$rb.log"; grep FAIL "out/qa/qa_$rb.log" | head -20 || true
+              tail -1 "out/qa/qa_$rb.log" | grep -q 'ALL PASS' && echo "news $lid $rb" >> out/passed.txt || fail=1
+            else fail=1; fi
+            echo "::endgroup::"
+          done
+          for f in out/qa/qa_*.log; do echo "- $(basename "$f"): $(tail -1 "$f")" >> $GITHUB_STEP_SUMMARY; done
+          exit $fail
+      - name: Tờ soát (6 bài/tờ, 1 khung/shot)
+        if: always()
+        env: { SHARD_IDX: '${{ strategy.job-index }}' }
+        run: |
+          python - <<'PY'
+          import cv2, glob, numpy as np, json, os
+          vs = sorted(glob.glob('out/*.mp4')); rows = []
+          for v in vs:
+              rb = 'render5_' + os.path.basename(v)[5:-7].replace('-', '_') + '_en'; tl = json.load(open(f'out/qa/timeline_{rb}.json')) if os.path.exists(f'out/qa/timeline_{rb}.json') else None
+              ts = [s['t0'] + s['dur'] * 0.6 for s in tl['shots']][:10] if tl else list(np.linspace(0.5, 20, 8))
+              cap = cv2.VideoCapture(v); fr = []
+              for t in ts:
+                  cap.set(cv2.CAP_PROP_POS_MSEC, t * 1000); ok, f = cap.read(); fr.append(cv2.resize(f, (180, 320)) if ok else np.zeros((320, 180, 3), np.uint8))
+              while len(fr) < 10: fr.append(np.zeros((320, 180, 3), np.uint8))
+              rows.append(np.hstack(fr))
+          if rows: cv2.imwrite(f'out/qa/sheet_news_{os.environ["SHARD_IDX"]}.jpg', np.vstack(rows), [cv2.IMWRITE_JPEG_QUALITY, 72])
+          PY
+      - name: Lưu bền bài ĐẠT (lexkite-shorts, shorts/news/<bài>/)
+        if: always()
+        env: { KEY: '${{ secrets.SHORTS_DEPLOY_KEY }}' }
+        run: |
+          [ -s out/passed.txt ] || { echo "không có bài đạt để lưu"; exit 0; }
+          [ -n "$KEY" ] || { echo "::warning::thiếu secret SHORTS_DEPLOY_KEY"; exit 0; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/shorts && chmod 600 ~/.ssh/shorts
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes"
+          git clone -q --depth 1 --filter=blob:none --sparse git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
+          python scripts/cine/store_shorts.py out /tmp/shorts "${{ github.run_number }}" "${{ github.sha }}"
+          cd /tmp/shorts; git add --sparse -A shorts; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "cine-render #${{ github.run_number }} (news)" || exit 0
+          for k in 1 2 3 4 5 6; do git push -q origin HEAD:main && break; git pull -q --rebase origin main; done
+          rm -f ~/.ssh/shorts
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cine-news-${{ github.run_number }}-${{ strategy.job-index }}
+          path: |
+            out/*.mp4
+            out/covers/*.jpg
+            out/*-luma.png
+            out/qa/
+            out/voices/
+            out/passed.txt
           retention-days: 14
           if-no-files-found: warn
