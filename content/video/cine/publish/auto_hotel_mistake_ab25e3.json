@@ -1,0 +1,75 @@
+{
+ "id": "auto_hotel_mistake_ab25e3",
+ "scene": "hotel",
+ "template": "mistake",
+ "area": "grammar-check",
+ "cefr": "A2",
+ "point": "isn't working",
+ "series": "Hotel English #16",
+ "title": "Spot the mistake: \"The air conditioning doesn't working.\"",
+ "description": "A learner says \"The air conditioning doesn't working.\" at the hotel. The fix: \"The air conditioning isn't working.\"\nComment your answer below and follow for daily English (Hotel English #16).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_ab25e3#/fix",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#hotelenglish",
+  "#commonmistakes",
+  "#englishgrammar",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/hotel/auto_hotel_mistake_ab25e3/cine-auto-hotel-mistake-ab25e3-en-v3.mp4",
+ "cover": "shorts/hotel/auto_hotel_mistake_ab25e3/cine-auto-hotel-mistake-ab25e3-en-v3.jpg",
+ "ci_artifact": "cine-hotel-19",
+ "run": "19",
+ "platforms": {
+  "tiktok": {
+   "title": "Spot the mistake: \"The air conditioning doesn't working.\"",
+   "caption": "A learner says \"The air conditioning doesn't working.\" at the hotel. The fix: \"The air conditioning isn't working.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_ab25e3#/fix",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_ab25e3#/fix",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "A learner says \"The air conditioning doesn't working.\" at the hotel. The fix: \"The air conditioning isn't working.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_ab25e3#/fix\n#learnenglish #englishtips #hotelenglish #commonmistakes #englishgrammar #travelenglish"
+  },
+  "reels": {
+   "title": "Spot the mistake: \"The air conditioning doesn't working.\"",
+   "caption": "A learner says \"The air conditioning doesn't working.\" at the hotel. The fix: \"The air conditioning isn't working.\"\nComment your answer below and follow for daily English (Hotel English #16).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_ab25e3#/fix",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_ab25e3#/fix",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "A learner says \"The air conditioning doesn't working.\" at the hotel. The fix: \"The air conditioning isn't working.\"\nComment your answer below and follow for daily English (Hotel English #16).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_ab25e3#/fix\n#learnenglish #englishtips #hotelenglish #commonmistakes #englishgrammar #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Spot the mistake: \"The air conditioning doesn't working.\"",
+   "caption": "A learner says \"The air conditioning doesn't working.\" at the hotel. The fix: \"The air conditioning isn't working.\"\nComment your answer below and follow for daily English (Hotel English #16).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_ab25e3#/fix",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_ab25e3#/fix",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#commonmistakes"
+   ],
+   "caption_with_tags": "A learner says \"The air conditioning doesn't working.\" at the hotel. The fix: \"The air conditioning isn't working.\"\nComment your answer below and follow for daily English (Hotel English #16).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_ab25e3#/fix\n#shorts #learnenglish #englishtips #hotelenglish #commonmistakes"
+  }
+ },
+ "slot": {
+  "date": "2026-11-25",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

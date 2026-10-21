@@ -1,0 +1,75 @@
+{
+ "id": "auto_restaurant_gap_bee0f6",
+ "scene": "restaurant",
+ "template": "gap",
+ "area": "vocab-review",
+ "cefr": "A1",
+ "point": "word menu",
+ "series": "Restaurant English #8",
+ "title": "One word is missing: \"Could I have the ___?\"",
+ "description": "Fill in the missing word, then say the full sentence: \"Could I have the menu?\"\nComment your answer below and follow for daily English (Restaurant English #8).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_gap_bee0f6#/review",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#restaurantenglish",
+  "#englishvocabulary",
+  "#fillintheblank",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/restaurant/auto_restaurant_gap_bee0f6/cine-auto-restaurant-gap-bee0f6-en-v3.mp4",
+ "cover": "shorts/restaurant/auto_restaurant_gap_bee0f6/cine-auto-restaurant-gap-bee0f6-en-v3.jpg",
+ "ci_artifact": "cine-restaurant-21",
+ "run": "21",
+ "platforms": {
+  "tiktok": {
+   "title": "One word is missing: \"Could I have the ___?\"",
+   "caption": "Fill in the missing word, then say the full sentence: \"Could I have the menu?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_gap_bee0f6#/review",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_gap_bee0f6#/review",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#englishvocabulary",
+    "#fillintheblank",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Fill in the missing word, then say the full sentence: \"Could I have the menu?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_gap_bee0f6#/review\n#learnenglish #englishtips #restaurantenglish #englishvocabulary #fillintheblank #travelenglish"
+  },
+  "reels": {
+   "title": "One word is missing: \"Could I have the ___?\"",
+   "caption": "Fill in the missing word, then say the full sentence: \"Could I have the menu?\"\nComment your answer below and follow for daily English (Restaurant English #8).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_gap_bee0f6#/review",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_gap_bee0f6#/review",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#englishvocabulary",
+    "#fillintheblank",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Fill in the missing word, then say the full sentence: \"Could I have the menu?\"\nComment your answer below and follow for daily English (Restaurant English #8).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_gap_bee0f6#/review\n#learnenglish #englishtips #restaurantenglish #englishvocabulary #fillintheblank #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "One word is missing: \"Could I have the ___?\" #shorts",
+   "caption": "Fill in the missing word, then say the full sentence: \"Could I have the menu?\"\nComment your answer below and follow for daily English (Restaurant English #8).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_gap_bee0f6#/review",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_gap_bee0f6#/review",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#englishvocabulary"
+   ],
+   "caption_with_tags": "Fill in the missing word, then say the full sentence: \"Could I have the menu?\"\nComment your answer below and follow for daily English (Restaurant English #8).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_gap_bee0f6#/review\n#shorts #learnenglish #englishtips #restaurantenglish #englishvocabulary"
+  }
+ },
+ "slot": {
+  "date": "2026-11-22",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

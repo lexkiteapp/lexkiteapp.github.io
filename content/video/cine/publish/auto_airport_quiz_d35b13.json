@@ -1,0 +1,75 @@
+{
+ "id": "auto_airport_quiz_d35b13",
+ "scene": "airport",
+ "template": "quiz",
+ "area": "word-usage",
+ "cefr": "A2",
+ "point": "past tense lost",
+ "series": "Airport English #24",
+ "title": "Which is correct? Airport English quiz",
+ "description": "Which one would you say at the airport? Model answer: \"Excuse me, I lost my ticket.\"\nComment your answer below and follow for daily English (Airport English #24).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_quiz_d35b13#/usage?c=pair",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#airportenglish",
+  "#englishquiz",
+  "#speakpolitely",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/airport/auto_airport_quiz_d35b13/cine-auto-airport-quiz-d35b13-en-v3.mp4",
+ "cover": "shorts/airport/auto_airport_quiz_d35b13/cine-auto-airport-quiz-d35b13-en-v3.jpg",
+ "ci_artifact": "cine-airport-18",
+ "run": "18",
+ "platforms": {
+  "tiktok": {
+   "title": "Which is correct? Airport English quiz",
+   "caption": "Which one would you say at the airport? Model answer: \"Excuse me, I lost my ticket.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_quiz_d35b13#/usage?c=pair",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_quiz_d35b13#/usage?c=pair",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#englishquiz",
+    "#speakpolitely",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Which one would you say at the airport? Model answer: \"Excuse me, I lost my ticket.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_quiz_d35b13#/usage?c=pair\n#learnenglish #englishtips #airportenglish #englishquiz #speakpolitely #travelenglish"
+  },
+  "reels": {
+   "title": "Which is correct? Airport English quiz",
+   "caption": "Which one would you say at the airport? Model answer: \"Excuse me, I lost my ticket.\"\nComment your answer below and follow for daily English (Airport English #24).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_quiz_d35b13#/usage?c=pair",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_quiz_d35b13#/usage?c=pair",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#englishquiz",
+    "#speakpolitely",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Which one would you say at the airport? Model answer: \"Excuse me, I lost my ticket.\"\nComment your answer below and follow for daily English (Airport English #24).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_quiz_d35b13#/usage?c=pair\n#learnenglish #englishtips #airportenglish #englishquiz #speakpolitely #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Which is correct? Airport English quiz #shorts",
+   "caption": "Which one would you say at the airport? Model answer: \"Excuse me, I lost my ticket.\"\nComment your answer below and follow for daily English (Airport English #24).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_quiz_d35b13#/usage?c=pair",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_quiz_d35b13#/usage?c=pair",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#englishquiz"
+   ],
+   "caption_with_tags": "Which one would you say at the airport? Model answer: \"Excuse me, I lost my ticket.\"\nComment your answer below and follow for daily English (Airport English #24).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_quiz_d35b13#/usage?c=pair\n#shorts #learnenglish #englishtips #airportenglish #englishquiz"
+  }
+ },
+ "slot": {
+  "date": "2026-11-18",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

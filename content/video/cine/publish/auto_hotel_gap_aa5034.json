@@ -1,0 +1,75 @@
+{
+ "id": "auto_hotel_gap_aa5034",
+ "scene": "hotel",
+ "template": "gap",
+ "area": "vocab-review",
+ "cefr": "A1",
+ "point": "word call",
+ "series": "Hotel English #19",
+ "title": "One word is missing: \"Could I have a wake-up ___?\"",
+ "description": "Fill in the missing word, then say the full sentence: \"Could I have a wake-up call?\"\nComment your answer below and follow for daily English (Hotel English #19).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_gap_aa5034#/review",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#hotelenglish",
+  "#englishvocabulary",
+  "#fillintheblank",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/hotel/auto_hotel_gap_aa5034/cine-auto-hotel-gap-aa5034-en-v3.mp4",
+ "cover": "shorts/hotel/auto_hotel_gap_aa5034/cine-auto-hotel-gap-aa5034-en-v3.jpg",
+ "ci_artifact": "cine-hotel-19",
+ "run": "19",
+ "platforms": {
+  "tiktok": {
+   "title": "One word is missing: \"Could I have a wake-up ___?\"",
+   "caption": "Fill in the missing word, then say the full sentence: \"Could I have a wake-up call?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_gap_aa5034#/review",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_gap_aa5034#/review",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#englishvocabulary",
+    "#fillintheblank",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Fill in the missing word, then say the full sentence: \"Could I have a wake-up call?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_gap_aa5034#/review\n#learnenglish #englishtips #hotelenglish #englishvocabulary #fillintheblank #travelenglish"
+  },
+  "reels": {
+   "title": "One word is missing: \"Could I have a wake-up ___?\"",
+   "caption": "Fill in the missing word, then say the full sentence: \"Could I have a wake-up call?\"\nComment your answer below and follow for daily English (Hotel English #19).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_gap_aa5034#/review",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_gap_aa5034#/review",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#englishvocabulary",
+    "#fillintheblank",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Fill in the missing word, then say the full sentence: \"Could I have a wake-up call?\"\nComment your answer below and follow for daily English (Hotel English #19).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_gap_aa5034#/review\n#learnenglish #englishtips #hotelenglish #englishvocabulary #fillintheblank #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "One word is missing: \"Could I have a wake-up ___?\" #shorts",
+   "caption": "Fill in the missing word, then say the full sentence: \"Could I have a wake-up call?\"\nComment your answer below and follow for daily English (Hotel English #19).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_gap_aa5034#/review",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_gap_aa5034#/review",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#englishvocabulary"
+   ],
+   "caption_with_tags": "Fill in the missing word, then say the full sentence: \"Could I have a wake-up call?\"\nComment your answer below and follow for daily English (Hotel English #19).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_gap_aa5034#/review\n#shorts #learnenglish #englishtips #hotelenglish #englishvocabulary"
+  }
+ },
+ "slot": {
+  "date": "2026-11-29",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

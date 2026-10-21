@@ -1,0 +1,75 @@
+{
+ "id": "auto_hotel_choose_7aec1a",
+ "scene": "hotel",
+ "template": "choose",
+ "area": "listening",
+ "cefr": "A2",
+ "point": "listen time nine",
+ "series": "Hotel English #27",
+ "title": "When does the pool close? Listen once and choose!",
+ "description": "Listen once at the hotel and pick the right answer. Answer: \"The pool closes at nine.\"\nComment your answer below and follow for daily English (Hotel English #27).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_choose_7aec1a#/listening",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#hotelenglish",
+  "#listeningpractice",
+  "#englishlistening",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/hotel/auto_hotel_choose_7aec1a/cine-auto-hotel-choose-7aec1a-en-v3.mp4",
+ "cover": "shorts/hotel/auto_hotel_choose_7aec1a/cine-auto-hotel-choose-7aec1a-en-v3.jpg",
+ "ci_artifact": "cine-hotel-19",
+ "run": "19",
+ "platforms": {
+  "tiktok": {
+   "title": "When does the pool close? Listen once and choose!",
+   "caption": "Listen once at the hotel and pick the right answer. Answer: \"The pool closes at nine.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_choose_7aec1a#/listening",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_choose_7aec1a#/listening",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#listeningpractice",
+    "#englishlistening",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Listen once at the hotel and pick the right answer. Answer: \"The pool closes at nine.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_choose_7aec1a#/listening\n#learnenglish #englishtips #hotelenglish #listeningpractice #englishlistening #travelenglish"
+  },
+  "reels": {
+   "title": "When does the pool close? Listen once and choose!",
+   "caption": "Listen once at the hotel and pick the right answer. Answer: \"The pool closes at nine.\"\nComment your answer below and follow for daily English (Hotel English #27).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_choose_7aec1a#/listening",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_choose_7aec1a#/listening",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#listeningpractice",
+    "#englishlistening",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Listen once at the hotel and pick the right answer. Answer: \"The pool closes at nine.\"\nComment your answer below and follow for daily English (Hotel English #27).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_choose_7aec1a#/listening\n#learnenglish #englishtips #hotelenglish #listeningpractice #englishlistening #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "When does the pool close? Listen once and choose! #shorts",
+   "caption": "Listen once at the hotel and pick the right answer. Answer: \"The pool closes at nine.\"\nComment your answer below and follow for daily English (Hotel English #27).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_choose_7aec1a#/listening",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_choose_7aec1a#/listening",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#listeningpractice"
+   ],
+   "caption_with_tags": "Listen once at the hotel and pick the right answer. Answer: \"The pool closes at nine.\"\nComment your answer below and follow for daily English (Hotel English #27).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_choose_7aec1a#/listening\n#shorts #learnenglish #englishtips #hotelenglish #listeningpractice"
+  }
+ },
+ "slot": {
+  "date": "2026-11-07",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

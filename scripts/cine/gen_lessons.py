@@ -31,7 +31,7 @@ SCENES = {
       A1='r24_ots_ama_talk', A2='r24_ots_ama_talk', MCU='r06_ama_mcu_talk', OOPS='r27_ama_react', THX='r28_ama_thanks'),
    range=dict(MASTER=(0, 120), B1=(0, 75), B2=(0, 46), BREACT=(0, 89), A1=(12, 86), MCU=(52, 89), OOPS=(20, 48), THX=(52, 100)), prop=('r11_bill', 2, 1.6, 'slide.wav', 4),
    who=dict(B1='B', B2='B', BREACT='B', A1='ama', MCU='ama', OOPS='ama', THX='ama'),
-   ladder_clip='A1', vhook_box=(60, 236, 940, 631), avoid=[[108, 862, 422, 1227], [0, 1189, 535, 1920], [659, 655, 984, 964], [544, 933, 1080, 1920]], ladder_y=1130, hook_y=1130, choice_y=1000, ring=('B1', 830)),
+   ladder_clip='A1', vhook_box=(60, 236, 940, 631), avoid=[[108, 862, 422, 1227], [0, 1189, 535, 1920], [659, 655, 984, 964], [544, 933, 1080, 1920]], ladder_y=1130, hook_y=1130, choice_y=1000, ring=('B1', 830), ring_tpl='MASTER'),  # 22/10: OTS/react shots have no free zone for Ring next to Choice/Ladder -> ring hold on the wide master (top band free)
  'airport': dict(B='mei', name='Airport', pov="POV: you're at check-in", clips=dict(MASTER='b01_master_talk', B1='a01_ots_mei_talk', B2='a03_ots_mei_talk_b', BREACT='a08_mei_pass',
       A1='a02_ots_ama_talk', A2='a04_ots_ama_talk_b', MCU='a07_ama_mcu_talk', OOPS='a06_ama_react', THX='a09_ama_thanks'),
    range=dict(OOPS=(0, 50)), prop=('i01_passport', 0, 1.6, None, 0),
@@ -106,24 +106,24 @@ REQ['cafe'] += ['an iced coffee', 'a blueberry muffin', 'a bottle of water', 'a 
 REQ['hotel'] += ['an iron', 'a room with a view', 'a toothbrush', 'an extra blanket', 'a hair dryer']
 REQ['airport'] += ['a boarding pass', 'a seat with more legroom', 'a vegetarian meal', 'an earlier flight']
 REQ['restaurant'] += ['the check', 'a to-go box', 'a high chair', 'some napkins', 'another fork']
-CHOOSE['cafe'] += [("What's the total?", 'That comes to six dollars and eighty cents.', ['$6.18', '$6.80', '$8.60'], 'B', 'eighty', 'total', 'The total is six eighty.'),
+CHOOSE['cafe'] += [("What's the total?", 'That comes to six dollars and eighty cents.', ['Six eighteen', 'Six eighty', 'Eight sixty'], 'B', 'eighty', 'total', 'The total is six eighty.'),
                    ('What size is the coffee?', 'Your large iced coffee is ready over there.', ['Small', 'Medium', 'Large'], 'C', 'large', 'size', 'I ordered a large coffee.'),
                    ("What's the name on the cup?", 'I have a latte here for Sam. Is that you?', ['Pam', 'Sam', 'Dan'], 'B', 'sam', 'name', 'The latte is for Sam.'),
                    ('How long is the wait?', 'Your drinks will be ready in about five minutes.', ['Five minutes', 'Nine minutes', 'Fifteen minutes'], 'A', 'five', 'wait', 'The wait is five minutes.')]
-CHOOSE['airport'] += [('What time is boarding?', 'Boarding starts at ten forty. Please be early.', ['10:14', '10:40', '11:40'], 'B', 'forty', 'time', 'Boarding starts at ten forty.'),
-                      ('Which seat?', "You're in seat twelve A, by the window.", ['2A', '12A', '20A'], 'B', 'twelve', 'seat', 'My seat is twelve A.'),
-                      ('How much is the bag fee?', 'The fee for the extra bag is forty dollars.', ['$14', '$40', '$45'], 'B', 'forty', 'fee', 'The bag fee is forty dollars.'),
-                      ('How late is the flight?', 'Your flight is delayed by about thirty minutes.', ['13 minutes', '30 minutes', '3 hours'], 'B', 'thirty', 'delay', 'The flight is thirty minutes late.')]
-CHOOSE['hotel'] += [("What's the room number?", "You're in room four twelve, on the fourth floor.", ['Room 412', 'Room 420', 'Room 402'], 'A', 'twelve', 'room', 'My room is four twelve.'),
+CHOOSE['airport'] += [('What time is boarding?', 'Boarding starts at ten forty. Please be early.', ['Ten fourteen', 'Ten forty', 'Eleven forty'], 'B', 'forty', 'time', 'Boarding starts at ten forty.'),
+                      ('Which seat?', "You're in seat twelve A, by the window.", ['Two A', 'Twelve A', 'Twenty A'], 'B', 'twelve', 'seat', 'My seat is twelve A.'),
+                      ('How much is the bag fee?', 'The fee for the extra bag is forty dollars.', ['Fourteen dollars', 'Forty dollars', 'Forty-five dollars'], 'B', 'forty', 'fee', 'The bag fee is forty dollars.'),
+                      ('How late is the flight?', 'Your flight is delayed by about thirty minutes.', ['Thirteen minutes', 'Thirty minutes', 'Three hours'], 'B', 'thirty', 'delay', 'The flight is thirty minutes late.')]
+CHOOSE['hotel'] += [("What's the room number?", "You're in room four twelve, on the fourth floor.", ['Four twelve', 'Four twenty', 'Four oh two'], 'A', 'twelve', 'room', 'My room is four twelve.'),
                     ('When is checkout?', 'Checkout is at eleven, but we can be flexible.', ['At ten', 'At eleven', 'At noon'], 'B', 'eleven', 'checkout', 'Checkout is at eleven.'),
-                    ('How much is parking?', 'Parking is twenty dollars per night here.', ['$12 a night', '$20 a night', '$25 a night'], 'B', 'twenty', 'price', 'Parking is twenty dollars a night.'),
-                    ('When does breakfast start?', 'Breakfast is served from six thirty until ten.', ['6:13', '6:30', '7:30'], 'B', 'thirty', 'start time', 'Breakfast starts at six thirty.')]
-CHOOSE['restaurant'] += [('How much is the special?', "Today's special is eighteen dollars, with salad.", ['$8', '$18', '$80'], 'B', 'eighteen', 'price', 'The special is eighteen dollars.'),
+                    ('How much is parking?', 'Parking is twenty dollars per night here.', ['Twelve dollars', 'Twenty dollars', 'Thirty dollars'], 'B', 'twenty', 'price', 'Parking is twenty dollars a night.'),
+                    ('When does breakfast start?', 'Breakfast is served from six thirty until ten.', ['Six thirteen', 'Six thirty', 'Seven thirty'], 'C', 'thirty', 'start time', 'Breakfast starts at six thirty.')]
+CHOOSE['restaurant'] += [('How much is the special?', "Today's special is eighteen dollars, with salad.", ['Eight dollars', 'Eighteen dollars', 'Eighty dollars'], 'B', 'eighteen', 'price', 'The special is eighteen dollars.'),
                          ("What's the fish today?", "Tonight's fish is salmon, grilled with lemon.", ['Tuna', 'Salmon', 'Cod'], 'B', 'salmon', 'fish', "Tonight's fish is salmon."),
-                         ('When does the kitchen close?', 'The kitchen closes at ten thirty tonight.', ['10:00', '10:13', '10:30'], 'C', 'thirty', 'closing time', 'The kitchen closes at ten thirty.'),
-                         ("What's the total?", 'Your total is forty dollars and fifty cents.', ['$14.50', '$40.50', '$45.00'], 'B', 'forty', 'total', 'The total is forty fifty.')]
+                         ('When does the kitchen close?', 'The kitchen closes at ten thirty tonight.', ['Ten', 'Ten thirteen', 'Ten thirty'], 'C', 'thirty', 'closing time', 'The kitchen closes at ten thirty.'),
+                         ("What's the total?", 'Your total is forty dollars and fifty cents.', ['Fourteen fifty', 'Forty fifty', 'Forty-five'], 'B', 'forty', 'total', 'The total is forty fifty.')]
 MISTAKE['cafe'] += [('How was your coffee?', 'It was very delicious, thanks.', 'It was really delicious, thanks.', 'really delicious not very'),
-                    ('Where are you sitting?', "We're sitting in the window.", "We're sitting by the window.", 'sit by the window'),
+                    ('Where would you like to sit?', 'Can we sit in the window, please?', 'Can we sit by the window, please?', 'sit by the window'),
                     ('Did you order already?', 'Yes, I order a latte.', 'Yes, I ordered a latte.', 'past tense ordered'),
                     ('Do you have a reward card?', "No, I don't have it.", "No, I don't have one.", "don't have one")]
 MISTAKE['airport'] += [('How was your stay?', 'Great. I arrived to Boston on Monday.', 'Great. I arrived in Boston on Monday.', 'arrive in a city'),
@@ -208,7 +208,7 @@ def mine_l1(scene):   # wrong/right pairs from the web's L1 mistake notes that f
         t = open(f, encoding='utf-8').read()
         for m in re.finditer(r"\[\s*'([^'\n]{5,48})',\s*'([^'\n]{5,48})',", t):
             a, b = m.group(1), m.group(2)
-            if re.search(r'\b(' + SCENE_KW[scene] + r')s?\b', a.lower()) and one_diff(a, b) is not None and len(words(a)) <= 8: out.add((a, b))
+            if re.search(r'\b(' + SCENE_KW[scene] + r')s?\b', a.lower()) and one_diff(a, b) is not None and len(words(a)) <= 8 and re.match(r"(I|I'm|I'd|We|Can|Could|Do|Does|Is|Are|How|What|Where)\b", a): out.add((a, b))   # customer's own line only (lô 2: 'She like coffee.' after 'What can I get you?')
     return sorted(out)
 
 # ------------------------------------------------------------------ ledger
@@ -287,6 +287,12 @@ def hook_fits(txt, box):   # same layout as lesson5 VHook: words + icon wrapped 
         if n * int(fs * 1.1) + 6 <= box[3] - box[1]: return True
     return False
 
+def ring2(X, S, clip, ov, b_clip, b_ov):
+    """Ring beat (3.0 s; single forced-angle segment 2.5 s). Scene forces ring_tpl (e.g. MASTER: only shot with a free zone) -> ring + ring_b on the SAME clip, frame-contiguous (one visual shot):
+    two back-to-back segments of the same wide shot read as a jump cut (qa5 'no jump cut' rule)."""
+    if S.get('ring_tpl'): X.hold('ring', S['ring_tpl'], 1.5, ov); X.hold('ring_b', S['ring_tpl'], 1.5, b_ov); return   # same clip, CUR continues frames -> contiguous = one visual 3 s shot (qa5 jump-cut rule)
+    X.hold('ring', clip, 1.5, ov); X.hold('ring_b', b_clip, 1.5, b_ov)
+
 def build(scene, tpl, area, point, a, n):
     S = SCENES[scene]; lid = f'auto_{scene}_{tpl}_{hashlib.sha1(norm(point).encode()).hexdigest()[:6]}'; X = Lesson(scene, lid); series = f"{S['name']} English #{n}"
     kw, recap, cefr_txt, pattern, goal = set(), '', [], '', ''
@@ -310,8 +316,9 @@ def build(scene, tpl, area, point, a, n):
         hook = f"ONE listen. Catch the *{a['thing']}?*|?"; CH = "('Choice', 0.0, None, Q, 0)"
         if est(a['line']) < 2.0: raise Gate('choose line < 2 s')
         if not all(opt_fits(o) for o in a['opts']): raise Gate('choice option too wide at 52 px')
+        if a['key'] not in norm(a['opts']['ABC'.index(a['ans'])]).split(' '): raise Gate('answer key not verbatim in the answer option (qa5)')
         X.prop(); X.hold('setup', 'B1', 1.6, f'[{CH}]'); X.talk('listen', 'B1', 'B', kl, ov=f'[{CH}]')
-        X.hold('ring', rc_clip, 1.5, f"[{CH}, ('Ring', 0.0, 3.0, 'Comment A, B or C 👇|')]"); X.hold('ring_b', 'B2' if rc_clip != 'B2' else 'BREACT', 1.5, f'[{CH}]')
+        ring2(X, S, rc_clip, f"[{CH}, ('Ring', 0.0, 3.0, 'Comment A, B or C 👇|')]", 'B2' if rc_clip != 'B2' else 'BREACT', f'[{CH}]')
         X.hold('reveal', 'BREACT', 2.0, "[('Choice', 0.0, None, Q, 1)]"); X.talk('replay', 'B2', 'B', kl, opt=True); X.talk('slow', 'B1', 'B', kl, tempo=0.85); X.raw("PUNCH['slow'] = 0.0"); X.hold('react2', 'BREACT', 1.2, pad=True)
         recap = a['recap']; pattern = a['q']; goal = f"Listening: {a['thing']}"; cefr_txt = [a['line']]
     elif tpl == 'quiz':
@@ -320,12 +327,13 @@ def build(scene, tpl, area, point, a, n):
             if len(o) > 26 or not opt_fits(o): raise Gate('quiz option too long')
         X.head += [f'Q = {q!r}', "QA = dict(template='quiz')", f"RING_EXTRA['ring'] = {rc_y}"]; CH = "('Choice', 0.0, None, Q, 0)"
         hook = 'Polite or *rude?*|?' if 'polite' in a['q'].lower() else 'Which one is *correct?*|?'
-        X.prop(); X.hold('setup', 'B1', 2.0, f'[{CH}]'); X.hold('ring', rc_clip, 1.5, f"[{CH}, ('Ring', 0.0, 3.0, 'Comment A or B 👇|')]"); X.hold('ring_b', 'B2' if rc_clip != 'B2' else 'BREACT', 1.5, f'[{CH}]')
+        X.prop(); X.hold('setup', 'B1', 2.0, f'[{CH}]'); ring2(X, S, rc_clip, f"[{CH}, ('Ring', 0.0, 3.0, 'Comment A or B 👇|')]", 'B2' if rc_clip != 'B2' else 'BREACT', f'[{CH}]')
         X.hold('reveal', 'BREACT', 2.0, "[('Choice', 0.0, None, Q, 1)]"); X.talk('right', 'MCU', 'A', kl); X.talk('reply', 'B1', 'B', kr, opt=True); X.talk('slow', 'MCU', 'A', kl, tempo=0.85); X.raw("PUNCH['slow'] = 0.0"); X.hold('react2', 'BREACT', 1.2, pad=True)
         recap = a['line']; pattern = a['line']; goal = 'Polite or rude?' if 'polite' in a['q'].lower() else 'Which is correct?'; cefr_txt = [a['a'], a['b'], a['line']]
     elif tpl == 'gap':
         line, wd = a['line'], a['word']; kf = X.L('A', line); kg = X.gapL(kf, line, wd); kr = X.L('B', REPLY[scene]); kw.add(norm(wd))
         if ',' in line: raise Gate('gap line with a comma (extra pause)')
+        if re.search(r'(t|te|d|de|g|k|ck|p|b)$', wd.lower()): raise Gate('gap word ends in a plosive (qa5 closure: leaked consonant; lô 2 tag/chocolate)')
         idx = next(j for j, x in enumerate(line.split(' ')) if x.strip('.,?!') == wd)
         X.head += [f'GAP_WORD = {wd!r}', f"QA = dict(template='gap', gap_line={kg!r})", f"GAPT = TEXT[{kf!r}] + '||'", f"CAPSTYLE = {{'gap': (None, None), 'full': (None, None), 'slow': ('Karaoke', {idx})}}"]
         hook = 'ONE word is *missing*|?'; G0, G1 = "('Gap', 0.0, None, GAPT, 0)", "('Gap', 0.0, None, GAPT, 1)"   # card, not a caption: up 1.6 s before the line (pre-gap pause), through the ring
@@ -339,7 +347,7 @@ def build(scene, tpl, area, point, a, n):
         hook = '3 ways. Which are *YOU?*|?'
         X.prop()
         for j, (sid, k) in enumerate(zip(('polite', 'neutral', 'casual'), ks)): X.talk(sid, S.get('ladder_clip', 'MCU'), 'A', k, ov=f"[('Ladder', 0.0, None, LAD, {j + 1})]")
-        X.raw("PUNCH['neutral'] = 0.0"); X.hold('ring', 'BREACT', 1.5, "[('Ladder', 0.0, None, LAD, 3), ('Ring', 0.0, 3.0, 'Which would YOU say? Comment 👇|')]"); X.hold('ring_b', 'B2', 1.5, "[('Ladder', 0.0, None, LAD, 3)]")
+        X.raw("PUNCH['neutral'] = 0.0"); ring2(X, S, 'BREACT', "[('Ladder', 0.0, None, LAD, 3), ('Ring', 0.0, 3.0, 'Which would YOU say? Comment 👇|')]", 'B2', "[('Ladder', 0.0, None, LAD, 3)]")
         X.talk('slow', 'MCU', 'A', ks[0], tempo=0.85); X.raw("PUNCH['slow'] = 0.0"); X.hold('react2', 'BREACT', 1.2, pad=True)
         recap = next(t for t in a['lad'] + [a['lad'][-1]] if len(words(t)) <= 7); pattern = 'Could I possibly have ___?'; goal = 'Polite, neutral, casual'; cefr_txt = a['lad']
     elif tpl == 'pov':
@@ -350,7 +358,7 @@ def build(scene, tpl, area, point, a, n):
                    f"QA = dict(template='pov', answers=[{ka!r}])", "ONE = [('Hook', 0.0, None, 'One possible answer|')]"]
         hook = 'Mind goes *blank?*|grimace'
         X.prop(); X.talk('q1', 'B1', 'B', kq); X.hold('ring1', 'BREACT', 1.5, "[('Ring', 0.0, 3.0, 'Your answer? Comment 👇|')]"); X.hold('ring1b', 'B2', 1.5)
-        X.talk('a1', 'MCU', 'A', ka, ov='ONE'); X.hold('react', 'BREACT', 1.0); X.talk('slow', 'MCU', 'A', ka, tempo=0.85); X.raw("PUNCH['slow'] = 0.0"); X.hold('react2', 'BREACT', 1.2, pad=True)
+        X.talk('a1', 'MCU', 'A', ka, ov='ONE'); X.hold('react', 'BREACT', 1.0, ov='ONE'); X.talk('slow', 'MCU', 'A', ka, tempo=0.85); X.raw("PUNCH['slow'] = 0.0"); X.hold('react2', 'BREACT', 1.2, pad=True)
         recap = a['a']; pattern = a['a']; goal = 'You are the customer'; cefr_txt = [a['q'], a['a']]
     elif tpl == 'speak':
         kl = X.L('A', a['line']); kr = X.L('B', a.get('rep') or REPLY[scene] if a.get('rep') or 'Could I get' in a['line'] else {'hotel': 'Sure, let me find out for you.', 'cafe': 'Of course! Here you go.', 'airport': 'Yes, it is. Just over there.', 'restaurant': "Yes, of course. Here you are."}[scene])
@@ -391,7 +399,7 @@ ADAPTER = '''# AUTO-GENERATED adapter (scripts/cine/gen_lessons.py): role names 
 # frames only from clean mouth-swap ranges (residual.json, residual.py <= 11.5).
 @CONSTS@
 BW = @B@; FD = D + '/foley/'; CONTRAST_Y = 900; BADGE_Y = 240; CHOICE_Y = @CHOICE_Y@; HOOK_Y = @HOOK_Y@; LADDER_Y = @LADDER_Y@; POV_Y = 232
-CARD_MIN_FS = 52   # 22/10: every card/chip text >= 52 px (tpl_styles MF), cards grow; place.py + qa5 keep the no-overlap rules
+CHOICE_ROW = 84; CHOICE_PAD = 16; CARD_MIN_FS = 52   # 22/10: every card/chip text >= 52 px (tpl_styles MF), cards grow; place.py + qa5 keep the no-overlap rules
 RING_EXTRA = {'ring': 1080}; FOOT_EXTRA = {}; LADDER_ROW = 112; RING_MINH = 160; CHOICE_ROW = 86; CHOICE_PAD = 20   # compact cards: fit between big faces and the caption band
 SERIES_SHOTS = ('loop',); SERIES_ALIGN = 'left'; SERIES_Y = 240   # default spots only: lesson5's placer (place.py) moves any card off faces / other cards
 VHOOK_BOX = @VHOOK_BOX@; AVOID = {MASTER: @AVOID@}

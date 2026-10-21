@@ -1,0 +1,75 @@
+{
+ "id": "auto_airport_pov_e55e31",
+ "scene": "airport",
+ "template": "pov",
+ "area": "roleplay",
+ "cefr": "A2",
+ "point": "where are you flying",
+ "series": "Airport English #16",
+ "title": "POV: \"Where are you flying today?\" What do you say?",
+ "description": "You are at the airport. One natural answer: \"I'm flying to Denver today.\"\nComment your answer below and follow for daily English (Airport English #16).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_pov_e55e31#/roleplay",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#airportenglish",
+  "#englishconversation",
+  "#roleplay",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/airport/auto_airport_pov_e55e31/cine-auto-airport-pov-e55e31-en-v3.mp4",
+ "cover": "shorts/airport/auto_airport_pov_e55e31/cine-auto-airport-pov-e55e31-en-v3.jpg",
+ "ci_artifact": "cine-airport-18",
+ "run": "18",
+ "platforms": {
+  "tiktok": {
+   "title": "POV: \"Where are you flying today?\" What do you say?",
+   "caption": "You are at the airport. One natural answer: \"I'm flying to Denver today.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_pov_e55e31#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_pov_e55e31#/roleplay",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#englishconversation",
+    "#roleplay",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "You are at the airport. One natural answer: \"I'm flying to Denver today.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_pov_e55e31#/roleplay\n#learnenglish #englishtips #airportenglish #englishconversation #roleplay #travelenglish"
+  },
+  "reels": {
+   "title": "POV: \"Where are you flying today?\" What do you say?",
+   "caption": "You are at the airport. One natural answer: \"I'm flying to Denver today.\"\nComment your answer below and follow for daily English (Airport English #16).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_pov_e55e31#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_pov_e55e31#/roleplay",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#englishconversation",
+    "#roleplay",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "You are at the airport. One natural answer: \"I'm flying to Denver today.\"\nComment your answer below and follow for daily English (Airport English #16).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_pov_e55e31#/roleplay\n#learnenglish #englishtips #airportenglish #englishconversation #roleplay #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "POV: \"Where are you flying today?\" What do you say? #shorts",
+   "caption": "You are at the airport. One natural answer: \"I'm flying to Denver today.\"\nComment your answer below and follow for daily English (Airport English #16).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_pov_e55e31#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_pov_e55e31#/roleplay",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#englishconversation"
+   ],
+   "caption_with_tags": "You are at the airport. One natural answer: \"I'm flying to Denver today.\"\nComment your answer below and follow for daily English (Airport English #16).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_pov_e55e31#/roleplay\n#shorts #learnenglish #englishtips #airportenglish #englishconversation"
+  }
+ },
+ "slot": {
+  "date": "2026-12-10",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

@@ -1,0 +1,75 @@
+{
+ "id": "auto_hotel_mistake_e2b755",
+ "scene": "hotel",
+ "template": "mistake",
+ "area": "grammar-check",
+ "cefr": "A2",
+ "point": "sleep well",
+ "series": "Hotel English #30",
+ "title": "Spot the mistake: \"I didn't sleep good.\"",
+ "description": "A learner says \"I didn't sleep good.\" at the hotel. The fix: \"I didn't sleep well.\"\nComment your answer below and follow for daily English (Hotel English #30).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_e2b755#/fix",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#hotelenglish",
+  "#commonmistakes",
+  "#englishgrammar",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/hotel/auto_hotel_mistake_e2b755/cine-auto-hotel-mistake-e2b755-en-v3.mp4",
+ "cover": "shorts/hotel/auto_hotel_mistake_e2b755/cine-auto-hotel-mistake-e2b755-en-v3.jpg",
+ "ci_artifact": "cine-hotel-20",
+ "run": "20",
+ "platforms": {
+  "tiktok": {
+   "title": "Spot the mistake: \"I didn't sleep good.\"",
+   "caption": "A learner says \"I didn't sleep good.\" at the hotel. The fix: \"I didn't sleep well.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_e2b755#/fix",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_e2b755#/fix",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "A learner says \"I didn't sleep good.\" at the hotel. The fix: \"I didn't sleep well.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_e2b755#/fix\n#learnenglish #englishtips #hotelenglish #commonmistakes #englishgrammar #travelenglish"
+  },
+  "reels": {
+   "title": "Spot the mistake: \"I didn't sleep good.\"",
+   "caption": "A learner says \"I didn't sleep good.\" at the hotel. The fix: \"I didn't sleep well.\"\nComment your answer below and follow for daily English (Hotel English #30).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_e2b755#/fix",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_e2b755#/fix",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "A learner says \"I didn't sleep good.\" at the hotel. The fix: \"I didn't sleep well.\"\nComment your answer below and follow for daily English (Hotel English #30).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_e2b755#/fix\n#learnenglish #englishtips #hotelenglish #commonmistakes #englishgrammar #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Spot the mistake: \"I didn't sleep good.\" #shorts",
+   "caption": "A learner says \"I didn't sleep good.\" at the hotel. The fix: \"I didn't sleep well.\"\nComment your answer below and follow for daily English (Hotel English #30).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_e2b755#/fix",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_e2b755#/fix",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#commonmistakes"
+   ],
+   "caption_with_tags": "A learner says \"I didn't sleep good.\" at the hotel. The fix: \"I didn't sleep well.\"\nComment your answer below and follow for daily English (Hotel English #30).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_e2b755#/fix\n#shorts #learnenglish #englishtips #hotelenglish #commonmistakes"
+  }
+ },
+ "slot": {
+  "date": "2026-12-09",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

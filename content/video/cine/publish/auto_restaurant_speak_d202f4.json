@@ -1,0 +1,75 @@
+{
+ "id": "auto_restaurant_speak_d202f4",
+ "scene": "restaurant",
+ "template": "speak",
+ "area": "pronunciation",
+ "cefr": "A1",
+ "point": "could i get some water",
+ "series": "Restaurant English #24",
+ "title": "Say it with me: \"Could I get some water, please?\"",
+ "description": "Say it out loud with Ama at the restaurant: \"Could I get some water, please?\"\nComment your answer below and follow for daily English (Restaurant English #24).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_d202f4#/pron",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#restaurantenglish",
+  "#speakenglish",
+  "#pronunciation",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/restaurant/auto_restaurant_speak_d202f4/cine-auto-restaurant-speak-d202f4-en-v3.mp4",
+ "cover": "shorts/restaurant/auto_restaurant_speak_d202f4/cine-auto-restaurant-speak-d202f4-en-v3.jpg",
+ "ci_artifact": "cine-restaurant-22",
+ "run": "22",
+ "platforms": {
+  "tiktok": {
+   "title": "Say it with me: \"Could I get some water, please?\"",
+   "caption": "Say it out loud with Ama at the restaurant: \"Could I get some water, please?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_d202f4#/pron",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_d202f4#/pron",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#speakenglish",
+    "#pronunciation",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Say it out loud with Ama at the restaurant: \"Could I get some water, please?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_d202f4#/pron\n#learnenglish #englishtips #restaurantenglish #speakenglish #pronunciation #travelenglish"
+  },
+  "reels": {
+   "title": "Say it with me: \"Could I get some water, please?\"",
+   "caption": "Say it out loud with Ama at the restaurant: \"Could I get some water, please?\"\nComment your answer below and follow for daily English (Restaurant English #24).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_d202f4#/pron",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_d202f4#/pron",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#speakenglish",
+    "#pronunciation",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Say it out loud with Ama at the restaurant: \"Could I get some water, please?\"\nComment your answer below and follow for daily English (Restaurant English #24).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_d202f4#/pron\n#learnenglish #englishtips #restaurantenglish #speakenglish #pronunciation #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Say it with me: \"Could I get some water, please?\" #shorts",
+   "caption": "Say it out loud with Ama at the restaurant: \"Could I get some water, please?\"\nComment your answer below and follow for daily English (Restaurant English #24).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_d202f4#/pron",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_d202f4#/pron",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#speakenglish"
+   ],
+   "caption_with_tags": "Say it out loud with Ama at the restaurant: \"Could I get some water, please?\"\nComment your answer below and follow for daily English (Restaurant English #24).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_d202f4#/pron\n#shorts #learnenglish #englishtips #restaurantenglish #speakenglish"
+  }
+ },
+ "slot": {
+  "date": "2026-12-10",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

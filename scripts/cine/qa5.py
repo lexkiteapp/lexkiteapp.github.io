@@ -161,7 +161,12 @@ if VIRAL:   # viral-mode rules (docs/CINE-SCENE-STANDARD.md §7, v3 pacing model
     rule(all(o.get('fs', 0) >= 64 for o in tcap), f'Gap/Strike captions {min([o.get("fs", 0) for o in tcap] or [99])} px (>= 64)')
     rule(not any(o['style'] in ('Sub', 'Karaoke') for o in tl['overlays']) and len(caps) > 0, 'all captions word-by-word (Cap), no static Sub')
     br = []
-    for s in tl['shots']:
+    sh = tl['shots']; cont = lambda a, b: a['clip'] == b['clip'] and abs(b['frames'][0] - a['frames'][1]) <= 2   # frame-contiguous = one visual shot
+    for i, s in enumerate(sh):
+        if s['id'] == 'ring_b' and i and sh[i - 1]['id'] == 'ring' and cont(sh[i - 1], s):   # ring/comment hold split in 2 contiguous segments = one 3 s shot
+            if sh[i - 1]['dur'] + s['dur'] > 3.01: rule(False, f'ring+ring_b {sh[i - 1]["dur"] + s["dur"]:.2f} s > 3.00 s (max shot length, contiguous ring hold)')
+            continue
+        if s['id'] == 'ring' and i + 1 < len(sh) and sh[i + 1]['id'] == 'ring_b' and cont(s, sh[i + 1]): continue
         if s['id'] == 'recap': lim = 3.0
         else: lim = max(2.5, max([l['dur'] + 0.6 for l in s['lines']] or [0])) + 0.01
         if s['dur'] > lim: rule(False, f'shot {s["id"]} {s["dur"]:.2f} s > {lim:.2f} s (max shot length)')
@@ -208,6 +213,11 @@ if VIRAL:   # viral-mode rules (docs/CINE-SCENE-STANDARD.md §7, v3 pacing model
     rule(not clash, f'overlays do not overlap each other (pairwise) {sorted(set(clash)) or ""}')
 for b in tl['endcard_boxes']:
     if not (b[0] >= SZ['x0'] and b[2] <= SZ['x1'] and b[1] >= SZ['y0'] and b[3] <= SZ['y1']): fails.append('safe:endcard'); print('  END CARD SAFE FAIL', b)
+print('== JUMP CUTS (back-to-back segments of the same clip must continue frame-to-frame; any other same-clip cut = same framing = jump cut)')
+jc = [(a['id'], b['id'], a['clip'], a['frames'][1], b['frames'][0]) for a, b in zip(tl['shots'], tl['shots'][1:]) if a['clip'] == b['clip'] and abs(b['frames'][0] - a['frames'][1]) > 2]
+for x in jc: print('  JUMP CUT FAIL %s -> %s on %s (frame %d -> %d)' % x)
+print('  same-clip neighbours:', sum(a['clip'] == b['clip'] for a, b in zip(tl['shots'], tl['shots'][1:])), 'jump cuts:', len(jc), 'OK' if not jc else 'FAIL')
+if jc: fails.append('jumpcut')
 print('== AUDIO')
 a = subprocess.run(['ffmpeg', '-nostdin', '-threads', TH, '-i', V, '-af', 'ebur128', '-f', 'null', '-'], capture_output=True, text=True).stderr
 LU = float(re.findall(r'I:\s+(-?[\d.]+) LUFS', a)[-1]); fails += ['loudness'] if abs(LU + 16) > 1 else []

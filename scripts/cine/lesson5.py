@@ -59,8 +59,8 @@ def CDIR(clip, kind):   # 'bank:clip' -> that scene bank's dl24/meta (B-roll reu
 def M(clip, who): return L.Mouth(CDIR(clip, 'meta') + f'/{who}')
 def line(k, at, tempo=None):
     if tempo is None:
-        nx = [x for x in CUES[k] if x['value'] != 'X']; span = nx[-1]['end'] - nx[0]['start']; need = len(TEXT[k]) / 14.8 - 0.48
-        tempo = 1.0 if need <= span else max(0.85, round(span / need - 0.005, 3))
+        nx = [x for x in CUES[k] if x['value'] != 'X']; span = nx[-1]['end'] - nx[0]['start']; need = len(TEXT[k]) / 14.3 - 0.42   # 22/10: 14.8/-0.48 left cps 15.3 on a chained caption (auto_cafe_mistake_6f5ca8) -> margin
+        tempo = 1.0 if need <= span else max(0.8, round(span / need - 0.005, 3))   # 22/10: floor 0.85 -> 0.8 (short fast cue lines kept cps > 15)
     return dict(id=k, cues=CUES[k], at=at, tempo=tempo, dur=wdur(k) / tempo)
 def rng(a, b): return list(range(a, b))
 S = []

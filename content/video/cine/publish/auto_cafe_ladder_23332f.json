@@ -1,0 +1,75 @@
+{
+ "id": "auto_cafe_ladder_23332f",
+ "scene": "cafe",
+ "template": "ladder",
+ "area": "phrases",
+ "cefr": "A2",
+ "point": "polite request a latte",
+ "series": "Café English #1",
+ "title": "3 ways to ask for a latte in English",
+ "description": "Polite, neutral and casual ways to ask at the coffee shop. Most polite: \"Could I possibly have a latte?\"\nComment your answer below and follow for daily English (Café English #1).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_ladder_23332f#/phrases",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#coffeeshopenglish",
+  "#politeenglish",
+  "#englishphrases",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/cafe/auto_cafe_ladder_23332f/cine-auto-cafe-ladder-23332f-en-v3.mp4",
+ "cover": "shorts/cafe/auto_cafe_ladder_23332f/cine-auto-cafe-ladder-23332f-en-v3.jpg",
+ "ci_artifact": "cine-cafe-11-14",
+ "run": "11-14",
+ "platforms": {
+  "tiktok": {
+   "title": "3 ways to ask for a latte in English",
+   "caption": "Polite, neutral and casual ways to ask at the coffee shop. Most polite: \"Could I possibly have a latte?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_ladder_23332f#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_ladder_23332f#/phrases",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#politeenglish",
+    "#englishphrases",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Polite, neutral and casual ways to ask at the coffee shop. Most polite: \"Could I possibly have a latte?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_ladder_23332f#/phrases\n#learnenglish #englishtips #coffeeshopenglish #politeenglish #englishphrases #travelenglish"
+  },
+  "reels": {
+   "title": "3 ways to ask for a latte in English",
+   "caption": "Polite, neutral and casual ways to ask at the coffee shop. Most polite: \"Could I possibly have a latte?\"\nComment your answer below and follow for daily English (Café English #1).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_ladder_23332f#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_ladder_23332f#/phrases",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#politeenglish",
+    "#englishphrases",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Polite, neutral and casual ways to ask at the coffee shop. Most polite: \"Could I possibly have a latte?\"\nComment your answer below and follow for daily English (Café English #1).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_ladder_23332f#/phrases\n#learnenglish #englishtips #coffeeshopenglish #politeenglish #englishphrases #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "3 ways to ask for a latte in English #shorts",
+   "caption": "Polite, neutral and casual ways to ask at the coffee shop. Most polite: \"Could I possibly have a latte?\"\nComment your answer below and follow for daily English (Café English #1).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_ladder_23332f#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_ladder_23332f#/phrases",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#politeenglish"
+   ],
+   "caption_with_tags": "Polite, neutral and casual ways to ask at the coffee shop. Most polite: \"Could I possibly have a latte?\"\nComment your answer below and follow for daily English (Café English #1).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_ladder_23332f#/phrases\n#shorts #learnenglish #englishtips #coffeeshopenglish #politeenglish"
+  }
+ },
+ "slot": {
+  "date": "2026-11-13",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

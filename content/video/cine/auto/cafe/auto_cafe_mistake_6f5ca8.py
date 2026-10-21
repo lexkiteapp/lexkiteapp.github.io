@@ -2,21 +2,21 @@
 exec(open(f'{D}/lessons/_auto_cafe.py').read())
 HOOK_KIND = 'question'
 STRIKE = ('in', 'by')
-QA = dict(template='mistake', strike_line='gc_aec25641', right_line='gc_b5dfa666')
-WRONG = TEXT['gc_aec25641'] + '||'
-CAPSTYLE = {'wrong': ('Strike', 0), 'right': ('Karaoke', 2), 'slow': ('Karaoke', 2)}
-META = {'id': 'auto-cafe-mistake-6f5ca8', 'cefr': 'A2', 'goal_en': 'Spot the mistake', 'pattern': "We're sitting by the window.", 'area': 'grammar-check'}
+QA = dict(template='mistake', strike_line='gc_9e4f3e09', right_line='gc_128b881a')
+WRONG = TEXT['gc_9e4f3e09'] + '||'
+CAPSTYLE = {'wrong': ('Strike', 0), 'right': ('Karaoke', 3), 'slow': ('Karaoke', 3)}
+META = {'id': 'auto-cafe-mistake-6f5ca8', 'cefr': 'A2', 'goal_en': 'Spot the mistake', 'pattern': 'Can we sit by the window, please?', 'area': 'grammar-check'}
 if not VIRAL: raise SystemExit("auto lessons are English-only viral (VIRAL=1)")
 VIRAL_HOOK = 'Spot the *mistake*|grimace'; SERIES = 'Café English #17'; KEYWORDS.update(['by'])
 vhook(VIRAL_HOOK)
 prop(pad=True)
-talk('cue', B1, BW, 'gc_f7b7cba0')
-talk('wrong', A1, 'ama', 'gc_aec25641')
+talk('cue', B1, BW, 'gc_302ee6c9')
+talk('wrong', A1, 'ama', 'gc_9e4f3e09')
 hold('oops', OOPS, 1.0)
 hold('ring', BREACT, 1.5, ov=[('Ring', 0.0, 3.0, 'Comment the mistake 👇|')])
 hold('ring_b', MASTER, 1.5)
-hold('reveal', BREACT, 2.0, ov=[('Strike', 0.0, None, WRONG, 2)])
-talk('right', MCU, 'ama', 'gc_b5dfa666', opt=True)
-talk('slow', MCU, 'ama', 'gc_b5dfa666', tempo=0.85)
+hold('reveal', BREACT, 2.46, ov=[('Strike', 0.0, None, WRONG, 2)])
+talk('right', MCU, 'ama', 'gc_128b881a', opt=True)
+talk('slow', MCU, 'ama', 'gc_128b881a', tempo=0.85)
 PUNCH['slow'] = 0.0
-vend("We're sitting by the window.")
+vend('Can we sit by the window, please?')

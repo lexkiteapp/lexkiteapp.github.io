@@ -1,0 +1,75 @@
+{
+ "id": "auto_hotel_fix_fb429b",
+ "scene": "hotel",
+ "template": "fix",
+ "area": "grammar",
+ "cefr": "A2",
+ "point": "for plus a duration",
+ "series": "Hotel English #22",
+ "title": "Stop saying \"I'm staying during three nights.\"",
+ "description": "Not \"during\". Say: \"I'm staying for three nights.\"\nComment your answer below and follow for daily English (Hotel English #22).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_fix_fb429b#/grammar",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#hotelenglish",
+  "#commonmistakes",
+  "#englishgrammar",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/hotel/auto_hotel_fix_fb429b/cine-auto-hotel-fix-fb429b-en-v3.mp4",
+ "cover": "shorts/hotel/auto_hotel_fix_fb429b/cine-auto-hotel-fix-fb429b-en-v3.jpg",
+ "ci_artifact": "cine-hotel-19",
+ "run": "19",
+ "platforms": {
+  "tiktok": {
+   "title": "Stop saying \"I'm staying during three nights.\"",
+   "caption": "Not \"during\". Say: \"I'm staying for three nights.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_fix_fb429b#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_fix_fb429b#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Not \"during\". Say: \"I'm staying for three nights.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_fix_fb429b#/grammar\n#learnenglish #englishtips #hotelenglish #commonmistakes #englishgrammar #travelenglish"
+  },
+  "reels": {
+   "title": "Stop saying \"I'm staying during three nights.\"",
+   "caption": "Not \"during\". Say: \"I'm staying for three nights.\"\nComment your answer below and follow for daily English (Hotel English #22).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_fix_fb429b#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_fix_fb429b#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Not \"during\". Say: \"I'm staying for three nights.\"\nComment your answer below and follow for daily English (Hotel English #22).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_fix_fb429b#/grammar\n#learnenglish #englishtips #hotelenglish #commonmistakes #englishgrammar #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Stop saying \"I'm staying during three nights.\" #shorts",
+   "caption": "Not \"during\". Say: \"I'm staying for three nights.\"\nComment your answer below and follow for daily English (Hotel English #22).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_fix_fb429b#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_fix_fb429b#/grammar",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#commonmistakes"
+   ],
+   "caption_with_tags": "Not \"during\". Say: \"I'm staying for three nights.\"\nComment your answer below and follow for daily English (Hotel English #22).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_fix_fb429b#/grammar\n#shorts #learnenglish #englishtips #hotelenglish #commonmistakes"
+  }
+ },
+ "slot": {
+  "date": "2026-11-27",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}
