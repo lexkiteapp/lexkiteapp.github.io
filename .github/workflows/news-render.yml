@@ -1,0 +1,25 @@
+# news-anchor short render on CI (owner 21/10: no heavy rendering on the Mac). Branch news-render carries only the assets the lesson needs.
+name: news-render
+on: { push: { branches: [news-render] } }
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: sudo apt-get install -y -qq ffmpeg >/dev/null && pip install -q numpy==2.1.3 opencv-python-headless==4.10.0.84 pillow==11.0.0 scipy==1.14.1
+      - name: Render + QA
+        working-directory: brand/library/cine/anchor/news
+        env: { LEX_ROOT: '${{ github.workspace }}' }
+        run: |
+          python news.py hotel
+          python qa_news.py render_hotel | tee ../../../../../out/qa_news.log
+          cp render_hotel/qc.json render_hotel/timeline.json ../../../../../out/
+      - name: Compressed copy + contact sheet
+        run: |
+          cd out; ffmpeg -nostdin -v error -y -i cine-news-hotel-en.mp4 -c:v libx264 -preset slow -b:v 6000k -maxrate 6800k -bufsize 12M -c:a aac -b:a 160k cine-news-hotel-en-25mb.mp4
+          ffmpeg -nostdin -v error -y -i cine-news-hotel-en.mp4 -vf "select='lt(mod(t+0.8\,2.05)\,0.042)',scale=180:320,tile=6x2" -frames:v 1 -vsync vfr cine-news-hotel-en-sheet.jpg
+      - uses: actions/upload-artifact@v4
+        with: { name: news-hotel, path: "out/*25mb.mp4\nout/*.jpg\nout/*.png\nout/*.log\nout/*.json" }

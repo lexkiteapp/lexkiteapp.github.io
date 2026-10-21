@@ -1,0 +1,15 @@
+{
+ "voices": {"ama": "af_bella", "carlos": "am_fenrir"},
+ "speed": 0.92,
+ "lines": [
+  {"id": "n_h_hook", "who": "ama", "text": "Checking in at a hotel?"},
+  {"id": "n_h_a_p1", "who": "ama", "text": "I have a reservation under Ama Lee."},
+  {"id": "n_h_c_m1", "who": "carlos", "text": "Not on my name. Say, under my name.", "speed": 0.9},
+  {"id": "n_h_a_p2", "who": "ama", "text": "Here early? Could I check in early?"},
+  {"id": "n_h_c_m2", "who": "carlos", "text": "Not can I to check in. Say, could I check in?", "speed": 0.95},
+  {"id": "n_h_a_p3", "who": "ama", "text": "And my favorite: Is breakfast included?"},
+  {"id": "n_h_c_m3", "who": "carlos", "text": "Not include. Say, included.", "speed": 0.9},
+  {"id": "n_h_c_recap", "who": "carlos", "text": "Save these three!"},
+  {"id": "n_h_a_end", "who": "ama", "text": "Which one is new? Comment!"}
+ ]
+}

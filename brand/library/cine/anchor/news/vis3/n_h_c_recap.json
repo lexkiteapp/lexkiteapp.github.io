@@ -1,0 +1,13 @@
+{
+  "metadata": {
+    "soundFile": "/home/runner/work/lexkiteapp.github.io/lexkiteapp.github.io/cine/wav/n_h_c_recap.wav",
+    "duration": 1.06
+  },
+  "mouthCues": [
+    { "start": 0.00, "end": 0.04, "value": "X" },
+    { "start": 0.04, "end": 0.14, "value": "B" },
+    { "start": 0.14, "end": 0.21, "value": "C" },
+    { "start": 0.21, "end": 0.98, "value": "B" },
+    { "start": 0.98, "end": 1.06, "value": "X" }
+  ]
+}
