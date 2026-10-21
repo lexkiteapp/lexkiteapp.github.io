@@ -10,7 +10,7 @@ on:
         required: true
         default: hotel
       lessons:
-        description: "Danh sách bài, phẩy ngăn cách ('hotel_tpl_choose,hotel_1:vi' – ':lang' ghi đè ngôn ngữ) hoặc 'all'"
+        description: "Danh sách bài, phẩy ngăn cách ('hotel_tpl_choose,hotel_1:vi' – ':lang' ghi đè ngôn ngữ), 'all', hoặc 'auto' (bài sinh tự động content/video/cine/auto/<scene>)"
         required: true
         default: all
       lang:
@@ -69,6 +69,23 @@ jobs:
           git -C footage checkout -q
           rm -f ~/.ssh/footage
           du -sh footage
+      # Bài sinh tự động (scripts/cine/gen_lessons.py): giọng còn thiếu -> Kokoro + Rhubarb ngay trên CI (0 credit, không làm gì trên Mac)
+      - uses: actions/setup-node@v4
+        if: hashFiles(format('content/video/cine/auto/{0}/lines.json', github.event.inputs.scene)) != ''
+        with: { node-version: 20 }
+      - name: Đệm mô hình Kokoro (~90 MB)
+        if: hashFiles(format('content/video/cine/auto/{0}/lines.json', github.event.inputs.scene)) != ''
+        uses: actions/cache@v4
+        with:
+          path: /tmp/kk/node_modules/@huggingface/transformers/.cache
+          key: video-models-kokoro82m-q8-cine-v1
+      - name: Cài kokoro-js + Rhubarb
+        if: hashFiles(format('content/video/cine/auto/{0}/lines.json', github.event.inputs.scene)) != ''
+        run: |
+          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
+          R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"; echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
       - name: Dựng + QA
         env:
           SCENE: ${{ github.event.inputs.scene }}
@@ -79,7 +96,10 @@ jobs:
           [ "${{ github.event.inputs.viral }}" = true ] || export VIRAL=0
           export CINE_SCENE_DIR="$(bash scripts/cine/prep_scene.sh footage "$SCENE")"
           mkdir -p out/qa
-          if [ "$LESSONS" = all ]; then
+          [ -f "content/video/cine/auto/$SCENE/lines.json" ] && python scripts/cine/auto_voice.py "$CINE_SCENE_DIR" "$SCENE"
+          if [ "$LESSONS" = auto ]; then
+            LESSONS=$(cd "content/video/cine/auto/$SCENE" && ls *.py | grep -v '^_' | sed 's/\.py$//' | paste -sd, -)
+          elif [ "$LESSONS" = all ]; then
             LESSONS=$(cd "$CINE_SCENE_DIR/lessons" && ls *.py | grep -v '^_' | sed 's/\.py$//' | paste -sd, -)
           fi
           fail=0; n=0
@@ -102,6 +122,30 @@ jobs:
           for f in out/qa/qa_*.log; do [ -f "$f" ] && echo "- $(basename "$f"): $(tail -1 "$f")" >> $GITHUB_STEP_SUMMARY; done
           [ $n -gt 0 ] || { echo "::error::không dựng bài nào"; exit 1; }
           exit $fail
+      - name: Tờ soát nhỏ (8 khung/bài, 5 bài/tờ) cho kiểm tra nhanh
+        if: always()
+        run: |
+          python - <<'PY'
+          import cv2, glob, numpy as np, os
+          vs = sorted(glob.glob('out/*.mp4')); os.makedirs('out/qa', exist_ok=True)
+          for k in range(0, len(vs), 5):
+              rows = []
+              for v in vs[k:k + 5]:
+                  cap = cv2.VideoCapture(v); n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); fr = []
+                  for i in np.linspace(2, n - 3, 8).astype(int):
+                      cap.set(cv2.CAP_PROP_POS_FRAMES, int(i)); ok, f = cap.read(); fr.append(cv2.resize(f, (135, 240)) if ok else np.zeros((240, 135, 3), np.uint8))
+                  rows.append(np.hstack(fr))
+              cv2.imwrite(f'out/qa/sheet_{k // 5 + 1}.jpg', np.vstack(rows), [cv2.IMWRITE_JPEG_QUALITY, 70])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cine-qa-${{ github.event.inputs.scene }}-${{ github.run_number }}
+          path: |
+            out/qa/
+            out/voices/
+          retention-days: 14
+          if-no-files-found: warn
       - uses: actions/upload-artifact@v4
         if: always()
         with:

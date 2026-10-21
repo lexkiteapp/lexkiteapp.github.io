@@ -1,0 +1,59 @@
+{
+ "lines": [
+  {
+   "id": "gr_e352424b",
+   "who": "priya",
+   "text": "Would you like to pay together?"
+  },
+  {
+   "id": "gr_7fd43205",
+   "who": "ama",
+   "text": "Can we pay separate, please?"
+  },
+  {
+   "id": "gr_31a3425c",
+   "who": "ama",
+   "text": "Can we pay separately, please?"
+  },
+  {
+   "id": "gr_88b83927",
+   "who": "ama",
+   "text": "Could we get the bill, please?"
+  },
+  {
+   "id": "gr_9cf48b27",
+   "who": "priya",
+   "text": "Of course. I'll bring it now."
+  },
+  {
+   "id": "gr_54612d8e",
+   "who": "priya",
+   "text": "Hi! How many people?"
+  },
+  {
+   "id": "gr_3cb43a44",
+   "who": "ama",
+   "text": "A table for two persons, please."
+  },
+  {
+   "id": "gr_03c182ea",
+   "who": "ama",
+   "text": "A table for two people, please."
+  },
+  {
+   "id": "gr_f81c8b54",
+   "who": "priya",
+   "text": "Are you ready to order?"
+  },
+  {
+   "id": "gr_9c71a0fb",
+   "who": "ama",
+   "text": "Yes, I'd like the soup, please."
+  },
+  {
+   "id": "gr_a98b5360",
+   "who": "ama",
+   "text": "Could I get the menu, please?"
+  }
+ ]
+}

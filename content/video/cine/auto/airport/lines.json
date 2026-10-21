@@ -1,0 +1,70 @@
+{
+ "lines": [
+  {
+   "id": "ga_d51677d4",
+   "who": "ama",
+   "text": "Could I have a window seat?"
+  },
+  {
+   "id": "ga_d51677d4_gap",
+   "who": "ama",
+   "text": "Could I have a window seat?",
+   "derived": "auto-gap",
+   "gap": {
+    "src": "ga_d51677d4",
+    "word": "seat",
+    "prefix": "Could I have a window"
+   }
+  },
+  {
+   "id": "ga_4c7f4536",
+   "who": "mei",
+   "text": "Sure, let me check that for you."
+  },
+  {
+   "id": "ga_af30a839",
+   "who": "mei",
+   "text": "Do you have any bags to check?"
+  },
+  {
+   "id": "ga_722480eb",
+   "who": "ama",
+   "text": "Yes, I have one suitcase."
+  },
+  {
+   "id": "ga_53c46ea2",
+   "who": "ama",
+   "text": "Could I possibly have a window seat?"
+  },
+  {
+   "id": "ga_3826e6b4",
+   "who": "ama",
+   "text": "Can I have a window seat, please?"
+  },
+  {
+   "id": "ga_ced6224d",
+   "who": "ama",
+   "text": "A window seat, please."
+  },
+  {
+   "id": "ga_a81e3ebc",
+   "who": "mei",
+   "text": "Boarding starts soon at gate fourteen."
+  },
+  {
+   "id": "ga_455fe5c1",
+   "who": "mei",
+   "text": "Is this your only bag?"
+  },
+  {
+   "id": "ga_d3096c09",
+   "who": "ama",
+   "text": "Can I take this bag in board?"
+  },
+  {
+   "id": "ga_d0245482",
+   "who": "ama",
+   "text": "Can I take this bag on board?"
+  }
+ ]
+}

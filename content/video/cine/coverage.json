@@ -1,0 +1,253 @@
+{
+ "updated": "2026-10-21",
+ "target_per_area": 5,
+ "areas": {
+  "dictionary": {
+   "label": "Dictionary",
+   "scenes": [],
+   "generated": 0,
+   "rendered": 0,
+   "by_cefr": {},
+   "gap": null
+  },
+  "vocab-review": {
+   "label": "Flashcard review (SRS)",
+   "scenes": [],
+   "generated": 2,
+   "rendered": 0,
+   "by_cefr": {
+    "A1": {
+     "generated": 2,
+     "rendered": 0
+    }
+   },
+   "gap": null
+  },
+  "grammar": {
+   "label": "Grammar lessons",
+   "scenes": [
+    "airport",
+    "cafe",
+    "hotel",
+    "restaurant"
+   ],
+   "generated": 2,
+   "rendered": 1,
+   "by_cefr": {
+    "A2": {
+     "generated": 2,
+     "rendered": 1
+    }
+   },
+   "gap": 4
+  },
+  "grammar-check": {
+   "label": "Grammar checker",
+   "scenes": [
+    "airport",
+    "cafe",
+    "hotel",
+    "restaurant"
+   ],
+   "generated": 3,
+   "rendered": 0,
+   "by_cefr": {
+    "A2": {
+     "generated": 3,
+     "rendered": 0
+    }
+   },
+   "gap": 5
+  },
+  "verbs": {
+   "label": "Verb conjugation",
+   "scenes": [],
+   "generated": 0,
+   "rendered": 0,
+   "by_cefr": {},
+   "gap": null
+  },
+  "phrases": {
+   "label": "Phrases & collocations",
+   "scenes": [
+    "airport",
+    "cafe",
+    "hotel",
+    "restaurant"
+   ],
+   "generated": 2,
+   "rendered": 0,
+   "by_cefr": {
+    "A2": {
+     "generated": 2,
+     "rendered": 0
+    }
+   },
+   "gap": 5
+  },
+  "word-usage": {
+   "label": "Confusing words (word usage)",
+   "scenes": [
+    "airport"
+   ],
+   "generated": 0,
+   "rendered": 0,
+   "by_cefr": {},
+   "gap": 5
+  },
+  "paraphrase": {
+   "label": "Paraphrase trainer",
+   "scenes": [
+    "cafe",
+    "hotel",
+    "restaurant"
+   ],
+   "generated": 2,
+   "rendered": 1,
+   "by_cefr": {
+    "A2": {
+     "generated": 2,
+     "rendered": 1
+    }
+   },
+   "gap": 4
+  },
+  "pronunciation": {
+   "label": "Pronunciation (IPA, minimal pairs)",
+   "scenes": [
+    "airport",
+    "cafe",
+    "hotel",
+    "restaurant"
+   ],
+   "generated": 3,
+   "rendered": 2,
+   "by_cefr": {
+    "A1": {
+     "generated": 3,
+     "rendered": 2
+    }
+   },
+   "gap": 3
+  },
+  "speaking": {
+   "label": "IELTS Speaking topics & practice",
+   "scenes": [
+    "airport",
+    "cafe",
+    "hotel",
+    "restaurant"
+   ],
+   "generated": 0,
+   "rendered": 0,
+   "by_cefr": {},
+   "gap": 5
+  },
+  "roleplay": {
+   "label": "Voice roleplay",
+   "scenes": [
+    "airport",
+    "cafe",
+    "hotel",
+    "restaurant"
+   ],
+   "generated": 4,
+   "rendered": 1,
+   "by_cefr": {
+    "A2": {
+     "generated": 4,
+     "rendered": 1
+    }
+   },
+   "gap": 4
+  },
+  "listening": {
+   "label": "Listening & dictation",
+   "scenes": [
+    "airport",
+    "cafe",
+    "hotel",
+    "restaurant"
+   ],
+   "generated": 2,
+   "rendered": 0,
+   "by_cefr": {
+    "A2": {
+     "generated": 2,
+     "rendered": 0
+    }
+   },
+   "gap": 5
+  },
+  "reading": {
+   "label": "Reading practice",
+   "scenes": [],
+   "generated": 0,
+   "rendered": 0,
+   "by_cefr": {},
+   "gap": null
+  },
+  "writing-ielts": {
+   "label": "IELTS Writing Task 2 samples & lab",
+   "scenes": [],
+   "generated": 0,
+   "rendered": 0,
+   "by_cefr": {},
+   "gap": null
+  },
+  "ielts": {
+   "label": "IELTS full mock test",
+   "scenes": [],
+   "generated": 0,
+   "rendered": 0,
+   "by_cefr": {},
+   "gap": null
+  },
+  "toefl": {
+   "label": "TOEFL practice",
+   "scenes": [],
+   "generated": 0,
+   "rendered": 0,
+   "by_cefr": {},
+   "gap": null
+  },
+  "toeic": {
+   "label": "TOEIC practice",
+   "scenes": [],
+   "generated": 0,
+   "rendered": 0,
+   "by_cefr": {},
+   "gap": null
+  },
+  "placement": {
+   "label": "Placement test",
+   "scenes": [],
+   "generated": 0,
+   "rendered": 0,
+   "by_cefr": {},
+   "gap": null
+  }
+ },
+ "gaps_rendered_below_5": {
+  "grammar": 4,
+  "grammar-check": 5,
+  "phrases": 5,
+  "word-usage": 5,
+  "paraphrase": 4,
+  "pronunciation": 3,
+  "speaking": 5,
+  "roleplay": 4,
+  "listening": 5
+ },
+ "areas_no_scene_fits": [
+  "dictionary",
+  "vocab-review",
+  "verbs",
+  "reading",
+  "writing-ielts",
+  "ielts",
+  "toefl",
+  "toeic",
+  "placement"
+ ]
+}
