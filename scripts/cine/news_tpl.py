@@ -10,6 +10,7 @@ def at_for(line, lo, hi, br):   # lead-in so the shot lasts lo..hi s
 hk = SPEC['hook']; hs0, hs1 = speech(hk['line'])   # hook: speech starts by ~0.2 s (first sound < 0.3 s), shot 1.66-2.0 s
 a_ = max(0.0, min(0.2 - hs0, 1.66 - 0.42 - hs1)); ht = line_tempo(hk['line'])
 if a_ + hs1 / ht + 0.36 > 1.98: ht = min(1.15, round(hs1 / (1.98 - 0.36 - a_) + 0.005, 3))   # long hook line: tighten (<= 1.15x) instead of overrunning 2.0 s
+if a_ + hs1 / ht + 0.6 < 1.66: ht = min(ht, max(0.86, round(hs1 / (1.66 - 0.6 - a_) - 0.005, 3)))   # short hook line: speak it a little slower before delaying its start
 h_br = min(0.6, max(0.36, 1.66 - a_ - hs1 / ht))
 a_ = max(a_, 1.66 - h_br - hs1 / ht)   # very short hook line: later start (whoosh covers frame 0) so the hook still lasts >= 1.66 s
 h = shot('hook', 'ga2_talk_smile', 'ama', 'two', BG, line=hk['line'], at=a_, breath=h_br, frames=list(range(24, 24 + 60)), other='gc', tempo=ht)
