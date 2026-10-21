@@ -83,19 +83,21 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #6",
-   "run": "11-14"
+   "run": "11-14",
+   "paused": "owner 21/10: news format only"
   },
   "pay separately": {
    "id": "auto_restaurant_fix_fe9f7d",
    "point": "pay separately",
-   "status": "rendered",
+   "status": "rejected",
    "template": "fix",
    "area": "grammar",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.6,
    "series": "Restaurant English #1",
-   "run": "11-14"
+   "run": "11-14",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "word seat": {
    "id": "auto_airport_gap_0f13c2",
@@ -107,7 +109,8 @@
    "scene": "airport",
    "est": 18.6,
    "series": "Airport English #1",
-   "run": "11-14"
+   "run": "11-14",
+   "paused": "owner 21/10: news format only"
   },
   "polite request a latte": {
    "id": "auto_cafe_ladder_23332f",
@@ -119,7 +122,8 @@
    "scene": "cafe",
    "est": 18.6,
    "series": "Café English #1",
-   "run": "11-14"
+   "run": "11-14",
+   "paused": "owner 21/10: news format only"
   },
   "could i get an extra towel": {
    "id": "auto_hotel_speak_bf125a",
@@ -131,19 +135,21 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #7",
-   "run": "11-14"
+   "run": "11-14",
+   "paused": "owner 21/10: news format only"
   },
   "polite could we get the bill": {
    "id": "auto_restaurant_quiz_34018e",
    "point": "polite: could we get the bill",
-   "status": "rendered",
+   "status": "rejected",
    "template": "quiz",
    "area": "paraphrase",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.6,
    "series": "Restaurant English #2",
-   "run": "11-14"
+   "run": "11-14",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "bags to check": {
    "id": "auto_airport_pov_99dfe2",
@@ -155,7 +161,8 @@
    "scene": "airport",
    "est": 18.6,
    "series": "Airport English #2",
-   "run": "11-14"
+   "run": "11-14",
+   "paused": "owner 21/10: news format only"
   },
   "listen price fifty": {
    "id": "auto_cafe_choose_3df65a",
@@ -167,7 +174,8 @@
    "scene": "cafe",
    "est": 18.6,
    "series": "Café English #2",
-   "run": "11-14"
+   "run": "11-14",
+   "paused": "owner 21/10: news format only"
   },
   "what time does": {
    "id": "auto_hotel_fix_771182",
@@ -179,19 +187,21 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #8",
-   "run": "11-14"
+   "run": "11-14",
+   "paused": "owner 21/10: news format only"
   },
   "two people": {
    "id": "auto_restaurant_mistake_ad8b8a",
    "point": "two people",
-   "status": "rendered",
+   "status": "rejected",
    "template": "mistake",
    "area": "grammar-check",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.6,
    "series": "Restaurant English #3",
-   "run": "11-14"
+   "run": "11-14",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "polite request a window seat": {
    "id": "auto_airport_ladder_8e0d40",
@@ -203,7 +213,8 @@
    "scene": "airport",
    "est": 18.6,
    "series": "Airport English #3",
-   "run": "11-14"
+   "run": "11-14",
+   "paused": "owner 21/10: news format only"
   },
   "plural after two": {
    "id": "auto_cafe_mistake_f03f29",
@@ -215,7 +226,8 @@
    "scene": "cafe",
    "est": 18.6,
    "series": "Café English #3",
-   "run": "11-14"
+   "run": "11-14",
+   "paused": "owner 21/10: news format only"
   },
   "polite could i get more": {
    "id": "auto_hotel_quiz_3e3a2b",
@@ -227,19 +239,21 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #9",
-   "run": "11-14"
+   "run": "11-14",
+   "paused": "owner 21/10: news format only"
   },
   "ready to order": {
    "id": "auto_restaurant_pov_f12918",
    "point": "ready to order",
-   "status": "rendered",
+   "status": "rejected",
    "template": "pov",
    "area": "roleplay",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.6,
    "series": "Restaurant English #4",
-   "run": "11-14"
+   "run": "11-14",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "listen gate fourteen": {
    "id": "auto_airport_choose_6d1d79",
@@ -251,7 +265,8 @@
    "scene": "airport",
    "est": 18.6,
    "series": "Airport English #4",
-   "run": "11-14"
+   "run": "11-14",
+   "paused": "owner 21/10: news format only"
   },
   "yes a croissant please": {
    "id": "auto_cafe_series_f4edee",
@@ -263,7 +278,8 @@
    "scene": "cafe",
    "est": 18.6,
    "series": "Café English #4",
-   "run": "11-14"
+   "run": "11-14",
+   "paused": "owner 21/10: news format only"
   },
   "word towel": {
    "id": "auto_hotel_gap_73cde7",
@@ -275,19 +291,21 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #10",
-   "run": "11-14"
+   "run": "11-14",
+   "paused": "owner 21/10: news format only"
   },
   "could i get the menu": {
    "id": "auto_restaurant_speak_1abd19",
    "point": "could i get the menu",
-   "status": "rendered",
+   "status": "rejected",
    "template": "speak",
    "area": "pronunciation",
    "cefr": "A1",
    "scene": "restaurant",
    "est": 18.6,
    "series": "Restaurant English #5",
-   "run": "11-14"
+   "run": "11-14",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "on board": {
    "id": "auto_airport_mistake_c1d428",
@@ -299,7 +317,8 @@
    "scene": "airport",
    "est": 18.6,
    "series": "Airport English #5",
-   "run": "11-14"
+   "run": "11-14",
+   "paused": "owner 21/10: news format only"
   },
   "could i get a latte": {
    "id": "auto_cafe_speak_a2cae0",
@@ -311,7 +330,8 @@
    "scene": "cafe",
    "est": 18.6,
    "series": "Café English #5",
-   "run": "11-14"
+   "run": "11-14",
+   "paused": "owner 21/10: news format only"
   },
   "long but it was okay thanks": {
    "id": "auto_hotel_series_1cae2e",
@@ -323,19 +343,21 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #11",
-   "run": "20"
+   "run": "20",
+   "paused": "owner 21/10: news format only"
   },
   "an before a vowel": {
    "id": "auto_restaurant_fix_c16eb3",
    "point": "an before a vowel",
-   "status": "rendered",
+   "status": "rejected",
    "template": "fix",
    "area": "grammar",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.6,
    "series": "Restaurant English #6",
-   "run": "21"
+   "run": "21",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "polite request a cappuccino": {
    "id": "auto_cafe_ladder_1bde75",
@@ -347,7 +369,8 @@
    "scene": "cafe",
    "est": 18.6,
    "series": "Café English #6",
-   "run": "15"
+   "run": "15",
+   "paused": "owner 21/10: news format only"
   },
   "could you call a taxi for me": {
    "id": "auto_hotel_speak_7c0cea",
@@ -359,19 +382,21 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #12",
-   "run": "20"
+   "run": "20",
+   "paused": "owner 21/10: news format only"
   },
   "see the menu": {
    "id": "auto_restaurant_mistake_2f135b",
    "point": "see the menu",
-   "status": "rendered",
+   "status": "rejected",
    "template": "mistake",
    "area": "grammar-check",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.6,
    "series": "Restaurant English #7",
-   "run": "21"
+   "run": "21",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "packed it myself": {
    "id": "auto_airport_pov_35bb07",
@@ -383,7 +408,8 @@
    "scene": "airport",
    "est": 18.6,
    "series": "Airport English #7",
-   "run": "18"
+   "run": "18",
+   "paused": "owner 21/10: news format only"
   },
   "listen time nine": {
    "id": "auto_hotel_choose_7aec1a",
@@ -395,7 +421,8 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #27",
-   "run": "19"
+   "run": "19",
+   "paused": "owner 21/10: news format only"
   },
   "on a floor": {
    "id": "auto_hotel_quiz_a7ece1",
@@ -407,19 +434,21 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #13",
-   "run": "20"
+   "run": "20",
+   "paused": "owner 21/10: news format only"
   },
   "word menu": {
    "id": "auto_restaurant_gap_bee0f6",
    "point": "word menu",
-   "status": "rendered",
+   "status": "rejected",
    "template": "gap",
    "area": "vocab-review",
    "cefr": "A1",
    "scene": "restaurant",
    "est": 18.6,
    "series": "Restaurant English #8",
-   "run": "21"
+   "run": "21",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "polite request an aisle seat": {
    "id": "auto_airport_ladder_f2a117",
@@ -431,7 +460,8 @@
    "scene": "airport",
    "est": 18.6,
    "series": "Airport English #8",
-   "run": "17"
+   "run": "17",
+   "paused": "owner 21/10: news format only"
   },
   "milk is uncountable": {
    "id": "auto_cafe_mistake_0ed664",
@@ -443,7 +473,8 @@
    "scene": "cafe",
    "est": 18.6,
    "series": "Café English #8",
-   "run": "16"
+   "run": "16",
+   "paused": "owner 21/10: news format only"
   },
   "it doesn't have": {
    "id": "auto_hotel_fix_ad776c",
@@ -455,19 +486,21 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #14",
-   "run": "19"
+   "run": "19",
+   "paused": "owner 21/10: news format only"
   },
   "could we see the dessert menu": {
    "id": "auto_restaurant_speak_0cb7a9",
    "point": "Could we see the dessert menu?",
-   "status": "rendered",
+   "status": "rejected",
    "template": "speak",
    "area": "speaking",
    "cefr": "A1",
    "scene": "restaurant",
    "est": 18.6,
    "series": "Restaurant English #9",
-   "run": "22"
+   "run": "22",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "word latte": {
    "id": "auto_cafe_gap_442f1e",
@@ -479,7 +512,8 @@
    "scene": "cafe",
    "est": 18.6,
    "series": "Café English #9",
-   "run": "15"
+   "run": "15",
+   "paused": "owner 21/10: news format only"
   },
   "staying for nights": {
    "id": "auto_hotel_pov_5c8f0c",
@@ -491,19 +525,21 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #15",
-   "run": "20"
+   "run": "20",
+   "paused": "owner 21/10: news format only"
   },
   "just water for now thanks": {
    "id": "auto_restaurant_series_3148e3",
    "point": "Just water for now, thanks.",
-   "status": "rendered",
+   "status": "rejected",
    "template": "series",
    "area": "roleplay",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.6,
    "series": "Restaurant English #10",
-   "run": "22"
+   "run": "22",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "fly to a city": {
    "id": "auto_airport_quiz_238764",
@@ -515,7 +551,8 @@
    "scene": "airport",
    "est": 18.6,
    "series": "Airport English #10",
-   "run": "18"
+   "run": "18",
+   "paused": "owner 21/10: news format only"
   },
   "could i get the wi fi password": {
    "id": "auto_cafe_speak_4cbd1a",
@@ -527,7 +564,8 @@
    "scene": "cafe",
    "est": 18.6,
    "series": "Café English #10",
-   "run": "16"
+   "run": "16",
+   "paused": "owner 21/10: news format only"
   },
   "isn't working": {
    "id": "auto_hotel_mistake_ab25e3",
@@ -539,19 +577,21 @@
    "scene": "hotel",
    "est": 19.3,
    "series": "Hotel English #16",
-   "run": "19"
+   "run": "19",
+   "paused": "owner 21/10: news format only"
   },
   "listen soup tomato": {
    "id": "auto_restaurant_choose_dd0640",
    "point": "listen soup tomato",
-   "status": "rendered",
+   "status": "rejected",
    "template": "choose",
    "area": "listening",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.8,
    "series": "Restaurant English #11",
-   "run": "35"
+   "run": "35",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "no i have a connecting flight": {
    "id": "auto_airport_series_d2de90",
@@ -563,7 +603,8 @@
    "scene": "airport",
    "est": 18.6,
    "series": "Airport English #11",
-   "run": "18"
+   "run": "18",
+   "paused": "owner 21/10: news format only"
   },
   "how much does it cost": {
    "id": "auto_cafe_fix_a211e4",
@@ -575,7 +616,8 @@
    "scene": "cafe",
    "est": 18.6,
    "series": "Café English #11",
-   "run": "15"
+   "run": "15",
+   "paused": "owner 21/10: news format only"
   },
   "polite request an extra towel": {
    "id": "auto_hotel_ladder_88ba15",
@@ -587,19 +629,21 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #17",
-   "run": "19"
+   "run": "19",
+   "paused": "owner 21/10: news format only"
   },
   "reservation table for two": {
    "id": "auto_restaurant_pov_ba9724",
    "point": "reservation table for two",
-   "status": "rendered",
+   "status": "rejected",
    "template": "pov",
    "area": "roleplay",
    "cefr": "B1",
    "scene": "restaurant",
    "est": 18.6,
    "series": "Restaurant English #12",
-   "run": "22"
+   "run": "22",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "is this the line for check in": {
    "id": "auto_airport_speak_f416ca",
@@ -611,7 +655,8 @@
    "scene": "airport",
    "est": 18.6,
    "series": "Airport English #12",
-   "run": "18"
+   "run": "18",
+   "paused": "owner 21/10: news format only"
   },
   "sit here no preposition": {
    "id": "auto_cafe_quiz_6641e9",
@@ -623,19 +668,21 @@
    "scene": "cafe",
    "est": 18.6,
    "series": "Café English #12",
-   "run": "16"
+   "run": "16",
+   "paused": "owner 21/10: news format only"
   },
   "polite request the menu": {
    "id": "auto_restaurant_ladder_2a3fa1",
    "point": "polite request the menu",
-   "status": "rendered",
+   "status": "rejected",
    "template": "ladder",
    "area": "phrases",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.6,
    "series": "Restaurant English #13",
-   "run": "35"
+   "run": "35",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "luggage is uncountable": {
    "id": "auto_airport_fix_25d3d2",
@@ -647,7 +694,8 @@
    "scene": "airport",
    "est": 18.6,
    "series": "Airport English #13",
-   "run": "17"
+   "run": "17",
+   "paused": "owner 21/10: news format only"
   },
   "yes it was great and you": {
    "id": "auto_cafe_series_0c23b8",
@@ -659,7 +707,8 @@
    "scene": "cafe",
    "est": 18.6,
    "series": "Café English #13",
-   "run": "16"
+   "run": "16",
+   "paused": "owner 21/10: news format only"
   },
   "word call": {
    "id": "auto_hotel_gap_aa5034",
@@ -671,19 +720,21 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #19",
-   "run": "19"
+   "run": "19",
+   "paused": "owner 21/10: news format only"
   },
   "i'm finished": {
    "id": "auto_restaurant_mistake_3dbd15",
    "point": "i'm finished",
-   "status": "rendered",
+   "status": "rejected",
    "template": "mistake",
    "area": "grammar-check",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.6,
    "series": "Restaurant English #14",
-   "run": "21"
+   "run": "21",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "next to": {
    "id": "auto_airport_mistake_4b8fd8",
@@ -695,7 +746,8 @@
    "scene": "airport",
    "est": 18.9,
    "series": "Airport English #14",
-   "run": "17"
+   "run": "17",
+   "paused": "owner 21/10: news format only"
   },
   "polite could i get": {
    "id": "auto_cafe_quiz_8215eb",
@@ -707,7 +759,8 @@
    "scene": "cafe",
    "est": 18.6,
    "series": "Café English #14",
-   "run": "16"
+   "run": "16",
+   "paused": "owner 21/10: news format only"
   },
   "pay by card": {
    "id": "auto_hotel_pov_698c0e",
@@ -719,19 +772,21 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #20",
-   "run": "29"
+   "run": "29",
+   "paused": "owner 21/10: news format only"
   },
   "another plus singular": {
    "id": "auto_restaurant_fix_bc474f",
    "point": "another plus singular",
-   "status": "rendered",
+   "status": "rejected",
    "template": "fix",
    "area": "grammar",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.8,
    "series": "Restaurant English #15",
-   "run": "21"
+   "run": "21",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "word ticket": {
    "id": "auto_airport_gap_608579",
@@ -743,7 +798,8 @@
    "scene": "airport",
    "est": 18.6,
    "series": "Airport English #15",
-   "run": "17"
+   "run": "17",
+   "paused": "owner 21/10: news format only"
   },
   "polite request a hot chocolate": {
    "id": "auto_cafe_ladder_ac0efb",
@@ -755,7 +811,8 @@
    "scene": "cafe",
    "est": 18.9,
    "series": "Café English #15",
-   "run": "15"
+   "run": "15",
+   "paused": "owner 21/10: news format only"
   },
   "is there a pharmacy near here": {
    "id": "auto_hotel_speak_9ed0e0",
@@ -767,19 +824,21 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #21",
-   "run": "20"
+   "run": "20",
+   "paused": "owner 21/10: news format only"
   },
   "yes a friend recommended it": {
    "id": "auto_restaurant_series_5455c2",
    "point": "Yes, a friend recommended it.",
-   "status": "rendered",
+   "status": "rejected",
    "template": "series",
    "area": "roleplay",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.6,
    "series": "Restaurant English #16",
-   "run": "22"
+   "run": "22",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "where are you flying": {
    "id": "auto_airport_pov_e55e31",
@@ -791,7 +850,8 @@
    "scene": "airport",
    "est": 18.6,
    "series": "Airport English #16",
-   "run": "18"
+   "run": "18",
+   "paused": "owner 21/10: news format only"
   },
   "listen total eighty": {
    "id": "auto_cafe_choose_03dded",
@@ -803,7 +863,8 @@
    "scene": "cafe",
    "est": 18.8,
    "series": "Café English #16",
-   "run": "27"
+   "run": "27",
+   "paused": "owner 21/10: news format only"
   },
   "for plus a duration": {
    "id": "auto_hotel_fix_fb429b",
@@ -815,19 +876,21 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #22",
-   "run": "19"
+   "run": "19",
+   "paused": "owner 21/10: news format only"
   },
   "word water": {
    "id": "auto_restaurant_gap_482015",
    "point": "word water",
-   "status": "rendered",
+   "status": "rejected",
    "template": "gap",
    "area": "vocab-review",
    "cefr": "A1",
    "scene": "restaurant",
    "est": 18.6,
    "series": "Restaurant English #17",
-   "run": "21"
+   "run": "21",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "at plus clock time": {
    "id": "auto_airport_quiz_d733c5",
@@ -839,7 +902,8 @@
    "scene": "airport",
    "est": 18.6,
    "series": "Airport English #17",
-   "run": "18"
+   "run": "18",
+   "paused": "owner 21/10: news format only"
   },
   "sit by the window": {
    "id": "auto_cafe_mistake_6f5ca8",
@@ -851,7 +915,8 @@
    "scene": "cafe",
    "est": 19.3,
    "series": "Café English #17",
-   "run": "35"
+   "run": "35",
+   "paused": "owner 21/10: news format only"
   },
   "polite change rooms": {
    "id": "auto_hotel_quiz_acba72",
@@ -863,19 +928,21 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #23",
-   "run": "20"
+   "run": "20",
+   "paused": "owner 21/10: news format only"
   },
   "how would you like your steak": {
    "id": "auto_restaurant_pov_7a5a84",
    "point": "how would you like your steak",
-   "status": "rendered",
+   "status": "rejected",
    "template": "pov",
    "area": "roleplay",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.6,
    "series": "Restaurant English #18",
-   "run": "22"
+   "run": "22",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "listen time forty": {
    "id": "auto_airport_choose_195565",
@@ -887,7 +954,8 @@
    "scene": "airport",
    "est": 19.2,
    "series": "Airport English #18",
-   "run": "28"
+   "run": "28",
+   "paused": "owner 21/10: news format only"
   },
   "yes just a little please": {
    "id": "auto_cafe_series_3e2796",
@@ -899,7 +967,8 @@
    "scene": "cafe",
    "est": 18.6,
    "series": "Café English #18",
-   "run": "16"
+   "run": "16",
+   "paused": "owner 21/10: news format only"
   },
   "polite request a wake up call": {
    "id": "auto_hotel_ladder_9d4f7f",
@@ -911,7 +980,8 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #24",
-   "run": "29"
+   "run": "29",
+   "paused": "owner 21/10: news format only"
   },
   "any in negatives": {
    "id": "auto_airport_mistake_4de412",
@@ -923,7 +993,8 @@
    "scene": "airport",
    "est": 18.6,
    "series": "Airport English #19",
-   "run": "17"
+   "run": "17",
+   "paused": "owner 21/10: news format only"
   },
   "can i get this to go": {
    "id": "auto_cafe_speak_e04b7c",
@@ -935,7 +1006,8 @@
    "scene": "cafe",
    "est": 18.6,
    "series": "Café English #19",
-   "run": "16"
+   "run": "16",
+   "paused": "owner 21/10: news format only"
   },
   "word pillow": {
    "id": "auto_hotel_gap_772104",
@@ -947,19 +1019,21 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #25",
-   "run": "19"
+   "run": "19",
+   "paused": "owner 21/10: news format only"
   },
   "listen wait fifteen": {
    "id": "auto_restaurant_choose_8b63bf",
    "point": "listen wait fifteen",
-   "status": "rendered",
+   "status": "rejected",
    "template": "choose",
    "area": "listening",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.9,
    "series": "Restaurant English #20",
-   "run": "35"
+   "run": "35",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "to seattle for a work trip": {
    "id": "auto_airport_series_72a827",
@@ -971,7 +1045,8 @@
    "scene": "airport",
    "est": 18.6,
    "series": "Airport English #20",
-   "run": "18"
+   "run": "18",
+   "paused": "owner 21/10: news format only"
   },
   "really delicious not very": {
    "id": "auto_cafe_fix_33b2af",
@@ -983,7 +1058,8 @@
    "scene": "cafe",
    "est": 18.6,
    "series": "Café English #20",
-   "run": "15"
+   "run": "15",
+   "paused": "owner 21/10: news format only"
   },
   "yes we loved it thank you": {
    "id": "auto_hotel_series_48b906",
@@ -995,19 +1071,21 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #26",
-   "run": "20"
+   "run": "20",
+   "paused": "owner 21/10: news format only"
   },
   "polite request some water": {
    "id": "auto_restaurant_ladder_5707c8",
    "point": "polite request some water",
-   "status": "rendered",
+   "status": "rejected",
    "template": "ladder",
    "area": "phrases",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.6,
    "series": "Restaurant English #21",
-   "run": "35"
+   "run": "35",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "word cappuccino": {
    "id": "auto_cafe_gap_db92fe",
@@ -1019,19 +1097,21 @@
    "scene": "cafe",
    "est": 18.6,
    "series": "Café English #21",
-   "run": "15"
+   "run": "15",
+   "paused": "owner 21/10: news format only"
   },
   "anything for dessert": {
    "id": "auto_restaurant_pov_486448",
    "point": "anything for dessert",
-   "status": "rendered",
+   "status": "rejected",
    "template": "pov",
    "area": "roleplay",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.6,
    "series": "Restaurant English #22",
-   "run": "22"
+   "run": "22",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "arrive in a city": {
    "id": "auto_airport_fix_a74568",
@@ -1043,7 +1123,8 @@
    "scene": "airport",
    "est": 19.4,
    "series": "Airport English #22",
-   "run": "17"
+   "run": "17",
+   "paused": "owner 21/10: news format only"
   },
   "polite could i get a refill": {
    "id": "auto_cafe_quiz_2ad43f",
@@ -1055,7 +1136,8 @@
    "scene": "cafe",
    "est": 18.6,
    "series": "Café English #22",
-   "run": "16"
+   "run": "16",
+   "paused": "owner 21/10: news format only"
   },
   "plural towels": {
    "id": "auto_hotel_mistake_a4764b",
@@ -1067,7 +1149,8 @@
    "scene": "hotel",
    "est": 18.9,
    "series": "Hotel English #28",
-   "run": "19"
+   "run": "19",
+   "paused": "owner 21/10: news format only"
   },
   "polite request a luggage tag": {
    "id": "auto_airport_ladder_c563d6",
@@ -1079,7 +1162,8 @@
    "scene": "airport",
    "est": 18.6,
    "series": "Airport English #23",
-   "run": "17"
+   "run": "17",
+   "paused": "owner 21/10: news format only"
   },
   "see your id": {
    "id": "auto_hotel_pov_a3dee3",
@@ -1091,19 +1175,21 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #29",
-   "run": "20"
+   "run": "20",
+   "paused": "owner 21/10: news format only"
   },
   "excuse me we ordered a while ago": {
    "id": "auto_restaurant_speak_a98282",
    "point": "Excuse me, we ordered a while ago.",
-   "status": "rendered",
+   "status": "rejected",
    "template": "speak",
    "area": "speaking",
    "cefr": "A1",
    "scene": "restaurant",
    "est": 18.6,
    "series": "Restaurant English #24",
-   "run": "22"
+   "run": "22",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "past tense lost": {
    "id": "auto_airport_quiz_d35b13",
@@ -1115,7 +1201,8 @@
    "scene": "airport",
    "est": 18.6,
    "series": "Airport English #24",
-   "run": "18"
+   "run": "18",
+   "paused": "owner 21/10: news format only"
   },
   "past tense ordered": {
    "id": "auto_cafe_fix_45c9d8",
@@ -1127,7 +1214,8 @@
    "scene": "cafe",
    "est": 18.6,
    "series": "Café English #24",
-   "run": "15"
+   "run": "15",
+   "paused": "owner 21/10: news format only"
   },
   "sleep well": {
    "id": "auto_hotel_mistake_e2b755",
@@ -1139,19 +1227,21 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #30",
-   "run": "20"
+   "run": "20",
+   "paused": "owner 21/10: news format only"
   },
   "delicious thanks can i get more bread": {
    "id": "auto_restaurant_series_4c40a2",
    "point": "Delicious, thanks. Can I get more bread?",
-   "status": "rendered",
+   "status": "rejected",
    "template": "series",
    "area": "roleplay",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.6,
    "series": "Restaurant English #25",
-   "run": "22"
+   "run": "22",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "window or aisle": {
    "id": "auto_airport_pov_6af151",
@@ -1163,7 +1253,8 @@
    "scene": "airport",
    "est": 18.6,
    "series": "Airport English #25",
-   "run": "18"
+   "run": "18",
+   "paused": "owner 21/10: news format only"
   },
   "listen size large": {
    "id": "auto_cafe_choose_4c2e20",
@@ -1175,7 +1266,8 @@
    "scene": "cafe",
    "est": 18.8,
    "series": "Café English #25",
-   "run": "15"
+   "run": "15",
+   "paused": "owner 21/10: news format only"
   },
   "yes my sister is with me": {
    "id": "auto_airport_series_dc8e03",
@@ -1187,19 +1279,21 @@
    "scene": "airport",
    "est": 18.6,
    "series": "Airport English #25",
-   "run": "18"
+   "run": "18",
+   "paused": "owner 21/10: news format only"
   },
   "could i get some water": {
    "id": "auto_restaurant_speak_d202f4",
    "point": "could i get some water",
-   "status": "rendered",
+   "status": "rejected",
    "template": "speak",
    "area": "pronunciation",
    "cefr": "A1",
    "scene": "restaurant",
    "est": 18.6,
    "series": "Restaurant English #24",
-   "run": "22"
+   "run": "22",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "don't have one": {
    "id": "auto_cafe_mistake_346895",
@@ -1211,19 +1305,21 @@
    "scene": "cafe",
    "est": 18.6,
    "series": "Café English #25",
-   "run": "16"
+   "run": "16",
+   "paused": "owner 21/10: news format only"
   },
   "could i get some more bread": {
    "id": "auto_restaurant_speak_307734",
    "point": "could i get some more bread",
-   "status": "rendered",
+   "status": "rejected",
    "template": "speak",
    "area": "pronunciation",
    "cefr": "A1",
    "scene": "restaurant",
    "est": 18.6,
    "series": "Restaurant English #25",
-   "run": "22"
+   "run": "22",
+   "rejected": "owner 21/10: non-US character + posture"
   },
   "left it in the room": {
    "id": "auto_hotel_mistake_95e189",
@@ -1235,7 +1331,8 @@
    "scene": "hotel",
    "est": 18.6,
    "series": "Hotel English #30",
-   "run": "19"
+   "run": "19",
+   "paused": "owner 21/10: news format only"
   },
   "on plus a day": {
    "id": "auto_airport_fix_8851fa",
@@ -1247,7 +1344,8 @@
    "scene": "airport",
    "est": 18.6,
    "series": "Airport English #25",
-   "run": "17"
+   "run": "17",
+   "paused": "owner 21/10: news format only"
   },
   "could i get a window seat": {
    "id": "auto_airport_speak_6f2485",
@@ -1259,7 +1357,8 @@
    "scene": "airport",
    "est": 18.6,
    "series": "Airport English #25",
-   "run": "28"
+   "run": "28",
+   "paused": "owner 21/10: news format only"
   },
   "listen name sam": {
    "id": "auto_cafe_choose_ab03b3",
@@ -1271,7 +1370,8 @@
    "scene": "cafe",
    "est": 18.6,
    "series": "Café English #25",
-   "run": "27"
+   "run": "27",
+   "paused": "owner 21/10: news format only"
   },
   "hotel requests late checkout wi fi towels": {
    "id": "news_hotel_room_night_three_3c01b9",

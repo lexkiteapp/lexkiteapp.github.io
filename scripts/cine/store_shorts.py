@@ -42,7 +42,8 @@ for sc, lid, rb in rows:
     mp = f'{d}/meta.json'; meta = json.load(open(mp)) if os.path.exists(mp) else {}
     meta.update(scene=sc, lesson=lid)
     meta.setdefault('renders', {})[base] = dict(run=run, sha=sha, duration=dur, bytes=os.path.getsize(mp4), qa='ALL PASS', created=now,
-                                              video=f'shorts/{sc}/{lid}/{base}.mp4', cover=f'shorts/{sc}/{lid}/{base}.jpg' if os.path.exists(cov) else None)
+                                              video=f'shorts/{sc}/{lid}/{base}.mp4', cover=f'shorts/{sc}/{lid}/{base}.jpg' if os.path.exists(cov) else None,
+                                              **{k: meta[k] for k in ('rejected', 'paused') if meta.get(k)})   # owner flags survive re-renders
     json.dump(meta, open(mp, 'w'), indent=1, ensure_ascii=False)
     qp = f'{d}/{base}.qa.log'; r = meta['renders'][base]
     entries.append(shorts_index.entry(sc, lid, base, r, open(qp, errors='replace').read() if os.path.exists(qp) else '', now,

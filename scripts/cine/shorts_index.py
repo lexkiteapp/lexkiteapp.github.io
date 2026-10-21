@@ -47,7 +47,8 @@ def entry(scene, lesson, base, r, qa_text='', created=None, sizes=None, cal=None
                 duration=r.get('duration'), qa=dict(status='pass' if (r.get('qa') or '').upper().startswith('ALL PASS') else 'fail', **qa_metrics(qa_text)),
                 run=r.get('run'), created=created, bytes=r.get('bytes') or sizes.get(r.get('video')),
                 cover_bytes=sizes.get(r.get('cover')) if r.get('cover') else None, video=r.get('video'), cover=r.get('cover'),
-                slot=dict(n=slot['n'], date=slot['date'], time=slot['time'], tz=slot.get('tz')) if slot else None, packed=bool(pack))
+                slot=dict(n=slot['n'], date=slot['date'], time=slot['time'], tz=slot.get('tz')) if slot else None, packed=bool(pack),
+                rejected=r.get('rejected'), paused=r.get('paused'))   # owner flags (meta.json, copied per render): admin shows them, nothing schedules them
 
 
 def write(path, items):
