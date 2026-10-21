@@ -1,0 +1,81 @@
+{
+ "id": "news_living_room_ways_0b506e",
+ "template": "ways",
+ "bg": "living_room",
+ "area": "speaking",
+ "cefr": "B1",
+ "point": "saying no to an invitation: polite to casual",
+ "hook": {
+  "card": "SAY NO NICELY",
+  "line": "n_0b506e_h"
+ },
+ "series": [
+  "SPEAKING",
+  "3 ways to say no"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_0b506e_1",
+   "card": {
+    "kind": "p",
+    "text": "I'd love to, but I can't.",
+    "sub": null,
+    "label": "POLITE"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_0b506e_2",
+   "card": {
+    "kind": "p",
+    "text": "Sorry, I can't make it.",
+    "sub": null,
+    "label": "NEUTRAL"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_0b506e_3",
+   "card": {
+    "kind": "p",
+    "text": "Can't tonight. Next time!",
+    "sub": null,
+    "label": "CASUAL"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_0b506e_4",
+   "card": {
+    "kind": "p",
+    "text": "polite = boss, new people",
+    "sub": null,
+    "label": "TIP"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_0b506e_5",
+   "card": {
+    "kind": "p",
+    "text": "casual = close friends",
+    "sub": null,
+    "label": "TIP"
+   }
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_0b506e_r",
+  "rows": [
+   "I'd love to, but I can't.",
+   "Sorry, I can't make it.",
+   "Can't tonight. Next time!"
+  ]
+ },
+ "end_line": "n_0b506e_e",
+ "link": "https://lexkite.com/en/speaking/",
+ "cta": "Practice IELTS speaking on lexkite.com",
+ "est": 23.5
+}

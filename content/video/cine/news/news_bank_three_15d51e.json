@@ -1,0 +1,76 @@
+{
+ "id": "news_bank_three_15d51e",
+ "template": "three",
+ "bg": "bank",
+ "area": "toeic",
+ "cefr": "B1",
+ "point": "bank phrases: open an account, withdraw cash, fee",
+ "hook": {
+  "card": "AT THE BANK?",
+  "line": "n_15d51e_h"
+ },
+ "series": [
+  "MONEY ENGLISH",
+  "At the bank"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_15d51e_1",
+   "card": {
+    "kind": "p",
+    "text": "I'd like to open an account.",
+    "sub": "checking = everyday account",
+    "label": "#1"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_15d51e_2",
+   "card": null
+  },
+  {
+   "who": "ama",
+   "line": "n_15d51e_3",
+   "card": {
+    "kind": "p",
+    "text": "Can I withdraw some cash?",
+    "sub": "withdraw = take money out",
+    "label": "#2"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_15d51e_4",
+   "card": null
+  },
+  {
+   "who": "ama",
+   "line": "n_15d51e_5",
+   "card": {
+    "kind": "p",
+    "text": "Is there a fee for that?",
+    "sub": "fee = extra cost",
+    "label": "#3"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_15d51e_6",
+   "card": null
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_15d51e_r",
+  "rows": [
+   "I'd like to open an account.",
+   "Can I withdraw some cash?",
+   "Is there a fee for that?"
+  ]
+ },
+ "end_line": "n_15d51e_e",
+ "link": "https://lexkite.com/app/#/toeic",
+ "cta": "Practice TOEIC free on lexkite.com",
+ "est": 24.0
+}

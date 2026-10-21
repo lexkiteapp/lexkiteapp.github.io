@@ -1,0 +1,81 @@
+{
+ "id": "news_meeting_room_ways_23140c",
+ "template": "ways",
+ "bg": "meeting_room",
+ "area": "toeic",
+ "cefr": "B1",
+ "point": "disagreeing politely at work",
+ "hook": {
+  "card": "DISAGREE NICELY?",
+  "line": "n_23140c_h"
+ },
+ "series": [
+  "WORK ENGLISH",
+  "3 ways to disagree"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_23140c_1",
+   "card": {
+    "kind": "p",
+    "text": "I see your point, but...",
+    "sub": null,
+    "label": "POLITE"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_23140c_2",
+   "card": {
+    "kind": "p",
+    "text": "I'm not sure about that.",
+    "sub": null,
+    "label": "NEUTRAL"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_23140c_3",
+   "card": {
+    "kind": "p",
+    "text": "I don't think so.",
+    "sub": null,
+    "label": "CASUAL"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_23140c_4",
+   "card": {
+    "kind": "p",
+    "text": "polite = meetings, clients",
+    "sub": null,
+    "label": "TIP"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_23140c_5",
+   "card": {
+    "kind": "p",
+    "text": "neutral, casual = coworkers",
+    "sub": null,
+    "label": "TIP"
+   }
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_23140c_r",
+  "rows": [
+   "I see your point, but...",
+   "I'm not sure about that.",
+   "I don't think so."
+  ]
+ },
+ "end_line": "n_23140c_e",
+ "link": "https://lexkite.com/app/#/toeic",
+ "cta": "Practice TOEIC free on lexkite.com",
+ "est": 24.6
+}

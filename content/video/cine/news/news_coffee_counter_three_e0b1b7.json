@@ -1,0 +1,76 @@
+{
+ "id": "news_coffee_counter_three_e0b1b7",
+ "template": "three",
+ "bg": "coffee_counter",
+ "area": "phrases",
+ "cefr": "A1",
+ "point": "ordering coffee: can I get, to go, pay by card",
+ "hook": {
+  "card": "ORDERING COFFEE?",
+  "line": "n_e0b1b7_h"
+ },
+ "series": [
+  "CAFE ENGLISH",
+  "Order like a local"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_e0b1b7_1",
+   "card": {
+    "kind": "p",
+    "text": "Can I get a medium latte?",
+    "sub": "Can I get + [drink]?",
+    "label": "#1"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_e0b1b7_2",
+   "card": null
+  },
+  {
+   "who": "ama",
+   "line": "n_e0b1b7_3",
+   "card": {
+    "kind": "p",
+    "text": "Could I get that to go?",
+    "sub": "to go = take it with you",
+    "label": "#2"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_e0b1b7_4",
+   "card": null
+  },
+  {
+   "who": "ama",
+   "line": "n_e0b1b7_5",
+   "card": {
+    "kind": "p",
+    "text": "Can I pay by card?",
+    "sub": "pay by card / in cash",
+    "label": "#3"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_e0b1b7_6",
+   "card": null
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_e0b1b7_r",
+  "rows": [
+   "Can I get a medium latte?",
+   "Could I get that to go?",
+   "Can I pay by card?"
+  ]
+ },
+ "end_line": "n_e0b1b7_e",
+ "link": "https://lexkite.com/app/#/phrases",
+ "cta": "Save useful phrases on lexkite.com",
+ "est": 22.5
+}

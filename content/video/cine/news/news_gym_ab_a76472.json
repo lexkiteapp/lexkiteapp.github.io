@@ -1,0 +1,81 @@
+{
+ "id": "news_gym_ab_a76472",
+ "template": "ab",
+ "bg": "gym",
+ "area": "word-usage",
+ "cefr": "A2",
+ "point": "do yoga, not make yoga",
+ "hook": {
+  "card": "MAKE OR DO?",
+  "line": "n_a76472_h"
+ },
+ "series": [
+  "WORD CHECK",
+  "make vs do"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_a76472_1",
+   "card": {
+    "kind": "p",
+    "text": "I do yoga.",
+    "sub": null,
+    "label": "A"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_a76472_2",
+   "card": {
+    "kind": "p",
+    "text": "I make yoga.",
+    "sub": null,
+    "label": "B"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_a76472_3",
+   "card": {
+    "kind": "p",
+    "text": "A or B?",
+    "sub": null,
+    "label": "COMMENT"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_a76472_4",
+   "card": {
+    "kind": "v",
+    "text": "I do yoga every morning.",
+    "sub": "do + activities",
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_a76472_5",
+   "card": {
+    "kind": "p",
+    "text": "do homework, do dishes",
+    "sub": null,
+    "label": "EXAMPLE"
+   }
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_a76472_r",
+  "rows": [
+   "I do yoga.",
+   "do homework",
+   "do the dishes"
+  ]
+ },
+ "end_line": "n_a76472_e",
+ "link": "https://lexkite.com/app/#/usage?c=pair",
+ "cta": "Compare tricky words on lexkite.com",
+ "est": 25.0
+}

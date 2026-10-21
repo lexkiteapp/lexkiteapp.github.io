@@ -1,0 +1,81 @@
+{
+ "id": "news_kitchen_ab_a30db6",
+ "template": "ab",
+ "bg": "kitchen",
+ "area": "word-usage",
+ "cefr": "A2",
+ "point": "make dinner, not do dinner",
+ "hook": {
+  "card": "MAKE OR DO?",
+  "line": "n_a30db6_h"
+ },
+ "series": [
+  "WORD CHECK",
+  "make vs do"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_a30db6_1",
+   "card": {
+    "kind": "p",
+    "text": "I'll do dinner.",
+    "sub": null,
+    "label": "A"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_a30db6_2",
+   "card": {
+    "kind": "p",
+    "text": "I'll make dinner.",
+    "sub": null,
+    "label": "B"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_a30db6_3",
+   "card": {
+    "kind": "p",
+    "text": "A or B?",
+    "sub": null,
+    "label": "COMMENT"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_a30db6_4",
+   "card": {
+    "kind": "v",
+    "text": "I'll make dinner tonight.",
+    "sub": "make = create something",
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_a30db6_5",
+   "card": {
+    "kind": "p",
+    "text": "make coffee, make a cake",
+    "sub": null,
+    "label": "EXAMPLE"
+   }
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_a30db6_r",
+  "rows": [
+   "make dinner",
+   "make coffee",
+   "make a cake"
+  ]
+ },
+ "end_line": "n_a30db6_e",
+ "link": "https://lexkite.com/app/#/usage?c=pair",
+ "cta": "Compare tricky words on lexkite.com",
+ "est": 23.5
+}

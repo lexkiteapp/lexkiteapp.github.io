@@ -1,0 +1,81 @@
+{
+ "id": "news_clothing_store_ab_b20f1c",
+ "template": "ab",
+ "bg": "clothing_store",
+ "area": "grammar",
+ "cefr": "A2",
+ "point": "phrasal verb + pronoun: try it on",
+ "hook": {
+  "card": "TRY ON IT?",
+  "line": "n_b20f1c_h"
+ },
+ "series": [
+  "SHOPPING ENGLISH",
+  "try it on"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_b20f1c_1",
+   "card": {
+    "kind": "p",
+    "text": "Can I try on it?",
+    "sub": null,
+    "label": "A"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_b20f1c_2",
+   "card": {
+    "kind": "p",
+    "text": "Can I try it on?",
+    "sub": null,
+    "label": "B"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_b20f1c_3",
+   "card": {
+    "kind": "p",
+    "text": "A or B?",
+    "sub": null,
+    "label": "COMMENT"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_b20f1c_4",
+   "card": {
+    "kind": "v",
+    "text": "Can I try it on?",
+    "sub": "it goes in the middle",
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_b20f1c_5",
+   "card": {
+    "kind": "v",
+    "text": "try on this jacket",
+    "sub": "a noun can go after",
+    "label": null
+   }
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_b20f1c_r",
+  "rows": [
+   "Can I try it on?",
+   "try on this jacket",
+   "try it on"
+  ]
+ },
+ "end_line": "n_b20f1c_e",
+ "link": "https://lexkite.com/app/#/grammar",
+ "cta": "Practice grammar free on lexkite.com",
+ "est": 24.6
+}

@@ -11,7 +11,7 @@ same lesson/lang/suffix overwrites the older one (git history keeps it). Prints 
 import glob, json, os, re, shutil, subprocess, sys
 
 out, repo, run = sys.argv[1], sys.argv[2], int(sys.argv[3]); sha = sys.argv[4] if len(sys.argv) > 4 else ''
-SCENES = ('hotel', 'cafe', 'airport', 'restaurant', 'anchor')
+SCENES = ('hotel', 'cafe', 'airport', 'restaurant', 'anchor', 'news')
 rows = []
 if os.path.exists(f'{out}/passed.txt'):
     rows = [l.split() for l in open(f'{out}/passed.txt') if l.strip()]

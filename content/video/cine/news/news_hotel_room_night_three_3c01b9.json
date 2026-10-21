@@ -1,0 +1,76 @@
+{
+ "id": "news_hotel_room_night_three_3c01b9",
+ "template": "three",
+ "bg": "hotel_room_night",
+ "area": "phrases",
+ "cefr": "A2",
+ "point": "hotel requests: late checkout, Wi-Fi, towels",
+ "hook": {
+  "card": "HOTEL PROBLEM?",
+  "line": "n_3c01b9_h"
+ },
+ "series": [
+  "HOTEL ENGLISH",
+  "Room requests"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_3c01b9_1",
+   "card": {
+    "kind": "p",
+    "text": "Could I get a late checkout?",
+    "sub": "ask the front desk",
+    "label": "#1"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_3c01b9_2",
+   "card": null
+  },
+  {
+   "who": "ama",
+   "line": "n_3c01b9_3",
+   "card": {
+    "kind": "p",
+    "text": "The Wi-Fi isn't working.",
+    "sub": "report a problem",
+    "label": "#2"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_3c01b9_4",
+   "card": null
+  },
+  {
+   "who": "ama",
+   "line": "n_3c01b9_5",
+   "card": {
+    "kind": "p",
+    "text": "Could I get extra towels?",
+    "sub": "Could I get + [thing]?",
+    "label": "#3"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_3c01b9_6",
+   "card": null
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_3c01b9_r",
+  "rows": [
+   "Could I get a late checkout?",
+   "The Wi-Fi isn't working.",
+   "Could I get extra towels?"
+  ]
+ },
+ "end_line": "n_3c01b9_e",
+ "link": "https://lexkite.com/app/#/phrases",
+ "cta": "Save useful phrases on lexkite.com",
+ "est": 26.0
+}

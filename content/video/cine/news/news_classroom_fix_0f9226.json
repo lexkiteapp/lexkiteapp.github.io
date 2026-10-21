@@ -1,0 +1,81 @@
+{
+ "id": "news_classroom_fix_0f9226",
+ "template": "fix",
+ "bg": "classroom",
+ "area": "grammar",
+ "cefr": "A2",
+ "point": "agree is a verb: I agree, not I am agree",
+ "hook": {
+  "card": "DO YOU SAY THIS?",
+  "line": "n_0f9226_h"
+ },
+ "series": [
+  "GRAMMAR FIX",
+  "agree"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_0f9226_1",
+   "card": {
+    "kind": "x",
+    "text": "I am agree.",
+    "sub": null,
+    "label": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_0f9226_2",
+   "card": {
+    "kind": "v",
+    "text": "I agree.",
+    "sub": "agree is a verb, no am",
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_0f9226_3",
+   "card": {
+    "kind": "p",
+    "text": "I agree with you.",
+    "sub": null,
+    "label": "EXAMPLE"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_0f9226_4",
+   "card": {
+    "kind": "v",
+    "text": "I don't agree.",
+    "sub": "negative: don't agree",
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_0f9226_5",
+   "card": {
+    "kind": "p",
+    "text": "no am + agree",
+    "sub": null,
+    "label": "RULE"
+   }
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_0f9226_r",
+  "rows": [
+   "I agree.",
+   "I agree with you.",
+   "I don't agree."
+  ]
+ },
+ "end_line": "n_0f9226_e",
+ "link": "https://lexkite.com/app/#/grammar",
+ "cta": "Practice grammar free on lexkite.com",
+ "est": 21.5
+}

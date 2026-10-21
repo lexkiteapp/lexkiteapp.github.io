@@ -1,0 +1,81 @@
+{
+ "id": "news_bank_ways_0ea920",
+ "template": "ways",
+ "bg": "bank",
+ "area": "phrases",
+ "cefr": "A2",
+ "point": "asking for help: polite to casual",
+ "hook": {
+  "card": "NEED HELP?",
+  "line": "n_0ea920_h"
+ },
+ "series": [
+  "EVERYDAY ENGLISH",
+  "3 ways to ask"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_0ea920_1",
+   "card": {
+    "kind": "p",
+    "text": "Would you mind helping?",
+    "sub": null,
+    "label": "POLITE"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_0ea920_2",
+   "card": {
+    "kind": "p",
+    "text": "Could you help me?",
+    "sub": null,
+    "label": "NEUTRAL"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_0ea920_3",
+   "card": {
+    "kind": "p",
+    "text": "Can you give me a hand?",
+    "sub": null,
+    "label": "CASUAL"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_0ea920_4",
+   "card": {
+    "kind": "p",
+    "text": "polite = strangers, staff",
+    "sub": null,
+    "label": "TIP"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_0ea920_5",
+   "card": {
+    "kind": "p",
+    "text": "give me a hand = help me",
+    "sub": null,
+    "label": "TIP"
+   }
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_0ea920_r",
+  "rows": [
+   "Would you mind helping me?",
+   "Could you help me?",
+   "Can you give me a hand?"
+  ]
+ },
+ "end_line": "n_0ea920_e",
+ "link": "https://lexkite.com/app/#/phrases",
+ "cta": "Save useful phrases on lexkite.com",
+ "est": 24.6
+}

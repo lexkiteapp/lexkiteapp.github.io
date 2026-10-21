@@ -1,0 +1,81 @@
+{
+ "id": "news_bookstore_fix_a59145",
+ "template": "fix",
+ "bg": "bookstore",
+ "area": "grammar",
+ "cefr": "A2",
+ "point": "look for: I'm looking for a book",
+ "hook": {
+  "card": "MISSING A WORD?",
+  "line": "n_a59145_h"
+ },
+ "series": [
+  "GRAMMAR FIX",
+  "look for"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_a59145_1",
+   "card": {
+    "kind": "x",
+    "text": "I'm looking a book.",
+    "sub": null,
+    "label": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_a59145_2",
+   "card": {
+    "kind": "v",
+    "text": "I'm looking for a book.",
+    "sub": "look for = try to find",
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_a59145_3",
+   "card": {
+    "kind": "v",
+    "text": "Can I help you find it?",
+    "sub": "what staff say",
+    "label": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_a59145_4",
+   "card": {
+    "kind": "p",
+    "text": "looking for a cookbook",
+    "sub": null,
+    "label": "EXAMPLE"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_a59145_5",
+   "card": {
+    "kind": "p",
+    "text": "look at / look for",
+    "sub": null,
+    "label": "RULE"
+   }
+  }
+ ],
+ "recap": {
+  "title": "SAVE THIS",
+  "line": "n_a59145_r",
+  "rows": [
+   "I'm looking for a book.",
+   "I'm looking for a cookbook.",
+   "look at / look for"
+  ]
+ },
+ "end_line": "n_a59145_e",
+ "link": "https://lexkite.com/app/#/grammar",
+ "cta": "Practice grammar free on lexkite.com",
+ "est": 23.1
+}
