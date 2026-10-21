@@ -288,9 +288,9 @@ def hook_fits(txt, box):   # same layout as lesson5 VHook: words + icon wrapped 
     return False
 
 def ring2(X, S, clip, ov, b_clip, b_ov):
-    """Ring beat (3.0 s). Scene forces ring_tpl (e.g. MASTER: only shot with a free zone) -> ONE continuous segment, no ring_b:
+    """Ring beat (3.0 s; single forced-angle segment 2.5 s). Scene forces ring_tpl (e.g. MASTER: only shot with a free zone) -> ONE continuous segment, no ring_b:
     two back-to-back segments of the same wide shot read as a jump cut (qa5 'no jump cut' rule)."""
-    if S.get('ring_tpl'): X.hold('ring', S['ring_tpl'], 3.0, ov); return
+    if S.get('ring_tpl'): X.hold('ring', S['ring_tpl'], 2.5, ov.replace("('Ring', 0.0, 3.0,", "('Ring', 0.0, 2.5,")); return   # 2.5 = qa5 max hold
     X.hold('ring', clip, 1.5, ov); X.hold('ring_b', b_clip, 1.5, b_ov)
 
 def build(scene, tpl, area, point, a, n):
