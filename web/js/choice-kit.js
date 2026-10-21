@@ -29,12 +29,13 @@
     };
     const onKey = e => {
       if (!root.isConnected) return detach();
-      if (e.defaultPrevented || e.ctrlKey || e.metaKey || e.altKey || typing(e.target)) return;
+      if (e.defaultPrevented || e.ctrlKey || e.metaKey || typing(e.target)) return;
       const k = /^[1-9]$/.test(e.key) ? +e.key - 1 : /^[a-iA-I]$/.test(e.key) ? e.key.toLowerCase().charCodeAt(0) - 97 : -1;
       if (k < 0) return;
       const groups = groupsOf(root), n = current(groups), ins = n && groups.get(n);
       if (!ins || !ins[k] || ins[k].disabled) return;
       e.preventDefault();
+      if (e.altKey) { toggle(ins[k]); return; } // Alt + phím: gạch / bỏ gạch phương án loại trừ
       if ((struck[n] || []).includes(ins[k].value)) toggle(ins[k]); // chọn lại đáp án đã gạch → bỏ gạch
       ins[k].click();
       const names = [...groups.keys()], nx = names.slice(names.indexOf(n) + 1).find(m => !groups.get(m).some(x => x.checked));
@@ -47,7 +48,17 @@
     let timer = 0, held = false;
     const onDown = e => { if (e.pointerType !== 'touch') return; const i = target(e); if (!i) return; held = false; clearTimeout(timer); timer = setTimeout(() => { held = true; toggle(i); if (navigator.vibrate) navigator.vibrate(15); }, 500); };
     const cancel = () => clearTimeout(timer);
-    const onClick = e => { if (held) { held = false; e.preventDefault(); e.stopPropagation(); } }; // nhấn giữ để gạch thì không tính là chọn
+    const onClick = e => {
+      const btn = e.target.closest && e.target.closest('[data-strike]');
+      if (btn && root.contains(btn)) {
+        e.preventDefault(); e.stopPropagation();
+        const l = btn.closest('label') || btn.parentElement;
+        const i = l && l.querySelector('input[type=radio]');
+        if (i && !i.disabled) toggle(i);
+        return;
+      }
+      if (held) { held = false; e.preventDefault(); e.stopPropagation(); }
+    }; // nhấn giữ hoặc bấm nút gạch để loại trừ
     const onTouch = e => { const i = e.target.closest && e.target.closest('input[type=radio]'); if (i) last = i.name; };
     const mo = g.MutationObserver ? new MutationObserver(() => paint()) : null;
     document.addEventListener('keydown', onKey);
@@ -57,7 +68,7 @@
     if (mo) mo.observe(root, { childList: true, subtree: true });
     paint();
     function detach() { document.removeEventListener('keydown', onKey); if (mo) mo.disconnect(); clearTimeout(timer); root.__ck = null; }
-    root.__ck = { detach, paint, struck: () => JSON.parse(JSON.stringify(struck)), clear() { for (const k in struck) delete struck[k]; save(); paint(); } };
+    root.__ck = { detach, paint, toggle, struck: () => JSON.parse(JSON.stringify(struck)), clear() { for (const k in struck) delete struck[k]; save(); paint(); } };
     return root.__ck;
   }
 

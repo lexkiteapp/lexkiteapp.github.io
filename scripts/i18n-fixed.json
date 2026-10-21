@@ -1,5 +1,60 @@
 {
   "_note": "Bản dịch tay cho nhãn ngắn dễ bị dịch máy sai nghĩa. scripts/i18n-fix.mjs áp vào web/js/i18n/<lang>.js sau mỗi lần dịch tự động.",
+  "Ghi chú": {
+    "es": "Nota", "pt": "Nota", "fr": "Note", "de": "Notiz", "id": "Catatan",
+    "th": "บันทึก", "zh": "笔记", "ja": "メモ", "ko": "메모", "hi": "नोट",
+    "ar": "ملاحظة", "ru": "Заметка", "tr": "Not"
+  },
+  "Thêm ghi chú": {
+    "es": "Añadir nota", "pt": "Adicionar nota", "fr": "Ajouter une note", "de": "Notiz hinzufügen", "id": "Tambah catatan",
+    "th": "เพิ่มบันทึก", "zh": "添加笔记", "ja": "メモを追加", "ko": "메모 추가", "hi": "नोट जोड़ें",
+    "ar": "إضافة ملاحظة", "ru": "Добавить заметку", "tr": "Not ekle"
+  },
+  "Bỏ tô sáng": {
+    "es": "Quitar resaltado", "pt": "Remover destaque", "fr": "Effacer le surlignage", "de": "Hervorhebung löschen", "id": "Hapus sorotan",
+    "th": "ลบไฮไลต์", "zh": "清除高亮", "ja": "ハイライトを消去", "ko": "강조 지우기", "hi": "हाइलाइट हटाएं",
+    "ar": "إزالة التمييز", "ru": "Убрать выделение", "tr": "Vurguyu kaldır"
+  },
+  "Gạch loại trừ": {
+    "es": "Tachar", "pt": "Tachar", "fr": "Barrer", "de": "Durchstreichen", "id": "Coret",
+    "th": "ขีดฆ่า", "zh": "划掉排除", "ja": "消去", "ko": "취소선", "hi": "काटें",
+    "ar": "شطب", "ru": "Вычеркнуть", "tr": "Üstünü çiz"
+  },
+  "Tô sáng vàng": {
+    "es": "Resaltar amarillo", "pt": "Destaque amarelo", "fr": "Surlignage jaune", "de": "Gelb hervorheben", "id": "Sorotan kuning",
+    "th": "ไฮไลต์สีเหลือง", "zh": "黄色高亮", "ja": "黄色ハイライト", "ko": "노란색 강조", "hi": "पीला हाइलाइट",
+    "ar": "تمييز أصفر", "ru": "Желтый маркер", "tr": "Sarı vurgu"
+  },
+  "Tô sáng xanh": {
+    "es": "Resaltar verde", "pt": "Destaque verde", "fr": "Surlignage vert", "de": "Grün hervorheben", "id": "Sorotan hijau",
+    "th": "ไฮไลต์สีเขียว", "zh": "绿色高亮", "ja": "緑色ハイライト", "ko": "초록색 강조", "hi": "हरा हाइलाइट",
+    "ar": "تمييز أخضر", "ru": "Зеленый маркер", "tr": "Yeşil vurgu"
+  },
+  "Tô sáng hồng": {
+    "es": "Resaltar rosa", "pt": "Destaque rosa", "fr": "Surlignage rose", "de": "Rosa hervorheben", "id": "Sorotan merah muda",
+    "th": "ไฮไลต์สีชมพู", "zh": "粉色高亮", "ja": "ピンクハイライト", "ko": "분홍색 강조", "hi": "गुलाबी हाइलाइट",
+    "ar": "تمييز وردي", "ru": "Розовый маркер", "tr": "Pembe vurgu"
+  },
+  "Nhịp độ chuẩn": {
+    "es": "Ritmo objetivo", "pt": "Ritmo ideal", "fr": "Rythme cible", "de": "Zieltempo", "id": "Target kecepatan",
+    "th": "ความเร็วเป้าหมาย", "zh": "目标配速", "ja": "目標ペース", "ko": "목표 페이스", "hi": "लक्ष्य गति",
+    "ar": "السرعة المستهدفة", "ru": "Целевой темп", "tr": "Hedef tempo"
+  },
+  "Tốc độ thực tế": {
+    "es": "Velocidad actual", "pt": "Velocidade real", "fr": "Vitesse réelle", "de": "Aktuelles Tempo", "id": "Kecepatan aktual",
+    "th": "ความเร็วจริง", "zh": "实际速度", "ja": "実際のペース", "ko": "실제 속도", "hi": "वास्तविक गति",
+    "ar": "السرعة الفعلية", "ru": "Фактический темп", "tr": "Gerçek hız"
+  },
+  "Dự kiến hoàn thành": {
+    "es": "Finalización estimada", "pt": "Conclusão estimada", "fr": "Fin estimée", "de": "Voraussichtlicher Abschluss", "id": "Perkiraan selesai",
+    "th": "ประมาณเวลาเสร็จ", "zh": "预计完成", "ja": "完了見込み", "ko": "예상 완료", "hi": "अनुमानित पूर्णता",
+    "ar": "الوقت المقدر للإكمال", "ru": "Ожидаемое завершение", "tr": "Tahmini tamamlanma"
+  },
+  "s / câu": {
+    "es": "s / preg.", "pt": "s / quest.", "fr": "s / quest.", "de": "Sek. / Frage", "id": "dtk / soal",
+    "th": "วิ / ข้อ", "zh": "秒 / 题", "ja": "秒 / 問", "ko": "초 / 문제", "hi": "से / प्रश्न",
+    "ar": "ث / سؤال", "ru": "сек. / вопр.", "tr": "sn / soru"
+  },
   "Hôm nay": {
     "es": "Hoy",
     "pt": "Hoje",
