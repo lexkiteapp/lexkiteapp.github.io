@@ -544,13 +544,14 @@
   "listen soup tomato": {
    "id": "auto_restaurant_choose_dd0640",
    "point": "listen soup tomato",
-   "status": "generated",
+   "status": "rendered",
    "template": "choose",
    "area": "listening",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.8,
-   "series": "Restaurant English #11"
+   "series": "Restaurant English #11",
+   "run": "35"
   },
   "no i have a connecting flight": {
    "id": "auto_airport_series_d2de90",
@@ -627,13 +628,14 @@
   "polite request the menu": {
    "id": "auto_restaurant_ladder_2a3fa1",
    "point": "polite request the menu",
-   "status": "generated",
+   "status": "rendered",
    "template": "ladder",
    "area": "phrases",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.6,
-   "series": "Restaurant English #13"
+   "series": "Restaurant English #13",
+   "run": "35"
   },
   "luggage is uncountable": {
    "id": "auto_airport_fix_25d3d2",
@@ -842,13 +844,14 @@
   "sit by the window": {
    "id": "auto_cafe_mistake_6f5ca8",
    "point": "sit by the window",
-   "status": "generated",
+   "status": "rendered",
    "template": "mistake",
    "area": "grammar-check",
    "cefr": "A2",
    "scene": "cafe",
    "est": 19.3,
-   "series": "Café English #17"
+   "series": "Café English #17",
+   "run": "35"
   },
   "polite change rooms": {
    "id": "auto_hotel_quiz_acba72",
@@ -949,13 +952,14 @@
   "listen wait fifteen": {
    "id": "auto_restaurant_choose_8b63bf",
    "point": "listen wait fifteen",
-   "status": "generated",
+   "status": "rendered",
    "template": "choose",
    "area": "listening",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.9,
-   "series": "Restaurant English #20"
+   "series": "Restaurant English #20",
+   "run": "35"
   },
   "to seattle for a work trip": {
    "id": "auto_airport_series_72a827",
@@ -996,13 +1000,14 @@
   "polite request some water": {
    "id": "auto_restaurant_ladder_5707c8",
    "point": "polite request some water",
-   "status": "generated",
+   "status": "rendered",
    "template": "ladder",
    "area": "phrases",
    "cefr": "A2",
    "scene": "restaurant",
    "est": 18.6,
-   "series": "Restaurant English #21"
+   "series": "Restaurant English #21",
+   "run": "35"
   },
   "word cappuccino": {
    "id": "auto_cafe_gap_db92fe",

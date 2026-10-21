@@ -55,11 +55,11 @@
     "restaurant"
    ],
    "generated": 14,
-   "rendered": 13,
+   "rendered": 14,
    "by_cefr": {
     "A2": {
      "generated": 14,
-     "rendered": 13
+     "rendered": 14
     }
    },
    "gap": 0
@@ -81,11 +81,11 @@
     "restaurant"
    ],
    "generated": 10,
-   "rendered": 8,
+   "rendered": 10,
    "by_cefr": {
     "A2": {
      "generated": 9,
-     "rendered": 7
+     "rendered": 9
     },
     "B2": {
      "generated": 1,
@@ -197,11 +197,11 @@
     "restaurant"
    ],
    "generated": 9,
-   "rendered": 7,
+   "rendered": 9,
    "by_cefr": {
     "A2": {
      "generated": 9,
-     "rendered": 7
+     "rendered": 9
     }
    },
    "gap": 0
