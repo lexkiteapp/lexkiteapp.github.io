@@ -76,13 +76,14 @@
   "yes it's my first visit": {
    "id": "auto_hotel_series_d53800",
    "point": "Yes, it's my first visit.",
-   "status": "generated",
+   "status": "rendered",
    "template": "series",
    "area": "roleplay",
    "cefr": "A2",
    "scene": "hotel",
    "est": 18.9,
-   "series": "Hotel English #6"
+   "series": "Hotel English #6",
+   "run": "39517521938"
   },
   "pay separately": {
    "id": "auto_restaurant_fix_fe9f7d",
@@ -120,13 +121,14 @@
   "could i get an extra towel": {
    "id": "auto_hotel_speak_bf125a",
    "point": "could i get an extra towel",
-   "status": "generated",
+   "status": "rendered",
    "template": "speak",
    "area": "pronunciation",
    "cefr": "A1",
    "scene": "hotel",
    "est": 22.3,
-   "series": "Hotel English #7"
+   "series": "Hotel English #7",
+   "run": "39517521938"
   },
   "polite could we get the bill": {
    "id": "auto_restaurant_quiz_34018e",
@@ -164,13 +166,14 @@
   "what time does": {
    "id": "auto_hotel_fix_771182",
    "point": "what time does",
-   "status": "generated",
+   "status": "rendered",
    "template": "fix",
    "area": "grammar",
    "cefr": "A2",
    "scene": "hotel",
    "est": 22.4,
-   "series": "Hotel English #8"
+   "series": "Hotel English #8",
+   "run": "39517521938"
   },
   "two people": {
    "id": "auto_restaurant_mistake_ad8b8a",
@@ -208,13 +211,14 @@
   "polite could i get more": {
    "id": "auto_hotel_quiz_3e3a2b",
    "point": "polite: could I get more",
-   "status": "generated",
+   "status": "rendered",
    "template": "quiz",
    "area": "paraphrase",
    "cefr": "A2",
    "scene": "hotel",
    "est": 22.0,
-   "series": "Hotel English #9"
+   "series": "Hotel English #9",
+   "run": "39517521938"
   },
   "ready to order": {
    "id": "auto_restaurant_pov_f12918",
@@ -285,13 +289,14 @@
   "could i get a latte": {
    "id": "auto_cafe_speak_a2cae0",
    "point": "could i get a latte",
-   "status": "generated",
+   "status": "rendered",
    "template": "speak",
    "area": "pronunciation",
    "cefr": "A1",
    "scene": "cafe",
    "est": 20.3,
-   "series": "Café English #5"
+   "series": "Café English #5",
+   "run": "39518690461"
   }
  }
 }

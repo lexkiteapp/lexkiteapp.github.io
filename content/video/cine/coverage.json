@@ -32,14 +32,14 @@
     "restaurant"
    ],
    "generated": 2,
-   "rendered": 0,
+   "rendered": 1,
    "by_cefr": {
     "A2": {
      "generated": 2,
-     "rendered": 0
+     "rendered": 1
     }
    },
-   "gap": 5
+   "gap": 4
   },
   "grammar-check": {
    "label": "Grammar checker",
@@ -103,14 +103,14 @@
     "restaurant"
    ],
    "generated": 2,
-   "rendered": 0,
+   "rendered": 1,
    "by_cefr": {
     "A2": {
      "generated": 2,
-     "rendered": 0
+     "rendered": 1
     }
    },
-   "gap": 5
+   "gap": 4
   },
   "pronunciation": {
    "label": "Pronunciation (IPA, minimal pairs)",
@@ -121,14 +121,14 @@
     "restaurant"
    ],
    "generated": 3,
-   "rendered": 0,
+   "rendered": 2,
    "by_cefr": {
     "A1": {
      "generated": 3,
-     "rendered": 0
+     "rendered": 2
     }
    },
-   "gap": 5
+   "gap": 3
   },
   "speaking": {
    "label": "IELTS Speaking topics & practice",
@@ -152,14 +152,14 @@
     "restaurant"
    ],
    "generated": 4,
-   "rendered": 0,
+   "rendered": 1,
    "by_cefr": {
     "A2": {
      "generated": 4,
-     "rendered": 0
+     "rendered": 1
     }
    },
-   "gap": 5
+   "gap": 4
   },
   "listening": {
    "label": "Listening & dictation",
@@ -229,14 +229,14 @@
   }
  },
  "gaps_rendered_below_5": {
-  "grammar": 5,
+  "grammar": 4,
   "grammar-check": 5,
   "phrases": 5,
   "word-usage": 5,
-  "paraphrase": 5,
-  "pronunciation": 5,
+  "paraphrase": 4,
+  "pronunciation": 3,
   "speaking": 5,
-  "roleplay": 5,
+  "roleplay": 4,
   "listening": 5
  },
  "areas_no_scene_fits": [
