@@ -1,0 +1,75 @@
+{
+ "id": "auto_cafe_fix_33b2af",
+ "scene": "cafe",
+ "template": "fix",
+ "area": "grammar",
+ "cefr": "A2",
+ "point": "really delicious not very",
+ "series": "Café English #20",
+ "title": "Stop saying \"It was very delicious, thanks.\"",
+ "description": "Not \"very\". Say: \"It was really delicious, thanks.\"\nComment your answer below and follow for daily English (Café English #20).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_fix_33b2af#/grammar",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#coffeeshopenglish",
+  "#commonmistakes",
+  "#englishgrammar",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/cafe/auto_cafe_fix_33b2af/cine-auto-cafe-fix-33b2af-en-v3.mp4",
+ "cover": "shorts/cafe/auto_cafe_fix_33b2af/cine-auto-cafe-fix-33b2af-en-v3.jpg",
+ "ci_artifact": "cine-cafe-15",
+ "run": "15",
+ "platforms": {
+  "tiktok": {
+   "title": "Stop saying \"It was very delicious, thanks.\"",
+   "caption": "Not \"very\". Say: \"It was really delicious, thanks.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_fix_33b2af#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_fix_33b2af#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Not \"very\". Say: \"It was really delicious, thanks.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_fix_33b2af#/grammar\n#learnenglish #englishtips #coffeeshopenglish #commonmistakes #englishgrammar #travelenglish"
+  },
+  "reels": {
+   "title": "Stop saying \"It was very delicious, thanks.\"",
+   "caption": "Not \"very\". Say: \"It was really delicious, thanks.\"\nComment your answer below and follow for daily English (Café English #20).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_fix_33b2af#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_fix_33b2af#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Not \"very\". Say: \"It was really delicious, thanks.\"\nComment your answer below and follow for daily English (Café English #20).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_fix_33b2af#/grammar\n#learnenglish #englishtips #coffeeshopenglish #commonmistakes #englishgrammar #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Stop saying \"It was very delicious, thanks.\" #shorts",
+   "caption": "Not \"very\". Say: \"It was really delicious, thanks.\"\nComment your answer below and follow for daily English (Café English #20).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_fix_33b2af#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_fix_33b2af#/grammar",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#commonmistakes"
+   ],
+   "caption_with_tags": "Not \"very\". Say: \"It was really delicious, thanks.\"\nComment your answer below and follow for daily English (Café English #20).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_fix_33b2af#/grammar\n#shorts #learnenglish #englishtips #coffeeshopenglish #commonmistakes"
+  }
+ },
+ "slot": {
+  "date": "2026-10-26",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

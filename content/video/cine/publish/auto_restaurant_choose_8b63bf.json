@@ -1,0 +1,75 @@
+{
+ "id": "auto_restaurant_choose_8b63bf",
+ "scene": "restaurant",
+ "template": "choose",
+ "area": "listening",
+ "cefr": "A2",
+ "point": "listen wait fifteen",
+ "series": "Restaurant English #20",
+ "title": "How long is the wait? Listen once and choose!",
+ "description": "Listen once at the restaurant and pick the right answer. Answer: \"The wait is fifteen minutes.\"\nComment your answer below and follow for daily English (Restaurant English #20).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_choose_8b63bf#/listening",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#restaurantenglish",
+  "#listeningpractice",
+  "#englishlistening",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/restaurant/auto_restaurant_choose_8b63bf/cine-auto-restaurant-choose-8b63bf-en-v3.mp4",
+ "cover": "shorts/restaurant/auto_restaurant_choose_8b63bf/cine-auto-restaurant-choose-8b63bf-en-v3.jpg",
+ "ci_artifact": "cine-restaurant-35",
+ "run": "35",
+ "platforms": {
+  "tiktok": {
+   "title": "How long is the wait? Listen once and choose!",
+   "caption": "Listen once at the restaurant and pick the right answer. Answer: \"The wait is fifteen minutes.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_choose_8b63bf#/listening",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_choose_8b63bf#/listening",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#listeningpractice",
+    "#englishlistening",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Listen once at the restaurant and pick the right answer. Answer: \"The wait is fifteen minutes.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_choose_8b63bf#/listening\n#learnenglish #englishtips #restaurantenglish #listeningpractice #englishlistening #travelenglish"
+  },
+  "reels": {
+   "title": "How long is the wait? Listen once and choose!",
+   "caption": "Listen once at the restaurant and pick the right answer. Answer: \"The wait is fifteen minutes.\"\nComment your answer below and follow for daily English (Restaurant English #20).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_choose_8b63bf#/listening",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_choose_8b63bf#/listening",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#listeningpractice",
+    "#englishlistening",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Listen once at the restaurant and pick the right answer. Answer: \"The wait is fifteen minutes.\"\nComment your answer below and follow for daily English (Restaurant English #20).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_choose_8b63bf#/listening\n#learnenglish #englishtips #restaurantenglish #listeningpractice #englishlistening #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "How long is the wait? Listen once and choose! #shorts",
+   "caption": "Listen once at the restaurant and pick the right answer. Answer: \"The wait is fifteen minutes.\"\nComment your answer below and follow for daily English (Restaurant English #20).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_choose_8b63bf#/listening",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_choose_8b63bf#/listening",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#listeningpractice"
+   ],
+   "caption_with_tags": "Listen once at the restaurant and pick the right answer. Answer: \"The wait is fifteen minutes.\"\nComment your answer below and follow for daily English (Restaurant English #20).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_choose_8b63bf#/listening\n#shorts #learnenglish #englishtips #restaurantenglish #listeningpractice"
+  }
+ },
+ "slot": {
+  "date": "2026-11-02",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

@@ -1,0 +1,75 @@
+{
+ "id": "auto_airport_mistake_4b8fd8",
+ "scene": "airport",
+ "template": "mistake",
+ "area": "grammar-check",
+ "cefr": "A2",
+ "point": "next to",
+ "series": "Airport English #14",
+ "title": "Spot the mistake: \"Can I sit next of the window?\"",
+ "description": "A learner says \"Can I sit next of the window?\" at the airport. The fix: \"Can I sit next to the window?\"\nComment your answer below and follow for daily English (Airport English #14).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_mistake_4b8fd8#/fix",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#airportenglish",
+  "#commonmistakes",
+  "#englishgrammar",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/airport/auto_airport_mistake_4b8fd8/cine-auto-airport-mistake-4b8fd8-en-v3.mp4",
+ "cover": "shorts/airport/auto_airport_mistake_4b8fd8/cine-auto-airport-mistake-4b8fd8-en-v3.jpg",
+ "ci_artifact": "cine-airport-17",
+ "run": "17",
+ "platforms": {
+  "tiktok": {
+   "title": "Spot the mistake: \"Can I sit next of the window?\"",
+   "caption": "A learner says \"Can I sit next of the window?\" at the airport. The fix: \"Can I sit next to the window?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_mistake_4b8fd8#/fix",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_mistake_4b8fd8#/fix",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "A learner says \"Can I sit next of the window?\" at the airport. The fix: \"Can I sit next to the window?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_mistake_4b8fd8#/fix\n#learnenglish #englishtips #airportenglish #commonmistakes #englishgrammar #travelenglish"
+  },
+  "reels": {
+   "title": "Spot the mistake: \"Can I sit next of the window?\"",
+   "caption": "A learner says \"Can I sit next of the window?\" at the airport. The fix: \"Can I sit next to the window?\"\nComment your answer below and follow for daily English (Airport English #14).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_mistake_4b8fd8#/fix",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_mistake_4b8fd8#/fix",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "A learner says \"Can I sit next of the window?\" at the airport. The fix: \"Can I sit next to the window?\"\nComment your answer below and follow for daily English (Airport English #14).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_mistake_4b8fd8#/fix\n#learnenglish #englishtips #airportenglish #commonmistakes #englishgrammar #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Spot the mistake: \"Can I sit next of the window?\" #shorts",
+   "caption": "A learner says \"Can I sit next of the window?\" at the airport. The fix: \"Can I sit next to the window?\"\nComment your answer below and follow for daily English (Airport English #14).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_mistake_4b8fd8#/fix",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_mistake_4b8fd8#/fix",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#commonmistakes"
+   ],
+   "caption_with_tags": "A learner says \"Can I sit next of the window?\" at the airport. The fix: \"Can I sit next to the window?\"\nComment your answer below and follow for daily English (Airport English #14).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_mistake_4b8fd8#/fix\n#shorts #learnenglish #englishtips #airportenglish #commonmistakes"
+  }
+ },
+ "slot": {
+  "date": "2026-10-29",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

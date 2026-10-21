@@ -1,0 +1,75 @@
+{
+ "id": "auto_hotel_quiz_a7ece1",
+ "scene": "hotel",
+ "template": "quiz",
+ "area": "word-usage",
+ "cefr": "A2",
+ "point": "on a floor",
+ "series": "Hotel English #13",
+ "title": "Which is correct? Hotel English quiz",
+ "description": "Which one would you say at the hotel? Model answer: \"My room is on the fifth floor.\"\nComment your answer below and follow for daily English (Hotel English #13).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_quiz_a7ece1#/usage?c=pair",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#hotelenglish",
+  "#englishquiz",
+  "#speakpolitely",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/hotel/auto_hotel_quiz_a7ece1/cine-auto-hotel-quiz-a7ece1-en-v3.mp4",
+ "cover": "shorts/hotel/auto_hotel_quiz_a7ece1/cine-auto-hotel-quiz-a7ece1-en-v3.jpg",
+ "ci_artifact": "cine-hotel-20",
+ "run": "20",
+ "platforms": {
+  "tiktok": {
+   "title": "Which is correct? Hotel English quiz",
+   "caption": "Which one would you say at the hotel? Model answer: \"My room is on the fifth floor.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_quiz_a7ece1#/usage?c=pair",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_quiz_a7ece1#/usage?c=pair",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#englishquiz",
+    "#speakpolitely",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Which one would you say at the hotel? Model answer: \"My room is on the fifth floor.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_quiz_a7ece1#/usage?c=pair\n#learnenglish #englishtips #hotelenglish #englishquiz #speakpolitely #travelenglish"
+  },
+  "reels": {
+   "title": "Which is correct? Hotel English quiz",
+   "caption": "Which one would you say at the hotel? Model answer: \"My room is on the fifth floor.\"\nComment your answer below and follow for daily English (Hotel English #13).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_quiz_a7ece1#/usage?c=pair",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_quiz_a7ece1#/usage?c=pair",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#englishquiz",
+    "#speakpolitely",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Which one would you say at the hotel? Model answer: \"My room is on the fifth floor.\"\nComment your answer below and follow for daily English (Hotel English #13).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_quiz_a7ece1#/usage?c=pair\n#learnenglish #englishtips #hotelenglish #englishquiz #speakpolitely #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Which is correct? Hotel English quiz #shorts",
+   "caption": "Which one would you say at the hotel? Model answer: \"My room is on the fifth floor.\"\nComment your answer below and follow for daily English (Hotel English #13).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_quiz_a7ece1#/usage?c=pair",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_quiz_a7ece1#/usage?c=pair",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#englishquiz"
+   ],
+   "caption_with_tags": "Which one would you say at the hotel? Model answer: \"My room is on the fifth floor.\"\nComment your answer below and follow for daily English (Hotel English #13).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_quiz_a7ece1#/usage?c=pair\n#shorts #learnenglish #englishtips #hotelenglish #englishquiz"
+  }
+ },
+ "slot": {
+  "date": "2026-11-17",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

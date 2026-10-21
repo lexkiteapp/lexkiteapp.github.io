@@ -1,0 +1,75 @@
+{
+ "id": "auto_restaurant_ladder_2a3fa1",
+ "scene": "restaurant",
+ "template": "ladder",
+ "area": "phrases",
+ "cefr": "A2",
+ "point": "polite request the menu",
+ "series": "Restaurant English #13",
+ "title": "3 ways to ask for the menu in English",
+ "description": "Polite, neutral and casual ways to ask at the restaurant. Most polite: \"Could I possibly have the menu?\"\nComment your answer below and follow for daily English (Restaurant English #13).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_ladder_2a3fa1#/phrases",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#restaurantenglish",
+  "#politeenglish",
+  "#englishphrases",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/restaurant/auto_restaurant_ladder_2a3fa1/cine-auto-restaurant-ladder-2a3fa1-en-v3.mp4",
+ "cover": "shorts/restaurant/auto_restaurant_ladder_2a3fa1/cine-auto-restaurant-ladder-2a3fa1-en-v3.jpg",
+ "ci_artifact": "cine-restaurant-35",
+ "run": "35",
+ "platforms": {
+  "tiktok": {
+   "title": "3 ways to ask for the menu in English",
+   "caption": "Polite, neutral and casual ways to ask at the restaurant. Most polite: \"Could I possibly have the menu?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_ladder_2a3fa1#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_ladder_2a3fa1#/phrases",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#politeenglish",
+    "#englishphrases",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Polite, neutral and casual ways to ask at the restaurant. Most polite: \"Could I possibly have the menu?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_ladder_2a3fa1#/phrases\n#learnenglish #englishtips #restaurantenglish #politeenglish #englishphrases #travelenglish"
+  },
+  "reels": {
+   "title": "3 ways to ask for the menu in English",
+   "caption": "Polite, neutral and casual ways to ask at the restaurant. Most polite: \"Could I possibly have the menu?\"\nComment your answer below and follow for daily English (Restaurant English #13).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_ladder_2a3fa1#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_ladder_2a3fa1#/phrases",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#politeenglish",
+    "#englishphrases",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Polite, neutral and casual ways to ask at the restaurant. Most polite: \"Could I possibly have the menu?\"\nComment your answer below and follow for daily English (Restaurant English #13).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_ladder_2a3fa1#/phrases\n#learnenglish #englishtips #restaurantenglish #politeenglish #englishphrases #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "3 ways to ask for the menu in English #shorts",
+   "caption": "Polite, neutral and casual ways to ask at the restaurant. Most polite: \"Could I possibly have the menu?\"\nComment your answer below and follow for daily English (Restaurant English #13).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_ladder_2a3fa1#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_ladder_2a3fa1#/phrases",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#politeenglish"
+   ],
+   "caption_with_tags": "Polite, neutral and casual ways to ask at the restaurant. Most polite: \"Could I possibly have the menu?\"\nComment your answer below and follow for daily English (Restaurant English #13).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_ladder_2a3fa1#/phrases\n#shorts #learnenglish #englishtips #restaurantenglish #politeenglish"
+  }
+ },
+ "slot": {
+  "date": "2026-11-06",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

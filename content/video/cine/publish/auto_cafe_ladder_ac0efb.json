@@ -1,0 +1,75 @@
+{
+ "id": "auto_cafe_ladder_ac0efb",
+ "scene": "cafe",
+ "template": "ladder",
+ "area": "phrases",
+ "cefr": "A2",
+ "point": "polite request a hot chocolate",
+ "series": "Café English #15",
+ "title": "3 ways to ask for a hot chocolate in English",
+ "description": "Polite, neutral and casual ways to ask at the coffee shop. Most polite: \"Could I possibly have a hot chocolate?\"\nComment your answer below and follow for daily English (Café English #15).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_ladder_ac0efb#/phrases",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#coffeeshopenglish",
+  "#politeenglish",
+  "#englishphrases",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/cafe/auto_cafe_ladder_ac0efb/cine-auto-cafe-ladder-ac0efb-en-v3.mp4",
+ "cover": "shorts/cafe/auto_cafe_ladder_ac0efb/cine-auto-cafe-ladder-ac0efb-en-v3.jpg",
+ "ci_artifact": "cine-cafe-15",
+ "run": "15",
+ "platforms": {
+  "tiktok": {
+   "title": "3 ways to ask for a hot chocolate in English",
+   "caption": "Polite, neutral and casual ways to ask at the coffee shop. Most polite: \"Could I possibly have a hot chocolate?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_ladder_ac0efb#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_ladder_ac0efb#/phrases",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#politeenglish",
+    "#englishphrases",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Polite, neutral and casual ways to ask at the coffee shop. Most polite: \"Could I possibly have a hot chocolate?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_ladder_ac0efb#/phrases\n#learnenglish #englishtips #coffeeshopenglish #politeenglish #englishphrases #travelenglish"
+  },
+  "reels": {
+   "title": "3 ways to ask for a hot chocolate in English",
+   "caption": "Polite, neutral and casual ways to ask at the coffee shop. Most polite: \"Could I possibly have a hot chocolate?\"\nComment your answer below and follow for daily English (Café English #15).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_ladder_ac0efb#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_ladder_ac0efb#/phrases",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#politeenglish",
+    "#englishphrases",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Polite, neutral and casual ways to ask at the coffee shop. Most polite: \"Could I possibly have a hot chocolate?\"\nComment your answer below and follow for daily English (Café English #15).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_ladder_ac0efb#/phrases\n#learnenglish #englishtips #coffeeshopenglish #politeenglish #englishphrases #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "3 ways to ask for a hot chocolate in English #shorts",
+   "caption": "Polite, neutral and casual ways to ask at the coffee shop. Most polite: \"Could I possibly have a hot chocolate?\"\nComment your answer below and follow for daily English (Café English #15).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_ladder_ac0efb#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_ladder_ac0efb#/phrases",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#politeenglish"
+   ],
+   "caption_with_tags": "Polite, neutral and casual ways to ask at the coffee shop. Most polite: \"Could I possibly have a hot chocolate?\"\nComment your answer below and follow for daily English (Café English #15).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_ladder_ac0efb#/phrases\n#shorts #learnenglish #englishtips #coffeeshopenglish #politeenglish"
+  }
+ },
+ "slot": {
+  "date": "2026-11-29",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

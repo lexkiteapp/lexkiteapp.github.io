@@ -1,0 +1,75 @@
+{
+ "id": "auto_airport_series_d2de90",
+ "scene": "airport",
+ "template": "series",
+ "area": "roleplay",
+ "cefr": "B1",
+ "point": "No, I have a connecting flight.",
+ "series": "Airport English #11",
+ "title": "\"Is this your final destination?\" How would you answer?",
+ "description": "A real mini conversation at the airport. Ama says: \"No, I have a connecting flight.\"\nComment your answer below and follow for daily English (Airport English #11).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_series_d2de90#/roleplay",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#airportenglish",
+  "#englishconversation",
+  "#smalltalk",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/airport/auto_airport_series_d2de90/cine-auto-airport-series-d2de90-en-v3.mp4",
+ "cover": "shorts/airport/auto_airport_series_d2de90/cine-auto-airport-series-d2de90-en-v3.jpg",
+ "ci_artifact": "cine-airport-18",
+ "run": "18",
+ "platforms": {
+  "tiktok": {
+   "title": "\"Is this your final destination?\" How would you answer?",
+   "caption": "A real mini conversation at the airport. Ama says: \"No, I have a connecting flight.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_series_d2de90#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_series_d2de90#/roleplay",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#englishconversation",
+    "#smalltalk",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "A real mini conversation at the airport. Ama says: \"No, I have a connecting flight.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_series_d2de90#/roleplay\n#learnenglish #englishtips #airportenglish #englishconversation #smalltalk #travelenglish"
+  },
+  "reels": {
+   "title": "\"Is this your final destination?\" How would you answer?",
+   "caption": "A real mini conversation at the airport. Ama says: \"No, I have a connecting flight.\"\nComment your answer below and follow for daily English (Airport English #11).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_series_d2de90#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_series_d2de90#/roleplay",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#englishconversation",
+    "#smalltalk",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "A real mini conversation at the airport. Ama says: \"No, I have a connecting flight.\"\nComment your answer below and follow for daily English (Airport English #11).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_series_d2de90#/roleplay\n#learnenglish #englishtips #airportenglish #englishconversation #smalltalk #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "\"Is this your final destination?\" How would you answer?",
+   "caption": "A real mini conversation at the airport. Ama says: \"No, I have a connecting flight.\"\nComment your answer below and follow for daily English (Airport English #11).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_series_d2de90#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_series_d2de90#/roleplay",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#englishconversation"
+   ],
+   "caption_with_tags": "A real mini conversation at the airport. Ama says: \"No, I have a connecting flight.\"\nComment your answer below and follow for daily English (Airport English #11).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_series_d2de90#/roleplay\n#shorts #learnenglish #englishtips #airportenglish #englishconversation"
+  }
+ },
+ "slot": {
+  "date": "2026-11-20",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

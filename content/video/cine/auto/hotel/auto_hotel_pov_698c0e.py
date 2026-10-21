@@ -15,7 +15,7 @@ talk('q1', B1, BW, 'gh_5b45b52a')
 hold('ring1', BREACT, 1.5, ov=[('Ring', 0.0, 3.0, 'Your answer? Comment 👇|')])
 hold('ring1b', B2, 1.5)
 talk('a1', MCU, 'ama', 'gh_00e7525a', ov=ONE)
-hold('react', BREACT, 1.0)
+hold('react', BREACT, 1.0, ov=ONE)
 talk('slow', MCU, 'ama', 'gh_00e7525a', tempo=0.85)
 PUNCH['slow'] = 0.0
 hold('react2', BREACT, 1.2, pad=True)

@@ -106,24 +106,24 @@ REQ['cafe'] += ['an iced coffee', 'a blueberry muffin', 'a bottle of water', 'a 
 REQ['hotel'] += ['an iron', 'a room with a view', 'a toothbrush', 'an extra blanket', 'a hair dryer']
 REQ['airport'] += ['a boarding pass', 'a seat with more legroom', 'a vegetarian meal', 'an earlier flight']
 REQ['restaurant'] += ['the check', 'a to-go box', 'a high chair', 'some napkins', 'another fork']
-CHOOSE['cafe'] += [("What's the total?", 'That comes to six dollars and eighty cents.', ['$6.18', '$6.80', '$8.60'], 'B', 'eighty', 'total', 'The total is six eighty.'),
+CHOOSE['cafe'] += [("What's the total?", 'That comes to six dollars and eighty cents.', ['Six eighteen', 'Six eighty', 'Eight sixty'], 'B', 'eighty', 'total', 'The total is six eighty.'),
                    ('What size is the coffee?', 'Your large iced coffee is ready over there.', ['Small', 'Medium', 'Large'], 'C', 'large', 'size', 'I ordered a large coffee.'),
                    ("What's the name on the cup?", 'I have a latte here for Sam. Is that you?', ['Pam', 'Sam', 'Dan'], 'B', 'sam', 'name', 'The latte is for Sam.'),
                    ('How long is the wait?', 'Your drinks will be ready in about five minutes.', ['Five minutes', 'Nine minutes', 'Fifteen minutes'], 'A', 'five', 'wait', 'The wait is five minutes.')]
-CHOOSE['airport'] += [('What time is boarding?', 'Boarding starts at ten forty. Please be early.', ['10:14', '10:40', '11:40'], 'B', 'forty', 'time', 'Boarding starts at ten forty.'),
-                      ('Which seat?', "You're in seat twelve A, by the window.", ['2A', '12A', '20A'], 'B', 'twelve', 'seat', 'My seat is twelve A.'),
-                      ('How much is the bag fee?', 'The fee for the extra bag is forty dollars.', ['$14', '$40', '$45'], 'B', 'forty', 'fee', 'The bag fee is forty dollars.'),
-                      ('How late is the flight?', 'Your flight is delayed by about thirty minutes.', ['13 minutes', '30 minutes', '3 hours'], 'B', 'thirty', 'delay', 'The flight is thirty minutes late.')]
-CHOOSE['hotel'] += [("What's the room number?", "You're in room four twelve, on the fourth floor.", ['Room 412', 'Room 420', 'Room 402'], 'A', 'twelve', 'room', 'My room is four twelve.'),
+CHOOSE['airport'] += [('What time is boarding?', 'Boarding starts at ten forty. Please be early.', ['Ten fourteen', 'Ten forty', 'Eleven forty'], 'B', 'forty', 'time', 'Boarding starts at ten forty.'),
+                      ('Which seat?', "You're in seat twelve A, by the window.", ['Two A', 'Twelve A', 'Twenty A'], 'B', 'twelve', 'seat', 'My seat is twelve A.'),
+                      ('How much is the bag fee?', 'The fee for the extra bag is forty dollars.', ['Fourteen dollars', 'Forty dollars', 'Forty-five dollars'], 'B', 'forty', 'fee', 'The bag fee is forty dollars.'),
+                      ('How late is the flight?', 'Your flight is delayed by about thirty minutes.', ['Thirteen minutes', 'Thirty minutes', 'Three hours'], 'B', 'thirty', 'delay', 'The flight is thirty minutes late.')]
+CHOOSE['hotel'] += [("What's the room number?", "You're in room four twelve, on the fourth floor.", ['Four twelve', 'Four twenty', 'Four oh two'], 'A', 'twelve', 'room', 'My room is four twelve.'),
                     ('When is checkout?', 'Checkout is at eleven, but we can be flexible.', ['At ten', 'At eleven', 'At noon'], 'B', 'eleven', 'checkout', 'Checkout is at eleven.'),
-                    ('How much is parking?', 'Parking is twenty dollars per night here.', ['$12 a night', '$20 a night', '$25 a night'], 'B', 'twenty', 'price', 'Parking is twenty dollars a night.'),
-                    ('When does breakfast start?', 'Breakfast is served from six thirty until ten.', ['6:13', '6:30', '7:30'], 'B', 'thirty', 'start time', 'Breakfast starts at six thirty.')]
-CHOOSE['restaurant'] += [('How much is the special?', "Today's special is eighteen dollars, with salad.", ['$8', '$18', '$80'], 'B', 'eighteen', 'price', 'The special is eighteen dollars.'),
+                    ('How much is parking?', 'Parking is twenty dollars per night here.', ['Twelve dollars', 'Twenty dollars', 'Thirty dollars'], 'B', 'twenty', 'price', 'Parking is twenty dollars a night.'),
+                    ('When does breakfast start?', 'Breakfast is served from six thirty until ten.', ['Six thirteen', 'Six thirty', 'Seven thirty'], 'C', 'thirty', 'start time', 'Breakfast starts at six thirty.')]
+CHOOSE['restaurant'] += [('How much is the special?', "Today's special is eighteen dollars, with salad.", ['Eight dollars', 'Eighteen dollars', 'Eighty dollars'], 'B', 'eighteen', 'price', 'The special is eighteen dollars.'),
                          ("What's the fish today?", "Tonight's fish is salmon, grilled with lemon.", ['Tuna', 'Salmon', 'Cod'], 'B', 'salmon', 'fish', "Tonight's fish is salmon."),
-                         ('When does the kitchen close?', 'The kitchen closes at ten thirty tonight.', ['10:00', '10:13', '10:30'], 'C', 'thirty', 'closing time', 'The kitchen closes at ten thirty.'),
-                         ("What's the total?", 'Your total is forty dollars and fifty cents.', ['$14.50', '$40.50', '$45.00'], 'B', 'forty', 'total', 'The total is forty fifty.')]
+                         ('When does the kitchen close?', 'The kitchen closes at ten thirty tonight.', ['Ten', 'Ten thirteen', 'Ten thirty'], 'C', 'thirty', 'closing time', 'The kitchen closes at ten thirty.'),
+                         ("What's the total?", 'Your total is forty dollars and fifty cents.', ['Fourteen fifty', 'Forty fifty', 'Forty-five'], 'B', 'forty', 'total', 'The total is forty fifty.')]
 MISTAKE['cafe'] += [('How was your coffee?', 'It was very delicious, thanks.', 'It was really delicious, thanks.', 'really delicious not very'),
-                    ('Where are you sitting?', "We're sitting in the window.", "We're sitting by the window.", 'sit by the window'),
+                    ('Where would you like to sit?', 'Can we sit in the window, please?', 'Can we sit by the window, please?', 'sit by the window'),
                     ('Did you order already?', 'Yes, I order a latte.', 'Yes, I ordered a latte.', 'past tense ordered'),
                     ('Do you have a reward card?', "No, I don't have it.", "No, I don't have one.", "don't have one")]
 MISTAKE['airport'] += [('How was your stay?', 'Great. I arrived to Boston on Monday.', 'Great. I arrived in Boston on Monday.', 'arrive in a city'),
@@ -208,7 +208,7 @@ def mine_l1(scene):   # wrong/right pairs from the web's L1 mistake notes that f
         t = open(f, encoding='utf-8').read()
         for m in re.finditer(r"\[\s*'([^'\n]{5,48})',\s*'([^'\n]{5,48})',", t):
             a, b = m.group(1), m.group(2)
-            if re.search(r'\b(' + SCENE_KW[scene] + r')s?\b', a.lower()) and one_diff(a, b) is not None and len(words(a)) <= 8: out.add((a, b))
+            if re.search(r'\b(' + SCENE_KW[scene] + r')s?\b', a.lower()) and one_diff(a, b) is not None and len(words(a)) <= 8 and re.match(r"(I|I'm|I'd|We|Can|Could|Do|Does|Is|Are|How|What|Where)\b", a): out.add((a, b))   # customer's own line only (lô 2: 'She like coffee.' after 'What can I get you?')
     return sorted(out)
 
 # ------------------------------------------------------------------ ledger
@@ -316,6 +316,7 @@ def build(scene, tpl, area, point, a, n):
         hook = f"ONE listen. Catch the *{a['thing']}?*|?"; CH = "('Choice', 0.0, None, Q, 0)"
         if est(a['line']) < 2.0: raise Gate('choose line < 2 s')
         if not all(opt_fits(o) for o in a['opts']): raise Gate('choice option too wide at 52 px')
+        if a['key'] not in norm(a['opts']['ABC'.index(a['ans'])]).split(' '): raise Gate('answer key not verbatim in the answer option (qa5)')
         X.prop(); X.hold('setup', 'B1', 1.6, f'[{CH}]'); X.talk('listen', 'B1', 'B', kl, ov=f'[{CH}]')
         ring2(X, S, rc_clip, f"[{CH}, ('Ring', 0.0, 3.0, 'Comment A, B or C 👇|')]", 'B2' if rc_clip != 'B2' else 'BREACT', f'[{CH}]')
         X.hold('reveal', 'BREACT', 2.0, "[('Choice', 0.0, None, Q, 1)]"); X.talk('replay', 'B2', 'B', kl, opt=True); X.talk('slow', 'B1', 'B', kl, tempo=0.85); X.raw("PUNCH['slow'] = 0.0"); X.hold('react2', 'BREACT', 1.2, pad=True)
@@ -332,6 +333,7 @@ def build(scene, tpl, area, point, a, n):
     elif tpl == 'gap':
         line, wd = a['line'], a['word']; kf = X.L('A', line); kg = X.gapL(kf, line, wd); kr = X.L('B', REPLY[scene]); kw.add(norm(wd))
         if ',' in line: raise Gate('gap line with a comma (extra pause)')
+        if re.search(r'(t|te|d|de|g|k|ck|p|b)$', wd.lower()): raise Gate('gap word ends in a plosive (qa5 closure: leaked consonant; lô 2 tag/chocolate)')
         idx = next(j for j, x in enumerate(line.split(' ')) if x.strip('.,?!') == wd)
         X.head += [f'GAP_WORD = {wd!r}', f"QA = dict(template='gap', gap_line={kg!r})", f"GAPT = TEXT[{kf!r}] + '||'", f"CAPSTYLE = {{'gap': (None, None), 'full': (None, None), 'slow': ('Karaoke', {idx})}}"]
         hook = 'ONE word is *missing*|?'; G0, G1 = "('Gap', 0.0, None, GAPT, 0)", "('Gap', 0.0, None, GAPT, 1)"   # card, not a caption: up 1.6 s before the line (pre-gap pause), through the ring
@@ -356,7 +358,7 @@ def build(scene, tpl, area, point, a, n):
                    f"QA = dict(template='pov', answers=[{ka!r}])", "ONE = [('Hook', 0.0, None, 'One possible answer|')]"]
         hook = 'Mind goes *blank?*|grimace'
         X.prop(); X.talk('q1', 'B1', 'B', kq); X.hold('ring1', 'BREACT', 1.5, "[('Ring', 0.0, 3.0, 'Your answer? Comment 👇|')]"); X.hold('ring1b', 'B2', 1.5)
-        X.talk('a1', 'MCU', 'A', ka, ov='ONE'); X.hold('react', 'BREACT', 1.0); X.talk('slow', 'MCU', 'A', ka, tempo=0.85); X.raw("PUNCH['slow'] = 0.0"); X.hold('react2', 'BREACT', 1.2, pad=True)
+        X.talk('a1', 'MCU', 'A', ka, ov='ONE'); X.hold('react', 'BREACT', 1.0, ov='ONE'); X.talk('slow', 'MCU', 'A', ka, tempo=0.85); X.raw("PUNCH['slow'] = 0.0"); X.hold('react2', 'BREACT', 1.2, pad=True)
         recap = a['a']; pattern = a['a']; goal = 'You are the customer'; cefr_txt = [a['q'], a['a']]
     elif tpl == 'speak':
         kl = X.L('A', a['line']); kr = X.L('B', a.get('rep') or REPLY[scene] if a.get('rep') or 'Could I get' in a['line'] else {'hotel': 'Sure, let me find out for you.', 'cafe': 'Of course! Here you go.', 'airport': 'Yes, it is. Just over there.', 'restaurant': "Yes, of course. Here you are."}[scene])
@@ -397,7 +399,7 @@ ADAPTER = '''# AUTO-GENERATED adapter (scripts/cine/gen_lessons.py): role names 
 # frames only from clean mouth-swap ranges (residual.json, residual.py <= 11.5).
 @CONSTS@
 BW = @B@; FD = D + '/foley/'; CONTRAST_Y = 900; BADGE_Y = 240; CHOICE_Y = @CHOICE_Y@; HOOK_Y = @HOOK_Y@; LADDER_Y = @LADDER_Y@; POV_Y = 232
-CARD_MIN_FS = 52   # 22/10: every card/chip text >= 52 px (tpl_styles MF), cards grow; place.py + qa5 keep the no-overlap rules
+CHOICE_ROW = 84; CHOICE_PAD = 16; CARD_MIN_FS = 52   # 22/10: every card/chip text >= 52 px (tpl_styles MF), cards grow; place.py + qa5 keep the no-overlap rules
 RING_EXTRA = {'ring': 1080}; FOOT_EXTRA = {}; LADDER_ROW = 112; RING_MINH = 160; CHOICE_ROW = 86; CHOICE_PAD = 20   # compact cards: fit between big faces and the caption band
 SERIES_SHOTS = ('loop',); SERIES_ALIGN = 'left'; SERIES_Y = 240   # default spots only: lesson5's placer (place.py) moves any card off faces / other cards
 VHOOK_BOX = @VHOOK_BOX@; AVOID = {MASTER: @AVOID@}

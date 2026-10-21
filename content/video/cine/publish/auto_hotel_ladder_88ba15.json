@@ -1,0 +1,75 @@
+{
+ "id": "auto_hotel_ladder_88ba15",
+ "scene": "hotel",
+ "template": "ladder",
+ "area": "phrases",
+ "cefr": "A2",
+ "point": "polite request an extra towel",
+ "series": "Hotel English #17",
+ "title": "3 ways to ask for an extra towel in English",
+ "description": "Polite, neutral and casual ways to ask at the hotel. Most polite: \"Could I possibly have an extra towel?\"\nComment your answer below and follow for daily English (Hotel English #17).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_ladder_88ba15#/phrases",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#hotelenglish",
+  "#politeenglish",
+  "#englishphrases",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/hotel/auto_hotel_ladder_88ba15/cine-auto-hotel-ladder-88ba15-en-v3.mp4",
+ "cover": "shorts/hotel/auto_hotel_ladder_88ba15/cine-auto-hotel-ladder-88ba15-en-v3.jpg",
+ "ci_artifact": "cine-hotel-19",
+ "run": "19",
+ "platforms": {
+  "tiktok": {
+   "title": "3 ways to ask for an extra towel in English",
+   "caption": "Polite, neutral and casual ways to ask at the hotel. Most polite: \"Could I possibly have an extra towel?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_ladder_88ba15#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_ladder_88ba15#/phrases",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#politeenglish",
+    "#englishphrases",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Polite, neutral and casual ways to ask at the hotel. Most polite: \"Could I possibly have an extra towel?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_ladder_88ba15#/phrases\n#learnenglish #englishtips #hotelenglish #politeenglish #englishphrases #travelenglish"
+  },
+  "reels": {
+   "title": "3 ways to ask for an extra towel in English",
+   "caption": "Polite, neutral and casual ways to ask at the hotel. Most polite: \"Could I possibly have an extra towel?\"\nComment your answer below and follow for daily English (Hotel English #17).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_ladder_88ba15#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_ladder_88ba15#/phrases",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#politeenglish",
+    "#englishphrases",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Polite, neutral and casual ways to ask at the hotel. Most polite: \"Could I possibly have an extra towel?\"\nComment your answer below and follow for daily English (Hotel English #17).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_ladder_88ba15#/phrases\n#learnenglish #englishtips #hotelenglish #politeenglish #englishphrases #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "3 ways to ask for an extra towel in English #shorts",
+   "caption": "Polite, neutral and casual ways to ask at the hotel. Most polite: \"Could I possibly have an extra towel?\"\nComment your answer below and follow for daily English (Hotel English #17).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_ladder_88ba15#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_ladder_88ba15#/phrases",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#politeenglish"
+   ],
+   "caption_with_tags": "Polite, neutral and casual ways to ask at the hotel. Most polite: \"Could I possibly have an extra towel?\"\nComment your answer below and follow for daily English (Hotel English #17).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_ladder_88ba15#/phrases\n#shorts #learnenglish #englishtips #hotelenglish #politeenglish"
+  }
+ },
+ "slot": {
+  "date": "2026-11-05",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

@@ -1,0 +1,75 @@
+{
+ "id": "auto_airport_fix_25d3d2",
+ "scene": "airport",
+ "template": "fix",
+ "area": "grammar",
+ "cefr": "A2",
+ "point": "luggage is uncountable",
+ "series": "Airport English #13",
+ "title": "Stop saying \"I have two luggages.\"",
+ "description": "Not \"luggages\". Say: \"I have two bags.\"\nComment your answer below and follow for daily English (Airport English #13).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_fix_25d3d2#/grammar",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#airportenglish",
+  "#commonmistakes",
+  "#englishgrammar",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/airport/auto_airport_fix_25d3d2/cine-auto-airport-fix-25d3d2-en-v3.mp4",
+ "cover": "shorts/airport/auto_airport_fix_25d3d2/cine-auto-airport-fix-25d3d2-en-v3.jpg",
+ "ci_artifact": "cine-airport-17",
+ "run": "17",
+ "platforms": {
+  "tiktok": {
+   "title": "Stop saying \"I have two luggages.\"",
+   "caption": "Not \"luggages\". Say: \"I have two bags.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_fix_25d3d2#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_fix_25d3d2#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Not \"luggages\". Say: \"I have two bags.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_fix_25d3d2#/grammar\n#learnenglish #englishtips #airportenglish #commonmistakes #englishgrammar #travelenglish"
+  },
+  "reels": {
+   "title": "Stop saying \"I have two luggages.\"",
+   "caption": "Not \"luggages\". Say: \"I have two bags.\"\nComment your answer below and follow for daily English (Airport English #13).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_fix_25d3d2#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_fix_25d3d2#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Not \"luggages\". Say: \"I have two bags.\"\nComment your answer below and follow for daily English (Airport English #13).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_fix_25d3d2#/grammar\n#learnenglish #englishtips #airportenglish #commonmistakes #englishgrammar #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Stop saying \"I have two luggages.\" #shorts",
+   "caption": "Not \"luggages\". Say: \"I have two bags.\"\nComment your answer below and follow for daily English (Airport English #13).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_fix_25d3d2#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_fix_25d3d2#/grammar",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#commonmistakes"
+   ],
+   "caption_with_tags": "Not \"luggages\". Say: \"I have two bags.\"\nComment your answer below and follow for daily English (Airport English #13).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_fix_25d3d2#/grammar\n#shorts #learnenglish #englishtips #airportenglish #commonmistakes"
+  }
+ },
+ "slot": {
+  "date": "2026-10-25",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

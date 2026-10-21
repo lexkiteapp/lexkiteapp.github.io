@@ -1,0 +1,75 @@
+{
+ "id": "auto_restaurant_speak_a98282",
+ "scene": "restaurant",
+ "template": "speak",
+ "area": "speaking",
+ "cefr": "A1",
+ "point": "Excuse me, we ordered a while ago.",
+ "series": "Restaurant English #24",
+ "title": "Say it with me: \"Excuse me, we ordered a while ago.\"",
+ "description": "Say it out loud with Ama at the restaurant: \"Excuse me, we ordered a while ago.\"\nComment your answer below and follow for daily English (Restaurant English #24).\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=social&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_a98282",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#restaurantenglish",
+  "#speakenglish",
+  "#pronunciation",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/restaurant/auto_restaurant_speak_a98282/cine-auto-restaurant-speak-a98282-en-v3.mp4",
+ "cover": "shorts/restaurant/auto_restaurant_speak_a98282/cine-auto-restaurant-speak-a98282-en-v3.jpg",
+ "ci_artifact": "cine-restaurant-22",
+ "run": "22",
+ "platforms": {
+  "tiktok": {
+   "title": "Say it with me: \"Excuse me, we ordered a while ago.\"",
+   "caption": "Say it out loud with Ama at the restaurant: \"Excuse me, we ordered a while ago.\"\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_a98282",
+   "link": "https://lexkite.com/en/speaking/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_a98282",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#speakenglish",
+    "#pronunciation",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Say it out loud with Ama at the restaurant: \"Excuse me, we ordered a while ago.\"\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_a98282\n#learnenglish #englishtips #restaurantenglish #speakenglish #pronunciation #travelenglish"
+  },
+  "reels": {
+   "title": "Say it with me: \"Excuse me, we ordered a while ago.\"",
+   "caption": "Say it out loud with Ama at the restaurant: \"Excuse me, we ordered a while ago.\"\nComment your answer below and follow for daily English (Restaurant English #24).\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_a98282",
+   "link": "https://lexkite.com/en/speaking/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_a98282",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#speakenglish",
+    "#pronunciation",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Say it out loud with Ama at the restaurant: \"Excuse me, we ordered a while ago.\"\nComment your answer below and follow for daily English (Restaurant English #24).\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_a98282\n#learnenglish #englishtips #restaurantenglish #speakenglish #pronunciation #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Say it with me: \"Excuse me, we ordered a while ago.\" #shorts",
+   "caption": "Say it out loud with Ama at the restaurant: \"Excuse me, we ordered a while ago.\"\nComment your answer below and follow for daily English (Restaurant English #24).\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_a98282",
+   "link": "https://lexkite.com/en/speaking/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_a98282",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#speakenglish"
+   ],
+   "caption_with_tags": "Say it out loud with Ama at the restaurant: \"Excuse me, we ordered a while ago.\"\nComment your answer below and follow for daily English (Restaurant English #24).\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_speak_a98282\n#shorts #learnenglish #englishtips #restaurantenglish #speakenglish"
+  }
+ },
+ "slot": {
+  "date": "2026-12-06",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}
