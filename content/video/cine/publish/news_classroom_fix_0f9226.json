@@ -1,0 +1,75 @@
+{
+ "id": "news_classroom_fix_0f9226",
+ "scene": "news",
+ "template": "fix",
+ "area": "grammar",
+ "cefr": "A2",
+ "point": "agree is a verb: I agree, not I am agree",
+ "series": "GRAMMAR FIX / agree",
+ "bg": "classroom",
+ "title": "Stop saying \"I am agree\"",
+ "description": "Agree is a verb: I agree, not I am agree. Save this: I agree. / I agree with you. / I don't agree.\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_news&utm_content=news_classroom_fix_0f9226#/grammar",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#commonmistakes",
+  "#englishgrammar",
+  "#americanenglish",
+  "#esl",
+  "#englishlearning"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/news/news_classroom_fix_0f9226/cine-news-classroom-fix-0f9226-en.mp4",
+ "cover": "shorts/news/news_classroom_fix_0f9226/cine-news-classroom-fix-0f9226-en.jpg",
+ "ci_artifact": "cine-news-49-*",
+ "run": 49,
+ "platforms": {
+  "tiktok": {
+   "title": "Stop saying \"I am agree\"",
+   "caption": "Agree is a verb: I agree, not I am agree. Save this: I agree. / I agree with you. / I don't agree.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_classroom_fix_0f9226#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_classroom_fix_0f9226#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#americanenglish",
+    "#esl"
+   ],
+   "caption_with_tags": "Agree is a verb: I agree, not I am agree. Save this: I agree. / I agree with you. / I don't agree.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_classroom_fix_0f9226#/grammar\n#learnenglish #englishtips #commonmistakes #englishgrammar #americanenglish #esl"
+  },
+  "reels": {
+   "title": "Stop saying \"I am agree\"",
+   "caption": "Agree is a verb: I agree, not I am agree. Save this: I agree. / I agree with you. / I don't agree.\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_classroom_fix_0f9226#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_classroom_fix_0f9226#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#americanenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Agree is a verb: I agree, not I am agree. Save this: I agree. / I agree with you. / I don't agree.\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_classroom_fix_0f9226#/grammar\n#learnenglish #englishtips #commonmistakes #englishgrammar #americanenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Stop saying \"I am agree\" #shorts",
+   "caption": "Agree is a verb: I agree, not I am agree. Save this: I agree. / I agree with you. / I don't agree.\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_classroom_fix_0f9226#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_classroom_fix_0f9226#/grammar",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#commonmistakes",
+    "#englishgrammar"
+   ],
+   "caption_with_tags": "Agree is a verb: I agree, not I am agree. Save this: I agree. / I agree with you. / I don't agree.\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_classroom_fix_0f9226#/grammar\n#shorts #learnenglish #englishtips #commonmistakes #englishgrammar"
+  }
+ },
+ "slot": {
+  "date": "2026-10-25",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

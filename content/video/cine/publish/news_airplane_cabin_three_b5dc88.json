@@ -1,0 +1,75 @@
+{
+ "id": "news_airplane_cabin_three_b5dc88",
+ "scene": "news",
+ "template": "three",
+ "area": "phrases",
+ "cefr": "A2",
+ "point": "on the plane: could I get, mind switching seats, overhead bin",
+ "series": "TRAVEL ENGLISH / On the plane",
+ "bg": "airplane_cabin",
+ "title": "Flying Soon? 3 phrases you need",
+ "description": "On the plane: could I get, mind switching seats, overhead bin. Save this: Could I get some water? / Would you mind switching seats? / Is there room in the overhead bin?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_news&utm_content=news_airplane_cabin_three_b5dc88#/phrases",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#englishphrases",
+  "#speakenglish",
+  "#americanenglish",
+  "#esl",
+  "#englishlearning"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/news/news_airplane_cabin_three_b5dc88/cine-news-airplane-cabin-three-b5dc88-en.mp4",
+ "cover": "shorts/news/news_airplane_cabin_three_b5dc88/cine-news-airplane-cabin-three-b5dc88-en.jpg",
+ "ci_artifact": "cine-news-49-*",
+ "run": 49,
+ "platforms": {
+  "tiktok": {
+   "title": "Flying Soon? 3 phrases you need",
+   "caption": "On the plane: could I get, mind switching seats, overhead bin. Save this: Could I get some water? / Would you mind switching seats? / Is there room in the overhead bin?\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_airplane_cabin_three_b5dc88#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_airplane_cabin_three_b5dc88#/phrases",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#englishphrases",
+    "#speakenglish",
+    "#americanenglish",
+    "#esl"
+   ],
+   "caption_with_tags": "On the plane: could I get, mind switching seats, overhead bin. Save this: Could I get some water? / Would you mind switching seats? / Is there room in the overhead bin?\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_airplane_cabin_three_b5dc88#/phrases\n#learnenglish #englishtips #englishphrases #speakenglish #americanenglish #esl"
+  },
+  "reels": {
+   "title": "Flying Soon? 3 phrases you need",
+   "caption": "On the plane: could I get, mind switching seats, overhead bin. Save this: Could I get some water? / Would you mind switching seats? / Is there room in the overhead bin?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_airplane_cabin_three_b5dc88#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_airplane_cabin_three_b5dc88#/phrases",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#englishphrases",
+    "#speakenglish",
+    "#americanenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "On the plane: could I get, mind switching seats, overhead bin. Save this: Could I get some water? / Would you mind switching seats? / Is there room in the overhead bin?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_airplane_cabin_three_b5dc88#/phrases\n#learnenglish #englishtips #englishphrases #speakenglish #americanenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Flying Soon? 3 phrases you need #shorts",
+   "caption": "On the plane: could I get, mind switching seats, overhead bin. Save this: Could I get some water? / Would you mind switching seats? / Is there room in the overhead bin?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_airplane_cabin_three_b5dc88#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_airplane_cabin_three_b5dc88#/phrases",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#englishphrases",
+    "#speakenglish"
+   ],
+   "caption_with_tags": "On the plane: could I get, mind switching seats, overhead bin. Save this: Could I get some water? / Would you mind switching seats? / Is there room in the overhead bin?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_airplane_cabin_three_b5dc88#/phrases\n#shorts #learnenglish #englishtips #englishphrases #speakenglish"
+  }
+ },
+ "slot": {
+  "date": "2026-10-22",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

@@ -1381,8 +1381,9 @@
    "area": "phrases",
    "cefr": "A2",
    "topic": "hotel_room_night",
-   "status": "generated",
-   "est": 26.0
+   "status": "rendered",
+   "est": 26.0,
+   "run": 49
   },
   "ordering coffee can i get to go pay by card": {
    "id": "news_coffee_counter_three_e0b1b7",
@@ -1392,8 +1393,9 @@
    "area": "phrases",
    "cefr": "A1",
    "topic": "coffee_counter",
-   "status": "generated",
-   "est": 22.5
+   "status": "rendered",
+   "est": 22.5,
+   "run": 49
   },
   "pharmacy phrases something for prescription how often": {
    "id": "news_pharmacy_three_974c28",
@@ -1403,8 +1405,9 @@
    "area": "roleplay",
    "cefr": "A2",
    "topic": "pharmacy",
-   "status": "generated",
-   "est": 25.2
+   "status": "rendered",
+   "est": 25.2,
+   "run": 49
   },
   "subway directions which line transfer how many stops": {
    "id": "news_metro_station_three_4b67fc",
@@ -1414,8 +1417,9 @@
    "area": "listening",
    "cefr": "A2",
    "topic": "metro_station",
-   "status": "generated",
-   "est": 20.9
+   "status": "rendered",
+   "est": 20.9,
+   "run": 49
   },
   "on the plane could i get mind switching seats overhead bin": {
    "id": "news_airplane_cabin_three_b5dc88",
@@ -1425,8 +1429,9 @@
    "area": "phrases",
    "cefr": "A2",
    "topic": "airplane_cabin",
-   "status": "generated",
-   "est": 24.0
+   "status": "rendered",
+   "est": 24.0,
+   "run": 49
   },
   "bank phrases open an account withdraw cash fee": {
    "id": "news_bank_three_15d51e",
@@ -1436,8 +1441,9 @@
    "area": "toeic",
    "cefr": "B1",
    "topic": "bank",
-   "status": "generated",
-   "est": 24.0
+   "status": "rendered",
+   "est": 24.0,
+   "run": 49
   },
   "ielts speaking phrases to buy time and extend answers": {
    "id": "news_exam_hall_three_2df2cf",
@@ -1447,8 +1453,9 @@
    "area": "ielts",
    "cefr": "B1",
    "topic": "exam_hall",
-   "status": "generated",
-   "est": 23.6
+   "status": "rendered",
+   "est": 23.6,
+   "run": 49
   },
   "agree is a verb i agree not i am agree": {
    "id": "news_classroom_fix_0f9226",
@@ -1458,8 +1465,9 @@
    "area": "grammar",
    "cefr": "A2",
    "topic": "classroom",
-   "status": "generated",
-   "est": 21.5
+   "status": "rendered",
+   "est": 21.5,
+   "run": 49
   },
   "discuss object no about": {
    "id": "news_meeting_room_fix_5d50a6",
@@ -1469,8 +1477,9 @@
    "area": "grammar-check",
    "cefr": "B1",
    "topic": "meeting_room",
-   "status": "generated",
-   "est": 23.1
+   "status": "rendered",
+   "est": 23.1,
+   "run": 49
   },
   "questions with does how much does it cost": {
    "id": "news_supermarket_fix_155f6a",
@@ -1480,8 +1489,9 @@
    "area": "grammar",
    "cefr": "A1",
    "topic": "supermarket",
-   "status": "generated",
-   "est": 23.5
+   "status": "rendered",
+   "est": 23.5,
+   "run": 49
   },
   "say vs tell she told me not she said me": {
    "id": "news_street_dusk_fix_ee2b2c",
@@ -1491,8 +1501,9 @@
    "area": "word-usage",
    "cefr": "A2",
    "topic": "street_dusk",
-   "status": "generated",
-   "est": 23.1
+   "status": "rendered",
+   "est": 23.1,
+   "run": 49
   },
   "look for i m looking for a book": {
    "id": "news_bookstore_fix_a59145",
@@ -1502,8 +1513,9 @@
    "area": "grammar",
    "cefr": "A2",
    "topic": "bookstore",
-   "status": "generated",
-   "est": 23.1
+   "status": "rendered",
+   "est": 23.1,
+   "run": 49
   },
   "l1 mistake i really like it not i very like it": {
    "id": "news_living_room_fix_8c570f",
@@ -1513,8 +1525,9 @@
    "area": "grammar-check",
    "cefr": "A1",
    "topic": "living_room",
-   "status": "generated",
-   "est": 23.5
+   "status": "rendered",
+   "est": 23.5,
+   "run": 49
   },
   "do yoga not make yoga": {
    "id": "news_gym_ab_a76472",
@@ -1524,8 +1537,9 @@
    "area": "word-usage",
    "cefr": "A2",
    "topic": "gym",
-   "status": "generated",
-   "est": 25.0
+   "status": "rendered",
+   "est": 25.0,
+   "run": 50
   },
   "make dinner not do dinner": {
    "id": "news_kitchen_ab_a30db6",
@@ -1535,8 +1549,9 @@
    "area": "word-usage",
    "cefr": "A2",
    "topic": "kitchen",
-   "status": "generated",
-   "est": 23.5
+   "status": "rendered",
+   "est": 23.5,
+   "run": 49
   },
   "phrasal verb pronoun try it on": {
    "id": "news_clothing_store_ab_b20f1c",
@@ -1546,8 +1561,9 @@
    "area": "grammar",
    "cefr": "A2",
    "topic": "clothing_store",
-   "status": "generated",
-   "est": 24.6
+   "status": "rendered",
+   "est": 24.6,
+   "run": 49
   },
   "borrow vs lend": {
    "id": "news_library_ab_a843c0",
@@ -1557,8 +1573,9 @@
    "area": "word-usage",
    "cefr": "A2",
    "topic": "library",
-   "status": "generated",
-   "est": 25.0
+   "status": "rendered",
+   "est": 25.0,
+   "run": 49
   },
   "get in a taxi get on a bus": {
    "id": "news_taxi_interior_ab_4828ed",
@@ -1568,8 +1585,9 @@
    "area": "grammar",
    "cefr": "A2",
    "topic": "taxi_interior",
-   "status": "generated",
-   "est": 25.0
+   "status": "rendered",
+   "est": 25.0,
+   "run": 49
   },
   "in the morning on monday": {
    "id": "news_park_ab_18caee",
@@ -1579,8 +1597,9 @@
    "area": "grammar",
    "cefr": "A1",
    "topic": "park",
-   "status": "generated",
-   "est": 23.9
+   "status": "rendered",
+   "est": 23.9,
+   "run": 49
   },
   "booking a doctor s appointment polite to casual": {
    "id": "news_waiting_room_ways_7b5d0d",
@@ -1590,8 +1609,9 @@
    "area": "speaking",
    "cefr": "A2",
    "topic": "waiting_room",
-   "status": "generated",
-   "est": 24.6
+   "status": "rendered",
+   "est": 24.6,
+   "run": 49
   },
   "saying no to an invitation polite to casual": {
    "id": "news_living_room_ways_0b506e",
@@ -1601,8 +1621,9 @@
    "area": "speaking",
    "cefr": "B1",
    "topic": "living_room",
-   "status": "generated",
-   "est": 23.5
+   "status": "rendered",
+   "est": 23.5,
+   "run": 49
   },
   "disagreeing politely at work": {
    "id": "news_meeting_room_ways_23140c",
@@ -1612,8 +1633,9 @@
    "area": "toeic",
    "cefr": "B1",
    "topic": "meeting_room",
-   "status": "generated",
-   "est": 24.6
+   "status": "rendered",
+   "est": 24.6,
+   "run": 49
   },
   "asking for help polite to casual": {
    "id": "news_bank_ways_0ea920",
@@ -1623,8 +1645,9 @@
    "area": "phrases",
    "cefr": "A2",
    "topic": "bank",
-   "status": "generated",
-   "est": 24.6
+   "status": "rendered",
+   "est": 24.6,
+   "run": 49
   },
   "ordering food politely i ll have": {
    "id": "news_restaurant_night_pov_9ad922",
@@ -1634,8 +1657,9 @@
    "area": "roleplay",
    "cefr": "A2",
    "topic": "restaurant_night",
-   "status": "generated",
-   "est": 25.0
+   "status": "rendered",
+   "est": 25.0,
+   "run": 49
   }
  }
 }

@@ -1,0 +1,75 @@
+{
+ "id": "news_exam_hall_three_2df2cf",
+ "scene": "news",
+ "template": "three",
+ "area": "ielts",
+ "cefr": "B1",
+ "point": "IELTS Speaking: phrases to buy time and extend answers",
+ "series": "EXAM TIPS / IELTS Speaking",
+ "bg": "exam_hall",
+ "title": "Ielts Speaking? 3 phrases you need",
+ "description": "IELTS Speaking: phrases to buy time and extend answers. Save this: That's an interesting question. / To be honest, ... / For example, ...\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_news&utm_content=news_exam_hall_three_2df2cf#/mock",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#englishphrases",
+  "#speakenglish",
+  "#americanenglish",
+  "#esl",
+  "#englishlearning"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/news/news_exam_hall_three_2df2cf/cine-news-exam-hall-three-2df2cf-en.mp4",
+ "cover": "shorts/news/news_exam_hall_three_2df2cf/cine-news-exam-hall-three-2df2cf-en.jpg",
+ "ci_artifact": "cine-news-49-*",
+ "run": 49,
+ "platforms": {
+  "tiktok": {
+   "title": "Ielts Speaking? 3 phrases you need",
+   "caption": "IELTS Speaking: phrases to buy time and extend answers. Save this: That's an interesting question. / To be honest, ... / For example, ...\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_exam_hall_three_2df2cf#/mock",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_exam_hall_three_2df2cf#/mock",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#englishphrases",
+    "#speakenglish",
+    "#americanenglish",
+    "#esl"
+   ],
+   "caption_with_tags": "IELTS Speaking: phrases to buy time and extend answers. Save this: That's an interesting question. / To be honest, ... / For example, ...\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_exam_hall_three_2df2cf#/mock\n#learnenglish #englishtips #englishphrases #speakenglish #americanenglish #esl"
+  },
+  "reels": {
+   "title": "Ielts Speaking? 3 phrases you need",
+   "caption": "IELTS Speaking: phrases to buy time and extend answers. Save this: That's an interesting question. / To be honest, ... / For example, ...\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_exam_hall_three_2df2cf#/mock",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_exam_hall_three_2df2cf#/mock",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#englishphrases",
+    "#speakenglish",
+    "#americanenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "IELTS Speaking: phrases to buy time and extend answers. Save this: That's an interesting question. / To be honest, ... / For example, ...\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_exam_hall_three_2df2cf#/mock\n#learnenglish #englishtips #englishphrases #speakenglish #americanenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Ielts Speaking? 3 phrases you need #shorts",
+   "caption": "IELTS Speaking: phrases to buy time and extend answers. Save this: That's an interesting question. / To be honest, ... / For example, ...\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_exam_hall_three_2df2cf#/mock",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_exam_hall_three_2df2cf#/mock",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#englishphrases",
+    "#speakenglish"
+   ],
+   "caption_with_tags": "IELTS Speaking: phrases to buy time and extend answers. Save this: That's an interesting question. / To be honest, ... / For example, ...\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_exam_hall_three_2df2cf#/mock\n#shorts #learnenglish #englishtips #englishphrases #speakenglish"
+  }
+ },
+ "slot": {
+  "date": "2026-10-28",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

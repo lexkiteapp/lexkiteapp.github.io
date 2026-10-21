@@ -1,0 +1,75 @@
+{
+ "id": "news_pharmacy_three_974c28",
+ "scene": "news",
+ "template": "three",
+ "area": "roleplay",
+ "cefr": "A2",
+ "point": "pharmacy phrases: something for, prescription, how often",
+ "series": "HEALTH ENGLISH / At the pharmacy",
+ "bg": "pharmacy",
+ "title": "At The Pharmacy? 3 phrases you need",
+ "description": "Pharmacy phrases: something for, prescription, how often. Save this: I need something for a headache. / Do I need a prescription? / How often should I take it?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_news&utm_content=news_pharmacy_three_974c28#/roleplay",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#englishphrases",
+  "#speakenglish",
+  "#americanenglish",
+  "#esl",
+  "#englishlearning"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/news/news_pharmacy_three_974c28/cine-news-pharmacy-three-974c28-en.mp4",
+ "cover": "shorts/news/news_pharmacy_three_974c28/cine-news-pharmacy-three-974c28-en.jpg",
+ "ci_artifact": "cine-news-49-*",
+ "run": 49,
+ "platforms": {
+  "tiktok": {
+   "title": "At The Pharmacy? 3 phrases you need",
+   "caption": "Pharmacy phrases: something for, prescription, how often. Save this: I need something for a headache. / Do I need a prescription? / How often should I take it?\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_pharmacy_three_974c28#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_pharmacy_three_974c28#/roleplay",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#englishphrases",
+    "#speakenglish",
+    "#americanenglish",
+    "#esl"
+   ],
+   "caption_with_tags": "Pharmacy phrases: something for, prescription, how often. Save this: I need something for a headache. / Do I need a prescription? / How often should I take it?\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_pharmacy_three_974c28#/roleplay\n#learnenglish #englishtips #englishphrases #speakenglish #americanenglish #esl"
+  },
+  "reels": {
+   "title": "At The Pharmacy? 3 phrases you need",
+   "caption": "Pharmacy phrases: something for, prescription, how often. Save this: I need something for a headache. / Do I need a prescription? / How often should I take it?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_pharmacy_three_974c28#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_pharmacy_three_974c28#/roleplay",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#englishphrases",
+    "#speakenglish",
+    "#americanenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Pharmacy phrases: something for, prescription, how often. Save this: I need something for a headache. / Do I need a prescription? / How often should I take it?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_pharmacy_three_974c28#/roleplay\n#learnenglish #englishtips #englishphrases #speakenglish #americanenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "At The Pharmacy? 3 phrases you need #shorts",
+   "caption": "Pharmacy phrases: something for, prescription, how often. Save this: I need something for a headache. / Do I need a prescription? / How often should I take it?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_pharmacy_three_974c28#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_pharmacy_three_974c28#/roleplay",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#englishphrases",
+    "#speakenglish"
+   ],
+   "caption_with_tags": "Pharmacy phrases: something for, prescription, how often. Save this: I need something for a headache. / Do I need a prescription? / How often should I take it?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_pharmacy_three_974c28#/roleplay\n#shorts #learnenglish #englishtips #englishphrases #speakenglish"
+  }
+ },
+ "slot": {
+  "date": "2026-11-02",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

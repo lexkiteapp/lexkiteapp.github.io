@@ -1,0 +1,75 @@
+{
+ "id": "news_kitchen_ab_a30db6",
+ "scene": "news",
+ "template": "ab",
+ "area": "word-usage",
+ "cefr": "A2",
+ "point": "make dinner, not do dinner",
+ "series": "WORD CHECK / make vs do",
+ "bg": "kitchen",
+ "title": "\"I'll do dinner.\" or \"I'll make dinner.\"? Comment A or B",
+ "description": "Make dinner, not do dinner. Save this: make dinner / make coffee / make a cake\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_news&utm_content=news_kitchen_ab_a30db6#/usage?c=pair",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#englishquiz",
+  "#grammartest",
+  "#americanenglish",
+  "#esl",
+  "#englishlearning"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/news/news_kitchen_ab_a30db6/cine-news-kitchen-ab-a30db6-en.mp4",
+ "cover": "shorts/news/news_kitchen_ab_a30db6/cine-news-kitchen-ab-a30db6-en.jpg",
+ "ci_artifact": "cine-news-49-*",
+ "run": 49,
+ "platforms": {
+  "tiktok": {
+   "title": "\"I'll do dinner.\" or \"I'll make dinner.\"? Comment A or B",
+   "caption": "Make dinner, not do dinner. Save this: make dinner / make coffee / make a cake\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_kitchen_ab_a30db6#/usage?c=pair",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_kitchen_ab_a30db6#/usage?c=pair",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#englishquiz",
+    "#grammartest",
+    "#americanenglish",
+    "#esl"
+   ],
+   "caption_with_tags": "Make dinner, not do dinner. Save this: make dinner / make coffee / make a cake\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_kitchen_ab_a30db6#/usage?c=pair\n#learnenglish #englishtips #englishquiz #grammartest #americanenglish #esl"
+  },
+  "reels": {
+   "title": "\"I'll do dinner.\" or \"I'll make dinner.\"? Comment A or B",
+   "caption": "Make dinner, not do dinner. Save this: make dinner / make coffee / make a cake\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_kitchen_ab_a30db6#/usage?c=pair",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_kitchen_ab_a30db6#/usage?c=pair",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#englishquiz",
+    "#grammartest",
+    "#americanenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Make dinner, not do dinner. Save this: make dinner / make coffee / make a cake\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_kitchen_ab_a30db6#/usage?c=pair\n#learnenglish #englishtips #englishquiz #grammartest #americanenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "\"I'll do dinner.\" or \"I'll make dinner.\"? Comment A or B",
+   "caption": "Make dinner, not do dinner. Save this: make dinner / make coffee / make a cake\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_kitchen_ab_a30db6#/usage?c=pair",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_kitchen_ab_a30db6#/usage?c=pair",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#englishquiz",
+    "#grammartest"
+   ],
+   "caption_with_tags": "Make dinner, not do dinner. Save this: make dinner / make coffee / make a cake\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_kitchen_ab_a30db6#/usage?c=pair\n#shorts #learnenglish #englishtips #englishquiz #grammartest"
+  }
+ },
+ "slot": {
+  "date": "2026-10-27",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

@@ -1,0 +1,75 @@
+{
+ "id": "news_park_ab_18caee",
+ "scene": "news",
+ "template": "ab",
+ "area": "grammar",
+ "cefr": "A1",
+ "point": "in the morning, on Monday",
+ "series": "PREPOSITIONS / time words",
+ "bg": "park",
+ "title": "A or B? time words",
+ "description": "In the morning, on Monday. Save this: in the morning / on Monday / on Monday morning\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_news&utm_content=news_park_ab_18caee#/grammar",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#englishquiz",
+  "#grammartest",
+  "#americanenglish",
+  "#esl",
+  "#englishlearning"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/news/news_park_ab_18caee/cine-news-park-ab-18caee-en.mp4",
+ "cover": "shorts/news/news_park_ab_18caee/cine-news-park-ab-18caee-en.jpg",
+ "ci_artifact": "cine-news-49-*",
+ "run": 49,
+ "platforms": {
+  "tiktok": {
+   "title": "A or B? time words",
+   "caption": "In the morning, on Monday. Save this: in the morning / on Monday / on Monday morning\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_park_ab_18caee#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_park_ab_18caee#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#englishquiz",
+    "#grammartest",
+    "#americanenglish",
+    "#esl"
+   ],
+   "caption_with_tags": "In the morning, on Monday. Save this: in the morning / on Monday / on Monday morning\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_park_ab_18caee#/grammar\n#learnenglish #englishtips #englishquiz #grammartest #americanenglish #esl"
+  },
+  "reels": {
+   "title": "A or B? time words",
+   "caption": "In the morning, on Monday. Save this: in the morning / on Monday / on Monday morning\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_park_ab_18caee#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_park_ab_18caee#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#englishquiz",
+    "#grammartest",
+    "#americanenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "In the morning, on Monday. Save this: in the morning / on Monday / on Monday morning\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_park_ab_18caee#/grammar\n#learnenglish #englishtips #englishquiz #grammartest #americanenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "A or B? time words #shorts",
+   "caption": "In the morning, on Monday. Save this: in the morning / on Monday / on Monday morning\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_park_ab_18caee#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_park_ab_18caee#/grammar",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#englishquiz",
+    "#grammartest"
+   ],
+   "caption_with_tags": "In the morning, on Monday. Save this: in the morning / on Monday / on Monday morning\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_park_ab_18caee#/grammar\n#shorts #learnenglish #englishtips #englishquiz #grammartest"
+  }
+ },
+ "slot": {
+  "date": "2026-10-31",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}
