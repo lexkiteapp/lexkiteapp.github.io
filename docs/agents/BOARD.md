@@ -167,6 +167,17 @@ Mẫu thẻ:
 ## ĐANG LÀM
 > ⚠️ @antigravity: U2a lại bị gom vào commit của Claude (1d6502ca) vì sửa thẳng trong thư mục của Claude. **Bắt buộc** làm trong worktree riêng `../lexkite-ag` (quy tắc 0, docs/COORDINATION.md) cho U2b trở đi.
 
+### [G1] Nâng cấp phòng thi CBT: Bút dạ quang 3 màu, Ghi chú, Gạch loại trừ, Cờ xem lại & Pacing Engine · @antigravity · ưu tiên: cao
+- Mục tiêu: Hiện thực hóa GĐ 1 kế hoạch UI/UX top 1 (CBT Simulator):
+  1. Bút dạ quang 3 màu (vàng, xanh lá, hồng) + Ghi chú dán (Sticky Note) trên cả bài đọc & câu hỏi + Bỏ tô sáng trực quan.
+  2. Nút gạch phương án loại trừ trực quan (Strike icon <s>S</s>) trên từng đáp án + phím tắt Alt+A-D / Alt+1-4.
+  3. Cờ xem lại câu hỏi trực quan (phím tắt F) + Bộ lọc câu hỏi ở thanh điều hướng (Tất cả, Chưa làm, Cần xem lại 🚩).
+  4. Pacing Engine thời gian thực (ước tính tốc độ trung bình, cảnh báo nhịp độ xanh/vàng/đỏ, thời gian hoàn thành dự kiến – ghi rõ "ước tính").
+- File/khu vực: `web/js/cbt.js`, `web/js/choice-kit.js`, `web/css/style.css`.
+- Ràng buộc: Bundle `readings` tải lười, khung app không tăng (≤ 380 KB gz); chuỗi mới qua `t()` đủ 15 ngôn ngữ; phím tắt không xung đột khi gõ text; a11y đầy đủ; npm test PASS 100%.
+- Báo cáo: (đang triển khai)
+- Cần sửa / Nhận xét:
+
 ## CHỜ DUYỆT
 
 ### [G0] Tách i18n tải lười theo từng ngôn ngữ (hạ tầng UI/UX) · @antigravity · ưu tiên: cao
