@@ -117,4 +117,25 @@ ok((await call(B, { op: 'pull', have: {} })).s === 200, 'mở khóa → đồng 
   ok(/<sheet name="Sổ từ  a b"/.test(wb), 'X1: tên trang tính bỏ ký tự cấm của Excel (: / ? * [ ])');
 }
 
+// ---------- 🔥 Lỗi chính tả nhỏ trong bài gõ (web/js/lesson-fx.js, dùng Levenshtein UI.similarity của ui.js) ----------
+{
+  const ui = fs.readFileSync(new URL('../../web/js/ui.js', import.meta.url), 'utf8'), a = ui.indexOf('function similarity('), b = ui.indexOf('\n  }\n', a);
+  const lc = { console, Math, Date, JSON, Set, Object, String, UI: { similarity: new Function(ui.slice(a, b + 4) + '; return similarity;')() } };
+  lc.self = lc; vm.createContext(lc);
+  vm.runInContext(fs.readFileSync(new URL('../../web/js/lesson-fx.js', import.meta.url), 'utf8'), lc);
+  const { typo } = lc.LessonFx;
+  const r1 = typo('enviroment', 'environment'); ok(r1.ok && r1.typo && r1.marks[0].fix, 'typo: thiếu 1 chữ ở từ ≥ 4 chữ cái → đúng, đánh dấu từ cần sửa');
+  ok(typo('Environment', 'environment').ok && !typo('environment.', 'environment').typo, 'typo: khác hoa/thường, dấu chấm cuối → đúng, không tính lỗi');
+  ok(!typo('enviromnent', 'environment').ok, 'typo: đảo 2 chữ = 2 lần sửa → sai');
+  ok(!typo('cst', 'cat').ok && !typo('teh', 'the').ok, 'typo: từ < 4 chữ cái không được nới');
+  ok(!typo('enviroment', 'environment', { strict: true }).ok, 'typo: strict (bài chính tả / dạng từ đang kiểm) → sai');
+  const r2 = typo('take into acount', 'take into account'); ok(r2.ok && r2.marks.map(m => !!m.fix).join() === 'false,false,true', 'typo: cụm nhiều từ – chỉ gạch chân từ sai');
+  ok(typo('studys hard', 'studies hard').ok === false, 'typo: 2 lần sửa trong 1 từ → sai');
+  ok(!typo('She has workd here', 'She has worked here', { protect: ['worked'] }).ok, 'typo: từ được bảo vệ (dạng ngữ pháp đang kiểm) phải đúng tuyệt đối');
+  ok(typo('Lan swims fsst', 'Lan swims fast', { protect: ['swims'] }).ok, 'typo: từ chép lại từ đề vẫn được nới khi có từ bảo vệ khác');
+  ok(!typo('then', 'than', { isWord: w => w === 'then' }).ok, 'typo: gõ thành một từ có thật khác → sai');
+  ok(!typo('take account', 'take into account').ok && !typo('', 'word').ok, 'typo: thiếu từ / để trống → sai');
+  ok(!typo('1234', '1235').ok, 'typo: số không được nới');
+}
+
 console.log(fails ? `✗ unit: ${fails} lỗi` : '✓ unit: FSRS, API đồng bộ & xuất Excel – tất cả đạt'); process.exit(fails ? 1 : 0);

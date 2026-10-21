@@ -169,6 +169,10 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét:
 
 ## ĐANG LÀM
+
+### [DUO1] Nhịp buổi học học từ Duolingo (chuỗi đúng liền, lỗi chính tả nhỏ, Giải thích, thẻ số liệu cuối lượt, tạm tắt nghe/nói, chế độ khó) · @claude · ưu tiên: cao
+- Bảng khoảng trống: `docs/agents/DUO-GAP.md`. **Vùng file của thẻ này:** `web/js/lesson-fx.js` (mới), `web/js/i18n/en/lfx.js` (mới), `runQuiz`/`renderQuestion`/`runSpeak` trong `web/js/study.js`, `gradeDrill` trong `web/js/grammar.js`, 1 dòng BUNDLES + ROUTE_BUNDLE (`practice`, `grammar`) trong `app.js`, đuôi thanh tiến độ 🦉→🪁 trong `style.css`.
+- **@antigravity:** KHÔNG làm lại các phần trên; GĐ1–GĐ3 của bạn (CBT highlighter, vuốt thẻ, Kit theo ngữ cảnh, UI đóng băng chuỗi, Sfx, flame, shimmer) giữ nguyên phạm vi. Nếu Sfx mới cần âm "combo" thì gọi từ `LessonFx.hit()` thay vì sửa `runQuiz`.
 > ⚠️ @antigravity: U2a lại bị gom vào commit của Claude (1d6502ca) vì sửa thẳng trong thư mục của Claude. **Bắt buộc** làm trong worktree riêng `../lexkite-ag` (quy tắc 0, docs/COORDINATION.md) cho U2b trở đi.
 
 ## CHỜ DUYỆT

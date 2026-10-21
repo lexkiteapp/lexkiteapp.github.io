@@ -429,22 +429,24 @@
   function renderQuestion(box, q, onDone) {
     const w = q.w;
     let answered = false;
-    const finish = (ok, given) => {
+    const FX = window.LessonFx, mute = () => !!(FX && FX.audioOff());
+    const finish = (ok, given, ty) => {
       if (answered) return; answered = true;
       if (!ok && App.logMistake) App.logMistake({ kind: 'vocab', q: q.type.startsWith('mcq-en') || q.type === 'type-vi' || q.type === 'type-spell' ? I18N.tk('Từ tiếng Anh nghĩa là “{vi}”?', { vi: mean(w) }) : q.type === 'type-cloze' && w.ex ? I18N.tk('Điền từ: {sentence}', { sentence: w.ex.replace(UI.wordRegex(w.word), '___') }) : I18N.tk('Nghĩa của “{word}”?', { word: w.word }), answer: q.type === 'mcq-vi' ? w.vi : (q.answer || w.word), given: given || '', explain: `${w.word} ${w.ipa || ''} = ${w.vi}`, ref: w.word });
       ok ? Sfx.correct() : Sfx.wrong();
       haptic(ok);
       const fb = $('#fb', box);
       fb.innerHTML = `<div class="sheet ${ok ? 'ok' : 'no'}"><div class="sheet-in">
-        <div class="sheet-head">${ok ? ['✅ ' + t('Chính xác!'), '🎉 ' + t('Tuyệt vời!'), '👏 ' + t('Giỏi lắm!')][Math.floor(Math.random() * 3)] : '❌ ' + t('Chưa đúng · Đáp án: {answer}', { answer: esc(q.answer || w.word) })}</div>
+        <div class="sheet-head">${ty && ty.typo ? FX.typoHead(ty.marks) : ok ? ['✅ ' + t('Chính xác!'), '🎉 ' + t('Tuyệt vời!'), '👏 ' + t('Giỏi lắm!')][Math.floor(Math.random() * 3)] : '❌ ' + t('Chưa đúng · Đáp án: {answer}', { answer: esc(q.answer || w.word) })}</div>
         <div class="sheet-word"><button class="sheet-say" data-sayw aria-label="${t('Nghe')}">🔊</button><div style="min-width:0"><div><b class="sw">${esc(w.word)}</b>${w.pos ? ` <span class="sp">(${esc(w.pos)})</span>` : ''}</div>${w.ipa ? `<div class="sipa">${esc(w.ipa)}</div>` : ''}<div class="svi">${esc(mean(w))}</div></div></div>
         ${w.ex ? `<div class="sheet-ex">${highlight(w.ex, w.word)} <button class="ctx-say sm" data-saysent="${esc(w.ex)}" title="${t('Nghe câu')}" aria-label="${t('Nghe câu')}">🔊</button><button class="ctx-say sm" data-tr title="${t('Dịch câu')}" aria-label="${t('Dịch câu')}">🌐</button><div class="sheet-tr" hidden></div></div>` : ''}
         <button class="btn lg block sheet-next" id="nextQ">${t('Tiếp tục')}<span class="kbd-hint" aria-hidden="true"> ↵</span></button></div></div>`;
       // chừa đáy đúng chiều cao bảng phản hồi
-      const sh = $('.sheet', fb), wrap = box.closest('.study-wrap'); if (sh && wrap) wrap.style.setProperty('--sheet-h', (sh.offsetHeight || 280) + 'px');
+      const fit = () => { const sh = $('.sheet', fb), wrap = box.closest('.study-wrap'); if (sh && wrap) wrap.style.setProperty('--sheet-h', (sh.offsetHeight || 280) + 'px'); }; fit();
+      if (FX && (!ok || (ty && ty.typo))) FX.explain(fb, w.word, fit); // 💡 Giải thích: chỉ khi từ có ghi chú "Hiểu sâu"
       const tr = $('[data-tr]', fb); if (tr) tr.onclick = async () => { const t = $('.sheet-tr', fb); if (!t.hidden) { t.hidden = true; return; } t.hidden = false; t.textContent = '…'; const L = I18N.learnLang(); t.textContent = L === 'vi' ? await Dict.translateVi(w.ex) : await Dict.translateTo(w.ex, L); };
       $('[data-sayw]', fb).onclick = () => speak(w.word, accent(), w.audio);
-      if (!ok || q.type.startsWith('type')) speak(w.word, accent(), w.audio);
+      if ((!ok || q.type.startsWith('type')) && !mute()) speak(w.word, accent(), w.audio);
       $('#nextQ').focus({ preventScroll: true });
       let went = false; const t1 = Date.now();
       $('#nextQ').onclick = () => { if (went || Date.now() - t1 < 250) return; went = true; onDone(ok, $('#nextQ')); };
@@ -488,7 +490,7 @@
         const n = /^[1-9]$/.test(e.key) ? +e.key : /^[a-dA-D]$/.test(e.key) ? e.key.toLowerCase().charCodeAt(0) - 96 : 0;
         if (n >= 1 && n <= opts.length) pick($$('.option', box)[n - 1]);
       };
-      if (q.type === 'mcq-vi' && state.settings.autoSpeak) speak(w.word, accent(), w.audio);
+      if (q.type === 'mcq-vi' && state.settings.autoSpeak && !mute()) speak(w.word, accent(), w.audio);
       return;
     }
 
@@ -504,22 +506,23 @@
       prompt = `<div class="muted small" style="font-weight:700">${t('Điền từ')}</div><div class="vi" style="font-size:1.6rem;margin:.4rem 0">${esc(mean(w))}${w.pos ? ` <span class="muted" style="font-size:1rem">(${esc(w.pos)})</span>` : ''}</div>
         <div class="spell-hint">${ch.map((c, i) => c === ' ' ? '<i class="sp"></i>' : /[a-z]/i.test(c) ? `<span>${show.has(i) ? esc(c) : ''}</span>` : `<b>${esc(c)}</b>`).join('')}</div>`;
     } else if (q.type === 'type-listen') {
-      prompt = `<div style="font-size:3rem">🎧</div><div class="row center"><button class="btn primary" id="play">🔊 ${t('Nghe')}</button><button class="btn" id="slow">🐢 ${t('Chậm')}</button></div><div class="muted small" style="margin-top:.8rem">${t('Gõ lại từ bạn nghe được')}${w.vi ? ' · ' + t('gợi ý: {hint}', { hint: esc(mean(w)) }) : ''}</div>`;
+      prompt = `<div style="font-size:3rem">🎧</div><div class="row center"><button class="btn primary" id="play">🔊 ${t('Nghe')}</button><button class="btn" id="slow">🐢 ${t('Chậm')}</button></div><div class="muted small" style="margin-top:.8rem">${t('Gõ lại từ bạn nghe được')}${w.vi && !q.hard ? ' · ' + t('gợi ý: {hint}', { hint: esc(mean(w)) }) : ''}</div>`;
     } else if (isCloze) {
-      prompt = `<div style="font-size:1.15rem;line-height:1.8">“${cloze(w.ex, w.word)}”</div><div class="muted" style="margin-top:.8rem">${t('Gợi ý: <b>{hint}</b>', { hint: esc(mean(w)) })} ${posChip(w.pos)} · ${t('bắt đầu bằng “{letter}”, {n} ký tự', { letter: esc(target[0]), n: target.length })}</div>`;
+      prompt = `<div style="font-size:1.15rem;line-height:1.8">“${cloze(w.ex, w.word)}”</div><div class="muted" style="margin-top:.8rem">${t('Gợi ý: <b>{hint}</b>', { hint: esc(mean(w)) })} ${posChip(w.pos)}${q.hard ? '' : ` · ${t('bắt đầu bằng “{letter}”, {n} ký tự', { letter: esc(target[0]), n: target.length })}`}</div>`;
     } else {
-      prompt = `<div class="vi" style="font-size:1.5rem">${esc(mean(w))}</div>${posChip(w.pos)}<div class="muted" style="margin-top:.8rem">${t('Gõ từ tiếng Anh')} · ${t('bắt đầu bằng “{letter}”, {n} ký tự', { letter: esc(w.word[0]), n: w.word.length })}</div>`;
+      prompt = `<div class="vi" style="font-size:1.5rem">${esc(mean(w))}</div>${posChip(w.pos)}<div class="muted" style="margin-top:.8rem">${t('Gõ từ tiếng Anh')}${q.hard ? '' : ` · ${t('bắt đầu bằng “{letter}”, {n} ký tự', { letter: esc(w.word[0]), n: w.word.length })}`}</div>`;
     }
     box.innerHTML = `<div class="card q-card">${prompt}</div>
       <form id="ansForm" style="margin-top:1rem" autocomplete="off"><div class="search">
         <input class="input big-input" id="ans" placeholder="${t('Gõ đáp án…')}" autocapitalize="off" autocorrect="off" spellcheck="false">
         <button class="btn primary lg">${t('Kiểm tra')}</button></div>
-        <div class="row center" style="margin-top:.5rem"><button type="button" class="btn sm ghost" id="skip">${t('Không biết – xem đáp án')}</button></div></form><div id="fb"></div>`;
+        <div class="row center" style="margin-top:.5rem"><button type="button" class="btn sm ghost" id="skip">${t('Không biết – xem đáp án')}</button>${FX && q.type === 'type-listen' ? FX.skipAudioBtn() : ''}</div></form><div id="fb"></div>`;
     $('#ans').focus();
     if (q.type === 'type-listen') {
       $('#play').onclick = () => speak(w.word, accent(), w.audio);
       $('#slow').onclick = () => speak(w.word, accent(), w.audio, true);
       setTimeout(() => speak(w.word, accent(), w.audio), 250);
+      const na = $('#lfxNoAudio'); if (na) na.onclick = () => { FX.pauseAudio(); q.type = 'type-vi'; document.onkeydown = null; renderQuestion(box, q, onDone); }; // 🔇 đổi câu này (và các câu nghe sau) sang dạng gõ nghĩa
     }
     $('#skip').onclick = () => finish(false);
     $('#ansForm').onsubmit = e => {
@@ -527,7 +530,13 @@
       if (answered) return $('#nextQ').click();
       const a = $('#ans').value.trim().toLowerCase().replace(/\s+/g, ' ');
       if (!a) return;
-      const ok = a === w.word.toLowerCase() || a === target.toLowerCase();
+      let ok = a === w.word.toLowerCase() || a === target.toLowerCase(), ty = null;
+      // Lỗi chính tả nhỏ (≤ 1 sửa/từ ≥ 4 chữ cái) → vẫn đúng + gạch chân chỗ sửa. Không áp cho bài chính tả và dạng từ đang kiểm (điền từ đã chia ≠ từ gốc)
+      if (!ok && FX) {
+        const strict = q.type === 'type-spell' || (isCloze && target.toLowerCase() !== w.word.toLowerCase());
+        ty = FX.typo(a, target, { strict, isWord: x => x !== target.toLowerCase() && !!INDEX[x] });
+        if (ty.ok) ok = true; else ty = null;
+      }
       // Sai 1 ký tự → cho thử lại một lần
       if (!ok && !q.retried && similarity(a, target) >= 0.8) {
         q.retried = true;
@@ -554,13 +563,15 @@
         void qc.offsetWidth;
         qc.classList.add(ok ? 'ans-bounce' : 'ans-shake');
       }
-      finish(ok, a);
+      finish(ok, a, ty);
     };
     document.onkeydown = e => { if (answered && e.key === 'Enter' && e.target.id !== 'ans') { e.preventDefault(); $('#nextQ').click(); } };
   }
 
   // ---------- Trắc nghiệm / Điền từ / Nghe / Kiểm tra ----------
-  function runQuiz(src, mode) {
+  // as: báo bước khác khi chạy thay thế (vd. 'speak' khi tạm tắt micro → trắc nghiệm nghĩa vẫn tính bước nói của lộ trình)
+  function runQuiz(src, mode, as) {
+    const FX = window.LessonFx;
     const list = pool(src);
     const n = mode === 'test' ? 20 : 10;
     const items = shuffle(list).slice(0, Math.min(n, list.length));
@@ -569,15 +580,25 @@
     const qs = items.map((w, i) => ({ type: mode === 'test' ? types[i % types.length] : types[0], w, list }));
     if (mode === 'test') qs.sort(() => Math.random() - .5);
     const title = `${MODES[mode].em} ${MODES[mode].name} · ${esc(srcName(src))}`;
-    const run = { i: 0, score: 0, wrong: [], xp: 0 };
+    const run = { i: 0, score: 0, wrong: [], xp: 0, c: FX ? FX.combo() : null };
+    const again = () => runQuiz(src, mode, as);
+    const notice = FX ? (as === 'speak' ? 'mic' : mode === 'listen' && FX.audioOff() ? 'audio' : '') : '';
     const next = () => {
       if (run.i >= qs.length) return finish();
+      const q = qs[run.i];
+      if (FX && FX.audioOff() && q.type === 'type-listen') q.type = 'type-vi'; // 🔇 đang tạm tắt bài nghe
       view.innerHTML = `<div class="study-wrap">${head(title, run.i, qs.length, `✅ ${run.score}`)}<div id="qbox"></div></div>`;
       guardExit(() => run.i > 0);
-      renderQuestion($('#qbox'), qs[run.i], (ok, el) => {
-        if (ok) { run.score++; run.xp += 3; App.reward({ xp: 3 }, el); } else run.wrong.push(qs[run.i].w);
+      // 💪 8 câu đúng liền → mời chế độ khó (1 lần/lượt; câu còn lại: gõ thay vì chọn, ít gợi ý, +6 XP)
+      if (FX && FX.wantsHard(run.c, qs.length - run.i, mode)) { document.onkeydown = null; return FX.offerHard($('#qbox'), run.c, yes => { if (yes) FX.harden(qs.slice(run.i)); next(); }); }
+      if (notice && run.i === 0) $('.study-top').before(FX.note(notice, again));
+      renderQuestion($('#qbox'), q, (ok, el) => {
+        const xp = q.hard ? 6 : 3;
+        if (ok) { run.score++; run.xp += xp; App.reward({ xp }, el); } else run.wrong.push(q.w);
+        if (FX) FX.hit(run.c, ok);
         run.i++; next();
       });
+      if (FX) FX.decorate($('.study-top'), run.c, q); // 🔥 chuỗi đúng liền + trạng thái hoàn hảo trên thanh tiến độ
     };
     const finish = () => {
       document.onkeydown = null;
@@ -593,15 +614,15 @@
         <div class="score-ring" style="--p:${pct};--c:${pct >= 80 ? 'var(--good)' : pct >= 50 ? 'var(--hard)' : 'var(--again)'}"><b>${pct}%</b></div>
         <h2 style="margin-top:1rem">${t('{score}/{total} câu đúng', { score: run.score, total: qs.length })}</h2>
         ${band ? `<p>${t('Mức từ vựng ước tính: <b>Band {band}</b>', { band })} <span class="muted small">${t('(tham khảo)')}</span></p>` : ''}
-        <p class="muted">+${run.xp + (perfect ? 15 : 5)} XP</p>
+        ${FX ? FX.summary(run.c, run.xp + (perfect ? 15 : 5), pct) : `<p class="muted">+${run.xp + (perfect ? 15 : 5)} XP</p>`}
         ${run.wrong.length ? `<p>${t('Cần ôn lại:')}</p><div class="row center">${run.wrong.map(w => `<a class="chip" href="#/dict/${encodeURIComponent(w.word)}">${esc(w.word)}</a>`).join('')}</div>
           ${run.wrong.some(w => !App.inDeck(w.word)) ? `<p><button class="btn sm" id="addWrong">+ ${t('Đưa các từ sai vào flashcard')}</button></p>` : ''}` : `<p>${t('Không sai câu nào – xuất sắc!')} 🎉</p>`}
         ${unit ? `<div class="feedback ${pct >= 80 ? 'ok' : 'no'}" style="position:static;margin:1rem 0">${pct >= 80 ? '🏁 ' + t('<b>Hoàn thành bài!</b> Các từ đã được thêm vào flashcard để ôn đúng thời điểm vàng.') : '🔁 ' + t('Cần đạt <b>80%</b> để hoàn thành bài – ôn lại các từ sai rồi thử lại nhé.')}</div>` : ''}
-        <div class="row center" style="margin-top:1rem">${unit ? `<a class="btn primary" href="#/path">🗺️ ${t('Về lộ trình')}</a><button class="btn" id="again">${t('Làm lại')}</button>` : `<button class="btn primary" id="again">${t('Làm lượt mới')}</button><a class="btn" href="#/practice?src=${encodeURIComponent(src)}">${t('Đổi chế độ')}</a>`}</div>
+        <div class="row center" style="margin-top:1rem">${unit ? `<a class="btn primary" href="#/path">🗺️ ${t('Về lộ trình')}</a><button class="btn" id="again">${t('Làm lại')}</button>` : `<button class="btn primary" id="again">${t('Làm lượt mới')}</button><a class="btn" href="#/practice?src=${encodeURIComponent(src)}">${t('Đổi chế độ')}</a>`}${FX ? FX.shareBtn(pct) : ''}</div>
       </div></div>`;
       if (unitPassed) unitPassed.then(first => { if (first) { confetti(160); Sfx.win(); } });
-      practiceDone({ mode, src, pct, wait: unitPassed });
-      $('#again').onclick = () => runQuiz(src, mode);
+      practiceDone({ mode: as || mode, src, pct, wait: unitPassed });
+      $('#again').onclick = again;
       const aw = $('#addWrong');
       if (aw) aw.onclick = async () => { for (const w of run.wrong) if (!App.inDeck(w.word)) await App.addWord(INDEX[w.word.toLowerCase()] || w, null, { silent: true }); toast(t('Đã thêm vào flashcard')); aw.disabled = true; };
     };
@@ -758,7 +779,8 @@
 
   // ---------- Luyện phát âm (nhận dạng giọng nói) ----------
   function runSpeak(src, query) {
-    const one = query && query.get('w');
+    const one = query && query.get('w'), FX = window.LessonFx;
+    if (!one && FX && FX.micOff()) return runQuiz(src, 'mcq', 'speak'); // 🎙️ đang tạm tắt micro → trắc nghiệm nghĩa thay thế
     const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
     const items = one ? [norm(INDEX[one.toLowerCase()] || state.cards[one.toLowerCase()] || { word: one })] : shuffle(pool(src)).slice(0, 10);
     if (!items.length) return emptySource(src);
@@ -778,7 +800,7 @@
           <div class="muted small" id="hint">${SR ? t('Bấm micro rồi đọc to từ trên') : '⚠️ ' + t('Trình duyệt không hỗ trợ nhận dạng giọng nói – hãy dùng Chrome hoặc Edge.')}</div>
           <div id="result" style="margin-top:1rem"></div>
         </div>
-        <div class="row center" style="margin-top:1rem"><button class="btn" id="skipW">${t('Bỏ qua')}</button><button class="btn primary" id="nextW" hidden>${t('Từ tiếp theo →')}</button></div>
+        <div class="row center" style="margin-top:1rem"><button class="btn" id="skipW">${t('Bỏ qua')}</button>${!one && FX ? FX.skipMicBtn() : ''}<button class="btn primary" id="nextW" hidden>${t('Từ tiếp theo →')}</button></div>
       </div>`;
       $('#model').onclick = () => speak(w.word, accent(), w.audio);
       $('#modelSlow').onclick = () => speak(w.word, accent(), w.audio, true);
@@ -799,6 +821,7 @@
         if (App.inDeck(w.word)) Cards.patch(w.word, c => { if (!c.ipa) c.ipa = gs.ipa; if (!c.ipaUS) c.ipaUS = gs.ipaUS; });
       });
       $('#skipW').onclick = () => { i++; show(); };
+      const nm = $('#lfxNoMic'); if (nm) nm.onclick = () => { FX.pauseMic(); runQuiz(src, 'mcq', 'speak'); };
       $('#nextW').onclick = () => { i++; show(); };
       setTimeout(() => speak(w.word, accent(), w.audio), 300);
       let scored = false;

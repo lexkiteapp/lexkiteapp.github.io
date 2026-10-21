@@ -255,7 +255,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
   // Chấm 1 câu, trả về true/false (null nếu chưa làm)
   function gradeDrill(item, d, picked) {
     const fb = $('[data-fb]', item);
-    let ok, given, answer;
+    let ok, given, answer, typoR = null;
     if (d.t === 'error') {
       if (picked == null) return null;
       ok = picked === d.w; given = d.parts[picked]; answer = `${d.parts[d.w]} → ${d.fix}`;
@@ -264,11 +264,17 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       const inp = $('.dr-in', item); given = inp.value.trim();
       if (!given || (d.start && dnorm(given) === dnorm(d.start))) return null;
       ok = matchAnswer(given, d.a); answer = d.a[0];
+      // Lỗi chính tả nhỏ ở từ chép lại từ đề → vẫn đúng; từ người học phải tự tạo (dạng ngữ pháp đang kiểm, không có trong đề) phải đúng tuyệt đối
+      const FX = window.LessonFx;
+      if (!ok && FX) {
+        const seen = new Set(FX.norm(d.q + ' ' + (d.start || '')).split(/[^a-z']+/));
+        for (const a of d.a) { const r = FX.typo(given, a, { protect: FX.norm(a).split(' ').filter(x => !seen.has(x.replace(/[^a-z']/g, ''))), isWord: x => !!(window.IELTS_DATA && IELTS_DATA.INDEX[x]) }); if (r.ok) { ok = true; typoR = r; answer = a; break; } }
+      }
       inp.classList.toggle('ok', ok); inp.classList.toggle('no', !ok); inp.readOnly = true;
       const c = $('.dr-chk', item); if (c) c.remove();
     }
     item.dataset.locked = 1; fb.hidden = false;
-    fb.innerHTML = `${ok ? `✅ <b>${t('Chính xác!')}</b>` : `❌ ${t('Đáp án: <b>{a}</b>', { a: esc(answer) })}`}${d.ex ? `<div class="muted">${esc(d.ex)}</div>` : ''}`;
+    fb.innerHTML = `${typoR ? window.LessonFx.typoHead(typoR.marks) : ok ? `✅ <b>${t('Chính xác!')}</b>` : `❌ ${t('Đáp án: <b>{a}</b>', { a: esc(answer) })}`}${d.ex ? `<div class="muted">${esc(d.ex)}</div>` : ''}`;
     ok ? Sfx.correct() : Sfx.wrong();
     return { ok, given, answer };
   }
