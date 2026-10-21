@@ -161,7 +161,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       const { q, x, d } = qs[i];
       if (d) {
         view.innerHTML = `<div class="study-wrap"><div class="study-top"><a class="icon-btn" href="#/grammar">✕</a><div class="progress"><i style="width:${i / qs.length * 100}%"></i></div><span class="small muted">${i + 1}/${qs.length}</span></div>
-          <div class="card q-card"><div class="tiny muted">${x.emoji} ${esc(x.title)}</div>${drillItem(d, 0)}</div><div id="fb"></div></div>`;
+          <div class="card q-card"><div class="tiny muted">${x.emoji} ${esc(TTL(x))}</div>${drillItem(d, 0)}</div><div id="fb"></div></div>`;
         const item = $('.dr'), done = r => {
           if (!r) return; if (r.ok) right++;
           if (!r.ok && App.logMistake) App.logMistake({ kind: 'grammar', q: d.t === 'error' ? d.parts.join(' ') : d.q, answer: r.answer, given: r.given, explain: d.ex || '', ref: x.id });
@@ -173,7 +173,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
         return;
       }
       view.innerHTML = `<div class="study-wrap"><div class="study-top"><a class="icon-btn" href="#/grammar">✕</a><div class="progress"><i style="width:${i / qs.length * 100}%"></i></div><span class="small muted">${i + 1}/${qs.length}</span></div>
-        <div class="card q-card"><div class="tiny muted">${x.emoji} ${esc(x.title)}</div><div style="font-size:1.15rem;font-weight:700;margin-top:.5rem">${esc(q.q)}</div></div>
+        <div class="card q-card"><div class="tiny muted">${x.emoji} ${esc(TTL(x))}</div><div style="font-size:1.15rem;font-weight:700;margin-top:.5rem">${esc(q.q)}</div></div>
         <div class="options">${q.options.map((o, k) => `<button class="option" data-k="${k}"><span class="kbd">${k + 1}</span>${esc(o)}</button>`).join('')}</div><div id="fb"></div></div>`;
       $$('.option').forEach(b => b.onclick = () => {
         if ($('#fb').innerHTML) return;
