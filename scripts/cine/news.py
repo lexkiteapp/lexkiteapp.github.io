@@ -216,7 +216,7 @@ def host_frames(s, clip, who, lines, raw):
     return fr, al, log, top
 HAIR = {}
 SIDE = {('ama', 'mcu'): 360, ('ama', 'wide'): 380, ('carlos', 'mcu'): 720, ('carlos', 'wide'): 700,   # rule of thirds
-        ('ama', 'two'): 250, ('carlos', 'two'): 870}   # 180-degree rule: Ama screen-left, Carlos screen-right
+        ('ama', 'two'): 228, ('carlos', 'two'): 896}   # 180-degree rule: Ama screen-left, Carlos screen-right
 FRAME.update({('ama', 'two'): (1.22, 660), ('carlos', 'two'): (0.98, 700)})   # owner 22/10: two-shot = medium-wide (face ~14 % of frame height, hosts apart, more background) behind a news desk
 DESK_Y = 1500   # two-shot: desk top edge; hosts must continue >= 40 px below it (Carlos's seat stays hidden behind the desk)
 VBOT = lambda frame: DESK_Y + 40   # every shot: the news desk hides the cut; hosts continue >= 40 px below its top edge   # lowest frame row that must still show the host's body
