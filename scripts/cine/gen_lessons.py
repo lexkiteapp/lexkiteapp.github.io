@@ -100,6 +100,7 @@ SERIES_D = {   # mini dialogue: B question, Ama answer (key line), B reply
  'airport': [('Is this your final destination?', 'No, I have a connecting flight.', 'Okay. Your bag goes all the way.')],
  'restaurant': [('Can I get you anything to drink?', 'Just water for now, thanks.', "Sure, I'll be right back.")],
 }
+GAP_ON = False   # 21/10 CI lô 1: gap ở TỪ CUỐI câu trượt qa5 (cps 19 vì đoạn nói ngắn + thở 1,06 s sau câu) -> cần gap giữa câu cắt ở chỗ khép (như h_a_late_gap); tắt tới khi sửa
 SCENE_KW = {'cafe': r'coffee|tea|latte|cake|cookie|milk|sugar|cup', 'hotel': r'hotel|room|key|towel|breakfast', 'airport': r'flight|bag|passport|seat|ticket', 'restaurant': r'menu|table|bill|soup|water'}
 
 # ------------------------------------------------------------------ helpers / gates
@@ -158,7 +159,7 @@ def candidates(scene):
         base = it[0].upper() + it[1:]
         C.append(('ladder', 'phrases', f'polite request {it}', dict(item=it, lad=[f'Could I possibly have {it}?', f'Can I have {it}, please?', f'{base}, please.'])))
         last = it.split(' ')[-1]
-        if last not in ('a', 'an', 'the', 'some'):
+        if GAP_ON and last not in ('a', 'an', 'the', 'some'):
             C.append(('gap', 'vocab-review', f'word {last}', dict(item=it, line=f'Could I have {it}, please?'.replace(', please?', '?'), word=last)))
         C.append(('speak', 'pronunciation', f'could i get {it}', dict(line=f'Could I get {it}, please?')))
     for q, line, opts, ans, key, thing, recap in CHOOSE[scene]:

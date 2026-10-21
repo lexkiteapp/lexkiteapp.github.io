@@ -11,6 +11,9 @@ SD, SC = sys.argv[1], sys.argv[2]; ROOT = os.path.dirname(os.path.dirname(os.pat
 A = f'{ROOT}/content/video/cine/auto/{SC}'; VIS = f'{SD}/vis3'; OUTV = f'{ROOT}/out/voices'; os.makedirs(OUTV, exist_ok=True)
 if not os.path.isdir(A): print('no auto lessons for', SC); sys.exit(0)
 for f in glob.glob(f'{A}/*.py'): shutil.copy(f, f'{SD}/lessons/')
+HF = f"{os.environ.get('CINE_LIB', ROOT + '/footage')}/hotel/tools/foley"   # scenes with their own foley/ lack the shared viral SFX (pop / whoosh / tone0)
+for n in ('pop.wav', 'whoosh.wav', 'tone0.wav'):
+    if os.path.exists(f'{HF}/{n}') and not os.path.exists(f'{SD}/foley/{n}'): shutil.copy(f'{HF}/{n}', f'{SD}/foley/{n}'); print('foley +', n)
 for f in glob.glob(f'{A}/*.en.json'): shutil.copy(f, f'{ROOT}/content/video/cine/locales/')
 lp = f'{SD}/ci/lines.json'; base = json.load(open(lp)); have = {l['id'] for l in base['lines']}
 new = [l for l in json.load(open(f'{A}/lines.json'))['lines'] if l['id'] not in have]; base['lines'] += new

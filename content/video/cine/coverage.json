@@ -12,12 +12,7 @@
   },
   "vocab-review": {
    "label": "Flashcard review (SRS)",
-   "scenes": [
-    "airport",
-    "cafe",
-    "hotel",
-    "restaurant"
-   ],
+   "scenes": [],
    "generated": 2,
    "rendered": 0,
    "by_cefr": {
@@ -26,7 +21,7 @@
      "rendered": 0
     }
    },
-   "gap": 5
+   "gap": null
   },
   "grammar": {
    "label": "Grammar lessons",
@@ -234,7 +229,6 @@
   }
  },
  "gaps_rendered_below_5": {
-  "vocab-review": 5,
   "grammar": 5,
   "grammar-check": 5,
   "phrases": 5,
@@ -247,6 +241,7 @@
  },
  "areas_no_scene_fits": [
   "dictionary",
+  "vocab-review",
   "verbs",
   "reading",
   "writing-ielts",
