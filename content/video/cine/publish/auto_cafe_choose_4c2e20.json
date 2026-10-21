@@ -1,0 +1,74 @@
+{
+ "id": "auto_cafe_choose_4c2e20",
+ "scene": "cafe",
+ "template": "choose",
+ "area": "listening",
+ "cefr": "A2",
+ "point": "listen size large",
+ "series": "Café English #25",
+ "title": "What size is the coffee? Listen once and choose!",
+ "description": "Listen once at the coffee shop and pick the right answer. Answer: \"I ordered a large coffee.\"\nComment your answer below and follow for daily English (Café English #25).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_choose_4c2e20#/listening",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#coffeeshopenglish",
+  "#listeningpractice",
+  "#englishlistening",
+  "#travelenglish",
+  "#esl"
+ ],
+ "video": "out/cine-auto-cafe-choose-4c2e20-en-v3.mp4",
+ "cover": "out/covers/cine-auto-cafe-choose-4c2e20-en-v3.jpg",
+ "ci_artifact": "cine-cafe-15",
+ "run": "15",
+ "platforms": {
+  "tiktok": {
+   "title": "What size is the coffee? Listen once and choose!",
+   "caption": "Listen once at the coffee shop and pick the right answer. Answer: \"I ordered a large coffee.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_choose_4c2e20#/listening",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_choose_4c2e20#/listening",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#listeningpractice",
+    "#englishlistening",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Listen once at the coffee shop and pick the right answer. Answer: \"I ordered a large coffee.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_choose_4c2e20#/listening\n#learnenglish #englishtips #coffeeshopenglish #listeningpractice #englishlistening #travelenglish"
+  },
+  "reels": {
+   "title": "What size is the coffee? Listen once and choose!",
+   "caption": "Listen once at the coffee shop and pick the right answer. Answer: \"I ordered a large coffee.\"\nComment your answer below and follow for daily English (Café English #25).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_choose_4c2e20#/listening",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_choose_4c2e20#/listening",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#listeningpractice",
+    "#englishlistening",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Listen once at the coffee shop and pick the right answer. Answer: \"I ordered a large coffee.\"\nComment your answer below and follow for daily English (Café English #25).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_choose_4c2e20#/listening\n#learnenglish #englishtips #coffeeshopenglish #listeningpractice #englishlistening #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "What size is the coffee? Listen once and choose! #shorts",
+   "caption": "Listen once at the coffee shop and pick the right answer. Answer: \"I ordered a large coffee.\"\nComment your answer below and follow for daily English (Café English #25).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_choose_4c2e20#/listening",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_choose_4c2e20#/listening",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#listeningpractice"
+   ],
+   "caption_with_tags": "Listen once at the coffee shop and pick the right answer. Answer: \"I ordered a large coffee.\"\nComment your answer below and follow for daily English (Café English #25).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_choose_4c2e20#/listening\n#shorts #learnenglish #englishtips #coffeeshopenglish #listeningpractice"
+  }
+ },
+ "slot": {
+  "date": "2026-11-22",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

@@ -1,0 +1,74 @@
+{
+ "id": "auto_airport_fix_8851fa",
+ "scene": "airport",
+ "template": "fix",
+ "area": "grammar",
+ "cefr": "A2",
+ "point": "on plus a day",
+ "series": "Airport English #25",
+ "title": "Stop saying \"I'm coming back in Sunday.\"",
+ "description": "Not \"in\". Say: \"I'm coming back on Sunday.\"\nComment your answer below and follow for daily English (Airport English #25).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_fix_8851fa#/grammar",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#airportenglish",
+  "#commonmistakes",
+  "#englishgrammar",
+  "#travelenglish",
+  "#esl"
+ ],
+ "video": "out/cine-auto-airport-fix-8851fa-en-v3.mp4",
+ "cover": "out/covers/cine-auto-airport-fix-8851fa-en-v3.jpg",
+ "ci_artifact": "cine-airport-17",
+ "run": "17",
+ "platforms": {
+  "tiktok": {
+   "title": "Stop saying \"I'm coming back in Sunday.\"",
+   "caption": "Not \"in\". Say: \"I'm coming back on Sunday.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_fix_8851fa#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_fix_8851fa#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Not \"in\". Say: \"I'm coming back on Sunday.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_fix_8851fa#/grammar\n#learnenglish #englishtips #airportenglish #commonmistakes #englishgrammar #travelenglish"
+  },
+  "reels": {
+   "title": "Stop saying \"I'm coming back in Sunday.\"",
+   "caption": "Not \"in\". Say: \"I'm coming back on Sunday.\"\nComment your answer below and follow for daily English (Airport English #25).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_fix_8851fa#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_fix_8851fa#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Not \"in\". Say: \"I'm coming back on Sunday.\"\nComment your answer below and follow for daily English (Airport English #25).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_fix_8851fa#/grammar\n#learnenglish #englishtips #airportenglish #commonmistakes #englishgrammar #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Stop saying \"I'm coming back in Sunday.\" #shorts",
+   "caption": "Not \"in\". Say: \"I'm coming back on Sunday.\"\nComment your answer below and follow for daily English (Airport English #25).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_fix_8851fa#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_fix_8851fa#/grammar",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#commonmistakes"
+   ],
+   "caption_with_tags": "Not \"in\". Say: \"I'm coming back on Sunday.\"\nComment your answer below and follow for daily English (Airport English #25).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_fix_8851fa#/grammar\n#shorts #learnenglish #englishtips #airportenglish #commonmistakes"
+  }
+ },
+ "slot": {
+  "date": "2026-11-09",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

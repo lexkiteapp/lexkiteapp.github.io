@@ -1,0 +1,74 @@
+{
+ "id": "auto_cafe_quiz_8215eb",
+ "scene": "cafe",
+ "template": "quiz",
+ "area": "paraphrase",
+ "cefr": "A2",
+ "point": "polite: could I get",
+ "series": "Café English #14",
+ "title": "Which sounds polite? Coffee Shop English quiz",
+ "description": "Which one would you say at the coffee shop? Model answer: \"Could I get a latte, please?\"\nComment your answer below and follow for daily English (Café English #14).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_quiz_8215eb#/paraphrase",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#coffeeshopenglish",
+  "#englishquiz",
+  "#speakpolitely",
+  "#travelenglish",
+  "#esl"
+ ],
+ "video": "out/cine-auto-cafe-quiz-8215eb-en-v3.mp4",
+ "cover": "out/covers/cine-auto-cafe-quiz-8215eb-en-v3.jpg",
+ "ci_artifact": "cine-cafe-16",
+ "run": "16",
+ "platforms": {
+  "tiktok": {
+   "title": "Which sounds polite? Coffee Shop English quiz",
+   "caption": "Which one would you say at the coffee shop? Model answer: \"Could I get a latte, please?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_quiz_8215eb#/paraphrase",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_quiz_8215eb#/paraphrase",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#englishquiz",
+    "#speakpolitely",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Which one would you say at the coffee shop? Model answer: \"Could I get a latte, please?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_quiz_8215eb#/paraphrase\n#learnenglish #englishtips #coffeeshopenglish #englishquiz #speakpolitely #travelenglish"
+  },
+  "reels": {
+   "title": "Which sounds polite? Coffee Shop English quiz",
+   "caption": "Which one would you say at the coffee shop? Model answer: \"Could I get a latte, please?\"\nComment your answer below and follow for daily English (Café English #14).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_quiz_8215eb#/paraphrase",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_quiz_8215eb#/paraphrase",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#englishquiz",
+    "#speakpolitely",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Which one would you say at the coffee shop? Model answer: \"Could I get a latte, please?\"\nComment your answer below and follow for daily English (Café English #14).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_quiz_8215eb#/paraphrase\n#learnenglish #englishtips #coffeeshopenglish #englishquiz #speakpolitely #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Which sounds polite? Coffee Shop English quiz #shorts",
+   "caption": "Which one would you say at the coffee shop? Model answer: \"Could I get a latte, please?\"\nComment your answer below and follow for daily English (Café English #14).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_quiz_8215eb#/paraphrase",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_quiz_8215eb#/paraphrase",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#englishquiz"
+   ],
+   "caption_with_tags": "Which one would you say at the coffee shop? Model answer: \"Could I get a latte, please?\"\nComment your answer below and follow for daily English (Café English #14).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_quiz_8215eb#/paraphrase\n#shorts #learnenglish #englishtips #coffeeshopenglish #englishquiz"
+  }
+ },
+ "slot": {
+  "date": "2026-11-30",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

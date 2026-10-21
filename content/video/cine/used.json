@@ -710,13 +710,14 @@
   "pay by card": {
    "id": "auto_hotel_pov_698c0e",
    "point": "pay by card",
-   "status": "generated",
+   "status": "rendered",
    "template": "pov",
    "area": "roleplay",
    "cefr": "A2",
    "scene": "hotel",
    "est": 18.6,
-   "series": "Hotel English #20"
+   "series": "Hotel English #20",
+   "run": "29"
   },
   "another plus singular": {
    "id": "auto_restaurant_fix_bc474f",
@@ -793,13 +794,14 @@
   "listen total eighty": {
    "id": "auto_cafe_choose_03dded",
    "point": "listen total eighty",
-   "status": "generated",
+   "status": "rendered",
    "template": "choose",
    "area": "listening",
    "cefr": "A2",
    "scene": "cafe",
    "est": 18.8,
-   "series": "Café English #16"
+   "series": "Café English #16",
+   "run": "27"
   },
   "for plus a duration": {
    "id": "auto_hotel_fix_fb429b",
@@ -875,13 +877,14 @@
   "listen time forty": {
    "id": "auto_airport_choose_195565",
    "point": "listen time forty",
-   "status": "generated",
+   "status": "rendered",
    "template": "choose",
    "area": "listening",
    "cefr": "A2",
    "scene": "airport",
    "est": 19.2,
-   "series": "Airport English #18"
+   "series": "Airport English #18",
+   "run": "28"
   },
   "yes just a little please": {
    "id": "auto_cafe_series_3e2796",
@@ -898,13 +901,14 @@
   "polite request a wake up call": {
    "id": "auto_hotel_ladder_9d4f7f",
    "point": "polite request a wake-up call",
-   "status": "generated",
+   "status": "rendered",
    "template": "ladder",
    "area": "phrases",
    "cefr": "A2",
    "scene": "hotel",
    "est": 18.6,
-   "series": "Hotel English #24"
+   "series": "Hotel English #24",
+   "run": "29"
   },
   "any in negatives": {
    "id": "auto_airport_mistake_4de412",
@@ -1243,24 +1247,26 @@
   "could i get a window seat": {
    "id": "auto_airport_speak_6f2485",
    "point": "could i get a window seat",
-   "status": "generated",
+   "status": "rendered",
    "template": "speak",
    "area": "pronunciation",
    "cefr": "A1",
    "scene": "airport",
    "est": 18.6,
-   "series": "Airport English #25"
+   "series": "Airport English #25",
+   "run": "28"
   },
   "listen name sam": {
    "id": "auto_cafe_choose_ab03b3",
    "point": "listen name sam",
-   "status": "generated",
+   "status": "rendered",
    "template": "choose",
    "area": "listening",
    "cefr": "A2",
    "scene": "cafe",
    "est": 18.6,
-   "series": "Café English #25"
+   "series": "Café English #25",
+   "run": "27"
   }
  }
 }

@@ -1,0 +1,74 @@
+{
+ "id": "auto_cafe_fix_a211e4",
+ "scene": "cafe",
+ "template": "fix",
+ "area": "grammar",
+ "cefr": "A2",
+ "point": "how much does it cost",
+ "series": "Café English #11",
+ "title": "Stop saying \"How much is it cost?\"",
+ "description": "Not \"is\". Say: \"How much does it cost?\"\nComment your answer below and follow for daily English (Café English #11).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_fix_a211e4#/grammar",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#coffeeshopenglish",
+  "#commonmistakes",
+  "#englishgrammar",
+  "#travelenglish",
+  "#esl"
+ ],
+ "video": "out/cine-auto-cafe-fix-a211e4-en-v3.mp4",
+ "cover": "out/covers/cine-auto-cafe-fix-a211e4-en-v3.jpg",
+ "ci_artifact": "cine-cafe-15",
+ "run": "15",
+ "platforms": {
+  "tiktok": {
+   "title": "Stop saying \"How much is it cost?\"",
+   "caption": "Not \"is\". Say: \"How much does it cost?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_fix_a211e4#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_fix_a211e4#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Not \"is\". Say: \"How much does it cost?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_fix_a211e4#/grammar\n#learnenglish #englishtips #coffeeshopenglish #commonmistakes #englishgrammar #travelenglish"
+  },
+  "reels": {
+   "title": "Stop saying \"How much is it cost?\"",
+   "caption": "Not \"is\". Say: \"How much does it cost?\"\nComment your answer below and follow for daily English (Café English #11).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_fix_a211e4#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_fix_a211e4#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Not \"is\". Say: \"How much does it cost?\"\nComment your answer below and follow for daily English (Café English #11).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_fix_a211e4#/grammar\n#learnenglish #englishtips #coffeeshopenglish #commonmistakes #englishgrammar #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Stop saying \"How much is it cost?\" #shorts",
+   "caption": "Not \"is\". Say: \"How much does it cost?\"\nComment your answer below and follow for daily English (Café English #11).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_fix_a211e4#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_fix_a211e4#/grammar",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#commonmistakes"
+   ],
+   "caption_with_tags": "Not \"is\". Say: \"How much does it cost?\"\nComment your answer below and follow for daily English (Café English #11).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_fix_a211e4#/grammar\n#shorts #learnenglish #englishtips #coffeeshopenglish #commonmistakes"
+  }
+ },
+ "slot": {
+  "date": "2026-11-24",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

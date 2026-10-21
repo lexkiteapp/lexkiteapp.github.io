@@ -81,11 +81,11 @@
     "restaurant"
    ],
    "generated": 10,
-   "rendered": 7,
+   "rendered": 8,
    "by_cefr": {
     "A2": {
      "generated": 9,
-     "rendered": 6
+     "rendered": 7
     },
     "B2": {
      "generated": 1,
@@ -139,11 +139,11 @@
     "restaurant"
    ],
    "generated": 6,
-   "rendered": 5,
+   "rendered": 6,
    "by_cefr": {
     "A1": {
      "generated": 6,
-     "rendered": 5
+     "rendered": 6
     }
    },
    "gap": 0
@@ -175,11 +175,11 @@
     "restaurant"
    ],
    "generated": 23,
-   "rendered": 22,
+   "rendered": 23,
    "by_cefr": {
     "A2": {
      "generated": 21,
-     "rendered": 20
+     "rendered": 21
     },
     "B1": {
      "generated": 2,
@@ -197,14 +197,14 @@
     "restaurant"
    ],
    "generated": 9,
-   "rendered": 4,
+   "rendered": 7,
    "by_cefr": {
     "A2": {
      "generated": 9,
-     "rendered": 4
+     "rendered": 7
     }
    },
-   "gap": 1
+   "gap": 0
   },
   "reading": {
    "label": "Reading practice",
@@ -255,9 +255,7 @@
    "gap": null
   }
  },
- "gaps_rendered_below_5": {
-  "listening": 1
- },
+ "gaps_rendered_below_5": {},
  "areas_no_scene_fits": [
   "dictionary",
   "verbs",
