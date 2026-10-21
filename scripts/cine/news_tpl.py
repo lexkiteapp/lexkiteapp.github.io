@@ -39,8 +39,8 @@ e = shot('end', 'ga2_talk', 'ama', 'mcu' if S[-2]['who'] != 'ama' or S[-2]['fram
 lp = shot('loop', 'ga2_talk_smile', 'ama', 'two', BG, dur=1.0, frames=list(range(0, 24)), other='gc')
 _, rbox = ring_card('Comment below', 0); ov('Ring', 'Comment below', e['t0'] + 0.1, lp['t0'], rbox, 'end', part=0, img=lambda t, a=e['t0'] + 0.1, b=lp['t0']: ring_card('Comment below', min(1, (t - a) / (b - a)))[0], pop=True)
 im, box, _ = hook_card(hk['card'], ''); ov('Follow', 'Follow for more', lp['t0'], lp['t0'] + lp['dur'], box, 'loop', img=im)
-T_ = sum(x['dur'] for x in S); top, sub = SPEC['series']; _, sbox = series_bar(top, sub)
-ov('Series', f'{top}|{sub}', h['dur'], T_ - 1.0, sbox, 'b1', img=lambda t, a=h['dur']: series_bar(top, sub, prog=1 - (1 - min(1, (t - a) / 0.35)) ** 3)[0])
+T_ = sum(x['dur'] for x in S); SER_T, SER_S = SPEC['series']; _, sbox = series_bar(SER_T, SER_S)   # names must not collide with news.py globals (top, sub ...)
+ov('Series', f'{SER_T}|{SER_S}', h['dur'], T_ - 1.0, sbox, 'b1', img=lambda t, a=h['dur'], tp=SER_T, sb=SER_S: series_bar(tp, sb, prog=1 - (1 - min(1, (t - a) / 0.35)) ** 3)[0])
 SFX.append(('slide.wav', h['dur']))
 P = sorted(t for f, t in SFX if f == 'pop.wav'); keep = []
 for t in P:
