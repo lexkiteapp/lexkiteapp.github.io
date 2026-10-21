@@ -13,7 +13,7 @@ sys.path.insert(0, HERE); import lipsync as L
 LID = sys.argv[1]; FPS = 24; W, H = 1080, 1920
 SAFE = dict(x0=60, x1=1020, y0=230, y1=1500)
 TEXT = {l['id']: l['text'] for l in json.load(open(f'{N}/ci/lines.json'))['lines']}
-CUES = {k: json.load(open(f'{N}/vis3/{k}.json'))['mouthCues'] for k in TEXT}
+CUES = {k: json.load(open(f'{N}/vis3/{k}.json'))['mouthCues'] for k in TEXT if os.path.exists(f'{N}/vis3/{k}.json')}   # lines of this job's lessons only
 FB = f'{ROOT}/brand/social/src/fonts/BeVietnamPro-ExtraBold.ttf'; FH = f'{ROOT}/brand/social/src/fonts/BricolageGrotesque-ExtraBold.ttf'
 TEAL, TEAL2, ORANGE, YEL, INK, CREAM = (15, 61, 62), (23, 89, 90), (229, 80, 47), (255, 201, 74), (34, 36, 44), (255, 247, 236)
 # hosts: face centre + face width in source px (1080x1920 after lipsync.finish), alpha fade line (source y) below the hands / above the seat
