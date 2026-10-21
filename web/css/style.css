@@ -867,7 +867,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
 /* ===== Học từ mới kiểu thẻ lật + bảng phản hồi trượt lên (Mochi-style) ===== */
 .study-top .progress { position: relative; overflow: visible; }
 .study-top .progress i { position: relative; transition: width .35s ease; }
-.study-top .progress i::after { content: '🦉'; position: absolute; right: -14px; top: 50%; transform: translateY(-55%); font-size: 1.35rem; filter: drop-shadow(0 2px 2px rgba(0,0,0,.15)); }
+.study-top .progress i::after { content: '🪁'; position: absolute; right: -14px; top: 50%; transform: translateY(-55%); font-size: 1.35rem; filter: drop-shadow(0 2px 2px rgba(0,0,0,.15)); }
 .flip-intro { position: relative; perspective: 1200px; margin-top: 1.8rem; }
 .fi-audio { position: absolute; top: -26px; left: 50%; transform: translateX(-50%); display: flex; gap: .6rem; z-index: 3; }
 .fi-btn { width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); box-shadow: 0 4px 0 var(--line); font-size: 1.3rem; cursor: pointer; transition: transform .1s; }

@@ -297,6 +297,42 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   ok(S.settings.tracks.cur === 'work' && S.settings.tracks.lv.work.s === 'work2' && S.settings.exam === 'general' && /^#\/day/.test(w.location.hash), 'thiết lập xong → gói Công sở, chặng 2, vào Ngày 1 của gói: ' + w.location.hash);
 }
 
+// ===== 5) 🔥 Nhịp buổi học (web/js/lesson-fx.js): chuỗi đúng liền + hoàn hảo, mời chế độ khó, lỗi chính tả nhỏ, 3 thẻ số liệu, tạm tắt nghe/nói =====
+{
+  w.localStorage.removeItem('vb.noAudioUntil'); w.localStorage.removeItem('vb.noMicUntil');
+  const tw = w.App.topicOf('awl1').words, BM = new Map(tw.map(x => [w.App.meanOf(x), x.word]));
+  const typoOf = s => s.length >= 6 && !w.IELTS_DATA.INDEX[s.slice(0, -2) + s.slice(-1)] ? s.slice(0, -2) + s.slice(-1) : s; // bỏ 1 chữ gần cuối
+  await go('#/home', 100); await go('#/practice/mcq?src=topic:awl1', 400);
+  ok(w.LessonFx && $('.study-top') && $('.lfx-combo'), 'lesson-fx nạp cùng #/practice, có chỗ cho chip chuỗi đúng');
+  const chips = []; let sawHard = false, badge = false, typoOk = false, typed = 0;
+  for (let k = 0; k < 14 && !$('.lfx-stats'); k++) {
+    await tick(280); chips.push((($('.lfx-combo') || {}).textContent || '').trim());
+    if ($('#lfxHardYes')) { sawHard = /8/.test($('#lfxHardH').textContent) && /<svg/.test($('.lfx-hardin').innerHTML); click($('#lfxHardYes')); continue; }
+    if ($('.options .option')) { const wd = ($('.entry-word') || {}).textContent; click($$('.options .option').find(b => b.dataset.o === wd)); }
+    else if ($('#ans')) {
+      badge = badge || !!$('.lfx-hard'); const word = BM.get(($('.q-card .vi') || {}).textContent) || 'zzzz';
+      $('#ans').value = typoOk ? word : typoOf(word); typed++; $('#ansForm').dispatchEvent(new w.Event('submit', { cancelable: true })); await tick(30);
+      if (!$('#nextQ')) { $('#ans').value = word; $('#ansForm').dispatchEvent(new w.Event('submit', { cancelable: true })); await tick(30); }
+      typoOk = typoOk || /lfx-fix/.test((($('#fb .sheet-head') || {}).innerHTML) || '');
+    }
+    await tick(280); click($('#nextQ')); await tick(60);
+  }
+  ok(chips.some(c => /🔥|✨/.test(c)) && chips.some(c => /✨/.test(c)), 'chip chuỗi đúng liền + trạng thái hoàn hảo khi chưa sai câu nào: ' + chips.slice(0, 5).join(' | '));
+  ok(sawHard && badge, 'sau 8 câu đúng liền: màn mời chế độ khó có Kit; câu sau có nhãn Câu khó');
+  ok(typoOk, 'gõ sai 1 chữ ở từ ≥ 4 chữ cái → vẫn đúng, gạch chân chỗ sửa');
+  ok($$('.lfx-stat').length === 3 && $('.lfx-head') && $('.celebrate [data-share]'), 'màn cuối: 3 thẻ số liệu (XP / chuỗi dài nhất / thời gian) + lời chào + nút khoe kết quả');
+  await go('#/home', 100); await go('#/practice/listen?src=topic:ngsl1.1', 400);
+  const na = $('#lfxNoAudio'); ok(na, 'câu nghe có nút tạm tắt âm thanh 15 phút'); await tick(280); click(na); await tick(40);
+  ok(+w.localStorage.getItem('vb.noAudioUntil') > Date.now() && !$('#play') && $('#ans'), 'tạm tắt âm thanh → câu này đổi sang dạng gõ nghĩa');
+  await go('#/home', 100); await go('#/practice/listen?src=topic:ngsl1.1', 400);
+  ok($('.lfx-note') && !$('#play'), 'đang tạm tắt: lượt nghe mới có dải thông báo, không câu nghe');
+  click($('.lfx-note button')); await tick(60);
+  ok(!w.localStorage.getItem('vb.noAudioUntil') && $('#play'), 'Bật lại → câu nghe trở lại');
+  w.LessonFx.pauseMic(); await go('#/home', 100); await go('#/practice/speak?src=topic:ngsl1.1', 400);
+  ok($('.lfx-note') && $$('.options .option').length === 4 && !$('#mic'), 'tạm tắt micro → bài nói thay bằng trắc nghiệm nghĩa');
+  w.LessonFx.resume();
+}
+
 const real = errors.filter(e => !/Not implemented|navigation|Could not parse CSS/.test(e));
 ok(!real.length, 'không lỗi JS: ' + real.slice(0, 3).join(' | '));
 if (fails) { console.log(`✗ learn-flow: ${fails}/${n} lỗi`); process.exit(1); }
