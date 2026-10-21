@@ -46,9 +46,14 @@ def face_hits(o):
             fi = int(np.clip(s['frames'][0] + step * int((t - s['t0']) * FPS), 0, len(MS) - 1))
             P = np.array([MS[fi] @ np.array([px, py, 1]) for px in (fx0, fx1) for py in (fy0, fy1)])
             bx = [(P[:, 0].min() - x0) * sc, (P[:, 1].min() - y0) * sc, (P[:, 0].max() - x0) * sc, (P[:, 1].max() - y0) * sc]; b = o['box']
+            if VIRAL: w_, h_ = bx[2] - bx[0], bx[3] - bx[1]; bx = [bx[0] - 0.30 * w_, bx[1] - 0.60 * h_, bx[2] + 0.30 * w_, bx[3] + 0.25 * h_]   # full head (hair + 15 % margin), as place.py HEAD()
             if s['id'] in PUNCH:   # punch-in 1.0 -> 1.08 about the frame centre
                 u = min(1, max(0, (t - s['t0'] - PUNCH[s['id']]) / 0.4)); z = 1 + 0.08 * (1 - (1 - u) ** 2); bx = [540 + (bx[0] - 540) * z, 960 + (bx[1] - 960) * z, 540 + (bx[2] - 540) * z, 960 + (bx[3] - 960) * z]
             if max(0, min(b[2], bx[2]) - max(b[0], bx[0])) * max(0, min(b[3], bx[3]) - max(b[1], bx[1])) > 0: hits.append(who + '@' + s['id']); break
+    for s in (shots if VIRAL else []):   # per-clip head rects (OTS foreground heads / hosts without a face track)
+        for r in tl.get('heads', {}).get(s['clip'], []):
+            b = o['box']
+            if max(0, min(b[2], r[2]) - max(b[0], r[0])) * max(0, min(b[3], r[3]) - max(b[1], r[1])) > 0: hits.append('head@' + s['id'])
     return hits
 SZ = tl['safe']; seen = set()
 for o in tl['overlays']:
@@ -113,6 +118,10 @@ if VIRAL:   # viral-mode rules (docs/CINE-SCENE-STANDARD.md §7, v3 pacing model
         cards = sorted({o['style'] for o in tl['overlays'] if o['shot'] == s['id'] and o['style'] not in ('Cap',)})
         print(f"  {s['t0']:6.2f}-{s['t0'] + s['dur']:6.2f}  {s['id']:8s} {s['clip'][:3]} {'talk ' + ','.join(l['id'] + ('@%.2fx' % l['tempo'] if l['tempo'] != 1 else '') for l in s['lines']) if s['lines'] else 'hold':38s} {' '.join(cards)}")
     print('== VIRAL RULES')
+    cg = [o.get('glyph', 0) for o in tl['overlays'] if o['style'] == 'Cap']
+    rule(not cg or min(cg) >= 64, f'caption glyph height {min(cg) if cg else 0} px (>= 64, CapCut single line)')
+    sm = [o for o in tl['overlays'] if o['style'] in ('Choice', 'Ladder', 'Recap', 'Card', 'Gap', 'Contrast') and 0 < o.get('fs', 99) < 52]
+    rule(not sm, f'card text >= 52 px ({len(sm)} smaller)')
     nwords = lambda t: len(re.findall(r"[A-Za-z0-9']+", t))
     def disp(o):
         t = o['text'].split('||')[0]

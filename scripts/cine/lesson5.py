@@ -31,7 +31,7 @@ RTL = LOC['dir'] == 'rtl'
 EN_ONLY = LANG == 'en' or LOC.get('english_only', False)   # English-only mode: no native line anywhere (one version for every country); locale lines may be omitted
 NATL = (lambda k: '') if EN_ONLY else (lambda k: LOC['lines'][k])
 VIRAL = os.environ.get('VIRAL', '1' if EN_ONLY else '0') == '1'   # viral mode (docs/CINE-SCENE-STANDARD.md §7): requested by default in English-only; a lesson opts in by defining VIRAL_HOOK inside `if VIRAL:`
-KAR = ('Karaoke', 'Cap'); PUNCH = {}; SFX = []; KEYWORDS = set(); CAP_FS = 72; VHOOK_DUR = 1.2; CUR_FS = None
+KAR = ('Karaoke', 'Cap'); PUNCH = {}; SFX = []; KEYWORDS = set(); CAP_FS = globals().get('CAP_FS', 80); CAP_MIN_GLYPH = 64; CUR_GLYPH = None; VHOOK_DUR = 1.2; CUR_FS = None
 if RTL:
     import arabic_reshaper; from bidi import get_display
 import re
@@ -138,10 +138,11 @@ def face(dr, cx, cy, r, kind):   # simple drawn icons (no emoji font needed): an
         dr.arc([cx - r * 0.5, cy - r * 0.1, cx + r * 0.5, cy + r * 0.6], 20, 160, fill=(42, 43, 51, 255), width=6)
 RING_Y = dict({'ring1': 1080}, **globals().get('RING_EXTRA', {})); SHOT_ID = None
 def png(style, txt, k, sub=None):
-    global CUR_FS
-    im = Image.new('RGBA', (1080, 1920), (0, 0, 0, 0)); dr = ImageDraw.Draw(im); box = None; CUR_FS = None
+    global CUR_FS, CUR_GLYPH
+    im = Image.new('RGBA', (1080, 1920), (0, 0, 0, 0)); dr = ImageDraw.Draw(im); box = None; CUR_FS = None; CUR_GLYPH = None
     if style == 'Cap':   # viral CapCut-style caption: ONE line ~72 px, 2-4 word pages of the verbatim line, active word gold, spec keywords green
-        en = txt.split('||')[0]; fe = ImageFont.truetype(FONT_EN, CAP_FS); CUR_FS = CAP_FS; ws = en.split(' '); pages, cur = [], []
+        en = txt.split('||')[0]; fe = ImageFont.truetype(FONT_EN, CAP_FS); CUR_FS = CAP_FS; _hb = dr.textbbox((0, 0), 'H', font=fe, stroke_width=8); CUR_GLYPH = _hb[3] - _hb[1];   # rendered cap-glyph height incl. stroke (qa5: >= 64 px)
+        ws = en.split(' '); pages, cur = [], []
         for i, w in enumerate(ws):
             if cur and (len(cur) >= 4 or dr.textlength(' '.join(ws[j] for j in cur + [i]), font=fe) > MAXW - 40): pages.append(cur); cur = []
             cur.append(i)
@@ -173,7 +174,7 @@ def png(style, txt, k, sub=None):
             y += int(fs * 1.1)
         box[3] = y + 6
     elif style == 'Series':   # series chip, top-right ("Hotel English #3")
-        f = ImageFont.truetype(FONT_EN, max(34, globals().get('CARD_MIN_FS', 0) - 8)); ch = f.size + 24; w = dr.textlength(txt, font=f); y0 = globals().get('SERIES_Y', 240); x1 = SAFE['x1'] if globals().get('SERIES_ALIGN', 'right') == 'right' else SAFE['x0'] + w + 44
+        f = ImageFont.truetype(FONT_EN, max(36, globals().get('CARD_MIN_FS', 0) - 8)); ch = f.size + 24; w = dr.textlength(txt, font=f); y0 = globals().get('SERIES_Y', 240); x1 = SAFE['x1'] if globals().get('SERIES_ALIGN', 'right') == 'right' else SAFE['x0'] + w + 44
         dr.rounded_rectangle([x1 - w - 44, y0, x1, y0 + ch], radius=ch // 2, fill=(15, 61, 62, 230)); dr.text((x1 - w - 22, y0 + 7), txt, font=f, fill=(255, 247, 234, 255)); box = [x1 - w - 44, y0, x1, y0 + ch]
     elif style == 'Follow':   # last 0.6 s instead of the logo end card: small corner chip (bottom-right)
         a_, b_ = txt.split('|'); mf = globals().get('CARD_MIN_FS', 0); f1 = ImageFont.truetype(FONT_EN, max(36, mf - 8)); f2 = ImageFont.truetype(FONT_EN, max(42, mf)); x1 = SAFE['x1']; yb = SAFE['y1'] - 10; h2 = f2.size + 26; h1 = f1.size + 24
@@ -248,7 +249,7 @@ def png(style, txt, k, sub=None):
         w = dr.textlength(txt, font=f); dr.text((x0 + 75 - w / 2, y0 + 18), txt, font=f, fill=(15, 61, 62, 255)); box = [x0, y0, x0 + 150, y0 + 150]
     elif style == 'Recap':
         en, nat = txt.split('|'); fe = ImageFont.truetype(FONT_EN, 56); fn = fnat(42); g = shp(nat)
-        while dr.textlength(en, font=fe) + 88 > MAXW: fe = ImageFont.truetype(FONT_EN, fe.size - 2)   # auto-fit long recaps
+        while dr.textlength(en, font=fe) + 88 > MAXW and fe.size > max(46, globals().get('CARD_MIN_FS', 0)): fe = ImageFont.truetype(FONT_EN, fe.size - 2)   # never below the card minimum   # auto-fit long recaps
         w = max(dr.textlength(en, font=fe), dr.textlength(g, font=fn)) + 88; h = 168 if nat else 104; y0 = 1130; x0 = card(dr, y0, w, h, (225, 245, 232, 250))
         dr.text((CX - dr.textlength(en, font=fe) / 2, y0 + 24), en, font=fe, fill=(42, 43, 51, 255)); dr.text((CX - dr.textlength(g, font=fn) / 2, y0 + 98), g, font=fn, fill=(23, 89, 90, 255)); box = [x0, y0, x0 + w, y0 + h]
     elif style in TPL_STYLES: box = TPL_STYLES[style](im, dr, txt, sub)
@@ -319,7 +320,7 @@ for f in {fam(e) for e in ev if fam(e)}:
             ev[x][2] = ev[y][1]; FOUT.discard(x); FIN.discard(y)
 ovs = []
 for k, e in enumerate(ev):
-    SHOT_ID = e[4]; pth, box = png(e[0], e[3], k, e[6]); ovs.append((pth, e[1], e[2], e[0])); BOX.append(dict(style=e[0], text=e[3], t=[round(e[1], 3), round(e[2], 3)], shot=e[4], line=e[5], part=e[6], box=box, **({'fs': CUR_FS} if CUR_FS else {})))
+    SHOT_ID = e[4]; pth, box = png(e[0], e[3], k, e[6]); ovs.append((pth, e[1], e[2], e[0])); BOX.append(dict(style=e[0], text=e[3], t=[round(e[1], 3), round(e[2], 3)], shot=e[4], line=e[5], part=e[6], box=box, **({'fs': CUR_FS} if CUR_FS else {}), **({'glyph': CUR_GLYPH} if CUR_GLYPH else {})))
 OFF = {}
 if VIRAL or globals().get('PLACE'): exec(open(f'{CODE}/place.py').read())   # overlay placer: faces / bodies / other cards (viral lessons; old v1/v2 renders unchanged)
 if VIRAL:   # SFX: "pop" when a card appears / changes state, soft "whoosh" on cuts into or out of a non-dialogue shot
@@ -361,7 +362,7 @@ IMG = []
 for k, (pth, a, b, st) in enumerate(ovs):
     im = Image.open(pth); bb = im.getbbox() or (0, 0, 1, 1); arr = np.asarray(im.crop(bb)).astype(np.float32) / 255
     dx_, dy_ = OFF.get(k, (0, 0)); bb = (bb[0] + dx_, bb[1] + dy_, bb[2] + dx_, bb[3] + dy_)   # placer shift
-    fd = (0.125 if st in ('Sub', 'Karaoke', 'Ring', 'Gap', 'Strike') else 0.16)
+    fd = (3 / FPS if st in ('Sub', 'Karaoke', 'Cap', 'Ring', 'Gap', 'Strike') else 0.16)   # captions: fade <= 4 frames (owner 22/10: ghost caption frames after the line)
     IMG.append((bb, arr, int(round(a * FPS)), int(round(b * FPS)), fd if k in FIN else 0, fd if k in FOUT else 0))
 pl = subprocess.Popen(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-s', '1080x1920', '-r', str(FPS), '-i', '-', '-c:v', 'qtrle', LAY], stdin=subprocess.PIPE)
 for i in range(NF):
@@ -404,7 +405,7 @@ if abs(_I + 16) > 0.4:
     subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', out, '-c:v', 'copy', '-af', f'volume={-16 - _I:.2f}dB,alimiter=limit=0.84:level=0', '-c:a', 'aac', '-b:a', '160k', '-ar', '48000', '-movflags', '+faststart', out + '.tmp.mp4'], check=True); os.replace(out + '.tmp.mp4', out)
 if VIRAL:   # upload cover: frame with the big hook text
     os.makedirs(f'{OUTDIR}/covers', exist_ok=True); subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-ss', '0.5', '-i', out, '-frames:v', '1', '-q:v', '2', f'{OUTDIR}/covers/{LESSON["out"][:-4]}.jpg'], check=True)
-json.dump(dict(lesson=LESSON, safe=SAFE, viral=VIRAL, avoid=globals().get('AVOID', {}), beats=globals().get('BEATS', {}), end=END, punch=PUNCH, sfx=[[os.path.basename(a), round(b, 3)] for a, b in SFX], endcard_boxes=[[int(v) for v in b] for b in ENDBOX], total=round(TOTAL, 3), scene=round(SCENE, 3),
+json.dump(dict(lesson=LESSON, safe=SAFE, viral=VIRAL, avoid=globals().get('AVOID', {}), heads=globals().get('HEADS', {}), beats=globals().get('BEATS', {}), end=END, punch=PUNCH, sfx=[[os.path.basename(a), round(b, 3)] for a, b in SFX], endcard_boxes=[[int(v) for v in b] for b in ENDBOX], total=round(TOTAL, 3), scene=round(SCENE, 3),
                shots=[dict(id=s['id'], clip=s['clip'], t0=round(s['t0'], 3), dur=round(s['dur'], 3), frames=[s['frames'][0], s['frames'][-1]], vis=s.get('vis', s['mp4'][:-4] + '.vis.json'),
                            lines=[dict(who=w, id=l['id'], at=round(l['at'], 3), dur=round(l['dur'], 3), tempo=l['tempo']) for w, l in s['lines']], mouths=[[c, w] for c, w, _ in s['mouths']]) for s in S],
                overlays=BOX, hook_kind=globals().get('HOOK_KIND'), qa=globals().get('QA', {})), open(f'{OUT}/timeline.json', 'w'), indent=1, ensure_ascii=False)

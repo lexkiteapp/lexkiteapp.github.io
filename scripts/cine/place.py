@@ -8,6 +8,8 @@
 import glob as _g
 CLEAR = int(globals().get('PLACE_CLEAR', 24)); _x0, _y0, _w0, _h0 = L.WM_CROP; _sc = 1080 / _w0
 _FM = {}
+def HEAD(b):   # face box -> head box (hair above, ears at the side, chin below) + 15 % margin; same model in qa5
+    w, h = b[2] - b[0], b[3] - b[1]; return [b[0] - 0.30 * w, b[1] - 0.60 * h, b[2] + 0.30 * w, b[3] + 0.25 * h]
 def _facemeta(clip):
     if clip not in _FM:
         out = []
@@ -24,9 +26,10 @@ def _rects(s, t, body=False):
             bx = [(P[:, 0].min() - _x0) * _sc, (P[:, 1].min() - _y0) * _sc, (P[:, 0].max() - _x0) * _sc, (P[:, 1].max() - _y0) * _sc]
             if s['id'] in PUNCH:
                 u = min(1, max(0, (t - s['t0'] - PUNCH[s['id']]) / 0.4)); z = 1 + 0.08 * (1 - (1 - u) ** 2); bx = [540 + (bx[0] - 540) * z, 960 + (bx[1] - 960) * z, 540 + (bx[2] - 540) * z, 960 + (bx[3] - 960) * z]
-            out.append(bx)
-            if body:   # head (hair) + torso widening below the chin
-                w, h = bx[2] - bx[0], bx[3] - bx[1]; out.append([bx[0] - 0.08 * w, bx[1] - 0.15 * h, bx[2] + 0.08 * w, bx[3]]); out.append([bx[0] - 0.5 * w, bx[3] - 0.1 * h, bx[2] + 0.5 * w, 1920])
+            out.append(HEAD(bx))   # full head: face + hair + 15 % margin (owner 22/10: cards sat on hair)
+            if body:   # torso widening below the chin
+                w, h = bx[2] - bx[0], bx[3] - bx[1]; out.append([bx[0] - 0.5 * w, bx[3] - 0.1 * h, bx[2] + 0.5 * w, 1920])
+    out += [list(a) for a in globals().get('HEADS', {}).get(s['clip'], [])]   # heads without a face track (OTS foreground back-of-head, news hosts): per-clip rects
     if body: out += [list(a) for a in globals().get('AVOID', {}).get(s['clip'], [])]
     return out
 def _gkey(e):

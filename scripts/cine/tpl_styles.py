@@ -1,7 +1,7 @@
 # Overlay styles for the 5 template lessons (spec: content/video/cine/templates.md). exec'd inside lesson5.py (uses its globals).
 # Each fn(im, dr, txt, sub) draws on the 1080x1920 RGBA layer and returns the bbox [x0, y0, x1, y1].
 MF = lambda n: max(n, globals().get('CARD_MIN_FS', 0))   # auto lessons: CARD_MIN_FS = 52 (owner 22/10: cards too small on phones)
-TPL_CAP_FS = globals().get('TPL_CAP_FS', 66 if VIRAL else 52)   # Gap/Strike caption size (viral: bigger, CapCut-like)
+TPL_CAP_FS = globals().get('TPL_CAP_FS', 72 if VIRAL else 52)   # Gap/Strike caption size (viral: bigger, CapCut-like)
 INK = (42, 43, 51, 255); CREAM = (255, 247, 234, 248); GOLD = (255, 201, 74, 255); WHITE = (255, 255, 255, 255); STROKE = (20, 24, 32, 255)
 def _tick(dr, cx, cy, r, col, w=8): dr.line([cx - r, cy, cx - r * 0.3, cy + r * 0.7, cx + r, cy - r * 0.7], fill=col, width=w, joint='curve')
 def _sub_layout(dr, en, nat, fe, fn, extra=0):
@@ -52,10 +52,10 @@ def st_gap(im, dr, txt, sub):
     return [int(box[0] - 7), int(box[1]), int(box[2] + 7), int(box[3])]
 LADDER_LABELS = (('POLITE', (15, 61, 62, 255)), ('NEUTRAL', (90, 96, 110, 255)), ('CASUAL', (229, 80, 47, 255)))
 def st_ladder(im, dr, txt, sub):
-    ss = txt.split('|'); y0 = globals().get('LADDER_Y', 980); fl = ImageFont.truetype(FONT_EN, 30 if not MF(0) else 36); fs = ImageFont.truetype(FONT_EN, MF(42)); x0 = SAFE['x0']; y = y0; LW = 150 if not MF(0) else 186; LH = fs.size + 10
+    ss = txt.split('|'); y0 = globals().get('LADDER_Y', 980); fl = ImageFont.truetype(FONT_EN, 30 if not MF(0) else 40); fs = ImageFont.truetype(FONT_EN, MF(42)); x0 = SAFE['x0']; y = y0; LW = 150 if not MF(0) else int(max(dr.textlength(l, font=fl) for l, _ in LADDER_LABELS) + 36); LH = fs.size + 10
     rh = globals().get('LADDER_ROW', 132); gp = 16 if rh >= 132 else 10   # auto lessons: compact rows (112) so 3 steps fit under an MCU face with 24 px clearance
     for j in range(int(sub or 1)):
-        ls = wrapw(dr, ss[j], fs, MAXW - LW - 70); assert len(ls) <= 2, ss[j]; rj = max(rh, LH * len(ls) + 30)   # row grows for a 2-line step (big text)
+        ls = wrapw(dr, ss[j], fs, MAXW - LW - 70); assert len(ls) <= (3 if MF(0) else 2), ss[j]   # big cards: stack fewer words per line instead of shrinking; rj = max(rh, LH * len(ls) + 30)   # row grows for a 2-line step (big text)
         dr.rounded_rectangle([x0, y, x0 + MAXW, y + rj], radius=26, fill=CREAM, outline=INK, width=4)
         lab, col = LADDER_LABELS[j]; dr.rounded_rectangle([x0 + 14, y + 14, x0 + 14 + LW, y + rj - 14], radius=20, fill=col)
         dr.text((x0 + 14 + LW / 2 - dr.textlength(lab, font=fl) / 2, y + rj / 2 - fl.size * 0.6), lab, font=fl, fill=WHITE)
