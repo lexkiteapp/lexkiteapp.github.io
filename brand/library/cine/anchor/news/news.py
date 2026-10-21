@@ -78,7 +78,7 @@ def card_fix(bad, good, y0=250, show_good=True):
     tw = d.textlength(bad, font=f); d.line([(x0 + 136, y0 + 86), (x0 + 144 + tw, y0 + 86)], fill=(214, 48, 49), width=8)
     if show_good: mark(d, x0 + 78, y0 + 215, 40, True); d.text((x0 + 140, y0 + 215), good, font=f, fill=INK, anchor='lm')
     return shadowed(im), (x0, y0, x0 + w, y0 + h)
-CARD_Y = 1030
+CARD_Y = 1050
 def card_phrase(num, pattern, note, bad=None, good=None, why=None, y0=CARD_Y):
     im = layer(); d = ImageDraw.Draw(im); w = 960; x0 = (W - w) // 2; h = 272 if bad else 158
     d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 28, fill=(255, 255, 255, 248), outline=INK + (255,), width=4)
@@ -106,13 +106,13 @@ def card_one(kind, text, sub=None, num=None, y0=CARD_Y):
     if sub: d.text((tx, cy + 64), sub, font=font(FB, 40), fill=TEAL2, anchor='lm')
     return shadowed(im), (x0, y0, x0 + w, y0 + h)
 def card_recap(title, rows, y0=CARD_Y):
-    im = layer(); d = ImageDraw.Draw(im); w = 960; x0 = (W - w) // 2; rh = 48; h = 70 + rh * len(rows) + 10
+    im = layer(); d = ImageDraw.Draw(im); w = 960; x0 = (W - w) // 2; rh = 42; h = 66 + rh * len(rows) + 8
     d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 30, fill=(255, 255, 255, 250), outline=INK + (255,), width=5)
     d.rounded_rectangle([x0, y0, x0 + w, y0 + 62], 30, fill=TEAL + (255,)); d.rectangle([x0, y0 + 34, x0 + w, y0 + 62], fill=TEAL + (255,))
     d.text((W // 2, y0 + 31), title, font=font(FH, 38), fill=(255, 255, 255), anchor='mm')
     f = fit(d, max(rows, key=len), FB, 40, w - 150)[0]
     for i, r in enumerate(rows):
-        cy = y0 + 70 + i * rh + rh // 2; d.ellipse([x0 + 30, cy - 20, x0 + 70, cy + 20], fill=ORANGE + (255,)); d.text((x0 + 50, cy), str(i + 1), font=font(FH, 28), fill='white', anchor='mm')
+        cy = y0 + 66 + i * rh + rh // 2; d.ellipse([x0 + 30, cy - 20, x0 + 70, cy + 20], fill=ORANGE + (255,)); d.text((x0 + 50, cy), str(i + 1), font=font(FH, 28), fill='white', anchor='mm')
         d.text((x0 + 112, cy), r, font=f, fill=INK, anchor='lm')
     return shadowed(im), (x0, y0, x0 + w, y0 + h)
 def hook_card(txt, sub, y0=CARD_Y):
@@ -120,8 +120,7 @@ def hook_card(txt, sub, y0=CARD_Y):
     tw = d.textlength(txt, font=f); bx = (W - tw) / 2 - 36
     d.rounded_rectangle([bx, y0, bx + tw + 72, y0 + fs + 52], 26, fill=ORANGE + (255,))
     d.text((W // 2, y0 + 22), txt, font=f, fill='white', anchor='ma')
-    sf = font(FB, 46); d.text((W // 2, y0 + fs + 82), sub, font=sf, fill='white', anchor='ma', stroke_width=7, stroke_fill=INK)
-    return shadowed(im), (int(bx), y0, int(bx + tw + 72), y0 + fs + 82 + 60), fs
+    return shadowed(im), (int(bx), y0, int(bx + tw + 72), y0 + fs + 52), fs   # v4: one line only (layout zone)
 def series_bar(top, sub, y0=1410, prog=1.0):
     """US-broadcast lower third: orange tag block + dark-teal strip with white title, thin yellow rule; slides in from the left."""
     im = layer(); d = ImageDraw.Draw(im); x0 = 60; tf = font(FH, 44); sf = font(FB, 38)
