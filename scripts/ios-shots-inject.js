@@ -4,6 +4,18 @@
 //   hl=xx  → nạp lại app với ?sandbox=1&demo=1&hl=xx (dữ liệu mẫu tách riêng, giống ảnh Google Play)
 //   flip=1 → lật thẻ ôn (#flipBtn) để hiện các nút chấm FSRS
 (function () {
+  // Ảnh App Store không được dính hộp "Would Like to Send You Notifications" của iOS (simctl không cấp sẵn quyền thông báo):
+  // bản chụp ảnh thay plugin LocalNotifications bằng bản giả "đã từ chối" → app không xin quyền khi xong bước thiết lập.
+  function muteLN() {
+    try {
+      var P = window.Capacitor && window.Capacitor.Plugins; if (!P || !P.LocalNotifications || P.LocalNotifications.__muted) return;
+      var ok = function (v) { return function () { return Promise.resolve(v); }; };
+      var fake = { __muted: true, checkPermissions: ok({ display: 'denied' }), requestPermissions: ok({ display: 'denied' }), cancel: ok(), schedule: ok(), getPending: ok({ notifications: [] }), addListener: ok({ remove: function () {} }) };
+      try { P.LocalNotifications = fake; } catch (e) { /* chỉ đọc */ }
+      if (!P.LocalNotifications.__muted) Object.defineProperty(P, 'LocalNotifications', { value: fake, configurable: true });
+    } catch (e) { /* không có Capacitor */ }
+  }
+  muteLN(); document.addEventListener('DOMContentLoaded', muteLN);
   var HIDE = '#toast,.install-nudge,#installBtn,.lk-rep,#lkRep{display:none!important}';
   document.addEventListener('DOMContentLoaded', function () {
     var s = document.createElement('style'); s.textContent = HIDE; document.head.appendChild(s);
