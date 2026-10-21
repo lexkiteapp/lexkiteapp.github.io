@@ -1,6 +1,7 @@
 # QA for news-anchor shorts (copy of tools/qa5.py): run from anchor/news: qa_news.py render_<lesson>
 # changes: host transform per shot (xf = scale, src cx, cy -> ox, oy), meta in ../tools, template 'news' (20-28 s, recap replaces the 0.85x repeat, loop ends on hook frame 0)
 import json, sys, re, subprocess, glob, os, numpy as np
+HOST_TOP = {'gc_': 200, 'ga2': 292, 'gc': 200}   # source px from eye line to hair top (kmask frame 0): Carlos gc_*, standing Ama ga2_*
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import lipsync as L   # run from NEWS_DIR: qa_news.py render5_<id>_en
 RD = sys.argv[1]; tl = json.load(open(f'{RD}/timeline.json')); TP = tl.get('qa', {}).get('template'); V = os.environ.get('CINE_OUT', os.getcwd() + '/out') + '/' + tl['lesson']['out']
 TEXT = {l['id']: l['text'] for l in json.load(open('ci/lines.json'))['lines']}; FPS = 24
@@ -203,7 +204,7 @@ if TP == 'news':
     rule(sh_[0]['angle'] == 'two' and any(x['angle'] == 'two' for x in sh_[3:-1]), 'two-shot opens and re-establishes')
     mid = [(x['id'], round(w0, 2)) for i, x in enumerate(sh_[:-1]) for ln in x['lines'] for w0, w1, _ in ln['words'] if w0 < sh_[i + 1]['t0'] - 1e-3 < w1 - 0.02]
     rule(not mid, f'no cut inside a word of the outgoing speaker {mid or ""}')
-    fh = [v for x in sh_ for v in x['faceh'].values()]; rule(max(fh) / min(fh) <= 1.10 + 1e-6 and all(max(x['faceh'].values()) / min(x['faceh'].values()) <= 1.05 for x in sh_), f'face height equal between hosts within 5 % per shot, all shots {min(fh)}-{max(fh)} px')
+    fh = [v for x in sh_ if not x.get('other') for v in x['faceh'].values()]; rule(max(fh) / min(fh) <= 1.10 + 1e-6 and all(max(x['faceh'].values()) / min(x['faceh'].values()) <= 1.05 for x in sh_), f'face height equal between hosts within 5 % per shot, singles {min(fh)}-{max(fh)} px')
     rule(all(v <= x.get('lowlim', {}).get(w, {'ama': 1660, 'carlos': 1560}[w]) for x in sh_ for w, v in x['lowsrc'].items()), 'no seat / lap in frame (bottom edge cuts the upper body)')
     OVL = [o for o in tl['overlays']]; gap_ = []
     for i_, a_ in enumerate(OVL):
@@ -212,6 +213,10 @@ if TP == 'news':
             A_, B_ = a_['box'], b_['box']
             if min(A_[2], B_[2]) + 24 > max(A_[0], B_[0]) and min(A_[3], B_[3]) + 24 > max(A_[1], B_[1]): gap_.append((a_['style'], b_['style']))
     rule(not gap_, f'no two on-screen elements closer than 24 px (captions, cards, lower third, ring, hook) {sorted(set(gap_)) or ""}')
+    tw_ = [x for x in tl['shots'] if x.get('other')]; hh_ = [v / 1920 for x in tw_ for v in x.get('faceh', {}).values()]
+    rule(bool(hh_) and all(0.125 <= v <= 0.155 for v in hh_) and all(abs(v - hh_[0]) < 0.01 for v in hh_), f'two-shot = medium-wide: face height {min(hh_ or [0]):.3f}-{max(hh_ or [0]):.3f} of frame (0.125-0.155), equal for both hosts')
+    qc_ = json.load(open(f'{RD}/qc.json')); rule(qc_.get('two_gap_min', -1) >= 16, f"two-shot: visible gap between the hosts (min {qc_.get('two_gap_min', -1)} px >= 16)")
+    rule(all(min(v[4] - (HOST_TOP.get(c[:3], 200) * v[0]) for c, v in x['xfs'].items()) >= 0.08 * 1920 for x in tw_), 'two-shot headroom >= 8 %')
     qc = json.load(open(f'{RD}/qc.json')); rule(qc['bottom_min'] > 0.9, f"host body continues below the frame bottom on every frame (min alpha {qc['bottom_min']:.2f})")
     rule(qc['fringe_max'] <= 0.025, f"edge green fringe max {qc['fringe_max']:.3f} (<= 0.025), edge flicker mean {qc['flicker_mean']:.3f}")
     errs, xerr = [], []
