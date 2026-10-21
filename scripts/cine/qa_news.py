@@ -204,7 +204,7 @@ if TP == 'news':
     mid = [(x['id'], round(w0, 2)) for i, x in enumerate(sh_[:-1]) for ln in x['lines'] for w0, w1, _ in ln['words'] if w0 < sh_[i + 1]['t0'] - 1e-3 < w1 - 0.02]
     rule(not mid, f'no cut inside a word of the outgoing speaker {mid or ""}')
     fh = [v for x in sh_ for v in x['faceh'].values()]; rule(max(fh) / min(fh) <= 1.10 + 1e-6 and all(max(x['faceh'].values()) / min(x['faceh'].values()) <= 1.05 for x in sh_), f'face height equal between hosts within 5 % per shot, all shots {min(fh)}-{max(fh)} px')
-    rule(all(v <= {'ama': 1660, 'carlos': 1560}[w] for x in sh_ for w, v in x['lowsrc'].items()), 'no seat / lap in frame (bottom edge cuts the upper body)')
+    rule(all(v <= x.get('lowlim', {}).get(w, {'ama': 1660, 'carlos': 1560}[w]) for x in sh_ for w, v in x['lowsrc'].items()), 'no seat / lap in frame (bottom edge cuts the upper body)')
     OVL = [o for o in tl['overlays']]; gap_ = []
     for i_, a_ in enumerate(OVL):
         for b_ in OVL[i_ + 1:]:

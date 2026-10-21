@@ -253,7 +253,7 @@ jobs:
           cache-dependency-path: scripts/cine/requirements.txt
       - name: Cài thư viện + ffmpeg
         run: |
-          pip install -q -r scripts/cine/requirements.txt scipy==1.14.1 faster-whisper==1.0.3
+          pip install -q -r scripts/cine/requirements.txt scipy==1.14.1 faster-whisper==1.0.3 requests==2.32.3
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
       - name: Lấy footage news (anchor/green + anchor/bg + meta, sparse)
         env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }

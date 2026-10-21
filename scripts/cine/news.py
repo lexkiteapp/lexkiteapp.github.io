@@ -213,7 +213,11 @@ def host_frames(s, clip, who, lines, raw):
 HAIR = {}
 SIDE = {('ama', 'mcu'): 500, ('ama', 'wide'): 490, ('carlos', 'mcu'): 580, ('carlos', 'wide'): 590, ('ama', 'two'): 290, ('carlos', 'two'): 830}   # 180-degree rule: Ama screen-left, Carlos screen-right
 FRAME.update({('ama', 'two'): (1.22, 660), ('carlos', 'two'): (1.65, 660)})
-FACEH = {'ama': 370, 'carlos': 274}; SEAT = {'ama': 1660, 'carlos': 1560}   # source face height (brow-chin); lowest source row allowed in frame (above lap / seat)
+FACEH = {'ama': 370, 'carlos': 274}; SEAT = {'ama': 1660, 'carlos': 1560}
+# standing Ama (green/README-standing.md, ga2_*): head 1.31x Carlos in source -> layer x0.765 of Carlos's scale = equal head size, eye line ~ Carlos; no seat
+HOST['ama_s'] = dict(eye=(530, 680)); FACEH['ama_s'] = 358; SEAT['ama_s'] = 1916
+for _f in ('mcu', 'wide', 'two'): FRAME[('ama_s', _f)] = (round(FRAME[('carlos', _f)][0] * 0.765, 4), FRAME[('carlos', _f)][1]); SIDE[('ama_s', _f)] = SIDE[('ama', _f)]
+GK = lambda clip, who: 'ama_s' if clip.startswith('ga2') else who   # source face height (brow-chin); lowest source row allowed in frame (above lap / seat)
 def place(sid, who, frame, top):
     sc, ey = FRAME[(who, frame)]; ex, sy = HOST[who]['eye']; low = sy + (1920 - ey) / sc
     assert low <= SEAT[who] and low < 1900, ('seat/lap would be visible or body ends in frame', sid, who, low)
@@ -299,7 +303,7 @@ for s in S:
     if s['other']: HS[0] = HS[0][:4] + ('two',)
     R_ = []; logs = []; s['xfs'] = {}; s['mouths'] = []
     for clip, who, lines, raw, frame in HS:
-        fr, al, log, top = host_frames(s, clip, who, lines, raw); xf = place(s['id'], who, frame, top); s['xfs'][clip] = list(xf); s.setdefault('faceh', {})[who] = round(FACEH[who] * xf[0]); s.setdefault('lowsrc', {})[who] = round(xf[2] + (1920 - xf[4]) / xf[0]); _fb = json.load(open(f'{TL}/meta/{clip}/{who}/mouth.json'))['face_box'] if not raw else ([380, 170, 850, 850] if who == 'ama' else [395, 480, 720, 865]); s.setdefault('faceboxes', []).append([(_fb[0] - xf[1]) * xf[0] + xf[3], (_fb[1] - xf[2]) * xf[0] + xf[4], (_fb[2] - xf[1]) * xf[0] + xf[3], (_fb[3] - xf[2]) * xf[0] + xf[4]]); R_.append((fr, al, xf, who)); logs.append(log)
+        fr, al, log, top = host_frames(s, clip, who, lines, raw); gk = GK(clip, who); xf = place(s['id'], gk, frame, top); s['xfs'][clip] = list(xf); s.setdefault('faceh', {})[who] = round(FACEH[gk] * xf[0]); s.setdefault('lowsrc', {})[who] = round(xf[2] + (1920 - xf[4]) / xf[0]); s.setdefault('lowlim', {})[who] = SEAT[gk]; _fb = json.load(open(f'{TL}/meta/{clip}/{who}/mouth.json'))['face_box'] if not raw else ([380, 170, 850, 850] if who == 'ama' else [395, 480, 720, 865]); s.setdefault('faceboxes', []).append([(_fb[0] - xf[1]) * xf[0] + xf[3], (_fb[1] - xf[2]) * xf[0] + xf[4], (_fb[2] - xf[1]) * xf[0] + xf[3], (_fb[3] - xf[2]) * xf[0] + xf[4]]); R_.append((fr, al, xf, who)); logs.append(log)
         if not raw: s['mouths'].append([clip, who])
     k_ = 0; merged = [dict() for _ in range(s['n'])]
     for (clip, who, lines, raw, frame), log in zip(HS, logs):
