@@ -358,13 +358,17 @@ for s in S:
         enc.stdin.write(out.tobytes()); fi += 1
 enc.stdin.close(); enc.wait()
 # ------------------------------------------------------------------ audio: line wavs + studio room tone + sfx -> -16 LUFS
-FD = f'{TL}/foley/'; ins = ['-i', FD + 'tone0.wav', '-stream_loop', '-1', '-i', AMB]; fl = ['[1]adelay=0|0[a0]', f'[2]volume={AMB_DB}dB,atrim=0:{TOTAL:.3f}[a1]']; k = 2
+# owner 22/10 "tiếng ồn lớn quá": the VOICE stem alone is normalised to -16 LUFS (digital silence in pauses stays silent), then the quiet bed
+# (room tone AMB_DB, default -40 dB) and SFX (-8 dB vs v3) are mixed in AFTER normalisation, so loudnorm never lifts the bed in the pauses
+FD = f'{TL}/foley/'; ins = ['-i', FD + 'tone0.wav', '-stream_loop', '-1', '-i', AMB]; vl = []; fl = []; k = 2
 for s in S:
     for ln in s['lines']:
-        ms = int(round((s['t0'] + ln['at']) * 1000)); ins += ['-i', f'{N}/vis3/{ln["id"]}.wav']; fl.append(f'[{k + 1}]highpass=f=80,equalizer=f=300:t=q:w=1:g=-2,equalizer=f=3200:t=q:w=1.2:g=2,' + (f'atempo={ln["tempo"]},' if ln['tempo'] != 1 else '') + f'adelay={ms}|{ms}[a{k}]'); k += 1
+        ms = int(round((s['t0'] + ln['at']) * 1000)); ins += ['-i', f'{N}/vis3/{ln["id"]}.wav']; fl.append(f'[{k + 1}]highpass=f=80,equalizer=f=300:t=q:w=1:g=-2,equalizer=f=3200:t=q:w=1.2:g=2,' + (f'atempo={ln["tempo"]},' if ln['tempo'] != 1 else '') + f'adelay={ms}|{ms}[v{k}]'); vl.append(f'[v{k}]'); k += 1
+fl.append(f'[1]adelay=0|0[s0]'); fl.append(''.join(vl) + f'[s0]amix=inputs={len(vl) + 1}:normalize=0:duration=longest,apad=whole_dur={TOTAL:.3f},atrim=0:{TOTAL:.3f},loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000[voice]')
+bl = ['[voice]', '[b1]']; fl.append(f'[2]volume={AMB_DB}dB,atrim=0:{TOTAL:.3f},aresample=48000[b1]')
 for f_, t_ in SFX:
-    ms = int(round(max(0, t_) * 1000)); ins += ['-i', FD + f_]; fl.append(f'[{k + 1}]volume={-14 if f_ == "pop.wav" else -17}dB,adelay={ms}|{ms}[a{k}]'); k += 1
-fl.append(''.join(f'[a{i}]' for i in range(k)) + f'amix=inputs={k}:normalize=0:duration=longest,atrim=0:{TOTAL:.3f},loudnorm=I=-16:TP=-1.5:LRA=11,alimiter=limit=0.89:level=0,aresample=48000[out]')
+    ms = int(round(max(0, t_) * 1000)); ins += ['-i', FD + f_]; fl.append(f'[{k + 1}]volume={-22 if f_ == "pop.wav" else -25}dB,adelay={ms}|{ms},aresample=48000[x{k}]'); bl.append(f'[x{k}]'); k += 1
+fl.append(''.join(bl) + f'amix=inputs={len(bl)}:normalize=0:duration=first,atrim=0:{TOTAL:.3f},alimiter=limit=0.89:level=0[out]')
 os.makedirs(f'{OUTD}/covers', exist_ok=True); OUTF = f'{OUTD}/{META["out"]}'
 subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-threads', '2', '-i', f'{RD}/video.mp4'] + ins + ['-filter_complex', ';'.join(fl), '-map', '0:v', '-map', '[out]',
                 '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ac', '2', '-t', f'{TOTAL:.3f}', OUTF], check=True)

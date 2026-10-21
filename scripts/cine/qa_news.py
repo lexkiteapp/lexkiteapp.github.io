@@ -248,6 +248,14 @@ db = np.array([20 * np.log10(np.sqrt((x[i:i + w] ** 2).mean() + 1e-12)) for i in
 first = np.argmax(db > -45) * 0.01; tail = db[int((tl['scene'] - 0.3) * 100):]; loud = [(i, round(tail[i + 1], 1)) for i in range(len(tail) - 1) if tail[i + 1] - tail[i] > 6 and tail[i + 1] > -35]
 print(f'  first sound above -45 dBFS at {first:.2f} s;  end card: peak {tail.max():.0f} dBFS, loud transients {loud or "none"}', 'OK' if not loud and first < 0.3 else 'FAIL')
 if loud or first >= 0.3: fails.append('audio')
+# owner 22/10: noise floor in speech pauses (>= 0.3 s gaps between lines, 0.1 s margins, SFX +-0.7 s excluded) <= -50 dBFS
+sp_ = sorted((a_, b_) for a_, b_, *_ in speech); sfx_t = [t_ for f_, t_ in tl.get('sfx', [])]; pz = []
+for (a0, b0), (a1, b1) in zip([(0, 0)] + sp_, sp_ + [(tl['scene'] - 1.0, 0)]):
+    for t_ in np.arange(b0 + 0.1, a1 - 0.1, 0.01):
+        if a1 - b0 >= 0.3 and all(abs(t_ - x_) > 0.7 for x_ in sfx_t) and int(t_ * 100) < len(db): pz.append(db[int(t_ * 100)])
+nf_ = float(np.percentile(pz, 90)) if pz else -99
+print(f'  noise floor in speech pauses (90th pct of {len(pz)} x 10 ms) {nf_:.1f} dBFS (<= -50)', 'OK' if nf_ <= -50 else 'FAIL')
+if nf_ > -50: fails.append('noise')
 print('  total %.2f s' % tl['total'], 'OK' if tl['total'] <= 40 else 'FAIL')
 if tl['total'] > 40: fails.append('total>40s')   # was printed only, never counted
 print('== RESULT:', 'ALL PASS' if not fails else f'{len(fails)} FAIL(s): {fails}')
