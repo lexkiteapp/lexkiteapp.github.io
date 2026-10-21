@@ -7,8 +7,9 @@ LADDER_Y = 1072
 CAPSTYLE = {'polite': (None, None), 'neutral': (None, None), 'casual': (None, None)}
 META = {'id': 'auto-airport-ladder-8e0d40', 'cefr': 'A2', 'goal_en': 'Polite, neutral, casual', 'pattern': 'Could I possibly have ___?', 'area': 'phrases'}
 if not VIRAL: raise SystemExit("auto lessons are English-only viral (VIRAL=1)")
-VIRAL_HOOK = '3 ways. Which are *YOU?*|?'; SERIES = 'Airport English #3'; KEYWORDS.update([])
+VIRAL_HOOK = '3 ways to *ask*|?'; SERIES = 'Airport English #3'; KEYWORDS.update([])
 vhook(VIRAL_HOOK)
+prop(pad=True)
 talk('polite', MCU, 'ama', 'ga_53c46ea2', ov=[('Ladder', 0.0, None, LAD, 1)])
 talk('neutral', MCU, 'ama', 'ga_3826e6b4', ov=[('Ladder', 0.0, None, LAD, 2)])
 talk('casual', MCU, 'ama', 'ga_ced6224d', ov=[('Ladder', 0.0, None, LAD, 3)])
@@ -17,4 +18,5 @@ hold('ring', BREACT, 1.5, ov=[('Ladder', 0.0, None, LAD, 3), ('Ring', 0.0, 3.0, 
 hold('ring_b', B2, 1.5, ov=[('Ladder', 0.0, None, LAD, 3)])
 talk('slow', MCU, 'ama', 'ga_53c46ea2', tempo=0.85)
 PUNCH['slow'] = 0.0
+hold('react2', BREACT, 1.2, pad=True)
 vend('Could I possibly have a window seat?')

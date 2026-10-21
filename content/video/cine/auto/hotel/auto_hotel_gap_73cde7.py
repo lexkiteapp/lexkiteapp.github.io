@@ -3,18 +3,21 @@ exec(open(f'{D}/lessons/_auto_hotel.py').read())
 HOOK_KIND = 'question'
 GAP_WORD = 'towel'
 QA = dict(template='gap', gap_line='gh_20c439f8_gap')
-CAPSTYLE = {'gap': ('Gap', 0), 'full': ('Gap', 1)}
-RING_EXTRA['ring'] = 830
+GAPT = TEXT['gh_20c439f8'] + '||'
+CAPSTYLE = {'gap': (None, None), 'full': (None, None), 'slow': ('Karaoke', 5)}
 META = {'id': 'auto-hotel-gap-73cde7', 'cefr': 'A1', 'goal_en': 'Key word: towel', 'pattern': 'Could I have an extra ___?', 'area': 'vocab-review'}
 if not VIRAL: raise SystemExit("auto lessons are English-only viral (VIRAL=1)")
 VIRAL_HOOK = 'ONE word is *missing*|?'; SERIES = 'Hotel English #10'; KEYWORDS.update(['towel'])
 vhook(VIRAL_HOOK)
-prop()
-talk('gap', MCU, 'ama', 'gh_20c439f8_gap', tempo=1.0)
-hold('ring', BREACT, 1.5, ov=[('Ring', 0.0, 3.0, 'Say the missing word!|')])
-hold('ring_b', B2, 1.5)
-talk('full', MCU, 'ama', 'gh_20c439f8')
-talk('reply', B1, BW, 'gh_011de6f8')
+prop(pad=True)
+hold('setup', MCU, 1.6, ov=[('Gap', 0.0, None, GAPT, 0)])
+talk('gap', MCU, 'ama', 'gh_20c439f8_gap', tempo=1.0, ov=[('Gap', 0.0, None, GAPT, 0)])
+hold('ring', BREACT, 1.5, ov=[('Gap', 0.0, None, GAPT, 0), ('Ring', 0.0, 3.0, 'Say the missing word!|')])
+hold('ring_b', B2, 1.5, ov=[('Gap', 0.0, None, GAPT, 0)])
+hold('reveal', BREACT, 1.0, ov=[('Gap', 0.0, None, GAPT, 1)])
+talk('full', MCU, 'ama', 'gh_20c439f8', ov=[('Gap', 0.0, None, GAPT, 1)])
+talk('reply', B1, BW, 'gh_011de6f8', opt=True)
 talk('slow', MCU, 'ama', 'gh_20c439f8', tempo=0.85)
 PUNCH['slow'] = 0.0
+hold('react2', BREACT, 1.2, pad=True)
 vend('Could I have an extra towel?')

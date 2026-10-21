@@ -7,14 +7,16 @@ CAPSTYLE = {'listen': (None, None), 'replay': ('Karaoke', 6), 'slow': ('Karaoke'
 RING_EXTRA['ring'] = 600
 META = {'id': 'auto-cafe-choose-3df65a', 'cefr': 'A2', 'goal_en': 'Listening: price', 'pattern': 'How much is the latte?', 'area': 'listening'}
 if not VIRAL: raise SystemExit("auto lessons are English-only viral (VIRAL=1)")
-VIRAL_HOOK = 'ONE listen. Catch the *price?*|?'; SERIES = 'Café English #2'; KEYWORDS.update(['fifty'])
+VIRAL_HOOK = 'Catch the *price?*|?'; SERIES = 'Café English #2'; KEYWORDS.update(['fifty'])
 vhook(VIRAL_HOOK)
+prop(pad=True)
 hold('setup', B1, 1.6, ov=[('Choice', 0.0, None, Q, 0)])
 talk('listen', B1, BW, 'gc_ed03b365', ov=[('Choice', 0.0, None, Q, 0)])
 hold('ring', BREACT, 1.5, ov=[('Choice', 0.0, None, Q, 0), ('Ring', 0.0, 3.0, 'Comment A, B or C 👇|')])
 hold('ring_b', B2, 1.5, ov=[('Choice', 0.0, None, Q, 0)])
 hold('reveal', BREACT, 2.0, ov=[('Choice', 0.0, None, Q, 1)])
-talk('replay', B2, BW, 'gc_ed03b365')
+talk('replay', B2, BW, 'gc_ed03b365', opt=True)
 talk('slow', B1, BW, 'gc_ed03b365', tempo=0.85)
 PUNCH['slow'] = 0.0
+hold('react2', BREACT, 1.2, pad=True)
 vend('The latte is four fifty.')

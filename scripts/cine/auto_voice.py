@@ -41,3 +41,10 @@ for l in gaps:
     print(f'gap {l["id"]}: word "{g["word"]}" onset est {d:.3f} -> cue {c0:.3f}, cut end {c1:.3f}')
     subprocess.run([sys.executable, f'{ROOT}/scripts/cine/mkgap.py', g['src'], l['id'], g['word'], f'{c0:.3f}', f'{c1:.3f}', '0.6'], check=True, env=dict(os.environ, CINE_SCENE_DIR=SD))
     for x in ('wav', 'json'): shutil.copy(f'{VIS}/{l["id"]}.{x}', OUTV)
+# 5. mouth-swap residual profile of every role clip (cached in content/video/cine/auto/<scene>/residual.json; the adapter keeps clean frame ranges)
+import re
+clips = sorted(set(re.findall(r"^[A-Z0-9]+ = '([a-z0-9_]+)'$", open(f'{A}/_auto_{SC}.py').read(), re.M)))
+cache = f'{A}/residual.json'
+if os.path.exists(cache): shutil.copy(cache, f'{SD}/residual.json')
+subprocess.run([sys.executable, f'{ROOT}/scripts/cine/residual.py', SD, f'{SD}/residual.json', *clips], check=True)
+os.makedirs(f'{ROOT}/out/qa', exist_ok=True); shutil.copy(f'{SD}/residual.json', f'{ROOT}/out/qa/residual_{SC}.json')

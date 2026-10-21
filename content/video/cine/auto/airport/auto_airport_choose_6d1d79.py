@@ -7,14 +7,16 @@ CAPSTYLE = {'listen': (None, None), 'replay': ('Karaoke', 5), 'slow': ('Karaoke'
 RING_EXTRA['ring'] = 720
 META = {'id': 'auto-airport-choose-6d1d79', 'cefr': 'A2', 'goal_en': 'Listening: gate', 'pattern': 'Which gate?', 'area': 'listening'}
 if not VIRAL: raise SystemExit("auto lessons are English-only viral (VIRAL=1)")
-VIRAL_HOOK = 'ONE listen. Catch the *gate?*|?'; SERIES = 'Airport English #4'; KEYWORDS.update(['fourteen'])
+VIRAL_HOOK = 'Catch the *gate?*|?'; SERIES = 'Airport English #4'; KEYWORDS.update(['fourteen'])
 vhook(VIRAL_HOOK)
+prop(pad=True)
 hold('setup', B1, 1.6, ov=[('Choice', 0.0, None, Q, 0)])
 talk('listen', B1, BW, 'ga_a81e3ebc', ov=[('Choice', 0.0, None, Q, 0)])
 hold('ring', B2, 1.5, ov=[('Choice', 0.0, None, Q, 0), ('Ring', 0.0, 3.0, 'Comment A, B or C 👇|')])
 hold('ring_b', BREACT, 1.5, ov=[('Choice', 0.0, None, Q, 0)])
 hold('reveal', BREACT, 2.0, ov=[('Choice', 0.0, None, Q, 1)])
-talk('replay', B2, BW, 'ga_a81e3ebc')
+talk('replay', B2, BW, 'ga_a81e3ebc', opt=True)
 talk('slow', B1, BW, 'ga_a81e3ebc', tempo=0.85)
 PUNCH['slow'] = 0.0
+hold('react2', BREACT, 1.2, pad=True)
 vend('Boarding is at gate fourteen.')

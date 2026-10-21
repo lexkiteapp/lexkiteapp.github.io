@@ -12,7 +12,12 @@
   },
   "vocab-review": {
    "label": "Flashcard review (SRS)",
-   "scenes": [],
+   "scenes": [
+    "airport",
+    "cafe",
+    "hotel",
+    "restaurant"
+   ],
    "generated": 2,
    "rendered": 0,
    "by_cefr": {
@@ -21,7 +26,7 @@
      "rendered": 0
     }
    },
-   "gap": null
+   "gap": 5
   },
   "grammar": {
    "label": "Grammar lessons",
@@ -32,14 +37,14 @@
     "restaurant"
    ],
    "generated": 2,
-   "rendered": 1,
+   "rendered": 0,
    "by_cefr": {
     "A2": {
      "generated": 2,
-     "rendered": 1
+     "rendered": 0
     }
    },
-   "gap": 4
+   "gap": 5
   },
   "grammar-check": {
    "label": "Grammar checker",
@@ -103,14 +108,14 @@
     "restaurant"
    ],
    "generated": 2,
-   "rendered": 1,
+   "rendered": 0,
    "by_cefr": {
     "A2": {
      "generated": 2,
-     "rendered": 1
+     "rendered": 0
     }
    },
-   "gap": 4
+   "gap": 5
   },
   "pronunciation": {
    "label": "Pronunciation (IPA, minimal pairs)",
@@ -121,14 +126,14 @@
     "restaurant"
    ],
    "generated": 3,
-   "rendered": 2,
+   "rendered": 0,
    "by_cefr": {
     "A1": {
      "generated": 3,
-     "rendered": 2
+     "rendered": 0
     }
    },
-   "gap": 3
+   "gap": 5
   },
   "speaking": {
    "label": "IELTS Speaking topics & practice",
@@ -152,14 +157,14 @@
     "restaurant"
    ],
    "generated": 4,
-   "rendered": 1,
+   "rendered": 0,
    "by_cefr": {
     "A2": {
      "generated": 4,
-     "rendered": 1
+     "rendered": 0
     }
    },
-   "gap": 4
+   "gap": 5
   },
   "listening": {
    "label": "Listening & dictation",
@@ -229,19 +234,19 @@
   }
  },
  "gaps_rendered_below_5": {
-  "grammar": 4,
+  "vocab-review": 5,
+  "grammar": 5,
   "grammar-check": 5,
   "phrases": 5,
   "word-usage": 5,
-  "paraphrase": 4,
-  "pronunciation": 3,
+  "paraphrase": 5,
+  "pronunciation": 5,
   "speaking": 5,
-  "roleplay": 4,
+  "roleplay": 5,
   "listening": 5
  },
  "areas_no_scene_fits": [
   "dictionary",
-  "vocab-review",
   "verbs",
   "reading",
   "writing-ielts",

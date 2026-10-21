@@ -26,22 +26,22 @@ SCENES = {
       A1='h04_ots_ama_talk_a', A2='h05_ots_ama_talk_b', MCU='h06_ama_mcu_talk', OOPS='h07_ama_oops', THX='h08_ama_thanks'),
    range=dict(A1=(0, 36), A2=(0, 38), THX=(0, 38)), prop=('h11_bell', 46, 1.6, 'ding.wav', 17),
    who=dict(B1='B', B2='B', BREACT='B', A1='ama', A2='ama', MCU='ama', OOPS='ama', THX='ama'),
-   vhook_box=(60, 236, 585, 552), avoid=[[0, 560, 470, 1920]], ladder_y=1072, hook_y=1080, choice_y=1040, ring=('BREACT', 830)),
+   vhook_box=(60, 236, 630, 556), avoid=[[232, 580, 506, 873], [143, 835, 601, 1920], [656, 282, 970, 620], [544, 582, 1077, 1920]], ladder_y=1072, hook_y=1080, choice_y=1040, ring=('BREACT', 830)),
  'restaurant': dict(B='priya', name='Restaurant', pov="POV: you're ordering dinner", clips=dict(MASTER='r21_master_listen', B1='r22_ots_priya_talk', B2='r03_ots_priya_talk_b', BREACT='r09_priya_react',
       A1='r24_ots_ama_talk', A2='r24_ots_ama_talk', MCU='r06_ama_mcu_talk', OOPS='r27_ama_react', THX='r28_ama_thanks'),
    range=dict(MASTER=(0, 120), B1=(0, 75), B2=(0, 46), BREACT=(0, 89), A1=(12, 86), MCU=(52, 89), OOPS=(20, 48), THX=(52, 100)), prop=('r11_bill', 2, 1.6, 'slide.wav', 4),
    who=dict(B1='B', B2='B', BREACT='B', A1='ama', MCU='ama', OOPS='ama', THX='ama'),
-   vhook_box=(60, 236, 600, 600), avoid=[[0, 860, 520, 1920], [640, 640, 1080, 1920]], ladder_y=1130, hook_y=1130, choice_y=1040, ring=('B1', 830)),
+   ladder_clip='A1', vhook_box=(60, 236, 940, 631), avoid=[[108, 862, 422, 1227], [0, 1189, 535, 1920], [659, 655, 984, 964], [544, 933, 1080, 1920]], ladder_y=1130, hook_y=1130, choice_y=1000, ring=('B1', 830)),
  'airport': dict(B='mei', name='Airport', pov="POV: you're at check-in", clips=dict(MASTER='b01_master_talk', B1='a01_ots_mei_talk', B2='a03_ots_mei_talk_b', BREACT='a08_mei_pass',
       A1='a02_ots_ama_talk', A2='a04_ots_ama_talk_b', MCU='a07_ama_mcu_talk', OOPS='a06_ama_react', THX='a09_ama_thanks'),
    range=dict(OOPS=(0, 50)), prop=('i01_passport', 0, 1.6, None, 0),
    who=dict(B1='B', B2='B', BREACT='B', A1='ama', A2='ama', MCU='ama', OOPS='ama', THX='ama'),
-   vhook_box=(60, 236, 640, 470), avoid=[[150, 500, 560, 1920], [700, 280, 1080, 1920]], ladder_y=1072, hook_y=1080, choice_y=1040, ring=('B2', 720)),
+   vhook_box=(60, 236, 640, 487), avoid=[[214, 511, 540, 816], [111, 764, 650, 1920], [666, 263, 990, 560], [556, 516, 1080, 1920]], ladder_y=1072, hook_y=1080, choice_y=1040, ring=('B2', 720)),
  'cafe': dict(B='carlos', name='Café', pov=None, clips=dict(MASTER='c01_master_talk_a', B1='c03_ots_carlos_talk_a', B2='c04_ots_carlos_talk_b', BREACT='c08_ots_carlos_react',
       A1='c05_ots_ama_talk_a', A2='c06_ots_ama_talk_b', MCU='c10_ama_mcu_talk', OOPS='c07_ots_ama_react', THX='c06_ots_ama_talk_b'),
    range=dict(BREACT=(0, 72), OOPS=(19, 77)), prop=('c15_insert_handover', 0, 1.6, None, 0),
    who=dict(B1='B', B2='B', BREACT='B', A1='ama', A2='ama', MCU='ama', OOPS='ama', THX='ama'),
-   vhook_box=(60, 236, 540, 490), avoid=[[40, 500, 460, 1920], [550, 200, 900, 1920]], ladder_y=250, hook_y=250, choice_y=1040, ring=('BREACT', 600)),
+   ladder_clip='A1', vhook_box=(60, 236, 520, 442), avoid=[[83, 479, 478, 883], [0, 810, 612, 1920], [550, 181, 792, 504], [470, 466, 872, 1920]], ladder_y=250, hook_y=250, choice_y=1040, ring=('BREACT', 600)),
 }
 REPLY = {'hotel': 'Of course. No problem at all.', 'restaurant': "Of course. I'll bring it now.", 'airport': 'Sure, let me check that for you.', 'cafe': 'Sure! Coming right up.'}
 
@@ -100,7 +100,7 @@ SERIES_D = {   # mini dialogue: B question, Ama answer (key line), B reply
  'airport': [('Is this your final destination?', 'No, I have a connecting flight.', 'Okay. Your bag goes all the way.')],
  'restaurant': [('Can I get you anything to drink?', 'Just water for now, thanks.', "Sure, I'll be right back.")],
 }
-GAP_ON = False   # 21/10 CI lô 1: gap ở TỪ CUỐI câu trượt qa5 (cps 19 vì đoạn nói ngắn + thở 1,06 s sau câu) -> cần gap giữa câu cắt ở chỗ khép (như h_a_late_gap); tắt tới khi sửa
+GAP_ON = True   # 22/10: gap = CARD (sentence with the blank up 1.6 s before the line = pre-gap pause), no caption on the gap/full lines (cps rule n/a), slow 0.85x karaoke re-read; was off: 21/10 CI lô 1: gap ở TỪ CUỐI câu trượt qa5 (cps 19 vì đoạn nói ngắn + thở 1,06 s sau câu) -> cần gap giữa câu cắt ở chỗ khép (như h_a_late_gap); tắt tới khi sửa
 SCENE_KW = {'cafe': r'coffee|tea|latte|cake|cookie|milk|sugar|cup', 'hotel': r'hotel|room|key|towel|breakfast', 'airport': r'flight|bag|passport|seat|ticket', 'restaurant': r'menu|table|bill|soup|water'}
 
 # ------------------------------------------------------------------ helpers / gates
@@ -117,8 +117,8 @@ def cefr(texts, floor='A2'):
         for w in words(t.lower()):
             if w in CEFR_W and CEFR_W[w] in LV: lv = max(lv, LV.index(CEFR_W[w]))
     return LV[lv]
-def est(t): return 0.12 + len(t) / 14.6   # Kokoro 0.9x (~15 chars/s); lesson5 slows to <= 14.8 cps when needed
-def talk_d(t, tempo=1.0): return 0.07 + est(t) / tempo + 0.42
+def est(t): return max(0.15 + len(t) / 19.5, len(t) / 14.8 - 0.38)   # Kokoro 0.9x measured ~20 chars/s (batch 1); lesson5 slows to <= 14.8 cps. Rough gate only: the adapter re-fits on the real wav durations
+def talk_d(t, tempo=1.0): return 0.07 + est(t) / tempo + 0.45
 class Gate(Exception): pass
 def gate_line(t):
     if len(words(t)) > 12: raise Gate(f'line > 12 words: {t}')
@@ -180,19 +180,42 @@ def candidates(scene):
 class Lesson:
     def __init__(s, scene, lid):
         s.scene, s.lid, s.lines, s.code, s.t, s.head = scene, lid, {}, [], 0.0, []
-        s.B = SCENES[scene]['B']; s.opt = []
+        s.B = SCENES[scene]['B']; s.topt = s.tpad = 0.0
     def L(s, who, text):   # register a voice line (id = hash of speaker + text, shared across lessons)
         gate_line(text); w = 'ama' if who == 'A' else s.B
         k = f'g{s.scene[0]}_' + hashlib.sha1(f'{w}|{text}'.encode()).hexdigest()[:8]; s.lines[k] = dict(id=k, who=w, text=text); return k
     def gapL(s, src, text, word):
         k = s.lines[src]['id'] + '_gap'; s.lines[k] = dict(id=k, who='ama', text=text, derived='auto-gap', gap=dict(src=src, word=word, prefix=text[:text.rstrip('?.!').rfind(' ')])); return k
-    def talk(s, sid, clip, who, k, tempo=None, ov=None, opt=False):   # opt: beat the length fitter may drop (reply / replay)
+    def _acc(s, d, opt, pad):
+        if opt: s.topt += d
+        elif pad: s.tpad += d
+        else: s.t += d
+    def _fl(s, opt, pad): return (', opt=True' if opt else '') + (', pad=True' if pad else '')
+    def talk(s, sid, clip, who, k, tempo=None, ov=None, opt=False, pad=False):   # opt: beat the render-time fitter may drop; pad: beat it adds when short
         w = "'ama'" if who == 'A' else 'BW'; extra = f', tempo={tempo}' if tempo else ''
-        c = f"talk({sid!r}, {clip}, {w}, {k!r}{extra}{', ov=' + ov if ov else ''})"; d = talk_d(s.lines[k]['text'], tempo or 1.0); s.code.append(c); s.t += d
-        if opt: s.opt.append((c, d))
-    def hold(s, sid, clip, d, ov=None): s.code.append(f"hold({sid!r}, {clip}, {d}{', ov=' + ov if ov else ''})"); s.t += d
-    def prop(s): s.code.append('prop()'); s.t += SCENES[s.scene]['prop'][2]
+        s.code.append(f"talk({sid!r}, {clip}, {w}, {k!r}{extra}{', ov=' + ov if ov else ''}{s._fl(opt, pad)})"); s._acc(talk_d(s.lines[k]['text'], tempo or 1.0), opt, pad)
+    def hold(s, sid, clip, d, ov=None, opt=False, pad=False): s.code.append(f"hold({sid!r}, {clip}, {d}{', ov=' + ov if ov else ''}{s._fl(opt, pad)})"); s._acc(d, opt, pad)
+    def prop(s): s.code.append('prop(pad=True)'); s.tpad += SCENES[s.scene]['prop'][2]
     def raw(s, c, d=0.0): s.code.append(c); s.t += d
+
+HOOKS = {   # alternatives, first one that fits the scene's free wall box (VHOOK_BOX) at >= 84 px wins
+ 'mistake': ['Learners make *this* mistake|grimace', 'Spot the *mistake*|grimace', 'Find the *error*|grimace'],
+ 'fix': ['Never say *"{w}"*|grimace', 'Don\'t say *"{w}"*|grimace', '*"{w}"*? No!|grimace'],
+ 'choose': ['ONE listen. Catch the *{thing}?*|?', 'Catch the *{thing}?*|?', 'Hear the *{thing}?*|?'],
+ 'quiz': ['{q}'], 'gap': ['ONE word is *missing*|?', 'Missing *word?*|?'], 'ladder': ['3 ways. Which are *YOU?*|?', '3 ways to *ask*|?'],
+ 'pov': ['Mind goes *blank?*|grimace', 'Go *blank?*|grimace'], 'speak': ['Say it *with me*|?', 'Say *this*|?'], 'series': ['What does she *say next?*|?', 'She *says...?*|?', 'Her *reply?*|?']}
+_FH = {}
+def hook_fits(txt, box):   # same layout as lesson5 VHook: words + icon wrapped into box width - 20, line height 1.1 fs, fs 104 -> 84
+    from PIL import ImageFont, Image, ImageDraw
+    fp = f'{ROOT}/brand/social/src/fonts/BricolageGrotesque-ExtraBold.ttf'; dr = ImageDraw.Draw(Image.new('L', (8, 8))); en, ic = (txt.split('|') + [''])[:2]; cl = [w.strip('*') for w in en.split(' ')]
+    for fs in range(104, 83, -4):
+        fh = _FH.setdefault(fs, ImageFont.truetype(fp, fs)); sp = dr.textlength(' ', font=fh); wd = [dr.textlength(c, font=fh) for c in cl] + ([fs * 0.95] if ic else []); n, cur = 1, []
+        if max(wd) > box[2] - box[0] - 20: continue
+        for i in range(len(wd)):
+            if cur and sum(wd[j] for j in cur + [i]) + sp * len(cur) > box[2] - box[0] - 20: n += 1; cur = []
+            cur.append(i)
+        if n * int(fs * 1.1) + 6 <= box[3] - box[1]: return True
+    return False
 
 def build(scene, tpl, area, point, a, n):
     S = SCENES[scene]; lid = f'auto_{scene}_{tpl}_{hashlib.sha1(norm(point).encode()).hexdigest()[:6]}'; X = Lesson(scene, lid); series = f"{S['name']} English #{n}"
@@ -209,16 +232,16 @@ def build(scene, tpl, area, point, a, n):
         rv = round(min(2.5, max(2.0, 0.5 + 0.28 * len(words(w)))), 2)
         X.prop(); X.talk('cue', 'B1', 'B', kc); X.talk('wrong', 'A1', 'A', kw_); X.hold('oops', 'OOPS', 1.0)
         X.hold('ring', 'BREACT', 1.5, "[('Ring', 0.0, 3.0, %r)]" % ('Comment the mistake 👇|' if tpl == 'mistake' else 'How would YOU fix it? Comment 👇|')); X.hold('ring_b', 'MASTER', 1.5)
-        X.hold('reveal', 'BREACT', rv, "[('Strike', 0.0, None, WRONG, 2)]"); X.talk('right', 'MCU', 'A', kr); X.talk('slow', 'MCU', 'A', kr, tempo=0.85); X.raw("PUNCH['slow'] = 0.0")
+        X.hold('reveal', 'BREACT', rv, "[('Strike', 0.0, None, WRONG, 2)]"); X.talk('right', 'MCU', 'A', kr, opt=True); X.talk('slow', 'MCU', 'A', kr, tempo=0.85); X.raw("PUNCH['slow'] = 0.0")
         recap = r; pattern = r; goal = 'Spot the mistake' if tpl == 'mistake' else 'Mistake -> fix'; cefr_txt = [w, r]
     elif tpl == 'choose':
         q = '|'.join([a['q']] + a['opts'] + [a['ans']]); kl = X.L('B', a['line']); kw.add(a['key']); idx = next(j for j, x in enumerate(a['line'].split(' ')) if norm(x) == a['key'])
         X.head += [f'Q = {q!r}', f"QA = dict(template='choose', choice_key={a['key']!r}, choice_line={kl!r}, answer={a['ans']!r})", f"CAPSTYLE = {{'listen': (None, None), 'replay': ('Karaoke', {idx}), 'slow': ('Karaoke', {idx})}}", f"RING_EXTRA['ring'] = {rc_y}"]
         hook = f"ONE listen. Catch the *{a['thing']}?*|?"; CH = "('Choice', 0.0, None, Q, 0)"
         if est(a['line']) < 2.0: raise Gate('choose line < 2 s')
-        X.hold('setup', 'B1', 1.6, f'[{CH}]'); X.talk('listen', 'B1', 'B', kl, ov=f'[{CH}]')
+        X.prop(); X.hold('setup', 'B1', 1.6, f'[{CH}]'); X.talk('listen', 'B1', 'B', kl, ov=f'[{CH}]')
         X.hold('ring', rc_clip, 1.5, f"[{CH}, ('Ring', 0.0, 3.0, 'Comment A, B or C 👇|')]"); X.hold('ring_b', 'B2' if rc_clip != 'B2' else 'BREACT', 1.5, f'[{CH}]')
-        X.hold('reveal', 'BREACT', 2.0, "[('Choice', 0.0, None, Q, 1)]"); X.talk('replay', 'B2', 'B', kl, opt=True); X.talk('slow', 'B1', 'B', kl, tempo=0.85); X.raw("PUNCH['slow'] = 0.0")
+        X.hold('reveal', 'BREACT', 2.0, "[('Choice', 0.0, None, Q, 1)]"); X.talk('replay', 'B2', 'B', kl, opt=True); X.talk('slow', 'B1', 'B', kl, tempo=0.85); X.raw("PUNCH['slow'] = 0.0"); X.hold('react2', 'BREACT', 1.2, pad=True)
         recap = a['recap']; pattern = a['q']; goal = f"Listening: {a['thing']}"; cefr_txt = [a['line']]
     elif tpl == 'quiz':
         q = '|'.join([a['q'], a['a'], a['b'], a['ans']]); kl = X.L('A', a['line']); kr = X.L('B', REPLY[scene])
@@ -226,59 +249,60 @@ def build(scene, tpl, area, point, a, n):
             if len(o) > 26: raise Gate('quiz option too long')
         X.head += [f'Q = {q!r}', "QA = dict(template='quiz')", f"RING_EXTRA['ring'] = {rc_y}"]; CH = "('Choice', 0.0, None, Q, 0)"
         hook = 'Polite or *rude?*|?' if 'polite' in a['q'].lower() else 'Which one is *correct?*|?'
-        X.hold('setup', 'B1', 2.0, f'[{CH}]'); X.hold('ring', rc_clip, 1.5, f"[{CH}, ('Ring', 0.0, 3.0, 'Comment A or B 👇|')]"); X.hold('ring_b', 'B2' if rc_clip != 'B2' else 'BREACT', 1.5, f'[{CH}]')
-        X.hold('reveal', 'BREACT', 2.0, "[('Choice', 0.0, None, Q, 1)]"); X.talk('right', 'MCU', 'A', kl); X.talk('reply', 'B1', 'B', kr, opt=True); X.talk('slow', 'MCU', 'A', kl, tempo=0.85); X.raw("PUNCH['slow'] = 0.0")
+        X.prop(); X.hold('setup', 'B1', 2.0, f'[{CH}]'); X.hold('ring', rc_clip, 1.5, f"[{CH}, ('Ring', 0.0, 3.0, 'Comment A or B 👇|')]"); X.hold('ring_b', 'B2' if rc_clip != 'B2' else 'BREACT', 1.5, f'[{CH}]')
+        X.hold('reveal', 'BREACT', 2.0, "[('Choice', 0.0, None, Q, 1)]"); X.talk('right', 'MCU', 'A', kl); X.talk('reply', 'B1', 'B', kr, opt=True); X.talk('slow', 'MCU', 'A', kl, tempo=0.85); X.raw("PUNCH['slow'] = 0.0"); X.hold('react2', 'BREACT', 1.2, pad=True)
         recap = a['line']; pattern = a['line']; goal = 'Polite or rude?' if 'polite' in a['q'].lower() else 'Which is correct?'; cefr_txt = [a['a'], a['b'], a['line']]
     elif tpl == 'gap':
         line, wd = a['line'], a['word']; kf = X.L('A', line); kg = X.gapL(kf, line, wd); kr = X.L('B', REPLY[scene]); kw.add(norm(wd))
         if ',' in line: raise Gate('gap line with a comma (extra pause)')
-        X.head += [f'GAP_WORD = {wd!r}', f"QA = dict(template='gap', gap_line={kg!r})", "CAPSTYLE = {'gap': ('Gap', 0), 'full': ('Gap', 1)}", "RING_EXTRA['ring'] = 830"]
-        hook = 'ONE word is *missing*|?'
-        X.prop(); X.talk('gap', 'MCU', 'A', kg, tempo=1.0); X.t += 0.6
-        X.hold('ring', 'BREACT', 1.5, "[('Ring', 0.0, 3.0, 'Say the missing word!|')]"); X.hold('ring_b', 'B2', 1.5)
-        X.talk('full', 'MCU', 'A', kf); X.talk('reply', 'B1', 'B', kr, opt=True); X.talk('slow', 'MCU', 'A', kf, tempo=0.85); X.raw("PUNCH['slow'] = 0.0")
+        idx = next(j for j, x in enumerate(line.split(' ')) if x.strip('.,?!') == wd)
+        X.head += [f'GAP_WORD = {wd!r}', f"QA = dict(template='gap', gap_line={kg!r})", f"GAPT = TEXT[{kf!r}] + '||'", f"CAPSTYLE = {{'gap': (None, None), 'full': (None, None), 'slow': ('Karaoke', {idx})}}"]
+        hook = 'ONE word is *missing*|?'; G0, G1 = "('Gap', 0.0, None, GAPT, 0)", "('Gap', 0.0, None, GAPT, 1)"   # card, not a caption: up 1.6 s before the line (pre-gap pause), through the ring
+        X.prop(); X.hold('setup', 'MCU', 1.6, f'[{G0}]'); X.talk('gap', 'MCU', 'A', kg, tempo=1.0, ov=f'[{G0}]')
+        X.hold('ring', 'BREACT', 1.5, f"[{G0}, ('Ring', 0.0, 3.0, 'Say the missing word!|')]"); X.hold('ring_b', 'B2', 1.5, f'[{G0}]')
+        X.hold('reveal', 'BREACT', 1.0, f'[{G1}]'); X.talk('full', 'MCU', 'A', kf, ov=f'[{G1}]'); X.talk('reply', 'B1', 'B', kr, opt=True); X.talk('slow', 'MCU', 'A', kf, tempo=0.85); X.raw("PUNCH['slow'] = 0.0"); X.hold('react2', 'BREACT', 1.2, pad=True)
         recap = line; pattern = line.replace(wd, '___'); goal = f'Key word: {wd}'; cefr_txt = [line]
     elif tpl == 'ladder':
         ks = [X.L('A', t) for t in a['lad']]; lad = '|'.join(a['lad'])
         X.head += [f'LAD = {lad!r}', f"QA = dict(template='ladder', ladder_lines={ks!r})", f"LADDER_Y = {S['ladder_y']}", "CAPSTYLE = {'polite': (None, None), 'neutral': (None, None), 'casual': (None, None)}"]
         hook = '3 ways. Which are *YOU?*|?'
-        for j, (sid, k) in enumerate(zip(('polite', 'neutral', 'casual'), ks)): X.talk(sid, 'MCU', 'A', k, ov=f"[('Ladder', 0.0, None, LAD, {j + 1})]")
+        X.prop()
+        for j, (sid, k) in enumerate(zip(('polite', 'neutral', 'casual'), ks)): X.talk(sid, S.get('ladder_clip', 'MCU'), 'A', k, ov=f"[('Ladder', 0.0, None, LAD, {j + 1})]")
         X.raw("PUNCH['neutral'] = 0.0"); X.hold('ring', 'BREACT', 1.5, "[('Ladder', 0.0, None, LAD, 3), ('Ring', 0.0, 3.0, 'Which would YOU say? Comment 👇|')]"); X.hold('ring_b', 'B2', 1.5, "[('Ladder', 0.0, None, LAD, 3)]")
-        X.talk('slow', 'MCU', 'A', ks[0], tempo=0.85); X.raw("PUNCH['slow'] = 0.0")
+        X.talk('slow', 'MCU', 'A', ks[0], tempo=0.85); X.raw("PUNCH['slow'] = 0.0"); X.hold('react2', 'BREACT', 1.2, pad=True)
         recap = next(t for t in a['lad'] + [a['lad'][-1]] if len(words(t)) <= 7); pattern = 'Could I possibly have ___?'; goal = 'Polite, neutral, casual'; cefr_txt = a['lad']
     elif tpl == 'pov':
         kq, ka = X.L('B', a['q']), X.L('A', a['a'])
         if len(words(a['a'])) > 8 or len(a['a']) < 22: raise Gate('pov answer length')
         bx = S['vhook_box']
-        X.head += [f"BADGE_Y = 316; HOOK_Y = {S['hook_y']}; POV_Y = 232; VHOOK_BOX = ({bx[0]}, 300, {bx[2]}, {max(bx[3], 520)})", f"ALLSHOTS_OV = [('Pov', {S['pov']!r}, None)]",
+        X.head += [f"BADGE_Y = 316; HOOK_Y = {S['hook_y']}; POV_Y = 232", f"ALLSHOTS_OV = [('Pov', {S['pov']!r}, None)]", "ALLSHOTS_SKIP = ('hook', 'loop')",
                    f"QA = dict(template='pov', answers=[{ka!r}])", "ONE = [('Hook', 0.0, None, 'One possible answer|')]"]
         hook = 'Mind goes *blank?*|grimace'
-        X.talk('q1', 'B1', 'B', kq); X.hold('ring1', 'BREACT', 1.5, "[('Ring', 0.0, 3.0, 'Your answer? Comment 👇|')]"); X.hold('ring1b', 'B2', 1.5)
-        X.talk('a1', 'MCU', 'A', ka, ov='ONE'); X.hold('react', 'BREACT', 1.0); X.talk('slow', 'MCU', 'A', ka, tempo=0.85); X.raw("PUNCH['slow'] = 0.0")
+        X.prop(); X.talk('q1', 'B1', 'B', kq); X.hold('ring1', 'BREACT', 1.5, "[('Ring', 0.0, 3.0, 'Your answer? Comment 👇|')]"); X.hold('ring1b', 'B2', 1.5)
+        X.talk('a1', 'MCU', 'A', ka, ov='ONE'); X.hold('react', 'BREACT', 1.0); X.talk('slow', 'MCU', 'A', ka, tempo=0.85); X.raw("PUNCH['slow'] = 0.0"); X.hold('react2', 'BREACT', 1.2, pad=True)
         recap = a['a']; pattern = a['a']; goal = 'You are the customer'; cefr_txt = [a['q'], a['a']]
     elif tpl == 'speak':
         kl = X.L('A', a['line']); kr = X.L('B', REPLY[scene] if 'Could I get' in a['line'] else {'hotel': 'Sure, let me find out for you.', 'cafe': 'Of course! Here you go.', 'airport': 'Yes, it is. Just over there.', 'restaurant': "Yes, of course. Here you are."}[scene])
         X.head += ["QA = dict(template='speak')", "RING_EXTRA['ring'] = 830"]
         hook = 'Say it *with me*|?'
         X.prop(); X.talk('model', 'MCU', 'A', kl); X.talk('reply', 'B1', 'B', kr, opt=True); X.talk('slow', 'MCU', 'A', kl, tempo=0.85); X.raw("PUNCH['slow'] = 0.0")
-        X.hold('ring', 'BREACT', 1.5, "[('Ring', 0.0, 3.0, 'Your turn! Say it out loud 👇|')]"); X.hold('ring_b', 'B2', 1.5); X.talk('again', 'A2', 'A', kl, opt=True)
+        X.hold('ring', 'BREACT', 1.5, "[('Ring', 0.0, 3.0, 'Your turn! Say it out loud 👇|')]"); X.hold('ring_b', 'B2', 1.5); X.talk('again', 'A2', 'A', kl, opt=True); X.hold('react2', 'BREACT', 1.2, pad=True)
         recap = a['line']; pattern = a['line']; goal = 'Say it with me'; cefr_txt = [a['line']]
     elif tpl == 'series':
         kq, ka, kr = X.L('B', a['q']), X.L('A', a['a']), X.L('B', a['rep'])
         X.head += ["QA = dict(template='series')", "RING_EXTRA['ring'] = 830"]
         hook = 'What does she *say next?*|?'
-        X.talk('q', 'B1', 'B', kq); X.hold('ring', 'BREACT', 1.5, "[('Ring', 0.0, 3.0, 'What would YOU say? Comment 👇|')]"); X.hold('ring_b', 'B2', 1.5)
-        X.talk('a', 'A1', 'A', ka); X.talk('reply', 'B2', 'B', kr, opt=True); X.talk('slow', 'MCU', 'A', ka, tempo=0.85); X.raw("PUNCH['slow'] = 0.0")
+        X.prop(); X.talk('q', 'B1', 'B', kq); X.hold('ring', 'BREACT', 1.5, "[('Ring', 0.0, 3.0, 'What would YOU say? Comment 👇|')]"); X.hold('ring_b', 'B2', 1.5)
+        X.talk('a', 'A1', 'A', ka); X.talk('reply', 'B2', 'B', kr, opt=True); X.talk('slow', 'MCU', 'A', ka, tempo=0.85); X.raw("PUNCH['slow'] = 0.0"); X.hold('react2', 'BREACT', 1.2, pad=True)
         recap = a['a']; pattern = a['a']; goal = 'Real conversation'; cefr_txt = [a['q'], a['a'], a['rep']]
     else: raise Gate('unknown template')
-    gate_hook(hook); gate_recap(recap)
+    alts = [h.format(w=wrong_word.strip('.,?!') if tpl == 'fix' else '', thing=a.get('thing', ''), q=hook) for h in HOOKS[tpl]] if tpl != 'quiz' else [hook, 'Which is *right?*|?']
+    fit = [h for h in alts if len(words(h.split('|')[0])) <= 5 and hook_fits(h, S['vhook_box'])]
+    if not fit: raise Gate(f'no hook fits the free wall box {S["vhook_box"]}: {alts}')
+    hook = fit[0]; gate_hook(hook); gate_recap(recap)
     X.t += 2.8 + 1.0   # recap + loop
-    if X.t > 23.4 and 'prop()' in X.code: X.code.remove('prop()'); X.t -= S['prop'][2]
-    for c, d in X.opt:
-        if X.t > 23.4: X.code.remove(c); X.t -= d
-    if X.t < 18.6 and 'prop()' not in X.code: X.code.insert(0, 'prop()'); X.t += S['prop'][2]
-    if X.t < 18.6 and tpl in ('pov', 'ladder', 'series'): X.code.insert(len(X.code) - 2, "hold('react2', BREACT, 1.2)"); X.t += 1.2
-    if not 18.6 <= X.t <= 23.4: raise Gate(f'estimated total {X.t:.1f} s outside 18.6-23.4')
+    if X.t > 23.4 or X.t + X.topt + X.tpad < 18.6: raise Gate(f'estimated range {X.t:.1f}-{X.t + X.topt + X.tpad:.1f} s misses 18.6-23.4')
+    X.t = min(max(X.t, 18.6), X.t + X.topt + X.tpad)   # (the adapter fits the real wav durations at render time)
     lv = cefr(cefr_txt, 'A1' if tpl in ('speak', 'gap') else 'A2')
     meta = dict(id=lid.replace('_', '-'), cefr=lv, goal_en=goal, pattern=pattern, area=area)
     src = [f'# AUTO-GENERATED by scripts/cine/gen_lessons.py - template {tpl}, point "{point}" (do not edit; regenerate)',
@@ -290,46 +314,103 @@ def build(scene, tpl, area, point, a, n):
                cta=ECO[area]['cta'].replace(' lexkite.com', '').strip(), lines={}, choose='', recap='', hook='', say='', which='', comment='', answer='', onepossible='', repeat='', yourturn='', why='', wrong='', right='')
     return lid, '\n'.join(src), loc, X.lines, dict(template=tpl, area=area, cefr=lv, scene=scene, est=round(X.t, 1), series=series)
 
-ADAPTER = '''# AUTO-GENERATED adapter (scripts/cine/gen_lessons.py): role names -> {scene} bank clips + v3 viral helpers (same as hotel/_hotel_common.py)
-{consts}
-BW = {B!r}; FD = D + '/foley/'; CONTRAST_Y = 900; BADGE_Y = 240; CHOICE_Y = {choice_y}; HOOK_Y = {hook_y}; LADDER_Y = {ladder_y}; POV_Y = 232
-RING_EXTRA = {{'ring': 1080}}; FOOT_EXTRA = {{}}
-SERIES_SHOTS = ('loop',); SERIES_ALIGN = 'left'; SERIES_Y = 240   # series chip only on the loop, top-left (the hook card owns the master)
-VHOOK_BOX = {vhook_box}; AVOID = {{MASTER: {avoid}}}
-WHO = {who}
-RANGE = {range}
-PROP = {prop!r}
-CUR = {{}}; BEATS = {{}}
-def take(clip, n, lo=None, hi=None):
-    lo = RANGE.get(clip, (0, 120))[0] if lo is None else lo; hi = RANGE.get(clip, (0, 120))[1] if hi is None else hi
-    p, d = CUR.get(clip, (lo, 1)); out = []
+ADAPTER = '''# AUTO-GENERATED adapter (scripts/cine/gen_lessons.py): role names -> @SCENE@ bank clips + v3 viral helpers.
+# Beats are collected first and laid out in vend() on the REAL wav durations (auto_voice.py synthesised them): breath 0.45 s after the
+# last mouth cue, optional beats dropped / pad beats added to land in 18.8-23.2 s, mistake reveal >= 62 % of the content;
+# frames only from clean mouth-swap ranges (residual.json, residual.py <= 11.5).
+@CONSTS@
+BW = @B@; FD = D + '/foley/'; CONTRAST_Y = 900; BADGE_Y = 240; CHOICE_Y = @CHOICE_Y@; HOOK_Y = @HOOK_Y@; LADDER_Y = @LADDER_Y@; POV_Y = 232
+RING_EXTRA = {'ring': 1080}; FOOT_EXTRA = {}; LADDER_ROW = 112; RING_MINH = 160; CHOICE_ROW = 86; CHOICE_PAD = 20   # compact cards: fit between big faces and the caption band
+SERIES_SHOTS = ('loop',); SERIES_ALIGN = 'left'; SERIES_Y = 240   # default spots only: lesson5's placer (place.py) moves any card off faces / other cards
+VHOOK_BOX = @VHOOK_BOX@; AVOID = {MASTER: @AVOID@}
+WHO = @WHO@
+RANGE = @RANGE@
+PROP = @PROP@
+CUR = {}; BEATS = {}; PEND = []; BREATH = 0.45; RMAX = 11.5
+RES = json.load(open(D + '/residual.json')) if os.path.exists(D + '/residual.json') else {}
+def _run(clip, lo, hi, talker, ws):   # longest frame run whose residual stays <= RMAX for every mouth in ws (talker: worst viseme, others: closed)
+    p = RES.get(clip, {}); ws = [w for w in ws if w in p]
+    if not ws: return lo, hi, hi - lo + 1
+    hi = min(hi, min(len(p[w]['X']) for w in ws) - 1); ok = [all(p[w]['talk' if w == talker else 'X'][f] <= RMAX for w in ws) for f in range(lo, hi + 1)]
+    best, st = (0, -1), None
+    for i, v in enumerate(ok + [False]):
+        if v and st is None: st = i
+        elif not v and st is not None:
+            if i - st > best[1] - best[0] + 1: best = (st, i - 1)
+            st = None
+    return lo + best[0], lo + best[1], best[1] - best[0] + 1
+def clean(clip, talker=None, ws=None):   # -> (lo, hi, mouths to swap). A silent hold drops a mouth that has no clean run (original Kling mouth, no swap)
+    lo, hi = RANGE.get(clip, (0, 120)); ws = list(WHO.get(clip, [])) if ws is None else ws; a, b, n = _run(clip, lo, hi, talker, ws)
+    if n >= 12: return a, b, ws
+    if talker is None:
+        keep = [w for w in ws if _run(clip, lo, hi, None, [w])[2] >= 12]; print('residual: hold on', clip, 'no swap for', [w for w in ws if w not in keep])
+        if keep != ws: return clean(clip, None, keep)
+    print('residual WARN', clip, talker, 'clean run only', n, 'frames'); return lo, hi, ws
+def take(clip, n, talker=None, reset=False):
+    lo, hi, ws = clean(clip, talker); p, d = CUR.get(clip, (lo, 1))
+    if reset or not lo <= p <= hi: p, d = lo, 1
+    out = []
     for _ in range(n):
         out.append(p)
         if not lo <= p + d <= hi: d = -d
         p += d
-    CUR[clip] = (p, d); return lambda m: out[:m]
-def talk(id, clip, who, k, at=0.07, tail=0.42, tempo=None, ov=(), foley=()):
-    l = line(k, at, tempo); n = int(round((at + l['dur'] + tail) * FPS))
-    shot(id, clip, n / FPS, take(clip, n), [(clip, w, [l] if w == who else []) for w in WHO.get(clip, [])], [(who, l)], ov=ov, foley=foley); return l
-def hold(id, clip, dur, ov=(), foley=(), reset=False):
-    if reset: CUR.pop(clip, None)
-    n = int(round(dur * FPS)); shot(id, clip, n / FPS, take(clip, n), [(clip, w, []) for w in WHO.get(clip, [])], [], ov=ov, foley=foley)
+    CUR[clip] = (p, d); return out, ws
+def _f(d): return round(d * FPS) / FPS
+def talk(id, clip, who, k, at=0.07, tempo=None, ov=(), foley=(), opt=False, pad=False):
+    l = line(k, at, tempo); nx = [x for x in l['cues'] if x['value'] != 'X']
+    PEND.append(dict(kind='talk', id=id, clip=clip, who=who, l=l, d=_f(at + nx[-1]['end'] / l['tempo'] + BREATH), ov=ov, foley=foley, opt=opt, pad=pad, on=not pad))
+def hold(id, clip, dur, ov=(), foley=(), reset=False, opt=False, pad=False):
+    PEND.append(dict(kind='hold', id=id, clip=clip, d=_f(dur), ov=ov, foley=foley, reset=reset, opt=opt, pad=pad, on=not pad))
 def vhook(txt):
     nw = len(txt.split('|')[0].split()); dur = min(2.0, max(1.6, 0.4 + 0.28 * nw) + 0.05); BEATS['hook'] = dur
-    hold('hook', MASTER, dur, ov=[('VHook', 0.0, None, txt)], foley=[(FD + 'tone0.wav', 0.0)], reset=True)
+    hold('hook', MASTER, dur, ov=[('VHook', 0.0, None, txt)], foley=[(FD + 'tone0.wav', 0.0), (FD + 'whoosh.wav', 0.0)], reset=True)   # whoosh: first sound < 0.3 s
+def prop(pad=False): PEND.append(dict(kind='prop', id='prop', d=_f(PROP[2]), opt=False, pad=pad, on=not pad))
+def _tot(): return sum(b['d'] for b in PEND if b['on'])
+def _ratio():   # mistake: reveal start / content (recap + loop excluded), as qa5 measures it
+    t = 0; rv = None
+    for b in PEND:
+        if not b['on']: continue
+        if b['id'] == 'reveal': rv = t
+        t += b['d']
+    return 1 if rv is None else rv / (t - sum(b['d'] for b in PEND if b['on'] and b['id'] in ('recap', 'loop')))
+def fit():
+    ir = next((i for i, b in enumerate(PEND) if b['id'] == 'reveal'), len(PEND)); opts = [b for b in PEND if b['opt']]; pads = [b for b in PEND if b['pad']]
+    if QA.get('template') == 'mistake':
+        for b in reversed(opts):
+            if _ratio() < 0.62 and PEND.index(b) > ir: b['on'] = False
+        for b in pads:
+            if _ratio() < 0.62 and PEND.index(b) < ir: b['on'] = True
+    for b in reversed(opts):
+        if _tot() > 23.2 and b['on']: b['on'] = False
+    for b in pads:
+        if _tot() < 18.8 and not b['on']: b['on'] = True
+    print('fit: total %.2f s, reveal ratio %.2f, beats %s' % (_tot(), _ratio(), ' '.join(b['id'] + ('' if b['on'] else '(off)') for b in PEND)))
+def emit():
+    h0, hws = 0, WHO[MASTER]
+    for b in PEND:
+        if not b['on']: continue
+        n = int(round(b['d'] * FPS)); c = b.get('clip')
+        if b['kind'] == 'talk':
+            fr, ws = take(c, n, b['who']); shot(b['id'], c, n / FPS, (lambda fr: lambda m: fr[:m])(fr), [(c, w, [b['l']] if w == b['who'] else []) for w in ws], [(b['who'], b['l'])], ov=b['ov'], foley=b['foley'])
+        elif b['kind'] == 'hold':
+            fr, ws = take(c, n, None, b['reset'])
+            if b['id'] == 'hook': h0, hws = fr[0], ws
+            shot(b['id'], c, n / FPS, (lambda fr: lambda m: fr[:m])(fr), [(c, w, []) for w in ws], [], ov=b['ov'], foley=b['foley'])
+        elif b['kind'] == 'prop':
+            pc, f0, d, snd, at = PROP; shot('prop', pc, n / FPS, lambda m: list(range(f0, f0 + m)), [], [], foley=[(FD + snd, at / FPS)] if snd else [])
+        else: shot('loop', MASTER, n / FPS, lambda m: list(range(h0 + m - 1, h0 - 1, -1)), [(MASTER, w, []) for w in hws], [], ov=[('Follow', 0.0, None, 'Follow for daily English|lexkite.com')])
 def vend(recap, clip=None):
-    hold('recap', clip or BREACT, 2.8, ov=[('Recap', 0.0, 2.5, recap + '|')])
-    shot('loop', MASTER, 1.0, lambda m: list(range(m - 1, -1, -1)), [(MASTER, w, []) for w in WHO[MASTER]], [], ov=[('Follow', 0.0, None, 'Follow for daily English|lexkite.com')])
-def prop():   # scene prop insert (bank.json usable range), foley only where the event is visible
-    c, f0, d, snd, at = PROP; fl = [(FD + snd, at / FPS)] if snd else []
-    shot('prop', c, d, lambda n: list(range(f0, f0 + n)), [], [], foley=fl)
+    hold('recap', clip or BREACT, 2.8, ov=[('Recap', 0.0, 2.5, recap + '|')]); PEND.append(dict(kind='loop', id='loop', d=1.0, opt=False, pad=False, on=True)); fit(); emit()
 '''
 def adapter(scene):
     S = SCENES[scene]; C = S['clips']
     consts = '\n'.join(f'{k} = {v!r}' for k, v in C.items())
     who = '{' + ', '.join(f"{k}: [{'BW' if v == 'B' else repr(v)}]" for k, v in S['who'].items()) + ", MASTER: [BW, 'ama']}"
     rng = '{' + ', '.join(f'{k}: {v}' for k, v in S['range'].items()) + '}'
-    return ADAPTER.format(scene=scene, consts=consts, B=S['B'], choice_y=S['choice_y'], hook_y=S['hook_y'], ladder_y=S['ladder_y'], vhook_box=S['vhook_box'], avoid=S['avoid'], who=who, range=rng, prop=S['prop'])
+    sub = dict(SCENE=scene, CONSTS=consts, B=repr(S['B']), CHOICE_Y=S['choice_y'], HOOK_Y=S['hook_y'], LADDER_Y=S['ladder_y'], VHOOK_BOX=S['vhook_box'], AVOID=S['avoid'], WHO=who, RANGE=rng, PROP=repr(S['prop']))
+    out = ADAPTER
+    for k, v in sub.items(): out = out.replace(f'@{k}@', str(v))
+    return out
 
 # ------------------------------------------------------------------ coverage
 def coverage(L):
@@ -353,11 +434,30 @@ def coverage(L):
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--batch', type=int, default=0); ap.add_argument('--coverage', action='store_true')
     ap.add_argument('--mark-rendered', nargs=2, metavar=('RUN', 'IDS')); ap.add_argument('--scenes', default='hotel,restaurant,airport,cafe')
+    ap.add_argument('--regen', action='store_true', help='rebuild every generated (not yet rendered) ledger point in place: same points, same ids')
     o = ap.parse_args(); L = load_ledger()
     if o.mark_rendered:
         run, ids = o.mark_rendered
         for p in L['points'].values():
             if p.get('id') in ids.split(','): p['status'] = 'rendered'; p['run'] = run
+    def write(sc, lid, src, loc, lines, fresh=set()):
+        d = f'{AUTO}/{sc}'; os.makedirs(d, exist_ok=True)
+        if sc not in fresh:
+            fresh.add(sc)
+            if o.regen:
+                for f in glob.glob(f'{d}/auto_*') + glob.glob(f'{d}/lines.json'): os.remove(f)
+        open(f'{d}/{lid}.py', 'w').write(src); json.dump(loc, open(f'{d}/{lid}.en.json', 'w'), ensure_ascii=False, indent=1)
+        lf = f'{d}/lines.json'; LJ = json.load(open(lf)) if os.path.exists(lf) else {'lines': []}; have = {x['id'] for x in LJ['lines']}
+        LJ['lines'] += [v for k, v in lines.items() if k not in have]; json.dump(LJ, open(lf, 'w'), ensure_ascii=False, indent=1)
+        open(f'{d}/_auto_{sc}.py', 'w').write(adapter(sc))
+    if o.regen:
+        for key, p in L['points'].items():
+            if p.get('status') not in ('generated', 'rendered') or p.get('scene') not in SCENES: continue
+            c = next((c for c in candidates(p['scene']) if norm(c[2]) == key and c[0] == p['template']), None)
+            if not c: print('  regen: no candidate for', key); continue
+            try: lid, src, loc, lines, info = build(p['scene'], c[0], c[1], c[2], c[3], int(p['series'].split('#')[-1]))
+            except Gate as e: print('  regen gate-rejected:', p['id'], e); continue
+            assert lid == p['id'], (lid, p['id']); write(p['scene'], lid, src, loc, lines); p.update(info, status='generated'); p.pop('run', None); print(f'{lid:42s} {c[0]:8s} est {info["est"]:5.1f}s  {c[2]}')
     if o.batch:
         scenes = o.scenes.split(','); per = {sc: [] for sc in scenes}; rej = []
         area_n = {}
@@ -379,11 +479,7 @@ def main():
                     tpl_, area, point, args = per[sc][tpl].pop(0)
                     try: lid, src, loc, lines, info = build(sc, tpl_, area, point, args, nser[sc])
                     except Gate as e: rej.append(f'{sc}/{tpl_}/{point}: {e}'); continue
-                    d = f'{AUTO}/{sc}'; os.makedirs(d, exist_ok=True)
-                    open(f'{d}/{lid}.py', 'w').write(src); json.dump(loc, open(f'{d}/{lid}.en.json', 'w'), ensure_ascii=False, indent=1)
-                    lf = f'{d}/lines.json'; LJ = json.load(open(lf)) if os.path.exists(lf) else {'lines': []}; have = {x['id'] for x in LJ['lines']}
-                    LJ['lines'] += [v for k, v in lines.items() if k not in have]; json.dump(LJ, open(lf, 'w'), ensure_ascii=False, indent=1)
-                    open(f'{d}/_auto_{sc}.py', 'w').write(adapter(sc))
+                    write(sc, lid, src, loc, lines)
                     L['points'][norm(point)] = dict(id=lid, point=point, status='generated', **info); nser[sc] += 1; made += 1; tcount[tpl_] = tcount.get(tpl_, 0) + 1; scount[(sc, tpl_)] = scount.get((sc, tpl_), 0) + 1; area_n[area] = area_n.get(area, 0) + 1
                     print(f'{lid:42s} {tpl_:8s} {info["cefr"]} {area:14s} est {info["est"]:5.1f}s  {point}')
                     break

@@ -7,15 +7,16 @@ LADDER_Y = 250
 CAPSTYLE = {'polite': (None, None), 'neutral': (None, None), 'casual': (None, None)}
 META = {'id': 'auto-cafe-ladder-23332f', 'cefr': 'A2', 'goal_en': 'Polite, neutral, casual', 'pattern': 'Could I possibly have ___?', 'area': 'phrases'}
 if not VIRAL: raise SystemExit("auto lessons are English-only viral (VIRAL=1)")
-VIRAL_HOOK = '3 ways. Which are *YOU?*|?'; SERIES = 'Café English #1'; KEYWORDS.update([])
+VIRAL_HOOK = '3 ways to *ask*|?'; SERIES = 'Café English #1'; KEYWORDS.update([])
 vhook(VIRAL_HOOK)
-prop()
-talk('polite', MCU, 'ama', 'gc_fdd526d1', ov=[('Ladder', 0.0, None, LAD, 1)])
-talk('neutral', MCU, 'ama', 'gc_38fc10c2', ov=[('Ladder', 0.0, None, LAD, 2)])
-talk('casual', MCU, 'ama', 'gc_2c862c87', ov=[('Ladder', 0.0, None, LAD, 3)])
+prop(pad=True)
+talk('polite', A1, 'ama', 'gc_fdd526d1', ov=[('Ladder', 0.0, None, LAD, 1)])
+talk('neutral', A1, 'ama', 'gc_38fc10c2', ov=[('Ladder', 0.0, None, LAD, 2)])
+talk('casual', A1, 'ama', 'gc_2c862c87', ov=[('Ladder', 0.0, None, LAD, 3)])
 PUNCH['neutral'] = 0.0
 hold('ring', BREACT, 1.5, ov=[('Ladder', 0.0, None, LAD, 3), ('Ring', 0.0, 3.0, 'Which would YOU say? Comment 👇|')])
 hold('ring_b', B2, 1.5, ov=[('Ladder', 0.0, None, LAD, 3)])
 talk('slow', MCU, 'ama', 'gc_fdd526d1', tempo=0.85)
 PUNCH['slow'] = 0.0
+hold('react2', BREACT, 1.2, pad=True)
 vend('Could I possibly have a latte?')

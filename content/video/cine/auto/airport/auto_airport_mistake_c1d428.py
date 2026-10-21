@@ -7,15 +7,16 @@ WRONG = TEXT['ga_d3096c09'] + '||'
 CAPSTYLE = {'wrong': ('Strike', 0), 'right': ('Karaoke', 5), 'slow': ('Karaoke', 5)}
 META = {'id': 'auto-airport-mistake-c1d428', 'cefr': 'A2', 'goal_en': 'Spot the mistake', 'pattern': 'Can I take this bag on board?', 'area': 'grammar-check'}
 if not VIRAL: raise SystemExit("auto lessons are English-only viral (VIRAL=1)")
-VIRAL_HOOK = 'Learners make *this* mistake|grimace'; SERIES = 'Airport English #5'; KEYWORDS.update(['on'])
+VIRAL_HOOK = 'Spot the *mistake*|grimace'; SERIES = 'Airport English #5'; KEYWORDS.update(['on'])
 vhook(VIRAL_HOOK)
+prop(pad=True)
 talk('cue', B1, BW, 'ga_455fe5c1')
 talk('wrong', A1, 'ama', 'ga_d3096c09')
 hold('oops', OOPS, 1.0)
 hold('ring', BREACT, 1.5, ov=[('Ring', 0.0, 3.0, 'Comment the mistake 👇|')])
 hold('ring_b', MASTER, 1.5)
 hold('reveal', BREACT, 2.46, ov=[('Strike', 0.0, None, WRONG, 2)])
-talk('right', MCU, 'ama', 'ga_d0245482')
+talk('right', MCU, 'ama', 'ga_d0245482', opt=True)
 talk('slow', MCU, 'ama', 'ga_d0245482', tempo=0.85)
 PUNCH['slow'] = 0.0
 vend('Can I take this bag on board?')

@@ -17,18 +17,19 @@ def _words_line(dr, l, fe, special, wfn):
 def st_choice(im, dr, txt, sub):
     q, *opts, ans = txt.split('|'); fq = ImageFont.truetype(FONT_EN, 48); fo = ImageFont.truetype(FONT_EN, 44)
     lq = wrapw(dr, q, fq, MAXW - 64); assert len(lq) <= 2 and len(opts) in (2, 3), txt   # 3 = listen & choose, 2 = A/B quiz
-    y0 = globals().get('CHOICE_Y', 1040); pad = 26; h = pad + 60 * len(lq) + 18 + len(opts) * 96 + (len(opts) - 1) * 18 + pad; x0 = SAFE['x0']
+    y0 = globals().get('CHOICE_Y', 1040); pad = globals().get('CHOICE_PAD', 26); OR = globals().get('CHOICE_ROW', 96); h = pad + 60 * len(lq) + 18 + len(opts) * OR + (len(opts) - 1) * 18 + pad; x0 = SAFE['x0']   # auto lessons: compact rows
     dr.rounded_rectangle([x0, y0, x0 + MAXW, y0 + h], radius=30, fill=CREAM, outline=INK, width=5); y = y0 + pad
     for l in lq: dr.text((CX - dr.textlength(l, font=fq) / 2, y), l, font=fq, fill=INK); y += 60
     y += 18
     for j, o in enumerate(opts):
         L_ = 'ABC'[j]; ok = L_ == ans; lay = Image.new('RGBA', im.size, (0, 0, 0, 0)); d2 = ImageDraw.Draw(lay); rx0, rx1 = x0 + 22, x0 + MAXW - 22
-        if sub and ok: d2.rounded_rectangle([rx0, y, rx1, y + 96], radius=24, fill=(225, 245, 232, 255), outline=(23, 120, 70, 255), width=5)
-        d2.rounded_rectangle([rx0 + 12, y + 12, rx0 + 84, y + 84], radius=20, fill=GOLD); fl = ImageFont.truetype(FONT_EN, 44)
-        d2.text((rx0 + 48 - d2.textlength(L_, font=fl) / 2, y + 16), L_, font=fl, fill=(15, 61, 62, 255)); d2.text((rx0 + 108, y + 18), o, font=fo, fill=INK)
-        if sub and ok: _tick(d2, rx1 - 50, y + 48, 22, (23, 120, 70, 255))
+        q_ = (OR - 96) // 2   # vertical shift for compact rows
+        if sub and ok: d2.rounded_rectangle([rx0, y, rx1, y + OR], radius=24, fill=(225, 245, 232, 255), outline=(23, 120, 70, 255), width=5)
+        d2.rounded_rectangle([rx0 + 12, y + 12 + q_, rx0 + 84, y + 84 + q_], radius=20, fill=GOLD); fl = ImageFont.truetype(FONT_EN, 44)
+        d2.text((rx0 + 48 - d2.textlength(L_, font=fl) / 2, y + 16 + q_), L_, font=fl, fill=(15, 61, 62, 255)); d2.text((rx0 + 108, y + 18 + q_), o, font=fo, fill=INK)
+        if sub and ok: _tick(d2, rx1 - 50, y + OR / 2, 22, (23, 120, 70, 255))
         if sub and not ok: a = np.asarray(lay).copy(); a[..., 3] = (a[..., 3] * 0.45).astype(np.uint8); lay = Image.fromarray(a)
-        im.alpha_composite(lay); y += 96 + 18
+        im.alpha_composite(lay); y += OR + 18
     return [x0, y0, x0 + MAXW, y0 + h]
 def st_gap(im, dr, txt, sub):
     global CUR_FS
@@ -51,14 +52,15 @@ def st_gap(im, dr, txt, sub):
 LADDER_LABELS = (('POLITE', (15, 61, 62, 255)), ('NEUTRAL', (90, 96, 110, 255)), ('CASUAL', (229, 80, 47, 255)))
 def st_ladder(im, dr, txt, sub):
     ss = txt.split('|'); y0 = globals().get('LADDER_Y', 980); fl = ImageFont.truetype(FONT_EN, 30); fs = ImageFont.truetype(FONT_EN, 42); x0 = SAFE['x0']; y = y0
+    rh = globals().get('LADDER_ROW', 132); gp = 16 if rh >= 132 else 10   # auto lessons: compact rows (112) so 3 steps fit under an MCU face with 24 px clearance
     for j in range(int(sub or 1)):
-        dr.rounded_rectangle([x0, y, x0 + MAXW, y + 132], radius=26, fill=CREAM, outline=INK, width=4)
-        lab, col = LADDER_LABELS[j]; dr.rounded_rectangle([x0 + 14, y + 14, x0 + 164, y + 118], radius=20, fill=col)
-        dr.text((x0 + 89 - dr.textlength(lab, font=fl) / 2, y + 48), lab, font=fl, fill=WHITE)
-        ls = wrapw(dr, ss[j], fs, MAXW - 220); assert len(ls) <= 2, ss[j]; yy = y + 66 - 26 * len(ls)
+        dr.rounded_rectangle([x0, y, x0 + MAXW, y + rh], radius=26, fill=CREAM, outline=INK, width=4)
+        lab, col = LADDER_LABELS[j]; dr.rounded_rectangle([x0 + 14, y + 14, x0 + 164, y + rh - 14], radius=20, fill=col)
+        dr.text((x0 + 89 - dr.textlength(lab, font=fl) / 2, y + rh / 2 - 18), lab, font=fl, fill=WHITE)
+        ls = wrapw(dr, ss[j], fs, MAXW - 220); assert len(ls) <= 2, ss[j]; yy = y + rh / 2 - 26 * len(ls)
         for l in ls: dr.text((x0 + 190, yy), l, font=fs, fill=INK); yy += 52
-        y += 132 + 16
-    return [x0, y0, x0 + MAXW, y - 16]
+        y += rh + gp
+    return [x0, y0, x0 + MAXW, y - gp]
 def st_strike(im, dr, txt, sub):
     global CUR_FS
     en, nat = txt.split('||'); wrong, right = STRIKE; fe = ImageFont.truetype(FONT_EN, TPL_CAP_FS); CUR_FS = TPL_CAP_FS; fn = fnat(40); fr = ImageFont.truetype(FONT_EN, 46); sub = sub or 0

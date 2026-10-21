@@ -7,15 +7,16 @@ WRONG = TEXT['gc_a17f71dc'] + '||'
 CAPSTYLE = {'wrong': ('Strike', 0), 'right': ('Karaoke', 4), 'slow': ('Karaoke', 4)}
 META = {'id': 'auto-cafe-mistake-f03f29', 'cefr': 'A2', 'goal_en': 'Spot the mistake', 'pattern': 'Can I have two cookies, please?', 'area': 'grammar-check'}
 if not VIRAL: raise SystemExit("auto lessons are English-only viral (VIRAL=1)")
-VIRAL_HOOK = 'Learners make *this* mistake|grimace'; SERIES = 'Café English #3'; KEYWORDS.update(['cookies'])
+VIRAL_HOOK = 'Spot the *mistake*|grimace'; SERIES = 'Café English #3'; KEYWORDS.update(['cookies'])
 vhook(VIRAL_HOOK)
+prop(pad=True)
 talk('cue', B1, BW, 'gc_33513ec0')
 talk('wrong', A1, 'ama', 'gc_a17f71dc')
 hold('oops', OOPS, 1.0)
 hold('ring', BREACT, 1.5, ov=[('Ring', 0.0, 3.0, 'Comment the mistake 👇|')])
 hold('ring_b', MASTER, 1.5)
 hold('reveal', BREACT, 2.18, ov=[('Strike', 0.0, None, WRONG, 2)])
-talk('right', MCU, 'ama', 'gc_24557598')
+talk('right', MCU, 'ama', 'gc_24557598', opt=True)
 talk('slow', MCU, 'ama', 'gc_24557598', tempo=0.85)
 PUNCH['slow'] = 0.0
 vend('Can I have two cookies, please?')

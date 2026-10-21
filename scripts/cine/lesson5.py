@@ -228,7 +228,7 @@ def png(style, txt, k, sub=None):
         box = [SAFE['x0'], y0, SAFE['x1'], y0 + h + 18 + hb]
     elif style == 'Ring':   # 2 s practice pause with a progress ring (sub = 0..12)
         en, nat = txt.split('|'); arrow = en.endswith('👇'); en = en.replace('👇', '').strip(); fe = ImageFont.truetype(FONT_EN, 58 if VIRAL else 50); fn = fnat(42); le = wrapw(dr, en, fe, MAXW - (300 if arrow else 220)); ln = wrapw(dr, nat, fn, MAXW - 220, True) if nat else []
-        LHr = 70 if VIRAL else 62; h = 40 + LHr * len(le) + 56 * len(ln) + 20; h = max(h, 190); y0 = RING_Y.get(SHOT_ID, 250); x0 = card(dr, y0, MAXW, h, (255, 247, 234, 248))
+        LHr = 70 if VIRAL else 62; h = 40 + LHr * len(le) + 56 * len(ln) + 20; h = max(h, globals().get('RING_MINH', 190)); y0 = RING_Y.get(SHOT_ID, 250); x0 = card(dr, y0, MAXW, h, (255, 247, 234, 248))
         cx, cy, r = x0 + 95, y0 + h / 2, 62
         dr.ellipse([cx - r, cy - r, cx + r, cy + r], outline=(220, 214, 200, 255), width=14)
         if sub: dr.arc([cx - r, cy - r, cx + r, cy + r], -90, -90 + 360 * sub / 12, fill=(229, 80, 47, 255), width=14)
@@ -274,7 +274,8 @@ def word_ev(style, s, ln, a, b, txt):   # word-by-word timing (char-proportional
         ws = s['t0'] + tb[i]; we = s['t0'] + tb[i + 1]
         ev.append([style, (s['t0'] + a - 0.09) if i == 0 else ws, (s['t0'] + b + 0.39) if i == len(words) - 1 else we, txt, s['id'], ln['id'], i])
 for st_, txt_, sub_ in ALLSHOTS:   # overlay on every shot (e.g. Pov chip); identical consecutive overlays chain without a blink
-    for s in S: s['ov'].append((st_, 0.0, None, txt_, sub_))
+    for s in S:
+        if s['id'] not in globals().get('ALLSHOTS_SKIP', ()): s['ov'].append((st_, 0.0, None, txt_, sub_))   # (auto lessons skip hook + loop: the hook owns the wall, the loop stays clean)
 for s in S:
     end = s['t0'] + s['dur']; kar = next((o[3] for o in s['ov'] if o[0] == 'Karaoke'), None)
     for who, ln in s['lines']:
@@ -314,11 +315,13 @@ for k, e in enumerate(ev):
 for f in {fam(e) for e in ev if fam(e)}:
     ks = sorted([k for k, e in enumerate(ev) if fam(e) == f], key=lambda k: ev[k][1])
     for x, y in zip(ks, ks[1:]):
-        if ev[y][1] - ev[x][2] < 0.5:   # short gap -> swap pages on the same frame (a blank 1-12 frame gap reads as a blink)
+        if ev[y][1] - ev[x][2] < 0.5 and not (iscap(ev[x]) and ev[y][1] - ev[x][2] > 0.22):   # short gap (a caption is stretched at most 0.22 s: qa5 end <= +0.62 s) -> swap pages on the same frame (a blank 1-12 frame gap reads as a blink)
             ev[x][2] = ev[y][1]; FOUT.discard(x); FIN.discard(y)
 ovs = []
 for k, e in enumerate(ev):
     SHOT_ID = e[4]; pth, box = png(e[0], e[3], k, e[6]); ovs.append((pth, e[1], e[2], e[0])); BOX.append(dict(style=e[0], text=e[3], t=[round(e[1], 3), round(e[2], 3)], shot=e[4], line=e[5], part=e[6], box=box, **({'fs': CUR_FS} if CUR_FS else {})))
+OFF = {}
+if VIRAL or globals().get('PLACE'): exec(open(f'{CODE}/place.py').read())   # overlay placer: faces / bodies / other cards (viral lessons; old v1/v2 renders unchanged)
 if VIRAL:   # SFX: "pop" when a card appears / changes state, soft "whoosh" on cuts into or out of a non-dialogue shot
     last = {}
     for k, e in enumerate(ev):
@@ -357,6 +360,7 @@ NF = int(round(TOTAL * FPS)); LAY = f'{OUT}/overlay.mov'
 IMG = []
 for k, (pth, a, b, st) in enumerate(ovs):
     im = Image.open(pth); bb = im.getbbox() or (0, 0, 1, 1); arr = np.asarray(im.crop(bb)).astype(np.float32) / 255
+    dx_, dy_ = OFF.get(k, (0, 0)); bb = (bb[0] + dx_, bb[1] + dy_, bb[2] + dx_, bb[3] + dy_)   # placer shift
     fd = (0.125 if st in ('Sub', 'Karaoke', 'Ring', 'Gap', 'Strike') else 0.16)
     IMG.append((bb, arr, int(round(a * FPS)), int(round(b * FPS)), fd if k in FIN else 0, fd if k in FOUT else 0))
 pl = subprocess.Popen(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-s', '1080x1920', '-r', str(FPS), '-i', '-', '-c:v', 'qtrle', LAY], stdin=subprocess.PIPE)

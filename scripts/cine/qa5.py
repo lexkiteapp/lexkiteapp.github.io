@@ -192,10 +192,11 @@ if VIRAL:   # viral-mode rules (docs/CINE-SCENE-STANDARD.md §7, v3 pacing model
         rule(min(o['t'][0] for o in ch) <= sp0 - 1.5 + 1e-3 and max(o['t'][1] for o in ch if o['part'] == 0) >= ring_end - 0.05, f'options up {sp0 - min(o["t"][0] for o in ch):.2f} s before the audio (>= 1.5) and through the ring')
     slow = [l for s in tl['shots'] for l in s['lines'] if abs(l['tempo'] - 0.85) < 0.01 and s['t0'] >= (ra if rv else 0)]
     rule(bool(slow) and any(o['style'] == 'Cap' and o['line'] == slow[0]['id'] for o in caps), 'reinforce: model line once at 0.85x with karaoke after the reveal')
-    ov_ = [o for o in tl['overlays'] if o['style'] in ('Series', 'Follow', 'VHook', 'Pov', 'Recap', 'Ring', 'Choice', 'Ladder', 'Hook', 'Card')]
-    clash = [(a['style'], b['style']) for i, a in enumerate(ov_) for b in ov_[i + 1:] if a['style'] != b['style'] and min(a['t'][1], b['t'][1]) - max(a['t'][0], b['t'][0]) > 0.01
+    gk = lambda o: ('cap', o['line'], o['shot']) if o['style'] in ('Cap', 'Sub', 'Karaoke') else (('ring', o['shot']) if o['style'] == 'Ring' else (o['style'], o['text']))   # one card (all states/pages) = one group
+    ov_ = tl['overlays']   # global no-overlap: every overlay pair (cards, chips, captions) visible at the same time
+    clash = [(a['style'], b['style']) for i, a in enumerate(ov_) for b in ov_[i + 1:] if gk(a) != gk(b) and min(a['t'][1], b['t'][1]) - max(a['t'][0], b['t'][0]) > 0.01
              and min(a['box'][2], b['box'][2]) > max(a['box'][0], b['box'][0]) and min(a['box'][3], b['box'][3]) > max(a['box'][1], b['box'][1])]
-    rule(not clash, f'cards do not overlap each other {sorted(set(clash)) or ""}')
+    rule(not clash, f'overlays do not overlap each other (pairwise) {sorted(set(clash)) or ""}')
 for b in tl['endcard_boxes']:
     if not (b[0] >= SZ['x0'] and b[2] <= SZ['x1'] and b[1] >= SZ['y0'] and b[3] <= SZ['y1']): fails.append('safe:endcard'); print('  END CARD SAFE FAIL', b)
 print('== AUDIO')
