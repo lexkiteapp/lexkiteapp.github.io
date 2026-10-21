@@ -1,0 +1,6 @@
+{"_note": "Lesson domain -> backgrounds that visually read as that place (lead review 21/10: 'waiting room' bg reads as a cafeteria, not a clinic). gen_news.py picks bg from here when the lesson text matches; qa_news.py fails a lesson whose text matches a domain but whose bg is not listed. Keywords match point + series + hook (lower case, word start).",
+ "domains": {
+  "health": {"keywords": ["doctor", "clinic", "appointment", "medicine", "pharmacy", "sick", "headache", "fever", "prescription", "health", "symptom", "cough", "pain"], "bg": ["pharmacy"]},
+  "money": {"keywords": ["bank", "account", "withdraw", "deposit", "atm"], "bg": ["bank"]},
+  "flight": {"keywords": ["flight", "boarding", "seatbelt", "airplane", "cabin crew"], "bg": ["airplane_cabin"]}
+ }}

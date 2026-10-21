@@ -19,6 +19,13 @@ END = ['Practice it free on Lexkite.', 'Try the full lesson on Lexkite.', 'More 
 LABELS = {'EXAMPLE', 'RULE', 'TIP', 'WHY', 'POV', 'POLITE', 'NEUTRAL', 'CASUAL', 'A', 'B', '?'}
 norm = lambda s: re.sub(r'[^a-z0-9]+', ' ', s.lower()).strip(); NW = lambda s: len(re.findall(r"[A-Za-z0-9']+", s))
 
+BGT = json.load(open(f'{D}/bg_topics.json'))['domains']
+def dom_hits(text):   # lesson domains whose keywords occur in the text (word start)
+    t = text.lower(); return [d for d, v in BGT.items() if any(re.search(r'\b' + re.escape(k), t) for k in v['keywords'])]
+def bg_for(e):
+    hits = dom_hits(' '.join([e['point'], ' '.join(e.get('series') or []), ' '.join(e['hook'])]))
+    return e['topic'] if not hits or e['topic'] in BGT[hits[0]]['bg'] else BGT[hits[0]]['bg'][0]
+
 def card(t, i, c, n):
     """bank card [text, sub|LABEL] -> card_one args (kind, text, sub, label) + width check at 52 px (news.py card_one geometry)."""
     text, x = c; sub = None
@@ -49,7 +56,7 @@ def build(e, k):
     est = 1.8 + sum(0.55 + NW(l['text']) / 2.55 for l in lines[1:-2]) + 2.86 + 0.55 + NW(lines[-1]['text']) / 2.55 + 1.0
     if not 20 <= est <= 28: errs.append(f'estimated {est:.1f} s outside 20-28')
     if e['t'] == 'three': dr_ = [r for r in e['rows']]
-    spec = dict(id=lid, template=e['t'], bg=e['topic'], area=e['area'], cefr=e['cefr'], point=e['point'], hook=dict(card=e['hook'][0], line=f'n_{h6}_h'),
+    spec = dict(id=lid, template=e['t'], bg=bg_for(e), area=e['area'], cefr=e['cefr'], point=e['point'], hook=dict(card=e['hook'][0], line=f'n_{h6}_h'),
                 series=e['series'], beats=beats, recap=dict(title='SAVE THIS', line=f'n_{h6}_r', rows=e['rows']), end_line=f'n_{h6}_e',
                 link=ECO[e['area']]['link'], cta=ECO[e['area']]['cta'], est=round(est, 1))
     return lid, spec, lines, errs

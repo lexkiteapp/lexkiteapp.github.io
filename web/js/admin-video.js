@@ -89,7 +89,7 @@
         grid.innerHTML = list.length ? list.map(it => { const c = covers[it.cover], bad = !it.qa || it.qa.status !== 'pass';
           return `<button class="vid-card" data-id="${esc(it.id)}" aria-label="${esc(V('Mở video {t}', { t: it.title || it.id }))}"><div class="vid-th">${c ? `<img loading="lazy" decoding="async" alt="" src="${esc(c)}">` : `<span>🎬<br>${V('Cần token')}</span>`}
             <span class="vid-badge${bad ? ' bad' : ''}">${bad ? '✗' : '✓'} QA</span>${it.duration ? `<span class="vid-dur">${esc(secs(it.duration))}</span>` : ''}</div>
-            <div class="vid-meta"><b>${esc(it.title || it.point || it.id)}</b><span>${esc([it.scene, it.template, it.cefr].filter(Boolean).join(' · '))}</span><span>${esc(it.slot ? it.slot.date + ' ' + it.slot.time : V(PUB.none))}</span></div></button>`; }).join('') : `<p class="muted">${V('Không có video khớp bộ lọc.')}</p>`;
+            <div class="vid-meta"><b>${esc(it.title || it.point || it.id)}</b><span>${esc([it.scene, it.template, it.cefr].filter(Boolean).join(' · '))}</span><span>${esc(it.rejected ? '⛔ ' + V('Bị loại') + ': ' + it.rejected : it.paused ? '⏸ ' + V('Tạm dừng') + ': ' + it.paused : it.slot ? it.slot.date + ' ' + it.slot.time : V(PUB.none))}</span></div></button>`; }).join('') : `<p class="muted">${V('Không có video khớp bộ lọc.')}</p>`;
         grid.querySelectorAll('.vid-card').forEach(b => { b.onclick = () => open(items.find(x => x.id === b.dataset.id), data); });
       };
       body.querySelector('#vid-q').oninput = e => { f.q = e.target.value; paint(); };

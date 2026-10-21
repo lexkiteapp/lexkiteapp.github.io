@@ -295,7 +295,7 @@ jobs:
           : > out/passed.txt; fail=0
           for lid in ${SHARD//,/ }; do
             echo "::group::news/$lid"; rb="render5_${lid}_en"
-            if python scripts/cine/news.py "$lid" 2>&1 | tee "out/qa/build_${lid}_en.log"; then
+            if { python scripts/cine/news.py "$lid" 2>&1 | tee "out/qa/build_${lid}_en.log"; } && [ -f "$NEWS_DIR/$rb/timeline.json" ]; then   # a failed build must not abort the remaining lessons
               cp "$NEWS_DIR/$rb/timeline.json" "out/qa/timeline_$rb.json"; cp "$NEWS_DIR/$rb/qc.json" "out/qa/qc_$rb.json"
               if (cd "$NEWS_DIR" && python "$CINE_ROOT/scripts/cine/qa_news.py" "$rb") > "out/qa/qa_$rb.log" 2>&1; then :; fi
               tail -1 "out/qa/qa_$rb.log"; grep FAIL "out/qa/qa_$rb.log" | head -20 || true

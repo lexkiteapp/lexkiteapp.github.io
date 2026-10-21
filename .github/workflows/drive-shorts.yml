@@ -1,0 +1,47 @@
+# Sao lưu shorts ĐẠT (lexkiteapp/lexkite-shorts) lên Kho Drive riêng – scripts/video/drive-shorts.mjs.
+# Idempotent (sha trong index.json + sổ drive_files), tiếp tục được (ghi index sau mỗi short), có nhịp nghỉ.
+# Ghi vị trí file (item.drive.{video,cover}) ngược vào shorts/index.json của lexkite-shorts.
+# Secrets: LEXKITE_DRIVE_CLI_KEY (HMAC /api/drive), SHORTS_DEPLOY_KEY (deploy key ghi lexkite-shorts).
+name: drive-shorts
+on:
+  workflow_dispatch:
+    inputs:
+      limit: { description: 'Tối đa số short mỗi lượt', default: '500' }
+      dry_run: { description: 'Chỉ liệt kê, không tải', type: boolean, default: false }
+  workflow_run:
+    workflows: [cine-render]
+    types: [completed]
+concurrency: { group: drive-shorts, cancel-in-progress: false }
+permissions: { contents: read }
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Lấy lexkite-shorts
+        env: { KEY: '${{ secrets.SHORTS_DEPLOY_KEY }}' }
+        run: |
+          [ -n "$KEY" ] || { echo "::error::thiếu secret SHORTS_DEPLOY_KEY"; exit 1; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/shorts && chmod 600 ~/.ssh/shorts
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes" git clone -q --depth 1 git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
+      - name: Tải shorts ĐẠT lên Kho Drive
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/video/drive-shorts.mjs --repo /tmp/shorts --limit "${{ github.event.inputs.limit || '500' }}" ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
+      - name: Ghi vị trí Drive vào shorts/index.json
+        if: always()
+        run: |
+          cd /tmp/shorts; git diff --quiet shorts/index.json && { echo "index không đổi"; rm -f ~/.ssh/shorts; exit 0; }
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes"
+          cp shorts/index.json /tmp/index.new.json
+          git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qam "drive-shorts #${{ github.run_number }}: vị trí Kho Drive"
+          for k in 1 2 3 4; do git push -q origin HEAD:main && break
+            # đua với cine-render: lấy bản mới rồi gộp trường drive theo id
+            git fetch -q origin main && git reset -q --hard origin/main
+            python3 -c "import json;n={e['id']:e.get('drive') for e in json.load(open('/tmp/index.new.json'))['items'] if e.get('drive')};p='shorts/index.json';d=json.load(open(p));[e.__setitem__('drive',n[e['id']]) for e in d['items'] if e['id'] in n and 'drive' not in e];json.dump(d,open(p,'w'),indent=1,ensure_ascii=False)"
+            git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qam "drive-shorts #${{ github.run_number }}: vị trí Kho Drive" || break
+          done
+          rm -f ~/.ssh/shorts

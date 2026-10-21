@@ -12,8 +12,8 @@ for i in IDS:
     sp = json.load(open(f'{ND}/lessons/{i}.json')); need |= {sp['hook']['line'], sp['recap']['line'], sp['end_line']} | {b['line'] for b in sp['beats']}
 todo = [l for l in base['lines'] if l['id'] in need and not os.path.exists(f'{V}/{l["id"]}.wav')]
 print(f'{len(need)} lines needed, synthesising {len(todo)}')
-if todo:
-    tmp = f'{ND}/tts_in.json'; W = f'{ND}/tts_wav'; json.dump(dict(voices=base['voices'], speed=base.get('speed', 0.92), lines=todo), open(tmp, 'w'))
+def synth(todo, tag):
+    tmp = f'{ND}/tts_in_{tag}.json'; W = f'{ND}/tts_wav_{tag}'; json.dump(dict(voices=base['voices'], speed=base.get('speed', 0.92), lines=todo), open(tmp, 'w'))
     subprocess.run(['node', f'{ROOT}/scripts/cine/tts.mjs', tmp, W], check=True)
     for l in todo:
         w, j = f'{W}/{l["id"]}.wav', f'{V}/{l["id"]}.json'
@@ -21,6 +21,17 @@ if todo:
             if subprocess.run([os.environ['RHUBARB'], '-q', *rec, '--extendedShapes', 'GHX', '-f', 'json', '-d', f'{W}/{l["id"]}.txt', '-o', j, w]).returncode == 0: break
         else: sys.exit(f'rhubarb failed: {l["id"]}')
         shutil.copy(w, V)
+def span(i): c = [x for x in json.load(open(f'{V}/{i}.json'))['mouthCues'] if x['value'] != 'X']; return c[-1]['end'] - c[0]['start']
+if todo:
+    synth(todo, 'a')
+    # caption reading speed: news.py may slow a line by atempo >= 0.84x only; lines spoken too fast for <= 15 cps are re-synthesised slower (natural TTS pace, not stretched audio)
+    redo = []
+    for l in todo:
+        nd = len(l['text']) / 14.0 - 0.5; sp = span(l['id'])
+        if sp < 0.9 * nd: redo.append(dict(l, speed=round(max(0.7, (l.get('speed') or base.get('speed', 0.92)) * sp / (0.97 * nd)), 3)))
+    if redo:
+        print('re-synthesising slower:', [(l['id'], l['speed']) for l in redo]); synth(redo, 'b')
+        for l in redo: print(f"  {l['id']} span {span(l['id']):.2f} s for {len(l['text'])} chars")
 from faster_whisper import WhisperModel
 M = WhisperModel('base.en', device='cpu', compute_type='int8'); norm = lambda x: re.sub(r"[^a-z0-9']", '', x.lower())
 for l in base['lines']:
