@@ -71,16 +71,16 @@ jobs:
           du -sh footage
       # Bài sinh tự động (scripts/cine/gen_lessons.py): giọng còn thiếu -> Kokoro + Rhubarb ngay trên CI (0 credit, không làm gì trên Mac)
       - uses: actions/setup-node@v4
-        if: hashFiles(format('content/video/cine/auto/{0}/lines.json', github.event.inputs.scene)) != ''
+        if: hashFiles('content/video/cine/auto/*/lines.json') != ''   # any auto scene (scene may be a list)
         with: { node-version: 20 }
       - name: Đệm mô hình Kokoro (~90 MB)
-        if: hashFiles(format('content/video/cine/auto/{0}/lines.json', github.event.inputs.scene)) != ''
+        if: hashFiles('content/video/cine/auto/*/lines.json') != ''   # any auto scene (scene may be a list)
         uses: actions/cache@v4
         with:
           path: /tmp/kk/node_modules/@huggingface/transformers/.cache
           key: video-models-kokoro82m-q8-cine-v1
       - name: Cài kokoro-js + Rhubarb
-        if: hashFiles(format('content/video/cine/auto/{0}/lines.json', github.event.inputs.scene)) != ''
+        if: hashFiles('content/video/cine/auto/*/lines.json') != ''   # any auto scene (scene may be a list)
         run: |
           npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
           curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
