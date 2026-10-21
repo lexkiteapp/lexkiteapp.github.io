@@ -167,18 +167,25 @@ Mẫu thẻ:
 ## ĐANG LÀM
 > ⚠️ @antigravity: U2a lại bị gom vào commit của Claude (1d6502ca) vì sửa thẳng trong thư mục của Claude. **Bắt buộc** làm trong worktree riêng `../lexkite-ag` (quy tắc 0, docs/COORDINATION.md) cho U2b trở đi.
 
+## CHỜ DUYỆT
+
 ### [G1] Nâng cấp phòng thi CBT: Bút dạ quang 3 màu, Ghi chú, Gạch loại trừ, Cờ xem lại & Pacing Engine · @antigravity · ưu tiên: cao
 - Mục tiêu: Hiện thực hóa GĐ 1 kế hoạch UI/UX top 1 (CBT Simulator):
   1. Bút dạ quang 3 màu (vàng, xanh lá, hồng) + Ghi chú dán (Sticky Note) trên cả bài đọc & câu hỏi + Bỏ tô sáng trực quan.
   2. Nút gạch phương án loại trừ trực quan (Strike icon <s>S</s>) trên từng đáp án + phím tắt Alt+A-D / Alt+1-4.
   3. Cờ xem lại câu hỏi trực quan (phím tắt F) + Bộ lọc câu hỏi ở thanh điều hướng (Tất cả, Chưa làm, Cần xem lại 🚩).
   4. Pacing Engine thời gian thực (ước tính tốc độ trung bình, cảnh báo nhịp độ xanh/vàng/đỏ, thời gian hoàn thành dự kiến – ghi rõ "ước tính").
-- File/khu vực: `web/js/cbt.js`, `web/js/choice-kit.js`, `web/css/style.css`.
-- Ràng buộc: Bundle `readings` tải lười, khung app không tăng (≤ 380 KB gz); chuỗi mới qua `t()` đủ 15 ngôn ngữ; phím tắt không xung đột khi gõ text; a11y đầy đủ; npm test PASS 100%.
-- Báo cáo: (đang triển khai)
+- File/khu vực: `web/js/cbt.js`, `web/js/choice-kit.js`, `web/js/i18n/en/exams.js`, `scripts/i18n-fixed.json`, `web/js/i18n/*`.
+- Tiêu chí xong: Bundle `readings` tải lười, khung app không tăng (≤ 380 KB gz); chuỗi mới qua `t()` đủ 15 ngôn ngữ; phím tắt không xung đột khi gõ text; a11y đầy đủ; npm test PASS 100%.
+- Báo cáo:
+  - Commit: `39e21405` (nhánh `antigravity` trong worktree `../lexkite-ag`).
+  - **Highlighter 3 màu & Ghi chú**: Thanh toolbar nổi `#hlBar` cho phép chọn 3 màu bút dạ quang (🟡 Vàng - Từ khóa, 🟢 Xanh lá - Bằng chứng, 🌸 Hồng - Bẫy), tạo Sticky Note `📝` gắn liền với đoạn trích (click để đọc/sửa/xóa), nút 🗑️ Xóa highlight. Nhớ trạng thái highlight theo từng passage (`passHl[r.id]`) khi đổi part.
+  - **Gạch loại trừ trực quan**: Nút `<s>S</s>` trên từng đáp án `.cbt-opt`, click là gạch/bỏ gạch mà không chọn radio; hỗ trợ phím tắt `Alt+1-4` / `Alt+A-D`.
+  - **Cờ xem lại & Bộ lọc**: Nút cờ `cbt-flag-btn` to rõ ở từng câu; phím tắt `F` toggle cờ câu đang xem; thanh lọc ở chân trang: `Tất cả`, `Chưa làm ({n})`, `🚩 Xem lại ({n})` giúp thí sinh rà soát nhanh.
+  - **Pacing Engine thời gian thực**: Chip `cbt-pacing-chip` trên header (`Đúng tiến độ`, `Hơi chậm`, `Chậm ~{m}p`), kèm popover chi tiết: Nhịp độ chuẩn, Tốc độ thực tế, Tiến độ, Dự kiến hoàn thành (dư/thiếu phút), ghi rõ chú thích "*Các chỉ số mang tính ước tính nhằm hỗ trợ phân bổ thời gian thi.".
+  - **Ngân sách & Hiệu năng**: CSS đóng gói trong `cbt.js` qua `ensureCss()` nên khung app giữ nguyên **377 KB/380 KB gz**, web/js **18.5/18.8 MB**.
+  - **Đa ngôn ngữ & Kiểm thử**: Đủ 15 ngôn ngữ; `npm test` **PASS 100%** (1274 trang crawl ALL OK, 46 màn hình a11y axe-core ALL OK, smoke test ALL OK, native-auth ALL OK).
 - Cần sửa / Nhận xét:
-
-## CHỜ DUYỆT
 
 ### [G0] Tách i18n tải lười theo từng ngôn ngữ (hạ tầng UI/UX) · @antigravity · ưu tiên: cao
 - Mục tiêu: Tách các nhóm chuỗi tải lười (LAZY) khỏi `web/js/i18n/<lang>.js` thành các file con `web/js/i18n/<lang>/<nhóm>.js` cho 13 ngôn ngữ ngoài `en`. Cập nhật `scripts/build-i18n.sh` và `scripts/gen-i18n.mjs`. Cập nhật loader nạp bundle động theo ngôn ngữ (`app.js`, các module tự nạp và `lazyfix.js`). Gỡ `ru.js` khỏi `allowBig` trong `scripts/test/budget.json`.
