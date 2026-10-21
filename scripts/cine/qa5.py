@@ -199,6 +199,11 @@ if VIRAL:   # viral-mode rules (docs/CINE-SCENE-STANDARD.md §7, v3 pacing model
     rule(not clash, f'overlays do not overlap each other (pairwise) {sorted(set(clash)) or ""}')
 for b in tl['endcard_boxes']:
     if not (b[0] >= SZ['x0'] and b[2] <= SZ['x1'] and b[1] >= SZ['y0'] and b[3] <= SZ['y1']): fails.append('safe:endcard'); print('  END CARD SAFE FAIL', b)
+print('== JUMP CUTS (back-to-back segments of the same clip must continue frame-to-frame; any other same-clip cut = same framing = jump cut)')
+jc = [(a['id'], b['id'], a['clip'], a['frames'][1], b['frames'][0]) for a, b in zip(tl['shots'], tl['shots'][1:]) if a['clip'] == b['clip'] and abs(b['frames'][0] - a['frames'][1]) > 2]
+for x in jc: print('  JUMP CUT FAIL %s -> %s on %s (frame %d -> %d)' % x)
+print('  same-clip neighbours:', sum(a['clip'] == b['clip'] for a, b in zip(tl['shots'], tl['shots'][1:])), 'jump cuts:', len(jc), 'OK' if not jc else 'FAIL')
+if jc: fails.append('jumpcut')
 print('== AUDIO')
 a = subprocess.run(['ffmpeg', '-nostdin', '-threads', TH, '-i', V, '-af', 'ebur128', '-f', 'null', '-'], capture_output=True, text=True).stderr
 LU = float(re.findall(r'I:\s+(-?[\d.]+) LUFS', a)[-1]); fails += ['loudness'] if abs(LU + 16) > 1 else []

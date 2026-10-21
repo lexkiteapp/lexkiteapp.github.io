@@ -31,7 +31,7 @@ SCENES = {
       A1='r24_ots_ama_talk', A2='r24_ots_ama_talk', MCU='r06_ama_mcu_talk', OOPS='r27_ama_react', THX='r28_ama_thanks'),
    range=dict(MASTER=(0, 120), B1=(0, 75), B2=(0, 46), BREACT=(0, 89), A1=(12, 86), MCU=(52, 89), OOPS=(20, 48), THX=(52, 100)), prop=('r11_bill', 2, 1.6, 'slide.wav', 4),
    who=dict(B1='B', B2='B', BREACT='B', A1='ama', MCU='ama', OOPS='ama', THX='ama'),
-   ladder_clip='A1', vhook_box=(60, 236, 940, 631), avoid=[[108, 862, 422, 1227], [0, 1189, 535, 1920], [659, 655, 984, 964], [544, 933, 1080, 1920]], ladder_y=1130, hook_y=1130, choice_y=1000, ring=('B1', 830)),
+   ladder_clip='A1', vhook_box=(60, 236, 940, 631), avoid=[[108, 862, 422, 1227], [0, 1189, 535, 1920], [659, 655, 984, 964], [544, 933, 1080, 1920]], ladder_y=1130, hook_y=1130, choice_y=1000, ring=('B1', 830), ring_tpl='MASTER'),  # 22/10: OTS/react shots have no free zone for Ring next to Choice/Ladder -> ring hold on the wide master (top band free)
  'airport': dict(B='mei', name='Airport', pov="POV: you're at check-in", clips=dict(MASTER='b01_master_talk', B1='a01_ots_mei_talk', B2='a03_ots_mei_talk_b', BREACT='a08_mei_pass',
       A1='a02_ots_ama_talk', A2='a04_ots_ama_talk_b', MCU='a07_ama_mcu_talk', OOPS='a06_ama_react', THX='a09_ama_thanks'),
    range=dict(OOPS=(0, 50)), prop=('i01_passport', 0, 1.6, None, 0),
@@ -287,6 +287,12 @@ def hook_fits(txt, box):   # same layout as lesson5 VHook: words + icon wrapped 
         if n * int(fs * 1.1) + 6 <= box[3] - box[1]: return True
     return False
 
+def ring2(X, S, clip, ov, b_clip, b_ov):
+    """Ring beat (3.0 s). Scene forces ring_tpl (e.g. MASTER: only shot with a free zone) -> ONE continuous segment, no ring_b:
+    two back-to-back segments of the same wide shot read as a jump cut (qa5 'no jump cut' rule)."""
+    if S.get('ring_tpl'): X.hold('ring', S['ring_tpl'], 3.0, ov); return
+    X.hold('ring', clip, 1.5, ov); X.hold('ring_b', b_clip, 1.5, b_ov)
+
 def build(scene, tpl, area, point, a, n):
     S = SCENES[scene]; lid = f'auto_{scene}_{tpl}_{hashlib.sha1(norm(point).encode()).hexdigest()[:6]}'; X = Lesson(scene, lid); series = f"{S['name']} English #{n}"
     kw, recap, cefr_txt, pattern, goal = set(), '', [], '', ''
@@ -311,7 +317,7 @@ def build(scene, tpl, area, point, a, n):
         if est(a['line']) < 2.0: raise Gate('choose line < 2 s')
         if not all(opt_fits(o) for o in a['opts']): raise Gate('choice option too wide at 52 px')
         X.prop(); X.hold('setup', 'B1', 1.6, f'[{CH}]'); X.talk('listen', 'B1', 'B', kl, ov=f'[{CH}]')
-        X.hold('ring', rc_clip, 1.5, f"[{CH}, ('Ring', 0.0, 3.0, 'Comment A, B or C 👇|')]"); X.hold('ring_b', 'B2' if rc_clip != 'B2' else 'BREACT', 1.5, f'[{CH}]')
+        ring2(X, S, rc_clip, f"[{CH}, ('Ring', 0.0, 3.0, 'Comment A, B or C 👇|')]", 'B2' if rc_clip != 'B2' else 'BREACT', f'[{CH}]')
         X.hold('reveal', 'BREACT', 2.0, "[('Choice', 0.0, None, Q, 1)]"); X.talk('replay', 'B2', 'B', kl, opt=True); X.talk('slow', 'B1', 'B', kl, tempo=0.85); X.raw("PUNCH['slow'] = 0.0"); X.hold('react2', 'BREACT', 1.2, pad=True)
         recap = a['recap']; pattern = a['q']; goal = f"Listening: {a['thing']}"; cefr_txt = [a['line']]
     elif tpl == 'quiz':
@@ -320,7 +326,7 @@ def build(scene, tpl, area, point, a, n):
             if len(o) > 26 or not opt_fits(o): raise Gate('quiz option too long')
         X.head += [f'Q = {q!r}', "QA = dict(template='quiz')", f"RING_EXTRA['ring'] = {rc_y}"]; CH = "('Choice', 0.0, None, Q, 0)"
         hook = 'Polite or *rude?*|?' if 'polite' in a['q'].lower() else 'Which one is *correct?*|?'
-        X.prop(); X.hold('setup', 'B1', 2.0, f'[{CH}]'); X.hold('ring', rc_clip, 1.5, f"[{CH}, ('Ring', 0.0, 3.0, 'Comment A or B 👇|')]"); X.hold('ring_b', 'B2' if rc_clip != 'B2' else 'BREACT', 1.5, f'[{CH}]')
+        X.prop(); X.hold('setup', 'B1', 2.0, f'[{CH}]'); ring2(X, S, rc_clip, f"[{CH}, ('Ring', 0.0, 3.0, 'Comment A or B 👇|')]", 'B2' if rc_clip != 'B2' else 'BREACT', f'[{CH}]')
         X.hold('reveal', 'BREACT', 2.0, "[('Choice', 0.0, None, Q, 1)]"); X.talk('right', 'MCU', 'A', kl); X.talk('reply', 'B1', 'B', kr, opt=True); X.talk('slow', 'MCU', 'A', kl, tempo=0.85); X.raw("PUNCH['slow'] = 0.0"); X.hold('react2', 'BREACT', 1.2, pad=True)
         recap = a['line']; pattern = a['line']; goal = 'Polite or rude?' if 'polite' in a['q'].lower() else 'Which is correct?'; cefr_txt = [a['a'], a['b'], a['line']]
     elif tpl == 'gap':
@@ -339,7 +345,7 @@ def build(scene, tpl, area, point, a, n):
         hook = '3 ways. Which are *YOU?*|?'
         X.prop()
         for j, (sid, k) in enumerate(zip(('polite', 'neutral', 'casual'), ks)): X.talk(sid, S.get('ladder_clip', 'MCU'), 'A', k, ov=f"[('Ladder', 0.0, None, LAD, {j + 1})]")
-        X.raw("PUNCH['neutral'] = 0.0"); X.hold('ring', 'BREACT', 1.5, "[('Ladder', 0.0, None, LAD, 3), ('Ring', 0.0, 3.0, 'Which would YOU say? Comment 👇|')]"); X.hold('ring_b', 'B2', 1.5, "[('Ladder', 0.0, None, LAD, 3)]")
+        X.raw("PUNCH['neutral'] = 0.0"); ring2(X, S, 'BREACT', "[('Ladder', 0.0, None, LAD, 3), ('Ring', 0.0, 3.0, 'Which would YOU say? Comment 👇|')]", 'B2', "[('Ladder', 0.0, None, LAD, 3)]")
         X.talk('slow', 'MCU', 'A', ks[0], tempo=0.85); X.raw("PUNCH['slow'] = 0.0"); X.hold('react2', 'BREACT', 1.2, pad=True)
         recap = next(t for t in a['lad'] + [a['lad'][-1]] if len(words(t)) <= 7); pattern = 'Could I possibly have ___?'; goal = 'Polite, neutral, casual'; cefr_txt = a['lad']
     elif tpl == 'pov':
