@@ -19,8 +19,10 @@
 Hook ✗/✓ hoặc câu hỏi ≤5 từ · 1 ý/clip · thẻ "Screenshot/Save this" có cấu trúc câu · vòng "Comment A/B" · series đánh số · ảnh bìa chữ to · CTA deep link đúng bài trên web · loop liền mạch.
 
 ## 4. HÀNG ĐỢI VÒNG LẶP (làm lần lượt từ trên xuống; xong đánh ✅ + commit)
-1. ⏳ Hoàn thiện pilot bản tin khách sạn 100/100 (agent đang chạy) → nếu đạt: chốt template `news`.
-2. ☐ **Chuyển builder lên GitHub Actions** (workflow `cine-render.yml`): lấy footage từ repo riêng `lexkite-footage`, dựng + qa5/qa_news, xuất mp4 + bìa làm artifact/R2; Mac không render nữa.
+1. ⏳ Hoàn thiện pilot bản tin khách sạn 100/100 → chốt template `news` (v4: khung từ ngực trở lên, cân tỉ lệ 2 host, vùng bố cục không chồng chéo, render trên CI).
+1b. ⏳ **Chủ duyệt 21/10: 350 credit Kling trong ngày** cho ảnh bối cảnh + tài sản phù hợp (theo CREDIT-RULES): thư viện ~25–40 ảnh nền (≤70 cr) → `brand/library/cine/anchor/bg/index.json`; Ama ĐỨNG trên phông xanh nếu khung ngực-trở-lên vẫn không đạt (thử 1 clip trước, ≤125 cr); dự phòng còn lại cho template news đa dạng.
+1c. ☐ Template news đa dạng (≥6 kiểu: 3 câu cần biết, sai→sửa, A/B, điền từ, 3 cách nói, POV) + soát từng khung/voice/sub tự động, chạy trên CI.
+2. ✅ **Chuyển builder lên GitHub Actions** (workflow `cine-render.yml`): lấy footage từ repo riêng `lexkite-footage`, dựng + qa5/qa_news, xuất mp4 + bìa làm artifact/R2; Mac không render nữa.
 3. ☐ **Bộ sinh kịch bản tự động (0 token):** từ dữ liệu web (`content/wordlists`, `web/js/grammar/*`, `grammar/l1/*`, ecosystem.json, scenes/*.md) → lesson spec theo template; luật kiểm (English đúng, CEFR, ≤15 cps, không trùng ý: sổ `content/video/cine/used.json`). Ý tưởng mới (tuỳ chọn) qua Gemini miễn phí + cùng cổng kiểm.
 4. ☐ **Bản đồ phủ chủ đề:** mỗi khu vực web (ecosystem.json) × CEFR → ≥ 5 clip/khu vực; ưu tiên khu vực chưa có clip; CTA deep link đúng bài.
 5. ☐ Dựng lại toàn bộ bài 4 cảnh theo English-only + v3 (trên CI).
