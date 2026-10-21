@@ -152,7 +152,12 @@ if VIRAL:   # viral-mode rules (docs/CINE-SCENE-STANDARD.md §7, v3 pacing model
     rule(all(o.get('fs', 0) >= 64 for o in tcap), f'Gap/Strike captions {min([o.get("fs", 0) for o in tcap] or [99])} px (>= 64)')
     rule(not any(o['style'] in ('Sub', 'Karaoke') for o in tl['overlays']) and len(caps) > 0, 'all captions word-by-word (Cap), no static Sub')
     br = []
-    for s in tl['shots']:
+    sh = tl['shots']; cont = lambda a, b: a['clip'] == b['clip'] and abs(b['frames'][0] - a['frames'][1]) <= 2   # frame-contiguous = one visual shot
+    for i, s in enumerate(sh):
+        if s['id'] == 'ring_b' and i and sh[i - 1]['id'] == 'ring' and cont(sh[i - 1], s):   # ring/comment hold split in 2 contiguous segments = one 3 s shot
+            if sh[i - 1]['dur'] + s['dur'] > 3.01: rule(False, f'ring+ring_b {sh[i - 1]["dur"] + s["dur"]:.2f} s > 3.00 s (max shot length, contiguous ring hold)')
+            continue
+        if s['id'] == 'ring' and i + 1 < len(sh) and sh[i + 1]['id'] == 'ring_b' and cont(s, sh[i + 1]): continue
         if s['id'] == 'recap': lim = 3.0
         else: lim = max(2.5, max([l['dur'] + 0.6 for l in s['lines']] or [0])) + 0.01
         if s['dur'] > lim: rule(False, f'shot {s["id"]} {s["dur"]:.2f} s > {lim:.2f} s (max shot length)')
