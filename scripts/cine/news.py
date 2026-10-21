@@ -372,6 +372,10 @@ fl.append(''.join(bl) + f'amix=inputs={len(bl)}:normalize=0:duration=first,atrim
 os.makedirs(f'{OUTD}/covers', exist_ok=True); OUTF = f'{OUTD}/{META["out"]}'
 subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-threads', '2', '-i', f'{RD}/video.mp4'] + ins + ['-filter_complex', ';'.join(fl), '-map', '0:v', '-map', '[out]',
                 '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ac', '2', '-t', f'{TOTAL:.3f}', OUTF], check=True)
+_lu = float(re.findall(r'I:\s+(-?[\d.]+) LUFS', subprocess.run(['ffmpeg', '-nostdin', '-threads', '2', '-i', OUTF, '-af', 'ebur128', '-f', 'null', '-'], capture_output=True, text=True).stderr)[-1])
+if abs(_lu + 16) > 0.3:   # linear make-up gain to -16 LUFS (the bed stays as far below the voice as mixed)
+    os.replace(OUTF, OUTF + '.tmp.mp4'); subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', OUTF + '.tmp.mp4', '-c:v', 'copy', '-af', f'volume={-16 - _lu:.2f}dB,alimiter=limit=0.89:level=0', '-c:a', 'aac', '-b:a', '192k', OUTF], check=True); os.remove(OUTF + '.tmp.mp4')
+    print(f'loudness {_lu:.1f} LUFS -> make-up {-16 - _lu:+.1f} dB')
 cv2.imwrite(f'{OUTD}/covers/' + os.path.basename(OUTF).replace('.mp4', '.jpg'), COVER if COVER is not None else out, [cv2.IMWRITE_JPEG_QUALITY, 90])
 for o in OV: o.pop('_img', None); o.pop('_chain', None)
 json.dump(dict(lesson=dict(META, out=META['out']), shots=[{k: v for k, v in s.items()}  for s in S],

@@ -11,6 +11,7 @@ hk = SPEC['hook']; hs0, hs1 = speech(hk['line'])   # hook: speech starts by ~0.2
 a_ = max(0.0, min(0.2 - hs0, 1.66 - 0.42 - hs1)); ht = line_tempo(hk['line'])
 if a_ + hs1 / ht + 0.36 > 1.98: ht = min(1.15, round(hs1 / (1.98 - 0.36 - a_) + 0.005, 3))   # long hook line: tighten (<= 1.15x) instead of overrunning 2.0 s
 h_br = min(0.6, max(0.36, 1.66 - a_ - hs1 / ht))
+a_ = max(a_, 1.66 - h_br - hs1 / ht)   # very short hook line: later start (whoosh covers frame 0) so the hook still lasts >= 1.66 s
 h = shot('hook', 'ga2_talk_smile', 'ama', 'two', BG, line=hk['line'], at=a_, breath=h_br, frames=list(range(24, 24 + 60)), other='gc', tempo=ht)
 assert 1.6 <= h['dur'] <= 2.0 + 1 / FPS, ('hook length', h['dur'])
 if a_ + hs0 > 0.22: SFX.append(('whoosh.wav', 0.0))   # very short hook line: broadcast whoosh on frame 0 (no dead air)
