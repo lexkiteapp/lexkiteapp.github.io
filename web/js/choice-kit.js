@@ -17,7 +17,7 @@
     let last = '';
     const save = () => ss.set(key, struck);
     const labelOf = i => i.closest('label') || i.parentElement;
-    const paint = () => root.querySelectorAll('input[type=radio]').forEach(i => { const on = (struck[i.name] || []).includes(i.value), l = labelOf(i); if (l && l.classList.contains('struck') !== on) { l.classList.toggle('struck', on); l.setAttribute('data-struck', on ? '1' : ''); } });
+    const paint = () => root.querySelectorAll('input[type=radio]').forEach(i => { const on = (struck[i.name] || []).includes(i.value), l = labelOf(i); if (l && l.classList.contains('struck') !== on) { l.classList.toggle('struck', on); l.setAttribute('data-struck', on ? '1' : ''); const b = l.querySelector('[data-strike]'); if (b) b.setAttribute('aria-pressed', String(on)); } });
     const toggle = i => { const a = struck[i.name] || (struck[i.name] = []), k = a.indexOf(i.value); if (k >= 0) a.splice(k, 1); else a.push(i.value); if (!a.length) delete struck[i.name]; save(); paint(); };
     const current = groups => {
       const a = document.activeElement;
@@ -30,7 +30,10 @@
     const onKey = e => {
       if (!root.isConnected) return detach();
       if (e.defaultPrevented || e.ctrlKey || e.metaKey || typing(e.target)) return;
-      const k = /^[1-9]$/.test(e.key) ? +e.key - 1 : /^[a-iA-I]$/.test(e.key) ? e.key.toLowerCase().charCodeAt(0) - 97 : -1;
+      // Alt/⌥ + phím: macOS đổi e.key thành ký tự đặc biệt (¡, å…) → dùng e.code (Digit1/Numpad1/KeyA) cho tổ hợp Alt
+      const c = e.altKey ? /^(?:Digit|Numpad)([1-9])$|^Key([A-I])$/.exec(e.code || '') : null;
+      const k = e.altKey ? (c ? (c[1] ? +c[1] - 1 : c[2].charCodeAt(0) - 65) : -1)
+        : /^[1-9]$/.test(e.key) ? +e.key - 1 : /^[a-iA-I]$/.test(e.key) ? e.key.toLowerCase().charCodeAt(0) - 97 : -1;
       if (k < 0) return;
       const groups = groupsOf(root), n = current(groups), ins = n && groups.get(n);
       if (!ins || !ins[k] || ins[k].disabled) return;

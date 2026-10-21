@@ -18,10 +18,13 @@
       mark.cbt-hl.cbt-hl-g { background: #bbf7d0; color: #14532d; }
       mark.cbt-hl.cbt-hl-p { background: #fbcfe8; color: #831843; }
       @media (prefers-color-scheme: dark) {
-        mark.cbt-hl.cbt-hl-y { background: #854d0e; color: #fef08a; }
-        mark.cbt-hl.cbt-hl-g { background: #14532d; color: #bbf7d0; }
-        mark.cbt-hl.cbt-hl-p { background: #831843; color: #fbcfe8; }
+        :root:not([data-theme="light"]) mark.cbt-hl.cbt-hl-y { background: #854d0e; color: #fef08a; }
+        :root:not([data-theme="light"]) mark.cbt-hl.cbt-hl-g { background: #14532d; color: #bbf7d0; }
+        :root:not([data-theme="light"]) mark.cbt-hl.cbt-hl-p { background: #831843; color: #fbcfe8; }
       }
+      :root[data-theme="dark"] mark.cbt-hl.cbt-hl-y { background: #854d0e; color: #fef08a; }
+      :root[data-theme="dark"] mark.cbt-hl.cbt-hl-g { background: #14532d; color: #bbf7d0; }
+      :root[data-theme="dark"] mark.cbt-hl.cbt-hl-p { background: #831843; color: #fbcfe8; }
       .cbt-hl-bar { position: absolute; z-index: 70; display: inline-flex; align-items: center; gap: .35rem; padding: .3rem .45rem; background: var(--surface); border: 1.5px solid var(--line); border-radius: 999px; box-shadow: 0 8px 24px rgba(0,0,0,.18); user-select: none; }
       .cbt-hl-dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #fff; cursor: pointer; transition: transform .12s ease; outline: 1.5px solid var(--line); outline-offset: 1px; }
       .cbt-hl-dot:hover { transform: scale(1.2); }
@@ -31,10 +34,10 @@
       .cbt-hl-btn { border: 0; background: var(--surface-2); color: var(--text); padding: .25rem .55rem; border-radius: 999px; font-size: .78rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: .25rem; transition: background .12s; }
       .cbt-hl-btn:hover { background: var(--line); }
 
-      .cbt-note-badge { display: inline-grid; place-items: center; width: 19px; height: 19px; font-size: .72rem; vertical-align: super; cursor: pointer; margin-left: 2px; border-radius: 4px; background: var(--gold-soft); border: 1px solid var(--hard); transition: transform .12s ease; user-select: none; }
+      .cbt-note-badge { display: inline-grid; place-items: center; width: 19px; height: 19px; font-size: .72rem; vertical-align: super; cursor: pointer; margin-inline-start: 2px; border-radius: 4px; background: var(--gold-soft); border: 1px solid var(--hard); transition: transform .12s ease; user-select: none; }
       .cbt-note-badge:hover { transform: scale(1.22); }
 
-      .cbt-strike-btn { margin-left: auto; border: 1.5px solid var(--line); background: var(--surface-2); color: var(--muted); width: 28px; height: 28px; border-radius: 8px; cursor: pointer; display: inline-grid; place-items: center; font-weight: 800; font-size: .82rem; transition: all .12s ease; flex-shrink: 0; text-decoration: none; }
+      .cbt-strike-btn { margin-inline-start: auto; border: 1.5px solid var(--line); background: var(--surface-2); color: var(--muted); width: 28px; height: 28px; border-radius: 8px; cursor: pointer; display: inline-grid; place-items: center; font-weight: 800; font-size: .82rem; transition: all .12s ease; flex-shrink: 0; text-decoration: none; }
       @media (hover: hover) and (pointer: fine) {
         .cbt-opt:hover .cbt-strike-btn { border-color: var(--primary); color: var(--text); }
         .cbt-strike-btn:hover { background: var(--again-soft); color: var(--again-text); border-color: var(--again); }
@@ -44,7 +47,7 @@
       .cbt-flag-btn { border: 1.5px solid var(--line); background: var(--surface-2); color: var(--muted); padding: .25rem .55rem; border-radius: 8px; font-size: .8rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: .3rem; transition: all .12s ease; }
       .cbt-flag-btn:hover, .cbt-flag-btn.on { border-color: var(--hard); background: var(--gold-soft); color: var(--text); }
 
-      .cbt-filter-bar { display: inline-flex; align-items: center; gap: .3rem; margin-left: auto; }
+      .cbt-filter-bar { display: inline-flex; align-items: center; gap: .3rem; margin-inline-start: auto; flex-wrap: wrap; }
       .cbt-filter-chip { border: 1.5px solid var(--line); background: var(--surface-2); color: var(--muted); padding: .2rem .55rem; border-radius: 999px; font-size: .78rem; font-weight: 700; cursor: pointer; transition: all .12s ease; }
       .cbt-filter-chip:hover { border-color: var(--primary); color: var(--text); }
       .cbt-filter-chip.on { border-color: var(--primary); background: var(--primary-soft); color: var(--primary); }
@@ -55,7 +58,9 @@
       .cbt-pacing-chip.on-track { border-color: color-mix(in srgb, var(--good) 45%, transparent); background: var(--good-soft); color: var(--good-text); }
       .cbt-pacing-chip.behind { border-color: color-mix(in srgb, var(--hard) 45%, transparent); background: var(--gold-soft); color: var(--text); }
       .cbt-pacing-chip.slow { border-color: color-mix(in srgb, var(--again) 45%, transparent); background: var(--again-soft); color: var(--again-text); }
-      .cbt-pacing-pop { position: absolute; top: calc(100% + 8px); right: 1rem; z-index: 85; min-width: 280px; padding: .85rem 1rem; border-radius: 14px; background: var(--surface); border: 1.5px solid var(--line); box-shadow: 0 12px 32px rgba(0,0,0,.22); font-size: .88rem; line-height: 1.6; }
+      .cbt-pacing-pop { position: absolute; top: calc(100% + 8px); inset-inline-end: 1rem; z-index: 85; min-width: min(280px, calc(100vw - 2rem)); max-width: calc(100vw - 2rem); padding: .85rem 1rem; border-radius: 14px; background: var(--surface); border: 1.5px solid var(--line); box-shadow: 0 12px 32px rgba(0,0,0,.22); font-size: .88rem; line-height: 1.6; }
+      @media (hover: none) { .cbt-strike-btn { width: 36px; height: 36px; } .cbt-hl-dot { width: 30px; height: 30px; } }
+      @media (prefers-reduced-motion: reduce) { .cbt-hl-dot:hover, .cbt-note-badge:hover { transform: none; } }
     `;
     document.head.appendChild(st);
   }
@@ -90,8 +95,9 @@
     const onKey = e => {
       if (e.defaultPrevented || e.ctrlKey || e.metaKey || e.altKey) return;
       const tag = (e.target && e.target.tagName) || '';
+      if (e.repeat || (e.target && e.target.isContentEditable)) return;
       if (/^(INPUT|TEXTAREA|SELECT)$/.test(tag) && e.target.type !== 'radio' && e.target.type !== 'checkbox') return;
-      if (e.key === 'f' || e.key === 'F') {
+      if (e.code === 'KeyF' || e.key === 'f' || e.key === 'F') {
         e.preventDefault();
         flag[cur] = !flag[cur];
         drawQs();
@@ -99,10 +105,13 @@
       }
     };
     document.addEventListener('keydown', onKey);
+    let onDocClick = null, onSelChange = null, selT = 0;
 
     App.cleanup = () => {
-      clearInterval(tick);
+      clearInterval(tick); clearTimeout(selT);
       document.removeEventListener('keydown', onKey);
+      if (onDocClick) document.removeEventListener('click', onDocClick);
+      if (onSelChange) document.removeEventListener('selectionchange', onSelChange);
       document.body.classList.remove('bare', 'cbt-mode');
       window.onbeforeunload = null;
     };
@@ -113,14 +122,14 @@
         <header class="cbt-top" style="position:relative">
           <div class="row nowrap"><img src="icons/icon.svg" alt="" style="width:28px;height:28px;border-radius:8px"><b>Lexkite</b><span class="tiny muted">IELTS Reading · ${t('Mô phỏng thi trên máy')}</span></div>
           <div class="row nowrap">
-            <button class="cbt-pacing-chip on-track" id="pacingChip" type="button" title="${t('Ước tính nhịp độ làm bài (bấm để xem chi tiết)')}">⚡ <span>${t('Đúng tiến độ (ước tính)')}</span></button>
+            <button class="cbt-pacing-chip on-track" id="pacingChip" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="pacingPop" title="${t('Ước tính nhịp độ làm bài (bấm để xem chi tiết)')}">⚡ <span>${t('Đúng tiến độ (ước tính)')}</span></button>
             <span class="cbt-clock" id="clock"></span>
             <button class="btn sm" id="hideC" type="button">${t('Ẩn giờ')}</button>
             <button class="btn sm" id="fsDown" type="button" title="${t('Giảm cỡ chữ')}">A−</button>
             <button class="btn sm" id="fsUp" type="button" title="${t('Tăng cỡ chữ')}">A+</button>
             <button class="btn sm primary" id="submit" type="button">${t('Nộp bài')}</button>
           </div>
-          <div class="cbt-pacing-pop" id="pacingPop" hidden></div>
+          <div class="cbt-pacing-pop" id="pacingPop" role="dialog" aria-label="${t('Ước tính nhịp độ làm bài')}" hidden></div>
         </header>
         <div class="cbt-body">
           <section class="cbt-pass" id="pass"></section>
@@ -159,7 +168,7 @@
         ${list.map(({ q, i }) => `<div class="cbt-q ${i === cur ? 'cur' : ''}" id="q${i}">
           <div class="row between">
             <b>${i + 1}. ${esc(q.q)}</b>
-            <button type="button" class="cbt-flag-btn ${flag[i] ? 'on' : ''}" data-flag="${i}" title="${t('Đánh dấu để xem lại sau (Phím F)')}">🚩 <span>${t('Xem lại')}</span></button>
+            <button type="button" class="cbt-flag-btn ${flag[i] ? 'on' : ''}" data-flag="${i}" aria-pressed="${!!flag[i]}" title="${t('Đánh dấu để xem lại sau (Phím F)')}">🚩 <span>${t('Xem lại')}</span></button>
           </div>
           <div class="cbt-opts">${(q.type === 'tfng' ? ['TRUE', 'FALSE', 'NOT GIVEN'] : q.options).map((o, k) => {
             const v = q.type === 'tfng' ? o : String(k);
@@ -168,7 +177,7 @@
               <input type="radio" name="q${i}" value="${esc(v)}" ${ans[i] === v ? 'checked' : ''}>
               <b class="cbt-key">${keyChar}</b>
               <span class="cbt-txt">${esc(o)}</span>
-              <button type="button" class="cbt-strike-btn" data-strike="1" title="${t('Gạch loại trừ (Alt+{k})', { k: keyChar })}" aria-label="${t('Gạch loại trừ')}"><s>S</s></button>
+              <button type="button" class="cbt-strike-btn" data-strike="1" aria-pressed="false" title="${t('Gạch loại trừ (Alt+{k})', { k: keyChar })}" aria-label="${t('Gạch loại trừ')}"><s>S</s></button>
             </label>`;
           }).join('')}</div></div>`).join('')}`;
 
@@ -204,9 +213,9 @@
           return `<button type="button" class="cbt-num ${isDone ? 'done' : ''} ${isFlag ? 'flag' : ''} ${isCur ? 'cur' : ''} ${isDim ? 'cbt-dim' : ''}" data-go="${i}">${i + 1}</button>`;
         }).join('')}</div>`).join('')
         + `<div class="cbt-filter-bar">
-          <button type="button" class="cbt-filter-chip ${navFilter === 'all' ? 'on' : ''}" data-filter="all">${t('Tất cả')}</button>
-          <button type="button" class="cbt-filter-chip ${navFilter === 'todo' ? 'on' : ''}" data-filter="todo">${t('Chưa làm ({n})', { n: missingCount })}</button>
-          <button type="button" class="cbt-filter-chip cbt-filter-flag ${navFilter === 'flag' ? 'on' : ''}" data-filter="flag">🚩 ${t('Xem lại ({n})', { n: flagCount })}</button>
+          <button type="button" class="cbt-filter-chip ${navFilter === 'all' ? 'on' : ''}" data-filter="all" aria-pressed="${navFilter === 'all'}">${t('Tất cả')}</button>
+          <button type="button" class="cbt-filter-chip ${navFilter === 'todo' ? 'on' : ''}" data-filter="todo" aria-pressed="${navFilter === 'todo'}">${t('Chưa làm ({n})', { n: missingCount })}</button>
+          <button type="button" class="cbt-filter-chip cbt-filter-flag ${navFilter === 'flag' ? 'on' : ''}" data-filter="flag" aria-pressed="${navFilter === 'flag'}">🚩 ${t('Xem lại ({n})', { n: flagCount })}</button>
         </div>`;
 
       $$('[data-part]').forEach(b => b.onclick = () => {
@@ -253,8 +262,11 @@
       const chip = $('#pacingChip');
       if (!chip) return;
       const p = computePacing();
-      chip.className = `cbt-pacing-chip ${p.status}`;
-      chip.innerHTML = `⚡ <span>${p.label}</span>`;
+      if (chip.dataset.l !== p.status + p.label) {
+        chip.dataset.l = p.status + p.label;
+        chip.className = `cbt-pacing-chip ${p.status}`;
+        chip.innerHTML = `⚡ <span>${esc(p.label)}</span>`;
+      }
 
       const pop = $('#pacingPop');
       if (pop && !pop.hidden) renderPacingPop(p);
@@ -277,7 +289,7 @@
           <div>⏳ ${t('Dự kiến hoàn thành')}: <b>${p.delta >= 0 ? t('Dư khoảng {m} phút (ước tính)', { m: Math.max(0, Math.round(p.delta / 60)) }) : t('Thiếu khoảng {m} phút (ước tính)', { m: Math.ceil(Math.abs(p.delta) / 60) })}</b></div>
         </div>
         <div class="tiny muted" style="margin-top:.5rem;border-top:1px dashed var(--line);padding-top:.4rem">*${t('Các chỉ số mang tính ước tính nhằm hỗ trợ phân bổ thời gian thi.')}</div>`;
-      $('#closePacingPop').onclick = () => { pop.hidden = true; showPacingPop = false; };
+      $('#closePacingPop').onclick = () => { pop.hidden = true; showPacingPop = false; $('#pacingChip').setAttribute('aria-expanded', 'false'); };
     }
 
     $('#pacingChip').onclick = (e) => {
@@ -285,14 +297,16 @@
       showPacingPop = !showPacingPop;
       const pop = $('#pacingPop');
       pop.hidden = !showPacingPop;
+      $('#pacingChip').setAttribute('aria-expanded', String(showPacingPop));
       if (showPacingPop) renderPacingPop(computePacing());
     };
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('#pacingPop') && !e.target.closest('#pacingChip')) {
+    onDocClick = (e) => {
+      if (!e.target.closest || (!e.target.closest('#pacingPop') && !e.target.closest('#pacingChip'))) {
         const pop = $('#pacingPop');
-        if (pop && !pop.hidden) { pop.hidden = true; showPacingPop = false; }
+        if (pop && !pop.hidden) { pop.hidden = true; showPacingPop = false; $('#pacingChip').setAttribute('aria-expanded', 'false'); }
       }
-    });
+    };
+    document.addEventListener('click', onDocClick);
 
     const clock = () => {
       const el = $('#clock'); if (!el) return;
@@ -319,19 +333,25 @@
 
     const updateHlBarPosition = (rect) => {
       hlBar.style.left = Math.max(10, Math.min(window.innerWidth - 240, rect.left + rect.width / 2 - 110)) + 'px';
-      hlBar.style.top = Math.max(10, rect.top - 46 + window.scrollY) + 'px';
+      const coarse = window.matchMedia && matchMedia('(pointer: coarse)').matches;
+      hlBar.style.top = (coarse ? rect.bottom + 12 + window.scrollY : Math.max(10, rect.top - 46 + window.scrollY)) + 'px';
       hlBar.hidden = false;
     };
 
-    $('.cbt-body').addEventListener('mouseup', () => setTimeout(() => {
-      const sel = getSelection();
-      if (!sel || sel.isCollapsed || !$('.cbt-body').contains(sel.anchorNode)) {
+    const showForSel = () => {
+      const sel = getSelection(), pass = $('#pass');
+      if (!pass) return;
+      if (!sel || sel.isCollapsed || !sel.rangeCount || !pass.contains(sel.anchorNode)) {
         if (!activeMark) hlBar.hidden = true;
         return;
       }
       activeMark = null;
       updateHlBarPosition(sel.getRangeAt(0).getBoundingClientRect());
-    }, 15));
+    };
+    $('.cbt-body').addEventListener('mouseup', () => setTimeout(showForSel, 15));
+    // Cảm ứng (iOS/Android): bôi đen bằng nhấn giữ + kéo tay cầm không bắn mouseup → nghe selectionchange (debounce)
+    onSelChange = () => { clearTimeout(selT); selT = setTimeout(() => { const s = getSelection(); if (s && !s.isCollapsed) showForSel(); }, 350); };
+    document.addEventListener('selectionchange', onSelChange);
 
     $('.cbt-body').addEventListener('click', e => {
       const badge = e.target.closest('.cbt-note-badge');
@@ -359,6 +379,7 @@
       }
     });
 
+    hlBar.addEventListener('pointerdown', e => e.preventDefault()); // giữ vùng bôi đen khi bấm nút (iOS)
     hlBar.onclick = e => {
       const dot = e.target.closest('.cbt-hl-dot');
       const act = e.target.closest('[data-act]');
