@@ -43,6 +43,15 @@ SCENES = {
    who=dict(B1='B', B2='B', BREACT='B', A1='ama', A2='ama', MCU='ama', OOPS='ama', THX='ama'),
    ladder_clip='A1', vhook_box=(60, 236, 520, 442), avoid=[[83, 479, 478, 883], [0, 810, 612, 1920], [550, 181, 792, 504], [470, 466, 872, 1920]], ladder_y=250, hook_y=250, choice_y=1040, ring=('BREACT', 600)),
 }
+# 21/10 owner: restaurant scene OUT of the auto pipeline (Priya = non-US character + seated-posture errors: r24 Ama legs/feet on the chair under the table).
+AUTO_SCENES = ('hotel', 'airport', 'cafe')
+# Clips/frame ranges the generator must never use (posture/physical-logic audit 21/10: sitting on tables/counters, feet on furniture,
+# passing through people/objects, floating). Audit of every cafe/airport/hotel role clip (contact strip each): none found. Mirror of bank.json 'banned'.
+BANNED = {'restaurant': {'r24_ots_ama_talk': 'seated, legs/feet on chair under table (posture)', 'r06_ama_mcu_talk': 'scene rejected', 'r21_master_listen': 'scene rejected'}}
+for _sc, _S in SCENES.items():
+    assert _sc not in AUTO_SCENES or not set(_S['clips'].values()) & set(BANNED.get(_sc, {})), f'{_sc}: banned clip in roles'
+# 21/10 owner: everything moves to the NEWS format -> scene-acting auto lessons PAUSED (no --batch, nothing scheduled). Resume: CINE_SCENE_RESUME=1.
+PAUSED = os.environ.get('CINE_SCENE_RESUME') != '1'
 REPLY = {'hotel': 'Of course. No problem at all.', 'restaurant': "Of course. I'll bring it now.", 'airport': 'Sure, let me check that for you.', 'cafe': 'Sure! Coming right up.'}
 
 # ------------------------------------------------------------------ PATTERN BANK (curated; slot fillers = things that exist in the scene)
@@ -495,7 +504,7 @@ def adapter(scene):
 # ------------------------------------------------------------------ coverage
 def coverage(L):
     fits = {}
-    for sc in SCENES:
+    for sc in AUTO_SCENES:
         for tpl, area, *_ in candidates(sc): fits.setdefault(area, set()).add(sc)
     cov = {}
     for aid in ECO:
@@ -513,7 +522,7 @@ def coverage(L):
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--batch', type=int, default=0); ap.add_argument('--coverage', action='store_true')
-    ap.add_argument('--mark-rendered', nargs=2, metavar=('RUN', 'IDS')); ap.add_argument('--scenes', default='hotel,restaurant,airport,cafe')
+    ap.add_argument('--mark-rendered', nargs=2, metavar=('RUN', 'IDS')); ap.add_argument('--scenes', default=','.join(AUTO_SCENES))
     ap.add_argument('--regen', action='store_true', help='rebuild every generated (not yet rendered) ledger point in place: same points, same ids')
     o = ap.parse_args(); L = load_ledger()
     if o.mark_rendered:
@@ -534,14 +543,15 @@ def main():
         open(f'{d}/_auto_{sc}.py', 'w').write(adapter(sc))
     if o.regen:
         for key, p in L['points'].items():
-            if p.get('status') != 'generated' or p.get('scene') not in SCENES: continue
+            if p.get('status') != 'generated' or p.get('scene') not in AUTO_SCENES: continue
             c = next((c for c in candidates(p['scene']) if norm(c[2]) == key and c[0] == p['template']), None)
             if not c: print('  regen: no candidate for', key); continue
             try: lid, src, loc, lines, info = build(p['scene'], c[0], c[1], c[2], c[3], int(p['series'].split('#')[-1]))
             except Gate as e: print('  regen gate-rejected:', p['id'], e); continue
             assert lid == p['id'], (lid, p['id']); write(p['scene'], lid, src, loc, lines); p.update(info, status='generated'); p.pop('run', None); print(f'{lid:42s} {c[0]:8s} est {info["est"]:5.1f}s  {c[2]}')
     if o.batch:
-        scenes = o.scenes.split(','); per = {sc: [] for sc in scenes}; rej = []
+        if PAUSED: sys.exit('scene-acting auto lessons are PAUSED (owner 21/10: news format only); set CINE_SCENE_RESUME=1 to resume')
+        scenes = [sc for sc in o.scenes.split(',') if sc in AUTO_SCENES]; per = {sc: [] for sc in scenes}; rej = []
         area_n = {}
         for p in L['points'].values(): area_n[p.get('area')] = area_n.get(p.get('area'), 0) + 1
         for sc in scenes:   # round-robin templates inside a scene; least-covered areas first

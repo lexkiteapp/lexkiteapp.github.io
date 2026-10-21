@@ -370,7 +370,9 @@ export function ledgerQuery(f = {}) {
   const w = ["f.status != 'pending'"], a = [];
   const like = s => '%' + String(s).replace(/[\\%_]/g, m => '\\' + m) + '%';
   if (f.gstate && /^(ok|trashed|gone|pending)$/.test(f.gstate)) { w[0] = 'f.status = ?'; a.push(f.gstate); }
-  if (f.q) { const q = like(String(f.q).trim().slice(0, 120)); w.push("(f.name LIKE ? ESCAPE '\\' OR f.asset_id LIKE ? ESCAPE '\\' OR f.file_id LIKE ? ESCAPE '\\' OR f.sha256 LIKE ? ESCAPE '\\')"); a.push(q, q, q, q.toLowerCase()); }
+  // D1 giới hạn mẫu LIKE ≤ 50 byte → sha256 đủ 64 ký tự so khớp chính xác, chuỗi khác cắt còn 46 ký tự
+  if (f.q && /^[0-9a-f]{64}$/i.test(String(f.q).trim())) { w.push('f.sha256 = ?'); a.push(String(f.q).trim().toLowerCase()); }
+  else if (f.q) { const q = like(String(f.q).trim().slice(0, 46)); w.push("(f.name LIKE ? ESCAPE '\\' OR f.asset_id LIKE ? ESCAPE '\\' OR f.file_id LIKE ? ESCAPE '\\' OR f.sha256 LIKE ? ESCAPE '\\')"); a.push(q, q, q, q.toLowerCase()); }
   if (f.drive_id) { w.push('f.drive_id = ?'); a.push(+f.drive_id); }
   if (f.email) { w.push('LOWER(COALESCE(f.email, d.email)) = ?'); a.push(String(f.email).toLowerCase()); }
   if (f.type === 'image') w.push("f.mime LIKE 'image/%'");

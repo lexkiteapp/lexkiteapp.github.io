@@ -16,7 +16,7 @@ import json, os, re, ast, glob, argparse, datetime as dt
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 AUTO = f'{ROOT}/content/video/cine/auto'; OUT = f'{ROOT}/content/video/cine/publish'
 ECO = {a['id']: a for a in json.load(open(f'{ROOT}/content/video/ecosystem.json'))['areas']}
-PLACE = {'cafe': 'coffee shop', 'hotel': 'hotel', 'airport': 'airport', 'restaurant': 'restaurant'}
+PLACE = {'cafe': 'coffee shop', 'hotel': 'hotel', 'airport': 'airport'}   # restaurant rejected 21/10 (owner); scene points with paused=True skipped (news-only)
 SCENE_TAG = {'cafe': '#coffeeshopenglish', 'hotel': '#hotelenglish', 'airport': '#airportenglish', 'restaurant': '#restaurantenglish'}
 TPL_TAGS = {'mistake': ['#commonmistakes', '#englishgrammar'], 'fix': ['#commonmistakes', '#englishgrammar'], 'choose': ['#listeningpractice', '#englishlistening'],
             'quiz': ['#englishquiz', '#speakpolitely'], 'gap': ['#englishvocabulary', '#fillintheblank'], 'ladder': ['#politeenglish', '#englishphrases'],
@@ -104,7 +104,7 @@ def news_pack(p):
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--start', default=(dt.date.today() + dt.timedelta(days=1)).isoformat()); o = ap.parse_args()
     L = json.load(open(f'{ROOT}/content/video/cine/used.json'))['points']; os.makedirs(OUT, exist_ok=True)
-    rows = sorted((p for p in L.values() if p.get('status') == 'rendered' and p.get('scene') in PLACE), key=lambda p: (p['scene'], p['id']))
+    rows = sorted((p for p in L.values() if p.get('status') == 'rendered' and p.get('scene') in PLACE and not p.get('paused')), key=lambda p: (p['scene'], p['id']))
     packs = {}
     for p in rows:
         sc, lid = p['scene'], p['id']; x = lesson(sc, lid); eco = ECO[x['meta']['area']]; name = f'cine-{lid.replace("_", "-")}-en-v3'

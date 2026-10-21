@@ -391,7 +391,7 @@ for fw, at in SFX:   # viral SFX at their own level (-22/-26 dBFS peak files), n
     d = int(round(at * 1000)); inp += ['-i', fw]; fc.append(f'[{j}:a]aresample=48000,aformat=channel_layouts=stereo,adelay={d}|{d}[va{j}]'); vl.append(f'[va{j}]'); j += 1
 pass   # (anullsrc bed removed: deadlocked the mux; lessons anchor t=0 with foley/tone0.wav instead)
 fc.append(''.join(vl) + f'amix=inputs={len(vl)}:normalize=0,apad,atrim=0:{TOTAL:.3f}[voice]')
-AMB_DB_ = globals().get('AMB_DB', -17)   # hotel/cafe/airport/restaurant bed -17 dB; anchor lessons set their own
+AMB_DB_ = globals().get('AMB_DB', -40)   # chủ 21/10: nền ồn quá → tiếng nền gần như tắt (-40 dB, chỉ đủ không bị 'chân không'); anchor lessons set their own
 inp += ['-stream_loop', '-1', '-i', globals().get('AMB') or SCENE_AMB()]   # studio room tone (or the topic scene's ambience)
 fc.append(f'[{j}:a]anull,highpass=f=150,lowpass=f=9000,volume={AMB_DB_}dB,aresample=48000,aformat=channel_layouts=stereo,atrim=0:{TOTAL:.3f},afade=t=in:d=0.05,afade=t=out:st={SCENE - AFST:.3f}:d={AFD}[amb]')
 fc.append(f'[voice][amb]amix=inputs=2:normalize=0:duration=first,loudnorm=I=-16:TP=-1.5:LRA=9,afade=t=out:st={SCENE - AFST:.3f}:d={AFD},apad,atrim=0:{TOTAL:.3f}[ao]')
