@@ -22,5 +22,131 @@
  },
  "rateNever": {
   "message": "Bir daha sorma"
+ },
+ "ntGot": {
+  "message": "✓ Biliyorum"
+ },
+ "ntAgain": {
+  "message": "🔁 Tekrar et"
+ },
+ "ntGolden": {
+  "message": "Altın an"
+ },
+ "ntSaved": {
+  "message": "Yeni kaydedilen"
+ },
+ "ntToday": {
+  "message": "Anın kelimesi"
+ },
+ "ntSearch": {
+  "message": "Web'de ara…"
+ },
+ "ntSearchBtn": {
+  "message": "Ara"
+ },
+ "ntOff": {
+  "message": "Yeni sekme kartını kapat"
+ },
+ "ntListen": {
+  "message": "Dinle"
+ },
+ "ntSlow": {
+  "message": "Yavaş"
+ },
+ "ntUK": {
+  "message": "İng."
+ },
+ "ntUS": {
+  "message": "ABD"
+ },
+ "ntFamily": {
+  "message": "Kelime ailesi"
+ },
+ "ntColloc": {
+  "message": "Eşdizimler"
+ },
+ "ntSyn": {
+  "message": "Eş anlamlılar"
+ },
+ "ntAnt": {
+  "message": "Zıt anlamlılar"
+ },
+ "ntQuiz": {
+  "message": "Test modu"
+ },
+ "ntReveal": {
+  "message": "Anlamı gör"
+ },
+ "ntTapTr": {
+  "message": "Çeviriyi görmek için dokun"
+ },
+ "ntMT": {
+  "message": "Makine çevirisi"
+ },
+ "ntExample": {
+  "message": "Örnek"
+ },
+ "ntAdd": {
+  "message": "＋ Desteme ekle"
+ },
+ "ntAdded": {
+  "message": "✓ Destemde"
+ },
+ "ntNext": {
+  "message": "Sonraki kelime →"
+ },
+ "ntProgress": {
+  "message": "Bugün {n}/{g} kelime"
+ },
+ "ntShortcuts": {
+  "message": "Klavye kısayolları"
+ },
+ "ntKeys": {
+  "message": "Boşluk: göster · 1/2: puanla · N: sonraki · P: dinle"
+ },
+ "posN": {
+  "message": "isim"
+ },
+ "posV": {
+  "message": "fiil"
+ },
+ "posAdj": {
+  "message": "sıfat"
+ },
+ "posAdv": {
+  "message": "zarf"
+ },
+ "posPhrV": {
+  "message": "öbek fiil"
+ },
+ "posPhrase": {
+  "message": "ifade"
+ },
+ "posIdiom": {
+  "message": "deyim"
+ },
+ "posPrep": {
+  "message": "edat"
+ },
+ "posConj": {
+  "message": "bağlaç"
+ },
+ "posPron": {
+  "message": "zamir"
+ },
+ "posDet": {
+  "message": "belirleyici"
+ },
+ "posExcl": {
+  "message": "ünlem"
+ },
+ "posNum": {
+  "message": "sayı"
+ },
+ "posAbbr": {
+  "message": "kısaltma"
+ },
+ "posColl": {
+  "message": "eşdizim"
  }
 }

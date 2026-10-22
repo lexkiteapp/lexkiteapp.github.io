@@ -22,5 +22,131 @@
  },
  "rateNever": {
   "message": "لا تسألني مجددًا"
+ },
+ "ntGot": {
+  "message": "✓ أتذكرها"
+ },
+ "ntAgain": {
+  "message": "🔁 راجعها مجددًا"
+ },
+ "ntGolden": {
+  "message": "اللحظة الذهبية"
+ },
+ "ntSaved": {
+  "message": "محفوظة مؤخرًا"
+ },
+ "ntToday": {
+  "message": "كلمة اللحظة"
+ },
+ "ntSearch": {
+  "message": "ابحث في الويب…"
+ },
+ "ntSearchBtn": {
+  "message": "بحث"
+ },
+ "ntOff": {
+  "message": "إيقاف بطاقة علامة التبويب الجديدة"
+ },
+ "ntListen": {
+  "message": "استمع"
+ },
+ "ntSlow": {
+  "message": "ببطء"
+ },
+ "ntUK": {
+  "message": "بريطاني"
+ },
+ "ntUS": {
+  "message": "أمريكي"
+ },
+ "ntFamily": {
+  "message": "عائلة الكلمة"
+ },
+ "ntColloc": {
+  "message": "المتلازمات اللفظية"
+ },
+ "ntSyn": {
+  "message": "المرادفات"
+ },
+ "ntAnt": {
+  "message": "الأضداد"
+ },
+ "ntQuiz": {
+  "message": "وضع الاختبار"
+ },
+ "ntReveal": {
+  "message": "اعرض المعنى"
+ },
+ "ntTapTr": {
+  "message": "اضغط لرؤية الترجمة"
+ },
+ "ntMT": {
+  "message": "ترجمة آلية"
+ },
+ "ntExample": {
+  "message": "مثال"
+ },
+ "ntAdd": {
+  "message": "＋ أضف إلى بطاقاتي"
+ },
+ "ntAdded": {
+  "message": "✓ موجودة في بطاقاتي"
+ },
+ "ntNext": {
+  "message": "الكلمة التالية ←"
+ },
+ "ntProgress": {
+  "message": "اليوم {n}/{g} كلمة"
+ },
+ "ntShortcuts": {
+  "message": "اختصارات لوحة المفاتيح"
+ },
+ "ntKeys": {
+  "message": "Space: عرض · 1/2: تقييم · N: التالي · P: استماع"
+ },
+ "posN": {
+  "message": "اسم"
+ },
+ "posV": {
+  "message": "فعل"
+ },
+ "posAdj": {
+  "message": "صفة"
+ },
+ "posAdv": {
+  "message": "ظرف"
+ },
+ "posPhrV": {
+  "message": "فعل مركب"
+ },
+ "posPhrase": {
+  "message": "عبارة"
+ },
+ "posIdiom": {
+  "message": "تعبير اصطلاحي"
+ },
+ "posPrep": {
+  "message": "حرف جر"
+ },
+ "posConj": {
+  "message": "حرف عطف"
+ },
+ "posPron": {
+  "message": "ضمير"
+ },
+ "posDet": {
+  "message": "محدد"
+ },
+ "posExcl": {
+  "message": "تعجب"
+ },
+ "posNum": {
+  "message": "عدد"
+ },
+ "posAbbr": {
+  "message": "اختصار"
+ },
+ "posColl": {
+  "message": "متلازمة لفظية"
  }
 }

@@ -22,5 +22,131 @@
  },
  "rateNever": {
   "message": "Don't ask again"
+ },
+ "ntGot": {
+  "message": "✓ Got it"
+ },
+ "ntAgain": {
+  "message": "🔁 Review again"
+ },
+ "ntGolden": {
+  "message": "Golden moment"
+ },
+ "ntSaved": {
+  "message": "Recently saved"
+ },
+ "ntToday": {
+  "message": "Word of the moment"
+ },
+ "ntSearch": {
+  "message": "Search the web…"
+ },
+ "ntSearchBtn": {
+  "message": "Search"
+ },
+ "ntOff": {
+  "message": "Turn off new-tab card"
+ },
+ "ntListen": {
+  "message": "Listen"
+ },
+ "ntSlow": {
+  "message": "Slow"
+ },
+ "ntUK": {
+  "message": "UK"
+ },
+ "ntUS": {
+  "message": "US"
+ },
+ "ntFamily": {
+  "message": "Word family"
+ },
+ "ntColloc": {
+  "message": "Collocations"
+ },
+ "ntSyn": {
+  "message": "Synonyms"
+ },
+ "ntAnt": {
+  "message": "Antonyms"
+ },
+ "ntQuiz": {
+  "message": "Quiz mode"
+ },
+ "ntReveal": {
+  "message": "See meaning"
+ },
+ "ntTapTr": {
+  "message": "Tap to see the translation"
+ },
+ "ntMT": {
+  "message": "Machine translation"
+ },
+ "ntExample": {
+  "message": "Example"
+ },
+ "ntAdd": {
+  "message": "＋ Add to my deck"
+ },
+ "ntAdded": {
+  "message": "✓ In my deck"
+ },
+ "ntNext": {
+  "message": "Next word →"
+ },
+ "ntProgress": {
+  "message": "{n}/{g} words today"
+ },
+ "ntShortcuts": {
+  "message": "Keyboard shortcuts"
+ },
+ "ntKeys": {
+  "message": "Space: show · 1/2: grade · N: next · P: listen"
+ },
+ "posN": {
+  "message": "noun"
+ },
+ "posV": {
+  "message": "verb"
+ },
+ "posAdj": {
+  "message": "adjective"
+ },
+ "posAdv": {
+  "message": "adverb"
+ },
+ "posPhrV": {
+  "message": "phrasal verb"
+ },
+ "posPhrase": {
+  "message": "phrase"
+ },
+ "posIdiom": {
+  "message": "idiom"
+ },
+ "posPrep": {
+  "message": "preposition"
+ },
+ "posConj": {
+  "message": "conjunction"
+ },
+ "posPron": {
+  "message": "pronoun"
+ },
+ "posDet": {
+  "message": "determiner"
+ },
+ "posExcl": {
+  "message": "exclamation"
+ },
+ "posNum": {
+  "message": "number"
+ },
+ "posAbbr": {
+  "message": "abbreviation"
+ },
+ "posColl": {
+  "message": "collocation"
  }
 }

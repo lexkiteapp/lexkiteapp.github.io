@@ -237,9 +237,26 @@ await pop2.selectOption('#selMode', 'icon').catch(() => {});
 await pop2.close(); await pop.close().catch(() => {});
 
 // ---------- 5. Tab mới ----------
-const nt = await ctx.newPage(); await nt.goto(base + 'newtab.html', { waitUntil: 'domcontentloaded' }); await sleep(2500); await shot(nt, 'newtab');
+const nt = await ctx.newPage(); await nt.setViewportSize({ width: 1100, height: 900 });
+await nt.goto(base + 'newtab.html', { waitUntil: 'domcontentloaded' }); await sleep(2500); await shot(nt, 'newtab-light');
+await nt.emulateMedia({ colorScheme: 'dark' }); await sleep(400); await shot(nt, 'newtab-dark'); await nt.emulateMedia({ colorScheme: 'light' });
 const ntTxt = await nt.locator('body').innerText();
 rec('tab mới: có thẻ từ', (await nt.locator('#ntCard').innerText()).trim().length > 2);
+const ntMs = +(await nt.evaluate(() => document.body.dataset.ntMs)) || 0;
+rec('tab mới: vẽ thẻ < 100 ms (không chờ mạng)', ntMs > 0 && ntMs < 100, ntMs + ' ms');
+rec('tab mới: đầu thẻ có từ + nhãn (loại từ/CEFR/kỳ thi)', (await nt.locator('.nt-word').count()) === 1 && (await nt.locator('.nt-chips .chip').count()) >= 1);
+rec('tab mới: có nút nghe giọng Anh', (await nt.locator('.play[data-acc="uk"]').count()) === 1);
+if (await nt.locator('.more details').count()) rec('tab mới: mục mở rộng đóng mặc định', !(await nt.locator('.more details[open]').count()));
+await nt.check('#ntQuiz', { force: true }).catch(() => {}); await sleep(300);
+if (await nt.locator('#ntBody').count()) {
+  rec('tab mới: chế độ Tự kiểm tra che nghĩa', await nt.locator('#ntBody.quiz-hidden').count() === 1);
+  await nt.keyboard.press('Space'); await sleep(200);
+  rec('tab mới: Space hiện nghĩa', await nt.locator('#ntBody.quiz-hidden').count() === 0);
+}
+await nt.uncheck('#ntQuiz', { force: true }).catch(() => {});
+const w0 = await nt.locator('.nt-word').innerText().catch(() => '');
+await nt.keyboard.press('n'); await sleep(600);
+rec('tab mới: phím N sang từ khác', (await nt.locator('.nt-word').innerText().catch(() => '')) !== w0);
 if (L !== 'vi') rec('tab mới: không lẫn tiếng Việt (giao diện)', !VI.test(ntTxt.replace(/“[^”]*”/g, '')), (ntTxt.match(new RegExp('.{0,25}' + VI.source + '.{0,25}', 'i')) || [''])[0]);
 const before = await nt.locator('#ntCard').innerText();
 if (await nt.locator('#ntGood').isVisible()) { await nt.click('#ntGood'); await sleep(1500); rec('tab mới: bấm "Đã nhớ" sang thẻ khác / cập nhật', (await nt.locator('#ntCard').innerText()) !== before || true); }

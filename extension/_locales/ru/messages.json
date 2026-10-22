@@ -22,5 +22,131 @@
  },
  "rateNever": {
   "message": "Больше не спрашивать"
+ },
+ "ntGot": {
+  "message": "✓ Помню"
+ },
+ "ntAgain": {
+  "message": "🔁 Повторить"
+ },
+ "ntGolden": {
+  "message": "Золотой момент"
+ },
+ "ntSaved": {
+  "message": "Недавно сохранено"
+ },
+ "ntToday": {
+  "message": "Слово момента"
+ },
+ "ntSearch": {
+  "message": "Поиск в интернете…"
+ },
+ "ntSearchBtn": {
+  "message": "Найти"
+ },
+ "ntOff": {
+  "message": "Отключить карточку в новой вкладке"
+ },
+ "ntListen": {
+  "message": "Слушать"
+ },
+ "ntSlow": {
+  "message": "Медленно"
+ },
+ "ntUK": {
+  "message": "брит."
+ },
+ "ntUS": {
+  "message": "амер."
+ },
+ "ntFamily": {
+  "message": "Однокоренные слова"
+ },
+ "ntColloc": {
+  "message": "Сочетания"
+ },
+ "ntSyn": {
+  "message": "Синонимы"
+ },
+ "ntAnt": {
+  "message": "Антонимы"
+ },
+ "ntQuiz": {
+  "message": "Режим теста"
+ },
+ "ntReveal": {
+  "message": "Показать значение"
+ },
+ "ntTapTr": {
+  "message": "Нажмите, чтобы увидеть перевод"
+ },
+ "ntMT": {
+  "message": "Машинный перевод"
+ },
+ "ntExample": {
+  "message": "Пример"
+ },
+ "ntAdd": {
+  "message": "＋ Добавить в мою колоду"
+ },
+ "ntAdded": {
+  "message": "✓ Уже в колоде"
+ },
+ "ntNext": {
+  "message": "Следующее слово →"
+ },
+ "ntProgress": {
+  "message": "Сегодня {n}/{g} слов"
+ },
+ "ntShortcuts": {
+  "message": "Горячие клавиши"
+ },
+ "ntKeys": {
+  "message": "Пробел: показать · 1/2: оценить · N: далее · P: слушать"
+ },
+ "posN": {
+  "message": "существительное"
+ },
+ "posV": {
+  "message": "глагол"
+ },
+ "posAdj": {
+  "message": "прилагательное"
+ },
+ "posAdv": {
+  "message": "наречие"
+ },
+ "posPhrV": {
+  "message": "фразовый глагол"
+ },
+ "posPhrase": {
+  "message": "фраза"
+ },
+ "posIdiom": {
+  "message": "идиома"
+ },
+ "posPrep": {
+  "message": "предлог"
+ },
+ "posConj": {
+  "message": "союз"
+ },
+ "posPron": {
+  "message": "местоимение"
+ },
+ "posDet": {
+  "message": "определитель"
+ },
+ "posExcl": {
+  "message": "междометие"
+ },
+ "posNum": {
+  "message": "числительное"
+ },
+ "posAbbr": {
+  "message": "сокращение"
+ },
+ "posColl": {
+  "message": "сочетание"
  }
 }
