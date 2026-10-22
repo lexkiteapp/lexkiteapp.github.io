@@ -80,9 +80,9 @@
       const i = +b.dataset.i, ok = i === q.answer, ans = q.options[q.answer];
       bs.forEach((x, j) => { x.disabled = true; const mk = x.querySelector('.lv-mk'); if (j === q.answer) { x.classList.add('ok'); mk.textContent = '✓'; } else if (j === i) { x.classList.add('no'); mk.textContent = '✗'; } });
       hit(ok ? 'quiz_ok' : 'quiz_no', it.id);
-      try { if (g.App && App.addWord && ans.split(' ').length <= 12) await App.addWord({ word: ans, pos: 'phrase', ex: ans, emoji: '🎬', topic: 'video' }, { text: ans, title: '🎬 ' + it.title }, { silent: true }); } catch (e) { /* SRS lỗi không chặn */ }
       box.querySelector('.lv-fb').textContent = ok ? T('Đúng rồi! Đã thêm vào thẻ ôn.') : T('Chưa đúng. Đáp án: {a} – đã thêm vào thẻ ôn.', { a: ans });
       box.querySelector('.lv-q').insertAdjacentHTML('beforeend', nextBtn); const n = box.querySelector('[data-lv-next]'); n.onclick = onNext; n.focus({ preventScroll: true });
+      try { if (g.App && App.addWord && ans.split(' ').length <= 12) Promise.resolve(App.addWord({ word: ans, pos: 'phrase', ex: ans, emoji: '🎬', topic: 'video' }, { text: ans, title: '🎬 ' + it.title }, { silent: true })).catch(() => {}); } catch (e) { /* SRS chạy nền, không chặn phản hồi */ }
     }; });
   }
 
