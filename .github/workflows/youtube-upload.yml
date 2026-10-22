@@ -1,0 +1,31 @@
+# Upload owner-approved shorts to YouTube (scripts/video/yt-upload.mjs, functions/api/youtube.js, docs/YOUTUBE-SETUP.md).
+# Only clips queued by "Duyệt & lên YouTube" (Admin › Video library); privacy private/unlisted (+ publishAt from the approved calendar slot).
+# Quota 10,000 units/day (≈ 6 uploads) – the rest stays queued; every 6 h so a fresh approval goes up the same day. $0.
+name: youtube-upload
+on:
+  workflow_dispatch:
+    inputs:
+      max: { description: 'Tối đa số video lượt này (≤ 6)', default: '6' }
+      dry_run: { description: 'Chỉ liệt kê hàng chờ + tiêu đề', type: boolean, default: false }
+  schedule:
+    - cron: '15 1,8,14,20 * * *'
+concurrency: { group: youtube-upload, cancel-in-progress: false }
+permissions: { contents: read }
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Manifest lexkite-shorts (sparse)
+        env: { KEY: '${{ secrets.SHORTS_DEPLOY_KEY }}' }
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/shorts && chmod 600 ~/.ssh/shorts
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes" git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
+          git -C /tmp/shorts sparse-checkout set --no-cone '/shorts/index.json'; git -C /tmp/shorts checkout -q; rm -f ~/.ssh/shorts
+      - name: Lên YouTube (hàng chờ đã duyệt, trong hạn mức)
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/video/yt-upload.mjs --index /tmp/shorts/shorts/index.json --max "${{ github.event.inputs.max || '6' }}" ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}

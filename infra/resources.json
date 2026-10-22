@@ -297,7 +297,7 @@
       "purpose": "Một clip – hai nơi dùng (docs/VIDEO-SCALE-PLAN.md §10): workflow .github/workflows/video-web.yml (sau cine-render + hằng ngày) dựng bản web 720×1280 ~2–3 MB + poster WebP + phụ đề WebVTT CHỈ tiếng Anh (không phụ đề dịch) từ master trong lexkite-shorts, đẩy lên GitHub Release 'wv-<bài>' (prerelease) của lexkiteapp/lexkiteapp.github.io bằng GITHUB_TOKEN – không secret mới. Manifest công khai web/data/videos.json; lượt xem/xem hết/câu đố qua /api/hit (t:'v').",
       "console": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases",
       "free": "GitHub Releases: file ≤ 2 GB, băng thông miễn phí; Worker media 100.000 lượt/ngày (cache biên 1 năm)",
-      "upgrade": "Khi có R2 (secret R2_*): đổi VIDEO_ORIGIN trong workers/media sang bucket, URL giữ nguyên",
+      "upgrade": "Mã R2 đã sẵn (prefix video/ trong lexkite-blog-media, top ~3.000 clip): chỉ cần secret R2_ACCESS_KEY_ID/R2_SECRET_ACCESS_KEY + bỏ dấu # binding BLOG_MEDIA trong workers/media/wrangler.toml – URL giữ nguyên",
       "status": "Miễn phí",
       "match": [
         "releases/download/wv-"
@@ -318,7 +318,7 @@
       "key": "blog-media-r2",
       "name": "Cloudflare R2 lexkite-blog-media (ảnh riêng từng bài blog)",
       "kind": "storage",
-      "purpose": "Ảnh bìa + ảnh chụp app riêng từng bài blog (scripts/blog-images.mjs, workflow .github/workflows/blog-images.yml): tên = mã băm nội dung blog/p/<hash>-<w>.<avif|webp> + <hash>-og.jpg, cache immutable, phục vụ qua Worker lexkite-media (binding BLOG_MEDIA) tại https://media.lexkite.com/blog/p/…. Không nằm trong bản deploy Pages. Sổ: content/blog/media/<lang>.json. Dọn file mồ côi: blog-images.mjs gc (mặc định chỉ liệt kê). Secret CI: R2_ACCESS_KEY_ID + R2_SECRET_ACCESS_KEY (token R2 Object Read & Write chỉ bucket này). Chưa có secret → CI dự phòng đẩy vào repo lexkite-media (LEXKITE_MEDIA_TOKEN)",
+      "purpose": "Ảnh bìa + ảnh chụp app riêng từng bài blog (scripts/blog-images.mjs, workflow .github/workflows/blog-images.yml): tên = mã băm nội dung blog/p/<hash>-<w>.<avif|webp> + <hash>-og.jpg, cache immutable, phục vụ qua Worker lexkite-media (binding BLOG_MEDIA) tại https://media.lexkite.com/blog/p/…. Không nằm trong bản deploy Pages. Sổ: content/blog/media/<lang>.json. Dọn file mồ côi: blog-images.mjs gc (mặc định chỉ liệt kê). Secret CI: R2_ACCESS_KEY_ID + R2_SECRET_ACCESS_KEY (token R2 Object Read & Write chỉ bucket này). Chưa có secret → CI dự phòng đẩy vào repo lexkite-media (LEXKITE_MEDIA_TOKEN) · Video web: prefix video/<bài>/<tên-băm>.(mp4|webp|vtt) = bản web nhỏ của top ~3.000 clip theo lượt xem (scripts/video/web-rendition.mjs publish, workflow video-web.yml); Worker lexkite-media đọc R2 trước (Range), không thấy → GitHub Release. Ngân sách ≤ 7 GB cho video trong 10 GB miễn phí. 22/10: token Cloudflare cục bộ không có quyền R2 và chưa có secret R2_* → video vẫn qua media.lexkite.com ← GitHub Release.",
       "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/r2/default/buckets/lexkite-blog-media",
       "free": "10 GB lưu trữ + 1 triệu thao tác ghi + 10 triệu thao tác đọc/tháng, không tính phí băng thông ra",
       "upgrade": "> 10 GB: $0,015/GB-tháng (≈ 85 GB ở 100k bài ≈ $1,1/tháng); Worker media > 100k lượt/ngày → Workers Paid $5/tháng hoặc gắn tên miền riêng thẳng vào bucket",
@@ -353,15 +353,32 @@
     },
     {
       "key": "youtube",
-      "name": "YouTube (nhúng video)",
+      "name": "YouTube (nhúng video + mặt tiền nhẹ trên web)",
       "kind": "video",
-      "purpose": "Video bài học & luyện phản xạ: nhúng youtube-nocookie (miễn phí, tự đổi chất lượng theo mạng)",
+      "purpose": "Video bài học: clip có youtube_id → mặt tiền YouTube nhẹ trong web/js/lesson-video.js (poster trước, bấm mới nạp IFrame API www.youtube.com/iframe_api + iframe youtube-nocookie rel=0/playsinline/modestbranding; ended → câu đố EN; lỗi/4 s/vùng chặn zh → bản tự lưu trữ R2/media.lexkite.com). docs/VIDEO-STORAGE.md",
       "console": "https://studio.youtube.com",
       "free": "Không giới hạn",
       "upgrade": "—",
       "status": "Đang dùng",
       "match": [
-        "www.youtube-nocookie.com"
+        "www.youtube-nocookie.com",
+        "www.youtube.com"
+      ]
+    },
+    {
+      "key": "youtube-api",
+      "name": "YouTube Data API v3 (tải short đã duyệt lên kênh)",
+      "kind": "video",
+      "purpose": "Chỉ clip chủ đã bấm 'Duyệt & lên YouTube' (Quản trị → 🎬 Thư viện video, web/js/admin-video.js) → hàng chờ D1 yt_queue (functions/api/youtube.js) → workflow .github/workflows/youtube-upload.yml (scripts/video/yt-upload.mjs, 4 lần/ngày): master từ Kho Drive → phiên tải resumable do máy chủ mở (refresh token mã hoá AES-GCM DRIVE_ENC_KEY trong D1 yt_channel, CI không thấy token Google) → ảnh bìa làm thumbnail. Chế độ private (+publishAt theo lịch đăng đã duyệt) hoặc unlisted – không bao giờ public ngay; categoryId 27, selfDeclaredMadeForKids=false, containsSyntheticMedia=true. OAuth client = client Web của Kho Drive (cùng Google Cloud project, redirect https://lexkite.com/api/youtube/callback) hoặc YOUTUBE_CLIENT_ID/SECRET. Hướng dẫn chủ: docs/YOUTUBE-SETUP.md",
+      "console": "https://console.cloud.google.com/apis/api/youtube.googleapis.com/quotas",
+      "free": "10.000 đơn vị/ngày (videos.insert ≈ 1.600 + thumbnails.set 50 → ≈ 6 video/ngày); dự án chưa qua kiểm định (API compliance audit) → video tải lên bị khoá private",
+      "upgrade": "Gửi YouTube API Services audit + xin tăng hạn mức (miễn phí) – docs/YOUTUBE-SETUP.md §3",
+      "status": "Chờ chủ kết nối",
+      "match": [
+        "youtube.googleapis.com",
+        "/api/youtube",
+        "yt_queue",
+        "yt_channel"
       ]
     },
     {
@@ -679,7 +696,7 @@
       "key": "cine-shorts-store",
       "name": "GitHub repo riêng tư lexkiteapp/lexkite-shorts (video short đã dựng)",
       "kind": "storage",
-      "purpose": "Kho bền cho video short tự động: mỗi bài qa5 ALL PASS của workflow .github/workflows/cine-render.yml (mp4 + bìa jpg + log qa + timeline + meta.json) lưu tại shorts/<cảnh>/<bài>/ bằng scripts/cine/store_shorts.py; bản dựng mới cùng bài ghi đè (lịch sử git giữ bản cũ). Artifact CI chỉ giữ 14 ngày. Ghi qua deploy key GHI riêng 'cine-render (lexkiteapp.github.io CI) write' (khóa riêng = secret SHORTS_DEPLOY_KEY của repo công khai; KHÔNG dùng lại FOOTAGE_DEPLOY_KEY chỉ-đọc). Chọn repo thay R2 vì token Cloudflare cục bộ không có quyền R2/tạo token (22/10). Manifest shorts/index.json (scripts/cine/shorts_index.py, store_shorts.py cập nhật mỗi lần lưu) → Quản trị → 🎬 Thư viện video (web/js/admin-video.js) qua Pages Function /api/admin-shorts (functions/api/admin-shorts.js, adminGate): đọc manifest + phát bìa/mp4 từ KHO DRIVE RIÊNG (drive-pool): drive-shorts.yml tải mp4/bìa + manifest shorts/_admin/admin-shorts.json (shorts_index.py manifest: index + coverage + lịch + credit) lên kho; admin-shorts.js đọc bản mới nhất theo drive_files, phát qua Drive alt=media (HTTP Range, URL ký HMAC từ DRIVE_ENC_KEY ≤ 2 giờ, bìa đệm Cache API 1 ngày) – không cần token GitHub, không việc của chủ (docs/SHORTS-ACCESS.md). Dự phòng: repo riêng qua api.github.com/raw.githubusercontent.com chỉ khi secret tuỳ chọn SHORTS_READ_TOKEN tồn tại, cuối cùng manifest gói sẵn functions/api/_shorts_data.js (không media).",
+      "purpose": "Lưu theo CÔNG THỨC (docs/VIDEO-STORAGE.md, từ 22/10/2026): repo chỉ giữ recipes/<cảnh>/<bài>/<clip>.recipe.json (~3–5 KB: kịch bản, điểm học, mẫu, nền, kế hoạch shot, clip người dẫn, tham số giọng, seed, phiên bản pipeline + footage) + shorts/index.json + meta/qa/timeline. Master mp4 + bìa → Kho Drive riêng (scripts/cine/archive_new.sh ngay trong cine-render; dự phòng drive-shorts.yml). Dựng lại: scripts/cine/rebuild_from_recipe.py / workflow shorts-rebuild.yml (trùng byte hoặc SSIM ≥ 0,99). Di trú short cũ: workflow shorts-migrate.yml (gỡ mp4 khỏi đầu nhánh, KHÔNG viết lại lịch sử – chỉ báo cáo dung lượng purge). Kho bền cho video short tự động: mỗi bài qa5 ALL PASS của workflow .github/workflows/cine-render.yml (mp4 + bìa jpg + log qa + timeline + meta.json) lưu tại shorts/<cảnh>/<bài>/ bằng scripts/cine/store_shorts.py; bản dựng mới cùng bài ghi đè (lịch sử git giữ bản cũ). Artifact CI chỉ giữ 14 ngày. Ghi qua deploy key GHI riêng 'cine-render (lexkiteapp.github.io CI) write' (khóa riêng = secret SHORTS_DEPLOY_KEY của repo công khai; KHÔNG dùng lại FOOTAGE_DEPLOY_KEY chỉ-đọc). Chọn repo thay R2 vì token Cloudflare cục bộ không có quyền R2/tạo token (22/10). Manifest shorts/index.json (scripts/cine/shorts_index.py, store_shorts.py cập nhật mỗi lần lưu) → Quản trị → 🎬 Thư viện video (web/js/admin-video.js) qua Pages Function /api/admin-shorts (functions/api/admin-shorts.js, adminGate): đọc manifest + phát bìa/mp4 từ KHO DRIVE RIÊNG (drive-pool): drive-shorts.yml tải mp4/bìa + manifest shorts/_admin/admin-shorts.json (shorts_index.py manifest: index + coverage + lịch + credit) lên kho; admin-shorts.js đọc bản mới nhất theo drive_files, phát qua Drive alt=media (HTTP Range, URL ký HMAC từ DRIVE_ENC_KEY ≤ 2 giờ, bìa đệm Cache API 1 ngày) – không cần token GitHub, không việc của chủ (docs/SHORTS-ACCESS.md). Dự phòng: repo riêng qua api.github.com/raw.githubusercontent.com chỉ khi secret tuỳ chọn SHORTS_READ_TOKEN tồn tại, cuối cùng manifest gói sẵn functions/api/_shorts_data.js (không media).",
       "console": "https://github.com/lexkiteapp/lexkite-shorts",
       "free": "Repo riêng tư miễn phí (khuyến nghị < 5 GB; file < 100 MB; mỗi short ~10–25 MB)",
       "upgrade": "Gần ~4 GB: chuyển sang R2 riêng tư lexkite-shorts (10 GB miễn phí) – cần token R2 Object Read & Write tạo trên dashboard",
@@ -691,6 +708,22 @@
         "SHORTS_READ_TOKEN",
         "admin-shorts",
         "shorts_index.py"
+      ]
+    },
+    {
+      "key": "shorts-pipeline-ci",
+      "name": "Workflow kho shorts (shorts-migrate, shorts-rebuild, youtube-upload, drive-shorts)",
+      "kind": "ci",
+      "purpose": "shorts-migrate.yml (chạy tay: mp4 cũ → Kho Drive, công thức cho clip cũ, gỡ media khỏi đầu nhánh lexkite-shorts) · shorts-rebuild.yml (chạy tay: dựng lại từ công thức + so SSIM) · youtube-upload.yml (4 lần/ngày: hàng chờ YouTube đã duyệt) · drive-shorts.yml (hằng ngày: luật kho shorts scripts/video/shorts-archive.mjs – 2 bản cho clip đã duyệt/đăng qua repair, giữ 30 ngày clip chưa duyệt (retire → thùng rác Google), cân bằng Drive theo lô có nghỉ). Secrets: SHORTS_DEPLOY_KEY, LEXKITE_DRIVE_CLI_KEY, FOOTAGE_DEPLOY_KEY.",
+      "console": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions",
+      "free": "GitHub Actions repo công khai: không giới hạn phút",
+      "upgrade": "—",
+      "status": "Đang dùng",
+      "match": [
+        "shorts-migrate.yml",
+        "shorts-rebuild.yml",
+        "youtube-upload.yml",
+        "scripts/video/shorts-archive.mjs"
       ]
     }
   ],

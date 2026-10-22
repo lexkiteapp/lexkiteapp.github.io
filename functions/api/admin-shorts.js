@@ -60,7 +60,7 @@ async function repoManifest(env) {
   const j = await r.json(); if (!j || !Array.isArray(j.items)) throw new Error('index shape');
   return { items: j.items, updated: j.updated || (DATA.index && DATA.index.updated), source: 'repo' };
 }
-async function manifest(env) {
+export async function manifest(env) {
   const mk = `${driveOn(env)}|${!!env.SHORTS_READ_TOKEN}`;
   if (memo && memo.k === mk && Date.now() - memo.at < MEMO_MS) return memo.m;
   let m = null;

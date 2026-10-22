@@ -50,7 +50,7 @@ def entry(scene, lesson, base, r, qa_text='', created=None, sizes=None, cal=None
                 run=r.get('run'), created=created, bytes=r.get('bytes') or sizes.get(r.get('video')),
                 cover_bytes=sizes.get(r.get('cover')) if r.get('cover') else None, video=r.get('video'), cover=r.get('cover'),
                 slot=dict(n=slot['n'], date=slot['date'], time=slot['time'], tz=slot.get('tz')) if slot else None, packed=bool(pack),
-                rejected=r.get('rejected'), paused=r.get('paused'))   # owner flags (meta.json, copied per render): admin shows them, nothing schedules them
+                rejected=r.get('rejected'), paused=r.get('paused'), recipe=r.get('recipe'), master_sha256=r.get('master_sha256'))   # owner flags (meta.json, copied per render): admin shows them, nothing schedules them
 
 
 def write(path, items):

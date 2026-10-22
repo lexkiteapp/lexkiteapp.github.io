@@ -162,6 +162,8 @@ export function validateManifest(m) {
     if (q && (!S(q.q, 300) || !Array.isArray(q.options) || q.options.length < 2 || !(q.answer >= 0 && q.answer < q.options.length))) bad('quiz');
     if (!(it.score >= MIN_SCORE)) bad('score < 90');
     if (typeof it.test !== 'boolean') bad('test');
+    if ('youtube_id' in it && !/^[A-Za-z0-9_-]{11}$/.test(it.youtube_id || '')) bad('youtube_id');
+    if ('origin' in it && !['r2', 'release'].includes(it.origin)) bad('origin');
   }
   return err;
 }

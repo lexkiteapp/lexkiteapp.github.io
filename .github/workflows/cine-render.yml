@@ -146,6 +146,7 @@ jobs:
         if: always()
         env:
           KEY: ${{ secrets.SHORTS_DEPLOY_KEY }}
+          LEXKITE_DRIVE_CLI_KEY: ${{ secrets.LEXKITE_DRIVE_CLI_KEY }}
         run: |
           [ -s out/passed.txt ] || { echo "không có bài đạt để lưu"; exit 0; }
           [ -n "$KEY" ] || { echo "::warning::thiếu secret SHORTS_DEPLOY_KEY – chỉ còn artifact 14 ngày"; exit 0; }
@@ -154,7 +155,8 @@ jobs:
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes"
           git clone -q --depth 1 --filter=blob:none --sparse git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
           python scripts/cine/store_shorts.py out /tmp/shorts "${{ github.run_number }}" "${{ github.sha }}"
-          cd /tmp/shorts; git add --sparse -A shorts; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "cine-render #${{ github.run_number }} (${{ github.event.inputs.scene }})" || exit 0
+          bash scripts/cine/archive_new.sh /tmp/shorts
+          cd /tmp/shorts; git add --sparse -A shorts recipes .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "cine-render #${{ github.run_number }} (${{ github.event.inputs.scene }})" || exit 0
           for k in 1 2 3 4; do git push -q origin HEAD:main && break; git pull -q --rebase origin main; done
           rm -f ~/.ssh/shorts
       - uses: actions/upload-artifact@v4
@@ -271,6 +273,7 @@ jobs:
             '/anchor/tools/fonts/' '/anchor/tools/foley/' '/anchor/tools/amb_studio.wav' '/anchor/news/depth/' \
             '/anchor/green/kfull_pro/' '/anchor/green/kmask_pro/' '/anchor/tools/dl24/ga4_talk_natural.mp4' '/anchor/tools/dl24/gc4_talk_natural.mp4' '/anchor/tools/dl24/gc4_listen.mp4'
           git -C footage checkout -q; rm -f ~/.ssh/footage; du -sh footage
+          echo "FOOTAGE_SHA=$(git -C footage rev-parse HEAD)" >> "$GITHUB_ENV"   # recipe: footage bank version
       - name: Cổng tách nền PRO (matte_qa gate)
         if: env.NEWS_MATTE == 'pro'
         run: python scripts/video/matte_qa.py gate footage/anchor/green ga4_talk_natural,gc4_talk_natural,gc4_listen
@@ -360,7 +363,7 @@ jobs:
           PY
       - name: Lưu bền bài ĐẠT (lexkite-shorts, shorts/news/<bài>/)
         if: always()
-        env: { KEY: '${{ secrets.SHORTS_DEPLOY_KEY }}' }
+        env: { KEY: '${{ secrets.SHORTS_DEPLOY_KEY }}', LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
         run: |
           [ -s out/passed.txt ] || { echo "không có bài đạt để lưu"; exit 0; }
           [ -n "$KEY" ] || { echo "::warning::thiếu secret SHORTS_DEPLOY_KEY"; exit 0; }
@@ -369,7 +372,8 @@ jobs:
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes"
           git clone -q --depth 1 --filter=blob:none --sparse git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
           python scripts/cine/store_shorts.py out /tmp/shorts "${{ github.run_number }}" "${{ github.sha }}"
-          cd /tmp/shorts; git add --sparse -A shorts; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "cine-render #${{ github.run_number }} (news)" || exit 0
+          bash scripts/cine/archive_new.sh /tmp/shorts
+          cd /tmp/shorts; git add --sparse -A shorts recipes .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "cine-render #${{ github.run_number }} (news)" || exit 0
           for k in 1 2 3 4 5 6; do git push -q origin HEAD:main && break; git pull -q --rebase origin main; done
           rm -f ~/.ssh/shorts
       - uses: actions/upload-artifact@v4

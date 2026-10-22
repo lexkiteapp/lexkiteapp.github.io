@@ -1,0 +1,48 @@
+# YouTube – tải short đã duyệt lên kênh ($0)
+
+Code: `functions/api/youtube.js` (+ `youtube/callback.js`) · `scripts/video/yt-upload.mjs` · `.github/workflows/youtube-upload.yml` ·
+nút trong **Quản trị → 🎬 Thư viện video** (`web/js/admin-video.js`). Lưu trữ: `docs/VIDEO-STORAGE.md`.
+
+## 1. Việc của chủ – một lần (~10 phút, tài khoản chính thức vintagezulilyjewelry@gmail.com)
+
+Dùng **cùng Google Cloud project với Kho Drive** (project "Lexkite" – client Web `GOOGLE_DRIVE_CLIENT_ID`; Firebase `lexkite-app` chỉ để đăng nhập, không dùng).
+Không cần secret mới (máy chủ dùng lại client của Kho Drive; muốn tách thì thêm `YOUTUBE_CLIENT_ID`/`YOUTUBE_CLIENT_SECRET` trên Cloudflare Pages).
+
+1. Bật API: https://console.cloud.google.com/apis/library/youtube.googleapis.com → **Enable** (chọn project Lexkite).
+2. Thêm địa chỉ trả về vào client Web của Kho Drive: https://console.cloud.google.com/auth/clients → mở client đang dùng cho Kho Drive →
+   **Authorized redirect URIs** → thêm `https://lexkite.com/api/youtube/callback` → Save.
+3. Thêm quyền: https://console.cloud.google.com/auth/scopes → **Add or remove scopes** → `.../auth/youtube.upload` + `.../auth/youtube.readonly` → Save.
+   (Phạm vi "nhạy cảm": chỉ chủ dùng nên không cần Google thẩm định; màn hình đồng ý có thể báo "chưa xác minh" → **Advanced → Go to Lexkite**.
+   App phải ở **In production** (https://console.cloud.google.com/auth/audience) – chế độ Testing làm token hết hạn sau 7 ngày.)
+4. **Kết nối**: mở https://lexkite.com/admin.html#video → **Kết nối YouTube** → chọn đúng kênh Lexkite (kênh thương hiệu nếu có) → **Allow**.
+   Trang quay về, dòng YouTube hiện tên kênh + hạn mức. Chỉ chủ bấm; Claude/CI không bao giờ đăng nhập Google thay chủ.
+5. (Khuyên) Xác minh kênh để dùng ảnh bìa tuỳ chỉnh: https://www.youtube.com/verify (chưa xác minh → video vẫn lên, chỉ không đặt được bìa).
+
+## 2. Dùng hằng ngày
+
+- Thư viện video → mở 1 clip → **Duyệt & lên YouTube**, hoặc **☑ Chọn nhiều** → chọn → **Duyệt & lên YouTube (n)**.
+- Chế độ: **Riêng tư** (mặc định) – nếu tick *Theo lịch đăng*, clip có ô lịch sẽ có `publishAt` = giờ lịch (YouTube tự công khai đúng giờ);
+  hoặc **Không công khai (unlisted)**. Không có đường nào đăng **public** ngay.
+- `youtube-upload.yml` chạy 4 lần/ngày: ≤ 6 video/ngày (10.000 đơn vị; 1 lần tải ≈ 1.600 + bìa 50), phần còn lại giữ trong hàng chờ, tự tiếp tục
+  (phiên resumable dùng lại ≤ 20 h, lỗi mạng → tải tiếp từ byte đã nhận). Dòng YouTube trên thư viện báo hạn mức còn lại + số chờ/đã lên.
+- Siêu dữ liệu: tiêu đề tiếng Anh (câu mở đầu + điểm học), mô tả có bài học + link `https://lexkite.com/video/<slug>/` + `#shorts #learnenglish #<chủ đề>`,
+  tags, categoryId 27 (Education), `selfDeclaredMadeForKids=false`, `containsSyntheticMedia=true` (công bố AI), ngôn ngữ en, ảnh bìa làm thumbnail.
+- Video xem được (unlisted, hoặc đã tới `publishAt`) → `video-web.yml` ghi `youtube_id` vào `web/data/videos.json` → web dùng mặt tiền YouTube.
+
+## 3. Kiểm định API (API compliance audit) – BẮT BUỘC trước khi video được công khai
+
+Google khoá mọi video tải qua API từ project **chưa kiểm định** ở chế độ **private** (kể cả khi chọn unlisted/publishAt). Việc của chủ (miễn phí):
+1. Mở form: https://support.google.com/youtube/contact/yt_api_form → chọn **"I would like to request an API audit / quota extension"**.
+2. Điền: project number (https://console.cloud.google.com/home/dashboard → Project number), tên app "Lexkite", website https://lexkite.com,
+   chính sách https://lexkite.com/en/privacy, mục đích: "Upload our own educational English shorts to our own channel; owner approves every video;
+   ~6 uploads/day; no third-party users". Kèm ảnh chụp trang Quản trị (nút Duyệt) nếu được hỏi.
+3. Xin tăng hạn mức cùng form nếu cần > 6 video/ngày (ví dụ 50.000 đơn vị/ngày ≈ 30 video).
+4. Google trả lời qua email (thường 1–4 tuần). Trong lúc chờ: video vẫn lên ở private – chủ có thể đổi tay sang public trong YouTube Studio.
+Điều khoản: https://developers.google.com/youtube/terms/developer-policies · hạn mức: https://console.cloud.google.com/apis/api/youtube.googleapis.com/quotas
+
+## 4. Bảo mật
+
+Refresh token mã hoá AES-GCM bằng `DRIVE_ENC_KEY` (AAD = `youtube:<id kênh>`) trong D1 `yt_channel`; access token chỉ trong bộ nhớ < 50 phút.
+OAuth `state` ký HMAC + cookie `lk_yt` HttpOnly + dùng 1 lần (`yt_nonce`), chỉ email quản trị. CI chỉ gọi được `ids · next · session · done · fail · quota`
+(HMAC `LEXKITE_DRIVE_CLI_KEY`) – không duyệt, không đổi chế độ. Byte video không đi qua Worker (CI PUT thẳng vào phiên của Google).
+Ngắt kết nối = thu hồi token ở Google + xoá dòng (`disconnect`).
