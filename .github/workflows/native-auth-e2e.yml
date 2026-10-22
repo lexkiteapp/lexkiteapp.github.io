@@ -89,11 +89,11 @@ jobs:
         with: { name: app-auth }
       - name: Khởi động sẵn simulator (retry)
         run: |
-          xcrun simctl list devices available | head -20
+          xcrun simctl list devices available | sed -n 1,12p
           U=$(xcrun simctl list devices available -j | python3 -c "import json,sys;d=json.load(sys.stdin)['devices'];c=[x for k,v in d.items() if 'iOS' in k for x in v if 'iPhone 1' in x['name']];print(c[-1]['udid'] if c else '')")
           [ -z "$U" ] && { echo "::warning::không tìm thấy iPhone để khởi động sẵn"; exit 0; }
           for i in 1 2 3; do
-            timeout 300 xcrun simctl boot "$U" 2>/dev/null; timeout 300 xcrun simctl bootstatus "$U" -b && { echo "✓ simulator đã boot (lần $i)"; break; }
+            xcrun simctl boot "$U" 2>/dev/null; xcrun simctl bootstatus "$U" -b && { echo "✓ simulator đã boot (lần $i)"; break; }
             echo "::warning::boot lần $i lỗi, thử lại"; xcrun simctl shutdown "$U" 2>/dev/null; sleep 10
           done
           xcrun simctl shutdown "$U" 2>/dev/null; true
