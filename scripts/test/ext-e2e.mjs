@@ -248,7 +248,7 @@ rec('tab mới: đầu thẻ có từ + nhãn (loại từ/CEFR/kỳ thi)', (awa
 rec('tab mới: có nút nghe giọng Anh', (await nt.locator('[data-acc="uk"]').count()) === 1);
 if (await nt.locator('.more [data-g]').count()) rec('tab mới: họ từ/cụm từ… thu gọn mặc định', await nt.locator('#ntPanel').isHidden());
 const ntH = await nt.evaluate(() => { const a = document.querySelector('#ntCard').getBoundingClientRect(), b = document.querySelector('#ntSearch').getBoundingClientRect(); return Math.round(b.bottom - a.top); });
-rec('tab mới: thẻ + ô tìm ≤ 55 % màn 1366×768', ntH > 0 && ntH <= 768 * 0.55, ntH + ' px');
+rec('tab mới: thẻ + ô tìm ≤ 45 % màn 1366×768', ntH > 0 && ntH <= 768 * 0.45, ntH + ' px');
 await nt.check('#ntQuiz', { force: true }).catch(() => {}); await sleep(300);
 if (await nt.locator('#ntBody').count()) {
   rec('tab mới: chế độ Tự kiểm tra che nghĩa', await nt.locator('#ntBody.quiz-hidden').count() === 1);
