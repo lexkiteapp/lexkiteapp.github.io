@@ -362,23 +362,27 @@
       "status": "Đang dùng",
       "match": [
         "www.youtube-nocookie.com",
-        "www.youtube.com"
+        "www.youtube.com",
+        "youtu.be",
+        "studio.youtube.com"
       ]
     },
     {
       "key": "youtube-api",
       "name": "YouTube Data API v3 (tải short đã duyệt lên kênh)",
       "kind": "video",
-      "purpose": "Chỉ clip chủ đã bấm 'Duyệt & lên YouTube' (Quản trị → 🎬 Thư viện video, web/js/admin-video.js) → hàng chờ D1 yt_queue (functions/api/youtube.js) → workflow .github/workflows/youtube-upload.yml (scripts/video/yt-upload.mjs, 4 lần/ngày): master từ Kho Drive → phiên tải resumable do máy chủ mở (refresh token mã hoá AES-GCM DRIVE_ENC_KEY trong D1 yt_channel, CI không thấy token Google) → ảnh bìa làm thumbnail. Chế độ private (+publishAt theo lịch đăng đã duyệt) hoặc unlisted – không bao giờ public ngay; categoryId 27, selfDeclaredMadeForKids=false, containsSyntheticMedia=true. OAuth client = client Web của Kho Drive (cùng Google Cloud project, redirect https://lexkite.com/api/youtube/callback) hoặc YOUTUBE_CLIENT_ID/SECRET. Hướng dẫn chủ: docs/YOUTUBE-SETUP.md",
+      "purpose": "Đăng TAY (mặc định, tới khi qua kiểm định API): clip chủ duyệt → gói đăng (scripts/video/yt-pack.mjs, Kho Drive shorts/_ytpack, bảng D1 yt_pack) → chủ tải lên YouTube Studio ở chế độ Unlisted → youtube-manual.yml + nút Đồng bộ đọc kênh (chỉ quyền youtube.readonly, playlistItems ≈ 1 đơn vị) tìm dòng lk:<clip> → youtube_id lên web. Đăng API (cờ yt_meta mode=api): hàng chờ D1 yt_queue → youtube-upload.yml (scripts/video/yt-upload.mjs) – docs/YOUTUBE-SETUP.md.",
       "console": "https://console.cloud.google.com/apis/api/youtube.googleapis.com/quotas",
       "free": "10.000 đơn vị/ngày (videos.insert ≈ 1.600 + thumbnails.set 50 → ≈ 6 video/ngày); dự án chưa qua kiểm định (API compliance audit) → video tải lên bị khoá private",
       "upgrade": "Gửi YouTube API Services audit + xin tăng hạn mức (miễn phí) – docs/YOUTUBE-SETUP.md §3",
-      "status": "Chờ chủ kết nối",
+      "status": "Đăng tay – chờ chủ kết nối (youtube.readonly)",
       "match": [
         "youtube.googleapis.com",
         "/api/youtube",
         "yt_queue",
-        "yt_channel"
+        "yt_channel",
+        "yt_pack",
+        "shorts/_ytpack"
       ]
     },
     {

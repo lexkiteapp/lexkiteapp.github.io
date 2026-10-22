@@ -7,14 +7,23 @@
  * Bytes never pass through the Worker: CI PUTs the master straight into the resumable session that `session` opens (like the Drive pool).
  * Privacy: only 'private' (optionally with publishAt from the calendar slot the owner approved) or 'unlisted' – never 'public'.
  * Quota: 10,000 units/day (resets midnight Pacific); videos.insert ≈ 1,600, thumbnails.set 50, videos.list 1 → ≤ 6 uploads/day, rest stays queued.
- * OAuth client: YOUTUBE_CLIENT_ID/SECRET if set, else the Drive pool's client (GOOGLE_DRIVE_CLIENT_ID/SECRET – same Google Cloud project). */
+ * OAuth client: YOUTUBE_CLIENT_ID/SECRET if set, else the Drive pool's client (GOOGLE_DRIVE_CLIENT_ID/SECRET – same Google Cloud project).
+ * MODE (yt_meta 'mode', default env YOUTUBE_UPLOAD_MODE || 'manual'): until the API audit passes, uploads from an unverified project are locked
+ *   private → 'manual': approve = "Ready to upload" + an upload pack (scripts/video/yt-pack.mjs, Drive pool shorts/_ytpack/<clip>.zip); the owner
+ *   uploads in YouTube Studio as Unlisted; `sync` (admin button + youtube-manual.yml cron) reads the uploads playlist with youtube.readonly only,
+ *   matches the description marker "lk:<clip>", checks unlisted/public + processing done + duration → status 'done' → op ids → web manifest
+ *   embeds YouTube exactly like an API upload. 'api': the resumable upload path above (needs youtube.upload). Never browser bots / cookies. */
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
 import { signState, verifyState, encryptToken, decryptToken, cliVerify, driveMedia } from './drive.js';
-import { manifest } from './admin-shorts.js';
+import { manifest, signedPack } from './admin-shorts.js';
 
 export const REDIRECT = 'https://lexkite.com/api/youtube/callback';
-export const SCOPE = 'https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube.readonly';
+export const SCOPE_UP = 'https://www.googleapis.com/auth/youtube.upload', SCOPE_RO = 'https://www.googleapis.com/auth/youtube.readonly';
+export const SCOPE = SCOPE_UP + ' ' + SCOPE_RO;
+export const MODES = ['manual', 'api'];
+export const scopeFor = mode => (mode === 'api' ? SCOPE : SCOPE_RO);
+export const STUDIO = 'https://studio.youtube.com/';
 export const QUOTA = { day: 10000, insert: 1600, thumb: 50, list: 1, reserve: 200 };
 export const PRIVACY = ['private', 'unlisted'];
 const STATE_TTL = 600, SESSION_TTL = 20 * 3600e3, MAX_TRIES = 3;
@@ -34,6 +43,7 @@ async function setup(db) {
     db.prepare('CREATE TABLE IF NOT EXISTS yt_quota (day TEXT PRIMARY KEY, units INTEGER)'),
     db.prepare('CREATE TABLE IF NOT EXISTS yt_meta (k TEXT PRIMARY KEY, v TEXT)'),
     db.prepare('CREATE TABLE IF NOT EXISTS yt_nonce (n TEXT PRIMARY KEY, at INTEGER)'),
+    db.prepare('CREATE TABLE IF NOT EXISTS yt_pack (clip TEXT PRIMARY KEY, file_id TEXT, drive_id TEXT, sha TEXT, bytes INTEGER, title TEXT, description TEXT, tags TEXT, at INTEGER, retired INTEGER DEFAULT 0, seen TEXT)'),
   ]);
 }
 
@@ -61,6 +71,7 @@ export function videoResource(row, meta = {}) {
   let desc = clean(meta.description, 4800);
   if (!/https:\/\/lexkite\.com\//.test(desc)) desc += '\n\nPractice it free: https://lexkite.com/';
   if (!/#shorts\b/i.test(desc)) desc += '\n#shorts';
+  if (row.clip && !markersOf(desc).includes(row.clip)) desc += '\n' + markerLine(row.clip); // same marker as the manual pack → sync matches both paths
   let tags = (Array.isArray(meta.tags) ? meta.tags : []).map(t => clean(t, 30).replace(/[",]/g, '')).filter(Boolean), total = 0;
   tags = tags.filter(t => (total += t.length + 2) <= 450).slice(0, 30);
   const status = { privacyStatus: privacy, selfDeclaredMadeForKids: false, containsSyntheticMedia: true, embeddable: true, license: 'youtube' };
@@ -72,6 +83,75 @@ export function pickNext(rows, used, now = Date.now(), max = 6) {
   const n = Math.min(max, uploadsLeft(used));
   const due = rows.filter(r => r.status === 'queued' || (r.status === 'failed' && (+r.attempts || 0) < MAX_TRIES) || (r.status === 'uploading' && now - (+r.session_at || 0) > 2 * 3600e3));
   return due.sort((a, b) => (+a.approved_at || 0) - (+b.approved_at || 0)).slice(0, n);
+}
+
+// ---------- manual path (Studio upload + read-only sync) – pure, tested in scripts/test/yt-manual.mjs ----------
+export const markerLine = clip => 'lk:' + clip;
+/** Clip ids from "lk:<clip>" marker lines/words in a description (unique, order kept). */
+export function markersOf(desc) {
+  const out = [], re = /(?:^|[\s(])lk:([a-z0-9-]{3,120})(?=$|[\s).,])/gm; let m;
+  while ((m = re.exec(String(desc || '')))) if (!out.includes(m[1])) out.push(m[1]);
+  return out;
+}
+/** YouTube video id from a pasted link (watch, youtu.be, shorts, embed, live, Studio) or a bare 11-char id; '' when none. */
+export function ytIdOf(s) {
+  const t = String(s || '').trim(); if (/^[A-Za-z0-9_-]{11}$/.test(t)) return t;
+  let u; try { u = new URL(/^https?:\/\//i.test(t) ? t : 'https://' + t); } catch (e) { return ''; }
+  const h = u.hostname.replace(/^(www|m|music)\./, ''); let id = '';
+  if (h === 'youtu.be') id = u.pathname.split('/')[1] || '';
+  else if (h === 'youtube.com' || h === 'youtube-nocookie.com') id = u.searchParams.get('v') || ((/^\/(shorts|embed|live|v)\/([^/?#]+)/.exec(u.pathname) || [])[2]) || '';
+  else if (h === 'studio.youtube.com') id = (/^\/video\/([^/?#]+)/.exec(u.pathname) || [])[1] || '';
+  return /^[A-Za-z0-9_-]{11}$/.test(id) ? id : '';
+}
+/** ISO-8601 duration (PT1M5.5S) → seconds; NaN when unknown. */
+export const isoSecs = d => { const m = /^P(?:(\d+)D)?T?(?:(\d+)H)?(?:(\d+)M)?(?:([\d.]+)S)?$/.exec(String(d || '')); return m && d !== 'P' && d !== 'PT' ? ((+m[1] || 0) * 86400 + (+m[2] || 0) * 3600 + (+m[3] || 0) * 60 + (+m[4] || 0)) : NaN; };
+export const DUR_TOL = 1.5;
+/** Check one video against its clip → { status: 'done'|'detected', err }. Live = unlisted/public + processed + same length (±1.5 s). */
+export function checkVideo(v, clipSecs) {
+  if (!v) return { status: 'detected', err: 'missing' };
+  if (v.privacy === 'private') return { status: 'detected', err: 'private' };
+  if (!['unlisted', 'public'].includes(v.privacy)) return { status: 'detected', err: 'privacy-' + (v.privacy || 'unknown') };
+  if (v.upload === 'rejected' || v.upload === 'failed' || v.processing === 'failed' || v.processing === 'terminated') return { status: 'detected', err: 'processing-failed' };
+  if (v.processing !== 'succeeded' || (v.upload && v.upload !== 'processed')) return { status: 'detected', err: 'processing' };
+  if (clipSecs > 0 && Number.isFinite(v.secs) && Math.abs(v.secs - clipSecs) > DUR_TOL) return { status: 'detected', err: 'wrong-file' };
+  return { status: 'done', err: null };
+}
+/** Reconcile channel uploads with manual-path queue rows. uploads: [{video_id, title, description, privacy, at}] (uploads playlist);
+ *  videos: {id: {privacy, processing, upload, secs}} (videos.list); secs: {clip: seconds}; manual: Set of clips on the manual path.
+ *  complete: whole playlist scanned (→ a live clip whose video vanished is flagged). since: ms – older unmarked uploads are not flagged. */
+export function reconcile({ rows = [], uploads = [], videos = {}, secs = {}, manual = new Set(), complete = false, since = 0 }) {
+  const by = new Map(rows.map(r => [r.clip, r])), hits = new Map(), issues = [], updates = [], seen = new Set(uploads.map(u => u.video_id));
+  for (const u of uploads) {
+    const ids = markersOf(u.description);
+    if (!ids.length) { if ((+u.at || 0) >= since && since) issues.push({ kind: 'no-marker', video_id: u.video_id, title: String(u.title || '').slice(0, 100) }); continue; }
+    for (const c of ids) (hits.get(c) || hits.set(c, []).get(c)).push(u);
+  }
+  for (const [c, list] of hits) {
+    const r = by.get(c);
+    if (!r || !manual.has(c)) { if (!r) issues.push({ kind: 'unknown-clip', clip: c, video_id: list[0].video_id }); continue; }
+    if (list.length > 1) issues.push({ kind: 'duplicate', clip: c, video_ids: list.map(u => u.video_id) });
+  }
+  for (const r of rows) {
+    if (!manual.has(r.clip) || !['manual', 'detected', 'done'].includes(r.status)) continue;
+    const list = hits.get(r.clip) || [];
+    // several uploads with one marker → the one that passes the checks, else the newest
+    let pick = list.find(u => checkVideo(videos[u.video_id], secs[r.clip]).status === 'done') || list.slice().sort((a, b) => (+b.at || 0) - (+a.at || 0))[0];
+    let vid = pick ? pick.video_id : '';
+    if (!vid && r.video_id && (videos[r.video_id] || (complete && !seen.has(r.video_id)))) vid = r.video_id; // pasted link / earlier match
+    if (!vid) continue;
+    const ck = checkVideo(videos[vid] || (pick ? { privacy: pick.privacy } : null), secs[r.clip]);
+    if (ck.status !== r.status || ck.err !== (r.err || null) || vid !== r.video_id) updates.push({ clip: r.clip, status: ck.status, video_id: vid, privacy: (videos[vid] || pick || {}).privacy || r.privacy, err: ck.err, was: r.status });
+    if (ck.err) issues.push({ kind: ck.err, clip: r.clip, video_id: vid });
+  }
+  return { updates, issues, matched: [...hits.keys()].filter(c => manual.has(c)).length };
+}
+/** Pipeline state shown per clip in the admin: ready (pack being made / ready) → uploaded (detected) → live (on the web). */
+export function stateOf(row, pack, web = {}) {
+  if (!row) return 'none';
+  if (row.status === 'done' && row.video_id) return web[row.clip] === row.video_id ? 'live' : 'uploaded';
+  if (row.status === 'detected') return 'uploaded';
+  if (row.status === 'manual') return pack && pack.file_id ? 'ready' : 'packing';
+  return row.status;
 }
 
 // ---------- Google ----------
@@ -97,18 +177,77 @@ async function spend(db, units, now = Date.now()) {
 async function used(db, now = Date.now()) { const r = await one(db, 'SELECT units FROM yt_quota WHERE day = ?', quotaDay(now)); return r ? +r.units : 0; }
 async function quotaInfo(db) { const u = await used(db); return { day: quotaDay(), used: u, limit: QUOTA.day, left: Math.max(0, QUOTA.day - u), uploads_left: uploadsLeft(u), per_upload: QUOTA.insert + QUOTA.thumb }; }
 
+export async function modeOf(db, env = {}) {
+  const r = await one(db, "SELECT v FROM yt_meta WHERE k = 'mode'").catch(() => null);
+  return MODES.includes(r && r.v) ? r.v : MODES.includes(env.YOUTUBE_UPLOAD_MODE) ? env.YOUTUBE_UPLOAD_MODE : 'manual';
+}
+const setMeta = (db, k, v) => run(db, 'INSERT INTO yt_meta (k, v) VALUES (?, ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v', k, v);
+const getMeta = async (db, k) => { const r = await one(db, 'SELECT v FROM yt_meta WHERE k = ?', k); return r ? r.v : null; };
+/** Kick a workflow now (pack builder) – best-effort with the existing GH_DISPATCH_TOKEN; the cron catches up otherwise. */
+async function kick(env, wf) {
+  if (!env.GH_DISPATCH_TOKEN) return false;
+  const r = await fetch(`https://api.github.com/repos/lexkiteapp/lexkiteapp.github.io/actions/workflows/${wf}/dispatches`, { method: 'POST', headers: { Authorization: 'Bearer ' + env.GH_DISPATCH_TOKEN, Accept: 'application/vnd.github+json', 'User-Agent': 'lexkite-youtube', 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json' }, body: JSON.stringify({ ref: 'main' }) }).catch(() => null);
+  return !!(r && (r.status === 204 || r.ok));
+}
+async function clipSecs(env) { try { const m = await manifest(env); return Object.fromEntries((m.items || []).filter(x => +x.duration > 0).map(x => [x.id, +x.duration])); } catch (e) { return {}; } }
+async function videosInfo(at, ids, db) {
+  const out = {};
+  for (let i = 0; i < ids.length; i += 50) {
+    const part = ids.slice(i, i + 50);
+    const r = await gfetch('https://www.googleapis.com/youtube/v3/videos?part=status,processingDetails,contentDetails,snippet&maxResults=50&id=' + part.map(encodeURIComponent).join(','), { headers: { Authorization: 'Bearer ' + at } });
+    await spend(db, QUOTA.list); if (!r.ok) continue;
+    for (const v of (await r.json().catch(() => ({}))).items || []) out[v.id] = { privacy: (v.status || {}).privacyStatus, upload: (v.status || {}).uploadStatus, processing: (v.processingDetails || {}).processingStatus || ((v.status || {}).uploadStatus === 'processed' ? 'succeeded' : ''), secs: isoSecs((v.contentDetails || {}).duration), channel: (v.snippet || {}).channelId };
+  }
+  return out;
+}
+/** Read-only channel sync (youtube.readonly): uploads playlist (1 unit/50 videos) → markers → videos.list (1 unit/50) → reconcile → queue rows. */
+export async function syncChannel(env, db, { pages = 4 } = {}) {
+  const ch = await channelRow(db); if (!ch) return { status: 412, error: 'not-connected' };
+  const at = await accessToken(env, db, ch), list = 'UU' + String(ch.channel_id).slice(2), uploads = [];
+  let token = '', complete = false;
+  for (let p = 0; p < Math.min(Math.max(1, +pages || 4), 40); p++) {
+    const r = await gfetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,status,contentDetails&maxResults=50&playlistId=${encodeURIComponent(list)}${token ? '&pageToken=' + encodeURIComponent(token) : ''}`, { headers: { Authorization: 'Bearer ' + at } });
+    await spend(db, QUOTA.list);
+    if (r.status === 404) { complete = true; break; } // channel without uploads yet
+    if (!r.ok) { const e = new Error('google-list'); e.code = r.status === 403 ? 'yt-forbidden' : 'google-list'; e.status = 502; throw e; }
+    const j = await r.json().catch(() => ({}));
+    for (const it of j.items || []) { const sn = it.snippet || {}, vid = (it.contentDetails || {}).videoId || (sn.resourceId || {}).videoId; if (vid) uploads.push({ video_id: vid, title: sn.title, description: sn.description, privacy: (it.status || {}).privacyStatus, at: Date.parse(sn.publishedAt || '') || 0 }); }
+    token = j.nextPageToken || ''; if (!token) { complete = true; break; }
+  }
+  const rows = await all(db, 'SELECT clip, status, privacy, video_id, err, approved_at FROM yt_queue');
+  const manual = new Set((await all(db, 'SELECT clip FROM yt_pack')).map(r => r.clip)), mrows = rows.filter(r => manual.has(r.clip));
+  const want = new Set();
+  for (const u of uploads) if (markersOf(u.description).some(c => manual.has(c))) want.add(u.video_id);
+  for (const r of mrows) if (r.video_id) want.add(r.video_id);
+  const videos = await videosInfo(at, [...want], db);
+  for (const [id, v] of Object.entries(videos)) if (v.channel && v.channel !== ch.channel_id) delete videos[id]; // only our own channel counts
+  const since = Math.min(...mrows.map(r => +r.approved_at || Infinity));
+  const rec = reconcile({ rows, uploads, videos, secs: await clipSecs(env), manual, complete, since: Number.isFinite(since) ? since : 0 }), now = Date.now();
+  for (const u of rec.updates) await run(db, 'UPDATE yt_queue SET status = ?, video_id = ?, privacy = ?, err = ?, updated = ? WHERE clip = ?', u.status, u.video_id, u.privacy || 'unlisted', u.err, now, u.clip);
+  const live = rec.updates.filter(u => u.status === 'done' && u.was !== 'done').map(u => u.clip);
+  const sum = { at: now, scanned: uploads.length, complete, matched: rec.matched, updated: rec.updates.length, live, issues: rec.issues.slice(0, 40) };
+  await setMeta(db, 'sync', JSON.stringify(sum)); await run(db, 'UPDATE yt_channel SET last_ok = ? WHERE id = ?', now, ch.id);
+  return { ok: true, ...sum, quota: await quotaInfo(db) };
+}
+async function counts(db) {
+  const q = Object.fromEntries((await all(db, 'SELECT status, COUNT(*) AS n FROM yt_queue GROUP BY status')).map(r => [r.status, r.n]));
+  const m = (await one(db, "SELECT SUM(q.status = 'manual' AND p.file_id IS NOT NULL) AS ready, SUM(q.status = 'manual' AND p.file_id IS NULL) AS packing, SUM(q.status = 'detected') AS uploaded, SUM(q.status = 'done') AS live, SUM(q.err IS NOT NULL AND q.status != 'done') AS issues FROM yt_pack p JOIN yt_queue q ON q.clip = p.clip")) || {};
+  return { queue: q, manual: { ready: +m.ready || 0, packing: +m.packing || 0, uploaded: +m.uploaded || 0, live: +m.live || 0, issues: +m.issues || 0 } };
+}
+
 // ---------- ops ----------
 const ADMIN_OPS = {
   async status(db, b, who, env) {
     const ch = await one(db, 'SELECT channel_id, title, status, created, last_ok, err FROM yt_channel ORDER BY id DESC LIMIT 1');
-    const counts = Object.fromEntries((await all(db, 'SELECT status, COUNT(*) AS n FROM yt_queue GROUP BY status')).map(r => [r.status, r.n]));
-    const st = await one(db, "SELECT v FROM yt_meta WHERE k = 'privacy'");
-    return { configured: configured(env), redirect: REDIRECT, channel: ch, quota: await quotaInfo(db), queue: counts, settings: { privacy: (st && st.v) || 'private' } };
+    const c = await counts(db), st = await getMeta(db, 'privacy'), mode = await modeOf(db, env), scope = await getMeta(db, 'scope');
+    let sync = null; try { sync = JSON.parse(await getMeta(db, 'sync') || 'null'); } catch (e) { /* bỏ qua */ }
+    return { configured: configured(env), redirect: REDIRECT, channel: ch, quota: await quotaInfo(db), queue: c.queue, manual: c.manual, sync, studio: STUDIO,
+      settings: { privacy: st || 'private', mode }, scope: { granted: scope || '', needed: scopeFor(mode), ok: !!scope && scopeFor(mode).split(' ').every(x => scope.split(' ').includes(x)) } };
   },
   async connect(db, b, who, env) {
     if (!ready(env)) return { status: 412, error: 'not-configured', configured: configured(env) };
     const { state, nonce } = await signState(env, who.email);
-    const url = 'https://accounts.google.com/o/oauth2/v2/auth?' + new URLSearchParams({ client_id: client(env).id, redirect_uri: REDIRECT, response_type: 'code', scope: SCOPE, access_type: 'offline', prompt: 'consent', include_granted_scopes: 'false', state });
+    const url = 'https://accounts.google.com/o/oauth2/v2/auth?' + new URLSearchParams({ client_id: client(env).id, redirect_uri: REDIRECT, response_type: 'code', scope: scopeFor(await modeOf(db, env)), access_type: 'offline', prompt: 'consent', include_granted_scopes: 'false', state });
     return { url, _cookie: `lk_yt=${nonce}; Path=/api/youtube; Max-Age=${STATE_TTL}; HttpOnly; Secure; SameSite=Lax` };
   },
   async disconnect(db, b, who, env) {
@@ -118,8 +257,9 @@ const ADMIN_OPS = {
     return { ok: true };
   },
   async settings(db, b) {
+    if (b.mode != null) { if (!MODES.includes(b.mode)) return { status: 400, error: 'bad-input' }; await setMeta(db, 'mode', b.mode); return { ok: true, mode: b.mode }; } // 'api' only once the audit passed (docs/YOUTUBE-SETUP.md §3)
     if (!PRIVACY.includes(b.privacy)) return { status: 400, error: 'bad-input' };
-    await run(db, "INSERT INTO yt_meta (k, v) VALUES ('privacy', ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v", b.privacy);
+    await setMeta(db, 'privacy', b.privacy);
     return { ok: true, privacy: b.privacy };
   },
   /** "Duyệt & lên YouTube": owner approval → queue. privacy private|unlisted; schedule 'calendar' → publishAt = the clip's calendar slot (private until then). */
@@ -127,25 +267,65 @@ const ADMIN_OPS = {
     const ids = (Array.isArray(b.ids) ? b.ids : []).map(String).filter(x => CLIP.test(x)).slice(0, 100);
     if (!ids.length) return { status: 400, error: 'bad-input' };
     const st = await one(db, "SELECT v FROM yt_meta WHERE k = 'privacy'");
-    const privacy = PRIVACY.includes(b.privacy) ? b.privacy : (st && st.v) || 'private';
+    const manual = (await modeOf(db, env)) === 'manual';
+    const privacy = manual ? 'unlisted' : PRIVACY.includes(b.privacy) ? b.privacy : (st && st.v) || 'private';
     const m = await manifest(env), by = new Map((m.items || []).map(x => [x.id, x])), now = Date.now(), out = { queued: [], skipped: [] };
     for (const id of ids) {
       const it = by.get(id);
       if (!it || !it.qa || it.qa.status !== 'pass' || it.rejected) { out.skipped.push({ id, why: !it ? 'unknown' : it.rejected ? 'rejected' : 'qa' }); continue; }
       if (!it.drive || !it.drive.video || it.drive.video.retired) { out.skipped.push({ id, why: 'no-master' }); continue; }
       const old = await one(db, 'SELECT status FROM yt_queue WHERE clip = ?', id);
-      if (old && (old.status === 'done' || old.status === 'uploading')) { out.skipped.push({ id, why: old.status }); continue; }
+      if (old && (old.status === 'done' || old.status === 'uploading' || (manual && old.status === 'detected'))) { out.skipped.push({ id, why: old.status }); continue; }
+      if (manual) { // "Ready to upload": pack (yt-pack.mjs) + owner uploads in Studio as Unlisted; sync detects the marker
+        await run(db, `INSERT INTO yt_queue (clip, lesson, status, privacy, approved_by, approved_at, attempts, updated, title) VALUES (?, ?, 'manual', 'unlisted', ?, ?, 0, ?, ?)
+          ON CONFLICT(clip) DO UPDATE SET status = 'manual', privacy = 'unlisted', publish_at = NULL, approved_by = excluded.approved_by, approved_at = excluded.approved_at, err = NULL, upload_url = NULL, updated = excluded.updated`,
+          id, it.lesson || '', who.email, now, now, String(it.title || '').slice(0, 100));
+        await run(db, 'INSERT INTO yt_pack (clip, at) VALUES (?, ?) ON CONFLICT(clip) DO NOTHING', id, now);
+        out.queued.push({ id, privacy, manual: true }); continue;
+      }
       const pa = privacy === 'private' && b.schedule === 'calendar' ? slotToIso(it.slot, now) : null;
       await run(db, `INSERT INTO yt_queue (clip, lesson, status, privacy, publish_at, approved_by, approved_at, attempts, updated, title) VALUES (?, ?, 'queued', ?, ?, ?, ?, 0, ?, ?)
         ON CONFLICT(clip) DO UPDATE SET status = 'queued', privacy = excluded.privacy, publish_at = excluded.publish_at, approved_by = excluded.approved_by, approved_at = excluded.approved_at, attempts = 0, err = NULL, upload_url = NULL, updated = excluded.updated`,
         id, it.lesson || '', privacy, pa, who.email, now, now, String(it.title || '').slice(0, 100));
       out.queued.push({ id, privacy, publish_at: pa });
     }
-    return { ok: true, ...out, quota: await quotaInfo(db) };
+    const kicked = manual && out.queued.length ? await kick(env, 'youtube-manual.yml') : false;
+    return { ok: true, ...out, mode: manual ? 'manual' : 'api', kicked, quota: await quotaInfo(db) };
   },
   async unqueue(db, b) {
     if (!CLIP.test(String(b.id || ''))) return { status: 400, error: 'bad-input' };
-    await run(db, "DELETE FROM yt_queue WHERE clip = ? AND status IN ('queued', 'failed')", b.id); return { ok: true };
+    await run(db, "DELETE FROM yt_queue WHERE clip = ? AND status IN ('queued', 'failed', 'manual')", b.id);
+    await run(db, "DELETE FROM yt_pack WHERE clip = ? AND NOT EXISTS (SELECT 1 FROM yt_queue WHERE clip = ?)", b.id, b.id); return { ok: true };
+  },
+  /** Manual path cards: state, pack link (signed, 2 h), texts to copy, issues. */
+  async packs(db, b, who, env) {
+    const rows = await all(db, `SELECT q.clip, q.lesson, q.status, q.privacy, q.video_id, q.err, q.approved_at, q.updated, q.title AS qtitle, p.file_id, p.drive_id, p.bytes, p.title, p.description, p.tags, p.at, p.retired
+      FROM yt_pack p JOIN yt_queue q ON q.clip = p.clip ORDER BY (q.status = 'done'), q.approved_at DESC LIMIT 300`);
+    const out = [];
+    for (const r of rows) {
+      const url = r.file_id && !r.retired ? await signedPack(env, { fileId: r.file_id, driveId: r.drive_id }, r.clip) : null;
+      let tags = []; try { tags = JSON.parse(r.tags || '[]'); } catch (e) { /* bỏ qua */ }
+      out.push({ id: r.clip, lesson: r.lesson, status: r.status, video_id: r.video_id, err: r.err, approved_at: r.approved_at, updated: r.updated, pack: url, bytes: r.bytes, ready: !!r.file_id, retired: !!r.retired,
+        title: r.title || r.qtitle || '', description: r.description || '', tags, marker: markerLine(r.clip), state: stateOf(r, r) });
+    }
+    const ch = await channelRow(db);
+    return { rows: out, studio: ch ? `https://studio.youtube.com/channel/${ch.channel_id}/videos/upload?d=ud` : STUDIO, ...(await counts(db)) };
+  },
+  async sync(db, b, who, env) { return syncChannel(env, db, { pages: b.full ? 40 : 4 }); },
+  /** Fallback: paste the YouTube link for a clip (verified on our channel when connected; otherwise trusted as unlisted). */
+  async link(db, b, who, env) {
+    const id = String(b.id || ''), vid = ytIdOf(b.url);
+    if (!CLIP.test(id) || !vid) return { status: 400, error: 'bad-input' };
+    const row = await one(db, 'SELECT clip, status FROM yt_queue WHERE clip = ?', id); if (!row) return { status: 404, error: 'not-approved' };
+    await run(db, 'INSERT INTO yt_pack (clip, at) VALUES (?, ?) ON CONFLICT(clip) DO NOTHING', id, Date.now());
+    const ch = await channelRow(db); let ck = { status: 'done', err: 'unverified' }, privacy = 'unlisted';
+    if (ch) {
+      const v = (await videosInfo(await accessToken(env, db, ch), [vid], db))[vid];
+      if (v && v.channel && v.channel !== ch.channel_id) return { status: 409, error: 'other-channel' };
+      ck = checkVideo(v, (await clipSecs(env))[id]); privacy = (v && v.privacy) || 'unknown';
+    }
+    await run(db, 'UPDATE yt_queue SET status = ?, video_id = ?, privacy = ?, err = ?, updated = ? WHERE clip = ?', ck.status, vid, PRIVACY.concat('public').includes(privacy) ? privacy : 'unlisted', ck.err, Date.now(), id);
+    return { ok: true, id, video_id: vid, status: ck.status, err: ck.err };
   },
   async queue(db) {
     const rows = await all(db, 'SELECT clip, lesson, status, privacy, publish_at, approved_by, approved_at, video_id, attempts, err, updated, thumb FROM yt_queue ORDER BY approved_at DESC LIMIT 500');
@@ -158,11 +338,12 @@ const CLI_OPS = {
   async ids(db) {
     const rows = await all(db, 'SELECT clip, lesson, status, privacy, publish_at, video_id FROM yt_queue'), now = Date.now();
     const web = {};
-    for (const r of rows) if (r.status === 'done' && r.video_id && (r.privacy === 'unlisted' || (r.publish_at && Date.parse(r.publish_at) <= now))) { web[r.clip] = r.video_id; if (r.lesson) web[r.lesson] = r.video_id; }
+    for (const r of rows) if (r.status === 'done' && r.video_id && (r.privacy === 'unlisted' || r.privacy === 'public' || (r.publish_at && Date.parse(r.publish_at) <= now))) { web[r.clip] = r.video_id; if (r.lesson) web[r.lesson] = r.video_id; }
     return { approved: rows.map(r => r.clip), uploaded: Object.fromEntries(rows.filter(r => r.video_id).map(r => [r.clip, r.video_id])), web };
   },
   async quota(db) { return { quota: await quotaInfo(db) }; },
-  async next(db, b) {
+  async next(db, b, who, env) {
+    if ((await modeOf(db, env)) !== 'api') return { items: [], quota: await quotaInfo(db), channel: null, mode: 'manual' }; // manual mode: owner uploads in Studio
     const ch = await channelRow(db); if (!ch) return { items: [], quota: await quotaInfo(db), channel: null };
     const rows = await all(db, "SELECT * FROM yt_queue WHERE status IN ('queued', 'failed', 'uploading')");
     const pick = pickNext(rows, await used(db), Date.now(), Math.min(Math.max(1, +b.max || 6), 6));
@@ -212,6 +393,24 @@ const CLI_OPS = {
     await run(db, 'UPDATE yt_channel SET last_ok = ? WHERE id = ?', Date.now(), ch.id);
     return { ok: true, video_id: vid, privacy: (it.status || {}).privacyStatus, thumb, note, quota: await quotaInfo(db) };
   },
+  async sync(db, b, who, env) { return syncChannel(env, db, { pages: b.full ? 40 : 4 }); },
+  /** Pack builder (scripts/video/yt-pack.mjs): clips waiting for a pack + packs of live clips to retire (Drive trash after 3 days on the web). */
+  async packs(db, b, who, env) {
+    const todo = await all(db, "SELECT p.clip AS id, q.lesson FROM yt_pack p JOIN yt_queue q ON q.clip = p.clip WHERE q.status = 'manual' AND p.file_id IS NULL ORDER BY q.approved_at LIMIT 20");
+    const retire = await all(db, "SELECT p.clip AS id, p.sha FROM yt_pack p JOIN yt_queue q ON q.clip = p.clip WHERE q.status = 'done' AND q.err IS NULL AND p.retired = 0 AND p.sha IS NOT NULL AND q.updated < ? LIMIT 20", Date.now() - 3 * 864e5);
+    return { todo, retire, mode: await modeOf(db, env) };
+  },
+  async pack(db, b) {
+    const id = String(b.id || ''); if (!CLIP.test(id)) return { status: 400, error: 'bad-input' };
+    if (!(await one(db, 'SELECT clip FROM yt_pack WHERE clip = ?', id))) return { status: 404, error: 'not-found' };
+    if (b.retired) { await run(db, 'UPDATE yt_pack SET retired = 1 WHERE clip = ?', id); return { ok: true }; }
+    const fid = String(b.file_id || ''), did = String(b.drive_id || ''), sha = String(b.sha || '').toLowerCase();
+    if (!/^[A-Za-z0-9_-]{10,120}$/.test(fid) || !/^\d{1,6}$/.test(did) || !/^[0-9a-f]{64}$/.test(sha)) return { status: 400, error: 'bad-input' };
+    const tags = (Array.isArray(b.tags) ? b.tags : []).map(t => clean(t, 30)).filter(Boolean).slice(0, 30);
+    await run(db, 'UPDATE yt_pack SET file_id = ?, drive_id = ?, sha = ?, bytes = ?, title = ?, description = ?, tags = ?, at = ?, retired = 0 WHERE clip = ?',
+      fid, did, sha, Math.floor(+b.bytes || 0), clean(b.title, 100), clean(b.description, 5000), JSON.stringify(tags), Date.now(), id);
+    return { ok: true };
+  },
   async fail(db, b) {
     const row = await one(db, 'SELECT clip FROM yt_queue WHERE clip = ?', String(b.id || '')); if (!row) return { status: 404, error: 'not-found' };
     const expired = /404|410|expired/i.test(String(b.error || ''));
@@ -219,7 +418,7 @@ const CLI_OPS = {
     return { ok: true };
   },
 };
-const WRITE = new Set(['connect', 'disconnect', 'settings', 'approve', 'unqueue', 'session', 'done', 'fail']);
+const WRITE = new Set(['connect', 'disconnect', 'settings', 'approve', 'unqueue', 'session', 'done', 'fail', 'sync', 'link', 'pack']);
 
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: adminCors(request) });
 
@@ -271,7 +470,8 @@ export async function handleCallback(request, env) {
     const r = await gfetch('https://oauth2.googleapis.com/token', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ code: u.searchParams.get('code'), client_id: c.id, client_secret: c.secret, redirect_uri: REDIRECT, grant_type: 'authorization_code' }) });
     const t = await r.json().catch(() => ({}));
     if (!r.ok || !t.access_token) return back('error');
-    if (!String(t.scope || '').split(' ').includes('https://www.googleapis.com/auth/youtube.upload')) return back('scope');
+    const granted = String(t.scope || '').split(' '), mode = await modeOf(env.DB, env);
+    if (!scopeFor(mode).split(' ').every(x => granted.includes(x))) return back('scope'); // manual mode: youtube.readonly only
     if (!t.refresh_token) return back('no-refresh');
     const ch = await gfetch('https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true', { headers: { Authorization: 'Bearer ' + t.access_token } });
     const item = ((await ch.json().catch(() => ({}))).items || [])[0];
@@ -281,6 +481,7 @@ export async function handleCallback(request, env) {
     await run(env.DB, `INSERT INTO yt_channel (channel_id, title, email, enc_token, iv, status, created, last_ok, by_who) VALUES (?, ?, NULL, ?, ?, 'ok', ?, ?, ?)
       ON CONFLICT(channel_id) DO UPDATE SET title = excluded.title, enc_token = excluded.enc_token, iv = excluded.iv, status = 'ok', err = NULL, last_ok = excluded.last_ok, by_who = excluded.by_who`,
       item.id, String((item.snippet || {}).title || '').slice(0, 120), e.enc_token, e.iv, now, now, st.e);
+    await setMeta(env.DB, 'scope', granted.filter(x => /^https:\/\/www\.googleapis\.com\/auth\/youtube/.test(x)).join(' '));
     TOK = null;
     await adminAudit(env, request, st.e, 'youtube.callback', true);
     return back('ok');
