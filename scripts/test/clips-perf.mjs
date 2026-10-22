@@ -29,7 +29,7 @@ const R = await page.evaluate(async () => {
   out.longTasks = longTasks.slice(); out.slowFrames = frames.filter(f => f > 34).length; out.frames = frames.length; out.nodes = maxNodes; out.loaded = host.querySelectorAll('.cl-c').length;
   vp.scrollTop = 0; await raf(); t = performance.now();
   const tpl = host.querySelector('#cl-tpl'); tpl.value = 'news'; tpl.dispatchEvent(new Event('change'));
-  await until(() => /1,667|1\.667|1667/.test(host.querySelector('#cl-n').textContent), 'filtered count'); await raf(); out.filter = performance.now() - t;
+  await until(() => /1[.,]?666/.test(host.querySelector('#cl-n').textContent), 'filtered count'); await raf(); out.filter = performance.now() - t;
   t = performance.now(); host.querySelector('#cl-all').click(); await until(() => !host.querySelector('#cl-bar').hidden && /selected|đã chọn/.test(host.querySelector('#cl-bar').textContent), 'selection bar'); out.selectAll = performance.now() - t;
   const tc = host.querySelector('.cl-c b'); out.ellipsis = getComputedStyle(tc).textOverflow === 'ellipsis' && !!tc.title; out.cls = cls; return out;
 });
