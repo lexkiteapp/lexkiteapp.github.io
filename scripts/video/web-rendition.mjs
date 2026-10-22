@@ -37,7 +37,7 @@ if (cmd === 'build') {
   const plan = readJSON(`${W}/plan.json`, { todo: [] }), all = pick(), todo = all.filter(it => plan.todo.includes(it.lesson));
   const LEX = readJSON('dist/lexicon.json', {});
   let GIDS = []; try { GIDS = (await import('../lib/seo-data.mjs')).loadGrammar().G.map(x => x.id); } catch { /* không có trang ngữ pháp → bỏ thẻ ngữ pháp */ }
-  const pool = Object.entries(TEXT).filter(([k]) => /_2$/.test(k)).map(([, v]) => v);
+  const pool = Object.entries(TEXT).filter(([k, v]) => /_2$/.test(k) && !/:|^Option|\?$/i.test(v)).map(([, v]) => v);   // câu đáp nhiễu: câu trần, không nhãn
   let built = 0;
   for (const it of todo) {
     const L = lessonOf(it.lesson), d = path.join(W, it.lesson), src = path.join(shortsDir, it.video);
@@ -105,5 +105,6 @@ if (cmd === 'manifest') {
   for (const f of fs.existsSync(CAPTIONS_DIR) ? fs.readdirSync(CAPTIONS_DIR) : []) if (!el.has(f.replace(/\.json$/, ''))) fs.rmSync(`${CAPTIONS_DIR}/${f}`);   // clip bị gỡ duyệt → bỏ trang
   console.log(`✓ ${MANIFEST}: ${items.length} clip (${items.filter(x => x.test).length} mẫu thử)`);
   const todo = new Set((readJSON(`${W}/plan.json`, {}).todo) || []);   // chỉ báo IndexNow trang mới/đổi, không báo mẫu thử
-  fs.writeFileSync(`${W}/new-urls.txt`, items.filter(x => !x.test && todo.has(x.id)).flatMap(x => PAGE_LANGS.map(l => `https://lexkite.com${l === 'en' ? '' : '/' + l}/video/${x.slug}/`)).join('\n') + '\n');
+  const urls = items.filter(x => !x.test && todo.has(x.id)).flatMap(x => PAGE_LANGS.map(l => `https://lexkite.com${l === 'en' ? '' : '/' + l}/video/${x.slug}/`));
+  fs.writeFileSync(`${W}/new-urls.txt`, urls.length ? urls.join('\n') + '\n' : '');
 }

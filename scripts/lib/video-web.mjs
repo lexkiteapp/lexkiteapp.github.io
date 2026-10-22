@@ -75,7 +75,9 @@ export function enCues(sents, max = 42) {
 }
 
 // ---------- Gắn thẻ ----------
-const STOP = new Set('the a an and or but to of in on at for with is are was were be been it its this that these those you your i me my we our they them he she his her do does did not no yes so if then than just can could would will shall should may might must have has had get got some any very really also here there what which who how when where why please today save practice free lexkite teacher tip lesson say said people learners many often option right one'.split(' '));
+const STOP = new Set(('the a an and or but to of in on at for with is are was were be been it its this that these those you your i me my we our they them he she his her do does did not no yes so if then than just can could would will shall should may might must have has had get got some any very really also here there what which who how when where why please today save practice free lexkite teacher tip lesson say said people learners many often option right one'
+  + ' like want need make take see ask help try find look note word thing something anything about there more most much good great well sure okay polite neutral casual today tonight morning time way back down out over into from'
+  + ' first second third other another every each all both only even still again already would could should might').split(' ').filter(Boolean));
 const GRAMMAR_RULES = [
   [/\b(said|says|say|told|tells|tell)\b/i, 'reported-speech'], [/\b(make|made|do|does|did)\s+(yoga|homework|dinner|coffee|a cake|the dishes)\b/i, 'verb-types'],
   [/\b(in|on|at)\s+(the\s+)?(morning|monday|taxi|bus|train|night)\b/i, 'prepositions'], [/\b(very|really)\s+(like|good|much)\b/i, 'adverbs-position'],
@@ -87,7 +89,6 @@ const GRAMMAR_RULES = [
 export function tagLesson(lesson, text, lexicon = {}, grammarIds = []) {
   const cards = (lesson.beats || []).map(b => b.card).filter(Boolean);
   const core = [lesson.point || '', ...cards.flatMap(c => [c.text, c.sub || '']), ...((lesson.recap && lesson.recap.rows) || [])].join(' \n ');
-  const said = Object.entries(text).filter(([k]) => k.includes(lesson.id.slice(-6))).map(([, v]) => v).join(' \n ');
   const low = ' ' + core.toLowerCase().replace(/[^a-z' \n-]/g, ' ').replace(/\s+/g, ' ') + ' ';
   const toks = new Set(low.split(' ').filter(w => w.length >= 3 && !STOP.has(w)));
   const lex = [], words = new Set();
@@ -97,7 +98,7 @@ export function tagLesson(lesson, text, lexicon = {}, grammarIds = []) {
     if (hit) { lex.push([w.includes(' ') ? 0 : 1, k]); words.add(w); }
   }
   lex.sort((a, b) => a[0] - b[0]);
-  const gram = [...new Set(GRAMMAR_RULES.filter(([re]) => re.test(core + ' ' + said)).map(([, g]) => g))].filter(g => !grammarIds.length || grammarIds.includes(g));
+  const gram = [...new Set(GRAMMAR_RULES.filter(([re]) => re.test(core)).map(([, g]) => g))].filter(g => !grammarIds.length || grammarIds.includes(g));
   const tpl = templateOf(lesson, lesson.id);
   return {
     lex: lex.slice(0, 16).map(x => x[1]), words: [...words].slice(0, 16), grammar: gram.slice(0, 3),
