@@ -43,7 +43,7 @@ for (const lang of ['vi', 'ar', 'ja']) for (const [vp, opt] of Object.entries(VP
       if (!/[a-z]/i.test(q)) bad('câu đố không phải tiếng Anh');
       await page.locator('.lv-q .lv-o').last().click();
       await page.locator('.lv-q .ok').first().waitFor({ timeout: 5000 });
-      const fb = await page.locator('.lv-fb').innerText(); if (!fb.trim()) bad('không có phản hồi câu đố');
+      await page.waitForFunction(() => (document.querySelector('.lv-fb') || {}).textContent, null, { timeout: 3000 }).catch(() => bad('không có phản hồi câu đố'));
       const marks = await page.locator('.lv-q .lv-mk').allInnerTexts(); if (!marks.includes('✓')) bad('thiếu dấu ✓');
       await page.locator('.lv-q').scrollIntoViewIfNeeded(); await page.screenshot({ path: `${OUT}/${tag}-quiz.png` });
       await page.locator('[data-lv-next]').click();
