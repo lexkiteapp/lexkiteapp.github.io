@@ -129,7 +129,7 @@
     const more = sec('ntFamily', c.fam) + sec('ntColloc', c.col) + sec('ntSyn', c.syn) + sec('ntAnt', c.ant);
     const pr = (acc, ipa) => `<span class="pr"><span class="acc">${esc(tx(acc === 'uk' ? 'ntUK' : 'ntUS'))}</span>${ipa ? `<span class="ipa" dir="ltr">${esc(ipa)}</span>` : ''}<button class="play" type="button" data-acc="${acc}" aria-label="${esc(tx('ntListen') + ' – ' + tx(acc === 'uk' ? 'ntUK' : 'ntUS'))}">${SVG_PLAY}</button></span>`;
     $('#ntCard').innerHTML = `
-      <div class="nt-head"><h1 class="nt-word" dir="ltr" lang="en">${esc(c.word)}</h1><div class="nt-chips">${posChips}${c.level ? `<span class="chip cefr" title="CEFR">${esc(c.level)}</span>` : ''}${c.exams.map(x => `<span class="chip ex" dir="ltr">${esc(x)}</span>`).join('')}</div></div>
+      <div class="nt-head"><h1 class="nt-word" dir="ltr" lang="en">${esc(c.word)}</h1><div class="nt-chips">${posChips}${c.level ? `<span class="chip cefr" title="CEFR">${esc(c.level)}</span>` : ''}${c.exams.map(x => `<span class="chip exam" dir="ltr">${esc(x)}</span>`).join('')}</div></div>
       <div class="nt-pron">${pr('uk', c.ipa)}${pr('us', c.ipaUS)}<button class="slow" type="button" id="ntSlow" aria-pressed="${slow}">🐢 ${esc(tx('ntSlow'))}</button></div>
       ${sensesHtml ? `<div class="nt-body${quiz ? ' quiz-hidden' : ''}" id="ntBody">${sensesHtml}<div class="veil"><button type="button" id="ntReveal">${esc(tx('ntReveal'))} · Space</button></div></div>` : ''}
       ${c.ex ? `<button class="ex" type="button" id="ntEx" aria-label="${esc(tx('ntExample'))}"><q dir="ltr" lang="en">${hl(c.ex, c.word)}</q>${L !== 'en' ? `<span class="hint">${esc(tx('ntTapTr'))}</span>` : ''}</button>` : ''}
@@ -173,7 +173,7 @@
   $('#ntQuiz').checked = quiz;
   $('#ntQuiz').onchange = e => { quiz = e.target.checked; chrome.storage.local.set({ ntQuiz: quiz }).catch(() => {}); const b = $('#ntBody'); if (b) b.classList.toggle('quiz-hidden', quiz); };
   document.addEventListener('keydown', e => {
-    if (e.ctrlKey || e.metaKey || e.altKey || /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    if (e.ctrlKey || e.metaKey || e.altKey || e.target.isContentEditable || /^(TEXTAREA|SELECT)$/.test(e.target.tagName) || (e.target.tagName === "INPUT" && e.target.type !== "checkbox")) return;
     const k = e.key.toLowerCase();
     if (e.key === ' ') { if (reveal()) e.preventDefault(); else if (e.target === document.body) e.preventDefault(); }
     else if (k === '1' && cur && cur.saved) grade(2);
