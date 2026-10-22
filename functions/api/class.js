@@ -122,9 +122,9 @@ export async function run(db, uid, req, now) {
       if (t < 1 || t > 500 || r < 0 || r > t) return bad('score');
       const pct = Math.round(r / t * 100);
       const { results } = await db.prepare('SELECT t.id, t.cls FROM class_task t JOIN class_member m ON m.cls = t.cls AND m.uid = ?1 WHERE t.ref = ?2').bind(uid, ref).all();
-      const st = [db.prepare('UPDATE class_member SET last = ?2 WHERE uid = ?1').bind(uid, now)];
+      const st = []; // "hoạt động gần nhất" = max(member.last, progress.updated) – không ghi thêm dòng (D1 free: 100k dòng ghi/ngày)
       for (const x of results || []) st.push(db.prepare('INSERT INTO class_progress (task, uid, cls, best, last, tries, updated) VALUES (?1, ?2, ?3, ?4, ?4, 1, ?5) ON CONFLICT (task, uid) DO UPDATE SET best = MAX(best, ?4), last = ?4, tries = tries + 1, updated = ?5').bind(x.id, uid, x.cls, pct, now));
-      await db.batch(st);
+      if (st.length) await db.batch(st);
       return ok({ n: (results || []).length });
     }
 

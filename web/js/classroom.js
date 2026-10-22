@@ -67,8 +67,8 @@
     else if ((m = /^#\/toeic-test\/(\d+)/.exec(h)) && /^t[lr]$/.test(d.sk)) queue('toeic:' + m[1], d.r, d.t);
     else if (/^#\/mock\/run/.test(h)) { const q = new URLSearchParams(h.split('?')[1] || ''); if (d.sk === 'ir') queue('ir:' + (+q.get('r') || 1), d.r, d.t); else if (d.sk === 'il') queue('il:' + (+q.get('l') || 1), d.r, d.t); }
   });
-  // Hoạt động gần nhất: tối đa 1 lần/30 phút
-  if (LS.get('lk.cls') === '1' && window.Sync && Sync.user && Date.now() - (+LS.get('lk.clsPing') || 0) > 18e5) { LS.set('lk.clsPing', String(Date.now())); call('ping').then(flush).catch(() => {}); }
+  // Hoạt động gần nhất: tối đa 1 lần/ngày (tiết kiệm lượt ghi D1; xong bài cũng cập nhật qua progress.updated)
+  if (LS.get('lk.cls') === '1' && window.Sync && Sync.user && Date.now() - (+LS.get('lk.clsPing') || 0) > 864e5) { LS.set('lk.clsPing', String(Date.now())); call('ping').then(flush).catch(() => {}); }
 
   // ---------- Dữ liệu "lớp của tôi" ----------
   let mineCache = null;
