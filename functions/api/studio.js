@@ -399,15 +399,16 @@ const CI = {
     const q = String(b.question || '').slice(0, 2000);
     const g = await geminiCall(env, { contents: [{ role: 'user', parts: [{ text: q }, ...imgs.map(d => ({ inline_data: { mime_type: 'image/jpeg', data: d } }))] }], generationConfig: { temperature: 0, responseMimeType: 'application/json' } });
     if (g && g.text) return { provider: 'gemini', text: g.text };
-    if (env.AI) {
-      const frames = [];
+    if (env.AI) {   // fallback: Llama 3.2 Vision (one image at a time, yes/no question = robust parsing); accepts the Meta licence once
+      const M = '@cf/meta/llama-3.2-11b-vision-instruct', frames = [];
+      const ask = (bytes) => env.AI.run(M, { messages: [{ role: 'user', content: 'Look at the cartoon presenter. Does the presenter look like they stand ON or IN a table, desk, bed, sofa, water or a vehicle, or float, or have a clearly wrong size for the room? Answer only YES or NO, then one short reason.' }], image: bytes, max_tokens: 40 });
       for (const d of imgs) {
-        const bytes = [...Uint8Array.from(atob(d), c => c.charCodeAt(0))];
-        const r = await env.AI.run('@cf/llava-hf/llava-1.5-7b-hf', { image: bytes, prompt: 'Does the person in this image stand naturally in the scene, or do they appear to stand on/in a table, chair, counter, bed, water or vehicle, float, or have a wrong scale? Answer starting with NATURAL or PROBLEM, then a short reason.', max_tokens: 60 }).catch(() => null);
-        const t = String((r && (r.description || r.response)) || '').trim();
-        frames.push({ natural: /^\s*natural/i.test(t), problem: /^\s*natural/i.test(t) ? '' : t.slice(0, 140) || 'no answer' });
+        const bytes = [...Uint8Array.from(atob(d), c => c.charCodeAt(0))]; let r = null;
+        try { r = await ask(bytes); } catch (e) { if (/agree/i.test(String(e && e.message))) { await env.AI.run(M, { prompt: 'agree' }).catch(() => null); r = await ask(bytes).catch(() => null); } }
+        const t = String((r && (r.response || r.description)) || '').trim();
+        frames.push({ natural: /^\W*no\b/i.test(t), problem: /^\W*no\b/i.test(t) ? '' : (t.slice(0, 140) || 'no answer') });
       }
-      return { provider: 'workers-ai', text: JSON.stringify({ frames }) };
+      return { provider: 'workers-ai-llama3.2-vision', text: JSON.stringify({ frames }) };
     }
     return { provider: 'none', text: null };
   },

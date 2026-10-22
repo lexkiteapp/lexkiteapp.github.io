@@ -1449,7 +1449,7 @@
   {
    "id": "n_7b5d0d_rn",
    "who": "ama",
-   "text": "Natural speed: I'd like to make an appointment, please."
+   "text": "Now at normal speed: I'd like to make an appointment, please."
   },
   {
    "id": "n_a59145_m",
@@ -1485,7 +1485,7 @@
   {
    "id": "n_a59145_rn",
    "who": "ama",
-   "text": "Natural speed: I'm looking for a book."
+   "text": "Now at normal speed: I'm looking for a book."
   },
   {
    "id": "n_9ad922_m",
@@ -1521,7 +1521,7 @@
   {
    "id": "n_9ad922_rn",
    "who": "ama",
-   "text": "Natural speed: I'll have the salmon, please."
+   "text": "Now at normal speed: I'll have the salmon, please."
   }
  ],
  "reactions": {

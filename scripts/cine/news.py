@@ -354,7 +354,10 @@ if ZN:
     for _ in range(3):   # horizon position depends on the zoom, the zoom on the tilt
         HZ0 = 960 + (ZN['horizon'] - 0.5) * 1920 * ZBASE; CAM_TY = float(np.clip(HZ0 - EYM, -260, 260)); ZBASE = max(1.10, 1.03 + 2 * abs(CAM_TY) / 1920)
     HZ0 = 960 + (ZN['horizon'] - 0.5) * 1920 * ZBASE   # zoom keeps the tilted canvas covering the frame (canvas 1.33x: no upscale up to 1.33)
-    PLACE.update(valid=ZN['valid'], horizon=ZN['horizon'], cam_ty=round(CAM_TY, 1), zbase=round(ZBASE, 3), eye_dev=round(abs(HZ0 - CAM_TY - EYM), 1), hosts={})
+    HDY = float(np.clip((HZ0 - CAM_TY) - EYM, 0, 90))   # horizon still below the eyes after the max tilt: lower both hosts (chins stay above the text column)
+    if HDY:
+        for k_ in list(FRAME): FRAME[k_] = (FRAME[k_][0], FRAME[k_][1] + HDY)
+    PLACE.update(valid=ZN['valid'], horizon=ZN['horizon'], cam_ty=round(CAM_TY, 1), zbase=round(ZBASE, 3), host_dy=round(HDY, 1), eye_dev=round(abs(HZ0 - CAM_TY - EYM - HDY), 1), hosts={})
     for (g_, f_) in sorted({(GK(x['clip'], x['who']), x['frame']) for x in S if not x['other']}):
         sc_, ey_ = FRAME[(g_, f_)]; side0 = SIDE[(g_, f_)]; band = (260, 400) if g_ == 'ama_s' else (680, 820); best = None
         for dx in (0, -40, 40, -80, 80, -120, 120):

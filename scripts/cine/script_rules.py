@@ -36,7 +36,7 @@ def check(sp, L):
     for ln in lines:
         if COUNTRY.search(ln): iss.append(f'names a country / nationality: {ln}')
         for sent in re.split(r'(?<=[.!?])\s+', ln):
-            body = re.sub(r'^(say|repeat after me|natural speed|many learners say)[^:]*:\s*', '', sent, flags=re.I)
+            body = re.sub(r'^(say|repeat after me|natural speed|now at normal speed|many learners say)[^:]*:\s*', '', sent, flags=re.I)
             if len(toks(sent)) > 12 and body.lower().strip(' .') not in key.lower(): iss.append(f'sentence > 12 words: {sent}')
         hard = sorted({lemma_hard(w) for w in toks(ln) if w not in target and lemma_hard(w)})
         if hard: iss.append(f'above-B1 words outside the target phrase {hard}: {ln}')

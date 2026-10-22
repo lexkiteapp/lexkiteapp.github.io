@@ -53,7 +53,7 @@ def make_v7(spec, lines, z, h6):
          ('carlos', 'y', z['why'], dict(kind='p', text=z['why'], sub=None, label='WHY', icon='bulb'), {}),
          ('ama', 'c', z['check'], dict(kind='p', text=z['checkcard'], sub=None, label='CHECK', icon=None), {}),
          ('carlos', 'rs', 'Repeat after me: ' + key, dict(kind='p', text=key, sub=None, label='REPEAT', icon='repeat'), {'repeat': True, 'slow': True}),
-         ('ama', 'rn', 'Natural speed: ' + key, dict(kind='v', text=key, sub=None, label=None, icon=ic, formula=z.get('formula')), {})]
+         ('ama', 'rn', 'Now at normal speed: ' + key, dict(kind='v', text=key, sub=None, label=None, icon=ic, formula=z.get('formula')), {})]
     bs = []
     for who, suf, text, card, ex in B:
         i = f'n_{h6}_{suf}'; l = dict(id=i, who=who, text=text)

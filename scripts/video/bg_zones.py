@@ -17,10 +17,9 @@ import json, os, sys, argparse
 import numpy as np, cv2
 
 FLOOR = {'floor', 'road', 'sidewalk', 'ground', 'grass', 'rug', 'path', 'field', 'earth', 'sand', 'runway', 'dirt track', 'land', 'stage', 'platform', 'carpet'}
-FORBID = {'table', 'desk', 'counter', 'countertop', 'kitchen island', 'chair', 'armchair', 'swivel chair', 'sofa', 'seat', 'bench', 'bed', 'cradle', 'water',
-          'sea', 'river', 'lake', 'swimming pool', 'pool table', 'bathtub', 'car', 'bus', 'truck', 'van', 'boat', 'ship', 'bar', 'stool', 'ottoman', 'buffet',
-          'booth', 'coffee table', 'shelf', 'cabinet', 'fountain', 'waterfall', 'airplane', 'train'}
-GW, GH = 54, 96; VER = 2   # v2: horizon = vanishing region (farthest depth), not the floor's far edge
+FORBID = {'table', 'desk', 'countertop', 'kitchen island', 'pool table', 'coffee table', 'bed', 'cradle', 'sofa', 'water', 'sea', 'river', 'lake', 'swimming pool',
+          'bathtub', 'fountain', 'waterfall', 'car', 'bus', 'truck', 'van', 'boat', 'ship', 'airplane', 'train'}   # v3: surfaces a person could seem to stand ON / IN (chairs, shelves, counters behind a waist-up host are normal)
+GW, GH = 54, 96; VER = 3   # v2: horizon = vanishing region (farthest depth), not the floor's far edge
 
 def grid(mask):
     g = cv2.resize(mask.astype(np.float32), (GW, GH), interpolation=cv2.INTER_AREA) > 0.5
