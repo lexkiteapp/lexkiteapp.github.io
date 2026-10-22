@@ -352,6 +352,8 @@ for (const f of [{ offset: 'abc' }, { offset: 'Infinity', limit: 'NaN' }, { offs
   const rr = await post({ op: 'plan_run', replan: true }); ok(rr.j.planned === 0 || rr.j.skipped.length >= 0, 'kênh tạm dừng không nhận lịch mới');
   ok((await post({ op: 'resume', channel_id: CH })).s === 200 && (await post({ op: 'get' })).j.channels.find(c => c.channel_id === CH).cfg.active === 1, 'resume bật lại kênh');
   let aud = 0; try { aud = sql.prepare("SELECT COUNT(*) n FROM admin_log WHERE op LIKE 'dist.%'").get().n; } catch (e) { /* none */ } ok(aud >= 5, 'thao tác ghi nhật ký (' + aud + ')');
+}
+
 // [SOC] Quản lý social /api/social "lk/…" (duyệt bài, sức khỏe, hàng đợi, số liệu, AI): chỉ quản trị, Origin của mình, route lạ/prototype → 400, không lộ khóa GrabCast
 { const SOC = await import(new URL('../../functions/api/social.js', import.meta.url));
   for (const [m, p] of [['GET', 'lk/board'], ['POST', 'lk/board/approve'], ['POST', 'lk/board/submit'], ['GET', 'lk/health'], ['POST', 'lk/queue/plan'], ['POST', 'lk/queue/apply'], ['POST', 'lk/clips/push'], ['POST', 'lk/metrics/sync'], ['POST', 'lk/ai/caption'], ['POST', 'lk/lib/save']]) {
