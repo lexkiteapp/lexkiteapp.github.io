@@ -77,3 +77,39 @@ cron mỗi ngày → chọn điểm học + tổ hợp (sổ đa dạng) → so�
 - **Nền không có vùng đứng hợp lệ** (vd. mặt nước, trên xe) → chỉ dùng làm cận cảnh mờ sau vai hoặc loại khỏi kho người dẫn.
 - **Cổng AI nhìn khung ghép** (Gemini vision qua kho khoá miễn phí, dự phòng Workers AI): hỏi "người có đứng tự nhiên trong cảnh không, có đứng trên/ trong đồ vật, nước, sai tỉ lệ, sai phối cảnh không?" → bất kỳ "có" = trượt. Lấy 3 khung/clip.
 - Mọi luật là cổng QA; trượt → generator đổi nền/vị trí, tối đa 2 lần, rồi bỏ clip.
+
+## 12. Cách giảng: dễ hiểu – dễ học – dễ nhớ (chủ 22/10) – bắt buộc cho mọi kịch bản
+1. **Một ý duy nhất**, nói được trong 1 câu ("Dùng *look for* khi đang tìm").
+2. **Tương phản sai → đúng** (✗ câu người học hay nói → ✓ câu bản xứ) + **vì sao** trong ≤ 12 từ (quy tắc dễ nhớ, không thuật ngữ khó).
+3. **Ví dụ trong tình huống thật** (2–3 câu ngắn, đúng CEFR, từ vựng quen).
+4. **Mẹo nhớ**: hình ảnh/biểu tượng trên thẻ (mã hoá kép), vần/ẩn dụ ngắn, công thức màu (*look* + **for** + vật).
+5. **Truy xuất chủ động**: "Dừng lại, đoán xem…" 1,5 s trước khi lộ đáp án; cuối clip câu đố 1 chạm (web) / bình luận (social).
+6. **Nói theo**: "Repeat after me" có khoảng lặng; phát âm khó → cặp âm tối thiểu + nhấn trọng âm bằng chữ in đậm.
+7. **Lặp lại giãn cách**: series nhắc lại ý cũ ở clip sau ("Nhớ *look for* hôm qua?"); web đưa vào SRS.
+8. **Cá nhân hoá**: lỗi theo nhóm ngôn ngữ mẹ đẻ (vd. người Việt bỏ mạo từ, người Nhật nhầm l/r) → gắn thẻ, xếp đúng người học trên web.
+9. **Kiểm định**: AI judge chấm "dễ hiểu cho trình độ X?", "mẹo có sai không?", câu giải thích ≤ CEFR+1; trượt → viết lại.
+
+## 13. Viral – kéo user – save/share (chủ 22/10)
+- **Độ khó trộn có chủ đích**: mỗi tuần ~40 % dễ (A1–A2, phủ rộng, nhiều view), 40 % vừa (B1–B2, người học nghiêm túc), 20 % khó/"thử thách" (C1+, "99 % người học sai câu này") để kéo bình luận & share; nhãn độ khó hiện ở góc.
+- **Kho hook xoay vòng** (≥ 12 kiểu): câu hỏi trực tiếp · "Đừng nói X" · con số ("3 cách…") · thử thách "Bạn trả lời được không?" · sự thật bất ngờ · POV tình huống · so sánh "Sách dạy vs người Mỹ nói" · lỗi của người nổi tiếng/phim (không dùng hình người thật) · đếm ngược · "Sai 90 %" · câu chuyện 1 dòng · tranh luận A/B. A/B hook theo số liệu.
+- **Lý do để Save**: thẻ tóm tắt "Teacher's tip" chụp màn hình được, list 3–5 câu dùng ngay, "Lưu lại học sau"; series đánh số (Part 1/2/3) → follow.
+- **Lý do để Share**: câu đố có đáp án gây tranh luận, "Gửi cho người hay nói sai câu này", nội dung hữu ích cho phỏng vấn/du lịch/thi.
+- **Bình luận**: kết bằng câu hỏi mở/đố; ghim bình luận đáp án; trả lời bằng clip mới (series).
+- **Kéo về app**: CTA cuối cùng nhẹ + link đúng bài học trên web (deep link), không bán hàng gắt.
+- Đo: save rate, share rate, completion, comment → trọng số template/hook/độ khó tuần sau.
+
+## 14. Ai ở nước nào cũng học được (chủ 22/10)
+- Clip social **chỉ tiếng Anh**, nhưng hiểu được không cần tiếng mẹ đẻ: tiếng Anh đơn giản (giải thích ≤ CEFR B1), nói chậm rõ, ✗/✓ + biểu tượng + màu mang nghĩa, ví dụ tự giải thích.
+- KHÔNG làm phụ đề dịch theo từng video (chủ đã cấm: chồng chéo, khó quản lý). Video chỉ tiếng Anh + phụ đề tiếng Anh; giao diện quanh video theo i18n sẵn có; nghĩa theo ngôn ngữ người học lấy từ lexicon (1 nguồn).
+- Nội dung trung tính văn hoá: tên người đa dạng, tiền tệ/đơn vị chung hoặc ghi cả hai, không tôn giáo/chính trị/vùng nhạy cảm, không đùa dựa vào văn hoá một nước; idiom luôn kèm nghĩa đơn giản.
+- Lỗi theo tiếng mẹ đẻ (§12.8) nói theo dạng "Many learners say…" – không chê một quốc gia.
+- Lịch đăng theo giờ cao điểm từng khu vực; hashtag tiếng Anh + hashtag địa phương do AI chọn.
+
+## 15. Đa dạng kiểu quay – không lộ "dựng hàng loạt" (chủ 22/10)
+- **≥ 12 mẫu dựng (shot grammar)** xoay vòng, mỗi template nhiều biến thể: mở bằng cận mặt / trung cảnh / chữ trước người sau / nền trống rồi người bước vào khung (slide-in) / chia đôi màn hình 2 người / người + bảng minh hoạ lớn / "góc phóng viên" ¾ / cận tay + chữ / người nói thẳng ống kính kiểu vlog / "cut-in" phóng to chữ khoá / mở bằng câu đố toàn màn hình / kết bằng tua lại (rewind) câu chính.
+- **Chuyển động máy** đa dạng nhưng nhẹ: đẩy vào, kéo ra, trượt ngang (parallax từ độ sâu), nghiêng nhẹ, rung tay cầm rất khẽ (handheld 0,3 %), đổi tiêu cự giả (rack focus) – mỗi clip ≤ 3 kiểu, không lặp chuỗi của 10 clip gần nhất.
+- **Nhịp dựng** khác nhau theo template (nhanh 1,5 s / vừa 2,5 s / chậm 3,5 s), chuyển cảnh: cắt thẳng, J/L-cut, match-cut theo cử chỉ, whip-pan nhẹ, không lạm dụng.
+- **Bố cục chữ** 6 kiểu (thẻ trên, thẻ cạnh, chữ lớn giữa, bảng 2 cột, danh sách, bong bóng thoại) × 8 bộ màu series.
+- **Người dẫn**: 4 người (Ama, Carlos + Mia, Jake khi duyệt) × 2 trang phục × nhiều clip trung tính → ai mở, ai hỏi, ai giải thích luân phiên; có clip 1 người, có clip đối đáp.
+- **Âm thanh**: 20+ nhạc nền, 5 bộ SFX, 2–3 giọng chính xoay.
+- **QA chống motip**: chữ ký dựng (chuỗi shot + chuyển động + bố cục + màu + người mở) không trùng với 30 clip gần nhất; pHash chuỗi khung chính khác biệt đủ ngưỡng.
