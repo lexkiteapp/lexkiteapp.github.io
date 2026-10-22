@@ -93,6 +93,8 @@ Bảng đầy đủ, đối chiếu từng dòng chính sách mục 2: **`store/
 - Data Not Linked to You: Other User Content, Search History (App Functionality); Device ID (Analytics + App Functionality); Product Interaction, Coarse Location, Crash Data, Performance Data (Analytics); Other Diagnostic Data (Analytics + App Functionality).
 - Khi bật đăng nhập trong app: thêm User ID (Linked) và chuyển dữ liệu học/tương tác sang Linked; sửa `PrivacyInfo.xcprivacy` + Play Data safety cùng lúc.
 
+> **22/10 – Đăng nhập gốc (B2):** ✅ Firebase đã có app iOS + Android (đủ 4 SHA Play/upload), 2 file cấu hình đã commit (c6eee5b4); ✅ provider Apple đã bật. 👤 Còn lại duy nhất: tạo khóa Sign in with Apple (.p8) trên Apple Developer → dán vào Firebase › Apple › OAuth code flow (Team ID B285J68262) – để thu hồi token khi xóa tài khoản. Khóa riêng tư → anh chủ tự dán.
+
 ### B2. 👤 Đăng nhập trong app (Google + Apple) – việc anh chủ làm trên console
 Mã, entitlement, plugin, CI đã xong (`web/js/native-auth.js`, `scripts/mobile-auth-config.mjs`). Capability **Sign In with Apple** của App ID `com.lexkite.app` đã được Xcode (ký tự động qua API key) bật – bản archive CI có `com.apple.developer.applesignin`.
 1. **Apple Developer → Keys → +**: tên `Lexkite Sign in with Apple`, tích **Sign in with Apple** → Configure → Primary App ID `com.lexkite.app` → Save → Continue → Register → **Download** file `AuthKey_XXXX.p8` (chỉ tải 1 lần), ghi **Key ID**. Team ID = `B285J68262`.
