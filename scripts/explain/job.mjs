@@ -21,14 +21,14 @@ async function oidc() {
   if (!u || !t) throw new Error('thiếu OIDC (permissions: id-token: write)');
   return (token = (await (await fetch(u + '&audience=lexkite-lexai', { headers: { Authorization: 'Bearer ' + t } })).json()).value);
 }
-let calls = 0, fails = 0, shown = 0;
+let calls = 0, fails = 0, shown = 0, lastModel = '';
 const stat = { gen: 0, tr: 0, judged: 0, low: 0 };
 async function call(mode, lang, list) {
   calls++;
   if (DRY) { console.log(`[dry] ${mode} ${lang} ${list.map(x => x.k).join(' ')}`.slice(0, 160)); return null; }
   for (let i = 0; i < 3; i++) {
     const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await oidc(), 'User-Agent': 'lexkite-ci' }, body: JSON.stringify({ mode, lang, items: list }) }).catch(() => null);
-    if (r && r.ok) { fails = 0; const j = await r.json(); if (!shown++) console.log('mô hình:', j.model); return j.out || {}; }
+    if (r && r.ok) { fails = 0; const j = await r.json(); if (!shown++) console.log('mô hình:', j.model); lastModel = j.model || ''; return j.out || {}; }
     if (r && i === 2) console.log(`${mode} ${lang}: HTTP ${r.status} ${(await r.text().catch(() => '')).slice(0, 120)}`);
     if (r && r.status === 401) token = '';
     await new Promise(s => setTimeout(s, 6000 * (i + 1)));
@@ -39,11 +39,12 @@ const str = (v, n) => typeof v === 'string' && v.trim() && v.length <= n ? v.tri
 // kiểm khuôn: đủ ghi chú cho MỌI phương án nhiễu, mẫu có [đáp án]
 function okText(o, alts) {
   if (!o || !str(o.why, 400) || !str(o.hook, 300) || !o.wrong || typeof o.wrong !== 'object') return null;
-  const wrong = {}; for (const a of alts) { const v = str(o.wrong[a], 300); if (!v) return null; wrong[a] = v; }
+  const wrong = {}; for (const a of alts) { const v = str(o.wrong[a], 300); if (!v || v.split(/\s+/).length < 3) return null; wrong[a] = v; } // ghi chú 1–2 từ ("inside", "location") = vô nghĩa
+  if (o.why.trim().split(/\s+/).length < 5) return null;
   return { why: o.why.trim(), hook: o.hook.trim(), wrong };
 }
 const ALL = items(SET), live = new Set(ALL.map(x => x.id));
-for (const id of Object.keys(DB)) if (!live.has(id)) delete DB[id]; // câu đã xoá khỏi ngân hàng
+for (const id of Object.keys(DB)) if (!live.has(id) || !/gemini/.test(DB[id].m || '')) delete DB[id]; // câu đã xoá khỏi ngân hàng · bản không phải Gemini (Llama soạn sai, 22/10) → làm lại
 const loop = async (todo, size, fn) => { for (let i = 0; i < todo.length && calls < CALLS && fails < 3; i += size) await fn(todo.slice(i, i + size)); };
 const brief = x => ({ k: x.id, type: x.type, s: x.s, ans: x.ans, alts: x.alts, ctx: x.ctx });
 
@@ -54,7 +55,7 @@ await loop(ALL.filter(x => !DB[x.id] || DB[x.id].sig !== sig(x)), 6, async b => 
   for (const x of b) {
     const o = out[x.id], en = okText(o, x.alts), p = o && str(o.p, 120), ex = o && Array.isArray(o.ex) ? o.ex.map(e => str(e, 200)).filter(Boolean).slice(0, 2) : [];
     if (!en || !p || !p.includes('[') || (SET === 'usage' && !p.toLowerCase().includes('[' + x.ans.toLowerCase().split(' ')[0])) || !ex.length) continue;
-    DB[x.id] = { sig: sig(x), p, ex, en, sc: {} }; stat.gen++;
+    DB[x.id] = { sig: sig(x), m: lastModel, p, ex, en, sc: {} }; stat.gen++;
   }
   save();
 });
