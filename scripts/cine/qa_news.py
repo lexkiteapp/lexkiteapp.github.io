@@ -1,7 +1,7 @@
 # QA for news-anchor shorts (copy of tools/qa5.py): run from anchor/news: qa_news.py render_<lesson>
 # changes: host transform per shot (xf = scale, src cx, cy -> ox, oy), meta in ../tools, template 'news' (20-28 s, recap replaces the 0.85x repeat, loop ends on hook frame 0)
 import json, sys, re, subprocess, glob, os, numpy as np
-HOST_TOP = {'gc_': 200, 'ga2': 292, 'gc': 200}   # source px from eye line to hair top (kmask frame 0): Carlos gc_*, standing Ama ga2_*
+HOST_TOP = {'gc_': 200, 'ga2': 292, 'gc': 200, 'ga4': 293, 'gc4': 197}   # source px from eye line to hair top (kmask frame 0): Carlos gc_*, standing Ama ga2_*
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import lipsync as L   # run from NEWS_DIR: qa_news.py render5_<id>_en
 RD = sys.argv[1]; tl = json.load(open(f'{RD}/timeline.json')); TP = tl.get('qa', {}).get('template'); V = os.environ.get('CINE_OUT', os.getcwd() + '/out') + '/' + tl['lesson']['out']
 TEXT = {l['id']: l['text'] for l in json.load(open('ci/lines.json'))['lines']}; FPS = 24
@@ -64,7 +64,7 @@ for o in tl['overlays']:
         ok = en == TEXT[o['line']] and -0.1 <= d0 <= 0.001 and 0 <= d1 <= ((0.62 if VIRAL else 0.55) if chained else 0.401) and cps <= 15
         print(f'  {o["style"]:7s} {en[:32]:32s} | {(o["text"].split("||") + [""])[1][:30]:30s} start {d0:+.2f} end {d1:+.2f} cps {cps:4.1f}', '' if ok else 'FAIL'); ok or fails.append(en)
     elif o['style'] not in ('Ring',) or o['part'] == 0:
-        allowed = (TP == 'news' and o['style'] in ('Recap', 'Ring', 'Series')) or o['style'] in ('VHook', 'Series', 'Follow', 'Hook', 'Badge', 'Contrast', 'Tag', 'Choice', 'Ladder', 'Pov', 'Gap', 'Strike', 'Card')   # template cards stay up while the line plays (listen / ladder / POV)   # hook/badge over the opening line; contrast = pattern card (no sentence duplicated)
+        allowed = (TP == 'news' and o['style'] in ('Recap', 'Ring', 'Series', 'Name')) or o['style'] in ('VHook', 'Series', 'Follow', 'Hook', 'Badge', 'Contrast', 'Tag', 'Choice', 'Ladder', 'Pov', 'Gap', 'Strike', 'Card')   # template cards stay up while the line plays (listen / ladder / POV)   # hook/badge over the opening line; contrast = pattern card (no sentence duplicated)
         conflict = [x[2] for x in speech if min(o['t'][1], x[1]) - max(o['t'][0], x[0]) > 0]
         print(f'  {o["style"]:8s} {o["text"].replace(chr(10), " ")[:44]:44s} {o["t"]} speech during: {conflict or "none"}', 'OK' if (allowed or not conflict) else 'FAIL')
         if conflict and not allowed: fails.append('conflict:' + o['style'])
@@ -121,7 +121,7 @@ if VIRAL:   # viral-mode rules (docs/CINE-SCENE-STANDARD.md §7, v3 pacing model
         else: t = t.replace('|', ' ')
         return t
     hk = [o for o in tl['overlays'] if o['style'] == 'VHook']; hd = hk[0]['t'][1] - hk[0]['t'][0] if hk else 0
-    rule(len(hk) == 1 and hk[0]['t'][0] == 0 and 1.6 - 1e-3 <= hd <= 2.0 + 1 / FPS and nwords(disp(hk[0])) <= 7 and hk[0].get('fs', 0) >= 84, f'hook 0-{hd:.2f} s (1.6-2.0), {nwords(disp(hk[0])) if hk else 0} words (<= 7), {hk[0].get("fs") if hk else 0} px (>= 84)')
+    rule(len(hk) == 1 and hk[0]['t'][0] == 0 and 1.6 - 1e-3 <= hd <= 2.0 + 1 / FPS and nwords(disp(hk[0])) <= 7 and hk[0].get('fs', 0) >= 70, f'hook 0-{hd:.2f} s (1.6-2.0), {nwords(disp(hk[0])) if hk else 0} words (<= 7), {hk[0].get("fs") if hk else 0} px (>= 70)')
     av = tl.get('avoid', {}); bad = []
     for o in hk:
         for s in tl['shots']:
@@ -147,7 +147,7 @@ if VIRAL:   # viral-mode rules (docs/CINE-SCENE-STANDARD.md §7, v3 pacing model
             if b - a < need - 1 / FPS: worst.append(f'{o["style"]} "{disp(o)[:24]}" {b - a:.2f}<{need:.2f}')
     rule(not worst, f'reading time >= max(1.2, 0.4 + 0.28 s/word), recap >= 2.5 s {worst or ""}')
     caps = [o for o in tl['overlays'] if o['style'] == 'Cap']; tcap = [o for o in tl['overlays'] if o['style'] in ('Gap', 'Strike') and o.get('line')]
-    rule(all(o['fs'] >= 70 and o['box'][3] - o['box'][1] <= 1.6 * o['fs'] for o in caps), f'Cap captions one line, {min([o["fs"] for o in caps] or [0])} px (>= 70)')
+    rule(all(o['fs'] >= 60 and o['box'][3] - o['box'][1] <= 2.9 * o['fs'] for o in caps), f'Cap captions <= 2 lines, {min([o["fs"] for o in caps] or [0])} px (>= 60)')
     rule(all(o.get('fs', 0) >= 64 for o in tcap), f'Gap/Strike captions {min([o.get("fs", 0) for o in tcap] or [99])} px (>= 64)')
     rule(not any(o['style'] in ('Sub', 'Karaoke') for o in tl['overlays']) and len(caps) > 0, 'all captions word-by-word (Cap), no static Sub')
     br = []
@@ -163,7 +163,7 @@ if VIRAL:   # viral-mode rules (docs/CINE-SCENE-STANDARD.md §7, v3 pacing model
     lo_, hi_ = (20, 35) if TP == 'anchor' else (20, 28) if TP == 'news' else (18, 24); rule(lo_ <= tl['total'] <= hi_, f'total {tl["total"]:.2f} s ({lo_}-{hi_})')
     rule(tl.get('end', 1) == 0 and not tl['endcard_boxes'] and abs(tl['total'] - tl['scene']) < 1e-3, 'no logo end card')
     rc = [o for o in tl['overlays'] if o['style'] == 'Recap']; rsh = [s for s in tl['shots'] if s['id'] == 'recap']; lp = [s for s in tl['shots'] if s['id'] == 'loop']
-    rule(bool(rc and rsh) and rc[0]['t'][1] <= rsh[0]['t0'] + rsh[0]['dur'] - 0.25, f'recap then >= 0.3 s settle before the loop cut')
+    rule(bool(rc and rsh and lp) and rc[0]['t'][1] <= lp[0]['t0'] - 0.25, f'recap card ends >= 0.25 s before the loop cut')
     fo = [o for o in tl['overlays'] if o['style'] == 'Follow']; rule(len(fo) == 1 and abs(fo[0]['t'][1] - tl['total']) < 0.05 and abs(fo[0]['t'][1] - fo[0]['t'][0] - 1.0) < 0.05, 'Follow chip = last 1.0 s')
     rule(bool(lp) and lp[0]['dur'] >= 1.0 - 1e-3 and lp[0]['clip'] == tl['shots'][0]['clip'] and ((lp[0]['frames'][-1] + 1 == tl['shots'][0]['frames'][0]) if TP == 'news' else lp[0]['frames'][1] == tl['shots'][0]['frames'][0]), 'loop shot >= 1.0 s, ends on the first frame of the hook shot')
     rule(bool([o for o in tl['overlays'] if o['style'] == 'Series']), 'series chip')
@@ -201,7 +201,22 @@ if TP == 'news':
     rule(all((x['xfs'][x['clip']][3] < 540) == (x['who'] == 'ama') for x in sh_ if sing(x)) and all(x['xfs'][c][3] < 540 for x in sh_ if not sing(x) for c in x['xfs'] if c.startswith('ga')), '180-degree rule: Ama screen-left, Carlos screen-right in every shot')
     jc = [(a['id'], b['id']) for a, b in zip(sh_, sh_[1:]) if a['angle'] == b['angle'] and a['frame'] == b['frame']]; rule(not jc, f'no jump cut (same angle + same size back to back) {jc or ""}')
     run_ = max(len(g) for g in re.findall(r'(a+|c+)', ''.join('a' if x['angle'] == 'ama' else 'c' if x['angle'] == 'carlos' else '-' for x in sh_)) or ['']); rule(run_ <= 2, f'<= 2 consecutive singles of the same host (max {run_})')
-    rule(sh_[0]['angle'] == 'two' and any(x['angle'] == 'two' for x in sh_[3:-1]), 'two-shot opens and re-establishes')
+    tw2 = [k for k, x in enumerate(sh_) if x['angle'] == 'two']
+    rule(sh_[0]['angle'] != 'two' and 'hook' in tl.get('punch', {}) and all(k in (0, 1, len(sh_) - 2, len(sh_) - 1) and sh_[k]['dur'] <= 2.0 + 1e-3 for k in tw2), f'coverage: punch-in single opens, two-shot only as intro/outro <= 2 s ({len(tw2)} two-shots)')
+    bl_ = [(x['id'], round(x['dur'], 2)) for x in sh_ if x['id'] != 'loop' and not 1.5 - 1e-3 <= x['dur'] <= 3.5 + 1e-3]; rule(not bl_, f'shot length 1.5-3.5 s (loop excepted) {bl_ or ""}')
+    SZ_ = dict(x0=0, x1=1080 * 0.86, y0=1920 * 0.12, y1=1920 * 0.78); out_ = [(o['style'], o['box']) for o in tl['overlays'] if o['box'][0] < SZ_['x0'] or o['box'][2] > SZ_['x1'] + 0.5 or o['box'][1] < SZ_['y0'] - 0.5 or o['box'][3] > SZ_['y1'] + 0.5]
+    rule(not out_, f'platform UI safe zones: no text in top 12 % / bottom 22 % / right 14 % {out_[:4] or ""}')
+    FW_ = set("a an the to of in on at for from by with and or but so is are was were be been am do does did have has had will would can could should may might must my your his her its our their this that these those than as if".split())
+    chs_ = {}
+    for o in tl['overlays']:
+        if o['style'] == 'Cap' and o.get('chunk'): c_ = chs_.setdefault((o['line'], o['shot'], o['chunk'][0]), [o['t'][0], o['t'][1], o['chunk'][1], o['chunk'][2]]); c_[0] = min(c_[0], o['t'][0]); c_[1] = max(c_[1], o['t'][1])
+    cb_ = [(v[2][-24:], round(v[1] - v[0], 2)) for v in chs_.values() if v[1] - v[0] < 0.8 - 1e-3 or (re.sub(r"[^a-z']", '', v[2].split()[-1].lower()) in FW_ and not re.search(r'[,.;:!?]$', v[2]))]
+    rule(bool(chs_) and not cb_ and all(v[3] <= 2 for v in chs_.values()), f'caption chunks: <= 2 lines, >= 0.8 s, never end on a function word ({len(chs_)} chunks) {cb_[:4] or ""}')
+    sp2 = sorted((a_, b_) for a_, b_, *_ in speech); rp_ids = {k for k, _ in tl.get('qa', {}).get('repeat', [])}
+    rp_t = [(x['t0'] - 0.5, x['t0'] + x['dur'] + 0.5) for x in sh_ if x['id'] in rp_ids]
+    da_ = [(round(b0, 2), round(a1 - b0, 2)) for (a0, b0), (a1, b1) in zip(sp2, sp2[1:]) if a1 - b0 > 0.4 + 1e-3 and not any(r0 <= b0 and a1 <= r1 for r0, r1 in rp_t)]
+    rule(not da_, f'no dead air > 0.4 s between lines (repeat-after-me pauses excepted) {da_[:4] or ""}')
+    eq_ = json.load(open(f'{RD}/qc.json')).get('edge', []); rule(bool(eq_) and all(e['ok'] for e in eq_), f"matte edges (MR.edge_qa per shot: soft >= 0.6, ramp 1.3-4.5 px, dark rim <= 8 %) {[(e['shot'], e['soft'], e['width'], e['dark']) for e in eq_ if not e['ok']][:4] or 'OK'}")
     mid = [(x['id'], round(w0, 2)) for i, x in enumerate(sh_[:-1]) for ln in x['lines'] for w0, w1, _ in ln['words'] if w0 < sh_[i + 1]['t0'] - 1e-3 < w1 - 0.02]
     rule(not mid, f'no cut inside a word of the outgoing speaker {mid or ""}')
     fh = [v for x in sh_ if not x.get('other') for v in x['faceh'].values()]; rule(max(fh) / min(fh) <= 1.10 + 1e-6 and all(max(x['faceh'].values()) / min(x['faceh'].values()) <= 1.05 for x in sh_), f'face height equal between hosts within 5 % per shot, singles {min(fh)}-{max(fh)} px')
@@ -214,13 +229,13 @@ if TP == 'news':
             if min(A_[2], B_[2]) + 24 > max(A_[0], B_[0]) and min(A_[3], B_[3]) + 24 > max(A_[1], B_[1]): gap_.append((a_['style'], b_['style']))
     rule(not gap_, f'no two on-screen elements closer than 24 px (captions, cards, lower third, ring, hook) {sorted(set(gap_)) or ""}')
     tw_ = [x for x in tl['shots'] if x.get('other')]; hh_ = [v / 1920 for x in tw_ for v in x.get('faceh', {}).values()]
-    rule(bool(hh_) and all(0.125 <= v <= 0.155 for v in hh_) and all(abs(v - hh_[0]) < 0.01 for v in hh_), f'two-shot = medium-wide: face height {min(hh_ or [0]):.3f}-{max(hh_ or [0]):.3f} of frame (0.125-0.155), equal for both hosts')
-    qc_ = json.load(open(f'{RD}/qc.json')); rule(qc_.get('two_gap_min', -1) >= 16, f"two-shot: visible gap between the hosts (min {qc_.get('two_gap_min', -1)} px >= 16)")
+    rule(not tw_ or all(0.125 <= v <= 0.155 for v in hh_) and all(abs(v - hh_[0]) < 0.01 for v in hh_), f'two-shot = medium-wide: face height {min(hh_ or [0]):.3f}-{max(hh_ or [0]):.3f} of frame (0.125-0.155), equal for both hosts')
+    qc_ = json.load(open(f'{RD}/qc.json')); rule(not tw_ or qc_.get('two_gap_min', -1) >= 43, f"two-shot: visible gap between the hosts (min {qc_.get('two_gap_min', -1)} px >= 4 % width)")
     sg_ = [(x['id'], v / 1920) for x in tl['shots'] if not x.get('other') for v in x.get('faceh', {}).values()]
     rule(all(0.165 <= v <= 0.195 for _, v in sg_), f"singles = medium shot: face height {min(v for _, v in sg_):.3f}-{max(v for _, v in sg_):.3f} of frame (0.165-0.195)")
-    rule(all(min(v[4] - (HOST_TOP.get(c[:3], 200) * v[0]) for c, v in x['xfs'].items()) >= 0.10 * 1920 for x in tl['shots'] if not x.get('other')), 'singles headroom >= 10 %')
+    rule(all(min(v[4] - ((149 if 'q34' in c else HOST_TOP.get(c[:3], 200)) * v[0]) for c, v in x['xfs'].items()) >= 0.10 * 1920 for x in tl['shots'] if not x.get('other')), 'singles headroom >= 10 %')
     rule(all((x['xfs'][x['clip']][3] <= 400) if x['who'] == 'ama' else (x['xfs'][x['clip']][3] >= 680) for x in tl['shots'] if not x.get('other')), 'singles on the thirds (Ama x <= 400, Carlos x >= 680)')
-    rule(all(min(v[4] - (HOST_TOP.get(c[:3], 200) * v[0]) for c, v in x['xfs'].items()) >= 0.08 * 1920 for x in tw_), 'two-shot headroom >= 8 %')
+    rule(all(min(v[4] - ((149 if 'q34' in c else HOST_TOP.get(c[:3], 200)) * v[0]) for c, v in x['xfs'].items()) >= 0.08 * 1920 for x in tw_), 'two-shot headroom >= 8 %')
     qc = json.load(open(f'{RD}/qc.json')); rule(qc['bottom_min'] > 0.9, f"host body continues below the frame bottom on every frame (min alpha {qc['bottom_min']:.2f})")
     rule(qc['fringe_max'] <= 0.025, f"edge green fringe max {qc['fringe_max']:.3f} (<= 0.025), edge flicker mean {qc['flicker_mean']:.3f}")
     errs, xerr = [], []

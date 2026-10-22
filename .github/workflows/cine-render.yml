@@ -319,10 +319,12 @@ jobs:
               for t in ts:
                   cap.set(cv2.CAP_PROP_POS_MSEC, t * 1000); ok, f = cap.read(); fr.append(cv2.resize(f, (180, 320)) if ok else np.zeros((320, 180, 3), np.uint8))
               while len(fr) < 10: fr.append(np.zeros((320, 180, 3), np.uint8))
+              for t_ in fr:   # platform UI safe-zone guides (top 12 %, bottom 22 %, right 14 %)
+                  cv2.line(t_, (0, 38), (179, 38), (0, 0, 255), 1); cv2.line(t_, (0, 250), (179, 250), (0, 0, 255), 1); cv2.line(t_, (155, 0), (155, 319), (0, 0, 255), 1)
               zs = []   # 400 % edge crops of the hook two-shot (owner 22/10: hair / shoulder / hand edges, no halo)
               if tl:
                   h0 = tl['shots'][0]; cap.set(cv2.CAP_PROP_POS_MSEC, h0['dur'] * 500); ok, f0 = cap.read(); fb = sorted(h0.get('faceboxes', []), key=lambda b: b[0])
-                  pts = ([(fb[0][0] + 10, fb[0][1] + 20), (fb[-1][0] - 137, fb[-1][3] + 77), ((fb[0][0] + fb[0][2]) / 2 + 150, 1640)] if len(fb) == 2 and ok else [])
+                  pts = ([(fb[0][0] + 10, fb[0][1] + 20), (fb[0][2] + 40, fb[0][3] + 110), (fb[0][0] - 30, 1560)] if fb and ok else [])   # hair / shoulder / hand edges of the hook single
                   for x, y in pts:
                       x, y = int(np.clip(x, 23, 1056)), int(np.clip(y, 40, 1879)); zs.append(cv2.resize(f0[y - 40:y + 40, x - 22:x + 23], (180, 320), interpolation=cv2.INTER_NEAREST))
               while len(zs) < 3: zs.append(np.zeros((320, 180, 3), np.uint8))

@@ -21,6 +21,12 @@
    "intro": true
   },
   {
+   "who": "carlos",
+   "line": "n_b5dc88_in2",
+   "card": null,
+   "intro2": true
+  },
+  {
    "who": "ama",
    "line": "n_b5dc88_1",
    "card": {
@@ -73,10 +79,12 @@
    "Could I get some water?",
    "Would you mind switching seats?",
    "Is there room in the overhead bin?"
-  ]
+  ],
+  "line_alt": "n_b5dc88_r2"
  },
  "end_line": "n_b5dc88_e",
  "link": "https://lexkite.com/app/#/phrases",
  "cta": "Save useful phrases on lexkite.com",
- "est": 24.0
+ "est": 24.0,
+ "end_alt": "n_b5dc88_e2"
 }

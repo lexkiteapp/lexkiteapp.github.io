@@ -83,10 +83,12 @@
    "Let's discuss the plan.",
    "talk about the plan",
    "discuss it / talk about it"
-  ]
+  ],
+  "line_alt": "n_5d50a6_r2"
  },
  "end_line": "n_5d50a6_e",
  "link": "https://lexkite.com/app/#/fix",
  "cta": "Check your grammar on lexkite.com",
- "est": 23.1
+ "est": 23.1,
+ "end_alt": "n_5d50a6_e2"
 }

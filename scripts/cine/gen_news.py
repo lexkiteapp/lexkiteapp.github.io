@@ -14,8 +14,8 @@ FD = f'{ROOT}/brand/social/src/fonts'; FB = ImageFont.truetype(f'{FD}/BeVietnamP
 FL = ImageFont.truetype(f'{FD}/BricolageGrotesque-ExtraBold.ttf', 30); FH = ImageFont.truetype(f'{FD}/BricolageGrotesque-ExtraBold.ttf', 84); dr = ImageDraw.Draw(Image.new('RGB', (8, 8)))
 TOPICS = {'classroom', 'meeting_room', 'exam_hall', 'library', 'kitchen', 'living_room', 'supermarket', 'clothing_store', 'pharmacy', 'waiting_room', 'metro_station', 'street_dusk',
           'park', 'gym', 'bank', 'hotel_room_night', 'airplane_cabin', 'beach_cafe', 'coffee_counter', 'restaurant_night', 'bookstore', 'post_office', 'taxi_interior'}   # anchor/bg/index.json
-RECAP = {'three': 'Save these three phrases.', 'fix': 'Screenshot this one.', 'ab': 'Save this for later.', 'ways': 'Save all three.', 'pov': 'Save these answers.'}
-END = ['Practice it free on Lexkite.', 'Try the full lesson on Lexkite.', 'More free practice on Lexkite.']
+RECAP = {'three': "Teacher's tip: save these three phrases today.", 'fix': "Teacher's tip: screenshot this and say it right.", 'ab': "Teacher's tip: save this and pick the right one.", 'ways': "Teacher's tip: save all three and pick your style.", 'pov': "Teacher's tip: save these answers and say them aloud."}   # owner 22/10: spoken teacher's tip (recap shot <= 3.5 s)
+END = ['Save this and practice it free on Lexkite.', 'Save this, then try the full lesson on Lexkite.', 'Save this and practice more on Lexkite.']   # loop line + save
 LABELS = {'EXAMPLE', 'RULE', 'TIP', 'WHY', 'POV', 'POLITE', 'NEUTRAL', 'CASUAL', 'A', 'B', '?'}
 norm = lambda s: re.sub(r'[^a-z0-9]+', ' ', s.lower()).strip(); NW = lambda s: len(re.findall(r"[A-Za-z0-9']+", s))
 
@@ -62,6 +62,7 @@ def build(e, k):
                 series=e['series'], beats=beats, recap=dict(title="TEACHER'S TIP", line=f'n_{h6}_r', rows=e['rows']), end_line=f'n_{h6}_e',
                 link=ECO[e['area']]['link'], cta=ECO[e['area']]['cta'], est=round(est, 1))
     teacherize(spec, lines, h6)
+    spec['recap']['line_alt'] = f'n_{h6}_r2'; spec['end_alt'] = f'n_{h6}_e2'; lines += [dict(id=f'n_{h6}_r2', who='ama', text=RECAP[e['t']]), dict(id=f'n_{h6}_e2', who='carlos', text=END[k % len(END)])]
     return lid, spec, lines, errs
 
 def teacherize(spec, lines, h6):
@@ -78,6 +79,7 @@ def teacherize(spec, lines, h6):
     if int(h6, 16) % 4 == 0 and not spec.get('no_intro') and not any(b.get('intro') for b in bs):   # no_intro: spaced out in the calendar by hand
         lines.append(dict(id=f'n_{h6}_in', who='ama', text="I'm Ama, your American English teacher."))
         bs.insert(0, dict(who='ama', line=f'n_{h6}_in', card=None, intro=True))
+        lines.append(dict(id=f'n_{h6}_in2', who='carlos', text="And I'm Carlos, your English coach.")); bs.insert(1, dict(who='carlos', line=f'n_{h6}_in2', card=None, intro2=True))
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--n', type=int, default=24); ap.add_argument('--mark-rendered', nargs=2); ap.add_argument('--check', action='store_true'); ap.add_argument('--teacherize', action='store_true'); o = ap.parse_args()

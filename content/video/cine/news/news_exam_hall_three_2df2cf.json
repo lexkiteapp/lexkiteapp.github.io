@@ -78,10 +78,12 @@
    "That's an interesting question.",
    "To be honest, ...",
    "For example, ..."
-  ]
+  ],
+  "line_alt": "n_2df2cf_r2"
  },
  "end_line": "n_2df2cf_e",
  "link": "https://lexkite.com/app/#/mock",
  "cta": "Try an IELTS mock on lexkite.com",
- "est": 23.6
+ "est": 23.6,
+ "end_alt": "n_2df2cf_e2"
 }

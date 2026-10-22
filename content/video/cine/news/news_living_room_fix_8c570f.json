@@ -83,10 +83,12 @@
    "I really like it.",
    "I like it a lot.",
    "really like / very good"
-  ]
+  ],
+  "line_alt": "n_8c570f_r2"
  },
  "end_line": "n_8c570f_e",
  "link": "https://lexkite.com/app/#/fix",
  "cta": "Check your grammar on lexkite.com",
- "est": 23.5
+ "est": 23.5,
+ "end_alt": "n_8c570f_e2"
 }

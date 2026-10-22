@@ -21,6 +21,12 @@
    "intro": true
   },
   {
+   "who": "carlos",
+   "line": "n_ee2b2c_in2",
+   "card": null,
+   "intro2": true
+  },
+  {
    "who": "ama",
    "line": "n_ee2b2c_1",
    "card": {
@@ -89,10 +95,12 @@
    "She told me the news.",
    "She said it was late.",
    "tell me / say it"
-  ]
+  ],
+  "line_alt": "n_ee2b2c_r2"
  },
  "end_line": "n_ee2b2c_e",
  "link": "https://lexkite.com/app/#/usage?c=pair",
  "cta": "Compare tricky words on lexkite.com",
- "est": 23.1
+ "est": 23.1,
+ "end_alt": "n_ee2b2c_e2"
 }

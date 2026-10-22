@@ -72,11 +72,13 @@
    "Can I borrow your pen?",
    "Can you lend me your pen?",
    "borrow from / lend to"
-  ]
+  ],
+  "line_alt": "n_a843c0_r2"
  },
  "end_line": "n_a843c0_e",
  "link": "https://lexkite.com/app/#/usage?c=pair",
  "cta": "Compare tricky words on lexkite.com",
  "est": 25.0,
- "no_intro": true
+ "no_intro": true,
+ "end_alt": "n_a843c0_e2"
 }

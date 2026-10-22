@@ -72,11 +72,13 @@
    "Would you mind helping me?",
    "Could you help me?",
    "Can you give me a hand?"
-  ]
+  ],
+  "line_alt": "n_0ea920_r2"
  },
  "end_line": "n_0ea920_e",
  "link": "https://lexkite.com/app/#/phrases",
  "cta": "Save useful phrases on lexkite.com",
  "est": 24.6,
- "no_intro": true
+ "no_intro": true,
+ "end_alt": "n_0ea920_e2"
 }

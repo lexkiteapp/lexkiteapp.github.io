@@ -83,10 +83,12 @@
    "I'm looking for a book.",
    "I'm looking for a cookbook.",
    "look at / look for"
-  ]
+  ],
+  "line_alt": "n_a59145_r2"
  },
  "end_line": "n_a59145_e",
  "link": "https://lexkite.com/app/#/grammar",
  "cta": "Practice grammar free on lexkite.com",
- "est": 23.1
+ "est": 23.1,
+ "end_alt": "n_a59145_e2"
 }

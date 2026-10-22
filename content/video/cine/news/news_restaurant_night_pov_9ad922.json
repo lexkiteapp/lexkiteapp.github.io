@@ -83,10 +83,12 @@
    "I'll have the salmon, please.",
    "Could I get the pasta?",
    "not: I want salmon."
-  ]
+  ],
+  "line_alt": "n_9ad922_r2"
  },
  "end_line": "n_9ad922_e",
  "link": "https://lexkite.com/app/#/roleplay",
  "cta": "Roleplay this free on lexkite.com",
- "est": 25.0
+ "est": 25.0,
+ "end_alt": "n_9ad922_e2"
 }

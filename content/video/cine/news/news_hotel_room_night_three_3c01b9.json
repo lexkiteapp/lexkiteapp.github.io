@@ -78,10 +78,12 @@
    "Could I get a late checkout?",
    "The Wi-Fi isn't working.",
    "Could I get extra towels?"
-  ]
+  ],
+  "line_alt": "n_3c01b9_r2"
  },
  "end_line": "n_3c01b9_e",
  "link": "https://lexkite.com/app/#/phrases",
  "cta": "Save useful phrases on lexkite.com",
- "est": 26.0
+ "est": 26.0,
+ "end_alt": "n_3c01b9_e2"
 }

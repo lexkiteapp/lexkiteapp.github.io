@@ -1,7 +1,7 @@
 {
  "id": "news_waiting_room_ways_7b5d0d",
  "template": "ways",
- "bg": "pharmacy",
+ "bg": "clinic",
  "area": "speaking",
  "cefr": "A2",
  "point": "booking a doctor's appointment: polite to casual",
@@ -83,10 +83,12 @@
    "I'd like to make an appointment.",
    "Can I book a visit?",
    "Can I see a doctor today?"
-  ]
+  ],
+  "line_alt": "n_7b5d0d_r2"
  },
  "end_line": "n_7b5d0d_e",
  "link": "https://lexkite.com/en/speaking/",
  "cta": "Practice IELTS speaking on lexkite.com",
- "est": 24.6
+ "est": 24.6,
+ "end_alt": "n_7b5d0d_e2"
 }

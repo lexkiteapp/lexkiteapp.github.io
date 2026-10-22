@@ -10,8 +10,10 @@ N = os.environ.get('NEWS_DIR', os.getcwd())   # work dir: ci/lines.json, vis3/ (
 A = os.environ.get('CINE_LIB', f'{ROOT}/brand/library/cine') + '/anchor'; TL = f'{A}/tools'; G = f'{A}/green'; OUTD = os.environ.get('CINE_OUT', f'{ROOT}/out')
 DEPTH = os.environ.get('NEWS_DEPTH', f'{N}/depth')
 sys.path.insert(0, HERE); import lipsync as L
+sys.path.insert(0, f'{ROOT}/scripts/video'); import matte_refine as MR   # 666722b2: refined mattes, premultiplied place/over, edge QA
 LID = sys.argv[1]; FPS = 24; W, H = 1080, 1920
-SAFE = dict(x0=60, x1=1020, y0=230, y1=1750)   # owner 22/10: no desk; text lives in the lower third over the torsos
+SAFE = dict(x0=48, x1=924, y0=232, y1=1497)   # owner 22/10 platform UI: top 12 %, bottom 22 %, right 14 % stay clear of ALL text
+CW, CX0 = 876, 48; CX = CX0 + CW // 2   # text column (left-biased: the right 14 % holds the TikTok/Reels/Shorts buttons)
 TEXT = {l['id']: l['text'] for l in json.load(open(f'{N}/ci/lines.json'))['lines']}
 CUES = {k: json.load(open(f'{N}/vis3/{k}.json'))['mouthCues'] for k in TEXT if os.path.exists(f'{N}/vis3/{k}.json')}   # lines of this job's lessons only
 FB = f'{ROOT}/brand/social/src/fonts/BeVietnamPro-ExtraBold.ttf'; FH = f'{ROOT}/brand/social/src/fonts/BricolageGrotesque-ExtraBold.ttf'
@@ -26,8 +28,8 @@ S, OV, SFX = [], [], []
 def line_tempo(line):   # caption reading speed <= 15 cps -> slow the line (>= 0.84x; news_voice.py re-synthesises lines that would need more)
     s0, s1 = speech(line); need = len(TEXT[line]) / 14.0 - 0.5
     return 1.0 if need <= s1 - s0 else max(0.84, round((s1 - s0) / need - 0.005, 3))
-def talk_dur(line, at, breath=0.45, tempo=None): return at + speech(line)[1] / (tempo or line_tempo(line)) + breath
-def shot(id, clip, who, frame, bg, line=None, dur=None, at=0.07, breath=0.45, frames=None, raw=False, other=None, tempo=None):
+def talk_dur(line, at, breath=0.4, tempo=None): return at + speech(line)[1] / (tempo or line_tempo(line)) + breath
+def shot(id, clip, who, frame, bg, line=None, dur=None, at=0.07, breath=0.4, frames=None, raw=False, other=None, tempo=None):
     """talk shot (line) = at + speech end + breath; hold shot = dur. frames: source indices (ping-pong through the clip by default)."""
     if line:
         tempo = tempo or line_tempo(line); dur = talk_dur(line, at, breath, tempo)
@@ -54,7 +56,7 @@ def fit(dr, txt, path, size, maxw, minsize=40):
     return font(path, size), size
 def card_pattern(num, txt, y0=250, title=None):
     """white card: orange number chip + label, phrase in big ink type; '___' highlighted."""
-    im = layer(); d = ImageDraw.Draw(im); w = 940; x0 = (W - w) // 2
+    im = layer(); d = ImageDraw.Draw(im); w = CW; x0 = CX0
     f, fs = fit(d, txt, FB, 66, w - 80); th = 66 if True else fs
     lines = [txt]
     if d.textlength(txt, font=f) > w - 80 or fs < 58:   # wrap to 2 lines at 60 px
@@ -69,7 +71,7 @@ def card_pattern(num, txt, y0=250, title=None):
     d.rounded_rectangle([x0 + 30, y0 + 24, x0 + 30 + lw, y0 + 80], 28, fill=ORANGE + (255,)); d.text((x0 + 52, y0 + 30), lab, font=lf, fill=(255, 255, 255))
     y = y0 + 98
     for ln in lines:
-        d.text((W // 2, y), ln, font=f, fill=INK, anchor='ma'); y += fs + 16
+        d.text((CX, y), ln, font=f, fill=INK, anchor='ma'); y += fs + 16
     return shadowed(im), (x0, y0, x0 + w, y0 + h)
 def mark(d, cx, cy, r, ok):
     d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=((40, 160, 90) if ok else (214, 48, 49)) + (255,))
@@ -77,16 +79,16 @@ def mark(d, cx, cy, r, ok):
     else:
         k = r * .38; d.line([(cx - k, cy - k), (cx + k, cy + k)], fill='white', width=int(r * .26)); d.line([(cx - k, cy + k), (cx + k, cy - k)], fill='white', width=int(r * .26))
 def card_fix(bad, good, y0=250, show_good=True):
-    im = layer(); d = ImageDraw.Draw(im); w = 940; x0 = (W - w) // 2; h = 300
+    im = layer(); d = ImageDraw.Draw(im); w = CW; x0 = CX0; h = 300
     d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 30, fill=(255, 255, 255, 250), outline=INK + (255,), width=5)
     f = fit(d, max(bad, good, key=len), FB, 64, w - 190)[0]
     mark(d, x0 + 78, y0 + 82, 40, False); d.text((x0 + 140, y0 + 82), bad, font=f, fill=(150, 150, 158), anchor='lm')
     tw = d.textlength(bad, font=f); d.line([(x0 + 136, y0 + 86), (x0 + 144 + tw, y0 + 86)], fill=(214, 48, 49), width=8)
     if show_good: mark(d, x0 + 78, y0 + 215, 40, True); d.text((x0 + 140, y0 + 215), good, font=f, fill=INK, anchor='lm')
     return shadowed(im), (x0, y0, x0 + w, y0 + h)
-CARD_Y = 1300   # below the lowest chin (two-shot 1243) + 24 px
+CARD_Y = 1016   # below the lowest single chin incl. head motion (~945) + margin
 def card_phrase(num, pattern, note, bad=None, good=None, why=None, y0=CARD_Y):
-    im = layer(); d = ImageDraw.Draw(im); w = 960; x0 = (W - w) // 2; h = 272 if bad else 158
+    im = layer(); d = ImageDraw.Draw(im); w = CW; x0 = CX0; h = 272 if bad else 158
     d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 28, fill=(255, 255, 255, 248), outline=INK + (255,), width=4)
     lab = f'PHRASE {num}'; lf = font(FH, 30); lw = d.textlength(lab, font=lf) + 32
     d.rounded_rectangle([x0 + 24, y0 + 18, x0 + 24 + lw, y0 + 62], 22, fill=ORANGE + (255,)); d.text((x0 + 40, y0 + 40), lab, font=lf, fill='white', anchor='lm')
@@ -101,7 +103,7 @@ def card_phrase(num, pattern, note, bad=None, good=None, why=None, y0=CARD_Y):
         d.text((x0 + 30, y0 + 238), why, font=fit(d, why, FB, 34, w - 60)[0], fill=(120, 60, 50), anchor='lm')
     return shadowed(im), (x0, y0, x0 + w, y0 + h)
 def card_one(kind, text, sub=None, num=None, y0=CARD_Y):
-    im = layer(); d = ImageDraw.Draw(im); w = 960; x0 = (W - w) // 2; h = 128 + (56 if sub else 0)
+    im = layer(); d = ImageDraw.Draw(im); w = CW; x0 = CX0; h = 128 + (56 if sub else 0)
     d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 28, fill=(255, 255, 255, 248), outline=INK + (255,), width=4); cy = y0 + 64; tx = x0 + 34
     if kind == 'p':
         lab = num if isinstance(num, str) else f'PHRASE {num}'; lf = font(FH, 30); lw = d.textlength(lab, font=lf) + 32
@@ -112,22 +114,22 @@ def card_one(kind, text, sub=None, num=None, y0=CARD_Y):
     if sub: d.text((tx, cy + 64), sub, font=font(FB, 40), fill=TEAL2, anchor='lm')
     return shadowed(im), (x0, y0, x0 + w, y0 + h)
 def card_recap(title, rows, y0=CARD_Y):
-    im = layer(); d = ImageDraw.Draw(im); w = 960; x0 = (W - w) // 2; rh = 42; h = 66 + rh * len(rows) + 8
+    im = layer(); d = ImageDraw.Draw(im); w = CW; x0 = CX0; rh = 38; h = 66 + rh * len(rows) + 8
     d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 30, fill=(255, 255, 255, 250), outline=INK + (255,), width=5)
     d.rounded_rectangle([x0, y0, x0 + w, y0 + 62], 30, fill=TEAL + (255,)); d.rectangle([x0, y0 + 34, x0 + w, y0 + 62], fill=TEAL + (255,))
-    d.text((W // 2, y0 + 31), title, font=font(FH, 38), fill=(255, 255, 255), anchor='mm')
+    d.text((CX, y0 + 31), title, font=font(FH, 38), fill=(255, 255, 255), anchor='mm')
     f = fit(d, max(rows, key=len), FB, 40, w - 150)[0]
     for i, r in enumerate(rows):
         cy = y0 + 66 + i * rh + rh // 2; d.ellipse([x0 + 30, cy - 20, x0 + 70, cy + 20], fill=ORANGE + (255,)); d.text((x0 + 50, cy), str(i + 1), font=font(FH, 28), fill='white', anchor='mm')
         d.text((x0 + 112, cy), r, font=f, fill=INK, anchor='lm')
     return shadowed(im), (x0, y0, x0 + w, y0 + h)
-def hook_card(txt, sub, y0=CARD_Y):
-    im = layer(); d = ImageDraw.Draw(im); f, fs = fit(d, txt, FH, 88, 920, 84)
-    tw = d.textlength(txt, font=f); bx = (W - tw) / 2 - 36
+def hook_card(txt, sub, y0=236):   # owner 22/10: big bold hook at the top-safe line
+    im = layer(); d = ImageDraw.Draw(im); f, fs = fit(d, txt, FH, 92, CW - 80, 70)
+    tw = d.textlength(txt, font=f); bx = CX - tw / 2 - 36
     d.rounded_rectangle([bx, y0, bx + tw + 72, y0 + fs + 52], 26, fill=ORANGE + (255,))
-    d.text((W // 2, y0 + 22), txt, font=f, fill='white', anchor='ma')
+    d.text((CX, y0 + 22), txt, font=f, fill='white', anchor='ma')
     return shadowed(im), (int(bx), y0, int(bx + tw + 72), y0 + fs + 52), fs   # v4: one line only (layout zone)
-def series_bar(top, sub, y0=1657, prog=1.0):
+def series_bar(top, sub, y0=240, prog=1.0):   # top-left under the safe line (payoff promise); name titles use y0=NAME_Y
     """US-broadcast lower third: orange tag block + dark-teal strip with white title, thin yellow rule; slides in from the left."""
     im = layer(); d = ImageDraw.Draw(im); x0 = 60; tf = font(FH, 44); sf = font(FB, 38)
     tw = d.textlength(top, font=tf) + 48; sw = d.textlength(sub, font=sf) + 56; full = tw + sw
@@ -137,7 +139,7 @@ def series_bar(top, sub, y0=1657, prog=1.0):
     d.rectangle([x0 + off, y0 + 76, x0 + off + full, y0 + 84], fill=YEL + (255,))
     return im, (x0, y0, int(x0 + full), y0 + 84)
 def ring_card(txt, prog, y0=CARD_Y + 40):
-    im = layer(); d = ImageDraw.Draw(im); f = font(FH, 56); tw = d.textlength(txt, font=f); w = tw + 190; x0 = (W - w) / 2
+    im = layer(); d = ImageDraw.Draw(im); f = font(FH, 56); tw = d.textlength(txt, font=f); w = tw + 190; x0 = CX - w / 2
     d.rounded_rectangle([x0, y0, x0 + w, y0 + 124], 62, fill=(255, 255, 255, 250), outline=INK + (255,), width=5)
     cx, cy, r = x0 + 72, y0 + 62, 38; d.ellipse([cx - r, cy - r, cx + r, cy + r], outline=(225, 225, 230), width=10)
     d.arc([cx - r, cy - r, cx + r, cy + r], -90, -90 + 360 * prog, fill=ORANGE, width=10)
@@ -145,23 +147,46 @@ def ring_card(txt, prog, y0=CARD_Y + 40):
     d.text((x0 + 130, y0 + 62), txt, font=f, fill=INK, anchor='lm')
     return shadowed(im), (int(x0), y0, int(x0 + w), y0 + 124)
 def follow_chip(y0=CARD_Y + 60):
-    im = layer(); d = ImageDraw.Draw(im); f = font(FH, 50); t = 'Follow for more'; tw = d.textlength(t, font=f); x0 = (W - tw - 80) / 2
-    d.rounded_rectangle([x0, y0, x0 + tw + 80, y0 + 96], 48, fill=ORANGE + (255,)); d.text((W // 2, y0 + 48), t, font=f, fill='white', anchor='mm')
+    im = layer(); d = ImageDraw.Draw(im); f = font(FH, 50); t = 'Follow for more'; tw = d.textlength(t, font=f); x0 = CX - (tw + 80) / 2
+    d.rounded_rectangle([x0, y0, x0 + tw + 80, y0 + 96], 48, fill=ORANGE + (255,)); d.text((CX, y0 + 48), t, font=f, fill='white', anchor='mm')
     return shadowed(im), (int(x0), y0, int(x0 + tw + 80), y0 + 96)
 # karaoke caption: one line per page, current word yellow; pages split so each fits 900 px at >= 74 px
-CAP_Y = 1536
-def cap_pages(txt, fs=78):
-    d = ImageDraw.Draw(layer()); f = font(FB, fs); ws = txt.split(); pages, cur = [], []
-    for w_ in ws:
-        if cur and d.textlength(' '.join(cur + [w_]), font=f) > 900: pages.append(cur); cur = []
-        cur.append(w_)
-    pages.append(cur); return pages
-def cap_img(words, k, fs=78):
-    im = layer(); d = ImageDraw.Draw(im); f = font(FB, fs); txt = ' '.join(words); tw = d.textlength(txt, font=f); x = (W - tw) / 2
-    for i, w_ in enumerate(words):
-        d.text((x, CAP_Y), w_, font=f, fill=YEL if i == k else (255, 255, 255), stroke_width=9, stroke_fill=(20, 22, 28))
-        x += d.textlength(w_ + ' ', font=f)
-    return im, (int((W - tw) / 2) - 9, CAP_Y - 9, int((W + tw) / 2) + 9, CAP_Y + int(fs * 1.25))
+CAP_Y, CAP_FS, CAP_LH, NAME_Y = 1238, 60, 74, 1413   # owner 22/10: 2-line phrase chunks; name lower-third sits on the bottom safe line
+FUNCW = set("a an the to of in on at for from by with and or but so is are was were be been am do does did have has had will would can could should "
+            "may might must my your his her its our their this that these those than as if".split())
+_cd = ImageDraw.Draw(Image.new('RGBA', (8, 8)))
+def _fits(ws_): return _cd.textlength(' '.join(ws_), font=font(FB, CAP_FS)) <= CW - 24
+def _nrm(w_): return re.sub(r"[^a-z']", '', w_.lower())
+def cap_split(ws_):   # <= 2 lines, balanced, a line never ends on a function word unless punctuated; None if it cannot fit
+    if _fits(ws_): return [ws_]
+    best = None
+    for i in range(1, len(ws_)):
+        a, b = ws_[:i], ws_[i:]
+        if not (_fits(a) and _fits(b)): continue
+        bad = _nrm(a[-1]) in FUNCW and not re.search(r'[,.;:!?]$', a[-1])
+        sc_ = abs(len(' '.join(a)) - len(' '.join(b))) + (100 if bad else 0) - (30 if re.search(r'[,;:]$', a[-1]) else 0)
+        if best is None or sc_ < best[0]: best = (sc_, [a, b])
+    return best[1] if best else None
+def cap_chunks(ws):
+    """phrase chunks (word index lists): punctuation first, one sentence per screen where possible, <= 2 lines, never ending on a function word"""
+    ch, cur = [], []
+    for i, w_ in enumerate(ws):
+        cur.append(i)
+        if i + 1 == len(ws): break
+        nxt_ok = cap_split([ws[k] for k in cur + [i + 1]]) is not None
+        if re.search(r'[.!?]$', w_) or (re.search(r'[,;:]$', w_) and len(cur) >= 3 and not nxt_ok) or not nxt_ok: ch.append(cur); cur = []
+    if cur: ch.append(cur)
+    for k in range(len(ch) - 1):   # move a dangling function word to the next chunk
+        while len(ch[k]) > 1 and _nrm(ws[ch[k][-1]]) in FUNCW and not re.search(r'[,.;:!?]$', ws[ch[k][-1]]) and cap_split([ws[j] for j in [ch[k][-1]] + ch[k + 1]]):
+            ch[k + 1].insert(0, ch[k].pop())
+    return ch
+def cap_img(lines_, k, fs=CAP_FS):   # lines_: [[word, ...], ...]; k = index of the current word within the chunk
+    im = layer(); d = ImageDraw.Draw(im); f = font(FB, fs); n = 0; x0b, x1b = 9999, 0
+    for li, lw in enumerate(lines_):
+        txt = ' '.join(lw); tw = d.textlength(txt, font=f); x = CX - tw / 2; y = CAP_Y + li * CAP_LH; x0b, x1b = min(x0b, x), max(x1b, x + tw)
+        for w_ in lw:
+            d.text((x, y), w_, font=f, fill=YEL if n == k else (255, 255, 255), stroke_width=8, stroke_fill=(20, 22, 28)); x += d.textlength(w_ + ' ', font=f); n += 1
+    return im, (int(x0b) - 8, CAP_Y - 8, int(x1b) + 8, CAP_Y + (len(lines_) - 1) * CAP_LH + int(fs * 1.25))
 def captions(s):
     for ln in s['lines']:
         k = ln['id']; s0, s1 = speech(k); T_ = ln['tempo']; a = s['t0'] + ln['at'] + s0 / T_; b = s['t0'] + ln['at'] + s1 / T_; ws = TEXT[k].split()
@@ -177,18 +202,26 @@ def captions(s):
             t_ = snap(x['s']); x['w0'] = x['s']; cand = [b_ for b_ in bnd if b_ > prev + 1e-6 and abs(b_ - t_) <= 0.12]   # whisper start -> nearest later Rhubarb onset within 120 ms
             x['s'] = min(cand, key=lambda b_: abs(b_ - t_)) if cand else max(t_, prev + 0.05); prev = x['s']
         edges = [base + x['s'] / T_ for x in WJ]; ln['words'] = [[round(base + x['s'] / T_, 3), round(base + x['e'] / T_, 3), round(base + x['w0'] / T_, 3)] for x in WJ]
-        pages = cap_pages(TEXT[k]); i0 = 0
-        for pi, pw in enumerate(pages):
-            for j in range(len(pw)):
-                gi = i0 + j; t0 = a - 0.095 if gi == 0 else edges[gi]; last = gi == len(ws) - 1
-                t1 = b + 0.39 if last else edges[gi + 1]
-                im, box = cap_img(pw, j); ov('Cap', TEXT[k], t0, t1, box, s['id'], line=k, part=gi, fs=78, img=im)
-            i0 += len(pw)
+        CH = cap_chunks(ws)
+        for _ in range(3):   # merge chunks shorter than 0.8 s on screen into a neighbour when the pair still fits 2 lines
+            dur_ = lambda c: (edges[c[-1] + 1] if c[-1] + 1 < len(ws) else b + 0.39) - (a - 0.095 if c[0] == 0 else edges[c[0]])
+            for ci in range(len(CH)):
+                if dur_(CH[ci]) < 0.8 and len(CH) > 1:
+                    cj = ci + 1 if ci + 1 < len(CH) else ci - 1; mg = sorted(CH[ci] + CH[cj])
+                    if cap_split([ws[x] for x in mg]): CH[min(ci, cj)] = mg; del CH[max(ci, cj)]; break
+        for chi, cw_ in enumerate(CH):
+            lines_ = cap_split([ws[x] for x in cw_]) or [[ws[x] for x in cw_]]
+            for j, gi in enumerate(cw_):
+                t0 = a - 0.095 if gi == 0 else edges[gi]; t1 = b + 0.39 if gi == len(ws) - 1 else edges[gi + 1]
+                im, box = cap_img(lines_, j); ov('Cap', TEXT[k], t0, t1, box, s['id'], line=k, part=gi, fs=CAP_FS, img=im); OV[-1]['chunk'] = [chi, ' '.join(ws[x] for x in cw_), len(lines_)]
 # ------------------------------------------------------------------ lesson script
 if os.path.exists(f'{N}/lessons/{LID}.json'): SPEC = json.load(open(f'{N}/lessons/{LID}.json')); exec(open(f'{HERE}/news_tpl.py').read())   # generated (gen_news.py)
 else: exec(open(f'{N}/lessons/{LID}.py').read())
 TOTAL = sum(x['dur'] for x in S); NF = int(round(TOTAL * FPS))
 for s in S: captions(s)
+_caps = sorted([o for o in OV if o['style'] == 'Cap'], key=lambda o: o['t'][0])
+for o, o2 in zip(_caps, _caps[1:]):   # J-cuts: a caption's tail never overlaps the next line's first chunk
+    if o2['line'] != o['line'] and o['t'][1] > o2['t'][0]: o['t'][1] = round(max(o['t'][0] + 0.05, o2['t'][0]), 3)
 if os.environ.get('NEWS_DRY'):   # dry run (Mac): timeline only, no frames
     for s in S: print(f"{s['t0']:6.2f} {s['dur']:5.2f} {s['id']:7s} {s['clip']:14s} {s['who']:6s} {s['frame']}")
     for o in OV:
@@ -208,26 +241,23 @@ def host_frames(s, clip, who, lines, raw):
     ramp = 1.0
     al = []
     for i in s['frames']:
-        m = finish_mask(MM[min(i, len(MM) - 1)]).astype(np.float32) / 255
-        low = m[1250:]; low = cv2.morphologyEx(low, cv2.MORPH_OPEN, np.ones((9, 9), np.uint8)); m[1250:] = low   # thin seat/bench specks
-        if clip.startswith('ga2'): m[1400:] = cv2.morphologyEx(m[1400:], cv2.MORPH_CLOSE, np.ones((1, 49), np.uint8))   # standing Ama: close the <= 48 px gap between hands/legs (kfull is black there) so the torso stays opaque to the frame bottom
+        m = MR.mask_levels(finish_mask(MM[min(i, len(MM) - 1)]))   # h264 white ~250 -> exactly opaque; no morphology (it made stair-steps)
         al.append(m * ramp)
     tops = [int(np.argmax((m[:, 300:800] > 0.5).any(1))) for m in al[::4]]; top = HAIR.setdefault(clip, int(np.median(tops)))
     return fr, al, log, top
 HAIR = {}
-SIDE = {('ama', 'mcu'): 360, ('ama', 'wide'): 380, ('carlos', 'mcu'): 720, ('carlos', 'wide'): 700,   # rule of thirds
-        ('ama', 'two'): 228, ('carlos', 'two'): 896}   # 180-degree rule: Ama screen-left, Carlos screen-right
-FRAME.update({('ama', 'two'): (1.22, 660), ('carlos', 'two'): (0.98, 1068)})   # owner 22/10: two-shot = medium-wide (face ~14 % of frame height, hosts apart, more background) behind a news desk
-DESK_Y = 1880   # two-shot: desk top edge; hosts must continue >= 40 px below it (Carlos's seat stays hidden behind the desk)
-VBOT = lambda frame: 1920   # every shot: the news desk hides the cut; hosts continue >= 40 px below its top edge   # lowest frame row that must still show the host's body
-FACEH = {'ama': 370, 'carlos': 274}; SEAT = {'ama': 1660, 'carlos': 1560}
-# standing Ama (green/README-standing.md, ga2_*): head 1.31x Carlos in source -> layer x0.765 of Carlos's scale = equal head size, eye line ~ Carlos; no seat
-HOST['ama_s'] = dict(eye=(530, 680)); FACEH['ama_s'] = 338; SEAT['ama_s'] = 1916
-for _f in ('mcu', 'wide', 'two'): FRAME[('ama_s', _f)] = (round(FRAME[('carlos', _f)][0] * 0.81, 4), FRAME[('carlos', _f)][1]); SIDE[('ama_s', _f)] = SIDE[('ama', _f)]
-GK = lambda clip, who: 'ama_s' if clip.startswith('ga2') else who   # source face height (brow-chin); lowest source row allowed in frame (above lap / seat)
+# owner 22/10: STANDING hosts only (bank_gestures.json layout, equal eye->mouth on screen). FACEH = 2.6 x eye->mouth (source px); SEAT = lowest
+# solid source row (no legs gap / clip edge); eye lines leave the chin above the text column and the body exits the real frame bottom.
+HOST = {'ama_s': dict(eye=(530, 680)), 'carlos_s': dict(eye=(545, 390)), 'carlos_q': dict(eye=(465, 310))}
+FACEH = {'ama_s': 338, 'carlos_s': 276, 'carlos_q': 182}; SEAT = {'ama_s': 1916, 'carlos_s': 1600, 'carlos_q': 1880}
+FACE_PX = {'mcu': 346, 'wide': 326, 'two': 268.5}; EYE_Y = {'mcu': 670, 'wide': 730, 'two': 960}
+FRAME = {(g, f_): (round(FACE_PX[f_] / FACEH[g], 4), EYE_Y[f_]) for g in FACEH for f_ in FACE_PX}
+SIDE = {(g, f_): ({'mcu': 380, 'wide': 380, 'two': 220} if g == 'ama_s' else {'mcu': 700, 'wide': 700, 'two': 880})[f_] for g in FACEH for f_ in FACE_PX}   # thirds; two-shot gap >= 4 % width
+DESK_Y = 1880; VBOT = lambda frame: 1920
+GK = lambda clip, who: 'ama_s' if clip.startswith('ga') else 'carlos_q' if 'q34' in clip else 'carlos_s'
 def place(sid, who, frame, top):
     sc, ey = FRAME[(who, frame)]; ex, sy = HOST[who]['eye']; low = sy + (VBOT(frame) - ey) / sc
-    assert low <= SEAT[who] and low < 1900, ('seat/lap would be visible or body ends in frame', sid, who, low)
+    assert low <= SEAT[who] and low < 1917, ('seat/lap would be visible or body ends in frame', sid, who, low)
     return sc, ex, sy, SIDE[(who, frame)], ey
 # ------------------------------------------------------------------ backgrounds (Ken Burns + crossfade on swaps)
 BGI = {}
@@ -275,7 +305,7 @@ if S[-1]['id'] == 'loop':   # loop: the two-shot settles back to the hook's firs
 ease = bg3d.ease
 def cam_at(s, u):
     m = s['cam']; e = bg3d.ease(u); return {k: m[k][0] + (m[k][1] - m[k][0]) * e for k in ('z', 'tx', 'ty', 'rot')}
-BOK = bg3d.Bokeh(); BQA = []; ZONES = [[36, 1276, 1044, 1765]]   # card + caption + lower-third band (+24 px)
+BOK = bg3d.Bokeh(); BQA = []; ZONES = [[24, 212, 948, 400], [24, 992, 948, 1521]]   # card + caption + lower-third band (+24 px)
 def bg_frame(s, j, t):
     u = j / max(1, s['n'] - 1); L_ = layers(s['bg']); qa = j % 6 == 0
     r = L_.render(cam_at(s, u), qa=qa); B = r[0] if qa else r
@@ -300,21 +330,12 @@ def _desk():   # flat 2D broadcast desk (brand teal, yellow rule, orange stripe)
     return im, al
 DESK = _desk()
 BOT = np.clip((np.arange(1920) - 1180) / 740.0, 0, 1)[:, None, None] ** 1.6 * 0.4   # owner 22/10: soft bottom scrim for text legibility (no solid band)
-def comp(F, Al, sc, cx, cy, ox, oy, drift):
-    """owner 22/10 (jagged edges + black outline): resample PREMULTIPLIED colour (kfull is black outside the matte, so straight-alpha
-    resampling dragged black into the soft edge), area-filter when shrinking, 1.2 px feather on colour+alpha alike, then un-premultiply."""
-    A = Al.astype(np.float32); P = F.astype(np.float32) * A[..., None]
-    if sc < 1:   # shrink with an area filter first, then place with a pure translation
-        P = cv2.resize(P, None, fx=sc, fy=sc, interpolation=cv2.INTER_AREA); A = cv2.resize(A, None, fx=sc, fy=sc, interpolation=cv2.INTER_AREA); s_ = 1.0
-    else: s_ = sc
-    M = np.float32([[s_, 0, ox - cx * sc + drift], [0, s_, oy - cy * sc]])
-    p = cv2.warpAffine(P, M, (1080, 1920), flags=cv2.INTER_LINEAR); a = cv2.warpAffine(A, M, (1080, 1920), flags=cv2.INTER_LINEAR)
-    p = cv2.GaussianBlur(p, (0, 0), 0.6); a = cv2.GaussianBlur(a, (0, 0), 0.6).clip(0, 1)   # ~1.2 px feather, same kernel on both (stays premultiplied)
-    f = p / np.maximum(a, 1e-3)[..., None]; f[a < 0.004] = 0
-    return f.clip(0, 255), a
+def comp(F, Al, sc, cx, cy, ox, oy, drift):   # premultiplied resample (MR.place), returned un-premultiplied for the per-host grading below
+    M = np.float32([[sc, 0, ox - cx * sc + drift], [0, sc, oy - cy * sc]]); Fp, a = MR.place(F.astype(np.float32), Al.astype(np.float32), sc, M, (1080, 1920))
+    return Fp / np.maximum(a, 1e-3)[..., None], a
 enc = subprocess.Popen(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', '1080x1920', '-r', str(FPS), '-i', '-',
                         '-c:v', 'libx264', '-threads', '2', '-preset', 'medium', '-crf', '18', '-pix_fmt', 'yuv420p', f'{RD}/video.mp4'], stdin=subprocess.PIPE)
-KEYM = {}; EXPO = None; OVS = sorted(OV, key=lambda o: o['t'][0]); fi = 0; COVER = None; QC = []; PA = None
+KEYM = {}; EQ = []; EXPO = None; OVS = sorted(OV, key=lambda o: o['t'][0]); fi = 0; COVER = None; QC = []; PA = None
 _x = np.arange(256) / 255.0; _l = _x ** 0.86; _s = np.clip(_l - 0.16 * np.sin(2 * np.pi * _l) / (2 * np.pi), 0, 1)   # owner 22/10: mids lifted ~+10 %, soft S-curve
 _sh = np.clip(1 - _x * 2.2, 0, 1); _hi = np.clip(_x * 2 - 1.1, 0, 1); _fl = lambda v: 18 / 255 + np.clip(v, 0, 1) * (1 - 22 / 255)   # black floor 18/255
 GRADE = np.stack([_fl(_s + 0.02 * _sh - 0.015 * _hi), _fl(_s + 0.01 * _sh + 0.003 * _hi), _fl(_s - 0.01 * _sh + 0.02 * _hi)], 1)   # BGR: slight teal shadows / warm highlights
@@ -348,6 +369,7 @@ for s in S:
         t = fi / FPS; u = j / max(1, s['n'] - 1); drift = 0.0
         if SAMP and j > 0: enc.stdin.write(out.tobytes()); fi += 1; continue
         B = bg_frame(s, j, t); FRs = []; bot = []; AL = []
+        B = cv2.GaussianBlur(B, (0, 0), 1.4)   # hosts are the sharp plane: slight extra depth of field on the background
         if EXPO is None:   # one background exposure per lesson (first frame): graded bg mean luma -> 0.56, hosts keep their own exposure (key-light match below)
             EXPO = min([(abs(cv2.LUT((B * g_).clip(0, 255).astype(np.uint8), GRADE).mean() / 255 - 0.56), g_) for g_ in np.arange(0.85, 1.81, 0.03)])[1]; print('bg exposure gain %.2f' % EXPO)
         B = B * EXPO
@@ -355,18 +377,25 @@ for s in S:
             fr, al, (sc, cx, cy, ox, oy), who = R_[i]; f, a = comp(fr[j], al[j], sc, cx, cy, ox, oy, drift)
             sh = cv2.GaussianBlur(a, (0, 0), 16); sh = np.roll(np.roll(sh, 16, 0), 10, 1)[..., None] * 0.38
             B = B * (1 - sh) + np.array([30, 24, 14], np.float32) * sh
+            ao = cv2.GaussianBlur(a, (0, 0), 45)[..., None] * 0.22; B = B * (1 - ao)   # ambient occlusion / contact shadow around the body
+            B0 = B.copy()
             f = f.astype(np.float32)
             if (s['id'], i) not in KEYM:   # soft key-light match: host colour temperature + brightness pulled 20 % toward the background behind it
                 m_ = a > 0.9; ring_ = (cv2.dilate((a > 0.5).astype(np.uint8), np.ones((61, 61), np.uint8)) > 0) & ~m_
                 hm_ = f[m_].mean(0) + 1; bm_ = B[ring_].mean(0) + 1; KEYM[(s['id'], i)] = np.clip((bm_ / hm_) ** 0.2, 0.92, 1.08) * np.clip((bm_.mean() / hm_.mean()) ** 0.15, 0.94, 1.10)
             f = f * KEYM[(s['id'], i)] * 1.06   # +6 % key (owner: brighter, real-camera exposure)
+            if (s['id'], i, 'c') not in KEYM:   # contrast match + light direction from the background (left vs right third)
+                m_ = a > 0.9; hs_ = float(f[m_].std()) + 1; bs_ = float(B.std()) + 1; L3 = B.mean(2); KEYM[(s['id'], i, 'c')] = (float(np.clip((bs_ / hs_) ** 0.2, 0.92, 1.08)), f[m_].mean(0), 1 if L3[:, 720:].mean() > L3[:, :360].mean() else -1)
+            kc_, hm0_, ld_ = KEYM[(s['id'], i, 'c')]; f = hm0_ + (f - hm0_) * kc_
+            rim = np.clip(a - np.roll(a, 6 * ld_, 1), 0, 1)[..., None] * 0.35; f = f * (1 - rim) + np.minimum(cv2.GaussianBlur(B, (0, 0), 10) * 1.25, 255) * rim   # subtle rim from the bg light side
             if who == 'carlos': lum = f.mean(2, keepdims=True); f = f * (1 - 0.16 * np.clip((lum - 150) / 90, 0, 1))
             band = np.clip(a - cv2.GaussianBlur(a, (0, 0), 2.5), 0, 1)[..., None] * 1.8   # light wrap 2-3 px
             f[..., 1] = np.where(a < 0.97, np.minimum(f[..., 1], np.maximum(f[..., 0], f[..., 2]) + 10), f[..., 1])
             eo = (a > 0.08) & (a < 0.92); FRs.append(float(((f[..., 1] > f[..., 2] + 25) & (f[..., 1] > f[..., 0] + 25))[eo].mean()) if eo.any() else 0.0)
             bgb = cv2.GaussianBlur(B, (0, 0), 14); f = f * (1 - 0.5 * band) + bgb * 0.5 * band
-            a3 = a[..., None]; B = f * a3 + B * (1 - a3); xs = int(np.clip(ox, 80, 1000)); VB = VBOT('two' if s['other'] else s['frame']); bot.append(float(a[VB - 8:VB, xs - 60:xs + 60].mean())); AL.append(a)
+            a3 = a[..., None]; B = MR.over(f * a3, a, B, wrap_px=0); xs = int(np.clip(ox, 80, 1000)); VB = VBOT('two' if s['other'] else s['frame']); bot.append(float(a[VB - 8:VB, xs - 60:xs + 60].mean())); AL.append(a)
         QC.append(dict(t=round(t, 3), fringe=max(FRs), flick=0.0, bottom=min(bot)))
+        if j == s['n'] // 2 and len(AL) == 1: EQ.append(dict(shot=s['id'], **MR.edge_qa(B, AL[0], bg=B0)))   # edge QA on the rendered frame (singles)
         if s['other']:   # two-shot: gap between the silhouettes (above the desk)
             if j % 4 == 0 and len(AL) == 2:
                 g_ = []
@@ -376,6 +405,8 @@ for s in S:
                 QC[-1]['gap'] = min(g_) if g_ else 999
         B = cv2.LUT(B.clip(0, 255).astype(np.uint8), GRADE).astype(np.float32)                         # one grade for host + background
         B = B + cv2.resize(GRAIN[fi % 6], (1080, 1920), interpolation=cv2.INTER_NEAREST)[..., None]
+        if s['id'] == 'hook':   # owner 22/10: open with a punch-in on the speaker
+            z_ = 1 + 0.08 * (1 - (1 - min(1.0, j / FPS / 0.4)) ** 2); B = cv2.warpAffine(B, np.float32([[z_, 0, 540 * (1 - z_)], [0, z_, 960 * (1 - z_)]]), (1080, 1920), flags=cv2.INTER_LINEAR)
         img = Image.fromarray(cv2.cvtColor(B.clip(0, 255).astype(np.uint8), cv2.COLOR_BGR2RGB)).convert('RGBA')
         for o in OVS:
             if o['t'][0] - 1e-6 <= t < o['t'][1] - 1e-6 and o['_img'] is not None:
@@ -397,7 +428,7 @@ for s in S:
 fl.append(f'[1]adelay=0|0[s0]'); fl.append(''.join(vl) + f'[s0]amix=inputs={len(vl) + 1}:normalize=0:duration=longest,apad=whole_dur={TOTAL:.3f},atrim=0:{TOTAL:.3f},loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000[voice]')
 bl = ['[voice]', '[b1]']; fl.append(f'[2]volume={AMB_DB}dB,atrim=0:{TOTAL:.3f},aresample=48000[b1]')
 for f_, t_ in SFX:
-    ms = int(round(max(0, t_) * 1000)); ins += ['-i', FD + f_]; fl.append(f'[{k + 1}]volume={-22 if f_ == "pop.wav" else -14 if t_ == 0 else -25}dB,adelay={ms}|{ms},aresample=48000[x{k}]'); bl.append(f'[x{k}]'); k += 1
+    ms = int(round(max(0, t_) * 1000)); ins += ['-i', FD + f_]; fl.append(f'[{k + 1}]volume={-22 if f_ == "pop.wav" else -8 if t_ == 0 else -25}dB,adelay={ms}|{ms},aresample=48000[x{k}]'); bl.append(f'[x{k}]'); k += 1
 fl.append(''.join(bl) + f'amix=inputs={len(bl)}:normalize=0:duration=first,atrim=0:{TOTAL:.3f},alimiter=limit=0.89:level=0[out]')
 os.makedirs(f'{OUTD}/covers', exist_ok=True); OUTF = f'{OUTD}/{META["out"]}'
 subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-threads', '2', '-i', f'{RD}/video.mp4'] + ins + ['-filter_complex', ';'.join(fl), '-map', '0:v', '-map', '[out]',
@@ -409,7 +440,7 @@ if abs(_lu + 16) > 0.3:   # linear make-up gain to -16 LUFS (the bed stays as fa
 cv2.imwrite(f'{OUTD}/covers/' + os.path.basename(OUTF).replace('.mp4', '.jpg'), COVER if COVER is not None else out, [cv2.IMWRITE_JPEG_QUALITY, 90])
 for o in OV: o.pop('_img', None); o.pop('_chain', None)
 json.dump(dict(lesson=dict(META, out=META['out']), shots=[{k: v for k, v in s.items()}  for s in S],
-               overlays=OV, safe=SAFE, viral=True, punch={}, hook_kind='question', qa=QA, scene=TOTAL, total=TOTAL, end=0, endcard_boxes=[], sfx=SFX, avoid={}),
+               overlays=OV, safe=SAFE, viral=True, punch={'hook': 0.0}, hook_kind='question', qa=QA, scene=TOTAL, total=TOTAL, end=0, endcard_boxes=[], sfx=SFX, avoid={}),
           open(f'{RD}/timeline.json', 'w'), indent=1)
-json.dump(dict(bg_fill_visible_max=max(q['fill'] for q in BQA), bg_uncovered_max=max(q['uncovered'] for q in BQA), bottom_min=min(q['bottom'] for q in QC), two_gap_min=min([q['gap'] for q in QC if 'gap' in q] or [999]), fringe_max=max(q['fringe'] for q in QC), flicker_max=max(q['flick'] for q in QC), flicker_mean=float(np.mean([q['flick'] for q in QC])), frames=len(QC)), open(f'{RD}/qc.json', 'w'))
+json.dump(dict(bg_fill_visible_max=max(q['fill'] for q in BQA), bg_uncovered_max=max(q['uncovered'] for q in BQA), bottom_min=min(q['bottom'] for q in QC), two_gap_min=min([q['gap'] for q in QC if 'gap' in q] or [999]), fringe_max=max(q['fringe'] for q in QC), edge=EQ, flicker_max=max(q['flick'] for q in QC), flicker_mean=float(np.mean([q['flick'] for q in QC])), frames=len(QC)), open(f'{RD}/qc.json', 'w'))
 print('done', OUTF, f'{TOTAL:.2f} s', len(S), 'shots')

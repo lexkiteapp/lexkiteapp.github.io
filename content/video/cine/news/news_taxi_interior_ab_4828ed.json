@@ -83,10 +83,12 @@
    "get in a taxi / a car",
    "get on a bus / a train",
    "get on a plane"
-  ]
+  ],
+  "line_alt": "n_4828ed_r2"
  },
  "end_line": "n_4828ed_e",
  "link": "https://lexkite.com/app/#/grammar",
  "cta": "Practice grammar free on lexkite.com",
- "est": 25.0
+ "est": 25.0,
+ "end_alt": "n_4828ed_e2"
 }

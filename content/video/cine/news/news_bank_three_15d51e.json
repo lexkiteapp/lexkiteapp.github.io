@@ -78,10 +78,12 @@
    "I'd like to open an account.",
    "Can I withdraw some cash?",
    "Is there a fee for that?"
-  ]
+  ],
+  "line_alt": "n_15d51e_r2"
  },
  "end_line": "n_15d51e_e",
  "link": "https://lexkite.com/app/#/toeic",
  "cta": "Practice TOEIC free on lexkite.com",
- "est": 24.0
+ "est": 24.0,
+ "end_alt": "n_15d51e_e2"
 }

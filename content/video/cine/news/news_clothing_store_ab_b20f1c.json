@@ -83,11 +83,13 @@
    "Can I try it on?",
    "try on this jacket",
    "try it on"
-  ]
+  ],
+  "line_alt": "n_b20f1c_r2"
  },
  "end_line": "n_b20f1c_e",
  "link": "https://lexkite.com/app/#/grammar",
  "cta": "Practice grammar free on lexkite.com",
  "est": 24.6,
- "no_intro": true
+ "no_intro": true,
+ "end_alt": "n_b20f1c_e2"
 }

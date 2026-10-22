@@ -83,10 +83,12 @@
    "make dinner",
    "make coffee",
    "make a cake"
-  ]
+  ],
+  "line_alt": "n_a30db6_r2"
  },
  "end_line": "n_a30db6_e",
  "link": "https://lexkite.com/app/#/usage?c=pair",
  "cta": "Compare tricky words on lexkite.com",
- "est": 23.5
+ "est": 23.5,
+ "end_alt": "n_a30db6_e2"
 }

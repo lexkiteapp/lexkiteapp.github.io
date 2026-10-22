@@ -67,10 +67,12 @@
    "Can I get a medium latte?",
    "Could I get that to go?",
    "Can I pay by card?"
-  ]
+  ],
+  "line_alt": "n_e0b1b7_r2"
  },
  "end_line": "n_e0b1b7_e",
  "link": "https://lexkite.com/app/#/phrases",
  "cta": "Save useful phrases on lexkite.com",
- "est": 22.5
+ "est": 22.5,
+ "end_alt": "n_e0b1b7_e2"
 }

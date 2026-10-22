@@ -21,6 +21,12 @@
    "intro": true
   },
   {
+   "who": "carlos",
+   "line": "n_23140c_in2",
+   "card": null,
+   "intro2": true
+  },
+  {
    "who": "ama",
    "line": "n_23140c_1",
    "card": {
@@ -89,10 +95,12 @@
    "I see your point, but...",
    "I'm not sure about that.",
    "I don't think so."
-  ]
+  ],
+  "line_alt": "n_23140c_r2"
  },
  "end_line": "n_23140c_e",
  "link": "https://lexkite.com/app/#/toeic",
  "cta": "Practice TOEIC free on lexkite.com",
- "est": 24.6
+ "est": 24.6,
+ "end_alt": "n_23140c_e2"
 }

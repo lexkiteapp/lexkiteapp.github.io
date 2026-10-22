@@ -67,11 +67,13 @@
    "Which line goes downtown?",
    "Where do I transfer?",
    "How many stops is it?"
-  ]
+  ],
+  "line_alt": "n_4b67fc_r2"
  },
  "end_line": "n_4b67fc_e",
  "link": "https://lexkite.com/app/#/listening",
  "cta": "Train your listening on lexkite.com",
  "est": 20.9,
- "no_intro": true
+ "no_intro": true,
+ "end_alt": "n_4b67fc_e2"
 }

@@ -83,10 +83,12 @@
    "I agree.",
    "I agree with you.",
    "I don't agree."
-  ]
+  ],
+  "line_alt": "n_0f9226_r2"
  },
  "end_line": "n_0f9226_e",
  "link": "https://lexkite.com/app/#/grammar",
  "cta": "Practice grammar free on lexkite.com",
- "est": 21.5
+ "est": 21.5,
+ "end_alt": "n_0f9226_e2"
 }

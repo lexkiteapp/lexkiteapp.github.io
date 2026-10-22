@@ -72,10 +72,12 @@
    "How much does it cost?",
    "How much do these cost?",
    "How much is it?"
-  ]
+  ],
+  "line_alt": "n_155f6a_r2"
  },
  "end_line": "n_155f6a_e",
  "link": "https://lexkite.com/app/#/grammar",
  "cta": "Practice grammar free on lexkite.com",
- "est": 23.5
+ "est": 23.5,
+ "end_alt": "n_155f6a_e2"
 }

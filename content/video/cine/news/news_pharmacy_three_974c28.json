@@ -21,6 +21,12 @@
    "intro": true
   },
   {
+   "who": "carlos",
+   "line": "n_974c28_in2",
+   "card": null,
+   "intro2": true
+  },
+  {
    "who": "ama",
    "line": "n_974c28_1",
    "card": {
@@ -73,10 +79,12 @@
    "I need something for a headache.",
    "Do I need a prescription?",
    "How often should I take it?"
-  ]
+  ],
+  "line_alt": "n_974c28_r2"
  },
  "end_line": "n_974c28_e",
  "link": "https://lexkite.com/app/#/roleplay",
  "cta": "Roleplay this free on lexkite.com",
- "est": 25.2
+ "est": 25.2,
+ "end_alt": "n_974c28_e2"
 }
