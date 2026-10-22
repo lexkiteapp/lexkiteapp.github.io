@@ -158,7 +158,8 @@
   };
 
   // ---------- Trang #/league ----------
-  routes.league = async function () {
+  routes.league = App.guard(async function () {
+    const w = App.W;
     view.innerHTML = `
       <div class="league-wrap">
         <div class="page-head">
@@ -219,7 +220,7 @@
     // Lấy dữ liệu giải đấu
     let data;
     try {
-      data = await window.Sync.league('me');
+      data = await w(window.Sync.league('me', {}, w.signal));
     } catch (e) {
       body.removeAttribute('aria-busy');
       body.innerHTML = `
@@ -471,5 +472,5 @@
         if (banner) banner.remove();
       };
     }
-  };
+  });
 })();

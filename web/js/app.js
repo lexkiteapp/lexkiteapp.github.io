@@ -326,6 +326,13 @@
   App.lazy = (...names) => { const tok = routeSeq, pending = new Promise(() => {}); return App.need(...names).then(v => (tok !== routeSeq ? pending : v), e => (tok !== routeSeq ? pending : Promise.reject(e))); };
   // Bọc một tác vụ bất đồng bộ của trang: kết quả về muộn (trang đã đổi) → bỏ. const tok = App.routeToken(); … if (App.routeStale(tok)) return;
   App.live = p => { const tok = routeSeq, pending = new Promise(() => {}); return Promise.resolve(p).then(v => (tok !== routeSeq ? pending : v), e => (tok !== routeSeq ? pending : Promise.reject(e))); };
+  // App.guard(fn): bọc MỘT LẦN cho trang bất đồng bộ. Trong fn: const w = App.W (đọc ngay đầu hàm, trước await đầu tiên); await w(lời_hứa) → trang đã đổi thì lời hứa không bao giờ
+  // hoàn tất (không vẽ đè); w.signal cho fetch; w.stale() kiểm tra trước khi ghi DOM.
+  App.guard = fn => function (...a) {
+    const tok = routeSeq, w = p => Promise.resolve(p).then(v => (tok !== routeSeq ? new Promise(() => {}) : v), e => (tok !== routeSeq ? new Promise(() => {}) : Promise.reject(e)));
+    w.signal = scope.ac.signal; w.stale = () => tok !== routeSeq; App.W = w;
+    return fn.apply(this, a);
+  };
   async function route() {
     const my = ++routeSeq; // token của lượt này
     scope.ac.abort(); scope = { id: my, ac: new AbortController() };
@@ -883,8 +890,8 @@
   // Lời mời cài add-on (chỉ Chromium máy tính, chưa cài – web/js/ext-cta.js quyết định), nạp lười; URL cửa hàng: js/ext-config.js
   let extP = null;
   const extCta = () => Store.isExtension ? Promise.resolve(null) : (extP || (extP = loadScript('js/ext-config.js').then(() => loadScript('js/ext-cta.js')).catch(() => {}))).then(() => { if (window.LKExt) LKExt.scan(view); return window.LKExt || null; });
-  routes.dict = async function (q) {
-    const recent = await Store.get('recent', []);
+  routes.dict = App.guard(async function (q) {
+    const w = App.W, recent = await w(Store.get('recent', []));
     view.innerHTML = `
       <div class="page-head"><div><h1>${t('Từ điển Anh – Việt')}</h1><p class="muted">${t('Định nghĩa Oxford Languages · phiên âm UK/US · câu song ngữ · collocation · từ liên quan')}</p></div></div>
       <form class="search" id="searchForm" autocomplete="off">
@@ -908,10 +915,10 @@
     // Hiện kết quả nhanh trước (nghĩa, phiên âm), rồi bổ sung âm thanh, hình, câu ví dụ
     let spoke = false;
     const same = () => Dict.normWord(parseHash().arg) === Dict.normWord(q);
-    const fast = await Dict.quick(q);
+    const fast = await w(Dict.quick(q));
     if (!same()) return;
     if (fast) paint(fast, false);
-    const full = await Dict.lookup(q);
+    const full = await w(Dict.lookup(q));
     if (!same()) return;
     if (!full || !full.found) {
       if (!fast) $('#result').innerHTML = `<div class="card empty"><div class="em">🤔</div><p>${t('Không tìm thấy “{q}”.', { q: esc(q) })}${full && full.vi ? ' ' + t('Gợi ý dịch: <b>{vi}</b>', { vi: esc(full.vi) }) : ''}</p><p class="small">${t('Kiểm tra chính tả hoặc kết nối mạng.')}</p></div>`;
@@ -1022,7 +1029,7 @@
     $('#saveWord').onclick = save;
     const qs = $('#quickSave'); if (qs) qs.onclick = save;
     }
-  };
+  });
 
   // Cụm từ & cấu trúc chứa từ đang tra: từ thư viện + sổ cụm từ của người học
   function drawPhrases(e) {

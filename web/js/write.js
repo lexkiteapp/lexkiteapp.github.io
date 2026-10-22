@@ -59,9 +59,10 @@
   };
 
   let timer = null;
-  routes.write = async function (arg) {
-    const essays = await Store.get('essays', []);
-    const draft = await Store.get('essayDraft', { prompt: 'p1', text: '' });
+  routes.write = App.guard(async function (arg) {
+    const w = App.W;
+    const essays = await w(Store.get('essays', []));
+    const draft = await w(Store.get('essayDraft', { prompt: 'p1', text: '' }));
     const p = PROMPTS.find(x => x.id === (arg || draft.prompt)) || PROMPTS[0];
     const topic = App.topicOf(p.topic);
     view.innerHTML = `
@@ -131,7 +132,7 @@
     };
     $('#analyze').onclick = () => report(ta.value, p, true);
     if (window.Assist) Assist.attach(ta, ta.parentElement);
-  };
+  });
 
   async function report(text, p, fresh) {
     const a = Lexis.analyze(text);

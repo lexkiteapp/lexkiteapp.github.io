@@ -46,13 +46,14 @@
     document.head.appendChild(s);
   }
 
-  routes.fix = async function () {
+  routes.fix = App.guard(async function () {
+    const w = App.W;
     style();
     const W = window.LK_WRITE;
     if (!W) { view.innerHTML = `<div class="card empty"><div class="em">⚠️</div>${t('Không tải được bộ soát lỗi – thử tải lại trang.')}</div>`; return; }
     const ignored = new Set(JSON.parse(ss('fx.ign') || '[]'));
     const off = new Set(JSON.parse(ss('fx.off') || '[]'));
-    let text = String(await Store.get('fixDraft', '') || ''), issues = [], sel = -1, undo = [], timer = 0, saveT = 0;
+    let text = String(await w(Store.get('fixDraft', '')) || ''), issues = [], sel = -1, undo = [], timer = 0, saveT = 0;
     view.innerHTML = `<div class="page-head"><div><h1>✍️ ${t('Sửa ngữ pháp')}</h1><p class="muted">${t('Dán hoặc gõ đoạn văn tiếng Anh – lỗi được gạch chân ngay. Bộ soát chạy hoàn toàn trên máy bạn, không gửi chữ đi đâu.')}</p></div></div>
       <div class="fx">
         <div>
@@ -182,5 +183,5 @@
     check();
     if (!text) ta.focus();
     App.cleanups.push(() => { clearTimeout(timer); if (saveT) { clearTimeout(saveT); Store.set('fixDraft', text.slice(0, MAXLEN)); } });
-  };
+  });
 })();

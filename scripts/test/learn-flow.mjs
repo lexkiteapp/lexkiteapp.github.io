@@ -301,11 +301,11 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
 {
   w.localStorage.removeItem('vb.noAudioUntil'); w.localStorage.removeItem('vb.noMicUntil');
   const tw = w.App.topicOf('awl1').words, BM = new Map(tw.map(x => [w.App.meanOf(x), x.word]));
-  const typoOf = s => s.length >= 6 && !w.IELTS_DATA.INDEX[s.slice(0, -2) + s.slice(-1)] ? s.slice(0, -2) + s.slice(-1) : s; // bỏ 1 chữ gần cuối
+  const typoOf = s => { if ((s.match(/[a-z]/g) || []).length < 4) return s; for (let i = s.length - 2; i >= 1; i--) { const m = s.slice(0, i) + s.slice(i + 1); if (!w.IELTS_DATA.INDEX[m.toLowerCase()]) return m; } return s; }; // bỏ 1 chữ (thử từng vị trí tới khi được chuỗi không phải từ thật) → luôn tạo được lỗi gõ cho mọi từ ≥ 4 chữ cái (trước đây chỉ từ ≥ 6 chữ & đúng vị trí → thi thoảng không có câu nào đủ điều kiện)
   await go('#/home', 100); await go('#/practice/mcq?src=topic:awl1', 400);
   ok(w.LessonFx && $('.study-top') && $('.lfx-combo'), 'lesson-fx nạp cùng #/practice, có chỗ cho chip chuỗi đúng');
   const chips = []; let sawHard = false, badge = false, typoOk = false, typed = 0;
-  for (let k = 0; k < 14 && !$('.lfx-stats'); k++) {
+  for (let k = 0; k < 30 && !$('.lfx-stats'); k++) {
     await tick(280); chips.push((($('.lfx-combo') || {}).textContent || '').trim());
     if ($('#lfxHardYes')) { sawHard = /8/.test($('#lfxHardH').textContent) && /<svg/.test($('.lfx-hardin').innerHTML); click($('#lfxHardYes')); continue; }
     if ($('.options .option')) { const wd = ($('.entry-word') || {}).textContent; click($$('.options .option').find(b => b.dataset.o === wd)); }
