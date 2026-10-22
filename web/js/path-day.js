@@ -17,9 +17,12 @@
   // ---------- Danh sách ngày (thứ tự toàn lộ trình) + trạng thái ----------
   // Gói học (tracks.js): mỗi gói có chặng riêng; khóa bản ghi "gói:bộ~N" (gói nhận tiến độ cũ giữ khóa "bộ~N")
   const TK = () => g.Tracks;
+  // Lần đầu mở (storage trống) Tracks.cur() có thể chưa có → rơi về gói mặc định 'comm'; chặng luôn là mảng
+  const curTr = () => TK().cur() || TK().TR.comm;
+  const stagesOf = tr => (tr && tr.stages) || [];
   function days(tr) {
-    tr = tr || TK().cur();
-    const sid = TK().start(tr), us = P().unitState(tr.id === 'ielts' ? null : tr.stages, sid), out = [], leg = TK().isLegacy(tr), old = TK().readsOld(tr);
+    tr = tr || curTr();
+    const sid = TK().start(tr), us = P().unitState(tr.id === 'ielts' ? null : stagesOf(tr), sid), out = [], leg = TK().isLegacy(tr), old = TK().readsOld(tr);
     for (const u of us) {
       const n = App.dayN(u.topic.id);
       for (let j = 1; j <= n; j++) {
@@ -37,7 +40,7 @@
 
   // ---------- Các hoạt động của 1 ngày: dễ → khó, đổi theo trình độ chặng ----------
   function plan(d) {
-    const tr = d.tr || TK().cur(), tier = TK().tierOf(tr, d.unit.stage), src = encodeURIComponent('topic:' + d.id), lis = tr.id === 'ielts' || tr.id === 'comm';
+    const tr = d.tr || curTr(), tier = TK().tierOf(tr, d.unit.stage), src = encodeURIComponent('topic:' + d.id), lis = tr.id === 'ielts' || tr.id === 'comm';
     const S = (k, em, name, sub, mins, extra) => ({ k, em, name, sub, mins, href: `#/practice/${k}?src=${src}`, mode: k, ...extra });
     const X = (k, em, name, sub, mins, href, c) => ({ k, em, name, sub, mins, href, ext: c, tap: !c }); // tap: trang không cộng điểm → xong khi mở
     const ST = P().STEPS(), sub = k => (ST.find(x => x[0] === k) || [])[3];
@@ -103,7 +106,7 @@
 
   // ---------- Bản đồ: chặng (gập/mở) → bài (tiến độ x/y ngày) → nút Ngày ----------
   async function map() {
-    await load(); const tr = TK().cur(); await TK().ready(tr); settleExt(); css();
+    await load(); const tr = curTr(); await TK().ready(tr); settleExt(); css();
     const view = App.view, ds = days();
     if (!ds.length) { view.innerHTML = `<div class="card empty"><div class="em" aria-hidden="true">🗺️</div><h2>${t('Không tải được – thử lại sau')}</h2><button class="btn primary" id="pathRetry">${t('Thử lại')}</button></div>`; $('#pathRetry').onclick = () => App.need('words').then(map).catch(() => {}); return; }
     const ielts = tr.id === 'ielts', cur = ds.find(d => d.status === 'current'), nDone = ds.filter(d => d.done).length;
@@ -111,7 +114,7 @@
     view.innerHTML = `<div class="page-head"><div><h1>${ielts ? t('Lộ trình chinh phục IELTS') : tr.em + ' ' + esc(tr.name)}</h1><p class="muted">${t('Đã xong {a}/{b} ngày · mỗi ngày 5–10 phút, dễ trước khó sau.', { a: nDone, b: ds.length })}</p></div>
       <div class="row">${ring(nDone / ds.length * 100, `${Math.round(nDone / ds.length * 100)}%`, 'var(--good)')}</div></div>${TK().switcher('path')}
       ${cur ? `<a class="btn primary lg block path-cta" href="#/day/${cur.n}">${(cur.rec.s || []).length ? t('Tiếp tục Ngày {n}', { n: cur.n }) : t('Bắt đầu Ngày {n}', { n: cur.n })} · ${esc(cur.unit.topic.name)} →</a>` : `<p class="center">🏆 ${t('Bạn đã hoàn thành toàn bộ lộ trình!')}</p>`}
-      <div class="path">${tr.stages.map(st => {
+      <div class="path">${stagesOf(tr).map(st => {
         const sd = ds.filter(d => d.unit.stage.id === st.id), k = sd.filter(d => d.done).length;
         return `<details class="dp-stage" data-st="${st.id}"${st.id === curSt ? ' open' : ''}><summary class="stage-banner" style="--sc:${st.color};cursor:pointer">
           <div><div class="tiny stage-lv">${ielts ? `${st.cefr} · ${st.band}` : `CEFR ${st.cefr}`}</div><h2 style="margin:.1rem 0;color:#fff">${st.name}</h2><div class="small" style="opacity:.92">${st.desc}</div><div class="small stage-cando">🎯 ${st.cando}</div>${st.id === 's0' || st.id === 'comm1' ? `<a class="chip stage-rp" href="#/roleplay">🎭 ${t('Luyện nói: tình huống hằng ngày')}</a>` : ''}</div>
@@ -119,7 +122,7 @@
       }).join('')}</div>`;
     const fill = el => {
       const body = el.querySelector('.dp-body'); if (body.childElementCount) return;
-      const st = tr.stages.find(s => s.id === el.dataset.st), sd = ds.filter(d => d.unit.stage.id === st.id);
+      const st = stagesOf(tr).find(s => s.id === el.dataset.st), sd = ds.filter(d => d.unit.stage.id === st.id);
       const units = [...new Set(sd.map(d => d.unit))];
       let idx = 0;
       body.innerHTML = units.map(u => {
@@ -153,7 +156,7 @@
 
   // ---------- Trang buổi học #/day/N ----------
   async function page(arg) {
-    await load(); await TK().ready(TK().cur()); settleExt(); css();
+    await load(); await TK().ready(curTr()); settleExt(); css();
     const view = App.view, ds = days();
     const d = ds[(+arg || (ds.find(x => x.status === 'current') || ds[0] || {}).n) - 1];
     if (!d) { location.hash = '#/path'; return; }
@@ -181,7 +184,7 @@
 
   // ---------- Thanh tiến độ buổi học trên trang bài tập ----------
   async function bar() {
-    await load(); await TK().ready(TK().cur());
+    await load(); await TK().ready(curTr());
     if (settleExt()) { const d0 = find(ls('daySess')); if (d0) await finishIf(d0); }
     const d = find(ls('daySess')); if (!d || d.done) { ls('daySess', null); return; }
     const view = App.view; if (view.querySelector('.day-bar')) return;
@@ -223,7 +226,7 @@
 
   // ---------- Kế hoạch hôm nay: "Ngày N" là việc chính (plan.js) ----------
   async function todayTask() {
-    await load(); const tr = TK().cur(); await TK().ready(tr); settleExt();
+    await load(); const tr = curTr(); await TK().ready(tr); settleExt();
     const ds = days(), k = Core.todayKey();
     const doneToday = ds.filter(d => d.rec.done && Core.todayKey(new Date(d.rec.done)) === k).pop();
     const cur = ds.find(d => d.status === 'current');
