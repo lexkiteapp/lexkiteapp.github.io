@@ -4,9 +4,25 @@
 const ORIGIN = 'https://lexkiteapp.github.io/lexkite-media';
 const YEAR = 31536000, DAY = 86400;
 const TYPES = { avif: 'image/avif', webp: 'image/webp', png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', svg: 'image/svg+xml', mp4: 'video/mp4', json: 'application/json' };
+// /video/<bài>/<tên>-<băm>.(mp4|webp|vtt): bản web của short bản tin (scripts/video/web-rendition.mjs) – gốc = GitHub Release 'wv-<bài>' của repo web.
+// Tên theo mã băm → immutable 1 năm; MP4 chuyển tiếp Range (tua), VTT cho <track crossorigin>.
+const VIDEO_ORIGIN = 'https://github.com/lexkiteapp/lexkiteapp.github.io/releases/download/wv-';
+const VTYPES = { mp4: 'video/mp4', webp: 'image/webp', vtt: 'text/vtt; charset=utf-8' };
+async function video(req, url) {
+  const m = url.pathname.match(/^\/video\/([a-z0-9_]{6,80})\/([a-z0-9_-]{1,40}-[0-9a-f]{8}\.(mp4|webp|vtt))$/);
+  if (!m || !['GET', 'HEAD'].includes(req.method)) return new Response('Not found', { status: 404 });
+  const range = m[3] === 'mp4' ? req.headers.get('Range') : null;
+  const r = await fetch(VIDEO_ORIGIN + m[1] + '/' + m[2], { method: req.method, redirect: 'follow', headers: range ? { Range: range } : {}, cf: { cacheEverything: true, cacheTtlByStatus: { '200-299': YEAR, '404': 300, '500-599': 0 } } });
+  const h = new Headers({ 'Content-Type': VTYPES[m[3]], 'Access-Control-Allow-Origin': '*', 'X-Content-Type-Options': 'nosniff', 'Timing-Allow-Origin': '*', 'Cache-Control': r.ok ? `public, max-age=${YEAR}, immutable` : 'public, max-age=300' });
+  for (const k of ['etag', 'content-range', 'content-length', 'last-modified']) if (r.headers.get(k)) h.set(k, r.headers.get(k));
+  if (m[3] === 'mp4') h.set('Accept-Ranges', 'bytes');
+  return new Response(r.body, { status: r.status, headers: h });
+}
 export default {
   async fetch(req, env = {}, ctx) {
-    const url = new URL(req.url), m = url.pathname.match(/^\/([a-z0-9/_.-]+)\.(avif|webp|png|jpe?g|svg|mp4|json)$/i);
+    const url = new URL(req.url);
+    if (url.pathname.startsWith('/video/')) return video(req, url);
+    const m = url.pathname.match(/^\/([a-z0-9/_.-]+)\.(avif|webp|png|jpe?g|svg|mp4|json)$/i);
     const ext = m && m[2].toLowerCase(), lib = url.pathname.startsWith('/library/');
     if (!['GET', 'HEAD'].includes(req.method) || !m || url.pathname.includes('..') || ((ext === 'mp4' || ext === 'json') && !lib)) return new Response('Not found', { status: 404 });
     // Ảnh riêng từng bài (/blog/p/<hash>-<w>.<ext>, scripts/blog-images.mjs): R2 bucket lexkite-blog-media (binding BLOG_MEDIA) nếu đã gắn,

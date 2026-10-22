@@ -354,6 +354,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       <div class="row between"><a href="#/grammar" class="small">← ${t('Ngữ pháp')}</a><a class="btn sm" href="#/grammar/${x.id}">🎯 ${t('Học từng bước')}</a></div>
       ${heroHtml(x, unit)}
       <div class="stack" id="gBody">${x.blocks.map(b => (R[b.type] || (() => ''))(b)).join('')}${l1Slot(x)}</div>
+      <div class="lv-slot" hidden data-lv="${esc(JSON.stringify({ mode: 'grammar', grammar: [x.id], level: x.level || '' }))}"></div>
       <div style="margin-top:1rem">${quizHtml(x)}</div>
       ${drillsOf(x).length ? `<div style="margin-top:1rem">${drillsHtml(x)}</div>` : ''}
       <div style="margin-top:1rem">${challengeHtml(x)}</div>
@@ -363,6 +364,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     if (drillsOf(x).length) bindDrills(x);
     bindChallenge(x);
     fillL1(x);
+    App.need('lvideo').then(() => window.LessonVideo && LessonVideo.scan(view)).catch(() => {}); // 🎬 video khớp chủ điểm (ẩn nếu không có)
   }
 
   // ---------- Chế độ học từng bước (kiểu Duolingo) ----------

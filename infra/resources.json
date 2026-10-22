@@ -280,7 +280,7 @@
       "key": "media-worker",
       "name": "Cloudflare Worker lexkite-media (media.lexkite.com)",
       "kind": "cdn",
-      "purpose": "CDN ảnh riêng (blog, ảnh chụp app): đứng trước kho lexkite-media, máy chủ gần người dùng, cache 1 năm. /library/* = kho dựng video (WebP/MP4 có Range/index.json, cache 1 ngày) do scripts/video/library.mjs sync đẩy lên. /blog/p/* = ảnh riêng từng bài: đọc R2 lexkite-blog-media (binding BLOG_MEDIA) trước, không có thì lùi về kho GitHub",
+      "purpose": "CDN ảnh riêng (blog, ảnh chụp app): đứng trước kho lexkite-media, máy chủ gần người dùng, cache 1 năm. /library/* = kho dựng video (WebP/MP4 có Range/index.json, cache 1 ngày) do scripts/video/library.mjs sync đẩy lên. /blog/p/* = ảnh riêng từng bài: đọc R2 lexkite-blog-media (binding BLOG_MEDIA) trước, không có thì lùi về kho GitHub. /video/<bài>/* = bản web của short bản tin (mp4 720p có Range, poster WebP, phụ đề VTT 15 ngôn ngữ) – gốc GitHub Release wv-<bài> của repo web, cache 1 năm (immutable, tên theo mã băm)",
       "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/workers/services/view/lexkite-media/production",
       "free": "100.000 lượt/ngày (lượt trúng cache trình duyệt không tính)",
       "upgrade": "Kho gần 1 GB → đổi ORIGIN trong workers/media sang R2 (URL ảnh giữ nguyên)",
@@ -288,6 +288,19 @@
       "match": [
         "media.lexkite.com",
         "lexkite-media"
+      ]
+    },
+    {
+      "key": "web-video",
+      "name": "Video bài học trên web (GitHub Releases wv-<bài> → media.lexkite.com/video/)",
+      "kind": "storage",
+      "purpose": "Một clip – hai nơi dùng (docs/VIDEO-SCALE-PLAN.md §10): workflow .github/workflows/video-web.yml (sau cine-render + hằng ngày) dựng bản web 720×1280 ~2–3 MB + poster WebP + phụ đề WebVTT 15 ngôn ngữ (dịch + AI chấm qua /api/lexai, OIDC) từ master trong lexkite-shorts, đẩy lên GitHub Release 'wv-<bài>' (prerelease) của lexkiteapp/lexkiteapp.github.io bằng GITHUB_TOKEN – không secret mới. Manifest công khai web/data/videos.json; lượt xem/xem hết/câu đố qua /api/hit (t:'v').",
+      "console": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases",
+      "free": "GitHub Releases: file ≤ 2 GB, băng thông miễn phí; Worker media 100.000 lượt/ngày (cache biên 1 năm)",
+      "upgrade": "Khi có R2 (secret R2_*): đổi VIDEO_ORIGIN trong workers/media sang bucket, URL giữ nguyên",
+      "status": "Miễn phí",
+      "match": [
+        "releases/download/wv-"
       ]
     },
     {

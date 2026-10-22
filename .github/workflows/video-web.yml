@@ -1,0 +1,77 @@
+# Bản WEB của short bản tin – "một clip, hai nơi dùng" (docs/VIDEO-SCALE-PLAN.md §10). Chạy SAU khi cine-render lưu bài ĐẠT QA
+# (workflow_run) + hằng ngày + chạy tay. 0 đồng: ffmpeg trên runner, phụ đề dịch + AI chấm qua /api/lexai (OIDC, kho Gemini → Workers AI),
+# file lên GitHub Release 'wv-<bài>' của repo này (GITHUB_TOKEN) → phục vụ qua media.lexkite.com/video/ (Worker lexkite-media, cache 1 năm).
+# Chỉ clip bản tin QA ≥ 90 + chủ duyệt (content/video/web/approved.json) hoặc mẫu thử ẩn. Kết quả: web/data/videos.json + content/video/web/captions/.
+name: video-web
+on:
+  workflow_run:
+    workflows: [cine-render]
+    types: [completed]
+  schedule:
+    - cron: '47 4 * * *'
+  workflow_dispatch:
+    inputs:
+      force: { description: 'Dựng lại mọi clip (bỏ qua so khớp rev)', type: boolean, default: false }
+permissions:
+  contents: write
+  id-token: write
+concurrency: { group: video-web, cancel-in-progress: false }
+jobs:
+  web:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion != 'cancelled'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Lấy manifest short (repo riêng lexkite-shorts, sparse)
+        env: { KEY: '${{ secrets.SHORTS_DEPLOY_KEY }}' }
+        run: |
+          [ -n "$KEY" ] || { echo "::error::thiếu secret SHORTS_DEPLOY_KEY"; exit 1; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/shorts && chmod 600 ~/.ssh/shorts
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/shorts -o IdentitiesOnly=yes"; echo "GIT_SSH_COMMAND=$GIT_SSH_COMMAND" >> "$GITHUB_ENV"   # cả bước sau (lấy blob theo sparse)
+          git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-shorts.git shorts-repo
+          git -C shorts-repo sparse-checkout set --no-cone '/shorts/index.json'; git -C shorts-repo checkout -q
+      - name: Lập kế hoạch (clip đủ điều kiện, chưa có bản web)
+        id: plan
+        env: { FORCE: "${{ inputs.force && '1' || '' }}" }
+        run: |
+          node scripts/video/web-rendition.mjs plan shorts-repo
+          if [ -s .webvid/dirs.txt ]; then git -C shorts-repo sparse-checkout add $(cat .webvid/dirs.txt); fi
+      - name: Cài ffmpeg + dựng kho từ
+        if: steps.plan.outputs.todo != '0'
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          node scripts/build-lexicon.mjs --write >/dev/null
+      - name: Dựng bản web + phụ đề 15 ngôn ngữ + thẻ + câu đố
+        if: steps.plan.outputs.todo != '0'
+        run: node scripts/video/web-rendition.mjs build shorts-repo
+      - name: Đẩy lên GitHub Release (CDN media.lexkite.com/video/)
+        if: steps.plan.outputs.todo != '0'
+        env: { GITHUB_TOKEN: '${{ github.token }}' }
+        run: node scripts/video/web-rendition.mjs publish
+      - name: Manifest + kiểm schema
+        run: node scripts/video/web-rendition.mjs manifest shorts-repo && node scripts/test/video-web.mjs --schema-only
+      - name: Commit + triển khai + IndexNow
+        env: { HOOK: '${{ secrets.CF_PAGES_DEPLOY_HOOK }}' }
+        run: |
+          git add web/data/videos.json content/video/web/captions
+          if git diff --cached --quiet; then echo "không có thay đổi"; exit 0; fi
+          git -c user.name="lexkite-bot" -c user.email="lexkite-bot@users.noreply.github.com" commit -qm "video-web: cập nhật bản web của short bản tin"
+          git checkout -q -- .   # bỏ thay đổi phụ (build-lexicon --write) để rebase được
+          for k in 1 2 3 4 5; do git push -q origin HEAD:main && break; git pull -q --rebase origin main; done
+          [ -n "$HOOK" ] && curl -fsS -X POST "$HOOK" >/dev/null && echo "đã gọi deploy hook" || echo "::warning::không gọi được deploy hook"
+          if [ -s .webvid/new-urls.txt ]; then sleep 240; node scripts/indexnow.mjs < .webvid/new-urls.txt || echo "::warning::IndexNow lỗi"; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: video-web-${{ github.run_number }}
+          path: |
+            .webvid/*/meta.json
+            .webvid/*/*.vtt
+            .webvid/plan.json
+          retention-days: 14
+          if-no-files-found: ignore
