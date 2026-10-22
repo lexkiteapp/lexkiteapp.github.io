@@ -5,15 +5,34 @@
  * – Giao diện trong Shadow DOM riêng (<lexkite-wc>), vẽ đè (overlay) bằng tọa độ – KHÔNG sửa DOM của trang; chỉ đổi chữ khi người dùng bấm gợi ý. */
 (() => {
   if (!window.LK_WRITE) return; // bản cũ (trước khi add-on cập nhật) tự tắt nhờ sự kiện 'ielts-lexi-takeover' do content.js phát
-  let dead = false;
-  const alive = () => { try { return !dead && !!chrome.runtime.id; } catch (e) { return false; } };
-  document.addEventListener('ielts-lexi-takeover', ev => { if (ev.detail !== chrome.runtime.id) return; dead = true; detach(); if (hostEl) hostEl.remove(); });
-  const send = msg => { try { return alive() ? chrome.runtime.sendMessage(msg).catch(() => null) : Promise.resolve(null); } catch (e) { return Promise.resolve(null); } };
+  // ---------- Vòng đời: khi add-on được tải lại/cập nhật, bản content script cũ ở các tab đang mở bị "mồ côi" (chrome.runtime.id = undefined,
+  // mọi lời gọi chrome.* ném "Extension context invalidated"). Mọi đường vào (sự kiện, timer, observer, listener chrome, promise) đi qua
+  // các hàm bọc dưới đây: hết sống thì lặng lẽ tự gỡ (listener, observer, timer, UI) và KHÔNG ném lỗi. Bản mới chạy sẽ tắt bản cũ cùng thế giới.
+  const NS = '__lkWC', timers = new Set(), cleanups = []; let gone = false;
+  const alive = () => { try { return !gone && !!chrome.runtime.id; } catch (e) { return false; } };
+  const stop = () => {
+    if (gone) return; gone = true;
+    timers.forEach(t => clearTimeout(t)); timers.clear();
+    cleanups.splice(0).forEach(f => { try { f(); } catch (e) { /* bỏ qua */ } });
+    try { if (window[NS] && window[NS].stop === stop) delete window[NS]; } catch (e) { /* bỏ qua */ }
+  };
+  try { const prev = window[NS]; if (prev && prev.stop) prev.stop(); } catch (e) { /* bỏ qua */ }
+  window[NS] = { stop };
+  const guard = fn => function (...a) { if (!alive()) { stop(); return undefined; } try { return fn.apply(this, a); } catch (e) { if (alive()) throw e; stop(); return undefined; } };
+  const bind = (t, ev, fn, o) => { const h = guard(fn); t.addEventListener(ev, h, o); cleanups.push(() => { try { t.removeEventListener(ev, h, o); } catch (e) { /* bỏ qua */ } }); };
+  const later = (fn, ms) => { const id = setTimeout(() => { timers.delete(id); if (!alive()) return stop(); try { fn(); } catch (e) { if (alive()) throw e; stop(); } }, ms); timers.add(id); return id; };
+  const DEAD = null; // writecheck: send() luôn trả null khi lỗi/hết sống
+  const send = m => { if (!alive()) { stop(); return Promise.resolve(DEAD); } try { return Promise.resolve(chrome.runtime.sendMessage(m)).catch(e => { if (!alive()) { stop(); } return DEAD; }); } catch (e) { if (!alive()) stop(); return Promise.resolve(DEAD); } };
+  const sget = k => { if (!alive()) { stop(); return Promise.resolve({}); } try { return Promise.resolve(chrome.storage.local.get(k)).then(r => r || {}, () => { if (!alive()) stop(); return {}; }); } catch (e) { if (!alive()) stop(); return Promise.resolve({}); } };
+  const sset = o => { if (!alive()) { stop(); return Promise.resolve(); } try { return Promise.resolve(chrome.storage.local.set(o)).catch(() => { if (!alive()) stop(); }); } catch (e) { if (!alive()) stop(); return Promise.resolve(); } };
+  const chromeOn = (ev, fn) => { const h = guard(fn); try { ev.addListener(h); cleanups.push(() => { try { ev.removeListener(h); } catch (e) { /* bỏ qua */ } }); } catch (e) { /* bỏ qua */ } };
+  const uiLangOf = () => { try { return uiLangOf(); } catch (e) { return navigator.language; } };
+  bind(document, 'ielts-lexi-takeover', ev => { try { if (ev.detail !== chrome.runtime.id) return; } catch (x) { /* bản cũ */ } stop(); });
 
   // ---------- Ngôn ngữ giao diện (cùng cách content.js): vi = chữ gốc, ngôn ngữ khác = từ điển web, thiếu khóa → tiếng Anh ----------
   const XLANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
   const pickLang = l => { l = String(l || '').toLowerCase().split('-')[0]; return XLANGS.includes(l) ? l : null; };
-  let UI_LANG = pickLang(chrome.i18n && chrome.i18n.getUILanguage ? chrome.i18n.getUILanguage() : navigator.language) || 'en', XD = {}, XEN = {}, dictLang = '';
+  let UI_LANG = pickLang(uiLangOf()) || 'en', XD = {}, XEN = {}, dictLang = '';
   const loadDict = () => {
     if (dictLang === UI_LANG || UI_LANG === 'vi') return; dictLang = UI_LANG; const l = UI_LANG;
     send({ type: 'uiDict', lang: 'en' }).then(r => { XEN = (r && r.dict) || {}; });
@@ -35,10 +54,10 @@
     if (on) loadDict();
     if ((!on || pageBlocked()) && (was || cur)) detach();
   };
-  chrome.storage.local.get(['settings', 'wcOffSites', 'uiLang']).then(r => apply(r.settings, r.wcOffSites || [], r.uiLang)).catch(() => {});
-  chrome.storage.onChanged.addListener((ch, area) => {
+  sget(['settings', 'wcOffSites', 'uiLang']).then(r => apply(r.settings, r.wcOffSites || [], r.uiLang)).catch(() => {});
+  chromeOn(chrome.storage.onChanged, (ch, area) => {
     if (area !== 'local' || !(ch.settings || ch.wcOffSites || ch.uiLang)) return;
-    chrome.storage.local.get(['settings', 'wcOffSites', 'uiLang']).then(r => { if (ch.uiLang) dictLang = ''; apply(r.settings, r.wcOffSites || [], r.uiLang); }).catch(() => {});
+    sget(['settings', 'wcOffSites', 'uiLang']).then(r => { if (ch.uiLang) dictLang = ''; apply(r.settings, r.wcOffSites || [], r.uiLang); }).catch(() => {});
   });
 
   // ---------- Ô nhập được phép soát ----------
@@ -102,6 +121,7 @@
       .card { background: #1b1c26; color: #ecedf5; border-color: #2e3040; } .btn { background: #242533; border-color: #2e3040; color: #ecedf5; }
       .msg { color: #b8bbcc; } .bad { color: #9a9db0; } .acts { border-color: #2e3040; } .why { background: #15302f; border-color: #1f4b48; } .why a { color: #2dd4bf; }
     }`;
+  cleanups.push(() => { try { detach(); } catch (e) { /* bỏ qua */ } if (hostEl) hostEl.remove(); });
   let hostEl = null, root = null, layer = null, card = null, badge = null, mirror = null;
   function ensureUI() {
     if (hostEl && hostEl.isConnected) return;
@@ -266,7 +286,7 @@
       if (seq !== c.seq || cur !== c) return;
       list = merge(list, lt.map(x => ({ ...x, reps: [...x.reps] }))); c.issues = fin(text, list, caretOf(c)); layout();
     };
-    clearTimeout(tLT); tLT = setTimeout(runLT, 1200); // chờ người dùng ngừng gõ thêm → ít lượt gọi máy chủ
+    clearTimeout(tLT); tLT = later(runLT, 1200); // chờ người dùng ngừng gõ thêm → ít lượt gọi máy chủ
   }
 
   // ---------- Hộp gợi ý ----------
@@ -302,7 +322,7 @@
     if (a === 'why') { const w = card.querySelector('.why'); w.hidden = !w.hidden; placeCard(x); return; }
     if (a === 'lesson') { send({ type: 'openApp', hash: '#/grammar/' + x.lesson }); return hideCard(false); }
     if (a === 'ign') { ignored.add(x.rule + '|' + x.bad.toLowerCase()); cur.issues = cur.issues.filter(i => i !== x); hideCard(true); return layout(); }
-    if (a === 'off') { if (!offSites.includes(HOST)) offSites = [...offSites, HOST]; chrome.storage.local.set({ wcOffSites: offSites.slice(-500) }).catch(() => {}); hideCard(false); detach(); return toast(tx('Đã tắt soát lỗi viết trên {site}. Bật lại trong bảng Lexkite (biểu tượng trên thanh công cụ).', { site: HOST })); }
+    if (a === 'off') { if (!offSites.includes(HOST)) offSites = [...offSites, HOST]; sset({ wcOffSites: offSites.slice(-500) }).catch(() => {}); hideCard(false); detach(); return toast(tx('Đã tắt soát lỗi viết trên {site}. Bật lại trong bảng Lexkite (biểu tượng trên thanh công cụ).', { site: HOST })); }
     if (a === 'rep') { const rep = x.reps[+b.dataset.k]; if (rep != null) replace(x, rep); }
   }
   function replace(x, rep) {
@@ -323,7 +343,7 @@
     }
     hideCard(false);
     const d = rep.length - (x.e - x.s); c.issues = c.issues.filter(i => i !== x).map(i => (i.s >= x.e ? { ...i, s: i.s + d, e: i.e + d } : i));
-    c.text = getText(c); layout(); clearTimeout(tCheck); tCheck = setTimeout(runCheck, 400);
+    c.text = getText(c); layout(); clearTimeout(tCheck); tCheck = later(runCheck, 400);
   }
 
   // ---------- Sổ lỗi sai: lỗi lặp lại (≥ 2 lần ở các lần viết khác nhau) → #/mistakes (+ từ viết sai → thẻ ôn FSRS) ----------
@@ -335,7 +355,7 @@
   }
 
   // ---------- Thông báo nhỏ ----------
-  function toast(msg) { ensureUI(); const t = document.createElement('div'); t.setAttribute('style', 'position:fixed;right:18px;bottom:18px;z-index:2147483647;max-width:360px;background:#1c1d2b;color:#fff;padding:10px 14px;border-radius:12px;font:600 13px/1.4 -apple-system,"Segoe UI",sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.25)'); t.textContent = msg; root.appendChild(t); setTimeout(() => t.remove(), 5000); }
+  function toast(msg) { ensureUI(); const t = document.createElement('div'); t.setAttribute('style', 'position:fixed;right:18px;bottom:18px;z-index:2147483647;max-width:360px;background:#1c1d2b;color:#fff;padding:10px 14px;border-radius:12px;font:600 13px/1.4 -apple-system,"Segoe UI",sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.25)'); t.textContent = msg; root.appendChild(t); later(() => t.remove(), 5000); }
 
   // ---------- Gắn / gỡ ----------
   function attach(info) {
@@ -343,30 +363,30 @@
     detach(); ensureUI();
     cur = { el: info.el, kind: info.kind, text: '', issues: [], seq: 0 };
     if (window.ResizeObserver) { cur.ro = new ResizeObserver(scheduleLayout); cur.ro.observe(info.el); }
-    clearTimeout(tCheck); tCheck = setTimeout(runCheck, 250);
+    clearTimeout(tCheck); tCheck = later(runCheck, 250);
   }
   function detach() {
     if (cur) { for (const x of cur.issues) if (x.type !== 'style') countMistake(x, false); if (cur.ro) cur.ro.disconnect(); }
     cur = null; activeIssue = null; clearTimeout(tCheck); clearTimeout(tLT); clearDraw(); if (card) card.hidden = true;
   }
   const target = e => { const p = e.composedPath ? e.composedPath()[0] : e.target; return p && p.nodeType === 1 ? p : e.target; };
-  document.addEventListener('focusin', e => {
-    if (!on || dead || pageBlocked()) return;
+  bind(document, 'focusin', e => {
+    if (!on || !alive() || pageBlocked()) return;
     const info = eligible(target(e)); if (info) attach(info);
   }, true);
-  document.addEventListener('focusout', e => {
+  bind(document, 'focusout', e => {
     if (!cur) return;
-    setTimeout(() => { if (!cur) return; const a = document.activeElement; const inside = a === cur.el || cur.el.contains(a) || (a && a.shadowRoot && a.shadowRoot.activeElement === cur.el) || a === hostEl; if (!inside) detach(); }, 150);
+    later(() => { if (!cur) return; const a = document.activeElement; const inside = a === cur.el || cur.el.contains(a) || (a && a.shadowRoot && a.shadowRoot.activeElement === cur.el) || a === hostEl; if (!inside) detach(); }, 150);
   }, true);
-  document.addEventListener('input', e => {
+  bind(document, 'input', e => {
     if (!cur) return; const t = target(e); if (t !== cur.el && !cur.el.contains(t)) return;
     cur.seq++; cur.issues = []; activeIssue = null; if (card) card.hidden = true; clearDraw();
-    clearTimeout(tCheck); tCheck = setTimeout(runCheck, 600);
+    clearTimeout(tCheck); tCheck = later(runCheck, 600);
   }, true);
   // Bấm vào chữ bị gạch chân (con trỏ rơi vào đoạn lỗi) → hộp gợi ý
-  document.addEventListener('click', e => {
+  bind(document, 'click', e => {
     if (!cur || !cur.issues.length) return; const t = target(e); if (t !== cur.el && !cur.el.contains(t)) return;
-    setTimeout(() => {
+    later(() => {
       if (!cur) return; let off;
       if (cur.kind === 'ce') { const s = getSelection(); if (!s || !s.isCollapsed || !s.anchorNode) return; ceText(cur); off = offOf(cur, s.anchorNode, s.anchorOffset); }
       else { if (cur.el.selectionStart !== cur.el.selectionEnd) return; off = cur.el.selectionStart; }
@@ -374,8 +394,8 @@
       if (x) showCard(x); else hideCard(false);
     }, 0);
   }, true);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && activeIssue) hideCard(false); }, true);
-  window.addEventListener('scroll', () => { if (cur) scheduleLayout(); }, { capture: true, passive: true });
-  window.addEventListener('resize', () => { if (cur) scheduleLayout(); }, { passive: true });
-  document.addEventListener('fullscreenchange', () => { if (hostEl) ensureUI(); });
+  bind(document, 'keydown', e => { if (e.key === 'Escape' && activeIssue) hideCard(false); }, true);
+  bind(window, 'scroll', () => { if (cur) scheduleLayout(); }, { capture: true, passive: true });
+  bind(window, 'resize', () => { if (cur) scheduleLayout(); }, { passive: true });
+  bind(document, 'fullscreenchange', () => { if (hostEl) ensureUI(); });
 })();

@@ -1,21 +1,44 @@
 /* Content script: bấm đúp vào từ (hoặc bôi đen + Alt) để tra nhanh, lưu vào flashcard kèm câu ngữ cảnh. */
 (() => {
+  // ---------- Vòng đời: khi add-on được tải lại/cập nhật, bản content script cũ ở các tab đang mở bị "mồ côi" (chrome.runtime.id = undefined,
+  // mọi lời gọi chrome.* ném "Extension context invalidated"). Mọi đường vào (sự kiện, timer, observer, listener chrome, promise) đi qua
+  // các hàm bọc dưới đây: hết sống thì lặng lẽ tự gỡ (listener, observer, timer, UI) và KHÔNG ném lỗi. Bản mới chạy sẽ tắt bản cũ cùng thế giới.
+  const NS = '__lkCS', timers = new Set(), cleanups = []; let gone = false;
+  const alive = () => { try { return !gone && !!chrome.runtime.id; } catch (e) { return false; } };
+  const stop = () => {
+    if (gone) return; gone = true;
+    timers.forEach(t => clearTimeout(t)); timers.clear();
+    cleanups.splice(0).forEach(f => { try { f(); } catch (e) { /* bỏ qua */ } });
+    try { if (window[NS] && window[NS].stop === stop) delete window[NS]; } catch (e) { /* bỏ qua */ }
+  };
+  try { const prev = window[NS]; if (prev && prev.stop) prev.stop(); } catch (e) { /* bỏ qua */ }
+  window[NS] = { stop };
+  const guard = fn => function (...a) { if (!alive()) { stop(); return undefined; } try { return fn.apply(this, a); } catch (e) { if (alive()) throw e; stop(); return undefined; } };
+  const bind = (t, ev, fn, o) => { const h = guard(fn); t.addEventListener(ev, h, o); cleanups.push(() => { try { t.removeEventListener(ev, h, o); } catch (e) { /* bỏ qua */ } }); };
+  const later = (fn, ms) => { const id = setTimeout(() => { timers.delete(id); if (!alive()) return stop(); try { fn(); } catch (e) { if (alive()) throw e; stop(); } }, ms); timers.add(id); return id; };
+  const DEAD = Object.freeze({ dead: true });
+  const send = m => { if (!alive()) { stop(); return Promise.resolve(DEAD); } try { return Promise.resolve(chrome.runtime.sendMessage(m)).catch(e => { if (!alive()) { stop(); return DEAD; } throw e; }); } catch (e) { if (!alive()) stop(); return Promise.resolve(DEAD); } };
+  const sget = k => { if (!alive()) { stop(); return Promise.resolve({}); } try { return Promise.resolve(chrome.storage.local.get(k)).then(r => r || {}, () => { if (!alive()) stop(); return {}; }); } catch (e) { if (!alive()) stop(); return Promise.resolve({}); } };
+  const sset = o => { if (!alive()) { stop(); return Promise.resolve(); } try { return Promise.resolve(chrome.storage.local.set(o)).catch(() => { if (!alive()) stop(); }); } catch (e) { if (!alive()) stop(); return Promise.resolve(); } };
+  const chromeOn = (ev, fn) => { const h = guard(fn); try { ev.addListener(h); cleanups.push(() => { try { ev.removeListener(h); } catch (e) { /* bỏ qua */ } }); } catch (e) { /* bỏ qua */ } };
+  const uiLangOf = () => { try { return uiLangOf(); } catch (e) { return navigator.language; } };
+
   // Cầu nối đồng bộ: trên trang Lexkite (đã đăng nhập Google) web app đọc/ghi dữ liệu add-on để gộp chung theo tài khoản
   if (window.top === window && /^(www\.)?lexkite\.com$|^lexkite\.pages\.dev$/.test(location.hostname)) { // chỉ tên miền đang sở hữu – tên miền cũ *.web.app có thể rơi vào tay người khác
     const KEYS = ['cards', 'stats', 'deleted'];
-    window.addEventListener('message', async e => {
+    bind(window, 'message', async e => {
       if (e.source !== window || e.origin !== location.origin || !e.data || e.data.lkBridge !== 'req') return;
       try { if (!chrome.runtime.id) return; } catch (x) { return; } // bản add-on cũ đã bị thay thế
       try {
-        if (e.data.op === 'get') { const data = await chrome.storage.local.get(KEYS); window.postMessage({ lkBridge: 'res', id: e.data.id, data }, location.origin); }
-        else if (e.data.op === 'diag') { const { errLog } = await chrome.storage.local.get('errLog'); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { v: chrome.runtime.getManifest().version, errLog: errLog || [], ui: UI_LANG, ml: ML(), nav: navigator.language } }, location.origin); }
-        else if (e.data.op === 'lang') { const l = (e.data.data || {}).lang; if (pickLang(l)) await chrome.storage.local.set({ uiLang: pickLang(l) }); window.postMessage({ lkBridge: 'res', id: e.data.id, ok: true }, location.origin); }
-        else if (e.data.op === 'linked') { const d = e.data.data || {}; await chrome.storage.local.set({ linked: { email: String(d.email || '').slice(0, 120), name: String(d.name || '').slice(0, 80), at: Date.now() } }); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { ok: true } }, location.origin); }
-        else if (e.data.op === 'aiKeyGet') { const { aiKey } = await chrome.storage.local.get('aiKey'); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { aiKey: aiKey || '' } }, location.origin); }
-        else if (e.data.op === 'aiKeySet') { const k = String((e.data.data || {}).aiKey || ''); if (!k || /^(AIza[\w-]{20,}|AQ\.[\w.-]{20,})$/.test(k)) await chrome.storage.local.set({ aiKey: k }); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { ok: true } }, location.origin); }
+        if (e.data.op === 'get') { const data = await sget(KEYS); window.postMessage({ lkBridge: 'res', id: e.data.id, data }, location.origin); }
+        else if (e.data.op === 'diag') { const { errLog } = await sget('errLog'); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { v: chrome.runtime.getManifest().version, errLog: errLog || [], ui: UI_LANG, ml: ML(), nav: navigator.language } }, location.origin); }
+        else if (e.data.op === 'lang') { const l = (e.data.data || {}).lang; if (pickLang(l)) await sset({ uiLang: pickLang(l) }); window.postMessage({ lkBridge: 'res', id: e.data.id, ok: true }, location.origin); }
+        else if (e.data.op === 'linked') { const d = e.data.data || {}; await sset({ linked: { email: String(d.email || '').slice(0, 120), name: String(d.name || '').slice(0, 80), at: Date.now() } }); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { ok: true } }, location.origin); }
+        else if (e.data.op === 'aiKeyGet') { const { aiKey } = await sget('aiKey'); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { aiKey: aiKey || '' } }, location.origin); }
+        else if (e.data.op === 'aiKeySet') { const k = String((e.data.data || {}).aiKey || ''); if (!k || /^(AIza[\w-]{20,}|AQ\.[\w.-]{20,})$/.test(k)) await sset({ aiKey: k }); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { ok: true } }, location.origin); }
         else if (e.data.op === 'set') {
           // Gộp (không ghi đè): service worker/popup/tab mới có thể vừa lưu thẻ sau lúc web đọc → giữ cả hai, bản hoạt động mới hơn thắng (như mergeCards ở web/js/sync.js)
-          const d = e.data.data || {}, cur = await chrome.storage.local.get(['cards', 'stats', 'deleted']), put = {};
+          const d = e.data.data || {}, cur = await sget(['cards', 'stats', 'deleted']), put = {};
           const act = c => Math.max((c && c.srs && c.srs.last) || 0, (c && c.added) || 0, (c && c.mod) || 0);
           const deleted = Object.assign(Object.create(null), cur.deleted || {});
           for (const [k, t] of Object.entries(d.deleted || {})) deleted[k] = Math.max(deleted[k] || 0, +t || 0);
@@ -27,26 +50,26 @@
           }
           if (d.deleted) put.deleted = deleted;
           if (d.stats) { const a = cur.stats || {}, b = d.stats, days = { ...(a.days || {}) }; for (const [k, v] of Object.entries(b.days || {})) days[k] = Math.max(days[k] || 0, v || 0); put.stats = { ...a, ...b, days }; }
-          await chrome.storage.local.set(put); window.postMessage({ lkBridge: 'res', id: e.data.id, ok: true }, location.origin);
+          await sset(put); window.postMessage({ lkBridge: 'res', id: e.data.id, ok: true }, location.origin);
         }
       } catch (err) { window.postMessage({ lkBridge: 'res', id: e.data.id, error: String(err) }, location.origin); }
     });
-    window.postMessage({ lkBridge: 'hello', version: chrome.runtime.getManifest().version }, location.origin);
+    try { window.postMessage({ lkBridge: 'hello', version: chrome.runtime.getManifest().version }, location.origin); } catch (x) { /* bản cũ */ }
     try { document.documentElement.setAttribute('data-lexkite-ext', chrome.runtime.getManifest().version); } catch (x) { /* bỏ qua */ } // web ẩn nút "Thêm vào Chrome" khi add-on đã cài (web/js/ext-cta.js)
   }
   // Bản content script cũ (trước khi add-on được cập nhật/tải lại) tự tắt khi bản mới chạy
-  document.dispatchEvent(new CustomEvent('ielts-lexi-takeover', { detail: chrome.runtime.id }));
+  try { document.dispatchEvent(new CustomEvent('ielts-lexi-takeover', { detail: chrome.runtime.id })); } catch (x) { /* bản cũ */ }
   // Lỗi của chính content script (thế giới riêng của add-on) → ghi vào nhật ký lỗi để chẩn đoán
-  const report = (where, e) => { try { if (chrome.runtime.id) chrome.runtime.sendMessage({ type: 'logErr', where, m: String((e && (e.stack || e.message)) || e).slice(0, 600) + ' @' + location.hostname }).catch(() => {}); } catch (x) { /* bản cũ */ } };
-  window.addEventListener('error', e => { if (e.filename && e.filename.startsWith('chrome-extension://')) report('cs', e.error || e.message); });
-  window.addEventListener('unhandledrejection', e => report('cs-promise', e.reason));
+  const report = (where, e) => { try { if (!alive()) return stop(); send({ type: 'logErr', where, m: String((e && (e.stack || e.message)) || e).slice(0, 600) + ' @' + location.hostname }); } catch (x) { /* bản cũ */ } };
+  bind(window, 'error', e => { if (e.filename && e.filename.startsWith('chrome-extension://')) report('cs', e.error || e.message); });
+  bind(window, 'unhandledrejection', e => report('cs-promise', e.reason));
   // Ngôn ngữ giao diện: chỉ en / vi như web app, ngôn ngữ khác → English. Nội dung học (nghĩa Việt, câu dịch) giữ nguyên
   // Ngôn ngữ giao diện: theo lựa chọn trên web Lexkite (đồng bộ qua cầu nối), mặc định theo ngôn ngữ Chrome
   const XLANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
   const pickLang = l => { l = String(l || '').toLowerCase().split('-')[0]; return XLANGS.includes(l) ? l : null; };
-  let UI_LANG = pickLang(chrome.i18n && chrome.i18n.getUILanguage ? chrome.i18n.getUILanguage() : navigator.language) || 'en', XD = {};
-  const setLang = l => { if (!l) return; UI_LANG = l; XD = {}; if (l !== 'vi') chrome.runtime.sendMessage({ type: 'uiDict', lang: l }).then(r => { if (UI_LANG === l) XD = (r && r.dict) || {}; }).catch(() => {}); };
-  try { chrome.storage.local.get('uiLang').then(r => setLang(pickLang(r.uiLang) || UI_LANG)).catch(() => {}); chrome.storage.onChanged.addListener(ch => { if (ch.uiLang) setLang(pickLang(ch.uiLang.newValue)); }); } catch (x) { /* bản cũ */ }
+  let UI_LANG = pickLang(uiLangOf()) || 'en', XD = {};
+  const setLang = l => { if (!l) return; UI_LANG = l; XD = {}; if (l !== 'vi') send({ type: 'uiDict', lang: l }).then(r => { if (UI_LANG === l) XD = (r && r.dict) || {}; }).catch(() => {}); };
+  try { sget('uiLang').then(r => setLang(pickLang(r.uiLang) || UI_LANG)).catch(() => {}); chromeOn(chrome.storage.onChanged, ch => { if (ch.uiLang) setLang(pickLang(ch.uiLang.newValue)); }); } catch (x) { /* bản cũ */ }
   const ML = () => { if (UI_LANG === 'vi') return 'vi'; if (UI_LANG !== 'en') return UI_LANG === 'zh' ? 'zh-CN' : UI_LANG; const l = (navigator.language || 'en').toLowerCase(); return l.startsWith('vi') ? 'en' : l.startsWith('zh') ? (/tw|hk|hant/.test(l) ? 'zh-TW' : 'zh-CN') : l.split('-')[0]; };
   const FLAG = l => ({ vi: '🇻🇳', en: '🇬🇧', es: '🇪🇸', pt: '🇧🇷', fr: '🇫🇷', de: '🇩🇪', id: '🇮🇩', th: '🇹🇭', zh: '🇨🇳', 'zh-CN': '🇨🇳', 'zh-TW': '🇹🇼', ja: '🇯🇵', ko: '🇰🇷', hi: '🇮🇳', ar: '🇸🇦', ru: '🇷🇺', tr: '🇹🇷' })[l] || '🌐';
   const EN = {
@@ -76,18 +99,17 @@
   // Nghĩa chính: nếu nghĩa tóm tắt quá ngắn/trùng từ gốc thì lấy nghĩa đầu tiên của mục từ
   const viMain = (e, shown) => { const v = String(e.vi || '').trim(); if (v.length >= 3 && v.toLowerCase() !== String(e.word || '').toLowerCase()) return v; const f = (shown || []).find(x => x.vi && x.vi.length); return f ? f.vi.slice(0, 3).join(', ') : v; };
   const tx = (src, vars) => { let s = UI_LANG === 'vi' ? src : (XD[src] || EN[src] || src); if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)); return s; };
-  let dead = false;
-  const alive = () => { try { return !dead && !!chrome.runtime.id; } catch (e) { return false; } };
-  document.addEventListener('ielts-lexi-takeover', ev => { if (ev.detail !== chrome.runtime.id) return; // trang web không tắt được add-on
-    if (root) hide(); dead = true; if (host) host.remove(); });
+  bind(document, 'ielts-lexi-takeover', ev => { if (ev.detail !== chrome.runtime.id) return; // trang web không tắt được add-on
+    stop(); });
 
   let host = null, root = null, enabled = true, selectMode = 'icon', current = null, markOn = true, acadOn = true, prefs = {};
+  cleanups.push(() => { try { document.querySelectorAll('vb-mark').forEach(el => el.replaceWith(document.createTextNode(el.textContent))); } catch (e) {} for (const id of ['vb-mark-css']) { const x = document.getElementById(id); if (x) x.remove(); } if (host) host.remove(); window.speechSynthesis && 0; });
   const applySettings = st => { st = st || {}; prefs = st; enabled = st.dblclickOn !== false; selectMode = st.selectMode || 'icon'; markOn = st.markKnown !== false; acadOn = st.markAcademic !== false; };
-  chrome.storage.local.get('settings').then(r => applySettings(r.settings));
+  sget('settings').then(r => applySettings(r.settings));
   // Ảnh người dùng đã báo "ảnh không đúng": khóa = từ + URL ảnh (trước đây chỉ theo từ → ẩn vĩnh viễn cả ảnh mới, đúng nghĩa sau khi đổi nguồn ảnh)
   const badImg = new Set(), imgKey = e => e.word + ' ' + e.image;
-  chrome.storage.local.get('badImg').then(r => (r.badImg || []).forEach(w => { if (/ https:\/\//.test(w)) badImg.add(w); })).catch(() => {});
-  chrome.storage.onChanged.addListener(ch => { if (ch.settings) applySettings(ch.settings.newValue); });
+  sget('badImg').then(r => (r.badImg || []).forEach(w => { if (/ https:\/\//.test(w)) badImg.add(w); })).catch(() => {});
+  chromeOn(chrome.storage.onChanged, ch => { if (ch.settings) applySettings(ch.settings.newValue); });
 
   // Trusted Types: YouTube và một số trang bắt buộc dùng TrustedHTML cho innerHTML
   let ttPolicy; // undefined = chưa kiểm; null = trang không bắt buộc TrustedHTML
@@ -206,6 +228,7 @@
     } catch (e) { return false; }
   };
   function ensureHost() {
+    if (gone) return;
     const parent = document.fullscreenElement || document.documentElement;
     if (host && host.parentNode === parent) return;
     if (host) { parent.appendChild(host); return; }
@@ -231,7 +254,7 @@
     });
     root.addEventListener('mouseup', e => {
       if (e.detail >= 2 || e.target.closest('button, a, input, select, textarea')) return;
-      setTimeout(() => { const s = inBoxSel(); if (s && s.t.split(/\s+/).length > 1) translateSelection({ text: s.t, range: null, rect: s.range.getBoundingClientRect() }); }, 10);
+      later(() => { const s = inBoxSel(); if (s && s.t.split(/\s+/).length > 1) translateSelection({ text: s.t, range: null, rect: s.range.getBoundingClientRect() }); }, 10);
     });
   }
   const box = () => root.querySelector('.box');
@@ -407,21 +430,21 @@
       speechSynthesis.cancel();
       if (speechSynthesis.paused) speechSynthesis.resume(); // Chrome đôi khi kẹt ở trạng thái tạm dừng
       // đọc từng câu để giữ ngữ điệu tự nhiên; chờ 1 nhịp sau cancel() để Chrome không bỏ mất lượt đọc
-      const go = () => setTimeout(() => (String(text).match(/[^.!?;]+[.!?;]*/g) || [text]).forEach(part => {
+      const go = () => later(() => (String(text).match(/[^.!?;]+[.!?;]*/g) || [text]).forEach(part => {
         const u = new SpeechSynthesisUtterance(part.trim()); u.lang = accent || 'en-GB'; u.rate = rate || prefs.ttsRate || .92;
         const v = bestVoice(u.lang); if (v) u.voice = v;
         speechSynthesis.speak(u);
       }), 30);
       // Lần đầu danh sách giọng chưa tải → chờ (tối đa 0,6 s) để lần đọc đầu cũng dùng đúng giọng tốt nhất như các lần sau
       if (speechSynthesis.getVoices().length) go();
-      else { let done = false; const f = () => { if (!done) { done = true; go(); } }; speechSynthesis.addEventListener('voiceschanged', f, { once: true }); setTimeout(f, 600); }
+      else { let done = false; const f = () => { if (!done) { done = true; go(); } }; speechSynthesis.addEventListener('voiceschanged', f, { once: true }); later(f, 600); }
     };
     if (playing) { try { playing.pause(); } catch (e) { /* bỏ qua */ } playing = null; }
     if (window.speechSynthesis) speechSynthesis.cancel();
     if (!url) return tts();
     let a; try { a = audioCache.get(url) || new Audio(url); cacheAudio(url, a); } catch (e) { return tts(); }
     let started = false, gaveUp = false;
-    const fb = setTimeout(() => { if (!started) { gaveUp = true; try { a.pause(); } catch (e) { /* bỏ qua */ } tts(); } }, 700);
+    const fb = later(() => { if (!started) { gaveUp = true; try { a.pause(); } catch (e) { /* bỏ qua */ } tts(); } }, 700);
     a.onplaying = () => { started = true; clearTimeout(fb); if (gaveUp) a.pause(); };
     try { a.currentTime = 0; } catch (e) { /* chưa tải xong */ }
     playing = a;
@@ -438,10 +461,11 @@
     return `${esc(m[1])}<span class="lw${isHl ? ' hlw' : ''}" data-w="${esc(w)}">${esc(m[2])}</span>${esc(m[3])}`;
   }).join('');
   async function show(word, rect, context, meta, mode) {
+    if (!alive()) return stop();
     meta = meta || { source: location.href, title: document.title };
     if (mode === 'nested' && cur) hist.push(cur); else if (mode !== 'back') hist = [];
     cur = { word, rect, context, meta };
-    if (mode !== 'back') try { chrome.runtime.sendMessage({ type: 'usage', ev: 'lookup' }).catch(() => {}); } catch (x) { /* add-on vừa cập nhật */ } // chỉ đếm số lần – không gửi từ/URL
+    if (mode !== 'back') try { send({ type: 'usage', ev: 'lookup' }).catch(() => {}); } catch (x) { /* add-on vừa cập nhật */ } // chỉ đếm số lần – không gửi từ/URL
     ensureHost();
     hideFab();
     const b = box();
@@ -449,7 +473,7 @@
     b.innerHTML = H(`<div class="head"><div class="pic">📘</div><div class="f1"><div class="w">${esc(word)}</div><div class="sk w60"></div><div class="sk w40"></div></div></div><div class="body"><div class="sk"></div><div class="sk w80"></div></div>`);
     position(rect);
     current = word; trSeq++; // bảng dịch đoạn đang chờ kết quả không được ghi đè bảng tra từ mới
-    const st = (await chrome.storage.local.get('settings')).settings || {};
+    const st = (await sget('settings')).settings || {};
     const accent = st.accent || 'en-GB';
     let e = null, saved = false, ctxVi = '', ctxDone = false, mlW = '', didSave = false, spoke = false, note = null;
 
@@ -518,11 +542,11 @@
       // content script giải mã và VẼ lên <canvas> (vẽ canvas không đi qua img-src nên CSP không chặn được); vẫn lỗi → emoji / bỏ ô ảnh
       const noPic = () => { const p = img && img.parentElement; if (!p) return; if (e.emoji) p.textContent = e.emoji; else p.remove(); };
       const nb = b.querySelector('.pic .noimg');
-      if (nb) nb.onclick = ev => { ev.stopPropagation(); badImg.add(imgKey(e)); try { chrome.storage.local.set({ badImg: [...badImg].slice(-500) }); } catch (x) { /* bỏ qua */ } const p = nb.parentElement; if (e.emoji) p.textContent = e.emoji; else p.remove(); };
+      if (nb) nb.onclick = ev => { ev.stopPropagation(); badImg.add(imgKey(e)); try { sset({ badImg: [...badImg].slice(-500) }); } catch (x) { /* bỏ qua */ } const p = nb.parentElement; if (e.emoji) p.textContent = e.emoji; else p.remove(); };
       if (img) img.onerror = () => {
         if (img.dataset.retried) return noPic(); img.dataset.retried = 1;
         const want = e.image;
-        chrome.runtime.sendMessage({ type: 'imgData', url: want }).then(async r => {
+        send({ type: 'imgData', url: want }).then(async r => {
           if (!r || !r.data || !img.isConnected || e.image !== want) return noPic();
           const bin = atob(r.data.slice(r.data.indexOf(',') + 1)), u8 = new Uint8Array(bin.length);
           for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
@@ -539,18 +563,18 @@
       b.querySelectorAll('.spk[data-text]').forEach(x => x.onclick = () => speak(x.dataset.text, '', accent, +(x.dataset.rate || 0.95)));
       b.querySelector('#close').onclick = hide;
       bindNav(b);
-      b.querySelector('#more').onclick = () => chrome.runtime.sendMessage({ type: 'openApp', hash: '#/dict/' + encodeURIComponent(e.word) }).catch(() => {});
-      const ub = b.querySelector('#usage'); if (ub) ub.onclick = () => chrome.runtime.sendMessage({ type: 'openApp', hash: '#/usage/' + encodeURIComponent(e.word.toLowerCase()) }).catch(() => {}); // 📘 Cách dùng từ (trang app trong gói add-on, không cần quyền mới)
+      b.querySelector('#more').onclick = () => send({ type: 'openApp', hash: '#/dict/' + encodeURIComponent(e.word) }).catch(() => {});
+      const ub = b.querySelector('#usage'); if (ub) ub.onclick = () => send({ type: 'openApp', hash: '#/usage/' + encodeURIComponent(e.word.toLowerCase()) }).catch(() => {}); // 📘 Cách dùng từ (trang app trong gói add-on, không cần quyền mới)
       b.querySelector('#save').onclick = async ev => {
         const btn = ev.currentTarget;
         btn.disabled = true;
         // Bấm lưu khi mới có bản tra nhanh (chưa có ảnh/câu ví dụ/âm thanh) → chờ bản đầy đủ (tối đa 8 giây) để thẻ không thiếu trường
         let src = e;
-        if (src.partial) { try { const r = await Promise.race([full, new Promise(res => setTimeout(res, 8000))]); if (r && r.entry && r.entry.found && r.entry.word === src.word) src = r.entry; } catch (x) { /* dùng bản nhanh */ } }
+        if (src.partial) { try { const r = await Promise.race([full, new Promise(res => later(res, 8000))]); if (r && r.entry && r.entry.found && r.entry.word === src.word) src = r.entry; } catch (x) { /* dùng bản nhanh */ } }
         const { meanings, oxford, senses, found, audioUS, partial, _imgTry, _t, _v, ...entry } = src;
         const okImg = !!(entry.image && !badImg.has(imgKey(src))); // ảnh người dùng đã báo sai không vào thẻ
         try {
-          const r = await chrome.runtime.sendMessage({ type: 'save', entry: { ...entry, image: okImg ? entry.image : '', imageCredit: okImg ? entry.imageCredit || null : null, audio: audioFor(accent) }, context: context ? { text: context, vi: ctxVi, source: meta.source, title: meta.title } : null });
+          const r = await send({ type: 'save', entry: { ...entry, image: okImg ? entry.image : '', imageCredit: okImg ? entry.imageCredit || null : null, audio: audioFor(accent) }, context: context ? { text: context, vi: ctxVi, source: meta.source, title: meta.title } : null });
           if (!r || r.error) throw new Error(r && r.error);
           didSave = true;
           btn.textContent = tx('✓ Đã lưu vào flashcard');
@@ -562,7 +586,7 @@
 
     // Cụm từ không có trong từ điển: dịch cả cụm, mỗi từ bấm vào tra riêng, vẫn lưu được thành flashcard
     async function renderPhrase(vi) {
-      if (!vi) { try { vi = ((await chrome.runtime.sendMessage({ type: 'translate', text: word, tl: ML(), sl: srcLang(word) })) || {}).vi || ''; } catch (x) { vi = ''; } }
+      if (!vi) { try { vi = ((await send({ type: 'translate', text: word, tl: ML(), sl: srcLang(word) })) || {}).vi || ''; } catch (x) { vi = ''; } }
       if (current !== word) return;
       const multi = /\s/.test(word);
       // Tên riêng: trong câu gốc viết hoa mà không đứng đầu câu (Switzerland, London…)
@@ -588,7 +612,7 @@
       b.querySelector('#save').onclick = async ev => {
         const btn = ev.currentTarget; btn.disabled = true;
         try {
-          const r = await chrome.runtime.sendMessage({ type: 'save', entry: { word, vi, pos: multi ? 'phrase' : '', emoji: '💬' }, context: context ? { text: context, vi: ctxVi, source: meta.source, title: meta.title } : null });
+          const r = await send({ type: 'save', entry: { word, vi, pos: multi ? 'phrase' : '', emoji: '💬' }, context: context ? { text: context, vi: ctxVi, source: meta.source, title: meta.title } : null });
           if (!r || r.error) throw new Error();
           btn.textContent = tx('✓ Đã lưu vào flashcard');
         } catch (x) { btn.disabled = false; btn.textContent = tx('⚠️ Thử lưu lại'); }
@@ -597,16 +621,16 @@
       if (st.autoSpeak !== false) speak(word, '', accent);
     }
 
-    if (ML() !== 'vi' && ML() !== 'en') chrome.runtime.sendMessage({ type: 'translate', text: word, tl: ML() }).then(r => { mlW = (r && r.vi) || ''; const el = b.querySelector('.vi'); if (el && current === word && mlW.toLowerCase() !== word.toLowerCase()) el.textContent = mlW; }).catch(() => {});
+    if (ML() !== 'vi' && ML() !== 'en') send({ type: 'translate', text: word, tl: ML() }).then(r => { mlW = (r && r.vi) || ''; const el = b.querySelector('.vi'); if (el && current === word && mlW.toLowerCase() !== word.toLowerCase()) el.textContent = mlW; }).catch(() => {});
     // Dịch câu ngữ cảnh: không phản hồi sau 10 giây (mạng chậm / add-on vừa nạp lại) → bỏ dòng "Đang dịch câu…" thay vì treo mãi
-    if (context && ML() !== 'en') { const ctxT = setTimeout(paintCtx, 10000); chrome.runtime.sendMessage({ type: 'translate', text: context, tl: ML() }).then(r => { clearTimeout(ctxT); ctxVi = (r && r.vi) || ''; paintCtx(); }).catch(() => { clearTimeout(ctxT); paintCtx(); }); }
-    const full = chrome.runtime.sendMessage({ type: 'lookup', word });
+    if (context && ML() !== 'en') { const ctxT = later(paintCtx, 10000); send({ type: 'translate', text: context, tl: ML() }).then(r => { clearTimeout(ctxT); ctxVi = (r && r.vi) || ''; paintCtx(); }).catch(() => { clearTimeout(ctxT); paintCtx(); }); }
+    const full = send({ type: 'lookup', word });
     full.catch(() => {}); // tránh lỗi "Uncaught (in promise)" khi add-on vừa được cập nhật
     let q;
-    try { q = await chrome.runtime.sendMessage({ type: 'quick', word }); }
+    try { q = await send({ type: 'quick', word }); }
     catch (err) { b.innerHTML = H(`<div class="muted">${tx('Add-on vừa được cập nhật – hãy tải lại trang.')}</div>`); return; }
     if (current !== word) return;
-    chrome.runtime.sendMessage({ type: 'notes', word }).then(r => { note = r && r.note; if (note && e && current === word) render(); }).catch(() => {});
+    send({ type: 'notes', word }).then(r => { note = r && r.note; if (note && e && current === word) render(); }).catch(() => {});
     if (q && q.entry && q.entry.found) { e = q.entry; saved = q.saved; render(); }
     full.then(r => {
       if (current !== word || !r) return;
@@ -721,7 +745,7 @@
   const NANO_OPTS = { expectedInputs: [{ type: 'text', languages: ['en'] }], expectedOutputs: [{ type: 'text', languages: ['en'] }] };
   const nanoAPI = () => { try { return window.LanguageModel || null; } catch (e) { return null; } };
   const nanoState = async () => { const LM = nanoAPI(); if (!LM || !LM.availability) return 'none'; try { return await LM.availability(NANO_OPTS); } catch (e) { return 'none'; } };
-  const LIMIT = (p, ms) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms))]);
+  const LIMIT = (p, ms) => Promise.race([p, new Promise((_, rej) => later(() => rej(new Error('timeout')), ms))]);
   const NANO_PROMPT = (text, sentence) => `Explain the English expression for an English learner. Expression: "${text}"${sentence && sentence !== text ? `\nSentence it appears in: "${sentence}"` : ''}
 Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), "structure": [{"pattern": string, "explain": string}] (1-3 items), "grammar": string, "collocations": [string] (3-5), "examples": [{"en": string}] (2), "tip": string (how to use it in exams)}`;
   async function nanoRun(text, sentence) {
@@ -735,7 +759,7 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
     try {
       const LM = nanoAPI();
       if (LM && LM.create) { const s = await LM.create({ ...NANO_OPTS, monitor(m) { m.addEventListener('downloadprogress', e => { btn.textContent = tx('⬇️ Đang tải AI trên máy… {pct}%', { pct: Math.round((e.loaded || 0) * 100) }); }); } }); try { s.destroy(); } catch (e) { /* bỏ qua */ } }
-      else { const r = await chrome.runtime.sendMessage({ type: 'nanoEnable' }); if (!r || !r.ok) throw new Error('nano'); }
+      else { const r = await send({ type: 'nanoEnable' }); if (!r || !r.ok) throw new Error('nano'); }
       btn.textContent = tx('✓ AI trên máy đã sẵn sàng'); if (done) done();
     } catch (e) { btn.disabled = false; btn.textContent = tx('Không bật được AI trên máy – thử lại sau.'); }
   }
@@ -754,7 +778,7 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
     const sl = srcLang(text), hint = sl === 'auto' && VI_ONLY.test(text) ? 'vi' : '', tl = ML();
     let sentence = ''; try { sentence = info.range ? sentenceAround(info.range) : ''; } catch (e) { /* bỏ qua */ }
     const words = text.split(' ').length > 1 ? lookupWords(text) : [];
-    const st = (await chrome.storage.local.get('settings').catch(() => ({}))).settings || {};
+    const st = (await sget('settings').catch(() => ({}))).settings || {};
     const accent = st.accent || 'en-GB';
     if (!live()) return;
     b.innerHTML = H(`
@@ -781,7 +805,7 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
     if (opts.focus) try { b.focus({ preventScroll: true }); } catch (e) { /* bỏ qua */ }
 
     let r;
-    try { r = await chrome.runtime.sendMessage({ type: 'translate', text, tl, sl, hint }); } catch (e) { r = { dead: true }; }
+    try { r = await send({ type: 'translate', text, tl, sl, hint }); } catch (e) { r = { dead: true }; }
     if (!live()) return;
     r = r || {};
     const trEl = $('#tr'); trEl.removeAttribute('aria-busy');
@@ -807,15 +831,15 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
       }
       if (!done) return;
       btn.textContent = '✓'; btn.title = tx('✓ Đã chép'); btn.setAttribute('aria-label', tx('✓ Đã chép'));
-      setTimeout(() => { if (!btn.isConnected) return; btn.textContent = '📋'; btn.title = tx('Chép bản dịch'); btn.setAttribute('aria-label', tx('Chép bản dịch')); }, 1600);
+      later(() => { if (!btn.isConnected) return; btn.textContent = '📋'; btn.title = tx('Chép bản dịch'); btn.setAttribute('aria-label', tx('Chép bản dịch')); }, 1600);
     };
     const deep = $('#deep');
     const runDeep = async () => {
       const out = $('#aiEx'), sen = english === text ? sentence : ''; deep.disabled = true;
       out.innerHTML = H(`<div class="tiny mt8" role="status">${tx('⏳ AI đang phân tích…')}</div>`); position(info.rect);
       const ns = await nanoState(); let x = null;
-      if (ns === 'available') { try { const j = await nanoRun(english, sen); if (j) x = await chrome.runtime.sendMessage({ type: 'explain', text: english, sentence: sen, lang: ML(), local: j }); } catch (e) { x = null; } }
-      if (!x || !x.result) { try { x = await chrome.runtime.sendMessage({ type: 'explain', text: english, sentence: sen, lang: ML() }); } catch (e) { x = { error: 'FAILED' }; } }
+      if (ns === 'available') { try { const j = await nanoRun(english, sen); if (j) x = await send({ type: 'explain', text: english, sentence: sen, lang: ML(), local: j }); } catch (e) { x = null; } }
+      if (!x || !x.result) { try { x = await send({ type: 'explain', text: english, sentence: sen, lang: ML() }); } catch (e) { x = { error: 'FAILED' }; } }
       if (!live()) return;
       deep.disabled = false; x = x || { error: 'FAILED' };
       const offer = ns === 'downloadable' || ns === 'downloading' || x.nano === 'downloadable' || x.nano === 'downloading';
@@ -844,11 +868,11 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
     deep.onclick = runDeep;
     // Cấu trúc ngữ pháp (chỉ phân tích phần tiếng Anh)
     const structs = english && window.VBStruct ? VBStruct.analyze(english, 4) : [];
-    if (structs.length && !GT) { try { GT = ((await chrome.runtime.sendMessage({ type: 'extJson', name: 'grammar-titles' })) || {}).data || {}; } catch (e) { GT = {}; } }
+    if (structs.length && !GT) { try { GT = ((await send({ type: 'extJson', name: 'grammar-titles' })) || {}).data || {}; } catch (e) { GT = {}; } }
     if (!live()) return;
     if (structs.length) {
       $('#more').innerHTML = H(`<div class="st"><b>${tx('🧩 Cấu trúc trong đoạn')}</b>${structs.map(x => `<div class="st-i"><div><span class="st-n">${esc(tx(x.name))}</span> <span class="st-m" lang="en">“${esc(x.match)}”</span></div>${UI_LANG === 'vi' || tx(x.vi) !== x.vi ? `<div class="st-v">${esc(tx(x.vi))}</div>` : ''}<button class="st-l" data-lesson="${esc(x.lesson)}">${GT && GT[x.lesson] ? '📖 ' + tx('Học bài: {n} →', { n: esc(UI_LANG === 'vi' ? GT[x.lesson][0] : GT[x.lesson][1]) }) : tx('📐 Học bài ngữ pháp này →')}</button></div>`).join('')}</div>`);
-      b.querySelectorAll('[data-lesson]').forEach(x => x.onclick = () => chrome.runtime.sendMessage({ type: 'openApp', hash: '#/grammar/' + x.dataset.lesson }).catch(() => {}));
+      b.querySelectorAll('[data-lesson]').forEach(x => x.onclick = () => send({ type: 'openApp', hash: '#/grammar/' + x.dataset.lesson }).catch(() => {}));
     }
     position(info.rect);
   }
@@ -866,7 +890,7 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
     if (!alive() || !enabled || inEditable(e.target) || fromHost(e) || appHandles(e.target) || inExam(e.target)) return;
     // Trên chính lexkite.com: web app tự hiện thanh "Tra nghĩa" (.sel-bar) cho vùng chọn trong nội dung → nhường để không hiện 2 bảng;
     // nơi web app không tra (trang chào mừng, đầu trang…) thì tiện ích tra như mọi trang khác.
-    if (OWN_APP && !e.lkDeferred) { const ev = { clientX: e.clientX, clientY: e.clientY, target: e.target, lkDeferred: true }; setTimeout(() => { const b = document.querySelector('.sel-bar'); if (!(b && !b.hidden)) onDbl(ev); }, 80); return; }
+    if (OWN_APP && !e.lkDeferred) { const ev = { clientX: e.clientX, clientY: e.clientY, target: e.target, lkDeferred: true }; later(() => { const b = document.querySelector('.sel-bar'); if (!(b && !b.hidden)) onDbl(ev); }, 80); return; }
     const pt = wordAtPoint(e.clientX, e.clientY);
     if (pt) {
       const sel = window.getSelection(); try { sel.removeAllRanges(); sel.addRange(pt.range); } catch (x) { /* bỏ qua */ }
@@ -875,14 +899,14 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
     const s = fromSelection();
     if (s) show(s.word, s.rect, s.context);
   }
-  document.addEventListener('dblclick', onDbl);
-  document.addEventListener('mouseup', e => {
+  bind(document, 'dblclick', onDbl);
+  bind(document, 'mouseup', e => {
     if (!alive() || fromHost(e) || e.button !== 0 || appHandles(e.target) || inExam(e.target)) return;
     // Ô nhập chữ (bài viết, điền từ…): bôi đen → nút 🌐 để dịch (không tự dịch, không chặn việc gõ)
     const fld = e.target && e.target.closest && e.target.closest('textarea, input[type="text"], input[type="search"], input:not([type])');
     if (fld) {
       if (selectMode === 'off') return;
-      setTimeout(() => {
+      later(() => {
         const t = String(fld.value || '').slice(fld.selectionStart || 0, fld.selectionEnd || 0).trim();
         if (!t || t.length > 3000 || !/[A-Za-z]{2}/.test(t)) return;
         const r = fld.getBoundingClientRect(), rect = { left: Math.min(e.clientX, r.right - 10), right: Math.min(e.clientX, r.right - 10), top: e.clientY - 10, bottom: e.clientY + 6, width: 0, height: 16 };
@@ -893,7 +917,7 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
     if (inEditable(e.target)) return;
     // Đợi trình duyệt cập nhật vùng chọn. Trên lexkite.com: nhường khi web app đã hiện thanh "Tra nghĩa/Dịch" (.sel-bar);
     // nơi web không dịch (trang chào mừng, trang "bare") thì tiện ích dịch như mọi trang khác.
-    setTimeout(() => {
+    later(() => {
       if (OWN_APP) { const sb = document.querySelector('.sel-bar'); if (sb && !sb.hidden) return; }
       if (e.altKey) { const s = fromSelection(); if (s && enabled) show(s.word, s.rect, s.context); return; }
       if (e.detail >= 2 || selectMode === 'off') return; // bấm đúp do dblclick xử lý
@@ -903,16 +927,16 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
       else showFab(info);
     }, OWN_APP ? 80 : 10);
   });
-  document.addEventListener('mousedown', e => {
+  bind(document, 'mousedown', e => {
     if (!alive() || fromHost(e)) return;
     if (root) { hideFab(); if (!box().hidden) hide(); }
   });
-  document.addEventListener('keydown', e => {
+  bind(document, 'keydown', e => {
     if (!root || !alive()) return; // bản cũ sau khi add-on cập nhật: không bắt phím P/Esc của trang nữa
     if (e.key === 'Escape') { if (!box().hidden) { if (window.speechSynthesis) speechSynthesis.cancel(); hide(); } hideFab(); return; }
     if ((e.key === 'p' || e.key === 'P') && !box().hidden && !inEditable(e.target)) { const sp = root.querySelector('.spk[data-acc]'); if (sp) { e.preventDefault(); sp.click(); } }
   });
-  window.addEventListener('scroll', () => { if (root) { hideFab(); } }, { passive: true });
+  bind(window, 'scroll', () => { if (root) { hideFab(); } }, { passive: true });
 
 
 
@@ -922,10 +946,10 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
   const SKIP = 'SCRIPT,STYLE,NOSCRIPT,TEXTAREA,INPUT,SELECT,OPTION,CODE,PRE,KBD,SAMP,SVG,MATH,VB-MARK,IELTS-LEXI-POPUP,TITLE,HEAD';
   let ACAD = null, GT = null; // GT: tên bài ngữ pháp (grammar-titles.json) // từ học thuật B2–C2 (academic.json, sinh từ AWL + NAWL + kho Lexkite)
   async function loadKnown() {
-    const r = await chrome.storage.local.get('cards');
+    const r = await sget('cards');
     known = new Map(Object.values(r.cards || {}).filter(c => c.word && c.word.length > 2 && !/\s/.test(c.word)).map(c => [c.word.toLowerCase(), { vi: c.vi || '', ipa: c.ipa || '', lv: level5(c.srs) }]));
     if (acadOn) {
-      if (!ACAD) try { ACAD = ((await chrome.runtime.sendMessage({ type: 'extJson', name: 'academic' })) || {}).data || {}; } catch (e) { ACAD = {}; }
+      if (!ACAD) try { ACAD = ((await send({ type: 'extJson', name: 'academic' })) || {}).data || {}; } catch (e) { ACAD = {}; }
       for (const [w, cefr] of Object.entries(ACAD)) if (!known.has(w)) known.set(w, { acad: cefr });
     }
     knownRe = known.size ? new RegExp(`\\b(${[...known.keys()].sort((a, b) => b.length - a.length).map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})(s|es|ed|d|ing)?\\b`, 'gi') : null;
@@ -978,9 +1002,9 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
     let t = root.querySelector('.vbtoast');
     if (!t) { t = document.createElement('div'); t.className = 'vbtoast'; root.appendChild(t); }
     t.textContent = msg; t.hidden = false;
-    clearTimeout(showToast._t); showToast._t = setTimeout(() => { t.hidden = true; }, 4500);
+    clearTimeout(showToast._t); showToast._t = later(() => { t.hidden = true; }, 4500);
   }
-  document.addEventListener('click', e => {
+  bind(document, 'click', e => {
     const el = e.target.closest && e.target.closest('vb-mark');
     if (!el || !alive() || el.closest('a, button, label, summary, [role=button], [role=link], [role=tab], [onclick], [tabindex], [contenteditable]')) return;
     e.preventDefault(); e.stopPropagation();
@@ -991,19 +1015,20 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
   // Trang dựng bằng React/Vue/Angular/Svelte tự quản lý DOM – chèn <vb-mark> có thể làm app lỗi (removeChild) → không đánh dấu ở đó
   const frameworkPage = () => !!document.querySelector('[data-reactroot], #__next, #root > *, #app > *, [data-v-app], [ng-version], [data-svelte-h], [data-sveltekit-hydrate]');
   const mo = new MutationObserver(muts => {
-    if (!alive()) return mo.disconnect();
+    if (!alive()) return stop();
     if (!markOn || !knownRe) return;
     if (muts.every(m => [...m.addedNodes].every(x => x.nodeName === 'VB-MARK' || x.nodeType === 3 && x.parentElement && x.parentElement.nodeName === 'VB-MARK'))) return;
     const added = muts.flatMap(m => [...m.addedNodes]).filter(n => n.nodeType === 1 && n.nodeName !== 'VB-MARK' && n.isConnected);
-    pendingMark.push(...added); clearTimeout(moT); moT = setTimeout(() => { const ns = pendingMark.splice(0, 60); ns.forEach(n => n.isConnected && markIn(n, 80)); }, 1500);
+    pendingMark.push(...added); clearTimeout(moT); moT = later(() => { const ns = pendingMark.splice(0, 60); ns.forEach(n => n.isConnected && markIn(n, 80)); }, 1500);
   });
+  cleanups.push(() => mo.disconnect());
   (async () => {
     if (window.top !== window || /^(docs|mail)\.google\.com$|(^|\.)lexkite\.com$|^lexkite\.pages\.dev$|(^|\.)(vocaband|ielts-lexi-2026)\.web\.app$|^localhost$/.test(location.hostname)) return;
     await loadKnown(); injectMarkCss();
     const go = () => { if (frameworkPage()) return; markIn(document.body); if (document.body) mo.observe(document.body, { childList: true, subtree: true }); };
-    'requestIdleCallback' in window ? requestIdleCallback(go, { timeout: 2500 }) : setTimeout(go, 1200);
+    'requestIdleCallback' in window ? requestIdleCallback(() => { if (alive()) go(); else stop(); }, { timeout: 2500 }) : later(go, 1200);
   })();
-  chrome.storage.onChanged.addListener(async ch => {
+  chromeOn(chrome.storage.onChanged, async ch => {
     if (!alive()) return;
     if (ch.cards) { await loadKnown(); }
     if (ch.settings) { const nv = ch.settings.newValue || {}, on = nv.markKnown !== false; acadOn = nv.markAcademic !== false; unmarkAll(); await loadKnown(); if (on) markIn(document.body); }
@@ -1034,18 +1059,20 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
       seg.dataset.vb = seg.textContent;
     };
     const scan = () => document.querySelectorAll('.ytp-caption-segment').forEach(wrap);
-    const obs = new MutationObserver(() => { if (!alive()) return obs.disconnect(); if (enabled) scan(); });
+    cleanups.push(() => { st.remove(); });
+    const obs = new MutationObserver(() => { if (!alive()) return stop(); if (enabled) scan(); });
+    cleanups.push(() => obs.disconnect());
     (function attach() {
       const p = document.querySelector('#movie_player');
-      if (p) obs.observe(p, { subtree: true, childList: true, characterData: true }); else setTimeout(attach, 1000);
+      if (p) obs.observe(p, { subtree: true, childList: true, characterData: true }); else later(attach, 1000);
     })();
 
     // Di chuột vào phụ đề → tạm dừng để đọc; rời đi → chạy tiếp
-    document.addEventListener('mouseover', e => {
+    bind(document, 'mouseover', e => {
       if (!alive() || !enabled || !e.target.closest) return;
       if (e.target.closest('.ytp-caption-window-container .caption-window')) pause();
     }, true);
-    document.addEventListener('mouseout', e => {
+    bind(document, 'mouseout', e => {
       if (!alive() || !e.target.closest || !e.target.closest('.caption-window')) return;
       const to = e.relatedTarget;
       if (to && to.closest && to.closest('.caption-window')) return;
@@ -1053,10 +1080,10 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
       resume();
     }, true);
     // Chặn YouTube kéo khung phụ đề / dừng-phát khi bấm vào từ
-    ['mousedown', 'mouseup', 'dblclick'].forEach(t => document.addEventListener(t, e => {
+    ['mousedown', 'mouseup', 'dblclick'].forEach(t => bind(document, t, e => {
       if (e.target.closest && e.target.closest('.ytp-caption-segment .vbw')) e.stopPropagation();
     }, true));
-    document.addEventListener('click', e => {
+    bind(document, 'click', e => {
       const w = e.target.closest && e.target.closest('.ytp-caption-segment .vbw');
       if (!w || !alive() || !enabled) return;
       e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation();
@@ -1069,7 +1096,7 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
       show(word, w.getBoundingClientRect(), line.split(' ').length >= 3 ? line : '', { source: u.toString(), title: '▶️ ' + document.title.replace(/ - YouTube$/, '') + ` (${Math.floor(t / 60)}:${String(t % 60).padStart(2, '0')})` });
       onHide = resume;
     }, true);
-    document.addEventListener('fullscreenchange', () => { if (root && !box().hidden) hide(); });
+    bind(document, 'fullscreenchange', () => { if (root && !box().hidden) hide(); });
 
     // ⌨️ Phím tắt luyện nghe/chép chính tả: A = câu trước · S = lặp câu hiện tại · D = câu sau (Space giữ nguyên của YouTube)
     // Mốc thời gian thật từng câu lấy từ phụ đề của chính video (ưu tiên phụ đề tiếng Anh do người làm, rồi phụ đề tự động)
@@ -1077,16 +1104,16 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
     const loadCues = async () => {
       const id = new URL(location.href).searchParams.get('v'); if (!id) { cues = []; cueVid = ''; return; } if (id === cueVid) return; cueVid = id; cues = [];
       try {
-        const r = await chrome.runtime.sendMessage({ type: 'ytTracks' }), tr = (r && r.tracks) || [];
+        const r = await send({ type: 'ytTracks' }), tr = (r && r.tracks) || [];
         const pick = tr.find(x => /^en/.test(x.l) && x.k !== 'asr') || tr.find(x => /^en/.test(x.l)) || tr.find(x => x.k !== 'asr') || tr[0]; if (!pick) return;
         const j = await (await fetch(pick.u + (pick.u.includes('?') ? '&' : '?') + 'fmt=json3')).json();
         const raw = (j.events || []).filter(ev => ev.segs && ev.dDurationMs).map(ev => ({ s: ev.tStartMs / 1000, e: (ev.tStartMs + ev.dDurationMs) / 1000, t: ev.segs.map(x => x.utf8 || '').join('').replace(/\s+/g, ' ').trim() })).filter(c => c.t);
         cues = raw.filter((c, i) => !i || c.s - raw[i - 1].s > 0.3); // bỏ mốc trùng của phụ đề tự động cuộn dòng
       } catch (e) { cues = []; }
     };
-    document.addEventListener('yt-navigate-finish', () => setTimeout(loadCues, 800));
-    setTimeout(loadCues, 1500);
-    document.addEventListener('keydown', e => {
+    bind(document, 'yt-navigate-finish', () => later(loadCues, 800));
+    later(loadCues, 1500);
+    bind(document, 'keydown', e => {
       if (!alive() || e.ctrlKey || e.metaKey || e.altKey || e.key.length !== 1) return;
       const k = e.key.toLowerCase(); if (!'asd'.includes(k)) return;
       const a = document.activeElement; if (a && (a.isContentEditable || /^(input|textarea|select)$/i.test(a.tagName))) return;
@@ -1101,7 +1128,7 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
   }
   if (/(^|\.)youtube\.com$/.test(location.hostname)) initYouTube();
 
-  chrome.runtime.onMessage.addListener((msg, s, reply) => {
+  chromeOn(chrome.runtime.onMessage, (msg, s, reply) => {
     if (!alive()) return;
     if (msg.type === 'translateSelection') { const info = selectionInfo(); if (info) translateSelection(info); reply({ ok: true }); return; }
     if (msg.type !== 'showLookup') return;
