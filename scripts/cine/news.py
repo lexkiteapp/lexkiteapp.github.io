@@ -344,10 +344,18 @@ for s in S:
     if SEG and SEG[-1][0] == s['bg']: SEG[-1][2] = s['t0'] + s['dur']
     else: SEG.append([s['bg'], s['t0'], s['t0'] + s['dur'], 1 if len(SEG) % 2 == 0 else -1])
 import bg3d
-BGP = lambda n: f'{A}/bg/{n}.png' if os.path.exists(f'{A}/bg/{n}.png') else f'{TL}/dl/{n}.png'   # bg library (index.json topics) or the pilot plates
+def BGP(n):   # wide library crop '<id>@L|R' (bg/w/<id>_<side>.webp, 1350x2400) / 9:16 library still / pilot plate
+    if '@' in n: b_, sd_ = n.split('@'); return f'{A}/bg/w/{b_}_{sd_}.webp'
+    return f'{A}/bg/{n}.png' if os.path.exists(f'{A}/bg/{n}.png') else f'{TL}/dl/{n}.png'
+def DEP(n): return f"{A}/bg/w/zones/{n.replace('@', '_')}.depth.png" if '@' in n else f'{DEPTH}/{n}.depth.png'
+def ZON(n): return f"{A}/bg/w/zones/{n.replace('@', '_')}.zones.json" if '@' in n else f"{os.environ.get('NEWS_ZONES', f'{N}/zones')}/{n}.zones.json"
+WIDE = set()
+if os.path.exists(f'{A}/bg/index.json'): WIDE = {w['id'] for w in json.load(open(f'{A}/bg/index.json')).get('wide', [])}
+if S[0]['bg'] in WIDE:   # owner 22/10 one location: Ama = crop L, Carlos = crop R of the SAME wide scene
+    for x in S: x['bg'] = f"{x['bg']}@{'L' if x['who'] == 'ama' else 'R'}" 
 BGL = {}
 def layers(name):
-    if name not in BGL: BGL.clear() if len(BGL) > 2 else None; BGL[name] = bg3d.Layers(BGP(name), f'{DEPTH}/{name}.depth.png')
+    if name not in BGL: BGL.clear() if len(BGL) > 2 else None; BGL[name] = bg3d.Layers(BGP(name), DEP(name))
     return BGL[name]
 MOVES = [dict(z=(1.10, 1.135), tx=(-4, 4), ty=(0, -2), rot=(0, 0)),   # owner 21/10: minimal camera = slow push-in 2-4 % per shot + barely visible drift
          dict(z=(1.11, 1.14), tx=(4, -4), ty=(2, 0), rot=(0, 0)),
@@ -356,10 +364,8 @@ MOVES = [dict(z=(1.10, 1.135), tx=(-4, 4), ty=(0, -2), rot=(0, 0)),   # owner 21
          dict(z=(1.10, 1.14), tx=(3, -2), ty=(1, -1), rot=(0, 0))]
 ANG = {}
 # ------------------------------------------------------------------ scene logic (owner 22/10, VIDEO-SCALE-PLAN §11): bg zones -> camera tilt + host x
-ZD = os.environ.get('NEWS_ZONES', f'{N}/zones'); ZP = f"{ZD}/{S[0]['bg']}.zones.json"; ZN = json.load(open(ZP)) if os.path.exists(ZP) else None
-PLACE = dict(bg=S[0]['bg'], zones=bool(ZN)); CAM_TY = 0.0; ZBASE = 1.10
 HALFW = {'ama_s': 240, 'carlos_s': 420, 'carlos_q': 300}; CHIN = {'ama_s': 220, 'carlos_s': 170, 'carlos_q': 140}; TOPH = {'ama_s': 293, 'carlos_s': 197, 'carlos_q': 149}
-def zfrac(x0, y0, x1, y1, keys, z, tx, ty):   # fraction of grid cells of `keys` inside a frame rectangle, mapped back into the background image
+def zfrac(ZN, x0, y0, x1, y1, keys, z, tx, ty):   # fraction of grid cells of `keys` inside a frame rectangle, mapped back into the background image
     G_ = ZN['grid']; gw, gh = G_['w'], G_['h']; xs = np.linspace(x0, x1, 12); ys = np.linspace(y0, y1, 16); n = k = 0
     for yy in ys:
         v = 0.5 + (yy - 960 + ty) / (1920 * z)
@@ -367,37 +373,44 @@ def zfrac(x0, y0, x1, y1, keys, z, tx, ty):   # fraction of grid cells of `keys`
             u = 0.5 + (xx - 540 - tx) / (1080 * z)
             if 0 <= u < 1 and 0 <= v < 1: n += 1; k += G_['rows'][int(v * gh)][int(u * gw)] in keys
     return k / max(1, n)
-if ZN:
-    EYM = float(np.mean([FRAME[(GK(x['clip'], x['who']), x['frame'])][1] for x in S if not x['other']]))
-    for _ in range(3):   # horizon position depends on the zoom, the zoom on the tilt
-        HZ0 = 960 + (ZN['horizon'] - 0.5) * 1920 * ZBASE; CAM_TY = float(np.clip(HZ0 - EYM, -260, 260)); ZBASE = max(1.10, 1.03 + 2 * abs(CAM_TY) / 1920)
-    HZ0 = 960 + (ZN['horizon'] - 0.5) * 1920 * ZBASE   # zoom keeps the tilted canvas covering the frame (canvas 1.33x: no upscale up to 1.33)
-    HDY = 0.0   # owner 22/10 composition: eyes stay on the upper third; only the camera tilts   # horizon still below the eyes after the max tilt: lower both hosts (chins stay above the text column)
-    if HDY:
-        for k_ in list(FRAME): FRAME[k_] = (FRAME[k_][0], FRAME[k_][1] + HDY)
-    PLACE.update(valid=ZN['valid'], horizon=ZN['horizon'], cam_ty=round(CAM_TY, 1), zbase=round(ZBASE, 3), host_dy=round(HDY, 1), eye_dev=round(abs(HZ0 - CAM_TY - EYM - HDY), 1), hosts={})
-    for (g_, f_) in sorted({(GK(x['clip'], x['who']), x['frame']) for x in S if not x['other']}):
+# scene logic per background crop (wide scenes: Ama's L crop and Carlos's R crop have their own zones / horizon); camera tilt per host angle
+BGS = sorted({x['bg'] for x in S}); ZNS = {b: (json.load(open(ZON(b))) if os.path.exists(ZON(b)) else None) for b in BGS}
+CTY = {}; ZB = {}; PLACE = dict(bg=S[0]['bg'].split('@')[0], bgs=BGS, zones=all(ZNS.values()), hosts={}, sides={}); CAM_TY = 0.0; ZBASE = 1.10
+for b, ZN in ZNS.items():
+    sh_ = [x for x in S if x['bg'] == b and not x['other']]
+    if not ZN or not sh_: continue
+    EYM = float(np.mean([FRAME[(GK(x['clip'], x['who']), x['frame'])][1] for x in sh_])); zb = 1.10
+    for _ in range(3):   # horizon position depends on the zoom, the zoom on the tilt (zoom <= 1.25: the 1.25x crops are never upscaled)
+        HZ0 = 960 + (ZN['horizon'] - 0.5) * 1920 * zb; ty = float(np.clip(HZ0 - EYM, -211, 211)); zb = min(1.25, max(1.10, 1.03 + 2 * abs(ty) / 1920))
+    HZ0 = 960 + (ZN['horizon'] - 0.5) * 1920 * zb; CTY[b] = ty; ZB[b] = zb
+    PLACE['sides'][b] = dict(valid=ZN['valid'], horizon=ZN['horizon'], cam_ty=round(ty, 1), zbase=round(zb, 3), eye_dev=round(abs(HZ0 - ty - EYM), 1))
+    for (g_, f_) in sorted({(GK(x['clip'], x['who']), x['frame']) for x in sh_}):
         sc_, ey_ = FRAME[(g_, f_)]; side0 = SIDE[(g_, f_)]; band = (260, 400) if g_ == 'ama_s' else (680, 820); best = None
         for dx in (0, -40, 40, -80, 80, -120, 120):
             ox_ = side0 + dx
             if not band[0] <= ox_ <= band[1]: continue
-            hw = HALFW[g_] * sc_; tx_ = -26 if g_ == 'ama_s' else 26
-            fx = zfrac(ox_ - hw, ey_ + CHIN[g_] * sc_, ox_ + hw, 1919, 'XN', ZBASE, tx_, CAM_TY)   # under / behind the torso: no table, seat, bed, water...
-            fn = zfrac(ox_ - hw, ey_ - TOPH[g_] * sc_, ox_ + hw, 1919, 'N', ZBASE, tx_, CAM_TY)   # nearer foreground object covered by the host
+            hw = HALFW[g_] * sc_
+            fx = zfrac(ZN, ox_ - hw, ey_ + CHIN[g_] * sc_, ox_ + hw, 1919, 'XN', zb, 0, ty)   # under / behind the torso: no table, seat, bed, water...
+            fn = zfrac(ZN, ox_ - hw, ey_ - TOPH[g_] * sc_, ox_ + hw, 1919, 'N', zb, 0, ty)   # nearer foreground object covered by the host
             sc2 = fx + 2 * fn + abs(dx) / 1000
             if best is None or sc2 < best[0]: best = (sc2, ox_, round(fx, 3), round(fn, 3))
         SIDE[(g_, f_)] = best[1]; PLACE['hosts'][f'{g_}/{f_}'] = dict(ox=best[1], under=best[2], near=best[3])
-    PLACE['ok'] = bool(ZN['valid'] and PLACE['eye_dev'] <= 115 and all(v['under'] <= 0.35 and v['near'] <= 0.12 for v in PLACE['hosts'].values()))
+if PLACE['sides']:
+    PLACE['eye_dev'] = max(v['eye_dev'] for v in PLACE['sides'].values()); PLACE['valid'] = all(v['valid'] for v in PLACE['sides'].values())
+    PLACE['cam_ty'] = {b: v['cam_ty'] for b, v in PLACE['sides'].items()}; PLACE['host_dy'] = 0.0
+    PLACE['ok'] = bool(PLACE['zones'] and PLACE['valid'] and PLACE['eye_dev'] <= 115 and all(v['under'] <= 0.35 and v['near'] <= 0.12 for v in PLACE['hosts'].values()))
     print('placement', json.dumps(PLACE))
+ZN = any(ZNS.values())
 QA['placement'] = PLACE
 _JJ = f'{N}/judge_{LID}.json'; QA['judge'] = json.load(open(_JJ)) if os.path.exists(_JJ) else None   # AI script judge + rules (script_judge.py)
 _VJ = f'{N}/pre_{LID}/vision.json'; QA['vision'] = json.load(open(_VJ)) if os.path.exists(_VJ) else None   # AI vision gate result (scripts/cine/vision_gate.py, run before the full render)
 if os.environ.get('NEWS_PREFLIGHT') and ZN and not PLACE['ok']: print('PLACEMENT FAIL', S[0]['bg']); sys.exit(3)
+if os.environ.get('NEWS_PLACEONLY'): print('PLACEMENT', 'OK' if PLACE.get('ok') else 'FAIL'); sys.exit(0 if PLACE.get('ok') else 3)   # bg search without rendering
 # owner 22/10 scene continuity: ONE location, each host keeps the SAME crop window of it (Ama = left portion, Carlos = right portion);
 # every shot restarts at that host's anchor (z, tx, ty) and only adds a small move (push / pull <= 2.5 %, slide / tilt <= 8 px, handheld, rack)
-MARG = 1080 * (ZBASE - 1) / 2; WIN = {'ama': (-0.7 * MARG, ZBASE), 'carlos': (0.7 * MARG, ZBASE), 'two': (0.0, ZBASE)}
-for x in S:
-    ang = 'two' if x['other'] else x['who']; side, zb = WIN[ang]; z0 = zb; z1 = zb + min(0.025, 0.008 * x['dur'])
+for x in S:   # wide scene: each host has its own L/R crop (tx 0); legacy 9:16 still: Ama left / Carlos right portion of one image
+    ang = 'two' if x['other'] else x['who']; zb = ZB.get(x['bg'], 1.10); side = 0.0 if '@' in x['bg'] else {'ama': -0.7, 'carlos': 0.7, 'two': 0.0}[ang] * 1080 * (zb - 1) / 2
+    z0 = zb; z1 = min(1.25 if '@' in x['bg'] else 9, zb + min(0.025, 0.008 * x['dur'])); CAM_TY = CTY.get(x['bg'], 0.0)
     mv = STYLE['moves'][S.index(x) % len(STYLE['moves'])] if x['id'] not in ('hook', 'loop') else 'push'; x['move'] = mv   # owner 22/10 §15: varied light moves, <= 3 per clip
     if mv == 'pull': z0, z1 = z1, z0
     sd = (side - 8, side + 8) if mv == 'slide' else (side, side); tl_ = (CAM_TY - 6, CAM_TY + 6) if mv == 'tilt' else (CAM_TY, CAM_TY)

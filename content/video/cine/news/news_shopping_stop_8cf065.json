@@ -1,8 +1,9 @@
 {
  "v": 7,
- "id": "news_classroom_stop_8cf065",
+ "id": "news_shopping_stop_8cf065",
  "template": "fix",
- "bg": "classroom",
+ "bg": "trv_luggage_store__golden_minimal",
+ "topic": "shopping",
  "area": "grammar-check",
  "cefr": "A2",
  "difficulty": "easy",

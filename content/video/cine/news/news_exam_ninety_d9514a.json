@@ -1,8 +1,9 @@
 {
  "v": 7,
- "id": "news_exam_hall_ninety_d9514a",
+ "id": "news_exam_ninety_d9514a",
  "template": "fix",
- "bg": "exam_hall",
+ "bg": "famx0_children_library__golden_minimal",
+ "topic": "exam",
  "area": "grammar-check",
  "cefr": "C1",
  "difficulty": "hard",

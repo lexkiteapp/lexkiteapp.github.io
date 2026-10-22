@@ -8,6 +8,17 @@ sp = json.load(open(sys.argv[1])); tried = {t for t in sys.argv[2].split(',') if
 txt = ' '.join([sp['point'], ' '.join(sp.get('series') or []), sp['hook']['card']]).lower()
 dom = [d for d, v in BT['domains'].items() if any(re.search(r'\b' + re.escape(k), txt) for k in v['keywords'])]
 ZD = os.environ.get('NEWS_ZONES', ''); valid = lambda b: (not ZD) or (os.path.exists(f'{ZD}/{b}.zones.json') and json.load(open(f'{ZD}/{b}.zones.json')).get('valid'))
+WT = {'health': ['hospital', 'appointments', 'health'], 'exam': ['education', 'university', 'study'], 'study': ['study', 'school', 'education'], 'shopping': ['shopping', 'clothes'],
+      'daily': ['daily-routine', 'home'], 'work': ['office', 'work', 'meetings'], 'travel': ['travel', 'airport', 'hotel'], 'food': ['restaurant', 'ordering', 'food'],
+      'money': ['bank', 'money'], 'home': ['home', 'renting'], 'social': ['small-talk', 'community'], 'tech': ['tech', 'office']}
+WB = BT.get('wide_by_topic', {})
+ZW = lambda b: os.path.join(os.environ.get('CINE_LIB', ''), 'anchor/bg/w/zones')   # wide crops carry their own zones (both L and R must be valid)
+validw = lambda b: all(os.path.exists(f'{ZW(b)}/{b}_{sd}.zones.json') and json.load(open(f'{ZW(b)}/{b}_{sd}.zones.json')).get('valid') for sd in ('L', 'R'))
+if sp.get('topic') and any(WB.get(t) for t in WT.get(sp['topic'], [sp['topic']])):   # owner 22/10: two-host WIDE scenes by lesson topic
+    cand = sorted(dict.fromkeys(x for t in WT.get(sp['topic'], [sp['topic']]) for x in WB.get(t, [])), key=lambda b: hashlib.md5((sp['id'] + b).encode()).hexdigest())
+    nxt = [b for b in cand if b not in tried and validw(b)]
+    if not nxt: sys.exit(1)
+    print(nxt[0]); sys.exit(0)
 if dom: cand = BT['domains'][dom[0]]['bg']
 elif sp.get('area') in BT.get('teaching_areas', []): cand = BT.get('teaching_bg', [])
 else:   # situational lesson: only backgrounds that share index tags with the lesson's own scene (a restaurant lesson never moves to a meeting room)

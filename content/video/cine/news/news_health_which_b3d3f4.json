@@ -1,8 +1,9 @@
 {
  "v": 7,
- "id": "news_clinic_which_b3d3f4",
+ "id": "news_health_which_b3d3f4",
  "template": "fix",
- "bg": "clinic",
+ "bg": "hl_pharmacy_counter__golden_minimal",
+ "topic": "health",
  "area": "grammar-check",
  "cefr": "B2",
  "difficulty": "medium",

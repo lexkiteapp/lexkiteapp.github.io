@@ -14,7 +14,16 @@ B = {}
 for f in glob.glob(f'{ROOT}/content/video/scripts/bank/*.jsonl'):
     for l in open(f):
         if l.strip(): x = json.loads(l); B[x['id']] = x
-b = B[o.sid]; h6 = b['id'][-6:]; lid = f"news_{o.bg}_{b['hook_type'].replace('90', 'ninety')}_{h6}"
+b = B[o.sid]
+WT = {'health': ['hospital', 'appointments', 'health'], 'exam': ['education', 'university', 'study'], 'study': ['study', 'school', 'education'], 'shopping': ['shopping', 'clothes'],
+      'daily': ['daily-routine', 'home'], 'work': ['office', 'work', 'meetings'], 'travel': ['travel', 'airport', 'hotel'], 'food': ['restaurant', 'ordering', 'food'],
+      'money': ['bank', 'money'], 'home': ['home', 'renting'], 'social': ['small-talk', 'community'], 'tech': ['tech', 'office']}   # bank topic -> wide-library topics (bg_topics.json wide_by_topic)
+def wide_for(topic, k=0):
+    wb = json.load(open(f'{D}/bg_topics.json')).get('wide_by_topic', {}); c = [x for t in WT.get(topic, [topic]) for x in wb.get(t, [])]
+    c = sorted(dict.fromkeys(c), key=lambda x: hashlib.md5((b['id'] + x).encode()).hexdigest()); return c[k % len(c)] if c else None
+import hashlib
+if o.bg == 'auto': o.bg = wide_for(b['topic']) or 'classroom'
+h6 = b['id'][-6:]; lid = f"news_{b['topic']}_{b['hook_type'].replace('90', 'ninety')}_{h6}"
 q = b['quiz']; qtxt = re.sub(r'_{2,}', 'blank', q['q']).rstrip('.?!'); opts = ' or '.join(q['options'][:2])
 hook_say = {'stop': b['hook'], 'which': 'Which is correct?', '90': '90% get this wrong.'}.get(b['hook_type'], b['hook'])
 L = [('h', 'ama', hook_say), ('m', 'ama', f"Many learners say: {b['wrong']}"), ('g', 'carlos', 'Pause and guess. What sounds right?'), ('k', 'ama', f"Say: {b['right']}"),
@@ -35,7 +44,7 @@ beats = [dict(who='ama', line=f'n_{h6}_m', kind='m', card=card('x', b['wrong']))
          dict(who='ama', line=f'n_{h6}_c', kind='c', card=card('p', f"'{b['wrong'].rstrip('.!?')}'? -> No", 'CHECK')),
          dict(who='carlos', line=f'n_{h6}_rs', kind='rs', repeat=True, slow=True, card=card('p', b['right'], 'REPEAT', 'repeat')),
          dict(who='ama', line=f'n_{h6}_rn', kind='rn', card=card('v', b['right'], icon=ic, formula=b['memory']))]
-sp = dict(v=7, id=lid, template='fix', bg=o.bg, area='grammar-check', cefr=b['cefr'], difficulty=b['diff'], hook_type=HOOK.get(b['hook_type'], 'question'), part=1,
+sp = dict(v=7, id=lid, template='fix', bg=o.bg, topic=b['topic'], area='grammar-check', cefr=b['cefr'], difficulty=b['diff'], hook_type=HOOK.get(b['hook_type'], 'question'), part=1,
           point=b['point'], key_line=b['right'], wrong_line=b['wrong'], share=f'who says "{b["wrong"]}"', l1_tags=['many learners'], source=dict(scriptbank=b['id'], pid=b['pid']),
           hook=dict(card=CARDHOOK.get(b['hook_type'], b['hook'].upper())[:22], line=f'n_{h6}_h'), series=['GRAMMAR FIX' if b['topic'] not in ('health', 'travel', 'food') else f"{b['topic'].upper()} ENGLISH", b['memory'][:28]],
           beats=beats, recap=dict(title="TEACHER'S TIP", rows=[b['right']] + b['ex'][:2], line=f'n_{h6}_r', line_alt=f'n_{h6}_r2'), end_line=f'n_{h6}_e', end_alt=f'n_{h6}_e2',

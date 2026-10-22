@@ -4,7 +4,7 @@
 # bokeh "fireflies" (glow core + bloom, depth-of-field size, twinkle, turbulence), vignette. numpy/cv2 only, 2 threads.
 import os, numpy as np, cv2
 cv2.setNumThreads(2)
-CW, CH = 1440, 2560                      # working canvas (1.33x the output, owner 22/10: push-in from an oversampled bg, one Lanczos resample)
+CW, CH = 1350, 2400                      # working canvas (1.33x the output, owner 22/10: push-in from an oversampled bg, one Lanczos resample)
 PK = (0.82, 0.91, 1.0)                   # parallax factor far / mid / near (owner 21/10: mild, artefact-free)
 def ease(u): u = min(1.0, max(0.0, u)); return u * u * (3 - 2 * u)
 class Layers:

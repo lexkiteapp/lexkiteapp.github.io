@@ -323,10 +323,10 @@ for fi_ in range(_nf):
 rule(_pf['overlay_pairs'] == 0 and _pf['overlay_hands'] == 0, f"per-frame no-occlusion: {_pf} (overlay x face is the FACE check above)")
 json.dump(_pf, open(f'{RD}/overlap_report.json', 'w'))
 print('== SCENE CONTINUITY (owner 22/10)')
-_bgs = {x['bg'] for x in tl['shots']}; rule(len(_bgs) == 1, f'one location per clip: {sorted(_bgs)}')
+_bgs = {x['bg'].split('@')[0] for x in tl['shots']}; rule(len(_bgs) == 1, f'one location per clip (wide scene: Ama crop L / Carlos crop R): {sorted(_bgs)}')
 _win = {}
 for x in tl['shots']:
-    if x.get('window'): _win.setdefault(x['angle'], []).append(x['window'])
+    if x.get('window'): _win.setdefault((x['angle'], x['bg']), []).append(x['window'])
 _wbad = [a for a, v in _win.items() if max(w['tx'] for w in v) - min(w['tx'] for w in v) > 0.05 * 1080 or max(w['z'] for w in v) / min(w['z'] for w in v) > 1.05]
 rule(bool(_win) and not _wbad, f'each host keeps one crop window (tx +-5 % width, zoom +-5 %) {_wbad or ""}')
 def _lab(bgr): import cv2 as c_; return c_.cvtColor(np.uint8([[np.clip(bgr, 0, 255)]]), c_.COLOR_BGR2LAB)[0, 0].astype(float) * [100 / 255, 1, 1] - [0, 128, 128]
