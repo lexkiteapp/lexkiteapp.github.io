@@ -14,7 +14,9 @@ const ROOT = new URL('../../', import.meta.url), R = p => new URL(p, ROOT).pathn
 const require = createRequire(import.meta.url);
 export const DIR = R('content/video/scripts');
 export const h8 = s => crypto.createHash('sha1').update(s).digest('hex').slice(0, 8);
-export const TYPES = ['stop-saying', 'x-vs-y', 'preposition', 'verb-pattern', 'adverb', 'structure', 'grammar', 'word-in-use', 'collocation', 'situational', 'pronunciation', 'misunderstanding'];
+export const TYPES = ['stop-saying', 'x-vs-y', 'preposition', 'verb-pattern', 'adverb', 'structure', 'grammar', 'word-in-use', 'collocation', 'situational', 'pronunciation', 'misunderstanding', 'idiom-phrasal'];
+// Nhóm phủ đều (chủ 22/10): 8 nhóm loại bài
+export const CAT = { 'stop-saying': 'stop-saying', 'x-vs-y': 'x-vs-y', situational: 'situational', misunderstanding: 'misunderstanding', pronunciation: 'pronunciation', collocation: 'collocation', preposition: 'collocation', adverb: 'collocation', grammar: 'grammar', 'verb-pattern': 'grammar', structure: 'grammar', 'idiom-phrasal': 'idiom-phrasal', 'word-in-use': 'word-in-use' };
 export const HOOK_TYPES = ['question', 'mistake_callout', 'challenge', 'myth', 'pov', 'quiz', 'contrast', 'number_list', 'secret_tip', 'story', 'surprise', 'fill_gap', 'listen_diff', 'native_says'];
 export const TOPICS = ['daily', 'travel', 'work', 'study', 'shopping', 'food', 'health', 'home', 'social', 'tech', 'money', 'exam'];
 const CEFR = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
@@ -40,7 +42,7 @@ let NG = null;
 export function ngsl() {
   if (NG) return NG;
   NG = new Set(fs.readFileSync(R('content/wordlists/ngsl-1.2-defs.csv'), 'utf8').split('\n').slice(1).map(l => l.split(',')[0].trim().toLowerCase()).filter(Boolean));
-  for (const w of "a an the i you he she it we they me him her us them my your his its our their this that these those am is are was were be been being do does did have has had will would can could shall should may might must not no yes ok okay hi hey hello please thanks thank sorry wow oops let's let ama carlos teacher teachers learner learners repeat say says said tip example examples wrong right correct quiz guess answer pause sentence word words phrase phrases mean means one two three four five first second third today tomorrow yesterday mr mrs ms dr".split(' ')) NG.add(w);
+  for (const w of "a an the i you he she it we they me him her us them my your his its our their this that these those am is are was were be been being do does did have has had will would can could shall should may might must not no yes ok okay hi hey hello please thanks thank sorry wow oops let's let ama carlos blank email emails english american british polite plural casual formal comment comments native natives teacher teachers learner learners repeat say says said tip example examples wrong right correct quiz guess answer pause sentence word words phrase phrases mean means one two three four five first second third today tomorrow yesterday mr mrs ms dr".split(' ')) NG.add(w);
   return NG;
 }
 const IRREG = { went: 'go', gone: 'go', saw: 'see', seen: 'see', made: 'make', took: 'take', taken: 'take', got: 'get', gotten: 'get', said: 'say', told: 'tell', thought: 'think', knew: 'know', known: 'know', came: 'come', gave: 'give', given: 'give', found: 'find', felt: 'feel', left: 'leave', kept: 'keep', bought: 'buy', brought: 'bring', ate: 'eat', eaten: 'eat', wrote: 'write', written: 'write', spoke: 'speak', spoken: 'speak', met: 'meet', paid: 'pay', sent: 'send', sat: 'sit', stood: 'stand', ran: 'run', heard: 'hear', lost: 'lose', meant: 'mean', began: 'begin', begun: 'begin', chose: 'choose', broke: 'break', broken: 'break', better: 'good', best: 'good', worse: 'bad', worst: 'bad', children: 'child', people: 'person', men: 'man', women: 'woman', isn: 'is', aren: 'are', don: 'do', doesn: 'do', didn: 'do', won: 'will', can: 'can', couldn: 'could', wouldn: 'would', shouldn: 'should', wasn: 'was', weren: 'were', haven: 'have', hasn: 'has' };
@@ -87,7 +89,7 @@ export function plan() {
   for (const [topic, list] of Object.entries(SITUATIONS)) for (const s of list) add({ pid: `s:${topic}:${s}`, src: 'situation', type: 'situational', cefr: 'A2', topic, point: `How to ${s} naturally`, facts: { situation: s } });
   for (const r of lex.values()) {
     const [w, ipa, pos, , def, ex, col, syn, lv, , ipaUS] = r, cefr = CEFR.includes(lv) ? lv : 'B1', k = `${w.toLowerCase()}#${pos}`, base = { word: w, pos, def, ex };
-    add({ pid: `w:${k}`, src: 'lexicon', type: /idiom|phr/.test(pos) || / /.test(w) ? 'situational' : 'word-in-use', cefr, topic: '', point: `${w} (${pos}): ${def}`, facts: base });
+    add({ pid: `w:${k}`, src: 'lexicon', type: /idiom|phr/.test(pos) ? 'idiom-phrasal' : / /.test(w) ? 'situational' : 'word-in-use', cefr, topic: '', point: `${w} (${pos}): ${def}`, facts: base });
     const c = String(col || '').split('|').map(s => s.trim()).filter(s => s && s.toLowerCase().includes(w.toLowerCase().split(' ')[0]));
     if (c.length) add({ pid: `c:${k}`, src: 'lexicon', type: 'collocation', cefr, topic: '', point: `Collocation: ${c[0]}`, facts: { ...base, collocations: c.slice(0, 3) } });
     const sy = String(syn || '').split('|').map(s => s.trim()).filter(s => s && !/ /.test(s))[0];
@@ -99,7 +101,7 @@ export function plan() {
   return [...out.values()];
 }
 // Thứ tự lấy: nguồn giá trị cao trước (lỗi hay gặp, cặp dễ nhầm, tình huống…), trộn 40/40/20 (dễ/vừa/khó) trong MỖI lô.
-const PRI = { 'stop-saying': 0, 'x-vs-y': 1, situational: 2, preposition: 3, 'verb-pattern': 3, adverb: 3, structure: 3, grammar: 4, collocation: 5, pronunciation: 6, 'word-in-use': 7, misunderstanding: 8 };
+const PRI = { 'idiom-phrasal': 2, 'stop-saying': 0, 'x-vs-y': 1, situational: 2, preposition: 3, 'verb-pattern': 3, adverb: 3, structure: 3, grammar: 4, collocation: 5, pronunciation: 6, 'word-in-use': 7, misunderstanding: 8 };
 export function nextBatch(points, done, n = 20, cap = 6, rot = 0) {
   const q = { easy: {}, medium: {}, hard: {} };
   for (const p of points) if (!done.has(p.pid)) (q[p.diff][p.type] || (q[p.diff][p.type] = [])).push(p);
@@ -116,7 +118,7 @@ export function nextBatch(points, done, n = 20, cap = 6, rot = 0) {
 }
 
 // ---------- Cổng QC tất định (VIDEO-QC dòng "Kịch bản") ----------
-export const estSeconds = lines => +(1.5 + lines.reduce((a, l) => a + 0.45 + NW(l.say) / 2.6, 0) + 1.5).toFixed(1); // 156 wpm + nghỉ đoán 1,5 s
+export const estSeconds = lines => +(1.5 + lines.reduce((a, l) => a + 0.35 + NW(l.say) / 2.7, 0) + 1.0).toFixed(1); // 162 wpm (VIDEO-QC 150–165) + nghỉ giữa câu + nghỉ đoán
 const norm = s => String(s || '').toLowerCase().replace(/[’']/g, "'").replace(/[^a-z0-9' ]+/g, ' ').replace(/\s+/g, ' ').trim();
 const stem = w => w.replace(/(ies|ied)$/, 'y').replace(/(es|s|ed|ing|d)$/, '');
 const hasForm = (text, phrase) => { const t = ' ' + norm(text) + ' ', ws = norm(phrase).split(' ').filter(Boolean); if (!ws.length) return true; return ws.every(w => w.length < 3 ? t.includes(' ' + w + ' ') : t.split(' ').some(x => x === w || (stem(x) === stem(w) && stem(w).length >= 3) || x.startsWith(w.slice(0, Math.max(3, w.length - 2))))); };
@@ -126,7 +128,7 @@ export function qc(p, s) {
   for (const k of ['hook', 'wrong', 'right', 'why', 'memory', 'point']) if (!String(s[k] || '').trim()) f.push('missing:' + k);
   if (!Array.isArray(s.ex) || s.ex.length !== 2 || s.ex.some(e => !String(e || '').trim())) f.push('ex!=2');
   const qz = s.quiz || {}; if (!qz.q || !Array.isArray(qz.options) || qz.options.length < 2 || qz.options.length > 4 || !(Number.isInteger(+qz.answer) && +qz.answer >= 0 && +qz.answer < qz.options.length) || !qz.explain) f.push('quiz');
-  else if (new Set(qz.options.map(norm)).size !== qz.options.length) f.push('quiz:dup-option');
+  else if (new Set(qz.options.map(p.type === 'pronunciation' ? (x => String(x).trim()) : norm)).size !== qz.options.length) f.push('quiz:dup-option');
   if (!CEFR.includes(s.cefr)) f.push('cefr');
   if (!TOPICS.includes(s.topic)) f.push('topic');
   if (NW(s.hook) > 5) f.push('hook>5');
@@ -138,10 +140,10 @@ export function qc(p, s) {
   if (L.some(l => NW(l.say) > 14)) f.push('line>14w');
   for (let i = 1; i < L.length; i++) if (L[i].who === L[i - 1].who) { f.push('lines:alternate'); break; }
   const est = estSeconds(L); if (est < 18 || est > 28) f.push('length:' + est + 's');
-  if (norm(s.wrong) === norm(s.right)) f.push('wrong==right');
+  if (p.type === 'pronunciation' ? String(s.wrong).trim() === String(s.right).trim() : norm(s.wrong) === norm(s.right)) f.push('wrong==right');
   // tiếng Anh giải thích ≤ B1: từ ngoài NGSL (trừ chữ đang dạy, ví dụ, câu sai/đúng, đáp án) ≤ 2
   const taught = new Set(words([p.point, s.point, s.wrong, s.right, ...(s.ex || []), ...(qz.options || []), qz.q, JSON.stringify(p.facts || {})].join(' ')).map(w => w.toLowerCase()));
-  const off = [...new Set(words([s.why, s.memory, qz.explain, ...L.map(l => l.say)].join(' ')).map(w => w.toLowerCase()).filter(w => !known(w, taught)))];
+  const off = [...new Set(words([s.why, s.memory, qz.explain, ...L.map(l => l.say)].join(' ')).map(w => w.toLowerCase()).filter(w => !known(w, taught) && !(p.type === 'pronunciation' && (w.includes('-') || w.length <= 4))))];
   if (off.length > 2) f.push('ngsl:' + off.slice(0, 5).join(','));
   // khớp nguồn (fact check với lexicon / Cách dùng từ / ngữ pháp)
   const F = p.facts || {};
@@ -150,11 +152,14 @@ export function qc(p, s) {
     if (!hasForm(s.right + ' ' + (s.ex || []).join(' '), target)) f.push('fact:target-missing');
     if (p.type === 'x-vs-y' && !hasForm([s.right, s.wrong, ...(s.ex || []), s.why, s.memory].join(' '), F.other)) f.push('fact:pair-missing');
   }
-  if (p.type === 'pronunciation') { if (+s.syl !== F.syl) f.push(`fact:syl ${s.syl}≠${F.syl}`); if (+s.stress !== F.stress) f.push(`fact:stress ${s.stress}≠${F.stress}`); const cap = (String(s.right).match(/[A-Z]{2,}/g) || []).length; if (cap !== 1) f.push('fact:respelling'); }
+  if (p.type === 'pronunciation') { if (+s.syl !== F.syl) f.push(`fact:syl ${s.syl}≠${F.syl}`); if (+s.stress !== F.stress) f.push(`fact:stress ${s.stress}≠${F.stress}`); const cap = String(s.right).split(/[-\s]+/).filter(x => /^[A-Z]+$/.test(x)).length; if (cap !== 1) f.push('fact:respelling'); }
   if (p.src === 'usage') {
-    if (p.type === 'stop-saying' && !hasForm(s.right, F.correct.replace(/[.!?]$/, '').split(' ').slice(-4).join(' '))) f.push('fact:correct-form');
+    if (p.type === 'stop-saying') { // các từ làm nên bản sửa (có trong câu đúng của nguồn mà không có trong câu sai) phải có trong câu đúng của kịch bản
+      const mis = new Set(norm(F.mistake).split(' ')), alts = String(F.correct).replace(/\([^)]*\)/g, ' ').split(/\s+\/\s+/).map(a => norm(a).split(' ').filter(w => w && !mis.has(w)));
+      if (!alts.some(ws => ws.every(w => hasForm(s.right, w)))) f.push('fact:correct-form');
+    }
     if (p.type === 'stop-saying' && norm(s.right) === norm(F.mistake)) f.push('fact:right==known-mistake');
-    if (['preposition', 'verb-pattern', 'adverb'].includes(p.type)) { const it = (F.items || [])[0]; if (it && !hasForm(s.right + ' ' + (s.ex || []).join(' '), String(it.form).replace(/\(.*?\)/g, '').replace(/^(ing|to)$/, m => (m === 'ing' ? '' : 'to')))) f.push('fact:form-missing'); }
+    if (['preposition', 'verb-pattern', 'adverb'].includes(p.type)) { const it = (F.items || [])[0], fm = it ? String(it.form).replace(/\(.*?\)/g, '').trim() : ''; if (it && /^(to|that|in|on|at|for|of|with|about|from|by|into|over|against|after|under|toward|towards|between|among|without|through)$/.test(fm) && !hasForm(s.right + ' ' + (s.ex || []).join(' '), fm)) f.push('fact:form-missing'); }
   }
   if (p.src === 'grammar') { const a = norm(F.answer).split(' / ').join(' '); if (a && !hasForm([s.right, ...(s.ex || []), ...(qz.options || [])].join(' '), a.split(' ').slice(0, 2).join(' '))) f.push('fact:answer-missing'); }
   return { flags: f, est, off };
@@ -188,4 +193,51 @@ export function summary(bank, review, pts, state) {
   return { updated: new Date().toISOString(), bank: bank.length, review: review.length, pass_rate: tot ? +(bank.length / tot).toFixed(3) : 0, planned: pts.length, left: pts.length - bank.length - review.length,
     by_type: c('type'), by_cefr: c('cefr'), by_diff: c('diff'), by_topic: c('topic'), by_hook: c('hook_type'), avg_score: bank.length ? +(bank.reduce((a, s) => a + (s.qc.judge || 0), 0) / bank.length).toFixed(2) : 0,
     review_reasons: review.reduce((m, r) => { for (const x of r.reasons || []) { const k = x.split(/[: ]/)[0]; m[k] = (m[k] || 0) + 1; } return m; }, {}), days: (state.days || []).slice(-30) };
+}
+
+// ---------- Viral (chủ 22/10): công thức hook đã thử, khoảng tò mò, "aha", lưu/chia sẻ, mồi bình luận, kết vòng lặp ----------
+export const HOOKS = [
+  { id: 'stop', re: /^stop saying\b/i, loop: 'So... are you still saying it?' },
+  { id: 'natives', re: /^natives never say\b/i, loop: 'Now you sound like a native.' },
+  { id: '90', re: /^90% get this wrong\b/i, loop: 'So... are you in the 90%?' },
+  { id: 'which', re: /^which is correct\?/i, loop: 'So... which is correct?' },
+  { id: 'embarrass', re: /^don't embarrass yourself\b/i, loop: 'No more embarrassing moments!' },
+  { id: 'instead', re: /^say this instead\b/i, loop: 'Say this instead. Every time.' },
+  { id: 'rude', re: /^this word is rude\?!/i, loop: 'Rude or not? Now you know.' },
+  { id: 'guess', re: /^guess before i tell you\b/i, loop: 'Did you guess right?' }
+];
+export const hookOf = h => HOOKS.find(x => x.re.test(String(h || '').replace(/[’]/g, "'").trim())) || null;
+const GUESS = ['Pause. Guess first.', 'Wait. Guess first.', 'Stop and guess.', 'Think. What sounds right?'];
+const SAY = ['Natives say:', 'Say:', 'The natural way:', 'Better:'];
+/** Lời thoại mặc định (template nào cũng có thể dựng lại từ các trường): hook ≤ 1,5 s → lỗi → nghỉ đoán (khoảng tò mò) → đáp án giữa clip → vì sao → aha → mồi bình luận → lưu/chia sẻ + câu lặp về hook */
+export function expandLines(s) {
+  const k = parseInt(h8(s.pid || s.id || s.right), 16), H = hookOf(s.hook), q = String((s.quiz || {}).q || '').replace(/_{2,}/g, 'blank');
+  const L = [
+    ['ama', s.hook],
+    ['carlos', H && H.id === 'which' ? `${s.wrong} Or: ${s.right}` : `Many learners say: ${s.wrong}`],
+    ['ama', GUESS[k % GUESS.length]],
+    ['carlos', H && H.id === 'which' ? `Correct: ${s.right}` : `${SAY[k % SAY.length]} ${s.right}`],
+    ['ama', s.why],
+    ['carlos', s.aha],
+    ['ama', `Comment below: ${((s.quiz || {}).options || []).slice(0, 3).join(' or ')}?`],
+    ['carlos', `${s.save} ${H ? H.loop : ''}`.trim()]
+  ];
+  return L.map(([who, say]) => ({ who, say: String(say || '').trim() }));
+}
+/** Điểm hook 1–5 (QC): công thức đã thử + ≤ 5 từ + cụ thể/tò mò, không giữ đáp án trong hook, không lặp công thức liền trước */
+export function hookScore(s, prev) {
+  const H = hookOf(s.hook); if (!H) return 1;
+  let n = 3; if (NW(s.hook) <= 5) n++; else n -= 2;
+  if (['which', '90', 'guess', 'embarrass', 'instead'].includes(H.id) || /["'“‘]|\b[A-Z][a-z]+\b.*\?|!/.test(s.hook.replace(/^\S+/, ''))) n++;
+  if (H.id === 'stop' || H.id === 'natives') { const t = norm(s.hook).split(' ').slice(H.id === 'stop' ? 2 : 3).join(' '); if (t && norm(s.right).includes(t) && !norm(s.wrong).includes(t)) n -= 2; } // hook lộ đáp án
+  if (prev && prev === H.id) n -= 2; // lặp liền nhau
+  return Math.max(1, Math.min(5, n));
+}
+export function qcViral(s, prevHook) {
+  const f = [], hs = hookScore(s, prevHook);
+  if (hs < 4) f.push('hook<4:' + hs);
+  if (!String(s.aha || '').trim() || NW(s.aha) > 13) f.push('aha');
+  if (!String(s.save || '').trim() || NW(s.save) > 8 || !/\b(save|send|share|tag)\b/i.test(s.save)) f.push('save');
+  if (norm(s.hook).includes(norm(s.right))) f.push('hook-reveals-answer');
+  return { flags: f, hook_score: hs };
 }

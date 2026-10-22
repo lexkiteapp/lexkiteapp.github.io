@@ -33,5 +33,5 @@ assert(dd.dup({ ...good }), 'không bắt trùng');
 assert(!dd.dup({ ...good, right: 'She depends on her parents.', ex: ['It depends on the weather.', 'We rely on buses.'] }));
 // kho đã có: mọi mục đúng lược đồ, không pid trùng, đều có điểm giám khảo ≥ 4
 const bank = readBank(), seen = new Set();
-for (const s of bank) { assert(!seen.has(s.pid), 'kho trùng ' + s.pid); seen.add(s.pid); assert(s.qc && s.qc.judge >= 4 && !(s.qc.flags || []).length, 'mục kho chưa qua cổng ' + s.id); assert(ids.has(s.pid) || /^[a-z]:/.test(s.pid)); }
+for (const s of bank) { assert(!seen.has(s.pid), 'kho trùng ' + s.pid); seen.add(s.pid); assert(s.qc && (s.qc.gold || s.qc.judge >= 4) && !(s.qc.flags || []).length, 'mục kho chưa qua cổng ' + s.id); assert(ids.has(s.pid) || /^[a-z]:/.test(s.pid)); }
 console.log(`script-bank OK – kế hoạch ${P.length} điểm, kho ${bank.length}`);

@@ -1,17 +1,63 @@
 {
- "updated": "2026-10-22T14:23:54.766Z",
- "bank": 0,
- "review": 0,
- "pass_rate": 0,
+ "updated": "2026-10-22T14:41:56.322Z",
+ "bank": 156,
+ "review": 4,
+ "pass_rate": 0.975,
  "planned": 21221,
- "left": 21221,
- "by_type": {},
- "by_cefr": {},
- "by_diff": {},
- "by_topic": {},
- "by_hook": {},
+ "left": 21061,
+ "by_type": {
+  "stop-saying": 21,
+  "x-vs-y": 21,
+  "situational": 21,
+  "misunderstanding": 20,
+  "pronunciation": 16,
+  "adverb": 3,
+  "verb-pattern": 15,
+  "idiom-phrasal": 19,
+  "preposition": 16,
+  "structure": 4
+ },
+ "by_cefr": {
+  "A2": 63,
+  "A1": 32,
+  "B1": 26,
+  "B2": 21,
+  "C1": 13,
+  "C2": 1
+ },
+ "by_diff": {
+  "easy": 95,
+  "medium": 47,
+  "hard": 14
+ },
+ "by_topic": {
+  "shopping": 9,
+  "home": 15,
+  "travel": 24,
+  "daily": 14,
+  "exam": 22,
+  "work": 22,
+  "social": 16,
+  "study": 10,
+  "money": 4,
+  "health": 11,
+  "food": 2,
+  "tech": 7
+ },
+ "by_hook": {
+  "90": 21,
+  "stop": 32,
+  "which": 24,
+  "natives": 19,
+  "instead": 25,
+  "guess": 19,
+  "embarrass": 15,
+  "rude": 1
+ },
  "avg_score": 0,
- "review_reasons": {},
+ "review_reasons": {
+  "skip": 4
+ },
  "days": [
   {
    "date": "2026-10-22",
@@ -27,19 +73,26 @@
    "models": {}
   }
  ],
- "pending": 0,
- "types": [
-  "stop-saying",
-  "x-vs-y",
-  "preposition",
-  "verb-pattern",
-  "adverb",
-  "structure",
-  "grammar",
-  "word-in-use",
-  "collocation",
-  "situational",
-  "pronunciation",
-  "misunderstanding"
- ]
+ "gold": 156,
+ "gold_plan": 1931,
+ "by_cat": {
+  "stop-saying": 21,
+  "x-vs-y": 21,
+  "situational": 21,
+  "misunderstanding": 20,
+  "pronunciation": 16,
+  "collocation": 19,
+  "grammar": 19,
+  "idiom-phrasal": 19
+ },
+ "by_hook_formula": {
+  "90": 21,
+  "stop": 32,
+  "which": 24,
+  "natives": 19,
+  "instead": 25,
+  "guess": 19,
+  "embarrass": 15,
+  "rude": 1
+ }
 }
