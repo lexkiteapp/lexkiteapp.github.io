@@ -33,7 +33,7 @@ async function get(url) { for (let i = 0; i < 3; i++) { try { const r = await fe
 for (const lang of arg === 'all' ? LANGS : [arg]) {
   const p = new URL(`web/packs/${lang}.json`, R);
   const pack = fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8')) : {};
-  for (const k of Object.keys(pack)) if (!WORDS.has(k)) delete pack[k]; // từ đã bỏ khỏi app
+  for (const k of Object.keys(pack)) if (!WORDS.has(k.split('#')[0])) delete pack[k]; // từ đã bỏ khỏi app
   // dịch nhanh theo lô
   const miss = GLOSS_ONLY ? [] : [...WORDS.keys()].filter(k => !pack[k]);
   for (let i = 0; i < miss.length; i += 80) {

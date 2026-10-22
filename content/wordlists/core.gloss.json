@@ -180,7 +180,8 @@
   "way": "manera, forma; camino",
   "address": "dirección (postal)",
   "subject": "asignatura; tema",
-  "ever": "alguna vez; nunca (en negativa)"
+  "ever": "alguna vez; nunca (en negativa)",
+  "ward": "sala (de hospital); distrito"
  },
  "pt": {
   "will": "(auxiliar de futuro); testamento",
@@ -363,7 +364,9 @@
   "way": "maneira, jeito; caminho",
   "address": "endereço",
   "subject": "matéria, disciplina; assunto",
-  "ever": "alguma vez; nunca"
+  "ever": "alguma vez; nunca",
+  "ward": "enfermaria; distrito",
+  "shaft": "eixo; poço"
  },
  "fr": {
   "will": "(auxiliaire du futur); testament",
@@ -546,7 +549,8 @@
   "way": "façon, manière; chemin",
   "address": "adresse",
   "subject": "matière; sujet",
-  "ever": "déjà (question); jamais"
+  "ever": "déjà (question); jamais",
+  "ward": "service (hôpital), salle; circonscription"
  },
  "de": {
   "will": "werden (Futur); Testament",
@@ -729,7 +733,8 @@
   "way": "Weg; Art und Weise",
   "address": "Adresse",
   "subject": "Fach; Thema",
-  "ever": "jemals; je"
+  "ever": "jemals; je",
+  "ward": "Station (Krankenhaus); Bezirk"
  },
  "id": {
   "will": "akan; surat wasiat",
@@ -912,7 +917,9 @@
   "way": "cara; jalan",
   "address": "alamat",
   "subject": "mata pelajaran; topik",
-  "ever": "pernah"
+  "ever": "pernah",
+  "ward": "bangsal (rumah sakit); kelurahan",
+  "shaft": "poros"
  },
  "th": {
   "will": "จะ; พินัยกรรม",
@@ -1095,7 +1102,14 @@
   "way": "วิธี; ทาง",
   "address": "ที่อยู่",
   "subject": "วิชา; หัวข้อ",
-  "ever": "เคย"
+  "ever": "เคย",
+  "ward": "หอผู้ป่วย; เขต",
+  "support": "สนับสนุน",
+  "level": "ระดับ",
+  "express": "แสดงออก",
+  "motor": "มอเตอร์",
+  "instrument": "เครื่องมือ; เครื่องดนตรี",
+  "lobby": "ล็อบบี้"
  },
  "zh": {
   "will": "将，会；遗嘱",
@@ -1278,7 +1292,10 @@
   "way": "方法，方式；路",
   "address": "地址",
   "subject": "科目；主题",
-  "ever": "曾经"
+  "ever": "曾经",
+  "ward": "病房；（行政）区",
+  "level": "水平；级别",
+  "shaft": "轴；竖井"
  },
  "ja": {
   "will": "〜するだろう、〜するつもり；遺言",
@@ -1461,7 +1478,12 @@
   "way": "方法，やり方；道",
   "address": "住所，アドレス",
   "subject": "教科，科目；話題",
-  "ever": "今までに；かつて"
+  "ever": "今までに；かつて",
+  "ward": "病棟；（行政）区",
+  "level": "レベル、水準",
+  "express": "表現する、述べる",
+  "shaft": "シャフト、軸",
+  "refer": "言及する；参照する"
  },
  "ko": {
   "will": "~할 것이다; 유언",
@@ -1644,7 +1666,13 @@
   "way": "방법; 길",
   "address": "주소",
   "subject": "과목; 주제",
-  "ever": "언젠가, 한 번이라도"
+  "ever": "언젠가, 한 번이라도",
+  "ward": "병동; (행정) 구",
+  "support": "지원하다; 지지하다",
+  "level": "수준; 단계",
+  "express": "표현하다",
+  "lobby": "로비",
+  "refer": "언급하다; 참조하다"
  },
  "hi": {
   "will": "(भविष्य काल) -गा/-गी; वसीयत",
@@ -1827,7 +1855,12 @@
   "way": "तरीक़ा; रास्ता",
   "address": "पता",
   "subject": "विषय",
-  "ever": "कभी"
+  "ever": "कभी",
+  "ward": "वार्ड (अस्पताल); वार्ड (नगर क्षेत्र)",
+  "support": "समर्थन करना; सहारा देना",
+  "motor": "मोटर",
+  "instrument": "उपकरण; वाद्ययंत्र",
+  "lobby": "लॉबी (प्रवेश कक्ष)"
  },
  "ar": {
   "will": "سوف، سـ؛ وصية",
@@ -2010,7 +2043,13 @@
   "way": "طريقة؛ طريق",
   "address": "عنوان",
   "subject": "مادة دراسية؛ موضوع",
-  "ever": "في أي وقت، قطّ"
+  "ever": "في أي وقت، قطّ",
+  "ward": "جناح (في مستشفى)؛ دائرة",
+  "support": "يدعم",
+  "express": "يعبّر عن",
+  "motor": "محرّك",
+  "instrument": "أداة؛ آلة موسيقية",
+  "shaft": "عمود (إدارة)؛ مَهوى"
  },
  "ru": {
   "will": "(вспомогательный глагол будущего времени); завещание",
@@ -2193,7 +2232,8 @@
   "way": "способ; путь, дорога",
   "address": "адрес",
   "subject": "предмет; тема",
-  "ever": "когда-либо"
+  "ever": "когда-либо",
+  "ward": "палата, отделение (больницы); район"
  },
  "tr": {
   "will": "-ecek/-acak (gelecek zaman); vasiyet",
@@ -2376,6 +2416,7 @@
   "way": "yol, yöntem",
   "address": "adres",
   "subject": "ders; konu",
-  "ever": "hiç, şimdiye kadar"
+  "ever": "hiç, şimdiye kadar",
+  "ward": "koğuş; bölge"
  }
 }

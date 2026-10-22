@@ -24659,5 +24659,20 @@
   },
   "Đóng băng": {
     "hi": "फ़्रीज़ करें"
+  },
+  "Dịch máy": {
+    "es": "Traducción automática",
+    "pt": "Tradução automática",
+    "fr": "Traduction automatique",
+    "de": "Maschinelle Übersetzung",
+    "id": "Terjemahan mesin",
+    "th": "แปลด้วยเครื่อง",
+    "zh": "机器翻译",
+    "ja": "機械翻訳",
+    "ko": "기계 번역",
+    "hi": "मशीनी अनुवाद",
+    "ar": "ترجمة آلية",
+    "ru": "Машинный перевод",
+    "tr": "Makine çevirisi"
   }
 }
