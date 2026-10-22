@@ -87,6 +87,7 @@ def scale_mouth(mo, k):   # mouth track + sprites for a k-times super-resolved c
     mo.E = cv2.resize(mo.E, (mo.rw, mo.rh), interpolation=cv2.INTER_LINEAR); mo.ring = cv2.resize(mo.ring.astype(np.uint8), (mo.rw, mo.rh), interpolation=cv2.INTER_NEAREST) > 0
     return mo
 def render(clip, frames, speakers=(), boards=False, crop=None, k=1):
+    kx = k   # (the speaker loop below reuses the name k)
     """frames: list of source frame indices (any order: reverse/holds ok). speakers: [{mouth, lines}] ; lines=[] => mouth held closed (X).
     Hard switch between shapes on frame boundaries (no half-blend frames)."""
     cap = cv2.VideoCapture(clip); FR = []
@@ -102,5 +103,5 @@ def render(clip, frames, speakers=(), boards=False, crop=None, k=1):
             core = mo.E > 0.9; al = mo.aligned(F, i).astype(np.float32)   # pixel check: does the frame really show the sprite?
             rec['r%d' % k] = round(float(np.abs(al[core] - mo.spr[v][core]).mean()), 2)
         if boards: F = board_blur(F)
-        out.append(finish(F, crop, k)); log.append(rec)
+        out.append(finish(F, crop, kx)); log.append(rec)
     return out, log
