@@ -40,7 +40,7 @@ jobs:
         env: { FORCE: "${{ inputs.force && '1' || '' }}" }
         run: |
           node scripts/video/web-rendition.mjs plan shorts-repo
-          if [ -s .webvid/dirs.txt ]; then git -C shorts-repo sparse-checkout add --no-cone $(cat .webvid/dirs.txt); fi
+          if [ -s .webvid/dirs.txt ]; then git -C shorts-repo sparse-checkout add $(cat .webvid/dirs.txt); fi
       - name: Cài ffmpeg + dựng kho từ
         if: steps.plan.outputs.todo != '0'
         run: |
