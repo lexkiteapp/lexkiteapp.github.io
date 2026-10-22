@@ -1413,49 +1413,6 @@ label.struck { text-decoration: line-through; opacity: .5; }
 .ck-split:hover, .ck-split.drag, .ck-split:focus-visible { background: var(--brand, #14b8a6); outline: none; }
 .cbt-body:has(> .ck-split) .cbt-pass { border-right: 0; }
 
-/* 🏆 Bảng xếp hạng tuần (League) */
-.league-wrap { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
-.league-home-card { margin-top: .6rem; }
-.league-tier-ic { width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; font-size: 1.5rem; flex: none; font-weight: 800; }
-.league-tier-ic.lg { width: 64px; height: 64px; font-size: 2.2rem; border-radius: 20px; }
-.league-tier-pill { display: inline-flex; align-items: center; gap: .35rem; padding: .35rem .75rem; border-radius: 999px; font-weight: 700; font-size: .88rem; }
-.league-rank-badge { display: inline-block; padding: 2px 7px; border-radius: 999px; font-size: .78rem; font-weight: 800; background: var(--surface-2); color: var(--text); }
-.league-result-banner { border-left: 4px solid var(--primary); padding: 1rem 1.2rem; }
-.league-result-banner.banner-up { border-left-color: var(--good); background: linear-gradient(135deg, var(--good-soft), var(--surface)); }
-.league-result-banner.banner-down { border-left-color: var(--again); background: linear-gradient(135deg, var(--again-soft), var(--surface)); }
-.league-hero-card { padding: 1.2rem 1.4rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
-.league-stat-chip { display: flex; flex-direction: column; align-items: flex-end; padding: .35rem .75rem; border-radius: 12px; background: var(--surface-2); }
-.league-stat-chip b { font-size: 1.2rem; color: var(--text); }
-.league-board { display: flex; flex-direction: column; padding: .4rem; background: var(--surface); border-radius: var(--radius); border: 1px solid var(--line); overflow: hidden; }
-.league-row { display: grid; grid-template-columns: 2.8rem 1fr auto 2rem; align-items: center; gap: .6rem; padding: .65rem .85rem; border-radius: 12px; transition: background .12s ease; border-bottom: 1px solid color-mix(in srgb, var(--line) 40%, transparent); min-height: 48px; }
-.league-row:last-child { border-bottom: 0; }
-.league-row:hover { background: var(--surface-2); }
-.league-row.is-me { background: var(--primary-soft); outline: 2px solid var(--primary); outline-offset: -2px; font-weight: 700; z-index: 2; }
-.league-rank-col { text-align: center; font-weight: 800; font-size: .95rem; }
-.league-rank-num { display: inline-flex; align-items: center; justify-content: center; min-width: 1.8rem; }
-.league-rank-num.r1 { color: #f59e0b; font-size: 1.05rem; }
-.league-rank-num.r2 { color: #94a3b8; font-size: 1rem; }
-.league-rank-num.r3 { color: #cd7f32; font-size: 1rem; }
-.league-nick-col { display: flex; align-items: center; min-width: 0; }
-.league-nick { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .95rem; }
-.league-xp-col { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; font-size: .92rem; }
-.league-zone-col { text-align: center; }
-.league-zone-arrow { font-size: .8rem; font-weight: 900; }
-.league-zone-arrow.up { color: var(--good-text); }
-.league-zone-arrow.down { color: var(--again-text); }
-.league-zone-arrow.safe { color: var(--muted); opacity: .5; }
-.league-zone-divider { display: flex; align-items: center; gap: .5rem; padding: .45rem .85rem; font-size: .75rem; font-weight: 700; letter-spacing: .03em; margin: .25rem 0; border-radius: 8px; }
-.league-zone-divider.divider-up { background: var(--good-soft); color: var(--good-text); }
-.league-zone-divider.divider-down { background: var(--again-soft); color: var(--again-text); }
-.league-zone-divider .lzd-ic { font-size: .8rem; }
-.league-rules-box ul { margin: .5rem 0; }
-.league-rules-box li { margin-bottom: .4rem; }
-@media (max-width: 480px) {
-  .league-row { grid-template-columns: 2.4rem 1fr auto 1.5rem; gap: .4rem; padding: .6rem .65rem; }
-  .league-hero-card { padding: 1rem; }
-  .league-tier-ic.lg { width: 52px; height: 52px; font-size: 1.8rem; }
-}
-
 /* Tài khoản (sync.js gBtn/Sync.chrome): nút "Đăng nhập với Google" theo hướng dẫn thương hiệu Google – nền trung tính, viền, logo G 4 màu */
 .gsi { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; min-height: 40px; padding: 0 .95rem; border: 1px solid var(--muted); border-radius: 999px; background: var(--surface); color: var(--text); font: inherit; font-weight: 600; font-size: .9rem; cursor: pointer; white-space: nowrap; flex: none; }
 .gsi:hover { background: var(--surface-2); } .gsi:focus-visible, button.avatar:focus-visible, #sideLevel:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
@@ -1499,3 +1456,8 @@ button.avatar { border: 0; padding: 0; cursor: pointer; font: inherit; font-weig
 }
 /* Thanh kết quả (.sheet) cố định đáy: chừa chỗ để cuộn thấy hết đáp án phía dưới, không bị che */
 body:has(.sheet) .view { padding-bottom: calc(18rem + env(safe-area-inset-bottom)); }
+/* Lời mời cài add-on trong trang Từ điển (web/js/ext-cta.js hiện/ẩn) */
+.ext-card { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-top: 1rem; padding: 12px 14px; border-radius: 14px; background: var(--accent-soft); border: 1px solid var(--line); }
+.ext-card > div { flex: 1 1 260px; min-width: 0; }
+.ext-card p { margin: 4px 0 0; }
+.ext-card[hidden] { display: none; }

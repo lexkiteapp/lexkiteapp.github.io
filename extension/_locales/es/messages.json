@@ -1,11 +1,26 @@
 {
  "appName": {
-  "message": "Lexkite – Diccionario y tarjetas IELTS"
+  "message": "Lexkite – Diccionario de inglés, traductor y tarjetas de vocabulario"
  },
  "appDesc": {
-  "message": "Doble clic en una palabra: significado, IPA y audio nativo. Traduce frases y subtítulos de YouTube. Guarda y repasa con tarjetas."
+  "message": "Doble clic en cualquier palabra: significado, IPA y audio. Traduce frases, guarda palabras con contexto y repasa para IELTS/TOEIC."
  },
  "openApp": {
   "message": "Abrir Lexkite"
+ },
+ "rateTitle": {
+  "message": "¿Te gusta Lexkite?"
+ },
+ "rateBody": {
+  "message": "Si Lexkite te ayuda a aprender, una breve reseña en la tienda ayuda a que otros estudiantes lo encuentren."
+ },
+ "rateYes": {
+  "message": "Valorar Lexkite"
+ },
+ "rateLater": {
+  "message": "Más tarde"
+ },
+ "rateNever": {
+  "message": "No volver a preguntar"
  }
 }

@@ -1,11 +1,26 @@
 {
  "appName": {
-  "message": "Lexkite – Dictionary & IELTS Flashcards"
+  "message": "Lexkite – English Dictionary, Translator & Vocabulary Flashcards"
  },
  "appDesc": {
-  "message": "Double-click any word for meaning, IPA and native audio. Translate sentences and YouTube subtitles. Save and review with flashcards."
+  "message": "Double-click any word for meaning, IPA and audio. Translate selections, save words in context and review flashcards for IELTS/TOEIC."
  },
  "openApp": {
   "message": "Open Lexkite"
+ },
+ "rateTitle": {
+  "message": "Enjoying Lexkite?"
+ },
+ "rateBody": {
+  "message": "If Lexkite helps you learn, a short review on the store helps other learners find it."
+ },
+ "rateYes": {
+  "message": "Rate Lexkite"
+ },
+ "rateLater": {
+  "message": "Later"
+ },
+ "rateNever": {
+  "message": "Don't ask again"
  }
 }

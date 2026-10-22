@@ -132,5 +132,6 @@
     "Bu sayfanın Türkçesi var.",
     "Türkçe görüntüle",
     "Kapat"
-  ]
+  ],
+  "ext": {"btn": "Chrome'a ekle – ücretsiz", "h": "Her sitede kelime anlamına bakın", "p": "Lexkite eklentisi sözlüğü okuduğunuz her sayfaya getirir. Bir kelimeye çift tıklayarak anlamını, IPA'sını ve sesini görün, bir cümleyi seçip çevirin ve yeni kelimeleri orijinal cümleyle birlikte kartlarınıza kaydedin.", "pts": ["Chrome, Edge, Brave ve Opera'da çalışır", "YouTube altyazılarındaki kelimelere dokunun", "Kaydedilen kelimeler Lexkite kartlarınızla eşitlenir"], "alt": "Lexkite eklentisi: haber makalesinde “resilience” kelimesine çift tıklamak IPA, anlamlar ve örnekleri gösterir"}
 }

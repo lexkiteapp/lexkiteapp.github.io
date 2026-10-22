@@ -1,11 +1,26 @@
 {
  "appName": {
-  "message": "Lexkite – Kamus & Flashcard IELTS"
+  "message": "Lexkite – Kamus Bahasa Inggris, Penerjemah & Flashcard Kosakata"
  },
  "appDesc": {
-  "message": "Klik dua kali kata: arti, IPA, dan audio penutur asli. Terjemahkan kalimat dan subtitle YouTube. Simpan dan ulangi dengan flashcard."
+  "message": "Klik dua kali kata apa pun: arti, IPA, dan audio. Terjemahkan teks pilihan, simpan kata beserta konteks, ulangi untuk IELTS/TOEIC."
  },
  "openApp": {
   "message": "Buka Lexkite"
+ },
+ "rateTitle": {
+  "message": "Suka dengan Lexkite?"
+ },
+ "rateBody": {
+  "message": "Jika Lexkite membantumu belajar, ulasan singkat di toko membantu pelajar lain menemukannya."
+ },
+ "rateYes": {
+  "message": "Beri ulasan"
+ },
+ "rateLater": {
+  "message": "Nanti"
+ },
+ "rateNever": {
+  "message": "Jangan tanya lagi"
  }
 }

@@ -1,11 +1,26 @@
 {
  "appName": {
-  "message": "Lexkite – 사전 & IELTS 플래시카드"
+  "message": "Lexkite – 영어 사전·번역·영단어 플래시카드"
  },
  "appDesc": {
-  "message": "단어를 더블클릭하면 뜻, 발음기호, 원어민 음성을 확인할 수 있습니다. 문장과 YouTube 자막을 번역하고, 문맥과 함께 저장해 간격 반복으로 복습하세요."
+  "message": "단어를 더블클릭하면 뜻, 발음기호, 음성을 바로 확인. 선택한 문장 번역, 문맥과 함께 단어 저장, 플래시카드로 IELTS·TOEIC 복습."
  },
  "openApp": {
   "message": "Lexkite 열기"
+ },
+ "rateTitle": {
+  "message": "Lexkite가 마음에 드시나요?"
+ },
+ "rateBody": {
+  "message": "Lexkite가 학습에 도움이 된다면, 스토어에 짧은 리뷰를 남겨 다른 학습자들이 찾을 수 있게 도와주세요."
+ },
+ "rateYes": {
+  "message": "리뷰 남기기"
+ },
+ "rateLater": {
+  "message": "나중에"
+ },
+ "rateNever": {
+  "message": "다시 묻지 않기"
  }
 }

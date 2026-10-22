@@ -1,11 +1,26 @@
 {
  "appName": {
-  "message": "Lexkite – 辞書＆IELTS単語カード"
+  "message": "Lexkite – 英語辞書・翻訳・英単語フラッシュカード"
  },
  "appDesc": {
-  "message": "単語をダブルクリックで意味・発音記号・ネイティブ音声を表示。文やYouTube字幕も翻訳。文脈ごと保存し、間隔反復で効率よく復習できます。"
+  "message": "単語をダブルクリックで意味・発音記号・音声を表示。選択した文を翻訳し、文脈ごと保存してフラッシュカードで復習。IELTS・TOEIC対策に。"
  },
  "openApp": {
   "message": "Lexkite を開く"
+ },
+ "rateTitle": {
+  "message": "Lexkite は役に立っていますか？"
+ },
+ "rateBody": {
+  "message": "Lexkite が学習の役に立っているなら、ストアに短いレビューを書いていただくと、ほかの学習者が見つけやすくなります。"
+ },
+ "rateYes": {
+  "message": "レビューを書く"
+ },
+ "rateLater": {
+  "message": "あとで"
+ },
+ "rateNever": {
+  "message": "今後表示しない"
  }
 }

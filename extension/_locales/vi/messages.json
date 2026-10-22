@@ -1,11 +1,26 @@
 {
  "appName": {
-  "message": "Lexkite – Từ điển & Flashcard IELTS"
+  "message": "Lexkite – Từ điển tiếng Anh, Dịch & Flashcard từ vựng"
  },
  "appDesc": {
-  "message": "Bấm đúp tra từ, bôi đen dịch câu, tra từ trong phụ đề YouTube; lưu kèm ngữ cảnh và ôn flashcard đúng thời điểm vàng."
+  "message": "Bấm đúp tra từ: nghĩa, phiên âm, phát âm. Bôi đen để dịch, lưu từ kèm ngữ cảnh và ôn flashcard luyện IELTS, TOEIC."
  },
  "openApp": {
   "message": "Mở Lexkite"
+ },
+ "rateTitle": {
+  "message": "Bạn thấy Lexkite hữu ích?"
+ },
+ "rateBody": {
+  "message": "Nếu Lexkite giúp bạn học tốt hơn, một đánh giá ngắn trên cửa hàng sẽ giúp người học khác tìm thấy nó."
+ },
+ "rateYes": {
+  "message": "Đánh giá Lexkite"
+ },
+ "rateLater": {
+  "message": "Để sau"
+ },
+ "rateNever": {
+  "message": "Đừng hỏi lại"
  }
 }

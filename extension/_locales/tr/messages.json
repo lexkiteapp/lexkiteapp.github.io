@@ -1,11 +1,26 @@
 {
  "appName": {
-  "message": "Lexkite – Sözlük ve IELTS Kartları"
+  "message": "Lexkite – İngilizce Sözlük, Çeviri ve Kelime Kartları"
  },
  "appDesc": {
-  "message": "Kelimeye çift tıklayın: anlam, okunuş ve ses. Cümleleri ve YouTube altyazılarını çevirin. Kaydedin ve kartlarla tekrar edin."
+  "message": "Herhangi bir kelimeye çift tıkla: anlam, IPA ve ses. Seçili metni çevir, kelimeleri bağlamıyla kaydet, IELTS/TOEIC için tekrar et."
  },
  "openApp": {
   "message": "Lexkite'ı aç"
+ },
+ "rateTitle": {
+  "message": "Lexkite'ı beğendin mi?"
+ },
+ "rateBody": {
+  "message": "Lexkite öğrenmene yardımcı oluyorsa, mağazada kısa bir değerlendirme diğer öğrencilerin onu bulmasına yardımcı olur."
+ },
+ "rateYes": {
+  "message": "Lexkite'ı değerlendir"
+ },
+ "rateLater": {
+  "message": "Sonra"
+ },
+ "rateNever": {
+  "message": "Bir daha sorma"
  }
 }

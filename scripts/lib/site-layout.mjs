@@ -7,6 +7,10 @@
 import fs from 'node:fs';
 // ---------- Nút đổi ngôn ngữ đầu trang (mọi trang tĩnh) – nguồn DUY NHẤT dùng chung với app: web/js/lang-menu.js + khối /* lsw */ trong web/css/style.css ----------
 const rdWeb = p => fs.readFileSync(new URL(`../../web/${p}`, import.meta.url), 'utf8');
+// ---------- Nút "Thêm vào Chrome" (add-on) – nguồn DUY NHẤT: web/js/ext-config.js (URL cửa hàng) + web/js/ext-cta.js (hiện/ẩn, đếm bấm) ----------
+const jsLite = s => s.replace(/\/\*[\s\S]*?\*\//g, '').split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('//')).join('\n');
+export const EXT_STORE = (rdWeb('js/ext-config.js').match(/store: '([^']+)'/) || [])[1];
+export const EXT_JS = jsLite(rdWeb('js/ext-config.js')) + '\n' + jsLite(rdWeb('js/ext-cta.js').replace(/\/\/ <nudge>[\s\S]*?\/\/ <\/nudge>\n/, ''));
 export const LSW_CSS = (rdWeb('css/style.css').match(/\/\* lsw [^*]*\*\/\n([\s\S]*?)\/\* \/lsw \*\//) || [, ''])[1].replace(/\n/g, '');
 export const LSW_JS = rdWeb('js/lang-menu.js').replace(/\/\*[\s\S]*?\*\//g, '').split('\n').map(l => l.trim().replace(/\s\/\/ [^'"]*$/, '')).filter(l => l && !l.startsWith('//')).join('\n');
 export const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -194,7 +198,7 @@ const UI_JS = `(function(d){var r=d.documentElement;r.classList.add('js');var A=
 d.addEventListener('click',function(e){var b=e.target.closest('.au');if(!b)return;if(cur){cur.pause();if(cur.btn)cur.btn.setAttribute('aria-pressed','false')}var k=b.getAttribute('data-a'),a=new Audio(A+k+'.mp3');a.btn=b;cur=a;b.setAttribute('aria-pressed','true');a.onended=function(){b.setAttribute('aria-pressed','false')};a.onerror=function(){if(a.src.indexOf(B)<0){a.src=B+k+'.mp3';a.play()}else b.setAttribute('aria-pressed','false')};a.play().catch(function(){})});
 var q=d.getElementById('q');if(q){var o=d.getElementById('qn'),n=function(s){return s.normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').replace(/đ/g,'d').toLowerCase()},cs=[].slice.call(d.querySelectorAll('[data-k]')),gs=[].slice.call(d.querySelectorAll('.grp'));cs.forEach(function(c){c._k=n(c.getAttribute('data-k')+' '+c.textContent)});
 q.addEventListener('input',function(){var v=n(q.value.trim()),c=0;cs.forEach(function(x){var h=v&&x._k.indexOf(v)<0;x.hidden=h;if(!h)c++});gs.forEach(function(g){g.hidden=!!v&&!g.querySelector('[data-k]:not([hidden])')});o.textContent=v?(c?o.getAttribute('data-f').replace('#',c):o.getAttribute('data-n')):''})}
-var x=d.getElementById('ext'),u=navigator.userAgent;if(x&&/Chrome\\//.test(u)&&!/Edg\\/|OPR\\/|Mobile|Android|CriOS/.test(u)){var t=0;try{t=+localStorage.getItem('lkExtHide')||0}catch(e){}if(Date.now()-t>6048e5){x.hidden=false;x.querySelector('button').onclick=function(){x.hidden=true;try{localStorage.setItem('lkExtHide',Date.now())}catch(e){}}}}})(document);`;
+var x=d.getElementById('ext'),u=navigator.userAgent;if(x&&/Chrome\\//.test(u)&&!/Mobile|Android|CriOS/.test(u)&&!r.getAttribute('data-lexkite-ext')){var t=0;try{t=+localStorage.getItem('lkExtHide')||0}catch(e){}if(Date.now()-t>6048e5){x.hidden=false;x.querySelector('button').onclick=function(){x.hidden=true;try{localStorage.setItem('lkExtHide',Date.now())}catch(e){}}}}})(document);`;
 
 export const audioBtn = (key, word, lang) => `<button type="button" class="au" data-a="${esc(key)}" aria-label="${esc(SEO_L[lang].play(word))}"></button>`;
 
@@ -205,7 +209,7 @@ export const setCard = ({ href, title, desc = '', emoji = '', chips = [], key = 
 // Khối CTA chính (mở đúng bộ/bài trong app)
 export const ctaBox = (href, title, btn, note = '') => `<div class="cta"><p><strong>${title}</strong>${note ? `<small>${note}</small>` : ''}</p><a class="btn" href="${href}">${btn} →</a></div>`;
 // Gợi ý add-on – chỉ hiện trên Chrome máy tính (JS bật hidden=false), cuối trang nên không xô bố cục phần đầu
-export const extBox = lang => { const t = SEO_L[lang]; return `<div class="ext" id="ext" hidden><p><strong>🧩 ${t.ext[0]}</strong> ${t.ext[1]}</p><a class="btn" href="${t.extHref}">${t.ext[2]}</a><button type="button">${t.ext[3]}</button></div>`; };
+export const extBox = lang => { const t = SEO_L[lang]; return `<div class="ext" id="ext" hidden><p><strong>🧩 ${t.ext[0]}</strong> ${t.ext[1]}</p><a class="btn" href="${EXT_STORE}" target="_blank" rel="noopener">${t.ext[2]}</a><button type="button">${t.ext[3]}</button></div>`; };
 
 // Khung trang SEO: head (meta/canonical/hreflang/JSON-LD do builder tạo, giữ nguyên) + header + breadcrumb + nội dung + footer
 // alt: [đường dẫn bản ngôn ngữ kia] → nút đổi ngôn ngữ; section: đường dẫn mục đang xem (đánh dấu aria-current)

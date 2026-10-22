@@ -32,6 +32,7 @@
       } catch (err) { window.postMessage({ lkBridge: 'res', id: e.data.id, error: String(err) }, location.origin); }
     });
     window.postMessage({ lkBridge: 'hello', version: chrome.runtime.getManifest().version }, location.origin);
+    try { document.documentElement.setAttribute('data-lexkite-ext', chrome.runtime.getManifest().version); } catch (x) { /* bỏ qua */ } // web ẩn nút "Thêm vào Chrome" khi add-on đã cài (web/js/ext-cta.js)
   }
   // Bản content script cũ (trước khi add-on được cập nhật/tải lại) tự tắt khi bản mới chạy
   document.dispatchEvent(new CustomEvent('ielts-lexi-takeover', { detail: chrome.runtime.id }));

@@ -54,5 +54,6 @@
   "finalP": "Define tu objetivo en dos minutos y aprende tus primeras palabras al instante.",
   "tm": "IELTS, TOEIC y TOEFL son marcas de sus respectivos propietarios. Lexkite es un producto independiente y no está afiliado a ellos ni cuenta con su respaldo.",
   "foot": "Lexkite – vocabulario y práctica gratuita para IELTS, TOEIC y TOEFL. Contenido original, gratis para quien aprende.",
-  "suggest": ["Esta página está disponible en español.", "Ver en español", "Cerrar"]
+  "suggest": ["Esta página está disponible en español.", "Ver en español", "Cerrar"],
+  "ext": {"btn": "Añadir a Chrome – gratis", "h": "Busca palabras en cualquier web", "p": "La extensión de Lexkite lleva el diccionario a cada página que lees. Haz doble clic en una palabra para ver su significado, IPA y audio, selecciona una frase para traducirla y guarda las palabras nuevas en tus tarjetas con la frase original.", "pts": ["Funciona en Chrome, Edge, Brave y Opera", "Toca palabras en los subtítulos de YouTube", "Las palabras guardadas se sincronizan con tus tarjetas de Lexkite"], "alt": "Extensión de Lexkite: doble clic en “resilience” en un artículo muestra IPA, significados y ejemplos"}
 }

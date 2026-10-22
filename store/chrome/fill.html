@@ -1,29 +1,36 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><title>Lexkite – điền Chrome Web Store</title><style>body{font:15px/1.5 system-ui,sans-serif;max-width:860px;margin:2rem auto;padding:0 16px;color:#1c2b2b;background:#f6f8f7}h2{margin-top:2rem;color:#0F3D3E}.f{background:#fff;border:1px solid #d6e0de;border-radius:10px;padding:10px 12px;margin:10px 0}.l{font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:8px}button{background:#E5502F;color:#fff;border:0;border-radius:8px;padding:5px 12px;cursor:pointer;font-weight:600}button.ok{background:#15803d}pre{white-space:pre-wrap;margin:6px 0 0;font:13px/1.45 ui-monospace,monospace;max-height:220px;overflow:auto}table{border-collapse:collapse}td,th{border:1px solid #ccd;padding:4px 8px}</style></head><body><h1>Lexkite – điền Chrome Web Store</h1><p>Bấm <b>Copy</b> rồi dán vào ô tương ứng trên dashboard. Ảnh: thư mục <code>store/chrome/screenshots/</code> (en-1…5 cho English, vi-1…5 cho Tiếng Việt), ô nhỏ <code>store/chrome/promo-440x280.png</code>, ô lớn <code>store/chrome/promo-1400x560.png</code>.</p><h2>1. Package</h2><p>New item → Upload: <code>store/lexkite-extension.zip</code></p><h2>2. Store listing – English</h2><div class="f"><div class="l"><span>Summary (≤132 characters):</span><button>Copy</button></div><pre>Double-click any word for IPA, audio and meaning. Translate selections, save words with context, review with spaced repetition.</pre></div><div class="f"><div class="l"><span>Description:</span><button>Copy</button></div><pre>Lexkite turns everything you read and watch online into vocabulary practice for IELTS, TOEIC and everyday English – then reminds you to review each word right before you forget it.
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lexkite – điền Chrome Web Store</title><style>body{font:15px/1.5 system-ui,sans-serif;max-width:860px;margin:2rem auto;padding:0 16px;color:#1c2b2b;background:#f6f8f7}h2{margin-top:2rem;color:#0F3D3E}h3{margin:1.6rem 0 .4rem}.toc{font-size:14px;line-height:1.9}.toc a{color:#0F3D3E}small{font-weight:400;color:#5b6b6a}.f{background:#fff;border:1px solid #d6e0de;border-radius:10px;padding:10px 12px;margin:10px 0}.l{font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:8px}button{background:#E5502F;color:#fff;border:0;border-radius:8px;padding:5px 12px;cursor:pointer;font-weight:600}button.ok{background:#15803d}pre{white-space:pre-wrap;margin:6px 0 0;font:13px/1.45 ui-monospace,monospace;max-height:220px;overflow:auto}pre[dir=auto]{unicode-bidi:plaintext}table{border-collapse:collapse}td,th{border:1px solid #ccd;padding:4px 8px}</style></head><body><h1>Lexkite – điền Chrome Web Store / Edge Add-ons</h1><p>Bấm <b>Copy</b> rồi dán vào ô tương ứng trên dashboard. Nội dung sinh từ <code>store/chrome/listing.json</code> + <code>store/chrome/PRIVACY-PRACTICES.md</code> bằng <code>node scripts/gen-store-fill.mjs</code> – đừng sửa tay trang này. Ảnh: <code>store/chrome/screenshots/</code> (1280×800, en-1…5 / vi-1…5; ngôn ngữ khác lấy từ workflow "Ảnh Chrome Web Store"), ô nhỏ <code>store/chrome/promo-440x280.png</code>, ô lớn <code>store/chrome/promo-1400x560.png</code>.</p>
+<h2>1. Package</h2><p>Upload: <code>store/lexkite-extension.zip</code> (<code>bash scripts/build-extension.sh --zip</code>). Tên và mô tả ngắn hiển thị trên cửa hàng lấy từ gói (<code>_locales/*/messages.json</code> → appName / appDesc) – nên khớp với ô Name / Summary dưới đây.</p>
+<h2>2. Store listing – mỗi ngôn ngữ</h2><p>Đầu trang Store listing chọn Language → dán Description (và Summary nếu dashboard cho sửa), kéo 5 ảnh của ngôn ngữ đó.</p><nav class="toc"><a href="#en">English (default)</a> · <a href="#vi">Tiếng Việt</a> · <a href="#es">Español</a> · <a href="#pt_BR">Português (Brasil)</a> · <a href="#fr">Français</a> · <a href="#de">Deutsch</a> · <a href="#id">Bahasa Indonesia</a> · <a href="#th">ไทย</a> · <a href="#zh_CN">中文（简体）</a> · <a href="#ja">日本語</a> · <a href="#ko">한국어</a> · <a href="#hi">हिन्दी</a> · <a href="#ar">العربية</a> · <a href="#ru">Русский</a> · <a href="#tr">Türkçe</a></nav>
+<h3 id="en">English (default) <code>en</code></h3>
+<div class="f"><div class="l"><span>Name <small>64/75</small></span><button>Copy</button></div><pre dir="auto">Lexkite – English Dictionary, Translator &amp; Vocabulary Flashcards</pre></div>
+<div class="f"><div class="l"><span>Summary <small>132/132</small></span><button>Copy</button></div><pre dir="auto">Double-click any word for meaning, IPA and audio. Translate selections, save words in context and review flashcards for IELTS/TOEIC.</pre></div>
+<div class="f"><div class="l"><span>Description <small>2400 ký tự</small></span><button>Copy</button></div><pre dir="auto">Lexkite turns everything you read and watch online into English vocabulary practice for IELTS, TOEIC and everyday life: a dictionary and translator on every page, plus flashcards that remind you to review each word right before you forget it.
 
 LOOK UP ANY WORD, ON ANY PAGE
 • Double-click a word: British &amp; American IPA, audio, meanings by part of speech, definitions, examples and a picture.
 • Select a sentence or paragraph: instant translation, with the grammar structures in it explained.
-• Right-click → &quot;Look up&quot; or &quot;Translate selection&quot;.
-• Optional: explain an expression in depth with AI (Chrome&#x27;s built-in on-device AI, or your own free Gemini key).
+• Right-click → “Look up” or “Translate selection”.
+• Optional: a deeper AI explanation of any expression, only when you ask for it.
+• Optional writing check (off by default): underlines English mistakes in the box you are typing in and explains each one.
 
 LEARN FROM YOUTUBE
-• Turn on English subtitles and tap any word in the captions – the video pauses and you see the meaning and a translation of the whole line.
-• Keys A / S / D jump to the previous, current or next subtitle line.
+• Turn on English subtitles and click any word in the captions – the video pauses and you see the meaning and a translation of the whole line.
+• Keys A / S / D jump to the previous line, replay the current one or move to the next.
 
 SAVE WORDS WITH THEIR CONTEXT
-• Every saved word keeps the sentence and page where you found it.
-• Words you have already learned are highlighted on the pages you visit (optional), so you review them in real context.
+• Every saved word keeps the sentence and the page where you found it.
+• Words you have already learned can be highlighted on the pages you visit, so you meet them again in real context.
 • Academic B2–C2 words can be underlined (optional).
 
 REVIEW AT THE RIGHT MOMENT
-• Spaced repetition with the FSRS algorithm (like Anki).
-• Daily reminder and &quot;golden moment&quot; alerts when words are about to be forgotten, with quiet hours.
-• A vocabulary card on every new tab (can be turned off in one click).
-• Badge showing how many cards are due today.
+• Spaced-repetition flashcards scheduled by the FSRS algorithm.
+• A daily reminder and “golden moment” alerts when words are about to be forgotten, with quiet hours.
+• A vocabulary card on every new tab (turn it off in one click).
+• A toolbar badge showing how many cards are due today.
 
 A FULL STUDY APP INCLUDED
 • 6,000+ words with IPA, topic word lists, the Academic Word List, phrasal verbs, idioms and collocations.
-• Flashcards, games, listening &amp; dictation, pronunciation practice, reading passages, IELTS &amp; TOEIC practice tests with explanations.
+• Flashcards, games, listening &amp; dictation, pronunciation practice, reading passages, and IELTS &amp; TOEIC practice tests with explanations.
 • Interface in 15 languages.
 
 FREE AND PRIVATE
@@ -31,32 +38,37 @@ FREE AND PRIVATE
 • Your learning data stays in your browser. Sign in with Google on lexkite.com only if you want to sync between devices.
 • We never collect your browsing history or sell your data. Privacy policy: https://lexkite.com/privacy
 
-Lexkite is an independent product and is not affiliated with or endorsed by the British Council, IDP, Cambridge University Press &amp; Assessment or ETS. IELTS, TOEIC and TOEFL are trademarks of their respective owners.</pre></div><div class="f"><div class="l"><span>Category</span><button>Copy</button></div><pre>Education</pre></div><div class="f"><div class="l"><span>Official URL / Homepage</span><button>Copy</button></div><pre>https://lexkite.com</pre></div><div class="f"><div class="l"><span>Support URL</span><button>Copy</button></div><pre>https://lexkite.com/#/contact</pre></div><div class="f"><div class="l"><span>Privacy policy URL</span><button>Copy</button></div><pre>https://lexkite.com/privacy</pre></div><div class="f"><div class="l"><span>Contact email</span><button>Copy</button></div><pre>support@lexkite.com</pre></div><h2>3. Store listing – Tiếng Việt</h2><div class="f"><div class="l"><span>Mô tả ngắn (≤132 ký tự):</span><button>Copy</button></div><pre>Bấm đúp tra từ có phiên âm, phát âm và nghĩa; bôi đen để dịch; lưu từ kèm ngữ cảnh và ôn bằng lặp lại ngắt quãng.</pre></div><div class="f"><div class="l"><span>Mô tả chi tiết:</span><button>Copy</button></div><pre>Lexkite biến mọi thứ bạn đọc và xem trên mạng thành bài học từ vựng IELTS, TOEIC và tiếng Anh hằng ngày – rồi nhắc bạn ôn mỗi từ đúng lúc sắp quên.
+Lexkite is an independent product and is not affiliated with or endorsed by the British Council, IDP, Cambridge University Press &amp; Assessment or ETS. IELTS, TOEIC and TOEFL are trademarks of their respective owners.</pre></div>
+<h3 id="vi">Tiếng Việt <code>vi</code></h3>
+<div class="f"><div class="l"><span>Name <small>53/75</small></span><button>Copy</button></div><pre dir="auto">Lexkite – Từ điển tiếng Anh, Dịch &amp; Flashcard từ vựng</pre></div>
+<div class="f"><div class="l"><span>Summary <small>114/132</small></span><button>Copy</button></div><pre dir="auto">Bấm đúp tra từ: nghĩa, phiên âm, phát âm. Bôi đen để dịch, lưu từ kèm ngữ cảnh và ôn flashcard luyện IELTS, TOEIC.</pre></div>
+<div class="f"><div class="l"><span>Description <small>2159 ký tự</small></span><button>Copy</button></div><pre dir="auto">Lexkite biến mọi thứ bạn đọc và xem trên mạng thành bài học từ vựng tiếng Anh cho IELTS, TOEIC và đời sống: từ điển và công cụ dịch ngay trên mọi trang, kèm flashcard nhắc bạn ôn mỗi từ đúng lúc sắp quên.
 
 TRA TỪ TRÊN MỌI TRANG WEB
 • Bấm đúp vào từ: phiên âm Anh–Anh &amp; Anh–Mỹ, phát âm, nghĩa theo từ loại, định nghĩa, ví dụ và hình minh họa.
-• Bôi đen câu hoặc đoạn văn: dịch ngay, kèm giải thích cấu trúc ngữ pháp trong câu.
-• Chuột phải → &quot;Tra từ&quot; hoặc &quot;Dịch đoạn đã chọn&quot;.
-• Tùy chọn: giải thích sâu bằng AI (AI có sẵn trong Chrome chạy trên máy, hoặc khóa Gemini miễn phí của bạn).
+• Bôi đen câu hoặc đoạn văn: dịch ngay, kèm giải thích các cấu trúc ngữ pháp trong câu.
+• Chuột phải → “Tra từ” hoặc “Dịch đoạn đã chọn”.
+• Tùy chọn: AI giải thích sâu một cách diễn đạt, chỉ khi bạn bấm yêu cầu.
+• Soát lỗi viết (mặc định tắt): gạch chân lỗi tiếng Anh trong ô bạn đang gõ và giải thích từng lỗi.
 
 HỌC QUA YOUTUBE
-• Bật phụ đề tiếng Anh và chạm vào từ bất kỳ trong phụ đề – video tự dừng, hiện nghĩa và bản dịch cả câu.
-• Phím A / S / D: về câu trước, nghe lại câu, sang câu sau.
+• Bật phụ đề tiếng Anh và bấm vào từ bất kỳ trong phụ đề – video tự dừng, hiện nghĩa và bản dịch cả câu.
+• Phím A / S / D: về câu trước, nghe lại câu hiện tại, sang câu sau.
 
 LƯU TỪ KÈM NGỮ CẢNH
 • Mỗi từ được lưu cùng câu gốc và trang nơi bạn gặp nó.
-• Từ đã học được đánh dấu trên các trang bạn đọc (tùy chọn) để ôn trong ngữ cảnh thật.
+• Từ đã học có thể được đánh dấu trên các trang bạn đọc, để bạn gặp lại chúng trong ngữ cảnh thật.
 • Gạch chân từ học thuật B2–C2 (tùy chọn).
 
 ÔN ĐÚNG THỜI ĐIỂM
-• Lặp lại ngắt quãng bằng thuật toán FSRS (như Anki).
-• Nhắc học hằng ngày và báo &quot;thời điểm vàng&quot; khi từ sắp bị quên, có giờ yên lặng.
+• Flashcard lặp lại ngắt quãng, lịch ôn tính bằng thuật toán FSRS.
+• Nhắc học hằng ngày và báo “thời điểm vàng” khi từ sắp bị quên, có giờ yên lặng.
 • Thẻ từ vựng trên mỗi tab mới (tắt bằng một cú bấm).
-• Huy hiệu số thẻ cần ôn hôm nay.
+• Huy hiệu trên thanh công cụ cho biết số thẻ cần ôn hôm nay.
 
 KÈM ỨNG DỤNG HỌC ĐẦY ĐỦ
-• 6.000+ từ có phiên âm, từ theo chủ đề, danh sách từ học thuật AWL, phrasal verb, thành ngữ, collocation.
-• Flashcard, trò chơi, nghe – chép chính tả, luyện phát âm, bài đọc, đề luyện IELTS &amp; TOEIC có giải thích.
+• 6.000+ từ có phiên âm, từ vựng theo chủ đề, danh sách từ học thuật AWL, phrasal verb, thành ngữ và collocation.
+• Flashcard, trò chơi, nghe – chép chính tả, luyện phát âm, bài đọc và đề luyện IELTS &amp; TOEIC có giải thích.
 • Giao diện 15 ngôn ngữ.
 
 MIỄN PHÍ VÀ RIÊNG TƯ
@@ -64,317 +76,511 @@ MIỄN PHÍ VÀ RIÊNG TƯ
 • Dữ liệu học lưu trong trình duyệt của bạn. Chỉ đăng nhập Google trên lexkite.com khi bạn muốn đồng bộ giữa các thiết bị.
 • Không thu thập lịch sử duyệt web, không bán dữ liệu. Chính sách quyền riêng tư: https://lexkite.com/vi/privacy
 
-Lexkite là sản phẩm độc lập, không liên kết với British Council, IDP, Cambridge University Press &amp; Assessment hay ETS. IELTS, TOEIC, TOEFL là nhãn hiệu của các chủ sở hữu tương ứng.</pre></div><h2>4. Ngôn ngữ khác – đầu trang Store listing chọn Language, dán Description, kéo 5 ảnh anh-&lt;mã&gt;.zip (Title/Summary tự lấy từ gói)</h2><h2>Español (es)</h2><div class="f"><div class="l"><span>Description</span><button>Copy</button></div><pre>Lexkite convierte todo lo que lees y ves en internet en práctica de vocabulario de inglés para IELTS, TOEIC y el día a día, y te recuerda repasar cada palabra justo antes de olvidarla.
+Lexkite là sản phẩm độc lập, không liên kết với và không được bảo trợ bởi British Council, IDP, Cambridge University Press &amp; Assessment hay ETS. IELTS, TOEIC và TOEFL là nhãn hiệu của các chủ sở hữu tương ứng.</pre></div>
+<h3 id="es">Español <code>es</code></h3>
+<div class="f"><div class="l"><span>Name <small>68/75</small></span><button>Copy</button></div><pre dir="auto">Lexkite – Diccionario de inglés, traductor y tarjetas de vocabulario</pre></div>
+<div class="f"><div class="l"><span>Summary <small>130/132</small></span><button>Copy</button></div><pre dir="auto">Doble clic en cualquier palabra: significado, IPA y audio. Traduce frases, guarda palabras con contexto y repasa para IELTS/TOEIC.</pre></div>
+<div class="f"><div class="l"><span>Description <small>2617 ký tự</small></span><button>Copy</button></div><pre dir="auto">Lexkite convierte todo lo que lees y ves en internet en práctica de vocabulario en inglés para IELTS, TOEIC y el día a día: un diccionario y un traductor en cada página, y tarjetas que te avisan de repasar cada palabra justo antes de olvidarla.
 
 BUSCA CUALQUIER PALABRA EN CUALQUIER WEB
 • Doble clic en una palabra: IPA británico y americano, audio, significados por categoría gramatical, definiciones, ejemplos e imagen.
-• Selecciona una frase: traducción al instante y explicación de las estructuras gramaticales que contiene.
-• Clic derecho → &quot;Buscar&quot; o &quot;Traducir selección&quot;.
+• Selecciona una frase o un párrafo: traducción al instante y explicación de las estructuras gramaticales que contiene.
+• Clic derecho → “Buscar” o “Traducir selección”.
+• Opcional: una explicación más profunda con IA de cualquier expresión, solo cuando la pides.
+• Corrección de escritura opcional (desactivada por defecto): subraya los errores de inglés en el cuadro donde escribes y explica cada uno.
 
 APRENDE CON YOUTUBE
-• Activa los subtítulos en inglés y toca cualquier palabra: el vídeo se pausa y ves el significado y la traducción de la línea.
+• Activa los subtítulos en inglés y haz clic en cualquier palabra: el vídeo se pausa y ves el significado y la traducción de toda la línea.
+• Las teclas A / S / D van a la línea anterior, repiten la actual o pasan a la siguiente.
 
 GUARDA PALABRAS CON SU CONTEXTO
-• Cada palabra se guarda con la frase y la página donde la encontraste.
-• Opcional: resalta en las páginas las palabras que ya aprendiste.
+• Cada palabra guardada conserva la frase y la página donde la encontraste.
+• Las palabras que ya aprendiste pueden resaltarse en las páginas que visitas, para verlas de nuevo en contexto real.
+• Puedes subrayar las palabras académicas de nivel B2–C2 (opcional).
 
 REPASA EN EL MOMENTO JUSTO
-• Repetición espaciada con el algoritmo FSRS (como Anki), recordatorios diarios y una tarjeta en cada nueva pestaña (desactivable).
+• Tarjetas con repetición espaciada programadas por el algoritmo FSRS.
+• Recordatorio diario y avisos de “momento clave” cuando una palabra está a punto de olvidarse, con horas de silencio.
+• Una tarjeta de vocabulario en cada pestaña nueva (se desactiva con un clic).
+• Un indicador en la barra de herramientas con las tarjetas pendientes de hoy.
 
 INCLUYE UNA APP DE ESTUDIO COMPLETA
-• Más de 6.000 palabras con audio, listas por tema, juegos, pronunciación, lecturas y exámenes de práctica de IELTS y TOEIC con explicaciones. Interfaz en 15 idiomas.
+• Más de 6.000 palabras con IPA, listas por tema, la Academic Word List, phrasal verbs, modismos y colocaciones.
+• Tarjetas, juegos, comprensión auditiva y dictado, práctica de pronunciación, lecturas y exámenes de práctica de IELTS y TOEIC con explicaciones.
+• Interfaz en 15 idiomas.
 
 GRATIS Y PRIVADO
-• Sin anuncios en la extensión y sin cuenta obligatoria. Tus datos se quedan en tu navegador; inicia sesión solo si quieres sincronizar.
-• No recopilamos tu historial ni vendemos tus datos. Privacidad: https://lexkite.com/es/privacy
+• Gratis, sin anuncios en la extensión y sin cuenta obligatoria.
+• Tus datos de estudio se quedan en tu navegador. Inicia sesión con Google en lexkite.com solo si quieres sincronizar tus dispositivos.
+• Nunca recopilamos tu historial de navegación ni vendemos tus datos. Política de privacidad: https://lexkite.com/es/privacy
 
-Lexkite es un producto independiente, sin relación con el British Council, IDP, Cambridge University Press &amp; Assessment ni ETS.</pre></div><h2>Português – Brasil (pt_BR)</h2><div class="f"><div class="l"><span>Description</span><button>Copy</button></div><pre>O Lexkite transforma tudo o que você lê e assiste na internet em prática de vocabulário em inglês para IELTS, TOEIC e o dia a dia, e lembra você de revisar cada palavra pouco antes de esquecê-la.
+Lexkite es un producto independiente, sin relación ni respaldo del British Council, IDP, Cambridge University Press &amp; Assessment o ETS. IELTS, TOEIC y TOEFL son marcas de sus respectivos propietarios.</pre></div>
+<h3 id="pt_BR">Português (Brasil) <code>pt_BR</code></h3>
+<div class="f"><div class="l"><span>Name <small>68/75</small></span><button>Copy</button></div><pre dir="auto">Lexkite – Dicionário de inglês, tradutor e flashcards de vocabulário</pre></div>
+<div class="f"><div class="l"><span>Summary <small>128/132</small></span><button>Copy</button></div><pre dir="auto">Clique duas vezes numa palavra: significado, IPA e áudio. Traduza frases, salve palavras com contexto e revise para IELTS/TOEIC.</pre></div>
+<div class="f"><div class="l"><span>Description <small>2577 ký tự</small></span><button>Copy</button></div><pre dir="auto">O Lexkite transforma tudo o que você lê e assiste na internet em prática de vocabulário em inglês para IELTS, TOEIC e o dia a dia: um dicionário e um tradutor em qualquer página, e flashcards que lembram você de revisar cada palavra pouco antes de esquecê-la.
 
 CONSULTE QUALQUER PALAVRA EM QUALQUER SITE
 • Clique duas vezes numa palavra: IPA britânico e americano, áudio, significados por classe gramatical, definições, exemplos e imagem.
-• Selecione uma frase: tradução instantânea e explicação das estruturas gramaticais.
-• Botão direito → &quot;Consultar&quot; ou &quot;Traduzir seleção&quot;.
+• Selecione uma frase ou um parágrafo: tradução instantânea e explicação das estruturas gramaticais do trecho.
+• Botão direito → “Consultar” ou “Traduzir seleção”.
+• Opcional: uma explicação mais aprofundada com IA de qualquer expressão, só quando você pedir.
+• Correção de escrita opcional (desativada por padrão): sublinha erros de inglês na caixa em que você está digitando e explica cada um.
 
 APRENDA COM O YOUTUBE
-• Ative as legendas em inglês e toque em qualquer palavra: o vídeo pausa e você vê o significado e a tradução da linha.
+• Ative as legendas em inglês e clique em qualquer palavra: o vídeo pausa e você vê o significado e a tradução da linha inteira.
+• As teclas A / S / D voltam para a linha anterior, repetem a atual ou avançam para a próxima.
 
-SALVE PALAVRAS COM CONTEXTO
-• Cada palavra é salva com a frase e a página onde você a encontrou.
-• Opcional: destaque nas páginas as palavras que você já aprendeu.
+SALVE PALAVRAS COM O CONTEXTO
+• Cada palavra salva guarda a frase e a página onde você a encontrou.
+• As palavras que você já aprendeu podem ser destacadas nas páginas que visita, para revê-las em contexto real.
+• Você pode sublinhar palavras acadêmicas de nível B2–C2 (opcional).
 
 REVISE NA HORA CERTA
-• Repetição espaçada com o algoritmo FSRS (como no Anki), lembretes diários e um cartão a cada nova guia (pode desativar).
+• Flashcards com repetição espaçada, agendados pelo algoritmo FSRS.
+• Lembrete diário e alertas de “momento certo” quando uma palavra está para ser esquecida, com horário de silêncio.
+• Um cartão de vocabulário a cada nova guia (desative com um clique).
+• Um contador na barra de ferramentas com os cartões para revisar hoje.
 
 APP DE ESTUDO COMPLETO INCLUÍDO
-• Mais de 6.000 palavras com áudio, listas por tema, jogos, pronúncia, leituras e simulados de IELTS e TOEIC com explicações. Interface em 15 idiomas.
+• Mais de 6.000 palavras com IPA, listas por tema, a Academic Word List, phrasal verbs, expressões idiomáticas e colocações.
+• Flashcards, jogos, compreensão oral e ditado, prática de pronúncia, textos de leitura e simulados de IELTS e TOEIC com explicações.
+• Interface em 15 idiomas.
 
 GRÁTIS E PRIVADO
-• Sem anúncios na extensão e sem conta obrigatória. Seus dados ficam no seu navegador; entre só se quiser sincronizar.
-• Não coletamos seu histórico nem vendemos seus dados. Privacidade: https://lexkite.com/pt/privacy
+• Grátis, sem anúncios na extensão e sem conta obrigatória.
+• Seus dados de estudo ficam no seu navegador. Entre com o Google em lexkite.com só se quiser sincronizar entre dispositivos.
+• Nunca coletamos seu histórico de navegação nem vendemos seus dados. Política de privacidade: https://lexkite.com/pt/privacy
 
-O Lexkite é um produto independente, sem vínculo com o British Council, IDP, Cambridge University Press &amp; Assessment ou ETS.</pre></div><h2>日本語 (ja)</h2><div class="f"><div class="l"><span>Description</span><button>Copy</button></div><pre>Lexkite は、ネットで読む・見るすべてを IELTS・TOEIC・日常英語の単語学習に変え、忘れる直前に復習を知らせます。
+O Lexkite é um produto independente, sem vínculo com o British Council, IDP, Cambridge University Press &amp; Assessment ou ETS, nem endossado por eles. IELTS, TOEIC e TOEFL são marcas de seus respectivos proprietários.</pre></div>
+<h3 id="fr">Français <code>fr</code></h3>
+<div class="f"><div class="l"><span>Name <small>71/75</small></span><button>Copy</button></div><pre dir="auto">Lexkite – Dictionnaire anglais, traducteur et flashcards de vocabulaire</pre></div>
+<div class="f"><div class="l"><span>Summary <small>132/132</small></span><button>Copy</button></div><pre dir="auto">Double-cliquez sur un mot : sens, API et audio. Traduisez une sélection, gardez les mots en contexte, révisez pour l’IELTS/le TOEIC.</pre></div>
+<div class="f"><div class="l"><span>Description <small>2773 ký tự</small></span><button>Copy</button></div><pre dir="auto">Lexkite transforme tout ce que vous lisez et regardez en ligne en entraînement au vocabulaire anglais pour l’IELTS, le TOEIC et la vie quotidienne : un dictionnaire et un traducteur sur chaque page, et des flashcards qui vous rappellent de réviser chaque mot juste avant de l’oublier.
 
-どのサイトでも単語を調べる
-• 単語をダブルクリック：英米の発音記号、音声、品詞別の意味、定義、例文、画像。
-• 文を選択：すぐに翻訳し、文中の文法構造も解説。
-• 右クリック →「調べる」「選択範囲を翻訳」。
-
-YouTube で学ぶ
-• 英語字幕をオンにして単語をタップすると、動画が止まり意味と字幕の翻訳を表示。
-
-文脈ごと保存
-• 出会った文とページと一緒に単語を保存。
-• 任意：覚えた単語をページ上でハイライト。
-
-最適なタイミングで復習
-• FSRS アルゴリズム（Anki と同様）による間隔反復、毎日のリマインダー、新しいタブに単語カード（オフ可）。
-
-学習アプリ付き
-• 音声付き 6,000 語以上、テーマ別リスト、ゲーム、発音練習、リーディング、解説付きの IELTS・TOEIC 模擬試験。15 言語に対応。
-
-無料・プライバシー重視
-• 拡張機能に広告なし、アカウント不要。データはブラウザ内に保存され、同期したいときだけログイン。
-• 閲覧履歴は収集せず、データを販売しません。プライバシー：https://lexkite.com/ja/privacy
-
-Lexkite は独立した製品で、British Council、IDP、Cambridge University Press &amp; Assessment、ETS とは提携していません。</pre></div><h2>한국어 (ko)</h2><div class="f"><div class="l"><span>Description</span><button>Copy</button></div><pre>Lexkite는 인터넷에서 읽고 보는 모든 것을 IELTS·TOEIC·일상 영어 어휘 학습으로 바꾸고, 잊기 직전에 복습하도록 알려 줍니다.
-
-모든 사이트에서 단어 찾기
-• 단어 더블클릭: 영국·미국 발음 기호, 음성, 품사별 뜻, 정의, 예문, 이미지.
-• 문장 선택: 즉시 번역하고 문장 속 문법 구조를 설명.
-• 마우스 오른쪽 → &quot;찾아보기&quot; 또는 &quot;선택 영역 번역&quot;.
-
-YouTube로 배우기
-• 영어 자막을 켜고 단어를 탭하면 영상이 멈추고 뜻과 자막 번역이 표시됩니다.
-
-문맥과 함께 저장
-• 단어를 만난 문장과 페이지와 함께 저장.
-• 선택: 이미 외운 단어를 페이지에서 강조 표시.
-
-딱 맞는 때에 복습
-• FSRS 알고리즘(Anki와 동일 방식) 간격 반복, 매일 알림, 새 탭마다 단어 카드(끌 수 있음).
-
-완전한 학습 앱 포함
-• 음성 포함 6,000+ 단어, 주제별 목록, 게임, 발음 연습, 읽기, 해설이 있는 IELTS·TOEIC 모의고사. 15개 언어 지원.
-
-무료·개인정보 보호
-• 확장 프로그램에 광고 없음, 계정 필요 없음. 데이터는 브라우저에 저장되며 동기화할 때만 로그인하세요.
-• 방문 기록을 수집하거나 데이터를 판매하지 않습니다. 개인정보처리방침: https://lexkite.com/ko/privacy
-
-Lexkite는 독립 제품으로 British Council, IDP, Cambridge University Press &amp; Assessment, ETS와 관련이 없습니다.</pre></div><h2>中文（简体）(zh_CN)</h2><div class="f"><div class="l"><span>Description</span><button>Copy</button></div><pre>Lexkite 把你在网上读到、看到的一切变成 IELTS、TOEIC 和日常英语的词汇练习，并在你快要忘记时提醒你复习。
-
-在任意网页查词
-• 双击单词：英式与美式音标、发音、按词性分类的释义、英文定义、例句和图片。
-• 选中句子：即时翻译，并讲解句中的语法结构。
-• 右键 →&quot;查词&quot;或&quot;翻译所选内容&quot;。
-
-用 YouTube 学英语
-• 打开英文字幕，点击任意单词，视频自动暂停，显示释义和整句翻译。
-
-连同语境保存单词
-• 每个单词都会和原句、来源页面一起保存。
-• 可选：在网页上高亮你已学过的单词。
-
-在最佳时机复习
-• FSRS 算法（与 Anki 相同）间隔重复、每日提醒、每个新标签页一张单词卡（可关闭）。
-
-附带完整学习应用
-• 6,000+ 带发音的单词、主题词表、游戏、发音练习、阅读，以及带解析的 IELTS 和 TOEIC 模拟题。支持 15 种界面语言。
-
-免费且注重隐私
-• 扩展程序无广告，无需注册。学习数据保存在你的浏览器中，只有需要同步时才登录。
-• 不收集浏览记录，不出售数据。隐私政策：https://lexkite.com/zh/privacy
-
-Lexkite 是独立产品，与 British Council、IDP、Cambridge University Press &amp; Assessment 或 ETS 无关联。</pre></div><h2>Bahasa Indonesia (id)</h2><div class="f"><div class="l"><span>Description</span><button>Copy</button></div><pre>Lexkite mengubah semua yang Anda baca dan tonton di internet menjadi latihan kosakata bahasa Inggris untuk IELTS, TOEIC, dan sehari-hari, lalu mengingatkan Anda mengulang setiap kata tepat sebelum lupa.
-
-CARI KATA DI SITUS MANA PUN
-• Klik dua kali sebuah kata: IPA Inggris &amp; Amerika, audio, arti per kelas kata, definisi, contoh, dan gambar.
-• Pilih kalimat: terjemahan instan beserta penjelasan struktur tata bahasanya.
-• Klik kanan → &quot;Cari&quot; atau &quot;Terjemahkan pilihan&quot;.
-
-BELAJAR DARI YOUTUBE
-• Aktifkan subtitle bahasa Inggris dan ketuk kata apa pun: video berhenti dan arti serta terjemahan baris itu muncul.
-
-SIMPAN KATA DENGAN KONTEKSNYA
-• Setiap kata disimpan bersama kalimat dan halaman tempat Anda menemukannya.
-• Opsional: tandai di halaman kata yang sudah Anda pelajari.
-
-ULANGI DI SAAT YANG TEPAT
-• Pengulangan berjarak dengan algoritma FSRS (seperti Anki), pengingat harian, dan kartu kata di setiap tab baru (bisa dimatikan).
-
-TERMASUK APLIKASI BELAJAR LENGKAP
-• 6.000+ kata dengan audio, daftar per topik, permainan, latihan pelafalan, bacaan, dan tes latihan IELTS &amp; TOEIC dengan pembahasan. Antarmuka 15 bahasa.
-
-GRATIS DAN PRIVAT
-• Tanpa iklan di ekstensi dan tanpa wajib akun. Data tersimpan di browser Anda; masuk hanya jika ingin sinkronisasi.
-• Kami tidak mengumpulkan riwayat penjelajahan atau menjual data Anda. Privasi: https://lexkite.com/id/privacy
-
-Lexkite adalah produk independen dan tidak berafiliasi dengan British Council, IDP, Cambridge University Press &amp; Assessment, atau ETS.</pre></div><h2>Deutsch (de)</h2><div class="f"><div class="l"><span>Description</span><button>Copy</button></div><pre>Lexkite macht alles, was du online liest und ansiehst, zu Vokabeltraining für IELTS, TOEIC und Alltagsenglisch – und erinnert dich, jedes Wort kurz vor dem Vergessen zu wiederholen.
-
-JEDES WORT AUF JEDER WEBSITE NACHSCHLAGEN
-• Doppelklick auf ein Wort: britische &amp; amerikanische IPA, Audio, Bedeutungen nach Wortart, Definitionen, Beispiele und Bild.
-• Satz markieren: sofortige Übersetzung plus Erklärung der enthaltenen Grammatikstrukturen.
-• Rechtsklick → „Nachschlagen&quot; oder „Auswahl übersetzen&quot;.
-
-LERNEN MIT YOUTUBE
-• Englische Untertitel einschalten und auf ein Wort tippen: Das Video pausiert, du siehst Bedeutung und Übersetzung der Zeile.
-
-WÖRTER MIT KONTEXT SPEICHERN
-• Jedes Wort wird mit dem Satz und der Seite gespeichert, auf der du es gefunden hast.
-• Optional: bereits gelernte Wörter auf Webseiten hervorheben.
-
-ZUM RICHTIGEN ZEITPUNKT WIEDERHOLEN
-• Spaced Repetition mit dem FSRS-Algorithmus (wie Anki), tägliche Erinnerungen und eine Vokabelkarte in jedem neuen Tab (abschaltbar).
-
-KOMPLETTE LERN-APP INKLUSIVE
-• Über 6.000 Wörter mit Audio, Themenlisten, Spiele, Aussprachetraining, Lesetexte und IELTS- &amp; TOEIC-Übungstests mit Erklärungen. Oberfläche in 15 Sprachen.
-
-KOSTENLOS UND PRIVAT
-• Keine Werbung in der Erweiterung, kein Konto nötig. Deine Daten bleiben im Browser; melde dich nur zum Synchronisieren an.
-• Wir erfassen keinen Browserverlauf und verkaufen keine Daten. Datenschutz: https://lexkite.com/de/privacy
-
-Lexkite ist ein unabhängiges Produkt und steht in keiner Verbindung zu British Council, IDP, Cambridge University Press &amp; Assessment oder ETS.</pre></div><h2>Français (fr)</h2><div class="f"><div class="l"><span>Description</span><button>Copy</button></div><pre>Lexkite transforme tout ce que vous lisez et regardez en ligne en entraînement au vocabulaire anglais pour l&#x27;IELTS, le TOEIC et le quotidien, et vous rappelle de réviser chaque mot juste avant de l&#x27;oublier.
-
-CHERCHEZ N&#x27;IMPORTE QUEL MOT SUR N&#x27;IMPORTE QUEL SITE
-• Double-clic sur un mot : API britannique et américain, audio, sens par nature de mot, définitions, exemples et image.
-• Sélectionnez une phrase : traduction instantanée et explication des structures grammaticales.
+CHERCHEZ N’IMPORTE QUEL MOT, SUR N’IMPORTE QUELLE PAGE
+• Double-cliquez sur un mot : API britannique et américain, audio, sens par nature de mot, définitions, exemples et image.
+• Sélectionnez une phrase ou un paragraphe : traduction instantanée et explication des structures grammaticales qu’il contient.
 • Clic droit → « Rechercher » ou « Traduire la sélection ».
+• En option : une explication approfondie par IA d’une expression, seulement quand vous la demandez.
+• Correction de l’écrit en option (désactivée par défaut) : souligne les fautes d’anglais dans le champ où vous tapez et explique chacune.
 
 APPRENEZ AVEC YOUTUBE
-• Activez les sous-titres anglais et touchez un mot : la vidéo se met en pause et affiche le sens et la traduction de la ligne.
+• Activez les sous-titres anglais et cliquez sur un mot : la vidéo se met en pause et affiche le sens du mot et la traduction de la ligne.
+• Les touches A / S / D reviennent à la ligne précédente, rejouent la ligne actuelle ou passent à la suivante.
 
-ENREGISTREZ LES MOTS EN CONTEXTE
-• Chaque mot est enregistré avec la phrase et la page où vous l&#x27;avez trouvé.
-• En option : surlignez sur les pages les mots déjà appris.
+ENREGISTREZ LES MOTS AVEC LEUR CONTEXTE
+• Chaque mot enregistré garde la phrase et la page où vous l’avez trouvé.
+• Les mots déjà appris peuvent être surlignés sur les pages que vous visitez, pour les revoir en contexte réel.
+• Les mots académiques B2–C2 peuvent être soulignés (option).
 
 RÉVISEZ AU BON MOMENT
-• Répétition espacée avec l&#x27;algorithme FSRS (comme Anki), rappels quotidiens et une carte de vocabulaire dans chaque nouvel onglet (désactivable).
+• Flashcards en répétition espacée, planifiées par l’algorithme FSRS.
+• Rappel quotidien et alertes « moment clé » quand un mot est sur le point d’être oublié, avec heures de silence.
+• Une carte de vocabulaire à chaque nouvel onglet (désactivable en un clic).
+• Un badge dans la barre d’outils indique le nombre de cartes à revoir aujourd’hui.
 
-APPLICATION D&#x27;ÉTUDE COMPLÈTE INCLUSE
-• Plus de 6 000 mots avec audio, listes thématiques, jeux, prononciation, lectures et tests blancs IELTS et TOEIC corrigés. Interface en 15 langues.
+UNE APPLICATION D’ÉTUDE COMPLÈTE INCLUSE
+• Plus de 6 000 mots avec API, listes thématiques, l’Academic Word List, phrasal verbs, expressions idiomatiques et collocations.
+• Flashcards, jeux, compréhension orale et dictée, prononciation, textes de lecture et tests d’entraînement IELTS et TOEIC corrigés et expliqués.
+• Interface en 15 langues.
 
-GRATUIT ET RESPECTUEUX DE LA VIE PRIVÉE
-• Aucune publicité dans l&#x27;extension, aucun compte requis. Vos données restent dans votre navigateur ; connectez-vous seulement pour synchroniser.
-• Nous ne collectons pas votre historique et ne vendons pas vos données. Confidentialité : https://lexkite.com/fr/privacy
+GRATUIT ET PRIVÉ
+• Gratuit, sans publicité dans l’extension, sans compte obligatoire.
+• Vos données d’apprentissage restent dans votre navigateur. Connectez-vous avec Google sur lexkite.com uniquement pour synchroniser vos appareils.
+• Nous ne collectons jamais votre historique de navigation et ne vendons pas vos données. Politique de confidentialité : https://lexkite.com/fr/privacy
 
-Lexkite est un produit indépendant, sans lien avec le British Council, IDP, Cambridge University Press &amp; Assessment ou ETS.</pre></div><h2>العربية (ar)</h2><div class="f"><div class="l"><span>Description</span><button>Copy</button></div><pre>يحوّل Lexkite كل ما تقرؤه وتشاهده على الإنترنت إلى تدريب على مفردات اللغة الإنجليزية لاختبارات IELTS وTOEIC وللحياة اليومية، ثم يذكّرك بمراجعة كل كلمة قبل أن تنساها مباشرة.
+Lexkite est un produit indépendant, sans lien avec le British Council, IDP, Cambridge University Press &amp; Assessment ou ETS, ni approuvé par eux. IELTS, TOEIC et TOEFL sont des marques de leurs propriétaires respectifs.</pre></div>
+<h3 id="de">Deutsch <code>de</code></h3>
+<div class="f"><div class="l"><span>Name <small>64/75</small></span><button>Copy</button></div><pre dir="auto">Lexkite – Englisch-Wörterbuch, Übersetzer &amp; Vokabel-Karteikarten</pre></div>
+<div class="f"><div class="l"><span>Summary <small>130/132</small></span><button>Copy</button></div><pre dir="auto">Doppelklick auf ein Wort: Bedeutung, IPA und Audio. Auswahl übersetzen, Wörter mit Kontext speichern, für IELTS/TOEIC wiederholen.</pre></div>
+<div class="f"><div class="l"><span>Description <small>2599 ký tự</small></span><button>Copy</button></div><pre dir="auto">Lexkite macht alles, was du online liest und ansiehst, zu Englisch-Vokabeltraining für IELTS, TOEIC und den Alltag: Wörterbuch und Übersetzer auf jeder Seite, dazu Karteikarten, die dich kurz vor dem Vergessen an jedes Wort erinnern.
 
-ابحث عن أي كلمة في أي موقع
-• انقر نقرًا مزدوجًا على كلمة: النطق البريطاني والأمريكي (IPA)، الصوت، المعاني حسب نوع الكلمة، التعريفات، الأمثلة وصورة توضيحية.
-• حدّد جملة: ترجمة فورية مع شرح التراكيب النحوية فيها.
-• انقر بزر الفأرة الأيمن ← &quot;ابحث&quot; أو &quot;ترجم النص المحدد&quot;.
+JEDES WORT AUF JEDER SEITE NACHSCHLAGEN
+• Doppelklick auf ein Wort: britische &amp; amerikanische IPA, Audio, Bedeutungen nach Wortart, Definitionen, Beispiele und ein Bild.
+• Satz oder Absatz markieren: sofortige Übersetzung mit Erklärung der enthaltenen Grammatikstrukturen.
+• Rechtsklick → „Nachschlagen“ oder „Auswahl übersetzen“.
+• Optional: eine ausführlichere KI-Erklärung zu einem Ausdruck, nur wenn du sie anforderst.
+• Optionale Schreibkorrektur (standardmäßig aus): unterstreicht Englischfehler im Textfeld, in dem du tippst, und erklärt jeden Fehler.
 
-تعلّم من YouTube
-• فعّل الترجمة الإنجليزية وانقر على أي كلمة: يتوقف الفيديو وتظهر الترجمة ومعنى السطر كاملًا.
+MIT YOUTUBE LERNEN
+• Englische Untertitel einschalten und auf ein Wort klicken – das Video pausiert, du siehst die Bedeutung und die Übersetzung der ganzen Zeile.
+• Tasten A / S / D: zur vorigen Zeile, aktuelle Zeile wiederholen, zur nächsten Zeile.
 
-احفظ الكلمات مع سياقها
-• تُحفظ كل كلمة مع الجملة والصفحة التي وجدتها فيها.
-• اختياري: تمييز الكلمات التي تعلّمتها على صفحات الويب.
+WÖRTER MIT KONTEXT SPEICHERN
+• Jedes gespeicherte Wort behält den Satz und die Seite, auf der du es gefunden hast.
+• Bereits gelernte Wörter können auf besuchten Seiten hervorgehoben werden, damit du ihnen im echten Kontext wieder begegnest.
+• Akademische Wörter (B2–C2) lassen sich unterstreichen (optional).
 
-راجع في الوقت المناسب
-• تكرار متباعد بخوارزمية FSRS (مثل Anki)، تذكيرات يومية، وبطاقة كلمة في كل تبويب جديد (يمكن إيقافها).
+ZUM RICHTIGEN ZEITPUNKT WIEDERHOLEN
+• Karteikarten mit verteilter Wiederholung, geplant vom FSRS-Algorithmus.
+• Tägliche Erinnerung und Hinweise im „goldenen Moment“, kurz bevor Wörter vergessen werden – mit Ruhezeiten.
+• Eine Vokabelkarte in jedem neuen Tab (mit einem Klick abschaltbar).
+• Ein Symbol-Badge zeigt, wie viele Karten heute fällig sind.
 
-تطبيق تعلّم متكامل
-• أكثر من 6000 كلمة بالصوت، قوائم حسب الموضوع، ألعاب، تدريب على النطق، قراءة، واختبارات تدريبية لـ IELTS وTOEIC مع الشرح. واجهة بـ 15 لغة.
+KOMPLETTE LERN-APP INKLUSIVE
+• Über 6.000 Wörter mit IPA, Themenlisten, die Academic Word List, Phrasal Verbs, Redewendungen und Kollokationen.
+• Karteikarten, Spiele, Hörverstehen &amp; Diktat, Aussprachetraining, Lesetexte sowie IELTS- und TOEIC-Übungstests mit Erklärungen.
+• Oberfläche in 15 Sprachen.
 
-مجاني ويحترم خصوصيتك
-• بلا إعلانات في الإضافة ولا حاجة لحساب. تبقى بياناتك في متصفحك، وسجّل الدخول فقط إن أردت المزامنة.
-• لا نجمع سجل التصفح ولا نبيع بياناتك. الخصوصية: https://lexkite.com/ar/privacy
+KOSTENLOS UND PRIVAT
+• Kostenlos, keine Werbung in der Erweiterung, kein Konto nötig.
+• Deine Lerndaten bleiben in deinem Browser. Melde dich nur dann mit Google auf lexkite.com an, wenn du zwischen Geräten synchronisieren möchtest.
+• Wir erfassen nie deinen Browserverlauf und verkaufen keine Daten. Datenschutz: https://lexkite.com/de/privacy
 
-Lexkite منتج مستقل ولا يرتبط بـ British Council أو IDP أو Cambridge University Press &amp; Assessment أو ETS.</pre></div><h2>हिन्दी (hi)</h2><div class="f"><div class="l"><span>Description</span><button>Copy</button></div><pre>Lexkite इंटरनेट पर आप जो कुछ भी पढ़ते और देखते हैं, उसे IELTS, TOEIC और रोज़मर्रा की अंग्रेज़ी के शब्दावली अभ्यास में बदल देता है, और हर शब्द भूलने से ठीक पहले उसे दोहराने की याद दिलाता है।
+Lexkite ist ein unabhängiges Produkt und steht in keiner Verbindung zu British Council, IDP, Cambridge University Press &amp; Assessment oder ETS und wird von ihnen nicht unterstützt. IELTS, TOEIC und TOEFL sind Marken ihrer jeweiligen Inhaber.</pre></div>
+<h3 id="id">Bahasa Indonesia <code>id</code></h3>
+<div class="f"><div class="l"><span>Name <small>63/75</small></span><button>Copy</button></div><pre dir="auto">Lexkite – Kamus Bahasa Inggris, Penerjemah &amp; Flashcard Kosakata</pre></div>
+<div class="f"><div class="l"><span>Summary <small>130/132</small></span><button>Copy</button></div><pre dir="auto">Klik dua kali kata apa pun: arti, IPA, dan audio. Terjemahkan teks pilihan, simpan kata beserta konteks, ulangi untuk IELTS/TOEIC.</pre></div>
+<div class="f"><div class="l"><span>Description <small>2555 ký tự</small></span><button>Copy</button></div><pre dir="auto">Lexkite mengubah semua yang Anda baca dan tonton di internet menjadi latihan kosakata bahasa Inggris untuk IELTS, TOEIC, dan sehari-hari: kamus dan penerjemah di setiap halaman, ditambah flashcard yang mengingatkan Anda mengulang setiap kata tepat sebelum lupa.
 
-किसी भी वेबसाइट पर कोई भी शब्द देखें
-• शब्द पर डबल-क्लिक करें: ब्रिटिश और अमेरिकी IPA, ऑडियो, शब्द-भेद के अनुसार अर्थ, परिभाषाएँ, उदाहरण और चित्र।
-• वाक्य चुनें: तुरंत अनुवाद और उसमें मौजूद व्याकरण संरचनाओं की व्याख्या।
-• राइट-क्लिक → &quot;शब्द देखें&quot; या &quot;चयन का अनुवाद करें&quot;।
+CARI KATA APA PUN DI HALAMAN MANA PUN
+• Klik dua kali sebuah kata: IPA Inggris &amp; Amerika, audio, arti per kelas kata, definisi, contoh, dan gambar.
+• Pilih kalimat atau paragraf: terjemahan instan beserta penjelasan struktur tata bahasanya.
+• Klik kanan → “Cari kata” atau “Terjemahkan pilihan”.
+• Opsional: penjelasan AI yang lebih mendalam untuk sebuah ungkapan, hanya saat Anda memintanya.
+• Pemeriksa tulisan opsional (nonaktif secara default): menggarisbawahi kesalahan bahasa Inggris di kotak yang sedang Anda ketik dan menjelaskan setiap kesalahan.
 
-YouTube से सीखें
-• अंग्रेज़ी सबटाइटल चालू करें और किसी भी शब्द पर टैप करें: वीडियो रुक जाता है और अर्थ व पूरी पंक्ति का अनुवाद दिखता है।
+BELAJAR DARI YOUTUBE
+• Aktifkan subtitle bahasa Inggris lalu klik kata apa pun – video berhenti dan Anda melihat arti kata serta terjemahan seluruh baris.
+• Tombol A / S / D: ke baris sebelumnya, ulangi baris ini, atau lanjut ke baris berikutnya.
 
-शब्दों को संदर्भ के साथ सेव करें
-• हर शब्द उसी वाक्य और पेज के साथ सेव होता है जहाँ आपने उसे देखा।
-• वैकल्पिक: सीखे हुए शब्द वेब पेजों पर हाइलाइट करें।
+SIMPAN KATA BESERTA KONTEKSNYA
+• Setiap kata yang disimpan menyertakan kalimat dan halaman tempat Anda menemukannya.
+• Kata yang sudah dipelajari dapat disorot di halaman yang Anda kunjungi, agar Anda menjumpainya lagi dalam konteks nyata.
+• Kata akademik B2–C2 dapat digarisbawahi (opsional).
 
-सही समय पर दोहराएँ
-• FSRS एल्गोरिद्म (Anki जैसा) से स्पेस्ड रिपिटिशन, रोज़ाना रिमाइंडर और हर नए टैब में एक शब्द कार्ड (बंद किया जा सकता है)।
+ULANGI DI SAAT YANG TEPAT
+• Flashcard pengulangan berjarak yang dijadwalkan oleh algoritma FSRS.
+• Pengingat harian dan peringatan “momen emas” saat kata hampir terlupa, dengan jam tenang.
+• Kartu kosakata di setiap tab baru (matikan dengan satu klik).
+• Lencana di bilah alat menunjukkan jumlah kartu yang perlu diulang hari ini.
 
-पूरा स्टडी ऐप शामिल
-• ऑडियो के साथ 6,000+ शब्द, विषय-वार सूचियाँ, गेम, उच्चारण अभ्यास, रीडिंग और व्याख्या सहित IELTS व TOEIC प्रैक्टिस टेस्ट। 15 भाषाओं में इंटरफ़ेस।
+TERMASUK APLIKASI BELAJAR LENGKAP
+• 6.000+ kata dengan IPA, daftar kata per topik, Academic Word List, phrasal verb, idiom, dan kolokasi.
+• Flashcard, permainan, latihan menyimak &amp; dikte, latihan pelafalan, bacaan, serta tes latihan IELTS &amp; TOEIC dengan pembahasan.
+• Antarmuka dalam 15 bahasa.
 
-मुफ़्त और निजी
-• एक्सटेंशन में कोई विज्ञापन नहीं, खाता ज़रूरी नहीं। आपका डेटा आपके ब्राउज़र में रहता है; सिंक करना हो तभी साइन इन करें।
-• हम आपकी ब्राउज़िंग हिस्ट्री इकट्ठा नहीं करते और डेटा नहीं बेचते। गोपनीयता: https://lexkite.com/hi/privacy
+GRATIS DAN PRIVAT
+• Gratis, tanpa iklan di ekstensi, tanpa wajib membuat akun.
+• Data belajar Anda tetap di browser Anda. Masuk dengan Google di lexkite.com hanya jika ingin menyinkronkan antarperangkat.
+• Kami tidak pernah mengumpulkan riwayat penjelajahan atau menjual data Anda. Kebijakan privasi: https://lexkite.com/id/privacy
 
-Lexkite एक स्वतंत्र उत्पाद है और British Council, IDP, Cambridge University Press &amp; Assessment या ETS से संबद्ध नहीं है।</pre></div><h2>Русский (ru)</h2><div class="f"><div class="l"><span>Description</span><button>Copy</button></div><pre>Lexkite превращает всё, что вы читаете и смотрите в интернете, в тренировку английской лексики для IELTS, TOEIC и повседневного общения — и напоминает повторить каждое слово прямо перед тем, как вы его забудете.
+Lexkite adalah produk independen dan tidak berafiliasi dengan maupun didukung oleh British Council, IDP, Cambridge University Press &amp; Assessment, atau ETS. IELTS, TOEIC, dan TOEFL adalah merek dagang milik pemiliknya masing-masing.</pre></div>
+<h3 id="th">ไทย <code>th</code></h3>
+<div class="f"><div class="l"><span>Name <small>53/75</small></span><button>Copy</button></div><pre dir="auto">Lexkite – พจนานุกรมอังกฤษ แปลภาษา และแฟลชการ์ดคำศัพท์</pre></div>
+<div class="f"><div class="l"><span>Summary <small>129/132</small></span><button>Copy</button></div><pre dir="auto">ดับเบิลคลิกคำใดก็ได้เพื่อดูความหมาย คำอ่าน IPA และเสียง แปลข้อความที่เลือก บันทึกคำพร้อมบริบท ทบทวนแฟลชการ์ดเตรียมสอบ IELTS/TOEIC</pre></div>
+<div class="f"><div class="l"><span>Description <small>2073 ký tự</small></span><button>Copy</button></div><pre dir="auto">Lexkite เปลี่ยนทุกสิ่งที่คุณอ่านและดูบนอินเทอร์เน็ตให้เป็นการฝึกคำศัพท์ภาษาอังกฤษสำหรับ IELTS, TOEIC และชีวิตประจำวัน มีทั้งพจนานุกรมและตัวแปลบนทุกหน้าเว็บ พร้อมแฟลชการ์ดที่เตือนให้ทบทวนแต่ละคำก่อนที่คุณจะลืม
 
-ИЩИТЕ ЛЮБОЕ СЛОВО НА ЛЮБОМ САЙТЕ
-• Двойной клик по слову: британская и американская транскрипция, аудио, значения по частям речи, определения, примеры и картинка.
-• Выделите фразу: мгновенный перевод и разбор грамматических конструкций.
-• Правый клик → «Найти слово» или «Перевести выделенное».
-
-УЧИТЕСЬ НА YOUTUBE
-• Включите английские субтитры и нажмите на любое слово: видео остановится, появится значение и перевод всей строки.
-
-СОХРАНЯЙТЕ СЛОВА С КОНТЕКСТОМ
-• Каждое слово сохраняется вместе с предложением и страницей, где вы его встретили.
-• По желанию: выделение уже изученных слов на страницах.
-
-ПОВТОРЯЙТЕ ВОВРЕМЯ
-• Интервальные повторения по алгоритму FSRS (как в Anki), ежедневные напоминания и карточка в каждой новой вкладке (можно отключить).
-
-ПОЛНОЕ ПРИЛОЖЕНИЕ В КОМПЛЕКТЕ
-• Более 6000 слов с озвучкой, тематические списки, игры, тренировка произношения, тексты для чтения и пробные тесты IELTS и TOEIC с разбором. Интерфейс на 15 языках.
-
-БЕСПЛАТНО И КОНФИДЕНЦИАЛЬНО
-• Без рекламы в расширении и без обязательной регистрации. Данные хранятся в вашем браузере; входите в аккаунт, только если нужна синхронизация.
-• Мы не собираем историю браузера и не продаём данные. Конфиденциальность: https://lexkite.com/ru/privacy
-
-Lexkite — независимый продукт, не связанный с British Council, IDP, Cambridge University Press &amp; Assessment или ETS.</pre></div><h2>ไทย (th)</h2><div class="f"><div class="l"><span>Description</span><button>Copy</button></div><pre>Lexkite เปลี่ยนทุกสิ่งที่คุณอ่านและดูบนอินเทอร์เน็ตให้เป็นการฝึกคำศัพท์ภาษาอังกฤษสำหรับ IELTS, TOEIC และชีวิตประจำวัน แล้วเตือนให้ทบทวนแต่ละคำก่อนที่คุณจะลืม
-
-ค้นหาคำศัพท์บนทุกเว็บไซต์
-• ดับเบิลคลิกที่คำ: IPA แบบอังกฤษและอเมริกัน เสียงอ่าน ความหมายตามชนิดคำ คำนิยาม ตัวอย่าง และภาพประกอบ
-• เลือกประโยค: แปลทันที พร้อมอธิบายโครงสร้างไวยากรณ์ในประโยค
-• คลิกขวา → &quot;ค้นหาคำ&quot; หรือ &quot;แปลข้อความที่เลือก&quot;
+ค้นหาคำศัพท์ได้บนทุกหน้าเว็บ
+• ดับเบิลคลิกที่คำ: IPA แบบอังกฤษและอเมริกัน เสียงอ่าน ความหมายตามชนิดคำ คำนิยาม ตัวอย่าง และรูปภาพ
+• เลือกประโยคหรือย่อหน้า: แปลทันที พร้อมอธิบายโครงสร้างไวยากรณ์ในข้อความนั้น
+• คลิกขวา → “ค้นหาคำ” หรือ “แปลข้อความที่เลือก”
+• ตัวเลือกเสริม: ให้ AI อธิบายสำนวนอย่างละเอียด เฉพาะเมื่อคุณขอ
+• ตรวจการเขียน (ปิดไว้เป็นค่าเริ่มต้น): ขีดเส้นใต้จุดผิดภาษาอังกฤษในช่องที่คุณกำลังพิมพ์ และอธิบายแต่ละจุด
 
 เรียนจาก YouTube
-• เปิดคำบรรยายภาษาอังกฤษ แล้วแตะคำใดก็ได้ วิดีโอจะหยุดและแสดงความหมายพร้อมคำแปลทั้งบรรทัด
+• เปิดคำบรรยายภาษาอังกฤษแล้วคลิกคำใดก็ได้ – วิดีโอจะหยุด และแสดงความหมายพร้อมคำแปลของทั้งบรรทัด
+• ปุ่ม A / S / D: ย้อนไปบรรทัดก่อน ฟังบรรทัดปัจจุบันซ้ำ หรือไปบรรทัดถัดไป
 
 บันทึกคำพร้อมบริบท
-• ทุกคำถูกบันทึกพร้อมประโยคและหน้าเว็บที่คุณพบ
-• ตัวเลือก: ไฮไลต์คำที่เรียนแล้วบนหน้าเว็บ
+• ทุกคำที่บันทึกจะเก็บประโยคและหน้าเว็บที่คุณพบคำนั้นไว้ด้วย
+• คำที่เรียนแล้วสามารถไฮไลต์บนหน้าเว็บที่คุณเข้าชม เพื่อให้พบคำเดิมอีกครั้งในบริบทจริง
+• ขีดเส้นใต้คำศัพท์เชิงวิชาการระดับ B2–C2 ได้ (ไม่บังคับ)
 
 ทบทวนในจังหวะที่ใช่
-• ทบทวนแบบเว้นระยะด้วยอัลกอริทึม FSRS (แบบ Anki) แจ้งเตือนรายวัน และการ์ดคำศัพท์ในทุกแท็บใหม่ (ปิดได้)
+• แฟลชการ์ดทบทวนแบบเว้นระยะ จัดตารางด้วยอัลกอริทึม FSRS
+• เตือนให้เรียนทุกวัน และแจ้ง “ช่วงเวลาทอง” เมื่อคำใกล้จะลืม พร้อมช่วงเวลาห้ามรบกวน
+• การ์ดคำศัพท์ทุกครั้งที่เปิดแท็บใหม่ (ปิดได้ในคลิกเดียว)
+• ตัวเลขบนแถบเครื่องมือบอกจำนวนการ์ดที่ต้องทบทวนวันนี้
 
 มาพร้อมแอปเรียนครบชุด
-• คำศัพท์ 6,000+ คำพร้อมเสียง รายการคำตามหัวข้อ เกม ฝึกออกเสียง บทอ่าน และข้อสอบฝึก IELTS &amp; TOEIC พร้อมเฉลย อินเทอร์เฟซ 15 ภาษา
+• คำศัพท์ 6,000+ คำพร้อม IPA รายการคำตามหัวข้อ Academic Word List กริยาวลี สำนวน และคำที่มักใช้คู่กัน
+• แฟลชการ์ด เกม ฝึกฟังและเขียนตามคำบอก ฝึกออกเสียง บทอ่าน และข้อสอบฝึก IELTS &amp; TOEIC พร้อมคำอธิบาย
+• อินเทอร์เฟซ 15 ภาษา
 
 ฟรีและเป็นส่วนตัว
-• ไม่มีโฆษณาในส่วนขยาย ไม่ต้องสมัครบัญชี ข้อมูลอยู่ในเบราว์เซอร์ของคุณ ลงชื่อเข้าใช้เฉพาะเมื่อต้องการซิงก์
-• เราไม่เก็บประวัติการท่องเว็บและไม่ขายข้อมูล ความเป็นส่วนตัว: https://lexkite.com/th/privacy
+• ใช้ฟรี ไม่มีโฆษณาในส่วนขยาย ไม่ต้องสมัครบัญชี
+• ข้อมูลการเรียนของคุณอยู่ในเบราว์เซอร์ของคุณเอง ลงชื่อเข้าใช้ด้วย Google บน lexkite.com เฉพาะเมื่อต้องการซิงก์ข้ามอุปกรณ์
+• เราไม่เก็บประวัติการท่องเว็บและไม่ขายข้อมูลของคุณ นโยบายความเป็นส่วนตัว: https://lexkite.com/th/privacy
 
-Lexkite เป็นผลิตภัณฑ์อิสระ ไม่มีส่วนเกี่ยวข้องกับ British Council, IDP, Cambridge University Press &amp; Assessment หรือ ETS</pre></div><h2>Türkçe (tr)</h2><div class="f"><div class="l"><span>Description</span><button>Copy</button></div><pre>Lexkite, internette okuduğun ve izlediğin her şeyi IELTS, TOEIC ve günlük İngilizce için kelime pratiğine dönüştürür ve her kelimeyi unutmadan hemen önce tekrar etmeni hatırlatır.
+Lexkite เป็นผลิตภัณฑ์อิสระ ไม่มีส่วนเกี่ยวข้องหรือได้รับการรับรองจาก British Council, IDP, Cambridge University Press &amp; Assessment หรือ ETS ส่วน IELTS, TOEIC และ TOEFL เป็นเครื่องหมายการค้าของเจ้าของแต่ละราย</pre></div>
+<h3 id="zh_CN">中文（简体） <code>zh_CN</code></h3>
+<div class="f"><div class="l"><span>Name <small>24/75</small></span><button>Copy</button></div><pre dir="auto">Lexkite – 英语词典、划词翻译与单词闪卡</pre></div>
+<div class="f"><div class="l"><span>Summary <small>55/132</small></span><button>Copy</button></div><pre dir="auto">双击任意单词即可查看释义、音标和发音。划词翻译整句，连同语境保存生词，用闪卡复习备考 IELTS/TOEIC。</pre></div>
+<div class="f"><div class="l"><span>Description <small>959 ký tự</small></span><button>Copy</button></div><pre dir="auto">Lexkite 把你在网上读到、看到的一切变成英语词汇练习，适合备考 IELTS、TOEIC，也适合日常学习：每个网页上都有词典和翻译，闪卡会在你快要忘记时提醒你复习。
 
-HER SİTEDE HER KELİMEYE BAK
+在任意网页查词
+• 双击单词：英式和美式音标、发音、按词性分类的释义、英文定义、例句和图片。
+• 选中句子或段落：即时翻译，并讲解其中的语法结构。
+• 右键 →“查词”或“翻译所选内容”。
+• 可选：需要时让 AI 深入讲解某个表达，只在你点击时才会使用。
+• 可选的写作检查（默认关闭）：在你正在输入的文本框里标出英语错误，并逐条解释。
+
+用 YouTube 学英语
+• 打开英文字幕，点击字幕中的任意单词——视频会暂停，显示单词释义和整句翻译。
+• 按键 A / S / D：上一句、重听当前句、下一句。
+
+连同语境保存生词
+• 每个保存的单词都会记录原句和出处网页。
+• 已学过的单词可以在你浏览的网页上高亮显示，让你在真实语境中再次遇到它们。
+• 可选：给 B2–C2 学术词汇加下划线。
+
+在恰当的时机复习
+• 由 FSRS 算法安排复习计划的间隔重复闪卡。
+• 每日学习提醒，以及单词快要忘记时的“黄金时刻”提醒，支持免打扰时段。
+• 每次打开新标签页都会出现一张单词卡（一键即可关闭）。
+• 工具栏图标上的数字显示今天待复习的卡片数。
+
+附带完整的学习应用
+• 6,000+ 带音标的单词、主题词表、学术词汇表（AWL）、短语动词、习语和固定搭配。
+• 闪卡、游戏、听力与听写、发音练习、阅读文章，以及带解析的 IELTS 和 TOEIC 练习题。
+• 界面支持 15 种语言。
+
+免费且注重隐私
+• 免费，扩展内无广告，无需注册账号。
+• 学习数据保存在你的浏览器中。只有想在多台设备间同步时，才需要在 lexkite.com 用 Google 账号登录。
+• 我们从不收集你的浏览记录，也不出售你的数据。隐私政策：https://lexkite.com/zh/privacy
+
+Lexkite 是独立产品，与 British Council、IDP、Cambridge University Press &amp; Assessment 或 ETS 无关联，也未获得其认可。IELTS、TOEIC 和 TOEFL 是其各自所有者的商标。</pre></div>
+<h3 id="ja">日本語 <code>ja</code></h3>
+<div class="f"><div class="l"><span>Name <small>29/75</small></span><button>Copy</button></div><pre dir="auto">Lexkite – 英語辞書・翻訳・英単語フラッシュカード</pre></div>
+<div class="f"><div class="l"><span>Summary <small>70/132</small></span><button>Copy</button></div><pre dir="auto">単語をダブルクリックで意味・発音記号・音声を表示。選択した文を翻訳し、文脈ごと保存してフラッシュカードで復習。IELTS・TOEIC対策に。</pre></div>
+<div class="f"><div class="l"><span>Description <small>1163 ký tự</small></span><button>Copy</button></div><pre dir="auto">Lexkite は、ネットで読む・見るすべてを IELTS・TOEIC・日常英語のための英単語学習に変えます。どのページでも使える辞書と翻訳に加え、忘れる直前に復習を知らせるフラッシュカード付きです。
+
+どのページでも単語をすぐに調べる
+• 単語をダブルクリック：英国式・米国式の発音記号、音声、品詞ごとの意味、英英定義、例文、画像。
+• 文や段落を選択：すぐに翻訳し、含まれる文法構造も解説。
+• 右クリック →「調べる」または「選択範囲を翻訳」。
+• オプション：表現について AI の詳しい解説を、頼んだときだけ表示。
+• ライティングチェック（初期設定はオフ）：入力中のテキスト欄の英語のミスに下線を引き、一つずつ解説。
+
+YouTube で学ぶ
+• 英語字幕をオンにして字幕の単語をクリックすると、動画が一時停止し、意味と字幕1行分の翻訳を表示。
+• A / S / D キーで前の行・現在の行をもう一度・次の行へ移動。
+
+文脈ごと単語を保存
+• 保存した単語には、出会った文とページが記録されます。
+• 覚えた単語を閲覧中のページでハイライトでき、実際の文脈で再会できます。
+• B2〜C2 のアカデミック語彙に下線を表示（任意）。
+
+最適なタイミングで復習
+• FSRS アルゴリズムで復習日を決める間隔反復フラッシュカード。
+• 毎日のリマインダーと、忘れかけた単語を知らせる「ゴールデンタイム」通知（通知しない時間帯も設定可）。
+• 新しいタブを開くたびに単語カードを表示（ワンクリックでオフ）。
+• ツールバーのバッジで今日の復習枚数がわかります。
+
+本格的な学習アプリ付き
+• 発音記号付きの 6,000 語以上、テーマ別単語リスト、Academic Word List、句動詞、イディオム、コロケーション。
+• フラッシュカード、ゲーム、リスニングとディクテーション、発音練習、リーディング、解説付きの IELTS・TOEIC 模擬問題。
+• 15 言語のインターフェース。
+
+無料でプライバシーも安心
+• 無料、拡張機能内に広告なし、アカウント登録不要。
+• 学習データはブラウザ内に保存されます。端末間で同期したいときだけ、lexkite.com で Google ログインしてください。
+• 閲覧履歴を収集したり、データを販売したりすることはありません。プライバシーポリシー：https://lexkite.com/ja/privacy
+
+Lexkite は独立した製品であり、British Council、IDP、Cambridge University Press &amp; Assessment、ETS とは提携・承認関係にありません。IELTS、TOEIC、TOEFL は各所有者の商標です。</pre></div>
+<h3 id="ko">한국어 <code>ko</code></h3>
+<div class="f"><div class="l"><span>Name <small>28/75</small></span><button>Copy</button></div><pre dir="auto">Lexkite – 영어 사전·번역·영단어 플래시카드</pre></div>
+<div class="f"><div class="l"><span>Summary <small>78/132</small></span><button>Copy</button></div><pre dir="auto">단어를 더블클릭하면 뜻, 발음기호, 음성을 바로 확인. 선택한 문장 번역, 문맥과 함께 단어 저장, 플래시카드로 IELTS·TOEIC 복습.</pre></div>
+<div class="f"><div class="l"><span>Description <small>1285 ký tự</small></span><button>Copy</button></div><pre dir="auto">Lexkite는 인터넷에서 읽고 보는 모든 것을 IELTS·TOEIC·일상 영어를 위한 어휘 학습으로 바꿉니다. 모든 페이지에서 쓰는 사전과 번역기, 그리고 잊기 직전에 복습을 알려 주는 플래시카드를 함께 제공합니다.
+
+어떤 페이지에서든 단어 검색
+• 단어를 더블클릭: 영국식·미국식 발음기호, 음성, 품사별 뜻, 영영 정의, 예문, 이미지.
+• 문장이나 문단을 선택: 즉시 번역하고 그 안의 문법 구조도 설명합니다.
+• 마우스 오른쪽 클릭 → &#x27;단어 찾기&#x27; 또는 &#x27;선택 영역 번역&#x27;.
+• 선택 사항: 원할 때만 AI가 표현을 더 깊이 설명해 줍니다.
+• 작문 검사(기본값 꺼짐): 입력 중인 텍스트 상자의 영어 오류에 밑줄을 긋고 하나씩 설명합니다.
+
+YouTube로 배우기
+• 영어 자막을 켜고 자막 속 단어를 클릭하면 영상이 멈추고 뜻과 자막 한 줄 전체의 번역이 표시됩니다.
+• A / S / D 키로 이전 줄, 현재 줄 다시 듣기, 다음 줄로 이동합니다.
+
+문맥과 함께 단어 저장
+• 저장한 단어마다 처음 만난 문장과 페이지가 함께 기록됩니다.
+• 이미 배운 단어는 방문하는 페이지에서 강조 표시할 수 있어 실제 문맥에서 다시 만납니다.
+• B2–C2 학술 어휘에 밑줄 표시(선택).
+
+딱 맞는 때에 복습
+• FSRS 알고리즘이 일정을 잡는 간격 반복 플래시카드.
+• 매일 학습 알림과, 단어를 잊기 직전에 알려 주는 &#x27;골든 타임&#x27; 알림(방해 금지 시간 설정 가능).
+• 새 탭을 열 때마다 단어 카드 표시(클릭 한 번으로 끄기).
+• 툴바 배지로 오늘 복습할 카드 수를 확인합니다.
+
+완전한 학습 앱 포함
+• 발음기호가 있는 6,000개 이상의 단어, 주제별 단어장, Academic Word List, 구동사, 관용어, 연어.
+• 플래시카드, 게임, 듣기와 받아쓰기, 발음 연습, 읽기 지문, 해설이 있는 IELTS·TOEIC 모의 문제.
+• 15개 언어 인터페이스.
+
+무료, 그리고 개인정보 보호
+• 무료, 확장 프로그램 내 광고 없음, 계정 없이 사용 가능.
+• 학습 데이터는 내 브라우저에 저장됩니다. 여러 기기에서 동기화하려는 경우에만 lexkite.com에서 Google로 로그인하세요.
+• 방문 기록을 수집하거나 데이터를 판매하지 않습니다. 개인정보처리방침: https://lexkite.com/ko/privacy
+
+Lexkite는 독립 제품이며 British Council, IDP, Cambridge University Press &amp; Assessment, ETS와 제휴하거나 그들의 보증을 받지 않았습니다. IELTS, TOEIC, TOEFL은 각 소유자의 상표입니다.</pre></div>
+<h3 id="hi">हिन्दी <code>hi</code></h3>
+<div class="f"><div class="l"><span>Name <small>61/75</small></span><button>Copy</button></div><pre dir="auto">Lexkite – अंग्रेज़ी डिक्शनरी, अनुवादक और शब्दावली फ़्लैशकार्ड</pre></div>
+<div class="f"><div class="l"><span>Summary <small>129/132</small></span><button>Copy</button></div><pre dir="auto">किसी शब्द पर डबल-क्लिक करें: अर्थ, IPA और ऑडियो। चुना टेक्स्ट अनुवाद करें, शब्द संदर्भ सहित सेव करें, IELTS/TOEIC के लिए दोहराएँ।</pre></div>
+<div class="f"><div class="l"><span>Description <small>2321 ký tự</small></span><button>Copy</button></div><pre dir="auto">Lexkite इंटरनेट पर आप जो कुछ भी पढ़ते और देखते हैं, उसे IELTS, TOEIC और रोज़मर्रा की अंग्रेज़ी के शब्दावली अभ्यास में बदल देता है: हर पेज पर डिक्शनरी और अनुवादक, साथ में फ़्लैशकार्ड जो हर शब्द भूलने से ठीक पहले उसे दोहराने की याद दिलाते हैं।
+
+किसी भी पेज पर कोई भी शब्द देखें
+• शब्द पर डबल-क्लिक करें: ब्रिटिश और अमेरिकी IPA, ऑडियो, शब्द-भेद के अनुसार अर्थ, परिभाषाएँ, उदाहरण और चित्र।
+• वाक्य या पैराग्राफ़ चुनें: तुरंत अनुवाद, साथ में उसकी व्याकरण संरचनाओं की व्याख्या।
+• राइट-क्लिक → “शब्द देखें” या “चयन का अनुवाद करें”।
+• वैकल्पिक: किसी अभिव्यक्ति की गहरी AI व्याख्या, सिर्फ़ जब आप माँगें।
+• वैकल्पिक लेखन जाँच (डिफ़ॉल्ट रूप से बंद): जिस बॉक्स में आप टाइप कर रहे हैं, उसमें अंग्रेज़ी की गलतियों को रेखांकित करती है और हर गलती समझाती है।
+
+YouTube से सीखें
+• अंग्रेज़ी सबटाइटल चालू करें और किसी भी शब्द पर क्लिक करें – वीडियो रुक जाता है और शब्द का अर्थ व पूरी पंक्ति का अनुवाद दिखता है।
+• A / S / D कुंजियाँ: पिछली पंक्ति, मौजूदा पंक्ति दोबारा, अगली पंक्ति।
+
+शब्दों को उनके संदर्भ के साथ सेव करें
+• हर सेव किया गया शब्द वह वाक्य और पेज याद रखता है जहाँ आपको वह मिला।
+• सीखे हुए शब्द आपके देखे जाने वाले पेजों पर हाइलाइट हो सकते हैं, ताकि आप उन्हें असली संदर्भ में फिर से देखें।
+• B2–C2 अकादमिक शब्दों को रेखांकित करें (वैकल्पिक)।
+
+सही समय पर दोहराएँ
+• FSRS एल्गोरिद्म से शेड्यूल होने वाले स्पेस्ड रिपिटिशन फ़्लैशकार्ड।
+• रोज़ाना रिमाइंडर और शब्द भूलने से पहले “गोल्डन मोमेंट” अलर्ट, शांत समय की सुविधा के साथ।
+• हर नए टैब पर एक शब्दावली कार्ड (एक क्लिक में बंद करें)।
+• टूलबार बैज बताता है कि आज कितने कार्ड दोहराने हैं।
+
+पूरा स्टडी ऐप शामिल
+• IPA के साथ 6,000+ शब्द, विषय-वार शब्द सूचियाँ, Academic Word List, फ़्रेज़ल वर्ब, मुहावरे और कोलोकेशन।
+• फ़्लैशकार्ड, गेम, लिसनिंग और डिक्टेशन, उच्चारण अभ्यास, रीडिंग पैसेज, और व्याख्या सहित IELTS व TOEIC प्रैक्टिस टेस्ट।
+• 15 भाषाओं में इंटरफ़ेस।
+
+मुफ़्त और निजी
+• मुफ़्त, एक्सटेंशन में कोई विज्ञापन नहीं, अकाउंट ज़रूरी नहीं।
+• आपका सीखने का डेटा आपके ब्राउज़र में रहता है। डिवाइसों के बीच सिंक करना हो, तभी lexkite.com पर Google से साइन इन करें।
+• हम आपकी ब्राउज़िंग हिस्ट्री कभी इकट्ठा नहीं करते और आपका डेटा नहीं बेचते। गोपनीयता नीति: https://lexkite.com/hi/privacy
+
+Lexkite एक स्वतंत्र उत्पाद है और British Council, IDP, Cambridge University Press &amp; Assessment या ETS से संबद्ध या उनके द्वारा समर्थित नहीं है। IELTS, TOEIC और TOEFL अपने-अपने मालिकों के ट्रेडमार्क हैं।</pre></div>
+<h3 id="ar">العربية <code>ar</code></h3>
+<div class="f"><div class="l"><span>Name <small>52/75</small></span><button>Copy</button></div><pre dir="auto">Lexkite – قاموس إنجليزي ومترجم وبطاقات لحفظ المفردات</pre></div>
+<div class="f"><div class="l"><span>Summary <small>121/132</small></span><button>Copy</button></div><pre dir="auto">انقر مرتين على أي كلمة لترى المعنى والنطق IPA والصوت. ترجم النص المحدد واحفظ الكلمات بسياقها وراجعها لاختبار IELTS/TOEIC.</pre></div>
+<div class="f"><div class="l"><span>Description <small>2123 ký tự</small></span><button>Copy</button></div><pre dir="auto">يحوّل Lexkite كل ما تقرؤه وتشاهده على الإنترنت إلى تدريب على مفردات اللغة الإنجليزية لاختبارات IELTS وTOEIC وللحياة اليومية: قاموس ومترجم في كل صفحة، وبطاقات تذكّرك بمراجعة كل كلمة قبل أن تنساها مباشرة.
+
+ابحث عن أي كلمة في أي صفحة
+• انقر نقرًا مزدوجًا على كلمة: النطق الصوتي IPA البريطاني والأمريكي، والصوت، والمعاني حسب نوع الكلمة، والتعريفات، والأمثلة، وصورة توضيحية.
+• حدّد جملة أو فقرة: ترجمة فورية مع شرح التراكيب النحوية فيها.
+• انقر بزر الماوس الأيمن ← «ابحث عن الكلمة» أو «ترجم النص المحدد».
+• اختياري: شرح أعمق لأي تعبير بالذكاء الاصطناعي، عند طلبك فقط.
+• تدقيق الكتابة اختياري (معطّل افتراضيًا): يضع خطًا تحت الأخطاء الإنجليزية في المربع الذي تكتب فيه ويشرح كل خطأ.
+
+تعلّم من YouTube
+• فعّل الترجمة الإنجليزية وانقر على أي كلمة فيها، فيتوقف الفيديو وترى معنى الكلمة وترجمة السطر كاملًا.
+• المفاتيح A / S / D: السطر السابق، إعادة السطر الحالي، السطر التالي.
+
+احفظ الكلمات مع سياقها
+• كل كلمة تحفظها تحتفظ بالجملة والصفحة التي وجدتها فيها.
+• يمكن تمييز الكلمات التي تعلّمتها في الصفحات التي تزورها، لتقابلها مجددًا في سياق حقيقي.
+• يمكن وضع خط تحت الكلمات الأكاديمية من المستوى B2–C2 (اختياري).
+
+راجع في الوقت المناسب
+• بطاقات تكرار متباعد تُجدوَل بخوارزمية FSRS.
+• تذكير يومي وتنبيهات «اللحظة الذهبية» عندما توشك كلمة على النسيان، مع ساعات هدوء.
+• بطاقة مفردات في كل علامة تبويب جديدة (يمكن إيقافها بنقرة واحدة).
+• شارة على شريط الأدوات تعرض عدد البطاقات المستحقة اليوم.
+
+تطبيق تعلّم متكامل مرفق
+• أكثر من 6000 كلمة مع النطق الصوتي IPA، وقوائم كلمات حسب الموضوع، وقائمة الكلمات الأكاديمية AWL، والأفعال المركبة، والتعابير الاصطلاحية، والمتلازمات اللفظية.
+• بطاقات، وألعاب، واستماع وإملاء، وتدريب على النطق، ونصوص قراءة، واختبارات تدريبية لـ IELTS وTOEIC مع الشرح.
+• واجهة بـ 15 لغة.
+
+مجاني وخاص
+• مجاني، بلا إعلانات في الإضافة، ولا يتطلب حسابًا.
+• تبقى بيانات تعلّمك في متصفحك. سجّل الدخول بحساب Google على lexkite.com فقط إذا أردت المزامنة بين أجهزتك.
+• لا نجمع سجل التصفح أبدًا ولا نبيع بياناتك. سياسة الخصوصية: https://lexkite.com/ar/privacy
+
+Lexkite منتج مستقل، ولا يرتبط بـ British Council أو IDP أو Cambridge University Press &amp; Assessment أو ETS ولا يحظى بتأييدها. IELTS وTOEIC وTOEFL علامات تجارية لأصحابها.</pre></div>
+<h3 id="ru">Русский <code>ru</code></h3>
+<div class="f"><div class="l"><span>Name <small>60/75</small></span><button>Copy</button></div><pre dir="auto">Lexkite – английский словарь, переводчик и карточки для слов</pre></div>
+<div class="f"><div class="l"><span>Summary <small>129/132</small></span><button>Copy</button></div><pre dir="auto">Двойной клик по слову: значение, транскрипция и аудио. Перевод выделенного текста, слова с контекстом и карточки для IELTS/TOEIC.</pre></div>
+<div class="f"><div class="l"><span>Description <small>2548 ký tự</small></span><button>Copy</button></div><pre dir="auto">Lexkite превращает всё, что вы читаете и смотрите в интернете, в тренировку английской лексики для IELTS, TOEIC и повседневной жизни: словарь и переводчик на любой странице, а также карточки, которые напоминают повторить слово прямо перед тем, как вы его забудете.
+
+ИЩИТЕ ЛЮБОЕ СЛОВО НА ЛЮБОЙ СТРАНИЦЕ
+• Двойной клик по слову: британская и американская транскрипция, аудио, значения по частям речи, определения, примеры и картинка.
+• Выделите предложение или абзац: мгновенный перевод и разбор грамматических конструкций в нём.
+• Правый клик → «Найти слово» или «Перевести выделенное».
+• По желанию: подробное объяснение выражения с помощью ИИ — только когда вы его запрашиваете.
+• Проверка письма по желанию (по умолчанию выключена): подчёркивает ошибки в английском тексте, который вы набираете, и объясняет каждую.
+
+УЧИТЕСЬ НА YOUTUBE
+• Включите английские субтитры и нажмите на любое слово — видео встанет на паузу, и вы увидите значение слова и перевод всей строки.
+• Клавиши A / S / D: предыдущая строка, повтор текущей, следующая строка.
+
+СОХРАНЯЙТЕ СЛОВА С КОНТЕКСТОМ
+• К каждому сохранённому слову прикрепляются предложение и страница, где вы его встретили.
+• Уже выученные слова можно подсвечивать на страницах, которые вы читаете, чтобы встречать их в живом контексте.
+• Академическую лексику уровня B2–C2 можно подчёркивать (по желанию).
+
+ПОВТОРЯЙТЕ В НУЖНЫЙ МОМЕНТ
+• Карточки с интервальными повторениями по алгоритму FSRS.
+• Ежедневное напоминание и сигнал «золотого момента», когда слово вот-вот забудется, с тихими часами.
+• Карточка со словом в каждой новой вкладке (отключается одним кликом).
+• Значок на панели инструментов показывает, сколько карточек нужно повторить сегодня.
+
+ПОЛНОЦЕННОЕ ПРИЛОЖЕНИЕ ДЛЯ УЧЁБЫ
+• Более 6000 слов с транскрипцией, тематические списки, Academic Word List, фразовые глаголы, идиомы и коллокации.
+• Карточки, игры, аудирование и диктант, тренировка произношения, тексты для чтения, пробные тесты IELTS и TOEIC с разбором.
+• Интерфейс на 15 языках.
+
+БЕСПЛАТНО И КОНФИДЕНЦИАЛЬНО
+• Бесплатно, без рекламы в расширении, без обязательной регистрации.
+• Данные обучения хранятся в вашем браузере. Входите через Google на lexkite.com, только если хотите синхронизировать устройства.
+• Мы не собираем историю браузера и не продаём ваши данные. Политика конфиденциальности: https://lexkite.com/ru/privacy
+
+Lexkite — независимый продукт, не связанный с British Council, IDP, Cambridge University Press &amp; Assessment или ETS и не одобренный ими. IELTS, TOEIC и TOEFL — товарные знаки соответствующих владельцев.</pre></div>
+<h3 id="tr">Türkçe <code>tr</code></h3>
+<div class="f"><div class="l"><span>Name <small>53/75</small></span><button>Copy</button></div><pre dir="auto">Lexkite – İngilizce Sözlük, Çeviri ve Kelime Kartları</pre></div>
+<div class="f"><div class="l"><span>Summary <small>130/132</small></span><button>Copy</button></div><pre dir="auto">Herhangi bir kelimeye çift tıkla: anlam, IPA ve ses. Seçili metni çevir, kelimeleri bağlamıyla kaydet, IELTS/TOEIC için tekrar et.</pre></div>
+<div class="f"><div class="l"><span>Description <small>2386 ký tự</small></span><button>Copy</button></div><pre dir="auto">Lexkite, internette okuduğun ve izlediğin her şeyi IELTS, TOEIC ve günlük hayat için İngilizce kelime pratiğine dönüştürür: her sayfada sözlük ve çevirmen, ayrıca her kelimeyi unutmadan hemen önce tekrar etmeni hatırlatan kelime kartları.
+
+HER SAYFADA HER KELİMEYİ ARA
 • Bir kelimeye çift tıkla: İngiliz ve Amerikan IPA, ses, sözcük türüne göre anlamlar, tanımlar, örnekler ve görsel.
-• Bir cümle seç: anında çeviri ve içindeki dil bilgisi yapılarının açıklaması.
-• Sağ tık → &quot;Kelimeye bak&quot; veya &quot;Seçimi çevir&quot;.
+• Bir cümle ya da paragraf seç: anında çeviri ve içindeki dil bilgisi yapılarının açıklaması.
+• Sağ tık → “Kelimeyi ara” veya “Seçimi çevir”.
+• İsteğe bağlı: bir ifadenin yapay zekâ ile ayrıntılı açıklaması, yalnızca sen istediğinde.
+• İsteğe bağlı yazım denetimi (varsayılan olarak kapalı): yazdığın kutudaki İngilizce hataların altını çizer ve her birini açıklar.
 
 YOUTUBE İLE ÖĞREN
-• İngilizce altyazıyı aç ve herhangi bir kelimeye dokun: video durur, anlamı ve satırın çevirisi görünür.
+• İngilizce altyazıyı aç ve altyazıdaki herhangi bir kelimeye tıkla – video durur, kelimenin anlamını ve satırın tamamının çevirisini görürsün.
+• A / S / D tuşları: önceki satır, mevcut satırı tekrar, sonraki satır.
 
 KELİMELERİ BAĞLAMIYLA KAYDET
-• Her kelime, onu bulduğun cümle ve sayfayla birlikte kaydedilir.
-• İsteğe bağlı: öğrendiğin kelimeleri sayfalarda vurgula.
+• Kaydettiğin her kelime, onu bulduğun cümleyi ve sayfayı saklar.
+• Öğrendiğin kelimeler ziyaret ettiğin sayfalarda vurgulanabilir; böylece onlarla gerçek bağlamda yeniden karşılaşırsın.
+• B2–C2 akademik kelimelerin altı çizilebilir (isteğe bağlı).
 
 DOĞRU ZAMANDA TEKRAR ET
-• FSRS algoritmasıyla (Anki gibi) aralıklı tekrar, günlük hatırlatıcılar ve her yeni sekmede bir kelime kartı (kapatılabilir).
+• FSRS algoritmasıyla planlanan aralıklı tekrar kartları.
+• Günlük hatırlatma ve kelime unutulmak üzereyken “altın an” uyarıları, sessiz saatlerle.
+• Her yeni sekmede bir kelime kartı (tek tıkla kapatılabilir).
+• Araç çubuğundaki rozet, bugün tekrar edilecek kart sayısını gösterir.
 
-TAM ÇALIŞMA UYGULAMASI DAHİL
-• Sesli 6.000+ kelime, konu listeleri, oyunlar, telaffuz pratiği, okuma metinleri ve açıklamalı IELTS &amp; TOEIC deneme sınavları. 15 dilde arayüz.
+TAM BİR ÇALIŞMA UYGULAMASI DAHİL
+• IPA ile 6.000+ kelime, konu bazlı kelime listeleri, Academic Word List, phrasal verb&#x27;ler, deyimler ve eşdizimler.
+• Kelime kartları, oyunlar, dinleme ve dikte, telaffuz pratiği, okuma metinleri ve açıklamalı IELTS &amp; TOEIC deneme sınavları.
+• 15 dilde arayüz.
 
 ÜCRETSİZ VE GİZLİ
-• Eklentide reklam yok, hesap zorunlu değil. Verilerin tarayıcında kalır; yalnızca senkronize etmek istersen giriş yap.
-• Tarama geçmişini toplamıyor, verilerini satmıyoruz. Gizlilik: https://lexkite.com/tr/privacy
+• Ücretsiz, eklentide reklam yok, hesap gerekmez.
+• Öğrenme verilerin tarayıcında kalır. Cihazlar arasında eşitlemek istersen lexkite.com&#x27;da Google ile giriş yap.
+• Tarama geçmişini asla toplamayız ve verilerini satmayız. Gizlilik politikası: https://lexkite.com/tr/privacy
 
-Lexkite bağımsız bir üründür; British Council, IDP, Cambridge University Press &amp; Assessment veya ETS ile bağlantılı değildir.</pre></div><h2>5. Privacy practices</h2><div class="f"><div class="l"><span>Single purpose</span><button>Copy</button></div><pre>Lexkite helps users learn English vocabulary while browsing: look up and translate words or text the user selects on any web page, save them with their context, and review them with spaced-repetition flashcards, reminders and a vocabulary card on the new tab page.</pre></div><div class="f"><div class="l"><span>storage</span><button>Copy</button></div><pre>Stores the user&#x27;s saved words, review schedule, progress and settings locally in the browser so the flashcards work offline and persist between sessions.</pre></div><div class="f"><div class="l"><span>alarms</span><button>Copy</button></div><pre>Schedules the daily study reminder chosen by the user and a 15-minute check that updates the badge with the number of cards due and detects words about to be forgotten.</pre></div><div class="f"><div class="l"><span>notifications</span><button>Copy</button></div><pre>Shows the daily study reminder and the optional &quot;golden moment&quot; review reminder. Both can be turned off and respect quiet hours set by the user.</pre></div><div class="f"><div class="l"><span>contextMenus</span><button>Copy</button></div><pre>Adds &quot;Look up with Lexkite&quot; and &quot;Translate selection&quot; to the right-click menu when the user has selected text.</pre></div><div class="f"><div class="l"><span>scripting</span><button>Copy</button></div><pre>After installation or an update, injects the extension&#x27;s own bundled content script into tabs that were already open so word lookup works without reloading them. On youtube.com it reads the caption track list of the video being watched so the user can tap words in the subtitles. No remote code is executed.</pre></div><div class="f"><div class="l"><span>search</span><button>Copy</button></div><pre>The new tab page provided by the extension contains a search box; chrome.search.query sends the user&#x27;s query to their default search engine instead of hard-coding a provider.</pre></div><div class="f"><div class="l"><span>Host permission justification (http://*/*, https://*/*)</span><button>Copy</button></div><pre>The core feature works on any web page the user reads: double-click a word or select text to see its meaning or translation, save it with the sentence it appears in, optionally highlight words the user has already learned, and tap words in YouTube subtitles. The same permission lets the background service worker call the dictionary and translation services listed in the privacy policy (Google Translate, Free Dictionary API, Wiktionary, Tatoeba, Datamuse, MyMemory, Openverse, and the user&#x27;s own Gemini key if provided) and lexkite.com for optional sync. Page content is processed locally; only the word or text the user chooses is sent to those services.</pre></div><div class="f"><div class="l"><span>New tab override (chrome_url_overrides)</span><button>Copy</button></div><pre>Shows one vocabulary flashcard from the user&#x27;s own saved words each time a new tab opens, with a search box using the default search engine. It can be disabled from the card itself or from the extension settings.</pre></div><div class="f"><div class="l"><span>Test instructions (Notes for the reviewer)</span><button>Copy</button></div><pre>No account is needed. Open any article, double-click an English word to see the lookup card, or select a sentence to translate it. Click the toolbar icon for the popup. Open a new tab to see the vocabulary card (can be turned off with &quot;Turn off&quot; at the bottom).</pre></div><h2>6. Data usage – tick</h2><table><tr><th>Mục</th><th>Tick</th></tr><tr><td>Personally identifiable information</td><td>✅</td></tr><tr><td>Health</td><td>—</td></tr><tr><td>Financial and payment</td><td>—</td></tr><tr><td>Authentication information</td><td>✅</td></tr><tr><td>Personal communications</td><td>—</td></tr><tr><td>Location</td><td>—</td></tr><tr><td>Web history</td><td>—</td></tr><tr><td>User activity</td><td>✅</td></tr><tr><td>Website content</td><td>✅</td></tr></table><p>Tick cả 3 cam kết (không bán dữ liệu / không dùng ngoài mục đích / không dùng cho tín dụng). Remote code: <b>No</b>. Distribution: Public, mọi khu vực, Free.</p>
+Lexkite bağımsız bir üründür; British Council, IDP, Cambridge University Press &amp; Assessment veya ETS ile bağlantılı değildir ve onlar tarafından onaylanmamıştır. IELTS, TOEIC ve TOEFL ilgili sahiplerinin ticari markalarıdır.</pre></div>
+<h2>3. Privacy practices</h2>
+<div class="f"><div class="l"><span>Single purpose</span><button>Copy</button></div><pre dir="auto">Lexkite helps users learn English vocabulary while browsing: look up and translate words or text the user selects on any web page, save them with their context, and review them with spaced-repetition flashcards, reminders and a vocabulary card on the new tab page. An optional, off-by-default writing check explains the English mistakes in what the learner types and links each one to a grammar lesson and their mistake notebook.</pre></div>
+<div class="f"><div class="l"><span>storage</span><button>Copy</button></div><pre dir="auto">Stores the user&#x27;s saved words, review schedule, progress and settings locally in the browser so the flashcards work offline and persist between sessions.</pre></div>
+<div class="f"><div class="l"><span>alarms</span><button>Copy</button></div><pre dir="auto">Schedules the daily study reminder chosen by the user and a 15-minute check that updates the badge with the number of cards due and detects words about to be forgotten.</pre></div>
+<div class="f"><div class="l"><span>notifications</span><button>Copy</button></div><pre dir="auto">Shows the daily study reminder and the optional &quot;golden moment&quot; review reminder. Both can be turned off and respect quiet hours set by the user.</pre></div>
+<div class="f"><div class="l"><span>contextMenus</span><button>Copy</button></div><pre dir="auto">Adds &quot;Look up with Lexkite&quot; and &quot;Translate selection&quot; to the right-click menu when the user has selected text.</pre></div>
+<div class="f"><div class="l"><span>scripting</span><button>Copy</button></div><pre dir="auto">After installation or an update, injects the extension&#x27;s own bundled content script into tabs that were already open so word lookup works without reloading them. On youtube.com it reads the caption track list of the video being watched so the user can tap words in the subtitles. No remote code is executed.</pre></div>
+<div class="f"><div class="l"><span>search</span><button>Copy</button></div><pre dir="auto">The new tab page provided by the extension contains a search box; chrome.search.query sends the user&#x27;s query to their default search engine instead of hard-coding a provider.</pre></div>
+<div class="f"><div class="l"><span>Host permission (http://*/*, https://*/*)</span><button>Copy</button></div><pre dir="auto">The core feature works on any web page the user reads: double-click a word or select text to see its meaning or translation, save it with the sentence it appears in, optionally highlight words the user has already learned, tap words in YouTube subtitles, and (only if the user turns on the off-by-default Writing check) underline English mistakes in the text box the user is typing in, with a one-tap fix and a short explanation. The same permission lets the background service worker call the dictionary and translation services listed in the privacy policy (Google Translate, Free Dictionary API, Wiktionary, Tatoeba, Datamuse, MyMemory, Openverse, LanguageTool only if the user enables Writing check&#x27;s &quot;Advanced check&quot;, lexkite.com/api/ai for the on-demand &quot;Deep explanation&quot; (free AI; Chrome&#x27;s built-in on-device AI is used instead when it is already available), and the user&#x27;s own Gemini key only if they add one) and lexkite.com for optional sync. Page content is processed locally; only the word or text the user chooses is sent to those services.</pre></div>
+<div class="f"><div class="l"><span>New tab override (chrome_url_overrides)</span><button>Copy</button></div><pre dir="auto">Shows one vocabulary flashcard from the user&#x27;s own saved words each time a new tab opens, with a search box using the default search engine. It can be disabled from the card itself or from the extension settings.</pre></div>
+<div class="f"><div class="l"><span>Notes for the reviewer (optional &quot;Test instructions&quot; field)</span><button>Copy</button></div><pre dir="auto">No account is needed. Open any article, double-click an English word to see the lookup card, or select a sentence to translate it. Click the toolbar icon for the popup. Open a new tab to see the vocabulary card (can be turned off with &quot;Turn off&quot; at the bottom). Writing check is off by default: turn on &quot;Writing check&quot; in the popup, then type &quot;She have a apple&quot; in any text box (e.g. a comment box) and click the underlined word.</pre></div>
+<h2>4. Data usage – tick</h2><table><tr><th>Mục</th><th>Tick</th></tr><tr><td>Personally identifiable information</td><td>✅</td></tr><tr><td>Health</td><td>—</td></tr><tr><td>Financial and payment</td><td>—</td></tr><tr><td>Authentication information</td><td>✅</td></tr><tr><td>Personal communications</td><td>✅</td></tr><tr><td>Location</td><td>—</td></tr><tr><td>Web history</td><td>—</td></tr><tr><td>User activity</td><td>✅</td></tr><tr><td>Website content</td><td>✅</td></tr></table><p>Tick cả 3 cam kết (không bán dữ liệu / không dùng ngoài mục đích / không dùng cho tín dụng). Remote code: <b>No</b>. Distribution: Public, mọi khu vực, Free. Chi tiết: <code>store/chrome/PRIVACY-PRACTICES.md</code>.</p>
 <script>document.querySelectorAll('.f button').forEach(b=>b.onclick=async()=>{await navigator.clipboard.writeText(b.closest('.f').querySelector('pre').textContent);b.textContent='✓ Đã copy';b.className='ok';setTimeout(()=>{b.textContent='Copy';b.className=''},1500)})</script></body></html>

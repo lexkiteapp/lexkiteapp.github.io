@@ -54,5 +54,6 @@
   "finalP": "Lege dein Prüfungsziel in zwei Minuten fest und lerne gleich danach deine ersten Wörter.",
   "tm": "IELTS, TOEIC und TOEFL sind Marken ihrer jeweiligen Inhaber. Lexkite ist ein unabhängiges Produkt und steht in keiner Verbindung zu ihnen.",
   "foot": "Lexkite – kostenloser Wortschatz und IELTS-, TOEIC-, TOEFL-Training. Eigene Lerninhalte, kostenlos für Lernende.",
-  "suggest": ["Diese Seite gibt es auch auf Deutsch.", "Auf Deutsch ansehen", "Schließen"]
+  "suggest": ["Diese Seite gibt es auch auf Deutsch.", "Auf Deutsch ansehen", "Schließen"],
+  "ext": {"btn": "Zu Chrome hinzufügen – kostenlos", "h": "Wörter auf jeder Website nachschlagen", "p": "Die Lexkite-Erweiterung bringt das Wörterbuch auf jede Seite, die du liest. Doppelklicke auf ein Wort für Bedeutung, Lautschrift und Audio, markiere einen Satz, um ihn zu übersetzen, und speichere neue Wörter mit dem Originalsatz in deinen Karteikarten.", "pts": ["Läuft in Chrome, Edge, Brave und Opera", "Wörter in YouTube-Untertiteln antippen", "Gespeicherte Wörter synchronisieren mit deinen Lexkite-Karteikarten"], "alt": "Lexkite-Erweiterung: Doppelklick auf „resilience“ in einem Artikel zeigt Lautschrift, Bedeutungen und Beispiele"}
 }
