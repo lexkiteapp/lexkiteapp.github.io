@@ -82,6 +82,23 @@ def upscale(crop):
         y = m(t)[0].clamp(0, 1).permute(1, 2, 0).numpy()
     return Image.fromarray((y * 255 + 0.5).astype(np.uint8)).resize((OUTW, OUTH), Image.LANCZOS)
 
+def seg_master(im):
+    """Mask2Former on the whole WIDE image (more context than a narrow crop: crops sometimes lost the floor label entirely - chunk1/2 22/10)"""
+    import torch; proc, seg = M.get('seg'); names = seg.config.id2label; sm = im.resize((1088, 614))
+    with torch.no_grad():
+        out = seg(**proc(images=sm, return_tensors='pt'))
+    lab = proc.post_process_semantic_segmentation(out, target_sizes=[(614, 1088)])[0].numpy()
+    cls = {int(k): names[int(k)].split(',')[0].strip().lower() for k in np.unique(lab)}
+    sel = lambda S: np.isin(lab, [k for k, n in cls.items() if n in S])
+    return dict(floor=sel(BZ.FLOOR), water=sel(WATER), top=sel(TOP), sx=1088 / im.size[0], sy=614 / im.size[1])
+
+def host_box(sm, x, y0, cw, hc, o):
+    """host zone of the FINAL 1080x1920 frame (window o inside the 1350x2400 upscaled crop) mapped back onto the master segmentation"""
+    k = hc / OUTH; bx0 = x + (135 + HOST[0] * 1080) * k; bx1 = x + (135 + HOST[2] * 1080) * k; by0 = y0 + (o + HOST[1] * 1920) * k; by1 = y0 + (o + HOST[3] * 1920) * k
+    X0, X1, Y0, Y1 = int(bx0 * sm['sx']), int(bx1 * sm['sx']), int(by0 * sm['sy']), int(by1 * sm['sy'])
+    f = lambda m: round(float(m[Y0:Y1, X0:X1].mean()), 4)
+    return dict(host_floor=f(sm['floor']), host_water=f(sm['water']), host_top=f(sm['top']))
+
 def zones(im, cid):
     """bg_zones-format annotation of one 9:16 crop + host-zone checks (water / tabletop / floor under the host)."""
     import torch; proc, seg = M.get('seg'); names = seg.config.id2label
@@ -117,7 +134,7 @@ def measure(im, cid, crops=True):
         r['hz_votes'] = vp[1] if vp else 0
         g = fit_crop(r['hz_master'], H); r['crop'] = g
         if g is None: g = dict(hc=H, y0=0, o=0)
-        hc, y0 = g['hc'], g['y0']; cw = round(hc * 9 / 16)
+        hc, y0 = g['hc'], g['y0']; cw = round(hc * 9 / 16); SM = seg_master(im)
         for side, x in (('L', round(W * CROP_C - cw / 2)), ('R', round(W * (1 - CROP_C) - cw / 2))):   # hosts stand on the open floor left/right of centre, not at the prop-filled edges
             c = im.crop((x, y0, x + cw, y0 + hc)); u = upscale(c); z, dp = zones(u, f'{cid}_{side}')
             bic = c.resize((OUTW, OUTH), Image.BICUBIC)
@@ -125,6 +142,7 @@ def measure(im, cid, crops=True):
             hzc = (hz * H - y0) / hc   # horizon inside this crop
             z['y_window'] = int(min(OUTH - 1920, max(0, round(OUTH * hzc - 0.40 * 1920))))   # 1080x1920 window offset (in the 1350x2400 crop) that puts the horizon at 40 %
             z['final_horizon'] = round((OUTH * hzc - z['y_window']) / 1920, 4); z['crop_box'] = [x, y0, cw, hc]
+            hb = host_box(SM, x, y0, cw, hc, z['y_window']); z['host_crop'] = {k: z[k] for k in ('host_floor', 'host_water', 'host_top')}; z.update(hb); z['host_src'] = 'master segmentation, final-frame host zone'
             r[side] = dict(x=x, w=cw, y=y0, h=hc, y_window=z['y_window'], final_horizon=z['final_horizon'], **{k: z[k] for k in ('horizon', 'horizon_src', 'floor_frac', 'valid', 'host_water', 'host_top', 'host_floor')},
                            lap=sharp_expo(u)['lap'], acu=sharp_expo(u)['acu'], lap_bicubic=sharp_expo(bic)['lap'], text=ocr(u), **{f'owl_{k}': v for k, v in owl(u).items()})
             out[side] = (u, z, dp)
@@ -194,7 +212,7 @@ def shard(a):
         if r['m_acu'] < C['acu_min']: f.append('soft_master')   # (Laplacian variance penalised sparse flat scenes - pilot 22/10)
         for s in 'LR':
             z = r[s]
-            if not z['valid'] or z['host_floor'] < C['host_floor_min']: f.append(f'nofloor_{s}')
+            if z['host_floor'] < C['host_floor_min']: f.append(f'nofloor_{s}')   # master-seg floor under the host in the final frame
             if not (C['horizon'][0] - 0.01 <= z['final_horizon'] <= C['horizon'][1] + 0.01): f.append(f'horizon_{s}')   # VP bins are 1/24 = 0.042
             if z['host_water'] > C['host_water_max']: f.append(f'water_{s}')
             if z['host_top'] > C['host_top_max']: f.append(f'tabletop_{s}')
