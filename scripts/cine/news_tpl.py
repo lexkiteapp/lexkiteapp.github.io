@@ -3,7 +3,23 @@
 # J-cut audio lead 0.15 s) each carrying ONE card state (label / x / v) -> two-shot recap (Save card 2.5 s) -> CTA single + comment ring ->
 # 1.0 s loop back to the hook frame. All text comes from the curated banks in gen_news.py; timings from the real wavs.
 META = dict(bg=SPEC['bg'], series=SPEC['series'], hook_text=SPEC['hook']['card'], id=SPEC['id'], out=f"cine-{SPEC['id'].replace('_', '-')}-en.mp4", cefr=SPEC['cefr'], goal_en=SPEC['point'], area=SPEC['area'])
-QA = dict(template='news'); AMB = f'{TL}/amb_studio.wav'; AMB_DB = -40; BG = os.environ.get('NEWS_BG') or SPEC['bg']; META['bg'] = BG   # NEWS_BG: placement / vision retry picked another background
+# owner 22/10 §15 edit style: shot-grammar pattern (>= 12), <= 3 camera moves, transition, text layout (6) x series palette (8), opener host, pacing
+PATTERNS = [(['mcu', 'wide'], ['mcu', 'wide']), (['wide', 'mcu'], ['mcu', 'wide']), (['mcu', 'mws'], ['wide', 'mcu']), (['mws', 'mcu'], ['mcu', 'mws']),
+            (['mcu', 'wide', 'mws'], ['wide', 'mcu']), (['wide', 'mws', 'mcu'], ['mcu', 'wide', 'mws']), (['mws', 'wide'], ['wide', 'mws']), (['mcu', 'mws', 'wide'], ['mws', 'mcu']),
+            (['wide', 'mcu', 'mws'], ['mws', 'wide', 'mcu']), (['mws', 'mcu', 'wide'], ['wide', 'mcu', 'mws']), (['mcu', 'wide'], ['mws', 'wide']), (['wide', 'mws'], ['mcu', 'mws'])]
+PALS = [((229, 80, 47), (15, 61, 62)), ((240, 140, 40), (15, 61, 62)), ((214, 48, 49), (34, 36, 44)), ((40, 160, 90), (15, 61, 62)),
+        ((155, 89, 182), (34, 36, 44)), ((229, 80, 47), (23, 89, 90)), ((200, 120, 20), (34, 36, 44)), ((0, 150, 136), (34, 36, 44))]
+SKINS = [((255, 255, 255), (34, 36, 44), (34, 36, 44)), ((255, 247, 236), (34, 36, 44), (34, 36, 44)), ((28, 32, 40), (245, 245, 245), (245, 245, 245))]
+PACES = {'calm': (0.38, -0.12), 'brisk': (0.36, -0.18), 'snappy': (0.35, -0.22)}
+_h = int(SPEC['id'][-6:], 16)
+STYLE = dict(dict(pattern=_h % 12, moves=[['push', 'slide', 'handheld'], ['pull', 'tilt', 'rack'], ['push', 'handheld'], ['slide', 'push', 'rack'], ['tilt', 'pull'], ['push', 'rack', 'slide']][_h % 6],
+                  transition=['cut', 'whip', 'dissolve', 'zoom'][_h % 4], layout=_h % 6, palette=_h % 8, opener='ama', pacing=['calm', 'brisk', 'snappy'][_h % 3]), **(SPEC.get('style') or {}))
+assert len(STYLE['moves']) <= 3, 'at most 3 camera moves per clip'
+ORANGE, TEAL = PALS[STYLE['palette']]; CARD_BG, CARD_LINE, CARD_INK = SKINS[STYLE['layout'] % 3]; CAP_BOX = STYLE['layout'] >= 3
+if STYLE['layout'] % 3 == 2: TEAL2 = (120, 200, 190)   # dark skin: lighter formula colour
+BREATH, JCUT = PACES[STYLE['pacing']]
+SIG = f"p{STYLE['pattern']}|{'+'.join(STYLE['moves'])}|{STYLE['transition']}|L{STYLE['layout']}|C{STYLE['palette']}|{STYLE['opener']}|{STYLE['pacing']}"
+QA = dict(template='news', signature=SIG, style=STYLE); AMB = f'{TL}/amb_studio.wav'; AMB_DB = -40; BG = os.environ.get('NEWS_BG') or SPEC['bg']; META['bg'] = BG   # NEWS_BG: placement / vision retry picked another background
 NW = lambda x_: len(re.findall(r"[A-Za-z0-9']+", x_)); need = lambda x_: max(1.2, 0.4 + 0.28 * NW(x_))
 def at_for(line, lo, hi, br):   # lead-in so the shot lasts lo..hi s
     s0, s1 = speech(line); return max(0.07, lo - br - s1)
@@ -11,8 +27,8 @@ def at_for(line, lo, hi, br):   # lead-in so the shot lasts lo..hi s
 # silent holds (no dead air > 0.4 s), shots 1.5-3.5 s, J-cuts, no two-shot; teacher persona (names, Teacher's tip, Repeat after me).
 def tshot(id_, clip, who, frame, line, at):   # talk shot >= 1.5 s: very short lines are spoken a little slower (>= 0.86x), breath 0.36 (no dead air > 0.4 s)
     t_ = line_tempo(line); s1 = speech(line)[1]
-    if at + s1 / t_ + 0.36 < 1.5: t_ = min(t_, max(0.86, round(s1 / (1.5 - at - 0.36) - 0.005, 3)))
-    return shot(id_, clip, who, frame, BG, line=line, at=at, breath=0.36, tempo=t_)
+    if at + s1 / t_ + BREATH < 1.5: t_ = min(t_, max(0.86, round(s1 / (1.5 - at - BREATH) - 0.005, 3)))
+    return shot(id_, clip, who, frame, BG, line=line, at=at, breath=BREATH, tempo=t_)
 hk = SPEC['hook']; hs0, hs1 = speech(hk['line'])   # hook: speech starts by ~0.2 s, shot 1.66-2.0 s
 a_ = max(0.0, min(0.2 - hs0, 1.66 - 0.42 - hs1)); ht = line_tempo(hk['line'])
 if a_ + hs1 / ht + 0.36 > 1.98: ht = min(1.15, round(hs1 / (1.98 - 0.36 - a_) + 0.005, 3))
@@ -39,13 +55,14 @@ for i in [nb - 1, nb // 2, 1, nb - 3, 2, 0]:
     if i not in slots and nxt != [y, y] and not (BEATS[i].get('repeat') or BEATS[i].get('intro') or BEATS[i].get('intro2')): slots.append(i)
 deficit = 21.4 - est; nr = min(len(slots), max(0, int(np.ceil(deficit / 1.9)))); RX = set(slots[:nr])
 print('news layout: estimate %.2f s, reaction lines after beats %s' % (est, sorted(RX)))
-def fr_for(who, k=None):   # size for the next single of `who`: alternate, never the same angle + size back to back
-    f_ = ('mcu', 'wide')[(use[who] if k is None else k) % 2]
-    return ('wide' if f_ == 'mcu' else 'mcu') if S and S[-1]['who'] == who and not S[-1]['other'] and S[-1]['frame'] == f_ else f_
+def fr_for(who, k=None):   # size for the next single of `who` from the shot-grammar pattern; never the same angle + size back to back
+    cyc = PATTERNS[STYLE['pattern']][0 if who == 'ama' else 1]; f_ = cyc[(use[who] if k is None else k) % len(cyc)]
+    if S and S[-1]['who'] == who and not S[-1]['other'] and S[-1]['frame'] == f_: f_ = next(x for x in ('mcu', 'wide', 'mws') if x != f_)
+    return f_
 prev = None
 for i, b in enumerate(BEATS):
     who = b['who']; k = use[who]; use[who] += 1; same = S[-1]['who'] == who
-    sh = tshot(f'b{i + 1}', CL[who][k % len(CL[who])], who, fr_for(who, k), b['line'], -0.06 if same else -0.15)
+    sh = tshot(f'b{i + 1}', CL[who][k % len(CL[who])], who, fr_for(who, k), b['line'], -0.06 if same else JCUT)
     c = b.get('card')
     if c:
         t0 = sh['t0'] + max(0.0, sh['lines'][0]['at'])
@@ -65,7 +82,7 @@ for i, b in enumerate(BEATS):
 run_who = S[-1]['who']; run_n = 2 if len(S) > 1 and S[-2]['who'] == run_who else 1
 rw = 'ama' if run_who == 'carlos' and run_n == 2 else 'carlos' if run_who == 'ama' and run_n == 2 else 'carlos'
 rl = rc_line if rw == 'carlos' else SPEC['recap']['line_alt']
-rc = tshot('recap', CL[rw][0], rw, fr_for(rw), rl, -0.06 if S[-1]['who'] == rw else -0.15)
+rc = tshot('recap', CL[rw][0], rw, fr_for(rw), rl, -0.06 if S[-1]['who'] == rw else JCUT)
 if prev is not None:
     lv = rc['t0'] - OV[prev]['t'][0]
     OV[prev]['t'][1] = round(OV[prev]['t'][0] + need(OV[prev]['_txt']) + 0.05, 3) if lv < need(OV[prev]['_txt']) else round(rc['t0'], 3)

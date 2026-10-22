@@ -278,6 +278,9 @@ if _sp.get('v') == 7:
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import script_rules as _SR
     _ri = _SR.check(_sp, {l['id']: l for l in json.load(open('ci/lines.json'))['lines']}); rule(not _ri, f'script rules (one idea, wrong->right + why <= 12 words, guess before reveal, repeat slow + natural, key line 3x, concept check, <= B1 explanations, <= 12-word sentences, badge, hook type, share, quiz, tip) {_ri[:3] or ""}')
     JG_ = tl.get('qa', {}).get('judge'); rule(bool(JG_) and JG_.get('ok') is True, f"AI script judge: {(JG_ or {}).get('provider')} {((JG_ or {}).get('judge') or {}).get('issues') or (JG_ or {}).get('error') or 'missing'}")
+_SG = tl.get('qa', {}).get('signature'); _SF = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../content/video/cine/news/signatures.json')
+_hist = [x for x in (json.load(open(_SF)) if os.path.exists(_SF) else []) if x.get('id') != tl['lesson']['id']][-30:]
+rule(bool(_SG) and _SG not in [x['sig'] for x in _hist], f"edit signature {_SG} differs from the last {len(_hist)} published clips (§15)")
 print('== SCENE LOGIC (owner 22/10, VIDEO-SCALE-PLAN §11)')
 PL_ = tl.get('qa', {}).get('placement') or {}; VS_ = tl.get('qa', {}).get('vision')
 rule(bool(PL_.get('zones')) and PL_.get('valid', False), f"background {PL_.get('bg')} annotated (bg_zones.py) with a standable floor zone")

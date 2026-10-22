@@ -129,5 +129,17 @@
  "share": "who says \"I want salmon\"",
  "l1_tags": [
   "many learners"
- ]
+ ],
+ "style": {
+  "pattern": 7,
+  "moves": [
+   "push",
+   "handheld"
+  ],
+  "transition": "dissolve",
+  "layout": 2,
+  "palette": 4,
+  "opener": "ama",
+  "pacing": "snappy"
+ }
 }

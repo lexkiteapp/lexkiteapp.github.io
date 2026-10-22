@@ -17,6 +17,7 @@ CW, CX0 = 876, 48; CX = CX0 + CW // 2   # text column (left-biased: the right 14
 TEXT = {l['id']: l['text'] for l in json.load(open(f'{N}/ci/lines.json'))['lines']}
 CUES = {k: json.load(open(f'{N}/vis3/{k}.json'))['mouthCues'] for k in TEXT if os.path.exists(f'{N}/vis3/{k}.json')}   # lines of this job's lessons only
 FB = f'{ROOT}/brand/social/src/fonts/BeVietnamPro-ExtraBold.ttf'; FH = f'{ROOT}/brand/social/src/fonts/BricolageGrotesque-ExtraBold.ttf'
+CARD_BG, CARD_LINE, CARD_INK, CAP_BOX = (255, 255, 255), (34, 36, 44), (34, 36, 44), False   # owner 22/10 §15: 6 text layouts = 3 card skins x 2 caption skins (set per lesson by STYLE)
 TEAL, TEAL2, ORANGE, YEL, INK, CREAM = (15, 61, 62), (23, 89, 90), (229, 80, 47), (255, 201, 74), (34, 36, 44), (255, 247, 236)
 # hosts: face centre + face width in source px (1080x1920 after lipsync.finish), alpha fade line (source y) below the hands / above the seat
 HOST = {'ama': dict(eye=(615, 613)), 'carlos': dict(eye=(557, 686))}   # eye line in source px (1080x1920 after lipsync.finish)
@@ -66,7 +67,7 @@ def card_pattern(num, txt, y0=250, title=None):
             if best is None or m < best[0]: best = (m, [a, b])
         lines = best[1]
     h = 92 + len(lines) * (fs + 16) + 24
-    d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 30, fill=(255, 255, 255, 250), outline=INK + (255,), width=5)
+    d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 30, fill=CARD_BG + (250,), outline=CARD_LINE + (255,), width=5)
     lab = title or f'PHRASE {num}'; lf = font(FH, 38); lw = d.textlength(lab, font=lf) + 44
     d.rounded_rectangle([x0 + 30, y0 + 24, x0 + 30 + lw, y0 + 80], 28, fill=ORANGE + (255,)); d.text((x0 + 52, y0 + 30), lab, font=lf, fill=(255, 255, 255))
     y = y0 + 98
@@ -80,7 +81,7 @@ def mark(d, cx, cy, r, ok):
         k = r * .38; d.line([(cx - k, cy - k), (cx + k, cy + k)], fill='white', width=int(r * .26)); d.line([(cx - k, cy + k), (cx + k, cy - k)], fill='white', width=int(r * .26))
 def card_fix(bad, good, y0=250, show_good=True):
     im = layer(); d = ImageDraw.Draw(im); w = CW; x0 = CX0; h = 300
-    d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 30, fill=(255, 255, 255, 250), outline=INK + (255,), width=5)
+    d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 30, fill=CARD_BG + (250,), outline=CARD_LINE + (255,), width=5)
     f = fit(d, max(bad, good, key=len), FB, 64, w - 190)[0]
     mark(d, x0 + 78, y0 + 82, 40, False); d.text((x0 + 140, y0 + 82), bad, font=f, fill=(150, 150, 158), anchor='lm')
     tw = d.textlength(bad, font=f); d.line([(x0 + 136, y0 + 86), (x0 + 144 + tw, y0 + 86)], fill=(214, 48, 49), width=8)
@@ -89,7 +90,7 @@ def card_fix(bad, good, y0=250, show_good=True):
 CARD_Y = 1016   # below the lowest single chin incl. head motion (~945) + margin
 def card_phrase(num, pattern, note, bad=None, good=None, why=None, y0=CARD_Y):
     im = layer(); d = ImageDraw.Draw(im); w = CW; x0 = CX0; h = 272 if bad else 158
-    d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 28, fill=(255, 255, 255, 248), outline=INK + (255,), width=4)
+    d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 28, fill=CARD_BG + (248,), outline=CARD_LINE + (255,), width=4)
     lab = f'PHRASE {num}'; lf = font(FH, 30); lw = d.textlength(lab, font=lf) + 32
     d.rounded_rectangle([x0 + 24, y0 + 18, x0 + 24 + lw, y0 + 62], 22, fill=ORANGE + (255,)); d.text((x0 + 40, y0 + 40), lab, font=lf, fill='white', anchor='lm')
     pf = fit(d, pattern, FB, 56, w - 60 - lw - 30)[0]; d.text((x0 + 44 + lw, y0 + 40), pattern, font=pf, fill=INK, anchor='lm')
@@ -118,14 +119,14 @@ def formula_text(d, x, y, txt, f):   # colour formula: CAPS slot words orange, '
         d.text((x, y), w_, font=f, fill=col, anchor='lm'); x += d.textlength(w_ + ' ', font=f)
 def card_one(kind, text, sub=None, num=None, y0=CARD_Y, ic=None, formula=None):
     im = layer(); d = ImageDraw.Draw(im); w = CW; x0 = CX0; sub = formula or sub; h = 128 + (56 if sub else 0)
-    d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 28, fill=(255, 255, 255, 248), outline=INK + (255,), width=4); cy = y0 + 64; tx = x0 + 34
+    d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 28, fill=CARD_BG + (248,), outline=CARD_LINE + (255,), width=4); cy = y0 + 64; tx = x0 + 34
     if ic: icon(d, ic, x0 + w - 62, cy, 36)
     rx = x0 + w - (112 if ic else 30)
     if kind == 'p':
         lab = num if isinstance(num, str) else f'PHRASE {num}'; lf = font(FH, 30); lw = d.textlength(lab, font=lf) + 32
         d.rounded_rectangle([x0 + 26, cy - 22, x0 + 26 + lw, cy + 22], 22, fill=ORANGE + (255,)); d.text((x0 + 42, cy), lab, font=lf, fill='white', anchor='lm'); tx = x0 + 46 + lw
     else: mark(d, x0 + 64, cy, 30, kind == 'v'); tx = x0 + 112
-    f = fit(d, text, FB, 52, rx - tx)[0]; d.text((tx, cy), text, font=f, fill=(150, 150, 158) if kind == 'x' else INK, anchor='lm')
+    f = fit(d, text, FB, 52, rx - tx)[0]; d.text((tx, cy), text, font=f, fill=(150, 150, 158) if kind == 'x' else CARD_INK, anchor='lm')
     if kind == 'x': tw = d.textlength(text, font=f); d.line([(tx - 4, cy + 3), (tx + tw + 4, cy + 3)], fill=(214, 48, 49), width=7)
     if sub:
         sf = fit(d, sub, FB, 40, rx - tx)[0]
@@ -144,13 +145,13 @@ def badge(level, y0=402):   # difficulty badge (owner 22/10 §13): EASY green / 
     return shadowed(im), (int(x0), y0, int(x0 + tw + 56), y0 + 54)
 def card_recap(title, rows, y0=CARD_Y):
     im = layer(); d = ImageDraw.Draw(im); w = CW; x0 = CX0; rh = 38; h = 66 + rh * len(rows) + 8
-    d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 30, fill=(255, 255, 255, 250), outline=INK + (255,), width=5)
+    d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 30, fill=CARD_BG + (250,), outline=CARD_LINE + (255,), width=5)
     d.rounded_rectangle([x0, y0, x0 + w, y0 + 62], 30, fill=TEAL + (255,)); d.rectangle([x0, y0 + 34, x0 + w, y0 + 62], fill=TEAL + (255,))
     d.text((CX, y0 + 31), title, font=font(FH, 38), fill=(255, 255, 255), anchor='mm')
     f = fit(d, max(rows, key=len), FB, 40, w - 150)[0]
     for i, r in enumerate(rows):
         cy = y0 + 66 + i * rh + rh // 2; d.ellipse([x0 + 30, cy - 20, x0 + 70, cy + 20], fill=ORANGE + (255,)); d.text((x0 + 50, cy), str(i + 1), font=font(FH, 28), fill='white', anchor='mm')
-        d.text((x0 + 112, cy), r, font=f, fill=INK, anchor='lm')
+        d.text((x0 + 112, cy), r, font=f, fill=CARD_INK, anchor='lm')
     return shadowed(im), (x0, y0, x0 + w, y0 + h)
 def hook_card(txt, sub, y0=236):   # owner 22/10: big bold hook at the top-safe line
     im = layer(); d = ImageDraw.Draw(im); f, fs = fit(d, txt, FH, 92, CW - 80, 70)
@@ -176,7 +177,7 @@ def series_bar(top, sub, y0=240, prog=1.0):   # top-left under the safe line (pa
     return im, (x0, y0, int(x0 + full), y0 + 84)
 def ring_card(txt, prog, y0=CARD_Y + 40):
     im = layer(); d = ImageDraw.Draw(im); f = font(FH, 56); tw = d.textlength(txt, font=f); w = tw + 190; x0 = CX - w / 2
-    d.rounded_rectangle([x0, y0, x0 + w, y0 + 124], 62, fill=(255, 255, 255, 250), outline=INK + (255,), width=5)
+    d.rounded_rectangle([x0, y0, x0 + w, y0 + 124], 62, fill=CARD_BG + (250,), outline=CARD_LINE + (255,), width=5)
     cx, cy, r = x0 + 72, y0 + 62, 38; d.ellipse([cx - r, cy - r, cx + r, cy + r], outline=(225, 225, 230), width=10)
     d.arc([cx - r, cy - r, cx + r, cy + r], -90, -90 + 360 * prog, fill=ORANGE, width=10)
     d.rounded_rectangle([cx - 16, cy - 12, cx + 16, cy + 10], 6, fill=TEAL); d.polygon([(cx - 8, cy + 8), (cx - 12, cy + 20), (cx + 4, cy + 9)], fill=TEAL)
@@ -219,10 +220,12 @@ def cap_chunks(ws):
     return ch
 def cap_img(lines_, k, fs=CAP_FS):   # lines_: [[word, ...], ...]; k = index of the current word within the chunk
     im = layer(); d = ImageDraw.Draw(im); f = font(FB, fs); n = 0; x0b, x1b = 9999, 0
+    if CAP_BOX:   # boxed caption skin: one dark rounded box behind the chunk, no stroke
+        wmax = max(d.textlength(' '.join(lw), font=f) for lw in lines_); d.rounded_rectangle([CX - wmax / 2 - 22, CAP_Y - 10, CX + wmax / 2 + 22, CAP_Y + (len(lines_) - 1) * CAP_LH + fs * 1.25 + 4], 18, fill=(18, 22, 28, 200))
     for li, lw in enumerate(lines_):
         txt = ' '.join(lw); tw = d.textlength(txt, font=f); x = CX - tw / 2; y = CAP_Y + li * CAP_LH; x0b, x1b = min(x0b, x), max(x1b, x + tw)
         for w_ in lw:
-            d.text((x, y), w_, font=f, fill=YEL if n == k else (255, 255, 255), stroke_width=8, stroke_fill=(20, 22, 28)); x += d.textlength(w_ + ' ', font=f); n += 1
+            d.text((x, y), w_, font=f, fill=YEL if n == k else (255, 255, 255), stroke_width=0 if CAP_BOX else 8, stroke_fill=(20, 22, 28)); x += d.textlength(w_ + ' ', font=f); n += 1
     return im, (int(x0b) - 8, CAP_Y - 8, int(x1b) + 8, CAP_Y + (len(lines_) - 1) * CAP_LH + int(fs * 1.25))
 def captions(s):
     for ln in s['lines']:
@@ -252,6 +255,7 @@ def captions(s):
                 t0 = a - 0.095 if gi == 0 else edges[gi]; t1 = b + 0.39 if gi == len(ws) - 1 else edges[gi + 1]
                 im, box = cap_img(lines_, j); ov('Cap', TEXT[k], t0, t1, box, s['id'], line=k, part=gi, fs=CAP_FS, img=im); OV[-1]['chunk'] = [chi, ' '.join(ws[x] for x in cw_), len(lines_)]
 # ------------------------------------------------------------------ lesson script
+STYLE = dict(moves=['push'], transition='cut')   # replaced by news_tpl.py (owner 22/10 §15 edit style)
 if os.path.exists(f'{N}/lessons/{LID}.json'): SPEC = json.load(open(f'{N}/lessons/{LID}.json')); exec(open(f'{HERE}/news_tpl.py').read())   # generated (gen_news.py)
 else: exec(open(f'{N}/lessons/{LID}.py').read())
 TOTAL = sum(x['dur'] for x in S); NF = int(round(TOTAL * FPS))
@@ -290,9 +294,9 @@ HAIR = {}
 HOST = {'ama_s': dict(eye=(530, 680)), 'carlos_s': dict(eye=(545, 390)), 'carlos_q': dict(eye=(465, 310))}
 FACEH = {'ama_s': 348, 'carlos_s': 265, 'carlos_q': 175}   # calibrated on rendered frames (#57): measured face width Ama/Carlos was 1.05-1.11 -> Ama x0.97, Carlos x1.04
 SEAT = {'ama_s': 2500, 'carlos_s': 1600, 'carlos_q': 1880}
-FACE_PX = {'mcu': 265, 'wide': 249, 'two': 230}; EYE_Y = {'mcu': 715, 'wide': 785, 'two': 960}   # owner 22/10 sharpness: no host layer above 1.0x (Carlos mcu = 1.0x source)
+FACE_PX = {'mcu': 265, 'wide': 249, 'mws': 232, 'two': 230}; EYE_Y = {'mcu': 715, 'wide': 785, 'mws': 820, 'two': 960}   # owner 22/10 sharpness: no host layer above 1.0x (Carlos mcu = 1.0x source)
 FRAME = {(g, f_): (round(FACE_PX[f_] / FACEH[g], 4), EYE_Y[f_] - (50 if g == 'carlos_q' else 0) ) for g in FACEH for f_ in FACE_PX}   # Ama's clip ends at source row 1919: her eye line sits a little lower so her body still exits the frame bottom   # 3/4 Carlos: longer chin below the eye
-SIDE = {(g, f_): ({'mcu': 380, 'wide': 380, 'two': 220} if g == 'ama_s' else {'mcu': 700, 'wide': 700, 'two': 880})[f_] for g in FACEH for f_ in FACE_PX}   # thirds; two-shot gap >= 4 % width
+SIDE = {(g, f_): ({'mcu': 380, 'wide': 380, 'mws': 360, 'two': 220} if g == 'ama_s' else {'mcu': 700, 'wide': 700, 'mws': 720, 'two': 880})[f_] for g in FACEH for f_ in FACE_PX}   # thirds; two-shot gap >= 4 % width
 DESK_Y = 1880; VBOT = lambda frame: 1920
 GK = lambda clip, who: 'ama_s' if clip.startswith('ga') else 'carlos_q' if 'q34' in clip else 'carlos_s'
 def place(sid, who, frame, top):
@@ -377,17 +381,24 @@ _VJ = f'{N}/pre_{LID}/vision.json'; QA['vision'] = json.load(open(_VJ)) if os.pa
 if os.environ.get('NEWS_PREFLIGHT') and ZN and not PLACE['ok']: print('PLACEMENT FAIL', S[0]['bg']); sys.exit(3)
 for x in S:   # angle = two-shot / Ama single / Carlos single; each angle has its own background crop (side) and its own continuous push-in
     ang = 'two' if x['other'] else x['who']; z0 = ANG.get(ang, ZBASE); z1 = z0 + 0.011 * x['dur']; side = {'two': 0, 'ama': -26, 'carlos': 26}[ang]
-    x['cam'] = dict(z=(z0, z1), tx=(side, side), ty=(CAM_TY, CAM_TY), rot=(0, 0)); ANG[ang] = z1; x['angle'] = ang
+    mv = STYLE['moves'][S.index(x) % len(STYLE['moves'])] if x['id'] not in ('hook', 'loop') else 'push'; x['move'] = mv   # owner 22/10 §15: varied light moves, <= 3 per clip
+    if mv == 'pull': z0, z1 = z0 + 0.011 * x['dur'], z0
+    sd = (side - 18, side + 18) if mv == 'slide' else (side, side); tl_ = (CAM_TY - 14, CAM_TY + 14) if mv == 'tilt' else (CAM_TY, CAM_TY)
+    if mv in ('slide', 'tilt', 'handheld', 'rack'): z1 = z0 + 0.004 * x['dur']   # the other moves keep only a whisper of push-in
+    x['cam'] = dict(z=(z0, z1), tx=sd, ty=tl_, rot=(0, 0)); ANG[ang] = max(z0, z1); x['angle'] = ang
 if S[-1]['id'] == 'loop':   # loop: the two-shot settles back to the hook's first camera state (last frame == first frame)
     S[-1]['cam']['z'] = (S[-1]['cam']['z'][0], S[0]['cam']['z'][0])
 ease = bg3d.ease
 def cam_at(s, u):
-    m = s['cam']; e = bg3d.ease(u); return {k: m[k][0] + (m[k][1] - m[k][0]) * e for k in ('z', 'tx', 'ty', 'rot')}
+    m = s['cam']; e = bg3d.ease(u); c = {k: m[k][0] + (m[k][1] - m[k][0]) * e for k in ('z', 'tx', 'ty', 'rot')}
+    if s.get('move') == 'handheld': t_ = u * s['dur']; c['tx'] += 3.2 * np.sin(2 * np.pi * 0.7 * t_) + 1.4 * np.sin(2 * np.pi * 1.9 * t_ + 1); c['ty'] += 2.6 * np.sin(2 * np.pi * 0.5 * t_ + 2)   # ~0.3 % handheld
+    return c
 BOK = bg3d.Bokeh(); BQA = []; ZONES = [[24, 212, 948, 400], [24, 992, 948, 1521]]   # card + caption + lower-third band (+24 px)
 PZ = lambda s, j: 1 + 0.08 * (1 - (1 - min(1.0, j / FPS / 0.4)) ** 2) if s['id'] == 'hook' else 1.0   # owner 22/10: punch-in 1.0 -> 1.08 in 0.4 s
 def bg_frame(s, j, t):
     u = j / max(1, s['n'] - 1); L_ = layers(s['bg']); qa = j % 6 == 0
     c_ = cam_at(s, u); c_['z'] *= PZ(s, j); r = L_.render(c_, qa=qa); B = r[0] if qa else r
+    if s.get('move') == 'rack' and j < 12: B = cv2.GaussianBlur(B, (0, 0), 1.6 * (1 - j / 12) + 1e-3)   # fake rack focus: bg settles sharp in 0.5 s
     if qa: BQA.append(dict(t=round(t, 2), fill=r[1], uncovered=r[2]))
     k = S.index(s); D = 7
     if k > 0 and S[k - 1]['bg'] != s['bg'] and j < D:   # cross-dissolve 7 frames, outgoing camera keeps moving (zoom-through) with 3-sample motion blur
@@ -416,7 +427,7 @@ def comp(F, Al, sc, cx, cy, ox, oy, drift):   # premultiplied resample (MR.place
     return Fp / np.maximum(a, 1e-3)[..., None], a
 enc = subprocess.Popen(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', '1080x1920', '-r', str(FPS), '-i', '-',
                         '-c:v', 'libx264', '-threads', '2', '-profile:v', 'high', '-preset', 'slow', '-tune', 'film', '-crf', '17', '-maxrate', '14M', '-bufsize', '28M', '-pix_fmt', 'yuv420p', f'{RD}/video.mp4'], stdin=subprocess.PIPE)
-KEYM = {}; EQ = []; EXPO = None; HOSTG = 1.0; OVS = sorted(OV, key=lambda o: o['t'][0]); fi = 0; COVER = None; QC = []; PA = None
+KEYM = {}; EQ = []; EXPO = None; HOSTG = 1.0; PREV_OUT = None; OVS = sorted(OV, key=lambda o: o['t'][0]); fi = 0; COVER = None; QC = []; PA = None
 _x = np.arange(256) / 255.0; _l = _x ** 0.86; _s = np.clip(_l - 0.16 * np.sin(2 * np.pi * _l) / (2 * np.pi), 0, 1)   # owner 22/10: mids lifted ~+10 %, soft S-curve
 _sh = np.clip(1 - _x * 2.2, 0, 1); _hi = np.clip(_x * 2 - 1.1, 0, 1); _fl = lambda v: 18 / 255 + np.clip(v, 0, 1) * (1 - 22 / 255)   # black floor 18/255
 GRADE = np.stack([_fl(_s + 0.02 * _sh - 0.015 * _hi), _fl(_s + 0.01 * _sh + 0.003 * _hi), _fl(_s - 0.01 * _sh + 0.02 * _hi)], 1)   # BGR: slight teal shadows / warm highlights
@@ -495,6 +506,11 @@ for s in S:
             m_ = float(B.mean()) / 255
             if not 0.45 <= m_ <= 0.52: EXPO = float(np.clip(EXPO * (0.48 / m_) ** 1.3, 0.7, 2.8)); HOSTG = float(np.clip((0.48 / m_) ** 0.6, 0.95, 1.25)); print('frame-0 luma %.3f -> bg gain %.2f, host gain %.2f' % (m_, EXPO, HOSTG))                         # one grade for host + background
         pass   # hook punch-in is done in camera space (host scale + bg zoom: one resample, no softening)
+        TR = STYLE.get('transition', 'cut'); k_s = S.index(s)
+        if k_s > 0 and PREV_OUT is not None and TR == 'dissolve' and j < 4: B = B * ((j + 1) / 5) + PREV_OUT * (1 - (j + 1) / 5)   # 4-frame dissolve
+        elif k_s > 0 and TR == 'whip' and j < 3: B = cv2.filter2D(B, -1, np.ones((1, 31 - 10 * j), np.float32) / (31 - 10 * j))   # whip: horizontal motion blur settling in 3 frames
+        elif k_s > 0 and TR == 'zoom' and j < 4: z2 = 1.05 - 0.0125 * j; B = cv2.warpAffine(B, np.float32([[z2, 0, 540 * (1 - z2)], [0, z2, 960 * (1 - z2)]]), (1080, 1920), flags=cv2.INTER_LINEAR)
+        if j == s['n'] - 1: PREV_OUT = B.copy()
         img = Image.fromarray(cv2.cvtColor(B.clip(0, 255).astype(np.uint8), cv2.COLOR_BGR2RGB)).convert('RGBA')
         for o in OVS:
             if o['t'][0] - 1e-6 <= t < o['t'][1] - 1e-6 and o['_img'] is not None:

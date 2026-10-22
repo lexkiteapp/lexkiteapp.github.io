@@ -111,6 +111,11 @@ def main():
         ids, run = o.mark_rendered
         for p in L['points'].values():
             if p.get('scene') == 'news' and p['id'] in ids.split(','): p['status'] = 'rendered'; p['run'] = int(run)
+        SF = f'{D}/signatures.json'; H = json.load(open(SF)) if os.path.exists(SF) else []   # edit signatures of rendered clips (qa_news: no repeat in the last 30)
+        for i in ids.split(','):
+            tlp = f'{ROOT}/out/qa/timeline_render5_{i}_en.json'
+            if os.path.exists(tlp): H = [x for x in H if x['id'] != i] + [dict(id=i, sig=json.load(open(tlp))['qa'].get('signature'), run=int(run))]
+        json.dump(H, open(SF, 'w'), indent=1)
         json.dump(L, open(LEDGER, 'w'), ensure_ascii=False, indent=1); return
     bank = json.load(open(f'{D}/bank.json'))['items']; lp = f'{D}/lines.json'
     LJ = json.load(open(lp)) if os.path.exists(lp) else dict(voices={'ama': 'af_bella', 'carlos': 'am_fenrir'}, speed=0.88, lines=[])

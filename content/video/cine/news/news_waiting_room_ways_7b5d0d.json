@@ -129,5 +129,18 @@
  "share": "who says \"I want a doctor\"",
  "l1_tags": [
   "many learners"
- ]
+ ],
+ "style": {
+  "pattern": 0,
+  "moves": [
+   "push",
+   "slide",
+   "handheld"
+  ],
+  "transition": "cut",
+  "layout": 0,
+  "palette": 0,
+  "opener": "ama",
+  "pacing": "calm"
+ }
 }

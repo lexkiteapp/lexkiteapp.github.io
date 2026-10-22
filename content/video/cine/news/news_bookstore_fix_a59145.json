@@ -129,5 +129,18 @@
  "share": "who says \"I'm looking a book\"",
  "l1_tags": [
   "many learners"
- ]
+ ],
+ "style": {
+  "pattern": 4,
+  "moves": [
+   "pull",
+   "tilt",
+   "rack"
+  ],
+  "transition": "whip",
+  "layout": 4,
+  "palette": 3,
+  "opener": "ama",
+  "pacing": "brisk"
+ }
 }
