@@ -12,5 +12,270 @@
   "reels",
   "shorts"
  ],
- "posts": []
+ "posts": [
+  {
+   "n": 1,
+   "date": "2026-10-22",
+   "time": "11:30",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_airplane_cabin_three_b5dc88",
+   "scene": "news",
+   "template": "three",
+   "title": "Flying Soon? 3 phrases you need",
+   "pack": "content/video/cine/publish/news_airplane_cabin_three_b5dc88.json"
+  },
+  {
+   "n": 2,
+   "date": "2026-10-22",
+   "time": "20:00",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_bookstore_fix_a59145",
+   "scene": "news",
+   "template": "fix",
+   "title": "Stop saying \"I'm looking a book\"",
+   "pack": "content/video/cine/publish/news_bookstore_fix_a59145.json"
+  },
+  {
+   "n": 3,
+   "date": "2026-10-23",
+   "time": "11:30",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_clothing_store_ab_b20f1c",
+   "scene": "news",
+   "template": "ab",
+   "title": "\"Can I try on it?\" or \"Can I try it on?\"? Comment A or B",
+   "pack": "content/video/cine/publish/news_clothing_store_ab_b20f1c.json"
+  },
+  {
+   "n": 4,
+   "date": "2026-10-23",
+   "time": "20:00",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_bank_ways_0ea920",
+   "scene": "news",
+   "template": "ways",
+   "title": "3 ways to say it: polite to casual (3 ways to ask)",
+   "pack": "content/video/cine/publish/news_bank_ways_0ea920.json"
+  },
+  {
+   "n": 5,
+   "date": "2026-10-24",
+   "time": "11:30",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_restaurant_night_pov_9ad922",
+   "scene": "news",
+   "template": "pov",
+   "title": "POV: Ready to order? What do you say?",
+   "pack": "content/video/cine/publish/news_restaurant_night_pov_9ad922.json"
+  },
+  {
+   "n": 6,
+   "date": "2026-10-24",
+   "time": "20:00",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_bank_three_15d51e",
+   "scene": "news",
+   "template": "three",
+   "title": "At The Bank? 3 phrases you need",
+   "pack": "content/video/cine/publish/news_bank_three_15d51e.json"
+  },
+  {
+   "n": 7,
+   "date": "2026-10-25",
+   "time": "11:30",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_classroom_fix_0f9226",
+   "scene": "news",
+   "template": "fix",
+   "title": "Stop saying \"I am agree\"",
+   "pack": "content/video/cine/publish/news_classroom_fix_0f9226.json"
+  },
+  {
+   "n": 8,
+   "date": "2026-10-25",
+   "time": "20:00",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_gym_ab_a76472",
+   "scene": "news",
+   "template": "ab",
+   "title": "\"I do yoga.\" or \"I make yoga.\"? Comment A or B",
+   "pack": "content/video/cine/publish/news_gym_ab_a76472.json"
+  },
+  {
+   "n": 9,
+   "date": "2026-10-26",
+   "time": "11:30",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_living_room_ways_0b506e",
+   "scene": "news",
+   "template": "ways",
+   "title": "3 ways to say it: polite to casual (3 ways to say no)",
+   "pack": "content/video/cine/publish/news_living_room_ways_0b506e.json"
+  },
+  {
+   "n": 10,
+   "date": "2026-10-26",
+   "time": "20:00",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_coffee_counter_three_e0b1b7",
+   "scene": "news",
+   "template": "three",
+   "title": "Ordering Coffee? 3 phrases you need",
+   "pack": "content/video/cine/publish/news_coffee_counter_three_e0b1b7.json"
+  },
+  {
+   "n": 11,
+   "date": "2026-10-27",
+   "time": "11:30",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_living_room_fix_8c570f",
+   "scene": "news",
+   "template": "fix",
+   "title": "Stop saying \"I very like it\"",
+   "pack": "content/video/cine/publish/news_living_room_fix_8c570f.json"
+  },
+  {
+   "n": 12,
+   "date": "2026-10-27",
+   "time": "20:00",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_kitchen_ab_a30db6",
+   "scene": "news",
+   "template": "ab",
+   "title": "\"I'll do dinner.\" or \"I'll make dinner.\"? Comment A or B",
+   "pack": "content/video/cine/publish/news_kitchen_ab_a30db6.json"
+  },
+  {
+   "n": 13,
+   "date": "2026-10-28",
+   "time": "11:30",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_meeting_room_ways_23140c",
+   "scene": "news",
+   "template": "ways",
+   "title": "3 ways to say it: polite to casual (3 ways to disagree)",
+   "pack": "content/video/cine/publish/news_meeting_room_ways_23140c.json"
+  },
+  {
+   "n": 14,
+   "date": "2026-10-28",
+   "time": "20:00",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_exam_hall_three_2df2cf",
+   "scene": "news",
+   "template": "three",
+   "title": "Ielts Speaking? 3 phrases you need",
+   "pack": "content/video/cine/publish/news_exam_hall_three_2df2cf.json"
+  },
+  {
+   "n": 15,
+   "date": "2026-10-29",
+   "time": "11:30",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_meeting_room_fix_5d50a6",
+   "scene": "news",
+   "template": "fix",
+   "title": "Stop saying \"Let's discuss about it\"",
+   "pack": "content/video/cine/publish/news_meeting_room_fix_5d50a6.json"
+  },
+  {
+   "n": 16,
+   "date": "2026-10-29",
+   "time": "20:00",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_library_ab_a843c0",
+   "scene": "news",
+   "template": "ab",
+   "title": "A or B? borrow vs lend",
+   "pack": "content/video/cine/publish/news_library_ab_a843c0.json"
+  },
+  {
+   "n": 17,
+   "date": "2026-10-30",
+   "time": "11:30",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_waiting_room_ways_7b5d0d",
+   "scene": "news",
+   "template": "ways",
+   "title": "3 ways to say it: polite to casual (3 ways to ask)",
+   "pack": "content/video/cine/publish/news_waiting_room_ways_7b5d0d.json"
+  },
+  {
+   "n": 18,
+   "date": "2026-10-30",
+   "time": "20:00",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_hotel_room_night_three_3c01b9",
+   "scene": "news",
+   "template": "three",
+   "title": "Hotel Problem? 3 phrases you need",
+   "pack": "content/video/cine/publish/news_hotel_room_night_three_3c01b9.json"
+  },
+  {
+   "n": 19,
+   "date": "2026-10-31",
+   "time": "11:30",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_street_dusk_fix_ee2b2c",
+   "scene": "news",
+   "template": "fix",
+   "title": "Stop saying \"She said me the news\"",
+   "pack": "content/video/cine/publish/news_street_dusk_fix_ee2b2c.json"
+  },
+  {
+   "n": 20,
+   "date": "2026-10-31",
+   "time": "20:00",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_park_ab_18caee",
+   "scene": "news",
+   "template": "ab",
+   "title": "A or B? time words",
+   "pack": "content/video/cine/publish/news_park_ab_18caee.json"
+  },
+  {
+   "n": 21,
+   "date": "2026-11-01",
+   "time": "11:30",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_metro_station_three_4b67fc",
+   "scene": "news",
+   "template": "three",
+   "title": "Subway Lost? 3 phrases you need",
+   "pack": "content/video/cine/publish/news_metro_station_three_4b67fc.json"
+  },
+  {
+   "n": 22,
+   "date": "2026-11-01",
+   "time": "20:00",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_supermarket_fix_155f6a",
+   "scene": "news",
+   "template": "fix",
+   "title": "Stop saying \"How much it cost?\"",
+   "pack": "content/video/cine/publish/news_supermarket_fix_155f6a.json"
+  },
+  {
+   "n": 23,
+   "date": "2026-11-02",
+   "time": "11:30",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_taxi_interior_ab_4828ed",
+   "scene": "news",
+   "template": "ab",
+   "title": "\"I got in the taxi.\" or \"I got on the taxi.\"? Comment A or B",
+   "pack": "content/video/cine/publish/news_taxi_interior_ab_4828ed.json"
+  },
+  {
+   "n": 24,
+   "date": "2026-11-02",
+   "time": "20:00",
+   "tz": "Asia/Ho_Chi_Minh",
+   "id": "news_pharmacy_three_974c28",
+   "scene": "news",
+   "template": "three",
+   "title": "At The Pharmacy? 3 phrases you need",
+   "pack": "content/video/cine/publish/news_pharmacy_three_974c28.json"
+  }
+ ]
 }

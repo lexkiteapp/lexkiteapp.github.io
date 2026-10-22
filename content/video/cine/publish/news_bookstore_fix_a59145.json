@@ -1,0 +1,75 @@
+{
+ "id": "news_bookstore_fix_a59145",
+ "scene": "news",
+ "template": "fix",
+ "area": "grammar",
+ "cefr": "A2",
+ "point": "look for: I'm looking for a book",
+ "series": "GRAMMAR FIX / look for",
+ "bg": "bookstore",
+ "title": "Stop saying \"I'm looking a book\"",
+ "description": "Look for: I'm looking for a book. Save this: I'm looking for a book. / I'm looking for a cookbook. / look at / look for\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_news&utm_content=news_bookstore_fix_a59145#/grammar",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#commonmistakes",
+  "#englishgrammar",
+  "#americanenglish",
+  "#esl",
+  "#englishlearning"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/news/news_bookstore_fix_a59145/cine-news-bookstore-fix-a59145-en.mp4",
+ "cover": "shorts/news/news_bookstore_fix_a59145/cine-news-bookstore-fix-a59145-en.jpg",
+ "ci_artifact": "cine-news-49-*",
+ "run": 49,
+ "platforms": {
+  "tiktok": {
+   "title": "Stop saying \"I'm looking a book\"",
+   "caption": "Look for: I'm looking for a book. Save this: I'm looking for a book. / I'm looking for a cookbook. / look at / look for\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_bookstore_fix_a59145#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_bookstore_fix_a59145#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#americanenglish",
+    "#esl"
+   ],
+   "caption_with_tags": "Look for: I'm looking for a book. Save this: I'm looking for a book. / I'm looking for a cookbook. / look at / look for\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_bookstore_fix_a59145#/grammar\n#learnenglish #englishtips #commonmistakes #englishgrammar #americanenglish #esl"
+  },
+  "reels": {
+   "title": "Stop saying \"I'm looking a book\"",
+   "caption": "Look for: I'm looking for a book. Save this: I'm looking for a book. / I'm looking for a cookbook. / look at / look for\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_bookstore_fix_a59145#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_bookstore_fix_a59145#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#americanenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Look for: I'm looking for a book. Save this: I'm looking for a book. / I'm looking for a cookbook. / look at / look for\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_bookstore_fix_a59145#/grammar\n#learnenglish #englishtips #commonmistakes #englishgrammar #americanenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Stop saying \"I'm looking a book\" #shorts",
+   "caption": "Look for: I'm looking for a book. Save this: I'm looking for a book. / I'm looking for a cookbook. / look at / look for\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_bookstore_fix_a59145#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_bookstore_fix_a59145#/grammar",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#commonmistakes",
+    "#englishgrammar"
+   ],
+   "caption_with_tags": "Look for: I'm looking for a book. Save this: I'm looking for a book. / I'm looking for a cookbook. / look at / look for\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_bookstore_fix_a59145#/grammar\n#shorts #learnenglish #englishtips #commonmistakes #englishgrammar"
+  }
+ },
+ "slot": {
+  "date": "2026-10-22",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

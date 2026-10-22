@@ -1,0 +1,75 @@
+{
+ "id": "news_street_dusk_fix_ee2b2c",
+ "scene": "news",
+ "template": "fix",
+ "area": "word-usage",
+ "cefr": "A2",
+ "point": "say vs tell: she told me, not she said me",
+ "series": "WORD FIX / say vs tell",
+ "bg": "street_dusk",
+ "title": "Stop saying \"She said me the news\"",
+ "description": "Say vs tell: she told me, not she said me. Save this: She told me the news. / She said it was late. / tell me / say it\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_news&utm_content=news_street_dusk_fix_ee2b2c#/usage?c=pair",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#commonmistakes",
+  "#englishgrammar",
+  "#americanenglish",
+  "#esl",
+  "#englishlearning"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/news/news_street_dusk_fix_ee2b2c/cine-news-street-dusk-fix-ee2b2c-en.mp4",
+ "cover": "shorts/news/news_street_dusk_fix_ee2b2c/cine-news-street-dusk-fix-ee2b2c-en.jpg",
+ "ci_artifact": "cine-news-49-*",
+ "run": 49,
+ "platforms": {
+  "tiktok": {
+   "title": "Stop saying \"She said me the news\"",
+   "caption": "Say vs tell: she told me, not she said me. Save this: She told me the news. / She said it was late. / tell me / say it\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_street_dusk_fix_ee2b2c#/usage?c=pair",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_street_dusk_fix_ee2b2c#/usage?c=pair",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#americanenglish",
+    "#esl"
+   ],
+   "caption_with_tags": "Say vs tell: she told me, not she said me. Save this: She told me the news. / She said it was late. / tell me / say it\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_street_dusk_fix_ee2b2c#/usage?c=pair\n#learnenglish #englishtips #commonmistakes #englishgrammar #americanenglish #esl"
+  },
+  "reels": {
+   "title": "Stop saying \"She said me the news\"",
+   "caption": "Say vs tell: she told me, not she said me. Save this: She told me the news. / She said it was late. / tell me / say it\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_street_dusk_fix_ee2b2c#/usage?c=pair",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_street_dusk_fix_ee2b2c#/usage?c=pair",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#americanenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Say vs tell: she told me, not she said me. Save this: She told me the news. / She said it was late. / tell me / say it\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_street_dusk_fix_ee2b2c#/usage?c=pair\n#learnenglish #englishtips #commonmistakes #englishgrammar #americanenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Stop saying \"She said me the news\" #shorts",
+   "caption": "Say vs tell: she told me, not she said me. Save this: She told me the news. / She said it was late. / tell me / say it\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_street_dusk_fix_ee2b2c#/usage?c=pair",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_street_dusk_fix_ee2b2c#/usage?c=pair",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#commonmistakes",
+    "#englishgrammar"
+   ],
+   "caption_with_tags": "Say vs tell: she told me, not she said me. Save this: She told me the news. / She said it was late. / tell me / say it\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_street_dusk_fix_ee2b2c#/usage?c=pair\n#shorts #learnenglish #englishtips #commonmistakes #englishgrammar"
+  }
+ },
+ "slot": {
+  "date": "2026-10-31",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

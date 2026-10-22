@@ -1,0 +1,75 @@
+{
+ "id": "news_waiting_room_ways_7b5d0d",
+ "scene": "news",
+ "template": "ways",
+ "area": "speaking",
+ "cefr": "A2",
+ "point": "booking a doctor's appointment: polite to casual",
+ "series": "HEALTH ENGLISH / 3 ways to ask",
+ "bg": "pharmacy",
+ "title": "3 ways to say it: polite to casual (3 ways to ask)",
+ "description": "Booking a doctor's appointment: polite to casual. Save this: I'd like to make an appointment. / Can I book a visit? / Can I see a doctor today?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=social&utm_medium=social&utm_campaign=cine_news&utm_content=news_waiting_room_ways_7b5d0d",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#politeenglish",
+  "#englishphrases",
+  "#americanenglish",
+  "#esl",
+  "#englishlearning"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/news/news_waiting_room_ways_7b5d0d/cine-news-waiting-room-ways-7b5d0d-en.mp4",
+ "cover": "shorts/news/news_waiting_room_ways_7b5d0d/cine-news-waiting-room-ways-7b5d0d-en.jpg",
+ "ci_artifact": "cine-news-49-*",
+ "run": 49,
+ "platforms": {
+  "tiktok": {
+   "title": "3 ways to say it: polite to casual (3 ways to ask)",
+   "caption": "Booking a doctor's appointment: polite to casual. Save this: I'd like to make an appointment. / Can I book a visit? / Can I see a doctor today?\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_waiting_room_ways_7b5d0d",
+   "link": "https://lexkite.com/en/speaking/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_waiting_room_ways_7b5d0d",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#politeenglish",
+    "#englishphrases",
+    "#americanenglish",
+    "#esl"
+   ],
+   "caption_with_tags": "Booking a doctor's appointment: polite to casual. Save this: I'd like to make an appointment. / Can I book a visit? / Can I see a doctor today?\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_waiting_room_ways_7b5d0d\n#learnenglish #englishtips #politeenglish #englishphrases #americanenglish #esl"
+  },
+  "reels": {
+   "title": "3 ways to say it: polite to casual (3 ways to ask)",
+   "caption": "Booking a doctor's appointment: polite to casual. Save this: I'd like to make an appointment. / Can I book a visit? / Can I see a doctor today?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_waiting_room_ways_7b5d0d",
+   "link": "https://lexkite.com/en/speaking/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_waiting_room_ways_7b5d0d",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#politeenglish",
+    "#englishphrases",
+    "#americanenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Booking a doctor's appointment: polite to casual. Save this: I'd like to make an appointment. / Can I book a visit? / Can I see a doctor today?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_waiting_room_ways_7b5d0d\n#learnenglish #englishtips #politeenglish #englishphrases #americanenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "3 ways to say it: polite to casual (3 ways to ask) #shorts",
+   "caption": "Booking a doctor's appointment: polite to casual. Save this: I'd like to make an appointment. / Can I book a visit? / Can I see a doctor today?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_waiting_room_ways_7b5d0d",
+   "link": "https://lexkite.com/en/speaking/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_waiting_room_ways_7b5d0d",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#politeenglish",
+    "#englishphrases"
+   ],
+   "caption_with_tags": "Booking a doctor's appointment: polite to casual. Save this: I'd like to make an appointment. / Can I book a visit? / Can I see a doctor today?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_waiting_room_ways_7b5d0d\n#shorts #learnenglish #englishtips #politeenglish #englishphrases"
+  }
+ },
+ "slot": {
+  "date": "2026-10-30",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

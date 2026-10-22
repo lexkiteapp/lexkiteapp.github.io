@@ -1,0 +1,75 @@
+{
+ "id": "news_library_ab_a843c0",
+ "scene": "news",
+ "template": "ab",
+ "area": "word-usage",
+ "cefr": "A2",
+ "point": "borrow vs lend",
+ "series": "WORD CHECK / borrow vs lend",
+ "bg": "library",
+ "title": "A or B? borrow vs lend",
+ "description": "Borrow vs lend. Save this: Can I borrow your pen? / Can you lend me your pen? / borrow from / lend to\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_news&utm_content=news_library_ab_a843c0#/usage?c=pair",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#englishquiz",
+  "#grammartest",
+  "#americanenglish",
+  "#esl",
+  "#englishlearning"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/news/news_library_ab_a843c0/cine-news-library-ab-a843c0-en.mp4",
+ "cover": "shorts/news/news_library_ab_a843c0/cine-news-library-ab-a843c0-en.jpg",
+ "ci_artifact": "cine-news-49-*",
+ "run": 49,
+ "platforms": {
+  "tiktok": {
+   "title": "A or B? borrow vs lend",
+   "caption": "Borrow vs lend. Save this: Can I borrow your pen? / Can you lend me your pen? / borrow from / lend to\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_library_ab_a843c0#/usage?c=pair",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_library_ab_a843c0#/usage?c=pair",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#englishquiz",
+    "#grammartest",
+    "#americanenglish",
+    "#esl"
+   ],
+   "caption_with_tags": "Borrow vs lend. Save this: Can I borrow your pen? / Can you lend me your pen? / borrow from / lend to\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_library_ab_a843c0#/usage?c=pair\n#learnenglish #englishtips #englishquiz #grammartest #americanenglish #esl"
+  },
+  "reels": {
+   "title": "A or B? borrow vs lend",
+   "caption": "Borrow vs lend. Save this: Can I borrow your pen? / Can you lend me your pen? / borrow from / lend to\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_library_ab_a843c0#/usage?c=pair",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_library_ab_a843c0#/usage?c=pair",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#englishquiz",
+    "#grammartest",
+    "#americanenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Borrow vs lend. Save this: Can I borrow your pen? / Can you lend me your pen? / borrow from / lend to\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_library_ab_a843c0#/usage?c=pair\n#learnenglish #englishtips #englishquiz #grammartest #americanenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "A or B? borrow vs lend #shorts",
+   "caption": "Borrow vs lend. Save this: Can I borrow your pen? / Can you lend me your pen? / borrow from / lend to\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_library_ab_a843c0#/usage?c=pair",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_library_ab_a843c0#/usage?c=pair",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#englishquiz",
+    "#grammartest"
+   ],
+   "caption_with_tags": "Borrow vs lend. Save this: Can I borrow your pen? / Can you lend me your pen? / borrow from / lend to\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_library_ab_a843c0#/usage?c=pair\n#shorts #learnenglish #englishtips #englishquiz #grammartest"
+  }
+ },
+ "slot": {
+  "date": "2026-10-29",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}
