@@ -1,0 +1,5 @@
+{
+  "_note": "Clip bản tin được lên web (docs/VIDEO-SCALE-PLAN.md §10). approved = chủ đã duyệt (hiện cho mọi người, có trang /video/ + sitemap + IndexNow). test = mẫu thử: chỉ hiện khi bật ?vtest=1, trang noindex, không vào sitemap. Chỉ clip QA ≥ 90 mới được dựng (scripts/lib/video-web.mjs).",
+  "approved": [],
+  "test": ["news_waiting_room_ways_7b5d0d", "news_bookstore_fix_a59145", "news_pharmacy_three_974c28"]
+}

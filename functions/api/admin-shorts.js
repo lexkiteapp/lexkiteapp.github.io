@@ -92,6 +92,14 @@ export async function onRequestPost({ request, env }) {
     const url = await signed(env, it, k, 2 * 3600);
     return url ? json(request, 200, { url }) : json(request, 404, { error: 'not-on-drive' });
   }
+  if (b.op === 'web') { // 🎬 hiệu quả trên web theo clip (hit.js t:'v' → ext_events 'vid:<ev>:<id>'), 90 ngày
+    if (!env.DB) return json(request, 200, { rows: [] });
+    const since = new Date(Date.now() - 90 * 864e5).toISOString().slice(0, 10);
+    const r = await env.DB.prepare("SELECT kind, SUM(n) AS n FROM ext_events WHERE kind LIKE 'vid:%' AND day >= ?1 GROUP BY kind").bind(since).all().catch(() => ({ results: [] }));
+    const by = {};
+    for (const x of r.results || []) { const [, ev, id] = String(x.kind).split(':'); if (!id) continue; (by[id] = by[id] || { id, view: 0, done: 0, quiz_ok: 0, quiz_no: 0 })[ev] = +x.n || 0; }
+    return json(request, 200, { rows: Object.values(by), since });
+  }
   return json(request, 400, { error: 'op' });
 }
 
