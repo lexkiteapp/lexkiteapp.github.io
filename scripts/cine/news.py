@@ -273,10 +273,11 @@ RD = f'{N}/render5_{LID}_en'; os.makedirs(RD, exist_ok=True)
 def finish_mask(M): x, y, w, h = L.WM_CROP; return cv2.resize(M[y:y + h, x:x + w], (1080, 1920), interpolation=cv2.INTER_LINEAR)
 def host_frames(s, clip, who, lines, raw):
     mo = [] if raw else [dict(mouth=L.Mouth(f'{TL}/meta/{clip}/{who}'), lines=[dict(cues=CUES[l['id']], at=l['at'], tempo=l['tempo']) for l in lines])]
-    fr, log = L.render(f'{G}/kfull/{clip}.mp4', s['frames'], speakers=mo)
+    cf, cm, ll = MR.layer_paths(G, clip)   # PRO mattes (ViTMatte, lossless alpha) when NEWS_MATTE=pro
+    fr, log = L.render(cf, s['frames'], speakers=mo)
     PADB = 600 if clip.startswith('ga') else 0   # standing Ama's clip ends at her thighs: extend the (dark) trousers by edge replication so a smaller Ama still exits the frame bottom
     if PADB: fr = [np.concatenate([F_, np.repeat(F_[-1:], PADB, 0)]) for F_ in fr]
-    cap = cv2.VideoCapture(f'{G}/kmask/{clip}.mp4'); MM = []
+    cap = cv2.VideoCapture(cm); MM = []
     while True:
         ok, M = cap.read()
         if not ok: break
@@ -284,7 +285,7 @@ def host_frames(s, clip, who, lines, raw):
     ramp = 1.0
     al = []
     for i in s['frames']:
-        m = MR.mask_levels(finish_mask(MM[min(i, len(MM) - 1)]))   # h264 white ~250 -> exactly opaque; no morphology (it made stair-steps)
+        m = MR.mask_levels(finish_mask(MM[min(i, len(MM) - 1)]), ll)   # h264 white ~250 -> exactly opaque; no morphology (it made stair-steps)
         al.append(np.concatenate([m, np.repeat(m[-1:], PADB, 0)]) * ramp if PADB else m * ramp)
     tops = [int(np.argmax((m[:, 300:800] > 0.5).any(1))) for m in al[::4]]; top = HAIR.setdefault(clip, int(np.median(tops)))
     return fr, al, log, top
@@ -488,12 +489,9 @@ for s in S:
             if (s['id'], i, 'c') not in KEYM:   # contrast match + light direction from the background (left vs right third)
                 m_ = a > 0.9; hs_ = float(f[m_].std()) + 1; bs_ = float(B.std()) + 1; L3 = B.mean(2); KEYM[(s['id'], i, 'c')] = (float(np.clip((bs_ / hs_) ** 0.2, 0.92, 1.08)), f[m_].mean(0), 1 if L3[:, 720:].mean() > L3[:, :360].mean() else -1)
             kc_, hm0_, ld_ = KEYM[(s['id'], i, 'c')]; f = hm0_ + (f - hm0_) * kc_
-            rim = np.clip(a - np.roll(a, 2 * ld_, 1), 0, 1)[..., None] * 0.2; f = f * (1 - rim) + np.minimum(qblur(B, 10) * 1.25, 255) * rim   # subtle rim from the bg light side
             if who == 'carlos': lum = f.mean(2, keepdims=True); f = f * (1 - 0.16 * np.clip((lum - 150) / 90, 0, 1))
-            band = np.clip(a - cv2.GaussianBlur(a, (0, 0), 1.2), 0, 1)[..., None] * 1.5   # light wrap 1-2 px
-            f[..., 1] = np.where(a < 0.97, np.minimum(f[..., 1], np.maximum(f[..., 0], f[..., 2]) + 10), f[..., 1])
             eo = (a > 0.08) & (a < 0.92); FRs.append(float(((f[..., 1] > f[..., 2] + 25) & (f[..., 1] > f[..., 0] + 25))[eo].mean()) if eo.any() else 0.0)
-            bgb = qblur(B, 14); f = f * (1 - 0.25 * band) + bgb * 0.25 * band
+            f = MR.finish_host(f, a, B, ld_)   # e2922ec5 PRO edge treatment: 3 px subtle rim from the bg light side + 1 px light wrap, no extra despill
             a3 = a[..., None]; B = MR.over(f * a3, a, B, wrap_px=0); xs = int(np.clip(ox, 80, 1000)); VB = VBOT('two' if s['other'] else s['frame']); bot.append(float(a[VB - 8:VB, xs - 60:xs + 60].mean())); AL.append(a)
         QC.append(dict(t=round(t, 3), fringe=max(FRs), flick=0.0, bottom=min(bot)))
         if j == s['n'] // 2 and len(AL) == 1: EQ.append(dict(shot=s['id'], **MR.edge_qa(B, AL[0], bg=B0)))   # edge QA on the rendered frame (singles)

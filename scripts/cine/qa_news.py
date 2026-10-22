@@ -357,12 +357,14 @@ for x in tl['shots']:
     if rf_: _ss.append((x['id'], round(_ssim(_cv.cvtColor(_cv.imread(rf_[0]), _cv.COLOR_BGR2GRAY), g_), 4)))
 # owner 22/10: sharpness relative to the ideal: faces/hair vs the source clip frame resampled once (INTER_AREA) to the shot scale; text vs the pre-encode reference frame
 _GR = os.environ.get('CINE_LIB', '') + '/anchor/green/kfull'; _rat = []
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '../video')); import matte_refine as _MR
 for x in tl['shots']:
     if x['id'] in ('hook', 'loop') or x.get('other') or not x.get('faceboxes') or not os.path.exists(f"{_GR}/{x['clip']}.mp4"): continue
+    _cf, _cm, _ll = _MR.layer_paths(_GR[:-len('/kfull')], x['clip'])   # same colour / alpha layers the render used (PRO when NEWS_MATTE=pro)
     sc_, cx_, cy_, ox_, oy_ = x['xfs'][x['clip']][:5]; fi_ = x['n'] // 2 + int(round(x['t0'] * FPS)); src_i = x['frames'][x['n'] // 2]
-    c2 = _cv.VideoCapture(f"{_GR}/{x['clip']}.mp4"); c2.set(_cv.CAP_PROP_POS_FRAMES, src_i); okS, S_ = c2.read(); _cap.set(_cv.CAP_PROP_POS_FRAMES, fi_); okM, Mf = _cap.read()
+    c2 = _cv.VideoCapture(_cf); c2.set(_cv.CAP_PROP_POS_FRAMES, src_i); okS, S_ = c2.read(); _cap.set(_cv.CAP_PROP_POS_FRAMES, fi_); okM, Mf = _cap.read()
     if not (okS and okM): continue
-    c3 = _cv.VideoCapture(f"{_GR.replace('/kfull', '/kmask')}/{x['clip']}.mp4"); c3.set(_cv.CAP_PROP_POS_FRAMES, src_i); okA, A_ = c3.read(); Am_ = _cv.resize(A_[..., 0], (1080, 1920)).astype(np.float32) / 250 if okA else np.ones((1920, 1080), np.float32)
+    c3 = _cv.VideoCapture(_cm); c3.set(_cv.CAP_PROP_POS_FRAMES, src_i); okA, A_ = c3.read(); Am_ = _cv.resize(A_[..., 0], (1080, 1920)).astype(np.float32) / (255 if _ll else 250) if okA else np.ones((1920, 1080), np.float32)
     S_ = _cv.resize(S_, (1080, 1920), interpolation=_cv.INTER_AREA); m_ = json.load(open(MD(x['clip']) + f"/{x['who']}/mouth.json"))['face_box']
     for nm_, (a0, b0, a1, b1) in (('face', m_), ('hair', (m_[0], m_[1] - 0.35 * (m_[3] - m_[1]), m_[2], m_[1]))):
         src_c = S_[int(max(0, b0)):int(b1), int(a0):int(a1)]; ref_ = _cv.resize(src_c, None, fx=sc_, fy=sc_, interpolation=_cv.INTER_AREA)
