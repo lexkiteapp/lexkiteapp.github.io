@@ -55,7 +55,7 @@ for (const theme of ['light', 'dark']) for (const [vp, size] of [['desktop', { w
   if (vp === 'desktop' || theme === 'light') await shot('social-settings', async () => { await page.evaluate(() => window.__mount('social')); await page.waitForSelector('[data-cfg]'); await page.click('[data-cfg="gc-tiktok-77"]'); await page.waitForSelector('.ds-dlg'); });
   if (vp === 'desktop' || theme === 'light') await shot('social-meta', async () => { await page.evaluate(() => window.__mount('social')); await page.waitForSelector('[data-meta]'); await page.click('[data-meta]'); await page.waitForSelector('.ds-dlg pre'); });
   // rules editor: drag rule #3 onto #1 → order changes + "unsaved" badge
-  if (vp === 'desktop' && theme === 'light') { await page.evaluate(() => window.__mount('social')); await page.waitForSelector('.ds-rule');
+  if (vp === 'desktop' && theme === 'light') { await page.evaluate(() => { document.querySelectorAll('.ds-dlg').forEach(x => x.remove()); window.__mount('social'); }); await page.waitForSelector('.ds-rule');
     await page.dragAndDrop('.ds-rule[data-i="2"] .ds-h', '.ds-rule[data-i="0"]'); const names = await page.$$eval('.ds-rule [data-r=name]', x => x.map(i => i.value));
     if (names[0] !== 'Food' || !(await page.$('#ds-dirty .ds-b'))) fails.push('drag & drop reorder did not work: ' + names.join(',')); }
   await shot('library-types', async () => { await page.evaluate(() => { const all = Array.from({ length: 24 }, (_, i) => ({ id: 'clip-' + i, title: 'Clip ' + i + ' – look for vs look at', scene: ['cafe', 'airport', 'hotel'][i % 3], template: 'news', cefr: ['A2', 'B1'][i % 2], qa: { status: 'pass', score: 92 }, _v: { type: 'short' } }));
