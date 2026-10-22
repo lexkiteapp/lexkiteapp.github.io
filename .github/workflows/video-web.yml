@@ -1,5 +1,5 @@
 # Bản WEB của short bản tin – "một clip, hai nơi dùng" (docs/VIDEO-SCALE-PLAN.md §10). Chạy SAU khi cine-render lưu bài ĐẠT QA
-# (workflow_run) + hằng ngày + chạy tay. 0 đồng: ffmpeg trên runner, phụ đề dịch + AI chấm qua /api/lexai (OIDC, kho Gemini → Workers AI),
+# (workflow_run) + hằng ngày + chạy tay. 0 đồng: ffmpeg trên runner, phụ đề CHỈ tiếng Anh (mốc từng từ; không phụ đề dịch – chủ 22/10),
 # file lên GitHub Release 'wv-<bài>' của repo này (GITHUB_TOKEN) → phục vụ qua media.lexkite.com/video/ (Worker lexkite-media, cache 1 năm).
 # Chỉ clip bản tin QA ≥ 90 + chủ duyệt (content/video/web/approved.json) hoặc mẫu thử ẩn. Kết quả: web/data/videos.json + content/video/web/captions/.
 name: video-web
@@ -14,7 +14,6 @@ on:
       force: { description: 'Dựng lại mọi clip (bỏ qua so khớp rev)', type: boolean, default: false }
 permissions:
   contents: write
-  id-token: write
 concurrency: { group: video-web, cancel-in-progress: false }
 jobs:
   web:
@@ -46,7 +45,7 @@ jobs:
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
           node scripts/build-lexicon.mjs --write >/dev/null
-      - name: Dựng bản web + phụ đề 15 ngôn ngữ + thẻ + câu đố
+      - name: Dựng bản web + phụ đề EN + thẻ + câu đố EN
         if: steps.plan.outputs.todo != '0'
         run: node scripts/video/web-rendition.mjs build shorts-repo
       - name: Đẩy lên GitHub Release (CDN media.lexkite.com/video/)

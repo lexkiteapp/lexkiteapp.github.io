@@ -5,6 +5,7 @@
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 
+// Ngôn ngữ của KHUNG trang /video/<slug>/ (nội dung dạy: chỉ tiếng Anh)
 export const LANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
 export const MANIFEST = 'web/data/videos.json';
 export const CAPTIONS_DIR = 'content/video/web/captions';
@@ -122,8 +123,9 @@ export function quizFor(lesson, text, pool = []) {
     const o = kw[kw.length > 1 ? 1 : 0], others = kw.filter(z => z !== o).map(z => z.k).concat(['take', 'make', 'keep']);
     return mk(`Fill in the blank: "${o.c.text.replace(new RegExp(`\\b${o.k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i'), '___')}"`, o.k, others.slice(0, 2));
   }
-  const heard = L(2) || L(1); const dis = pool.filter(s => s && s !== heard).slice(0, 2);
-  return heard && dis.length ? mk('Which sentence did you hear?', heard, dis) : null;
+  // chọn câu đáp đúng: lời 1 → lời 2 (nhiễu = câu đáp của bài khác)
+  const ask = L(1), reply = L(2), dis = pool.filter(s => s && s !== reply).sort((a, b) => sha(lesson.id + a).localeCompare(sha(lesson.id + b))).slice(0, 2);
+  return ask && reply && dis.length ? mk(`"${ask}" – pick the best reply.`, reply, dis) : null;
 }
 
 export function titleOf(lesson) {
@@ -153,8 +155,8 @@ export function validateManifest(m) {
     if (!S(t.situation, 60) || !S(t.exam, 20) || !S(t.skill, 20)) bad('tags.situation/exam/skill');
     if (!(it.duration > 3 && it.duration < 120)) bad('duration');
     for (const k of ['src', 'poster']) if (!/^https:\/\/media\.lexkite\.com\/video\/[a-z0-9_]+\/[a-z0-9_.-]+$/.test(it[k] || '')) bad(k);
-    if (!it.vtt || !/^https:\/\//.test(it.vtt.en || '')) bad('vtt.en');
-    for (const [l, u] of Object.entries(it.vtt || {})) if (!LANGS.includes(l) || !/\.vtt$/.test(u)) bad('vtt.' + l);
+    if (!/^https:\/\/media\.lexkite\.com\/video\/[a-z0-9_]+\/en-[0-9a-f]{8}\.vtt$/.test(it.vtt_en || '')) bad('vtt_en');
+    if ('vtt' in it) bad('vtt: chỉ phụ đề tiếng Anh (vtt_en), không phụ đề dịch');
     const q = it.quiz;
     if (q && (!S(q.q, 300) || !Array.isArray(q.options) || q.options.length < 2 || !(q.answer >= 0 && q.answer < q.options.length))) bad('quiz');
     if (!(it.score >= MIN_SCORE)) bad('score < 90');

@@ -14,10 +14,10 @@ if (process.argv.includes('--schema-only')) { console.log(fail ? `✗ video-web 
 const good = { id: 'news_bank_three_15d51e', slug: 'at-the-bank-15d51e', title: 'At the bank', template: 'three', series: 'MONEY ENGLISH', point: 'bank phrases',
   tags: { lex: ['withdraw#v'], words: ['withdraw'], grammar: [], situation: 'bank', cefr: 'B1', exam: 'toeic', skill: 'speaking' }, duration: 21.7,
   src: 'https://media.lexkite.com/video/news_bank_three_15d51e/v-0123abcd.mp4', poster: 'https://media.lexkite.com/video/news_bank_three_15d51e/p-0123abcd.webp',
-  vtt: { en: 'https://media.lexkite.com/video/news_bank_three_15d51e/en-0123abcd.vtt', vi: 'https://media.lexkite.com/video/news_bank_three_15d51e/vi-0123abcd.vtt' },
+  vtt_en: 'https://media.lexkite.com/video/news_bank_three_15d51e/en-0123abcd.vtt',
   quiz: { q: 'Which?', options: ['a', 'b'], answer: 1 }, score: 95, test: false };
 ok(!validateManifest({ version: 1, items: [good] }).length, 'mẫu manifest đúng phải hợp lệ');
-for (const [k, v] of [['score', 80], ['template', 'scene'], ['src', 'http://evil.example/x.mp4'], ['test', 'no'], ['quiz', { q: 'x', options: ['a'], answer: 3 }], ['vtt', { xx: 'a.vtt' }]])
+for (const [k, v] of [['score', 80], ['template', 'scene'], ['src', 'http://evil.example/x.mp4'], ['test', 'no'], ['quiz', { q: 'x', options: ['a'], answer: 3 }], ['vtt', { vi: 'https://media.lexkite.com/video/x_123456/vi-0123abcd.vtt' }], ['vtt_en', 'https://evil.example/en.vtt']])
   ok(validateManifest({ version: 1, items: [{ ...good, [k]: v }] }).length > 0, `schema phải bắt lỗi ${k}`);
 ok(validateManifest({ version: 1, items: [good, good] }).some(x => /trùng/.test(x)), 'schema bắt id trùng');
 

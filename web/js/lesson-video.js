@@ -1,6 +1,6 @@
 /* 🎬 Video bài học (tải lười – gói 'lvideo': js/i18n/en/lvideo.js + js/lib/video-rank.js + file này). docs/VIDEO-SCALE-PLAN.md §10.
  * Chỗ đặt chỉ chèn <div class="lv-slot" hidden data-lv='{ctx}'> rồi gọi LessonVideo.scan(): khớp thẻ → hiện thẻ nhỏ (bìa trước),
- * bấm mới tải video + phát có tiếng; phụ đề theo ngôn ngữ giao diện (nút EN đổi sang tiếng Anh); xem xong → 1 câu đố nhanh
+ * bấm mới tải video + phát có tiếng; nội dung dạy CHỈ tiếng Anh (phụ đề EN, câu đố EN với ✓/✗) – chỉ nút/nhãn theo ngôn ngữ giao diện; xem xong → 1 câu đố nhanh
  * (đáp án vào thẻ ôn SRS qua App.addWord) → gợi ý video tiếp theo (đa dạng template/series). Đo: /api/hit { t:'v', ev, id }.
  * Manifest: /data/videos.json (scripts/video/web-rendition.mjs). Clip mẫu thử (test: true) chỉ hiện khi bật ?vtest=1. */
 (function (g) {
@@ -11,7 +11,6 @@
   const web = /^https?:$/.test(location.protocol) && /(^|\.)lexkite\.com$|^localhost$|^127\.0\.0\.1$|\.pages\.dev$/.test(location.hostname);
   const BASE = web ? '' : 'https://lexkite.com';
   try { if (/[?&#]vtest=1\b/.test(location.href)) ls('lvTest', '1'); } catch (e) { /* bỏ qua */ }
-  const uiLang = () => (g.I18N && I18N.lang && I18N.lang()) || document.documentElement.lang || 'en';
   let MAN = null;
   const manifest = () => MAN || (MAN = fetch(BASE + '/data/videos.json', { cache: 'no-cache' }).then(r => (r.ok ? r.json() : { items: [] }))
     .then(m => (Array.isArray(m.items) ? m.items : []).filter(it => !it.test || ls('lvTest') === '1')).catch(() => { MAN = null; return []; }));
@@ -52,17 +51,12 @@
   }
 
   function play(slot, it, ctx) {
-    const ui = uiLang(), tl = it.vtt && it.vtt[ui] && ui !== 'en' ? ui : 'en';
-    const name = l => { try { return new Intl.DisplayNames([ui], { type: 'language' }).of(l); } catch (e) { return l; } };
-    const tracks = [...new Set([tl, 'en'])].filter(l => it.vtt && it.vtt[l]).map(l => `<track kind="subtitles" srclang="${l}" label="${esc(name(l))}" src="${esc(it.vtt[l])}"${l === tl ? ' default' : ''}>`).join('');
+    const tracks = it.vtt_en ? `<track kind="captions" srclang="en" label="English" src="${esc(it.vtt_en)}" default>` : '';
     slot.innerHTML = `<div class="lv-pl"><video controls playsinline preload="metadata" crossorigin="anonymous" poster="${esc(it.poster)}" aria-label="${esc(it.title)}">
       <source src="${esc(it.src)}" type="video/mp4">${tracks}</video></div>
-      <div class="lv-bar">${tl !== 'en' ? `<button type="button" class="btn sm lv-x" data-lv-en aria-pressed="false">${esc(T('Phụ đề tiếng Anh'))}</button>` : ''}<button type="button" class="btn sm lv-x" data-lv-close>${esc(T('Đóng video'))}</button></div><div class="lv-after" aria-live="polite"></div>`;
+      <div class="lv-bar"><button type="button" class="btn sm lv-x" data-lv-close>${esc(T('Đóng video'))}</button></div><div class="lv-after" aria-live="polite"></div>`;
     const v = slot.querySelector('video'), after = slot.querySelector('.lv-after');
-    const show = l => { for (const tr of v.textTracks) tr.mode = tr.language === l ? 'showing' : 'disabled'; };
-    v.addEventListener('loadedmetadata', () => show(tl), { once: true });
-    const en = slot.querySelector('[data-lv-en]');
-    if (en) en.onclick = () => { const on = en.getAttribute('aria-pressed') !== 'true'; en.setAttribute('aria-pressed', String(on)); show(on ? 'en' : tl); };
+    v.addEventListener('loadedmetadata', () => { for (const tr of v.textTracks) tr.mode = 'showing'; }, { once: true });
     slot.querySelector('[data-lv-close]').onclick = () => { v.pause(); card(slot, it, ctx); slot.querySelector('.lv-card').focus(); };
     v.addEventListener('play', () => hit('view', it.id), { once: true });
     v.addEventListener('error', () => { after.innerHTML = `<p class="small muted">${esc(T('Không phát được video – thử lại sau.'))}</p>`; }, true);
@@ -79,12 +73,12 @@
     const nextBtn = `<div class="lv-bar"><button type="button" class="btn primary lv-x" data-lv-next>${esc(T('Video tiếp theo'))} →</button></div>`;
     if (!q) { box.innerHTML = nextBtn; box.querySelector('[data-lv-next]').onclick = onNext; return; }
     box.innerHTML = `<div class="lv-q" role="group" aria-labelledby="lvq-${esc(it.id)}"><div class="small muted">❓ ${esc(T('Câu hỏi nhanh'))}</div><p id="lvq-${esc(it.id)}" lang="en"><b>${esc(q.q)}</b></p>
-      <div class="lv-opts">${q.options.map((o, i) => `<button type="button" class="btn lv-o" data-i="${i}" lang="en">${esc(o)}</button>`).join('')}</div><p class="lv-fb small" role="status"></p></div>`;
+      <div class="lv-opts">${q.options.map((o, i) => `<button type="button" class="btn lv-o" data-i="${i}" lang="en"><span class="lv-mk" aria-hidden="true">${'ABC'[i]}</span> ${esc(o)}</button>`).join('')}</div><p class="lv-fb small" role="status"></p></div>`;
     const bs = [...box.querySelectorAll('.lv-o')];
     bs[0].focus({ preventScroll: true });
     bs.forEach(b => { b.onclick = async () => {
       const i = +b.dataset.i, ok = i === q.answer, ans = q.options[q.answer];
-      bs.forEach((x, j) => { x.disabled = true; if (j === q.answer) x.classList.add('ok'); else if (j === i) x.classList.add('no'); });
+      bs.forEach((x, j) => { x.disabled = true; const mk = x.querySelector('.lv-mk'); if (j === q.answer) { x.classList.add('ok'); mk.textContent = '✓'; } else if (j === i) { x.classList.add('no'); mk.textContent = '✗'; } });
       hit(ok ? 'quiz_ok' : 'quiz_no', it.id);
       try { if (g.App && App.addWord && ans.split(' ').length <= 12) await App.addWord({ word: ans, pos: 'phrase', ex: ans, emoji: '🎬', topic: 'video' }, { text: ans, title: '🎬 ' + it.title }, { silent: true }); } catch (e) { /* SRS lỗi không chặn */ }
       box.querySelector('.lv-fb').textContent = ok ? T('Đúng rồi! Đã thêm vào thẻ ôn.') : T('Chưa đúng. Đáp án: {a} – đã thêm vào thẻ ôn.', { a: ans });
