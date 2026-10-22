@@ -32,8 +32,8 @@ jobs:
           [ -n "$KEY" ] || { echo "::error::thiếu secret SHORTS_DEPLOY_KEY"; exit 1; }
           mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/shorts && chmod 600 ~/.ssh/shorts
           ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
-          echo "GIT_SSH_COMMAND=ssh -i $HOME/.ssh/shorts -o IdentitiesOnly=yes" >> "$GITHUB_ENV"
-          GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes" git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-shorts.git shorts-repo
+          export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/shorts -o IdentitiesOnly=yes"; echo "GIT_SSH_COMMAND=$GIT_SSH_COMMAND" >> "$GITHUB_ENV"   # cả bước sau (lấy blob theo sparse)
+          git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-shorts.git shorts-repo
           git -C shorts-repo sparse-checkout set --no-cone '/shorts/index.json'; git -C shorts-repo checkout -q
       - name: Lập kế hoạch (clip đủ điều kiện, chưa có bản web)
         id: plan
