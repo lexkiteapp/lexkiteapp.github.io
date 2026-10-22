@@ -38,10 +38,14 @@ dur = sum(ln['dur'] for s in tl['shots'] for ln in s['lines'] if not (L.get(ln['
 nw = sum(len(norm(L.get(ln['id'], {}).get('text', ''))) for s in tl['shots'] for ln in s['lines'] if not (L.get(ln['id'], {}).get('speed') or 1) < 0.85)
 wpm = 60 * nw / max(1e-3, dur); gate('speaking_rate', 130 <= wpm <= 175, round(wpm, 1), 4)
 # --- background OCR (no readable words in the still)
-bgp = f"{os.environ.get('CINE_LIB', '')}/anchor/bg/{tl['lesson'].get('bg')}.png"
-if shutil.which('tesseract') and os.path.exists(bgp):
-    o = subprocess.run(['tesseract', bgp, '-', '--psm', '11', 'tsv'], capture_output=True, text=True).stdout.splitlines()[1:]
-    words = [r.split('\t')[11] for r in o if len(r.split('\t')) > 11 and r.split('\t')[10].replace('.', '', 1).lstrip('-').isdigit() and float(r.split('\t')[10]) >= 80 and re.fullmatch(r'[A-Za-z]{3,}', r.split('\t')[11] or '')]
+LB = f"{os.environ.get('CINE_LIB', '')}/anchor/bg"; bgid = str(tl['lesson'].get('bg')).split('@')[0]
+bgps = [f'{LB}/w/{bgid}_L.webp', f'{LB}/w/{bgid}_R.webp'] if os.path.exists(f'{LB}/w/{bgid}_L.webp') else [f'{LB}/{bgid}.png']   # wide scene: both host crops
+if shutil.which('tesseract') and all(os.path.exists(p_) for p_ in bgps):
+    words = []
+    for bgp in bgps:
+        if bgp.endswith('.webp'): import cv2 as _c; _c.imwrite('/tmp/_ocr.png', _c.imread(bgp)); bgp = '/tmp/_ocr.png'
+        o = subprocess.run(['tesseract', bgp, '-', '--psm', '11', 'tsv'], capture_output=True, text=True).stdout.splitlines()[1:]
+        words += [r.split('\t')[11] for r in o if len(r.split('\t')) > 11 and r.split('\t')[10].replace('.', '', 1).lstrip('-').isdigit() and float(r.split('\t')[10]) >= 80 and re.fullmatch(r'[A-Za-z]{3,}', r.split('\t')[11] or '')]
     gate('bg_no_text', not words, words[:8], 4)
 else: gate('bg_no_text', False, 'tesseract or bg still missing', 4)
 # --- score

@@ -214,7 +214,7 @@ jobs:
           ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
           git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
-          git -C footage sparse-checkout set --no-cone '/anchor/green/kfull/' '/anchor/green/kmask/' '/anchor/green/kfull_pro/' '/anchor/green/kmask_pro/' '/anchor/bg/' '/anchor/tools/meta/g*/' '/anchor/tools/dl24/g*.json' \
+          git -C footage sparse-checkout set --no-cone '/anchor/green/kfull/' '/anchor/green/kmask/' '/anchor/green/kfull_pro/' '/anchor/green/kmask_pro/' '/anchor/bg/*.png' '/anchor/bg/index.json' '/anchor/tools/meta/g*/' '/anchor/tools/dl24/g*.json' \
             '/anchor/tools/fonts/' '/anchor/tools/foley/' '/anchor/tools/amb_studio.wav' '/anchor/news/depth/'
           git -C footage checkout -q; rm -f ~/.ssh/footage; du -sh footage
       - uses: actions/cache/restore@v4
@@ -296,14 +296,26 @@ jobs:
           pip install -q -r scripts/cine/requirements.txt scipy==1.14.1 faster-whisper==1.0.3 requests==2.32.3
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg tesseract-ocr >/dev/null
       - name: Lấy footage news (anchor/green + anchor/bg + meta, sparse)
-        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
+        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}', SHARD: '${{ matrix.shard }}' }
         run: |
           [ -n "$KEY" ] || { echo "::error::thiếu secret FOOTAGE_DEPLOY_KEY"; exit 1; }
+          # wide library (517 scenes) is large: only this shard's scenes + up to 8 retry candidates per lesson (same topic)
+          python3 - > wide_paths.txt <<'PY'
+          import json, os, hashlib
+          bt = json.load(open('content/video/cine/news/bg_topics.json')); wb = bt.get('wide_by_topic', {}); out = set()
+          WT = {'health': ['hospital', 'appointments', 'health'], 'exam': ['education', 'university', 'study'], 'study': ['study', 'school', 'education'], 'shopping': ['shopping', 'clothes'], 'daily': ['daily-routine', 'home'], 'work': ['office', 'work', 'meetings'], 'travel': ['travel', 'airport', 'hotel'], 'food': ['restaurant', 'ordering', 'food'], 'money': ['bank', 'money'], 'home': ['home', 'renting'], 'social': ['small-talk', 'community'], 'tech': ['tech', 'office']}
+          for lid in os.environ['SHARD'].split(','):
+              sp = json.load(open(f'content/video/cine/news/{lid}.json')); c = [sp['bg']]
+              if sp.get('topic'): c += sorted(dict.fromkeys(x for t in WT.get(sp['topic'], [sp['topic']]) for x in wb.get(t, [])), key=lambda b: hashlib.md5((sp['id'] + b).encode()).hexdigest())[:8]
+              for b in c:
+                  for sd in ('L', 'R'): out |= {f'/anchor/bg/w/{b}_{sd}.webp', f'/anchor/bg/w/zones/{b}_{sd}.zones.json', f'/anchor/bg/w/zones/{b}_{sd}.depth.png'}
+          print('\n'.join(sorted(out)))
+          PY
           mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
           ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
           git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
-          git -C footage sparse-checkout set --no-cone '/anchor/green/kfull/' '/anchor/green/kmask/' '/anchor/green/kfull_pro/' '/anchor/green/kmask_pro/' '/anchor/bg/' '/anchor/tools/meta/g*/' '/anchor/tools/dl24/g*.json' \
+          git -C footage sparse-checkout set --no-cone '/anchor/green/kfull/' '/anchor/green/kmask/' '/anchor/green/kfull_pro/' '/anchor/green/kmask_pro/' '/anchor/bg/*.png' '/anchor/bg/index.json' '/anchor/green/bank_gestures.json' $(cat wide_paths.txt) '/anchor/tools/meta/g*/' '/anchor/tools/dl24/g*.json' \
             '/anchor/tools/fonts/' '/anchor/tools/foley/' '/anchor/tools/amb_studio.wav' '/anchor/news/depth/' \
             '/anchor/green/kfull_pro/' '/anchor/green/kmask_pro/' '/anchor/tools/dl24/ga4_talk_natural.mp4' '/anchor/tools/dl24/gc4_talk_natural.mp4' '/anchor/tools/dl24/gc4_listen.mp4'
           git -C footage checkout -q; rm -f ~/.ssh/footage; du -sh footage
