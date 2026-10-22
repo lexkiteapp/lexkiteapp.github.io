@@ -62,7 +62,7 @@ cron mỗi ngày → chọn điểm học + tổ hợp (sổ đa dạng) → so�
 - Mọi luật là cổng QA: trượt 1 luật = không đăng.
 
 ## 10. Một clip – hai nơi dùng: social + bài học trên web (chủ 22/10)
-- **Bản web riêng** từ cùng master: 720×1280, ~2–3 MB, poster WebP, phụ đề **WebVTT 15 ngôn ngữ** (sub tiếng Anh + bản dịch theo giao diện), lưu CDN của mình (R2/`media.lexkite.com`, đăng ký infra) – tải lười, không tự phát có tiếng, không ảnh hưởng khung app.
+- **Bản web riêng** từ cùng master: 720×1280, ~2–3 MB, poster WebP, phụ đề **WebVTT chỉ tiếng Anh** (KHÔNG dịch phụ đề theo video – chủ 22/10: tránh chồng chéo; nghĩa theo ngôn ngữ người học lấy từ lexicon trong câu đố), lưu CDN của mình (R2/`media.lexkite.com`, đăng ký infra) – tải lười, không tự phát có tiếng, không ảnh hưởng khung app.
 - **Gắn thẻ tự động** mỗi clip: từ/cụm (lexicon id), điểm ngữ pháp, tình huống, CEFR, kỳ thi, kỹ năng.
 - **Xếp thông minh**: thẻ từ / trang từ vựng ("Xem 20 giây"), trang ngữ pháp, ngày học trong lộ trình ("video của ngày"), bài blog cùng chủ đề, tab mới add-on (tuỳ chọn). Chọn clip theo khớp thẻ + trình độ người học + chưa xem + đa dạng template; sau clip có 1 câu đố nhanh → tính vào SRS.
 - **SEO video**: schema `VideoObject` + video sitemap + trang `/video/<slug>/` có transcript → Google hiện video trong tìm kiếm.
@@ -100,7 +100,7 @@ cron mỗi ngày → chọn điểm học + tổ hợp (sổ đa dạng) → so�
 
 ## 14. Ai ở nước nào cũng học được (chủ 22/10)
 - Clip social **chỉ tiếng Anh**, nhưng hiểu được không cần tiếng mẹ đẻ: tiếng Anh đơn giản (giải thích ≤ CEFR B1), nói chậm rõ, ✗/✓ + biểu tượng + màu mang nghĩa, ví dụ tự giải thích.
-- Bản web có phụ đề dịch 15 ngôn ngữ (§10); social có thể thêm phụ đề tự động của nền tảng.
+- KHÔNG làm phụ đề dịch theo từng video (chủ đã cấm: chồng chéo, khó quản lý). Video chỉ tiếng Anh + phụ đề tiếng Anh; giao diện quanh video theo i18n sẵn có; nghĩa theo ngôn ngữ người học lấy từ lexicon (1 nguồn).
 - Nội dung trung tính văn hoá: tên người đa dạng, tiền tệ/đơn vị chung hoặc ghi cả hai, không tôn giáo/chính trị/vùng nhạy cảm, không đùa dựa vào văn hoá một nước; idiom luôn kèm nghĩa đơn giản.
 - Lỗi theo tiếng mẹ đẻ (§12.8) nói theo dạng "Many learners say…" – không chê một quốc gia.
 - Lịch đăng theo giờ cao điểm từng khu vực; hashtag tiếng Anh + hashtag địa phương do AI chọn.
