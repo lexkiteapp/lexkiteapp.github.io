@@ -48,6 +48,18 @@ jobs:
           gh release create android-latest lexkite.apk --prerelease --title "Lexkite Android (bản mới nhất)" \
             --notes "Bản build tự động từ commit ${GITHUB_SHA::7}. Tải lexkite.apk về điện thoại Android → mở file → cho phép cài từ nguồn này → Cài đặt. (Bản thử nghiệm, chưa lên Google Play.)"
 
+      # Bản KIỂM THỬ riêng (không phát hành): chèn đầu dò mặt tiền video (scripts/test/native-facade.js) → máy giả lập đọc "E2E-VF" trong logcat
+      - name: APK kiểm thử (đầu dò mặt tiền video)
+        working-directory: mobile/android
+        run: |
+          PUB=app/src/main/assets/public; cp ../../scripts/test/native-facade.js $PUB/e2e-facade.js
+          perl -0pi -e 's#</body>#<script src="/e2e-facade.js"></script></body>#i' $PUB/index.html && grep -q e2e-facade $PUB/index.html
+          ./gradlew --no-daemon assembleDebug && cp app/build/outputs/apk/debug/app-debug.apk ../../lexkite-e2e.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lexkite-android-e2e
+          path: lexkite-e2e.apk
+          retention-days: 7
   # Bản phát hành Google Play (.aab, ký bằng upload key). Chỉ chạy khi đã có đủ 4 GitHub Secrets (docs/STORE-READINESS.md § Ký Android):
   # ANDROID_KEYSTORE_BASE64 (file .jks mã hoá base64), ANDROID_KEYSTORE_PASSWORD, ANDROID_KEY_ALIAS, ANDROID_KEY_PASSWORD.
   # versionCode = 1000 + số lần chạy workflow (luôn tăng), versionName = "version" trong mobile/package.json.
@@ -111,7 +123,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          name: lexkite-android
+          name: lexkite-android-e2e
       - name: Bật KVM
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
@@ -125,9 +137,10 @@ jobs:
           profile: pixel_7
           disable-animations: true
           script: |
-            adb install -r lexkite.apk && mkdir -p shots
+            adb install -r lexkite-e2e.apk && mkdir -p shots
             adb logcat -c; adb shell monkey -p com.lexkite.app -c android.intent.category.LAUNCHER 1; sleep 45; adb exec-out screencap -p > shots/android-1-start.png
             adb logcat -d -s chromium:V Capacitor:V Capacitor/Console:V AndroidRuntime:E '*:F' > shots/logcat.txt || true
+            sleep 20; adb logcat -d | grep -o 'E2E-VF .*' | tail -1 > shots/facade-android.txt || true; cat shots/facade-android.txt; grep -q '"ok":true' shots/facade-android.txt && echo "::notice::mặt tiền video Android OK" || echo "::error::mặt tiền video Android lỗi – xem shots/facade-android.txt"
             adb shell cmd uimode night yes && sleep 4 && adb exec-out screencap -p > shots/android-2-dark.png
             # Widget màn hình chính: dựng đúng RemoteViews (WidgetPreviewActivity, chỉ bản debug; mỗi dòng chạy riêng nên không dùng biến), tối/sáng × vi/ar (RTL)
             adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es lang vi && sleep 3 && adb exec-out screencap -p > shots/android-widget-vi-dark.png

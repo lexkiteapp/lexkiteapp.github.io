@@ -67,7 +67,7 @@ ok(!L.spreadSlot(0, 3, { start: 'x', days: 3 }) && !L.spreadSlot(0, 3, { start: 
   const host = w.document.getElementById('h'); w.AdminClips.mount(host, { capi, esc: x => String(x ?? '').replace(/[&<>"']/g, c => `&#${c.charCodeAt(0)};`), lang: () => 'en', toast: m => calls.push(['toast', m]), open: it => calls.push(['open', it.id]) });
   const wait = ms => new Promise(r => setTimeout(r, ms)); await wait(60);
   ok(host.querySelectorAll('.cl-c').length > 0 && host.querySelectorAll('.cl-c').length <= 60 && host.querySelectorAll('*').length < 700, 'mount: first page only, small DOM (' + host.querySelectorAll('*').length + ' nodes)');
-  ok(/5,000 videos/.test(host.textContent) && host.querySelector('[data-cnt=pending]').textContent === '5,000' && host.querySelectorAll('.cl-tab').length === 5, 'sections with counts; total shown');
+  ok(/5,000 videos/.test(host.textContent) && host.querySelector('[data-cnt=pending]').textContent === '5,000' && host.querySelectorAll('.cl-tab[data-sec]').length === 5 && host.querySelectorAll('[data-type]').length === 4, 'sections with counts; total shown; type switch Shorts/Video dài/Podcast');
   host.querySelector('#cl-all').click(); ok(/5,000 selected/.test(host.querySelector('#cl-bar').textContent) && !calls.some(c => c[0] === 'ids'), 'select all 5 000: no id download');
   host.querySelector('.cl-c [data-ck]').click(); ok(/4,999 selected/.test(host.querySelector('#cl-bar').textContent), 'untick one → 4,999');
   host.querySelector('#cl-act').value = 'pause'; host.querySelector('#cl-act').dispatchEvent(new w.Event('change')); host.querySelector('#cl-go').click(); await wait(300);

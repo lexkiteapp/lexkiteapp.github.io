@@ -123,6 +123,8 @@ ok(r.s === 200 && r.j.matched === 1 && r.j.issues.some(i => i.kind === 'private'
 ok(!(await api('ids')).j.web['cafe-a'], 'private video never reaches the web manifest');
 google.privacy = 'unlisted'; r = await api('sync');
 ok(r.s === 200 && r.j.live.join() === 'cafe-a' && !r.j.issues.length, 'sync: unlisted + processed → live');
+ok(!(await api('ids')).j.web['cafe-a'], 'ids.web: video on a channel that is not an EMBED channel never reaches lessons');
+sql.prepare("INSERT OR REPLACE INTO yt_chan_cfg (channel_id, cfg, paused_reason, updated) VALUES ('UCchan0000001', ?, '', 1)").run(JSON.stringify({ role: 'embed' }));
 ok((await api('ids')).j.web['cafe-a'] === 'AAAAAAAAAAA', 'ids.web → youtube_id for the lesson (same as an API upload)');
 ok(google.list === 2 && google.videos === 2, 'quota: 1 list + 1 videos call per sync');
 ok((await api('approve', { ids: ['cafe-a'] })).s === 403, 'CLI cannot approve');

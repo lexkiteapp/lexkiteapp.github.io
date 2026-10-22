@@ -202,7 +202,7 @@ export async function modeOf(db, env = {}) {
 const setMeta = (db, k, v) => run(db, 'INSERT INTO yt_meta (k, v) VALUES (?, ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v', k, v);
 const getMeta = async (db, k) => { const r = await one(db, 'SELECT v FROM yt_meta WHERE k = ?', k); return r ? r.v : null; };
 /** Kick a workflow now (pack builder) – best-effort with the existing GH_DISPATCH_TOKEN; the cron catches up otherwise. */
-async function kick(env, wf) {
+export async function kick(env, wf) {
   if (!env.GH_DISPATCH_TOKEN) return false;
   const r = await fetch(`https://api.github.com/repos/lexkiteapp/lexkiteapp.github.io/actions/workflows/${wf}/dispatches`, { method: 'POST', headers: { Authorization: 'Bearer ' + env.GH_DISPATCH_TOKEN, Accept: 'application/vnd.github+json', 'User-Agent': 'lexkite-youtube', 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json' }, body: JSON.stringify({ ref: 'main' }) }).catch(() => null);
   return !!(r && (r.status === 204 || r.ok));
@@ -219,9 +219,9 @@ async function videosInfo(at, ids, db) {
   return out;
 }
 /** Read-only sync of ALL connected channels (youtube.readonly): uploads playlists (1 unit/50 videos) → markers → videos.list (1 unit/50) → reconcile → queue rows (+ the channel each video was found on). */
-export async function syncChannel(env, db, { pages = 4 } = {}) {
-  const chs = await channelsOk(db); if (!chs.length) return { status: 412, error: 'not-connected' };
-  const uploads = [], onCh = new Map(), tokens = new Map(), per = []; let complete = true;
+export async function syncChannel(env, db, { pages = 4, only = '' } = {}) {
+  const chs = (await channelsOk(db)).filter(c => !only || c.channel_id === only); if (!chs.length) return { status: 412, error: 'not-connected' };
+  const uploads = [], onCh = new Map(), tokens = new Map(), per = []; let complete = !only; // one channel scanned → never flag other channels' videos as missing
   for (const ch of chs) {
     let at; try { at = await accessToken(env, db, ch); } catch (e) { if (chs.length === 1) throw e; complete = false; per.push({ channel_id: ch.channel_id, title: ch.title, error: e.code || 'error' }); continue; }
     tokens.set(ch.channel_id, at);
@@ -373,10 +373,11 @@ const ADMIN_OPS = {
   async unqueue(db, b) { if (!CLIP.test(String(b.id || ''))) return { status: 400, error: 'bad-input' }; await unqueueClip(db, b.id); return { ok: true }; },
   /** Manual path cards: state, pack link (signed, 2 h), texts to copy, issues. */
   async packs(db, b, who, env) {
-    const rows = await all(db, `SELECT q.clip, q.lesson, q.status, q.privacy, q.video_id, q.err, q.approved_at, q.updated, q.title AS qtitle, p.file_id, p.drive_id, p.bytes, p.title, p.description, p.tags, p.at, p.retired
+    const rows = await all(db, `SELECT q.clip, q.lesson, q.status, q.privacy, q.video_id, q.err, q.channel_id, q.approved_at, q.updated, q.title AS qtitle, p.file_id, p.drive_id, p.bytes, p.title, p.description, p.tags, p.at, p.retired
       FROM yt_pack p JOIN yt_queue q ON q.clip = p.clip ORDER BY (q.status = 'done'), q.approved_at DESC LIMIT 300`);
-    const out = [], plan = await planInfo(db);
+    const out = [], plan = await planInfo(db), only = CHID.test(String(b.channel_id || '')) ? b.channel_id : '';
     for (const r of rows) {
+      const pc = (plan.get(r.clip) || {}).channel_id || r.channel_id || null; if (only && pc && pc !== only) continue;
       const url = r.file_id && !r.retired ? await signedPack(env, { fileId: r.file_id, driveId: r.drive_id }, r.clip) : null;
       let tags = []; try { tags = JSON.parse(r.tags || '[]'); } catch (e) { /* bỏ qua */ }
       out.push({ id: r.clip, lesson: r.lesson, status: r.status, video_id: r.video_id, err: r.err, approved_at: r.approved_at, updated: r.updated, pack: url, bytes: r.bytes, ready: !!r.file_id, retired: !!r.retired,
@@ -385,7 +386,7 @@ const ADMIN_OPS = {
     const ch = await channelRow(db, CHID.test(String(b.channel_id || '')) ? b.channel_id : '');
     return { rows: out, studio: ch ? `https://studio.youtube.com/channel/${ch.channel_id}/videos/upload?d=ud` : STUDIO, ...(await counts(db)) };
   },
-  async sync(db, b, who, env) { return syncChannel(env, db, { pages: b.full ? 40 : 4 }); },
+  async sync(db, b, who, env) { return syncChannel(env, db, { pages: b.full ? 40 : 4, only: CHID.test(String(b.channel_id || '')) ? b.channel_id : '' }); }, // "Chọn kênh YouTube" → only that channel
   /** Fallback: paste the YouTube link for a clip (verified on our channel when connected; otherwise trusted as unlisted). */
   async link(db, b, who, env) {
     const id = String(b.id || ''), vid = ytIdOf(b.url);
@@ -415,12 +416,16 @@ const ADMIN_OPS = {
 const CLI_OPS = {
   /** approved/uploaded ids (shorts-archive.mjs keeps 2 copies of these; web-rendition.mjs adds youtube_id when the video is watchable). */
   async ids(db) {
-    const rows = await all(db, 'SELECT clip, lesson, status, privacy, publish_at, video_id FROM yt_queue'), now = Date.now();
-    const web = {}, off = new Set((await all(db, 'SELECT clip FROM clip_review WHERE web = 0')).map(r => r.clip));
-    for (const r of rows) if (!off.has(r.clip) && r.status === 'done' && r.video_id && (r.privacy === 'unlisted' || r.privacy === 'public' || (r.publish_at && Date.parse(r.publish_at) <= now))) { web[r.clip] = r.video_id; if (r.lesson) web[r.lesson] = r.video_id; }
-    return { approved: rows.map(r => r.clip), uploaded: Object.fromEntries(rows.filter(r => r.video_id).map(r => [r.clip, r.video_id])), web };
+    const rows = await all(db, 'SELECT clip, lesson, status, privacy, publish_at, video_id, channel_id FROM yt_queue'), now = Date.now();
+    const web = {}, off = new Set((await all(db, 'SELECT clip FROM clip_review WHERE web = 0 OR deleted > 0')).map(r => r.clip));
+    const embed = new Set(); for (const c of await all(db, 'SELECT channel_id, cfg FROM yt_chan_cfg')) { try { const x = JSON.parse(c.cfg || '{}'); if (x.role === 'embed' && x.active !== 0) embed.add(c.channel_id); } catch (e) { /* skip */ } }
+    for (const r of rows) if (!off.has(r.clip) && embed.has(r.channel_id) && r.status === 'done' && r.video_id && (r.privacy === 'unlisted' || r.privacy === 'public' || (r.publish_at && Date.parse(r.publish_at) <= now))) { web[r.clip] = r.video_id; if (r.lesson) web[r.lesson] = r.video_id; }
+    const purge = (await all(db, 'SELECT clip FROM clip_review WHERE deleted = 2')).map(r => r.clip); // "Xóa hẳn" → shorts-archive.mjs trashes Drive files + drops the recipe, then op purged
+    return { purge, approved: rows.map(r => r.clip), uploaded: Object.fromEntries(rows.filter(r => r.video_id).map(r => [r.clip, r.video_id])), web };
   },
   async quota(db) { return { quota: await quotaInfo(db) }; },
+  /** shorts-archive.mjs: Drive files of these hard-deleted clips are in the trash and the recipe is gone → deleted = 3 (purged, kept as a tombstone). */
+  async purged(db, b) { const ids = (Array.isArray(b.ids) ? b.ids : []).map(String).filter(x => CLIP.test(x)).slice(0, 200); for (const id of ids) await run(db, 'UPDATE clip_review SET deleted = 3, updated = ? WHERE clip = ? AND deleted = 2', Date.now(), id); return { ok: true, count: ids.length }; },
   async next(db, b, who, env) {
     if ((await modeOf(db, env)) !== 'api') return { items: [], quota: await quotaInfo(db), channel: null, mode: 'manual' }; // manual mode: owner uploads in Studio
     const ch = await channelRow(db); if (!ch) return { items: [], quota: await quotaInfo(db), channel: null };
@@ -475,7 +480,8 @@ const CLI_OPS = {
   async sync(db, b, who, env) { return syncChannel(env, db, { pages: b.full ? 40 : 4 }); },
   /** Pack builder (scripts/video/yt-pack.mjs): clips waiting for a pack + packs of live clips to retire (Drive trash after 3 days on the web). */
   async packs(db, b, who, env) {
-    const todo = await all(db, "SELECT p.clip AS id, q.lesson FROM yt_pack p JOIN yt_queue q ON q.clip = p.clip WHERE q.status = 'manual' AND p.file_id IS NULL ORDER BY q.approved_at LIMIT 20");
+    const todo = await all(db, "SELECT p.clip AS id, q.lesson, pl.channel_id FROM yt_pack p JOIN yt_queue q ON q.clip = p.clip LEFT JOIN yt_plan pl ON pl.clip = p.clip WHERE q.status = 'manual' AND p.file_id IS NULL ORDER BY q.approved_at LIMIT 20");
+    for (const t of todo) t.role = t.channel_id ? (await chanCfg(db, t.channel_id)).cfg.role : 'embed'; // manual path = unlisted → embed unless planned to a social channel
     const retire = await all(db, "SELECT p.clip AS id, p.sha FROM yt_pack p JOIN yt_queue q ON q.clip = p.clip WHERE q.status = 'done' AND q.err IS NULL AND p.retired = 0 AND p.sha IS NOT NULL AND q.updated < ? LIMIT 20", Date.now() - 3 * 864e5);
     return { todo, retire, mode: await modeOf(db, env) };
   },
@@ -498,7 +504,7 @@ const CLI_OPS = {
   },
 };
 const DANGER = new Set(['disconnect']); // revoke + delete a channel → sign-in ≤ 15 min old (same rule as drive.js)
-const WRITE = new Set(['connect', 'disconnect', 'setdefault', 'settings', 'approve', 'unqueue', 'session', 'done', 'fail', 'sync', 'link', 'pack']);
+const WRITE = new Set(['connect', 'disconnect', 'setdefault', 'settings', 'approve', 'unqueue', 'session', 'done', 'fail', 'sync', 'link', 'pack', 'purged']);
 
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: adminCors(request) });
 

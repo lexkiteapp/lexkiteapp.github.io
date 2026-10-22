@@ -316,7 +316,7 @@ for (const f of [{ offset: 'abc' }, { offset: 'Infinity', limit: 'NaN' }, { offs
   ok((await post({ op: 'bulk', action: 'channel', ids, params: { channel_id: 'UC_not_connected' } })).s === 404, 'channel: kênh chưa kết nối → 404');
   r = await post({ op: 'bulk', action: 'delete', ids: [ids[3]] }, stale); ok(r.s === 401 && r.j.error === 'reauth' && !sql.prepare('SELECT 1 FROM clip_review WHERE clip = ? AND deleted > 0').get(ids[3]), 'delete cần đăng nhập gần đây (stale → 401 reauth, chưa xoá gì)');
   r = await post({ op: 'bulk', action: 'delete', ids: [ids[3]] }); ok(r.s === 200 && sql.prepare('SELECT deleted FROM clip_review WHERE clip = ?').get(ids[3]).deleted === 1, 'delete mềm: ẩn clip, giữ công thức (deleted=1)');
-  r = await post({ op: 'bulk', action: 'delete', ids: [ids[4]], params: { hard: true } }); ok(sql.prepare('SELECT deleted FROM clip_review WHERE clip = ?').get(ids[4]).deleted === 2, 'xoá hẳn đánh dấu deleted=2');
+  r = await post({ op: 'bulk', action: 'delete', ids: [ids[4]], params: { hard: true } }); ok(r.s === 400 && JSON.parse(r.text).error === 'confirm', 'xoá hẳn thiếu xác nhận gõ tay → 400'); r = await post({ op: 'bulk', action: 'delete', ids: [ids[4]], params: { hard: true, confirm: 'DELETE 1', total: 1 } }); ok(sql.prepare('SELECT deleted FROM clip_review WHERE clip = ?').get(ids[4]).deleted === 2, 'xoá hẳn đánh dấu deleted=2');
   ok(!(await post({ op: 'ids', filter: { hidden: true } })).j.ids.includes(ids[3]), 'clip đã xoá không còn trong kết quả');
   r = await post({ op: 'bulk', action: 'restore', ids: [ids[3]] }); ok(r.j.done === 1 && (await post({ op: 'ids', filter: { hidden: true } })).j.ids.includes(ids[3]), 'restore đưa clip đã xoá mềm trở lại');
   r = await post({ op: 'bulk', action: 'pause', ids: Array.from({ length: 150 }, (_, i) => ids[i % 5]) }); ok(r.s === 200 && r.j.results.length <= 5, 'bulk: id trùng được gộp, tối đa 100 id/lô');
@@ -330,7 +330,7 @@ for (const f of [{ offset: 'abc' }, { offset: 'Infinity', limit: 'NaN' }, { offs
 // Kênh & phân phối (/api/distribution): chỉ admin, op lạ → 400, cấu hình/luật được chuẩn hoá, kế hoạch tôn trọng hạn mức, ghi nhật ký
 { const DI = await import(new URL('../../functions/api/distribution.js', import.meta.url)), YT2 = await import(new URL('../../functions/api/youtube.js', import.meta.url)), SD2 = await import(new URL('../../functions/api/_shorts_data.js', import.meta.url));
   const post = (body, token = ADM) => run(DI, req('/api/distribution', body, { token })), CH = 'UC_one_000001', clips = SD2.default.index.items.filter(x => x.qa && x.qa.status === 'pass' && !x.rejected).slice(0, 5).map(x => x.id);
-  for (const op of ['get', 'cfg_set', 'rules_set', 'plan_run', 'plan_set', 'resume']) {
+  for (const op of ['get', 'cfg_set', 'rules_set', 'plan_run', 'plan_set', 'resume', 'ext_sync', 'test_clip', 'meta', 'social_due', 'social_ack', 'embed_status']) {
     const anon = await run(DI, req('/api/distribution', { op })); ok((anon.s === 401 || anon.s === 403) && !leaks(anon.text), `distribution '${op}' không token bị chặn (${anon.s})`);
     const usr = await post({ op }, USER); ok(usr.s === 403 && !leaks(usr.text), `distribution '${op}' người dùng thường → 403 (${usr.s})`);
   }
@@ -351,6 +351,22 @@ for (const f of [{ offset: 'abc' }, { offset: 'Infinity', limit: 'NaN' }, { offs
   await YT2.pauseChannel(DB, CH, 'test strike'); const g2 = await post({ op: 'get' }); ok(g2.j.channels.find(c => c.channel_id === CH).cfg.active === 0 && g2.j.alerts[0].reason === 'test strike', 'tự động tạm dừng kênh + cảnh báo cho admin');
   const rr = await post({ op: 'plan_run', replan: true }); ok(rr.j.planned === 0 || rr.j.skipped.length >= 0, 'kênh tạm dừng không nhận lịch mới');
   ok((await post({ op: 'resume', channel_id: CH })).s === 200 && (await post({ op: 'get' })).j.channels.find(c => c.channel_id === CH).cfg.active === 1, 'resume bật lại kênh');
+  // Mạng xã hội (bản sao GrabCast của tác tử social) + vai trò nhúng/social + kiểm thử luật
+  ok((await post({ op: 'ext_sync', accounts: 'x' })).s === 400, 'ext_sync: dữ liệu sai → 400');
+  r = await post({ op: 'ext_sync', accounts: [{ platform: 'tiktok', id: 'tt1', name: 'Lexkite TT', avatar: 'javascript:alert(1)' }, { platform: 'myspace', id: 'm1' }, { platform: 'instagram', id: '../x' }] });
+  const TT = 'gc-tiktok-tt1'; ok(r.s === 200 && r.j.channels.join() === TT && !sql.prepare('SELECT thumb FROM dist_ext WHERE channel_id = ?').get(TT).thumb, 'ext_sync: chỉ nền tảng hợp lệ, id an toàn, ảnh không https bị bỏ');
+  r = await post({ op: 'cfg_set', channel_id: TT, cfg: { role: 'embed', daily_cap: 2 } }); ok(r.s === 200 && r.j.cfg.role === 'social', 'kênh social ngoài YouTube không thể là kênh nhúng');
+  ok((await post({ op: 'rules_set', rules: [{ cond: { type: 'short' }, channel_id: TT }], fallback: TT })).s === 400, 'fallback chỉ được là kênh YouTube');
+  r = await post({ op: 'rules_set', rules: [{ name: 'IELTS', cond: { topic: 'exam/ielts' }, channel_id: CH }, { name: 'TikTok', cond: { type: 'short' }, channel_id: TT }], fallback: CH }); ok(r.s === 200 && r.j.count === 2, 'rules_set nhận kênh social');
+  r = await post({ op: 'test_clip', sample: { type: 'short', topic: 'exam', sub: 'exam/ielts', cefr: 'B1' } }); ok(r.s === 200 && r.j.routes.some(x => x.channel_id === TT) && r.j.trace.length === 2, 'test_clip: định tuyến mỗi nền tảng 1 kênh + vết từng luật');
+  ok((await post({ op: 'test_clip' })).s === 400 && (await post({ op: 'test_clip', clip: 'nope-nope' })).s === 404, 'test_clip: thiếu/lạ → 400/404');
+  r = await post({ op: 'meta', clip: clips[1], platforms: ['youtube', 'tiktok', 'evil'] }); ok(r.s === 200 && r.j.embed.privacy === 'unlisted' && r.j.embed.description.includes('lk:' + clips[1]) && r.j.social.youtube.title.length <= 60 && r.j.social.tiktok && !r.j.social.evil, 'meta: gói nhúng (unlisted, lk:) + bài social theo nền tảng');
+  sql.prepare("INSERT OR REPLACE INTO dist_social (clip, channel_id, platform, slot_ms, source, rule, state, updated) VALUES (?, ?, 'tiktok', ?, 'auto', 1, 'planned', 1)").run(clips[1], TT, Date.now() + 36e5);
+  r = await post({ op: 'social_due' }); ok(r.s === 200 && r.j.rows.some(x => x.clip === clips[1] && x.meta.hashtags.length >= 3 && x.account_id === 'tt1'), 'social_due: bài tới hạn kèm metadata cho tác tử social');
+  ok((await post({ op: 'social_ack', clip: clips[1], channel_id: TT, state: 'hacked' })).s === 400 && (await post({ op: 'social_ack', clip: clips[2], channel_id: TT, state: 'pushed' })).s === 404, 'social_ack: trạng thái lạ → 400, bài lạ → 404');
+  r = await post({ op: 'social_ack', clip: clips[1], channel_id: TT, state: 'pushed', post_id: 'p_123' }); ok(r.s === 200 && sql.prepare('SELECT state, post_id FROM dist_social WHERE clip = ?').get(clips[1]).post_id === 'p_123', 'social_ack ghi trạng thái + id bài');
+  r = await post({ op: 'plan_set', ids: [clips[2]], channel_id: TT }); ok(r.s === 400, 'ghi đè kênh social cần giờ đăng');
+  r = await post({ op: 'embed_status' }); ok(r.s === 200 && Array.isArray(r.j.ready) && Array.isArray(r.j.coverage) && r.j.channels.every(c => !String(c.channel_id).startsWith('gc-')) && !leaks(r.text), 'embed_status: hàng chờ bài học, phủ, chỉ kênh YouTube');
   let aud = 0; try { aud = sql.prepare("SELECT COUNT(*) n FROM admin_log WHERE op LIKE 'dist.%'").get().n; } catch (e) { /* none */ } ok(aud >= 5, 'thao tác ghi nhật ký (' + aud + ')');
 }
 
