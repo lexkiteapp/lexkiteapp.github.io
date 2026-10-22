@@ -65,6 +65,16 @@
   HTMLMediaElement.prototype.play = function () { const src = this.currentSrc || this.src; const p = MP.apply(this, arguments); if (p && p.catch) p.catch(e => e && e.name !== 'AbortError' && add('media.play', (e && e.name) + ': ' + (e && e.message) + ' ' + String(src).slice(-80))); return p; };
   // Gọi plugin gốc: ghi lại; Share/thông báo bị CHẶN trong vòng chính (hộp hệ thống sẽ che màn hình) – có bước gọi thật riêng ở cuối
   const nativeCalls = [];
+  // Chế độ kiểm đăng nhập gốc (native-auth-e2e.yml): inject.sh đặt window.__E2E_MODE = 'auth' → chỉ chạy kịch bản đăng nhập
+  const MODE = W.__E2E_MODE || '';
+  // Ghi mọi lệnh gọi/kết quả plugin FirebaseAuthentication qua cầu Capacitor (toNative/fromNative) – không ghi dữ liệu người dùng
+  const authLog = [];
+  (function hookBridge() {
+    if (!Cap || Cap.__e2eAuth) return; Cap.__e2eAuth = 1;
+    const tn = Cap.toNative, fn = Cap.fromNative;
+    if (typeof tn === 'function') Cap.toNative = function (pl, m) { if (pl === 'FirebaseAuthentication') authLog.push({ dir: 'call', m, t: now(), step: cur.step }); return tn.apply(this, arguments); };
+    if (typeof fn === 'function') Cap.fromNative = function (r) { try { if (r && r.pluginId === 'FirebaseAuthentication') authLog.push({ dir: 'ret', m: r.methodName, success: !!r.success, code: String((r.error && r.error.code) || ''), err: String((r.error && r.error.message) || '').slice(0, 200), t: now() }); } catch (e) { /* bỏ qua */ } return fn.apply(this, arguments); };
+  })();
   let stubNative = true;
   // navigator.share (Web Share của WKWebView) mở bảng chia sẻ hệ thống che màn hình → cũng chặn trong vòng chính
   const NS = navigator.share && navigator.share.bind(navigator);
@@ -169,6 +179,7 @@
   const LANG_ROUTES = ['home', 'vocab', 'skills', 'tests', 'me', 'settings'];
   const IPAD = /iPad/.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && /Macintosh/.test(navigator.userAgent)) || Math.min(screen.width, screen.height) >= 700;
   function plan() {
+    if (MODE === 'auth') return planAuth();
     const S = [];
     S.push({ k: 'launch' });
     S.push({ k: 'toapp' });
@@ -186,6 +197,15 @@
     S.push({ k: 'done' });
     return S;
   }
+  function planAuth() {
+    const ios = Cap && Cap.getPlatform && Cap.getPlatform() === 'ios';
+    const S = [{ k: 'launch' }, { k: 'toapp' }, { k: 'lang', l: 'en' }, { k: 'onboard' }, { k: 'authui' }, { k: 'authtap', p: 'google' }, { k: 'usable' }];
+    if (ios) S.push({ k: 'authtap', p: 'apple' }, { k: 'usable' });
+    S.push({ k: 'acctdel' }, { k: 'done' });
+    return S;
+  }
+  const COMING = /sẽ có ở bản phát hành chính thức|phát hành chính thức|coming soon|official release|full release/i;
+  const plat = () => Cap && Cap.getPlatform && Cap.getPlatform();
   const visited = new Set();
   async function visit(route, label, opts) {
     opts = opts || {};
@@ -357,6 +377,75 @@
         else { const sleepR = ms => new Promise(r => setTimeout(() => r('đang mở bảng chia sẻ (chờ người dùng)'), ms)); const r = await Promise.race([P().Share ? P().Share.share({ title: 'Lexkite', text: 'test', url: 'https://lexkite.com/' }).then(() => 'ok', e => 'err ' + e.message) : Promise.resolve('no plugin'), sleepR(3000)]); emit({ type: 'info', key: 'share', direct: r, note: 'không có nút chia sẻ trên trang từ' }); await sleep(2500); await shot('share'); }
         return relaunchNext();
       }
+      case 'authui': {
+        emit({ type: 'info', key: 'auth', flag: W.LK_NATIVE_AUTH || null, native: !!(W.Sync && Sync.native), can: !!(W.Sync && Sync.can), plugin: !!P().FirebaseAuthentication, plat: plat() });
+        if (!(W.Sync && Sync.native)) add('auth', 'Đăng nhập gốc TẮT (Sync.native=false, LK_NATIVE_AUTH=' + JSON.stringify(W.LK_NATIVE_AUTH || null) + ')');
+        await visit('settings', 'settings', { shot: false });
+        const box = document.getElementById('syncBox'); if (box) { box.scrollIntoView({ block: 'center' }); await sleep(600); }
+        const accts = box ? [...box.querySelectorAll('[data-acct]')].filter(vis).map(b => b.dataset.acct) : [];
+        emit({ type: 'info', key: 'auth-settings', accts });
+        if (!accts.includes('google') && !accts.includes('in')) add('auth', 'Thẻ tài khoản (Cài đặt) không có nút Google: [' + accts.join(',') + ']');
+        if (plat() === 'ios' && !accts.includes('apple')) add('auth', 'iOS: thẻ tài khoản không có nút Apple (App Store 4.8)');
+        if (COMING.test(document.body.innerText)) add('auth', 'Có chữ "sắp có / phát hành chính thức" trên màn đăng nhập');
+        await shot('signin-settings');
+        if (plat() === 'ios') { // nút đầu trang → bảng chọn Apple + Google
+          const a = document.getElementById('avatarBtn');
+          if (!a || !vis(a)) add('auth', 'Không thấy nút đăng nhập đầu trang');
+          else {
+            a.click(); await sleep(1500);
+            const m = document.getElementById('modal'), open = m && !m.hidden;
+            const ks = open ? [...m.querySelectorAll('[data-acct]')].filter(vis).map(b => b.dataset.acct) : [];
+            emit({ type: 'info', key: 'auth-chooser', ks });
+            if (!(ks.includes('apple') && ks.includes('google'))) add('auth', 'Bảng chọn đăng nhập iOS thiếu Apple/Google: [' + ks.join(',') + ']');
+            if (open && COMING.test(m.innerText)) add('auth', 'Hộp thoại "sắp có / phát hành chính thức"');
+            await shot('signin-chooser'); closeModal(); await sleep(500);
+          }
+        }
+        return;
+      }
+      case 'authtap': {
+        await visit('settings', 'settings', { shot: false });
+        const b = document.querySelector('#syncBox [data-acct="' + s.p + '"]') || (s.p === 'google' && document.querySelector('#syncBox [data-acct="in"]'));
+        if (!b) { add('auth', 'Không có nút ' + s.p); return; }
+        b.scrollIntoView({ block: 'center' }); await sleep(400);
+        const n0 = authLog.length; b.click(); await sleep(1500);
+        if (!authLog.slice(n0).some(x => x.dir === 'call' && /signInWith/i.test(x.m))) add('auth', 'Bấm ' + s.p + ' nhưng plugin FirebaseAuthentication.signInWith… không được gọi');
+        const r = await host('nativesheet', { provider: s.p }, 150000);
+        let hr = null; try { hr = JSON.parse(r || 'null'); } catch (e) { hr = { raw: r }; }
+        let res; for (let k = 0; k < 60 && !(res = authLog.slice(n0).find(x => x.dir === 'ret' && /signInWith/i.test(x.m))); k++) await sleep(250);
+        emit({ type: 'info', key: 'auth-' + s.p, host: hr, log: authLog.slice(n0) });
+        if (!hr || !hr.found) add('auth', s.p + ': không thấy bảng/hoạt động đăng nhập gốc của hệ thống');
+        if (!res) add('auth', s.p + ': plugin chưa trả kết quả sau khi hủy (promise treo)');
+        else if (res.success) add('auth', s.p + ': đăng nhập thành công ngoài ý muốn');
+        else if (!/cancel|1001|12501|-5\b/i.test(res.code + ' ' + res.err)) add('auth', s.p + ': lỗi không phải "hủy": ' + res.code + ' ' + res.err);
+        await sleep(800);
+        const tt = [...document.querySelectorAll('.toast, [role=status], [role=alert]')].filter(vis).map(x => x.innerText).join(' | ');
+        if (/Không đăng nhập được|Couldn.t sign in|sign-in failed/i.test(tt)) add('auth', s.p + ': hiện thông báo lỗi sau khi hủy: ' + tt.slice(0, 160));
+        await shot('after-cancel-' + s.p);
+        return;
+      }
+      case 'usable': {
+        closeModal();
+        for (const r of ['home', 'vocab', 'settings']) { await visit(r, 'usable-' + r, { shot: false }); const v = document.getElementById('view'); if (!v || (v.innerText || '').trim().length < 40) add('auth', 'App không dùng được sau khi hủy đăng nhập: #/' + r + ' trống'); }
+        const m = document.getElementById('modal'); if (m && !m.hidden) add('auth', 'Còn hộp thoại treo sau khi hủy đăng nhập');
+        return;
+      }
+      case 'acctdel': { // dữ liệu giả (fixture) – KHÔNG đăng nhập thật; chỉ mở hộp xác nhận rồi đóng
+        const real = W.Sync.user;
+        W.Sync.user = { uid: 'e2e-fixture', displayName: 'E2E Fixture', email: 'fixture@lexkite.test', photoURL: '', providerData: [{ providerId: 'google.com' }], getIdToken: () => Promise.reject(new Error('fixture')), delete: () => Promise.reject(new Error('fixture')) };
+        try {
+          await visit('settings', 'settings', { shot: false });
+          const d = document.querySelector('#syncBox [data-acct="del"]');
+          if (!d || !vis(d)) add('auth', 'Không thấy nút "Xóa tài khoản" ở thẻ tài khoản');
+          else {
+            d.scrollIntoView({ block: 'center' }); d.click(); await sleep(3000);
+            const m = document.getElementById('modal');
+            if (!m || m.hidden || !/Lexkite/.test(m.innerText)) add('auth', 'Bấm "Xóa tài khoản" không mở hộp xác nhận xóa');
+            await shot('account-delete'); closeModal(); await sleep(400);
+          }
+        } finally { W.Sync.user = real || null; const bx = document.getElementById('syncBox'); if (bx && W.Sync.renderBox) W.Sync.renderBox(bx); }
+        return;
+      }
       case 'realnotify': {
         stubNative = false;
         await visit('settings', 'settings', { shot: false });
@@ -395,7 +484,7 @@
       st.i++; st.inStep = null; save();
     }
   }
-  const stepName = s => s ? s.k + (s.r ? ':' + s.r : '') + (s.l ? ':' + s.l : '') : '?';
+  const stepName = s => s ? s.k + (s.r ? ':' + s.r : '') + (s.l ? ':' + s.l : '') + (s.p ? ':' + s.p : '') : '?';
   // Chặn rời app: ghi lại nơi sắp tới trước khi bỏ trang
   W.addEventListener('pagehide', () => { st.lastLoc = location.href; save(); });
   document.addEventListener('click', e => { const a = e.target.closest && e.target.closest('a[href]'); if (a) { const h = a.getAttribute('href'); if (h && !h.startsWith('#')) { st.lastLoc = 'bấm liên kết ' + h + ' (target=' + (a.target || '') + ')'; save(); } } }, true);
