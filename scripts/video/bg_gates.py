@@ -73,7 +73,7 @@ def phash(im):
 
 def sharp_expo(im):
     g = np.array(im.convert('L').resize((1080, 1920) if im.size[1] > im.size[0] else (1920, 1080), Image.LANCZOS)).astype(np.float32)
-    gm = np.hypot(cv2.Sobel(g, cv2.CV_32F, 1, 0), cv2.Sobel(g, cv2.CV_32F, 0, 1)).ravel(); acu = float(np.partition(gm, -3000)[-3000:].mean())   # edge acuity: mean of the 3000 strongest gradients (flat art: sparse-scene safe, drops when blurry)
+    gm = np.hypot(cv2.Sobel(g, cv2.CV_32F, 1, 0), cv2.Sobel(g, cv2.CV_32F, 0, 1)).ravel(); acu = float(np.partition(gm, -3000)[-3000:].mean()) / max(60.0, float(np.percentile(g, 99.5) - np.percentile(g, 0.5))) * 100   # / dynamic range: night scenes are low-contrast, not soft   # edge acuity: mean of the 3000 strongest gradients (flat art: sparse-scene safe, drops when blurry)
     return dict(lap=round(float(cv2.Laplacian(g, cv2.CV_32F).var()), 1), acu=round(acu, 1), L=round(float(g.mean()), 1), clip_frac=round(float(((g < 8) | (g > 247)).mean()), 4))
 
 def upscale(crop):
