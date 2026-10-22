@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A1F00000000000000000015 /* WordViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1F00000000000000000004 /* WordViews.swift */; };
+		7A1F00000000000000000011 /* WordFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1F00000000000000000001 /* WordFeed.swift */; };
+		7A1F00000000000000000012 /* WordFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1F00000000000000000001 /* WordFeed.swift */; };
+		7A1F00000000000000000013 /* WordWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1F00000000000000000002 /* WordWidget.swift */; };
+		7A1F00000000000000000014 /* WordWidgetPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1F00000000000000000003 /* WordWidgetPlugin.swift */; };
 		0A88D2886B71276F56C5E649 /* LexkiteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58750283C23E50CF461BB66 /* LexkiteWidget.swift */; };
 		1CC5DD35450CEE99C9F7C8AF /* WidgetSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0D88EFCC704CE289C1A4CB /* WidgetSnapshot.swift */; };
 		2F8B629EA0EBA8972F5EC46A /* WidgetBridgePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834C855EE7FCE1C83B1B7179 /* WidgetBridgePlugin.swift */; };
@@ -56,6 +61,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7A1F00000000000000000004 /* WordViews.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WordViews.swift; sourceTree = "<group>"; };
+		7A1F00000000000000000001 /* WordFeed.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WordFeed.swift; sourceTree = "<group>"; };
+		7A1F00000000000000000002 /* WordWidget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WordWidget.swift; sourceTree = "<group>"; };
+		7A1F00000000000000000003 /* WordWidgetPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WordWidgetPlugin.swift; sourceTree = "<group>"; };
 		04647CD86025B57FA019C25A /* App.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = App.entitlements; sourceTree = "<group>"; };
 		08EEAD8C1C9626EBE7E37F12 /* pt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		138FF258B30F7EE8340AA671 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -153,6 +162,7 @@
 				2FAD9762203C412B000D30F8 /* config.xml */,
 				50B271D01FEDC1A000F3C39B /* public */,
 				834C855EE7FCE1C83B1B7179 /* WidgetBridgePlugin.swift */,
+				7A1F00000000000000000003 /* WordWidgetPlugin.swift */,
 				472533D67AAAFC089022E72F /* LexkiteBridgeViewController.swift */,
 				04647CD86025B57FA019C25A /* App.entitlements */,
 				138FF258B30F7EE8340AA671 /* PrivacyInfo.xcprivacy */,
@@ -174,6 +184,9 @@
 				2A0D88EFCC704CE289C1A4CB /* WidgetSnapshot.swift */,
 				C215F53F7DE48D1BA934567F /* WidgetViews.swift */,
 				C58750283C23E50CF461BB66 /* LexkiteWidget.swift */,
+				7A1F00000000000000000001 /* WordFeed.swift */,
+				7A1F00000000000000000002 /* WordWidget.swift */,
+				7A1F00000000000000000004 /* WordViews.swift */,
 				2A2E8638EF11E169ED26A4FC /* Info.plist */,
 				B013B3784340C4045E99ACA9 /* LexkiteWidget.entitlements */,
 				E35329E0E187A285025CF8DA /* Localizable.strings */,
@@ -345,6 +358,9 @@
 				610DB8B03263E00BC8F36D45 /* WidgetSnapshot.swift in Sources */,
 				E7812FBF8F485E0DF759E67C /* WidgetViews.swift in Sources */,
 				0A88D2886B71276F56C5E649 /* LexkiteWidget.swift in Sources */,
+				7A1F00000000000000000011 /* WordFeed.swift in Sources */,
+				7A1F00000000000000000013 /* WordWidget.swift in Sources */,
+				7A1F00000000000000000015 /* WordViews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +371,8 @@
 				504EC3081FED79650016851F /* AppDelegate.swift in Sources */,
 				9582B6832FE993A70072D4E8 /* SceneDelegate.swift in Sources */,
 				2F8B629EA0EBA8972F5EC46A /* WidgetBridgePlugin.swift in Sources */,
+				7A1F00000000000000000014 /* WordWidgetPlugin.swift in Sources */,
+				7A1F00000000000000000012 /* WordFeed.swift in Sources */,
 				C555A85B2237479742F91D52 /* LexkiteBridgeViewController.swift in Sources */,
 				1CC5DD35450CEE99C9F7C8AF /* WidgetSnapshot.swift in Sources */,
 			);

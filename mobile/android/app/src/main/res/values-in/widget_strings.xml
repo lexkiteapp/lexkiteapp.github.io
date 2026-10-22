@@ -2,4 +2,7 @@
 <!-- Sinh tự động: scripts/gen-widget-i18n.mjs -->
 <resources>
     <string name="widget_desc">Kartu jatuh tempo hari ini · 🔥 Hari berturut-turut</string>
+    <string name="word_widget_label">Kata per jam</string>
+    <string name="word_widget_desc">Satu kata di layarmu, berganti sesuai ritme pilihanmu</string>
+    <string name="word_widget_tap">Ketuk untuk melihat arti</string>
 </resources>

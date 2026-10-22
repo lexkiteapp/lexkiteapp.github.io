@@ -2,4 +2,7 @@
 <!-- Sinh tự động: scripts/gen-widget-i18n.mjs -->
 <resources>
     <string name="widget_desc">今日待复习 · 🔥 连续天数</string>
+    <string name="word_widget_label">每小时一词</string>
+    <string name="word_widget_desc">屏幕上的一个单词，按你选择的频率更换</string>
+    <string name="word_widget_tap">点按查看释义</string>
 </resources>

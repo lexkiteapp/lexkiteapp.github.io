@@ -132,9 +132,13 @@ jobs:
             # Widget màn hình chính: dựng đúng RemoteViews (WidgetPreviewActivity, chỉ bản debug; mỗi dòng chạy riêng nên không dùng biến), tối/sáng × vi/ar (RTL)
             adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es lang vi && sleep 3 && adb exec-out screencap -p > shots/android-widget-vi-dark.png
             adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es lang ar && sleep 3 && adb exec-out screencap -p > shots/android-widget-ar-dark.png
+            adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es kind word --es lang vi && sleep 3 && adb exec-out screencap -p > shots/android-word-vi-dark.png
+            adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es kind word --es lang ar && sleep 3 && adb exec-out screencap -p > shots/android-word-ar-dark.png
             adb shell cmd uimode night no && sleep 2
             adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es lang vi && sleep 3 && adb exec-out screencap -p > shots/android-widget-vi-light.png
             adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es lang ar && sleep 3 && adb exec-out screencap -p > shots/android-widget-ar-light.png
+            adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es kind word --es lang vi && sleep 3 && adb exec-out screencap -p > shots/android-word-vi-light.png
+            adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es kind word --es lang vi --ez quiz true && sleep 3 && adb exec-out screencap -p > shots/android-word-quiz-light.png
       - uses: actions/upload-artifact@v4
         if: always()
         with:

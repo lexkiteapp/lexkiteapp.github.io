@@ -1,2 +1,5 @@
 /* Sinh tự động: scripts/gen-widget-i18n.mjs */
 "widget.desc" = "今日待复习 · 🔥 连续天数";
+"word.name" = "每小时一词";
+"word.desc" = "屏幕上的一个单词，按你选择的频率更换";
+"word.tap" = "点按查看释义";

@@ -2,4 +2,7 @@
 <!-- Sinh tự động: scripts/gen-widget-i18n.mjs -->
 <resources>
     <string name="widget_desc">Cards due today · 🔥 Day streak</string>
+    <string name="word_widget_label">Word of the hour</string>
+    <string name="word_widget_desc">One word on your screen, changing at the pace you choose</string>
+    <string name="word_widget_tap">Tap to see the meaning</string>
 </resources>

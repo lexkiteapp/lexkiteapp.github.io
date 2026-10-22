@@ -91,5 +91,8 @@ struct LexkiteReviewWidget: Widget {
 
 @main
 struct LexkiteWidgetBundle: WidgetBundle {
-    var body: some Widget { LexkiteReviewWidget() }
+    var body: some Widget {
+        LexkiteReviewWidget()
+        LexkiteWordWidget() // "Từ mỗi giờ" – WordWidget.swift
+    }
 }

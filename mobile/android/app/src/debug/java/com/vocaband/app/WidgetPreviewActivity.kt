@@ -22,6 +22,23 @@ class WidgetPreviewActivity : Activity() {
         )
         val dp = resources.displayMetrics.density
         val col = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding((24 * dp).toInt(), (64 * dp).toInt(), (24 * dp).toInt(), 0); setBackgroundColor(Color.parseColor("#3A4A5A")) }
+        // --es kind word → widget "Từ mỗi giờ" (WordWidget.build): 4×2 có ví dụ, 2×2, 4×1 gọn; --ez quiz true = ẩn nghĩa
+        if (intent.getStringExtra("kind") == "word") {
+            val quiz = intent.getBooleanExtra("quiz", false)
+            val feed = JSONObject(
+                if (ar) """{"items":[{"w":"resilient","ipa":"/rɪˈzɪliənt/","mean":"مرن، قادر على التعافي","ex":"Children are often more resilient than adults.","id":"resilient"}],
+                    "intervalMin":60,"startHour":0,"endHour":24,"showMean":${!quiz},"rtl":true,"l":{"title":"كلمة كل ساعة","tap":"اضغط لرؤية المعنى"}}"""
+                else """{"items":[{"w":"meticulous","ipa":"/məˈtɪkjələs/","mean":"tỉ mỉ, kỹ lưỡng","ex":"She keeps meticulous notes of every lesson.","id":"meticulous"}],
+                    "intervalMin":60,"startHour":0,"endHour":24,"showMean":${!quiz},"rtl":false,"l":{"title":"Từ mỗi giờ","tap":"Chạm để xem nghĩa"}}"""
+            )
+            listOf(Triple(false, true, 340 to 170), Triple(false, false, 170 to 170), Triple(true, true, 340 to 80)).forEach { (compact, wide, size) ->
+                val frame = FrameLayout(this)
+                frame.addView(WordWidget.build(this, feed, compact, wide, 0, now).apply(this, frame))
+                col.addView(frame, LinearLayout.LayoutParams((size.first * dp).toInt(), (size.second * dp).toInt()).apply { bottomMargin = (20 * dp).toInt() })
+            }
+            setContentView(col)
+            return
+        }
         listOf(false to 170, true to 170).forEach { (medium, h) ->
             val frame = FrameLayout(this)
             frame.addView(LexkiteWidget.build(this, snap, medium, 0, now).apply(this, frame))

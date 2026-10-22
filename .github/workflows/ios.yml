@@ -44,7 +44,7 @@ jobs:
         continue-on-error: true
         run: |
           mkdir -p shots
-          swiftc -parse-as-library mobile/ios/App/LexkiteWidget/WidgetSnapshot.swift mobile/ios/App/LexkiteWidget/WidgetViews.swift \
+          swiftc -parse-as-library mobile/ios/App/LexkiteWidget/WidgetSnapshot.swift mobile/ios/App/LexkiteWidget/WidgetViews.swift mobile/ios/App/LexkiteWidget/WordFeed.swift mobile/ios/App/LexkiteWidget/WordViews.swift \
             scripts/ios-widget-render.swift -o "$RUNNER_TEMP/lexrender"
           "$RUNNER_TEMP/lexrender" shots
       - name: Chụp màn hình demo trên iPhone giả lập (xem nhanh mỗi bản build)

@@ -1,2 +1,5 @@
 /* Sinh tự động: scripts/gen-widget-i18n.mjs */
 "widget.desc" = "Bugünkü kartlar · 🔥 Gün serisi";
+"word.name" = "Saatin kelimesi";
+"word.desc" = "Ekranında tek kelime, seçtiğin aralıkla değişir";
+"word.tap" = "Anlamını görmek için dokun";
