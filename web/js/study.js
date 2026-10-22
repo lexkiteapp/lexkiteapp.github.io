@@ -38,7 +38,7 @@
     host.insertAdjacentHTML('beforeend', `<iframe class="ctx-yt" src="https://www.youtube-nocookie.com/embed/${y.id}?start=${s0}&end=${s0 + 8}&autoplay=1&rel=0&playsinline=1" allow="autoplay; encrypted-media" title="YouTube"></iframe>`);
   }, true);
   // Người học quốc tế (giao diện es/ja/ar…): thêm nghĩa bằng tiếng mẹ đẻ dưới định nghĩa tiếng Anh
-  const nativeFill = (el, word) => App.nativeFill(el, word);
+  const nativeFill = (el, word, pos) => App.nativeFill(el, word, pos);
   const picOk = w => !!w && (window.Distract ? Distract.picOk(w) : !!w.image); // js/distract.js: emoji đúng nghĩa theo từ loại
   App.picOk = picOk;
   const norm = w => ({ word: w.word, ipa: w.ipa || '', vi: mean(w), ex: w.ex || '', def: w.def || '', pos: w.pos || '', emoji: w.emoji || '📘', image: w.image || '', audio: w.audio || '', level: w.level || '', topic: w.topic || '' });
@@ -262,7 +262,7 @@
     // Nghe riêng giọng UK/US
     $$('[data-say-acc]').forEach(b => b.onclick = e => { e.stopPropagation(); const a = b.dataset.sayAcc, u = c.audio || '', us = /-us\.mp3$/.test(u); speak(c.word, a, a === 'en-US' ? (us ? u : '') : (us ? '' : u)); });
     if (listenMode) setTimeout(say, 250);
-    nativeFill($('.back [data-native]'), c.word);
+    nativeFill($('.back [data-native]'), c.word, c.pos);
     // Tìm sẵn bản ghi giọng người thật cho 3 thẻ kế tiếp (chạy ngầm, lưu vào thẻ) → thay dần giọng máy bằng giọng thật
     session.queue.slice(1, 4).forEach(k => { const n = state.cards[k]; if (n && !n.audio && !n._aq && navigator.onLine) { n._aq = 1; Dict.lookup(n.word, { image: false, examples: false }).then(e => { if (e && e.found && (e.audio || e.audioUS)) Cards.patch(k, x => { if (!x.audio) x.audio = e.audio || e.audioUS; if (!x.ipaUS && e.ipaUS) x.ipaUS = e.ipaUS; }).then(c2 => { if (c2) state.cards[k] = c2; }); }).catch(() => {}); } });
 
@@ -680,7 +680,7 @@
           </div>
           <div class="learn-bar"><button class="btn primary lg block" id="gotIt">${t('Tiếp tục')}<span class="kbd-hint" aria-hidden="true"> ↵</span></button>
           <div class="center"><button class="linklike" id="known">${t('Mình đã biết từ này')}</button></div></div>`;
-        nativeFill($('[data-native]'), w.word);
+        nativeFill($('[data-native]'), w.word, w.pos);
         const ll = I18N.learnLang();
         if (w.ex && ll !== 'en') {
           const flg = (I18N && I18N.flag ? I18N.flag(ll) : (ll === 'vi' ? '🇻🇳' : '🌐'));

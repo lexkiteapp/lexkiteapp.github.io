@@ -66,7 +66,7 @@ async function waiRun(env, input) {
   catch (e) { await report(env, 'env:AI', 'err', waiCode(e), { text: /4006|neuron|daily/i.test(String(e && e.message)) ? 'PerDay' : '' }); throw e; }
 }
 
-async function runModel(env, sys, prompt, temp = 0.2, use = { gemini: true, wai: true }) {
+export async function runModel(env, sys, prompt, temp = 0.2, use = { gemini: true, wai: true }) {
   const g = use.gemini && await geminiCall(env, { systemInstruction: { parts: [{ text: sys }] }, contents: [{ role: 'user', parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json', temperature: temp } });
   if (g) { const out = parseJSON(g.text); if (out) return { out, model: gemModel }; }
   if (!env.AI || !use.wai) throw new Error('no-model');

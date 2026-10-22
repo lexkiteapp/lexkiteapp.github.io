@@ -1,0 +1,33 @@
+# Nghĩa 13 ngôn ngữ theo NGHĨA + TỪ LOẠI (định nghĩa + ví dụ làm ngữ cảnh) rồi duyệt AI – miễn phí (kho khóa Gemini → Workers AI qua /api/lexai).
+# Mỗi đêm một lô, tiếp tục từ chỗ dừng; ưu tiên ko, th, hi, zh, ja, ar rồi các ngôn ngữ còn lại. Xem docs/LEXICON.md.
+name: Nghĩa từ vựng 13 ngôn ngữ (theo nghĩa + duyệt AI)
+on:
+  schedule:
+    - cron: '30 21 * * *'   # 04:30 giờ VN (sau word-packs)
+  workflow_dispatch:
+    inputs:
+      calls: { description: 'Số lần gọi AI (25 mục/lần)', default: '120' }
+      langs: { description: 'Ngôn ngữ (vd ko,th) – trống = theo thứ tự ưu tiên', default: '' }
+permissions:
+  contents: write
+  id-token: write   # JWT OIDC để /api/lexai xác thực (không cần secret)
+concurrency: { group: google-translate, cancel-in-progress: false }  # chung hàng đợi với word-packs.yml (cùng ghi web/packs)
+jobs:
+  lexicon-i18n:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Dựng kho (dist/lexicon.json)
+        run: node scripts/build-lexicon.mjs --write
+      - name: Dịch theo nghĩa + duyệt
+        run: node scripts/lexicon/i18n-job.mjs --calls "${{ github.event.inputs.calls || '120' }}" ${{ github.event.inputs.langs && format('--langs {0}', github.event.inputs.langs) || '' }}
+      - name: Lưu kết quả
+        run: |
+          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
+          git add web/packs
+          git diff --cached --quiet && exit 0
+          git commit -qm "Nghĩa 13 ngôn ngữ: dịch theo nghĩa + duyệt AI (lô tự động)"
+          for i in 1 2 3 4 5; do git pull -q --rebase -X theirs origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 7)); done; exit 1

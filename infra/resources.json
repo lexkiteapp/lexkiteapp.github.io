@@ -56,7 +56,7 @@
       "key": "audio-origin",
       "name": "GitHub Pages âm thanh (lexkiteapp.github.io/audio)",
       "kind": "storage",
-      "purpose": "Kho gốc file giọng đọc (audio.yml sinh hằng đêm) – nguồn của audio.lexkite.com",
+      "purpose": "Kho gốc file giọng đọc (audio.yml: câu bài nghe; word-audio.yml: từ đơn Anh+Mỹ, vài trăm từ/đêm) – nguồn của audio.lexkite.com",
       "console": "https://github.com/lexkiteapp/lexkiteapp.github.io",
       "free": "Trang ≤ 1 GB · ~100 GB băng thông/tháng (mềm) · file ≤ 100 MB",
       "upgrade": "Gần 1 GB → chuyển sang Cloudflare R2 (10 GB miễn phí, không tính phí tải)",
@@ -81,6 +81,19 @@
         "day": 10000,
         "unit": "neuron"
       }
+    },
+    {
+      "key": "github-oidc",
+      "name": "GitHub Actions OIDC (token.actions.githubusercontent.com)",
+      "kind": "auth",
+      "purpose": "CI lexicon-i18n.yml xác thực với /api/lexai bằng JWT OIDC (không cần secret); hàm kiểm chữ ký bằng JWKS công khai",
+      "console": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/workflows/lexicon-i18n.yml",
+      "free": "Miễn phí (GitHub Actions)",
+      "upgrade": "Không cần",
+      "status": "Miễn phí",
+      "match": [
+        "token.actions.githubusercontent.com"
+      ]
     },
     {
       "key": "chrome-prompt-api",

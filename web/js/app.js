@@ -419,13 +419,16 @@
   // nghĩa tiếng mẹ đẻ hiện tức thì & offline; từ chưa có trong gói mới dịch lúc chạy.
   // Nghĩa hiển thị DUY NHẤT cho mọi danh sách/thẻ: tiếng Việt chỉ khi người học chọn nghĩa tiếng Việt;
   // ngôn ngữ khác → nghĩa tiếng mẹ đẻ dịch sẵn (gói) → định nghĩa tiếng Anh. Không bao giờ rơi về tiếng Việt.
-  App.meanOf = x => { if (!x) return ''; if (I18N.meanLang() === 'vi') return x.vi || x.def || ''; return (I18N.lang() !== 'en' && App.nativeGloss && App.nativeGloss(x.word)) || x.def || ''; };
+  App.meanOf = x => { if (!x) return ''; if (I18N.meanLang() === 'vi') return x.vi || x.def || ''; return (I18N.lang() !== 'en' && App.nativeGloss && App.nativeGloss(x.word, x.pos)) || x.def || ''; };
   // Dọn dẹp khi rời trang: nhiều module có thể đăng ký (App.onCleanup(fn)); App.cleanup (1 hàm) vẫn được hỗ trợ
   App.cleanups = []; App.onCleanup = fn => { if (typeof fn === 'function') App.cleanups.push(fn); };
   App.packs = {};
-  App.nativeGloss = w => { const p = App.packs[I18N.lang()], e = p && p[String(w || '').toLowerCase()]; return e ? e[0] : ''; };
+  // Gói: "từ" → [nghĩa, cờ, tin cậy]; "từ#loại" cho từ nhiều từ loại (scripts/lexicon/i18n-job.mjs). tin cậy 1 = điểm duyệt AI thấp → nhãn "Dịch máy"
+  const gpos = p => { p = String(p || '').toLowerCase(); return /^(n|noun)\b/.test(p) ? 'n' : /^(phr ?v|phrasal)/.test(p) ? 'phrv' : /^(v|verb)\b/.test(p) ? 'v' : /^adj/.test(p) ? 'adj' : /^adv/.test(p) ? 'adv' : p; };
+  App.glossEntry = (w, pos) => { const p = App.packs[I18N.lang()], k = String(w || '').toLowerCase(); return (p && ((pos && p[k + '#' + gpos(pos)]) || p[k])) || null; };
+  App.nativeGloss = (w, pos) => { const e = App.glossEntry(w, pos); return e ? e[0] : ''; };
   // Nghĩa tiếng mẹ đẻ: gói → dịch lúc chạy
-  App.nativeFill = (el, word) => { const L = I18N.lang(); if (!el || L === 'vi' || L === 'en' || I18N.meanLang() === 'vi') return; const pk = App.nativeGloss(word); if (pk) { el.textContent = '🌐 ' + pk; return; } App.loadPack().then(() => App.nativeGloss(word) || (window.Dict && Dict.translateTo(word, L))).then(r => { if (r && r.toLowerCase() !== word.toLowerCase() && el.isConnected) el.textContent = '🌐 ' + r; }).catch(() => {}); };
+  App.nativeFill = (el, word, pos) => { const L = I18N.lang(); if (!el || L === 'vi' || L === 'en' || I18N.meanLang() === 'vi') return; const pk = App.nativeGloss(word, pos); if (pk) { const ge = App.glossEntry(word, pos); el.textContent = '🌐 ' + pk; if (ge && ge[2] === 1) { const m = document.createElement('span'); m.className = 'muted small'; m.textContent = ' · ' + t('Dịch máy'); el.appendChild(m); } return; } App.loadPack().then(() => App.nativeGloss(word) || (window.Dict && Dict.translateTo(word, L))).then(r => { if (r && r.toLowerCase() !== word.toLowerCase() && el.isConnected) el.textContent = '🌐 ' + r; }).catch(() => {}); };
   App.loadPack = () => {
     const L = I18N.lang(); if (L === 'vi' || L === 'en' || App.packs[L]) return Promise.resolve(App.packs[L]);
     const base = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com';
@@ -971,7 +974,7 @@
         </div>
       </div>`;
     bindCommon();
-    App.nativeFill($('#result [data-dnative]'), e.word);
+    App.nativeFill($('#result [data-dnative]'), e.word, e.pos);
     if (!spoke && state.settings.autoSpeak) { spoke = true; speak(e.word, state.settings.accent, state.settings.accent === 'en-US' ? e.audioUS : e.audio); }
     if (final) { loadRelated(e); drawPhrases(e); }
     if (keep) { $('#ctx').value = keep; }
