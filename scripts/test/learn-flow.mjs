@@ -333,6 +333,18 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   w.LessonFx.resume();
 }
 
+// ===== Lần đầu mở, storage trống: Tracks.cur() chưa có / gói thiếu chặng → lộ trình vẫn dựng, không ném lỗi ('stages') =====
+{
+  const TK = w.Tracks, S = w.App.state, e0 = errors.length, cur0 = TK.cur;
+  S.settings = {}; try { w.localStorage.clear(); } catch (e) {}
+  let thrown = '';
+  try { TK.cur = () => undefined; await go('#/path', 500); await w.DayPath.daysOf(undefined); } catch (e) { thrown = e.message; }
+  ok(!thrown, 'path-day: storage trống + Tracks.cur() undefined không lỗi: ' + thrown);
+  ok($('.path') || $('.empty'), 'path-day: lộ trình hoặc trạng thái rỗng vẫn hiển thị');
+  TK.cur = cur0;
+  ok(!errors.slice(e0).some(m => /stages/.test(m)), 'path-day: không lỗi đọc stages');
+}
+
 const real = errors.filter(e => !/Not implemented|navigation|Could not parse CSS/.test(e));
 ok(!real.length, 'không lỗi JS: ' + real.slice(0, 3).join(' | '));
 if (fails) { console.log(`✗ learn-flow: ${fails}/${n} lỗi`); process.exit(1); }
