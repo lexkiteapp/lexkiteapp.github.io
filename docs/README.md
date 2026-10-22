@@ -1,11 +1,12 @@
 # docs/ – mục lục (đọc file này trước, chỉ mở file cần cho việc đang làm)
 
-**Đầu mỗi phiên:** `README.md` + `METHODS.md` + `agents/BOARD.md`. Còn lại: đọc khi đụng tới vùng đó. "Tham khảo" = chỉ đọc khi cần tra.
+**Đầu mỗi phiên:** `README.md` + `TOKEN-RULES.md` + `METHODS.md` + `agents/BOARD.md`. Còn lại: đọc khi đụng tới vùng đó. "Tham khảo" = chỉ đọc khi cần tra.
 
 ## Lõi
 - `METHODS.md` – luật lõi, lệnh ship/test, remote thật, ngân sách, lỗi đã mắc. Mỗi phiên.
 - `agents/BOARD.md` – thẻ việc Antigravity ⇄ Claude (đang làm/chờ duyệt/TODO, HỎI CLAUDE). Mỗi vòng lặp. Thẻ đã xong: `agents/BOARD-ARCHIVE.md`.
 - `COORDINATION.md` – phân vùng file Claude ⇄ Antigravity + nhật ký. Khi sửa ngoài vùng / gộp nhánh.
+- `TOKEN-RULES.md` – luật tiết kiệm token (đọc/giao việc/chờ/gộp/báo cáo). BẮT BUỘC, áp cho mọi agent.
 - `CREDIT-RULES.md` – luật tiêu credit. BẮT BUỘC trước mọi việc tốn credit.
 - `PLAYBOOK.md` – sổ tay vận hành cũ (15/10). Tham khảo; METHODS thắng khi lệch.
 - `BACKLOG.md` – việc tồn đọng (cập nhật 16/10, có thể cũ). Khi chọn việc mới.
