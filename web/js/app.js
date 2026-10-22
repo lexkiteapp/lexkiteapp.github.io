@@ -918,7 +918,7 @@
             <div class="row"><span class="entry-word">${esc(e.word)}</span>${posChip(e.pos)}${levelChip(e.level)}</div>
             <div class="pron">
               <span><b class="small">🇬🇧 UK</b> <span class="ipa">${esc(e.ipa || '—')}</span><button class="icon-btn sm" data-speak="${esc(e.word)}" data-accent="en-GB" data-url="${esc(e.audio && /-uk/.test(e.audio) ? e.audio : '')}" aria-label="${t('Nghe giọng Anh–Anh')}">🔊</button></span>
-              <span><b class="small">🇺🇸 US</b> <span class="ipa">${esc(e.ipaUS || '—')}</span><button class="icon-btn sm" data-speak="${esc(e.word)}" data-accent="en-US" data-url="${esc(e.audioUS || '')}" aria-label="${t('Nghe giọng Anh–Mỹ')}">🔊</button></span>
+              <span><b class="small">🇺🇸 US</b> <span class="ipa">${esc(e.ipaUS || e.ipa || '—')}</span><button class="icon-btn sm" data-speak="${esc(e.word)}" data-accent="en-US" data-url="${esc(e.audioUS || '')}" aria-label="${t('Nghe giọng Anh–Mỹ')}">🔊</button></span>
               <span><b class="small">🐢 ${t('Chậm')}</b><button class="icon-btn sm" data-slow="${esc(e.word)}" title="${t('Nghe chậm')}" aria-label="${t('Nghe chậm')}">🔊</button></span>
             </div>
             ${I18N.meanLang() === 'en' ? '<div class="vi wi-native" data-dnative></div>' : `<div class="vi">${esc(e.vi)}</div>`}
