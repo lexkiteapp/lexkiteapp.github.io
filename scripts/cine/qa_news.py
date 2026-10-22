@@ -232,7 +232,7 @@ if TP == 'news':
     rule(not tw_ or all(0.125 <= v <= 0.155 for v in hh_) and all(abs(v - hh_[0]) < 0.01 for v in hh_), f'two-shot = medium-wide: face height {min(hh_ or [0]):.3f}-{max(hh_ or [0]):.3f} of frame (0.125-0.155), equal for both hosts')
     qc_ = json.load(open(f'{RD}/qc.json')); rule(not tw_ or qc_.get('two_gap_min', -1) >= 43, f"two-shot: visible gap between the hosts (min {qc_.get('two_gap_min', -1)} px >= 4 % width)")
     sg_ = [(x['id'], v / 1920) for x in tl['shots'] if not x.get('other') for v in x.get('faceh', {}).values()]
-    rule(all(0.165 <= v <= 0.195 for _, v in sg_), f"singles = medium shot: face height {min(v for _, v in sg_):.3f}-{max(v for _, v in sg_):.3f} of frame (0.165-0.195)")
+    rule(all(0.12 <= v <= 0.15 for _, v in sg_), f"singles face height {min(v for _, v in sg_):.3f}-{max(v for _, v in sg_):.3f} of frame (0.12-0.15: host layers never scaled above 1.0x)")
     rule(all(min(v[4] - ((149 if 'q34' in c else HOST_TOP.get(c[:3], 200)) * v[0]) for c, v in x['xfs'].items()) >= 0.10 * 1920 for x in tl['shots'] if not x.get('other')), 'singles headroom >= 10 %')
     rule(all((x['xfs'][x['clip']][3] <= 400) if x['who'] == 'ama' else (x['xfs'][x['clip']][3] >= 680) for x in tl['shots'] if not x.get('other')), 'singles on the thirds (Ama x <= 400, Carlos x >= 680)')
     rule(all(min(v[4] - ((149 if 'q34' in c else HOST_TOP.get(c[:3], 200)) * v[0]) for c, v in x['xfs'].items()) >= 0.08 * 1920 for x in tw_), 'two-shot headroom >= 8 %')
@@ -331,8 +331,26 @@ for x in tl['shots']:
     if any(o['style'] in ('Card', 'Recap') and o['t'][0] <= t_ < o['t'][1] for o in tl['overlays']): _tl.append((x['id'], int(_lapv(g_[1016:1240, 60:920]))))
     rp_ = sorted(glob.glob(f'{RD}/ref_*.png')); rf_ = [r for r in rp_ if abs(int(re.findall(r'(\d+)\.png$', r)[0]) - fi_) <= 1]
     if rf_: _ss.append((x['id'], round(_ssim(_cv.cvtColor(_cv.imread(rf_[0]), _cv.COLOR_BGR2GRAY), g_), 4)))
-_ok = dict(face=bool(_fl) and min(v for _, v in _fl) >= 90, text=bool(_tl) and min(v for _, v in _tl) >= 600, blk=bool(_bl) and float(np.median(_bl)) <= 1.12, ssim=bool(_ss) and min(v for _, v in _ss) >= 0.97)
-print(f"  face sharpness (Laplacian var >= 90) min {min([v for _, v in _fl] or [0])}; text-card sharpness (>= 600) min {min([v for _, v in _tl] or [0])}; blockiness median {np.median(_bl or [9]):.3f} (<= 1.12); SSIM pre/post-encode min {min([v for _, v in _ss] or [0]):.4f} (>= 0.97)", 'OK' if all(_ok.values()) else f'FAIL {[k for k, v in _ok.items() if not v]}')
+# owner 22/10: sharpness relative to the ideal: faces/hair vs the source clip frame resampled once (INTER_AREA) to the shot scale; text vs the pre-encode reference frame
+_GR = os.environ.get('CINE_LIB', '') + '/anchor/green/kfull'; _rat = []
+for x in tl['shots']:
+    if x['id'] == 'hook' or x.get('other') or not x.get('faceboxes') or not os.path.exists(f"{_GR}/{x['clip']}.mp4"): continue
+    sc_, cx_, cy_, ox_, oy_ = x['xfs'][x['clip']][:5]; fi_ = x['n'] // 2 + int(round(x['t0'] * FPS)); src_i = x['frames'][x['n'] // 2]
+    c2 = _cv.VideoCapture(f"{_GR}/{x['clip']}.mp4"); c2.set(_cv.CAP_PROP_POS_FRAMES, src_i); okS, S_ = c2.read(); _cap.set(_cv.CAP_PROP_POS_FRAMES, fi_); okM, Mf = _cap.read()
+    if not (okS and okM): continue
+    S_ = _cv.resize(S_, (1080, 1920), interpolation=_cv.INTER_AREA); m_ = json.load(open(MD(x['clip']) + f"/{x['who']}/mouth.json"))['face_box']
+    for nm_, (a0, b0, a1, b1) in (('face', m_), ('hair', (m_[0], m_[1] - 0.35 * (m_[3] - m_[1]), m_[2], m_[1]))):
+        src_c = S_[int(max(0, b0)):int(b1), int(a0):int(a1)]; ref_ = _cv.resize(src_c, None, fx=sc_, fy=sc_, interpolation=_cv.INTER_AREA)
+        X0, Y0 = int((a0 - cx_) * sc_ + ox_), int((max(0, b0) - cy_) * sc_ + oy_); out_c = Mf[max(0, Y0):Y0 + ref_.shape[0], max(0, X0):X0 + ref_.shape[1]]
+        if out_c.size and ref_.size and out_c.shape[:2] == ref_.shape[:2]: _rat.append((x['id'], nm_, round(_lapv(_cv.cvtColor(out_c, _cv.COLOR_BGR2GRAY)) / max(1.0, _lapv(_cv.cvtColor(ref_, _cv.COLOR_BGR2GRAY))), 2)))
+_trat = []
+for r_ in sorted(glob.glob(f'{RD}/ref_*.png')):
+    fi_ = int(re.findall(r'(\d+)\.png$', r_)[0]); t_ = fi_ / FPS
+    if not any(o['style'] in ('Card', 'Recap', 'Cap') and o['t'][0] <= t_ < o['t'][1] for o in tl['overlays']): continue
+    _cap.set(_cv.CAP_PROP_POS_FRAMES, fi_); okM, Mf = _cap.read(); R_ = _cv.imread(r_)
+    if okM: _trat.append(round(_lapv(_cv.cvtColor(Mf[1016:1420, 60:920], _cv.COLOR_BGR2GRAY)) / max(1.0, _lapv(_cv.cvtColor(R_[1016:1420, 60:920], _cv.COLOR_BGR2GRAY))), 2))
+_ok = dict(face_hair=bool(_rat) and min(v for _, _, v in _rat) >= 0.9, text=bool(_trat) and min(_trat) >= 0.9, blk=bool(_bl) and float(np.median(_bl)) <= 1.12, ssim=bool(_ss) and min(v for _, v in _ss) >= 0.97)
+print(f"  sharpness vs ideal (>= 0.90): faces/hair min {min([v for _, _, v in _rat] or [0])} {[r for r in _rat if r[2] < 0.9][:4]}; text min {min(_trat or [0])}; blockiness median {np.median(_bl or [9]):.3f} (<= 1.12); SSIM pre/post-encode min {min([v for _, v in _ss] or [0]):.4f} (>= 0.97)", 'OK' if all(_ok.values()) else f'FAIL {[k for k, v in _ok.items() if not v]}')
 fails += [f'sharp:{k}' for k, v in _ok.items() if not v]
 print('== AUDIO')
 a = subprocess.run(['ffmpeg', '-nostdin', '-threads', '2', '-i', V, '-af', 'ebur128', '-f', 'null', '-'], capture_output=True, text=True).stderr

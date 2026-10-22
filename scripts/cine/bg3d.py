@@ -4,12 +4,12 @@
 # bokeh "fireflies" (glow core + bloom, depth-of-field size, twinkle, turbulence), vignette. numpy/cv2 only, 2 threads.
 import os, numpy as np, cv2
 cv2.setNumThreads(2)
-CW, CH = 1296, 2304                      # working canvas (1.2x the 1080x1920 output) -> margins for camera moves
+CW, CH = 1440, 2560                      # working canvas (1.33x the output, owner 22/10: push-in from an oversampled bg, one Lanczos resample)
 PK = (0.82, 0.91, 1.0)                   # parallax factor far / mid / near (owner 21/10: mild, artefact-free)
 def ease(u): u = min(1.0, max(0.0, u)); return u * u * (3 - 2 * u)
 class Layers:
-    def __init__(self, img_path, depth_path, dof=(5.0, 4.2, 3.4)):
-        im = cv2.resize(cv2.imread(img_path), (CW, CH), interpolation=cv2.INTER_AREA)
+    def __init__(self, img_path, depth_path, dof=(0.5, 0.35, 0.0)):   # owner 22/10: cel-style stills stay crisp (DOF <= 0.5 px)
+        im0 = cv2.imread(img_path); im = cv2.resize(im0, (CW, CH), interpolation=cv2.INTER_AREA if im0.shape[1] >= CW else cv2.INTER_LANCZOS4)
         d = cv2.resize(cv2.imread(depth_path, cv2.IMREAD_UNCHANGED).astype(np.float32) / 65535, (CW, CH))
         d = cv2.GaussianBlur(d, (0, 0), 3); q1, q2 = np.quantile(d, 0.55), np.quantile(d, 0.84)
         sm = lambda x, a, b: np.clip((x - a) / (b - a), 0, 1)
@@ -19,9 +19,9 @@ class Layers:
             sh = cv2.resize(src, (CW // 2, CH // 2)); rh = cv2.resize(r, (CW // 2, CH // 2), interpolation=cv2.INTER_NEAREST)
             f = cv2.resize(cv2.inpaint(sh, rh, 9, cv2.INPAINT_TELEA), (CW, CH)); out = src.copy(); out[r > 0] = f[r > 0]; return out, r
         mid_img, self.hole_mid = fill(im, m_near); far_img, self.hole_far = fill(mid_img, m_mid)
-        self.L = [(cv2.GaussianBlur(far_img, (0, 0), dof[0]).astype(np.float32), None),
-                  (cv2.GaussianBlur(mid_img, (0, 0), dof[1]).astype(np.float32), cv2.GaussianBlur(m_mid, (0, 0), 2)),
-                  (cv2.GaussianBlur(im, (0, 0), dof[2]).astype(np.float32), cv2.GaussianBlur(m_near, (0, 0), 2))]
+        self.L = [((cv2.GaussianBlur(far_img, (0, 0), dof[0]) if dof[0] else far_img).astype(np.float32), None),
+                  ((cv2.GaussianBlur(mid_img, (0, 0), dof[1]) if dof[1] else mid_img).astype(np.float32), cv2.GaussianBlur(m_mid, (0, 0), 2)),
+                  ((cv2.GaussianBlur(im, (0, 0), dof[2]) if dof[2] else im).astype(np.float32), cv2.GaussianBlur(m_near, (0, 0), 2))]
         self.holes = [self.hole_far.astype(np.float32), self.hole_mid.astype(np.float32), None]
     def render(self, cam, qa=False):
         """cam: z (dolly, >= 1.05), tx, ty (output px), rot (deg). Returns BGR float32 1080x1920 (+ visible-fill fraction, uncovered fraction)."""
@@ -32,7 +32,7 @@ class Layers:
             M[0, 2] += -cam['tx'] * pk / k_; M[1, 2] += -cam['ty'] * pk / k_
             S = np.float32([[k_, 0, 540 - k_ * CW / 2], [0, k_, 960 - k_ * CH / 2]])   # canvas centre -> output
             A = (np.vstack([S, [0, 0, 1]]) @ np.vstack([M, [0, 0, 1]]))[:2]
-            w = cv2.warpAffine(img, A, (1080, 1920), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
+            w = cv2.warpAffine(img, A, (1080, 1920), flags=cv2.INTER_LANCZOS4, borderMode=cv2.BORDER_REFLECT)
             if qa and k == 0: cov = float((cv2.warpAffine(np.ones((CH, CW), np.float32), A, (1080, 1920), borderValue=0) < 0.99).mean())
             if al is None: out = w; vis = cv2.warpAffine(self.holes[0], A, (1080, 1920)) if qa else None
             else:
