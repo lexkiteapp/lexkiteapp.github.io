@@ -138,7 +138,7 @@ def share_chip(sub, y0=236):   # owner 22/10 §13 share trigger: "Send this to a
     w = max(d.textlength(t, font=f1), d.textlength(sub, font=f2)) + 70; x0 = CX - w / 2
     d.rounded_rectangle([x0, y0, x0 + w, y0 + 120], 30, fill=TEAL + (255,)); d.text((CX, y0 + 36), t, font=f1, fill='white', anchor='mm'); d.text((CX, y0 + 88), sub, font=f2, fill=YEL, anchor='mm')
     return shadowed(im), (int(x0), y0, int(x0 + w), y0 + 120)
-def badge(level, y0=402):   # difficulty badge (owner 22/10 §13): EASY green / MEDIUM amber / HARD CHALLENGE red
+def badge(level, y0=410):   # difficulty badge (owner 22/10 §13): EASY green / MEDIUM amber / HARD CHALLENGE red
     im = layer(); d = ImageDraw.Draw(im); t = {'easy': 'EASY', 'medium': 'MEDIUM', 'hard': 'HARD CHALLENGE'}[level]; col = {'easy': (40, 160, 90), 'medium': (230, 160, 30), 'hard': (214, 48, 49)}[level]
     f = font(FH, 34); tw = d.textlength(t, font=f); x0 = CX - tw / 2 - 28
     d.rounded_rectangle([x0, y0, x0 + tw + 56, y0 + 54], 27, fill=col + (255,)); d.text((CX, y0 + 27), t, font=f, fill='white', anchor='mm')
@@ -429,7 +429,7 @@ def comp(F, Al, sc, cx, cy, ox, oy, drift):   # premultiplied resample (MR.place
     M = np.float32([[sc, 0, ox - cx * sc + drift], [0, sc, oy - cy * sc]]); Fp, a = MR.place(F.astype(np.float32), Al.astype(np.float32), sc, M, (1080, 1920))
     return Fp / np.maximum(a, 1e-3)[..., None], a
 enc = subprocess.Popen(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', '1080x1920', '-r', str(FPS), '-i', '-',
-                        '-c:v', 'libx264', '-threads', '2', '-profile:v', 'high', '-preset', 'slow', '-tune', 'film', '-crf', '17', '-maxrate', '14M', '-bufsize', '28M', '-pix_fmt', 'yuv420p', f'{RD}/video.mp4'], stdin=subprocess.PIPE)
+                        '-c:v', 'libx264', '-threads', '2', '-profile:v', 'high', '-preset', 'slow', '-tune', 'animation', '-crf', '16', '-maxrate', '14M', '-bufsize', '28M', '-pix_fmt', 'yuv420p', f'{RD}/video.mp4'], stdin=subprocess.PIPE)
 KEYM = {}; EQ = []; BGC = []; EXPO = None; HOSTG = 1.0; PREV_OUT = None; OVS = sorted(OV, key=lambda o: o['t'][0]); fi = 0; COVER = None; QC = []; PA = None
 _x = np.arange(256) / 255.0; _l = _x ** 0.86; _s = np.clip(_l - 0.16 * np.sin(2 * np.pi * _l) / (2 * np.pi), 0, 1)   # owner 22/10: mids lifted ~+10 %, soft S-curve
 _sh = np.clip(1 - _x * 2.2, 0, 1); _hi = np.clip(_x * 2 - 1.1, 0, 1); _fl = lambda v: 18 / 255 + np.clip(v, 0, 1) * (1 - 22 / 255)   # black floor 18/255
@@ -508,7 +508,7 @@ for s in S:
         B = B + 0.4 * (B - cv2.GaussianBlur(B, (0, 0), 0.7))   # owner 22/10: mild unsharp (r 0.7, 0.4) before text, compensates the H.264 encode
         if fi == 0:   # whole-frame exposure check on frame 0 (dark wardrobe / night scenes): re-aim bg exposure + a small host lift -> mean luma ~0.48
             m_ = float(B.mean()) / 255
-            if not 0.45 <= m_ <= 0.52: EXPO = float(np.clip(EXPO * (0.48 / m_) ** 1.3, 0.7, 2.8)); HOSTG = float(np.clip((0.48 / m_) ** 0.6, 0.95, 1.25)); print('frame-0 luma %.3f -> bg gain %.2f, host gain %.2f' % (m_, EXPO, HOSTG))                         # one grade for host + background
+            if not 0.45 <= m_ <= 0.52: EXPO = float(np.clip(EXPO * (0.48 / m_) ** 1.3, 0.55, 2.8)); HOSTG = float(np.clip((0.48 / m_) ** 0.6, 0.95, 1.25)); print('frame-0 luma %.3f -> bg gain %.2f, host gain %.2f' % (m_, EXPO, HOSTG))                         # one grade for host + background
         pass   # hook punch-in is done in camera space (host scale + bg zoom: one resample, no softening)
         TR = STYLE.get('transition', 'cut'); k_s = S.index(s)
         if k_s > 0 and PREV_OUT is not None and TR == 'dissolve' and j < 4: B = B * ((j + 1) / 5) + PREV_OUT * (1 - (j + 1) / 5)   # 4-frame dissolve

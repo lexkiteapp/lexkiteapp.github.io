@@ -19,7 +19,7 @@ import numpy as np, cv2
 FLOOR = {'floor', 'road', 'sidewalk', 'ground', 'grass', 'rug', 'path', 'field', 'earth', 'sand', 'runway', 'dirt track', 'land', 'stage', 'platform', 'carpet'}
 FORBID = {'table', 'desk', 'countertop', 'kitchen island', 'pool table', 'coffee table', 'bed', 'cradle', 'sofa', 'water', 'sea', 'river', 'lake', 'swimming pool',
           'bathtub', 'fountain', 'waterfall', 'car', 'bus', 'truck', 'van', 'boat', 'ship', 'airplane', 'train'}   # v3: surfaces a person could seem to stand ON / IN (chairs, shelves, counters behind a waist-up host are normal)
-GW, GH = 54, 96; VER = 4   # v2: horizon = vanishing region (farthest depth), not the floor's far edge
+GW, GH = 54, 96; VER = 5   # v2: horizon = vanishing region (farthest depth), not the floor's far edge
 
 def vanish(img):   # v4: vanishing point of the perspective lines (Hough segments, pairwise intersections, densest cell) = the camera horizon
     g = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY); h, w = g.shape; s = 960 / h; g = cv2.resize(g, (int(w * s), 960))
@@ -78,6 +78,8 @@ def main():
         vp = vanish(cv2.cvtColor(np.array(im), cv2.COLOR_RGB2BGR)); hsrc = 'vanishing point'
         if vp and vp[1] >= 6 and 0.2 < vp[0] < 0.8: hz = vp[0]
         else: hz = float(min(np.median(np.nonzero(far)[0]) / (H // 2), ftop)); hsrc = 'depth'
+        if hz > ftop - 0.04: hz = ftop - 0.18; hsrc += ' (above-floor rule)'   # the horizon is always above the floor's far edge (eye-level camera)
+        hz = float(np.clip(hz, 0.3, 0.65))
         frac = {n: round(float((lab == k).mean()), 4) for k, n in cls.items() if (lab == k).mean() >= 0.01}
         Z = dict(v=VER, id=i, size=[W, H], horizon=round(hz, 4), horizon_src=hsrc, floor_top=round(ftop, 4), floor_frac=round(float(floor.mean()), 4), valid=bool(floor.mean() >= 0.03), classes=frac,
                  grid=dict(w=GW, h=GH, rows=[''.join('N' if gN[y, x] else 'X' if gX[y, x] else 'F' if gF[y, x] else '.' for x in range(GW)) for y in range(GH)]),

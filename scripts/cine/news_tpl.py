@@ -62,7 +62,7 @@ def fr_for(who, k=None):   # size for the next single of `who` from the shot-gra
 prev = None
 for i, b in enumerate(BEATS):
     who = b['who']; k = use[who]; use[who] += 1; same = S[-1]['who'] == who
-    sh = tshot(f'b{i + 1}', CL[who][k % len(CL[who])], who, fr_for(who, k), b['line'], -0.06 if same else JCUT)
+    sh = tshot(f'b{i + 1}', CL[who][k % len(CL[who])], who, fr_for(who, k), b['line'], -0.12 if same else JCUT)
     c = b.get('card')
     if c:
         t0 = sh['t0'] + max(0.0, sh['lines'][0]['at'])
@@ -82,7 +82,7 @@ for i, b in enumerate(BEATS):
 run_who = S[-1]['who']; run_n = 2 if len(S) > 1 and S[-2]['who'] == run_who else 1
 rw = 'ama' if run_who == 'carlos' and run_n == 2 else 'carlos' if run_who == 'ama' and run_n == 2 else 'carlos'
 rl = rc_line if rw == 'carlos' else SPEC['recap']['line_alt']
-rc = tshot('recap', CL[rw][0], rw, fr_for(rw), rl, -0.06 if S[-1]['who'] == rw else JCUT)
+rc = tshot('recap', CL[rw][0], rw, fr_for(rw), rl, -0.12 if S[-1]['who'] == rw else JCUT)
 if prev is not None:
     lv = rc['t0'] - OV[prev]['t'][0]
     OV[prev]['t'][1] = round(OV[prev]['t'][0] + need(OV[prev]['_txt']) + 0.05, 3) if lv < need(OV[prev]['_txt']) else round(rc['t0'], 3)

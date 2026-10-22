@@ -223,7 +223,7 @@ jobs:
         run: |
           mkdir -p depth; cp -n footage/anchor/news/depth/*.png depth/ 2>/dev/null || true
           miss=$(python3 -c "import json,os;print(sum(not os.path.exists('depth/'+e['topic']+'.depth.png') for e in json.load(open('footage/anchor/bg/index.json'))['items']))")
-          mz=$(python3 -c "import json,os;p=lambda t:'depth/'+t+'.zones.json';print(sum(not os.path.exists(p(e['topic'])) or json.load(open(p(e['topic']))).get('v',1)<4 for e in json.load(open('footage/anchor/bg/index.json'))['items']))")
+          mz=$(python3 -c "import json,os;p=lambda t:'depth/'+t+'.zones.json';print(sum(not os.path.exists(p(e['topic'])) or json.load(open(p(e['topic']))).get('v',1)<5 for e in json.load(open('footage/anchor/bg/index.json'))['items']))")
           echo "thiếu $miss bản đồ sâu, $mz bản chú thích vùng (bg_zones)"
           if [ "$miss" != 0 ] || [ "$mz" != 0 ]; then
             pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.5.1 && pip install -q transformers==4.46.3 pillow==11.0.0 opencv-python-headless==4.10.0.84 numpy==2.1.3 scipy==1.14.1

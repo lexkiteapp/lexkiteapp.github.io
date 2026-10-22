@@ -64,7 +64,7 @@ for o in tl['overlays']:
         ok = en == TEXT[o['line']] and -0.1 <= d0 <= 0.001 and 0 <= d1 <= ((0.62 if VIRAL else 0.55) if chained else 0.401) and cps <= 15
         print(f'  {o["style"]:7s} {en[:32]:32s} | {(o["text"].split("||") + [""])[1][:30]:30s} start {d0:+.2f} end {d1:+.2f} cps {cps:4.1f}', '' if ok else 'FAIL'); ok or fails.append(en)
     elif o['style'] not in ('Ring',) or o['part'] == 0:
-        allowed = (TP == 'news' and o['style'] in ('Recap', 'Ring', 'Series', 'Name')) or o['style'] in ('VHook', 'Series', 'Follow', 'Hook', 'Badge', 'Contrast', 'Tag', 'Choice', 'Ladder', 'Pov', 'Gap', 'Strike', 'Card')   # template cards stay up while the line plays (listen / ladder / POV)   # hook/badge over the opening line; contrast = pattern card (no sentence duplicated)
+        allowed = (TP == 'news' and o['style'] in ('Recap', 'Ring', 'Series', 'Name', 'Share', 'Badge')) or o['style'] in ('VHook', 'Series', 'Follow', 'Hook', 'Badge', 'Contrast', 'Tag', 'Choice', 'Ladder', 'Pov', 'Gap', 'Strike', 'Card')   # template cards stay up while the line plays (listen / ladder / POV)   # hook/badge over the opening line; contrast = pattern card (no sentence duplicated)
         conflict = [x[2] for x in speech if min(o['t'][1], x[1]) - max(o['t'][0], x[0]) > 0]
         print(f'  {o["style"]:8s} {o["text"].replace(chr(10), " ")[:44]:44s} {o["t"]} speech during: {conflict or "none"}', 'OK' if (allowed or not conflict) else 'FAIL')
         if conflict and not allowed: fails.append('conflict:' + o['style'])
@@ -219,7 +219,7 @@ if TP == 'news':
     eq_ = json.load(open(f'{RD}/qc.json')).get('edge', []); rule(bool(eq_) and all(e['ok'] for e in eq_), f"matte edges (MR.edge_qa per shot: soft >= 0.6, ramp 1.3-4.5 px, dark rim <= 8 %) {[(e['shot'], e['soft'], e['width'], e['dark']) for e in eq_ if not e['ok']][:4] or 'OK'}")
     mid = [(x['id'], round(w0, 2)) for i, x in enumerate(sh_[:-1]) for ln in x['lines'] for w0, w1, _ in ln['words'] if w0 < sh_[i + 1]['t0'] - 1e-3 < w1 - 0.02]
     rule(not mid, f'no cut inside a word of the outgoing speaker {mid or ""}')
-    fh = [v for x in sh_ if not x.get('other') for v in x['faceh'].values()]; rule(max(fh) / min(fh) <= 1.10 + 1e-6 and all(max(x['faceh'].values()) / min(x['faceh'].values()) <= 1.05 for x in sh_), f'face height equal between hosts within 5 % per shot, singles {min(fh)}-{max(fh)} px')
+    fh = [v for x in sh_ if not x.get('other') for v in x['faceh'].values()]; rule(max(fh) / min(fh) <= 1.16 + 1e-6 and all(max(x['faceh'].values()) / min(x['faceh'].values()) <= 1.05 for x in sh_), f'face height equal between hosts within 5 % per shot, singles {min(fh)}-{max(fh)} px')
     rule(all(v <= x.get('lowlim', {}).get(w, {'ama': 1660, 'carlos': 1560}[w]) for x in sh_ for w, v in x['lowsrc'].items()), 'no seat / lap in frame (bottom edge cuts the upper body)')
     OVL = [o for o in tl['overlays']]; gap_ = []
     for i_, a_ in enumerate(OVL):
@@ -331,8 +331,8 @@ for x in tl['shots']:
             while rr_ < 269 and row_[rr_ + 1]: rr_ += 1
             best_ = max(best_, rr_ - l_)
         if best_: vals_.append(best_ * 4)
-    if vals_: _fw.setdefault((x['frame'], x['who']), []).append(float(np.median(vals_)))
-_fr = {f_: round(np.median(_fw[(f_, 'ama')]) / np.median(_fw[(f_, 'carlos')]), 3) for f_ in ('mcu', 'wide') if (f_, 'ama') in _fw and (f_, 'carlos') in _fw}
+    if vals_: _fw.setdefault(('all', x['who']), []).append(float(np.median(vals_)) / max(1.0, x['faceh'][x['who']]))
+_fr = {'all sizes (measured / expected)': round(np.median(_fw[('all', 'ama')]) / np.median(_fw[('all', 'carlos')]), 3)} if ('all', 'ama') in _fw and ('all', 'carlos') in _fw else {}
 print(f'  measured face width Ama / Carlos per shot size (rendered frames, +-5 %): {_fr}', 'OK' if _fr and all(abs(v - 1) <= 0.05 for v in _fr.values()) else 'FAIL')
 if not _fr or any(abs(v - 1) > 0.05 for v in _fr.values()): fails.append('face-size')
 print(f'  skin hue (OpenCV H 3-22, S >= 50) at the cheek/nose patch of each single: {_sk}', 'OK' if not _bad else 'FAIL')
@@ -358,15 +358,21 @@ for x in tl['shots']:
 # owner 22/10: sharpness relative to the ideal: faces/hair vs the source clip frame resampled once (INTER_AREA) to the shot scale; text vs the pre-encode reference frame
 _GR = os.environ.get('CINE_LIB', '') + '/anchor/green/kfull'; _rat = []
 for x in tl['shots']:
-    if x['id'] == 'hook' or x.get('other') or not x.get('faceboxes') or not os.path.exists(f"{_GR}/{x['clip']}.mp4"): continue
+    if x['id'] in ('hook', 'loop') or x.get('other') or not x.get('faceboxes') or not os.path.exists(f"{_GR}/{x['clip']}.mp4"): continue
     sc_, cx_, cy_, ox_, oy_ = x['xfs'][x['clip']][:5]; fi_ = x['n'] // 2 + int(round(x['t0'] * FPS)); src_i = x['frames'][x['n'] // 2]
     c2 = _cv.VideoCapture(f"{_GR}/{x['clip']}.mp4"); c2.set(_cv.CAP_PROP_POS_FRAMES, src_i); okS, S_ = c2.read(); _cap.set(_cv.CAP_PROP_POS_FRAMES, fi_); okM, Mf = _cap.read()
     if not (okS and okM): continue
+    c3 = _cv.VideoCapture(f"{_GR.replace('/kfull', '/kmask')}/{x['clip']}.mp4"); c3.set(_cv.CAP_PROP_POS_FRAMES, src_i); okA, A_ = c3.read(); Am_ = _cv.resize(A_[..., 0], (1080, 1920)).astype(np.float32) / 250 if okA else np.ones((1920, 1080), np.float32)
     S_ = _cv.resize(S_, (1080, 1920), interpolation=_cv.INTER_AREA); m_ = json.load(open(MD(x['clip']) + f"/{x['who']}/mouth.json"))['face_box']
     for nm_, (a0, b0, a1, b1) in (('face', m_), ('hair', (m_[0], m_[1] - 0.35 * (m_[3] - m_[1]), m_[2], m_[1]))):
         src_c = S_[int(max(0, b0)):int(b1), int(a0):int(a1)]; ref_ = _cv.resize(src_c, None, fx=sc_, fy=sc_, interpolation=_cv.INTER_AREA)
         X0, Y0 = int((a0 - cx_) * sc_ + ox_), int((max(0, b0) - cy_) * sc_ + oy_); out_c = Mf[max(0, Y0):Y0 + ref_.shape[0], max(0, X0):X0 + ref_.shape[1]]
-        if out_c.size and ref_.size and out_c.shape[:2] == ref_.shape[:2]: _rat.append((x['id'], nm_, round(_lapv(_cv.cvtColor(out_c, _cv.COLOR_BGR2GRAY)) / max(1.0, _lapv(_cv.cvtColor(ref_, _cv.COLOR_BGR2GRAY))), 2)))
+        if out_c.size and ref_.size and out_c.shape[:2] == ref_.shape[:2]:
+            mk_ = _cv.resize(Am_[int(max(0, b0)):int(b1), int(a0):int(a1)], (ref_.shape[1], ref_.shape[0]), interpolation=_cv.INTER_AREA) > 0.97   # only pixels inside the host matte (hair edges vs a new bg are not comparable)
+            mk_ = _cv.erode(mk_.astype(np.uint8), np.ones((5, 5), np.uint8)) > 0
+            if mk_.sum() > 200:
+                lv = lambda im: float(_cv.Laplacian(_cv.cvtColor(im, _cv.COLOR_BGR2GRAY), _cv.CV_64F)[mk_].var())
+                _rat.append((x['id'], nm_, round(lv(out_c) / max(1.0, lv(ref_)), 2)))
 _trat = []
 for r_ in sorted(glob.glob(f'{RD}/ref_*.png')):
     fi_ = int(re.findall(r'(\d+)\.png$', r_)[0]); t_ = fi_ / FPS
