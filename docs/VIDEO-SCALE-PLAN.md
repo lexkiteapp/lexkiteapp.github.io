@@ -88,3 +88,12 @@ cron mỗi ngày → chọn điểm học + tổ hợp (sổ đa dạng) → so�
 7. **Lặp lại giãn cách**: series nhắc lại ý cũ ở clip sau ("Nhớ *look for* hôm qua?"); web đưa vào SRS.
 8. **Cá nhân hoá**: lỗi theo nhóm ngôn ngữ mẹ đẻ (vd. người Việt bỏ mạo từ, người Nhật nhầm l/r) → gắn thẻ, xếp đúng người học trên web.
 9. **Kiểm định**: AI judge chấm "dễ hiểu cho trình độ X?", "mẹo có sai không?", câu giải thích ≤ CEFR+1; trượt → viết lại.
+
+## 13. Viral – kéo user – save/share (chủ 22/10)
+- **Độ khó trộn có chủ đích**: mỗi tuần ~40 % dễ (A1–A2, phủ rộng, nhiều view), 40 % vừa (B1–B2, người học nghiêm túc), 20 % khó/"thử thách" (C1+, "99 % người học sai câu này") để kéo bình luận & share; nhãn độ khó hiện ở góc.
+- **Kho hook xoay vòng** (≥ 12 kiểu): câu hỏi trực tiếp · "Đừng nói X" · con số ("3 cách…") · thử thách "Bạn trả lời được không?" · sự thật bất ngờ · POV tình huống · so sánh "Sách dạy vs người Mỹ nói" · lỗi của người nổi tiếng/phim (không dùng hình người thật) · đếm ngược · "Sai 90 %" · câu chuyện 1 dòng · tranh luận A/B. A/B hook theo số liệu.
+- **Lý do để Save**: thẻ tóm tắt "Teacher's tip" chụp màn hình được, list 3–5 câu dùng ngay, "Lưu lại học sau"; series đánh số (Part 1/2/3) → follow.
+- **Lý do để Share**: câu đố có đáp án gây tranh luận, "Gửi cho người hay nói sai câu này", nội dung hữu ích cho phỏng vấn/du lịch/thi.
+- **Bình luận**: kết bằng câu hỏi mở/đố; ghim bình luận đáp án; trả lời bằng clip mới (series).
+- **Kéo về app**: CTA cuối cùng nhẹ + link đúng bài học trên web (deep link), không bán hàng gắt.
+- Đo: save rate, share rate, completion, comment → trọng số template/hook/độ khó tuần sau.
