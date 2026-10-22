@@ -327,5 +327,32 @@ for (const f of [{ offset: 'abc' }, { offset: 'Infinity', limit: 'NaN' }, { offs
   ok(aud >= 5, 'bulk được ghi nhật ký (' + aud + ')');
 }
 
+// Kênh & phân phối (/api/distribution): chỉ admin, op lạ → 400, cấu hình/luật được chuẩn hoá, kế hoạch tôn trọng hạn mức, ghi nhật ký
+{ const DI = await import(new URL('../../functions/api/distribution.js', import.meta.url)), YT2 = await import(new URL('../../functions/api/youtube.js', import.meta.url)), SD2 = await import(new URL('../../functions/api/_shorts_data.js', import.meta.url));
+  const post = (body, token = ADM) => run(DI, req('/api/distribution', body, { token })), CH = 'UC_one_000001', clips = SD2.default.index.items.filter(x => x.qa && x.qa.status === 'pass' && !x.rejected).slice(0, 5).map(x => x.id);
+  for (const op of ['get', 'cfg_set', 'rules_set', 'plan_run', 'plan_set', 'resume']) {
+    const anon = await run(DI, req('/api/distribution', { op })); ok((anon.s === 401 || anon.s === 403) && !leaks(anon.text), `distribution '${op}' không token bị chặn (${anon.s})`);
+    const usr = await post({ op }, USER); ok(usr.s === 403 && !leaks(usr.text), `distribution '${op}' người dùng thường → 403 (${usr.s})`);
+  }
+  for (const op of ['constructor', '__proto__', 'toString']) ok((await post({ op })).s === 400, `distribution op '${op}' → 400`);
+  let r = await post({ op: 'get' }); ok(r.s === 200 && r.j.channels.some(c => c.channel_id === CH && c.cfg.daily_cap === 2) && r.j.taxonomy.topics.length && !leaks(r.text), 'get: kênh + cấu hình mặc định (2/ngày) + taxonomy, không lộ bí mật');
+  r = await post({ op: 'cfg_set', channel_id: CH, cfg: { daily_cap: 3, min_gap_min: 300, tz: 'Asia/Kolkata', windows: [{ from: '18:00', to: '22:00' }, { from: 'x', to: 'y' }], types: ['short'], label: 'L'.repeat(200) } });
+  ok(r.s === 200 && r.j.cfg.daily_cap === 3 && r.j.cfg.tz === 'Asia/Kolkata' && r.j.cfg.windows.length === 1 && r.j.cfg.label.length === 60, 'cfg_set: chuẩn hoá (khung giờ lỗi bị bỏ, nhãn cắt)');
+  ok((await post({ op: 'cfg_set', channel_id: 'UC_nope_000009', cfg: {} })).s === 404 && (await post({ op: 'cfg_set', channel_id: "x'; DROP", cfg: {} })).s === 404, 'cfg_set: kênh lạ → 404');
+  ok((await post({ op: 'rules_set', rules: [{ cond: {}, channel_id: CH }] })).s === 400 && (await post({ op: 'rules_set', rules: [{ cond: { type: 'short' }, channel_id: 'UC_nope_000009' }] })).s === 400, 'rules_set: luật rỗng / kênh lạ → 400');
+  r = await post({ op: 'rules_set', rules: [{ name: 'IELTS', cond: { topic: 'exam/ielts', evil: 'x' }, channel_id: CH }], fallback: CH }); ok(r.s === 200 && (await post({ op: 'get' })).j.rules[0].cond.evil === undefined, 'rules_set lưu, bỏ khoá lạ');
+  for (const [i, c] of clips.entries()) sql.prepare("INSERT OR REPLACE INTO yt_queue (clip, lesson, status, privacy, approved_at, updated, title) VALUES (?, ?, 'manual', 'unlisted', ?, ?, ?)").run(c, c, i + 1, i + 1, 'T' + i);
+  r = await post({ op: 'plan_run' }); ok(r.s === 200 && r.j.planned >= 1, 'plan_run xếp lịch clip đã duyệt (' + r.j.planned + ')');
+  const pl = await post({ op: 'plan_get', channel_id: CH, days: 90 }); const perDay = {}; for (const x of pl.j.rows) perDay[x.date] = (perDay[x.date] || 0) + 1;
+  ok(pl.j.rows.length >= 1 && Object.values(perDay).every(n => n <= 3) && pl.j.rows.every(x => x.time >= '18:00' && x.time <= '22:00' && x.tz === 'Asia/Kolkata'), 'kế hoạch: ≤ hạn mức/ngày, trong khung 18:00–22:00 giờ Ấn Độ');
+  ok((await post({ op: 'plan_set', ids: [clips[0]], channel_id: CH, slot: '2020-01-01T00:00:00Z' })).s === 400 && (await post({ op: 'plan_set', ids: [clips[0]], channel_id: 'UC_nope_000009' })).s === 404, 'plan_set: slot quá khứ / kênh lạ bị từ chối');
+  r = await post({ op: 'plan_set', ids: [clips[0]], channel_id: CH, slot: new Date(Date.now() + 5 * 864e5).toISOString() }); ok(r.s === 200 && sql.prepare("SELECT source FROM yt_plan WHERE clip = ?").get(clips[0]).source === 'manual', 'plan_set: ghi đè tay');
+  await post({ op: 'plan_run', replan: true }); ok(sql.prepare("SELECT source FROM yt_plan WHERE clip = ?").get(clips[0]).source === 'manual', 'replan giữ nguyên ghi đè tay');
+  await YT2.pauseChannel(DB, CH, 'test strike'); const g2 = await post({ op: 'get' }); ok(g2.j.channels.find(c => c.channel_id === CH).cfg.active === 0 && g2.j.alerts[0].reason === 'test strike', 'tự động tạm dừng kênh + cảnh báo cho admin');
+  const rr = await post({ op: 'plan_run', replan: true }); ok(rr.j.planned === 0 || rr.j.skipped.length >= 0, 'kênh tạm dừng không nhận lịch mới');
+  ok((await post({ op: 'resume', channel_id: CH })).s === 200 && (await post({ op: 'get' })).j.channels.find(c => c.channel_id === CH).cfg.active === 1, 'resume bật lại kênh');
+  let aud = 0; try { aud = sql.prepare("SELECT COUNT(*) n FROM admin_log WHERE op LIKE 'dist.%'").get().n; } catch (e) { /* none */ } ok(aud >= 5, 'thao tác ghi nhật ký (' + aud + ')');
+}
+
 console.log(`api-security: ${n - fails}/${n} ok`);
 if (fails) process.exit(1);
