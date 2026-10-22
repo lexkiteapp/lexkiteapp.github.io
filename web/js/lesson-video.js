@@ -2,7 +2,10 @@
  * Chỗ đặt chỉ chèn <div class="lv-slot" hidden data-lv='{ctx}'> rồi gọi LessonVideo.scan(): khớp thẻ → hiện thẻ nhỏ (bìa trước),
  * bấm mới tải video + phát có tiếng; nội dung dạy CHỈ tiếng Anh (phụ đề EN, câu đố EN với ✓/✗) – chỉ nút/nhãn theo ngôn ngữ giao diện; xem xong → 1 câu đố nhanh
  * (đáp án vào thẻ ôn SRS qua App.addWord) → gợi ý video tiếp theo (đa dạng template/series). Đo: /api/hit { t:'v', ev, id }.
- * Manifest: /data/videos.json (scripts/video/web-rendition.mjs). Clip mẫu thử (test: true) chỉ hiện khi bật ?vtest=1. */
+ * Manifest: /data/videos.json (scripts/video/web-rendition.mjs). Clip mẫu thử (test: true) chỉ hiện khi bật ?vtest=1.
+ * Có youtube_id → mặt tiền YouTube nhẹ: chỉ poster; bấm mới nạp IFrame API + iframe youtube-nocookie (rel=0, playsinline, modestbranding),
+ * sự kiện 'ended' → câu đố EN. YouTube không sẵn sàng trong 4 s / lỗi / vùng chặn (người dùng zh, múi giờ Trung Quốc) → bản tự lưu trữ nhỏ (R2/media.lexkite.com).
+ * Không có youtube_id → bản tự lưu trữ. docs/VIDEO-STORAGE.md. */
 (function (g) {
   const R = () => g.LkVideoRank;
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -29,6 +32,8 @@
 .lv-card:focus-visible,.lv-x:focus-visible,.lv-q button:focus-visible{outline:3px solid var(--primary);outline-offset:2px}.lv-card img{width:54px;height:96px;object-fit:cover;border-radius:10px;flex:none;background:#111}
 .lv-card .lv-k{font-size:.78rem;font-weight:700;color:var(--muted)}.lv-card b{display:block;margin:.15rem 0}.lv-play{margin-inline-start:auto;flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--primary);color:#fff;font-size:1.1rem}
 .lv-pl{position:relative;border-radius:16px;overflow:hidden;background:#000;max-width:360px;margin:0 auto}.lv-pl video{display:block;width:100%;aspect-ratio:9/16;max-height:72vh;background:#000}
+.lv-yt{aspect-ratio:9/16;max-height:72vh}.lv-yt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.lv-yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0;opacity:0}.lv-yt.on iframe{opacity:1}
+.lv-spin{position:absolute;inset:auto 0 0;margin:auto;top:0;width:44px;height:44px;border-radius:50%;border:4px solid #fff6;border-top-color:#fff}@media (prefers-reduced-motion:no-preference){.lv-spin{animation:lvs 1s linear infinite}}@keyframes lvs{to{transform:rotate(1turn)}}.lv-yt.on .lv-spin{display:none}
 .lv-bar{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:.5rem 0}.lv-x{min-height:40px}.lv-q{border:1px solid var(--line);border-radius:14px;padding:.8rem;margin-top:.6rem;max-width:520px;margin-inline:auto}
 .lv-q .lv-opts{display:grid;gap:.4rem;margin:.5rem 0}.lv-q button.lv-o{text-align:start;min-height:44px}.lv-q .ok{border-color:var(--ok,#1a7f37)}.lv-q .no{border-color:var(--bad,#b42318)}.lv-q button.lv-o:disabled{opacity:1}.lv-q button.lv-o:disabled:not(.ok):not(.no){opacity:.6}.lv-q .ok .lv-mk{color:var(--ok,#1a7f37)}.lv-q .no .lv-mk{color:var(--bad,#b42318)}
 @media (prefers-reduced-motion:no-preference){.lv-card{transition:transform .15s}.lv-card:hover{transform:translateY(-1px)}}`;
@@ -50,7 +55,50 @@
     slot.querySelector('.lv-card').onclick = () => play(slot, it, ctx);
   }
 
+  const YT_WAIT = 4000;
+  // YouTube bị chặn ở Trung Quốc đại lục: giao diện zh-CN/zh-Hans hoặc múi giờ Trung Quốc → bỏ qua YouTube, phát bản tự lưu trữ ngay
+  function ytBlocked() {
+    try {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '', ln = String(navigator.language || '').toLowerCase(), ui = String(document.documentElement.lang || '').toLowerCase();
+      return /^Asia\/(Shanghai|Chongqing|Harbin|Urumqi|Kashgar)$/.test(tz) || /^zh(-cn|-hans|$)/.test(ln) && /^zh/.test(ui);
+    } catch (e) { return false; }
+  }
+  let ytApi = null;
+  const loadYT = () => ytApi || (ytApi = new Promise((ok, no) => {
+    if (g.YT && g.YT.Player) return ok(g.YT);
+    const prev = g.onYouTubeIframeAPIReady; g.onYouTubeIframeAPIReady = () => { if (typeof prev === 'function') prev(); ok(g.YT); };
+    const s = document.createElement('script'); s.src = 'https://www.youtube.com/iframe_api'; s.async = true; s.onerror = () => { ytApi = null; no(new Error('yt-load')); };
+    document.head.appendChild(s);
+  }));
   function play(slot, it, ctx) {
+    if (it.youtube_id && /^[A-Za-z0-9_-]{11}$/.test(it.youtube_id) && !ytBlocked() && !(LV.noYT)) return playYT(slot, it, ctx);
+    return playSelf(slot, it, ctx);
+  }
+  function done(slot, it, ctx, after) {
+    hit('done', it.id);
+    const s = seen(); s[it.id] = Date.now(); ls('lvSeen', JSON.stringify(s)); ls('lvLast', JSON.stringify({ id: it.id, template: it.template, series: it.series }));
+    quiz(after, it, () => next(slot, it, ctx));
+  }
+  function playYT(slot, it, ctx) {
+    slot.innerHTML = `<div class="lv-pl lv-yt"><img src="${esc(it.poster)}" alt="" width="360" height="640"><span class="lv-spin" aria-hidden="true"></span><div id="lvyt-${esc(it.id)}"></div></div>
+      <div class="lv-bar"><button type="button" class="btn sm lv-x" data-lv-close>${esc(T('Đóng video'))}</button></div><div class="lv-after" aria-live="polite"></div>`;
+    const after = slot.querySelector('.lv-after'), host = slot.querySelector('.lv-yt'); let player = null, ready = false, fell = false;
+    const fallback = why => { if (fell || !slot.isConnected) return; fell = true; try { if (player && player.destroy) player.destroy(); } catch (e) { /* bỏ qua */ } hit('yt_fallback', it.id); LV.lastFallback = why; playSelf(slot, it, ctx); };
+    const timer = setTimeout(() => { if (!ready) fallback('timeout'); }, YT_WAIT);
+    slot.querySelector('[data-lv-close]').onclick = () => { clearTimeout(timer); fell = true; try { if (player && player.destroy) player.destroy(); } catch (e) { /* bỏ qua */ } card(slot, it, ctx); slot.querySelector('.lv-card').focus(); };
+    loadYT().then(Y => {
+      if (fell || !slot.isConnected) return;
+      player = new Y.Player(`lvyt-${it.id}`, { host: 'https://www.youtube-nocookie.com', videoId: it.youtube_id, width: '100%', height: '100%',
+        playerVars: { rel: 0, playsinline: 1, modestbranding: 1, autoplay: 1, cc_load_policy: 1, cc_lang_pref: 'en', hl: 'en' },
+        events: {
+          onReady: e => { if (fell) return; ready = true; clearTimeout(timer); host.classList.add('on'); hit('view', it.id); try { e.target.playVideo(); } catch (x) { /* bỏ qua */ } },
+          onStateChange: e => { if (e.data === 0 && !fell) done(slot, it, ctx, after); },   // YT.PlayerState.ENDED
+          onError: () => fallback('error'),
+        } });
+    }).catch(() => fallback('load'));
+  }
+
+  function playSelf(slot, it, ctx) {
     const tracks = it.vtt_en ? `<track kind="captions" srclang="en" label="English" src="${esc(it.vtt_en)}" default>` : '';
     slot.innerHTML = `<div class="lv-pl"><video controls playsinline preload="metadata" crossorigin="anonymous" poster="${esc(it.poster)}" aria-label="${esc(it.title)}">
       <source src="${esc(it.src)}" type="video/mp4">${tracks}</video></div>
@@ -60,11 +108,7 @@
     slot.querySelector('[data-lv-close]').onclick = () => { v.pause(); card(slot, it, ctx); slot.querySelector('.lv-card').focus(); };
     v.addEventListener('play', () => hit('view', it.id), { once: true });
     v.addEventListener('error', () => { after.innerHTML = `<p class="small muted">${esc(T('Không phát được video – thử lại sau.'))}</p>`; }, true);
-    v.addEventListener('ended', () => {
-      hit('done', it.id);
-      const s = seen(); s[it.id] = Date.now(); ls('lvSeen', JSON.stringify(s)); ls('lvLast', JSON.stringify({ id: it.id, template: it.template, series: it.series }));
-      quiz(after, it, () => next(slot, it, ctx));
-    }, { once: true });
+    v.addEventListener('ended', () => done(slot, it, ctx, after), { once: true });
     const p = v.play(); if (p && p.catch) p.catch(() => {}); // bấm của người dùng = được phát có tiếng (iOS/Android WebView)
   }
 
@@ -103,5 +147,6 @@
       const it = pick(items, ctx); if (it && s.isConnected) card(s, it, ctx);
     }
   }
-  g.LessonVideo = { scan, pick, manifest };
+  const LV = { scan, pick, manifest, play, ytBlocked, YT_WAIT, noYT: false, lastFallback: '' };
+  g.LessonVideo = LV;
 })(typeof self !== 'undefined' ? self : this);

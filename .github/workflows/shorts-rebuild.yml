@@ -1,0 +1,80 @@
+# Re-render shorts from their RECIPES (lexkite-shorts recipes/…) + the footage bank and compare with the archived master
+# (byte-identical or SSIM ≥ min_ssim) – docs/VIDEO-STORAGE.md. 0 credits (no Kling, no AI judge / vision gate). Nothing is stored:
+# the report + rebuilt mp4 are an artifact (7 days). Reference master: Drive pool (render_link) → fallback lexkite-shorts git history.
+name: shorts-rebuild
+on:
+  workflow_dispatch:
+    inputs:
+      ids: { description: 'Clip ids (cine-news-…-en), phẩy ngăn cách', required: true }
+      min_ssim: { description: 'Ngưỡng SSIM khi không trùng byte', default: '0.99' }
+permissions: { contents: read }
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      CINE_LIB: ${{ github.workspace }}/footage
+      NEWS_DEPTH: ${{ github.workspace }}/depth
+      NEWS_ZONES: ${{ github.workspace }}/depth
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12', cache: pip, cache-dependency-path: scripts/cine/requirements.txt }
+      - name: Cài thư viện + ffmpeg
+        run: |
+          pip install -q -r scripts/cine/requirements.txt scipy==1.14.1 faster-whisper==1.0.3 requests==2.32.3
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Đệm mô hình Kokoro
+        uses: actions/cache@v4
+        with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: video-models-kokoro82m-q8-cine-v1 }
+      - name: Cài kokoro-js + Rhubarb
+        run: |
+          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
+          R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"; echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
+      - name: Công thức (lexkite-shorts recipes/, sparse)
+        env: { KEY: '${{ secrets.SHORTS_DEPLOY_KEY }}' }
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/shorts && chmod 600 ~/.ssh/shorts
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes" git clone -q --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
+          git -C /tmp/shorts sparse-checkout set --no-cone '/recipes/' '/shorts/index.json'; git -C /tmp/shorts checkout -q
+          ls /tmp/shorts/recipes >/dev/null 2>&1 || { echo "::error::chưa có recipes/ (chạy shorts-migrate trước)"; exit 1; }
+      - name: Footage (sparse, đúng phiên bản trong công thức nếu có)
+        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}', IDS: '${{ github.event.inputs.ids }}' }
+        run: |
+          printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
+          git clone -q --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
+          git -C footage sparse-checkout set --no-cone '/anchor/green/kfull/' '/anchor/green/kmask/' '/anchor/bg/' '/anchor/tools/meta/g*/' '/anchor/tools/dl24/g*.json' \
+            '/anchor/tools/fonts/' '/anchor/tools/foley/' '/anchor/tools/amb_studio.wav' '/anchor/news/depth/'
+          FS=$(python3 -c "import glob,json,os;ids=os.environ['IDS'].split(',');r=[json.load(open(p)) for p in glob.glob('/tmp/shorts/recipes/*/*/*.recipe.json') if os.path.basename(p)[:-12] in ids];s={(x['inputs'].get('footage') or {}).get('sha') for x in r}-{None,''};print(s.pop() if len(s)==1 else '')")
+          [ -n "$FS" ] && git -C footage checkout -q "$FS" || git -C footage checkout -q
+          echo "footage @ $(git -C footage rev-parse --short HEAD) (recipe: ${FS:-unknown → HEAD})"; rm -f ~/.ssh/footage
+      - uses: actions/cache/restore@v4
+        with: { path: depth, key: 'news-depth-v1-${{ github.run_id }}', restore-keys: 'news-depth-v1-' }
+      - name: Dựng lại + so sánh
+        env: { IDS: '${{ github.event.inputs.ids }}', MIN: '${{ github.event.inputs.min_ssim }}', LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: |
+          mkdir -p depth rb_out; cp -n footage/anchor/news/depth/*.png depth/ 2>/dev/null || true
+          fail=0; echo "### Rebuild from recipe" >> $GITHUB_STEP_SUMMARY
+          for id in ${IDS//,/ }; do
+            [[ "$id" =~ ^[a-z0-9-]+$ ]] || { echo "bad id $id"; fail=1; continue; }
+            rc=$(find /tmp/shorts/recipes -name "$id.recipe.json" | head -1); [ -n "$rc" ] || { echo "::error::no recipe for $id"; fail=1; continue; }
+            psha=$(python3 -c "import json;print(json.load(open('$rc'))['inputs']['pipeline']['sha'])")
+            rm -rf /tmp/pipe; git worktree add -q -f /tmp/pipe "$psha" 2>/dev/null || git worktree add -q -f /tmp/pipe HEAD
+            node scripts/video/drive-fetch.mjs --index /tmp/shorts/shorts/index.json --id "$id" --out "ref/$id.mp4" --git /tmp/shorts || echo "no reference for $id"
+            CINE_ROOT=/tmp/pipe NEWS_DIR="$PWD/work_$id" python3 scripts/cine/rebuild_from_recipe.py "$rc" --ref "ref/$id.mp4" --out rb_out --min-ssim "${MIN:-0.99}" --report "rb_out/$id.report.json" && r=ok || { r=FAIL; fail=1; }
+            echo "- $id: $r $(cat rb_out/$id.report.json 2>/dev/null | tr -d '\n ')" >> $GITHUB_STEP_SUMMARY
+            git worktree remove -f /tmp/pipe || true
+          done
+          exit $fail
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'shorts-rebuild-${{ github.run_number }}', path: rb_out/, retention-days: 7, if-no-files-found: warn }
+      - if: always()
+        run: rm -f ~/.ssh/shorts ~/.ssh/footage

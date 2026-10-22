@@ -23,6 +23,13 @@
     'Số video dựng mỗi ngày': 'Renders per day', 'Lịch đăng': 'Publish calendar', '{a} bài đã qua lịch · {b} bài sắp tới · {c} video chưa xếp lịch': '{a} past slots · {b} upcoming · {c} videos unscheduled',
     'Kế tiếp': 'Next', 'Credit theo kho cảnh': 'Credits per bank', 'ảnh {a} · video {b}': 'images {a} · videos {b}', 'Chưa có tóm tắt credit (chạy scripts/cine/credits_summary.py).': 'No credit summary yet (run scripts/cine/credits_summary.py).',
     'Không có dữ liệu': 'No data', 'ngày {d}: {n}': '{d}: {n}',
+    'Kết nối YouTube': 'Connect YouTube', 'Kết nối lại YouTube': 'Reconnect YouTube', 'YouTube chưa kết nối – chỉ chủ kênh bấm (đồng ý trong trình duyệt của anh).': 'YouTube not connected – channel owner only (consent in your own browser).',
+    'Kênh {c} · hạn mức hôm nay còn {u} đơn vị (≈ {n} video) · chờ {q} · đã lên {d}': 'Channel {c} · quota left today {u} units (≈ {n} videos) · queued {q} · uploaded {d}',
+    'Chế độ': 'Privacy', 'Riêng tư': 'Private', 'Không công khai (unlisted)': 'Unlisted', 'Theo lịch đăng (publishAt)': 'Follow the publish calendar (publishAt)',
+    'Chọn nhiều': 'Select', 'Duyệt & lên YouTube': 'Approve & upload to YouTube', 'Duyệt & lên YouTube ({n})': 'Approve & upload to YouTube ({n})',
+    'Duyệt {n} video lên YouTube ở chế độ {p}{s}? Không bao giờ công khai ngay.': 'Approve {n} videos for YouTube as {p}{s}? Never public immediately.', ' (công khai theo lịch đăng)': ' (goes public at its calendar slot)',
+    'Đã xếp {a} video · bỏ qua {b}': 'Queued {a} · skipped {b}', 'Đã kết nối YouTube.': 'YouTube connected.', 'Kết nối YouTube lỗi: {e}': 'YouTube connection failed: {e}',
+    'YouTube: {s}': 'YouTube: {s}', 'Bản gốc đã xoá theo luật giữ 30 ngày – dựng lại từ công thức (shorts-rebuild).': 'Master removed by the 30-day retention rule – rebuild from the recipe (shorts-rebuild).',
   };
   const CSS = `.vid-bar{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:.8rem}.vid-bar input,.vid-bar select{min-height:36px;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--text);padding:0 .5rem;font:inherit;font-size:.86rem;max-width:100%}
 .vid-bar input[type=search]{flex:1 1 220px}.vid-tabs{display:flex;gap:.4rem;margin-bottom:.8rem}.vid-tabs button[aria-pressed=true]{background:var(--accent);color:#fff;border-color:var(--accent)}
@@ -37,6 +44,7 @@
 .vid-dlg{width:min(880px,calc(100vw - 32px))}.vid-dlg .in{display:grid;grid-template-columns:minmax(0,320px) 1fr;gap:1rem;padding:1rem}.vid-dlg video,.vid-ph{width:100%;aspect-ratio:9/16;border-radius:10px;background:#000;display:block}
 .vid-ph{display:flex;align-items:center;justify-content:center;color:#ddd;padding:1rem;text-align:center;font-size:.85rem;box-sizing:border-box}
 .vid-kv{width:100%;border-collapse:collapse;font-size:.83rem}.vid-kv th{text-align:left;color:var(--muted);font-weight:600;padding:.2rem .5rem .2rem 0;white-space:nowrap;vertical-align:top}.vid-kv td{padding:.2rem 0;word-break:break-word}
+.vid-card[aria-pressed=true]{outline:3px solid var(--accent);outline-offset:2px}.vid-yt{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:.8rem;padding:.5rem .7rem;border:1px solid var(--line);border-radius:10px;font-size:.85rem}.vid-yt select{min-height:32px}
 .vid-acts{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.7rem}
 .vid-kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.6rem;margin-bottom:1rem}.vid-kpi div{border:1px solid var(--line);border-radius:12px;padding:.6rem .8rem;background:var(--surface)}.vid-kpi b{display:block;font-size:1.35rem}.vid-kpi span{font-size:.78rem;color:var(--muted)}
 .vid-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.8rem}.vid-box{border:1px solid var(--line);border-radius:12px;padding:.7rem .8rem;background:var(--surface);min-width:0}.vid-box h3{margin:0 0 .5rem;font-size:.9rem}
@@ -46,6 +54,7 @@
 .vid-svg{width:100%;height:auto;display:block}.vid-svg rect{fill:var(--accent)}.vid-svg text{fill:var(--muted);font-size:10px}
 @media (max-width:640px){.vid-dlg .in{grid-template-columns:1fr}.vid-dlg video,.vid-ph{max-height:60vh;width:auto;margin:0 auto}}`;
   let gen = 0, state = { tab: 'lib', f: {} };
+  const sel = { on: false, ids: new Set() }, yt = { st: null, q: {} };
 
   function render(box, vapi, L, h) {
     const esc = h.esc, lang = h.lang || (() => 'vi'), my = ++gen, LOC = () => (lang() === 'en' ? 'en-US' : 'vi-VN');
@@ -70,7 +79,8 @@
       const opt = (k, vals, lab = x => x) => `<select data-f="${k}" aria-label="${esc(V({ format: 'Định dạng', scene: 'Cảnh/chủ đề', template: 'Mẫu', cefr: 'CEFR', status: 'Trạng thái' }[k]))}"><option value="">${esc(V({ format: 'Định dạng', scene: 'Cảnh/chủ đề', template: 'Mẫu', cefr: 'CEFR', status: 'Trạng thái' }[k]))}: ${V('Tất cả')}</option>${vals.map(v => `<option value="${esc(v)}"${f[k] === v ? ' selected' : ''}>${esc(lab(v))}</option>`).join('')}</select>`;
       box.innerHTML = `<div class="vid-tabs" role="group"><button class="btn sm" data-t="lib" aria-pressed="${state.tab === 'lib'}">${V('Thư viện')}</button><button class="btn sm" data-t="stats" aria-pressed="${state.tab === 'stats'}">${V('Thống kê')}</button><button class="btn sm" data-t="web" aria-pressed="${state.tab === 'web'}">${V('Trên web')}</button><span class="small muted" style="margin-left:auto;align-self:center">${esc(data.source === 'drive' ? V('Nguồn: Kho Drive riêng (trực tiếp)') : data.source === 'repo' ? V('Nguồn: repo riêng lexkite-shorts (trực tiếp)') : V('Nguồn: manifest gói sẵn'))}</span></div>
         ${data.media ? '' : `<div class="vid-note" role="note">${esc(V('⚠️ Kho Drive chưa đọc được: đang dùng manifest gói sẵn (cập nhật {d}); bìa và video chưa xem được. Xem docs/SHORTS-ACCESS.md.', { d: day(data.updated) || '–' }))}</div>`}
-        <div id="vid-body"></div>`;
+        <div id="vid-yt"></div><div id="vid-body"></div>`;
+      ytBox(box.querySelector('#vid-yt'));
       box.querySelectorAll('[data-t]').forEach(b => { b.onclick = () => { state.tab = b.dataset.t; draw(data); }; });
       const body = box.querySelector('#vid-body');
       if (state.tab === 'stats') return stats(body, data, items);
@@ -79,7 +89,12 @@
         ${opt('format', uniq('format'), v => V(FMT[v] || v))}${opt('scene', uniq('scene'))}${opt('template', uniq('template'))}${opt('cefr', uniq('cefr'))}
         ${opt('status', ['pass', 'fail', 'sched', 'due', 'none'], v => V({ pass: 'QA đạt', fail: 'QA chưa đạt', ...PUB }[v]))}
         <input type="date" data-f="from" aria-label="${esc(V('Từ ngày'))}" title="${esc(V('Từ ngày'))}" value="${esc(f.from || '')}"><input type="date" data-f="to" aria-label="${esc(V('Đến ngày'))}" title="${esc(V('Đến ngày'))}" value="${esc(f.to || '')}">
-        <button class="btn ghost sm" id="vid-clr">${V('Xóa lọc')}</button><span class="small muted" id="vid-n"></span></div><div class="vid-grid" id="vid-grid"></div>`;
+        <button class="btn ghost sm" id="vid-clr">${V('Xóa lọc')}</button>${h.yapi ? `<button class="btn ghost sm" id="vid-sel" aria-pressed="${sel.on}">☑ ${V('Chọn nhiều')}</button><button class="btn primary sm" id="vid-ap" hidden></button>` : ''}<span class="small muted" id="vid-n"></span></div><div class="vid-grid" id="vid-grid"></div>`;
+      const selBar = () => { const b = body.querySelector('#vid-ap'); if (!b) return; b.hidden = !sel.on || !sel.ids.size; b.textContent = '▶ ' + V('Duyệt & lên YouTube ({n})', { n: sel.ids.size }); };
+      if (h.yapi) {
+        body.querySelector('#vid-sel').onclick = () => { sel.on = !sel.on; if (!sel.on) sel.ids.clear(); body.querySelector('#vid-sel').setAttribute('aria-pressed', String(sel.on)); paint(); selBar(); };
+        body.querySelector('#vid-ap').onclick = () => approve([...sel.ids]).then(ok => { if (ok) { sel.ids.clear(); sel.on = false; draw(data); } });
+      }
       const grid = body.querySelector('#vid-grid');
       const paint = () => {
         const q = (f.q || '').trim().toLowerCase();
@@ -92,12 +107,36 @@
           return `<button class="vid-card" data-id="${esc(it.id)}" aria-label="${esc(V('Mở video {t}', { t: it.title || it.id }))}"><div class="vid-th">${c ? `<img loading="lazy" decoding="async" alt="" src="${esc(c)}">` : `<span>🎬<br>${V('Chưa có')}</span>`}
             <span class="vid-badge${bad ? ' bad' : ''}">${bad ? '✗' : '✓'} QA</span>${it.duration ? `<span class="vid-dur">${esc(secs(it.duration))}</span>` : ''}</div>
             <div class="vid-meta"><b>${esc(it.title || it.point || it.id)}</b><span>${esc([it.scene, it.template, it.cefr].filter(Boolean).join(' · '))}</span><span>${esc(it.rejected ? '⛔ ' + V('Bị loại') + ': ' + it.rejected : it.paused ? '⏸ ' + V('Tạm dừng') + ': ' + it.paused : it.slot ? it.slot.date + ' ' + it.slot.time : V(PUB.none))}</span></div></button>`; }).join('') : `<p class="muted">${V('Không có video khớp bộ lọc.')}</p>`;
-        grid.querySelectorAll('.vid-card').forEach(b => { b.onclick = () => open(items.find(x => x.id === b.dataset.id), data); });
+        grid.querySelectorAll('.vid-card').forEach(b => {
+          if (sel.on) b.setAttribute('aria-pressed', String(sel.ids.has(b.dataset.id)));
+          b.onclick = () => { if (!sel.on) return open(items.find(x => x.id === b.dataset.id), data); sel.ids.has(b.dataset.id) ? sel.ids.delete(b.dataset.id) : sel.ids.add(b.dataset.id); b.setAttribute('aria-pressed', String(sel.ids.has(b.dataset.id))); selBar(); };
+        });
       };
       body.querySelector('#vid-q').oninput = e => { f.q = e.target.value; paint(); };
       body.querySelectorAll('[data-f]').forEach(s => { s.onchange = () => { f[s.dataset.f] = s.value; paint(); }; });
       body.querySelector('#vid-clr').onclick = () => { state.f = {}; draw(data); };
       paint();
+    }
+
+    // ---- YouTube (functions/api/youtube.js): trạng thái kênh + hạn mức, Kết nối YouTube (chỉ chủ kênh), Duyệt & lên YouTube ----
+    async function ytBox(el) {
+      if (!h.yapi || !el) return;
+      try { const q = new URLSearchParams(location.search).get('yt'); if (q) { toast(q === 'ok' ? V('Đã kết nối YouTube.') : V('Kết nối YouTube lỗi: {e}', { e: q })); history.replaceState(null, '', location.pathname + '#video'); } } catch (e) { /* bỏ qua */ }
+      try { [yt.st, yt.q] = await Promise.all([h.yapi('status'), h.yapi('queue').then(r => Object.fromEntries((r.rows || []).map(x => [x.clip, x])))]); } catch (e) { el.innerHTML = `<div class="vid-yt">${esc(V('Kết nối YouTube lỗi: {e}', { e: e.code || e.message }))}</div>`; return; }
+      const s = yt.st, ch = s.channel, q = s.quota || {}, c = s.queue || {};
+      el.innerHTML = `<div class="vid-yt" role="group" aria-label="YouTube"><b>▶ YouTube</b><span>${ch && ch.status === 'ok' ? esc(V('Kênh {c} · hạn mức hôm nay còn {u} đơn vị (≈ {n} video) · chờ {q} · đã lên {d}', { c: ch.title || ch.channel_id, u: num(q.left), n: q.uploads_left, q: (c.queued || 0) + (c.failed || 0), d: c.done || 0 })) : esc(V('YouTube chưa kết nối – chỉ chủ kênh bấm (đồng ý trong trình duyệt của anh).'))}</span>
+        <label>${V('Chế độ')} <select id="yt-pv"><option value="private"${(s.settings || {}).privacy !== 'unlisted' ? ' selected' : ''}>${V('Riêng tư')}</option><option value="unlisted"${(s.settings || {}).privacy === 'unlisted' ? ' selected' : ''}>${V('Không công khai (unlisted)')}</option></select></label>
+        <label><input type="checkbox" id="yt-cal" checked> ${V('Theo lịch đăng (publishAt)')}</label>
+        <button class="btn ${ch && ch.status === 'ok' ? 'ghost' : 'primary'} sm" id="yt-con" style="margin-left:auto">${V(ch && ch.status === 'ok' ? 'Kết nối lại YouTube' : 'Kết nối YouTube')}</button></div>`;
+      el.querySelector('#yt-con').onclick = async () => { try { const r = await h.yapi('connect'); if (/^https:\/\/accounts\.google\.com\//.test(r.url)) location.href = r.url; } catch (e) { toast(V('Kết nối YouTube lỗi: {e}', { e: e.code || e.message })); } };
+      el.querySelector('#yt-pv').onchange = e => h.yapi('settings', { privacy: e.target.value }).catch(() => {});
+    }
+    async function approve(ids) {
+      if (!h.yapi || !ids.length) return false;
+      const pv = (document.getElementById('yt-pv') || {}).value || 'private', cal = !!(document.getElementById('yt-cal') || {}).checked && pv === 'private';
+      if (!confirm(V('Duyệt {n} video lên YouTube ở chế độ {p}{s}? Không bao giờ công khai ngay.', { n: ids.length, p: pv, s: cal ? V(' (công khai theo lịch đăng)') : '' }))) return false;
+      try { const r = await h.yapi('approve', { ids, privacy: pv, schedule: cal ? 'calendar' : 'none' }); toast(V('Đã xếp {a} video · bỏ qua {b}', { a: r.queued.length, b: r.skipped.length })); ytBox(document.getElementById('vid-yt')); return true; }
+      catch (e) { toast(V('Kết nối YouTube lỗi: {e}', { e: e.code || e.message })); return false; }
     }
 
     async function open(it, data) {
@@ -112,11 +151,14 @@
         ${row('Thời lượng', secs(it.duration))}${row('Dung lượng', mb(it.bytes))}${row('Ngày dựng', it.created ? new Date(it.created).toLocaleString(LOC()) : '')}${row('Lượt CI', it.run)}
         ${row('Lịch đăng', it.slot ? `#${it.slot.n} · ${it.slot.date} ${it.slot.time} (${it.slot.tz || ''}) · ${V(PUB[pub(it)])}` : V(PUB.none))}
         ${row('Kết quả QA', qa.result)}${row('Mục đạt', qa.ok)}${row('Mục lỗi', qa.fail)}${row('Khớp môi lệch tối đa', qa.lipsync_ms != null ? qa.lipsync_ms + ' ms' : '')}${row('Phụ đề tối đa (ký tự/giây)', qa.cps_max)}
-        ${row('Tiêu đề', it.title)}${row('Mô tả', it.description)}${row('Hashtag', (it.hashtags || []).join(' '))}</tbody></table>
+        ${row('Tiêu đề', it.title)}${row('Mô tả', it.description)}${row('Hashtag', (it.hashtags || []).join(' '))}${yt.q[it.id] ? row('YouTube: {s}', [yt.q[it.id].status, yt.q[it.id].privacy, yt.q[it.id].publish_at, yt.q[it.id].video_id].filter(Boolean).join(' · ')) : ''}</tbody></table>
+        ${it.drive && it.drive.video && it.drive.video.retired ? `<p class="small muted">${esc(V('Bản gốc đã xoá theo luật giữ 30 ngày – dựng lại từ công thức (shorts-rebuild).'))}</p>` : ''}
+        ${h.yapi && qa.status === 'pass' && !(yt.q[it.id] && /done|uploading/.test(yt.q[it.id].status)) ? `<p><button class="btn primary sm" data-yt>▶ ${V('Duyệt & lên YouTube')}</button></p>` : ''}
         <div class="vid-acts"><button class="btn sm" data-c="title">${V('Chép tiêu đề')}</button><button class="btn sm" data-c="description">${V('Chép mô tả')}</button><button class="btn sm" data-c="hashtags">${V('Chép hashtag')}</button><span id="vid-dl"></span></div></div></div>`;
       const close = () => { const v = d.querySelector('video'); if (v) { v.pause(); v.removeAttribute('src'); v.load(); } if (d.close) d.close(); d.remove(); };
       d.querySelector('[data-x]').onclick = close; d.addEventListener('cancel', e => { e.preventDefault(); close(); }); d.addEventListener('click', e => { if (e.target === d) close(); });
       d.querySelectorAll('[data-c]').forEach(b => { b.onclick = async () => { const k = b.dataset.c, v = k === 'hashtags' ? (it.hashtags || []).join(' ') : it[k] || ''; try { await navigator.clipboard.writeText(v); toast(V('Đã chép')); b.textContent = '✓ ' + V('Đã chép'); } catch (e) { /* bỏ qua */ } }; });
+      const yb = d.querySelector('[data-yt]'); if (yb) yb.onclick = () => approve([it.id]).then(ok => { if (ok) close(); });
       if (d.showModal) d.showModal(); else d.setAttribute('open', '');
       if (!data.media || !it.video) return;
       try {

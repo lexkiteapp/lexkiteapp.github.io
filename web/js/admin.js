@@ -373,6 +373,13 @@
     if (!r.ok) { const e = new Error(j.error || 'HTTP ' + r.status); e.code = j.error; e.status = r.status; throw e; }
     return j;
   }
+  // YouTube (functions/api/youtube.js) – Thư viện video: Kết nối YouTube, Duyệt & lên YouTube. credentials: cookie phiên OAuth (lk_yt)
+  async function yapi(op, body = {}) {
+    const r = await fetch('/api/youtube', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ op, ...body }) });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) { const e = new Error(j.error || 'HTTP ' + r.status); e.code = j.error; e.status = r.status; e.data = j; throw e; }
+    return j;
+  }
   // Backlink, PR & Thương hiệu qua /api/backlinks – tab Backlink, PR & Thương hiệu. Lỗi → err.code + err.data
   async function bapi(op, body = {}) {
     const r = await fetch('/api/backlinks', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ op, ...body }) });
@@ -1231,7 +1238,7 @@
     },
     async video() { // Thư viện video – js/admin-video.js (tải lười) → /api/admin-shorts
       await lazy('AdminVideo', 'js/admin-video.js'); main.innerHTML = '';
-      AdminVideo.render(main, vapi, L, { esc, lang: () => LANG, toast });
+      AdminVideo.render(main, vapi, L, { esc, lang: () => LANG, toast, yapi });
     },
     async backlinks() { // Backlink, PR & Thương hiệu – js/admin-backlinks.js (tải lười) → /api/backlinks (functions/api/backlinks.js)
       await lazy('AdminBacklinks', 'js/admin-backlinks.js'); main.innerHTML = '';

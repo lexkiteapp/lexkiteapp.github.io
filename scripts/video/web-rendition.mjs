@@ -7,6 +7,8 @@
 //   node scripts/video/web-rendition.mjs manifest                  → web/data/videos.json (+ content/video/web/captions/<bài>.json cho trang /video/<slug>/)
 // Chỉ clip bản tin, QA ≥ 90 và chủ đã duyệt (content/video/web/approved.json "approved") – hoặc mẫu thử ("test": ẩn trên production, chỉ hiện với ?vtest=1).
 import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process';
+import { fetchFromDrive } from './drive-fetch.mjs';
+import { r2Config, r2Head, r2Put } from '../lib/media-store.mjs';
 import { LANGS as PAGE_LANGS, MANIFEST, CAPTIONS_DIR, APPROVED, CDN, readJSON, sha, eligible, sentences, enCues, vtt, tagLesson, quizFor, titleOf, slugOf, templateOf, validateManifest } from '../lib/video-web.mjs';
 
 const [cmd, shortsDir = process.env.SHORTS_DIR || 'shorts-repo'] = process.argv.slice(2);
@@ -41,6 +43,10 @@ if (cmd === 'build') {
   let built = 0;
   for (const it of todo) {
     const L = lessonOf(it.lesson), d = path.join(W, it.lesson), src = path.join(shortsDir, it.video);
+    if (!fs.existsSync(src) && ((it.drive || {}).video || {}).fileId && !it.drive.video.retired) {   // recipe-first: master on the Drive pool, not in git
+      try { await fetchFromDrive(it.drive.video.fileId, src, { sha: it.drive.video.sha256 }); } catch (e) { console.log(`::warning::${it.lesson}: Drive ${e.message}`); }
+      if (it.cover && (it.drive.cover || {}).fileId) await fetchFromDrive(it.drive.cover.fileId, path.join(shortsDir, it.cover), { sha: it.drive.cover.sha256 }).catch(() => {});
+    }
     if (!fs.existsSync(src)) { console.log(`::warning::${it.lesson}: thiếu master ${it.video}`); continue; }
     fs.rmSync(d, { recursive: true, force: true }); fs.mkdirSync(d, { recursive: true });
     // 720×1280 H.264 ~2–3 MB: CRF 23 có trần bitrate; quá 3,2 MB → CRF 26
@@ -74,10 +80,25 @@ async function gh(method, url, body, type = 'application/json') {
   if (!r.ok && r.status !== 404) throw new Error(`${method} ${url}: ${r.status} ${(await r.text()).slice(0, 200)}`);
   return r.status === 404 ? null : r.status === 204 ? {} : r.json();
 }
+/** Top ~3.000 clip theo lượt xem (content/video/web/views.json {id: views}, CI analytics) – còn lại (hiếm) ở Release. */
+export const R2_TOP = 3000;
+export function r2Pick(ids, views = {}, n = R2_TOP) { return new Set([...ids].sort((a, b) => (+views[b] || 0) - (+views[a] || 0) || String(a).localeCompare(String(b))).slice(0, n)); }
 if (cmd === 'publish') {
-  if (!process.env.GITHUB_TOKEN) { console.error('✗ thiếu GITHUB_TOKEN'); process.exit(1); }
   const dirs = fs.readdirSync(W).filter(x => fs.existsSync(`${W}/${x}/meta.json`));
+  const r2 = r2Config({ ...process.env, R2_BUCKET: process.env.R2_BUCKET || 'lexkite-blog-media' }), top = r2Pick(readJSON(MANIFEST, { items: [] }).items.map(x => x.id).concat(dirs), readJSON('content/video/web/views.json', {}));
+  if (!r2 && !process.env.GITHUB_TOKEN) { console.error('✗ thiếu R2_* và GITHUB_TOKEN'); process.exit(1); }
+  if (!r2) console.log('::warning::R2 chưa cấu hình (secret R2_ACCESS_KEY_ID/R2_SECRET_ACCESS_KEY) – tạm dùng GitHub Release qua media.lexkite.com (docs/VIDEO-STORAGE.md)');
   for (const id of dirs) {
+    if (r2 && top.has(id)) {   // Cloudflare R2 free tier (10 GB): video/<bài>/<tên-băm>, immutable; Worker lexkite-media phục vụ trước Release
+      const d = `${W}/${id}`, meta = readJSON(`${d}/meta.json`), T = { mp4: 'video/mp4', webp: 'image/webp', vtt: 'text/vtt' }, names = {};
+      for (const f of fs.readdirSync(d).filter(f => /\.(mp4|webp|vtt)$/.test(f))) {
+        const b = fs.readFileSync(`${d}/${f}`), ext = f.split('.').pop(), name = `${f.replace(/\.[a-z0-9]+$/, '')}-${sha(b, 8)}.${ext}`, key = `video/${id}/${name}`;
+        if (!(await r2Head(r2, key))) await r2Put(r2, key, b, T[ext]); names[f] = name;
+      }
+      meta.src = CDN + id + '/' + names['v.mp4']; meta.poster = CDN + id + '/' + names['p.webp']; meta.vtt_en = CDN + id + '/' + names['en.vtt']; meta.origin = 'r2';
+      fs.writeFileSync(`${d}/meta.json`, JSON.stringify(meta, null, 1)); console.log(`✓ R2 video/${id}/`); continue;
+    }
+    if (!process.env.GITHUB_TOKEN) continue;
     const d = `${W}/${id}`, meta = readJSON(`${d}/meta.json`), tag = 'wv-' + id;
     const files = fs.readdirSync(d).filter(f => /\.(mp4|webp|vtt)$/.test(f)).map(f => { const b = fs.readFileSync(`${d}/${f}`), ext = f.split('.').pop(); return { f, b, name: `${f.replace(/\.[a-z0-9]+$/, '')}-${sha(b, 8)}.${ext}`, type: { mp4: 'video/mp4', webp: 'image/webp', vtt: 'text/vtt' }[ext] }; });
     let rel = await gh('GET', `/releases/tags/${tag}`);
@@ -95,9 +116,15 @@ if (cmd === 'publish') {
 }
 
 // ---------- manifest ----------
+async function ytWeb() {
+  if (!process.env.LEXKITE_DRIVE_CLI_KEY) return {};
+  try { const { ytApi } = await import('./yt-upload.mjs'); return (await ytApi('ids')).web || {}; } catch (e) { console.log('::warning::youtube ids: ' + e.message); return {}; }
+}
 if (cmd === 'manifest') {
   const el = new Set(pick().map(x => x.lesson)), man = readJSON(MANIFEST, { items: [] }), by = Object.fromEntries((man.items || []).map(x => [x.id, x]));
   for (const id of fs.existsSync(W) ? fs.readdirSync(W) : []) { const m = readJSON(`${W}/${id}/meta.json`); if (m && m.src) by[id] = m; }
+  const yt = await ytWeb();   // youtube_id chỉ khi video xem được (unlisted, hoặc đã tới publishAt) – functions/api/youtube.js op ids
+  for (const x of Object.values(by)) { if (yt[x.id]) x.youtube_id = yt[x.id]; else delete x.youtube_id; }
   const items = Object.values(by).filter(x => el.has(x.id)).sort((a, b) => (a.test - b.test) || String(b.created).localeCompare(String(a.created)));
   const out = { version: 1, updated: new Date().toISOString().slice(0, 19) + 'Z', items };
   const err = validateManifest(out); if (err.length) { console.error('✗ manifest:\n' + err.join('\n')); process.exit(1); }

@@ -2,7 +2,8 @@
 # Idempotent (sha trong index.json + sổ drive_files), tiếp tục được (ghi index sau mỗi short), có nhịp nghỉ.
 # Ghi vị trí file (item.drive.{video,cover}) ngược vào shorts/index.json của lexkite-shorts, rồi tải manifest thư viện quản trị
 # (index + coverage + lịch + credit → shorts/_admin/admin-shorts.json) lên kho: /admin.html#video đọc từ đó, không cần token GitHub.
-# Chạy sau mỗi cine-render (cả bản tin news) + mỗi ngày (đồng bộ coverage/lịch đăng).
+# Chạy sau mỗi cine-render (cả bản tin news) + mỗi ngày (đồng bộ coverage/lịch đăng) + luật kho shorts (scripts/video/shorts-archive.mjs, docs/VIDEO-STORAGE.md).
+# Từ khi lưu theo công thức: mp4 không còn trong lexkite-shorts (cine-render tự tải lên kho) → bước tải ở đây chỉ bù khi cine-render lỗi.
 # Secrets: LEXKITE_DRIVE_CLI_KEY (HMAC /api/drive), SHORTS_DEPLOY_KEY (deploy key ghi lexkite-shorts).
 name: drive-shorts
 on:
@@ -35,6 +36,10 @@ jobs:
       - name: Tải shorts ĐẠT lên Kho Drive
         env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
         run: node scripts/video/drive-shorts.mjs --repo /tmp/shorts --limit "${{ github.event.inputs.limit || '500' }}" ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
+      - name: Luật kho shorts (2 bản cho clip đã duyệt/đăng · giữ 30 ngày · cân bằng Drive)
+        if: ${{ !cancelled() && github.event.inputs.dry_run != 'true' }}
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/video/shorts-archive.mjs --repo /tmp/shorts
       - name: Manifest thư viện quản trị → Kho Drive
         if: ${{ !cancelled() && github.event.inputs.dry_run != 'true' }}
         env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
