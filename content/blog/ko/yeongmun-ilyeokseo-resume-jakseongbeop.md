@@ -10,7 +10,7 @@ keyword: "영문 이력서 레주메 작성법"
 cover: mock
 coverAlt: "Lexkite 외국계 글로벌 취업 및 영문 이력서 작성 시스템"
 coverArt: {mood: cheer, icon: pen}
-publishAt:
+publishAt: 2026-11-08T19:27:00+09:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

@@ -10,7 +10,7 @@ keyword: "auf englisch denken lernen"
 cover: method
 coverAlt: "Lernmethode in Lexkite mit 30-Minuten-Rhythmus zur schrittweisen Sprachvertiefung"
 coverArt: {mood: think, icon: bulb}
-publishAt:
+publishAt: 2026-11-02T09:32:00+01:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

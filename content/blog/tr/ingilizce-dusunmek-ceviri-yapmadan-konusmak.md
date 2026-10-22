@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: mic}
-publishAt:
+publishAt: 2026-11-07T08:00:00+03:00
 quiz: [
   {
     q: "İngilizce konuşurken zihinde Türkçe çeviri yapmanın en olumsuz sonucu nedir?",

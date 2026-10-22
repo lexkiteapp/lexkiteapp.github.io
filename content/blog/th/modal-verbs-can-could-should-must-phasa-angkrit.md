@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-11-04T21:43:00+07:00
 quiz: [
   {
     q: "กฎเหล็กทางไวยากรณ์ที่สำคัญที่สุดเมื่อใช้ Modal Verbs (Can, Could, Should, Must) คือข้อใด?",

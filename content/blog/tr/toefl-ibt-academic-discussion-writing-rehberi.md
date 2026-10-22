@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: pen}
-publishAt:
+publishAt: 2026-10-31T20:26:00+03:00
 quiz: [
   {
     q: "TOEFL iBT yeni formatındaki 'Writing for an Academic Discussion' görevi için adaya kaç dakika süre tanınır?",

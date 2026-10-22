@@ -10,7 +10,7 @@ keyword: "diferencia entre make y do en inglés"
 cover: library
 coverAlt: "Biblioteca de vocabulario de Lexkite con más de 6.800 palabras organizadas de A1 a C1"
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-10-27T20:18:00-06:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready
@@ -71,7 +71,7 @@ Para no depender de la memoria pura, interioriza este contraste visual:
 
 Para explorar miles de palabras y colocaciones ordenadas por frecuencia de uso real, visita la [biblioteca de vocabulario](/app/#/library) del Lexkite.
 
-![Dicionario inteligente con pronunciación UK e US e ejemplos del término resilient](media:dict "Consulta colocaciones naturales con make y do en el diccionario de Lexkite")
+![Diccionario inteligente con pronunciación UK y US y ejemplos del término resilient](media:dict "Consulta colocaciones naturales con make y do en el diccionario de Lexkite")
 
 ## Diferencia entre make y do en inglés: lista temática de MAKE
 

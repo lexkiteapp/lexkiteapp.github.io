@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: chat}
-publishAt:
+publishAt: 2026-11-05T07:11:00+07:00
 quiz: [
   {
     q: "Frasa manakah yang paling sopan dan profesional untuk menyela rekan kerja di tengah rapat online?",

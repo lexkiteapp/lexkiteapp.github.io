@@ -10,7 +10,7 @@ keyword: "phrasal verbs englisch liste"
 cover: dict
 coverAlt: "Englisch-Wörterbuch mit Lautschrift, Beispielsatz und Vokabelspeicher in Lexkite"
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-11-04T12:11:00+01:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

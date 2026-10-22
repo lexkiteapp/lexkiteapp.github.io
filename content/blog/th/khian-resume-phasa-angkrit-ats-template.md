@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: win, icon: pen}
-publishAt:
+publishAt: 2026-11-08T21:25:00+07:00
 quiz: [
   {
     q: "สูตรการเขียนผลงาน 'XYZ Formula' ของ Google ที่ได้รับการยอมรับในระดับสากลมีโครงสร้างอย่างไร?",
@@ -150,11 +150,11 @@ Laszlo Bock อดีตหัวหน้าฝ่ายปฏิบัติ�
 
 ### 1. สายงานวิศวกรซอฟต์แวร์ (Software Engineer)
 - **เวอร์ชันเดิมที่อ่อนแรง**: *"Wrote backend code and fixed system bugs for customer mobile applications."* (ทั่วไปเกินไป ขาดข้อมูลเชิงตัวเลข และไม่สะท้อนผลลัพธ์ทางธุรกิจ)
-- **เวอร์ชันมาตรฐาน ATS มืออาชีพ**: *"Architected high-throughput microservices using Golang and Docker, scaling concurrent user capacity by 250% while reducing API server latency from 450ms to 85ms across 1.2 million active mobile accounts."*
+- **เวอร์ชันมาตรฐาน ATS มืออาชีพ**: *"Built high-throughput microservices in Golang and Docker, raising concurrent user capacity by 250% and cutting API latency from 450ms to 85ms for 1.2 million active mobile accounts."*
 
 ### 2. สายงานการตลาดดิจิทัล (Digital Marketing Specialist)
 - **เวอร์ชันเดิมที่อ่อนแรง**: *"Created social media ads and handled Google Ads campaigns for company products."* (เป็นเพียงรายการหน้าที่งานที่ใครก็ทำได้)
-- **เวอร์ชันมาตรฐาน ATS มืออาชีพ**: *"Orchestrated paid search and omnichannel paid social campaigns with an annual budget of $180,000, outperforming benchmark conversion rates by 42% and decreasing customer acquisition cost (CAC) by $14.50 per qualified lead."*
+- **เวอร์ชันมาตรฐาน ATS มืออาชีพ**: *"Ran paid search and omnichannel paid social campaigns on a $180,000 annual budget, beating benchmark conversion rates by 42% and lowering customer acquisition cost (CAC) by $14.50 per qualified lead."*
 
 การเลือกใช้คำศัพท์ที่เฉียบคมและระบุตัวเลขชี้วัดผลงานอย่างชัดเจนเช่นนี้ คือหัวใจสำคัญที่ทำให้ Resume ของคุณโดดเด่นสะดุดตาทั้งต่อระบบคอมพิวเตอร์และต่อคณะกรรมการคัดเลือกบุคคล
 

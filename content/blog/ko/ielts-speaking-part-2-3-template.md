@@ -10,7 +10,7 @@ keyword: "아이엘츠 스피킹 파트2 템플릿"
 cover: mock
 coverAlt: "Lexkite 아이엘츠 전 영역 모의시험 및 인터랙티브 스피킹 테스트"
 coverArt: {mood: cheer, icon: mic}
-publishAt:
+publishAt: 2026-10-29T09:14:00+09:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

@@ -10,7 +10,7 @@ keyword: "雅思阅读定位技巧"
 cover: reading
 coverAlt: "Lexkite 雅思分级阅读模块，包含 A2 至 C1 各难度学术长文"
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-10-27T21:16:00+08:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

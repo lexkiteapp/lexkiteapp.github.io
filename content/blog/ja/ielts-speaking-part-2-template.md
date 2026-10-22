@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: mic}
-publishAt:
+publishAt: 2026-10-26T09:03:00+09:00
 quiz: [
   {
     q: "IELTSスピーキングPart 2の「1分間の準備時間」で最もやってはいけないことは何ですか？",

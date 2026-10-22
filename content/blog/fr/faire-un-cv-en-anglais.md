@@ -10,7 +10,7 @@ keyword: "faire un cv en anglais"
 cover: goal
 coverAlt: "Planification des objectifs d apprentissage et carrière dans Lexkite"
 coverArt: {mood: think, icon: target}
-publishAt:
+publishAt: 2026-11-07T12:53:00+01:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

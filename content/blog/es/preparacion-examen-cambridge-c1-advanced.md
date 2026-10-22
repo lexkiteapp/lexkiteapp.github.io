@@ -10,7 +10,7 @@ keyword: "preparación examen cambridge c1 advanced"
 cover: placement
 coverAlt: "Prueba de nivel de inglés de 5 minutos con 20 preguntas que evalúa de A2 a C1"
 coverArt: {mood: think, icon: target}
-publishAt:
+publishAt: 2026-10-24T09:55:00-06:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

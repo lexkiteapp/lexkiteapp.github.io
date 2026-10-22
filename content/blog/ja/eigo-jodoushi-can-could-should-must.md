@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-10-30T19:18:00+09:00
 quiz: [
   {
     q: "「〜したはずだ（確信度の高い推量）」を表す最も適切な英語表現はどれですか？",

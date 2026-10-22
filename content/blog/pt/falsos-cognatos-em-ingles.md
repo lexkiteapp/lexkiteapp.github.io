@@ -10,7 +10,7 @@ keyword: "falsos cognatos em inglês"
 cover: library
 coverAlt: "Biblioteca de vocabulário do Lexkite com mais de 6.800 palavras organizadas de A1 a C1"
 coverArt: {mood: happy, icon: book}
-publishAt:
+publishAt: 2026-11-07T20:21:00-03:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

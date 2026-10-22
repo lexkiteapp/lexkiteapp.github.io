@@ -10,7 +10,7 @@ keyword: "雅思口语part 2模板"
 cover: mock
 coverAlt: "Lexkite 雅思四项模考界面，包含口语真题题库与录音模拟"
 coverArt: {mood: cheer, icon: mic}
-publishAt:
+publishAt: 2026-10-29T20:15:00+08:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

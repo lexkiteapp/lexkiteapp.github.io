@@ -10,7 +10,7 @@ keyword: "토플 라이팅 학술토론"
 cover: mock
 coverAlt: "Lexkite 토플 및 아이엘츠 아카데믹 라이팅 실전 시험장"
 coverArt: {mood: think, icon: pen}
-publishAt:
+publishAt: 2026-10-31T20:22:00+09:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

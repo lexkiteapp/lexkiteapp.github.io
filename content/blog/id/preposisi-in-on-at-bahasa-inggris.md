@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-10-29T08:20:00+07:00
 quiz: [
   {
     q: "Preposisi apa yang tepat digunakan sebelum penyebutan hari atau tanggal spesifik (misalnya: Monday, 17th August)?",

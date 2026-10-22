@@ -10,7 +10,7 @@ keyword: "英语介词in on at用法"
 cover: mock
 coverAlt: "Lexkite 英语综合训练与系统语法进阶练习模块"
 coverArt: {mood: cheer, icon: book}
-publishAt:
+publishAt: 2026-11-02T08:27:00+08:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

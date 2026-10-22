@@ -10,7 +10,7 @@ keyword: "ielts reading skimming scanning"
 cover: reading
 coverAlt: "Bibliothèque de lecture IELTS par niveau de A2 à C1 dans Lexkite"
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-11-10T08:37:00+01:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

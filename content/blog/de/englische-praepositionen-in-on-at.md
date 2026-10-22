@@ -10,7 +10,7 @@ keyword: "englische präpositionen in on at"
 cover: grammar
 coverAlt: "IELTS-Grammatikmodul mit 12 Zeitformen und Stufen A1 bis B2"
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-10-29T20:16:00+01:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

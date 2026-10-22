@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-11-04T20:19:00+03:00
 quiz: [
   {
     q: "Hayati bir zorunluluk veya katı bir kural belirtirken hangi modal fiil tercih edilir?",

@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-10-24T08:36:00+07:00
 quiz: [
   {
     q: "Apa tujuan utama dari teknik skimming dalam IELTS Reading?",

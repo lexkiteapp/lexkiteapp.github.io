@@ -10,7 +10,7 @@ keyword: "redação toefl ibt academic discussion"
 cover: toefl
 coverAlt: "Módulo de preparação para o TOEFL iBT com estrutura de prova e tipos de exercícios"
 coverArt: {mood: think, icon: pen}
-publishAt:
+publishAt: 2026-11-02T20:59:00-03:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: bulb}
-publishAt:
+publishAt: 2026-11-06T12:48:00+03:00
 quiz: [
   {
     q: "Hermann Ebbinghaus'un Unutma Eğrisi'ne göre yeni öğrenilen bilgilerin yaklaşık yüzde kaçı 24 saat içinde unutulur?",

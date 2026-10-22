@@ -10,7 +10,7 @@ keyword: "englischer lebenslauf muster"
 cover: goal
 coverAlt: "Lernziele und Wochenplanung für Sprachprüfungen und Karriere in Lexkite"
 coverArt: {mood: think, icon: target}
-publishAt:
+publishAt: 2026-11-06T09:46:00+01:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

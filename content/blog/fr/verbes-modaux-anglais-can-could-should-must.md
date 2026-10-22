@@ -10,7 +10,7 @@ keyword: "verbes modaux en anglais"
 cover: grammar
 coverAlt: "Module de grammaire IELTS avec parcours des 12 temps et niveaux A1 à B2"
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-11-02T21:27:00+01:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

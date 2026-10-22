@@ -10,7 +10,7 @@ keyword: "간격 반복 영어 단어"
 cover: mock
 coverAlt: "Lexkite 망각곡선 극복 및 간격 반복 플래시카드 시스템"
 coverArt: {mood: cheer, icon: bulb}
-publishAt:
+publishAt: 2026-11-06T08:23:00+09:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: chat}
-publishAt:
+publishAt: 2026-11-07T12:40:00+09:00
 quiz: [
   {
     q: "海外の空港の入国審査（Immigration）で「What is the purpose of your visit?」と聞かれた際の最も適切な回答はどれですか？",

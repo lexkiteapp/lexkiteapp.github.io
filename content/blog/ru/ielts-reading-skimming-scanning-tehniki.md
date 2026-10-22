@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-10-27T09:35:00+03:00
 quiz: [
   {
     q: "В чем заключается принципиальная разница между техниками Skimming и Scanning в секции IELTS Reading?",

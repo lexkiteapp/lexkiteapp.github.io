@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: pen}
-publishAt:
+publishAt: 2026-11-08T20:59:00+03:00
 quiz: [
   {
     q: "Что такое ATS (Applicant Tracking System) и почему международные компании используют ее для резюме?",

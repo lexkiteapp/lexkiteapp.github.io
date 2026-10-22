@@ -10,7 +10,7 @@ keyword: "anglais pour voyager phrases utiles"
 cover: home
 coverAlt: "Tableau de bord de révision quotidienne et objectifs dans Lexkite"
 coverArt: {mood: happy, icon: target}
-publishAt:
+publishAt: 2026-11-09T07:57:00+01:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

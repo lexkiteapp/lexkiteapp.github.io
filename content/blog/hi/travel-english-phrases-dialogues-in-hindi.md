@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: mic}
-publishAt:
+publishAt: 2026-11-10T09:06:00+05:30
 quiz: [
   {
     q: "एयरपोर्ट पर इमिग्रेशन अधिकारी जब आपसे पूछता है 'What is the purpose of your visit?', तो एक पर्यटक के लिए सबसे उपयुक्त उत्तर क्या है?",

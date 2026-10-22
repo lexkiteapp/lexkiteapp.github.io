@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: book}
-publishAt:
+publishAt: 2026-10-27T20:12:00+05:30
 quiz: [
   {
     q: "आईईएलटीएस रीडिंग में Skimming और Scanning के बीच मुख्य अंतर क्या है?",

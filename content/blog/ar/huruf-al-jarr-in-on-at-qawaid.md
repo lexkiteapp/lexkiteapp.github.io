@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: blocks}
-publishAt:
+publishAt: 2026-11-02T08:34:00+03:00
 quiz: [
   {
     q: "أي حرف جر نستخدم مع الأيام والتواريخ المحددة (مثل أيام الأسبوع وتواريخ الميلاد)؟",

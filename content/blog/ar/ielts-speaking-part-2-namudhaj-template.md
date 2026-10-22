@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: mic}
-publishAt:
+publishAt: 2026-10-29T21:00:00+03:00
 quiz: [
   {
     q: "كم تبلغ مدة التحدث المتواصل المطلوبة من الممتحن في IELTS Speaking Part 2؟",

@@ -10,7 +10,7 @@ keyword: "meeting auf englisch phrasen"
 cover: phrases
 coverAlt: "Phrasensammlung und Satzstrukturen in Lexkite für Business-Englisch"
 coverArt: {mood: think, icon: chat}
-publishAt:
+publishAt: 2026-11-07T19:20:00+01:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

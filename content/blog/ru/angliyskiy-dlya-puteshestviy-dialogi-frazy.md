@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: chat}
-publishAt:
+publishAt: 2026-11-10T21:02:00+03:00
 quiz: [
   {
     q: "Какая фраза наиболее вежлива и уместна при заказе столика или блюда в европейском ресторане?",

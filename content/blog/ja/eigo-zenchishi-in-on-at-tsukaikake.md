@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-10-29T21:47:00+09:00
 quiz: [
   {
     q: "特定の「日付」や「曜日」（例: 5月5日、月曜日）の前に置く正しい前置詞はどれですか？",

@@ -10,7 +10,7 @@ keyword: "아이엘츠 리딩 시간 단축"
 cover: stats
 coverAlt: "Lexkite 아이엘츠 시험 준비 및 성적 향상 통계 대시보드"
 coverArt: {mood: cheer, icon: target}
-publishAt:
+publishAt: 2026-10-27T07:14:00+09:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

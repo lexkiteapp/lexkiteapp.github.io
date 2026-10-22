@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-11-04T09:36:00+03:00
 quiz: [
   {
     q: "Какое строгое грамматическое правило действует для большинства модальных глаголов?",

@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: chat}
-publishAt:
+publishAt: 2026-11-05T21:46:00+09:00
 quiz: [
   {
     q: "オンライン会議で相手の話を失礼にならずに丁寧に遮って発言したいとき、最も適切な表現はどれですか？",

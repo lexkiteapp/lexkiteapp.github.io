@@ -10,7 +10,7 @@ keyword: "preposições em inglês in on at"
 cover: grammar
 coverAlt: "Módulo de gramática de inglês com 12 tempos verbais e níveis A1 a B2"
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-11-04T19:24:00-03:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

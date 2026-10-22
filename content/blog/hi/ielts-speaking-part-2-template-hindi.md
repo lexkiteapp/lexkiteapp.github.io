@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: mic}
-publishAt:
+publishAt: 2026-10-29T09:38:00+05:30
 quiz: [
   {
     q: "आईईएलटीएस स्पीकिंग पार्ट 2 (Cue Card) में उम्मीदवार को लगातार कितनी देर तक बोलना होता है?",

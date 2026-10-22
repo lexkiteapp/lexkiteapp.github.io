@@ -10,7 +10,7 @@ keyword: "preposiciones in on at en inglés"
 cover: grammar
 coverAlt: "Ruta de gramática para IELTS con 12 tiempos verbales y niveles A1 a B2"
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-10-29T20:45:00-06:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready
@@ -69,7 +69,7 @@ Al memorizar esta jerarquía de lo general a lo específico, dejas de memorizar 
 
 Puedes revisar la estructura de todos los tiempos verbales en nuestro artículo sobre [present perfect vs past simple](/es/blog/present-perfect-vs-past-simple/) y explorar ejercicios guiados en el [módulo de gramática](/app/#/grammar) del Lexkite.
 
-![Dicionario inteligente con pronunciación UK e US e ejemplos del término resilient](media:dict "Consulta el uso correcto de preposiciones en el diccionario de Lexkite")
+![Diccionario inteligente con pronunciación UK y US y ejemplos del término resilient](media:dict "Consulta el uso correcto de preposiciones en el diccionario de Lexkite")
 
 ## Preposiciones in on at en inglés aplicadas al tiempo
 

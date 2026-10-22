@@ -10,7 +10,7 @@ keyword: "réunion en anglais expressions utiles"
 cover: phrases
 coverAlt: "Recueil d expressions et tournures de phrases en anglais professionnel dans Lexkite"
 coverArt: {mood: think, icon: chat}
-publishAt:
+publishAt: 2026-11-08T09:13:00+01:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

@@ -10,7 +10,7 @@ keyword: "영어 조동사 정리"
 cover: mock
 coverAlt: "Lexkite 영어 문법 조동사 뉘앙스 및 실전 회화 훈련"
 coverArt: {mood: cheer, icon: book}
-publishAt:
+publishAt: 2026-11-04T21:14:00+09:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

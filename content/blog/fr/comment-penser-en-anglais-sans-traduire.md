@@ -10,7 +10,7 @@ keyword: "comment penser en anglais sans traduire"
 cover: method
 coverAlt: "Méthode d apprentissage en 30 minutes quotidiennes dans Lexkite"
 coverArt: {mood: think, icon: bulb}
-publishAt:
+publishAt: 2026-11-06T20:39:00+01:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

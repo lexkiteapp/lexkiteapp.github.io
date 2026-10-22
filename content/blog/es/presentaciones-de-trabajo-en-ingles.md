@@ -10,7 +10,7 @@ keyword: "presentaciones de trabajo en inglés"
 cover: library
 coverAlt: "Biblioteca de vocabulario de Lexkite con más de 6.800 palabras organizadas de A1 a C1"
 coverArt: {mood: cheer, icon: mic}
-publishAt:
+publishAt: 2026-11-04T07:46:00-06:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready
@@ -68,7 +68,7 @@ Toda presentación profesional en el entorno anglosajón sigue la clásica regla
 
 Para ampliar tu vocabulario de negocios y verificar colocaciones formales antes de tu evento, explora la [biblioteca de vocabulario profesional](/app/#/library) del Lexkite.
 
-![Dicionario inteligente con pronunciación UK e US e ejemplos del término resilient](media:dict "Consulta conectores discursivos y colocaciones en el diccionario de Lexkite")
+![Diccionario inteligente con pronunciación UK y US y ejemplos del término resilient](media:dict "Consulta conectores discursivos y colocaciones en el diccionario de Lexkite")
 
 ## Presentaciones de trabajo en inglés: frases clave para cada momento
 

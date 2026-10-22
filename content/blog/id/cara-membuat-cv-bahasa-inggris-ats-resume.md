@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: win, icon: pen}
-publishAt:
+publishAt: 2026-11-04T21:07:00+07:00
 quiz: [
   {
     q: "Apa yang dimaksud dengan formula penulisan pencapaian 'XYZ' yang dipopulerkan oleh Google untuk resume profesional?",

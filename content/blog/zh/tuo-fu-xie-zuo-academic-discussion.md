@@ -10,7 +10,7 @@ keyword: "托福写作学术讨论"
 cover: mock
 coverAlt: "Lexkite 模拟考试综合界面，支持托福与雅思学术题型演练"
 coverArt: {mood: think, icon: pen}
-publishAt:
+publishAt: 2026-10-31T12:08:00+08:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

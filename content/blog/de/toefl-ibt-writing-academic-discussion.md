@@ -10,7 +10,7 @@ keyword: "toefl ibt academic discussion writing"
 cover: toefl
 coverAlt: "TOEFL Vorbereitungsmodul mit 6 Übungsabschnitten und Testformaten"
 coverArt: {mood: think, icon: pen}
-publishAt:
+publishAt: 2026-10-27T19:04:00+01:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: bulb}
-publishAt:
+publishAt: 2026-11-06T21:24:00+03:00
 quiz: [
   {
     q: "Какая доля новой незакрепленной информации стирается из памяти человека в первые 24 часа по кривой Эббингауза?",

@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: chat}
-publishAt:
+publishAt: 2026-11-10T21:48:00+07:00
 quiz: [
   {
     q: "เมื่อเจ้าหน้าที่ตรวจคนเข้าเมือง (Immigration) ที่สนามบินต่างประเทศถามว่า 'What is the purpose of your visit?', คำตอบที่สั้นกระชับและถูกต้องที่สุดสำหรับนักท่องเที่ยวคือข้อใด?",

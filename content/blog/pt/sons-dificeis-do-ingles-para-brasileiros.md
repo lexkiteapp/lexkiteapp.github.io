@@ -10,7 +10,7 @@ keyword: "sons difíceis do inglês para brasileiros"
 cover: pron
 coverAlt: "Tabela de fonética internacional IPA com transcrições e áudios em inglês"
 coverArt: {mood: think, icon: mic}
-publishAt:
+publishAt: 2026-11-06T19:53:00-03:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

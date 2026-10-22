@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: chat}
-publishAt:
+publishAt: 2026-11-09T07:17:00+03:00
 quiz: [
   {
     q: "Uluslararası bir online toplantıda (Zoom/Teams) söz kesmeden kibarca araya girmek için hangi kalıp kullanılır?",

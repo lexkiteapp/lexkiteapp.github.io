@@ -10,7 +10,7 @@ keyword: "비즈니스 영어 회의 표현"
 cover: mock
 coverAlt: "Lexkite 글로벌 비즈니스 미팅 및 화상 회의 영어 훈련 시스템"
 coverArt: {mood: cheer, icon: mic}
-publishAt:
+publishAt: 2026-11-09T08:29:00+09:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

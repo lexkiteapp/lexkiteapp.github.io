@@ -10,7 +10,7 @@ keyword: "ielts speaking parte 2 y 3 estructura"
 cover: speaking
 coverAlt: "Módulo de preparación de IELTS Speaking con ejercicios de Part 1 y Part 2 y retroalimentación de banda 7.5"
 coverArt: {mood: cheer, icon: mic}
-publishAt:
+publishAt: 2026-10-26T08:34:00-06:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready
@@ -68,7 +68,7 @@ Para construir respuestas que satisfagan a los examinadores, debes conocer con e
 
 Para calibrar tus respuestas y consultar vocabulario temático, consulta el [módulo de práctica de speaking](/app/#/speaking) y verifica colocaciones precisas en el [diccionario integrado](/app/#/dict) del Lexkite.
 
-![Dicionario inteligente con pronunciación UK e US e ejemplos del término resilient](media:dict "Consulta colocaciones formales e idiomáticas para IELTS Speaking en el diccionario de Lexkite")
+![Diccionario inteligente con pronunciación UK y US y ejemplos del término resilient](media:dict "Consulta colocaciones formales e idiomáticas para IELTS Speaking en el diccionario de Lexkite")
 
 ## Ielts speaking parte 2 y 3 estructura: la técnica de la Cue Card
 

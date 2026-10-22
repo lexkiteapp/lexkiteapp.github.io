@@ -10,7 +10,7 @@ keyword: "verbos modales en inglés can could should must"
 cover: grammar
 coverAlt: "Ruta de gramática para IELTS con 12 tiempos verbales y niveles A1 a B2"
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-11-01T07:45:00-06:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready
@@ -100,7 +100,7 @@ Cuando quieres sugerir una conducta prudente o correcta sin imponer una orden:
 - **HAVE TO (Obligación externa por circunstancias):** La necesidad viene impuesta desde fuera:
   - *"In Spain, you have to drive on the right side of the road."* (En España tienes que conducir por la derecha.)
 
-![Dicionario inteligente con pronunciación UK e US e ejemplos del término resilient](media:dict "Verifica la conjugación y pronunciación de verbos modales en el diccionario de Lexkite")
+![Diccionario inteligente con pronunciación UK y US y ejemplos del término resilient](media:dict "Verifica la conjugación y pronunciación de verbos modales en el diccionario de Lexkite")
 
 ## La diferencia crítica: MUSTN'T vs DON'T HAVE TO
 

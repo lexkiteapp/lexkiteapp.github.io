@@ -10,7 +10,7 @@ keyword: "해외여행 영어회화 필수표현"
 cover: mock
 coverAlt: "Lexkite 해외여행 영어회화 및 실전 리스닝 훈련 시스템"
 coverArt: {mood: cheer, icon: ear}
-publishAt:
+publishAt: 2026-11-10T07:09:00+09:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

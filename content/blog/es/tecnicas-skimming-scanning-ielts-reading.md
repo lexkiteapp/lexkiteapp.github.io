@@ -10,7 +10,7 @@ keyword: "técnicas skimming scanning ielts reading"
 cover: read-article
 coverAlt: "Artículo de lectura IELTS sobre space debris con preguntas True False Not Given"
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-10-23T21:24:00-06:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

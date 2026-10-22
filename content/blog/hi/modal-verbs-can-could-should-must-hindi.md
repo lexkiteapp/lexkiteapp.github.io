@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: blocks}
-publishAt:
+publishAt: 2026-11-04T12:12:00+05:30
 quiz: [
   {
     q: "अतीत (Past) में किसी ऐसे कार्य पर गहरा पछतावा या अफसोस व्यक्त करने के लिए कौन सा ढांचा सही है जो होना चाहिए था लेकिन नहीं हुआ?",

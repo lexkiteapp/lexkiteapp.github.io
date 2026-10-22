@@ -10,7 +10,7 @@ keyword: "ielts speaking part 2 et 3"
 cover: mock
 coverAlt: "Sélection des épreuves de l examen blanc IELTS dans Lexkite"
 coverArt: {mood: cheer, icon: mic}
-publishAt:
+publishAt: 2026-10-27T20:55:00+01:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

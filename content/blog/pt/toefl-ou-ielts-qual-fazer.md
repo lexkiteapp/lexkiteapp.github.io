@@ -10,7 +10,7 @@ keyword: "toefl ou ielts qual fazer"
 cover: placement
 coverAlt: "Teste de nivelamento de inglês de 5 minutos do Lexkite com 20 questões"
 coverArt: {mood: think, icon: target}
-publishAt:
+publishAt: 2026-11-03T07:10:00-03:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: pen}
-publishAt:
+publishAt: 2026-10-27T21:16:00+07:00
 quiz: [
   {
     q: "Berapa batas waktu pengerjaan dan jumlah kata minimum yang direkomendasikan pada task Academic Discussion?",

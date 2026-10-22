@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: mic}
-publishAt:
+publishAt: 2026-10-29T09:16:00+03:00
 quiz: [
   {
     q: "Сколько времени дается кандидату на подготовку заметок перед ответом в IELTS Speaking Part 2?",

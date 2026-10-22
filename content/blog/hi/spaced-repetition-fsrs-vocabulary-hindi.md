@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: target}
-publishAt:
+publishAt: 2026-11-06T21:55:00+05:30
 quiz: [
   {
     q: "स्पैस्ड रिपीटिशन (Spaced Repetition) का मूलभूत वैज्ञानिक सिद्धांत क्या है?",

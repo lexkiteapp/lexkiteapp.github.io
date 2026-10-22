@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: target}
-publishAt:
+publishAt: 2026-11-06T07:36:00+03:00
 quiz: [
   {
     q: "ما هو المبدأ العلمي الأساسي الذي يقوم عليه التكرار المتباعد (Spaced Repetition)؟",

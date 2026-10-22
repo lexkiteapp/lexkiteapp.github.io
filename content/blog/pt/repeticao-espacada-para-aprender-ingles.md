@@ -10,7 +10,7 @@ keyword: "repetição espaçada para aprender inglês"
 cover: method
 coverAlt: "Método Lexkite com ciclo de 30 dias para aprendizado de vocabulário em inglês"
 coverArt: {mood: think, icon: target}
-publishAt:
+publishAt: 2026-11-05T08:40:00-03:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

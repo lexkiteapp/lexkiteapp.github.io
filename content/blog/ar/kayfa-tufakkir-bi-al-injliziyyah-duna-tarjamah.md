@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: mic}
-publishAt:
+publishAt: 2026-11-07T09:54:00+03:00
 quiz: [
   {
     q: "لماذا تسبب الترجمة الذهنية الفورية من العربية إلى الإنجليزية بطئاً وتردداً في الكلام؟",

@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: bulb}
-publishAt:
+publishAt: 2026-11-06T07:06:00+07:00
 quiz: [
   {
     q: "ตามทฤษฎีเส้นโค้งการลืมของ Hermann Ebbinghaus มนุษย์จะลืมข้อมูลใหม่ที่เพิ่งเรียนรู้ไปมากน้อยเพียงใดภายใน 24 ถึง 48 ชั่วโมงแรกหากไม่มีการทบทวน?",

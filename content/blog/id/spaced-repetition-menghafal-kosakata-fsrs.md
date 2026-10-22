@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: bulb}
-publishAt:
+publishAt: 2026-11-01T21:34:00+07:00
 quiz: [
   {
     q: "Mengapa sistem pengulangan berkala (Spaced Repetition) terbukti jauh lebih efektif daripada metode belajar semalam suntuk (Cramming)?",

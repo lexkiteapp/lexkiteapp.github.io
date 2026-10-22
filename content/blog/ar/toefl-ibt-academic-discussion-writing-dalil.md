@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: pen}
-publishAt:
+publishAt: 2026-10-31T09:05:00+03:00
 quiz: [
   {
     q: "كم تبلغ المدة الزمنية المخصصة لمهمة Writing for an Academic Discussion في اختبار التوفل الجديد؟",

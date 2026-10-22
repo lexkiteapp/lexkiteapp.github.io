@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-10-27T20:24:00+07:00
 quiz: [
   {
     q: "ความแตกต่างพื้นฐานที่สำคัญที่สุดระหว่างทักษะ Skimming และ Scanning ในการทำข้อสอบ IELTS Reading คืออะไร?",

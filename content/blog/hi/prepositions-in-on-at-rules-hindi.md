@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: blocks}
-publishAt:
+publishAt: 2026-11-02T19:43:00+05:30
 quiz: [
   {
     q: "सप्ताह के दिनों और निश्चित तारीखों (जैसे Monday, 15th August) के साथ किस Preposition का प्रयोग होता है?",

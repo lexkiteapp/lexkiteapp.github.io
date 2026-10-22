@@ -10,7 +10,7 @@ keyword: "répétition espacée pour apprendre l anglais"
 cover: method
 coverAlt: "Méthode d apprentissage Lexkite avec boucle quotidienne de 30 minutes"
 coverArt: {mood: think, icon: bulb}
-publishAt:
+publishAt: 2026-11-04T08:13:00+01:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

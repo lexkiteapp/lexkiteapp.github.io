@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: mic}
-publishAt:
+publishAt: 2026-11-07T19:05:00+05:30
 quiz: [
   {
     q: "हिंदी से अनुवाद किए बिना अंग्रेजी में सोचने की शुरुआत का सबसे पहला कदम क्या है?",

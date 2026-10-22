@@ -10,7 +10,7 @@ keyword: "如何用英语思维思考"
 cover: mock
 coverAlt: "Lexkite 英语思维进阶与多维水平评估界面"
 coverArt: {mood: cheer, icon: bulb}
-publishAt:
+publishAt: 2026-11-07T12:21:00+08:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

@@ -10,7 +10,7 @@ keyword: "间隔重复背单词"
 cover: mock
 coverAlt: "Lexkite 科学词汇记忆与间隔重复复习系统"
 coverArt: {mood: cheer, icon: bulb}
-publishAt:
+publishAt: 2026-11-06T07:15:00+08:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

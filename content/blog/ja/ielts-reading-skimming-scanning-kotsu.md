@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-10-24T09:43:00+09:00
 quiz: [
   {
     q: "スキミング（Skimming）を行う際の最も適切な読み方はどれですか？",

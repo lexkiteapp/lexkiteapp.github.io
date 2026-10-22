@@ -10,7 +10,7 @@ keyword: "como se preparar para o ielts general training"
 cover: mock
 coverAlt: "Tela de simulado de teste do IELTS com módulos de Listening, Reading, Writing e Speaking"
 coverArt: {mood: think, icon: target}
-publishAt:
+publishAt: 2026-11-01T19:06:00-03:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

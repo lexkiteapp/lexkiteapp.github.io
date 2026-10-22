@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-11-02T07:25:00+07:00
 quiz: [
   {
     q: "ในการบอกเวลา คำบุพบทใดที่ใช้กับช่วงเวลาที่มีความกว้างและยาวนานที่สุด เช่น ศตวรรษ ทศวรรษ ปี ฤดูกาล และเดือน?",

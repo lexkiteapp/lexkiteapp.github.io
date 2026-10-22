@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: chat}
-publishAt:
+publishAt: 2026-11-09T12:38:00+03:00
 quiz: [
   {
     q: "Какая фраза считается наиболее профессиональной для вежливого перебивания спикера на деловой встрече?",

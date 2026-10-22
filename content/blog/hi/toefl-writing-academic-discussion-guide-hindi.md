@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: pen}
-publishAt:
+publishAt: 2026-10-31T07:00:00+05:30
 quiz: [
   {
     q: "नए TOEFL iBT में 'Writing for an Academic Discussion' टास्क के लिए कितना समय दिया जाता है?",

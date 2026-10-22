@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: bulb}
-publishAt:
+publishAt: 2026-11-01T19:23:00+09:00
 quiz: [
   {
     q: "分散学習（Spaced Repetition）が「一夜漬けの集中学習（Cramming）」よりも優れている科学的根拠は何ですか？",

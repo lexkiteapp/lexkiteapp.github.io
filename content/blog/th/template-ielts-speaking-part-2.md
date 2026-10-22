@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: chat}
-publishAt:
+publishAt: 2026-10-29T09:35:00+07:00
 quiz: [
   {
     q: "ในช่วงเวลา 1 นาทีสำหรับการเตรียมตัวใน IELTS Speaking Part 2 ผู้สอบควรจดบันทึกอย่างไรจึงจะมีประสิทธิภาพสูงสุด?",

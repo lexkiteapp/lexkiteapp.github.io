@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-10-27T21:21:00+03:00
 quiz: [
   {
     q: "IELTS Reading sınavında 'Skimming' ve 'Scanning' okuma teknikleri arasındaki temel fark nedir?",

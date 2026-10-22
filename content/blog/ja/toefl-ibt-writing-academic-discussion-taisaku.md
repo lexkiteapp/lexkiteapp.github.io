@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: pen}
-publishAt:
+publishAt: 2026-10-27T21:54:00+09:00
 quiz: [
   {
     q: "TOEFL iBTの「Academic Discussion」タスクの制限時間と推奨語数はどれですか？",

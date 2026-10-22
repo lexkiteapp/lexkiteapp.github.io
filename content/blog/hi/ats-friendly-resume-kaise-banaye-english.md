@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: pen}
-publishAt:
+publishAt: 2026-11-08T19:23:00+05:30
 quiz: [
   {
     q: "ATS (Applicant Tracking System) सॉफ्टवेयर का मुख्य कार्य क्या होता है?",

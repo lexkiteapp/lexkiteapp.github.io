@@ -10,7 +10,7 @@ keyword: "cómo hacer un currículum en inglés"
 cover: library
 coverAlt: "Biblioteca de vocabulario de Lexkite con más de 6.800 palabras organizadas de A1 a C1"
 coverArt: {mood: cheer, icon: pen}
-publishAt:
+publishAt: 2026-11-02T20:38:00-06:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready
@@ -119,7 +119,7 @@ March 2022 – Present
 
 Este nivel de especificidad y métricas tangibles demuestra que no solo ejecutas tareas, sino que generas valor comercial directo para la organización.
 
-![Dicionario inteligente con pronunciación UK e US e ejemplos del término resilient](media:dict "Consulta verbos de acción profesionales y términos corporativos en el diccionario de Lexkite")
+![Diccionario inteligente con pronunciación UK y US y ejemplos del término resilient](media:dict "Consulta verbos de acción profesionales y términos corporativos en el diccionario de Lexkite")
 
 ## 20 verbos de acción (*Action Verbs*) que multiplican tu impacto
 

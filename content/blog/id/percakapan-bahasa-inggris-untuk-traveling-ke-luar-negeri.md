@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: chat}
-publishAt:
+publishAt: 2026-11-07T08:03:00+07:00
 quiz: [
   {
     q: "Saat petugas imigrasi bandara bertanya 'What is the purpose of your visit?', jawaban singkat dan tepat untuk wisatawan adalah:",
@@ -136,7 +136,7 @@ Tersesat di kota metropolitan besar seperti New York, Tokyo, atau London sering 
 
 Jika lawan bicara berbicara terlalu cepat, jangan ragu untuk berkata: *"Could you please speak a little slower? I'm not a native English speaker."* Orang lokal pada umumnya akan dengan senang hati memperlambat tempo bicara mereka.
 
-![Statistik progres belajar Lexkite dengan grafik XP và heatmap konsistensi](media:stats "Memantau peningkatan skor XP dan kebiasaan latihan harian pada heatmap")
+![Statistik progres belajar Lexkite dengan grafik XP dan heatmap konsistensi](media:stats "Memantau peningkatan skor XP dan kebiasaan latihan harian pada heatmap")
 
 {{cta: /speaking/ | Jelajahi Dunia dengan Bahasa Inggris}}
 

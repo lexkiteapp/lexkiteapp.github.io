@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: chat}
-publishAt:
+publishAt: 2026-11-07T20:27:00+07:00
 quiz: [
   {
     q: "อะไรคือสาเหตุหลักที่ทำให้คนไทยจำนวนมากเกิดอาการ 'อึกอัก พูดติดขัด' เมื่อต้องสนทนากับชาวต่างชาติ?",

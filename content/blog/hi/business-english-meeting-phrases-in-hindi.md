@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: chat}
-publishAt:
+publishAt: 2026-11-09T12:09:00+05:30
 quiz: [
   {
     q: "ज़ूम या गूगल मीट पर ऑनलाइन मीटिंग के दौरान अगर आप बोलना चाहते हैं तो सबसे विनम्र तरीका कौन सा है?",

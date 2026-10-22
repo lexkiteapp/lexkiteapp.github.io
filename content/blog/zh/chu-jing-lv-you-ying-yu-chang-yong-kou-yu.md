@@ -10,7 +10,7 @@ keyword: "出国旅游英语常用口语"
 cover: mock
 coverAlt: "Lexkite 出国实用口语与情景对话听力实战训练"
 coverArt: {mood: cheer, icon: ear}
-publishAt:
+publishAt: 2026-11-10T19:29:00+08:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-11-02T12:44:00+03:00
 quiz: [
   {
     q: "Какой предлог времени используется перед конкретными днями недели (Monday, Friday)?",

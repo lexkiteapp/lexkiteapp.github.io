@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-10-30T19:22:00+07:00
 quiz: [
   {
     q: "Manakah struktur modal verb yang tepat untuk menyatakan kesimpulan logis bernilai kepastian tinggi (95%+) tentang masa lalu?",

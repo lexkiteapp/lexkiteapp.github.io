@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: win, icon: pen}
-publishAt:
+publishAt: 2026-11-04T19:50:00+09:00
 quiz: [
   {
     q: "英文レジュメ（Resume）における職歴の記述で、Googleが強く推奨している「XYZの公式」とは何ですか？",

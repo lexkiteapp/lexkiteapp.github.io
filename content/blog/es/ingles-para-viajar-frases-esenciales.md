@@ -10,7 +10,7 @@ keyword: "inglés para viajar frases esenciales"
 cover: library
 coverAlt: "Biblioteca de vocabulario de Lexkite con más de 6.800 palabras organizadas de A1 a C1"
 coverArt: {mood: happy, icon: book}
-publishAt:
+publishAt: 2026-11-05T21:09:00-06:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready
@@ -79,7 +79,7 @@ Las preguntas de los oficiales de aduana son predecibles y directas:
 
 Para afianzar vocabulario y pronunciación de términos de viaje, consulta el [diccionario inteligente](/app/#/dict) del Lexkite.
 
-![Dicionario inteligente con pronunciación UK e US e ejemplos del término resilient](media:dict "Consulta términos de viaje y expresiones cotidianas en el diccionario de Lexkite")
+![Diccionario inteligente con pronunciación UK y US y ejemplos del término resilient](media:dict "Consulta términos de viaje y expresiones cotidianas en el diccionario de Lexkite")
 
 ## Frases indispensables en el hotel y alojamiento
 

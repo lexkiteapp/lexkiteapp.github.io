@@ -10,7 +10,7 @@ keyword: "ielts speaking part 2 tipps"
 cover: speaking
 coverAlt: "IELTS Speaking Vorbereitungsmodul für Part 1 und Part 2 mit Feedback zu Band 7.5"
 coverArt: {mood: cheer, icon: mic}
-publishAt:
+publishAt: 2026-11-10T21:46:00+01:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

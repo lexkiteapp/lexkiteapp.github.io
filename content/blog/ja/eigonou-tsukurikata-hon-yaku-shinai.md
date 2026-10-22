@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: bulb}
-publishAt:
+publishAt: 2026-11-02T08:07:00+09:00
 quiz: [
   {
     q: "英語を聞いた際に「頭の中で日本語に翻訳してしまう癖」の最大の弊害は何ですか？",

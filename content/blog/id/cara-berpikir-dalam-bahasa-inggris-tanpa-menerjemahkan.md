@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: bulb}
-publishAt:
+publishAt: 2026-11-02T21:07:00+07:00
 quiz: [
   {
     q: "Mengapa kebiasaan menerjemahkan kalimat dari bahasa Indonesia ke bahasa Inggris di dalam kepala menjadi penghambat utama kelancaran berbicara?",

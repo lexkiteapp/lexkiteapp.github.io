@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: mic}
-publishAt:
+publishAt: 2026-10-26T09:37:00+07:00
 quiz: [
   {
     q: "Apa kesalahan paling umum peserta saat memanfaatkan 1 menit persiapan di Part 2?",

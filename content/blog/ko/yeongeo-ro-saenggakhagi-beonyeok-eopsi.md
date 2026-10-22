@@ -10,7 +10,7 @@ keyword: "영어로 생각하기 훈련"
 cover: mock
 coverAlt: "Lexkite 영어식 사고 훈련 및 직관적 회화 훈련 시스템"
 coverArt: {mood: cheer, icon: bulb}
-publishAt:
+publishAt: 2026-11-07T19:22:00+09:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

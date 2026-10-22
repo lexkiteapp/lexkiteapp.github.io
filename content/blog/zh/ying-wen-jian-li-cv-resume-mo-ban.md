@@ -10,7 +10,7 @@ keyword: "英文简历模板"
 cover: mock
 coverAlt: "Lexkite 职场外企商务英语与职业技能提升系统"
 coverArt: {mood: cheer, icon: pen}
-publishAt:
+publishAt: 2026-11-08T09:17:00+08:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: book}
-publishAt:
+publishAt: 2026-10-27T07:30:00+03:00
 quiz: [
   {
     q: "ما هو الفارق الجوهري بين مهارتي Skimming و Scanning في اختبار القراءة؟",

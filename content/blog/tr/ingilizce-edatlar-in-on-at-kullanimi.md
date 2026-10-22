@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-11-02T12:34:00+03:00
 quiz: [
   {
     q: "Haftanın günleri (örneğin Monday, Friday) önünde hangi edat kullanılır?",

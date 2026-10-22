@@ -10,7 +10,7 @@ keyword: "ielts reading skimming scanning tipps"
 cover: read-article
 coverAlt: "IELTS-Lesetext über space debris mit True False Not Given Fragen"
 coverArt: {mood: think, icon: book}
-publishAt:
+publishAt: 2026-11-09T21:50:00+01:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

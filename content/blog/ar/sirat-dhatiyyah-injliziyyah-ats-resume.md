@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: pen}
-publishAt:
+publishAt: 2026-11-08T07:07:00+03:00
 quiz: [
   {
     q: "ما هو الدور الرئيسي لنظام ATS (Applicant Tracking System) في شركات التوظيف العالمية؟",

@@ -14,7 +14,7 @@ factChecked: 2026-10-22
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: chat}
-publishAt:
+publishAt: 2026-11-10T20:15:00+03:00
 quiz: [
   {
     q: "Havaalanında pasaport kontrol memuru 'What is the purpose of your visit?' diye sorduğunda turistik gezi için en uygun yanıt nedir?",

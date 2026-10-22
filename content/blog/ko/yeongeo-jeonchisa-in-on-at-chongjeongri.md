@@ -10,7 +10,7 @@ keyword: "영어 전치사 in on at 정리"
 cover: mock
 coverAlt: "Lexkite 영어 기초 문법 및 전치사 체계적 학습 시스템"
 coverArt: {mood: cheer, icon: book}
-publishAt:
+publishAt: 2026-11-02T19:51:00+09:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

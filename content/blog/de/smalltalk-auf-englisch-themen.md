@@ -10,7 +10,7 @@ keyword: "smalltalk auf englisch"
 cover: speaking
 coverAlt: "Phòng luyện Speaking mit Themenmodulen und Musterantworten in Lexkite"
 coverArt: {mood: cheer, icon: mic}
-publishAt:
+publishAt: 2026-11-08T19:24:00+01:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready

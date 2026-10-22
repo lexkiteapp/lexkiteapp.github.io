@@ -10,7 +10,7 @@ keyword: "cómo pensar en inglés sin traducir"
 cover: method
 coverAlt: "Método Lexkite con ciclo de 30 días para aprender vocabulario y pensar en inglés"
 coverArt: {mood: think, icon: target}
-publishAt:
+publishAt: 2026-10-30T07:11:00-06:00
 factChecked: 2026-10-22
 author: Lexkite
 status: ready
