@@ -536,7 +536,7 @@ FD = f'{TL}/foley/'; ins = ['-i', FD + 'tone0.wav', '-stream_loop', '-1', '-i', 
 for s in S:
     for ln in s['lines']:
         ms = int(round((s['t0'] + ln['at']) * 1000)); ins += ['-i', f'{N}/vis3/{ln["id"]}.wav']; fl.append(f'[{k + 1}]highpass=f=80,equalizer=f=300:t=q:w=1:g=-2,equalizer=f=3200:t=q:w=1.2:g=2,' + (f'atempo={ln["tempo"]},' if ln['tempo'] != 1 else '') + f'adelay={ms}|{ms}[v{k}]'); vl.append(f'[v{k}]'); k += 1
-fl.append(f'[1]adelay=0|0[s0]'); fl.append(''.join(vl) + f'[s0]amix=inputs={len(vl) + 1}:normalize=0:duration=longest,apad=whole_dur={TOTAL:.3f},atrim=0:{TOTAL:.3f},loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000[voice]')
+fl.append(f'[1]adelay=0|0[s0]'); fl.append(''.join(vl) + f'[s0]amix=inputs={len(vl) + 1}:normalize=0:duration=longest,apad=whole_dur={TOTAL:.3f},atrim=0:{TOTAL:.3f},loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000[voice]')
 bl = ['[voice]', '[b1]']; fl.append(f'[2]volume={AMB_DB}dB,atrim=0:{TOTAL:.3f},aresample=48000[b1]')
 for f_, t_ in SFX:
     ms = int(round(max(0, t_) * 1000)); ins += ['-i', FD + f_]; fl.append(f'[{k + 1}]volume={-22 if f_ == "pop.wav" else -8 if t_ == 0 else -25}dB,adelay={ms}|{ms},aresample=48000[x{k}]'); bl.append(f'[x{k}]'); k += 1
@@ -545,9 +545,9 @@ os.makedirs(f'{OUTD}/covers', exist_ok=True); OUTF = f'{OUTD}/{META["out"]}'
 subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-threads', '2', '-i', f'{RD}/video.mp4'] + ins + ['-filter_complex', ';'.join(fl), '-map', '0:v', '-map', '[out]',
                 '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-ac', '2', '-movflags', '+faststart', '-t', f'{TOTAL:.3f}', OUTF], check=True)
 _lu = float(re.findall(r'I:\s+(-?[\d.]+) LUFS', subprocess.run(['ffmpeg', '-nostdin', '-threads', '2', '-i', OUTF, '-af', 'ebur128', '-f', 'null', '-'], capture_output=True, text=True).stderr)[-1])
-if abs(_lu + 16) > 0.3:   # linear make-up gain to -16 LUFS (the bed stays as far below the voice as mixed)
-    os.replace(OUTF, OUTF + '.tmp.mp4'); subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', OUTF + '.tmp.mp4', '-c:v', 'copy', '-af', f'volume={-16 - _lu:.2f}dB,alimiter=limit=0.89:level=0', '-c:a', 'aac', '-b:a', '192k', OUTF], check=True); os.remove(OUTF + '.tmp.mp4')
-    print(f'loudness {_lu:.1f} LUFS -> make-up {-16 - _lu:+.1f} dB')
+if abs(_lu + 14) > 0.3:   # linear make-up gain to -16 LUFS (the bed stays as far below the voice as mixed)
+    os.replace(OUTF, OUTF + '.tmp.mp4'); subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', OUTF + '.tmp.mp4', '-c:v', 'copy', '-af', f'volume={-14 - _lu:.2f}dB,alimiter=limit=0.89:level=0', '-c:a', 'aac', '-b:a', '192k', OUTF], check=True); os.remove(OUTF + '.tmp.mp4')
+    print(f'loudness {_lu:.1f} LUFS -> make-up {-14 - _lu:+.1f} dB')
 cv2.imwrite(f'{OUTD}/covers/' + os.path.basename(OUTF).replace('.mp4', '.jpg'), COVER if COVER is not None else out, [cv2.IMWRITE_JPEG_QUALITY, 95])   # cover from the pre-encode master frame, q95
 for o in OV: o.pop('_img', None); o.pop('_chain', None)
 json.dump(dict(lesson=dict(META, out=META['out']), shots=[{k: v for k, v in s.items()}  for s in S],

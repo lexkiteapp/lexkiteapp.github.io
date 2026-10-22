@@ -384,7 +384,7 @@ print(f"  sharpness vs ideal (>= 0.90): faces/hair min {min([v for _, _, v in _r
 fails += [f'sharp:{k}' for k, v in _ok.items() if not v]
 print('== AUDIO')
 a = subprocess.run(['ffmpeg', '-nostdin', '-threads', '2', '-i', V, '-af', 'ebur128', '-f', 'null', '-'], capture_output=True, text=True).stderr
-LU = float(re.findall(r'I:\s+(-?[\d.]+) LUFS', a)[-1]); fails += ['loudness'] if abs(LU + 16) > 1 else []
+LU = float(re.findall(r'I:\s+(-?[\d.]+) LUFS', a)[-1]); fails += ['loudness'] if abs(LU + (14 if TP == 'news' else 16)) > 1 else []   # docs/VIDEO-QC.md: news -14 LUFS
 print('  integrated', re.findall(r'I:\s+(-?[\d.]+) LUFS', a)[-1], 'LUFS; first speech at %.2f s (footsteps from 0.12 s)' % speech[0][0])
 raw = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-i', V, '-ac', '1', '-ar', '48000', '-f', 's16le', '-'], capture_output=True).stdout
 x = np.frombuffer(raw, np.int16).astype(float) / 32768; w = 480

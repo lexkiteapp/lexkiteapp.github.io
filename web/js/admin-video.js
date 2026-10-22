@@ -5,6 +5,7 @@
 (function () {
   const EN = {
     'Đang tải…': 'Loading…', 'Không tải được thư viện: {e}': 'Could not load the library: {e}', '🔄 Tải lại': '🔄 Reload',
+    'QC hằng ngày': 'Daily QC', 'Báo cáo QC hằng ngày (7 ngày)': 'Daily QC report (7 days)', 'đạt': 'passed', 'Điểm': 'Score', 'Kết quả': 'Result', 'Cổng trượt': 'Failed gates', 'Nền': 'Background', 'Chưa có báo cáo QC – cine-render ghi shorts/qc/<ngày>.json sau mỗi lần dựng.': 'No QC report yet – cine-render writes shorts/qc/<date>.json after every run.',
     'Thư viện': 'Library', 'Trên web': 'On the web', 'Hiệu quả video trên web (90 ngày)': 'Web performance (90 days)', 'Lượt xem': 'Views', 'Xem hết': 'Completed', 'Câu đố đúng': 'Quiz correct',
     'Chưa có số liệu web – clip được duyệt sẽ tự lên web (docs/VIDEO-SCALE-PLAN.md §10).': 'No web data yet – approved clips go live automatically (docs/VIDEO-SCALE-PLAN.md §10).', 'mẫu thử': 'test', 'Thống kê': 'Statistics', 'Tìm điểm học, tiêu đề, mã…': 'Search learning point, title, id…', 'Tìm kiếm': 'Search',
     'Định dạng': 'Format', 'Cảnh/chủ đề': 'Scene/topic', 'Mẫu': 'Template', 'Trạng thái': 'Status', 'Từ ngày': 'From', 'Đến ngày': 'To', 'Tất cả': 'All', 'Xóa lọc': 'Clear filters',
@@ -77,7 +78,7 @@
       const items = Array.isArray(data.items) ? data.items : [], covers = data.covers || {}, f = state.f;
       const uniq = k => [...new Set(items.map(x => x[k]).filter(Boolean))].sort();
       const opt = (k, vals, lab = x => x) => `<select data-f="${k}" aria-label="${esc(V({ format: 'Định dạng', scene: 'Cảnh/chủ đề', template: 'Mẫu', cefr: 'CEFR', status: 'Trạng thái' }[k]))}"><option value="">${esc(V({ format: 'Định dạng', scene: 'Cảnh/chủ đề', template: 'Mẫu', cefr: 'CEFR', status: 'Trạng thái' }[k]))}: ${V('Tất cả')}</option>${vals.map(v => `<option value="${esc(v)}"${f[k] === v ? ' selected' : ''}>${esc(lab(v))}</option>`).join('')}</select>`;
-      box.innerHTML = `<div class="vid-tabs" role="group"><button class="btn sm" data-t="lib" aria-pressed="${state.tab === 'lib'}">${V('Thư viện')}</button><button class="btn sm" data-t="stats" aria-pressed="${state.tab === 'stats'}">${V('Thống kê')}</button><button class="btn sm" data-t="web" aria-pressed="${state.tab === 'web'}">${V('Trên web')}</button><span class="small muted" style="margin-left:auto;align-self:center">${esc(data.source === 'drive' ? V('Nguồn: Kho Drive riêng (trực tiếp)') : data.source === 'repo' ? V('Nguồn: repo riêng lexkite-shorts (trực tiếp)') : V('Nguồn: manifest gói sẵn'))}</span></div>
+      box.innerHTML = `<div class="vid-tabs" role="group"><button class="btn sm" data-t="lib" aria-pressed="${state.tab === 'lib'}">${V('Thư viện')}</button><button class="btn sm" data-t="stats" aria-pressed="${state.tab === 'stats'}">${V('Thống kê')}</button><button class="btn sm" data-t="web" aria-pressed="${state.tab === 'web'}">${V('Trên web')}</button><button class="btn sm" data-t="qc" aria-pressed="${state.tab === 'qc'}">${V('QC hằng ngày')}</button><span class="small muted" style="margin-left:auto;align-self:center">${esc(data.source === 'drive' ? V('Nguồn: Kho Drive riêng (trực tiếp)') : data.source === 'repo' ? V('Nguồn: repo riêng lexkite-shorts (trực tiếp)') : V('Nguồn: manifest gói sẵn'))}</span></div>
         ${data.media ? '' : `<div class="vid-note" role="note">${esc(V('⚠️ Kho Drive chưa đọc được: đang dùng manifest gói sẵn (cập nhật {d}); bìa và video chưa xem được. Xem docs/SHORTS-ACCESS.md.', { d: day(data.updated) || '–' }))}</div>`}
         <div id="vid-yt"></div><div id="vid-body"></div>`;
       ytBox(box.querySelector('#vid-yt'));
@@ -85,6 +86,7 @@
       const body = box.querySelector('#vid-body');
       if (state.tab === 'stats') return stats(body, data, items);
       if (state.tab === 'web') return webStats(body);
+      if (state.tab === 'qc') return qcReport(body);
       body.innerHTML = `<div class="vid-bar"><input type="search" id="vid-q" placeholder="${esc(V('Tìm điểm học, tiêu đề, mã…'))}" aria-label="${esc(V('Tìm kiếm'))}" value="${esc(f.q || '')}">
         ${opt('format', uniq('format'), v => V(FMT[v] || v))}${opt('scene', uniq('scene'))}${opt('template', uniq('template'))}${opt('cefr', uniq('cefr'))}
         ${opt('status', ['pass', 'fail', 'sched', 'due', 'none'], v => V({ pass: 'QA đạt', fail: 'QA chưa đạt', ...PUB }[v]))}
@@ -170,6 +172,14 @@
     }
 
     // 🎬 Hiệu quả trên web theo clip: /api/admin-shorts op 'web' (hit.js t:'v') + tên clip từ /data/videos.json
+    async function qcReport(body) {   // docs/VIDEO-QC.md: every clip through qc-gate (approved candidates and dropped), score /100 and failed gates
+      body.innerHTML = `<div class="card"><p class="muted">${V('Đang tải…')}</p></div>`;
+      const r = await vapi('qc').catch(() => ({ days: [] })); const days = r.days || [];
+      body.innerHTML = `<div class="card"><h3 style="margin-top:0">${V('Báo cáo QC hằng ngày (7 ngày)')}</h3>${days.length ? days.map(d => {
+        const it = d.items || [], ok = it.filter(x => x.ok).length;
+        return `<h4>${esc(d.date)} · ${ok}/${it.length} ${V('đạt')}</h4><div class="tbl"><table><thead><tr><th scope="col">Clip</th><th scope="col">${V('Điểm')}</th><th scope="col">${V('Kết quả')}</th><th scope="col">${V('Cổng trượt')}</th><th scope="col">${V('Nền')}</th><th scope="col">Run</th></tr></thead><tbody>${it.map(x => `<tr><td>${esc(x.id)}</td><td>${esc(String(x.score))}</td><td>${x.ok ? '✓' : '✗'}</td><td>${esc((x.failed || []).join(', ') || '–')}</td><td>${esc(x.bg || '')}</td><td>${esc(String(x.run || ''))}</td></tr>`).join('')}</tbody></table></div>`;
+      }).join('') : `<p class="muted">${V('Chưa có báo cáo QC – cine-render ghi shorts/qc/<ngày>.json sau mỗi lần dựng.')}</p>`}</div>`;
+    }
     async function webStats(body) {
       body.innerHTML = `<div class="card"><p class="muted">${V('Đang tải…')}</p></div>`;
       const [w, m] = await Promise.all([vapi('web').catch(() => ({ rows: [] })), fetch('/data/videos.json', { cache: 'no-cache' }).then(r => r.json()).catch(() => ({ items: [] }))]);

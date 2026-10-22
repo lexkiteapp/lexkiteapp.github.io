@@ -41,7 +41,7 @@ for sc, lid, rb in rows:
     shutil.copy2(mp4, f'{d}/{base}.mp4')
     cov = f'{out}/covers/{base}.jpg'
     if os.path.exists(cov): shutil.copy2(cov, f'{d}/{base}.jpg')
-    for src, dst in ((f'{out}/qa/qa_{rb}.log', f'{base}.qa.log'), (f'{out}/qa/timeline_{rb}.json', f'{base}.timeline.json')):
+    for src, dst in ((f'{out}/qa/qa_{rb}.log', f'{base}.qa.log'), (f'{out}/qa/timeline_{rb}.json', f'{base}.timeline.json'), (f'{out}/qc/{lid}.json', f'{base}.qc.json')):
         if os.path.exists(src): shutil.copy2(src, f'{d}/{dst}')
     try: dur = float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', mp4]))
     except Exception: dur = None
@@ -68,3 +68,11 @@ for sc, lid, rb in rows:
                                       {r['cover']: os.path.getsize(f'{d}/{base}.jpg')} if r['cover'] else {}, cal))
     print(f'stored {sc}/{lid}/{base} (run {run}, {os.path.getsize(mp4) // 1000} kB)')
 if entries: print('index', shorts_index.update(repo, entries), len(entries))
+# docs/VIDEO-QC.md: daily QC report (every clip that reached qc_gate this run: approved candidates AND dropped ones) -> shorts/qc/<UTC date>.json (Admin > Video > QC)
+import glob as _g, datetime as _dt
+qd = f'{repo}/shorts/qc'; os.makedirs(qd, exist_ok=True); day_ = _dt.datetime.utcnow().strftime('%Y-%m-%d'); qf = f'{qd}/{day_}.json'
+rep_ = json.load(open(qf)) if os.path.exists(qf) else dict(date=day_, runs={}, items=[])
+for f_ in sorted(_g.glob(f'{out}/qc/*.json')):
+    q_ = json.load(open(f_)); rep_['items'] = [x for x in rep_['items'] if not (x['id'] == q_['id'] and x.get('run') == run)]
+    rep_['items'].append(dict(id=q_['id'], run=run, ok=q_['ok'], score=q_['score'], failed=[k for k, g in q_['gates'].items() if not g['ok']], bg=q_.get('bg'), signature=q_.get('signature')))
+rep_['runs'][str(run)] = dict(sha=sha, at=now); json.dump(rep_, open(qf, 'w'), indent=1); print('qc report', qf, len(rep_['items']))

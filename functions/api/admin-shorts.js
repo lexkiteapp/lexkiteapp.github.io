@@ -92,6 +92,16 @@ export async function onRequestPost({ request, env }) {
     const url = await signed(env, it, k, 2 * 3600);
     return url ? json(request, 200, { url }) : json(request, 404, { error: 'not-on-drive' });
   }
+  if (b.op === 'qc') { // docs/VIDEO-QC.md: daily QC report written by store_shorts.py (shorts/qc/<date>.json), last 7 days
+    if (!env.SHORTS_READ_TOKEN) return json(request, 503, { error: 'needs-token' });
+    const H = { Authorization: 'Bearer ' + env.SHORTS_READ_TOKEN, 'User-Agent': 'lexkite-admin' };
+    const ls = await fetch(`https://api.github.com/repos/${REPO}/contents/shorts/qc`, { headers: { ...H, Accept: 'application/vnd.github+json' } });
+    if (!ls.ok) return json(request, 200, { days: [] });
+    const files = (await ls.json()).filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f.name)).sort((x, y) => y.name.localeCompare(x.name)).slice(0, 7);
+    const days = [];
+    for (const f of files) { const r = await fetch(`https://api.github.com/repos/${REPO}/contents/shorts/qc/${f.name}`, { headers: { ...H, Accept: 'application/vnd.github.raw' } }); if (r.ok) days.push(await r.json()); }
+    return json(request, 200, { days });
+  }
   if (b.op === 'web') { // 🎬 hiệu quả trên web theo clip (hit.js t:'v' → ext_events 'vid:<ev>:<id>'), 90 ngày
     if (!env.DB) return json(request, 200, { rows: [] });
     const since = new Date(Date.now() - 90 * 864e5).toISOString().slice(0, 10);

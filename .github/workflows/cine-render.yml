@@ -51,7 +51,7 @@ jobs:
       - name: Cài thư viện + ffmpeg
         run: |
           pip install -q -r scripts/cine/requirements.txt
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg tesseract-ocr >/dev/null
           ffmpeg -hide_banner -version | head -1
       - name: Lấy footage (repo riêng tư, sparse theo cảnh)
         env:
@@ -260,7 +260,7 @@ jobs:
       - name: Cài thư viện + ffmpeg
         run: |
           pip install -q -r scripts/cine/requirements.txt scipy==1.14.1 faster-whisper==1.0.3 requests==2.32.3
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg tesseract-ocr >/dev/null
       - name: Lấy footage news (anchor/green + anchor/bg + meta, sparse)
         env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
         run: |
@@ -328,7 +328,9 @@ jobs:
               cp "$NEWS_DIR/$rb/timeline.json" "out/qa/timeline_$rb.json"; cp "$NEWS_DIR/$rb/qc.json" "out/qa/qc_$rb.json"
               if (cd "$NEWS_DIR" && python "$CINE_ROOT/scripts/cine/qa_news.py" "$rb") > "out/qa/qa_$rb.log" 2>&1; then :; fi
               tail -1 "out/qa/qa_$rb.log"; grep FAIL "out/qa/qa_$rb.log" | head -20 || true
-              tail -1 "out/qa/qa_$rb.log" | grep -q 'ALL PASS' && echo "news $lid $rb" >> out/passed.txt || fail=1
+              (cd "$NEWS_DIR" && CINE_OUT="$GITHUB_WORKSPACE/out" python "$CINE_ROOT/scripts/cine/qc_gate.py" "$lid") > "out/qa/qcgate_$lid.log" 2>&1 && qrc=0 || qrc=$?
+              tail -1 "out/qa/qcgate_$lid.log"
+              if tail -1 "out/qa/qa_$rb.log" | grep -q 'ALL PASS' && [ "$qrc" = 0 ]; then echo "news $lid $rb" >> out/passed.txt; else fail=1; echo "$lid qc-fail $(date -u +%FT%TZ)" >> out/qc_dropped.txt; fi   # docs/VIDEO-QC.md: any fail = not stored / not published
             else fail=1; fi
             [ -n "${NEWS_BG:-}" ] && echo "$lid $NEWS_BG" >> out/bg_override.txt; unset NEWS_BG
             echo "::endgroup::"
@@ -388,5 +390,7 @@ jobs:
             out/voices/
             out/passed.txt
             out/bg_override.txt
+            out/qc/
+            out/qc_dropped.txt
           retention-days: 14
           if-no-files-found: warn
