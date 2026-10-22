@@ -2,7 +2,7 @@
 
 Mục tiêu: một kho **mô-đun** (nhân vật, biểu cảm, cử chỉ, phòng trống, đạo cụ, phương tiện, hiệu ứng) đủ phủ mọi nơi dùng trong hệ sinh thái – video Shorts/YouTube, "Call Mia", roleplay, bài học trong app, thumbnail, social, blog, email, thông báo, cửa hàng ứng dụng – và **ghép bằng script** thành hàng nghìn khung hình khác nhau mà vẫn đồng nhất phong cách. Ảnh AI (Kling) chỉ là **nguyên liệu**; sản phẩm cuối do máy dựng (SVG/Remotion) → $0/khung hình.
 
-Liên quan: `docs/VIDEO-PIPELINE.md` (dựng video), `docs/VIDEO-CONTENT-PLAN.md` (nội dung), `docs/MEDIA-QA-RUBRIC.md` (chấm điểm), `content/video/assets.json` (danh mục máy đọc), `docs/BRAND-RULES.md`.
+Liên quan: `docs/VIDEO.md` (video hiện hành; bản cũ `docs/archive/VIDEO-PIPELINE.md`, `docs/archive/VIDEO-CONTENT-PLAN.md`), `docs/MEDIA-QA-RUBRIC.md` (chấm điểm), `content/video/assets.json` (danh mục máy đọc), `docs/BRAND-RULES.md`.
 
 
 ## 0. Luật chống "lơ lửng" (ưu tiên cao nhất – anh chủ 17/10)

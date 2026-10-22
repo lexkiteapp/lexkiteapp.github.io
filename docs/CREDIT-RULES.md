@@ -17,4 +17,4 @@
 8. Ghi ledger: credit, kết quả đạt/hỏng, lý do hỏng, bài học → nếu là bài học chung thì thêm 1 dòng vào `docs/METHODS.md`.
 9. Soát bằng mắt người (tờ ảnh ghép) mọi kết quả trước khi đưa vào bài hoặc gửi chủ.
 
-Liên quan: `docs/CINE-SCENE-STANDARD.md` (khuôn cảnh 1 lượt, soát tư thế §3), `docs/MEDIA-QA-RUBRIC.md` (chỉ dùng ≥ 90).
+Liên quan: `docs/VIDEO.md` (hiện hành), `docs/archive/CINE-SCENE-STANDARD.md` (khuôn cảnh 1 lượt, soát tư thế §3), `docs/MEDIA-QA-RUBRIC.md` (chỉ dùng ≥ 90).
