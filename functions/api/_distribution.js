@@ -35,6 +35,15 @@ export function route(rules, cfgs, clip, fallback) {
   if (fallback && allowed(cfgs[fallback], clip)) return { channel_id: fallback, rule: -1 };
   return { channel_id: null, why: fallback && cfgs[fallback] && !cfgs[fallback].active ? 'fallback-paused' : 'no-channel' };
 }
+/** Several embed channels share the lessons: pick one for a clip. embedCfgs {channel_id: cfg}, counts {channel_id: {today, total}}, clip may carry channel_id (already planned/uploaded there).
+ *  Sticky: a clip with a video stays on its channel; a planned clip stays while that channel is still usable. Otherwise: only active embed channels that allow the clip, least loaded today → in total → hash of the clip id. */
+export function pickEmbed(embedCfgs, counts, clip) {
+  const ok = Object.entries(embedCfgs || {}).filter(([, c]) => c && c.role === 'embed' && allowed(c, clip)).map(([id]) => id), cur = clip.channel_id;
+  if (cur && (clip.video_id ? embedCfgs && embedCfgs[cur] : ok.includes(cur))) return cur;
+  const n = (id, k) => ((counts || {})[id] || {})[k] || 0;
+  ok.sort((a, b) => n(a, 'today') - n(b, 'today') || n(a, 'total') - n(b, 'total') || hash(clip.id + a) - hash(clip.id + b) || (a < b ? -1 : 1));
+  return ok[0] || null;
+}
 /** Channel id → platform. YouTube = our OAuth channel ids (UC…); social channels mirrored from GrabCast use "gc-<platform>-<account id>". */
 export const platformOf = id => { const m = /^gc-([a-z_]+)-/.exec(String(id || '')); return m ? m[1] : 'youtube'; };
 /** Multi-platform routing: first match wins PER PLATFORM (a clip gets ≤ 1 channel per platform); the fallback channel only covers YouTube. */

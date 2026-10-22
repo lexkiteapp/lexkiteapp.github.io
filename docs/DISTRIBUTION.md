@@ -26,6 +26,8 @@ Tác tử social (`web/js/admin-social.js`, `functions/api/social.js`) gọi `/a
 Pure import được phép: `normCfg`, `allowed`, `schedule`, `routeAll`, `platformOf` (`_distribution.js`), `socialMeta`, `seoScore` (`_role_meta.js`) – giữ chữ ký ổn định.
 
 ## 4. Hệ thống (web/app)
+Nhiều kênh embed: bài học mới xoay vòng giữa các kênh embed đang hoạt động & ổn (`pickEmbed`: ít tải nhất hôm nay → tổng → hash id; clip đã có plan/video thì giữ nguyên kênh); kênh hỏng/tạm dừng bị bỏ qua, bài của nó phát bản tự lưu trữ.
+
 `embed_status` → kênh nhúng, hàng **Sẵn sàng cho bài học** (gói đang tạo/sẵn sàng), trạng thái nhúng từng bài, **video hỏng/riêng tư/xóa/sai kênh** (`why`) → web-rendition bỏ `youtube_id` ⇒ bài học phát bản tự lưu trữ, bản đồ phủ chủ đề × CEFR. "Kiểm tra ngay" = `youtube` op `sync` (kênh đã chọn).
 Mặt tiền (`web/js/lesson-video.js`): chỉ poster WebP của mình, 0 byte YouTube trước khi bấm; rê/focus/gần khung nhìn → preconnect; bấm → `<iframe loading=lazy>` youtube-nocookie (playsinline, rel=0) + IFrame API; `ended` → câu đố; lỗi / > 4 s / vùng chặn → tự lưu trữ.
 Kiểm: `scripts/test/facade-perf.mjs` + `scripts/test/admin-dist-shots.mjs` (`.github/workflows/dist-ui.yml`), app gốc: `scripts/test/native-facade.js` (ios-e2e.yml → `facade.json`; android.yml APK kiểm thử → logcat `E2E-VF`).

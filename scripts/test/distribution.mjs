@@ -18,6 +18,18 @@ ok(D.route(rules, cfgs, clip({ type: 'podcast', sub: 'exam/ielts' }), 'A').rule 
 ok(D.route(rules, cfgs, clip({ regions: ['IN'] }), 'A').channel_id === 'A', 'rule to a paused channel is skipped → fallback');
 ok(D.route(rules, cfgs, clip({ type: 'long' }), 'A').channel_id === 'A', 'rule target not allowed for the type (short-only channel) → fallback');
 ok(D.route(rules, cfgs, clip(), 'A').rule === -1 && D.route(rules, cfgs, clip(), null).channel_id === null && D.route(rules, cfgs, clip(), 'P').why === 'fallback-paused', 'fallback / no channel / paused fallback');
+// ---- embed rotation ----
+{ const E = o => D.normCfg({ role: 'embed', ...o }), cl = (id, o) => ({ id, type: 'short', topic: 'food', cefr: 'A2', ...o });
+  const three = { E1: E({}), E2: E({}), E3: E({}) }, cnt = {}, got = {};
+  for (let i = 0; i < 30; i++) { const p = D.pickEmbed(three, cnt, cl('clip-' + i)); got[p] = (got[p] || 0) + 1; (cnt[p] = cnt[p] || { today: 0, total: 0 }).today++; cnt[p].total++; }
+  ok(Object.values(got).length === 3 && Object.values(got).every(v => v === 10), 'pickEmbed balances 30 clips across 3 embed channels (10 each)');
+  const two = { E1: E({}), E2: E({}) }; ok(D.pickEmbed(two, { E1: { today: 3, total: 9 }, E2: { today: 0, total: 20 } }, cl('x1')) === 'E2' && D.pickEmbed(two, { E1: { today: 1, total: 9 }, E2: { today: 1, total: 20 } }, cl('x1')) === 'E1', 'least loaded today first, then total');
+  ok(D.pickEmbed(two, {}, cl('same')) === D.pickEmbed(two, {}, cl('same')), 'deterministic tie-break');
+  ok(D.pickEmbed(two, { E1: { today: 9, total: 9 } }, cl('s', { channel_id: 'E1' })) === 'E1' && D.pickEmbed(two, { E1: { today: 9, total: 9 } }, cl('s', { channel_id: 'E1', video_id: 'v' })) === 'E1', 'sticky: planned / uploaded clip stays on its channel');
+  const bad = { E1: E({ active: 0 }), E2: E({}) };
+  ok(D.pickEmbed(bad, {}, cl('s')) === 'E2' && D.pickEmbed(bad, {}, cl('s', { channel_id: 'E1' })) === 'E2' && D.pickEmbed(bad, {}, cl('s', { channel_id: 'E1', video_id: 'v' })) === 'E1', 'paused channel skipped for new uploads (a clip with a video keeps its channel)');
+  ok(D.pickEmbed({ E1: E({ types: ['podcast'] }), E2: E({}) }, {}, cl('s')) === 'E2' && D.pickEmbed({ E1: E({ active: 0 }) }, {}, cl('s')) === null && D.pickEmbed({}, {}, cl('s')) === null, 'channel not allowing the clip skipped; none left → null');
+  ok(D.pickEmbed({ E1: E({}) }, {}, cl('s')) === 'E1' && D.pickEmbed({ E1: E({}) }, {}, cl('s2')) === 'E1', 'a single embed channel still works'); }
 // ---- time zones ----
 ok(new Date(D.zonedToMs('2026-10-22', '09:00', 'Asia/Ho_Chi_Minh')).toISOString() === '2026-10-22T02:00:00.000Z', 'zonedToMs: Ho Chi Minh UTC+7');
 ok(new Date(D.zonedToMs('2026-10-22', '09:00', 'America/New_York')).toISOString() === '2026-10-22T13:00:00.000Z' && new Date(D.zonedToMs('2026-11-02', '09:00', 'America/New_York')).toISOString() === '2026-11-02T14:00:00.000Z', 'zonedToMs: New York across the Nov 1 DST change');
