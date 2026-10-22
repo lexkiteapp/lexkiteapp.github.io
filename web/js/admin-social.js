@@ -17,6 +17,17 @@
     'Kết nối kênh/Drive trên GrabCast ↗': 'Connect channels/Drive on GrabCast ↗', '🔄 Tải lại': '🔄 Reload', 'Đang tải…': 'Loading…',
     '✍️ Soạn bài': '✍️ Compose', '📅 Lịch': '📅 Calendar', '🗂️ Bài đăng': '🗂️ Posts', '📡 Kênh & Drive': '📡 Channels & Drives', 'Mục Video & Social': 'Video & Social sections',
     '🗽 New York: {ny} · 🕒 Giờ của bạn: {loc}': '🗽 New York: {ny} · 🕒 Your time: {loc}',
+    // Duyệt bài & quản lý (admin-social-mgr.js)
+    '✅ Duyệt bài': '✅ Approvals', '🤖 Hàng đợi': '🤖 Queue', '🩺 Sức khỏe kênh': '🩺 Account health', '📈 Phân tích': '📈 Analytics', '💬 Bình luận': '💬 Comments',
+    'Gửi duyệt & lên lịch': 'Send for review & schedule', 'Gửi duyệt & đăng ngay': 'Send for review & publish now',
+    'Bài phải qua duyệt trước khi lên lịch/đăng – gửi duyệt ở tab Duyệt bài.': 'Posts must be approved before scheduling/publishing – send it for review in Approvals.',
+    'Bài chưa được duyệt – duyệt ở tab Duyệt bài rồi thử lại.': 'The post is not approved – approve it in Approvals, then retry.',
+    'Nội dung đã đổi sau khi duyệt – duyệt lại ở tab Duyệt bài.': 'The content changed after approval – approve it again in Approvals.', 'Thao tác quá nhanh – đợi 1 phút.': 'Too many actions – wait a minute.',
+    'Clip chưa có bản master trên Kho Drive.': 'The clip has no master on the Drive pool yet.', '📚 Kho Lexkite (đã duyệt)': '📚 Lexkite library (approved)', '✨ Gợi ý AI': '✨ AI suggestions',
+    'Tạo bài nháp trên {n} kênh và gửi duyệt (lên lịch {d} sau khi duyệt)?': ['Create a draft on {n} channel and send it for review (scheduled for {d} once approved)?', 'Create a draft on {n} channels and send it for review (scheduled for {d} once approved)?'],
+    'Tạo bài nháp trên {n} kênh và gửi duyệt (đăng ngay sau khi duyệt)?': ['Create a draft on {n} channel and send it for review (published once approved)?', 'Create a draft on {n} channels and send it for review (published once approved)?'],
+    'Đã tạo bài nháp nhưng chưa gửi duyệt được: {e}': 'The draft was created but could not be sent for review: {e}',
+    '✓ Đã gửi duyệt – lên lịch {d} sau khi duyệt (tab Duyệt bài).': '✓ Sent for review – it will be scheduled for {d} once approved (Approvals tab).', '✓ Đã gửi duyệt – đăng ngay sau khi duyệt (tab Duyệt bài).': '✓ Sent for review – it publishes once approved (Approvals tab).',
     // Chưa cấu hình
     '⚙️ Chưa kết nối GrabCast': '⚙️ GrabCast is not connected', 'Máy chủ chưa có khóa GrabCast. Làm 1 lần:': 'The server has no GrabCast key yet. One-time setup:',
     'Mở {link} → tạo khóa API với quyền <b>social:read, social:write, storage:read, storage:write</b>.': 'Open {link} → create an API key with scopes <b>social:read, social:write, storage:read, storage:write</b>.',
@@ -92,8 +103,8 @@
     'Chọn nhiều video → tự xếp mỗi video 1 bài vào khung giờ vàng còn trống (giờ New York).': 'Pick several videos → each becomes one post in the next free prime-time slots (New York time).',
     'Chọn tất cả': 'Select all', 'Bỏ chọn': 'Clear', 'Đã chọn {n} video': ['{n} video selected', '{n} videos selected'], 'Caption mẫu ({title} = tên video)': 'Caption template ({title} = video name)',
     'Khung giờ (ET)': 'Slots (ET)', 'Bắt đầu từ ngày (New York)': 'Start date (New York)', 'Bỏ qua thứ 7 & Chủ nhật': 'Skip Saturday & Sunday', 'Quyền riêng tư YouTube': 'YouTube privacy', 'Quyền riêng tư TikTok': 'TikTok privacy',
-    'Xem kế hoạch': 'Preview plan', 'Tạo & lên lịch {n} bài': ['Create & schedule {n} post', 'Create & schedule {n} posts'], 'Chọn ít nhất 1 video.': 'Select at least one video.', 'Chọn ít nhất 1 khung giờ.': 'Select at least one slot.',
-    'Tạo {n} bài và lên lịch đăng lên {k} kênh theo kế hoạch? Bài sẽ tự công khai đúng giờ.': ['Create {n} post and schedule it to {k} channel(s)? It goes public on time.', 'Create {n} posts and schedule them to {k} channel(s)? They go public on time.'],
+    'Xem kế hoạch': 'Preview plan', 'Tạo {n} bài & gửi duyệt': ['Create {n} draft & send for review', 'Create {n} drafts & send for review'], 'Chọn ít nhất 1 video.': 'Select at least one video.', 'Chọn ít nhất 1 khung giờ.': 'Select at least one slot.',
+    'Tạo {n} bài nháp trên {k} kênh theo kế hoạch và gửi duyệt? Sau khi duyệt, GrabCast tự đăng đúng giờ.': 'Create {n} drafts on {k} channels per the plan and send them for review? Once approved, GrabCast posts them on time.',
     'Video': 'Video', 'Trạng thái': 'Status', 'Giờ của bạn': 'Your time', 'chờ': 'waiting', '⚠️ trùng – bỏ qua': '⚠️ duplicate – skipped', 'Xong {ok}/{n} bài.': 'Done {ok}/{n} posts.',
     // Danh sách bài
     'Tìm theo tiêu đề/caption…': 'Search title/caption…', 'Tìm bài đăng': 'Search posts', 'Mọi nền tảng': 'All platforms', 'Từ ngày': 'From', 'Đến ngày': 'To', 'Lọc trạng thái': 'Filter by status',
@@ -188,7 +199,8 @@
   const GLBL = { draft: ['muted', 'Nháp'], scheduled: ['warn', 'Đã lên lịch'], published: ['ok', 'Đã đăng'], failed: ['bad', 'Lỗi'], cancelled: ['muted', 'Đã hủy'], other: ['muted', 'Khác'] };
   const GB = b => { b = +b || 0; return b >= 1e12 ? (b / 1e12).toFixed(2) + ' TB' : b >= 1e9 ? (b / 1e9).toFixed(1) + ' GB' : b >= 1e6 ? (b / 1e6).toFixed(0) + ' MB' : Math.round(b / 1e3) + ' KB'; };
   const uid = () => ((typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2)).replace(/[^A-Za-z0-9_-]/g, '');
-  const LS = { get(k, d) { try { const v = localStorage.getItem('lk.soc.' + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }, set(k, v) { try { localStorage.setItem('lk.soc.' + k, JSON.stringify(v)); } catch (e) { /* bỏ qua: trình duyệt chặn lưu */ } } };
+  let libPush = null; // mẫu caption & bộ hashtag lưu ở D1 (dùng chung mọi máy) – localStorage chỉ là bản đệm
+  const LS = { get(k, d) { try { const v = localStorage.getItem('lk.soc.' + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }, set(k, v, local) { try { localStorage.setItem('lk.soc.' + k, JSON.stringify(v)); } catch (e) { /* bỏ qua: trình duyệt chặn lưu */ } if (!local && libPush && (k === 'tpl' || k === 'tags')) libPush(k, v); } };
   // Đếm: YouTube tính byte UTF-8, Threads tính emoji theo byte (cách đếm thận trọng của GrabCast), còn lại tính ký tự
   const bytes = s => { try { return unescape(encodeURIComponent(s)).length; } catch (e) { return s.length * 3; } };
   const clen = (p, s) => { s = String(s || ''); return p === 'youtube' ? bytes(s) : p === 'threads' ? [...s].reduce((n, c) => n + (c.codePointAt(0) > 0xffff ? bytes(c) : 1), 0) : [...s].length; };
@@ -300,6 +312,8 @@
     const lnk = (u, t) => `<a href="${u}" target="_blank" rel="noopener">${t}</a>`;
     const errText = e => (e && e.code === 'api_key_invalid' ? S('Khóa GrabCast không hợp lệ hoặc đã bị thu hồi – tạo khóa mới tại {link} rồi cập nhật secret GRABCAST_API_KEY trên Cloudflare Pages.', { link: 'grabcast.click/account.html#api' })
       : e && e.code === 'api_key_not_allowed' ? S('Khóa GrabCast không có quyền cho thao tác này (hoặc không thuộc workspace Lexkite) – cấp thêm quyền social/storage cho khóa tại {link}.', { link: 'grabcast.click/account.html#api' })
+      : e && e.code === 'needs-approval' ? S('Bài phải qua duyệt trước khi lên lịch/đăng – gửi duyệt ở tab Duyệt bài.') : e && e.code === 'not-approved' ? S('Bài chưa được duyệt – duyệt ở tab Duyệt bài rồi thử lại.')
+      : e && e.code === 'changed-since-approval' ? S('Nội dung đã đổi sau khi duyệt – duyệt lại ở tab Duyệt bài.') : e && e.code === 'too-fast' ? S('Thao tác quá nhanh – đợi 1 phút.') : e && e.code === 'clip-not-on-drive' ? S('Clip chưa có bản master trên Kho Drive.')
       : e && e.code === 'grabcast-rate' ? S('Quá giới hạn GrabCast (60 lượt/phút) – đợi 1 phút rồi thử lại.') : e && e.code === 'timeout' ? S('GrabCast không phản hồi trong 15 giây.') : String((e && e.message) || e).slice(0, 300));
     const errHtml = e => (e && /^api_key_/.test(e.code || '') ? errText(e).replace('grabcast.click/account.html#api', lnk(GC_KEY, 'grabcast.click/account.html#api')) : esc(errText(e)));
     const opt = (v, t, cur) => `<option value="${esc(v)}"${String(v) === String(cur) ? ' selected' : ''}>${esc(t)}</option>`;
@@ -310,10 +324,12 @@
     // Mọi nội dung nằm trong .soc-wrap (khung main dùng chung với tab khác → không để lại class/sự kiện trên main)
     const put = html => { box.innerHTML = `<div class="soc-wrap">${html}</div>`; box.firstElementChild.addEventListener('error', e => { if (e.target && e.target.tagName === 'IMG' && e.target.closest('.soc-av,.soc-th')) e.target.remove(); }, true); }; // ảnh hỏng (link hết hạn) → chữ cái đầu
 
-    const TABS = [['compose', '✍️ Soạn bài'], ['calendar', '📅 Lịch'], ['posts', '🗂️ Bài đăng'], ['accounts', '📡 Kênh & Drive']];
+    const TABS = [['compose', '✍️ Soạn bài'], ['board', '✅ Duyệt bài'], ['calendar', '📅 Lịch'], ['queue', '🤖 Hàng đợi'], ['posts', '🗂️ Bài đăng'], ['health', '🩺 Sức khỏe kênh'], ['stats', '📈 Phân tích'], ['inbox', '💬 Bình luận'], ['accounts', '📡 Kênh & Drive']];
+    const MGR = new Set(['board', 'queue', 'health', 'stats', 'inbox']);
     const D = { stores: [], accounts: [], posts: [], objects: [], bad: {} };
     const accById = id => D.accounts.find(a => String(a.id) === String(id));
     let tab = pending ? 'compose' : LS.get('tab', 'compose'); if (!TABS.some(t => t[0] === tab)) tab = 'compose';
+    const deep = /^#social\/(board|queue|health|stats|inbox|calendar|posts)(?:\/(b_[A-Za-z0-9_-]{6,60}))?/.exec(location.hash || ''); let focusId = deep && deep[2]; if (deep) tab = deep[1];
     const C = { src: null, title: '', cap: '', fc: '', link: '', acc: [], at: '', pt: '', pv: '', srv: {}, mid: null, midFor: null, idem: uid(), tt: null, ttFor: null, q: '', busy: false,
       per: { youtube: { cap: '', privacy: 'public', cat: '27', tags: '', ai: false, notify: true }, tiktok: { cap: '', privacy: '', comment: false, duet: false, stitch: false, aigc: false }, instagram: { cap: '', fc: '', feed: true }, facebook_page: { cap: '', fc: '' }, threads: { cap: '' } } };
     let pre = pending; pending = null;
@@ -345,7 +361,12 @@
       paint();
     });
     function go(t) { tab = t; LS.set('tab', t); box.querySelectorAll('[data-tab]').forEach(b => { const on = b.dataset.tab === t; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; }); paint(); }
-    function paint() { const b = $('#socBody'); if (!b) return; b.setAttribute('aria-labelledby', 'socT-' + tab); ({ compose, calendar: calendarTab, posts: postsTab, accounts: accountsTab })[tab](b); }
+    function paint() { const b = $('#socBody'); if (!b) return; b.setAttribute('aria-labelledby', 'socT-' + tab); if (MGR.has(tab)) { const t = tab; b.innerHTML = `<p class="small muted">${S('Đang tải…')}</p>`; mgr().then(M => { if (alive() && tab === t) M.paint(t, b, mctx()); }).catch(e => { b.innerHTML = `<p class="small bad-t">${esc(errText(e))}</p>`; }); return; } ({ compose, calendar: calendarTab, posts: postsTab, accounts: accountsTab })[tab](b); }
+    // Mục quản lý (js/admin-social-mgr.js, tải lười): duyệt bài, hàng đợi, sức khỏe, phân tích, bình luận + chọn clip/AI/bộ kênh cho trình soạn
+    const mgr = () => (window.AdminSocialMgr ? Promise.resolve(window.AdminSocialMgr) : new Promise((y, n) => { const sc = document.createElement('script'); sc.src = 'js/admin-social-mgr.js'; sc.onload = () => y(window.AdminSocialMgr); sc.onerror = () => n(new Error('admin-social-mgr.js')); document.head.appendChild(sc); }));
+    const mctx = () => ({ focus: (() => { const f = focusId; focusId = null; return f; })(), sapi, L, esc, lang, D, accById, modal, both: t => both(t), errText, alive, LS, reloadPosts: () => reloadPosts(), reloadAccounts: () => sapi('GET', 'accounts').then(r => { D.accounts = arr(r).filter(a => platKey(accPlat(a)) !== 'google_drive'); }).catch(() => {}) });
+    libPush = (k, v) => sapi('POST', 'lk/lib/save', { kind: k, items: v }).catch(() => {});
+    sapi('GET', 'lk/lib').then(r => { let ch = false; for (const k of ['tpl', 'tags']) if (Array.isArray(r[k]) && JSON.stringify(r[k]) !== JSON.stringify(LS.get(k, null))) { LS.set(k, r[k], true); ch = true; } if (ch && alive() && tab === 'compose') { paintTpl(); paintTags(); } }).catch(() => {});
 
     function setup() {
       put(head + `<section class="card"><h3 style="margin:0">${S('⚙️ Chưa kết nối GrabCast')}</h3><p class="small" style="margin:.5rem 0 0">${S('Máy chủ chưa có khóa GrabCast. Làm 1 lần:')}</p>
@@ -376,24 +397,27 @@
       const accs = D.accounts;
       b.innerHTML = `<div class="soc-comp"><div>
         <section class="card"><h3>${S('🎞️ Video')}</h3>
-          <div class="row" style="gap:.5rem"><input type="search" id="cmQ" placeholder="${esc(S('Tìm video…'))}" aria-label="${esc(S('Tìm trong kho video'))}" value="${esc(C.q)}" style="flex:1 1 180px"><label class="btn sm"><input type="file" id="cmFile" accept="video/*" hidden>${S('⬆️ Tải video mới')}</label></div>
+          <div class="row" style="gap:.5rem"><input type="search" id="cmQ" placeholder="${esc(S('Tìm video…'))}" aria-label="${esc(S('Tìm trong kho video'))}" value="${esc(C.q)}" style="flex:1 1 180px"><label class="btn sm"><input type="file" id="cmFile" accept="video/*" hidden>${S('⬆️ Tải video mới')}</label><button type="button" class="btn sm primary" id="cmLk">${S('📚 Kho Lexkite (đã duyệt)')}</button></div>
           <div class="soc-prog" hidden id="cmProg"><i></i></div><div class="soc-media" id="cmMedia" role="group" aria-label="${esc(S('Kho video'))}"></div>${badHtml('objects')}<div id="cmSel"></div></section>
         <section class="card"><h3>${S('✍️ Nội dung')}</h3><div class="soc-form">
           <label class="wide"><span class="soc-lbl">${S('Caption chung')}<span class="soc-cnts" id="cmCapN"></span></span><textarea id="cmCap" rows="5">${esc(C.cap)}</textarea></label>
-          <div class="wide row" style="gap:.4rem"><select id="cmTpl" aria-label="${esc(S('Mẫu caption'))}" style="flex:1 1 160px"></select><button type="button" class="btn sm ghost" id="cmTplSave">${S('💾 Lưu làm mẫu')}</button><button type="button" class="btn sm ghost danger" id="cmTplDel" aria-label="${esc(S('Xóa mẫu đang chọn'))}">🗑</button></div>
+          <div class="wide row" style="gap:.4rem"><select id="cmTpl" aria-label="${esc(S('Mẫu caption'))}" style="flex:1 1 160px"></select><button type="button" class="btn sm" id="cmAi">${S('✨ Gợi ý AI')}</button><button type="button" class="btn sm ghost" id="cmTplSave">${S('💾 Lưu làm mẫu')}</button><button type="button" class="btn sm ghost danger" id="cmTplDel" aria-label="${esc(S('Xóa mẫu đang chọn'))}">🗑</button></div>
           <div class="wide"><span class="small" style="font-weight:600">${S('Bộ hashtag:')}</span><div class="soc-chips" id="cmTags" style="margin:.3rem 0"></div><button type="button" class="btn sm ghost" id="cmTagSave">${S('＃ Lưu hashtag đang dùng')}</button></div>
           <label>${S('Bình luận đầu tiên')}<input id="cmFc" maxlength="2200" value="${esc(C.fc)}"></label><label>${S('Link')}<input id="cmLink" type="url" placeholder="https://lexkite.com/" value="${esc(C.link)}"></label>
-          <div class="wide"><div class="small" style="font-weight:600;margin-bottom:.3rem">${S('Đăng lên kênh')}</div><div class="soc-targets" id="cmAcc">${accs.map(a => `<label><input type="checkbox" value="${esc(a.id)}" ${C.acc.includes(String(a.id)) ? 'checked' : ''}> ${avHtml(a, 's')} ${icon(accPlat(a))} <span>${esc(accName(a))}</span></label>`).join('') || emptyConn('Workspace Lexkite chưa có kênh nào.')}</div>${badHtml('accounts')}</div>
+          <div class="wide"><div class="small" style="font-weight:600;margin-bottom:.3rem">${S('Đăng lên kênh')}</div><div class="row" id="cmSets" style="gap:.3rem;flex-wrap:wrap;margin-bottom:.3rem"></div><div class="soc-targets" id="cmAcc">${accs.map(a => `<label><input type="checkbox" value="${esc(a.id)}" ${C.acc.includes(String(a.id)) ? 'checked' : ''}> ${avHtml(a, 's')} ${icon(accPlat(a))} <span>${esc(accName(a))}</span></label>`).join('') || emptyConn('Workspace Lexkite chưa có kênh nào.')}</div>${badHtml('accounts')}</div>
         </div></section>
         <section class="card"><h3>${S('⚙️ Tùy chỉnh từng nền tảng')}</h3><div class="soc-ptabs" role="tablist" id="cmPT" aria-label="${esc(S('Nền tảng'))}"></div><div id="cmPanel" role="tabpanel"></div></section>
         <section class="card"><h3>${S('🕒 Thời gian đăng')}</h3><div class="soc-form"><label class="wide">${S('Giờ đăng (giờ máy bạn)')}<input type="datetime-local" id="cmAt" value="${esc(C.at)}"></label></div>
           <div class="row" style="gap:.5rem;margin-top:.5rem"><button type="button" class="btn sm" id="cmNext">${S('⏭ Khung trống kế tiếp')}</button></div>
           <p class="small muted" style="margin:.5rem 0 0">${S('Khung giờ vàng còn trống ở Mỹ (giờ New York):')}</p><div class="soc-times" id="cmTimes"></div><p class="small" id="cmAtTz" style="margin:.5rem 0 0"></p>
-          <div class="soc-btns"><button type="button" class="btn ghost" id="cmVal">${S('Kiểm tra')}</button><button type="button" class="btn" id="cmDraft">${S('Lưu nháp')}</button><button type="button" class="btn primary" id="cmSched">${S('Lên lịch')}</button><button type="button" class="btn ghost danger" id="cmNow">${S('Đăng ngay')}</button></div>
+          <div class="soc-btns"><button type="button" class="btn ghost" id="cmVal">${S('Kiểm tra')}</button><button type="button" class="btn" id="cmDraft">${S('Lưu nháp')}</button><button type="button" class="btn primary" id="cmSched">${S('Gửi duyệt & lên lịch')}</button><button type="button" class="btn ghost danger" id="cmNow">${S('Gửi duyệt & đăng ngay')}</button></div>
           <div class="soc-msg small" id="cmMsg" role="status" aria-live="polite"></div></section>
       </div><aside><div class="soc-sticky card"><h3>${S('👁️ Xem trước')}</h3><div class="soc-ptabs" role="tablist" id="pvT" aria-label="${esc(S('Xem trước cho'))}"></div><div id="pv"></div><p class="tiny muted" style="margin:.6rem 0 0">${S('Mô phỏng gần đúng – bố cục thật do từng nền tảng quyết định.')}</p></div></aside></div>`;
       paintMedia(); paintSel(); paintTpl(); paintTags(); paintPT(); paintTimes(); refresh();
       $('#cmQ').oninput = e => { C.q = e.target.value; paintMedia(); };
+      $('#cmLk').onclick = async () => { const c = await (await mgr()).pickClip(mctx()); if (!c || !alive()) return; C.src = { type: 'lk', id: 'lk:' + c.id, clip: c, name: c.title, dur: c.duration || null, w: 1080, h: 1920 }; C.mid = null; C.midFor = null; if (!C.title) C.title = String(c.title || '').slice(0, 100); if (!C.cap.trim()) { C.cap = [c.description || '', (c.hashtags || []).map(t => '#' + String(t).replace(/^#/, '')).join(' ')].filter(Boolean).join('\n\n'); const ta = $('#cmCap'); if (ta) ta.value = C.cap; } paintSel(); refresh(); };
+      $('#cmAi').onclick = async () => { const r = await (await mgr()).aiSuggest(mctx(), { clip: C.src && C.src.clip ? C.src.clip.id : undefined, title: C.title, caption: C.cap, plats: selPlats() }); if (!r || !alive()) return; if (r.use === 'cap') C.cap = r.caption; else if (r.use === 'tags') C.cap = (C.cap.trim() + '\n\n' + r.tags).trim(); else if (r.use === 'fc') { C.fc = r.fc; const f = $('#cmFc'); if (f) f.value = C.fc; } const ta = $('#cmCap'); if (ta) ta.value = C.cap; C.srv = {}; refresh(); };
+      mgr().then(M => { const el = $('#cmSets'); if (el && alive()) M.setsBar(el, mctx(), () => C.acc.slice(), ids => { C.acc = ids; box.querySelectorAll('#cmAcc input').forEach(i => { i.checked = ids.includes(i.value); }); C.srv = {}; paintPT(); refresh(); }); }).catch(() => {});
       $('#cmMedia').onclick = e => { const it = e.target.closest('[data-oid]'); if (!it) return; const o = vids().find(x => String(x.id) === it.dataset.oid); if (!o) return; C.src = { type: 'obj', id: o.id, name: pick(o, 'name', 'filename') || o.id, ...objMeta(o) }; C.mid = null; C.srv = {}; paintMedia(); paintSel(); refresh(); };
       $('#cmFile').onchange = e => { const f = e.target.files && e.target.files[0]; e.target.value = ''; if (f) uploadNow(f); };
       $('#cmCap').oninput = e => { C.cap = e.target.value; C.srv = {}; refresh(); };
@@ -552,7 +576,7 @@
       finally { const pg = $('#cmProg'); if (pg) pg.hidden = true; busy(false); if (alive()) { paintSel(); refresh(); } }
     }
     const useObj = async oid => { const u = await sapi('POST', `storage/objects/${encodeURIComponent(oid)}/use`, {}); const mid = pick(u, 'media_id') || pick(u.media || {}, 'id') || pick(u, 'id'); if (!mid) throw new Error(S('GrabCast không trả về mã media.')); return mid; };
-    const media = async () => { const s = C.src; if (!s) throw new Error(S('Chọn hoặc tải 1 video.')); if (s.type !== 'obj') throw new Error(S('Video đang tải lên – đợi xong rồi thử lại.')); if (C.mid && C.midFor === s.id) return C.mid; msg(S('⏳ Đang chuẩn bị video…')); C.mid = await useObj(s.id); C.midFor = s.id; return C.mid; };
+    const media = async () => { const s = C.src; if (!s) throw new Error(S('Chọn hoặc tải 1 video.')); if (s.type !== 'obj' && s.type !== 'lk') throw new Error(S('Video đang tải lên – đợi xong rồi thử lại.')); if (C.mid && C.midFor === s.id) return C.mid; msg(S('⏳ Đang chuẩn bị video…')); C.mid = s.type === 'lk' ? (await sapi('POST', 'lk/clips/push', { clip: s.clip.id })).media_id : await useObj(s.id); C.midFor = s.id; return C.mid; };
     function buildPost(st) {
       const targets = st.acc.map(id => { const a = accById(id) || { id }, p = platKey(accPlat(a)), o = st.per[p] || {}, t = { account_id: a.id, kind: kindFor(a, p, st.m), options: optsFor(p, o) }; if (o.cap && String(o.cap).trim()) t.caption_override = String(o.cap).trim(); return t; });
       const b = { caption: String(st.cap || '').trim(), media_ids: [st.mid], targets, timezone: NY };
@@ -578,10 +602,10 @@
       const bad = globalCheck(); if (bad) return msg(bad, false);
       let at = null;
       if (mode === 'sched') { at = C.at ? new Date(C.at) : null; if (!at || isNaN(at)) return msg(S('Chọn giờ trước.'), false); if (+at < Date.now() + 6e4) return msg(S('Giờ đăng phải ở tương lai.'), false); }
-      const n = C.acc.length, src = C.src.id ? 'o:' + C.src.id : '';
+      const n = C.acc.length, src = C.src.id ? (C.src.type === 'lk' ? String(C.src.id) : 'o:' + C.src.id) : '';
       if (mode !== 'val') {
         const dup = dupOf(D.posts, { src, acc: C.acc, cap: C.cap }); if (dup && !confirm(S('Có vẻ trùng bài “{t}” ({s}) trên cùng kênh. Vẫn tạo bài mới?', { t: titleOf(dup).slice(0, 60), s: S(GLBL[GROUP(pick(dup, 'status', 'state'))][1]) }))) return;
-        const q = mode === 'draft' ? S('Tạo bài nháp trên {n} kênh?', { n }) : mode === 'sched' ? S('Tạo bài và lên lịch đăng lên {n} kênh lúc {d}?', { n, d: both(at) }) : S('Tạo bài và ĐĂNG NGAY lên {n} kênh? Bài sẽ công khai ngay.', { n });
+        const q = mode === 'draft' ? S('Tạo bài nháp trên {n} kênh?', { n }) : mode === 'sched' ? S('Tạo bài nháp trên {n} kênh và gửi duyệt (lên lịch {d} sau khi duyệt)?', { n, d: both(at) }) : S('Tạo bài nháp trên {n} kênh và gửi duyệt (đăng ngay sau khi duyệt)?', { n });
         if (!confirm(q)) return;
       }
       busy(true);
@@ -597,10 +621,10 @@
         if (pid) D.posts.unshift({ ...post, targets: post.targets || body.targets.map(t => ({ account_id: t.account_id })), caption: body.caption, status: post.status || 'draft' });
         if (mode === 'draft') msg(S('✓ Đã lưu nháp'), true);
         else if (pid) {
-          msg(S(mode === 'sched' ? '⏳ Đang lên lịch…' : '⏳ Đang đăng…'));
-          try { await sapi('POST', `posts/${encodeURIComponent(pid)}/${mode === 'sched' ? 'schedule' : 'publish-now'}`, mode === 'sched' ? { scheduled_at: at.toISOString(), consent: true } : { consent: true }); }
-          catch (e) { return msg(S('Đã tạo bài nhưng chưa lên lịch/đăng được: {e}', { e: errText(e) }), false); }
-          msg(mode === 'sched' ? S('✓ Đã lên lịch {d}', { d: both(at) }) : S('✓ Đã gửi đăng – theo dõi trạng thái ở tab Bài đăng.'), true);
+          // Luật chủ: không gì công khai khi chưa duyệt → bài nháp vào cột "Chờ duyệt"; duyệt xong máy chủ mới lên lịch/đăng (GrabCast tự đăng nền)
+          try { await sapi('POST', 'lk/board/submit', { post_id: String(pid), clip: C.src && C.src.clip ? C.src.clip.id : undefined, template: C.src && C.src.clip ? C.src.clip.template : undefined, hook: C.src && C.src.clip ? C.src.clip.hook : undefined, cefr: C.src && C.src.clip ? C.src.clip.cefr : undefined, want_at: at ? +at : undefined, mode: mode === 'sched' ? 'sched' : 'now' }); }
+          catch (e) { return msg(S('Đã tạo bài nháp nhưng chưa gửi duyệt được: {e}', { e: errText(e) }), false); }
+          msg(mode === 'sched' ? S('✓ Đã gửi duyệt – lên lịch {d} sau khi duyệt (tab Duyệt bài).', { d: both(at) }) : S('✓ Đã gửi duyệt – đăng ngay sau khi duyệt (tab Duyệt bài).'), true);
         }
         reloadPosts();
       } catch (e) { msg(S('✗ {e}', { e: errText(e) }), false); }
@@ -693,9 +717,9 @@
           <label>${S('Bắt đầu từ ngày (New York)')}<input type="date" id="bkFrom" value="${esc(B.from || dayKey(new Date()))}"></label><label class="chk" style="align-self:end"><input type="checkbox" id="bkWe" ${B.skipWe ? 'checked' : ''}> ${S('Bỏ qua thứ 7 & Chủ nhật')}</label>
           <label>${S('Quyền riêng tư YouTube')}<select id="bkYt">${Object.keys(YTP).map(v => opt(v, S(YTP[v]), B.yt)).join('')}</select></label>
           ${hasTT ? `<label>${S('Quyền riêng tư TikTok')}<select id="bkTt"><option value="">${esc(S('— chọn (bắt buộc) —'))}</option>${Object.keys(TTP).map(v => opt(v, S(TTP[v]), B.tt)).join('')}</select></label>` : ''}</div>
-        <div class="soc-btns"><button type="button" class="btn" id="bkPlan">${S('Xem kế hoạch')}</button><button type="button" class="btn primary" id="bkGo" ${B.plan ? '' : 'disabled'}>${S('Tạo & lên lịch {n} bài', { n: B.plan ? B.plan.length : 0 })}</button></div>
+        <div class="soc-btns"><button type="button" class="btn" id="bkPlan">${S('Xem kế hoạch')}</button><button type="button" class="btn primary" id="bkGo" ${B.plan ? '' : 'disabled'}>${S('Tạo {n} bài & gửi duyệt', { n: B.plan ? B.plan.length : 0 })}</button></div>
         <div class="soc-msg small" id="bkMsg" role="status" aria-live="polite"></div><div id="bkOut" class="soc-tblw"></div>`;
-      const inval = () => { B.plan = null; const gb = $('#bkGo'); if (gb) { gb.disabled = true; gb.textContent = S('Tạo & lên lịch {n} bài', { n: 0 }); } const o = $('#bkOut'); if (o) o.innerHTML = ''; };
+      const inval = () => { B.plan = null; const gb = $('#bkGo'); if (gb) { gb.disabled = true; gb.textContent = S('Tạo {n} bài & gửi duyệt', { n: 0 }); } const o = $('#bkOut'); if (o) o.innerHTML = ''; };
       $('#bkMedia').onchange = () => { B.sel = [...bx.querySelectorAll('[data-bv]:checked')].map(i => i.dataset.bv); $('#bkN').textContent = S('Đã chọn {n} video', { n: B.sel.length }); inval(); };
       $('#bkAll').onclick = () => { B.sel = vids().map(o => String(o.id)); bulkPaint(); }; $('#bkNone').onclick = () => { B.sel = []; bulkPaint(); };
       $('#bkAcc').onchange = () => { B.acc = [...bx.querySelectorAll('#bkAcc input:checked')].map(i => i.value); B.plan = null; bulkPaint(); };
@@ -710,13 +734,13 @@
       if (!B.sel.length) return bmsg(S('Chọn ít nhất 1 video.'), false); if (!B.acc.length) return bmsg(S('Chọn ít nhất 1 kênh.'), false); if (!B.hours.length) return bmsg(S('Chọn ít nhất 1 khung giờ.'), false);
       const vs = B.sel.map(id => vids().find(o => String(o.id) === id)).filter(Boolean);
       B.plan = planBulk(vs, [...D.posts, ...(cal.posts || [])], { hours: B.hours, from: B.from || dayKey(new Date()), skipWeekend: B.skipWe, acc: B.acc }).map(r => ({ ...r, st: S('chờ') })); B.idem = uid();
-      bmsg(''); const gb = $('#bkGo'); gb.disabled = false; gb.textContent = S('Tạo & lên lịch {n} bài', { n: B.plan.length }); bulkTable();
+      bmsg(''); const gb = $('#bkGo'); gb.disabled = false; gb.textContent = S('Tạo {n} bài & gửi duyệt', { n: B.plan.length }); bulkTable();
     }
     function bulkTable() { const o = $('#bkOut'); if (o) o.innerHTML = `<table class="soc-tbl"><thead><tr><th>#</th><th>${S('Video')}</th><th>New York</th><th>${S('Giờ của bạn')}</th><th>${S('Trạng thái')}</th></tr></thead><tbody>${B.plan.map((r, i) => `<tr data-row="${i}"><td>${i + 1}</td><td>${esc(String(pick(r.v, 'name', 'filename', 'id')))}</td><td>${r.t ? esc(fmt(r.t, { timeZone: NY })) : '–'}</td><td>${r.t ? esc(fmt(r.t)) : '–'}</td><td class="st">${esc(r.st)}</td></tr>`).join('')}</tbody></table>`; }
     async function bulkRun() {
       const plan = B.plan; if (!plan || !plan.length) return; const ps = [...new Set(B.acc.map(id => platKey(accPlat(accById(id) || {}))))];
       if (ps.includes('tiktok') && !B.tt) return bmsg(S('Chọn quyền riêng tư TikTok (bắt buộc).'), false);
-      if (!confirm(S('Tạo {n} bài và lên lịch đăng lên {k} kênh theo kế hoạch? Bài sẽ tự công khai đúng giờ.', { n: plan.length, k: B.acc.length }))) return;
+      if (!confirm(S('Tạo {n} bài nháp trên {k} kênh theo kế hoạch và gửi duyệt? Sau khi duyệt, GrabCast tự đăng đúng giờ.', { n: plan.length, k: B.acc.length }))) return;
       const gb = $('#bkGo'), pb = $('#bkPlan'); gb.disabled = pb.disabled = true; let ok = 0;
       const per = { youtube: { ...C.per.youtube, cap: '', privacy: B.yt }, tiktok: { ...C.per.tiktok, cap: '', privacy: B.tt }, instagram: { feed: true }, facebook_page: {}, threads: {} };
       const setSt = (i, t) => { plan[i].st = t; const c = box.querySelector(`#bkOut tr[data-row="${i}"] .st`); if (c) c.textContent = t; };
@@ -729,8 +753,8 @@
           setSt(i, '⏳'); const body = buildPost({ mid: await useObj(r.v.id), title, cap, fc: '', link: '', acc: B.acc, per, m });
           const v = await validateSrv(body, r.t); if (!v.ok) throw new Error(v.first || S('Chưa hợp lệ – xem các tab có dấu ⛔.'));
           const c = await sapi('POST', 'posts', body, { idem: `${B.idem}-${i}` }), post = c.post || c.data || c, pid = pick(post, 'id');
-          await sapi('POST', `posts/${encodeURIComponent(pid)}/schedule`, { scheduled_at: r.t.toISOString(), consent: true });
-          remember(src, pid); D.posts.push({ ...post, status: 'scheduled', scheduled_at: r.t.toISOString(), caption: cap, targets: post.targets || body.targets }); ok++; setSt(i, '✓');
+          await sapi('POST', 'lk/board/submit', { post_id: String(pid), want_at: +r.t, mode: 'sched' });
+          remember(src, pid); D.posts.push({ ...post, status: 'draft', scheduled_at: r.t.toISOString(), caption: cap, targets: post.targets || body.targets }); ok++; setSt(i, '✓');
         } catch (e) { setSt(i, '✗ ' + errText(e).slice(0, 120)); if (e && e.code === 'grabcast-rate') break; }
       }
       bmsg(S('Xong {ok}/{n} bài.', { ok, n: plan.length }), ok === plan.length); B.plan = null; pb.disabled = false; cal.posts = null; if (alive() && tab === 'calendar') loadCal();
