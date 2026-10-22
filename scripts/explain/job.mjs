@@ -28,7 +28,7 @@ async function call(mode, lang, list) {
   if (DRY) { console.log(`[dry] ${mode} ${lang} ${list.map(x => x.k).join(' ')}`.slice(0, 160)); return null; }
   for (let i = 0; i < 3; i++) {
     const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await oidc(), 'User-Agent': 'lexkite-ci' }, body: JSON.stringify({ mode, lang, items: list }) }).catch(() => null);
-    if (r && r.ok) { fails = 0; return (await r.json()).out || {}; }
+    if (r && r.ok) { fails = 0; const j = await r.json(); if (!shown++) console.log('mô hình:', j.model); return j.out || {}; }
     if (r && r.status === 401) token = '';
     await new Promise(s => setTimeout(s, 6000 * (i + 1)));
   }
@@ -49,7 +49,7 @@ const brief = x => ({ k: x.id, type: x.type, s: x.s, ans: x.ans, alts: x.alts, c
 // 1) sinh bản tiếng Anh (câu đổi nội dung → làm lại)
 await loop(ALL.filter(x => !DB[x.id] || DB[x.id].sig !== sig(x)), 6, async b => {
   const out = await call('xgen', 'en', b.map(brief)); if (!out) return;
-  if (!shown++) console.log('mẫu trả về:', JSON.stringify(out).slice(0, 700));
+  if (shown < 3 && !b.some(x => out[x.id])) console.log('khóa trả về không khớp:', JSON.stringify(out).slice(0, 300));
   for (const x of b) {
     const o = out[x.id], en = okText(o, x.alts), p = o && str(o.p, 120), ex = o && Array.isArray(o.ex) ? o.ex.map(e => str(e, 200)).filter(Boolean).slice(0, 2) : [];
     if (!en || !p || !p.includes('[') || (SET === 'usage' && !p.toLowerCase().includes('[' + x.ans.toLowerCase().split(' ')[0])) || !ex.length) continue;

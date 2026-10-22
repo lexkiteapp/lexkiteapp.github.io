@@ -60,7 +60,7 @@ export async function onRequestPost({ request, env }) {
     const L = NAMES[b.lang], items = Array.isArray(b.items) ? b.items.slice(0, 15).map(cleanX) : [];
     if (!L || !items.length || (b.mode === 'xgen' && b.lang !== 'en')) return J({ error: 'bad-request' }, 400);
     try {
-      const r = await runModel(env, b.mode === 'xgen' ? XGEN : b.mode === 'xtr' ? XTR(L) : XJUDGE(L), JSON.stringify(items), b.mode === 'xjudge' ? 0.1 : 0.3);
+      const r = await runModel(env, b.mode === 'xgen' ? XGEN : b.mode === 'xtr' ? XTR(L) : XJUDGE(L), JSON.stringify(items), b.mode === 'xjudge' ? 0.1 : 0.3, { gemini: true, wai: false }); // chỉ Gemini: Llama 8B soạn lời giải sai/sai khuôn (thử 22/10)
       return J({ out: r.out || {}, model: r.model });
     } catch (e) { return J({ error: String((e && e.message) || e).slice(0, 80) }, 503); }
   }
