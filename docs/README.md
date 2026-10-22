@@ -29,6 +29,7 @@
 
 ## Video
 - `VIDEO.md` – nguồn sự thật video (news-anchor, builder, CI, lưu trữ, bank). Khi làm video.
+- `VIDEO-SCALE-PLAN.md` – kế hoạch kho video đa dạng chống trùng + thang 100 điểm. Khi làm template/scale video.
 - `MEDIA-QA-RUBRIC.md` – thang chấm ảnh/clip (≥ 90). Khi chấm tài sản.
 - `SHORTS-ACCESS.md` – quyền đọc kho `lexkite-shorts` cho tab 🎬. Khi đụng admin video.
 - `ASSET-LIBRARY.md` – kho tài nguyên & Kho Drive (§8.6). Tham khảo.
