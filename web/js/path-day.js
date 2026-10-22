@@ -173,6 +173,7 @@
       <ol class="day-steps">${st.map((s, i) => `<li><a class="${s.ok ? 'ok' : ''}${s === nx ? ' next' : ''}" href="${s.href}" data-step="${s.k}"${s === nx ? ' aria-current="step"' : ''}>
         <span class="ds-em" aria-hidden="true">${s.ok ? '✅' : s.em}</span><span class="grow"><b>${i + 1}. ${esc(s.name)}</b><span class="small muted" style="display:block">${esc(s.sub || '')}</span></span>
         ${s.ok ? `<span class="sr-only">${t('Đã hoàn thành')}</span>` : `<span class="ds-min">${t('{m} phút', { m: s.mins })}</span>`}</a></li>`).join('')}</ol>
+      <div class="lv-slot" hidden data-lv="${esc(JSON.stringify({ mode: 'day', seed: d.n, words: d.topic.words.map(w => String(w.word || '').toLowerCase()).slice(0, 12), level: stage.cefr || '' }))}"></div>
       <div class="row between"><a class="btn sm ghost" href="#/path">🗺️ ${t('Lộ trình từ vựng')}</a><a class="btn sm ghost" href="#/topic/${encodeURIComponent(d.unit.topic.id)}">📚 ${t('Xem danh sách từ')}</a></div>`;
     $$('[data-step]', view).forEach(a => a.addEventListener('click', () => {
       ls('daySess', d.id);
@@ -180,6 +181,7 @@
       if (s && s.tap && !s.ok) { mark(d.key, s.k); finishIf(find(d.id)); }
       else if (s && s.ext) ls('dayExt', JSON.stringify({ id: d.key, k: s.k, c: s.ext, base: today()[s.ext] || 0, day: Core.todayKey() }));
     }));
+    App.need('lvideo').then(() => g.LessonVideo && LessonVideo.scan(view)).catch(() => {}); // 🎬 "Video của ngày" (ẩn nếu chưa có video)
   }
 
   // ---------- Thanh tiến độ buổi học trên trang bài tập ----------
