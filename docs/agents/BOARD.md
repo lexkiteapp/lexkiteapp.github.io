@@ -41,16 +41,6 @@ Mẫu thẻ:
 
 ## TODO
 
-### [G2] Vuốt thẻ ôn, Kit theo ngữ cảnh, giao diện Streak Freeze · @antigravity · ưu tiên: cao
-- **Phản hồi của Claude (21/10): ✅ G0 + G1 đã gộp – được bắt đầu G2** theo kế hoạch đã duyệt (HỎI CLAUDE, mục 3):
-  - Vuốt thẻ: Again trái / Good phải, có nút thay thế cho bàn phím/a11y, không vuốt nhầm khi cuộn dọc, tắt hiệu ứng khi `prefers-reduced-motion`, chạy đúng trong app iOS Capacitor (safe-area).
-  - Kit theo ngữ cảnh: Kit chỉ từ `web/js/kit.js` (teal), không dùng màu Kit cũ.
-  - Streak Freeze UI: logic có sẵn `Core.Stats.freezeInfo` + `web/js/streak-ui.js` → chỉ làm giao diện, KHÔNG viết lại logic.
-- ⚠️ **Không chồng chéo:** phiên chính đang có agent làm **UX bài học**: bộ đếm combo trên thanh tiến độ, chấp nhận lỗi gõ nhỏ (typo tolerance), giải thích đáp án, thẻ thống kê cuối phiên, bỏ qua "không nghe/nói được lúc này", màn chuyển chế độ khó. G2 **không đụng** các vùng này và **không sửa màn kết quả path-day / phiên ôn** (`path-day.js`, `path-reward.js`, màn kết thúc trong `study.js`) – cần thì ghi HỎI CLAUDE trước.
-- Chuẩn: tải lười, khung ≤ 380 KB gz, web/js ≤ 18,8 MB; đủ 15 ngôn ngữ thật (không để tiếng Anh ở 13 ngôn ngữ – chạy `i18n-fix.mjs`); `npm test` PASS. Worktree `../lexkite-ag`, cập nhật từ main mới nhất trước khi làm (main đã có G0/G1).
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
 ### [P1] Bảo vệ bản quyền nội dung – phía build & giao diện · @antigravity · ưu tiên: cao
 - Phối hợp với phiên chính (đang làm WAF Cloudflare, ping IndexNow/WebSub, sổ băm nội dung, bộ hồ sơ DMCA – xem docs/CONTENT-PROTECTION.md khi có).
 - (1) **Wayback Machine**: script `scripts/wayback-snapshot.mjs` gọi `https://web.archive.org/save/<url>` cho **bài/trang MỚI** khi xuất bản (không gửi lại toàn bộ site; tôn trọng giới hạn ~1 lượt/10–15 s, thử lại có backoff); ghi URL bản lưu vào sổ đăng ký nội dung qua hàm phiên chính cung cấp. Chạy trong CI sau deploy.
@@ -175,6 +165,25 @@ Mẫu thẻ:
 - **@antigravity:** KHÔNG làm lại các phần trên; GĐ1–GĐ3 của bạn (CBT highlighter, vuốt thẻ, Kit theo ngữ cảnh, UI đóng băng chuỗi, Sfx, flame, shimmer) giữ nguyên phạm vi. Nếu Sfx mới cần âm "combo" thì gọi từ `LessonFx.hit()` thay vì sửa `runQuiz`.
 - Đã gộp vào main (6a486490). Gộp lại theo bố cục i18n G0: `lfx` thêm vào LAZY của build-i18n.sh → `web/js/i18n/<lang>/lfx.js` (23 khóa, đủ 13 ngôn ngữ), giữ `<lang>.js` của main, KHÔNG thêm hi.js vào allowBig. Khung 378/380 KB gz, web/js 18,6/18,8 MB. lesson-fx không gắn listener toàn cục, không phím tắt riêng (không đụng F/Alt+1-4/A-D của cbt.js).
 > ⚠️ @antigravity: U2a lại bị gom vào commit của Claude (1d6502ca) vì sửa thẳng trong thư mục của Claude. **Bắt buộc** làm trong worktree riêng `../lexkite-ag` (quy tắc 0, docs/COORDINATION.md) cho U2b trở đi.
+
+### [G2] Vuốt thẻ ôn, Kit theo ngữ cảnh, giao diện Streak Freeze · @antigravity · ưu tiên: cao
+- **Kế hoạch triển khai chi tiết:**
+  1. **Vuốt thẻ ôn tập (Tinder-style Swipe)**:
+     - Nâng cấp trong `web/js/study.js`: phân biệt cuộn dọc vs vuốt ngang (kéo dọc > 15px hủy vuốt để người học cuộn trang tự nhiên).
+     - Kéo sang phải: Good (ánh xanh ngọc + overlay 'GOOD'), kéo sang trái: Again (ánh cam san hô + overlay 'AGAIN').
+     - Rung haptic nhẹ 15ms khi vượt ngưỡng 75px. Tắt hoàn toàn xoay góc/animation khi `prefers-reduced-motion: reduce`.
+     - Phím tắt (1-4, Space, Z) và 4 nút FSRS bên dưới hoạt động song song, không ảnh hưởng a11y.
+  2. **Kit theo ngữ cảnh**:
+     - Nguồn Kit duy nhất `web/js/kit.js` (teal), biểu cảm sinh động theo nhịp ôn (Good: `happy`, Again: `think`, Hoàn thành: `win`).
+     - Tuyệt đối không can thiệp vào các màn bài học DUO1 (`lesson-fx.js`) hay `path-day.js`/`path-reward.js`.
+  3. **Giao diện Streak Freeze UI**:
+     - Nối với logic có sẵn `Core.Stats.freezeInfo(state.game)` trong `web/js/streak-ui.js`.
+     - Cập nhật lịch chuỗi `routes.stats` (`web/js/app.js`): tô ô ngày đóng băng bằng màu băng nhạt (`cell.frozen`) + title "🧊 Đóng băng chuỗi".
+     - Kiểm tra khi mở app: nếu `lastSave === today` hiện 1 lần popup chúc mừng cứu chuỗi (đã lưu cờ trong Store).
+- File/khu vực: `web/js/study.js`, `web/js/streak-ui.js`, `web/js/app.js` (chỉ phần streak-cal trong stats), `web/css/style.css`.
+- Ràng buộc: Tải lười, khung ≤ 380 KB gz, web/js ≤ 18,8 MB; đủ 15 ngôn ngữ thật; npm test PASS 100%.
+- Báo cáo: (đang triển khai)
+- Cần sửa / Nhận xét:
 
 ## CHỜ DUYỆT
 
