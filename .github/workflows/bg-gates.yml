@@ -1,0 +1,85 @@
+# Cổng tự động cho ảnh nền bản tin (BG LIBRARY 3, chủ 22/10) – 0 credit, CPU. Xem scripts/video/bg_gates.py, docs/VIDEO-QC.md (dòng "Ảnh nền").
+# calib: đo mọi cổng trên bộ nền 9:16 đã duyệt (footage anchor/bg/*.png) -> ngưỡng.  batch: 8 shard chấm 1 lô (manifest ở footage anchor/bgw/batches/<batch>.json) -> merge (chống trùng) -> artifact bggates-<batch>.
+name: bg-gates
+on:
+  workflow_dispatch:
+    inputs:
+      mode: { description: 'calib | batch', required: true, default: batch }
+      batch: { description: 'tên lô (anchor/bgw/batches/<batch>.json)', required: false, default: '' }
+concurrency: { group: 'bg-gates-${{ github.event.inputs.batch }}-${{ github.event.inputs.mode }}', cancel-in-progress: false }
+env:
+  PIP: torch==2.5.1 torchvision==0.20.1
+  PIP2: transformers==4.46.3 open_clip_torch==2.29.0 spandrel==0.4.0 imagehash==4.3.1 rapidocr_onnxruntime==1.4.4 opencv-python-headless==4.10.0.84 pillow==11.0.0 numpy==2.1.3 scipy==1.14.1
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix: { shard: [0, 1, 2, 3, 4, 5, 6, 7] }
+    steps:
+      - name: Bỏ shard thừa ở chế độ calib
+        id: on
+        run: echo "run=$([ '${{ github.event.inputs.mode }}' = batch ] || [ '${{ matrix.shard }}' = 0 ] && echo 1 || echo 0)" >> $GITHUB_OUTPUT
+      - uses: actions/checkout@v4
+        if: steps.on.outputs.run == '1'
+      - uses: actions/setup-python@v5
+        if: steps.on.outputs.run == '1'
+        with: { python-version: '3.12' }
+      - uses: actions/cache@v4
+        if: steps.on.outputs.run == '1'
+        with: { path: "~/.cache/pip\n~/.cache/huggingface\n~/.cache/torch\nsr", key: bg-gates-v1 }
+      - name: Thư viện + Real-ESRGAN animevideov3 (BSD-3)
+        if: steps.on.outputs.run == '1'
+        run: |
+          pip install -q --index-url https://download.pytorch.org/whl/cpu $PIP && pip install -q $PIP2
+          mkdir -p sr; [ -s sr/realesr-animevideov3.pth ] || curl -sL -o sr/realesr-animevideov3.pth https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesr-animevideov3.pth
+          ls -la sr
+      - name: Lấy footage (riêng tư, sparse)
+        if: steps.on.outputs.run == '1'
+        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}', MODE: '${{ github.event.inputs.mode }}', BATCH: '${{ github.event.inputs.batch }}' }
+        run: |
+          case "$BATCH" in *[!a-z0-9_-]*) echo "::error::batch không hợp lệ"; exit 1;; esac
+          mkdir -p ~/.ssh && printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
+          git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
+          if [ "$MODE" = calib ]; then git -C footage sparse-checkout set --no-cone '/anchor/bg/*.png'; else git -C footage sparse-checkout set --no-cone "/anchor/bgw/batches/$BATCH.json"; fi
+          git -C footage checkout -q; rm -f ~/.ssh/footage; du -sh footage
+      - name: Chấm
+        if: steps.on.outputs.run == '1'
+        env: { BG_SR: sr/realesr-animevideov3.pth, BG_THREADS: '4', MODE: '${{ github.event.inputs.mode }}', BATCH: '${{ github.event.inputs.batch }}' }
+        run: |
+          if [ "$MODE" = calib ]; then
+            n=$(ls footage/anchor/bg/*.png | wc -l); [ "$n" -gt 10 ] || { echo "::error::chỉ $n nền"; exit 1; }
+            python3 scripts/video/bg_gates.py calib --bg footage/anchor/bg --out out/calib.json --pos https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/anchor/green_ama_stand_ref.png,https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/anchor/green_carlos_stand_ref.png
+          else
+            python3 scripts/video/bg_gates.py shard --manifest footage/anchor/bgw/batches/$BATCH.json --calib scripts/video/bg_gates.calib.json --out out/res --shard ${{ matrix.shard }}/8
+            cp footage/anchor/bgw/batches/$BATCH.json out/manifest.json
+          fi
+      - uses: actions/upload-artifact@v4
+        if: steps.on.outputs.run == '1'
+        with: { name: 'bgres-${{ matrix.shard }}', path: out/, retention-days: 7 }
+  merge:
+    needs: gate
+    if: github.event.inputs.mode == 'batch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install -q imagehash==4.3.1 numpy==2.1.3 pillow==11.0.0 opencv-python-headless==4.10.0.84
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'bgres-*', merge-multiple: true, path: in }
+      - name: Chống trùng + phán quyết (đỏ nếu 0 kết quả)
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          n=$(ls in/res | wc -l); echo "$n ảnh"; [ "$n" -gt 0 ] || { echo "::error::0 kết quả"; exit 1; }
+          # kho nhúng của nền đã nhận: scripts/video/bg_store.json (nhỏ, trong repo; máy cục bộ cập nhật khi nhận lô)
+          python3 scripts/video/bg_gates.py merge --res in/res --manifest in/manifest.json --store scripts/video/bg_store.json --calib scripts/video/bg_gates.calib.json --out in
+          python3 -c "import json;v=json.load(open('in/verdicts.json'))['verdicts'];bad=sum(1 for x in v if x['fail'] in (['error'],['missing']));print('error/missing',bad);exit(1 if bad==len(v) else 0)"
+          # chỉ giữ tài sản của ảnh ĐẠT (ảnh trượt: thumb + res.json)
+          python3 -c "import json,os,glob;ok={x['id'] for x in json.load(open('in/verdicts.json'))['verdicts'] if not x['fail']};[os.remove(f) for f in glob.glob('in/res/*/*') if f.split('/')[2] not in ok and not f.endswith(('thumb.jpg','res.json'))]"
+          du -sh in
+      - uses: actions/upload-artifact@v4
+        with: { name: 'bggates-${{ github.event.inputs.batch }}', path: in/, retention-days: 14 }
