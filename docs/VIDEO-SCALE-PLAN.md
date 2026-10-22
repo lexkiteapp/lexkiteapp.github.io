@@ -44,3 +44,19 @@ kho điểm học (500+, AI soạn + kiểm) → generator chọn tổ hợp the
 
 ## 6. Thứ tự làm
 1. Duyệt 3 mẫu v6 (đang sửa khung đen, cỡ đầu, độ nét). 2. 10 template + 10 video mẫu cho anh duyệt. 3. Sổ đa dạng + pHash chống trùng + thang 100. 4. Kho 500 điểm học. 5. Karaoke sub + motion thẻ + giọng nâng cấp. 6. Dựng lại 24 bài + chạy hằng ngày.
+
+## 7. Hàng triệu clip không cạn, không nhàm (chủ 22/10)
+- **Nguồn nội dung vô hạn có kiểm soát**: điểm học sinh từ lexicon 8.177 từ × nghĩa × cụm từ đi kèm × 200+ tình huống đời sống/công sở/du lịch × 6 kỳ thi × lỗi sai phổ biến theo 15 nhóm người học → > 1 triệu điểm học khác nhau; AI soạn, AI judge + luật kiểm (đúng ngữ pháp, tự nhiên, hợp CEFR) trước khi vào kho.
+- **Chống nhàm**: điểm "mới lạ" cho mỗi clip (khác chủ đề/kiểu bài/hook/nền so với 20 clip gần nhất); chuỗi series nối tiếp ("Part 2"), mùa/lễ/sự kiện theo lịch từng nước; mỗi tuần thêm ≥ 1 template mới vào vòng xoay.
+- **Không lặp**: băm nội dung (câu chính + điểm học) không trùng mãi mãi; pHash/chromaprint không trùng với mọi clip đã đăng.
+
+## 8. Tự động A→Z trên GitHub (không cần máy anh)
+cron mỗi ngày → chọn điểm học + tổ hợp (sổ đa dạng) → soạn kịch bản + kiểm AI → TTS + timing → dựng → QA 100 điểm + kiểm khớp (mục 9) → lỗi thì tự sửa/thay tổ hợp tối đa 2 lần, vẫn lỗi → bỏ + ghi sổ → lưu kho + Drive → xếp lịch nháp → báo cáo hằng ngày trong Quản trị › Video. Chỉ bước đăng công khai chờ anh bật.
+
+## 9. Kiểm khớp nội dung ↔ hình ảnh (chặn lỗi tiềm ẩn)
+- Nền đúng chủ đề (bg_topics + AI nhìn ảnh nền xác nhận bối cảnh).
+- Chữ trên thẻ = đúng câu giọng đọc (so ASR faster-whisper với kịch bản, sai ≤ 0 từ khoá).
+- Phụ đề khớp thời gian từng từ ±80 ms; người đang nói = người có khẩu hình chạy; người nghe có phản ứng, không nói.
+- Câu ✗/✓ đúng logic (✗ là câu sai thật, ✓ là câu đúng thật – AI judge); "Teacher's tip" khớp điểm học.
+- Cử chỉ trung tính, không đè chữ; không người/vật thừa; không chữ lạ trong nền (OCR nền = rỗng).
+- Mọi luật là cổng QA: trượt 1 luật = không đăng.
