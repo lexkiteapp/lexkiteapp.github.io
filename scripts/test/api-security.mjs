@@ -291,5 +291,41 @@ for (const f of [{ offset: 'abc' }, { offset: 'Infinity', limit: 'NaN' }, { offs
   ok((await run(YT, req('/api/youtube', { op: 'status' }, { token: ADM }))).j.channels[0].is_default, 'sau khi ngắt kênh mặc định, kênh còn lại thành mặc định');
 }
 
+// Thư viện clip quy mô lớn (/api/admin-clips): chỉ admin, op lạ → 400, thao tác hàng loạt ghi kết quả từng clip, xoá là DANGER (đăng nhập ≤ 15 phút), giới hạn tốc độ
+{ const CL = await import(new URL('../../functions/api/admin-clips.js', import.meta.url)), SD = await import(new URL('../../functions/api/_shorts_data.js', import.meta.url));
+  const ids = SD.default.index.items.slice(0, 5).map(x => x.id), stale = await tok({ auth_time: sec - 3600 }), post = (body, token = ADM) => run(CL, req('/api/admin-clips', body, { token }));
+  for (const op of ['query', 'ids', 'bulk', 'export']) {
+    const anon = await run(CL, req('/api/admin-clips', { op, action: 'pause', ids })); ok((anon.s === 401 || anon.s === 403) && !leaks(anon.text), `clips '${op}' không token bị chặn (${anon.s})`);
+    const usr = await post({ op, action: 'pause', ids }, USER); ok(usr.s === 403 && !leaks(usr.text), `clips '${op}' người dùng thường → 403 (${usr.s})`);
+  }
+  for (const op of ['constructor', '__proto__', 'toString', 'hasOwnProperty']) { const r = await post({ op }); ok(r.s === 400 && !leaks(r.text), `clips op '${op}' → 400`); }
+  ok((await post({ op: 'bulk', action: 'rm -rf', ids })).s === 400 && (await post({ op: 'bulk', action: 'pause', ids: [] })).s === 400, 'bulk: action lạ / không có id → 400');
+  let r = await post({ op: 'query', filter: { section: 'pending', sort: 'x; DROP', q: "'; --" }, limit: 5 });
+  ok(r.s === 200 && r.j.rows.length <= 5 && r.j.counts && 'pending' in r.j.counts && r.j.rows.every(x => !('drive' in x && x.drive)) && !leaks(r.text), 'query: trang ≤ limit, đếm theo mục, không lộ drive/bí mật');
+  r = await post({ op: 'bulk', action: 'pause', ids: [...ids.slice(0, 2), 'khong-co-clip-nay', "x'; DROP TABLE clip_review;--"] });
+  ok(r.s === 200 && r.j.done === 2 && r.j.failed === 2 && r.j.results.filter(x => !x.ok).every(x => x.why === 'unknown'), 'bulk pause: kết quả từng clip, id lạ bị bỏ qua');
+  const arch = await post({ op: 'query', filter: { section: 'archive' }, limit: 120 }); ok(arch.j.rows.map(x => x.id).includes(ids[0]), 'clip tạm dừng vào mục Lưu trữ');
+  const pend = await post({ op: 'ids', filter: { section: 'pending' } }); ok(!pend.j.ids.includes(ids[0]), 'mặc định ẩn clip tạm dừng khỏi mục khác');
+  ok((await post({ op: 'bulk', action: 'reject', ids: [ids[2]] })).s === 400, 'reject cần lý do');
+  r = await post({ op: 'bulk', action: 'reject', ids: [ids[2]], params: { reason: 'old restaurant scene' } }); ok(r.s === 200 && r.j.done === 1, 'reject kèm lý do');
+  ok((await post({ op: 'bulk', action: 'approve', ids: [ids[2]] })).j.results[0].why === 'rejected', 'clip bị loại không thể duyệt');
+  r = await post({ op: 'bulk', action: 'reschedule', ids: ids.slice(0, 4), params: { start: '2026-11-01', days: 2, from: '09:00', to: '18:00', offset: 0, total: 4 } });
+  const slots = sql.prepare('SELECT slot_date, slot_time FROM clip_review WHERE slot_date IS NOT NULL ORDER BY slot_date, slot_time').all();
+  ok(r.s === 200 && slots.length === 4 && new Set(slots.map(x => x.slot_date)).size === 2, 'reschedule: 4 clip trải 2 ngày');
+  ok((await post({ op: 'bulk', action: 'reschedule', ids, params: { start: 'bad', days: 2 } })).s === 400, 'reschedule: tham số sai → 400');
+  ok((await post({ op: 'bulk', action: 'channel', ids, params: { channel_id: 'UC_not_connected' } })).s === 404, 'channel: kênh chưa kết nối → 404');
+  r = await post({ op: 'bulk', action: 'delete', ids: [ids[3]] }, stale); ok(r.s === 401 && r.j.error === 'reauth' && !sql.prepare('SELECT 1 FROM clip_review WHERE clip = ? AND deleted > 0').get(ids[3]), 'delete cần đăng nhập gần đây (stale → 401 reauth, chưa xoá gì)');
+  r = await post({ op: 'bulk', action: 'delete', ids: [ids[3]] }); ok(r.s === 200 && sql.prepare('SELECT deleted FROM clip_review WHERE clip = ?').get(ids[3]).deleted === 1, 'delete mềm: ẩn clip, giữ công thức (deleted=1)');
+  r = await post({ op: 'bulk', action: 'delete', ids: [ids[4]], params: { hard: true } }); ok(sql.prepare('SELECT deleted FROM clip_review WHERE clip = ?').get(ids[4]).deleted === 2, 'xoá hẳn đánh dấu deleted=2');
+  ok(!(await post({ op: 'ids', filter: { hidden: true } })).j.ids.includes(ids[3]), 'clip đã xoá không còn trong kết quả');
+  r = await post({ op: 'bulk', action: 'restore', ids: [ids[3]] }); ok(r.j.done === 1 && (await post({ op: 'ids', filter: { hidden: true } })).j.ids.includes(ids[3]), 'restore đưa clip đã xoá mềm trở lại');
+  r = await post({ op: 'bulk', action: 'pause', ids: Array.from({ length: 150 }, (_, i) => ids[i % 5]) }); ok(r.s === 200 && r.j.results.length <= 5, 'bulk: id trùng được gộp, tối đa 100 id/lô');
+  const ex = await post({ op: 'export', ids: ids.slice(0, 2) }); ok(ex.s === 200 && ex.j.rows.length === 2 && !leaks(ex.text), 'export: dòng CSV theo id');
+  const fast = { 'CF-Connecting-IP': '10.77.0.1' }; let last = 0; for (let i = 0; i < 63; i++) last = (await run(CL, req('/api/admin-clips', { op: 'bulk', action: 'resume', ids: [ids[0]] }, { token: ADM, headers: fast }))).s;
+  ok(last === 429, 'bulk bị giới hạn tốc độ (429 sau 60 lần/phút)');
+  let aud = 0; try { aud = sql.prepare("SELECT COUNT(*) n FROM admin_log WHERE op LIKE 'clips.bulk.%'").get().n; } catch (e) { /* bảng nhật ký chưa có */ }
+  ok(aud >= 5, 'bulk được ghi nhật ký (' + aud + ')');
+}
+
 console.log(`api-security: ${n - fails}/${n} ok`);
 if (fails) process.exit(1);

@@ -374,6 +374,12 @@
     return j;
   }
   // YouTube (functions/api/youtube.js) – Thư viện video: Kết nối YouTube, Duyệt & lên YouTube. credentials: cookie phiên OAuth (lk_yt)
+  async function capi(op, body = {}) { // thư viện clip quy mô lớn → /api/admin-clips (functions/api/admin-clips.js)
+    const r = await fetch('/api/admin-clips', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ op, ...body }) });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) { const e = new Error(j.error || 'HTTP ' + r.status); e.code = j.error; e.status = r.status; e.data = j; throw e; }
+    return j;
+  }
   async function yapi(op, body = {}) {
     const r = await fetch('/api/youtube', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ op, ...body }) });
     const j = await r.json().catch(() => ({}));
@@ -1248,7 +1254,8 @@
     },
     async video() { // Thư viện video – js/admin-video.js (tải lười) → /api/admin-shorts
       await lazy('AdminVideo', 'js/admin-video.js'); main.innerHTML = '';
-      AdminVideo.render(main, vapi, L, { esc, lang: () => LANG, toast, yapi });
+      try { await lazy('AdminClips', 'js/admin-clips.js'); } catch (e) { /* lưới cũ làm dự phòng */ }
+      AdminVideo.render(main, vapi, L, { esc, lang: () => LANG, toast, yapi, capi: window.AdminClips && AdminClips.mount ? capi : null });
     },
     async backlinks() { // Backlink, PR & Thương hiệu – js/admin-backlinks.js (tải lười) → /api/backlinks (functions/api/backlinks.js)
       await lazy('AdminBacklinks', 'js/admin-backlinks.js'); main.innerHTML = '';
