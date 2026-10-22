@@ -44,7 +44,20 @@ Diễn cảnh (paused): `lesson5.py`, `qa5.py`, `gen_lessons.py`, … – `docs/
 - **lexkite-shorts** (repo riêng): `shorts/<cảnh>/<bài>/` (mp4, jpg, qa.log, timeline, meta.json), ghi bằng `SHORTS_DEPLOY_KEY`. Artifact CI chỉ 14 ngày.
 - **Kho Drive** (pool nhiều Google Drive của chủ, `functions/api/drive.js`, `docs/ASSET-LIBRARY.md` §8.6): `drive-shorts.yml` chạy sau mỗi `cine-render` (`workflow_run`) → `scripts/video/drive-shorts.mjs`, idempotent theo sha, ghi `item.drive` vào `shorts/index.json` (secret `LEXKITE_DRIVE_CLI_KEY`).
 - Xem trong Quản trị → 🎬 Video (`functions/api/admin-shorts.js`, URL ký ngắn hạn, `SHORTS_READ_TOKEN`; `docs/SHORTS-ACCESS.md`).
-- Footage gốc: `bash scripts/footage-backup.sh` sau mỗi lần thêm cảnh/clip/bài/giọng.
+- Footage gốc: `bash scripts/footage-backup.sh` sau mỗi lần thêm cảnh/clip/bài/giọng (→ Kho Drive + manifest, xem §5b).
+
+## 5b. Kho footage (lưu trữ cẩn thận, 22/10/2026)
+- **Bản gốc media** (mp4/mkv/png/jpg/webp/wav/npz/zip ≥ 32 KB, mọi file ≥ 1 MB) → **Kho Drive**, folder `footage/<cảnh>`, cls `original`, **2 bản sao trên 2 Drive KHÁC NHAU**, chống trùng sha256 (máy chủ trả `done` nếu sha đã đủ bản). Mã: `scripts/footage/{lib,archive,verify,restore,small-list}.mjs`, dùng lại `driveUpload` của `scripts/video/library.mjs` → `functions/api/drive.js` (chọn Drive, HMAC `LEXKITE_DRIVE_CLI_KEY`, 429 tự chờ).
+- **Git chỉ giữ**: `bank*.json`, `index.json`, ledger, QA JSON, code `tools/`, file nhỏ không-media (~2.9k file, 20 MB) và **`brand/library/cine/archive-manifest.json`** (đường dẫn → sha256, size, `copies[{driveId,email,fileId}]`, ~1 MB, commit vào main).
+- **Lưu**: `bash scripts/footage-backup.sh` (Mac: archive từ thư mục cine → đẩy manifest + file nhỏ lên `lexkite-footage`; `--legacy-binaries` nếu CI cine-render/matte-pro cần cảnh mới ngay) hoặc CI `footage-archive.yml` (đọc `lexkite-footage`, tiếp tục được, ghi manifest vào main).
+- **Khôi phục**: `node scripts/footage/restore.mjs --out brand/library/cine [--match 'regex'] [--sample N]` — bỏ qua file đã đúng sha, tải `.part` rồi đổi tên, thử bản sao kia nếu một bản lỗi, kiểm sha256 từng file.
+- **Kiểm hằng tuần** `footage-verify.yml` (thứ Hai 03:17 UTC): mọi mục manifest ≥ 2 bản/≥ 2 Drive + dung lượng khớp; mẫu ngẫu nhiên tải mọi bản sao so sha256; diễn tập khôi phục (2 mp4 + 5 file bất kỳ). Lỗi → workflow đỏ + cảnh báo `footage` ở Quản trị → Kho Drive (`op footage_alert`, không bị health ghi đè). Daily `health.yml`/`drive-health` vẫn báo "file chỉ còn 1 bản sao".
+- **Quyền CLI**: `render_link` đọc được file `footage/` (không `retire`/`set_want`); `refs_sync` nguồn `footage` để dọn dẹp Drive không gắn "mồ côi".
+- **Kế hoạch di chuyển `lexkite-footage` (KHÔNG viết lại lịch sử)**: đo 22/10: pack git ≈ 3,3 GiB (.git 3,5 GB; 2.354 file/4,3 GB sẽ lên Drive = 8,6 GB cho 2 bản, pool còn ~156 GB) so với manifest + file nhỏ ≈ 16 MB (gz) → tiết kiệm ≈ 99,5 % dung lượng repo, clone CI từ 3,3 GB còn vài chục MB.
+  1. (xong) Drive là nguồn bền; `footage-backup.sh` ngừng thêm binary vào git.
+  2. Binary cũ ở đầu nhánh `lexkite-footage` **giữ nguyên** vì `cine-render.yml`/`matte-pro.yml` clone sparse từ đó. Cảnh mới chưa vào git → chạy `--legacy-binaries` hoặc làm bước 3.
+  3. Đổi hai workflow đó sang `restore.mjs --match <đường dẫn cảnh>` (cần `LEXKITE_DRIVE_CLI_KEY`), chạy 1 lượt render thử so kết quả.
+  4. Sau bước 3 xanh: commit xoá binary khỏi đầu nhánh (lịch sử vẫn ~3,3 GiB — chỉ thu nhỏ khi chủ đồng ý tạo repo mới `lexkite-footage-2` chỉ chứa manifest, rồi lưu trữ repo cũ).
 
 ## 6. Kho tài sản (bank)
 - `brand/library/cine/anchor/green/` – clip phông xanh host (Ama `ga2_*`, Carlos `gc_*`; chuỗi interp24 → `chroma_key.py` → asset_check → expand → bank.py).
@@ -52,7 +65,7 @@ Diễn cảnh (paused): `lesson5.py`, `qa5.py`, `gen_lessons.py`, … – `docs/
 - `brand/library/cine/anchor/bg/` + `index.json` – thư viện nền news (≥ 23 cảnh, Kling i2i với `style_ref_bg.jpg`).
 - `brand/library/cine/<cafe|airport|hotel>/` – kho diễn cảnh (`bank.json`, `dl24/`, `vis3/`, `tools/`); `restaurant/` bị loại.
 - Nội dung: `content/video/cine/news/{bank,bg_topics,lines}.json`, `content/video/cine/{used,coverage}.json`, `content/video/cine/publish/`.
-- `brand/library/cine` là gitignore → nguồn bền = `lexkite-footage`.
+- `brand/library/cine` là gitignore → nguồn bền = Kho Drive theo `archive-manifest.json` (§5b); `lexkite-footage` giữ manifest + file nhỏ (+ binary cũ đóng băng).
 
 ## 7. Credit (tóm tắt – đầy đủ `docs/CREDIT-RULES.md`)
 0 credit trước · phiếu phân tích · dry-run in lệnh · ảnh (1 cr) đạt rồi mới clip (25 cr) · thử 1 cái, lần lượt · hỏng 2 lần → DỪNG, báo chủ · trần credit mỗi việc · chỉ dùng kết quả ≥ 90 (`docs/MEDIA-QA-RUBRIC.md`) · ghi ledger. Không tiêu nếu chủ chưa duyệt rõ trong chat.
