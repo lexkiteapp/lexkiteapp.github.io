@@ -19,7 +19,7 @@ import bg_zones as BZ
 WATER = {'water', 'sea', 'river', 'lake', 'swimming pool', 'fountain', 'waterfall'}
 TOP = {'table', 'desk', 'countertop', 'kitchen island', 'pool table', 'coffee table', 'bed', 'sofa', 'bathtub'}
 HOST = (0.25, 0.68, 0.75, 1.0)            # where a waist-up host's lower body sits inside a 9:16 crop (x0,y0,x1,y1)
-CROP_X = 0.03                              # left crop starts 3 % in; right crop mirrored
+CROP_C = 0.32                              # crop centres at 32 % / 68 % of the width (eye check 22/10: 3 %-edge crops were full of edge props)
 OUTW, OUTH = 1350, 2400
 Q_PEOPLE = ['a person', 'a human face', 'a human hand', 'a silhouette of a person', 'a child']
 Q_ANIMAL = ['an animal', 'a dog', 'a cat', 'a bird', 'a fish']
@@ -117,8 +117,8 @@ def measure(im, cid, crops=True):
         r['hz_votes'] = vp[1] if vp else 0
         g = fit_crop(r['hz_master'], H); r['crop'] = g
         if g is None: g = dict(hc=H, y0=0, o=0)
-        hc, y0 = g['hc'], g['y0']; cw = round(hc * 9 / 16); x0 = round(W * CROP_X)
-        for side, x in (('L', x0), ('R', W - cw - x0)):
+        hc, y0 = g['hc'], g['y0']; cw = round(hc * 9 / 16)
+        for side, x in (('L', round(W * CROP_C - cw / 2)), ('R', round(W * (1 - CROP_C) - cw / 2))):   # hosts stand on the open floor left/right of centre, not at the prop-filled edges
             c = im.crop((x, y0, x + cw, y0 + hc)); u = upscale(c); z, dp = zones(u, f'{cid}_{side}')
             bic = c.resize((OUTW, OUTH), Image.BICUBIC)
             hz = r['hz_master'] if r['hz_master'] is not None else z['horizon']; z['horizon'] = hz; z['horizon_src'] = 'master vanishing point' if r['hz_master'] is not None else z['horizon_src']
