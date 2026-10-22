@@ -8,7 +8,7 @@ on:
   # Lượt audio.yml commit bằng GITHUB_TOKEN KHÔNG kích hoạt sự kiện push → phải nối bằng workflow_run,
   # nếu không file mới nằm trong repo nhưng 404 trên CDN (lỗi 16–20/10: ~9.300 file thiếu).
   workflow_run:
-    workflows: ['Tạo giọng đọc Kokoro']
+    workflows: ['Tạo giọng đọc Kokoro', 'Giọng đọc từ vựng (Kokoro)']
     types: [completed]
   workflow_dispatch:
 permissions:
