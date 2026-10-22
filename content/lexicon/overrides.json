@@ -1,0 +1,19 @@
+{
+  "_doc": "Sửa tay theo từ#loại (mọi bộ) hoặc từ#loại@bộ (một bộ). Trường: ipa, ipaUS, vi, def, ex, col, syn, level. Nghĩa 1 = nghĩa thông dụng nhất (docs/LEXICON.md). Áp bằng: node scripts/build-lexicon.mjs --write",
+  "present#adj": { "def": "being in a particular place; existing or happening now" },
+  "record#n": { "def": "a written account of something that is kept so that it can be looked at later; the best result ever achieved" },
+  "impression#n": { "vi": "ấn tượng; lượt hiển thị (quảng cáo)" },
+  "bitter#adj": { "vi": "đắng; cay đắng, gay gắt" },
+  "podium#n": { "vi": "bục (phát biểu, nhận giải)", "def": "a small raised platform that a person stands on to speak, conduct music or receive a prize", "syn": "platform|stand" },
+  "highly#adv": { "vi": "rất, hết sức; (đánh giá) cao" },
+  "step#n@ngsl2": { "def": "one of a series of things that you do to achieve something; a movement of putting one foot in front of the other" },
+  "step#n@ngsl1": { "def": "one of a series of things that you do to achieve something; a movement of putting one foot in front of the other" },
+  "unreal#adj": { "ex": "Winning the national prize felt completely unreal to her." },
+  "administrate#v": { "ex": "Volunteers help to administrate the programme in rural areas." },
+  "advertisement#n@education": { "ex": "I saw an advertisement for a cheap phone on TV." },
+  "ward#n": { "vi": "phòng bệnh, khoa (bệnh viện); phường (khu hành chính)" },
+  "ton#n": { "ipa": "/tʌn/" },
+  "quite#adv": { "ipa": "/kwaɪt/" },
+  "thin#adj": { "ipa": "/θɪn/" },
+  "king#n": { "ipa": "/kɪŋ/" }
+}

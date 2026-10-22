@@ -54,3 +54,4 @@ brand/library/_review/
 brand/library/_cache/
 *.local.md
 out/play/
+.tmp-lex/
