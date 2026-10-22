@@ -8,6 +8,7 @@ on:
       engine: { description: 'vitmatte | cf', default: 'vitmatte' }
       sheet: { description: 'crop sheet clip:frame list (empty = no compare job)', default: 'ga4_talk_natural:30,ga4_talk_natural:75,gc4_talk_natural:30,gc4_talk_natural:75' }
       video: { description: 'clips for the 10 s before/after mp4', default: 'ga4_talk_natural,gc4_talk_natural' }
+      extra: { description: 'extra matte_pro.py args (e.g. --edge-pull 0.7)', default: '' }
       from_run: { description: 'compare only: reuse matte-* artifacts of this run id (skips matting)', default: '' }
 permissions: { contents: read, actions: read }
 jobs:
@@ -49,7 +50,8 @@ jobs:
           pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.5.1
           pip install -q transformers==4.46.3 pymatting==1.1.13 opencv-python-headless==4.10.0.84 numpy==2.1.3 scipy==1.14.1 pillow==11.0.0
       - name: Matte ${{ matrix.clip }}
-        run: python3 scripts/video/matte_pro.py footage/anchor/tools/dl24/${{ matrix.clip }}.mp4 footage/anchor/green --id ${{ matrix.clip }} --engine ${{ inputs.engine }}
+        run: python3 scripts/video/matte_pro.py footage/anchor/tools/dl24/${{ matrix.clip }}.mp4 footage/anchor/green --id ${{ matrix.clip }} --engine ${{ inputs.engine }} $EXTRA
+        env: { EXTRA: '${{ inputs.extra }}' }
       - name: Edge QA (old vs PRO; PRO must pass)
         shell: bash
         run: |
