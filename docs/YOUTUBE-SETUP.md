@@ -71,3 +71,8 @@ Refresh token mã hoá AES-GCM bằng `DRIVE_ENC_KEY` (AAD = `youtube:<id kênh>
 OAuth `state` ký HMAC + cookie `lk_yt` HttpOnly + dùng 1 lần (`yt_nonce`), chỉ email quản trị. CI chỉ gọi được `ids · next · session · done · fail · quota`
 (HMAC `LEXKITE_DRIVE_CLI_KEY`) – không duyệt, không đổi chế độ. Byte video không đi qua Worker (CI PUT thẳng vào phiên của Google).
 Ngắt kết nối = thu hồi token ở Google + xoá dòng (`disconnect`).
+
+## Nhiều kênh (22/10/2026)
+- Google chỉ cấp quyền cho MỘT kênh mỗi lần đồng ý. "Thêm kênh" chạy lại OAuth với `prompt=select_account consent` → màn hình chọn tài khoản/kênh thương hiệu hiện lại; mỗi kênh được lưu một hàng `yt_channel` (không còn xóa kênh khác).
+- Kênh mặc định (`yt_meta.default_channel`, radio trong Quản trị → Video → YouTube) là đích của gói đăng, link Studio và tải API. `sync` quét playlist uploads của MỌI kênh đã kết nối và ghi kênh tìm thấy video vào `yt_queue.channel_id`; kênh mất quyền bị bỏ qua + báo lỗi (không bị coi là video biến mất).
+- Op: `setdefault {channel_id}`, `disconnect {channel_id}` (DANGER: đăng nhập ≤ 15 phút, thu hồi token rồi xóa hàng).

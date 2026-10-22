@@ -130,13 +130,46 @@ ok((await api('link', { id: 'cafe-a', url: 'AAAAAAAAAAA' })).s === 403, 'CLI can
 const bad = await Y.onRequestPost({ request: new Request('https://lexkite.com/api/youtube', { method: 'POST', headers: { 'X-Drive-Ts': String(Math.floor(Date.now() / 1000)), 'X-Drive-Sig': 'a'.repeat(64) }, body: '{"op":"sync"}' }), env: ENV });
 ok(bad.status === 403, 'unsigned sync refused');
 
+// ---------- 6b. several connected channels: sync reads all, records which channel a video was found on ----------
+{
+  const saved = globalThis.fetch, OWN = { AAAAAAAAAAA: 'UCchan0000001', BBBBBBBBBBB: 'UCchan0000002' }, PL = { UUchan0000001: ['AAAAAAAAAAA', 'lk:cafe-a'], UUchan0000002: ['BBBBBBBBBBB', 'lk:cafe-b'] }, seen = [];
+  globalThis.fetch = async (url, init = {}) => {
+    const u = String(url);
+    if (u.startsWith('https://oauth2.googleapis.com/token')) { const rt = new URLSearchParams(init.body).get('refresh_token'); return rt === 'refresh-3' ? new Response(JSON.stringify({ error: 'invalid_grant' }), { status: 400 }) : new Response(JSON.stringify({ access_token: 'at-' + rt, expires_in: 3600 })); }
+    if (u.includes('/youtube/v3/playlistItems')) { const pl = new URL(u).searchParams.get('playlistId'), [vid, desc] = PL[pl] || []; seen.push(pl); return new Response(JSON.stringify({ items: vid ? [{ snippet: { title: 't ' + vid, description: desc, publishedAt: new Date().toISOString() }, contentDetails: { videoId: vid }, status: { privacyStatus: 'unlisted' } }] : [] })); }
+    if (u.includes('/youtube/v3/videos?')) { // a video is visible only with its owner's token (private/unlisted), like the real API
+      const ids = (new URL(u).searchParams.get('id') || '').split(','), tok = (init.headers || {}).Authorization || '';
+      return new Response(JSON.stringify({ items: ids.filter(i => OWN[i] && (tok === 'Bearer at-refresh-' + OWN[i].slice(-1) || (OWN[i].endsWith('1') && tok === 'Bearer at'))).map(i => ({ id: i, snippet: { channelId: OWN[i] }, status: { privacyStatus: 'unlisted', uploadStatus: 'processed' }, processingDetails: { processingStatus: 'succeeded' }, contentDetails: { duration: 'PT30S' } })) }));
+    }
+    return new Response('{}', { status: 404 });
+  };
+  const e2 = await encryptToken(ENV, 'refresh-2', 'UCchan0000002', 'youtube');
+  sql.prepare("INSERT INTO yt_channel (channel_id, title, enc_token, iv, status, created) VALUES ('UCchan0000002', 'Lexkite English', ?, ?, 'ok', 2)").run(e2.enc_token, e2.iv);
+  sql.prepare("INSERT INTO yt_queue (clip, lesson, status, privacy, approved_at, updated) VALUES ('cafe-b', 'cafe-b', 'manual', 'unlisted', ?, ?)").run(Date.now() - 6e4, Date.now());
+  sql.prepare("INSERT INTO yt_pack (clip, at) VALUES ('cafe-b', ?)").run(Date.now());
+  sql.prepare("UPDATE yt_queue SET status = 'manual', video_id = NULL WHERE clip = 'cafe-a'").run();
+  let r = await api('sync');
+  const chOf = c => sql.prepare('SELECT status, video_id, channel_id FROM yt_queue WHERE clip = ?').get(c);
+  ok(r.s === 200 && seen.includes('UUchan0000001') && seen.includes('UUchan0000002') && r.j.scanned === 2 && r.j.channels.length === 2, 'multi sync: both uploads playlists scanned');
+  ok(r.j.live.slice().sort().join() === 'cafe-a,cafe-b', 'multi sync: clips found on either channel go live');
+  ok(chOf('cafe-a').channel_id === 'UCchan0000001' && chOf('cafe-b').channel_id === 'UCchan0000002', 'queue rows record the channel each video was found on');
+  ok(!r.j.issues.length && r.j.complete === true, 'multi sync: no false "other channel" / missing issues');
+  sql.prepare("UPDATE yt_queue SET status = 'manual', video_id = NULL, channel_id = NULL").run();
+  const e3 = await encryptToken(ENV, 'refresh-3', 'UCchan0000003', 'youtube');
+  sql.prepare("INSERT INTO yt_channel (channel_id, title, enc_token, iv, status, created) VALUES ('UCchan0000003', 'Revoked', ?, ?, 'ok', 3)").run(e3.enc_token, e3.iv);
+  r = await api('sync');
+  ok(r.s === 200 && r.j.live.slice().sort().join() === 'cafe-a,cafe-b' && r.j.complete === false && r.j.channels.some(c => c.channel_id === 'UCchan0000003' && c.error), 'revoked channel is skipped and reported, others still sync (and nothing is flagged missing)');
+  ok(sql.prepare("SELECT status FROM yt_channel WHERE channel_id = 'UCchan0000003'").get().status === 'disconnected', 'revoked channel row marked disconnected');
+  globalThis.fetch = saved;
+}
+
 // ---------- 7. admin cards (jsdom) ----------
 {
   const dom = new JSDOM('<!doctype html><div id="box"></div>', { url: 'https://lexkite.com/admin.html#video', runScripts: 'outside-only' }), w = dom.window, calls = [];
   w.fetch = async () => ({ json: async () => ({ items: [{ id: 'cafe-l', youtube_id: 'LLLLLLLLLLL' }] }) });
   w.confirm = () => true; w.navigator.clipboard = { writeText: async v => calls.push(['clip', v]) };
   w.eval(fs.readFileSync('web/js/admin-video.js', 'utf8'));
-  const st = { channel: { status: 'ok', title: 'Lexkite', channel_id: 'UCx' }, quota: {}, queue: {}, settings: { mode: 'manual', privacy: 'private' }, manual: { ready: 1 }, scope: { ok: true }, sync: { at: Date.now(), scanned: 3, matched: 1, issues: [{ kind: 'no-marker', video_id: 'ZZZZZZZZZZZ', title: 'Mystery' }] } };
+  const st = { channel: { status: 'ok', title: 'Lexkite', channel_id: 'UCx', is_default: true }, channels: [{ status: 'ok', title: 'Lexkite', channel_id: 'UCx', is_default: true, videos: 2, thumb: 'https://yt3.ggpht.com/a' }, { status: 'ok', title: 'Lexkite English', channel_id: 'UCy', videos: 0 }], quota: {}, queue: {}, settings: { mode: 'manual', privacy: 'private' }, manual: { ready: 1 }, scope: { ok: true }, sync: { at: Date.now(), scanned: 3, matched: 1, issues: [{ kind: 'no-marker', video_id: 'ZZZZZZZZZZZ', title: 'Mystery' }] } };
   const packs = { studio: 'https://studio.youtube.com/channel/UCx/videos/upload?d=ud', rows: [
     { id: 'cafe-r', state: 'ready', status: 'manual', pack: '/api/admin-shorts?f=x&k=z', title: 'Order <b>coffee</b>', description: 'Desc\nlk:cafe-r', tags: ['a', 'b'], marker: 'lk:cafe-r' },
     { id: 'cafe-p', state: 'uploaded', status: 'detected', err: 'private', video_id: 'PPPPPPPPPPP', title: 'P', marker: 'lk:cafe-p' },
@@ -154,6 +187,12 @@ ok(bad.status === 403, 'unsigned sync refused');
   ok(/Riêng tư/.test(card('cafe-p').textContent), 'private issue shown on the card');
   ok(/Mystery/.test(box.textContent) && /lk:…/.test(box.textContent), 'unmarked upload flagged in the admin');
   ok(box.querySelector('#yt-sync') && box.querySelector('#yt-mode').value === 'manual' && !box.querySelector('#yt-pv'), 'Đồng bộ button + mode switch; privacy picker hidden in manual mode');
+  ok(box.querySelectorAll('.vid-ch').length === 2 && box.querySelector('.vid-ch.on').dataset.ch === 'UCx' && box.querySelector('.vid-ch img') && box.querySelectorAll('input[name=yt-ch]').length === 2, 'channel picker: avatar + title + radio per channel, default marked');
+  ok(/Thêm kênh/.test(box.textContent) && /Chọn kênh ở màn hình Google; muốn thêm kênh khác thì bấm Thêm kênh và chọn kênh đó\./.test(box.textContent), 'Add channel button + Google-chooser hint');
+  box.querySelector('input[value=UCy]').checked = true; box.querySelector('input[value=UCy]').dispatchEvent(new w.Event('change')); await new Promise(res => setTimeout(res, 5));
+  ok(calls.some(c => c[0] === 'setdefault' && c[1].channel_id === 'UCy'), 'radio → op setdefault');
+  box.querySelector('[data-off="UCy"]').click(); await new Promise(res => setTimeout(res, 5));
+  ok(calls.some(c => c[0] === 'disconnect' && c[1].channel_id === 'UCy'), 'Ngắt kết nối → op disconnect {channel_id}');
   R.querySelector('[data-cp="tags"]').click(); await new Promise(res => setTimeout(res, 5));
   ok(calls.some(c => c[0] === 'clip' && c[1] === 'a, b'), 'copy tags');
   card('cafe-p').querySelector('[data-url]').value = 'https://youtu.be/PPPPPPPPPPP'; card('cafe-p').querySelector('[data-link]').click(); await new Promise(res => setTimeout(res, 5));

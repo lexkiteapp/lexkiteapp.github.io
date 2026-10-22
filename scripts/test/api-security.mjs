@@ -266,5 +266,30 @@ for (const f of [{ offset: 'abc' }, { offset: 'Infinity', limit: 'NaN' }, { offs
   ok(g.s === 200 && new TextDecoder().decode(g.b) === 'JPEGDATA' && g.h.get('Content-Type') === 'image/jpeg' && g2.s === 200 && new TextDecoder().decode(g2.b) === 'JPEGDATA' && gcalls.filter(c => c.f === 'COVER_file_00001').length === 1, 'bìa Drive → đệm Cache API (lần 2 không gọi Drive)');
   globalThis.fetch = saved; SH._memo.reset(); }
 
+// YouTube: nhiều kênh – op mới chỉ cho admin; disconnect (thu hồi token + xóa hàng) là DANGER → đăng nhập ≤ 15 phút
+{ const YT = await import(new URL('../../functions/api/youtube.js', import.meta.url));
+  const stale = await tok({ auth_time: sec - 3600 });
+  await run(YT, req('/api/youtube', { op: 'status' }, { token: ADM }));
+  for (const [c, t] of [['UC_one_000001', 'Personal'], ['UC_two_000002', 'Lexkite English']]) sql.prepare("INSERT INTO yt_channel (channel_id, title, enc_token, iv, status, created) VALUES (?, ?, 'x', 'y', 'ok', 1)").run(c, t);
+  for (const op of ['setdefault', 'disconnect', 'connect']) {
+    const anon = await run(YT, req('/api/youtube', { op, channel_id: 'UC_two_000002' }));
+    ok((anon.s === 401 || anon.s === 403) && !leaks(anon.text), `youtube '${op}' không token bị chặn (${anon.s})`);
+    const usr = await run(YT, req('/api/youtube', { op, channel_id: 'UC_two_000002' }, { token: USER }));
+    ok(usr.s === 403 && !leaks(usr.text), `youtube '${op}' người dùng thường → 403 (${usr.s})`);
+  }
+  let r = await run(YT, req('/api/youtube', { op: 'status' }, { token: ADM }));
+  ok(r.s === 200 && r.j.channels.length === 2 && r.j.channels.filter(c => c.is_default).length === 1 && !('enc_token' in r.j.channels[0]) && !leaks(r.text), 'youtube status liệt kê mọi kênh, đúng 1 mặc định, không lộ token');
+  r = await run(YT, req('/api/youtube', { op: 'setdefault', channel_id: 'UC_two_000002' }, { token: ADM }));
+  ok(r.s === 200 && (await run(YT, req('/api/youtube', { op: 'status' }, { token: ADM }))).j.channels.find(c => c.channel_id === 'UC_two_000002').is_default, 'setdefault đổi kênh mặc định');
+  ok((await run(YT, req('/api/youtube', { op: 'setdefault', channel_id: 'UC_nope_000009' }, { token: ADM }))).s === 404, 'setdefault kênh chưa kết nối → 404');
+  ok((await run(YT, req('/api/youtube', { op: 'setdefault', channel_id: "x'; DROP TABLE yt_channel;--" }, { token: ADM }))).s === 400, 'setdefault id lạ → 400');
+  r = await run(YT, req('/api/youtube', { op: 'disconnect', channel_id: 'UC_two_000002' }, { token: stale }));
+  ok(r.s === 401 && r.j.error === 'reauth' && sql.prepare('SELECT COUNT(*) n FROM yt_channel').get().n === 2, 'disconnect cần đăng nhập gần đây (stale → 401 reauth, kênh còn nguyên)');
+  r = await run(YT, req('/api/youtube', { op: 'disconnect', channel_id: 'UC_two_000002' }, { token: ADM }));
+  const left = sql.prepare('SELECT channel_id FROM yt_channel').all().map(x => x.channel_id);
+  ok(r.s === 200 && left.join() === 'UC_one_000001', 'disconnect xóa đúng 1 kênh, giữ kênh kia');
+  ok((await run(YT, req('/api/youtube', { op: 'status' }, { token: ADM }))).j.channels[0].is_default, 'sau khi ngắt kênh mặc định, kênh còn lại thành mặc định');
+}
+
 console.log(`api-security: ${n - fails}/${n} ok`);
 if (fails) process.exit(1);
