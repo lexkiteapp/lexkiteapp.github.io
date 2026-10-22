@@ -687,10 +687,10 @@
       "key": "footage-backup",
       "name": "GitHub repo riêng tư lexkiteapp/lexkite-footage",
       "kind": "storage",
-      "purpose": "Sao lưu kho footage điện ảnh (brand/library/cine: clip Kling không watermark, dl24, bộ miệng/đường bám, giọng, bank.json, công cụ dựng bài) – không nằm trong repo công khai. Chạy scripts/footage-backup.sh sau mỗi lần thêm cảnh/bài. CI dựng bài: .github/workflows/cine-render.yml (builder scripts/cine/) clone sparse theo cảnh qua deploy key CHỈ-ĐỌC 'cine-render CI' (khóa công khai trên lexkite-footage, khóa riêng = secret FOOTAGE_DEPLOY_KEY của repo công khai; đổi khóa: tạo cặp mới, thay cả hai).",
+      "purpose": "Sao lưu kho footage điện ảnh (brand/library/cine) – từ 22/10/2026 bản gốc media nằm ở Kho Drive (2 bản/2 Drive, xem footage-archive); repo riêng lexkite-footage chỉ nhận manifest + file nhỏ khi chạy scripts/footage-backup.sh (binary cũ giữ nguyên vì cine-render/matte-pro còn clone sparse qua deploy key CHỈ-ĐỌC 'cine-render CI' = secret FOOTAGE_DEPLOY_KEY; đổi khóa: tạo cặp mới, thay cả hai).",
       "console": "https://github.com/lexkiteapp/lexkite-footage",
-      "free": "Repo riêng tư miễn phí (khuyến nghị < 5 GB; file < 100 MB)",
-      "upgrade": "Vượt ~5 GB: chuyển sang R2 (10 GB miễn phí)",
+      "free": "Repo riêng tư miễn phí (đã ~3,3 GB pack – đóng băng, không thêm binary)",
+      "upgrade": "Gỡ binary khỏi đầu nhánh sau khi CI chuyển sang scripts/footage/restore.mjs (docs/VIDEO.md §Kho footage)",
       "status": "Miễn phí",
       "match": [
         "lexkite-footage",
@@ -729,6 +729,24 @@
         "shorts-rebuild.yml",
         "youtube-upload.yml",
         "scripts/video/shorts-archive.mjs"
+      ]
+    },
+    {
+      "key": "footage-archive",
+      "name": "Kho footage trên Kho Drive (footage-archive · footage-verify · restore)",
+      "kind": "storage",
+      "purpose": "Bản gốc footage (mp4/mkv/png/wav/npz…) lưu trên pool Google Drive của chủ, folder footage/<cảnh>, cls original, 2 bản sao/2 Drive khác nhau, chống trùng sha256. footage-archive.yml (chạy tay, tiếp tục được) đọc lexkite-footage rồi ghi brand/library/cine/archive-manifest.json; footage-verify.yml (thứ Hai hằng tuần) kiểm sổ + mẫu sha256 + diễn tập khôi phục, lỗi → cảnh báo 'footage' ở Quản trị → Kho Drive (op footage_alert); scripts/footage/restore.mjs dựng lại kho từ manifest. Dùng /api/drive (CLI HMAC LEXKITE_DRIVE_CLI_KEY).",
+      "console": "https://lexkite.com/admin.html#drive",
+      "free": "Dung lượng Google Drive của chủ (mỗi tài khoản 15 GB miễn phí)",
+      "upgrade": "Nối thêm Drive ở Quản trị → Kho Drive",
+      "status": "Đang dùng",
+      "match": [
+        "footage-archive.yml",
+        "footage-verify.yml",
+        "scripts/footage/archive.mjs",
+        "scripts/footage/verify.mjs",
+        "scripts/footage/restore.mjs",
+        "archive-manifest.json"
       ]
     }
   ],
