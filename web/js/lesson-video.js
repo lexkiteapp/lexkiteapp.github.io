@@ -30,7 +30,7 @@
 .lv-card .lv-k{font-size:.78rem;font-weight:700;color:var(--muted)}.lv-card b{display:block;margin:.15rem 0}.lv-play{margin-inline-start:auto;flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--primary);color:#fff;font-size:1.1rem}
 .lv-pl{position:relative;border-radius:16px;overflow:hidden;background:#000;max-width:360px;margin:0 auto}.lv-pl video{display:block;width:100%;aspect-ratio:9/16;max-height:72vh;background:#000}
 .lv-bar{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin:.5rem 0}.lv-x{min-height:40px}.lv-q{border:1px solid var(--line);border-radius:14px;padding:.8rem;margin-top:.6rem;max-width:520px;margin-inline:auto}
-.lv-q .lv-opts{display:grid;gap:.4rem;margin:.5rem 0}.lv-q button.lv-o{text-align:start;min-height:44px}.lv-q .ok{border-color:var(--ok,#1a7f37)}.lv-q .no{border-color:var(--bad,#b42318)}
+.lv-q .lv-opts{display:grid;gap:.4rem;margin:.5rem 0}.lv-q button.lv-o{text-align:start;min-height:44px}.lv-q .ok{border-color:var(--ok,#1a7f37)}.lv-q .no{border-color:var(--bad,#b42318)}.lv-q button.lv-o:disabled{opacity:1}.lv-q button.lv-o:disabled:not(.ok):not(.no){opacity:.6}.lv-q .ok .lv-mk{color:var(--ok,#1a7f37)}.lv-q .no .lv-mk{color:var(--bad,#b42318)}
 @media (prefers-reduced-motion:no-preference){.lv-card{transition:transform .15s}.lv-card:hover{transform:translateY(-1px)}}`;
     document.head.appendChild(s);
   }
@@ -70,17 +70,17 @@
 
   function quiz(box, it, onNext) {
     const q = it.quiz;
-    const nextBtn = `<div class="lv-bar"><button type="button" class="btn primary lv-x" data-lv-next>${esc(T('Video tiếp theo'))} →</button></div>`;
+    const nextBtn = `<div class="lv-bar"><button type="button" class="btn primary lv-x" data-lv-next>${esc(T('Video tiếp theo'))} ${document.documentElement.dir === 'rtl' ? '←' : '→'}</button></div>`;
     if (!q) { box.innerHTML = nextBtn; box.querySelector('[data-lv-next]').onclick = onNext; return; }
-    box.innerHTML = `<div class="lv-q" role="group" aria-labelledby="lvq-${esc(it.id)}"><div class="small muted">❓ ${esc(T('Câu hỏi nhanh'))}</div><p id="lvq-${esc(it.id)}" lang="en"><b>${esc(q.q)}</b></p>
-      <div class="lv-opts">${q.options.map((o, i) => `<button type="button" class="btn lv-o" data-i="${i}" lang="en"><span class="lv-mk" aria-hidden="true">${'ABC'[i]}</span> ${esc(o)}</button>`).join('')}</div><p class="lv-fb small" role="status"></p></div>`;
+    box.innerHTML = `<div class="lv-q" role="group" aria-labelledby="lvq-${esc(it.id)}"><div class="small muted">❓ ${esc(T('Câu hỏi nhanh'))}</div><p id="lvq-${esc(it.id)}" lang="en" dir="ltr"><b>${esc(q.q)}</b></p>
+      <div class="lv-opts">${q.options.map((o, i) => `<button type="button" class="btn lv-o" data-i="${i}" lang="en" dir="ltr"><span class="lv-mk" aria-hidden="true">${'ABC'[i]}</span> ${esc(o)}</button>`).join('')}</div><p class="lv-fb small" role="status"></p></div>`;
     const bs = [...box.querySelectorAll('.lv-o')];
     bs[0].focus({ preventScroll: true });
     bs.forEach(b => { b.onclick = async () => {
       const i = +b.dataset.i, ok = i === q.answer, ans = q.options[q.answer];
       bs.forEach((x, j) => { x.disabled = true; const mk = x.querySelector('.lv-mk'); if (j === q.answer) { x.classList.add('ok'); mk.textContent = '✓'; } else if (j === i) { x.classList.add('no'); mk.textContent = '✗'; } });
       hit(ok ? 'quiz_ok' : 'quiz_no', it.id);
-      box.querySelector('.lv-fb').textContent = ok ? T('Đúng rồi! Đã thêm vào thẻ ôn.') : T('Chưa đúng. Đáp án: {a} – đã thêm vào thẻ ôn.', { a: ans });
+      box.querySelector('.lv-fb').innerHTML = ok ? esc(T('Đúng rồi! Đã thêm vào thẻ ôn.')) : esc(T('Chưa đúng. Đáp án: {a} – đã thêm vào thẻ ôn.', { a: '\u0000' })).replace('\u0000', `<bdi lang="en">${esc(ans)}</bdi>`);
       box.querySelector('.lv-q').insertAdjacentHTML('beforeend', nextBtn); const n = box.querySelector('[data-lv-next]'); n.onclick = onNext; n.focus({ preventScroll: true });
       try { if (g.App && App.addWord && ans.split(' ').length <= 12) Promise.resolve(App.addWord({ word: ans, pos: 'phrase', ex: ans, emoji: '🎬', topic: 'video' }, { text: ans, title: '🎬 ' + it.title }, { silent: true })).catch(() => {}); } catch (e) { /* SRS chạy nền, không chặn phản hồi */ }
     }; });
