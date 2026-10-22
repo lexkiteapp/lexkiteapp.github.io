@@ -117,7 +117,7 @@
   function explain(fb, word, resize) {
     return notesOf(word).then(n => {
       if (!n || !fb.isConnected) return false;
-      return (g.App && g.App.need ? g.App.need('wordcard') : Promise.resolve()).then(() => g.WordCard && g.WordCard.ready).then(() => {
+      return (g.App && g.App.need ? (g.App.lazy || g.App.need)('wordcard') : Promise.resolve()).then(() => g.WordCard && g.WordCard.ready).then(() => {
         const html = g.WordCard && g.WordCard.notes(n, String(word).toLowerCase()), host = fb.querySelector('.sheet-in'), nx = fb.querySelector('.sheet-next');
         if (!html || !host || !nx || !fb.isConnected || fb.querySelector('.lfx-why')) return false;
         css();

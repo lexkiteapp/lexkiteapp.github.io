@@ -181,7 +181,7 @@
       if (s && s.tap && !s.ok) { mark(d.key, s.k); finishIf(find(d.id)); }
       else if (s && s.ext) ls('dayExt', JSON.stringify({ id: d.key, k: s.k, c: s.ext, base: today()[s.ext] || 0, day: Core.todayKey() }));
     }));
-    App.need('lvideo').then(() => g.LessonVideo && LessonVideo.scan(view)).catch(() => {}); // 🎬 "Video của ngày" (ẩn nếu chưa có video)
+    App.lazy('lvideo').then(() => g.LessonVideo && LessonVideo.scan(view)).catch(() => {}); // 🎬 "Video của ngày" (ẩn nếu chưa có video)
   }
 
   // ---------- Thanh tiến độ buổi học trên trang bài tập ----------

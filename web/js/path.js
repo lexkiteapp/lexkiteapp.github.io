@@ -90,7 +90,7 @@
 
   // Bản đồ lộ trình theo NGÀY (Ngày 1, 2, 3…) + trang buổi học #/day/N: path-day.js (tải lười, gói 'pathx' – khung app không phình)
   App.PathAPI = { STAGES, unitState, learnedPct, recLoad, recOf, STEPS, stepDone, stepHref, nextStep };
-  const lazy = n => async (...a) => { await App.need('pathx'); return window.DayPath[n](...a); };
+  const lazy = n => async (...a) => { await App.lazy('pathx'); return window.DayPath[n](...a); };
   routes.path = lazy('map'); routes.day = lazy('page'); routes.tracks = lazy('tracks'); // 🧭 Gói học (tracks.js)
   // Thanh tiến độ buổi học (Ngày N · 3/6) trên các trang bài tập khi đang học dở 1 ngày
   const sess = () => { try { return localStorage.getItem('vb.daySess'); } catch (e) { return null; } };

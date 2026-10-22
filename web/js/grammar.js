@@ -364,7 +364,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     if (drillsOf(x).length) bindDrills(x);
     bindChallenge(x);
     fillL1(x);
-    App.need('lvideo').then(() => window.LessonVideo && LessonVideo.scan(view)).catch(() => {}); // 🎬 video khớp chủ điểm (ẩn nếu không có)
+    App.lazy('lvideo').then(() => window.LessonVideo && LessonVideo.scan(view)).catch(() => {}); // 🎬 video khớp chủ điểm (ẩn nếu không có)
   }
 
   // ---------- Chế độ học từng bước (kiểu Duolingo) ----------

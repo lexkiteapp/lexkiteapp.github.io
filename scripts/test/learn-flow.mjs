@@ -85,7 +85,7 @@ ok(P.nextLevel([]) === 'B1' && P.nextLevel([R('vocab', 'B1', 'right'), R('vocab'
 for (const x of ['live', 'house', 'water', 'family']) if (W(x) && !w.App.inDeck(x)) await w.App.addWord(W(x), null, { silent: true });
 const deckAll = w.App.state.cards; w.App.state.cards = Object.fromEntries(['live', 'house', 'water', 'family'].map(k => [k, deckAll[k]]));
 let found = false;
-for (let k = 0; k < 40 && !found; k++) { await go('#/home', 30); await go('#/practice/learn?src=deck', 120); found = /^live$/.test(($('.wi-word') || {}).textContent || ''); if (found) { const el0 = $('#fi'); await tick(400); found = $('#fi') === el0; } } // ổn định 400ms: lượt điều hướng nhanh trước đó có thể vẽ đè muộn (đua) → bắt đầu lại
+for (let k = 0; k < 40 && !found; k++) { await go('#/home', 30); await go('#/practice/learn?src=deck', 120); found = /^live$/.test(($('.wi-word') || {}).textContent || ''); } // (vẽ đè muộn do đua điều hướng đã được App.route chặn bằng token – xem route-race.mjs)
 ok(found, 'thẻ giới thiệu từ mới “live” hiện ra');
 if (found) {
   const bar = $('.learn-bar'), fi = $('#fi');
