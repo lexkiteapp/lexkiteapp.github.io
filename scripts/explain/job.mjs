@@ -21,14 +21,15 @@ async function oidc() {
   if (!u || !t) throw new Error('thiếu OIDC (permissions: id-token: write)');
   return (token = (await (await fetch(u + '&audience=lexkite-lexai', { headers: { Authorization: 'Bearer ' + t } })).json()).value);
 }
-let calls = 0, fails = 0;
+let calls = 0, fails = 0, shown = 0;
 const stat = { gen: 0, tr: 0, judged: 0, low: 0 };
 async function call(mode, lang, list) {
   calls++;
   if (DRY) { console.log(`[dry] ${mode} ${lang} ${list.map(x => x.k).join(' ')}`.slice(0, 160)); return null; }
   for (let i = 0; i < 3; i++) {
     const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await oidc(), 'User-Agent': 'lexkite-ci' }, body: JSON.stringify({ mode, lang, items: list }) }).catch(() => null);
-    if (r && r.ok) { fails = 0; return (await r.json()).out || {}; }
+    if (r && r.ok) { fails = 0; const j = await r.json(); if (!shown++) console.log('mô hình:', j.model); return j.out || {}; }
+    if (r && i === 2) console.log(`${mode} ${lang}: HTTP ${r.status} ${(await r.text().catch(() => '')).slice(0, 120)}`);
     if (r && r.status === 401) token = '';
     await new Promise(s => setTimeout(s, 6000 * (i + 1)));
   }
@@ -49,6 +50,7 @@ const brief = x => ({ k: x.id, type: x.type, s: x.s, ans: x.ans, alts: x.alts, c
 // 1) sinh bản tiếng Anh (câu đổi nội dung → làm lại)
 await loop(ALL.filter(x => !DB[x.id] || DB[x.id].sig !== sig(x)), 6, async b => {
   const out = await call('xgen', 'en', b.map(brief)); if (!out) return;
+  if (shown < 3 && !b.some(x => out[x.id])) console.log('khóa trả về không khớp:', JSON.stringify(out).slice(0, 300));
   for (const x of b) {
     const o = out[x.id], en = okText(o, x.alts), p = o && str(o.p, 120), ex = o && Array.isArray(o.ex) ? o.ex.map(e => str(e, 200)).filter(Boolean).slice(0, 2) : [];
     if (!en || !p || !p.includes('[') || (SET === 'usage' && !p.toLowerCase().includes('[' + x.ans.toLowerCase().split(' ')[0])) || !ex.length) continue;
@@ -79,6 +81,7 @@ for (const l of ONLY) {
 const review = [];
 for (const [id, d] of Object.entries(DB)) for (const [l, s] of Object.entries(d.sc || {})) if (s <= 3) review.push({ set: SET, id, lang: l, score: s });
 if (!DRY) {
+  fs.mkdirSync(new URL('../../content/explain/', import.meta.url), { recursive: true });
   const RF = new URL('../../content/explain/review.json', import.meta.url), old = fs.existsSync(RF) ? JSON.parse(fs.readFileSync(RF, 'utf8')) : [];
   fs.writeFileSync(RF, JSON.stringify([...old.filter(r => r.set !== SET), ...review], null, 1));
 }

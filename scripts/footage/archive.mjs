@@ -23,10 +23,17 @@ if (DRY) process.exit(0);
 
 let up = 0, same = 0, fail = 0, short = 0, n = 0, dirty = 0;
 const flush = () => { saveManifest(MAN, m); dirty = 0; };
-for (const f of need) {
-  if (n >= LIMIT) break; n++;
+let stop = false, next = 0;
+const todo = need.slice(0, LIMIT), CONC = Math.max(1, +arg(args, 'conc', 3)); // vài luồng song song: mỗi file ≈ 10 s (2 phiên Google), giới hạn 120 lượt/phút/IP vẫn dư
+const inflight = new Map(); // sha đang tải → file trùng nội dung chờ, không tải lần 2
+const one = async f => {
+  n++;
   try {
-    const h = sha256File(f.abs), prev = bySha.get(h);
+    const h = sha256File(f.abs);
+    while (inflight.has(h)) await inflight.get(h);
+    const prev = bySha.get(h);
+    let done; inflight.set(h, new Promise(r => (done = r)));
+    try {
     if (prev) { m.files[f.rel] = { sha256: prev.sha256, size: prev.size, copies: prev.copies, at: prev.at }; same++; dirty++; }
     else {
       const r = await driveUpload(f.abs, { name: path.posix.basename(f.rel), folder: folderOf(f.rel), sha: h, mimeType: mimeOf(f.rel), cls: 'original', replicas: WANT, assetId: 'footage:' + f.rel.slice(0, 180) });
@@ -35,13 +42,15 @@ for (const f of need) {
       m.files[f.rel] = e; if (distinctDrives(e) >= WANT) bySha.set(h, e); else { short++; console.error(`⚠ ${f.rel}: chỉ ${distinctDrives(e)}/${WANT} Drive`); }
       up++; dirty++; await sleep(PAUSE);
     }
-    if (dirty >= 20) { flush(); console.log(`… ${n}/${need.length} (↑${up} =${same} ✗${fail})`); }
+    } finally { inflight.delete(h); done(); }
+    if (dirty >= 20) { flush(); console.log(`… ${n}/${todo.length} (↑${up} =${same} ✗${fail})`); }
   } catch (e) {
     fail++; console.error(`✗ ${f.rel}: ${e.message}`);
-    if (/no-key|403|forbidden|pool_full|507/.test(String(e.code || e.message))) { flush(); console.error('✗ dừng: ' + (e.code || e.message)); process.exitCode = 1; break; }
-    await sleep(PAUSE * 4);
+    if (/no-key|403|forbidden|pool_full|507/.test(String(e.code || e.message))) { stop = true; console.error('✗ dừng: ' + (e.code || e.message)); process.exitCode = 1; }
+    else await sleep(PAUSE * 4);
   }
-}
+};
+await Promise.all(Array.from({ length: CONC }, async () => { while (!stop && next < todo.length) await one(todo[next++]); }));
 flush();
 // Tham chiếu cho cleanup_scan: sha nào được footage dùng → không bị gắn "mồ côi" (nguồn 'footage', thay cả bộ mỗi lần).
 try {

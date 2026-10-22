@@ -35,10 +35,11 @@
   }));
   const KIND = () => ({ vocab: ['🔤', t('Từ vựng')], grammar: ['📐', t('Ngữ pháp')], reading: ['📖', t('Đọc hiểu')], listening: ['🎧', t('Nghe')] });
 
-  routes.mistakes = async function (arg, query) {
+  routes.mistakes = App.guard(async function (arg, query) {
+    const w = App.W;
     const retry = !!(query && query.get && query.get('retry'));
-    const list = await Store.get('mistakes', []);
-    if (migrate(list)) await Store.set('mistakes', list);
+    const list = await w(Store.get('mistakes', []));
+    if (migrate(list)) await w(Store.set('mistakes', list));
     const open = list.filter(x => !x.fixed);
     view.innerHTML = `
       <div class="page-head"><div><h1>📕 ${t('Sổ lỗi sai')}</h1><p class="muted">${t('Mọi câu bạn làm sai đều được ghi lại tự động. Ôn lại lỗi sai là cách tăng điểm nhanh nhất – xem lại vì sao sai rồi đánh dấu “Đã hiểu”.')}</p></div>
@@ -88,7 +89,7 @@
     draw('');
     $$('#mTabs button').forEach(b => b.onclick = () => { $$('#mTabs button').forEach(x => x.classList.toggle('on', x === b)); draw(b.dataset.k); });
     $('#clearFixed').onclick = async () => { await Store.set('mistakes', (await Store.get('mistakes', [])).filter(x => !x.fixed)); toast(t('Đã dọn')); };
-  };
+  });
 
   // KIỂM TRA ĐẦU VÀO (#/placement): js/placement.js – tải lười, ước tính thích ứng + khoảng band.
 

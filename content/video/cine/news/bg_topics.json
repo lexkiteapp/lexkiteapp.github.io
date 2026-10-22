@@ -63,161 +63,409 @@
  "_note2": "owner 22/10: teacher persona - teaching areas use classroom-type backgrounds (rotating pool, no reuse within 6 posts); situational lessons keep their scene bg.",
  "wide_by_topic": {
   "airport": [
-   "trv_baggage_claim__day_modern"
+   "trv_airport_checkin__night_classic",
+   "trv_baggage_claim__day_modern",
+   "trv_departures_hall__day_modern"
   ],
   "appointments": [
-   "svc_barber__day_modern"
+   "hl_lab_draw__day_modern",
+   "hl_vet__day_modern",
+   "svc_barber__day_modern",
+   "svc_nail_salon__day_modern"
+  ],
+  "art": [
+   "sch_art_room__day_modern",
+   "work_design_studio__day_modern"
   ],
   "bank": [
    "svc_bank_hall__day_modern",
    "svc_bank_hall__night_classic"
   ],
   "business": [
-   "work_boardroom__day_modern"
+   "work_boardroom__day_modern",
+   "work_startup__day_modern"
+  ],
+  "celebration": [
+   "evt_birthday_party__day_modern",
+   "evt_wedding_hall__day_modern"
   ],
   "check-in": [
    "hos_hotel_frontdesk__day_modern"
   ],
+  "chores": [
+   "home_garage__day_modern",
+   "home_laundry__day_modern",
+   "work_print_room__day_modern"
+  ],
   "city": [
+   "cty_downtown_avenue__day_modern",
+   "cty_plaza__day_modern",
    "cty_plaza__night_classic",
+   "cty_residential_street__day_modern",
    "cty_rooftop__day_modern",
-   "trn_metro_concourse__day_modern"
+   "fd_food_truck__day_modern",
+   "trn_metro_concourse__day_modern",
+   "trn_tram_stop__day_modern",
+   "trv_old_town__day_modern",
+   "trv_tourist_info__day_modern"
   ],
   "clothes": [
-   "shp_shoe_store__day_modern"
+   "shp_shoe_store__day_modern",
+   "svc_tailor__day_modern"
+  ],
+  "community": [
+   "gov_voting_hall__day_modern"
+  ],
+  "cooking": [
+   "home_kitchen_island__day_modern"
   ],
   "daily-routine": [
    "home_living_sofa__day_modern"
   ],
   "directions": [
+   "cty_downtown_avenue__day_modern",
+   "cty_plaza__day_modern",
    "cty_plaza__night_classic",
+   "cty_residential_street__day_modern",
    "gov_city_hall__day_modern",
    "gov_city_hall__night_classic",
-   "trn_metro_concourse__day_modern"
+   "hl_hospital_lobby__day_modern",
+   "hos_elevator_lobby__day_modern",
+   "trn_bus_station__night_classic",
+   "trn_metro_concourse__day_modern",
+   "trv_old_town__day_modern",
+   "trv_tourist_info__day_modern"
+  ],
+  "driving": [
+   "trn_driving_school__day_modern",
+   "trn_gas_station__day_modern"
   ],
   "education": [
    "sch_lecture_hall__day_modern"
   ],
   "emergency": [
+   "gov_police_station__day_modern",
    "hl_er_reception__day_modern",
    "hl_er_reception__night_classic"
   ],
+  "events": [
+   "evt_birthday_party__day_modern",
+   "evt_wedding_hall__day_modern",
+   "hos_conference_hall__day_modern"
+  ],
   "family": [
+   "evt_birthday_party__day_modern",
+   "evt_wedding_hall__day_modern",
    "fam_playground__day_modern",
+   "fd_bbq_terrace__day_modern",
+   "hl_pediatric__day_modern",
    "home_dining__day_modern",
-   "home_living_sofa__day_modern"
+   "home_kids_room__day_modern",
+   "home_living_sofa__day_modern",
+   "sch_kindergarten__day_modern"
+  ],
+  "feelings": [
+   "hl_therapy_room__day_modern"
   ],
   "fitness": [
    "hl_physio__day_modern"
   ],
   "flight": [
-   "trv_baggage_claim__day_modern"
+   "trv_airport_checkin__night_classic",
+   "trv_baggage_claim__day_modern",
+   "trv_departures_hall__day_modern"
   ],
   "food": [
+   "fd_bbq_terrace__day_modern",
+   "fd_butcher_deli__day_modern",
+   "fd_diner__day_modern",
+   "fd_food_truck__day_modern",
+   "fd_noodle_shop__day_modern",
    "fd_pizzeria__day_modern",
    "fd_sushi_bar__day_modern",
-   "home_dining__day_modern"
+   "home_dining__day_modern",
+   "home_kitchen_island__day_modern",
+   "hos_hotel_bar__day_modern",
+   "hos_hotel_breakfast__day_modern",
+   "sch_cafeteria__day_modern",
+   "shp_convenience__day_modern",
+   "work_break_room__day_modern"
+  ],
+  "gifts": [
+   "shp_jewelry__day_modern"
   ],
   "government": [
    "gov_city_hall__day_modern",
    "gov_city_hall__night_classic",
+   "gov_courtroom__day_modern",
    "gov_embassy_wait__day_modern",
-   "gov_service_counter__day_modern"
+   "gov_library_public__day_modern",
+   "gov_passport_photo__day_modern",
+   "gov_police_station__day_modern",
+   "gov_service_counter__day_modern",
+   "gov_voting_hall__day_modern"
   ],
   "health": [
    "hl_er_reception__day_modern",
    "hl_er_reception__night_classic",
+   "hl_hospital_lobby__day_modern",
    "hl_hospital_ward__day_modern",
-   "hl_physio__day_modern"
+   "hl_lab_draw__day_modern",
+   "hl_pediatric__day_modern",
+   "hl_pharmacy_counter__day_modern",
+   "hl_physio__day_modern",
+   "hl_therapy_room__day_modern",
+   "hl_vet__day_modern",
+   "hos_spa__day_modern",
+   "spt_swim_hall__day_modern"
+  ],
+  "holiday": [
+   "hos_hotel_pool_deck__day_modern",
+   "hos_hotel_suite__day_modern",
+   "hos_resort_lobby__day_modern",
+   "trv_cruise_deck__day_modern"
   ],
   "home": [
+   "cty_residential_street__day_modern",
    "home_dining__day_modern",
-   "home_living_sofa__day_modern"
+   "home_garage__day_modern",
+   "home_garden__day_modern",
+   "home_kids_room__day_modern",
+   "home_kitchen_island__day_modern",
+   "home_laundry__day_modern",
+   "home_living_sofa__day_modern",
+   "home_study__day_modern",
+   "svc_real_estate__day_modern"
   ],
   "hospital": [
    "hl_er_reception__day_modern",
    "hl_er_reception__night_classic",
+   "hl_hospital_lobby__day_modern",
    "hl_hospital_ward__day_modern"
   ],
   "hotel": [
-   "hos_hotel_frontdesk__day_modern"
+   "hos_conference_hall__day_modern",
+   "hos_elevator_lobby__day_modern",
+   "hos_guesthouse__day_modern",
+   "hos_hotel_bar__day_modern",
+   "hos_hotel_breakfast__day_modern",
+   "hos_hotel_frontdesk__day_modern",
+   "hos_hotel_pool_deck__day_modern",
+   "hos_hotel_suite__day_modern",
+   "hos_resort_lobby__day_modern",
+   "hos_spa__day_modern"
+  ],
+  "interview": [
+   "work_hr_office__day_modern"
+  ],
+  "jobs": [
+   "work_design_studio__day_modern",
+   "work_hr_office__day_modern",
+   "work_warehouse__day_modern"
   ],
   "kids": [
    "fam_playground__day_modern",
+   "hl_pediatric__day_modern",
+   "home_kids_room__day_modern",
+   "sch_art_room__day_modern",
+   "sch_cafeteria__day_modern",
+   "sch_gym_hall__day_modern",
+   "sch_hallway__day_modern",
+   "sch_kindergarten__day_modern",
    "spt_soccer_field__day_modern"
+  ],
+  "law": [
+   "gov_courtroom__day_modern"
   ],
   "leisure": [
    "cty_rooftop__day_modern",
    "fam_playground__day_modern",
+   "fd_bbq_terrace__day_modern",
+   "gov_library_public__day_modern",
+   "home_garden__day_modern",
+   "hos_hotel_pool_deck__day_modern",
+   "hos_spa__day_modern",
    "lei_bowling__day_modern",
+   "sch_music_room__day_modern",
+   "sch_student_lounge__day_modern",
    "spt_soccer_field__day_modern",
-   "spt_tennis_court__day_modern"
+   "spt_tennis_court__day_modern",
+   "trv_cruise_deck__day_modern"
+  ],
+  "logistics": [
+   "work_warehouse__day_modern"
   ],
   "meetings": [
    "work_boardroom__day_modern"
   ],
   "money": [
+   "shp_convenience__day_modern",
    "shp_electronics__day_modern",
+   "shp_jewelry__day_modern",
    "svc_bank_hall__day_modern",
-   "svc_bank_hall__night_classic"
+   "svc_bank_hall__night_classic",
+   "trn_gas_station__day_modern"
+  ],
+  "music": [
+   "sch_music_room__day_modern"
+  ],
+  "nature": [
+   "home_garden__day_modern"
+  ],
+  "office": [
+   "work_print_room__day_modern"
   ],
   "ordering": [
+   "fd_butcher_deli__day_modern",
+   "fd_diner__day_modern",
+   "fd_food_truck__day_modern",
+   "fd_noodle_shop__day_modern",
    "fd_pizzeria__day_modern",
    "fd_sushi_bar__day_modern"
   ],
   "paperwork": [
    "gov_city_hall__day_modern",
    "gov_city_hall__night_classic",
+   "gov_passport_photo__day_modern",
    "gov_service_counter__day_modern"
   ],
+  "pets": [
+   "hl_vet__day_modern"
+  ],
+  "problems": [
+   "gov_police_station__day_modern",
+   "svc_bike_repair__day_modern",
+   "svc_car_service__day_modern",
+   "svc_phone_repair__day_modern"
+  ],
+  "renting": [
+   "hos_guesthouse__day_modern",
+   "svc_real_estate__day_modern"
+  ],
   "restaurant": [
+   "fd_diner__day_modern",
+   "fd_noodle_shop__day_modern",
    "fd_pizzeria__day_modern",
    "fd_sushi_bar__day_modern"
   ],
   "school": [
-   "sch_lecture_hall__day_modern"
+   "sch_art_room__day_modern",
+   "sch_cafeteria__day_modern",
+   "sch_campus_quad__day_modern",
+   "sch_gym_hall__day_modern",
+   "sch_hallway__day_modern",
+   "sch_kindergarten__day_modern",
+   "sch_lecture_hall__day_modern",
+   "sch_music_room__day_modern",
+   "sch_science_lab__day_modern",
+   "sch_student_lounge__day_modern"
+  ],
+  "science": [
+   "sch_science_lab__day_modern"
   ],
   "services": [
    "svc_bank_hall__day_modern",
    "svc_bank_hall__night_classic",
-   "svc_barber__day_modern"
+   "svc_barber__day_modern",
+   "svc_bike_repair__day_modern",
+   "svc_car_service__day_modern",
+   "svc_coworking_desk__day_modern",
+   "svc_nail_salon__day_modern",
+   "svc_phone_repair__day_modern",
+   "svc_real_estate__day_modern",
+   "svc_tailor__day_modern"
   ],
   "shopping": [
+   "fd_butcher_deli__day_modern",
+   "hl_pharmacy_counter__day_modern",
+   "shp_convenience__day_modern",
    "shp_electronics__day_modern",
-   "shp_shoe_store__day_modern"
+   "shp_jewelry__day_modern",
+   "shp_shoe_store__day_modern",
+   "trv_luggage_store__day_modern"
   ],
   "small-talk": [
+   "cty_plaza__day_modern",
    "cty_plaza__night_classic",
    "cty_rooftop__day_modern",
-   "lei_bowling__day_modern"
+   "hos_hotel_bar__day_modern",
+   "lei_bowling__day_modern",
+   "work_break_room__day_modern"
   ],
   "sports": [
+   "sch_gym_hall__day_modern",
    "spt_soccer_field__day_modern",
+   "spt_swim_hall__day_modern",
    "spt_tennis_court__day_modern"
   ],
   "study": [
-   "sch_lecture_hall__day_modern"
+   "gov_library_public__day_modern",
+   "home_study__day_modern",
+   "sch_campus_quad__day_modern",
+   "sch_hallway__day_modern",
+   "sch_lecture_hall__day_modern",
+   "sch_science_lab__day_modern",
+   "trn_driving_school__day_modern"
   ],
   "tech": [
-   "shp_electronics__day_modern"
+   "home_study__day_modern",
+   "shp_electronics__day_modern",
+   "svc_phone_repair__day_modern",
+   "work_startup__day_modern"
   ],
   "transport": [
-   "trn_metro_concourse__day_modern"
+   "home_garage__day_modern",
+   "svc_bike_repair__day_modern",
+   "svc_car_service__day_modern",
+   "trn_bus_station__night_classic",
+   "trn_driving_school__day_modern",
+   "trn_ferry_terminal__day_modern",
+   "trn_gas_station__day_modern",
+   "trn_metro_concourse__day_modern",
+   "trn_tram_stop__day_modern"
   ],
   "travel": [
    "gov_embassy_wait__day_modern",
+   "hos_elevator_lobby__day_modern",
+   "hos_guesthouse__day_modern",
+   "hos_hotel_breakfast__day_modern",
    "hos_hotel_frontdesk__day_modern",
-   "trv_baggage_claim__day_modern"
+   "hos_hotel_suite__day_modern",
+   "hos_resort_lobby__day_modern",
+   "trn_bus_station__night_classic",
+   "trn_ferry_terminal__day_modern",
+   "trv_airport_checkin__night_classic",
+   "trv_baggage_claim__day_modern",
+   "trv_cruise_deck__day_modern",
+   "trv_departures_hall__day_modern",
+   "trv_luggage_store__day_modern",
+   "trv_old_town__day_modern",
+   "trv_tourist_info__day_modern"
+  ],
+  "university": [
+   "sch_campus_quad__day_modern",
+   "sch_student_lounge__day_modern"
   ],
   "visa": [
    "gov_embassy_wait__day_modern",
+   "gov_passport_photo__day_modern",
    "gov_service_counter__day_modern"
   ],
   "weekend": [
    "lei_bowling__day_modern"
   ],
   "work": [
-   "work_boardroom__day_modern"
+   "cty_downtown_avenue__day_modern",
+   "home_study__day_modern",
+   "hos_conference_hall__day_modern",
+   "svc_coworking_desk__day_modern",
+   "work_boardroom__day_modern",
+   "work_break_room__day_modern",
+   "work_design_studio__day_modern",
+   "work_hr_office__day_modern",
+   "work_print_room__day_modern",
+   "work_startup__day_modern",
+   "work_warehouse__day_modern"
   ]
  },
  "_note_wide": "owner 22/10 BG LIBRARY 3: two-host wide bgs (16:9, Ama = crop L, Carlos = crop R of one scene) by lesson topic; ids -> anchor/bg/index.json \"wide\". Legacy \"bg\" lists stay 9:16 single-host."
