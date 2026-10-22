@@ -275,8 +275,9 @@ print('== LOOK (owner 22/10: real-camera exposure, no flat band)')
 _rw = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-threads', '2', '-i', V, '-vf', 'fps=2,scale=270:480', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], capture_output=True).stdout
 _F = np.frombuffer(_rw, np.uint8).reshape(-1, 480, 270, 3).astype(np.float32) / 255; _Y = _F @ np.array([0.299, 0.587, 0.114], np.float32)
 _mean = float(_Y.mean()); _p5 = float(np.percentile(_Y, 5)); _band = float(min(_Y[k, 408:].std() for k in range(len(_Y))))
-print(f'  mean luma {_mean:.3f} (0.42-0.55), p5 {_p5:.3f} (>= 0.06), bottom-15 % luma std min {_band:.3f} (> 0.03 = no flat band)')
-if not 0.42 <= _mean <= 0.55: fails.append('luma-mean')
+print(f'  mean luma {_mean:.3f} (0.42-0.55; night/dusk bg 0.38), p5 {_p5:.3f} (>= 0.06), bottom-15 % luma std min {_band:.3f} (> 0.03 = no flat band)')
+_lo = 0.38 if re.search(r'night|dusk', str(tl['lesson'].get('bg', ''))) else 0.42   # night/dusk scenes: dark sky by design
+if not _lo <= _mean <= 0.55: fails.append('luma-mean')
 if _p5 < 0.06: fails.append('luma-p5')
 if _band <= 0.03: fails.append('flat-band')
 import cv2 as _cv; _sk = []
