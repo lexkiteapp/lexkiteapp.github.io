@@ -197,5 +197,71 @@ for (const f of [{ offset: 'abc' }, { offset: 'Infinity', limit: 'NaN' }, { offs
   ok(upCalls.length === n0, 'yêu cầu bị từ chối không gọi tới GitHub');
   globalThis.fetch = savedFetch; }
 
+// ---------- /api/admin-shorts nguồn Kho Drive (không cần SHORTS_READ_TOKEN): manifest + media qua OAuth của kho, Range, URL ký ----------
+{ const SH = await import(new URL('../../functions/api/admin-shorts.js', import.meta.url)), DRV = await import(new URL('../../functions/api/drive.js', import.meta.url));
+  const GSEC = 'gsec_SECRET_drive_0007', REFRESH = '1//R_SECRET_shorts_0008', ACCESS = 'ya29.SECRET_access_0009';
+  const DENV = { ...ENV, GOOGLE_DRIVE_CLIENT_ID: 'cid.apps.googleusercontent.com', GOOGLE_DRIVE_CLIENT_SECRET: GSEC };
+  const leakD = t => [GSEC, REFRESH, ACCESS].some(v => t.includes(v)) || leaks(t);
+  await DRV.latestFile(DENV, 'x', 'y'); // tạo bảng
+  const e = await DRV.encryptToken(DENV, REFRESH, 'pool1@gmail.com');
+  sql.prepare("INSERT INTO drives (email, enc_token, iv, quota_total, quota_used, status, weight, created) VALUES (?, ?, ?, 1, 0, 'ok', 100, ?)").run('pool1@gmail.com', e.enc_token, e.iv, Date.now());
+  const DID = sql.prepare('SELECT id FROM drives WHERE email = ?').get('pool1@gmail.com').id;
+  const ins = (fid, at) => sql.prepare("INSERT INTO drive_files (drive_id, file_id, sha256, name, folder, mime, size, status, created, done) VALUES (?, ?, ?, 'admin-shorts.json', 'shorts/_admin', 'application/json', 10, 'ok', ?, ?)").run(DID, fid, 'a'.repeat(64), at, at);
+  ins('MANIFEST_old_0001', 1000); ins('MANIFEST_new_0002', 2000);
+  const VP = 'shorts/news/n_1/news-n-1-en-v1.mp4', CP = 'shorts/news/n_1/news-n-1-en-v1.jpg';
+  const MAN = { index: { updated: '2026-10-22T00:00:00Z', items: [{ id: 'n1', video: VP, cover: CP, qa: { status: 'pass' }, drive: { video: { driveId: DID, fileId: 'VIDEO_file_00001' }, cover: { driveId: DID, fileId: 'COVER_file_00001' } } },
+    { id: 'n2', video: 'shorts/news/n_2/news-n-2-en-v1.mp4', cover: 'shorts/news/n_2/news-n-2-en-v1.jpg' }] }, coverage: { from: 'drive-manifest' }, calendar: { per_day: 2 }, credits: { total: 1 } };
+  const BLOB = new Uint8Array(1000).map((_, i) => i % 251), saved = globalThis.fetch; let gcalls = [], honor = true;
+  globalThis.fetch = async (url, o = {}) => {
+    const u = String(url);
+    if (u === 'https://oauth2.googleapis.com/token') { const b = Object.fromEntries(o.body); gcalls.push({ u: 'token' }); return new Response(JSON.stringify(b.refresh_token === REFRESH && b.client_secret === GSEC ? { access_token: ACCESS, expires_in: 3599 } : { error: 'invalid_grant' }), { status: b.refresh_token === REFRESH ? 200 : 400 }); }
+    const m0 = u.match(/^https:\/\/www\.googleapis\.com\/drive\/v3\/files\/([^?]+)\?alt=media$/);
+    if (m0) {
+      const h = o.headers || {}; gcalls.push({ f: m0[1], auth: h.Authorization, range: h.Range });
+      if (h.Authorization !== 'Bearer ' + ACCESS) return new Response('no', { status: 401 });
+      if (m0[1] === 'MANIFEST_new_0002') return new Response(JSON.stringify(MAN), { status: 200 });
+      if (m0[1] === 'MANIFEST_old_0001') return new Response(JSON.stringify({ index: { items: [] } }), { status: 200 });
+      if (m0[1] === 'COVER_file_00001') return new Response('JPEGDATA', { status: 200, headers: { 'Content-Length': '8' } });
+      if (m0[1] !== 'VIDEO_file_00001') return new Response('nf', { status: 404 });
+      const r = /^bytes=(\d+)-(\d*)$/.exec(h.Range || '');
+      if (r && honor) { const a = +r[1], z = r[2] ? +r[2] : BLOB.length - 1; return new Response(BLOB.slice(a, z + 1), { status: 206, headers: { 'Content-Range': `bytes ${a}-${z}/${BLOB.length}`, 'Content-Length': String(z - a + 1) } }); }
+      return new Response(BLOB, { status: 200, headers: { 'Content-Length': String(BLOB.length) } });
+    }
+    return saved(url, o);
+  };
+  SH._memo.reset();
+  for (const [who, r] of [['không token', req('/api/admin-shorts', { op: 'list' })], ['người học', req('/api/admin-shorts', { op: 'sign', path: VP }, { token: USER })], ['origin lạ', req('/api/admin-shorts', { op: 'list' }, { token: ADM, origin: 'https://evil.example' })]]) {
+    const x = await run(SH, r, DENV); ok(x.s === 403 && !leakD(x.text), `admin-shorts Drive (${who}) → 403 (${x.s})`);
+  }
+  ok(gcalls.length === 0, 'yêu cầu không phải quản trị không gọi Google');
+  const L = await run(SH, req('/api/admin-shorts', { op: 'list' }, { token: ADM }), DENV);
+  ok(L.s === 200 && L.j.source === 'drive' && L.j.media === true && L.j.items.length === 2 && L.j.coverage && L.j.coverage.from === 'drive-manifest' && !leakD(L.text), 'list → manifest mới nhất từ Kho Drive (không token GitHub), kèm thống kê, không lộ khóa');
+  ok(/^\/api\/admin-shorts\?f=COVER_file_00001&d=\d+&k=c&n=news-n-1-en-v1&e=\d+&s=[\w-]{43}$/.test(L.j.covers[CP] || '') && !L.j.covers['shorts/news/n_2/news-n-2-en-v1.jpg'], 'bìa có item.drive → URL ký Drive; item chưa lên Drive → không có URL');
+  ok(gcalls.filter(c => c.f).every(c => c.f === 'MANIFEST_new_0002'), 'đọc đúng bản manifest mới nhất (theo done)');
+  const sg = await run(SH, req('/api/admin-shorts', { op: 'sign', path: VP }, { token: ADM }), DENV);
+  ok(sg.s === 200 && /^\/api\/admin-shorts\?f=VIDEO_file_00001&d=\d+&k=v&/.test(sg.j.url) && !leakD(sg.text), 'sign video → URL ký Drive');
+  ok((await run(SH, req('/api/admin-shorts', { op: 'sign', path: 'shorts/news/n_2/news-n-2-en-v1.mp4' }, { token: ADM }), DENV)).s === 404, 'sign file chưa có trên Drive (không token) → 404');
+  const get = async (url, headers = {}, env = DENV) => { const res = await SH.onRequestGet({ request: new Request('https://lexkite.com' + url, { headers: { 'CF-Connecting-IP': '10.7.0.' + (ipN++ % 250), ...headers } }), env }); return { s: res.status, h: res.headers, b: new Uint8Array(await res.arrayBuffer()) }; };
+  const U = sg.j.url;
+  let g = await get(U); ok(g.s === 200 && g.b.length === 1000 && g.h.get('Content-Type') === 'video/mp4' && g.h.get('Accept-Ranges') === 'bytes' && /private, max-age=\d+/.test(g.h.get('Cache-Control')) && g.h.get('X-Content-Type-Options') === 'nosniff' && /filename="news-n-1-en-v1\.mp4"/.test(g.h.get('Content-Disposition')), 'GET Drive ký đúng → 200 video/mp4, cache riêng tư');
+  ok(gcalls.at(-1).f === 'VIDEO_file_00001' && gcalls.at(-1).auth === 'Bearer ' + ACCESS, 'GET gọi Drive alt=media bằng access token của kho');
+  g = await get(U, { Range: 'bytes=10-19' }); ok(g.s === 206 && g.b.length === 10 && g.b[0] === 10 && g.h.get('Content-Range') === 'bytes 10-19/1000' && gcalls.at(-1).range === 'bytes=10-19', 'Range chuyển tiếp tới Drive → 206');
+  honor = false;
+  g = await get(U, { Range: 'bytes=-5' }); ok(g.s === 206 && g.b.length === 5 && g.h.get('Content-Range') === 'bytes 995-999/1000', 'Drive bỏ qua Range → tự cắt 206');
+  g = await get(U, { Range: 'bytes=5000-' }); ok(g.s === 416, 'Range vượt kích thước → 416');
+  honor = true; const n0 = gcalls.length;
+  ok((await get(U, { Range: 'bytes=0-1,5-9' })).s === 416, 'Range nhiều đoạn → 416');
+  ok((await get(U.replace(/s=[^&]+/, 's=' + 'A'.repeat(43)))).s === 403, 'Drive: chữ ký sai → 403');
+  ok((await get(U.replace('f=VIDEO_file_00001', 'f=MANIFEST_new_0002'))).s === 403, 'Drive: đổi fileId giữ chữ ký → 403');
+  ok((await get(U.replace(/d=\d+/, 'd=' + (DID + 1)))).s === 403, 'Drive: đổi driveId → 403');
+  ok((await get(U.replace('k=v', 'k=c'))).s === 403, 'Drive: đổi loại → 403');
+  ok((await get(U.replace(/e=\d+/, m => 'e=' + (+m.slice(2) + 1)))).s === 403, 'Drive: sửa hạn → 403');
+  ok((await get(U.replace('f=VIDEO_file_00001', 'f=..%2F..%2Fx'))).s === 400 && (await get(U.replace('k=v', 'k=x'))).s === 400 && (await get(U.replace(/n=[^&]+/, 'n=a%22b'))).s === 400, 'Drive: tham số sai dạng → 400');
+  ok((await get(U, {}, ENV)).s === 503, 'Drive: thiếu cấu hình kho → 503');
+  ok(gcalls.length === n0, 'yêu cầu bị từ chối không gọi Google');
+  const cu = L.j.covers[CP]; g = await get(cu); const g2 = await get(cu);
+  ok(g.s === 200 && new TextDecoder().decode(g.b) === 'JPEGDATA' && g.h.get('Content-Type') === 'image/jpeg' && g2.s === 200 && new TextDecoder().decode(g2.b) === 'JPEGDATA' && gcalls.filter(c => c.f === 'COVER_file_00001').length === 1, 'bìa Drive → đệm Cache API (lần 2 không gọi Drive)');
+  globalThis.fetch = saved; SH._memo.reset(); }
+
 console.log(`api-security: ${n - fails}/${n} ok`);
 if (fails) process.exit(1);

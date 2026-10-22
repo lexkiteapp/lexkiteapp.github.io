@@ -243,7 +243,7 @@ $('#tabs a[data-tab="video"]').click(); await tick(80);
 {
   const m = $('#main'), cards = () => m.querySelectorAll('.vid-card');
   ok(h1() === 'Video library' && cards().length === 3, 'tab Thư viện video: tiêu đề EN + 3 thẻ (' + cards().length + ')');
-  ok(!w.__pwn && !m.querySelector('.vid-grid img') && /Needs token/.test(m.textContent) && /SHORTS_READ_TOKEN/.test(m.textContent), 'chưa có token: không bìa, hiện "cần token", dữ liệu độc không thành HTML');
+  ok(!w.__pwn && !m.querySelector('.vid-grid img') && /Unavailable/.test(m.textContent) && /Drive pool/.test(m.textContent), 'chưa có token: không bìa, hiện "cần token", dữ liệu độc không thành HTML');
   const sel = k => m.querySelector(`select[data-f="${k}"]`), ch = (el, v) => { el.value = v; el.dispatchEvent(new w.Event('change')); };
   ch(sel('format'), 'news'); ok(cards().length === 1 && cards()[0].dataset.id === 'n1', 'lọc định dạng bản tin'); ch(sel('format'), '');
   ch(sel('status'), 'fail'); ok(cards().length === 1 && cards()[0].dataset.id === 'x1', 'lọc QA chưa đạt'); ch(sel('status'), 'none'); ok(cards().length === 1, 'lọc chưa xếp lịch'); ch(sel('status'), '');
@@ -251,7 +251,7 @@ $('#tabs a[data-tab="video"]').click(); await tick(80);
   const fr = m.querySelector('[data-f="from"]'); ch(fr, '2026-10-21'); ok(cards().length === 1, 'lọc theo ngày'); ch(fr, '');
   leak('#video');
   cards()[0].click(); await tick(40);
-  const dl = d.querySelector('dialog.vid-dlg'); ok(dl && /ALL PASS/.test(dl.textContent) && !dl.querySelector('video') && /SHORTS_READ_TOKEN/.test(dl.textContent), 'mở modal: QA + chưa tải video khi chưa có token');
+  const dl = d.querySelector('dialog.vid-dlg'); ok(dl && /ALL PASS/.test(dl.textContent) && !dl.querySelector('video') && /Drive pool/.test(dl.textContent), 'mở modal: QA + chưa tải video khi chưa có token');
   dl.querySelector('[data-c="hashtags"]').click(); await tick(); ok(copied === '#a #b', 'chép hashtag');
   leak('#video modal'); dl.querySelector('[data-x]').click(); ok(!d.querySelector('dialog.vid-dlg'), 'đóng modal');
   m.querySelector('[data-t="stats"]').click(); await tick();

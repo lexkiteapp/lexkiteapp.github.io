@@ -1,5 +1,7 @@
 // Sao lưu shorts ĐẠT (lexkite-shorts) lên Kho Drive riêng (functions/api/drive.js, docs/ASSET-LIBRARY.md §8.6).
 // Dùng: node scripts/video/drive-shorts.mjs --repo /tmp/shorts [--limit N] [--dry-run] [--pause-ms 1500]
+//       node scripts/video/drive-shorts.mjs --manifest <admin-shorts.json>  → chỉ tải manifest thư viện quản trị lên kho
+//         (shorts/_admin/admin-shorts.json, 2 bản sao; admin-shorts.js đọc bản mới nhất theo sổ drive_files – không cần token GitHub)
 //   env: LEXKITE_DRIVE_CLI_KEY (secret GitHub Actions / ~/.config/lexkite/drive-cli-key) – không bao giờ in ra.
 // Mỗi short = mp4 + ảnh bìa → folder shorts/<cảnh>/<bài>, cls 'render' (luật kho: 1 bản sao, máy chủ chọn Drive theo tỉ lệ đã dùng).
 // Chống trùng 2 lớp: index.json có item.drive.{video,cover} khớp sha → bỏ qua; máy chủ trả done khi sha đã có (chỉ ghi lại vị trí).
@@ -11,6 +13,16 @@ import { driveApi, driveUpload } from './library.mjs';
 
 const args = process.argv.slice(2), opt = n => { const i = args.indexOf('--' + n); return i >= 0 ? args[i + 1] : undefined; };
 const REPO = opt('repo') || '/tmp/shorts', LIMIT = +(opt('limit') || 1e9), DRY = args.includes('--dry-run'), PAUSE = +(opt('pause-ms') || 1500);
+const MAN = opt('manifest');
+if (MAN) {
+  const m = JSON.parse(fs.readFileSync(MAN, 'utf8')), items = (m.index || {}).items || [];
+  if (!items.length) { console.error('✗ manifest rỗng'); process.exit(1); }
+  const r = await driveUpload(MAN, { name: 'admin-shorts.json', folder: 'shorts/_admin', sha: crypto.createHash('sha256').update(fs.readFileSync(MAN)).digest('hex'), mimeType: 'application/json', cls: 'render', replicas: 2, assetId: 'admin-shorts-manifest' });
+  const onDrive = items.filter(i => (i.drive || {}).video).length;
+  console.log(`manifest → Drive ${r.driveId} (${r.copies.length || 1} bản) · ${items.length} short · ${onDrive} có video trên kho`);
+  if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `Manifest thư viện quản trị: ${items.length} short, ${onDrive} có video trên Kho Drive\n`);
+  process.exit(0);
+}
 const IDX = path.join(REPO, 'shorts', 'index.json');
 const idx = JSON.parse(fs.readFileSync(IDX, 'utf8'));
 const sha = f => crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');

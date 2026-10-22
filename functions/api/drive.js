@@ -715,6 +715,21 @@ export async function handleDownload(request, env) {
   } catch (e) { return new Response('drive error', { status: e.status || 502 }); }
 }
 
+// ---------- đọc file cho module quản trị khác (admin-shorts.js) ----------
+/** Bản ghi mới nhất (status ok) theo thư mục + tên cố định trong sổ kho – vd manifest thư viện video shorts/_admin/admin-shorts.json. */
+export async function latestFile(env, folder, name) {
+  await setup(env.DB);
+  return one(env.DB, "SELECT drive_id, file_id, sha256, size FROM drive_files WHERE folder = ? AND name = ? AND status = 'ok' AND file_id IS NOT NULL ORDER BY COALESCE(done, created) DESC, id DESC LIMIT 1", folder, name);
+}
+/** alt=media của 1 file trên Drive driveId (refresh token giải mã trong D1, access token chỉ trong bộ nhớ), chuyển tiếp Range. Trả Response của Google. */
+export async function driveMedia(env, driveId, fileId, range = '') {
+  await setup(env.DB);
+  const row = await one(env.DB, 'SELECT * FROM drives WHERE id = ?', +driveId);
+  if (!row || lost(row.status)) throw new DriveErr('not-found', 404);
+  const at = await accessToken(env, env.DB, row);
+  return gfetch(`https://www.googleapis.com/drive/v3/files/${encodeURIComponent(fileId)}?alt=media`, { headers: { Authorization: 'Bearer ' + at, ...(range ? { Range: range } : {}) } });
+}
+
 // ---------- GET /api/drive/thumb ----------
 /** Ảnh thu nhỏ qua proxy (link ký 6–7 h, cache Cloudflare) – thumbnailLink và token Google không bao giờ tới trình duyệt. */
 export const handleThumb = (request, env) => serveThumb(request, env, { verifyThumb, setupDb: setup, one, accessToken, limit, gfetch });

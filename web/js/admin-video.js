@@ -1,17 +1,17 @@
 /* Quản trị → "🎬 Thư viện video": duyệt & xem mọi short đã dựng (repo riêng tư lexkite-shorts) + thống kê đầy đủ.
  * Tải lười khi mở tab (admin.js). AdminVideo.render(container, vapi, L, { esc, lang, toast })
  *   vapi(op, body) → POST /api/admin-shorts (functions/api/admin-shorts.js, adminGate). Bìa/video = URL ký ngắn hạn do máy chủ cấp
- *   (không có SHORTS_READ_TOKEN → chỉ manifest, bìa/video hiện "cần token"). Biểu đồ = SVG nội tuyến, không thư viện. Chữ EN ở bảng EN. */
+ *   (nguồn: Kho Drive riêng – không cần token GitHub; kho chưa sẵn sàng → manifest gói sẵn, bìa/video hiện "chưa có"). Biểu đồ = SVG nội tuyến, không thư viện. Chữ EN ở bảng EN. */
 (function () {
   const EN = {
     'Đang tải…': 'Loading…', 'Không tải được thư viện: {e}': 'Could not load the library: {e}', '🔄 Tải lại': '🔄 Reload',
     'Thư viện': 'Library', 'Thống kê': 'Statistics', 'Tìm điểm học, tiêu đề, mã…': 'Search learning point, title, id…', 'Tìm kiếm': 'Search',
     'Định dạng': 'Format', 'Cảnh/chủ đề': 'Scene/topic', 'Mẫu': 'Template', 'Trạng thái': 'Status', 'Từ ngày': 'From', 'Đến ngày': 'To', 'Tất cả': 'All', 'Xóa lọc': 'Clear filters',
     'Bản tin': 'News', 'Cảnh': 'Scene', 'QA đạt': 'QA passed', 'QA chưa đạt': 'QA failed', 'Đã lên lịch': 'Scheduled', 'Đã tới lịch': 'Slot passed', 'Chưa xếp lịch': 'Unscheduled', 'Bị loại': 'Rejected', 'Tạm dừng': 'Paused',
-    '{n} video': '{n} videos', 'Không có video khớp bộ lọc.': 'No videos match the filters.', 'Cần token': 'Needs token', 'Mở video {t}': 'Open video {t}',
-    '⚠️ Chưa có SHORTS_READ_TOKEN: đang dùng manifest gói sẵn (cập nhật {d}); bìa và video chưa xem được. Xem docs/SHORTS-ACCESS.md.': '⚠️ SHORTS_READ_TOKEN is not set: using the bundled manifest (updated {d}); covers and videos are unavailable. See docs/SHORTS-ACCESS.md.',
-    'Nguồn: repo riêng lexkite-shorts (trực tiếp)': 'Source: private repo lexkite-shorts (live)', 'Nguồn: manifest gói sẵn': 'Source: bundled manifest',
-    'Đóng': 'Close', 'Tải xuống': 'Download', 'Video cần SHORTS_READ_TOKEN trên Cloudflare Pages để phát.': 'Playing videos needs SHORTS_READ_TOKEN on Cloudflare Pages.',
+    '{n} video': '{n} videos', 'Không có video khớp bộ lọc.': 'No videos match the filters.', 'Chưa có': 'Unavailable', 'Mở video {t}': 'Open video {t}',
+    '⚠️ Kho Drive chưa đọc được: đang dùng manifest gói sẵn (cập nhật {d}); bìa và video chưa xem được. Xem docs/SHORTS-ACCESS.md.': '⚠️ The Drive pool is not readable: using the bundled manifest (updated {d}); covers and videos are unavailable. See docs/SHORTS-ACCESS.md.',
+    'Nguồn: repo riêng lexkite-shorts (trực tiếp)': 'Source: private repo lexkite-shorts (live)', 'Nguồn: manifest gói sẵn': 'Source: bundled manifest', 'Nguồn: Kho Drive riêng (trực tiếp)': 'Source: private Drive pool (live)',
+    'Đóng': 'Close', 'Tải xuống': 'Download', 'Video chưa có trên Kho Drive.': 'This video is not on the Drive pool yet.',
     'Không lấy được link video: {e}': 'Could not get the video link: {e}', 'Chép tiêu đề': 'Copy title', 'Chép mô tả': 'Copy description', 'Chép hashtag': 'Copy hashtags', 'Đã chép': 'Copied',
     'Điểm học': 'Learning point', 'Lĩnh vực': 'Area', 'Thời lượng': 'Duration', 'Dung lượng': 'Size', 'Ngày dựng': 'Rendered', 'Lượt CI': 'CI run', 'Lịch đăng': 'Publish slot', 'Chuỗi': 'Series', 'Ngôn ngữ': 'Language',
     'Kết quả QA': 'QA result', 'Mục đạt': 'Checks OK', 'Mục lỗi': 'Checks failed', 'Khớp môi lệch tối đa': 'Max lip-sync error', 'Phụ đề tối đa (ký tự/giây)': 'Max caption speed (cps)', 'Tiêu đề': 'Title', 'Mô tả': 'Description',
@@ -67,8 +67,8 @@
       const items = Array.isArray(data.items) ? data.items : [], covers = data.covers || {}, f = state.f;
       const uniq = k => [...new Set(items.map(x => x[k]).filter(Boolean))].sort();
       const opt = (k, vals, lab = x => x) => `<select data-f="${k}" aria-label="${esc(V({ format: 'Định dạng', scene: 'Cảnh/chủ đề', template: 'Mẫu', cefr: 'CEFR', status: 'Trạng thái' }[k]))}"><option value="">${esc(V({ format: 'Định dạng', scene: 'Cảnh/chủ đề', template: 'Mẫu', cefr: 'CEFR', status: 'Trạng thái' }[k]))}: ${V('Tất cả')}</option>${vals.map(v => `<option value="${esc(v)}"${f[k] === v ? ' selected' : ''}>${esc(lab(v))}</option>`).join('')}</select>`;
-      box.innerHTML = `<div class="vid-tabs" role="group"><button class="btn sm" data-t="lib" aria-pressed="${state.tab === 'lib'}">${V('Thư viện')}</button><button class="btn sm" data-t="stats" aria-pressed="${state.tab === 'stats'}">${V('Thống kê')}</button><span class="small muted" style="margin-left:auto;align-self:center">${esc(data.source === 'repo' ? V('Nguồn: repo riêng lexkite-shorts (trực tiếp)') : V('Nguồn: manifest gói sẵn'))}</span></div>
-        ${data.media ? '' : `<div class="vid-note" role="note">${esc(V('⚠️ Chưa có SHORTS_READ_TOKEN: đang dùng manifest gói sẵn (cập nhật {d}); bìa và video chưa xem được. Xem docs/SHORTS-ACCESS.md.', { d: day(data.updated) || '–' }))}</div>`}
+      box.innerHTML = `<div class="vid-tabs" role="group"><button class="btn sm" data-t="lib" aria-pressed="${state.tab === 'lib'}">${V('Thư viện')}</button><button class="btn sm" data-t="stats" aria-pressed="${state.tab === 'stats'}">${V('Thống kê')}</button><span class="small muted" style="margin-left:auto;align-self:center">${esc(data.source === 'drive' ? V('Nguồn: Kho Drive riêng (trực tiếp)') : data.source === 'repo' ? V('Nguồn: repo riêng lexkite-shorts (trực tiếp)') : V('Nguồn: manifest gói sẵn'))}</span></div>
+        ${data.media ? '' : `<div class="vid-note" role="note">${esc(V('⚠️ Kho Drive chưa đọc được: đang dùng manifest gói sẵn (cập nhật {d}); bìa và video chưa xem được. Xem docs/SHORTS-ACCESS.md.', { d: day(data.updated) || '–' }))}</div>`}
         <div id="vid-body"></div>`;
       box.querySelectorAll('[data-t]').forEach(b => { b.onclick = () => { state.tab = b.dataset.t; draw(data); }; });
       const body = box.querySelector('#vid-body');
@@ -87,7 +87,7 @@
           && (!q || [it.point, it.title, it.id, it.lesson, it.area].some(x => String(x || '').toLowerCase().includes(q))));
         body.querySelector('#vid-n').textContent = V('{n} video', { n: num(list.length) });
         grid.innerHTML = list.length ? list.map(it => { const c = covers[it.cover], bad = !it.qa || it.qa.status !== 'pass';
-          return `<button class="vid-card" data-id="${esc(it.id)}" aria-label="${esc(V('Mở video {t}', { t: it.title || it.id }))}"><div class="vid-th">${c ? `<img loading="lazy" decoding="async" alt="" src="${esc(c)}">` : `<span>🎬<br>${V('Cần token')}</span>`}
+          return `<button class="vid-card" data-id="${esc(it.id)}" aria-label="${esc(V('Mở video {t}', { t: it.title || it.id }))}"><div class="vid-th">${c ? `<img loading="lazy" decoding="async" alt="" src="${esc(c)}">` : `<span>🎬<br>${V('Chưa có')}</span>`}
             <span class="vid-badge${bad ? ' bad' : ''}">${bad ? '✗' : '✓'} QA</span>${it.duration ? `<span class="vid-dur">${esc(secs(it.duration))}</span>` : ''}</div>
             <div class="vid-meta"><b>${esc(it.title || it.point || it.id)}</b><span>${esc([it.scene, it.template, it.cefr].filter(Boolean).join(' · '))}</span><span>${esc(it.rejected ? '⛔ ' + V('Bị loại') + ': ' + it.rejected : it.paused ? '⏸ ' + V('Tạm dừng') + ': ' + it.paused : it.slot ? it.slot.date + ' ' + it.slot.time : V(PUB.none))}</span></div></button>`; }).join('') : `<p class="muted">${V('Không có video khớp bộ lọc.')}</p>`;
         grid.querySelectorAll('.vid-card').forEach(b => { b.onclick = () => open(items.find(x => x.id === b.dataset.id), data); });
@@ -104,7 +104,7 @@
       const qa = it.qa || {}, cover = (data.covers || {})[it.cover];
       const row = (k, v) => (v == null || v === '' ? '' : `<tr><th scope="row">${esc(V(k))}</th><td>${esc(v)}</td></tr>`);
       d.innerHTML = `<div class="card-h" style="padding:.8rem 1rem;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:.5rem;align-items:center"><b>${esc(it.title || it.id)}</b><button class="btn ghost sm" data-x>${V('Đóng')}</button></div>
-        <div class="in"><div id="vid-pl"><div class="vid-ph">${data.media ? V('Đang tải…') : esc(V('Video cần SHORTS_READ_TOKEN trên Cloudflare Pages để phát.'))}</div></div><div>
+        <div class="in"><div id="vid-pl"><div class="vid-ph">${data.media ? V('Đang tải…') : esc(V('Video chưa có trên Kho Drive.'))}</div></div><div>
         <p style="margin:0 0 .5rem"><span class="vid-badge${qa.status === 'pass' ? '' : ' bad'}" style="position:static">${qa.status === 'pass' ? '✓' : '✗'} QA ${esc(qa.result || '')}</span></p>
         <table class="vid-kv"><tbody>${row('Điểm học', it.point)}${row('Định dạng', V(FMT[it.format] || it.format))}${row('Cảnh/chủ đề', it.scene)}${row('Mẫu', it.template)}${row('Lĩnh vực', it.area)}${row('CEFR', it.cefr)}${row('Chuỗi', it.series)}${row('Ngôn ngữ', it.lang)}
         ${row('Thời lượng', secs(it.duration))}${row('Dung lượng', mb(it.bytes))}${row('Ngày dựng', it.created ? new Date(it.created).toLocaleString(LOC()) : '')}${row('Lượt CI', it.run)}

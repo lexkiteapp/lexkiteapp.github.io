@@ -1,28 +1,26 @@
-# Thư viện video quản trị – quyền đọc kho riêng `lexkite-shorts`
+# Thư viện video quản trị – phát từ Kho Drive riêng (không cần token GitHub)
 
 Quản trị → **🎬 Thư viện video** (`web/js/admin-video.js`) gọi `functions/api/admin-shorts.js` (sau `adminGate`).
-Bìa và video nằm trong repo **riêng tư** `lexkiteapp/lexkite-shorts`; máy chủ đọc bằng một token chỉ-đọc rồi phát lại qua URL ký
-ngắn hạn (HMAC, ≤ 2 giờ, hỗ trợ HTTP Range). Token không bao giờ tới trình duyệt.
+Bản gốc nằm ở repo **riêng tư** `lexkiteapp/lexkite-shorts`; bản phát cho admin nằm ở **Kho Drive riêng** (`functions/api/drive.js`,
+3 Google Drive của chủ, ≈ 46 GB trống). Máy chủ đọc Drive bằng refresh token OAuth của kho (mã hoá AES-GCM trong D1) rồi phát lại qua
+URL ký ngắn hạn (HMAC từ `DRIVE_ENC_KEY`, ≤ 2 giờ, chuyển tiếp HTTP Range tới `alt=media`). Token không bao giờ tới trình duyệt.
 
-Chưa có token → trang vẫn chạy với manifest gói sẵn `functions/api/_shorts_data.js` (lọc, thống kê, chép tiêu đề/mô tả đều dùng được);
-ô bìa/video hiện "Cần token".
+## Việc của chủ: KHÔNG CÒN (từ 22/10/2026)
 
-## Việc của chủ (một lần, ~3 phút)
+Không cần tạo `SHORTS_READ_TOKEN`. Secret dùng lại đã có trên Cloudflare Pages: `GOOGLE_DRIVE_CLIENT_ID`, `GOOGLE_DRIVE_CLIENT_SECRET`,
+`DRIVE_ENC_KEY` (Kho Drive). Kiểm: mở `/admin.html#video` → dòng nguồn "Kho Drive riêng (trực tiếp)", bìa hiện, bấm video phát được.
 
-- [ ] 1. GitHub → Settings → Developer settings → **Fine-grained tokens** → *Generate new token*
-  (https://github.com/settings/personal-access-tokens/new)
-  - Token name: `lexkite-admin-shorts-read`
-  - Resource owner: **lexkiteapp**
-  - Expiration: 1 năm (đặt nhắc gia hạn)
-  - Repository access: **Only select repositories → `lexkiteapp/lexkite-shorts`** (chỉ repo này)
-  - Permissions → Repository permissions → **Contents: Read-only** (Metadata: Read-only tự bật). Không cấp quyền nào khác.
-  - Nếu tổ chức bật duyệt token: vào lexkiteapp → Settings → Personal access tokens → Pending requests → Approve.
-- [ ] 2. Cloudflare → Workers & Pages → **lexkite** → Settings → Variables and Secrets → *Add* (môi trường **Production**,
-  thêm cả Preview nếu muốn xem trên bản xem trước): Type **Secret**, Name **`SHORTS_READ_TOKEN`**, Value = token vừa tạo.
-- [ ] 3. Deployments → *Retry deployment* bản mới nhất (secret chỉ có hiệu lực sau khi triển khai lại).
-- [ ] 4. Mở `/admin.html#video`: dòng nguồn phải là "repo riêng lexkite-shorts (trực tiếp)", bìa hiện, bấm một video phát được.
+## Luồng
 
-Không dùng token `gh` cá nhân hay token có quyền ghi làm secret máy chủ. Thu hồi: xóa token trên GitHub → trang tự quay về chế độ manifest.
+1. `cine-render.yml` (cả bản tin `scene=news`) lưu bài ĐẠT vào `lexkite-shorts` + `shorts/index.json`.
+2. `drive-shorts.yml` (sau mỗi cine-render + hằng ngày 04:23 UTC + chạy tay): tải mp4 + bìa lên kho (`scripts/video/drive-shorts.mjs`),
+   ghi `item.drive.{video,cover}` (driveId, fileId) vào `shorts/index.json`, rồi `shorts_index.py manifest` (index + coverage + lịch + credit)
+   → tải lên kho `shorts/_admin/admin-shorts.json` (2 bản sao, mỗi lượt 1 file mới có `built`).
+3. `admin-shorts.js` lấy manifest = dòng mới nhất (`status ok`) của `drive_files` theo thư mục + tên cố định → đọc từ Drive (đệm 5 phút/isolate).
+   Bìa/video: URL ký `?f=<fileId>&d=<driveId>&k=v|c&n=<tên>&e&s` → Drive `alt=media` (Range chuyển tiếp; Drive bỏ qua Range → tự cắt).
+   Bìa đệm Cache API Cloudflare 1 ngày (khóa băm bí mật) → không tốn hạn mức Drive API; trình duyệt `private, max-age=3600`.
+4. Thứ tự dự phòng manifest/media: Kho Drive → repo riêng (chỉ khi secret tuỳ chọn `SHORTS_READ_TOKEN` tình cờ tồn tại) → bản gói sẵn
+   `functions/api/_shorts_data.js` (không media). Short chưa lên kho → không có bìa/video cho tới lượt drive-shorts kế tiếp.
 
 ## Dữ liệu
 
@@ -32,4 +30,5 @@ Không dùng token `gh` cá nhân hay token có quyền ghi làm secret máy ch�
 | `functions/api/_shorts_data.js` (repo công khai, chỉ phục vụ sau adminGate) | `python3 scripts/cine/shorts_index.py public <index.json>` | bản sao manifest + `coverage.json` + lịch đăng + tóm tắt credit; không media |
 | `content/video/cine/credits.json` | `python3 scripts/cine/credits_summary.py "<thư mục repo chính>"` | chỉ tổng credit theo kho/ngày; sổ `ledger.txt` (có mã tác vụ Kling) không commit |
 
-Làm mới bản gói sẵn sau một đợt dựng mới: tải `shorts/index.json` của repo riêng → chạy lệnh `public` → commit.
+Bản gói sẵn chỉ còn là dự phòng; làm mới khi muốn: tải `shorts/index.json` của repo riêng → chạy lệnh `public` → commit.
+Manifest sống: `python3 scripts/cine/shorts_index.py manifest <index.json> <out.json>` (drive-shorts.yml tự chạy).
