@@ -35,14 +35,14 @@ button, input { font: inherit; color: inherit; }
 .nt-word { font-size: 2.75rem; font-weight: 800; letter-spacing: -.01em; line-height: 1.1; margin: 0; overflow-wrap: anywhere; }
 .nt-chips { display: inline-flex; flex-wrap: wrap; gap: 4px; align-items: center; }
 .chip { font-size: .7rem; font-weight: 700; padding: 1px 7px; border-radius: 99px; background: var(--chip); color: var(--ink); white-space: nowrap; line-height: 1.5; }
-.chip.pos { font-style: italic; font-weight: 600; } .chip.cefr { background: #FFB054; color: #3B1D06; } .chip.exam { background: transparent; border: 1px solid var(--line); color: var(--mut); }
-.nt-pron { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 6px; margin-top: 4px; color: var(--mut); font-size: .92rem; }
-.nt-pron .ipa { font-family: "Lucida Sans Unicode", "Segoe UI", "Noto Sans", sans-serif; color: var(--ink); opacity: .9; }
-.nt-pron .sep { opacity: .45; }
-.ib { width: 28px; height: 28px; border: 0; border-radius: 8px; background: transparent; color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 1px; padding: 0 4px; width: auto; min-width: 28px; font-size: .85rem; }
-.ib:hover, .ib[aria-pressed="true"] { background: var(--chip); }
-.ib svg { opacity: .9; }
-
+.chip.pos { background: #f1f2f8; color: #565a6e; font-weight: 600; font-size: 11px; }
+@media (prefers-color-scheme: dark) { .chip.pos { background: #2a2b3a; color: #c3c6d6; } } .chip.cefr { background: #FFB054; color: #3B1D06; } .chip.exam { background: transparent; border: 1px solid var(--line); color: var(--mut); }
+.nt-card .ipa { color: var(--mut); font-family: "Lucida Sans Unicode", "Arial Unicode MS", sans-serif; margin-top: 2px; }
+/* nút nghe – cùng mẫu .spks/.spk của bảng tra (content.js) */
+.spks { display: flex; gap: 6px; margin: 4px 0 2px; flex-wrap: wrap; justify-content: center; }
+.spk { border: 0; background: #fdece6; color: #A5300F; border-radius: 999px; height: 26px; padding: 0 10px; cursor: pointer; font: 700 12px/26px -apple-system, "Segoe UI", sans-serif; vertical-align: middle; }
+.spk:hover, .spk[aria-pressed="true"] { background: #CC3F1C; color: #fff; }
+@media (prefers-color-scheme: dark) { .spk { background: #2a2b3a; color: #ffb199; } }
 .nt-body { position: relative; margin-top: 8px; }
 .m1 { font-size: 1.3rem; font-weight: 700; color: var(--acc); }
 .d1 { font-size: .85rem; color: var(--dim); }

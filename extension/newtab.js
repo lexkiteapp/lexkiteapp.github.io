@@ -123,19 +123,17 @@
     const showVi = L === 'vi', mtOn = !showVi && L !== 'en';
     const meanMain = s => (showVi ? s.vi || s.def : s.def || s.vi);
     const [s1, ...rest] = c.senses;
-    const posChips = [...new Set(c.senses.map(s => posName(s.p)).filter(Boolean))].slice(0, 2).map(p => `<span class="chip pos">${esc(p)}</span>`).join('');
+    const posChips = [...new Set(c.senses.map(s => (L === 'vi' ? s.p : posName(s.p))).filter(Boolean))].slice(0, 2).map(p => `<span class="chip pos">${esc(p)}</span>`).join('');
     const ex3 = c.exams.slice(0, 3).map(x => `<span class="chip exam" dir="ltr">${esc(x)}</span>`).join('') + (c.exams.length > 3 ? `<span class="chip exam" title="${esc(c.exams.slice(3).join(' · '))}">+${c.exams.length - 3}</span>` : '');
-    // phát âm 1 dòng: IPA Anh/Mỹ giống nhau hoặc chưa có IPA Mỹ → 1 IPA + 2 nút cờ; khác nhau → 🇬🇧 /…/ ▶ · 🇺🇸 /…/ ▶
-    const pb = acc => `<button class="ib" type="button" data-acc="${acc}" aria-label="${esc(tx('ntListen') + ' – ' + tx(acc === 'uk' ? 'ntUK' : 'ntUS'))}" title="${esc(tx(acc === 'uk' ? 'ntUK' : 'ntUS'))}">${acc === 'uk' ? '🇬🇧' : '🇺🇸'}${SVG_PLAY}</button>`;
-    const ipa = x => (x ? `<span class="ipa" dir="ltr">${esc(x)}</span>` : '');
-    const same = !c.ipaUS || c.ipaUS === c.ipa;
-    const pron = same ? `${ipa(c.ipa)}${pb('uk')}${pb('us')}` : `${ipa(c.ipa)}${pb('uk')}<span class="sep">·</span>${ipa(c.ipaUS)}${pb('us')}`;
+    // phát âm giống bảng tra (content.js): dòng IPA "Anh · Mỹ" (1 IPA nếu trùng/chưa có Mỹ) + nút viên "🔊 UK" "🔊 US" "🐢" (cùng lớp .ipa/.spks/.spk)
+    const pb = acc => `<button class="spk" type="button" data-acc="${acc}" aria-label="${esc(tx('ntListen') + ' – ' + tx(acc === 'uk' ? 'ntUK' : 'ntUS'))}" title="${esc(tx(acc === 'uk' ? 'ntUK' : 'ntUS'))}${acc === 'uk' ? ' (P)' : ''}">🔊 ${acc === 'uk' ? 'UK' : 'US'}</button>`;
+    const ipaLine = c.ipa || c.ipaUS ? `<div class="ipa" dir="ltr">${esc(c.ipa || c.ipaUS)}${c.ipa && c.ipaUS && c.ipaUS !== c.ipa ? ` · <span title="${esc(tx('ntUS'))}">${esc(c.ipaUS)}</span>` : ''}</div>` : '';
     const mtSpan = s => (mtOn && s.def ? `<span class="mt" data-mt="${esc(s.def)}" hidden></span>` : '');
     const meanHtml = s1 ? `<div class="meanings"><div class="m1"${showVi ? '' : ' dir="ltr" lang="en"'}>${esc(meanMain(s1))}</div>${showVi && s1.def && s1.vi ? `<div class="d1" dir="ltr" lang="en">${esc(s1.def)}</div>` : ''}${mtSpan(s1)}${rest.length ? `<button class="lnk" type="button" id="ntMoreS" aria-expanded="false">${esc(tx('ntMoreSenses', { n: rest.length }))}</button><ol class="senses2" id="ntS2" hidden>${rest.map((s, i) => `<li><span class="n">${i + 2}</span>${posName(s.p) && s.p !== s1.p ? `<span class="p">${esc(posName(s.p))}</span>` : ''}<span${showVi ? '' : ' dir="ltr" lang="en"'}>${esc(meanMain(s))}</span>${showVi && s.def && s.vi ? `<span class="d" dir="ltr" lang="en">${esc(s.def)}</span>` : ''}${mtSpan(s)}</li>`).join('')}</ol>` : ''}</div>` : '';
     const groups = [['ntFamily', c.fam], ['ntColloc', c.col], ['ntSyn', c.syn], ['ntAnt', c.ant]].filter(g => g[1].length);
     $('#ntCard').innerHTML = `
       <div class="nt-head"><h1 class="nt-word" dir="ltr" lang="en">${esc(c.word)}</h1><span class="nt-chips">${posChips}${c.level ? `<span class="chip cefr" title="CEFR">${esc(c.level)}</span>` : ''}${ex3}</span></div>
-      <div class="nt-pron">${pron}<span class="sep">·</span><button class="ib" type="button" id="ntSlow" aria-pressed="${slow}" title="${esc(tx('ntSlow'))}" aria-label="${esc(tx('ntSlow'))}">🐢</button></div>
+      ${ipaLine}<div class="spks">${pb('uk')}${pb('us')}<button class="spk" type="button" id="ntSlow" aria-pressed="${slow}" title="${esc(tx('ntSlow'))}" aria-label="${esc(tx('ntSlow'))}">🐢</button></div>
       ${meanHtml ? `<div class="nt-body${quiz ? ' quiz-hidden' : ''}" id="ntBody">${meanHtml}<div class="veil"><button type="button" id="ntReveal" title="Space">${esc(tx('ntReveal'))}</button></div></div>` : ''}
       ${c.ex ? `<button class="ex" type="button" id="ntEx" title="${esc(L !== 'en' ? tx('ntTapTr') : tx('ntExample'))}" aria-label="${esc(tx('ntExample'))}"><span dir="ltr" lang="en">“${hl(c.ex, c.word)}”</span></button>` : ''}
       ${groups.length ? `<div class="more" role="group">${groups.map(([k, a], i) => `<button type="button" data-g="${i}" aria-expanded="false" aria-controls="ntPanel">${esc(tx(k))}<b>${a.length}</b></button>`).join('')}</div><div class="panel" id="ntPanel" dir="ltr" lang="en" hidden></div>` : ''}
