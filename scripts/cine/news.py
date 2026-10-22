@@ -333,7 +333,7 @@ def _desk():   # flat 2D broadcast desk (brand teal, yellow rule, orange stripe)
     im[DESK_Y + 120:DESK_Y + 132] = np.array(ORANGE[::-1], np.float32); g = np.clip((np.arange(1920) - DESK_Y) / 420.0, 0, 1)[:, None, None]; im = im * (1 - 0.35 * g)
     return im, al
 DESK = _desk()
-BOT = np.clip((np.arange(1920) - 1180) / 740.0, 0, 1)[:, None, None] ** 1.6 * 0.4   # owner 22/10: soft bottom scrim for text legibility (no solid band)
+BOT = np.clip((np.arange(1920) - 1180) / 740.0, 0, 1)[:, None, None] ** 1.6 * 0.3   # owner 22/10: soft bottom scrim for text legibility (no solid band)
 def qblur(x, sg):   # large Gaussian at 1/4 resolution (same look, ~10x cheaper)
     h_, w_ = x.shape[:2]; y = cv2.GaussianBlur(cv2.resize(x, (w_ // 4, h_ // 4), interpolation=cv2.INTER_AREA), (0, 0), sg / 4)
     return cv2.resize(y, (w_, h_), interpolation=cv2.INTER_LINEAR)
@@ -413,7 +413,7 @@ for s in S:
         B = cv2.LUT(B.clip(0, 255).astype(np.uint8), GRADE).astype(np.float32)
         if fi == 0:   # whole-frame exposure check on frame 0 (dark wardrobe / night scenes): re-aim bg exposure + a small host lift -> mean luma ~0.48
             m_ = float(B.mean()) / 255
-            if not 0.45 <= m_ <= 0.52: EXPO = float(np.clip(EXPO * (0.48 / m_) ** 1.3, 0.7, 2.8)); HOSTG = float(np.clip((0.48 / m_) ** 0.5, 0.95, 1.15)); print('frame-0 luma %.3f -> bg gain %.2f, host gain %.2f' % (m_, EXPO, HOSTG))                         # one grade for host + background
+            if not 0.45 <= m_ <= 0.52: EXPO = float(np.clip(EXPO * (0.48 / m_) ** 1.3, 0.7, 2.8)); HOSTG = float(np.clip((0.48 / m_) ** 0.6, 0.95, 1.25)); print('frame-0 luma %.3f -> bg gain %.2f, host gain %.2f' % (m_, EXPO, HOSTG))                         # one grade for host + background
         B = B + cv2.resize(GRAIN[fi % 6], (1080, 1920), interpolation=cv2.INTER_NEAREST)[..., None]
         if s['id'] == 'hook':   # owner 22/10: open with a punch-in on the speaker
             z_ = 1 + 0.08 * (1 - (1 - min(1.0, j / FPS / 0.4)) ** 2); B = cv2.warpAffine(B, np.float32([[z_, 0, 540 * (1 - z_)], [0, z_, 960 * (1 - z_)]]), (1080, 1920), flags=cv2.INTER_LINEAR)

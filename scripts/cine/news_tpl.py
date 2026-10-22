@@ -29,6 +29,8 @@ def next_rx(y):
     rxi[y] += 1; return RXL[y][rxi[y] % len(RXL[y])]
 rc_line = SPEC['recap']['line']; RC_D = talk_dur(rc_line, -0.15, 0.6)
 est = h['dur'] + sum(talk_dur(b['line'], 0.07 if i == 0 else -0.15) for i, b in enumerate(BEATS)) + 1.6 * sum(1 for b in BEATS if b.get('repeat')) + RC_D + talk_dur(SPEC['end_line'], -0.15) + 1.0
+if est > 26.5 and any(b.get('repeat') for b in BEATS):   # long lesson: drop the repeat-after-me beat (line + pause ~3.8 s) to stay <= 28 s
+    est -= sum(talk_dur(b['line'], -0.15) + 1.6 for b in BEATS if b.get('repeat')); BEATS = [b for b in BEATS if not b.get('repeat')]; nb = len(BEATS)
 slots = []
 for i in [nb - 1, nb // 2, 1, nb - 3, 2, 0]:
     if not 0 <= i < nb: continue
