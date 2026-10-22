@@ -18,7 +18,7 @@ const REDIRECT = 'https://lexkite.com/api/drive/callback';
 const SCOPE = 'https://www.googleapis.com/auth/drive.file openid email';
 const ROOT_FOLDER = 'Lexkite Library';
 const MB = 1048576, HEADROOM_MIN = 256 * MB, STATE_TTL = 600, LINK_TTL = 300, CLI_SKEW = 300;
-const CLI_OPS = new Set(['list', 'upload_session', 'complete', 'refs_sync', 'health', 'where', 'replicas', 'repair', 'rebalance', 'render_link', 'set_want', 'retire', 'footage_alert']);
+const CLI_OPS = new Set(['list', 'upload_session', 'complete', 'refs_sync', 'health', 'where', 'replicas', 'repair', 'rebalance', 'render_link', 'set_want', 'retire', 'footage_alert', 'ext_alert']);
 // Shorts archive (docs/VIDEO-STORAGE.md): masters live under folder shorts/… with cls 'render'. CLI may only touch those (render_link · set_want · retire).
 const SHORTS_SQL = "f.folder LIKE 'shorts/%' AND f.cls = 'render'", CLIP_BYTES = 10 * 1048576, STOP_PCT = 0.9;
 // Kho footage (docs/VIDEO.md §Kho footage): masters under folder footage/<cảnh>, cls 'original', 2 bản sao/2 Drive. CLI chỉ được ĐỌC (render_link) – không retire/set_want.
@@ -216,6 +216,7 @@ const cookieOf = (req, k) => { const m = (req.headers.get('Cookie') || '').match
 // Ngưỡng: 80 % cảnh báo · 90 % nghiêm trọng + tự ngừng nhận file (weight 0, nhớ auto_weight; < 90 % tự trả lại) · pool còn < 10 GB cảnh báo ·
 // mất kết nối (invalid_grant) / Google không phản hồi 3 lần liên tiếp / tải lên lỗi 3 lần liên tiếp → nghiêm trọng.
 // Thư (lexkite-mail → REPORT_NOTIFY_EMAIL): chỉ mức nghiêm trọng, ≤ 1 thư/loại/24 h; hết lỗi → thư "đã khôi phục".
+export const EXT_KINDS = new Set(['footage', 'gitsize']); // cảnh báo do workflow đặt/gỡ (ext_alert), health không đụng
 const pctOf = r => (r.quota_total ? (+r.quota_used || 0) / +r.quota_total : 0);
 /** Danh sách cảnh báo từ trạng thái các Drive (thuần). → [{kind, level: 'warn'|'crit', t, drive_id, p, msg}] */
 export function evalAlerts(rows, { single = 0 } = {}) {
@@ -231,6 +232,8 @@ export function evalAlerts(rows, { single = 0 } = {}) {
     if (r.status === 'ok') { counted++; free += r.quota_total == null ? Infinity : Math.max(0, +r.quota_total - (+r.quota_used || 0)); }
   }
   if (single > 0) A('replica', 'warn', 'replica', null, { n: single }, `${single} file chỉ còn 1 bản sao trên Kho Drive – bấm "Sửa bản sao".`);
+  const tot = rows.filter(r => !lost(r.status) && r.quota_total).reduce((a, r) => [a[0] + +r.quota_total, a[1] + (+r.quota_used || 0)], [0, 0]);
+  if (tot[0] && tot[1] / tot[0] >= WARN_PCT) A('poolpct', 'warn', 'poolpct', null, { pct: Math.round(tot[1] / tot[0] * 100) }, `Toàn Kho Drive đã dùng ${Math.round(tot[1] / tot[0] * 100)}% – nối thêm Drive (mỗi tài khoản Google miễn phí 15 GB).`);
   if (counted && free < POOL_MIN_FREE) A('pool', 'warn', 'pool', null, { gb: +(free / GB).toFixed(1) }, `Toàn Kho Drive chỉ còn ${(free / GB).toFixed(1)} GB trống – nối thêm Drive.`);
   return out;
 }
@@ -244,7 +247,7 @@ const meta = async (db, k) => ((await one(db, 'SELECT v FROM drive_meta WHERE k 
 const setMeta = (db, k, v) => run(db, 'INSERT OR REPLACE INTO drive_meta (k, v) VALUES (?, ?)', k, String(v));
 /** Ghi cảnh báo vào D1 + gửi thư (nghiêm trọng: ≤ 1 thư/loại/24 h; hết lỗi đã từng gửi thư → thư khôi phục). → danh sách thư đã gửi. */
 export async function syncAlerts(env, db, list, now = Date.now()) {
-  const prev = new Map((await all(db, 'SELECT * FROM drive_alerts')).filter(a => a.kind !== 'footage').map(a => [a.kind, a])), sent = []; // 'footage' do footage-verify.yml đặt/gỡ (op footage_alert), health không đụng
+  const prev = new Map((await all(db, 'SELECT * FROM drive_alerts')).filter(a => !EXT_KINDS.has(a.kind)).map(a => [a.kind, a])), sent = []; // 'footage' do footage-verify.yml đặt/gỡ (op footage_alert), health không đụng
   for (const a of list) {
     const p = prev.get(a.kind); prev.delete(a.kind);
     let mailed = p ? p.mailed : null;
@@ -263,6 +266,20 @@ export async function syncAlerts(env, db, list, now = Date.now()) {
 }
 const refreshAlerts = async (env, db, now = Date.now()) => { const rows = await all(db, 'SELECT * FROM drives ORDER BY id'); return syncAlerts(env, db, evalAlerts(rows, { single: (await replicaState(db, rows)).single.length }), now); };
 /** Kiểm sức khoẻ mọi Drive: làm mới quota + thử refresh token (thử lại tối đa 3 lần), tự ngừng/nhận lại file theo ngưỡng 90 %, rồi đồng bộ cảnh báo. */
+/** Ảnh chụp dung lượng pool mỗi ngày (drive_meta used:YYYY-MM-DD, vài chục dòng) → dự báo tốc độ tăng. */
+async function snapUsed(db, rows, now) {
+  const day = new Date(now).toISOString().slice(0, 10), used = rows.filter(r => !lost(r.status)).reduce((a, r) => a + (+r.quota_used || 0), 0);
+  await setMeta(db, 'used:' + day, used);
+  await run(db, "DELETE FROM drive_meta WHERE k >= 'used:' AND k < 'used;' AND k < ?", 'used:' + new Date(now - 120 * 864e5).toISOString().slice(0, 10));
+}
+/** Dự báo: snaps = [{day:'YYYY-MM-DD', used}], đã sắp tăng dần. → {gb_month, days_left, since} (null nếu chưa đủ ≥ 2 ngày dữ liệu / không tăng). */
+export function forecastPool(snaps, free) {
+  if (!snaps || snaps.length < 2) return null;
+  const a = snaps[0], b = snaps[snaps.length - 1], days = (Date.parse(b.day) - Date.parse(a.day)) / 864e5;
+  if (!(days >= 1)) return null;
+  const perDay = (b.used - a.used) / days;
+  return { gb_month: +(perDay * 30 / GB).toFixed(2), days_left: perDay > 0 ? Math.floor(free / perDay) : null, since: a.day, days: Math.round(days) };
+}
 export async function runHealth(env, db, { now = Date.now(), wait = 400 } = {}) {
   const rows = await all(db, 'SELECT * FROM drives ORDER BY id'), res = [];
   for (const r of rows) {
@@ -282,6 +299,7 @@ export async function runHealth(env, db, { now = Date.now(), wait = 400 } = {}) 
     res.push({ id: r.id, ok: !!a, state: r.status, pct: Math.round(pctOf(r) * 100), fails: +r.fails || 0, paused: r.auto_weight != null });
   }
   const rs = await replicaState(db, rows), alerts = evalAlerts(rows, { single: rs.single.length }), mailed = await syncAlerts(env, db, alerts, now);
+  await snapUsed(db, rows, now);
   await setMeta(db, 'health_at', now);
   return { checked: now, drives: res, under_replicated: rs.under.length, single: rs.single.length, lost_only: rs.lost_only.length, alerts: alerts.map(({ kind, level, t, drive_id, p }) => ({ kind, level, t, drive_id, p })), mailed };
 }
@@ -482,14 +500,16 @@ const POOL_OPS = {
     if (!r || !(isShortsRow(r) || isFootageRow(r))) return { status: 404, error: 'not-found' };
     return { url: await signLink(env, r.file_id), ttl: LINK_TTL };
   },
-  /** CLI (footage-verify.yml): bật/tắt cảnh báo 'footage' hiển thị ở Quản trị → Kho Drive. ok:true → xoá; ok:false → crit với n lỗi. Không gửi thư (workflow đỏ đã báo). */
-  async footage_alert(db, b) {
-    if (b.ok) { await run(db, "DELETE FROM drive_alerts WHERE kind = 'footage'"); return { ok: true, cleared: true }; }
-    const n = Math.max(1, Math.min(1e6, Math.round(+b.n) || 1)), now = Date.now();
-    await run(db, "INSERT INTO drive_alerts (kind, level, drive_id, msg, since, seen, mailed) VALUES ('footage', 'crit', NULL, ?, ?, ?, NULL) ON CONFLICT(kind) DO UPDATE SET level = 'crit', msg = excluded.msg, seen = excluded.seen",
-      JSON.stringify({ t: 'footage', p: { n }, msg: String(b.msg || 'footage-verify').slice(0, 300) }), now, now);
+  /** CLI (footage-verify.yml · storage-watch.yml): bật/tắt cảnh báo ngoài (kind footage | gitsize) hiện ở Quản trị → Kho Drive. ok:true → xoá; ok:false → crit. Không gửi thư (workflow đỏ đã báo). */
+  async ext_alert(db, b) {
+    const kind = String(b.kind || 'footage'); if (!EXT_KINDS.has(kind)) return { status: 400, error: 'bad-input' };
+    if (b.ok) { await run(db, 'DELETE FROM drive_alerts WHERE kind = ?', kind); return { ok: true, cleared: true }; }
+    const n = Math.max(1, Math.min(1e6, Math.round(+b.n) || 1)), now = Date.now(), p = { n, repo: String(b.repo || '').slice(0, 80), gb: +b.gb || undefined };
+    await run(db, "INSERT INTO drive_alerts (kind, level, drive_id, msg, since, seen, mailed) VALUES (?, 'crit', NULL, ?, ?, ?, NULL) ON CONFLICT(kind) DO UPDATE SET level = 'crit', msg = excluded.msg, seen = excluded.seen",
+      kind, JSON.stringify({ t: kind, p, msg: String(b.msg || kind).slice(0, 300) }), now, now);
     return { ok: true, n };
   },
+  footage_alert: (db, b) => OPS.ext_alert(db, { ...b, kind: 'footage' }),
   /** CLI: số bản sao mong muốn cho master short (1 = chưa duyệt/thử, 2 = đã duyệt/đã đăng) → repair chép bù sang Drive khác qua pickDrive. */
   async set_want(db, b) {
     const want = Math.round(+b.want); if (want < 1 || want > 2) return { status: 400, error: 'bad-input' };
@@ -583,6 +603,7 @@ const OPS = {
     const out = { drives: rows.map(r => ({ ...pub(r), shorts_files: +r.shorts_files || 0, shorts_bytes: +r.shorts_bytes || 0 })), total, used, free: Math.max(0, total - used), configured: config(env), redirect: REDIRECT, alerts: cliOnly(b) ? undefined : await alertRows(db) };
     const sm = await one(db, `SELECT COUNT(*) AS n, COALESCE(AVG(f.size), 0) AS avg FROM drive_files f WHERE f.status = 'ok' AND ${SHORTS_SQL} AND f.mime LIKE 'video/%'`);
     out.shorts = { bytes: rows.reduce((s, r) => s + (+r.shorts_bytes || 0), 0), files: rows.reduce((s, r) => s + (+r.shorts_files || 0), 0), masters: sm ? sm.n : 0, avg_master: sm ? Math.round(sm.avg) : 0, ...shortsCapacity(rows) };
+    out.forecast = forecastPool((await all(db, "SELECT k, v FROM drive_meta WHERE k >= 'used:' AND k < 'used;' ORDER BY k")).map(r => ({ day: r.k.slice(5), used: +r.v })), out.free);
     if (Array.isArray(b.sha256)) { // verify (CLI): sha nào đã có trên Kho Drive
       const shas = b.sha256.map(x => String(x).toLowerCase()).filter(x => /^[0-9a-f]{64}$/.test(x)).slice(0, 200);
       out.have = {};
@@ -672,7 +693,7 @@ const OPS = {
     return { url: await signLink(env, f.file_id), ttl: LINK_TTL };
   },
 };
-const WRITE = new Set(['connect', 'refresh_quota', 'disconnect', 'set_weight', 'drain', 'upload_session', 'complete', 'get_link', 'preview', 'rename', 'move', 'trash', 'restore', 'delete', 'empty_trash', 'cleanup_apply', 'refs_sync', 'health', 'repair', 'rebalance', 'verify_files', 'set_want', 'retire', 'footage_alert']);
+const WRITE = new Set(['connect', 'refresh_quota', 'disconnect', 'set_weight', 'drain', 'upload_session', 'complete', 'get_link', 'preview', 'rename', 'move', 'trash', 'restore', 'delete', 'empty_trash', 'cleanup_apply', 'refs_sync', 'health', 'repair', 'rebalance', 'verify_files', 'set_want', 'retire', 'footage_alert', 'ext_alert']);
 const DANGER = new Set(['disconnect', 'delete', 'empty_trash']); // + confirm:'DELETE' trong op (xoá vĩnh viễn)
 const BIG_OPS = new Set(['refs_sync']);
 const cliOnly = b => b && b._cli === true;

@@ -459,5 +459,13 @@ ok(mod.isFootageRow({ cls: 'original', folder: 'footage/cafe' }), 'footage/cafe 
 ok(!mod.isFootageRow({ cls: 'render', folder: 'footage/cafe' }) && !mod.isFootageRow({ cls: 'original', folder: 'shorts/news' }) && !mod.isFootageRow({ cls: 'original', folder: 'originals/x' }), 'footage: chỉ cls original + folder footage/');
 ok(!mod.isShortsRow({ cls: 'original', folder: 'footage/cafe' }), 'footage không bị coi là short (retire/set_want không chạm)');
 
+// Dự báo dung lượng + cảnh báo ngoài (22/10): forecastPool, poolpct, EXT_KINDS không bị health xoá
+{ const G = 1073741824, f = mod.forecastPool([{ day: '2026-10-01', used: 10 * G }, { day: '2026-10-11', used: 20 * G }], 30 * G);
+  ok(f && f.gb_month === 30 && f.days_left === 30, 'forecastPool: +1 GB/ngày → 30 GB/tháng, còn 30 ngày');
+  ok(mod.forecastPool([{ day: '2026-10-01', used: 5 }], 1) === null && mod.forecastPool([{ day: '2026-10-01', used: 9 }, { day: '2026-10-05', used: 9 }], 1).days_left === null, 'forecastPool: thiếu dữ liệu → null; không tăng → days_left null');
+  const rows = [{ id: 1, email: 'a@x', status: 'ok', weight: 100, quota_total: 100 * G, quota_used: 85 * G }];
+  ok(mod.evalAlerts(rows, {}).some(a => a.kind === 'poolpct'), 'pool ≥ 80% → cảnh báo poolpct');
+  ok(mod.EXT_KINDS.has('footage') && mod.EXT_KINDS.has('gitsize'), 'EXT_KINDS: footage + gitsize'); }
+
 if (fails) { console.log(`✗ drive: ${fails}/${n} kiểm thất bại`); process.exit(1); }
 console.log(`✓ drive: ${n} kiểm (state/CSRF, AES-GCM, không lộ token, chọn Drive theo tỉ lệ, bản sao, cổng admin, CLI HMAC, link tải, trình duyệt file, dọn dẹp, sổ kho, cảnh báo)`);
