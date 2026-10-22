@@ -6,7 +6,6 @@
     "Video của ngày": "Video of the day",
     "Video bài học": "Lesson video",
     "Phát video: {t}": "Play video: {t}",
-    "Phụ đề tiếng Anh": "English subtitles",
     "Đóng video": "Close video",
     "Không phát được video – thử lại sau.": "Couldn't play the video – try again later.",
     "Câu hỏi nhanh": "Quick question",

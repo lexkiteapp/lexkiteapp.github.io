@@ -24735,21 +24735,6 @@
     "ru": "Воспроизвести видео: {t}",
     "tr": "Videoyu oynat: {t}"
   },
-  "Phụ đề tiếng Anh": {
-    "es": "Subtítulos en inglés",
-    "pt": "Legendas em inglês",
-    "fr": "Sous-titres en anglais",
-    "de": "Englische Untertitel",
-    "id": "Subtitel bahasa Inggris",
-    "th": "คำบรรยายภาษาอังกฤษ",
-    "zh": "英文字幕",
-    "ja": "英語字幕",
-    "ko": "영어 자막",
-    "hi": "अंग्रेज़ी उपशीर्षक",
-    "ar": "ترجمة إنجليزية",
-    "ru": "Английские субтитры",
-    "tr": "İngilizce altyazı"
-  },
   "Đóng video": {
     "es": "Cerrar vídeo",
     "pt": "Fechar vídeo",

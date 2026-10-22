@@ -2,17 +2,16 @@
 // Bản WEB của short bản tin (docs/VIDEO-SCALE-PLAN.md §10 "một clip – hai nơi dùng") – CHỈ chạy trên CI (.github/workflows/video-web.yml).
 //   node scripts/video/web-rendition.mjs plan  <shorts-checkout>   → .webvid/dirs.txt (thư mục cần lấy từ lexkite-shorts) + .webvid/plan.json
 //   node scripts/video/web-rendition.mjs build <shorts-checkout>   → ffmpeg 720×1280 H.264 CRF 23 +faststart (~2–3 MB), poster WebP,
-//        phụ đề WebVTT en (mốc từng từ) + 14 ngôn ngữ giao diện (dịch + AI chấm qua /api/lexai, OIDC, miễn phí), thẻ, câu đố → .webvid/<bài>/
+//        phụ đề WebVTT TIẾNG ANH (mốc từng từ – video chỉ tiếng Anh, không phụ đề dịch: chủ 22/10), thẻ, câu đố tiếng Anh → .webvid/<bài>/
 //   node scripts/video/web-rendition.mjs publish                   → GitHub Release 'wv-<bài>' của repo (GITHUB_TOKEN, không secret mới) – phục vụ qua media.lexkite.com/video/
 //   node scripts/video/web-rendition.mjs manifest                  → web/data/videos.json (+ content/video/web/captions/<bài>.json cho trang /video/<slug>/)
 // Chỉ clip bản tin, QA ≥ 90 và chủ đã duyệt (content/video/web/approved.json "approved") – hoặc mẫu thử ("test": ẩn trên production, chỉ hiện với ?vtest=1).
 import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process';
-import { LANGS, MANIFEST, CAPTIONS_DIR, APPROVED, CDN, readJSON, sha, eligible, sentences, enCues, vtt, tagLesson, quizFor, titleOf, slugOf, templateOf, validateManifest } from '../lib/video-web.mjs';
+import { LANGS as PAGE_LANGS, MANIFEST, CAPTIONS_DIR, APPROVED, CDN, readJSON, sha, eligible, sentences, enCues, vtt, tagLesson, quizFor, titleOf, slugOf, templateOf, validateManifest } from '../lib/video-web.mjs';
 
 const [cmd, shortsDir = process.env.SHORTS_DIR || 'shorts-repo'] = process.argv.slice(2);
 const W = '.webvid', NEWS = 'content/video/cine/news';
 const REPO = process.env.GITHUB_REPOSITORY || 'lexkiteapp/lexkiteapp.github.io', GH = 'https://api.github.com/repos/' + REPO;
-const API = process.env.LEXAI_URL || 'https://lexkite.com/api/lexai';
 fs.mkdirSync(W, { recursive: true });
 const TEXT = Object.fromEntries((readJSON(`${NEWS}/lines.json`, {}).lines || []).map(l => [l.id, l.text]));
 const lessonOf = id => readJSON(`${NEWS}/${id}.json`);
@@ -31,38 +30,6 @@ if (cmd === 'plan') {
   fs.writeFileSync(`${W}/dirs.txt`, todo.map(it => '/' + path.dirname(it.video) + '/').join('\n') + (todo.length ? '\n' : ''));
   console.log(`eligible ${el.length} · todo ${todo.length}: ${todo.map(x => x.lesson).join(', ')}`);
   if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `todo=${todo.length}\neligible=${el.length}\n`);
-}
-
-// ---------- translate (OIDC → /api/lexai, Gemini pool → Workers AI) ----------
-let token = '';
-async function oidc() {
-  if (token) return token;
-  const u = process.env.ACTIONS_ID_TOKEN_REQUEST_URL, t = process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN;
-  if (!u || !t) throw new Error('thiếu OIDC (permissions: id-token: write)');
-  token = (await (await fetch(u + '&audience=lexkite-lexai', { headers: { Authorization: 'Bearer ' + t } })).json()).value; return token;
-}
-async function ai(mode, lang, items, ctx) {
-  for (let i = 0; i < 3; i++) {
-    const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await oidc(), 'User-Agent': 'lexkite-ci' }, body: JSON.stringify({ mode, lang, items, ctx }) }).catch(() => null);
-    if (r && r.ok) return (await r.json()).out || {};
-    if (r && r.status === 401) token = '';
-    await new Promise(s => setTimeout(s, 6000 * (i + 1)));
-  }
-  return {};
-}
-/** Dịch câu phụ đề 1 ngôn ngữ + AI chấm; câu ≤ 3 dịch lại 1 lần; còn câu < 4 sau lần 2 hoặc thiếu → bỏ ngôn ngữ (người xem thấy phụ đề EN). */
-async function translate(lang, sents, ctx) {
-  const items = sents.map((s, i) => ({ k: 's' + i, en: s.text }));
-  let tr = await ai('subs', lang, items, ctx), sc = {};
-  for (let round = 0; round < 2; round++) {
-    const have = items.filter(x => typeof tr[x.k] === 'string' && tr[x.k].trim());
-    sc = await ai('subjudge', lang, have.map(x => ({ ...x, tr: tr[x.k] })));
-    const redo = items.filter(x => !(+sc[x.k] >= 4));
-    if (!redo.length || round) break;
-    Object.assign(tr, await ai('subs', lang, redo, ctx));
-  }
-  const scores = items.map(x => +sc[x.k] || 0), ok = scores.every(s => s >= 4);
-  return ok ? { cues: sents.map((s, i) => ({ s: s.s, e: s.e, text: String(tr['s' + i]).trim() })), judge: +(scores.reduce((a, b) => a + b, 0) / scores.length).toFixed(2) } : { cues: null, judge: Math.min(...scores) };
 }
 
 // ---------- build ----------
@@ -86,12 +53,7 @@ if (cmd === 'build') {
     ff([...(cover ? ['-i', cover] : ['-ss', '1.2', '-i', src, '-frames:v', '1']), '-vf', 'scale=720:1280:flags=lanczos', '-c:v', 'libwebp', '-quality', '80', `${d}/p.webp`]);
     const tl = readJSON(src.replace(/\.mp4$/, '.timeline.json'), null), sents = sentences(tl, TEXT);
     if (!sents.length) { console.log(`::warning::${it.lesson}: không dựng được phụ đề (thiếu timeline)`); continue; }
-    const caps = { en: enCues(sents) }, judge = {};
-    for (const l of LANGS.filter(x => x !== 'en')) {
-      const r = await translate(l, sents, L.point); judge[l] = r.judge;
-      if (r.cues) caps[l] = r.cues; else console.log(`  ${it.lesson} ${l}: điểm dịch ${r.judge} < 4 → dùng phụ đề EN`);
-    }
-    for (const [l, c] of Object.entries(caps)) fs.writeFileSync(`${d}/${l}.vtt`, vtt(c));
+    const cues = enCues(sents); fs.writeFileSync(`${d}/en.vtt`, vtt(cues));   // chỉ tiếng Anh
     const meta = {
       id: it.lesson, slug: slugOf(L), title: titleOf(L), template: templateOf(L, it.lesson), series: (L.series && L.series[0]) || '', point: L.point || '',
       tags: tagLesson(L, TEXT, LEX, GIDS), duration: +(+it.duration || 0).toFixed(1), quiz: quizFor(L, TEXT, pool), score: it.score, test: it.test,
@@ -99,8 +61,8 @@ if (cmd === 'build') {
     };
     fs.writeFileSync(`${d}/meta.json`, JSON.stringify(meta, null, 1));
     fs.mkdirSync(CAPTIONS_DIR, { recursive: true });
-    fs.writeFileSync(`${CAPTIONS_DIR}/${it.lesson}.json`, JSON.stringify({ id: it.lesson, judge, transcript: sents.map(s => ({ s: s.s, text: s.text })), cues: caps }, null, 0) + '\n');
-    console.log(`✓ ${it.lesson}: ${(meta.bytes / 1e6).toFixed(2)} MB · phụ đề ${Object.keys(caps).length}/15 · thẻ ${meta.tags.lex.length} từ, ngữ pháp [${meta.tags.grammar}] · quiz ${meta.quiz ? 'có' : 'không'}`);
+    fs.writeFileSync(`${CAPTIONS_DIR}/${it.lesson}.json`, JSON.stringify({ id: it.lesson, transcript: sents.map(s => ({ s: s.s, text: s.text })) }, null, 0) + '\n');
+    console.log(`✓ ${it.lesson}: ${(meta.bytes / 1e6).toFixed(2)} MB · phụ đề EN ${cues.length} cụm · thẻ ${meta.tags.lex.length} từ, ngữ pháp [${meta.tags.grammar}] · quiz ${meta.quiz ? 'có' : 'không'}`);
     built++;
   }
   if (todo.length && !built) { console.error('✗ video-web: không dựng được clip nào'); process.exit(1); }
@@ -126,7 +88,7 @@ if (cmd === 'publish') {
     for (const a of assets) if (!keep.has(a.name)) await gh('DELETE', `/releases/assets/${a.id}`);
     const url = n => CDN + id + '/' + n, by = p => files.find(x => x.f === p);
     meta.src = url(by('v.mp4').name); meta.poster = url(by('p.webp').name);
-    meta.vtt = Object.fromEntries(files.filter(x => x.f.endsWith('.vtt')).map(x => [x.f.replace('.vtt', ''), url(x.name)]).sort((a, b) => LANGS.indexOf(a[0]) - LANGS.indexOf(b[0])));
+    meta.vtt_en = url(by('en.vtt').name);
     fs.writeFileSync(`${d}/meta.json`, JSON.stringify(meta, null, 1));
     console.log(`✓ release ${tag}: ${files.length} file`);
   }
@@ -143,5 +105,5 @@ if (cmd === 'manifest') {
   for (const f of fs.existsSync(CAPTIONS_DIR) ? fs.readdirSync(CAPTIONS_DIR) : []) if (!el.has(f.replace(/\.json$/, ''))) fs.rmSync(`${CAPTIONS_DIR}/${f}`);   // clip bị gỡ duyệt → bỏ trang
   console.log(`✓ ${MANIFEST}: ${items.length} clip (${items.filter(x => x.test).length} mẫu thử)`);
   const todo = new Set((readJSON(`${W}/plan.json`, {}).todo) || []);   // chỉ báo IndexNow trang mới/đổi, không báo mẫu thử
-  fs.writeFileSync(`${W}/new-urls.txt`, items.filter(x => !x.test && todo.has(x.id)).flatMap(x => LANGS.map(l => `https://lexkite.com${l === 'en' ? '' : '/' + l}/video/${x.slug}/`)).join('\n') + '\n');
+  fs.writeFileSync(`${W}/new-urls.txt`, items.filter(x => !x.test && todo.has(x.id)).flatMap(x => PAGE_LANGS.map(l => `https://lexkite.com${l === 'en' ? '' : '/' + l}/video/${x.slug}/`)).join('\n') + '\n');
 }
