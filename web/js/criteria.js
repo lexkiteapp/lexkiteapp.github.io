@@ -887,12 +887,12 @@ ${esc(isW ? curModel.essay : curModel.transcript)}
   }
 
   // Khởi tạo route
-  routes.criteria = async function (arg, query) {
+  routes.criteria = App.guard(async function (arg, query) {
     const sk = arg || (query && query.get('skill')) || ''; // #/criteria/speaking hoặc #/criteria?skill=speaking
     if (sk === 'speaking' || sk === 'speak') curSkill = 'speaking';
     else if (sk === 'writing' || sk === 'write') curSkill = 'writing';
     renderPage();
-  };
+  });
 
   App.Criteria = { DATA, renderPage };
 })();

@@ -27,7 +27,7 @@ const $ = (s, r = w.document) => r.querySelector(s);
 const go = async (h, ms = 150) => { w.location.hash = h; await tick(ms); };
 w.UI.speak = () => {}; w.speechSynthesis = { speak() {}, cancel() {}, getVoices: () => [], pause() {}, resume() {} };
 w.SpeechSynthesisUtterance = function (t) { this.text = t; };
-w.Audio = function () { return { play: async () => {}, pause() {}, addEventListener() {} }; };
+w.Audio = function () { return { play: async () => {}, pause() {}, load() {}, addEventListener() {}, removeEventListener() {}, setAttribute() {}, removeAttribute() {}, style: {} }; };
 
 await tick(300); await go('#/welcome/setup'); if ($('#go')) $('#go').click(); await tick(1500);
 const { IELTS_DATA } = w;
@@ -58,6 +58,24 @@ for (const gap of [0, 5, 20, 40, 90, 160]) {
 for (const h of ['#/stats', '#/vocab', '#/settings']) {
   await go('#/practice/learn?src=deck', 30); w.location.hash = h; await tick(0); w.location.hash = '#/home'; await tick(0); w.location.hash = h; await tick(900);
   ok(w.location.hash === h && !$('.learn-bar') && !$('.today-head'), `học → ${h} → home → ${h}: trang cuối ${h} giữ nguyên`);
+}
+// 4) Tổng quát: MỌI route trong bảng App.routes — đi tới R rồi chuyển ngay sang #/stats (và ngược lại) ở nhiều độ trễ; trang cuối phải giống hệt khi vào thẳng, không có lượt cũ vẽ đè.
+{
+  const view = () => $('#view'), snap = () => ((view() || {}).textContent || '').replace(/\s+/g, ' ').trim().slice(0, 200) + '|' + ((view() || {}).children.length);
+  const names = Object.keys(w.App.routes).filter(k => !['call', 'handoff', 'welcome', 'report'].includes(k));
+  ok(names.length > 40, 'bảng route có ' + names.length + ' trang');
+  // Làm chậm đọc dữ liệu (Store.get/App.need) 40 ms để lượt vẽ cũ về MUỘN hơn lượt mới — nếu không, đọc tức thì xong trước khi lượt sau bắt đầu và race không bao giờ xảy ra.
+  const slow = o => { if (!o || !o.get) return; const g0 = o.get.bind(o); o.get = (...a) => new Promise(r => setTimeout(r, 40)).then(() => g0(...a)); };
+  slow(w.Store); slow(w.Core && w.Core.Store);
+  const solo = {}, stable = {}; await go('#/stats', 150); solo.stats = snap();
+  for (const r of names) { await go('#/' + r, 90); await tick(90); solo[r] = snap(); await go('#/stats', 60); await go('#/' + r, 90); await tick(90); stable[r] = snap() === solo[r]; } // trang có nội dung ngẫu nhiên (quick, paraphrase…) chỉ kiểm "không phải stats"
+  for (const [i, r] of names.entries()) {
+    const gap = i % 2 ? 0 : 15; // xen kẽ độ trễ để giữ test < 1 phút
+    await go('#/home', 50); w.location.hash = '#/' + r; await tick(gap); w.location.hash = '#/stats'; await tick(260);
+    ok(snap() === solo.stats, `route "${r}" → stats (gap ${gap}ms): trang cuối là stats, không bị "${r}" vẽ đè`);
+    w.location.hash = '#/stats'; await tick(5); w.location.hash = '#/' + r; await tick(gap); w.location.hash = '#/stats'; await tick(10); w.location.hash = '#/' + r; await tick(260);
+    ok(stable[r] ? snap() === solo[r] : snap() !== solo.stats, `stats → "${r}" (gap ${gap}ms): trang cuối là "${r}" như khi vào thẳng`);
+  }
 }
 ok(!errors.some(e => !/Not implemented/.test(e)), 'không lỗi JS: ' + errors.slice(0, 3).join(' | '));
 console.log(fails ? `✗ route-race: ${fails}/${n} lỗi` : `✓ route-race: ${n} kiểm tra đạt`); process.exit(fails ? 1 : 0);

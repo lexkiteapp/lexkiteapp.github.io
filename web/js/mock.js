@@ -65,9 +65,10 @@
   }
 
   // ================= TRANG CHÍNH =================
-  routes.mock = async function (arg, query) {
+  routes.mock = App.guard(async function (arg, query) {
+    const w = App.W;
     if (arg === 'run') return run(query);
-    const hist = await Store.get('mocks', []);
+    const hist = await w(Store.get('mocks', []));
     const lt = [...new Set((window.LISTENING || []).map(p => p.test))], rtA = RT().filter(x => !x.gt).map(x => x.test), rtG = RT().filter(x => x.gt).map(x => x.test), rt = [...rtA, ...rtG];
     view.innerHTML = `
       <div class="page-head"><div><h1>🏁 ${t('Thi thử IELTS 4 kỹ năng')}</h1><p class="muted">${t('Mô phỏng một buổi thi IELTS Academic: Listening → Reading → Writing → Speaking, bấm giờ như thật, chấm tự động và quy đổi <b>band Overall</b>. Đề tự biên soạn – điểm mang tính tham khảo.')}</p></div></div>
@@ -102,7 +103,7 @@
       if (sk.includes('reading') && !RT().length) return toast(t('Đề Reading đang được cập nhật – bỏ chọn Reading để thi các phần còn lại'));
       location.hash = `#/mock/run?s=${sk.join(',')}&l=${$('#mkL').value}&r=${$('#mkR').value}`;
     };
-  };
+  });
 
   // ================= CHẠY BÀI THI =================
   function run(query) {

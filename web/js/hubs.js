@@ -119,9 +119,10 @@
   };
 
   // ---------- Thi thử ----------
-  routes.tests = async function () {
+  routes.tests = App.guard(async function () {
+    const w = App.W;
     const ex = App.exam(), g = state.game || {};
-    const mocks = await Core.Store.get('mocks', []);
+    const mocks = await w(Core.Store.get('mocks', []));
     const toeic = (g.toeicTests || []).slice(-5).reverse(), lb = g.listenBest || {};
     const T = {
       ielts: [card('#/mock', '🏁', t('Thi thử IELTS 4 kỹ năng'), t('Nghe – Đọc – Viết – Nói, có quy đổi band')), card('#/listening', '🎧', t('Đề Listening 40 câu'), t('Chọn đề ở trang Luyện nghe, làm như thi thật')), card('#/cbt', '🖥️', t('Đề Reading trên máy (60 phút)'), t('3 passage, giao diện như thi trên máy'))],
@@ -140,15 +141,16 @@
       + (rows.length ? `<div class="set-list">${rows.map(r => `<div class="set-row"><div class="set-l"><span>${esc(r[2])}</span><small>${esc(r[1])}${fmt(r[0]) ? ' · ' + fmt(r[0]) : ''}</small></div><div class="set-c"><b>${esc(r[3])}</b></div></div>`).join('')}</div>`
         : `<div class="card empty-note"><p class="muted" style="margin:0">${t('Chưa có bài thi nào. Làm bài kiểm tra trình độ 5 phút để bắt đầu.')}</p></div>`)
       + `<details class="hub-more"><summary>${t('Kỳ thi khác')}</summary><div class="hub-grid">${Object.keys(T).filter(e => e !== ex && e !== 'ieltsgt' && !(ex === 'ieltsgt' && e === 'ielts')).map(e => T[e].join('')).join('')}</div></details>`;
-  };
+  });
 
   // ---------- Tôi ----------
   // Lối vào trang Quản trị: chỉ hiện khi máy chủ xác nhận email là admin (ADMIN_EMAILS) – người khác không thấy
   // CSS trang Tôi + thẻ tài khoản tải lười (css/me.css) – chờ tối đa 1,5 s để không nháy bố cục, lỗi mạng vẫn vẽ
   let meCssP = null;
   App.meCss = () => meCssP || (meCssP = new Promise(res => { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = 'css/me.css'; l.dataset.meCss = 1; l.onload = l.onerror = () => res(); setTimeout(res, 1500); document.head.appendChild(l); }));
-  routes.me = async function () {
-    await App.meCss();
+  routes.me = App.guard(async function () {
+    const w = App.W;
+    await w(App.meCss());
     const u = state.user, g = state.game || {}, cards = state.cards || {};
     const L = Game.levelOf(g.xp || 0), streak = App.streak();
     const fi = (window.Core && Core.Stats) ? Core.Stats.freezeInfo(g) : { left: +g.freezes || 0, max: 2 };
@@ -166,16 +168,16 @@
 
     let openMistakes = 0;
     try {
-      const list = (window.Core && Core.Store) ? await Core.Store.get('mistakes', []) : [];
+      const list = (window.Core && Core.Store) ? await w(Core.Store.get('mistakes', [])) : [];
       openMistakes = (list || []).filter(x => !x.fixed).length;
     } catch (e) { openMistakes = 0; }
 
     // Không để mạng chậm chặn hiển thị: chờ tối đa 0,5 s (kết quả đã đệm theo phiên nên lần sau tức thì)
     const cap = p => Promise.race([p, new Promise(r => setTimeout(() => r(false), 500))]);
-    const [isAdmin, blogOn] = await Promise.all([
+    const [isAdmin, blogOn] = await w(Promise.all([
       cap(App.isAdmin ? App.isAdmin().catch(() => false) : false),
       cap(App.blogLive ? App.blogLive().catch(() => false) : false)
-    ]);
+    ]));
 
     const row = (href, ic, label, hint = '', ext = false, badge = '') => `
       <a class="set-row me-row" href="${href}"${ext ? ' target="_blank" rel="noopener"' : ''}>
@@ -269,7 +271,7 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
       + (I18N.lang() === 'vi' ? [['samples', '📄', 'Bài mẫu Writing Task 2'], ['speaking', '🗣️', 'Chủ đề Speaking'], ['tu-vung', '📚', 'Từ vựng theo chủ đề'], ['ngu-phap', '🧠', 'Ngữ pháp tiếng Anh'], ['viet-thu', '✉️', 'Thư mẫu IELTS General']].map(([p, ic, l]) => row('https://lexkite.com/' + p + '/', ic, l, '', true)).join('') : '')
       + `</div></div>`;
     const acct = view.querySelector('#meAcct'); if (acct) Sync.renderBox(acct); // thẻ tài khoản dùng chung với Cài đặt (sync.js) – tự cập nhật trạng thái
-  };
+  });
 
   // ---------- Blog (trang tĩnh /blog/ – tạo lúc build): chỉ hiện lối vào khi blog đã có trên máy chủ ----------
   // Blog chia theo ngôn ngữ: /vi/blog/, /en/blog/… – ngôn ngữ giao diện chưa có blog thì ẩn lối vào (không lẫn tiếng)
