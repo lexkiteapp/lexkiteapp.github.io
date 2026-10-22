@@ -39,8 +39,14 @@ assert 1.6 <= h['dur'] <= 2.0 + 1 / FPS, ('hook length', h['dur'])
 SFX.append(('whoosh.wav', 0.0)); START['ga4_talk_natural'] = 24 + h['n']
 im, box, fs = hook_card(hk['card'], ''); ov('VHook', hk['card'] + '|', 0, h['dur'], box, 'hook', fs=fs, img=im)
 if SPEC.get('difficulty'): im, box = badge(SPEC['difficulty']); ov('Badge', SPEC['difficulty'].upper(), 0, h['dur'], box, 'hook', img=im)   # §13 difficulty badge
-CL = {'ama': ['ga4_talk_natural'], 'carlos': ['gc4_talk_natural']}; use = {'ama': 0, 'carlos': 0}   # standing, cls=neutral only; gc4_q34_talk dropped (its ~2x scale-up read soft)
-LISTEN = {'ama': 'ga4_talk_natural', 'carlos': 'gc4_listen'}; OTHER = {'ama': 'carlos', 'carlos': 'ama'}; BEATS = SPEC['beats']; nb = len(BEATS)
+CL = {'ama': ['ga4_talk_natural'], 'carlos': ['gc4_talk_natural']}; use = {'ama': 0, 'carlos': 0}
+# owner 22/10: ONE outfit per host per clip (outfit tag from the clip bank; clips without a tag = outfit1); variety comes across clips
+_BG = [f'{G}/bank_gestures.json', f'{G}/bank.json']; OUTFIT = {}
+for _p in _BG:
+    if os.path.exists(_p):
+        for _c in json.load(open(_p)).get('clips', []): OUTFIT[_c['id']] = _c.get('outfit') or next((t for t in _c.get('tags', []) if str(t).startswith('outfit')), 'outfit1')
+_of = {w: OUTFIT.get(CL[w][0], 'outfit1') for w in CL}; CL = {w: [c for c in v if OUTFIT.get(c, 'outfit1') == _of[w]] or v[:1] for w, v in CL.items()}   # standing, cls=neutral only; gc4_q34_talk dropped (its ~2x scale-up read soft)
+LISTEN = {w: (c if OUTFIT.get(c, 'outfit1') == _of[w] else CL[w][0]) for w, c in {'ama': 'ga4_talk_natural', 'carlos': 'gc4_listen'}.items()}; OTHER = {'ama': 'carlos', 'carlos': 'ama'}; BEATS = SPEC['beats']; nb = len(BEATS)
 RXL = json.load(open(f'{N}/ci/lines.json')).get('reactions', {}); rxi = {'ama': int(SPEC['id'][-6:], 16) % 3, 'carlos': int(SPEC['id'][-6:], 16) % 3}
 def next_rx(y):
     rxi[y] += 1; return RXL[y][rxi[y] % len(RXL[y])]

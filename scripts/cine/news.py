@@ -465,6 +465,7 @@ for s in S:
         if raw: continue
         for j in range(s['n']): merged[j][str(k_)] = log[j].get(0, 'X'); merged[j]['r%d' % k_] = log[j].get('r0', 0)
         k_ += 1
+    s['outfit'] = {w_: OUTFIT.get(c_, 'outfit1') for c_, w_, *_ in HS}   # QA: one outfit per host per clip
     json.dump(merged, open(f'{RD}/{s["id"]}.vis.json', 'w')); s['vis'] = f'{RD}/{s["id"]}.vis.json'
     order = sorted(range(len(R_)), key=lambda i: R_[i][3] == 'ama')   # Ama (screen-left, front) composited last
     SAMP = os.environ.get('NEWS_SAMPLE')   # smoke test (Mac): composite 1 frame per shot, repeat it
