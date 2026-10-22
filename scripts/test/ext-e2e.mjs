@@ -265,8 +265,8 @@ await nt.close();
 // ---------- 6. lexkite.com: học được dịch, đang thi bị khóa ----------
 const lx = await ctx.newPage();
 await lx.goto('https://lexkite.com/?hl=' + L + '#/welcome', { waitUntil: 'domcontentloaded' }); await sleep(5000);
-// bấm đúp vào một từ TIẾNG ANH trên trang (giao diện ja/zh/ar có tiêu đề không phải tiếng Anh)
-const enWord = await lx.evaluate(() => { const tw = document.createTreeWalker(document.querySelector('#view') || document.body, NodeFilter.SHOW_TEXT); let n; while ((n = tw.nextNode())) { const m = /\b[A-Za-z]{6,}\b/.exec(n.nodeValue); if (m && n.parentElement && n.parentElement.offsetParent && !n.parentElement.closest('button,a,input,select')) { const r = document.createRange(); r.setStart(n, m.index); r.setEnd(n, m.index + m[0].length); const b = r.getBoundingClientRect(); if (b.width && b.top > 0 && b.top < innerHeight) return { x: b.x + b.width / 2, y: b.y + b.height / 2, w: m[0] }; } } return null; });
+// bấm đúp vào một từ TIẾNG ANH trên trang (bỏ thẻ demo #wCard: bấm vào là thẻ LẬT → bấm đúp lật 2 lần, bố cục dịch chuyển, lần bấm thứ 2 trượt sang dòng IPA; ở ja thẻ này chứa chữ Anh đầu tiên) (giao diện ja/zh/ar có tiêu đề không phải tiếng Anh)
+const enWord = await lx.evaluate(() => { const tw = document.createTreeWalker(document.querySelector('#view') || document.body, NodeFilter.SHOW_TEXT); let n; while ((n = tw.nextNode())) { const m = /\b[A-Za-z]{6,}\b/.exec(n.nodeValue); if (m && n.parentElement && n.parentElement.offsetParent && !n.parentElement.closest('button,a,input,select,#wCard')) { const r = document.createRange(); r.setStart(n, m.index); r.setEnd(n, m.index + m[0].length); const b = r.getBoundingClientRect(); if (b.width && b.top > 0 && b.top < innerHeight) return { x: b.x + b.width / 2, y: b.y + b.height / 2, w: m[0] }; } } return null; });
 if (enWord) { await lx.mouse.dblclick(enWord.x, enWord.y); await sleep(6000); }
 c = await card(lx); const webBar = await lx.evaluate(() => { const b = document.querySelector('.sel-bar'); return !!(b && !b.hidden); });
 await shot(lx, 'lexkite-welcome');
