@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "616952943069",
+    "project_id": "lexkite-app",
+    "storage_bucket": "lexkite-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616952943069:android:70f961d9b6f2a74d02a634",
+        "android_client_info": {
+          "package_name": "com.lexkite.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "616952943069-dn1d4no690dukilmpnu289eiif381cu3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lexkite.app",
+            "certificate_hash": "9d1e73ff0279c40810368c8c218f7e651919edaf"
+          }
+        },
+        {
+          "client_id": "616952943069-igkjekbf9l0q8qetha1bf5bkfmn3443v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lexkite.app",
+            "certificate_hash": "7dfca040152c14d51b24c0edb07fbe509ab01b92"
+          }
+        },
+        {
+          "client_id": "616952943069-ajnjdi54o90l1e1b0ufnv9m63b6amiua.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWSXxYTzUIoxi-JcGK-58bJerVbman8Os"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "616952943069-7ivm0tp57up2e0j5g0m2jnm3v0f9t4d6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "616952943069-n37tf6ei31m7057nqdvoghbr99lc30jf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.lexkite.app",
+                "app_store_id": "6824714708"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
