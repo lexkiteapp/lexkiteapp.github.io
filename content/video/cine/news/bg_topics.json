@@ -92,8 +92,10 @@
   ],
   "business": [
    "work_boardroom__day_modern",
+   "work_boardroom__night_classic",
    "work_ceo_office__day_modern",
    "work_reception__night_classic",
+   "work_startup__day_modern",
    "work_startup__night_classic"
   ],
   "celebration": [
@@ -152,16 +154,20 @@
    "cul_cooking_class__day_modern",
    "cul_history_museum__night_classic",
    "cul_lantern_street__day_modern",
-   "cul_mosaic_hall__day_modern"
+   "cul_mosaic_hall__day_modern",
+   "cul_opera_house__day_modern",
+   "lei_theatre_lobby__day_modern"
   ],
   "customer-service": [
    "work_call_center__night_classic"
   ],
   "daily-routine": [
+   "home_bedroom__day_modern",
    "home_bedroom__night_classic",
    "home_entry_hall__day_modern",
    "home_entry_hall__night_classic",
    "home_living_sofa__day_modern",
+   "home_living_sofa__night_classic",
    "home_studio_apt__night_classic"
   ],
   "directions": [
@@ -188,13 +194,19 @@
   "driving": [
    "trn_driving_school__day_modern",
    "trn_driving_school__night_classic",
-   "trn_gas_station__day_modern"
+   "trn_gas_station__day_modern",
+   "trn_parking_garage__day_modern"
+  ],
+  "education": [
+   "sch_lecture_hall__day_modern"
   ],
   "emergency": [
    "gov_police_station__night_classic",
-   "hl_er_reception__day_modern"
+   "hl_er_reception__day_modern",
+   "hl_er_reception__night_classic"
   ],
   "events": [
+   "cul_opera_house__day_modern",
    "evt_birthday_party__day_modern",
    "evt_gala__day_modern",
    "evt_holiday_market__day_modern",
@@ -203,7 +215,8 @@
    "evt_wedding_hall__day_modern",
    "evt_wedding_hall__night_classic",
    "hos_conference_hall__day_modern",
-   "hos_conference_hall__night_classic"
+   "hos_conference_hall__night_classic",
+   "lei_theatre_lobby__day_modern"
   ],
   "family": [
    "evt_birthday_party__day_modern",
@@ -220,6 +233,7 @@
    "home_kids_room__day_modern",
    "home_kids_room__night_classic",
    "home_living_sofa__day_modern",
+   "home_living_sofa__night_classic",
    "lei_amusement_park__day_modern",
    "lei_aquarium__day_modern",
    "lei_zoo_path__day_modern",
@@ -274,9 +288,11 @@
    "sch_cafeteria__day_modern",
    "sch_cafeteria__night_classic",
    "shp_convenience__day_modern",
+   "work_break_room__day_modern",
    "work_break_room__night_classic"
   ],
   "gifts": [
+   "shp_flower_shop__day_modern",
    "shp_flower_shop__night_classic",
    "shp_jewelry__day_modern",
    "shp_jewelry__night_classic"
@@ -298,6 +314,7 @@
   "health": [
    "fd_juice_bar__night_classic",
    "hl_er_reception__day_modern",
+   "hl_er_reception__night_classic",
    "hl_hospital_lobby__day_modern",
    "hl_hospital_lobby__night_classic",
    "hl_hospital_ward__day_modern",
@@ -313,7 +330,8 @@
    "hl_therapy_room__night_classic",
    "hl_vet__day_modern",
    "hl_vet__night_classic",
-   "hos_spa__day_modern"
+   "hos_spa__day_modern",
+   "spt_swim_hall__day_modern"
   ],
   "holiday": [
    "evt_holiday_market__day_modern",
@@ -326,6 +344,7 @@
    "cty_apartment_lobby__day_modern",
    "cty_residential_street__day_modern",
    "fam_grandparents__day_modern",
+   "home_bedroom__day_modern",
    "home_bedroom__night_classic",
    "home_dining__day_modern",
    "home_dining__night_classic",
@@ -338,12 +357,14 @@
    "home_kitchen_island__day_modern",
    "home_laundry__day_modern",
    "home_living_sofa__day_modern",
+   "home_living_sofa__night_classic",
    "home_studio_apt__night_classic",
    "home_study__day_modern",
    "svc_real_estate__day_modern"
   ],
   "hospital": [
    "hl_er_reception__day_modern",
+   "hl_er_reception__night_classic",
    "hl_hospital_lobby__day_modern",
    "hl_hospital_lobby__night_classic",
    "hl_hospital_ward__day_modern",
@@ -370,12 +391,15 @@
    "work_factory__night_classic"
   ],
   "interview": [
+   "work_hr_office__day_modern",
    "work_hr_office__night_classic"
   ],
   "jobs": [
+   "work_construction__day_modern",
    "work_design_studio__day_modern",
    "work_design_studio__night_classic",
    "work_factory__night_classic",
+   "work_hr_office__day_modern",
    "work_hr_office__night_classic",
    "work_warehouse__day_modern"
   ],
@@ -389,6 +413,7 @@
    "sch_cafeteria__day_modern",
    "sch_cafeteria__night_classic",
    "sch_gym_hall__day_modern",
+   "sch_gym_hall__night_classic",
    "sch_hallway__day_modern",
    "sch_hallway__night_classic",
    "sch_kindergarten__day_modern",
@@ -416,6 +441,7 @@
    "lei_escape_room__day_modern",
    "lei_karaoke__day_modern",
    "lei_music_store__day_modern",
+   "lei_theatre_lobby__day_modern",
    "lei_zoo_path__day_modern",
    "nat_botanical_garden__day_modern",
    "nat_lakeside_path__day_modern",
@@ -438,6 +464,7 @@
   ],
   "meetings": [
    "work_boardroom__day_modern",
+   "work_boardroom__night_classic",
    "work_ceo_office__day_modern"
   ],
   "money": [
@@ -455,6 +482,7 @@
    "trn_ticket_office__night_classic"
   ],
   "music": [
+   "cul_opera_house__day_modern",
    "evt_outdoor_concert__day_modern",
    "lei_karaoke__day_modern",
    "lei_music_store__day_modern",
@@ -528,16 +556,22 @@
    "fd_pizzeria__day_modern",
    "fd_sushi_bar__day_modern"
   ],
+  "safety": [
+   "work_construction__day_modern"
+  ],
   "school": [
    "sch_art_room__day_modern",
    "sch_cafeteria__day_modern",
    "sch_cafeteria__night_classic",
+   "sch_computer_lab__day_modern",
    "sch_computer_lab__night_classic",
    "sch_gym_hall__day_modern",
+   "sch_gym_hall__night_classic",
    "sch_hallway__day_modern",
    "sch_hallway__night_classic",
    "sch_kindergarten__day_modern",
-   "sch_kindergarten__night_classic"
+   "sch_kindergarten__night_classic",
+   "sch_lecture_hall__day_modern"
   ],
   "science": [
    "nat_botanical_garden__day_modern",
@@ -577,6 +611,7 @@
    "shp_convenience__day_modern",
    "shp_department_store__night_classic",
    "shp_electronics__day_modern",
+   "shp_flower_shop__day_modern",
    "shp_flower_shop__night_classic",
    "shp_jewelry__day_modern",
    "shp_jewelry__night_classic",
@@ -594,16 +629,19 @@
    "lei_board_game_cafe__day_modern",
    "lei_bowling__day_modern",
    "lei_bowling__night_classic",
+   "work_break_room__day_modern",
    "work_break_room__night_classic"
   ],
   "sports": [
    "sch_gym_hall__day_modern",
+   "sch_gym_hall__night_classic",
    "spt_basketball_court__day_modern",
    "spt_bike_trail__day_modern",
    "spt_boxing_gym__day_modern",
    "spt_dance_studio__day_modern",
    "spt_locker_room__day_modern",
    "spt_soccer_field__day_modern",
+   "spt_swim_hall__day_modern",
    "spt_tennis_court__day_modern"
   ],
   "study": [
@@ -612,15 +650,18 @@
    "gov_library_public__day_modern",
    "gov_library_public__night_classic",
    "home_study__day_modern",
+   "sch_computer_lab__day_modern",
    "sch_computer_lab__night_classic",
    "sch_hallway__day_modern",
    "sch_hallway__night_classic",
+   "sch_lecture_hall__day_modern",
    "tec_maker_space__day_modern",
    "trn_driving_school__day_modern",
    "trn_driving_school__night_classic"
   ],
   "tech": [
    "home_study__day_modern",
+   "sch_computer_lab__day_modern",
    "sch_computer_lab__night_classic",
    "shp_electronics__day_modern",
    "svc_phone_repair__day_modern",
@@ -628,6 +669,7 @@
    "tec_maker_space__day_modern",
    "tec_space_center__day_modern",
    "tec_tv_newsroom__day_modern",
+   "work_startup__day_modern",
    "work_startup__night_classic"
   ],
   "transport": [
@@ -643,6 +685,7 @@
    "trn_ferry_terminal__night_classic",
    "trn_gas_station__day_modern",
    "trn_metro_concourse__day_modern",
+   "trn_parking_garage__day_modern",
    "trn_ticket_office__night_classic",
    "trn_tram_stop__day_modern"
   ],
@@ -706,16 +749,21 @@
    "tec_data_center_ops__day_modern",
    "tec_tv_newsroom__day_modern",
    "work_boardroom__day_modern",
+   "work_boardroom__night_classic",
+   "work_break_room__day_modern",
    "work_break_room__night_classic",
    "work_call_center__night_classic",
    "work_ceo_office__day_modern",
+   "work_construction__day_modern",
    "work_design_studio__day_modern",
    "work_design_studio__night_classic",
    "work_factory__night_classic",
+   "work_hr_office__day_modern",
    "work_hr_office__night_classic",
    "work_print_room__day_modern",
    "work_print_room__night_classic",
    "work_reception__night_classic",
+   "work_startup__day_modern",
    "work_startup__night_classic",
    "work_warehouse__day_modern"
   ]
