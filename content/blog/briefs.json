@@ -6292,6 +6292,3056 @@
    "cluster": "eigo-mensetsu-shitsumon-taisaku",
    "role": "satellite",
    "pillar": "toeic-benkyouhou"
+  },
+  {
+   "slug": "como-se-preparar-para-o-ielts-general-training",
+   "keyword": "como se preparar para o ielts general training",
+   "category": "luyen-thi",
+   "tags": [
+    "ielts",
+    "ielts-general",
+    "imigracao",
+    "canada"
+   ],
+   "shots": [
+    "mock",
+    "review"
+   ],
+   "routes": [
+    "/#/mock",
+    "/#/review"
+   ],
+   "angle": "Guia completo de preparação para o IELTS General Training: formato das provas de Reading, Writing cartas formais e informais, Listening e Speaking para imigração no Canadá e Austrália.",
+   "intent": "học",
+   "lang": "pt",
+   "cluster": "como-se-preparar-para-o-ielts-general-training",
+   "role": "satellite",
+   "pillar": "como-aprender-ingles-sozinho"
+  },
+  {
+   "slug": "redacao-toefl-ibt-academic-discussion",
+   "keyword": "redação toefl ibt academic discussion",
+   "category": "luyen-thi",
+   "tags": [
+    "toefl",
+    "writing",
+    "academic-discussion"
+   ],
+   "shots": [
+    "writing-topic",
+    "write"
+   ],
+   "routes": [
+    "/#/writing",
+    "/#/review"
+   ],
+   "angle": "Estratégia e modelos para a nova tarefa Writing for an Academic Discussion do TOEFL iBT: como responder em 10 minutos com argumentos claros e vocabulário avançado.",
+   "intent": "thi",
+   "lang": "pt",
+   "cluster": "redacao-toefl-ibt-academic-discussion",
+   "role": "satellite",
+   "pillar": "toefl-ibt-como-funciona-preparacao"
+  },
+  {
+   "slug": "toefl-ou-ielts-qual-fazer",
+   "keyword": "toefl ou ielts qual fazer",
+   "category": "luyen-thi",
+   "tags": [
+    "toefl",
+    "ielts",
+    "intercambio"
+   ],
+   "shots": [
+    "placement",
+    "mock"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/mock"
+   ],
+   "angle": "Comparativo detalhado TOEFL iBT vs IELTS: diferenças de formato, pontuação, aceitação em universidades internacionais e como escolher o melhor exame para o seu perfil.",
+   "intent": "học",
+   "lang": "pt",
+   "cluster": "toefl-ou-ielts-qual-fazer",
+   "role": "satellite",
+   "pillar": "toefl-ibt-como-funciona-preparacao"
+  },
+  {
+   "slug": "preposicoes-em-ingles-in-on-at",
+   "keyword": "preposições em inglês in on at",
+   "category": "ngu-phap",
+   "tags": [
+    "preposicoes",
+    "gramatica",
+    "in-on-at"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "Regras práticas e definitivas para usar in, on e at em tempo e lugar sem traduzir mentalmente do português.",
+   "intent": "học",
+   "lang": "pt",
+   "cluster": "preposicoes-em-ingles-in-on-at",
+   "role": "satellite",
+   "pillar": "tempos-verbais-em-ingles-resumo"
+  },
+  {
+   "slug": "repeticao-espacada-para-aprender-ingles",
+   "keyword": "repetição espaçada para aprender inglês",
+   "category": "phuong-phap",
+   "tags": [
+    "spaced-repetition",
+    "fsrs",
+    "memorizacao"
+   ],
+   "shots": [
+    "review",
+    "stats"
+   ],
+   "routes": [
+    "/#/review",
+    "/#/stats"
+   ],
+   "angle": "Como funciona o sistema de repetição espaçada (SRS/FSRS) para reter vocabulário em inglês para sempre na memória de longo prazo.",
+   "intent": "học",
+   "lang": "pt",
+   "cluster": "repeticao-espacada-para-aprender-ingles",
+   "role": "satellite",
+   "pillar": "como-aprender-vocabulario-em-ingles"
+  },
+  {
+   "slug": "sons-dificeis-do-ingles-para-brasileiros",
+   "keyword": "sons difíceis do inglês para brasileiros",
+   "category": "phuong-phap",
+   "tags": [
+    "pronuncia",
+    "fonetica",
+    "speaking"
+   ],
+   "shots": [
+    "dict",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/dict",
+    "/#/practice/speak"
+   ],
+   "angle": "Guia de pronúncia dos sons inexistentes no português: o dígrafo TH sonoro e surdo, o R retroflexo americano e as terminações -ed no passado.",
+   "intent": "học",
+   "lang": "pt",
+   "cluster": "sons-dificeis-do-ingles-para-brasileiros",
+   "role": "satellite",
+   "pillar": "pronuncia-em-ingles-dicas"
+  },
+  {
+   "slug": "falsos-cognatos-em-ingles",
+   "keyword": "falsos cognatos em inglês",
+   "category": "tu-vung",
+   "tags": [
+    "false-friends",
+    "vocabulario",
+    "erros-comuns"
+   ],
+   "shots": [
+    "library",
+    "dict"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/dict"
+   ],
+   "angle": "Lista essencial dos falsos amigos mais perigosos entre inglês e português com exemplos práticos: actually, pretend, intend, push, pull, novel.",
+   "intent": "tra cứu",
+   "lang": "pt",
+   "cluster": "falsos-cognatos-em-ingles",
+   "role": "satellite",
+   "pillar": "como-aprender-vocabulario-em-ingles"
+  },
+  {
+   "slug": "reunioes-em-ingles-frases-uteis",
+   "keyword": "reuniões em inglês frases úteis",
+   "category": "giao-tiep",
+   "tags": [
+    "business-english",
+    "reunioes",
+    "trabalho"
+   ],
+   "shots": [
+    "library",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/practice/speak"
+   ],
+   "angle": "Frases profissionais para abrir reuniões, interromper educadamente, pedir esclarecimentos e concluir planos de ação em inglês de negócios.",
+   "intent": "học",
+   "lang": "pt",
+   "cluster": "reunioes-em-ingles-frases-uteis",
+   "role": "satellite",
+   "pillar": "como-escrever-email-em-ingles-formal"
+  },
+  {
+   "slug": "ingles-para-ti-e-trabalho-remoto",
+   "keyword": "inglês para ti e trabalho remoto",
+   "category": "giao-tiep",
+   "tags": [
+    "tech",
+    "trabalho-remoto",
+    "carreira"
+   ],
+   "shots": [
+    "library",
+    "deck"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/deck"
+   ],
+   "angle": "Vocabulário essencial e expressões para profissionais de tecnologia e desenvolvedores que trabalham remotamente para empresas no exterior.",
+   "intent": "học",
+   "lang": "pt",
+   "cluster": "ingles-para-ti-e-trabalho-remoto",
+   "role": "satellite",
+   "pillar": "como-escrever-email-em-ingles-formal"
+  },
+  {
+   "slug": "small-talk-em-ingles",
+   "keyword": "small talk em inglês",
+   "category": "giao-tiep",
+   "tags": [
+    "conversacao",
+    "small-talk",
+    "networking"
+   ],
+   "shots": [
+    "library",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/practice/speak"
+   ],
+   "angle": "Como quebrar o gelo e manter conversas casuais naturais em inglês no trabalho, eventos de networking e viagens.",
+   "intent": "học",
+   "lang": "pt",
+   "cluster": "small-talk-em-ingles",
+   "role": "satellite",
+   "pillar": "entrevista-de-emprego-em-ingles-perguntas"
+  },
+  {
+   "slug": "tecnicas-skimming-scanning-ielts-reading",
+   "keyword": "técnicas skimming scanning ielts reading",
+   "category": "luyen-thi",
+   "tags": [
+    "ielts",
+    "reading",
+    "skimming-scanning"
+   ],
+   "shots": [
+    "mock",
+    "cbt"
+   ],
+   "routes": [
+    "/#/mock",
+    "/#/review"
+   ],
+   "angle": "Cómo dominar Skimming y Scanning en el examen IELTS Academic Reading para encontrar respuestas en 60 minutos sin leer palabra por palabra.",
+   "intent": "thi",
+   "lang": "es",
+   "cluster": "tecnicas-skimming-scanning-ielts-reading",
+   "role": "satellite",
+   "pillar": "consejos-ielts-listening"
+  },
+  {
+   "slug": "preparacion-examen-cambridge-c1-advanced",
+   "keyword": "preparación examen cambridge c1 advanced",
+   "category": "luyen-thi",
+   "tags": [
+    "cambridge",
+    "c1-advanced",
+    "cae"
+   ],
+   "shots": [
+    "mock",
+    "grammar"
+   ],
+   "routes": [
+    "/#/mock",
+    "/#/grammar"
+   ],
+   "angle": "Guía estratégica para preparar el Cambridge C1 Advanced (CAE): Use of English, Reading, Writing formal y Speaking.",
+   "intent": "thi",
+   "lang": "es",
+   "cluster": "preparacion-examen-cambridge-c1-advanced",
+   "role": "satellite",
+   "pillar": "nuevo-formato-toefl-ibt-2026"
+  },
+  {
+   "slug": "ielts-speaking-parte-2-y-3-estructura",
+   "keyword": "ielts speaking parte 2 y 3 estructura",
+   "category": "luyen-thi",
+   "tags": [
+    "ielts",
+    "speaking",
+    "cue-card"
+   ],
+   "shots": [
+    "practice-speak",
+    "dict"
+   ],
+   "routes": [
+    "/#/practice/speak",
+    "/#/dict"
+   ],
+   "angle": "Plantillas y conectores para hablar con fluidez durante 2 minutos en la Cue Card (Parte 2) y responder preguntas abstractas en la Parte 3 de IELTS Speaking.",
+   "intent": "thi",
+   "lang": "es",
+   "cluster": "ielts-speaking-parte-2-y-3-estructura",
+   "role": "satellite",
+   "pillar": "consejos-ielts-writing-task-2"
+  },
+  {
+   "slug": "diferencia-entre-make-y-do-en-ingles",
+   "keyword": "diferencia entre make y do en inglés",
+   "category": "tu-vung",
+   "tags": [
+    "collocations",
+    "make-vs-do",
+    "vocabulario"
+   ],
+   "shots": [
+    "dict",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/dict",
+    "/#/practice/learn"
+   ],
+   "angle": "Reglas definitivas y lista de colocaciones fijas para no confundir make y do nunca más.",
+   "intent": "tra cứu",
+   "lang": "es",
+   "cluster": "diferencia-entre-make-y-do-en-ingles",
+   "role": "satellite",
+   "pillar": "como-aprender-vocabulario-en-ingles"
+  },
+  {
+   "slug": "preposiciones-in-on-at-en-ingles",
+   "keyword": "preposiciones in on at en inglés",
+   "category": "ngu-phap",
+   "tags": [
+    "preposiciones",
+    "gramatica",
+    "in-on-at"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "Guía sin complicaciones para dominar las preposiciones in, on y at de tiempo y lugar con trucos visuales.",
+   "intent": "học",
+   "lang": "es",
+   "cluster": "preposiciones-in-on-at-en-ingles",
+   "role": "satellite",
+   "pillar": "gerundio-o-infinitivo-en-ingles"
+  },
+  {
+   "slug": "como-pensar-en-ingles-sin-traducir",
+   "keyword": "cómo pensar en inglés sin traducir",
+   "category": "phuong-phap",
+   "tags": [
+    "fluidez",
+    "metodo",
+    "pensar-en-ingles"
+   ],
+   "shots": [
+    "placement",
+    "review"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/review"
+   ],
+   "angle": "Ejercicios progresivos paso a paso para dejar de traducir mentalmente desde el español y adquirir fluidez natural en inglés.",
+   "intent": "học",
+   "lang": "es",
+   "cluster": "como-pensar-en-ingles-sin-traducir",
+   "role": "satellite",
+   "pillar": "como-mejorar-el-listening-en-ingles"
+  },
+  {
+   "slug": "verbos-modales-en-ingles-can-could-should-must",
+   "keyword": "verbos modales en inglés can could should must",
+   "category": "ngu-phap",
+   "tags": [
+    "modales",
+    "gramatica",
+    "can-should-must"
+   ],
+   "shots": [
+    "grammar",
+    "library"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/library"
+   ],
+   "angle": "Uso práctico y diferencias de matiz entre can, could, should, must, might y would en situaciones reales.",
+   "intent": "học",
+   "lang": "es",
+   "cluster": "verbos-modales-en-ingles-can-could-should-must",
+   "role": "satellite",
+   "pillar": "gerundio-o-infinitivo-en-ingles"
+  },
+  {
+   "slug": "como-hacer-un-curriculum-en-ingles",
+   "keyword": "cómo hacer un currículum en inglés",
+   "category": "giao-tiep",
+   "tags": [
+    "cv",
+    "resume",
+    "empleo"
+   ],
+   "shots": [
+    "library",
+    "deck"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/deck"
+   ],
+   "angle": "Estructura internacional, verbos de acción y formato estándar de un resume / CV en inglés para postulaciones laborales en el extranjero.",
+   "intent": "học",
+   "lang": "es",
+   "cluster": "como-hacer-un-curriculum-en-ingles",
+   "role": "satellite",
+   "pillar": "entrevista-de-trabajo-en-ingles-preguntas"
+  },
+  {
+   "slug": "presentaciones-de-trabajo-en-ingles",
+   "keyword": "presentaciones de trabajo en inglés",
+   "category": "giao-tiep",
+   "tags": [
+    "presentaciones",
+    "business-english",
+    "reuniones"
+   ],
+   "shots": [
+    "library",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/practice/speak"
+   ],
+   "angle": "Frases clave para abrir con impacto, describir gráficos, estructurar argumentos y gestionar preguntas en presentaciones corporativas en inglés.",
+   "intent": "học",
+   "lang": "es",
+   "cluster": "presentaciones-de-trabajo-en-ingles",
+   "role": "satellite",
+   "pillar": "como-escribir-un-email-formal-en-ingles"
+  },
+  {
+   "slug": "ingles-para-viajar-frases-esenciales",
+   "keyword": "inglés para viajar frases esenciales",
+   "category": "giao-tiep",
+   "tags": [
+    "viajes",
+    "turismo",
+    "frases-utiles"
+   ],
+   "shots": [
+    "library",
+    "dict"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/dict"
+   ],
+   "angle": "Vocabulario y expresiones imprescindibles para desenvolverse con confianza en el aeropuerto, aduana, hotel, restaurantes y emergencias.",
+   "intent": "học",
+   "lang": "es",
+   "cluster": "ingles-para-viajar-frases-esenciales",
+   "role": "satellite",
+   "pillar": "como-aprender-vocabulario-en-ingles"
+  },
+  {
+   "slug": "toefl-ibt-writing-academic-discussion",
+   "keyword": "toefl ibt academic discussion writing",
+   "category": "toefl",
+   "tags": [
+    "toefl",
+    "writing",
+    "academic-discussion"
+   ],
+   "shots": [
+    "write",
+    "mock"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/mock"
+   ],
+   "angle": "Erfolgsstrategien und Vorlagen für die neue 10-Minuten Writing for an Academic Discussion Task im TOEFL iBT.",
+   "intent": "thi",
+   "lang": "de",
+   "cluster": "toefl-ibt-writing-academic-discussion",
+   "role": "satellite",
+   "pillar": "toefl-oder-ielts-vergleich"
+  },
+  {
+   "slug": "englische-praepositionen-in-on-at",
+   "keyword": "englische präpositionen in on at",
+   "category": "ngu-phap",
+   "tags": [
+    "praepositionen",
+    "grammatik",
+    "in-on-at"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "Die umgekehrte Pyramide für in, on und at bei Zeit und Ort – einfache Regeln ohne typische Fehler für Deutsche.",
+   "intent": "học",
+   "lang": "de",
+   "cluster": "englische-praepositionen-in-on-at",
+   "role": "satellite",
+   "pillar": "englische-zeiten-uebersicht"
+  },
+  {
+   "slug": "spaced-repetition-englisch-lernen",
+   "keyword": "spaced repetition englisch lernen",
+   "category": "phuong-phap",
+   "tags": [
+    "spaced-repetition",
+    "fsrs",
+    "vokabeln"
+   ],
+   "shots": [
+    "review",
+    "stats"
+   ],
+   "routes": [
+    "/#/review",
+    "/#/stats"
+   ],
+   "angle": "Wie Spaced Repetition (SRS/FSRS) die Ebbinghaus-Vergessenskurve bricht und Vokabeln dauerhaft im Langzeitgedächtnis verankert.",
+   "intent": "học",
+   "lang": "de",
+   "cluster": "spaced-repetition-englisch-lernen",
+   "role": "satellite",
+   "pillar": "englisch-vokabeln-lernen"
+  },
+  {
+   "slug": "auf-englisch-denken-ohne-uebersetzen",
+   "keyword": "auf englisch denken lernen",
+   "category": "phuong-phap",
+   "tags": [
+    "fluency",
+    "denken-auf-englisch",
+    "methode"
+   ],
+   "shots": [
+    "placement",
+    "review"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/review"
+   ],
+   "angle": "Schritt-für-Schritt-Anleitung, um das mentale Übersetzen aus dem Deutschen zu stoppen und flüssig Englisch zu sprechen.",
+   "intent": "học",
+   "lang": "de",
+   "cluster": "auf-englisch-denken-ohne-uebersetzen",
+   "role": "satellite",
+   "pillar": "englisch-lernen-tipps"
+  },
+  {
+   "slug": "phrasal-verbs-englisch-liste",
+   "keyword": "phrasal verbs englisch liste",
+   "category": "tu-vung",
+   "tags": [
+    "phrasal-verbs",
+    "vokabeln",
+    "idioms"
+   ],
+   "shots": [
+    "library",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/practice/learn"
+   ],
+   "angle": "Die wichtigsten englischen Phrasal Verbs mit Beispielsätzen, Bedeutungen und Lerntipps für den Alltag.",
+   "intent": "tra cứu",
+   "lang": "de",
+   "cluster": "phrasal-verbs-englisch-liste",
+   "role": "satellite",
+   "pillar": "englisch-vokabeln-lernen"
+  },
+  {
+   "slug": "englischer-lebenslauf-cv-muster",
+   "keyword": "englischer lebenslauf muster",
+   "category": "ky-nang",
+   "tags": [
+    "cv",
+    "resume",
+    "karriere"
+   ],
+   "shots": [
+    "library",
+    "dict"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/dict"
+   ],
+   "angle": "Aufbau, Action Verbs und ATS-sicheres Format für einen professionellen englischen Lebenslauf (Resume).",
+   "intent": "học",
+   "lang": "de",
+   "cluster": "englischer-lebenslauf-cv-muster",
+   "role": "satellite",
+   "pillar": "vorstellungsgespraech-englisch-tipps"
+  },
+  {
+   "slug": "meeting-auf-englisch-phrasen",
+   "keyword": "meeting auf englisch phrasen",
+   "category": "ky-nang",
+   "tags": [
+    "business-english",
+    "meetings",
+    "phrasen"
+   ],
+   "shots": [
+    "library",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/practice/speak"
+   ],
+   "angle": "Praktische Redewendungen für englische Meetings: Diskussionen eröffnen, höflich unterbrechen und Next Steps vereinbaren.",
+   "intent": "học",
+   "lang": "de",
+   "cluster": "meeting-auf-englisch-phrasen",
+   "role": "satellite",
+   "pillar": "business-english-email-schreiben"
+  },
+  {
+   "slug": "smalltalk-auf-englisch-themen",
+   "keyword": "smalltalk auf englisch",
+   "category": "ky-nang",
+   "tags": [
+    "small-talk",
+    "networking",
+    "konversation"
+   ],
+   "shots": [
+    "library",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/practice/speak"
+   ],
+   "angle": "Wie man im Beruf und auf Reisen auf Englisch das Eis bricht: sichere Gesprächsthemen und offene Fragen.",
+   "intent": "học",
+   "lang": "de",
+   "cluster": "smalltalk-auf-englisch-themen",
+   "role": "satellite",
+   "pillar": "business-english-email-schreiben"
+  },
+  {
+   "slug": "ielts-speaking-part-2-et-3",
+   "keyword": "ielts speaking part 2 et 3",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "speaking",
+    "cue-card"
+   ],
+   "shots": [
+    "speaking",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Structure et connecteurs pour tenir 2 minutes sur la Cue Card et répondre aux questions abstraites de la partie 3.",
+   "intent": "thi",
+   "lang": "fr",
+   "cluster": "ielts-speaking-part-2-et-3",
+   "role": "satellite",
+   "pillar": "conseils-ielts-listening"
+  },
+  {
+   "slug": "toefl-ou-ielts-lequel-choisir",
+   "keyword": "toefl ou ielts lequel choisir",
+   "category": "ielts",
+   "tags": [
+    "toefl",
+    "ielts",
+    "comparatif"
+   ],
+   "shots": [
+    "mock",
+    "placement"
+   ],
+   "routes": [
+    "/#/mock",
+    "/#/placement"
+   ],
+   "angle": "Comparatif complet entre le TOEFL iBT et l IELTS : format des épreuves, barème, coût et reconnaissance universitaire.",
+   "intent": "thi",
+   "lang": "fr",
+   "cluster": "toefl-ou-ielts-lequel-choisir",
+   "role": "satellite",
+   "pillar": "toeic-listening-reading-astuces"
+  },
+  {
+   "slug": "prepositions-anglais-in-on-at",
+   "keyword": "prépositions en anglais in on at",
+   "category": "ngu-phap",
+   "tags": [
+    "prepositions",
+    "grammaire",
+    "in-on-at"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "La règle de la pyramide inversée pour maîtriser in, on et at pour le temps et le lieu sans traduire du français.",
+   "intent": "học",
+   "lang": "fr",
+   "cluster": "prepositions-anglais-in-on-at",
+   "role": "satellite",
+   "pillar": "present-perfect-ou-preterit"
+  },
+  {
+   "slug": "verbes-modaux-anglais-can-could-should-must",
+   "keyword": "verbes modaux en anglais",
+   "category": "ngu-phap",
+   "tags": [
+    "modaux",
+    "grammaire",
+    "verbes"
+   ],
+   "shots": [
+    "grammar",
+    "library"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/library"
+   ],
+   "angle": "Guide d utilisation des auxiliaires modaux anglais (can, could, should, must, may, might) avec règles claires.",
+   "intent": "học",
+   "lang": "fr",
+   "cluster": "verbes-modaux-anglais-can-could-should-must",
+   "role": "satellite",
+   "pillar": "present-perfect-ou-preterit"
+  },
+  {
+   "slug": "repetition-espacee-anglais-fsrs",
+   "keyword": "répétition espacée pour apprendre l anglais",
+   "category": "phuong-phap",
+   "tags": [
+    "repetition-espacee",
+    "fsrs",
+    "vocabulaire"
+   ],
+   "shots": [
+    "review",
+    "stats"
+   ],
+   "routes": [
+    "/#/review",
+    "/#/stats"
+   ],
+   "angle": "Comment le système de répétition espacée (SRS/FSRS) permet de retenir le vocabulaire anglais à long terme.",
+   "intent": "học",
+   "lang": "fr",
+   "cluster": "repetition-espacee-anglais-fsrs",
+   "role": "satellite",
+   "pillar": "apprendre-vocabulaire-anglais"
+  },
+  {
+   "slug": "comment-penser-en-anglais-sans-traduire",
+   "keyword": "comment penser en anglais sans traduire",
+   "category": "phuong-phap",
+   "tags": [
+    "fluidite",
+    "methode",
+    "penser-en-anglais"
+   ],
+   "shots": [
+    "placement",
+    "review"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/review"
+   ],
+   "angle": "Méthode progressive en 4 étapes pour arrêter de traduire mentalement depuis le français et parler avec fluidité.",
+   "intent": "học",
+   "lang": "fr",
+   "cluster": "comment-penser-en-anglais-sans-traduire",
+   "role": "satellite",
+   "pillar": "apprendre-anglais-seul"
+  },
+  {
+   "slug": "faire-un-cv-en-anglais",
+   "keyword": "faire un cv en anglais",
+   "category": "ky-nang",
+   "tags": [
+    "cv",
+    "resume",
+    "carriere"
+   ],
+   "shots": [
+    "library",
+    "dict"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/dict"
+   ],
+   "angle": "Format international, verbes d action et règles indispensables pour rédiger un CV en anglais percutant.",
+   "intent": "học",
+   "lang": "fr",
+   "cluster": "faire-un-cv-en-anglais",
+   "role": "satellite",
+   "pillar": "entretien-embauche-anglais-questions"
+  },
+  {
+   "slug": "reunion-en-anglais-expressions-utiles",
+   "keyword": "réunion en anglais expressions utiles",
+   "category": "ky-nang",
+   "tags": [
+    "business-english",
+    "reunion",
+    "travail"
+   ],
+   "shots": [
+    "library",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/practice/speak"
+   ],
+   "angle": "Phrases professionnelles pour ouvrir une réunion, exprimer son avis, interrompre poliment et fixer les prochaines étapes.",
+   "intent": "học",
+   "lang": "fr",
+   "cluster": "reunion-en-anglais-expressions-utiles",
+   "role": "satellite",
+   "pillar": "rediger-email-professionnel-anglais"
+  },
+  {
+   "slug": "anglais-pour-voyager-phrases-essentielles",
+   "keyword": "anglais pour voyager phrases utiles",
+   "category": "ky-nang",
+   "tags": [
+    "voyage",
+    "tourisme",
+    "phrases-utiles"
+   ],
+   "shots": [
+    "library",
+    "dict"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/dict"
+   ],
+   "angle": "Le guide de survie linguistique en anglais pour l aéroport, l hôtel, le restaurant et les urgencias en voyage.",
+   "intent": "học",
+   "lang": "fr",
+   "cluster": "anglais-pour-voyager-phrases-essentielles",
+   "role": "satellite",
+   "pillar": "apprendre-vocabulaire-anglais"
+  },
+  {
+   "slug": "ya-si-yue-du-skimming-scanning",
+   "keyword": "雅思阅读定位技巧",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "yue-du",
+    "skimming-scanning"
+   ],
+   "shots": [
+    "read-article",
+    "mock"
+   ],
+   "routes": [
+    "/#/reading",
+    "/#/mock"
+   ],
+   "angle": "掌握快速略读（Skimming）与寻读（Scanning）精确定位技巧，60分钟搞定雅思学术类阅读高分。",
+   "intent": "thi",
+   "lang": "zh",
+   "cluster": "ya-si-yue-du-skimming-scanning",
+   "role": "satellite",
+   "pillar": "ya-si-yue-du-ti-gao-fen-shu"
+  },
+  {
+   "slug": "ya-si-kou-yu-part-2-hua-ti-ku",
+   "keyword": "雅思口语part 2模板",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "kou-yu",
+    "part-2"
+   ],
+   "shots": [
+    "speaking",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "雅思口语Part 2两分钟答题结构框架，如何利用1分钟准备时间列要点并流利表达。",
+   "intent": "thi",
+   "lang": "zh",
+   "cluster": "ya-si-kou-yu-part-2-hua-ti-ku",
+   "role": "satellite",
+   "pillar": "ya-si-kou-yu-ji-qiao"
+  },
+  {
+   "slug": "tuo-fu-xie-zuo-academic-discussion",
+   "keyword": "托福写作学术讨论",
+   "category": "ielts",
+   "tags": [
+    "toefl",
+    "xie-zuo",
+    "academic-discussion"
+   ],
+   "shots": [
+    "write",
+    "toefl"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/toefl"
+   ],
+   "angle": "新版托福iBT学术讨论写作（Writing for an Academic Discussion）10分钟应试策略与满分范文剖析。",
+   "intent": "thi",
+   "lang": "zh",
+   "cluster": "tuo-fu-xie-zuo-academic-discussion",
+   "role": "satellite",
+   "pillar": "ya-si-xie-zuo-task-2-mo-ban"
+  },
+  {
+   "slug": "ying-yu-jie-ci-in-on-at-yong-fa",
+   "keyword": "英语介词in on at用法",
+   "category": "ngu-phap",
+   "tags": [
+    "jie-ci",
+    "yu-fa",
+    "in-on-at"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "倒金字塔法则彻底搞懂英语介词 in on at 在时间与空间上的精准用法，告别中式英语思维。",
+   "intent": "học",
+   "lang": "zh",
+   "cluster": "ying-yu-jie-ci-in-on-at-yong-fa",
+   "role": "satellite",
+   "pillar": "ying-yu-yu-fa-ji-chu-gui-ze"
+  },
+  {
+   "slug": "ying-yu-qing-tai-dong-ci-can-could-should-must",
+   "keyword": "英语情态动词用法",
+   "category": "ngu-phap",
+   "tags": [
+    "qing-tai-dong-ci",
+    "yu-fa",
+    "modaux"
+   ],
+   "shots": [
+    "grammar",
+    "library"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/library"
+   ],
+   "angle": "系统梳理 can, could, should, must, may, might 的语气强弱、推测概率与过去时虚拟表达。",
+   "intent": "học",
+   "lang": "zh",
+   "cluster": "ying-yu-qing-tai-dong-ci-can-could-should-must",
+   "role": "satellite",
+   "pillar": "ying-yu-yu-fa-ji-chu-gui-ze"
+  },
+  {
+   "slug": "jian-ge-chong-fu-bei-dan-ci-fsrs",
+   "keyword": "间隔重复背单词",
+   "category": "phuong-phap",
+   "tags": [
+    "jian-ge-chong-fu",
+    "fsrs",
+    "ci-hui"
+   ],
+   "shots": [
+    "review",
+    "stats"
+   ],
+   "routes": [
+    "/#/review",
+    "/#/stats"
+   ],
+   "angle": "艾宾浩斯遗忘曲线与现代 FSRS 算法如何打破背了就忘的怪圈，科学高效积累长期英语词汇。",
+   "intent": "học",
+   "lang": "zh",
+   "cluster": "jian-ge-chong-fu-bei-dan-ci-fsrs",
+   "role": "satellite",
+   "pillar": "bei-dan-ci-de-fang-fa"
+  },
+  {
+   "slug": "ru-he-yong-ying-yu-si-wei-bu-fan-yi",
+   "keyword": "如何用英语思维思考",
+   "category": "phuong-phap",
+   "tags": [
+    "ying-yu-si-wei",
+    "kou-yu",
+    "liu-li"
+   ],
+   "shots": [
+    "placement",
+    "review"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/review"
+   ],
+   "angle": "告别脑中中文翻译：四步阶梯法建立英文直接映射，掌握词块（Chunks）与内心自言自语训练。",
+   "intent": "học",
+   "lang": "zh",
+   "cluster": "ru-he-yong-ying-yu-si-wei-bu-fan-yi",
+   "role": "satellite",
+   "pillar": "bei-dan-ci-de-fang-fa"
+  },
+  {
+   "slug": "ying-wen-jian-li-cv-resume-mo-ban",
+   "keyword": "英文简历模板",
+   "category": "ky-nang",
+   "tags": [
+    "jian-li",
+    "resume",
+    "zhi-chang"
+   ],
+   "shots": [
+    "library",
+    "dict"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/dict"
+   ],
+   "angle": "一页纸外企英文简历（Resume）标准格式、ATS筛选规则与谷歌XYZ行动动词撰写指南。",
+   "intent": "học",
+   "lang": "zh",
+   "cluster": "ying-wen-jian-li-cv-resume-mo-ban",
+   "role": "satellite",
+   "pillar": "ying-yu-mian-shi-chang-jian-wen-ti"
+  },
+  {
+   "slug": "ying-wen-hui-yi-chang-yong-ju-xing",
+   "keyword": "英文会议常用表达",
+   "category": "ky-nang",
+   "tags": [
+    "shang-wu-ying-yu",
+    "hui-yi",
+    "zhi-chang"
+   ],
+   "shots": [
+    "library",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/practice/speak"
+   ],
+   "angle": "跨国职场线上会议全流程实用句型：主持开场、礼貌插话、委婉表达异议与敲定 Action Items。",
+   "intent": "học",
+   "lang": "zh",
+   "cluster": "ying-wen-hui-yi-chang-yong-ju-xing",
+   "role": "satellite",
+   "pillar": "shang-wu-ying-yu-you-jian-ge-shi"
+  },
+  {
+   "slug": "chu-jing-lv-you-ying-yu-chang-yong-kou-yu",
+   "keyword": "出国旅游英语常用口语",
+   "category": "ky-nang",
+   "tags": [
+    "lv-you",
+    "kou-yu",
+    "ri-chang"
+   ],
+   "shots": [
+    "library",
+    "dict"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/dict"
+   ],
+   "angle": "机场值机、酒店入住、餐厅点餐、交通问路与紧急求助的出国实用英语生存指南。",
+   "intent": "học",
+   "lang": "zh",
+   "cluster": "chu-jing-lv-you-ying-yu-chang-yong-kou-yu",
+   "role": "satellite",
+   "pillar": "bei-dan-ci-de-fang-fa"
+  },
+  {
+   "slug": "ielts-reading-skimming-scanning-gongbubeop",
+   "keyword": "아이엘츠 리딩 시간 단축",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "reading",
+    "skimming-scanning"
+   ],
+   "shots": [
+    "read-article",
+    "mock"
+   ],
+   "routes": [
+    "/#/reading",
+    "/#/mock"
+   ],
+   "angle": "60분 안에 3개 지문 완벽 공략하는 아이엘츠 리딩 스키밍(Skimming)과 스캐닝(Scanning) 비법.",
+   "intent": "thi",
+   "lang": "ko",
+   "cluster": "ielts-reading-skimming-scanning-gongbubeop",
+   "role": "satellite",
+   "pillar": "toeic-part7-dokhae-bibeop"
+  },
+  {
+   "slug": "ielts-speaking-part-2-3-template",
+   "keyword": "아이엘츠 스피킹 파트2 템플릿",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "speaking",
+    "cue-card"
+   ],
+   "shots": [
+    "speaking",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "아이엘츠 스피킹 파트2 1분 준비로 2분 꽉 채우는 4단계 구조와 파트3 추상 질문 대처법.",
+   "intent": "thi",
+   "lang": "ko",
+   "cluster": "ielts-speaking-part-2-3-template",
+   "role": "satellite",
+   "pillar": "yeongeo-shadowing-bangbeop"
+  },
+  {
+   "slug": "toefl-ibt-academic-discussion-writing",
+   "keyword": "토플 라이팅 학술토론",
+   "category": "ielts",
+   "tags": [
+    "toefl",
+    "writing",
+    "academic-discussion"
+   ],
+   "shots": [
+    "write",
+    "toefl"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/toefl"
+   ],
+   "angle": "개정 토플 iBT 10분 학술 토론형(Academic Discussion) 라이팅 고득점 템플릿과 모범 답안.",
+   "intent": "thi",
+   "lang": "ko",
+   "cluster": "toefl-ibt-academic-discussion-writing",
+   "role": "satellite",
+   "pillar": "toefl-ibt-writing-template"
+  },
+  {
+   "slug": "yeongeo-jeonchisa-in-on-at-chongjeongri",
+   "keyword": "영어 전치사 in on at 정리",
+   "category": "ngu-phap",
+   "tags": [
+    "jeonchisa",
+    "munbeop",
+    "in-on-at"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "역피라미드 법칙으로 한 번에 끝내는 시간과 장소의 영어 전치사 in on at 완벽 정리.",
+   "intent": "học",
+   "lang": "ko",
+   "cluster": "yeongeo-jeonchisa-in-on-at-chongjeongri",
+   "role": "satellite",
+   "pillar": "yeongeo-gicho-munbeop-chongjeongri"
+  },
+  {
+   "slug": "yeongeo-jodongsa-can-could-should-must",
+   "keyword": "영어 조동사 정리",
+   "category": "ngu-phap",
+   "tags": [
+    "jodongsa",
+    "munbeop",
+    "can-could"
+   ],
+   "shots": [
+    "grammar",
+    "library"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/library"
+   ],
+   "angle": "can, could, should, must, may, might의 뉘앙스 차이와 확신도 백분율로 이해하는 조동사 완전 정복.",
+   "intent": "học",
+   "lang": "ko",
+   "cluster": "yeongeo-jodongsa-can-could-should-must",
+   "role": "satellite",
+   "pillar": "yeongeo-gicho-munbeop-chongjeongri"
+  },
+  {
+   "slug": "gangeok-banbok-daneo-amgi-fsrs",
+   "keyword": "간격 반복 영어 단어",
+   "category": "phuong-phap",
+   "tags": [
+    "gangeok-banbok",
+    "fsrs",
+    "daneo"
+   ],
+   "shots": [
+    "review",
+    "stats"
+   ],
+   "routes": [
+    "/#/review",
+    "/#/stats"
+   ],
+   "angle": "에빙하우스 망각곡선을 극복하는 간격 반복(SRS/FSRS) 과학적 영단어 암기 알고리즘.",
+   "intent": "học",
+   "lang": "ko",
+   "cluster": "gangeok-banbok-daneo-amgi-fsrs",
+   "role": "satellite",
+   "pillar": "yeongdaneo-amgibeop"
+  },
+  {
+   "slug": "yeongeo-ro-saenggakhagi-beonyeok-eopsi",
+   "keyword": "영어로 생각하기 훈련",
+   "category": "phuong-phap",
+   "tags": [
+    "yeongeo-saenggak",
+    "hoehwa",
+    "chunking"
+   ],
+   "shots": [
+    "placement",
+    "review"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/review"
+   ],
+   "angle": "머릿속 한국어 번역 없이 바로 영어로 말하는 4단계 혼잣말 훈련과 청크(Chunking) 학습법.",
+   "intent": "học",
+   "lang": "ko",
+   "cluster": "yeongeo-ro-saenggakhagi-beonyeok-eopsi",
+   "role": "satellite",
+   "pillar": "yeongdaneo-amgibeop"
+  },
+  {
+   "slug": "yeongmun-ilyeokseo-resume-jakseongbeop",
+   "keyword": "영문 이력서 레주메 작성법",
+   "category": "ky-nang",
+   "tags": [
+    "resume",
+    "cv",
+    "chwieop"
+   ],
+   "shots": [
+    "library",
+    "dict"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/dict"
+   ],
+   "angle": "외국계 기업 합격을 부르는 1장 영문 이력서(Resume) 양식, ATS 통과 기준과 액션 동사 모음.",
+   "intent": "học",
+   "lang": "ko",
+   "cluster": "yeongmun-ilyeokseo-resume-jakseongbeop",
+   "role": "satellite",
+   "pillar": "yeongeo-myeonjeop-jajunawonun-jilmun"
+  },
+  {
+   "slug": "business-yeongeo-meeting-pyohyeon",
+   "keyword": "비즈니스 영어 회의 표현",
+   "category": "ky-nang",
+   "tags": [
+    "business-english",
+    "meeting",
+    "hoehwa"
+   ],
+   "shots": [
+    "library",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/practice/speak"
+   ],
+   "angle": "글로벌 화상 회의를 주도하는 실전 영어 표현: 안건 소개, 정중한 끼어들기, 부드러운 반론과 액션 아이템.",
+   "intent": "học",
+   "lang": "ko",
+   "cluster": "business-yeongeo-meeting-pyohyeon",
+   "role": "satellite",
+   "pillar": "business-yeongeo-email-pyohyeon"
+  },
+  {
+   "slug": "haeoe-yeohaeng-yeongeo-pyohyeon-moeum",
+   "keyword": "해외여행 영어회화 필수표현",
+   "category": "ky-nang",
+   "tags": [
+    "yeohaeng",
+    "hoehwa",
+    "chul-guk"
+   ],
+   "shots": [
+    "library",
+    "dict"
+   ],
+   "routes": [
+    "/#/library",
+    "/#/dict"
+   ],
+   "angle": "공항 체크인, 기내, 호텔, 식당 주문, 길 찾기부터 응급상황까지 완벽 대비하는 해외여행 영어회화 가이드.",
+   "intent": "học",
+   "lang": "ko",
+   "cluster": "haeoe-yeohaeng-yeongeo-pyohyeon-moeum",
+   "role": "satellite",
+   "pillar": "yeongdaneo-amgibeop"
+  },
+  {
+   "slug": "ielts-reading-skimming-scanning-kotsu",
+   "keyword": "ielts リーディング コツ",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "reading",
+    "ky-nang"
+   ],
+   "shots": [
+    "reading",
+    "library"
+   ],
+   "routes": [
+    "/#/reading",
+    "/#/library"
+   ],
+   "angle": "Kỹ thuật Skimming & Scanning trong IELTS Reading giúp quản lý thời gian 60 phút và giải quyết bẫy True/False/Not Given",
+   "intent": "informational",
+   "lang": "ja",
+   "source": "ielts-reading-skimming-and-scanning",
+   "role": "cluster",
+   "cluster": "ielts-reading-skimming-and-scanning"
+  },
+  {
+   "slug": "ielts-speaking-part-2-template",
+   "keyword": "ielts スピーキング パート2 テンプレート",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "speaking",
+    "template"
+   ],
+   "shots": [
+    "speaking",
+    "review"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/review"
+   ],
+   "angle": "Khung sườn 1 phút chuẩn bị và 2 phút nói Part 2 IELTS Speaking, công thức mở rộng câu trả lời cho Part 3",
+   "intent": "informational",
+   "lang": "ja",
+   "source": "ielts-speaking-part-2-template",
+   "role": "cluster",
+   "cluster": "ielts-speaking-part-2-template"
+  },
+  {
+   "slug": "toefl-ibt-writing-academic-discussion-taisaku",
+   "keyword": "toefl ライティング academic discussion",
+   "category": "toefl",
+   "tags": [
+    "toefl",
+    "writing",
+    "luyen-thi"
+   ],
+   "shots": [
+    "write",
+    "review"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/review"
+   ],
+   "angle": "Chiến thuật đạt điểm tối đa dạng bài mới Academic Discussion TOEFL iBT trong 10 phút",
+   "intent": "informational",
+   "lang": "ja",
+   "source": "toefl-academic-discussion-writing",
+   "role": "cluster",
+   "cluster": "toefl-academic-discussion-writing"
+  },
+  {
+   "slug": "eigo-zenchishi-in-on-at-tsukaikake",
+   "keyword": "英語 前置詞 in on at 使い分け",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "preposition",
+    "can-ban"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "Mô hình kim tự tháp ngược phân biệt giới từ in on at cho thời gian và địa điểm cùng các cụm cố định",
+   "intent": "informational",
+   "lang": "ja",
+   "source": "gioi-tu-in-on-at-trong-tieng-anh",
+   "role": "cluster",
+   "cluster": "gioi-tu-in-on-at-trong-tieng-anh"
+  },
+  {
+   "slug": "eigo-jodoushi-can-could-should-must",
+   "keyword": "英語 助動詞 can could should must",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "modal-verbs"
+   ],
+   "shots": [
+    "grammar",
+    "library"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/library"
+   ],
+   "angle": "Phân biệt sắc thái của can, could, should, must và dạng hoàn thành modal perfect",
+   "intent": "informational",
+   "lang": "ja",
+   "source": "dong-tu-khuyet-thieu-can-could-should-must",
+   "role": "cluster",
+   "cluster": "dong-tu-khuyet-thieu-can-could-should-must"
+  },
+  {
+   "slug": "bunsan-gakushuu-eitango-anki-fsrs",
+   "keyword": "分散学習 英単語 fsrs",
+   "category": "phuong-phap",
+   "tags": [
+    "phuong-phap",
+    "fsrs",
+    "flashcard"
+   ],
+   "shots": [
+    "review",
+    "stats"
+   ],
+   "routes": [
+    "/#/review",
+    "/#/stats"
+   ],
+   "angle": "Phương pháp Spaced Repetition và thuật toán FSRS giúp tối ưu đường cong quên lãng khi học từ vựng",
+   "intent": "informational",
+   "lang": "ja",
+   "source": "phuong-phap-spaced-repetition",
+   "role": "cluster",
+   "cluster": "phuong-phap-spaced-repetition"
+  },
+  {
+   "slug": "eigonou-tsukurikata-hon-yaku-shinai",
+   "keyword": "英語脳 作り方 翻訳しない",
+   "category": "phuong-phap",
+   "tags": [
+    "phuong-phap",
+    "speaking",
+    "phan-xa"
+   ],
+   "shots": [
+    "shadowing",
+    "library"
+   ],
+   "routes": [
+    "/#/shadowing",
+    "/#/library"
+   ],
+   "angle": "4 bước rèn luyện tư duy bằng tiếng Anh không qua dịch thầm tiếng Nhật trong đầu",
+   "intent": "informational",
+   "lang": "ja",
+   "source": "tu-duy-bang-tieng-anh-khong-dich",
+   "role": "cluster",
+   "cluster": "tu-duy-bang-tieng-anh-khong-dich"
+  },
+  {
+   "slug": "eibun-resume-cv-kakikata-template",
+   "keyword": "英文レジュメ 書き方 テンプレート",
+   "category": "ky-nang",
+   "tags": [
+    "career",
+    "cv",
+    "resume"
+   ],
+   "shots": [
+    "write",
+    "library"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/library"
+   ],
+   "angle": "Hướng dẫn viết Resume/CV tiếng Anh 1 trang chuẩn hệ thống ATS với công thức Google XYZ",
+   "intent": "informational",
+   "lang": "ja",
+   "source": "viet-cv-tieng-anh-chuan-ats",
+   "role": "cluster",
+   "cluster": "viet-cv-tieng-anh-chuan-ats"
+  },
+  {
+   "slug": "business-eigo-meeting-phrases",
+   "keyword": "ビジネス英語 ミーティング フレーズ",
+   "category": "ky-nang",
+   "tags": [
+    "business",
+    "speaking",
+    "cong-so"
+   ],
+   "shots": [
+    "speaking",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/learn"
+   ],
+   "angle": "Tuyển tập câu tiếng Anh thông dụng trong cuộc họp trực tuyến, ngắt lời lịch sự và biểu đạt quan điểm",
+   "intent": "informational",
+   "lang": "ja",
+   "source": "tieng-anh-giao-tiep-hop-cong-so",
+   "role": "cluster",
+   "cluster": "tieng-anh-giao-tiep-hop-cong-so"
+  },
+  {
+   "slug": "kaigai-ryokou-eikaiwa-phrases",
+   "keyword": "海外旅行 英会話 フレーズ",
+   "category": "ky-nang",
+   "tags": [
+    "travel",
+    "speaking",
+    "giao-tiep"
+   ],
+   "shots": [
+    "speaking",
+    "library"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/library"
+   ],
+   "angle": "Mẫu câu tiếng Anh giao tiếp cần thiết khi đi du lịch nước ngoài: sân bay, khách sạn, nhà hàng, khẩn cấp",
+   "intent": "informational",
+   "lang": "ja",
+   "source": "tieng-anh-du-lich-nuoc-ngoai",
+   "role": "cluster",
+   "cluster": "tieng-anh-du-lich-nuoc-ngoai"
+  },
+  {
+   "slug": "teknik-skimming-scanning-ielts-reading",
+   "keyword": "skimming dan scanning ielts reading",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "reading",
+    "ky-nang"
+   ],
+   "shots": [
+    "reading",
+    "library"
+   ],
+   "routes": [
+    "/#/reading",
+    "/#/library"
+   ],
+   "angle": "Kuasai teknik skimming dan scanning untuk menghemat waktu 60 menit dan menaklukkan soal True/False/Not Given di IELTS Reading",
+   "intent": "informational",
+   "lang": "id",
+   "source": "ielts-reading-skimming-and-scanning",
+   "role": "cluster",
+   "cluster": "ielts-reading-skimming-and-scanning"
+  },
+  {
+   "slug": "template-ielts-speaking-part-2-dan-3",
+   "keyword": "template ielts speaking part 2",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "speaking",
+    "template"
+   ],
+   "shots": [
+    "speaking",
+    "review"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/review"
+   ],
+   "angle": "Template dan struktur menjawab IELTS Speaking Part 2 dalam 2 menit serta strategi pengembangan ide Part 3",
+   "intent": "informational",
+   "lang": "id",
+   "source": "ielts-speaking-part-2-template",
+   "role": "cluster",
+   "cluster": "ielts-speaking-part-2-template"
+  },
+  {
+   "slug": "toefl-ibt-academic-discussion-writing-panduan",
+   "keyword": "toefl ibt academic discussion writing",
+   "category": "toefl",
+   "tags": [
+    "toefl",
+    "writing",
+    "luyen-thi"
+   ],
+   "shots": [
+    "write",
+    "review"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/review"
+   ],
+   "angle": "Panduan lengkap menulis Academic Discussion TOEFL iBT dalam 10 menit dengan formula 4 kalimat dan contoh skor sempurna",
+   "intent": "informational",
+   "lang": "id",
+   "source": "toefl-academic-discussion-writing",
+   "role": "cluster",
+   "cluster": "toefl-academic-discussion-writing"
+  },
+  {
+   "slug": "preposisi-in-on-at-bahasa-inggris",
+   "keyword": "preposisi in on at bahasa inggris",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "preposition",
+    "can-ban"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "Aturan piramida terbalik penggunaan preposisi in, on, at untuk waktu dan tempat beserta frasa idiomatis",
+   "intent": "informational",
+   "lang": "id",
+   "source": "gioi-tu-in-on-at-trong-tieng-anh",
+   "role": "cluster",
+   "cluster": "gioi-tu-in-on-at-trong-tieng-anh"
+  },
+  {
+   "slug": "modal-verbs-can-could-should-must",
+   "keyword": "modal verbs can could should must",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "modal-verbs"
+   ],
+   "shots": [
+    "grammar",
+    "library"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/library"
+   ],
+   "angle": "Perbedaan makna dan derajat kepastian can, could, should, must serta bentuk modal perfect",
+   "intent": "informational",
+   "lang": "id",
+   "source": "dong-tu-khuyet-thieu-can-could-should-must",
+   "role": "cluster",
+   "cluster": "dong-tu-khuyet-thieu-can-could-should-must"
+  },
+  {
+   "slug": "spaced-repetition-menghafal-kosakata-fsrs",
+   "keyword": "spaced repetition menghafal kosakata fsrs",
+   "category": "phuong-phap",
+   "tags": [
+    "phuong-phap",
+    "fsrs",
+    "flashcard"
+   ],
+   "shots": [
+    "review",
+    "stats"
+   ],
+   "routes": [
+    "/#/review",
+    "/#/stats"
+   ],
+   "angle": "Cara menghafal kosakata bahasa Inggris secara permanen dengan algoritma Spaced Repetition FSRS melawan kurva lupa Ebbinghaus",
+   "intent": "informational",
+   "lang": "id",
+   "source": "phuong-phap-spaced-repetition",
+   "role": "cluster",
+   "cluster": "phuong-phap-spaced-repetition"
+  },
+  {
+   "slug": "cara-berpikir-dalam-bahasa-inggris-tanpa-menerjemahkan",
+   "keyword": "cara berpikir dalam bahasa inggris tanpa menerjemahkan",
+   "category": "phuong-phap",
+   "tags": [
+    "phuong-phap",
+    "speaking",
+    "phan-xa"
+   ],
+   "shots": [
+    "shadowing",
+    "library"
+   ],
+   "routes": [
+    "/#/shadowing",
+    "/#/library"
+   ],
+   "angle": "4 langkah praktis melatih otak berpikir langsung dalam bahasa Inggris tanpa proses terjemahan di kepala",
+   "intent": "informational",
+   "lang": "id",
+   "source": "tu-duy-bang-tieng-anh-khong-dich",
+   "role": "cluster",
+   "cluster": "tu-duy-bang-tieng-anh-khong-dich"
+  },
+  {
+   "slug": "cara-membuat-cv-bahasa-inggris-ats-resume",
+   "keyword": "cara membuat cv bahasa inggris resume ats",
+   "category": "ky-nang",
+   "tags": [
+    "career",
+    "cv",
+    "resume"
+   ],
+   "shots": [
+    "write",
+    "library"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/library"
+   ],
+   "angle": "Panduan menulis resume dan CV bahasa Inggris 1 halaman standar ATS dengan formula XYZ dan kata kerja aksi",
+   "intent": "informational",
+   "lang": "id",
+   "source": "viet-cv-tieng-anh-chuan-ats",
+   "role": "cluster",
+   "cluster": "viet-cv-tieng-anh-chuan-ats"
+  },
+  {
+   "slug": "frasa-bahasa-inggris-untuk-meeting-kerja",
+   "keyword": "frasa bahasa inggris untuk meeting kerja",
+   "category": "ky-nang",
+   "tags": [
+    "business",
+    "speaking",
+    "cong-so"
+   ],
+   "shots": [
+    "speaking",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/learn"
+   ],
+   "angle": "Kumpulan kalimat bahasa Inggris penting untuk memimpin rapat, menyampaikan opini, menyela dengan sopan, dan diskusi online",
+   "intent": "informational",
+   "lang": "id",
+   "source": "tieng-anh-giao-tiep-hop-cong-so",
+   "role": "cluster",
+   "cluster": "tieng-anh-giao-tiep-hop-cong-so"
+  },
+  {
+   "slug": "percakapan-bahasa-inggris-untuk-traveling-ke-luar-negeri",
+   "keyword": "percakapan bahasa inggris untuk traveling luar negeri",
+   "category": "ky-nang",
+   "tags": [
+    "travel",
+    "speaking",
+    "giao-tiep"
+   ],
+   "shots": [
+    "speaking",
+    "library"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/library"
+   ],
+   "angle": "Percakapan praktis bahasa Inggris untuk perjalanan ke luar negeri: imigrasi, hotel, restoran, transportasi, dan situasi darurat",
+   "intent": "informational",
+   "lang": "id",
+   "source": "tieng-anh-du-lich-nuoc-ngoai",
+   "role": "cluster",
+   "cluster": "tieng-anh-du-lich-nuoc-ngoai"
+  },
+  {
+   "slug": "theknik-skimming-scanning-ielts-reading",
+   "keyword": "เทคนิค skimming scanning ielts reading",
+   "category": "luyen-thi",
+   "tags": [
+    "ielts",
+    "reading",
+    "theknik"
+   ],
+   "shots": [
+    "reading",
+    "read-article"
+   ],
+   "routes": [
+    "/#/reading",
+    "/#/mock"
+   ],
+   "angle": "เทคนิคการอ่านแบบ Skimming และ Scanning ในข้อสอบ IELTS Reading เพื่อจับใจความสำคัญและค้นหาคำตอบอย่างแม่นยำใน 60 นาที",
+   "intent": "informational",
+   "lang": "th",
+   "source": "ky-nang-skimming-scanning-ielts-reading",
+   "role": "cluster",
+   "cluster": "ky-nang-skimming-scanning-ielts-reading"
+  },
+  {
+   "slug": "template-ielts-speaking-part-2",
+   "keyword": "template ielts speaking part 2",
+   "category": "luyen-thi",
+   "tags": [
+    "ielts",
+    "speaking",
+    "template"
+   ],
+   "shots": [
+    "speaking",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "โครงสร้างและเทมเพลตสำหรับตอบคำถาม IELTS Speaking Part 2 และ Part 3 พร้อมเทคนิคการพูดต่อเนื่อง 2 นาทีโดยไม่ติดขัด",
+   "intent": "informational",
+   "lang": "th",
+   "source": "ielts-speaking-part-2-template",
+   "role": "cluster",
+   "cluster": "ielts-speaking-part-2-template"
+  },
+  {
+   "slug": "toefl-ibt-writing-academic-discussion-theknik",
+   "keyword": "toefl ibt writing academic discussion",
+   "category": "luyen-thi",
+   "tags": [
+    "toefl",
+    "writing",
+    "academic"
+   ],
+   "shots": [
+    "write",
+    "toefl"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/mock"
+   ],
+   "angle": "คู่มือเตรียมสอบ TOEFL iBT Writing ข้อ Writing for an Academic Discussion 10 นาที พร้อมโครงสร้างและตัวอย่างคำตอบระดับคะแนนเต็ม",
+   "intent": "informational",
+   "lang": "th",
+   "source": "toefl-ibt-writing-academic-discussion",
+   "role": "cluster",
+   "cluster": "toefl-ibt-writing-academic-discussion"
+  },
+  {
+   "slug": "kham-bubbhabot-in-on-at-phasa-angkrit",
+   "keyword": "คำบุพบท in on at ภาษาอังกฤษ",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "prepositions",
+    "in-on-at"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "สรุปหลักการใช้คำบุพบทบอกเวลาและสถานที่ In On At ในภาษาอังกฤษ ด้วยโมเดลพีระมิดกลับหัวเพื่อหลีกเลี่ยงข้อผิดพลาดที่พบบ่อย",
+   "intent": "informational",
+   "lang": "th",
+   "source": "gioi-tu-in-on-at-trong-tieng-anh",
+   "role": "cluster",
+   "cluster": "gioi-tu-in-on-at-trong-tieng-anh"
+  },
+  {
+   "slug": "modal-verbs-can-could-should-must-phasa-angkrit",
+   "keyword": "modal verbs can could should must",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "modal-verbs",
+    "verbs"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/test"
+   ],
+   "angle": "วิธีใช้กริยาช่วย Modal Verbs (Can, Could, Should, Must) แสดงระดับความเป็นไปได้ ความจำเป็น และการขอร้องอย่างสุภาพ",
+   "intent": "informational",
+   "lang": "th",
+   "source": "dong-tu-khuyet-thieu-can-could-should-must",
+   "role": "cluster",
+   "cluster": "dong-tu-khuyet-thieu-can-could-should-must"
+  },
+  {
+   "slug": "spaced-repetition-thong-sap-fsrs",
+   "keyword": "spaced repetition ท่องศัพท์ fsrs",
+   "category": "phuong-phap",
+   "tags": [
+    "phuong-phap",
+    "fsrs",
+    "spaced-repetition"
+   ],
+   "shots": [
+    "review",
+    "stats"
+   ],
+   "routes": [
+    "/#/review",
+    "/#/stats"
+   ],
+   "angle": "เพิ่มประสิทธิภาพการจำคำศัพท์ภาษาอังกฤษระยะยาวด้วยระบบทบทวนแบบเว้นระยะ Spaced Repetition และอัลกอริทึม FSRS",
+   "intent": "informational",
+   "lang": "th",
+   "source": "spaced-repetition-lap-lai-ngat-quang-fsrs",
+   "role": "cluster",
+   "cluster": "spaced-repetition-lap-lai-ngat-quang-fsrs"
+  },
+  {
+   "slug": "withi-khit-pen-phasa-angkrit-mai-plae-thai",
+   "keyword": "วิธีคิดเป็นภาษาอังกฤษ ไม่แปลไทย",
+   "category": "ky-nang",
+   "tags": [
+    "speaking",
+    "thinking",
+    "fluency"
+   ],
+   "shots": [
+    "speaking",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "4 ขั้นตอนฝึกคิดเป็นภาษาอังกฤษโดยตรง ไม่ต้องแปลในหัว เพื่อการพูดภาษาอังกฤษที่ลื่นไหลเป็นธรรมชาติ",
+   "intent": "informational",
+   "lang": "th",
+   "source": "tu-duy-bang-tieng-anh-khong-dich-tham",
+   "role": "cluster",
+   "cluster": "tu-duy-bang-tieng-anh-khong-dich-tham"
+  },
+  {
+   "slug": "khian-resume-phasa-angkrit-ats-template",
+   "keyword": "เขียน resume ภาษาอังกฤษ ats template",
+   "category": "ky-nang",
+   "tags": [
+    "career",
+    "cv",
+    "resume"
+   ],
+   "shots": [
+    "write",
+    "library"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/library"
+   ],
+   "angle": "วิธีเขียน Resume ภาษาอังกฤษ 1 หน้าตามมาตรฐานสากลที่ผ่านระบบคัดกรอง ATS ด้วยสูตร Google XYZ และคำกริยา Action Verbs",
+   "intent": "informational",
+   "lang": "th",
+   "source": "viet-cv-tieng-anh-chuan-ats",
+   "role": "cluster",
+   "cluster": "viet-cv-tieng-anh-chuan-ats"
+  },
+  {
+   "slug": "wali-phasa-angkrit-hop-prachum",
+   "keyword": "วลีภาษาอังกฤษ ประชุมงาน",
+   "category": "ky-nang",
+   "tags": [
+    "business",
+    "speaking",
+    "cong-so"
+   ],
+   "shots": [
+    "speaking",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/learn"
+   ],
+   "angle": "รวมวลีภาษาอังกฤษสำคัญสำหรับการประชุมงาน การนำเสนอ การแสดงความคิดเห็น การขัดจังหวะอย่างสุภาพ และการแก้ไขปัญหาทางเทคนิค",
+   "intent": "informational",
+   "lang": "th",
+   "source": "tieng-anh-giao-tiep-hop-cong-so",
+   "role": "cluster",
+   "cluster": "tieng-anh-giao-tiep-hop-cong-so"
+  },
+  {
+   "slug": "bot-sonthana-phasa-angkrit-thong-thiao-tang-prathet",
+   "keyword": "บทสนทนาภาษาอังกฤษ ท่องเที่ยวต่างประเทศ",
+   "category": "ky-nang",
+   "tags": [
+    "travel",
+    "speaking",
+    "giao-tiep"
+   ],
+   "shots": [
+    "speaking",
+    "library"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/library"
+   ],
+   "angle": "บทสนทนาภาษาอังกฤษใช้งานจริงสำหรับการท่องเที่ยวต่างประเทศ: ตม. สนามบิน โรงแรม ร้านอาหาร การเดินทาง และกรณีฉุกเฉิน",
+   "intent": "informational",
+   "lang": "th",
+   "source": "tieng-anh-du-lich-nuoc-ngoai",
+   "role": "cluster",
+   "cluster": "tieng-anh-du-lich-nuoc-ngoai"
+  },
+  {
+   "slug": "ielts-reading-skimming-scanning-taktikleri",
+   "keyword": "ielts reading skimming scanning taktikleri",
+   "category": "luyen-thi",
+   "tags": [
+    "ielts",
+    "reading",
+    "taktikler"
+   ],
+   "shots": [
+    "reading",
+    "read-article"
+   ],
+   "routes": [
+    "/#/reading",
+    "/#/mock"
+   ],
+   "angle": "IELTS Reading sınavında 60 dakikayı verimli yönetmek için hızlı okuma (skimming) ve bilgi tarama (scanning) taktikleri ve çeldirici tuzaklar",
+   "intent": "informational",
+   "lang": "tr",
+   "source": "ky-nang-skimming-scanning-ielts-reading",
+   "role": "cluster",
+   "cluster": "ky-nang-skimming-scanning-ielts-reading"
+  },
+  {
+   "slug": "ielts-speaking-part-2-kaliplari-template",
+   "keyword": "ielts speaking part 2 kaliplari template",
+   "category": "luyen-thi",
+   "tags": [
+    "ielts",
+    "speaking",
+    "template"
+   ],
+   "shots": [
+    "speaking",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "IELTS Speaking Part 2 Cue Card için 2 dakikalık akıcı konuşma şablonu, Part 3 tartışma stratejileri ve Band 8 örnekleri",
+   "intent": "informational",
+   "lang": "tr",
+   "source": "ielts-speaking-part-2-template",
+   "role": "cluster",
+   "cluster": "ielts-speaking-part-2-template"
+  },
+  {
+   "slug": "toefl-ibt-academic-discussion-writing-rehberi",
+   "keyword": "toefl ibt academic discussion writing rehberi",
+   "category": "luyen-thi",
+   "tags": [
+    "toefl",
+    "writing",
+    "academic"
+   ],
+   "shots": [
+    "write",
+    "toefl"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/mock"
+   ],
+   "angle": "Yeni format TOEFL iBT Writing Academic Discussion 10 dakikalık yazma görevi rehberi, 4 cümlelik şablon ve tam puanlık örnekler",
+   "intent": "informational",
+   "lang": "tr",
+   "source": "toefl-ibt-writing-academic-discussion",
+   "role": "cluster",
+   "cluster": "toefl-ibt-writing-academic-discussion"
+  },
+  {
+   "slug": "ingilizce-edatlar-in-on-at-kullanimi",
+   "keyword": "ingilizce edatlar in on at kullanimi",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "prepositions",
+    "in-on-at"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "İngilizce zaman ve yer bildiren edatlar In On At için ters piramit kuralı, yaygın kalıplar ve Türk öğrencilerin sık yaptığı hatalar",
+   "intent": "informational",
+   "lang": "tr",
+   "source": "gioi-tu-in-on-at-trong-tieng-anh",
+   "role": "cluster",
+   "cluster": "gioi-tu-in-on-at-trong-tieng-anh"
+  },
+  {
+   "slug": "ingilizce-modal-verbs-can-could-should-must",
+   "keyword": "ingilizce modal verbs can could should must",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "modal-verbs",
+    "verbs"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/test"
+   ],
+   "angle": "İngilizce kip belirteçleri Modal Verbs (Can, Could, Should, Must) kullanım kuralları, olasılık dereceleri ve modal perfect kalıpları",
+   "intent": "informational",
+   "lang": "tr",
+   "source": "dong-tu-khuyet-thieu-can-could-should-must",
+   "role": "cluster",
+   "cluster": "dong-tu-khuyet-thieu-can-could-should-must"
+  },
+  {
+   "slug": "aralikli-tekrar-kelime-ezberleme-fsrs",
+   "keyword": "aralikli tekrar kelime ezberleme fsrs",
+   "category": "phuong-phap",
+   "tags": [
+    "phuong-phap",
+    "fsrs",
+    "spaced-repetition"
+   ],
+   "shots": [
+    "review",
+    "stats"
+   ],
+   "routes": [
+    "/#/review",
+    "/#/stats"
+   ],
+   "angle": "Aralıklı Tekrar (Spaced Repetition) sistemi ve modern FSRS algoritması ile İngilizce kelimeleri kalıcı hafızaya alma rehberi",
+   "intent": "informational",
+   "lang": "tr",
+   "source": "spaced-repetition-lap-lai-ngat-quang-fsrs",
+   "role": "cluster",
+   "cluster": "spaced-repetition-lap-lai-ngat-quang-fsrs"
+  },
+  {
+   "slug": "ingilizce-dusunmek-ceviri-yapmadan-konusmak",
+   "keyword": "ingilizce dusunmek ceviri yapmadan konusmak",
+   "category": "ky-nang",
+   "tags": [
+    "speaking",
+    "thinking",
+    "fluency"
+   ],
+   "shots": [
+    "speaking",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Kafada Türkçe çeviri yapmayı bırakıp doğrudan İngilizce düşünmenin ve akıcı konuşmanın 4 pratik aşaması",
+   "intent": "informational",
+   "lang": "tr",
+   "source": "tu-duy-bang-tieng-anh-khong-dich-tham",
+   "role": "cluster",
+   "cluster": "tu-duy-bang-tieng-anh-khong-dich-tham"
+  },
+  {
+   "slug": "ingilizce-cv-hazirlama-ats-resume-ornekleri",
+   "keyword": "ingilizce cv hazirlama ats resume",
+   "category": "ky-nang",
+   "tags": [
+    "career",
+    "cv",
+    "resume"
+   ],
+   "shots": [
+    "write",
+    "library"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/library"
+   ],
+   "angle": "Uluslararası standartlarda ATS uyumlu 1 sayfalık İngilizce CV (Resume) hazırlama rehberi, Google XYZ formülü ve güçlü aksiyon fiilleri",
+   "intent": "informational",
+   "lang": "tr",
+   "source": "viet-cv-tieng-anh-chuan-ats",
+   "role": "cluster",
+   "cluster": "viet-cv-tieng-anh-chuan-ats"
+  },
+  {
+   "slug": "ingilizce-toplanti-kaliplari-is-hayati",
+   "keyword": "ingilizce toplanti kaliplari is hayati",
+   "category": "ky-nang",
+   "tags": [
+    "business",
+    "speaking",
+    "cong-so"
+   ],
+   "shots": [
+    "speaking",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/learn"
+   ],
+   "angle": "İş hayatında ve online toplantılarda toplantı yönetme, fikir belirtme, kibarca söz kesme ve diplomatik dil kalıpları",
+   "intent": "informational",
+   "lang": "tr",
+   "source": "tieng-anh-giao-tiep-hop-cong-so",
+   "role": "cluster",
+   "cluster": "tieng-anh-giao-tiep-hop-cong-so"
+  },
+  {
+   "slug": "yurt-disi-seyahat-ingilizce-diyaloglar",
+   "keyword": "yurt disi seyahat ingilizce diyaloglar",
+   "category": "ky-nang",
+   "tags": [
+    "travel",
+    "speaking",
+    "giao-tiep"
+   ],
+   "shots": [
+    "speaking",
+    "library"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/library"
+   ],
+   "angle": "Yurt dışı seyahatlerinde hayat kurtaran pratik İngilizce diyaloglar: havalimanı, otel, restoran, ulaşım ve acil durumlar",
+   "intent": "informational",
+   "lang": "tr",
+   "source": "tieng-anh-du-lich-nuoc-ngoai",
+   "role": "cluster",
+   "cluster": "tieng-anh-du-lich-nuoc-ngoai"
+  },
+  {
+   "slug": "ielts-reading-skimming-scanning-tehniki",
+   "keyword": "ielts reading skimming scanning tehniki",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "reading",
+    "tehniki"
+   ],
+   "shots": [
+    "reading",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/reading",
+    "/#/practice/learn"
+   ],
+   "angle": "Стратегии skimming и scanning для IELTS Reading: тайм-менеджмент на 60 минут, ловушки True False Not Given и практический разбор",
+   "intent": "informational",
+   "lang": "ru",
+   "source": "ielts-reading-skimming-and-scanning",
+   "role": "cluster",
+   "cluster": "ielts-reading-skimming-and-scanning"
+  },
+  {
+   "slug": "ielts-speaking-part-2-shablon-template",
+   "keyword": "ielts speaking part 2 shablon template",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "speaking",
+    "shablon"
+   ],
+   "shots": [
+    "speaking",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Шаблоны ответов IELTS Speaking Part 2: стратегия подготовки за 1 минуту, связующие слова для беглости речи и примеры на Band 8.0",
+   "intent": "informational",
+   "lang": "ru",
+   "source": "ielts-speaking-part-2-templates",
+   "role": "cluster",
+   "cluster": "ielts-speaking-part-2-templates"
+  },
+  {
+   "slug": "toefl-ibt-academic-discussion-writing-rukovodstvo",
+   "keyword": "toefl ibt academic discussion writing rukovodstvo",
+   "category": "toefl",
+   "tags": [
+    "toefl",
+    "writing",
+    "rukovodstvo"
+   ],
+   "shots": [
+    "toefl",
+    "write"
+   ],
+   "routes": [
+    "/#/toefl",
+    "/#/write"
+   ],
+   "angle": "Руководство по TOEFL iBT Writing for an Academic Discussion: стратегия написания ответа за 10 минут, шаблоны и пример на 5/5",
+   "intent": "informational",
+   "lang": "ru",
+   "source": "toefl-writing-academic-discussion",
+   "role": "cluster",
+   "cluster": "toefl-writing-academic-discussion"
+  },
+  {
+   "slug": "predlogi-v-angliyskom-in-on-at-pravila",
+   "keyword": "predlogi v angliyskom in on at pravila",
+   "category": "ngu-phap",
+   "tags": [
+    "predlogi",
+    "in-on-at",
+    "grammatika"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/test"
+   ],
+   "angle": "Правила употребления предлогов времени и места in on at в английском языке: метод перевернутой пирамиды и частые ошибки",
+   "intent": "informational",
+   "lang": "ru",
+   "source": "prepositsii-in-on-at",
+   "role": "cluster",
+   "cluster": "prepositsii-in-on-at"
+  },
+  {
+   "slug": "modalnye-glagoly-can-could-should-must",
+   "keyword": "modalnye glagoly can could should must",
+   "category": "ngu-phap",
+   "tags": [
+    "modalnye-glagoly",
+    "grammatika",
+    "pravila"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "Модальные глаголы can could should must в английском: разница значений, правила употребления, модальные перфекты и примеры",
+   "intent": "informational",
+   "lang": "ru",
+   "source": "modalnye-glagoly-angliyskiy",
+   "role": "cluster",
+   "cluster": "modalnye-glagoly-angliyskiy"
+  },
+  {
+   "slug": "intervalnye-povtoreniya-slov-fsrs",
+   "keyword": "intervalnye povtoreniya slov fsrs",
+   "category": "phuong-phap",
+   "tags": [
+    "fsrs",
+    "intervalnye-povtoreniya",
+    "slova"
+   ],
+   "shots": [
+    "review",
+    "library"
+   ],
+   "routes": [
+    "/#/review",
+    "/#/library"
+   ],
+   "angle": "Интервальные повторения для запоминания слов по алгоритму FSRS: кривая забывания Эббингауза, отличие от SM-2 и эффективные карточки",
+   "intent": "informational",
+   "lang": "ru",
+   "source": "intervalnye-povtoreniya-fsrs",
+   "role": "cluster",
+   "cluster": "intervalnye-povtoreniya-fsrs"
+  },
+  {
+   "slug": "kak-dumat-na-angliyskom-bez-perevoda",
+   "keyword": "kak dumat na angliyskom bez perevoda",
+   "category": "ky-nang",
+   "tags": [
+    "beglost",
+    "myshlenie",
+    "razgovorniy"
+   ],
+   "shots": [
+    "speaking",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "Как научиться думать на английском языке и перестать переводить в голове: 4 этапа тренировки внутреннего диалога и метод shadowing",
+   "intent": "informational",
+   "lang": "ru",
+   "source": "kak-dumat-na-angliyskom",
+   "role": "cluster",
+   "cluster": "kak-dumat-na-angliyskom"
+  },
+  {
+   "slug": "kak-sostavit-rezume-na-angliyskom-ats-cv",
+   "keyword": "kak sostavit rezume na angliyskom ats cv",
+   "category": "ky-nang",
+   "tags": [
+    "rezume",
+    "ats",
+    "karera"
+   ],
+   "shots": [
+    "write",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/practice/learn"
+   ],
+   "angle": "Как составить резюме на английском языке для ATS: структура одностраничного CV, формула Google XYZ и список сильных глаголов",
+   "intent": "informational",
+   "lang": "ru",
+   "source": "rezume-na-angliyskom-ats",
+   "role": "cluster",
+   "cluster": "rezume-na-angliyskom-ats"
+  },
+  {
+   "slug": "frazy-dlya-delovyh-vstrech-na-angliyskom",
+   "keyword": "frazy dlya delovyh vstrech na angliyskom",
+   "category": "ky-nang",
+   "tags": [
+    "delovoy-angliyskiy",
+    "vstrechi",
+    "frazy"
+   ],
+   "shots": [
+    "speaking",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/learn"
+   ],
+   "angle": "Фразы для деловых встреч и переговоров на английском языке: открытие митинга, вежливое перебивание, высказывание мнений и подведение итогов",
+   "intent": "informational",
+   "lang": "ru",
+   "source": "delovye-vstrechi-angliyskiy",
+   "role": "cluster",
+   "cluster": "delovye-vstrechi-angliyskiy"
+  },
+  {
+   "slug": "angliyskiy-dlya-puteshestviy-dialogi-frazy",
+   "keyword": "angliyskiy dlya puteshestviy dialogi frazy",
+   "category": "ky-nang",
+   "tags": [
+    "puteshestviya",
+    "dialogi",
+    "frazy"
+   ],
+   "shots": [
+    "speaking",
+    "library"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/library"
+   ],
+   "angle": "Английский для путешествий: базовые диалоги и фразы в аэропорту, отеле, ресторане, для ориентирования в городе и в экстренных ситуациях",
+   "intent": "informational",
+   "lang": "ru",
+   "source": "angliyskiy-dlya-puteshestviy",
+   "role": "cluster",
+   "cluster": "angliyskiy-dlya-puteshestviy"
+  },
+  {
+   "slug": "ielts-reading-skimming-scanning-istratijiyat",
+   "keyword": "ielts reading skimming scanning istratijiyat",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "reading",
+    "istratijiyat"
+   ],
+   "shots": [
+    "reading",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/reading",
+    "/#/practice/learn"
+   ],
+   "angle": "استراتيجيات Skimming و Scanning لاختبار IELTS Reading: إدارة الوقت 60 دقيقة وفخاخ True False Not Given",
+   "intent": "informational",
+   "lang": "ar",
+   "source": "ielts-reading-skimming-and-scanning",
+   "role": "cluster",
+   "cluster": "ielts-reading-skimming-and-scanning"
+  },
+  {
+   "slug": "ielts-speaking-part-2-namudhaj-template",
+   "keyword": "ielts speaking part 2 namudhaj template",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "speaking",
+    "namudhaj"
+   ],
+   "shots": [
+    "speaking",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "قوالب ونماذج إجابة IELTS Speaking Part 2: خطة دقيقة التحضير وروابط التحدث بطلاقة وإجابات نموذجية للفرقة 8",
+   "intent": "informational",
+   "lang": "ar",
+   "source": "ielts-speaking-part-2-templates",
+   "role": "cluster",
+   "cluster": "ielts-speaking-part-2-templates"
+  },
+  {
+   "slug": "toefl-ibt-academic-discussion-writing-dalil",
+   "keyword": "toefl ibt academic discussion writing dalil",
+   "category": "toefl",
+   "tags": [
+    "toefl",
+    "writing",
+    "dalil"
+   ],
+   "shots": [
+    "toefl",
+    "write"
+   ],
+   "routes": [
+    "/#/toefl",
+    "/#/write"
+   ],
+   "angle": "دليل قسم TOEFL iBT Writing for an Academic Discussion الجديد: كتابة 100+ كلمة في 10 دقائق ونماذج 5/5",
+   "intent": "informational",
+   "lang": "ar",
+   "source": "toefl-writing-academic-discussion",
+   "role": "cluster",
+   "cluster": "toefl-writing-academic-discussion"
+  },
+  {
+   "slug": "huruf-al-jarr-in-on-at-qawaid",
+   "keyword": "huruf al jarr in on at qawaid",
+   "category": "ngu-phap",
+   "tags": [
+    "huruf-al-jarr",
+    "in-on-at",
+    "qawaid"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/test"
+   ],
+   "angle": "قواعد حروف الجر in on at في اللغة الإنجليزية للزمان والمكان: طريقة الهرم المقلوب وأخطاء شائعة",
+   "intent": "informational",
+   "lang": "ar",
+   "source": "huruf-al-jarr-in-on-at",
+   "role": "cluster",
+   "cluster": "huruf-al-jarr-in-on-at"
+  },
+  {
+   "slug": "al-afal-al-naqisa-can-could-should-must",
+   "keyword": "al afal al naqisa can could should must",
+   "category": "ngu-phap",
+   "tags": [
+    "al-afal-al-naqisa",
+    "qawaid",
+    "modal-verbs"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "الأفعال الناقصة can could should must في اللغة الإنجليزية: الفروق الدقيقة وقواعد الاستخدام والأزمنة المركبة",
+   "intent": "informational",
+   "lang": "ar",
+   "source": "al-afal-al-naqisa-injlizi",
+   "role": "cluster",
+   "cluster": "al-afal-al-naqisa-injlizi"
+  },
+  {
+   "slug": "al-tikrar-al-mutabaad-fsrs-hifz-al-kalimat",
+   "keyword": "al tikrar al mutabaad fsrs hifz al kalimat",
+   "category": "phuong-phap",
+   "tags": [
+    "fsrs",
+    "al-tikrar-al-mutabaad",
+    "mufradat"
+   ],
+   "shots": [
+    "review",
+    "library"
+   ],
+   "routes": [
+    "/#/review",
+    "/#/library"
+   ],
+   "angle": "نظام التكرار المتباعد FSRS لحفظ مفردات الإنجليزية: منحنى النسيان لإبنجهاوس والتفوق على خوارزمية SM-2",
+   "intent": "informational",
+   "lang": "ar",
+   "source": "al-tikrar-al-mutabaad-fsrs",
+   "role": "cluster",
+   "cluster": "al-tikrar-al-mutabaad-fsrs"
+  },
+  {
+   "slug": "kayfa-tufakkir-bi-al-injliziyyah-duna-tarjamah",
+   "keyword": "kayfa tufakkir bi al injliziyyah duna tarjamah",
+   "category": "ky-nang",
+   "tags": [
+    "talaqah",
+    "tafkir",
+    "muhadathah"
+   ],
+   "shots": [
+    "speaking",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "كيف تفكر باللغة الإنجليزية وتتوقف عن الترجمة الفورية في عقلك: 4 خطوات لبناء الطلاقة وتقنية الظل Shadowing",
+   "intent": "informational",
+   "lang": "ar",
+   "source": "al-tafkir-bi-al-injliziyyah",
+   "role": "cluster",
+   "cluster": "al-tafkir-bi-al-injliziyyah"
+  },
+  {
+   "slug": "sirat-dhatiyyah-injliziyyah-ats-resume",
+   "keyword": "sirat dhatiyyah injliziyyah ats resume",
+   "category": "ky-nang",
+   "tags": [
+    "sirat-dhatiyyah",
+    "ats",
+    "amal"
+   ],
+   "shots": [
+    "write",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/practice/learn"
+   ],
+   "angle": "كيفية كتابة سيرة ذاتية باللغة الإنجليزية متوافقة مع أنظمة ATS: تنسيق من صفحة واحدة وصيغة Google XYZ",
+   "intent": "informational",
+   "lang": "ar",
+   "source": "sirat-dhatiyyah-ats",
+   "role": "cluster",
+   "cluster": "sirat-dhatiyyah-ats"
+  },
+  {
+   "slug": "ibarat-injliziyyah-li-ijtimaat-al-amal",
+   "keyword": "ibarat injliziyyah li ijtimaat al amal",
+   "category": "ky-nang",
+   "tags": [
+    "injliziyyat-al-amal",
+    "ijtimaat",
+    "ibarat"
+   ],
+   "shots": [
+    "speaking",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/learn"
+   ],
+   "angle": "عبارات اللغة الإنجليزية لاجتماعات العمل: بدء الاجتماع، المقاطعة المهذبة، إبداء الرأي وتلخيص المهام",
+   "intent": "informational",
+   "lang": "ar",
+   "source": "ijtimaat-al-amal-injlizi",
+   "role": "cluster",
+   "cluster": "ijtimaat-al-amal-injlizi"
+  },
+  {
+   "slug": "muhadathat-injliziyyah-li-al-safar",
+   "keyword": "muhadathat injliziyyah li al safar",
+   "category": "ky-nang",
+   "tags": [
+    "safar",
+    "muhadathat",
+    "ibarat"
+   ],
+   "shots": [
+    "speaking",
+    "library"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/library"
+   ],
+   "angle": "محادثات وعبارات اللغة الإنجليزية الأساسية للسفر للخارج: المطار، الفندق، المطعم، السؤال عن الاتجاهات والطوارئ",
+   "intent": "informational",
+   "lang": "ar",
+   "source": "injliziyyat-al-safar",
+   "role": "cluster",
+   "cluster": "injliziyyat-al-safar"
+  },
+  {
+   "slug": "ielts-reading-skimming-scanning-tips-hindi",
+   "keyword": "ielts reading skimming scanning tips in hindi",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "reading",
+    "skimming",
+    "scanning"
+   ],
+   "shots": [
+    "reading",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/reading",
+    "/#/practice/learn"
+   ],
+   "angle": "IELTS Reading Skimming और Scanning तकनीक: 60 मिनट का टाइम मैनेजमेंट और True False Not Given के ट्रिक्स",
+   "intent": "informational",
+   "lang": "hi",
+   "source": "ielts-reading-skimming-and-scanning",
+   "role": "cluster",
+   "cluster": "ielts-reading-skimming-and-scanning"
+  },
+  {
+   "slug": "ielts-speaking-part-2-template-hindi",
+   "keyword": "ielts speaking part 2 template in hindi",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "speaking",
+    "part-2",
+    "templates"
+   ],
+   "shots": [
+    "speaking",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "IELTS Speaking Part 2 के लिए 1 मिनट की तैयारी का फॉर्मूला, फ्लुएंसी कनेक्टर्स और बैंड 8 मॉडल आंसर",
+   "intent": "informational",
+   "lang": "hi",
+   "source": "ielts-speaking-part-2-templates",
+   "role": "cluster",
+   "cluster": "ielts-speaking-part-2-templates"
+  },
+  {
+   "slug": "toefl-writing-academic-discussion-guide-hindi",
+   "keyword": "toefl writing academic discussion guide in hindi",
+   "category": "toefl",
+   "tags": [
+    "toefl",
+    "writing",
+    "academic-discussion"
+   ],
+   "shots": [
+    "toefl",
+    "write"
+   ],
+   "routes": [
+    "/#/toefl",
+    "/#/write"
+   ],
+   "angle": "TOEFL iBT Writing for an Academic Discussion का नया पैटर्न: 10 मिनट में 100+ शब्द और 5/5 स्कोरिंग रणनीति",
+   "intent": "informational",
+   "lang": "hi",
+   "source": "toefl-writing-academic-discussion",
+   "role": "cluster",
+   "cluster": "toefl-writing-academic-discussion"
+  },
+  {
+   "slug": "prepositions-in-on-at-rules-hindi",
+   "keyword": "prepositions in on at rules in hindi",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "prepositions",
+    "in-on-at"
+   ],
+   "shots": [
+    "grammar",
+    "practice-test"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/test"
+   ],
+   "angle": "अंग्रेजी में Prepositions IN ON AT का सही उपयोग: समय और स्थान के लिए उल्टा पिरामिड नियम",
+   "intent": "informational",
+   "lang": "hi",
+   "source": "huruf-al-jarr-in-on-at",
+   "role": "cluster",
+   "cluster": "huruf-al-jarr-in-on-at"
+  },
+  {
+   "slug": "modal-verbs-can-could-should-must-hindi",
+   "keyword": "modal verbs can could should must in hindi",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "modal-verbs",
+    "can-could-should-must"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "Modal Verbs Can Could Should Must के नियम, बारीक अंतर और पास्ट मोडल संरचनाएं",
+   "intent": "informational",
+   "lang": "hi",
+   "source": "al-afal-al-naqisa-injlizi",
+   "role": "cluster",
+   "cluster": "al-afal-al-naqisa-injlizi"
+  },
+  {
+   "slug": "spaced-repetition-fsrs-vocabulary-hindi",
+   "keyword": "spaced repetition fsrs vocabulary in hindi",
+   "category": "phuong-phap",
+   "tags": [
+    "phuong-phap",
+    "fsrs",
+    "spaced-repetition",
+    "vocabulary"
+   ],
+   "shots": [
+    "review",
+    "library"
+   ],
+   "routes": [
+    "/#/review",
+    "/#/library"
+   ],
+   "angle": "Spaced Repetition FSRS तकनीक से अंग्रेजी शब्द कैसे याद रखें: एबिंगहॉस भूलने का वक्र और 90% रिटेंशन",
+   "intent": "informational",
+   "lang": "hi",
+   "source": "al-tikrar-al-mutabaad-fsrs",
+   "role": "cluster",
+   "cluster": "al-tikrar-al-mutabaad-fsrs"
+  },
+  {
+   "slug": "english-me-kaise-soche-without-translation",
+   "keyword": "english me kaise soche without translation",
+   "category": "ky-nang",
+   "tags": [
+    "ky-nang",
+    "fluency",
+    "thinking-in-english"
+   ],
+   "shots": [
+    "speaking",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/speak"
+   ],
+   "angle": "अंग्रेजी में सोचना कैसे सीखें: हिंदी से ट्रांसलेशन बंद करने के 4 आसान कदम और शैडोइंग तकनीक",
+   "intent": "informational",
+   "lang": "hi",
+   "source": "al-tafkir-bi-al-injliziyyah",
+   "role": "cluster",
+   "cluster": "al-tafkir-bi-al-injliziyyah"
+  },
+  {
+   "slug": "ats-friendly-resume-kaise-banaye-english",
+   "keyword": "ats friendly resume kaise banaye english",
+   "category": "ky-nang",
+   "tags": [
+    "resume",
+    "ats",
+    "career"
+   ],
+   "shots": [
+    "write",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/practice/learn"
+   ],
+   "angle": "ATS फ्रेंडली इंग्लिश रिज्यूम कैसे बनाएं: 1 पेज का फॉर्मैट, Google XYZ फॉर्मूला और 20 पावर वर्ब्स",
+   "intent": "informational",
+   "lang": "hi",
+   "source": "sirat-dhatiyyah-ats",
+   "role": "cluster",
+   "cluster": "sirat-dhatiyyah-ats"
+  },
+  {
+   "slug": "business-english-meeting-phrases-in-hindi",
+   "keyword": "business english meeting phrases in hindi",
+   "category": "ky-nang",
+   "tags": [
+    "business-english",
+    "meetings",
+    "phrases"
+   ],
+   "shots": [
+    "speaking",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/practice/learn"
+   ],
+   "angle": "ऑफिस मीटिंग्स के लिए जरूरी इंग्लिश फ्रेजेस: मीटिंग शुरू करना, विनम्रता से बीच में बोलना और निष्कर्ष निकालना",
+   "intent": "informational",
+   "lang": "hi",
+   "source": "ijtimaat-al-amal-injlizi",
+   "role": "cluster",
+   "cluster": "ijtimaat-al-amal-injlizi"
+  },
+  {
+   "slug": "travel-english-phrases-dialogues-in-hindi",
+   "keyword": "travel english phrases dialogues in hindi",
+   "category": "ky-nang",
+   "tags": [
+    "travel",
+    "dialogues",
+    "phrases"
+   ],
+   "shots": [
+    "speaking",
+    "library"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/library"
+   ],
+   "angle": "विदेश यात्रा के लिए जरूरी इंग्लिश बातचीत: एयरपोर्ट, होटल, रेस्तरां, दिशा पूछना और इमरजेंसी फ्रेजेस",
+   "intent": "informational",
+   "lang": "hi",
+   "source": "injliziyyat-al-safar",
+   "role": "cluster",
+   "cluster": "injliziyyat-al-safar"
   }
  ]
 }
