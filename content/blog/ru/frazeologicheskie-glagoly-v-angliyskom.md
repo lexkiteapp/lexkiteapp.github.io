@@ -58,6 +58,8 @@ publishAt: 2026-10-23T19:17:00+03:00
 
 Для удобства разделим ключевые фразовые глаголы на пять жизненных категорий:
 
+> Читайте также: [TOEFL iBT Academic Discussion Writing Rukovodstvo](/ru/blog/toefl-ibt-academic-discussion-writing-rukovodstvo/)
+
 ### 1. Повседневный распорядок дня и домашние дела
 - **wake up** — просыпаться (*I usually wake up at seven in the morning*).
 - **get up** — вставать с постели (*He woke up early but didn't get up until eight*).

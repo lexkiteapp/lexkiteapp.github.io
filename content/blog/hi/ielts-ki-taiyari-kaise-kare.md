@@ -54,6 +54,8 @@ IELTS के चारों सेक्शन्स की ज़रूरत�
 
 IELTS राइटिंग और स्पीकिंग में 25% अंक लेक्सिकल रिसोर्स (Lexical Resource) और 25% अंक ग्रामेटिकल रेंज (Grammatical Range) के होते हैं। कठिन और अप्रचलित शब्दों को जबरदस्ती वाक्यों में ठूंसने से वाक्य का अर्थ बिगड़ जाता है। इसके बजाय सही कोलोकेशन्स (Collocations) और सटीक शब्दों का उपयोग करें।
 
+> यह भी पढ़ें: [IELTS Reading Skimming Scanning Tips in Hindi: 60 मिनट गाइड](/hi/blog/ielts-reading-skimming-scanning-tips-hindi/)
+
 उदाहरण के लिए, *fast shower* गलत है, सही शब्द *quick shower* है। इसी तरह *heavy rain* सही है, *strong rain* नहीं। शब्दों को लंबे समय तक याद रखने की वैज्ञानिक विधि हमारे गाइड [इंग्लिश वर्ड्स याद करने का तरीका](/hi/blog/english-words-yaad-karne-ka-tarika/) में विस्तार से बताई गई है। आप हमारी तैयार की गई [IELTS वोकैबुलरी लिस्ट](/tu-vung/) से भी विषयवार शब्द सीख सकते हैं।
 
 ग्रामर में भारतीय छात्रों को सबसे अधिक परेशानी काल के सही प्रयोग में आती है; खासकर जब उन्हें अपने पुराने अनुभवों को बयां करना होता है। इसके सटीक नियम आप [present perfect tense in Hindi](/hi/blog/present-perfect-tense-hindi/) में पढ़ सकते हैं। इसके अलावा यदि आप अमेरिकी विश्वविद्यालयों के लिए विकल्प तलाश रहे हैं, तो [TOEFL Exam Pattern in Hindi](/hi/blog/toefl-exam-pattern-hindi/) का भी विश्लेषण करें।

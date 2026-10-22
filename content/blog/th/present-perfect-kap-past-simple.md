@@ -58,6 +58,8 @@ qualityScore: 94
 
 ในข้อสอบและชีวิตจริง คำบอกเวลาคือตัวชี้วัดที่แม่นยำที่สุดในการเลือก Tense ให้ถูกต้อง:
 
+> อ่านต่อ: [คำบุพบท in on at ภาษาอังกฤษ: สรุปวิธีใช้ด้วยพีระมิดกลับหัว](/th/blog/kham-bubbhabot-in-on-at-phasa-angkrit/)
+
 | Tense | คำบอกเวลาที่พบบ่อย (Time Markers) | ตัวอย่างการใช้งาน |
 |---|---|---|
 | **Past Simple** | yesterday, last night, last year, in 2020, ago, when I was young | *We completed the project two days ago.* |

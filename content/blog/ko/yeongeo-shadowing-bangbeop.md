@@ -60,6 +60,8 @@ qualityScore: 94
 
 원어민의 소리가 책의 글자와 다르게 들리는 이유는 영어 특유의 음운 축약과 연음 규칙 때문입니다. 쉐도잉을 할 때 이 4가지를 의식적으로 짚고 넘어가야 합니다.
 
+> 함께 읽어보세요: [간격 반복 영어 단어 암기법 : FSRS 알고리즘으로 망각곡선 극복하기](/ko/blog/gangeok-banbok-daneo-amgi-fsrs/) · [영어로 생각하기 훈련 : 한국어 번역 없이 바로 말하는 4단계 솔루션](/ko/blog/yeongeo-ro-saenggakhagi-beonyeok-eopsi/)
+
 1. **자음과 모음의 연음 (Linking):** 앞 단어의 끝 자음이 뒤 단어의 첫 모음과 합쳐져 하나의 음절처럼 발음됩니다.  
    - *hold on* → [홀-돈]  
    - *pick it up* → [피-키-럽]  

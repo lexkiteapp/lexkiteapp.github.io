@@ -102,6 +102,8 @@ quiz: [
 
 В онлайн-формате перебивать особенно сложно из-за задержки звука. Резкий окрик производит неряшливое впечатление, поэтому важно владеть вежливыми речевыми вставками:
 
+> Читайте также: [Angliyskiy dlya Puteshestviy Dialogi Frazy: 80+ Vyrazheniy](/ru/blog/angliyskiy-dlya-puteshestviy-dialogi-frazy/)
+
 ### Вежливое перебивание (Polite Interruptions)
 - *«May I quickly jump in here with a brief clarification?»* — Могу ли я быстро вставить короткое уточнение?
 - *«Sorry to cut in, but I want to make sure I caught that last figure correctly.»* — Прошу прощения, что перебиваю, но я хочу убедиться, что правильно расслышал последнюю цифру.

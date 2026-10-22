@@ -127,6 +127,8 @@ qualityScore: 94
 
 สำหรับการเตรียมตัวสมัครงานในบริษัทข้ามชาติ ควรอ่านควบคู่กับบทความ [สัมภาษณ์งานภาษาอังกฤษ คำถามยอดฮิต](/th/blog/samphat-ngan-phasa-angkrit-khamtham/) และหากต้องสอบเขียนระดับวิชาการ ให้อ่าน [IELTS Writing Task 2 โครงสร้าง](/th/blog/ielts-writing-task-2-khrongsang/)
 
+> อ่านต่อ: [TOEFL iBT Writing Academic Discussion: เทคนิค 10 นาทีคะแนนเต็ม](/th/blog/toefl-ibt-writing-academic-discussion-theknik/) · [วลีภาษาอังกฤษ ประชุมงาน: รวมประโยคนำประชุมและแสดงความเห็น](/th/blog/wali-phasa-angkrit-hop-prachum/)
+
 ฝึกซ้อมการเขียนได้ใน [ห้องฝึกเขียนจดหมายและอีเมล](/#/letters) และพัฒนาการจัดโครงสร้างประโยคใน [ห้องฝึกเขียนเอสเส](/#/write)
 
 {{youtube: h_04bH_R2YI | เทคนิคเขียนอีเมลภาษาอังกฤษเพื่อการทำงานอย่างมืออาชีพ}}

@@ -101,6 +101,8 @@ Jangan pernah menjawab *"No, I think everything is clear"*. Selalu siapkan dua h
 
 Gantilah kata kerja biasa (*did, made, helped*) dengan kata kerja tindakan (*action verbs*) yang memperlihatkan inisiatif kepemimpinan:
 
+> Baca juga: [Frasa Bahasa Inggris untuk Meeting Kerja: Panduan Sukses Rapat](/id/blog/frasa-bahasa-inggris-untuk-meeting-kerja/) · [Percakapan Bahasa Inggris untuk Traveling Luar Negeri: Panduan](/id/blog/percakapan-bahasa-inggris-untuk-traveling-ke-luar-negeri/)
+
 | Kata kerja biasa yang perlu dihindari | Kata kerja aksi profesional berbobot |
 |---|---|
 | *I helped the marketing team* | **collaborated with / facilitated / empowered** |

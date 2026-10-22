@@ -82,6 +82,8 @@ quiz: [
 
 एकल शब्दों के बाद अगला चरण है अपने दैनिक कार्यों का अपने मन में वर्णन करना। इसे मनोवैज्ञानिक भाषा में 'इंटरनल मोनोलॉग' (Internal Monologue) कहा जाता है। हम सभी पूरे दिन अपने आप से मन ही मन बातें करते हैं। आपको बस उस आंतरिक आवाज की भाषा को हिंदी से बदलकर अंग्रेजी करना है।
 
+> यह भी पढ़ें: [Business English Meeting Phrases in Hindi: 60+ जरूरी फ्रेजेस](/hi/blog/business-english-meeting-phrases-in-hindi/)
+
 जब आप घर से निकल रहे हों, तो मन में कहें:
 - *"I am locking the front door now."*
 - *"Where did I put my car keys? Oh, they are on the dining table."*

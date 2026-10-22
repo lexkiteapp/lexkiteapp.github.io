@@ -152,6 +152,8 @@ En cas d'imprévu ou de pépin de santé, ces expressions peuvent s'avérer vita
 
 Voici comment se déroule un échange typique à l'arrivée dans un hôtel anglophone :
 
+> À lire aussi: [Faire un CV en Anglais: Modèle et Verbes d Action](/fr/blog/faire-un-cv-en-anglais/) · [Réunion en Anglais Expressions Utiles: Guide Pro](/fr/blog/reunion-en-anglais-expressions-utiles/)
+
 > **Receptionist :** *"Good afternoon, welcome to the Grand Central Hotel. How can I assist you today?"*  
 > **Traveler (Thomas) :** *"Good afternoon! I have a reservation under the name Thomas Martin for four nights."*  
 > **Receptionist :** *"Certainly, Mr. Martin. May I please see your passport and a credit card for the room deposit?"*  

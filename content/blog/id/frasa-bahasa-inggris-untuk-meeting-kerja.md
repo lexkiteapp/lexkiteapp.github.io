@@ -105,6 +105,8 @@ Teknik diplomatis ini juga sangat berharga saat menghadapi wawancara kerja, seba
 
 Rapat virtual berskala besar sering kali didominasi oleh peserta yang berbicara panjang lebar. Jika Anda ingin menyampaikan fakta penting sebelum topik bergeser, Anda harus tahu cara memotong pembicaraan dengan sopan tanpa dianggap tidak sopan.
 
+> Baca juga: [Cara Berpikir dalam Bahasa Inggris Tanpa Menerjemahkan di Kepala](/id/blog/cara-berpikir-dalam-bahasa-inggris-tanpa-menerjemahkan/) · [Percakapan Bahasa Inggris untuk Traveling Luar Negeri: Panduan](/id/blog/percakapan-bahasa-inggris-untuk-traveling-ke-luar-negeri/)
+
 ### 1. Frasa Menyela yang Sopan
 - *"May I jump in here for a second?"* (Bolehkah saya ikut berbicara sebentar di sini?).
 - *"Sorry to interrupt, but I have a quick update that is directly relevant to this issue."* (Maaf menyela, tetapi saya memiliki informasi terbaru yang berhubungan langsung dengan topik ini).

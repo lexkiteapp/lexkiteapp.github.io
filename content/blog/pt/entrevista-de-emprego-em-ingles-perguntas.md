@@ -76,6 +76,8 @@ Apresente uma faixa salarial baseada em pesquisas de mercado internacional para 
 
 Perguntas que começam com *"Tell me about a time when..."* ou *"Give me an example of..."* são projetadas para avaliar comportamento passado como indicador de sucesso futuro. A técnica **STAR** organiza sua narrativa em 4 etapas lógicas:
 
+> Leia também: [Inglês para TI e Trabalho Remoto: Vocabulário e Guia Prático](/pt/blog/ingles-para-ti-e-trabalho-remoto/) · [Small Talk em Inglês: Guia para Conversas Casuais e Networking](/pt/blog/small-talk-em-ingles/)
+
 ```text
 S - Situation (Situação) : O cenário inicial, a empresa, o momento e os envolvidos
 T - Task (Tarefa)        : O desafio específico ou objetivo que precisava ser superado

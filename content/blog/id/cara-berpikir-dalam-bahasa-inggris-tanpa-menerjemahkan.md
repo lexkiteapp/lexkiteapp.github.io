@@ -121,6 +121,8 @@ Integrasikan latihan shadowing ini dengan metode pengulangan terjadwal di [metod
 
 Langkah radikal namun sangat berbuah manis yang harus segera Anda ambil adalah **menghapus atau membatasi penggunaan kamus dwi-bahasa (Inggris-Indonesia)**.
 
+> Baca juga: [Frasa Bahasa Inggris untuk Meeting Kerja: Panduan Sukses Rapat](/id/blog/frasa-bahasa-inggris-untuk-meeting-kerja/) · [Spaced Repetition Menghafal Kosakata FSRS: Melawan Lupa Permanen](/id/blog/spaced-repetition-menghafal-kosakata-fsrs/)
+
 Ketika Anda mencari arti kata sulit di kamus Inggris-Inggris (seperti Oxford Learner's Dictionary atau Cambridge Dictionary), Anda belajar mendefinisikan suatu konsep menggunakan kata-kata bahasa Inggris yang lebih sederhana:
 
 | Kata Baru | Definisi Kamus Inggris-Inggris | Manfaat Kognitif |

@@ -102,6 +102,8 @@ Bu tür eşanlamlı yapıları yakalayabilmek için zengin bir Academic Word Lis
 
 True/False/Not Given (veya yazarın görüşünü sorgulayan Yes/No/Not Given) soruları, Türk adayların en çok kafa karışıklığı yaşadığı bölümdür.
 
+> Bunu da oku: [IELTS Speaking Part 2 Kaliplari Template ve Taktikler](/tr/blog/ielts-speaking-part-2-kaliplari-template/)
+
 ### 1. Yanıt Kriterlerinin Kesin Tanımları
 - **TRUE (DOĞRU)**: Sorudaki ifade metindeki bilgiyle %100 örtüşür. Cümle yapısı farklı olsa bile mantıksal anlam aynıdır.
 - **FALSE (YANLIŞ)**: Sorudaki ifade metindeki bilgiyle **doğrudan çelişir**. Metin "X akıtır" derken soru "X katıdır" diyorsa cevap FALSE'tur.

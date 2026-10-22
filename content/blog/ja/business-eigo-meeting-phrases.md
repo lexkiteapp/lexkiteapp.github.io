@@ -104,6 +104,8 @@ quiz: [
 
 オンライン会議では、通信の途切れやミュート忘れなどの技術的トラブルが日常茶飯事です。焦らずプロらしく対応できるフレーズを準備しておきましょう。
 
+> あわせて読みたい: [英文レジュメ 書き方 テンプレート：外資系・海外転職を成功させるATS対策](/ja/blog/eibun-resume-cv-kakikata-template/) · [海外旅行 英会話 フレーズ：空港・ホテル・レストランで困らない完全例文集](/ja/blog/kaigai-ryokou-eikaiwa-phrases/)
+
 | 状況 | とっさに使える英語表現 |
 |---|---|
 | 相手がミュートのまま話している | `"You're on mute, John."` / `"I think your microphone is muted."` |

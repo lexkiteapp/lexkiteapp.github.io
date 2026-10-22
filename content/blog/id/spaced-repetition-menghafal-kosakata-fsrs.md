@@ -93,6 +93,8 @@ Latihan penarikan aktif ini sangat krusial saat mempersiapkan tes berbicara spon
 
 Sistem algoritma secanggih apa pun tidak akan bekerja efektif jika kartu yang Anda masukkan ke dalam sistem berkualitas buruk. Terapkan 4 aturan pembuatan kartu berikut:
 
+> Baca juga: [Cara Berpikir dalam Bahasa Inggris Tanpa Menerjemahkan di Kepala](/id/blog/cara-berpikir-dalam-bahasa-inggris-tanpa-menerjemahkan/)
+
 ### 1. Prinsip Informasi Minimal (*Minimum Information Principle*)
 Satu kartu hanya boleh menguji satu komponen pengetahuan atomik. Jangan memasukkan kata, lima arti berbeda, tiga idiom, dan seluruh tabel konjugasi ke dalam satu kartu. Jika ada beberapa arti yang berbeda drastis, buatlah beberapa kartu terpisah.
 

@@ -130,6 +130,8 @@ Unterteile deine Kompetenzen übersichtlich in Kategorien:
 
 Das folgende englische Textmuster veranschaulicht, wie die Abschnitte in einem einseitigen Dokument nahtlos ineinandergreifen:
 
+> Weiterlesen: [Meeting auf Englisch Phrasen: Souverän im Business](/de/blog/meeting-auf-englisch-phrasen/)
+
 ```text
 ALEXANDER WEBER
 Berlin, Germany | +49 170 1234567 | alex.weber@email.com | linkedin.com/in/alexweber

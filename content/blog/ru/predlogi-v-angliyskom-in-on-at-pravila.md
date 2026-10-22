@@ -106,6 +106,8 @@ quiz: [
 
 В пространственном контексте принцип пирамиды работает с такой же геометрической строгостью.
 
+> Читайте также: [Modalnye Glagoly Can Could Should Must v Angliyskom](/ru/blog/modalnye-glagoly-can-could-should-must/)
+
 ### 1. Место с предлогом "IN" (Объем и Границы)
 Предмет находится внутри трехмерного объекта, здания или географического периметра:
 - **Страны и Города**: *in Russia, in London, in Moscow, in Spain*

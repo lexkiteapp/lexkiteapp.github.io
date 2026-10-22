@@ -121,6 +121,8 @@ quiz: [
 
 공간 축에서도 원리는 완벽하게 동일합니다. 3차원 볼륨에서 2차원 표면, 그리고 1차원 점으로 축소됩니다.
 
+> 함께 읽어보세요: [영어 조동사 정리 : 확신도 백분율과 뉘앙스로 끝내는 can could should must](/ko/blog/yeongeo-jodongsa-can-could-should-must/)
+
 ### 1. 전치사 IN: 3차원 입체 공간과 거대 행정 구역
 경계선이 존재하여 사방이 둘러싸인 입체적인 내부(Enclosed space)나 광활한 지역:
 * **국가, 도시, 대륙:** *in Korea, in London, in Asia, in Europe*

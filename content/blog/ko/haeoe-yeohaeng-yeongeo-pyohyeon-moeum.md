@@ -125,6 +125,8 @@ quiz: [
 
 외식은 여행의 가장 큰 즐거움입니다. 품격 있는 표현으로 원하는 메뉴를 기분 좋게 즐겨보세요:
 
+> 함께 읽어보세요: [비즈니스 영어 회의 표현 : 글로벌 화상 미팅 주도하는 실전 영어 패턴](/ko/blog/business-yeongeo-meeting-pyohyeon/)
+
 ### 1. 자리 안내와 메뉴 주문 (Ordering)
 * *„A table for two, please. Do you have an outdoor terrace table available?“* (두 명입니다. 혹시 야외 테라스 자리가 있나요?)
 * *„Could we have the English menu and the wine list, please?“* (영문 메뉴판과 와인 리스트를 보여주시겠습니까?)

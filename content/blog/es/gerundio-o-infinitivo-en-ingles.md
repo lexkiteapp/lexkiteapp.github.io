@@ -65,6 +65,8 @@ Es una **tendencia**, no una ley. *Avoid* y *postpone* hablan de algo que no ha 
 
 Hay posiciones en las que no hay elección posible. Son las que más fallan los hispanohablantes, porque en español ahí va un infinitivo.
 
+> Lee también: [Preposiciones In On At en Inglés: Guía Visual y Práctica](/es/blog/preposiciones-in-on-at-en-ingles/) · [Verbos Modales en Inglés: Can, Could, Should, Must y May](/es/blog/verbos-modales-en-ingles-can-could-should-must/)
+
 ### 1. Después de cualquier preposición
 
 Regla sin excepciones: si el verbo va detrás de *in, on, at, of, for, about, without, before, after, by*…, va en *-ing*.

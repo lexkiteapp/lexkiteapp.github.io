@@ -80,6 +80,8 @@ qualityScore: 94
 
 许多中文母语者在未受规范训练前，常把中文直译思维带入邮件中，造成意想不到的尴尬：
 
+> 延伸阅读: [英文会议常用表达全攻略：外企跨国线上开会主持、插话与决议话术](/zh/blog/ying-wen-hui-yi-chang-yong-ju-xing/)
+
 1. **滥用 "Please check" 造成命令式压迫感：**  
    - 常见中式写法：*Please check the document.*（在英文语境中这听起来像老师在居高临下地命令学生）  
    - 地道得体表达：*Please take a look at the attached file at your earliest convenience.*

@@ -107,6 +107,8 @@ Divide esta sección en:
 
 Observa cómo se transforma una experiencia laboral mediocre en una candidatura irresistible:
 
+> Lee también: [Cómo Pensar en Inglés sin Traducir: 4 Pasos para la Fluidez](/es/blog/como-pensar-en-ingles-sin-traducir/) · [Preparación Examen Cambridge C1 Advanced: Guía Completa CAE](/es/blog/preparacion-examen-cambridge-c1-advanced/)
+
 ```markdown
 EXPERIENCE
 Senior Frontend Developer | TechNova Solutions | Madrid, Spain (Remote)

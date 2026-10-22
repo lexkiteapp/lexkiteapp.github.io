@@ -94,6 +94,8 @@ Le vocabulaire et la grammaire s'entremêlent souvent. Pour éviter de confondre
 
 Choisissez l'option correcte entre le prétérit et le present perfect :
 
+> À lire aussi: [Prépositions en Anglais In On At: La Règle Infaillible](/fr/blog/prepositions-anglais-in-on-at/) · [Verbes Modaux en Anglais: Can, Could, Should, Must](/fr/blog/verbes-modaux-anglais-can-could-should-must/)
+
 1. *I _____ in this company for five years and I still love my job.*
    - A) *worked*
    - B) *have worked*

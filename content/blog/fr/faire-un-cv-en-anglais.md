@@ -133,6 +133,8 @@ Regroupez vos atouts par familles distinctes :
 
 Voici un exemple concret de structure de Resume américain d'une page :
 
+> À lire aussi: [Anglais pour Voyager: Phrases Utiles et Guide Pratique](/fr/blog/anglais-pour-voyager-phrases-essentielles/)
+
 ```text
 CAMILLE LAURENT
 Paris, France | +33 6 12 34 56 78 | camille.laurent@email.com | linkedin.com/in/camillelaurent

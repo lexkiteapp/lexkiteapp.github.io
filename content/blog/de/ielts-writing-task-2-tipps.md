@@ -63,6 +63,8 @@ Um Ihren Wortschatz gezielt für akademische Essays aufzubauen, empfiehlt sich e
 
 Ein häufiger Fehler bei Task 2 ist der mechanische Einsatz von Standardfloskeln wie *First and foremost*, *Moreover* oder *In a nutshell*. Um echtes Band-7+-Niveau zu demonstrieren, sollten Sie flexiblere Satzverbindungen wählen:
 
+> Weiterlesen: [TOEFL iBT Academic Discussion Writing: Strategie & Muster](/de/blog/toefl-ibt-writing-academic-discussion/)
+
 | Funktion | Effektive Formulierungen für Band 7+ | Zu vermeidende Standardphrasen |
 |---|---|---|
 | **Einen gegensätzlichen Aspekt einführen** | *Conversely, On the flip side of the coin, It is often argued that...* | *On the other hand (ohne on the one hand)* |

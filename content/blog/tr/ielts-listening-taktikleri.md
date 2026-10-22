@@ -73,6 +73,8 @@ Sınav ortamını birebir deneyimlemek için [IELTS tam deneme](/#/mock) bölüm
 
 Her bölümün zorluk derecesi ve odak noktası farklı olduğundan, çalışma yönteminizi bölümlere göre uyarlamalısınız.
 
+> Bunu da oku: [IELTS Reading Skimming Scanning Taktikleri: Band 8.0 Rehberi](/tr/blog/ielts-reading-skimming-scanning-taktikleri/)
+
 ### Bölüm 1 ve 2: Sayılar, Harfler ve Harita Soruları
 
 Part 1'de genellikle isim kodlama (spelling) ve telefon numaraları sorulur. İngilizcedeki ses benzerlikleri Türk öğrenciler için klasik bir tuzaktır:

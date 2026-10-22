@@ -105,6 +105,8 @@ Untuk menyampaikan permintaan dengan sopan, penggunaan kata kerja bantu seperti 
 
 Menikmati kuliner lokal adalah salah satu bagian paling menyenangkan saat berwisata. Berikut panduan frasa praktis saat bersantap di restoran luar negeri:
 
+> Baca juga: [Cara Membuat CV Bahasa Inggris Resume ATS: Trik Lolos Screening](/id/blog/cara-membuat-cv-bahasa-inggris-ats-resume/)
+
 ### 1. Masuk dan Memesan Meja
 - *"A table for two, please. Inside / by the window, if possible."* (Meja untuk dua orang. Di dalam / dekat jendela jika memungkinkan).
 - *"Do you have an English menu available?"* (Apakah Anda menyediakan buku menu berbahasa Inggris?).

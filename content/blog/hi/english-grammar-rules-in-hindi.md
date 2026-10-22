@@ -101,6 +101,8 @@ qualityScore: 95
 
 अंग्रेजी के 12 कालों की संरचना को इस तुलनात्मक तालिका से सरलता से समझा जा सकता है:
 
+> यह भी पढ़ें: [Modal Verbs Can Could Should Must in Hindi: सम्पूर्ण नियम](/hi/blog/modal-verbs-can-could-should-must-hindi/) · [Prepositions in on at Rules in Hindi: समय और स्थान नियम](/hi/blog/prepositions-in-on-at-rules-hindi/)
+
 | काल (Tense) | सामान्य (Simple / Indefinite) | सतत (Continuous / Progressive) | पूर्ण (Perfect) | पूर्ण सतत (Perfect Continuous) |
 | :--- | :--- | :--- | :--- | :--- |
 | **वर्तमान (Present)** | **S + V1 (s/es) + O**<br>*He plays cricket.* | **S + is/am/are + V-ing + O**<br>*He is playing cricket.* | **S + has/have + V3 + O**<br>*He has played cricket.* | **S + has/have been + V-ing + since/for**<br>*He has been playing for an hour.* |

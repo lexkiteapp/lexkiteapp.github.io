@@ -141,6 +141,8 @@ quiz: [
 
 想要全面夯实表达底气，建议同步研读我们的[雅思口语Part 2模板](/zh/blog/ya-si-kou-yu-part-2-hua-ti-ku/)掌握高分叙事结构，配合[英语发音练习](/zh/blog/ying-yu-fa-yin-lian-xi/)打磨清晰腔调，结合[间隔重复背单词科学指南](/zh/blog/jian-ge-chong-fu-bei-dan-ci-fsrs/)与[英语语法基础规则](/zh/blog/ying-yu-yu-fa-ji-chu-gui-ze/)构建全方位的语言直觉。你也可以随时查阅我们的[口语实操专栏](/speaking/)获取更多鲜活情景演练素材。
 
+> 延伸阅读: [出国旅游英语常用口语必备宝典：机场、酒店、点餐与紧急求助全场景](/zh/blog/chu-jing-lv-you-ying-yu-chang-yong-kou-yu/)
+
 {{cta: /app/#/placement | 在 Lexkite 开启英语水平定位测评}}
 
 {{youtube: | 如何用英语思维思考与告别脑中中文翻译卡顿}}

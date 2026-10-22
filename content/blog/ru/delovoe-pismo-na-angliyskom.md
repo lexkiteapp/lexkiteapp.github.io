@@ -130,6 +130,8 @@ qualityScore: 94
 
 Если вы также готовитесь к академическому письму, изучите наш гид [структура эссе IELTS Writing Task 2](/ru/blog/ielts-writing-task-2-struktura/), а для успешного прохождения интервью ознакомьтесь со статьей [собеседование на английском: частые вопросы](/ru/blog/sobesedovanie-na-angliyskom-voprosy/).
 
+> Читайте также: [Angliyskiy dlya Puteshestviy Dialogi Frazy: 80+ Vyrazheniy](/ru/blog/angliyskiy-dlya-puteshestviy-dialogi-frazy/) · [Frazy dlya Delovyh Vstrech na Angliyskom: 70+ Vyrazheniy](/ru/blog/frazy-dlya-delovyh-vstrech-na-angliyskom/)
+
 Развивайте навыки письма в [интерактивной комнате писем](/#/letters) и практикуйте аргументацию в [режиме эссе](/#/write).
 
 {{youtube: h_04bH_R2YI | Как писать деловые имейлы на английском: этикет, фразы и частые ошибки}}

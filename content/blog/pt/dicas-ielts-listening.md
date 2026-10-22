@@ -67,6 +67,8 @@ Na Seção 1, é quase certo que cairão nomes próprios soletrados e sequência
 
 Apenas fazer provas antigas sem reflexão não melhora a sua capacidade de decodificação auditiva. Uma rotina de treino verdadeiramente eficaz envolve o ciclo de audição ativa e transcrição:
 
+> Leia também: [Como se Preparar para o IELTS General Training: Guia Definitivo](/pt/blog/como-se-preparar-para-o-ielts-general-training/) · [TOEFL ou IELTS Qual Fazer? Comparativo Completo para Decidir](/pt/blog/toefl-ou-ielts-qual-fazer/)
+
 1. **Faça o simulado em condições reais:** Sem pausar o áudio e sem olhar a transcrição.
 2. **Corrija sem olhar o gabarito de imediato:** Reouça os trechos onde teve dúvida e tente descobrir sozinho por que errou.
 3. **Analise a transcrição com script aberto:** Identifique se o erro aconteceu por falta de vocabulário, pela velocidade do discurso ou pela assimilação fonética (palavras conectadas em *connected speech*).

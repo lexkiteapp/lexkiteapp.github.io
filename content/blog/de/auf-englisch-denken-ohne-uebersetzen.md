@@ -135,6 +135,8 @@ Auf der höchsten Stufe nutzt du Englisch für deine tägliche Problemlösung un
 
 Wer im Kopf übersetzt, stolpert unweigerlich über Formulierungen, die zwar im Deutschen völlig normal klingen, im Englischen jedoch schief oder unverständlich wirken. Die folgende Gegenüberstellung verdeutlicht den Unterschied zwischen wörtlicher Übertragung und authentischem Denken in Chunks:
 
+> Weiterlesen: [Smalltalk auf Englisch: Gesprächsthemen & Eisbrecher](/de/blog/smalltalk-auf-englisch-themen/)
+
 | Gedanke auf Deutsch | Wörtliche Übersetzung (Denglish) | Authentisches Englisch (Chunk) | Warum der Fehler entsteht |
 | :--- | :--- | :--- | :--- |
 | *Ich habe meinen Zug verpasst.* | *I lost my train.* | *I missed my train.* | Verwechslung von verlieren (*lose*) und verpassen (*miss*). |

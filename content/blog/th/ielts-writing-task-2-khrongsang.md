@@ -73,6 +73,8 @@ qualityScore: 94
 
 Examiner จะตรวจให้คะแนนโดยพิจารณาจาก 4 หัวข้อเท่าๆ กัน ด้านละ 25%:
 
+> อ่านต่อ: [Spaced Repetition ท่องศัพท์ FSRS: เทคนิคจำคำศัพท์ระยะยาว](/th/blog/spaced-repetition-thong-sap-fsrs/) · [TOEFL iBT Writing Academic Discussion: เทคนิค 10 นาทีคะแนนเต็ม](/th/blog/toefl-ibt-writing-academic-discussion-theknik/)
+
 - **Task Achievement (25%):** ตอบคำถามครบทุกมิติหรือไม่ แสดงจุดยืนชัดเจนตั้งแต่ต้นจนจบ และเขียนได้ความยาวเกิน 250 คำหรือไม่ (ความยาวแนะนำคือ 260-285 คำ)
 - **Coherence and Cohesion (25%):** การจัดย่อหน้าเป็นระเบียบ มีการใช้คำเชื่อมประโยคและสรรพนามอ้างอิงอย่างหลากหลายและเป็นธรรมชาติ
 - **Lexical Resource (25%):** ความหลากหลายของคำศัพท์เชิงวิชาการ การใช้ Collocations และการสะกดคำที่ถูกต้อง แม่นยำ ทบทวนเทคนิคจำคำศัพท์ได้ใน [วิธีท่องศัพท์ภาษาอังกฤษ](/th/blog/withi-thong-sap-phasa-angkrit/)

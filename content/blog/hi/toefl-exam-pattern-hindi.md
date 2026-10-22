@@ -77,6 +77,8 @@ TOEFL iBT परीक्षा के चारों कौशल कंप्
 
 भारतीय विद्यार्थियों में सबसे बड़ा संशय यह रहता है कि वे IELTS चुनें या TOEFL:
 
+> यह भी पढ़ें: [TOEFL Writing Academic Discussion Guide in Hindi: 5/5](/hi/blog/toefl-writing-academic-discussion-guide-hindi/)
+
 | तुलना का बिंदु | TOEFL iBT | IELTS Academic |
 | :--- | :--- | :--- |
 | **परीक्षा का माध्यम** | 100% कंप्यूटर आधारित (घर से या टेस्ट सेंटर) | कंप्यूटर या पेन-पेपर दोनों विकल्प उपलब्ध |

@@ -76,6 +76,8 @@ qualityScore: 94
 
 आईईएलटीएस निबंध का मूल्यांकन 4 समान पैमानों पर 9 बैंड के पैमाने पर किया जाता है:
 
+> यह भी पढ़ें: [TOEFL Writing Academic Discussion Guide in Hindi: 5/5](/hi/blog/toefl-writing-academic-discussion-guide-hindi/)
+
 - **Task Achievement (25%):** क्या आपने प्रश्न के सभी भागों का पूरा उत्तर दिया है? क्या आपका रुख शुरू से अंत तक स्पष्ट है? क्या आपने न्यूनतम 250 शब्द लिखे हैं (260–280 शब्द आदर्श हैं)?
 - **Coherence and Cohesion (25%):** क्या विचारों का क्रम तार्किक है? क्या पैराग्राफ का विभाजन सही है? क्या आपने विभिन्न कनेक्टर्स का सटीक उपयोग किया है?
 - **Lexical Resource (25%):** शैक्षणिक शब्दावली (Academic Vocabulary), कोलोकेशन और सटीक पर्यायवाची शब्दों का चयन। शब्दों को सही ढंग से याद रखने के लिए [english words yaad karne ka tarika](/hi/blog/english-words-yaad-karne-ka-tarika/) की तकनीकें बहुत उपयोगी हैं।

@@ -161,6 +161,8 @@ quiz: [
 
 在日常提升英语实战底蕴时，建议配合阅读我们的[英语介词in on at用法全解析](/zh/blog/ying-yu-jie-ci-in-on-at-yong-fa/)理清空间方位，研读[如何用英语思维思考](/zh/blog/ru-he-yong-ying-yu-si-wei-bu-fan-yi/)告别脑中翻译卡顿，参考[英语发音练习指南](/zh/blog/ying-yu-fa-yin-lian-xi/)掌握原汁原味重音语调，并利用[间隔重复背单词科学指南](/zh/blog/jian-ge-chong-fu-bei-dan-ci-fsrs/)巩固出行常用短语。更多鲜活对话也可以查阅我们的[口语专栏](/speaking/)。
 
+> 延伸阅读: [英文简历模板与外企求职全攻略：一页纸规范、ATS筛选与谷歌XYZ动词](/zh/blog/ying-wen-jian-li-cv-resume-mo-ban/)
+
 {{cta: /app/#/library | 在 Lexkite 探索旅游出行英语高频词库}}
 
 {{youtube: | 出国旅游英语常用口语与全场景生存会话指南}}

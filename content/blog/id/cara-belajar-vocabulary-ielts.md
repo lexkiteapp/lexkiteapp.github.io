@@ -42,6 +42,8 @@ Di Listening dan Reading tidak ada kriteria kosakata terpisah, tetapi jawaban ya
 
 Ada beberapa pola yang sangat sering muncul pada tulisan dan jawaban Speaking pelajar Indonesia. Semuanya berasal dari kebiasaan bahasa Indonesia yang terbawa ke bahasa Inggris:
 
+> Baca juga: [Spaced Repetition Menghafal Kosakata FSRS: Melawan Lupa Permanen](/id/blog/spaced-repetition-menghafal-kosakata-fsrs/)
+
 - **Lupa bentuk jamak.** Bahasa Indonesia menandai jamak dengan kata seperti "banyak" atau pengulangan ("mahasiswa-mahasiswa"), bukan dengan akhiran. Akibatnya muncul *many student* atau *one of the main reason*. Saat menghafal kata benda, catat juga bentuk jamaknya, terutama yang tidak beraturan seperti *criterion – criteria* dan *phenomenon – phenomena*.
 - **Menjamakkan kata yang tidak bisa dihitung.** Kebalikannya juga terjadi: *informations*, *advices*, *equipments*. Tandai kata seperti *information, advice, research, equipment, evidence* sebagai uncountable di catatanmu.
 - **Terjemahan kata per kata.** "Berdiskusi tentang" menjadi *discuss about*, padahal yang benar *discuss something* atau *have a discussion about something*. "Mengerjakan PR" menjadi *make homework*, padahal *do homework*.

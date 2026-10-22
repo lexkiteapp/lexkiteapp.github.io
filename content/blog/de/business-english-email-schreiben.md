@@ -171,6 +171,8 @@ Schließen Sie die Nachricht mit einer eindeutigen Erwartungshaltung ab:
 
 Erweitern Sie Ihr Repertoire an berufsbezogenen Begriffen und Kollokationen gezielt mit unserem Ratgeber zum [Englisch Vokabeln lernen](/de/blog/englisch-vokabeln-lernen/). Wenn Sie sich im Bewerbungsprozess befinden und nach dem Schriftverkehr ein mündliches Gespräch ansteht, lesen Sie unsere Vorbereitungstipps für das [Vorstellungsgespräch auf Englisch](/de/blog/vorstellungsgespraech-englisch-tipps/).
 
+> Weiterlesen: [Englischer Lebenslauf Muster: CV & Resume Leitfaden](/de/blog/englischer-lebenslauf-cv-muster/) · [Meeting auf Englisch Phrasen: Souverän im Business](/de/blog/meeting-auf-englisch-phrasen/)
+
 ## Selbsttest
 
 Testen Sie Ihre Stilsicherheit in der geschäftlichen E-Mail-Korrespondenz:

@@ -57,6 +57,8 @@ Se você se reconheceu em algum item, a boa notícia é que todos têm conserto 
 
 Objetivo: ler a transcrição fonética, pronunciar com clareza as palavras básicas e falar de 10 a 15 frases sobre você.
 
+> Leia também: [Preposições em Inglês In, On, At: Regras Práticas e Guia Completo](/pt/blog/preposicoes-em-ingles-in-on-at/) · [Repetição Espaçada para Aprender Inglês: Guia Definitivo FSRS](/pt/blog/repeticao-espacada-para-aprender-ingles/)
+
 - **Pronúncia:** conheça os sons do inglês por grupos (vogais curtas e longas, ditongos, consoantes). Não precisa ser perfeito; precisa reconhecer e produzir. A seção de pronúncia mais abaixo mostra os sons que pedem mais atenção.
 - **Vocabulário:** cerca de 10 palavras novas por dia entre as mais frequentes – pronomes, verbos básicos (*be, have, do, go, like, want, need*), casa, família, trabalho, comida, números, horas.
 - **Gramática mínima:** o verbo *to be* (*I am, she is, they are*) nas formas afirmativa, negativa e interrogativa e o presente simples com *I/you/we/they*.

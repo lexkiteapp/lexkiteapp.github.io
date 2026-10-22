@@ -109,6 +109,8 @@ Lex:   breathtaking, serene, revitalizing, step back
 
 ここでは「Describe an important decision you made in your life（人生で下した重要な決断）」という定番トピックを例に、PPFテンプレートを用いた模範スピーチを確認してみましょう。
 
+> あわせて読みたい: [海外旅行 英会話 フレーズ：空港・ホテル・レストランで困らない完全例文集](/ja/blog/kaigai-ryokou-eikaiwa-phrases/)
+
 > **Model Answer (Band 8.0 Level):**
 > 
 > "I would like to talk about a pivotal decision I made roughly two years ago, which was to switch my career path from traditional corporate marketing to digital software development. 

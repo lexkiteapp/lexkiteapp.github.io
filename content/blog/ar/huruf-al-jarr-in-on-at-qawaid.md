@@ -102,6 +102,8 @@ quiz: [
 
 تتبع الأماكن نفس التسلسل الهرمي للمساحة والحجم:
 
+> اقرأ أيضًا: [Al-Afal al-Naqisa Can Could Should Must: دليل القواعد](/ar/blog/al-afal-al-naqisa-can-could-should-must/)
+
 ### استخدامات حرف الجر IN للمكان (مساحات واسعة ومغلقة)
 - **القارات والدول والمدن والبلدات**: *in Asia, in Egypt, in London, in Dubai*.
 - **المساحات المغلقة ومناطق لها حدود واضحة**: *in a room, in a building, in the garden, in a box, in a forest*.

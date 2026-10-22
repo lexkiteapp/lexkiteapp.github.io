@@ -63,6 +63,8 @@ Explore nosso [laboratório de pronúncia IPA](/#/pron) no app para ouvir a arti
 
 Falar inglês fluentemente não significa disparar palavras isoladas o mais rápido possível. Pelo contrário: trata-se de conectar as palavras (*connected speech*) e respeitar a alternância entre sílabas tônicas e átonas.
 
+> Leia também: [Sons Difíceis do Inglês para Brasileiros: Guia de Pronúncia](/pt/blog/sons-dificeis-do-ingles-para-brasileiros/)
+
 ![Treino de Listening IELTS do Lexkite com sotaques britânico, americano e australiano e velocidade ajustável](media:listening "Ouça em velocidade reduzida e use o ditado para perceber a ligação entre as palavras")
 
 Em inglês, quando uma palavra termina em som de consoante e a próxima começa com som de vogal, elas fundem-se naturalmente em um único fluxo sonoro:

@@ -76,6 +76,8 @@ Vous passez l'oral à deux candidats face à deux examinateurs :
 
 Vous pouvez vérifier toutes les prépositions dépendantes et les collocations de chaque terme dans notre [dictionnaire intégré](/#/dict/resilient).
 
+> À lire aussi: [Verbes Modaux en Anglais: Can, Could, Should, Must](/fr/blog/verbes-modaux-anglais-can-could-should-must/)
+
 ![Dictionnaire contextuel dans Lexkite](media:dict "Le dictionnaire montre prononciation, exemples, collocations et synonymes, utiles pour l'épreuve Use of English")
 
 Pour simuler les conditions d'examen chronométrées, profitez de notre [simulateur complet d'examens blancs](/#/mock).

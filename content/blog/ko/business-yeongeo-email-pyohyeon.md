@@ -87,6 +87,8 @@ qualityScore: 94
 
 번역기를 거치지 않고 직접 작성할 때 한국어 습관이 그대로 묻어나 프로답지 못한 인상을 주는 표현들입니다.
 
+> 함께 읽어보세요: [비즈니스 영어 회의 표현 : 글로벌 화상 미팅 주도하는 실전 영어 패턴](/ko/blog/business-yeongeo-meeting-pyohyeon/) · [영문 이력서 레주메 작성법 : 외국계 합격 1장 템플릿과 구글 XYZ 공식](/ko/blog/yeongmun-ilyeokseo-resume-jakseongbeop/)
+
 1. **"Please check"의 과도한 남발:**  
    - 나쁜 표현: *Please check the attachment.* (상대방을 시험관이 검사하듯 지시하는 무례한 뉘앙스)  
    - 세련된 표현: *Please review the attached document at your earliest convenience.*

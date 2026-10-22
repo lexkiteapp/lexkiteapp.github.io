@@ -89,6 +89,8 @@ Se você quer aprofundar suas táticas de estudo autônomo, veja nosso guia pass
 
 Para que a repetição espaçada traga resultados palpáveis na sua fala e escrita, siga estas quatro etapas fundamentais:
 
+> Leia também: [Sons Difíceis do Inglês para Brasileiros: Guia de Pronúncia](/pt/blog/sons-dificeis-do-ingles-para-brasileiros/)
+
 ### 1. Priorize a consistência diária sobre o volume
 A matemática do FSRS exige regularidade. É infinitamente mais eficiente revisar flashcards por **15 minutos todos os dias** do que acumular pilhas de centenas de cartões para revisar em um único domingo cansativo. Se você deixar acumular, o algoritmo perde a precisão temporal ideal.
 

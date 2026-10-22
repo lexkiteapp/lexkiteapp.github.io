@@ -92,6 +92,8 @@ Doğru tonlama ve sesletim için [İngilizce telaffuz geliştirme](/tr/blog/ingi
 
 Otele varışınızda ve konaklamanız süresince işinize yarayacak pratik diyaloglar:
 
+> Bunu da oku: [Ingilizce Toplanti Kaliplari Is Hayati Icin Iletisim](/tr/blog/ingilizce-toplanti-kaliplari-is-hayati/)
+
 ### Otele Giriş (Check-in)
 - **Resepsiyon**: *"Welcome to Sunset Suites. How can I assist you today?"* (Sunset Suites'e hoş geldiniz. Bugün size nasıl yardımcı olabilirim?)
 - **Misafir**: *"Hello, I have a reservation under the name of Ahmet Yilmaz."* (Merhaba, Ahmet Yılmaz adına bir rezervasyonum var.)

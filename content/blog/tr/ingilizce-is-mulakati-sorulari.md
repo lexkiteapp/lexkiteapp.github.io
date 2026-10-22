@@ -78,6 +78,8 @@ Konuşma sırasında telaffuz hatalarından kaçınmak ve akıcı konuşmak içi
 
 Mülakatçı size genellikle son olarak *"Do you have any questions for us?"* (Bize sormak istediğiniz bir soru var mı?) der. Asla *"No, everything is clear"* deyip susmayın. Soru sormamak ilgisizlik veya hazırlıksızlık olarak değerlendirilir.
 
+> Bunu da oku: [Ingilizce Toplanti Kaliplari Is Hayati Icin Iletisim](/tr/blog/ingilizce-toplanti-kaliplari-is-hayati/)
+
 Şu güçlü sorulardan 2-3 tanesini seçin:
 1. *"What does a typical day look like for someone in this role?"* (Bu roldeki birinin tipik bir günü nasıl geçer?)
 2. *"What are the biggest challenges the team is currently facing this quarter?"* (Ekibin bu çeyrekte karşılaştığı en büyük zorluklar nelerdir?)

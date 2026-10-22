@@ -97,6 +97,8 @@ quiz: [
 
 होटल पहुँचने पर रिसेप्शनिस्ट से बातचीत का एक आदर्श मॉडल डायलॉग:
 
+> यह भी पढ़ें: [Business English Meeting Phrases in Hindi: 60+ जरूरी फ्रेजेस](/hi/blog/business-english-meeting-phrases-in-hindi/)
+
 **डायलॉग:**
 > **Receptionist:** *"Welcome to Grand Hyatt. How may I assist you today?"*  
 > **Guest (आप):** *"Hello, I have a reservation under the name of Vikram Malhotra for 4 nights."*  

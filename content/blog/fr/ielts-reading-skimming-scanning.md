@@ -123,6 +123,8 @@ Entraînez-vous dans des conditions d'examen strictes avec notre [Simulateur d e
 
 Ce type d'exercice représente près d'un tiers des questions de l'IELTS et génère le plus d'erreurs chez les candidats francophones. La distinction entre *FALSE* et *NOT GIVEN* repose sur une logique binaire stricte :
 
+> À lire aussi: [TOEFL ou IELTS Lequel Choisir: Comparatif Complet](/fr/blog/toefl-ou-ielts-lequel-choisir/)
+
 ```
 Logique d'évaluation IELTS :
 ├── TRUE      : Le texte valide explicitement l'affirmation (via des synonymes).

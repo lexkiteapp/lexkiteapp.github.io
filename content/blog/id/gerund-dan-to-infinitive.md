@@ -60,6 +60,8 @@ Ingat, ini **kecenderungan**, bukan hukum. *Avoid* dan *postpone* membicarakan h
 
 Di bagian inilah logika "ke depan vs pengalaman" paling terasa. Kata kerjanya sama, tetapi bentuk setelahnya mengubah arti.
 
+> Baca juga: [Modal Verbs can could should must: Panduan Derajat Kepastian](/id/blog/modal-verbs-can-could-should-must/) · [Preposisi in on at Bahasa Inggris: Rumus Piramida Waktu & Tempat](/id/blog/preposisi-in-on-at-bahasa-inggris/)
+
 | Kata kerja | + V-ing | + to V1 |
 |---|---|---|
 | **stop** | berhenti melakukan kebiasaan itu: *She stopped eating meat.* (tidak makan daging lagi) | berhenti dari kegiatan lain **untuk** melakukan sesuatu: *She stopped to eat.* (berhenti sejenak untuk makan) |

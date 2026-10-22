@@ -45,6 +45,8 @@ Bu dört ilke aşağıdaki her bölümün temelidir. Her bölümün sonunda konu
 
 İlk 30 günün ana hedefi kulağınızı ve ağzınızı İngilizcenin seslerine alıştırmaktır. İngiliz İngilizcesinde yaklaşık 44 ses vardır; hepsini kusursuz çıkarmanız gerekmez, tanıyıp anlaşılır biçimde söylemeniz yeterlidir. IPA (uluslararası fonetik alfabe) okumayı öğrenmek bu yüzden büyük bir yatırımdır: sözlükte gördüğünüz her kelimeyi doğru okursunuz.
 
+> Bunu da oku: [Aralikli Tekrar Kelime Ezberleme FSRS Sistemi Rehberi](/tr/blog/aralikli-tekrar-kelime-ezberleme-fsrs/)
+
 Türkçe konuşanların en sık zorlandığı noktalar bellidir:
 
 - **/θ/ ve /ð/ (th):** Türkçede yoktur. *think* "tink" ya da "sink", *this* "dis" ya da "zis" olur. Dilin ucunu dişlerin arasına hafifçe koyup üfleyerek çalışın.

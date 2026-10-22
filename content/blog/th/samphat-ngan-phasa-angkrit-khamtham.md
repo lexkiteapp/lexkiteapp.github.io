@@ -69,6 +69,8 @@ qualityScore: 94
 
 ภาษากายและน้ำเสียงมีความสำคัญไม่แพ้คำศัพท์ที่คุณเลือกใช้:
 
+> อ่านต่อ: [บทสนทนาภาษาอังกฤษ ท่องเที่ยวต่างประเทศ: ตม. โรงแรม ร้านอาหาร](/th/blog/bot-sonthana-phasa-angkrit-thong-thiao-tang-prathet/) · [เขียน Resume ภาษาอังกฤษ ATS Template: เทคนิคผ่านระบบคัดกรอง](/th/blog/khian-resume-phasa-angkrit-ats-template/)
+
 1. **การสบตา (Eye Contact):** หากเป็นการสัมภาษณ์ออนไลน์ผ่าน Zoom หรือ Teams ให้มองตรงที่กล้องเว็บแคม ไม่ใช่มองที่หน้าจอ เพื่อสร้างความรู้สึกเชื่อมโยงกับผู้สัมภาษณ์
 2. **การดึงเวลาอย่างสุภาพ:** หากต้องการเวลาคิดคำตอบ อย่าส่งเสียง *เอ่อ... อ้า...* ให้ใช้คำว่า *"That is an intriguing question. Please allow me a moment to structure my thoughts."*
 3. **การตั้งคำถามกลับในตอนท้าย:** เมื่อผู้สัมภาษณ์ถามว่า *"Do you have any questions for us?"* ห้ามตอบว่า *"No"* ให้ถามคำถามที่แสดงความสนใจ เช่น *"What are the biggest priorities for this role in the first 90 days?"*

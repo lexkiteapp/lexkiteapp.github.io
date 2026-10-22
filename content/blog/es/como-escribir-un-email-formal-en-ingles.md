@@ -124,6 +124,8 @@ La fórmula de despedida debe corresponderse con la formalidad del saludo inicia
 
 Adapta estas plantillas a tus necesidades laborales cotidianas.
 
+> Lee también: [Cómo Hacer un Currículum en Inglés: Guía de Resume Profesional](/es/blog/como-hacer-un-curriculum-en-ingles/) · [Preparación Examen Cambridge C1 Advanced: Guía Completa CAE](/es/blog/preparacion-examen-cambridge-c1-advanced/) · [Presentaciones de Trabajo en Inglés: Frases y Estructura](/es/blog/presentaciones-de-trabajo-en-ingles/)
+
 ### Plantilla 1: Solicitud formal de información o reunión
 
 ```

@@ -111,6 +111,8 @@ En apprenant 10 mots nouveaux par jour et en révisant régulièrement vos carte
 
 Testez vos réflexes lexicaux en choisissant la réponse appropriée :
 
+> À lire aussi: [IELTS Speaking Part 2 et 3: Conseils et Modèles Band 8](/fr/blog/ielts-speaking-part-2-et-3/)
+
 1. Quelle est la collocation correcte en anglais ?
    - A) *make a decision*
    - B) *do a decision*

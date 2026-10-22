@@ -106,6 +106,8 @@ Pour éviter de vous retrouver à court d'idées après seulement 45 secondes, d
 
 Pour visualiser concrètement cette trame, examinons un extrait de transcription d'un candidat ayant obtenu un score d'excellence :
 
+> À lire aussi: [TOEFL ou IELTS Lequel Choisir: Comparatif Complet](/fr/blog/toefl-ou-ielts-lequel-choisir/)
+
 > *„I'd like to talk about an ambitious community initiative I participated in roughly two years ago, which was aimed at revitalising a neglected urban park in my hometown. At the time, the area had unfortunately turned into an eyesore, plagued by litter and overgrown weeds.*  
 > *What really impressed me was how a grassroots coalition of local residents and environmental activists spearheaded the entire transformation. We organized weekend workshops, planted native drought-resistant shrubs, and built communal birdhouses.*  
 > *Naturally, we faced logistical hurdles; funding was extremely tight initially, and we had to rely on crowdfunding campaigns. Nevertheless, against all odds, the project gained massive traction on social media, prompting the municipality to step in with financial subsidies.*  

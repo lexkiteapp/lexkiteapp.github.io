@@ -96,6 +96,8 @@ Una palabra está aprendida cuando la usas sin pensarlo. Cada semana, escribe un
 
 Si un día solo tienes cinco minutos, haz únicamente el repaso: mantener la cadena vale más que aprender palabras nuevas.
 
+> Lee también: [Cómo Pensar en Inglés sin Traducir: 4 Pasos para la Fluidez](/es/blog/como-pensar-en-ingles-sin-traducir/)
+
 ## Ponlo en práctica en Lexkite
 
 1. **Elige una lista de tu nivel.** En la [biblioteca de vocabulario](/#/library) tienes el vocabulario básico de la NGSL y listas temáticas para IELTS y TOEIC, cada una con su nivel indicado.

@@ -124,6 +124,8 @@ Akhiri email dengan salam penutup yang mencerminkan tingkat formalitas pesanmu:
 
 Gunakan template di bawah ini sebagai rujukan untuk berbagai situasi kerja nyata.
 
+> Baca juga: [Cara Membuat CV Bahasa Inggris Resume ATS: Trik Lolos Screening](/id/blog/cara-membuat-cv-bahasa-inggris-ats-resume/)
+
 ### Template 1: Permohonan informasi dan permintaan jadwal rapat
 
 ```

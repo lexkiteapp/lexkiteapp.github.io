@@ -116,6 +116,8 @@ Kunci terpenting: jangan pernah menggunakan asumsi pribadi atau pengetahuan umum
 
 Banyak bimbingan belajar mengajarkan pembagian waktu 20 menit untuk masing-masing passage. Namun, dalam kenyataannya, tingkat kesulitan ketiga passage tidaklah setara. Passage 1 selalu paling sederhana, sedangkan Passage 3 memuat teks paling abstrak dengan sintaksis kompleks.
 
+> Baca juga: [Template IELTS Speaking Part 2 & 3: Trik Jawab Lancar 2 Menit](/id/blog/template-ielts-speaking-part-2-dan-3/)
+
 Gunakan alokasi waktu bertingkat berikut:
 
 1. **Passage 1**: 15 menit (Targetkan benar 12–13 soal di sini dan buat tabungan waktu 5 menit).

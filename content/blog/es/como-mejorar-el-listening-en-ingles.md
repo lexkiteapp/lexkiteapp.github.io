@@ -55,6 +55,8 @@ Con los pasados regulares pasa algo parecido: si no sabes que *stopped* termina 
 
 En la didáctica de lenguas se suele describir la comprensión auditiva como dos procesos que funcionan a la vez.
 
+> Lee también: [Cómo Hacer un Currículum en Inglés: Guía de Resume Profesional](/es/blog/como-hacer-un-curriculum-en-ingles/) · [Cómo Pensar en Inglés sin Traducir: 4 Pasos para la Fluidez](/es/blog/como-pensar-en-ingles-sin-traducir/)
+
 | | De abajo arriba (bottom-up) | De arriba abajo (top-down) |
 |---|---|---|
 | Qué hace | Une sonidos en palabras y palabras en frases | Usa el contexto y lo que ya sabes para interpretar |

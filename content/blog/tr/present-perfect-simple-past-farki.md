@@ -52,6 +52,8 @@ Bu sinyalleri refleks haline getirmek için [gramer modülümüzü](/#/grammar) 
 
 İngilizcede *know, believe, understand, love, have* (sahip olmak) gibi eylem bildirmeyen durum fiilleri (state verbs), kural olarak Continuous (-ing) ekini almazlar. Bu nedenle geçmişte başlayıp hâlen devam eden durumları ifade ederken Present Perfect Continuous yerine doğrudan Present Perfect Simple kullanılır:
 
+> Bunu da oku: [Ingilizce Edatlar In On At Kullanimi ve Ters Piramit](/tr/blog/ingilizce-edatlar-in-on-at-kullanimi/)
+
 - *We have known each other for ten years.* (On yıldır birbirimizi tanıyoruz – tanışıklığımız şu anda da devam ediyor).
 - *We knew each other in high school.* (Lisede birbirimizi tanıyorduk – ama artık görüşmüyoruz veya lise dönemi geride kaldı).
 

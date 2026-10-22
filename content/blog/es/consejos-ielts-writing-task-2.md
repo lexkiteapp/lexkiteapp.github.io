@@ -88,6 +88,8 @@ En la sala de redacción de Lexkite, accesible desde la [sala de redacción IELT
 
 El idioma español tolera oraciones subordinadas largas y adornadas con múltiples incisos entre comas. El inglés académico, en cambio, valora la concisión, la progresión lineal y la separación nítida de ideas.
 
+> Lee también: [IELTS Speaking Parte 2 y 3 Estructura: Plantillas Band 7+](/es/blog/ielts-speaking-parte-2-y-3-estructura/)
+
 ### 1. El exceso de oraciones sin punto y seguido (*run-on sentences*)
 
 En español escribimos oraciones compuestas de cuatro o cinco renglones sin dificultad. En inglés, cuando encadenas tres proposiciones independientes solo con comas, incurres en un error grave de puntuación llamado *comma splice*.

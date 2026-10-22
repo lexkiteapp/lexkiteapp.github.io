@@ -95,6 +95,8 @@ quiz: [
 
 كشف لازلو بوك (*Laszlo Bock*)، نائب رئيس العمليات في شركة جوجل، عن الصيغة الذهبية التي تجعل السيرة الذاتية تبهر لجان المقابلات:
 
+> اقرأ أيضًا: [Muhadathat Injliziyyah li al Safar: 80+ عبارة وحوار](/ar/blog/muhadathat-injliziyyah-li-al-safar/)
+
 > **«Accomplished [X], as measured by [Y], by doing [Z]»**  
 > (أنجزت الهدف [X]، مقاساً بمؤشر رقمي ملموس [Y]، من خلال تنفيذ الإجراء الاستراتيجي [Z])
 

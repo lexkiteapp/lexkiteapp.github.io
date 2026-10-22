@@ -43,6 +43,8 @@ Bu yaklaşım, tek bir kökü kavrayarak dört farklı kelimeyi dağarcığını
 
 Hafıza teknikleri, özellikle zihinde kalmakta direnen soyut veya karmaşık kelimeler için cankurtaran simidi görevi görür. Dünya hafıza şampiyonlarının sıklıkla başvurduğu "Hafıza Sarayı" (Loci Tekniği) ve "Ses Benzeşimi" (Acrostics / Keyword Method), yeni bir İngilizce kelimenin sesini ana dilinizde tanıdık ve komik bir görselle eşleştirme mantığına dayanır.
 
+> Bunu da oku: [TOEFL iBT Academic Discussion Writing Rehberi](/tr/blog/toefl-ibt-academic-discussion-writing-rehberi/)
+
 Örneğin, "reluctant" (isteksiz, gönülsüz) kelimesini ele alalım. Telaffuzundaki "re-luk-tıl" tınısını Türkçede "lokum" ile bağdaştırabilirsiniz: İstemediği halde zorla önüne konan koca bir tepsi bayat lokumu isteksizce iten bir çocuk hayal edin. Zihninizde ne kadar canlı, renkli ve sıra dışı bir görsel yaratırsanız, o kelimeyi bir sınavda veya toplantıda duyduğunuzda anlamını hatırlama süreniz o kadar kısalır.
 
 Bunun yanı sıra kök, ön ek ve son ek (etimoloji) bilgisi edinmek de bir zorunluluktur. "Un-", "dis-", "in-" gibi olumsuzluk ekleri ya da "-able", "-tion", "-ment" gibi son eklerin görevini kavramak, daha önce hiç görmediğiniz yüzlerce yeni sözcüğün anlamını metin içinden tahmin etmenizi kolaylaştırır.

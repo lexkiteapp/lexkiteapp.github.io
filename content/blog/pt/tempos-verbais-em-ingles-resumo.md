@@ -102,6 +102,8 @@ Abaixo está o resumo detalhado de cada um dos 12 tempos verbais com suas fórmu
 
 Para identificar rapidamente o tempo verbal em questões de interpretação ou provas acadêmicas, preste atenção aos advérbios e marcadores temporais (*time expressions*):
 
+> Leia também: [Preposições em Inglês In, On, At: Regras Práticas e Guia Completo](/pt/blog/preposicoes-em-ingles-in-on-at/)
+
 | Tempo Verbal | Palavras-chave Comuns | Ponto de Atenção |
 |---|---|---|
 | Simple Present | *always, usually, never, every day, sometimes* | Lembrar do `-s` na 3ª pessoa do singular (*he/she/it*) |

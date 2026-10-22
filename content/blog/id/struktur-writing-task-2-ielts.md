@@ -51,6 +51,8 @@ Kesalahan struktural yang paling sering memotong nilai adalah menjawab setengah 
 
 Total panjang esai yang ideal berkisar antara 260 hingga 290 kata (syarat minimum adalah 250 kata). Menulis lebih dari 330 kata tidak memberikan poin tambahan, justru memperbesar peluang kesalahan tata bahasa dan menghabiskan waktu evaluasi mandiri.
 
+> Baca juga: [Template IELTS Speaking Part 2 & 3: Trik Jawab Lancar 2 Menit](/id/blog/template-ielts-speaking-part-2-dan-3/) · [Panduan TOEFL iBT Academic Discussion Writing: Trik Skor 5.0](/id/blog/toefl-ibt-academic-discussion-writing-panduan/)
+
 | Bagian Esai | Fungsi Utama | Target Panjang |
 |---|---|---|
 | **Introduction** | Parafrase soal + Pernyataan tesis (posisi Anda) | 40–50 kata |

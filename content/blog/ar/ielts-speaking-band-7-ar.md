@@ -60,6 +60,8 @@ qualityScore: 94
 
 عندما يطرح عليك الفاحص سؤالاً معقداً في الجزء الثالث، استخدم نموذج A.R.E.A المنطقي لتنظيم كلامك دون تردد:
 
+> اقرأ أيضًا: [IELTS Speaking Part 2 Namudhaj Template: دليل باند 8](/ar/blog/ielts-speaking-part-2-namudhaj-template/)
+
 1. **Answer (الإجابة المباشرة):** اطرح فكرتك المركزية بوضوح.
 2. **Reason (التعليل):** اشرح السبب الكامن وراء هذا الرأي بكلمات مثل *This is primarily because...*
 3. **Example (المثال الواقعي):** قدم مثالاً ملموساً أو ظاهرة مشهورة تدعم كلامك بكلمات مثل *A clear illustration of this is...*

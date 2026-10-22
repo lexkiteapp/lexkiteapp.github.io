@@ -94,6 +94,8 @@ Düzenli kelime birikimi oluşturmak için [kelime kütüphanesi](/app/#/library
 
 Hangi konu gelirse gelsin konuşmanızı 4 ana aşamada yapılandırarak 2 dakikayı kusursuz yönetebilirsiniz. İşte her aşama için kullanabileceğiniz güçlü kalıplar:
 
+> Bunu da oku: [TOEFL iBT Academic Discussion Writing Rehberi](/tr/blog/toefl-ibt-academic-discussion-writing-rehberi/)
+
 ### 1. Giriş Bölümü (10–15 Saniye)
 Doğrudan konuya girmek yerine akıcı bir giriş ifadesiyle söze başlayın:
 - *"I'd like to talk about..."* yerine:

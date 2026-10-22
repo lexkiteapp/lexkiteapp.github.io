@@ -44,6 +44,8 @@ Im Test begegnen Ihnen verschiedene Frageformate, die jeweils spezifische kognit
 
 Die Prüfungsersteller der Cambridge-Organisation bauen gezielt sogenannte "Distractors" ein, um unaufmerksame Prüflinge zu testen. Das klassische Muster ist die Selbstkorrektur des Sprechers: Eine Information wird scheinbar genannt, kurz darauf aber revidiert.
 
+> Weiterlesen: [IELTS Reading Skimming Scanning Tipps: In 60 Minuten zum Band 7+](/de/blog/ielts-reading-skimming-scanning/)
+
 Ein typisches Dialogbeispiel aus Teil 1:  
 - *Speaker A:* "So, the meeting is scheduled for Tuesday at 3 PM?"  
 - *Speaker B:* "Actually, the room is fully booked then. Let's make it Thursday morning at 10."

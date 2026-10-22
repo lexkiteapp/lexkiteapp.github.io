@@ -143,6 +143,8 @@ Ein Meeting ist nur so gut wie seine Nachbereitung. Halte am Ende unmissverstän
 
 Um zu sehen, wie diese Phrasen in der Praxis ineinandergreifen, betrachten wir einen typischen Ausschnitt aus einer virtuellen Projektbesprechung:
 
+> Weiterlesen: [Smalltalk auf Englisch: Gesprächsthemen & Eisbrecher](/de/blog/smalltalk-auf-englisch-themen/)
+
 > **Chairperson (Lena):** *"Good afternoon everyone. Thank you for joining promptly. The primary goal of today's call is to decide on the launch date for the European campaign. Has everyone had a chance to review the slide deck?"*  
 > **Marketing Lead (Marc):** *"Yes, Lena. From our side, we are ready to move forward. We suggest launching on May 1st to capture the early spring demand."*  
 > **Finance Lead (David):** *"May I quickly jump in here? While I appreciate the enthusiasm, May 1st puts immense pressure on our supplier contracts. I'm afraid we might run into compliance issues."*  

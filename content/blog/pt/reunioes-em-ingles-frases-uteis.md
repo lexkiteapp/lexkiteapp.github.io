@@ -103,6 +103,8 @@ Pratique a entonação dessas frases em voz alta no [módulo de prática de fala
 
 Para quem trabalha com metodologias ágeis como Scrum ou Kanban em times de engenharia de software, design e produto, a reunião diária de 15 minutos (*Daily Standup* ou *Sync*) é o formato mais frequente da semana. A regra de ouro aqui é ser sintético, direto e transparente:
 
+> Leia também: [Inglês para TI e Trabalho Remoto: Vocabulário e Guia Prático](/pt/blog/ingles-para-ti-e-trabalho-remoto/)
+
 ### 1. Relatando o que foi concluído ontem
 - *"Yesterday, I wrapped up the initial draft of the API documentation."* (Ontem, concluí o rascunho inicial da documentação da API.)
 - *"I pushed the latest bug fixes to staging for testing."* (Subi as últimas correções de erros para o ambiente de testes.)

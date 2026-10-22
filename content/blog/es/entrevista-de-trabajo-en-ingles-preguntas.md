@@ -102,6 +102,8 @@ No intentes culpar a compañeros ni a factores externos. Asume la responsabilida
 
 El idioma español tiende a utilizar construcciones con verbos comodín (*hice un informe*, *manejé un proyecto*). En inglés profesional, debes sustituir verbos genéricos como *did* o *worked on* por verbos de acción contundentes:
 
+> Lee también: [Inglés para Viajar Frases Esenciales: Guía Turística Completa](/es/blog/ingles-para-viajar-frases-esenciales/)
+
 | Verbo genérico que debes evitar | Verbo de acción de alto impacto recomendado |
 |---|---|
 | *I helped the team* | **collaborated with / facilitated / mobilized** |

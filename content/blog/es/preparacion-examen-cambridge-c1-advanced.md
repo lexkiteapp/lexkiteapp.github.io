@@ -97,6 +97,8 @@ Practica estas estructuras complejas revisando las reglas de [gerundio o infinit
 
 En la sección de escritura dispones de 90 minutos para redactar dos composiciones impecables de entre 220 y 260 palabras cada una:
 
+> Lee también: [Inglés para Viajar Frases Esenciales: Guía Turística Completa](/es/blog/ingles-para-viajar-frases-esenciales/)
+
 ### Parte 1 (Obligatoria): The Essay
 Debes redactar un ensayo argumentativo analizando dos de los tres puntos proporcionados sobre un tema social, económico o educativo. El tono debe ser estrictamente académico e impersonal:
 - Utiliza conectores avanzados: *Moreover*, *Furthermore*, *Consequently*, *Notwithstanding*.

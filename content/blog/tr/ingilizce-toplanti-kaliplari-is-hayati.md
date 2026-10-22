@@ -87,6 +87,8 @@ Toplantıyı yöneten kişiyseniz (*facilitator/chairperson*), toplantıyı daki
 
 Online toplantılarda konuşmacının sözünü kesmeden söze girmek en hassas denge noktasıdır:
 
+> Bunu da oku: [Yurt Disi Seyahat Ingilizce Diyaloglar ve Kalıplar](/tr/blog/yurt-disi-seyahat-ingilizce-diyaloglar/)
+
 - *"May I jump in here for a second?"* (Burada bir saniyeliğine araya girebilir miyim?)
 - *"Could I quickly add something to what Alex just mentioned?"* (Alex'in az önce bahsettiği şeye hızlıca bir ekleme yapabilir miyim?)
 - *"Sorry to cut you off, but I think this is a crucial point to clarify..."* (Sözünüzü kestiğim için özür dilerim, ancak bunun netleştirilmesi gereken kritik bir nokta olduğunu düşünüyorum...)

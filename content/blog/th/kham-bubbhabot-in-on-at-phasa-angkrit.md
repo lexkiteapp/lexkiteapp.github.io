@@ -127,6 +127,8 @@ quiz: [
 
 ต่อยอดรากฐานความเข้าใจโครงสร้างไวยากรณ์ให้แม่นยำยิ่งขึ้นได้ที่ [ไวยากรณ์ภาษาอังกฤษพื้นฐาน](/th/blog/waiyakon-phasa-angkrit-phuenthan/)
 
+> อ่านต่อ: [Modal Verbs Can Could Should Must: กฎการใช้และข้อควรระวัง](/th/blog/modal-verbs-can-could-should-must-phasa-angkrit/)
+
 ![กราฟสถิติการเรียนรู้บน Lexkite พร้อมคะแนน xp และ heatmap บันทึกความต่อเนื่อง](media:stats "ตรวจสอบคะแนน xp และติดตามชั่วโมงเรียนภาษาอังกฤษอย่างสม่ำเสมอบน heatmap รายเดือน")
 
 {{cta: /tu-vung/ | เริ่มฝึกไวยากรณ์ภาษาอังกฤษ}}

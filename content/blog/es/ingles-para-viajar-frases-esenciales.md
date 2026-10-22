@@ -104,6 +104,8 @@ Repasa expresiones prácticas y memorízalas con intervalos inteligentes en las 
 
 En la cultura anglosajona, la cortesía al pedir alimentos es innegociable. Evita el imperativo *"Give me"* y utiliza fórmulas indirectas:
 
+> Lee también: [Preparación Examen Cambridge C1 Advanced: Guía Completa CAE](/es/blog/preparacion-examen-cambridge-c1-advanced/)
+
 | Situación en el restaurante | Frase recomendada en inglés | Traducción al español |
 |---|---|---|
 | **Pedir mesa** | *"A table for two, please. Non-smoking."* | "Una mesa para dos, por favor. De no fumadores." |
