@@ -77,3 +77,14 @@ cron mỗi ngày → chọn điểm học + tổ hợp (sổ đa dạng) → so�
 - **Nền không có vùng đứng hợp lệ** (vd. mặt nước, trên xe) → chỉ dùng làm cận cảnh mờ sau vai hoặc loại khỏi kho người dẫn.
 - **Cổng AI nhìn khung ghép** (Gemini vision qua kho khoá miễn phí, dự phòng Workers AI): hỏi "người có đứng tự nhiên trong cảnh không, có đứng trên/ trong đồ vật, nước, sai tỉ lệ, sai phối cảnh không?" → bất kỳ "có" = trượt. Lấy 3 khung/clip.
 - Mọi luật là cổng QA; trượt → generator đổi nền/vị trí, tối đa 2 lần, rồi bỏ clip.
+
+## 12. Cách giảng: dễ hiểu – dễ học – dễ nhớ (chủ 22/10) – bắt buộc cho mọi kịch bản
+1. **Một ý duy nhất**, nói được trong 1 câu ("Dùng *look for* khi đang tìm").
+2. **Tương phản sai → đúng** (✗ câu người học hay nói → ✓ câu bản xứ) + **vì sao** trong ≤ 12 từ (quy tắc dễ nhớ, không thuật ngữ khó).
+3. **Ví dụ trong tình huống thật** (2–3 câu ngắn, đúng CEFR, từ vựng quen).
+4. **Mẹo nhớ**: hình ảnh/biểu tượng trên thẻ (mã hoá kép), vần/ẩn dụ ngắn, công thức màu (*look* + **for** + vật).
+5. **Truy xuất chủ động**: "Dừng lại, đoán xem…" 1,5 s trước khi lộ đáp án; cuối clip câu đố 1 chạm (web) / bình luận (social).
+6. **Nói theo**: "Repeat after me" có khoảng lặng; phát âm khó → cặp âm tối thiểu + nhấn trọng âm bằng chữ in đậm.
+7. **Lặp lại giãn cách**: series nhắc lại ý cũ ở clip sau ("Nhớ *look for* hôm qua?"); web đưa vào SRS.
+8. **Cá nhân hoá**: lỗi theo nhóm ngôn ngữ mẹ đẻ (vd. người Việt bỏ mạo từ, người Nhật nhầm l/r) → gắn thẻ, xếp đúng người học trên web.
+9. **Kiểm định**: AI judge chấm "dễ hiểu cho trình độ X?", "mẹo có sai không?", câu giải thích ≤ CEFR+1; trượt → viết lại.
