@@ -23,7 +23,7 @@ if (DRY) process.exit(0);
 
 let up = 0, same = 0, fail = 0, short = 0, n = 0, dirty = 0;
 const flush = () => { saveManifest(MAN, m); dirty = 0; };
-let stop = false, next = 0;
+let stop = false, next = 0, streak = 0; // streak: lỗi liên tiếp → dừng sớm (vd. D1 hết hạn mức đọc, lỗi 500 hàng loạt)
 const todo = need.slice(0, LIMIT), CONC = Math.max(1, +arg(args, 'conc', 3)); // vài luồng song song: mỗi file ≈ 10 s (2 phiên Google), giới hạn 120 lượt/phút/IP vẫn dư
 const inflight = new Map(); // sha đang tải → file trùng nội dung chờ, không tải lần 2
 const one = async f => {
@@ -43,9 +43,11 @@ const one = async f => {
       up++; dirty++; await sleep(PAUSE);
     }
     } finally { inflight.delete(h); done(); }
+    streak = 0;
     if (dirty >= 20) { flush(); console.log(`… ${n}/${todo.length} (↑${up} =${same} ✗${fail})`); }
   } catch (e) {
     fail++; console.error(`✗ ${f.rel}: ${e.message}`);
+    if (++streak >= 8) { stop = true; console.error('✗ dừng: 8 lỗi liên tiếp'); process.exitCode = 1; }
     if (/no-key|403|forbidden|pool_full|507/.test(String(e.code || e.message))) { stop = true; console.error('✗ dừng: ' + (e.code || e.message)); process.exitCode = 1; }
     else await sleep(PAUSE * 4);
   }

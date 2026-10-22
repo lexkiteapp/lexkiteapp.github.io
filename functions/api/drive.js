@@ -631,7 +631,7 @@ const OPS = {
     const drives = await all(db, 'SELECT * FROM drives');
     const have = await healthyCopies(db, drives, sha);
     if (have.length >= want) return { done: true, drive_id: have[0].drive_id, file_id: have[0].file_id, copies: have.length, want };
-    const rot = ((await one(db, 'SELECT COUNT(*) AS n FROM drive_files')) || {}).n || 0;
+    const rot = ((await one(db, 'SELECT MAX(id) AS n FROM drive_files')) || {}).n || 0; // chỉ để xoay vòng: MAX(id) đọc 1 dòng (COUNT(*) quét cả bảng → 22/10 làm cạn hạn mức đọc D1 miễn phí của cả tài khoản)
     const targets = pickDrives(drives, size, want - have.length, { exclude: have.map(h => h.drive_id), rot });
     if (!targets.length) return have.length ? { done: true, drive_id: have[0].drive_id, file_id: have[0].file_id, copies: have.length, want, short: want - have.length } : { status: 507, error: 'pool_full' };
     const sessions = [];
