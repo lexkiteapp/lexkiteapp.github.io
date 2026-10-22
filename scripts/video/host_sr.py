@@ -13,10 +13,10 @@ if not todo: sys.exit(0)
 import torch; torch.set_num_threads(max(2, os.cpu_count() or 2))
 from spandrel import ModelLoader
 if not os.path.exists(o.model): os.makedirs(os.path.dirname(o.model), exist_ok=True); subprocess.run(['curl', '-sL', '-o', o.model, MURL], check=True)
-net = ModelLoader().load_from_file(o.model).model.eval(); assert getattr(net, 'scale', 4) in (2, 4)
+net = ModelLoader().load_from_file(o.model).model.eval().to(memory_format=torch.channels_last); assert getattr(net, 'scale', 4) in (2, 4)
 def sr(img):   # BGR uint8 -> 2x BGR uint8 (the animevideov3 model is x4 -> area-downscale to x2 = extra crispness)
-    with torch.no_grad():
-        t = torch.from_numpy(cv2.cvtColor(img, cv2.COLOR_BGR2RGB)).permute(2, 0, 1).float().div(255).unsqueeze(0)
+    with torch.inference_mode():
+        t = torch.from_numpy(cv2.cvtColor(img, cv2.COLOR_BGR2RGB)).permute(2, 0, 1).float().div(255).unsqueeze(0).contiguous(memory_format=torch.channels_last)
         y = net(t).clamp(0, 1)[0].permute(1, 2, 0).mul(255).round().byte().numpy()
     y = cv2.cvtColor(y, cv2.COLOR_RGB2BGR); H, W = img.shape[:2]
     return cv2.resize(y, (W * 2, H * 2), interpolation=cv2.INTER_AREA) if y.shape[0] != H * 2 else y
@@ -30,14 +30,16 @@ os.makedirs(f'{o.green}/kfull_x2', exist_ok=True); os.makedirs(f'{o.green}/kmask
 for c in todo:
     cf = f'{o.green}/kfull_pro/{c}.mp4' if os.path.exists(f'{o.green}/kfull_pro/{c}.mp4') else f'{o.green}/kfull/{c}.mp4'
     cm = f'{o.green}/kmask_pro/{c}.mkv' if os.path.exists(f'{o.green}/kmask_pro/{c}.mkv') else f'{o.green}/kmask/{c}.mp4'
-    F0 = next(frames(cf)); H, W = F0.shape[:2]
+    F0 = next(frames(cf)); H, W = F0.shape[:2]; AL = [cv2.dilate(M[..., 0], np.ones((33, 33), np.uint8)) for M in frames(cm)]
     enc = subprocess.Popen(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', f'{W * 2}x{H * 2}', '-r', '24', '-i', '-', '-c:v', 'libx264', '-preset', 'slow', '-crf', '10',
                             '-pix_fmt', 'yuv444p', f'{o.green}/kfull_x2/{c}.mp4'], stdin=subprocess.PIPE)
     n = 0
     for F in frames(cf):
-        T = 512; out = np.zeros((H * 2, W * 2, 3), np.uint8)   # tiles with 16 px overlap (memory)
+        T = 512; out = cv2.resize(F, (W * 2, H * 2), interpolation=cv2.INTER_LANCZOS4)   # tiles with 16 px overlap; tiles fully outside the matte stay Lanczos (never visible)
+        M0 = AL[min(n, len(AL) - 1)]
         for y0 in range(0, H, T):
             for x0 in range(0, W, T):
+                if M0[y0:y0 + T, x0:x0 + T].max() < 8: continue
                 ya, xa = max(0, y0 - 16), max(0, x0 - 16); yb, xb = min(H, y0 + T + 16), min(W, x0 + T + 16); t = sr(F[ya:yb, xa:xb])
                 out[y0 * 2:min(H, y0 + T) * 2, x0 * 2:min(W, x0 + T) * 2] = t[(y0 - ya) * 2:(y0 - ya + min(T, H - y0)) * 2, (x0 - xa) * 2:(x0 - xa + min(T, W - x0)) * 2]
         enc.stdin.write(out.tobytes()); n += 1
