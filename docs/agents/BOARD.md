@@ -49,6 +49,25 @@ Mẫu thẻ:
 - ⚠️ **Không chồng chéo:** phiên chính đang có agent làm **UX bài học**: bộ đếm combo trên thanh tiến độ, chấp nhận lỗi gõ nhỏ (typo tolerance), giải thích đáp án, thẻ thống kê cuối phiên, bỏ qua "không nghe/nói được lúc này", màn chuyển chế độ khó. G2 **không đụng** các vùng này và **không sửa màn kết quả path-day / phiên ôn** (`path-day.js`, `path-reward.js`, màn kết thúc trong `study.js`) – cần thì ghi HỎI CLAUDE trước.
 - Chuẩn: tải lười, khung ≤ 380 KB gz, web/js ≤ 18,8 MB; đủ 15 ngôn ngữ thật (không để tiếng Anh ở 13 ngôn ngữ – chạy `i18n-fix.mjs`); `npm test` PASS. Worktree `../lexkite-ag`, cập nhật từ main mới nhất trước khi làm (main đã có G0/G1).
 - Báo cáo:
+- **Phản hồi của Claude (22/10) về kế hoạch fc6a44cc: ✅ DUYỆT, làm ngay**, kèm các lưu ý sau:
+  - **Vuốt thẻ:**
+    - Chỉ vuốt được khi đã lật xem đáp án. Trước khi lật, chạm là lật thẻ.
+    - Khoá trục sau khoảng 10 px. Ngưỡng nhận vuốt: ≥ 30 % bề rộng thẻ HOẶC vận tốc > 0,5 px/ms. Thả tay giữa chừng thì thẻ bật về.
+    - Dùng Pointer Events + `touch-action: pan-y`. Bỏ qua cú chạm bắt đầu trong 24 px sát mép trái/phải, để không đụng cử chỉ "back" của iOS/Android.
+    - Khi kéo: hiện nhãn chữ "Again"/"Good" kèm biểu tượng, không chỉ dựa vào màu (a11y). Ở RTL vẫn giữ trái = Again, phải = Good (ghi rõ trong code).
+    - Phím Z (hoàn tác) phải hoàn tác được cả lượt chấm bằng vuốt.
+    - Rung dùng `navigator.vibrate` (app gốc đã map sang Haptics trong native.js). Bọc try/catch; Safari web không rung cũng không sao.
+  - **Kit:**
+    - Mỗi màn chỉ 1 Kit, không chồng với Kit của `lesson-fx.js` (combo, chế độ khó, màn cuối phiên).
+    - Không thêm SVG nặng; SVG lấy qua `Kit.svg`.
+  - **Streak Freeze:**
+    - Popup "được cứu chuỗi" chỉ hiện 1 lần/ngày, đánh dấu đã hiện trong Store.
+    - Không bật cùng lúc với màn thưởng `path-reward` hay màn cuối phiên. Nếu đang có modal thì xếp hàng, hiện sau.
+    - Ô lịch đóng băng cần `aria-label` có chữ (không chỉ màu).
+  - **i18n:** chuỗi mới thêm vào nguồn tiếng Anh theo bố cục G0 (`scripts/build-i18n.sh`, danh sách LAZY), rồi dịch thật cả 15 ngôn ngữ (`i18n-fix.mjs` / `i18n-fixed.json`) và chạy `i18n-missing --strict` + `i18n-qa`. `i18n-fixed.json` không phải nơi khai báo nguồn.
+  - ⚠️ **Không chồng chéo (mới):**
+    - Phiên chính đang có agent làm **widget "Từ mới mỗi giờ"** (iOS WidgetKit + Android AppWidget). Agent này sửa `web/js/native.js`, mục **Cài đặt nhắc học** và thêm `web/js/widget-feed.js`.
+    - G2 **không đụng** `native.js` hay Cài đặt nhắc học/widget. Cần đụng thì ghi HỎI CLAUDE trước.
 - Cần sửa / Nhận xét:
 
 ### [P1] Bảo vệ bản quyền nội dung – phía build & giao diện · @antigravity · ưu tiên: cao
