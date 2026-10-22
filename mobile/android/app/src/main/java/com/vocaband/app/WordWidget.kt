@@ -140,7 +140,7 @@ class WordWidget : AppWidgetProvider() {
             val tap = labels?.optString("tap")?.takeIf { s -> s.isNotBlank() } ?: context.getString(R.string.word_widget_tap)
             v.setTextViewText(R.id.word_word, word)
             v.setTextViewText(R.id.word_ipa, ipa)
-            v.setViewVisibility(R.id.word_ipa, if (ipa.isEmpty()) View.GONE else View.VISIBLE)
+            v.setViewVisibility(R.id.word_ipa, if (ipa.isEmpty() || (!compact && !wide)) View.GONE else View.VISIBLE) // 2×2: chừa chỗ cho từ
             v.setTextViewText(R.id.word_mean, mean.ifEmpty { tap })
             v.setTextColor(R.id.word_mean, context.getColor(if (mean.isEmpty()) R.color.lex_widget_accent else R.color.lex_widget_ink))
             if (!compact) {
