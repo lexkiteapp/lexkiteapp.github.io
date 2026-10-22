@@ -1,63 +1,61 @@
 {
- "updated": "2026-10-22T14:41:56.322Z",
- "bank": 156,
- "review": 4,
- "pass_rate": 0.975,
+ "updated": "2026-10-22T15:16:57.056Z",
+ "bank": 211,
+ "review": 0,
+ "pass_rate": 1,
  "planned": 21221,
- "left": 21061,
+ "left": 21010,
  "by_type": {
-  "stop-saying": 21,
-  "x-vs-y": 21,
-  "situational": 21,
-  "misunderstanding": 20,
-  "pronunciation": 16,
-  "adverb": 3,
-  "verb-pattern": 15,
-  "idiom-phrasal": 19,
-  "preposition": 16,
-  "structure": 4
+  "stop-saying": 28,
+  "x-vs-y": 27,
+  "situational": 27,
+  "misunderstanding": 25,
+  "pronunciation": 26,
+  "adverb": 6,
+  "verb-pattern": 20,
+  "idiom-phrasal": 26,
+  "preposition": 20,
+  "structure": 6
  },
  "by_cefr": {
-  "A2": 63,
+  "A2": 66,
   "A1": 32,
-  "B1": 26,
-  "B2": 21,
-  "C1": 13,
-  "C2": 1
+  "B1": 51,
+  "B2": 33,
+  "C1": 26,
+  "C2": 3
  },
  "by_diff": {
-  "easy": 95,
-  "medium": 47,
-  "hard": 14
+  "easy": 98,
+  "medium": 84,
+  "hard": 29
  },
  "by_topic": {
-  "shopping": 9,
-  "home": 15,
-  "travel": 24,
-  "daily": 14,
-  "exam": 22,
-  "work": 22,
-  "social": 16,
-  "study": 10,
-  "money": 4,
-  "health": 11,
-  "food": 2,
-  "tech": 7
+  "shopping": 14,
+  "home": 17,
+  "travel": 27,
+  "daily": 16,
+  "exam": 28,
+  "work": 27,
+  "social": 19,
+  "study": 12,
+  "money": 14,
+  "health": 14,
+  "food": 9,
+  "tech": 14
  },
  "by_hook": {
-  "90": 21,
-  "stop": 32,
-  "which": 24,
-  "natives": 19,
-  "instead": 25,
-  "guess": 19,
-  "embarrass": 15,
+  "90": 29,
+  "stop": 43,
+  "which": 33,
+  "natives": 22,
+  "instead": 36,
+  "guess": 28,
+  "embarrass": 19,
   "rude": 1
  },
  "avg_score": 0,
- "review_reasons": {
-  "skip": 4
- },
+ "review_reasons": {},
  "days": [
   {
    "date": "2026-10-22",
@@ -73,26 +71,26 @@
    "models": {}
   }
  ],
- "gold": 156,
+ "gold": 211,
  "gold_plan": 1931,
  "by_cat": {
-  "stop-saying": 21,
-  "x-vs-y": 21,
-  "situational": 21,
-  "misunderstanding": 20,
-  "pronunciation": 16,
-  "collocation": 19,
-  "grammar": 19,
-  "idiom-phrasal": 19
+  "stop-saying": 28,
+  "x-vs-y": 27,
+  "situational": 27,
+  "misunderstanding": 25,
+  "pronunciation": 26,
+  "collocation": 26,
+  "grammar": 26,
+  "idiom-phrasal": 26
  },
  "by_hook_formula": {
-  "90": 21,
-  "stop": 32,
-  "which": 24,
-  "natives": 19,
-  "instead": 25,
-  "guess": 19,
-  "embarrass": 15,
+  "90": 29,
+  "stop": 43,
+  "which": 33,
+  "natives": 22,
+  "instead": 36,
+  "guess": 28,
+  "embarrass": 19,
   "rude": 1
  }
 }
