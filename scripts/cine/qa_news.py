@@ -265,9 +265,7 @@ for b in tl['endcard_boxes']:
     if not (b[0] >= SZ['x0'] and b[2] <= SZ['x1'] and b[1] >= SZ['y0'] and b[3] <= SZ['y1']): fails.append('safe:endcard'); print('  END CARD SAFE FAIL', b)
 if TP == 'news':   # owner 22/10: teacher persona
     print('== TEACHER PERSONA')
-    nm_ = [o for o in tl['overlays'] if o['style'] == 'Name']; whos_ = {x['who'] for x in tl['shots'] if not x.get('other') and x['lines']}
-    ok_ = {w for w in whos_ if any(o['text'].startswith(w.upper() + '|') for o in nm_)} == whos_
-    print(f"  name titles {[o['text'] for o in nm_]} for {sorted(whos_)}", 'OK' if ok_ else 'FAIL'); ok_ or fails.append('name-title')
+    # name lower-thirds removed (owner 22/10)
     rt_ = [o['text'].split('|')[0] for o in tl['overlays'] if o['style'] == 'Recap']; print(f'  recap label {rt_}', 'OK' if rt_ and all(x.upper() == "TEACHER'S TIP" for x in rt_) else 'FAIL')
     if not (rt_ and all(x.upper() == "TEACHER'S TIP" for x in rt_)): fails.append('teacher-tip')
     rp_ = tl['lesson'].get('qa', {}).get('repeat', []) if isinstance(tl['lesson'].get('qa'), dict) else tl.get('qa', {}).get('repeat', [])

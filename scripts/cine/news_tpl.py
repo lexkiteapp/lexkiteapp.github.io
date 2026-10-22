@@ -102,13 +102,7 @@ T_ = sum(x['dur'] for x in S); SER_T, SER_S = SPEC['series']; SER_T = f"{SER_T} 
 SER_END = e['t0'] if SPEC.get('share') else T_ - 1.0
 ov('Series', f'{SER_T}|{SER_S}', h['dur'], SER_END, sbox, 'b1', img=lambda t, a=h['dur'], tp=SER_T, sb=SER_S: series_bar(tp, sb, prog=1 - (1 - min(1, (t - a) / 0.35)) ** 3)[0])   # payoff promise by 2 s
 SFX.append(('slide.wav', h['dur']))
-NAMES = {'ama': ('AMA', 'American English Teacher'), 'carlos': ('CARLOS', 'English Coach')}   # teacher persona: name lower-third on each host's first speaking single after the hook
-FIRST = {}
-for x in S[1:]:
-    if x['lines'] and x['who'] not in FIRST: FIRST[x['who']] = x
-for w_, x in sorted(FIRST.items(), key=lambda kv: kv[1]['t0']):
-    na, nb_ = x['t0'], min(x['t0'] + x['dur'], x['t0'] + 2.6); tp_, sb_ = NAMES[w_]; _, nbox = series_bar(tp_, sb_, y0=NAME_Y)
-    ov('Name', f'{tp_}|{sb_}', na, nb_, nbox, x['id'], img=lambda t, a=na, tp=tp_, sb=sb_: series_bar(tp, sb, y0=NAME_Y, prog=1 - (1 - min(1, (t - a) / 0.35)) ** 3)[0])
+# owner 22/10: no name lower-thirds (clutter, covers the body) - the teacher persona lives in tone, Teacher's tip, Repeat after me, the spoken intro
 P = sorted(t for f, t in SFX if f == 'pop.wav'); keep = []
 for t in P:
     if not keep or t - keep[-1] >= 2.0: keep.append(t)
