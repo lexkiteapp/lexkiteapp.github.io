@@ -58,6 +58,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Người dẫn = giáo viên Mỹ (KHÔNG lower-third tên – chủ bỏ 22/10; giữ "Teacher's tip", "Repeat after me", giọng giáo viên); chỉ cử chỉ trung tính, đứng; không cử chỉ ký hiệu (đếm ngón/lắc ngón Kling hỏng).
 - Hình: không làm mờ nền/hạt phim; không phóng người > 1.0×; push-in từ nền 1,25×; master CRF 17 ≥ 8 Mbps; QA độ nét (Laplacian), SSIM ≥ 0,97.
 - Tách nền: trimap + AI matting (ViTMatte) + khử màu viền (pymatting) + chống ám xanh vùng viền + ổn định theo thời gian; QA viền (`scripts/video/matte_qa.py`).
+- Liền mạch trong 1 video (chủ 22/10): 1 nền/1 địa điểm/1 ánh sáng cho cả clip; đổi cảnh bằng khung cắt khác của CÙNG nền (Ama nửa trái, Carlos nửa phải, giữ cố định khung mỗi người); đúng 180° (Ama trái nhìn phải, Carlos phải nhìn trái); QA 1 bg_id/clip.
 - Khớp bối cảnh: `bg/<id>.zones.json` (độ sâu + phân vùng) → chỉ đặt người ở vùng sàn, tầm mắt ≈ chân trời; cổng AI nhìn khung ghép (đứng trên bàn/ghế/nước = trượt).
 - Cách giảng (bắt buộc mọi kịch bản): 1 ý · sai→đúng + vì sao ngắn · ví dụ tình huống · mẹo nhớ hình ảnh · đoán trước đáp án · nói theo · nhắc lại giãn cách · lỗi theo tiếng mẹ đẻ (`VIDEO-SCALE-PLAN.md` §12).
 - Chống trùng & 100 điểm: `docs/VIDEO-SCALE-PLAN.md` (7 trục đa dạng, pHash/chromaprint, kiểm khớp chữ↔giọng↔khẩu hình, ≥ 90 mới đăng).
