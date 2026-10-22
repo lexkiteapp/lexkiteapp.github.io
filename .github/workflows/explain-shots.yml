@@ -1,0 +1,27 @@
+# Ảnh trước/sau của thẻ giải thích đáp án (Playwright, sandbox, điện thoại vi/en/ar) – docs/EXPLAIN.md
+name: Ảnh thẻ giải thích (trước/sau)
+on:
+  workflow_dispatch:
+    inputs:
+      before: { description: 'Commit "trước"', required: true }
+permissions: { contents: read }
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chụp
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chromium
+          git worktree add -q ../before "${{ github.event.inputs.before }}"
+          (cd ../before/web && python3 -m http.server 8081 >/dev/null 2>&1 &) ; (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
+          node scripts/test/explain-shots.mjs http://localhost:8081 out/quiz-explain before
+          node scripts/test/explain-shots.mjs http://localhost:8080 out/quiz-explain after
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: quiz-explain, path: out/quiz-explain, retention-days: 14 }
