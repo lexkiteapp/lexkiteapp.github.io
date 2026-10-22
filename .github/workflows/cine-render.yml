@@ -250,7 +250,6 @@ jobs:
       NEWS_DEPTH: ${{ github.workspace }}/depth
       NEWS_ZONES: ${{ github.workspace }}/depth
       NEWS_MATTE: pro
-      NEWS_MATTE: ''   # 'pro' = PRO host matte (green/k*_pro, matte_qa gate) once news.py uses MR.layer_paths/finish_host (docs/VIDEO.md §6)
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
