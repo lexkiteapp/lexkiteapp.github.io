@@ -279,6 +279,16 @@ if _sp.get('v') == 7:
 _SG = tl.get('qa', {}).get('signature'); _SF = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../content/video/cine/news/signatures.json')
 _hist = [x for x in (json.load(open(_SF)) if os.path.exists(_SF) else []) if x.get('id') != tl['lesson']['id']][-30:]
 rule(bool(_SG) and _SG not in [x['sig'] for x in _hist], f"edit signature {_SG} differs from the last {len(_hist)} published clips (§15)")
+print('== SCENE CONTINUITY (owner 22/10)')
+_bgs = {x['bg'] for x in tl['shots']}; rule(len(_bgs) == 1, f'one location per clip: {sorted(_bgs)}')
+_win = {}
+for x in tl['shots']:
+    if x.get('window'): _win.setdefault(x['angle'], []).append(x['window'])
+_wbad = [a for a, v in _win.items() if max(w['tx'] for w in v) - min(w['tx'] for w in v) > 0.05 * 1080 or max(w['z'] for w in v) / min(w['z'] for w in v) > 1.05]
+rule(bool(_win) and not _wbad, f'each host keeps one crop window (tx +-5 % width, zoom +-5 %) {_wbad or ""}')
+def _lab(bgr): import cv2 as c_; return c_.cvtColor(np.uint8([[np.clip(bgr, 0, 255)]]), c_.COLOR_BGR2LAB)[0, 0].astype(float) * [100 / 255, 1, 1] - [0, 128, 128]
+_bc = json.load(open(f'{RD}/qc.json')).get('bg_colour', []); _de = max([float(np.linalg.norm(_lab(a['bgr']) - _lab(b['bgr']))) for a in _bc for b in _bc] or [99])
+rule(bool(_bc) and _de <= 12, f'matching bg colour / exposure across shots: max dE {_de:.1f} (<= 12; left vs right crops of one still)')
 print('== SCENE LOGIC (owner 22/10, VIDEO-SCALE-PLAN §11)')
 PL_ = tl.get('qa', {}).get('placement') or {}; VS_ = tl.get('qa', {}).get('vision')
 rule(bool(PL_.get('zones')) and PL_.get('valid', False), f"background {PL_.get('bg')} annotated (bg_zones.py) with a standable floor zone")

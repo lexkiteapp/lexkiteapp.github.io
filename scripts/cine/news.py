@@ -379,14 +379,17 @@ QA['placement'] = PLACE
 _JJ = f'{N}/judge_{LID}.json'; QA['judge'] = json.load(open(_JJ)) if os.path.exists(_JJ) else None   # AI script judge + rules (script_judge.py)
 _VJ = f'{N}/pre_{LID}/vision.json'; QA['vision'] = json.load(open(_VJ)) if os.path.exists(_VJ) else None   # AI vision gate result (scripts/cine/vision_gate.py, run before the full render)
 if os.environ.get('NEWS_PREFLIGHT') and ZN and not PLACE['ok']: print('PLACEMENT FAIL', S[0]['bg']); sys.exit(3)
-for x in S:   # angle = two-shot / Ama single / Carlos single; each angle has its own background crop (side) and its own continuous push-in
-    ang = 'two' if x['other'] else x['who']; z0 = ANG.get(ang, ZBASE); z1 = z0 + 0.011 * x['dur']; side = {'two': 0, 'ama': -26, 'carlos': 26}[ang]
+# owner 22/10 scene continuity: ONE location, each host keeps the SAME crop window of it (Ama = left portion, Carlos = right portion);
+# every shot restarts at that host's anchor (z, tx, ty) and only adds a small move (push / pull <= 2.5 %, slide / tilt <= 8 px, handheld, rack)
+MARG = 1080 * (ZBASE - 1) / 2; WIN = {'ama': (-0.7 * MARG, ZBASE), 'carlos': (0.7 * MARG, ZBASE), 'two': (0.0, ZBASE)}
+for x in S:
+    ang = 'two' if x['other'] else x['who']; side, zb = WIN[ang]; z0 = zb; z1 = zb + min(0.025, 0.008 * x['dur'])
     mv = STYLE['moves'][S.index(x) % len(STYLE['moves'])] if x['id'] not in ('hook', 'loop') else 'push'; x['move'] = mv   # owner 22/10 §15: varied light moves, <= 3 per clip
-    if mv == 'pull': z0, z1 = z0 + 0.011 * x['dur'], z0
-    sd = (side - 18, side + 18) if mv == 'slide' else (side, side); tl_ = (CAM_TY - 14, CAM_TY + 14) if mv == 'tilt' else (CAM_TY, CAM_TY)
-    if mv in ('slide', 'tilt', 'handheld', 'rack'): z1 = z0 + 0.004 * x['dur']   # the other moves keep only a whisper of push-in
-    x['cam'] = dict(z=(z0, z1), tx=sd, ty=tl_, rot=(0, 0)); ANG[ang] = max(z0, z1); x['angle'] = ang
-if S[-1]['id'] == 'loop':   # loop: the two-shot settles back to the hook's first camera state (last frame == first frame)
+    if mv == 'pull': z0, z1 = z1, z0
+    sd = (side - 8, side + 8) if mv == 'slide' else (side, side); tl_ = (CAM_TY - 6, CAM_TY + 6) if mv == 'tilt' else (CAM_TY, CAM_TY)
+    if mv in ('slide', 'tilt', 'handheld', 'rack'): z1 = z0 + 0.004 * x['dur']
+    x['cam'] = dict(z=(z0, z1), tx=sd, ty=tl_, rot=(0, 0)); x['angle'] = ang; x['window'] = dict(tx=round(side, 1), z=round(zb, 4), bg=x['bg'])
+if S[-1]['id'] == 'loop':   # loop settles back to the hook's first camera state (last frame == first frame)
     S[-1]['cam']['z'] = (S[-1]['cam']['z'][0], S[0]['cam']['z'][0])
 ease = bg3d.ease
 def cam_at(s, u):
@@ -427,7 +430,7 @@ def comp(F, Al, sc, cx, cy, ox, oy, drift):   # premultiplied resample (MR.place
     return Fp / np.maximum(a, 1e-3)[..., None], a
 enc = subprocess.Popen(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', '1080x1920', '-r', str(FPS), '-i', '-',
                         '-c:v', 'libx264', '-threads', '2', '-profile:v', 'high', '-preset', 'slow', '-tune', 'film', '-crf', '17', '-maxrate', '14M', '-bufsize', '28M', '-pix_fmt', 'yuv420p', f'{RD}/video.mp4'], stdin=subprocess.PIPE)
-KEYM = {}; EQ = []; EXPO = None; HOSTG = 1.0; PREV_OUT = None; OVS = sorted(OV, key=lambda o: o['t'][0]); fi = 0; COVER = None; QC = []; PA = None
+KEYM = {}; EQ = []; BGC = []; EXPO = None; HOSTG = 1.0; PREV_OUT = None; OVS = sorted(OV, key=lambda o: o['t'][0]); fi = 0; COVER = None; QC = []; PA = None
 _x = np.arange(256) / 255.0; _l = _x ** 0.86; _s = np.clip(_l - 0.16 * np.sin(2 * np.pi * _l) / (2 * np.pi), 0, 1)   # owner 22/10: mids lifted ~+10 %, soft S-curve
 _sh = np.clip(1 - _x * 2.2, 0, 1); _hi = np.clip(_x * 2 - 1.1, 0, 1); _fl = lambda v: 18 / 255 + np.clip(v, 0, 1) * (1 - 22 / 255)   # black floor 18/255
 GRADE = np.stack([_fl(_s + 0.02 * _sh - 0.015 * _hi), _fl(_s + 0.01 * _sh + 0.003 * _hi), _fl(_s - 0.01 * _sh + 0.02 * _hi)], 1)   # BGR: slight teal shadows / warm highlights
@@ -467,6 +470,7 @@ for s in S:
         t = fi / FPS; u = j / max(1, s['n'] - 1); drift = 0.0
         if SAMP and j > 0: enc.stdin.write(out.tobytes()); fi += 1; continue
         B = bg_frame(s, j, t); FRs = []; bot = []; AL = []
+        if j == 0: BGC.append(dict(shot=s['id'], bgr=[round(float(v), 2) for v in B.reshape(-1, 3).mean(0)]))   # continuity QA: mean bg colour per shot
         if EXPO is None:   # one background exposure per lesson (first frame): graded bg mean luma -> 0.56, hosts keep their own exposure (key-light match below)
             EXPO = min([(abs(cv2.LUT((B * g_).clip(0, 255).astype(np.uint8), GRADE).mean() / 255 - 0.58), g_) for g_ in np.arange(0.85, 2.21, 0.03)])[1]; print('bg exposure gain %.2f' % EXPO)
         B = B * EXPO
@@ -549,5 +553,5 @@ for o in OV: o.pop('_img', None); o.pop('_chain', None)
 json.dump(dict(lesson=dict(META, out=META['out']), shots=[{k: v for k, v in s.items()}  for s in S],
                overlays=OV, safe=SAFE, viral=True, punch={'hook': 0.0}, hook_kind='question', qa=QA, scene=TOTAL, total=TOTAL, end=0, endcard_boxes=[], sfx=SFX, avoid={}),
           open(f'{RD}/timeline.json', 'w'), indent=1)
-json.dump(dict(bg_fill_visible_max=max(q['fill'] for q in BQA), bg_uncovered_max=max(q['uncovered'] for q in BQA), bottom_min=min(q['bottom'] for q in QC), two_gap_min=min([q['gap'] for q in QC if 'gap' in q] or [999]), fringe_max=max(q['fringe'] for q in QC), edge=EQ, flicker_max=max(q['flick'] for q in QC), flicker_mean=float(np.mean([q['flick'] for q in QC])), frames=len(QC)), open(f'{RD}/qc.json', 'w'))
+json.dump(dict(bg_fill_visible_max=max(q['fill'] for q in BQA), bg_uncovered_max=max(q['uncovered'] for q in BQA), bottom_min=min(q['bottom'] for q in QC), two_gap_min=min([q['gap'] for q in QC if 'gap' in q] or [999]), fringe_max=max(q['fringe'] for q in QC), edge=EQ, bg_colour=BGC, flicker_max=max(q['flick'] for q in QC), flicker_mean=float(np.mean([q['flick'] for q in QC])), frames=len(QC)), open(f'{RD}/qc.json', 'w'))
 print('done', OUTF, f'{TOTAL:.2f} s', len(S), 'shots')
