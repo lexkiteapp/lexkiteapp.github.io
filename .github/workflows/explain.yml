@@ -1,0 +1,36 @@
+# Lời giải đáp án (mẫu · vì sao · vì sao sai · mẹo · ví dụ) cho 15 ngôn ngữ – miễn phí (kho khóa Gemini → Workers AI qua /api/lexai), có duyệt AI.
+# Tiếp tục từ chỗ dừng; điểm ≤ 3 → content/explain/review.json (không xuất). Xem docs/EXPLAIN.md.
+name: Lời giải đáp án (sinh + duyệt AI)
+on:
+  schedule:
+    - cron: '0 20 * * *'   # 03:00 giờ VN
+  workflow_dispatch:
+    inputs:
+      set: { description: 'Bộ (usage, grammar…)', default: 'usage' }
+      calls: { description: 'Số lần gọi AI', default: '400' }
+      langs: { description: 'Ngôn ngữ (vd vi,ko) – trống = tất cả', default: '' }
+permissions:
+  contents: write
+  id-token: write   # JWT OIDC cho /api/lexai (không cần secret)
+concurrency: { group: explain-gen, cancel-in-progress: false }
+jobs:
+  explain:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Sinh + duyệt
+        run: |
+          for s in ${{ github.event.inputs.set || 'usage grammar' }}; do
+            node scripts/explain/job.mjs --set "$s" --calls "${{ github.event.inputs.calls || '400' }}" ${{ github.event.inputs.langs && format('--langs {0}', github.event.inputs.langs) || '' }} || true
+          done
+          node scripts/explain/build.mjs
+          test -n "$(git status --porcelain content/explain web/js/explain)" || { echo '✗ explain: không có thay đổi'; exit 1; }
+      - name: Lưu kết quả
+        run: |
+          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
+          git add content/explain web/js/explain
+          git commit -qm "Lời giải đáp án: sinh + duyệt AI (lô tự động)"
+          for i in 1 2 3 4 5; do git pull -q --rebase -X theirs origin main && node scripts/explain/build.mjs && git add web/js/explain && (git diff --cached --quiet || git commit -qm "Lời giải: dựng lại sau rebase") ; git push -q origin HEAD:main && exit 0; sleep $((i * 7)); done; exit 1
