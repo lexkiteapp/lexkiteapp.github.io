@@ -33,6 +33,7 @@ const ADM = rd('web/js/admin.js'), AEN = dict(ADM);
 const NOW = Date.now(), DAY = 864e5, vday = t => new Date(t + 7 * 3600e3).toISOString().slice(0, 10);
 const CONFIG_KEYS = ['banner', 'banner_url', 'banner_level', 'ai_user', 'ai_anon', 'ai_global', 'alert_errors', 'note', 'hit_rate'];
 const FX = {
+  whoami: { admin: true },
   overview: { users: { total: 120, new7: 8, act1: 14, act7: 40, act30: 70 }, sessions: { today: 30, s7: 200, v7: 90, dur7: 180, pages7: 3.2 }, inbox: { open: 2 }, errors24: { kinds: 1, hits: 3 }, humans: { d1: 25, p1: 20, d7: 90, p7: 80, d30: 300, p30: 310 }, online: 4, excluded: 12, series: Array.from({ length: 14 }, (_, i) => ({ day: vday(NOW - (13 - i) * DAY), v: i * 2 })) },
   alerts: { rows: [{ name: 'Translate', ok: true, conclusion: 'success', at: NOW }, { name: 'Android build', ok: false, conclusion: 'failure', at: NOW - 3600e3, url: 'https://github.com/x' }] },
   quality: { score: 100, standard: 100, at: NOW, url: 'https://github.com/run', checks: [{ name: 'Unit tests', ok: true }, { name: 'Live site', ok: true }], history: [{ at: NOW, ok: true, url: 'https://github.com/r1' }, { at: NOW - DAY, ok: false, url: 'https://github.com/r2' }] },
