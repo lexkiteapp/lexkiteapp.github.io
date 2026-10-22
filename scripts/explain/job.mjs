@@ -29,6 +29,7 @@ async function call(mode, lang, list) {
   for (let i = 0; i < 3; i++) {
     const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await oidc(), 'User-Agent': 'lexkite-ci' }, body: JSON.stringify({ mode, lang, items: list }) }).catch(() => null);
     if (r && r.ok) { fails = 0; const j = await r.json(); if (!shown++) console.log('mô hình:', j.model); return j.out || {}; }
+    if (r && i === 2) console.log(`${mode} ${lang}: HTTP ${r.status} ${(await r.text().catch(() => '')).slice(0, 120)}`);
     if (r && r.status === 401) token = '';
     await new Promise(s => setTimeout(s, 6000 * (i + 1)));
   }
@@ -80,6 +81,7 @@ for (const l of ONLY) {
 const review = [];
 for (const [id, d] of Object.entries(DB)) for (const [l, s] of Object.entries(d.sc || {})) if (s <= 3) review.push({ set: SET, id, lang: l, score: s });
 if (!DRY) {
+  fs.mkdirSync(new URL('../../content/explain/', import.meta.url), { recursive: true });
   const RF = new URL('../../content/explain/review.json', import.meta.url), old = fs.existsSync(RF) ? JSON.parse(fs.readFileSync(RF, 'utf8')) : [];
   fs.writeFileSync(RF, JSON.stringify([...old.filter(r => r.set !== SET), ...review], null, 1));
 }
