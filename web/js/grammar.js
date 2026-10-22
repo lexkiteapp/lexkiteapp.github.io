@@ -188,6 +188,17 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     next();
   }
 
+  // ---------- Lời giải chi tiết (js/explain-card.js + js/explain/grammar-<n>/<lang>.json, docs/EXPLAIN.md): mẫu + vì sao sai từng phương án + ví dụ + mẹo ----------
+  let xcL = null;
+  const xcScript = () => (window.ExplainCard ? Promise.resolve() : xcL || (xcL = new Promise((y, n) => { const s = document.createElement('script'); s.src = 'js/explain-card.js'; s.onload = y; s.onerror = () => { xcL = null; s.remove(); n(); }; document.head.appendChild(s); })));
+  function xcGram(x, q, ok, chosen, el) {
+    xcScript().then(() => Promise.all([ExplainCard.ready(), ExplainCard.load(ExplainCard.gsub(x.id))])).then(([, m]) => {
+      const id = ExplainCard.gid(x.id, q.q), r = ExplainCard.pick(m[id]); if (!r || !el.isConnected) return;
+      el.insertAdjacentHTML('beforeend', ExplainCard.html({ ...r, why: '' }, { ok, chosen, id, review: false })); // lời giải viết tay ở trên giữ nguyên
+      ExplainCard.bind(el, { speak: s => speak(s, state.settings.accent), report: rid => window.LexReportLoad && LexReportLoad().then(R => R && R.open({ cat: 'content', cid: 'explain:' + rid })).catch(() => {}) });
+    }).catch(() => {});
+  }
+
   // ---------- Bài tập (dùng chung cho cả 2 chế độ) ----------
   function quizHtml(x) {
     return `<div class="card" id="gQuiz"><h2>✏️ ${t('Luyện tập ({n} câu)', { n: x.quiz.length })}</h2>
@@ -207,6 +218,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       ok ? Sfx.correct() : Sfx.wrong();
       if (!ok && App.logMistake) App.logMistake({ kind: 'grammar', q: q.q, answer: q.options[q.answer], given: q.options[+btn.dataset.v], explain: q.explain, ref: x.id });
       const ex = $('[data-explain]', item); ex.hidden = false; ex.innerHTML = ok ? `✅ ${esc(q.explain)}` : `❌ ${t('Bạn chọn:')} <s>${esc(q.options[+btn.dataset.v])}</s> · ${t('Đáp án: <b>{a}</b>', { a: esc(q.options[q.answer]) })}<div>${esc(q.explain)}</div>`;
+      xcGram(x, q, ok, q.options[+btn.dataset.v], ex);
       const nextItem = item.nextElementSibling; if (nextItem && nextItem.classList.contains('q-item')) setTimeout(() => nextItem.scrollIntoView({ behavior: 'smooth', block: 'center' }), 500);
       if (answered === x.quiz.length) {
         const pct = Math.round(right / x.quiz.length * 100);

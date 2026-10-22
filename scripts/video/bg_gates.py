@@ -115,19 +115,33 @@ def measure(im, cid, crops=True):
     if crops and W > H:
         vp = BZ.vanish(cv2.cvtColor(np.array(im), cv2.COLOR_RGB2BGR)); r['hz_master'] = round(vp[0], 4) if vp and vp[1] >= 6 and 0.2 < vp[0] < 0.8 else None   # same sanity range as bg_zones
         r['hz_votes'] = vp[1] if vp else 0
-        cw = round(H * 9 / 16); x0 = round(W * CROP_X)
+        g = fit_crop(r['hz_master'], H); r['crop'] = g
+        if g is None: g = dict(hc=H, y0=0, o=0)
+        hc, y0 = g['hc'], g['y0']; cw = round(hc * 9 / 16); x0 = round(W * CROP_X)
         for side, x in (('L', x0), ('R', W - cw - x0)):
-            c = im.crop((x, 0, x + cw, H)); u = upscale(c); z, dp = zones(u, f'{cid}_{side}')
+            c = im.crop((x, y0, x + cw, y0 + hc)); u = upscale(c); z, dp = zones(u, f'{cid}_{side}')
             bic = c.resize((OUTW, OUTH), Image.BICUBIC)
             hz = r['hz_master'] if r['hz_master'] is not None else z['horizon']; z['horizon'] = hz; z['horizon_src'] = 'master vanishing point' if r['hz_master'] is not None else z['horizon_src']
-            z['y_window'] = int(min(OUTH - 1920, max(0, round(OUTH * hz - 0.40 * 1920))))   # 1080x1920 window offset (in the 1350x2400 crop) that puts the horizon at 40 %
-            z['final_horizon'] = round((OUTH * hz - z['y_window']) / 1920, 4)
-            r[side] = dict(x=x, w=cw, y_window=z['y_window'], final_horizon=z['final_horizon'], **{k: z[k] for k in ('horizon', 'horizon_src', 'floor_frac', 'valid', 'host_water', 'host_top', 'host_floor')},
+            hzc = (hz * H - y0) / hc   # horizon inside this crop
+            z['y_window'] = int(min(OUTH - 1920, max(0, round(OUTH * hzc - 0.40 * 1920))))   # 1080x1920 window offset (in the 1350x2400 crop) that puts the horizon at 40 %
+            z['final_horizon'] = round((OUTH * hzc - z['y_window']) / 1920, 4); z['crop_box'] = [x, y0, cw, hc]
+            r[side] = dict(x=x, w=cw, y=y0, h=hc, y_window=z['y_window'], final_horizon=z['final_horizon'], **{k: z[k] for k in ('horizon', 'horizon_src', 'floor_frac', 'valid', 'host_water', 'host_top', 'host_floor')},
                            lap=sharp_expo(u)['lap'], acu=sharp_expo(u)['acu'], lap_bicubic=sharp_expo(bic)['lap'], text=ocr(u), **{f'owl_{k}': v for k, v in owl(u).items()})
             out[side] = (u, z, dp)
     else:
         z, dp = zones(im, cid); r['S'] = {k: z[k] for k in ('horizon', 'horizon_src', 'floor_frac', 'valid', 'host_water', 'host_top', 'host_floor')}; r['S']['lap'] = r['m_lap']; r['S']['acu'] = r['m_acu']
     return r, e, out
+
+def fit_crop(hz, H, lo=0.36, hi=0.44, hmin=1000):
+    """largest 9:16 crop height hc (<= H, >= hmin) + top y0 + window offset o so the FINAL 1080x1920 frame has the horizon in [lo, hi]
+    (pilot 22/10: Kling puts the vanishing point at 0.55-0.69 despite the prompt -> crop the ceiling instead of rejecting). None = impossible."""
+    if hz is None: return None
+    for hc in range(H, hmin - 1, -8):
+        for y0 in range(0, H - hc + 1, 8):
+            hzc = (hz * H - y0) / hc
+            o = min(OUTH - 1920, max(0, round(OUTH * hzc - 0.40 * 1920))); f = (OUTH * hzc - o) / 1920
+            if lo <= f <= hi: return dict(hc=hc, y0=y0, o=o, f=round(f, 4))
+    return None
 
 def pct(a, q): return round(float(np.percentile(np.array(a, dtype=float), q)), 4)
 

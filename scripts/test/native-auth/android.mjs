@@ -91,7 +91,9 @@ if (native) adb('shell', 'input', 'keyevent', '4'); // BACK = hủy bảng đăn
 // kết quả = lần trả cuối khi mọi lệnh signInWithGoogle đã xong (Android có thể gọi 2 lần: Credential Manager → luồng cũ)
 const settled = async () => { const l = (await alog()).filter(x => /signInWithGoogle/.test(x.m)); const calls = l.filter(x => x.dir === 'call').length, rets = l.filter(x => x.dir === 'ret'); return calls && rets.length >= calls ? rets.at(-1) : null; };
 let ret = null; for (let k = 0; k < 40 && !ret; k++) { await sleep(500); ret = await settled(); }
-if (!ret && native) { adb('shell', 'input', 'keyevent', '4'); for (let k = 0; k < 20 && !ret; k++) { await sleep(500); ret = await settled(); } }
+// luồng cũ (MinuteMaid/thêm tài khoản) có thể mở thêm màn sau lần BACK đầu → BACK lặp tới 4 lần cho tới khi plugin trả kết quả
+for (let r = 0; r < 4 && !ret && native; r++) { adb('shell', 'input', 'keyevent', '4'); for (let k = 0; k < 16 && !ret; k++) { await sleep(500); ret = await settled(); } }
+for (let r = 0; r < 3 && !focus().startsWith(PKG + '/'); r++) { adb('shell', 'input', 'keyevent', '4'); await sleep(1500); }
 info.ret = ret; console.log('ret', JSON.stringify(ret));
 await sleep(800);
 const toast = await ev(`return [...document.querySelectorAll('.toast, [role=status], [role=alert]')].map(x => x.innerText).join(' | ').slice(0, 300)`);

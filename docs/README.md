@@ -16,6 +16,7 @@
 ## Web, nội dung & i18n
 - `I18N-PIPELINE.md` – quy trình 15 ngôn ngữ. Mọi việc thêm chữ giao diện.
 - `CONTENT-PIPELINE.md` + `CONTENT-RULES.md` – sản xuất & chuẩn nội dung học. Khi thêm đề/từ/ngữ pháp/blog caption.
+- `EXPLAIN.md` – thẻ giải thích đáp án dùng chung + sinh lời giải 15 ngôn ngữ (CI). Khi sửa phản hồi bài luyện.
 - `BRAND-RULES.md` – nguồn màu/Kit/nhãn hiệu (brand-check ĐỌC file này – giữ mã màu). Khi đụng giao diện/ảnh.
 - `REPORTS.md` – luồng báo lỗi người dùng. Khi xử lý LX-xxxx.
 - `QUOTAS.md` – hạn mức & chống lạm dụng. Khi đụng API/AI.
