@@ -14,7 +14,7 @@ Steps (owner 22/10 "lỗi viền, vỡ hình" -> studio pipeline):
   3. natural-image matting on the unknown band: ViTMatte-S (hustvl, code MIT, weights Apache-2.0) in 512 px tiles with
      Hann-weighted overlap; fallback pymatting closed-form (MIT)
   4. temporal stability: alphas of t-2..t+2 warped with OpenCV DIS flow, blended only where the warp is photo-consistent
-     (static edges stop boiling, moving hands keep their own alpha = crisp)
+     (static edges stop boiling, moving hands keep their own alpha = crisp) + 3-frame median on source-still band pixels
   5. foreground colour: pymatting estimate_foreground_ml (MIT) -> edge pixels carry hair/skin colour, not green/black
   6. Keylight-style spill (G <= max(R,B), luminance put back) on the edge band only; colour under alpha 0 = push-pull host colour
 """
@@ -161,6 +161,15 @@ for t in range(N):
             aw, w = warp_from(t, s); num += wt * w * aw; den += wt * w
     unk = TRI[t][0]; out = AL[t].copy(); out[unk] = (num / den)[unk]
     AS.append(np.clip(out, 0, 1))
+# 4b. where the SOURCE is still over t-1..t+1, the alpha must be still too: 3-frame temporal median on those unknown-band pixels
+#     (ViTMatte tile noise on static hair otherwise boils at ~0.02-0.03 mean |da|; moving pixels keep the flow blend = crisp hands)
+del AL, CO
+DY = [cv2.GaussianBlur(np.abs(GR[t + 1].astype(np.float32) - GR[t]), (0, 0), 1.0) for t in range(N - 1)]
+AM = list(AS)
+for t in range(1, N - 1):
+    st = TRI[t][0] & (DY[t - 1] < 1.5) & (DY[t] < 1.5)
+    med = np.median(np.stack([AS[t - 1], AS[t], AS[t + 1]]), axis=0); AM[t] = AS[t].copy(); AM[t][st] = med[st]
+AS = AM; del DY
 print(f'  temporal done {time.time() - t0:.0f}s', flush=True)
 
 # 5-6. foreground colour + spill + extend, write lossless intermediates

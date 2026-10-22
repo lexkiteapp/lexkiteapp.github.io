@@ -247,6 +247,7 @@ jobs:
       NEWS_DIR: ${{ github.workspace }}/newswork
       NEWS_DEPTH: ${{ github.workspace }}/depth
       NEWS_ZONES: ${{ github.workspace }}/depth
+      NEWS_MATTE: ''   # 'pro' = PRO host matte (green/k*_pro, matte_qa gate) once news.py uses MR.layer_paths/finish_host (docs/VIDEO.md §6)
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -267,8 +268,12 @@ jobs:
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
           git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
           git -C footage sparse-checkout set --no-cone '/anchor/green/kfull/' '/anchor/green/kmask/' '/anchor/bg/' '/anchor/tools/meta/g*/' '/anchor/tools/dl24/g*.json' \
-            '/anchor/tools/fonts/' '/anchor/tools/foley/' '/anchor/tools/amb_studio.wav' '/anchor/news/depth/'
+            '/anchor/tools/fonts/' '/anchor/tools/foley/' '/anchor/tools/amb_studio.wav' '/anchor/news/depth/' \
+            '/anchor/green/kfull_pro/' '/anchor/green/kmask_pro/' '/anchor/tools/dl24/ga4_talk_natural.mp4' '/anchor/tools/dl24/gc4_talk_natural.mp4' '/anchor/tools/dl24/gc4_listen.mp4'
           git -C footage checkout -q; rm -f ~/.ssh/footage; du -sh footage
+      - name: Cổng tách nền PRO (matte_qa gate)
+        if: env.NEWS_MATTE == 'pro'
+        run: python scripts/video/matte_qa.py gate footage/anchor/green ga4_talk_natural,gc4_talk_natural,gc4_listen
       - uses: actions/cache/restore@v4
         with: { path: depth, key: 'news-depth-v1-${{ github.run_id }}', restore-keys: 'news-depth-v1-', fail-on-cache-miss: true }
       - uses: actions/setup-node@v4
