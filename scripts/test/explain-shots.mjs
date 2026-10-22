@@ -17,7 +17,7 @@ for (const l of ['vi', 'en', 'ar']) {
   // câu mẫu của chủ: "Most students are engaged ___ part-time work. (with/in/for/of)" → đặt lên đầu bài luyện chuyên mục
   await page.evaluate(() => { location.hash = '#/home'; });
   await page.waitForTimeout(800);
-  await page.evaluate(() => { location.hash = '#/usage?c=p'; });
+  await page.evaluate(() => { location.hash = '#/usage?c=prep'; });
   await page.waitForSelector('.us-q', { timeout: 20000 }).catch(() => {});
   if (!(await page.$('.us-q'))) console.log(`[${l}] trang: ${(await page.evaluate(() => document.body.innerText)).replace(/\s+/g, ' ').slice(0, 200)}`);
   await page.addStyleTag({ content: STILL });
