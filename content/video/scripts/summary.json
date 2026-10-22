@@ -1,0 +1,45 @@
+{
+ "updated": "2026-10-22T14:23:54.766Z",
+ "bank": 0,
+ "review": 0,
+ "pass_rate": 0,
+ "planned": 21221,
+ "left": 21221,
+ "by_type": {},
+ "by_cefr": {},
+ "by_diff": {},
+ "by_topic": {},
+ "by_hook": {},
+ "avg_score": 0,
+ "review_reasons": {},
+ "days": [
+  {
+   "date": "2026-10-22",
+   "gen_calls": 3,
+   "judge_calls": 0,
+   "generated": 0,
+   "qc_fail": 0,
+   "dup": 0,
+   "judged": 0,
+   "passed": 0,
+   "low": 0,
+   "neurons": 0,
+   "models": {}
+  }
+ ],
+ "pending": 0,
+ "types": [
+  "stop-saying",
+  "x-vs-y",
+  "preposition",
+  "verb-pattern",
+  "adverb",
+  "structure",
+  "grammar",
+  "word-in-use",
+  "collocation",
+  "situational",
+  "pronunciation",
+  "misunderstanding"
+ ]
+}
