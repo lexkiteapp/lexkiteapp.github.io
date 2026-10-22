@@ -8,6 +8,7 @@ test -f "$PUB/index.html" || { echo "✗ thiếu $PUB/index.html – chạy scri
 cp scripts/test/ios-e2e/harness.js "$PUB/e2e-harness.js"
 # app gốc: build-mobile.sh chép app học (dist/app/index.html) thành www/index.html
 for f in "$PUB/index.html"; do
-  perl -0pi -e 's#<head>#<head><script src="/e2e-harness.js"></script>#i' "$f"
+  MODE_TAG=""; if [ -n "${E2E_MODE:-}" ]; then echo "window.__E2E_MODE='${E2E_MODE}';" > "$PUB/e2e-mode.js"; MODE_TAG="<script src=\"/e2e-mode.js\"></script>"; fi
+  perl -0pi -e "s#<head>#<head>${MODE_TAG}<script src=\"/e2e-harness.js\"></script>#i" "$f"
   grep -q 'e2e-harness.js' "$f" && echo "✓ harness → $f" || { echo "✗ không chèn được harness vào $f"; exit 1; }
 done

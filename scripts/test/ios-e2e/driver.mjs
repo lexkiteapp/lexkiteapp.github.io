@@ -50,6 +50,34 @@ function shotTo(file) {
   try { execFileSync('sips', ['-s', 'format', 'jpeg', '-s', 'formatOptions', '72', '-Z', '1400', png, '--out', file], { stdio: 'ignore' }); fs.unlinkSync(png); } catch (e) { /* giữ PNG */ }
   return r;
 }
+// Bảng đăng nhập gốc (Google: hộp "… muốn dùng google.com để đăng nhập"; Apple: bảng ASAuthorizationController) → chụp rồi bấm Hủy.
+// Đọc giao diện hệ thống bằng AXe (cameroncooke/axe, cài trong workflow native-auth-e2e.yml); thiếu AXe → chỉ chụp ảnh.
+const axeRun = (...a) => execFileSync('axe', [...a, '--udid', U], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], timeout: 60000 });
+const frameOf = n => { const f = n.frame || n.AXFrame; if (f && typeof f === 'object') return f; const m = /\{\{([\d.-]+),\s*([\d.-]+)\},\s*\{([\d.-]+),\s*([\d.-]+)\}\}/.exec(String(f || '')); return m ? { x: +m[1], y: +m[2], width: +m[3], height: +m[4] } : null; };
+const labOf = n => String(n.AXLabel || n.label || n.title || n.AXValue || '');
+function axeFlat() { const flat = []; const walk = n => { if (Array.isArray(n)) return n.forEach(walk); if (!n || typeof n !== 'object') return; flat.push(n); walk(n.children || []); }; walk(JSON.parse(axeRun('describe-ui'))); return flat; }
+async function nativeSheet(p) {
+  const out = { provider: p, axe: false, found: false, labels: [], tapped: '' };
+  try { execFileSync('axe', ['--version'], { stdio: 'ignore' }); out.axe = true; } catch (e) { /* không có AXe */ }
+  const SHEET = /google\.com|Sign In|Sign in|Apple Account|Apple ID|Continue|Use Password|Settings|iCloud|Đăng nhập/;
+  let btn = null;
+  for (let k = 0; k < 14; k++) {
+    await sleep(1500);
+    if (!out.axe) { if (k >= 3) break; continue; }
+    let flat; try { flat = axeFlat(); } catch (e) { out.err = String(e.stderr || e.message).slice(0, 200); continue; }
+    out.labels = [...new Set(flat.map(labOf).filter(Boolean))].slice(0, 40);
+    btn = flat.find(n => /^(Cancel|Close|Not Now|Hủy|Đóng)$/i.test(labOf(n).trim()) && frameOf(n));
+    if (btn || flat.some(n => SHEET.test(labOf(n)) && !/Lexkite|Tiếp tục với|Continue with/.test(labOf(n)))) { out.found = true; if (btn) { await sleep(1200); break; } }
+  }
+  const f1 = `${String(shots.length + 1).padStart(3, '0')}-native-${p}.jpg`; shotTo(path.join(OUT, 'shots', f1)); shots.push({ file: f1, name: 'native-' + p });
+  if (btn) {
+    const f = frameOf(btn);
+    try { axeRun('tap', '-x', String(Math.round(f.x + f.width / 2)), '-y', String(Math.round(f.y + f.height / 2))); out.tapped = labOf(btn); } catch (e) { out.tapErr = String(e.stderr || e.message).slice(0, 200); }
+  } else if (out.axe) { try { axeRun('tap', '--label', 'Cancel'); out.tapped = 'Cancel(label)'; } catch (e) { out.tapErr = String(e.stderr || e.message).slice(0, 200); } }
+  await sleep(2500);
+  log('nativesheet', p, JSON.stringify(out).slice(0, 600));
+  return out;
+}
 const ack = (id, v) => fs.writeFileSync(path.join(E2E, 'ack-' + id), String(v || 'ok'));
 async function handle(ev) {
   events.push(ev);
@@ -63,6 +91,7 @@ async function handle(ev) {
     log('host', ev.cmd, ev.url || ev.mode || '');
     if (ev.cmd === 'appearance') { simq('ui', U, 'appearance', ev.mode); ack(ev.id); }
     else if (ev.cmd === 'openurl') { const r = simq('openurl', U, ev.url); ack(ev.id, r.slice(0, 200) || 'ok'); }
+    else if (ev.cmd === 'nativesheet') { const r = await nativeSheet(ev.provider); ack(ev.id, JSON.stringify(r)); }
     else if (ev.cmd === 'relaunch') { await sleep(500); launch(); }
     else if (ev.cmd === 'checksafari') { // liên kết ngoài phải mở Safari → kiểm tiến trình Safari rồi đưa app về trước
       let on = false; for (let k = 0; k < 20 && !on; k++) { await sleep(2000); on = /mobilesafari/i.test(simq('spawn', U, 'launchctl', 'list')); } // Safari lần đầu khởi động rất chậm trên máy CI (> 10 s)
@@ -83,7 +112,7 @@ while (!done && Date.now() < deadline) {
   if (buf) {
     const lastNl = buf.lastIndexOf('\n'); if (lastNl < 0) continue;
     off += Buffer.byteLength(buf.slice(0, lastNl + 1));
-    for (const line of buf.slice(0, lastNl).split('\n')) { if (!line.trim()) continue; let ev; try { ev = JSON.parse(line); } catch (e) { continue; } lastEv = Date.now(); await handle(ev); }
+    for (const line of buf.slice(0, lastNl).split('\n')) { if (!line.trim()) continue; let ev; try { ev = JSON.parse(line); } catch (e) { continue; } lastEv = Date.now(); await handle(ev); lastEv = Date.now(); }
   }
   // treo / app chết / rời app (trang web tĩnh không có harness) → mở lại app, harness tự đánh dấu bước lỗi và đi tiếp
   if (Date.now() - lastEv > 45000) {
@@ -108,4 +137,4 @@ fs.writeFileSync(path.join(OUT, 'results.json'), JSON.stringify(res, null, 1));
 log(`Xong: done=${done} sự kiện=${events.length} ảnh=${shots.length} mở lại=${relaunches} crash=${crashes.length}`);
 simq('shutdown', U);
 // Workflow tự đỏ nếu kịch bản không chạy hết hoặc gần như không có dữ liệu (đừng tin "success")
-if (!done || events.filter(e => e.type === 'step').length < 20) process.exit(1);
+if (!done || events.filter(e => e.type === 'step').length < +arg('minsteps', 20)) process.exit(1);

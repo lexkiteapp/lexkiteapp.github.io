@@ -1,0 +1,139 @@
+# Kiểm đăng nhập gốc (Firebase Auth – Google/Apple) trên iOS Simulator + Android emulator. KHÔNG đăng nhập tài khoản thật:
+# bấm nút → thấy bảng/hoạt động đăng nhập gốc của hệ thống → Hủy; app vẫn dùng được; luồng xóa tài khoản mở được (dữ liệu giả);
+# log không có lỗi khởi tạo Firebase/CLIENT_ID; APK có google-services.json + OAuth client đúng SHA-1 khóa ký Play.
+# iOS: scripts/test/ios-e2e (E2E_MODE=auth) + AXe đọc/bấm giao diện hệ thống · Android: scripts/test/native-auth/android.mjs (DevTools WebView + adb).
+name: Native auth E2E
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['web/js/native-auth.js', 'web/js/sync.js', 'web/js/account-delete.js', 'mobile/ios/App/App/GoogleService-Info.plist', 'mobile/android/app/google-services.json',
+      'scripts/mobile-auth-config.mjs', 'scripts/test/native-auth/**', 'scripts/test/ios-e2e/**', '.github/workflows/native-auth-e2e.yml']
+permissions:
+  contents: read
+concurrency:
+  group: native-auth-e2e
+  cancel-in-progress: true
+env:
+  PLAY_SIGNING_SHA1: 7dfca040152c14d51b24c0edb07fbe509ab01b92
+jobs:
+  config:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cấu hình Firebase (iOS plist + Android json, SHA-1 khóa ký Play)
+        run: |
+          node scripts/mobile-auth-config.mjs --check | tee cfg.txt
+          grep -q 'iOS BẬT' cfg.txt && grep -q 'Android BẬT' cfg.txt
+          python3 - <<'PY'
+          import json, os
+          j = json.load(open('mobile/android/app/google-services.json'))
+          c = next(c for c in j['client'] if c['client_info']['android_client_info']['package_name'] == 'com.lexkite.app')
+          sha = os.environ['PLAY_SIGNING_SHA1']
+          hashes = [(o.get('android_info') or {}).get('certificate_hash', '').lower() for o in c['oauth_client'] if o.get('client_type') == 1]
+          print('Android OAuth clients (SHA-1):', hashes)
+          assert sha in hashes, 'Thiếu OAuth client cho SHA-1 khóa ký Play ' + sha
+          assert any(o.get('client_type') == 3 for o in c['oauth_client']), 'Thiếu web client (client_type 3)'
+          print('✓ OAuth client khớp SHA-1 khóa ký Play + có web client')
+          PY
+
+  ios-build:
+    runs-on: macos-15
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chọn Xcode 26
+        run: |
+          X=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          [ -n "$X" ] && sudo xcode-select -s "$X/Contents/Developer"; xcodebuild -version
+      - name: Build web → cap sync → chèn harness (chế độ auth)
+        env: { E2E_MODE: auth }
+        run: |
+          npm ci --prefix mobile --no-audit --no-fund
+          ./scripts/build-mobile.sh
+          bash scripts/test/ios-e2e/inject.sh
+      - name: xcodebuild (iphonesimulator, ký ad-hoc để có entitlement Sign in with Apple)
+        working-directory: mobile/ios/App
+        run: |
+          set -o pipefail
+          xcodebuild -project App.xcodeproj -scheme App -configuration Debug -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath build \
+            CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM= PROVISIONING_PROFILE_SPECIFIER= CODE_SIGNING_REQUIRED=NO build | tail -30
+          A=build/Build/Products/Debug-iphonesimulator/App.app
+          test -f "$A/GoogleService-Info.plist" && echo "✓ GoogleService-Info.plist trong app" || { echo "✗ app thiếu GoogleService-Info.plist"; exit 1; }
+          CID=$(/usr/libexec/PlistBuddy -c 'Print :CLIENT_ID' "$A/GoogleService-Info.plist"); RID=$(/usr/libexec/PlistBuddy -c 'Print :REVERSED_CLIENT_ID' "$A/GoogleService-Info.plist")
+          [ -n "$CID" ] && echo "✓ CLIENT_ID có" || { echo "✗ thiếu CLIENT_ID"; exit 1; }
+          plutil -p "$A/Info.plist" | grep -q "$RID" && echo "✓ URL scheme REVERSED_CLIENT_ID" || { echo "✗ Info.plist thiếu URL scheme REVERSED_CLIENT_ID"; exit 1; }
+          codesign -d --entitlements - "$A" 2>/dev/null | grep -i -A1 applesignin || echo "::warning::không đọc được entitlement applesignin trong bản giả lập"
+          cd build/Build/Products/Debug-iphonesimulator && zip -qry "$GITHUB_WORKSPACE/app-auth.zip" App.app
+      - uses: actions/upload-artifact@v4
+        with: { name: app-auth, path: app-auth.zip, retention-days: 3 }
+
+  ios-test:
+    needs: ios-build
+    runs-on: macos-15
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chọn Xcode 26 + AXe
+        run: |
+          X=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          [ -n "$X" ] && sudo xcode-select -s "$X/Contents/Developer"
+          brew install cameroncooke/axe/axe >/dev/null 2>&1 && axe --version || echo "::warning::không cài được AXe – chỉ chụp ảnh, không bấm Hủy"
+      - uses: actions/download-artifact@v4
+        with: { name: app-auth }
+      - name: Kịch bản đăng nhập (iPhone)
+        run: |
+          unzip -q app-auth.zip -d "$RUNNER_TEMP/app"
+          node scripts/test/ios-e2e/driver.mjs --app "$RUNNER_TEMP/app/App.app" --device 'iPhone 1' --tag auth --out e2e-out --minutes 15 --minsteps 8 || echo "::warning::driver kết thúc mã lỗi"
+      - name: Kết luận
+        run: node scripts/test/native-auth/verdict-ios.mjs e2e-out/auth
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: auth-ios, path: e2e-out/, retention-days: 14 }
+
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 21 }
+      - name: Build APK debug
+        run: |
+          npm ci --prefix mobile --no-audit --no-fund
+          ./scripts/build-mobile.sh
+          cd mobile/android && chmod +x gradlew && ./gradlew --no-daemon assembleDebug | tail -5
+          cp app/build/outputs/apk/debug/app-debug.apk ../../lexkite.apk
+      - name: APK có cấu hình google-services (default_web_client_id = web client)
+        run: |
+          AAPT=$(ls -d $ANDROID_HOME/build-tools/*/aapt2 | sort -V | tail -1)
+          $AAPT dump resources lexkite.apk | grep -A1 -E 'string/(default_web_client_id|google_app_id|gcm_defaultSenderId|project_id)' | tee res.txt
+          WEB=$(python3 -c "import json;j=json.load(open('mobile/android/app/google-services.json'));print([o['client_id'] for c in j['client'] for o in c['oauth_client'] if o['client_type']==3][0])")
+          grep -q "$WEB" res.txt && echo "✓ default_web_client_id khớp web client" || { echo "✗ APK thiếu default_web_client_id"; exit 1; }
+      - name: Bật KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules && sudo udevadm trigger --name-match=kvm
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: google_apis
+          profile: pixel_7
+          disable-animations: true
+          script: |
+            adb install -r lexkite.apk
+            node scripts/test/native-auth/android.mjs auth-android; echo $? > android-rc
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: auth-android, path: auth-android/, retention-days: 14 }
+      - name: Kết luận
+        run: test "$(cat android-rc)" = 0
