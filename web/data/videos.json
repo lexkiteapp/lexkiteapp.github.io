@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-22T07:06:06Z",
+ "updated": "2026-10-22T07:25:10Z",
  "items": [
   {
    "id": "news_bookstore_fix_a59145",
@@ -11,25 +11,14 @@
    "point": "look for: I'm looking for a book",
    "tags": {
     "lex": [
-     "look#v",
-     "find#v",
-     "try#v",
-     "help#v",
      "book#n",
-     "word#n",
      "exit#n"
     ],
     "words": [
-     "look",
-     "find",
-     "try",
-     "help",
      "book",
-     "word",
      "exit"
     ],
     "grammar": [
-     "reported-speech",
      "modals-ability-permission",
      "phrasal-verbs-grammar"
     ],
@@ -51,8 +40,8 @@
    "test": true,
    "rev": "279f2274",
    "created": "2026-10-22T05:28:09Z",
-   "bytes": 3143972,
-   "src": "https://media.lexkite.com/video/news_bookstore_fix_a59145/v-3952a7bb.mp4",
+   "bytes": 3115824,
+   "src": "https://media.lexkite.com/video/news_bookstore_fix_a59145/v-3622a32e.mp4",
    "poster": "https://media.lexkite.com/video/news_bookstore_fix_a59145/p-1b5bc7af.webp",
    "vtt_en": "https://media.lexkite.com/video/news_bookstore_fix_a59145/en-f4266437.vtt"
   },
@@ -65,37 +54,20 @@
    "point": "booking a doctor's appointment: polite to casual",
    "tags": {
     "lex": [
-     "like#v",
-     "make#v",
-     "see#v",
-     "want#v",
-     "anything#pron",
-     "morning#n",
      "phone#n",
      "doctor#n",
      "soft#adj",
      "appointment#n",
-     "booking#n",
-     "polite#adj",
-     "casual#adj"
+     "booking#n"
     ],
     "words": [
-     "like",
-     "make",
-     "see",
-     "want",
-     "anything",
-     "morning",
      "phone",
      "doctor",
      "soft",
      "appointment",
-     "booking",
-     "polite",
-     "casual"
+     "booking"
     ],
     "grammar": [
-     "reported-speech",
      "modals-ability-permission",
      "preference-advice"
     ],
@@ -117,8 +89,8 @@
    "test": true,
    "rev": "afe6dc10",
    "created": "2026-10-22T05:28:09Z",
-   "bytes": 3219258,
-   "src": "https://media.lexkite.com/video/news_waiting_room_ways_7b5d0d/v-07c41ef4.mp4",
+   "bytes": 3252702,
+   "src": "https://media.lexkite.com/video/news_waiting_room_ways_7b5d0d/v-a026b387.mp4",
    "poster": "https://media.lexkite.com/video/news_waiting_room_ways_7b5d0d/p-e18e19ec.webp",
    "vtt_en": "https://media.lexkite.com/video/news_waiting_room_ways_7b5d0d/en-2c4c8c5e.vtt"
   },
@@ -132,12 +104,6 @@
    "tags": {
     "lex": [
      "doctor's note#n",
-     "about#prep",
-     "take#v",
-     "need#v",
-     "ask#v",
-     "something#pron",
-     "note#n",
      "medicine#n",
      "cough#v",
      "prescription#n",
@@ -146,12 +112,6 @@
      "dose#n"
     ],
     "words": [
-     "about",
-     "take",
-     "need",
-     "ask",
-     "something",
-     "note",
      "medicine",
      "cough",
      "prescription",
@@ -172,7 +132,7 @@
     "options": [
      "Try this. It works fast.",
      "Then answer, don't pause.",
-     "Option B: I run on the morning."
+     "Sure, until noon is fine."
     ],
     "answer": 0
    },
@@ -180,8 +140,8 @@
    "test": true,
    "rev": "3f6f7210",
    "created": "2026-10-22T02:09:02Z",
-   "bytes": 2790996,
-   "src": "https://media.lexkite.com/video/news_pharmacy_three_974c28/v-aadc8c26.mp4",
+   "bytes": 2780989,
+   "src": "https://media.lexkite.com/video/news_pharmacy_three_974c28/v-f10eef93.mp4",
    "poster": "https://media.lexkite.com/video/news_pharmacy_three_974c28/p-11aae25e.webp",
    "vtt_en": "https://media.lexkite.com/video/news_pharmacy_three_974c28/en-6f3dde53.vtt"
   }
