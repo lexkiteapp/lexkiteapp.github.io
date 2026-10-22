@@ -14,8 +14,80 @@ Fix:
   extend_colour: colour outside the matte = nearest host colour (push-pull), never black -> straight-alpha resampling is safe.
   place        : premultiplied warp (area-downscale when scale < 1, Lanczos/linear otherwise) + composite + 2.5 px light wrap.
   edge_qa      : contour soft fraction (0 < a < 1) and edge-ring vs inner-ring luma (dark-rim test) + 400 % zoom crops.
+
+PRO matte (owner 22/10 "cinema-grade", scripts/video/matte_pro.py): trimap from the chroma key -> ViTMatte on the unknown band ->
+pymatting estimate_foreground_ml (decontaminated edge colour) -> Keylight-style spill on the edge band -> flow-guided temporal
+alpha smoothing. Stored LOSSLESS: green/kmask_pro/<clip>.mkv (FFV1 gray, alpha 0..255 exact) + green/kfull_pro/<clip>.mp4
+(H.264 High 4:4:4, CRF 6, no chroma subsampling). Switch with env NEWS_MATTE=pro (or MR.PRO = True):
+  colour, alpha, lossless = MR.layer_paths(G, clip)  -> pro files when they exist, else the old kfull/kmask mp4
+  MR.mask_levels(m, lossless)                         -> lossless alpha is used as-is (no h264 level remap)
+  MR.finish_host(f, a, B, ld)                         -> PRO edge treatment (1 px light wrap, no rim smear, no extra despill)
+  MR.over(..., wrap_px=MR.WRAP_PX)                    -> 1 px wrap in PRO mode
 """
+import os
 import numpy as np, cv2
+
+PRO = os.environ.get('NEWS_MATTE', '') == 'pro'
+WRAP_PX = 1.0 if PRO else 2.5
+
+
+def layer_paths(G, clip, pro=None):
+    """(colour clip, alpha clip, lossless) for a banked host clip; PRO files win when present and PRO is on"""
+    pro = PRO if pro is None else pro
+    c, m = f'{G}/kfull_pro/{clip}.mp4', f'{G}/kmask_pro/{clip}.mkv'
+    if pro and os.path.exists(c) and os.path.exists(m): return c, m, True
+    return f'{G}/kfull/{clip}.mp4', f'{G}/kmask/{clip}.mp4', False
+
+
+def coarse_matte(img, kc, inner=8.0, outer=24.0, gdom=6.0):
+    """chroma_key.matte as a function (RGB uint8, key RGB): CbCr distance ramp + 'not green-dominant = host' + hard green = bg,
+    main figure + enclosed parts only, holes filled. float32 0..1"""
+    from scipy import ndimage as ndi
+    d = chroma_dist(img, kc)
+    al = np.clip((d - inner) / (outer - inner), 0, 1).astype(np.float32)
+    x = img.astype(np.float32); gd = x[..., 1] - np.maximum(x[..., 0], x[..., 2])
+    al = np.maximum(al, (gd <= gdom).astype(np.float32))
+    al = np.where(gd > np.maximum(22.0, 0.45 * x.max(-1)), 0.0, al)
+    solid = al > 0.5; lab, n = ndi.label(solid)
+    if n:
+        sizes = ndi.sum(solid, lab, range(1, n + 1)); big = int(np.argmax(sizes)) + 1; sl = ndi.find_objects(lab)
+        ys, xs = sl[big - 1]; py, px = int(img.shape[0] * 0.04), int(img.shape[1] * 0.04)
+        Y0, Y1, X0, X1 = ys.start - py, ys.stop + py, xs.start - px, xs.stop + px
+        ok = [i + 1 for i, s in enumerate(sl) if s is not None and sizes[i] >= max(400, sizes.max() * 0.02)
+              and (i + 1 == big or (s[0].start >= Y0 and s[0].stop <= Y1 and s[1].start >= X0 and s[1].stop <= X1))]
+        keep = np.isin(lab, ok)
+        al = al * ndi.binary_dilation(keep, iterations=3)
+        al = np.maximum(al, ndi.binary_fill_holes(keep).astype(np.float32) * (al > 0.02))
+    return al.astype(np.float32)
+
+
+def hard_bg(img):
+    x = img.astype(np.float32); gd = x[..., 1] - np.maximum(x[..., 0], x[..., 2])
+    return gd > np.maximum(22.0, 0.45 * x.max(-1))
+
+
+def keylight_spill(F, al, key_rgb_order=True, band=None):
+    """Keylight-style spill suppression on the FOREGROUND colour (float, RGB or BGR: G = channel 1): where G > max(R,B),
+    G -> max(R,B) and the removed luminance (0.587 * dG) is added back to all three channels (hue stays, brightness stays).
+    Applied only on `band` (edge band, bool) when given."""
+    F = F.astype(np.float32).copy(); lim = np.maximum(F[..., 0], F[..., 2]); dg = np.clip(F[..., 1] - lim, 0, None)
+    if band is not None: dg = dg * band
+    F[..., 1] -= dg; F += (0.587 * dg)[..., None]
+    return np.clip(F, 0, 255)
+
+
+def finish_host(f, a, B, ld=1, rim=0.12, rim_px=3, wrap_px=1.0, wrap=0.3):
+    """PRO edge treatment for news.py (replaces its rim / 2.5 px band wrap / extra despill lines): f straight colour float (BGR),
+    a alpha, B background float. Subtle 3 px rim from the bg light side (was 6 px x 0.35), 1 px light wrap (was 2.5 px x 0.9).
+    Returns straight colour; composite with over(f * a, a, B, wrap_px=0)."""
+    k = max(1, int(round(rim_px)))
+    r = np.clip(a - np.roll(a, k * ld, 1), 0, 1)[..., None] * rim
+    bgl = cv2.GaussianBlur(B, (0, 0), 6)
+    f = f * (1 - r) + np.minimum(bgl * 1.15, 255) * r
+    if wrap_px:
+        band = np.clip(a - cv2.GaussianBlur(a, (0, 0), wrap_px), 0, 1)[..., None] * 2.0
+        f = f * (1 - wrap * band) + cv2.GaussianBlur(B, (0, 0), 3) * wrap * band
+    return f
 
 
 def _box(x, r):
@@ -30,10 +102,11 @@ def guided(I, p, r=4, eps=2e-3):
     return _box(a, r) * I + _box(b, r)
 
 
-def mask_levels(m):
-    """kmask videos are h264 yuv420p: white decodes to ~250, black to ~2 -> remap so the host interior is exactly opaque"""
+def mask_levels(m, lossless=False):
+    """kmask videos are h264 yuv420p: white decodes to ~250, black to ~2 -> remap so the host interior is exactly opaque.
+    lossless (PRO FFV1 alpha): used as-is, so fractional hair alpha near 0/1 is not clipped."""
     m = m.astype(np.float32) / 255 if m.dtype == np.uint8 else m.astype(np.float32)
-    return np.clip((m - 0.02) / 0.955, 0, 1)
+    return np.clip(m, 0, 1) if lossless else np.clip((m - 0.02) / 0.955, 0, 1)
 
 
 def chroma_dist(rgb, key):
@@ -116,7 +189,7 @@ def place(F, A, sc, M, size):
     return np.clip(Q[..., :3], 0, 255 * a[..., None] + 1e-3), a  # premultiplied colour, alpha
 
 
-def over(Fp, a, B, wrap_px=2.5, wrap=0.45):
+def over(Fp, a, B, wrap_px=WRAP_PX, wrap=0.45):
     """premultiplied 'over' + light wrap: background light bleeds ~wrap_px into the host edge"""
     B = B.astype(np.float32)
     if wrap_px:
