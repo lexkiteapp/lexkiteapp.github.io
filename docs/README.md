@@ -30,6 +30,7 @@
 ## Video
 - `VIDEO.md` – nguồn sự thật video (news-anchor, builder, CI, lưu trữ, bank). Khi làm video.
 - `VIDEO-SCALE-PLAN.md` – kế hoạch kho video đa dạng chống trùng + thang 100 điểm. Khi làm template/scale video.
+- `VIDEO-QC.md` – bảng cổng QC trước/sau cho nhân vật, nền, kịch bản, nội dung, giọng, phụ đề, video, web/YouTube (bắt buộc).
 - `MEDIA-QA-RUBRIC.md` – thang chấm ảnh/clip (≥ 90). Khi chấm tài sản.
 - `SHORTS-ACCESS.md` – quyền đọc kho `lexkite-shorts` cho tab 🎬. Khi đụng admin video.
 - `VIDEO-STORAGE.md` – lưu short theo công thức (repo chỉ giữ recipe), master trên Kho Drive, luật 2 bản/30 ngày/cân bằng, dựng lại, R2. Khi đụng lưu trữ/di trú short.
