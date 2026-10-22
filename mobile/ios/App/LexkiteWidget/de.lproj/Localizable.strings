@@ -1,2 +1,5 @@
 /* Sinh tự động: scripts/gen-widget-i18n.mjs */
 "widget.desc" = "Heute fällige Karten · 🔥 Tagesserie";
+"word.name" = "Wort der Stunde";
+"word.desc" = "Ein Wort auf deinem Bildschirm, wechselt in deinem Rhythmus";
+"word.tap" = "Tippen, um die Bedeutung zu sehen";

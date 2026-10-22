@@ -1,2 +1,5 @@
 /* Sinh tự động: scripts/gen-widget-i18n.mjs */
 "widget.desc" = "Tarjetas para hoy · 🔥 Racha diaria";
+"word.name" = "Palabra de la hora";
+"word.desc" = "Una palabra en tu pantalla, cambia al ritmo que elijas";
+"word.tap" = "Toca para ver el significado";

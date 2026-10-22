@@ -51,6 +51,12 @@ jobs:
           codesign -d --entitlements :- "$APP" > "$RUNNER_TEMP/ent.plist" 2>/dev/null; cat "$RUNNER_TEMP/ent.plist"
           grep -q 'com.apple.developer.applesignin' "$RUNNER_TEMP/ent.plist" || { echo "::error::Bản ký thiếu Sign in with Apple – bật capability cho App ID com.lexkite.app"; exit 1; }
           security cms -D -i "$APP/embedded.mobileprovision" 2>/dev/null | grep -A3 -E 'applesignin|application-groups' || true
+          # Widget (ôn tập + "Từ mỗi giờ") đọc dữ liệu qua App Group: thiếu → widget trống. Bước tay trên portal: docs/STORE-READINESS.md mục B.x
+          grep -q 'group.com.lexkite.app' "$RUNNER_TEMP/ent.plist" || { echo "::error::App thiếu App Group group.com.lexkite.app – xem docs/STORE-READINESS.md (Widget Từ mỗi giờ)"; exit 1; }
+          WX="$APP/PlugIns/LexkiteWidget.appex"
+          [ -d "$WX" ] || { echo "::error::Không thấy LexkiteWidget.appex trong bản archive"; exit 1; }
+          codesign -d --entitlements :- "$WX" 2>/dev/null | grep -q 'group.com.lexkite.app' || { echo "::error::Extension widget thiếu App Group group.com.lexkite.app – bật App Groups cho App ID com.lexkite.app.widget (docs/STORE-READINESS.md mục B.x)"; exit 1; }
+          echo "✓ App + widget extension đều có App Group group.com.lexkite.app" >> "$GITHUB_STEP_SUMMARY"
           [ -f "$APP/GoogleService-Info.plist" ] && echo "✓ Có GoogleService-Info.plist – đăng nhập gốc BẬT" >> "$GITHUB_STEP_SUMMARY" || echo "⚠ Chưa có GoogleService-Info.plist – đăng nhập trong app TẮT" >> "$GITHUB_STEP_SUMMARY"
       - name: Export + tải lên App Store Connect (TestFlight)
         if: inputs.upload

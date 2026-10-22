@@ -2,4 +2,7 @@
 <!-- Sinh tự động: scripts/gen-widget-i18n.mjs -->
 <resources>
     <string name="widget_desc">Bugünkü kartlar · 🔥 Gün serisi</string>
+    <string name="word_widget_label">Saatin kelimesi</string>
+    <string name="word_widget_desc">Ekranında tek kelime, seçtiğin aralıkla değişir</string>
+    <string name="word_widget_tap">Anlamını görmek için dokun</string>
 </resources>

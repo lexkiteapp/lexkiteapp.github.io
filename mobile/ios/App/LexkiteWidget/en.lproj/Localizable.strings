@@ -1,2 +1,5 @@
 /* Sinh tự động: scripts/gen-widget-i18n.mjs */
 "widget.desc" = "Cards due today · 🔥 Day streak";
+"word.name" = "Word of the hour";
+"word.desc" = "One word on your screen, changing at the pace you choose";
+"word.tap" = "Tap to see the meaning";

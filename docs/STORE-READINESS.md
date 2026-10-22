@@ -113,6 +113,14 @@ Mã, entitlement, plugin, CI đã xong (`web/js/native-auth.js`, `scripts/mobile
 ### B3. Review Notes
 Nguồn: `reviewNotes` trong `store/apple/listing.json` (script `asc-upload.mjs` tự đẩy lên; bản đọc được ở cuối `store/apple/LISTING.md`). Bỏ chữ "free", mô tả đúng thanh tab (Today, Vocabulary, Skills, Tests, Me), cách tới từng tính năng gốc và lý do khai background mode "audio".
 
+### B.x Widget "Từ mỗi giờ" (Word of the hour) – nhánh `word-widget`
+- Thêm vào **chính extension `LexkiteWidget` đã có** (WidgetBundle: widget ôn tập + `LexkiteWordWidget`), nên **dùng lại** App ID `com.lexkite.app.widget` và App Group `group.com.lexkite.app` đã tạo → **không cần bước nào trên portal**, ký tự động (`-allowProvisioningUpdates` + API key) như cũ. Không tạo bundle id mới `com.lexkite.app.LexkiteWidget` (sẽ phải tạo App ID + gán App Group tay, và đổi id extension làm hỏng bản đã có).
+- Nếu sau này đổi bundle id extension: Certificates, IDs & Profiles → Identifiers → + App IDs → `com.lexkite.app.<tên>` → bật **App Groups** → Configure → chọn `group.com.lexkite.app` → Save; rồi chạy lại `ios-testflight.yml` (upload = false để chỉ kiểm ký). Bước "Kiểm entitlements" phải thấy `application-groups`.
+- Quyền riêng tư: chỉ đọc/ghi UserDefaults của App Group (lý do `CA92.1` + `1C8F.1` đã khai trong `App/PrivacyInfo.xcprivacy` và `LexkiteWidget/PrivacyInfo.xcprivacy`); không gọi mạng, **không thông báo**, không quyền mới. Android: AlarmManager không chính xác (không `SCHEDULE_EXACT_ALARM`), không quyền mới.
+- Dữ liệu: `web/js/widget-feed.js` (gói lười `wfeed`) → plugin nội bộ `WordWidget.setWords/reload` (`App/WordWidgetPlugin.swift`, `WordWidgetPlugin.kt`); widget `LexkiteWidget/WordWidget.swift` + `WordViews.swift` + `WordFeed.swift`, Android `WordWidget.kt` + `layout/widget_word*.xml`. Chạm → `lexkite://word/<từ>` → `#/dict/<từ>`.
+
+---
+
 ## C. Chung cho cả hai
 
 | | Hạng mục | Trạng thái | Ghi chú |

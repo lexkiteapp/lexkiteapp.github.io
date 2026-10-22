@@ -5,5 +5,6 @@ import Capacitor
 class LexkiteBridgeViewController: CAPBridgeViewController {
     override open func capacitorDidLoad() {
         bridge?.registerPluginInstance(WidgetBridgePlugin())
+        bridge?.registerPluginInstance(WordWidgetPlugin()) // widget "Từ mỗi giờ"
     }
 }

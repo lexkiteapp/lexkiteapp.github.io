@@ -2,4 +2,7 @@
 <!-- Sinh tự động: scripts/gen-widget-i18n.mjs -->
 <resources>
     <string name="widget_desc">Heute fällige Karten · 🔥 Tagesserie</string>
+    <string name="word_widget_label">Wort der Stunde</string>
+    <string name="word_widget_desc">Ein Wort auf deinem Bildschirm, wechselt in deinem Rhythmus</string>
+    <string name="word_widget_tap">Tippen, um die Bedeutung zu sehen</string>
 </resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Widget "Từ mỗi giờ": co giãn 2×1 → 4×2. Đổi từ bằng AlarmManager không chính xác (không cần quyền đặc biệt) theo nhịp người học chọn;
+     updatePeriodMillis (30 phút, mức tối thiểu của Android) là lưới an toàn khi báo thức bị hệ thống bỏ (khởi động lại máy…). -->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/word_widget_desc"
+    android:initialLayout="@layout/widget_word"
+    android:previewLayout="@layout/widget_word"
+    android:minWidth="250dp"
+    android:minHeight="110dp"
+    android:minResizeWidth="110dp"
+    android:minResizeHeight="40dp"
+    android:maxResizeWidth="420dp"
+    android:maxResizeHeight="220dp"
+    android:resizeMode="horizontal|vertical"
+    android:targetCellWidth="4"
+    android:targetCellHeight="2"
+    android:updatePeriodMillis="1800000"
+    android:widgetCategory="home_screen" />

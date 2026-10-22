@@ -2,4 +2,7 @@
 <!-- Sinh tự động: scripts/gen-widget-i18n.mjs -->
 <resources>
     <string name="widget_desc">Cartões para hoje · 🔥 Sequência diária</string>
+    <string name="word_widget_label">Palavra da hora</string>
+    <string name="word_widget_desc">Uma palavra na sua tela, muda no ritmo que você escolher</string>
+    <string name="word_widget_tap">Toque para ver o significado</string>
 </resources>

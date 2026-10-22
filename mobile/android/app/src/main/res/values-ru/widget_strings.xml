@@ -2,4 +2,7 @@
 <!-- Sinh tự động: scripts/gen-widget-i18n.mjs -->
 <resources>
     <string name="widget_desc">Карточки на сегодня · 🔥 Дней подряд</string>
+    <string name="word_widget_label">Слово часа</string>
+    <string name="word_widget_desc">Одно слово на экране, меняется с выбранной частотой</string>
+    <string name="word_widget_tap">Нажмите, чтобы увидеть значение</string>
 </resources>

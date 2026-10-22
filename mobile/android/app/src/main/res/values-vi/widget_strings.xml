@@ -2,4 +2,7 @@
 <!-- Sinh tự động: scripts/gen-widget-i18n.mjs -->
 <resources>
     <string name="widget_desc">Thẻ đến hạn hôm nay · 🔥 Chuỗi ngày</string>
+    <string name="word_widget_label">Từ mỗi giờ</string>
+    <string name="word_widget_desc">Một từ trên màn hình, đổi theo nhịp bạn chọn</string>
+    <string name="word_widget_tap">Chạm để xem nghĩa</string>
 </resources>

@@ -2,4 +2,7 @@
 <!-- Sinh tự động: scripts/gen-widget-i18n.mjs -->
 <resources>
     <string name="widget_desc">आज की कार्ड · 🔥 लगातार दिन</string>
+    <string name="word_widget_label">घंटे का शब्द</string>
+    <string name="word_widget_desc">स्क्रीन पर एक शब्द, आपकी चुनी रफ़्तार से बदलता है</string>
+    <string name="word_widget_tap">अर्थ देखने के लिए टैप करें</string>
 </resources>
