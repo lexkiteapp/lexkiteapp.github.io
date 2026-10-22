@@ -22,6 +22,7 @@ h = shot('hook', 'ga4_talk_natural', 'ama', 'wide', BG, line=hk['line'], at=a_, 
 assert 1.6 <= h['dur'] <= 2.0 + 1 / FPS, ('hook length', h['dur'])
 SFX.append(('whoosh.wav', 0.0)); START['ga4_talk_natural'] = 24 + h['n']
 im, box, fs = hook_card(hk['card'], ''); ov('VHook', hk['card'] + '|', 0, h['dur'], box, 'hook', fs=fs, img=im)
+if SPEC.get('difficulty'): im, box = badge(SPEC['difficulty']); ov('Badge', SPEC['difficulty'].upper(), 0, h['dur'], box, 'hook', img=im)   # §13 difficulty badge
 CL = {'ama': ['ga4_talk_natural'], 'carlos': ['gc4_talk_natural']}; use = {'ama': 0, 'carlos': 0}   # standing, cls=neutral only; gc4_q34_talk dropped (its ~2x scale-up read soft)
 LISTEN = {'ama': 'ga4_talk_natural', 'carlos': 'gc4_listen'}; OTHER = {'ama': 'carlos', 'carlos': 'ama'}; BEATS = SPEC['beats']; nb = len(BEATS)
 RXL = json.load(open(f'{N}/ci/lines.json')).get('reactions', {}); rxi = {'ama': int(SPEC['id'][-6:], 16) % 3, 'carlos': int(SPEC['id'][-6:], 16) % 3}
@@ -49,11 +50,11 @@ for i, b in enumerate(BEATS):
     if c:
         t0 = sh['t0'] + max(0.0, sh['lines'][0]['at'])
         if prev is not None: t0 = max(t0, OV[prev]['t'][0] + need(OV[prev]['_txt']) + 0.05); OV[prev]['t'][1] = round(t0, 3)
-        im, box = card_one(c['kind'], c['text'], c.get('sub'), num=c.get('label'))
-        ov('Card', f"|{c['kind']}:{c['text']}" + (f" {c['sub']}" if c.get('sub') else ''), t0, sh['t0'] + sh['dur'], box, sh['id'], img=im, pop=True)
-        OV[-1]['_txt'] = c['text'] + ' ' + (c.get('sub') or ''); OV[-1]['_chain'] = prev is not None; prev = len(OV) - 1
+        im, box = card_one(c['kind'], c['text'], c.get('sub'), num=c.get('label'), ic=c.get('icon'), formula=c.get('formula'))
+        ov('Card', f"|{c['kind']}:{c['text']}" + (f" {c.get('formula') or c['sub']}" if (c.get('formula') or c.get('sub')) else ''), t0, sh['t0'] + sh['dur'], box, sh['id'], img=im, pop=True)
+        OV[-1]['_txt'] = c['text'] + ' ' + (c.get('formula') or c.get('sub') or ''); OV[-1]['_chain'] = prev is not None; prev = len(OV) - 1
     elif prev is not None: OV[prev]['t'][1] = round(sh['t0'] + sh['dur'], 3)
-    if b.get('repeat'):   # 'Repeat after me' -> the teacher waits >= 1.6 s (viewer repeats; the only allowed silence), phrase card stays up
+    if b.get('repeat') or b.get('guess'):   # 'Pause and guess' / 'Repeat after me' -> the teacher waits >= 1.6 s (viewer repeats; the only allowed silence), phrase card stays up
         sp_ = OV[prev]['t'][0] + need(OV[prev]['_txt']) + 0.05 - (sh['t0'] + sh['dur'])
         pz = shot(f'p{i + 1}', LISTEN[who], who, 'wide' if sh['frame'] == 'mcu' else 'mcu', BG, dur=min(2.5, max(1.6, sp_ + 0.05)))
         OV[prev]['t'][1] = round(pz['t0'] + pz['dur'], 3); QA.setdefault('repeat', []).append([pz['id'], round(pz['dur'], 3)]); continue
@@ -77,10 +78,12 @@ ew = 'carlos' if rw == 'ama' else 'ama'; el = SPEC['end_line'] if ew == 'ama' el
 e = tshot('end', CL[ew][0], ew, 'mcu' if not (S[-1]['who'] == ew and S[-1]['frame'] == 'mcu') else 'wide', el, -0.15)
 lp = shot('loop', 'ga4_talk_natural', 'ama', 'wide', BG, dur=1.0, frames=list(range(0, 24)))
 RCO['t'][1] = round(min(lp['t0'] - 1.3, max(RCO['t'][1], RCO['t'][0] + 2.55)), 3)   # Save-this chip gets >= 0.8 s before the loop
-RG0 = max(e['t0'] + 0.1, RCO['t'][1] + 0.05); _, rbox = ring_card('Save this', 0); ov('Ring', 'Save this', RG0, lp['t0'], rbox, 'end', part=0, img=lambda t, a=RG0, b=lp['t0']: ring_card('Save this', min(1, (t - a) / (b - a)))[0], pop=True)
-im, box, _ = hook_card(hk['card'], ''); ov('Follow', 'Follow for more', lp['t0'], lp['t0'] + lp['dur'], box, 'loop', img=im)
-T_ = sum(x['dur'] for x in S); SER_T, SER_S = SPEC['series']; _, sbox = series_bar(SER_T, SER_S)
-ov('Series', f'{SER_T}|{SER_S}', h['dur'], T_ - 1.0, sbox, 'b1', img=lambda t, a=h['dur'], tp=SER_T, sb=SER_S: series_bar(tp, sb, prog=1 - (1 - min(1, (t - a) / 0.35)) ** 3)[0])   # payoff promise by 2 s
+RG0 = max(e['t0'] + 0.1, RCO['t'][1] + 0.05); RGT = 'Comment your answer' if SPEC.get('v') == 7 else 'Save this'; _, rbox = ring_card(RGT, 0); ov('Ring', RGT, RG0, lp['t0'], rbox, 'end', part=0, img=lambda t, a=RG0, b=lp['t0']: ring_card(RGT, min(1, (t - a) / (b - a)))[0], pop=True)
+if SPEC.get('share'): im, box = share_chip(SPEC['share']); ov('Share', 'Send this to a friend|' + SPEC['share'], e['t0'], lp['t0'], box, 'end', img=im)   # §13 share trigger
+im, box, _ = hook_card('Free practice: Lexkite' if SPEC.get('v') == 7 else hk['card'], ''); ov('Follow', 'Free practice: Lexkite' if SPEC.get('v') == 7 else 'Follow for more', lp['t0'], lp['t0'] + lp['dur'], box, 'loop', img=im)
+T_ = sum(x['dur'] for x in S); SER_T, SER_S = SPEC['series']; SER_T = f"{SER_T} · PART {SPEC['part']}" if SPEC.get('part') else SER_T; _, sbox = series_bar(SER_T, SER_S)
+SER_END = e['t0'] if SPEC.get('share') else T_ - 1.0
+ov('Series', f'{SER_T}|{SER_S}', h['dur'], SER_END, sbox, 'b1', img=lambda t, a=h['dur'], tp=SER_T, sb=SER_S: series_bar(tp, sb, prog=1 - (1 - min(1, (t - a) / 0.35)) ** 3)[0])   # payoff promise by 2 s
 SFX.append(('slide.wav', h['dur']))
 NAMES = {'ama': ('AMA', 'American English Teacher'), 'carlos': ('CARLOS', 'English Coach')}   # teacher persona: name lower-third on each host's first speaking single after the hook
 FIRST = {}

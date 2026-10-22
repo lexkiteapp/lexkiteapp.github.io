@@ -8,7 +8,7 @@
  * Thiếu bí mật nào → 503 { error: 'not-configured', need: '<TÊN>' } để giao diện hiện hướng dẫn. */
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { allowed as gcAllowed } from './social.js';
-import { geminiCall } from './ai.js';
+import { geminiCall, runModel } from './ai.js';
 import { limit } from './sync.js';
 
 const REPO = 'lexkiteapp/lexkiteapp.github.io';
@@ -382,6 +382,17 @@ async function secretOk(env, given) {
 const CI = {
   // cine-render (news, owner 22/10 VIDEO-SCALE-PLAN §11): AI vision gate on 3 composited frames - does the presenter stand naturally in the scene?
   // Gemini vision from the key pool; fallback Workers AI llava (one image at a time). Images: base64 JPEG <= 180 KB each, max 4.
+  // cine-render (news, owner 22/10 VIDEO-SCALE-PLAN §9/§12-14): AI judge of a lesson script - clarity at A2-B1, one idea, correct wrong->right logic,
+  // short why, culturally neutral, simple English. Returns the model's JSON (scores 1-5 + issues); CI scripts/cine/script_judge.py decides.
+  async judgeScript(env, db, b) {
+    const script = String(b.script || '').slice(0, 6000); if (!script) throw new Bad(400, 'script');
+    const sys = 'You are a strict ESL teacher-editor reviewing a 25-second English lesson video script for a GLOBAL audience of A2-B1 learners. ' +
+      'Score 1-5 each: clarity (easy to follow for A2-B1, short sentences, no word harder than the thing it explains), correctness (the marked-wrong line is really wrong or unnatural in this situation AND the marked-right line is natural American English here; the why is true), ' +
+      'one_idea (exactly one teaching point), level (explanations use A2-B1 core words; idioms glossed), neutrality (no religion/politics/stereotypes; mistakes phrased "many learners", never a country). ' +
+      'Reply JSON only: {"clarity":n,"correctness":n,"one_idea":n,"level":n,"neutrality":n,"wrong_is_wrong":true|false,"right_is_right":true|false,"issues":["..."]}';
+    const r = await runModel(env, sys, script, 0);
+    return { provider: r.model || 'workers-ai', out: r.out };
+  },
   async visionCheck(env, db, b) {
     const imgs = (Array.isArray(b.images) ? b.images : []).slice(0, 4).filter(x => typeof x === 'string' && x.length < 250000 && /^[A-Za-z0-9+/=]+$/.test(x));
     if (!imgs.length) throw new Bad(400, 'images');

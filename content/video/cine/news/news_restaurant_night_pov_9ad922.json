@@ -6,7 +6,7 @@
  "cefr": "A2",
  "point": "ordering food politely: I'll have",
  "hook": {
-  "card": "READY TO ORDER?",
+  "card": "ORDER POLITELY?",
   "line": "n_9ad922_h"
  },
  "series": [
@@ -16,64 +16,93 @@
  "beats": [
   {
    "who": "ama",
-   "line": "n_9ad922_1",
-   "card": {
-    "kind": "p",
-    "text": "Ready to order?",
-    "sub": null,
-    "label": "POV"
-   }
-  },
-  {
-   "who": "carlos",
-   "line": "n_9ad922_2",
-   "card": {
-    "kind": "v",
-    "text": "I'll have the salmon, please.",
-    "sub": "I'll have + [dish]",
-    "label": null
-   }
-  },
-  {
-   "who": "ama",
-   "line": "n_9ad922_3",
-   "card": {
-    "kind": "v",
-    "text": "Could I get the pasta?",
-    "sub": "also polite",
-    "label": null
-   }
-  },
-  {
-   "who": "carlos",
-   "line": "n_9ad922_4",
+   "line": "n_9ad922_m",
    "card": {
     "kind": "x",
     "text": "I want salmon.",
     "sub": null,
-    "label": null
-   }
-  },
-  {
-   "who": "ama",
-   "line": "n_9ad922_5",
-   "card": {
-    "kind": "p",
-    "text": "I want = too direct",
-    "sub": null,
-    "label": "WHY"
-   }
+    "label": null,
+    "icon": null
+   },
+   "kind": "m"
   },
   {
    "who": "carlos",
-   "line": "n_9ad922_rp",
+   "line": "n_9ad922_g",
+   "card": {
+    "kind": "p",
+    "text": "What sounds right?",
+    "sub": null,
+    "label": "GUESS",
+    "icon": "question"
+   },
+   "kind": "g",
+   "guess": true
+  },
+  {
+   "who": "ama",
+   "line": "n_9ad922_k",
+   "card": {
+    "kind": "v",
+    "text": "I'll have the salmon, please.",
+    "sub": null,
+    "label": null,
+    "icon": "food",
+    "formula": "I'll have + DISH + please"
+   },
+   "kind": "k",
+   "key": true
+  },
+  {
+   "who": "carlos",
+   "line": "n_9ad922_y",
+   "card": {
+    "kind": "p",
+    "text": "I want sounds rude here. I'll have sounds friendly.",
+    "sub": null,
+    "label": "WHY",
+    "icon": "bulb"
+   },
+   "kind": "y"
+  },
+  {
+   "who": "ama",
+   "line": "n_9ad922_c",
+   "card": {
+    "kind": "p",
+    "text": "'I want salmon' to a server? -> No",
+    "sub": null,
+    "label": "CHECK",
+    "icon": null
+   },
+   "kind": "c"
+  },
+  {
+   "who": "carlos",
+   "line": "n_9ad922_rs",
    "card": {
     "kind": "p",
     "text": "I'll have the salmon, please.",
     "sub": null,
-    "label": "REPEAT"
+    "label": "REPEAT",
+    "icon": "repeat"
    },
-   "repeat": true
+   "kind": "rs",
+   "repeat": true,
+   "slow": true
+  },
+  {
+   "who": "ama",
+   "line": "n_9ad922_rn",
+   "card": {
+    "kind": "v",
+    "text": "I'll have the salmon, please.",
+    "sub": null,
+    "label": null,
+    "icon": "food",
+    "formula": "I'll have + DISH + please"
+   },
+   "kind": "rn"
   }
  ],
  "recap": {
@@ -81,8 +110,8 @@
   "line": "n_9ad922_r",
   "rows": [
    "I'll have the salmon, please.",
-   "Could I get the pasta?",
-   "not: I want salmon."
+   "Could I get the pasta, please?",
+   "Can I see the menu, please?"
   ],
   "line_alt": "n_9ad922_r2"
  },
@@ -90,5 +119,15 @@
  "link": "https://lexkite.com/app/#/roleplay",
  "cta": "Roleplay this free on lexkite.com",
  "est": 25.0,
- "end_alt": "n_9ad922_e2"
+ "end_alt": "n_9ad922_e2",
+ "v": 7,
+ "difficulty": "hard",
+ "hook_type": "challenge",
+ "part": 1,
+ "key_line": "I'll have the salmon, please.",
+ "wrong_line": "I want salmon.",
+ "share": "who says \"I want salmon\"",
+ "l1_tags": [
+  "many learners"
+ ]
 }

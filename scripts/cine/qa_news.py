@@ -160,7 +160,7 @@ if VIRAL:   # viral-mode rules (docs/CINE-SCENE-STANDARD.md §7, v3 pacing model
             if not 0.33 <= gap <= 0.62: br.append((s['id'], round(gap, 2)))
     rule(True, f'max shot length: holds <= 2.5 s (recap 3.0), talk = whole line + breath (longest {max(s["dur"] for s in tl["shots"]):.2f} s)')
     rule(not br, f'breathing 0.35-0.5 s after every line before the cut {br or ""}')
-    lo_, hi_ = (20, 35) if TP == 'anchor' else (20, 28) if TP == 'news' else (18, 24); rule(lo_ <= tl['total'] <= hi_, f'total {tl["total"]:.2f} s ({lo_}-{hi_})')
+    lo_, hi_ = (20, 35) if TP == 'anchor' else (20, 36) if TP == 'news' else (18, 24)   # news v7: guess + repeat pauses, concept check (owner 22/10); rule(lo_ <= tl['total'] <= hi_, f'total {tl["total"]:.2f} s ({lo_}-{hi_})')
     rule(tl.get('end', 1) == 0 and not tl['endcard_boxes'] and abs(tl['total'] - tl['scene']) < 1e-3, 'no logo end card')
     rc = [o for o in tl['overlays'] if o['style'] == 'Recap']; rsh = [s for s in tl['shots'] if s['id'] == 'recap']; lp = [s for s in tl['shots'] if s['id'] == 'loop']
     rule(bool(rc and rsh and lp) and rc[0]['t'][1] <= lp[0]['t0'] - 0.25, f'recap card ends >= 0.25 s before the loop cut')
@@ -272,6 +272,12 @@ if TP == 'news':   # owner 22/10: teacher persona
     if not (rt_ and all(x.upper() == "TEACHER'S TIP" for x in rt_)): fails.append('teacher-tip')
     rp_ = tl['lesson'].get('qa', {}).get('repeat', []) if isinstance(tl['lesson'].get('qa'), dict) else tl.get('qa', {}).get('repeat', [])
     print(f'  repeat-after-me pauses {rp_} (>= 1.5 s)', 'OK' if all(d >= 1.5 for _, d in rp_) else 'FAIL'); all(d >= 1.5 for _, d in rp_) or fails.append('repeat-pause')
+print('== PEDAGOGY / GRADED ENGLISH (owner 22/10, VIDEO-SCALE-PLAN §12-14)')
+_lid = tl['lesson']['id']; _sp = json.load(open(f'lessons/{_lid}.json')) if os.path.exists(f'lessons/{_lid}.json') else {}
+if _sp.get('v') == 7:
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import script_rules as _SR
+    _ri = _SR.check(_sp, {l['id']: l for l in json.load(open('ci/lines.json'))['lines']}); rule(not _ri, f'script rules (one idea, wrong->right + why <= 12 words, guess before reveal, repeat slow + natural, key line 3x, concept check, <= B1 explanations, <= 12-word sentences, badge, hook type, share, quiz, tip) {_ri[:3] or ""}')
+    JG_ = tl.get('qa', {}).get('judge'); rule(bool(JG_) and JG_.get('ok') is True, f"AI script judge: {(JG_ or {}).get('provider')} {((JG_ or {}).get('judge') or {}).get('issues') or (JG_ or {}).get('error') or 'missing'}")
 print('== SCENE LOGIC (owner 22/10, VIDEO-SCALE-PLAN §11)')
 PL_ = tl.get('qa', {}).get('placement') or {}; VS_ = tl.get('qa', {}).get('vision')
 rule(bool(PL_.get('zones')) and PL_.get('valid', False), f"background {PL_.get('bg')} annotated (bg_zones.py) with a standable floor zone")

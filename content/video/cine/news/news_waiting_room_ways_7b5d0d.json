@@ -11,78 +11,107 @@
  },
  "series": [
   "HEALTH ENGLISH",
-  "3 ways to ask"
+  "Booking a visit"
  ],
  "beats": [
   {
    "who": "ama",
-   "line": "n_7b5d0d_1",
+   "line": "n_7b5d0d_m",
    "card": {
-    "kind": "p",
-    "text": "I'd like an appointment.",
+    "kind": "x",
+    "text": "I want a doctor.",
     "sub": null,
-    "label": "POLITE"
-   }
-  },
-  {
-   "who": "carlos",
-   "line": "n_7b5d0d_2",
-   "card": {
-    "kind": "p",
-    "text": "Can I book a visit?",
-    "sub": null,
-    "label": "NEUTRAL"
-   }
-  },
-  {
-   "who": "ama",
-   "line": "n_7b5d0d_3",
-   "card": {
-    "kind": "p",
-    "text": "Can I see a doctor today?",
-    "sub": null,
-    "label": "CASUAL"
-   }
-  },
-  {
-   "who": "carlos",
-   "line": "n_7b5d0d_4",
-   "card": {
-    "kind": "p",
-    "text": "polite = phone, front desk",
-    "sub": null,
-    "label": "TIP"
-   }
-  },
-  {
-   "who": "ama",
-   "line": "n_7b5d0d_5",
-   "card": {
-    "kind": "p",
-    "text": "neutral, casual = also OK",
-    "sub": null,
-    "label": "TIP"
-   }
-  },
-  {
-   "who": "carlos",
-   "line": "n_7b5d0d_rp",
-   "card": {
-    "kind": "p",
-    "text": "I'd like an appointment.",
-    "sub": null,
-    "label": "REPEAT"
+    "label": null,
+    "icon": null
    },
-   "repeat": true
+   "kind": "m"
+  },
+  {
+   "who": "carlos",
+   "line": "n_7b5d0d_g",
+   "card": {
+    "kind": "p",
+    "text": "What sounds right?",
+    "sub": null,
+    "label": "GUESS",
+    "icon": "question"
+   },
+   "kind": "g",
+   "guess": true
+  },
+  {
+   "who": "ama",
+   "line": "n_7b5d0d_k",
+   "card": {
+    "kind": "v",
+    "text": "I'd like to make an appointment, please.",
+    "sub": null,
+    "label": null,
+    "icon": "phone",
+    "formula": "I'd like to + VERB"
+   },
+   "kind": "k",
+   "key": true
+  },
+  {
+   "who": "carlos",
+   "line": "n_7b5d0d_y",
+   "card": {
+    "kind": "p",
+    "text": "I'd like is soft. It sounds polite.",
+    "sub": null,
+    "label": "WHY",
+    "icon": "bulb"
+   },
+   "kind": "y"
+  },
+  {
+   "who": "ama",
+   "line": "n_7b5d0d_c",
+   "card": {
+    "kind": "p",
+    "text": "'I want' on the phone? -> No",
+    "sub": null,
+    "label": "CHECK",
+    "icon": null
+   },
+   "kind": "c"
+  },
+  {
+   "who": "carlos",
+   "line": "n_7b5d0d_rs",
+   "card": {
+    "kind": "p",
+    "text": "I'd like to make an appointment, please.",
+    "sub": null,
+    "label": "REPEAT",
+    "icon": "repeat"
+   },
+   "kind": "rs",
+   "repeat": true,
+   "slow": true
+  },
+  {
+   "who": "ama",
+   "line": "n_7b5d0d_rn",
+   "card": {
+    "kind": "v",
+    "text": "I'd like to make an appointment, please.",
+    "sub": null,
+    "label": null,
+    "icon": "phone",
+    "formula": "I'd like to + VERB"
+   },
+   "kind": "rn"
   }
  ],
  "recap": {
   "title": "TEACHER'S TIP",
   "line": "n_7b5d0d_r",
   "rows": [
-   "I'd like to make an appointment.",
-   "Can I book a visit?",
-   "Can I see a doctor today?"
+   "I'd like to make an appointment, please.",
+   "Do you have anything today?",
+   "Can I see a doctor this morning?"
   ],
   "line_alt": "n_7b5d0d_r2"
  },
@@ -90,5 +119,15 @@
  "link": "https://lexkite.com/en/speaking/",
  "cta": "Practice IELTS speaking on lexkite.com",
  "est": 24.6,
- "end_alt": "n_7b5d0d_e2"
+ "end_alt": "n_7b5d0d_e2",
+ "v": 7,
+ "difficulty": "easy",
+ "hook_type": "question",
+ "part": 1,
+ "key_line": "I'd like to make an appointment, please.",
+ "wrong_line": "I want a doctor.",
+ "share": "who says \"I want a doctor\"",
+ "l1_tags": [
+  "many learners"
+ ]
 }

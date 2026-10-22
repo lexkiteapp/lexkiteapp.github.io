@@ -483,7 +483,7 @@
   {
    "id": "n_a59145_h",
    "who": "ama",
-   "text": "One word is missing."
+   "text": "Stop saying this!"
   },
   {
    "id": "n_a59145_1",
@@ -513,12 +513,12 @@
   {
    "id": "n_a59145_r",
    "who": "carlos",
-   "text": "Teacher's tip: screenshot this and say it right."
+   "text": "Teacher's tip: save these lines."
   },
   {
    "id": "n_a59145_e",
    "who": "ama",
-   "text": "Save this and practice it free on Lexkite."
+   "text": "Quiz: you lost your phone. What do you say? Comment below."
   },
   {
    "id": "n_8c570f_h",
@@ -833,12 +833,12 @@
   {
    "id": "n_7b5d0d_r",
    "who": "carlos",
-   "text": "Teacher's tip: save all three and pick your style."
+   "text": "Teacher's tip: save these lines."
   },
   {
    "id": "n_7b5d0d_e",
    "who": "ama",
-   "text": "Save this and practice more on Lexkite."
+   "text": "Quiz: how do you ask for a visit at 10? Comment below."
   },
   {
    "id": "n_0b506e_h",
@@ -963,7 +963,7 @@
   {
    "id": "n_9ad922_h",
    "who": "ama",
-   "text": "Are you ready to order?"
+   "text": "Can you order politely?"
   },
   {
    "id": "n_9ad922_1",
@@ -993,12 +993,12 @@
   {
    "id": "n_9ad922_r",
    "who": "carlos",
-   "text": "Teacher's tip: save these answers and say them aloud."
+   "text": "Teacher's tip: save these lines."
   },
   {
    "id": "n_9ad922_e",
    "who": "ama",
-   "text": "Save this, then try the full lesson on Lexkite."
+   "text": "Quiz: how do you order a coffee? Comment below."
   },
   {
    "id": "n_b5dc88_in",
@@ -1208,12 +1208,12 @@
   {
    "id": "n_a59145_r2",
    "who": "ama",
-   "text": "Teacher's tip: screenshot this and say it right."
+   "text": "Teacher's tip: save these lines."
   },
   {
    "id": "n_a59145_e2",
    "who": "carlos",
-   "text": "Save this and practice it free on Lexkite."
+   "text": "Quiz: you lost your phone. What do you say? Comment below."
   },
   {
    "id": "n_0f9226_r2",
@@ -1368,12 +1368,12 @@
   {
    "id": "n_9ad922_r2",
    "who": "ama",
-   "text": "Teacher's tip: save these answers and say them aloud."
+   "text": "Teacher's tip: save these lines."
   },
   {
    "id": "n_9ad922_e2",
    "who": "carlos",
-   "text": "Save this, then try the full lesson on Lexkite."
+   "text": "Quiz: how do you order a coffee? Comment below."
   },
   {
    "id": "n_ee2b2c_r2",
@@ -1408,12 +1408,120 @@
   {
    "id": "n_7b5d0d_r2",
    "who": "ama",
-   "text": "Teacher's tip: save all three and pick your style."
+   "text": "Teacher's tip: save these lines."
   },
   {
    "id": "n_7b5d0d_e2",
    "who": "carlos",
-   "text": "Save this and practice more on Lexkite."
+   "text": "Quiz: how do you ask for a visit at 10? Comment below."
+  },
+  {
+   "id": "n_7b5d0d_m",
+   "who": "ama",
+   "text": "You call the doctor's office. Many learners say: I want a doctor."
+  },
+  {
+   "id": "n_7b5d0d_g",
+   "who": "carlos",
+   "text": "Pause and guess. What sounds polite?"
+  },
+  {
+   "id": "n_7b5d0d_k",
+   "who": "ama",
+   "text": "Say: I'd like to make an appointment, please."
+  },
+  {
+   "id": "n_7b5d0d_y",
+   "who": "carlos",
+   "text": "I'd like is soft. It sounds polite."
+  },
+  {
+   "id": "n_7b5d0d_c",
+   "who": "ama",
+   "text": "Is 'I want a doctor' polite on the phone? No."
+  },
+  {
+   "id": "n_7b5d0d_rs",
+   "who": "carlos",
+   "text": "Repeat after me: I'd like to make an appointment, please.",
+   "speed": 0.74
+  },
+  {
+   "id": "n_7b5d0d_rn",
+   "who": "ama",
+   "text": "Natural speed: I'd like to make an appointment, please."
+  },
+  {
+   "id": "n_a59145_m",
+   "who": "ama",
+   "text": "In a bookstore, many learners say: I'm looking a book."
+  },
+  {
+   "id": "n_a59145_g",
+   "who": "carlos",
+   "text": "Pause and guess. Which small word is missing?"
+  },
+  {
+   "id": "n_a59145_k",
+   "who": "ama",
+   "text": "Say: I'm looking for a book."
+  },
+  {
+   "id": "n_a59145_y",
+   "who": "carlos",
+   "text": "Look for means try to find. It needs for."
+  },
+  {
+   "id": "n_a59145_c",
+   "who": "ama",
+   "text": "Are you trying to find a book? Yes. So, look for."
+  },
+  {
+   "id": "n_a59145_rs",
+   "who": "carlos",
+   "text": "Repeat after me: I'm looking for a book.",
+   "speed": 0.74
+  },
+  {
+   "id": "n_a59145_rn",
+   "who": "ama",
+   "text": "Natural speed: I'm looking for a book."
+  },
+  {
+   "id": "n_9ad922_m",
+   "who": "ama",
+   "text": "The server asks: Ready to order? Many learners say: I want salmon."
+  },
+  {
+   "id": "n_9ad922_g",
+   "who": "carlos",
+   "text": "Pause and guess. What sounds more polite?"
+  },
+  {
+   "id": "n_9ad922_k",
+   "who": "ama",
+   "text": "Say: I'll have the salmon, please."
+  },
+  {
+   "id": "n_9ad922_y",
+   "who": "carlos",
+   "text": "I want sounds rude here. I'll have sounds friendly."
+  },
+  {
+   "id": "n_9ad922_c",
+   "who": "ama",
+   "text": "Is 'I want salmon' polite to a server? No."
+  },
+  {
+   "id": "n_9ad922_rs",
+   "who": "carlos",
+   "text": "Repeat after me: I'll have the salmon, please.",
+   "speed": 0.74
+  },
+  {
+   "id": "n_9ad922_rn",
+   "who": "ama",
+   "text": "Natural speed: I'll have the salmon, please."
   }
  ],
  "reactions": {

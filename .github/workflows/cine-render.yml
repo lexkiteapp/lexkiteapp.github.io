@@ -299,6 +299,9 @@ jobs:
           for lid in ${SHARD//,/ }; do
             echo "::group::news/$lid"; rb="render5_${lid}_en"
             # owner 22/10 §11: preflight = placement rules (bg zones) + AI vision gate on 3 composited frames; on failure retry another background (<= 2x)
+            python scripts/cine/script_judge.py "content/video/cine/news/$lid.json" "$NEWS_DIR/ci/lines.json" "$NEWS_DIR/judge_$lid.json" && jrc=0 || jrc=$?
+            cp "$NEWS_DIR/judge_$lid.json" out/qa/ 2>/dev/null || true
+            if [ "$jrc" = 1 ]; then echo "news $lid: script fails the pedagogy rules / AI judge (not rendered)"; fail=1; echo "::endgroup::"; continue; fi
             unset NEWS_BG; tried=""; pre_ok=0
             for att in 0 1 2; do
               rm -rf "$NEWS_DIR/pre_$lid"

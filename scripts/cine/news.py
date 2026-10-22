@@ -102,17 +102,46 @@ def card_phrase(num, pattern, note, bad=None, good=None, why=None, y0=CARD_Y):
         gx = x0 + 120 + tw; mark(d, gx, y0 + 184, 24, True); d.text((gx + 34, y0 + 184), good, font=mf, fill=INK, anchor='lm')
         d.text((x0 + 30, y0 + 238), why, font=fit(d, why, FB, 34, w - 60)[0], fill=(120, 60, 50), anchor='lm')
     return shadowed(im), (x0, y0, x0 + w, y0 + h)
-def card_one(kind, text, sub=None, num=None, y0=CARD_Y):
-    im = layer(); d = ImageDraw.Draw(im); w = CW; x0 = CX0; h = 128 + (56 if sub else 0)
+def icon(d, name, cx, cy, r):   # owner 22/10 memory hook: a simple flat icon in a teal disc (no emoji font on CI)
+    d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=TEAL + (255,)); W_ = (255, 255, 255); k = r * 0.5
+    if name == 'phone': d.rounded_rectangle([cx - k * 0.55, cy - k, cx + k * 0.55, cy + k], 6, outline=W_, width=5); d.ellipse([cx - 3, cy + k * 0.62, cx + 3, cy + k * 0.62 + 6], fill=W_)
+    elif name == 'book': d.polygon([(cx - k, cy - k * 0.7), (cx, cy - k * 0.45), (cx, cy + k * 0.8), (cx - k, cy + k * 0.55)], outline=W_, width=4); d.polygon([(cx + k, cy - k * 0.7), (cx, cy - k * 0.45), (cx, cy + k * 0.8), (cx + k, cy + k * 0.55)], outline=W_, width=4)
+    elif name == 'food': d.ellipse([cx - k, cy - k * 0.6, cx + k, cy + k * 0.9], outline=W_, width=5); d.line([(cx - k * 1.25, cy - k), (cx - k * 1.25, cy + k)], fill=W_, width=4)
+    elif name == 'doctor': d.rectangle([cx - k * 0.28, cy - k, cx + k * 0.28, cy + k], fill=W_); d.rectangle([cx - k, cy - k * 0.28, cx + k, cy + k * 0.28], fill=W_)
+    elif name == 'question': d.text((cx, cy + 2), '?', font=font(FH, int(r * 1.3)), fill=W_, anchor='mm')
+    elif name == 'bulb': d.ellipse([cx - k * 0.75, cy - k, cx + k * 0.75, cy + k * 0.4], outline=W_, width=5); d.rectangle([cx - k * 0.35, cy + k * 0.45, cx + k * 0.35, cy + k * 0.85], fill=W_)
+    elif name == 'repeat': d.arc([cx - k, cy - k, cx + k, cy + k], 30, 330, fill=W_, width=5); d.polygon([(cx + k * 0.95, cy - k * 0.55), (cx + k * 0.95, cy + k * 0.05), (cx + k * 0.4, cy - k * 0.25)], fill=W_)
+    else: d.text((cx, cy + 2), '!', font=font(FH, int(r * 1.3)), fill=W_, anchor='mm')
+def formula_text(d, x, y, txt, f):   # colour formula: CAPS slot words orange, '+' / '=' teal, rest ink
+    for w_ in txt.split(' '):
+        col = ORANGE if re.fullmatch(r"[A-Z][A-Z'/]+", w_) and len(w_) > 1 else TEAL if w_ in ('+', '=', '->', '/') else TEAL2
+        d.text((x, y), w_, font=f, fill=col, anchor='lm'); x += d.textlength(w_ + ' ', font=f)
+def card_one(kind, text, sub=None, num=None, y0=CARD_Y, ic=None, formula=None):
+    im = layer(); d = ImageDraw.Draw(im); w = CW; x0 = CX0; sub = formula or sub; h = 128 + (56 if sub else 0)
     d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 28, fill=(255, 255, 255, 248), outline=INK + (255,), width=4); cy = y0 + 64; tx = x0 + 34
+    if ic: icon(d, ic, x0 + w - 62, cy, 36)
+    rx = x0 + w - (112 if ic else 30)
     if kind == 'p':
         lab = num if isinstance(num, str) else f'PHRASE {num}'; lf = font(FH, 30); lw = d.textlength(lab, font=lf) + 32
         d.rounded_rectangle([x0 + 26, cy - 22, x0 + 26 + lw, cy + 22], 22, fill=ORANGE + (255,)); d.text((x0 + 42, cy), lab, font=lf, fill='white', anchor='lm'); tx = x0 + 46 + lw
     else: mark(d, x0 + 64, cy, 30, kind == 'v'); tx = x0 + 112
-    f = fit(d, text, FB, 52, x0 + w - 30 - tx)[0]; d.text((tx, cy), text, font=f, fill=(150, 150, 158) if kind == 'x' else INK, anchor='lm')
+    f = fit(d, text, FB, 52, rx - tx)[0]; d.text((tx, cy), text, font=f, fill=(150, 150, 158) if kind == 'x' else INK, anchor='lm')
     if kind == 'x': tw = d.textlength(text, font=f); d.line([(tx - 4, cy + 3), (tx + tw + 4, cy + 3)], fill=(214, 48, 49), width=7)
-    if sub: d.text((tx, cy + 64), sub, font=font(FB, 40), fill=TEAL2, anchor='lm')
+    if sub:
+        sf = fit(d, sub, FB, 40, rx - tx)[0]
+        if formula: formula_text(d, tx, cy + 64, sub, sf)
+        else: d.text((tx, cy + 64), sub, font=sf, fill=TEAL2, anchor='lm')
     return shadowed(im), (x0, y0, x0 + w, y0 + h)
+def share_chip(sub, y0=236):   # owner 22/10 §13 share trigger: "Send this to a friend" + who says the mistake
+    im = layer(); d = ImageDraw.Draw(im); t = 'Send this to a friend'; f1 = font(FH, 46); f2 = fit(d, sub, FB, 36, CW - 80, 28)[0]
+    w = max(d.textlength(t, font=f1), d.textlength(sub, font=f2)) + 70; x0 = CX - w / 2
+    d.rounded_rectangle([x0, y0, x0 + w, y0 + 120], 30, fill=TEAL + (255,)); d.text((CX, y0 + 36), t, font=f1, fill='white', anchor='mm'); d.text((CX, y0 + 88), sub, font=f2, fill=YEL, anchor='mm')
+    return shadowed(im), (int(x0), y0, int(x0 + w), y0 + 120)
+def badge(level, y0=402):   # difficulty badge (owner 22/10 §13): EASY green / MEDIUM amber / HARD CHALLENGE red
+    im = layer(); d = ImageDraw.Draw(im); t = {'easy': 'EASY', 'medium': 'MEDIUM', 'hard': 'HARD CHALLENGE'}[level]; col = {'easy': (40, 160, 90), 'medium': (230, 160, 30), 'hard': (214, 48, 49)}[level]
+    f = font(FH, 34); tw = d.textlength(t, font=f); x0 = CX - tw / 2 - 28
+    d.rounded_rectangle([x0, y0, x0 + tw + 56, y0 + 54], 27, fill=col + (255,)); d.text((CX, y0 + 27), t, font=f, fill='white', anchor='mm')
+    return shadowed(im), (int(x0), y0, int(x0 + tw + 56), y0 + 54)
 def card_recap(title, rows, y0=CARD_Y):
     im = layer(); d = ImageDraw.Draw(im); w = CW; x0 = CX0; rh = 38; h = 66 + rh * len(rows) + 8
     d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 30, fill=(255, 255, 255, 250), outline=INK + (255,), width=5)
@@ -136,6 +165,10 @@ def series_bar(top, sub, y0=240, prog=1.0):   # top-left under the safe line (pa
     for fs_ in (36, 34, 32, 30):   # fit inside the safe column (right 14 % clear)
         if x0 + full <= CX0 + CW: break
         sf = font(FB, fs_); sw = d.textlength(sub, font=sf) + 56; full = tw + sw
+    for ft_ in (40, 36, 32):
+        if x0 + full <= CX0 + CW: break
+        tf = font(FH, ft_); tw = d.textlength(top, font=tf) + 48; full = tw + sw
+    while x0 + full > CX0 + CW and len(sub) > 4: sub = sub[:-2].rstrip() + '…'; sw = d.textlength(sub, font=sf) + 56; full = tw + sw
     off = int((1 - prog) * -(full + 80))
     d.rectangle([x0 + off, y0, x0 + off + tw, y0 + 76], fill=ORANGE + (255,)); d.text((x0 + off + 24, y0 + 38), top, font=tf, fill='white', anchor='lm')
     d.rectangle([x0 + off + tw, y0, x0 + off + full, y0 + 76], fill=TEAL + (240,)); d.text((x0 + off + tw + 28, y0 + 38), sub, font=sf, fill=CREAM, anchor='lm')
@@ -336,6 +369,7 @@ if ZN:
     PLACE['ok'] = bool(ZN['valid'] and PLACE['eye_dev'] <= 115 and all(v['under'] <= 0.35 and v['near'] <= 0.12 for v in PLACE['hosts'].values()))
     print('placement', json.dumps(PLACE))
 QA['placement'] = PLACE
+_JJ = f'{N}/judge_{LID}.json'; QA['judge'] = json.load(open(_JJ)) if os.path.exists(_JJ) else None   # AI script judge + rules (script_judge.py)
 _VJ = f'{N}/pre_{LID}/vision.json'; QA['vision'] = json.load(open(_VJ)) if os.path.exists(_VJ) else None   # AI vision gate result (scripts/cine/vision_gate.py, run before the full render)
 if os.environ.get('NEWS_PREFLIGHT') and ZN and not PLACE['ok']: print('PLACEMENT FAIL', S[0]['bg']); sys.exit(3)
 for x in S:   # angle = two-shot / Ama single / Carlos single; each angle has its own background crop (side) and its own continuous push-in

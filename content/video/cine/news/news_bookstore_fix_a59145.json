@@ -6,7 +6,7 @@
  "cefr": "A2",
  "point": "look for: I'm looking for a book",
  "hook": {
-  "card": "MISSING A WORD?",
+  "card": "STOP SAYING THIS",
   "line": "n_a59145_h"
  },
  "series": [
@@ -16,64 +16,93 @@
  "beats": [
   {
    "who": "ama",
-   "line": "n_a59145_1",
+   "line": "n_a59145_m",
    "card": {
     "kind": "x",
     "text": "I'm looking a book.",
     "sub": null,
-    "label": null
-   }
-  },
-  {
-   "who": "carlos",
-   "line": "n_a59145_2",
-   "card": {
-    "kind": "v",
-    "text": "I'm looking for a book.",
-    "sub": "look for = try to find",
-    "label": null
-   }
-  },
-  {
-   "who": "ama",
-   "line": "n_a59145_3",
-   "card": {
-    "kind": "v",
-    "text": "Can I help you find it?",
-    "sub": "what staff say",
-    "label": null
-   }
-  },
-  {
-   "who": "carlos",
-   "line": "n_a59145_4",
-   "card": {
-    "kind": "p",
-    "text": "looking for a cookbook",
-    "sub": null,
-    "label": "EXAMPLE"
-   }
-  },
-  {
-   "who": "ama",
-   "line": "n_a59145_5",
-   "card": {
-    "kind": "p",
-    "text": "look at / look for",
-    "sub": null,
-    "label": "RULE"
-   }
-  },
-  {
-   "who": "carlos",
-   "line": "n_a59145_rp",
-   "card": {
-    "kind": "p",
-    "text": "I'm looking for a book.",
-    "sub": null,
-    "label": "REPEAT"
+    "label": null,
+    "icon": null
    },
-   "repeat": true
+   "kind": "m"
+  },
+  {
+   "who": "carlos",
+   "line": "n_a59145_g",
+   "card": {
+    "kind": "p",
+    "text": "Which word is missing?",
+    "sub": null,
+    "label": "GUESS",
+    "icon": "question"
+   },
+   "kind": "g",
+   "guess": true
+  },
+  {
+   "who": "ama",
+   "line": "n_a59145_k",
+   "card": {
+    "kind": "v",
+    "text": "I'm looking for a book.",
+    "sub": null,
+    "label": null,
+    "icon": "book",
+    "formula": "look FOR = try to find"
+   },
+   "kind": "k",
+   "key": true
+  },
+  {
+   "who": "carlos",
+   "line": "n_a59145_y",
+   "card": {
+    "kind": "p",
+    "text": "Look for means try to find. It needs for.",
+    "sub": null,
+    "label": "WHY",
+    "icon": "bulb"
+   },
+   "kind": "y"
+  },
+  {
+   "who": "ama",
+   "line": "n_a59145_c",
+   "card": {
+    "kind": "p",
+    "text": "Trying to find it? -> look FOR",
+    "sub": null,
+    "label": "CHECK",
+    "icon": null
+   },
+   "kind": "c"
+  },
+  {
+   "who": "carlos",
+   "line": "n_a59145_rs",
+   "card": {
+    "kind": "p",
+    "text": "I'm looking for a book.",
+    "sub": null,
+    "label": "REPEAT",
+    "icon": "repeat"
+   },
+   "kind": "rs",
+   "repeat": true,
+   "slow": true
+  },
+  {
+   "who": "ama",
+   "line": "n_a59145_rn",
+   "card": {
+    "kind": "v",
+    "text": "I'm looking for a book.",
+    "sub": null,
+    "label": null,
+    "icon": "book",
+    "formula": "look FOR = try to find"
+   },
+   "kind": "rn"
   }
  ],
  "recap": {
@@ -81,8 +110,8 @@
   "line": "n_a59145_r",
   "rows": [
    "I'm looking for a book.",
-   "I'm looking for a cookbook.",
-   "look at / look for"
+   "I'm looking for the exit.",
+   "Can you help me look for my keys?"
   ],
   "line_alt": "n_a59145_r2"
  },
@@ -90,5 +119,15 @@
  "link": "https://lexkite.com/app/#/grammar",
  "cta": "Practice grammar free on lexkite.com",
  "est": 23.1,
- "end_alt": "n_a59145_e2"
+ "end_alt": "n_a59145_e2",
+ "v": 7,
+ "difficulty": "medium",
+ "hook_type": "mistake_callout",
+ "part": 1,
+ "key_line": "I'm looking for a book.",
+ "wrong_line": "I'm looking a book.",
+ "share": "who says \"I'm looking a book\"",
+ "l1_tags": [
+  "many learners"
+ ]
 }
