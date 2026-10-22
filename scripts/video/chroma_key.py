@@ -25,6 +25,7 @@ ap.add_argument('--fps', type=int, default=24)
 ap.add_argument('--inner', type=float, default=8.0, help='khoảng cách Cb/Cr dưới mức này = chắc chắn nền (phông Kling đồng nhất, nhiễu nén ≈ 1–5)')
 ap.add_argument('--outer', type=float, default=24.0, help='trên mức này = chắc chắn nhân vật')
 ap.add_argument('--gdom', type=float, default=6.0, help='G − max(R,B) ≤ mức này → chắc chắn nhân vật (giữ teal/xanh dương/ô liu)')
+ap.add_argument('--refine', action='store_true', help='22/10: mép mịn (matte_refine: guided matte theo khoảng cách màu, co 1 px, mềm 0,3 px) + màu dưới vùng trong suốt = màu nhân vật kéo ra (KHÔNG đen) → hết viền đen/răng cưa khi co giãn')
 a = ap.parse_args()
 
 tmp = tempfile.mkdtemp()
@@ -93,8 +94,12 @@ def hard_bg(img):
     x = img.astype(np.float32); gd = x[..., 1] - np.maximum(x[..., 0], x[..., 2])
     return gd > np.maximum(22.0, 0.45 * x.max(-1))
 als = [np.where(hard_bg(f), 0.0, al) for f, al in zip(rgbs, als)]
-refined = []
-for al in als:
+refined = []; colours = []
+if a.refine:
+    import sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import matte_refine as MR
+for img, al in zip(rgbs, als):
+    if a.refine:
+        F, ar = MR.prepare_layer(img, al, kc); refined.append((ar * 255 + 0.5).astype(np.uint8)); colours.append(F.clip(0, 255).astype(np.uint8)); continue
     m = Image.fromarray((al * 255).astype(np.uint8))
     m = m.filter(ImageFilter.MinFilter(3)).filter(ImageFilter.GaussianBlur(0.8))  # co 0,5 px + mềm 0,8 px
     refined.append(np.array(m))
@@ -106,10 +111,13 @@ hh, ww = (y1 - y0 + 1), (x1 - x0 + 1)
 hh += hh % 2; ww += ww % 2
 odir = f'{tmp}/o'; os.makedirs(odir)
 for k, (img, m) in enumerate(zip(rgbs, refined)):
-    c = despill(img, m / 255.0)[y0:y0 + hh, x0:x0 + ww]
     mm = m[y0:y0 + hh, x0:x0 + ww]
     fr = np.zeros((hh * 2, ww, 3), np.uint8)
-    fr[:c.shape[0], :c.shape[1]] = c * (mm[..., None] > 0)  # nền đen dưới vùng trong suốt (không lộ xanh)
+    if a.refine:   # màu kéo dài từ nhân vật (không đen) → co giãn kiểu straight-alpha không sinh viền tối
+        c = colours[k][y0:y0 + hh, x0:x0 + ww]; fr[:c.shape[0], :c.shape[1]] = c
+    else:
+        c = despill(img, m / 255.0)[y0:y0 + hh, x0:x0 + ww]
+        fr[:c.shape[0], :c.shape[1]] = c * (mm[..., None] > 0)  # nền đen dưới vùng trong suốt (không lộ xanh)
     fr[hh:hh + mm.shape[0], :mm.shape[1]] = mm[..., None]
     Image.fromarray(fr).save(f'{odir}/s{k:04d}.png')
 subprocess.run(['ffmpeg', '-v', 'error', '-y', '-framerate', str(a.fps), '-i', f'{odir}/s%04d.png', '-c:v', 'libx264',
