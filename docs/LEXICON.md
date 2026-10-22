@@ -12,3 +12,15 @@
 
 ## CEFR
 Cấp độ do người soạn; `content/wordlists/cefr-oxford.json` chỉ có cấp công khai cho NAWL/BSL. Kiểm tra: `node scripts/lexicon/cefr-check.mjs` (tần suất NGSL + độ dài/hình vị) chỉ **gắn cờ** mục lệch ≥ 2 bậc vào `content/lexicon/cefr-flags.json`, không tự đổi.
+
+## Nghĩa 13 ngôn ngữ (P1)
+- `web/packs/<lang>.json`: `"từ"` → `[nghĩa, cờ, tin cậy]`; `"từ#loại"` cho từ có ≥ 2 từ loại. Cờ 2 = dịch theo nghĩa + từ loại (đầu vào: từ, loại, định nghĩa Anh, ví dụ). Tin cậy 1 = AI duyệt ≤ 3/5 → app hiện nhãn "Dịch máy" (chỉ khi đó).
+- CI `lexicon-i18n.yml` (04:30 VN, 120 lần gọi × 25 mục): `scripts/lexicon/i18n-job.mjs` → `/api/lexai` (xác thực JWT OIDC GitHub, không secret) → kho khóa Gemini miễn phí xoay vòng → Workers AI. Thứ tự: ko, th, hi, zh, ja, ar, rồi es pt fr de id ru tr. Tiếp tục từ chỗ dừng (mục chưa cờ 2 / chưa điểm).
+- Bảng tay `content/wordlists/*.gloss.json` luôn thắng (đã sửa ward/support/level/express/motor/instrument/lobby/shaft/refer cho ngôn ngữ ưu tiên). `word-packs.yml` (gtx) chỉ điền từ còn thiếu, không đè cờ 2.
+
+## Giọng đọc từ (P2)
+- CI `word-audio.yml` (01:00 VN, 300 từ/đêm): `scripts/gen-word-audio.mjs` Kokoro bf_emma (Anh) + af_heart (Mỹ) → `web/audio/w/<fnv(giọng|từ)>.mp3` → audio.lexkite.com/audio/w/. `web/audio/w/index.txt` = từ đã đủ 2 giọng (gen-newtab đặt `k: 2`).
+- App: `UI.speak` thử file từ (từ có trong kho, đang online), lỗi → giọng máy và nhớ trong phiên. Add-on tab mới: `k: 2` → file Anh/Mỹ, còn lại giọng máy.
+
+## Hiển thị
+- `--font` theo `:root:lang()` (Be Vietnam Pro cho Latin + Noto/hệ thống cho Thái, CJK, Ả Rập, Devanagari; 0 KB tải font). `--ipa` có Charis/Doulos/Segoe/Noto/DejaVu. ja/zh `line-break: strict`, ko `word-break: keep-all`. Add-on popup/tab mới: font theo ngôn ngữ, RTL giữ IPA/từ tiếng Anh ltr.

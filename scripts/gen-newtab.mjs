@@ -12,6 +12,7 @@ for (const f of fs.readdirSync(new URL('web/js/lib/', R))) if (/\.js$/.test(f) &
 const kv = {};
 new Function('self', 'window', rd('web/js/listen/kvoice.js'))(kv, kv);
 new Function('self', 'window', rd('web/js/listen/audio-index.js'))(kv, kv);
+const WAUD = new Set((() => { try { return rd('web/audio/w/index.txt'); } catch (e) { return ''; } })().split('\n').filter(Boolean)); // từ có file giọng Anh + Mỹ (gen-word-audio.mjs)
 const N = g.WORD_NOTES || {}, VI = /[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđơưăâêôà-ỹ]/i;
 const tagOf = tp => {
   const id = tp.id, gr = tp.group;
@@ -57,7 +58,7 @@ for (const [k, o] of Object.entries(out)) {
     for (const fld of ['m', 'e', 'u', 'f']) for (const m of String(n[fld] || '').matchAll(/Trái nghĩa:\s*([^.;()\n]+)/g)) for (const x of m[1].split(/\s*[/,]\s*/)) if (EN_WORD.test(x.trim()) && x.trim().toLowerCase() !== k) a.push(x.trim());
   }
   o.f = uniq(f, 6); o.a = uniq(a, 4).filter(x => !o.y.includes(x));
-  if (kv.LISTEN_AUDIO.has(kv.KVoice.lineKey('bf_emma', o.w))) { o.k = 1; aud++; }
+  if (WAUD.has(o.w)) { o.k = 2; aud++; } else if (kv.LISTEN_AUDIO.has(kv.KVoice.lineKey('bf_emma', o.w))) { o.k = 1; aud++; }
   if (o.f.length) fam++; if (o.a.length) ant++;
   for (const key of Object.keys(o)) if (o[key] === '' || (Array.isArray(o[key]) && !o[key].length)) delete o[key];
 }
