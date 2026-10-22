@@ -249,6 +249,15 @@ rec('tab mới: có nút nghe giọng Anh', (await nt.locator('[data-acc="uk"]')
 if (await nt.locator('.more [data-g]').count()) rec('tab mới: họ từ/cụm từ… thu gọn mặc định', await nt.locator('#ntPanel').isHidden());
 const ntH = await nt.evaluate(() => { const a = document.querySelector('#ntCard').getBoundingClientRect(), b = document.querySelector('#ntSearch').getBoundingClientRect(); return Math.round(b.bottom - a.top); });
 rec('tab mới: thẻ + ô tìm ≤ 45 % màn 1366×768', ntH > 0 && ntH <= 768 * 0.45, ntH + ' px');
+// nghe: ghi lại lời gọi play()/speak() (không phát thật) → UK, US, 🐢 đều phát; 🐢 có tốc độ < 1
+await nt.evaluate(() => { window.__au = []; HTMLMediaElement.prototype.play = function () { window.__au.push({ k: 'mp3', r: this.playbackRate, d: this.defaultPlaybackRate, pp: this.preservesPitch }); return Promise.resolve(); };
+  speechSynthesis.speak = u => window.__au.push({ k: 'tts', r: u.rate, l: u.lang }); });
+for (const [sel, nm] of [['[data-acc="uk"]', 'UK'], ['[data-acc="us"]', 'US'], ['#ntSlow', '🐢']]) {
+  const n0 = await nt.evaluate(() => window.__au.length); await nt.click(sel).catch(() => {}); await sleep(150);
+  const last = await nt.evaluate(() => window.__au[window.__au.length - 1] || null);
+  rec(`tab mới: nút ${nm} phát âm`, (await nt.evaluate(() => window.__au.length)) > n0, JSON.stringify(last));
+  if (nm === '🐢') rec('tab mới: 🐢 phát chậm (tốc độ < 1, giọng vừa nghe = US)', last && last.r < 1 && (last.k === 'tts' ? last.l === 'en-US' : true), JSON.stringify(last));
+}
 await nt.check('#ntQuiz', { force: true }).catch(() => {}); await sleep(300);
 if (await nt.locator('#ntBody').count()) {
   rec('tab mới: chế độ Tự kiểm tra che nghĩa', await nt.locator('#ntBody.quiz-hidden').count() === 1);
