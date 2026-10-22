@@ -4,7 +4,7 @@
  * POST { mode: 'translate'|'judge', lang, items: [{ k, w, pos, def, ex, tr? }] } → { out: { k: "bản dịch" | điểm 1–5 }, model }
  * Lời giải bài luyện (scripts/explain/job.mjs, docs/EXPLAIN.md): mode 'xgen' (lang en: soạn mẫu + vì sao + vì sao sai + mẹo + ví dụ),
  *   'xtr' (viết lại phần giải thích cho người nói <lang>, kể cả vi), 'xjudge' (chấm đúng/sư phạm 1–5). Mỗi lần ≤ 15 mục. */
-import { runModel } from './ai.js';
+import { runModel, gemDiag } from './ai.js';
 
 const ISS = 'https://token.actions.githubusercontent.com', AUD = 'lexkite-lexai', REPO = 'lexkiteapp/lexkiteapp.github.io';
 const NAMES = { en: 'English', vi: 'Vietnamese', es: 'Spanish', pt: 'Brazilian Portuguese', fr: 'French', de: 'German', id: 'Indonesian', th: 'Thai', zh: 'Simplified Chinese', ja: 'Japanese', ko: 'Korean', hi: 'Hindi', ar: 'Arabic', ru: 'Russian', tr: 'Turkish' };
@@ -62,7 +62,7 @@ export async function onRequestPost({ request, env }) {
     try {
       const r = await runModel(env, b.mode === 'xgen' ? XGEN : b.mode === 'xtr' ? XTR(L) : XJUDGE(L), JSON.stringify(items), b.mode === 'xjudge' ? 0.1 : 0.3, { gemini: true, wai: false }); // chỉ Gemini: Llama 8B soạn lời giải sai/sai khuôn (thử 22/10)
       return J({ out: r.out || {}, model: r.model });
-    } catch (e) { return J({ error: String((e && e.message) || e).slice(0, 80) }, 503); }
+    } catch (e) { return J({ error: String((e && e.message) || e).slice(0, 80), diag: String(gemDiag || '').replace(/…\S{4}:/g, '…').slice(0, 300) }, 503); } // chẩn đoán: mã lỗi Gemini (bỏ đuôi khóa)
   }
   const L = b.lang !== 'en' && b.lang !== 'vi' && NAMES[b.lang], items = Array.isArray(b.items) ? b.items.slice(0, 30) : [];
   if (!L || !items.length || !['translate', 'judge'].includes(b.mode)) return J({ error: 'bad-request' }, 400);
