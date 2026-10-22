@@ -12,7 +12,7 @@ News-anchor lessons (scene 'news', scripts/cine/gen_news.py; owner 21/10 = PRIMA
   2 news posts/day (11:30 + 20:00) + 1 scene lesson every other day (17:00); when news runs out, scene lessons go back to 2/day.
 Posting itself needs the owner's accounts (not automated here).
 """
-import json, os, re, ast, glob, argparse, datetime as dt
+import json, os, re, ast, glob, argparse, sys, datetime as dt
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 AUTO = f'{ROOT}/content/video/cine/auto'; OUT = f'{ROOT}/content/video/cine/publish'
 ECO = {a['id']: a for a in json.load(open(f'{ROOT}/content/video/ecosystem.json'))['areas']}
@@ -155,6 +155,9 @@ def main():
             cal.append(dict(n=len(cal) + 1, **slot, id=pk['id'], scene=pk['scene'], template=pk['template'], title=pk['title'], pack=f'content/video/cine/publish/{pk["id"]}.json'))
         day += 1
     assert all(a['scene'] != b['scene'] or a['scene'] == 'news' for a, b in zip(cal, cal[1:])), 'same scene twice in a row'
+    nb_ = [(p_['id'], packs[p_['id']].get('bg')) for p_ in cal if packs.get(p_['id'], {}).get('scene') == 'news']   # owner 22/10: no background reused within 6 consecutive news posts
+    rr_ = [(nb_[k][0], nb_[m][0], nb_[k][1]) for k in range(len(nb_)) for m in range(k + 1, min(k + 6, len(nb_))) if nb_[k][1] and nb_[k][1] == nb_[m][1]]
+    if rr_: sys.exit(f'FAIL bg reuse within 6 consecutive news posts: {rr_}')
     for lid, pk in packs.items(): json.dump(pk, open(f'{OUT}/{lid}.json', 'w'), ensure_ascii=False, indent=1)
     json.dump(dict(updated=dt.date.today().isoformat(), per_day=len(SLOTS), slots=SLOTS, tz=TZ, rule='news first: 2 news/day (11:30, 20:00) + 1 scene lesson every other day (17:00); then scenes 2/day, never the same scene twice in a row',
                    platforms=list(PLAT), posts=cal), open(f'{OUT}/calendar.json', 'w'), ensure_ascii=False, indent=1)

@@ -11,14 +11,14 @@ A = os.environ.get('CINE_LIB', f'{ROOT}/brand/library/cine') + '/anchor'; TL = f
 DEPTH = os.environ.get('NEWS_DEPTH', f'{N}/depth')
 sys.path.insert(0, HERE); import lipsync as L
 LID = sys.argv[1]; FPS = 24; W, H = 1080, 1920
-SAFE = dict(x0=60, x1=1020, y0=230, y1=1500)
+SAFE = dict(x0=60, x1=1020, y0=230, y1=1750)   # owner 22/10: no desk; text lives in the lower third over the torsos
 TEXT = {l['id']: l['text'] for l in json.load(open(f'{N}/ci/lines.json'))['lines']}
 CUES = {k: json.load(open(f'{N}/vis3/{k}.json'))['mouthCues'] for k in TEXT if os.path.exists(f'{N}/vis3/{k}.json')}   # lines of this job's lessons only
 FB = f'{ROOT}/brand/social/src/fonts/BeVietnamPro-ExtraBold.ttf'; FH = f'{ROOT}/brand/social/src/fonts/BricolageGrotesque-ExtraBold.ttf'
 TEAL, TEAL2, ORANGE, YEL, INK, CREAM = (15, 61, 62), (23, 89, 90), (229, 80, 47), (255, 201, 74), (34, 36, 44), (255, 247, 236)
 # hosts: face centre + face width in source px (1080x1920 after lipsync.finish), alpha fade line (source y) below the hands / above the seat
 HOST = {'ama': dict(eye=(615, 613)), 'carlos': dict(eye=(557, 686))}   # eye line in source px (1080x1920 after lipsync.finish)
-FRAME = {('ama', 'mcu'): (1.30, 640), ('ama', 'wide'): (1.22, 650), ('carlos', 'mcu'): (1.26, 640), ('carlos', 'wide'): (1.19, 650)}   # owner 22/10: singles = medium shot, face 18 % (mcu) / 17 % (wide) of frame height   # v4 (owner 21/10): chest-up, equal face height (Carlos face = 0.74 x Ama in source), equal eye line
+FRAME = {('ama', 'mcu'): (1.30, 640), ('ama', 'wide'): (1.22, 650), ('carlos', 'mcu'): (1.26, 840), ('carlos', 'wide'): (1.19, 885)}   # no desk: Carlos's body exits the frame bottom above his seat (source row <= 1560)   # owner 22/10: singles = medium shot, face 18 % (mcu) / 17 % (wide) of frame height   # v4 (owner 21/10): chest-up, equal face height (Carlos face = 0.74 x Ama in source), equal eye line
 def font(p, s): return ImageFont.truetype(p, s)
 def speech(k): nx = [x for x in CUES[k] if x['value'] != 'X']; return nx[0]['start'], nx[-1]['end']
 def wdur(k): return float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f'{N}/vis3/{k}.wav']))
@@ -84,7 +84,7 @@ def card_fix(bad, good, y0=250, show_good=True):
     tw = d.textlength(bad, font=f); d.line([(x0 + 136, y0 + 86), (x0 + 144 + tw, y0 + 86)], fill=(214, 48, 49), width=8)
     if show_good: mark(d, x0 + 78, y0 + 215, 40, True); d.text((x0 + 140, y0 + 215), good, font=f, fill=INK, anchor='lm')
     return shadowed(im), (x0, y0, x0 + w, y0 + h)
-CARD_Y = 1050
+CARD_Y = 1300   # below the lowest chin (two-shot 1243) + 24 px
 def card_phrase(num, pattern, note, bad=None, good=None, why=None, y0=CARD_Y):
     im = layer(); d = ImageDraw.Draw(im); w = 960; x0 = (W - w) // 2; h = 272 if bad else 158
     d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 28, fill=(255, 255, 255, 248), outline=INK + (255,), width=4)
@@ -127,7 +127,7 @@ def hook_card(txt, sub, y0=CARD_Y):
     d.rounded_rectangle([bx, y0, bx + tw + 72, y0 + fs + 52], 26, fill=ORANGE + (255,))
     d.text((W // 2, y0 + 22), txt, font=f, fill='white', anchor='ma')
     return shadowed(im), (int(bx), y0, int(bx + tw + 72), y0 + fs + 52), fs   # v4: one line only (layout zone)
-def series_bar(top, sub, y0=1410, prog=1.0):
+def series_bar(top, sub, y0=1657, prog=1.0):
     """US-broadcast lower third: orange tag block + dark-teal strip with white title, thin yellow rule; slides in from the left."""
     im = layer(); d = ImageDraw.Draw(im); x0 = 60; tf = font(FH, 44); sf = font(FB, 38)
     tw = d.textlength(top, font=tf) + 48; sw = d.textlength(sub, font=sf) + 56; full = tw + sw
@@ -149,7 +149,7 @@ def follow_chip(y0=CARD_Y + 60):
     d.rounded_rectangle([x0, y0, x0 + tw + 80, y0 + 96], 48, fill=ORANGE + (255,)); d.text((W // 2, y0 + 48), t, font=f, fill='white', anchor='mm')
     return shadowed(im), (int(x0), y0, int(x0 + tw + 80), y0 + 96)
 # karaoke caption: one line per page, current word yellow; pages split so each fits 900 px at >= 74 px
-CAP_Y = 1288
+CAP_Y = 1536
 def cap_pages(txt, fs=78):
     d = ImageDraw.Draw(layer()); f = font(FB, fs); ws = txt.split(); pages, cur = [], []
     for w_ in ws:
@@ -217,13 +217,13 @@ def host_frames(s, clip, who, lines, raw):
 HAIR = {}
 SIDE = {('ama', 'mcu'): 360, ('ama', 'wide'): 380, ('carlos', 'mcu'): 720, ('carlos', 'wide'): 700,   # rule of thirds
         ('ama', 'two'): 228, ('carlos', 'two'): 896}   # 180-degree rule: Ama screen-left, Carlos screen-right
-FRAME.update({('ama', 'two'): (1.22, 660), ('carlos', 'two'): (0.98, 700)})   # owner 22/10: two-shot = medium-wide (face ~14 % of frame height, hosts apart, more background) behind a news desk
-DESK_Y = 1500   # two-shot: desk top edge; hosts must continue >= 40 px below it (Carlos's seat stays hidden behind the desk)
-VBOT = lambda frame: DESK_Y + 40   # every shot: the news desk hides the cut; hosts continue >= 40 px below its top edge   # lowest frame row that must still show the host's body
+FRAME.update({('ama', 'two'): (1.22, 660), ('carlos', 'two'): (0.98, 1068)})   # owner 22/10: two-shot = medium-wide (face ~14 % of frame height, hosts apart, more background) behind a news desk
+DESK_Y = 1880   # two-shot: desk top edge; hosts must continue >= 40 px below it (Carlos's seat stays hidden behind the desk)
+VBOT = lambda frame: 1920   # every shot: the news desk hides the cut; hosts continue >= 40 px below its top edge   # lowest frame row that must still show the host's body
 FACEH = {'ama': 370, 'carlos': 274}; SEAT = {'ama': 1660, 'carlos': 1560}
 # standing Ama (green/README-standing.md, ga2_*): head 1.31x Carlos in source -> layer x0.765 of Carlos's scale = equal head size, eye line ~ Carlos; no seat
-HOST['ama_s'] = dict(eye=(530, 680)); FACEH['ama_s'] = 358; SEAT['ama_s'] = 1916
-for _f in ('mcu', 'wide', 'two'): FRAME[('ama_s', _f)] = (round(FRAME[('carlos', _f)][0] * 0.765, 4), FRAME[('carlos', _f)][1]); SIDE[('ama_s', _f)] = SIDE[('ama', _f)]
+HOST['ama_s'] = dict(eye=(530, 680)); FACEH['ama_s'] = 338; SEAT['ama_s'] = 1916
+for _f in ('mcu', 'wide', 'two'): FRAME[('ama_s', _f)] = (round(FRAME[('carlos', _f)][0] * 0.81, 4), FRAME[('carlos', _f)][1]); SIDE[('ama_s', _f)] = SIDE[('ama', _f)]
 GK = lambda clip, who: 'ama_s' if clip.startswith('ga2') else who   # source face height (brow-chin); lowest source row allowed in frame (above lap / seat)
 def place(sid, who, frame, top):
     sc, ey = FRAME[(who, frame)]; ex, sy = HOST[who]['eye']; low = sy + (VBOT(frame) - ey) / sc
@@ -275,7 +275,7 @@ if S[-1]['id'] == 'loop':   # loop: the two-shot settles back to the hook's firs
 ease = bg3d.ease
 def cam_at(s, u):
     m = s['cam']; e = bg3d.ease(u); return {k: m[k][0] + (m[k][1] - m[k][0]) * e for k in ('z', 'tx', 'ty', 'rot')}
-BOK = bg3d.Bokeh(); BQA = []; ZONES = [[36, 1006, 1044, 1524]]   # card + caption + lower-third band (+24 px)
+BOK = bg3d.Bokeh(); BQA = []; ZONES = [[36, 1276, 1044, 1765]]   # card + caption + lower-third band (+24 px)
 def bg_frame(s, j, t):
     u = j / max(1, s['n'] - 1); L_ = layers(s['bg']); qa = j % 6 == 0
     r = L_.render(cam_at(s, u), qa=qa); B = r[0] if qa else r
@@ -288,7 +288,7 @@ def bg_frame(s, j, t):
         B = acc / 3 * (1 - w) + B * w
     BOK.avoid = ZONES + [[b[0] - 24, b[1] - 24, b[2] + 24, b[3] + 24] for b in s.get('faceboxes', [])]
     return BOK.apply(B, t) * bg3d.VIG
-GRAIN = [np.random.default_rng(5 + i).normal(0, 2.6, (960, 540)).astype(np.float32) for i in range(6)]
+GRAIN = [np.random.default_rng(5 + i).normal(0, 5.5, (960, 540)).astype(np.float32) for i in range(6)]
 SEG = [[x['bg'], x['t0'], x['t0'] + x['dur'], 1] for x in S]
 for k_, x in enumerate(S[1:], 1):
     if S[k_ - 1]['bg'] != x['bg']: SFX.append(('whoosh.wav', round(x['t0'] - 0.12, 3)))
@@ -299,17 +299,17 @@ def _desk():   # flat 2D broadcast desk (brand teal, yellow rule, orange stripe)
     im[DESK_Y + 120:DESK_Y + 132] = np.array(ORANGE[::-1], np.float32); g = np.clip((np.arange(1920) - DESK_Y) / 420.0, 0, 1)[:, None, None]; im = im * (1 - 0.35 * g)
     return im, al
 DESK = _desk()
-BOT = np.clip((np.arange(1920) - 1640) / 280.0, 0, 1)[:, None, None] ** 1.4 * 0.78   # bottom studio gradient (hides waist fade, UI legibility)
+BOT = np.clip((np.arange(1920) - 1180) / 740.0, 0, 1)[:, None, None] ** 1.6 * 0.4   # owner 22/10: soft bottom scrim for text legibility (no solid band)
 def comp(F, Al, sc, cx, cy, ox, oy, drift):
     M = np.float32([[sc, 0, ox - cx * sc + drift], [0, sc, oy - cy * sc]])
     f = cv2.warpAffine(F, M, (1080, 1920), flags=cv2.INTER_LINEAR); a = cv2.warpAffine(Al, M, (1080, 1920), flags=cv2.INTER_LINEAR)
     return f, a
 enc = subprocess.Popen(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', '1080x1920', '-r', str(FPS), '-i', '-',
                         '-c:v', 'libx264', '-threads', '2', '-preset', 'medium', '-crf', '18', '-pix_fmt', 'yuv420p', f'{RD}/video.mp4'], stdin=subprocess.PIPE)
-OVS = sorted(OV, key=lambda o: o['t'][0]); fi = 0; COVER = None; QC = []; PA = None
-_x = np.arange(256) / 255.0; _s = np.clip(_x - 0.30 * np.sin(2 * np.pi * _x) / (2 * np.pi), 0, 1)   # gentle S-curve (+-4.8 %)
-_sh = np.clip(1 - _x * 2.2, 0, 1); _hi = np.clip(_x * 2 - 1.1, 0, 1)                    # shadow / highlight weights
-GRADE = np.stack([np.clip(_s + 0.035 * _sh - 0.02 * _hi, 0, 1), np.clip(_s + 0.015 * _sh + 0.005 * _hi, 0, 1), np.clip(_s - 0.02 * _sh + 0.03 * _hi, 0, 1)], 1)   # BGR: teal shadows, warm highlights
+KEYM = {}; EXPO = None; OVS = sorted(OV, key=lambda o: o['t'][0]); fi = 0; COVER = None; QC = []; PA = None
+_x = np.arange(256) / 255.0; _l = _x ** 0.86; _s = np.clip(_l - 0.16 * np.sin(2 * np.pi * _l) / (2 * np.pi), 0, 1)   # owner 22/10: mids lifted ~+10 %, soft S-curve
+_sh = np.clip(1 - _x * 2.2, 0, 1); _hi = np.clip(_x * 2 - 1.1, 0, 1); _fl = lambda v: 18 / 255 + np.clip(v, 0, 1) * (1 - 22 / 255)   # black floor 18/255
+GRADE = np.stack([_fl(_s + 0.02 * _sh - 0.015 * _hi), _fl(_s + 0.01 * _sh + 0.003 * _hi), _fl(_s - 0.01 * _sh + 0.02 * _hi)], 1)   # BGR: slight teal shadows / warm highlights
 GRADE = (GRADE * 255).astype(np.uint8)[:, None, :]
 for s in S:
     HS = [(s['clip'], s['who'], s['lines'], s['raw'], s['frame'])] + ([(s['other'], 'carlos' if s['who'] == 'ama' else 'ama', [], False, 'two')] if s['other'] else [])
@@ -340,19 +340,25 @@ for s in S:
         t = fi / FPS; u = j / max(1, s['n'] - 1); drift = 0.0
         if SAMP and j > 0: enc.stdin.write(out.tobytes()); fi += 1; continue
         B = bg_frame(s, j, t); FRs = []; bot = []; AL = []
+        if EXPO is None:   # one background exposure per lesson (first frame): graded bg mean luma -> 0.56, hosts keep their own exposure (key-light match below)
+            EXPO = min([(abs(cv2.LUT((B * g_).clip(0, 255).astype(np.uint8), GRADE).mean() / 255 - 0.56), g_) for g_ in np.arange(0.85, 1.81, 0.03)])[1]; print('bg exposure gain %.2f' % EXPO)
+        B = B * EXPO
         for i in order:
             fr, al, (sc, cx, cy, ox, oy), who = R_[i]; f, a = comp(fr[j], al[j], sc, cx, cy, ox, oy, drift)
             sh = cv2.GaussianBlur(a, (0, 0), 16); sh = np.roll(np.roll(sh, 16, 0), 10, 1)[..., None] * 0.38
             B = B * (1 - sh) + np.array([30, 24, 14], np.float32) * sh
             f = f.astype(np.float32)
+            if (s['id'], i) not in KEYM:   # soft key-light match: host colour temperature + brightness pulled 20 % toward the background behind it
+                m_ = a > 0.9; ring_ = (cv2.dilate((a > 0.5).astype(np.uint8), np.ones((61, 61), np.uint8)) > 0) & ~m_
+                hm_ = f[m_].mean(0) + 1; bm_ = B[ring_].mean(0) + 1; KEYM[(s['id'], i)] = np.clip((bm_ / hm_) ** 0.2, 0.92, 1.08) * np.clip((bm_.mean() / hm_.mean()) ** 0.15, 0.94, 1.10)
+            f = f * KEYM[(s['id'], i)] * 1.06   # +6 % key (owner: brighter, real-camera exposure)
             if who == 'carlos': lum = f.mean(2, keepdims=True); f = f * (1 - 0.16 * np.clip((lum - 150) / 90, 0, 1))
-            band = np.clip(a - cv2.GaussianBlur(a, (0, 0), 6), 0, 1)[..., None] * 1.6
+            band = np.clip(a - cv2.GaussianBlur(a, (0, 0), 9), 0, 1)[..., None] * 1.8   # light wrap: wider edge band
             f[..., 1] = np.where(a < 0.97, np.minimum(f[..., 1], np.maximum(f[..., 0], f[..., 2]) + 10), f[..., 1])
             eo = (a > 0.08) & (a < 0.92); FRs.append(float(((f[..., 1] > f[..., 2] + 25) & (f[..., 1] > f[..., 0] + 25))[eo].mean()) if eo.any() else 0.0)
-            bgb = cv2.GaussianBlur(B, (0, 0), 12); f = f * (1 - 0.35 * band) + bgb * 0.35 * band
+            bgb = cv2.GaussianBlur(B, (0, 0), 14); f = f * (1 - 0.5 * band) + bgb * 0.5 * band
             a3 = a[..., None]; B = f * a3 + B * (1 - a3); xs = int(np.clip(ox, 80, 1000)); VB = VBOT('two' if s['other'] else s['frame']); bot.append(float(a[VB - 8:VB, xs - 60:xs + 60].mean())); AL.append(a)
         QC.append(dict(t=round(t, 3), fringe=max(FRs), flick=0.0, bottom=min(bot)))
-        B = B * (1 - DESK[1]) + DESK[0] * DESK[1]   # news desk in front of the host(s)
         if s['other']:   # two-shot: gap between the silhouettes (above the desk)
             if j % 4 == 0 and len(AL) == 2:
                 g_ = []

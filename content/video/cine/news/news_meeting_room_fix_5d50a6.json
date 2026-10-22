@@ -1,7 +1,7 @@
 {
  "id": "news_meeting_room_fix_5d50a6",
  "template": "fix",
- "bg": "meeting_room",
+ "bg": "classroom",
  "area": "grammar-check",
  "cefr": "B1",
  "point": "discuss + object, no about",

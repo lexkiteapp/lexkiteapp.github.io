@@ -247,6 +247,25 @@ if TP == 'news':
     pl.save(V.replace('.mp4', '-luma.png')); print('  luma plot', V.replace('.mp4', '-luma.png'))
 for b in tl['endcard_boxes']:
     if not (b[0] >= SZ['x0'] and b[2] <= SZ['x1'] and b[1] >= SZ['y0'] and b[3] <= SZ['y1']): fails.append('safe:endcard'); print('  END CARD SAFE FAIL', b)
+print('== LOOK (owner 22/10: real-camera exposure, no flat band)')
+_rw = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-threads', '2', '-i', V, '-vf', 'fps=2,scale=270:480', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], capture_output=True).stdout
+_F = np.frombuffer(_rw, np.uint8).reshape(-1, 480, 270, 3).astype(np.float32) / 255; _Y = _F @ np.array([0.299, 0.587, 0.114], np.float32)
+_mean = float(_Y.mean()); _p5 = float(np.percentile(_Y, 5)); _band = float(min(_Y[k, 408:].std() for k in range(len(_Y))))
+print(f'  mean luma {_mean:.3f} (0.42-0.55), p5 {_p5:.3f} (>= 0.06), bottom-15 % luma std min {_band:.3f} (> 0.03 = no flat band)')
+if not 0.42 <= _mean <= 0.55: fails.append('luma-mean')
+if _p5 < 0.06: fails.append('luma-p5')
+if _band <= 0.03: fails.append('flat-band')
+import cv2 as _cv; _sk = []
+for x in tl['shots']:
+    if x.get('other') or not x.get('faceboxes'): continue
+    k = int((x['t0'] + x['dur'] / 2) * 2); b = [v / 4 for v in x['faceboxes'][0]]
+    if k >= len(_F): continue
+    cx, cy, w_, h_ = (b[0] + b[2]) / 2, (b[1] + b[3]) / 2 + (b[3] - b[1]) * 0.12, (b[2] - b[0]) * 0.18, (b[3] - b[1]) * 0.08
+    pt = _F[k, int(cy - h_):int(cy + h_), int(cx - w_):int(cx + w_)]
+    if pt.size: hsv = _cv.cvtColor((pt * 255).astype(np.uint8), _cv.COLOR_RGB2HSV).reshape(-1, 3); _sk.append((x['id'], int(np.median(hsv[:, 0])), int(np.median(hsv[:, 1]))))
+_bad = [z for z in _sk if not (3 <= z[1] <= 22 and z[2] >= 50)]
+print(f'  skin hue (OpenCV H 3-22, S >= 50) at the cheek/nose patch of each single: {_sk}', 'OK' if not _bad else 'FAIL')
+if _bad or not _sk: fails.append('skin')
 print('== AUDIO')
 a = subprocess.run(['ffmpeg', '-nostdin', '-threads', '2', '-i', V, '-af', 'ebur128', '-f', 'null', '-'], capture_output=True, text=True).stderr
 LU = float(re.findall(r'I:\s+(-?[\d.]+) LUFS', a)[-1]); fails += ['loudness'] if abs(LU + 16) > 1 else []
