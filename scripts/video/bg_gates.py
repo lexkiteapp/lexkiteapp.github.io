@@ -113,7 +113,7 @@ def measure(im, cid, crops=True):
     e = clip_emb(im); r['phash'] = phash(im); r['_emb'] = [round(float(x), 5) for x in e]
     W, H = im.size; out = {}
     if crops and W > H:
-        vp = BZ.vanish(cv2.cvtColor(np.array(im), cv2.COLOR_RGB2BGR)); r['hz_master'] = round(vp[0], 4) if vp and vp[1] >= 6 else None
+        vp = BZ.vanish(cv2.cvtColor(np.array(im), cv2.COLOR_RGB2BGR)); r['hz_master'] = round(vp[0], 4) if vp and vp[1] >= 6 and 0.2 < vp[0] < 0.8 else None   # same sanity range as bg_zones
         r['hz_votes'] = vp[1] if vp else 0
         cw = round(H * 9 / 16); x0 = round(W * CROP_X)
         for side, x in (('L', x0), ('R', W - cw - x0)):
