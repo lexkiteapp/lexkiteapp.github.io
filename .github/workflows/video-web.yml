@@ -59,7 +59,8 @@ jobs:
         run: |
           git add web/data/videos.json content/video/web/captions
           if git diff --cached --quiet; then echo "không có thay đổi"; exit 0; fi
-          git -c user.name="lexkite-bot" -c user.email="lexkite-bot@users.noreply.github.com" commit -qm "video-web: cập nhật bản web của short bản tin"
+          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"   # cả lúc pull --rebase
+          git commit -qm "video-web: cập nhật bản web của short bản tin"
           git checkout -q -- .   # bỏ thay đổi phụ (build-lexicon --write) để rebase được
           for k in 1 2 3 4 5; do git push -q origin HEAD:main && break; git pull -q --rebase origin main; done
           [ -n "$HOOK" ] && curl -fsS -X POST "$HOOK" >/dev/null && echo "đã gọi deploy hook" || echo "::warning::không gọi được deploy hook"
