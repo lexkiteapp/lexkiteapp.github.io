@@ -1,0 +1,148 @@
+{
+ "v": 7,
+ "id": "news_exam_hall_ninety_d9514a",
+ "template": "fix",
+ "bg": "exam_hall",
+ "area": "grammar-check",
+ "cefr": "C1",
+ "difficulty": "hard",
+ "hook_type": "challenge",
+ "part": 1,
+ "point": "Stop saying \"The number of student are increasing.\" – say \"The number of students is increasing.\"",
+ "key_line": "The number of students is increasing.",
+ "wrong_line": "The number of student are increasing.",
+ "share": "who says \"The number of student are increasing.\"",
+ "l1_tags": [
+  "many learners"
+ ],
+ "source": {
+  "scriptbank": "sb_18d9514a",
+  "pid": "u:p:number:m0"
+ },
+ "hook": {
+  "card": "90% GET THIS WRONG",
+  "line": "n_d9514a_h"
+ },
+ "series": [
+  "GRAMMAR FIX",
+  "THE number IS, A number ARE"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_d9514a_m",
+   "kind": "m",
+   "card": {
+    "kind": "x",
+    "text": "The number of student are increasing.",
+    "sub": null,
+    "label": null,
+    "icon": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_d9514a_g",
+   "kind": "g",
+   "guess": true,
+   "card": {
+    "kind": "p",
+    "text": "What sounds right?",
+    "sub": null,
+    "label": "GUESS",
+    "icon": "question"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_d9514a_k",
+   "kind": "k",
+   "card": {
+    "kind": "v",
+    "text": "The number of students is increasing.",
+    "sub": null,
+    "label": null,
+    "icon": "book",
+    "formula": "THE number IS, A number ARE"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_d9514a_y",
+   "kind": "y",
+   "card": {
+    "kind": "p",
+    "text": "The number takes is. A number takes are.",
+    "sub": null,
+    "label": "WHY",
+    "icon": "bulb"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_d9514a_c",
+   "kind": "c",
+   "card": {
+    "kind": "p",
+    "text": "'The number of student are increasing'? -> No",
+    "sub": null,
+    "label": "CHECK",
+    "icon": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_d9514a_rs",
+   "kind": "rs",
+   "repeat": true,
+   "slow": true,
+   "card": {
+    "kind": "p",
+    "text": "The number of students is increasing.",
+    "sub": null,
+    "label": "REPEAT",
+    "icon": "repeat"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_d9514a_rn",
+   "kind": "rn",
+   "card": {
+    "kind": "v",
+    "text": "The number of students is increasing.",
+    "sub": null,
+    "label": null,
+    "icon": "book",
+    "formula": "THE number IS, A number ARE"
+   }
+  }
+ ],
+ "recap": {
+  "title": "TEACHER'S TIP",
+  "rows": [
+   "The number of students is increasing.",
+   "The number of cars is growing.",
+   "A number of people are waiting."
+  ],
+  "line": "n_d9514a_r",
+  "line_alt": "n_d9514a_r2"
+ },
+ "end_line": "n_d9514a_e",
+ "end_alt": "n_d9514a_e2",
+ "link": "",
+ "cta": "",
+ "no_intro": true,
+ "style": {
+  "pattern": 9,
+  "moves": [
+   "push",
+   "handheld"
+  ],
+  "transition": "dissolve",
+  "layout": 2,
+  "palette": 4,
+  "opener": "ama",
+  "pacing": "snappy"
+ }
+}

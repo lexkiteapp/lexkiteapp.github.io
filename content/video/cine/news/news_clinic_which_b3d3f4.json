@@ -1,0 +1,149 @@
+{
+ "v": 7,
+ "id": "news_clinic_which_b3d3f4",
+ "template": "fix",
+ "bg": "clinic",
+ "area": "grammar-check",
+ "cefr": "B2",
+ "difficulty": "medium",
+ "hook_type": "quiz",
+ "part": 1,
+ "point": "cope + with: deal successfully with",
+ "key_line": "I can't cope with stress.",
+ "wrong_line": "I can't cope stress.",
+ "share": "who says \"I can't cope stress.\"",
+ "l1_tags": [
+  "many learners"
+ ],
+ "source": {
+  "scriptbank": "sb_00b3d3f4",
+  "pid": "u:p:cope:with"
+ },
+ "hook": {
+  "card": "WHICH IS CORRECT?",
+  "line": "n_b3d3f4_h"
+ },
+ "series": [
+  "HEALTH ENGLISH",
+  "cope / deal WITH"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_b3d3f4_m",
+   "kind": "m",
+   "card": {
+    "kind": "x",
+    "text": "I can't cope stress.",
+    "sub": null,
+    "label": null,
+    "icon": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_b3d3f4_g",
+   "kind": "g",
+   "guess": true,
+   "card": {
+    "kind": "p",
+    "text": "What sounds right?",
+    "sub": null,
+    "label": "GUESS",
+    "icon": "question"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_b3d3f4_k",
+   "kind": "k",
+   "card": {
+    "kind": "v",
+    "text": "I can't cope with stress.",
+    "sub": null,
+    "label": null,
+    "icon": "doctor",
+    "formula": "cope / deal WITH"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_b3d3f4_y",
+   "kind": "y",
+   "card": {
+    "kind": "p",
+    "text": "Cope needs with before the problem.",
+    "sub": null,
+    "label": "WHY",
+    "icon": "bulb"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_b3d3f4_c",
+   "kind": "c",
+   "card": {
+    "kind": "p",
+    "text": "'I can't cope stress'? -> No",
+    "sub": null,
+    "label": "CHECK",
+    "icon": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_b3d3f4_rs",
+   "kind": "rs",
+   "repeat": true,
+   "slow": true,
+   "card": {
+    "kind": "p",
+    "text": "I can't cope with stress.",
+    "sub": null,
+    "label": "REPEAT",
+    "icon": "repeat"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_b3d3f4_rn",
+   "kind": "rn",
+   "card": {
+    "kind": "v",
+    "text": "I can't cope with stress.",
+    "sub": null,
+    "label": null,
+    "icon": "doctor",
+    "formula": "cope / deal WITH"
+   }
+  }
+ ],
+ "recap": {
+  "title": "TEACHER'S TIP",
+  "rows": [
+   "I can't cope with stress.",
+   "How do you cope with pressure?",
+   "She coped well with the change."
+  ],
+  "line": "n_b3d3f4_r",
+  "line_alt": "n_b3d3f4_r2"
+ },
+ "end_line": "n_b3d3f4_e",
+ "end_alt": "n_b3d3f4_e2",
+ "link": "",
+ "cta": "",
+ "no_intro": true,
+ "style": {
+  "pattern": 5,
+  "moves": [
+   "pull",
+   "tilt",
+   "rack"
+  ],
+  "transition": "whip",
+  "layout": 4,
+  "palette": 3,
+  "opener": "ama",
+  "pacing": "brisk"
+ }
+}

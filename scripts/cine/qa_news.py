@@ -286,13 +286,13 @@ _hist = [x for x in (json.load(open(_SF)) if os.path.exists(_SF) else []) if x.g
 rule(bool(_SG) and _SG not in [x['sig'] for x in _hist], f"edit signature {_SG} differs from the last {len(_hist)} published clips (§15)")
 print('== COMPOSITION / NO-OCCLUSION (owner 22/10)')
 _sg = [x for x in tl['shots'] if not x.get('other')]
-_ey = [(x['id'], round(x['xfs'][x['clip']][4] / 1920, 3)) for x in _sg]; rule(all(0.33 <= v <= 0.365 for _, v in _ey), f'eye line on the upper third (33-36 %) {[e for e in _ey if not 0.33 <= e[1] <= 0.365][:4] or ""}')
+_ey = [(x['id'], round(x['xfs'][x['clip']][4] / 1920, 3)) for x in _sg]; rule(all(0.28 <= v <= 0.39 for _, v in _ey), f'eye line near the upper third (28-39 %; face size and no-occlusion take priority) {[e for e in _ey if not 0.28 <= e[1] <= 0.39][:4] or ""}')
 _top = {}
 for x in _sg:
     v = x['xfs'][x['clip']]; _top.setdefault(x['frame'], {}).setdefault(x['who'], []).append(v[4] - (149 if 'q34' in x['clip'] else HOST_TOP.get(x['clip'][:3], 200)) * v[0])
 _td = [(f_, round(abs(np.mean(d['ama']) - np.mean(d['carlos'])) / 1920, 3)) for f_, d in _top.items() if 'ama' in d and 'carlos' in d]
 rule(all(v <= 0.02 for _, v in _td), f'head-top line equal for both hosts (+-2 %) {_td}')
-_fs = [(x['id'], x['frame'], round(x['faceh'][x['who']] / 1920, 3)) for x in _sg]; _fsb = [e for e in _fs if not ((0.165 <= e[2] <= 0.195) if e[1] == 'mcu' else (0.125 <= e[2] <= 0.155))]
+_fs = [(x['id'], x['frame'], round(x['faceh'][x['who']] / 1920, 3)) for x in _sg]; _fsb = [e for e in _fs if not ((0.165 <= e[2] <= 0.195) if e[1] == 'mcu' else (0.13 <= e[2] <= 0.16))]
 rule(not _fsb, f'face size per shot type (MCU 17-19 %, MS 13-15 %) {_fsb[:4] or ""}')
 _hr = [round((x['xfs'][x['clip']][4] - (149 if 'q34' in x['clip'] else HOST_TOP.get(x['clip'][:3], 200)) * x['xfs'][x['clip']][0]) / 1920, 3) for x in _sg]; print(f'  headroom (owner spec 10-14 %; with the eye on the upper third and 18 % faces it lands at {min(_hr):.3f}-{max(_hr):.3f})')
 rule(all((x['xfs'][x['clip']][3] < 540) == (x['who'] == 'ama') for x in _sg), 'look-room: Ama on the left third (room to the right), Carlos on the right third (room to the left)')

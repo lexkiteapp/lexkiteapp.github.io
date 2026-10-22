@@ -1,0 +1,149 @@
+{
+ "v": 7,
+ "id": "news_classroom_stop_8cf065",
+ "template": "fix",
+ "bg": "classroom",
+ "area": "grammar-check",
+ "cefr": "A2",
+ "difficulty": "easy",
+ "hook_type": "mistake_callout",
+ "part": 1,
+ "point": "Stop saying \"I'm considering to buy a car.\" – say \"I'm considering buying a car.\"",
+ "key_line": "I'm considering buying a car.",
+ "wrong_line": "I'm considering to buy a car.",
+ "share": "who says \"I'm considering to buy a car.\"",
+ "l1_tags": [
+  "many learners"
+ ],
+ "source": {
+  "scriptbank": "sb_068cf065",
+  "pid": "u:v:consider:m0"
+ },
+ "hook": {
+  "card": "STOP SAYING THIS",
+  "line": "n_8cf065_h"
+ },
+ "series": [
+  "GRAMMAR FIX",
+  "consider + -ING"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_8cf065_m",
+   "kind": "m",
+   "card": {
+    "kind": "x",
+    "text": "I'm considering to buy a car.",
+    "sub": null,
+    "label": null,
+    "icon": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_8cf065_g",
+   "kind": "g",
+   "guess": true,
+   "card": {
+    "kind": "p",
+    "text": "What sounds right?",
+    "sub": null,
+    "label": "GUESS",
+    "icon": "question"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_8cf065_k",
+   "kind": "k",
+   "card": {
+    "kind": "v",
+    "text": "I'm considering buying a car.",
+    "sub": null,
+    "label": null,
+    "icon": "bulb",
+    "formula": "consider + -ING"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_8cf065_y",
+   "kind": "y",
+   "card": {
+    "kind": "p",
+    "text": "After consider, use the -ing form.",
+    "sub": null,
+    "label": "WHY",
+    "icon": "bulb"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_8cf065_c",
+   "kind": "c",
+   "card": {
+    "kind": "p",
+    "text": "'I'm considering to buy a car'? -> No",
+    "sub": null,
+    "label": "CHECK",
+    "icon": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_8cf065_rs",
+   "kind": "rs",
+   "repeat": true,
+   "slow": true,
+   "card": {
+    "kind": "p",
+    "text": "I'm considering buying a car.",
+    "sub": null,
+    "label": "REPEAT",
+    "icon": "repeat"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_8cf065_rn",
+   "kind": "rn",
+   "card": {
+    "kind": "v",
+    "text": "I'm considering buying a car.",
+    "sub": null,
+    "label": null,
+    "icon": "bulb",
+    "formula": "consider + -ING"
+   }
+  }
+ ],
+ "recap": {
+  "title": "TEACHER'S TIP",
+  "rows": [
+   "I'm considering buying a car.",
+   "We're considering moving to a new city.",
+   "She considered taking a taxi."
+  ],
+  "line": "n_8cf065_r",
+  "line_alt": "n_8cf065_r2"
+ },
+ "end_line": "n_8cf065_e",
+ "end_alt": "n_8cf065_e2",
+ "link": "",
+ "cta": "",
+ "no_intro": true,
+ "style": {
+  "pattern": 2,
+  "moves": [
+   "push",
+   "slide",
+   "handheld"
+  ],
+  "transition": "cut",
+  "layout": 0,
+  "palette": 0,
+  "opener": "ama",
+  "pacing": "calm"
+ }
+}

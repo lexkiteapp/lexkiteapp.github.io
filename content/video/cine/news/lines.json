@@ -1522,6 +1522,189 @@
    "id": "n_9ad922_rn",
    "who": "ama",
    "text": "Now at normal speed: I'll have the salmon, please."
+  },
+  {
+   "id": "n_8cf065_h",
+   "who": "ama",
+   "text": "Stop saying 'considering to'"
+  },
+  {
+   "id": "n_8cf065_m",
+   "who": "ama",
+   "text": "Many learners say: I'm considering to buy a car."
+  },
+  {
+   "id": "n_8cf065_g",
+   "who": "carlos",
+   "text": "Pause and guess. What sounds right?"
+  },
+  {
+   "id": "n_8cf065_k",
+   "who": "ama",
+   "text": "Say: I'm considering buying a car."
+  },
+  {
+   "id": "n_8cf065_y",
+   "who": "carlos",
+   "text": "After consider, use the -ing form."
+  },
+  {
+   "id": "n_8cf065_c",
+   "who": "ama",
+   "text": "Is 'I'm considering to buy a car' correct? No."
+  },
+  {
+   "id": "n_8cf065_rs",
+   "who": "carlos",
+   "text": "Repeat after me: I'm considering buying a car.",
+   "speed": 0.74
+  },
+  {
+   "id": "n_8cf065_rn",
+   "who": "ama",
+   "text": "Now at normal speed: I'm considering buying a car."
+  },
+  {
+   "id": "n_8cf065_r",
+   "who": "carlos",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_8cf065_r2",
+   "who": "ama",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_8cf065_e",
+   "who": "ama",
+   "text": "Quiz: I'm considering blank a new phone. Buying or to buy? Comment below."
+  },
+  {
+   "id": "n_8cf065_e2",
+   "who": "carlos",
+   "text": "Quiz: I'm considering blank a new phone. Buying or to buy? Comment below."
+  },
+  {
+   "id": "n_b3d3f4_h",
+   "who": "ama",
+   "text": "Which is correct?"
+  },
+  {
+   "id": "n_b3d3f4_m",
+   "who": "ama",
+   "text": "Many learners say: I can't cope stress."
+  },
+  {
+   "id": "n_b3d3f4_g",
+   "who": "carlos",
+   "text": "Pause and guess. What sounds right?"
+  },
+  {
+   "id": "n_b3d3f4_k",
+   "who": "ama",
+   "text": "Say: I can't cope with stress."
+  },
+  {
+   "id": "n_b3d3f4_y",
+   "who": "carlos",
+   "text": "Cope needs with before the problem."
+  },
+  {
+   "id": "n_b3d3f4_c",
+   "who": "ama",
+   "text": "Is 'I can't cope stress' correct? No."
+  },
+  {
+   "id": "n_b3d3f4_rs",
+   "who": "carlos",
+   "text": "Repeat after me: I can't cope with stress.",
+   "speed": 0.74
+  },
+  {
+   "id": "n_b3d3f4_rn",
+   "who": "ama",
+   "text": "Now at normal speed: I can't cope with stress."
+  },
+  {
+   "id": "n_b3d3f4_r",
+   "who": "carlos",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_b3d3f4_r2",
+   "who": "ama",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_b3d3f4_e",
+   "who": "ama",
+   "text": "Quiz: He can't cope blank the noise. With or (nothing)? Comment below."
+  },
+  {
+   "id": "n_b3d3f4_e2",
+   "who": "carlos",
+   "text": "Quiz: He can't cope blank the noise. With or (nothing)? Comment below."
+  },
+  {
+   "id": "n_d9514a_h",
+   "who": "ama",
+   "text": "90% get this wrong."
+  },
+  {
+   "id": "n_d9514a_m",
+   "who": "ama",
+   "text": "Many learners say: The number of student are increasing."
+  },
+  {
+   "id": "n_d9514a_g",
+   "who": "carlos",
+   "text": "Pause and guess. What sounds right?"
+  },
+  {
+   "id": "n_d9514a_k",
+   "who": "ama",
+   "text": "Say: The number of students is increasing."
+  },
+  {
+   "id": "n_d9514a_y",
+   "who": "carlos",
+   "text": "The number takes is. A number takes are."
+  },
+  {
+   "id": "n_d9514a_c",
+   "who": "ama",
+   "text": "Is 'The number of student are increasing' correct? No."
+  },
+  {
+   "id": "n_d9514a_rs",
+   "who": "carlos",
+   "text": "Repeat after me: The number of students is increasing.",
+   "speed": 0.74
+  },
+  {
+   "id": "n_d9514a_rn",
+   "who": "ama",
+   "text": "Now at normal speed: The number of students is increasing."
+  },
+  {
+   "id": "n_d9514a_r",
+   "who": "carlos",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_d9514a_r2",
+   "who": "ama",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_d9514a_e",
+   "who": "ama",
+   "text": "Quiz: The number of tourists blank rising. Are or is? Comment below."
+  },
+  {
+   "id": "n_d9514a_e2",
+   "who": "carlos",
+   "text": "Quiz: The number of tourists blank rising. Are or is? Comment below."
   }
  ],
  "reactions": {

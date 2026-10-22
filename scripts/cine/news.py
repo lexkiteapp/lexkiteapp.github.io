@@ -143,7 +143,7 @@ def share_chip(sub, y0=236):   # owner 22/10 §13 share trigger: "Send this to a
     w = max(d.textlength(t, font=f1), d.textlength(sub, font=f2)) + 70; x0 = CX - w / 2
     d.rounded_rectangle([x0, y0, x0 + w, y0 + 120], 30, fill=TEAL + (255,)); d.text((CX, y0 + 36), t, font=f1, fill='white', anchor='mm'); d.text((CX, y0 + 88), sub, font=f2, fill=YEL, anchor='mm')
     return shadowed(im), (int(x0), y0, int(x0 + w), y0 + 120)
-def badge(level, y0=388):   # difficulty badge (owner 22/10 §13): EASY green / MEDIUM amber / HARD CHALLENGE red
+def badge(level, y0=400):   # difficulty badge (owner 22/10 §13): EASY green / MEDIUM amber / HARD CHALLENGE red
     im = layer(); d = ImageDraw.Draw(im); t = {'easy': 'EASY', 'medium': 'MEDIUM', 'hard': 'HARD CHALLENGE'}[level]; col = {'easy': (40, 160, 90), 'medium': (230, 160, 30), 'hard': (214, 48, 49)}[level]
     f = font(FH, 28); tw = d.textlength(t, font=f); x0 = CX - tw / 2 - 28
     d.rounded_rectangle([x0, y0, x0 + tw + 56, y0 + 44], 22, fill=col + (255,)); d.text((CX, y0 + 22), t, font=f, fill='white', anchor='mm')
@@ -306,7 +306,7 @@ HAIR = {}
 HOST = {'ama_s': dict(eye=(530, 680)), 'carlos_s': dict(eye=(545, 390)), 'carlos_q': dict(eye=(465, 310))}
 FACEH = {'ama_s': 348, 'carlos_s': 265, 'carlos_q': 175}   # calibrated on rendered frames (#57): measured face width Ama/Carlos was 1.05-1.11 -> Ama x0.97, Carlos x1.04
 SEAT = {'ama_s': 2500, 'carlos_s': 1600, 'carlos_q': 1880}
-FACE_PX = {'mcu': 346, 'wide': 270, 'mws': 270, 'two': 230}; EYE_Y = {'mcu': 670, 'wide': 690, 'mws': 690, 'two': 960}   # owner 22/10 composition: MCU face 18 % for explanations, MS (waist) 14 % for openers / reactions; eye on the upper third (33-36 %); x2 SR layers keep every host layer <= 1.0x   # owner 22/10 sharpness: no host layer above 1.0x (Carlos mcu = 1.0x source)
+FACE_PX = {'mcu': 346, 'wide': 290, 'mws': 290, 'two': 230}; EYE_Y = {'mcu': 605, 'wide': 720, 'mws': 720, 'two': 960}   # coordinator 22/10: face size + sharpness first, headroom as low as the hands-vs-caption rule allows (Ama's resting hands stay below the caption band)   # owner 22/10 composition: MCU face 18 % for explanations, MS (waist) 14 % for openers / reactions; eye on the upper third (33-36 %); x2 SR layers keep every host layer <= 1.0x   # owner 22/10 sharpness: no host layer above 1.0x (Carlos mcu = 1.0x source)
 FRAME = {(g, f_): (round(FACE_PX[f_] / FACEH[g], 4), EYE_Y[f_] - (50 if g == 'carlos_q' else 0)) for g in FACEH for f_ in FACE_PX}
 for (g_, f_), (sc_, ey_) in list(FRAME.items()):   # equal head-top line for both hosts: Carlos's eye moves by the hair-height difference
     if g_ != 'ama_s' and f_ in ('mcu', 'wide', 'mws'): top_a = FRAME[('ama_s', f_)][1] - 293 * FRAME[('ama_s', f_)][0]; FRAME[(g_, f_)] = (sc_, round(top_a + (197 if g_ == 'carlos_s' else 149) * sc_))
