@@ -13,7 +13,8 @@ const fail = m => { console.log('✗ ' + m); bad.push(m); };
 const ok = m => console.log('✓ ' + m);
 let nShot = 0;
 const shot = name => { const f = path.join(OUT, `${String(++nShot).padStart(2, '0')}-${name}.png`); try { fs.writeFileSync(f, execFileSync('adb', ['exec-out', 'screencap', '-p'], { maxBuffer: 64 << 20, timeout: 30000 })); } catch (e) { console.log('screencap lỗi', e.message); } return f; };
-const focus = () => (/mCurrentFocus=Window\{\S+ \S+ ([^}\s]+)\}/.exec(adb('shell', 'dumpsys', 'window')) || [])[1] || '';
+// hoạt động đang ở trên cùng (topResumedActivity/mResumedActivity – mCurrentFocus có thể trỏ nhầm cửa sổ launcher)
+const focus = () => (/(?:topResumedActivity|mResumedActivity)=ActivityRecord\{\S+ \S+ ([^\s}]+)/.exec(adb('shell', 'dumpsys', 'activity', 'activities')) || [])[1] || '';
 
 // ---- mở app, nối DevTools của WebView ----
 adb('logcat', '-c');
@@ -34,7 +35,7 @@ ws.onmessage = m => {
   const d = JSON.parse(m.data);
   if (d.id && pend.has(d.id)) { pend.get(d.id)(d); pend.delete(d.id); return; }
   if (d.method === 'Runtime.consoleAPICalled' && /error|warning/.test(d.params.type)) consoleErr.push(d.params.type + ': ' + d.params.args.map(a => a.value ?? a.description ?? '').join(' ').slice(0, 300));
-  if (d.method === 'Runtime.exceptionThrown') consoleErr.push('exception: ' + JSON.stringify(d.params.exceptionDetails).slice(0, 300));
+  if (d.method === 'Runtime.exceptionThrown') consoleErr.push('exception: ' + JSON.stringify(d.params.exceptionDetails).slice(0, 1500));
 };
 // mỗi lệnh DevTools tối đa 20 s (WebView bị hủy khi app thoát → không treo cả kịch bản)
 const cdp = (method, params) => new Promise(r => { const i = ++id; pend.set(i, r); const tm = setTimeout(() => { pend.delete(i); r({ result: { exceptionDetails: { text: 'cdp timeout' } } }); }, 20000); pend.set(i, d => { clearTimeout(tm); r(d); }); try { ws.send(JSON.stringify({ id: i, method, params })); } catch (e) { clearTimeout(tm); pend.delete(i); r({ result: { exceptionDetails: { text: 'ws closed' } } }); } });
@@ -84,7 +85,7 @@ info.sheet = { focusBefore: focus0, focus: sheet || focus(), pkgs, texts };
 console.log('sheet', JSON.stringify(info.sheet));
 const log1 = await alog();
 if (!(log1 || []).some(x => x.dir === 'call' && /signInWithGoogle/.test(x.m))) fail('Bấm Google nhưng plugin signInWithGoogle không được gọi'); else ok('Đã gọi FirebaseAuthentication.signInWithGoogle');
-const native = /gms|credential/i.test(sheet) || pkgs.some(p => p !== PKG && /gms|credential/i.test(p));
+const native = /gms|credential|SignInHub/i.test(sheet) || pkgs.some(p => p !== PKG && /gms|credential/i.test(p));
 if (!native) fail('Không thấy giao diện đăng nhập Google gốc (focus ' + (sheet || focus()) + ', gói ' + pkgs.join(',') + ')'); else ok('Giao diện Google gốc hiện: ' + (sheet || pkgs.join(',')));
 if (native) adb('shell', 'input', 'keyevent', '4'); // BACK = hủy bảng đăng nhập
 // kết quả = lần trả cuối khi mọi lệnh signInWithGoogle đã xong (Android có thể gọi 2 lần: Credential Manager → luồng cũ)
