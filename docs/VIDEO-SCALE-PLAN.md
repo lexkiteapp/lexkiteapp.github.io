@@ -60,3 +60,10 @@ cron mỗi ngày → chọn điểm học + tổ hợp (sổ đa dạng) → so�
 - Câu ✗/✓ đúng logic (✗ là câu sai thật, ✓ là câu đúng thật – AI judge); "Teacher's tip" khớp điểm học.
 - Cử chỉ trung tính, không đè chữ; không người/vật thừa; không chữ lạ trong nền (OCR nền = rỗng).
 - Mọi luật là cổng QA: trượt 1 luật = không đăng.
+
+## 10. Một clip – hai nơi dùng: social + bài học trên web (chủ 22/10)
+- **Bản web riêng** từ cùng master: 720×1280, ~2–3 MB, poster WebP, phụ đề **WebVTT 15 ngôn ngữ** (sub tiếng Anh + bản dịch theo giao diện), lưu CDN của mình (R2/`media.lexkite.com`, đăng ký infra) – tải lười, không tự phát có tiếng, không ảnh hưởng khung app.
+- **Gắn thẻ tự động** mỗi clip: từ/cụm (lexicon id), điểm ngữ pháp, tình huống, CEFR, kỳ thi, kỹ năng.
+- **Xếp thông minh**: thẻ từ / trang từ vựng ("Xem 20 giây"), trang ngữ pháp, ngày học trong lộ trình ("video của ngày"), bài blog cùng chủ đề, tab mới add-on (tuỳ chọn). Chọn clip theo khớp thẻ + trình độ người học + chưa xem + đa dạng template; sau clip có 1 câu đố nhanh → tính vào SRS.
+- **SEO video**: schema `VideoObject` + video sitemap + trang `/video/<slug>/` có transcript → Google hiện video trong tìm kiếm.
+- **Đo**: lượt xem, xem hết, câu đố đúng → tăng trọng số clip tốt trên web và chọn hook/template cho social.
