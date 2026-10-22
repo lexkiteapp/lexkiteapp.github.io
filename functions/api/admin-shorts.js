@@ -18,7 +18,7 @@ const REPO = 'lexkiteapp/lexkite-shorts';
 export const MANIFEST = { folder: 'shorts/_admin', name: 'admin-shorts.json' };
 const PATH = /^shorts\/[a-z0-9_]{1,80}\/[a-z0-9_]{1,80}\/[a-z0-9-]{1,120}\.(mp4|jpg)$/;
 const FID = /^[A-Za-z0-9_-]{10,120}$/, NAME = /^[a-z0-9-]{1,120}$/;
-const TYPES = { mp4: 'video/mp4', jpg: 'image/jpeg' };
+const TYPES = { mp4: 'video/mp4', jpg: 'image/jpeg', zip: 'application/zip' }, KIND_EXT = { v: 'mp4', c: 'jpg', z: 'zip' };
 const MAX_TTL = 2 * 3600, MEMO_MS = 5 * 60e3;
 const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...adminCors(req) } });
 const enc = new TextEncoder();
@@ -35,6 +35,12 @@ const same = (a, b) => { if (typeof a !== 'string' || a.length !== b.length) ret
 // Hết hạn làm tròn theo giờ → URL bìa ổn định trong 1 giờ (trình duyệt tự đệm)
 const expOf = ttl => Math.ceil(Date.now() / 1000 / 3600) * 3600 + Math.min(ttl, MAX_TTL - 3600);
 const driveRef = (it, k) => { const c = it && it.drive && it.drive[k]; return c && FID.test(String(c.fileId || '')) && /^\d{1,6}$/.test(String(c.driveId || '')) ? c : null; };
+/** URL ký cho gói đăng tay YouTube (zip trên Kho Drive, functions/api/youtube.js op packs) – cùng chữ ký/hạn như master. */
+export async function signedPack(env, ref, name, ttl = 2 * 3600) {
+  if (!driveOn(env) || !ref || !FID.test(String(ref.fileId || '')) || !/^\d{1,6}$/.test(String(ref.driveId || '')) || !NAME.test(name)) return null;
+  const exp = expOf(ttl);
+  return `/api/admin-shorts?f=${ref.fileId}&d=${ref.driveId}&k=z&n=${name}&e=${exp}&s=${await sigOf(env, `drive|${ref.fileId}|${ref.driveId}|z|${name}|${exp}`)}`;
+}
 /** URL ký cho 1 phần (video|cover) của 1 item: Drive nếu có item.drive, nếu không repo riêng khi có token; null = không phát được. */
 async function signed(env, it, k, ttl = 3600) {
   const path = it && it[k], exp = expOf(ttl), c = driveOn(env) ? driveRef(it, k) : null;
@@ -127,12 +133,12 @@ export async function onRequestGet({ request, env }) {
   const ip = request.headers.get('CF-Connecting-IP') || '?';
   if (u.searchParams.has('f')) { // ---- Kho Drive ----
     const f = q('f'), d = q('d'), k = q('k'), n = q('n');
-    if (!FID.test(f) || !/^\d{1,6}$/.test(d) || !(k === 'v' || k === 'c') || !NAME.test(n)) return plain(400, 'bad');
+    if (!FID.test(f) || !/^\d{1,6}$/.test(d) || !Object.hasOwn(KIND_EXT, k) || !NAME.test(n)) return plain(400, 'bad');
     if (!driveOn(env)) return plain(503, 'needs-drive');
     if (!Number.isInteger(e) || e < now || e > now + MAX_TTL + 60 || !same(s, await sigOf(env, `drive|${f}|${d}|${k}|${n}|${e}`))) return plain(403, 'forbidden');
     if (range && !m) return plain(416, 'range');
     if (await limit('shm:' + ip, 900, 60)) return plain(429, 'too-fast');
-    const ext = k === 'v' ? 'mp4' : 'jpg', h = headersFor(ext, `${n}.${ext}`, dl);
+    const ext = KIND_EXT[k], h = headersFor(ext, `${n}.${ext}`, dl || k === 'z');
     // Bìa: đệm ở Cache API (khóa = băm bí mật của fileId, không đoán được) → 1 lần gọi Drive/ngày/vùng
     const cache = k === 'c' && typeof caches !== 'undefined' ? caches.default : null;
     const ck = cache && new Request('https://lexkite.com/api/admin-shorts/_c/' + (await sigOf(env, 'cache|' + f)));

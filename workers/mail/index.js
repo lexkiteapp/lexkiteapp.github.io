@@ -34,6 +34,11 @@ async function digest(env) {
       for (const x of rows) items.push(`   ${x.cat === 'idea' ? '💡' : '[' + (x.sev || '?') + ']'} LX-${1000 + x.id} · ${x.area}: ${String(x.s || x.msg || '').replace(/\s+/g, ' ').slice(0, 90)}`);
     }
   } catch (x) { /* bảng chưa có */ }
+  // YouTube đăng tay (functions/api/youtube.js): sẵn sàng đăng → đã đăng (dò thấy) → trên web; nhắc khi còn clip chờ hoặc có vấn đề
+  try {
+    const y = await q("SELECT SUM(q.status = 'manual') AS ready, SUM(q.status = 'detected') AS up, SUM(q.status = 'done') AS live, SUM(q.status = 'done' AND q.updated > ?) AS fresh, SUM(q.err IS NOT NULL AND q.status != 'done') AS bad FROM yt_pack p JOIN yt_queue q ON q.clip = p.clip", now - DAY);
+    if (y.ready || y.up || y.bad) items.push(`• YouTube đăng tay: ${y.ready || 0} sẵn sàng đăng · ${y.up || 0} đã đăng (dò thấy) · ${y.live || 0} trên web (+${y.fresh || 0} trong 24h) · ${y.bad || 0} cần xử lý – https://lexkite.com/admin.html#video`);
+  } catch (x) { /* bảng chưa có */ }
   const r = await env.DB.prepare('SELECT 1').run().catch(() => null), size = r && r.meta && (r.meta.size_after || 0);
   if (size > 0.7 * 500 * 1048576) items.push(`• Dung lượng D1: ${(size / 1048576).toFixed(0)} MB / 500 MB miễn phí – cân nhắc nâng gói`);
   try {

@@ -497,7 +497,7 @@ const POOL_OPS = {
     const shas = (Array.isArray(b.sha256) ? b.sha256 : []).map(x => String(x).toLowerCase()).filter(x => /^[0-9a-f]{64}$/.test(x)).slice(0, 20);
     const drives = new Map((await all(db, 'SELECT * FROM drives')).map(d => [d.id, d])), done = [], failed = [];
     for (const sha of shas) {
-      const rows = (await all(db, "SELECT * FROM drive_files WHERE sha256 = ? AND status = 'ok' AND file_id IS NOT NULL", sha)).filter(isShortsRow).filter(r => /^video\//.test(String(r.mime || '')));
+      const rows = (await all(db, "SELECT * FROM drive_files WHERE sha256 = ? AND status = 'ok' AND file_id IS NOT NULL", sha)).filter(isShortsRow).filter(r => /^video\//.test(String(r.mime || '')) || (r.folder === 'shorts/_ytpack' && r.mime === 'application/zip')); // master, hoặc gói đăng tay YouTube đã lên web
       for (const r of rows) {
         const d = drives.get(r.drive_id); if (!d || lost(d.status)) { failed.push({ sha, error: 'drive-lost' }); continue; }
         try {

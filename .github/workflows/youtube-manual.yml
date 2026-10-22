@@ -1,0 +1,46 @@
+# Manual YouTube path (docs/YOUTUBE-SETUP.md §0) – until the API audit passes, the owner uploads in YouTube Studio as Unlisted; this automates the rest.
+# 1) Upload packs for clips approved in Admin › Video (scripts/video/yt-pack.mjs → Drive pool shorts/_ytpack/<clip>.zip, linked in the admin).
+# 2) Read-only sync (youtube.readonly): uploads playlist → marker "lk:<clip>" → unlisted + processed + same length → clip live (functions/api/youtube.js).
+# 3) New YouTube ids not yet in web/data/videos.json → run video-web (manifest) so lessons embed YouTube. ~3 quota units per run. $0.
+# Never drives YouTube Studio with bots or stored Google cookies/passwords (YouTube ToS).
+name: youtube-manual
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run: { description: 'Chỉ liệt kê gói cần tạo', type: boolean, default: false }
+  schedule:
+    - cron: '7,37 * * * *'
+concurrency: { group: youtube-manual, cancel-in-progress: false }
+permissions: { contents: read, actions: write }
+jobs:
+  manual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Gói cần tạo?
+        id: todo
+        run: node -e "import('./scripts/video/yt-upload.mjs').then(async m=>{const p=await m.ytApi('packs');const n=(p.todo||[]).length+(p.retire||[]).length;console.log('gói chờ:',(p.todo||[]).length,'· dọn:',(p.retire||[]).length);require('fs').appendFileSync(process.env.GITHUB_OUTPUT,'n='+n+'\n')})"
+      - name: Manifest lexkite-shorts (sparse)
+        if: steps.todo.outputs.n != '0'
+        env: { KEY: '${{ secrets.SHORTS_DEPLOY_KEY }}' }
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/shorts && chmod 600 ~/.ssh/shorts
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes" git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
+          git -C /tmp/shorts sparse-checkout set --no-cone '/shorts/index.json'; git -C /tmp/shorts checkout -q; rm -f ~/.ssh/shorts
+      - name: Tạo gói đăng tay (Kho Drive)
+        if: steps.todo.outputs.n != '0'
+        run: node scripts/video/yt-pack.mjs --index /tmp/shorts/shorts/index.json ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
+      - name: Đồng bộ kênh (chỉ đọc)
+        id: sync
+        run: node scripts/video/yt-pack.mjs --sync
+      - name: Cập nhật web (video-web)
+        if: steps.sync.outputs.pending != '0' && steps.sync.outputs.pending != ''
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          curl -sf -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/video-web.yml/dispatches" -d '{"ref":"main"}' && echo "video-web đã chạy"
