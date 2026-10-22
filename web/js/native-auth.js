@@ -20,7 +20,12 @@
   const cancelled = e => /cancel|1001|12501|-5\b|AuthorizationError error 1000/i.test(String((e && (e.code || '')) + ' ' + (e && e.message || ''))); // 1000 = iOS chưa đăng nhập Apple Account: hệ thống đã báo "Đăng nhập Apple Account trong Cài đặt", người dùng bấm Đóng → im lặng như hủy
 
   async function signIn(via) {
-    const r = via === 'apple' ? await FA.signInWithApple({ scopes: ['email', 'name'] }) : await FA.signInWithGoogle();
+    // Android: máy chưa có tài khoản Google → Credential Manager báo "No credentials available" (không hiện gì) → mở luồng Google Sign-In cũ (chọn/thêm tài khoản)
+    const google = () => FA.signInWithGoogle().catch(e => {
+      if (w.VBNative.platform === 'android' && /no ?credential/i.test(String((e && (e.code || '')) + ' ' + (e && e.message || '')))) return FA.signInWithGoogle({ useCredentialManager: false });
+      throw e;
+    });
+    const r = via === 'apple' ? await FA.signInWithApple({ scopes: ['email', 'name'] }) : await google();
     if (via === 'apple' && r.credential && r.credential.authorizationCode) { appleCode = r.credential.authorizationCode; appleAt = Date.now(); }
     emit(r.user);
     return cur;

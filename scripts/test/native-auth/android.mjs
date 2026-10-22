@@ -47,7 +47,8 @@ const COMING = '/sẽ có ở bản phát hành chính thức|phát hành chính
 // ghi lệnh gọi/kết quả plugin FirebaseAuthentication qua cầu Capacitor (không ghi dữ liệu người dùng)
 await ev(`const C = window.Capacitor; window.__auth = window.__auth || []; if (C && !C.__e2eAuth) { C.__e2eAuth = 1; const tn = C.toNative, fn = C.fromNative;
   C.toNative = function (pl, m) { if (pl === 'FirebaseAuthentication') __auth.push({ dir: 'call', m }); return tn.apply(this, arguments); };
-  C.fromNative = function (r) { try { if (r && r.pluginId === 'FirebaseAuthentication') __auth.push({ dir: 'ret', m: r.methodName, success: !!r.success, code: String((r.error && r.error.code) || ''), err: String((r.error && r.error.message) || '').slice(0, 200) }); } catch (e) {} return fn.apply(this, arguments); }; } return 1`);
+  const np = C.nativePromise; if (typeof np === 'function') C.nativePromise = function (pl, m) { const p = np.apply(this, arguments); if (pl === 'FirebaseAuthentication' && p && p.then) p.then(() => __auth.push({ dir: 'ret', m, success: true }), e => __auth.push({ dir: 'ret', m, success: false, code: String((e && e.code) || ''), err: String((e && e.message) || '').slice(0, 200) })); return p; };
+  C.fromNative0 = function (r) { try { if (r && r.pluginId === 'FirebaseAuthentication') __auth.push({ dir: 'ret', m: r.methodName, success: !!r.success, code: String((r.error && r.error.code) || ''), err: String((r.error && r.error.message) || '').slice(0, 200) }); } catch (e) {} return fn.apply(this, arguments); }; } return 1`);
 
 // ---- 1. khởi chạy ----
 info.launch = await ev(`return { path: location.pathname, hash: location.hash, flag: window.LK_NATIVE_AUTH || null, native: !!(window.Sync && Sync.native), plugin: !!(Capacitor.Plugins && Capacitor.Plugins.FirebaseAuthentication), plat: Capacitor.getPlatform() }`);
@@ -86,8 +87,10 @@ if (!(log1 || []).some(x => x.dir === 'call' && /signInWithGoogle/.test(x.m))) f
 const native = /gms|credential/i.test(sheet) || pkgs.some(p => p !== PKG && /gms|credential/i.test(p));
 if (!native) fail('Không thấy giao diện đăng nhập Google gốc (focus ' + (sheet || focus()) + ', gói ' + pkgs.join(',') + ')'); else ok('Giao diện Google gốc hiện: ' + (sheet || pkgs.join(',')));
 if (native) adb('shell', 'input', 'keyevent', '4'); // BACK = hủy bảng đăng nhập
-let ret = null; for (let k = 0; k < 40 && !ret; k++) { await sleep(500); ret = (await alog()).find(x => x.dir === 'ret' && /signInWithGoogle/.test(x.m)); }
-if (!ret && native) { adb('shell', 'input', 'keyevent', '4'); for (let k = 0; k < 20 && !ret; k++) { await sleep(500); ret = (await alog()).find(x => x.dir === 'ret' && /signInWithGoogle/.test(x.m)); } }
+// kết quả = lần trả cuối khi mọi lệnh signInWithGoogle đã xong (Android có thể gọi 2 lần: Credential Manager → luồng cũ)
+const settled = async () => { const l = (await alog()).filter(x => /signInWithGoogle/.test(x.m)); const calls = l.filter(x => x.dir === 'call').length, rets = l.filter(x => x.dir === 'ret'); return calls && rets.length >= calls ? rets.at(-1) : null; };
+let ret = null; for (let k = 0; k < 40 && !ret; k++) { await sleep(500); ret = await settled(); }
+if (!ret && native) { adb('shell', 'input', 'keyevent', '4'); for (let k = 0; k < 20 && !ret; k++) { await sleep(500); ret = await settled(); } }
 info.ret = ret; console.log('ret', JSON.stringify(ret));
 await sleep(800);
 const toast = await ev(`return [...document.querySelectorAll('.toast, [role=status], [role=alert]')].map(x => x.innerText).join(' | ').slice(0, 300)`);
