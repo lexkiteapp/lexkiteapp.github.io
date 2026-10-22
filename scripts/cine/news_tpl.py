@@ -10,7 +10,7 @@ PATTERNS = [(['mcu', 'wide'], ['mcu', 'wide']), (['wide', 'mcu'], ['mcu', 'wide'
 PALS = [((229, 80, 47), (15, 61, 62)), ((240, 140, 40), (15, 61, 62)), ((214, 48, 49), (34, 36, 44)), ((40, 160, 90), (15, 61, 62)),
         ((155, 89, 182), (34, 36, 44)), ((229, 80, 47), (23, 89, 90)), ((200, 120, 20), (34, 36, 44)), ((0, 150, 136), (34, 36, 44))]
 SKINS = [((255, 255, 255), (34, 36, 44), (34, 36, 44)), ((255, 247, 236), (34, 36, 44), (34, 36, 44)), ((28, 32, 40), (245, 245, 245), (245, 245, 245))]
-PACES = {'calm': (0.38, -0.12), 'brisk': (0.36, -0.18), 'snappy': (0.35, -0.22)}
+PACES = {'calm': (0.38, -0.06), 'brisk': (0.36, -0.08), 'snappy': (0.35, -0.08)}   # J-cut lead <= 0.08 s so a caption chunk never starts before the cut
 _h = int(SPEC['id'][-6:], 16)
 STYLE = dict(dict(pattern=_h % 12, moves=[['push', 'slide', 'handheld'], ['pull', 'tilt', 'rack'], ['push', 'handheld'], ['slide', 'push', 'rack'], ['tilt', 'pull'], ['push', 'rack', 'slide']][_h % 6],
                   transition=['cut', 'whip', 'dissolve', 'zoom'][_h % 4], layout=_h % 6, palette=_h % 8, opener='ama', pacing=['calm', 'brisk', 'snappy'][_h % 3]), **(SPEC.get('style') or {}))
@@ -55,9 +55,9 @@ for i in [nb - 1, nb // 2, 1, nb - 3, 2, 0]:
     if i not in slots and nxt != [y, y] and not (BEATS[i].get('repeat') or BEATS[i].get('intro') or BEATS[i].get('intro2')): slots.append(i)
 deficit = 21.4 - est; nr = min(len(slots), max(0, int(np.ceil(deficit / 1.9)))); RX = set(slots[:nr])
 print('news layout: estimate %.2f s, reaction lines after beats %s' % (est, sorted(RX)))
-def fr_for(who, k=None):   # size for the next single of `who` from the shot-grammar pattern; never the same angle + size back to back
-    cyc = PATTERNS[STYLE['pattern']][0 if who == 'ama' else 1]; f_ = cyc[(use[who] if k is None else k) % len(cyc)]
-    if S and S[-1]['who'] == who and not S[-1]['other'] and S[-1]['frame'] == f_: f_ = next(x for x in ('mcu', 'wide', 'mws') if x != f_)
+def fr_for(who, k=None, kind='explain'):   # owner 22/10 composition: explanations = MCU, openers / reactions = MS (waist); never the same angle + size back to back
+    f_ = 'mcu' if kind == 'explain' else 'wide'
+    if S and S[-1]['who'] == who and not S[-1]['other'] and S[-1]['frame'] == f_: f_ = 'wide' if f_ == 'mcu' else 'mcu'
     return f_
 prev = None
 for i, b in enumerate(BEATS):
@@ -77,7 +77,7 @@ for i, b in enumerate(BEATS):
         OV[prev]['t'][1] = round(pz['t0'] + pz['dur'], 3); QA.setdefault('repeat', []).append([pz['id'], round(pz['dur'], 3)]); continue
     if i == nb - 1 and prev is not None and OV[prev]['t'][0] + need(OV[prev]['_txt']) + 0.05 > sh['t0'] + sh['dur']: RX.add(i)   # last card still being read
     if i in RX and prev is not None:   # listener reaction LINE (J-cut), card stays up
-        y = OTHER[who]; r = tshot(f'r{i + 1}', CL[y][0], y, fr_for(y), next_rx(y), -0.15); OV[prev]['t'][1] = round(r['t0'] + r['dur'], 3)
+        y = OTHER[who]; r = tshot(f'r{i + 1}', CL[y][0], y, fr_for(y, kind='react'), next_rx(y), JCUT); OV[prev]['t'][1] = round(r['t0'] + r['dur'], 3)
 # recap + end speakers keep <= 2 singles of one host in a row (both voices exist: line / line_alt)
 run_who = S[-1]['who']; run_n = 2 if len(S) > 1 and S[-2]['who'] == run_who else 1
 rw = 'ama' if run_who == 'carlos' and run_n == 2 else 'carlos' if run_who == 'ama' and run_n == 2 else 'carlos'

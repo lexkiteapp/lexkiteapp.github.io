@@ -70,8 +70,8 @@ def board_blur(F):
     keep = cv2.erode(keep, np.ones((3, 3), np.uint8)); a = cv2.GaussianBlur(keep.astype(np.float32), (0, 0), 3)[..., None]
     B = cv2.GaussianBlur(top, (0, 0), 12)
     out = F.copy(); out[:int(H * 0.45)] = (top * (1 - a) + B * a).astype(np.uint8); return out
-def finish(F, crop=None):
-    x, y, w, h = crop or WM_CROP; return cv2.resize(F[y:y + h, x:x + w], (1080, 1920), interpolation=cv2.INTER_LANCZOS4)
+def finish(F, crop=None, k=1):   # k = 2 for the super-resolved (x2) host layers
+    x, y, w, h = crop or tuple(v * k for v in WM_CROP); return cv2.resize(F[y:y + h, x:x + w], (1080 * k, 1920 * k), interpolation=cv2.INTER_LANCZOS4)
 DELAY = -0.005   # shape chosen at the frame's display start + 5 ms -> onset error within about -36..+5 ms at 24 fps
 def viseme_at(lines, t, delay=None):
     delay = DELAY if delay is None else delay
@@ -80,7 +80,13 @@ def viseme_at(lines, t, delay=None):
         ta = (t - ln['at'] - delay) * ln.get('tempo', 1.0)
         if 0 <= ta <= ln['cues'][-1]['end']: return cues_at(ln['cues'], ta)
     return 'X'
-def render(clip, frames, speakers=(), boards=False, crop=None):
+def scale_mouth(mo, k):   # mouth track + sprites for a k-times super-resolved clip (affine track: translation scales, linear part unchanged)
+    mo.rx0, mo.ry0, mo.rw, mo.rh = mo.rx0 * k, mo.ry0 * k, mo.rw * k, mo.rh * k
+    mo.MS = np.array([np.hstack([M[:, :2], M[:, 2:] * k]) for M in mo.MS])
+    mo.spr = {v: cv2.resize(x, (mo.rw, mo.rh), interpolation=cv2.INTER_CUBIC) for v, x in mo.spr.items()}
+    mo.E = cv2.resize(mo.E, (mo.rw, mo.rh), interpolation=cv2.INTER_LINEAR); mo.ring = cv2.resize(mo.ring.astype(np.uint8), (mo.rw, mo.rh), interpolation=cv2.INTER_NEAREST) > 0
+    return mo
+def render(clip, frames, speakers=(), boards=False, crop=None, k=1):
     """frames: list of source frame indices (any order: reverse/holds ok). speakers: [{mouth, lines}] ; lines=[] => mouth held closed (X).
     Hard switch between shapes on frame boundaries (no half-blend frames)."""
     cap = cv2.VideoCapture(clip); FR = []
@@ -96,5 +102,5 @@ def render(clip, frames, speakers=(), boards=False, crop=None):
             core = mo.E > 0.9; al = mo.aligned(F, i).astype(np.float32)   # pixel check: does the frame really show the sprite?
             rec['r%d' % k] = round(float(np.abs(al[core] - mo.spr[v][core]).mean()), 2)
         if boards: F = board_blur(F)
-        out.append(finish(F, crop)); log.append(rec)
+        out.append(finish(F, crop, k)); log.append(rec)
     return out, log

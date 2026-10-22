@@ -252,7 +252,7 @@ def captions(s):
         for chi, cw_ in enumerate(CH):
             lines_ = cap_split([ws[x] for x in cw_]) or [[ws[x] for x in cw_]]
             for j, gi in enumerate(cw_):
-                t0 = a - 0.095 if gi == 0 else edges[gi]; t1 = b + 0.39 if gi == len(ws) - 1 else edges[gi + 1]
+                t0 = max(a - 0.095, s['t0']) if gi == 0 else edges[gi]; t1 = b + 0.39 if gi == len(ws) - 1 else edges[gi + 1]   # a caption chunk never starts before its shot's cut
                 im, box = cap_img(lines_, j); ov('Cap', TEXT[k], t0, t1, box, s['id'], line=k, part=gi, fs=CAP_FS, img=im); OV[-1]['chunk'] = [chi, ' '.join(ws[x] for x in cw_), len(lines_)]
 # ------------------------------------------------------------------ lesson script
 STYLE = dict(moves=['push'], transition='cut')   # replaced by news_tpl.py (owner 22/10 §15 edit style)
@@ -270,12 +270,14 @@ if os.environ.get('NEWS_DRY'):   # dry run (Mac): timeline only, no frames
     print('TOTAL', round(TOTAL, 2)); sys.exit(0)
 # ------------------------------------------------------------------ host frames (mouth swap on the keyed full-frame clip) + alpha
 RD = f'{N}/render5_{LID}_en'; os.makedirs(RD, exist_ok=True)
-def finish_mask(M): x, y, w, h = L.WM_CROP; return cv2.resize(M[y:y + h, x:x + w], (1080, 1920), interpolation=cv2.INTER_LINEAR)
+def finish_mask(M, k=1): x, y, w, h = [v * k for v in L.WM_CROP]; return cv2.resize(M[y:y + h, x:x + w], (1080 * k, 1920 * k), interpolation=cv2.INTER_LINEAR)
 def host_frames(s, clip, who, lines, raw):
-    mo = [] if raw else [dict(mouth=L.Mouth(f'{TL}/meta/{clip}/{who}'), lines=[dict(cues=CUES[l['id']], at=l['at'], tempo=l['tempo']) for l in lines])]
     cf, cm, ll = MR.layer_paths(G, clip)   # PRO mattes (ViTMatte, lossless alpha) when NEWS_MATTE=pro
-    fr, log = L.render(cf, s['frames'], speakers=mo)
-    PADB = 600 if clip.startswith('ga') else 0   # standing Ama's clip ends at her thighs: extend the (dark) trousers by edge replication so a smaller Ama still exits the frame bottom
+    KX = 2 if os.environ.get('NEWS_SR') and os.path.exists(f'{G}/kfull_x2/{clip}.mp4') and os.path.exists(f'{G}/kmask_x2/{clip}.mkv') else 1   # host_sr.py x2 layers
+    if KX == 2: cf, cm, ll = f'{G}/kfull_x2/{clip}.mp4', f'{G}/kmask_x2/{clip}.mkv', True
+    mo = [] if raw else [dict(mouth=L.scale_mouth(L.Mouth(f'{TL}/meta/{clip}/{who}'), KX) if KX > 1 else L.Mouth(f'{TL}/meta/{clip}/{who}'), lines=[dict(cues=CUES[l['id']], at=l['at'], tempo=l['tempo']) for l in lines])]
+    fr, log = L.render(cf, s['frames'], speakers=mo, k=KX); s.setdefault('kx', {})[clip] = KX
+    PADB = (600 if clip.startswith('ga') else 0) * KX   # standing Ama's clip ends at her thighs: extend the (dark) trousers by edge replication so a smaller Ama still exits the frame bottom
     if PADB: fr = [np.concatenate([F_, np.repeat(F_[-1:], PADB, 0)]) for F_ in fr]
     cap = cv2.VideoCapture(cm); MM = []
     while True:
@@ -285,7 +287,7 @@ def host_frames(s, clip, who, lines, raw):
     ramp = 1.0
     al = []
     for i in s['frames']:
-        m = MR.mask_levels(finish_mask(MM[min(i, len(MM) - 1)]), ll)   # h264 white ~250 -> exactly opaque; no morphology (it made stair-steps)
+        m = MR.mask_levels(finish_mask(MM[min(i, len(MM) - 1)], KX), ll)   # h264 white ~250 -> exactly opaque; no morphology (it made stair-steps)
         al.append(np.concatenate([m, np.repeat(m[-1:], PADB, 0)]) * ramp if PADB else m * ramp)
     tops = [int(np.argmax((m[:, 300:800] > 0.5).any(1))) for m in al[::4]]; top = HAIR.setdefault(clip, int(np.median(tops)))
     return fr, al, log, top
@@ -295,14 +297,16 @@ HAIR = {}
 HOST = {'ama_s': dict(eye=(530, 680)), 'carlos_s': dict(eye=(545, 390)), 'carlos_q': dict(eye=(465, 310))}
 FACEH = {'ama_s': 348, 'carlos_s': 265, 'carlos_q': 175}   # calibrated on rendered frames (#57): measured face width Ama/Carlos was 1.05-1.11 -> Ama x0.97, Carlos x1.04
 SEAT = {'ama_s': 2500, 'carlos_s': 1600, 'carlos_q': 1880}
-FACE_PX = {'mcu': 265, 'wide': 249, 'mws': 232, 'two': 230}; EYE_Y = {'mcu': 715, 'wide': 785, 'mws': 820, 'two': 960}   # owner 22/10 sharpness: no host layer above 1.0x (Carlos mcu = 1.0x source)
-FRAME = {(g, f_): (round(FACE_PX[f_] / FACEH[g], 4), EYE_Y[f_] - (50 if g == 'carlos_q' else 0) ) for g in FACEH for f_ in FACE_PX}   # Ama's clip ends at source row 1919: her eye line sits a little lower so her body still exits the frame bottom   # 3/4 Carlos: longer chin below the eye
+FACE_PX = {'mcu': 346, 'wide': 270, 'mws': 270, 'two': 230}; EYE_Y = {'mcu': 670, 'wide': 690, 'mws': 690, 'two': 960}   # owner 22/10 composition: MCU face 18 % for explanations, MS (waist) 14 % for openers / reactions; eye on the upper third (33-36 %); x2 SR layers keep every host layer <= 1.0x   # owner 22/10 sharpness: no host layer above 1.0x (Carlos mcu = 1.0x source)
+FRAME = {(g, f_): (round(FACE_PX[f_] / FACEH[g], 4), EYE_Y[f_] - (50 if g == 'carlos_q' else 0)) for g in FACEH for f_ in FACE_PX}
+for (g_, f_), (sc_, ey_) in list(FRAME.items()):   # equal head-top line for both hosts: Carlos's eye moves by the hair-height difference
+    if g_ != 'ama_s' and f_ in ('mcu', 'wide', 'mws'): top_a = FRAME[('ama_s', f_)][1] - 293 * FRAME[('ama_s', f_)][0]; FRAME[(g_, f_)] = (sc_, round(top_a + (197 if g_ == 'carlos_s' else 149) * sc_))
 SIDE = {(g, f_): ({'mcu': 380, 'wide': 380, 'mws': 360, 'two': 220} if g == 'ama_s' else {'mcu': 700, 'wide': 700, 'mws': 720, 'two': 880})[f_] for g in FACEH for f_ in FACE_PX}   # thirds; two-shot gap >= 4 % width
 DESK_Y = 1880; VBOT = lambda frame: 1920
 GK = lambda clip, who: 'ama_s' if clip.startswith('ga') else 'carlos_q' if 'q34' in clip else 'carlos_s'
 def place(sid, who, frame, top):
-    sc, ey = FRAME[(who, frame)]; ex, sy = HOST[who]['eye']; low = sy + (VBOT(frame) - ey) / sc
-    assert low <= SEAT[who] and sc <= 1.0 + 1e-6, ('seat/lap would be visible or body ends in frame', sid, who, low)
+    sc, ey = FRAME[(who, frame)]; ex, sy = HOST[who]['eye']; ey = max(ey, VBOT(frame) - (SEAT[who] - sy) * sc); low = sy + (VBOT(frame) - ey) / sc   # body must still exit the frame bottom above the clip's last solid row
+    assert low <= SEAT[who] and sc <= 2.0 + 1e-6, ('seat/lap would be visible or body ends in frame', sid, who, low)
     return sc, ex, sy, SIDE[(who, frame)], ey
 # ------------------------------------------------------------------ backgrounds (Ken Burns + crossfade on swaps)
 BGI = {}
@@ -359,7 +363,7 @@ if ZN:
     for _ in range(3):   # horizon position depends on the zoom, the zoom on the tilt
         HZ0 = 960 + (ZN['horizon'] - 0.5) * 1920 * ZBASE; CAM_TY = float(np.clip(HZ0 - EYM, -260, 260)); ZBASE = max(1.10, 1.03 + 2 * abs(CAM_TY) / 1920)
     HZ0 = 960 + (ZN['horizon'] - 0.5) * 1920 * ZBASE   # zoom keeps the tilted canvas covering the frame (canvas 1.33x: no upscale up to 1.33)
-    HDY = float(np.clip((HZ0 - CAM_TY) - EYM, 0, 90))   # horizon still below the eyes after the max tilt: lower both hosts (chins stay above the text column)
+    HDY = 0.0   # owner 22/10 composition: eyes stay on the upper third; only the camera tilts   # horizon still below the eyes after the max tilt: lower both hosts (chins stay above the text column)
     if HDY:
         for k_ in list(FRAME): FRAME[k_] = (FRAME[k_][0], FRAME[k_][1] + HDY)
     PLACE.update(valid=ZN['valid'], horizon=ZN['horizon'], cam_ty=round(CAM_TY, 1), zbase=round(ZBASE, 3), host_dy=round(HDY, 1), eye_dev=round(abs(HZ0 - CAM_TY - EYM - HDY), 1), hosts={})
@@ -431,7 +435,7 @@ def comp(F, Al, sc, cx, cy, ox, oy, drift):   # premultiplied resample (MR.place
     return Fp / np.maximum(a, 1e-3)[..., None], a
 enc = subprocess.Popen(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', '1080x1920', '-r', str(FPS), '-i', '-',
                         '-c:v', 'libx264', '-threads', '2', '-profile:v', 'high', '-preset', 'slow', '-tune', 'animation', '-crf', '16', '-maxrate', '14M', '-bufsize', '28M', '-pix_fmt', 'yuv420p', f'{RD}/video.mp4'], stdin=subprocess.PIPE)
-KEYM = {}; EQ = []; BGC = []; EXPO = None; HOSTG = 1.0; PREV_OUT = None; OVS = sorted(OV, key=lambda o: o['t'][0]); fi = 0; COVER = None; QC = []; PA = None
+KEYM = {}; EQ = []; BGC = []; HB = {}; EXPO = None; HOSTG = 1.0; PREV_OUT = None; OVS = sorted(OV, key=lambda o: o['t'][0]); fi = 0; COVER = None; QC = []; PA = None
 _x = np.arange(256) / 255.0; _l = _x ** 0.86; _s = np.clip(_l - 0.16 * np.sin(2 * np.pi * _l) / (2 * np.pi), 0, 1)   # owner 22/10: mids lifted ~+10 %, soft S-curve
 _sh = np.clip(1 - _x * 2.2, 0, 1); _hi = np.clip(_x * 2 - 1.1, 0, 1); _fl = lambda v: 18 / 255 + np.clip(v, 0, 1) * (1 - 22 / 255)   # black floor 18/255
 GRADE = np.stack([_fl(_s + 0.02 * _sh - 0.015 * _hi), _fl(_s + 0.01 * _sh + 0.003 * _hi), _fl(_s - 0.01 * _sh + 0.02 * _hi)], 1)   # BGR: slight teal shadows / warm highlights
@@ -447,7 +451,7 @@ for s in S:
         fr, al, log, top = host_frames(s, clip, who, lines, raw); gk = GK(clip, who); xf = place(s['id'], gk, frame, top); s['xfs'][clip] = list(xf); s.setdefault('faceh', {})[who] = round(FACEH[gk] * xf[0]); s.setdefault('lowsrc', {})[who] = round(xf[2] + (VBOT(frame) - xf[4]) / xf[0]); s.setdefault('lowlim', {})[who] = SEAT[gk]; _fb = json.load(open(f'{TL}/meta/{clip}/{who}/mouth.json'))['face_box'] if not raw else ([380, 170, 850, 850] if who == 'ama' else [395, 480, 720, 865]); s.setdefault('faceboxes', []).append([(_fb[0] - xf[1]) * xf[0] + xf[3], (_fb[1] - xf[2]) * xf[0] + xf[4], (_fb[2] - xf[1]) * xf[0] + xf[3], (_fb[3] - xf[2]) * xf[0] + xf[4]]); R_.append((fr, al, xf, who)); logs.append(log)
         if not raw: s['mouths'].append([clip, who])
     def _band(al, xf, dy):   # worst mean alpha (over the shot's frames) of the torso band at frame rows 1900..1958 (= 2 % below the bottom), mapped back to source rows
-        sc, ex, sy, ox, oy = xf; VB = VBOT('two' if s['other'] else s['frame']); rows = np.clip((sy + (np.arange(VB - 20, VB + 40, 4) - oy - dy) / sc).astype(int), 0, al[0].shape[0] - 1); c0, c1 = int(ex - 60 / sc), int(ex + 60 / sc)
+        sc, ex, sy, ox, oy = xf; k_ = al[0].shape[1] // 1080; VB = VBOT('two' if s['other'] else s['frame']); rows = np.clip(((sy + (np.arange(VB - 20, VB + 40, 4) - oy - dy) / sc) * k_).astype(int), 0, al[0].shape[0] - 1); c0, c1 = int((ex - 60 / sc) * k_), int((ex + 60 / sc) * k_)
         return min(float(m[rows, c0:c1].mean()) for m in al[::2])
     DY = 0
     while DY < 160 and min(_band(al, xf, DY) for fr, al, xf, who in R_) < 0.95: DY += 8   # whole composition down (both hosts: equal heads + eye line kept)
@@ -476,7 +480,7 @@ for s in S:
             EXPO = min([(abs(cv2.LUT((B * g_).clip(0, 255).astype(np.uint8), GRADE).mean() / 255 - 0.58), g_) for g_ in np.arange(0.85, 2.21, 0.03)])[1]; print('bg exposure gain %.2f' % EXPO)
         B = B * EXPO
         for i in order:
-            fr, al, (sc, cx, cy, ox, oy), who = R_[i]; pz_ = PZ(s, j); f, a = comp(fr[j], al[j], sc * pz_, cx, cy, 540 + (ox - 540) * pz_, 960 + (oy - 960) * pz_, drift)   # hook punch-in about the frame centre
+            fr, al, (sc, cx, cy, ox, oy), who = R_[i]; pz_ = PZ(s, j); k_ = fr[j].shape[1] // 1080; f, a = comp(fr[j], al[j], sc * pz_ / k_, cx * k_, cy * k_, 540 + (ox - 540) * pz_, 960 + (oy - 960) * pz_, drift)   # x2 layers: half the scale, doubled anchor   # hook punch-in about the frame centre
             sh = qblur(a, 16); sh = np.roll(np.roll(sh, 16, 0), 10, 1)[..., None] * 0.38
             B = B * (1 - sh) + np.array([30, 24, 14], np.float32) * sh
             ao = qblur(a, 45)[..., None] * 0.22; B = B * (1 - ao)   # ambient occlusion / contact shadow around the body
@@ -492,6 +496,12 @@ for s in S:
             if who == 'carlos': lum = f.mean(2, keepdims=True); f = f * (1 - 0.16 * np.clip((lum - 150) / 90, 0, 1))
             eo = (a > 0.08) & (a < 0.92); FRs.append(float(((f[..., 1] > f[..., 2] + 25) & (f[..., 1] > f[..., 0] + 25))[eo].mean()) if eo.any() else 0.0)
             f = MR.finish_host(f, a, B, ld_)   # e2922ec5 PRO edge treatment: 3 px subtle rim from the bg light side + 1 px light wrap, no extra despill
+            if j % 2 == 0:   # hands: skin-coloured blobs inside the matte below chin + 0.4 face (quarter res) -> per-frame boxes for the no-occlusion QA
+                q_ = cv2.resize(f, (270, 480), interpolation=cv2.INTER_AREA).clip(0, 255).astype(np.uint8); aq_ = cv2.resize(a, (270, 480)) > 0.6
+                hv_ = cv2.cvtColor(q_, cv2.COLOR_BGR2HSV); sk_ = (hv_[..., 0] <= 25) & (hv_[..., 1] >= 60) & (hv_[..., 2] >= 45) & aq_
+                gk_ = GK(HS[i][0], who); sk_[:max(0, int((oy + (CHIN.get(gk_, 200) + 0.4 * FACEH[gk_]) * sc) / 4))] = False
+                n_, lb_, st_, _ = cv2.connectedComponentsWithStats(sk_.astype(np.uint8))
+                HB.setdefault(fi, []).extend([[int(st_[c][0] * 4), int(st_[c][1] * 4), int((st_[c][0] + st_[c][2]) * 4), int((st_[c][1] + st_[c][3]) * 4)] for c in range(1, n_) if st_[c][4] >= 40])
             a3 = a[..., None]; B = MR.over(f * a3, a, B, wrap_px=0); xs = int(np.clip(ox, 80, 1000)); VB = VBOT('two' if s['other'] else s['frame']); bot.append(float(a[VB - 8:VB, xs - 60:xs + 60].mean())); AL.append(a)
         QC.append(dict(t=round(t, 3), fringe=max(FRs), flick=0.0, bottom=min(bot)))
         if j == s['n'] // 2 and len(AL) == 1: EQ.append(dict(shot=s['id'], **MR.edge_qa(B, AL[0], bg=B0)))   # edge QA on the rendered frame (singles)
@@ -551,5 +561,5 @@ for o in OV: o.pop('_img', None); o.pop('_chain', None)
 json.dump(dict(lesson=dict(META, out=META['out']), shots=[{k: v for k, v in s.items()}  for s in S],
                overlays=OV, safe=SAFE, viral=True, punch={'hook': 0.0}, hook_kind='question', qa=QA, scene=TOTAL, total=TOTAL, end=0, endcard_boxes=[], sfx=SFX, avoid={}),
           open(f'{RD}/timeline.json', 'w'), indent=1)
-json.dump(dict(bg_fill_visible_max=max(q['fill'] for q in BQA), bg_uncovered_max=max(q['uncovered'] for q in BQA), bottom_min=min(q['bottom'] for q in QC), two_gap_min=min([q['gap'] for q in QC if 'gap' in q] or [999]), fringe_max=max(q['fringe'] for q in QC), edge=EQ, bg_colour=BGC, flicker_max=max(q['flick'] for q in QC), flicker_mean=float(np.mean([q['flick'] for q in QC])), frames=len(QC)), open(f'{RD}/qc.json', 'w'))
+json.dump(dict(bg_fill_visible_max=max(q['fill'] for q in BQA), bg_uncovered_max=max(q['uncovered'] for q in BQA), bottom_min=min(q['bottom'] for q in QC), two_gap_min=min([q['gap'] for q in QC if 'gap' in q] or [999]), fringe_max=max(q['fringe'] for q in QC), edge=EQ, bg_colour=BGC, hands={str(k): v for k, v in HB.items()}, flicker_max=max(q['flick'] for q in QC), flicker_mean=float(np.mean([q['flick'] for q in QC])), frames=len(QC)), open(f'{RD}/qc.json', 'w'))
 print('done', OUTF, f'{TOTAL:.2f} s', len(S), 'shots')

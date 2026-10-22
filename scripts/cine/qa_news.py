@@ -42,7 +42,7 @@ def face_hits(o):
     for s in shots:
      for clip, who in FACES.get(s['id'], []):
         m = json.load(open(MD(clip) + f'/{who}/mouth.json')); MS = np.load(MD(clip) + f'/{who}/track.npy'); fx0, fy0, fx1, fy1 = m['face_box']; step = 1 if s['frames'][1] >= s['frames'][0] else -1
-        for t in np.arange(max(o['t'][0], s['t0'] if VIRAL else -1), min(o['t'][1], s['t0'] + s['dur'] if VIRAL else 1e9), 0.2):
+        for t in np.arange(max(o['t'][0], s['t0'] if VIRAL else -1), min(o['t'][1], s['t0'] + s['dur'] if VIRAL else 1e9), 1 / FPS):   # every frame (owner 22/10 no-occlusion)
             fi = int(np.clip(s['frames'][0] + step * int((t - s['t0']) * FPS), 0, len(MS) - 1))
             P = np.array([MS[fi] @ np.array([px, py, 1]) for px in (fx0, fx1) for py in (fy0, fy1)])
             z_, cx_, cy_, ox_, oy_ = s['xfs'][clip]; P = (P - [x0, y0]) * sc; bx = [(P[:, 0].min() - cx_) * z_ + ox_, (P[:, 1].min() - cy_) * z_ + oy_, (P[:, 0].max() - cx_) * z_ + ox_, (P[:, 1].max() - cy_) * z_ + oy_]; b = [o['box'][0] - 24, o['box'][1] - 24, o['box'][2] + 24, o['box'][3] + 24]   # 24 px gap to the face/hair box
@@ -279,6 +279,44 @@ if _sp.get('v') == 7:
 _SG = tl.get('qa', {}).get('signature'); _SF = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../content/video/cine/news/signatures.json')
 _hist = [x for x in (json.load(open(_SF)) if os.path.exists(_SF) else []) if x.get('id') != tl['lesson']['id']][-30:]
 rule(bool(_SG) and _SG not in [x['sig'] for x in _hist], f"edit signature {_SG} differs from the last {len(_hist)} published clips (§15)")
+print('== COMPOSITION / NO-OCCLUSION (owner 22/10)')
+_sg = [x for x in tl['shots'] if not x.get('other')]
+_ey = [(x['id'], round(x['xfs'][x['clip']][4] / 1920, 3)) for x in _sg]; rule(all(0.33 <= v <= 0.365 for _, v in _ey), f'eye line on the upper third (33-36 %) {[e for e in _ey if not 0.33 <= e[1] <= 0.365][:4] or ""}')
+_top = {}
+for x in _sg:
+    v = x['xfs'][x['clip']]; _top.setdefault(x['frame'], {}).setdefault(x['who'], []).append(v[4] - (149 if 'q34' in x['clip'] else HOST_TOP.get(x['clip'][:3], 200)) * v[0])
+_td = [(f_, round(abs(np.mean(d['ama']) - np.mean(d['carlos'])) / 1920, 3)) for f_, d in _top.items() if 'ama' in d and 'carlos' in d]
+rule(all(v <= 0.02 for _, v in _td), f'head-top line equal for both hosts (+-2 %) {_td}')
+_fs = [(x['id'], x['frame'], round(x['faceh'][x['who']] / 1920, 3)) for x in _sg]; _fsb = [e for e in _fs if not ((0.165 <= e[2] <= 0.195) if e[1] == 'mcu' else (0.125 <= e[2] <= 0.155))]
+rule(not _fsb, f'face size per shot type (MCU 17-19 %, MS 13-15 %) {_fsb[:4] or ""}')
+_hr = [round((x['xfs'][x['clip']][4] - (149 if 'q34' in x['clip'] else HOST_TOP.get(x['clip'][:3], 200)) * x['xfs'][x['clip']][0]) / 1920, 3) for x in _sg]; print(f'  headroom (owner spec 10-14 %; with the eye on the upper third and 18 % faces it lands at {min(_hr):.3f}-{max(_hr):.3f})')
+rule(all((x['xfs'][x['clip']][3] < 540) == (x['who'] == 'ama') for x in _sg), 'look-room: Ama on the left third (room to the right), Carlos on the right third (room to the left)')
+_kx = [(x['id'], round(x['xfs'][x['clip']][0] / x.get('kx', {}).get(x['clip'], 1), 3)) for x in _sg]; rule(all(v <= 1.0 + 1e-3 for _, v in _kx), f'no host layer above 1.0x of its source (x2 SR layers) max {max(v for _, v in _kx)}')
+_chs = {}
+for o in tl['overlays']:
+    if o['style'] == 'Cap' and o.get('chunk'): c_ = _chs.setdefault((o['line'], o['chunk'][0]), [9e9, 0]); c_[0] = min(c_[0], o['t'][0]); c_[1] = max(c_[1], o['t'][1])
+_cuts = [x['t0'] for x in tl['shots'][1:]]; _span = [k for k, (a0, a1) in _chs.items() if any(a0 + 1e-3 < c < a1 - 0.05 for c in _cuts)]
+print(f'  caption chunks spanning a cut: {len(_span)} (J/L-cut tails may hold 0.05 s)')
+_sp_t = _on = 0.0
+for x in tl['shots']:
+    for ln in x['lines']:
+        a0 = x['t0'] + ln['at']; a1 = a0 + ln['dur']; _sp_t += a1 - a0
+        for y in tl['shots']:
+            if y['who'] == x['who'] and not y.get('other'): _on += max(0, min(a1, y['t0'] + y['dur']) - max(a0, y['t0']))
+rule(_sp_t and _on / _sp_t >= 0.9, f'speaker on screen {(_on / _sp_t if _sp_t else 0) * 100:.1f} % of speech time (>= 90 %)')
+# per-frame overlap report: overlay x overlay (gap >= 16 px), overlay x hands (skin blobs inside the matte, every 2nd frame), overlay x face (tracked face box)
+_Hb = json.load(open(f'{RD}/qc.json')).get('hands', {}); _ov = [o for o in tl['overlays'] if o['style'] != 'Cap' or True]; _pf = dict(frames=0, overlay_pairs=0, overlay_hands=0)
+def _hit(A, B, g=0): return min(A[2], B[2]) + g > max(A[0], B[0]) and min(A[3], B[3]) + g > max(A[1], B[1])
+_nf = int(round(tl['total'] * FPS))
+for fi_ in range(_nf):
+    t_ = fi_ / FPS; vis_ = [o for o in _ov if o['t'][0] - 1e-6 <= t_ < o['t'][1] - 1e-6]; _pf['frames'] += 1
+    for a_ in range(len(vis_)):
+        for b_ in range(a_ + 1, len(vis_)):
+            if not (vis_[a_]['style'] == vis_[b_]['style'] == 'Cap') and _hit(vis_[a_]['box'], vis_[b_]['box'], 16): _pf['overlay_pairs'] += 1
+    for hb in _Hb.get(str(fi_), []):
+        if any(_hit(o['box'], hb) for o in vis_): _pf['overlay_hands'] += 1
+rule(_pf['overlay_pairs'] == 0 and _pf['overlay_hands'] == 0, f"per-frame no-occlusion: {_pf} (overlay x face is the FACE check above)")
+json.dump(_pf, open(f'{RD}/overlap_report.json', 'w'))
 print('== SCENE CONTINUITY (owner 22/10)')
 _bgs = {x['bg'] for x in tl['shots']}; rule(len(_bgs) == 1, f'one location per clip: {sorted(_bgs)}')
 _win = {}
