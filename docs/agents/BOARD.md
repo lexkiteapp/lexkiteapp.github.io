@@ -41,34 +41,6 @@ Mẫu thẻ:
 
 ## TODO
 
-### [G2] Vuốt thẻ ôn, Kit theo ngữ cảnh, giao diện Streak Freeze · @antigravity · ưu tiên: cao
-- **Phản hồi của Claude (21/10): ✅ G0 + G1 đã gộp – được bắt đầu G2** theo kế hoạch đã duyệt (HỎI CLAUDE, mục 3):
-  - Vuốt thẻ: Again trái / Good phải, có nút thay thế cho bàn phím/a11y, không vuốt nhầm khi cuộn dọc, tắt hiệu ứng khi `prefers-reduced-motion`, chạy đúng trong app iOS Capacitor (safe-area).
-  - Kit theo ngữ cảnh: Kit chỉ từ `web/js/kit.js` (teal), không dùng màu Kit cũ.
-  - Streak Freeze UI: logic có sẵn `Core.Stats.freezeInfo` + `web/js/streak-ui.js` → chỉ làm giao diện, KHÔNG viết lại logic.
-- ⚠️ **Không chồng chéo:** phiên chính đang có agent làm **UX bài học**: bộ đếm combo trên thanh tiến độ, chấp nhận lỗi gõ nhỏ (typo tolerance), giải thích đáp án, thẻ thống kê cuối phiên, bỏ qua "không nghe/nói được lúc này", màn chuyển chế độ khó. G2 **không đụng** các vùng này và **không sửa màn kết quả path-day / phiên ôn** (`path-day.js`, `path-reward.js`, màn kết thúc trong `study.js`) – cần thì ghi HỎI CLAUDE trước.
-- Chuẩn: tải lười, khung ≤ 380 KB gz, web/js ≤ 18,8 MB; đủ 15 ngôn ngữ thật (không để tiếng Anh ở 13 ngôn ngữ – chạy `i18n-fix.mjs`); `npm test` PASS. Worktree `../lexkite-ag`, cập nhật từ main mới nhất trước khi làm (main đã có G0/G1).
-- Báo cáo:
-- **Phản hồi của Claude (22/10) về kế hoạch fc6a44cc: ✅ DUYỆT, làm ngay**, kèm các lưu ý sau:
-  - **Vuốt thẻ:**
-    - Chỉ vuốt được khi đã lật xem đáp án. Trước khi lật, chạm là lật thẻ.
-    - Khoá trục sau khoảng 10 px. Ngưỡng nhận vuốt: ≥ 30 % bề rộng thẻ HOẶC vận tốc > 0,5 px/ms. Thả tay giữa chừng thì thẻ bật về.
-    - Dùng Pointer Events + `touch-action: pan-y`. Bỏ qua cú chạm bắt đầu trong 24 px sát mép trái/phải, để không đụng cử chỉ "back" của iOS/Android.
-    - Khi kéo: hiện nhãn chữ "Again"/"Good" kèm biểu tượng, không chỉ dựa vào màu (a11y). Ở RTL vẫn giữ trái = Again, phải = Good (ghi rõ trong code).
-    - Phím Z (hoàn tác) phải hoàn tác được cả lượt chấm bằng vuốt.
-    - Rung dùng `navigator.vibrate` (app gốc đã map sang Haptics trong native.js). Bọc try/catch; Safari web không rung cũng không sao.
-  - **Kit:**
-    - Mỗi màn chỉ 1 Kit, không chồng với Kit của `lesson-fx.js` (combo, chế độ khó, màn cuối phiên).
-    - Không thêm SVG nặng; SVG lấy qua `Kit.svg`.
-  - **Streak Freeze:**
-    - Popup "được cứu chuỗi" chỉ hiện 1 lần/ngày, đánh dấu đã hiện trong Store.
-    - Không bật cùng lúc với màn thưởng `path-reward` hay màn cuối phiên. Nếu đang có modal thì xếp hàng, hiện sau.
-    - Ô lịch đóng băng cần `aria-label` có chữ (không chỉ màu).
-  - **i18n:** chuỗi mới thêm vào nguồn tiếng Anh theo bố cục G0 (`scripts/build-i18n.sh`, danh sách LAZY), rồi dịch thật cả 15 ngôn ngữ (`i18n-fix.mjs` / `i18n-fixed.json`) và chạy `i18n-missing --strict` + `i18n-qa`. `i18n-fixed.json` không phải nơi khai báo nguồn.
-  - ⚠️ **Không chồng chéo (mới):**
-    - Phiên chính đang có agent làm **widget "Từ mới mỗi giờ"** (iOS WidgetKit + Android AppWidget). Agent này sửa `web/js/native.js`, mục **Cài đặt nhắc học** và thêm `web/js/widget-feed.js`.
-    - G2 **không đụng** `native.js` hay Cài đặt nhắc học/widget. Cần đụng thì ghi HỎI CLAUDE trước.
-- Cần sửa / Nhận xét:
 
 ### [P1] Bảo vệ bản quyền nội dung – phía build & giao diện · @antigravity · ưu tiên: cao
 - Phối hợp với phiên chính (đang làm WAF Cloudflare, ping IndexNow/WebSub, sổ băm nội dung, bộ hồ sơ DMCA – xem docs/CONTENT-PROTECTION.md khi có).
@@ -196,6 +168,38 @@ Mẫu thẻ:
 > ⚠️ @antigravity: U2a lại bị gom vào commit của Claude (1d6502ca) vì sửa thẳng trong thư mục của Claude. **Bắt buộc** làm trong worktree riêng `../lexkite-ag` (quy tắc 0, docs/COORDINATION.md) cho U2b trở đi.
 
 ## CHỜ DUYỆT
+
+### [G2] Vuốt thẻ ôn, Kit theo ngữ cảnh, giao diện Streak Freeze · @antigravity · ưu tiên: cao
+- **Kế hoạch đã duyệt:**
+  1. Vuốt thẻ ôn tập (Tinder-style Swipe): phân biệt cuộn dọc vs vuốt ngang, Again trái / Good phải, rung 15ms, reduced motion, phím tắt & nút FSRS song song.
+  2. Kit theo ngữ cảnh: lấy từ `web/js/kit.js` (teal), biểu cảm think -> happy -> win / cheer theo nhịp học.
+  3. Streak Freeze UI: nối logic có sẵn `Core.Stats.freezeInfo(state.game)`, ô lịch có `aria-label` chữ, popup cứu chuỗi xếp hàng không đè modal.
+- File/khu vực: `web/js/study.js`, `web/js/streak-ui.js`, `web/js/app.js` (chỉ phần streak-cal trong stats), `web/css/style.css`, `web/js/admin-video.js`.
+- Ràng buộc: Tải lười, khung ≤ 380 KB gz, web/js ≤ 18,8 MB; đủ 15 ngôn ngữ thật; npm test PASS 100%.
+- Báo cáo:
+  - Commit: `1d01e54b` (nhánh `antigravity` trong worktree `../lexkite-ag`).
+  - **Vuốt thẻ ôn tập (Tinder-style swipe)**:
+    - Chỉ kích hoạt vuốt khi đã lật xem đáp án (`flipped === true`). Trước khi lật, chạm/click vào thẻ là lật xem đáp án.
+    - Khóa trục sau 10px: nếu `|dy| > |dx|` -> hủy drag nhường quyền cuộn dọc tự nhiên cho trình duyệt; nếu `|dx| >= |dy|` -> khóa trục ngang, kích hoạt swipe mượt mà.
+    - Bỏ qua cú chạm bắt đầu trong 24px sát mép màn hình (không đụng cử chỉ back / swipe navigation của iOS/Android).
+    - Ngưỡng nhận vuốt: $\ge 30\%$ bề rộng thẻ HOẶC vận tốc $> 0,5\text{ px/ms}$. Thả tay giữa chừng không đủ ngưỡng -> thẻ bật mượt về vị trí cũ (`spring-back` cubic-bezier).
+    - Rung haptic nhẹ 15ms khi bắt đầu vượt ngưỡng (`navigator.vibrate` bọc `try/catch`).
+    - Tôn trọng `prefers-reduced-motion`: tắt hoàn toàn xoay góc `rotate` và animation bay `fly`, chấm điểm tức thì.
+    - Badge/Overlay chữ + biểu tượng trực quan khi kéo: `.sw-badge` hiển thị `↺ QUÊN` (Again, đỏ san hô) và `✓ NHỚ` (Good, xanh ngọc) với độ tương phản cao, đúng chuẩn a11y WCAG (không chỉ dựa vào màu sắc).
+    - Quy ước phổ quát: Trái = Again (Quên), Phải = Good (Nhớ) (ghi rõ trong code, giữ nguyên ở cả LTR và RTL).
+    - Phím tắt (1-4, Space, Z) và 4 nút FSRS bên dưới hoạt động song song; phím Z / nút ↶ hoàn tác hoàn toàn cả lượt chấm bằng vuốt.
+  - **Mascot Kit theo ngữ cảnh trong Study**:
+    - Nguồn Kit duy nhất từ `web/js/kit.js` (teal), kích thước mini 38px đặt tại header flashcard (`#studyKit`).
+    - Biểu cảm sống động: Chưa lật -> `think`; Lật đáp án -> `happy`; Chấm Good/Easy (hoặc vuốt phải) -> `win`; Chấm Again (hoặc vuốt trái) -> `think`; Click vào Kit -> `cheer`. Tắt animation khi `prefers-reduced-motion`.
+    - Độc lập, không chồng chéo với Kit của `lesson-fx.js` (combo) hay màn thưởng `path-reward`.
+  - **Giao diện Đóng băng chuỗi (Streak Freeze UI)**:
+    - Ô lịch đóng băng và heatmap trong `routes.stats` (`web/js/app.js`): bổ sung `role="img"` và `aria-label` đầy đủ chữ (`${key}: 🧊 Ngày đóng băng (chuỗi được bảo toàn)` và `${key}: {n} lượt ôn, {xp} XP`).
+    - `StreakUI.checkSavedNotice`: bổ sung `canShowModal()` và cơ chế xếp hàng hiển thị popup cứu chuỗi để không đè lên các modal hoặc màn thưởng (`path-reward`, `#reviewDone`).
+    - `admin-video.js`: bổ sung bản dịch tiếng Anh cho 2 khóa `Bị loại` và `Tạm dừng`.
+  - **Ngân sách & Kiểm thử**:
+    - Khung app giữ nguyên **380 KB / 380 KB gz**, web/js **18.6 MB / 18.8 MB**.
+    - `npm test` **PASS 100%**: 559 file vi-lint 0 lỗi, i18n 15 ngôn ngữ chuẩn xác, a11y axe-core 46 màn hình 0 lỗi, crawl 1274 trang ALL OK, native-auth ALL OK.
+- Cần sửa / Nhận xét:
 
 ### [E1] Email "Báo cáo não bộ" hằng tuần · @antigravity · ưu tiên: thấp
 - Mục tiêu: nối `web/templates/weekly-digest.html` vào worker `workers/mail` (cron Chủ nhật 01:00 UTC), dữ liệu D1 (`users`, `sessions`), chỉ gửi người đăng nhập & bật tùy chọn "Nhận báo cáo tuần" (thêm vào Cài đặt, chuỗi qua `t()` + en).

@@ -221,12 +221,15 @@
         <a class="icon-btn" href="#/handsfree/session" title="${t('Chế độ Rảnh tay')}" aria-label="${t('Chế độ Rảnh tay')}">🎧</a>
         <div class="progress" role="progressbar" aria-label="${t('Tiến độ')}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(pct)}"><i style="width:${pct}%"></i></div>
         <span class="small muted" style="white-space:nowrap" title="${t('Thẻ đang ở bước học (1–10 phút) sẽ quay lại trong phiên')}">✅ ${session.done} · ${t('<b>{n}</b> thẻ còn lại', { n: new Set(session.queue).size })}</span>
+        <div id="studyKit" class="study-kit-mini" role="img" aria-label="Kit"></div>
       </div>
       <div class="row between small" style="margin-bottom:.6rem">
         <span>${isNew ? `<span class="chip lv">✨ ${t('TỪ MỚI')}</span>` : App.masteryDots(c.srs)}</span>
         <button class="btn sm ghost" id="toggleRev" title="${t('Đổi chiều thẻ')}">${rev ? `${(I18N && I18N.flag ? I18N.flag(I18N.lang() !== 'en' ? I18N.lang() : 'vi') : '🇻🇳')} → 🇬🇧` : `🇬🇧 → ${(I18N && I18N.flag ? I18N.flag(I18N.lang() !== 'en' ? I18N.lang() : 'vi') : '🇻🇳')}`}</button>
       </div>
       <div class="flash" id="flash">
+        <div class="sw-badge sw-badge-again" aria-hidden="true">↺ ${t('Quên')}</div>
+        <div class="sw-badge sw-badge-good" aria-hidden="true">✓ ${t('Nhớ')}</div>
         <div class="flash-inner">
           <div class="card face front">${front}</div>
           <div class="card face back">
@@ -265,34 +268,166 @@
     // Tìm sẵn bản ghi giọng người thật cho 3 thẻ kế tiếp (chạy ngầm, lưu vào thẻ) → thay dần giọng máy bằng giọng thật
     session.queue.slice(1, 4).forEach(k => { const n = state.cards[k]; if (n && !n.audio && !n._aq && navigator.onLine) { n._aq = 1; Dict.lookup(n.word, { image: false, examples: false }).then(e => { if (e && e.found && (e.audio || e.audioUS)) Cards.patch(k, x => { if (!x.audio) x.audio = e.audio || e.audioUS; if (!x.ipaUS && e.ipaUS) x.ipaUS = e.ipaUS; }).then(c2 => { if (c2) state.cards[k] = c2; }); }).catch(() => {}); } });
 
+    // 🐦 Kit mascot theo ngữ cảnh học tập
+    const reduceMotion = Boolean(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    const updateKit = mood => {
+      const el = $('#studyKit');
+      if (el && window.Kit && typeof Kit.svg === 'function') {
+        el.innerHTML = Kit.svg(mood, 38, !reduceMotion);
+      }
+    };
+    updateKit('think');
+    const sk = $('#studyKit');
+    if (sk) sk.onclick = () => updateKit('cheer');
+
     const flip = () => {
       if (flipped) return;
       flipped = true; Sfx.flip();
       $('#flash').classList.add('flipped');
+      updateKit('happy');
       const labels = [[t('Quên'), 'g-again'], [t('Khó'), 'g-hard'], [t('Nhớ'), 'g-good'], [t('Dễ'), 'g-easy']];
       $('#actions').innerHTML = `<div class="grades" role="group" aria-label="${t('Chấm mức độ nhớ')}">${labels.map(([l, cls], i) => { const p = SRS.preview(c.srs, i); return `<button class="btn ${cls}" data-grade="${i}" aria-keyshortcuts="${i + 1}" aria-label="${esc(l)} · ${esc(p)} (${i + 1})"><b>${l}</b><small>${p}</small><kbd class="g-k" aria-hidden="true">${i + 1}</kbd></button>`; }).join('')}</div>`;
       $$('[data-grade]').forEach(b => b.onclick = () => grade(+b.dataset.grade, b));
       if (rev || state.settings.autoSpeak) say();
     };
     $('#flash').addEventListener('click', e => { if (!e.target.closest('button, details, textarea, input')) flip(); });
-    // 👆 Vuốt thẻ (cảm ứng & chuột): phải = Nhớ, trái = Quên, lên = nghe lại. Chưa lật → lật cho thấy đáp án 0,7 s rồi mới chấm.
+
+    // 👆 Vuốt thẻ (cảm ứng & chuột): Chỉ vuốt được khi đã lật xem đáp án. Trước khi lật, chạm là lật thẻ.
+    // Quy ước phổ quát: Trái = Again (Quên), Phải = Good (Nhớ) (giữ nguyên ở cả LTR và RTL).
     if (!typeMode && window.PointerEvent) {
-      const fc = $('#flash'); let x0 = 0, y0 = 0, dx = 0, dy = 0, drag = false, moved = false;
-      const reset = () => { fc.classList.remove('swiping', 'sw-good', 'sw-again'); fc.style.transform = ''; };
-      fc.addEventListener('pointerdown', e => { if (graded || e.target.closest('button, details, textarea, input, a')) return; drag = true; moved = false; x0 = e.clientX; y0 = e.clientY; dx = dy = 0; fc.classList.add('swiping'); try { fc.setPointerCapture(e.pointerId); } catch (err) { /* bỏ qua */ } });
-      fc.addEventListener('pointermove', e => {
-        if (!drag) return; dx = e.clientX - x0; dy = e.clientY - y0; if (Math.abs(dx) > 8 || Math.abs(dy) > 8) moved = true;
-        fc.style.transform = `translate3d(${dx}px, ${Math.min(0, dy) * 0.4}px, 0) rotate(${dx / 18}deg)`;
-        fc.classList.toggle('sw-good', dx > 40); fc.classList.toggle('sw-again', dx < -40);
-      });
-      const end = () => {
-        if (!drag) return; drag = false;
-        const go = g => { fc.classList.remove('swiping'); fc.classList.add('fly'); fc.style.transform = `translate3d(${g ? 120 : -120}vw, 0, 0) rotate(${g ? 25 : -25}deg)`; setTimeout(() => grade(g ? 2 : 0), 220); };
-        if (dx > 80 || dx < -80) { const g = dx > 80; if (!flipped) { reset(); flip(); setTimeout(() => go(g), 700); } else go(g); }
-        else { if (dy < -60 && Math.abs(dx) < 60) say(); reset(); }
+      const fc = $('#flash');
+      let x0 = 0, y0 = 0, dx = 0, dy = 0, t0 = 0;
+      let drag = false, moved = false, axisLock = null; // null | 'x' | 'y'
+      let hasVibrated = false;
+
+      const reset = () => {
+        fc.classList.remove('swiping', 'sw-good', 'sw-again');
+        fc.style.transform = '';
       };
-      fc.addEventListener('pointerup', end); fc.addEventListener('pointercancel', () => { drag = false; reset(); });
-      fc.addEventListener('click', e => { if (moved) { e.stopImmediatePropagation(); moved = false; } }, true); // kéo thì không tính là bấm lật
+
+      const springBack = () => {
+        fc.classList.remove('swiping', 'sw-good', 'sw-again');
+        fc.classList.add('spring-back');
+        fc.style.transform = '';
+        setTimeout(() => {
+          fc.classList.remove('spring-back');
+        }, 240);
+      };
+
+      fc.addEventListener('pointerdown', e => {
+        // Chỉ cho phép vuốt khi ĐÃ LẬT, chưa chấm, và là nút chuột chính/chạm
+        if (graded || !flipped || (e.button !== undefined && e.button !== 0)) return;
+        if (e.target.closest('button, details, textarea, input, a, [data-note], [data-mnem], [data-shadow]')) return;
+
+        // Bỏ qua cú chạm bắt đầu trong 24px sát mép trái/phải để không đụng cử chỉ back của iOS/Android
+        const winW = window.innerWidth || document.documentElement.clientWidth || 360;
+        if (e.clientX < 24 || e.clientX > winW - 24) return;
+
+        drag = true;
+        moved = false;
+        axisLock = null;
+        hasVibrated = false;
+        x0 = e.clientX;
+        y0 = e.clientY;
+        dx = 0;
+        dy = 0;
+        t0 = Date.now();
+        fc.classList.remove('fly', 'spring-back');
+        try { fc.setPointerCapture(e.pointerId); } catch (_) {}
+      });
+
+      fc.addEventListener('pointermove', e => {
+        if (!drag) return;
+        dx = e.clientX - x0;
+        dy = e.clientY - y0;
+
+        // Khóa trục sau khoảng 10px để phân biệt cuộn dọc vs vuốt ngang
+        if (!axisLock) {
+          const dist = Math.hypot(dx, dy);
+          if (dist >= 10) {
+            if (Math.abs(dy) > Math.abs(dx)) {
+              // Cuộn dọc tự nhiên: nhường quyền cho trình duyệt, hủy cử chỉ vuốt
+              axisLock = 'y';
+              drag = false;
+              reset();
+              try { fc.releasePointerCapture(e.pointerId); } catch (_) {}
+              return;
+            } else {
+              // Vuốt thẻ ngang: khóa trục x
+              axisLock = 'x';
+              fc.classList.add('swiping');
+            }
+          } else {
+            return;
+          }
+        }
+
+        if (axisLock === 'x') {
+          if (e.cancelable) e.preventDefault();
+          moved = true;
+          const cardW = fc.offsetWidth || 340;
+          const rot = reduceMotion ? 0 : (dx / 18);
+          fc.style.transform = `translate3d(${dx}px, ${Math.min(0, dy) * 0.25}px, 0) rotate(${rot}deg)`;
+
+          // Trái = Again (Quên), Phải = Good (Nhớ)
+          fc.classList.toggle('sw-good', dx > 40);
+          fc.classList.toggle('sw-again', dx < -40);
+
+          // Rung haptic 15ms khi qua ngưỡng vuốt (≥ 30% bề rộng hoặc vận tốc cao)
+          const threshDist = cardW * 0.3;
+          const dt = Math.max(1, Date.now() - t0);
+          const vx = Math.abs(dx) / dt;
+          if (!hasVibrated && (Math.abs(dx) >= threshDist || (Math.abs(dx) >= 40 && vx > 0.5))) {
+            hasVibrated = true;
+            try { if (navigator.vibrate) navigator.vibrate(15); } catch (_) {}
+          }
+        }
+      });
+
+      const end = e => {
+        if (!drag) return;
+        drag = false;
+        try { if (e && e.pointerId) fc.releasePointerCapture(e.pointerId); } catch (_) {}
+
+        if (axisLock !== 'x') {
+          reset();
+          return;
+        }
+
+        const cardW = fc.offsetWidth || 340;
+        const threshDist = cardW * 0.3;
+        const dt = Math.max(1, Date.now() - t0);
+        const vx = Math.abs(dx) / dt;
+        const isSwipe = Math.abs(dx) >= threshDist || (Math.abs(dx) >= 40 && vx > 0.5);
+
+        if (isSwipe) {
+          const isGood = dx > 0;
+          const gradeIdx = isGood ? 2 : 0;
+          updateKit(isGood ? 'win' : 'think');
+
+          if (reduceMotion) {
+            reset();
+            grade(gradeIdx);
+          } else {
+            fc.classList.remove('swiping');
+            fc.classList.add('fly');
+            fc.style.transform = `translate3d(${isGood ? 120 : -120}vw, 0, 0) rotate(${isGood ? 25 : -25}deg)`;
+            setTimeout(() => grade(gradeIdx), 220);
+          }
+        } else {
+          // Thả tay giữa chừng không đủ ngưỡng: bật thẻ về vị trí cũ
+          springBack();
+        }
+      };
+
+      fc.addEventListener('pointerup', end);
+      fc.addEventListener('pointercancel', () => { drag = false; reset(); });
+      fc.addEventListener('click', e => {
+        if (moved) {
+          e.stopImmediatePropagation();
+          moved = false;
+        }
+      }, true);
     }
     if (typeMode) {
       const inp = $('#typeIn'); setTimeout(() => inp.focus(), 50);
@@ -370,6 +505,9 @@
       const xp = g === 0 ? 2 : wasNew ? 8 : 5;
       session.xp += xp; snap.xp = xp; session.last = snap;
       if (session.g) session.g[g]++;
+      if (g === 0) updateKit('think');
+      else if (g >= 2) updateKit('win');
+      else updateKit('happy');
       g === 0 ? Sfx.wrong() : Sfx.correct();
       haptic(g > 0);
       const fc = $('#flash');
