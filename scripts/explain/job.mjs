@@ -21,7 +21,7 @@ async function oidc() {
   if (!u || !t) throw new Error('thiếu OIDC (permissions: id-token: write)');
   return (token = (await (await fetch(u + '&audience=lexkite-lexai', { headers: { Authorization: 'Bearer ' + t } })).json()).value);
 }
-let calls = 0, fails = 0;
+let calls = 0, fails = 0, shown = 0;
 const stat = { gen: 0, tr: 0, judged: 0, low: 0 };
 async function call(mode, lang, list) {
   calls++;
@@ -49,6 +49,7 @@ const brief = x => ({ k: x.id, type: x.type, s: x.s, ans: x.ans, alts: x.alts, c
 // 1) sinh bản tiếng Anh (câu đổi nội dung → làm lại)
 await loop(ALL.filter(x => !DB[x.id] || DB[x.id].sig !== sig(x)), 6, async b => {
   const out = await call('xgen', 'en', b.map(brief)); if (!out) return;
+  if (!shown++) console.log('mẫu trả về:', JSON.stringify(out).slice(0, 700));
   for (const x of b) {
     const o = out[x.id], en = okText(o, x.alts), p = o && str(o.p, 120), ex = o && Array.isArray(o.ex) ? o.ex.map(e => str(e, 200)).filter(Boolean).slice(0, 2) : [];
     if (!en || !p || !p.includes('[') || (SET === 'usage' && !p.toLowerCase().includes('[' + x.ans.toLowerCase().split(' ')[0])) || !ex.length) continue;
