@@ -22,5 +22,131 @@
  },
  "rateNever": {
   "message": "फिर से न पूछें"
+ },
+ "ntGot": {
+  "message": "✓ याद है"
+ },
+ "ntAgain": {
+  "message": "🔁 फिर दोहराएँ"
+ },
+ "ntGolden": {
+  "message": "सुनहरा पल"
+ },
+ "ntSaved": {
+  "message": "हाल में सहेजा"
+ },
+ "ntToday": {
+  "message": "इस पल का शब्द"
+ },
+ "ntSearch": {
+  "message": "वेब पर खोजें…"
+ },
+ "ntSearchBtn": {
+  "message": "खोजें"
+ },
+ "ntOff": {
+  "message": "नए टैब का कार्ड बंद करें"
+ },
+ "ntListen": {
+  "message": "सुनें"
+ },
+ "ntSlow": {
+  "message": "धीमा"
+ },
+ "ntUK": {
+  "message": "UK"
+ },
+ "ntUS": {
+  "message": "US"
+ },
+ "ntFamily": {
+  "message": "शब्द परिवार"
+ },
+ "ntColloc": {
+  "message": "सहप्रयोग"
+ },
+ "ntSyn": {
+  "message": "पर्यायवाची"
+ },
+ "ntAnt": {
+  "message": "विलोम"
+ },
+ "ntQuiz": {
+  "message": "क्विज़ मोड"
+ },
+ "ntReveal": {
+  "message": "अर्थ देखें"
+ },
+ "ntTapTr": {
+  "message": "अनुवाद देखने के लिए टैप करें"
+ },
+ "ntMT": {
+  "message": "मशीनी अनुवाद"
+ },
+ "ntExample": {
+  "message": "उदाहरण"
+ },
+ "ntAdd": {
+  "message": "＋ मेरे डेक में जोड़ें"
+ },
+ "ntAdded": {
+  "message": "✓ डेक में है"
+ },
+ "ntNext": {
+  "message": "अगला शब्द →"
+ },
+ "ntProgress": {
+  "message": "आज {n}/{g} शब्द"
+ },
+ "ntShortcuts": {
+  "message": "कीबोर्ड शॉर्टकट"
+ },
+ "ntKeys": {
+  "message": "Space: देखें · 1/2: अंक दें · N: अगला · P: सुनें"
+ },
+ "posN": {
+  "message": "संज्ञा"
+ },
+ "posV": {
+  "message": "क्रिया"
+ },
+ "posAdj": {
+  "message": "विशेषण"
+ },
+ "posAdv": {
+  "message": "क्रियाविशेषण"
+ },
+ "posPhrV": {
+  "message": "फ्रेज़ल वर्ब"
+ },
+ "posPhrase": {
+  "message": "वाक्यांश"
+ },
+ "posIdiom": {
+  "message": "मुहावरा"
+ },
+ "posPrep": {
+  "message": "पूर्वसर्ग"
+ },
+ "posConj": {
+  "message": "समुच्चयबोधक"
+ },
+ "posPron": {
+  "message": "सर्वनाम"
+ },
+ "posDet": {
+  "message": "निर्धारक"
+ },
+ "posExcl": {
+  "message": "विस्मयादिबोधक"
+ },
+ "posNum": {
+  "message": "संख्या"
+ },
+ "posAbbr": {
+  "message": "संक्षिप्त रूप"
+ },
+ "posColl": {
+  "message": "सहप्रयोग"
  }
 }

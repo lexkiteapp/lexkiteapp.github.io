@@ -22,5 +22,131 @@
  },
  "rateNever": {
   "message": "ไม่ต้องถามอีก"
+ },
+ "ntGot": {
+  "message": "✓ จำได้แล้ว"
+ },
+ "ntAgain": {
+  "message": "🔁 ทบทวนอีกครั้ง"
+ },
+ "ntGolden": {
+  "message": "ช่วงเวลาทอง"
+ },
+ "ntSaved": {
+  "message": "บันทึกล่าสุด"
+ },
+ "ntToday": {
+  "message": "คำศัพท์ตอนนี้"
+ },
+ "ntSearch": {
+  "message": "ค้นหาบนเว็บ…"
+ },
+ "ntSearchBtn": {
+  "message": "ค้นหา"
+ },
+ "ntOff": {
+  "message": "ปิดการ์ดในแท็บใหม่"
+ },
+ "ntListen": {
+  "message": "ฟัง"
+ },
+ "ntSlow": {
+  "message": "ช้า"
+ },
+ "ntUK": {
+  "message": "UK"
+ },
+ "ntUS": {
+  "message": "US"
+ },
+ "ntFamily": {
+  "message": "กลุ่มคำ"
+ },
+ "ntColloc": {
+  "message": "คำที่มักใช้คู่กัน"
+ },
+ "ntSyn": {
+  "message": "คำพ้องความหมาย"
+ },
+ "ntAnt": {
+  "message": "คำตรงข้าม"
+ },
+ "ntQuiz": {
+  "message": "โหมดทดสอบ"
+ },
+ "ntReveal": {
+  "message": "ดูความหมาย"
+ },
+ "ntTapTr": {
+  "message": "แตะเพื่อดูคำแปล"
+ },
+ "ntMT": {
+  "message": "แปลด้วยเครื่อง"
+ },
+ "ntExample": {
+  "message": "ตัวอย่าง"
+ },
+ "ntAdd": {
+  "message": "＋ เพิ่มลงชุดการ์ดของฉัน"
+ },
+ "ntAdded": {
+  "message": "✓ อยู่ในชุดการ์ดแล้ว"
+ },
+ "ntNext": {
+  "message": "คำถัดไป →"
+ },
+ "ntProgress": {
+  "message": "วันนี้ {n}/{g} คำ"
+ },
+ "ntShortcuts": {
+  "message": "แป้นลัด"
+ },
+ "ntKeys": {
+  "message": "Space: ดู · 1/2: ให้คะแนน · N: ถัดไป · P: ฟัง"
+ },
+ "posN": {
+  "message": "คำนาม"
+ },
+ "posV": {
+  "message": "คำกริยา"
+ },
+ "posAdj": {
+  "message": "คำคุณศัพท์"
+ },
+ "posAdv": {
+  "message": "คำวิเศษณ์"
+ },
+ "posPhrV": {
+  "message": "กริยาวลี"
+ },
+ "posPhrase": {
+  "message": "วลี"
+ },
+ "posIdiom": {
+  "message": "สำนวน"
+ },
+ "posPrep": {
+  "message": "คำบุพบท"
+ },
+ "posConj": {
+  "message": "คำสันธาน"
+ },
+ "posPron": {
+  "message": "คำสรรพนาม"
+ },
+ "posDet": {
+  "message": "คำนำหน้านาม"
+ },
+ "posExcl": {
+  "message": "คำอุทาน"
+ },
+ "posNum": {
+  "message": "คำบอกจำนวน"
+ },
+ "posAbbr": {
+  "message": "คำย่อ"
+ },
+ "posColl": {
+  "message": "คำปรากฏร่วม"
  }
 }

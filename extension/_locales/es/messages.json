@@ -22,5 +22,131 @@
  },
  "rateNever": {
   "message": "No volver a preguntar"
+ },
+ "ntGot": {
+  "message": "✓ Lo sé"
+ },
+ "ntAgain": {
+  "message": "🔁 Repasar"
+ },
+ "ntGolden": {
+  "message": "Momento ideal"
+ },
+ "ntSaved": {
+  "message": "Guardada hace poco"
+ },
+ "ntToday": {
+  "message": "Palabra del momento"
+ },
+ "ntSearch": {
+  "message": "Buscar en la web…"
+ },
+ "ntSearchBtn": {
+  "message": "Buscar"
+ },
+ "ntOff": {
+  "message": "Desactivar tarjeta en pestaña nueva"
+ },
+ "ntListen": {
+  "message": "Escuchar"
+ },
+ "ntSlow": {
+  "message": "Lento"
+ },
+ "ntUK": {
+  "message": "RU"
+ },
+ "ntUS": {
+  "message": "EE. UU."
+ },
+ "ntFamily": {
+  "message": "Familia de palabras"
+ },
+ "ntColloc": {
+  "message": "Colocaciones"
+ },
+ "ntSyn": {
+  "message": "Sinónimos"
+ },
+ "ntAnt": {
+  "message": "Antónimos"
+ },
+ "ntQuiz": {
+  "message": "Modo prueba"
+ },
+ "ntReveal": {
+  "message": "Ver significado"
+ },
+ "ntTapTr": {
+  "message": "Toca para ver la traducción"
+ },
+ "ntMT": {
+  "message": "Traducción automática"
+ },
+ "ntExample": {
+  "message": "Ejemplo"
+ },
+ "ntAdd": {
+  "message": "＋ Añadir a mi mazo"
+ },
+ "ntAdded": {
+  "message": "✓ En mi mazo"
+ },
+ "ntNext": {
+  "message": "Siguiente →"
+ },
+ "ntProgress": {
+  "message": "{n}/{g} palabras hoy"
+ },
+ "ntShortcuts": {
+  "message": "Atajos de teclado"
+ },
+ "ntKeys": {
+  "message": "Espacio: ver · 1/2: calificar · N: siguiente · P: escuchar"
+ },
+ "posN": {
+  "message": "sustantivo"
+ },
+ "posV": {
+  "message": "verbo"
+ },
+ "posAdj": {
+  "message": "adjetivo"
+ },
+ "posAdv": {
+  "message": "adverbio"
+ },
+ "posPhrV": {
+  "message": "verbo frasal"
+ },
+ "posPhrase": {
+  "message": "frase"
+ },
+ "posIdiom": {
+  "message": "modismo"
+ },
+ "posPrep": {
+  "message": "preposición"
+ },
+ "posConj": {
+  "message": "conjunción"
+ },
+ "posPron": {
+  "message": "pronombre"
+ },
+ "posDet": {
+  "message": "determinante"
+ },
+ "posExcl": {
+  "message": "interjección"
+ },
+ "posNum": {
+  "message": "numeral"
+ },
+ "posAbbr": {
+  "message": "abreviatura"
+ },
+ "posColl": {
+  "message": "colocación"
  }
 }

@@ -22,5 +22,131 @@
  },
  "rateNever": {
   "message": "不再询问"
+ },
+ "ntGot": {
+  "message": "✓ 记住了"
+ },
+ "ntAgain": {
+  "message": "🔁 再复习"
+ },
+ "ntGolden": {
+  "message": "黄金复习时刻"
+ },
+ "ntSaved": {
+  "message": "最近保存"
+ },
+ "ntToday": {
+  "message": "此刻单词"
+ },
+ "ntSearch": {
+  "message": "搜索网页…"
+ },
+ "ntSearchBtn": {
+  "message": "搜索"
+ },
+ "ntOff": {
+  "message": "关闭新标签页卡片"
+ },
+ "ntListen": {
+  "message": "收听"
+ },
+ "ntSlow": {
+  "message": "慢速"
+ },
+ "ntUK": {
+  "message": "英"
+ },
+ "ntUS": {
+  "message": "美"
+ },
+ "ntFamily": {
+  "message": "词族"
+ },
+ "ntColloc": {
+  "message": "常用搭配"
+ },
+ "ntSyn": {
+  "message": "同义词"
+ },
+ "ntAnt": {
+  "message": "反义词"
+ },
+ "ntQuiz": {
+  "message": "测验模式"
+ },
+ "ntReveal": {
+  "message": "查看释义"
+ },
+ "ntTapTr": {
+  "message": "点按查看翻译"
+ },
+ "ntMT": {
+  "message": "机器翻译"
+ },
+ "ntExample": {
+  "message": "例句"
+ },
+ "ntAdd": {
+  "message": "＋ 加入我的卡组"
+ },
+ "ntAdded": {
+  "message": "✓ 已在卡组中"
+ },
+ "ntNext": {
+  "message": "下一个词 →"
+ },
+ "ntProgress": {
+  "message": "今天 {n}/{g} 个词"
+ },
+ "ntShortcuts": {
+  "message": "键盘快捷键"
+ },
+ "ntKeys": {
+  "message": "空格：显示 · 1/2：评分 · N：下一个 · P：播放"
+ },
+ "posN": {
+  "message": "名词"
+ },
+ "posV": {
+  "message": "动词"
+ },
+ "posAdj": {
+  "message": "形容词"
+ },
+ "posAdv": {
+  "message": "副词"
+ },
+ "posPhrV": {
+  "message": "短语动词"
+ },
+ "posPhrase": {
+  "message": "短语"
+ },
+ "posIdiom": {
+  "message": "习语"
+ },
+ "posPrep": {
+  "message": "介词"
+ },
+ "posConj": {
+  "message": "连词"
+ },
+ "posPron": {
+  "message": "代词"
+ },
+ "posDet": {
+  "message": "限定词"
+ },
+ "posExcl": {
+  "message": "感叹词"
+ },
+ "posNum": {
+  "message": "数词"
+ },
+ "posAbbr": {
+  "message": "缩写"
+ },
+ "posColl": {
+  "message": "搭配"
  }
 }

@@ -22,5 +22,131 @@
  },
  "rateNever": {
   "message": "Đừng hỏi lại"
+ },
+ "ntGot": {
+  "message": "✓ Đã nhớ"
+ },
+ "ntAgain": {
+  "message": "🔁 Cần ôn lại"
+ },
+ "ntGolden": {
+  "message": "Thời điểm vàng"
+ },
+ "ntSaved": {
+  "message": "Từ mới lưu"
+ },
+ "ntToday": {
+  "message": "Từ hôm nay"
+ },
+ "ntSearch": {
+  "message": "Tìm trên web…"
+ },
+ "ntSearchBtn": {
+  "message": "Tìm"
+ },
+ "ntOff": {
+  "message": "Tắt thẻ ở tab mới"
+ },
+ "ntListen": {
+  "message": "Nghe"
+ },
+ "ntSlow": {
+  "message": "Chậm"
+ },
+ "ntUK": {
+  "message": "Anh"
+ },
+ "ntUS": {
+  "message": "Mỹ"
+ },
+ "ntFamily": {
+  "message": "Họ từ"
+ },
+ "ntColloc": {
+  "message": "Cụm từ hay đi kèm"
+ },
+ "ntSyn": {
+  "message": "Đồng nghĩa"
+ },
+ "ntAnt": {
+  "message": "Trái nghĩa"
+ },
+ "ntQuiz": {
+  "message": "Tự kiểm tra"
+ },
+ "ntReveal": {
+  "message": "Xem nghĩa"
+ },
+ "ntTapTr": {
+  "message": "Chạm để xem bản dịch"
+ },
+ "ntMT": {
+  "message": "Dịch máy"
+ },
+ "ntExample": {
+  "message": "Ví dụ"
+ },
+ "ntAdd": {
+  "message": "＋ Thêm vào bộ thẻ"
+ },
+ "ntAdded": {
+  "message": "✓ Đã có trong bộ thẻ"
+ },
+ "ntNext": {
+  "message": "Từ tiếp →"
+ },
+ "ntProgress": {
+  "message": "Hôm nay {n}/{g} từ"
+ },
+ "ntShortcuts": {
+  "message": "Phím tắt"
+ },
+ "ntKeys": {
+  "message": "Space: xem nghĩa · 1/2: chấm · N: từ tiếp · P: nghe"
+ },
+ "posN": {
+  "message": "danh từ"
+ },
+ "posV": {
+  "message": "động từ"
+ },
+ "posAdj": {
+  "message": "tính từ"
+ },
+ "posAdv": {
+  "message": "trạng từ"
+ },
+ "posPhrV": {
+  "message": "cụm động từ"
+ },
+ "posPhrase": {
+  "message": "cụm từ"
+ },
+ "posIdiom": {
+  "message": "thành ngữ"
+ },
+ "posPrep": {
+  "message": "giới từ"
+ },
+ "posConj": {
+  "message": "liên từ"
+ },
+ "posPron": {
+  "message": "đại từ"
+ },
+ "posDet": {
+  "message": "từ hạn định"
+ },
+ "posExcl": {
+  "message": "thán từ"
+ },
+ "posNum": {
+  "message": "số từ"
+ },
+ "posAbbr": {
+  "message": "viết tắt"
+ },
+ "posColl": {
+  "message": "cụm kết hợp"
  }
 }

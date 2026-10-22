@@ -22,5 +22,131 @@
  },
  "rateNever": {
   "message": "Jangan tanya lagi"
+ },
+ "ntGot": {
+  "message": "✓ Sudah ingat"
+ },
+ "ntAgain": {
+  "message": "🔁 Ulangi lagi"
+ },
+ "ntGolden": {
+  "message": "Waktu emas"
+ },
+ "ntSaved": {
+  "message": "Baru disimpan"
+ },
+ "ntToday": {
+  "message": "Kata saat ini"
+ },
+ "ntSearch": {
+  "message": "Cari di web…"
+ },
+ "ntSearchBtn": {
+  "message": "Cari"
+ },
+ "ntOff": {
+  "message": "Matikan kartu tab baru"
+ },
+ "ntListen": {
+  "message": "Dengarkan"
+ },
+ "ntSlow": {
+  "message": "Lambat"
+ },
+ "ntUK": {
+  "message": "UK"
+ },
+ "ntUS": {
+  "message": "AS"
+ },
+ "ntFamily": {
+  "message": "Keluarga kata"
+ },
+ "ntColloc": {
+  "message": "Kolokasi"
+ },
+ "ntSyn": {
+  "message": "Sinonim"
+ },
+ "ntAnt": {
+  "message": "Antonim"
+ },
+ "ntQuiz": {
+  "message": "Mode kuis"
+ },
+ "ntReveal": {
+  "message": "Lihat arti"
+ },
+ "ntTapTr": {
+  "message": "Ketuk untuk melihat terjemahan"
+ },
+ "ntMT": {
+  "message": "Terjemahan mesin"
+ },
+ "ntExample": {
+  "message": "Contoh"
+ },
+ "ntAdd": {
+  "message": "＋ Tambah ke dek saya"
+ },
+ "ntAdded": {
+  "message": "✓ Sudah di dek"
+ },
+ "ntNext": {
+  "message": "Kata berikutnya →"
+ },
+ "ntProgress": {
+  "message": "{n}/{g} kata hari ini"
+ },
+ "ntShortcuts": {
+  "message": "Pintasan keyboard"
+ },
+ "ntKeys": {
+  "message": "Spasi: lihat · 1/2: nilai · N: berikutnya · P: dengar"
+ },
+ "posN": {
+  "message": "nomina"
+ },
+ "posV": {
+  "message": "verba"
+ },
+ "posAdj": {
+  "message": "adjektiva"
+ },
+ "posAdv": {
+  "message": "adverbia"
+ },
+ "posPhrV": {
+  "message": "verba frasa"
+ },
+ "posPhrase": {
+  "message": "frasa"
+ },
+ "posIdiom": {
+  "message": "idiom"
+ },
+ "posPrep": {
+  "message": "preposisi"
+ },
+ "posConj": {
+  "message": "konjungsi"
+ },
+ "posPron": {
+  "message": "pronomina"
+ },
+ "posDet": {
+  "message": "penentu"
+ },
+ "posExcl": {
+  "message": "interjeksi"
+ },
+ "posNum": {
+  "message": "numeralia"
+ },
+ "posAbbr": {
+  "message": "singkatan"
+ },
+ "posColl": {
+  "message": "kolokasi"
  }
 }

@@ -22,5 +22,131 @@
  },
  "rateNever": {
   "message": "Nicht mehr fragen"
+ },
+ "ntGot": {
+  "message": "✓ Gewusst"
+ },
+ "ntAgain": {
+  "message": "🔁 Wiederholen"
+ },
+ "ntGolden": {
+  "message": "Perfekter Moment"
+ },
+ "ntSaved": {
+  "message": "Kürzlich gespeichert"
+ },
+ "ntToday": {
+  "message": "Wort des Moments"
+ },
+ "ntSearch": {
+  "message": "Im Web suchen…"
+ },
+ "ntSearchBtn": {
+  "message": "Suchen"
+ },
+ "ntOff": {
+  "message": "Karte im neuen Tab ausschalten"
+ },
+ "ntListen": {
+  "message": "Anhören"
+ },
+ "ntSlow": {
+  "message": "Langsam"
+ },
+ "ntUK": {
+  "message": "UK"
+ },
+ "ntUS": {
+  "message": "US"
+ },
+ "ntFamily": {
+  "message": "Wortfamilie"
+ },
+ "ntColloc": {
+  "message": "Kollokationen"
+ },
+ "ntSyn": {
+  "message": "Synonyme"
+ },
+ "ntAnt": {
+  "message": "Gegenteile"
+ },
+ "ntQuiz": {
+  "message": "Quiz-Modus"
+ },
+ "ntReveal": {
+  "message": "Bedeutung zeigen"
+ },
+ "ntTapTr": {
+  "message": "Tippen für Übersetzung"
+ },
+ "ntMT": {
+  "message": "Maschinelle Übersetzung"
+ },
+ "ntExample": {
+  "message": "Beispiel"
+ },
+ "ntAdd": {
+  "message": "＋ Zu meinem Stapel"
+ },
+ "ntAdded": {
+  "message": "✓ In meinem Stapel"
+ },
+ "ntNext": {
+  "message": "Nächstes Wort →"
+ },
+ "ntProgress": {
+  "message": "{n}/{g} Wörter heute"
+ },
+ "ntShortcuts": {
+  "message": "Tastenkürzel"
+ },
+ "ntKeys": {
+  "message": "Leertaste: zeigen · 1/2: bewerten · N: weiter · P: anhören"
+ },
+ "posN": {
+  "message": "Nomen"
+ },
+ "posV": {
+  "message": "Verb"
+ },
+ "posAdj": {
+  "message": "Adjektiv"
+ },
+ "posAdv": {
+  "message": "Adverb"
+ },
+ "posPhrV": {
+  "message": "Phrasal Verb"
+ },
+ "posPhrase": {
+  "message": "Wendung"
+ },
+ "posIdiom": {
+  "message": "Redewendung"
+ },
+ "posPrep": {
+  "message": "Präposition"
+ },
+ "posConj": {
+  "message": "Konjunktion"
+ },
+ "posPron": {
+  "message": "Pronomen"
+ },
+ "posDet": {
+  "message": "Artikelwort"
+ },
+ "posExcl": {
+  "message": "Ausruf"
+ },
+ "posNum": {
+  "message": "Zahlwort"
+ },
+ "posAbbr": {
+  "message": "Abkürzung"
+ },
+ "posColl": {
+  "message": "Kollokation"
  }
 }

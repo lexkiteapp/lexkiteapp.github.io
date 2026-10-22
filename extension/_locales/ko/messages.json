@@ -22,5 +22,131 @@
  },
  "rateNever": {
   "message": "다시 묻지 않기"
+ },
+ "ntGot": {
+  "message": "✓ 외웠어요"
+ },
+ "ntAgain": {
+  "message": "🔁 다시 복습"
+ },
+ "ntGolden": {
+  "message": "골든 타임"
+ },
+ "ntSaved": {
+  "message": "최근 저장"
+ },
+ "ntToday": {
+  "message": "지금의 단어"
+ },
+ "ntSearch": {
+  "message": "웹 검색…"
+ },
+ "ntSearchBtn": {
+  "message": "검색"
+ },
+ "ntOff": {
+  "message": "새 탭 카드 끄기"
+ },
+ "ntListen": {
+  "message": "듣기"
+ },
+ "ntSlow": {
+  "message": "느리게"
+ },
+ "ntUK": {
+  "message": "영"
+ },
+ "ntUS": {
+  "message": "미"
+ },
+ "ntFamily": {
+  "message": "파생어"
+ },
+ "ntColloc": {
+  "message": "연어"
+ },
+ "ntSyn": {
+  "message": "유의어"
+ },
+ "ntAnt": {
+  "message": "반의어"
+ },
+ "ntQuiz": {
+  "message": "퀴즈 모드"
+ },
+ "ntReveal": {
+  "message": "뜻 보기"
+ },
+ "ntTapTr": {
+  "message": "탭하여 번역 보기"
+ },
+ "ntMT": {
+  "message": "기계 번역"
+ },
+ "ntExample": {
+  "message": "예문"
+ },
+ "ntAdd": {
+  "message": "＋ 내 단어장에 추가"
+ },
+ "ntAdded": {
+  "message": "✓ 단어장에 있음"
+ },
+ "ntNext": {
+  "message": "다음 단어 →"
+ },
+ "ntProgress": {
+  "message": "오늘 {n}/{g}단어"
+ },
+ "ntShortcuts": {
+  "message": "단축키"
+ },
+ "ntKeys": {
+  "message": "Space: 보기 · 1/2: 평가 · N: 다음 · P: 듣기"
+ },
+ "posN": {
+  "message": "명사"
+ },
+ "posV": {
+  "message": "동사"
+ },
+ "posAdj": {
+  "message": "형용사"
+ },
+ "posAdv": {
+  "message": "부사"
+ },
+ "posPhrV": {
+  "message": "구동사"
+ },
+ "posPhrase": {
+  "message": "구"
+ },
+ "posIdiom": {
+  "message": "관용구"
+ },
+ "posPrep": {
+  "message": "전치사"
+ },
+ "posConj": {
+  "message": "접속사"
+ },
+ "posPron": {
+  "message": "대명사"
+ },
+ "posDet": {
+  "message": "한정사"
+ },
+ "posExcl": {
+  "message": "감탄사"
+ },
+ "posNum": {
+  "message": "수사"
+ },
+ "posAbbr": {
+  "message": "약어"
+ },
+ "posColl": {
+  "message": "연어"
  }
 }
