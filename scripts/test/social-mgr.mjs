@@ -71,6 +71,9 @@ const now = Date.UTC(2026, 9, 22, 12); // 22/10/2026 12:00 UTC
   ok(full.slots.length && !full.slots.some(x => x.at - now < 864e5), 'kênh hết lượt 24 h → không xếp trong 24 h tới');
   const near = M.planQueue({ clips, accounts: [{ id: '2', platform: 'facebook_page', state: 'near_limit', used: 29, cap: 30 }], rules: { ...rules, perDay: { facebook_page: 5 }, minGapH: 1, hours: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23] }, now });
   ok(near.slots.filter(s => s.at - now < 864e5).length <= 1, 'trần nền tảng 24 h: còn 1 lượt → tối đa 1 bài trong 24 h tới');
+  const rt = M.planQueue({ clips: [{ id: 'c-long', type: 'long' }, { id: 'c-short', type: 'short' }], accounts: [{ id: '2', platform: 'facebook_page', state: 'ok', used: 0, cap: 30 }], rules: { ...rules, cfgBy: { 2: { types: ['short'], daily_cap: 2, min_gap_min: 180, windows: [{ from: '08:00', to: '08:59' }], tz: 'America/New_York' } } }, now });
+  ok(rt.slots.map(s => s.clip).join() === 'c-short' && rt.skipped.some(s => s.clip === 'c-long' && s.why === 'not-routed'), 'định tuyến bằng bộ máy Kênh & phân phối (_distribution.allowed): kênh chỉ nhận short');
+  ok(M.cfgFor({ id: '3', p: 'instagram' }, M.cleanRules(rules)).tz === 'Asia/Ho_Chi_Minh' && M.cfgFor({ id: '3', p: 'instagram' }, M.cleanRules(rules)).daily_cap === 1, 'cfg kênh social cùng dạng normCfg (múi giờ, trần/ngày)');
   ok(M.cleanRules({ perDay: { facebook_page: 99 }, tz: 'Mars/Base', hours: [25, 7, 7] }).perDay.facebook_page === 30 && M.cleanRules({ tz: 'Mars/Base' }).tz === 'America/New_York' && M.cleanRules({ hours: [25, 7, 7] }).hours.join() === '7', 'luật bị kẹp: trần ≤ trần nền tảng, múi giờ hợp lệ, giờ 0–23 duy nhất');
 }
 // ---------- 5) Số liệu & trọng số ----------

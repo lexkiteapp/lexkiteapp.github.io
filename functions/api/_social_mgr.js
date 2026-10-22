@@ -8,6 +8,7 @@
 import { manifest, signed } from './admin-shorts.js';
 import { field } from './_clip_logic.js';
 import { runModel } from './ai.js';
+import { normCfg, allowed, schedule } from './_distribution.js';
 
 // ---------------- Hàm thuần (test: scripts/test/social-mgr.mjs) ----------------
 export const STATES = ['idea', 'draft', 'review', 'approved', 'scheduled', 'published', 'failed'];
@@ -78,43 +79,40 @@ export function cleanRules(r) {
   const tzBy = {}; for (const [k, v] of Object.entries(r.tzBy || {})) if (/^[A-Za-z0-9_-]{1,40}$/.test(k) && typeof v === 'string' && tzOk(v)) tzBy[k] = v;
   const hours = [...new Set((Array.isArray(r.hours) ? r.hours : d.hours).map(Math.round).filter(h => h >= 0 && h <= 23))].sort((a, b) => a - b).slice(0, 12);
   return { perDay, minGapH: Math.max(1, Math.min(24, +r.minGapH || d.minGapH)), hours: hours.length ? hours : d.hours, tz: tzOk(r.tz) ? r.tz : d.tz, tzBy,
+    cfgBy: Object.fromEntries(Object.entries(r.cfgBy || {}).filter(([k, v]) => /^[A-Za-z0-9_-]{1,40}$/.test(k) && v && typeof v === 'object').slice(0, 200).map(([k, v]) => [k, normCfg(v)])),
     dupDays: Math.max(1, Math.min(365, Math.round(+r.dupDays || d.dupDays))), days: Math.max(1, Math.min(31, Math.round(+r.days || d.days))), skipWeekend: !!r.skipWeekend };
 }
 // giờ địa phương (tz) → mốc UTC (tự xử lý giờ mùa hè)
 const partsIn = (t, tz) => Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: tz, hourCycle: 'h23', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', weekday: 'short' }).formatToParts(new Date(t)).map(x => [x.type, x.value]));
 export function atTz(y, m, d, h, tz) { const want = Date.UTC(y, m - 1, d, h); let t = want; for (let i = 0; i < 3; i++) { const p = partsIn(t, tz); t += want - Date.UTC(+p.year, +p.month - 1, +p.day, +p.hour % 24, +p.minute); } return t; }
-/** Hàng đợi tự động: rải clip đã duyệt vào khung giờ vàng từng kênh (theo múi giờ kênh), tôn trọng trần/ngày, giãn cách tối thiểu,
- *  trần 24 h của nền tảng, chống trùng (cùng clip trên cùng kênh trong dupDays). Trả { slots:[{clip, account_id, at}], skipped:[{clip, account_id, why}] }. */
+/** Hàng đợi tự động – DÙNG CHUNG bộ máy "Kênh & phân phối" (functions/api/_distribution.js: normCfg + allowed + schedule):
+ *  mỗi tài khoản GrabCast = 1 "kênh" cfg cùng dạng (daily_cap, min_gap_min, tz, windows, types/topics/cefr…), id "gc:<id>"; thêm lớp riêng của social:
+ *  trần 24 h của nền tảng (FB Reels 30, IG 100…) và chống trùng clip/kênh trong dupDays. Trả { slots:[{clip, account_id, at}], skipped:[{clip, account_id, why}] }. */
+export function cfgFor(a, R) {
+  const id = String(a.id), over = (R.cfgBy || {})[id] || {};
+  return normCfg({ daily_cap: R.perDay[a.p] || 0, min_gap_min: R.minGapH * 60, tz: R.tzBy[id] || R.tz, windows: R.hours.map(h => ({ from: String(h).padStart(2, '0') + ':00', to: String(h).padStart(2, '0') + ':59' })), label: a.name || '', ...over });
+}
 export function planQueue({ clips = [], accounts = [], taken = [], history = [], rules, now = Date.now() }) {
-  const R = cleanRules(rules), slots = [], skipped = [], busy = new Map(), perDay = new Map(), used = new Map();
-  const add = (aid, t) => { (busy.get(aid) || busy.set(aid, []).get(aid)).push(t); };
-  for (const x of taken) { add(String(x.account_id), x.at); const k = String(x.account_id) + '|' + dayKeyTz(x.at, R.tzBy[x.account_id] || R.tz); perDay.set(k, (perDay.get(k) || 0) + 1); }
+  const R = cleanRules(rules), slots = [], skipped = [], used = new Map();
   for (const h of history) used.set(h.clip + '|' + h.account_id, Math.max(used.get(h.clip + '|' + h.account_id) || 0, h.at || 0));
   const accs = accounts.map(a => ({ ...a, id: String(a.id), p: a.platform || platOf(a) })).filter(a => (R.perDay[a.p] || 0) > 0 && a.state !== 'reconnect' && a.state !== 'limit');
   for (const a of accs) {
-    const tz = R.tzBy[a.id] || R.tz, cand = [];
-    for (let d = 0; d <= R.days; d++) {
-      const base = partsIn(now + d * DAY, tz);
-      if (R.skipWeekend && /Sat|Sun/.test(base.weekday)) continue;
-      for (const h of R.hours) { const t = atTz(+base.year, +base.month, +base.day, h, tz); if (t > now + 30 * 60e3 && t <= now + (R.days + 1) * DAY) cand.push(t); }
+    const cfg = cfgFor(a, R), want = [];
+    for (const c of clips) {
+      const last = used.get(c.id + '|' + a.id) || 0;
+      if (last && now - last < R.dupDays * DAY) { skipped.push({ clip: c.id, account_id: a.id, why: 'duplicate' }); continue; }
+      if (!allowed(cfg, { type: c.type || 'short', topic: c.topic, sub: c.sub, skill: c.skill, cefr: c.cefr, template: c.template })) { skipped.push({ clip: c.id, account_id: a.id, why: 'not-routed' }); continue; }
+      want.push({ id: c.id, template: c.template || '', title: '', cover: '' });
     }
-    let ci = 0;
-    const room24 = Math.max(0, (a.cap || PLAT[a.p].cap) - (a.used || 0));
-    let placed24 = 0;
-    for (const clip of clips) {
-      const last = used.get(clip.id + '|' + a.id) || 0;
-      if (last && now - last < R.dupDays * DAY) { skipped.push({ clip: clip.id, account_id: a.id, why: 'duplicate' }); continue; }
-      let ok = null;
-      for (; ci < cand.length; ci++) {
-        const t = cand[ci], k = a.id + '|' + dayKeyTz(t, tz), b = busy.get(a.id) || [];
-        if ((perDay.get(k) || 0) >= R.perDay[a.p]) continue;
-        if (b.some(x => Math.abs(x - t) < R.minGapH * 36e5)) continue;
-        if (t - now < DAY && placed24 >= room24) continue;
-        ok = t; ci++; break;
-      }
-      if (ok == null) { skipped.push({ clip: clip.id, account_id: a.id, why: 'no-slot' }); continue; }
-      add(a.id, ok); const k = a.id + '|' + dayKeyTz(ok, tz); perDay.set(k, (perDay.get(k) || 0) + 1); if (ok - now < DAY) placed24++;
-      used.set(clip.id + '|' + a.id, now); slots.push({ clip: clip.id, account_id: a.id, platform: a.p, at: ok });
+    const existing = taken.filter(x => String(x.account_id) === a.id).map(x => ({ ms: x.at }));
+    const res = schedule({ clips: want, cfg, existing, now: now + 15 * 60e3, horizonDays: R.days });
+    for (const sk of res.skipped) skipped.push({ clip: sk.id, account_id: a.id, why: sk.why });
+    let room24 = Math.max(0, (a.cap || PLAT[a.p].cap) - (a.used || 0));
+    for (const sl of res.slots.sort((x, y) => x.ms - y.ms)) {
+      if (sl.ms > now + (R.days + 1) * DAY) { skipped.push({ clip: sl.id, account_id: a.id, why: 'no-slot' }); continue; }
+      if (R.skipWeekend && /Sat|Sun/.test(partsIn(sl.ms, cfg.tz).weekday)) { skipped.push({ clip: sl.id, account_id: a.id, why: 'weekend' }); continue; }
+      if (sl.ms - now < DAY) { if (room24 <= 0) { skipped.push({ clip: sl.id, account_id: a.id, why: 'platform-cap' }); continue; } room24--; }
+      slots.push({ clip: sl.id, account_id: a.id, platform: a.p, at: sl.ms });
     }
   }
   slots.sort((x, y) => x.at - y.at);
