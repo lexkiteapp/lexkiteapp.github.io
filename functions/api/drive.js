@@ -18,9 +18,11 @@ const REDIRECT = 'https://lexkite.com/api/drive/callback';
 const SCOPE = 'https://www.googleapis.com/auth/drive.file openid email';
 const ROOT_FOLDER = 'Lexkite Library';
 const MB = 1048576, HEADROOM_MIN = 256 * MB, STATE_TTL = 600, LINK_TTL = 300, CLI_SKEW = 300;
-const CLI_OPS = new Set(['list', 'upload_session', 'complete', 'refs_sync', 'health', 'where', 'replicas', 'repair', 'rebalance', 'render_link', 'set_want', 'retire']);
+const CLI_OPS = new Set(['list', 'upload_session', 'complete', 'refs_sync', 'health', 'where', 'replicas', 'repair', 'rebalance', 'render_link', 'set_want', 'retire', 'footage_alert']);
 // Shorts archive (docs/VIDEO-STORAGE.md): masters live under folder shorts/… with cls 'render'. CLI may only touch those (render_link · set_want · retire).
 const SHORTS_SQL = "f.folder LIKE 'shorts/%' AND f.cls = 'render'", CLIP_BYTES = 10 * 1048576, STOP_PCT = 0.9;
+// Kho footage (docs/VIDEO.md §Kho footage): masters under folder footage/<cảnh>, cls 'original', 2 bản sao/2 Drive. CLI chỉ được ĐỌC (render_link) – không retire/set_want.
+export const isFootageRow = r => !!r && r.cls === 'original' && /^footage\//.test(String(r.folder || ''));
 export const isShortsRow = r => !!r && r.cls === 'render' && /^shorts\//.test(String(r.folder || ''));
 /** Còn chứa được bao nhiêu clip (≈ 10 MB/master): Drive đang nhận file, tới ngưỡng ngừng 90 %. */
 export function shortsCapacity(drives, clipBytes = CLIP_BYTES) {
@@ -242,7 +244,7 @@ const meta = async (db, k) => ((await one(db, 'SELECT v FROM drive_meta WHERE k 
 const setMeta = (db, k, v) => run(db, 'INSERT OR REPLACE INTO drive_meta (k, v) VALUES (?, ?)', k, String(v));
 /** Ghi cảnh báo vào D1 + gửi thư (nghiêm trọng: ≤ 1 thư/loại/24 h; hết lỗi đã từng gửi thư → thư khôi phục). → danh sách thư đã gửi. */
 export async function syncAlerts(env, db, list, now = Date.now()) {
-  const prev = new Map((await all(db, 'SELECT * FROM drive_alerts')).map(a => [a.kind, a])), sent = [];
+  const prev = new Map((await all(db, 'SELECT * FROM drive_alerts')).filter(a => a.kind !== 'footage').map(a => [a.kind, a])), sent = []; // 'footage' do footage-verify.yml đặt/gỡ (op footage_alert), health không đụng
   for (const a of list) {
     const p = prev.get(a.kind); prev.delete(a.kind);
     let mailed = p ? p.mailed : null;
@@ -477,8 +479,16 @@ const POOL_OPS = {
   /** CLI: link tải ký 5 phút cho 1 master/bìa short (chỉ thư mục shorts/, cls render) – tham chiếu cho shorts-rebuild / yt-upload. */
   async render_link(db, b, who, env) {
     const r = await one(db, "SELECT file_id, cls, folder FROM drive_files WHERE file_id = ? AND status = 'ok'", String(b.file_id || ''));
-    if (!r || !isShortsRow(r)) return { status: 404, error: 'not-found' };
+    if (!r || !(isShortsRow(r) || isFootageRow(r))) return { status: 404, error: 'not-found' };
     return { url: await signLink(env, r.file_id), ttl: LINK_TTL };
+  },
+  /** CLI (footage-verify.yml): bật/tắt cảnh báo 'footage' hiển thị ở Quản trị → Kho Drive. ok:true → xoá; ok:false → crit với n lỗi. Không gửi thư (workflow đỏ đã báo). */
+  async footage_alert(db, b) {
+    if (b.ok) { await run(db, "DELETE FROM drive_alerts WHERE kind = 'footage'"); return { ok: true, cleared: true }; }
+    const n = Math.max(1, Math.min(1e6, Math.round(+b.n) || 1)), now = Date.now();
+    await run(db, "INSERT INTO drive_alerts (kind, level, drive_id, msg, since, seen, mailed) VALUES ('footage', 'crit', NULL, ?, ?, ?, NULL) ON CONFLICT(kind) DO UPDATE SET level = 'crit', msg = excluded.msg, seen = excluded.seen",
+      JSON.stringify({ t: 'footage', p: { n }, msg: String(b.msg || 'footage-verify').slice(0, 300) }), now, now);
+    return { ok: true, n };
   },
   /** CLI: số bản sao mong muốn cho master short (1 = chưa duyệt/thử, 2 = đã duyệt/đã đăng) → repair chép bù sang Drive khác qua pickDrive. */
   async set_want(db, b) {
@@ -542,7 +552,7 @@ const OPS = {
   ...POOL_OPS,
   /** CLI/CI (library.mjs drive-refs): thay toàn bộ tham chiếu của 1 nguồn (library | manifest) – dùng để tìm file mồ côi / reject cũ. */
   async refs_sync(db, b) {
-    const src = b.source === 'manifest' ? 'manifest' : b.source === 'library' ? 'library' : null, items = Array.isArray(b.items) ? b.items : null;
+    const src = b.source === 'manifest' ? 'manifest' : b.source === 'library' ? 'library' : b.source === 'footage' ? 'footage' : null, items = Array.isArray(b.items) ? b.items : null;
     if (!src || !items || items.length > 5000) return { status: 400, error: 'bad-input' };
     const rows = items.map(x => ({ s: /^[0-9a-f]{64}$/.test(String(x.s || '').toLowerCase()) ? String(x.s).toLowerCase() : null, f: /^[A-Za-z0-9_-]{10,120}$/.test(String(x.f || '')) ? String(x.f) : null, n: x.n ? String(x.n).slice(0, 200) : null, st: /^[a-z_]{1,20}$/.test(String(x.st || '')) ? String(x.st) : null })).filter(x => x.s || x.f || x.n);
     const now = Date.now(), st = [db.prepare('DELETE FROM drive_refs WHERE src = ?').bind(src)];
@@ -662,7 +672,7 @@ const OPS = {
     return { url: await signLink(env, f.file_id), ttl: LINK_TTL };
   },
 };
-const WRITE = new Set(['connect', 'refresh_quota', 'disconnect', 'set_weight', 'drain', 'upload_session', 'complete', 'get_link', 'preview', 'rename', 'move', 'trash', 'restore', 'delete', 'empty_trash', 'cleanup_apply', 'refs_sync', 'health', 'repair', 'rebalance', 'verify_files', 'set_want', 'retire']);
+const WRITE = new Set(['connect', 'refresh_quota', 'disconnect', 'set_weight', 'drain', 'upload_session', 'complete', 'get_link', 'preview', 'rename', 'move', 'trash', 'restore', 'delete', 'empty_trash', 'cleanup_apply', 'refs_sync', 'health', 'repair', 'rebalance', 'verify_files', 'set_want', 'retire', 'footage_alert']);
 const DANGER = new Set(['disconnect', 'delete', 'empty_trash']); // + confirm:'DELETE' trong op (xoá vĩnh viễn)
 const BIG_OPS = new Set(['refs_sync']);
 const cliOnly = b => b && b._cli === true;

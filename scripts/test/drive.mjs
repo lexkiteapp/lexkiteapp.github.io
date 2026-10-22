@@ -454,5 +454,10 @@ ok(logs.length >= 8 && logs.some(l => l.email === 'cli') && logs.some(l => l.op 
 }
 function CATS_SUM(g) { return Object.values(g).flat().reduce((s, x) => s + x.size, 0); }
 
+// Kho footage (docs/VIDEO.md): CLI chỉ ĐỌC (render_link) file footage/ cls original; shorts vẫn riêng; không lẫn nhau
+ok(mod.isFootageRow({ cls: 'original', folder: 'footage/cafe' }), 'footage/cafe original → isFootageRow');
+ok(!mod.isFootageRow({ cls: 'render', folder: 'footage/cafe' }) && !mod.isFootageRow({ cls: 'original', folder: 'shorts/news' }) && !mod.isFootageRow({ cls: 'original', folder: 'originals/x' }), 'footage: chỉ cls original + folder footage/');
+ok(!mod.isShortsRow({ cls: 'original', folder: 'footage/cafe' }), 'footage không bị coi là short (retire/set_want không chạm)');
+
 if (fails) { console.log(`✗ drive: ${fails}/${n} kiểm thất bại`); process.exit(1); }
 console.log(`✓ drive: ${n} kiểm (state/CSRF, AES-GCM, không lộ token, chọn Drive theo tỉ lệ, bản sao, cổng admin, CLI HMAC, link tải, trình duyệt file, dọn dẹp, sổ kho, cảnh báo)`);

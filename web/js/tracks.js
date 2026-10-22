@@ -168,7 +168,7 @@
   const lvBtns = (tr, sel) => tr.stages.map((s, i) => `<button type="button" data-lv="${s.id}" aria-pressed="${sel === s.id || (!sel && !i)}">${esc(tr.id === 'ielts' ? s.cefr + ' · ' + s.band : 'CEFR ' + s.cefr)}</button>`).join('');
   const vsBtns = (tr, v) => (tr.vs ? `<div class="trk-vs" role="group" aria-label="${esc(tr.name)}">${tr.vs.map(([k, n]) => `<button type="button" data-tv="${k}" aria-pressed="${v === k}">${n}</button>`).join('')}</div>` : '');
   function setupCards(pick) {
-    css(); const tr = TR[pick.track];
+    css(); if (!pick) pick = {}; if (!pick.v) pick.v = {}; const tr = TR[pick.track] || TR[(cfg() || {}).cur] || TR[IDS[0]]; // mở lần đầu / gói lạ: không để tr undefined (lỗi 'stages')
     return `<div class="card"><h2>🎯 ${t('Mục tiêu của bạn là gì?')}</h2><p class="muted small">${t('Chọn 1 gói – có thể học thêm gói khác sau.')}</p>
       <div class="trk-list">${IDS.map(id => { const x = TR[id], on = id === pick.track;
         return `<div><button type="button" class="trk-opt" data-track="${id}" aria-pressed="${on}"><span class="trk-em" aria-hidden="true">${x.em}</span><span><b>${esc(x.name)}</b><span class="small">${esc(x.benefit)}</span></span></button>${on ? vsBtns(x, pick.v[id]) : ''}</div>`; }).join('')}</div></div>

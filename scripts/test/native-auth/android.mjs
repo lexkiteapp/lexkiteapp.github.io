@@ -98,7 +98,7 @@ const toast = await ev(`return [...document.querySelectorAll('.toast, [role=stat
 shot('android-after-cancel');
 if (!ret) fail('Plugin chưa trả kết quả sau khi hủy (promise treo)');
 else if (ret.success) fail('Đăng nhập thành công ngoài ý muốn');
-else if (!/cancel|12501|-5\b/i.test(ret.code + ' ' + ret.err)) fail('Lỗi không phải "hủy": ' + ret.code + ' ' + ret.err);
+else if (!/cancel|12501|-5\b|^8:/i.test(ret.code + ' ' + ret.err)) fail('Lỗi không phải "hủy": ' + ret.code + ' ' + ret.err);
 else ok('Hủy đăng nhập trả lỗi "hủy": ' + (ret.code + ' ' + ret.err).trim());
 if (/Không đăng nhập được|Couldn.t sign in|sign-in failed/i.test(toast || '')) fail('Hiện thông báo lỗi sau khi hủy: ' + toast);
 if (focus().startsWith(PKG + '/') === false) { fail('App không trở lại sau khi hủy (focus ' + focus() + ')'); adb('shell', 'monkey', '-p', PKG, '-c', 'android.intent.category.LAUNCHER', '1'); await sleep(3000); }
@@ -134,7 +134,11 @@ function finish() {
   const fb = lines.filter(l => /FirebaseApp|default_web_client_id|GoogleService|FirebaseInitProvider|FirebaseAuth|GetCredential|CredentialManager|FirebaseAuthentication/i.test(l));
   fb.slice(0, 20).forEach(l => console.log('[logcat] ' + l.slice(0, 260)));
   if (fatal.length) fail('Crash: ' + fatal.slice(0, 3).join(' / ').slice(0, 400));
-  const fbErr = fb.filter(l => /not initialized|not found|missing|Default FirebaseApp|failed to initialize|Unknown calling package|DEVELOPER_ERROR|\b10:/i.test(l));
+  // chỉ tính tiến trình của app (pid khởi tạo Firebase thành công / ghi plugin Capacitor); app khác trên image emulator (pid khác) cũng log "Default FirebaseApp failed" → không phải lỗi của ta
+  const pidOf = l => (l.match(/\(\s*(\d+)\)/) || [])[1];
+  const appPids = new Set(lines.filter(l => /FirebaseApp initialization successful|Registering plugin instance|Capacitor/.test(l)).map(pidOf).filter(Boolean));
+  try { adb('shell', 'pidof', PKG).split(/\s+/).filter(Boolean).forEach(p => appPids.add(p)); } catch (e) { /* bỏ qua */ }
+  const fbErr = fb.filter(l => appPids.has(pidOf(l))).filter(l => /not initialized|not found|missing|Default FirebaseApp|failed to initialize|Unknown calling package|DEVELOPER_ERROR|\b10:/i.test(l));
   if (fbErr.length) fail('Lỗi khởi tạo Firebase/Google: ' + fbErr.slice(0, 3).join(' / ').slice(0, 400));
   const ce = consoleErr.filter(s => !/ResizeObserver|net::ERR|Failed to load resource/.test(s));
   ce.slice(0, 15).forEach(s => console.log('[console] ' + s));

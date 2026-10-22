@@ -1,0 +1,41 @@
+# Lưu kho footage (repo riêng lexkiteapp/lexkite-footage) lên Kho Drive: 2 bản sao / 2 Drive khác nhau, chống trùng sha256,
+# tiếp tục được (manifest ghi sau mỗi 20 file). Ghi brand/library/cine/archive-manifest.json (đường dẫn → sha256, size, copies[{driveId,fileId}]) vào main.
+# Secrets: FOOTAGE_DEPLOY_KEY (chỉ-đọc lexkite-footage), LEXKITE_DRIVE_CLI_KEY (HMAC /api/drive). Kiểm hằng tuần: footage-verify.yml. Tài liệu: docs/VIDEO.md §Kho footage.
+name: footage-archive
+on:
+  workflow_dispatch:
+    inputs:
+      limit: { description: 'Tối đa số file mỗi lượt', default: '100000' }
+      dry_run: { description: 'Chỉ đếm, không tải', type: boolean, default: false }
+      rehash: { description: 'Băm lại cả file đã có trong manifest', type: boolean, default: false }
+concurrency: { group: footage-archive, cancel-in-progress: false }
+permissions: { contents: write }
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 345
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Lấy lexkite-footage (đầy đủ)
+        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
+        run: |
+          [ -n "$KEY" ] || { echo "::error::thiếu secret FOOTAGE_DEPLOY_KEY"; exit 1; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes" git clone -q --depth 1 git@github.com:lexkiteapp/lexkite-footage.git /tmp/footage
+          rm -f ~/.ssh/footage; du -sh /tmp/footage
+          # manifest của repo footage (nếu có) KHÔNG dùng – nguồn thật là bản trong repo công khai
+          rm -f /tmp/footage/archive-manifest.json
+      - name: Tải lên Kho Drive (2 bản / 2 Drive)
+        id: up
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/footage/archive.mjs --root /tmp/footage --manifest "$GITHUB_WORKSPACE/brand/library/cine/archive-manifest.json" --limit "${{ github.event.inputs.limit || '100000' }}" ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} ${{ github.event.inputs.rehash == 'true' && '--rehash' || '' }}
+      - name: Ghi manifest vào main
+        if: ${{ always() && github.event.inputs.dry_run != 'true' }}
+        run: |
+          git add brand/library/cine/archive-manifest.json
+          git diff --cached --quiet && { echo "manifest không đổi"; exit 0; }
+          git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "footage-archive #${{ github.run_number }}: manifest Kho Drive"
+          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1
