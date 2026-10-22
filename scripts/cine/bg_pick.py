@@ -10,7 +10,10 @@ dom = [d for d, v in BT['domains'].items() if any(re.search(r'\b' + re.escape(k)
 ZD = os.environ.get('NEWS_ZONES', ''); valid = lambda b: (not ZD) or (os.path.exists(f'{ZD}/{b}.zones.json') and json.load(open(f'{ZD}/{b}.zones.json')).get('valid'))
 if dom: cand = BT['domains'][dom[0]]['bg']
 elif sp.get('area') in BT.get('teaching_areas', []): cand = BT.get('teaching_bg', [])
-else: cand = sorted([f[:-11] for f in os.listdir(ZD) if f.endswith('.zones.json')] if ZD else [], key=lambda b: hashlib.md5((sp['id'] + b).encode()).hexdigest())
+else:   # situational lesson: only backgrounds that share index tags with the lesson's own scene (a restaurant lesson never moves to a meeting room)
+    IX = os.environ.get('CINE_LIB', '') + '/anchor/bg/index.json'; tags = {e['topic']: set(e.get('tags', [])) for e in json.load(open(IX))['items']} if os.path.exists(IX) else {}
+    own = tags.get(sp['bg'], set()) - {'roleplay', 'phrases', 'speaking'}
+    cand = sorted([b for b, t in tags.items() if b != sp['bg'] and len(own & t) >= 1], key=lambda b: (-len(own & tags[b]), hashlib.md5((sp['id'] + b).encode()).hexdigest()))
 nxt = [b for b in cand if b not in tried and valid(b)]
 if not nxt: sys.exit(1)
 print(nxt[0])

@@ -20,7 +20,7 @@ FLOOR = {'floor', 'road', 'sidewalk', 'ground', 'grass', 'rug', 'path', 'field',
 FORBID = {'table', 'desk', 'counter', 'countertop', 'kitchen island', 'chair', 'armchair', 'swivel chair', 'sofa', 'seat', 'bench', 'bed', 'cradle', 'water',
           'sea', 'river', 'lake', 'swimming pool', 'pool table', 'bathtub', 'car', 'bus', 'truck', 'van', 'boat', 'ship', 'bar', 'stool', 'ottoman', 'buffet',
           'booth', 'coffee table', 'shelf', 'cabinet', 'fountain', 'waterfall', 'airplane', 'train'}
-GW, GH = 54, 96
+GW, GH = 54, 96; VER = 2   # v2: horizon = vanishing region (farthest depth), not the floor's far edge
 
 def grid(mask):
     g = cv2.resize(mask.astype(np.float32), (GW, GH), interpolation=cv2.INTER_AREA) > 0.5
@@ -30,7 +30,8 @@ def main():
     ap = argparse.ArgumentParser(); ap.add_argument('bg_dir'); ap.add_argument('out_dir'); ap.add_argument('--depth'); ap.add_argument('ids', nargs='?')
     o = ap.parse_args(); os.makedirs(o.out_dir, exist_ok=True)
     ids = o.ids.split(',') if o.ids else sorted(f[:-4] for f in os.listdir(o.bg_dir) if f.endswith('.png'))
-    todo = [i for i in ids if not os.path.exists(f'{o.out_dir}/{i}.zones.json') and os.path.exists(f'{o.bg_dir}/{i}.png')]
+    fresh = lambda i: os.path.exists(f'{o.out_dir}/{i}.zones.json') and json.load(open(f'{o.out_dir}/{i}.zones.json')).get('v', 1) >= VER
+    todo = [i for i in ids if not fresh(i) and os.path.exists(f'{o.bg_dir}/{i}.png')]
     print(f'{len(todo)} background(s) to annotate')
     if not todo: return
     import torch; from PIL import Image
@@ -54,11 +55,11 @@ def main():
         floor = np.isin(lab, [k for k, n in cls.items() if n in FLOOR]); forbid = np.isin(lab, [k for k, n in cls.items() if n in FORBID])
         near = forbid & (d >= np.quantile(d, 0.80))
         gF, gX, gN = grid(floor), grid(forbid), grid(near)
-        c0, c1 = int(GW * 0.2), int(GW * 0.8); rows = np.nonzero(gF[:, c0:c1].mean(1) >= 0.2)[0]
-        if len(rows): hz = float(rows.min() / GH)
-        else: far = d <= np.quantile(d, 0.05); hz = float(np.median(np.nonzero(far)[0]) / (H // 2))
+        c0, c1 = int(GW * 0.2), int(GW * 0.8); rows = np.nonzero(gF[:, c0:c1].mean(1) >= 0.2)[0]; ftop = float(rows.min() / GH) if len(rows) else 1.0
+        dc = d[:, int(d.shape[1] * 0.2):int(d.shape[1] * 0.8)]; far = dc <= np.quantile(dc, 0.03)   # vanishing region = farthest 3 % in the central band
+        hz = float(min(np.median(np.nonzero(far)[0]) / (H // 2), ftop))
         frac = {n: round(float((lab == k).mean()), 4) for k, n in cls.items() if (lab == k).mean() >= 0.01}
-        Z = dict(id=i, size=[W, H], horizon=round(hz, 4), floor_frac=round(float(floor.mean()), 4), valid=bool(floor.mean() >= 0.03), classes=frac,
+        Z = dict(v=VER, id=i, size=[W, H], horizon=round(hz, 4), floor_top=round(ftop, 4), floor_frac=round(float(floor.mean()), 4), valid=bool(floor.mean() >= 0.03), classes=frac,
                  grid=dict(w=GW, h=GH, rows=[''.join('N' if gN[y, x] else 'X' if gX[y, x] else 'F' if gF[y, x] else '.' for x in range(GW)) for y in range(GH)]),
                  model='mask2former-swin-small-ade-semantic + depth-anything-v2-small')
         json.dump(Z, open(f'{o.out_dir}/{i}.zones.json', 'w')); print(f"{i:20s} horizon {Z['horizon']:.3f} floor {Z['floor_frac']:.3f} valid {Z['valid']}  {sorted(frac, key=frac.get, reverse=True)[:6]}")
