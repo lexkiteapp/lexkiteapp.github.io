@@ -47,6 +47,8 @@ Return ONE JSON object mapping each item's "k" to {why, hook, wrong}.`;
 const XJUDGE = L => `You are a strict senior English teacher and native ${L} reviewer. Each item: quiz sentence "s", correct answer "ans", and an explanation in ${L} ("why", "hook", "wrong": option → note), plus "p" (pattern) and "ex" (examples).
 Rate 1–5: 5 = fully correct English grammar/usage facts, natural ${L}, every wrong-option note is true; 4 = correct with minor style issues; 3 = vague or one doubtful claim; 2 = a factual error (e.g. calls a wrong option correct, wrong meaning, bad example); 1 = wrong or wrong language.
 Return ONE JSON object mapping each item's "k" to an integer 1–5.`;
+const X_WAI = '@cf/meta/llama-3.3-70b-instruct-fp8-fast';
+const parseJSON = t => { try { const m = String(t || '').match(/\{[\s\S]*\}/); return m ? JSON.parse(m[0]) : null; } catch (e) { return null; } };
 const cut = (v, n) => String(v == null ? '' : v).slice(0, n);
 const cleanX = x => ({ k: cut(x.k, 120), type: cut(x.type, 40), s: cut(x.s, 300), ans: cut(x.ans, 80), alts: (Array.isArray(x.alts) ? x.alts : []).slice(0, 8).map(a => cut(a, 160)), ctx: cut(x.ctx, 600),
   ...(x.p ? { p: cut(x.p, 120) } : {}), ...(x.why ? { why: cut(x.why, 400), hook: cut(x.hook, 300), wrong: Object.fromEntries(Object.entries(x.wrong || {}).slice(0, 8).map(([a, v]) => [cut(a, 160), cut(v, 300)])) } : {}), ...(Array.isArray(x.ex) ? { ex: x.ex.slice(0, 2).map(e => cut(e, 200)) } : {}) });
@@ -59,10 +61,19 @@ export async function onRequestPost({ request, env }) {
   if (['xgen', 'xtr', 'xjudge'].includes(b.mode)) {
     const L = NAMES[b.lang], items = Array.isArray(b.items) ? b.items.slice(0, 15).map(cleanX) : [];
     if (!L || !items.length || (b.mode === 'xgen' && b.lang !== 'en')) return J({ error: 'bad-request' }, 400);
-    try {
-      const r = await runModel(env, b.mode === 'xgen' ? XGEN : b.mode === 'xtr' ? XTR(L) : XJUDGE(L), JSON.stringify(items), b.mode === 'xjudge' ? 0.1 : 0.3, { gemini: true, wai: false }); // chỉ Gemini: Llama 8B soạn lời giải sai/sai khuôn (thử 22/10)
+    const sys = b.mode === 'xgen' ? XGEN : b.mode === 'xtr' ? XTR(L) : XJUDGE(L), temp = b.mode === 'xjudge' ? 0.1 : 0.3;
+    try { // Gemini trước; kho khóa hết lượt/nghỉ → Llama 3.3 70B (Workers AI, miễn phí). KHÔNG dùng Llama 8B (sai khuôn/sai nội dung, thử 22/10)
+      const r = await runModel(env, sys, JSON.stringify(items), temp, { gemini: true, wai: false });
       return J({ out: r.out || {}, model: r.model });
-    } catch (e) { return J({ error: String((e && e.message) || e).slice(0, 80), diag: String(gemDiag || '').replace(/…\S{4}:/g, '…').slice(0, 300) }, 503); } // chẩn đoán: mã lỗi Gemini (bỏ đuôi khóa)
+    } catch (e) {
+      if (!env.AI) return J({ error: String((e && e.message) || e).slice(0, 80), diag: String(gemDiag || '').replace(/…\S{4}:/g, '…').slice(0, 300) }, 503);
+      try {
+        const res = await env.AI.run(X_WAI, { messages: [{ role: 'system', content: sys + '\nReply with ONE valid JSON object only, no markdown.' }, { role: 'user', content: JSON.stringify(items) }], max_tokens: 4096, temperature: temp, response_format: { type: 'json_object' } });
+        const raw = res && (res.response ?? (res.result && res.result.response)), out = raw && typeof raw === 'object' ? raw : parseJSON(raw);
+        if (!out) return J({ error: 'bad-json', model: X_WAI }, 503);
+        return J({ out, model: X_WAI });
+      } catch (e2) { return J({ error: String((e2 && e2.message) || e2).slice(0, 80), diag: String(gemDiag || '').replace(/…\S{4}:/g, '…').slice(0, 200) }, 503); }
+    }
   }
   const L = b.lang !== 'en' && b.lang !== 'vi' && NAMES[b.lang], items = Array.isArray(b.items) ? b.items.slice(0, 30) : [];
   if (!L || !items.length || !['translate', 'judge'].includes(b.mode)) return J({ error: 'bad-request' }, 400);
