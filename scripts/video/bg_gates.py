@@ -152,7 +152,7 @@ def calib(a):
                items=[{k: v for k, v in r.items() if k != '_emb'} for r in R])
     rep['store'] = {r['id']: dict(loc=r['id'], cat='legacy916', clip=r['_emb'], phash=r['phash']) for r in R}
     rep['pos_all_caught'] = all(p['person'] >= thr_p for p in pos) if pos else None
-    json.dump(rep, open(a.out, 'w')); print(json.dumps(rep['dist']), json.dumps(th), 'pos_all_caught', rep['pos_all_caught'])
+    os.makedirs(os.path.dirname(a.out) or '.', exist_ok=True); json.dump(rep, open(a.out, 'w')); print(json.dumps(rep['dist']), json.dumps(th), 'pos_all_caught', rep['pos_all_caught'])
 
 def shard(a):
     man = json.load(open(a.manifest)); i, n = map(int, a.shard.split('/')); C = json.load(open(a.calib))['thresholds']
