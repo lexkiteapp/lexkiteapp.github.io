@@ -319,7 +319,14 @@ jobs:
               for t in ts:
                   cap.set(cv2.CAP_PROP_POS_MSEC, t * 1000); ok, f = cap.read(); fr.append(cv2.resize(f, (180, 320)) if ok else np.zeros((320, 180, 3), np.uint8))
               while len(fr) < 10: fr.append(np.zeros((320, 180, 3), np.uint8))
-              rows.append(np.hstack(fr))
+              zs = []   # 400 % edge crops of the hook two-shot (owner 22/10: hair / shoulder / hand edges, no halo)
+              if tl:
+                  h0 = tl['shots'][0]; cap.set(cv2.CAP_PROP_POS_MSEC, h0['dur'] * 500); ok, f0 = cap.read(); fb = sorted(h0.get('faceboxes', []), key=lambda b: b[0])
+                  pts = ([(fb[0][0] + 10, fb[0][1] + 20), (fb[-1][0] - 137, fb[-1][3] + 77), ((fb[0][0] + fb[0][2]) / 2 + 150, 1640)] if len(fb) == 2 and ok else [])
+                  for x, y in pts:
+                      x, y = int(np.clip(x, 23, 1056)), int(np.clip(y, 40, 1879)); zs.append(cv2.resize(f0[y - 40:y + 40, x - 22:x + 23], (180, 320), interpolation=cv2.INTER_NEAREST))
+              while len(zs) < 3: zs.append(np.zeros((320, 180, 3), np.uint8))
+              rows.append(np.hstack(fr + zs))
           if rows: cv2.imwrite(f'out/qa/sheet_news_{os.environ["SHARD_IDX"]}.jpg', np.vstack(rows), [cv2.IMWRITE_JPEG_QUALITY, 72])
           PY
       - name: Lưu bền bài ĐẠT (lexkite-shorts, shorts/news/<bài>/)
