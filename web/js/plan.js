@@ -112,7 +112,7 @@
       tasks.push({ em: '📐', t: l ? t('Ngữ pháp: {title}', { title: l.title }) : t('Học 1 bài ngữ pháp'), sub: `${lv} · ${why}`, href: l ? '#/grammar/' + l.id : '#/grammar', mins: 10, done: (d.grammar || 0) > 0, focus: 'grammar' });
     }
     // Lộ trình theo NGÀY (path-day.js, tải lười): "Ngày N" = 1 buổi 5–10 phút trộn nhiều dạng bài – việc chính, đứng ĐẦU kế hoạch (nút lớn "Bắt đầu Ngày N")
-    const dt = await App.need('pathx').then(() => window.DayPath && DayPath.todayTask()).catch(() => null);
+    const dt = await App.lazy('pathx').then(() => window.DayPath && DayPath.todayTask()).catch(() => null);
     if (dt) tasks.unshift({ ...dt, sub: weak === 'vocab' ? `${dt.sub} · ${why}` : dt.sub, focus: weak === 'vocab' ? 'vocab' : '' });
     else { const pn = App.pathNext ? await App.pathNext() : null, cur = pn && pn.unit; // dự phòng: không tải được gói lộ trình theo ngày
       if (cur) tasks.push({ em: cur.topic.emoji, t: t('Học bài: {name}', { name: cur.topic.name }), sub: `${cur.stage.name} · ${t('đã học {pct}%', { pct: Math.round(cur.pct * 100) })}`, href: pn.href, mins: 8, done: (d.newWords || 0) >= 5, focus: weak === 'vocab' ? 'vocab' : '' }); }

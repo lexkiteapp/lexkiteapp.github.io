@@ -282,7 +282,7 @@
     $('#flash').addEventListener('click', e => { if (!e.target.closest('button, details, textarea, input')) flip(); });
 
     const fc0 = $('#flash');
-    App.need('swipe').then(() => {
+    App.lazy('swipe').then(() => {
       if (!window.StudySwipe || $('#flash') !== fc0 || graded) return;
       updateKit(flipped ? 'happy' : 'think');
       if (!typeMode) StudySwipe.attach(fc0, { flipped: () => flipped, graded: () => graded, commit: g => grade(g, null, true), labels: [t('Quên'), t('Nhớ')] });
@@ -397,7 +397,7 @@
 
   // ⚡ Ghép thẻ & 🎙️ Phát âm: study-games.js (tải lười)
   let games = null;
-  const lazyGame = k => (...a) => { const h = location.hash; return App.need('pgames').then(() => { if (location.hash !== h || !window.StudyGames) return; games = games || StudyGames({ accent, emptySource, haptic, head, mean, norm, picOk, pool, practiceDone, runQuiz, srcName }); games[k](...a); }).catch(() => toast(t('Không tải được – thử lại sau'))); };
+  const lazyGame = k => (...a) => { const h = location.hash; return App.lazy('pgames').then(() => { if (location.hash !== h || !window.StudyGames) return; games = games || StudyGames({ accent, emptySource, haptic, head, mean, norm, picOk, pool, practiceDone, runQuiz, srcName }); games[k](...a); }).catch(() => toast(t('Không tải được – thử lại sau'))); };
   const runMatch = lazyGame('runMatch'), runSpeak = lazyGame('runSpeak');
 
   // ================= TRUNG TÂM LUYỆN TẬP =================
