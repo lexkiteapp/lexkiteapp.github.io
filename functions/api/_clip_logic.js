@@ -3,6 +3,8 @@
  * spreadSlot: spread N clips over D days inside a daily time window. No I/O. */
 export const STATUS = ['pass', 'fail', 'pending', 'approved', 'rejected', 'paused', 'ready', 'uploaded', 'web', 'sched', 'due', 'none'];
 export const SORTS = ['created', 'qa', 'slot', 'views', 'completion'];
+import { SCENE_TOPIC, AREA_SKILL, SHORT_MAX_SEC, validTopic, SKILLS, EXAMS } from './_taxonomy.js';
+export const CTYPES = ['short', 'long', 'podcast'];
 export const SECTIONS = ['pending', 'approved', 'live', 'fail', 'archive'], GROUPS = ['template', 'scene', 'date'];
 export const TEXT_KEYS = ['q', 'format', 'template', 'scene', 'cefr', 'hook', 'host', 'bg', 'diff', 'channel'];
 const S = v => (typeof v === 'string' ? v.trim().slice(0, 80) : '');
@@ -14,6 +16,10 @@ export function normFilter(f) {
   for (const k of TEXT_KEYS) { const v = S(f[k]); if (v) o[k] = v; }
   if (STATUS.includes(f.status)) o.status = f.status;
   if (SECTIONS.includes(f.section)) o.section = f.section;
+  if (CTYPES.includes(f.type)) o.type = f.type;
+  if (validTopic(f.topic)) o.topic = f.topic;
+  if (SKILLS.some(k => k[0] === f.skill)) o.skill = f.skill;
+  if (EXAMS.includes(f.exam)) o.exam = f.exam;
   if (GROUPS.includes(f.group)) o.group = f.group;
   const a = N(f.qmin), b = N(f.qmax); if (a != null) o.qmin = a; if (b != null) o.qmax = b;
   const from = D(f.from), to = D(f.to); if (from) o.from = from; if (to) o.to = to;
@@ -23,12 +29,17 @@ export function normFilter(f) {
   return o;
 }
 export const scoreOf = it => { const q = (it && it.qa) || {}; if (Number.isFinite(+q.score) && q.score !== '' && q.score != null) return +q.score; const t = (+q.ok || 0) + (+q.fail || 0); return t ? Math.round(100 * (+q.ok || 0) / t) : null; };
+/** Content type: explicit `type` wins; audio_only → podcast; otherwise by duration (≤ 60 s short, longer = long). Existing shorts have no field → short. */
+export const typeOf = it => (CTYPES.includes(it.type) ? it.type : it.audio_only ? 'podcast' : +it.duration > SHORT_MAX_SEC ? 'long' : 'short');
+export const topicOf = it => { const t = it.topic ? [it.topic, it.subtopic || ''] : SCENE_TOPIC[it.scene] || ['', '']; return { topic: t[0], sub: t[1] ? t[0] + '/' + t[1] : '' }; };
+export const skillOf = it => it.skill || AREA_SKILL[it.area] || '';
 export const field = (it, k) => String((k === 'hook' ? it.hook || it.hook_type : k === 'host' ? it.host || it.anchor : k === 'bg' ? it.bg || it.background : k === 'diff' ? it.difficulty || it.diff : it[k]) || '');
 /** Manifest item + overlay context {review, queue, pack, web, views} (all keyed by clip id) → flags used by filters, sorting and the grid. */
 export function viewOf(it, c) {
   const rv = c.review[it.id] || {}, q = c.queue[it.id], v = c.views[it.id] || {};
   const slot = rv.slot_date ? { date: rv.slot_date, time: rv.slot_time || '' } : it.slot || null;
-  return { rejected: rv.state === 'rejected' || !!it.rejected, reason: rv.reason || (typeof it.rejected === 'string' ? it.rejected : ''), paused: rv.state === 'paused' || !!it.paused, deleted: !!rv.deleted,
+  const tp = topicOf(it);
+  return { type: typeOf(it), topic: tp.topic, sub: tp.sub, skill: skillOf(it), exam: it.exam || '', orientation: it.orientation || (typeOf(it) === 'short' ? 'vertical' : ''), chapters: Array.isArray(it.chapters) ? it.chapters.length : 0, series: it.series || '', episode: it.episode || null, rejected: rv.state === 'rejected' || !!it.rejected, reason: rv.reason || (typeof it.rejected === 'string' ? it.rejected : ''), paused: rv.state === 'paused' || !!it.paused, deleted: !!rv.deleted,
     approved: !!q, ready: !!q && q.status === 'manual' && !!c.pack[it.id], uploaded: !!q && (q.status === 'detected' || q.status === 'done'), web: !!c.web[it.id] && rv.web !== 0, webOff: rv.web === 0,
     channel: (q && q.channel_id) || rv.channel_id || '', slot, views: v.view || 0, done: v.done || 0, completion: v.view ? v.done / v.view : 0, score: scoreOf(it) };
 }
@@ -52,6 +63,10 @@ export function matches(it, v, f, now = today()) {
   if (st === 'sched' && !(v.slot && v.slot.date >= now)) return false; if (st === 'due' && !(v.slot && v.slot.date < now)) return false; if (st === 'none' && v.slot) return false;
   for (const k of ['format', 'template', 'scene', 'cefr', 'hook', 'host', 'bg', 'diff']) if (f[k] && field(it, k) !== f[k]) return false;
   if (f.channel && v.channel !== f.channel) return false;
+  if (f.type && v.type !== f.type) return false;
+  if (f.topic && v.topic !== f.topic && v.sub !== f.topic) return false;
+  if (f.skill && v.skill !== f.skill) return false;
+  if (f.exam && v.exam !== f.exam) return false;
   if ((f.qmin != null || f.qmax != null) && (v.score == null || v.score < (f.qmin ?? 0) || v.score > (f.qmax ?? 100))) return false;
   const day = f.dt === 'slot' ? (v.slot && v.slot.date) || '' : String(it.created || '').slice(0, 10);
   if ((f.from || f.to) && !day) return false; if (f.from && day < f.from) return false; if (f.to && day > f.to) return false;

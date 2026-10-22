@@ -16,6 +16,7 @@
  *   uploads in YouTube Studio as Unlisted; `sync` (admin button + youtube-manual.yml cron) reads the uploads playlist with youtube.readonly only,
  *   matches the description marker "lk:<clip>", checks unlisted/public + processing done + duration → status 'done' → op ids → web manifest
  *   embeds YouTube exactly like an API upload. 'api': the resumable upload path above (needs youtube.upload). Never browser bots / cookies. */
+import { healthVerdict, localDate, localHM, normCfg } from './_distribution.js';
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
 import { signState, verifyState, encryptToken, decryptToken, cliVerify, driveMedia } from './drive.js';
@@ -47,6 +48,9 @@ export async function setup(db) {
     db.prepare('CREATE TABLE IF NOT EXISTS yt_meta (k TEXT PRIMARY KEY, v TEXT)'),
     db.prepare('CREATE TABLE IF NOT EXISTS yt_nonce (n TEXT PRIMARY KEY, at INTEGER)'),
     db.prepare('CREATE TABLE IF NOT EXISTS clip_review (clip TEXT PRIMARY KEY, state TEXT, reason TEXT, web INTEGER, slot_date TEXT, slot_time TEXT, channel_id TEXT, deleted INTEGER DEFAULT 0, updated INTEGER, by_who TEXT)'),
+    db.prepare('CREATE TABLE IF NOT EXISTS yt_chan_cfg (channel_id TEXT PRIMARY KEY, cfg TEXT, paused_reason TEXT, updated INTEGER)'),
+    db.prepare('CREATE TABLE IF NOT EXISTS yt_rules (id INTEGER PRIMARY KEY AUTOINCREMENT, pos INTEGER, name TEXT, cond TEXT, channel_id TEXT, active INTEGER DEFAULT 1)'),
+    db.prepare('CREATE TABLE IF NOT EXISTS yt_plan (clip TEXT PRIMARY KEY, channel_id TEXT, slot_ms INTEGER, source TEXT, rule INTEGER, why TEXT, updated INTEGER)'),
     db.prepare('CREATE TABLE IF NOT EXISTS yt_pack (clip TEXT PRIMARY KEY, file_id TEXT, drive_id TEXT, sha TEXT, bytes INTEGER, title TEXT, description TEXT, tags TEXT, at INTEGER, retired INTEGER DEFAULT 0, seen TEXT)'),
   ]);
   await addCols(db);
@@ -249,11 +253,16 @@ export async function syncChannel(env, db, { pages = 4 } = {}) {
   const since = Math.min(...mrows.map(r => +r.approved_at || Infinity));
   const rec = reconcile({ rows, uploads, videos, secs: await clipSecs(env), manual, complete, since: Number.isFinite(since) ? since : 0 }), now = Date.now();
   for (const u of rec.updates) await run(db, 'UPDATE yt_queue SET status = ?, video_id = ?, privacy = ?, err = ?, updated = ?, channel_id = COALESCE(?, channel_id) WHERE clip = ?', u.status, u.video_id, u.privacy || 'unlisted', u.err, now, onCh.get(u.video_id) || null, u.clip);
+  const plan = await planInfo(db);
+  for (const u of rec.updates) { const pl = plan.get(u.clip), found = onCh.get(u.video_id); if (pl && pl.channel_id && found && found !== pl.channel_id) rec.issues.push({ kind: 'wrong-channel', clip: u.clip, video_id: u.video_id, expected: pl.title || pl.channel_id }); }
   const live = rec.updates.filter(u => u.status === 'done' && u.was !== 'done').map(u => u.clip);
   const sum = { at: now, scanned: uploads.length, complete, matched: rec.matched, updated: rec.updates.length, live, issues: rec.issues.slice(0, 40), channels: per };
+  sum.paused = await healthCheck(db, per);
   await setMeta(db, 'sync', JSON.stringify(sum)); for (const cid of tokens.keys()) await run(db, 'UPDATE yt_channel SET last_ok = ? WHERE channel_id = ?', now, cid);
   return { ok: true, ...sum, quota: await quotaInfo(db) };
 }
+/** "Post to channel X at HH:mm" for a pack card: slot shown in the channel's own time zone. */
+async function planFor(db, p) { if (!p || !p.channel_id) return null; const { cfg } = await chanCfg(db, p.channel_id); return { channel_id: p.channel_id, channel: p.title || p.channel_id, at: p.slot_ms ? localDate(p.slot_ms, cfg.tz) + ' ' + localHM(p.slot_ms, cfg.tz) : '', tz: cfg.tz, studio: `https://studio.youtube.com/channel/${p.channel_id}/videos/upload?d=ud` }; }
 async function counts(db) {
   const q = Object.fromEntries((await all(db, 'SELECT status, COUNT(*) AS n FROM yt_queue GROUP BY status')).map(r => [r.status, r.n]));
   const m = (await one(db, "SELECT SUM(q.status = 'manual' AND p.file_id IS NOT NULL) AS ready, SUM(q.status = 'manual' AND p.file_id IS NULL) AS packing, SUM(q.status = 'detected') AS uploaded, SUM(q.status = 'done') AS live, SUM(q.err IS NOT NULL AND q.status != 'done') AS issues FROM yt_pack p JOIN yt_queue q ON q.clip = p.clip")) || {};
@@ -299,6 +308,26 @@ export async function unqueueClip(db, id) {
   await run(db, "DELETE FROM yt_pack WHERE clip = ? AND NOT EXISTS (SELECT 1 FROM yt_queue WHERE clip = ?)", id, id);
 }
 
+// ---------- distribution hooks (config lives in yt_chan_cfg; engine in _distribution.js, ops in distribution.js) ----------
+export async function chanCfg(db, id) { const r = await one(db, 'SELECT cfg, paused_reason FROM yt_chan_cfg WHERE channel_id = ?', id); let c = {}; try { c = JSON.parse((r && r.cfg) || '{}'); } catch (e) { /* default */ } return { cfg: normCfg(c), paused_reason: (r && r.paused_reason) || '' }; }
+/** Pause a channel (cfg.active = 0) and raise an admin alert (yt_meta 'alerts', newest first, ≤ 20). */
+export async function pauseChannel(db, id, reason) {
+  const { cfg } = await chanCfg(db, id), t = await one(db, 'SELECT title FROM yt_channel WHERE channel_id = ?', id);
+  await run(db, 'INSERT INTO yt_chan_cfg (channel_id, cfg, paused_reason, updated) VALUES (?, ?, ?, ?) ON CONFLICT(channel_id) DO UPDATE SET cfg = excluded.cfg, paused_reason = excluded.paused_reason, updated = excluded.updated', id, JSON.stringify({ ...cfg, active: 0 }), reason, Date.now());
+  let al = []; try { al = JSON.parse((await getMeta(db, 'alerts')) || '[]'); } catch (e) { /* reset */ }
+  await setMeta(db, 'alerts', JSON.stringify([{ at: Date.now(), channel_id: id, title: (t && t.title) || id, reason }, ...al].slice(0, 20)));
+}
+/** After sync: pause channels that errored with forbidden / revoked or have many failed uploads. Returns the channels paused. */
+export async function healthCheck(db, per = []) {
+  const paused = [];
+  for (const p of per) {
+    const failed = (await one(db, "SELECT COUNT(*) AS n FROM yt_plan p JOIN yt_queue q ON q.clip = p.clip WHERE p.channel_id = ? AND q.status = 'failed' AND q.attempts >= 3", p.channel_id) || {}).n || 0, why = healthVerdict({ error: p.error, failed });
+    if (why && (await chanCfg(db, p.channel_id)).cfg.active) { await pauseChannel(db, p.channel_id, why); paused.push(p.channel_id); }
+  }
+  return paused;
+}
+const planInfo = async db => { const m = new Map(); for (const r of await all(db, 'SELECT p.clip, p.channel_id, p.slot_ms, c.title FROM yt_plan p LEFT JOIN yt_channel c ON c.channel_id = p.channel_id')) m.set(r.clip, r); return m; };
+
 // ---------- ops ----------
 const ADMIN_OPS = {
   async status(db, b, who, env) {
@@ -307,7 +336,8 @@ const ADMIN_OPS = {
     const ch = channels.find(r => r.is_default) || channels[channels.length - 1] || null; // legacy single-channel field = the selected one
     const c = await counts(db), st = await getMeta(db, 'privacy'), mode = await modeOf(db, env), scope = await getMeta(db, 'scope');
     let sync = null; try { sync = JSON.parse(await getMeta(db, 'sync') || 'null'); } catch (e) { /* bỏ qua */ }
-    return { configured: configured(env), redirect: REDIRECT, channel: ch, channels, quota: await quotaInfo(db), queue: c.queue, manual: c.manual, sync, studio: STUDIO,
+    let alerts = []; try { alerts = JSON.parse((await getMeta(db, 'alerts')) || '[]'); } catch (e) { /* none */ }
+    return { configured: configured(env), redirect: REDIRECT, channel: ch, channels, alerts, quota: await quotaInfo(db), queue: c.queue, manual: c.manual, sync, studio: STUDIO,
       settings: { privacy: st || 'private', mode }, scope: { granted: scope || '', needed: scopeFor(mode), ok: !!scope && scopeFor(mode).split(' ').every(x => scope.split(' ').includes(x)) } };
   },
   async connect(db, b, who, env) {
@@ -345,12 +375,12 @@ const ADMIN_OPS = {
   async packs(db, b, who, env) {
     const rows = await all(db, `SELECT q.clip, q.lesson, q.status, q.privacy, q.video_id, q.err, q.approved_at, q.updated, q.title AS qtitle, p.file_id, p.drive_id, p.bytes, p.title, p.description, p.tags, p.at, p.retired
       FROM yt_pack p JOIN yt_queue q ON q.clip = p.clip ORDER BY (q.status = 'done'), q.approved_at DESC LIMIT 300`);
-    const out = [];
+    const out = [], plan = await planInfo(db);
     for (const r of rows) {
       const url = r.file_id && !r.retired ? await signedPack(env, { fileId: r.file_id, driveId: r.drive_id }, r.clip) : null;
       let tags = []; try { tags = JSON.parse(r.tags || '[]'); } catch (e) { /* bỏ qua */ }
       out.push({ id: r.clip, lesson: r.lesson, status: r.status, video_id: r.video_id, err: r.err, approved_at: r.approved_at, updated: r.updated, pack: url, bytes: r.bytes, ready: !!r.file_id, retired: !!r.retired,
-        title: r.title || r.qtitle || '', description: r.description || '', tags, marker: markerLine(r.clip), state: stateOf(r, r) });
+        title: r.title || r.qtitle || '', description: r.description || '', tags, marker: markerLine(r.clip), state: stateOf(r, r), plan: await planFor(db, plan.get(r.clip)) });
     }
     const ch = await channelRow(db, CHID.test(String(b.channel_id || '')) ? b.channel_id : '');
     return { rows: out, studio: ch ? `https://studio.youtube.com/channel/${ch.channel_id}/videos/upload?d=ud` : STUDIO, ...(await counts(db)) };

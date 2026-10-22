@@ -10,7 +10,8 @@ import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
 import { manifest, signed } from './admin-shorts.js';
 import { setup, approveClips, unqueueClip, slotToIso } from './youtube.js';
-import { normFilter, viewOf, matches, sortRows, pageOf, spreadSlot, field, sectionOf, groupKey, SECTIONS } from './_clip_logic.js';
+import { TOPICS, SKILLS, EXAMS, CEFR, TYPES } from './_taxonomy.js';
+import { normFilter, viewOf, matches, sortRows, pageOf, spreadSlot, field, sectionOf, groupKey, SECTIONS, CTYPES } from './_clip_logic.js';
 
 const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...adminCors(req) } });
 const CLIP = /^[a-z0-9-]{3,120}$/, CHID = /^[A-Za-z0-9_-]{8,64}$/, MAX_IDS = 100, MAX_ALL = 20000;
@@ -30,20 +31,21 @@ async function context(db) {
 }
 async function matching(env, db, filter) {
   const f = normFilter(filter), m = await manifest(env), c = await context(db);
-  const rows = [], counts = Object.fromEntries(SECTIONS.map(k => [k, 0])), base = { ...f, hidden: true }; delete base.section; // counts cover every section (Archive too); the default-hide rule is applied below
-  for (const it of m.items) { if (!it || !CLIP.test(String(it.id))) continue; const v = viewOf(it, c); if (matches(it, v, base)) { const sec = sectionOf(it, v); counts[sec]++; if (f.section ? sec === f.section : f.hidden || sec !== 'archive' || f.status === 'rejected' || f.status === 'paused') rows.push({ it, v }); } }
-  return { f, rows: sortRows(rows, f.sort, f.dir, f.group), items: m.items, ctx: c, counts };
+  const rows = [], counts = Object.fromEntries(SECTIONS.map(k => [k, 0])), typeCounts = Object.fromEntries(CTYPES.map(k => [k, 0])), base = { ...f, hidden: true }; delete base.section; // counts cover every section (Archive too); the default-hide rule is applied below
+  for (const it of m.items) { if (!it || !CLIP.test(String(it.id))) continue; const v = viewOf(it, c); if (matches(it, v, { ...base, type: undefined })) typeCounts[v.type]++;
+    if (matches(it, v, base)) { const sec = sectionOf(it, v); counts[sec]++; if (f.section ? sec === f.section : f.hidden || sec !== 'archive' || f.status === 'rejected' || f.status === 'paused') rows.push({ it, v }); } }
+  return { f, rows: sortRows(rows, f.sort, f.dir, f.group), items: m.items, ctx: c, counts, typeCounts };
 }
 const slim = ({ it, v }, covers) => ({ ...it, cover_url: covers[it.cover] || null, drive: undefined, _v: v });
 
 const OPS = {
   async query(db, b, who, env) {
-    const { f, rows, items, counts } = await matching(env, db, b.filter), pg = pageOf(rows, b.cursor, b.limit), covers = {};
+    const { f, rows, items, counts, typeCounts } = await matching(env, db, b.filter), pg = pageOf(rows, b.cursor, b.limit), covers = {};
     for (const r of pg.rows) if (r.it.cover) { const u = await signed(env, r.it, 'cover').catch(() => null); if (u) covers[r.it.cover] = u; }
     let facets;
     if (!(+b.cursor > 0)) { facets = {}; for (const k of ['format', 'template', 'scene', 'cefr', 'hook', 'host', 'bg', 'diff']) facets[k] = [...new Set(items.map(x => field(x, k)).filter(Boolean))].sort().slice(0, 200); }
     let groups; if (f.group && !(+b.cursor > 0)) { groups = {}; for (const r of rows) { const k = groupKey(r.it, f.group); groups[k] = (groups[k] || 0) + 1; } }
-    return { rows: pg.rows.map(r => slim(r, covers)), total: pg.total, next: pg.next, filter: f, facets, counts, groups };
+    return { rows: pg.rows.map(r => slim(r, covers)), total: pg.total, next: pg.next, filter: f, facets, counts, typeCounts, groups, taxonomy: facets ? { types: TYPES, topics: TOPICS, skills: SKILLS, exams: EXAMS, cefr: CEFR } : undefined };
   },
   async ids(db, b, who, env) { const { rows } = await matching(env, db, b.filter); return { ids: rows.slice(0, MAX_ALL).map(r => r.it.id), total: rows.length, capped: rows.length > MAX_ALL }; },
   async export(db, b, who, env) {
