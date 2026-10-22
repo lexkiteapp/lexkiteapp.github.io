@@ -26,7 +26,7 @@ def speech(k): nx = [x for x in CUES[k] if x['value'] != 'X']; return nx[0]['sta
 def wdur(k): return float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f'{N}/vis3/{k}.wav']))
 S, OV, SFX = [], [], []
 def line_tempo(line):   # caption reading speed <= 15 cps -> slow the line (>= 0.84x; news_voice.py re-synthesises lines that would need more)
-    s0, s1 = speech(line); need = len(TEXT[line]) / 14.5 - 0.3   # v6: caption tail is ~0.25 s (no dead air), not 0.49
+    s0, s1 = speech(line); need = len(TEXT[line]) / 14.0 - 0.2   # v6: caption tail is ~0.25 s (no dead air), not 0.49
     return 1.0 if need <= s1 - s0 else max(0.84, round((s1 - s0) / need - 0.005, 3))
 def talk_dur(line, at, breath=0.4, tempo=None): return at + speech(line)[1] / (tempo or line_tempo(line)) + breath
 def shot(id, clip, who, frame, bg, line=None, dur=None, at=0.07, breath=0.4, frames=None, raw=False, other=None, tempo=None):
@@ -342,7 +342,7 @@ def comp(F, Al, sc, cx, cy, ox, oy, drift):   # premultiplied resample (MR.place
     return Fp / np.maximum(a, 1e-3)[..., None], a
 enc = subprocess.Popen(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', '1080x1920', '-r', str(FPS), '-i', '-',
                         '-c:v', 'libx264', '-threads', '2', '-preset', 'medium', '-crf', '18', '-pix_fmt', 'yuv420p', f'{RD}/video.mp4'], stdin=subprocess.PIPE)
-KEYM = {}; EQ = []; EXPO = None; OVS = sorted(OV, key=lambda o: o['t'][0]); fi = 0; COVER = None; QC = []; PA = None
+KEYM = {}; EQ = []; EXPO = None; HOSTG = 1.0; OVS = sorted(OV, key=lambda o: o['t'][0]); fi = 0; COVER = None; QC = []; PA = None
 _x = np.arange(256) / 255.0; _l = _x ** 0.86; _s = np.clip(_l - 0.16 * np.sin(2 * np.pi * _l) / (2 * np.pi), 0, 1)   # owner 22/10: mids lifted ~+10 %, soft S-curve
 _sh = np.clip(1 - _x * 2.2, 0, 1); _hi = np.clip(_x * 2 - 1.1, 0, 1); _fl = lambda v: 18 / 255 + np.clip(v, 0, 1) * (1 - 22 / 255)   # black floor 18/255
 GRADE = np.stack([_fl(_s + 0.02 * _sh - 0.015 * _hi), _fl(_s + 0.01 * _sh + 0.003 * _hi), _fl(_s - 0.01 * _sh + 0.02 * _hi)], 1)   # BGR: slight teal shadows / warm highlights
@@ -390,7 +390,7 @@ for s in S:
             if (s['id'], i) not in KEYM:   # soft key-light match: host colour temperature + brightness pulled 20 % toward the background behind it
                 m_ = a > 0.9; ring_ = (cv2.dilate((a > 0.5).astype(np.uint8), np.ones((61, 61), np.uint8)) > 0) & ~m_
                 hm_ = f[m_].mean(0) + 1; bm_ = B[ring_].mean(0) + 1; KEYM[(s['id'], i)] = np.clip((bm_ / hm_) ** 0.2, 0.92, 1.08) * np.clip((bm_.mean() / hm_.mean()) ** 0.15, 0.94, 1.10)
-            f = f * KEYM[(s['id'], i)] * 1.06   # +6 % key (owner: brighter, real-camera exposure)
+            f = f * KEYM[(s['id'], i)] * 1.06 * HOSTG   # +6 % key (owner: brighter, real-camera exposure)
             if (s['id'], i, 'c') not in KEYM:   # contrast match + light direction from the background (left vs right third)
                 m_ = a > 0.9; hs_ = float(f[m_].std()) + 1; bs_ = float(B.std()) + 1; L3 = B.mean(2); KEYM[(s['id'], i, 'c')] = (float(np.clip((bs_ / hs_) ** 0.2, 0.92, 1.08)), f[m_].mean(0), 1 if L3[:, 720:].mean() > L3[:, :360].mean() else -1)
             kc_, hm0_, ld_ = KEYM[(s['id'], i, 'c')]; f = hm0_ + (f - hm0_) * kc_
@@ -410,7 +410,10 @@ for s in S:
                     ca = [np.nonzero(x_[y_] > 0.5)[0] for x_ in AL]
                     if len(ca[0]) and len(ca[1]): g_.append(int(ca[0].min()) - int(ca[1].max()))   # AL = [Carlos (screen-right), Ama (screen-left)]: Carlos's left edge - Ama's right edge
                 QC[-1]['gap'] = min(g_) if g_ else 999
-        B = cv2.LUT(B.clip(0, 255).astype(np.uint8), GRADE).astype(np.float32)                         # one grade for host + background
+        B = cv2.LUT(B.clip(0, 255).astype(np.uint8), GRADE).astype(np.float32)
+        if fi == 0:   # whole-frame exposure check on frame 0 (dark wardrobe / night scenes): re-aim bg exposure + a small host lift -> mean luma ~0.48
+            m_ = float(B.mean()) / 255
+            if not 0.45 <= m_ <= 0.52: EXPO = float(np.clip(EXPO * (0.48 / m_) ** 1.3, 0.7, 2.8)); HOSTG = float(np.clip((0.48 / m_) ** 0.5, 0.95, 1.15)); print('frame-0 luma %.3f -> bg gain %.2f, host gain %.2f' % (m_, EXPO, HOSTG))                         # one grade for host + background
         B = B + cv2.resize(GRAIN[fi % 6], (1080, 1920), interpolation=cv2.INTER_NEAREST)[..., None]
         if s['id'] == 'hook':   # owner 22/10: open with a punch-in on the speaker
             z_ = 1 + 0.08 * (1 - (1 - min(1.0, j / FPS / 0.4)) ** 2); B = cv2.warpAffine(B, np.float32([[z_, 0, 540 * (1 - z_)], [0, z_, 960 * (1 - z_)]]), (1080, 1920), flags=cv2.INTER_LINEAR)

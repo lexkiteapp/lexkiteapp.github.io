@@ -27,7 +27,7 @@ if todo:
     # caption reading speed: news.py may slow a line by atempo >= 0.84x only; lines spoken too fast for <= 15 cps are re-synthesised slower (natural TTS pace, not stretched audio)
     redo = []
     for l in todo:
-        nd = len(l['text']) / 14.5 - 0.3; sp = span(l['id'])
+        nd = len(l['text']) / 14.0 - 0.2; sp = span(l['id'])
         if sp < 0.9 * nd: redo.append(dict(l, speed=round(max(0.7, (l.get('speed') or base.get('speed', 0.92)) * sp / (0.97 * nd)), 3)))
     if redo:
         print('re-synthesising slower:', [(l['id'], l['speed']) for l in redo]); synth(redo, 'b')
