@@ -37,7 +37,7 @@ button, input { font: inherit; color: inherit; }
 .chip { font-size: 11px; font-weight: 600; padding: 0 7px; border-radius: 99px; background: var(--chip); color: var(--ink); white-space: nowrap; line-height: 1.5; }
 .chip.pos { background: #f1f2f8; color: #565a6e; font-weight: 600; font-size: 11px; }
 @media (prefers-color-scheme: dark) { .chip.pos { background: #2a2b3a; color: #c3c6d6; } } .chip.cefr { background: #FFB054; color: #3B1D06; } .chip.exam { background: transparent; border: 1px solid rgba(255,255,255,.14); color: var(--mut); }
-.nt-card .ipa { color: var(--mut); font-family: "Lucida Sans Unicode", "Arial Unicode MS", sans-serif; margin-top: 1px; font-size: 13px; }
+.nt-card .ipa { color: var(--mut); font-family: "Charis SIL", "Doulos SIL", "Segoe UI", "Lucida Sans Unicode", "Arial Unicode MS", "Noto Sans", "DejaVu Sans", Roboto, sans-serif; margin-top: 1px; font-size: 13px; }
 /* nút nghe – cùng mẫu .spks/.spk của bảng tra (content.js) */
 .spks { display: flex; gap: 6px; margin: 5px 0 0; flex-wrap: wrap; justify-content: center; }
 .spk { border: 0; background: #fdece6; color: #A5300F; border-radius: 999px; height: 24px; padding: 0 10px; cursor: pointer; font: 600 12px/24px -apple-system, "Segoe UI", sans-serif; vertical-align: middle; }
@@ -84,3 +84,9 @@ button, input { font: inherit; color: inherit; }
 @media (max-width: 520px) { .nt-word { font-size: 30px; } .nt-tag { display: none; } .nt-keys { display: none; } }
 @media (prefers-reduced-motion: no-preference) { .nt-card { animation: ntIn .3s ease-out; } @keyframes ntIn { from { opacity: 0; transform: translateY(6px); } } }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+/* Chữ đa ngôn ngữ (font hệ thống/Noto, 0 KB tải về) + ngắt dòng bản địa; RTL: bố cục flex tự lật, IPA/từ tiếng Anh giữ ltr */
+:root:lang(th) body { font-family: system-ui, "Noto Sans Thai", "Leelawadee UI", Thonburi, Tahoma, sans-serif; } :root:lang(zh) body { font-family: system-ui, "Noto Sans SC", "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif; }
+:root:lang(ja) body { font-family: system-ui, "Noto Sans JP", "Noto Sans CJK JP", "Hiragino Sans", "Yu Gothic UI", Meiryo, sans-serif; } :root:lang(ko) body { font-family: system-ui, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+:root:lang(ar) body { font-family: system-ui, "Noto Sans Arabic", "Segoe UI", "Geeza Pro", Tahoma, sans-serif; } :root:lang(hi) body { font-family: system-ui, "Noto Sans Devanagari", "Nirmala UI", "Kohinoor Devanagari", sans-serif; }
+:lang(ja), :lang(zh) { line-break: strict; } :lang(ko) { word-break: keep-all; } :lang(th), :lang(ja), :lang(zh) { overflow-wrap: anywhere; }
+[dir="rtl"] .nt-card, [dir="rtl"] .senses2 { text-align: start; } [dir="rtl"] .nt-card .ipa, [dir="rtl"] .nt-word { direction: ltr; unicode-bidi: isolate; }

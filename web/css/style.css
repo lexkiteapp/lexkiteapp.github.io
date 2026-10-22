@@ -30,7 +30,7 @@
   --radius: 18px;
   --radius-sm: 12px;
   --font: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  --ipa: "Lucida Sans Unicode", "Arial Unicode MS", "Segoe UI", sans-serif;
+  --ipa: "Charis SIL", "Doulos SIL", "Gentium Plus", "Segoe UI", "Lucida Sans Unicode", "Arial Unicode MS", "Noto Sans", "DejaVu Sans", Roboto, sans-serif; /* đủ ɪ ʊ ə ː ˈ ˌ trên Windows/macOS/Android/Linux, không tải file font */
   --sidebar: 248px;
   color-scheme: light;
 }
@@ -1461,3 +1461,12 @@ body:has(.sheet) .view { padding-bottom: calc(18rem + env(safe-area-inset-bottom
 .ext-card > div { flex: 1 1 260px; min-width: 0; }
 .ext-card p { margin: 4px 0 0; }
 .ext-card[hidden] { display: none; }
+/* Chữ đa ngôn ngữ (0 KB font tải về): Be Vietnam Pro cho Latin, chữ Thái/CJK/Ả Rập/Devanagari rơi về font Noto/hệ thống theo :lang(); ngắt dòng ja/zh/th/ko chuẩn bản địa */
+:root:lang(th) { --font: "Be Vietnam Pro", "Noto Sans Thai", "Noto Sans Thai UI", "Leelawadee UI", Thonburi, Tahoma, -apple-system, "Segoe UI", Roboto, sans-serif; }
+:root:lang(zh) { --font: "Be Vietnam Pro", "Noto Sans SC", "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", -apple-system, "Segoe UI", Roboto, sans-serif; }
+:root:lang(ja) { --font: "Be Vietnam Pro", "Noto Sans JP", "Noto Sans CJK JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", Meiryo, -apple-system, "Segoe UI", Roboto, sans-serif; }
+:root:lang(ko) { --font: "Be Vietnam Pro", "Noto Sans KR", "Noto Sans CJK KR", "Apple SD Gothic Neo", "Malgun Gothic", -apple-system, "Segoe UI", Roboto, sans-serif; }
+:root:lang(ar) { --font: "Be Vietnam Pro", "Noto Sans Arabic", "Noto Naskh Arabic", "Segoe UI", "Geeza Pro", Tahoma, -apple-system, Roboto, sans-serif; }
+:root:lang(hi) { --font: "Be Vietnam Pro", "Noto Sans Devanagari", "Nirmala UI", "Kohinoor Devanagari", Mangal, -apple-system, "Segoe UI", Roboto, sans-serif; }
+:lang(ja), :lang(zh) { line-break: strict; } :lang(ko) { word-break: keep-all; } :lang(th), :lang(ja), :lang(zh) { overflow-wrap: anywhere; }
+:lang(ar) .ipa, :lang(ar) [lang="en"] { direction: ltr; unicode-bidi: isolate; }

@@ -78,12 +78,12 @@
     if (audioEl) { audioEl.onerror = null; audioEl.pause(); audioEl = null; }
     if ('speechSynthesis' in self) speechSynthesis.cancel();
     const word = cur.word, lang = acc === 'us' ? 'en-US' : 'en-GB', ttsRate = isSlow ? 0.6 : settings.ttsRate || 0.92;
-    if (acc === 'uk' && cur.mp3) {
-      const key = fnv('bf_emma|' + word.trim()), tryAt = i => {
+    if (cur.mp3 && (acc === 'uk' || cur.mp3 === 2)) { // 2 = file từ đơn Anh + Mỹ (audio/w/, gen-word-audio.mjs); 1 = câu Kokoro giọng Anh (audio/l/)
+      const key = fnv((acc === 'us' ? 'af_heart|' : 'bf_emma|') + word.trim()), dir = cur.mp3 === 2 ? 'w/' : 'l/', tryAt = i => {
         if (i >= AU.length || !navigator.onLine) return tts(word, lang, ttsRate);
         const el = audioEl = new Audio(); el.preservesPitch = true;
         el.defaultPlaybackRate = el.playbackRate = isSlow ? 0.7 : 1; // Chrome đặt lại playbackRate = defaultPlaybackRate khi nạp nguồn
-        el.src = AU[i] + key + '.mp3';
+        el.src = AU[i].replace(/l\/$/, dir) + key + '.mp3';
         el.onerror = () => { if (audioEl === el) tryAt(i + 1); };
         el.play().catch(() => el.onerror && el.onerror());
       };
@@ -113,7 +113,7 @@
     if (!senses.length && (C.def || C.vi)) senses = [{ p: C.pos || '', vi: C.vi || '', def: C.def || '' }];
     const ctx = (C.contexts && C.contexts[0] && C.contexts[0].text) || '';
     return { word: D.w || C.word || word, ipa: D.i || C.ipa || '', ipaUS: D.u || C.ipaUS || '', level: D.l || C.level || '', exams: D.x || [], senses,
-      ex: String(ctx || D.e || C.ex || '').slice(0, 220), col: D.c || [], syn: D.y || [], ant: D.a || [], fam: D.f || [], mp3: !!D.k, saved: !!cards[keyOf(word)] };
+      ex: String(ctx || D.e || C.ex || '').slice(0, 220), col: D.c || [], syn: D.y || [], ant: D.a || [], fam: D.f || [], mp3: D.k || 0, saved: !!cards[keyOf(word)] };
   };
   const hl = (ex, w) => {
     const stem = w.toLowerCase().replace(/(e|y)$/, ''), re = new RegExp(`\\b(${stem.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[a-z]*)`, 'i');

@@ -1,0 +1,43 @@
+# Giọng đọc từ đơn Anh + Mỹ (Kokoro-82M, Apache-2.0) – miễn phí trên máy chủ GitHub, vài trăm từ/đêm, tiếp tục được.
+# File → web/audio/w/ (GitHub Pages) → audio.lexkite.com/audio/w/ (Worker lexkite-audio). Xem docs/LEXICON.md.
+name: Giọng đọc từ vựng (Kokoro)
+on:
+  schedule:
+    - cron: '0 18 * * *'   # 01:00 giờ VN (trước audio.yml)
+  workflow_dispatch:
+    inputs:
+      limit: { description: 'Số từ (mỗi từ 2 giọng)', default: '300' }
+permissions:
+  contents: write
+concurrency: { group: word-audio, cancel-in-progress: false }
+jobs:
+  words:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Đếm từ còn thiếu
+        id: count
+        run: echo "left=$(node scripts/gen-word-audio.mjs --count | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
+      - name: Cài kokoro-js + ffmpeg
+        if: steps.count.outputs.left != '0'
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null && npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
+      - name: Đệm mô hình Kokoro
+        if: steps.count.outputs.left != '0'
+        uses: actions/cache@v4
+        with:
+          path: /tmp/kk/node_modules/@huggingface/transformers/.cache
+          key: kokoro-82m-v1-q8
+      - name: Tạo giọng đọc từ
+        if: steps.count.outputs.left != '0'
+        run: AUDIO_MIN=70 NODE_PATH=/tmp/kk/node_modules node scripts/gen-word-audio.mjs --limit "${{ github.event.inputs.limit || '300' }}"
+      - name: Lưu vào repo
+        if: steps.count.outputs.left != '0'
+        run: |
+          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
+          git add web/audio/w
+          git diff --cached --quiet && exit 0
+          git commit -qm "Giọng đọc từ vựng: thêm lô Kokoro Anh + Mỹ (còn ${{ steps.count.outputs.left }} từ trước lượt này)"
+          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1

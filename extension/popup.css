@@ -16,7 +16,7 @@ body.popup { width: 360px; padding: 14px; margin: 0; }
 .pp-sec { margin: 14px 0 6px; font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
 .pp-word { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 10px; text-decoration: none; color: var(--text); }
 .pp-word:hover { background: var(--surface); }
-.pp-word span { color: var(--muted); font-size: 13px; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 60%; }
+.pp-word span { color: var(--muted); font-size: 13px; text-align: end; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 60%; }
 .pp-set { margin-top: 12px; border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; }
 .pp-set summary { cursor: pointer; font-size: 13px; font-weight: 700; }
 .sync-row span { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
@@ -53,3 +53,5 @@ body.popup { width: 360px; padding: 14px; margin: 0; }
 .pp-rate p { margin: 4px 0 10px; font-size: 13px; line-height: 1.45; }
 .pp-rate-b { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .pp-rate-x { background: none; border: 0; color: var(--muted); font-size: 12px; text-decoration: underline; cursor: pointer; padding: 4px; margin-inline-start: auto; }
+/* RTL (ar): bố cục flex tự lật; từ tiếng Anh/IPA giữ ltr */
+[dir="rtl"] .pp-word b, [dir="rtl"] .ipa, [dir="rtl"] [lang="en"] { direction: ltr; unicode-bidi: isolate; } [dir="rtl"] .pp-quick { text-align: start; }
