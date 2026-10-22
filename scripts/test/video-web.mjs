@@ -63,7 +63,7 @@ const v = vtt(cs); ok(/^WEBVTT\n\n1\n00:00:01\.000 --> /.test(v) && !/-->.*-->/.
 
 // 6) câu đố + thẻ trên kịch bản thật (content/video/cine/news)
 const lines = Object.fromEntries((readJSON('content/video/cine/news/lines.json', {}).lines || []).map(l => [l.id, l.text]));
-const pool = Object.entries(lines).filter(([k]) => /_2$/.test(k)).map(([, x]) => x);
+const pool = Object.entries(lines).filter(([k, x]) => /_2$/.test(k) && !/:|^Option|\?$/i.test(x)).map(([, x]) => x);
 const files = fs.readdirSync('content/video/cine/news').filter(f => /^news_.*\.json$/.test(f));
 let quizzes = 0;
 for (const f of files) {
@@ -78,6 +78,8 @@ ok(tg.words.includes('withdraw') && tg.words.includes('fee') && tg.lex.includes(
 ok(tg.situation === 'bank' && tg.cefr === 'B1' && tg.exam === 'toeic' && tg.skill === 'speaking' && tg.grammar.includes('modals-ability-permission'), 'tagLesson thẻ: ' + JSON.stringify(tg));
 const fix = readJSON('content/video/cine/news/news_bookstore_fix_a59145.json'), qf = quizFor(fix, lines, pool);
 ok(qf && qf.options[qf.answer] === "I'm looking for a book.", 'quiz fix chọn câu đúng');
+const tf = tagLesson(fix, lines, { 'like#v': { w: 'like' }, 'book#n': { w: 'book' } }, []);
+ok(!tf.words.includes('like') && !tf.grammar.includes('reported-speech'), 'thẻ không lấy từ phổ thông / lời dẫn "people say": ' + JSON.stringify(tf));
 
 // 7) blog: mẫu thử không bao giờ vào bài; clip thật khớp thẻ thì vào
 const post = { lang: 'en', title: 'Bank English: how to withdraw cash and avoid a fee', tags: ['bank'], category: 'giao-tiep' };
