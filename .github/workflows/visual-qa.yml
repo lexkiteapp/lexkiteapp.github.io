@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       quick: { description: 'Chỉ 375px es/ar (nhanh)', required: false, default: '0' }
+      video_only: { description: '1 = chỉ chạy E2E video bài học', required: false, default: '0' }
   schedule:
     - cron: '20 3 * * 1'   # thứ Hai 10:20 giờ Việt Nam
 permissions:
@@ -17,7 +18,17 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - name: 🎬 Video bài học E2E (sandbox + vtest, Chrome có H.264; vi/ar/ja × điện thoại/máy tính)
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chrome
+          (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
+          node scripts/test/video-web-e2e.mjs http://localhost:8080 out/video-web
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: video-web-e2e, path: out/video-web, retention-days: 7 }
       - name: Soát
+        if: ${{ !cancelled() && github.event.inputs.video_only != '1' }}
         env: { VQA_QUICK: "${{ github.event.inputs.quick || '0' }}" }
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
