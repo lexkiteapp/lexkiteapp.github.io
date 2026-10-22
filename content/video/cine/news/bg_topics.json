@@ -70,9 +70,13 @@
   ],
   "appointments": [
    "hl_lab_draw__day_modern",
+   "hl_lab_draw__night_classic",
    "hl_vet__day_modern",
+   "hl_vet__night_classic",
    "svc_barber__day_modern",
+   "svc_barber__night_classic",
    "svc_nail_salon__day_modern",
+   "svc_nail_salon__night_classic",
    "work_reception__night_classic"
   ],
   "art": [
@@ -111,15 +115,18 @@
    "cty_apartment_lobby__day_modern",
    "cty_downtown_avenue__day_modern",
    "cty_market_hall__day_modern",
+   "cty_market_hall__night_classic",
    "cty_plaza__day_modern",
    "cty_plaza__night_classic",
    "cty_residential_street__day_modern",
    "cty_rooftop__day_modern",
+   "cty_underpass__night_classic",
    "cty_village_square__day_modern",
    "cty_waterfront_promenade__day_modern",
    "cul_lantern_street__day_modern",
    "fd_food_truck__day_modern",
    "spt_basketball_court__day_modern",
+   "trn_crosswalk__night_classic",
    "trn_metro_concourse__day_modern",
    "trn_tram_stop__day_modern",
    "trv_old_town__day_modern",
@@ -128,8 +135,11 @@
    "trv_tourist_info__night_classic"
   ],
   "clothes": [
+   "shp_boutique__night_classic",
+   "shp_department_store__night_classic",
    "shp_shoe_store__day_modern",
-   "svc_tailor__day_modern"
+   "svc_tailor__day_modern",
+   "svc_tailor__night_classic"
   ],
   "community": [
    "gov_voting_hall__day_modern"
@@ -159,11 +169,16 @@
    "cty_plaza__day_modern",
    "cty_plaza__night_classic",
    "cty_residential_street__day_modern",
+   "cty_underpass__night_classic",
    "gov_city_hall__day_modern",
    "gov_city_hall__night_classic",
    "hl_hospital_lobby__day_modern",
+   "hl_hospital_lobby__night_classic",
    "hos_elevator_lobby__day_modern",
+   "hos_elevator_lobby__night_classic",
+   "shp_mall_atrium__night_classic",
    "trn_bus_station__night_classic",
+   "trn_crosswalk__night_classic",
    "trn_metro_concourse__day_modern",
    "trv_old_town__day_modern",
    "trv_old_town__night_classic",
@@ -172,9 +187,11 @@
   ],
   "driving": [
    "trn_driving_school__day_modern",
+   "trn_driving_school__night_classic",
    "trn_gas_station__day_modern"
   ],
   "emergency": [
+   "gov_police_station__night_classic",
    "hl_er_reception__day_modern"
   ],
   "events": [
@@ -185,7 +202,8 @@
    "evt_outdoor_concert__day_modern",
    "evt_wedding_hall__day_modern",
    "evt_wedding_hall__night_classic",
-   "hos_conference_hall__day_modern"
+   "hos_conference_hall__day_modern",
+   "hos_conference_hall__night_classic"
   ],
   "family": [
    "evt_birthday_party__day_modern",
@@ -194,7 +212,9 @@
    "fam_grandparents__day_modern",
    "fam_pet_store__day_modern",
    "fd_bbq_terrace__day_modern",
+   "fd_bbq_terrace__night_classic",
    "hl_pediatric__day_modern",
+   "hl_pediatric__night_classic",
    "home_dining__day_modern",
    "home_dining__night_classic",
    "home_kids_room__day_modern",
@@ -205,10 +225,12 @@
    "lei_zoo_path__day_modern",
    "nat_picnic_lawn__day_modern",
    "sch_kindergarten__day_modern",
-   "sch_kindergarten__night_classic"
+   "sch_kindergarten__night_classic",
+   "shp_toy_store__night_classic"
   ],
   "feelings": [
-   "hl_therapy_room__day_modern"
+   "hl_therapy_room__day_modern",
+   "hl_therapy_room__night_classic"
   ],
   "fitness": [
    "hl_physio__day_modern",
@@ -216,6 +238,7 @@
    "spt_locker_room__day_modern"
   ],
   "flight": [
+   "gov_immigration__night_classic",
    "trv_airport_checkin__night_classic",
    "trv_airport_lounge__day_modern",
    "trv_baggage_claim__day_modern",
@@ -223,20 +246,29 @@
   ],
   "food": [
    "cty_market_hall__day_modern",
+   "cty_market_hall__night_classic",
    "cul_bookshop_cafe__day_modern",
    "cul_cooking_class__day_modern",
    "fd_bbq_terrace__day_modern",
+   "fd_bbq_terrace__night_classic",
    "fd_butcher_deli__day_modern",
+   "fd_butcher_deli__night_classic",
    "fd_diner__day_modern",
+   "fd_fine_dining__night_classic",
    "fd_food_court__day_modern",
    "fd_food_truck__day_modern",
+   "fd_ice_cream__night_classic",
+   "fd_juice_bar__night_classic",
    "fd_noodle_shop__day_modern",
+   "fd_noodle_shop__night_classic",
    "fd_pizzeria__day_modern",
    "fd_sushi_bar__day_modern",
    "home_dining__day_modern",
    "home_dining__night_classic",
    "home_kitchen_island__day_modern",
+   "hos_hotel_bar__night_classic",
    "hos_hotel_breakfast__day_modern",
+   "hos_hotel_breakfast__night_classic",
    "lei_board_game_cafe__day_modern",
    "nat_vineyard__day_modern",
    "sch_cafeteria__day_modern",
@@ -245,27 +277,42 @@
    "work_break_room__night_classic"
   ],
   "gifts": [
-   "shp_jewelry__day_modern"
+   "shp_flower_shop__night_classic",
+   "shp_jewelry__day_modern",
+   "shp_jewelry__night_classic"
   ],
   "government": [
    "gov_city_hall__day_modern",
    "gov_city_hall__night_classic",
    "gov_embassy_wait__day_modern",
+   "gov_embassy_wait__night_classic",
+   "gov_immigration__night_classic",
    "gov_library_public__day_modern",
+   "gov_library_public__night_classic",
    "gov_passport_photo__day_modern",
+   "gov_police_station__night_classic",
    "gov_service_counter__day_modern",
+   "gov_tax_office__night_classic",
    "gov_voting_hall__day_modern"
   ],
   "health": [
+   "fd_juice_bar__night_classic",
    "hl_er_reception__day_modern",
    "hl_hospital_lobby__day_modern",
+   "hl_hospital_lobby__night_classic",
    "hl_hospital_ward__day_modern",
+   "hl_hospital_ward__night_classic",
    "hl_lab_draw__day_modern",
+   "hl_lab_draw__night_classic",
    "hl_pediatric__day_modern",
+   "hl_pediatric__night_classic",
    "hl_pharmacy_counter__day_modern",
+   "hl_pharmacy_counter__night_classic",
    "hl_physio__day_modern",
    "hl_therapy_room__day_modern",
+   "hl_therapy_room__night_classic",
    "hl_vet__day_modern",
+   "hl_vet__night_classic",
    "hos_spa__day_modern"
   ],
   "holiday": [
@@ -298,13 +345,20 @@
   "hospital": [
    "hl_er_reception__day_modern",
    "hl_hospital_lobby__day_modern",
-   "hl_hospital_ward__day_modern"
+   "hl_hospital_lobby__night_classic",
+   "hl_hospital_ward__day_modern",
+   "hl_hospital_ward__night_classic"
   ],
   "hotel": [
    "hos_conference_hall__day_modern",
+   "hos_conference_hall__night_classic",
    "hos_elevator_lobby__day_modern",
+   "hos_elevator_lobby__night_classic",
    "hos_guesthouse__day_modern",
+   "hos_guesthouse__night_classic",
+   "hos_hotel_bar__night_classic",
    "hos_hotel_breakfast__day_modern",
+   "hos_hotel_breakfast__night_classic",
    "hos_hotel_corridor__day_modern",
    "hos_hotel_frontdesk__day_modern",
    "hos_hotel_pool_deck__day_modern",
@@ -326,7 +380,9 @@
    "work_warehouse__day_modern"
   ],
   "kids": [
+   "fd_ice_cream__night_classic",
    "hl_pediatric__day_modern",
+   "hl_pediatric__night_classic",
    "home_kids_room__day_modern",
    "home_kids_room__night_classic",
    "sch_art_room__day_modern",
@@ -337,6 +393,7 @@
    "sch_hallway__night_classic",
    "sch_kindergarten__day_modern",
    "sch_kindergarten__night_classic",
+   "shp_toy_store__night_classic",
    "spt_soccer_field__day_modern"
   ],
   "leisure": [
@@ -345,7 +402,9 @@
    "cul_history_museum__night_classic",
    "evt_outdoor_concert__day_modern",
    "fd_bbq_terrace__day_modern",
+   "fd_bbq_terrace__night_classic",
    "gov_library_public__day_modern",
+   "gov_library_public__night_classic",
    "home_garden__day_modern",
    "hos_hotel_pool_deck__day_modern",
    "hos_spa__day_modern",
@@ -361,6 +420,7 @@
    "nat_botanical_garden__day_modern",
    "nat_lakeside_path__day_modern",
    "nat_picnic_lawn__day_modern",
+   "shp_mall_atrium__night_classic",
    "spt_basketball_court__day_modern",
    "spt_dance_studio__day_modern",
    "spt_soccer_field__day_modern",
@@ -381,13 +441,18 @@
    "work_ceo_office__day_modern"
   ],
   "money": [
+   "gov_tax_office__night_classic",
    "shp_convenience__day_modern",
+   "shp_department_store__night_classic",
    "shp_electronics__day_modern",
    "shp_jewelry__day_modern",
+   "shp_jewelry__night_classic",
    "svc_bank_hall__day_modern",
    "svc_bank_hall__night_classic",
    "svc_insurance__day_modern",
-   "trn_gas_station__day_modern"
+   "svc_insurance__night_classic",
+   "trn_gas_station__day_modern",
+   "trn_ticket_office__night_classic"
   ],
   "music": [
    "evt_outdoor_concert__day_modern",
@@ -412,10 +477,15 @@
   ],
   "ordering": [
    "fd_butcher_deli__day_modern",
+   "fd_butcher_deli__night_classic",
    "fd_diner__day_modern",
+   "fd_fine_dining__night_classic",
    "fd_food_court__day_modern",
    "fd_food_truck__day_modern",
+   "fd_ice_cream__night_classic",
+   "fd_juice_bar__night_classic",
    "fd_noodle_shop__day_modern",
+   "fd_noodle_shop__night_classic",
    "fd_pizzeria__day_modern",
    "fd_sushi_bar__day_modern"
   ],
@@ -424,16 +494,20 @@
    "gov_city_hall__night_classic",
    "gov_passport_photo__day_modern",
    "gov_service_counter__day_modern",
-   "svc_insurance__day_modern"
+   "gov_tax_office__night_classic",
+   "svc_insurance__day_modern",
+   "svc_insurance__night_classic"
   ],
   "pets": [
    "fam_pet_store__day_modern",
-   "hl_vet__day_modern"
+   "hl_vet__day_modern",
+   "hl_vet__night_classic"
   ],
   "phone": [
    "work_call_center__night_classic"
   ],
   "problems": [
+   "gov_police_station__night_classic",
    "lei_escape_room__day_modern",
    "svc_bike_repair__day_modern",
    "svc_car_service__day_modern",
@@ -443,11 +517,14 @@
    "cty_apartment_lobby__day_modern",
    "home_studio_apt__night_classic",
    "hos_guesthouse__day_modern",
+   "hos_guesthouse__night_classic",
    "svc_real_estate__day_modern"
   ],
   "restaurant": [
    "fd_diner__day_modern",
+   "fd_fine_dining__night_classic",
    "fd_noodle_shop__day_modern",
+   "fd_noodle_shop__night_classic",
    "fd_pizzeria__day_modern",
    "fd_sushi_bar__day_modern"
   ],
@@ -470,28 +547,42 @@
    "svc_bank_hall__day_modern",
    "svc_bank_hall__night_classic",
    "svc_barber__day_modern",
+   "svc_barber__night_classic",
    "svc_bike_repair__day_modern",
    "svc_car_service__day_modern",
    "svc_coworking_desk__day_modern",
+   "svc_coworking_desk__night_classic",
    "svc_insurance__day_modern",
+   "svc_insurance__night_classic",
    "svc_nail_salon__day_modern",
+   "svc_nail_salon__night_classic",
    "svc_phone_repair__day_modern",
    "svc_post_counter__day_modern",
    "svc_real_estate__day_modern",
-   "svc_tailor__day_modern"
+   "svc_tailor__day_modern",
+   "svc_tailor__night_classic"
   ],
   "shopping": [
    "cty_market_hall__day_modern",
+   "cty_market_hall__night_classic",
    "evt_holiday_market__day_modern",
    "fam_pet_store__day_modern",
    "fd_butcher_deli__day_modern",
+   "fd_butcher_deli__night_classic",
    "fd_food_court__day_modern",
    "hl_pharmacy_counter__day_modern",
+   "hl_pharmacy_counter__night_classic",
    "lei_music_store__day_modern",
+   "shp_boutique__night_classic",
    "shp_convenience__day_modern",
+   "shp_department_store__night_classic",
    "shp_electronics__day_modern",
+   "shp_flower_shop__night_classic",
    "shp_jewelry__day_modern",
+   "shp_jewelry__night_classic",
+   "shp_mall_atrium__night_classic",
    "shp_shoe_store__day_modern",
+   "shp_toy_store__night_classic",
    "trv_luggage_store__day_modern"
   ],
   "small-talk": [
@@ -499,6 +590,7 @@
    "cty_plaza__night_classic",
    "cty_rooftop__day_modern",
    "evt_networking__day_modern",
+   "hos_hotel_bar__night_classic",
    "lei_board_game_cafe__day_modern",
    "lei_bowling__day_modern",
    "lei_bowling__night_classic",
@@ -518,12 +610,14 @@
    "cul_bookshop_cafe__day_modern",
    "cul_cooking_class__day_modern",
    "gov_library_public__day_modern",
+   "gov_library_public__night_classic",
    "home_study__day_modern",
    "sch_computer_lab__night_classic",
    "sch_hallway__day_modern",
    "sch_hallway__night_classic",
    "tec_maker_space__day_modern",
-   "trn_driving_school__day_modern"
+   "trn_driving_school__day_modern",
+   "trn_driving_school__night_classic"
   ],
   "tech": [
    "home_study__day_modern",
@@ -542,10 +636,14 @@
    "svc_bike_repair__day_modern",
    "svc_car_service__day_modern",
    "trn_bus_station__night_classic",
+   "trn_crosswalk__night_classic",
    "trn_driving_school__day_modern",
+   "trn_driving_school__night_classic",
    "trn_ferry_terminal__day_modern",
+   "trn_ferry_terminal__night_classic",
    "trn_gas_station__day_modern",
    "trn_metro_concourse__day_modern",
+   "trn_ticket_office__night_classic",
    "trn_tram_stop__day_modern"
   ],
   "travel": [
@@ -554,9 +652,14 @@
    "cul_lantern_street__day_modern",
    "cul_mosaic_hall__day_modern",
    "gov_embassy_wait__day_modern",
+   "gov_embassy_wait__night_classic",
+   "gov_immigration__night_classic",
    "hos_elevator_lobby__day_modern",
+   "hos_elevator_lobby__night_classic",
    "hos_guesthouse__day_modern",
+   "hos_guesthouse__night_classic",
    "hos_hotel_breakfast__day_modern",
+   "hos_hotel_breakfast__night_classic",
    "hos_hotel_corridor__day_modern",
    "hos_hotel_frontdesk__day_modern",
    "hos_hotel_suite__day_modern",
@@ -565,6 +668,8 @@
    "nat_vineyard__day_modern",
    "trn_bus_station__night_classic",
    "trn_ferry_terminal__day_modern",
+   "trn_ferry_terminal__night_classic",
+   "trn_ticket_office__night_classic",
    "trv_airport_checkin__night_classic",
    "trv_airport_lounge__day_modern",
    "trv_baggage_claim__day_modern",
@@ -577,6 +682,8 @@
   ],
   "visa": [
    "gov_embassy_wait__day_modern",
+   "gov_embassy_wait__night_classic",
+   "gov_immigration__night_classic",
    "gov_passport_photo__day_modern",
    "gov_service_counter__day_modern"
   ],
@@ -593,7 +700,9 @@
    "evt_networking__day_modern",
    "home_study__day_modern",
    "hos_conference_hall__day_modern",
+   "hos_conference_hall__night_classic",
    "svc_coworking_desk__day_modern",
+   "svc_coworking_desk__night_classic",
    "tec_data_center_ops__day_modern",
    "tec_tv_newsroom__day_modern",
    "work_boardroom__day_modern",
