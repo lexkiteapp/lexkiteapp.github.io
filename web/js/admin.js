@@ -32,7 +32,7 @@
     'Trang quản trị Lexkite': 'Lexkite Admin', 'Chỉ tài khoản quản trị được cấp quyền.': 'Authorized admin accounts only.', 'Đăng nhập bằng Google': 'Sign in with Google',
     'Về app': 'Back to app', 'Về trang chủ Lexkite': 'Back to the Lexkite home page', 'Tự động (theo máy)': 'Auto (system)', 'Sáng': 'Light', 'Tối': 'Dark', 'Giao diện: {m} – bấm để đổi': 'Theme: {m} – click to change', 'Đổi giao diện sáng/tối': 'Switch light/dark theme',
     'Đổi ngôn ngữ': 'Change language', 'Ngôn ngữ: Tiếng Việt – bấm để chuyển sang English': 'Language: English – click to switch to Vietnamese', 'Thoát': 'Sign out',
-    'Không có quyền': 'Access denied', '{e} chưa được cấp quyền quản trị.': '{e} does not have admin access.', 'Đổi tài khoản': 'Switch account',
+    'Không có quyền': 'Access denied', 'Tài khoản này không có quyền quản trị': 'This account does not have admin access', 'Đăng nhập bằng tài khoản khác': 'Sign in with a different account', '{e} chưa được cấp quyền quản trị.': '{e} does not have admin access.', 'Đổi tài khoản': 'Switch account',
     'Phiên đăng nhập quản trị đã hết. Đăng nhập lại ngay?': 'Your admin session has expired. Sign in again now?', 'Phiên đăng nhập đã hết – đăng nhập lại rồi thử lại': 'Session expired – sign in again and retry',
     'Cần đăng nhập lại để xác nhận thao tác quan trọng. Đăng nhập lại ngay?': 'Please sign in again to confirm this sensitive action. Sign in now?',
     // Bảng lệnh, toast, hộp thoại, bảng
@@ -395,7 +395,8 @@
     if (!r.ok) { const e = new Error(j.message || j.error || 'HTTP ' + r.status); e.code = j.error; e.status = r.status; e.data = j; throw e; }
     return j;
   }
-  const signIn = () => auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(e => { const m = $('#loginMsg'); if (m) m.textContent = e.message; });
+  const gprov = () => { const p = new firebase.auth.GoogleAuthProvider(); p.setCustomParameters({ prompt: 'select_account' }); return p; }; // luôn cho chọn tài khoản Google
+  const signIn = () => auth.signInWithPopup(gprov()).catch(e => { const m = $('#loginMsg'); if (m) m.textContent = e.message; });
   $('#signin').onclick = signIn;
 
   // ---------- Thanh trên, thanh bên, đầu trang ----------
@@ -427,6 +428,14 @@
   side.addEventListener('keydown', e => { if (e.key === 'Escape' && side.classList.contains('open')) { drawer(false); navBtn.focus(); } });
   $('.adm-skip').onclick = e => { e.preventDefault(); main.focus(); };
   const noAccess = u => { $('#pgHead').innerHTML = ''; main.innerHTML = `<div class="card center adm-login"><h1 class="adm-login-t">${L('Không có quyền')}</h1><p class="muted">${L('{e} chưa được cấp quyền quản trị.', { e: esc(u.email) })}</p><button type="button" class="btn" id="swAcc">${L('Đổi tài khoản')}</button></div>`; $('#swAcc').onclick = () => auth.signOut().then(() => location.reload()); };
+  // Cổng cửa: tài khoản không phải quản trị chỉ thấy màn từ chối (không vẽ thanh trên/thanh bên/nội dung quản trị)
+  const deny = () => {
+    document.body.classList.remove('adm-in'); side.hidden = true; $('#me').innerHTML = ''; $('#pgHead').innerHTML = ''; $('#tabs').innerHTML = '';
+    main.innerHTML = `<div class="card center adm-login" id="denied"><h1 class="adm-login-t">${L('Tài khoản này không có quyền quản trị')}</h1><button type="button" class="btn primary" id="swAcc">${L('Đăng nhập bằng tài khoản khác')}</button></div>`;
+    $('#swAcc').onclick = signIn;
+  };
+  // Hỏi máy chủ (adminGate) ngay sau đăng nhập: 403 = không phải quản trị; lỗi mạng khác → để luồng cũ xử lý (API vẫn chặn)
+  const isAdmin = async () => { try { await api('whoami'); return true; } catch (e) { return !(e && e.message === 'forbidden'); } };
   // Đổi VI ⇄ EN: lưu lựa chọn, vẽ lại thanh trên + thanh bên + tab đang mở (không tải lại trang)
   async function setLang(l) {
     if (guard && guard() && !(await leaveOk())) return;
@@ -439,6 +448,7 @@
   auth.onAuthStateChanged(async u => {
     user = u;
     if (!u) return;
+    if (!(await isAdmin())) { user = null; denied = true; deny(); try { await auth.signOut(); } catch (e) { /* bỏ qua */ } return; }
     renderMe(u);
     try {
       const h = baseOf(location.hash); await show(VIEWS[h] ? h : 'overview', { force: true, first: true });

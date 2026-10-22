@@ -308,7 +308,7 @@
       if (apple) { p.addScope('email'); p.addScope('name'); if (window.I18N) p.setCustomParameters({ locale: I18N.lang() }); } else p.setCustomParameters({ prompt: 'select_account' });
       await firebase.auth().signInWithPopup(p);
     } catch (e) {
-      if (e && e.code === 'auth/popup-blocked') return firebase.auth().signInWithRedirect(via === 'apple' && appleOn() ? new firebase.auth.OAuthProvider('apple.com') : new firebase.auth.GoogleAuthProvider());
+      if (e && e.code === 'auth/popup-blocked') { const rp = via === 'apple' && appleOn() ? new firebase.auth.OAuthProvider('apple.com') : new firebase.auth.GoogleAuthProvider(); if (!(via === 'apple' && appleOn())) rp.setCustomParameters({ prompt: 'select_account' }); return firebase.auth().signInWithRedirect(rp); }
       if (e && e.code !== 'auth/popup-closed-by-user') toast(t('Không đăng nhập được: {msg}', { msg: e.message || e }));
     }
   };
