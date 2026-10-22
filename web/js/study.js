@@ -228,8 +228,6 @@
         <button class="btn sm ghost" id="toggleRev" title="${t('Đổi chiều thẻ')}">${rev ? `${(I18N && I18N.flag ? I18N.flag(I18N.lang() !== 'en' ? I18N.lang() : 'vi') : '🇻🇳')} → 🇬🇧` : `🇬🇧 → ${(I18N && I18N.flag ? I18N.flag(I18N.lang() !== 'en' ? I18N.lang() : 'vi') : '🇻🇳')}`}</button>
       </div>
       <div class="flash" id="flash">
-        <div class="sw-badge sw-badge-again" aria-hidden="true">↺ ${t('Quên')}</div>
-        <div class="sw-badge sw-badge-good" aria-hidden="true">✓ ${t('Nhớ')}</div>
         <div class="flash-inner">
           <div class="card face front">${front}</div>
           <div class="card face back">
@@ -268,18 +266,9 @@
     // Tìm sẵn bản ghi giọng người thật cho 3 thẻ kế tiếp (chạy ngầm, lưu vào thẻ) → thay dần giọng máy bằng giọng thật
     session.queue.slice(1, 4).forEach(k => { const n = state.cards[k]; if (n && !n.audio && !n._aq && navigator.onLine) { n._aq = 1; Dict.lookup(n.word, { image: false, examples: false }).then(e => { if (e && e.found && (e.audio || e.audioUS)) Cards.patch(k, x => { if (!x.audio) x.audio = e.audio || e.audioUS; if (!x.ipaUS && e.ipaUS) x.ipaUS = e.ipaUS; }).then(c2 => { if (c2) state.cards[k] = c2; }); }).catch(() => {}); } });
 
-    // 🐦 Kit mascot theo ngữ cảnh học tập
-    const reduceMotion = Boolean(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-    const updateKit = mood => {
-      const el = $('#studyKit');
-      if (el && window.Kit && typeof Kit.svg === 'function') {
-        el.innerHTML = Kit.svg(mood, 38, !reduceMotion);
-      }
-    };
-    updateKit('think');
-    const sk = $('#studyKit');
-    if (sk) sk.onclick = () => updateKit('cheer');
-
+    // 🐦 Kit mini + 👆 vuốt: study-swipe.js (tải lười)
+    const updateKit = mood => { if (window.StudySwipe) StudySwipe.kit($('#studyKit'), mood); };
+    const sk = $('#studyKit'); if (sk) sk.onclick = () => updateKit('cheer');
     const flip = () => {
       if (flipped) return;
       flipped = true; Sfx.flip();
@@ -292,143 +281,12 @@
     };
     $('#flash').addEventListener('click', e => { if (!e.target.closest('button, details, textarea, input')) flip(); });
 
-    // 👆 Vuốt thẻ (cảm ứng & chuột): Chỉ vuốt được khi đã lật xem đáp án. Trước khi lật, chạm là lật thẻ.
-    // Quy ước phổ quát: Trái = Again (Quên), Phải = Good (Nhớ) (giữ nguyên ở cả LTR và RTL).
-    if (!typeMode && window.PointerEvent) {
-      const fc = $('#flash');
-      let x0 = 0, y0 = 0, dx = 0, dy = 0, t0 = 0;
-      let drag = false, moved = false, axisLock = null; // null | 'x' | 'y'
-      let hasVibrated = false;
-
-      const reset = () => {
-        fc.classList.remove('swiping', 'sw-good', 'sw-again');
-        fc.style.transform = '';
-      };
-
-      const springBack = () => {
-        fc.classList.remove('swiping', 'sw-good', 'sw-again');
-        fc.classList.add('spring-back');
-        fc.style.transform = '';
-        setTimeout(() => {
-          fc.classList.remove('spring-back');
-        }, 240);
-      };
-
-      fc.addEventListener('pointerdown', e => {
-        // Chỉ cho phép vuốt khi ĐÃ LẬT, chưa chấm, và là nút chuột chính/chạm
-        if (graded || !flipped || (e.button !== undefined && e.button !== 0)) return;
-        if (e.target.closest('button, details, textarea, input, a, [data-note], [data-mnem], [data-shadow]')) return;
-
-        // Bỏ qua cú chạm bắt đầu trong 24px sát mép trái/phải để không đụng cử chỉ back của iOS/Android
-        const winW = window.innerWidth || document.documentElement.clientWidth || 360;
-        if (e.clientX < 24 || e.clientX > winW - 24) return;
-
-        drag = true;
-        moved = false;
-        axisLock = null;
-        hasVibrated = false;
-        x0 = e.clientX;
-        y0 = e.clientY;
-        dx = 0;
-        dy = 0;
-        t0 = Date.now();
-        fc.classList.remove('fly', 'spring-back');
-        try { fc.setPointerCapture(e.pointerId); } catch (_) {}
-      });
-
-      fc.addEventListener('pointermove', e => {
-        if (!drag) return;
-        dx = e.clientX - x0;
-        dy = e.clientY - y0;
-
-        // Khóa trục sau khoảng 10px để phân biệt cuộn dọc vs vuốt ngang
-        if (!axisLock) {
-          const dist = Math.hypot(dx, dy);
-          if (dist >= 10) {
-            if (Math.abs(dy) > Math.abs(dx)) {
-              // Cuộn dọc tự nhiên: nhường quyền cho trình duyệt, hủy cử chỉ vuốt
-              axisLock = 'y';
-              drag = false;
-              reset();
-              try { fc.releasePointerCapture(e.pointerId); } catch (_) {}
-              return;
-            } else {
-              // Vuốt thẻ ngang: khóa trục x
-              axisLock = 'x';
-              fc.classList.add('swiping');
-            }
-          } else {
-            return;
-          }
-        }
-
-        if (axisLock === 'x') {
-          if (e.cancelable) e.preventDefault();
-          moved = true;
-          const cardW = fc.offsetWidth || 340;
-          const rot = reduceMotion ? 0 : (dx / 18);
-          fc.style.transform = `translate3d(${dx}px, ${Math.min(0, dy) * 0.25}px, 0) rotate(${rot}deg)`;
-
-          // Trái = Again (Quên), Phải = Good (Nhớ)
-          fc.classList.toggle('sw-good', dx > 40);
-          fc.classList.toggle('sw-again', dx < -40);
-
-          // Rung haptic 15ms khi qua ngưỡng vuốt (≥ 30% bề rộng hoặc vận tốc cao)
-          const threshDist = cardW * 0.3;
-          const dt = Math.max(1, Date.now() - t0);
-          const vx = Math.abs(dx) / dt;
-          if (!hasVibrated && (Math.abs(dx) >= threshDist || (Math.abs(dx) >= 40 && vx > 0.5))) {
-            hasVibrated = true;
-            try { if (navigator.vibrate) navigator.vibrate(15); } catch (_) {}
-          }
-        }
-      });
-
-      const end = e => {
-        if (!drag) return;
-        drag = false;
-        try { if (e && e.pointerId) fc.releasePointerCapture(e.pointerId); } catch (_) {}
-
-        if (axisLock !== 'x') {
-          reset();
-          return;
-        }
-
-        const cardW = fc.offsetWidth || 340;
-        const threshDist = cardW * 0.3;
-        const dt = Math.max(1, Date.now() - t0);
-        const vx = Math.abs(dx) / dt;
-        const isSwipe = Math.abs(dx) >= threshDist || (Math.abs(dx) >= 40 && vx > 0.5);
-
-        if (isSwipe) {
-          const isGood = dx > 0;
-          const gradeIdx = isGood ? 2 : 0;
-          updateKit(isGood ? 'win' : 'think');
-
-          if (reduceMotion) {
-            reset();
-            grade(gradeIdx);
-          } else {
-            fc.classList.remove('swiping');
-            fc.classList.add('fly');
-            fc.style.transform = `translate3d(${isGood ? 120 : -120}vw, 0, 0) rotate(${isGood ? 25 : -25}deg)`;
-            setTimeout(() => grade(gradeIdx), 220);
-          }
-        } else {
-          // Thả tay giữa chừng không đủ ngưỡng: bật thẻ về vị trí cũ
-          springBack();
-        }
-      };
-
-      fc.addEventListener('pointerup', end);
-      fc.addEventListener('pointercancel', () => { drag = false; reset(); });
-      fc.addEventListener('click', e => {
-        if (moved) {
-          e.stopImmediatePropagation();
-          moved = false;
-        }
-      }, true);
-    }
+    const fc0 = $('#flash');
+    App.need('swipe').then(() => {
+      if (!window.StudySwipe || $('#flash') !== fc0 || graded) return;
+      updateKit(flipped ? 'happy' : 'think');
+      if (!typeMode) StudySwipe.attach(fc0, { flipped: () => flipped, graded: () => graded, commit: g => grade(g, null, true), labels: [t('Quên'), t('Nhớ')] });
+    }).catch(() => {});
     if (typeMode) {
       const inp = $('#typeIn'); setTimeout(() => inp.focus(), 50);
       const norm = x => x.toLowerCase().replace(/[’']/g, "'").replace(/\s+/g, ' ').trim();
@@ -492,9 +350,11 @@
     if (!rev && state.settings.autoSpeak) say();
 
     let graded = false;
-    async function grade(g, el) {
+    async function grade(g, el, swiped) {
       if (graded) return; graded = true;
       document.onkeydown = null;
+      const ub0 = $('#undoBtn'); if (ub0) ub0.disabled = true; // không hoàn tác chen ngang
+      const tFly = Date.now();
       const wasNew = c.srs.reps === 0 && !c.srs.last;
       // Lưu trạng thái trước khi chấm → cho phép hoàn tác khi bấm nhầm (như Anki)
       const snap = { key, srs: JSON.parse(JSON.stringify(c.srs)), queue: session.queue.slice(), done: session.done, again: session.again, missed: session.missed.slice(), wasNew, g };
@@ -511,7 +371,7 @@
       g === 0 ? Sfx.wrong() : Sfx.correct();
       haptic(g > 0);
       const fc = $('#flash');
-      if (fc) {
+      if (fc && !swiped) {
         fc.classList.remove('ans-bounce', 'ans-shake');
         void fc.offsetWidth;
         fc.classList.add(g === 0 ? 'ans-shake' : 'ans-bounce');
@@ -528,10 +388,17 @@
       if (c.srs.reps === 0) session.queue.splice(Math.min(session.queue.length, g === 0 ? 3 : 6), 0, key);
       if (g === 0) { session.again += 1; if (!session.missed.includes(c.word)) session.missed.push(c.word); }
       if (!/^#\/review/.test(location.hash)) return; // đã rời trang ôn tập
-      if (g === 0) await new Promise(r => setTimeout(r, 200));
+      const wait = swiped ? 220 - (Date.now() - tFly) : g === 0 ? 200 : 0; // vuốt: đợi thẻ bay hết
+      if (wait > 0) await new Promise(r => setTimeout(r, wait));
+      if (!/^#\/review/.test(location.hash)) return;
       session.queue.length ? showCard() : reviewDone(false);
     }
   }
+
+  // ⚡ Ghép thẻ & 🎙️ Phát âm: study-games.js (tải lười)
+  let games = null;
+  const lazyGame = k => (...a) => { const h = location.hash; return App.need('pgames').then(() => { if (location.hash !== h || !window.StudyGames) return; games = games || StudyGames({ accent, emptySource, haptic, head, mean, norm, picOk, pool, practiceDone, runQuiz, srcName }); games[k](...a); }).catch(() => toast(t('Không tải được – thử lại sau'))); };
+  const runMatch = lazyGame('runMatch'), runSpeak = lazyGame('runSpeak');
 
   // ================= TRUNG TÂM LUYỆN TẬP =================
   const MODES = {
@@ -868,133 +735,4 @@
     next();
   }
 
-  // ---------- Ghép thẻ (Match) ----------
-  function runMatch(src) {
-    const list = pool(src).filter(w => w.vi);
-    const items = shuffle(list).slice(0, 6);
-    if (items.length < 3) return emptySource(src);
-    const tiles = shuffle([...items.map(w => ({ id: w.word, label: w.word, kind: 'en' })), ...items.map(w => ({ id: w.word, label: mean(w), kind: 'vi' }))]);
-    const t0 = performance.now();
-    let sel = null, left = items.length, misses = 0, timer;
-    view.innerHTML = `<div class="study-wrap" style="max-width:820px">
-      <div class="study-top"><a class="icon-btn" href="${App.backHref()}" title="${t('Thoát')}">✕</a><div class="grow small muted">⚡ ${t('Ghép từ với nghĩa đúng')} · ${esc(srcName(src))}</div><span class="timer" id="timer">0.0s</span></div>
-      <div class="match-grid">${tiles.map((tl, i) => `<button class="tile" data-i="${i}">${esc(tl.label)}</button>`).join('')}</div>
-      <p class="muted small center" style="margin-top:1rem">${t('Mỗi lần ghép sai +1 giây phạt')}</p></div>`;
-    timer = setInterval(() => { const el = $('#timer'); if (el) el.textContent = ((performance.now() - t0) / 1000 + misses).toFixed(1) + 's'; }, 100);
-    App.cleanup = () => clearInterval(timer);
-    $$('.tile').forEach(b => b.onclick = () => {
-      const t = tiles[+b.dataset.i];
-      if (b.classList.contains('gone')) return;
-      if (t.kind === 'en') speak(t.label, accent());
-      if (!sel) { sel = b; b.classList.add('sel'); Sfx.pop(); return; }
-      if (sel === b) { b.classList.remove('sel'); sel = null; return; }
-      const a = tiles[+sel.dataset.i];
-      if (a.id === t.id && a.kind !== t.kind) {
-        Sfx.correct(); haptic(true); sel.classList.add('gone'); b.classList.add('gone'); sel = null; left--;
-        if (!left) done();
-      } else {
-        Sfx.wrong(); haptic(false); misses++; const s = sel; s.classList.remove('sel'); s.classList.add('bad'); b.classList.add('bad');
-        setTimeout(() => { s.classList.remove('bad'); b.classList.remove('bad'); }, 400); sel = null;
-      }
-    });
-    async function done() {
-      clearInterval(timer);
-      const time = +((performance.now() - t0) / 1000 + misses).toFixed(1);
-      const best = state.game.best.match;
-      const xp = 10 + (time < 25 ? 10 : time < 40 ? 5 : 0);
-      await App.reward({ matches: 1, quizzes: 1, perfect: misses === 0 ? 1 : 0, matchTime: time, xp });
-      Sfx.win(); confetti();
-      view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate">
-        <div class="em">⚡</div><h2>${time}s</h2>
-        <p>${!best || time < best ? '🏅 ' + t('Kỷ lục mới!') : t('Kỷ lục của bạn: {best}s', { best })} · ${t('{n} lần sai', { n: misses })} · +${xp} XP</p>
-        <div class="row center">${items.map(w => `<span class="chip">${esc(w.word)} = ${esc(mean(w))}</span>`).join('')}</div>
-        <div class="row center" style="margin-top:1.2rem"><button class="btn primary" id="again">${t('Chơi lại')}</button><a class="btn" href="#/practice?src=${encodeURIComponent(src)}">${t('Chế độ khác')}</a></div>
-      </div></div>`;
-      $('#again').onclick = () => runMatch(src);
-      practiceDone({ mode: 'match', src, pct: 100 });
-    }
-  }
-
-  // ---------- Luyện phát âm (nhận dạng giọng nói) ----------
-  function runSpeak(src, query) {
-    const one = query && query.get('w'), FX = window.LessonFx;
-    if (!one && FX && FX.micOff()) return runQuiz(src, 'mcq', 'speak'); // 🎙️ đang tạm tắt micro → trắc nghiệm nghĩa thay thế
-    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-    const items = one ? [norm(INDEX[one.toLowerCase()] || state.cards[one.toLowerCase()] || { word: one })] : shuffle(pool(src)).slice(0, 10);
-    if (!items.length) return emptySource(src);
-    let i = 0, good = 0, rec = null, total = 0;
-    const title = `🎙️ ${t('Luyện phát âm')} · ${one ? esc(one) : esc(srcName(src))}`;
-    App.cleanup = () => UI.stopRecognize();
-    const show = () => {
-      if (i >= items.length) return finish();
-      const w = items[i];
-      view.innerHTML = `<div class="study-wrap">${head(title, i, items.length, `🎯 ${good}`)}
-        <div class="card q-card">
-          ${picOk(w) ? pic(w).replace('class="pic"', 'class="pic" style="width:110px;margin:0 auto 1rem"') : ''}
-          <div class="entry-word">${esc(w.word)}</div>
-          <div class="row center"><span class="ipa" id="ipaW" style="font-size:1.1rem">${esc(w.ipa) || (w.ipaUS ? '' : `<span class="muted small">${t('đang tra phiên âm…')}</span>`)}</span><button class="icon-btn" id="model" title="${t('Nghe mẫu')}">🔊</button><button class="icon-btn" id="modelSlow" title="${t('Nghe chậm')}">🐢</button></div>
-          <div class="vi" id="viW" style="font-size:1rem;margin-top:.3rem">${esc(mean(w))}</div>
-          <div style="margin:1.6rem 0 .6rem"><button class="mic" id="mic" title="${t('Bấm và nói')}">🎙️</button></div>
-          <div class="muted small" id="hint">${SR ? t('Bấm micro rồi đọc to từ trên') : '⚠️ ' + t('Trình duyệt không hỗ trợ nhận dạng giọng nói – hãy dùng Chrome hoặc Edge.')}</div>
-          <div id="result" style="margin-top:1rem"></div>
-        </div>
-        <div class="row center" style="margin-top:1rem"><button class="btn" id="skipW">${t('Bỏ qua')}</button>${!one && FX ? FX.skipMicBtn() : ''}<button class="btn primary" id="nextW" hidden>${t('Từ tiếp theo →')}</button></div>
-      </div>`;
-      $('#model').onclick = () => speak(w.word, accent(), w.audio);
-      $('#modelSlow').onclick = () => speak(w.word, accent(), w.audio, true);
-      // Từ ngoài thư viện (vd. mở từ add-on): tự tra phiên âm UK/US, nghĩa và bản ghi phát âm
-      if (!w.ipa || !w.vi || !w.audio) Dict.quick(w.word).then(d => {
-        if (!d || !d.found || items[i] !== w) return;
-        w.ipa = w.ipa || d.ipa || ''; w.ipaUS = w.ipaUS || d.ipaUS || ''; w.vi = w.vi || d.vi || ''; w.audio = w.audio || d.audio || '';
-        const ip = $('#ipaW'); if (ip) ip.innerHTML = w.ipaUS && w.ipaUS !== w.ipa ? `🇬🇧 ${esc(w.ipa)} · 🇺🇸 ${esc(w.ipaUS)}` : esc(w.ipa || '');
-        const vi = $('#viW'); if (vi) vi.textContent = mean(w);
-        if (App.inDeck(w.word)) Cards.patch(w.word, c => { if (!c.ipa && w.ipa) c.ipa = w.ipa; if (!c.ipaUS && w.ipaUS) c.ipaUS = w.ipaUS; if (!c.vi && w.vi) c.vi = w.vi; });
-      }).catch(() => {}).then(async () => {
-        if (w.ipa || items[i] !== w) return;
-        const gs = await Dict.ipaGuess(w.word).catch(() => null);
-        const ip = $('#ipaW'); if (!ip || items[i] !== w) return;
-        if (!gs) { ip.innerHTML = `<span class="muted small">${t('Chưa có phiên âm – nghe mẫu 🔊 rồi bắt chước')}</span>`; return; }
-        w.ipa = gs.ipa; w.ipaUS = gs.ipaUS;
-        ip.innerHTML = `${gs.ipaUS && gs.ipaUS !== gs.ipa ? `🇬🇧 ${esc(gs.ipa)} · 🇺🇸 ${esc(gs.ipaUS)}` : esc(gs.ipa)}${gs.guess ? ` <span class="chip" title="${t('Ghép từ {parts}', { parts: esc(gs.parts.join(' + ')) })}" style="font-size:.7rem">${t('ước tính')} · ${esc(gs.parts.join(' + '))}</span>` : ''}`;
-        if (App.inDeck(w.word)) Cards.patch(w.word, c => { if (!c.ipa) c.ipa = gs.ipa; if (!c.ipaUS) c.ipaUS = gs.ipaUS; });
-      });
-      $('#skipW').onclick = () => { i++; show(); };
-      const nm = $('#lfxNoMic'); if (nm) nm.onclick = () => { FX.pauseMic(); runQuiz(src, 'mcq', 'speak'); };
-      $('#nextW').onclick = () => { i++; show(); };
-      setTimeout(() => speak(w.word, accent(), w.audio), 300);
-      let scored = false;
-      let listening = null;
-      $('#mic').onclick = () => {
-        if (listening) { listening.stop(); return; } // bấm lần nữa để dừng
-        listening = UI.recognize(w.word, accent(), {
-          start: () => { $('#mic').classList.add('rec'); $('#hint').textContent = '🔴 ' + t('Đang nghe… đọc to và rõ (bấm lần nữa để dừng)'); },
-          result: ({ heard, score, audio }) => {
-            total++;
-            const color = score >= 85 ? 'var(--good)' : score >= 65 ? 'var(--hard)' : 'var(--again)';
-            const el = $('#result'); if (!el) return;
-            el.innerHTML = `<div class="score-ring" style="--p:${score};--c:${color}"><b>${score}</b></div>
-              <p style="margin-top:.6rem"><b>${score >= 85 ? '🌟 ' + t('Xuất sắc!') : score >= 65 ? '👍 ' + t('Khá tốt – nghe mẫu và thử lại cho chuẩn hơn') : '🔁 ' + t('Chưa đúng – nghe chậm từng âm rồi thử lại')}</b></p>
-              <p class="muted small">${t('Máy nghe được: “{heard}”', { heard: esc(heard || '…') })}</p>
-              ${audio ? `<div class="row center" style="margin-top:.4rem"><button class="btn sm" id="playMine">▶️ ${t('Giọng của bạn')}</button><button class="btn sm" id="playModel">🔊 ${t('Giọng mẫu')}</button></div>` : ''}`;
-            if (audio) { const a = new Audio(audio); $('#playMine').onclick = () => { UI.stopSpeak(); a.currentTime = 0; a.play(); }; $('#playModel').onclick = () => speak(w.word, accent(), w.audio); }
-            if (score >= 65 && !scored) { scored = true; good++; App.reward({ spoken: 1, xp: score >= 85 ? 5 : 3 }, $('#mic')); score >= 85 ? Sfx.win() : Sfx.correct(); }
-            else if (score < 65) Sfx.wrong();
-            const nb = $('#nextW'); if (nb) nb.hidden = false;
-          },
-          error: code => { const h = $('#hint'); if (h) h.textContent = UI.recErrorText(code); },
-          end: () => { listening = null; const m = $('#mic'); if (m) m.classList.remove('rec'); const h = $('#hint'); if (h && h.textContent.includes(t('Đang nghe… đọc to và rõ (bấm lần nữa để dừng)'))) h.textContent = t('Bấm micro để thử lại'); },
-        });
-      };
-    };
-    const finish = () => {
-      App.reward({ quizzes: 1, xp: 5 });
-      Sfx.win(); if (good >= items.length * 0.7) confetti();
-      view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate"><div class="em">🎙️</div>
-        <h2>${t('Phát âm tốt {good}/{total} từ', { good, total: items.length })}</h2><p class="muted">${t('Luyện đều mỗi ngày để Speaking tự nhiên hơn.')}</p>
-        <div class="row center"><button class="btn primary" id="again">${t('Luyện tiếp')}</button><a class="btn" href="#/practice">${t('Chế độ khác')}</a></div></div></div>`;
-      $('#again').onclick = () => runSpeak(src);
-      practiceDone({ mode: 'speak', src, pct: Math.round(good / Math.max(1, items.length) * 100) }); // buổi học theo Ngày (path-day.js)
-    };
-    show();
-  }
 })();
