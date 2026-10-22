@@ -1,0 +1,22 @@
+# Ngân sách hiệu năng lưới clip quản trị (5 000 clip, Chromium thật): paint < 800 ms, cuộn không tác vụ dài > 50 ms, lọc < 200 ms, chọn tất cả < 100 ms, DOM < 300 nút, không nhảy bố cục.
+name: Hiệu năng thư viện clip
+on:
+  push:
+    branches: [main]
+    paths: ['web/js/admin-clips.js', 'scripts/test/clips-perf.mjs', 'functions/api/_clip_logic.js']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  perf:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Đo
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chromium
+          node scripts/test/clips-perf.mjs

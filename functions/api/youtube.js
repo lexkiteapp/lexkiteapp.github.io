@@ -39,13 +39,14 @@ const configured = env => { const c = client(env); return { client: !!c.id, secr
 const ready = env => Object.values(configured(env)).every(Boolean);
 const CLIP = /^[a-z0-9-]{3,120}$/, CHID = /^[A-Za-z0-9_-]{8,64}$/;
 
-async function setup(db) {
+export async function setup(db) {
   await db.batch([
     db.prepare('CREATE TABLE IF NOT EXISTS yt_channel (id INTEGER PRIMARY KEY, channel_id TEXT UNIQUE, title TEXT, email TEXT, enc_token TEXT, iv TEXT, status TEXT, created INTEGER, last_ok INTEGER, err TEXT, by_who TEXT)'),
     db.prepare('CREATE TABLE IF NOT EXISTS yt_queue (clip TEXT PRIMARY KEY, lesson TEXT, status TEXT, privacy TEXT, publish_at TEXT, approved_by TEXT, approved_at INTEGER, video_id TEXT, upload_url TEXT, session_at INTEGER, attempts INTEGER DEFAULT 0, err TEXT, updated INTEGER, thumb INTEGER, title TEXT)'),
     db.prepare('CREATE TABLE IF NOT EXISTS yt_quota (day TEXT PRIMARY KEY, units INTEGER)'),
     db.prepare('CREATE TABLE IF NOT EXISTS yt_meta (k TEXT PRIMARY KEY, v TEXT)'),
     db.prepare('CREATE TABLE IF NOT EXISTS yt_nonce (n TEXT PRIMARY KEY, at INTEGER)'),
+    db.prepare('CREATE TABLE IF NOT EXISTS clip_review (clip TEXT PRIMARY KEY, state TEXT, reason TEXT, web INTEGER, slot_date TEXT, slot_time TEXT, channel_id TEXT, deleted INTEGER DEFAULT 0, updated INTEGER, by_who TEXT)'),
     db.prepare('CREATE TABLE IF NOT EXISTS yt_pack (clip TEXT PRIMARY KEY, file_id TEXT, drive_id TEXT, sha TEXT, bytes INTEGER, title TEXT, description TEXT, tags TEXT, at INTEGER, retired INTEGER DEFAULT 0, seen TEXT)'),
   ]);
   await addCols(db);
@@ -259,6 +260,45 @@ async function counts(db) {
   return { queue: q, manual: { ready: +m.ready || 0, packing: +m.packing || 0, uploaded: +m.uploaded || 0, live: +m.live || 0, issues: +m.issues || 0 } };
 }
 
+/** Approve clips (admin op + bulk). Review overlay (clip_review) wins over the manifest: rejected / paused / deleted clips are skipped; a bulk-set slot replaces the manifest slot. */
+export async function approveClips(db, b, who, env) {
+  const ids = (Array.isArray(b.ids) ? b.ids : []).map(String).filter(x => CLIP.test(x)).slice(0, 100);
+  if (!ids.length) return { status: 400, error: 'bad-input' };
+  const st = await one(db, "SELECT v FROM yt_meta WHERE k = 'privacy'");
+  const manual = (await modeOf(db, env)) === 'manual';
+  const privacy = manual ? 'unlisted' : PRIVACY.includes(b.privacy) ? b.privacy : (st && st.v) || 'private';
+  const m = await manifest(env), by = new Map((m.items || []).map(x => [x.id, { ...x }])), now = Date.now(), out = { queued: [], skipped: [] };
+  const rvs = new Map((await all(db, 'SELECT * FROM clip_review WHERE clip IN (' + ids.map(() => '?').join(',') + ')', ...ids)).map(r => [r.clip, r]));
+  for (const id of ids) {
+    const it = by.get(id), rv = rvs.get(id);
+    if (it && rv && rv.slot_date) it.slot = { date: rv.slot_date, time: rv.slot_time || '19:00', tz: 'Asia/Ho_Chi_Minh' };
+    if (rv && (rv.deleted || rv.state === 'rejected' || rv.state === 'paused')) { out.skipped.push({ id, why: rv.deleted ? 'deleted' : rv.state }); continue; }
+    if (!it || !it.qa || it.qa.status !== 'pass' || it.rejected) { out.skipped.push({ id, why: !it ? 'unknown' : it.rejected ? 'rejected' : 'qa' }); continue; }
+    if (!it.drive || !it.drive.video || it.drive.video.retired) { out.skipped.push({ id, why: 'no-master' }); continue; }
+    const old = await one(db, 'SELECT status FROM yt_queue WHERE clip = ?', id);
+    if (old && (old.status === 'done' || old.status === 'uploading' || (manual && old.status === 'detected'))) { out.skipped.push({ id, why: old.status }); continue; }
+    if (manual) { // "Ready to upload": pack (yt-pack.mjs) + owner uploads in Studio as Unlisted; sync detects the marker
+      await run(db, `INSERT INTO yt_queue (clip, lesson, status, privacy, approved_by, approved_at, attempts, updated, title) VALUES (?, ?, 'manual', 'unlisted', ?, ?, 0, ?, ?)
+        ON CONFLICT(clip) DO UPDATE SET status = 'manual', privacy = 'unlisted', publish_at = NULL, approved_by = excluded.approved_by, approved_at = excluded.approved_at, err = NULL, upload_url = NULL, updated = excluded.updated`,
+        id, it.lesson || '', who.email, now, now, String(it.title || '').slice(0, 100));
+      await run(db, 'INSERT INTO yt_pack (clip, at) VALUES (?, ?) ON CONFLICT(clip) DO NOTHING', id, now);
+      out.queued.push({ id, privacy, manual: true }); continue;
+    }
+    const pa = privacy === 'private' && b.schedule === 'calendar' ? slotToIso(it.slot, now) : null;
+    await run(db, `INSERT INTO yt_queue (clip, lesson, status, privacy, publish_at, approved_by, approved_at, attempts, updated, title) VALUES (?, ?, 'queued', ?, ?, ?, ?, 0, ?, ?)
+      ON CONFLICT(clip) DO UPDATE SET status = 'queued', privacy = excluded.privacy, publish_at = excluded.publish_at, approved_by = excluded.approved_by, approved_at = excluded.approved_at, attempts = 0, err = NULL, upload_url = NULL, updated = excluded.updated`,
+      id, it.lesson || '', privacy, pa, who.email, now, now, String(it.title || '').slice(0, 100));
+    out.queued.push({ id, privacy, publish_at: pa });
+  }
+  const kicked = manual && out.queued.length ? await kick(env, 'youtube-manual.yml') : false;
+  return { ok: true, ...out, mode: manual ? 'manual' : 'api', kicked, quota: await quotaInfo(db) };
+}
+/** Drop a clip from the YouTube queue while it has not been uploaded yet. */
+export async function unqueueClip(db, id) {
+  await run(db, "DELETE FROM yt_queue WHERE clip = ? AND status IN ('queued', 'failed', 'manual')", id);
+  await run(db, "DELETE FROM yt_pack WHERE clip = ? AND NOT EXISTS (SELECT 1 FROM yt_queue WHERE clip = ?)", id, id);
+}
+
 // ---------- ops ----------
 const ADMIN_OPS = {
   async status(db, b, who, env) {
@@ -299,40 +339,8 @@ const ADMIN_OPS = {
     return { ok: true, privacy: b.privacy };
   },
   /** "Duyệt & lên YouTube": owner approval → queue. privacy private|unlisted; schedule 'calendar' → publishAt = the clip's calendar slot (private until then). */
-  async approve(db, b, who, env) {
-    const ids = (Array.isArray(b.ids) ? b.ids : []).map(String).filter(x => CLIP.test(x)).slice(0, 100);
-    if (!ids.length) return { status: 400, error: 'bad-input' };
-    const st = await one(db, "SELECT v FROM yt_meta WHERE k = 'privacy'");
-    const manual = (await modeOf(db, env)) === 'manual';
-    const privacy = manual ? 'unlisted' : PRIVACY.includes(b.privacy) ? b.privacy : (st && st.v) || 'private';
-    const m = await manifest(env), by = new Map((m.items || []).map(x => [x.id, x])), now = Date.now(), out = { queued: [], skipped: [] };
-    for (const id of ids) {
-      const it = by.get(id);
-      if (!it || !it.qa || it.qa.status !== 'pass' || it.rejected) { out.skipped.push({ id, why: !it ? 'unknown' : it.rejected ? 'rejected' : 'qa' }); continue; }
-      if (!it.drive || !it.drive.video || it.drive.video.retired) { out.skipped.push({ id, why: 'no-master' }); continue; }
-      const old = await one(db, 'SELECT status FROM yt_queue WHERE clip = ?', id);
-      if (old && (old.status === 'done' || old.status === 'uploading' || (manual && old.status === 'detected'))) { out.skipped.push({ id, why: old.status }); continue; }
-      if (manual) { // "Ready to upload": pack (yt-pack.mjs) + owner uploads in Studio as Unlisted; sync detects the marker
-        await run(db, `INSERT INTO yt_queue (clip, lesson, status, privacy, approved_by, approved_at, attempts, updated, title) VALUES (?, ?, 'manual', 'unlisted', ?, ?, 0, ?, ?)
-          ON CONFLICT(clip) DO UPDATE SET status = 'manual', privacy = 'unlisted', publish_at = NULL, approved_by = excluded.approved_by, approved_at = excluded.approved_at, err = NULL, upload_url = NULL, updated = excluded.updated`,
-          id, it.lesson || '', who.email, now, now, String(it.title || '').slice(0, 100));
-        await run(db, 'INSERT INTO yt_pack (clip, at) VALUES (?, ?) ON CONFLICT(clip) DO NOTHING', id, now);
-        out.queued.push({ id, privacy, manual: true }); continue;
-      }
-      const pa = privacy === 'private' && b.schedule === 'calendar' ? slotToIso(it.slot, now) : null;
-      await run(db, `INSERT INTO yt_queue (clip, lesson, status, privacy, publish_at, approved_by, approved_at, attempts, updated, title) VALUES (?, ?, 'queued', ?, ?, ?, ?, 0, ?, ?)
-        ON CONFLICT(clip) DO UPDATE SET status = 'queued', privacy = excluded.privacy, publish_at = excluded.publish_at, approved_by = excluded.approved_by, approved_at = excluded.approved_at, attempts = 0, err = NULL, upload_url = NULL, updated = excluded.updated`,
-        id, it.lesson || '', privacy, pa, who.email, now, now, String(it.title || '').slice(0, 100));
-      out.queued.push({ id, privacy, publish_at: pa });
-    }
-    const kicked = manual && out.queued.length ? await kick(env, 'youtube-manual.yml') : false;
-    return { ok: true, ...out, mode: manual ? 'manual' : 'api', kicked, quota: await quotaInfo(db) };
-  },
-  async unqueue(db, b) {
-    if (!CLIP.test(String(b.id || ''))) return { status: 400, error: 'bad-input' };
-    await run(db, "DELETE FROM yt_queue WHERE clip = ? AND status IN ('queued', 'failed', 'manual')", b.id);
-    await run(db, "DELETE FROM yt_pack WHERE clip = ? AND NOT EXISTS (SELECT 1 FROM yt_queue WHERE clip = ?)", b.id, b.id); return { ok: true };
-  },
+  async approve(db, b, who, env) { return approveClips(db, b, who, env); },
+  async unqueue(db, b) { if (!CLIP.test(String(b.id || ''))) return { status: 400, error: 'bad-input' }; await unqueueClip(db, b.id); return { ok: true }; },
   /** Manual path cards: state, pack link (signed, 2 h), texts to copy, issues. */
   async packs(db, b, who, env) {
     const rows = await all(db, `SELECT q.clip, q.lesson, q.status, q.privacy, q.video_id, q.err, q.approved_at, q.updated, q.title AS qtitle, p.file_id, p.drive_id, p.bytes, p.title, p.description, p.tags, p.at, p.retired
@@ -378,8 +386,8 @@ const CLI_OPS = {
   /** approved/uploaded ids (shorts-archive.mjs keeps 2 copies of these; web-rendition.mjs adds youtube_id when the video is watchable). */
   async ids(db) {
     const rows = await all(db, 'SELECT clip, lesson, status, privacy, publish_at, video_id FROM yt_queue'), now = Date.now();
-    const web = {};
-    for (const r of rows) if (r.status === 'done' && r.video_id && (r.privacy === 'unlisted' || r.privacy === 'public' || (r.publish_at && Date.parse(r.publish_at) <= now))) { web[r.clip] = r.video_id; if (r.lesson) web[r.lesson] = r.video_id; }
+    const web = {}, off = new Set((await all(db, 'SELECT clip FROM clip_review WHERE web = 0')).map(r => r.clip));
+    for (const r of rows) if (!off.has(r.clip) && r.status === 'done' && r.video_id && (r.privacy === 'unlisted' || r.privacy === 'public' || (r.publish_at && Date.parse(r.publish_at) <= now))) { web[r.clip] = r.video_id; if (r.lesson) web[r.lesson] = r.video_id; }
     return { approved: rows.map(r => r.clip), uploaded: Object.fromEntries(rows.filter(r => r.video_id).map(r => [r.clip, r.video_id])), web };
   },
   async quota(db) { return { quota: await quotaInfo(db) }; },

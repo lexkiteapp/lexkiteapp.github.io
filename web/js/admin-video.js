@@ -89,6 +89,7 @@
       if (state.tab === 'stats') return stats(body, data, items);
       if (state.tab === 'web') return webStats(body);
       if (state.tab === 'qc') return qcReport(body);
+      if (h.capi && window.AdminClips) { AdminClips.mount(body, { capi: h.capi, yapi: h.yapi, L, lang, esc, toast, open: it => open(it, { ...data, covers: { ...covers, [it.cover]: it.cover_url } }) }); return; } // quy mô lớn: máy chủ lọc/phân trang, lưới ảo hóa (js/admin-clips.js)
       body.innerHTML = `<div class="vid-bar"><input type="search" id="vid-q" placeholder="${esc(V('Tìm điểm học, tiêu đề, mã…'))}" aria-label="${esc(V('Tìm kiếm'))}" value="${esc(f.q || '')}">
         ${opt('format', uniq('format'), v => V(FMT[v] || v))}${opt('scene', uniq('scene'))}${opt('template', uniq('template'))}${opt('cefr', uniq('cefr'))}
         ${opt('status', ['pass', 'fail', 'sched', 'due', 'none'], v => V({ pass: 'QA đạt', fail: 'QA chưa đạt', ...PUB }[v]))}

@@ -97,7 +97,7 @@ w.FIREBASE_CONFIG = {}; w.firebase = { initializeApp() {}, auth: Object.assign((
 const seen = {};
 for (const n of ['AdminDrive', 'AdminKeys', 'AdminQuota', 'AdminSocial', 'AdminStudio']) w[n] = { render(box) { seen[n] = w.location.hash; box.innerHTML = `<div class="card" id="stub-${n}">stub</div>`; } };
 w.AdminReports = { render(box) { box.innerHTML = '<div class="card" id="stub-rep">stub</div>'; }, card(box) { box.innerHTML = '<div class="card">reports card</div>'; } };
-w.eval(rd('web/js/admin-backlinks.js')); w.eval(rd('web/js/admin-video.js'));
+w.AdminClips = {}; /* lưới cũ: không nạp admin-clips.js trong jsdom */ w.eval(rd('web/js/admin-backlinks.js')); w.eval(rd('web/js/admin-video.js'));
 w.eval(ADM);
 await tick(80);
 const h1 = () => ($('.pg-t') || {}).textContent;

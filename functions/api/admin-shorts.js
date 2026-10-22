@@ -42,7 +42,7 @@ export async function signedPack(env, ref, name, ttl = 2 * 3600) {
   return `/api/admin-shorts?f=${ref.fileId}&d=${ref.driveId}&k=z&n=${name}&e=${exp}&s=${await sigOf(env, `drive|${ref.fileId}|${ref.driveId}|z|${name}|${exp}`)}`;
 }
 /** URL ký cho 1 phần (video|cover) của 1 item: Drive nếu có item.drive, nếu không repo riêng khi có token; null = không phát được. */
-async function signed(env, it, k, ttl = 3600) {
+export async function signed(env, it, k, ttl = 3600) {
   const path = it && it[k], exp = expOf(ttl), c = driveOn(env) ? driveRef(it, k) : null;
   if (c && okPath(path)) {
     const kk = k === 'video' ? 'v' : 'c', n = path.split('/').pop().replace(/\.(mp4|jpg)$/, '');
@@ -86,7 +86,7 @@ export async function onRequestPost({ request, env }) {
   if (!b || typeof b !== 'object') return json(request, 400, { error: 'body' });
   if (b.op === 'list') {
     const m = await manifest(env), covers = {};
-    for (const it of m.items) if (okPath(it.cover)) { const u = await signed(env, it, 'cover'); if (u) covers[it.cover] = u; }
+    for (const it of m.items.slice(0, 300)) if (okPath(it.cover)) { const u = await signed(env, it, 'cover'); if (u) covers[it.cover] = u; }
     const media = !!(Object.keys(covers).length || (env.SHORTS_READ_TOKEN && m.items.length));
     return json(request, 200, { items: m.items, source: m.source, media, updated: m.updated, coverage: m.coverage, calendar: m.calendar, credits: m.credits, covers });
   }
