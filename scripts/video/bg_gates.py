@@ -73,7 +73,8 @@ def phash(im):
 
 def sharp_expo(im):
     g = np.array(im.convert('L').resize((1080, 1920) if im.size[1] > im.size[0] else (1920, 1080), Image.LANCZOS)).astype(np.float32)
-    return dict(lap=round(float(cv2.Laplacian(g, cv2.CV_32F).var()), 1), L=round(float(g.mean()), 1), clip_frac=round(float(((g < 8) | (g > 247)).mean()), 4))
+    gm = np.hypot(cv2.Sobel(g, cv2.CV_32F, 1, 0), cv2.Sobel(g, cv2.CV_32F, 0, 1)).ravel(); acu = float(np.partition(gm, -3000)[-3000:].mean())   # edge acuity: mean of the 3000 strongest gradients (flat art: sparse-scene safe, drops when blurry)
+    return dict(lap=round(float(cv2.Laplacian(g, cv2.CV_32F).var()), 1), acu=round(acu, 1), L=round(float(g.mean()), 1), clip_frac=round(float(((g < 8) | (g > 247)).mean()), 4))
 
 def upscale(crop):
     import torch; m = M.get('sr'); t = torch.from_numpy(np.array(crop.convert('RGB'))).permute(2, 0, 1).float().div(255).unsqueeze(0)
@@ -122,10 +123,10 @@ def measure(im, cid, crops=True):
             z['y_window'] = int(min(OUTH - 1920, max(0, round(OUTH * hz - 0.40 * 1920))))   # 1080x1920 window offset (in the 1350x2400 crop) that puts the horizon at 40 %
             z['final_horizon'] = round((OUTH * hz - z['y_window']) / 1920, 4)
             r[side] = dict(x=x, w=cw, y_window=z['y_window'], final_horizon=z['final_horizon'], **{k: z[k] for k in ('horizon', 'horizon_src', 'floor_frac', 'valid', 'host_water', 'host_top', 'host_floor')},
-                           lap=sharp_expo(u)['lap'], lap_bicubic=sharp_expo(bic)['lap'], text=ocr(u), **{f'owl_{k}': v for k, v in owl(u).items()})
+                           lap=sharp_expo(u)['lap'], acu=sharp_expo(u)['acu'], lap_bicubic=sharp_expo(bic)['lap'], text=ocr(u), **{f'owl_{k}': v for k, v in owl(u).items()})
             out[side] = (u, z, dp)
     else:
-        z, dp = zones(im, cid); r['S'] = {k: z[k] for k in ('horizon', 'horizon_src', 'floor_frac', 'valid', 'host_water', 'host_top', 'host_floor')}; r['S']['lap'] = r['m_lap']
+        z, dp = zones(im, cid); r['S'] = {k: z[k] for k in ('horizon', 'horizon_src', 'floor_frac', 'valid', 'host_water', 'host_top', 'host_floor')}; r['S']['lap'] = r['m_lap']; r['S']['acu'] = r['m_acu']
     return r, e, out
 
 def pct(a, q): return round(float(np.percentile(np.array(a, dtype=float), q)), 4)
@@ -146,11 +147,11 @@ def calib(a):
     neg_p, neg_a = [r['person'] for r in R], [r['animal'] for r in R]
     thr_p = round(max(neg_p) + 0.02, 3); thr_a = round(max(neg_a) + 0.02, 3)
     th = dict(DEF, person=thr_p, animal=thr_a, style_min=round(float(np.percentile(sty, 2)) - 0.02, 4), phash_max=max(4, min(hd) - 2),
-              lap_min=round(pct([r['m_lap'] for r in R], 5) * 0.8, 1), L_min=max(35, round(min(r['m_L'] for r in R) - 10)), L_max=min(225, round(max(r['m_L'] for r in R) + 10)),
+              lap_min=round(pct([r['m_lap'] for r in R], 5) * 0.8, 1), acu_min=round(pct([r['m_acu'] for r in R], 5) * 0.85, 1), L_min=max(35, round(min(r['m_L'] for r in R) - 10)), L_max=min(225, round(max(r['m_L'] for r in R) + 10)),
               clip_frac_max=0.15, host_water_max=0.01, host_top_max=0.12, host_floor_min=0.25)
     rep = dict(n=len(R), thresholds=th, centroid=[round(float(x), 5) for x in cen],
                dist=dict(person=[pct(neg_p, 50), max(neg_p)], animal=[pct(neg_a, 50), max(neg_a)], pos_person=[p['person'] for p in pos], style=[pct(sty, 2), pct(sty, 50)],
-                         cos_nn_max=round(float(S.max()), 4), cos_nn_p50=pct(S.max(1), 50), phash_nn_min=int(min(hd)), lap=[pct([r['m_lap'] for r in R], q) for q in (5, 50)],
+                         cos_nn_max=round(float(S.max()), 4), cos_nn_p50=pct(S.max(1), 50), phash_nn_min=int(min(hd)), lap=[pct([r['m_lap'] for r in R], q) for q in (5, 50)], acu=[pct([r['m_acu'] for r in R], q) for q in (0, 5, 50)],
                          L=[min(r['m_L'] for r in R), max(r['m_L'] for r in R)], horizon=[pct([r['S']['horizon'] for r in R], q) for q in (10, 50, 90)],
                          horizon_in_35_45=sum(0.35 <= r['S']['horizon'] <= 0.45 for r in R), host_top=[pct([r['S']['host_top'] for r in R], q) for q in (50, 90)],
                          host_floor=[pct([r['S']['host_floor'] for r in R], q) for q in (10, 50)], text_flag=[r['id'] for r in R if r['text']]),
@@ -176,14 +177,14 @@ def shard(a):
         if max(r['person'], r['L']['owl_person'], r['R']['owl_person']) >= C['person']: f.append('person')
         if max(r['animal'], r['L']['owl_animal'], r['R']['owl_animal']) >= max(C['animal'], C.get('animal_min', 0.15)): f.append('animal')
         if r['m_L'] < C['L_min'] or r['m_L'] > C['L_max'] or r['m_clip_frac'] > C['clip_frac_max']: f.append('exposure')
-        if r['m_lap'] < C['lap_min']: f.append('soft_master')
+        if r['m_acu'] < C['acu_min']: f.append('soft_master')   # (Laplacian variance penalised sparse flat scenes - pilot 22/10)
         for s in 'LR':
             z = r[s]
             if not z['valid'] or z['host_floor'] < C['host_floor_min']: f.append(f'nofloor_{s}')
             if not (C['horizon'][0] - 0.01 <= z['final_horizon'] <= C['horizon'][1] + 0.01): f.append(f'horizon_{s}')   # VP bins are 1/24 = 0.042
             if z['host_water'] > C['host_water_max']: f.append(f'water_{s}')
             if z['host_top'] > C['host_top_max']: f.append(f'tabletop_{s}')
-            if z['lap'] < C['lap_min']: f.append(f'soft_{s}')   # (ESRGAN smooths flat art below bicubic's jaggy Laplacian -> no bicubic comparison)
+            if z['acu'] < C['acu_min']: f.append(f'soft_{s}')   # (ESRGAN smooths flat art below bicubic's jaggy Laplacian -> no bicubic comparison)
         r['fail'] = f; r.update({k: it[k] for k in ('loc', 'cat', 'variant') if k in it})
         im.resize((640, 360)).save(f'{d}/thumb.jpg', quality=85)
         if not f:
