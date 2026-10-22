@@ -493,6 +493,7 @@
    "home_living_sofa__night_classic",
    "home_studio_apt__night_classic",
    "home_study__day_modern",
+   "homx1_home_library__day_modern",
    "shp_furniture__day_modern",
    "shp_furniture__night_classic",
    "shp_hardware__night_classic",
@@ -826,7 +827,8 @@
    "sch_science_lab__winter_cosy",
    "sch_student_lounge__day_modern",
    "sch_student_lounge__golden_minimal",
-   "sch_student_lounge__winter_cosy"
+   "sch_student_lounge__winter_cosy",
+   "schx0_school_library__day_modern"
   ],
   "science": [
    "nat_botanical_garden__day_modern",
@@ -945,6 +947,7 @@
    "gov_library_public__golden_minimal",
    "gov_library_public__night_classic",
    "home_study__day_modern",
+   "homx1_home_library__day_modern",
    "sch_campus_quad__golden_minimal",
    "sch_computer_lab__day_modern",
    "sch_computer_lab__golden_minimal",
@@ -956,6 +959,7 @@
    "sch_lecture_hall__golden_minimal",
    "sch_science_lab__golden_minimal",
    "sch_science_lab__winter_cosy",
+   "schx0_school_library__day_modern",
    "tec_maker_space__day_modern",
    "tec_robotics_lab__night_classic",
    "trn_driving_school__day_modern",
