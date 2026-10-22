@@ -13,10 +13,13 @@ const fail = m => { console.log('✗ ' + m); bad.push(m); };
 const ok = m => console.log('✓ ' + m);
 let nShot = 0;
 const shot = name => { const f = path.join(OUT, `${String(++nShot).padStart(2, '0')}-${name}.png`); try { fs.writeFileSync(f, execFileSync('adb', ['exec-out', 'screencap', '-p'], { maxBuffer: 64 << 20, timeout: 30000 })); } catch (e) { console.log('screencap lỗi', e.message); } return f; };
-const focus = () => (/mCurrentFocus=.*\{[^}]*\s(\S+)\}/.exec(adb('shell', 'dumpsys', 'window', 'windows')) || [])[1] || '';
+// hoạt động đang ở trên cùng (topResumedActivity/mResumedActivity – mCurrentFocus có thể trỏ nhầm cửa sổ launcher)
+const focus = () => (/(?:topResumedActivity|mResumedActivity)=ActivityRecord\{\S+ \S+ ([^\s}]+)/.exec(adb('shell', 'dumpsys', 'activity', 'activities')) || [])[1] || '';
 
 // ---- mở app, nối DevTools của WebView ----
 adb('logcat', '-c');
+// quyền thông báo cấp sẵn → hộp hỏi quyền của hệ thống không che bảng đăng nhập Google
+adb('shell', 'pm', 'grant', PKG, 'android.permission.POST_NOTIFICATIONS');
 adb('shell', 'monkey', '-p', PKG, '-c', 'android.intent.category.LAUNCHER', '1');
 let sock = '';
 for (let k = 0; k < 30 && !sock; k++) { await sleep(2000); sock = (/@(webview_devtools_remote_\d+)/.exec(adb('shell', 'cat', '/proc/net/unix')) || [])[1] || ''; }
@@ -32,17 +35,21 @@ ws.onmessage = m => {
   const d = JSON.parse(m.data);
   if (d.id && pend.has(d.id)) { pend.get(d.id)(d); pend.delete(d.id); return; }
   if (d.method === 'Runtime.consoleAPICalled' && /error|warning/.test(d.params.type)) consoleErr.push(d.params.type + ': ' + d.params.args.map(a => a.value ?? a.description ?? '').join(' ').slice(0, 300));
-  if (d.method === 'Runtime.exceptionThrown') consoleErr.push('exception: ' + JSON.stringify(d.params.exceptionDetails).slice(0, 300));
+  if (d.method === 'Runtime.exceptionThrown') consoleErr.push('exception: ' + JSON.stringify(d.params.exceptionDetails).slice(0, 1500));
 };
-const cdp = (method, params) => new Promise(r => { const i = ++id; pend.set(i, r); ws.send(JSON.stringify({ id: i, method, params })); });
+// mỗi lệnh DevTools tối đa 20 s (WebView bị hủy khi app thoát → không treo cả kịch bản)
+const cdp = (method, params) => new Promise(r => { const i = ++id; pend.set(i, r); const tm = setTimeout(() => { pend.delete(i); r({ result: { exceptionDetails: { text: 'cdp timeout' } } }); }, 20000); pend.set(i, d => { clearTimeout(tm); r(d); }); try { ws.send(JSON.stringify({ id: i, method, params })); } catch (e) { clearTimeout(tm); pend.delete(i); r({ result: { exceptionDetails: { text: 'ws closed' } } }); } });
+ws.onclose = () => { console.log('DevTools WebView đóng'); for (const [, f] of pend) f({ result: { exceptionDetails: { text: 'ws closed' } } }); pend.clear(); };
 const ev = async expr => { const r = await cdp('Runtime.evaluate', { expression: `(async () => { ${expr} })()`, awaitPromise: true, returnByValue: true }); if (r.result && r.result.exceptionDetails) return { __err: JSON.stringify(r.result.exceptionDetails).slice(0, 300) }; return r.result && r.result.result ? r.result.result.value : undefined; };
 await cdp('Runtime.enable', {});
+const alog = async () => { const v = await ev("return window.__auth ? __auth.slice() : []"); return Array.isArray(v) ? v : []; };
 const go = async (h, ms) => { await ev(`location.hash = ${JSON.stringify(h)}; return 1`); await sleep(ms || 4000); };
 const COMING = '/sẽ có ở bản phát hành chính thức|phát hành chính thức|coming soon|official release|full release/i';
 // ghi lệnh gọi/kết quả plugin FirebaseAuthentication qua cầu Capacitor (không ghi dữ liệu người dùng)
 await ev(`const C = window.Capacitor; window.__auth = window.__auth || []; if (C && !C.__e2eAuth) { C.__e2eAuth = 1; const tn = C.toNative, fn = C.fromNative;
   C.toNative = function (pl, m) { if (pl === 'FirebaseAuthentication') __auth.push({ dir: 'call', m }); return tn.apply(this, arguments); };
-  C.fromNative = function (r) { try { if (r && r.pluginId === 'FirebaseAuthentication') __auth.push({ dir: 'ret', m: r.methodName, success: !!r.success, code: String((r.error && r.error.code) || ''), err: String((r.error && r.error.message) || '').slice(0, 200) }); } catch (e) {} return fn.apply(this, arguments); }; } return 1`);
+  const np = C.nativePromise; if (typeof np === 'function') C.nativePromise = function (pl, m) { const p = np.apply(this, arguments); if (pl === 'FirebaseAuthentication' && p && p.then) p.then(() => __auth.push({ dir: 'ret', m, success: true }), e => __auth.push({ dir: 'ret', m, success: false, code: String((e && e.code) || ''), err: String((e && e.message) || '').slice(0, 200) })); return p; };
+  C.fromNative0 = function (r) { try { if (r && r.pluginId === 'FirebaseAuthentication') __auth.push({ dir: 'ret', m: r.methodName, success: !!r.success, code: String((r.error && r.error.code) || ''), err: String((r.error && r.error.message) || '').slice(0, 200) }); } catch (e) {} return fn.apply(this, arguments); }; } return 1`);
 
 // ---- 1. khởi chạy ----
 info.launch = await ev(`return { path: location.pathname, hash: location.hash, flag: window.LK_NATIVE_AUTH || null, native: !!(window.Sync && Sync.native), plugin: !!(Capacitor.Plugins && Capacitor.Plugins.FirebaseAuthentication), plat: Capacitor.getPlatform() }`);
@@ -76,13 +83,15 @@ const pkgs = [...new Set([...ui.matchAll(/package="([^"]+)"/g)].map(m => m[1]))]
 const texts = [...new Set([...ui.matchAll(/text="([^"]+)"/g)].map(m => m[1]))].slice(0, 25);
 info.sheet = { focusBefore: focus0, focus: sheet || focus(), pkgs, texts };
 console.log('sheet', JSON.stringify(info.sheet));
-const log1 = await ev('return __auth.slice()');
+const log1 = await alog();
 if (!(log1 || []).some(x => x.dir === 'call' && /signInWithGoogle/.test(x.m))) fail('Bấm Google nhưng plugin signInWithGoogle không được gọi'); else ok('Đã gọi FirebaseAuthentication.signInWithGoogle');
-const native = sheet || pkgs.some(p => p !== PKG && /gms|credential|google/i.test(p));
+const native = /gms|credential|SignInHub/i.test(sheet) || pkgs.some(p => p !== PKG && /gms|credential/i.test(p));
 if (!native) fail('Không thấy giao diện đăng nhập Google gốc (focus ' + (sheet || focus()) + ', gói ' + pkgs.join(',') + ')'); else ok('Giao diện Google gốc hiện: ' + (sheet || pkgs.join(',')));
-adb('shell', 'input', 'keyevent', '4');
-let ret = null; for (let k = 0; k < 40 && !ret; k++) { await sleep(500); ret = ((await ev('return __auth.slice()')) || []).find(x => x.dir === 'ret' && /signInWithGoogle/.test(x.m)); }
-if (!ret && native) { adb('shell', 'input', 'keyevent', '4'); for (let k = 0; k < 20 && !ret; k++) { await sleep(500); ret = ((await ev('return __auth.slice()')) || []).find(x => x.dir === 'ret' && /signInWithGoogle/.test(x.m)); } }
+if (native) adb('shell', 'input', 'keyevent', '4'); // BACK = hủy bảng đăng nhập
+// kết quả = lần trả cuối khi mọi lệnh signInWithGoogle đã xong (Android có thể gọi 2 lần: Credential Manager → luồng cũ)
+const settled = async () => { const l = (await alog()).filter(x => /signInWithGoogle/.test(x.m)); const calls = l.filter(x => x.dir === 'call').length, rets = l.filter(x => x.dir === 'ret'); return calls && rets.length >= calls ? rets.at(-1) : null; };
+let ret = null; for (let k = 0; k < 40 && !ret; k++) { await sleep(500); ret = await settled(); }
+if (!ret && native) { adb('shell', 'input', 'keyevent', '4'); for (let k = 0; k < 20 && !ret; k++) { await sleep(500); ret = await settled(); } }
 info.ret = ret; console.log('ret', JSON.stringify(ret));
 await sleep(800);
 const toast = await ev(`return [...document.querySelectorAll('.toast, [role=status], [role=alert]')].map(x => x.innerText).join(' | ').slice(0, 300)`);

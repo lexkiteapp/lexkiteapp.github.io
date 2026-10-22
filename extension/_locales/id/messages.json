@@ -27,7 +27,7 @@
   "message": "✓ Sudah ingat"
  },
  "ntAgain": {
-  "message": "🔁 Ulangi lagi"
+  "message": "↻ Ulangi"
  },
  "ntGolden": {
   "message": "Waktu emas"
@@ -148,5 +148,8 @@
  },
  "posColl": {
   "message": "kolokasi"
+ },
+ "ntMoreSenses": {
+  "message": "+{n} arti"
  }
 }

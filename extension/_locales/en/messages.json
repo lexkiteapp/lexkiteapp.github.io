@@ -27,7 +27,7 @@
   "message": "✓ Got it"
  },
  "ntAgain": {
-  "message": "🔁 Review again"
+  "message": "↻ Again"
  },
  "ntGolden": {
   "message": "Golden moment"
@@ -148,5 +148,8 @@
  },
  "posColl": {
   "message": "collocation"
+ },
+ "ntMoreSenses": {
+  "message": "+{n} meanings"
  }
 }

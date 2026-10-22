@@ -27,7 +27,7 @@
   "message": "✓ याद है"
  },
  "ntAgain": {
-  "message": "🔁 फिर दोहराएँ"
+  "message": "↻ दोहराएँ"
  },
  "ntGolden": {
   "message": "सुनहरा पल"
@@ -148,5 +148,8 @@
  },
  "posColl": {
   "message": "सहप्रयोग"
+ },
+ "ntMoreSenses": {
+  "message": "+{n} अर्थ"
  }
 }

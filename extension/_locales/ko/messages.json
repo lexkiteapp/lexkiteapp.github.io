@@ -27,7 +27,7 @@
   "message": "✓ 외웠어요"
  },
  "ntAgain": {
-  "message": "🔁 다시 복습"
+  "message": "↻ 다시"
  },
  "ntGolden": {
   "message": "골든 타임"
@@ -148,5 +148,8 @@
  },
  "posColl": {
   "message": "연어"
+ },
+ "ntMoreSenses": {
+  "message": "+{n}개 뜻"
  }
 }
