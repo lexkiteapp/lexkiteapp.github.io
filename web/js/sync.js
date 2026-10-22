@@ -11,7 +11,7 @@
 
   const Sync = { user: null, status: 'idle', lastSync: 0 };
   window.Sync = Sync;
-  Sync.league = (op, extra) => league(op, extra); Sync.pushLeague = () => pushLeague();
+  Sync.league = (op, extra, signal) => league(op, extra, signal); Sync.pushLeague = () => pushLeague();
   window.addEventListener('hashchange', () => pushLeague()); // XP mới → cập nhật bảng xếp hạng khi chuyển trang
   let fb = null, db = null, timer = null, box = null;
   // Cùng tên miền → gọi thẳng; app/add-on/bản xem trước → gọi về lexkite.com
@@ -20,10 +20,10 @@
   // XP tuần = tổng XP các ngày từ thứ Hai (giờ UTC, giống máy chủ) trong game.days. pushLeague() tự gửi, tối đa 1 lần/5 phút.
   const LG = API.replace('/api/sync', '/api/league');
   const weekXp = async () => { const gm = await Core.Store.get('game', null); if (!gm || !gm.days) return 0; const d = new Date(), mon = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() - (d.getUTCDay() + 6) % 7); let x = 0; for (const [k, v] of Object.entries(gm.days)) if (Date.parse(k + 'T00:00:00Z') >= mon - 864e5 / 2 && v && v.xp) x += v.xp; return x; };
-  async function league(op, extra = {}) {
+  async function league(op, extra = {}, signal) {
     if (!Sync.user) return { member: null, auth: false };
     const body = { op, ...extra, ...(op === 'xp' ? { xp: await weekXp() } : {}) };
-    const r = await fetch(LG, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await Sync.user.getIdToken() }, body: JSON.stringify(body) });
+    const r = await fetch(LG, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await Sync.user.getIdToken() }, body: JSON.stringify(body), signal });
     const j = await r.json().catch(() => ({})); if (!r.ok) throw Object.assign(new Error(j.error || 'league'), { code: j.error });
     try { localStorage.setItem('lk.league', j.member ? '1' : '0'); } catch (e) { /* bỏ qua */ }
     return j;

@@ -11,9 +11,9 @@
   const LS = { get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) { /* bỏ qua */ } } };
   const lang = () => (window.I18N ? I18N.lang() : 'en');
 
-  async function call(op, extra = {}) {
+  async function call(op, extra = {}, signal) {
     if (!window.Sync || !Sync.user) throw Object.assign(new Error('auth'), { code: 'auth' });
-    const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await Sync.user.getIdToken() }, body: JSON.stringify({ op, ...extra }) });
+    const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await Sync.user.getIdToken() }, body: JSON.stringify({ op, ...extra }), signal });
     const j = await r.json().catch(() => ({}));
     if (!r.ok) throw Object.assign(new Error(j.error || 'class'), { code: j.error || (r.status === 429 ? 'too-fast' : 'server') });
     return j;
@@ -72,10 +72,10 @@
 
   // ---------- Dữ liệu "lớp của tôi" ----------
   let mineCache = null;
-  async function mine(force) {
+  async function mine(force, signal) {
     const uid = Sync.user && Sync.user.uid;
     if (!force && mineCache && mineCache.uid === uid && Date.now() - mineCache.at < 30e3) return mineCache.d; // đổi tài khoản trên cùng máy → tải lại
-    const d = await call('mine');
+    const d = await call('mine', {}, signal);
     mineCache = { at: Date.now(), uid, d };
     LS.set('lk.cls', d.learn.length ? '1' : null); // học sinh → nạp module để ghi tiến độ
     LS.set('lk.edu', d.learn.length || d.teach.length ? '1' : null); // tài khoản lớp học: không quảng cáo (ads.js)
@@ -125,10 +125,11 @@
 
   // ---------- Trung tâm #/class ----------
   async function hub(code, task) {
+    const w = App.W;
     if (!window.Sync || !Sync.user) return signedOut(code ? `<p><b>${t('Bạn được mời vào lớp {code}.', { code: `<span translate="no">${esc(code)}</span>` })}</b> ${t('Đăng nhập để tham gia.')}</p>` : '');
     view.innerHTML = head('🏫 ' + t('Lớp học'), t('Giáo viên giao bài, học sinh luyện tập – miễn phí, không quảng cáo.')) + '<div class="skel skel-l"></div><div class="skel skel-l"></div>';
-    let d; try { d = await mine(true); } catch (e) { view.innerHTML = head('🏫 ' + t('Lớp học')) + `<div class="card">${esc(ERR()[e.code] || t('Có lỗi kết nối – thử lại sau.'))}</div>`; return; }
-    await needTopics(d.learn.flatMap(c => c.tasks.map(x => x.ref)));
+    let d; try { d = await w(mine(true, w.signal)); } catch (e) { view.innerHTML = head('🏫 ' + t('Lớp học')) + `<div class="card">${esc(ERR()[e.code] || t('Có lỗi kết nối – thử lại sau.'))}</div>`; return; }
+    await w(needTopics(d.learn.flatMap(c => c.tasks.map(x => x.ref))));
     const me = (Sync.user.displayName || '').split(' ').slice(-1)[0] || '';
     const done = c => c.tasks.filter(x => c.prog.some(p => p.task === x.id)).length;
     view.innerHTML = head('🏫 ' + t('Lớp học'), t('Giáo viên giao bài, học sinh luyện tập – miễn phí, không quảng cáo.')) + `
@@ -172,8 +173,8 @@
 
   // ---------- Giáo viên: mời, giao bài, tiến độ ----------
   async function teacher(id) {
-    let R; try { R = await call('report', { cls: id }); } catch (e) { return fail(e); }
-    await needTopics(R.tasks.map(x => x.ref));
+    const w = App.W; let R; try { R = await w(call('report', { cls: id }, w.signal)); } catch (e) { return fail(e); }
+    await w(needTopics(R.tasks.map(x => x.ref)));
     const c = R.cls, N = R.members.length, T = R.tasks.length;
     const prog = (task, uid) => R.prog.find(p => p.task === task && p.id === uid);
     const stat = m => { const ps = R.tasks.map(x => prog(x.id, m.id)).filter(Boolean); return { done: ps.length, acc: ps.length ? Math.round(ps.reduce((a, p) => a + p.best, 0) / ps.length) : null, last: Math.max(m.last || 0, ...ps.map(p => p.updated)) }; };
@@ -240,18 +241,18 @@
   }
 
   // ---------- Định tuyến ----------
-  routes.class = async function (arg, query) {
-    const a = String(arg || '');
+  routes.class = App.guard(async function (arg, query) {
+    const w = App.W, a = String(arg || '');
     if (a.startsWith('join/')) return hub(a.slice(5).toUpperCase(), query && query.get('task'));
     if (!a) return hub();
     if (!window.Sync || !Sync.user) return signedOut();
     view.innerHTML = head('🏫 ' + t('Lớp học'), '', true) + '<div class="skel skel-l"></div><div class="skel skel-l"></div>';
-    let d; try { d = await mine(); } catch (e) { return fail(e); }
+    let d; try { d = await w(mine(false, w.signal)); } catch (e) { return fail(e); }
     if (d.teach.some(c => c.id === a)) return teacher(a);
     const c = d.learn.find(x => x.id === a);
     if (!c) { location.hash = '#/class'; return; }
-    await needTopics(c.tasks.map(x => x.ref));
+    await w(needTopics(c.tasks.map(x => x.ref)));
     student(c);
-  };
+  });
   App.Classroom = { info, mine };
 })();

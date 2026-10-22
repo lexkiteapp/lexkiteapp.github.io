@@ -22,7 +22,15 @@ for (const rt of rts) { const d = list[rt].filter(d => d.name.includes(DEVQ)).so
 if (!dev) { console.error('Không có máy giả lập khớp ' + DEVQ); process.exit(2); }
 const U = dev.udid; log('Máy giả lập:', dev.name, dev.rt, U);
 simq('shutdown', U); simq('erase', U);
-sim('boot', U); sim('bootstatus', U, '-b');
+// boot có thử lại: runner macOS đôi khi treo xcrun (ETIMEDOUT) → shutdown/erase rồi boot lại, mỗi lần chờ tới 5 phút
+{
+  let ok = false, last = '';
+  for (let k = 1; k <= 3 && !ok; k++) {
+    try { execFileSync('xcrun', ['simctl', 'boot', U], { stdio: 'ignore', timeout: 300000 }); } catch (e) { last = String(e.stderr || e.message).slice(0, 200); if (!/current state: Booted|already booted/i.test(last + String(e.stderr || ''))) log('boot lần ' + k + ' lỗi: ' + last); }
+    try { execFileSync('xcrun', ['simctl', 'bootstatus', U, '-b'], { stdio: 'ignore', timeout: 300000 }); ok = true; } catch (e) { last = String(e.stderr || e.message).slice(0, 200); log('bootstatus lần ' + k + ' lỗi: ' + last); simq('shutdown', U); simq('erase', U); }
+  }
+  if (!ok) { fs.writeFileSync(path.join(OUT, 'boot-failed.txt'), 'Simulator không boot được sau 3 lần: ' + last); console.error('Simulator không boot được sau 3 lần: ' + last); process.exit(3); }
+}
 simq('ui', U, 'appearance', 'light');
 simq('status_bar', U, 'override', '--time', '9:41', '--batteryState', 'charged', '--batteryLevel', '100');
 sim('install', U, APP);

@@ -85,7 +85,7 @@ ok(P.nextLevel([]) === 'B1' && P.nextLevel([R('vocab', 'B1', 'right'), R('vocab'
 for (const x of ['live', 'house', 'water', 'family']) if (W(x) && !w.App.inDeck(x)) await w.App.addWord(W(x), null, { silent: true });
 const deckAll = w.App.state.cards; w.App.state.cards = Object.fromEntries(['live', 'house', 'water', 'family'].map(k => [k, deckAll[k]]));
 let found = false;
-for (let k = 0; k < 40 && !found; k++) { await go('#/home', 30); await go('#/practice/learn?src=deck', 120); found = /^live$/.test(($('.wi-word') || {}).textContent || ''); }
+for (let k = 0; k < 40 && !found; k++) { await go('#/home', 30); await go('#/practice/learn?src=deck', 120); found = /^live$/.test(($('.wi-word') || {}).textContent || ''); } // (vẽ đè muộn do đua điều hướng đã được App.route chặn bằng token – xem route-race.mjs)
 ok(found, 'thẻ giới thiệu từ mới “live” hiện ra');
 if (found) {
   const bar = $('.learn-bar'), fi = $('#fi');
@@ -301,11 +301,11 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
 {
   w.localStorage.removeItem('vb.noAudioUntil'); w.localStorage.removeItem('vb.noMicUntil');
   const tw = w.App.topicOf('awl1').words, BM = new Map(tw.map(x => [w.App.meanOf(x), x.word]));
-  const typoOf = s => s.length >= 6 && !w.IELTS_DATA.INDEX[s.slice(0, -2) + s.slice(-1)] ? s.slice(0, -2) + s.slice(-1) : s; // bỏ 1 chữ gần cuối
+  const typoOf = s => { if ((s.match(/[a-z]/g) || []).length < 4) return s; for (let i = s.length - 2; i >= 1; i--) { const m = s.slice(0, i) + s.slice(i + 1); if (!w.IELTS_DATA.INDEX[m.toLowerCase()]) return m; } return s; }; // bỏ 1 chữ (thử từng vị trí tới khi được chuỗi không phải từ thật) → luôn tạo được lỗi gõ cho mọi từ ≥ 4 chữ cái (trước đây chỉ từ ≥ 6 chữ & đúng vị trí → thi thoảng không có câu nào đủ điều kiện)
   await go('#/home', 100); await go('#/practice/mcq?src=topic:awl1', 400);
   ok(w.LessonFx && $('.study-top') && $('.lfx-combo'), 'lesson-fx nạp cùng #/practice, có chỗ cho chip chuỗi đúng');
   const chips = []; let sawHard = false, badge = false, typoOk = false, typed = 0;
-  for (let k = 0; k < 14 && !$('.lfx-stats'); k++) {
+  for (let k = 0; k < 30 && !$('.lfx-stats'); k++) {
     await tick(280); chips.push((($('.lfx-combo') || {}).textContent || '').trim());
     if ($('#lfxHardYes')) { sawHard = /8/.test($('#lfxHardH').textContent) && /<svg/.test($('.lfx-hardin').innerHTML); click($('#lfxHardYes')); continue; }
     if ($('.options .option')) { const wd = ($('.entry-word') || {}).textContent; click($$('.options .option').find(b => b.dataset.o === wd)); }
@@ -343,6 +343,13 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   ok($('.path') || $('.empty'), 'path-day: lộ trình hoặc trạng thái rỗng vẫn hiển thị');
   TK.cur = cur0;
   ok(!errors.slice(e0).some(m => /stages/.test(m)), 'path-day: không lỗi đọc stages');
+}
+
+// ===== Tracks.setupCards: pick.track thiếu/lạ (lần đầu) không ném 'stages' =====
+{
+  let thrown = '';
+  try { for (const pk of [{ v: {} }, { track: 'khong-co', v: {}, lv: '' }, undefined]) { const h = w.Tracks.setupCards(pk); if (!/trk-opt/.test(h)) thrown = 'thiếu thẻ gói'; } } catch (e) { thrown = e.message; }
+  ok(!thrown, 'Tracks.setupCards chịu được pick.track thiếu/lạ: ' + thrown);
 }
 
 const real = errors.filter(e => !/Not implemented|navigation|Could not parse CSS/.test(e));

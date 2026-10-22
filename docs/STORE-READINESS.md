@@ -1,5 +1,7 @@
 # Sẵn sàng lên Google Play & App Store – Lexkite (com.lexkite.app)
 
+> **IARC (22/10/2026)**: rating Google Play đã live – Global Rating ID `56841d8a-867a-8d1d-8a40-3fb03be6354c` (dùng lại cho store khác có IARC).
+
 Rà soát ngày 17/10/2026 trên mã nguồn + log CI (android.yml, ios.yml đều xanh). Ký hiệu: ✅ đạt · ⚠️ cần kiểm/làm thêm nhưng không chặn nộp · ❌ chặn nộp.
 **👤 = anh chủ làm** (tài khoản, giấy tờ, bấm trên dashboard) · **🛠 = dev làm** (code/CI).
 

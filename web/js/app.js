@@ -316,14 +316,33 @@
   let curHash = '';
   // Đổi trang trong lúc dữ liệu lần đầu đang nạp (máy chậm, mới mở app) → chờ nạp xong rồi mới vẽ (tránh màn trắng do state.game = null)
   let dataReady; const dataReadyP = new Promise(r => { dataReady = r; });
+  // Token điều hướng: mỗi lần route() tăng 1 NGAY khi vào hàm (trước mọi await). Mọi bước bất đồng bộ (nạp gói lười, fetch, vẽ muộn)
+  // so token của mình với App.routeToken(); cũ hơn = đã có lượt điều hướng mới → bỏ, không vẽ đè trang mới / phiên học đang chạy.
+  let scope = { id: 0, ac: new AbortController() };
+  App.routeToken = () => routeSeq;
+  App.routeStale = tok => tok !== routeSeq;
+  App.signal = () => scope.ac.signal; // AbortSignal của trang hiện tại: fetch(url, { signal: App.signal() }) → tự hủy khi đổi trang
+  // Nạp gói lười CHO TRANG ĐANG MỞ: nếu người học đã sang trang khác lúc gói về thì lời hứa không bao giờ hoàn tất (then/await phía sau không chạy) → không vẽ đè
+  App.lazy = (...names) => { const tok = routeSeq, pending = new Promise(() => {}); return App.need(...names).then(v => (tok !== routeSeq ? pending : v), e => (tok !== routeSeq ? pending : Promise.reject(e))); };
+  // Bọc một tác vụ bất đồng bộ của trang: kết quả về muộn (trang đã đổi) → bỏ. const tok = App.routeToken(); … if (App.routeStale(tok)) return;
+  App.live = p => { const tok = routeSeq, pending = new Promise(() => {}); return Promise.resolve(p).then(v => (tok !== routeSeq ? pending : v), e => (tok !== routeSeq ? pending : Promise.reject(e))); };
+  // App.guard(fn): bọc MỘT LẦN cho trang bất đồng bộ. Trong fn: const w = App.W (đọc ngay đầu hàm, trước await đầu tiên); await w(lời_hứa) → trang đã đổi thì lời hứa không bao giờ
+  // hoàn tất (không vẽ đè); w.signal cho fetch; w.stale() kiểm tra trước khi ghi DOM.
+  App.guard = fn => function (...a) {
+    const tok = routeSeq, w = p => Promise.resolve(p).then(v => (tok !== routeSeq ? new Promise(() => {}) : v), e => (tok !== routeSeq ? new Promise(() => {}) : Promise.reject(e)));
+    w.signal = scope.ac.signal; w.stale = () => tok !== routeSeq; App.W = w;
+    return fn.apply(this, a);
+  };
   async function route() {
-    if (!state.game) await dataReadyP;
+    const my = ++routeSeq; // token của lượt này
+    scope.ac.abort(); scope = { id: my, ac: new AbortController() };
+    if (!state.game) { await dataReadyP; if (my !== routeSeq) return; }
     const { name, arg, query } = parseHash();
     const STUDY = /^#\/(practice\/|review)/;
     if (STUDY.test(location.hash) && curHash && !STUDY.test(curHash)) backHash = /^#\/welcome/.test(curHash) ? '#/home' : curHash;
     else if (!STUDY.test(location.hash)) backHash = '';
     curHash = location.hash;
-    const b = [].concat(ROUTE_BUNDLE[name] || []), my = ++routeSeq;
+    const b = [].concat(ROUTE_BUNDLE[name] || []);
     // Khung chờ (skeleton) chỉ hiện khi tải lâu hơn 150 ms → không nháy màn hình khi tải nhanh
     let skel = null;
     if (b.some(x => !App.loaded(x))) skel = setTimeout(() => {
@@ -332,7 +351,7 @@
       const skelDefault = `<div class="skel-page" aria-busy="true" aria-label="${t('Đang tải…')}"><div class="skel skel-h"></div><div class="skel skel-l"></div><div class="skel-grid">${'<div class="skel skel-card"></div>'.repeat(4)}</div></div>`;
       view.innerHTML = name === 'review' ? skelReview : name === 'home' || !name ? skelHome : skelDefault;
     }, 150);
-    if (b.length) { await App.need(...b); clearTimeout(skel); if (my !== routeSeq) return; }
+    if (b.length) { try { await App.need(...b); } finally { clearTimeout(skel); } if (my !== routeSeq) return; }
     if (!routes[name] && ROUTE_ALIAS[name]) { location.replace(location.pathname + location.search + '#/' + [ROUTE_ALIAS[name], arg && encodeURIComponent(arg)].filter(Boolean).join('/') + (query.toString() ? '?' + query : '')); return; } // gõ nhầm quen thuộc (#/wellcom…) → trang đúng
     const fn = routes[name] || (name ? notFound : routes.home);
     // Đánh dấu mục đang mở: thanh dưới theo 5 mục chính, menu bên theo mục con; nhóm chứa trang hiện tại tự mở
@@ -348,7 +367,7 @@
     // Chuyển trang mượt (View Transitions – Chrome/Edge/Safari mới); máy cũ: hiệu ứng mờ dần sẵn có
     const render = async () => {
       window.scrollTo(0, 0);
-      await fn(arg, query);
+      try { await fn(arg, query); } catch (e) { if (my !== routeSeq || (e && e.name === 'AbortError')) return; throw e; } // lượt cũ lỗi vì bị hủy → im lặng
       // Đường dẫn "Kỹ năng › Nghe" ở đầu trang con → luôn biết mình đang ở đâu, 1 chạm quay lại trang trung tâm
       const c = my === routeSeq && App.crumb && App.crumb(name, arg), ph = c && view.querySelector('.page-head');
       if (ph && !ph.querySelector('.crumb')) ph.insertAdjacentHTML('afterbegin', c);
@@ -591,7 +610,7 @@
     bindCommon();
     const drawLeague = () => { const el = $('#leagueHomeCard'); if (el && window.League) League.renderHomeCard(el); };
     if (window.League) drawLeague();
-    else if (App.need) App.need('league').then(drawLeague).catch(() => {});
+    else if (App.need) App.lazy('league').then(drawLeague).catch(() => {});
     if (window.StreakUI) StreakUI.checkSavedNotice(state.game);
     if (App.todayPlan) App.todayPlan().then(tasks => {
       const el = $('#todayPlan'); if (!el) return;
@@ -871,8 +890,8 @@
   // Lời mời cài add-on (chỉ Chromium máy tính, chưa cài – web/js/ext-cta.js quyết định), nạp lười; URL cửa hàng: js/ext-config.js
   let extP = null;
   const extCta = () => Store.isExtension ? Promise.resolve(null) : (extP || (extP = loadScript('js/ext-config.js').then(() => loadScript('js/ext-cta.js')).catch(() => {}))).then(() => { if (window.LKExt) LKExt.scan(view); return window.LKExt || null; });
-  routes.dict = async function (q) {
-    const recent = await Store.get('recent', []);
+  routes.dict = App.guard(async function (q) {
+    const w = App.W, recent = await w(Store.get('recent', []));
     view.innerHTML = `
       <div class="page-head"><div><h1>${t('Từ điển Anh – Việt')}</h1><p class="muted">${t('Định nghĩa Oxford Languages · phiên âm UK/US · câu song ngữ · collocation · từ liên quan')}</p></div></div>
       <form class="search" id="searchForm" autocomplete="off">
@@ -896,10 +915,10 @@
     // Hiện kết quả nhanh trước (nghĩa, phiên âm), rồi bổ sung âm thanh, hình, câu ví dụ
     let spoke = false;
     const same = () => Dict.normWord(parseHash().arg) === Dict.normWord(q);
-    const fast = await Dict.quick(q);
+    const fast = await w(Dict.quick(q));
     if (!same()) return;
     if (fast) paint(fast, false);
-    const full = await Dict.lookup(q);
+    const full = await w(Dict.lookup(q));
     if (!same()) return;
     if (!full || !full.found) {
       if (!fast) $('#result').innerHTML = `<div class="card empty"><div class="em">🤔</div><p>${t('Không tìm thấy “{q}”.', { q: esc(q) })}${full && full.vi ? ' ' + t('Gợi ý dịch: <b>{vi}</b>', { vi: esc(full.vi) }) : ''}</p><p class="small">${t('Kiểm tra chính tả hoặc kết nối mạng.')}</p></div>`;
@@ -1010,7 +1029,7 @@
     $('#saveWord').onclick = save;
     const qs = $('#quickSave'); if (qs) qs.onclick = save;
     }
-  };
+  });
 
   // Cụm từ & cấu trúc chứa từ đang tra: từ thư viện + sổ cụm từ của người học
   function drawPhrases(e) {
@@ -1802,7 +1821,8 @@
     try { fresh ? localStorage.removeItem('lk.onb') : localStorage.setItem('lk.onb', '1'); } catch (e) { /* bỏ qua */ } // khung dựng sẵn trong index.html chỉ hiện cho người mới
     if (!fresh) document.body.classList.remove('bare');
     if (fresh && /^(#\/?(home)?)?$/.test(location.hash)) { location.hash = '#/welcome'; App.prefetchAll(); return; }
-    route();
+    // Người học đã điều hướng/mở phiên học trong lúc app còn khởi động → vẽ lại lúc này sẽ làm mất phiên (từ khác, đếm lại từ 0): chỉ vẽ lại khi chưa có lượt vẽ nào hoặc đang ở trang thường
+    if (!routeSeq || !document.body.classList.contains('focus')) route();
     App.prefetchAll();
     const nb = $('#notifBtn');
     if (nb) {
