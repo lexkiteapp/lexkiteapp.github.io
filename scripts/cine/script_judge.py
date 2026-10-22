@@ -6,8 +6,12 @@ import json, os, sys, urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import script_rules as SR
 sp = json.load(open(sys.argv[1])); L = {l['id']: l for l in json.load(open(sys.argv[2]))['lines']}; out = dict(rules=SR.check(sp, L), ok=False)
 T = lambda i: (L.get(i) or {}).get('text', '')
-lines = [f"HOOK (Ama): {T(sp['hook']['line'])}  [card: {sp['hook']['card']}]"] + [f"{b['who'].upper()} ({b.get('kind', '')}): {T(b['line'])}" + (f"  [card {b['card']['kind']}: {b['card']['text']} {b['card'].get('formula') or b['card'].get('sub') or ''}]" if b.get('card') else '') for b in sp['beats']]
-lines += [f"TEACHER'S TIP card: {' | '.join(sp['recap']['rows'])}", f"END: {T(sp['end_line'])}", f"SHARE chip: Send this to a friend {sp.get('share', '')}", f"Level {sp['cefr']}, difficulty {sp.get('difficulty')}, point: {sp['point']}. ✗ = wrong line, ✓ = right line."]
+lines = [f"1. Ama (hook): {T(sp['hook']['line'])}"]
+for k, b in enumerate(sp['beats']):
+    c = b.get('card'); tag = '' if not c else ('WRONG ✗ ' if c['kind'] == 'x' else 'RIGHT ✓ ' if c['kind'] == 'v' else '')
+    lines.append(f"{k + 2}. {b['who'].title()}: {T(b['line'])}" + (f"   [on-screen card: {tag}{c['text']}" + (f" — {c['formula']}" if c.get('formula') else '') + ']' if c else ''))
+lines += [f"On-screen Teacher's tip list: {' | '.join(sp['recap']['rows'])}", f"Last line: {T(sp['end_line'])}", f"On-screen share chip: Send this to a friend {sp.get('share', '')}",
+          f"(Target level {sp['cefr']}. Teaching point: {sp['point']}. 'Pause and guess' and 'Repeat after me' are fixed classroom routines.)"]
 script = '\n'.join(lines); out['script'] = script
 api = os.environ.get('STUDIO_API', 'https://lexkite.com/api/studio'); sec = os.environ.get('STUDIO_CALLBACK_SECRET', '')
 try:

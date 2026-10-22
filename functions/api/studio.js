@@ -386,12 +386,17 @@ const CI = {
   // short why, culturally neutral, simple English. Returns the model's JSON (scores 1-5 + issues); CI scripts/cine/script_judge.py decides.
   async judgeScript(env, db, b) {
     const script = String(b.script || '').slice(0, 6000); if (!script) throw new Bad(400, 'script');
-    const sys = 'You are a strict ESL teacher-editor reviewing a 25-second English lesson video script for a GLOBAL audience of A2-B1 learners. ' +
+    const sys = 'You are a strict ESL teacher-editor reviewing a short English lesson video script for a GLOBAL audience of A2-B1 learners. Lines are spoken by two teachers; brackets describe on-screen cards. ' +
       'Score 1-5 each: clarity (easy to follow for A2-B1, short sentences, no word harder than the thing it explains), correctness (the marked-wrong line is really wrong or unnatural in this situation AND the marked-right line is natural American English here; the why is true), ' +
       'one_idea (exactly one teaching point), level (explanations use A2-B1 core words; idioms glossed), neutrality (no religion/politics/stereotypes; mistakes phrased "many learners", never a country). ' +
       'Reply JSON only: {"clarity":n,"correctness":n,"one_idea":n,"level":n,"neutrality":n,"wrong_is_wrong":true|false,"right_is_right":true|false,"issues":["..."]}';
-    const r = await runModel(env, sys, script, 0);
-    return { provider: r.model || 'workers-ai', out: r.out };
+    const g = await geminiCall(env, { systemInstruction: { parts: [{ text: sys }] }, contents: [{ role: 'user', parts: [{ text: script }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0 } });
+    if (g && g.text) { try { return { provider: 'gemini', out: JSON.parse(g.text.replace(/^```(json)?|```$/g, '')) }; } catch (e) { /* fall through */ } }
+    if (!env.AI) throw new Bad(503, 'no-model');   // fallback: Llama 3.3 70B (the 8B model misread the script markup in run #64)
+    const r = await env.AI.run('@cf/meta/llama-3.3-70b-instruct-fp8-fast', { messages: [{ role: 'system', content: sys + ' Reply with ONE JSON object only.' }, { role: 'user', content: script }], max_tokens: 600, temperature: 0, response_format: { type: 'json_object' } });
+    const raw = r && r.response; let out = raw && typeof raw === 'object' ? raw : null;
+    if (!out) { try { out = JSON.parse(String(raw || '').replace(/^[^{]*/, '').replace(/[^}]*$/, '')); } catch (e) { out = null; } }
+    return { provider: 'workers-ai-llama3.3-70b', out };
   },
   async visionCheck(env, db, b) {
     const imgs = (Array.isArray(b.images) ? b.images : []).slice(0, 4).filter(x => typeof x === 'string' && x.length < 250000 && /^[A-Za-z0-9+/=]+$/.test(x));
@@ -401,10 +406,10 @@ const CI = {
     if (g && g.text) return { provider: 'gemini', text: g.text };
     if (env.AI) {   // fallback: Llama 3.2 Vision (one image at a time, yes/no question = robust parsing); accepts the Meta licence once
       const M = '@cf/meta/llama-3.2-11b-vision-instruct', frames = [];
-      const ask = (bytes) => env.AI.run(M, { messages: [{ role: 'user', content: 'Look at the cartoon presenter. Does the presenter look like they stand ON or IN a table, desk, bed, sofa, water or a vehicle, or float, or have a clearly wrong size for the room? Answer only YES or NO, then one short reason.' }], image: bytes, max_tokens: 40 });
+      const ask = (d) => env.AI.run(M, { messages: [{ role: 'user', content: [{ type: 'text', text: 'Look at the cartoon presenter. Does the presenter look like they stand ON or IN a table, desk, bed, sofa, water or a vehicle, or float, or have a clearly wrong size for the room? Answer only YES or NO, then one short reason.' }, { type: 'image_url', image_url: { url: 'data:image/jpeg;base64,' + d } }] }], max_tokens: 40 });   // format verified via REST 22/10
       for (const d of imgs) {
-        const bytes = [...Uint8Array.from(atob(d), c => c.charCodeAt(0))]; let r = null;
-        try { r = await ask(bytes); } catch (e) { if (/agree/i.test(String(e && e.message))) { await env.AI.run(M, { prompt: 'agree' }).catch(() => null); r = await ask(bytes).catch(() => null); } }
+        let r = null;
+        try { r = await ask(d); } catch (e) { if (/agree/i.test(String(e && e.message))) { await env.AI.run(M, { prompt: 'agree' }).catch(() => null); r = await ask(d).catch(() => null); } }
         const t = String((r && (r.response || r.description)) || '').trim();
         frames.push({ natural: /^\W*no\b/i.test(t), problem: /^\W*no\b/i.test(t) ? '' : (t.slice(0, 140) || 'no answer') });
       }
