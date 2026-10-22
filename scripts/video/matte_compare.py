@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import matte_refine as MR, matte_qa as Q
 
 ap = argparse.ArgumentParser(); ap.add_argument('green'); ap.add_argument('bg'); ap.add_argument('out')
-ap.add_argument('--sheet', required=True); ap.add_argument('--video', required=True); ap.add_argument('--step', type=int, default=4)
+ap.add_argument('--sheet', required=True); ap.add_argument('--video', required=True); ap.add_argument('--metrics', default=''); ap.add_argument('--step', type=int, default=4)
 a = ap.parse_args(); os.makedirs(a.out, exist_ok=True)
 
 
@@ -53,7 +53,8 @@ def rois(al, img):
     h = lab_ == 1 + int(np.argmax(st_[1:, cv2.CC_STAT_AREA])); H = al.shape[0]; rows = np.where(h.any(1))[0]; top = int(rows[0])   # main figure only
     def side(y, right=False):
         c = np.where(h[min(H - 1, y)])[0]; return (int(c.max()) if right else int(c.min())), y
-    hair = side(top + 25); ear = side(top + int(0.15 * H)); sh = side(top + int(0.27 * H), right=True)
+    wid = [int(h[y].sum()) for y in range(top + int(0.04 * H), top + int(0.20 * H))]   # ears stick out: widest head row
+    hair = side(top + 25); ear = side(top + int(0.04 * H) + int(np.argmax(wid))); sh = side(top + int(0.27 * H), right=True)
     ycc = cv2.cvtColor(np.clip(img, 0, 255).astype(np.uint8), cv2.COLOR_BGR2YCrCb)
     skin = h & (ycc[..., 1] > 135) & (ycc[..., 1] < 175) & (ycc[..., 2] > 80) & (ycc[..., 2] < 130)
     skin[: top + int(0.33 * H)] = False
@@ -61,8 +62,9 @@ def rois(al, img):
     if n > 1:
         j = 1 + int(np.argmax(stt[1:, cv2.CC_STAT_AREA])); x0, y0, w, hh = stt[j, :4]
         con = (cv2.dilate(h.astype(np.uint8), np.ones((3, 3), np.uint8)) - cv2.erode(h.astype(np.uint8), np.ones((3, 3), np.uint8))) > 0
-        ys, xs = np.where(con[y0:y0 + hh, x0:x0 + w] & (lab[y0:y0 + hh, x0:x0 + w] > -1))
-        fing = (int(x0 + xs[len(xs) // 2]), int(y0 + ys[len(ys) // 2])) if len(xs) else (int(cen[j][0]), int(cen[j][1]))
+        ys, xs = np.where(con[y0:y0 + hh, x0:x0 + w] & (lab[y0:y0 + hh, x0:x0 + w] == j))
+        k_ = int(np.argmax(ys)) if len(ys) else 0   # fingertips = lowest contour point of the hand blob
+        fing = (int(x0 + xs[k_]), int(y0 + ys[k_] - 20)) if len(xs) else (int(cen[j][0]), int(cen[j][1]))
     else: fing = side(top + int(0.55 * H))
     return [('hair', hair), ('ear', ear), ('shoulder', sh), ('fingers', fing)]
 
@@ -103,7 +105,7 @@ for clip in a.video.split(','):
 enc.stdin.close(); enc.wait(); print('mp4', round(os.path.getsize(f'{a.out}/matte-before-after.mp4') / 1e6, 2), 'MB')
 
 M = []
-for clip in sorted({s.split(':')[0] for s in a.sheet.split(',')} | set(a.video.split(','))):
+for clip in sorted({s.split(':')[0] for s in a.sheet.split(',')} | set(a.video.split(',')) | set(filter(None, a.metrics.split(',')))):
     for pro in (False, True):
         r = Q.layer(a.green, clip, pro=pro, step=a.step); M.append(r); print(json.dumps(r), flush=True)
 json.dump(M, open(f'{a.out}/matte-metrics.json', 'w'), indent=1)

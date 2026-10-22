@@ -20,7 +20,9 @@ import numpy as np, cv2
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import matte_refine as MR
 
-GATES = dict(recon=4.0, edge_de=6.0, spill=0.004, dark=0.03, light=0.03, flicker=0.02, hair_frac=0.5)
+# flicker = mean |da| over ALL still-source edge-band pixels of the sampled frame pairs (pooled). The Kling source's own codec noise
+# moves a physically correct alpha by ~0.01-0.02 on these edges; boiling mattes sit well above. Calibration: docs/VIDEO.md §6 / ledger.
+GATES = dict(recon=4.0, edge_de=6.0, spill=0.004, dark=0.03, light=0.03, flicker=0.025, hair_frac=0.5)
 
 
 def _lab(F):
@@ -101,11 +103,11 @@ def layer(G, clip, pro=True, step=4, src=None, f0=0):
             band = (a > 0.05) & (a < 0.95) | (prev[2] > 0.05) & (prev[2] < 0.95)
             Y0, Y1 = (cv2.cvtColor(x, cv2.COLOR_BGR2GRAY).astype(np.float32) for x in (prev[3], I))
             st = band & (cv2.GaussianBlur(np.abs(Y0 - Y1), (0, 0), 1.0) < 1.5)
-            if st.sum() > 50: fl.append(float(np.abs(a - prev[2])[st].mean()))
+            fl.append((float(np.abs(a - prev[2])[st].sum()), int(st.sum())))   # pooled over pixels (a per-pair mean let tiny motion pairs dominate)
         if i % step == 0: rows.append(dict(f=i, hair_frac=hair_frac(a), recon=recon(F, a, I, K), **edge_metrics(F, a)))
         prev = (i, F, a, I)
     agg = {k: round(float(np.median([r[k] for r in rows])), 4) for k in ('recon', 'edge_de', 'spill', 'dark', 'light', 'hair_frac')}
-    agg['flicker'] = round(float(np.mean(fl)) if fl else 0.0, 4)
+    agg['flicker'] = round(sum(x for x, _ in fl) / max(1, sum(n for _, n in fl)), 4)
     fails = [k for k, v in GATES.items() if (agg[k] < v if k == 'hair_frac' else agg[k] > v)]
     return dict(clip=clip, matte='pro' if lossless else 'old', **agg, frames=len(rows), fails=fails, ok=not fails)
 
