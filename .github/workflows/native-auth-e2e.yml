@@ -87,6 +87,16 @@ jobs:
           brew install cameroncooke/axe/axe >/dev/null 2>&1 && axe --version || echo "::warning::không cài được AXe – chỉ chụp ảnh, không bấm Hủy"
       - uses: actions/download-artifact@v4
         with: { name: app-auth }
+      - name: Khởi động sẵn simulator (retry)
+        run: |
+          xcrun simctl list devices available | head -20
+          U=$(xcrun simctl list devices available -j | python3 -c "import json,sys;d=json.load(sys.stdin)['devices'];c=[x for k,v in d.items() if 'iOS' in k for x in v if 'iPhone 1' in x['name']];print(c[-1]['udid'] if c else '')")
+          [ -z "$U" ] && { echo "::warning::không tìm thấy iPhone để khởi động sẵn"; exit 0; }
+          for i in 1 2 3; do
+            timeout 300 xcrun simctl boot "$U" 2>/dev/null; timeout 300 xcrun simctl bootstatus "$U" -b && { echo "✓ simulator đã boot (lần $i)"; break; }
+            echo "::warning::boot lần $i lỗi, thử lại"; xcrun simctl shutdown "$U" 2>/dev/null; sleep 10
+          done
+          xcrun simctl shutdown "$U" 2>/dev/null; true
       - name: Kịch bản đăng nhập (iPhone)
         run: |
           unzip -q app-auth.zip -d "$RUNNER_TEMP/app"
@@ -110,6 +120,9 @@ jobs:
         run: |
           npm ci --prefix mobile --no-audit --no-fund
           ./scripts/build-mobile.sh
+          test -f mobile/android/app/google-services.json || { echo "::error::✗ thiếu mobile/android/app/google-services.json sau build-mobile (bị .gitignore hoặc cap sync xóa?)"; exit 1; }
+          grep -q "com.google.gms:google-services" mobile/android/build.gradle || { echo "::error::✗ mobile/android/build.gradle mất classpath com.google.gms:google-services"; exit 1; }
+          grep -q "apply plugin: 'com.google.gms.google-services'" mobile/android/app/build.gradle || { echo "::error::✗ mobile/android/app/build.gradle mất apply plugin com.google.gms.google-services"; exit 1; }
           cd mobile/android && chmod +x gradlew && ./gradlew --no-daemon assembleDebug | tail -5
           cp app/build/outputs/apk/debug/app-debug.apk ../../lexkite.apk
       - name: APK có cấu hình google-services (default_web_client_id = web client)

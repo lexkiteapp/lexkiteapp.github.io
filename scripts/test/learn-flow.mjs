@@ -345,6 +345,13 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   ok(!errors.slice(e0).some(m => /stages/.test(m)), 'path-day: không lỗi đọc stages');
 }
 
+// ===== Tracks.setupCards: pick.track thiếu/lạ (lần đầu) không ném 'stages' =====
+{
+  let thrown = '';
+  try { for (const pk of [{ v: {} }, { track: 'khong-co', v: {}, lv: '' }, undefined]) { const h = w.Tracks.setupCards(pk); if (!/trk-opt/.test(h)) thrown = 'thiếu thẻ gói'; } } catch (e) { thrown = e.message; }
+  ok(!thrown, 'Tracks.setupCards chịu được pick.track thiếu/lạ: ' + thrown);
+}
+
 const real = errors.filter(e => !/Not implemented|navigation|Could not parse CSS/.test(e));
 ok(!real.length, 'không lỗi JS: ' + real.slice(0, 3).join(' | '));
 if (fails) { console.log(`✗ learn-flow: ${fails}/${n} lỗi`); process.exit(1); }

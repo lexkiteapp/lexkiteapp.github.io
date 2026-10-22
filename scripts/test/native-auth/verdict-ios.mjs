@@ -3,7 +3,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 const dir = process.argv[2] || 'e2e-out/auth';
-const res = JSON.parse(fs.readFileSync(path.join(dir, 'results.json'), 'utf8'));
+const rp = path.join(dir, 'results.json');
+if (!fs.existsSync(rp)) {
+  const bf = path.join(dir, 'boot-failed.txt');
+  console.log('✗ Thiếu ' + rp + (fs.existsSync(bf) ? ' – ' + fs.readFileSync(bf, 'utf8') + ' (hạ tầng: simulator không boot, chạy lại job)' : ' – driver chết trước khi ghi kết quả (xem log bước "Kịch bản đăng nhập")'));
+  process.exit(1);
+}
+const res = JSON.parse(fs.readFileSync(rp, 'utf8'));
 const bad = [];
 const AUTH_STEPS = /^(launch|authui|authtap|usable|acctdel)/;
 for (const e of res.events.filter(e => e.type === 'step')) {
