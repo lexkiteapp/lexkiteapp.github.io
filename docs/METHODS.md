@@ -16,7 +16,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Ship: `~/.config/lexkite/ship.sh "<mô tả>"` (smoke → tsc → YAML → vi-lint → i18n → bump SW + add-on → commit → push → chờ live).
 - Smoke: `node scripts/test/smoke.js "$PWD/web"` (phải ra `ERRORS none`).
 - tsc: `npx -y -p typescript@5.6.3 tsc -p tsconfig.check.json`.
-- Mergecheck: chạy `npm test` sau khi gộp nhánh (verify – chưa thấy script tên "mergecheck" trong repo).
+- Mergecheck: `bash scripts/mergecheck.sh <branch> "<msg>"` (gộp + dedupe i18n + smoke/tsc/vi-lint/i18n/size/unit/learn-flow + bump sw CACHE + push lên lexkiteapp). Remote thật: github.com/lexkiteapp/lexkiteapp.github.io (origin cục bộ là repo CŨ).
 - Trước ship: `npm test` (hoặc các test liên quan khi có file dở của luồng khác) + `node scripts/test/infra-check.mjs` (mọi dịch vụ/host/Worker/kho mới phải ở `infra/resources.json`).
 - Sau ship: kiểm LIVE (lexkite.com, API 403 với người lạ…). Báo anh ngắn gọn bằng tiếng Việt.
 - `i18n-leak` chập chờn khi chạy cả bộ → chạy riêng.
