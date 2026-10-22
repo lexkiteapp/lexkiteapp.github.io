@@ -63,10 +63,21 @@
     "sub": null,
     "label": "EXAMPLE"
    }
+  },
+  {
+   "who": "carlos",
+   "line": "n_a30db6_rp",
+   "card": {
+    "kind": "p",
+    "text": "I'll make dinner tonight.",
+    "sub": null,
+    "label": "REPEAT"
+   },
+   "repeat": true
   }
  ],
  "recap": {
-  "title": "SAVE THIS",
+  "title": "TEACHER'S TIP",
   "line": "n_a30db6_r",
   "rows": [
    "make dinner",

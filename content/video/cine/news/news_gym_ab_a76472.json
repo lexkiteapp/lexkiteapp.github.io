@@ -1,7 +1,7 @@
 {
  "id": "news_gym_ab_a76472",
  "template": "ab",
- "bg": "gym",
+ "bg": "classroom",
  "area": "word-usage",
  "cefr": "A2",
  "point": "do yoga, not make yoga",
@@ -63,10 +63,21 @@
     "sub": null,
     "label": "EXAMPLE"
    }
+  },
+  {
+   "who": "carlos",
+   "line": "n_a76472_rp",
+   "card": {
+    "kind": "p",
+    "text": "I do yoga every morning.",
+    "sub": null,
+    "label": "REPEAT"
+   },
+   "repeat": true
   }
  ],
  "recap": {
-  "title": "SAVE THIS",
+  "title": "TEACHER'S TIP",
   "line": "n_a76472_r",
   "rows": [
    "I do yoga.",

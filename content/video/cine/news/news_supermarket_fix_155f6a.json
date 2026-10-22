@@ -1,7 +1,7 @@
 {
  "id": "news_supermarket_fix_155f6a",
  "template": "fix",
- "bg": "supermarket",
+ "bg": "classroom",
  "area": "grammar",
  "cefr": "A1",
  "point": "questions with does: how much does it cost",
@@ -66,7 +66,7 @@
   }
  ],
  "recap": {
-  "title": "SAVE THIS",
+  "title": "TEACHER'S TIP",
   "line": "n_155f6a_r",
   "rows": [
    "How much does it cost?",

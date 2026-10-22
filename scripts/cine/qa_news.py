@@ -131,7 +131,7 @@ if VIRAL:   # viral-mode rules (docs/CINE-SCENE-STANDARD.md §7, v3 pacing model
                     if min(a[2], b[2]) > max(a[0], b[0]) and min(a[3], b[3]) > max(a[1], b[1]): bad.append((s['id'], a))
     rule(not bad, f'hook card clear of character bodies {bad or ""}')
     # reading time: every non-caption text card (chained states merged) >= max(1.2, 0.4 + 0.28 x words); brand chips exempt (Series/Pov/Follow have own rules)
-    EX = ('Cap', 'Series', 'Pov', 'Follow'); spans = {}
+    EX = ('Cap', 'Series', 'Pov', 'Follow', 'Name'); spans = {}
     for o in sorted(tl['overlays'], key=lambda o: o['t'][0]):
         if o['style'] in EX or (o['style'] in ('Gap', 'Strike') and o.get('line')): continue
         k = (o['style'], o['shot'] if o['style'] == 'Ring' else disp(o)[:40] if o['style'] != 'Ladder' else 'L', o['part'] if o['style'] == 'Strike' else 0)   # Choice reveal = same card, new state
@@ -247,6 +247,15 @@ if TP == 'news':
     pl.save(V.replace('.mp4', '-luma.png')); print('  luma plot', V.replace('.mp4', '-luma.png'))
 for b in tl['endcard_boxes']:
     if not (b[0] >= SZ['x0'] and b[2] <= SZ['x1'] and b[1] >= SZ['y0'] and b[3] <= SZ['y1']): fails.append('safe:endcard'); print('  END CARD SAFE FAIL', b)
+if TP == 'news':   # owner 22/10: teacher persona
+    print('== TEACHER PERSONA')
+    nm_ = [o for o in tl['overlays'] if o['style'] == 'Name']; whos_ = {x['who'] for x in tl['shots'] if not x.get('other') and x['lines']}
+    ok_ = {w for w in whos_ if any(o['text'].startswith(w.upper() + '|') for o in nm_)} == whos_
+    print(f"  name titles {[o['text'] for o in nm_]} for {sorted(whos_)}", 'OK' if ok_ else 'FAIL'); ok_ or fails.append('name-title')
+    rt_ = [o['text'].split('|')[0] for o in tl['overlays'] if o['style'] == 'Recap']; print(f'  recap label {rt_}', 'OK' if rt_ and all(x.upper() == "TEACHER'S TIP" for x in rt_) else 'FAIL')
+    if not (rt_ and all(x.upper() == "TEACHER'S TIP" for x in rt_)): fails.append('teacher-tip')
+    rp_ = tl['lesson'].get('qa', {}).get('repeat', []) if isinstance(tl['lesson'].get('qa'), dict) else tl.get('qa', {}).get('repeat', [])
+    print(f'  repeat-after-me pauses {rp_} (>= 1.5 s)', 'OK' if all(d >= 1.5 for _, d in rp_) else 'FAIL'); all(d >= 1.5 for _, d in rp_) or fails.append('repeat-pause')
 print('== LOOK (owner 22/10: real-camera exposure, no flat band)')
 _rw = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-threads', '2', '-i', V, '-vf', 'fps=2,scale=270:480', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], capture_output=True).stdout
 _F = np.frombuffer(_rw, np.uint8).reshape(-1, 480, 270, 3).astype(np.float32) / 255; _Y = _F @ np.array([0.299, 0.587, 0.114], np.float32)

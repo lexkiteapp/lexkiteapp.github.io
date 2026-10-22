@@ -16,6 +16,12 @@
  "beats": [
   {
    "who": "ama",
+   "line": "n_23140c_in",
+   "card": null,
+   "intro": true
+  },
+  {
+   "who": "ama",
    "line": "n_23140c_1",
    "card": {
     "kind": "p",
@@ -63,10 +69,21 @@
     "sub": null,
     "label": "TIP"
    }
+  },
+  {
+   "who": "carlos",
+   "line": "n_23140c_rp",
+   "card": {
+    "kind": "p",
+    "text": "I'm not sure about that.",
+    "sub": null,
+    "label": "REPEAT"
+   },
+   "repeat": true
   }
  ],
  "recap": {
-  "title": "SAVE THIS",
+  "title": "TEACHER'S TIP",
   "line": "n_23140c_r",
   "rows": [
    "I see your point, but...",

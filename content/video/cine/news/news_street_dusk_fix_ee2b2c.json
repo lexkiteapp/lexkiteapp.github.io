@@ -1,7 +1,7 @@
 {
  "id": "news_street_dusk_fix_ee2b2c",
  "template": "fix",
- "bg": "street_dusk",
+ "bg": "library",
  "area": "word-usage",
  "cefr": "A2",
  "point": "say vs tell: she told me, not she said me",
@@ -14,6 +14,12 @@
   "say vs tell"
  ],
  "beats": [
+  {
+   "who": "ama",
+   "line": "n_ee2b2c_in",
+   "card": null,
+   "intro": true
+  },
   {
    "who": "ama",
    "line": "n_ee2b2c_1",
@@ -63,10 +69,21 @@
     "sub": null,
     "label": "RULE"
    }
+  },
+  {
+   "who": "carlos",
+   "line": "n_ee2b2c_rp",
+   "card": {
+    "kind": "p",
+    "text": "She told me the news.",
+    "sub": null,
+    "label": "REPEAT"
+   },
+   "repeat": true
   }
  ],
  "recap": {
-  "title": "SAVE THIS",
+  "title": "TEACHER'S TIP",
   "line": "n_ee2b2c_r",
   "rows": [
    "She told me the news.",

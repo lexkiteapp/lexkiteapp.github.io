@@ -63,10 +63,21 @@
     "sub": null,
     "label": "TIP"
    }
+  },
+  {
+   "who": "carlos",
+   "line": "n_0b506e_rp",
+   "card": {
+    "kind": "p",
+    "text": "I'd love to, but I can't.",
+    "sub": null,
+    "label": "REPEAT"
+   },
+   "repeat": true
   }
  ],
  "recap": {
-  "title": "SAVE THIS",
+  "title": "TEACHER'S TIP",
   "line": "n_0b506e_r",
   "rows": [
    "I'd love to, but I can't.",

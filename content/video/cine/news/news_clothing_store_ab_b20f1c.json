@@ -1,7 +1,7 @@
 {
  "id": "news_clothing_store_ab_b20f1c",
  "template": "ab",
- "bg": "clothing_store",
+ "bg": "library",
  "area": "grammar",
  "cefr": "A2",
  "point": "phrasal verb + pronoun: try it on",
@@ -63,10 +63,21 @@
     "sub": "a noun can go after",
     "label": null
    }
+  },
+  {
+   "who": "carlos",
+   "line": "n_b20f1c_rp",
+   "card": {
+    "kind": "p",
+    "text": "Try on this jacket.",
+    "sub": null,
+    "label": "REPEAT"
+   },
+   "repeat": true
   }
  ],
  "recap": {
-  "title": "SAVE THIS",
+  "title": "TEACHER'S TIP",
   "line": "n_b20f1c_r",
   "rows": [
    "Can I try it on?",
@@ -77,5 +88,6 @@
  "end_line": "n_b20f1c_e",
  "link": "https://lexkite.com/app/#/grammar",
  "cta": "Practice grammar free on lexkite.com",
- "est": 24.6
+ "est": 24.6,
+ "no_intro": true
 }

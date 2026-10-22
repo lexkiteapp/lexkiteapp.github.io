@@ -1,7 +1,7 @@
 {
  "id": "news_living_room_fix_8c570f",
  "template": "fix",
- "bg": "beach_cafe",
+ "bg": "library",
  "area": "grammar-check",
  "cefr": "A1",
  "point": "L1 mistake: I really like it, not I very like it",
@@ -63,10 +63,21 @@
     "sub": null,
     "label": "RULE"
    }
+  },
+  {
+   "who": "carlos",
+   "line": "n_8c570f_rp",
+   "card": {
+    "kind": "p",
+    "text": "I really like it.",
+    "sub": null,
+    "label": "REPEAT"
+   },
+   "repeat": true
   }
  ],
  "recap": {
-  "title": "SAVE THIS",
+  "title": "TEACHER'S TIP",
   "line": "n_8c570f_r",
   "rows": [
    "I really like it.",

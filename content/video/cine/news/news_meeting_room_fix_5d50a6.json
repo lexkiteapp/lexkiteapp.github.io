@@ -63,10 +63,21 @@
     "sub": null,
     "label": "RULE"
    }
+  },
+  {
+   "who": "carlos",
+   "line": "n_5d50a6_rp",
+   "card": {
+    "kind": "p",
+    "text": "Let's discuss the plan.",
+    "sub": null,
+    "label": "REPEAT"
+   },
+   "repeat": true
   }
  ],
  "recap": {
-  "title": "SAVE THIS",
+  "title": "TEACHER'S TIP",
   "line": "n_5d50a6_r",
   "rows": [
    "Let's discuss the plan.",

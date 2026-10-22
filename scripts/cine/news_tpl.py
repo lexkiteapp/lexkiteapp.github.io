@@ -22,11 +22,11 @@ CL = {'ama': ['ga2_talk', 'ga2_talk_smile'], 'carlos': ['gc_talk', 'gc_talk_smil
 LISTEN = {'ama': 'ga2_listen', 'carlos': 'gc_listen'}; OTHER = {'ama': 'carlos', 'carlos': 'ama'}; BEATS = SPEC['beats']; nb = len(BEATS)
 # length from the real wavs (TTS first): short lessons get listener reaction cutaways (single of the other host, the card stays up) -> >= 21 s, never padded silence
 rc_line = SPEC['recap']['line']; RC_D = max(2.95, talk_dur(rc_line, 0.07, 0.5))
-est = h['dur'] + sum(talk_dur(b['line'], 0.07 if i == 0 else -0.15) for i, b in enumerate(BEATS)) + RC_D + talk_dur(SPEC['end_line'], 0.07) + 1.0
+est = h['dur'] + sum(talk_dur(b['line'], 0.07 if i == 0 else -0.15) for i, b in enumerate(BEATS)) + 1.6 * sum(1 for b in BEATS if b.get('repeat')) + RC_D + talk_dur(SPEC['end_line'], 0.07) + 1.0
 slots = []
 for i in [nb - 1, nb // 2, 1, nb - 3, 2, 0]:
-    y = OTHER[BEATS[i]['who']]; nxt = [b['who'] for b in BEATS[i + 1:i + 3]]
-    if 0 <= i < nb and i not in slots and nxt != [y, y]: slots.append(i)   # never 3 singles of one host in a row
+    y = OTHER[BEATS[i]['who']]; nxt = [w for b in BEATS[i + 1:i + 3] for w in [b['who']] * (2 if b.get('repeat') else 1)][:2]   # a repeat beat = line + pause (2 singles)
+    if 0 <= i < nb and i not in slots and nxt != [y, y] and not BEATS[i].get('repeat'): slots.append(i)   # never 3 singles of one host in a row
 deficit = 21.4 - est; nr = min(len(slots), max(0, int(np.ceil(deficit / 2.2))))
 RX = {i: min(2.2, max(1.0, deficit / nr)) for i in slots[:nr]}
 print('news layout: estimate %.2f s, reaction cutaways %s' % (est, {k: round(v, 2) for k, v in RX.items()}))
@@ -42,11 +42,15 @@ for i, b in enumerate(BEATS):
         im, box = card_one(c['kind'], c['text'], c.get('sub'), num=c.get('label'))
         ov('Card', f"|{c['kind']}:{c['text']}" + (f" {c['sub']}" if c.get('sub') else ''), t0, sh['t0'] + sh['dur'], box, sh['id'], img=im, pop=True)
         OV[-1]['_txt'] = c['text'] + ' ' + (c.get('sub') or ''); OV[-1]['_chain'] = prev is not None; prev = len(OV) - 1
-    else: OV[prev]['t'][1] = round(sh['t0'] + sh['dur'], 3)
-    if i == nb - 1:   # the last card must finish its reading time before the recap card
+    elif prev is not None: OV[prev]['t'][1] = round(sh['t0'] + sh['dur'], 3)
+    if b.get('repeat'):   # owner 22/10 teacher persona: 'Repeat after me' -> the teacher waits >= 1.6 s (viewer repeats), phrase card stays up
+        sp_ = OV[prev]['t'][0] + need(OV[prev]['_txt']) + 0.05 - (sh['t0'] + sh['dur'])
+        pz = shot(f'p{i + 1}', LISTEN[who], who, 'wide' if sh['frame'] == 'mcu' else 'mcu', BG, dur=min(2.5, max(1.6, sp_ + 0.05)))
+        OV[prev]['t'][1] = round(pz['t0'] + pz['dur'], 3); QA.setdefault('repeat', []).append([pz['id'], round(pz['dur'], 3)]); RX.pop(i, None); continue
+    if i == nb - 1 and prev is not None:   # the last card must finish its reading time before the recap card
         spill = OV[prev]['t'][0] + need(OV[prev]['_txt']) + 0.05 - (sh['t0'] + sh['dur'])
         if spill > 0: RX[i] = min(2.4, max(RX.get(i, 0), spill + 0.05, 1.0))
-    if i in RX:
+    if i in RX and prev is not None:
         y = OTHER[who]; nf = ('mcu', 'wide')[use[y] % 2] if i + 1 < nb and BEATS[i + 1]['who'] == y else 'mcu'
         r = shot(f'r{i + 1}', LISTEN[y], y, 'wide' if nf == 'mcu' else 'mcu', BG, dur=RX[i])
         OV[prev]['t'][1] = round(r['t0'] + r['dur'], 3)
@@ -63,8 +67,16 @@ lp = shot('loop', 'ga2_talk_smile', 'ama', 'two', BG, dur=1.0, frames=list(range
 _, rbox = ring_card('Comment below', 0); ov('Ring', 'Comment below', e['t0'] + 0.1, lp['t0'], rbox, 'end', part=0, img=lambda t, a=e['t0'] + 0.1, b=lp['t0']: ring_card('Comment below', min(1, (t - a) / (b - a)))[0], pop=True)
 im, box, _ = hook_card(hk['card'], ''); ov('Follow', 'Follow for more', lp['t0'], lp['t0'] + lp['dur'], box, 'loop', img=im)
 T_ = sum(x['dur'] for x in S); SER_T, SER_S = SPEC['series']; _, sbox = series_bar(SER_T, SER_S)   # names must not collide with news.py globals (top, sub ...)
-ov('Series', f'{SER_T}|{SER_S}', h['dur'], T_ - 1.0, sbox, 'b1', img=lambda t, a=h['dur'], tp=SER_T, sb=SER_S: series_bar(tp, sb, prog=1 - (1 - min(1, (t - a) / 0.35)) ** 3)[0])
-SFX.append(('slide.wav', h['dur']))
+NAMES = {'ama': ('AMA', 'American English Teacher'), 'carlos': ('CARLOS', 'English Coach')}   # owner 22/10: teacher persona, name title on each host's first speaking single
+FIRST = {}
+for x in S:
+    if not x['other'] and x['lines'] and x['who'] not in FIRST: FIRST[x['who']] = x
+N_END = h['dur']
+for w_, x in sorted(FIRST.items(), key=lambda kv: kv[1]['t0']):
+    na, nb_ = x['t0'], min(x['t0'] + x['dur'], x['t0'] + 2.6); tp_, sb_ = NAMES[w_]; _, nbox = series_bar(tp_, sb_)
+    ov('Name', f'{tp_}|{sb_}', na, nb_, nbox, x['id'], img=lambda t, a=na, tp=tp_, sb=sb_: series_bar(tp, sb, prog=1 - (1 - min(1, (t - a) / 0.35)) ** 3)[0]); SFX.append(('slide.wav', na)); N_END = max(N_END, nb_)
+ov('Series', f'{SER_T}|{SER_S}', N_END, T_ - 1.0, sbox, 'b1', img=lambda t, a=N_END, tp=SER_T, sb=SER_S: series_bar(tp, sb, prog=1 - (1 - min(1, (t - a) / 0.35)) ** 3)[0])
+SFX.append(('slide.wav', N_END))
 P = sorted(t for f, t in SFX if f == 'pop.wav'); keep = []
 for t in P:
     if not keep or t - keep[-1] >= 2.0: keep.append(t)

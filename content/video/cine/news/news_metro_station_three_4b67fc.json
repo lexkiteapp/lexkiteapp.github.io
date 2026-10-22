@@ -61,7 +61,7 @@
   }
  ],
  "recap": {
-  "title": "SAVE THIS",
+  "title": "TEACHER'S TIP",
   "line": "n_4b67fc_r",
   "rows": [
    "Which line goes downtown?",
@@ -72,5 +72,6 @@
  "end_line": "n_4b67fc_e",
  "link": "https://lexkite.com/app/#/listening",
  "cta": "Train your listening on lexkite.com",
- "est": 20.9
+ "est": 20.9,
+ "no_intro": true
 }

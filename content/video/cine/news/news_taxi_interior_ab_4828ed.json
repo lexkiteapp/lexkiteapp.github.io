@@ -1,7 +1,7 @@
 {
  "id": "news_taxi_interior_ab_4828ed",
  "template": "ab",
- "bg": "taxi_interior",
+ "bg": "bookstore",
  "area": "grammar",
  "cefr": "A2",
  "point": "get in a taxi, get on a bus",
@@ -63,10 +63,21 @@
     "sub": "on = big vehicles",
     "label": null
    }
+  },
+  {
+   "who": "carlos",
+   "line": "n_4828ed_rp",
+   "card": {
+    "kind": "p",
+    "text": "I got in the taxi.",
+    "sub": null,
+    "label": "REPEAT"
+   },
+   "repeat": true
   }
  ],
  "recap": {
-  "title": "SAVE THIS",
+  "title": "TEACHER'S TIP",
   "line": "n_4828ed_r",
   "rows": [
    "get in a taxi / a car",

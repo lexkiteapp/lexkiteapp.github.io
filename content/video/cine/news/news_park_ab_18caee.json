@@ -1,7 +1,7 @@
 {
  "id": "news_park_ab_18caee",
  "template": "ab",
- "bg": "park",
+ "bg": "exam_hall",
  "area": "grammar",
  "cefr": "A1",
  "point": "in the morning, on Monday",
@@ -63,10 +63,21 @@
     "sub": "on + days",
     "label": null
    }
+  },
+  {
+   "who": "carlos",
+   "line": "n_18caee_rp",
+   "card": {
+    "kind": "p",
+    "text": "I run in the morning.",
+    "sub": null,
+    "label": "REPEAT"
+   },
+   "repeat": true
   }
  ],
  "recap": {
-  "title": "SAVE THIS",
+  "title": "TEACHER'S TIP",
   "line": "n_18caee_r",
   "rows": [
    "in the morning",

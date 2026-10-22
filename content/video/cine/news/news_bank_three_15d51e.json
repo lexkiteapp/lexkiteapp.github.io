@@ -58,10 +58,21 @@
    "who": "carlos",
    "line": "n_15d51e_6",
    "card": null
+  },
+  {
+   "who": "ama",
+   "line": "n_15d51e_rp",
+   "card": {
+    "kind": "p",
+    "text": "I'd like to open an account.",
+    "sub": null,
+    "label": "REPEAT"
+   },
+   "repeat": true
   }
  ],
  "recap": {
-  "title": "SAVE THIS",
+  "title": "TEACHER'S TIP",
   "line": "n_15d51e_r",
   "rows": [
    "I'd like to open an account.",

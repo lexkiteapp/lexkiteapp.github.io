@@ -58,10 +58,21 @@
    "who": "carlos",
    "line": "n_2df2cf_6",
    "card": null
+  },
+  {
+   "who": "ama",
+   "line": "n_2df2cf_rp",
+   "card": {
+    "kind": "p",
+    "text": "Interesting question.",
+    "sub": null,
+    "label": "REPEAT"
+   },
+   "repeat": true
   }
  ],
  "recap": {
-  "title": "SAVE THIS",
+  "title": "TEACHER'S TIP",
   "line": "n_2df2cf_r",
   "rows": [
    "That's an interesting question.",

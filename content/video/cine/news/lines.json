@@ -3,7 +3,7 @@
   "ama": "af_bella",
   "carlos": "am_fenrir"
  },
- "speed": 0.92,
+ "speed": 0.88,
  "lines": [
   {
    "id": "n_3c01b9_h",
@@ -999,6 +999,131 @@
    "id": "n_9ad922_e",
    "who": "ama",
    "text": "More free practice on Lexkite."
+  },
+  {
+   "id": "n_b5dc88_in",
+   "who": "ama",
+   "text": "I'm Ama, your American English teacher."
+  },
+  {
+   "id": "n_15d51e_rp",
+   "who": "ama",
+   "text": "Repeat after me: I'd like to open an account."
+  },
+  {
+   "id": "n_0ea920_in",
+   "who": "ama",
+   "text": "I'm Ama, your American English teacher."
+  },
+  {
+   "id": "n_a59145_rp",
+   "who": "carlos",
+   "text": "Repeat after me: I'm looking for a book."
+  },
+  {
+   "id": "n_0f9226_rp",
+   "who": "carlos",
+   "text": "Repeat after me: I agree."
+  },
+  {
+   "id": "n_b20f1c_in",
+   "who": "ama",
+   "text": "I'm Ama, your American English teacher."
+  },
+  {
+   "id": "n_2df2cf_rp",
+   "who": "ama",
+   "text": "Repeat after me: Interesting question."
+  },
+  {
+   "id": "n_a76472_rp",
+   "who": "carlos",
+   "text": "Repeat after me: I do yoga every morning."
+  },
+  {
+   "id": "n_3c01b9_rp",
+   "who": "ama",
+   "text": "Repeat after me: The Wi-Fi isn't working."
+  },
+  {
+   "id": "n_a30db6_rp",
+   "who": "carlos",
+   "text": "Repeat after me: I'll make dinner tonight."
+  },
+  {
+   "id": "n_a843c0_in",
+   "who": "ama",
+   "text": "I'm Ama, your American English teacher."
+  },
+  {
+   "id": "n_8c570f_rp",
+   "who": "carlos",
+   "text": "Repeat after me: I really like it."
+  },
+  {
+   "id": "n_0b506e_rp",
+   "who": "carlos",
+   "text": "Repeat after me: I'd love to, but I can't."
+  },
+  {
+   "id": "n_5d50a6_rp",
+   "who": "carlos",
+   "text": "Repeat after me: Let's discuss the plan."
+  },
+  {
+   "id": "n_23140c_in",
+   "who": "ama",
+   "text": "I'm Ama, your American English teacher."
+  },
+  {
+   "id": "n_4b67fc_in",
+   "who": "ama",
+   "text": "I'm Ama, your American English teacher."
+  },
+  {
+   "id": "n_18caee_rp",
+   "who": "carlos",
+   "text": "Repeat after me: I run in the morning."
+  },
+  {
+   "id": "n_974c28_in",
+   "who": "ama",
+   "text": "I'm Ama, your American English teacher."
+  },
+  {
+   "id": "n_9ad922_rp",
+   "who": "carlos",
+   "text": "Repeat after me: I'll have the salmon, please."
+  },
+  {
+   "id": "n_ee2b2c_rp",
+   "who": "carlos",
+   "text": "Repeat after me: She told me the news."
+  },
+  {
+   "id": "n_ee2b2c_in",
+   "who": "ama",
+   "text": "I'm Ama, your American English teacher."
+  },
+  {
+   "id": "n_4828ed_rp",
+   "who": "carlos",
+   "text": "Repeat after me: I got in the taxi."
+  },
+  {
+   "id": "n_7b5d0d_rp",
+   "who": "carlos",
+   "text": "Repeat after me: I'd like an appointment."
+  },
+  {
+   "id": "n_b20f1c_rp",
+   "who": "carlos",
+   "text": "Repeat after me: Try on this jacket."
+  },
+  {
+   "id": "n_23140c_rp",
+   "who": "carlos",
+   "text": "Repeat after me: I'm not sure about that."
   }
  ]
 }

@@ -16,6 +16,12 @@
  "beats": [
   {
    "who": "ama",
+   "line": "n_974c28_in",
+   "card": null,
+   "intro": true
+  },
+  {
+   "who": "ama",
    "line": "n_974c28_1",
    "card": {
     "kind": "p",
@@ -61,7 +67,7 @@
   }
  ],
  "recap": {
-  "title": "SAVE THIS",
+  "title": "TEACHER'S TIP",
   "line": "n_974c28_r",
   "rows": [
    "I need something for a headache.",

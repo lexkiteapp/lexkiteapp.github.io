@@ -16,6 +16,7 @@ Tiêu credit → `docs/CREDIT-RULES.md` trước. Tài liệu cũ (toàn văn, g
 - **Chữ**: caption **≥ 80 px** (1 dòng, karaoke theo mốc từ faster-whisper bám onset Rhubarb), thẻ **≥ 52 px** (mẫu → ✗ → ✓ + lý do), chip ≥ 36 px. Vùng chữ = 1/3 dưới đè lên thân (thẻ y≈1300, caption y≈1536, lower third y≈1657) với scrim mềm. Đặt chữ **né đầu** (mặt + tóc + lề 15 %: `place.py` `HEAD()`); mọi lớp chữ có hộp & bị QA kiểm chồng lấn.
 - **Âm thanh**: stem giọng chuẩn **−16 LUFS**; room tone/bed **−40 dB** + SFX trộn SAU loudnorm; nền trong khoảng lặng ≤ −50 dBFS. ffmpeg `-nostdin`, `alimiter level=0`.
 - **Nhịp viral**: hook ≤ 5 từ, 1,6–2,0 s (câu hook ngắn đọc ≥ 0,86×), whoosh khung 0 (âm đầu < 0,3 s); mỗi single mang 1 trạng thái thẻ; thẻ giữ ≥ max(1,2 s; 0,4 + 0,28 s × số từ); vòng "Comment …" trước đáp án; recap/Save 2,5 s; loop 1,0 s về khung hook; tổng 20–28 s; caption ≤ 15 ký tự/giây.
+- **Giáo viên (22/10)**: Ama "American English Teacher", Carlos "English Coach" (lower-third tên lần nói đầu); recap = "TEACHER'S TIP"; beat "Repeat after me: …" + ngưng ≥ 1,6 s; tự giới thiệu ≤ 1/4 clip, giãn cách (`no_intro`); TTS 0,88×. Bài grammar/word-usage: nền lớp học xoay vòng (`bg_topics.json` teaching_bg); 6 bài liền không lặp nền (publish_pack). Sức khoẻ: pharmacy (chưa có nền phòng khám).
 
 ## 3. Builder (`scripts/cine/`)
 | Script | Việc |
@@ -30,7 +31,7 @@ Tiêu credit → `docs/CREDIT-RULES.md` trước. Tài liệu cũ (toàn văn, g
 | `shorts_index.py` | Manifest `shorts/index.json` cho tab 🎬 Video quản trị. |
 | `publish_pack.py` | Gói đăng `content/video/cine/publish/<id>.json` + `calendar.json` (2 news/ngày; tiêu đề ≤ 60 ký tự, UTM, hashtag). Đăng tự động cần chủ cấp tài khoản. |
 
-Diễn cảnh (paused): `lesson5.py`, `qa5.py`, `gen_lessons.py`, `auto_voice.py`, `residual.py`, `tpl_styles.py`, `lipsync.py`, `mkgap.py`, `prep_scene.sh` – chi tiết `docs/archive/CINE-SCENE-STANDARD.md` §7–8.
+Diễn cảnh (paused): `lesson5.py`, `qa5.py`, `gen_lessons.py`, … – `docs/archive/CINE-SCENE-STANDARD.md` §7–8.
 
 ## 4. CI – `.github/workflows/cine-render.yml` (workflow_dispatch)
 - Inputs: `scene` (`news` | hotel | cafe | airport | anchor; nhiều cảnh phẩy ngăn), `lessons` (`all` | `id,id` | `id:lang` | `auto`), `lang` (mặc định `en`), `viral` (bool, mặc định bật), `outsuf` (mặc định `-v3`).
@@ -57,4 +58,4 @@ Diễn cảnh (paused): `lesson5.py`, `qa5.py`, `gen_lessons.py`, `auto_voice.py
 - Kling cử chỉ tay (22/10): chỉ 1 dáng tay ĐƠN giữ yên (ngón trỏ / lòng bàn tay mở, ngang ngực) – chuỗi đếm ngón theo thời gian KHÔNG làm được. Ảnh ¾ hay sai hướng → xin 2 ảnh/lượt, xác định hướng bằng tai/khuyên tai.
 
 ## 8. Pipeline cũ (2D Remotion)
-`video.yml` / `video-auto.yml` (cron hằng ngày) / Video Studio dùng `scripts/video/*` – mô tả ở `docs/archive/VIDEO-PIPELINE.md` (§7 Studio, §8 cổng nhất quán, §10 motion, §11 khuôn, §12 tự động). Còn chạy nhưng không phải định dạng chính (verify).
+`video.yml` / `video-auto.yml` / Video Studio (`scripts/video/*`) – `docs/archive/VIDEO-PIPELINE.md`; không phải định dạng chính.

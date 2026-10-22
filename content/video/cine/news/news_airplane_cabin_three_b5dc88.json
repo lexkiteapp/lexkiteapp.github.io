@@ -16,6 +16,12 @@
  "beats": [
   {
    "who": "ama",
+   "line": "n_b5dc88_in",
+   "card": null,
+   "intro": true
+  },
+  {
+   "who": "ama",
    "line": "n_b5dc88_1",
    "card": {
     "kind": "p",
@@ -61,7 +67,7 @@
   }
  ],
  "recap": {
-  "title": "SAVE THIS",
+  "title": "TEACHER'S TIP",
   "line": "n_b5dc88_r",
   "rows": [
    "Could I get some water?",

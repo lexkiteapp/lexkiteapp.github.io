@@ -63,10 +63,21 @@
     "sub": null,
     "label": "TIP"
    }
+  },
+  {
+   "who": "carlos",
+   "line": "n_7b5d0d_rp",
+   "card": {
+    "kind": "p",
+    "text": "I'd like an appointment.",
+    "sub": null,
+    "label": "REPEAT"
+   },
+   "repeat": true
   }
  ],
  "recap": {
-  "title": "SAVE THIS",
+  "title": "TEACHER'S TIP",
   "line": "n_7b5d0d_r",
   "rows": [
    "I'd like to make an appointment.",

@@ -63,10 +63,21 @@
     "sub": null,
     "label": "WHY"
    }
+  },
+  {
+   "who": "carlos",
+   "line": "n_9ad922_rp",
+   "card": {
+    "kind": "p",
+    "text": "I'll have the salmon, please.",
+    "sub": null,
+    "label": "REPEAT"
+   },
+   "repeat": true
   }
  ],
  "recap": {
-  "title": "SAVE THIS",
+  "title": "TEACHER'S TIP",
   "line": "n_9ad922_r",
   "rows": [
    "I'll have the salmon, please.",

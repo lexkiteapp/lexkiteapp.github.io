@@ -6,7 +6,7 @@ Source = curated banks content/video/cine/news/bank.json (natural American Engli
 topic, grammar points, confusables, L1 mistakes, exam tips). Templates: three | fix | ab | ways | pov. Gates: hook <= 5 spoken words and the
 hook card fits 84 px on one line, lines <= 12 words (A1/A2) / 14 (B1+), cards fit 52 px, estimated length 20-28 s, background chosen by topic
 (must exist in anchor/bg/index.json), CTA = ecosystem deep link of the entry's area, no learning point twice (content/video/cine/used.json)."""
-import json, os, re, sys, hashlib, argparse
+import json, os, re, sys, hashlib, argparse, glob
 from PIL import ImageFont, ImageDraw, Image
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))); D = f'{ROOT}/content/video/cine/news'; LEDGER = f'{ROOT}/content/video/cine/used.json'
 ECO = {a['id']: a for a in json.load(open(f'{ROOT}/content/video/ecosystem.json'))['areas']}
@@ -22,7 +22,9 @@ norm = lambda s: re.sub(r'[^a-z0-9]+', ' ', s.lower()).strip(); NW = lambda s: l
 BGT = json.load(open(f'{D}/bg_topics.json'))['domains']
 def dom_hits(text):   # lesson domains whose keywords occur in the text (word start)
     t = text.lower(); return [d for d, v in BGT.items() if any(re.search(r'\b' + re.escape(k), t) for k in v['keywords'])]
-def bg_for(e):
+TEACH = set(json.load(open(f'{D}/bg_topics.json')).get('teaching_areas', [])); TPOOL = json.load(open(f'{D}/bg_topics.json')).get('teaching_bg', [])
+def bg_for(e, k=0):   # owner 22/10: grammar / vocab / pronunciation = TEACHER lessons -> classroom-type backgrounds (rotating); situational lessons keep their scene
+    if e['area'] in TEACH and TPOOL: return TPOOL[k % len(TPOOL)]
     hits = dom_hits(' '.join([e['point'], ' '.join(e.get('series') or []), ' '.join(e['hook'])]))
     return e['topic'] if not hits or e['topic'] in BGT[hits[0]]['bg'] else BGT[hits[0]]['bg'][0]
 
@@ -56,13 +58,29 @@ def build(e, k):
     est = 1.8 + sum(0.55 + NW(l['text']) / 2.55 for l in lines[1:-2]) + 2.86 + 0.55 + NW(lines[-1]['text']) / 2.55 + 1.0
     if not 20 <= est <= 28: errs.append(f'estimated {est:.1f} s outside 20-28')
     if e['t'] == 'three': dr_ = [r for r in e['rows']]
-    spec = dict(id=lid, template=e['t'], bg=bg_for(e), area=e['area'], cefr=e['cefr'], point=e['point'], hook=dict(card=e['hook'][0], line=f'n_{h6}_h'),
-                series=e['series'], beats=beats, recap=dict(title='SAVE THIS', line=f'n_{h6}_r', rows=e['rows']), end_line=f'n_{h6}_e',
+    spec = dict(id=lid, template=e['t'], bg=bg_for(e, k), area=e['area'], cefr=e['cefr'], point=e['point'], hook=dict(card=e['hook'][0], line=f'n_{h6}_h'),
+                series=e['series'], beats=beats, recap=dict(title="TEACHER'S TIP", line=f'n_{h6}_r', rows=e['rows']), end_line=f'n_{h6}_e',
                 link=ECO[e['area']]['link'], cta=ECO[e['area']]['cta'], est=round(est, 1))
+    teacherize(spec, lines, h6)
     return lid, spec, lines, errs
 
+def teacherize(spec, lines, h6):
+    """owner 22/10: TEACHER persona. Recap card = Teacher's tip; a 'Repeat after me' beat (line + >= 1.6 s pause) when the lesson has a short model
+    phrase; the self-intro 'I'm Ama, your American English teacher.' in ~1 of 4 clips (hash-rotated)."""
+    spec['recap']['title'] = "TEACHER'S TIP"; bs = spec['beats']
+    if not any(b.get('repeat') for b in bs):
+        cs = [b['card'] for b in bs if b.get('card') and b['card']['kind'] == 'v'] + [b['card'] for b in bs if b.get('card') and b['card']['kind'] == 'p' and b['card'].get('label') not in ('COMMENT', 'A', 'B')]
+        ph = next((c['text'] for c in cs if '?' not in c['text'] and 2 <= NW(c['text']) <= 8 and not re.search(r'[/=]|\.\.\.|…|\b(but|for|to|a|the)\W*$', c['text'])), None)
+        if ph:
+            who = 'carlos' if bs[-1]['who'] == 'ama' else 'ama'; ph = ph[0].upper() + ph[1:].rstrip('.!') + '.'
+            lines.append(dict(id=f'n_{h6}_rp', who=who, text=f'Repeat after me: {ph}'))
+            bs.append(dict(who=who, line=f'n_{h6}_rp', card=dict(kind='p', text=ph, sub=None, label='REPEAT'), repeat=True))
+    if int(h6, 16) % 4 == 0 and not spec.get('no_intro') and not any(b.get('intro') for b in bs):   # no_intro: spaced out in the calendar by hand
+        lines.append(dict(id=f'n_{h6}_in', who='ama', text="I'm Ama, your American English teacher."))
+        bs.insert(0, dict(who='ama', line=f'n_{h6}_in', card=None, intro=True))
+
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument('--n', type=int, default=24); ap.add_argument('--mark-rendered', nargs=2); ap.add_argument('--check', action='store_true'); o = ap.parse_args()
+    ap = argparse.ArgumentParser(); ap.add_argument('--n', type=int, default=24); ap.add_argument('--mark-rendered', nargs=2); ap.add_argument('--check', action='store_true'); ap.add_argument('--teacherize', action='store_true'); o = ap.parse_args()
     L = json.load(open(LEDGER))
     if o.mark_rendered:
         ids, run = o.mark_rendered
@@ -70,7 +88,14 @@ def main():
             if p.get('scene') == 'news' and p['id'] in ids.split(','): p['status'] = 'rendered'; p['run'] = int(run)
         json.dump(L, open(LEDGER, 'w'), ensure_ascii=False, indent=1); return
     bank = json.load(open(f'{D}/bank.json'))['items']; lp = f'{D}/lines.json'
-    LJ = json.load(open(lp)) if os.path.exists(lp) else dict(voices={'ama': 'af_bella', 'carlos': 'am_fenrir'}, speed=0.92, lines=[])
+    LJ = json.load(open(lp)) if os.path.exists(lp) else dict(voices={'ama': 'af_bella', 'carlos': 'am_fenrir'}, speed=0.88, lines=[])
+    if o.teacherize:   # migrate already generated lessons to the teacher persona (same ids; new lines get voiced on CI)
+        have = {l['id'] for l in LJ['lines']}
+        for f in sorted(glob.glob(f'{D}/news_*.json')):
+            sp = json.load(open(f)); new = []; teacherize(sp, new, sp['hook']['line'][2:8])
+            json.dump(sp, open(f, 'w'), ensure_ascii=False, indent=1); LJ['lines'] += [l for l in new if l['id'] not in have]
+            print(sp['id'], 'repeat' if any(b.get('repeat') for b in sp['beats']) else '-', 'intro' if any(b.get('intro') for b in sp['beats']) else '')
+        json.dump(LJ, open(lp, 'w'), ensure_ascii=False, indent=1); return
     have = {l['id'] for l in LJ['lines']}; made = bad = 0
     for k, e in enumerate(bank):
         key = norm(e['point']); lid, spec, lines, errs = build(e, k)

@@ -1,7 +1,7 @@
 {
  "id": "news_bookstore_fix_a59145",
  "template": "fix",
- "bg": "bookstore",
+ "bg": "classroom",
  "area": "grammar",
  "cefr": "A2",
  "point": "look for: I'm looking for a book",
@@ -63,10 +63,21 @@
     "sub": null,
     "label": "RULE"
    }
+  },
+  {
+   "who": "carlos",
+   "line": "n_a59145_rp",
+   "card": {
+    "kind": "p",
+    "text": "I'm looking for a book.",
+    "sub": null,
+    "label": "REPEAT"
+   },
+   "repeat": true
   }
  ],
  "recap": {
-  "title": "SAVE THIS",
+  "title": "TEACHER'S TIP",
   "line": "n_a59145_r",
   "rows": [
    "I'm looking for a book.",

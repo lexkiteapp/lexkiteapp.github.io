@@ -1,7 +1,7 @@
 {
  "id": "news_classroom_fix_0f9226",
  "template": "fix",
- "bg": "classroom",
+ "bg": "bookstore",
  "area": "grammar",
  "cefr": "A2",
  "point": "agree is a verb: I agree, not I am agree",
@@ -63,10 +63,21 @@
     "sub": null,
     "label": "RULE"
    }
+  },
+  {
+   "who": "carlos",
+   "line": "n_0f9226_rp",
+   "card": {
+    "kind": "p",
+    "text": "I agree.",
+    "sub": null,
+    "label": "REPEAT"
+   },
+   "repeat": true
   }
  ],
  "recap": {
-  "title": "SAVE THIS",
+  "title": "TEACHER'S TIP",
   "line": "n_0f9226_r",
   "rows": [
    "I agree.",
