@@ -91,7 +91,8 @@ if (found) {
   const bar = $('.learn-bar'), fi = $('#fi');
   ok(bar && cs(bar).position === 'sticky' && cs(bar).bottom === '0px', 'thanh Tiếp tục dính đáy (sticky, bottom 0 ở chế độ tập trung)');
   ok(fi.compareDocumentPosition(bar) & w.Node.DOCUMENT_POSITION_FOLLOWING, 'thanh nằm SAU thẻ trong luồng → cuộn hết không che khối Hiểu sâu');
-  ok(cs(bar).backgroundImage !== 'none' || cs(bar).backgroundColor !== 'rgba(0, 0, 0, 0)', 'thanh có nền (chữ phía sau không lẫn vào nút)');
+  ok(cs(bar).backgroundImage !== 'none' || cs(bar).backgroundColor !== 'rgba(0, 0, 0, 0)' || /\.learn-bar \{[^}]*background:\s*linear-gradient/.test(fs.readFileSync(path.join(WEB, 'css', 'style.css'), 'utf8')), // jsdom bỏ qua gradient có var() → đọc thẳng luật CSS
+     'thanh có nền (chữ phía sau không lẫn vào nút)');
   ok(/\.learn-bar \{[^}]*safe-area-inset-bottom/.test(css) && !/#gotIt \{ position: sticky; bottom: calc\(72px/.test(css), 'đệm vùng an toàn iOS; bỏ khoảng hở 72px cũ khi đã ẩn thanh điều hướng');
   ok(/scroll-padding-bottom/.test(css) && /\.wi-sec \{ scroll-margin-bottom/.test(css), 'cuộn tới mục (Tab/mở mục) chừa chỗ cho thanh dính');
   ok(!$('.wi-pic') && $('.wi-top.nopic'), 'động từ “live” không dùng hình 🏠 (dễ hiểu nhầm là “ngôi nhà”)');
