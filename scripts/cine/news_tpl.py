@@ -33,10 +33,10 @@ hk = SPEC['hook']; hs0, hs1 = speech(hk['line'])   # hook: speech starts by ~0.2
 a_ = max(0.0, min(0.2 - hs0, 1.66 - 0.42 - hs1)); ht = line_tempo(hk['line'])
 if a_ + hs1 / ht + 0.36 > 1.98: ht = min(1.15, round(hs1 / (1.98 - 0.36 - a_) + 0.005, 3))
 if a_ + hs1 / ht + 0.6 < 1.66: ht = min(ht, max(0.86, round(hs1 / (1.66 - 0.6 - a_) - 0.005, 3)))
-h_br = min(0.4, max(0.36, 1.66 - a_ - hs1 / ht)); a_ = max(a_, 1.66 - h_br - hs1 / ht)   # breath <= 0.4 (no dead air); a short hook starts later, the frame-0 whoosh fills it
-h = shot('hook', 'ga4_talk_natural', 'ama', 'wide', BG, line=hk['line'], at=a_, breath=h_br, frames=list(range(24, 24 + 60)), tempo=ht)
+h_br = min(0.4, max(0.34, 1.66 - a_ - hs1 / ht)); a_ = max(a_, 1.66 - h_br - hs1 / ht)   # breath <= 0.4 (no dead air); a short hook starts later, the frame-0 whoosh fills it
+h = shot('hook', 'ga4_talk_natural', 'ama', 'wide', BG, line=hk['line'], at=a_, breath=h_br, frames=[24 + q if 24 + q <= 53 else 106 - (24 + q) for q in range(60)], tempo=ht)   # 24..53 then back: stays out of the hands-at-waist segment (54-100)
 assert 1.6 <= h['dur'] <= 2.0 + 1 / FPS, ('hook length', h['dur'])
-SFX.append(('whoosh.wav', 0.0)); START['ga4_talk_natural'] = 24 + h['n']
+SFX.append(('whoosh.wav', 0.0)); START['ga4_talk_natural'] = 0
 im, box, fs = hook_card(hk['card'], ''); ov('VHook', hk['card'] + '|', 0, h['dur'], box, 'hook', fs=fs, img=im)
 if SPEC.get('difficulty'): im, box = badge(SPEC['difficulty']); ov('Badge', SPEC['difficulty'].upper(), 0, h['dur'], box, 'hook', img=im)   # §13 difficulty badge
 CL = {'ama': ['ga4_talk_natural'], 'carlos': ['gc4_talk_natural']}; use = {'ama': 0, 'carlos': 0}
@@ -68,7 +68,7 @@ def fr_for(who, k=None, kind='explain'):   # owner 22/10 composition: explanatio
 prev = None
 for i, b in enumerate(BEATS):
     who = b['who']; k = use[who]; use[who] += 1; same = S[-1]['who'] == who
-    sh = tshot(f'b{i + 1}', CL[who][k % len(CL[who])], who, fr_for(who, k), b['line'], -0.12 if same else JCUT)
+    sh = tshot(f'b{i + 1}', CL[who][k % len(CL[who])], who, fr_for(who, k), b['line'], -0.1 if same else JCUT)
     c = b.get('card')
     if c:
         t0 = sh['t0'] + max(0.0, sh['lines'][0]['at'])
@@ -98,7 +98,7 @@ rows = SPEC['recap']['rows']; im, box = card_recap(SPEC['recap']['title'], rows)
 ov('Recap', SPEC['recap']['title'] + '|' + '|'.join(rows), max(rc['t0'], r0), rc['t0'] + rc['dur'] - 0.26, box, 'recap', img=im, pop=True); RCO = OV[-1]   # may run into the end shot (reading time 2.5 s)
 for o in OV: o.pop('_txt', None)
 ew = 'carlos' if rw == 'ama' else 'ama'; el = SPEC['end_line'] if ew == 'ama' else SPEC['end_alt']
-e = tshot('end', CL[ew][0], ew, 'mcu' if not (S[-1]['who'] == ew and S[-1]['frame'] == 'mcu') else 'wide', el, -0.15)
+e = tshot('end', CL[ew][0], ew, 'mcu' if not (S[-1]['who'] == ew and S[-1]['frame'] == 'mcu') else 'wide', el, JCUT)
 lp = shot('loop', 'ga4_talk_natural', 'ama', 'wide', BG, dur=1.0, frames=list(range(0, 24)))
 RCO['t'][1] = round(min(lp['t0'] - 1.3, max(RCO['t'][1], RCO['t'][0] + 2.55)), 3)   # Save-this chip gets >= 0.8 s before the loop
 RG0 = max(e['t0'] + 0.1, RCO['t'][1] + 0.05); RGT = 'Comment your answer' if SPEC.get('v') == 7 else 'Save this'; _, rbox = ring_card(RGT, 0); ov('Ring', RGT, RG0, lp['t0'], rbox, 'end', part=0, img=lambda t, a=RG0, b=lp['t0']: ring_card(RGT, min(1, (t - a) / (b - a)))[0], pop=True)

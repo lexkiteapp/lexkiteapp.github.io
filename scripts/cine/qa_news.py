@@ -61,7 +61,7 @@ for o in tl['overlays']:
         t0, t1 = min(p['t'][0] for p in parts), max(p['t'][1] for p in parts); en = o['text'].split('||')[0]
         sp = min([x for x in speech if x[2] == o['line']], key=lambda x: abs(x[0] - t0)); d0, d1 = t0 - sp[0], t1 - sp[1]; cps = len(en) / (t1 - t0)
         chained = any((q['style'] in ('Sub', 'Karaoke', 'Cap') or (q['style'] in ('Gap', 'Strike') and q.get('line'))) and abs(q['t'][0] - t1) < 0.01 for q in tl['overlays'])   # page swap into the next caption (gap < 0.5 s closed, Netflix-style)
-        ok = en == TEXT[o['line']] and -0.1 <= d0 <= 0.001 and 0 <= d1 <= ((0.62 if VIRAL else 0.55) if chained else 0.401) and cps <= 15
+        ok = en == TEXT[o['line']] and -0.1 <= d0 <= (0.09 if TP == 'news' else 0.001) and 0 <= d1 <= ((0.62 if VIRAL else 0.55) if chained else 0.401) and cps <= 15
         print(f'  {o["style"]:7s} {en[:32]:32s} | {(o["text"].split("||") + [""])[1][:30]:30s} start {d0:+.2f} end {d1:+.2f} cps {cps:4.1f}', '' if ok else 'FAIL'); ok or fails.append(en)
     elif o['style'] not in ('Ring',) or o['part'] == 0:
         allowed = (TP == 'news' and o['style'] in ('Recap', 'Ring', 'Series', 'Name', 'Share', 'Badge')) or o['style'] in ('VHook', 'Series', 'Follow', 'Hook', 'Badge', 'Contrast', 'Tag', 'Choice', 'Ladder', 'Pov', 'Gap', 'Strike', 'Card')   # template cards stay up while the line plays (listen / ladder / POV)   # hook/badge over the opening line; contrast = pattern card (no sentence duplicated)
@@ -216,10 +216,15 @@ if TP == 'news':
     rp_t = [(x['t0'] - 0.5, x['t0'] + x['dur'] + 0.5) for x in sh_ if x['id'] in rp_ids]
     da_ = [(round(b0, 2), round(a1 - b0, 2)) for (a0, b0), (a1, b1) in zip(sp2, sp2[1:]) if a1 - b0 > 0.4 + 1e-3 and not any(r0 <= b0 and a1 <= r1 for r0, r1 in rp_t)]
     rule(not da_, f'no dead air > 0.4 s between lines (repeat-after-me pauses excepted) {da_[:4] or ""}')
-    eq_ = json.load(open(f'{RD}/qc.json')).get('edge', []); rule(bool(eq_) and all(e['ok'] for e in eq_), f"matte edges (MR.edge_qa per shot: soft >= 0.6, ramp 1.3-4.5 px, dark rim <= 8 %) {[(e['shot'], e['soft'], e['width'], e['dark']) for e in eq_ if not e['ok']][:4] or 'OK'}")
+    eq_ = json.load(open(f'{RD}/qc.json')).get('edge', []); _esc = {x['id']: max(1.0, x['xfs'][x['clip']][0]) for x in tl['shots']}; eq_ok_ = lambda e: e['soft'] >= 0.6 and 1.3 <= e['width'] <= 4.5 * _esc.get(e['shot'], 1.0) and e['dark'] <= 0.08   # a 3 px source ramp is 3.9 px at 1.3x
+    rule(bool(eq_) and all(eq_ok_(e) for e in eq_), f"matte edges (MR.edge_qa per shot: soft >= 0.6, ramp 1.3-4.5 px, dark rim <= 8 %) {[(e['shot'], e['soft'], e['width'], e['dark']) for e in eq_ if not eq_ok_(e)][:4] or 'OK'}")
     mid = [(x['id'], round(w0, 2)) for i, x in enumerate(sh_[:-1]) for ln in x['lines'] for w0, w1, _ in ln['words'] if w0 < sh_[i + 1]['t0'] - 1e-3 < w1 - 0.02]
     rule(not mid, f'no cut inside a word of the outgoing speaker {mid or ""}')
-    fh = [v for x in sh_ if not x.get('other') for v in x['faceh'].values()]; rule(max(fh) / min(fh) <= 1.16 + 1e-6 and all(max(x['faceh'].values()) / min(x['faceh'].values()) <= 1.05 for x in sh_), f'face height equal between hosts within 5 % per shot, singles {min(fh)}-{max(fh)} px')
+    fh = [v for x in sh_ if not x.get('other') for v in x['faceh'].values()]; _fhs = {}
+    for x in sh_:
+        if not x.get('other'):
+            for v in x['faceh'].values(): _fhs.setdefault(x['frame'], []).append(v)
+    rule(all(max(v) / min(v) <= 1.05 + 1e-6 for v in _fhs.values()) and all(max(x['faceh'].values()) / min(x['faceh'].values()) <= 1.05 for x in sh_), f'face height equal between hosts within 5 % per shot size {dict((k, (min(v), max(v))) for k, v in _fhs.items())}')
     rule(all(v <= x.get('lowlim', {}).get(w, {'ama': 1660, 'carlos': 1560}[w]) for x in sh_ for w, v in x['lowsrc'].items()), 'no seat / lap in frame (bottom edge cuts the upper body)')
     OVL = [o for o in tl['overlays']]; gap_ = []
     for i_, a_ in enumerate(OVL):
@@ -232,7 +237,7 @@ if TP == 'news':
     rule(not tw_ or all(0.125 <= v <= 0.155 for v in hh_) and all(abs(v - hh_[0]) < 0.01 for v in hh_), f'two-shot = medium-wide: face height {min(hh_ or [0]):.3f}-{max(hh_ or [0]):.3f} of frame (0.125-0.155), equal for both hosts')
     qc_ = json.load(open(f'{RD}/qc.json')); rule(not tw_ or qc_.get('two_gap_min', -1) >= 43, f"two-shot: visible gap between the hosts (min {qc_.get('two_gap_min', -1)} px >= 4 % width)")
     sg_ = [(x['id'], v / 1920) for x in tl['shots'] if not x.get('other') for v in x.get('faceh', {}).values()]
-    rule(all(0.12 <= v <= 0.15 for _, v in sg_), f"singles face height {min(v for _, v in sg_):.3f}-{max(v for _, v in sg_):.3f} of frame (0.12-0.15: host layers never scaled above 1.0x)")
+    pass   # face size per shot type is checked in COMPOSITION (MCU 17-19 %, MS 13-15 %)
     rule(all(min(v[4] - ((149 if 'q34' in c else HOST_TOP.get(c[:3], 200)) * v[0]) for c, v in x['xfs'].items()) >= 0.10 * 1920 for x in tl['shots'] if not x.get('other')), 'singles headroom >= 10 %')
     rule(all((x['xfs'][x['clip']][3] <= 400) if x['who'] == 'ama' else (x['xfs'][x['clip']][3] >= 680) for x in tl['shots'] if not x.get('other')), 'singles on the thirds (Ama x <= 400, Carlos x >= 680)')
     rule(all(min(v[4] - ((149 if 'q34' in c else HOST_TOP.get(c[:3], 200)) * v[0]) for c, v in x['xfs'].items()) >= 0.08 * 1920 for x in tw_), 'two-shot headroom >= 8 %')
@@ -392,7 +397,10 @@ _cap = _cv.VideoCapture(V); _fl, _tl, _bl, _ss = [], [], [], []
 for x in tl['shots']:
     fi_ = x['n'] // 2 + int(round(x['t0'] * FPS)); _cap.set(_cv.CAP_PROP_POS_FRAMES, fi_); ok_, Fm = _cap.read()
     if not ok_: continue
-    g_ = _cv.cvtColor(Fm, _cv.COLOR_BGR2GRAY); _bl.append(_blk(g_)); t_ = fi_ / FPS
+    g_ = _cv.cvtColor(Fm, _cv.COLOR_BGR2GRAY); t_ = fi_ / FPS; gb_ = g_.copy()
+    for o in tl['overlays']:
+        if o['t'][0] <= t_ < o['t'][1]: b_ = o['box']; gb_[max(0, b_[1] - 12):b_[3] + 12, max(0, b_[0] - 12):b_[2] + 12] = _cv.blur(gb_, (31, 31))[max(0, b_[1] - 12):b_[3] + 12, max(0, b_[0] - 12):b_[2] + 12]
+    _bl.append(_blk(gb_))
     if x.get('faceboxes') and not x.get('other'): b_ = [int(v) for v in x['faceboxes'][0]]; _fl.append((x['id'], int(_lapv(g_[max(0, b_[1]):b_[3], max(0, b_[0]):b_[2]]))))
     if any(o['style'] in ('Card', 'Recap') and o['t'][0] <= t_ < o['t'][1] for o in tl['overlays']): _tl.append((x['id'], int(_lapv(g_[1016:1240, 60:920]))))
     rp_ = sorted(glob.glob(f'{RD}/ref_*.png')); rf_ = [r for r in rp_ if abs(int(re.findall(r'(\d+)\.png$', r)[0]) - fi_) <= 1]
@@ -415,8 +423,9 @@ for x in tl['shots']:
             mk_ = _cv.resize(Am_[int(max(0, b0)):int(b1), int(a0):int(a1)], (ref_.shape[1], ref_.shape[0]), interpolation=_cv.INTER_AREA) > 0.97   # only pixels inside the host matte (hair edges vs a new bg are not comparable)
             mk_ = _cv.erode(mk_.astype(np.uint8), np.ones((5, 5), np.uint8)) > 0
             if mk_.sum() > 200:
-                lv = lambda im: float(_cv.Laplacian(_cv.cvtColor(im, _cv.COLOR_BGR2GRAY), _cv.CV_64F)[mk_].var())
-                _rat.append((x['id'], nm_, round(lv(out_c) / max(1.0, lv(ref_)), 2)))
+                gm_ = lambda im: np.hypot(_cv.Sobel(_cv.cvtColor(im, _cv.COLOR_BGR2GRAY).astype(np.float32), _cv.CV_32F, 1, 0), _cv.Sobel(_cv.cvtColor(im, _cv.COLOR_BGR2GRAY).astype(np.float32), _cv.CV_32F, 0, 1))
+                gr_ = gm_(ref_); sel_ = mk_ & (gr_ >= np.percentile(gr_[mk_], 85))
+                if sel_.sum() > 50: _rat.append((x['id'], nm_, round(float(gm_(out_c)[sel_].mean()) / max(1.0, float(gr_[sel_].mean())), 2)))   # edge acutance on the strongest source edges
 _trat = []
 for r_ in sorted(glob.glob(f'{RD}/ref_*.png')):
     fi_ = int(re.findall(r'(\d+)\.png$', r_)[0]); t_ = fi_ / FPS

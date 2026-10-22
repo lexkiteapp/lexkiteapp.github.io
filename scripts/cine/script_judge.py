@@ -14,9 +14,16 @@ lines += [f"On-screen Teacher's tip list: {' | '.join(sp['recap']['rows'])}", f"
           f"(Target level {sp['cefr']}. Teaching point: {sp['point']}. 'Pause and guess' and 'Repeat after me' are fixed classroom routines.)"]
 script = '\n'.join(lines); out['script'] = script
 api = os.environ.get('STUDIO_API', 'https://lexkite.com/api/studio'); sec = os.environ.get('STUDIO_CALLBACK_SECRET', '')
+import time
 try:
-    req = urllib.request.Request(api, data=json.dumps(dict(op='judgeScript', script=script)).encode(), method='POST', headers={'Content-Type': 'application/json', 'X-Studio-Secret': sec, 'User-Agent': 'lexkite-ci'})
-    r = json.load(urllib.request.urlopen(req, timeout=90)); out['provider'] = r.get('provider'); j = r.get('out') or {}
+    for att in range(3):   # the endpoint returned a transient 500 in run #72
+        try:
+            req = urllib.request.Request(api, data=json.dumps(dict(op='judgeScript', script=script)).encode(), method='POST', headers={'Content-Type': 'application/json', 'X-Studio-Secret': sec, 'User-Agent': 'lexkite-ci'})
+            r = json.load(urllib.request.urlopen(req, timeout=90)); break
+        except Exception:
+            if att == 2: raise
+            time.sleep(10 * (att + 1))
+    out['provider'] = r.get('provider'); j = r.get('out') or {}
 except Exception as e:
     out['error'] = str(e)[:200]; json.dump(out, open(sys.argv[3], 'w'), indent=1); print('judge unavailable:', out['error'], '| rules:', out['rules']); sys.exit(2)
 out['judge'] = j; sc = [j.get(k, 0) for k in ('clarity', 'correctness', 'one_idea', 'level', 'neutrality')]

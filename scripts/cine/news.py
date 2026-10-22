@@ -37,8 +37,13 @@ def shot(id, clip, who, frame, bg, line=None, dur=None, at=0.07, breath=0.4, fra
     tempo = tempo or 1.0
     n = int(round(dur * FPS)); t0 = sum(x['dur'] for x in S)
     if frames is None:
-        st = START.get(clip, 0); st = 0 if st + n > 121 else st; assert n <= 121, ('shot longer than the clip', id)
-        frames = list(range(st, st + n)); START[clip] = st + n   # forward only: no reversed playback
+        AVOID = {'ga4_talk_natural': (54, 101)}   # bank_gestures segments: hands at the waist -> under the caption band (owner 22/10 no-occlusion)
+        if clip in AVOID:
+            lo_, hi_ = 0, AVOID[clip][0]; st = START.get(clip, 0) % (2 * (hi_ - 1)); seq = [abs((st + q) % (2 * (hi_ - 1)) - (hi_ - 1)) * -1 + (hi_ - 1) for q in range(n)]   # forward / back inside [0, 53]
+            frames = seq; START[clip] = st + n
+        else:
+            st = START.get(clip, 0); st = 0 if st + n > 121 else st; assert n <= 121, ('shot longer than the clip', id)
+            frames = list(range(st, st + n)); START[clip] = st + n   # forward only: no reversed playback
     S.append(dict(id=id, clip=clip, who=who, frame=frame, bg=bg, t0=t0, n=n, dur=n / FPS, frames=frames[:n], raw=raw, other=other,
                   lines=[dict(id=line, who=who, at=at, tempo=tempo, dur=wdur(line) / tempo)] if line else []))
     return S[-1]
@@ -138,11 +143,11 @@ def share_chip(sub, y0=236):   # owner 22/10 §13 share trigger: "Send this to a
     w = max(d.textlength(t, font=f1), d.textlength(sub, font=f2)) + 70; x0 = CX - w / 2
     d.rounded_rectangle([x0, y0, x0 + w, y0 + 120], 30, fill=TEAL + (255,)); d.text((CX, y0 + 36), t, font=f1, fill='white', anchor='mm'); d.text((CX, y0 + 88), sub, font=f2, fill=YEL, anchor='mm')
     return shadowed(im), (int(x0), y0, int(x0 + w), y0 + 120)
-def badge(level, y0=410):   # difficulty badge (owner 22/10 §13): EASY green / MEDIUM amber / HARD CHALLENGE red
+def badge(level, y0=388):   # difficulty badge (owner 22/10 §13): EASY green / MEDIUM amber / HARD CHALLENGE red
     im = layer(); d = ImageDraw.Draw(im); t = {'easy': 'EASY', 'medium': 'MEDIUM', 'hard': 'HARD CHALLENGE'}[level]; col = {'easy': (40, 160, 90), 'medium': (230, 160, 30), 'hard': (214, 48, 49)}[level]
-    f = font(FH, 34); tw = d.textlength(t, font=f); x0 = CX - tw / 2 - 28
-    d.rounded_rectangle([x0, y0, x0 + tw + 56, y0 + 54], 27, fill=col + (255,)); d.text((CX, y0 + 27), t, font=f, fill='white', anchor='mm')
-    return shadowed(im), (int(x0), y0, int(x0 + tw + 56), y0 + 54)
+    f = font(FH, 28); tw = d.textlength(t, font=f); x0 = CX - tw / 2 - 28
+    d.rounded_rectangle([x0, y0, x0 + tw + 56, y0 + 44], 22, fill=col + (255,)); d.text((CX, y0 + 22), t, font=f, fill='white', anchor='mm')
+    return shadowed(im), (int(x0), y0, int(x0 + tw + 56), y0 + 44)
 def card_recap(title, rows, y0=CARD_Y):
     im = layer(); d = ImageDraw.Draw(im); w = CW; x0 = CX0; rh = 38; h = 66 + rh * len(rows) + 8
     d.rounded_rectangle([x0, y0, x0 + w, y0 + h], 30, fill=CARD_BG + (250,), outline=CARD_LINE + (255,), width=5)
@@ -255,7 +260,10 @@ def captions(s):
                 t0 = max(a - 0.095, s['t0']) if gi == 0 else edges[gi]; t1 = b + 0.39 if gi == len(ws) - 1 else edges[gi + 1]   # a caption chunk never starts before its shot's cut
                 im, box = cap_img(lines_, j); ov('Cap', TEXT[k], t0, t1, box, s['id'], line=k, part=gi, fs=CAP_FS, img=im); OV[-1]['chunk'] = [chi, ' '.join(ws[x] for x in cw_), len(lines_)]
 # ------------------------------------------------------------------ lesson script
-STYLE = dict(moves=['push'], transition='cut')   # replaced by news_tpl.py (owner 22/10 §15 edit style)
+STYLE = dict(moves=['push'], transition='cut')
+HTOP = {}   # bank_gestures safe_zone.hand_top_min per clip (source px)
+for _p in (f'{A}/green/bank_gestures.json',):
+    if os.path.exists(_p): HTOP.update({c['id']: (c.get('safe_zone') or {}).get('hand_top_min') for c in json.load(open(_p)).get('clips', []) if (c.get('safe_zone') or {}).get('hand_top_min')})   # replaced by news_tpl.py (owner 22/10 §15 edit style)
 if os.path.exists(f'{N}/lessons/{LID}.json'): SPEC = json.load(open(f'{N}/lessons/{LID}.json')); exec(open(f'{HERE}/news_tpl.py').read())   # generated (gen_news.py)
 else: exec(open(f'{N}/lessons/{LID}.py').read())
 TOTAL = sum(x['dur'] for x in S); NF = int(round(TOTAL * FPS))
@@ -287,7 +295,8 @@ def host_frames(s, clip, who, lines, raw):
     ramp = 1.0
     al = []
     for i in s['frames']:
-        m = MR.mask_levels(finish_mask(MM[min(i, len(MM) - 1)], KX), ll)   # h264 white ~250 -> exactly opaque; no morphology (it made stair-steps)
+        m = MR.mask_levels(finish_mask(MM[min(i, len(MM) - 1)], KX), ll)
+        if KX > 1: m = np.clip((m - 0.5) * 1.5 + 0.5, 0, 1)   # the x2 Lanczos alpha has a 2x wider ramp -> back to the PRO matte's 1-2 px   # h264 white ~250 -> exactly opaque; no morphology (it made stair-steps)
         al.append(np.concatenate([m, np.repeat(m[-1:], PADB, 0)]) * ramp if PADB else m * ramp)
     tops = [int(np.argmax((m[:, 300:800] > 0.5).any(1))) for m in al[::4]]; top = HAIR.setdefault(clip, int(np.median(tops)))
     return fr, al, log, top
@@ -477,8 +486,9 @@ for s in S:
         if SAMP and j > 0: enc.stdin.write(out.tobytes()); fi += 1; continue
         B = bg_frame(s, j, t); FRs = []; bot = []; AL = []
         if j == 0: BGC.append(dict(shot=s['id'], bgr=[round(float(v), 2) for v in B.reshape(-1, 3).mean(0)]))   # continuity QA: mean bg colour per shot
-        if EXPO is None:   # one background exposure per lesson (first frame): graded bg mean luma -> 0.56, hosts keep their own exposure (key-light match below)
-            EXPO = min([(abs(cv2.LUT((B * g_).clip(0, 255).astype(np.uint8), GRADE).mean() / 255 - 0.58), g_) for g_ in np.arange(0.85, 2.21, 0.03)])[1]; print('bg exposure gain %.2f' % EXPO)
+        if EXPO is None:   # one background exposure per lesson, fixed BEFORE frame 0: graded bg mean -> target so that bg 70 % + hosts 30 % (~0.35) lands near 0.48
+            tg_ = (0.48 - 0.3 * 0.35) / 0.7; HOSTG = 1.0
+            EXPO = min([(abs(cv2.LUT((B * g_).clip(0, 255).astype(np.uint8), GRADE).mean() / 255 - tg_), g_) for g_ in np.arange(0.6, 2.81, 0.03)])[1]; print('bg exposure gain %.2f' % EXPO)
         B = B * EXPO
         for i in order:
             fr, al, (sc, cx, cy, ox, oy), who = R_[i]; pz_ = PZ(s, j); k_ = fr[j].shape[1] // 1080; f, a = comp(fr[j], al[j], sc * pz_ / k_, cx * k_, cy * k_, 540 + (ox - 540) * pz_, 960 + (oy - 960) * pz_, drift)   # x2 layers: half the scale, doubled anchor   # hook punch-in about the frame centre
@@ -499,8 +509,9 @@ for s in S:
             f = MR.finish_host(f, a, B, ld_)   # e2922ec5 PRO edge treatment: 3 px subtle rim from the bg light side + 1 px light wrap, no extra despill
             if j % 2 == 0:   # hands: skin-coloured blobs inside the matte below chin + 0.4 face (quarter res) -> per-frame boxes for the no-occlusion QA
                 q_ = cv2.resize(f, (270, 480), interpolation=cv2.INTER_AREA).clip(0, 255).astype(np.uint8); aq_ = cv2.resize(a, (270, 480)) > 0.6
-                hv_ = cv2.cvtColor(q_, cv2.COLOR_BGR2HSV); sk_ = (hv_[..., 0] <= 25) & (hv_[..., 1] >= 60) & (hv_[..., 2] >= 45) & aq_
-                gk_ = GK(HS[i][0], who); sk_[:max(0, int((oy + (CHIN.get(gk_, 200) + 0.4 * FACEH[gk_]) * sc) / 4))] = False
+                hv_ = cv2.cvtColor(q_, cv2.COLOR_BGR2HSV); sk_ = (hv_[..., 0] <= 25) & (hv_[..., 1] >= 60) & (hv_[..., 2] >= 45) & (hv_[..., 2] <= (190 if who == 'ama' else 255)) & aq_   # Ama: dark skin, not the bright coral blouse
+                gk_ = GK(HS[i][0], who); ht_ = HTOP.get(HS[i][0]); ytop_ = (oy + (ht_ - HOST[gk_]['eye'][1]) * sc - 30) if ht_ else (oy + (CHIN.get(gk_, 200) + 0.4 * FACEH[gk_]) * sc)   # hands never above the clip's measured hand_top_min
+                sk_[:max(0, int(ytop_ / 4))] = False
                 n_, lb_, st_, _ = cv2.connectedComponentsWithStats(sk_.astype(np.uint8))
                 HB.setdefault(fi, []).extend([[int(st_[c][0] * 4), int(st_[c][1] * 4), int((st_[c][0] + st_[c][2]) * 4), int((st_[c][1] + st_[c][3]) * 4)] for c in range(1, n_) if st_[c][4] >= 40])
             a3 = a[..., None]; B = MR.over(f * a3, a, B, wrap_px=0); xs = int(np.clip(ox, 80, 1000)); VB = VBOT('two' if s['other'] else s['frame']); bot.append(float(a[VB - 8:VB, xs - 60:xs + 60].mean())); AL.append(a)
@@ -515,7 +526,7 @@ for s in S:
                 QC[-1]['gap'] = min(g_) if g_ else 999
         B = cv2.LUT(B.clip(0, 255).astype(np.uint8), GRADE).astype(np.float32)
         B = B + 0.4 * (B - cv2.GaussianBlur(B, (0, 0), 0.7))   # owner 22/10: mild unsharp (r 0.7, 0.4) before text, compensates the H.264 encode
-        if fi == 0:   # whole-frame exposure check on frame 0 (dark wardrobe / night scenes): re-aim bg exposure + a small host lift -> mean luma ~0.48
+        if False:   # (exposure is fixed before frame 0 now - the frame-0 re-aim made a 22 % luma jump at frame 1) small host lift -> mean luma ~0.48
             m_ = float(B.mean()) / 255
             if not 0.45 <= m_ <= 0.52: EXPO = float(np.clip(EXPO * (0.48 / m_) ** 1.3, 0.55, 2.8)); HOSTG = float(np.clip((0.48 / m_) ** 0.6, 0.95, 1.25)); print('frame-0 luma %.3f -> bg gain %.2f, host gain %.2f' % (m_, EXPO, HOSTG))                         # one grade for host + background
         pass   # hook punch-in is done in camera space (host scale + bg zoom: one resample, no softening)
