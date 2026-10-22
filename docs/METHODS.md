@@ -54,6 +54,12 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Short ĐẠT lưu bền ở repo riêng `lexkite-shorts` (artifact CI hết hạn 14 ngày) + Drive (`drive-shorts.yml`).
 - Mọi lớp chữ phải có hộp bố cục & bị QA kiểm; điểm tự chấm cao ≠ khung đúng → luôn soi khung/tờ ảnh ghép.
 - ffmpeg: luôn `-nostdin`; `alimiter level=0`; tone −60 dB ở 0 s.
+- **Cổng duyệt (chủ 22/10)**: mẫu mới/lô mới → tự QA → gửi anh mẫu + báo cáo số đo → CHỜ anh OK mới bật auto/dựng hàng loạt/xếp lịch.
+- Người dẫn = giáo viên Mỹ (lower-third, "Teacher's tip", "Repeat after me"); chỉ cử chỉ trung tính, đứng; không cử chỉ ký hiệu (đếm ngón/lắc ngón Kling hỏng).
+- Hình: không làm mờ nền/hạt phim; không phóng người > 1.0×; push-in từ nền 1,25×; master CRF 17 ≥ 8 Mbps; QA độ nét (Laplacian), SSIM ≥ 0,97.
+- Tách nền: trimap + AI matting (ViTMatte) + khử màu viền (pymatting) + chống ám xanh vùng viền + ổn định theo thời gian; QA viền (`scripts/video/matte_qa.py`).
+- Khớp bối cảnh: `bg/<id>.zones.json` (độ sâu + phân vùng) → chỉ đặt người ở vùng sàn, tầm mắt ≈ chân trời; cổng AI nhìn khung ghép (đứng trên bàn/ghế/nước = trượt).
+- Chống trùng & 100 điểm: `docs/VIDEO-SCALE-PLAN.md` (7 trục đa dạng, pHash/chromaprint, kiểm khớp chữ↔giọng↔khẩu hình, ≥ 90 mới đăng).
 
 ## 8. Lỗi đã mắc (một dòng mỗi lỗi)
 - Gộp nguyên nhánh Antigravity cũ → ghi đè bản sửa mới (alt ảnh, iPhone hover); nhánh làm trên khung cũ (`web/index.html` nay là landing, app ở `web/app/index.html`).
@@ -65,7 +71,9 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Play Data safety lần đầu thiếu dòng → đối chiếu `lexkite.com/en/privacy` mục 2 từng dòng.
 - Không đăng nhập tài khoản thật để test; dùng `?sandbox=1`, fixture CI.
 - Không in/lưu token/khóa/mật khẩu; secret đổ thẳng từ file (`wrangler pages secret put`, GitHub API libsodium). Repo công khai.
-- Add-on: sửa xong chờ `~/lexkite-ext-live` lên đúng phiên bản rồi mới báo.
+- Add-on: Chrome của anh nạp bản giải nén từ **thư mục dự án chính** `addon dictionary/extension` (ID lgjmm…), KHÔNG phải `~/lexkite-ext-live` → sau mỗi lần đẩy add-on: `git merge --ff-only` bản checkout chính rồi báo anh bấm ↻. Lỗi "Errors" cũ đến từ tab mở trước khi cập nhật (code mồ côi) → đóng tab cũ + Clear all.
+- Credit: 20/10 phí ~1.100 cr do làm cả lô trước khi duyệt định dạng → chỉ chi khi anh ghi rõ số cho đúng việc; trần từng hạng mục.
+- Worktree agent có thể bắt đầu từ lịch sử CŨ (origin cũ) → brief luôn ghi "làm trên main mới nhất của lexkiteapp".
 
 ## 9. Tài khoản & hạ tầng (chi tiết `docs/INFRA-RULES.md`, `docs/API-KEYS.md`)
 - Email chính thức: vintagezulilyjewelry@gmail.com (không dùng khieudinhthong cho Google). Domain lexkite.com; Firebase `lexkite-app` chỉ auth; dữ liệu đồng bộ ở D1 `lexkite-sync`.
