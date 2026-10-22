@@ -12,7 +12,7 @@ Không cần tạo `SHORTS_READ_TOKEN`. Secret dùng lại đã có trên Cloudf
 
 ## Luồng
 
-1. `cine-render.yml` (cả bản tin `scene=news`) lưu bài ĐẠT vào `lexkite-shorts` + `shorts/index.json`.
+1. `cine-render.yml` (cả bản tin `scene=news`) lưu bài ĐẠT: công thức + meta + `shorts/index.json` vào `lexkite-shorts`, master + bìa thẳng lên Kho Drive (`scripts/cine/archive_new.sh`) – repo không còn mp4 (`docs/VIDEO-STORAGE.md`).
 2. `drive-shorts.yml` (sau mỗi cine-render + hằng ngày 04:23 UTC + chạy tay): tải mp4 + bìa lên kho (`scripts/video/drive-shorts.mjs`),
    ghi `item.drive.{video,cover}` (driveId, fileId) vào `shorts/index.json`, rồi `shorts_index.py manifest` (index + coverage + lịch + credit)
    → tải lên kho `shorts/_admin/admin-shorts.json` (2 bản sao, mỗi lượt 1 file mới có `built`).

@@ -32,6 +32,8 @@
 - `VIDEO-SCALE-PLAN.md` – kế hoạch kho video đa dạng chống trùng + thang 100 điểm. Khi làm template/scale video.
 - `MEDIA-QA-RUBRIC.md` – thang chấm ảnh/clip (≥ 90). Khi chấm tài sản.
 - `SHORTS-ACCESS.md` – quyền đọc kho `lexkite-shorts` cho tab 🎬. Khi đụng admin video.
+- `VIDEO-STORAGE.md` – lưu short theo công thức (repo chỉ giữ recipe), master trên Kho Drive, luật 2 bản/30 ngày/cân bằng, dựng lại, R2. Khi đụng lưu trữ/di trú short.
+- `YOUTUBE-SETUP.md` – tải short đã duyệt lên YouTube (OAuth của chủ, hạn mức, kiểm định API). Khi đụng YouTube.
 - `ASSET-LIBRARY.md` – kho tài nguyên & Kho Drive (§8.6). Tham khảo.
 - Stub 1 dòng → `VIDEO.md`: `VIDEO-PIPELINE`, `VIDEO-SYSTEM-PLAN`, `CINE-SCENE-STANDARD`, `KLING-PLAN`, `LISTENING-CHANNEL-PLAN`, `VIDEO-CONTENT-PLAN` (toàn văn ở `archive/`).
 

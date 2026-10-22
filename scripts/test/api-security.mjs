@@ -90,6 +90,9 @@ for (const op of ['constructor', '__proto__', 'toString', 'hasOwnProperty', 'val
 // người lạ / không phải admin vẫn bị chặn
 ok((await run(ADMIN, req('/api/admin', { op: 'usage' }, { token: USER }))).s === 403, 'admin: tài khoản thường → 403');
 ok((await run(ADMIN, req('/api/admin', { op: 'usage' }))).s === 403, 'admin: không token → 403');
+{ const wa = await run(ADMIN, req('/api/admin', { op: 'whoami' }, { token: ADM })), wu = await run(ADMIN, req('/api/admin', { op: 'whoami' }, { token: USER })), wn = await run(ADMIN, req('/api/admin', { op: 'whoami' }));
+  ok(wa.s === 200 && !leaks(wa.text) && !/@/.test(wa.text), 'admin whoami: quản trị → 200, không lộ email/bí mật');
+  ok(wu.s === 403 && wn.s === 403 && !/@/.test(wu.text + wn.text), 'admin whoami: tài khoản thường / không token → 403, không lộ danh sách email'); }
 ok((await run(ADMIN, req('/api/admin', { op: 'usage' }, { token: ADM, origin: 'https://evil.example' }))).s === 403, 'admin: Origin lạ → 403');
 ok((await run(ADMIN, req('/api/admin', { op: 'usage' }, { token: await tok({ email_verified: false }) }))).s === 403, 'admin: email chưa xác minh → 403');
 ok((await run(STUDIO, req('/api/studio', { op: 'ciJob', id: 'x' }, { headers: { 'X-Studio-Secret': 'wrong' } }))).s === 403, 'studio CI: sai secret → 403');

@@ -18,7 +18,15 @@ const REDIRECT = 'https://lexkite.com/api/drive/callback';
 const SCOPE = 'https://www.googleapis.com/auth/drive.file openid email';
 const ROOT_FOLDER = 'Lexkite Library';
 const MB = 1048576, HEADROOM_MIN = 256 * MB, STATE_TTL = 600, LINK_TTL = 300, CLI_SKEW = 300;
-const CLI_OPS = new Set(['list', 'upload_session', 'complete', 'refs_sync', 'health', 'where', 'replicas', 'repair']);
+const CLI_OPS = new Set(['list', 'upload_session', 'complete', 'refs_sync', 'health', 'where', 'replicas', 'repair', 'rebalance', 'render_link', 'set_want', 'retire']);
+// Shorts archive (docs/VIDEO-STORAGE.md): masters live under folder shorts/… with cls 'render'. CLI may only touch those (render_link · set_want · retire).
+const SHORTS_SQL = "f.folder LIKE 'shorts/%' AND f.cls = 'render'", CLIP_BYTES = 10 * 1048576, STOP_PCT = 0.9;
+export const isShortsRow = r => !!r && r.cls === 'render' && /^shorts\//.test(String(r.folder || ''));
+/** Còn chứa được bao nhiêu clip (≈ 10 MB/master): Drive đang nhận file, tới ngưỡng ngừng 90 %. */
+export function shortsCapacity(drives, clipBytes = CLIP_BYTES) {
+  const usable = drives.filter(d => d.status === 'ok' && +d.weight > 0 && d.quota_total).reduce((s, d) => s + Math.max(0, +d.quota_total * STOP_PCT - (+d.quota_used || 0)), 0);
+  return { usable_bytes: Math.floor(usable), clip_bytes: clipBytes, clips: Math.floor(usable / clipBytes) };
+}
 const GB = 1073741824, WARN_PCT = 0.8, CRIT_PCT = 0.9, POOL_MIN_FREE = 10 * GB, MAIL_GAP = 86400e3, HEALTH_STALE = 6 * 3600e3, NET_TRIES = 3, UP_FAIL_CRIT = 3;
 const enc = new TextEncoder();
 const json = (req, status, data, extra = {}) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...adminCors(req), ...extra } });
@@ -54,13 +62,13 @@ export async function verifyState(env, state, now = Date.now()) {
 }
 async function aesKey(env) { const raw = rawKey(env); if (!raw) throw new Error('no-key'); return crypto.subtle.importKey('raw', raw, 'AES-GCM', false, ['encrypt', 'decrypt']); }
 /** AES-GCM (iv 12 byte ngẫu nhiên, AAD = "drive:<email>" – token chép sang dòng khác sẽ không giải được). */
-export async function encryptToken(env, token, email) {
+export async function encryptToken(env, token, email, label = 'drive') { // label: 'drive' (Kho Drive) · 'youtube' (functions/api/youtube.js, AAD = kênh)
   const iv = crypto.getRandomValues(new Uint8Array(12));
-  const ct = await crypto.subtle.encrypt({ name: 'AES-GCM', iv, additionalData: enc.encode('drive:' + String(email).toLowerCase()) }, await aesKey(env), enc.encode(token));
+  const ct = await crypto.subtle.encrypt({ name: 'AES-GCM', iv, additionalData: enc.encode(label + ':' + String(email).toLowerCase()) }, await aesKey(env), enc.encode(token));
   return { enc_token: b64(ct), iv: b64(iv) };
 }
-export async function decryptToken(env, row) {
-  const pt = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: unb64(row.iv), additionalData: enc.encode('drive:' + String(row.email).toLowerCase()) }, await aesKey(env), unb64(row.enc_token));
+export async function decryptToken(env, row, label = 'drive') {
+  const pt = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: unb64(row.iv), additionalData: enc.encode(label + ':' + String(row.email).toLowerCase()) }, await aesKey(env), unb64(row.enc_token));
   return new TextDecoder().decode(pt);
 }
 /** Kiểm chữ ký CLI. → true/false. */
@@ -466,6 +474,44 @@ const POOL_OPS = {
     const left = (await replicaState(db, await all(db, 'SELECT * FROM drives'))).under.length;
     return { ok: true, done, failed, bytes, remaining: left, lost_only: s.lost_only.map(brief) };
   },
+  /** CLI: link tải ký 5 phút cho 1 master/bìa short (chỉ thư mục shorts/, cls render) – tham chiếu cho shorts-rebuild / yt-upload. */
+  async render_link(db, b, who, env) {
+    const r = await one(db, "SELECT file_id, cls, folder FROM drive_files WHERE file_id = ? AND status = 'ok'", String(b.file_id || ''));
+    if (!r || !isShortsRow(r)) return { status: 404, error: 'not-found' };
+    return { url: await signLink(env, r.file_id), ttl: LINK_TTL };
+  },
+  /** CLI: số bản sao mong muốn cho master short (1 = chưa duyệt/thử, 2 = đã duyệt/đã đăng) → repair chép bù sang Drive khác qua pickDrive. */
+  async set_want(db, b) {
+    const want = Math.round(+b.want); if (want < 1 || want > 2) return { status: 400, error: 'bad-input' };
+    const shas = (Array.isArray(b.sha256) ? b.sha256 : []).map(x => String(x).toLowerCase()).filter(x => /^[0-9a-f]{64}$/.test(x)).slice(0, 200);
+    let changed = 0;
+    for (let i = 0; i < shas.length; i += 50) {
+      const part = shas.slice(i, i + 50);
+      const r = await db.prepare(`UPDATE drive_files SET want = ? WHERE sha256 IN (${part.map(() => '?').join(',')}) AND status IN ('ok', 'pending') AND folder LIKE 'shorts/%' AND cls = 'render' AND COALESCE(want, 1) != ?`).bind(want, ...part, want).run();
+      changed += (r.meta && r.meta.changes) || 0;
+    }
+    return { ok: true, want, changed };
+  },
+  /** CLI: luật giữ 30 ngày – master short chưa duyệt/chưa đăng vào thùng rác Google (mọi bản sao; Google tự xoá hẳn sau 30 ngày), công thức vẫn giữ. */
+  async retire(db, b, who, env) {
+    const shas = (Array.isArray(b.sha256) ? b.sha256 : []).map(x => String(x).toLowerCase()).filter(x => /^[0-9a-f]{64}$/.test(x)).slice(0, 20);
+    const drives = new Map((await all(db, 'SELECT * FROM drives')).map(d => [d.id, d])), done = [], failed = [];
+    for (const sha of shas) {
+      const rows = (await all(db, "SELECT * FROM drive_files WHERE sha256 = ? AND status = 'ok' AND file_id IS NOT NULL", sha)).filter(isShortsRow).filter(r => /^video\//.test(String(r.mime || '')));
+      for (const r of rows) {
+        const d = drives.get(r.drive_id); if (!d || lost(d.status)) { failed.push({ sha, error: 'drive-lost' }); continue; }
+        try {
+          const at = await accessToken(env, db, d);
+          const t = await gfetch(`https://www.googleapis.com/drive/v3/files/${encodeURIComponent(r.file_id)}?fields=id,trashed`, { method: 'PATCH', headers: { Authorization: 'Bearer ' + at, 'Content-Type': 'application/json' }, body: JSON.stringify({ trashed: true }) });
+          if (!t.ok && t.status !== 404) throw new DriveErr('google-' + t.status);
+          await run(db, "UPDATE drive_files SET status = ? WHERE id = ?", t.status === 404 ? 'gone' : 'trashed', r.id);
+          await logAudit(db, { who: who.email, act: 'retire', d, file_id: r.file_id, name: r.name, sha256: sha, size: r.size, note: String(b.reason || 'retention 30d').slice(0, 80) });
+          done.push({ sha, drive_id: d.id });
+        } catch (e) { failed.push({ sha, error: e.code || 'error' }); }
+      }
+    }
+    return { ok: true, done, failed };
+  },
   /** Cân bằng: mặc định dry-run (kế hoạch). apply:true → chép sang Drive tỉ lệ thấp, kiểm md5, rồi chuyển bản ở Drive cao vào thùng rác (dung lượng giải phóng khi dọn thùng rác). */
   async rebalance(db, b, who, env) {
     const drives = await all(db, 'SELECT * FROM drives'), files = await all(db, "SELECT * FROM drive_files WHERE status = 'ok' AND file_id IS NOT NULL");
@@ -522,9 +568,11 @@ const OPS = {
     return { url, _cookie: `lk_drv=${nonce}; Path=/api/drive; Max-Age=${STATE_TTL}; HttpOnly; Secure; SameSite=Lax` };
   },
   async list(db, b, who, env) {
-    const rows = await all(db, "SELECT d.*, (SELECT COUNT(*) FROM drive_files f WHERE f.drive_id = d.id AND f.status = 'ok') AS files, (SELECT COALESCE(SUM(size), 0) FROM drive_files f WHERE f.drive_id = d.id AND f.status = 'ok') AS bytes FROM drives d ORDER BY d.id");
+    const rows = await all(db, `SELECT d.*, (SELECT COUNT(*) FROM drive_files f WHERE f.drive_id = d.id AND f.status = 'ok') AS files, (SELECT COALESCE(SUM(size), 0) FROM drive_files f WHERE f.drive_id = d.id AND f.status = 'ok') AS bytes, (SELECT COUNT(*) FROM drive_files f WHERE f.drive_id = d.id AND f.status = 'ok' AND ${SHORTS_SQL}) AS shorts_files, (SELECT COALESCE(SUM(size), 0) FROM drive_files f WHERE f.drive_id = d.id AND f.status = 'ok' AND ${SHORTS_SQL}) AS shorts_bytes FROM drives d ORDER BY d.id`);
     const total = rows.reduce((s, r) => s + (+r.quota_total || 0), 0), used = rows.reduce((s, r) => s + (+r.quota_used || 0), 0);
-    const out = { drives: rows.map(pub), total, used, free: Math.max(0, total - used), configured: config(env), redirect: REDIRECT, alerts: cliOnly(b) ? undefined : await alertRows(db) };
+    const out = { drives: rows.map(r => ({ ...pub(r), shorts_files: +r.shorts_files || 0, shorts_bytes: +r.shorts_bytes || 0 })), total, used, free: Math.max(0, total - used), configured: config(env), redirect: REDIRECT, alerts: cliOnly(b) ? undefined : await alertRows(db) };
+    const sm = await one(db, `SELECT COUNT(*) AS n, COALESCE(AVG(f.size), 0) AS avg FROM drive_files f WHERE f.status = 'ok' AND ${SHORTS_SQL} AND f.mime LIKE 'video/%'`);
+    out.shorts = { bytes: rows.reduce((s, r) => s + (+r.shorts_bytes || 0), 0), files: rows.reduce((s, r) => s + (+r.shorts_files || 0), 0), masters: sm ? sm.n : 0, avg_master: sm ? Math.round(sm.avg) : 0, ...shortsCapacity(rows) };
     if (Array.isArray(b.sha256)) { // verify (CLI): sha nào đã có trên Kho Drive
       const shas = b.sha256.map(x => String(x).toLowerCase()).filter(x => /^[0-9a-f]{64}$/.test(x)).slice(0, 200);
       out.have = {};
@@ -614,7 +662,7 @@ const OPS = {
     return { url: await signLink(env, f.file_id), ttl: LINK_TTL };
   },
 };
-const WRITE = new Set(['connect', 'refresh_quota', 'disconnect', 'set_weight', 'drain', 'upload_session', 'complete', 'get_link', 'preview', 'rename', 'move', 'trash', 'restore', 'delete', 'empty_trash', 'cleanup_apply', 'refs_sync', 'health', 'repair', 'rebalance', 'verify_files']);
+const WRITE = new Set(['connect', 'refresh_quota', 'disconnect', 'set_weight', 'drain', 'upload_session', 'complete', 'get_link', 'preview', 'rename', 'move', 'trash', 'restore', 'delete', 'empty_trash', 'cleanup_apply', 'refs_sync', 'health', 'repair', 'rebalance', 'verify_files', 'set_want', 'retire']);
 const DANGER = new Set(['disconnect', 'delete', 'empty_trash']); // + confirm:'DELETE' trong op (xoá vĩnh viễn)
 const BIG_OPS = new Set(['refs_sync']);
 const cliOnly = b => b && b._cli === true;

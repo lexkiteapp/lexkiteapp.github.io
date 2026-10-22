@@ -13,7 +13,7 @@
 import { limit } from './sync.js';
 import { gate } from './_quota.js';
 const QUIZ_EV = ['quiz_view', 'quiz_done', 'quiz_cta'];
-const VID_EV = ['view', 'done', 'quiz_ok', 'quiz_no']; // t:'v' – video bài học (lesson-video.js)
+const VID_EV = ['view', 'done', 'quiz_ok', 'quiz_no', 'yt_fallback']; // t:'v' – video bài học (lesson-video.js)
 const CTA_EV = ['ext_land', 'ext_feat', 'ext_blog', 'ext_app', 'ext_set', 'ext_nudge']; // bấm "Thêm vào Chrome" (web/js/ext-cta.js) → kind 'cta:<ev>'
 
 let ready = false;

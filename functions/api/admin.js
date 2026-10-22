@@ -102,6 +102,7 @@ async function cached(key, ttl, fn) {
 }
 
 const OPS = {
+  async whoami() { return { admin: true }; }, // cổng phía máy khách: tới được đây = adminGate đã xác nhận (không trả danh sách email)
   async usage(db, b) {
     const now = Date.now(), d1 = dayStr(now), t0 = Date.parse(d1 + 'T00:00:00Z');
     const r = await db.prepare('SELECT 1').run(), size = (r.meta && (r.meta.size_after ?? r.meta.db_size)) || 0;

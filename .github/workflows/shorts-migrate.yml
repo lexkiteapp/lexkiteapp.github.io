@@ -1,0 +1,51 @@
+# One-time (re-runnable) migration of lexkite-shorts to recipe-first storage – docs/VIDEO-STORAGE.md.
+# 1) full clone → size plan (tip, history, what a history purge would save – REPORT ONLY, never rewrites history)
+# 2) drive-shorts.mjs: every mp4 + cover onto the Drive pool (placement API, dedupe by sha, resume)
+# 3) recipe.py legacy: a recipe for every stored clip   4) shorts_migrate.py apply: git rm --cached media verified on Drive → push
+# dry_run (default) = steps 1–3 without pushing. Secrets: SHORTS_DEPLOY_KEY, LEXKITE_DRIVE_CLI_KEY.
+name: shorts-migrate
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run: { description: 'Chỉ báo cáo + tải lên Drive, không xoá mp4 khỏi repo', type: boolean, default: true }
+concurrency: { group: drive-shorts, cancel-in-progress: false }
+permissions: { contents: read }
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }   # legacy recipes read the lesson spec at the commit that rendered each clip
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Lấy lexkite-shorts (đủ lịch sử)
+        env: { KEY: '${{ secrets.SHORTS_DEPLOY_KEY }}' }
+        run: |
+          [ -n "$KEY" ] || { echo "::error::thiếu secret SHORTS_DEPLOY_KEY"; exit 1; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/shorts && chmod 600 ~/.ssh/shorts
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes" git clone -q git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
+      - name: Kế hoạch dung lượng (trước)
+        run: MIGRATE_REPORT=/tmp/plan-before.json python3 scripts/cine/shorts_migrate.py plan /tmp/shorts
+      - name: Mọi mp4 + bìa → Kho Drive
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/video/drive-shorts.mjs --repo /tmp/shorts --pause-ms 800
+      - name: Công thức cho clip cũ
+        run: python3 scripts/cine/recipe.py legacy /tmp/shorts && find /tmp/shorts/recipes -name '*.recipe.json' | wc -l
+      - name: Bỏ media khỏi đầu nhánh (chỉ file đã kiểm sha trên Drive) + đẩy
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          cd /tmp/shorts
+          python3 "$GITHUB_WORKSPACE/scripts/cine/shorts_migrate.py" apply /tmp/shorts
+          git add -A recipes .gitignore shorts/index.json
+          git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "recipe-first: media → Kho Drive, giữ công thức + manifest (shorts-migrate #${{ github.run_number }})" || { echo "không có gì đổi"; exit 0; }
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes"
+          for k in 1 2 3 4; do git push -q origin HEAD:main && break; git pull -q --rebase origin main; done
+          git ls-tree -r -l HEAD | awk '{s+=$4} END {printf "tip sau: %.1f MB\n", s/1e6}' | tee -a $GITHUB_STEP_SUMMARY
+      - name: Dọn khoá
+        if: always()
+        run: rm -f ~/.ssh/shorts
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'shorts-migrate-${{ github.run_number }}', path: /tmp/plan-before.json, retention-days: 30, if-no-files-found: ignore }

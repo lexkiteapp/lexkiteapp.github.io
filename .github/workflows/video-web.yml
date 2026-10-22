@@ -47,12 +47,14 @@ jobs:
           node scripts/build-lexicon.mjs --write >/dev/null
       - name: Dựng bản web + phụ đề EN + thẻ + câu đố EN
         if: steps.plan.outputs.todo != '0'
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }   # recipe-first: master from the Drive pool
         run: node scripts/video/web-rendition.mjs build shorts-repo
-      - name: Đẩy lên GitHub Release (CDN media.lexkite.com/video/)
+      - name: Đẩy lên R2 (top ~3.000 clip) / GitHub Release dự phòng (CDN media.lexkite.com/video/)
         if: steps.plan.outputs.todo != '0'
-        env: { GITHUB_TOKEN: '${{ github.token }}' }
+        env: { GITHUB_TOKEN: '${{ github.token }}', R2_ACCESS_KEY_ID: '${{ secrets.R2_ACCESS_KEY_ID }}', R2_SECRET_ACCESS_KEY: '${{ secrets.R2_SECRET_ACCESS_KEY }}' }
         run: node scripts/video/web-rendition.mjs publish
       - name: Manifest + kiểm schema
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }   # youtube_id (functions/api/youtube.js op ids)
         run: node scripts/video/web-rendition.mjs manifest shorts-repo && node scripts/test/video-web.mjs --schema-only
       - name: Commit + triển khai + IndexNow
         env: { HOOK: '${{ secrets.CF_PAGES_DEPLOY_HOOK }}' }

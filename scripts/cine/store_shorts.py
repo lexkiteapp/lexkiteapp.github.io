@@ -8,14 +8,20 @@ store_shorts.py <out-dir> <shorts-checkout> <run-number> [sha]
 Layout: shorts/<scene>/<lesson-id>/<cine-…>.mp4 + .jpg + qa.log + timeline.json + meta.json. A newer passed render of the
 same lesson/lang/suffix overwrites the older one (git history keeps it). Prints one line per stored render.
 Also refreshes shorts/index.json (manifest for the admin 🎬 Video tab, scripts/cine/shorts_index.py).
+Recipe-first (docs/VIDEO-STORAGE.md): mp4 + jpg stay in the WORKING TREE only (.gitignore) – the CI step uploads them to the Drive pool
+(scripts/video/drive-shorts.mjs) right after this script; git keeps meta/qa/timeline + recipes/<scene>/<lesson>/<clip>.recipe.json.
 """
 import datetime, glob, json, os, re, shutil, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import shorts_index
+import recipe as R
 
 out, repo, run = sys.argv[1], sys.argv[2], int(sys.argv[3]); sha = sys.argv[4] if len(sys.argv) > 4 else ''
 SCENES = ('hotel', 'cafe', 'airport', 'restaurant', 'anchor', 'news')
 rows, entries, cal = [], [], shorts_index._calendar()
+GI = '# recipe-first storage: media lives on the Drive pool (docs/VIDEO-STORAGE.md)\n*.mp4\n*.jpg\n*.webp\n*.wav\n'
+if not os.path.exists(f'{repo}/.gitignore') or '*.mp4' not in open(f'{repo}/.gitignore').read(): open(f'{repo}/.gitignore', 'a').write(GI)
+bg_over = dict(l.split()[:2] for l in open(f'{out}/bg_override.txt') if len(l.split()) >= 2) if os.path.exists(f'{out}/bg_override.txt') else {}
 now = datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
 if os.path.exists(f'{out}/passed.txt'):
     rows = [l.split() for l in open(f'{out}/passed.txt') if l.strip()]
@@ -39,10 +45,22 @@ for sc, lid, rb in rows:
         if os.path.exists(src): shutil.copy2(src, f'{d}/{dst}')
     try: dur = float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', mp4]))
     except Exception: dur = None
+    rcp = None
+    tlp = f'{out}/qa/timeline_{rb}.json'
+    if sc == 'news' and os.path.exists(f'{R.NEWS}/{lid}.json'):
+        try:
+            spec = json.load(open(f'{R.NEWS}/{lid}.json')); lines = json.load(open(f'{R.NEWS}/lines.json'))
+            rec = R.build(lid, base, json.load(open(tlp)) if os.path.exists(tlp) else {}, spec=spec, lines=lines, master=mp4, cover=cov,
+                          voices=R.voice_hashes(f'{out}/voices', R.lines_for(spec, lines)), bg=bg_over.get(lid), pipeline_sha=sha or None, scene=sc, created=now)
+            e = R.check(rec)
+            if e: print('recipe invalid', base, e)
+            else: rcp = os.path.relpath(R.write(rec, R.recipe_path(repo, sc, lid, base)), repo)
+        except Exception as ex: print('recipe failed', base, ex)
     mp = f'{d}/meta.json'; meta = json.load(open(mp)) if os.path.exists(mp) else {}
     meta.update(scene=sc, lesson=lid)
     meta.setdefault('renders', {})[base] = dict(run=run, sha=sha, duration=dur, bytes=os.path.getsize(mp4), qa='ALL PASS', created=now,
                                               video=f'shorts/{sc}/{lid}/{base}.mp4', cover=f'shorts/{sc}/{lid}/{base}.jpg' if os.path.exists(cov) else None,
+                                              recipe=rcp, master_sha256=R.sha_file(mp4),
                                               **{k: meta[k] for k in ('rejected', 'paused') if meta.get(k)})   # owner flags survive re-renders
     json.dump(meta, open(mp, 'w'), indent=1, ensure_ascii=False)
     qp = f'{d}/{base}.qa.log'; r = meta['renders'][base]
