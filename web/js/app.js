@@ -101,6 +101,7 @@
   const masteredCount = () => Object.values(state.cards).filter(c => SRS.mastery(c.srs) === 3).length;
 
   function updateChrome() {
+    if (!state.game) return; // gọi sớm trước khi nạp xong dữ liệu (vd. đăng nhập gốc trả phiên lúc mở app) – nạp xong sẽ gọi lại
     if (App.updateExamChip) App.updateExamChip();
     const st = streak();
     const fi = (window.Core && Core.Stats && Core.Stats.freezeInfo) ? Core.Stats.freezeInfo(state.game) : { left: +state.game.freezes || 0 };
