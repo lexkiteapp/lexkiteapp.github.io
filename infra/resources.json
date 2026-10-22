@@ -660,6 +660,8 @@
   "links": {
     "_note": "Tên miền chỉ xuất hiện dưới dạng liên kết tham khảo cho người học (không gọi API, không lưu trữ)",
     "hosts": [
+      "chromewebstore.google.com",
+      "microsoftedge.microsoft.com",
       "youglish.com",
       "www.ted.com",
       "www.oxfordlearnersdictionaries.com",

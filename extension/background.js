@@ -138,12 +138,15 @@ function countUse(ev) {
   if (!USE_EV.includes(ev)) return;
   useQ = useQ.then(async () => {
     const day = new Date().toISOString().slice(0, 10); // ngày UTC, khớp máy chủ
-    let u = (await chrome.storage.local.get('lk.use'))['lk.use'];
+    const o = await chrome.storage.local.get(['lk.use', 'lk.rate']);
+    let u = o['lk.use'];
+    // Lời mời đánh giá trong popup (popup.js): ngày dùng đầu tiên + tổng lượt tra – chỉ lưu trên máy
+    const rt = o['lk.rate'] || {}; if (!rt.since) rt.since = Date.now(); if (ev === 'lookup') rt.n = (rt.n || 0) + 1;
     let prev = null;
     if (!u || u.day !== day) { if (u && u.day && u.c) prev = { day: u.day, ev: u.c }; u = { day, c: { lookup: 0, save: 0, popup: 0, newtab: 0 }, sent: false }; }
     u.c[ev] = (u.c[ev] || 0) + 1;
     const first = !u.sent; u.sent = true; u.active = true;
-    await chrome.storage.local.set({ 'lk.use': u });
+    await chrome.storage.local.set({ 'lk.use': u, 'lk.rate': rt });
     if (first) sendHit({ day, ev: u.c, prev: prev || undefined });
   }).catch(() => {});
 }

@@ -8,7 +8,7 @@
 // Nội dung: content/landing/<lang>.json (en là gốc – khóa thiếu lấy từ en; vi viết riêng). Nhãn nhỏ dùng lại bản dịch app (web/js/i18n/<lang>.js).
 // Dùng: node scripts/build-landing.mjs [--check]   (--check: không ghi, báo lỗi nếu file trong web/ chưa dựng lại – chạy trong npm test)
 import fs from 'node:fs';
-import { CSS, esc, ld, siteHeader, siteFooter, LANG_NAMES, appHref, landingHref, langSwitch, LSW_CSS, LSW_JS } from './lib/site-layout.mjs';
+import { CSS, esc, ld, siteHeader, siteFooter, LANG_NAMES, appHref, landingHref, langSwitch, LSW_CSS, LSW_JS, EXT_STORE, EXT_JS } from './lib/site-layout.mjs';
 
 const R = new URL('../', import.meta.url), SITE = 'https://lexkite.com';
 export const LANGS = Object.keys(LANG_NAMES); // vi, en, es, pt, fr, de, id, th, zh, ja, ko, hi, ar, ru, tr
@@ -67,6 +67,8 @@ const LCSS = `[hidden]{display:none!important}main{padding-top:8px}.lh{display:g
 .lhint{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;max-width:640px;margin:0 auto;display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 30px rgba(20,20,60,.18);padding:10px 12px 10px 16px;font-size:15px}.lhint span{flex:1}.lhint .btn{padding:6px 14px;font-size:14px;white-space:nowrap}.lhint button{background:none;border:0;font-size:22px;line-height:1;color:var(--muted);cursor:pointer;padding:4px 8px}
 @media (max-width:900px){nav.main{flex-wrap:nowrap}nav.main .hm{display:none}.lh{grid-template-columns:1fr;gap:44px}.demo{max-width:440px;margin:0 auto;width:100%}.feat,.res{grid-template-columns:1fr 1fr}}
 @media (max-width:600px){nav.main>a:not(.btn){display:none}nav.main{gap:8px}header.top .bar{flex-wrap:nowrap}.feat,.res,.steps{grid-template-columns:1fr}.lh{padding-top:12px}.lead{font-size:17px}.final{padding:28px 18px}.kit{top:-28px;right:0;width:64px;height:64px}}
+.xf h2{font-size:clamp(26px,3.4vw,34px);letter-spacing:-.02em;line-height:1.2;margin:0 0 6px}.xf{display:grid;grid-template-columns:1fr 1.15fr;gap:36px;align-items:center}.xf ul{list-style:none;padding:0;margin:16px 0 20px;display:grid;gap:8px}.xf li::before{content:'✓ ';color:var(--accent);font-weight:800}.xf img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 18px 40px rgba(15,61,62,.18)}
+@media (max-width:820px){.xf{grid-template-columns:1fr}}
 @media (prefers-color-scheme:dark){.eyebrow,.fc mark,.gr .ok{color:#7fd6cc}.final .btn{color:#0F3D3E!important}.steps li::before{color:#0f1017}}`;
 
 export function render(lang) {
@@ -115,7 +117,7 @@ ${siteHeader({ nav, open: [start, esc(c.nav.start)], home: landingHref(lang), la
 <span class="eyebrow">${esc(c.hero.eyebrow)}</span>
 <h1 id="h1">${esc(c.hero.h1a)} <span class="grad">${esc(c.hero.h1b)}</span></h1>
 <p class="lead">${esc(c.hero.lead)}</p>
-<div class="ctas"><a class="btn lg" href="${start}">${esc(c.hero.cta)} ${rtl ? '←' : '→'}</a><a class="btn lg ghost" href="${login}">${esc(c.hero.login)}</a></div>
+<div class="ctas"><a class="btn lg" href="${start}">${esc(c.hero.cta)} ${rtl ? '←' : '→'}</a><a class="btn lg ghost" href="${login}">${esc(c.hero.login)}</a><a class="btn lg ghost" href="${EXT_STORE}" target="_blank" rel="noopener" data-ext-cta="land" hidden>🧩 ${esc(c.ext.btn)}</a></div>
 <p class="note">${esc(c.hero.note)} · <a href="${appQ}#/placement">${esc(c.hero.placement)}</a></p>
 </div>
 <div class="demo" aria-hidden="true">
@@ -128,6 +130,8 @@ ${siteHeader({ nav, open: [start, esc(c.nav.start)], home: landingHref(lang), la
 <ul class="trust">${c.trust.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
 <section class="sec" id="features" aria-labelledby="hf"><h2 id="hf">${esc(c.featuresH)}</h2><p class="sub">${esc(c.featuresSub)}</p>
 <ul class="feat">${c.features.map(([ic, h, p]) => `<li><span class="ic" aria-hidden="true">${ic}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></li>`).join('')}</ul></section>
+<section class="sec xf" id="addon" aria-labelledby="hx"><div><h2 id="hx">${esc(c.ext.h)}</h2><p class="sub">${esc(c.ext.p)}</p><ul>${c.ext.pts.map(x => `<li>${esc(x)}</li>`).join('')}</ul><a class="btn lg" href="${EXT_STORE}" target="_blank" rel="noopener" data-ext-cta="feat" hidden>🧩 ${esc(c.ext.btn)}</a></div>
+<img src="/img/ext-lookup.webp" width="752" height="602" loading="lazy" decoding="async" alt="${esc(c.ext.alt)}"></section>
 <section class="sec" id="how" aria-labelledby="hh"><h2 id="hh">${esc(c.stepsH)}</h2>
 <ol class="steps">${c.steps.map(([h, p]) => `<li><h3>${esc(h)}</h3><p>${esc(p)}</p></li>`).join('')}</ol></section>
 <section class="sec" id="free" aria-labelledby="hr"><h2 id="hr">${esc(c.resH)}</h2><p class="sub">${esc(c.resSub)}</p>
@@ -138,6 +142,7 @@ ${c.faq.map(([q, a], i) => `<details${i === 0 ? ' open' : ''}><summary>${esc(q)}
 </main>
 ${siteFooter({ lang, text: esc(c.foot), tm: esc(c.tm), langHref: landingHref })}
 <script>${hintJs(lang)}</script>
+<script>${EXT_JS}</script>
 </body>
 </html>
 `;

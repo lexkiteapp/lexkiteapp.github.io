@@ -1527,3 +1527,8 @@ button.avatar { border: 0; padding: 0; cursor: pointer; font: inherit; font-weig
 }
 /* Thanh kết quả (.sheet) cố định đáy: chừa chỗ để cuộn thấy hết đáp án phía dưới, không bị che */
 body:has(.sheet) .view { padding-bottom: calc(18rem + env(safe-area-inset-bottom)); }
+/* Lời mời cài add-on trong trang Từ điển (web/js/ext-cta.js hiện/ẩn) */
+.ext-card { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-top: 1rem; padding: 12px 14px; border-radius: 14px; background: var(--accent-soft); border: 1px solid var(--line); }
+.ext-card > div { flex: 1 1 260px; min-width: 0; }
+.ext-card p { margin: 4px 0 0; }
+.ext-card[hidden] { display: none; }

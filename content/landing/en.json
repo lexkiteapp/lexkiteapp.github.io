@@ -133,5 +133,6 @@
     "This page is available in English.",
     "View in English",
     "Close"
-  ]
+  ],
+  "ext": {"btn": "Add to Chrome – free", "h": "Look up words on any website", "p": "The Lexkite add-on brings the dictionary to every page you read. Double-click a word for its meaning, IPA and audio, select a sentence to translate it, and save new words to your flashcards with the original sentence.", "pts": ["Works in Chrome, Edge, Brave and Opera", "Tap words in YouTube subtitles", "Saved words sync with your Lexkite flashcards"], "alt": "Lexkite add-on: double-clicking “resilience” in a news article shows IPA, meanings and examples"}
 }

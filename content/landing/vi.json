@@ -54,5 +54,6 @@
   "finalP": "Đặt mục tiêu trong 2 phút và học những từ đầu tiên ngay sau đó.",
   "tm": "IELTS, TOEIC, TOEFL là nhãn hiệu của các tổ chức sở hữu. Lexkite là sản phẩm độc lập, không liên kết với các tổ chức này.",
   "foot": "Lexkite – học từ vựng & luyện thi IELTS, TOEIC, TOEFL miễn phí. Nội dung tự biên soạn, miễn phí cho người học.",
-  "suggest": ["Trang này có bản tiếng Việt.", "Xem bằng tiếng Việt", "Đóng"]
+  "suggest": ["Trang này có bản tiếng Việt.", "Xem bằng tiếng Việt", "Đóng"],
+  "ext": {"btn": "Thêm vào Chrome – miễn phí", "h": "Tra từ ngay trên mọi trang web", "p": "Add-on Lexkite mang từ điển tới mọi trang bạn đọc. Bấm đúp vào từ để xem nghĩa, phiên âm và nghe phát âm, bôi đen câu để dịch, rồi lưu từ mới vào flashcard kèm câu gốc.", "pts": ["Chạy trên Chrome, Edge, Brave và Opera", "Chạm vào từ trong phụ đề YouTube", "Từ đã lưu đồng bộ với flashcard Lexkite"], "alt": "Add-on Lexkite: bấm đúp vào từ “resilience” trong bài báo hiện phiên âm, nghĩa và ví dụ"}
 }

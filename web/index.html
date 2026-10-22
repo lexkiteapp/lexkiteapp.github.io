@@ -98,6 +98,8 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px;backgr
 .lhint{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;max-width:640px;margin:0 auto;display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 30px rgba(20,20,60,.18);padding:10px 12px 10px 16px;font-size:15px}.lhint span{flex:1}.lhint .btn{padding:6px 14px;font-size:14px;white-space:nowrap}.lhint button{background:none;border:0;font-size:22px;line-height:1;color:var(--muted);cursor:pointer;padding:4px 8px}
 @media (max-width:900px){nav.main{flex-wrap:nowrap}nav.main .hm{display:none}.lh{grid-template-columns:1fr;gap:44px}.demo{max-width:440px;margin:0 auto;width:100%}.feat,.res{grid-template-columns:1fr 1fr}}
 @media (max-width:600px){nav.main>a:not(.btn){display:none}nav.main{gap:8px}header.top .bar{flex-wrap:nowrap}.feat,.res,.steps{grid-template-columns:1fr}.lh{padding-top:12px}.lead{font-size:17px}.final{padding:28px 18px}.kit{top:-28px;right:0;width:64px;height:64px}}
+.xf h2{font-size:clamp(26px,3.4vw,34px);letter-spacing:-.02em;line-height:1.2;margin:0 0 6px}.xf{display:grid;grid-template-columns:1fr 1.15fr;gap:36px;align-items:center}.xf ul{list-style:none;padding:0;margin:16px 0 20px;display:grid;gap:8px}.xf li::before{content:'✓ ';color:var(--accent);font-weight:800}.xf img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 18px 40px rgba(15,61,62,.18)}
+@media (max-width:820px){.xf{grid-template-columns:1fr}}
 @media (prefers-color-scheme:dark){.eyebrow,.fc mark,.gr .ok{color:#7fd6cc}.final .btn{color:#0F3D3E!important}.steps li::before{color:#0f1017}}</style>
 </head>
 <body>
@@ -110,7 +112,7 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px;backgr
 <span class="eyebrow">Nền tảng học từ vựng IELTS, TOEIC &amp; tiếng Anh thực chiến</span>
 <h1 id="h1">Từ vựng vững, <span class="grad">band điểm bứt phá.</span></h1>
 <p class="lead">Học 15 phút mỗi ngày với flashcard thông minh, trò chơi, bài đọc và luyện phát âm. Mọi từ đều có phiên âm chuẩn Anh–Anh, nghĩa tiếng Việt và câu ví dụ sát đề thi.</p>
-<div class="ctas"><a class="btn lg" href="/app/?hl=vi#/welcome/setup">Bắt đầu miễn phí →</a><a class="btn lg ghost" href="/app/?hl=vi#/welcome/login">Đăng nhập</a></div>
+<div class="ctas"><a class="btn lg" href="/app/?hl=vi#/welcome/setup">Bắt đầu miễn phí →</a><a class="btn lg ghost" href="/app/?hl=vi#/welcome/login">Đăng nhập</a><a class="btn lg ghost" href="https://chromewebstore.google.com/detail/idalfipabpfcajpkfkifbdlpejcdmfcd" target="_blank" rel="noopener" data-ext-cta="land" hidden>🧩 Thêm vào Chrome – miễn phí</a></div>
 <p class="note">Miễn phí · Không cần tài khoản để bắt đầu · <a href="/app/?hl=vi#/placement">Kiểm tra trình độ trước (5 phút)</a></p>
 </div>
 <div class="demo" aria-hidden="true">
@@ -138,6 +140,8 @@ footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px;backgr
 <ul class="trust"><li>Học cốt lõi miễn phí 100%</li><li>Không bắt buộc tài khoản</li><li>Dữ liệu học lưu trên máy bạn</li><li>Giao diện 15 ngôn ngữ</li></ul>
 <section class="sec" id="features" aria-labelledby="hf"><h2 id="hf">Mọi thứ để vốn từ tăng đều mỗi ngày</h2><p class="sub">Một app cho từ vựng, kỹ năng và đề thi thử – dùng trên web, cài như app trên điện thoại, hoặc qua add-on Chrome.</p>
 <ul class="feat"><li><span class="ic" aria-hidden="true">🧠</span><h3>Flashcard FSRS như Anki</h3><p>Thuật toán ghi nhớ hiện đại nhắc bạn ôn đúng lúc sắp quên. 6.800+ từ IELTS, TOEIC, TOEFL có phiên âm, phát âm và câu ví dụ.</p></li><li><span class="ic" aria-hidden="true">🏁</span><h3>Luyện đề IELTS, TOEIC &amp; TOEFL</h3><p>Thi thử IELTS 4 kỹ năng và TOEIC Listening &amp; Reading bấm giờ như thi thật, đủ 12 dạng bài TOEFL iBT mới – có điểm ước tính và giải thích từng câu.</p></li><li><span class="ic" aria-hidden="true">✍️</span><h3>Chấm Writing &amp; Speaking bằng AI</h3><p>Viết bài hoặc ghi âm câu trả lời, nhận nhận xét theo tiêu chí chấm thi và so với bài mẫu. Lượt chấm AI có giới hạn hằng ngày hợp lý.</p></li><li><span class="ic" aria-hidden="true">🧩</span><h3>Add-on Chrome</h3><p>Bấm đúp tra từ trên mọi trang web, bôi đen để dịch cả câu, lưu từ kèm câu gốc từ phụ đề YouTube.</p></li><li><span class="ic" aria-hidden="true">📐</span><h3>Ngữ pháp &amp; phát âm</h3><p>77 bài ngữ pháp trực quan với 1.700 câu luyện, thư viện 44 âm IPA, luyện nói có chấm điểm bằng nhận dạng giọng nói.</p></li><li><span class="ic" aria-hidden="true">🌐</span><h3>Học trên mọi thiết bị</h3><p>Cài lên màn hình chính như một app, vẫn ôn tập được khi mất mạng. Đăng nhập Google để sao lưu và đồng bộ giữa các máy.</p></li></ul></section>
+<section class="sec xf" id="addon" aria-labelledby="hx"><div><h2 id="hx">Tra từ ngay trên mọi trang web</h2><p class="sub">Add-on Lexkite mang từ điển tới mọi trang bạn đọc. Bấm đúp vào từ để xem nghĩa, phiên âm và nghe phát âm, bôi đen câu để dịch, rồi lưu từ mới vào flashcard kèm câu gốc.</p><ul><li>Chạy trên Chrome, Edge, Brave và Opera</li><li>Chạm vào từ trong phụ đề YouTube</li><li>Từ đã lưu đồng bộ với flashcard Lexkite</li></ul><a class="btn lg" href="https://chromewebstore.google.com/detail/idalfipabpfcajpkfkifbdlpejcdmfcd" target="_blank" rel="noopener" data-ext-cta="feat" hidden>🧩 Thêm vào Chrome – miễn phí</a></div>
+<img src="/img/ext-lookup.webp" width="752" height="602" loading="lazy" decoding="async" alt="Add-on Lexkite: bấm đúp vào từ “resilience” trong bài báo hiện phiên âm, nghĩa và ví dụ"></section>
 <section class="sec" id="how" aria-labelledby="hh"><h2 id="hh">Học với Lexkite thế nào?</h2>
 <ol class="steps"><li><h3>Chọn kỳ thi và mục tiêu</h3><p>IELTS, TOEIC, TOEFL hay tiếng Anh nền tảng, band/điểm mục tiêu và thời gian mỗi ngày. Thiết lập mất khoảng 2 phút.</p></li><li><h3>Học đều 10–15 phút mỗi ngày</h3><p>Từ mới và lượt ôn được xếp sẵn. Lexkite nhắc đúng lúc và giữ chuỗi ngày học của bạn.</p></li><li><h3>Luyện đề, theo dõi tiến bộ</h3><p>Làm đề thi thử, xem điểm ước tính và ôn lại lỗi sai trong sổ lỗi của riêng bạn.</p></li></ol></section>
 <section class="sec" id="free" aria-labelledby="hr"><h2 id="hr">Tài liệu học miễn phí</h2><p class="sub">Không cần đăng ký – đọc, học và quay lại bất cứ lúc nào.</p>
@@ -193,5 +197,49 @@ var n=ls.getItem('vb.uiLang')||(navigator.languages&&navigator.languages[0])||na
 var d=document.createElement('div');d.className='lhint';d.lang=n;if(n==='ar')d.dir='rtl';d.setAttribute('role','region');d.setAttribute('aria-label',S[n][0]);
 d.innerHTML='<span></span><a class="btn"></a><button type="button">×</button>';d.firstChild.textContent=S[n][0];var a=d.querySelector('a'),b=d.querySelector('button');a.href=U[n];a.textContent=S[n][1];b.setAttribute('aria-label',S[n][2]);
 var x=function(){try{ls.setItem('lk.lhint','1')}catch(e){}};a.onclick=x;b.onclick=function(){x();d.remove()};document.body.appendChild(d)}catch(e){}})();</script>
+<script>self.LK_EXT = { id: 'idalfipabpfcajpkfkifbdlpejcdmfcd', store: 'https://chromewebstore.google.com/detail/idalfipabpfcajpkfkifbdlpejcdmfcd' };
+(function (W, D) {
+if (W.LKExt) return;
+var X = W.LK_EXT || {}, R = D.documentElement, inst = false, ready = false, CSS = 0;
+var ls = function (k, v) { try { if (v === undefined) return W.localStorage.getItem(k); W.localStorage.setItem(k, v); } catch (e) {  } return null; };
+var elig = (function () {
+try {
+if (!X.store || !/^https?:$/.test(location.protocol) || (W.Capacitor && (!W.Capacitor.isNativePlatform || W.Capacitor.isNativePlatform()))) return false;
+var u = navigator.userAgent || '', d = navigator.userAgentData;
+if (/Mobile|Android|CriOS|FxiOS|EdgiOS|iPhone|iPad|SamsungBrowser|YaBrowser|wv\)/.test(u)) return false;
+if (d && d.brands) return !d.mobile && d.platform !== 'Android' && d.brands.some(function (b) { return /Chromium/.test(b.brand); });
+return /Chrome\/\d/.test(u) && !/Firefox|Version\/[\d.]+ Safari/.test(u);
+} catch (e) { return false; }
+})();
+var has = function () { return inst || !!R.getAttribute('data-lexkite-ext'); };
+var show = function () { return elig && ready && !has(); };
+function scan(root) {
+var on = show(), els = (root || D).querySelectorAll('[data-ext-cta]');
+for (var i = 0; i < els.length; i++) {
+var el = els[i];
+if (el.tagName === 'A' && X.store) { el.href = X.store; el.target = '_blank'; el.rel = 'noopener'; }
+el.hidden = !on;
+}
+if (!on) { var t = D.getElementById('lk-xn'); if (t) t.remove(); }
+}
+function mark() { if (inst) return; inst = true; scan(); }
+W.addEventListener('message', function (e) {
+var m = e.data;
+if (e.source === W && m && (m.lkBridge === 'hello' || (m.lkBridge === 'res' && m.id === 'lkx'))) mark();
+});
+D.addEventListener('click', function (e) {
+var a = e.target && e.target.closest && e.target.closest('[data-ext-cta]');
+if (!a || a.tagName !== 'A') return;
+try { var b = JSON.stringify({ t: 'q', ev: 'ext_' + a.getAttribute('data-ext-cta') }); if (navigator.sendBeacon) navigator.sendBeacon('/api/hit', b); } catch (x) {  }
+if (a.closest('#lk-xn')) { ls('lk.extNudge', String(Date.now())); var t = D.getElementById('lk-xn'); if (t) t.remove(); }
+}, true);
+function start() {
+if (!elig) return;
+try { W.postMessage({ lkBridge: 'req', op: 'diag', id: 'lkx' }, location.origin); } catch (e) {  }
+setTimeout(function () { ready = true; scan(); }, 900);
+}
+if (D.readyState === 'complete') start(); else W.addEventListener('load', start);
+W.LKExt = { eligible: function () { return elig; }, installed: has, scan: scan, lookup: typeof lookup === 'function' ? lookup : function () {} };
+})(window, document);</script>
 </body>
 </html>

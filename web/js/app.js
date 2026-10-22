@@ -860,6 +860,9 @@
     };
   };
 
+  // Lời mời cài add-on (chỉ Chromium máy tính, chưa cài – web/js/ext-cta.js quyết định), nạp lười; URL cửa hàng: js/ext-config.js
+  let extP = null;
+  const extCta = () => Store.isExtension ? Promise.resolve(null) : (extP || (extP = loadScript('js/ext-config.js').then(() => loadScript('js/ext-cta.js')).catch(() => {}))).then(() => { if (window.LKExt) LKExt.scan(view); return window.LKExt || null; });
   routes.dict = async function (q) {
     const recent = await Store.get('recent', []);
     view.innerHTML = `
@@ -869,7 +872,9 @@
         <button class="btn primary lg">${t('Tra từ')}</button>
       </form>
       ${recent.length ? `<div class="row small" style="margin-top:.7rem"><span class="muted">${t('Gần đây:')}</span>${recent.map(r => `<a class="chip" href="#/dict/${encodeURIComponent(r)}">${esc(r)}</a>`).join('')}</div>` : ''}
-      <div id="result" style="margin-top:1.25rem"></div>`;
+      <div id="result" style="margin-top:1.25rem"></div>
+      <div class="ext-card" data-ext-cta="app" hidden><div><b>🧩 ${t('Tra từ ngay trên mọi trang web')}</b><p class="small muted">${t('Bấm đúp vào bất kỳ từ nào khi đọc để xem nghĩa, phiên âm và lưu vào flashcard – với add-on Lexkite cho Chrome.')}</p></div><a class="btn sm primary" data-ext-cta="app" hidden>${t('Thêm vào Chrome')}</a></div>`;
+    extCta();
     $('#searchForm').onsubmit = e => { e.preventDefault(); const v = $('#q').value.trim(); if (v) location.hash = `#/dict/${encodeURIComponent(v)}`; };
     if (!q) {
       $('#q').focus();
@@ -895,6 +900,7 @@
     Store.set('recent', [full.word, ...recent.filter(r => r !== full.word)].slice(0, 8));
     const lk = todayKey() + ':' + full.word;
     if (!lookedUp.has(lk)) { lookedUp.add(lk); reward({ lookups: 1 }); }
+    extCta().then(x => x && x.lookup({ text: t('Bạn vừa tra vài từ. Với add-on Lexkite, bạn tra được ngay trên mọi trang web mình đọc – miễn phí.'), btn: t('Thêm vào Chrome'), close: t('Đóng') }));
     paint(full, true);
 
     function paint(e, final) {
@@ -1319,7 +1325,7 @@
         + '</div>'
         + tog('sDigest', s.emailDigest === true, '📧 ' + t('Báo cáo não bộ qua email'), t('Gửi tóm tắt trí nhớ FSRS và các từ sắp quên vào sáng Chủ nhật (khi đã đăng nhập)')))}
       <section class="set-sec" id="set-ai"><div id="aiBox"></div></section>
-      ${Store.isExtension ? '' : sec('ext', '🧩 ' + t('Add-on từ điển cho Chrome'), `<div class="set-row"><div class="set-l"><span class="small">${t('Bấm đúp vào bất kỳ từ tiếng Anh nào trên web để xem phiên âm, nghĩa, hình ảnh và <b>lưu vào flashcard kèm câu gốc làm ngữ cảnh</b>. Bôi đen cả câu/đoạn để <b>dịch sang tiếng Việt</b>.')}</span><small>${t('Cài đặt: mở <code>chrome://extensions</code> → bật <i>Developer mode</i> → <i>Load unpacked</i> → chọn thư mục <code>extension</code>.')}</small></div></div>`)}
+      ${Store.isExtension ? '' : sec('ext', '🧩 ' + t('Add-on từ điển cho Chrome'), `<div class="set-row"><div class="set-l"><span class="small">${t('Bấm đúp vào bất kỳ từ tiếng Anh nào trên web để xem phiên âm, nghĩa, hình ảnh và <b>lưu vào flashcard kèm câu gốc làm ngữ cảnh</b>. Bôi đen cả câu/đoạn để <b>dịch sang tiếng Việt</b>.')}</span></div><a class="btn sm primary" data-ext-cta="set" hidden>${t('Thêm vào Chrome')}</a></div>`)}
       ${sec('data', '💾 ' + t('Dữ liệu'),
         row(t('Chuyển dữ liệu'), `<a class="btn sm" href="#/handoff">${t('📲 Chuyển sang điện thoại (không cần đăng nhập)')}</a>`)
         + row(t('Xuất sao lưu'), `<button type="button" class="btn sm" id="sExport">📦 Excel · PDF · JSON</button>`)
@@ -1328,6 +1334,7 @@
         + row(`<span class="danger-t">${t('Xóa toàn bộ dữ liệu học')}</span>`, `<button type="button" class="btn sm danger" id="sReset">${t('Xóa')}</button>`)
         + row(t('Pháp lý & hỗ trợ'), `<span class="set-btns"><a class="btn sm" href="${App.legalUrl('privacy')}">${t('Chính sách quyền riêng tư')}</a><a class="btn sm" href="${App.legalUrl('terms')}">${t('Điều khoản sử dụng')}</a><a class="btn sm" href="#/contact">${t('Liên hệ')}</a></span>`))}
       </div>`;
+    extCta();
     // Mục quản trị: chỉ hiện sau khi máy chủ xác nhận quyền (thêm nút nhảy nhanh vào thanh mục lục)
     App.isAdmin().then(ok => { const sec = $('#set-admin'); if (!ok || !sec) return; sec.hidden = false; const nav = $('.set-nav'); if (nav && !nav.querySelector('[data-jump="admin"]')) { nav.insertAdjacentHTML('afterbegin', `<button type="button" data-jump="admin"><span aria-hidden="true">🛡️</span> ${t('Quản trị')}</button>`); nav.querySelector('[data-jump="admin"]').onclick = () => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }); } });
     $$('.set-nav [data-jump]').forEach(b => b.onclick = () => { const el = document.getElementById('set-' + b.dataset.jump); if (el) el.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); });

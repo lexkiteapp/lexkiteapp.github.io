@@ -1,11 +1,26 @@
 {
  "appName": {
-  "message": "Lexkite – 词典与 IELTS 单词卡"
+  "message": "Lexkite – 英语词典、划词翻译与单词闪卡"
  },
  "appDesc": {
-  "message": "双击任意单词即可查看释义、音标和真人发音；翻译选中的句子和 YouTube 字幕；连同语境保存，并用间隔重复科学复习。"
+  "message": "双击任意单词即可查看释义、音标和发音。划词翻译整句，连同语境保存生词，用闪卡复习备考 IELTS/TOEIC。"
  },
  "openApp": {
   "message": "打开 Lexkite"
+ },
+ "rateTitle": {
+  "message": "喜欢 Lexkite 吗？"
+ },
+ "rateBody": {
+  "message": "如果 Lexkite 对你的学习有帮助，在商店写一条简短评价，能帮助其他学习者找到它。"
+ },
+ "rateYes": {
+  "message": "评价 Lexkite"
+ },
+ "rateLater": {
+  "message": "稍后"
+ },
+ "rateNever": {
+  "message": "不再询问"
  }
 }

@@ -49,3 +49,7 @@ body.popup { width: 360px; padding: 14px; margin: 0; }
 .pp-switch::after { content: ''; position: absolute; top: 2px; inset-inline-start: 2px; width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: inset-inline-start .15s; box-shadow: 0 1px 3px rgba(0,0,0,.2); }
 .pp-switch:checked { background: #0E8F8E; } .pp-switch:checked::after { inset-inline-start: 18px; }
 .pp-switch:focus-visible { outline: 2px solid #0E8F8E; outline-offset: 2px; }
+.pp-rate { margin: 12px 0 4px; padding: 12px; border-radius: 12px; background: var(--accent-soft, #DDF1EE); border: 1px solid var(--line, #e2e8f0); }
+.pp-rate p { margin: 4px 0 10px; font-size: 13px; line-height: 1.45; }
+.pp-rate-b { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.pp-rate-x { background: none; border: 0; color: var(--muted); font-size: 12px; text-decoration: underline; cursor: pointer; padding: 4px; margin-inline-start: auto; }

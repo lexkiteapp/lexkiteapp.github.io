@@ -1,5 +1,6 @@
 // Ảnh Chrome Web Store từ add-on THẬT (nạp extension/ vào Chromium): 5 ảnh 1280×800 (en + vi) + ô quảng cáo 440×280 & 1400×560.
 // Thiết kế: nền xanh đậm thương hiệu, tiêu đề lớn có chữ nhấn, 3 lợi ích, ảnh thật trong khung trình duyệt. PNG 24-bit (không alpha).
+// Ảnh 1 = ảnh bìa (tiêu đề to hơn, đọc được ở cỡ thu nhỏ); ảnh 5 = "bằng chứng": 4 ô số liệu 'SỐ|nhãn' (scripts/store-copy.mjs).
 // Chạy trên GitHub Actions (.github/workflows/store-shots.yml) – cần mạng để tra từ/dịch như người dùng thật.
 // Dùng: node scripts/store-shots.mjs <thư-mục-ra>
 import { chromium } from 'playwright';
@@ -40,6 +41,9 @@ li i{flex:none;width:26px;height:26px;border-radius:50%;background:linear-gradie
 .win img{display:block;width:100%}
 .pop{position:absolute;right:150px;top:70px;width:380px;border-radius:16px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.1)}.pop img{display:block;width:100%}
 .back{position:absolute;right:48px;top:150px;width:700px;border-radius:14px;overflow:hidden;opacity:.55;filter:blur(1.5px) saturate(.8);box-shadow:0 30px 60px rgba(0,0,0,.4)}.back img{display:block;width:100%}
+.thumb .txt{top:150px;width:430px}.thumb h1{font-size:60px;line-height:1.04}.thumb p.sub{font-size:20px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}.stats div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px 14px}
+.stats b{display:block;font-size:30px;font-weight:800;letter-spacing:-.02em;color:#FFC94A;line-height:1.1}.stats span{display:block;font-size:14px;line-height:1.35;color:rgba(255,255,255,.82);margin-top:4px}
 .glow{position:absolute;right:120px;bottom:-140px;width:520px;height:320px;background:radial-gradient(closest-side,rgba(242,85,59,.35),transparent);filter:blur(10px)}`;
 
 async function frame(page, lang, i, shot, popup = null) {
@@ -49,9 +53,9 @@ async function frame(page, lang, i, shot, popup = null) {
     ? `<div class="back"><img src="data:image/png;base64,${popup.toString('base64')}"></div><div class="pop"><img src="${img}"></div>`
     : `<div class="win"><div class="bar"><span></span><span></span><span></span><div>${url}</div></div><img src="${img}"></div>`;
   await page.setViewportSize({ width: W, height: H });
-  await page.setContent(`<!doctype html><html><head><meta charset="utf-8">${FONT}<style>${CSS}</style></head><body><div class="glow"></div>
+  await page.setContent(`<!doctype html><html><head><meta charset="utf-8">${FONT}<style>${CSS}</style></head><body${i === 0 ? ' class="thumb"' : ''}><div class="glow"></div>
     <div class="brand"><img src="${ICON}"><span>lex<b>kite</b></span></div>
-    <div class="txt"${lang === 'ar' ? ' dir="rtl" style="text-align:right"' : ''}><span class="kick">${kick}</span><h1>${title}</h1><p class="sub">${sub}</p><ul>${pts.map(x => `<li><i>✓</i>${x}</li>`).join('')}</ul></div>${visual}</body></html>`);
+    <div class="txt"${lang === 'ar' ? ' dir="rtl" style="text-align:right"' : ''}><span class="kick">${kick}</span><h1>${title}</h1><p class="sub">${sub}</p>${pts.some(x => x.includes('|')) ? `<div class="stats">${pts.map(x => x.split('|')).map(([b, l]) => `<div><b>${b}</b><span>${l}</span></div>`).join('')}</div>` : `<ul>${pts.map(x => `<li><i>✓</i>${x}</li>`).join('')}</ul>`}</div>${visual}</body></html>`);
   await page.evaluate(() => document.fonts.ready); await sleep(400);
   await page.screenshot({ path: `${OUT}/${lang}-${i + 1}.png`, clip: { x: 0, y: 0, width: W, height: H } });
 }

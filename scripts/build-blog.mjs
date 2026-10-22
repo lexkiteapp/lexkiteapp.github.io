@@ -5,7 +5,11 @@ import fs from 'node:fs'; import path from 'node:path';
 import { loadPosts, parse, FAQ_RE, isLive, publishTime, wordCount, config, CATEGORIES, ROOT, loadMedia } from './lib/blog-content.mjs';
 import { specOf, mediaId, diagramHtml } from './lib/blog-images.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
-import { CSS, esc, ld, siteHeader, siteFooter, crumbsHtml, crumbsLd as crumbsLdAt, appHref, landingHref } from './lib/site-layout.mjs';
+import { CSS, esc, ld, siteHeader, siteFooter, crumbsHtml, crumbsLd as crumbsLdAt, appHref, landingHref, EXT_STORE, EXT_JS } from './lib/site-layout.mjs';
+// Lời mời cài add-on cuối bài: chữ dùng chung với landing (content/landing/<lang>.json → ext), hiện/ẩn bởi EXT_JS (web/js/ext-cta.js)
+const EXT_EN = JSON.parse(fs.readFileSync('content/landing/en.json', 'utf8')).ext;
+const extOf = l => { try { return { ...EXT_EN, ...(JSON.parse(fs.readFileSync(`content/landing/${l}.json`, 'utf8')).ext || {}) }; } catch (e) { return EXT_EN; } };
+const extBox = l => { const x = extOf(l); return `<aside class="cta" data-ext-cta="blog" hidden><p><strong>🧩 ${esc(x.h)}</strong><br>${esc(x.p)}</p><a class="btn" href="${EXT_STORE}" target="_blank" rel="noopener" data-ext-cta="blog">${esc(x.btn)}</a></aside>`; };
 
 const COPY_SRC = {
   vi: 'Nguồn: {title} – {url} (Lexkite)',
@@ -295,11 +299,12 @@ ${html}
 ${quizHtml}${(p.tags || []).some(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2) ? `<div class="tags" aria-label="${t.tags}">${p.tags.filter(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2).map(g => `<a href="${b}${sg.tag}/${g}/">#${esc(g)}</a>`).join('')}</div>` : ''}
 <p class="copy">© ${new Date(pub).getFullYear()} Lexkite · ${COPY[p.lang] || COPY.en}</p>
 <section class="trybox"><h2>${t.try}</h2><p>${t.tryD}</p><a class="btn" href="${appHref(p.lang)}">${t.open} ${t.dir === 'rtl' ? '←' : '→'}</a></section>
+${extBox(p.lang)}
 </article>
 ${related.length ? `<section aria-labelledby="rel"><h2 id="rel">${t.related}</h2><div class="grid">${related.map(x => card(x, 'h3')).join('')}</div></section>` : ''}`;
   write(postUrl(p), layout({ lang: p.lang, title: `${p.title} | Lexkite`, desc: p.description, url: postUrl(p), alt: alts(p), img: imgUrl(cv.id), imgAlt: cv.alt, type: 'article', body, jsonld,
     extraHead: `<meta property="article:published_time" content="${iso(pub)}">\n<meta property="article:modified_time" content="${iso(upd)}">\n<meta property="article:section" content="${esc(cat)}">\n${(p.tags || []).map(g => `<meta property="article:tag" content="${esc(g)}">`).join('\n')}\n`,
-    script: (videos.length ? YT_JS : '') + (p.quiz ? QUIZ_JS : '') + copyJs(p.lang) }));
+    script: (videos.length ? YT_JS : '') + (p.quiz ? QUIZ_JS : '') + copyJs(p.lang) + `<script>${EXT_JS}</script>` }));
   sm.push({ loc: postUrl(p), lastmod: iso(upd), alt: alts(p) });
 }
 CURP = null;

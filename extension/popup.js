@@ -165,4 +165,23 @@
     $('#more').onclick = () => open('#/dict/' + encodeURIComponent(e.word));
     $('#save').onclick = async () => { await Cards.add(e); $('#save').textContent = tx('✓ Đã lưu'); $('#save').disabled = true; try { chrome.runtime.sendMessage({ type: 'triggerSync' }).catch(() => {}); } catch (e) {} };
   };
+
+  // Lời mời đánh giá: chỉ sau ≥ 7 ngày dùng VÀ ≥ 30 lượt tra (background.js đếm 'lk.rate' trên máy). Theo chính sách CWS:
+  // không thưởng gì, không hỏi "thích không" để lọc người chấm – ai cũng thấy cùng một lời mời; Để sau = 14 ngày, Không hỏi nữa = tắt hẳn.
+  try {
+    const rt = (await chrome.storage.local.get('lk.rate'))['lk.rate'] || {}, now = Date.now();
+    if (!rt.never && !rt.done && rt.since && now - rt.since >= 7 * 864e5 && (rt.n || 0) >= 30 && !(rt.later > now)) {
+      let M = {}; try { M = await (await fetch(chrome.runtime.getURL(`_locales/${{ pt: 'pt_BR', zh: 'zh_CN' }[UI_LANG] || UI_LANG}/messages.json`))).json(); } catch (e) { /* dùng ngôn ngữ trình duyệt */ }
+      const m = k => (M[k] && M[k].message) || chrome.i18n.getMessage(k) || k;
+      const CWS = 'idalfipabpfcajpkfkifbdlpejcdmfcd', id = chrome.runtime.id;
+      const url = /Edg\//.test(navigator.userAgent) && id !== CWS ? `https://microsoftedge.microsoft.com/addons/detail/${id}` : `https://chromewebstore.google.com/detail/${CWS}/reviews`;
+      const save = async p => { const cur = (await chrome.storage.local.get('lk.rate'))['lk.rate'] || {}; await chrome.storage.local.set({ 'lk.rate': { ...cur, ...p } }); $('#rate').remove(); };
+      const box = $('#rate');
+      box.innerHTML = `<div class="pp-rate" role="region" aria-labelledby="rateT"><b id="rateT">${esc(m('rateTitle'))}</b><p>${esc(m('rateBody'))}</p>
+        <div class="pp-rate-b"><a class="btn primary sm" id="rateGo" href="${url}" target="_blank" rel="noopener">${esc(m('rateYes'))}</a><button type="button" class="btn sm" id="rateLater">${esc(m('rateLater'))}</button><button type="button" class="pp-rate-x" id="rateNever">${esc(m('rateNever'))}</button></div></div>`;
+      $('#rateGo').onclick = () => { save({ done: now }); };
+      $('#rateLater').onclick = () => save({ later: now + 14 * 864e5 });
+      $('#rateNever').onclick = () => save({ never: now });
+    }
+  } catch (e) { /* bỏ qua */ }
 })();

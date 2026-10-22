@@ -14,6 +14,8 @@ Mọi thay đổi trong `extension/` (và mã web được chép vào `extension
 8. **Phiên bản tăng dần**: `version` 1–4 số, mỗi số ≤ 65535, luôn lớn hơn bản trên cửa hàng (API từ chối nếu không tăng).
 9. **Không gây hiểu nhầm trong listing**: không hứa điều add-on không làm, ghi rõ không liên kết với IELTS/TOEIC/ETS/British Council; ảnh chụp từ giao diện thật (`scripts/store-shots.mjs`).
 10. **MV3 service worker**: không giữ trạng thái quan trọng trong biến toàn cục (SW ngủ sau ~30 giây) → lưu `chrome.storage`; dùng `chrome.alarms` thay `setInterval` dài; alarm dày (dev-reload) chỉ cho bản phát triển.
+11. **Lời mời đánh giá** (popup, `lk.rate`): chỉ sau ≥ 7 ngày dùng VÀ ≥ 30 lượt tra; Đánh giá / Để sau (14 ngày) / Không hỏi nữa. Không thưởng, không hỏi "thích không" rồi mới mời (cấm lọc người chấm), không chặn tính năng. Chữ ở `_locales/*/messages.json` (`rate*`).
+12. **Dấu "đã cài" trên lexkite.com**: content script đặt `<html data-lexkite-ext="phiên bản">` (chỉ trên tên miền mình sở hữu, trong khối cầu nối) để web ẩn nút "Thêm vào Chrome" (`web/js/ext-cta.js`). URL cửa hàng: nguồn duy nhất `web/js/ext-config.js`. Tên/mô tả ngắn add-on = `store/chrome/listing.json` (`appName`/`appDesc` trong `_locales` phải khớp).
 
 ## 2. Giới hạn của cửa hàng
 - Mỗi lúc chỉ **1 bản chờ duyệt**; muốn gửi bản khác ⇒ chờ duyệt xong hoặc hủy (dashboard / API `:cancelSubmission`).

@@ -54,5 +54,6 @@
   "finalP": "Tentukan target ujian dalam dua menit dan langsung pelajari kata-kata pertamamu.",
   "tm": "IELTS, TOEIC, dan TOEFL adalah merek dagang milik pemiliknya masing-masing. Lexkite adalah produk independen dan tidak berafiliasi dengan maupun didukung oleh mereka.",
   "foot": "Lexkite – kosakata dan latihan IELTS, TOEIC, TOEFL gratis. Materi orisinal, gratis untuk pelajar.",
-  "suggest": ["Halaman ini tersedia dalam bahasa Indonesia.", "Lihat dalam bahasa Indonesia", "Tutup"]
+  "suggest": ["Halaman ini tersedia dalam bahasa Indonesia.", "Lihat dalam bahasa Indonesia", "Tutup"],
+  "ext": {"btn": "Tambahkan ke Chrome – gratis", "h": "Cari arti kata di situs mana pun", "p": "Ekstensi Lexkite membawa kamus ke setiap halaman yang kamu baca. Klik dua kali sebuah kata untuk melihat arti, IPA, dan audionya, pilih kalimat untuk menerjemahkannya, lalu simpan kata baru ke flashcard beserta kalimat aslinya.", "pts": ["Berjalan di Chrome, Edge, Brave, dan Opera", "Ketuk kata di subtitle YouTube", "Kata tersimpan tersinkron dengan flashcard Lexkite"], "alt": "Ekstensi Lexkite: klik dua kali “resilience” di artikel berita menampilkan IPA, arti, dan contoh"}
 }

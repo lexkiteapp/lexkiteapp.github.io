@@ -1,11 +1,26 @@
 {
  "appName": {
-  "message": "Lexkite – Wörterbuch & IELTS-Karteikarten"
+  "message": "Lexkite – Englisch-Wörterbuch, Übersetzer & Vokabel-Karteikarten"
  },
  "appDesc": {
-  "message": "Doppelklick auf ein Wort: Bedeutung, Lautschrift, Audio. Sätze und YouTube-Untertitel übersetzen. Speichern und mit Karten lernen."
+  "message": "Doppelklick auf ein Wort: Bedeutung, IPA und Audio. Auswahl übersetzen, Wörter mit Kontext speichern, für IELTS/TOEIC wiederholen."
  },
  "openApp": {
   "message": "Lexkite öffnen"
+ },
+ "rateTitle": {
+  "message": "Gefällt dir Lexkite?"
+ },
+ "rateBody": {
+  "message": "Wenn dir Lexkite beim Lernen hilft, hilft eine kurze Bewertung im Store anderen Lernenden, es zu finden."
+ },
+ "rateYes": {
+  "message": "Lexkite bewerten"
+ },
+ "rateLater": {
+  "message": "Später"
+ },
+ "rateNever": {
+  "message": "Nicht mehr fragen"
  }
 }

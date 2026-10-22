@@ -2210,6 +2210,8 @@
   'Chơi ngay': 'Play now',
   'Phong cách tiếng Anh của bạn (1 phút) →': 'Your English style (1 minute) →',
 }); })(typeof self !== 'undefined' ? self : this);
+/* Lời mời cài add-on (web/js/ext-cta.js) */
+(function (g) { Object.assign(g.I18N_DICT.en, {"Tra từ ngay trên mọi trang web": "Look up words on any website", "Bấm đúp vào bất kỳ từ nào khi đọc để xem nghĩa, phiên âm và lưu vào flashcard – với add-on Lexkite cho Chrome.": "Double-click any word while you read to see its meaning and IPA, and save it to your flashcards – with the Lexkite add-on for Chrome.", "Thêm vào Chrome": "Add to Chrome", "Bạn vừa tra vài từ. Với add-on Lexkite, bạn tra được ngay trên mọi trang web mình đọc – miễn phí.": "You've looked up a few words. With the free Lexkite add-on, you can look up words right on any website you read."}); })(typeof self !== 'undefined' ? self : this);
 
 /* English UI strings – toefl.js (TOEFL iBT practice, 2026 format) */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
