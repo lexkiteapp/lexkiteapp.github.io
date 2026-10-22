@@ -97,3 +97,10 @@ cron mỗi ngày → chọn điểm học + tổ hợp (sổ đa dạng) → so�
 - **Bình luận**: kết bằng câu hỏi mở/đố; ghim bình luận đáp án; trả lời bằng clip mới (series).
 - **Kéo về app**: CTA cuối cùng nhẹ + link đúng bài học trên web (deep link), không bán hàng gắt.
 - Đo: save rate, share rate, completion, comment → trọng số template/hook/độ khó tuần sau.
+
+## 14. Ai ở nước nào cũng học được (chủ 22/10)
+- Clip social **chỉ tiếng Anh**, nhưng hiểu được không cần tiếng mẹ đẻ: tiếng Anh đơn giản (giải thích ≤ CEFR B1), nói chậm rõ, ✗/✓ + biểu tượng + màu mang nghĩa, ví dụ tự giải thích.
+- Bản web có phụ đề dịch 15 ngôn ngữ (§10); social có thể thêm phụ đề tự động của nền tảng.
+- Nội dung trung tính văn hoá: tên người đa dạng, tiền tệ/đơn vị chung hoặc ghi cả hai, không tôn giáo/chính trị/vùng nhạy cảm, không đùa dựa vào văn hoá một nước; idiom luôn kèm nghĩa đơn giản.
+- Lỗi theo tiếng mẹ đẻ (§12.8) nói theo dạng "Many learners say…" – không chê một quốc gia.
+- Lịch đăng theo giờ cao điểm từng khu vực; hashtag tiếng Anh + hashtag địa phương do AI chọn.
