@@ -8,7 +8,7 @@ import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
 import { manifest } from './admin-shorts.js';
 import { setup, chanCfg, pauseChannel } from './youtube.js';
-import { normCfg, route, routeAll, explain, platformOf, planAll, localDate, localHM } from './_distribution.js';
+import { normCfg, route, routeAll, pickEmbed, explain, platformOf, planAll, localDate, localHM } from './_distribution.js';
 import { embedMeta, socialMeta, PLATFORMS } from './_role_meta.js';
 import { viewOf, typeOf } from './_clip_logic.js';
 import { TOPICS, SKILLS, EXAMS, CEFR, TYPES } from './_taxonomy.js';
@@ -36,6 +36,12 @@ const isExt = id => /^gc-[a-z_]+-[A-Za-z0-9_-]{1,80}$/.test(String(id || ''));
 const knownIds = async db => new Set([...(await all(db, 'SELECT channel_id FROM yt_channel')), ...(await all(db, 'SELECT channel_id FROM dist_ext'))].map(r => r.channel_id));
 const clipOf = (it, qt) => { const v = viewOf(it, { review: {}, queue: {}, pack: {}, web: {}, views: {} }); return { id: it.id, type: v.type, topic: v.topic, sub: v.sub, skill: v.skill, cefr: it.cefr, exam: v.exam, template: it.template, scene: it.scene, hook: it.hook, point: it.point, keyword: it.keyword, slug: it.slug, region: it.region, title: it.title || qt || it.id, cover: it.cover_sha || it.cover_hash || '' }; };
 async function cfgMap(db) { const m = {}; for (const c of await channels(db)) if (c.status === 'ok') m[c.channel_id] = c.cfg; return m; }
+/** Embed-channel load for pickEmbed: clips planned/uploaded per channel (today = touched since 00:00 UTC). */
+async function embedCounts(db) {
+  const day = Date.now() - (Date.now() % 864e5), m = {};
+  for (const r of await all(db, "SELECT channel_id, updated FROM yt_plan WHERE channel_id IS NOT NULL UNION ALL SELECT channel_id, updated FROM yt_queue WHERE channel_id IS NOT NULL AND clip NOT IN (SELECT clip FROM yt_plan)")) { const c = m[r.channel_id] = m[r.channel_id] || { today: 0, total: 0 }; c.total++; if (r.updated >= day) c.today++; }
+  return m;
+}
 const dflt = async db => (await meta(db, 'default_channel')) || null;
 
 const OPS = {
@@ -70,15 +76,17 @@ const OPS = {
   async plan_run(db, b, who, env) {
     const now = Date.now(), m = await manifest(env), by = new Map(m.items.map(x => [x.id, x]));
     if (b.replan) await run(db, "DELETE FROM yt_plan WHERE source = 'auto' AND clip IN (SELECT clip FROM yt_queue WHERE status IN ('manual', 'queued'))");
-    const q = await all(db, "SELECT q.clip, q.title FROM yt_queue q WHERE q.status IN ('manual', 'queued') ORDER BY q.approved_at"), planned = new Map((await all(db, 'SELECT * FROM yt_plan')).map(r => [r.clip, r]));
-    const cfgs = await cfgMap(db), rl = (await rules(db)).filter(r => r.active), fb = await dflt(db), routed = {}, skipped = [], rows = [];
+    const q = await all(db, "SELECT q.clip, q.title, q.video_id FROM yt_queue q WHERE q.status IN ('manual', 'queued') ORDER BY q.approved_at"), planned = new Map((await all(db, 'SELECT * FROM yt_plan')).map(r => [r.clip, r]));
+    const cfgs = await cfgMap(db), embedCfgs = Object.fromEntries(Object.entries(cfgs).filter(([id, c]) => c.role === 'embed' && !isExt(id))), counts = await embedCounts(db), rl = (await rules(db)).filter(r => r.active), fb = await dflt(db), routed = {}, skipped = [], rows = [];
     const ytRules = rl.filter(r => platformOf(r.channel_id) === 'youtube'), soRules = rl.filter(r => platformOf(r.channel_id) !== 'youtube'), social = {}, sRows = new Map(), sDone = new Set((await all(db, 'SELECT clip, channel_id FROM dist_social')).map(r => r.clip + '|' + r.channel_id));
     for (const r of q) {
       const it = by.get(r.clip); if (!it) { skipped.push({ id: r.clip, why: 'unknown' }); continue; }
       const old = planned.get(r.clip), c = clipOf(it, r.title);
       for (const so of routeAll(soRules, cfgs, c, null)) if (!sDone.has(r.clip + '|' + so.channel_id)) { (social[so.channel_id] = social[so.channel_id] || []).push(c); sRows.set(r.clip + '|' + so.channel_id, so); }
       if (old && old.source === 'manual' && old.slot_ms) continue;
-      const ch = old && old.source === 'manual' ? { channel_id: old.channel_id, rule: -2 } : route(ytRules, cfgs, c, fb);
+      let ch = old && old.source === 'manual' ? { channel_id: old.channel_id, rule: -2 } : route(ytRules, cfgs, c, fb);
+      if (ch.rule !== -2 && ch.channel_id && embedCfgs[ch.channel_id]) { const pick = pickEmbed(embedCfgs, counts, { ...c, channel_id: old && old.channel_id, video_id: r.video_id }); // several embed channels → rotate
+        if (pick) { ch = { ...ch, channel_id: pick }; (counts[pick] = counts[pick] || { today: 0, total: 0 }); if (!old || old.channel_id !== pick) { counts[pick].today++; counts[pick].total++; } } }
       if (!ch.channel_id || !cfgs[ch.channel_id]) { skipped.push({ id: r.clip, why: ch.why || 'no-channel' }); continue; }
       (routed[ch.channel_id] = routed[ch.channel_id] || []).push(c); rows.push([r.clip, ch]);
     }
@@ -158,7 +166,7 @@ const OPS = {
   },
   /** System area: embed channels, "ready for lessons" queue, per-lesson embed status, broken/private/deleted → self-hosted fallback, coverage map topic × CEFR. */
   async embed_status(db, b, who, env) {
-    const chs = await channels(db), embed = new Set(chs.filter(c => c.platform === 'youtube' && c.cfg.role === 'embed').map(c => c.channel_id));
+    const chs = await channels(db), embed = new Set(chs.filter(c => c.platform === 'youtube' && c.cfg.role === 'embed' && c.cfg.active && c.status === 'ok').map(c => c.channel_id));
     const m = await manifest(env), by = new Map(m.items.map(x => [x.id, x])), off = new Set((await all(db, 'SELECT clip FROM clip_review WHERE web = 0 OR deleted > 0')).map(r => r.clip));
     const plan = new Map((await all(db, 'SELECT clip, channel_id FROM yt_plan')).map(r => [r.clip, r.channel_id]));
     const q = await all(db, 'SELECT q.clip, q.status, q.video_id, q.privacy, q.err, q.channel_id, q.title, p.file_id FROM yt_queue q LEFT JOIN yt_pack p ON p.clip = q.clip ORDER BY q.approved_at DESC LIMIT 2000');
@@ -172,7 +180,8 @@ const OPS = {
       lessons.push(row); if (bad && bad !== 'web-off') broken.push(row);
       const k = (v.topic || 'other') + '|' + (String(it.cefr || '?').toUpperCase()); cov[k] = cov[k] || { yt: 0, self: 0 }; cov[k][bad ? 'self' : 'yt']++;
     }
-    return { channels: chs.filter(c => c.platform === 'youtube').map(c => ({ channel_id: c.channel_id, title: c.title, role: c.cfg.role, active: c.cfg.active, status: c.status })), ready: ready.slice(0, 300), lessons: lessons.slice(0, 500), broken, coverage: Object.entries(cov).map(([k, n]) => ({ topic: k.split('|')[0], cefr: k.split('|')[1], ...n })) };
+    const cnt = {}; for (const l of lessons) if (l.channel_id) cnt[l.channel_id] = (cnt[l.channel_id] || 0) + 1;
+    return { channels: chs.filter(c => c.platform === 'youtube').map(c => ({ channel_id: c.channel_id, title: c.title, role: c.cfg.role, active: c.cfg.active, status: c.status, clips: cnt[c.channel_id] || 0, rotating: c.cfg.role === 'embed' && c.cfg.active && c.status === 'ok' })), ready: ready.slice(0, 300), lessons: lessons.slice(0, 500), broken, coverage: Object.entries(cov).map(([k, n]) => ({ topic: k.split('|')[0], cefr: k.split('|')[1], ...n })) };
   },
 };
 const WRITE = new Set(['cfg_set', 'rules_set', 'plan_run', 'plan_set', 'resume', 'alerts_clear', 'ext_sync', 'social_ack']);

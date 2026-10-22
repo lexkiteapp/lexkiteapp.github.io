@@ -16,7 +16,7 @@
  *   uploads in YouTube Studio as Unlisted; `sync` (admin button + youtube-manual.yml cron) reads the uploads playlist with youtube.readonly only,
  *   matches the description marker "lk:<clip>", checks unlisted/public + processing done + duration → status 'done' → op ids → web manifest
  *   embeds YouTube exactly like an API upload. 'api': the resumable upload path above (needs youtube.upload). Never browser bots / cookies. */
-import { healthVerdict, localDate, localHM, normCfg } from './_distribution.js';
+import { healthVerdict, localDate, localHM, normCfg, pickEmbed } from './_distribution.js';
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
 import { signState, verifyState, encryptToken, decryptToken, cliVerify, driveMedia } from './drive.js';
@@ -418,7 +418,8 @@ const CLI_OPS = {
   async ids(db) {
     const rows = await all(db, 'SELECT clip, lesson, status, privacy, publish_at, video_id, channel_id FROM yt_queue'), now = Date.now();
     const web = {}, off = new Set((await all(db, 'SELECT clip FROM clip_review WHERE web = 0 OR deleted > 0')).map(r => r.clip));
-    const embed = new Set(); for (const c of await all(db, 'SELECT channel_id, cfg FROM yt_chan_cfg')) { try { const x = JSON.parse(c.cfg || '{}'); if (x.role === 'embed' && x.active !== 0) embed.add(c.channel_id); } catch (e) { /* skip */ } }
+    const embed = new Set(), okCh = new Set((await all(db, "SELECT channel_id FROM yt_channel WHERE status = 'ok'")).map(r => r.channel_id)); // any active embed channel in good standing; a bad one → its lessons use the self-hosted rendition
+    for (const c of await all(db, 'SELECT channel_id, cfg FROM yt_chan_cfg')) { if (!okCh.has(c.channel_id)) continue; try { const x = JSON.parse(c.cfg || '{}'); if (x.role === 'embed' && x.active !== 0) embed.add(c.channel_id); } catch (e) { /* skip */ } }
     for (const r of rows) if (!off.has(r.clip) && embed.has(r.channel_id) && r.status === 'done' && r.video_id && (r.privacy === 'unlisted' || r.privacy === 'public' || (r.publish_at && Date.parse(r.publish_at) <= now))) { web[r.clip] = r.video_id; if (r.lesson) web[r.lesson] = r.video_id; }
     const purge = (await all(db, 'SELECT clip FROM clip_review WHERE deleted = 2')).map(r => r.clip); // "Xóa hẳn" → shorts-archive.mjs trashes Drive files + drops the recipe, then op purged
     return { purge, approved: rows.map(r => r.clip), uploaded: Object.fromEntries(rows.filter(r => r.video_id).map(r => [r.clip, r.video_id])), web };
@@ -481,7 +482,10 @@ const CLI_OPS = {
   /** Pack builder (scripts/video/yt-pack.mjs): clips waiting for a pack + packs of live clips to retire (Drive trash after 3 days on the web). */
   async packs(db, b, who, env) {
     const todo = await all(db, "SELECT p.clip AS id, q.lesson, pl.channel_id FROM yt_pack p JOIN yt_queue q ON q.clip = p.clip LEFT JOIN yt_plan pl ON pl.clip = p.clip WHERE q.status = 'manual' AND p.file_id IS NULL ORDER BY q.approved_at LIMIT 20");
-    for (const t of todo) t.role = t.channel_id ? (await chanCfg(db, t.channel_id)).cfg.role : 'embed'; // manual path = unlisted → embed unless planned to a social channel
+    const eCfg = {}; for (const c of await all(db, "SELECT channel_id FROM yt_channel WHERE status = 'ok'")) { const x = (await chanCfg(db, c.channel_id)).cfg; if (x.role === 'embed') eCfg[c.channel_id] = x; }
+    const cnt = {}; for (const r of await all(db, 'SELECT channel_id, COUNT(*) AS n FROM yt_plan WHERE channel_id IS NOT NULL GROUP BY channel_id')) cnt[r.channel_id] = { today: 0, total: r.n };
+    for (const t of todo) { t.role = t.channel_id ? (await chanCfg(db, t.channel_id)).cfg.role : 'embed'; // manual path = unlisted → embed unless planned to a social channel
+      if (!t.channel_id && Object.keys(eCfg).length > 1) { const pick = pickEmbed(eCfg, cnt, { id: t.id }); if (pick) { t.channel_id = pick; (cnt[pick] = cnt[pick] || { today: 0, total: 0 }).total++; await run(db, "INSERT INTO yt_plan (clip, channel_id, slot_ms, source, rule, why, updated) VALUES (?, ?, NULL, 'auto', -1, NULL, ?) ON CONFLICT(clip) DO NOTHING", t.id, Date.now()); } } }
     const retire = await all(db, "SELECT p.clip AS id, p.sha FROM yt_pack p JOIN yt_queue q ON q.clip = p.clip WHERE q.status = 'done' AND q.err IS NULL AND p.retired = 0 AND p.sha IS NOT NULL AND q.updated < ? LIMIT 20", Date.now() - 3 * 864e5);
     return { todo, retire, mode: await modeOf(db, env) };
   },
