@@ -41,7 +41,8 @@ jobs:
         run: |
           mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/shorts && chmod 600 ~/.ssh/shorts
           ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
-          GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes" git clone -q --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
+          export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/shorts -o IdentitiesOnly=yes"   # partial clone: checkout fetches blobs lazily
+          git clone -q --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
           git -C /tmp/shorts sparse-checkout set --no-cone '/recipes/' '/shorts/index.json'; git -C /tmp/shorts checkout -q
           ls /tmp/shorts/recipes >/dev/null 2>&1 || { echo "::error::chưa có recipes/ (chạy shorts-migrate trước)"; exit 1; }
       - name: Footage (sparse, đúng phiên bản trong công thức nếu có)
@@ -61,6 +62,7 @@ jobs:
       - name: Dựng lại + so sánh
         env: { IDS: '${{ github.event.inputs.ids }}', MIN: '${{ github.event.inputs.min_ssim }}', LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
         run: |
+          export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/shorts -o IdentitiesOnly=yes"   # git-history fallback for the reference master
           mkdir -p depth rb_out; cp -n footage/anchor/news/depth/*.png depth/ 2>/dev/null || true
           fail=0; echo "### Rebuild from recipe" >> $GITHUB_STEP_SUMMARY
           for id in ${IDS//,/ }; do
