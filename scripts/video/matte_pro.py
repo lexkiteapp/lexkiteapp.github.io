@@ -32,6 +32,7 @@ ap.add_argument('--model', default='hustvl/vitmatte-small-composition-1k')
 ap.add_argument('--frames', default='')
 ap.add_argument('--band', type=int, default=6, help='unknown half-width (px) on the body')
 ap.add_argument('--hair-band', type=int, default=12, help='unknown half-width (px) in the hair zone')
+ap.add_argument('--edge-pull', type=float, default=0.0, help='0..1: blend edge-band colour (alpha<0.95) toward the host colour 3-7 px inside (dark knit edges: navy sweater gc8_* failed edge_de 6.2 -> 0.7 fixes, recon unchanged)')
 ap.add_argument('--tile', type=int, default=512)
 ap.add_argument('--threads', type=int, default=4)
 ap.add_argument('--crf', type=int, default=6)
@@ -190,13 +191,17 @@ for t in range(N):
     F[y0:y1, x0:x1] = estimate_foreground_ml(img[y0:y1, x0:x1].astype(np.float64) / 255, al[y0:y1, x0:x1].astype(np.float64)) * 255
     edge = (al > 0.004) & (al < 0.996); band = cv2.dilate(edge.astype(np.uint8), disk(3)) > 0
     F = MR.keylight_spill(F, al, band=band.astype(np.float32))
+    if a.edge_pull > 0:   # 22/10 Part B: dark knit edges keep a lighter/greener rim after ML foreground + Keylight luma add-back
+        import matte_qa as MQ
+        Fi, okm = MQ._inner_mean(F, al); w = np.clip((0.95 - al) / 0.85, 0, 1) * a.edge_pull * ((al > 0.004) & okm)
+        F = F * (1 - w[..., None]) + Fi * w[..., None]
     F = MR.extend_colour(F, al, thr=0.02)   # colour under transparent pixels = nearest host colour (never green / black)
     a8 = (al * 255 + 0.5).astype(np.uint8)
     EC.stdin.write(np.ascontiguousarray(F[..., ::-1]).clip(0, 255).astype(np.uint8).tobytes()); EM.stdin.write(a8.tobytes())
     e = (a8 > 0) & (a8 < 255); st['frac'].append(float(e.sum()))
     st['spill'].append(float(np.clip(F[..., 1] - np.maximum(F[..., 0], F[..., 2]), 0, None)[edge].mean() / 255) if edge.any() else 0.0)
 EC.stdin.close(); EM.stdin.close(); EC.wait(); EM.wait()
-out = dict(id=a.id, engine=a.engine, model=a.model if a.engine == 'vitmatte' else 'pymatting-cf', frames=N, size=[W, H], key=[int(v) for v in KC],
+out = dict(id=a.id, engine=a.engine, edge_pull=a.edge_pull, model=a.model if a.engine == 'vitmatte' else 'pymatting-cf', frames=N, size=[W, H], key=[int(v) for v in KC],
            tiles_per_frame=round(NT / max(1, N), 1), edge_px_mean=round(float(np.mean(st['frac'])), 0), spill_mean=round(float(np.mean(st['spill'])), 5),
            secs=round(time.time() - t0, 1), colour=os.path.relpath(oc, a.green), alpha=os.path.relpath(om, a.green),
            mb=[round(os.path.getsize(oc) / 1e6, 1), round(os.path.getsize(om) / 1e6, 1)])
