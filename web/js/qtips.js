@@ -95,6 +95,8 @@
   function record(sk, res, root, kind) {
     const tally = {};
     Object.values(res || {}).forEach(r => { const k = (typeof kind === 'function' ? kind(r) : kind) || r.kind || 'mcq'; (tally[k] = tally[k] || { r: 0, t: 0 }); tally[k].t++; if (r.ok) tally[k].r++; });
+    const r = Object.values(tally).reduce((a, v) => a + v.r, 0), n = Object.values(tally).reduce((a, v) => a + v.t, 0);
+    if (n && g.dispatchEvent) g.dispatchEvent(new CustomEvent('lexkite:test-done', { detail: { sk, r, t: n } })); // lớp học (classroom.js) ghi bài được giao
     return save(sk, tally, secsOf(root));
   }
   // Thẻ kết quả theo dạng câu cho trang kết quả thi thử: tỉ lệ đúng từng dạng + mẹo cho dạng yếu nhất (< 75%)

@@ -170,6 +170,17 @@
       "match": []
     },
     {
+      "key": "classroom",
+      "name": "Lớp học – Teacher/Classroom mode (/api/class)",
+      "kind": "feature",
+      "purpose": "Giáo viên tạo lớp (mã 6 ký tự), học sinh tham gia, giao bộ từ/đề luyện có sẵn, xem tiến độ (web/js/classroom.js tải lười, route #/class) ← functions/api/class.js (POST, cần Firebase ID token). D1 lexkite-sync: bảng classes, class_member, class_task, class_progress (CREATE TABLE IF NOT EXISTS khi gọi lần đầu; xóa tài khoản dọn qua account.js DELETE_SQL). Hạn mức _quota.js tính năng 'classroom'. Nút 'Chia sẻ lên Google Classroom' dùng link công khai classroom.google.com/share (không OAuth, không API). Tài liệu docs/CLASSROOM.md · trang /schools (content/legal/*/schools.html).",
+      "console": "https://lexkite.com/app/#/class",
+      "free": "D1: 'mine'/'report' vài lượt đọc mỗi lần mở trang lớp; mỗi lượt xong bài của học sinh = 1 batch ghi; giới hạn 30 lượt/phút/uid, 1.500/ngày",
+      "upgrade": "Trường lớn (> 300 học sinh/lớp hoặc báo cáo nặng) → gộp truy vấn report, phân trang",
+      "status": "Miễn phí",
+      "match": []
+    },
+    {
       "key": "turnstile",
       "name": "Cloudflare Turnstile",
       "kind": "security",
@@ -671,7 +682,8 @@
       "learningenglish.voanews.com",
       "learnenglish.britishcouncil.org",
       "ielts.org",
-      "ielts.idp.com"
+      "ielts.idp.com",
+      "classroom.google.com"
     ]
   }
 }

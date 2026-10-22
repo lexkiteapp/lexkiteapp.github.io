@@ -3,7 +3,7 @@
  *   → { ok: true, firebase: 'deleted' | 'client' }   ('client' = máy khách tự gọi user.delete() của Firebase)
  *   → 401 { error: 'reauth' } khi lần đăng nhập gần nhất đã quá 10 phút (chống dùng token bị lộ để xóa tài khoản người khác)
  * Xóa trên D1: dữ liệu học đã đồng bộ (docs), hồ sơ tài khoản (users), liên kết mã khách ↔ tài khoản (vid_uid), bảng xếp hạng
- * (league_member, league_week). Báo lỗi đã gửi: GỠ liên kết (uid, email, nhận tin) – nội dung lỗi ẩn danh giữ lại để sửa lỗi.
+ * (league_member, league_week), lớp học (classes, class_member, class_task, class_progress – cả lớp mình dạy). Báo lỗi đã gửi: GỠ liên kết (uid, email, nhận tin) – nội dung lỗi ẩn danh giữ lại để sửa lỗi.
  * Tài khoản Firebase Authentication: xóa qua REST accounts:delete bằng chính ID token của người dùng (không cần khóa quản trị). */
 import { claims as verifyClaims, limit } from './sync.js';
 
@@ -26,6 +26,10 @@ export const DELETE_SQL = [
   'DELETE FROM vid_uid WHERE uid = ?1',
   'DELETE FROM user_backups WHERE uid = ?1',
   'DELETE FROM notice_reads WHERE uid = ?1',
+  'DELETE FROM class_progress WHERE uid = ?1 OR cls IN (SELECT id FROM classes WHERE owner = ?1)', // lớp học: tiến độ của tôi + của lớp tôi dạy
+  'DELETE FROM class_member WHERE uid = ?1 OR cls IN (SELECT id FROM classes WHERE owner = ?1)',
+  'DELETE FROM class_task WHERE cls IN (SELECT id FROM classes WHERE owner = ?1)',
+  'DELETE FROM classes WHERE owner = ?1',
   "UPDATE reports SET uid = '', email = '', notify = 0 WHERE uid = ?1",
   'DELETE FROM users WHERE uid = ?1',
 ];

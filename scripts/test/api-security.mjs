@@ -104,6 +104,17 @@ ok((await run(ADMIN, req('/api/admin', { op: 'noticeCreate', title: 'x', body: '
   ok(row && row.target === JSON.stringify({ type: 'filter', plat: 'web' }), 'notices: target chỉ giữ trường hợp lệ'); }
 ok((await run(NOTI, req('/api/notices', { id: 'n_khong_co_that' }, { token: USER }))).s === 404, 'notices: đánh dấu id không tồn tại → 404 (không spam bảng)');
 ok((await run(NOTI, req('/api/notices', 'x'.repeat(5000), { token: USER }))).s === 413, 'notices: thân quá lớn → 413');
+const CLS = await import(new URL('../../functions/api/class.js', import.meta.url));
+{ ok((await run(CLS, req('/api/class', { op: 'mine' }))).s === 401, 'class: không token → 401');
+  const T = await tok({ sub: 'teach-1' }), U = await tok({ sub: 'stud-1', email: 'kid@school.edu' }), X = await tok({ sub: 'other-1' });
+  const c = await run(CLS, req('/api/class', { op: 'create', name: 'Lớp 9A' }, { token: T }));
+  ok(c.s === 200 && c.j.cls && c.j.cls.code && !leaks(c.text), 'class: tạo lớp');
+  ok((await run(CLS, req('/api/class', { op: 'constructor', cls: c.j.cls.id }, { token: T }))).s === 400, 'class: op lạ → 400');
+  ok((await run(CLS, req('/api/class', { op: 'join', code: c.j.cls.code, name: 'An' }, { token: U }))).s === 200, 'class: tham gia bằng mã');
+  for (const op of ['report', 'assign', 'kick', 'delete', 'newcode']) ok((await run(CLS, req('/api/class', { op, cls: c.j.cls.id, ref: 'il:1', uid: 'stud-1' }, { token: op === 'report' ? U : X }))).s === 404, `class: không phải chủ lớp → ${op} 404`);
+  const rp = await run(CLS, req('/api/class', { op: 'report', cls: c.j.cls.id }, { token: T }));
+  ok(rp.s === 200 && rp.j.members.length === 1 && !rp.text.includes('kid@school.edu'), 'class: báo cáo của chủ lớp không lộ email học sinh');
+  ok((await run(CLS, req('/api/class', { op: 'mine' }, { token: T, origin: 'https://evil.example' }))).h.get('Access-Control-Allow-Origin') === null, 'class: CORS chặn origin lạ'); }
 
 // ---------- 3) Thân yêu cầu null / quá lớn ----------
 ok((await run(S, req('/api/sync', 'null', { token: USER }))).s === 400, 'sync: thân null → 400 (không ném lỗi)');

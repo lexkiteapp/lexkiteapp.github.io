@@ -73,6 +73,7 @@
       try { if (u) localStorage.setItem('lk.acct', JSON.stringify({ displayName: u.displayName || '', photoURL: u.photoURL || '' })); else localStorage.removeItem('lk.acct'); } catch (e) { /* bỏ qua */ }
       App.updateChrome(); render();
       if (u && /[?&]delete=account\b/.test(location.hash)) Sync.deleteAccount();
+      try { if (u && localStorage.getItem('lk.cls') === '1') App.need('classroom'); } catch (e) { /* học sinh lớp học: ghi tiến độ bài được giao */ }
       if (u) { await pullMerge(); if (extReady) extCall('linked', { email: u.email, name: u.displayName || '' }); }
       else nudgeLogin();
     });

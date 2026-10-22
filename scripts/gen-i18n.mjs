@@ -31,7 +31,8 @@ const old = { ...(fs.existsSync(outFile) ? (load(outFile)[lang] || {}) : {}) };
 if (fs.existsSync(langDir)) {
   for (const g of lazyList) {
     const gf = path.join(langDir, `${g}.js`);
-    if (fs.existsSync(gf)) Object.assign(old, load(gf)[lang] || {});
+    // split-i18n.mjs điền tạm tiếng Anh cho khóa lười chưa dịch → giá trị trùng tiếng Anh coi như CHƯA dịch (nếu không, khóa mới không bao giờ được dịch)
+    if (fs.existsSync(gf)) for (const [k, v] of Object.entries(load(gf)[lang] || {})) if (v !== lazyGroups[g][k]) old[k] = v;
   }
 }
 
