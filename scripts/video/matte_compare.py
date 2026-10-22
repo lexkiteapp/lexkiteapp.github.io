@@ -49,10 +49,11 @@ B0 = cv2.imread(a.bg); B0 = cv2.GaussianBlur(cv2.resize(B0, (1080, 1916), interp
 
 
 def rois(al, img):
-    h = al > 0.5; H = al.shape[0]; rows = np.where(h.any(1))[0]; top = int(rows[0])
+    n_, lab_, st_, _ = cv2.connectedComponentsWithStats((al > 0.5).astype(np.uint8))
+    h = lab_ == 1 + int(np.argmax(st_[1:, cv2.CC_STAT_AREA])); H = al.shape[0]; rows = np.where(h.any(1))[0]; top = int(rows[0])   # main figure only
     def side(y, right=False):
         c = np.where(h[min(H - 1, y)])[0]; return (int(c.max()) if right else int(c.min())), y
-    hair = side(top + 25); ear = side(top + int(0.10 * H)); sh = side(top + int(0.27 * H), right=True)
+    hair = side(top + 25); ear = side(top + int(0.15 * H)); sh = side(top + int(0.27 * H), right=True)
     ycc = cv2.cvtColor(np.clip(img, 0, 255).astype(np.uint8), cv2.COLOR_BGR2YCrCb)
     skin = h & (ycc[..., 1] > 135) & (ycc[..., 1] < 175) & (ycc[..., 2] > 80) & (ycc[..., 2] < 130)
     skin[: top + int(0.33 * H)] = False

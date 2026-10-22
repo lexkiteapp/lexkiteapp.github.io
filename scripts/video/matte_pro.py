@@ -13,7 +13,7 @@ Steps (owner 22/10 "lỗi viền, vỡ hình" -> studio pipeline):
   2. trimap: confident FG / BG, unknown band ~12 px on the body, ~24 px in the hair zone (top 30 % of the frame below the hair top)
   3. natural-image matting on the unknown band: ViTMatte-S (hustvl, code MIT, weights Apache-2.0) in 512 px tiles with
      Hann-weighted overlap; fallback pymatting closed-form (MIT)
-  4. temporal stability: neighbour alphas warped with OpenCV DIS flow, blended only where the warp is photo-consistent
+  4. temporal stability: alphas of t-2..t+2 warped with OpenCV DIS flow, blended only where the warp is photo-consistent
      (static edges stop boiling, moving hands keep their own alpha = crisp)
   5. foreground colour: pymatting estimate_foreground_ml (MIT) -> edge pixels carry hair/skin colour, not green/black
   6. Keylight-style spill (G <= max(R,B), luminance put back) on the edge band only; colour under alpha 0 = push-pull host colour
@@ -155,10 +155,10 @@ def warp_from(t, s):
 
 AS = []
 for t in range(N):
-    num = AL[t] * 0.5; den = np.full((H, W), 0.5, np.float32)
-    for s in (t - 1, t + 1):
+    num = AL[t] * 0.4; den = np.full((H, W), 0.4, np.float32)
+    for s, wt in ((t - 1, 0.2), (t + 1, 0.2), (t - 2, 0.1), (t + 2, 0.1)):   # 5-frame window (3 frames left gc4 edges at flicker 0.034)
         if 0 <= s < N:
-            aw, w = warp_from(t, s); num += 0.25 * w * aw; den += 0.25 * w
+            aw, w = warp_from(t, s); num += wt * w * aw; den += wt * w
     unk = TRI[t][0]; out = AL[t].copy(); out[unk] = (num / den)[unk]
     AS.append(np.clip(out, 0, 1))
 print(f'  temporal done {time.time() - t0:.0f}s', flush=True)

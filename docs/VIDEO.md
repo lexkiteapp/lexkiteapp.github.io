@@ -48,6 +48,7 @@ Diễn cảnh (paused): `lesson5.py`, `qa5.py`, `gen_lessons.py`, … – `docs/
 
 ## 6. Kho tài sản (bank)
 - `brand/library/cine/anchor/green/` – clip phông xanh host (Ama `ga2_*`, Carlos `gc_*`; chuỗi interp24 → `chroma_key.py` → asset_check → expand → bank.py).
+  - **PRO matte (22/10)**: `green/kfull_pro/<id>.mp4` (H.264 4:4:4 CRF 6) + `green/kmask_pro/<id>.mkv` (alpha FFV1 lossless) từ `scripts/video/matte_pro.py` (trimap chroma → ViTMatte-S → `estimate_foreground_ml` → spill Keylight ở dải mép → alpha ổn định theo DIS flow). Chạy CI `matte-pro.yml` (inputs `clips`, `sheet`, `video`), kéo artifact về `green/`, rồi `footage-backup.sh`. Cổng: `scripts/video/matte_qa.py gate <green> <clips>` (recon, edge dE, spill, dark/light, flicker, hair_frac). Bật trong news: `NEWS_MATTE=pro` + `MR.layer_paths/mask_levels(lossless)/finish_host`.
 - `brand/library/cine/anchor/bg/` + `index.json` – thư viện nền news (≥ 23 cảnh, Kling i2i với `style_ref_bg.jpg`).
 - `brand/library/cine/<cafe|airport|hotel>/` – kho diễn cảnh (`bank.json`, `dl24/`, `vis3/`, `tools/`); `restaurant/` bị loại.
 - Nội dung: `content/video/cine/news/{bank,bg_topics,lines}.json`, `content/video/cine/{used,coverage}.json`, `content/video/cine/publish/`.
