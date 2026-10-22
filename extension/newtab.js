@@ -7,7 +7,7 @@
   const { Store, Cards, SRS, DEFAULT_SETTINGS, keyOf } = Core;
   const XL = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'], pick = l => { l = String(l || '').toLowerCase().split('-')[0]; return XL.includes(l) ? l : null; };
   const getJSON = p => fetch(chrome.runtime.getURL(p)).then(r => (r.ok ? r.json() : {})).catch(() => ({}));
-  const [stored, cards, local] = await Promise.all([Store.get('settings', {}), Cards.all(), chrome.storage.local.get(['uiLang', 'ntQuiz', 'ntDay', 'ntSlow']).catch(() => ({}))]);
+  const [stored, cards, local] = await Promise.all([Store.get('settings', {}), Cards.all(), chrome.storage.local.get(['uiLang', 'ntQuiz', 'ntDay', 'ntAcc']).catch(() => ({}))]);
   const settings = { ...DEFAULT_SETTINGS, ...stored };
   const toDefault = async () => { try { const tab = await chrome.tabs.getCurrent(); chrome.tabs.update(tab.id, { url: 'chrome://new-tab-page/' }); } catch (e) { location.replace('https://www.google.com/'); } };
   if (settings.newtabOn === false) return toDefault();
@@ -56,34 +56,40 @@
     }
     return 'resilience';
   };
-  let qi = 0, quiz = !!local.ntQuiz, slow = !!local.ntSlow, cur = null;
+  let qi = 0, quiz = !!local.ntQuiz, cur = null, lastAcc = local.ntAcc === 'us' || local.ntAcc === 'uk' ? local.ntAcc : settings.accent === 'en-US' ? 'us' : 'uk';
 
   // Âm thanh: giọng Anh = mp3 Kokoro (bf_emma) trong kho audio.lexkite.com nếu có (khóa giống web/js/listen/kvoice.js), không thì giọng máy; giọng Mỹ = giọng máy en-US.
   const fnv = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); };
   const AU = ['https://audio.lexkite.com/audio/l/', 'https://lexkiteapp.github.io/audio/l/'];
   let audioEl = null;
   const pickVoice = lang => speechSynthesis.getVoices().filter(x => x.lang.replace('_', '-') === lang).sort((a, b) => (/Natural|Online|Google/.test(b.name) ? 1 : 0) - (/Natural|Online|Google/.test(a.name) ? 1 : 0))[0];
-  const tts = (text, lang) => {
+  // Phát NGAY trong trình xử lý bấm (giữ "user gesture" của Chrome – không chờ voiceschanged/await trước khi speak/play).
+  // 🐢 = phát chậm (mp3 0,7× giữ cao độ; giọng máy 0,6×) theo giọng vừa nghe gần nhất (mặc định Anh). Không mạng/không mp3 → speechSynthesis
+  // (giọng cài sẵn của máy chạy offline; chrome.tts cần thêm quyền "tts" nên không dùng – permissions.lock).
+  const tts = (text, lang, rate) => {
     if (!('speechSynthesis' in self)) return;
-    const go = () => { const u = new SpeechSynthesisUtterance(text); u.lang = lang; u.rate = slow ? 0.6 : settings.ttsRate || 0.92; const v = pickVoice(lang); if (v) u.voice = v; speechSynthesis.cancel(); speechSynthesis.speak(u); };
-    if (speechSynthesis.getVoices().length) return go();
-    let done = false; const f = () => { if (!done) { done = true; go(); } };
-    speechSynthesis.addEventListener('voiceschanged', f, { once: true }); setTimeout(f, 800);
+    const u = new SpeechSynthesisUtterance(text); u.lang = lang; u.rate = rate; const v = pickVoice(lang); if (v) u.voice = v;
+    speechSynthesis.cancel(); speechSynthesis.speak(u);
   };
-  const play = acc => {
+  const play = (acc, isSlow) => {
     if (!cur) return;
+    acc = acc === 'us' ? 'us' : 'uk';
+    if (!isSlow && acc !== lastAcc) { lastAcc = acc; chrome.storage.local.set({ ntAcc: acc }).catch(() => {}); }
     if (audioEl) { audioEl.onerror = null; audioEl.pause(); audioEl = null; }
     if ('speechSynthesis' in self) speechSynthesis.cancel();
+    const word = cur.word, lang = acc === 'us' ? 'en-US' : 'en-GB', ttsRate = isSlow ? 0.6 : settings.ttsRate || 0.92;
     if (acc === 'uk' && cur.mp3) {
-      const key = fnv('bf_emma|' + cur.word.trim()), tryAt = i => {
-        if (i >= AU.length) return tts(cur.word, 'en-GB');
-        const el = audioEl = new Audio(AU[i] + key + '.mp3'); el.preservesPitch = true; el.playbackRate = slow ? 0.7 : 1;
+      const key = fnv('bf_emma|' + word.trim()), tryAt = i => {
+        if (i >= AU.length || !navigator.onLine) return tts(word, lang, ttsRate);
+        const el = audioEl = new Audio(); el.preservesPitch = true;
+        el.defaultPlaybackRate = el.playbackRate = isSlow ? 0.7 : 1; // Chrome đặt lại playbackRate = defaultPlaybackRate khi nạp nguồn
+        el.src = AU[i] + key + '.mp3';
         el.onerror = () => { if (audioEl === el) tryAt(i + 1); };
         el.play().catch(() => el.onerror && el.onerror());
       };
       return tryAt(0);
     }
-    tts(cur.word, acc === 'us' ? 'en-US' : 'en-GB');
+    tts(word, lang, ttsRate);
   };
   if ('speechSynthesis' in self) speechSynthesis.getVoices();
 
@@ -133,13 +139,13 @@
     const groups = [['ntFamily', c.fam], ['ntColloc', c.col], ['ntSyn', c.syn], ['ntAnt', c.ant]].filter(g => g[1].length);
     $('#ntCard').innerHTML = `
       <div class="nt-head"><h1 class="nt-word" dir="ltr" lang="en">${esc(c.word)}</h1><span class="nt-chips">${posChips}${c.level ? `<span class="chip cefr" title="CEFR">${esc(c.level)}</span>` : ''}${ex3}</span></div>
-      ${ipaLine}<div class="spks">${pb('uk')}${pb('us')}<button class="spk" type="button" id="ntSlow" aria-pressed="${slow}" title="${esc(tx('ntSlow'))}" aria-label="${esc(tx('ntSlow'))}">🐢</button></div>
+      ${ipaLine}<div class="spks">${pb('uk')}${pb('us')}<button class="spk" type="button" id="ntSlow" title="${esc(tx('ntSlow'))}" aria-label="${esc(tx('ntSlow'))}">🐢</button></div>
       ${meanHtml ? `<div class="nt-body${quiz ? ' quiz-hidden' : ''}" id="ntBody">${meanHtml}<div class="veil"><button type="button" id="ntReveal" title="Space">${esc(tx('ntReveal'))}</button></div></div>` : ''}
       ${c.ex ? `<button class="ex" type="button" id="ntEx" title="${esc(L !== 'en' ? tx('ntTapTr') : tx('ntExample'))}" aria-label="${esc(tx('ntExample'))}"><span dir="ltr" lang="en">“${hl(c.ex, c.word)}”</span></button>` : ''}
       ${groups.length ? `<div class="more" role="group">${groups.map(([k, a], i) => `<button type="button" data-g="${i}" aria-expanded="false" aria-controls="ntPanel">${esc(tx(k))}<b>${a.length}</b></button>`).join('')}</div><div class="panel" id="ntPanel" dir="ltr" lang="en" hidden></div>` : ''}
       <div class="nt-act" id="ntAct">${c.saved ? `<button class="btn good" type="button" id="ntGood" title="1">${esc(tx('ntGot'))}</button><button class="btn" type="button" id="ntAgain" title="2">${esc(tx('ntAgain'))}</button>` : `<button class="btn add" type="button" id="ntAdd">${esc(tx('ntAdd'))}</button>`}<button class="btn next" type="button" id="ntNext" title="N">${esc(tx('ntNext'))}</button></div>`;
     $('#ntCard').querySelectorAll('[data-acc]').forEach(b => (b.onclick = () => play(b.dataset.acc)));
-    $('#ntSlow').onclick = () => { slow = !slow; $('#ntSlow').setAttribute('aria-pressed', slow); chrome.storage.local.set({ ntSlow: slow }).catch(() => {}); };
+    $('#ntSlow').onclick = () => play(lastAcc, true);
     if ($('#ntReveal')) $('#ntReveal').onclick = reveal;
     if ($('#ntMoreS')) $('#ntMoreS').onclick = () => { const o = $('#ntS2').hidden; $('#ntS2').hidden = !o; $('#ntMoreS').setAttribute('aria-expanded', o); };
     $('#ntCard').querySelectorAll('[data-g]').forEach(b => (b.onclick = () => {
@@ -189,7 +195,7 @@
     else if (k === '1' && cur && cur.saved) grade(2);
     else if (k === '2' && cur && cur.saved) grade(0);
     else if (k === 'n') next();
-    else if (k === 'p') play(settings.accent === 'en-US' ? 'us' : 'uk');
+    else if (k === 'p') play(lastAcc, e.shiftKey);
   });
   ring();
   await show();
