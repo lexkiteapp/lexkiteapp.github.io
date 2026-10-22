@@ -20,16 +20,17 @@
       const base = yt(), slot = document.createElement('div'); slot.className = 'lv-slot'; box.appendChild(slot);
       LV.play(slot, Object.assign({}, it, { youtube_id: '' }), {}); // self-hosted path renders
       out.checks.self_video = !!slot.querySelector('video');
+      await sleep(1500); slot.innerHTML = ''; await sleep(500); // dừng video tự lưu trữ của lần kiểm trên → không bị tính vào tác vụ dài của lần bấm
       const s2 = document.createElement('div'); box.appendChild(s2);
       out.checks.zero_yt_before_tap = yt() === base;
-      const t0 = performance.now(); let long = 0; // tác vụ dài NGAY khi bấm (300 ms) – tải/dự phòng sau đó trên máy giả lập không GPU không tính
-      try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (e.startTime >= t0 && e.startTime <= t0 + 300) long = Math.max(long, e.duration); }).observe({ type: 'longtask' }); } catch (e) { long = -1; }
+      const t0 = performance.now(); let long = 0; const lts = []; // tác vụ dài NGAY khi bấm (300 ms) – tải/dự phòng sau đó trên máy giả lập không GPU không tính
+      try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (e.startTime >= t0 && e.startTime <= t0 + 300) long = Math.max(long, e.duration); lts.push([Math.round(e.startTime - t0), Math.round(e.duration)]); }).observe({ type: 'longtask' }); } catch (e) { long = -1; }
       LV.play(s2, it, {}); await sleep(LV.YT_WAIT + 1500);
       const fr = s2.querySelector('iframe'), v = s2.querySelector('video');
       out.checks.iframe_ok = !!fr && /youtube-nocookie\.com\/embed\//.test(fr.src) && /playsinline=1/.test(fr.src) && /rel=0/.test(fr.src) && fr.getAttribute('loading') === 'lazy';
       out.checks.fallback = !!v; out.fallback_why = LV.lastFallback || '';
       out.checks.played = out.checks.iframe_ok || out.checks.fallback;
-      out.long_task_ms = long; out.checks.no_long_task = long <= 50;
+      out.long_task_ms = long; out.long_tasks = lts; out.marks = performance.getEntriesByType('mark').filter(m => /^lv:/.test(m.name)).map(m => [m.name, Math.round(m.startTime - t0)]); out.checks.no_long_task = long <= 50;
       out.blocked_region = LV.ytBlocked();
       out.ok = out.checks.self_video && out.checks.zero_yt_before_tap && out.checks.played && out.checks.no_long_task !== false;
       box.remove();

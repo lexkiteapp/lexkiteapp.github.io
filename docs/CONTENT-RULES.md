@@ -42,7 +42,7 @@
 
 ## 7. Nợ chất lượng hiện tại (ưu tiên trả dần)
 - ~2.800 từ NGSL thiếu ví dụ/phiên âm trong dữ liệu (cảnh báo `thiếu ví dụ`, `thiếu phiên âm`).
-- `notes-more.js` (314 KB gz), `notes-ngsl.js` (291 KB gz) vượt ngân sách file → tách theo chữ cái/lô khi sửa tới.
+- `content/notes-src/notes-more.js` (nguồn, không còn trong web/js; 314 KB gz), `notes-ngsl.js` (291 KB gz) vượt ngân sách file → tách theo chữ cái/lô khi sửa tới.
 
 ## 8. Alt & chú thích ảnh blog – cổng "caption truth" (bắt buộc)
 Ảnh chụp app dùng chung trong bài blog (`![alt](media:<id> "chú thích")`) chỉ được nói điều **màn hình thật sự có** – sự thật là `desc` trong `content/blog/shots.json`.

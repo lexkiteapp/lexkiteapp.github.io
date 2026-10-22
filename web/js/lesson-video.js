@@ -23,6 +23,9 @@
   const sent = {};
   const hit = (ev, id) => {
     if (ev === 'view' && sent[id]) return; if (ev === 'view') sent[id] = 1;
+    idle(() => hit1(ev, id));
+  };
+  const hit1 = (ev, id) => {
     try { const b = JSON.stringify({ t: 'v', ev, id }); if (navigator.sendBeacon && web) navigator.sendBeacon('/api/hit', b); else fetch(BASE + '/api/hit', { method: 'POST', body: b, keepalive: true }).catch(() => {}); } catch (e) { /* bỏ qua */ }
   };
 
@@ -76,6 +79,10 @@
       return /^Asia\/(Shanghai|Chongqing|Harbin|Urumqi|Kashgar)$/.test(tz) || /^zh(-cn|-hans|$)/.test(ln) && /^zh/.test(ui);
     } catch (e) { return false; }
   }
+  // Nhường luồng chính giữa các bước nặng (iframe → Y.Player) để mỗi tác vụ < 50 ms; việc không thiết yếu (đếm lượt xem) chạy lúc rảnh
+  const yieldMain = () => (g.scheduler && g.scheduler.yield ? g.scheduler.yield() : new Promise(r => setTimeout(r, 0)));
+  const idle = fn => { try { (g.requestIdleCallback || (f => setTimeout(f, 200)))(fn, { timeout: 2000 }); } catch (e) { setTimeout(fn, 200); } };
+  const mark = n => { try { performance.mark('lv:' + n); } catch (e) { /* bỏ qua */ } };
   let ytApi = null;
   const loadYT = () => ytApi || (ytApi = new Promise((ok, no) => {
     if (g.YT && g.YT.Player) return ok(g.YT);
@@ -96,20 +103,24 @@
     slot.innerHTML = `<div class="lv-pl lv-yt"><img src="${esc(it.poster)}" alt="" width="360" height="640"><span class="lv-spin" aria-hidden="true"></span><div id="lvyt-${esc(it.id)}"></div></div>
       <div class="lv-bar"><button type="button" class="btn sm lv-x" data-lv-close>${esc(T('Đóng video'))}</button></div><div class="lv-after" aria-live="polite"></div>`;
     const after = slot.querySelector('.lv-after'), host = slot.querySelector('.lv-yt'); let player = null, ready = false, fell = false;
-    const fallback = why => { if (fell || !slot.isConnected) return; fell = true; try { if (player && player.destroy) player.destroy(); } catch (e) { /* bỏ qua */ } hit('yt_fallback', it.id); LV.lastFallback = why; playSelf(slot, it, ctx); };
+    const fallback = why => { if (fell || !slot.isConnected) return; fell = true; try { if (player && player.destroy) player.destroy(); } catch (e) { /* bỏ qua */ } hit('yt_fallback', it.id); LV.lastFallback = why; mark('fallback'); yieldMain().then(() => { if (slot.isConnected) playSelf(slot, it, ctx); }); };
     const timer = setTimeout(() => { if (!ready) fallback('timeout'); }, YT_WAIT);
     slot.querySelector('[data-lv-close]').onclick = () => { clearTimeout(timer); fell = true; try { if (player && player.destroy) player.destroy(); } catch (e) { /* bỏ qua */ } card(slot, it, ctx); slot.querySelector('.lv-card').focus(); };
-    loadYT().then(Y => {
+    mark('tap'); // phần đồng bộ khi bấm chỉ dựng khung nhẹ; nạp API / tạo iframe / khởi tạo Player tách thành các tác vụ riêng
+    yieldMain().then(loadYT).then(async Y => {
       if (fell || !slot.isConnected) return;
+      mark('api');
       const q = new URLSearchParams({ enablejsapi: 1, playsinline: 1, rel: 0, modestbranding: 1, autoplay: 1, cc_load_policy: 1, cc_lang_pref: 'en', hl: 'en' }); if (/^https?:/.test(location.origin)) q.set('origin', location.origin);
       const fr = document.createElement('iframe'); fr.id = `lvyt-${it.id}`; fr.setAttribute('loading', 'lazy'); fr.title = it.title || 'Video'; fr.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; fr.allowFullscreen = true;
       fr.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(it.youtube_id)}?${q}`; host.querySelector(`#lvyt-${CSS.escape(it.id)}`).replaceWith(fr);
+      mark('iframe'); await yieldMain(); if (fell || !slot.isConnected) return;
       player = new Y.Player(fr, {
         events: {
           onReady: e => { if (fell) return; ready = true; clearTimeout(timer); host.classList.add('on'); hit('view', it.id); try { e.target.playVideo(); } catch (x) { /* bỏ qua */ } },
           onStateChange: e => { if (e.data === 0 && !fell) done(slot, it, ctx, after); },   // YT.PlayerState.ENDED
           onError: () => fallback('error'),
         } });
+      mark('player');
     }).catch(() => fallback('load'));
   }
 
