@@ -15,14 +15,15 @@ export function normCfg(c = {}) {
     windows: wins.length ? wins : d.windows, tz: validTz(c.tz) ? c.tz : d.tz, active: c.active === 0 || c.active === false ? 0 : 1 };
 }
 /** clip: {type, topic, sub, skill, cefr, exam, template, region?}. Empty list in a channel's settings = anything allowed. */
-export function allowed(cfg, clip) {
-  if (!cfg || !cfg.active) return false; // role: 'embed' = unlisted lesson host (never public), 'social' = growth channel (metadata / UI: follow-up)
-  if (cfg.types.length && !cfg.types.includes(clip.type)) return false;
-  if (cfg.topics.length && !cfg.topics.some(t => t === clip.topic || t === clip.sub)) return false;
-  if (cfg.skills.length && !cfg.skills.includes(clip.skill)) return false;
-  if (cfg.cefr.length && !cfg.cefr.includes(String(clip.cefr || '').toUpperCase())) return false;
-  return true;
+export function blockOf(cfg, clip) {
+  if (!cfg) return 'no-channel'; if (!cfg.active) return 'paused'; // role: 'embed' = unlisted lesson host (never public), 'social' = growth channel (_role_meta.js)
+  if (cfg.types.length && !cfg.types.includes(clip.type)) return 'type';
+  if (cfg.topics.length && !cfg.topics.some(t => t === clip.topic || t === clip.sub)) return 'topic';
+  if (cfg.skills.length && !cfg.skills.includes(clip.skill)) return 'skill';
+  if (cfg.cefr.length && !cfg.cefr.includes(String(clip.cefr || '').toUpperCase())) return 'cefr';
+  return '';
 }
+export const allowed = (cfg, clip) => !blockOf(cfg, clip);
 const condOk = (cond, clip) => Object.entries(cond || {}).every(([k, want]) => {
   const w = list(want).map(x => x.toLowerCase()); if (!w.length) return true;
   const have = k === 'topic' ? [clip.topic, clip.sub] : k === 'region' ? list(clip.regions || clip.region) : [clip[k]];
@@ -33,6 +34,27 @@ export function route(rules, cfgs, clip, fallback) {
   for (let i = 0; i < rules.length; i++) { const r = rules[i]; if (r.active === 0 || !condOk(r.cond, clip)) continue; if (allowed(cfgs[r.channel_id], clip)) return { channel_id: r.channel_id, rule: i }; }
   if (fallback && allowed(cfgs[fallback], clip)) return { channel_id: fallback, rule: -1 };
   return { channel_id: null, why: fallback && cfgs[fallback] && !cfgs[fallback].active ? 'fallback-paused' : 'no-channel' };
+}
+/** Channel id → platform. YouTube = our OAuth channel ids (UC…); social channels mirrored from GrabCast use "gc-<platform>-<account id>". */
+export const platformOf = id => { const m = /^gc-([a-z_]+)-/.exec(String(id || '')); return m ? m[1] : 'youtube'; };
+/** Multi-platform routing: first match wins PER PLATFORM (a clip gets ≤ 1 channel per platform); the fallback channel only covers YouTube. */
+export function routeAll(rules, cfgs, clip, fallback) {
+  const out = {};
+  rules.forEach((r, i) => { const p = platformOf(r.channel_id); if (r.active === 0 || out[p] || !condOk(r.cond, clip) || !allowed(cfgs[r.channel_id], clip)) return; out[p] = { channel_id: r.channel_id, rule: i, platform: p }; });
+  if (!out.youtube && fallback && allowed(cfgs[fallback], clip)) out.youtube = { channel_id: fallback, rule: -1, platform: 'youtube' };
+  return Object.values(out);
+}
+/** Rules editor "test a clip": why each rule wins / misses (off · no-match:<cond> · blocked:<cfg field> · shadowed = platform already taken) + final routes. */
+export function explain(rules, cfgs, clip, fallback) {
+  const won = new Set(), trace = rules.map((r, i) => {
+    const p = platformOf(r.channel_id), base = { i, channel_id: r.channel_id, platform: p };
+    if (r.active === 0) return { ...base, result: 'off' };
+    const miss = Object.keys(r.cond || {}).find(k => !condOk({ [k]: r.cond[k] }, clip)); if (miss) return { ...base, result: 'no-match', why: miss };
+    const why = blockOf(cfgs[r.channel_id], clip); if (why) return { ...base, result: 'blocked', why };
+    if (won.has(p)) return { ...base, result: 'shadowed' };
+    won.add(p); return { ...base, result: 'win' };
+  });
+  return { trace, routes: routeAll(rules, cfgs, clip, fallback) };
 }
 // ---- time zones ----
 const fmt = new Map();

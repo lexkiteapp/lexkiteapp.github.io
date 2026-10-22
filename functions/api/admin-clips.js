@@ -4,12 +4,14 @@
  *   export {ids ≤ 300}             → dòng CSV
  *   bulk {action, ids ≤ 100, params} → thao tác hàng loạt, kết quả TỪNG clip (client chia lô + tiếp tục khi gián đoạn)
  *     approve · unapprove · pause · resume · reject{reason} · restore · web_on · web_off · reschedule{start,days,from,to,offset,total} · channel{channel_id} · delete{hard}
- *     delete = DANGER (đăng nhập ≤ 15 phút). Xóa mềm: ẩn clip, giữ công thức; hard=true: đánh dấu xoá hẳn + bỏ khỏi hàng đợi YouTube.
+ *     delete = DANGER (đăng nhập ≤ 15 phút). Xóa mềm: ẩn clip, giữ công thức; hard=true (+ confirm = 'DELETE <n>'): deleted = 2, bỏ khỏi hàng đợi/kế hoạch → drive-shorts.yml
+ *     (shorts-archive.mjs) cho file Drive vào thùng rác + bỏ công thức khỏi kho lexkite-shorts → op youtube 'purged' (deleted = 3).
+ *     channel{channel_id} = ghi đè kênh YouTube (yt_plan nguồn 'manual', lượt plan_run kế đặt giờ).
  * Trạng thái duyệt/loại/tạm dừng/lịch/kênh nằm ở D1 clip_review (lớp phủ trên manifest); duyệt & gói đăng dùng chung youtube.js approveClips. */
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
 import { manifest, signed } from './admin-shorts.js';
-import { setup, approveClips, unqueueClip, slotToIso } from './youtube.js';
+import { setup, approveClips, unqueueClip, slotToIso, kick } from './youtube.js';
 import { TOPICS, SKILLS, EXAMS, CEFR, TYPES } from './_taxonomy.js';
 import { normFilter, viewOf, matches, sortRows, pageOf, spreadSlot, field, sectionOf, groupKey, SECTIONS, CTYPES } from './_clip_logic.js';
 
@@ -74,14 +76,16 @@ const OPS = {
       }
     } else if (action === 'channel') {
       const ch = String(p.channel_id || ''); if (ch && !(CHID.test(ch) && (await all(db, "SELECT 1 FROM yt_channel WHERE channel_id = ? AND status = 'ok'", ch)).length)) return { status: 404, error: 'not-found' };
-      for (const id of good) { await rv(id, { channel_id: ch || null }); done(id); }
+      for (const id of good) { await rv(id, { channel_id: ch || null }); if (ch) await run(db, "INSERT INTO yt_plan (clip, channel_id, slot_ms, source, rule, why, updated) VALUES (?, ?, NULL, 'manual', -2, NULL, ?) ON CONFLICT(clip) DO UPDATE SET channel_id = excluded.channel_id, source = 'manual', rule = -2, updated = excluded.updated", id, ch, now); else await run(db, "DELETE FROM yt_plan WHERE clip = ? AND source = 'manual'", id); done(id); }
     } else if (action === 'reject') {
       const reason = String(p.reason || '').trim().slice(0, 200); if (!reason) return { status: 400, error: 'reason' };
       for (const id of good) { await rv(id, { state: 'rejected', reason }); await unqueueClip(db, id); done(id); }
     } else if (action === 'unapprove') {
       for (const id of good) { const q = (await all(db, 'SELECT status FROM yt_queue WHERE clip = ?', id))[0]; if (!q) { done(id, false, 'not-approved'); continue; } if (!['queued', 'failed', 'manual'].includes(q.status)) { done(id, false, q.status); continue; } await unqueueClip(db, id); done(id); }
     } else if (action === 'delete') {
-      for (const id of good) { await rv(id, { deleted: p.hard ? 2 : 1 }); if (p.hard) await unqueueClip(db, id); done(id); }
+      if (p.hard && String(p.confirm || '') !== 'DELETE ' + Math.floor(+p.total || good.length)) return { status: 400, error: 'confirm' };
+      for (const id of good) { await rv(id, { deleted: p.hard ? 2 : 1 }); if (p.hard) { await unqueueClip(db, id); await run(db, "DELETE FROM yt_plan WHERE clip = ?", id); try { await run(db, "DELETE FROM dist_social WHERE clip = ? AND state = 'planned'", id); } catch (e) { /* table not created yet */ } } done(id); }
+      if (p.hard && good.length) await kick(env, 'drive-shorts.yml').catch(() => false);
     } else {
       const patch = { pause: { state: 'paused' }, resume: { state: null, reason: null }, restore: { state: null, reason: null, deleted: 0 }, web_on: { web: 1 }, web_off: { web: 0 } }[action];
       for (const id of good) { await rv(id, patch); done(id); }

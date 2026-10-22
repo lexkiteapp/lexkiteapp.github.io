@@ -153,7 +153,7 @@
         try { await h.yapi('settings', { mode: e.target.value }); } catch (x) { /* bỏ qua */ } ytBox(el);
       };
       const sb = el.querySelector('#yt-sync');
-      if (sb) sb.onclick = async () => { sb.disabled = true; try { const r = await h.yapi('sync'); toast(V('Đồng bộ xong: {k} khớp · {l} mới lên · {i} vấn đề', { k: r.matched, l: (r.live || []).length, i: (r.issues || []).length })); } catch (x) { toast(V('Kết nối YouTube lỗi: {e}', { e: x.code || x.message })); } ytBox(el); };
+      if (sb) sb.onclick = async () => { sb.disabled = true; try { const r = await h.yapi('sync', { channel_id: on ? ch.channel_id : undefined }); toast(V('Đồng bộ xong: {k} khớp · {l} mới lên · {i} vấn đề', { k: r.matched, l: (r.live || []).length, i: (r.issues || []).length })); } catch (x) { toast(V('Kết nối YouTube lỗi: {e}', { e: x.code || x.message })); } ytBox(el); };
       if (man) packCards(el.querySelector('#vid-ytp'), s);
     }
     // Đăng tay (chờ kiểm định API): 1 thẻ/clip – trạng thái, Tải gói, chép tiêu đề/mô tả/thẻ, Mở YouTube Studio, danh sách kiểm, dán link dự phòng
@@ -164,7 +164,8 @@
     async function packCards(el, s) {
       if (!el) return;
       let r, web = {};
-      try { r = await h.yapi('packs'); } catch (e) { el.innerHTML = ''; return; }
+      const sc = s && s.channel && s.channel.status === 'ok' ? s.channel.channel_id : undefined; // "Chọn kênh YouTube" (kênh mặc định) → gói đăng của kênh đó
+      try { r = await h.yapi('packs', { channel_id: sc }); } catch (e) { el.innerHTML = ''; return; }
       try { const vj = await (await fetch('/data/videos.json', { cache: 'no-store' })).json(); for (const x of vj.items || []) if (x.youtube_id) web[x.id] = x.youtube_id; } catch (e) { /* bỏ qua */ }
       const rows = (r.rows || []).filter(x => x.state !== 'live' || Date.now() - (x.updated || 0) < 7 * 864e5).map(x => ({ ...x, state: x.state === 'uploaded' && x.status === 'done' && web[x.id] === x.video_id ? 'live' : x.state }));
       const iss = ((s.sync || {}).issues || []).filter(i => i.kind === 'no-marker' || i.kind === 'unknown-clip' || i.kind === 'duplicate');

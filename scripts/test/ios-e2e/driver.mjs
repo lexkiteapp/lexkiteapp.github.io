@@ -133,6 +133,7 @@ for (const u of ['https://translate.googleapis.com/translate_a/single?client=gtx
 }
 log('Mạng CI:', JSON.stringify(netdiag));
 const res = { tag: TAG, netdiag, device: dev.name, runtime: dev.rt, done, launches, relaunches, crashes, events, shots };
+try { res.facade = JSON.parse(fs.readFileSync(path.join(E2E, 'facade.json'), 'utf8')); fs.copyFileSync(path.join(E2E, 'facade.json'), path.join(OUT, 'facade.json')); console.log((res.facade.ok ? '::notice::' : '::error::') + 'mặt tiền video iOS: ' + JSON.stringify(res.facade.checks)); } catch (e) { console.log('::warning::không có facade.json (đầu dò mặt tiền video chưa chạy)'); }
 fs.writeFileSync(path.join(OUT, 'results.json'), JSON.stringify(res, null, 1));
 log(`Xong: done=${done} sự kiện=${events.length} ảnh=${shots.length} mở lại=${relaunches} crash=${crashes.length}`);
 simq('shutdown', U);

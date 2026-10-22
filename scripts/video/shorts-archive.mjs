@@ -38,19 +38,29 @@ export function planArchive(items, keep, now = Date.now(), { maxRetire = 50 } = 
   return { promote: [...new Set(promote)], retire };
 }
 
-export async function ytLists({ fetcher = fetch, key = driveCliKey(), base = process.env.LEXKITE_API_BASE || 'https://lexkite.com' } = {}) {
+export async function ytLists({ fetcher = fetch, key = driveCliKey(), base = process.env.LEXKITE_API_BASE || 'https://lexkite.com', op = 'ids', body = {} } = {}) {
   if (!key) return {};
-  const text = JSON.stringify({ op: 'ids' });
+  const text = JSON.stringify({ op, ...body });
   try {
     const r = await fetcher(base.replace(/\/+$/, '') + '/api/youtube', { method: 'POST', headers: { 'Content-Type': 'application/json', ...driveSign(key, text) }, body: text });
     return r.ok ? await r.json() : {};
   } catch { return {}; }
 }
 
-export async function runArchive({ repo, dry = false, maxRetire = 50, rebalanceCalls = 10, pause = 4000, api = driveApi, yt = ytLists, log = console.log, now = Date.now() }) {
+export async function runArchive({ repo, dry = false, maxRetire = 50, rebalanceCalls = 10, pause = 4000, api = driveApi, yt = ytLists, purged = ids => ytLists({ op: 'purged', body: { ids } }), log = console.log, now = Date.now() }) {
   const IDX = path.join(repo, 'shorts', 'index.json'), idx = JSON.parse(fs.readFileSync(IDX, 'utf8'));
   const ap = (() => { try { return JSON.parse(fs.readFileSync('content/video/web/approved.json', 'utf8')).approved || []; } catch { return []; } })();
-  const keep = keepSet(idx.items, { approved: ap, youtube: await yt() });
+  const ytl = await yt(), keep = keepSet(idx.items, { approved: ap, youtube: ytl });
+  // "Xóa hẳn" in the admin (clip_review.deleted = 2): master + cover → Google trash, recipe (index entry + shorts/<id>/ files) dropped, then reported back.
+  const purge = new Set((ytl.purge || []).filter(x => /^[a-z0-9-]{3,120}$/.test(x))), gone = [];
+  for (const id of purge) {
+    const it = idx.items.find(e => e.id === id), shas = it && it.drive ? [it.drive.video, it.drive.cover].map(x => x && x.sha256).filter(Boolean) : [];
+    if (dry) { log(`purge (dry): ${id} · ${shas.length} file`); continue; }
+    if (shas.length) await api('retire', { sha256: shas, reason: 'owner hard delete' });
+    for (const f of [path.join(repo, 'shorts', id), path.join(repo, 'shorts', 'recipes', id + '.json')]) fs.rmSync(f, { recursive: true, force: true });
+    gone.push(id);
+  }
+  if (gone.length) { idx.items = idx.items.filter(e => !gone.includes(e.id)); fs.writeFileSync(IDX, JSON.stringify(idx, null, 1)); await purged(gone); log(`purge: ${gone.length} clip xoá hẳn (Drive → thùng rác, bỏ công thức)`); }
   const p = planArchive(idx.items, keep, now, { maxRetire });
   const sleep = ms => (ms ? new Promise(r => setTimeout(r, ms)) : Promise.resolve());
   const rep = { promote: p.promote.length, retire: p.retire.length, repaired: 0, retired: 0, rebalanced: 0, remaining: 0, dry };

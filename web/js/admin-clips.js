@@ -7,7 +7,7 @@
     'Chờ duyệt': 'To review', 'Đã duyệt': 'Approved', 'Đã đăng': 'Published', 'Lỗi QA': 'QA failed', 'Lưu trữ': 'Archive', 'Tìm tiêu đề, ý chính, mã…': 'Search title, point, id…', 'Sắp xếp': 'Sort', 'Mới nhất': 'Newest', 'Cũ nhất': 'Oldest', 'Điểm QA cao': 'QA high', 'Điểm QA thấp': 'QA low', 'Lịch đăng': 'Schedule', 'Lượt xem': 'Views', 'Tỉ lệ xem hết': 'Completion',
     'Nhóm theo': 'Group by', 'Không nhóm': 'No grouping', 'Mẫu': 'Template', 'Chủ đề / cảnh': 'Topic / scene', 'Ngày': 'Date', 'Tất cả mẫu': 'All templates', 'Bộ lọc': 'Filters', 'Bộ lọc nâng cao': 'Advanced filters', 'Xóa lọc': 'Clear filters', 'Đóng': 'Close', 'Trạng thái': 'Status', 'Tất cả': 'All',
     'QA đạt': 'QA pass', 'QA chưa đạt': 'QA fail', 'Đã duyệt (xếp hàng đăng)': 'Approved (queued)', 'Bị loại': 'Rejected', 'Tạm dừng': 'Paused', 'Gói đăng sẵn sàng': 'Pack ready', 'Đã đăng (dò thấy)': 'Uploaded (detected)', 'Trên web': 'On web', 'Đã tới lịch': 'Schedule due', 'Đã lên lịch': 'Scheduled', 'Chưa xếp lịch': 'Unscheduled',
-    'Định dạng': 'Format', 'Cảnh/chủ đề': 'Scene/topic', 'Kiểu mở đầu': 'Hook type', 'Người dẫn': 'Host', 'Bối cảnh': 'Background', 'Độ khó': 'Difficulty', 'Kênh YouTube': 'YouTube channel', 'Điểm QA từ': 'QA score from', 'đến': 'to', 'Theo ngày': 'By date', 'Ngày dựng': 'Rendered', 'Ngày lịch đăng': 'Scheduled', 'Từ ngày': 'From', 'Đến ngày': 'To', 'Hiện cả clip bị loại / tạm dừng': 'Show rejected / paused clips',
+    'Định dạng': 'Format', 'Loại nội dung': 'Content type', 'Video dài': 'Long videos', 'Chủ đề › chủ đề con': 'Topic › subtopic', 'Kỹ năng': 'Skill', 'Kỳ thi': 'Exam', 'Chưa xác nhận – không xóa.': 'Not confirmed – nothing deleted.', 'Xóa hẳn {n} video: file trên Kho Drive vào thùng rác và bỏ công thức – không hoàn tác. Gõ "{w}" để xác nhận.': 'Permanently delete {n} videos: Drive files go to the trash and the recipe is dropped – cannot be undone. Type "{w}" to confirm.', 'Cảnh/chủ đề': 'Scene/topic', 'Kiểu mở đầu': 'Hook type', 'Người dẫn': 'Host', 'Bối cảnh': 'Background', 'Độ khó': 'Difficulty', 'Kênh YouTube': 'YouTube channel', 'Điểm QA từ': 'QA score from', 'đến': 'to', 'Theo ngày': 'By date', 'Ngày dựng': 'Rendered', 'Ngày lịch đăng': 'Scheduled', 'Từ ngày': 'From', 'Đến ngày': 'To', 'Hiện cả clip bị loại / tạm dừng': 'Show rejected / paused clips',
     'Chế độ xem đã lưu': 'Saved views', 'Lưu bộ lọc hiện tại': 'Save current filters', 'Tên chế độ xem': 'View name', '{n} video': '{n} videos', 'Không có video nào khớp.': 'No videos match.', 'Đang tải…': 'Loading…', 'Không tải được: {e}': 'Could not load: {e}',
     'Chọn trang': 'Select page', 'Chọn tất cả {n} kết quả': 'Select all {n} results', 'Bỏ chọn': 'Clear', '{n} đã chọn': '{n} selected', 'Chọn thao tác…': 'Choose action…', 'Chạy': 'Run',
     'Duyệt & tạo gói đăng': 'Approve & build upload pack', 'Bỏ duyệt': 'Unapprove', 'Bỏ tạm dừng': 'Resume', 'Loại…': 'Reject…', 'Khôi phục': 'Restore', 'Đưa lên web': 'Put on web', 'Gỡ khỏi web': 'Take off web', 'Đổi lịch đăng…': 'Reschedule…', 'Chọn kênh YouTube…': 'Set YouTube channel…', 'Xuất CSV': 'Export CSV', 'Xóa…': 'Delete…',
@@ -16,7 +16,7 @@
     'Thao tác nhạy cảm: đăng xuất rồi đăng nhập lại, sau đó thử lại.': 'Sensitive action: sign out and sign in again, then retry.', 'Cần nhập lý do loại.': 'A reason is required.', 'Lịch không hợp lệ.': 'Invalid schedule.', 'Chưa chọn video nào.': 'Nothing selected.', 'Đã tải CSV.': 'CSV downloaded.',
     'Chờ duyệt, QA đạt': 'QA passed, awaiting review', 'Chưa có video ở mục này.': 'No videos in this section.',
   };
-  const KEYS = ['q', 'format', 'template', 'scene', 'cefr', 'hook', 'host', 'bg', 'diff', 'channel', 'status', 'section', 'group', 'qmin', 'qmax', 'from', 'to', 'dt', 'hidden', 'sort', 'dir'];
+  const KEYS = ['q', 'type', 'topic', 'skill', 'exam', 'format', 'template', 'scene', 'cefr', 'hook', 'host', 'bg', 'diff', 'channel', 'status', 'section', 'group', 'qmin', 'qmax', 'from', 'to', 'dt', 'hidden', 'sort', 'dir'];
   const NUM = new Set(['qmin', 'qmax']);
   // ---- pure helpers (scripts/test/clip-bulk.mjs) ----
   const pure = {
@@ -61,6 +61,7 @@
     const stOpts = [['', 'Tất cả'], ['pass', 'QA đạt'], ['fail', 'QA chưa đạt'], ['approved', 'Đã duyệt (xếp hàng đăng)'], ['rejected', 'Bị loại'], ['paused', 'Tạm dừng'], ['ready', 'Gói đăng sẵn sàng'], ['uploaded', 'Đã đăng (dò thấy)'], ['web', 'Trên web'], ['sched', 'Đã lên lịch'], ['due', 'Đã tới lịch'], ['none', 'Chưa xếp lịch']];
     const sortOpts = [['created:desc', 'Mới nhất'], ['created:asc', 'Cũ nhất'], ['qa:desc', 'Điểm QA cao'], ['qa:asc', 'Điểm QA thấp'], ['slot:asc', 'Lịch đăng'], ['views:desc', 'Lượt xem'], ['completion:desc', 'Tỉ lệ xem hết']];
     host.innerHTML = `<div class="cl">
+      <div class="cl-tabs cl-types" role="group" aria-label="${esc(V('Loại nội dung'))}">${[['', 'Tất cả'], ['short', 'Shorts'], ['long', 'Video dài'], ['podcast', 'Podcast']].map(([k, t]) => `<button class="cl-tab" type="button" data-type="${k}" aria-pressed="false">${esc(V(t))} <i data-tcnt="${k}"></i></button>`).join('')}</div>
       <div class="cl-tabs" role="tablist">${SECS.map(k => `<button class="cl-tab" role="tab" data-sec="${k}" aria-pressed="false">${esc(V(SN[k]))} <i data-cnt="${k}">0</i></button>`).join('')}</div>
       <div class="cl-row"><input type="search" id="cl-q" placeholder="${esc(V('Tìm tiêu đề, ý chính, mã…'))}" aria-label="${esc(V('Tìm tiêu đề, ý chính, mã…'))}">
         <select id="cl-sort" aria-label="${esc(V('Sắp xếp'))}">${sortOpts.map(([v, t]) => `<option value="${v}">${esc(V(t))}</option>`).join('')}</select>
@@ -74,7 +75,7 @@
     const $ = s => host.querySelector(s), vp = $('#cl-vp'), inn = $('#cl-in');
     const q = () => { const s = pure.toQuery(f); return location.pathname + (s ? '?' + s : '') + location.hash; };
     const sync = () => { try { history.replaceState(null, '', q()); } catch (e) { /* bỏ qua */ } };
-    const nActive = () => ['status', 'format', 'scene', 'cefr', 'hook', 'host', 'bg', 'diff', 'channel', 'qmin', 'qmax', 'from', 'to', 'hidden'].filter(k => f[k] !== undefined && f[k] !== '' && f[k] !== false).length;
+    const nActive = () => ['status', 'topic', 'skill', 'exam', 'format', 'scene', 'cefr', 'hook', 'host', 'bg', 'diff', 'channel', 'qmin', 'qmax', 'from', 'to', 'hidden'].filter(k => f[k] !== undefined && f[k] !== '' && f[k] !== false).length;
     // ---- data ----
     async function load(reset) {
       if (S.busy && !reset) return; const tok = reset ? ++S.tok : S.tok; S.busy = true;
@@ -82,7 +83,7 @@
       try {
         const r = await capi('query', { filter: f, cursor: reset ? 0 : S.next, limit: PAGE });
         if (tok !== S.tok) return;
-        S.rows = reset ? r.rows : S.rows.concat(r.rows); S.total = r.total; S.next = r.next; S.counts = r.counts || S.counts; if (r.facets) S.facets = r.facets; if (r.groups) S.groups = r.groups;
+        S.rows = reset ? r.rows : S.rows.concat(r.rows); S.total = r.total; S.next = r.next; S.counts = r.counts || S.counts; if (r.facets) S.facets = r.facets; if (r.taxonomy) S.tax = r.taxonomy; if (r.typeCounts) paintTypes(r.typeCounts); if (r.groups) S.groups = r.groups;
         S.err = null;
       } catch (e) { if (tok === S.tok) { S.err = e.message || e.code || 'error'; } }
       S.busy = false; if (tok === S.tok) { head(); relayout(); }
@@ -130,10 +131,16 @@
       empty(); bar();
     }
     function empty() { let e = inn.querySelector('.cl-empty'); const none = !S.rows.length && !S.busy && !S.err; if (none && !e) { e = document.createElement('div'); e.className = 'cl-empty'; e.textContent = V(f.section ? 'Chưa có video ở mục này.' : 'Không có video nào khớp.'); inn.appendChild(e); } else if (!none && e) e.remove(); }
+    function paintTypes(tc) {
+      host.querySelectorAll('[data-type]').forEach(b => { const k = b.dataset.type; b.setAttribute('aria-pressed', String((f.type || '') === k)); b.querySelector('i').textContent = num(k ? tc[k] || 0 : Object.values(tc).reduce((a, x) => a + x, 0)); });
+    }
     function drawer() {
+      const T = S.tax || { topics: [], skills: [], exams: [] }, tsel = (k, lab, list) => `<label>${esc(V(lab))}<select data-f="${k}"><option value="">${esc(V('Tất cả'))}</option>${list.map(([v, n]) => `<option value="${esc(v)}"${f[k] === v ? ' selected' : ''}>${esc(n)}</option>`).join('')}</select></label>`;
+      const en = lang() === 'en', topics = T.topics.flatMap(x => [[x.id, en ? x.en : x.vi], ...x.sub.map(z => [x.id + '/' + z.id, '› ' + (en ? z.en : z.vi)])]);
+      const tax = tsel('topic', 'Chủ đề › chủ đề con', topics) + tsel('skill', 'Kỹ năng', T.skills.map(x => [x[0], en ? x[2] : x[1]])) + tsel('exam', 'Kỳ thi', T.exams.map(x => [x, x.toUpperCase()]));
       const F = S.facets || {}, sl = (k, lab) => `<label>${esc(V(lab))}<select data-f="${k}">${opts(F[k] || [], f[k] || '', V('Tất cả'))}</select></label>`;
       $('#cl-dg').innerHTML = `<label>${esc(V('Trạng thái'))}<select data-f="status">${stOpts.map(([v, t]) => `<option value="${v}"${(f.status || '') === v ? ' selected' : ''}>${esc(V(t))}</option>`).join('')}</select></label>
-        ${sl('format', 'Định dạng')}${sl('scene', 'Cảnh/chủ đề')}${sl('cefr', 'CEFR')}${sl('hook', 'Kiểu mở đầu')}${sl('host', 'Người dẫn')}${sl('bg', 'Bối cảnh')}${sl('diff', 'Độ khó')}
+        ${tax}${sl('format', 'Định dạng')}${sl('scene', 'Cảnh/chủ đề')}${sl('cefr', 'CEFR')}${sl('hook', 'Kiểu mở đầu')}${sl('host', 'Người dẫn')}${sl('bg', 'Bối cảnh')}${sl('diff', 'Độ khó')}
         <label>${esc(V('Kênh YouTube'))}<select data-f="channel"><option value="">${esc(V('Tất cả'))}</option>${channels.map(c => `<option value="${esc(c.channel_id)}"${f.channel === c.channel_id ? ' selected' : ''}>${esc(c.title || c.channel_id)}</option>`).join('')}</select></label>
         <label>${esc(V('Điểm QA từ'))}<input type="number" min="0" max="100" data-f="qmin" value="${esc(f.qmin ?? '')}"></label><label>${esc(V('đến'))}<input type="number" min="0" max="100" data-f="qmax" value="${esc(f.qmax ?? '')}"></label>
         <label>${esc(V('Theo ngày'))}<select data-f="dt"><option value="">${esc(V('Ngày dựng'))}</option><option value="slot"${f.dt === 'slot' ? ' selected' : ''}>${esc(V('Ngày lịch đăng'))}</option></select></label>
@@ -146,6 +153,7 @@
     host.querySelectorAll('.cl-tab').forEach(b => { b.onclick = () => { f.section = b.dataset.sec; sel.clear(); reload(); }; });
     $('#cl-sort').onchange = e => { const [s, d] = e.target.value.split(':'); f.sort = s; f.dir = d; reload(); };
     $('#cl-grp').onchange = e => { f.group = e.target.value || undefined; if (!f.group) delete f.group; collapsed.clear(); reload(); };
+    host.querySelectorAll('[data-type]').forEach(b => { b.onclick = () => { if (b.dataset.type) f.type = b.dataset.type; else delete f.type; host.querySelectorAll('[data-type]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); reload(); }; });
     $('#cl-tpl').onchange = e => { f.template = e.target.value || undefined; if (!f.template) delete f.template; reload(); };
     $('#cl-fb').onclick = () => { const d = $('#cl-dr'); d.hidden = !d.hidden; $('#cl-fb').setAttribute('aria-expanded', String(!d.hidden)); if (!d.hidden) drawer(); };
     $('#cl-fx').onclick = () => { $('#cl-dr').hidden = true; $('#cl-fb').setAttribute('aria-expanded', 'false'); };
@@ -193,6 +201,7 @@
         if (a === 'channel') p.channel_id = $('#p-ch').value;
         if (a === 'delete') p.hard = $('#p-hard').checked;
         const n2 = sel.count(S.total), label = V((ACT.find(x => x[0] === a) || [0, a])[1]);
+        if (a === 'delete' && p.hard) { const want = 'DELETE ' + n2, got = prompt(V('Xóa hẳn {n} video: file trên Kho Drive vào thùng rác và bỏ công thức – không hoàn tác. Gõ "{w}" để xác nhận.', { n: num(n2), w: want })); if (got !== want) return toast(V('Chưa xác nhận – không xóa.')); Object.assign(p, { confirm: want, total: n2 }); }
         if (!confirm(a === 'delete' ? V('Thao tác nguy hiểm: xóa {n} video. Tiếp tục?', { n: num(n2) }) : V('{a} cho {n} video?', { a: label, n: num(n2) }))) return;
         exec({ action: a, params: p, ids: null, pos: 0 });
       };
