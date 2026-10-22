@@ -25,6 +25,7 @@ export const DEFAULTS = {
   contact:   { anon: [2, 5],     free: [2, 5],     ipx: 2,  store: 'd1',   providers: ['mail'] },                   // form liên hệ → thư
   sync:      { anon: [0, 0],     free: [6, 1500],  ipx: 10, store: 'edge' },                                        // đồng bộ D1 (bắt buộc đăng nhập)
   league:    { anon: [0, 0],     free: [12, 300],  ipx: 10, store: 'edge' },                                        // bảng xếp hạng tuần
+  classroom: { anon: [0, 0],     free: [30, 1500], ipx: 20, store: 'edge' },                                        // lớp học: giáo viên + học sinh (cả lớp chung 1 IP trường)
   img:       { anon: [30, 300],  free: [30, 300],  ipx: 3,  store: 'edge' },                                        // ảnh minh họa – chỉ tính lượt trượt bộ đệm
   hit:       { anon: [120, 10000], free: [120, 10000], ipx: 1, store: 'edge' },                                   // thống kê (sendBeacon, theo IP) – vượt → bỏ qua im lặng
   translate: { anon: [60, 2000], free: [60, 2000], ipx: 3,  store: 'edge' },                                        // dự phòng: hiện dịch chạy thẳng từ máy khách, chưa có proxy

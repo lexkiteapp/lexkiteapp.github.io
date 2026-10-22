@@ -1,0 +1,48 @@
+<h1>Lexkite for schools</h1>
+<p class="muted">A guide for teachers and school IT administrators: classroom mode, installing the Lexkite Chrome extension for a whole domain, and deploying the web app. Lexkite is free, with no ads for classroom accounts.</p>
+<h2 id="teachers">1. Classroom mode for teachers</h2>
+<ol>
+<li>Open <a href="/app/#/class">lexkite.com/app/#/class</a> and sign in with Google.</li>
+<li>Under <b>Classes I teach</b>, type a class name and choose <b>Create class</b>. You get a 6-character join code.</li>
+<li>Choose <b>Share to Google Classroom</b> to post the join link to your class stream, or give students the code. Students open the link, sign in and choose <b>Join</b>.</li>
+<li>Choose <b>Assign</b> to pick a word list or a practice test (IELTS Listening, IELTS Reading Academic and General Training, TOEIC Listening &amp; Reading). Each assignment has its own <b>Assign in Classroom</b> button, so it can be posted as a Google Classroom assignment with a due date.</li>
+<li>The <b>Student progress</b> table shows, for each student, completed assignments, average accuracy, last activity and the best score for each assignment. Choose <b>CSV</b> to download it for your gradebook.</li>
+</ol>
+<p>Results are sent automatically when a signed-in student finishes an assigned word-list activity (Test, Match or a quiz with a score) or submits an assigned practice test. Lexkite does not request any Google Classroom permissions: the share button uses Google’s public share link, so no class roster, email address or grade is read from Google.</p>
+<h2 id="extension">2. Install the Chrome extension for a whole domain</h2>
+<p>Extension ID: <code>idalfipabpfcajpkfkifbdlpejcdmfcd</code> · Chrome Web Store: <a href="https://chromewebstore.google.com/detail/idalfipabpfcajpkfkifbdlpejcdmfcd" target="_blank" rel="noopener">Lexkite</a></p>
+<p><b>Google Admin console (Chromebooks and managed Chrome):</b></p>
+<ol>
+<li>Sign in to <a href="https://admin.google.com" target="_blank" rel="noopener">admin.google.com</a> with an administrator account.</li>
+<li>Go to <b>Devices → Chrome → Apps &amp; extensions → Users &amp; browsers</b>.</li>
+<li>On the left, select the organisational unit (for example <i>Students</i> or <i>Teachers</i>).</li>
+<li>Choose the yellow <b>+</b> button → <b>Add from Chrome Web Store</b>, search for <b>Lexkite</b> (or paste the extension ID above) and choose <b>Select</b>.</li>
+<li>Set <b>Installation policy</b> to <b>Force install</b> (or <b>Force install + pin to browser toolbar</b>) and choose <b>Save</b>.</li>
+<li>Devices pick up the policy at the next sync. To apply it immediately on a test device, open <code>chrome://policy</code> and choose <b>Reload policies</b>.</li>
+</ol>
+<p><b>Windows Group Policy, macOS profiles or Linux JSON policy (Chrome Enterprise Core):</b> add this value to the <code>ExtensionInstallForcelist</code> policy:</p>
+<p><code>idalfipabpfcajpkfkifbdlpejcdmfcd;https://clients2.google.com/service/update2/crx</code></p>
+<p><b>Permissions the extension uses:</b> read the word you select on a page to show its meaning (access to web pages), store your saved words on the device (storage), review reminders (alarms, notifications), the right-click menu (context menus) and opening a web search for a word (search). It shows no ads and loads no remote code. Details: <a href="privacy#extension">Privacy Policy, section 13</a>.</p>
+<h2 id="webapp">3. Deploy the web app</h2>
+<p>Lexkite is a web app and needs no server or installation at your school. To put it on every student device:</p>
+<ol>
+<li>In the Admin console go to <b>Devices → Chrome → Apps &amp; extensions → Users &amp; browsers</b>, choose <b>+</b> → <b>Add by URL</b>.</li>
+<li>Enter <code>https://lexkite.com/app/</code>, choose <b>Open in a separate window</b>, then set <b>Force install</b> (optionally pin it to the taskbar or shelf).</li>
+<li>To put the class page on student devices, add a bookmark to <code>https://lexkite.com/app/#/class</code> with the <b>Managed bookmarks</b> policy (Devices → Chrome → Settings → Users &amp; browsers).</li>
+</ol>
+<p><b>Allow these addresses</b> if your school filters web traffic: <code>lexkite.com</code>, <code>*.lexkite.com</code>, <code>lexkiteapp.github.io</code>, <code>cdn.jsdelivr.net</code>, <code>lexkite-app.firebaseapp.com</code>, <code>www.gstatic.com</code>, <code>apis.google.com</code>, <code>accounts.google.com</code>, <code>fonts.googleapis.com</code>, <code>fonts.gstatic.com</code>, <code>translate.googleapis.com</code>, <code>api.datamuse.com</code> and <code>challenges.cloudflare.com</code>.</p>
+<h2 id="signin">4. Google sign-in for students under 18</h2>
+<p>Google Workspace for Education blocks users designated as under 18 from signing in to third-party apps that the admin has not configured. To let students sign in to Lexkite:</p>
+<ol>
+<li>In the Admin console go to <b>Security → Access and data control → API controls → Manage third-party app access</b>.</li>
+<li>Choose <b>Configure new app</b>, search for <b>Lexkite</b> (sign-in page <code>lexkite-app.firebaseapp.com</code>) and select it.</li>
+<li>Choose the organisational unit and set access to <b>Trusted</b>. Lexkite only asks for basic profile information (name, email address and photo of the student’s own account) and no access to Google Drive, Gmail or Classroom data.</li>
+</ol>
+<p>If you cannot find the app, contact <a href="mailto:support@lexkite.com">support@lexkite.com</a> and we will send you the OAuth client ID.</p>
+<h2 id="privacy">5. Student privacy</h2>
+<ul>
+<li>Teachers see only the display name a student types when joining (we recommend a first name and class) and that student’s results for assigned work. Email addresses and photos are never shown to teachers or classmates.</li>
+<li>No ads for classroom accounts; student data is never sold or used for advertising or profiling.</li>
+<li>Teachers can remove a student or delete a class at any time, which deletes the related data immediately. Students can leave a class, and deleting an account deletes all of its data.</li>
+<li>COPPA and FERPA: see <a href="privacy#schools">Privacy Policy, section 10</a>. For a data processing agreement or a privacy questionnaire, contact <a href="mailto:support@lexkite.com">support@lexkite.com</a>.</li>
+</ul>

@@ -18,6 +18,7 @@ và người trong danh sách cho phép được dùng không giới hạn.
 | `/api/contact` (thư qua Worker `lexkite-mail`) | D1 + gửi thư | 5 tin/giờ/IP (D1), Turnstile, ô bẫy | giữ + tính năng `contact` + cầu dao `mail` |
 | `/api/sync` | D1 đọc/ghi | 1 lần/20 giây/op/uid | giữ + tính năng `sync` (đếm ở biên) |
 | `/api/league` | D1 | 12/phút/uid | giữ + tính năng `league` (đếm ở biên) |
+| `/api/class` | D1 | 30/phút/uid · tham gia lớp 10/10 phút (chống dò mã) | giữ + tính năng `classroom` (đếm ở biên) |
 | `/api/hit` (thống kê) | Functions + D1 ghi | add-on 20/giờ/máy; `hit_rate` lấy mẫu | giữ + tính năng `hit` theo IP (vượt → bỏ qua im lặng, 204) |
 | `/api/img` (ảnh minh họa) | Wikipedia/Openverse khi trượt bộ đệm | bộ đệm biên 7–30 ngày | tính năng `img` – **chỉ lượt trượt bộ đệm** |
 | `/api/admin`, `/api/social`, `/api/studio` | GrabCast, GitHub | chỉ admin (adminGate 120/phút/IP); GrabCast 55/phút, 2.900/ngày | giữ nguyên (đã chỉ admin) |
@@ -49,6 +50,7 @@ Không đi qua module: file tĩnh, dữ liệu từ điển, bài học, ôn t�
 | `contact` – form liên hệ | 2 / 5 | 2 / 5 | 2 | D1 | `mail` |
 | `sync` | – (cần đăng nhập) | 6 / 1.500 | 10 | biên | – |
 | `league` | – (cần đăng nhập) | 12 / 300 | 10 | biên | – |
+| `classroom` | – (cần đăng nhập) | 30 / 1500 | 20 | biên | – |
 | `img` – lượt trượt đệm | 30 / 300 | 30 / 300 | 3 | biên | – |
 | `hit` – thống kê | 120 / 10.000 | 120 / 10.000 | 1 | biên | – |
 | `translate` (dự phòng) | 60 / 2.000 | 60 / 2.000 | 3 | biên | – |

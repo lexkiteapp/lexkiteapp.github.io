@@ -8,7 +8,7 @@ import fs from 'fs';
 import { siteFooter, FOOT_CSS, SEO_L, landingHref, langSwitch, FOOT } from './lib/site-layout.mjs';
 const R = new URL('../', import.meta.url), rd = p => fs.readFileSync(new URL(p, R), 'utf8');
 const LANGS = { en: 'English', vi: 'Tiếng Việt', es: 'Español', pt: 'Português', fr: 'Français', de: 'Deutsch', id: 'Bahasa Indonesia', th: 'ไทย', zh: '简体中文', ja: '日本語', ko: '한국어', hi: 'हिन्दी', ar: 'العربية', ru: 'Русский', tr: 'Türkçe' };
-const PAGES = ['privacy', 'terms'], SITE = 'https://lexkite.com';
+const PAGES = ['privacy', 'terms', 'schools'], SITE = 'https://lexkite.com';
 const NOTE = 'This translation is provided for your convenience. If there is any difference between versions, the English version prevails.';
 const TRANSLATE = process.argv.includes('--translate');
 const sleep = ms => new Promise(r => setTimeout(r, ms));

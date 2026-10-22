@@ -2783,6 +2783,8 @@
   "Bắt đầu học {n} từ đầu tiên": "Start learning your first {n} words",
   "Lưu từ khi tra cứu hoặc học theo lộ trình – Lexkite nhắc bạn ôn đúng lúc sắp quên.": "Save words as you look them up or follow the learning path – Lexkite reminds you to review just before you forget.",
   "Khoe thành tích": "Share your progress",
+  "Lớp học": "Classroom",
+  "Giáo viên giao bài, học sinh nhập mã lớp": "Teachers assign work, students join with a class code",
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* ✍️ Soát lỗi viết trong add-on (extension/writecheck.js, popup, web/js/writecheck-rules.js). Định dạng JSON để service worker đọc được (bản tiếng Anh cho add-on). */
