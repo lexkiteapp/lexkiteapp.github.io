@@ -2,11 +2,12 @@
 # usage: mergecheck.sh <branch> "<commit msg>"
 cd "$(git rev-parse --show-toplevel)"
 S=${SCRATCH_NODE:-$TMPDIR}
-if [ ! -f .git/MERGE_HEAD ]; then
+MH="$(git rev-parse --git-dir)/MERGE_HEAD"  # worktree: .git là tệp, MERGE_HEAD nằm trong .git/worktrees/<tên>/
+if [ ! -f "$MH" ]; then
   D=$(git status --porcelain --untracked-files=no | grep -v ' brand/\| out/\|content/video/qa-log.md' )
   [ -n "$D" ] && { echo "ABORT: thư mục chính có thay đổi chưa commit (agent khác đang làm?):"; echo "$D" | head; exit 1; }
   git merge --no-commit --no-ff "$1" >/dev/null 2>&1
-  [ -f .git/MERGE_HEAD ] || { git merge-base --is-ancestor "$1" HEAD && { echo "đã gộp sẵn"; exit 0; }; echo "ABORT: git merge không chạy"; exit 1; }
+  [ -f "$MH" ] || { git merge-base --is-ancestor "$1" HEAD && { echo "đã gộp sẵn"; exit 0; }; echo "ABORT: git merge không chạy"; exit 1; }
 fi
 U=$(git diff --name-only --diff-filter=U)
 for f in $U; do case "$f" in web/js/i18n/*.js) sed -i '' '/^<<<<<<< /d;/^=======$/d;/^>>>>>>> /d' "$f"; git add "$f";; esac; done

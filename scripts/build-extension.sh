@@ -14,6 +14,7 @@ perl -pi -e 's#https://(?:www\.gstatic\.com/firebasejs/[\d.]+/|pagead2\.googlesy
 if grep -nE "(import\(|\.src *=|importScripts\().{0,4}['\"\`]https?://" "$ROOT"/extension/*.js "$ROOT"/extension/app/js/*.js; then echo "✗ Còn mã tải từ xa trong add-on (xem dòng trên)" >&2; exit 1; fi
 rsync -a "$ROOT"/web/icons/icon-{16,32,48,128}.png "$ROOT/web/icons/icon.svg" "$ROOT/extension/icons/"
 node "$ROOT/scripts/gen-academic.mjs" >/dev/null  # danh sách từ học thuật B2–C2 cho gạch chân trên trang
+node "$ROOT/scripts/gen-newtab.mjs" >/dev/null    # dữ liệu thẻ từ ở tab mới (extension/nt/*.json – chỉ dữ liệu thật trong kho)
 echo "✓ Đã build add-on vào $ROOT/extension"
 if [[ "${1:-}" == "--zip" ]]; then
   (cd "$ROOT/extension" && rm -f ../lexkite-extension.zip && zip -qrX ../lexkite-extension.zip . -x '.*' '*/.*' '*.map' '*.md' '*.local*' '*.zip')

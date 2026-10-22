@@ -22,5 +22,131 @@
  },
  "rateNever": {
   "message": "今後表示しない"
+ },
+ "ntGot": {
+  "message": "✓ 覚えた"
+ },
+ "ntAgain": {
+  "message": "🔁 もう一度"
+ },
+ "ntGolden": {
+  "message": "ベストタイミング"
+ },
+ "ntSaved": {
+  "message": "最近保存"
+ },
+ "ntToday": {
+  "message": "今の単語"
+ },
+ "ntSearch": {
+  "message": "ウェブを検索…"
+ },
+ "ntSearchBtn": {
+  "message": "検索"
+ },
+ "ntOff": {
+  "message": "新しいタブのカードをオフ"
+ },
+ "ntListen": {
+  "message": "聞く"
+ },
+ "ntSlow": {
+  "message": "ゆっくり"
+ },
+ "ntUK": {
+  "message": "英"
+ },
+ "ntUS": {
+  "message": "米"
+ },
+ "ntFamily": {
+  "message": "派生語"
+ },
+ "ntColloc": {
+  "message": "コロケーション"
+ },
+ "ntSyn": {
+  "message": "類義語"
+ },
+ "ntAnt": {
+  "message": "対義語"
+ },
+ "ntQuiz": {
+  "message": "クイズモード"
+ },
+ "ntReveal": {
+  "message": "意味を見る"
+ },
+ "ntTapTr": {
+  "message": "タップで訳を表示"
+ },
+ "ntMT": {
+  "message": "機械翻訳"
+ },
+ "ntExample": {
+  "message": "例文"
+ },
+ "ntAdd": {
+  "message": "＋ 単語帳に追加"
+ },
+ "ntAdded": {
+  "message": "✓ 単語帳に追加済み"
+ },
+ "ntNext": {
+  "message": "次の単語 →"
+ },
+ "ntProgress": {
+  "message": "今日 {n}/{g} 語"
+ },
+ "ntShortcuts": {
+  "message": "キーボードショートカット"
+ },
+ "ntKeys": {
+  "message": "Space：表示 · 1/2：評価 · N：次へ · P：再生"
+ },
+ "posN": {
+  "message": "名詞"
+ },
+ "posV": {
+  "message": "動詞"
+ },
+ "posAdj": {
+  "message": "形容詞"
+ },
+ "posAdv": {
+  "message": "副詞"
+ },
+ "posPhrV": {
+  "message": "句動詞"
+ },
+ "posPhrase": {
+  "message": "フレーズ"
+ },
+ "posIdiom": {
+  "message": "慣用句"
+ },
+ "posPrep": {
+  "message": "前置詞"
+ },
+ "posConj": {
+  "message": "接続詞"
+ },
+ "posPron": {
+  "message": "代名詞"
+ },
+ "posDet": {
+  "message": "限定詞"
+ },
+ "posExcl": {
+  "message": "間投詞"
+ },
+ "posNum": {
+  "message": "数詞"
+ },
+ "posAbbr": {
+  "message": "略語"
+ },
+ "posColl": {
+  "message": "コロケーション"
  }
 }
