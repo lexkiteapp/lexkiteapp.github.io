@@ -112,11 +112,16 @@ def measure(im, cid, crops=True):
     e = clip_emb(im); r['phash'] = phash(im); r['_emb'] = [round(float(x), 5) for x in e]
     W, H = im.size; out = {}
     if crops and W > H:
+        vp = BZ.vanish(cv2.cvtColor(np.array(im), cv2.COLOR_RGB2BGR)); r['hz_master'] = round(vp[0], 4) if vp and vp[1] >= 6 else None
+        r['hz_votes'] = vp[1] if vp else 0
         cw = round(H * 9 / 16); x0 = round(W * CROP_X)
         for side, x in (('L', x0), ('R', W - cw - x0)):
             c = im.crop((x, 0, x + cw, H)); u = upscale(c); z, dp = zones(u, f'{cid}_{side}')
             bic = c.resize((OUTW, OUTH), Image.BICUBIC)
-            r[side] = dict(x=x, w=cw, **{k: z[k] for k in ('horizon', 'horizon_src', 'floor_frac', 'valid', 'host_water', 'host_top', 'host_floor')},
+            hz = r['hz_master'] if r['hz_master'] is not None else z['horizon']; z['horizon'] = hz; z['horizon_src'] = 'master vanishing point' if r['hz_master'] is not None else z['horizon_src']
+            z['y_window'] = int(min(OUTH - 1920, max(0, round(OUTH * hz - 0.40 * 1920))))   # 1080x1920 window offset (in the 1350x2400 crop) that puts the horizon at 40 %
+            z['final_horizon'] = round((OUTH * hz - z['y_window']) / 1920, 4)
+            r[side] = dict(x=x, w=cw, y_window=z['y_window'], final_horizon=z['final_horizon'], **{k: z[k] for k in ('horizon', 'horizon_src', 'floor_frac', 'valid', 'host_water', 'host_top', 'host_floor')},
                            lap=sharp_expo(u)['lap'], lap_bicubic=sharp_expo(bic)['lap'], text=ocr(u), **{f'owl_{k}': v for k, v in owl(u).items()})
             out[side] = (u, z, dp)
     else:
@@ -169,16 +174,16 @@ def shard(a):
         if r['size'][0] < 2560 or abs(r['size'][0] / r['size'][1] - 16 / 9) > 0.02: f.append('size')
         if r['text'] or any(r[s]['text'] for s in 'LR'): f.append('ocr')
         if max(r['person'], r['L']['owl_person'], r['R']['owl_person']) >= C['person']: f.append('person')
-        if max(r['animal'], r['L']['owl_animal'], r['R']['owl_animal']) >= C['animal']: f.append('animal')
+        if max(r['animal'], r['L']['owl_animal'], r['R']['owl_animal']) >= max(C['animal'], C.get('animal_min', 0.15)): f.append('animal')
         if r['m_L'] < C['L_min'] or r['m_L'] > C['L_max'] or r['m_clip_frac'] > C['clip_frac_max']: f.append('exposure')
         if r['m_lap'] < C['lap_min']: f.append('soft_master')
         for s in 'LR':
             z = r[s]
             if not z['valid'] or z['host_floor'] < C['host_floor_min']: f.append(f'nofloor_{s}')
-            if not (C['horizon'][0] <= z['horizon'] <= C['horizon'][1]): f.append(f'horizon_{s}')
+            if not (C['horizon'][0] - 0.01 <= z['final_horizon'] <= C['horizon'][1] + 0.01): f.append(f'horizon_{s}')   # VP bins are 1/24 = 0.042
             if z['host_water'] > C['host_water_max']: f.append(f'water_{s}')
             if z['host_top'] > C['host_top_max']: f.append(f'tabletop_{s}')
-            if z['lap'] < C['lap_min'] or z['lap'] < z['lap_bicubic']: f.append(f'soft_{s}')
+            if z['lap'] < C['lap_min']: f.append(f'soft_{s}')   # (ESRGAN smooths flat art below bicubic's jaggy Laplacian -> no bicubic comparison)
         r['fail'] = f; r.update({k: it[k] for k in ('loc', 'cat', 'variant') if k in it})
         im.resize((640, 360)).save(f'{d}/thumb.jpg', quality=85)
         if not f:
