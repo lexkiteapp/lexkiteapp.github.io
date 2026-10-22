@@ -253,7 +253,7 @@ HAIR = {}
 # owner 22/10: STANDING hosts only (bank_gestures.json layout, equal eye->mouth on screen). FACEH = 2.6 x eye->mouth (source px); SEAT = lowest
 # solid source row (no legs gap / clip edge); eye lines leave the chin above the text column and the body exits the real frame bottom.
 HOST = {'ama_s': dict(eye=(530, 680)), 'carlos_s': dict(eye=(545, 390)), 'carlos_q': dict(eye=(465, 310))}
-FACEH = {'ama_s': 338, 'carlos_s': 276, 'carlos_q': 182}; SEAT = {'ama_s': 1916, 'carlos_s': 1600, 'carlos_q': 1880}
+FACEH = {'ama_s': 363, 'carlos_s': 276, 'carlos_q': 182}; SEAT = {'ama_s': 1916, 'carlos_s': 1600, 'carlos_q': 1880}
 FACE_PX = {'mcu': 346, 'wide': 326, 'two': 268.5}; EYE_Y = {'mcu': 670, 'wide': 730, 'two': 960}
 FRAME = {(g, f_): (round(FACE_PX[f_] / FACEH[g], 4), EYE_Y[f_] - (50 if g == 'carlos_q' else 0)) for g in FACEH for f_ in FACE_PX}   # 3/4 Carlos: longer chin below the eye
 SIDE = {(g, f_): ({'mcu': 380, 'wide': 380, 'two': 220} if g == 'ama_s' else {'mcu': 700, 'wide': 700, 'two': 880})[f_] for g in FACEH for f_ in FACE_PX}   # thirds; two-shot gap >= 4 % width

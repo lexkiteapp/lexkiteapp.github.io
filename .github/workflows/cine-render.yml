@@ -318,7 +318,7 @@ jobs:
               cap = cv2.VideoCapture(v); fr = []
               for t in ts:
                   cap.set(cv2.CAP_PROP_POS_MSEC, t * 1000); ok, f = cap.read(); fr.append(cv2.resize(f, (180, 320)) if ok else np.zeros((320, 180, 3), np.uint8))
-              while len(fr) < 10: fr.append(np.zeros((320, 180, 3), np.uint8))
+              while len(fr) < 10: t_ = np.full((320, 180, 3), 70, np.uint8); cv2.putText(t_, 'no shot', (40, 165), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (200, 200, 200), 1); fr.append(t_)   # padding tile (lesson has < 10 shots), not a video frame
               for t_ in fr:   # platform UI safe-zone guides (top 12 %, bottom 22 %, right 14 %)
                   cv2.line(t_, (0, 38), (179, 38), (0, 0, 255), 1); cv2.line(t_, (0, 250), (179, 250), (0, 0, 255), 1); cv2.line(t_, (155, 0), (155, 319), (0, 0, 255), 1)
               zs = []   # 400 % edge crops of the hook two-shot (owner 22/10: hair / shoulder / hand edges, no halo)

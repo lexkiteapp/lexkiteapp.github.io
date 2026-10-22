@@ -250,6 +250,7 @@ if TP == 'news':
     raw_ = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-threads', '2', '-i', V, '-vf', 'scale=54:96', '-f', 'rawvideo', '-pix_fmt', 'gray', '-'], capture_output=True).stdout
     Y = np.frombuffer(raw_, np.uint8).reshape(-1, 96, 54).mean((1, 2)); cuts = {int(round(x['t0'] * FPS)) for x in tl['shots']}
     jumps = [(i, round(abs(Y[i] - Y[i - 1]) / Y[i - 1] * 100, 1)) for i in range(1, len(Y)) if i not in cuts and abs(Y[i] - Y[i - 1]) / Y[i - 1] > 0.18]
+    blk_ = [round(i / FPS, 2) for i, y in enumerate(Y) if y / 255 < 0.03]; rule(not blk_, f'no black frame (frame mean luma >= 0.03 on every frame) {blk_[:5] or ""}')
     rule(not jumps, f'no luma jump > 18 % between neighbours except hard cuts {jumps[:5] or ""} (max {max(abs(Y[i] - Y[i - 1]) / Y[i - 1] * 100 for i in range(1, len(Y)) if i not in cuts):.1f} %)')
     sm = np.zeros(len(Y))
     for x in tl['shots']: i0 = int(round(x['t0'] * FPS)); sm[i0:i0 + x['n']] = Y[i0:i0 + x['n']].mean()
@@ -289,6 +290,27 @@ for x in tl['shots']:
     pt = _F[k, int(cy - h_):int(cy + h_), int(cx - w_):int(cx + w_)]
     if pt.size: hsv = _cv.cvtColor((pt * 255).astype(np.uint8), _cv.COLOR_RGB2HSV).reshape(-1, 3); _sk.append((x['id'], int(np.median(hsv[:, 0])), int(np.median(hsv[:, 1]))))
 _bad = [z for z in _sk if not (3 <= z[1] <= 22 and z[2] >= 50)]
+_fw = {}   # face size MEASURED on rendered frames (owner/lead 22/10): widest skin run through the face centre in the eye->mouth band (eyes/brows filled), front-facing clips
+for x in tl['shots']:
+    if x.get('other') or 'q34' in x['clip']: continue
+    sc_, ex_, sy_, ox_, oy_ = x['xfs'][x['clip']][:5]; em_ = (130 if x['clip'].startswith('ga') else 106) * sc_ / 4; vals_ = []
+    for u_ in (0.3, 0.5, 0.7):
+        k_ = int((x['t0'] + x['dur'] * u_) * 2)
+        if k_ >= len(_F): continue
+        hsv_ = _cv.cvtColor((_F[k_] * 255).astype(np.uint8), _cv.COLOR_RGB2HSV); m_ = ((hsv_[..., 0] <= 18) & (hsv_[..., 1] >= 60) & (hsv_[..., 2] >= 45)).astype(np.uint8)
+        m_ = _cv.morphologyEx(m_, _cv.MORPH_CLOSE, np.ones((5, 5), np.uint8)) > 0; best_ = 0
+        for r_ in range(int(oy_ / 4), int(oy_ / 4 + em_)):
+            row_ = m_[r_]; c_ = int(ox_ / 4)
+            if not row_[c_]: continue
+            l_, rr_ = c_, c_
+            while l_ > 0 and row_[l_ - 1]: l_ -= 1
+            while rr_ < 269 and row_[rr_ + 1]: rr_ += 1
+            best_ = max(best_, rr_ - l_)
+        if best_: vals_.append(best_ * 4)
+    if vals_: _fw.setdefault((x['frame'], x['who']), []).append(float(np.median(vals_)))
+_fr = {f_: round(np.median(_fw[(f_, 'ama')]) / np.median(_fw[(f_, 'carlos')]), 3) for f_ in ('mcu', 'wide') if (f_, 'ama') in _fw and (f_, 'carlos') in _fw}
+print(f'  measured face width Ama / Carlos per shot size (rendered frames, +-5 %): {_fr}', 'OK' if _fr and all(abs(v - 1) <= 0.05 for v in _fr.values()) else 'FAIL')
+if not _fr or any(abs(v - 1) > 0.05 for v in _fr.values()): fails.append('face-size')
 print(f'  skin hue (OpenCV H 3-22, S >= 50) at the cheek/nose patch of each single: {_sk}', 'OK' if not _bad else 'FAIL')
 if _bad or not _sk: fails.append('skin')
 print('== AUDIO')
