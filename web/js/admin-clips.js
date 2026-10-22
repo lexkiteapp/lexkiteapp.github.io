@@ -105,7 +105,7 @@
         <div class="cl-m"><b title="${esc(title)}">${esc(title)}</b><span title="${esc(sub)}">${esc(sub) || '&nbsp;'}</span><span title="${esc(st)}">${esc(st) || '&nbsp;'}</span></div></div>`;
     }
     function paint() {
-      const lay = S.lay; if (!lay) return; const top = vp.scrollTop, bot = top + (vp.clientHeight || 700), pad = 260, R = lay.rowsV;
+      const lay = S.lay; if (!lay) return; const top = vp.scrollTop, bot = top + (vp.clientHeight || 700), pad = 120, R = lay.rowsV;
       let a = 0, b = R.length - 1; while (a < b) { const m = (a + b) >> 1; R[m].y + R[m].h < top - pad ? (a = m + 1) : (b = m); }
       const keep = new Set(); for (let i = a; i < R.length && R[i].y < bot + pad; i++) {
         keep.add(i); if (els.has(i)) continue; const r = R[i], d = document.createElement('div'); d.className = 'cl-r'; d.style.cssText = `top:${r.y}px;height:${r.h}px`;
