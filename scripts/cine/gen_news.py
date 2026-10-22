@@ -41,11 +41,33 @@ def card(t, i, c, n):
     if sub and dr.textlength(sub, font=FS) > room: errs.append(f'sub "{sub}" too wide at 40')
     return dict(kind=kind, text=text, sub=sub, label=label), errs
 
+HOOK_TYPES = ['question', 'mistake_callout', 'challenge', 'myth', 'pov', 'quiz', 'contrast', 'number_list', 'secret_tip', 'story', 'surprise', 'fill_gap', 'listen_diff', 'native_says']   # >= 12, rotated
+DIFF_CYCLE = ['easy', 'medium', 'easy', 'medium', 'hard']   # 40 % easy / 40 % medium / 20 % hard challenge
+def make_v7(spec, lines, z, h6):
+    """owner 22/10 (VIDEO-SCALE-PLAN §12-14 + graded English): wrong -> guess (pause) -> right (say + show + formula + icon) -> why <= 12 words ->
+    concept check -> Repeat after me (slow, pause) -> natural speed; Teacher's tip 3 lines, share trigger, end quiz. z = bank entry field 'v7'."""
+    key = z['key']; ic = z.get('icon', 'bulb')
+    B = [('ama', 'm', z['mistake'], dict(kind='x', text=z['wrong'], sub=None, label=None, icon=None), {}),
+         ('carlos', 'g', z['guess'], dict(kind='p', text=z.get('guesscard', 'What sounds right?'), sub=None, label='GUESS', icon='question'), {'guess': True}),
+         ('ama', 'k', 'Say: ' + key, dict(kind='v', text=key, sub=None, label=None, icon=ic, formula=z.get('formula')), {}),
+         ('carlos', 'y', z['why'], dict(kind='p', text=z['why'], sub=None, label='WHY', icon='bulb'), {}),
+         ('ama', 'c', z['check'], dict(kind='p', text=z['checkcard'], sub=None, label='CHECK', icon=None), {}),
+         ('carlos', 'rs', 'Repeat after me: ' + key, dict(kind='p', text=key, sub=None, label='REPEAT', icon='repeat'), {'repeat': True, 'slow': True}),
+         ('ama', 'rn', 'Natural speed: ' + key, dict(kind='v', text=key, sub=None, label=None, icon=ic, formula=z.get('formula')), {})]
+    bs = []
+    for who, suf, text, card, ex in B:
+        i = f'n_{h6}_{suf}'; l = dict(id=i, who=who, text=text)
+        if ex.get('slow'): l['speed'] = 0.74
+        lines.append(l); b = dict(who=who, line=i, card=card, kind=suf); b.update(ex); bs.append(b)
+    if z.get('callback'): bs[0]['card']['sub'] = 'Remember: ' + z['callback']   # spaced callback to an earlier part of the series
+    spec.update(v=7, difficulty=z['difficulty'], hook_type=z['hook_type'], part=z.get('part', 1), key_line=key, wrong_line=z['wrong'], share=z['share'], beats=bs, l1_tags=['many learners'])
+    spec['recap'].update(title="TEACHER'S TIP", rows=z['rows'][:3]); lines.append(dict(id=f'n_{h6}_e', who='ama', text=z['quiz']))
 def build(e, k):
     h6 = hashlib.sha1(norm(e['point']).encode()).hexdigest()[:6]; lid = f"news_{e['topic']}_{e['t']}_{h6}"; errs = []
     assert e['topic'] in TOPICS and e['area'] in ECO and e['t'] in RECAP, e['point']
     lim = 12 if e['cefr'] in ('A1', 'A2') else 14; lines = [dict(id=f'n_{h6}_h', who='ama', text=e['hook'][1])]
     if NW(e['hook'][1]) > 5: errs.append('hook > 5 words')
+    if 'v7' not in e: errs.append('needs the v7 teacher fields (key, wrong, mistake, guess, why, check, checkcard, formula, icon, rows, quiz, share, hook_type, difficulty)')
     if dr.textlength(e['hook'][0], font=FH) > 920 - 72: errs.append(f'hook card "{e["hook"][0]}" too wide')
     beats = []; n = 0
     for i, (say, c) in enumerate(e['beats']):
@@ -61,8 +83,9 @@ def build(e, k):
     spec = dict(id=lid, template=e['t'], bg=bg_for(e, k), area=e['area'], cefr=e['cefr'], point=e['point'], hook=dict(card=e['hook'][0], line=f'n_{h6}_h'),
                 series=e['series'], beats=beats, recap=dict(title="TEACHER'S TIP", line=f'n_{h6}_r', rows=e['rows']), end_line=f'n_{h6}_e',
                 link=ECO[e['area']]['link'], cta=ECO[e['area']]['cta'], est=round(est, 1))
+    if 'v7' in e: make_v7(spec, lines, e['v7'], h6); lines[:] = [l for l in lines if l['id'] != f'n_{h6}_e' or l['text'] == e['v7']['quiz']]
     teacherize(spec, lines, h6)
-    spec['recap']['line_alt'] = f'n_{h6}_r2'; spec['end_alt'] = f'n_{h6}_e2'; lines += [dict(id=f'n_{h6}_r2', who='ama', text=RECAP[e['t']]), dict(id=f'n_{h6}_e2', who='carlos', text=END[k % len(END)])]
+    spec['recap']['line_alt'] = f'n_{h6}_r2'; spec['end_alt'] = f'n_{h6}_e2'; lines += [dict(id=f'n_{h6}_r2', who='ama', text=RECAP[e['t']]), dict(id=f'n_{h6}_e2', who='carlos', text=e['v7']['quiz'] if 'v7' in e else END[k % len(END)])]
     return lid, spec, lines, errs
 
 def teacherize(spec, lines, h6):
