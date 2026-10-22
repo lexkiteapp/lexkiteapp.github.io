@@ -67,3 +67,10 @@ cron mỗi ngày → chọn điểm học + tổ hợp (sổ đa dạng) → so�
 - **Xếp thông minh**: thẻ từ / trang từ vựng ("Xem 20 giây"), trang ngữ pháp, ngày học trong lộ trình ("video của ngày"), bài blog cùng chủ đề, tab mới add-on (tuỳ chọn). Chọn clip theo khớp thẻ + trình độ người học + chưa xem + đa dạng template; sau clip có 1 câu đố nhanh → tính vào SRS.
 - **SEO video**: schema `VideoObject` + video sitemap + trang `/video/<slug>/` có transcript → Google hiện video trong tìm kiếm.
 - **Đo**: lượt xem, xem hết, câu đố đúng → tăng trọng số clip tốt trên web và chọn hook/template cho social.
+
+## 11. Nhân vật khớp bối cảnh (chặn "đứng trên bàn/ghế/dưới nước…") – chủ 22/10
+- **Chú thích nền 1 lần khi nhập kho** (CI, miễn phí): độ sâu (Depth-Anything) + phân vùng ngữ nghĩa (Mask2Former ADE20K, giấy phép MIT) → lưu `bg/<id>.zones.json`: đường chân trời/độ cao máy, vùng sàn đứng được, vật tiền cảnh (bàn, ghế, quầy, nước, giường, xe…), vùng cấm.
+- **Luật đặt người** (generator + QA): đặt người chỉ trong "vùng đứng" (sàn/lối đi ở xa hơn vật tiền cảnh); phía dưới-sau thân người không được là mặt bàn/ghế/nước/giường; không vật tiền cảnh nào gần hơn người lại bị người đè lên; tầm mắt người ≈ đường chân trời của nền (±6 % khung); cỡ người khớp độ sâu tại chỗ đứng.
+- **Nền không có vùng đứng hợp lệ** (vd. mặt nước, trên xe) → chỉ dùng làm cận cảnh mờ sau vai hoặc loại khỏi kho người dẫn.
+- **Cổng AI nhìn khung ghép** (Gemini vision qua kho khoá miễn phí, dự phòng Workers AI): hỏi "người có đứng tự nhiên trong cảnh không, có đứng trên/ trong đồ vật, nước, sai tỉ lệ, sai phối cảnh không?" → bất kỳ "có" = trượt. Lấy 3 khung/clip.
+- Mọi luật là cổng QA; trượt → generator đổi nền/vị trí, tối đa 2 lần, rồi bỏ clip.
