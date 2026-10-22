@@ -1,0 +1,29 @@
+# Giám sát dung lượng git hằng tuần: repo > 2 GB (đầu nhánh, mục tiêu ≤ 1 GB) → workflow đỏ + cảnh báo 'gitsize' ở Quản trị → Kho Drive.
+# Dự báo/80 % của Kho Drive nằm ở Quản trị (op list/health). Secrets: FOOTAGE_DEPLOY_KEY, SHORTS_DEPLOY_KEY (chỉ đọc cấu trúc), LEXKITE_DRIVE_CLI_KEY. Tài liệu: docs/VIDEO.md §5b.
+name: storage-watch
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '41 3 * * 1'
+concurrency: { group: storage-watch, cancel-in-progress: false }
+permissions: { contents: read }
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Khoá deploy
+        env: { F: '${{ secrets.FOOTAGE_DEPLOY_KEY }}', S: '${{ secrets.SHORTS_DEPLOY_KEY }}' }
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          printf '%s\n' "$F" > ~/.ssh/f && printf '%s\n' "$S" > ~/.ssh/s && chmod 600 ~/.ssh/f ~/.ssh/s
+          echo "FOOTAGE_KEY_FILE=$HOME/.ssh/f" >> "$GITHUB_ENV"; echo "SHORTS_KEY_FILE=$HOME/.ssh/s" >> "$GITHUB_ENV"
+      - name: Đo dung lượng
+        env: { GITHUB_TOKEN: '${{ github.token }}', LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/footage/repo-size.mjs --alert-gb 2
+      - name: Xoá khoá
+        if: always()
+        run: rm -f ~/.ssh/f ~/.ssh/s

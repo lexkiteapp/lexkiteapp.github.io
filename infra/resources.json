@@ -735,7 +735,7 @@
       "key": "footage-archive",
       "name": "Kho footage trên Kho Drive (footage-archive · footage-verify · restore)",
       "kind": "storage",
-      "purpose": "Bản gốc footage (mp4/mkv/png/wav/npz…) lưu trên pool Google Drive của chủ, folder footage/<cảnh>, cls original, 2 bản sao/2 Drive khác nhau, chống trùng sha256. footage-archive.yml (chạy tay, tiếp tục được) đọc lexkite-footage rồi ghi brand/library/cine/archive-manifest.json; footage-verify.yml (thứ Hai hằng tuần) kiểm sổ + mẫu sha256 + diễn tập khôi phục, lỗi → cảnh báo 'footage' ở Quản trị → Kho Drive (op footage_alert); scripts/footage/restore.mjs dựng lại kho từ manifest. Dùng /api/drive (CLI HMAC LEXKITE_DRIVE_CLI_KEY).",
+      "purpose": "Bản gốc footage (mp4/mkv/png/wav/npz…) lưu trên pool Google Drive của chủ, folder footage/<cảnh>, cls original, 2 bản sao/2 Drive khác nhau, chống trùng sha256. footage-archive.yml (chạy tay, tiếp tục được) đọc lexkite-footage rồi ghi brand/library/cine/archive-manifest.json; footage-verify.yml (thứ Hai hằng tuần) kiểm sổ + mẫu sha256 + diễn tập khôi phục, lỗi → cảnh báo 'footage' ở Quản trị → Kho Drive (op footage_alert); scripts/footage/restore.mjs dựng lại kho từ manifest. Dùng /api/drive (CLI HMAC LEXKITE_DRIVE_CLI_KEY). CI (matte-pro, cine-render, bg-gates, shorts-rebuild) lấy footage bằng scripts/footage/fetch.mjs: media từ Kho Drive theo manifest (actions/cache khoá theo hash manifest, trần 6 GB, bộ nóng hot.json), file nhỏ + dự phòng từ git. storage-watch.yml (thứ Hai) đo dung lượng repo git, > 2 GB → cảnh báo 'gitsize' ở Quản trị (op ext_alert). Admin › Kho Drive có dự báo GB/tháng + số ngày tới khi đầy, cảnh báo pool ≥ 80 %.",
       "console": "https://lexkite.com/admin.html#drive",
       "free": "Dung lượng Google Drive của chủ (mỗi tài khoản 15 GB miễn phí)",
       "upgrade": "Nối thêm Drive ở Quản trị → Kho Drive",
@@ -746,7 +746,13 @@
         "scripts/footage/archive.mjs",
         "scripts/footage/verify.mjs",
         "scripts/footage/restore.mjs",
-        "archive-manifest.json"
+        "archive-manifest.json",
+        "storage-watch.yml",
+        "scripts/footage/fetch.mjs",
+        "scripts/footage/repo-size.mjs",
+        "scripts/video/archive_reencode.py",
+        "scripts/footage/hot.json",
+        "lexkite-footage-slim"
       ]
     }
   ],
