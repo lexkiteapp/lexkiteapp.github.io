@@ -38,6 +38,10 @@ Mẫu thẻ:
   - **Không chồng chéo:** đã có trên main: màn kết thúc ôn U2d (`study.js`), 4 nút FSRS + gợi ý khoảng ôn, hiệu ứng 3D U3, lộ trình ngày (`path-day.js`, `path-reward.js`), 5 gói học (`tracks.js`), Visual QA (`scripts/test/visual-qa.mjs`, chạy mỗi tuần – giữ ngưỡng `visual-qa.budget.json`, lỗi lớp phủ = 0). Chỉ chỉnh tinh, không làm lại màn.
   - **Quy trình:** mỗi giai đoạn = 1 thẻ CHỜ DUYỆT riêng, commit nhỏ; Claude cherry-pick có chọn lọc lên main mới nhất (không gộp cả nhánh). Chuỗi mới đủ 15 ngôn ngữ (nhãn ngắn dịch tay trong `scripts/i18n-fixed.json`). `npm test` + Visual QA phải xanh.
   - → **Bắt đầu GĐ 0 ngay.**
+- **Claude 22/10 – sau G2:** G2 ✅ đã gộp. **Tiếp theo: B5 TRƯỚC (+10 bài × 13 ngôn ngữ, lô 2 ngôn ngữ/lần), rồi mới GĐ3.** Kế hoạch GĐ3 (âm thanh = **mở rộng `Sfx` trong `web/js/game.js`**, không module âm thanh thứ 2; ngọn lửa chuỗi; lấp lánh) ✅ duyệt, bắt đầu khi B5 xong. Bắt buộc:
+  - Khung app **≤ 375 KB gz** (hiện 374,8) – phần GĐ3 mới (kể cả CSS) **tải lười**, Sfx mở rộng chỉ thêm vài trăm byte hoặc nằm trong module lười.
+  - **Luôn rebase lên main mới nhất của lexkiteapp** trước mỗi lô/commit nộp.
+  - **Không đụng file của các agent đang làm:** add-on CTA / landing / blog build / `extension/**`; `native.js` / widget; `classroom.js`, `functions/api/class*`; `lesson-fx.js`.
 
 ## TODO
 
@@ -176,7 +180,27 @@ Mẫu thẻ:
 
 ## CHỜ DUYỆT
 
-### [G2] Vuốt thẻ ôn, Kit theo ngữ cảnh, giao diện Streak Freeze · @antigravity · ưu tiên: cao
+### [E1] Email "Báo cáo não bộ" hằng tuần · @antigravity · ưu tiên: thấp
+- Mục tiêu: nối `web/templates/weekly-digest.html` vào worker `workers/mail` (cron Chủ nhật 01:00 UTC), dữ liệu D1 (`users`, `sessions`), chỉ gửi người đăng nhập & bật tùy chọn "Nhận báo cáo tuần" (thêm vào Cài đặt, chuỗi qua `t()` + en).
+- File/khu vực: `web/js/app.js`, `web/js/core.js`, `web/templates/weekly-digest.html`, `web/js/i18n/*`, `extension/app/*`.
+- Tiêu chí xong: code + mô tả cách triển khai trong Báo cáo; **Claude triển khai worker** (Antigravity không deploy).
+- Báo cáo:
+  1. Thêm `emailDigest: true` vào `DEFAULT_SETTINGS` (`web/js/core.js`).
+  2. Thêm switch toggle `sDigest` trong `routes.settings` (`web/js/app.js`) dưới mục `⏰ Nhắc học hằng ngày` với nhãn `📧 Báo cáo não bộ qua email`, tự động lưu và đồng bộ lên D1 qua `Sync.schedule()`.
+  3. Chuẩn hóa `web/templates/weekly-digest.html` với đầy đủ placeholder: `{{display_name}}`, `{{mastered_count}}`, `{{retention_pct}}`, `{{streak_days}}`, `{{fading_words_html}}`, `{{review_url}}`, `{{unsubscribe_url}}`.
+  4. Đã dịch chuẩn sang 14 ngôn ngữ giao diện (ar, de, es, fr, hi, id, ja, ko, pt, ru, th, tr, zh + en), không lỗi biến/thẻ, không lẫn tiếng.
+  5. Đồng bộ extension bằng `scripts/build-extension.sh`.
+  6. Kiểm thử: `npm test` PASS 100% (vi-lint, i18n-missing, i18n-qa, unit, smoke, leak, a11y axe-core, 510 pages crawl).
+  7. Hướng dẫn nối worker cho Claude:
+     - Dữ liệu user & setting: D1 query `SELECT u.email, u.name, d.body FROM users u JOIN docs d ON u.uid = d.uid WHERE d.k = 'meta'`.
+     - Lọc `meta.settings.emailDigest !== false`.
+     - Lấy chỉ số: streak từ `meta.stats.days`, từ đã thuộc từ `meta.game.total` hoặc `cards_*`, từ sắp quên từ `cards_*` docs (`due <= now + 864e5`).
+     - Render template `web/templates/weekly-digest.html` và gửi qua `env.SEB.send(new EmailMessage('contact@lexkite.com', u.email, raw))`.
+- Cần sửa / Nhận xét: (Claude 16/10) ✅ Giao diện + template + i18n đạt. ✏️ Claude đã đổi mặc định sang **TẮT (opt-in)**: `emailDigest: false`, công tắc `=== true` – email gửi người dùng phải do họ tự bật (GDPR/chính sách mail). ⏸️ Phần gửi chưa triển khai được: Cloudflare Email Routing (`env.SEB`) chỉ gửi tới địa chỉ đã xác minh → cần dịch vụ gửi mail cho người dùng (đề xuất Resend miễn phí 3.000 mail/tháng) + bản ghi DNS SPF/DKIM + trang hủy đăng ký `/api/unsub`. Chờ anh Quyền chọn dịch vụ → Claude làm worker. Thẻ giữ ở CHỜ DUYỆT.
+
+## ĐÃ XONG
+
+### [G2] Vuốt thẻ ôn, Kit theo ngữ cảnh, giao diện Streak Freeze · @antigravity · ✅ ĐÃ XONG (Claude 22/10)
 - **Kế hoạch đã duyệt:**
   1. Vuốt thẻ ôn tập (Tinder-style Swipe): phân biệt cuộn dọc vs vuốt ngang, Again trái / Good phải, rung 15ms, reduced motion, phím tắt & nút FSRS song song.
   2. Kit theo ngữ cảnh: lấy từ `web/js/kit.js` (teal), biểu cảm think -> happy -> win / cheer theo nhịp học.
@@ -206,27 +230,11 @@ Mẫu thẻ:
   - **Ngân sách & Kiểm thử**:
     - Khung app giữ nguyên **380 KB / 380 KB gz**, web/js **18.6 MB / 18.8 MB**.
     - `npm test` **PASS 100%**: 559 file vi-lint 0 lỗi, i18n 15 ngôn ngữ chuẩn xác, a11y axe-core 46 màn hình 0 lỗi, crawl 1274 trang ALL OK, native-auth ALL OK.
-- Cần sửa / Nhận xét:
-
-### [E1] Email "Báo cáo não bộ" hằng tuần · @antigravity · ưu tiên: thấp
-- Mục tiêu: nối `web/templates/weekly-digest.html` vào worker `workers/mail` (cron Chủ nhật 01:00 UTC), dữ liệu D1 (`users`, `sessions`), chỉ gửi người đăng nhập & bật tùy chọn "Nhận báo cáo tuần" (thêm vào Cài đặt, chuỗi qua `t()` + en).
-- File/khu vực: `web/js/app.js`, `web/js/core.js`, `web/templates/weekly-digest.html`, `web/js/i18n/*`, `extension/app/*`.
-- Tiêu chí xong: code + mô tả cách triển khai trong Báo cáo; **Claude triển khai worker** (Antigravity không deploy).
-- Báo cáo:
-  1. Thêm `emailDigest: true` vào `DEFAULT_SETTINGS` (`web/js/core.js`).
-  2. Thêm switch toggle `sDigest` trong `routes.settings` (`web/js/app.js`) dưới mục `⏰ Nhắc học hằng ngày` với nhãn `📧 Báo cáo não bộ qua email`, tự động lưu và đồng bộ lên D1 qua `Sync.schedule()`.
-  3. Chuẩn hóa `web/templates/weekly-digest.html` với đầy đủ placeholder: `{{display_name}}`, `{{mastered_count}}`, `{{retention_pct}}`, `{{streak_days}}`, `{{fading_words_html}}`, `{{review_url}}`, `{{unsubscribe_url}}`.
-  4. Đã dịch chuẩn sang 14 ngôn ngữ giao diện (ar, de, es, fr, hi, id, ja, ko, pt, ru, th, tr, zh + en), không lỗi biến/thẻ, không lẫn tiếng.
-  5. Đồng bộ extension bằng `scripts/build-extension.sh`.
-  6. Kiểm thử: `npm test` PASS 100% (vi-lint, i18n-missing, i18n-qa, unit, smoke, leak, a11y axe-core, 510 pages crawl).
-  7. Hướng dẫn nối worker cho Claude:
-     - Dữ liệu user & setting: D1 query `SELECT u.email, u.name, d.body FROM users u JOIN docs d ON u.uid = d.uid WHERE d.k = 'meta'`.
-     - Lọc `meta.settings.emailDigest !== false`.
-     - Lấy chỉ số: streak từ `meta.stats.days`, từ đã thuộc từ `meta.game.total` hoặc `cards_*`, từ sắp quên từ `cards_*` docs (`due <= now + 864e5`).
-     - Render template `web/templates/weekly-digest.html` và gửi qua `env.SEB.send(new EmailMessage('contact@lexkite.com', u.email, raw))`.
-- Cần sửa / Nhận xét: (Claude 16/10) ✅ Giao diện + template + i18n đạt. ✏️ Claude đã đổi mặc định sang **TẮT (opt-in)**: `emailDigest: false`, công tắc `=== true` – email gửi người dùng phải do họ tự bật (GDPR/chính sách mail). ⏸️ Phần gửi chưa triển khai được: Cloudflare Email Routing (`env.SEB`) chỉ gửi tới địa chỉ đã xác minh → cần dịch vụ gửi mail cho người dùng (đề xuất Resend miễn phí 3.000 mail/tháng) + bản ghi DNS SPF/DKIM + trang hủy đăng ký `/api/unsub`. Chờ anh Quyền chọn dịch vụ → Claude làm worker. Thẻ giữ ở CHỜ DUYỆT.
-
-## ĐÃ XONG
+- **Claude nghiệm thu 22/10 (đã gộp main):** vuốt/khóa trục/mép 24px/ngưỡng/RTL/Kit teal/heatmap a11y/canShowModal đạt. Claude sửa thêm:
+  - **Khung app 380 → 374,8 KB gz:** vuốt + Kit mini + CSS vuốt chuyển sang `web/js/study-swipe.js` (bundle `swipe`, tải khi mở #/review); Ghép thẻ + Phát âm (`runMatch`/`runSpeak`) sang `web/js/study-games.js` (bundle `pgames`); CSS `.hf-*` vào `handsfree.js`, `.match-grid/.tile` vào `study-games.js`.
+  - **Chấm đôi/hoàn tác:** vuốt cũ chấm sau `setTimeout(220)` → trong 220 ms phím 1–4 / Z vẫn chạy (Z hoàn tác thẻ TRƯỚC rồi lượt chấm hẹn giờ `queue.shift()` nhầm thẻ). Nay vuốt gọi `grade(g, null, true)` NGAY (khóa phím đồng bộ), chờ hết 220 ms bay rồi mới sang thẻ; nút ↶ bị khóa trong lúc lưu lượt chấm; vuốt kép bị chặn (`done`).
+  - Pointer: `isPrimary`, so `pointerId` (cũ: `if (e.pointerId)` sai khi id = 0), nhả capture ở mọi nhánh + `lostpointercapture`; listener chỉ gắn trên `#flash` (mất theo DOM, không rò global). Bỏ `.ans-bounce` khi vuốt (đè transform bay).
+  - Lưu ý cho lần sau: mỗi phần mới phải ra module lười ngay từ đầu; báo khung bằng số byte thật (`gzip -9`), không làm tròn.
 
 ### [G1] Nâng cấp phòng thi CBT: Bút dạ quang 3 màu, Ghi chú, Gạch loại trừ, Cờ xem lại & Pacing Engine · @antigravity · ✅ ĐÃ XONG (Claude 21/10)
 - Mục tiêu: Hiện thực hóa GĐ 1 kế hoạch UI/UX top 1 (CBT Simulator):
