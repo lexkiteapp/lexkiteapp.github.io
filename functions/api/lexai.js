@@ -62,11 +62,11 @@ export async function onRequestPost({ request, env }) {
     const L = NAMES[b.lang], items = Array.isArray(b.items) ? b.items.slice(0, 15).map(cleanX) : [];
     if (!L || !items.length || (b.mode === 'xgen' && b.lang !== 'en')) return J({ error: 'bad-request' }, 400);
     const sys = b.mode === 'xgen' ? XGEN : b.mode === 'xtr' ? XTR(L) : XJUDGE(L), temp = b.mode === 'xjudge' ? 0.1 : 0.3;
-    try { // Gemini trước; kho khóa hết lượt/nghỉ → Llama 3.3 70B (Workers AI, miễn phí). KHÔNG dùng Llama 8B (sai khuôn/sai nội dung, thử 22/10)
+    try { // Soạn/viết lại: CHỈ Gemini (Llama 3.3 70B soạn sai ~13/30 mẫu + ghi chú sai chung chung, soát 22/10). Chấm: Gemini → Llama 70B (chấm chéo).
       const r = await runModel(env, sys, JSON.stringify(items), temp, { gemini: true, wai: false });
       return J({ out: r.out || {}, model: r.model });
     } catch (e) {
-      if (!env.AI) return J({ error: String((e && e.message) || e).slice(0, 80), diag: String(gemDiag || '').replace(/…\S{4}:/g, '…').slice(0, 300) }, 503);
+      if (!env.AI || b.mode !== 'xjudge') return J({ error: String((e && e.message) || e).slice(0, 80), diag: String(gemDiag || '').replace(/…\S{4}:/g, '…').slice(0, 300) }, 503);
       try {
         const res = await env.AI.run(X_WAI, { messages: [{ role: 'system', content: sys + '\nReply with ONE valid JSON object only, no markdown.' }, { role: 'user', content: JSON.stringify(items) }], max_tokens: 4096, temperature: temp, response_format: { type: 'json_object' } });
         const raw = res && (res.response ?? (res.result && res.result.response)), out = raw && typeof raw === 'object' ? raw : parseJSON(raw);

@@ -3,7 +3,7 @@
 name: Lời giải đáp án (sinh + duyệt AI)
 on:
   schedule:
-    - cron: '0 20 * * *'   # 03:00 giờ VN
+    - cron: '30 7 * * *'   # 14:30 giờ VN – ngay sau khi hạn mức Gemini miễn phí làm mới (00:00 giờ Thái Bình Dương)
   workflow_dispatch:
     inputs:
       set: { description: 'Bộ (usage, grammar…)', default: 'usage' }
