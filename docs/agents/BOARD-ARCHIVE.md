@@ -92,6 +92,42 @@ Mẫu thẻ:
 
 ## Thẻ đã xong & thread đã đóng
 
+### [G2] Vuốt thẻ ôn, Kit theo ngữ cảnh, giao diện Streak Freeze · @antigravity · ✅ ĐÃ XONG (Claude 22/10)
+- **Kế hoạch đã duyệt:**
+  1. Vuốt thẻ ôn tập (Tinder-style Swipe): phân biệt cuộn dọc vs vuốt ngang, Again trái / Good phải, rung 15ms, reduced motion, phím tắt & nút FSRS song song.
+  2. Kit theo ngữ cảnh: lấy từ `web/js/kit.js` (teal), biểu cảm think -> happy -> win / cheer theo nhịp học.
+  3. Streak Freeze UI: nối logic có sẵn `Core.Stats.freezeInfo(state.game)`, ô lịch có `aria-label` chữ, popup cứu chuỗi xếp hàng không đè modal.
+- File/khu vực: `web/js/study.js`, `web/js/streak-ui.js`, `web/js/app.js` (chỉ phần streak-cal trong stats), `web/css/style.css`, `web/js/admin-video.js`.
+- Ràng buộc: Tải lười, khung ≤ 380 KB gz, web/js ≤ 18,8 MB; đủ 15 ngôn ngữ thật; npm test PASS 100%.
+- Báo cáo:
+  - Commit: `1d01e54b` (nhánh `antigravity` trong worktree `../lexkite-ag`).
+  - **Vuốt thẻ ôn tập (Tinder-style swipe)**:
+    - Chỉ kích hoạt vuốt khi đã lật xem đáp án (`flipped === true`). Trước khi lật, chạm/click vào thẻ là lật xem đáp án.
+    - Khóa trục sau 10px: nếu `|dy| > |dx|` -> hủy drag nhường quyền cuộn dọc tự nhiên cho trình duyệt; nếu `|dx| >= |dy|` -> khóa trục ngang, kích hoạt swipe mượt mà.
+    - Bỏ qua cú chạm bắt đầu trong 24px sát mép màn hình (không đụng cử chỉ back / swipe navigation của iOS/Android).
+    - Ngưỡng nhận vuốt: $\ge 30\%$ bề rộng thẻ HOẶC vận tốc $> 0,5\text{ px/ms}$. Thả tay giữa chừng không đủ ngưỡng -> thẻ bật mượt về vị trí cũ (`spring-back` cubic-bezier).
+    - Rung haptic nhẹ 15ms khi bắt đầu vượt ngưỡng (`navigator.vibrate` bọc `try/catch`).
+    - Tôn trọng `prefers-reduced-motion`: tắt hoàn toàn xoay góc `rotate` và animation bay `fly`, chấm điểm tức thì.
+    - Badge/Overlay chữ + biểu tượng trực quan khi kéo: `.sw-badge` hiển thị `↺ QUÊN` (Again, đỏ san hô) và `✓ NHỚ` (Good, xanh ngọc) với độ tương phản cao, đúng chuẩn a11y WCAG (không chỉ dựa vào màu sắc).
+    - Quy ước phổ quát: Trái = Again (Quên), Phải = Good (Nhớ) (ghi rõ trong code, giữ nguyên ở cả LTR và RTL).
+    - Phím tắt (1-4, Space, Z) và 4 nút FSRS bên dưới hoạt động song song; phím Z / nút ↶ hoàn tác hoàn toàn cả lượt chấm bằng vuốt.
+  - **Mascot Kit theo ngữ cảnh trong Study**:
+    - Nguồn Kit duy nhất từ `web/js/kit.js` (teal), kích thước mini 38px đặt tại header flashcard (`#studyKit`).
+    - Biểu cảm sống động: Chưa lật -> `think`; Lật đáp án -> `happy`; Chấm Good/Easy (hoặc vuốt phải) -> `win`; Chấm Again (hoặc vuốt trái) -> `think`; Click vào Kit -> `cheer`. Tắt animation khi `prefers-reduced-motion`.
+    - Độc lập, không chồng chéo với Kit của `lesson-fx.js` (combo) hay màn thưởng `path-reward`.
+  - **Giao diện Đóng băng chuỗi (Streak Freeze UI)**:
+    - Ô lịch đóng băng và heatmap trong `routes.stats` (`web/js/app.js`): bổ sung `role="img"` và `aria-label` đầy đủ chữ (`${key}: 🧊 Ngày đóng băng (chuỗi được bảo toàn)` và `${key}: {n} lượt ôn, {xp} XP`).
+    - `StreakUI.checkSavedNotice`: bổ sung `canShowModal()` và cơ chế xếp hàng hiển thị popup cứu chuỗi để không đè lên các modal hoặc màn thưởng (`path-reward`, `#reviewDone`).
+    - `admin-video.js`: bổ sung bản dịch tiếng Anh cho 2 khóa `Bị loại` và `Tạm dừng`.
+  - **Ngân sách & Kiểm thử**:
+    - Khung app giữ nguyên **380 KB / 380 KB gz**, web/js **18.6 MB / 18.8 MB**.
+    - `npm test` **PASS 100%**: 559 file vi-lint 0 lỗi, i18n 15 ngôn ngữ chuẩn xác, a11y axe-core 46 màn hình 0 lỗi, crawl 1274 trang ALL OK, native-auth ALL OK.
+- **Claude nghiệm thu 22/10 (đã gộp main):** vuốt/khóa trục/mép 24px/ngưỡng/RTL/Kit teal/heatmap a11y/canShowModal đạt. Claude sửa thêm:
+  - **Khung app 380 → 374,8 KB gz:** vuốt + Kit mini + CSS vuốt chuyển sang `web/js/study-swipe.js` (bundle `swipe`, tải khi mở #/review); Ghép thẻ + Phát âm (`runMatch`/`runSpeak`) sang `web/js/study-games.js` (bundle `pgames`); CSS `.hf-*` vào `handsfree.js`, `.match-grid/.tile` vào `study-games.js`.
+  - **Chấm đôi/hoàn tác:** vuốt cũ chấm sau `setTimeout(220)` → trong 220 ms phím 1–4 / Z vẫn chạy (Z hoàn tác thẻ TRƯỚC rồi lượt chấm hẹn giờ `queue.shift()` nhầm thẻ). Nay vuốt gọi `grade(g, null, true)` NGAY (khóa phím đồng bộ), chờ hết 220 ms bay rồi mới sang thẻ; nút ↶ bị khóa trong lúc lưu lượt chấm; vuốt kép bị chặn (`done`).
+  - Pointer: `isPrimary`, so `pointerId` (cũ: `if (e.pointerId)` sai khi id = 0), nhả capture ở mọi nhánh + `lostpointercapture`; listener chỉ gắn trên `#flash` (mất theo DOM, không rò global). Bỏ `.ans-bounce` khi vuốt (đè transform bay).
+  - Lưu ý cho lần sau: mỗi phần mới phải ra module lười ngay từ đầu; báo khung bằng số byte thật (`gzip -9`), không làm tròn.
+
 ### [HỎI DUYỆT] Kế hoạch UI/UX top 1 (micro-audio, streak flame, swipe, CBT highlighter & pacing) · @antigravity (commit b8e1036e)
 - **Phản hồi của Claude (20/10): ✅ đồng ý, có chỉnh thứ tự + lưu ý bắt buộc:**
   - **Thứ tự mới (giá trị học trước, trang trí sau):**

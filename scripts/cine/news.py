@@ -301,9 +301,17 @@ def _desk():   # flat 2D broadcast desk (brand teal, yellow rule, orange stripe)
 DESK = _desk()
 BOT = np.clip((np.arange(1920) - 1180) / 740.0, 0, 1)[:, None, None] ** 1.6 * 0.4   # owner 22/10: soft bottom scrim for text legibility (no solid band)
 def comp(F, Al, sc, cx, cy, ox, oy, drift):
-    M = np.float32([[sc, 0, ox - cx * sc + drift], [0, sc, oy - cy * sc]])
-    f = cv2.warpAffine(F, M, (1080, 1920), flags=cv2.INTER_LINEAR); a = cv2.warpAffine(Al, M, (1080, 1920), flags=cv2.INTER_LINEAR)
-    return f, a
+    """owner 22/10 (jagged edges + black outline): resample PREMULTIPLIED colour (kfull is black outside the matte, so straight-alpha
+    resampling dragged black into the soft edge), area-filter when shrinking, 1.2 px feather on colour+alpha alike, then un-premultiply."""
+    A = Al.astype(np.float32); P = F.astype(np.float32) * A[..., None]
+    if sc < 1:   # shrink with an area filter first, then place with a pure translation
+        P = cv2.resize(P, None, fx=sc, fy=sc, interpolation=cv2.INTER_AREA); A = cv2.resize(A, None, fx=sc, fy=sc, interpolation=cv2.INTER_AREA); s_ = 1.0
+    else: s_ = sc
+    M = np.float32([[s_, 0, ox - cx * sc + drift], [0, s_, oy - cy * sc]])
+    p = cv2.warpAffine(P, M, (1080, 1920), flags=cv2.INTER_LINEAR); a = cv2.warpAffine(A, M, (1080, 1920), flags=cv2.INTER_LINEAR)
+    p = cv2.GaussianBlur(p, (0, 0), 0.6); a = cv2.GaussianBlur(a, (0, 0), 0.6).clip(0, 1)   # ~1.2 px feather, same kernel on both (stays premultiplied)
+    f = p / np.maximum(a, 1e-3)[..., None]; f[a < 0.004] = 0
+    return f.clip(0, 255), a
 enc = subprocess.Popen(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', '1080x1920', '-r', str(FPS), '-i', '-',
                         '-c:v', 'libx264', '-threads', '2', '-preset', 'medium', '-crf', '18', '-pix_fmt', 'yuv420p', f'{RD}/video.mp4'], stdin=subprocess.PIPE)
 KEYM = {}; EXPO = None; OVS = sorted(OV, key=lambda o: o['t'][0]); fi = 0; COVER = None; QC = []; PA = None
@@ -353,7 +361,7 @@ for s in S:
                 hm_ = f[m_].mean(0) + 1; bm_ = B[ring_].mean(0) + 1; KEYM[(s['id'], i)] = np.clip((bm_ / hm_) ** 0.2, 0.92, 1.08) * np.clip((bm_.mean() / hm_.mean()) ** 0.15, 0.94, 1.10)
             f = f * KEYM[(s['id'], i)] * 1.06   # +6 % key (owner: brighter, real-camera exposure)
             if who == 'carlos': lum = f.mean(2, keepdims=True); f = f * (1 - 0.16 * np.clip((lum - 150) / 90, 0, 1))
-            band = np.clip(a - cv2.GaussianBlur(a, (0, 0), 9), 0, 1)[..., None] * 1.8   # light wrap: wider edge band
+            band = np.clip(a - cv2.GaussianBlur(a, (0, 0), 2.5), 0, 1)[..., None] * 1.8   # light wrap 2-3 px
             f[..., 1] = np.where(a < 0.97, np.minimum(f[..., 1], np.maximum(f[..., 0], f[..., 2]) + 10), f[..., 1])
             eo = (a > 0.08) & (a < 0.92); FRs.append(float(((f[..., 1] > f[..., 2] + 25) & (f[..., 1] > f[..., 0] + 25))[eo].mean()) if eo.any() else 0.0)
             bgb = cv2.GaussianBlur(B, (0, 0), 14); f = f * (1 - 0.5 * band) + bgb * 0.5 * band

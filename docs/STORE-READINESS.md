@@ -8,12 +8,12 @@ Rà soát ngày 17/10/2026 trên mã nguồn + log CI (android.yml, ios.yml đ�
 | Kênh | Trạng thái |
 |---|---|
 | **iOS** (App Store Connect app 6824714708) | Bản **1.0 build 5** đã **gửi duyệt 22/10** (phát hành **Manual**). App Privacy đã **Publish**. 28 ảnh iPhone 6.9"/iPad 13" (en/vi) + niêm yết 16 ngôn ngữ đã đẩy bằng `scripts/asc-upload.mjs`. Chưa mở EU (DSA trader chưa khai). |
-| **Android** (Play, `com.lexkite.app`) | Bản 1.0.0 (versionCode 1406) ở **Internal testing** ("Lexkite team"), App content đã khai đủ (Ads = No, Data safety theo A2, IARC, 13+) – trạng thái 18/10, chưa thấy ghi nhận lên Production (verify trên Play Console). Upload key + 4 GitHub Secrets đã có; CI `android.yml` ra `.aab`. |
+| **Android** (Play, `com.lexkite.app`) | **Production đã gửi, đang duyệt** (Play Console 22/10: Production Active, 177 quốc gia, Update status "In review"). Internal testing 1.0.0 (1406). Upload key + secrets có; CI `android.yml` ra `.aab`. |
 | **Chrome add-on** (CWS `idalfipabpfcajpkfkifbdlpejcdmfcd`) | **2.6.362 live**; **2.6.430 PENDING_REVIEW** từ 22/10. Luật: `docs/CWS-RULES.md`. |
 
 **👤 Việc anh chủ còn phải làm:**
 1. iOS: chờ Apple duyệt → bấm **Release** thủ công trên App Store Connect (đã chọn Manual). Bị từ chối → gửi em nội dung để sửa.
-2. Android: thử bản Internal testing → **Production → gửi duyệt** trên Play Console (verify xem đã làm chưa).
+2. Android: ✅ đã gửi Production, chờ Google duyệt (22/10).
 3. Đăng nhập trong app (Google + Apple): làm các bước console ở **B2** (chưa có `GoogleService-Info.plist` / `google-services.json` trong repo), rồi cập nhật App Privacy + Data safety (B2 bước 8).
 4. EU: khai **DSA trader** bằng địa chỉ LLC (D-U-N-S 141146874) rồi mở bán EU (hiện tắt EU-27).
 5. (Tùy chọn) Tên người bán hiện "MODIAN LUXURY JEWELRY LLC" – muốn hiện "Lexkite" thì đăng ký DBA (mục C).
@@ -112,6 +112,14 @@ Mã, entitlement, plugin, CI đã xong (`web/js/native-auth.js`, `scripts/mobile
 
 ### B3. Review Notes
 Nguồn: `reviewNotes` trong `store/apple/listing.json` (script `asc-upload.mjs` tự đẩy lên; bản đọc được ở cuối `store/apple/LISTING.md`). Bỏ chữ "free", mô tả đúng thanh tab (Today, Vocabulary, Skills, Tests, Me), cách tới từng tính năng gốc và lý do khai background mode "audio".
+
+### B.x Widget "Từ mỗi giờ" (Word of the hour) – nhánh `word-widget`
+- Thêm vào **chính extension `LexkiteWidget` đã có** (WidgetBundle: widget ôn tập + `LexkiteWordWidget`), nên **dùng lại** App ID `com.lexkite.app.widget` và App Group `group.com.lexkite.app` đã tạo → **không cần bước nào trên portal**, ký tự động (`-allowProvisioningUpdates` + API key) như cũ. Không tạo bundle id mới `com.lexkite.app.LexkiteWidget` (sẽ phải tạo App ID + gán App Group tay, và đổi id extension làm hỏng bản đã có).
+- Nếu sau này đổi bundle id extension: Certificates, IDs & Profiles → Identifiers → + App IDs → `com.lexkite.app.<tên>` → bật **App Groups** → Configure → chọn `group.com.lexkite.app` → Save; rồi chạy lại `ios-testflight.yml` (upload = false để chỉ kiểm ký). Bước "Kiểm entitlements" phải thấy `application-groups`.
+- Quyền riêng tư: chỉ đọc/ghi UserDefaults của App Group (lý do `CA92.1` + `1C8F.1` đã khai trong `App/PrivacyInfo.xcprivacy` và `LexkiteWidget/PrivacyInfo.xcprivacy`); không gọi mạng, **không thông báo**, không quyền mới. Android: AlarmManager không chính xác (không `SCHEDULE_EXACT_ALARM`), không quyền mới.
+- Dữ liệu: `web/js/widget-feed.js` (gói lười `wfeed`) → plugin nội bộ `WordWidget.setWords/reload` (`App/WordWidgetPlugin.swift`, `WordWidgetPlugin.kt`); widget `LexkiteWidget/WordWidget.swift` + `WordViews.swift` + `WordFeed.swift`, Android `WordWidget.kt` + `layout/widget_word*.xml`. Chạm → `lexkite://word/<từ>` → `#/dict/<từ>`.
+
+---
 
 ## C. Chung cho cả hai
 

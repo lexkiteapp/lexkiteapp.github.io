@@ -7,7 +7,7 @@
     'Đang tải…': 'Loading…', 'Không tải được thư viện: {e}': 'Could not load the library: {e}', '🔄 Tải lại': '🔄 Reload',
     'Thư viện': 'Library', 'Thống kê': 'Statistics', 'Tìm điểm học, tiêu đề, mã…': 'Search learning point, title, id…', 'Tìm kiếm': 'Search',
     'Định dạng': 'Format', 'Cảnh/chủ đề': 'Scene/topic', 'Mẫu': 'Template', 'Trạng thái': 'Status', 'Từ ngày': 'From', 'Đến ngày': 'To', 'Tất cả': 'All', 'Xóa lọc': 'Clear filters',
-    'Bản tin': 'News', 'Cảnh': 'Scene', 'QA đạt': 'QA passed', 'QA chưa đạt': 'QA failed', 'Đã lên lịch': 'Scheduled', 'Đã tới lịch': 'Slot passed', 'Chưa xếp lịch': 'Unscheduled',
+    'Bản tin': 'News', 'Cảnh': 'Scene', 'QA đạt': 'QA passed', 'QA chưa đạt': 'QA failed', 'Đã lên lịch': 'Scheduled', 'Đã tới lịch': 'Slot passed', 'Chưa xếp lịch': 'Unscheduled', 'Bị loại': 'Rejected', 'Tạm dừng': 'Paused',
     '{n} video': '{n} videos', 'Không có video khớp bộ lọc.': 'No videos match the filters.', 'Cần token': 'Needs token', 'Mở video {t}': 'Open video {t}',
     '⚠️ Chưa có SHORTS_READ_TOKEN: đang dùng manifest gói sẵn (cập nhật {d}); bìa và video chưa xem được. Xem docs/SHORTS-ACCESS.md.': '⚠️ SHORTS_READ_TOKEN is not set: using the bundled manifest (updated {d}); covers and videos are unavailable. See docs/SHORTS-ACCESS.md.',
     'Nguồn: repo riêng lexkite-shorts (trực tiếp)': 'Source: private repo lexkite-shorts (live)', 'Nguồn: manifest gói sẵn': 'Source: bundled manifest',

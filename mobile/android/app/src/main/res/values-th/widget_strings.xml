@@ -2,4 +2,7 @@
 <!-- Sinh tự động: scripts/gen-widget-i18n.mjs -->
 <resources>
     <string name="widget_desc">การ์ดที่ต้องทบทวนวันนี้ · 🔥 วันต่อเนื่อง</string>
+    <string name="word_widget_label">คำศัพท์ประจำชั่วโมง</string>
+    <string name="word_widget_desc">คำศัพท์หนึ่งคำบนหน้าจอ เปลี่ยนตามจังหวะที่คุณเลือก</string>
+    <string name="word_widget_tap">แตะเพื่อดูความหมาย</string>
 </resources>

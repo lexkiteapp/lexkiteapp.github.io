@@ -123,7 +123,18 @@
     },
 
     /**
+     * Kiểm tra xem giao diện có đang mở modal hay màn thưởng không để tránh đè lớp
+     * @returns {boolean}
+     */
+    canShowModal() {
+      if (typeof document === 'undefined') return false;
+      const hasModal = document.querySelector('.modal-wrap, .modal-backdrop, #rewardModal, .reward-modal, .path-reward, #reviewDone');
+      return !hasModal;
+    },
+
+    /**
      * Kiểm tra khi mở app: nếu lastSave === hôm nay thì hiện 1 lần màn cứu chuỗi, lưu cờ đã xem vào Core.Store
+     * Xếp hàng hiện sau nếu đang có modal hoặc màn thưởng khác
      * @param {Object} stats
      */
     async checkSavedNotice(stats) {
@@ -148,9 +159,16 @@
         try { localStorage.setItem('lk.' + seenKey, today); } catch (e) { /* bỏ qua */ }
       }
 
-      setTimeout(() => {
-        StreakUI.showSavedModal(stats, fi);
-      }, 800);
+      // Xếp hàng: nếu đang có modal hoặc màn thưởng thì chờ tối đa 30s
+      const tryShow = (retries = 30) => {
+        if (StreakUI.canShowModal()) {
+          StreakUI.showSavedModal(stats, fi);
+        } else if (retries > 0) {
+          setTimeout(() => tryShow(retries - 1), 1000);
+        }
+      };
+
+      setTimeout(() => tryShow(30), 800);
     },
   };
 

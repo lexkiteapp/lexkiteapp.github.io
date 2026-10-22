@@ -2,4 +2,7 @@
 <!-- Sinh tự động: scripts/gen-widget-i18n.mjs -->
 <resources>
     <string name="widget_desc">今日の復習カード · 🔥 連続日数</string>
+    <string name="word_widget_label">1時間ごとの単語</string>
+    <string name="word_widget_desc">画面に単語を1つ表示、選んだ間隔で切り替え</string>
+    <string name="word_widget_tap">タップして意味を見る</string>
 </resources>

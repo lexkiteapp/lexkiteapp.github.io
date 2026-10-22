@@ -2,4 +2,7 @@
 <!-- Sinh tự động: scripts/gen-widget-i18n.mjs -->
 <resources>
     <string name="widget_desc">Tarjetas para hoy · 🔥 Racha diaria</string>
+    <string name="word_widget_label">Palabra de la hora</string>
+    <string name="word_widget_desc">Una palabra en tu pantalla, cambia al ritmo que elijas</string>
+    <string name="word_widget_tap">Toca para ver el significado</string>
 </resources>

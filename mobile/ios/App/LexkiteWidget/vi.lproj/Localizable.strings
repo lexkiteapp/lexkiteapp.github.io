@@ -1,2 +1,5 @@
 /* Sinh tự động: scripts/gen-widget-i18n.mjs */
 "widget.desc" = "Thẻ đến hạn hôm nay · 🔥 Chuỗi ngày";
+"word.name" = "Từ mỗi giờ";
+"word.desc" = "Một từ trên màn hình, đổi theo nhịp bạn chọn";
+"word.tap" = "Chạm để xem nghĩa";

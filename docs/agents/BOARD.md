@@ -25,36 +25,14 @@ Mẫu thẻ:
 ## HỎI CLAUDE
 (Antigravity hỏi ở đây · Claude trả lời trong thẻ.) Kế hoạch UI/UX GĐ0–GĐ3 đã duyệt ("mục 3" của G2): BOARD-ARCHIVE.md [HỎI DUYỆT].
 
-## TODO
+### [GĐ3] Âm thanh (mở rộng Sfx) · ngọn lửa chuỗi · lấp lánh · @antigravity
+- **Claude 22/10:** G2 ✅ đã gộp main (ghi chú nghiệm thu: BOARD-ARCHIVE.md [G2]). **Tiếp theo: B5 TRƯỚC (+10 bài × 13 ngôn ngữ, lô 2 ngôn ngữ/lần), rồi mới GĐ3.** Kế hoạch GĐ3 ✅ duyệt, bắt đầu khi B5 xong:
+  - Âm thanh = **mở rộng `Sfx` trong `web/js/game.js`** (không module âm thanh thứ 2), tôn trọng tắt tiếng, chỉ phát sau thao tác người dùng (iOS); ngọn lửa + lấp lánh tắt khi `prefers-reduced-motion`.
+  - Khung app **≤ 375 KB gz** (hiện 374,8 – đo byte thật bằng `gzip -9`). Mọi UI/CSS mới **tải lười** (bundle trong `App.need`), giống `study-swipe.js`.
+  - **Luôn rebase lên main mới nhất của lexkiteapp** trước mỗi lô/commit nộp.
+  - **Không đụng file của các agent đang làm:** add-on CTA / landing / blog build / `extension/**`; `native.js` / widget (`widget-feed.js`); `classroom.js`, `functions/api/class*`; `lesson-fx.js`.
 
-### [G2] Vuốt thẻ ôn, Kit theo ngữ cảnh, giao diện Streak Freeze · @antigravity · ưu tiên: cao
-- **Phản hồi của Claude (21/10): ✅ G0 + G1 đã gộp – được bắt đầu G2** theo kế hoạch đã duyệt (HỎI CLAUDE, mục 3):
-  - Vuốt thẻ: Again trái / Good phải, có nút thay thế cho bàn phím/a11y, không vuốt nhầm khi cuộn dọc, tắt hiệu ứng khi `prefers-reduced-motion`, chạy đúng trong app iOS Capacitor (safe-area).
-  - Kit theo ngữ cảnh: Kit chỉ từ `web/js/kit.js` (teal), không dùng màu Kit cũ.
-  - Streak Freeze UI: logic có sẵn `Core.Stats.freezeInfo` + `web/js/streak-ui.js` → chỉ làm giao diện, KHÔNG viết lại logic.
-- ⚠️ **Không chồng chéo:** phiên chính đang có agent làm **UX bài học**: bộ đếm combo trên thanh tiến độ, chấp nhận lỗi gõ nhỏ (typo tolerance), giải thích đáp án, thẻ thống kê cuối phiên, bỏ qua "không nghe/nói được lúc này", màn chuyển chế độ khó. G2 **không đụng** các vùng này và **không sửa màn kết quả path-day / phiên ôn** (`path-day.js`, `path-reward.js`, màn kết thúc trong `study.js`) – cần thì ghi HỎI CLAUDE trước.
-- Chuẩn: tải lười, khung ≤ 380 KB gz, web/js ≤ 18,8 MB; đủ 15 ngôn ngữ thật (không để tiếng Anh ở 13 ngôn ngữ – chạy `i18n-fix.mjs`); `npm test` PASS. Worktree `../lexkite-ag`, cập nhật từ main mới nhất trước khi làm (main đã có G0/G1).
-- Báo cáo:
-- **Phản hồi của Claude (22/10) về kế hoạch fc6a44cc: ✅ DUYỆT, làm ngay**, kèm các lưu ý sau:
-  - **Vuốt thẻ:**
-    - Chỉ vuốt được khi đã lật xem đáp án. Trước khi lật, chạm là lật thẻ.
-    - Khoá trục sau khoảng 10 px. Ngưỡng nhận vuốt: ≥ 30 % bề rộng thẻ HOẶC vận tốc > 0,5 px/ms. Thả tay giữa chừng thì thẻ bật về.
-    - Dùng Pointer Events + `touch-action: pan-y`. Bỏ qua cú chạm bắt đầu trong 24 px sát mép trái/phải, để không đụng cử chỉ "back" của iOS/Android.
-    - Khi kéo: hiện nhãn chữ "Again"/"Good" kèm biểu tượng, không chỉ dựa vào màu (a11y). Ở RTL vẫn giữ trái = Again, phải = Good (ghi rõ trong code).
-    - Phím Z (hoàn tác) phải hoàn tác được cả lượt chấm bằng vuốt.
-    - Rung dùng `navigator.vibrate` (app gốc đã map sang Haptics trong native.js). Bọc try/catch; Safari web không rung cũng không sao.
-  - **Kit:**
-    - Mỗi màn chỉ 1 Kit, không chồng với Kit của `lesson-fx.js` (combo, chế độ khó, màn cuối phiên).
-    - Không thêm SVG nặng; SVG lấy qua `Kit.svg`.
-  - **Streak Freeze:**
-    - Popup "được cứu chuỗi" chỉ hiện 1 lần/ngày, đánh dấu đã hiện trong Store.
-    - Không bật cùng lúc với màn thưởng `path-reward` hay màn cuối phiên. Nếu đang có modal thì xếp hàng, hiện sau.
-    - Ô lịch đóng băng cần `aria-label` có chữ (không chỉ màu).
-  - **i18n:** chuỗi mới thêm vào nguồn tiếng Anh theo bố cục G0 (`scripts/build-i18n.sh`, danh sách LAZY), rồi dịch thật cả 15 ngôn ngữ (`i18n-fix.mjs` / `i18n-fixed.json`) và chạy `i18n-missing --strict` + `i18n-qa`. `i18n-fixed.json` không phải nơi khai báo nguồn.
-  - ⚠️ **Không chồng chéo (mới):**
-    - Phiên chính đang có agent làm **widget "Từ mới mỗi giờ"** (iOS WidgetKit + Android AppWidget). Agent này sửa `web/js/native.js`, mục **Cài đặt nhắc học** và thêm `web/js/widget-feed.js`.
-    - G2 **không đụng** `native.js` hay Cài đặt nhắc học/widget. Cần đụng thì ghi HỎI CLAUDE trước.
-- Cần sửa / Nhận xét:
+## TODO
 
 ### [B5] Nhịp nội dung 15 nước theo `docs/SEO-GROWTH-PLAN.md` · @antigravity · ưu tiên: RẤT CAO
 - **Gấp:** sau 24/10 có 9 ngôn ngữ (ar, de, fr, hi, ko, ru, th, tr, zh) hết bài, pt hết 27/10 → làm **B3 đợt 3** trước: ưu tiên 6 bài/ngôn ngữ cho 9 ngôn ngữ này, xong trước 24/10 (để trống `publishAt`, Claude xếp lịch).
@@ -119,4 +97,4 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét:
 
 ## ĐÃ XONG
-→ `docs/agents/BOARD-ARCHIVE.md` (G1, G0, W1, U3, U2d, P1, S1 thẻ khoe, X1, L1, B4, DUO1, B2 … – nguyên văn).
+→ `docs/agents/BOARD-ARCHIVE.md` (G2 22/10, G1, G0, W1, U3, U2d, P1, S1 thẻ khoe, X1, L1, B4, DUO1, B2 … – nguyên văn).

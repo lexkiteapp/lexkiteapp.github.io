@@ -26,7 +26,25 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="lexkite" android:host="review" />
             </intent-filter>
+            <!-- Widget "Từ mỗi giờ" → lexkite://word/<từ> → mở thẻ từ (#/dict/<từ>) -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="lexkite" android:host="word" />
+            </intent-filter>
         </activity>
+
+        <!-- Widget "Từ mỗi giờ": không cần quyền đặc biệt (báo thức không chính xác, không thông báo) -->
+        <receiver
+            android:name=".WordWidget"
+            android:exported="false"
+            android:label="@string/word_widget_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/word_widget_info" />
+        </receiver>
 
         <receiver
             android:name=".LexkiteWidget"

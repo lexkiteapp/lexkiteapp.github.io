@@ -1,2 +1,5 @@
 /* Sinh tự động: scripts/gen-widget-i18n.mjs */
 "widget.desc" = "Cartes à revoir aujourd'hui · 🔥 Série de jours";
+"word.name" = "Mot de l'heure";
+"word.desc" = "Un mot sur votre écran, qui change au rythme choisi";
+"word.tap" = "Touchez pour voir le sens";

@@ -243,6 +243,9 @@
     anki: ['js/lib/save-file.js', 'js/anki.js'], // 🃏 Xuất/nhập Anki (.apkg/.txt/.csv) – chỉ tải khi mở hộp thoại Anki
     share: ['js/lib/qr.js', 'js/lib/save-file.js', 'js/share-card.js'], xport: ['js/export.js'], file: ['js/lib/save-file.js'], lsw: ['js/lang-menu.js'],
     quick: ['js/i18n/en/quick.js', 'js/quick.js'],
+    pgames: ['js/study-games.js'],
+    swipe: ['js/study-swipe.js'], // ⚡ Ghép thẻ + 🎙️ Phát âm · 👆 vuốt thẻ + 🐦 Kit mini (G2)
+    wfeed: ['js/i18n/en/wfeed.js', 'js/widget-feed.js'], // 📱 widget "Từ mỗi giờ" (chỉ app gốc – native.js nạp)
     lfx: ['js/i18n/en/lfx.js', 'js/lesson-fx.js'], // 🔥 Nhịp buổi học: chuỗi đúng liền, lỗi chính tả nhỏ, Giải thích, thẻ số liệu cuối lượt, tạm tắt nghe/nói, chế độ khó
   };
   const ROUTE_BUNDLE = { class: 'classroom', paraphrase: 'paraphrase', courses: 'courses', goal: 'goal', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: ['grammar', 'lfx'], placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
@@ -1177,9 +1180,12 @@
     for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
       const key = todayKey(d), v = activity(key);
       if (usedFreezes.includes(key)) {
-        cells.push(`<i class="freeze" title="${key}: 🧊 ${t('Ngày đóng băng (chuỗi được bảo toàn)')}"></i>`);
+        const title = `${key}: 🧊 ${t('Ngày đóng băng (chuỗi được bảo toàn)')}`;
+        cells.push(`<i class="freeze" role="img" aria-label="${title}" title="${title}"></i>`);
       } else {
-        cells.push(`<i class="${v >= 60 ? 'l4' : v >= 30 ? 'l3' : v >= 10 ? 'l2' : v > 0 ? 'l1' : ''}" title="${key}: ${t('{n} lượt ôn, {xp} XP', { n: state.stats.days[key] || 0, xp: (state.game.days[key] || {}).xp || 0 })}"></i>`);
+        const cls = v >= 60 ? 'l4' : v >= 30 ? 'l3' : v >= 10 ? 'l2' : v > 0 ? 'l1' : '';
+        const title = `${key}: ${v > 0 ? t('{n} lượt ôn, {xp} XP', { n: state.stats.days[key] || 0, xp: (state.game.days[key] || {}).xp || 0 }) : t('Chưa học')}`;
+        cells.push(`<i class="${cls}" role="img" aria-label="${title}" title="${title}"></i>`);
       }
     }
     // Ôn tập 14 ngày
@@ -1220,7 +1226,7 @@
       </div>
 
       <div class="card" style="margin-top:1rem">
-        <div class="row between"><h3 style="margin:0">${t('Lịch học 6 tháng')}</h3><span class="row tiny muted" style="gap:.5rem"><span>${t('Ít')} <i class="heat" style="display:inline-grid;grid-template-rows:12px"><i></i></i><span style="display:inline-flex;gap:3px"><i style="width:12px;height:12px;border-radius:3px" class="l1"></i></span> ${t('Nhiều')}</span><span style="display:inline-flex;align-items:center;gap:3px"><i class="freeze" style="width:12px;height:12px;border-radius:3px;display:inline-block"></i> 🧊 ${t('Đóng băng')}</span></span></div>
+        <div class="row between"><h3 style="margin:0">${t('Lịch học 6 tháng')}</h3><span class="row tiny muted" style="gap:.5rem"><span>${t('Ít')} <i class="heat" style="display:inline-grid;grid-template-rows:12px"><i></i></i><span style="display:inline-flex;gap:3px"><i style="width:12px;height:12px;border-radius:3px" class="l1"></i></span> ${t('Nhiều')}</span><span style="display:inline-flex;align-items:center;gap:3px"><i class="freeze" role="img" aria-label="${t('Đóng băng')}" style="width:12px;height:12px;border-radius:3px;display:inline-block"></i> 🧊 ${t('Đóng băng')}</span></span></div>
         <div class="heat" style="margin-top:.8rem">${cells.join('')}</div>
       </div>
 
@@ -1323,7 +1329,8 @@
         + `<label class="set-row col"><span class="set-top"><span>${t('Chỉ nhắc khi có ít nhất <b id="vGMin">{n}</b> từ cần ôn', { n: s.goldenMin })}</span></span><input type="range" min="1" max="50" id="sGMin" value="${s.goldenMin}"></label>`
         + row(t('Giờ yên lặng từ'), `<span class="set-btns"><input type="time" class="input" id="sQ1" value="${esc(s.quietStart)}"><span class="muted">${t('đến')}</span><input type="time" class="input" id="sQ2" value="${esc(s.quietEnd)}"></span>`)
         + '</div>'
-        + tog('sDigest', s.emailDigest === true, '📧 ' + t('Báo cáo não bộ qua email'), t('Gửi tóm tắt trí nhớ FSRS và các từ sắp quên vào sáng Chủ nhật (khi đã đăng nhập)')))}
+        + tog('sDigest', s.emailDigest === true, '📧 ' + t('Báo cáo não bộ qua email'), t('Gửi tóm tắt trí nhớ FSRS và các từ sắp quên vào sáng Chủ nhật (khi đã đăng nhập)'))
+        + (window.VBNative && VBNative.is ? '<div id="wwBox"></div>' : ''))}
       <section class="set-sec" id="set-ai"><div id="aiBox"></div></section>
       ${Store.isExtension ? '' : sec('ext', '🧩 ' + t('Add-on từ điển cho Chrome'), `<div class="set-row"><div class="set-l"><span class="small">${t('Bấm đúp vào bất kỳ từ tiếng Anh nào trên web để xem phiên âm, nghĩa, hình ảnh và <b>lưu vào flashcard kèm câu gốc làm ngữ cảnh</b>. Bôi đen cả câu/đoạn để <b>dịch sang tiếng Việt</b>.')}</span></div><a class="btn sm primary" data-ext-cta="set" hidden>${t('Thêm vào Chrome')}</a></div>`)}
       ${sec('data', '💾 ' + t('Dữ liệu'),
@@ -1347,6 +1354,7 @@
     $('#sGoal').oninput = e => { s.dailyGoal = +e.target.value; $('#vGoal').textContent = s.dailyGoal; save(); };
     const drawAI = async () => { const b = $('#aiBox'); if (!b || !window.AI) return; b.innerHTML = await AI.settingsHtml(); AI.bindSettings(drawAI); };
     drawAI();
+    if ($('#wwBox')) App.need('wfeed').then(() => window.WidgetFeed && WidgetFeed.settings($('#wwBox'), state, save)).catch(() => {}); // 📱 widget "Từ mỗi giờ" (app gốc)
     $('#sRet').oninput = e => { s.retention = +e.target.value; SRS.retentionTarget = s.retention; $('#vRet').textContent = Math.round(s.retention * 100) + '%'; save(); };
     $('#sGold').onchange = e => { s.goldenOn = e.target.checked; $('#goldOpts').hidden = !s.goldenOn; save(); };
     $('#sGMin').oninput = e => { s.goldenMin = +e.target.value; $('#vGMin').textContent = s.goldenMin; save(); };

@@ -89,6 +89,7 @@
   }
   function widgetFlush() {
     clearTimeout(wTimer); wTimer = 0;
+    feedPush();
     const WB = P.WidgetBridge; if (!WB || !wArgs || !g.Core) return;
     try {
       const snap = widgetSnapshot(wArgs[0], wArgs[1]), key = JSON.stringify({ ...snap, at: 0 });
@@ -97,9 +98,20 @@
     } catch (e) { /* bỏ qua */ }
   }
   g.VBNative.widget = (state, streakN) => { wArgs = [state, streakN]; clearTimeout(wTimer); wTimer = setTimeout(widgetFlush, 1500); };
-  document.addEventListener('visibilitychange', () => { if (document.hidden && wTimer) widgetFlush(); });
+  // Widget "Từ mỗi giờ": nạp lười js/widget-feed.js (gói 'wfeed') rồi đẩy ~48 từ sang plugin WordWidget (tự bỏ qua nếu không đổi)
+  function feedPush() {
+    if (!P.WordWidget || !wArgs || !g.App || !g.App.need) return;
+    const st = wArgs[0];
+    g.App.need('wfeed').then(() => g.WidgetFeed && g.WidgetFeed.push(st)).catch(() => {});
+  }
+  document.addEventListener('visibilitychange', () => { if (document.hidden && wTimer) widgetFlush(); else if (!document.hidden) feedPush(); });
   // Chạm widget → lexkite://review?w=từ → mở đúng thẻ đó trong phiên ôn (#/review?w=từ)
-  const openDeep = url => { const m = /^lexkite:\/\/review\/?(?:\?w=([^&#]*))?/i.exec(url || ''); if (m) location.hash = '#/review' + (m[1] ? '?w=' + m[1] : ''); };
+  // Widget "Từ mỗi giờ" → lexkite://word/<từ> → thẻ từ #/dict/<từ> (chế độ đố: nghĩa hiện ở đây)
+  const openDeep = url => {
+    const w = /^lexkite:\/\/word\/([^?#/]+)/i.exec(url || '');
+    if (w) { let id = w[1]; try { id = encodeURIComponent(decodeURIComponent(id)); } catch (e) { /* giữ nguyên */ } location.hash = '#/dict/' + id; return; }
+    const m = /^lexkite:\/\/review\/?(?:\?w=([^&#]*))?/i.exec(url || ''); if (m) location.hash = '#/review' + (m[1] ? '?w=' + m[1] : '');
+  };
   if (P.App) {
     P.App.addListener('appUrlOpen', e => openDeep(e && e.url));
     window.addEventListener('load', () => { P.App.getLaunchUrl && P.App.getLaunchUrl().then(r => openDeep(r && r.url)).catch(() => {}); });

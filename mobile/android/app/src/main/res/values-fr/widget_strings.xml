@@ -2,4 +2,7 @@
 <!-- Sinh tự động: scripts/gen-widget-i18n.mjs -->
 <resources>
     <string name="widget_desc">Cartes à revoir aujourd\'hui · 🔥 Série de jours</string>
+    <string name="word_widget_label">Mot de l\'heure</string>
+    <string name="word_widget_desc">Un mot sur votre écran, qui change au rythme choisi</string>
+    <string name="word_widget_tap">Touchez pour voir le sens</string>
 </resources>

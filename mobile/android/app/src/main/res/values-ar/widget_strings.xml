@@ -2,4 +2,7 @@
 <!-- Sinh tự động: scripts/gen-widget-i18n.mjs -->
 <resources>
     <string name="widget_desc">بطاقات اليوم · 🔥 أيام متتالية</string>
+    <string name="word_widget_label">كلمة كل ساعة</string>
+    <string name="word_widget_desc">كلمة واحدة على شاشتك تتغير بالوتيرة التي تختارها</string>
+    <string name="word_widget_tap">اضغط لرؤية المعنى</string>
 </resources>

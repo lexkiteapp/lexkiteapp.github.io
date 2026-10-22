@@ -138,4 +138,39 @@ ok((await call(B, { op: 'pull', have: {} })).s === 200, 'mở khóa → đồng 
   ok(!typo('1234', '1235').ok, 'typo: số không được nới');
 }
 
-console.log(fails ? `✗ unit: ${fails} lỗi` : '✓ unit: FSRS, API đồng bộ & xuất Excel – tất cả đạt'); process.exit(fails ? 1 : 0);
+// ---------- Widget "Từ mỗi giờ": chọn từ (web/js/widget-feed.js) ----------
+{
+  const wc = { console, Date, Math, JSON, Object, Array, Set, Promise, setTimeout, t: (s, o) => s.replace(/\{(\w+)\}/g, (_, k) => (o || {})[k]) };
+  wc.self = wc; vm.createContext(wc);
+  vm.runInContext(fs.readFileSync(new URL('../../web/js/widget-feed.js', import.meta.url), 'utf8'), wc);
+  const WF = wc.WidgetFeed, now = new Date('2026-10-22T10:00:00').getTime();
+  const card = (word, srs, extra = {}) => ({ word, ipa: '/x/', vi: 'nghĩa ' + word, def: 'def ' + word, ex: 'An example with ' + word + '.', level: 'B2', added: 1, srs: { ef: 2.5, interval: 0, reps: 0, lapses: 0, due: now, last: null, ...srs }, ...extra });
+  const cards = [
+    card('mature', { reps: 9, interval: 90, last: now - 90 * DAY, due: now + 30 * DAY }),
+    card('due2', { reps: 3, interval: 4, last: now - 4 * DAY, due: now - DAY }),
+    card('due1', { reps: 2, interval: 2, last: now - 3 * DAY, due: now - 2 * DAY }),
+    card('learn', { reps: 1, interval: 3, last: now - DAY, due: now + 2 * DAY }),
+    card('fresh', {}),
+  ];
+  const pool = ['a1w|A1', 'b1w|B1', 'b2w|B2', 'c1w|C1', 'c2w|C2', 'Due1|B2', ...Array.from({ length: 80 }, (_, i) => `p${i}|${['A2', 'B1', 'B2', 'C1'][i % 4]}`)]
+    .map(s => { const [word, level] = s.split('|'); return { word, level, ipa: '', vi: 'v', def: 'd', ex: '' }; });
+  const out = WF.pickWords({ cards, pool, level: 2, now, n: 48 });
+  ok(out.length === 48, 'widget: chọn đủ 48 từ khi kho đủ lớn');
+  ok(out.slice(0, 4).map(c => c.word).join() === 'due1,due2,learn,fresh', 'widget: thẻ đến hạn (sớm nhất trước) → đang học → thẻ mới của người học');
+  ok(!out.some(c => c.word === 'mature'), 'widget: thẻ đã thuộc lâu (chưa đến hạn) không chiếm chỗ');
+  ok(new Set(out.map(c => c.word.toLowerCase())).size === out.length && !out.slice(4).some(c => c.word === 'Due1'), 'widget: không trùng từ (kể cả khác hoa/thường với thẻ đã có)');
+  const lvOf = c => c.level;
+  ok(out.slice(4, 30).every(c => lvOf(c) === 'B1' || lvOf(c) === 'B2'), 'widget: từ mới ưu tiên đúng trình độ (B1) và cao hơn 1 bậc (B2)');
+  ok(JSON.stringify(WF.pickWords({ cards, pool, level: 2, now, n: 48 }).map(c => c.word)) === JSON.stringify(out.map(c => c.word)), 'widget: cùng ngày → cùng bộ từ (ổn định)');
+  const tmr = WF.pickWords({ cards: [], pool, level: 2, now: now + DAY, n: 10 }).map(c => c.word).join(), tdy = WF.pickWords({ cards: [], pool, level: 2, now, n: 10 }).map(c => c.word).join();
+  ok(tmr !== tdy, 'widget: ngày mới → từ mới khác');
+  ok(WF.pickWords({ cards: [], pool: [], now }).length === 0, 'widget: không có dữ liệu → danh sách rỗng, không lỗi');
+  ok(WF.cefrIndex({ goal: { exam: 'general', target: 4 } }) === 3 && WF.cefrIndex({ placement: { vCefr: 'C1' } }) === 4 && WF.cefrIndex({ goal: { exam: 'ielts', target: 7.5 } }) === 4 && WF.cefrIndex({}) === 2, 'widget: trình độ theo mục tiêu / kiểm tra đầu vào / band, mặc định B1');
+  const c0 = WF.conf({}), c1 = WF.conf({ wordWidget: { intervalMin: 45, startHour: -3, endHour: 99, showMean: false } });
+  ok(c0.intervalMin === 60 && c0.startHour === 7 && c0.endHour === 22 && c0.showMean === true, 'widget: mặc định 1 giờ, 7–22, hiện nghĩa');
+  ok(c1.intervalMin === 60 && c1.startHour === 0 && c1.endHour === 24 && c1.showMean === false, 'widget: cấu hình sai → về giá trị hợp lệ');
+  const p = WF.payload({ settings: { accent: 'en-US', wordWidget: { intervalMin: 30 } }, cards: { a: card('due1', { reps: 2, last: now - DAY, due: now - DAY }, { ipaUS: '/us/', ex: 'x'.repeat(300) }) } }, [], c => c.vi, now);
+  ok(p.items.length === 1 && p.items[0].id === 'due1' && p.items[0].ipa === '/us/' && p.items[0].mean === 'nghĩa due1' && p.items[0].ex.length <= 120 && p.intervalMin === 30, 'widget: payload { w, ipa (theo giọng), mean (ngôn ngữ giao diện), ex (cắt ngắn), id }');
+}
+
+console.log(fails ? `✗ unit: ${fails} lỗi`: '✓ unit: FSRS, API đồng bộ & xuất Excel – tất cả đạt'); process.exit(fails ? 1 : 0);
