@@ -320,7 +320,10 @@ jobs:
       - uses: actions/cache/restore@v4
         with: { path: sr, key: 'host-sr-v2-gc4_listen', fail-on-cache-miss: true }
       - name: x2 host layers into the footage tree
-        run: for d in sr; do mkdir -p footage/anchor/green/kfull_x2 footage/anchor/green/kmask_x2; cp $d/kfull_x2/* footage/anchor/green/kfull_x2/; cp $d/kmask_x2/* footage/anchor/green/kmask_x2/; done; ls footage/anchor/green/kfull_x2
+        run: |   # 4:4:4 cache -> 4:2:0 for OpenCV's decoder (High 4:4:4 frames came back empty in run #70)
+          mkdir -p footage/anchor/green/kfull_x2 footage/anchor/green/kmask_x2; cp sr/kmask_x2/* footage/anchor/green/kmask_x2/
+          for f in sr/kfull_x2/*.mp4; do ffmpeg -v error -y -i "$f" -c:v libx264 -preset fast -crf 8 -pix_fmt yuv420p "footage/anchor/green/kfull_x2/$(basename "$f")"; done
+          python -c "import cv2,glob;[print(f, cv2.VideoCapture(f).read()[1].shape) for f in sorted(glob.glob('footage/anchor/green/k*_x2/*'))]" || true
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - name: Đệm mô hình Kokoro (~90 MB)
