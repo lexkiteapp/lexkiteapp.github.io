@@ -3,7 +3,8 @@
  * bấm mới tải video + phát có tiếng; nội dung dạy CHỈ tiếng Anh (phụ đề EN, câu đố EN với ✓/✗) – chỉ nút/nhãn theo ngôn ngữ giao diện; xem xong → 1 câu đố nhanh
  * (đáp án vào thẻ ôn SRS qua App.addWord) → gợi ý video tiếp theo (đa dạng template/series). Đo: /api/hit { t:'v', ev, id }.
  * Manifest: /data/videos.json (scripts/video/web-rendition.mjs). Clip mẫu thử (test: true) chỉ hiện khi bật ?vtest=1.
- * Có youtube_id → mặt tiền YouTube nhẹ: chỉ poster; bấm mới nạp IFrame API + iframe youtube-nocookie (rel=0, playsinline, modestbranding),
+ * Có youtube_id (chỉ từ kênh NHÚNG – functions/api/youtube.js op ids) → mặt tiền YouTube nhẹ: chỉ poster WebP của mình, 0 byte YouTube trước khi bấm;
+ * rê chuột/focus/gần khung nhìn → chỉ preconnect; bấm mới nạp IFrame API + <iframe loading=lazy> youtube-nocookie (rel=0, playsinline, modestbranding),
  * sự kiện 'ended' → câu đố EN. YouTube không sẵn sàng trong 4 s / lỗi / vùng chặn (người dùng zh, múi giờ Trung Quốc) → bản tự lưu trữ nhỏ (R2/media.lexkite.com).
  * Không có youtube_id → bản tự lưu trữ. docs/VIDEO-STORAGE.md. */
 (function (g) {
@@ -52,7 +53,19 @@
     slot.innerHTML = `<button type="button" class="lv-card" aria-label="${esc(T('Phát video: {t}', { t: it.title }))}"><img src="${esc(it.poster)}" alt="" width="54" height="96" loading="lazy" decoding="async">
       <span><span class="lv-k">🎬 ${esc(lab)} · ${Math.round(it.duration || 20)}s</span><b lang="en">${esc(it.title)}</b></span><span class="lv-play" aria-hidden="true">▶</span></button>`;
     slot.hidden = false;
-    slot.querySelector('.lv-card').onclick = () => play(slot, it, ctx);
+    const b = slot.querySelector('.lv-card'); b.onclick = () => play(slot, it, ctx);
+    if (it.youtube_id) { b.addEventListener('pointerenter', preconnect, { once: true }); b.addEventListener('focus', preconnect, { once: true }); near(b); }
+  }
+  // preconnect = chỉ mở kết nối (DNS/TLS), không tải tài nguyên YouTube nào trước khi bấm
+  function preconnect() {
+    if (LV.preconnected || ytBlocked() || LV.noYT) return; LV.preconnected = true;
+    for (const h of ['https://www.youtube-nocookie.com', 'https://www.youtube.com', 'https://i.ytimg.com']) { const l = document.createElement('link'); l.rel = 'preconnect'; l.href = h; l.crossOrigin = ''; document.head.appendChild(l); }
+  }
+  let io = null;
+  function near(el) {
+    if (LV.preconnected || !('IntersectionObserver' in g)) return;
+    io = io || new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { preconnect(); io.disconnect(); } }, { rootMargin: '300px 0px' });
+    io.observe(el);
   }
 
   const YT_WAIT = 4000;
@@ -88,8 +101,10 @@
     slot.querySelector('[data-lv-close]').onclick = () => { clearTimeout(timer); fell = true; try { if (player && player.destroy) player.destroy(); } catch (e) { /* bỏ qua */ } card(slot, it, ctx); slot.querySelector('.lv-card').focus(); };
     loadYT().then(Y => {
       if (fell || !slot.isConnected) return;
-      player = new Y.Player(`lvyt-${it.id}`, { host: 'https://www.youtube-nocookie.com', videoId: it.youtube_id, width: '100%', height: '100%',
-        playerVars: { rel: 0, playsinline: 1, modestbranding: 1, autoplay: 1, cc_load_policy: 1, cc_lang_pref: 'en', hl: 'en' },
+      const q = new URLSearchParams({ enablejsapi: 1, playsinline: 1, rel: 0, modestbranding: 1, autoplay: 1, cc_load_policy: 1, cc_lang_pref: 'en', hl: 'en' }); if (/^https?:/.test(location.origin)) q.set('origin', location.origin);
+      const fr = document.createElement('iframe'); fr.id = `lvyt-${it.id}`; fr.setAttribute('loading', 'lazy'); fr.title = it.title || 'Video'; fr.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; fr.allowFullscreen = true;
+      fr.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(it.youtube_id)}?${q}`; host.querySelector(`#lvyt-${CSS.escape(it.id)}`).replaceWith(fr);
+      player = new Y.Player(fr, {
         events: {
           onReady: e => { if (fell) return; ready = true; clearTimeout(timer); host.classList.add('on'); hit('view', it.id); try { e.target.playVideo(); } catch (x) { /* bỏ qua */ } },
           onStateChange: e => { if (e.data === 0 && !fell) done(slot, it, ctx, after); },   // YT.PlayerState.ENDED

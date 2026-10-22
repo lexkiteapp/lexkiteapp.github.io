@@ -3,9 +3,12 @@
  *   method + path phải khớp danh sách cho phép (ROUTES) – path tương đối sau /api/social, ví dụ "posts/abc/schedule".
  * Khóa GrabCast (secret GRABCAST_API_KEY) chỉ gắn vào header ở máy chủ: không bao giờ trả về trình duyệt, không ghi log.
  * Thiếu GRABCAST_API_KEY → 503 { error: 'not-configured' } để giao diện hiện hướng dẫn cài đặt.
- * Kết nối/ngắt kênh, xóa: KHÔNG qua đây (khóa không có quyền) – làm trên grabcast.click. */
+ * Kết nối/ngắt kênh, xóa: KHÔNG qua đây (khóa không có quyền) – làm trên grabcast.click.
+ * path "lk/…" = quản lý social của Lexkite ở D1 (duyệt bài, bộ kênh, sức khỏe, hàng đợi, số liệu, AI caption) – functions/api/_social_mgr.js.
+ * CỔNG DUYỆT (luật chủ): POST posts có scheduled_at/publish → 403; posts/:id/schedule|publish-now|retry chỉ chạy khi bài đã duyệt và nội dung chưa đổi. */
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
+import { opFor, approvalFor, setupMgr } from './_social_mgr.js';
 
 const BASE = 'https://grabcast-api-342720596878.us-central1.run.app'; // ghi đè bằng env GRABCAST_API_BASE
 const WS_DEFAULT = '4'; // workspace Lexkite trên GrabCast (không phải bí mật) – ghi đè bằng env GRABCAST_WORKSPACE
@@ -35,30 +38,62 @@ export async function onRequestPost({ request, env }) {
   if (+(request.headers.get('Content-Length') || 0) > MAX_BODY) return json(request, 413, { error: 'too-large' });
   let b; try { b = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
   const method = String((b && b.method) || 'GET').toUpperCase(), path = String((b && b.path) || '').replace(/^\/+|\/+$/g, '').replace(/^api\/social\//, '');
-  if (!allowed(method, path)) return json(request, 400, { error: 'route', message: `${method} ${path.slice(0, 80)} không nằm trong danh sách cho phép` });
+  if (!path.startsWith('lk/') && !allowed(method, path)) return json(request, 400, { error: 'route', message: `${method} ${path.slice(0, 80)} không nằm trong danh sách cho phép` });
   const key = env.GRABCAST_API_KEY, ws = String(env.GRABCAST_WORKSPACE || WS_DEFAULT).trim();
   if (!key || !ws) return json(request, 503, { error: 'not-configured' });
   // Hạn mức GrabCast: 60 lượt/phút, 3.000/ngày – chặn sớm ở đây (đếm theo trung tâm dữ liệu, chừa biên an toàn)
   if (await limit('gc:min', 55, 60) || await limit('gc:day', 2900, 86400)) return json(request, 429, { error: 'grabcast-rate' });
 
-  const url = new URL((String(env.GRABCAST_API_BASE || BASE).replace(/\/+$/, '')) + '/api/social/' + path);
-  if (b.query && typeof b.query === 'object') for (const [k, v] of Object.entries(b.query)) if (/^[a-z_]{1,24}$/.test(k) && v != null && v !== '') url.searchParams.set(k, String(v).slice(0, 200));
-  const headers = { 'X-API-Key': key, 'X-Workspace': String(ws), Accept: 'application/json' };
-  if (method !== 'GET') headers['Content-Type'] = 'application/json';
-  if (b.idem && /^[A-Za-z0-9_-]{8,80}$/.test(String(b.idem))) headers['Idempotency-Key'] = String(b.idem);
-  const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), TIMEOUT);
-  let status = 502, text = '';
-  try {
-    const r = await fetch(url.toString(), { method, headers, body: method === 'GET' ? undefined : JSON.stringify(b.body || {}), signal: ctl.signal });
-    status = r.status; text = await r.text();
-  } catch (e) {
+  const base = String(env.GRABCAST_API_BASE || BASE).replace(/\/+$/, '');
+  // Gọi GrabCast (máy chủ) → { status, data } – khóa đã được xóa khỏi nội dung trả về
+  const gc = async (m, p, body, query, idem) => {
+    const url = new URL(base + '/api/social/' + p);
+    if (query && typeof query === 'object') for (const [k, v] of Object.entries(query)) if (/^[a-z_]{1,24}$/.test(k) && v != null && v !== '') url.searchParams.set(k, String(v).slice(0, 200));
+    const headers = { 'X-API-Key': key, 'X-Workspace': String(ws), Accept: 'application/json' };
+    if (m !== 'GET') headers['Content-Type'] = 'application/json';
+    if (idem && /^[A-Za-z0-9_-]{8,80}$/.test(String(idem))) headers['Idempotency-Key'] = String(idem);
+    const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), TIMEOUT);
+    let st = 502, text = '';
+    try { const r = await fetch(url.toString(), { method: m, headers, body: m === 'GET' ? undefined : JSON.stringify(body || {}), signal: ctl.signal }); st = r.status; text = await r.text(); }
+    catch (e) { clearTimeout(timer); return { status: 504, data: { error: ctl.signal.aborted ? 'timeout' : 'upstream' } }; } // không đưa e.message (có thể chứa URL/headers)
     clearTimeout(timer);
-    if (method !== 'GET') await adminAudit(env, request, g.who.email, 'gc:' + method + ' ' + path, false);
-    return json(request, 504, { error: ctl.signal.aborted ? 'timeout' : 'upstream' }); // không đưa e.message (có thể chứa URL/headers)
+    let data; try { data = JSON.parse(scrub(text, key)); } catch (e) { data = { error: 'upstream', message: scrub(text, key).slice(0, 300) }; }
+    if (st >= 400 && data && typeof data === 'object' && !Array.isArray(data) && !data.error) data.error = 'upstream';
+    const code = st >= 400 ? String((data && data.error && typeof data.error === 'object' ? data.error.code : data && data.error) || 'upstream').slice(0, 60) : '';
+    return { status: st >= 200 && st < 600 ? st : 502, data, code };
+  };
+  const short = path.replace(new RegExp(ID.replace('{1,100}', '{16,}'), 'g'), ':id');
+
+  // ---- Lexkite: lk/… ----
+  if (path.startsWith('lk/')) {
+    const op = opFor(method, path); if (!op) return json(request, 400, { error: 'route' });
+    if (!env.DB) return json(request, 412, { error: 'not-configured' });
+    const who = g.who.email;
+    if (await limit('lk:' + who, 120, 60) || (path === 'lk/ai/caption' && await limit('lkai:' + who, 10, 60)) || (/^lk\/(clips\/push|queue\/apply)$/.test(path) && await limit('lkpush:' + who, 12, 60))) return json(request, 429, { error: 'too-fast' });
+    const bb = b.body && typeof b.body === 'object' && !Array.isArray(b.body) ? b.body : {};
+    try {
+      await setupMgr(env.DB);
+      const out = await op({ db: env.DB, env, b: bb, who, gc, idem: b.idem && /^[A-Za-z0-9_-]{8,80}$/.test(String(b.idem)) ? String(b.idem) : null, request });
+      const st = out.status || 200; delete out.status;
+      if (method !== 'GET') await adminAudit(env, request, who, 'soc:' + path, st < 400);
+      return json(request, st, out);
+    } catch (e) {
+      if (method !== 'GET') await adminAudit(env, request, who, 'soc:' + path, false);
+      return json(request, e.status && e.status < 600 ? e.status : 500, { error: e.code || 'error', ...(e.extra ? { detail: e.extra } : {}) });
+    }
   }
-  clearTimeout(timer);
-  if (method !== 'GET') await adminAudit(env, request, g.who.email, ('gc:' + method + ' ' + path.replace(new RegExp(ID.replace('{1,100}', '{16,}'), 'g'), ':id')), status < 400);
-  let data; try { data = JSON.parse(scrub(text, key)); } catch (e) { data = { error: 'upstream', message: scrub(text, key).slice(0, 300) }; }
-  if (status >= 400 && data && typeof data === 'object' && !Array.isArray(data) && !data.error) data.error = 'upstream';
+
+  // ---- Cổng duyệt: không gì công khai khi chưa duyệt ----
+  const bd = b.body && typeof b.body === 'object' ? b.body : {};
+  if (method === 'POST' && path === 'posts' && (bd.scheduled_at || bd.publish_now || (bd.status && bd.status !== 'draft'))) return json(request, 403, { error: 'needs-approval' });
+  const pm = method === 'POST' && /^posts\/([A-Za-z0-9_-]{1,100})\/(schedule|publish-now|retry)$/.exec(path);
+  if (pm) {
+    const a = await approvalFor(env, pm[1], gc);
+    if (!a.ok) { await adminAudit(env, request, g.who.email, 'gc:blocked ' + short, false); return json(request, a.error === 'needs-approval-db' ? 412 : 403, { error: a.error }); }
+  }
+  const r = await gc(method, path, b.body, b.query, b.idem);
+  if (method !== 'GET') await adminAudit(env, request, g.who.email, 'gc:' + method + ' ' + short, r.status < 400);
+  if (r.status === 504) return json(request, 504, r.data);
+  const status = r.status, data = r.data;
   return json(request, status >= 200 && status < 600 ? status : 502, data);
 }

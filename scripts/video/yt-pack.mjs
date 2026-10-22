@@ -5,6 +5,8 @@
 // "lk:<clip>" that the read-only sync matches) · tags.txt · settings.txt (Unlisted · not made for kids · altered/synthetic = Yes · Education).
 // Packs of clips that are live on the web for 3 days are moved to the Drive trash (op packs → retire). env LEXKITE_DRIVE_CLI_KEY; prints no secrets.
 import fs from 'node:fs';
+import { embedMeta, socialMeta, lessonUrl } from '../../functions/api/_role_meta.js';
+import { topicOf } from '../../functions/api/_clip_logic.js';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
@@ -48,13 +50,20 @@ function metaOf(it, lessonId) {
   return { title: it.title, description: [it.description, (it.hashtags || []).join(' ')].filter(Boolean).join('\n\n'), tags: ['learn english', 'english lesson', it.area, it.point].filter(Boolean) };
 }
 
+/** Role of the planned channel (functions/api/_role_meta.js): embed = stable minimal metadata (lesson host, unlisted); social = viral metadata for public YouTube. */
+export function roleMeta(it, q) {
+  const tp = topicOf(it), c = { id: q.id, title: it.title, point: it.point, keyword: it.keyword, cefr: it.cefr, hook: it.hook, exam: it.exam, topic: tp.topic, sub: tp.sub, slug: it.slug };
+  if (q.role === 'social') { const m = socialMeta(c, 'youtube'); return { title: m.title, description: m.description, tags: m.tags }; }
+  if (q.role === 'embed') { const m = embedMeta(c); return { title: m.title, description: m.description, tags: m.tags, url: lessonUrl(c) }; }
+  return metaOf(it, q.lesson);
+}
 export async function runPacks({ index, dry = false, api = ytApi, drive = driveApi, upload = driveUpload, fetchFile = fetchFromDrive, zip = zipDir, log = console.log, work = '/tmp/ytpack' }) {
   const idx = typeof index === 'string' ? JSON.parse(fs.readFileSync(index, 'utf8')) : index, by = new Map((idx.items || []).map(x => [x.id, x]));
   const p = await api('packs'), rep = { made: [], failed: [], retired: [] };
   for (const q of p.todo || []) {
     const it = by.get(q.id), v = it && it.drive && it.drive.video, c = it && it.drive && it.drive.cover;
     if (!it || !v || !v.fileId || v.retired) { rep.failed.push(q.id); log(`✗ ${q.id}: master không có trên Kho Drive`); continue; }
-    const t = packTexts(q.id, metaOf(it, q.lesson));
+    const t = packTexts(q.id, roleMeta(it, q));
     if (dry) { log(`· ${q.id} → ${t.title}`); continue; }
     try {
       const dir = path.join(work, q.id); fs.rmSync(dir, { recursive: true, force: true }); fs.mkdirSync(dir, { recursive: true });

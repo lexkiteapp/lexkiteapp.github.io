@@ -60,3 +60,9 @@ Diễn cảnh (paused): `lesson5.py`, `qa5.py`, `gen_lessons.py`, … – `docs/
 
 ## 8. Pipeline cũ (2D Remotion)
 `video.yml` / `video-auto.yml` / Video Studio (`scripts/video/*`) – `docs/archive/VIDEO-PIPELINE.md`; không phải định dạng chính.
+
+## Thư viện clip quy mô lớn (22/10/2026)
+- `/api/admin-clips` (functions/api/admin-clips.js, logic thuần `_clip_logic.js`): `query` (lọc + sắp xếp + phân trang con trỏ, bìa ký chỉ cho trang đó), `ids` ("chọn tất cả N kết quả"), `export` (CSV), `bulk` (approve · unapprove · pause · resume · reject{reason} · restore · web_on/off · reschedule{start,days,from,to} · channel · delete{hard}). Lô ≤ 100 id, kết quả từng clip, giới hạn tốc độ, nhật ký `admin_log` (`clips.bulk.<action>`); delete = DANGER (đăng nhập ≤ 15 phút), xoá mềm giữ công thức, `hard` đánh dấu deleted=2 + bỏ khỏi hàng đợi YouTube.
+- Trạng thái duyệt/loại/tạm dừng/lịch/kênh/web nằm ở D1 `clip_review` (lớp phủ trên manifest). Mục: Chờ duyệt · Đã duyệt · Đã đăng · Lỗi QA · Lưu trữ (loại/tạm dừng – mặc định ẩn khỏi các mục khác).
+- Giao diện `web/js/admin-clips.js`: lưới ảo hóa (thẻ cao cố định, < 300 nút DOM), chọn nhiều O(1), thanh thao tác sticky, tác vụ dang dở tiếp tục được (localStorage). Ngân sách hiệu năng: `scripts/test/clips-perf.mjs` (CI `clips-perf.yml`); logic: `scripts/test/clip-bulk.mjs`.
+- Phân phối nhiều kênh (22/10/2026): `/api/distribution` + `_distribution.js` (định tuyến luật đầu tiên thắng + dự phòng, hạn mức/ngày, giãn cách, khung giờ theo múi giờ kênh, jitter ±20 phút, chống trùng tiêu đề/bìa, không lặp mẫu liền kề), D1 `yt_chan_cfg` / `yt_rules` / `yt_plan`; gói đăng hiện kênh + giờ; sync báo `wrong-channel`; kênh tự tạm dừng khi sync gặp forbidden/revoked hoặc ≥ 5 lần tải lỗi (cảnh báo ở status.alerts). Phân loại: `_taxonomy.js` (một nguồn), loại nội dung short/long/podcast ở `_clip_logic.js`. Chưa làm: giao diện tab "Kênh & phân phối", vai trò embed/social + metadata viral, facade nhúng nhẹ.

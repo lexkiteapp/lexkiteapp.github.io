@@ -11,7 +11,7 @@
     // Khung, thanh bên, đăng nhập
     'Bỏ qua tới nội dung': 'Skip to content', 'Mở menu': 'Open menu', 'Đóng menu': 'Close menu', 'Đi tới…': 'Go to…', 'Điều hướng quản trị': 'Admin navigation',
     'Tổng quan': 'Overview', 'Phân tích': 'Analytics', 'Người dùng': 'Users', 'Hộp thư': 'Inbox', 'Thông báo': 'Notices', 'Cảnh báo': 'Alerts', 'Báo lỗi': 'Reports', 'Chất lượng': 'Quality', 'Nội dung & Video': 'Content & Video',
-    'Video & Social': 'Video & Social', 'Video Studio': 'Video Studio', 'Hệ thống': 'System', 'Hạn mức': 'Quotas', 'Kho Drive': 'Drive storage', 'Khóa API': 'API keys', 'Dịch vụ & API': 'Services & API', 'Cài đặt': 'Settings',
+    'Video & Social': 'Video & Social', 'Kênh & phân phối': 'Channels & distribution', 'Kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch đăng theo kênh.': 'Lesson embed channels, social channels, routing rules and per-channel calendar.', 'Video Studio': 'Video Studio', 'Hệ thống': 'System', 'Hạn mức': 'Quotas', 'Kho Drive': 'Drive storage', 'Khóa API': 'API keys', 'Dịch vụ & API': 'Services & API', 'Cài đặt': 'Settings',
     'Sức khỏe hệ thống, người thật và tác vụ tự động trên một màn hình.': 'System health, real people and automated jobs on one screen.',
     'Lưu lượng trực tiếp, nguồn truy cập, thói quen sử dụng và tăng trưởng.': 'Live traffic, sources, usage habits and growth.',
     'Tài khoản đã đồng bộ: tìm, lọc, xem chi tiết, xuất CSV, xóa dữ liệu theo yêu cầu.': 'Synced accounts: search, filter, inspect, export CSV, delete data on request.',
@@ -202,7 +202,7 @@
     ['Tổng quan', [['overview', '📊', 'Tổng quan', 'Sức khỏe hệ thống, người thật và tác vụ tự động trên một màn hình.'], ['analytics', '📈', 'Phân tích', 'Lưu lượng trực tiếp, nguồn truy cập, thói quen sử dụng và tăng trưởng.']]],
     ['Người dùng', [['users', '👥', 'Người dùng', 'Tài khoản đã đồng bộ: tìm, lọc, xem chi tiết, xuất CSV, xóa dữ liệu theo yêu cầu.'], ['inbox', '📬', 'Hộp thư', 'Tin nhắn từ form Liên hệ – trả lời và đánh dấu đã xử lý.', 'inboxN'], ['notices', '📣', 'Thông báo', 'Gửi thông báo tới chuông 🔔 của người học: soạn, hẹn giờ, chọn đối tượng, thu hồi, xem lượt đọc.', 'notN']]],
     ['Chất lượng', [['alerts', '🚨', 'Cảnh báo', 'Tác vụ tự động, lỗi JavaScript từ người dùng và nhật ký quản trị.', 'alertN'], ['reports', '🐞', 'Báo lỗi', 'Báo lỗi từ người dùng: phân loại, giao việc, phản hồi.', 'repN'], ['quality', '🛡️', 'Chất lượng', 'Điểm rà soát tự động hằng ngày và kiểm nghĩa bản dịch.']]],
-    ['Nội dung & Video', [['social', '📣', 'Video & Social', 'Soạn bài, lịch đăng và kênh mạng xã hội (GrabCast).'], ['studio', '🎞️', 'Video Studio', 'Dây chuyền sản xuất video tự động từ kịch bản tới lên lịch.'], ['video', '🎬', 'Thư viện video', 'Xem mọi short đã dựng (kho riêng lexkite-shorts), lọc, phát thử, chép nội dung đăng và thống kê độ phủ, QA, credit.'], ['backlinks', '🔗', 'Backlink, PR & Thương hiệu', 'Bài PR, hồ sơ trỏ về lexkite.com, tên miền na ná, tài khoản mạng xã hội, bản sao chép – tự kiểm hằng ngày.']]],
+    ['Nội dung & Video', [['dist', '🛰️', 'Kênh & phân phối', 'Kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch đăng theo kênh.'], ['social', '📣', 'Video & Social', 'Soạn bài, lịch đăng và kênh mạng xã hội (GrabCast).'], ['studio', '🎞️', 'Video Studio', 'Dây chuyền sản xuất video tự động từ kịch bản tới lên lịch.'], ['video', '🎬', 'Thư viện video', 'Xem mọi short đã dựng (kho riêng lexkite-shorts), lọc, phát thử, chép nội dung đăng và thống kê độ phủ, QA, credit.'], ['backlinks', '🔗', 'Backlink, PR & Thương hiệu', 'Bài PR, hồ sơ trỏ về lexkite.com, tên miền na ná, tài khoản mạng xã hội, bản sao chép – tự kiểm hằng ngày.']]],
     ['Hệ thống', [['quota', '⚖️', 'Hạn mức', 'Hạn mức theo tính năng, cầu dao nhà cung cấp, khóa và danh sách không giới hạn.'], ['drive', '🗄️', 'Kho Drive', 'Kho Google Drive riêng: dung lượng, bản sao, duyệt file, sổ kho.', 'drvN'], ['keys', '🔑', 'Khóa API', 'Kho khóa nhà cung cấp AI & thư – mã hóa, xoay vòng, kiểm tra.'], ['services', '🧩', 'Dịch vụ & API', 'Dịch vụ đang dùng, tài khoản, gói miễn phí và dung lượng.']]],
     ['', [['settings', '⚙️', 'Cài đặt', 'Thông báo đầu trang, giới hạn AI, giám sát và lấy mẫu thống kê.']]],
   ];
@@ -374,6 +374,19 @@
     return j;
   }
   // YouTube (functions/api/youtube.js) – Thư viện video: Kết nối YouTube, Duyệt & lên YouTube. credentials: cookie phiên OAuth (lk_yt)
+  async function capi(op, body = {}) { // thư viện clip quy mô lớn → /api/admin-clips (functions/api/admin-clips.js)
+    const r = await fetch('/api/admin-clips', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ op, ...body }) });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) { const e = new Error(j.error || 'HTTP ' + r.status); e.code = j.error; e.status = r.status; e.data = j; throw e; }
+    return j;
+  }
+  // Kênh & phân phối qua /api/distribution (functions/api/distribution.js) – tab 🛰️
+  async function dapi(op, body = {}) {
+    const r = await fetch('/api/distribution', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ op, ...body }) });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) { const e = new Error(j.error || 'HTTP ' + r.status); e.code = j.error; e.status = r.status; e.data = j; throw e; }
+    return j;
+  }
   async function yapi(op, body = {}) {
     const r = await fetch('/api/youtube', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ op, ...body }) });
     const j = await r.json().catch(() => ({}));
@@ -1242,13 +1255,18 @@
       await lazy('AdminSocial', 'js/admin-social.js'); main.innerHTML = ''; // tải lười – chỉ khi mở tab
       AdminSocial.render(main, sapi, L, { esc, num, when, lang: () => LANG }); // js/admin-social.js
     },
+    async dist() { // Kênh & phân phối – js/admin-dist.js + js/lib/dist-rules.js (tải lười)
+      await lazy('DistRules', 'js/lib/dist-rules.js'); await lazy('AdminDist', 'js/admin-dist.js'); main.innerHTML = '';
+      AdminDist.render(main, dapi, L, { esc, lang: () => LANG, toast, yapi, sapi });
+    },
     async studio() {
       await lazy('AdminStudio', 'js/admin-studio.js'); main.innerHTML = '';
       AdminStudio.render(main, stapi, sapi, L, { esc, lang: () => LANG }); // js/admin-studio.js
     },
     async video() { // Thư viện video – js/admin-video.js (tải lười) → /api/admin-shorts
       await lazy('AdminVideo', 'js/admin-video.js'); main.innerHTML = '';
-      AdminVideo.render(main, vapi, L, { esc, lang: () => LANG, toast, yapi });
+      try { await lazy('AdminClips', 'js/admin-clips.js'); } catch (e) { /* lưới cũ làm dự phòng */ }
+      AdminVideo.render(main, vapi, L, { esc, lang: () => LANG, toast, yapi, capi: window.AdminClips && AdminClips.mount ? capi : null });
     },
     async backlinks() { // Backlink, PR & Thương hiệu – js/admin-backlinks.js (tải lười) → /api/backlinks (functions/api/backlinks.js)
       await lazy('AdminBacklinks', 'js/admin-backlinks.js'); main.innerHTML = '';

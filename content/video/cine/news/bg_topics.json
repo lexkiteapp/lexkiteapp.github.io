@@ -60,5 +60,165 @@
   "bookstore",
   "exam_hall"
  ],
- "_note2": "owner 22/10: teacher persona - teaching areas use classroom-type backgrounds (rotating pool, no reuse within 6 posts); situational lessons keep their scene bg."
+ "_note2": "owner 22/10: teacher persona - teaching areas use classroom-type backgrounds (rotating pool, no reuse within 6 posts); situational lessons keep their scene bg.",
+ "wide_by_topic": {
+  "airport": [
+   "trv_baggage_claim__day_modern"
+  ],
+  "appointments": [
+   "svc_barber__day_modern"
+  ],
+  "bank": [
+   "svc_bank_hall__day_modern",
+   "svc_bank_hall__night_classic"
+  ],
+  "business": [
+   "work_boardroom__day_modern"
+  ],
+  "check-in": [
+   "hos_hotel_frontdesk__day_modern"
+  ],
+  "city": [
+   "cty_plaza__night_classic",
+   "cty_rooftop__day_modern",
+   "trn_metro_concourse__day_modern"
+  ],
+  "clothes": [
+   "shp_shoe_store__day_modern"
+  ],
+  "daily-routine": [
+   "home_living_sofa__day_modern"
+  ],
+  "directions": [
+   "cty_plaza__night_classic",
+   "gov_city_hall__day_modern",
+   "gov_city_hall__night_classic",
+   "trn_metro_concourse__day_modern"
+  ],
+  "education": [
+   "sch_lecture_hall__day_modern"
+  ],
+  "emergency": [
+   "hl_er_reception__day_modern",
+   "hl_er_reception__night_classic"
+  ],
+  "family": [
+   "fam_playground__day_modern",
+   "home_dining__day_modern",
+   "home_living_sofa__day_modern"
+  ],
+  "fitness": [
+   "hl_physio__day_modern"
+  ],
+  "flight": [
+   "trv_baggage_claim__day_modern"
+  ],
+  "food": [
+   "fd_pizzeria__day_modern",
+   "fd_sushi_bar__day_modern",
+   "home_dining__day_modern"
+  ],
+  "government": [
+   "gov_city_hall__day_modern",
+   "gov_city_hall__night_classic",
+   "gov_embassy_wait__day_modern",
+   "gov_service_counter__day_modern"
+  ],
+  "health": [
+   "hl_er_reception__day_modern",
+   "hl_er_reception__night_classic",
+   "hl_hospital_ward__day_modern",
+   "hl_physio__day_modern"
+  ],
+  "home": [
+   "home_dining__day_modern",
+   "home_living_sofa__day_modern"
+  ],
+  "hospital": [
+   "hl_er_reception__day_modern",
+   "hl_er_reception__night_classic",
+   "hl_hospital_ward__day_modern"
+  ],
+  "hotel": [
+   "hos_hotel_frontdesk__day_modern"
+  ],
+  "kids": [
+   "fam_playground__day_modern",
+   "spt_soccer_field__day_modern"
+  ],
+  "leisure": [
+   "cty_rooftop__day_modern",
+   "fam_playground__day_modern",
+   "lei_bowling__day_modern",
+   "spt_soccer_field__day_modern",
+   "spt_tennis_court__day_modern"
+  ],
+  "meetings": [
+   "work_boardroom__day_modern"
+  ],
+  "money": [
+   "shp_electronics__day_modern",
+   "svc_bank_hall__day_modern",
+   "svc_bank_hall__night_classic"
+  ],
+  "ordering": [
+   "fd_pizzeria__day_modern",
+   "fd_sushi_bar__day_modern"
+  ],
+  "paperwork": [
+   "gov_city_hall__day_modern",
+   "gov_city_hall__night_classic",
+   "gov_service_counter__day_modern"
+  ],
+  "restaurant": [
+   "fd_pizzeria__day_modern",
+   "fd_sushi_bar__day_modern"
+  ],
+  "school": [
+   "sch_lecture_hall__day_modern"
+  ],
+  "services": [
+   "svc_bank_hall__day_modern",
+   "svc_bank_hall__night_classic",
+   "svc_barber__day_modern"
+  ],
+  "shopping": [
+   "shp_electronics__day_modern",
+   "shp_shoe_store__day_modern"
+  ],
+  "small-talk": [
+   "cty_plaza__night_classic",
+   "cty_rooftop__day_modern",
+   "lei_bowling__day_modern"
+  ],
+  "sports": [
+   "spt_soccer_field__day_modern",
+   "spt_tennis_court__day_modern"
+  ],
+  "study": [
+   "sch_lecture_hall__day_modern"
+  ],
+  "tech": [
+   "shp_electronics__day_modern"
+  ],
+  "transport": [
+   "trn_metro_concourse__day_modern"
+  ],
+  "travel": [
+   "gov_embassy_wait__day_modern",
+   "hos_hotel_frontdesk__day_modern",
+   "trv_baggage_claim__day_modern"
+  ],
+  "visa": [
+   "gov_embassy_wait__day_modern",
+   "gov_service_counter__day_modern"
+  ],
+  "weekend": [
+   "lei_bowling__day_modern"
+  ],
+  "work": [
+   "work_boardroom__day_modern"
+  ]
+ },
+ "_note_wide": "owner 22/10 BG LIBRARY 3: two-host wide bgs (16:9, Ama = crop L, Carlos = crop R of one scene) by lesson topic; ids -> anchor/bg/index.json \"wide\". Legacy \"bg\" lists stay 9:16 single-host."
 }

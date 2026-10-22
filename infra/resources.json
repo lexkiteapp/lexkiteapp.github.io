@@ -363,6 +363,7 @@
       "match": [
         "www.youtube-nocookie.com",
         "www.youtube.com",
+        "i.ytimg.com",
         "youtu.be",
         "studio.youtube.com"
       ]

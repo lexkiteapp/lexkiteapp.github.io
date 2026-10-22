@@ -88,7 +88,7 @@ const setVal = (el, v, type = 'input') => { el.value = v; fire(el, type); };
 const main = $('#m');
 
 A.render(main, sapi, L, { esc, lang: () => 'vi' }); await flush();
-ok($$('.soc-tabs [role=tab]').length === 4 && $('[data-tab=compose]').getAttribute('aria-selected') === 'true', '4 tab, mở Soạn bài');
+ok($$('.soc-tabs [role=tab]').length === 9 && $('[data-tab=compose]').getAttribute('aria-selected') === 'true', '9 tab, mở Soạn bài');
 ok($$('#cmMedia [data-oid]').length === 3, 'kho video chỉ hiện video (3)');
 setVal($('#cmQ'), 'toeic'); ok($$('#cmMedia [data-oid]').length === 1, 'tìm video'); setVal($('#cmQ'), '');
 $('#cmMedia [data-oid="o1"]').click();
@@ -123,10 +123,11 @@ ok($$('#cmTimes [data-at]').length === 6, '6 khung giờ vàng gợi ý');
 confAns = () => false; calls = []; conf = []; $('#cmSched').click(); await flush();
 ok(conf.length === 1 && !calls.some(c => c.method === 'POST'), 'hủy xác nhận → không gửi gì');
 confAns = () => true; calls = []; conf = []; $('#cmSched').click(); await flush(12);
-const cp = calls.find(c => c.method === 'POST' && c.path === 'posts'), sc = calls.find(c => /^posts\/p_new\d*\/schedule$/.test(c.path));
-ok(conf.length === 1 && /lên lịch/.test(conf[0]), 'hỏi xác nhận trước khi lên lịch');
-ok(cp && /^[A-Za-z0-9_-]{8,80}$/.test(cp.opt.idem || '') && sc && sc.body.consent === true && sc.body.scheduled_at, 'tạo bài (Idempotency-Key) rồi schedule có consent');
-ok(/Đã lên lịch/.test($('#cmMsg').textContent), 'báo đã lên lịch');
+const cp = calls.find(c => c.method === 'POST' && c.path === 'posts'), sb = calls.find(c => c.path === 'lk/board/submit');
+ok(conf.length === 1 && /gửi duyệt/.test(conf[0]), 'hỏi xác nhận trước khi tạo nháp & gửi duyệt');
+ok(cp && /^[A-Za-z0-9_-]{8,80}$/.test(cp.opt.idem || '') && !cp.body.scheduled_at && sb && /^p_new/.test(sb.body.post_id) && sb.body.mode === 'sched' && sb.body.want_at > Date.now(), 'tạo bài NHÁP (Idempotency-Key) rồi gửi duyệt kèm giờ mong muốn');
+ok(!calls.some(c => /\/(schedule|publish-now)$/.test(c.path)), 'trình soạn KHÔNG tự lên lịch/đăng (luật duyệt)');
+ok(/gửi duyệt/.test($('#cmMsg').textContent), 'báo đã gửi duyệt');
 conf = []; confAns = m => !/trùng/.test(m); calls = []; $('#cmDraft').click(); await flush();
 ok(conf.some(m => /trùng/.test(m)) && !calls.some(c => c.path === 'posts'), 'chống trùng: hỏi lại, từ chối → không tạo');
 confAns = () => true;
@@ -143,7 +144,7 @@ $('#bkPlan').click();
 const rows = $$('#bkOut tbody tr');
 ok(rows.length === 2 && rows.every(r => !/–/.test(r.children[2].textContent)) && !$('#bkGo').disabled, 'kế hoạch 2 video vào khung giờ');
 calls = []; conf = []; $('#bkGo').click(); await flush(30);
-ok(conf.length === 1 && calls.filter(c => /\/schedule$/.test(c.path)).length === 2 && calls.filter(c => c.method === 'POST' && c.path === 'posts').every(c => c.body.title && c.body.caption.includes(c.body.title)), 'hàng loạt: 1 xác nhận, 2 bài, caption điền {title}');
+ok(conf.length === 1 && calls.filter(c => c.path === 'lk/board/submit').length === 2 && !calls.some(c => /\/schedule$/.test(c.path)) && calls.filter(c => c.method === 'POST' && c.path === 'posts').every(c => c.body.title && c.body.caption.includes(c.body.title)), 'hàng loạt: 1 xác nhận, 2 bài, caption điền {title}');
 
 // Bài đăng + ngăn chi tiết
 $('[data-tab=posts]').click(); await flush();

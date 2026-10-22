@@ -1,0 +1,30 @@
+# Kênh & phân phối: ảnh kiểm tra giao diện quản trị (dữ liệu hộp cát, sáng/tối × máy tính/điện thoại) + mặt tiền video bài học (0 byte YouTube trước khi bấm,
+# preconnect, iframe nocookie, dự phòng tự lưu trữ ≤ 4 s, vùng chặn, không tác vụ dài > 50 ms, LCP không đổi). Không tài khoản thật. docs/DISTRIBUTION.md
+name: Kênh & phân phối – giao diện + mặt tiền video
+on:
+  push:
+    branches: [main]
+    paths: ['web/js/admin-dist.js', 'web/js/lib/dist-rules.js', 'web/js/admin-clips.js', 'web/js/lesson-video.js', 'web/css/admin.css', 'functions/api/_role_meta.js', 'scripts/test/admin-dist-shots.mjs', 'scripts/test/facade-perf.mjs', '.github/workflows/dist-ui.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  ui:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Playwright
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chromium
+      - name: Ảnh quản trị (sáng/tối × máy tính/điện thoại)
+        run: node scripts/test/admin-dist-shots.mjs out/admin-dist
+      - name: Mặt tiền video + hiệu năng
+        if: ${{ !cancelled() }}
+        run: node scripts/test/facade-perf.mjs
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with: { name: admin-dist-shots, path: out/admin-dist, retention-days: 14 }
