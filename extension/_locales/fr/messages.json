@@ -27,7 +27,7 @@
   "message": "✓ Je sais"
  },
  "ntAgain": {
-  "message": "🔁 À revoir"
+  "message": "↻ À revoir"
  },
  "ntGolden": {
   "message": "Moment idéal"
@@ -148,5 +148,8 @@
  },
  "posColl": {
   "message": "collocation"
+ },
+ "ntMoreSenses": {
+  "message": "+{n} sens"
  }
 }

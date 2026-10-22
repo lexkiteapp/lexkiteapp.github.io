@@ -237,7 +237,7 @@ await pop2.selectOption('#selMode', 'icon').catch(() => {});
 await pop2.close(); await pop.close().catch(() => {});
 
 // ---------- 5. Tab mới ----------
-const nt = await ctx.newPage(); await nt.setViewportSize({ width: 1100, height: 900 });
+const nt = await ctx.newPage(); await nt.setViewportSize({ width: 1366, height: 768 });
 await nt.goto(base + 'newtab.html', { waitUntil: 'domcontentloaded' }); await sleep(2500); await shot(nt, 'newtab-light');
 await nt.emulateMedia({ colorScheme: 'dark' }); await sleep(400); await shot(nt, 'newtab-dark'); await nt.emulateMedia({ colorScheme: 'light' });
 const ntTxt = await nt.locator('body').innerText();
@@ -245,8 +245,10 @@ rec('tab mới: có thẻ từ', (await nt.locator('#ntCard').innerText()).trim(
 const ntMs = +(await nt.evaluate(() => document.body.dataset.ntMs)) || 0;
 rec('tab mới: vẽ thẻ < 100 ms (không chờ mạng)', ntMs > 0 && ntMs < 100, ntMs + ' ms');
 rec('tab mới: đầu thẻ có từ + nhãn (loại từ/CEFR/kỳ thi)', (await nt.locator('.nt-word').count()) === 1 && (await nt.locator('.nt-chips .chip').count()) >= 1);
-rec('tab mới: có nút nghe giọng Anh', (await nt.locator('.play[data-acc="uk"]').count()) === 1);
-if (await nt.locator('.more details').count()) rec('tab mới: mục mở rộng đóng mặc định', !(await nt.locator('.more details[open]').count()));
+rec('tab mới: có nút nghe giọng Anh', (await nt.locator('[data-acc="uk"]').count()) === 1);
+if (await nt.locator('.more [data-g]').count()) rec('tab mới: họ từ/cụm từ… thu gọn mặc định', await nt.locator('#ntPanel').isHidden());
+const ntH = await nt.evaluate(() => { const a = document.querySelector('#ntCard').getBoundingClientRect(), b = document.querySelector('#ntSearch').getBoundingClientRect(); return Math.round(b.bottom - a.top); });
+rec('tab mới: thẻ + ô tìm ≤ 55 % màn 1366×768', ntH > 0 && ntH <= 768 * 0.55, ntH + ' px');
 await nt.check('#ntQuiz', { force: true }).catch(() => {}); await sleep(300);
 if (await nt.locator('#ntBody').count()) {
   rec('tab mới: chế độ Tự kiểm tra che nghĩa', await nt.locator('#ntBody.quiz-hidden').count() === 1);

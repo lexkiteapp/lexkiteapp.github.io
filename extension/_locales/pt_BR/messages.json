@@ -27,7 +27,7 @@
   "message": "✓ Já sei"
  },
  "ntAgain": {
-  "message": "🔁 Revisar"
+  "message": "↻ Revisar"
  },
  "ntGolden": {
   "message": "Momento ideal"
@@ -148,5 +148,8 @@
  },
  "posColl": {
   "message": "colocação"
+ },
+ "ntMoreSenses": {
+  "message": "+{n} significados"
  }
 }

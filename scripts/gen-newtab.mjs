@@ -35,12 +35,15 @@ for (const tp of g.IELTS_DATA.TOPICS) for (const w of tp.words) {
   if (!o.u && w.ipaUS) o.u = w.ipaUS;
   if (w.level && (!o.l || RANK[w.level] < RANK[o.l])) o.l = w.level; // cấp thấp nhất = nghĩa thông dụng nhất
   const tg = tagOf(tp); if (tg && !o.x.includes(tg)) o.x.push(tg);
-  if (w.def && o.s.length < 3 && !o.s.some(s => s[0] === w.pos && (s[1] === w.vi || sim(s[2], w.def) >= 0.3))) o.s.push([w.pos || '', w.vi || '', w.def]); // nghĩa gần trùng (cùng loại từ) chỉ giữ 1
+  if (w.def && o.s.length < 6 && !o.s.some(s => s[0] === w.pos && (s[1] === w.vi || sim(s[2], w.def) >= 0.3))) o.s.push([w.pos || '', w.vi || '', w.def]); // nghĩa gần trùng (cùng loại từ) chỉ giữ 1
   if (!o.e && w.ex) o.e = w.ex;
   o.c.push(...(w.col || [])); o.y.push(...(w.syn || []));
 }
 let fam = 0, ant = 0, aud = 0;
 for (const [k, o] of Object.entries(out)) {
+  { const ph = s => String(s[1] || "").toLowerCase().split(/[;,]/).map(x => x.trim().replace(/^(sự|việc|cái|người) /, "")).filter(Boolean); // bỏ nghĩa mà mọi cụm nghĩa vi đã có ở nghĩa khác (vd. "khuyến mãi; thăng chức")
+    for (let i = o.s.length - 1; i > 0; i--) { const mine = ph(o.s[i]), rest = o.s.filter((_, j) => j !== i).flatMap(ph); if (mine.length && mine.every(p => rest.some(r => r.includes(p)))) o.s.splice(i, 1); }
+    o.s = o.s.slice(0, 3); }
   o.x.sort((a, b) => ORDER.indexOf(a) - ORDER.indexOf(b));
   o.c = uniq(o.c, 4); o.y = uniq(o.y, 4).filter(s => s.toLowerCase() !== k);
   const n = Object.hasOwn(N, k) ? N[k] : null, a = [], f = [];

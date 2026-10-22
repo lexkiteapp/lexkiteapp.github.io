@@ -24,7 +24,9 @@
   $('#ntQ').placeholder = tx('ntSearch'); $('#ntGo').setAttribute('aria-label', tx('ntSearchBtn'));
   $('#ntOpen').textContent = tx('openApp'); $('#ntOpen').href = chrome.runtime.getURL('app/index.html');
   $('#ntOff').textContent = tx('ntOff'); $('#ntQuizL').textContent = tx('ntQuiz');
-  $('#ntKeys').textContent = '⌨ ' + tx('ntKeys'); $('#ntKeys').setAttribute('aria-label', tx('ntShortcuts') + ': ' + tx('ntKeys'));
+  $('#ntKeys').title = tx('ntShortcuts') + ': ' + tx('ntKeys'); $('#ntKeys').setAttribute('aria-label', $('#ntKeys').title);
+  const h = new Date().getHours(), P = h < 11 ? ['#0F3D3E', '#1F7A72', '#F2A65A'] : h < 17 ? ['#164e63', '#1F7A72', '#E5502F'] : ['#0b1e2a', '#173d4a', '#8b3a2a']; // nền theo giờ
+  ['--a', '--b', '--c'].forEach((k, i) => document.body.style.setProperty(k, P[i]));
   $('#ntSearch').onsubmit = e => { e.preventDefault(); const q = $('#ntQ').value.trim(); if (!q) return; if (chrome.search && chrome.search.query) chrome.search.query({ text: q, disposition: 'CURRENT_TAB' }); else location.href = 'https://www.google.com/search?q=' + encodeURIComponent(q); };
   $('#ntOff').onclick = async () => { settings.newtabOn = false; await Store.set('settings', settings); toDefault(); };
   chrome.runtime.sendMessage({ type: 'usage', ev: 'newtab' }).catch(() => {}); // thống kê ẩn danh: chỉ đếm số lần mở
@@ -112,35 +114,45 @@
     const parts = String(ex).split(re);
     return parts.map((p, i) => (i % 2 ? `<mark>${esc(p)}</mark>` : esc(p))).join('');
   };
-  const SVG_PLAY = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M8 5.5v13l10-6.5z" fill="currentColor"/></svg>';
+  const SVG_PLAY = '<svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M8 5.5v13l10-6.5z" fill="currentColor"/></svg>';
   const tagLine = t => (t === 'due' ? '⏰ ' + tx('ntGolden') + ` · ${due.length}` : t === 'saved' ? '📌 ' + tx('ntSaved') : '✨ ' + tx('ntToday'));
 
   const render = (c, tag) => {
     cur = c;
     $('#ntTag').textContent = tagLine(tag);
-    const meanMain = s => (L === 'vi' ? s.vi || s.def : s.def || s.vi);
-    const showVi = L === 'vi';
-    // nhóm nghĩa theo loại từ, đánh số liên tục
-    const groups = []; for (const s of c.senses) { let g = groups.find(x => x.p === s.p); if (!g) groups.push(g = { p: s.p, items: [] }); g.items.push(s); }
-    let n = 0;
-    const sensesHtml = c.senses.length ? `<ol class="senses">${groups.map(g => `${groups.length > 1 && posName(g.p) ? `<li class="pos-h" aria-hidden="true">${esc(posName(g.p))}</li>` : ''}${g.items.map(s => `<li class="sense"><span class="n">${++n}</span><span class="m"${showVi ? '' : ' dir="ltr" lang="en"'}>${esc(meanMain(s))}</span>${showVi && s.def && s.vi ? `<span class="d" dir="ltr" lang="en">${esc(s.def)}</span>` : ''}${!showVi && L !== 'en' ? `<span class="mt" data-mt="${esc(s.def)}" hidden></span>` : ''}</li>`).join('')}`).join('')}</ol>` : '';
-    const posChips = [...new Set(c.senses.map(s => posName(s.p)).filter(Boolean))].map(p => `<span class="chip pos">${esc(p)}</span>`).join('');
-    const sec = (key, items) => (items.length ? `<details><summary>${esc(tx(key))}<span class="cnt">${items.length}</span></summary><ul class="tags" dir="ltr" lang="en">${items.map(x => `<li>${esc(x)}</li>`).join('')}</ul></details>` : '');
-    const more = sec('ntFamily', c.fam) + sec('ntColloc', c.col) + sec('ntSyn', c.syn) + sec('ntAnt', c.ant);
-    const pr = (acc, ipa) => `<span class="pr"><span class="acc">${esc(tx(acc === 'uk' ? 'ntUK' : 'ntUS'))}</span>${ipa ? `<span class="ipa" dir="ltr">${esc(ipa)}</span>` : ''}<button class="play" type="button" data-acc="${acc}" aria-label="${esc(tx('ntListen') + ' – ' + tx(acc === 'uk' ? 'ntUK' : 'ntUS'))}">${SVG_PLAY}</button></span>`;
+    const showVi = L === 'vi', mtOn = !showVi && L !== 'en';
+    const meanMain = s => (showVi ? s.vi || s.def : s.def || s.vi);
+    const [s1, ...rest] = c.senses;
+    const posChips = [...new Set(c.senses.map(s => posName(s.p)).filter(Boolean))].slice(0, 2).map(p => `<span class="chip pos">${esc(p)}</span>`).join('');
+    const ex3 = c.exams.slice(0, 3).map(x => `<span class="chip exam" dir="ltr">${esc(x)}</span>`).join('') + (c.exams.length > 3 ? `<span class="chip exam" title="${esc(c.exams.slice(3).join(' · '))}">+${c.exams.length - 3}</span>` : '');
+    // phát âm 1 dòng: IPA Anh/Mỹ giống nhau hoặc chưa có IPA Mỹ → 1 IPA + 2 nút cờ; khác nhau → 🇬🇧 /…/ ▶ · 🇺🇸 /…/ ▶
+    const pb = acc => `<button class="ib" type="button" data-acc="${acc}" aria-label="${esc(tx('ntListen') + ' – ' + tx(acc === 'uk' ? 'ntUK' : 'ntUS'))}" title="${esc(tx(acc === 'uk' ? 'ntUK' : 'ntUS'))}">${acc === 'uk' ? '🇬🇧' : '🇺🇸'}${SVG_PLAY}</button>`;
+    const ipa = x => (x ? `<span class="ipa" dir="ltr">${esc(x)}</span>` : '');
+    const same = !c.ipaUS || c.ipaUS === c.ipa;
+    const pron = same ? `${ipa(c.ipa)}${pb('uk')}${pb('us')}` : `${ipa(c.ipa)}${pb('uk')}<span class="sep">·</span>${ipa(c.ipaUS)}${pb('us')}`;
+    const mtSpan = s => (mtOn && s.def ? `<span class="mt" data-mt="${esc(s.def)}" hidden></span>` : '');
+    const meanHtml = s1 ? `<div class="meanings"><div class="m1"${showVi ? '' : ' dir="ltr" lang="en"'}>${esc(meanMain(s1))}</div>${showVi && s1.def && s1.vi ? `<div class="d1" dir="ltr" lang="en">${esc(s1.def)}</div>` : ''}${mtSpan(s1)}${rest.length ? `<button class="lnk" type="button" id="ntMoreS" aria-expanded="false">${esc(tx('ntMoreSenses', { n: rest.length }))}</button><ol class="senses2" id="ntS2" hidden>${rest.map((s, i) => `<li><span class="n">${i + 2}</span>${posName(s.p) && s.p !== s1.p ? `<span class="p">${esc(posName(s.p))}</span>` : ''}<span${showVi ? '' : ' dir="ltr" lang="en"'}>${esc(meanMain(s))}</span>${showVi && s.def && s.vi ? `<span class="d" dir="ltr" lang="en">${esc(s.def)}</span>` : ''}${mtSpan(s)}</li>`).join('')}</ol>` : ''}</div>` : '';
+    const groups = [['ntFamily', c.fam], ['ntColloc', c.col], ['ntSyn', c.syn], ['ntAnt', c.ant]].filter(g => g[1].length);
     $('#ntCard').innerHTML = `
-      <div class="nt-head"><h1 class="nt-word" dir="ltr" lang="en">${esc(c.word)}</h1><div class="nt-chips">${posChips}${c.level ? `<span class="chip cefr" title="CEFR">${esc(c.level)}</span>` : ''}${c.exams.map(x => `<span class="chip exam" dir="ltr">${esc(x)}</span>`).join('')}</div></div>
-      <div class="nt-pron">${pr('uk', c.ipa)}${pr('us', c.ipaUS)}<button class="slow" type="button" id="ntSlow" aria-pressed="${slow}">🐢 ${esc(tx('ntSlow'))}</button></div>
-      ${sensesHtml ? `<div class="nt-body${quiz ? ' quiz-hidden' : ''}" id="ntBody">${sensesHtml}<div class="veil"><button type="button" id="ntReveal">${esc(tx('ntReveal'))} · Space</button></div></div>` : ''}
-      ${c.ex ? `<button class="ex" type="button" id="ntEx" aria-label="${esc(tx('ntExample'))}"><q dir="ltr" lang="en">${hl(c.ex, c.word)}</q>${L !== 'en' ? `<span class="hint">${esc(tx('ntTapTr'))}</span>` : ''}</button>` : ''}
-      ${more ? `<div class="more">${more}</div>` : ''}
-      <div class="nt-act" id="ntAct">${c.saved ? `<button class="btn good" type="button" id="ntGood">${esc(tx('ntGot'))} <kbd>1</kbd></button><button class="btn" type="button" id="ntAgain">${esc(tx('ntAgain'))} <kbd>2</kbd></button>` : `<button class="btn add" type="button" id="ntAdd">${esc(tx('ntAdd'))}</button>`}<button class="btn next" type="button" id="ntNext">${esc(tx('ntNext'))}</button></div>`;
-    $('#ntCard').querySelectorAll('.play').forEach(b => (b.onclick = () => play(b.dataset.acc)));
+      <div class="nt-head"><h1 class="nt-word" dir="ltr" lang="en">${esc(c.word)}</h1><span class="nt-chips">${posChips}${c.level ? `<span class="chip cefr" title="CEFR">${esc(c.level)}</span>` : ''}${ex3}</span></div>
+      <div class="nt-pron">${pron}<span class="sep">·</span><button class="ib" type="button" id="ntSlow" aria-pressed="${slow}" title="${esc(tx('ntSlow'))}" aria-label="${esc(tx('ntSlow'))}">🐢</button></div>
+      ${meanHtml ? `<div class="nt-body${quiz ? ' quiz-hidden' : ''}" id="ntBody">${meanHtml}<div class="veil"><button type="button" id="ntReveal" title="Space">${esc(tx('ntReveal'))}</button></div></div>` : ''}
+      ${c.ex ? `<button class="ex" type="button" id="ntEx" title="${esc(L !== 'en' ? tx('ntTapTr') : tx('ntExample'))}" aria-label="${esc(tx('ntExample'))}"><span dir="ltr" lang="en">“${hl(c.ex, c.word)}”</span></button>` : ''}
+      ${groups.length ? `<div class="more" role="group">${groups.map(([k, a], i) => `<button type="button" data-g="${i}" aria-expanded="false" aria-controls="ntPanel">${esc(tx(k))}<b>${a.length}</b></button>`).join('')}</div><div class="panel" id="ntPanel" dir="ltr" lang="en" hidden></div>` : ''}
+      <div class="nt-act" id="ntAct">${c.saved ? `<button class="btn good" type="button" id="ntGood" title="1">${esc(tx('ntGot'))}</button><button class="btn" type="button" id="ntAgain" title="2">${esc(tx('ntAgain'))}</button>` : `<button class="btn add" type="button" id="ntAdd">${esc(tx('ntAdd'))}</button>`}<button class="btn next" type="button" id="ntNext" title="N">${esc(tx('ntNext'))}</button></div>`;
+    $('#ntCard').querySelectorAll('[data-acc]').forEach(b => (b.onclick = () => play(b.dataset.acc)));
     $('#ntSlow').onclick = () => { slow = !slow; $('#ntSlow').setAttribute('aria-pressed', slow); chrome.storage.local.set({ ntSlow: slow }).catch(() => {}); };
     if ($('#ntReveal')) $('#ntReveal').onclick = reveal;
+    if ($('#ntMoreS')) $('#ntMoreS').onclick = () => { const o = $('#ntS2').hidden; $('#ntS2').hidden = !o; $('#ntMoreS').setAttribute('aria-expanded', o); };
+    $('#ntCard').querySelectorAll('[data-g]').forEach(b => (b.onclick = () => {
+      const p = $('#ntPanel'), open = b.getAttribute('aria-expanded') === 'true';
+      $('#ntCard').querySelectorAll('[data-g]').forEach(x => x.setAttribute('aria-expanded', 'false'));
+      if (open) { p.hidden = true; return; }
+      b.setAttribute('aria-expanded', 'true'); p.innerHTML = groups[+b.dataset.g][1].map(x => `<span>${esc(x)}</span>`).join(''); p.hidden = false;
+    }));
     if ($('#ntEx')) $('#ntEx').onclick = async () => {
-      const b = $('#ntEx'); if (L === 'en' || b.querySelector('.tr')) return;
-      const s = document.createElement('span'); s.className = 'tr'; s.textContent = '…'; b.querySelector('.hint')?.remove(); b.appendChild(s);
+      const b = $('#ntEx'); b.classList.add('open'); if (L === 'en' || b.querySelector('.tr')) return;
+      const s = document.createElement('span'); s.className = 'tr'; s.textContent = '…'; b.appendChild(s);
       const tr = await translate(c.ex); s.textContent = tr || '—'; if (tr) s.insertAdjacentHTML('beforeend', `<span class="mt-l">${esc(tx('ntMT'))}</span>`);
     };
     if ($('#ntAdd')) $('#ntAdd').onclick = add;
@@ -148,7 +160,7 @@
     $('#ntNext').onclick = next;
     seen(c.word);
     // nghĩa ở ngôn ngữ chưa có bản soạn sẵn: dịch máy sau khi vẽ (ghi rõ "Dịch máy")
-    if (!showVi && L !== 'en') setTimeout(() => $('#ntCard').querySelectorAll('[data-mt]').forEach(async el => { const tr = await translate(el.dataset.mt); if (tr && cur === c) { el.textContent = tr; el.insertAdjacentHTML('beforeend', `<span class="mt-l">${esc(tx('ntMT'))}</span>`); el.hidden = false; } }), 150);
+    if (mtOn) setTimeout(() => $('#ntCard').querySelectorAll('[data-mt]').forEach(async el => { const tr = await translate(el.dataset.mt); if (tr && cur === c) { el.textContent = tr; el.insertAdjacentHTML('beforeend', `<span class="mt-l">${esc(tx('ntMT'))}</span>`); el.hidden = false; } }), 150);
   };
   const reveal = () => { const b = $('#ntBody'); if (b && b.classList.contains('quiz-hidden')) { b.classList.remove('quiz-hidden'); $('#ntGood')?.focus(); return true; } return false; };
   const show = async () => {

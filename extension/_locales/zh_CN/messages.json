@@ -27,7 +27,7 @@
   "message": "✓ 记住了"
  },
  "ntAgain": {
-  "message": "🔁 再复习"
+  "message": "↻ 再复习"
  },
  "ntGolden": {
   "message": "黄金复习时刻"
@@ -148,5 +148,8 @@
  },
  "posColl": {
   "message": "搭配"
+ },
+ "ntMoreSenses": {
+  "message": "+{n} 个释义"
  }
 }
