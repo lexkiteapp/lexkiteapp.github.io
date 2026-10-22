@@ -113,3 +113,12 @@ cron mỗi ngày → chọn điểm học + tổ hợp (sổ đa dạng) → so�
 - **Người dẫn**: 4 người (Ama, Carlos + Mia, Jake khi duyệt) × 2 trang phục × nhiều clip trung tính → ai mở, ai hỏi, ai giải thích luân phiên; có clip 1 người, có clip đối đáp.
 - **Âm thanh**: 20+ nhạc nền, 5 bộ SFX, 2–3 giọng chính xoay.
 - **QA chống motip**: chữ ký dựng (chuỗi shot + chuyển động + bố cục + màu + người mở) không trùng với 30 clip gần nhất; pHash chuỗi khung chính khác biệt đủ ngưỡng.
+
+## 16. Kho kịch bản viết sẵn (chỉ CHỮ – chủ 22/10)
+- **Mục tiêu** 20–30 nghìn kịch bản short viết 1 lần, render dùng dần. KHÔNG dựng, KHÔNG credit Kling, KHÔNG tự đăng (cổng duyệt template vẫn áp dụng).
+- **Điểm học = 1 nguồn**: `scripts/scriptbank/lib.mjs` `plan()` tất định từ Cách dùng từ (`web/js/usage`: lỗi hay gặp, cặp dễ nhầm, giới từ, mẫu động từ, trạng từ, cấu trúc), ngữ pháp (câu đố cuối bài), lexicon (từ trong ngữ cảnh, cụm đi kèm, X vs Y theo syn, trọng âm theo IPA Mỹ, nhầm nghĩa) + bảng tình huống. 21.221 điểm, `pid` không trùng; mỗi lô 20 trộn 40/40/20 (dễ/vừa/khó) và đa loại bài.
+- **Lược đồ** (không phụ thuộc template): `id pid src type cefr diff topic hook_type point hook wrong right why ex[2] memory quiz{q,options,answer,explain} lines[{who,say}] words est_s (syl stress) qc{flags,judge} gen{model,at}`.
+- **Sinh**: CI `script-bank.yml` (07:20 VN) → `scripts/scriptbank/job.mjs` → `/api/lexai` `vgen` (Gemini 3.6-flash → 3.5-flash → 3-flash-preview; mỗi mô hình 20 lượt/ngày/dự án; lời giải giữ 3.8-flash) – 429/503 theo mô hình KHÔNG làm cả khóa nghỉ.
+- **QC** (`lib.qc`): đủ trường, hook ≤ 5 từ, why ≤ 14, câu ≤ 14 từ, xen kẽ Ama/Carlos, 18–28 s (156 wpm + nghỉ), tiếng Anh giải thích trong NGSL (≤ 2 từ ngoài), khớp nguồn (từ/cụm đích có trong câu đúng + ví dụ, trọng âm/số âm tiết = IPA, dạng đúng của lỗi hay gặp, đáp án ngữ pháp), chống trùng (câu đúng trùng / 3-gram Jaccard ≥ 0,5) → `vjudge` Llama 3.3 70B CHỈ chấm (≥ 4 vào kho; ≤ 3 → `review.jsonl`); hết neuron → `pending.jsonl`, không vào kho.
+- **Lưu**: `content/video/scripts/bank/NNNN.jsonl` (500/mảnh), `review.jsonl`, `state.json`, `summary.json` → `web/data/script-bank.json` → Quản trị › Thư viện video › **Kho kịch bản**.
+- **Cổng thí điểm**: `content/video/scripts/config.json` `scale:false` → lịch chỉ chấm hàng chờ; thí điểm chạy tay (`max 100, cap 2`). Chỉ đặt `scale:true` sau khi soát tay ≥ 30 mẫu đạt ≥ 90 % đúng thật và chủ OK. Test: `scripts/test/script-bank.mjs`.

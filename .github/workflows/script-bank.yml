@@ -1,0 +1,35 @@
+# Kho kịch bản video ngắn – CHỈ chữ (không dựng, không credit Kling, không đăng). docs/VIDEO-SCALE-PLAN.md §16.
+# Sinh (Gemini, mô hình KHÁC kho lời giải) + QC tất định + chấm chéo Llama 70B; tiếp tục được, không trùng điểm học.
+# Lời giải được ưu tiên: kho chỉ dùng 3.6-flash / 3.5-flash / 3-flash-preview (lời giải dùng 3.8-flash) và tối đa 4.000/10.000 neuron; tự đỏ khi không sinh/chấm được gì.
+name: Kho kịch bản video (sinh + QC)
+on:
+  schedule:
+    - cron: '20 0 * * *'   # 07:20 VN: neuron Workers AI vừa làm mới (trần 4.000 → lời giải còn ≥ 6.000); Gemini dùng mô hình lời giải KHÔNG dùng
+  workflow_dispatch:
+    inputs:
+      max: { description: 'Số kịch bản tối đa lượt này', default: '400' }
+      calls: { description: 'Số lần gọi Gemini tối đa', default: '60' }
+      neurons: { description: 'Trần neuron Workers AI cho giám khảo (để dành cho lời giải)', default: '4000' }
+      cap: { description: 'Tối đa điểm cùng loại/lô (thử nghiệm: 2)', default: '6' }
+permissions:
+  contents: write
+  id-token: write   # JWT OIDC cho /api/lexai
+concurrency: { group: script-bank, cancel-in-progress: false }
+jobs:
+  bank:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Sinh + QC + chấm
+        run: node scripts/scriptbank/job.mjs --max "${{ github.event.inputs.max || '400' }}" --calls "${{ github.event.inputs.calls || '60' }}" --neurons "${{ github.event.inputs.neurons || '4000' }}" --cap "${{ github.event.inputs.cap || '6' }}"
+      - name: Lưu kết quả
+        if: always()
+        run: |
+          test -n "$(git status --porcelain content/video/scripts web/data/script-bank.json)" || { echo 'không có thay đổi'; exit 0; }
+          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
+          git add content/video/scripts web/data/script-bank.json
+          git commit -qm "Kho kịch bản video: lô tự động"
+          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 7)); done; exit 1
