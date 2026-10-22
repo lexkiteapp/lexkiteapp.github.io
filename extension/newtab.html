@@ -10,16 +10,16 @@
 <body>
   <main class="nt">
     <header class="nt-top">
-      <span class="nt-brand" dir="ltr"><img src="icons/icon.svg" alt="" width="26" height="26"> lex<b>kite</b></span>
-      <span class="nt-tag" id="ntTag"></span>
-      <span class="nt-tools">
+      <span class="nt-brand" dir="ltr"><img src="icons/icon.svg" alt="" width="22" height="22"><span>lex<b>kite</b></span></span>
+      <span class="nt-tools"><span class="nt-tag" id="ntTag"></span>
         <label class="nt-switch"><input type="checkbox" id="ntQuiz"><span class="nt-track" aria-hidden="true"></span><span id="ntQuizL"></span></label>
         <span class="nt-ring" id="ntRing" role="img"><svg viewBox="0 0 36 36" aria-hidden="true"><circle class="bg" cx="18" cy="18" r="15.5"/><circle class="fg" id="ntRingFg" cx="18" cy="18" r="15.5" pathLength="100" stroke-dasharray="0 100"/></svg><b id="ntRingN"></b></span>
+        <span class="nt-keys" id="ntKeys" tabindex="0">⌨</span>
       </span>
     </header>
     <article class="nt-card" id="ntCard" aria-live="polite"></article>
     <form class="nt-search" id="ntSearch" role="search"><input id="ntQ" type="search" autocomplete="off"><button type="submit" id="ntGo"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button></form>
-    <footer class="nt-foot"><a id="ntOpen" target="_blank" rel="noopener"></a> · <button id="ntOff" class="nt-link" type="button"></button><span class="nt-keys" id="ntKeys"></span></footer>
+    <footer class="nt-foot"><a id="ntOpen" target="_blank" rel="noopener"></a> · <button id="ntOff" class="nt-link" type="button"></button></footer>
   </main>
   <script src="app/js/core.js"></script>
   <script src="newtab.js"></script>

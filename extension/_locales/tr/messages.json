@@ -27,7 +27,7 @@
   "message": "✓ Biliyorum"
  },
  "ntAgain": {
-  "message": "🔁 Tekrar et"
+  "message": "↻ Tekrar"
  },
  "ntGolden": {
   "message": "Altın an"
@@ -148,5 +148,8 @@
  },
  "posColl": {
   "message": "eşdizim"
+ },
+ "ntMoreSenses": {
+  "message": "+{n} anlam"
  }
 }

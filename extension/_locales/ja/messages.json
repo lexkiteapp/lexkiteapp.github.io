@@ -27,7 +27,7 @@
   "message": "✓ 覚えた"
  },
  "ntAgain": {
-  "message": "🔁 もう一度"
+  "message": "↻ もう一度"
  },
  "ntGolden": {
   "message": "ベストタイミング"
@@ -148,5 +148,8 @@
  },
  "posColl": {
   "message": "コロケーション"
+ },
+ "ntMoreSenses": {
+  "message": "+{n} 件の意味"
  }
 }

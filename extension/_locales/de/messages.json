@@ -27,7 +27,7 @@
   "message": "✓ Gewusst"
  },
  "ntAgain": {
-  "message": "🔁 Wiederholen"
+  "message": "↻ Wiederholen"
  },
  "ntGolden": {
   "message": "Perfekter Moment"
@@ -148,5 +148,8 @@
  },
  "posColl": {
   "message": "Kollokation"
+ },
+ "ntMoreSenses": {
+  "message": "+{n} Bedeutungen"
  }
 }

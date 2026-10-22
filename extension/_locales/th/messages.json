@@ -27,7 +27,7 @@
   "message": "✓ จำได้แล้ว"
  },
  "ntAgain": {
-  "message": "🔁 ทบทวนอีกครั้ง"
+  "message": "↻ ทบทวน"
  },
  "ntGolden": {
   "message": "ช่วงเวลาทอง"
@@ -63,7 +63,7 @@
   "message": "กลุ่มคำ"
  },
  "ntColloc": {
-  "message": "คำที่มักใช้คู่กัน"
+  "message": "คำที่ใช้คู่กัน"
  },
  "ntSyn": {
   "message": "คำพ้องความหมาย"
@@ -148,5 +148,8 @@
  },
  "posColl": {
   "message": "คำปรากฏร่วม"
+ },
+ "ntMoreSenses": {
+  "message": "+{n} ความหมาย"
  }
 }

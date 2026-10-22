@@ -27,7 +27,7 @@
   "message": "✓ Đã nhớ"
  },
  "ntAgain": {
-  "message": "🔁 Cần ôn lại"
+  "message": "↻ Ôn lại"
  },
  "ntGolden": {
   "message": "Thời điểm vàng"
@@ -63,7 +63,7 @@
   "message": "Họ từ"
  },
  "ntColloc": {
-  "message": "Cụm từ hay đi kèm"
+  "message": "Cụm từ"
  },
  "ntSyn": {
   "message": "Đồng nghĩa"
@@ -148,5 +148,8 @@
  },
  "posColl": {
   "message": "cụm kết hợp"
+ },
+ "ntMoreSenses": {
+  "message": "+{n} nghĩa"
  }
 }
