@@ -234,18 +234,19 @@ jobs:
         with: { path: depth, key: 'news-depth-v1-${{ github.run_id }}' }
       - uses: actions/upload-artifact@v4
         with: { name: 'news-depth-${{ github.run_number }}', path: depth/, retention-days: 30 }
-  host-sr:   # owner 22/10: hosts never scaled above their source -> 2x super-resolution (Real-ESRGAN animevideov3, CPU, 0 credits), cached per clip set
+  host-sr:   # owner 22/10: hosts never scaled above their source -> 2x super-resolution (Real-ESRGAN animevideov3, CPU, 0 credits), one job + cache per clip
     needs: news-plan
     if: github.event.inputs.scene == 'news'
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 240
+    strategy: { fail-fast: false, matrix: { clip: [ga4_talk_natural, gc4_talk_natural, gc4_listen] } }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
       - uses: actions/cache/restore@v4
         id: sr
-        with: { path: sr, key: 'host-sr-v1-ga4_talk_natural-gc4_talk_natural-gc4_listen' }
+        with: { path: sr, key: 'host-sr-v2-${{ matrix.clip }}' }
       - name: Footage (PRO host layers, sparse)
         if: steps.sr.outputs.cache-hit != 'true'
         env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
@@ -254,18 +255,18 @@ jobs:
           ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
           git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
-          git -C footage sparse-checkout set --no-cone '/anchor/green/kfull_pro/' '/anchor/green/kmask_pro/' '/anchor/green/kfull/' '/anchor/green/kmask/'
+          git -C footage sparse-checkout set --no-cone "/anchor/green/kfull_pro/${{ matrix.clip }}.mp4" "/anchor/green/kmask_pro/${{ matrix.clip }}.mkv"
           git -C footage checkout -q; rm -f ~/.ssh/footage
-      - name: Real-ESRGAN x2 of the host clips
+      - name: Real-ESRGAN x2
         if: steps.sr.outputs.cache-hit != 'true'
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
           pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.5.1 && pip install -q spandrel==0.4.0 opencv-python-headless==4.10.0.84 numpy==2.1.3
-          python scripts/video/host_sr.py footage/anchor/green ga4_talk_natural,gc4_talk_natural,gc4_listen
-          mkdir -p sr; cp -r footage/anchor/green/kfull_x2 footage/anchor/green/kmask_x2 sr/
+          python scripts/video/host_sr.py footage/anchor/green ${{ matrix.clip }}
+          mkdir -p sr/kfull_x2 sr/kmask_x2; cp footage/anchor/green/kfull_x2/* sr/kfull_x2/; cp footage/anchor/green/kmask_x2/* sr/kmask_x2/
       - uses: actions/cache/save@v4
         if: steps.sr.outputs.cache-hit != 'true'
-        with: { path: sr, key: 'host-sr-v1-ga4_talk_natural-gc4_talk_natural-gc4_listen' }
+        with: { path: sr, key: 'host-sr-v2-${{ matrix.clip }}' }
   news:
     needs: [news-plan, news-depth, host-sr]
     runs-on: ubuntu-latest
@@ -313,9 +314,13 @@ jobs:
       - uses: actions/cache/restore@v4
         with: { path: depth, key: 'news-depth-v1-${{ github.run_id }}', restore-keys: 'news-depth-v1-', fail-on-cache-miss: true }
       - uses: actions/cache/restore@v4
-        with: { path: sr, key: 'host-sr-v1-ga4_talk_natural-gc4_talk_natural-gc4_listen', fail-on-cache-miss: true }
+        with: { path: sr, key: 'host-sr-v2-ga4_talk_natural', fail-on-cache-miss: true }
+      - uses: actions/cache/restore@v4
+        with: { path: sr, key: 'host-sr-v2-gc4_talk_natural', fail-on-cache-miss: true }
+      - uses: actions/cache/restore@v4
+        with: { path: sr, key: 'host-sr-v2-gc4_listen', fail-on-cache-miss: true }
       - name: x2 host layers into the footage tree
-        run: cp -r sr/kfull_x2 sr/kmask_x2 footage/anchor/green/ && ls footage/anchor/green/kfull_x2
+        run: for d in sr; do mkdir -p footage/anchor/green/kfull_x2 footage/anchor/green/kmask_x2; cp $d/kfull_x2/* footage/anchor/green/kfull_x2/; cp $d/kmask_x2/* footage/anchor/green/kmask_x2/; done; ls footage/anchor/green/kfull_x2
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - name: Đệm mô hình Kokoro (~90 MB)
