@@ -20,7 +20,10 @@ for (const f of ['syslog.txt', 'app-stdout.txt', 'app-stderr.txt']) {
   let t = ''; try { t = fs.readFileSync(path.join(dir, f), 'utf8'); } catch (e) { continue; }
   const hits = t.split('\n').filter(l => FB.test(l));
   for (const l of hits.slice(0, 15)) console.log(`[${f}] ${l.slice(0, 300)}`);
-  const errs = hits.filter(l => FB_ERR.test(l) && !/AuthorizationError.*1001|canceled|cancelled/i.test(l));
+  // AuthorizationError 1000/1001: máy giả lập không có Apple Account (bảng "Sign in to your Apple Account" → Đóng) / hủy – đúng kịch bản
+  // I-COR000003: FirebaseCore ghi khi FirebaseApp.app() được hỏi lúc chưa configure (plugin tự configure ngay sau) → chỉ cảnh báo
+  hits.filter(l => /I-COR000003/.test(l)).forEach(l => console.log('::warning::' + l.slice(0, 200)));
+  const errs = hits.filter(l => FB_ERR.test(l) && !/AuthorizationError.*100[01]|AuthorizationError error 100[01]|canceled|cancelled|I-COR000003/i.test(l));
   if (errs.length) bad.push(`${f}: ${errs.length} dòng lỗi Firebase/Google`);
 }
 console.log(bad.length ? '✗ FAIL: ' + bad.join(' · ') : '✓ PASS đăng nhập gốc iOS');

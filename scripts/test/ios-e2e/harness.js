@@ -417,11 +417,12 @@
         if (!hr || !hr.found) add('auth', s.p + ': không thấy bảng/hoạt động đăng nhập gốc của hệ thống');
         if (!res) add('auth', s.p + ': plugin chưa trả kết quả sau khi hủy (promise treo)');
         else if (res.success) add('auth', s.p + ': đăng nhập thành công ngoài ý muốn');
-        else if (!/cancel|1001|12501|-5\b/i.test(res.code + ' ' + res.err)) add('auth', s.p + ': lỗi không phải "hủy": ' + res.code + ' ' + res.err);
+        else if (!/cancel|1001|12501|-5\b|AuthorizationError error 1000/i.test(res.code + ' ' + res.err)) add('auth', s.p + ': lỗi không phải "hủy": ' + res.code + ' ' + res.err);
         await sleep(800);
         const tt = [...document.querySelectorAll('.toast, [role=status], [role=alert]')].filter(vis).map(x => x.innerText).join(' | ');
         if (/Không đăng nhập được|Couldn.t sign in|sign-in failed/i.test(tt)) add('auth', s.p + ': hiện thông báo lỗi sau khi hủy: ' + tt.slice(0, 160));
         await shot('after-cancel-' + s.p);
+        for (let i = issues.length - 1; i >= 0; i--) if (/^console/.test(issues[i].kind) && /cancel|AuthorizationError error 100[01]/i.test(issues[i].msg)) issues.splice(i, 1); // cầu Capacitor tự ghi console.error khi plugin trả lỗi "hủy"
         return;
       }
       case 'usable': {

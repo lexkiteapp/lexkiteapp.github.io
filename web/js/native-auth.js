@@ -17,7 +17,7 @@
   // Báo cho sync.js khi đổi người dùng (đăng nhập/đăng xuất) – bỏ lượt trùng (sự kiện plugin + getCurrentUser lúc mở app)
   const emit = u => { cur = wrap(u); const id = cur ? cur.uid : null; if (id === lastUid) return; lastUid = id; if (cb) cb(cur); };
   const provider = () => { const p = cur && cur.providerData.find(x => x.providerId === 'apple.com' || x.providerId === 'google.com'); return p && p.providerId === 'apple.com' ? 'apple' : 'google'; };
-  const cancelled = e => /cancel|1001|12501|-5\b/i.test(String((e && (e.code || '')) + ' ' + (e && e.message || '')));
+  const cancelled = e => /cancel|1001|12501|-5\b|AuthorizationError error 1000/i.test(String((e && (e.code || '')) + ' ' + (e && e.message || ''))); // 1000 = iOS chưa đăng nhập Apple Account: hệ thống đã báo "Đăng nhập Apple Account trong Cài đặt", người dùng bấm Đóng → im lặng như hủy
 
   async function signIn(via) {
     const r = via === 'apple' ? await FA.signInWithApple({ scopes: ['email', 'name'] }) : await FA.signInWithGoogle();
