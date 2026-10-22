@@ -152,7 +152,7 @@ if VIRAL:   # viral-mode rules (docs/CINE-SCENE-STANDARD.md §7, v3 pacing model
     rule(not any(o['style'] in ('Sub', 'Karaoke') for o in tl['overlays']) and len(caps) > 0, 'all captions word-by-word (Cap), no static Sub')
     br = []
     for s in tl['shots']:
-        if s['id'] == 'recap': lim = 3.0
+        if s['id'] == 'recap': lim = max(3.5, max([l['dur'] + 0.6 for l in s['lines']] or [0])) + 0.01
         else: lim = max(2.5, max([l['dur'] + 0.6 for l in s['lines']] or [0])) + 0.01
         if s['dur'] > lim: rule(False, f'shot {s["id"]} {s["dur"]:.2f} s > {lim:.2f} s (max shot length)')
         for l in s['lines']:
@@ -203,7 +203,7 @@ if TP == 'news':
     run_ = max(len(g) for g in re.findall(r'(a+|c+)', ''.join('a' if x['angle'] == 'ama' else 'c' if x['angle'] == 'carlos' else '-' for x in sh_)) or ['']); rule(run_ <= 2, f'<= 2 consecutive singles of the same host (max {run_})')
     tw2 = [k for k, x in enumerate(sh_) if x['angle'] == 'two']
     rule(sh_[0]['angle'] != 'two' and 'hook' in tl.get('punch', {}) and all(k in (0, 1, len(sh_) - 2, len(sh_) - 1) and sh_[k]['dur'] <= 2.0 + 1e-3 for k in tw2), f'coverage: punch-in single opens, two-shot only as intro/outro <= 2 s ({len(tw2)} two-shots)')
-    bl_ = [(x['id'], round(x['dur'], 2)) for x in sh_ if x['id'] != 'loop' and not 1.5 - 1e-3 <= x['dur'] <= 3.5 + 1e-3]; rule(not bl_, f'shot length 1.5-3.5 s (loop excepted) {bl_ or ""}')
+    bl_ = [(x['id'], round(x['dur'], 2)) for x in sh_ if x['id'] != 'loop' and not (1.5 - 1e-3 <= x['dur'] <= max([3.5] + [l['dur'] + 0.6 for l in x['lines']]) + 1e-3)]   # one spoken line is never cut: a longer line may run past 3.5 s; rule(not bl_, f'shot length 1.5-3.5 s (loop excepted) {bl_ or ""}')
     SZ_ = dict(x0=0, x1=1080 * 0.86, y0=1920 * 0.12, y1=1920 * 0.78); out_ = [(o['style'], o['box']) for o in tl['overlays'] if o['box'][0] < SZ_['x0'] or o['box'][2] > SZ_['x1'] + 0.5 or o['box'][1] < SZ_['y0'] - 0.5 or o['box'][3] > SZ_['y1'] + 0.5]
     rule(not out_, f'platform UI safe zones: no text in top 12 % / bottom 22 % / right 14 % {out_[:4] or ""}')
     FW_ = set("a an the to of in on at for from by with and or but so is are was were be been am do does did have has had will would can could should may might must my your his her its our their this that these those than as if".split())

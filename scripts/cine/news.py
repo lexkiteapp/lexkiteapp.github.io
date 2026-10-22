@@ -26,7 +26,7 @@ def speech(k): nx = [x for x in CUES[k] if x['value'] != 'X']; return nx[0]['sta
 def wdur(k): return float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f'{N}/vis3/{k}.wav']))
 S, OV, SFX = [], [], []
 def line_tempo(line):   # caption reading speed <= 15 cps -> slow the line (>= 0.84x; news_voice.py re-synthesises lines that would need more)
-    s0, s1 = speech(line); need = len(TEXT[line]) / 14.0 - 0.5
+    s0, s1 = speech(line); need = len(TEXT[line]) / 14.5 - 0.3   # v6: caption tail is ~0.25 s (no dead air), not 0.49
     return 1.0 if need <= s1 - s0 else max(0.84, round((s1 - s0) / need - 0.005, 3))
 def talk_dur(line, at, breath=0.4, tempo=None): return at + speech(line)[1] / (tempo or line_tempo(line)) + breath
 def shot(id, clip, who, frame, bg, line=None, dur=None, at=0.07, breath=0.4, frames=None, raw=False, other=None, tempo=None):
@@ -131,8 +131,11 @@ def hook_card(txt, sub, y0=236):   # owner 22/10: big bold hook at the top-safe 
     return shadowed(im), (int(bx), y0, int(bx + tw + 72), y0 + fs + 52), fs   # v4: one line only (layout zone)
 def series_bar(top, sub, y0=240, prog=1.0):   # top-left under the safe line (payoff promise); name titles use y0=NAME_Y
     """US-broadcast lower third: orange tag block + dark-teal strip with white title, thin yellow rule; slides in from the left."""
-    im = layer(); d = ImageDraw.Draw(im); x0 = 60; tf = font(FH, 44); sf = font(FB, 38)
+    im = layer(); d = ImageDraw.Draw(im); x0 = CX0 + 12; tf = font(FH, 44); sf = font(FB, 38)
     tw = d.textlength(top, font=tf) + 48; sw = d.textlength(sub, font=sf) + 56; full = tw + sw
+    for fs_ in (36, 34, 32, 30):   # fit inside the safe column (right 14 % clear)
+        if x0 + full <= CX0 + CW: break
+        sf = font(FB, fs_); sw = d.textlength(sub, font=sf) + 56; full = tw + sw
     off = int((1 - prog) * -(full + 80))
     d.rectangle([x0 + off, y0, x0 + off + tw, y0 + 76], fill=ORANGE + (255,)); d.text((x0 + off + 24, y0 + 38), top, font=tf, fill='white', anchor='lm')
     d.rectangle([x0 + off + tw, y0, x0 + off + full, y0 + 76], fill=TEAL + (240,)); d.text((x0 + off + tw + 28, y0 + 38), sub, font=sf, fill=CREAM, anchor='lm')
@@ -176,6 +179,7 @@ def cap_chunks(ws):
         nxt_ok = cap_split([ws[k] for k in cur + [i + 1]]) is not None
         if re.search(r'[.!?]$', w_) or (re.search(r'[,;:]$', w_) and len(cur) >= 3 and not nxt_ok) or not nxt_ok: ch.append(cur); cur = []
     if cur: ch.append(cur)
+    if len(ch) > 1 and len(ch[-1]) == 1 and len(ch[-2]) >= 3 and _nrm(ws[ch[-2][-2]]) not in FUNCW and not re.search(r'[.!?]$', ws[ch[-2][-1]]) and cap_split([ws[j] for j in ch[-2][-1:] + ch[-1]]): ch[-1].insert(0, ch[-2].pop())   # no one-word tail chunk
     for k in range(len(ch) - 1):   # move a dangling function word to the next chunk
         while len(ch[k]) > 1 and _nrm(ws[ch[k][-1]]) in FUNCW and not re.search(r'[,.;:!?]$', ws[ch[k][-1]]) and cap_split([ws[j] for j in [ch[k][-1]] + ch[k + 1]]):
             ch[k + 1].insert(0, ch[k].pop())
@@ -251,7 +255,7 @@ HAIR = {}
 HOST = {'ama_s': dict(eye=(530, 680)), 'carlos_s': dict(eye=(545, 390)), 'carlos_q': dict(eye=(465, 310))}
 FACEH = {'ama_s': 338, 'carlos_s': 276, 'carlos_q': 182}; SEAT = {'ama_s': 1916, 'carlos_s': 1600, 'carlos_q': 1880}
 FACE_PX = {'mcu': 346, 'wide': 326, 'two': 268.5}; EYE_Y = {'mcu': 670, 'wide': 730, 'two': 960}
-FRAME = {(g, f_): (round(FACE_PX[f_] / FACEH[g], 4), EYE_Y[f_]) for g in FACEH for f_ in FACE_PX}
+FRAME = {(g, f_): (round(FACE_PX[f_] / FACEH[g], 4), EYE_Y[f_] - (50 if g == 'carlos_q' else 0)) for g in FACEH for f_ in FACE_PX}   # 3/4 Carlos: longer chin below the eye
 SIDE = {(g, f_): ({'mcu': 380, 'wide': 380, 'two': 220} if g == 'ama_s' else {'mcu': 700, 'wide': 700, 'two': 880})[f_] for g in FACEH for f_ in FACE_PX}   # thirds; two-shot gap >= 4 % width
 DESK_Y = 1880; VBOT = lambda frame: 1920
 GK = lambda clip, who: 'ama_s' if clip.startswith('ga') else 'carlos_q' if 'q34' in clip else 'carlos_s'
@@ -330,6 +334,9 @@ def _desk():   # flat 2D broadcast desk (brand teal, yellow rule, orange stripe)
     return im, al
 DESK = _desk()
 BOT = np.clip((np.arange(1920) - 1180) / 740.0, 0, 1)[:, None, None] ** 1.6 * 0.4   # owner 22/10: soft bottom scrim for text legibility (no solid band)
+def qblur(x, sg):   # large Gaussian at 1/4 resolution (same look, ~10x cheaper)
+    h_, w_ = x.shape[:2]; y = cv2.GaussianBlur(cv2.resize(x, (w_ // 4, h_ // 4), interpolation=cv2.INTER_AREA), (0, 0), sg / 4)
+    return cv2.resize(y, (w_, h_), interpolation=cv2.INTER_LINEAR)
 def comp(F, Al, sc, cx, cy, ox, oy, drift):   # premultiplied resample (MR.place), returned un-premultiplied for the per-host grading below
     M = np.float32([[sc, 0, ox - cx * sc + drift], [0, sc, oy - cy * sc]]); Fp, a = MR.place(F.astype(np.float32), Al.astype(np.float32), sc, M, (1080, 1920))
     return Fp / np.maximum(a, 1e-3)[..., None], a
@@ -371,13 +378,13 @@ for s in S:
         B = bg_frame(s, j, t); FRs = []; bot = []; AL = []
         B = cv2.GaussianBlur(B, (0, 0), 1.4)   # hosts are the sharp plane: slight extra depth of field on the background
         if EXPO is None:   # one background exposure per lesson (first frame): graded bg mean luma -> 0.56, hosts keep their own exposure (key-light match below)
-            EXPO = min([(abs(cv2.LUT((B * g_).clip(0, 255).astype(np.uint8), GRADE).mean() / 255 - 0.56), g_) for g_ in np.arange(0.85, 1.81, 0.03)])[1]; print('bg exposure gain %.2f' % EXPO)
+            EXPO = min([(abs(cv2.LUT((B * g_).clip(0, 255).astype(np.uint8), GRADE).mean() / 255 - 0.58), g_) for g_ in np.arange(0.85, 2.21, 0.03)])[1]; print('bg exposure gain %.2f' % EXPO)
         B = B * EXPO
         for i in order:
             fr, al, (sc, cx, cy, ox, oy), who = R_[i]; f, a = comp(fr[j], al[j], sc, cx, cy, ox, oy, drift)
-            sh = cv2.GaussianBlur(a, (0, 0), 16); sh = np.roll(np.roll(sh, 16, 0), 10, 1)[..., None] * 0.38
+            sh = qblur(a, 16); sh = np.roll(np.roll(sh, 16, 0), 10, 1)[..., None] * 0.38
             B = B * (1 - sh) + np.array([30, 24, 14], np.float32) * sh
-            ao = cv2.GaussianBlur(a, (0, 0), 45)[..., None] * 0.22; B = B * (1 - ao)   # ambient occlusion / contact shadow around the body
+            ao = qblur(a, 45)[..., None] * 0.22; B = B * (1 - ao)   # ambient occlusion / contact shadow around the body
             B0 = B.copy()
             f = f.astype(np.float32)
             if (s['id'], i) not in KEYM:   # soft key-light match: host colour temperature + brightness pulled 20 % toward the background behind it
@@ -387,12 +394,12 @@ for s in S:
             if (s['id'], i, 'c') not in KEYM:   # contrast match + light direction from the background (left vs right third)
                 m_ = a > 0.9; hs_ = float(f[m_].std()) + 1; bs_ = float(B.std()) + 1; L3 = B.mean(2); KEYM[(s['id'], i, 'c')] = (float(np.clip((bs_ / hs_) ** 0.2, 0.92, 1.08)), f[m_].mean(0), 1 if L3[:, 720:].mean() > L3[:, :360].mean() else -1)
             kc_, hm0_, ld_ = KEYM[(s['id'], i, 'c')]; f = hm0_ + (f - hm0_) * kc_
-            rim = np.clip(a - np.roll(a, 6 * ld_, 1), 0, 1)[..., None] * 0.35; f = f * (1 - rim) + np.minimum(cv2.GaussianBlur(B, (0, 0), 10) * 1.25, 255) * rim   # subtle rim from the bg light side
+            rim = np.clip(a - np.roll(a, 6 * ld_, 1), 0, 1)[..., None] * 0.35; f = f * (1 - rim) + np.minimum(qblur(B, 10) * 1.25, 255) * rim   # subtle rim from the bg light side
             if who == 'carlos': lum = f.mean(2, keepdims=True); f = f * (1 - 0.16 * np.clip((lum - 150) / 90, 0, 1))
             band = np.clip(a - cv2.GaussianBlur(a, (0, 0), 2.5), 0, 1)[..., None] * 1.8   # light wrap 2-3 px
             f[..., 1] = np.where(a < 0.97, np.minimum(f[..., 1], np.maximum(f[..., 0], f[..., 2]) + 10), f[..., 1])
             eo = (a > 0.08) & (a < 0.92); FRs.append(float(((f[..., 1] > f[..., 2] + 25) & (f[..., 1] > f[..., 0] + 25))[eo].mean()) if eo.any() else 0.0)
-            bgb = cv2.GaussianBlur(B, (0, 0), 14); f = f * (1 - 0.5 * band) + bgb * 0.5 * band
+            bgb = qblur(B, 14); f = f * (1 - 0.5 * band) + bgb * 0.5 * band
             a3 = a[..., None]; B = MR.over(f * a3, a, B, wrap_px=0); xs = int(np.clip(ox, 80, 1000)); VB = VBOT('two' if s['other'] else s['frame']); bot.append(float(a[VB - 8:VB, xs - 60:xs + 60].mean())); AL.append(a)
         QC.append(dict(t=round(t, 3), fringe=max(FRs), flick=0.0, bottom=min(bot)))
         if j == s['n'] // 2 and len(AL) == 1: EQ.append(dict(shot=s['id'], **MR.edge_qa(B, AL[0], bg=B0)))   # edge QA on the rendered frame (singles)
