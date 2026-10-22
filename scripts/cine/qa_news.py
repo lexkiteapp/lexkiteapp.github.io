@@ -272,6 +272,13 @@ if TP == 'news':   # owner 22/10: teacher persona
     if not (rt_ and all(x.upper() == "TEACHER'S TIP" for x in rt_)): fails.append('teacher-tip')
     rp_ = tl['lesson'].get('qa', {}).get('repeat', []) if isinstance(tl['lesson'].get('qa'), dict) else tl.get('qa', {}).get('repeat', [])
     print(f'  repeat-after-me pauses {rp_} (>= 1.5 s)', 'OK' if all(d >= 1.5 for _, d in rp_) else 'FAIL'); all(d >= 1.5 for _, d in rp_) or fails.append('repeat-pause')
+print('== SCENE LOGIC (owner 22/10, VIDEO-SCALE-PLAN §11)')
+PL_ = tl.get('qa', {}).get('placement') or {}; VS_ = tl.get('qa', {}).get('vision')
+rule(bool(PL_.get('zones')) and PL_.get('valid', False), f"background {PL_.get('bg')} annotated (bg_zones.py) with a standable floor zone")
+rule(PL_.get('eye_dev', 999) <= 115, f"host eye line vs bg horizon {PL_.get('eye_dev')} px (<= 6 % of the frame; camera tilt {PL_.get('cam_ty')} px)")
+rule(bool(PL_.get('hosts')) and all(v['under'] <= 0.35 for v in PL_['hosts'].values()), f"no table / seat / bed / water under or behind a torso {[(k, v['under']) for k, v in (PL_.get('hosts') or {}).items()]}")
+rule(bool(PL_.get('hosts')) and all(v['near'] <= 0.12 for v in PL_['hosts'].values()), f"host never covers a nearer foreground object {[(k, v['near']) for k, v in (PL_.get('hosts') or {}).items()]}")
+rule(bool(VS_) and VS_.get('ok') is True, f"AI vision gate (3 frames): {(VS_ or {}).get('provider')} {(VS_ or {}).get('answers') or 'missing'}")
 print('== LOOK (owner 22/10: real-camera exposure, no flat band)')
 _rw = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-threads', '2', '-i', V, '-vf', 'fps=2,scale=270:480', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], capture_output=True).stdout
 _F = np.frombuffer(_rw, np.uint8).reshape(-1, 480, 270, 3).astype(np.float32) / 255; _Y = _F @ np.array([0.299, 0.587, 0.114], np.float32)

@@ -304,9 +304,43 @@ MOVES = [dict(z=(1.10, 1.135), tx=(-4, 4), ty=(0, -2), rot=(0, 0)),   # owner 21
          dict(z=(1.12, 1.15), tx=(-3, 2), ty=(0, 2), rot=(0, 0)),
          dict(z=(1.10, 1.14), tx=(3, -2), ty=(1, -1), rot=(0, 0))]
 ANG = {}
+# ------------------------------------------------------------------ scene logic (owner 22/10, VIDEO-SCALE-PLAN §11): bg zones -> camera tilt + host x
+ZD = os.environ.get('NEWS_ZONES', f'{N}/zones'); ZP = f"{ZD}/{S[0]['bg']}.zones.json"; ZN = json.load(open(ZP)) if os.path.exists(ZP) else None
+PLACE = dict(bg=S[0]['bg'], zones=bool(ZN)); CAM_TY = 0.0; ZBASE = 1.10
+HALFW = {'ama_s': 240, 'carlos_s': 420, 'carlos_q': 300}; CHIN = {'ama_s': 220, 'carlos_s': 170, 'carlos_q': 140}; TOPH = {'ama_s': 293, 'carlos_s': 197, 'carlos_q': 149}
+def zfrac(x0, y0, x1, y1, keys, z, tx, ty):   # fraction of grid cells of `keys` inside a frame rectangle, mapped back into the background image
+    G_ = ZN['grid']; gw, gh = G_['w'], G_['h']; xs = np.linspace(x0, x1, 12); ys = np.linspace(y0, y1, 16); n = k = 0
+    for yy in ys:
+        v = 0.5 + (yy - 960 + ty) / (1920 * z)
+        for xx in xs:
+            u = 0.5 + (xx - 540 - tx) / (1080 * z)
+            if 0 <= u < 1 and 0 <= v < 1: n += 1; k += G_['rows'][int(v * gh)][int(u * gw)] in keys
+    return k / max(1, n)
+if ZN:
+    EYM = float(np.mean([FRAME[(GK(x['clip'], x['who']), x['frame'])][1] for x in S if not x['other']]))
+    for _ in range(3):   # horizon position depends on the zoom, the zoom on the tilt
+        HZ0 = 960 + (ZN['horizon'] - 0.5) * 1920 * ZBASE; CAM_TY = float(np.clip(HZ0 - EYM, -260, 260)); ZBASE = max(1.10, 1.03 + 2 * abs(CAM_TY) / 1920)
+    HZ0 = 960 + (ZN['horizon'] - 0.5) * 1920 * ZBASE   # zoom keeps the tilted canvas covering the frame (canvas 1.33x: no upscale up to 1.33)
+    PLACE.update(valid=ZN['valid'], horizon=ZN['horizon'], cam_ty=round(CAM_TY, 1), zbase=round(ZBASE, 3), eye_dev=round(abs(HZ0 - CAM_TY - EYM), 1), hosts={})
+    for (g_, f_) in sorted({(GK(x['clip'], x['who']), x['frame']) for x in S if not x['other']}):
+        sc_, ey_ = FRAME[(g_, f_)]; side0 = SIDE[(g_, f_)]; band = (260, 400) if g_ == 'ama_s' else (680, 820); best = None
+        for dx in (0, -40, 40, -80, 80, -120, 120):
+            ox_ = side0 + dx
+            if not band[0] <= ox_ <= band[1]: continue
+            hw = HALFW[g_] * sc_; tx_ = -26 if g_ == 'ama_s' else 26
+            fx = zfrac(ox_ - hw, ey_ + CHIN[g_] * sc_, ox_ + hw, 1919, 'XN', ZBASE, tx_, CAM_TY)   # under / behind the torso: no table, seat, bed, water...
+            fn = zfrac(ox_ - hw, ey_ - TOPH[g_] * sc_, ox_ + hw, 1919, 'N', ZBASE, tx_, CAM_TY)   # nearer foreground object covered by the host
+            sc2 = fx + 2 * fn + abs(dx) / 1000
+            if best is None or sc2 < best[0]: best = (sc2, ox_, round(fx, 3), round(fn, 3))
+        SIDE[(g_, f_)] = best[1]; PLACE['hosts'][f'{g_}/{f_}'] = dict(ox=best[1], under=best[2], near=best[3])
+    PLACE['ok'] = bool(ZN['valid'] and PLACE['eye_dev'] <= 115 and all(v['under'] <= 0.35 and v['near'] <= 0.12 for v in PLACE['hosts'].values()))
+    print('placement', json.dumps(PLACE))
+QA['placement'] = PLACE
+_VJ = f'{N}/pre_{LID}/vision.json'; QA['vision'] = json.load(open(_VJ)) if os.path.exists(_VJ) else None   # AI vision gate result (scripts/cine/vision_gate.py, run before the full render)
+if os.environ.get('NEWS_PREFLIGHT') and ZN and not PLACE['ok']: print('PLACEMENT FAIL', S[0]['bg']); sys.exit(3)
 for x in S:   # angle = two-shot / Ama single / Carlos single; each angle has its own background crop (side) and its own continuous push-in
-    ang = 'two' if x['other'] else x['who']; z0 = ANG.get(ang, 1.10); z1 = z0 + 0.011 * x['dur']; side = {'two': 0, 'ama': -26, 'carlos': 26}[ang]
-    x['cam'] = dict(z=(z0, z1), tx=(side, side), ty=(0, 0), rot=(0, 0)); ANG[ang] = z1; x['angle'] = ang
+    ang = 'two' if x['other'] else x['who']; z0 = ANG.get(ang, ZBASE); z1 = z0 + 0.011 * x['dur']; side = {'two': 0, 'ama': -26, 'carlos': 26}[ang]
+    x['cam'] = dict(z=(z0, z1), tx=(side, side), ty=(CAM_TY, CAM_TY), rot=(0, 0)); ANG[ang] = z1; x['angle'] = ang
 if S[-1]['id'] == 'loop':   # loop: the two-shot settles back to the hook's first camera state (last frame == first frame)
     S[-1]['cam']['z'] = (S[-1]['cam']['z'][0], S[0]['cam']['z'][0])
 ease = bg3d.ease
@@ -350,7 +384,10 @@ _x = np.arange(256) / 255.0; _l = _x ** 0.86; _s = np.clip(_l - 0.16 * np.sin(2 
 _sh = np.clip(1 - _x * 2.2, 0, 1); _hi = np.clip(_x * 2 - 1.1, 0, 1); _fl = lambda v: 18 / 255 + np.clip(v, 0, 1) * (1 - 22 / 255)   # black floor 18/255
 GRADE = np.stack([_fl(_s + 0.02 * _sh - 0.015 * _hi), _fl(_s + 0.01 * _sh + 0.003 * _hi), _fl(_s - 0.01 * _sh + 0.02 * _hi)], 1)   # BGR: slight teal shadows / warm highlights
 GRADE = (GRADE * 255).astype(np.uint8)[:, None, :]
+PRE = os.environ.get('NEWS_PREFLIGHT'); PRE_IDS = {'hook'} | {next((x['id'] for x in S[1:] if not x['other'] and x['who'] == w and x['lines']), 'hook') for w in ('ama', 'carlos')}
+PRE_D = f'{N}/pre_{LID}'; os.makedirs(PRE_D, exist_ok=True) if PRE else None
 for s in S:
+    if PRE and s['id'] not in PRE_IDS: continue
     HS = [(s['clip'], s['who'], s['lines'], s['raw'], s['frame'])] + ([(s['other'], 'carlos' if s['who'] == 'ama' else 'ama', [], False, 'two')] if s['other'] else [])
     if s['other']: HS[0] = HS[0][:4] + ('two',)
     R_ = []; logs = []; s['xfs'] = {}; s['mouths'] = []
@@ -376,6 +413,9 @@ for s in S:
     order = sorted(range(len(R_)), key=lambda i: R_[i][3] == 'ama')   # Ama (screen-left, front) composited last
     SAMP = os.environ.get('NEWS_SAMPLE')   # smoke test (Mac): composite 1 frame per shot, repeat it
     for j in range(s['n']):
+        if PRE:
+            if j != s['n'] // 2: continue
+            fi = int(round(s['t0'] * FPS)) + j
         t = fi / FPS; u = j / max(1, s['n'] - 1); drift = 0.0
         if SAMP and j > 0: enc.stdin.write(out.tobytes()); fi += 1; continue
         B = bg_frame(s, j, t); FRs = []; bot = []; AL = []
@@ -428,7 +468,9 @@ for s in S:
         out = cv2.cvtColor(np.array(img.convert('RGB')), cv2.COLOR_RGB2BGR)
         if fi == int(0.9 * FPS): COVER = out.copy()
         if j == s['n'] // 2: cv2.imwrite(f'{RD}/ref_{fi:05d}.png', out)   # pre-encode reference for the SSIM gate
+        if PRE: cv2.imwrite(f'{PRE_D}/{s["id"]}.jpg', cv2.resize(out, (432, 768), interpolation=cv2.INTER_AREA), [cv2.IMWRITE_JPEG_QUALITY, 82]); continue
         enc.stdin.write(out.tobytes()); fi += 1
+if PRE: enc.stdin.close(); enc.wait(); print('preflight frames', sorted(os.listdir(PRE_D))); sys.exit(0)
 enc.stdin.close(); enc.wait()
 # ------------------------------------------------------------------ audio: line wavs + studio room tone + sfx -> -16 LUFS
 # owner 22/10 "tiếng ồn lớn quá": the VOICE stem alone is normalised to -16 LUFS (digital silence in pauses stays silent), then the quiet bed

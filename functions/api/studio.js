@@ -14,7 +14,7 @@ import { limit } from './sync.js';
 const REPO = 'lexkiteapp/lexkiteapp.github.io';
 const RAW = `https://raw.githubusercontent.com/${REPO}/main/`;
 const GC_BASE = 'https://grabcast-api-342720596878.us-central1.run.app', GC_WS = '4';
-const MAX_BODY = 256 * 1024, TIMEOUT = 15000;
+const MAX_BODY = 640 * 1024, TIMEOUT = 15000;
 const DAY = 864e5;
 
 // ---------- Trạng thái & chuyển trạng thái hợp lệ ----------
@@ -380,6 +380,26 @@ async function secretOk(env, given) {
   const [a, b] = await Promise.all([hex('studio|' + want), hex('studio|' + given)]); let d = 0; for (let i = 0; i < a.length; i++) d |= a.charCodeAt(i) ^ b.charCodeAt(i); return d === 0; // so sánh băm, thời gian không đổi
 }
 const CI = {
+  // cine-render (news, owner 22/10 VIDEO-SCALE-PLAN §11): AI vision gate on 3 composited frames - does the presenter stand naturally in the scene?
+  // Gemini vision from the key pool; fallback Workers AI llava (one image at a time). Images: base64 JPEG <= 180 KB each, max 4.
+  async visionCheck(env, db, b) {
+    const imgs = (Array.isArray(b.images) ? b.images : []).slice(0, 4).filter(x => typeof x === 'string' && x.length < 250000 && /^[A-Za-z0-9+/=]+$/.test(x));
+    if (!imgs.length) throw new Bad(400, 'images');
+    const q = String(b.question || '').slice(0, 2000);
+    const g = await geminiCall(env, { contents: [{ role: 'user', parts: [{ text: q }, ...imgs.map(d => ({ inline_data: { mime_type: 'image/jpeg', data: d } }))] }], generationConfig: { temperature: 0, responseMimeType: 'application/json' } });
+    if (g && g.text) return { provider: 'gemini', text: g.text };
+    if (env.AI) {
+      const frames = [];
+      for (const d of imgs) {
+        const bytes = [...Uint8Array.from(atob(d), c => c.charCodeAt(0))];
+        const r = await env.AI.run('@cf/llava-hf/llava-1.5-7b-hf', { image: bytes, prompt: 'Does the person in this image stand naturally in the scene, or do they appear to stand on/in a table, chair, counter, bed, water or vehicle, float, or have a wrong scale? Answer starting with NATURAL or PROBLEM, then a short reason.', max_tokens: 60 }).catch(() => null);
+        const t = String((r && (r.description || r.response)) || '').trim();
+        frames.push({ natural: /^\s*natural/i.test(t), problem: /^\s*natural/i.test(t) ? '' : t.slice(0, 140) || 'no answer' });
+      }
+      return { provider: 'workers-ai', text: JSON.stringify({ frames }) };
+    }
+    return { provider: 'none', text: null };
+  },
   // video-auto.yml (theo lịch): tạo job từ kịch bản khuôn đã qua lint (scripts/video/auto.mjs) → script_ok → rendering; CI tự gọi video.yml.
   // Chặn: trùng nguồn (vars file) · công tắc Tự động tắt · đủ hạn mức/ngày · tồn đọng chờ duyệt ≥ backlog. force (chạy tay) bỏ qua 3 chặn sau.
   async ciCreate(env, db, b) {

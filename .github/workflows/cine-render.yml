@@ -221,10 +221,12 @@ jobs:
         run: |
           mkdir -p depth; cp -n footage/anchor/news/depth/*.png depth/ 2>/dev/null || true
           miss=$(python3 -c "import json,os;print(sum(not os.path.exists('depth/'+e['topic']+'.depth.png') for e in json.load(open('footage/anchor/bg/index.json'))['items']))")
-          echo "thiếu $miss bản đồ sâu"
-          if [ "$miss" != 0 ]; then
-            pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.5.1 && pip install -q transformers==4.46.3 pillow==11.0.0 opencv-python-headless==4.10.0.84 numpy==2.1.3
-            python3 scripts/cine/news_depth.py footage depth
+          mz=$(python3 -c "import json,os;print(sum(not os.path.exists('depth/'+e['topic']+'.zones.json') for e in json.load(open('footage/anchor/bg/index.json'))['items']))")
+          echo "thiếu $miss bản đồ sâu, $mz bản chú thích vùng (bg_zones)"
+          if [ "$miss" != 0 ] || [ "$mz" != 0 ]; then
+            pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.5.1 && pip install -q transformers==4.46.3 pillow==11.0.0 opencv-python-headless==4.10.0.84 numpy==2.1.3 scipy==1.14.1
+            [ "$miss" = 0 ] || python3 scripts/cine/news_depth.py footage depth
+            python3 scripts/video/bg_zones.py footage/anchor/bg depth --depth depth   # owner 22/10 §11: standable floor / forbidden objects / horizon per background
           fi
       - uses: actions/cache/save@v4
         with: { path: depth, key: 'news-depth-v1-${{ github.run_id }}' }
@@ -244,6 +246,7 @@ jobs:
       CINE_LIB: ${{ github.workspace }}/footage
       NEWS_DIR: ${{ github.workspace }}/newswork
       NEWS_DEPTH: ${{ github.workspace }}/depth
+      NEWS_ZONES: ${{ github.workspace }}/depth
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -290,17 +293,33 @@ jobs:
           python scripts/cine/news_voice.py "$NEWS_DIR" "$SHARD"
           cp "$NEWS_DIR"/vis3/* out/voices/
       - name: Dựng + qa_news
-        env: { SHARD: '${{ matrix.shard }}' }
+        env: { SHARD: '${{ matrix.shard }}', STUDIO_CALLBACK_SECRET: '${{ secrets.STUDIO_CALLBACK_SECRET }}' }
         run: |
           : > out/passed.txt; fail=0
           for lid in ${SHARD//,/ }; do
             echo "::group::news/$lid"; rb="render5_${lid}_en"
+            # owner 22/10 §11: preflight = placement rules (bg zones) + AI vision gate on 3 composited frames; on failure retry another background (<= 2x)
+            unset NEWS_BG; tried=""; pre_ok=0
+            for att in 0 1 2; do
+              rm -rf "$NEWS_DIR/pre_$lid"
+              if NEWS_PREFLIGHT=1 python scripts/cine/news.py "$lid" > "out/qa/pre_${lid}_$att.log" 2>&1; then
+                python scripts/cine/vision_gate.py "$NEWS_DIR/pre_$lid" && rc=0 || rc=$?
+                [ "$rc" = 0 ] && { pre_ok=1; break; }
+                [ "$rc" = 2 ] && { pre_ok=1; echo "::warning::vision gate unavailable for $lid (qa_news will fail it)"; break; }
+              else tail -3 "out/qa/pre_${lid}_$att.log"; fi
+              cur="${NEWS_BG:-$(python -c "import json;print(json.load(open('content/video/cine/news/$lid.json'))['bg'])")}"; tried="$tried,$cur"
+              nb=$(python scripts/cine/bg_pick.py "content/video/cine/news/$lid.json" "$tried") || nb=""
+              [ -n "$nb" ] || break; export NEWS_BG="$nb"; echo "retry $lid with background $nb"
+            done
+            mkdir -p "out/qa/pre_$lid"; cp "$NEWS_DIR/pre_$lid"/* "out/qa/pre_$lid/" 2>/dev/null || true
+            if [ "$pre_ok" != 1 ]; then echo "news $lid: no background passes placement + vision (dropped)"; fail=1; echo "::endgroup::"; continue; fi
             if { python scripts/cine/news.py "$lid" 2>&1 | tee "out/qa/build_${lid}_en.log"; } && [ -f "$NEWS_DIR/$rb/timeline.json" ]; then   # a failed build must not abort the remaining lessons
               cp "$NEWS_DIR/$rb/timeline.json" "out/qa/timeline_$rb.json"; cp "$NEWS_DIR/$rb/qc.json" "out/qa/qc_$rb.json"
               if (cd "$NEWS_DIR" && python "$CINE_ROOT/scripts/cine/qa_news.py" "$rb") > "out/qa/qa_$rb.log" 2>&1; then :; fi
               tail -1 "out/qa/qa_$rb.log"; grep FAIL "out/qa/qa_$rb.log" | head -20 || true
               tail -1 "out/qa/qa_$rb.log" | grep -q 'ALL PASS' && echo "news $lid $rb" >> out/passed.txt || fail=1
             else fail=1; fi
+            [ -n "${NEWS_BG:-}" ] && echo "$lid $NEWS_BG" >> out/bg_override.txt; unset NEWS_BG
             echo "::endgroup::"
           done
           for f in out/qa/qa_*.log; do echo "- $(basename "$f"): $(tail -1 "$f")" >> $GITHUB_STEP_SUMMARY; done
@@ -356,5 +375,6 @@ jobs:
             out/qa/
             out/voices/
             out/passed.txt
+            out/bg_override.txt
           retention-days: 14
           if-no-files-found: warn

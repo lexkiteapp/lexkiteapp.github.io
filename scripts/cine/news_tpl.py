@@ -3,7 +3,7 @@
 # J-cut audio lead 0.15 s) each carrying ONE card state (label / x / v) -> two-shot recap (Save card 2.5 s) -> CTA single + comment ring ->
 # 1.0 s loop back to the hook frame. All text comes from the curated banks in gen_news.py; timings from the real wavs.
 META = dict(bg=SPEC['bg'], series=SPEC['series'], hook_text=SPEC['hook']['card'], id=SPEC['id'], out=f"cine-{SPEC['id'].replace('_', '-')}-en.mp4", cefr=SPEC['cefr'], goal_en=SPEC['point'], area=SPEC['area'])
-QA = dict(template='news'); AMB = f'{TL}/amb_studio.wav'; AMB_DB = -40; BG = SPEC['bg']
+QA = dict(template='news'); AMB = f'{TL}/amb_studio.wav'; AMB_DB = -40; BG = os.environ.get('NEWS_BG') or SPEC['bg']; META['bg'] = BG   # NEWS_BG: placement / vision retry picked another background
 NW = lambda x_: len(re.findall(r"[A-Za-z0-9']+", x_)); need = lambda x_: max(1.2, 0.4 + 0.28 * NW(x_))
 def at_for(line, lo, hi, br):   # lead-in so the shot lasts lo..hi s
     s0, s1 = speech(line); return max(0.07, lo - br - s1)
