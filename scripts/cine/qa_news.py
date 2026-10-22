@@ -313,6 +313,27 @@ print(f'  measured face width Ama / Carlos per shot size (rendered frames, +-5 %
 if not _fr or any(abs(v - 1) > 0.05 for v in _fr.values()): fails.append('face-size')
 print(f'  skin hue (OpenCV H 3-22, S >= 50) at the cheek/nose patch of each single: {_sk}', 'OK' if not _bad else 'FAIL')
 if _bad or not _sk: fails.append('skin')
+print('== SHARPNESS / ENCODE (owner 22/10: sharp master, no blocking)')
+def _lapv(g): return float(_cv.Laplacian(g, _cv.CV_64F).var())
+def _blk(g):   # 8x8 blockiness: |diff| across block boundaries / |diff| elsewhere (1.0 = none)
+    g = g.astype(np.float32); d = np.abs(np.diff(g, axis=1)); dv = np.abs(np.diff(g, axis=0))
+    return float((d[:, 7::8].mean() + dv[7::8].mean()) / (np.delete(d, np.s_[7::8], axis=1).mean() + np.delete(dv, np.s_[7::8], axis=0).mean()))
+def _ssim(a, b):
+    a, b = a.astype(np.float64), b.astype(np.float64); C1, C2 = 6.5025, 58.5225; bl = lambda x: _cv.GaussianBlur(x, (11, 11), 1.5)
+    ma, mb = bl(a), bl(b); va, vb, cv_ = bl(a * a) - ma ** 2, bl(b * b) - mb ** 2, bl(a * b) - ma * mb
+    return float((((2 * ma * mb + C1) * (2 * cv_ + C2)) / ((ma ** 2 + mb ** 2 + C1) * (va + vb + C2))).mean())
+_cap = _cv.VideoCapture(V); _fl, _tl, _bl, _ss = [], [], [], []
+for x in tl['shots']:
+    fi_ = x['n'] // 2 + int(round(x['t0'] * FPS)); _cap.set(_cv.CAP_PROP_POS_FRAMES, fi_); ok_, Fm = _cap.read()
+    if not ok_: continue
+    g_ = _cv.cvtColor(Fm, _cv.COLOR_BGR2GRAY); _bl.append(_blk(g_)); t_ = fi_ / FPS
+    if x.get('faceboxes') and not x.get('other'): b_ = [int(v) for v in x['faceboxes'][0]]; _fl.append((x['id'], int(_lapv(g_[max(0, b_[1]):b_[3], max(0, b_[0]):b_[2]]))))
+    if any(o['style'] in ('Card', 'Recap') and o['t'][0] <= t_ < o['t'][1] for o in tl['overlays']): _tl.append((x['id'], int(_lapv(g_[1016:1240, 60:920]))))
+    rp_ = sorted(glob.glob(f'{RD}/ref_*.png')); rf_ = [r for r in rp_ if abs(int(re.findall(r'(\d+)\.png$', r)[0]) - fi_) <= 1]
+    if rf_: _ss.append((x['id'], round(_ssim(_cv.cvtColor(_cv.imread(rf_[0]), _cv.COLOR_BGR2GRAY), g_), 4)))
+_ok = dict(face=bool(_fl) and min(v for _, v in _fl) >= 90, text=bool(_tl) and min(v for _, v in _tl) >= 600, blk=bool(_bl) and float(np.median(_bl)) <= 1.12, ssim=bool(_ss) and min(v for _, v in _ss) >= 0.97)
+print(f"  face sharpness (Laplacian var >= 90) min {min([v for _, v in _fl] or [0])}; text-card sharpness (>= 600) min {min([v for _, v in _tl] or [0])}; blockiness median {np.median(_bl or [9]):.3f} (<= 1.12); SSIM pre/post-encode min {min([v for _, v in _ss] or [0]):.4f} (>= 0.97)", 'OK' if all(_ok.values()) else f'FAIL {[k for k, v in _ok.items() if not v]}')
+fails += [f'sharp:{k}' for k, v in _ok.items() if not v]
 print('== AUDIO')
 a = subprocess.run(['ffmpeg', '-nostdin', '-threads', '2', '-i', V, '-af', 'ebur128', '-f', 'null', '-'], capture_output=True, text=True).stderr
 LU = float(re.findall(r'I:\s+(-?[\d.]+) LUFS', a)[-1]); fails += ['loudness'] if abs(LU + 16) > 1 else []

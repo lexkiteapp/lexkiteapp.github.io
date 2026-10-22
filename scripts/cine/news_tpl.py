@@ -22,7 +22,7 @@ h = shot('hook', 'ga4_talk_natural', 'ama', 'wide', BG, line=hk['line'], at=a_, 
 assert 1.6 <= h['dur'] <= 2.0 + 1 / FPS, ('hook length', h['dur'])
 SFX.append(('whoosh.wav', 0.0)); START['ga4_talk_natural'] = 24 + h['n']
 im, box, fs = hook_card(hk['card'], ''); ov('VHook', hk['card'] + '|', 0, h['dur'], box, 'hook', fs=fs, img=im)
-CL = {'ama': ['ga4_talk_natural'], 'carlos': ['gc4_talk_natural', 'gc4_q34_talk']}; use = {'ama': 0, 'carlos': 0}   # standing, cls=neutral only (bank_gestures.json)
+CL = {'ama': ['ga4_talk_natural'], 'carlos': ['gc4_talk_natural']}   # gc4_q34_talk dropped: its ~2x scale-up read soft (owner 22/10 sharpness); use = {'ama': 0, 'carlos': 0}   # standing, cls=neutral only (bank_gestures.json)
 LISTEN = {'ama': 'ga4_talk_natural', 'carlos': 'gc4_listen'}; OTHER = {'ama': 'carlos', 'carlos': 'ama'}; BEATS = SPEC['beats']; nb = len(BEATS)
 RXL = json.load(open(f'{N}/ci/lines.json')).get('reactions', {}); rxi = {'ama': int(SPEC['id'][-6:], 16) % 3, 'carlos': int(SPEC['id'][-6:], 16) % 3}
 def next_rx(y):
