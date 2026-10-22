@@ -95,6 +95,8 @@ Hafıza geliştirme sürecinizi hızlandırmak için [aralıklı tekrar modülü
 
 Birçok öğrencinin düştüğü en büyük yanılgı, kelime listelerini alt alta yazıp fosforlu kalemle defalarca okumaktır (*passive review*).
 
+> Bunu da oku: [Ingilizce Modal Verbs Can Could Should Must Kullanimi](/tr/blog/ingilizce-modal-verbs-can-could-should-must/)
+
 - **Pasif Okuma**: Kelimeye baktığınızda beyniniz *"Evet, bunu biliyorum"* diyerek sahte bir aşinalık hissi (*illusion of competence*) üretir. Ancak sınavda veya konuşma anında kelimeyi sıfırdan zihninizden çekip çıkaramazsınız.
 - **Aktif Hatırlama**: Kartın ön yüzünde sadece İngilizce kelime veya bağlam cümlesi yer alır. Cevaba bakmadan önce zihninizi zorlayarak anlamı üretmeye çalışırsınız. Nöronlar arasındaki bu zorlanma, sinaptik bağları kalınlaştırır ve bilgiyi uzun vadeli belleğe kilitler.
 

@@ -185,6 +185,8 @@ qualityScore: 95
 
 दैनिक वाक्यों का प्रयोग करते समय हिंदी वक्ता अक्सर ये भूलें कर बैठते हैं:
 
+> यह भी पढ़ें: [Spaced Repetition FSRS Vocabulary in Hindi: शब्द याद रखें](/hi/blog/spaced-repetition-fsrs-vocabulary-hindi/)
+
 1. **शाब्दिक अनुवाद (Literal Translation Trap):**  
    - गलत: *Open the fan.* (पंखा खोल दो)  
    - सही: *Turn on the fan.* / *Switch on the fan.* (बिजली के उपकरणों के लिए turn on/off आता है)।

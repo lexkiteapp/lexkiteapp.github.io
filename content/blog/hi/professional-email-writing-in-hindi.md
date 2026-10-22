@@ -108,6 +108,8 @@ qualityScore: 94
 
 कार्यस्थल में मौखिक संवाद और साक्षात्कार की तैयारी के लिए [english me interview ki taiyari kaise kare](/hi/blog/job-interview-english-questions-hindi/), [english bolna kaise sikhe](/hi/blog/english-bolna-kaise-sikhe/) और अंतरराष्ट्रीय परीक्षाओं के लिए [ielts writing task 2 format in hindi](/hi/blog/ielts-writing-task-2-hindi/) के मार्गदर्शक अवश्य पढ़ें।
 
+> यह भी पढ़ें: [English Me Kaise Soche Without Translation: 4 आसान कदम](/hi/blog/english-me-kaise-soche-without-translation/) · [TOEFL Writing Academic Discussion Guide in Hindi: 5/5](/hi/blog/toefl-writing-academic-discussion-guide-hindi/)
+
 साथ ही अपने दैनिक लेखन अभ्यास के लिए [Lexkite राइटिंग टास्क रूम](/#/write) और औपचारिक पत्र प्रारूपों के लिए [Lexkite पत्र लेखन लैब](/#/letters) का उपयोग करें।
 
 {{youtube: h_04bH_R2YI | कॉर्पोरेट ईमेल लिखने के सही नियम और व्यावहारिक कार्यस्थल उदाहरण}}

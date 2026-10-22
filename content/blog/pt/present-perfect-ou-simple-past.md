@@ -54,6 +54,8 @@ Treine o reconhecimento automático desses marcadores no [módulo de gramática]
 
 A interferência do português induz a alguns deslizes clássicos que revelam falta de domínio nas provas de redação e conversação:
 
+> Leia também: [Preposições em Inglês In, On, At: Regras Práticas e Guia Completo](/pt/blog/preposicoes-em-ingles-in-on-at/)
+
 1. **Usar Present Perfect com datas fechadas no passado:**  
    *Errado:* *I have arrived yesterday.*  
    *Certo:* *I arrived yesterday.*  

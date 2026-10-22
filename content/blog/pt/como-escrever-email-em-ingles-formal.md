@@ -92,6 +92,8 @@ Consulte nosso [banco de vocabulário](/#/library) no Lexkite para explorar as l
 
 Veja como articular essas partes em cenários reais do cotidiano de negócios:
 
+> Leia também: [Inglês para TI e Trabalho Remoto: Vocabulário e Guia Prático](/pt/blog/ingles-para-ti-e-trabalho-remoto/) · [Reuniões em Inglês Frases Úteis: Guia Completo para o Trabalho](/pt/blog/reunioes-em-ingles-frases-uteis/)
+
 ### Modelo 1: Solicitação de orçamento e informações comerciais
 ```text
 Subject: Request for Quotation: Cloud Migration Consulting

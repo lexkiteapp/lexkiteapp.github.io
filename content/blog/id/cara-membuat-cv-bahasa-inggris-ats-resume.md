@@ -122,6 +122,8 @@ Menyertakan metrik konkret seperti persentase (`%`), nominal mata uang (`$`), da
 
 Setiap butir poin pengalaman kerja Anda harus diawali dengan kata kerja bentuk lampau (*Past Tense*) yang bertenaga. Hindari kata-kata lemah seperti *did*, *made*, *helped*, atau *worked on*.
 
+> Baca juga: [Panduan TOEFL iBT Academic Discussion Writing: Trik Skor 5.0](/id/blog/toefl-ibt-academic-discussion-writing-panduan/)
+
 - **Kategori Kepemimpinan & Pengelolaan**: `Spearheaded` (memelopori), `Orchestrated` (mengorkestrasi), `Mobilized` (menggerakkan), `Championed` (memperjuangkan), `Directed` (mengarahkan).
 - **Kategori Inovasi & Pengembangan**: `Architected` (merancang sistem), `Engineered` (membangun secara teknis), `Pioneered` (merintis), `Formulated` (merumuskan), `Conceptualized` (mengonsepkan).
 - **Kategori Efisiensi & Pemecahan Masalah**: `Streamlined` (menyederhanakan alur), `Restructured` (merestrukturisasi), `Automated` (mengotomatiskan), `Overhauled` (merevisi total), `Eliminated` (menghilangkan pemborosan).

@@ -87,6 +87,8 @@ ATS सॉफ्टवेयर को समझने का सबसे स�
 ## 2. Google XYZ फॉर्मूला: उपलब्धियों को संख्या में प्रस्तुत करें
 
 गूगल के पूर्व सीनियर वीपी ऑफ पीपल ऑपरेशंस लैजलो बॉक (Laszlo Bock) ने एक स्वर्णिम फॉर्मूला दिया था:
+
+> यह भी पढ़ें: [Business English Meeting Phrases in Hindi: 60+ जरूरी फ्रेजेस](/hi/blog/business-english-meeting-phrases-in-hindi/) · [Travel English Phrases Dialogues in Hindi: विदेश यात्रा गाइड](/hi/blog/travel-english-phrases-dialogues-in-hindi/)
 > **"Accomplished [X] as measured by [Y] by doing [Z]"**
 > (मैंने [X परिणाम] हासिल किया, जिसे [Y संख्या/प्रतिशत] द्वारा मापा गया, [Z कार्य/पद्धति] अपनाकर।)
 

@@ -170,6 +170,8 @@ Précisez ce que vous attendez de votre correspondant et la date limite éventue
 
 Perfectionnez votre vocabulaire professionnel grâce à notre guide dédié pour [Apprendre le vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/). Si vous préparez une candidature ou des entretiens d'embauche internationaux, poursuivez votre lecture avec notre guide pour réussir un [entretien d'embauche en anglais questions](/fr/blog/entretien-embauche-anglais-questions/) et découvrez nos [Astuces TOEIC Listening Reading](/fr/blog/toeic-listening-reading-astuces/) pour certifier votre niveau d'anglais professionnel.
 
+> À lire aussi: [Anglais pour Voyager: Phrases Utiles et Guide Pratique](/fr/blog/anglais-pour-voyager-phrases-essentielles/) · [Réunion en Anglais Expressions Utiles: Guide Pro](/fr/blog/reunion-en-anglais-expressions-utiles/)
+
 ## Auto-évaluation
 
 Testez votre sensibilité au ton et aux usages du monde professionnel anglophone :

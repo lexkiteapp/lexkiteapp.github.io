@@ -108,6 +108,8 @@ quiz: [
 
 日本人学習者が会話やライティングで最も使いこなしたいのが、過去の出来事に対して助動詞を使う「**助動詞 + have + 過去分詞（V-ed）**」の構文です。これらは日常会話からIELTSやTOEFLのハイレベルなエッセイまで頻出します。
 
+> あわせて読みたい: [TOEFL ライティング Academic Discussion：10分で満点を狙う解法とテンプレート](/ja/blog/toefl-ibt-writing-academic-discussion-taisaku/)
+
 | 表現 | 意味 | ニュアンス・感情の解説 |
 |---|---|---|
 | `must have + V-ed` | 〜だったに違いない | 過去の事実に対する95%以上の強い確信（例: *He must have forgotten his keys.*） |

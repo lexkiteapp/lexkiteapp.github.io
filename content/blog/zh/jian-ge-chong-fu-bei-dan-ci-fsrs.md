@@ -147,6 +147,8 @@ FSRS 动态间隔调优闭环：
 
 若想在扎实背词的同时系统强化读写实战，建议配合研读我们的[雅思阅读定位技巧](/zh/blog/ya-si-yue-du-skimming-scanning/)，同时参考[英语语法基础规则](/zh/blog/ying-yu-yu-fa-ji-chu-gui-ze/)理清句子骨架，结合[英语介词in on at用法](/zh/blog/ying-yu-jie-ci-in-on-at-yong-fa/)与[英语情态动词用法攻略](/zh/blog/ying-yu-qing-tai-dong-ci-can-could-should-must/)构建全方位的语言运用直觉。你也可以随时查阅我们的[词汇与学习方法库](/samples/)获取更多备考灵感。
 
+> 延伸阅读: [如何用英语思维思考全攻略：告别脑中中文翻译卡顿的四步阶梯沉浸训练法](/zh/blog/ru-he-yong-ying-yu-si-wei-bu-fan-yi/)
+
 {{cta: /app/#/review | 在 Lexkite 开启 FSRS 科学间隔复习}}
 
 {{youtube: | 间隔重复背单词与FSRS自由间隔重复记忆算法实战}}

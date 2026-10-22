@@ -58,6 +58,8 @@ publishAt: 2026-10-23T20:05:00+03:00
 
 قسمنا هذه الأفعال إلى خمس مجموعات أساسية لسهولة الحفظ والتطبيق:
 
+> اقرأ أيضًا: [Al Tikrar al Mutabaad FSRS Hifz al Kalimat: دليل شامل](/ar/blog/al-tikrar-al-mutabaad-fsrs-hifz-al-kalimat/)
+
 ### 1. الروتين اليومي والمنزل
 - **wake up** — يستيقظ من النوم (*I usually wake up at six*).
 - **get up** — ينهض من السرير (*He woke up early but got up at seven*).

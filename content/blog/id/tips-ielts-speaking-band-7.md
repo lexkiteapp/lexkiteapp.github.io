@@ -87,6 +87,8 @@ Part 3 adalah bagian penentu apakah kamu layak mendapat Band 7 atau lebih tinggi
 
 Kriteria *Lexical Resource* Band 7 mensyaratkan penggunaan ungkapan idiomatis secara fleksibel. Idiom di sini bukan berarti peribahasa kuno seperti *"raining cats and dogs"*, melainkan kolokasi alami dan frasa lazim yang sering dipakai penutur berpendidikan:
 
+> Baca juga: [Template IELTS Speaking Part 2 & 3: Trik Jawab Lancar 2 Menit](/id/blog/template-ielts-speaking-part-2-dan-3/)
+
 | Ungkapan biasa (Band 5–6) | Kolokasi alami tingkat lanjut (Band 7+) |
 |---|---|
 | *I think that* | **I am inclined to believe that / It seems to me that** |

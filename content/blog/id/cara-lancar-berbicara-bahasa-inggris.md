@@ -49,6 +49,8 @@ Ada lima penyebab umum, dan masing-masing butuh obat yang berbeda.
 
 Teknik 4/3/2 dikenal luas lewat karya ahli linguistik terapan Paul Nation. Idenya sederhana:
 
+> Baca juga: [Cara Berpikir dalam Bahasa Inggris Tanpa Menerjemahkan di Kepala](/id/blog/cara-berpikir-dalam-bahasa-inggris-tanpa-menerjemahkan/) · [Percakapan Bahasa Inggris untuk Traveling Luar Negeri: Panduan](/id/blog/percakapan-bahasa-inggris-untuk-traveling-ke-luar-negeri/)
+
 1. Pilih topik yang akrab, misalnya "liburan yang paling berkesan".
 2. Bicarakan topik itu selama **4 menit**.
 3. Ulangi **isi yang sama** dalam **3 menit**.

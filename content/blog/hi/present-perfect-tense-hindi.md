@@ -66,6 +66,8 @@ qualityScore: 94
 
 कुछ ऐसे शब्द हैं जो वाक्य में आते ही यह संकेत दे देते हैं कि यहाँ प्रेजेंट परफेक्ट टेंस का ही प्रयोग होगा:
 
+> यह भी पढ़ें: [Modal Verbs Can Could Should Must in Hindi: सम्पूर्ण नियम](/hi/blog/modal-verbs-can-could-should-must-hindi/)
+
 1. **Since और For:**  
    - *Since* का प्रयोग निश्चित बिंदु (Point of time) के लिए होता है: *since morning, since Monday, since 2015*.  
    - *For* का प्रयोग समय की अवधि (Period of time) के लिए होता है: *for three hours, for two days, for ten years*.  

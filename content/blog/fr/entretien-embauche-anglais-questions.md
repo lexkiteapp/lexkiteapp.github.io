@@ -77,6 +77,8 @@ Le recruteur souhaite savoir si votre projet professionnel s'inscrit dans la dur
 
 Les recruteurs internationaux utilisent massivement les questions comportementales (*Behavioral Questions*), reconnaissables à des amorces comme *„Tell me about a time when...“* ou *„Describe a situation where you had to deal with...“*. La méthode STAR est votre meilleure alliée pour y répondre de façon limpide :
 
+> À lire aussi: [Anglais pour Voyager: Phrases Utiles et Guide Pratique](/fr/blog/anglais-pour-voyager-phrases-essentielles/) · [Faire un CV en Anglais: Modèle et Verbes d Action](/fr/blog/faire-un-cv-en-anglais/) · [Réunion en Anglais Expressions Utiles: Guide Pro](/fr/blog/reunion-en-anglais-expressions-utiles/)
+
 | Lettre | Étape STAR | Objectif de votre réponse | Exemple : « Résoudre un désaccord d'équipe » |
 |---|---|---|---|
 | **S** | **Situation** | Décrire brièvement le contexte et le décor | *„In my previous role, our marketing team and technical team had conflicting priorities ahead of a critical product launch.“* |

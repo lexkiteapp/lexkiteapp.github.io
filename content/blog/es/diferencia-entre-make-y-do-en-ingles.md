@@ -117,6 +117,8 @@ Todo lo que implique emitir sonidos o participar en conversaciones:
 
 Por su parte, el verbo *do* se apodera de las actividades de proceso:
 
+> Lee también: [Presentaciones de Trabajo en Inglés: Frases y Estructura](/es/blog/presentaciones-de-trabajo-en-ingles/)
+
 ### 1. Tareas domésticas y limpieza (Housework)
 Casi todas las labores del hogar utilizan *do*:
 - *Do the dishes / the washing up* (lavar los platos).

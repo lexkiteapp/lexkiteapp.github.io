@@ -41,6 +41,8 @@ Para quem busca certificações internacionais, reconhecer esses padrões gramat
 
 Depois de selecionar e agrupar as expressões prioritárias, entra em jogo o terceiro passo: o algoritmo de repetição espaçada (Spaced Repetition System - SRS). A curva do esquecimento de Hermann Ebbinghaus demonstra que esquecemos mais de 50% de um conteúdo novo após 24 horas, a menos que ele seja revisitado no momento ideal. Ferramentas que utilizam algoritmos modernos como o FSRS calculam o intervalo exato para apresentar o card no instante em que sua memória está prestes a apagá-lo.
 
+> Leia também: [Falsos Cognatos em Inglês: Guia dos Falsos Amigos Mais Comuns](/pt/blog/falsos-cognatos-em-ingles/)
+
 O quarto passo é a recuperação ativa (active recall). Ao olhar para a frente de um cartão de estudo, force o cérebro a recuperar o significado, a pronúncia e um exemplo de frase antes de virar a resposta. Esse esforço cognitivo fortalece as sinapses neurais e consolida o caminho de recuperação da memória de longo prazo. Dedique 15 minutos diários no [modo de revisão de flashcards](/#/review) para transformar esse processo em um hábito automático e prazeroso.
 
 ![Sessão de revisão de flashcards no Lexkite](media:review "Pratique a recuperação ativa diária para fortalecer as conexões neurais antes do esquecimento")

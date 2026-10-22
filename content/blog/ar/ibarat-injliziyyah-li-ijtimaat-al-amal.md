@@ -102,6 +102,8 @@ quiz: [
 
 المقاطعة العشوائية في الاجتماعات الافتراضية تسبب فوضى صوتية. استخدم هذه التراكيب المصقولة:
 
+> اقرأ أيضًا: [Muhadathat Injliziyyah li al Safar: 80+ عبارة وحوار](/ar/blog/muhadathat-injliziyyah-li-al-safar/)
+
 ### المداخلة اللبقة (Jumping In)
 - *«May I quickly jump in here with a brief clarification?»* — هل لي أن أتدخل هنا سريعاً لتوضيح نقطة مقتضبة؟
 - *«Sorry to cut in, Tariq, but I want to make sure I caught that last metric correctly.»* — أعتذر عن المقاطعة يا طارق، لكنني أردت التأكد من أنني سمعت الرقم الأخير بدقة.

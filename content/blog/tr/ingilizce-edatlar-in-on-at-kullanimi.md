@@ -106,6 +106,8 @@ Kol saatine baktığınızda gördüğünüz anlık ve net zaman noktalarında *
 
 Mekan ve konum anlatırken de ters piramit hiyerarşisi aynı şekilde işler.
 
+> Bunu da oku: [Ingilizce Modal Verbs Can Could Should Must Kullanimi](/tr/blog/ingilizce-modal-verbs-can-could-should-must/)
+
 ### 1. Yer İçin "IN" Kullanımı (Sınırları Olan Kapalı Alanlar ve Coğrafi Bölgeler)
 Bir nesnenin üç boyutlu bir hacmin veya sınırları çizilmiş bir alanın içinde olduğunu belirtir:
 - **Ülkeler ve Şehirler**: *in Turkey*, *in London*, *in Istanbul*

@@ -45,6 +45,8 @@ Con esta tabla puedes deducir phrasal verbs que nunca has visto. Si lees *sell o
 
 Los ejemplos son frases cotidianas que puedes adaptar a tu vida. Entre paréntesis, la traducción más natural.
 
+> Lee también: [Diferencia entre Make y Do en Inglés: Reglas y Colocaciones](/es/blog/diferencia-entre-make-y-do-en-ingles/)
+
 ### Con UP
 
 1. *come up with* (idear, ocurrírsele a alguien). *We need to come up with a name for the new café.*

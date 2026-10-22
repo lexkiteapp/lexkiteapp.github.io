@@ -102,6 +102,8 @@ quiz: [
 
 स्थान और स्थिति दर्शाने के लिए भी यही पिरामिड काम करता है:
 
+> यह भी पढ़ें: [Modal Verbs Can Could Should Must in Hindi: सम्पूर्ण नियम](/hi/blog/modal-verbs-can-could-should-must-hindi/)
+
 ### प्रिपोजिशन IN का प्रयोग (सीमाबद्ध या विस्तृत स्थान)
 - **देश, राज्य और बड़े शहर**: *in India, in Delhi, in London, in Mumbai*।
 - **चारदीवारी के भीतर बंद स्थान**: *in a room, in a building, in a box, in a car*।

@@ -108,6 +108,8 @@ quiz: [
 
 주도적으로 회의를 이끄는 사회자나 발표자는 동료들에게 자연스럽게 마이크를 넘겨주어야 합니다:
 
+> 함께 읽어보세요: [간격 반복 영어 단어 암기법 : FSRS 알고리즘으로 망각곡선 극복하기](/ko/blog/gangeok-banbok-daneo-amgi-fsrs/) · [해외여행 영어회화 필수표현 : 공항 호텔 식당 길찾기 응급상황 총정리](/ko/blog/haeoe-yeohaeng-yeongeo-pyohyeon-moeum/)
+
 * *„Now that we've covered the financial metrics, let's pivot to the user feedback section.“* (재무 지표를 다 살펴보았으니, 이제 사용자 피드백 섹션으로 넘어가겠습니다.)
 * *„I'd like to hand it over to Sarah, who has spearheaded the technical architecture redesign.“* (기술 아키텍처 재설계를 총괄해 주신 Sarah 님께 마이크를 넘기겠습니다.)
 * *„David, would you mind chiming in with your perspective from the commercial side?“* (David 님, 사업개발 측면에서 의견을 덧붙여 주실 수 있을까요?)

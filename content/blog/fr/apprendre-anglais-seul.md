@@ -51,6 +51,8 @@ Bonne nouvelle : aucun de ces trois points ne dépend d'un don. Tous se travaill
 
 Objectif : lire la transcription phonétique, prononcer clairement les mots de base, dire 10 à 15 phrases pour vous présenter.
 
+> À lire aussi: [Répétition Espacée pour Apprendre l Anglais: FSRS](/fr/blog/repetition-espacee-anglais-fsrs/)
+
 ![Exercice de prononciation Lexkite : l'expression « cut down on », un bouton micro pour parler et une note attribuée à la voix](media:practice-speak "Jours 1 à 30 : dites l'expression dans le micro et regardez votre note de prononciation")
 
 ### La prononciation, priorité absolue

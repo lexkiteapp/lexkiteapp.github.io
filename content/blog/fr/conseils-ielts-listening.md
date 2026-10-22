@@ -49,6 +49,8 @@ Méfiez-vous également des pièges de vocabulaire et des traductions littérale
 
 La Section 1 est une conversation entre deux personnes dans un cadre social (réservation d'hôtel, inscription sportive, location de voiture). C'est la section où vous devez impérativement viser un 10 sur 10. Les difficultés majeures portent sur la transcription de numéros de téléphone, d'adresses et de noms propres épelés.
 
+> À lire aussi: [IELTS Reading Skimming Scanning: Stratégies Band 7+](/fr/blog/ielts-reading-skimming-scanning/) · [TOEFL ou IELTS Lequel Choisir: Comparatif Complet](/fr/blog/toefl-ou-ielts-lequel-choisir/)
+
 Attention à l'alphabet anglais : les francophones confondent fréquemment les voyelles anglaises *E* (prononcé /iː/) et *I* (prononcé /aɪ/), ainsi que les lettres *G* (/dʒiː/) et *J* (/dʒeɪ/). Entraînez-vous régulièrement sur des [exercices ciblés](/#/practice/test) pour acquérir des automatismes irréprochables.
 
 La Section 2 est un monologue portant sur un sujet d'intérêt général (visite guidée d'un parc, présentation d'une association locale). On y trouve très souvent des plans ou cartes à légender (Map Labelling). Pour ces questions :

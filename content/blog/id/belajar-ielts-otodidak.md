@@ -92,6 +92,8 @@ Untuk Speaking, cobalah teknik pengulangan dengan waktu yang makin singkat di [c
 
 Satu minggu dengan 7–10 jam belajar bisa dibagi seperti ini:
 
+> Baca juga: [Skimming dan Scanning IELTS Reading: Trik Cepat Raih Band 7.5+](/id/blog/teknik-skimming-scanning-ielts-reading/)
+
 | Bagian | Tahap 1–2 | Tahap 3–4 |
 |---|---|---|
 | Kosakata (baru + ulangan) | 35% | 20% |

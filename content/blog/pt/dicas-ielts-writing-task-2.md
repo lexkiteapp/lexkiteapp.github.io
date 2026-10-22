@@ -72,6 +72,8 @@ Utilize o [laboratório de redação](/#/write) do Lexkite para praticar com tem
 
 O uso de conectivos deve ser natural. Se você colocar *Furthermore*, *Moreover*, *In addition* no início de absolutamente todas as frases, o examinador penalizará sua redação por coesão excessiva ou mecânica. O segredo é usar a coesão referencial (pronomes como *this approach, these measures, such policies*) combinada a conectivos bem posicionados:
 
+> Leia também: [Como se Preparar para o IELTS General Training: Guia Definitivo](/pt/blog/como-se-preparar-para-o-ielts-general-training/) · [Redação TOEFL iBT Academic Discussion: Estrutura e Modelos](/pt/blog/redacao-toefl-ibt-academic-discussion/)
+
 - **Para adicionar argumentos:** *Furthermore, In addition, Consequently, Moreover.*
 - **Para contrapor ideias:** *On the other hand, Conversely, Whereas, While this may be true, nevertheless...*
 - **Para exemplificar:** *For instance, To illustrate, A prime example of this is...*

@@ -63,6 +63,8 @@ Pour enrichir votre palette de synonymes et de vocabulaire formel, explorez rég
 
 L'un des pièges fréquents consiste à abuser de formules d'écolier comme *First and foremost*, *Moreover* ou *In a nutshell*. Pour démontrer une réelle maturité stylistique, privilégiez des transitions plus élégantes :
 
+> À lire aussi: [IELTS Speaking Part 2 et 3: Conseils et Modèles Band 8](/fr/blog/ielts-speaking-part-2-et-3/)
+
 | Fonction | Connecteurs recommandés pour Band 7+ | Formules à éviter ou trop familières |
 |---|---|---|
 | **Exprimer une opposition** | *Conversely, However, In stark contrast, While it is acknowledged that...* | *On the other hand (sans on the one hand)* |

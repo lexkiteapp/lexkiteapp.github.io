@@ -105,6 +105,8 @@ Vous pouvez vous exercer sur ces structures dans notre [Module de grammaire](/ap
 
 La même logique de zoom progressif s'applique pour situer des objets, des personnes ou des bâtiments.
 
+> À lire aussi: [Verbes Modaux en Anglais: Can, Could, Should, Must](/fr/blog/verbes-modaux-anglais-can-could-should-must/)
+
 ### 1. IN : L'espace englobant (3D / Enceinte fermée)
 On utilise *in* lorsqu'un objet ou une personne se trouve à l'intérieur d'un volume délimité ou d'une zone géographique étendue :
 * **Zones géographiques :** *In France, in Paris, in Europe, in the countryside*.

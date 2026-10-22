@@ -106,6 +106,8 @@ Pour vous assurer de ne pas confondre les mots pièges de sens proche, parcourez
 
 Une question revient constamment chez les apprenants : où placer le pronom ?
 
+> À lire aussi: [Répétition Espacée pour Apprendre l Anglais: FSRS](/fr/blog/repetition-espacee-anglais-fsrs/)
+
 1. **Les verbes séparables :** Lorsque l'objet est un nom, vous pouvez placer la particule avant ou après (*turn off the light* ou *turn the light off*). Mais attention : **si l'objet est un pronom (it, them, him, her), la particule doit obligatoirement se placer après le pronom** (*turn it off*, et jamais *turn off it*).
 2. **Les verbes inséparables :** Certains verbes ne peuvent jamais être séparés de leur particule (*look after the children* / *look after them*).
 3. **Les verbes à trois mots (toujours inséparables) :** Les verbes composés de deux particules, comme *look forward to*, *run out of* ou *get along with*, restent toujours soudés en bloc.

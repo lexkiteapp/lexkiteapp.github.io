@@ -77,6 +77,8 @@ Zeigen Sie Ehrgeiz, aber bleiben Sie realistisch. Das Unternehmen möchte wissen
 
 Personalverantwortliche stellen heute überwiegend verhaltensbasierte Fragen (Behavioral Questions), die oft mit *„Tell me about a time when...“* oder *„Give me an example of how you handled...“* beginnen. Die STAR-Methode gibt Ihnen dafür eine unverwüstliche Struktur:
 
+> Weiterlesen: [Englischer Lebenslauf Muster: CV & Resume Leitfaden](/de/blog/englischer-lebenslauf-cv-muster/)
+
 | Buchstabe | Bedeutung | Was Sie sagen sollten | Beispielfrage: „Umgang mit Konflikten“ |
 |---|---|---|---|
 | **S** | **Situation** | Den Kontext kurz und prägnant beschreiben | *„In my previous role, our design team and development team had conflicting priorities on a tight deadline.“* |

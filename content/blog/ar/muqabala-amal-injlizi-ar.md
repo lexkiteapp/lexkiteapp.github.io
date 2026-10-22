@@ -101,6 +101,8 @@ qualityScore: 94
 
 كما ننصحك بمراجعة الأساليب الإنشائية المتقدمة المنشورة في [كتابة ielts writing task 2](/ar/blog/ielts-writing-task-2-ar/) وتصفح مكتبة [النماذج والمقالات المكتوبة](/samples/) لتعزيز مخزونك اللغوي، والاطلاع على أسس التأسيس العام في [تعلم الإنجليزية بنفسك](/ar/blog/kayfa-ataallam-al-injliziya/).
 
+> اقرأ أيضًا: [Ibarat Injliziyyah li Ijtimaat al Amal: 70+ عبارة](/ar/blog/ibarat-injliziyyah-li-ijtimaat-al-amal/)
+
 ## تدريب عملي: اختبار الردود المهنية الذاتي (Self-Check)
 
 اختر الرد الأنسب مهنياً على سؤال المقابل:

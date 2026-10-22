@@ -75,6 +75,8 @@ qualityScore: 94
 ## दैनिक जीवन में काम आने वाले 10 आधुनिक कन्वर्सेशन स्टार्टर्स
 
 बातचीत शुरू करने के लिए इन वाक्यों को अपनी दैनिक दिनचर्या में शामिल करें:
+
+> यह भी पढ़ें: [ATS Friendly Resume Kaise Banaye English: सम्पूर्ण गाइड](/hi/blog/ats-friendly-resume-kaise-banaye-english/) · [Travel English Phrases Dialogues in Hindi: विदेश यात्रा गाइड](/hi/blog/travel-english-phrases-dialogues-in-hindi/)
 1. *How is your day going so far?* (अब तक आपका दिन कैसा चल रहा है?)
 2. *Could you please give me a hand with this?* (क्या आप इसमें मेरी थोड़ी मदद कर सकते हैं?)
 3. *I completely see your point, but...* (मैं आपकी बात समझ रहा हूँ, लेकिन...)

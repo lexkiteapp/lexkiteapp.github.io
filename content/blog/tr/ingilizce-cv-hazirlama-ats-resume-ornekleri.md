@@ -91,6 +91,8 @@ Sektörel terminolojiyi zenginleştirmek için [kelime kütüphanesi](/app/#/lib
 
 Birçok aday iş deneyimlerini anlatırken sadece görev tanımı listeler: *"Responsible for managing social media accounts"* (Sosyal medya hesaplarını yönetmekten sorumluydu). Bu pasif ifade hiçbir değer katmaz.
 
+> Bunu da oku: [Ingilizce Dusunmek Ceviri Yapmadan Konusmak Rehberi](/tr/blog/ingilizce-dusunmek-ceviri-yapmadan-konusmak/) · [Yurt Disi Seyahat Ingilizce Diyaloglar ve Kalıplar](/tr/blog/yurt-disi-seyahat-ingilizce-diyaloglar/)
+
 Google'ın işe alım direktörleri tarafından önerilen **XYZ Formülü** şöyledir:
 > **Accomplished [X], as measured by [Y], by doing [Z]**  
 > *( [Z] yöntemini uygulayarak [Y] metriğiyle ölçülen [X] sonucunu başardım )*

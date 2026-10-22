@@ -46,6 +46,8 @@ Jika diterapkan secara konsisten, Anda hanya perlu meluangkan waktu 10 hingga 15
 
 Untuk menerapkan teknik ini secara mandiri tanpa aplikasi otomatis, Anda bisa menggunakan panduan interval standar yang telah disesuaikan untuk pembelajar bahasa:
 
+> Baca juga: [Spaced Repetition Menghafal Kosakata FSRS: Melawan Lupa Permanen](/id/blog/spaced-repetition-menghafal-kosakata-fsrs/)
+
 | Tahap Pengulangan | Interval Waktu | Fokus Aktivitas |
 |---|---|---|
 | Review Pertama | 24 jam setelah belajar | Memastikan kata baru tersimpan di memori jangka pendek |

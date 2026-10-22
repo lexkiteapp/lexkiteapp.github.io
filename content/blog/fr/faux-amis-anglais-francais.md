@@ -50,6 +50,8 @@ Maîtriser ces verbes demande aussi de bien manier les repères temporels. N'hé
 
 Les noms communs recèlent eux aussi des malentendus mémorables qui prêtent souvent à sourire, mais peuvent nuire à votre crédibilité dans un environnement formel :
 
+> À lire aussi: [Prépositions en Anglais In On At: La Règle Infaillible](/fr/blog/prepositions-anglais-in-on-at/)
+
 | Mot anglais | Ce que l'on croit | Ce qu'il signifie réellement | Équivalent anglais recherché |
 |---|---|---|---|
 | **Library** | Librairie | Bibliothèque | Bookshop / Bookstore |

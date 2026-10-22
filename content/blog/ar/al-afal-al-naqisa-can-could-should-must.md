@@ -115,6 +115,8 @@ quiz: [
 
 عند إضافة *have + Past Participle* بعد الفعل الناقص، ننتقل بالمعنى إلى نقد الماضي وتقييم أحداثه:
 
+> اقرأ أيضًا: [TOEFL iBT Academic Discussion Writing Dalil: درجة 5/5](/ar/blog/toefl-ibt-academic-discussion-writing-dalil/)
+
 | التركيب النحوي | المعنى والدلالة | مثال توضيحي مترجم |
 | :--- | :--- | :--- |
 | **Should have + V3** | لوم أو ندم على فعل كان ينبغي حدوثه ولم يحدث | *I should have studied harder for the final exam.* (كان ينبغي عليّ أن أدرس بجدية أكبر.) |

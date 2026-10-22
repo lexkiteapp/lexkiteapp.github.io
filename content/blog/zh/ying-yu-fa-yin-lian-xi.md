@@ -59,6 +59,8 @@ qualityScore: 94
 
 要想让英语听起来像原汁原味的自然表达，单纯念准单个单词是远远不够的，必须掌握语流（Connected Speech）的基本规律：
 
+> 延伸阅读: [出国旅游英语常用口语必备宝典：机场、酒店、点餐与紧急求助全场景](/zh/blog/chu-jing-lv-you-ying-yu-chang-yong-kou-yu/) · [如何用英语思维思考全攻略：告别脑中中文翻译卡顿的四步阶梯沉浸训练法](/zh/blog/ru-he-yong-ying-yu-si-wei-bu-fan-yi/)
+
 1. **辅音 + 元音自然连读：**  
    前一个词以辅音结尾，后一个词以元音开头，自然拼合在一起。  
    - *check it out* → 读作 [tʃe-kɪ-daʊt]  

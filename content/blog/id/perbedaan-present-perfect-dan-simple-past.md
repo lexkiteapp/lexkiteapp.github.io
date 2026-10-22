@@ -47,6 +47,8 @@ Dua hal yang sering terlewat: setelah *did/didn't* kata kerja kembali ke V1 (*Di
 
 Sumber kebingungannya jelas: **kata kerja bahasa Indonesia tidak berubah bentuk menurut waktu.** "Saya makan" bisa berarti kemarin, sekarang, atau besok; konteks dan kata keterangan yang menjelaskan. Bahasa Inggris memaksa penutur menandai waktu langsung pada kata kerjanya. Dari sinilah muncul beberapa pola kesalahan:
 
+> Baca juga: [Modal Verbs can could should must: Panduan Derajat Kepastian](/id/blog/modal-verbs-can-could-should-must/)
+
 **1. Lupa mengubah kata kerja sama sekali.** *Yesterday I go to the market* atau *Last year we move to Bekasi.* Karena bahasa Indonesia sudah merasa cukup dengan "kemarin" atau "tahun lalu", akhiran *-ed* dan bentuk V2 sering tertinggal. Ini kesalahan simple past yang paling dasar dan paling cepat ditangkap penguji.
 
 **2. Menganggap "sudah" atau "telah" = present perfect.** "Saya sudah bertemu dia kemarin" diterjemahkan menjadi *I have met him yesterday*. Padahal "sudah" hanya menandai bahwa sesuatu terjadi sebelum sekarang; bahasa Inggris memilih tenses berdasarkan bingkai waktu. Karena ada "kemarin", jawabannya *I met him yesterday*.

@@ -77,6 +77,8 @@ Gündelik konuşmaların ve akademik metinlerin en yoğun kısmını Present ten
 
 Geçmişte yaşanmış hikayeleri, raporları ve tamamlanmış süreçleri ifade ederken kullanılır.
 
+> Bunu da oku: [Ingilizce Edatlar In On At Kullanimi ve Ters Piramit](/tr/blog/ingilizce-edatlar-in-on-at-kullanimi/) · [Ingilizce Modal Verbs Can Could Should Must Kullanimi](/tr/blog/ingilizce-modal-verbs-can-could-should-must/)
+
 ### Past Simple (Dili Geçmiş Zaman)
 - **Kullanım Alanı:** Geçmişte belirli bir zaman diliminde tamamlanmış ve sona ermiş eylemler.
 - **Formül:** `Özne + V2 (Düzenli fiillerde -ed, düzensiz fiillerde 2. hal)`

@@ -62,6 +62,8 @@ qualityScore: 94
 
 लक्ष्य: phonetic symbols (IPA) पढ़ पाना, आम शब्द साफ़ बोलना और 10–15 वाक्यों में अपना परिचय देना।
 
+> यह भी पढ़ें: [English Me Kaise Soche Without Translation: 4 आसान कदम](/hi/blog/english-me-kaise-soche-without-translation/) · [Spaced Repetition FSRS Vocabulary in Hindi: शब्द याद रखें](/hi/blog/spaced-repetition-fsrs-vocabulary-hindi/)
+
 ![Lexkite की IPA उच्चारण लाइब्रेरी: monophthongs, diphthongs और consonants अलग-अलग, हर आवाज़ के example words, अभ्यास और score](media:pron "पहले महीने में यहीं से एक-एक आवाज़ चुनकर दोहराइए")
 
 - **उच्चारण:** IPA की आवाज़ें समूहों में सीखिए: छोटे-लंबे vowels, diphthongs, consonants। British English में लगभग 44 आवाज़ें मानी जाती हैं। पहले उन जोड़ियों पर ध्यान दीजिए जो भारतीय learners को उलझाती हैं: /v/–/w/ (*vest*–*west*), /iː/–/ɪ/ (*sheep*–*ship*), /æ/–/e/ (*bad*–*bed*)।

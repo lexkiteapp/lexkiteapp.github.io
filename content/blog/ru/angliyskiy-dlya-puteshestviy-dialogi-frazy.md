@@ -100,6 +100,8 @@ quiz: [
 
 В гостинице вам понадобится не только получить электронный ключ от номера, но и комфортно решать любые бытовые нюансы.
 
+> Читайте также: [Kak Sostavit Rezume na Angliyskom ATS CV: Rukovodstvo](/ru/blog/kak-sostavit-rezume-na-angliyskom-ats-cv/)
+
 ### Процедура Check-in
 - *«Hello, I have a reservation under the name Ivanov for 4 nights.»* — Здравствуйте, у меня забронирован номер на фамилию Иванов на 4 ночи.
 - *«Is breakfast included in the room rate?»* — Завтрак включен в стоимость номера?

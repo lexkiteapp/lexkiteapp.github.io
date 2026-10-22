@@ -89,6 +89,8 @@ qualityScore: 94
 
 行動面接（Behavioral Interview）で絶大な効果を発揮するのが「STAR法」と呼ばれる回答構造です。米国のFortune 500企業やトップテック企業の採用面接で標準的に用いられています。
 
+> あわせて読みたい: [ビジネス英語 ミーティング フレーズ：オンライン会議を主導する実践表現集](/ja/blog/business-eigo-meeting-phrases/) · [海外旅行 英会話 フレーズ：空港・ホテル・レストランで困らない完全例文集](/ja/blog/kaigai-ryokou-eikaiwa-phrases/)
+
 ```text
 S - Situation（状況）: どのような背景・状況だったか（時期、チームの規模、市場環境）
 T - Task（課題・使命）: 解決すべき課題や達成すべき目標は何だったか

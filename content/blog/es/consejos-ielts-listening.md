@@ -104,6 +104,8 @@ En la parte 3 hablan varias personas. Si la pregunta dice *"What does Maria thin
 
 Hacer un examen tras otro consume mucho tiempo y mejora poco. Es más eficaz un ciclo corto:
 
+> Lee también: [IELTS Speaking Parte 2 y 3 Estructura: Plantillas Band 7+](/es/blog/ielts-speaking-parte-2-y-3-estructura/) · [Técnicas Skimming Scanning IELTS Reading: Guia de 60 Minutos](/es/blog/tecnicas-skimming-scanning-ielts-reading/)
+
 1. **Elige una parte** (por ejemplo, la 1) y hazla en condiciones de examen: una sola escucha, sin pausas.
 2. **Corrige y clasifica cada fallo**: ¿no lo oíste?, ¿ortografía?, ¿trampa de cambio de opinión?, ¿demasiadas palabras?
 3. **Vuelve a escuchar con la transcripción**: detén el audio justo donde fallaste y repite hasta oír cada sonido.

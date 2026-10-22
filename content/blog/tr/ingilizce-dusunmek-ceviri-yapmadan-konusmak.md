@@ -118,6 +118,8 @@ Bu beceri (*circumlocution*), ana dili İngilizce olan konuşmacıların da sık
 
 İngilizce düşünmenin en güçlü biyolojik egzersizlerinden biri **Shadowing (Gölgeleme)** metodudur:
 
+> Bunu da oku: [Ingilizce CV Hazirlama ATS Resume Ornekleri Rehberi](/tr/blog/ingilizce-cv-hazirlama-ats-resume-ornekleri/) · [Yurt Disi Seyahat Ingilizce Diyaloglar ve Kalıplar](/tr/blog/yurt-disi-seyahat-ingilizce-diyaloglar/)
+
 1. İlginizi çeken 1-2 dakikalık İngilizce bir podcast veya video seçin (konuşmacının diksiyonu net olmalıdır).
 2. Konuşmacıyı dinlerken, durdurmadan ve alt yazıya bakmadan, duyduğunuz her kelimeyi **1-2 saniye geriden** aynı tonlama ve vurguyla yüksek sesle tekrar edin.
 3. Beyniniz cümlenin Türkçesini çevirecek vakit bulamaz; yalnızca ses dalgalarını taklit edip dışarı verir.

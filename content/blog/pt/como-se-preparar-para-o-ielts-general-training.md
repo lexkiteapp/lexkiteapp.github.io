@@ -88,6 +88,8 @@ Desenvolva as técnicas gêmeas de *Skimming* (leitura panorâmica rápida em 60
 
 O módulo de escrita dura exatamente uma hora e exige disciplina rigorosa no gerenciamento dos minutos:
 
+> Leia também: [Small Talk em Inglês: Guia para Conversas Casuais e Networking](/pt/blog/small-talk-em-ingles/) · [TOEFL ou IELTS Qual Fazer? Comparativo Completo para Decidir](/pt/blog/toefl-ou-ielts-qual-fazer/)
+
 ### Task 1: A arte de redigir a carta perfeita (20 minutos, mínimo de 150 palavras)
 O enunciado da Task 1 sempre descreve uma situação e traz três tópicos pontuais (*bullet points*) que você é obrigado a cobrir. O primeiro passo crucial é identificar o tom exigido:
 - **Carta Formal:** Para alguém que você não conhece pelo nome ou para uma instituição governamental (abertura: *Dear Sir or Madam,* / fechamento: *Yours faithfully,*). Veja modelos formais no guia de [como escrever e-mail formal em inglês](/pt/blog/como-escrever-email-em-ingles-formal/).

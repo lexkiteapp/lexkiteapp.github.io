@@ -95,6 +95,8 @@ Pratique estas frases en voz alta en el [módulo de práctica oral](/app/#/pract
 
 En reuniones de negocios, los datos cuantitativos son el núcleo del argumento. Utiliza verbos dinámicos en lugar del genérico *go up* o *go down*:
 
+> Lee también: [Inglés para Viajar Frases Esenciales: Guía Turística Completa](/es/blog/ingles-para-viajar-frases-esenciales/)
+
 | Tipo de tendencia | Verbos formales recomendados | Ejemplo de uso en una diapositiva |
 |---|---|---|
 | **Aumento drástico / rápido** | *Skyrocket, Surge, Soar, Jump* | *"User registrations surged by 55% following the product relaunch."* |

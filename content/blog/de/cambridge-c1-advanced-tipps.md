@@ -93,6 +93,8 @@ Im Speaking-Test sitzen Sie gemeinsam mit einem Partner zwei Prüfern gegenüber
 
 Testen Sie Ihre C1-Transformationsfähigkeiten (Key Word Transformation). Formen Sie den zweiten Satz so um, dass er dem ersten entspricht. Verwenden Sie zwischen 3 und 6 Wörtern einschließlich des angegebenen Schlüsselworts:
 
+> Weiterlesen: [Smalltalk auf Englisch: Gesprächsthemen & Eisbrecher](/de/blog/smalltalk-auf-englisch-themen/)
+
 1. *I haven't heard from my former colleague for nearly five years.*  
    Schlüsselwort: **TOUCH**  
    Satz: *I have _____ my former colleague for nearly five years.*

@@ -97,6 +97,8 @@ Aprenda como estruturar comentários e memorizar jargões práticos no [dicioná
 
 Durante cerimônias ágeis como planejamento de sprint (*Sprint Planning*) ou retrospectivas (*Retrospective*), você precisará defender suas estimativas técnicas:
 
+> Leia também: [Small Talk em Inglês: Guia para Conversas Casuais e Networking](/pt/blog/small-talk-em-ingles/)
+
 | Expressão em inglês | O que significa na prática | Exemplo de uso em TI |
 |---|---|---|
 | **Tech debt** | Débito técnico (código legado ou atalhos) | *"We should allocate 20% of the sprint to pay down tech debt."* |

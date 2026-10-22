@@ -99,6 +99,8 @@ publishAt: 2026-10-23T09:09:00+09:00
 
 문장에서 동사를 명사, 형용사, 부사처럼 변신시켜 쓰기 위해 고안된 것이 바로 준동사(Verbal)입니다. 가장 대표적인 두 축이 To부정사(*to + 동사원형*)와 동명사(*동사원형 + -ing*)입니다:
 
+> 함께 읽어보세요: [영어 조동사 정리 : 확신도 백분율과 뉘앙스로 끝내는 can could should must](/ko/blog/yeongeo-jodongsa-can-could-should-must/)
+
 - **To부정사:** 미래 지향적, 계획, 희망, 일시적인 행위를 나타내는 경향이 강합니다 (*want to go, plan to launch, decide to invest*).
 - **동명사(-ing):** 과거 경험, 현실적인 사실, 습관이나 지속적인 행위를 나타냅니다 (*enjoy studying, avoid making mistakes, consider moving*).
 

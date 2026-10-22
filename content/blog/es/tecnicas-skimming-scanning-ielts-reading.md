@@ -104,6 +104,8 @@ Una vez localizado el renglón exacto, lee detenidamente la oración anterior, l
 
 Los creadores de la prueba IELTS diseñan trampas sutiles que atrapan a estudiantes que leen de forma superficial:
 
+> Lee también: [IELTS Speaking Parte 2 y 3 Estructura: Plantillas Band 7+](/es/blog/ielts-speaking-parte-2-y-3-estructura/)
+
 ### 1. El distractor de coincidencia exacta de palabras (*Exact Word Matching*)
 Si ves exactamente la misma palabra técnica de la pregunta repetida en un párrafo, ¡desconfía! Los examinadores suelen colocar la misma palabra para atraer tu atención, pero alteran el sentido mediante negaciones ocultas, condiciones hipotéticas (*might*, *could*, *unlikely*) o modificadores cuantitativos (*some* en vez de *all*).
 

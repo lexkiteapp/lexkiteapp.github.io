@@ -116,6 +116,8 @@ Hier verlieren deutschsprachige Kandidaten die meisten Punkte durch unbewusstes 
 
 Die Prüfer von Cambridge und dem British Council sind Meister darin, scheinbar einfache Fragen mit raffinierten Ablenkern (*Distractors*) zu versehen:
 
+> Weiterlesen: [IELTS Speaking Part 2 Tipps: 2 Minuten flüssig sprechen](/de/blog/ielts-speaking-part-2-cue-card/)
+
 ### 1. Die Wort-für-Wort-Falle (The Exact Word Trap)
 Wenn du in einer Multiple-Choice-Option exakt denselben Fachbegriff liest wie im Text, sei extrem vorsichtig! Oft dient das identische Wort als Köder, während der eigentliche Satzsinn durch ein nachgestelltes Adverb (*unlikely*, *rarely*, *disputed*) komplett umgedreht wird. Suche stattdessen nach Paraphrasen und Synonymen.
 

@@ -75,6 +75,8 @@ Para ampliar tu vocabulario con colocaciones y estructuras habituales en el ámb
 
 Los errores más frecuentes no provienen de la falta de vocabulario, sino de transferir directamente los hábitos de nuestra lengua materna:
 
+> Lee también: [Verbos Modales en Inglés: Can, Could, Should, Must y May](/es/blog/verbos-modales-en-ingles-can-could-should-must/)
+
 1. **Usar el presente continuo para duraciones iniciadas en el pasado.** Decir *«I am living here since two years»* es incorrecto. La fórmula adecuada es *«I have lived here for two years»* o en su forma continua *«I have been living here for two years»*.
 2. **Confundir *been to* y *gone to*.** 
    - *She has gone to Paris.* → Fue a París y todavía está allí (viaje en curso).

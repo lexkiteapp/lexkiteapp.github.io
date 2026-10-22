@@ -104,6 +104,8 @@ quiz: [
 
 การลิ้มลองอาหารท้องถิ่นเป็นไฮไลต์ของทุกการเดินทาง ต่อไปนี้คือประโยคที่ช่วยให้คุณสั่งอาหารได้อย่างมั่นใจ:
 
+> อ่านต่อ: [เขียน Resume ภาษาอังกฤษ ATS Template: เทคนิคผ่านระบบคัดกรอง](/th/blog/khian-resume-phasa-angkrit-ats-template/)
+
 ### 1. การขอโต๊ะและสั่งอาหาร
 - *"A table for two, please. Inside / by the window, if possible."* (ขอโต๊ะสำหรับสองที่ครับ ขอด้านใน / ริมหน้าต่าง หากเป็นไปได้)
 - *"Do you have an English menu or a menu with pictures?"* (คุณมีเมนูภาษาอังกฤษหรือเมนูที่มีรูปภาพประกอบไหมครับ?)

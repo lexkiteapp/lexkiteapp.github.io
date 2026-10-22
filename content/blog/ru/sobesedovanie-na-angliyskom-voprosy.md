@@ -69,6 +69,8 @@ qualityScore: 94
 
 На онлайн-собеседовании (через Zoom, Google Meet или Teams) ваши жесты и голос значат не меньше слов:
 
+> Читайте также: [Kak Sostavit Rezume na Angliyskom ATS CV: Rukovodstvo](/ru/blog/kak-sostavit-rezume-na-angliyskom-ats-cv/)
+
 1. **Контакт глазами (Eye Contact):** смотрите прямо в глазок веб-камеры, а не на лицо собеседника на экране. Это создает ощущение прямого и уверенного визуального контакта.
 2. **Паузы вместо мычания:** если вам нужно обдумать сложный вопрос, возьмите легитимную паузу вежливой фразой: *"That is a thought-provoking question, please give me a moment to structure my thoughts"*.
 3. **Вопросы работодателю в финале:** когда рекрутер спросит *"Do you have any questions for us?"*, никогда не говорите *"No, everything is clear"*. Задайте 2 продуманных вопроса: *"What are the most urgent priorities for this role in the first 90 days?"* или *"How does the engineering team measure success?"*.

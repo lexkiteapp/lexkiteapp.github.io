@@ -103,6 +103,8 @@ I hope this email finds you well.
 
 I am writing to request a quotation for your English-to-Japanese translation services for our upcoming marketing campaign in Q4. We have approximately 15,000 words of website content and product documentation that need to be localized.
 
+> あわせて読みたい: [英文レジュメ 書き方 テンプレート：外資系・海外転職を成功させるATS対策](/ja/blog/eibun-resume-cv-kakikata-template/)
+
 Could you please provide an estimated quote and your typical turnaround time for a project of this scale? In addition, please let us know if you offer volume discounts.
 
 I would appreciate it if you could share this information by next Wednesday, October 22.

@@ -73,6 +73,8 @@ No Speaking, você grava suas respostas em um microfone conectado ao computador,
 
 Muitos estudantes ficam em dúvida sobre qual exame prestar. Ambas as certificações são amplamente aceitas internacionalmente, mas possuem perfis distintos:
 
+> Leia também: [Redação TOEFL iBT Academic Discussion: Estrutura e Modelos](/pt/blog/redacao-toefl-ibt-academic-discussion/)
+
 | Característica | TOEFL iBT (formato 2026) | IELTS Academic |
 |---|---|---|
 | Formato de Prova | 100% digital; Reading e Listening adaptativos | Opção em papel ou no computador |

@@ -112,6 +112,8 @@ Hubungan antara kata kerja bantu ini dan kata kerja bentuk lampau diulas lebih m
 
 Salah satu materi yang paling sering diuji dalam tes IELTS dan TOEFL adalah penggunaan kata bantu modal yang diikuti oleh struktur *perfect aspect* (`modal + have + V3`). Struktur ini digunakan untuk mengevaluasi peristiwa yang telah terjadi di masa lalu.
 
+> Baca juga: [Panduan TOEFL iBT Academic Discussion Writing: Trik Skor 5.0](/id/blog/toefl-ibt-academic-discussion-writing-panduan/)
+
 | Struktur Kalimat | Arti Bahasa Indonesia | Makna dan Implikasi Emosional |
 |---|---|---|
 | `must have + V3` | Pasti sudah... | Keyakinan 99% bahwa sesuatu terjadi di masa lalu (*She must have passed the test; she studied hard*). |

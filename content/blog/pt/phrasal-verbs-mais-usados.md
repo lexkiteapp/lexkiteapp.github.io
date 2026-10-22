@@ -57,6 +57,8 @@ A partícula *off* remete à ideia de desconexão, cancelamento ou afastamento f
 
 Para facilitar seus estudos, dividimos os 30 verbos frasais mais indispensáveis em três categorias práticas de uso imediato:
 
+> Leia também: [Falsos Cognatos em Inglês: Guia dos Falsos Amigos Mais Comuns](/pt/blog/falsos-cognatos-em-ingles/)
+
 ### Categoria A: Rotina e Vida Pessoal
 1. **Wake up:** acordar pela manhã (*I usually wake up at 7 AM*).
 2. **Get up:** levantar-se da cama ou da cadeira.

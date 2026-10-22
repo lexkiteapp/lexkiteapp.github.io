@@ -48,6 +48,8 @@ Ada beberapa pola kesalahan yang khas pada pelajar Indonesia, dan sebagian besar
 
 Saat ragu di antara dua jawaban itu, tanyakan:
 
+> Baca juga: [Skimming dan Scanning IELTS Reading: Trik Cepat Raih Band 7.5+](/id/blog/teknik-skimming-scanning-ielts-reading/)
+
 > **"Bisakah saya menggarisbawahi kata di teks yang membuat pernyataan ini tidak mungkin benar?"**
 
 - Bisa → **False**.

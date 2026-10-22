@@ -103,6 +103,8 @@ Dejar de usar diccionarios inglés-español es el paso decisivo para graduarse c
 
 Otra técnica respaldada por la neurociencia lingüística para apagar el traductor interno es el **Shadowing** (imitación en sombra):
 
+> Lee también: [Presentaciones de Trabajo en Inglés: Frases y Estructura](/es/blog/presentaciones-de-trabajo-en-ingles/)
+
 1. **Cómo funciona:** Escucha un fragmento corto de audio grabado por un hablante nativo (un podcast, un audiolibro o un video de YouTube) y repite en voz alta lo que dice con un desfase de apenas medio segundo, imitando su entonación, pausas y melodía exacta.
 2. **Efecto cognitivo:** Debido a que debes hablar casi al mismo tiempo que escuchas, tu cerebro no tiene tiempo físico para traducir al español. Obligas a tus circuitos articulatorios a reproducir el flujo sonoro directamente en inglés.
 

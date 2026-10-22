@@ -86,6 +86,8 @@ qualityScore: 94
 
 Определите, в какой паре слов гласные или согласные звучат одинаково, а в какой — различаются:
 
+> Читайте также: [TOEFL iBT Academic Discussion Writing Rukovodstvo](/ru/blog/toefl-ibt-academic-discussion-writing-rukovodstvo/)
+
 1. Одинаковы ли гласные звуки в словах *live* (жить) и *leave* (покидать)?
 2. Одинаков ли начальный согласный в словах *wine* и *vine*?
 3. В каком из слов конечный звук должен звучать звонко: *bet* или *bed*?

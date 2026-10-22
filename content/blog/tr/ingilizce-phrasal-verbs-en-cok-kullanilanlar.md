@@ -115,6 +115,8 @@ Bu deyimsel fiilleri doğru bağlamda kullanmayı öğrenmek için [Akıllı Ö�
 
 Phrasal verbs konusunda yapılan en yaygın gramer hatası, zamirlerin (it, them, him, her) nereye konulacağıdır:
 
+> Bunu da oku: [Aralikli Tekrar Kelime Ezberleme FSRS Sistemi Rehberi](/tr/blog/aralikli-tekrar-kelime-ezberleme-fsrs/)
+
 1. **Ayrılabilen Fiiller (Separable):** Nesne bir isim olduğunda fiilin sağına da soluna da gelebilir:
    - *Turn off the light.* (Doğru)
    - *Turn the light off.* (Doğru)

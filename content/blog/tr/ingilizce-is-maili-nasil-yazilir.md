@@ -56,6 +56,8 @@ E-postanın başlangıcı, kurduğunuz iletişimin tonunu belirler. Muhatabını
 
 İngilizce iş yazışmalarında emir kipi (*Imperative*) kullanmak kabalık olarak algılanır. *"Send me the report"* yerine dolaylı ve nazik kalıplar kullanılmalıdır:
 
+> Bunu da oku: [Ingilizce CV Hazirlama ATS Resume Ornekleri Rehberi](/tr/blog/ingilizce-cv-hazirlama-ats-resume-ornekleri/)
+
 - **Nazik Talep Bildirme:**
   - *"Could you please provide us with the updated timeline by Wednesday?"* (Güncellenmiş takvimi Çarşamba gününe kadar iletmeniz mümkün müdür?)
   - *"I would greatly appreciate it if you could review the attached document."* (Ekli belgeyi inceleyebilirseniz çok memnun olurum.)

@@ -120,6 +120,8 @@ SKILLS & CERTIFICATIONS
 
 英文レジュメの箇条書きの冒頭は、必ず力強い過去形の「アクション動詞」から始めるのが国際基準です。`Did`, `Made`, `Helped` などの曖昧で受動的な単語の使用を避け、役割に応じた明確な動詞を選択しましょう。
 
+> あわせて読みたい: [TOEFL ライティング Academic Discussion：10分で満点を狙う解法とテンプレート](/ja/blog/toefl-ibt-writing-academic-discussion-taisaku/)
+
 - **リーダーシップ・主導**: `Spearheaded`（先頭に立って推進した）, `Orchestrated`（統合的に指揮した）, `Championed`（率先して主導した）, `Mobilized`（結集させた）
 - **改善・効率化**: `Streamlined`（合理化した）, `Restructured`（再構築した）, `Automated`（自動化した）, `Revitalized`（活性化させた）
 - **創出・開発**: `Engineered`（綿密に構築した）, `Pioneered`（先駆けて開発した）, `Devised`（考案した）, `Established`（確立した）

@@ -73,6 +73,8 @@ publishAt: 2026-10-25T09:11:00+03:00
 
 يحتار كثير من الطلاب في المفاضلة بين الاختبارين، والجدول التالي يوضح الفروق الجوهرية لمساعدتك على الاختيار:
 
+> اقرأ أيضًا: [TOEFL iBT Academic Discussion Writing Dalil: درجة 5/5](/ar/blog/toefl-ibt-academic-discussion-writing-dalil/)
+
 | وجه المقارنة | TOEFL iBT | IELTS Academic |
 | :--- | :--- | :--- |
 | **جهة الإصدار** | ETS (الولايات المتحدة الأمريكية) | British Council / IDP / Cambridge |

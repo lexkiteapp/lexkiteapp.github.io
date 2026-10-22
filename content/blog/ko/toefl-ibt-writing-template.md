@@ -55,6 +55,8 @@ publishAt: 2026-10-25T08:14:00+09:00
 
 새롭게 도입된 학술 토론형은 교수가 던진 토론 질문과 두 학생의 선행 의견을 읽고, 10분 동안 최소 100단어(권장 120~150단어)의 내 의견을 온라인 토론방에 기여하는 과제입니다.
 
+> 함께 읽어보세요: [토플 라이팅 학술토론 : 10분 만에 5점 만점 받는 템플릿과 전개 공식](/ko/blog/toefl-ibt-academic-discussion-writing/)
+
 ### 학술 토론형 1문단 완성 템플릿
 
 > While both [Student A] and [Student B] provide compelling perspectives on [Discussion Topic], I strongly align with [Student A / B]'s view that [Selected Position]. 

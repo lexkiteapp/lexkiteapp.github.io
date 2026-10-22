@@ -100,6 +100,8 @@ quiz: [
 
 الفندق هو ملاذك الآمن طوال الرحلة، وإجادتك للتواصل تضمن حصولك على أقصى درجات الراحة:
 
+> اقرأ أيضًا: [Sirat Dhatiyyah Injliziyyah ATS Resume: نموذج صفحة واحدة](/ar/blog/sirat-dhatiyyah-injliziyyah-ats-resume/)
+
 ### استلام الغرفة (Checking In)
 - *«Hello, I have a reservation under the name Ahmed for four nights.»* — مرحباً، لدي حجز باسم أحمد لمدة أربع ليالٍ.
 - *«Is complimentary breakfast included in the room rate?»* — هل الإفطار المجاني مشمول في سعر حجز الغرفة؟

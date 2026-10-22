@@ -90,6 +90,8 @@ Akademik yazma becerilerinizi çeşitlendirmek için [Task 1 grafik yazma bölü
 
 IELTS Writing Task 2'de karşılaşacağınız soru türleri şunlardır:
 
+> Bunu da oku: [TOEFL iBT Academic Discussion Writing Rehberi](/tr/blog/toefl-ibt-academic-discussion-writing-rehberi/)
+
 ### 1. Agree or Disagree (Fikir Belirtme)
 Soruda sizden verilen bir görüşe katılıp katılmadığınız sorulur (*To what extent do you agree or disagree?*). Burada en güvenli strateji %100 bir tarafı seçmek veya dengeli (balanced) bir duruş sergilemektir. Dengeli duruşta Body 1'de karşı tarafın haklı yönünü kabul edebilir (*concession*), Body 2'de ise kendi tarafınızı savunarak üstün kılabilirsiniz.
 

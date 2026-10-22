@@ -113,6 +113,8 @@ quiz: [
 
 場所や空間を表す場合、ピラミッドの広さは「空間の広がり（3次元空間、2次元の面、0次元の点）」に対応します。
 
+> あわせて読みたい: [TOEFL ライティング Academic Discussion：10分で満点を狙う解法とテンプレート](/ja/blog/toefl-ibt-writing-academic-discussion-taisaku/)
+
 ### 1. `in`：3次元の閉じた空間（中に入っている）
 境界線に囲まれた容器や部屋の中、あるいは国や都市のような広大な地理的領域の中に存在しているイメージです。
 - **国・大陸・都市**: `in Japan`, `in Tokyo`, `in Europe`
