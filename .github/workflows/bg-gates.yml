@@ -35,17 +35,19 @@ jobs:
           pip install -q --index-url https://download.pytorch.org/whl/cpu $PIP && pip install -q $PIP2
           mkdir -p sr; [ -s sr/realesr-animevideov3.pth ] || curl -sL -o sr/realesr-animevideov3.pth https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesr-animevideov3.pth
           ls -la sr
+      - uses: actions/cache@v4
+        with: { path: .footage-cache, key: 'footage-bg-${{ hashFiles(''brand/library/cine/archive-manifest.json'') }}', restore-keys: 'footage-bg-' }
       - name: Lấy footage (riêng tư, sparse)
         if: steps.on.outputs.run == '1'
-        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}', MODE: '${{ github.event.inputs.mode }}', BATCH: '${{ github.event.inputs.batch }}' }
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}', KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}', MODE: '${{ github.event.inputs.mode }}', BATCH: '${{ github.event.inputs.batch }}' }
         run: |
           case "$BATCH" in *[!a-z0-9_-]*) echo "::error::batch không hợp lệ"; exit 1;; esac
           mkdir -p ~/.ssh && printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
           ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
           git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
-          if [ "$MODE" = calib ]; then git -C footage sparse-checkout set --no-cone '/anchor/bg/*.png'; else git -C footage sparse-checkout set --no-cone "/anchor/bgw/batches/$BATCH.json"; fi
-          git -C footage checkout -q; rm -f ~/.ssh/footage; du -sh footage
+          if [ "$MODE" = calib ]; then node scripts/footage/fetch.mjs --repo footage --cache .footage-cache '/anchor/bg/*.png'; else node scripts/footage/fetch.mjs --repo footage --cache .footage-cache "/anchor/bgw/batches/$BATCH.json"; fi
+          rm -f ~/.ssh/footage; du -sh footage
       - name: Chấm
         if: steps.on.outputs.run == '1'
         env: { BG_SR: sr/realesr-animevideov3.pth, BG_THREADS: '4', MODE: '${{ github.event.inputs.mode }}', BATCH: '${{ github.event.inputs.batch }}' }

@@ -29,9 +29,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
+      - uses: actions/cache@v4
+        with: { path: .footage-cache, key: 'footage-matte-${{ hashFiles(''brand/library/cine/archive-manifest.json'') }}', restore-keys: 'footage-matte-' }
       - &footage
         name: Footage (sparse)
-        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}', CLIPS: '${{ inputs.clips }}' }
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}', KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}', CLIPS: '${{ inputs.clips }}' }
         run: |
           [ -n "$KEY" ] || { echo "::error::missing FOOTAGE_DEPLOY_KEY"; exit 1; }
           mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
@@ -39,7 +41,7 @@ jobs:
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
           git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
           P="/anchor/bg/classroom.png"; for c in ${CLIPS//,/ }; do P="$P /anchor/tools/dl24/$c.mp4 /anchor/green/kfull/$c.mp4 /anchor/green/kmask/$c.mp4"; done
-          git -C footage sparse-checkout set --no-cone $P; git -C footage checkout -q; rm -f ~/.ssh/footage; du -sh footage
+          node scripts/footage/fetch.mjs --repo footage --cache .footage-cache $P; rm -f ~/.ssh/footage; du -sh footage
       - uses: actions/cache@v4
         with: { path: ~/.cache/pip, key: matte-pip-v1 }
       - uses: actions/cache@v4

@@ -53,9 +53,12 @@ jobs:
           pip install -q -r scripts/cine/requirements.txt
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg tesseract-ocr >/dev/null
           ffmpeg -hide_banner -version | head -1
+      - uses: actions/cache@v4
+        with: { path: .footage-cache, key: 'footage-cine0-${{ hashFiles(''brand/library/cine/archive-manifest.json'') }}', restore-keys: 'footage-cine0-' }
       - name: Lấy footage (repo riêng tư, sparse theo cảnh)
         env:
           KEY: ${{ secrets.FOOTAGE_DEPLOY_KEY }}
+          LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}'
           SCENE: ${{ github.event.inputs.scene }}
         run: |
           [ -n "$KEY" ] || { echo "::error::thiếu secret FOOTAGE_DEPLOY_KEY"; exit 1; }
@@ -66,8 +69,7 @@ jobs:
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
           git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
           EXTRA=""; case ",$SCENE," in *,anchor,*) EXTRA="cafe hotel airport restaurant";; esac   # anchor: B-roll 'bank:clip' từ 4 kho
-          git -C footage sparse-checkout set ${SCENE//,/ } hotel/tools/end hotel/tools/foley $EXTRA
-          git -C footage checkout -q
+          node scripts/footage/fetch.mjs --repo footage --cache .footage-cache ${SCENE//,/ } hotel/tools/end hotel/tools/foley $EXTRA
           rm -f ~/.ssh/footage
           du -sh footage
       # Bài sinh tự động (scripts/cine/gen_lessons.py): giọng còn thiếu -> Kokoro + Rhubarb ngay trên CI (0 credit, không làm gì trên Mac)
@@ -206,17 +208,19 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
+      - uses: actions/cache@v4
+        with: { path: .footage-cache, key: 'footage-cine1-${{ hashFiles(''brand/library/cine/archive-manifest.json'') }}', restore-keys: 'footage-cine1-' }
       - name: Lấy footage news (anchor/green + anchor/bg + meta, sparse)
-        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}', KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
         run: |
           [ -n "$KEY" ] || { echo "::error::thiếu secret FOOTAGE_DEPLOY_KEY"; exit 1; }
           mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
           ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
           git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
-          git -C footage sparse-checkout set --no-cone '/anchor/green/kfull/' '/anchor/green/kmask/' '/anchor/green/kfull_pro/' '/anchor/green/kmask_pro/' '/anchor/bg/*.png' '/anchor/bg/index.json' '/anchor/tools/meta/g*/' '/anchor/tools/dl24/g*.json' \
+          node scripts/footage/fetch.mjs --repo footage --cache .footage-cache '/anchor/green/kfull/' '/anchor/green/kmask/' '/anchor/green/kfull_pro/' '/anchor/green/kmask_pro/' '/anchor/bg/*.png' '/anchor/bg/index.json' '/anchor/tools/meta/g*/' '/anchor/tools/dl24/g*.json' \
             '/anchor/tools/fonts/' '/anchor/tools/foley/' '/anchor/tools/amb_studio.wav' '/anchor/news/depth/'
-          git -C footage checkout -q; rm -f ~/.ssh/footage; du -sh footage
+          rm -f ~/.ssh/footage; du -sh footage
       - uses: actions/cache/restore@v4
         with: { path: depth, key: 'news-depth-v1-${{ github.run_id }}', restore-keys: 'news-depth-v1-' }
       - name: Depth-Anything-V2-Small cho nền còn thiếu (CPU, 0 credit)
@@ -247,16 +251,18 @@ jobs:
       - uses: actions/cache/restore@v4
         id: sr
         with: { path: sr, key: 'host-sr-v2-${{ matrix.clip }}' }
+      - uses: actions/cache@v4
+        with: { path: .footage-cache, key: 'footage-cine2-${{ hashFiles(''brand/library/cine/archive-manifest.json'') }}', restore-keys: 'footage-cine2-' }
       - name: Footage (PRO host layers, sparse)
         if: steps.sr.outputs.cache-hit != 'true'
-        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}', KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
         run: |
           mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
           ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
           git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
-          git -C footage sparse-checkout set --no-cone "/anchor/green/kfull_pro/${{ matrix.clip }}.mp4" "/anchor/green/kmask_pro/${{ matrix.clip }}.mkv"
-          git -C footage checkout -q; rm -f ~/.ssh/footage
+          node scripts/footage/fetch.mjs --repo footage --cache .footage-cache "/anchor/green/kfull_pro/${{ matrix.clip }}.mp4" "/anchor/green/kmask_pro/${{ matrix.clip }}.mkv"
+          rm -f ~/.ssh/footage
       - name: Real-ESRGAN x2
         if: steps.sr.outputs.cache-hit != 'true'
         run: |
@@ -295,8 +301,10 @@ jobs:
         run: |
           pip install -q -r scripts/cine/requirements.txt scipy==1.14.1 faster-whisper==1.0.3 requests==2.32.3
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg tesseract-ocr >/dev/null
+      - uses: actions/cache@v4
+        with: { path: .footage-cache, key: 'footage-cine3-${{ hashFiles(''brand/library/cine/archive-manifest.json'') }}', restore-keys: 'footage-cine3-' }
       - name: Lấy footage news (anchor/green + anchor/bg + meta, sparse)
-        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}', SHARD: '${{ matrix.shard }}' }
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}', KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}', SHARD: '${{ matrix.shard }}' }
         run: |
           [ -n "$KEY" ] || { echo "::error::thiếu secret FOOTAGE_DEPLOY_KEY"; exit 1; }
           # wide library (517 scenes) is large: only this shard's scenes + up to 8 retry candidates per lesson (same topic)
@@ -315,10 +323,10 @@ jobs:
           ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
           git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
-          git -C footage sparse-checkout set --no-cone '/anchor/green/kfull/' '/anchor/green/kmask/' '/anchor/green/kfull_pro/' '/anchor/green/kmask_pro/' '/anchor/bg/*.png' '/anchor/bg/index.json' '/anchor/green/bank_gestures.json' $(cat wide_paths.txt) '/anchor/tools/meta/g*/' '/anchor/tools/dl24/g*.json' \
+          node scripts/footage/fetch.mjs --repo footage --cache .footage-cache '/anchor/green/kfull/' '/anchor/green/kmask/' '/anchor/green/kfull_pro/' '/anchor/green/kmask_pro/' '/anchor/bg/*.png' '/anchor/bg/index.json' '/anchor/green/bank_gestures.json' $(cat wide_paths.txt) '/anchor/tools/meta/g*/' '/anchor/tools/dl24/g*.json' \
             '/anchor/tools/fonts/' '/anchor/tools/foley/' '/anchor/tools/amb_studio.wav' '/anchor/news/depth/' \
             '/anchor/green/kfull_pro/' '/anchor/green/kmask_pro/' '/anchor/tools/dl24/ga4_talk_natural.mp4' '/anchor/tools/dl24/gc4_talk_natural.mp4' '/anchor/tools/dl24/gc4_listen.mp4'
-          git -C footage checkout -q; rm -f ~/.ssh/footage; du -sh footage
+          rm -f ~/.ssh/footage; du -sh footage
           echo "FOOTAGE_SHA=$(git -C footage rev-parse HEAD)" >> "$GITHUB_ENV"   # recipe: footage bank version
       - name: Cổng tách nền PRO (matte_qa gate)
         if: env.NEWS_MATTE == 'pro'

@@ -66,3 +66,27 @@ export async function downloadCopy(fileId, dest) {
   } catch (e) { ws.destroy(); try { fs.unlinkSync(dest); } catch { /* */ } throw e; }
   return { sha256: h.digest('hex'), size };
 }
+
+/** Kiểu mẫu sparse-checkout: '/a/b/' (thư mục), '/a/*.png' (glob), 'cafe' (thư mục/tệp). → hàm (đường dẫn tương đối) → bool. */
+export function matcher(patterns) {
+  const res = patterns.filter(Boolean).map(p => {
+    const dir = p.endsWith('/'), core = p.replace(/^\/+/, '').replace(/\/+$/, '');
+    const re = core.replace(/[.+^${}()|[\]\\]/g, '\\$&').replace(/\*\*/g, '\u0000').replace(/\*/g, '[^/]*').replace(/\?/g, '[^/]').replace(/\u0000/g, '.*');
+    return new RegExp('^' + re + (dir ? '/' : '(/|$)'));
+  });
+  return rel => res.some(r => r.test(rel));
+}
+/** Tải 1 mục manifest về out/<path> (bỏ qua nếu đã đúng sha; thử lần lượt các bản sao). → 'had' | 'got' | 'fail' */
+export async function restoreEntry(p, e, out) {
+  const dest = path.join(path.resolve(out), p), part = dest + '.part';
+  if (fs.existsSync(dest) && fs.statSync(dest).size === e.size && sha256File(dest) === e.sha256) return 'had';
+  for (const c of e.copies || []) {
+    try {
+      const r = await downloadCopy(c.fileId, part);
+      if (r.sha256 !== e.sha256 || r.size !== e.size) throw new Error('sai sha256/dung lượng');
+      fs.renameSync(part, dest); return 'got';
+    } catch (er) { console.error(`⚠ ${p} (Drive ${c.driveId}): ${er.message}`); try { fs.unlinkSync(part); } catch { /* */ } }
+    await sleep(300);
+  }
+  return 'fail';
+}

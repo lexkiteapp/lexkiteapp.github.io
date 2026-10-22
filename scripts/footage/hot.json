@@ -1,0 +1,2 @@
+{ "_note": "Bộ nóng: clip host + nền dùng nhiều nhất – không bị dọn khi cache vượt trần (scripts/footage/fetch.mjs). Mẫu cùng cú pháp sparse-checkout.",
+  "patterns": ["/anchor/green/kfull_pro/", "/anchor/green/kmask_pro/", "/anchor/bg/*.png", "/anchor/bg/index.json", "/anchor/tools/dl24/ga4_talk_natural.mp4", "/anchor/tools/dl24/gc4_talk_natural.mp4", "/anchor/tools/dl24/gc4_listen.mp4"] }

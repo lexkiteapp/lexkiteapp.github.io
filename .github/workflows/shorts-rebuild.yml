@@ -45,18 +45,20 @@ jobs:
           git clone -q --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
           git -C /tmp/shorts sparse-checkout set --no-cone '/recipes/' '/shorts/index.json'; git -C /tmp/shorts checkout -q
           ls /tmp/shorts/recipes >/dev/null 2>&1 || { echo "::error::chưa có recipes/ (chạy shorts-migrate trước)"; exit 1; }
+      - uses: actions/cache@v4
+        with: { path: .footage-cache, key: 'footage-rebuild-${{ hashFiles(''brand/library/cine/archive-manifest.json'') }}', restore-keys: 'footage-rebuild-' }
       - name: Footage (sparse, đúng phiên bản trong công thức nếu có)
-        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}', IDS: '${{ github.event.inputs.ids }}' }
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}', KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}', IDS: '${{ github.event.inputs.ids }}' }
         run: |
           printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
           git clone -q --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
-          git -C footage sparse-checkout set --no-cone '/anchor/green/kfull/' '/anchor/green/kmask/' '/anchor/bg/' '/anchor/tools/meta/g*/' '/anchor/tools/dl24/g*.json' \
+          PATS=('/anchor/green/kfull/' '/anchor/green/kmask/' '/anchor/bg/' '/anchor/tools/meta/g*/' '/anchor/tools/dl24/g*.json' \
             '/anchor/tools/fonts/' '/anchor/tools/foley/' '/anchor/tools/amb_studio.wav' '/anchor/news/depth/' \
-            '/anchor/green/kfull_pro/' '/anchor/green/kmask_pro/' '/anchor/tools/dl24/ga4_talk_natural.mp4' '/anchor/tools/dl24/gc4_talk_natural.mp4' '/anchor/tools/dl24/gc4_listen.mp4'
+            '/anchor/green/kfull_pro/' '/anchor/green/kmask_pro/' '/anchor/tools/dl24/ga4_talk_natural.mp4' '/anchor/tools/dl24/gc4_talk_natural.mp4' '/anchor/tools/dl24/gc4_listen.mp4')
           FS=$(python3 -c "import glob,json,os;ids=os.environ['IDS'].split(',');r=[json.load(open(p)) for p in glob.glob('/tmp/shorts/recipes/*/*/*.recipe.json') if os.path.basename(p)[:-12] in ids];s={(x['inputs'].get('footage') or {}).get('sha') for x in r}-{None,''};print(s.pop() if len(s)==1 else '')")
-          [ -n "$FS" ] && git -C footage checkout -q "$FS" || git -C footage checkout -q
-          echo "footage @ $(git -C footage rev-parse --short HEAD) (recipe: ${FS:-unknown → HEAD})"; rm -f ~/.ssh/footage
+          node scripts/footage/fetch.mjs --repo footage --cache .footage-cache --ref "${FS:-HEAD}" ${FS:+--git-only} "${PATS[@]}"   # sha cũ trong công thức → đọc đúng phiên bản từ git (Drive chỉ có bản hiện tại)
+          echo "footage @ ${FS:-HEAD}"; rm -f ~/.ssh/footage
       - uses: actions/cache/restore@v4
         with: { path: depth, key: 'news-depth-v1-${{ github.run_id }}', restore-keys: 'news-depth-v1-' }
       - name: Dựng lại + so sánh
