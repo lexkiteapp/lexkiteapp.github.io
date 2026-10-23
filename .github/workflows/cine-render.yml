@@ -27,6 +27,7 @@ on:
         default: '-v3'
 permissions:
   contents: read
+  models: read   # GitHub Models for the AI gates (judge + vision), 0 credits
 concurrency:
   group: cine-render-${{ github.event.inputs.scene }}
   cancel-in-progress: false
@@ -365,7 +366,7 @@ jobs:
           python scripts/cine/news_voice.py "$NEWS_DIR" "$SHARD"
           cp "$NEWS_DIR"/vis3/* out/voices/
       - name: Dựng + qa_news
-        env: { SHARD: '${{ matrix.shard }}', STUDIO_CALLBACK_SECRET: '${{ secrets.STUDIO_CALLBACK_SECRET }}' }
+        env: { SHARD: '${{ matrix.shard }}', STUDIO_CALLBACK_SECRET: '${{ secrets.STUDIO_CALLBACK_SECRET }}', GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }   # GitHub Models for the AI gates (permissions: models: read)
         run: |
           : > out/passed.txt; fail=0
           for lid in ${SHARD//,/ }; do

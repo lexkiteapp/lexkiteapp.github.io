@@ -13,6 +13,19 @@ for k, b in enumerate(sp['beats']):
 lines += [f"On-screen Teacher's tip list: {' | '.join(sp['recap']['rows'])}", f"Last line: {T(sp['end_line'])}", f"On-screen share chip: Send this to a friend {sp.get('share', '')}",
           f"(Target level {sp['cefr']}. Teaching point: {sp['point']}. 'Pause and guess' and 'Repeat after me' are fixed classroom routines.)"]
 script = '\n'.join(lines); out['script'] = script
+import gh_models
+SYS_J = ('You are a strict ESL teacher-editor reviewing a short English lesson video script for a GLOBAL audience of A2-B1 learners. Lines are spoken by two teachers; brackets describe on-screen cards. '
+         'Score 1-5 each: clarity (easy to follow for A2-B1, short sentences, no word harder than the thing it explains), correctness (the WRONG line is really wrong or unnatural in this situation, the RIGHT line is natural American English here, the why is true), '
+         'one_idea (exactly one teaching point), level (explanations use A2-B1 core words; idioms glossed), neutrality (no religion/politics/stereotypes; mistakes phrased "many learners", never a country). '
+         'Reply with ONE JSON object only: {"clarity":n,"correctness":n,"one_idea":n,"level":n,"neutrality":n,"wrong_is_wrong":true|false,"right_is_right":true|false,"issues":["..."]}')
+gt = gh_models.chat([dict(role='system', content=SYS_J), dict(role='user', content=script)])   # GitHub Models first (no D1 / Workers AI quota)
+if gt:
+    try:
+        j = json.loads(gt[gt.index('{'):gt.rindex('}') + 1]); out['provider'] = 'github-models gpt-4.1-mini'; out['judge'] = j
+        sc = [j.get(k, 0) for k in ('clarity', 'correctness', 'one_idea', 'level', 'neutrality')]
+        out['ok'] = not out['rules'] and all(isinstance(x, (int, float)) and x >= 4 for x in sc) and j.get('wrong_is_wrong') is True and j.get('right_is_right') is True
+        json.dump(out, open(sys.argv[3], 'w'), indent=1); print('script judge', out['provider'], 'OK' if out['ok'] else 'FAIL', sc, j.get('issues'), out['rules']); sys.exit(0 if out['ok'] else 1)
+    except ValueError: pass
 api = os.environ.get('STUDIO_API', 'https://lexkite.com/api/studio'); sec = os.environ.get('STUDIO_CALLBACK_SECRET', '')
 import time
 try:
