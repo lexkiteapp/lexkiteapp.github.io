@@ -25,7 +25,8 @@ import hashlib
 if o.bg == 'auto': o.bg = wide_for(b['topic']) or 'classroom'
 h6 = b['id'][-6:]; lid = f"news_{b['topic']}_{b['hook_type'].replace('90', 'ninety')}_{h6}"
 q = b['quiz']; qtxt = re.sub(r'_{2,}', 'blank', q['q']).rstrip('.?!'); opts = ' or '.join(q['options'][:2])
-hook_say = {'stop': b['hook'], 'which': 'Which is correct?', '90': '90% get this wrong.', 'natives': 'Natives never say this.', 'instead': 'Say this instead.', 'guess': 'Guess before I tell you.', 'embarrass': "Don't embarrass yourself.", 'rude': 'Is this rude?'}.get(b['hook_type'], b['hook'])
+hook_say = {'stop': 'Stop saying this.',   # short spoken hook (1.66-2.0 s shot); the long bank hook 'Stop saying X' ran 2.2 s at max tempo (#78)
+            'which': 'Which is correct?', '90': '90% get this wrong.', 'natives': 'Natives never say this.', 'instead': 'Say this instead.', 'guess': 'Guess before I tell you.', 'embarrass': "Don't embarrass yourself.", 'rude': 'Is this rude?'}.get(b['hook_type'], b['hook'])
 if len(hook_say.split()) > 5: hook_say = ' '.join(hook_say.split()[:5])
 L = [('h', 'ama', hook_say), ('m', 'ama', f"Many learners say: {b['wrong']}"), ('g', 'carlos', 'Pause and guess. What sounds right?'), ('k', 'ama', f"Say: {b['right']}"),
      ('y', 'carlos', b['why']), ('c', 'ama', f"Is '{b['wrong'].rstrip('.!?')}' correct? No."), ('rs', 'carlos', f"Repeat after me: {b['right']}"),
