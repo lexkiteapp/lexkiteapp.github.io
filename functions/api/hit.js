@@ -15,6 +15,8 @@ import { gate } from './_quota.js';
 const QUIZ_EV = ['quiz_view', 'quiz_done', 'quiz_cta'];
 const VID_EV = ['view', 'done', 'quiz_ok', 'quiz_no', 'yt_fallback']; // t:'v' – video bài học (lesson-video.js)
 const CTA_EV = ['ext_land', 'ext_feat', 'ext_blog', 'ext_app', 'ext_set', 'ext_nudge']; // bấm "Thêm vào Chrome" (web/js/ext-cta.js) → kind 'cta:<ev>'
+const CTA_LANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr']; // 15 ngôn ngữ – chặn giá trị lạ làm phình bảng ext_events
+const CTA_PAGES = ['vocab', 'samples', 'speaking', 'grammar', 'letters', 'blog'];
 const SMART_CTA_EV = ['cta_addon_view', 'cta_addon_click', 'cta_pwa_view', 'cta_pwa_click', 'cta_topic_click']; // CTA trang tĩnh/từ vựng (scripts/lib/site-layout.mjs)
 
 let ready = false;
@@ -128,9 +130,9 @@ export async function onRequestPost({ request, env }) {
       const today = dayOf(now);
       if (SMART_CTA_EV.includes(b.ev)) {
         const batch = [env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(today, 'cta:' + b.ev)];
-        const lang = /^[a-z]{2}(-[a-z]+)?$/i.test(b.lang || '') ? String(b.lang).toLowerCase() : '';
+        const lang = CTA_LANGS.includes(String(b.lang || '').toLowerCase().slice(0, 2)) ? String(b.lang).toLowerCase().slice(0, 2) : '';
         if (lang) batch.push(env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(today, `cta:${b.ev}:lang:${lang}`));
-        const page = /^[a-z0-9_-]{1,30}$/i.test(b.page || '') ? String(b.page).toLowerCase() : '';
+        const page = CTA_PAGES.includes(String(b.page || '').toLowerCase()) ? String(b.page).toLowerCase() : '';
         if (page) batch.push(env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(today, `cta:${b.ev}:page:${page}`));
         await env.DB.batch(batch);
       } else {

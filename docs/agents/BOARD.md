@@ -34,12 +34,6 @@ Mẫu thẻ:
 
 ## TODO
 
-### [C1b] Nút kêu gọi trên trang từ vựng tĩnh + đo riêng từng nút · @antigravity · ưu tiên: cao
-- Phần còn thiếu của C1 (Claude duyệt 23/10): C1 mới làm blog. Làm tiếp cho **trang từ vựng tĩnh** (cùng luật: add-on chỉ Chrome/Edge máy tính, PWA chỉ di động chưa cài, Ẩn nhớ 7 ngày, không popup, không PII, deep link chỉ khi topic có thật trong `IELTS_DATA.TOPICS`).
-- Đo: thay `quiz_cta` chung bằng sự kiện riêng (`cta_addon_view/click`, `cta_pwa_view/click`, `cta_topic_click`) trong `functions/api/hit.js` + hiện ở Quản trị › Phân tích (tỉ lệ bấm theo ngôn ngữ/trang).
-- Giữ shell ≤ 380 KB gz (đang 379): nạp lười, không thêm vào shell. i18n đủ 15 ngôn ngữ. Ảnh chụp trước/sau.
-
-
 ### [B5] Nhịp nội dung 15 nước theo `docs/SEO-GROWTH-PLAN.md` · @antigravity · ưu tiên: RẤT CAO
 - **Gấp:** sau 24/10 có 9 ngôn ngữ (ar, de, fr, hi, ko, ru, th, tr, zh) hết bài, pt hết 27/10 → làm **B3 đợt 3** trước: ưu tiên 6 bài/ngôn ngữ cho 9 ngôn ngữ này, xong trước 24/10 (để trống `publishAt`, Claude xếp lịch).
 - Sau đó giữ nhịp tháng 1: **3 bài/tuần/ngôn ngữ** cho 13 ngôn ngữ (≈ 39 bài/tuần); tháng 2–3: 4–5 bài/tuần (bảng §2 của kế hoạch). vi/en Claude lo.
@@ -62,12 +56,6 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét:
 
 
-### [U2e] App iOS/Android – kiểm tra ảnh demo CI & sửa giao diện riêng app · @antigravity · ưu tiên: vừa
-- Xem artifact `lexkite-ios-screenshots` / `lexkite-android-screenshots` của workflow ios.yml / android.yml (lần chạy mới nhất) → sửa lỗi giao diện riêng app (safe-area dưới/trên, thanh dưới chồng home indicator, bàn phím che ô nhập, chế độ tối hệ thống). Selector dùng `html.native`.
-- File: `web/css/style.css`. Báo cáo kèm tên ảnh đã kiểm.
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
 ### [N3] Cài đặt nâng cao cho tài khoản quản trị · @antigravity · ưu tiên: thấp (làm sau N2)
 - Mục tiêu: trong tab Cài đặt thêm khối **"🛡️ Tài khoản quản trị"**: tab mặc định khi mở, ngôn ngữ & giao diện mặc định (đồng bộ theo email admin, lưu D1 `config` khóa `adm_pref:<email>`), chọn **loại cảnh báo nhận qua email** (lỗi JS, workflow, hộp thư, chất lượng, bản dịch), ngưỡng cảnh báo, **tự đăng xuất sau N phút không thao tác**, xuất nhật ký quản trị CSV, danh sách phiên/thiết bị gần đây của admin (từ `admin_log`).
 - File/khu vực: `web/js/admin.js`, `web/css/admin.css`, `functions/api/admin.js`, `workers/mail/index.js` (chỉ phần đọc lựa chọn loại cảnh báo – Claude triển khai worker).
@@ -83,19 +71,6 @@ Mẫu thẻ:
 
 ## CHỜ DUYỆT
 
-### [C1b] Nút kêu gọi trên trang từ vựng tĩnh + đo riêng từng nút · @antigravity · ưu tiên: cao
-- Phần còn thiếu của C1 (Claude duyệt 23/10): C1 mới làm blog. Làm tiếp cho **trang từ vựng tĩnh** (cùng luật: add-on chỉ Chrome/Edge máy tính, PWA chỉ di động chưa cài, Ẩn nhớ 7 ngày, không popup, không PII, deep link chỉ khi topic có thật trong `IELTS_DATA.TOPICS`).
-- Đo: thay `quiz_cta` chung bằng sự kiện riêng (`cta_addon_view/click`, `cta_pwa_view/click`, `cta_topic_click`) trong `functions/api/hit.js` + hiện ở Quản trị › Phân tích (tỉ lệ bấm theo ngôn ngữ/trang).
-- Giữ shell ≤ 380 KB gz (đang 379): nạp lười, không thêm vào shell. i18n đủ 15 ngôn ngữ. Ảnh chụp trước/sau.
-- Báo cáo:
-  - Triển khai đầy đủ smart CTA cho trang tĩnh: `/tu-vung/...`, `/en/vocabulary/...`, sample, speaking, blog (`scripts/lib/site-layout.mjs`, `scripts/build-samples.mjs`, `scripts/build-samples-en.mjs`, `scripts/build-blog.mjs`). Add-on chỉ hiển thị trên máy tính Chrome/Edge, PWA chỉ hiện trên di động chưa cài đặt (standalone check); nút Ẩn 7 ngày ghi nhớ localStorage `lk.extHide` & `lk.pwaHide`.
-  - Đo lường chi tiết 3 cấp (`functions/api/hit.js`): tổng `cta:<ev>`, theo ngôn ngữ `cta:<ev>:lang:<l>`, theo trang `cta:<ev>:page:<pg>` cho 5 sự kiện `cta_addon_view/click`, `cta_pwa_view/click`, `cta_topic_click`.
-  - Bổ sung mục "🎯 Nút kêu gọi & Chuyển đổi (CTA)" trong Quản trị › Phân tích (`functions/api/growth.js`, `web/js/admin-growth.js`): KPI tiles (Views, Clicks, CTR %, Topic Saves) + biểu đồ phân bổ theo ngôn ngữ và loại trang. Đầy đủ từ điển EN.
-  - Sửa các mock fixture test cho đồng bộ với commit mới của Claude (`App.need`/`App.W`/`App.guard` và `lesson-video.js`).
-  - Kiểm thử: `npm test` PASS 100% (1274 trang crawl, 46 màn hình axe a11y), `size-budget` 379 KB / 380 KB gz (giữ nguyên dung lượng).
-  - Ảnh chụp trước/sau: đã tạo mockup trực quan so sánh trước/sau `c1b_cta_comparison`.
-- Cần sửa / Nhận xét:
-
 ### [E1] Email "Báo cáo não bộ" hằng tuần · @antigravity · ưu tiên: thấp
 - Giao diện + template `web/templates/weekly-digest.html` + i18n đã đạt (Claude 16/10); mặc định **TẮT (opt-in)** `emailDigest: false`.
 - ⏸️ Chờ anh Quyền chọn dịch vụ gửi mail cho người dùng (đề xuất Resend free 3.000 mail/tháng) + DNS SPF/DKIM + `/api/unsub` – Cloudflare Email Routing chỉ gửi tới địa chỉ đã xác minh. **Claude triển khai worker**, Antigravity không deploy.
@@ -103,6 +78,15 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét:
 
 ## ĐÃ XONG
+
+### [C1b] Smart CTA trang từ vựng tĩnh + đo riêng từng nút · @antigravity · ✅ Claude duyệt & gộp main 23/10
+- Đạt: add-on chỉ Chrome/Edge máy tính, PWA chỉ di động chưa cài, Ẩn nhớ 7 ngày (`lk.extHide`/`lk.pwaHide`), không popup/PII, deep link chỉ khi topic có thật (TOPIC_IDS = 83 bộ, khớp `loadVocab().TOPICS`). Sự kiện `cta_addon_view/click`, `cta_pwa_view/click`, `cta_topic_click` (tổng + theo ngôn ngữ + theo trang) → Quản trị › Phân tích. Khung app không đổi (chỉ trang tĩnh + admin lười). i18n 15 ngôn ngữ (`SMART_CTA_I18N`).
+- Claude sửa khi gộp: `hit.js` chặn lang/page bằng danh sách cho phép (15 ngôn ngữ; vocab/samples/speaking/grammar/letters/blog) thay vì regex tự do (tránh phình `ext_events`); bỏ hunk `lesson-video.js` (không cần). Rate-limit 60/giờ/IP giữ nguyên.
+- Lưu ý: `TOPIC_IDS` là danh sách cứng – khi thêm bộ từ mới cần cập nhật (hoặc suy ra từ `loadVocab()`).
+
+### [U2e] Giao diện riêng app iOS/Android qua `html.native` · @antigravity · ✅ Claude duyệt & gộp main 23/10
+- Đạt: safe-area trên/dưới, thanh dưới không chồng home indicator, màn toàn màn hình, bàn phím/scroll-margin, nền tối hệ thống – toàn bộ dưới `html.native`.
+- Claude sửa khi gộp: quy tắc `body.bare .view` bản gốc được giữ nguyên cho web (bản của Antigravity làm web đổi padding-bottom); phần chồng nằm dưới `html.native`.
 
 ### [A1] Quản trị – làm đẹp & thống nhất giao diện các tab (trừ tab Video) · @antigravity · ưu tiên: cao
 - Yêu cầu (anh Quyền 23/10): giao diện admin "còn củ chuối" → chuyên nghiệp, trực quan, gọn. Tab **Video** do Claude đang làm lại (đừng sửa `admin-video.js`, `admin-clips.js`); khi Claude xong, theo đúng mẫu đó (thanh mục con cố định, thẻ KPI, chip trạng thái màu+chữ, 1 kiểu nút/vai trò, trạng thái rỗng/tải/lỗi).
