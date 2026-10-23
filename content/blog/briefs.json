@@ -9922,6 +9922,294 @@
       "source": "connected-speech-linking-sounds",
       "role": "cluster",
       "cluster": "connected-speech"
+    },
+    {
+      "slug": "yeongeo-gajeongbeop-if-chongjeongri",
+      "keyword": "영어 가정법",
+      "category": "ngu-phap",
+      "tags": [
+        "grammar",
+        "conditionals",
+        "tense"
+      ],
+      "shots": [
+        "grammar",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/practice/learn"
+      ],
+      "angle": "영어 가정법 총정리: if 조건문 0부터 3까지 핵심 시제 공식과 예문 완벽 해설",
+      "intent": "informational",
+      "lang": "ko",
+      "source": "english-conditionals-guide",
+      "role": "cluster",
+      "cluster": "yeongeo-gajeongbeop"
+    },
+    {
+      "slug": "yeongeo-sudongtae-gongsig-mich-yongbeop",
+      "keyword": "영어 수동태",
+      "category": "ngu-phap",
+      "tags": [
+        "grammar",
+        "passive-voice",
+        "verbs"
+      ],
+      "shots": [
+        "grammar",
+        "mistakes"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/mistakes"
+      ],
+      "angle": "영어 수동태 공식 및 용법: 8가지 시제 변환 규칙과 능동태 전환 완벽 정리",
+      "intent": "informational",
+      "lang": "ko",
+      "source": "passive-voice-rules",
+      "role": "cluster",
+      "cluster": "yeongeo-sudongtae"
+    },
+    {
+      "slug": "yeongeo-jeobsogsa-yeangyeol-eowa-linking-words",
+      "keyword": "영어 접속부사",
+      "category": "ky-nang",
+      "tags": [
+        "writing",
+        "linking-words",
+        "vocabulary"
+      ],
+      "shots": [
+        "write",
+        "phrases"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/phrases"
+      ],
+      "angle": "영어 접속부사 및 연결어 총정리: 에세이와 IELTS 라이팅 필수 표현 리스트",
+      "intent": "informational",
+      "lang": "ko",
+      "source": "linking-words-connectors",
+      "role": "cluster",
+      "cluster": "yeongeo-linking-words"
+    },
+    {
+      "slug": "ielts-writing-task-1-dopyo-bunseog-bibeop",
+      "keyword": "ielts writing task 1 도표",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "writing",
+        "task-1"
+      ],
+      "shots": [
+        "task1",
+        "write"
+      ],
+      "routes": [
+        "/#/task1",
+        "/#/write"
+      ],
+      "angle": "IELTS writing task 1 도표 분석: 4단락 구조 템플릿과 증감 추세 어휘 가이드",
+      "intent": "informational",
+      "lang": "ko",
+      "source": "ielts-writing-task-1-charts",
+      "role": "cluster",
+      "cluster": "ielts-writing"
+    },
+    {
+      "slug": "business-yeongeo-presentation-pyohyeon-bibeop",
+      "keyword": "영어 프레젠테이션 표현",
+      "category": "ky-nang",
+      "tags": [
+        "speaking",
+        "business-english",
+        "presentation"
+      ],
+      "shots": [
+        "speaking",
+        "phrases"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/phrases"
+      ],
+      "angle": "영어 프레젠테이션 표현 총정리: 오프닝 인사부터 슬라이드 전환과 Q&A 핵심 문장",
+      "intent": "informational",
+      "lang": "ko",
+      "source": "business-english-presentations",
+      "role": "cluster",
+      "cluster": "yeongeo-presentation"
+    },
+    {
+      "slug": "yeongeo-yeoneum-connected-speech-gyuchig",
+      "keyword": "영어 연음 법칙",
+      "category": "phat-am",
+      "tags": [
+        "pronunciation",
+        "listening",
+        "connected-speech"
+      ],
+      "shots": [
+        "pron",
+        "listening"
+      ],
+      "routes": [
+        "/#/pron",
+        "/#/listening"
+      ],
+      "angle": "영어 연음 법칙 총정리: 연음, 탈락, 동화, 슈와 약형으로 원어민 발음 리스닝 정복",
+      "intent": "informational",
+      "lang": "ko",
+      "source": "connected-speech-linking-sounds",
+      "role": "cluster",
+      "cluster": "yeongeo-yeoneum"
+    },
+    {
+      "slug": "uslovnye-predlozheniya-v-angliyskom-if-clauses",
+      "keyword": "условные предложения в английском",
+      "category": "ngu-phap",
+      "tags": [
+        "grammatika",
+        "uslovnye-predlozheniya",
+        "vremena"
+      ],
+      "shots": [
+        "grammar",
+        "practice-learn"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/practice/learn"
+      ],
+      "angle": "Условные предложения в английском языке: правила от 0 до 3 типа, формулы и примеры",
+      "intent": "informational",
+      "lang": "ru",
+      "source": "english-conditionals-guide",
+      "role": "cluster",
+      "cluster": "uslovnye-predlozheniya"
+    },
+    {
+      "slug": "passivnyy-zalog-v-angliyskom-passive-voice",
+      "keyword": "пассивный залог в английском",
+      "category": "ngu-phap",
+      "tags": [
+        "grammatika",
+        "passivnyy-zalog",
+        "glagoly"
+      ],
+      "shots": [
+        "grammar",
+        "mistakes"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/#/mistakes"
+      ],
+      "angle": "Пассивный залог в английском языке: таблицы 8 времен, правила образования и типичные ошибки",
+      "intent": "informational",
+      "lang": "ru",
+      "source": "passive-voice-rules",
+      "role": "cluster",
+      "cluster": "passivnyy-zalog"
+    },
+    {
+      "slug": "slova-svyazki-v-angliyskom-linking-words",
+      "keyword": "слова связки в английском",
+      "category": "ky-nang",
+      "tags": [
+        "writing",
+        "linking-words",
+        "leksika"
+      ],
+      "shots": [
+        "write",
+        "phrases"
+      ],
+      "routes": [
+        "/#/write",
+        "/#/phrases"
+      ],
+      "angle": "Слова связки в английском языке: список коннекторов для эссе, писем и экзамена IELTS",
+      "intent": "informational",
+      "lang": "ru",
+      "source": "linking-words-connectors",
+      "role": "cluster",
+      "cluster": "slova-svyazki"
+    },
+    {
+      "slug": "ielts-writing-task-1-opisanie-grafikov-i-tablits",
+      "keyword": "ielts writing task 1 графики",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "writing",
+        "task-1"
+      ],
+      "shots": [
+        "task1",
+        "write"
+      ],
+      "routes": [
+        "/#/task1",
+        "/#/write"
+      ],
+      "angle": "IELTS Writing Task 1 графики: 4-абзацная структура отчета, ключевой Overview и словарь трендов",
+      "intent": "informational",
+      "lang": "ru",
+      "source": "ielts-writing-task-1-charts",
+      "role": "cluster",
+      "cluster": "ielts-writing"
+    },
+    {
+      "slug": "prezentatsiya-na-angliyskom-frazy-i-sovety",
+      "keyword": "презентация на английском фразы",
+      "category": "ky-nang",
+      "tags": [
+        "speaking",
+        "business-english",
+        "prezentatsiya"
+      ],
+      "shots": [
+        "speaking",
+        "phrases"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/#/phrases"
+      ],
+      "angle": "Презентация на английском фразы и структура: шаблоны для вступления, слайдов и секции Q&A",
+      "intent": "informational",
+      "lang": "ru",
+      "source": "business-english-presentations",
+      "role": "cluster",
+      "cluster": "prezentatsiya-angliyskiy"
+    },
+    {
+      "slug": "connected-speech-v-angliyskom-svyaznaya-rech",
+      "keyword": "связная речь в английском",
+      "category": "phat-am",
+      "tags": [
+        "proiznoshenie",
+        "listening",
+        "connected-speech"
+      ],
+      "shots": [
+        "pron",
+        "listening"
+      ],
+      "routes": [
+        "/#/pron",
+        "/#/listening"
+      ],
+      "angle": "Связная речь в английском языке: правила слияния звуков, редукция шва и понимание беглой речи",
+      "intent": "informational",
+      "lang": "ru",
+      "source": "connected-speech-linking-sounds",
+      "role": "cluster",
+      "cluster": "connected-speech"
     }
   ]
 }
