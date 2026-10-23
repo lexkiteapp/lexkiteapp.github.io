@@ -1,0 +1,44 @@
+# Hiệu năng + nhất quán từ điển trên di động tầm trung giả lập (scripts/test/dict-perf.mjs): so "trước" (bản gốc) và "sau" (bản này).
+# Mục tiêu (bản sau, --strict): tra ấm ≤ 50 ms, lạnh ≤ 300 ms, ≤ 5 KB mạng/lần tra sau khi ấm, 0 tác vụ dài > 50 ms khi gõ, nhất quán hiển thị = kho.
+name: Hiệu năng từ điển
+on:
+  push:
+    branches: [main, 'dict-perf*']
+    paths: ['web/js/lex.js', 'web/js/dictionary.js', 'web/js/data.js', 'web/js/app.js', 'web/js/lib/**', 'web/packs/**', 'scripts/lexicon/**', 'scripts/test/dict-perf.mjs', 'extension/boot.js', 'extension/content.js', 'extension/manifest.json', '.github/workflows/dict-perf.yml']
+  workflow_dispatch:
+    inputs:
+      base: { description: 'Bản "trước" để so (sha/nhánh); trống = commit trước đó', default: '' }
+permissions:
+  contents: read
+concurrency: { group: dict-perf-${{ github.ref }}, cancel-in-progress: true }
+jobs:
+  perf:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Cài Chromium
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.50.1
+          npx playwright install --with-deps chromium
+      - name: Trước
+        run: |
+          BASE="${{ inputs.base }}"; [ -n "$BASE" ] || BASE=$([ "${{ github.ref_name }}" = main ] && echo "${{ github.event.before }}" || git merge-base origin/main HEAD)
+          git worktree add -q /tmp/base "$BASE" && echo "base=$(git -C /tmp/base rev-parse --short HEAD)"
+          [ -f /tmp/base/scripts/lexicon/shards.mjs ] && node /tmp/base/scripts/lexicon/shards.mjs --out /tmp/base/web || echo "bản trước chưa có mảnh"
+          node scripts/test/dict-perf.mjs --root /tmp/base --label before --json /tmp/before.json || true
+      - name: Sau
+        run: |
+          node scripts/lexicon/shards.mjs --out web
+          node scripts/test/dict-perf.mjs --label after --json /tmp/after.json --strict
+      - name: Bảng so sánh
+        if: always()
+        run: |
+          node -e "
+          const fs=require('fs'),r=f=>{try{return JSON.parse(fs.readFileSync(f))}catch(e){return {}}},a=r('/tmp/before.json'),b=r('/tmp/after.json');
+          const row=(n,k,u)=>'| '+n+' | '+(a[k]??'–')+' | '+(b[k]??'–')+' | '+u+' |';
+          const ad=x=>x&&x.addon&&x.addon.with?x.addon.extraScriptMs+' ms / +'+x.addon.extraHeapMB+' MB':'–';
+          console.log(['| Chỉ số | Trước | Sau | Mục tiêu |','|---|---|---|---|',row('Tra lạnh (ms)','coldMs','≤ 300'),row('Tra ấm (ms)','warmMs','≤ 50'),row('Tra từ mới sau khi ấm (ms)','spreadMs',''),row('Mạng/lần tra sau ấm (KB)','perLookupKB','≤ 5'),row('Tải trang đầu (KB)','firstLoadKB',''),row('Heap JS sau tra (MB)','heapAfterMB',''),'| Tác vụ dài khi gõ | '+((a.typingLongTasks||[]).length)+' | '+((b.typingLongTasks||[]).length)+' | 0 |','| Add-on trang nặng (script/heap thêm) | '+ad(a)+' | '+ad(b)+' | |','','Lỗi sau: '+((b.fails||[]).join('; ')||'không')].join('\n'))" | tee -a "$GITHUB_STEP_SUMMARY"
