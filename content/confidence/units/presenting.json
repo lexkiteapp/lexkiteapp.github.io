@@ -1,0 +1,215 @@
+{
+  "id": "presenting",
+  "level": "B2",
+  "order": 17,
+  "em": "🎤",
+  "rp": "presentation",
+  "title": {
+    "vi": "Thuyết trình",
+    "en": "Giving a presentation"
+  },
+  "goal": {
+    "vi": "Mở đầu rõ ràng, dẫn người nghe qua từng phần, nêu ý chính và trả lời câu hỏi bình tĩnh.",
+    "en": "Start clearly, guide people through each part, give the main point and answer questions calmly."
+  },
+  "dialogue": {
+    "a": "Ana",
+    "aRole": "a person in the audience",
+    "lines": [
+      [
+        "b",
+        "Good morning, everyone. Today, I'll be talking about our new app."
+      ],
+      [
+        "b",
+        "My talk is divided into three parts. First, the problem. Then, our idea. And finally, the results."
+      ],
+      [
+        "b",
+        "As you can see on this slide, users left the old app after two minutes. Let's move on to our idea."
+      ],
+      [
+        "b",
+        "The key point to remember is that users want speed. Thank you all for listening. I'm happy to take any questions."
+      ],
+      [
+        "a",
+        "Thanks. How much did the new app cost to build?"
+      ],
+      [
+        "b",
+        "That's a good question. I don't have the exact numbers here, but I'll find out and email you."
+      ],
+      [
+        "a",
+        "Great, thank you."
+      ]
+    ]
+  },
+  "phrases": [
+    {
+      "id": "ill-be-talking",
+      "say": "Today, I'll be talking about our new app.",
+      "not": "Today I will present you our new app.",
+      "gap": "talking",
+      "mean": {
+        "vi": "Giới thiệu chủ đề bài thuyết trình",
+        "en": "Say the topic of your talk"
+      },
+      "why": {
+        "vi": "Không nói \"present you\"; hãy nói \"present to you\" hoặc \"talk about\".",
+        "en": "Don't say \"present you\"; say \"present to you\" or \"talk about\"."
+      }
+    },
+    {
+      "id": "divided-into",
+      "say": "My talk is divided into three parts.",
+      "not": "My presentation is divided in three parts.",
+      "gap": "divided",
+      "mean": {
+        "vi": "Nói bài thuyết trình có mấy phần",
+        "en": "Say how many parts your talk has"
+      },
+      "why": {
+        "vi": "Dùng \"divided into\", không dùng \"divided in\".",
+        "en": "Use \"divided into\", not \"divided in\"."
+      }
+    },
+    {
+      "id": "as-you-can-see",
+      "say": "As you can see on this slide, sales went up.",
+      "not": "Like you see in this slide, sales went up.",
+      "gap": "see",
+      "mean": {
+        "vi": "Chỉ người nghe nhìn vào số liệu trên slide",
+        "en": "Point people to the data on a slide"
+      },
+      "why": {
+        "vi": "Nói \"as you can see\" và \"on this slide\".",
+        "en": "Say \"as you can see\" and \"on this slide\"."
+      }
+    },
+    {
+      "id": "move-on-to",
+      "say": "Let's move on to the next point.",
+      "not": "Now next point.",
+      "gap": "point",
+      "mean": {
+        "vi": "Chuyển sang phần tiếp theo",
+        "en": "Go to the next part of your talk"
+      },
+      "why": {
+        "vi": "Câu chuyển ý rõ ràng giúp người nghe theo kịp bạn.",
+        "en": "Clear linking phrases help people follow you."
+      }
+    },
+    {
+      "id": "key-point",
+      "say": "The key point to remember is that users want speed.",
+      "not": "The most important is users want speed.",
+      "gap": "remember",
+      "mean": {
+        "vi": "Nhấn mạnh ý chính",
+        "en": "Stress the main idea"
+      },
+      "why": {
+        "vi": "\"The most important\" cần danh từ: \"the most important thing\".",
+        "en": "\"The most important\" needs a noun: \"the most important thing\"."
+      }
+    },
+    {
+      "id": "take-questions",
+      "say": "I'm happy to take any questions.",
+      "not": "You have questions?",
+      "gap": "questions",
+      "mean": {
+        "vi": "Mời người nghe đặt câu hỏi",
+        "en": "Invite questions from the audience"
+      },
+      "why": {
+        "vi": "Mời đặt câu hỏi một cách cởi mở, thân thiện.",
+        "en": "Invite questions in a warm, open way."
+      }
+    },
+    {
+      "id": "find-out",
+      "say": "I don't have the numbers here, but I'll find out.",
+      "not": "I don't know.",
+      "gap": "find",
+      "mean": {
+        "vi": "Trả lời khi bạn chưa biết câu trả lời",
+        "en": "Answer when you don't know yet"
+      },
+      "why": {
+        "vi": "Hãy thật lòng, rồi hứa sẽ tìm câu trả lời.",
+        "en": "Be honest, then offer to find the answer."
+      }
+    },
+    {
+      "id": "thanks-for-listening",
+      "say": "Thank you all for listening.",
+      "not": "Thank you for your listening.",
+      "gap": "listening",
+      "mean": {
+        "vi": "Cảm ơn người nghe khi kết thúc",
+        "en": "Thank the audience at the end"
+      },
+      "why": {
+        "vi": "Nói \"thank you for listening\", không có \"your\".",
+        "en": "Say \"thank you for listening\", without \"your\"."
+      }
+    }
+  ],
+  "roleplay": {
+    "ai": {
+      "name": "Ana",
+      "role": "a manager in the audience",
+      "persona": "interested, asks a hard question",
+      "goal": "understand the presentation and ask about cost"
+    },
+    "you": "Give a short talk about a new idea at work or school: say the topic and parts, give the key point, then answer a question from the audience.",
+    "turns": [
+      {
+        "a": "We're ready when you are.",
+        "h": "Good morning. Today, I'll be talking about a new idea. My talk is divided into three parts.",
+        "br": [
+          [
+            "talking about|divided into|parts|today|first",
+            "Sounds good."
+          ]
+        ]
+      },
+      {
+        "a": "Okay. What's the main idea?",
+        "h": "The key point to remember is that it saves time.",
+        "br": [
+          [
+            "key point|remember|main|save|most important thing",
+            "Interesting."
+          ]
+        ]
+      },
+      {
+        "a": "How much will it cost?",
+        "h": "That's a good question. I don't have the numbers here, but I'll find out.",
+        "br": [
+          [
+            "find out|good question|numbers|check|get back",
+            "Thanks, please send it to me."
+          ]
+        ]
+      },
+      {
+        "a": "Anything else before we finish?",
+        "h": "No, that's all. Thank you all for listening.",
+        "br": [
+          [
+            "thank|listening|that's all|questions",
+            "Thank you. Great talk!"
+          ]
+        ]
+      }
+    ],
+    "end": "That was clear and easy to follow. Well done!"
+  }
+}

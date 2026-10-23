@@ -1,0 +1,204 @@
+{
+  "id": "renting",
+  "level": "B1",
+  "order": 21,
+  "em": "🏠",
+  "title": {
+    "vi": "Thuê nhà",
+    "en": "Renting an apartment"
+  },
+  "goal": {
+    "vi": "Hỏi về căn hộ, tiền cọc, hợp đồng thuê và báo hỏng hóc cho chủ nhà.",
+    "en": "Ask about an apartment, the deposit and the contract, and report a problem to the owner."
+  },
+  "dialogue": {
+    "a": "Mr. Brooks",
+    "aRole": "a landlord",
+    "lines": [
+      [
+        "b",
+        "Hi, I'm calling about the apartment on Oak Street. Is it still available?"
+      ],
+      [
+        "a",
+        "Yes, it is. It's 1,200 a month."
+      ],
+      [
+        "b",
+        "Are utilities included in the rent?"
+      ],
+      [
+        "a",
+        "Water is included, but not electricity."
+      ],
+      [
+        "b",
+        "I see. How much is the security deposit? And how long is the lease?"
+      ],
+      [
+        "a",
+        "The deposit is one month's rent, and the lease is for one year."
+      ],
+      [
+        "b",
+        "Great. Also, if there's ever something wrong with the heating, could someone come and take a look quickly?"
+      ],
+      [
+        "a",
+        "Of course. Just text me and I'll send someone."
+      ]
+    ]
+  },
+  "phrases": [
+    {
+      "id": "still-available",
+      "say": "Is the apartment still available?",
+      "not": "The apartment is still free?",
+      "gap": "available",
+      "mean": {
+        "vi": "Hỏi căn hộ còn cho thuê không",
+        "en": "Ask if the apartment is still for rent"
+      },
+      "why": {
+        "vi": "\"Available\" là từ thông dụng; \"free\" có thể hiểu là miễn phí.",
+        "en": "\"Available\" is the normal word; \"free\" can mean no cost."
+      }
+    },
+    {
+      "id": "utilities-included",
+      "say": "Are utilities included in the rent?",
+      "not": "The rent is include electricity?",
+      "gap": "included",
+      "mean": {
+        "vi": "Hỏi tiền thuê đã gồm điện nước chưa",
+        "en": "Ask if the rent covers water and power"
+      },
+      "why": {
+        "vi": "Hỏi tiền thuê gồm những gì trước khi ký.",
+        "en": "Ask what the rent covers before you sign."
+      }
+    },
+    {
+      "id": "security-deposit",
+      "say": "How much is the security deposit?",
+      "not": "How much money I give before?",
+      "gap": "deposit",
+      "mean": {
+        "vi": "Hỏi tiền đặt cọc",
+        "en": "Ask about the money you pay first"
+      },
+      "why": {
+        "vi": "\"Deposit\" là tiền bạn được trả lại khi chuyển đi.",
+        "en": "The \"deposit\" is money you get back when you leave."
+      }
+    },
+    {
+      "id": "how-long-lease",
+      "say": "How long is the lease?",
+      "not": "How long is the contract of house?",
+      "gap": "lease",
+      "mean": {
+        "vi": "Hỏi thời hạn hợp đồng thuê",
+        "en": "Ask how long the home contract is"
+      },
+      "why": {
+        "vi": "Ở Mỹ, hợp đồng thuê nhà gọi là \"lease\".",
+        "en": "In the US, the contract for renting a home is a \"lease\"."
+      }
+    },
+    {
+      "id": "something-wrong-with",
+      "say": "There's something wrong with the heating.",
+      "not": "The heater has problem.",
+      "gap": "wrong",
+      "mean": {
+        "vi": "Báo cho chủ nhà một thứ bị hỏng",
+        "en": "Tell the owner something is broken"
+      },
+      "why": {
+        "vi": "\"Something's wrong with…\" báo sự cố một cách bình tĩnh.",
+        "en": "\"Something's wrong with…\" reports a problem calmly."
+      }
+    },
+    {
+      "id": "take-a-look",
+      "say": "Could someone come and take a look this week?",
+      "not": "You come repair now.",
+      "gap": "look",
+      "mean": {
+        "vi": "Nhờ người đến kiểm tra và sửa",
+        "en": "Ask for someone to come and check"
+      },
+      "why": {
+        "vi": "Nhờ đến sửa một cách lịch sự và nêu thời gian.",
+        "en": "Ask for a visit politely and give a time."
+      }
+    },
+    {
+      "id": "move-out",
+      "say": "I'm planning to move out at the end of June.",
+      "not": "I will out of the house June end.",
+      "gap": "move",
+      "mean": {
+        "vi": "Báo trước ngày bạn chuyển đi",
+        "en": "Say when you will leave the apartment"
+      },
+      "why": {
+        "vi": "\"Move in\" và \"move out\" là cách nói thông dụng.",
+        "en": "\"Move in\" and \"move out\" are the normal phrases."
+      }
+    }
+  ],
+  "roleplay": {
+    "ai": {
+      "name": "Mr. Brooks",
+      "role": "a landlord with an apartment for rent",
+      "persona": "busy, practical and fair",
+      "goal": "find a good person to rent the apartment"
+    },
+    "you": "Call about an apartment: check it's still available, ask what the rent covers, ask about the deposit and how long the contract is.",
+    "turns": [
+      {
+        "a": "Hello, Brooks speaking.",
+        "h": "Hi, I'm calling about the apartment on Oak Street. Is it still available?",
+        "br": [
+          [
+            "available|still|apartment|calling about",
+            "Yes, it is."
+          ]
+        ]
+      },
+      {
+        "a": "The rent is 1,200 a month.",
+        "h": "Are utilities included in the rent?",
+        "br": [
+          [
+            "utilities|included|water|electricity|internet",
+            "Water is included, but not electricity."
+          ]
+        ]
+      },
+      {
+        "a": "Any other questions?",
+        "h": "How much is the security deposit? And how long is the lease?",
+        "br": [
+          [
+            "deposit|lease|how long|contract",
+            "One month's rent, and the lease is for one year."
+          ]
+        ]
+      },
+      {
+        "a": "Would you like to see it?",
+        "h": "Yes, please. Could I come and take a look this week?",
+        "br": [
+          [
+            "take a look|see|visit|this week|saturday|tomorrow",
+            "Sure. How about Saturday at ten?"
+          ]
+        ]
+      }
+    ],
+    "end": "Great, see you Saturday. Bring a photo ID, please."
+  }
+}

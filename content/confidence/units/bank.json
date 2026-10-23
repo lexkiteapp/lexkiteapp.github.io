@@ -1,0 +1,208 @@
+{
+  "id": "bank",
+  "level": "B1",
+  "order": 22,
+  "em": "🏦",
+  "title": {
+    "vi": "Ở ngân hàng",
+    "en": "At the bank"
+  },
+  "goal": {
+    "vi": "Mở tài khoản, rút và chuyển tiền, hỏi phí và báo khoản trừ tiền lạ.",
+    "en": "Open an account, take out and send money, ask about fees and report a strange charge."
+  },
+  "dialogue": {
+    "a": "Olivia",
+    "aRole": "a bank teller",
+    "lines": [
+      [
+        "a",
+        "Good morning. How can I help you today?"
+      ],
+      [
+        "b",
+        "Hi. I'd like to open a checking account."
+      ],
+      [
+        "a",
+        "Sure. I just need a photo ID."
+      ],
+      [
+        "b",
+        "Here you go. Are there any fees for this account?"
+      ],
+      [
+        "a",
+        "No monthly fee if you keep 500 dollars in it."
+      ],
+      [
+        "b",
+        "Great. Also, my card was declined yesterday, and there's a charge on my statement that I don't recognize."
+      ],
+      [
+        "a",
+        "Let me check… This looks wrong. I'll cancel the card and order you a new one."
+      ],
+      [
+        "b",
+        "Thank you. And how do I transfer money to another account?"
+      ],
+      [
+        "a",
+        "You can do it in the app. I'll show you."
+      ]
+    ]
+  },
+  "phrases": [
+    {
+      "id": "open-account",
+      "say": "I'd like to open a checking account.",
+      "not": "I want to make a bank account.",
+      "gap": "open",
+      "mean": {
+        "vi": "Nói bạn muốn mở tài khoản",
+        "en": "Say you want a new account"
+      },
+      "why": {
+        "vi": "Ta \"open\" một tài khoản; \"checking\" là tài khoản dùng hằng ngày ở Mỹ.",
+        "en": "You \"open\" an account; \"checking\" is the everyday US account."
+      }
+    },
+    {
+      "id": "withdraw",
+      "say": "I'd like to withdraw 200 dollars.",
+      "not": "I want to take out money 200.",
+      "gap": "withdraw",
+      "mean": {
+        "vi": "Xin rút tiền",
+        "en": "Ask to take money out"
+      },
+      "why": {
+        "vi": "Đặt số tiền ngay sau \"withdraw\" hoặc \"take out\".",
+        "en": "Put the amount right after \"withdraw\" or \"take out\"."
+      }
+    },
+    {
+      "id": "card-declined",
+      "say": "My card was declined. Can you check what happened?",
+      "not": "My card is not accept.",
+      "gap": "declined",
+      "mean": {
+        "vi": "Báo thẻ bị từ chối thanh toán",
+        "en": "Say your card did not work"
+      },
+      "why": {
+        "vi": "Cửa hàng và ngân hàng dùng từ \"declined\".",
+        "en": "\"Declined\" is the word stores and banks use."
+      }
+    },
+    {
+      "id": "dont-recognize",
+      "say": "There's a charge on my account that I don't recognize.",
+      "not": "Somebody stole money from my account!",
+      "gap": "recognize",
+      "mean": {
+        "vi": "Báo một khoản trừ tiền lạ",
+        "en": "Report a payment you didn't make"
+      },
+      "why": {
+        "vi": "Nói sự việc trước; để ngân hàng kiểm tra.",
+        "en": "Give the facts first; let the bank check it."
+      }
+    },
+    {
+      "id": "transfer-money",
+      "say": "How do I transfer money to another account?",
+      "not": "How I can send money other account?",
+      "gap": "transfer",
+      "mean": {
+        "vi": "Hỏi cách chuyển tiền",
+        "en": "Ask how to send money"
+      },
+      "why": {
+        "vi": "Trong câu hỏi, đặt \"do\" trước chủ ngữ: \"How do I…?\"",
+        "en": "In questions, put \"do\" before the subject: \"How do I…?\""
+      }
+    },
+    {
+      "id": "any-fees",
+      "say": "Are there any fees for this?",
+      "not": "This is free or not?",
+      "gap": "fees",
+      "mean": {
+        "vi": "Hỏi về phí",
+        "en": "Ask if you have to pay extra"
+      },
+      "why": {
+        "vi": "Kết thúc câu hỏi bằng \"or not\" có thể nghe thiếu lịch sự.",
+        "en": "Ending a question with \"or not\" can sound rude."
+      }
+    },
+    {
+      "id": "cancel-card",
+      "say": "I think I lost my card. Can you cancel it?",
+      "not": "My card is lost, close it.",
+      "gap": "cancel",
+      "mean": {
+        "vi": "Nhờ khóa thẻ bị mất",
+        "en": "Ask to stop a lost card"
+      },
+      "why": {
+        "vi": "Dùng \"cancel\" cho thẻ bị mất, rồi xin thẻ mới.",
+        "en": "Use \"cancel\" for a lost card, then ask for a new one."
+      }
+    }
+  ],
+  "roleplay": {
+    "ai": {
+      "name": "Olivia",
+      "role": "a bank teller",
+      "persona": "patient, clear and careful",
+      "goal": "help the learner with an account and a card problem"
+    },
+    "you": "At the bank: open an account, ask about fees, then report a charge you don't recognize.",
+    "turns": [
+      {
+        "a": "Good morning. How can I help you today?",
+        "h": "Hi. I'd like to open a checking account.",
+        "br": [
+          [
+            "open|account|checking|savings",
+            "Sure, I can help with that."
+          ]
+        ]
+      },
+      {
+        "a": "Here's the form. Do you have any questions?",
+        "h": "Yes. Are there any fees for this account?",
+        "br": [
+          [
+            "fees|cost|free|monthly|pay",
+            "No monthly fee if you keep 500 dollars in it."
+          ]
+        ]
+      },
+      {
+        "a": "Anything else today?",
+        "h": "Yes. There's a charge on my card that I don't recognize.",
+        "br": [
+          [
+            "recognize|charge|strange|don't know|didn't make",
+            "Let me check that for you."
+          ]
+        ]
+      },
+      {
+        "a": "This payment looks wrong. Should I cancel the card?",
+        "h": "Yes, please cancel it. Can I get a new one?",
+        "br": [
+          [
+            "cancel|new one|new card|yes|please",
+            "Of course."
+          ]
+        ]
+      }
+    ],
+    "end": "Your new card will arrive in five days, and the money will be back in your account. Have a good day!"
+  }
+}

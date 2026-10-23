@@ -1,0 +1,204 @@
+{
+  "id": "airport",
+  "level": "B1",
+  "order": 23,
+  "em": "🛫",
+  "title": {
+    "vi": "Sự cố ở sân bay",
+    "en": "Airport problems"
+  },
+  "goal": {
+    "vi": "Xử lý khi lỡ chuyến, chuyến bay bị hủy, mất hành lý hoặc đổi cổng.",
+    "en": "Deal with a missed or canceled flight, a lost bag or a gate change."
+  },
+  "dialogue": {
+    "a": "Tom",
+    "aRole": "an airline agent",
+    "lines": [
+      [
+        "b",
+        "Hi. My flight was canceled. Can you rebook me?"
+      ],
+      [
+        "a",
+        "I'm sorry about that. The next flight is tomorrow morning."
+      ],
+      [
+        "b",
+        "Will the airline cover a hotel for tonight?"
+      ],
+      [
+        "a",
+        "Yes, here's a hotel voucher."
+      ],
+      [
+        "b",
+        "Thank you. Also, my bag didn't arrive on my first flight. Where do I report it?"
+      ],
+      [
+        "a",
+        "At the baggage office, next to belt 6."
+      ],
+      [
+        "b",
+        "And excuse me, has the gate changed for the morning flight?"
+      ],
+      [
+        "a",
+        "Yes, it's now gate B12."
+      ]
+    ]
+  },
+  "phrases": [
+    {
+      "id": "whats-my-options",
+      "say": "I missed my connecting flight. What are my options?",
+      "not": "My plane go already. What I do?",
+      "gap": "options",
+      "mean": {
+        "vi": "Hỏi có cách giải quyết nào khi lỡ chuyến",
+        "en": "Ask what you can do after missing a flight"
+      },
+      "why": {
+        "vi": "\"What are my options?\" giúp nhân viên đưa ra giải pháp.",
+        "en": "\"What are my options?\" helps the agent offer solutions."
+      }
+    },
+    {
+      "id": "rebook-me",
+      "say": "My flight was canceled. Can you rebook me?",
+      "not": "They cancel my flight, give me other.",
+      "gap": "rebook",
+      "mean": {
+        "vi": "Xin đặt lại chuyến bay khác",
+        "en": "Ask for a seat on another flight"
+      },
+      "why": {
+        "vi": "\"Rebook\" là từ nhân viên hàng không thường dùng.",
+        "en": "\"Rebook\" is the exact word airline staff use."
+      }
+    },
+    {
+      "id": "bag-didnt-arrive",
+      "say": "My bag didn't arrive. Where do I report it?",
+      "not": "I lost my luggages.",
+      "gap": "report",
+      "mean": {
+        "vi": "Báo mất hành lý",
+        "en": "Report a missing bag"
+      },
+      "why": {
+        "vi": "\"Luggage\" không có số nhiều: nói \"bags\" hoặc \"my luggage\".",
+        "en": "\"Luggage\" has no plural: say \"bags\" or \"my luggage\"."
+      }
+    },
+    {
+      "id": "overweight",
+      "say": "How much is it if my bag is overweight?",
+      "not": "My bag is too much heavy.",
+      "gap": "overweight",
+      "mean": {
+        "vi": "Hỏi phí khi hành lý quá cân",
+        "en": "Ask the cost for a heavy bag"
+      },
+      "why": {
+        "vi": "Nói \"too heavy\" hoặc \"overweight\", không nói \"too much heavy\".",
+        "en": "Say \"too heavy\" or \"overweight\", not \"too much heavy\"."
+      }
+    },
+    {
+      "id": "cover-hotel",
+      "say": "Will the airline cover a hotel for tonight?",
+      "not": "You pay my hotel?",
+      "gap": "cover",
+      "mean": {
+        "vi": "Hỏi hãng có lo khách sạn không",
+        "en": "Ask if the airline will pay for a hotel"
+      },
+      "why": {
+        "vi": "Hỏi hãng sẽ \"cover\" những gì khi chuyến bay trễ lâu.",
+        "en": "Ask what the airline will \"cover\" after a long delay."
+      }
+    },
+    {
+      "id": "gate-changed",
+      "say": "Excuse me, has the gate changed?",
+      "not": "The gate is change?",
+      "gap": "changed",
+      "mean": {
+        "vi": "Hỏi cổng ra máy bay có đổi không",
+        "en": "Ask if your gate is different now"
+      },
+      "why": {
+        "vi": "Dùng \"has… changed\" cho thay đổi vừa xảy ra.",
+        "en": "Use \"has… changed\" for a change that just happened."
+      }
+    },
+    {
+      "id": "go-ahead",
+      "say": "My flight leaves in 30 minutes. Could I go ahead of you?",
+      "not": "I am late, let me first!",
+      "gap": "ahead",
+      "mean": {
+        "vi": "Xin đi trước khi bạn sắp trễ chuyến",
+        "en": "Ask to go first in a line"
+      },
+      "why": {
+        "vi": "Nói lý do trước rồi mới nhờ; mọi người sẽ sẵn lòng giúp.",
+        "en": "Give the reason, then ask; people are happy to help."
+      }
+    }
+  ],
+  "roleplay": {
+    "ai": {
+      "name": "Tom",
+      "role": "an airline agent at the help desk",
+      "persona": "tired but helpful",
+      "goal": "rebook the learner and solve their problems"
+    },
+    "you": "Your flight was canceled and your bag is missing. Ask for a new flight, ask about a hotel and ask where to report your bag.",
+    "turns": [
+      {
+        "a": "Next, please. How can I help?",
+        "h": "Hi. My flight was canceled. Can you rebook me?",
+        "br": [
+          [
+            "rebook|canceled|cancelled|another flight|next flight",
+            "Let me look… The next flight is tomorrow at 8 a.m."
+          ]
+        ]
+      },
+      {
+        "a": "Is that okay?",
+        "h": "Okay. Will the airline cover a hotel for tonight?",
+        "br": [
+          [
+            "cover|hotel|pay|tonight|stay",
+            "Yes, here's a hotel voucher."
+          ]
+        ]
+      },
+      {
+        "a": "Anything else?",
+        "h": "Yes. My bag didn't arrive. Where do I report it?",
+        "br": [
+          [
+            "bag|luggage|report|arrive|lost",
+            "At the baggage office, next to belt 6."
+          ]
+        ]
+      },
+      {
+        "a": "Do you have your bag tag?",
+        "h": "Yes, here it is. Has the gate changed for tomorrow's flight?",
+        "br": [
+          [
+            "gate|changed|here|tag|yes",
+            "Good question. It's gate B12 now."
+          ]
+        ]
+      }
+    ],
+    "end": "You're all set. Sorry for the trouble, and have a good night!"
+  }
+}
