@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22T15:16:57.056Z",
+ "updated": "2026-10-23T00:58:28.292Z",
  "bank": 211,
  "review": 0,
  "pass_rate": 1,
@@ -69,28 +69,35 @@
    "low": 0,
    "neurons": 0,
    "models": {}
+  },
+  {
+   "date": "2026-10-23",
+   "gen_calls": 0,
+   "judge_calls": 0,
+   "generated": 0,
+   "qc_fail": 0,
+   "dup": 0,
+   "judged": 0,
+   "passed": 0,
+   "low": 0,
+   "neurons": 0,
+   "models": {}
   }
  ],
- "gold": 211,
- "gold_plan": 1931,
- "by_cat": {
-  "stop-saying": 28,
-  "x-vs-y": 27,
-  "situational": 27,
-  "misunderstanding": 25,
-  "pronunciation": 26,
-  "collocation": 26,
-  "grammar": 26,
-  "idiom-phrasal": 26
- },
- "by_hook_formula": {
-  "90": 29,
-  "stop": 43,
-  "which": 33,
-  "natives": 22,
-  "instead": 36,
-  "guess": 28,
-  "embarrass": 19,
-  "rude": 1
- }
+ "pending": 0,
+ "types": [
+  "stop-saying",
+  "x-vs-y",
+  "preposition",
+  "verb-pattern",
+  "adverb",
+  "structure",
+  "grammar",
+  "word-in-use",
+  "collocation",
+  "situational",
+  "pronunciation",
+  "misunderstanding",
+  "idiom-phrasal"
+ ]
 }
